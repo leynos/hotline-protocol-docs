@@ -298,9 +298,10 @@ Evidence: V023–V027; `10011960`.
 
 ### Server Agreement (Transaction 109) – Server Initiates
 
-**Notification:** agreement text 101, when available, or flag 154 with value 1
-on the no-agreement path. The inspected sender does not add banner fields
-151/152/153 to this notification.
+**Notification:** account privilege 27 selects flag 154 with value 1. With
+that bit clear, the handler adds configured agreement text 101 when available;
+an absent buffer can instead produce an empty 109, without 154. The inspected
+sender does not add banner fields 151/152/153 to this notification.
 
 Agreement delivery is part of the login path, but it does not imply that every
 session remains inactive until transaction 121: the early-completion path
@@ -374,6 +375,8 @@ The following checks are explicitly recorded in the ledger:
 | 20 / 21 | Read / post news |
 | 22 / 23 | Disconnect users / protection from disconnection |
 | 24 | Get client diagnostic information |
+| 26 | Use requested session display name instead of the account name |
+| 27 | Bypass configured agreement content (109 carries 154 = 1) |
 | 32 | Broadcast |
 | 33 | Delete news article |
 | 34 / 35 | Create / delete news category |
@@ -425,14 +428,16 @@ Evidence: V032–V034, M007; `10011870` and the preserved SynHX `rcv.c`.
 104, colour/status 112 and name 102. Recipient filtering, self-inclusion and
 ordering have not all been validated.
 
-**302:** removal notification is retained as an unresolved catalogue entry.
-Its independent teardown producer, exact fields and delivery ordering were not
-traced in the ledger. Do not infer the complete disconnect contract from the
-301 builder or the roster layout.
+**302:** new teardown analysis identifies field 103 (departing UID), sent to
+remaining online/ready sessions after room-leave 118 calls and deletion of empty
+rooms. The departing session is removed before fan-out. Transfer workers clean
+up separately when their owner is absent. See
+[presence contracts](presence-messaging-contracts.md#disconnect-teardown-and-notification-302)
+for exact static order and remaining runtime criteria.
 
 Client list rendering and private-room UI updates are outside the server-only
-evidence. The status-bit builder was captured, but a complete status-bit
-registry is not established here.
+evidence. The six masks produced by the status builder, including idle and refusal
+flags, are now assembly-checked in the presence supplement.
 
 Evidence: V035, V048; `10004f30`, `10005000`.
 
@@ -933,10 +938,11 @@ The inspected option-1/2 notice branches send **104** before closing the
 target transport. A plain kick can close without such a notice. Do not require
 an emitted transaction 111 for every kick or every malformed connection.
 
-**111:** a disconnect-notification catalogue entry is retained as unresolved.
-No independent producer was established in the ledger. Its existence elsewhere
-is not disproved by its absence from the inspected kick path, but a mandatory
-field-101/type-111 contract is not certified here.
+**111:** a native shutdown-dialog producer is now established: nonempty
+shutdown text is sent as field 101 to online/ready sessions before the shutdown
+path. It is conditional, not mandatory for every kick or malformed connection.
+[Presence/admin contracts](presence-messaging-contracts.md#kick-options-and-native-console-messages)
+record the producer and the distinct temporary/persisted address-ban branches.
 
 Evidence: V071–V072; `10015e70`.
 
@@ -949,8 +955,9 @@ Evidence: V071–V072; `10015e70`.
 path is not a universal conversion to type 104. Spam/flood branches can
 interrupt processing.
 
-A separate server-console-originated broadcast path and client presentation
-have not been validated.
+The newly traced console message dialog uses type **104** with data 101 only,
+through online/ready fan-out. It does not reuse this client-originated 355
+schema. Client presentation and delivered sequences still require fixtures.
 
 Evidence: V046, V048; `1000f990`.
 
@@ -991,7 +998,8 @@ The following are still needed before this guide is a complete wire contract:
 - Per-field text encodings, status/privilege registries and unknown-field rules.
 - Malformed-input and fragmentation fixtures, including zero/duplicate IDs.
 - Both login paths, agreement/banner combinations and error/closure ordering.
-- Independent tracing of 302 and any 111 producer; runtime queue-211 fixtures.
+- Delivered teardown/shutdown/queue fixtures for the now-traced 302, 111 and
+  211 producers, including concurrent transfer cleanup.
 - Identified client builds for cross-version/SynHX interoperability claims.
 
 Unresolved details are not permission to reproduce the old speculative
@@ -1011,6 +1019,8 @@ Evidence: V001, V048–V074, M002–M009.
   entry in this revision.
 - [Internal compatibility matrix](internal-compatibility-matrix.md): observed
   peer behaviour, mxd policies and unverified implementation/test claims.
+- [Presence and messaging contracts](presence-messaging-contracts.md): settings,
+  status masks, teardown, PM/room routing, shutdown and console messages.
 - [News contracts](news-contracts.md): category/article record boundaries,
   flavour selection, native dates and mutation ordering.
 - [Transfer contracts](transfer-contracts.md): HTXF dispatch, fork streams,
