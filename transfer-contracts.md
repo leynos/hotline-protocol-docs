@@ -4,7 +4,8 @@ This supplement refines GAP-033 and GAP-055–GAP-064 against the same hashed
 Mac PPC server as [the protocol guide](protocol.md). Evidence consists of the
 baseline request/acceptor captures, [batch 04][batch] and the ordinary-file
 sessions cited below. Static findings are distinguished from captured outcomes.
-Folder streams, broader metadata cases and interruption fixtures remain open.
+Captured folder streams and cancellation cases are specified below. Broader
+metadata, failure and persistence requirements remain open.
 
 ## HTXF connection header and dispatch
 
@@ -972,8 +973,9 @@ bounded silence and subsequent control liveness; do not turn the internal pair
 into a wire status. The null-buffer worker guard also skips banner processing,
 whereas the present-empty path reaches the allocator. Taken with the earlier
 43-to58-byte replacement and aged-reference fixtures, these cases establish
-GAP-063's stream, size/lifetime and missing/changed-content outcomes. Broader
-reference ownership/reuse remains GAP-055; client rendering and mxd policy
-remain separate acceptance work.
+GAP-063's stream, size/lifetime and missing/changed-content outcomes. The HTXF
+header/reference cases above add owner cleanup and bounded duplicate/reuse
+outcomes. General identifier lifetimes, client rendering and mxd policy remain
+separate acceptance work.
 
 [banner-formats]: ../mothra/evidence/gap-remediation/2026-11-12/native-banner-02/manifest.json

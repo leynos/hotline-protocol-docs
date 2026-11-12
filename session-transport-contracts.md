@@ -55,8 +55,8 @@ A queued response is not proof that all eight bytes reach the peer before
 closure. Connection-limit rejection can also follow the success-handshake call,
 so success bytes alone do not promise authentication or admission. Drain
 behaviour outside the recorded boundary cases remains unverified. Ordinary
-transfer entry paths are captured below; broader native/peer scenarios remain
-GAP-055/084.
+transfer entry paths are captured below; full-operation and peer scenarios
+remain GAP-084.
 
 ## Captured handshake boundaries
 
@@ -108,8 +108,9 @@ Direct data-port and handed-over connections converge on the same acceptor.
 Native negative fixtures now show raw HTXF reference zero rejected on 5501,
 and the control sub-version-3 path returning success before rejecting the same
 HTXF header on that connection. [Matched ordinary-file fixtures](transfer-contracts.md#captured-ordinary-file-round-trips)
-now complete both entry paths for uploads/downloads. Banner matching remains
-GAP-055 and alternate-listener wrapping remains GAP-010.
+now complete both entry paths for uploads/downloads. Banner matching is covered
+by the captured HTXF header/reference contract; alternate-listener wrapping
+remains GAP-010.
 
 ## Receive-limit assignment at startup
 
