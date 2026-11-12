@@ -619,10 +619,11 @@ Evidence: V049–V060.
 **Request:** path 202. The handler treats paths shorter than six bytes as the
 root/no-path case and delegates listing construction.
 
-**ACK:** file-list values described as repeated field 200. Exact record
-layout, name encoding and all filtering rules remain unresolved. Do not
-substitute plain path strings or guessed folder IDs for the unvalidated
-structured path.
+**ACK:** repeated field 200 records use the 20-byte fixed header and name
+layout in [native wire details](native-wire-details.md). That supplement also
+records the structured file-path grammar. Name encoding, complete filtering
+and malformed-path outcomes still require fixtures; do not substitute plain
+path strings or guessed folder IDs.
 
 Evidence: V049–V050; `100100a0`, `1002b0e0`.
 
@@ -638,7 +639,9 @@ a reference. Do not require a reference in every successful response.
 
 The field schemas do not establish that file size always equals transfer size,
 that preview mode is the default for all clients, or the full resume-stream
-format. Queue advancement and notification 211 still need tracing.
+format. Queue advancement and notification 211 are now traced in
+[transfer contracts](transfer-contracts.md); concurrency/fairness fixtures
+remain open.
 
 Evidence: V051; `100121a0`.
 
@@ -649,7 +652,8 @@ Evidence: V051; `100121a0`.
 its resume path; this field is not merely unused/default upload metadata.
 
 **ACK:** four-byte reference 107 and, on a resume path, resume data 203. The
-complete format and stream negotiation of resume data remain unresolved. No
+[RFLT resume format](transfer-contracts.md#resume-data-rflt) is now traced,
+including DATA/MACR offsets; boundary and round-trip fixtures remain open. No
 separate upload-queue protocol is established by this baseline.
 
 Evidence: V052; `100130f0`.
@@ -757,21 +761,27 @@ Evidence: V056–V057; `10013930`.
 **ACK:** four-byte reference 107 and transfer size 108. The HTXF acceptor
 routes an odd reference with type 2 to the banner-transfer lookup. Banner
 metadata is advertised by transaction 122, not by adding image metadata to
-109. The detailed banner stream remains outside the validated subset.
+109. The [banner worker](transfer-contracts.md#banner-bytes-and-worker-timers)
+sends raw bytes from the current banner buffer. Send-time configuration changes
+and missing-banner outcomes still require runtime validation.
 
 Evidence: V025, V058; `10012f40`, `1000bd20`.
 
 ### Transfer Connection and Reference Cleanup
 
 The inspected incoming-transfer acceptor waits for a **16-byte** header,
-checks `HTXF`, then uses the reference, size word and type halfword to select
-a transfer worker. Its complete offset table, reserved-byte meanings and
-flattened-file/fork formats are unresolved.
+checks `HTXF`, then uses reference parity and a selector halfword to choose
+a transfer collection. The [transfer supplement](transfer-contracts.md) gives
+the exact offset/dispatch tables, RFLT resume records, FILP/fork grammar, queue
+211 fields and worker timers. Unexamined header bytes are not assigned invented
+semantics; runtime edge cases remain open.
 
 The request dispatcher also accepts **214**. Its handler reads a four-byte
-reference 107, invokes transfer cleanup when nonzero and ACKs. Cancellation is
-the current behavioural interpretation; complete cleanup effects and the
-operation's historical name still require helper-path validation.
+reference 107, invokes transfer cleanup when nonzero and ACKs. The helper
+searches queued/active downloads and checks session ownership; it does not
+search uploads or banners. The ACK is also sent for an absent/unknown/unowned
+reference and does not certify cancellation. Race fixtures and the historical
+operation name remain open.
 
 Evidence: V059–V061; `1000bd20`, `10013040`.
 
@@ -973,12 +983,12 @@ table are the coverage inventory for this revision.
 
 The following are still needed before this guide is a complete wire contract:
 
-- Exact path, file-list, resume, flattened-fork, transfer-header, folder-stream
-  and nested-news layouts.
+- Complete path/file-list edge cases and runtime fixtures for recovered resume,
+  fork and transfer-header layouts; full folder-stream and nested-news schemas.
 - Per-field text encodings, status/privilege registries and unknown-field rules.
 - Malformed-input and fragmentation fixtures, including zero/duplicate IDs.
 - Both login paths, agreement/banner combinations and error/closure ordering.
-- Independent tracing of 302, any 111 producer and queue notification 211.
+- Independent tracing of 302 and any 111 producer; runtime queue-211 fixtures.
 - Identified client builds for cross-version/SynHX interoperability claims.
 
 Unresolved details are not permission to reproduce the old speculative
@@ -998,6 +1008,8 @@ Evidence: V001, V048–V074, M002–M009.
   entry in this revision.
 - [Internal compatibility matrix](internal-compatibility-matrix.md): observed
   peer behaviour, mxd policies and unverified implementation/test claims.
+- [Transfer contracts](transfer-contracts.md): HTXF dispatch, fork streams,
+  resume records, queue notifications, cleanup scope and worker timers.
 - [Operation contracts](operation-contracts.md): complete dispatcher inventory,
   session-state dispatch, frame edge cases and batch account operations.
 - [Native wire details](native-wire-details.md): traced parser, credential,

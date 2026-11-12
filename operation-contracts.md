@@ -100,7 +100,8 @@ in [the gap analysis](gap-analysis.md).
 | 301 | Presence update | 103, 104, 112, 102 | GAP-034/035: status and event ordering |
 | 354 | Login completion or changed live account privileges | Eight-byte 110 | GAP-073: delivered sequence and persistence |
 | 355 | Client-originated broadcast fan-out | 103, 102, 101 | GAP-076: console-originated path |
-| 111 / 211 / 302 | Independently unresolved producer or schema | Unestablished here | GAP-075 / GAP-061 / GAP-036 respectively |
+| 211 | Download queue advancement or changed position | Four-byte 107, numeric 116 | [Transfer contracts](transfer-contracts.md#queue-notification-211); GAP-061 runtime queue behaviour |
+| 111 / 302 | Independently unresolved producer or schema | Unestablished here | GAP-075 / GAP-036 respectively |
 
 Error-text field 100 is not a proven notification type 100. A notification
 usually uses a newly generated server ID, while a direct reply copies its
