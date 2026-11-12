@@ -1,0 +1,35 @@
+{
+  "pillow": "12.3.0",
+  "pixel_rgb": [
+    17,
+    83,
+    149
+  ],
+  "pict_command": [
+    "magick",
+    "one.png",
+    "one.pct"
+  ],
+  "pict_exit": 0,
+  "pict_stdout": "",
+  "pict_stderr": "",
+  "sha256": {
+    "one.bmp": "6bc59d55b4e1c36a16bc456bf040b1a7fced0f65a3eff52fde24755f196a6626",
+    "one.jpg": "a443e84cc31f9d69a3488cea792927cf70b360d5ab2cbaf27a50329ce8af0232",
+    "one.pct": "90a0d9ba923e33cf40e29c4b3a1be7c2e5a0645db6f4b2e301524388da9ee1d1",
+    "one.png": "a38b290970558c68d5c3dcb9c72225b52d1264016ebbf192f182fa4454807c17"
+  },
+  "identify": {
+    "args": [
+      "magick",
+      "identify",
+      "../hotline-protocol-docs/fixtures/banner/one.bmp",
+      "../hotline-protocol-docs/fixtures/banner/one.jpg",
+      "../hotline-protocol-docs/fixtures/banner/one.pct",
+      "../hotline-protocol-docs/fixtures/banner/one.png"
+    ],
+    "returncode": 0,
+    "stdout": "../hotline-protocol-docs/fixtures/banner/one.bmp BMP3 1x1 1x1+0+0 8-bit sRGB 58B 0.000u 0:00.000\n../hotline-protocol-docs/fixtures/banner/one.jpg JPEG 1x1 1x1+0+0 8-bit sRGB 634B 0.000u 0:00.002\n../hotline-protocol-docs/fixtures/banner/one.pct PCT 1x1 1x1+0+0 8-bit sRGB 642B 0.000u 0:00.001\n../hotline-protocol-docs/fixtures/banner/one.png PNG 1x1 1x1+0+0 8-bit sRGB 69B 0.000u 0:00.000\n",
+    "stderr": ""
+  }
+}

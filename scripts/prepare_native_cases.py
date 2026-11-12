@@ -12,6 +12,7 @@ from native_banner_cases import expired as banner_expired
 from native_banner_cases import image as banner_image
 from native_banner_cases import metadata as banner_metadata
 from native_banner_cases import seed as banner_seed
+from native_banner_formats import format_case, recovery, seed_formats
 from native_cleanup_cases import downloads as cleanup_downloads
 from native_cleanup_cases import seed as cleanup_seed
 from native_cleanup_cases import upload_cleanup
@@ -39,6 +40,15 @@ def main() -> None:
         choices=[
             "framing",
             "banner-none",
+            "banner-format-seed",
+            "banner-recovery",
+            "banner-jpeg",
+            "banner-bmp",
+            "banner-pict",
+            "banner-fallback",
+            "banner-zero-type",
+            "banner-suffix-before-finder",
+            "banner-text-conversion",
             "banner-missing",
             "banner-url",
             "banner-image",
@@ -72,6 +82,20 @@ def main() -> None:
     cases = {
         "framing": framing,
         "banner-none": lambda: banner_metadata("none", None, None),
+        "banner-format-seed": seed_formats,
+        "banner-recovery": recovery,
+        **{
+            "banner-" + name: lambda name=name: format_case(name)
+            for name in [
+                "jpeg",
+                "bmp",
+                "pict",
+                "fallback",
+                "zero-type",
+                "suffix-before-finder",
+                "text-conversion",
+            ]
+        },
         "banner-missing": lambda: banner_metadata("missing", None, None),
         "banner-url": lambda: banner_metadata("url", b"URL ", URL),
         "banner-image": banner_image,
