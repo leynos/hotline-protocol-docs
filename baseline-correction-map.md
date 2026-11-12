@@ -102,5 +102,5 @@ has a complete, validated specification.
 | M005 | Unverified | [Section](internal-compatibility-matrix.md#credential-obfuscation-and-text-compatibility) | Separated credential complementing from a universal text-XOR heuristic. |
 | M006 | Contradicted | [Section](internal-compatibility-matrix.md#repeated-fields-and-presence-records) | Replaced the transaction-300-only repetition rule with schema-specific handling. |
 | M007 | Supported | [Section](internal-compatibility-matrix.md#repeated-fields-and-presence-records) | Retained the shared packed roster structure and qualified client scope. |
-| M008 | Unverified | [Section](internal-compatibility-matrix.md#reported-mxd-test-coverage-requiring-verification) | Preserved supplied test citations as unverified rather than executed guarantees. |
+| M008 | Unverified | [Section](internal-compatibility-matrix.md#historical-reported-mxd-test-coverage) | Preserved supplied test citations as unverified rather than executed guarantees. |
 | M009 | Unverified | [Section](internal-compatibility-matrix.md#open-compatibility-gaps-and-qa-requirements) | Preserved roadmap/QA/proof pointers as historical references requiring verification. |

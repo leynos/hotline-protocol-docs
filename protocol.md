@@ -350,7 +350,8 @@ Evidence: V025, V058; `10011ee0`.
 
 **Notification:** field 110 contains the session's **eight-byte** access
 bitmap. The inspected login-completion paths send it without waiting for a
-separate request. Live account-edit propagation is unresolved.
+separate request. Changed account access bytes also trigger 354 for matching
+live sessions; see [native wire details](native-wire-details.md).
 
 Evidence: V029, V070; `10011960`, `10011ee0`.
 
@@ -957,9 +958,13 @@ operations omitted from the previous guide:
 | Type | Established observation | Remaining uncertainty |
 | ---: | --- | --- |
 | 214 | Reads reference 107, invokes cleanup and ACKs | Complete cancellation effects and historical name |
-| 348 | Account-related handler, direct replies | Complete schema and historical name |
-| 349 | Account-related handler with indexed/transitive fields and replies | Complete schema and batch semantics |
+| 348 | Account enumeration; repeated 101 values contain account TLVs | Runtime fixtures and historical name |
+| 349 | Sequential account batch mutations; earlier effects can precede an error | Permission/conflict helpers and mixed-outcome fixtures |
 | 500 | Handler sends an empty direct ACK | Purpose and triggering client behaviour |
+
+The [operation contracts](operation-contracts.md) catalogue all 45 handlers,
+normal reply directions, session-state eligibility and the recovered 348/349
+nested account grammar.
 
 Transaction 122 is an additional server-originated banner notification.
 Neither missing documentation nor lack of a client-request handler proves a
@@ -993,6 +998,8 @@ Evidence: V001, V048–V074, M002–M009.
   entry in this revision.
 - [Internal compatibility matrix](internal-compatibility-matrix.md): observed
   peer behaviour, mxd policies and unverified implementation/test claims.
+- [Operation contracts](operation-contracts.md): complete dispatcher inventory,
+  session-state dispatch, frame edge cases and batch account operations.
 - [Native wire details](native-wire-details.md): traced parser, credential,
   account, path, file-list, privilege and timer details.
 - [Gap analysis](gap-analysis.md): open questions, implementation impact and
