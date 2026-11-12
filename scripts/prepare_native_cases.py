@@ -16,6 +16,7 @@ from native_banner_formats import format_case, recovery, seed_formats
 from native_cleanup_cases import downloads as cleanup_downloads
 from native_cleanup_cases import seed as cleanup_seed
 from native_cleanup_cases import upload_cleanup
+from native_correlation_cases import correlation
 from native_folder_cases import downloads as folder_downloads
 from native_folder_cases import skip_all, upload_fresh
 from native_folder_timing import uploads as folder_timed_uploads
@@ -39,6 +40,7 @@ def main() -> None:
     parser.add_argument(
         "suite",
         choices=[
+            "correlation",
             "htxf",
             "framing",
             "banner-none",
@@ -84,6 +86,7 @@ def main() -> None:
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     cases = {
+        "correlation": correlation,
         "htxf": htxf,
         "framing": framing,
         "banner-none": lambda: banner_metadata("none", None, None),
@@ -146,6 +149,8 @@ def main() -> None:
                 "GAP-017",
             ]
             if args.suite == "framing"
+            else ["GAP-004", "GAP-012", "GAP-013", "GAP-084"]
+            if args.suite == "correlation"
             else ["GAP-055", "GAP-084"]
             if args.suite == "htxf"
             else ["GAP-055", "GAP-063", "GAP-084"]
