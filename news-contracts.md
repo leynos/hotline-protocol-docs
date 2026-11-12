@@ -203,8 +203,66 @@ subject to GAP-070's hierarchy/conflict/recursive-effect tables and fixtures.
 The existence of native folder enumeration does not establish a fixed four-tier
 news hierarchy.
 
+### Structure operation effects and conflicts
+
+Evidence: preserved handlers [380][delete-structure], [381][create-folder] and
+[382][create-category], shared [resolver classifier][classify], and the native
+[Trash mover][trash-move].
+
+The handlers distinguish native directories (news bundles) from ordinary files
+(category storage). Deletion's resolver does not test an HLNZ signature before
+moving an ordinary file. Creation of a category does initialize HLNZ version 2
+storage through [helper `10022670`][category-create], which creates an `HLNZ`
+file with creator `HTLS`, opens it and writes a 1,024-byte initial buffer.
+
+| Request | Target and permission checks | Normal effect / reply |
+| ---: | --- | --- |
+| 380 | Path 325 resolves an existing object; reject missing target or target equal to the configured news root. Kind 3 (directory) requires bit 37; kind 2 (ordinary file) requires bit 35 and nonzero path byte length. | Move target to native Trash via `1002ba20`, then empty ACK. No explicit recursive erase walk in the handler. |
+| 381 | Name 201 and parent path 325; require bit 36. Resolve proposed child in mode 5, which admits a missing leaf under an existing parent and rejects an existing item. | `FSpDirCreate`, release resolver objects, empty ACK, then native activity-log helper. |
+| 382 | Name 322 and parent path 325; require bit 34. Same mode-5 conflict check. | Create/write HLNZ file, empty ACK, then native activity-log helper. |
+
+Resolver `1002f800` reports kind 0 for an unavailable enclosing location and
+kind 1 for a missing leaf with an existing parent. The creation handlers format
+different direct status-1/field-100 errors for kind 0 and for an existing item.
+Errors thrown inside resolution or Toolbox calls remain subject to the
+untraced enclosing exception translation; do not replace them with a guessed
+wire status or presume that a failed creation leaves no file behind.
+
+Root protection uses [FSSpec comparison `1002cac0`][spec-equal]: volume,
+parent-directory value and the native string comparison must match. The 380
+resolver's mode 2 does not include the alias-replacement flag `0x200`. Its
+classifier can report alias kinds 4/5 or unresolved kind 6, while the handler's
+explicit type-specific privilege branches test only 2 and 3. This bounded
+observation does not establish safe alias containment or equivalent alias
+permissions; native alias/root variants remain essential fixtures.
+
+Trash movement can preserve a directory's descendants as part of moving the
+whole object; it is not proof of permanent recursive deletion. The shared
+helper has collision-renaming fallback paths. Failed moves, collisions, partial
+category writes and eventual activity-log failure after an ACK still need
+native fixtures (GAP-021/047/070). No news-list refresh broadcast is sent at
+these three normal success sites.
+
+Names pass through the same resolver sanitization as file operations. The
+[sanitizer `1002f0c0`][sanitize] replaces `:` with `-` when its platform selector
+is below `0x0a00`; the other branch also replaces `/`, changes a leading `.`,
+and applies additional single-byte-name rules. The resolver has a long-name
+fallback to a generated 32-byte name. These are transformations, not a blanket
+rejection or UTF-8 normalization contract. Which platform branch runs and
+collision effects require environment-specific fixtures.
+
 [batch]: ../mothra/evidence/gap-remediation/2026-11-12/batch-05/manifest.json
 [category-asm]: ../mothra/evidence/gap-remediation/2026-11-12/batch-05/queries/B05-A-10005710.json
 
 [create-asm]: ../mothra/evidence/gap-remediation/2026-11-12/batch-13/queries/B13-A-100229b0.json
 [delete-asm]: ../mothra/evidence/gap-remediation/2026-11-12/batch-13/queries/B13-A-10023830.json
+
+[category-create]: ../mothra/evidence/gap-remediation/2026-11-12/batch-14/queries/B14-D-10022670.c
+[spec-equal]: ../mothra/evidence/gap-remediation/2026-11-12/batch-14/queries/B14-D-1002cac0.c
+[sanitize]: ../mothra/evidence/gap-remediation/2026-11-12/batch-14/queries/B14-D-1002f0c0.c
+
+[delete-structure]: ../mothra/evidence/hotline-server-1.9/queries/D-10010b70.c
+[create-folder]: ../mothra/evidence/hotline-server-1.9/queries/D-10010ee0.c
+[create-category]: ../mothra/evidence/hotline-server-1.9/queries/D-10011110.c
+[classify]: ../mothra/evidence/gap-remediation/2026-11-12/batch-14/queries/B14-D-1002f800.c
+[trash-move]: ../mothra/evidence/gap-remediation/2026-11-12/batch-08/queries/B08-D-1002ba20.c

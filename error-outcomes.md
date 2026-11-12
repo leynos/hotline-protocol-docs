@@ -61,6 +61,27 @@ wrapper `10028190` first maps a native result through `100280b0`, then throws
 another object of the same class. None of these constructions alone serializes
 the pair as a transaction status.
 
+The [retained native-result map][native-map] contains 108 sorted six-byte
+entries: signed 16-bit native result, internal domain and internal code. The
+pointer at `100891a8` selects the table at `10082748`; helper `100280b0` performs
+a binary search and returns domain 1/code 1 when no key matches. Representative
+entries, joined to the separately decoded resource text, are:
+
+| Native result | Internal domain/code | Resource meaning (paraphrased) |
+| ---: | --- | --- |
+| -43 | 4 / 103 | File missing |
+| -120 | 4 / 104 | Folder missing |
+| -48 | 4 / 115 | Name already exists |
+| -54 | 4 / 116 | File busy during open/delete |
+| -37 | 4 / 119 | Invalid file/folder name |
+| -34 | 4 / 101 | Insufficient disk space |
+| -1302 | 4 / 124 | Expected file, received folder |
+| -50 | 1 / 2 | Invalid value |
+
+These mappings explain internal exception construction. They still establish
+neither numbered transaction statuses nor the final connection outcome of an
+exception thrown during file/news mutation.
+
 Text helper `10027d40` loads an **EMSG resource whose ID equals the internal
 domain**, then uses `10079b20` to look up the internal code in its IVA1 table.
 The [decoded catalogue][catalogue] is tied to the preserved AppleDouble resource
@@ -87,3 +108,5 @@ fixtures remain explicit investigation work.
 [status-review]: ../mothra/evidence/gap-remediation/2026-11-12/batch-11/error-status-callsite-review.json
 [unknown-text]: ../mothra/evidence/gap-remediation/2026-11-12/batch-11/queries/B11-M-unknown-operation-text.json
 [catalogue]: ../mothra/evidence/gap-remediation/2026-11-12/batch-11/internal-error-resource-catalogue.json
+
+[native-map]: ../mothra/evidence/gap-remediation/2026-11-12/batch-14/native-error-map-review.json

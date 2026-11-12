@@ -126,7 +126,9 @@ update path; exact queue delivery and restart behaviour remain untested.
 
 Evidence: [last-component parser][path-last], [directory traversal][path-walk],
 [path resolver][path-resolve], and [file-list builder][file-list].
-Related: GAP-047, GAP-048. News field 325 must still be traced independently.
+Related: GAP-047, GAP-048. News field 325 uses this structured resolver under
+its own root; [news structure contracts](news-contracts.md#structure-operation-effects-and-conflicts)
+record its distinct operation checks and alias uncertainty.
 
 The structured file path begins with a big-endian 16-bit component count.
 Each component contains a two-byte word followed by a Pascal byte string:

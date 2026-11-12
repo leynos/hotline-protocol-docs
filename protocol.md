@@ -904,10 +904,12 @@ Evidence: V065–V066; `100108a0`.
 | 381: create news folder | Name 201, path 325 | Success/error ACK; privilege 36 |
 | 382: create news category | Name 322, path 325 | Success/error ACK; privilege 34 |
 
-Deletion distinguishes permission paths involving bits 35/37. The complete
-hierarchy, recursion and destructive side effects are unresolved. Do not infer
-that every operation always removes all descendant data or that creation is
-restricted to exactly two fixed levels from the earlier narrative.
+Deletion rejects the configured root, checks bit 37 for native directories and
+bit 35 for ordinary files, then moves the object to native Trash. Creation
+rejects an existing target; category creation initializes an HLNZ version-2
+file. See [structure effects and conflicts](news-contracts.md#structure-operation-effects-and-conflicts)
+for alias-kind limits, partial writes and remaining fixtures. No fixed two-level
+hierarchy or permanent recursive erase is established.
 
 Evidence: V065–V066; `10010b70`, `10010ee0`, `10011110`.
 
