@@ -14,6 +14,11 @@ with SHA-256:
 ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b
 ```
 
+The [paired resource-fork inventory](../mothra/evidence/gap-remediation/2026-11-12/batch-09/resource-inventory.json)
+advertises `Hotline Connect Server 1.9.1.0` in both version resources. This
+identifies the labelled build within the intended 1.9 family; the data-fork hash
+above remains the code oracle, and its login wire version is still 190.
+
 The ledger preserves the original documents, exact Ghidra MCP queries,
 decompilations, assembly and comparison-source hashes. References such as
 **V003** identify ledger entries. **Observed** means supported by static

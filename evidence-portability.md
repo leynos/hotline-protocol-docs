@@ -67,3 +67,17 @@ criterion is satisfied but native wire/peer fixtures are still required by a
 separate gap, record that distinction explicitly rather than implying native
 execution. Deferred records need a scope decision and revisit condition. Stable
 gap IDs must not be renumbered or deleted because a document was reorganized.
+
+## Recorded extraction verification
+
+The [retained verification record][verification] pins an exported pair at
+mothra `eab01fd827cc` (see the manifest for its full ID) and the corresponding
+protocol-document commit. Twenty-two commands passed: outer archive checksums,
+all extracted evidence inventories, the SynHX extraction verifier, baseline
+claim verifier and current gap/link renderer. They ran from a fresh extracted
+pair rather than relying on the live sibling checkout. The [export manifest][export]
+records full commit IDs and archive hashes. This closes GAP-087's portable
+package criterion; native execution and peer fixtures remain separate gaps.
+
+[verification]: ../mothra/evidence/gap-remediation/2026-11-12/package-review/verification.json
+[export]: ../mothra/evidence/gap-remediation/2026-11-12/package-review/export-manifest.json
