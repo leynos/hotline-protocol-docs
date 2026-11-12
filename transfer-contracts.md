@@ -593,9 +593,10 @@ the connected age check passes.
 
 No queue-age expiry comparison appears in the inspected admission worker
 `1000cfa0`; owner/connection and capacity checks still apply. Whether a lower
-layer times out a queued connection remains open. GAP-005/059/060/061/064 retain
-late-attachment, long descriptor/control sequences, queue-wait and clock-boundary
-native fixtures. Timers here are not guarantees of exact wall-clock closure.
+layer times out every queued connection remains open. The recorded queue and
+folder cases now exercise bounded queue-wait, late-attachment and descriptor
+delay outcomes. Broader clock, failure and persistence requirements remain
+GAP-005/064. Timers here do not guarantee exact wall-clock closure.
 
 ## Folder-download control states
 
@@ -645,9 +646,56 @@ These examples are **calculated from the stores**, not captured native packets:
 | One file component `foo` | `00 0a 00 00 00 01 00 00 03 66 6f 6f` |
 | One directory component `foo` | `00 0a 00 01 00 01 00 00 03 66 6f 6f` |
 
-Nested traversal, empty-directory sequencing, root inclusion in request item
-counts and invalid-descriptor native fixtures remain GAP-059/060. Pending folder
-downloads use the greater-than-500-second wait comparison already documented.
+The captured cases below establish nested and empty-directory sequencing and
+root exclusion from the request's item count. The calculated zero-component
+root example above is not transmitted in those 210 captures. Unsafe/invalid
+descriptor and path acceptance is not certified; broader validation and failure
+coverage remains GAP-047/064. Pending folder downloads use the greater-than-500
+second comparison already documented.
+
+### Captured folder downloads
+
+The [folder corpus](../mothra/evidence/gap-remediation/2026-11-12/native-folder-01/manifest.json)
+retains exact direction-specific control/item streams. Its HFS+ source tree is:
+
+```text
+mothra-folder-source/
+  alpha       DATA 13, MACR 317
+  empty/      empty directory
+  inner/
+    leaf      DATA 5, MACR 317
+  zero        DATA 0, MACR 0
+```
+
+Request 210 returns aggregate 108 = **652**, item count 220 = **5** and a
+four-byte odd reference 107. The count includes both descendant directories and
+all three files, including the zero-length file, but excludes the transfer root.
+The aggregate is the sum of DATA/MACR lengths in this fixture. It excludes FILP,
+INFO, descriptor and per-file length overhead. Full flattened file streams total
+**1,148 bytes**: alpha 496, leaf 487 and zero 165. Do not read field 108 as the
+byte length of the entire enclosing bidirectional folder protocol.
+
+Descriptors arrive as alpha, empty, inner, inner/leaf and zero. This is the
+observed HFS+ fixture order, not a universal cross-filesystem sorting rule.
+All component words are zero. The first alpha descriptor is
+`000c 0000 0001 0000 05 616c706861`: length 12, file flag, one component,
+zero word and name `alpha`. The nested leaf descriptor has two components.
+
+| Captured case | File-choice and completion outcome |
+| --- | --- |
+| Full | Control 1 for each file; BE32 length followed by exact fresh FILP. Each later control 3 advances traversal; final 3 receives EOF without numbered completion ACK. |
+| Skip all | Control 3 skips each file and immediately yields the next descriptor. No per-file length or FILP body is sent. |
+| Resume all | Control 2 followed by BE16 length and RFLT; DATA offset 3 / MACR offset 4 for nonempty files, zero/zero for the empty file. Streams are 489, 480 and 165 bytes. |
+| Mixed | Skips alpha, resumes leaf and reads zero fresh on the same data connection. |
+| Unknown control 0 | Three-second silence in initial-next-item and file-choice states; later valid controls complete the full stream. No numbered error is invented. |
+| Empty root | ACK contains 108 = zero and 220 = zero, omits 107 and creates no live transfer. |
+| Directory-only root | Aggregate zero, count one and a reference; emits the child directory descriptor, then closes on the next control 3. |
+
+The resumed aggregate/count ACK remains 652/5; per-file length words describe
+the selected remaining flattened streams. A separate delayed-choice case holds
+the first file descriptor for 130 measured seconds with control-session ACK
+probes, then successfully completes all file streams. Its packet observation
+is detailed below.
 
 ## Folder-upload control states
 
@@ -671,17 +719,77 @@ partial-transfer status before selecting resume, create or skip. Directory
 creation and conflict handling use filesystem helpers, not an assumption that
 every directory descriptor succeeds.
 
-Completion compares the processed-item count with the item count saved from
-request 213. On the final item it closes the data connection without sending
-another next-item control. A control 3 can mean initial readiness, skip or
-next-item readiness depending on state; a universal standalone meaning would
-be wrong. Pending timeout is greater than 500 seconds, while the connected
+Completion compares the processed-item count with the count saved from 213.
+After a **final file**, it closes without another next-item control. A **final
+directory or skipped/conflicting item** sends control 3 before the count check
+and close. Control 3 can therefore mean initial readiness, a non-file outcome
+or next-item readiness; it is not a universal success marker. Pending timeout
+is greater than 500 seconds, while the connected
 worker closes when its recorded progress age is at least 121 seconds. Descriptor
 and control reads do not all refresh that progress timestamp in these branches.
 
-Zero/inconsistent item counts, truncated or tiny descriptors, invalid paths,
-resume conflicts and byte-count overshoot remain GAP-060/064 fixture work.
-Nothing here promises transactional rollback of previously uploaded items.
+The captured zero-count, interrupted, resumed and conflict cases below refine
+these states. Tiny/truncated descriptors, invalid paths, overshoot and durable
+failure recovery are not certified by this valid-record corpus; broader path
+and controlled-failure requirements remain GAP-047/064. Nothing here promises
+transactional rollback of previously uploaded items.
+
+### Captured folder uploads
+
+| Request/item sequence | Captured result |
+| --- | --- |
+| Fresh nested tree, count 220 = 5 | 213 ACK has only reference 107. Initial control 3; directories empty/inner each return 3; new alpha/zero/inner-leaf files each select 1 and consume BE32 length plus FILP. Final file closes without another 3. |
+| Zero items, zero declared bytes | Root directory is created; ACK is empty, with no reference or data connection. |
+| One final directory | Initial 3, descriptor, response 3, then EOF. |
+| Interrupted count-three upload | First alpha file completes; part receives 197 of 509 declared FILP bytes, then the client closes. The complete first file and partial second file remain. |
+| Resume existing root, option 204 = 1 | Completed alpha returns 3 (skip); partial part returns 2, BE16 length 74 and RFLT DATA 13 / MACR 5; remainder FILP completes; final new directory returns 3 then EOF. |
+| Completed-file skip as final item | Initial 3, file descriptor, response 3 then EOF; no file stream. |
+| Directory descriptor naming an existing file | Same 3/EOF wire result; the existing file remains intact. The response does not distinguish this conflict from a successful non-file outcome. |
+
+The interrupted part has DATA 13 / MACR 5 and native type/creator HTft/HTLC.
+Correct continuation sends INFO, zero DATA bytes and MACR bytes `[5:317]`;
+afterwards its forks are 13/317 and type/creator TEXT/MOTH. The completed alpha
+survives both interruption and later conflict handling with the original bytes.
+All uploaded INFO values contain a different embedded name; descriptor-selected
+paths are retained. Type, creator and comment are verified through native
+downloads and direct catalogue/fork observations.
+
+For the fresh five-item test, client-supplied 108 is 1,189, the sum of its three
+uploaded FILP stream lengths. The server accepts that declaration; the later
+210 aggregate is 652. Handler 213 uses the client's value for free-space and
+progress bookkeeping, while per-file BE32 lengths and the processed-item count
+govern these stream transitions. This fixture does not establish a canonical
+historical client's aggregate-upload formula or a universal total-byte validator.
+
+### Captured folder timing and filesystem observations
+
+Two upload timing cases use distinct roots and control sessions and intentionally
+overlap; the following download case runs separately. All pauses and packet
+bytes are retained. Control 500 is used as an operator-chosen ACK probe, not
+evidence of a historical client's request-500 scheduling.
+
+| Timing case | Host-clock observation at guest packet boundary |
+| --- | --- |
+| Attach upload after 125 seconds of pauses | Native close 126.838249 seconds after request ACK, with no initial readiness bytes. |
+| Directory-only progress after 90 seconds, then further pauses | Native close 127.964718 seconds after request ACK, 35.018523 seconds after the directory reply, despite only one of two declared items being processed. |
+| Download file choice delayed by 130 seconds of pauses | First file length arrives 130.427736 seconds after the descriptor; full folder download succeeds. |
+
+These observations support the traced upload clock origin and the absence of
+an equivalent connected inactivity check in this download worker. The directory
+exchange does not buy a fresh full upload interval. Packet timestamps do not
+instrument the exact internal check or prove an unconditional network deadline;
+the intentional upload overlap also precludes isolated scheduler causality.
+
+Path-based SleuthKit lookup of the live image failed with a catalogue-node-size
+error before and after an auxiliary finalization through the native FlushVol
+path. Those failed attempts are retained as failures. Direct catalogue-ID
+`istat`/`icat` observations succeed: each positive path is verified before its
+fork bytes are read. The bounded scan is not an exhaustive directory listing
+or proof of absence. Before/after records independently validate the retained
+partial resource prefix, complete continuation, empty directories and unchanged
+conflicting file. A missing zero-length resource attribute is labelled as an
+absent attribute, rather than a successful extraction. No restart-durability
+claim follows from these live-image observations.
 
 [folder-batch]: ../mothra/evidence/gap-remediation/2026-11-12/batch-05/manifest.json
 

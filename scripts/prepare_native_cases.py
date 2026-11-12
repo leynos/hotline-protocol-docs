@@ -8,6 +8,15 @@ from pathlib import Path
 from native_cleanup_cases import downloads as cleanup_downloads
 from native_cleanup_cases import seed as cleanup_seed
 from native_cleanup_cases import upload_cleanup
+from native_folder_cases import downloads as folder_downloads
+from native_folder_cases import skip_all, upload_fresh
+from native_folder_timing import uploads as folder_timed_uploads
+from native_folder_upload_cases import (
+    catalogue_flush,
+    empty_uploads,
+    partial_seed,
+    resumed_uploads,
+)
 from native_framing_cases import framing
 from native_queue_cases import queues, timer
 from native_resume_cases import downloads as resume_downloads
@@ -32,6 +41,14 @@ def main() -> None:
             "cleanup-seed",
             "cleanup-downloads",
             "cleanup-upload",
+            "folder-upload-fresh",
+            "folder-skip-all",
+            "folder-downloads",
+            "folder-empty-uploads",
+            "folder-partial-seed",
+            "folder-resumed-uploads",
+            "folder-flush",
+            "folder-timed-uploads",
         ],
     )
     parser.add_argument("--runtime-record", type=Path, required=True)
@@ -49,6 +66,14 @@ def main() -> None:
         "cleanup-seed": cleanup_seed,
         "cleanup-downloads": cleanup_downloads,
         "cleanup-upload": upload_cleanup,
+        "folder-upload-fresh": upload_fresh,
+        "folder-skip-all": skip_all,
+        "folder-downloads": folder_downloads,
+        "folder-empty-uploads": empty_uploads,
+        "folder-partial-seed": partial_seed,
+        "folder-resumed-uploads": resumed_uploads,
+        "folder-flush": catalogue_flush,
+        "folder-timed-uploads": folder_timed_uploads,
     }[args.suite]()
     args.output.mkdir(parents=True, exist_ok=False)
     for name, (steps, expectation) in cases.items():
@@ -69,6 +94,8 @@ def main() -> None:
             if args.suite == "framing"
             else ["GAP-058", "GAP-064"]
             if args.suite.startswith("resume-")
+            else ["GAP-059", "GAP-060", "GAP-064"]
+            if args.suite.startswith("folder-")
             else ["GAP-062", "GAP-064"]
             if args.suite.startswith("cleanup-")
             else ["GAP-057", "GAP-061", "GAP-062"]

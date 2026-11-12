@@ -768,9 +768,11 @@ options 204.
 **ACK:** item count 220 and transfer size 108, with four-byte reference 107
 and queue count 116 when applicable. A no-transfer result can omit the
 reference. The [folder-download states](transfer-contracts.md#folder-download-control-states)
-now establish the state-dependent 16-bit controls 1/2/3, per-file lengths and
-resume exchange. Exact item-descriptor bytes and nested/empty runtime fixtures
-remain open; those controls are not a symmetric upload contract.
+establish the state-dependent controls 1/2/3, per-file lengths and resume
+exchange. [Native nested/empty/skip/resume fixtures](transfer-contracts.md#captured-folder-downloads)
+now verify the descriptor bytes and root-excluded count. The observed aggregate
+is the sum of DATA/MACR lengths, excluding flattened-file and control overhead;
+it is not the enclosing protocol's byte length. Upload uses a distinct contract.
 
 Evidence: V055, V057; `10012850`.
 
@@ -783,9 +785,12 @@ Evidence: V055, V057; `10012850`.
 
 **ACK:** reference 107 when a transfer is created. If there is nothing to
 transfer, a successful empty field-list reply can omit it. The [folder-upload states](transfer-contracts.md#folder-upload-control-states)
-now distinguish descriptor parsing, fresh/resumed file responses, directory/skip
-handling, lengths and completion. Conflict/invalid/partial runtime fixtures
-remain open; upload is not a symmetric inverse of folder download.
+distinguish descriptor parsing, fresh/resumed file responses, directory/skip
+handling, lengths and completion. [Native upload fixtures](transfer-contracts.md#captured-folder-uploads)
+verify nested, zero-item, partial, resumed and conflict outcomes. A final
+directory/skip sends control 3 before EOF; a final file does not. Malformed-path,
+descriptor-safety and durable failure outcomes remain open; upload is not a
+symmetric inverse of folder download.
 
 Evidence: V056–V057; `10013930`.
 

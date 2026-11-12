@@ -476,6 +476,68 @@ against the complete baseline instead. Keep application receive timing separate
 from the guest packet timestamps for incoming 214, outgoing ACK and data/close;
 neither timestamp instruments the handler's internal execution instant.
 
+## Recorded native folder fixtures
+
+The [folder corpus](../mothra/evidence/gap-remediation/2026-11-12/native-folder-01/manifest.json)
+contains 17 final cases, three initial probes and one auxiliary finalization.
+Verify it from `mothra` without rerunning the emulator or timing waits:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/verify_native_folders.py \
+  evidence/gap-remediation/2026-11-12/native-folder-01
+```
+
+Use a disposable Files root where the `mothra-folder-*` fixture roots are absent.
+Prepare the named suites with `prepare_native_cases.py`, a verified current
+runtime record and separate fresh plan/output directories. Record both packet
+views. The core sequence is:
+
+1. `folder-upload-fresh` creates the nested source tree.
+2. `folder-skip-all` records descriptor traversal without file bodies.
+3. `folder-empty-uploads` creates zero-item and final-directory examples.
+4. `folder-partial-seed` retains a complete first file and partial second file.
+5. Save positive catalogue/fork observations **before** resuming that file.
+6. Run the core `folder-downloads` cases, omitting delayed-choice until the
+   timed phase. Run `folder-resumed-uploads` in resume, completed-skip and
+   directory-conflict order. Retain a before-login failure as an admission
+   failure; it is not a folder-worker result. Retry into a new directory.
+7. Save after-state, then capture `folder-timed-uploads` and the delayed-choice
+   download. This corpus runs the two upload timing plans concurrently on
+   distinct roots, followed by the download timing plan. Preserve that overlap
+   or document a changed experiment. Keep the core and timed host PCAPs separate.
+
+The auxiliary `folder-flush` suite finalizes a file outside the tested roots.
+It was used while investigating failed path enumeration and did not make that
+lookup succeed. Its capture is retained separately. One initial unknown-control
+capture was paused during extraction recovery and is superseded by a fresh
+three-second-window repeat; it is not used as isolated timing evidence.
+
+When path-based HFS enumeration fails, retain command status/stderr and use
+positive direct catalogue observations without inventing absent paths. The
+bounded snapshot script verifies each returned path before extracting forks:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/snapshot_native_hfs.py \
+  --image state/mac-runtime/hotline19/working.dsk \
+  --tsk-bin tools/sleuthkit/usr/bin --catalog-range 11220 11240 \
+  --root /Hotline19/Files/mothra-folder-source \
+  --root /Hotline19/Files/mothra-folder-partial \
+  --output state/native-sessions/folder-positive-snapshot
+```
+
+Catalogue IDs belong to the specific image: adjust the bounded range for another
+run, using working `ifind`/`istat` results or positive matches from bounded
+catalogue probes. A range with no match is not proof of path absence. The script
+caps a scan at 4,096 IDs, refuses existing output directories and retains every
+probe/fork exit code. Before/after partial-file bytes matter; an empty output
+from a failed resource-fork read is not a successful empty-fork extraction.
+
+The independent decoder treats download control 3 as next-item or file-skip
+according to state, and upload control 3 as readiness or a non-file outcome.
+It checks per-file BE32 lengths and RFLT values, preserves interrupted bodies
+without counting them complete, and distinguishes final-file EOF from the
+extra control 3 preceding final directory/skip EOF. Keep images and ROMs local.
+
 ## Acceptance and corpus coverage
 
 A completed plan establishes its recorded exchange and expectations, not every
