@@ -6,19 +6,36 @@ import json
 from pathlib import Path
 
 from native_framing_cases import framing
+from native_resume_cases import downloads as resume_downloads
+from native_resume_cases import upload_continuations, upload_probes
 from native_transfer_cases import downloads, transfers
 from protocol_capture import ORACLE_SHA256, validate_plan
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("suite", choices=["framing", "transfers", "downloads"])
+    parser.add_argument(
+        "suite",
+        choices=[
+            "framing",
+            "transfers",
+            "downloads",
+            "resume-downloads",
+            "resume-upload-probes",
+            "resume-upload-continuations",
+        ],
+    )
     parser.add_argument("--runtime-record", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
-    cases = {"framing": framing, "transfers": transfers, "downloads": downloads}[
-        args.suite
-    ]()
+    cases = {
+        "framing": framing,
+        "transfers": transfers,
+        "downloads": downloads,
+        "resume-downloads": resume_downloads,
+        "resume-upload-probes": upload_probes,
+        "resume-upload-continuations": upload_continuations,
+    }[args.suite]()
     args.output.mkdir(parents=True, exist_ok=False)
     for name, (steps, expectation) in cases.items():
         plan = {
@@ -36,6 +53,8 @@ def main() -> None:
                 "GAP-017",
             ]
             if args.suite == "framing"
+            else ["GAP-058", "GAP-064"]
+            if args.suite.startswith("resume-")
             else ["GAP-009", "GAP-055", "GAP-056", "GAP-064"],
             "endpoints": {
                 "control": {"host": "127.0.0.1", "port": 15500},

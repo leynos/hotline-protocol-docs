@@ -356,6 +356,47 @@ boundary. Uploads do close from the server after consumption. The initial
 rewrite them. The verifier also accounts explicitly for the one unread control
 301 observed in both packet views.
 
+## Recorded native resume fixtures
+
+The [resume corpus](../mothra/evidence/gap-remediation/2026-11-12/native-resume-01/manifest.json)
+retains 23 reviewed cases and seven initial attempts. Run its packet, fork,
+offset and failure checks from `mothra`:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/verify_native_resume.py \
+  evidence/gap-remediation/2026-11-12/native-resume-01
+```
+
+Begin with the ordinary-file corpus's nonempty `mothra-fork-fixture` and known
+fixture account. Prepare `resume-downloads`, `resume-upload-probes` and
+`resume-upload-continuations` with `prepare_native_cases.py`, the new verified
+runtime record and separate fresh output directories. Start both packet views
+before running plans. Download cases only read the existing fixture.
+
+Run upload plans in this order: `resume-upload-seed`, then the partial, missing
+and completed probes, followed by `resume-upload-complete`,
+`resume-upload-inconsistent-seed` and `resume-upload-inconsistent-complete`.
+The two seed filenames must be absent before starting. Save the first seed's
+HFS+ DATA/MACR/catalogue outputs **before** the completion plan, then save both
+completed files after the final plan. The same `ifind`/`istat`/`icat` commands
+above apply, with the new filenames and catalogue IDs. Preserve incomplete
+types and raw partial resource bytes rather than attempting to repair them.
+
+`read_frame` supports `match_frame` with `is_reply`, `type` and/or `id` equality.
+It retains every intervening frame while waiting for the selected response;
+the original action deadline and capture byte cap still apply, with an added
+256-frame bound. Saved fields come from the final matched frame. This avoids
+treating asynchronous 301/302 notifications as ACKs. Verification independently
+redecodes all recorded frames and checks completed matches. Earlier attempts
+that expected the next frame to be the ACK remain unchanged.
+
+Malformed RFLT cases use a measured three-second pause followed by request 500
+and a matched ACK; they do not assume an invalid input returns a numbered error.
+All-ones offsets explicitly expect native EOF without advertised bytes, while
+ordinary bounded offsets use advertised count and a three-second quiet window.
+Retain the initial timeout/EOF failures and any unread control suffixes with
+their complete paired packet evidence.
+
 ## Acceptance and corpus coverage
 
 A completed plan establishes its recorded exchange and expectations, not every

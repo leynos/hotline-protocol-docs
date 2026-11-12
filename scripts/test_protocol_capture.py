@@ -366,6 +366,79 @@ class CaptureTests(unittest.TestCase):
             )
         self.assertEqual(report["status"], "completed")
 
+    def test_matching_reply_preserves_interleaved_notification(self):
+        notice = struct.pack(">BBHIIII", 0, 0, 302, 3, 0, 2, 2) + b"\0\0"
+        payload = bytes.fromhex("0001006b000412345678")
+        reply = (
+            struct.pack(">BBHIIII", 0, 1, 0, 10, 0, len(payload), len(payload))
+            + payload
+        )
+
+        def respond(connection):
+            connection.sendall(notice + reply)
+            self.assertEqual(connection.recv(4), bytes.fromhex("12345678"))
+
+        with peer(respond) as port:
+            report = self.capture(
+                port,
+                [
+                    {
+                        "op": "read_frame",
+                        "connection": "main",
+                        "match_frame": {"is_reply": 1, "id": 10},
+                        "save_field": {"name": "reference", "id": 107},
+                    },
+                    {"op": "send", "connection": "main", "hex": "{reference}"},
+                ],
+            )
+        self.assertEqual(report["status"], "completed")
+        self.assertEqual([f["type"] for f in report["frames"]], [302, 0])
+        self.assertEqual(
+            verify_capture(self.root / "capture")["frames"], report["frames"]
+        )
+
+    def test_invalid_reply_match_is_rejected_before_io(self):
+        for match in [{}, {"id": -1}, {"type": 65536}, {"payload_hex": "00"}]:
+            with (
+                self.subTest(match=match),
+                self.assertRaisesRegex(ValueError, "Invalid frame match"),
+            ):
+                run_plan(
+                    self.plan(
+                        1,
+                        [
+                            {
+                                "op": "read_frame",
+                                "connection": "main",
+                                "match_frame": match,
+                            }
+                        ],
+                    ),
+                    self.binary,
+                    self.root / "capture",
+                )
+        self.assertFalse((self.root / "capture").exists())
+
+    def test_reply_match_has_bounded_intervening_frame_count(self):
+        notice = struct.pack(">BBHIIII", 0, 0, 302, 3, 0, 2, 2) + b"\0\0"
+        with peer(lambda connection: connection.sendall(notice * 256)) as port:
+            report = self.capture(
+                port,
+                [
+                    {
+                        "op": "read_frame",
+                        "connection": "main",
+                        "match_frame": {"is_reply": 1, "id": 10},
+                    }
+                ],
+            )
+        self.assertEqual(report["status"], "failed")
+        self.assertIn("256-frame observation bound", report["error"])
+        self.assertEqual(len(report["frames"]), 256)
+        self.assertEqual(
+            verify_capture(self.root / "capture")["frames"], report["frames"]
+        )
+
     def test_saved_field_rejects_absent_duplicate_and_incomplete_values(self):
         for index, payload in enumerate(
             [

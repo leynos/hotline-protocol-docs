@@ -677,8 +677,10 @@ its resume path; this field is not merely unused/default upload metadata.
 
 **ACK:** four-byte reference 107 and, on a resume path, resume data 203. The
 [RFLT resume format](transfer-contracts.md#resume-data-rflt) is now traced,
-including DATA/MACR offsets; boundary and round-trip fixtures remain open. No
-separate upload-queue protocol is established by this baseline.
+including DATA/MACR offsets and [native continuation fixtures](transfer-contracts.md#captured-upload-continuation-and-inconsistent-state).
+Resume uses existing incomplete-file fork EOFs; replaying full forks appends
+at those offsets rather than replacing them. No separate upload-queue protocol
+is established by this baseline.
 
 Evidence: V052; `100130f0`.
 

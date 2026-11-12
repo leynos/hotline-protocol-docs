@@ -102,13 +102,98 @@ matching fork's start offset. For a single entry it sends
 at/beyond EOF at this comparison. Unknown fork tags have no matching update.
 The loop does not establish a separate per-entry bound against the supplied
 buffer length after its initial 42-byte check; do not turn this into a safe
-malformed-input acceptance rule. Duplicate-fork semantics and offset boundary
-fixtures remain GAP-058.
+malformed-input acceptance rule. The captured boundary and duplicate-entry
+outcomes below distinguish size calculation from successful byte delivery.
 
 On upload resume, the server reads both existing fork EOFs, returns them as
 DATA/MACR offsets and retains those starting offsets for subsequent writes.
 This is direction-specific negotiation, not a claim that every upload must
 supply field 203 or that folder resume uses an identical state machine.
+
+### Captured RFLT download boundaries
+
+The [native resume corpus](../mothra/evidence/gap-remediation/2026-11-12/native-resume-01/manifest.json)
+contains 16 reviewed download cases and seven upload cases. Its packet verifier
+reconciles every retained transcript with both host and guest TCP streams;
+initial failed expectations remain separate and unchanged.
+
+The source file has DATA length 13 and MACR length 317. A fresh stream is
+510 bytes, including 180 bytes of FILP/INFO/fork-header overhead. Download
+field 207 remains the logical file size 330 in these resume responses.
+
+| RFLT entries, in wire order | Captured DATA / MACR bytes | Advertised stream size |
+| --- | --- | ---: |
+| Zero entries; DATA offset zero; unknown `XXXX` offset 123 | All 13 / all 317 | 510 |
+| DATA offset 3 | DATA `[3:13]` / all MACR | 507 |
+| MACR offset 4 | All DATA / MACR `[4:317]` | 506 |
+| DATA 3, MACR 4 | DATA `[3:13]` / MACR `[4:317]` | 503 |
+| DATA 13, MACR 317 | Empty / empty; metadata and all three fork headers remain | 180 |
+| DATA 14, MACR 318 | Same metadata-only stream | 180 |
+| DATA `ffffffff`, MACR `ffffffff` | No stream bytes; native data connection closes | 180 advertised but not delivered |
+| DATA 3, DATA 4 | DATA `[4:10]` / all MACR | 503 |
+| DATA 4, DATA 3 | DATA `[3:9]` / all MACR | 503 |
+| DATA 14, DATA 1 | Empty DATA / all MACR | 497 |
+| MACR 3, MACR 4 | All DATA / MACR `[4:314]` | 503 |
+
+Ranges are zero-based and exclude the end. Repeated fork entries are not
+equivalent to taking only the last offset: each updates the stored start
+offset but subtracts from the **already remaining** length. For DATA 3 then 4,
+the remaining count becomes `13 - 3 - 4 = 6`, starting at 4. Once a count
+becomes zero, a later positive offset leaves it zero. These are native
+noncanonical outcomes, not a recommended sender format; emit at most one
+entry per fork when requesting a normal continuation.
+
+The all-ones case shows why `max(length - offset, 0)` alone does not define
+successful transfer behaviour: its control ACK advertises metadata overhead,
+but the attached data connection closes with no FILP bytes. The initial plan
+that tried to read those advertised bytes failed with EOF and is retained.
+No safe universal acceptance rule for arbitrary beyond-EOF offsets follows.
+
+Three negative inputs—41-byte RFLT, wrong magic and version 2—produce no reply
+with request ID 10 observed before a three-second pause and a subsequent
+request-500 ACK with ID 11 on the same connection. An initial 41-byte probe
+waiting for a numbered reply timed out after 30 seconds. These are bounded
+no-reply observations, not fabricated status codes or proof of permanent
+silence. Entry counts exceeding the supplied record bytes were not executed;
+the traced consumer lacks a demonstrated per-entry bound. A new implementation
+must validate `42 + 16 × count` against its supplied buffer before iteration.
+
+### Captured upload continuation and inconsistent state
+
+Fresh request 203 with options absent creates a native incomplete file with
+type `HTft`, creator `HTLC`. A seed transfer advertises 509 FILP bytes, sends
+197 of them—complete INFO, all 13 DATA bytes and five of 317 MACR bytes—then
+closes from the client after a three-second quiet window. Native file-info and
+read-only HFS+ extraction retain DATA 13 / MACR 5, logical size 18 and the
+incomplete-file type. No upload finalization success is inferred from this
+client interruption.
+
+| Request 203, option 204 = 1 | Captured result |
+| --- | --- |
+| Existing incomplete file | ACK includes four-byte even reference 107 and 74-byte RFLT 203: DATA offset 13, MACR offset 5. |
+| Missing partial file | Numbered error status 1, message field 100, no reference. |
+| Existing completed TEXT/MOTH file | Numbered error status 1, message field 100, no reference. |
+
+The resume handler checks the existing type/creator pair against `HTft`/`HTLC`;
+it does not compare the partial file with a separately authenticated original
+length or digest. The returned offsets are existing fork EOFs. A correct
+continuation sends a new FILP stream with INFO, zero DATA bytes and MACR bytes
+`[5:317]`. Native EOF follows upload consumption; subsequent ordinary download
+and HFS+ extraction exactly reconstruct DATA 13 / MACR 317 and TEXT/MOTH
+metadata.
+
+A second seed tests an inconsistent client. Its request includes a field-203
+RFLT claiming zero offsets, but the native 203 handler does not read that input
+field: it returns the actual 13/5 offsets. Sending full DATA and MACR values
+despite those offsets appends them, producing DATA 26 / MACR 322. The native
+server completes the upload and applies TEXT/MOTH metadata. Both downloaded
+and independently extracted native bytes match those appended results. Native
+completion therefore certifies neither client consistency nor a correct
+reconstruction of the intended original file.
+
+These cases satisfy the ordinary resume grammar/continuation requirement.
+Folder resume remains separate; interrupted durability, large-size behaviour,
+disk-full failure and restart persistence remain GAP-059/060/064.
 
 ## Flattened ordinary-file stream
 

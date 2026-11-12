@@ -90,6 +90,18 @@ def validate_plan(plan: dict) -> None:
             raise ValueError("Invalid action timeout")
         if "size_from" in step and op != "read":
             raise ValueError("Only fixed-length reads can use size_from")
+        if "match_frame" in step:
+            match = step["match_frame"]
+            bounds = {"is_reply": 255, "type": 65535, "id": 0xFFFFFFFF}
+            if (
+                op != "read_frame"
+                or not match
+                or any(
+                    k not in bounds or not isinstance(v, int) or not 0 <= v <= bounds[k]
+                    for k, v in match.items()
+                )
+            ):
+                raise ValueError("Invalid frame match")
         if op == "read":
             if "size_from" in step:
                 if "size" in step or step["size_from"] not in variables:
@@ -259,14 +271,22 @@ class Recorder:
                 data = data[count:]
         else:
             if op == "read_frame":
-                header = self.read(action, name, 20, deadline)
-                size = int.from_bytes(header[16:20], "big")
-                if size > MAX_CAPTURE_BYTES - 20:
-                    raise ValueError("Frame exceeds capture limit")
-                data = header + self.read(action, name, size, deadline)
-                self.frames.append(
-                    {"action": action, "connection": name, **decode_frame(data)}
-                )
+                for _ in range(256):
+                    header = self.read(action, name, 20, deadline)
+                    size = int.from_bytes(header[16:20], "big")
+                    if size > MAX_CAPTURE_BYTES - 20:
+                        raise ValueError("Frame exceeds capture limit")
+                    data = header + self.read(action, name, size, deadline)
+                    decoded = decode_frame(data)
+                    self.frames.append(
+                        {"action": action, "connection": name, **decoded}
+                    )
+                    if all(
+                        decoded[k] == v for k, v in step.get("match_frame", {}).items()
+                    ):
+                        break
+                else:
+                    raise ValueError("Frame match exceeds256-frame observation bound")
             else:
                 size = step.get("size") if op == "read" else None
                 if "size_from" in step:
@@ -401,6 +421,7 @@ def verify_capture(directory: Path) -> dict:
     for index, step in enumerate(plan["steps"]):
         if step["op"] != "read_frame":
             continue
+        first_frame = len(frames)
         data = bytes.fromhex(
             "".join(
                 e["hex"]
@@ -410,14 +431,26 @@ def verify_capture(directory: Path) -> dict:
                 and e["connection"] == step["connection"]
             )
         )
-        if len(data) >= 20 and len(data) == 20 + int.from_bytes(data[16:20], "big"):
+        while len(data) >= 20:
+            size = 20 + int.from_bytes(data[16:20], "big")
+            if size > len(data):
+                break
             frames.append(
                 {
                     "action": index,
                     "connection": step["connection"],
-                    **decode_frame(data),
+                    **decode_frame(data[:size]),
                 }
             )
+            data = data[size:]
+        if report["status"] == "completed":
+            matched = frames[first_frame:]
+            if data or not matched:
+                raise ValueError("Completed frame read has incomplete bytes")
+            if not all(
+                matched[-1][k] == v for k, v in step.get("match_frame", {}).items()
+            ):
+                raise ValueError("Completed frame read did not match")
     if report["frames"] != frames:
         raise ValueError("Decoded frame mismatch")
     return report
