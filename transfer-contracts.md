@@ -150,8 +150,12 @@ unlisted fixed-prefix bytes must not be assigned invented portable meanings.
 | 0 | 4 | `AMAC` |
 | 4 | 4 | Native file type value |
 | 8 | 4 | Native creator value |
+| 12 | 4 | Zero |
+| 16 | 4 | Native 16-bit catalogue flags, zero-extended |
+| 20 | 32 | Zero |
 | 52 | 8 | Creation date via `10058070` |
 | 60 | 8 | Modification date via `10058070` |
+| 68 | 2 | Zero |
 | 70 | 2 | Name length `n` |
 | 72 | `n` | Name bytes |
 | `72 + n` | 2 | Comment length `c` |
@@ -161,6 +165,28 @@ The value length is `74 + n + c`. Date bytes follow the fixed-1904-year
 representation already documented in the guide. This layout does not establish
 Unicode conversion, timezone conversion or exact metadata persistence after
 upload. GAP-056/064 retain fork and metadata round-trip fixtures.
+
+### INFO restoration after upload
+
+The [restoration helper `1002d2c0`][info-restore] reads the existing file's native
+catalogue information, then applies INFO type at offset 4, creator at 8 and the
+low 16 bits of the flags word at 16. It masks those flags with `0x7eff` before
+writing the catalogue. This is not an unrestricted 32-bit flag round-trip.
+
+It does **not** read the transmitted dates at offsets 52/60. Instead, it sets
+the catalogue modification timestamp to `GetDateTime`; if that equals the
+existing timestamp, it adds one second. The catalogue slot is the same one
+that the file-info and INFO builders serialize as modification time. Creation
+and modification dates in an uploaded INFO value therefore do not instruct
+this helper to restore those timestamps.
+
+The embedded name is used to locate the comment, not to rename the file. A
+nonzero comment is capped at 255 bytes and passed to the native comment setter;
+a zero comment length skips that call and does not itself clear an existing
+comment. The helper calls `FlushVol` without checking its return. These reads
+and calls establish selected metadata effects, not complete length validation,
+portable flag meanings or durable completion. Native fork/date/comment
+round-trip and failure fixtures remain GAP-020/056/064.
 
 ### Upload consumption and completion
 
@@ -308,3 +334,5 @@ Nothing here promises transactional rollback of previously uploaded items.
 [batch]: ../mothra/evidence/gap-remediation/2026-11-12/batch-04/manifest.json
 
 [descriptor-asm]: ../mothra/evidence/gap-remediation/2026-11-12/batch-10/queries/B10-A-1000c6a0.json
+
+[info-restore]: ../mothra/evidence/gap-remediation/2026-11-12/batch-13/queries/B13-D-1002d2c0.c

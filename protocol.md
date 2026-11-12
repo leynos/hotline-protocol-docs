@@ -825,8 +825,9 @@ fewer than six path bytes are supplied.
 **ACK:** the native builder emits repeated category-list fields **323** when
 the saved client-version value is at least **15**, and **320** otherwise. The
 comparison is literally `0x000f`; mapping it to a displayed release such as
-“1.5” is not established. Exact nested category record layouts remain
-unresolved.
+“1.5” is not established. See the
+[category layouts](news-contracts.md#category-list-variants) for the
+distinct folder/category grammars and their opaque trailing bytes.
 
 Evidence: V062; `100102c0`, `10005710`.
 
@@ -835,9 +836,10 @@ Evidence: V062; `100102c0`, `10005710`.
 **Request:** category path 325.
 
 **ACK:** a **single field 321 containing the serialized article list**
-returned by the database helper. It is not established as one repeated
-top-level field 321 per article. The nested list format still needs decoding
-before mxd can implement it from this guide alone.
+returned by the database helper. It is not one repeated top-level field 321
+per article. The
+[nested list grammar](news-contracts.md#article-list-field-321) describes its
+header, article and flavour records; native fixtures remain required.
 
 Evidence: V063; `10011370`, `100059e0`.
 
@@ -852,14 +854,17 @@ Evidence: V063; `10011370`, `100059e0`.
 | 328 | Title |
 | 329 | Poster |
 | 330 | Eight-byte date |
-| 331 / 332 | Navigation identifiers |
-| 335 / 336 | Thread-related identifiers |
+| 331 / 332 | Previous / next sibling public IDs |
+| 335 / 336 | Parent / first-child public IDs |
 | 327 | Flavour |
 | 333 | Body, when nonempty |
 
-Exact previous/next/parent/child semantics, non-text flavour support and the
-news-date producer remain unresolved. Do not infer a particular Markdown, HTML
-or attachment implementation from the existence of a flavour field.
+Absent links map to zero. Navigation follows same-level sibling links, while
+list serialization traverses children before the next sibling. Native-created
+news dates use the fixed-1904-year representation. See
+[body lookup and navigation](news-contracts.md#reading-bodies-and-navigation).
+No particular Markdown, HTML or attachment implementation follows from the
+existence of a flavour field.
 
 Evidence: V064; `10011580`, `10005ac0`.
 
@@ -868,10 +873,13 @@ Evidence: V064; `10011580`, `10005ac0`.
 **Request:** path 325, article/parent-related ID 326, title 328, flags 334,
 flavour 327 and body 333.
 
-**ACK:** direct success/error replies are present. The handler checks
-post-news permission. Exact parent interpretation, flag bits, new-ID discovery
-and notifications after posting remain unresolved. Do not omit its direct
-reply or assume a new-board post is delivered through old-board type 102.
+**ACK:** normal success is an empty reply. The handler checks post-news
+privilege 21. A resolved 326 selects the parent; zero/unresolved lookup inserts
+at root level. Flags 334 are stored as a raw word with unnamed bit meanings.
+Creation precedes body validation, so failure can follow partial mutation.
+The success site sends neither a new ID nor an article notification; discovery
+requires further client evidence. See
+[posting effects](news-contracts.md#posting-partial-effects-and-deletion).
 
 Evidence: V064–V066 and the captured handler `10010470`.
 
@@ -880,9 +888,11 @@ Evidence: V064–V066 and the captured handler `10010470`.
 **Request:** path 325, article ID 326 and recursive-delete-related field 337.
 
 **ACK:** direct success/error replies are present. The handler checks
-privilege 33. Exact recursive semantics, orphan handling and notification side
-effects remain unresolved; no particular tree-reparenting behaviour is
-promised.
+privilege 33. Nonzero 337 requests descendant deletion. Without recursion, the
+first child replaces the deleted article and adopts its former siblings after
+its existing children. See the
+[deletion graph rewrite](news-contracts.md#deletion-graph-rewrite) for the
+code-derived example and remaining native-fixture/atomicity questions.
 
 Evidence: V065–V066; `100108a0`.
 

@@ -74,7 +74,7 @@ The base article record is:
 | ---: | ---: | --- |
 | 0 | 4 | Article's public identifier |
 | 4 | 8 | Stored date bytes copied without annual conversion |
-| 12 | 4 | Related article ID mapped from a native record link |
+| 12 | 4 | Parent public ID mapped from native link `0x30` |
 | 16 | 4 | Stored article word at native offset `0x40` |
 | 20 | 2 | Flavour count `f` |
 | 22 | `1 + t` | One-byte title length `t`, followed by title bytes |
@@ -112,11 +112,27 @@ exception machinery rather than invented from that helper alone.
 
 Reply builder `10005ac0` emits title 328, poster 329, eight-byte date 330,
 flavour 327, navigation fields 331/332/335/336, and body 333 when nonempty.
-The four navigation outputs map stored record links at native offsets
-`0x28`, `0x2c`, `0x30` and `0x34` to public article IDs. Create/delete analysis
-identifies `0x30` as the parent record and `0x34` as the child-list head;
-previous/next traversal and post-deletion graph fixtures remain GAP-067/069.
+The four navigation outputs map stored record links to public article IDs:
+
+| Reply field | Native record offset | Meaning |
+| ---: | ---: | --- |
+| 331 | `0x28` | Previous sibling |
+| 332 | `0x2c` | Next sibling |
+| 335 | `0x30` | Parent |
+| 336 | `0x34` | First child |
+
+Create [assembly][create-asm] stores the parent at `0x30`, finds the last child
+through `0x2c`, stores that sibling at the new record's `0x28` and updates its
+`0x2c` to the new record. Root insertion uses the same sibling links, with
+first/last root pointers in the HLNZ header. These are same-level links; 331/332
+do not promise adjacent entries in the flattened depth-first article list.
+The list record's offset-12 ID is the mapped parent, not its previous sibling.
 Do not confuse native record numbers with the public IDs transmitted here.
+
+The append search `100247f0` stops after at most 100 link reads, returning the
+last visited record. This is not proof that categories with more than 100
+siblings append correctly. Native navigation fixtures, including that boundary,
+remain GAP-067/068.
 
 ## News dates
 
@@ -149,13 +165,33 @@ root-list insertion path. Flags 334 are stored as a raw word at native `0x40`;
 no locked/announcement bit interpretation is established here. It invalidates
 the stored serialized-list cache after changing the index.
 
+### Deletion graph rewrite
+
 Handler 411 converts field 337 to a zero/nonzero boolean, not an independent
 bitmap of deletion options. Helper `10023830` uses that boolean to select
-recursive descendant deletion through `100249f0`. Without recursion, its
-child-present branch rewires surviving child/sibling/parent links rather than
-simply orphaning them. Both paths update the article index/count and invalidate
-the serialized-list cache. Exact resulting navigation graphs, storage-write
-failures and atomicity still require parent/leaf/branch fixtures (GAP-069).
+recursive descendant deletion through `100249f0`. For a leaf, or after recursive
+removal, it connects the deleted record's previous and next siblings and updates
+the parent child-head or root-list endpoints as needed.
+
+For non-recursive deletion with children, [the assembly][delete-asm] and helper
+`10025120` establish this rewrite:
+
+1. Promote the first child into the deleted article's position, inheriting its
+   previous sibling, next sibling and parent links.
+2. Reparent the other former children to the promoted article.
+3. Append those articles after the promoted article's existing children, or use
+   them as its child list if it previously had none.
+
+For example, suppose `A.children = [B, C, F]` and `B.children = [D, E]`.
+Deleting A without recursion places B where A was, with
+`B.children = [D, E, C, F]`. C and F now have parent B. This is a code-derived
+example, not a captured native database result. Promoting all three children
+beside A would implement a different tree transformation.
+
+Both paths update the article index/count and invalidate the serialized-list
+cache. The non-recursive path decrements the count by one. Storage writes occur
+in sequence without an established rollback guarantee; parent/leaf/branch
+fixtures, descendant counts and interrupted-write outcomes remain GAP-069.
 
 ## Scope of hierarchy evidence
 
@@ -169,3 +205,6 @@ news hierarchy.
 
 [batch]: ../mothra/evidence/gap-remediation/2026-11-12/batch-05/manifest.json
 [category-asm]: ../mothra/evidence/gap-remediation/2026-11-12/batch-05/queries/B05-A-10005710.json
+
+[create-asm]: ../mothra/evidence/gap-remediation/2026-11-12/batch-13/queries/B13-A-100229b0.json
+[delete-asm]: ../mothra/evidence/gap-remediation/2026-11-12/batch-13/queries/B13-A-10023830.json

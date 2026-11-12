@@ -3,8 +3,8 @@
   "title": "Hotline 1.9 protocol documentation gap register",
   "audited_at_utc": "2026-11-12T12:55:29.155796+00:00",
   "last_updated": "2026-11-12",
-  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-09/manifest.json",
-  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-09/sections.json",
+  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-10/manifest.json",
+  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-10/sections.json",
   "validity_ledger": "../mothra/docs/baseline-validity-ledger.md",
   "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
   "method": "Documentation review plus read-only Ghidra MCP follow-up against the recorded Hotline 1.9 data fork, paired resource-fork inspection, portable archive verification, pinned shx source review with seven host callback cases, and mxd review (55 focused tests passed). The original audit and validity ledger remain immutable; current sources have been reviewed and re-snapshotted. No native runtime/client captures or Kani proof results are claimed. Entries remain Investigating while their acceptance criteria are unmet.",
@@ -87,9 +87,9 @@
           "path": "protocol.md",
           "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
           "level": 3,
-          "line_start": 906,
+          "line_start": 916,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 939
+          "line_end": 949
         }
       ],
       "question": "For every in-scope request, reply and notification, which fields are required, optional, conditional or repeatable, with what widths and value domains?",
@@ -137,9 +137,9 @@
           "path": "protocol.md",
           "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
           "level": 3,
-          "line_start": 940,
+          "line_start": 950,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 961
+          "line_end": 971
         }
       ],
       "question": "Which statuses, field-100 forms and connection outcomes apply to each failure, including errors in operations without a normal ACK?",
@@ -254,9 +254,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 986,
+          "line_start": 996,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1023
+          "line_end": 1033
         }
       ],
       "question": "What are the handshake, login, agreement, idle and partial-frame deadlines, and what traffic resets them?",
@@ -386,9 +386,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 986,
+          "line_start": 996,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1023
+          "line_end": 1033
         }
       ],
       "question": "What can be sent before authentication, after login ACK, while agreement is pending, after early completion and during shutdown?",
@@ -756,9 +756,9 @@
           "path": "protocol.md",
           "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
           "level": 3,
-          "line_start": 906,
+          "line_start": 916,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 939
+          "line_end": 949
         },
         {
           "path": "protocol.md",
@@ -1015,9 +1015,9 @@
           "path": "protocol.md",
           "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
           "level": 3,
-          "line_start": 906,
+          "line_start": 916,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 939
+          "line_end": 949
         }
       ],
       "question": "What byte/character limits and truncation or rejection rules apply to every name, password, message, subject, comment and body?",
@@ -1067,9 +1067,9 @@
           "path": "protocol.md",
           "heading": "Reading a News Article (Transaction 400) – Client Initiates",
           "level": 3,
-          "line_start": 844,
+          "line_start": 846,
           "anchor": "reading-a-news-article-transaction-400--client-initiates",
-          "line_end": 865
+          "line_end": 870
         }
       ],
       "question": "What epoch/units apply to the supplied filesystem value, how do nonzero milliseconds and other years work, and is news date 330 equivalent?",
@@ -1086,11 +1086,11 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Traced native news date creation through GetDateTime plus fixed 1904 year and zero milliseconds. Article list/read copy stored bytes. Timezone, rollover and receiver conversion fixtures remain required.",
+        "progress": "Confirmed INFO upload restoration does not consume transmitted dates: it sets modification time from GetDateTime, incrementing if unchanged. News and file serializers retain fixed1904year date encoding; native timezone/rollover/date fixtures remain required.",
         "evidence": [
-          "[News contracts](news-contracts.md)",
-          "[Folder states](transfer-contracts.md#folder-download-control-states)",
-          "[Batch 05](../mothra/evidence/gap-remediation/2026-11-12/batch-05/manifest.json)"
+          "[Article navigation](news-contracts.md#reading-bodies-and-navigation)",
+          "[Deletion rewrite](news-contracts.md#deletion-graph-rewrite)",
+          "[INFO restoration](transfer-contracts.md#info-restoration-after-upload)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -1124,17 +1124,17 @@
           "path": "protocol.md",
           "heading": "Posting a News Article (Transaction 410) – Client Initiates",
           "level": 3,
-          "line_start": 866,
+          "line_start": 871,
           "anchor": "posting-a-news-article-transaction-410--client-initiates",
-          "line_end": 877
+          "line_end": 885
         },
         {
           "path": "protocol.md",
           "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
           "level": 3,
-          "line_start": 906,
+          "line_start": 916,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 939
+          "line_end": 949
         }
       ],
       "question": "When an ACK precedes routing or mutation side effects, what has it committed to, and what can fail or be retried afterwards?",
@@ -1193,9 +1193,9 @@
           "path": "protocol.md",
           "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
           "level": 3,
-          "line_start": 906,
+          "line_start": 916,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 939
+          "line_end": 949
         },
         {
           "path": "internal-compatibility-matrix.md",
@@ -1254,9 +1254,9 @@
           "path": "protocol.md",
           "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
           "level": 3,
-          "line_start": 906,
+          "line_start": 916,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 939
+          "line_end": 949
         }
       ],
       "question": "Are absent, empty, NUL-containing or differently cased logins equivalent; how are complemented bytes normalized and guest permissions chosen?",
@@ -1730,9 +1730,9 @@
           "path": "protocol.md",
           "heading": "Managing News Structure (Transactions 380, 381, 382) – Client Initiates (Admin/Mods)",
           "level": 3,
-          "line_start": 889,
+          "line_start": 899,
           "anchor": "managing-news-structure-transactions-380-381-382--client-initiates-adminmods",
-          "line_end": 903
+          "line_end": 913
         }
       ],
       "question": "How do general, folder and news helpers combine account rights, path-specific rules, inheritance and administrator overrides?",
@@ -1966,9 +1966,9 @@
           "path": "protocol.md",
           "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
           "level": 3,
-          "line_start": 940,
+          "line_start": 950,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 961
+          "line_end": 971
         }
       ],
       "question": "Which teardown paths emit 302, which fields/recipients are used, and when are rooms, queued transfers and IDs cleaned up?",
@@ -2074,9 +2074,9 @@
           "path": "protocol.md",
           "heading": "Additional Admin Privileges Note",
           "level": 3,
-          "line_start": 977,
+          "line_start": 987,
           "anchor": "additional-admin-privileges-note",
-          "line_end": 985
+          "line_end": 995
         }
       ],
       "question": "Is the main room implicit, and what authorizes join, send, invite, topic edit or administrative access to a private room?",
@@ -2362,9 +2362,9 @@
           "path": "protocol.md",
           "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
           "level": 3,
-          "line_start": 940,
+          "line_start": 950,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 961
+          "line_end": 971
         },
         {
           "path": "protocol.md",
@@ -2432,9 +2432,9 @@
           "path": "protocol.md",
           "heading": "Broadcasting a Message (Transaction 355) – Admin/Server Initiated",
           "level": 3,
-          "line_start": 962,
+          "line_start": 972,
           "anchor": "broadcasting-a-message-transaction-355--adminserver-initiated",
-          "line_end": 976
+          "line_end": 986
         },
         {
           "path": "protocol.md",
@@ -2542,7 +2542,7 @@
           "level": 3,
           "line_start": 820,
           "anchor": "listing-news-categories-transaction-370--client-initiates",
-          "line_end": 832
+          "line_end": 833
         }
       ],
       "question": "What are the counts, component records, reserved bytes, root representation, limits and normalization rules for fields 202/212/325, and do those fields share a grammar?",
@@ -2970,10 +2970,11 @@
         "GAP-055"
       ],
       "resolution": {
-        "progress": "Published 24-byte FILP header, 16-byte fork headers, INFO metadata boundaries and ordinary upload parser behaviour. Full metadata meaning, fork/metadata round-trip and empty-file fixtures remain required.",
+        "progress": "Published zeroed INFO prefix ranges, zeroextended catalogue flags, and selected restoration reads. Uploaded dates/name do not restore timestamps/rename; flags are masked and nonempty comments capped255. Native fork/metadata roundtrip fixtures remain required.",
         "evidence": [
-          "[Transfer contracts](transfer-contracts.md)",
-          "[Batch 04](../mothra/evidence/gap-remediation/2026-11-12/batch-04/manifest.json)"
+          "[Article navigation](news-contracts.md#reading-bodies-and-navigation)",
+          "[Deletion rewrite](news-contracts.md#deletion-graph-rewrite)",
+          "[INFO restoration](transfer-contracts.md#info-restoration-after-upload)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -3358,10 +3359,11 @@
         "GAP-056"
       ],
       "resolution": {
-        "progress": "Recorded ordinary upload byte-count completion, parser finalization and closure, ordinary download enqueue completion and worker timeouts. Metadata restoration, partial-file retention, flush guarantees and controlled failure fixtures remain required.",
+        "progress": "Traced INFO finalization effects, including current modification time, nonempty comment application and unchecked FlushVol return. Completion durability, truncation/overshoot and interrupted-transfer native fixtures remain required.",
         "evidence": [
-          "[Transfer contracts](transfer-contracts.md)",
-          "[Batch 04](../mothra/evidence/gap-remediation/2026-11-12/batch-04/manifest.json)"
+          "[Article navigation](news-contracts.md#reading-bodies-and-navigation)",
+          "[Deletion rewrite](news-contracts.md#deletion-graph-rewrite)",
+          "[INFO restoration](transfer-contracts.md#info-restoration-after-upload)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -3381,7 +3383,7 @@
           "level": 3,
           "line_start": 820,
           "anchor": "listing-news-categories-transaction-370--client-initiates",
-          "line_end": 832
+          "line_end": 833
         },
         {
           "path": "protocol.md",
@@ -3430,9 +3432,9 @@
           "path": "protocol.md",
           "heading": "Listing News Articles (Transaction 371) – Client Initiates",
           "level": 3,
-          "line_start": 833,
+          "line_start": 834,
           "anchor": "listing-news-articles-transaction-371--client-initiates",
-          "line_end": 843
+          "line_end": 845
         }
       ],
       "question": "What are field-321 headers, article records, counts, flags, dates, flavour records, ordering and size limits?",
@@ -3449,11 +3451,11 @@
         "GAP-020"
       ],
       "resolution": {
-        "progress": "Recovered the ten-byte list header, public IDs/date/link/word/flavour count, bounded Pascal title/poster/flavour entries and 16-bit listed body sizes. Cached/rebuilt and empty/multiple/threaded fixtures remain required.",
+        "progress": "Article-list offset12 now identified as parent publicID, mapped from record0x30. Preserved byte grammar/depthfirst traversal remains static evidence; cached/rebuilt and branching native list fixtures remain required.",
         "evidence": [
-          "[News contracts](news-contracts.md)",
-          "[Folder states](transfer-contracts.md#folder-download-control-states)",
-          "[Batch 05](../mothra/evidence/gap-remediation/2026-11-12/batch-05/manifest.json)"
+          "[Article navigation](news-contracts.md#reading-bodies-and-navigation)",
+          "[Deletion rewrite](news-contracts.md#deletion-graph-rewrite)",
+          "[INFO restoration](transfer-contracts.md#info-restoration-after-upload)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -3471,9 +3473,9 @@
           "path": "protocol.md",
           "heading": "Reading a News Article (Transaction 400) – Client Initiates",
           "level": 3,
-          "line_start": 844,
+          "line_start": 846,
           "anchor": "reading-a-news-article-transaction-400--client-initiates",
-          "line_end": 865
+          "line_end": 870
         }
       ],
       "question": "What precisely do 331/332/335/336 identify, what are sentinel/end conditions, which flavours work and how is 330 constructed?",
@@ -3492,11 +3494,11 @@
         "GAP-066"
       ],
       "resolution": {
-        "progress": "Traced exact flavour matching, separate search bounds, native link-to-public-ID mapping, parent/child links and fixed-year news dates. Complete navigation labels, flavour error translation and graph/boundary fixtures remain required.",
+        "progress": "Assembly identifies331/332 as previous/next sibling IDs,335 parent,336 firstchild, with zero for absent links. Append search reads at most100 links; native navigation and boundary fixtures remain required.",
         "evidence": [
-          "[News contracts](news-contracts.md)",
-          "[Folder states](transfer-contracts.md#folder-download-control-states)",
-          "[Batch 05](../mothra/evidence/gap-remediation/2026-11-12/batch-05/manifest.json)"
+          "[Article navigation](news-contracts.md#reading-bodies-and-navigation)",
+          "[Deletion rewrite](news-contracts.md#deletion-graph-rewrite)",
+          "[INFO restoration](transfer-contracts.md#info-restoration-after-upload)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -3514,9 +3516,9 @@
           "path": "protocol.md",
           "heading": "Posting a News Article (Transaction 410) – Client Initiates",
           "level": 3,
-          "line_start": 866,
+          "line_start": 871,
           "anchor": "posting-a-news-article-transaction-410--client-initiates",
-          "line_end": 877
+          "line_end": 885
         }
       ],
       "question": "How do omitted/zero 326, flags 334, supported flavours and body limits affect creation, and how is the resulting ID or update discovered after ACK?",
@@ -3535,11 +3537,11 @@
         "GAP-067"
       ],
       "resolution": {
-        "progress": "Traced post input caps/default sources and article creation before body validation/write; documented empty ACK without returned new ID and cache invalidation. Flags, discovery/client behaviour and new-thread/reply/error fixtures remain required.",
+        "progress": "Confirmed create parent/root insertion and raw334 storage; success remains empty ACK after metadata-first mutation. Child-tail search capped100 links warrants boundary testing. Native limits/discovery/failure fixtures remain required.",
         "evidence": [
-          "[News contracts](news-contracts.md)",
-          "[Folder states](transfer-contracts.md#folder-download-control-states)",
-          "[Batch 05](../mothra/evidence/gap-remediation/2026-11-12/batch-05/manifest.json)"
+          "[Article navigation](news-contracts.md#reading-bodies-and-navigation)",
+          "[Deletion rewrite](news-contracts.md#deletion-graph-rewrite)",
+          "[INFO restoration](transfer-contracts.md#info-restoration-after-upload)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -3557,9 +3559,9 @@
           "path": "protocol.md",
           "heading": "Deleting a News Article (Transaction 411) – Client Initiates",
           "level": 3,
-          "line_start": 878,
+          "line_start": 886,
           "anchor": "deleting-a-news-article-transaction-411--client-initiates",
-          "line_end": 888
+          "line_end": 898
         }
       ],
       "question": "What values/widths does 337 accept, and how are descendants, orphans, navigation IDs and notifications updated on success or partial failure?",
@@ -3576,11 +3578,11 @@
         "GAP-067"
       ],
       "resolution": {
-        "progress": "Traced zero/nonzero recursive flag, recursive descendant helper and nonrecursive child-link rewiring with cache invalidation. Exact resulting graph and controlled persistence/failure fixtures remain required.",
+        "progress": "Assembly traces nonrecursive firstchild promotion and reparenting of other former children under that child after its existing children. Added code-derived branching example; recursive counts, native graph fixtures and failure atomicity remain required.",
         "evidence": [
-          "[News contracts](news-contracts.md)",
-          "[Folder states](transfer-contracts.md#folder-download-control-states)",
-          "[Batch 05](../mothra/evidence/gap-remediation/2026-11-12/batch-05/manifest.json)"
+          "[Article navigation](news-contracts.md#reading-bodies-and-navigation)",
+          "[Deletion rewrite](news-contracts.md#deletion-graph-rewrite)",
+          "[INFO restoration](transfer-contracts.md#info-restoration-after-upload)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -3606,9 +3608,9 @@
           "path": "protocol.md",
           "heading": "Managing News Structure (Transactions 380, 381, 382) – Client Initiates (Admin/Mods)",
           "level": 3,
-          "line_start": 889,
+          "line_start": 899,
           "anchor": "managing-news-structure-transactions-380-381-382--client-initiates-adminmods",
-          "line_end": 903
+          "line_end": 913
         }
       ],
       "question": "What nesting/type/depth rules apply, how are paths and name fields interpreted, and what happens on create/delete conflicts or subtree failures?",
@@ -3652,9 +3654,9 @@
           "path": "protocol.md",
           "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
           "level": 3,
-          "line_start": 906,
+          "line_start": 916,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 939
+          "line_end": 949
         }
       ],
       "question": "What is field 111's wire type, presence/default rule, stored meaning and effect on 350/353?",
@@ -3691,9 +3693,9 @@
           "path": "protocol.md",
           "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
           "level": 3,
-          "line_start": 906,
+          "line_start": 916,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 939
+          "line_end": 949
         }
       ],
       "question": "How are target login, rename, absent/empty password, literal x, duplicate names, protected-account deletion and partial updates handled?",
@@ -3739,9 +3741,9 @@
           "path": "protocol.md",
           "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
           "level": 3,
-          "line_start": 906,
+          "line_start": 916,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 939
+          "line_end": 949
         },
         {
           "path": "protocol.md",
@@ -3755,9 +3757,9 @@
           "path": "protocol.md",
           "heading": "Additional Admin Privileges Note",
           "level": 3,
-          "line_start": 977,
+          "line_start": 987,
           "anchor": "additional-admin-privileges-note",
-          "line_end": 985
+          "line_end": 995
         }
       ],
       "question": "When do edited privileges, names or passwords affect current sessions, does deletion disconnect them, and what 354/301 notifications occur?",
@@ -3800,9 +3802,9 @@
           "path": "protocol.md",
           "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
           "level": 3,
-          "line_start": 940,
+          "line_start": 950,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 961
+          "line_end": 971
         }
       ],
       "question": "What exactly do options 1 and 2 do, including identity matching, ranges/duration, optional data 101, reconnection and protected users?",
@@ -3842,17 +3844,17 @@
           "path": "protocol.md",
           "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
           "level": 3,
-          "line_start": 940,
+          "line_start": 950,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 961
+          "line_end": 971
         },
         {
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 986,
+          "line_start": 996,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1023
+          "line_end": 1033
         }
       ],
       "question": "Does any native producer actually emit 111, under which conditions, with what fields and delivery/closure ordering?",
@@ -3890,9 +3892,9 @@
           "path": "protocol.md",
           "heading": "Broadcasting a Message (Transaction 355) – Admin/Server Initiated",
           "level": 3,
-          "line_start": 962,
+          "line_start": 972,
           "anchor": "broadcasting-a-message-transaction-355--adminserver-initiated",
-          "line_end": 976
+          "line_end": 986
         }
       ],
       "question": "Does a console-generated broadcast use the same 355 schema, and which connected/logged-in/refusing users receive each origin's broadcast?",
@@ -3930,9 +3932,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 986,
+          "line_start": 996,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1023
+          "line_end": 1033
         }
       ],
       "question": "What does 348 do, what fields and privileges apply, and how are its potentially nested account records serialized?",
@@ -3967,9 +3969,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 986,
+          "line_start": 996,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1023
+          "line_end": 1033
         }
       ],
       "question": "What indexed/transitive fields does 349 consume, how are batch entries delimited, and are failures atomic or per-entry?",
@@ -4007,9 +4009,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 986,
+          "line_start": 996,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1023
+          "line_end": 1033
         }
       ],
       "question": "Is 500 a liveness operation or something else, who sends it and when, and does its ACK affect idle deadlines?",
@@ -4213,9 +4215,9 @@
           "path": "protocol.md",
           "heading": "References and Correction Traceability",
           "level": 2,
-          "line_start": 1024,
+          "line_start": 1034,
           "anchor": "references-and-correction-traceability",
-          "line_end": 1063
+          "line_end": 1073
         }
       ],
       "question": "Which release/client/server configurations do the selected RCS trunk snapshots represent, and how do the default vendor branch and build options differ?",
@@ -4409,9 +4411,9 @@
           "path": "protocol.md",
           "heading": "References and Correction Traceability",
           "level": 2,
-          "line_start": 1024,
+          "line_start": 1034,
           "anchor": "references-and-correction-traceability",
-          "line_end": 1063
+          "line_end": 1073
         },
         {
           "path": "baseline-correction-map.md",
@@ -5548,7 +5550,7 @@
       "level": 3,
       "line_start": 820,
       "anchor": "listing-news-categories-transaction-370--client-initiates",
-      "line_end": 832,
+      "line_end": 833,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-047",
@@ -5563,9 +5565,9 @@
       "path": "protocol.md",
       "heading": "Listing News Articles (Transaction 371) – Client Initiates",
       "level": 3,
-      "line_start": 833,
+      "line_start": 834,
       "anchor": "listing-news-articles-transaction-371--client-initiates",
-      "line_end": 843,
+      "line_end": 845,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-066"
@@ -5578,9 +5580,9 @@
       "path": "protocol.md",
       "heading": "Reading a News Article (Transaction 400) – Client Initiates",
       "level": 3,
-      "line_start": 844,
+      "line_start": 846,
       "anchor": "reading-a-news-article-transaction-400--client-initiates",
-      "line_end": 865,
+      "line_end": 870,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-020",
@@ -5595,9 +5597,9 @@
       "path": "protocol.md",
       "heading": "Posting a News Article (Transaction 410) – Client Initiates",
       "level": 3,
-      "line_start": 866,
+      "line_start": 871,
       "anchor": "posting-a-news-article-transaction-410--client-initiates",
-      "line_end": 877,
+      "line_end": 885,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-021",
@@ -5612,9 +5614,9 @@
       "path": "protocol.md",
       "heading": "Deleting a News Article (Transaction 411) – Client Initiates",
       "level": 3,
-      "line_start": 878,
+      "line_start": 886,
       "anchor": "deleting-a-news-article-transaction-411--client-initiates",
-      "line_end": 888,
+      "line_end": 898,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-069"
@@ -5627,9 +5629,9 @@
       "path": "protocol.md",
       "heading": "Managing News Structure (Transactions 380, 381, 382) – Client Initiates (Admin/Mods)",
       "level": 3,
-      "line_start": 889,
+      "line_start": 899,
       "anchor": "managing-news-structure-transactions-380-381-382--client-initiates-adminmods",
-      "line_end": 903,
+      "line_end": 913,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-032",
@@ -5644,9 +5646,9 @@
       "path": "protocol.md",
       "heading": "Administrative Functions",
       "level": 2,
-      "line_start": 904,
+      "line_start": 914,
       "anchor": "administrative-functions",
-      "line_end": 905,
+      "line_end": 915,
       "review": "Reviewed",
       "direct_gap_ids": [],
       "related_gap_ids": [
@@ -5673,9 +5675,9 @@
       "path": "protocol.md",
       "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
       "level": 3,
-      "line_start": 906,
+      "line_start": 916,
       "anchor": "user-account-management--client-initiates-admin-tx-350353",
-      "line_end": 939,
+      "line_end": 949,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-002",
@@ -5704,9 +5706,9 @@
       "path": "protocol.md",
       "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
       "level": 3,
-      "line_start": 940,
+      "line_start": 950,
       "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-      "line_end": 961,
+      "line_end": 971,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-003",
@@ -5727,9 +5729,9 @@
       "path": "protocol.md",
       "heading": "Broadcasting a Message (Transaction 355) – Admin/Server Initiated",
       "level": 3,
-      "line_start": 962,
+      "line_start": 972,
       "anchor": "broadcasting-a-message-transaction-355--adminserver-initiated",
-      "line_end": 976,
+      "line_end": 986,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-045",
@@ -5744,9 +5746,9 @@
       "path": "protocol.md",
       "heading": "Additional Admin Privileges Note",
       "level": 3,
-      "line_start": 977,
+      "line_start": 987,
       "anchor": "additional-admin-privileges-note",
-      "line_end": 985,
+      "line_end": 995,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-038",
@@ -5761,9 +5763,9 @@
       "path": "protocol.md",
       "heading": "Additional Observed Requests and Scope Gaps",
       "level": 2,
-      "line_start": 986,
+      "line_start": 996,
       "anchor": "additional-observed-requests-and-scope-gaps",
-      "line_end": 1023,
+      "line_end": 1033,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-005",
@@ -5786,9 +5788,9 @@
       "path": "protocol.md",
       "heading": "References and Correction Traceability",
       "level": 2,
-      "line_start": 1024,
+      "line_start": 1034,
       "anchor": "references-and-correction-traceability",
-      "line_end": 1063,
+      "line_end": 1073,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-083",
@@ -6479,7 +6481,7 @@
       "heading": "INFO metadata value",
       "level": 3,
       "line_start": 142,
-      "line_end": 164,
+      "line_end": 168,
       "anchor": "info-metadata-value",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6495,8 +6497,8 @@
       "path": "transfer-contracts.md",
       "heading": "Upload consumption and completion",
       "level": 3,
-      "line_start": 165,
-      "line_end": 181,
+      "line_start": 191,
+      "line_end": 207,
       "anchor": "upload-consumption-and-completion",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6512,8 +6514,8 @@
       "path": "transfer-contracts.md",
       "heading": "Queue notification 211",
       "level": 2,
-      "line_start": 182,
-      "line_end": 197,
+      "line_start": 208,
+      "line_end": 223,
       "anchor": "queue-notification-211",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6527,8 +6529,8 @@
       "path": "transfer-contracts.md",
       "heading": "Banner bytes and worker timers",
       "level": 2,
-      "line_start": 198,
-      "line_end": 219,
+      "line_start": 224,
+      "line_end": 245,
       "anchor": "banner-bytes-and-worker-timers",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6546,8 +6548,8 @@
       "path": "transfer-contracts.md",
       "heading": "Folder-download control states",
       "level": 2,
-      "line_start": 220,
-      "line_end": 240,
+      "line_start": 246,
+      "line_end": 266,
       "anchor": "folder-download-control-states",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6561,8 +6563,8 @@
       "path": "transfer-contracts.md",
       "heading": "Folder-upload control states",
       "level": 2,
-      "line_start": 272,
-      "line_end": 310,
+      "line_start": 298,
+      "line_end": 338,
       "anchor": "folder-upload-control-states",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6634,7 +6636,7 @@
       "heading": "Reading bodies and navigation",
       "level": 2,
       "line_start": 103,
-      "line_end": 120,
+      "line_end": 136,
       "anchor": "reading-bodies-and-navigation",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6648,8 +6650,8 @@
       "path": "news-contracts.md",
       "heading": "News dates",
       "level": 2,
-      "line_start": 121,
-      "line_end": 128,
+      "line_start": 137,
+      "line_end": 144,
       "anchor": "news-dates",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6665,8 +6667,8 @@
       "path": "news-contracts.md",
       "heading": "Posting, partial effects and deletion",
       "level": 2,
-      "line_start": 129,
-      "line_end": 159,
+      "line_start": 145,
+      "line_end": 167,
       "anchor": "posting-partial-effects-and-deletion",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6684,8 +6686,8 @@
       "path": "news-contracts.md",
       "heading": "Scope of hierarchy evidence",
       "level": 2,
-      "line_start": 160,
-      "line_end": 171,
+      "line_start": 196,
+      "line_end": 210,
       "anchor": "scope-of-hierarchy-evidence",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7367,8 +7369,8 @@
       "path": "transfer-contracts.md",
       "heading": "Folder item descriptor bytes",
       "level": 3,
-      "line_start": 241,
-      "line_end": 271,
+      "line_start": 267,
+      "line_end": 297,
       "anchor": "folder-item-descriptor-bytes",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7528,6 +7530,42 @@
         "GAP-075",
         "GAP-079",
         "GAP-082"
+      ]
+    },
+    {
+      "path": "transfer-contracts.md",
+      "heading": "INFO restoration after upload",
+      "level": 3,
+      "line_start": 169,
+      "line_end": 190,
+      "anchor": "info-restoration-after-upload",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-020",
+        "GAP-056",
+        "GAP-064"
+      ],
+      "related_gap_ids": [
+        "GAP-020",
+        "GAP-056",
+        "GAP-064"
+      ]
+    },
+    {
+      "path": "news-contracts.md",
+      "heading": "Deletion graph rewrite",
+      "level": 3,
+      "line_start": 168,
+      "line_end": 195,
+      "anchor": "deletion-graph-rewrite",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-067",
+        "GAP-069"
+      ],
+      "related_gap_ids": [
+        "GAP-067",
+        "GAP-069"
       ]
     }
   ]
