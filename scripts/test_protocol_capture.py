@@ -217,6 +217,14 @@ class CaptureTests(unittest.TestCase):
             run_plan(path, self.binary, self.root / "capture")
         self.assertFalse((self.root / "capture").exists())
 
+    def test_dynamic_size_on_eof_read_is_rejected_before_io(self):
+        path = self.plan(
+            1, [{"op": "read_eof", "connection": "main", "size_from": "missing"}]
+        )
+        with self.assertRaisesRegex(ValueError, "Only fixed-length reads"):
+            run_plan(path, self.binary, self.root / "capture")
+        self.assertFalse((self.root / "capture").exists())
+
     def test_capture_limit_failure_keeps_the_chunk_already_received(self):
         with (
             peer(lambda c: c.sendall(b"abc")) as port,

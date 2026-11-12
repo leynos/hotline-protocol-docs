@@ -6,7 +6,12 @@ from pcap_tcp import direction, lifetime, stream
 from verify_native_core import require
 
 
-def reconcile(report: dict, host: list[dict], guest: list[dict]) -> dict:
+def reconcile(
+    report: dict,
+    host: list[dict],
+    guest: list[dict],
+    unread_output: dict[str, bytes] | None = None,
+) -> dict:
     """Require exact bytes in both views, retaining guest close observations."""
     observations = {}
     started = datetime.fromisoformat(report["started_at_utc"]).timestamp() * 1e6
@@ -30,8 +35,10 @@ def reconcile(report: dict, host: list[dict], guest: list[dict]) -> dict:
                 stream(packets, client, server).hex() == recorded["sent_hex"],
                 f"{name}: {label} input differs",
             )
+            unread = (unread_output or {}).get(name, b"")
             require(
-                stream(packets, server, client).hex() == recorded["received_hex"],
+                stream(packets, server, client)
+                == bytes.fromhex(recorded["received_hex"]) + unread,
                 f"{name}: {label} output differs",
             )
         incoming = direction(packets, guest_source, guest_endpoint)
@@ -46,6 +53,7 @@ def reconcile(report: dict, host: list[dict], guest: list[dict]) -> dict:
             "client_port": source[1],
             "sent_bytes": len(bytes.fromhex(recorded["sent_hex"])),
             "received_bytes": len(bytes.fromhex(recorded["received_hex"])),
+            "unread_output_hex": (unread_output or {}).get(name, b"").hex(),
             "guest_server_initiated_close": server_first,
             "guest_server_close_kind": ("RST" if server_ends[0]["flags"] & 4 else "FIN")
             if server_ends

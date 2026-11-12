@@ -17,7 +17,8 @@ def resource_fork() -> bytes:
     return header + bytes(240) + data + resource_map
 
 
-def file_stream(name: bytes, data: bytes, resource: bytes) -> bytes:
+def file_stream(data: bytes, resource: bytes) -> bytes:
+    """Use a different embedded name to test that INFO does not rename files."""
     embedded = b"metadata-only-name"
     comment = b"fixture-comment"
     info = bytearray(74 + len(embedded) + len(comment))
@@ -44,12 +45,13 @@ def file_stream(name: bytes, data: bytes, resource: bytes) -> bytes:
 
 
 def transfers() -> dict[str, tuple[list[dict], dict]]:
-    cases = {}
+    cases: dict[str, tuple[list[dict], dict]] = {}
     for name, data, resource in [
         (b"mothra-fork-fixture", b"data-fork\r\n\x00\xff", resource_fork()),
         (b"mothra-empty-fixture", b"", b""),
     ]:
-        body = file_stream(name, data, resource)
+        body = file_stream(data, resource)
+        handover = name == b"mothra-empty-fixture"
         steps = login() + [
             send(
                 packet(
@@ -57,7 +59,24 @@ def transfers() -> dict[str, tuple[list[dict], dict]]:
                 )
             ),
             read(save_field={"name": "upload_ref", "id": 107}),
-            connect("upload", "data"),
+            connect("upload", "control" if handover else "data"),
+        ]
+        if handover:
+            steps += [
+                {
+                    "op": "send",
+                    "connection": "upload",
+                    "hex": "54525450484f544c00010003",
+                },
+                {
+                    "op": "read",
+                    "connection": "upload",
+                    "size": 8,
+                    "expect_hex": "5452545000000000",
+                    "timeout": 10,
+                },
+            ]
+        steps += [
             send(
                 "48545846{upload_ref}"
                 + len(body).to_bytes(4, "big").hex()
@@ -71,7 +90,7 @@ def transfers() -> dict[str, tuple[list[dict], dict]]:
             read(),
             close(),
         ]
-        cases["upload-" + name.decode()] = (
+        cases["upload-empty-handover" if handover else "upload-" + name.decode()] = (
             steps,
             {
                 "kind": "upload",
@@ -81,6 +100,8 @@ def transfers() -> dict[str, tuple[list[dict], dict]]:
                 "stream_hex": body.hex(),
             },
         )
+        if handover:
+            cases["upload-empty-handover"][1]["handover"] = True
     return cases
 
 

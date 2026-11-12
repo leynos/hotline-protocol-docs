@@ -88,6 +88,8 @@ def validate_plan(plan: dict) -> None:
             raise ValueError(f"Unknown action: {op}")
         if not 0 < step.get("timeout", 2) <= 3600:
             raise ValueError("Invalid action timeout")
+        if "size_from" in step and op != "read":
+            raise ValueError("Only fixed-length reads can use size_from")
         if op == "read":
             if "size_from" in step:
                 if "size" in step or step["size_from"] not in variables:

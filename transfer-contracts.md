@@ -2,9 +2,9 @@
 
 This supplement refines GAP-033 and GAP-055–GAP-064 against the same hashed
 Mac PPC server as [the protocol guide](protocol.md). Evidence consists of the
-baseline request/acceptor captures and [batch 04][batch]. These are static
-findings, not exercised native transfer sessions. Folder control streams,
-platform-specific metadata restoration and interruption fixtures remain open.
+baseline request/acceptor captures, [batch 04][batch] and the ordinary-file
+sessions cited below. Static findings are distinguished from captured outcomes.
+Folder streams, broader metadata cases and interruption fixtures remain open.
 
 ## HTXF connection header and dispatch
 
@@ -42,8 +42,9 @@ download lookup also searches the download waiting queue; matching a reference
 does not itself prove queue admission or completed transfer. These lookups do
 not check an owning control session or peer address. IP admission checks occur
 earlier in the acceptor and must not be confused with token ownership checks.
-Valid/invalid-reference runtime fixtures and the relationship to handshake
-sub-version 3 remain GAP-055/GAP-009.
+The ordinary-file corpus below exercises valid upload/download references and
+control sub-version 3. Banner matching and broader invalid/type cases remain
+GAP-055; alternate-listener wrapping remains GAP-010.
 
 ## Reference allocation and request 214
 
@@ -164,7 +165,8 @@ unlisted fixed-prefix bytes must not be assigned invented portable meanings.
 The value length is `74 + n + c`. Date bytes follow the fixed-1904-year
 representation already documented in the guide. This layout does not establish
 Unicode conversion, timezone conversion or exact metadata persistence after
-upload. GAP-056/064 retain fork and metadata round-trip fixtures.
+upload. The selected round trips below establish observed ordinary-file state;
+restart and interrupted persistence remain GAP-064.
 
 ### INFO restoration after upload
 
@@ -185,8 +187,8 @@ nonzero comment is capped at 255 bytes and passed to the native comment setter;
 a zero comment length skips that call and does not itself clear an existing
 comment. The helper calls `FlushVol` without checking its return. These reads
 and calls establish selected metadata effects, not complete length validation,
-portable flag meanings or durable completion. Native fork/date/comment
-round-trip and failure fixtures remain GAP-020/056/064.
+portable flag meanings or durable completion. Selected native fork/date/comment
+round trips are captured below; broader date/failure fixtures remain GAP-020/064.
 
 ### Upload consumption and completion
 
@@ -241,7 +243,78 @@ Observed timers use the same seconds clock as the dispatcher:
 
 Download completion means all advertised bytes have been enqueued by the worker;
 it does not itself prove the peer persisted them. The complete folder streams,
-transport-drain/EOF ordering and interruption semantics remain unresolved.
+interruption semantics remain unresolved. The captured ordinary-file cases
+below distinguish delivery count from transport close.
+
+## Captured ordinary-file round trips
+
+The [native fork corpus](../mothra/evidence/gap-remediation/2026-11-12/native-forks-01/manifest.json)
+retains two uploads, eight reviewed download cases, eight initial probes, both
+packet views and read-only HFS+ observations. Both supported entry paths work:
+
+| Entry path | Captured sequence on the transfer connection |
+| --- | --- |
+| Raw data listener 5501 | Connect, send 16-byte HTXF with reference from owning control ACK, then transfer bytes. |
+| Primary control listener 5500 | Connect, send `TRTPHOTL 0001 0003`, receive `TRTP 00000000`, then send HTXF on that same connection and transfer bytes. |
+
+Both paths use a separate owning control session to request 203/202 first.
+Upload references are four-byte even values; download references are four-byte
+odd values. The [earlier transport negatives](../mothra/evidence/gap-remediation/2026-11-12/native-transport-01/manifest.json)
+retain unmatched-reference rejection through both paths. No 12-byte ordinary
+control handshake is sent to the raw data listener. No second TCP connection
+is inserted between the sub-version-3 reply and its HTXF header.
+
+| Fixture | Captured outcome |
+| --- | --- |
+| Raw upload, `mothra-fork-fixture` | FILP 509 bytes: INFO 107, DATA 13, MACR 317 plus 72 header bytes; native worker closes upload after consumption. |
+| Control-handover upload, `mothra-empty-fixture` | FILP 179 bytes: INFO 107 with empty DATA/MACR; native worker closes upload. |
+| Raw and control-handover ordinary downloads | FILP 510 bytes for nonempty file: INFO 108 uses actual requested filename, DATA 13, MACR 317. |
+| Selector 7 with ordinary download reference | Same ordinary-file stream; selector 7 reaches the ordinary branch. |
+| Selectors 1 and 2 with an ordinary download reference | Connection closes without transfer bytes; ordinary reference does not match the selected folder/banner collection. |
+| Preview option 2 | Exactly 13 raw DATA bytes; no FILP wrapper or resource fork. |
+| Ordinary empty-file download | FILP 181 bytes: INFO 109, DATA zero and MACR zero. |
+| Empty-file preview | Control ACK contains size 108 = zero, omits reference 107; no data connection opened. |
+
+The nonempty data bytes are `646174612d666f726b0d0a00ff`. The resource fork is
+a valid 317-byte resource file containing type `TEST`, ID 128 and bytes
+`native!`. Independently extracted native forks match both uploaded and
+downloaded bytes. HFS+ catalogue records 11210/11211 show requested names,
+type `TEXT`, creator `MOTH` and resource sizes 317/zero. For the empty file,
+SleuthKit reports the resource attribute absent; that failure is retained and
+is not presented as a successful empty-fork extraction. The native download's
+zero-length MACR supplies the wire observation.
+
+Both uploaded INFO values deliberately contain name `metadata-only-name`,
+comment `fixture-comment`, flags `00008100` and zero date bytes. Native file-info
+replies and downloads retain the requested filenames and the type, creator and
+comment. Download INFO flags are zero, consistent with the restoration mask
+`7eff`; creation/modification dates are nonzero native values rather than the
+transmitted zero dates. This proves those selected round trips, not arbitrary
+flag meanings, date restoration or restart durability.
+
+### Captured completion and EOF behaviour
+
+The reviewed downloads read exactly the control-advertised size, then observe
+three seconds without more bytes **or EOF**. Ordinary download worker
+`1000c200` closes its file and marks its stream inactive when all bytes have
+been enqueued; that branch does not shut down the transport. Receiving the
+advertised count is therefore the observed byte-delivery boundary. Waiting
+for server EOF as the only successful completion condition timed out after
+30 seconds in five initial probes; those failed assumptions remain immutable.
+
+In the reviewed raw download, request 214 on the owning control connection
+after the full read and quiet window receives an empty ACK, followed by EOF
+on the data connection. Other successful download cases close from the peer
+after the quiet window. Uploads instead receive native EOF after their
+advertised input has been consumed, with no additional numbered control ACK.
+Neither direction's observation proves persistence on another host or after a
+guest restart. Queue admission, resume, interrupted files and large-size
+representation remain GAP-057/058/061/062/064.
+
+One empty-download control stream has an additional 59-byte 301 notification
+in both packet views after the application recorder's consumed prefix. The
+verifier pins that complete unread suffix explicitly; the original report is
+unchanged. It is not additional transfer data or an invented completion ACK.
 
 ### Transfer timer origins and resets
 

@@ -306,6 +306,56 @@ its next distinct SYN. A real reused source port in this corpus requires this
 lifetime separation. It does not justify merging independently reused tuples.
 Retain original failed expectations rather than editing historical reports.
 
+## Recorded native ordinary-file fixtures
+
+The [fork corpus](../mothra/evidence/gap-remediation/2026-11-12/native-forks-01/manifest.json)
+includes nonempty DATA/MACR and empty-file uploads, raw/control-handover
+downloads, preview, noncanonical selector 7 and wrong-collection selectors.
+Verify it from `mothra`:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/verify_native_forks.py \
+  evidence/gap-remediation/2026-11-12/native-forks-01
+```
+
+Use `prepare_native_cases.py transfers` and then `downloads`, each with the
+current `--runtime-record` and a distinct fresh `--output`, to reproduce the
+plans. Start packet recording first. Use a disposable native Files root with
+neither fixture filename present; repeating uploads onto existing files can
+exercise a conflict/resume path instead. Complete both uploads before starting
+the download suite. Preserve the uploaded names, INFO embedded name, comments,
+type/creator and fixture account configuration as generated.
+
+Using the read-only SleuthKit setup above, locate each result and retain both
+forks and catalogue reports. For example, from `mothra`:
+
+```sh
+export LD_LIBRARY_PATH="$PWD/tools/sleuthkit/usr/lib64"
+tools/sleuthkit/usr/bin/ifind -f hfs \
+  -n /Hotline19/Files/mothra-fork-fixture \
+  state/mac-runtime/hotline19/working.dsk
+tools/sleuthkit/usr/bin/istat -f hfs \
+  state/mac-runtime/hotline19/working.dsk 11210
+tools/sleuthkit/usr/bin/icat -f hfs \
+  state/mac-runtime/hotline19/working.dsk 11210-4352-0
+tools/sleuthkit/usr/bin/icat -f hfs \
+  state/mac-runtime/hotline19/working.dsk 11210-4353-1
+```
+
+Replace catalogue 11210 with the new `ifind` result and save each output to a
+separate file. Repeat for `mothra-empty-fixture`. Retain command status and
+stderr: an absent zero-length resource attribute is not a successful `icat`
+result. The existing fixture retains that distinction alongside catalogue and
+native-wire observations. Live-image read-only inspection establishes observed
+state, not restart durability; keep disks outside Git.
+
+Read downloads by saved field 108's advertised byte count, then perform the
+bounded quiet/cleanup steps. Do not use EOF as the sole successful download
+boundary. Uploads do close from the server after consumption. The initial
+30-second EOF timeouts remain labelled and retained; corrected plans do not
+rewrite them. The verifier also accounts explicitly for the one unread control
+301 observed in both packet views.
+
 ## Acceptance and corpus coverage
 
 A completed plan establishes its recorded exchange and expectations, not every
