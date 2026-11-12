@@ -175,9 +175,11 @@ Evidence: [general accessor][priv-general], [file accessor][priv-file],
 All three privilege accessors in this binary have the same body: read byte
 `session + 8 + (bit >> 3)`, shift by `7 - (bit & 7)`, and mask to one bit.
 Their first argument is unused. These helpers do not perform inheritance,
-filesystem lookup, or an administrator bypass. Per-operation checks and
-account-loading rules still need tracing; identical accessors alone do not
-prove that every operation has identical policy.
+filesystem lookup, or an administrator bypass. The
+[privilege registry and composition](privilege-contracts.md) now cover all 64
+numbered positions, separating known checks from unknown meanings. Account
+creation, update and batch paths have distinct grant rules; identical accessors
+alone do not prove that every operation has identical policy.
 
 The dispatcher clock calls Mac `GetDateTime`; these comparisons use seconds:
 

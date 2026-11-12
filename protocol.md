@@ -395,13 +395,13 @@ The following checks are explicitly recorded in the ledger:
 | **39** | **Download folder** |
 | **40** | **Send private message** |
 
-This is an observed subset, not a complete replacement privilege registry. The
-previous table's assignment of private messaging to bit 19 is incorrect for
-this build. Bits 18/19 and unlisted entries are not assigned normative
-meanings by this pass. Other operation-specific and folder/news privilege
-helpers need further analysis before mxd treats the entire bitmap as settled.
-In particular, do not infer arbitrary private-chat admin overrides from names
-such as “Open Chat” or “Close Chat”.
+The [full numbering registry](privilege-contracts.md#bitmap-numbering-and-known-uses)
+adds file mutation, account, upload-destination and drop-box gates, while
+explicitly retaining unknown bits 12–13, 18–19 and 41–63. Account creation and
+update enforce different grant rules; see
+[account composition](privilege-contracts.md#account-creation-update-and-batch-rules).
+Private messaging uses bit 40 in this build. Do not infer private-chat owner or
+administrator overrides from historical privilege names.
 
 Evidence: V030–V031, V055–V056, V073; `10008a90`, `1000f4e0`, `10012850`,
 `10013930`.

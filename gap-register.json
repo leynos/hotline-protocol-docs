@@ -3,8 +3,8 @@
   "title": "Hotline 1.9 protocol documentation gap register",
   "audited_at_utc": "2026-11-12T12:55:29.155796+00:00",
   "last_updated": "2026-11-12",
-  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-11/manifest.json",
-  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-11/sections.json",
+  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-12/manifest.json",
+  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-12/sections.json",
   "validity_ledger": "../mothra/docs/baseline-validity-ledger.md",
   "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
   "method": "Documentation review plus read-only Ghidra MCP follow-up against the recorded Hotline 1.9 data fork, paired resource-fork inspection, portable archive verification, pinned shx source review with seven host callback cases, and mxd review (55 focused tests passed). The original audit and validity ledger remain immutable; current sources have been reviewed and re-snapshotted. No native runtime/client captures or Kani proof results are claimed. Entries remain Investigating while their acceptance criteria are unmet.",
@@ -1691,11 +1691,10 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Reconfirmed MSB-first direct bitmap access in all three privilege helpers. The complete named registry and enforcement fixtures remain required.",
+        "progress": "Published a registry covering bits0–63 with37 observed uses and explicit unknown ranges12–13,18–19,41–63. Reconciled40 direct accessor calls in25 functions; inline account/status/settings tests reviewed separately. Native serialization/enforcement and unknown-bit fixtures remain required.",
         "evidence": [
-          "[Native wire details](native-wire-details.md)",
-          "[Batch 01](../mothra/evidence/gap-remediation/2026-11-12/batch-01/manifest.json)",
-          "[Batch 02](../mothra/evidence/gap-remediation/2026-11-12/batch-02/manifest.json)"
+          "[Privilege registry](privilege-contracts.md)",
+          "[Native caller review](../mothra/evidence/gap-remediation/2026-11-12/batch-15/privilege-callsite-review.json)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -1754,11 +1753,10 @@
         "GAP-031"
       ],
       "resolution": {
-        "progress": "All three accessors are byte-identical direct session bitmap reads, with no inheritance or admin bypass in those helpers. Per-operation composition tables remain required.",
+        "progress": "Published base-versus-extra file gates, target-selected mutation gates, requester/target kick composition and account operation checks. All accessors remain direct session-bit reads; account creation has a grant subset rule absent from the inspected update handler. Full branch/alias/configuration enforcement fixtures remain required.",
         "evidence": [
-          "[Native wire details](native-wire-details.md)",
-          "[Batch 01](../mothra/evidence/gap-remediation/2026-11-12/batch-01/manifest.json)",
-          "[Batch 02](../mothra/evidence/gap-remediation/2026-11-12/batch-02/manifest.json)"
+          "[Privilege registry](privilege-contracts.md)",
+          "[Native caller review](../mothra/evidence/gap-remediation/2026-11-12/batch-15/privilege-callsite-review.json)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -3716,11 +3714,10 @@
         "GAP-071"
       ],
       "resolution": {
-        "progress": "Documented exact 353 NUL preservation sentinel, literal-x replacement, clearing defaults and copy caps. Full 350-353 conflict/identity/atomicity fixtures remain required.",
+        "progress": "Documented350 create grant subset check with bit27 exemption,353 update bit17 without the equivalent handler subset comparison,352/348 read bit16 and351 delete bit15. Delete helper moves account file to Trash; protected/self/conflict/persistence native fixtures remain required.",
         "evidence": [
-          "[Native wire details](native-wire-details.md)",
-          "[Batch 01](../mothra/evidence/gap-remediation/2026-11-12/batch-01/manifest.json)",
-          "[Batch 02](../mothra/evidence/gap-remediation/2026-11-12/batch-02/manifest.json)"
+          "[Privilege registry](privilege-contracts.md)",
+          "[Native caller review](../mothra/evidence/gap-remediation/2026-11-12/batch-15/privilege-callsite-review.json)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -3777,11 +3774,10 @@
         "GAP-072"
       ],
       "resolution": {
-        "progress": "Traced connected-session privilege updates through 354 and roster helper invocation after effective identity/access changes. Delete paths and delivered event/persistence fixtures remain required.",
+        "progress": "Traced351 order: account deletion and ACK precede matching-login session notification/disconnect scan. Distinguished live354 privilege propagation from deletion. Native self/delete/multiple-session delivery and reconnect fixtures remain required.",
         "evidence": [
-          "[Native wire details](native-wire-details.md)",
-          "[Batch 01](../mothra/evidence/gap-remediation/2026-11-12/batch-01/manifest.json)",
-          "[Batch 02](../mothra/evidence/gap-remediation/2026-11-12/batch-02/manifest.json)"
+          "[Privilege registry](privilege-contracts.md)",
+          "[Native caller review](../mothra/evidence/gap-remediation/2026-11-12/batch-15/privilege-callsite-review.json)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -3985,10 +3981,10 @@
         "GAP-072"
       ],
       "resolution": {
-        "progress": "Documented outer indexed value parsing, 512-byte nested cap, old-name field 101, sequential mutations and mixed failure outcomes. Complete permission/conflict helpers and native mixed-result fixtures remain required.",
+        "progress": "Batch349 admits any of bits14/15/17 but enforces per-item delete/create/update gates, including create bitmap subset with bit27 exemption. Earlier mutations can survive later failure. Mixed-result/rename/conflict native fixtures remain required.",
         "evidence": [
-          "[Operation contracts](operation-contracts.md)",
-          "[Compatibility review](internal-compatibility-matrix.md#mxd-review-at-2e4c9c1)"
+          "[Privilege registry](privilege-contracts.md)",
+          "[Native caller review](../mothra/evidence/gap-remediation/2026-11-12/batch-15/privilege-callsite-review.json)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -6138,7 +6134,7 @@
       "heading": "Privilege access and connection timers",
       "level": 2,
       "line_start": 169,
-      "line_end": 214,
+      "line_end": 216,
       "anchor": "privilege-access-and-connection-timers",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7582,6 +7578,101 @@
         "GAP-021",
         "GAP-047",
         "GAP-070"
+      ]
+    },
+    {
+      "path": "privilege-contracts.md",
+      "heading": "Native privilege registry and composition",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 8,
+      "anchor": "native-privilege-registry-and-composition",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-031",
+        "GAP-032"
+      ],
+      "related_gap_ids": [
+        "GAP-031",
+        "GAP-032"
+      ]
+    },
+    {
+      "path": "privilege-contracts.md",
+      "heading": "Bitmap numbering and known uses",
+      "level": 2,
+      "line_start": 9,
+      "line_end": 64,
+      "anchor": "bitmap-numbering-and-known-uses",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-031",
+        "GAP-034"
+      ],
+      "related_gap_ids": [
+        "GAP-031",
+        "GAP-034"
+      ]
+    },
+    {
+      "path": "privilege-contracts.md",
+      "heading": "Operation-specific composition",
+      "level": 2,
+      "line_start": 65,
+      "line_end": 86,
+      "anchor": "operation-specific-composition",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-032",
+        "GAP-047"
+      ],
+      "related_gap_ids": [
+        "GAP-032",
+        "GAP-047"
+      ]
+    },
+    {
+      "path": "privilege-contracts.md",
+      "heading": "Account creation, update and batch rules",
+      "level": 2,
+      "line_start": 87,
+      "line_end": 119,
+      "anchor": "account-creation-update-and-batch-rules",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-032",
+        "GAP-072",
+        "GAP-073",
+        "GAP-078"
+      ],
+      "related_gap_ids": [
+        "GAP-032",
+        "GAP-072",
+        "GAP-073",
+        "GAP-078"
+      ]
+    },
+    {
+      "path": "privilege-contracts.md",
+      "heading": "Remaining acceptance evidence",
+      "level": 2,
+      "line_start": 120,
+      "line_end": 134,
+      "anchor": "remaining-acceptance-evidence",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-031",
+        "GAP-032",
+        "GAP-072",
+        "GAP-073",
+        "GAP-078"
+      ],
+      "related_gap_ids": [
+        "GAP-031",
+        "GAP-032",
+        "GAP-072",
+        "GAP-073",
+        "GAP-078"
       ]
     }
   ]
