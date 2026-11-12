@@ -42,6 +42,7 @@ def main() -> None:
             "banner-none",
             "banner-format-seed",
             "banner-recovery",
+            "banner-empty",
             "banner-jpeg",
             "banner-bmp",
             "banner-pict",
@@ -87,6 +88,7 @@ def main() -> None:
         **{
             "banner-" + name: lambda name=name: format_case(name)
             for name in [
+                "empty",
                 "jpeg",
                 "bmp",
                 "pict",

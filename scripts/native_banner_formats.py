@@ -11,17 +11,20 @@ from native_transfer_cases import file_stream
 ASSETS = Path(__file__).resolve().parents[1] / "fixtures/banner"
 # Native Finder type and advertised tag are deliberately kept separate.
 FORMATS = {
+    "empty": (b"m-img-e.gif", b"GIFf", b"GIFf", None),
     "jpeg": (b"m-img-j.jpg", b"JPEG", b"JPEG", "one.jpg"),
     "bmp": (b"m-img-b.bmp", b"BMP ", b"BMP ", "one.bmp"),
     "pict": (b"m-img-p.pct", b"PICT", b"PICT", "one.pct"),
     "fallback": (b"m-img-f.dat", b"PNGf", b"PNGf", "one.png"),
     "zero-type": (b"m-img-z.dat", bytes(4), None, "one.png"),
     "suffix-before-finder": (b"m-img-x.jpg", b"GIFf", b"JPEG", None),
-    "text-conversion": (b"m-img-t.gif", b"TEXT", b"GIFf", None),
+    "text-conversion": (b"m-img-t", b"TEXT", b"TEXT", None),
 }
 
 
 def content(name: str) -> bytes:
+    if name == "empty":
+        return b""
     asset = FORMATS[name][3]
     return (ASSETS / asset).read_bytes() if asset else GIF_A
 
@@ -58,8 +61,11 @@ def format_case(name: str) -> dict:
     if finder == b"TEXT":
         expected = expected.replace(b"\r\n", b"\r")
     steps = delayed() + pump("main", 9, seconds=0) + request() + attach()
+    if expected:
+        steps += [
+            {"op": "read", "connection": "banner", "size": len(expected), "timeout": 30}
+        ]
     steps += [
-        {"op": "read", "connection": "banner", "size": len(expected), "timeout": 30},
         {"op": "expect_quiet", "connection": "banner", "timeout": 3},
         close("banner"),
     ]
