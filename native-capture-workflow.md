@@ -568,3 +568,62 @@ Run the tool tests from this repository with
 [native-core]: ../mothra/evidence/gap-remediation/2026-11-12/native-core-01/manifest.json
 
 [native-transport]: ../mothra/evidence/gap-remediation/2026-11-12/native-transport-01/manifest.json
+
+## Recorded native banner fixtures
+
+The [banner corpus](../mothra/evidence/gap-remediation/2026-11-12/native-banner-01/manifest.json)
+retains24 final cases and42 exploratory cases, plans, socket reports, paired
+packet views, GUI configuration screenshots
+and positive native catalogue/fork observations. Reverify it without an emulator:
+
+```sh
+python3 scripts/verify_native_banners.py \
+  ../mothra/evidence/gap-remediation/2026-11-12/native-banner-01
+```
+
+Use `prepare_native_cases.py` with `banner-seed`, `banner-none`, `banner-url`,
+`banner-image`, `banner-missing`, `banner-changed`, `banner-absent-restored` or
+`banner-expired`, the current `--runtime-record`, and a fresh `--output` directory.
+Run each generated plan through `protocol_capture.py capture` with the identified
+oracle binary. Record both packet boundaries throughout, as for the folder
+fixtures. Plan expectations are hypotheses; a completed capture still needs
+semantic and packet verification.
+
+Seed uploads create `mothra-banner-a.gif` and `mothra-banner-b.gif` in Files with
+Finder type `GIFf` and creator `MOTH`. Move them beside the native application in
+Finder, preserving their data forks, then verify their catalogue paths and bytes
+with `snapshot_native_hfs.py`. This run used catalogue IDs11240/11241; discover
+and verify the IDs afresh on another image. Do not assume path enumeration works
+or claim that these live reads establish restart durability.
+
+In Options > Banner, select Local and enter the **bare filename**, not a full
+Mac path. The traced filename helper replaces colons with hyphens; failed full
+and relative paths remain in the exploratory evidence. For remote controls,
+select Remote before editing URL, since its field is disabled under Local.
+Wake the screensaver, foreground the native application, and inspect the dialog
+before editing. Verify the saved configuration with subsequent metadata/bytes;
+a Save click and a screenshot of an unpainted window do not prove a change.
+An early input helper also omitted Shift for colon and typed semicolons; its
+original URL bytes and unsuccessful local lookup are preserved.
+
+For `banner-changed`, begin with A loaded and switch to B during the45-second
+pause after the212 reply. Preserve UTC phase markers and screenshots. The
+`banner-absent-restored` plan begins with B, pauses45 seconds for a nonexistent
+filename, attaches and checks three seconds of silence, then pauses45 seconds
+for restoration. It sends500 before attempting the restored payload; retain
+failures rather than replacing their reports. The expiry plan maintains owner
+traffic across twelve45-second pauses before attempting the old reference.
+Any overlapping configuration phases must be disclosed when interpreting it.
+
+The final24 cases pass semantic checks and exact reconciliation in both packet
+views. Of42 exploratory reports,33 complete and nine fail; completed explorers
+can still have the wrong configuration for their original hypotheses. One failed
+quiet check reads only the first byte of a58-byte banner; the remaining57 bytes
+are pinned in both packet views. Another probe leaves86 bytes of301/302 control
+notifications unread. Both suffixes remain separate from the original reports.
+The two host recording phases captured1,558 and103 packets, respectively, with
+zero kernel drops. This is not a claim of exhaustive capture outside these
+retained boundaries.
+
+Neither ROMs nor OS/working images are part of this corpus. The generic harness
+remains in mothra; the protocol-specific plans and verifier remain here.

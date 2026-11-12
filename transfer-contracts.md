@@ -800,3 +800,47 @@ claim follows from these live-image observations.
 [info-restore]: ../mothra/evidence/gap-remediation/2026-11-12/batch-13/queries/B13-D-1002d2c0.c
 
 [attach-asm]: ../mothra/evidence/gap-remediation/2026-11-12/batch-16/queries/B16-A-1000bd20.json
+
+## Captured banner observations
+
+The [banner corpus](../mothra/evidence/gap-remediation/2026-11-12/native-banner-01/manifest.json)
+adds native GIF and URL fixtures to the handler traces. These are bounded
+observations of the identified 1.9-family oracle, rather than a claim that every
+advertised image type or historical client has been tested.
+
+With a nonempty local GIF buffer, request212 returns an odd four-byte reference107
+and the current byte count108. Selector2 transfers the raw data fork, without
+FILP, INFO, DATA or MACR wrappers. The43-byte fixture preserves CRLF, NUL and
+high bytes. After those bytes, the connection remains open through a three-second
+quiet window. Request214 ACKs both before attachment and after delivery without
+cancelling this banner entry. Wrong selectors0/1/7 and unknown/zero references
+close without application payload in the retained cases.
+
+Delayed121 completion advertises152=`GIFf` or `0x55524c20`, with the configured
+link
+bytes in153, for reported versions151 and190; version150 receives no122.
+Early-completed107 does not emit122. An empty remote URL and a failed local-file
+load suppress122. In those configurations,212 produces no reply through a
+three-second quiet window before a later500 ACK; an initial empty-configuration
+probe also retains a30-second read timeout. These observations do not establish
+an eventual numbered error, an unconditional close or a zero-byte transfer.
+
+The changed-buffer fixture advertises43 bytes, then changes the configured
+filename to the58-byte fixture during a45-second pause. The original reference
+subsequently delivers all58 replacement bytes. Its control stream contains only
+the original122, with no unsolicited replacement advertisement. Advertised size
+therefore does not freeze the banner payload for the reference's lifetime.
+
+An unattached reference rejects without payload544.059729 host seconds after its
+212 ACK, following twelve planned45-second pauses and twelve successful owner500
+replies. The native boundary sends RST on the attempted attachment. The image
+configuration changes during this observation, including temporary absence;
+image content is available at final attachment. This establishes the retained
+aged-reference outcome, not an exact internal deadline or uninterrupted
+image-present timing guarantee.
+
+Failed GUI/path probes and unsuccessful restoration attempts are retained with
+their original reports. In particular, a waiting connection's behaviour after
+restoring a missing image needs a controlled, successful explanation before it
+can be made a general delivery rule. JPEG/PICT/BMP payloads, broader reference
+reuse/ownership boundaries and identified-client rendering remain open.
