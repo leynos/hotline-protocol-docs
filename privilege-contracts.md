@@ -119,9 +119,13 @@ self-deletion, delivery and reconnect/persistence fixtures remain open.
 
 ## Remaining acceptance evidence
 
-GAP-031/032 remain Investigating: runtime enforcement fixtures, unknown bits,
-alias and byte-name predicates, configuration changes and complete composition
-across every branch are not established by this registry. Account grant/update,
+GAP-032's decision-table deliverable is satisfied for the three accessor domains:
+all read the session bitmap directly, and the composition table separates base,
+additional, target and grant checks. There is no helper-level inheritance or
+administrator override to document as an extra permission source. GAP-031
+retains serialization/enforcement fixtures and unknown-bit meanings; alias and
+byte-name predicates, configuration changes and complete runtime branch coverage
+remain GAP-047/054/084. Account grant/update,
 batch partial effects and live-delete sequencing require before/after native
 fixtures under GAP-072/073/078/084. No mxd release scope or deliberate deviation
 is chosen by these native observations.

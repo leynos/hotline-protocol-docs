@@ -53,6 +53,41 @@ helper/default behaviour, not a promise of successful authentication.
 session assignments, not generic sparse or durable account edits. Exact
 agreement/configuration/runtime fixtures remain GAP-025/027/029.
 
+### Login width and feature-condition matrix
+
+The native generic number reader copies at most four input bytes. Its effective
+results apply independently to version 160 and icon 104:
+
+| Present value bytes | Effective generic number |
+| --- | --- |
+| Absent or zero bytes | Zero |
+| One byte | Unsigned byte |
+| Two bytes | BE16 |
+| Three bytes | Zero, not BE24 |
+| Four bytes | BE32 |
+| More than four bytes | BE32 from the first four bytes |
+
+Version retains that 32-bit result. Icon assignment retains only its low
+16 bits, so encoded icon `00 01 00 00` becomes zero. Name presence alone or icon
+presence alone does not complete login early. A three-byte version becomes zero
+for the thresholds below; no client-brand inference follows from any width.
+
+| Condition after account authentication | Native dependent behaviour |
+| --- | --- |
+| Name 102 absent/empty, any icon | No early completion in 107; use the 121 path. |
+| Name nonempty, icon zero after narrowing | Same delayed-completion path. |
+| Name nonempty, icon nonzero after narrowing | 107 applies identity/settings, emits initial 301, marks online and sends 354 before 109. |
+| Any saved version | Success ACK adds numeric 160 = 190, numeric 161 and nonempty name 162 without a version gate. |
+| Saved version 0–14 | Category-list builder selects legacy field 320. |
+| Saved version at least 15 | Category-list builder selects modern field 323. |
+| Saved version below 151 | 121 skips banner metadata 122. |
+| Saved version at least 151 | 121 considers 122, subject to type/buffer conditions. |
+
+These tables complete GAP-024's input-condition deliverable using the retained
+numeric reader, login handler and category/banner branches. They do not certify
+identified-peer compatibility, malformed-input network outcomes or a delivered
+login session; those remain GAP-015/025/065/080/084.
+
 ## Login and presence outputs
 
 | Reply or notification | Fields and occurrence | Conditions/defaults |

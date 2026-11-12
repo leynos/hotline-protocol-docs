@@ -64,6 +64,24 @@ buffer and may also include 153 when configured. Field 152 is four bytes.
 These reads use current configuration; lifetime and change fixtures remain
 GAP-026/028. This is separate from unconditional login-success fields 161/162.
 
+### Early completion and metadata changes
+
+The early-completion branch in 107 does not invoke the 122 builder. Its session
+is already online, and the dispatcher sends a replayed 121 to the
+unknown-operation error handler. Request 212 obtains a banner data reference;
+its inspected success reply does not substitute a 122 metadata notification.
+The catalogue therefore supplies no validated request that an early-completed
+client can use to demand the delayed path's metadata. Clients must tolerate
+that absence; an invented mandatory 122 sequence would contradict these paths.
+
+The content loader changes current type/buffers without emitting 122 itself.
+Subsequent eligible 121 processing reads the new values. An already advertised
+reference does not snapshot banner data: the worker reads the current buffer
+at send time. No automatic metadata refresh for existing clients is established
+by these inspected producers. This completes GAP-028's type/field/ordering
+matrix; actual image decoding, delivered refresh/change behaviour and
+changed-buffer transfer fixtures remain GAP-063/080/084.
+
 ## Login extras and configured content
 
 ### Fields 160, 161 and 162
@@ -166,7 +184,23 @@ The `0x0010` predicate tests bits
 `0–11, 14–17, 20–26, 28–40`; it does not test 12/13/18/19/27 or 41–63.
 It is an aggregate predicate, not a universal administrator override. The
 traced builder sets no other status masks. Auto-response enablement is not
-itself another bit in this status builder. Transition fixtures remain GAP-034.
+itself another bit in this status builder. The following **code-derived**
+transitions hold with other inputs fixed; they are not captured native events:
+
+| Before / change | Calculated status after change |
+| --- | --- |
+| No access bits, no settings flags; become idle | `0x0020` to `0x0021` |
+| No access bits; enable PM refusal | `0x0020` to `0x0024` |
+| Then also enable chat refusal | `0x0024` to `0x002c` |
+| Only access bit 22 becomes set; no settings flags | `0x0020` to `0x0002` |
+| Every bit in the aggregate predicate set; no settings flags | `0x0012` (aggregate plus bit-22 status) |
+| Clear only access bit 27 from that aggregate case | Remains `0x0012`; bit 27 is outside that predicate. |
+| Only access bit 63 set; no settings flags | `0x0000`; access is nonzero, but none of the positive status predicates apply. |
+| Toggle automatic response alone | No status-bit change from that setting alone. |
+
+This satisfies GAP-034's traced registry and transition-example criterion.
+Settings/privilege notification delivery and concurrent state changes remain
+GAP-029/035/073/084.
 
 ## Disconnect teardown and notification 302
 
@@ -218,6 +252,13 @@ optional quoted 214. Feedback 104 uses the recipient's identity. System notices
 can contain only data 101, and chat-denial notices can contain 109/101 instead.
 Field presence identifies known variants; no universal sender/option schema
 applies to every 104 (GAP-044).
+
+GAP-043's routing-table criterion is satisfied by the sender/recipient/options
+matrix and the ACK/identity/field rules above. It covers feedback suppression,
+original delivery alongside auto response, empty ordinary text and non-whitelisted
+options. Text boundaries, independent spam interruption, other 104 producers
+and delivered native cases remain GAP-019/044/045/084; no native session is
+claimed by that documentation closure.
 
 The PM/invitation rate counter permits a request while its previous value is
 below 21, increments it, and resets when elapsed seconds exceed 60. The repeat
