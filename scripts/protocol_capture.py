@@ -21,6 +21,17 @@ def digest(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
+def field_saves(step: dict) -> dict[str, int]:
+    """Normalize field selectors without changing the received value bytes."""
+    result = dict(step.get("save_fields", {}))
+    if "save_field" in step:
+        saved = step["save_field"]
+        if saved["name"] in result:
+            raise ValueError("Repeated saved-field variable")
+        result[saved["name"]] = saved["id"]
+    return result
+
+
 def validate_plan(plan: dict) -> None:
     """Reject invalid actions and unresolved connections before opening sockets."""
     if plan.get("schema_version") != 1:
@@ -77,8 +88,12 @@ def validate_plan(plan: dict) -> None:
             raise ValueError(f"Unknown action: {op}")
         if not 0 < step.get("timeout", 2) <= 3600:
             raise ValueError("Invalid action timeout")
-        if op == "read" and not 0 < step["size"] <= MAX_CAPTURE_BYTES:
-            raise ValueError("Read size exceeds capture limit")
+        if op == "read":
+            if "size_from" in step:
+                if "size" in step or step["size_from"] not in variables:
+                    raise ValueError("Unknown or ambiguous read size")
+            elif not 0 < step["size"] <= MAX_CAPTURE_BYTES:
+                raise ValueError("Read size exceeds capture limit")
         if op == "send":
             for variable in VARIABLE.findall(step["hex"]):
                 if variable not in variables:
@@ -97,6 +112,12 @@ def validate_plan(plan: dict) -> None:
             if saved["offset"] < 0 or not 0 < saved["size"] <= MAX_CAPTURE_BYTES:
                 raise ValueError("Invalid saved-byte bounds")
             variables.add(saved["name"])
+        for variable, field_id in field_saves(step).items():
+            if op != "read_frame" or not 0 <= field_id <= 65535:
+                raise ValueError("Only a frame field can be saved by ID")
+            if not re.fullmatch(r"[a-z][a-z0-9_]*", variable):
+                raise ValueError("Invalid saved-field name")
+            variables.add(variable)
 
 
 def decode_frame(data: bytes) -> dict:
@@ -146,6 +167,7 @@ class Recorder:
     def __init__(self, plan: dict) -> None:
         self.plan = plan
         self.started = time.monotonic_ns()
+        self.started_at_utc = datetime.now(timezone.utc).isoformat()
         self.sockets: dict[str, socket.socket] = {}
         self.variables: dict[str, bytes] = {}
         self.events: list[dict] = []
@@ -244,9 +266,15 @@ class Recorder:
                     {"action": action, "connection": name, **decode_frame(data)}
                 )
             else:
-                data = self.read(
-                    action, name, step.get("size") if op == "read" else None, deadline
-                )
+                size = step.get("size") if op == "read" else None
+                if "size_from" in step:
+                    raw = self.variables[step["size_from"]]
+                    if not 1 <= len(raw) <= 4:
+                        raise ValueError("Saved size must contain one to four bytes")
+                    size = int.from_bytes(raw, "big")
+                    if not 0 < size <= MAX_CAPTURE_BYTES:
+                        raise ValueError("Read size exceeds capture limit")
+                data = self.read(action, name, size, deadline)
             if "expect_hex" in step and data != bytes.fromhex(step["expect_hex"]):
                 raise ValueError(
                     f"Expected {step['expect_hex']}, received {data.hex()}"
@@ -257,6 +285,18 @@ class Recorder:
                 if end > len(data):
                     raise ValueError("Saved bytes exceed received value")
                 self.variables[saved["name"]] = data[saved["offset"] : end]
+            for variable, field_id in field_saves(step).items():
+                decoded = self.frames[-1]
+                fields = decoded.get("fields", [])
+                matches = [f for f in fields if f["id"] == field_id]
+                if (
+                    len(matches) != 1
+                    or decoded.get("unconsumed_hex")
+                    or decoded.get("declared_field_count") != len(fields)
+                    or decoded["total_size"] != decoded["data_size"]
+                ):
+                    raise ValueError("Saved field is missing, ambiguous or incomplete")
+                self.variables[variable] = bytes.fromhex(matches[0]["hex"])
 
     def streams(self) -> dict:
         streams = {}
@@ -303,6 +343,7 @@ def run_plan(plan_path: Path, binary: Path, output: Path) -> dict:
         "plan_sha256": digest(source),
         "driver_sha256": digest(Path(__file__).read_bytes()),
         "recorded_at_utc": datetime.now(timezone.utc).isoformat(),
+        "started_at_utc": recorder.started_at_utc,
         "gap_ids": plan["gap_ids"],
         "completed_actions": completed,
         "error": error,

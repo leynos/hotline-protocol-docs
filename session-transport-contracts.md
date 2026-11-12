@@ -120,9 +120,38 @@ than treating the image initializer as the active limit.
 Receiver `100590e0` rejects a total/data size word equal to zero or greater
 than the current global; equality passes that comparison. The startup assignment
 is not a sum-of-fragments, number-of-transactions or process-memory bound.
-Later indirect writes/configuration and actual boundary behaviour still need
-verification. The TOC-indirect reference inventory is not evidence that there
+Later indirect writes/configuration still need verification. The captured
+boundaries below apply to this runtime. The reference inventory does not prove
 can be no other writes (GAP-011).
+
+### Captured framing and reassembly boundaries
+
+The [62-case framing corpus](../mothra/evidence/gap-remediation/2026-11-12/native-framing-01/verification.json)
+reconciles socket bytes with host-loopback and guest Ethernet TCP lifetimes.
+The guest continued the same hashed runtime used by the transport corpus.
+
+| Native input | Captured outcome |
+| --- | --- |
+| Either size word zero, 524,289 or `ffffffff`, header only | Guest initiates close without a numbered reply. |
+| Complete physical payload of 1, 2, 524,287 or 524,288 bytes | Request 500 dispatches and returns empty ACK. This handler does not inspect the TLV stream. |
+| Flags `ff`; request error word `ffffffff`; request ID zero | Request 500 accepted; ACK preserves the request ID. |
+| Reply byte 1, 2 or 255 with unmatched ID | No output during three-second window; a later request receives its ACK. |
+| Two fragments, each two bytes, total four | No output for three seconds after first; ACK after second. |
+| First total 100, second total four | ACK after four accumulated bytes; the later total governs this case. |
+| Total three, accumulated four | ACK on overshoot. |
+| Total 524,288, fragments two plus 524,288 bytes | ACK at accumulated 524,290; per-frame size comparison is not an aggregate limit. |
+| First fragment type 500, final fragment type 304 | Settings notification 301; final fragment type governs this case. |
+| Partial IDs 10/11, finish 11 then 10 | ACK order 11 then 10. |
+| Abandoned partial ID 10, complete ID 11 | ID 11 ACKs; no output during the preceding three-second window. |
+| Request and unmatched reply with same ID during assembly | Reply does not complete the request; final request fragment produces ACK. |
+| TCP splits inside header and body | No output during each three-second incomplete-input window; ACK after complete bytes. |
+| Sequential completed requests reuse ID 10 | Two distinct ACKs with ID 10. |
+
+These fixtures do not establish an assembly-age limit, maximum simultaneous
+partials, aggregate allocation cap, all reply-direction values or mxd policy.
+The [TLV/handler matrix](native-wire-details.md#captured-tlv-and-scalar-boundaries)
+separates structural indexing from request-specific outcome. GAP-011–013 and
+GAP-015/017 retain their broader acceptance requirements.
 
 ## Identifier domains
 

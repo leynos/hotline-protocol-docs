@@ -5,19 +5,18 @@ correction map. This register tracks gaps in the specification after the
 validity-ledger corrections. It does not reopen corrected findings or claim to
 resolve the remaining unknowns.
 
-The sweep records **87 gaps** across **179 reviewed document sections**. These
+The sweep records **87 gaps** across **182 reviewed document sections**. These
 are documentation questions and proposed investigation priorities, not
 confirmed binary defects, security severity ratings or mxd test failures.
 
 ## Scope, evidence and status
 
-Documentation review and read-only native Ghidra/source analysis, portable
-exports, host callback checks, known-credential core sessions and a paired
-host/guest packet handshake corpus. Fourteen addressed boundary cases
-reconcile socket bytes and native FIN/RST order; timing and alternate-wrapper
-failures remain explicitly bounded. Earlier16 core transcripts and all
-historical snapshots remain immutable. No full peer/all-operation corpus or
-Kani completion is claimed.
+Documentation review and native Ghidra/source analysis, portable exports, host
+callback checks, known-credential core sessions and paired host/guest
+handshake and framing corpora. The62-case framing matrix verifies size
+boundaries, TLV prefix consumption and settings outcomes; one disproven
+initial icon-width hypothesis remains preserved. No full peer/all-operation
+corpus or Kani completion is claimed.
 
 The corrected documents deliberately contain unresolved statements. Unanswered
 entries refine those into actionable questions. Missing and Ambiguous entries
@@ -57,7 +56,7 @@ missing mandatory functionality.
 | --- | --- |
 | Priority | P0: 20, P1: 56, P2: 11 |
 | Kind | Ambiguous: 10, Decision: 3, Evidence: 5, Missing: 12, Unanswered: 57 |
-| Status | Investigating: 73, Open: 1, Resolved: 13 |
+| Status | Investigating: 72, Open: 1, Resolved: 14 |
 
 ## Suggested investigation order
 
@@ -72,33 +71,33 @@ unknown question has already been answered.
 
 ## Input provenance
 
-Audit captured at `2026-11-12T18:16:32.112888+00:00`. The source checkout has
-Git HEAD `22f2e8fcb070e703d03ca9fd6c1ed38840e02f57` with modified/untracked
+Audit captured at `2026-11-12T19:09:44.570123+00:00`. The source checkout has
+Git HEAD `336c13c8ad0be69cbde4559d0d71cfb0770f73a8` with modified/untracked
 reviewed files. The hashes below identify the actual reviewed worktree
 contents; HEAD alone does not. Source line ranges in entries refer to the
 frozen snapshots, while section links point to the current documents.
 
 | Reviewed input | SHA-256 | Frozen copy |
 | --- | --- | --- |
-| [protocol.md](protocol.md) | `01f431e3955f885ffd6e1af6285ff8570a4959dde74f1300a179aab17d35f099` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/protocol.md.txt) |
-| [internal-compatibility-matrix.md](internal-compatibility-matrix.md) | `b08481becc789ed4c079bfc78dd90b273899cd6fb8d4c223d94a1c1d879e2747` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/internal-compatibility-matrix.md.txt) |
-| [baseline-correction-map.md](baseline-correction-map.md) | `08b3687d975dbd9ae9050d5d0b333d2c106b884f1d3d87a3a966cbbc604d7385` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/baseline-correction-map.md.txt) |
-| [native-wire-details.md](native-wire-details.md) | `9818f271613fbb4cf94a798c953c3c36f69506fef7abb294de62f7e2d7d11760` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/native-wire-details.md.txt) |
-| [operation-contracts.md](operation-contracts.md) | `4bd860232cdc917a7415c327769d6892ccb5a59954d5d62db711a1c1d02bed43` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/operation-contracts.md.txt) |
-| [transfer-contracts.md](transfer-contracts.md) | `f0a9bdeb49647286b029f6e6946bd72d5f2b829dea8ba59122f200fcbff216d5` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/transfer-contracts.md.txt) |
-| [news-contracts.md](news-contracts.md) | `ff951636e03fc24ae05ccd67a1d751addf26622c3409139be4b92ec02e5b8760` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/news-contracts.md.txt) |
-| [presence-messaging-contracts.md](presence-messaging-contracts.md) | `0bdae4bd452f85ac4b9d0d0f1484c3d14d307531125bc2306f405ffde5d8b962` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/presence-messaging-contracts.md.txt) |
-| [core-field-schemas.md](core-field-schemas.md) | `58ececb4cee015a419dbcf9e8afa6d48d1e696a6e35211b2e98cf1866837d7b9` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/core-field-schemas.md.txt) |
-| [session-transport-contracts.md](session-transport-contracts.md) | `a28338d0c8bc9f123e0bc8bc18da81a50d48d4391a747fd96c7e6bc8c19ab509` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/session-transport-contracts.md.txt) |
-| [filesystem-and-board-contracts.md](filesystem-and-board-contracts.md) | `b41bdec440d3c039dfb55ddde942002a21117969894ca079bc47d89ec65d667d` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/filesystem-and-board-contracts.md.txt) |
-| [evidence-portability.md](evidence-portability.md) | `571225c97f9a1a3cae23363fb4d215886c77746d5df9ebc266eae56cd0221c14` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/evidence-portability.md.txt) |
-| [error-outcomes.md](error-outcomes.md) | `5c02b7006e3826923ee0d697ad46ab55a902214654bc3220445bbe531f9d1437` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/error-outcomes.md.txt) |
-| [identified-client-source.md](identified-client-source.md) | `8ae5ea40e8ae77af889b481262e662af6225df70fce7a92ddb104187c37becf7` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/identified-client-source.md.txt) |
-| [privilege-contracts.md](privilege-contracts.md) | `770195c43d9d649e389c37de09e543318f1ca8d1acc388b9757703065b21a7a3` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/privilege-contracts.md.txt) |
-| [native-capture-workflow.md](native-capture-workflow.md) | `3348fcb9c42ee7d6b156cafb7db13d384fc7f858ffbc44d605d9a19e500f1f11` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/native-capture-workflow.md.txt) |
+| [protocol.md](protocol.md) | `01f431e3955f885ffd6e1af6285ff8570a4959dde74f1300a179aab17d35f099` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-19/inputs/protocol.md.txt) |
+| [internal-compatibility-matrix.md](internal-compatibility-matrix.md) | `b08481becc789ed4c079bfc78dd90b273899cd6fb8d4c223d94a1c1d879e2747` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-19/inputs/internal-compatibility-matrix.md.txt) |
+| [baseline-correction-map.md](baseline-correction-map.md) | `08b3687d975dbd9ae9050d5d0b333d2c106b884f1d3d87a3a966cbbc604d7385` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-19/inputs/baseline-correction-map.md.txt) |
+| [native-wire-details.md](native-wire-details.md) | `08f646b77ae1d738345ac6df36cf18ee014921e5687507d1ebda8599c47bca4a` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-19/inputs/native-wire-details.md.txt) |
+| [operation-contracts.md](operation-contracts.md) | `4bd860232cdc917a7415c327769d6892ccb5a59954d5d62db711a1c1d02bed43` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-19/inputs/operation-contracts.md.txt) |
+| [transfer-contracts.md](transfer-contracts.md) | `f0a9bdeb49647286b029f6e6946bd72d5f2b829dea8ba59122f200fcbff216d5` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-19/inputs/transfer-contracts.md.txt) |
+| [news-contracts.md](news-contracts.md) | `ff951636e03fc24ae05ccd67a1d751addf26622c3409139be4b92ec02e5b8760` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-19/inputs/news-contracts.md.txt) |
+| [presence-messaging-contracts.md](presence-messaging-contracts.md) | `3b3043792e41d6308b6fa8c0a01c7307d0bc069bd199666cffef6a75a26f7918` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-19/inputs/presence-messaging-contracts.md.txt) |
+| [core-field-schemas.md](core-field-schemas.md) | `063762dbe86797d82dd7e51d59f255adf45841a9301c6d934ca7a1fe809794bd` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-19/inputs/core-field-schemas.md.txt) |
+| [session-transport-contracts.md](session-transport-contracts.md) | `3cb2f483b4e3388fc48a9a7ab6e983fd54610a1915a112eee766476cdd60c6df` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-19/inputs/session-transport-contracts.md.txt) |
+| [filesystem-and-board-contracts.md](filesystem-and-board-contracts.md) | `b41bdec440d3c039dfb55ddde942002a21117969894ca079bc47d89ec65d667d` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-19/inputs/filesystem-and-board-contracts.md.txt) |
+| [evidence-portability.md](evidence-portability.md) | `571225c97f9a1a3cae23363fb4d215886c77746d5df9ebc266eae56cd0221c14` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-19/inputs/evidence-portability.md.txt) |
+| [error-outcomes.md](error-outcomes.md) | `5c02b7006e3826923ee0d697ad46ab55a902214654bc3220445bbe531f9d1437` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-19/inputs/error-outcomes.md.txt) |
+| [identified-client-source.md](identified-client-source.md) | `8ae5ea40e8ae77af889b481262e662af6225df70fce7a92ddb104187c37becf7` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-19/inputs/identified-client-source.md.txt) |
+| [privilege-contracts.md](privilege-contracts.md) | `770195c43d9d649e389c37de09e543318f1ca8d1acc388b9757703065b21a7a3` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-19/inputs/privilege-contracts.md.txt) |
+| [native-capture-workflow.md](native-capture-workflow.md) | `bd96c546d477324a51d9600b549a8da90c9e65a7befecf01eb5b99ba7e460a6c` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-19/inputs/native-capture-workflow.md.txt) |
 
 [Audit
-manifest](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/manifest.json);
+manifest](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-19/manifest.json);
 [machine-readable register](gap-register.json). No field or behaviour is
 silently made normative by being listed as a question.
 
@@ -119,7 +118,7 @@ silently made normative by being listed as a question.
 | [GAP-011](#gap-011) | P0 | Unanswered | Framing and parsing | Frame, transaction and buffering limits | Investigating |
 | [GAP-012](#gap-012) | P0 | Unanswered | Framing and parsing | Fragment reassembly edge cases | Investigating |
 | [GAP-013](#gap-013) | P0 | Missing | Framing and parsing | Accepted envelope values and reserved bytes | Investigating |
-| [GAP-014](#gap-014) | P0 | Unanswered | Framing and parsing | TLV structural validation | Investigating |
+| [GAP-014](#gap-014) | P0 | Unanswered | Framing and parsing | TLV structural validation | Resolved |
 | [GAP-015](#gap-015) | P0 | Ambiguous | Values and encoding | Field-specific scalar types | Investigating |
 | [GAP-016](#gap-016) | P0 | Ambiguous | Values and encoding | Absent, empty and zero-valued fields | Investigating |
 | [GAP-017](#gap-017) | P0 | Unanswered | Framing and parsing | Repeated scalar fields and ordering | Investigating |
@@ -669,11 +668,18 @@ silently made normative by being listed as a question.
 - **Progress:** Captured explicit startup assignment of 512 KiB to
   receive-limit global, superseding the image-only 2 MiB assumption for that
   path. Indirect future writes, configurability, aggregate bounds and boundary
-  fixtures remain required.
-- **Evidence:** [Session transport contracts](session-transport-contracts.md);
-  [Core schemas](core-field-schemas.md); [Batch
-  07](../mothra/evidence/gap-remediation/2026-11-12/batch-07/manifest.json)
-- **Closure:** Not closed: remaining acceptance evidence is listed above.
+  fixtures remain required. Native boundary cases confirm zero/above512KiB
+  size words close, equality524288 passes and aggregate524290 can dispatch.
+  mxd limits, configuration/write paths and global buffering bounds remain
+  required.
+- **Evidence:** [Framing
+  evidence](../mothra/evidence/gap-remediation/2026-11-12/native-framing-01/manifest.json);
+  [Native framing
+  contracts](session-transport-contracts.md#captured-framing-and-reassembly-boundaries);
+  [TLV and scalar
+  outcomes](native-wire-details.md#captured-tlv-and-scalar-boundaries)
+- **Closure:** Not closed: broader unchanged acceptance requirements remain as
+  stated above.
 
 ### GAP-012
 
@@ -699,14 +705,19 @@ silently made normative by being listed as a question.
 - **Progress:** Complete-request selection requires accumulated length at
   least total; partial TCP/frame/fragment progress does not update dispatcher
   activity in traced paths. No assembly-age check is established there. Native
-  collision/abandonment and buffering fixtures remain required.
-- **Evidence:** [Activity
-  clocks](session-transport-contracts.md#activity-clocks-and-incomplete-input);
-  [Flood
-  counters](session-transport-contracts.md#flood-and-connection-burst-counters);
-  [Transfer timer
-  resets](transfer-contracts.md#transfer-timer-origins-and-resets)
-- **Closure:** Not closed: remaining acceptance evidence is listed above.
+  collision/abandonment and buffering fixtures remain required. Captured
+  total/type replacement, overshoot, interleaved IDs, abandoned-partial
+  coexistence, request/reply namespace separation, sequentialIDreuse and
+  incompleteTCP silence. Assembly age, collision lifecycle and global
+  buffering remain unproven.
+- **Evidence:** [Framing
+  evidence](../mothra/evidence/gap-remediation/2026-11-12/native-framing-01/manifest.json);
+  [Native framing
+  contracts](session-transport-contracts.md#captured-framing-and-reassembly-boundaries);
+  [TLV and scalar
+  outcomes](native-wire-details.md#captured-tlv-and-scalar-boundaries)
+- **Closure:** Not closed: broader unchanged acceptance requirements remain as
+  stated above.
 
 ### GAP-013
 
@@ -733,16 +744,23 @@ silently made normative by being listed as a question.
 - **Depends on:** No prerequisite recorded.
 - **Progress:** Documented nonzero reply-byte discrimination and lack of a
   flags whitelist in the traced receiver. Full direction-specific negative
-  fixtures remain required.
-- **Evidence:** [Operation contracts](operation-contracts.md); [Compatibility
-  review](internal-compatibility-matrix.md#mxd-review-at-2e4c9c1)
-- **Closure:** Not closed: remaining acceptance evidence is listed above.
+  fixtures remain required. Captured flagsff, errorwordffffffff, requestIDzero
+  and unmatched reply bytes1/2/255, plus size rejection closes. Full
+  direction-specific accepted/rejected envelope policy remains required.
+- **Evidence:** [Framing
+  evidence](../mothra/evidence/gap-remediation/2026-11-12/native-framing-01/manifest.json);
+  [Native framing
+  contracts](session-transport-contracts.md#captured-framing-and-reassembly-boundaries);
+  [TLV and scalar
+  outcomes](native-wire-details.md#captured-tlv-and-scalar-boundaries)
+- **Closure:** Not closed: broader unchanged acceptance requirements remain as
+  stated above.
 
 ### GAP-014
 
 #### TLV structural validation
 
-- **Tracking:** P0; Unanswered; Investigating; owner: Protocol documentation
+- **Tracking:** P0; Unanswered; Resolved; owner: Protocol documentation
   investigation.
 - **Sources:** [protocol.md — 2.1 Parameter list (payload
   block)](protocol.md#21-parameter-list-payload-block) (snapshot lines
@@ -760,13 +778,22 @@ silently made normative by being listed as a question.
   [100566e0](../mothra/evidence/hotline-server-1.9/queries/D-100566e0.c),
   [100572d0](../mothra/evidence/hotline-server-1.9/queries/D-100572d0.c)
 - **Depends on:** No prerequisite recorded.
-- **Progress:** Documented valid-prefix indexing, short payloads and trailing
-  bytes. Boundary fixtures and handler-level outcomes remain required.
-- **Evidence:** [Native wire details](native-wire-details.md); [Batch
-  01](../mothra/evidence/gap-remediation/2026-11-12/batch-01/manifest.json);
-  [Batch
-  02](../mothra/evidence/gap-remediation/2026-11-12/batch-02/manifest.json)
-- **Closure:** Not closed: remaining acceptance evidence is listed above.
+- **Binary sha256:**
+  ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b
+- **Evidence:** [Captured TLV
+  boundaries](native-wire-details.md#captured-tlv-and-scalar-boundaries);
+  [Native framing
+  corpus](../mothra/evidence/gap-remediation/2026-11-12/native-framing-01/manifest.json);
+  [Packet and outcome
+  verification](../mothra/evidence/gap-remediation/2026-11-12/native-framing-01/verification.json);
+  [Unchanged criterion
+  review](../mothra/evidence/gap-remediation/2026-11-12/closure-review-05/review.json)
+- **Closure:** Exact prefix consumption, record/header/value bounds,
+  unknown/zero IDs and trailing-data rules are defined with retained helper
+  code and native boundary/mismatch fixtures. Settings304 outcomes
+  independently expose complete indexed values and defaults. Other handlers
+  may reject those defaults; their transaction-specific acceptance remains
+  separate.
 
 ### GAP-017
 
@@ -794,12 +821,18 @@ silently made normative by being listed as a question.
 - **Depends on:** No prerequisite recorded.
 - **Progress:** Established sorted binary-search scalar selection without a
   first/last guarantee and original-order indexed iteration. Duplicate/reorder
-  fixtures remain required.
-- **Evidence:** [Native wire details](native-wire-details.md); [Batch
-  01](../mothra/evidence/gap-remediation/2026-11-12/batch-01/manifest.json);
-  [Batch
-  02](../mothra/evidence/gap-remediation/2026-11-12/batch-02/manifest.json)
-- **Closure:** Not closed: remaining acceptance evidence is listed above.
+  fixtures remain required. Four duplicate icon orders emitted the last icon
+  in those cases only. Interleaved repeated-record and transaction/field
+  multiplicity coverage remain incomplete; no universal last-wins policy
+  inferred.
+- **Evidence:** [Framing
+  evidence](../mothra/evidence/gap-remediation/2026-11-12/native-framing-01/manifest.json);
+  [Native framing
+  contracts](session-transport-contracts.md#captured-framing-and-reassembly-boundaries);
+  [TLV and scalar
+  outcomes](native-wire-details.md#captured-tlv-and-scalar-boundaries)
+- **Closure:** Not closed: broader unchanged acceptance requirements remain as
+  stated above.
 
 ## Values and encoding
 
@@ -833,11 +866,18 @@ silently made normative by being listed as a question.
 - **Depends on:** No prerequisite recorded.
 - **Progress:** Core registry now supplies field-specific
   scalar/byte/bitmap/record schemas. Non-core types and malformed-width/range
-  native fixtures remain required.
-- **Evidence:** [Error outcomes](error-outcomes.md); [Folder
-  descriptor](transfer-contracts.md#folder-item-descriptor-bytes); [Identified
-  client source](identified-client-source.md)
-- **Closure:** Not closed: remaining acceptance evidence is listed above.
+  native fixtures remain required. Captured settings icon widths0..5, low16bit
+  narrowing and301 signed-short promotion:8000 emitsffff8000; initial wrong
+  hypothesis retained. Other core scalar/reference/bitmap malformed-width
+  outcomes remain required.
+- **Evidence:** [Framing
+  evidence](../mothra/evidence/gap-remediation/2026-11-12/native-framing-01/manifest.json);
+  [Native framing
+  contracts](session-transport-contracts.md#captured-framing-and-reassembly-boundaries);
+  [TLV and scalar
+  outcomes](native-wire-details.md#captured-tlv-and-scalar-boundaries)
+- **Closure:** Not closed: broader unchanged acceptance requirements remain as
+  stated above.
 
 ### GAP-016
 
@@ -3129,14 +3169,19 @@ silently made normative by being listed as a question.
   transcripts including explorations, a hashed clean prelaunch checkpoint and
   reset-aware analysis. Split windows are3 seconds; observed native FIN/RST
   distinctions are preserved even when the host proxy exposes EOF. Full
-  operation/identified-peer corpus remains required.
-- **Evidence:** [Native transport
-  corpus](../mothra/evidence/gap-remediation/2026-11-12/native-transport-01/manifest.json);
-  [Captured boundaries and timers](session-transport-contracts.md);
-  [Repeatable transport
-  fixtures](native-capture-workflow.md#recorded-native-transport-fixtures)
-- **Closure:** Not closed: the remaining unchanged acceptance requirements are
-  explicitly retained above.
+  operation/identified-peer corpus remains required. Added62 reviewed
+  framing/TLV sessions plus preserved disproven initial icon-width hypothesis,
+  exact host/guest packet reconciliation scoped to UTC/SYN lifetimes, and
+  independent missing-close/quiet-window controls. Full operations and
+  identified peers remain required.
+- **Evidence:** [Framing
+  evidence](../mothra/evidence/gap-remediation/2026-11-12/native-framing-01/manifest.json);
+  [Native framing
+  contracts](session-transport-contracts.md#captured-framing-and-reassembly-boundaries);
+  [TLV and scalar
+  outcomes](native-wire-details.md#captured-tlv-and-scalar-boundaries)
+- **Closure:** Not closed: broader unchanged acceptance requirements remain as
+  stated above.
 
 ### GAP-085
 
@@ -3330,13 +3375,13 @@ of binary paths, clients or packet inputs.
 | internal-compatibility-matrix.md | [Open compatibility gaps and QA requirements](internal-compatibility-matrix.md#open-compatibility-gaps-and-qa-requirements) | 279–311 | [GAP-001](#gap-001), [GAP-080](#gap-080), [GAP-084](#gap-084), [GAP-085](#gap-085), [GAP-086](#gap-086) |
 | baseline-correction-map.md | [Baseline correction map](baseline-correction-map.md#baseline-correction-map) | 1–112 | [GAP-086](#gap-086), [GAP-087](#gap-087) |
 | native-wire-details.md | [Hotline 1.9 native wire details](native-wire-details.md#hotline-19-native-wire-details) | 1–8 | 13 gaps; see section-specific rows and JSON register |
-| native-wire-details.md | [Parameter parsing and scalar access](native-wire-details.md#parameter-parsing-and-scalar-access) | 9–36 | [GAP-014](#gap-014), [GAP-015](#gap-015), [GAP-016](#gap-016), [GAP-017](#gap-017), [GAP-018](#gap-018), [GAP-019](#gap-019) |
-| native-wire-details.md | [Credential bytes, lookup and account updates](native-wire-details.md#credential-bytes-lookup-and-account-updates) | 37–56 | [GAP-016](#gap-016), [GAP-018](#gap-018), [GAP-019](#gap-019), [GAP-022](#gap-022), [GAP-023](#gap-023), [GAP-071](#gap-071), [GAP-072](#gap-072), [GAP-073](#gap-073) |
-| native-wire-details.md | [Account record and field schema](native-wire-details.md#account-record-and-field-schema) | 57–100 | [GAP-016](#gap-016), [GAP-019](#gap-019), [GAP-071](#gap-071), [GAP-072](#gap-072) |
-| native-wire-details.md | [Login lookup transformations](native-wire-details.md#login-lookup-transformations) | 121–135 | [GAP-018](#gap-018), [GAP-022](#gap-022), [GAP-023](#gap-023) |
-| native-wire-details.md | [Changes to connected accounts](native-wire-details.md#changes-to-connected-accounts) | 136–145 | [GAP-073](#gap-073) |
-| native-wire-details.md | [Structured file paths and file-list entries](native-wire-details.md#structured-file-paths-and-file-list-entries) | 146–189 | [GAP-047](#gap-047), [GAP-048](#gap-048) |
-| native-wire-details.md | [Privilege access and connection timers](native-wire-details.md#privilege-access-and-connection-timers) | 190–242 | [GAP-005](#gap-005), [GAP-031](#gap-031), [GAP-032](#gap-032), [GAP-045](#gap-045) |
+| native-wire-details.md | [Parameter parsing and scalar access](native-wire-details.md#parameter-parsing-and-scalar-access) | 9–35 | [GAP-014](#gap-014), [GAP-015](#gap-015), [GAP-016](#gap-016), [GAP-017](#gap-017), [GAP-018](#gap-018), [GAP-019](#gap-019) |
+| native-wire-details.md | [Credential bytes, lookup and account updates](native-wire-details.md#credential-bytes-lookup-and-account-updates) | 74–93 | [GAP-016](#gap-016), [GAP-018](#gap-018), [GAP-019](#gap-019), [GAP-022](#gap-022), [GAP-023](#gap-023), [GAP-071](#gap-071), [GAP-072](#gap-072), [GAP-073](#gap-073) |
+| native-wire-details.md | [Account record and field schema](native-wire-details.md#account-record-and-field-schema) | 94–137 | [GAP-016](#gap-016), [GAP-019](#gap-019), [GAP-071](#gap-071), [GAP-072](#gap-072) |
+| native-wire-details.md | [Login lookup transformations](native-wire-details.md#login-lookup-transformations) | 158–172 | [GAP-018](#gap-018), [GAP-022](#gap-022), [GAP-023](#gap-023) |
+| native-wire-details.md | [Changes to connected accounts](native-wire-details.md#changes-to-connected-accounts) | 173–182 | [GAP-073](#gap-073) |
+| native-wire-details.md | [Structured file paths and file-list entries](native-wire-details.md#structured-file-paths-and-file-list-entries) | 183–226 | [GAP-047](#gap-047), [GAP-048](#gap-048) |
+| native-wire-details.md | [Privilege access and connection timers](native-wire-details.md#privilege-access-and-connection-timers) | 227–279 | [GAP-005](#gap-005), [GAP-031](#gap-031), [GAP-032](#gap-032), [GAP-045](#gap-045) |
 | internal-compatibility-matrix.md | [mxd review at 2e4c9c1](internal-compatibility-matrix.md#mxd-review-at-2e4c9c1) | 171–193 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086) |
 | internal-compatibility-matrix.md | [Assertions requiring protocol reconciliation](internal-compatibility-matrix.md#assertions-requiring-protocol-reconciliation) | 194–209 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-085](#gap-085) |
 | internal-compatibility-matrix.md | [Exact current text heuristic](internal-compatibility-matrix.md#exact-current-text-heuristic) | 210–230 | [GAP-018](#gap-018), [GAP-080](#gap-080), [GAP-082](#gap-082), [GAP-085](#gap-085) |
@@ -3366,25 +3411,25 @@ of binary paths, clients or packet inputs.
 | news-contracts.md | [Posting, partial effects and deletion](news-contracts.md#posting-partial-effects-and-deletion) | 145–167 | [GAP-021](#gap-021), [GAP-068](#gap-068), [GAP-069](#gap-069) |
 | news-contracts.md | [Scope of hierarchy evidence](news-contracts.md#scope-of-hierarchy-evidence) | 196–205 | [GAP-047](#gap-047), [GAP-070](#gap-070) |
 | presence-messaging-contracts.md | [Native presence, messaging and administration contracts](presence-messaging-contracts.md#native-presence-messaging-and-administration-contracts) | 1–7 | 18 gaps; see section-specific rows and JSON register |
-| presence-messaging-contracts.md | [Settings and login visibility](presence-messaging-contracts.md#settings-and-login-visibility) | 8–44 | [GAP-025](#gap-025), [GAP-029](#gap-029), [GAP-030](#gap-030), [GAP-035](#gap-035) |
-| presence-messaging-contracts.md | [Agreement and banner condition tables](presence-messaging-contracts.md#agreement-and-banner-condition-tables) | 45–66 | [GAP-026](#gap-026), [GAP-027](#gap-027), [GAP-028](#gap-028) |
-| presence-messaging-contracts.md | [Status word, separate from the privilege bitmap](presence-messaging-contracts.md#status-word-separate-from-the-privilege-bitmap) | 167–204 | [GAP-034](#gap-034) |
-| presence-messaging-contracts.md | [Disconnect teardown and notification 302](presence-messaging-contracts.md#disconnect-teardown-and-notification-302) | 205–221 | [GAP-036](#gap-036) |
-| presence-messaging-contracts.md | [Private-message routing](presence-messaging-contracts.md#private-message-routing) | 222–269 | [GAP-043](#gap-043), [GAP-044](#gap-044), [GAP-045](#gap-045) |
-| presence-messaging-contracts.md | [Rooms, invitations and subjects](presence-messaging-contracts.md#rooms-invitations-and-subjects) | 270–305 | [GAP-038](#gap-038), [GAP-039](#gap-039), [GAP-040](#gap-040), [GAP-041](#gap-041), [GAP-042](#gap-042) |
-| presence-messaging-contracts.md | [Kick options and native console messages](presence-messaging-contracts.md#kick-options-and-native-console-messages) | 306–343 | [GAP-074](#gap-074), [GAP-075](#gap-075), [GAP-076](#gap-076) |
+| presence-messaging-contracts.md | [Settings and login visibility](presence-messaging-contracts.md#settings-and-login-visibility) | 8–49 | [GAP-025](#gap-025), [GAP-029](#gap-029), [GAP-030](#gap-030), [GAP-035](#gap-035) |
+| presence-messaging-contracts.md | [Agreement and banner condition tables](presence-messaging-contracts.md#agreement-and-banner-condition-tables) | 50–71 | [GAP-026](#gap-026), [GAP-027](#gap-027), [GAP-028](#gap-028) |
+| presence-messaging-contracts.md | [Status word, separate from the privilege bitmap](presence-messaging-contracts.md#status-word-separate-from-the-privilege-bitmap) | 172–209 | [GAP-034](#gap-034) |
+| presence-messaging-contracts.md | [Disconnect teardown and notification 302](presence-messaging-contracts.md#disconnect-teardown-and-notification-302) | 210–226 | [GAP-036](#gap-036) |
+| presence-messaging-contracts.md | [Private-message routing](presence-messaging-contracts.md#private-message-routing) | 227–274 | [GAP-043](#gap-043), [GAP-044](#gap-044), [GAP-045](#gap-045) |
+| presence-messaging-contracts.md | [Rooms, invitations and subjects](presence-messaging-contracts.md#rooms-invitations-and-subjects) | 275–310 | [GAP-038](#gap-038), [GAP-039](#gap-039), [GAP-040](#gap-040), [GAP-041](#gap-041), [GAP-042](#gap-042) |
+| presence-messaging-contracts.md | [Kick options and native console messages](presence-messaging-contracts.md#kick-options-and-native-console-messages) | 311–348 | [GAP-074](#gap-074), [GAP-075](#gap-075), [GAP-076](#gap-076) |
 | core-field-schemas.md | [Core transaction field schemas](core-field-schemas.md#core-transaction-field-schemas) | 1–8 | [GAP-002](#gap-002), [GAP-015](#gap-015), [GAP-016](#gap-016), [GAP-017](#gap-017), [GAP-019](#gap-019) |
 | core-field-schemas.md | [Types, occurrence and direction conventions](core-field-schemas.md#types-occurrence-and-direction-conventions) | 9–33 | [GAP-002](#gap-002), [GAP-015](#gap-015), [GAP-017](#gap-017) |
 | core-field-schemas.md | [Login and settings requests](core-field-schemas.md#login-and-settings-requests) | 34–55 | [GAP-002](#gap-002), [GAP-016](#gap-016), [GAP-024](#gap-024), [GAP-029](#gap-029), [GAP-030](#gap-030) |
-| core-field-schemas.md | [Login and presence outputs](core-field-schemas.md#login-and-presence-outputs) | 91–103 | [GAP-002](#gap-002), [GAP-025](#gap-025), [GAP-026](#gap-026), [GAP-027](#gap-027), [GAP-028](#gap-028), [GAP-035](#gap-035), [GAP-036](#gap-036), [GAP-037](#gap-037) |
-| core-field-schemas.md | [Chat, PM and room requests](core-field-schemas.md#chat-pm-and-room-requests) | 104–121 | [GAP-002](#gap-002), [GAP-038](#gap-038), [GAP-039](#gap-039), [GAP-040](#gap-040), [GAP-041](#gap-041), [GAP-042](#gap-042), [GAP-043](#gap-043) |
-| core-field-schemas.md | [Room and message outputs](core-field-schemas.md#room-and-message-outputs) | 122–140 | [GAP-002](#gap-002), [GAP-044](#gap-044), [GAP-075](#gap-075), [GAP-076](#gap-076) |
+| core-field-schemas.md | [Login and presence outputs](core-field-schemas.md#login-and-presence-outputs) | 91–110 | [GAP-002](#gap-002), [GAP-025](#gap-025), [GAP-026](#gap-026), [GAP-027](#gap-027), [GAP-028](#gap-028), [GAP-035](#gap-035), [GAP-036](#gap-036), [GAP-037](#gap-037) |
+| core-field-schemas.md | [Chat, PM and room requests](core-field-schemas.md#chat-pm-and-room-requests) | 111–128 | [GAP-002](#gap-002), [GAP-038](#gap-038), [GAP-039](#gap-039), [GAP-040](#gap-040), [GAP-041](#gap-041), [GAP-042](#gap-042), [GAP-043](#gap-043) |
+| core-field-schemas.md | [Room and message outputs](core-field-schemas.md#room-and-message-outputs) | 129–147 | [GAP-002](#gap-002), [GAP-044](#gap-044), [GAP-075](#gap-075), [GAP-076](#gap-076) |
 | session-transport-contracts.md | [Native session and transport contracts](session-transport-contracts.md#native-session-and-transport-contracts) | 1–8 | [GAP-008](#gap-008), [GAP-009](#gap-009), [GAP-010](#gap-010), [GAP-011](#gap-011), [GAP-024](#gap-024), [GAP-033](#gap-033) |
 | session-transport-contracts.md | [Configured endpoints](session-transport-contracts.md#configured-endpoints) | 9–38 | [GAP-010](#gap-010) |
 | session-transport-contracts.md | [Handshake consumption and failures](session-transport-contracts.md#handshake-consumption-and-failures) | 39–59 | [GAP-008](#gap-008) |
 | session-transport-contracts.md | [Sub-version 3 versus the data endpoint](session-transport-contracts.md#sub-version-3-versus-the-data-endpoint) | 89–111 | [GAP-009](#gap-009), [GAP-055](#gap-055) |
 | session-transport-contracts.md | [Receive-limit assignment at startup](session-transport-contracts.md#receive-limit-assignment-at-startup) | 112–126 | [GAP-011](#gap-011) |
-| session-transport-contracts.md | [Identifier domains](session-transport-contracts.md#identifier-domains) | 127–142 | [GAP-024](#gap-024), [GAP-033](#gap-033) |
+| session-transport-contracts.md | [Identifier domains](session-transport-contracts.md#identifier-domains) | 156–171 | [GAP-024](#gap-024), [GAP-033](#gap-033) |
 | internal-compatibility-matrix.md | [Historical source lineage and build limits](internal-compatibility-matrix.md#historical-source-lineage-and-build-limits) | 261–278 | [GAP-083](#gap-083) |
 | filesystem-and-board-contracts.md | [Native filesystem, diagnostics and legacy-board contracts](filesystem-and-board-contracts.md#native-filesystem-diagnostics-and-legacy-board-contracts) | 1–7 | [GAP-037](#gap-037), [GAP-046](#gap-046), [GAP-049](#gap-049), [GAP-050](#gap-050), [GAP-051](#gap-051), [GAP-052](#gap-052), [GAP-053](#gap-053), [GAP-054](#gap-054) |
 | filesystem-and-board-contracts.md | [File-info target kinds and field presence](filesystem-and-board-contracts.md#file-info-target-kinds-and-field-presence) | 8–28 | [GAP-049](#gap-049) |
@@ -3417,25 +3462,28 @@ of binary paths, clients or packet inputs.
 | privilege-contracts.md | [Account creation, update and batch rules](privilege-contracts.md#account-creation-update-and-batch-rules) | 87–119 | [GAP-032](#gap-032), [GAP-072](#gap-072), [GAP-073](#gap-073), [GAP-078](#gap-078) |
 | privilege-contracts.md | [Remaining acceptance evidence](privilege-contracts.md#remaining-acceptance-evidence) | 120–138 | [GAP-031](#gap-031), [GAP-032](#gap-032), [GAP-072](#gap-072), [GAP-073](#gap-073), [GAP-078](#gap-078) |
 | transfer-contracts.md | [Transfer timer origins and resets](transfer-contracts.md#transfer-timer-origins-and-resets) | 246–276 | [GAP-005](#gap-005), [GAP-059](#gap-059), [GAP-060](#gap-060), [GAP-061](#gap-061), [GAP-064](#gap-064) |
-| session-transport-contracts.md | [Activity clocks and incomplete input](session-transport-contracts.md#activity-clocks-and-incomplete-input) | 143–176 | [GAP-005](#gap-005), [GAP-008](#gap-008), [GAP-012](#gap-012) |
-| session-transport-contracts.md | [Flood and connection-burst counters](session-transport-contracts.md#flood-and-connection-burst-counters) | 199–229 | [GAP-005](#gap-005), [GAP-045](#gap-045), [GAP-074](#gap-074) |
-| presence-messaging-contracts.md | [Login extras and configured content](presence-messaging-contracts.md#login-extras-and-configured-content) | 85–86 | [GAP-026](#gap-026), [GAP-028](#gap-028) |
-| presence-messaging-contracts.md | [Fields 160, 161 and 162](presence-messaging-contracts.md#fields-160-161-and-162) | 87–113 | [GAP-026](#gap-026) |
-| presence-messaging-contracts.md | [Agreement and banner loading](presence-messaging-contracts.md#agreement-and-banner-loading) | 114–142 | [GAP-026](#gap-026), [GAP-027](#gap-027), [GAP-028](#gap-028) |
-| presence-messaging-contracts.md | [Content byte limits and reload effects](presence-messaging-contracts.md#content-byte-limits-and-reload-effects) | 143–166 | [GAP-011](#gap-011), [GAP-018](#gap-018), [GAP-019](#gap-019), [GAP-027](#gap-027), [GAP-028](#gap-028) |
-| presence-messaging-contracts.md | [Early completion and metadata changes](presence-messaging-contracts.md#early-completion-and-metadata-changes) | 67–84 | [GAP-028](#gap-028), [GAP-063](#gap-063), [GAP-084](#gap-084) |
+| session-transport-contracts.md | [Activity clocks and incomplete input](session-transport-contracts.md#activity-clocks-and-incomplete-input) | 172–205 | [GAP-005](#gap-005), [GAP-008](#gap-008), [GAP-012](#gap-012) |
+| session-transport-contracts.md | [Flood and connection-burst counters](session-transport-contracts.md#flood-and-connection-burst-counters) | 228–258 | [GAP-005](#gap-005), [GAP-045](#gap-045), [GAP-074](#gap-074) |
+| presence-messaging-contracts.md | [Login extras and configured content](presence-messaging-contracts.md#login-extras-and-configured-content) | 90–91 | [GAP-026](#gap-026), [GAP-028](#gap-028) |
+| presence-messaging-contracts.md | [Fields 160, 161 and 162](presence-messaging-contracts.md#fields-160-161-and-162) | 92–118 | [GAP-026](#gap-026) |
+| presence-messaging-contracts.md | [Agreement and banner loading](presence-messaging-contracts.md#agreement-and-banner-loading) | 119–147 | [GAP-026](#gap-026), [GAP-027](#gap-027), [GAP-028](#gap-028) |
+| presence-messaging-contracts.md | [Content byte limits and reload effects](presence-messaging-contracts.md#content-byte-limits-and-reload-effects) | 148–171 | [GAP-011](#gap-011), [GAP-018](#gap-018), [GAP-019](#gap-019), [GAP-027](#gap-027), [GAP-028](#gap-028) |
+| presence-messaging-contracts.md | [Early completion and metadata changes](presence-messaging-contracts.md#early-completion-and-metadata-changes) | 72–89 | [GAP-028](#gap-028), [GAP-063](#gap-063), [GAP-084](#gap-084) |
 | core-field-schemas.md | [Login width and feature-condition matrix](core-field-schemas.md#login-width-and-feature-condition-matrix) | 56–90 | [GAP-024](#gap-024), [GAP-015](#gap-015), [GAP-025](#gap-025) |
 | operation-contracts.md | [Per-operation reply and fan-out map](operation-contracts.md#per-operation-reply-and-fan-out-map) | 87–150 | [GAP-006](#gap-006), [GAP-003](#gap-003), [GAP-084](#gap-084) |
 | native-capture-workflow.md | [Reproducing native protocol captures](native-capture-workflow.md#reproducing-native-protocol-captures) | 1–8 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
 | native-capture-workflow.md | [Prepare the emulator and application](native-capture-workflow.md#prepare-the-emulator-and-application) | 9–86 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
 | native-capture-workflow.md | [Capture an exchange](native-capture-workflow.md#capture-an-exchange) | 87–153 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
-| native-capture-workflow.md | [Acceptance and corpus coverage](native-capture-workflow.md#acceptance-and-corpus-coverage) | 274–303 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
-| native-wire-details.md | [Account lookup name encodings](native-wire-details.md#account-lookup-name-encodings) | 101–120 | [GAP-022](#gap-022), [GAP-071](#gap-071), [GAP-072](#gap-072) |
+| native-capture-workflow.md | [Acceptance and corpus coverage](native-capture-workflow.md#acceptance-and-corpus-coverage) | 309–338 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
+| native-wire-details.md | [Account lookup name encodings](native-wire-details.md#account-lookup-name-encodings) | 138–157 | [GAP-022](#gap-022), [GAP-071](#gap-071), [GAP-072](#gap-072) |
 | error-outcomes.md | [Recorded representative native outcomes](error-outcomes.md#recorded-representative-native-outcomes) | 36–55 | [GAP-003](#gap-003), [GAP-084](#gap-084) |
 | native-capture-workflow.md | [Recorded native core fixtures](native-capture-workflow.md#recorded-native-core-fixtures) | 154–230 | [GAP-022](#gap-022), [GAP-025](#gap-025), [GAP-071](#gap-071), [GAP-077](#gap-077), [GAP-084](#gap-084) |
 | session-transport-contracts.md | [Captured handshake boundaries](session-transport-contracts.md#captured-handshake-boundaries) | 60–88 | [GAP-008](#gap-008), [GAP-010](#gap-010), [GAP-084](#gap-084) |
-| session-transport-contracts.md | [Captured failure-wait observations](session-transport-contracts.md#captured-failure-wait-observations) | 177–198 | [GAP-005](#gap-005), [GAP-084](#gap-084) |
+| session-transport-contracts.md | [Captured failure-wait observations](session-transport-contracts.md#captured-failure-wait-observations) | 206–227 | [GAP-005](#gap-005), [GAP-084](#gap-084) |
 | native-capture-workflow.md | [Recorded native transport fixtures](native-capture-workflow.md#recorded-native-transport-fixtures) | 231–273 | [GAP-008](#gap-008), [GAP-009](#gap-009), [GAP-010](#gap-010), [GAP-084](#gap-084) |
+| native-wire-details.md | [Captured TLV and scalar boundaries](native-wire-details.md#captured-tlv-and-scalar-boundaries) | 36–73 | [GAP-014](#gap-014), [GAP-015](#gap-015), [GAP-017](#gap-017), [GAP-084](#gap-084) |
+| session-transport-contracts.md | [Captured framing and reassembly boundaries](session-transport-contracts.md#captured-framing-and-reassembly-boundaries) | 127–155 | [GAP-011](#gap-011), [GAP-012](#gap-012), [GAP-013](#gap-013), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Recorded native framing fixtures](native-capture-workflow.md#recorded-native-framing-fixtures) | 274–308 | [GAP-014](#gap-014), [GAP-084](#gap-084) |
 
 ## Maintaining this analysis
 

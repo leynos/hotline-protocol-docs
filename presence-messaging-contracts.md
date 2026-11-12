@@ -29,6 +29,11 @@ The exact byte classification table is retained in batch 06 at `100945c8`.
 It is not a Unicode category rule. The default text bytes are retained at
 `1008fd2d`; no peer-wide locale or UTF-8 encoding guarantee follows.
 
+Settings retain a 16-bit icon. The 301 sender promotes that word as signed
+before numeric serialization: high-bit icons use four bytes (`8000` becomes
+`ffff8000`, `ffff` becomes `ffffffff`). The [native settings captures](native-wire-details.md#captured-tlv-and-scalar-boundaries)
+confirm this exception; the packed roster icon remains BE16.
+
 The helper calls the 301 builder after assigning these settings. Fan-out helper
 `10005510` selects sessions whose transport is ready and whose online flag is
 set, including the sender when already online. Both traced login completion

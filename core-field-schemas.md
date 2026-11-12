@@ -101,6 +101,13 @@ login session; those remain GAP-015/025/065/080/084.
 | 302 notification | Scalar N 103 | Departing UID after room-leave calls; delivered/concurrent order remains GAP-036. |
 | 303 ACK | Scalar B 102 and B 101 | Request reads scalar N 103; requires privilege 24 and an eligible existing target. Generated diagnostic text is not a fixed client-profile record (GAP-037). |
 
+For **301 field 104**, the sender promotes the stored icon as a signed 16-bit
+word before numeric emission. Values with bit 15 set therefore emit four bytes:
+stored `8000` becomes `ffff8000`, and `ffff` becomes `ffffffff`. Values through
+`7fff` emit two bytes. This does not alter the unsigned generic input reader or
+the packed roster's BE16 icon. The [captured boundary matrix](native-wire-details.md#captured-tlv-and-scalar-boundaries)
+and retained sender code establish this field-specific exception.
+
 ## Chat, PM and room requests
 
 | Request | Field schemas / occurrence | Absence, conditions and normal result |

@@ -110,3 +110,48 @@ def stream(
             raise ValueError("Conflicting TCP retransmission")
         result.extend(data[overlap:])
     return bytes(result)
+
+
+def lifetime(
+    packets: list[dict],
+    source: tuple[str, int],
+    destination: tuple[str, int],
+    connect_us: int,
+) -> list[dict]:
+    """Select a unique SYN lifetime near a socket event; reject ambiguous reuse."""
+    incoming = direction(packets, source, destination)
+    first_syns: dict[int, int] = {}
+    for packet in incoming:
+        if packet["flags"] & 2 and not packet["flags"] & 16:
+            first_syns.setdefault(packet["sequence"], packet["timestamp_us"])
+    candidates = [
+        (sequence, when)
+        for sequence, when in first_syns.items()
+        if abs(when - connect_us) <= 2_000_000
+    ]
+    if len(candidates) != 1:
+        raise ValueError("Missing or ambiguous SYN lifetime near socket event")
+    sequence, start = candidates[0]
+    end = min(
+        (
+            when
+            for other, when in first_syns.items()
+            if other != sequence and when > start
+        ),
+        default=float("inf"),
+    )
+    return [
+        p
+        for p in packets
+        if start <= p["timestamp_us"] < end
+        and (
+            (
+                (p["src_ip"], p["src_port"]) == source
+                and (p["dst_ip"], p["dst_port"]) == destination
+            )
+            or (
+                (p["src_ip"], p["src_port"]) == destination
+                and (p["dst_ip"], p["dst_port"]) == source
+            )
+        )
+    ]

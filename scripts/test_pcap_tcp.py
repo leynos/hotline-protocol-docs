@@ -5,7 +5,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from pcap_tcp import read_packets, stream
+from pcap_tcp import direction, lifetime, read_packets, stream
 
 BATCH = (
     Path(__file__).resolve().parents[2]
@@ -59,6 +59,45 @@ class PacketTests(unittest.TestCase):
             path.write_bytes((BATCH / "loopback.pcap").read_bytes()[:-1])
             with self.assertRaisesRegex(ValueError, "Truncated"):
                 read_packets(path)
+
+    def test_reused_socket_tuple_is_scoped_to_its_syn_lifetime(self) -> None:
+        original = sorted(
+            direction(self.packets, self.client, self.server)
+            + direction(self.packets, self.server, self.client),
+            key=lambda p: p["timestamp_us"],
+        )
+        repeated = [
+            dict(
+                p,
+                timestamp_us=p["timestamp_us"] + 300_000_000,
+                sequence=(p["sequence"] + 100) & 0xFFFFFFFF,
+            )
+            for p in original
+        ]
+        combined = original + repeated
+        with self.assertRaisesRegex(ValueError, "reused TCP"):
+            stream(combined, self.client, self.server)
+        for first in [original[0], repeated[0]]:
+            selected = lifetime(
+                combined, self.client, self.server, first["timestamp_us"]
+            )
+            self.assertEqual(
+                stream(selected, self.client, self.server),
+                stream(original, self.client, self.server),
+            )
+
+    def test_ambiguous_syn_lifetimes_are_rejected(self) -> None:
+        syn = dict(self.packets[0])
+        duplicate = dict(
+            syn, timestamp_us=syn["timestamp_us"] + 1000, sequence=syn["sequence"] + 10
+        )
+        with self.assertRaisesRegex(ValueError, "ambiguous SYN"):
+            lifetime(
+                self.packets + [duplicate],
+                self.client,
+                self.server,
+                syn["timestamp_us"],
+            )
 
 
 if __name__ == "__main__":

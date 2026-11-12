@@ -334,6 +334,103 @@ class CaptureTests(unittest.TestCase):
                 self.root / "invalid",
             )
 
+    def test_saved_field_selects_reference_after_variable_width_metadata(self):
+        payload = bytes.fromhex("0002006c00020001006b000412345678")
+        frame = (
+            struct.pack(">BBHIIII", 0, 1, 0, 7, 0, len(payload), len(payload)) + payload
+        )
+
+        def respond(connection):
+            connection.sendall(frame)
+            self.assertEqual(connection.recv(4), bytes.fromhex("12345678"))
+
+        with peer(respond) as port:
+            report = self.capture(
+                port,
+                [
+                    {
+                        "op": "read_frame",
+                        "connection": "main",
+                        "save_field": {"name": "reference", "id": 107},
+                    },
+                    {"op": "send", "connection": "main", "hex": "{reference}"},
+                ],
+            )
+        self.assertEqual(report["status"], "completed")
+
+    def test_saved_field_rejects_absent_duplicate_and_incomplete_values(self):
+        for index, payload in enumerate(
+            [
+                bytes.fromhex("0000"),
+                bytes.fromhex("0002006b000412345678006b000487654321"),
+                bytes.fromhex("0002006b000412345678006c0002ff"),
+            ]
+        ):
+            frame = (
+                struct.pack(">BBHIIII", 0, 1, 0, 7, 0, len(payload), len(payload))
+                + payload
+            )
+            with (
+                self.subTest(payload=payload.hex()),
+                peer(lambda c, frame=frame: c.sendall(frame)) as port,
+            ):
+                plan = self.plan(
+                    port,
+                    [
+                        {
+                            "op": "read_frame",
+                            "connection": "main",
+                            "save_field": {"name": "reference", "id": 107},
+                        }
+                    ],
+                )
+                report = run_plan(plan, self.binary, self.root / f"field-{index}")
+            self.assertEqual(report["status"], "failed")
+
+    def test_multiple_saved_fields_drive_an_exact_length_read(self):
+        payload = bytes.fromhex("0002006c00020003006b000412345678")
+        frame = (
+            struct.pack(">BBHIIII", 0, 1, 0, 7, 0, len(payload), len(payload)) + payload
+        )
+        with peer(lambda c: c.sendall(frame + b"abc")) as port:
+            report = self.capture(
+                port,
+                [
+                    {
+                        "op": "read_frame",
+                        "connection": "main",
+                        "save_fields": {"length": 108, "reference": 107},
+                    },
+                    {
+                        "op": "read",
+                        "connection": "main",
+                        "size_from": "length",
+                        "expect_hex": "616263",
+                    },
+                ],
+            )
+        self.assertEqual(report["status"], "completed")
+
+    def test_dynamic_read_size_rejects_tool_bound_overflow(self):
+        payload = bytes.fromhex("0001006c0004ffffffff")
+        frame = (
+            struct.pack(">BBHIIII", 0, 1, 0, 7, 0, len(payload), len(payload)) + payload
+        )
+        with peer(lambda c: c.sendall(frame)) as port:
+            report = self.capture(
+                port,
+                [
+                    {
+                        "op": "read_frame",
+                        "connection": "main",
+                        "save_fields": {"length": 108},
+                    },
+                    {"op": "read", "connection": "main", "size_from": "length"},
+                ],
+            )
+        self.assertEqual(report["status"], "failed")
+        self.assertIn("capture limit", report["error"])
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -2,9 +2,9 @@
 
 This supplement records further static analysis of the exact `HLserver19`
 binary identified in [the guide](protocol.md). It refines the baseline without
-rewriting the immutable validity ledger. These are receiver/serializer
-observations, not captured client exchanges or a recommended malformed-input
-policy for mxd. Open fixture requirements remain in [the gap register][gaps].
+rewriting the immutable validity ledger. Receiver/serializer analysis is
+distinguished from the native captures cited below. Malformed-input tolerance
+does not prescribe mxd policy. Open requirements remain in [the gap register][gaps].
 
 ## Parameter parsing and scalar access
 
@@ -31,8 +31,45 @@ These are helper outcomes. They do not establish that every enclosing request
 succeeds: a handler can reject the resulting missing/default value. Preserve
 order and duplicates in the codec, then apply the operation's cardinality.
 An implementation may reject malformed TLVs more strictly, but must identify
-that as its own acceptance policy. Dedicated TLV-boundary native fixtures
-remain outstanding.
+that as its own acceptance policy.
+
+### Captured TLV and scalar boundaries
+
+The [native framing corpus](../mothra/evidence/gap-remediation/2026-11-12/native-framing-01/manifest.json)
+checks 62 cases against both host and guest packet captures. Settings requests
+304 expose the indexed values through notification 301; request 500 is used
+only to observe dispatch/ACK behaviour, not to prove another handler's parsing.
+
+| Captured payload class | Settings outcome |
+| --- | --- |
+| One count byte; canonical zero count; count one without any record | No indexed settings: name `***`, icon zero. |
+| Count zero followed by a complete name/icon record stream | Trailing records ignored; same defaults. |
+| Next record header has zero, one, two or three bytes | Stops before the incomplete record. |
+| Declared value length three but only two bytes remain | Incomplete value ignored; defaults when no earlier complete record exists. |
+| Complete name before truncated header or missing second record | Complete name retained, missing icon defaults to zero. |
+| Count one but two complete records; count three but two complete records | First case applies only name; second applies both complete name and icon. |
+| Complete declared stream followed by five garbage bytes | Complete indexed fields used; trailing garbage ignored. |
+| Unknown field 65000, field zero, or empty unknown field before known settings | Known settings remain accessible. |
+| Count 65,535 with 65,534 empty field-zero records then name | Final complete name is found. |
+| Name value length 65,535 | Handler clips effective name to 31 bytes. |
+
+The settings icon tests cover zero through five input bytes and high-bit
+boundaries. They confirm zero for three bytes and the first-four-byte rule for
+five bytes. Assignment retains the low 16 bits, but **301 emits the stored icon
+through a signed-short promotion**: `7fff` emits `7fff`, `8000` emits
+`ffff8000`, and `ffff`, `0000ffff` and `ffffffff` emit `ffffffff`.
+Input `00018000` emits `ffff8000`; `00010000` emits `0000`.
+Builder [10004f30](../mothra/evidence/gap-remediation/2026-11-12/batch-02/queries/B02-D-10004f30.c)
+independently shows that promotion. This is specific to this icon sender; its
+UID load is unsigned, and packed roster records retain a two-byte icon.
+
+Duplicate icon sequences `[1,2]`, `[2,1]`, `[1,2,3]` and `[3,2,1]` emitted
+2, 1, 3 and 1 respectively in these four cases. These observations do not
+replace the sorted-lookup analysis with a universal last-wins rule (GAP-017).
+The initial all-ones test incorrectly expected a two-byte output; that
+disproven expectation and its unchanged transcript are retained separately.
+Other handlers' missing-value errors and field-specific widths remain separately
+tracked; structural tolerance is not universal transaction success.
 
 ## Credential bytes, lookup and account updates
 

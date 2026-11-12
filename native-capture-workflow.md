@@ -271,6 +271,41 @@ result. These measurements refine observed outcomes, not a general deadline or
 proof of a unique scheduling cause. Complete timer and alternate-wrapper
 requirements remain open.
 
+## Recorded native framing fixtures
+
+The [framing batch](../mothra/evidence/gap-remediation/2026-11-12/native-framing-01/manifest.json)
+contains 62 reviewed sessions and one separately retained disproven icon-width
+hypothesis. It includes both packet views, runtime identity and exact capture
+driver versions. Run its independent checks from `mothra`:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/verify_native_framing.py \
+  evidence/gap-remediation/2026-11-12/native-framing-01
+```
+
+Prepare repeat plans into a new directory with the current runtime identity:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/prepare_native_cases.py framing \
+  --runtime-record state/native-sessions/runtime-05/runtime.json \
+  --output state/native-sessions/framing-repeat-plans
+```
+
+The generator refuses to overwrite that directory. Its `runtime-05` example is
+an existing local record; replace it with the new session's verified runtime
+record when relaunching. Run plans with `protocol_capture.py capture` using the
+same binary argument and a fresh output directory per case, as in the core
+workflow. These cases require the disposable `admin` / `mothra19` fixture account
+and naming privilege bit 26. Start both packet observers before recording.
+Stop the host recorder after connections close and snapshot complete guest
+records, preserving the live guest capture if it remains in use.
+
+Connect UTC time plus monotonic event duration identifies a unique client SYN
+within two seconds. Verification rejects ambiguity and scopes each tuple until
+its next distinct SYN. A real reused source port in this corpus requires this
+lifetime separation. It does not justify merging independently reused tuples.
+Retain original failed expectations rather than editing historical reports.
+
 ## Acceptance and corpus coverage
 
 A completed plan establishes its recorded exchange and expectations, not every
