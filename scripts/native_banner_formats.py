@@ -5,7 +5,7 @@ from pathlib import Path
 from native_banner_cases import GIF_A, GIF_B, URL, attach, delayed, request
 from native_folder_cases import descriptor, upload_start, word
 from native_plan import close, eof, login, send
-from native_queue_cases import pump
+from native_queue_cases import pump, session
 from native_transfer_cases import file_stream
 
 ASSETS = Path(__file__).resolve().parents[1] / "fixtures/banner"
@@ -60,16 +60,28 @@ def format_case(name: str) -> dict:
     expected = content(name)
     if finder == b"TEXT":
         expected = expected.replace(b"\r\n", b"\r")
-    steps = delayed() + pump("main", 9, seconds=0) + request() + attach()
+    steps = delayed() + pump("main", 9, seconds=0) + request()
+    if name == "empty":
+        steps += (
+            session("observer")
+            + pump("main", 80, seconds=0)
+            + pump("observer", 81, seconds=0)
+        )
+    steps += attach()
     if expected:
         steps += [
             {"op": "read", "connection": "banner", "size": len(expected), "timeout": 30}
         ]
-    steps += [
-        {"op": "expect_quiet", "connection": "banner", "timeout": 3},
-        close("banner"),
-    ]
-    steps += pump("main", 90, seconds=0) + [close()]
+    steps += (
+        [{"op": "expect_quiet", "connection": "banner", "timeout": 3}]
+        if expected
+        else [eof("banner")]
+    )
+    steps += [close("banner")]
+    if name == "empty":
+        steps += [eof("main"), eof("observer"), close("observer"), close()]
+    else:
+        steps += pump("main", 90, seconds=0) + [close()]
     return {
         "format-" + name: (
             steps,
@@ -92,9 +104,9 @@ def phase_check(connection: str, number: int) -> list[dict]:
     return steps
 
 
-def recovery() -> dict:
+def recovery(*, early: bool = False) -> dict:
     """Allow three minutes per GUI phase; confirm phases through fresh121 sessions."""
-    steps = login() + request()
+    steps = (login() if early else delayed() + pump("main", 9, seconds=0)) + request()
     for identifier in range(20, 26):
         steps += pump("main", identifier, seconds=30)
     steps += phase_check("absent", 91) + attach()
@@ -109,10 +121,11 @@ def recovery() -> dict:
     ]
     steps += pump("main", 90, seconds=0) + [close()]
     return {
-        "phase-checked-recovery": (
+        ("phase-checked-early-recovery" if early else "phase-checked-recovery"): (
             steps,
             {
                 "kind": "phase-checked-recovery",
+                "initial_completion": "early" if early else "delayed",
                 "advertised_bytes": len(GIF_B),
                 "expected_bytes": GIF_B.hex(),
                 "phases": {

@@ -42,6 +42,7 @@ def main() -> None:
             "banner-none",
             "banner-format-seed",
             "banner-recovery",
+            "banner-recovery-early",
             "banner-empty",
             "banner-jpeg",
             "banner-bmp",
@@ -85,6 +86,7 @@ def main() -> None:
         "banner-none": lambda: banner_metadata("none", None, None),
         "banner-format-seed": seed_formats,
         "banner-recovery": recovery,
+        "banner-recovery-early": lambda: recovery(early=True),
         **{
             "banner-" + name: lambda name=name: format_case(name)
             for name in [
