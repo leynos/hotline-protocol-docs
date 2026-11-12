@@ -1,10 +1,17 @@
 #!/usr/bin/env python3
-"""Prepare bounded native framing and ordinary-fork fixture plans."""
+"""Prepare bounded native protocol observation plans."""
 
 import argparse
 import json
 from pathlib import Path
 
+from native_banner_cases import URL
+from native_banner_cases import absent_restored as banner_absent_restored
+from native_banner_cases import changed as banner_changed
+from native_banner_cases import expired as banner_expired
+from native_banner_cases import image as banner_image
+from native_banner_cases import metadata as banner_metadata
+from native_banner_cases import seed as banner_seed
 from native_cleanup_cases import downloads as cleanup_downloads
 from native_cleanup_cases import seed as cleanup_seed
 from native_cleanup_cases import upload_cleanup
@@ -31,6 +38,14 @@ def main() -> None:
         "suite",
         choices=[
             "framing",
+            "banner-none",
+            "banner-missing",
+            "banner-url",
+            "banner-image",
+            "banner-changed",
+            "banner-seed",
+            "banner-absent-restored",
+            "banner-expired",
             "transfers",
             "downloads",
             "resume-downloads",
@@ -56,6 +71,14 @@ def main() -> None:
     args = parser.parse_args()
     cases = {
         "framing": framing,
+        "banner-none": lambda: banner_metadata("none", None, None),
+        "banner-missing": lambda: banner_metadata("missing", None, None),
+        "banner-url": lambda: banner_metadata("url", b"URL ", URL),
+        "banner-image": banner_image,
+        "banner-changed": banner_changed,
+        "banner-seed": banner_seed,
+        "banner-absent-restored": banner_absent_restored,
+        "banner-expired": banner_expired,
         "transfers": transfers,
         "downloads": downloads,
         "resume-downloads": resume_downloads,
@@ -92,6 +115,8 @@ def main() -> None:
                 "GAP-017",
             ]
             if args.suite == "framing"
+            else ["GAP-055", "GAP-063", "GAP-084"]
+            if args.suite.startswith("banner-")
             else ["GAP-058", "GAP-064"]
             if args.suite.startswith("resume-")
             else ["GAP-059", "GAP-060", "GAP-064"]
