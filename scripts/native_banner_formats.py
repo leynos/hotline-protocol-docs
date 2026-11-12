@@ -126,6 +126,7 @@ def recovery(*, early: bool = False) -> dict:
             {
                 "kind": "phase-checked-recovery",
                 "initial_completion": "early" if early else "delayed",
+                "absence_configuration": "failed-filename" if early else "remote-empty",
                 "advertised_bytes": len(GIF_B),
                 "expected_bytes": GIF_B.hex(),
                 "phases": {

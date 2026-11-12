@@ -840,7 +840,78 @@ aged-reference outcome, not an exact internal deadline or uninterrupted
 image-present timing guarantee.
 
 Failed GUI/path probes and unsuccessful restoration attempts are retained with
-their original reports. In particular, a waiting connection's behaviour after
-restoring a missing image needs a controlled, successful explanation before it
-can be made a general delivery rule. JPEG/PICT/BMP payloads, broader reference
-reuse/ownership boundaries and identified-client rendering remain open.
+their original reports. The following format/recovery corpus supplies successful
+phase-confirmed restoration and JPEG/PICT/BMP streams. Broader reference
+reuse/ownership boundaries, general timing guarantees and identified-client
+rendering remain open.
+
+## Captured banner formats and recovery
+
+The [second banner corpus][banner-formats] extends the GIF/URL controls with
+identified native files and complete type-specific streams. Each nonempty
+payload equals the loaded data fork, with no flattened-file wrapper or
+resource fork. The PICT result includes its file's 512-byte prefix; it is not
+stripped. These are server byte/type observations, not historical-client
+rendering tests.
+
+| Native file/control | Finder type | Advertised 152 | Stored / delivered bytes |
+| --- | --- | --- | --- |
+| JPEG | `JPEG` | `JPEG` | 634 / 634 |
+| BMP | `0x424d5020` | `0x424d5020` | 58 / 58 |
+| PICT | `PICT` | `PICT` | 642 / 642 |
+| PNG with an unrecognized suffix | `PNGf` | `PNGf` | 69 / 69 |
+| PNG with type zero | zero | no 122 | 69 / 69 |
+| GIF bytes with a `.jpg` suffix | `GIFf` | `JPEG` | 43 / 43 |
+| Extensionless TEXT control | `TEXT` | `TEXT` | 43 / 42 |
+| Present empty GIF file | `GIFf` | `GIFf` | 0 / 0; service reset |
+
+A zero advertised type suppresses122 even when a nonempty buffer can be
+fetched through 212. A suffix-derived type can differ from the payload
+encoding; this loader does not validate JPEG content before advertising the
+JPEG tag. The TEXT control keeps 43 native file bytes, but the loader changes
+CRLF to CR before advertising 42 and transferring those 42 bytes. Loading does
+not rewrite that native data fork. Its earlier `.gif` counterpart finalized
+with `GIFf`/`ogle` metadata and was rejected as a TEXT control; no cause is
+inferred from the filename coincidence alone.
+
+Both login-completion paths have phase-checked recovery fixtures. In the
+delayed variant, the owner receives 122 advertising `GIFf` before the 58-byte
+reference is issued; a separate baseline confirms that advertisement and size.
+The early variant establishes the corresponding reference without an owner122.
+In the delayed variant, selecting Remote with an empty URL removes the loaded
+image; in the early variant, a failed filename load does so. A separately
+authenticated 121 session confirms no 122, while the original data connection
+remains quiet for three seconds. Restoration is confirmed by another 121
+session advertising `GIFf` and the configured link. With periodic owner 500
+requests, the original reference and waiting data connection deliver the58
+bytes and remain open through the final quiet window. The plan has two
+180-second configuration windows. In the early variant, native DATA first
+appears 270.473290 host seconds after the original ACK, before the
+application's delayed read at 368.076401 seconds from capture start. The
+verifier records both variants' timings; these are observations, not
+restoration deadlines.
+
+A present zero-length buffer is a different state from a missing buffer. It
+still produces 122 and a successful 212 reply with size zero and an odd
+reference. On attachment, the retained fixture observes native RSTs on the
+data connection, its owner control session and a separate authenticated
+observer. The GUI log records `SERVER RESET - too many errors`. A fresh login
+and 500 then succeed without an operator restart. The worker calls a
+temporary-buffer allocator with size zero; that allocator throws internal
+`SError` domain 1/code 2. The sent-count would remain zero, so the normal
+nonzero completion guard is not established. The repeated-error/reset
+observation is not a numbered banner-error packet or a successful empty
+transfer. General reset thresholds and recovery guarantees remain outside this
+fixture's claim.
+
+For a missing buffer,212 reaches the size helper with null and raises the same
+internal domain/code before constructing its ACK. The preceding corpus retains
+bounded silence and subsequent control liveness; do not turn the internal pair
+into a wire status. The null-buffer worker guard also skips banner processing,
+whereas the present-empty path reaches the allocator. Taken with the earlier
+43-to58-byte replacement and aged-reference fixtures, these cases establish
+GAP-063's stream, size/lifetime and missing/changed-content outcomes. Broader
+reference ownership/reuse remains GAP-055; client rendering and mxd policy
+remain separate acceptance work.
+
+[banner-formats]: ../mothra/evidence/gap-remediation/2026-11-12/native-banner-02/manifest.json

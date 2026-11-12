@@ -611,7 +611,9 @@ pause after the212 reply. Preserve UTC phase markers and screenshots. The
 `banner-absent-restored` plan begins with B, pauses45 seconds for a nonexistent
 filename, attaches and checks three seconds of silence, then pauses45 seconds
 for restoration. It sends500 before attempting the restored payload; retain
-failures rather than replacing their reports. The expiry plan maintains owner
+failures rather than replacing their reports. That earlier recovery plan remains
+exploratory; use the phase-confirmed `banner-recovery` workflow below for the
+successful retained recovery. The expiry plan maintains owner
 traffic across twelve45-second pauses before attempting the old reference.
 Any overlapping configuration phases must be disclosed when interpreting it.
 
@@ -627,3 +629,73 @@ retained boundaries.
 
 Neither ROMs nor OS/working images are part of this corpus. The generic harness
 remains in mothra; the protocol-specific plans and verifier remain here.
+
+## Reproducing banner format and recovery fixtures
+
+The [format/recovery corpus][format-corpus] retains 17 final cases, five
+original exploratory reports and additional setup observations itemized in its
+manifest. The eight new semantic tests check TEXT conversion, zero-type
+eligibility, present-empty metadata, recovery phase/timing evidence and
+independently observed Finder types. Reverify without the guest:
+
+```sh
+python3 scripts/verify_native_banner_formats.py \
+  ../mothra/evidence/gap-remediation/2026-11-12/native-banner-02
+```
+
+The committed `fixtures/banner` assets contain one-pixel JPEG, BMP, PICT and
+PNG files, plus generation/decoder provenance and hashes. No image-generation
+libraries are needed to consume the fixed fixtures. `banner-format-seed`
+uploads an owned folder of controls, including an extensionless TEXT file and
+an empty GIF. Use a fresh working image/checkpoint or fresh fixture names when
+reseeding. In Finder, open only that owned folder, select its contents and
+move them beside the native application. Confirm each exact catalogue path,
+data fork and Finder type with `snapshot_native_hfs.py`; catalogue IDs are
+specific to this run. An initial root-filter mistake selected no records and
+is retained as an operator filtering error, not evidence of absent files.
+
+Set Local plus the bare filename, then run `banner-jpeg`, `banner-bmp`,
+`banner-pict`, `banner-fallback`, `banner-zero-type`,
+`banner-suffix-before-finder`, `banner-text-conversion` or `banner-empty`
+through `prepare_native_cases.py` and the capture runner. Preserve
+screenshots, but use metadata and payload verification as configuration
+authority. The empty case has a separate observer session and expects native
+service-reset closes. Run it with the other fixtures completed; its resets
+affect all observed sessions. The exploratory open-stream and follow-up-ACK
+hypotheses remain unchanged.
+
+For `banner-recovery`, first confirm the 58-byte GIF fixture is loaded. Its
+owner completes delayed login and receives 122 before requesting the
+reference. The separate `banner-recovery-early` variant retains the
+early-completion control. During the first six 30-second owner-activity
+intervals, select Remote with an empty URL while retaining a valid local
+filename. This removes the loaded image buffer. For the early-completion
+control, the retained absence instead follows a failed filename load. The plan
+uses a separate authenticated 121/500 session to delimit absence before
+attaching the old reference. During the next six intervals, restore the valid
+local GIF. Another121/500 session confirms the restored metadata before
+reading the waiting connection. Preserve both packet boundaries throughout.
+Planned pauses and a late application read must not be described as native
+delivery latency.
+
+In the retained cleanup, three Save/Return attempts left the old banner active
+despite the displayed Remote selection. Those completed recordings remain
+exploratory, with their original failed configuration expectations. After an
+explicit pointer move and another Save action, the dialog closed and a new121
+session confirmed no 122. An additional B-configuration attempt timed out
+before its212 ACK; a subsequent baseline positively confirmed122 and size58
+before the delayed recovery trial. The captured helper versions and actions
+document this run; they do not establish a general GUI timing rule. Verify
+each phase through the protocol before calling it configured.
+
+The host recording phases retain712,67 and490 packets, each with zero kernel
+drops. All final streams reconcile exactly in both views. One exploratory
+post-reset host write contains a 22-byte500 request that never reaches the
+guest; the literal suffix is retained separately in
+`boundary-differences.json`. It is not a native request-consumption or
+error-response fixture. Two unsuccessful delayed setup trials retain57 unread
+banner bytes each; literal301/302 control suffixes are also pinned. Accepted
+final cases have no unread output. Positive live fork reads do not establish
+restart durability, and no ROM or OS/working image is committed.
+
+[format-corpus]: ../mothra/evidence/gap-remediation/2026-11-12/native-banner-02/manifest.json

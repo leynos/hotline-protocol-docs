@@ -349,7 +349,7 @@ Evidence: V026–V029; `10011ee0`, `10004d50`.
 
 This notification is distinct from agreement 109 and download request 212.
 After transaction 121, the inspected path sends 122 when the saved client
-version is at least **151** and a banner is configured.
+version is at least **151** and the current loaded banner type is nonzero.
 
 It includes four-byte banner type 152. For type `0x55524c20` (ASCII URL
 followed by a space), field 153 carries the configured URL. The inspected
@@ -798,12 +798,17 @@ Evidence: V056–V057; `10013930`.
 
 **Request:** no directly required fields were identified.
 
-**ACK:** four-byte reference 107 and transfer size 108. The HTXF acceptor
-routes an odd reference with type 2 to the banner-transfer lookup. Banner
-metadata is advertised by transaction 122, not by adding image metadata to
-109. The [banner worker](transfer-contracts.md#banner-bytes-and-worker-timers)
-sends raw bytes from the current banner buffer. Send-time configuration changes
-and missing-banner outcomes still require runtime validation.
+**ACK when a buffer is present:** four-byte reference 107 and transfer size108.
+The HTXF acceptor routes an odd reference with type2 to the banner lookup.
+Metadata is advertised by122, without adding image metadata to109. The
+[captured banner contracts](transfer-contracts.md#captured-banner-formats-and-recovery)
+validate raw loaded-buffer bytes, TEXT normalization and configuration lifetime.
+A43-byte advertisement can deliver58 replacement bytes on the same reference;
+a waiting connection can recover after failed loading and restoration. A missing
+buffer raises an internal exception before ACK construction, with bounded silence
+retained. A present empty GIF instead returns size0 and a reference, then the
+captured attachment triggers native service-reset RSTs on data, owner and observer.
+This is a native failure observation; general reset and mxd policy remain open.
 
 Evidence: V025, V058; `10012f40`, `1000bd20`.
 

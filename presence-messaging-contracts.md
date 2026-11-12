@@ -84,8 +84,9 @@ Subsequent eligible 121 processing reads the new values. An already advertised
 reference does not snapshot banner data: the worker reads the current buffer
 at send time. No automatic metadata refresh for existing clients is established
 by these inspected producers. This completes GAP-028's type/field/ordering
-matrix; actual image decoding, delivered refresh/change behaviour and
-changed-buffer transfer fixtures remain GAP-063/080/084.
+matrix. [Captured banner streams](transfer-contracts.md#captured-banner-formats-and-recovery)
+now cover loaded type selection, current-buffer replacement and recovery after
+absence. Actual historical-client image decoding remains GAP-080/084.
 
 ## Login extras and configured content
 
