@@ -818,8 +818,10 @@ The inspected incoming-transfer acceptor waits for a **16-byte** header,
 checks `HTXF`, then uses reference parity and a selector halfword to choose
 a transfer collection. The [transfer supplement](transfer-contracts.md) gives
 the exact offset/dispatch tables, RFLT resume records, FILP/fork grammar, queue
-211 fields and worker timers. Unexamined header bytes are not assigned invented
-semantics; runtime edge cases remain open.
+211 fields and worker timers. Its captured header/reference cases establish
+nonzero trailing-word tolerance, ordinary-upload size replacement, collection
+rejection, owner cleanup and bounded duplicate/reuse outcomes. Bytes14–15 are
+consumed but unexamined; general identifier lifetimes remain separate.
 
 The request dispatcher also accepts **214**. Its handler reads a four-byte
 reference 107, invokes transfer cleanup when nonzero and ACKs. The helper

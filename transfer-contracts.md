@@ -43,8 +43,70 @@ does not itself prove queue admission or completed transfer. These lookups do
 not check an owning control session or peer address. IP admission checks occur
 earlier in the acceptor and must not be confused with token ownership checks.
 The ordinary-file corpus below exercises valid upload/download references and
-control sub-version 3. Banner matching and broader invalid/type cases remain
-GAP-055; alternate-listener wrapping remains GAP-010.
+control sub-version 3. The captured header/reference cases below add banner
+matching, invalid selectors, owner cleanup and reuse. Alternate-listener
+wrapping remains GAP-010; general identifier lifetimes remain GAP-033.
+
+## Captured HTXF field and reference cases
+
+The [HTXF corpus][htxf-corpus] retains 17 cases and a preceding 58-byte banner
+preflight. Every socket stream matches both host and guest packet views, with
+no unread suffix. These are observations of the identified native binary,
+not historical-client interoperability results.
+
+| Probe | Native result |
+| --- | --- |
+| Banner size word `ffffffff`, trailing word `ffff` | Delivers the complete 58-byte GIF; remains open through a three-second quiet check. |
+| Banner size word 1, trailing word `1234` | Same complete GIF, rather than a one-byte stream. |
+| First 15 header bytes, then a three-second pause and byte 16 | No response during the incomplete-header window; complete GIF after the last byte. |
+| `HTXG` magic with a valid banner reference | Native close without application bytes. |
+| Ordinary download selector `ffff`, size `ffffffff`, trailing word `abcd` | Complete 510-byte FILP, including exact 13-byte DATA and 317-byte resource forks. Owner214 then closes the transport. |
+| Folder-download reference with selectors 0, 2 or `ffff` | Native close without application bytes; the reference does not match those collections. |
+| Ordinary upload selectors 0, 2 and `ffff`, trailing word `ffff` | All route to ordinary upload and complete. Native exact-path fork reads retain the expected DATA bytes and TEXT/MOTH metadata. |
+| Selector0 upload: request203 advertises 37 bytes more than its HTXF size | Completes at the HTXF byte count. Together with the acceptor assignment, this establishes replacement of the request count for this ordinary upload. |
+
+The new upload catalogue records report resource-fork size zero. The attempted
+resource-attribute reads return status1 with “Attribute not found”; their empty
+output files are not represented as successful extraction. Read-only live
+fork observations establish stored bytes at observation time, not durability
+after a restart.
+
+The earlier [ordinary-file corpus][htxf-forks] supplies valid raw/v3 handover,
+selector7 fallback and wrong-selector1/2 rejection. The
+[first banner corpus][htxf-banners] supplies selector2 delivery, wrong
+selectors0/1/7, unknown/zero references and rejection after a bounded aged
+pending-reference trial. Valid folder selector1 upload/download streams are
+retained in the [folder corpus][htxf-folders]. These observations support the
+complete static dispatch table above without treating every untested integer
+as a separate protocol type.
+
+Reference use is distinct from control-session ownership. HTXF contains no
+account, user ID or control-socket identifier. Both banner and ordinary-file
+data connections use the owner's reference successfully while a separate
+`fixture-low` session with an all-zero privilege bitmap is live. This does not
+authenticate those data connections as that account. The lookups compare the
+full reference without a control-owner/address comparison; admission filters
+still apply. All retained clients share one host/NAT address, so arbitrary
+source-address admission is not established. Closing the original control
+owner, then pumping the observer, causes subsequent attachment of either
+reference to close without bytes. A banner reference also rejects attachment
+after its first data connection closes and the owner is pumped.
+
+A duplicate-banner case first receives all 58 bytes, then attaches a second
+transport using the same reference. The second delivers nothing during a
+three-second quiet window. After the owner closes, the second closes natively;
+the first remains quiet through a further three-second window. The acceptor
+assigns the new transport pointer without an existing-connection guard or
+resetting the banner's sent count. This explains this bounded observation;
+it does not establish a permanent orphan, a universal cleanup deadline or
+collision/wrap behaviour. Those broader lifetime requirements remain GAP-033.
+Request214's separate owner check remains as documented below: bearer matching
+at data attachment does not remove that control-operation check.
+
+[htxf-corpus]: ../mothra/evidence/gap-remediation/2026-11-12/native-htxf-01/manifest.json
+[htxf-forks]: ../mothra/evidence/gap-remediation/2026-11-12/native-forks-01/manifest.json
+[htxf-banners]: ../mothra/evidence/gap-remediation/2026-11-12/native-banner-01/manifest.json
+[htxf-folders]: ../mothra/evidence/gap-remediation/2026-11-12/native-folder-01/manifest.json
 
 ## Reference allocation and request 214
 

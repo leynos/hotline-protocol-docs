@@ -699,3 +699,54 @@ final cases have no unread output. Positive live fork reads do not establish
 restart durability, and no ROM or OS/working image is committed.
 
 [format-corpus]: ../mothra/evidence/gap-remediation/2026-11-12/native-banner-02/manifest.json
+
+## Reproducing HTXF header and reference fixtures
+
+The [HTXF corpus][htxf-corpus] retains 17 observations plus the banner preflight,
+both packet boundaries, runtime provenance, three positive native upload-fork
+observations and the exact preparation/packaging helpers as run. Reverify the
+retained corpus without the guest:
+
+```sh
+python3 scripts/verify_native_htxf.py \
+  ../mothra/evidence/gap-remediation/2026-11-12/native-htxf-01
+```
+
+For another live run, use the committed mothra harness and a new working copy
+of your prepared guest. It needs the ordinary-file and folder source fixtures,
+admin/mothra19 and fixture-low/next-pass accounts, Local
+`mothra-banner-b.gif` with positively confirmed 58-byte delivery, and General
+100/10/5 limits. The generator creates `m-htxf-u0`, `m-htxf-u2` and
+`m-htxf-u65535`; begin before those uploads exist or adapt owned fixture names
+and retain the changed plan. Reusing a completed upload destination is not the
+same experiment. Do not use the empty banner fixture for these cases.
+
+From mothra, with a current runtime record and both packet recorders running:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/prepare_native_cases.py htxf \
+  --runtime-record state/native-sessions/NEW/runtime.json \
+  --output state/native-sessions/NEW/htxf-plans
+python3 ../hotline-protocol-docs/scripts/protocol_capture.py capture \
+  state/native-sessions/NEW/htxf-plans/banner-split-15-plus-1.json \
+  --oracle-binary evidence/hotline-server-1.9/inputs/HLserver19.pef \
+  --output state/native-sessions/NEW/captures/banner-split-15-plus-1
+```
+
+Run each generated plan sequentially into a distinct fresh capture directory.
+Retain failed hypotheses unchanged. Record and verify the running executable
+hash; the recorder's local oracle-file hash alone does not identify the guest.
+Stop the host recorder cleanly, retain its packet/drop counts and select the
+complete shared time window from the continuous guest PCAP. Reconcile all
+streams independently in both views, preserving any unread native suffixes
+separately. The retained run captured654 host packets with zero kernel drops
+and has no unread output.
+
+Use `snapshot_native_hfs.py` to retain positive exact paths and forks for the
+three upload names. Catalogue IDs11280–11282 belong to this run and must be
+rediscovered in another guest. Preserve failed resource-attribute reads as
+failures, alongside the native resource-size-zero observation. No ROM or
+OS/working disk is committed. Quiet windows and owner-pump delays are bounded
+observations; data connections carry no authenticated control-session identity.
+
+[htxf-corpus]: ../mothra/evidence/gap-remediation/2026-11-12/native-htxf-01/manifest.json
