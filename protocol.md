@@ -3,12 +3,12 @@
 This is the baseline protocol guide for mxd's intended Hotline **1.9**
 compatibility. It describes observed behaviour of the Mac PowerPC `HLserver19`
 server, with explicit gaps where the available evidence does not establish a
-complete wire contract. It does not claim to enumerate every protocol extension
-or certify compatibility with every Hotline or SynHX client.
+complete wire contract. It does not claim to enumerate every protocol
+extension or certify compatibility with every Hotline or SynHX client.
 
-The authority for this revision is the
-[Hotline 1.9 baseline validity ledger][ledger], captured on 12 November 2026.
-The oracle is a PEF data fork with SHA-256:
+The authority for this revision is the [Hotline 1.9 baseline validity
+ledger][ledger], captured on 12 November 2026. The oracle is a PEF data fork
+with SHA-256:
 
 ```text
 ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b
@@ -22,9 +22,10 @@ analysis of that build; it does not mean exercised in a live network test.
 than treat the previous guide's guesses as requirements.
 
 Client interface details and project implementation status are outside this
-wire specification. The [compatibility matrix](internal-compatibility-matrix.md)
-separates protocol observations from mxd policy and reported test coverage.
-Tracker and HTTP tunnelling details remain outside this guide's scope.
+wire specification. The [compatibility
+matrix](internal-compatibility-matrix.md) separates protocol observations from
+mxd policy and reported test coverage. Tracker and HTTP tunnelling details
+remain outside this guide's scope.
 
 ## Binary Message Formats (Hotline Protocol 1.9)
 
@@ -52,7 +53,8 @@ session. Its complete use is unresolved; sub-version is not an arbitrary
 application build number.
 
 The supplied historical SynHX server source uses the same normal-session
-magic, `TRTPHOTL 00 01 00 02`. **Sub-version 2 cannot identify SynHX uniquely.**
+magic, `TRTPHOTL 00 01 00 02`. **Sub-version 2 cannot identify SynHX
+uniquely.**
 
 The server's handshake reply is eight bytes:
 
@@ -81,8 +83,8 @@ After the handshake, transactions use a twenty-byte envelope:
 | 12 | 4 | Total size | Total parameter-stream length for the transaction |
 | 16 | 4 | Data size | Parameter-stream length in this frame |
 
-Request and server-notification types are described in the catalogue below.
-A direct reply does **not** need to echo the request's type: the inspected
+Request and server-notification types are described in the catalogue below. A
+direct reply does **not** need to echo the request's type: the inspected
 native reply construction leaves type zero and copies the request ID.
 
 The server's own ID generator skips zero. Rejection of a client-supplied zero
@@ -103,14 +105,14 @@ by that many records:
 | 2 | 2 | Value length in bytes |
 | 4 | Value length | Value bytes |
 
-The count is outside the first record. There is no padding between records.
-A field value is limited to 65,535 bytes by the native writer.
+The count is outside the first record. There is no padding between records. A
+field value is limited to 65,535 bytes by the native writer.
 
 An empty native field list is **`00 00`**, not an absent payload. Accordingly,
 an empty direct reply has `Total size = Data size = 2` and a complete length
-of **22 bytes**. The inspected receive path rejects either size word equal
-to zero. Do not use header-only transactions as the normal empty-message form
-for this baseline.
+of **22 bytes**. The inspected receive path rejects either size word equal to
+zero. Do not use header-only transactions as the normal empty-message form for
+this baseline.
 
 Field IDs may repeat when the transaction's schema permits it. Observed
 examples include:
@@ -119,20 +121,22 @@ examples include:
 - Repeated target-user field 103 in private-chat requests **112 and 113**.
 - Repeated category-list field 323 in the modern reply to **370**.
 
-The file-list description also uses repeated field 200, but its complete
-record layout remains unresolved. Do not apply a global uniqueness rule or
-allow repetition only in transaction 300. Preserve field order and multiplicity
-until the transaction-specific decoder handles them. Behaviour of arbitrary
-duplicate scalar fields is unresolved.
+File-list replies also use repeated field 200; the fixed header and name
+layout are recorded in [native wire details](native-wire-details.md). Do not
+apply a global uniqueness rule or allow repetition only in transaction 300.
+Preserve field order and multiplicity until the transaction-specific decoder
+handles them. Scalar lookup sorts an ID index and uses binary search;
+arbitrary duplicates have no general first/last-wins guarantee. See the
+supplement for malformed-TLV prefix handling and numeric-copy edge cases.
 
 The numeric writer emits two bytes for values through `0xffff`, otherwise
-four. The numeric reader also accepts one byte; its inspected three-byte
-case returns zero. This does not make every field variable-width: for example,
+four. The numeric reader also accepts one byte; its inspected three-byte case
+returns zero. This does not make every field variable-width: for example,
 transfer references are explicitly serialized as four bytes, and access
 bitmaps as eight. Use the field's schema where its width is established.
 
-Evidence: V011, V013–V016, V032, V040, V042, V062; `100568b0`,
-`10056a90`, `10056b90`, `10056d00`.
+Evidence: V011, V013–V016, V032, V040, V042, V062; `100568b0`, `10056a90`,
+`10056b90`, `10056d00`.
 
 #### 2.2 Date parameters
 
@@ -159,10 +163,10 @@ Evidence: V017; `10016ba0`, `1002c910`, `10058070`.
 ### 3 Fragmentation rules
 
 The receive path accumulates payloads by transaction ID and request/reply
-state. A transaction becomes available to the complete-request lookup when
-its accumulated payload length reaches its recorded total length. A single
-frame normally has equal total and data sizes; fragments carry successive
-parts of the transaction parameter stream.
+state. A transaction becomes available to the complete-request lookup when its
+accumulated payload length reaches its recorded total length. A single frame
+normally has equal total and data sizes; fragments carry successive parts of
+the transaction parameter stream.
 
 The count belongs at the start of the reassembled parameter stream, not before
 every arbitrary fragment. Do not confuse application frames with separate TCP
@@ -177,28 +181,28 @@ No evidence establishes the old assertion that clients routinely fragment
 folder-upload requests into dozens of frames.
 
 The reader compares both size words against global `10094a50`. The preserved
-program image initializes it to `0x00200000` (2 MiB). Its value and configurability
-at runtime are not established; do not turn it into an immutable universal
-protocol limit without further validation.
+program image initializes it to `0x00200000` (2 MiB). Its value and
+configurability at runtime are not established; do not turn it into an
+immutable universal protocol limit without further validation.
 
 Evidence: V009–V012, V020–V021; `100590e0`, `10058e80`.
 
 ### 4 Reply semantics
 
 Direct replies copy the request ID, set the reply marker, use type zero, and
-carry a status plus a parameter stream. Empty success replies contain the
-zero field count described above. Inspected error paths commonly set status
-1 and include error-text **field 100**.
+carry a status plus a parameter stream. Empty success replies contain the zero
+field count described above. Inspected error paths commonly set status 1 and
+include error-text **field 100**.
 
 A field ID and transaction type are separate namespaces. Error-text field 100
 is not evidence for a standalone error transaction type 100. Likewise, a
 successful operation can send an ACK and then additional notifications; these
 are separate messages with different roles.
 
-The catalogue's **ACK** label means a normal-path direct reply is visible,
-not that every branch replies. **Push** means the inspected handler routes a
-notification/update without a normal direct success reply. Permission failures,
-flood limits and connection closure can change the outcome.
+The catalogue's **ACK** label means a normal-path direct reply is visible, not
+that every branch replies. **Push** means the inspected handler routes a
+notification/update without a normal direct success reply. Permission
+failures, flood limits and connection closure can change the outcome.
 
 Malformed framing can close the transport. There is no established universal
 rule requiring transaction 111 before closing a malformed connection.
@@ -233,9 +237,10 @@ would instead give count 2, payload length 17 and frame length 37; the header
 size words must change accordingly.
 
 This is an illustrative byte layout, not a captured successful login or a
-claim that an `admin` account accepts an empty password. The server's login-name
-complement operation is established; nonempty password encoding needs the
-account-storage path checked before a normative example is supplied.
+claim that an `admin` account accepts an empty password. The native credential
+paths establish bytewise complement for nonempty passwords too; [native wire
+details](native-wire-details.md) records the storage, comparison,
+normalization and update-sentinel evidence.
 
 Evidence: V018–V019, V023; `10011960`, `100568b0`.
 
@@ -251,14 +256,15 @@ Evidence: V018–V019, V023; `10011960`, `100568b0`.
 
 These are implementation recommendations, not a claim that the native server
 performs each defensive check. See the ledger's follow-up list for the
-validation required before this becomes a complete interoperable specification.
+validation required before this becomes a complete interoperable
+specification.
 
 ## User Login and Presence
 
 ### Session Handshake (Before Transactions Begin)
 
-Use the twelve-byte normal-session handshake and eight-byte response above.
-A successful transport handshake does not itself authenticate the user.
+Use the twelve-byte normal-session handshake and eight-byte response above. A
+successful transport handshake does not itself authenticate the user.
 Sub-version 2 is shared with the supplied historical SynHX source.
 
 Evidence: V003–V006, M001.
@@ -268,7 +274,9 @@ Evidence: V003–V006, M001.
 **Request:** login name 105, password 106 and client version 160. The handler
 also reads display name 102 and icon 104. It complements nonempty login-name
 bytes before account lookup; an empty login takes its guest-name path.
-The complete nonempty-password representation remains unresolved here.
+Nonempty password bytes are also complemented; login compares the encoded
+bytes directly against the account record. See [native wire
+details](native-wire-details.md) for provenance and byte examples.
 
 **ACK:** on success, the inspected handler writes server version **190** in
 160, community/banner identifier 161 and server name 162. These additions are
@@ -305,9 +313,9 @@ Evidence: V025, V027; `10011960`.
 **Request settings:** name 102, icon 104, options 113 and automatic-response
 text 215, read through the shared settings helper.
 
-**ACK:** an empty field-list success reply is sent before settings are applied.
-The handler then marks the session active, sends access notification 354 and
-can send banner notification 122.
+**ACK:** an empty field-list success reply is sent before settings are
+applied. The handler then marks the session active, sends access notification
+354 and can send banner notification 122.
 
 Options 113 is a bitmap in this settings context:
 
@@ -318,8 +326,8 @@ Options 113 is a bitmap in this settings context:
 | 4 | Enable automatic response |
 
 When automatic response is enabled without text 215, the settings helper
-supplies default text. Do not confuse these bitmap settings with the enumerated
-message-option values used by transaction 108.
+supplies default text. Do not confuse these bitmap settings with the
+enumerated message-option values used by transaction 108.
 
 Evidence: V026–V029; `10011ee0`, `10004d50`.
 
@@ -329,28 +337,28 @@ This notification is distinct from agreement 109 and download request 212.
 After transaction 121, the inspected path sends 122 when the saved client
 version is at least **151** and a banner is configured.
 
-It includes four-byte banner type 152. For type `0x55524c20` (ASCII URL followed
-by a space), field 153 carries the configured URL. The inspected image-banner
-path can also add a configured
-153 value; it does not append inline image field 151 here. Fetching banner
-bytes uses transaction 212. The earlier guide's combined agreement/banner
-message is not the observed 1.9 sequence.
+It includes four-byte banner type 152. For type `0x55524c20` (ASCII URL
+followed by a space), field 153 carries the configured URL. The inspected
+image-banner path can also add a configured 153 value; it does not append
+inline image field 151 here. Fetching banner bytes uses transaction 212. The
+earlier guide's combined agreement/banner message is not the observed 1.9
+sequence.
 
 Evidence: V025, V058; `10011ee0`.
 
 ### User Access Privileges (Transaction 354) – Server Initiates
 
-**Notification:** field 110 contains the session's **eight-byte** access bitmap.
-The inspected login-completion paths send it without waiting for a separate
-request. Live account-edit propagation is unresolved.
+**Notification:** field 110 contains the session's **eight-byte** access
+bitmap. The inspected login-completion paths send it without waiting for a
+separate request. Live account-edit propagation is unresolved.
 
 Evidence: V029, V070; `10011960`, `10011ee0`.
 
 #### Access Privilege Bits (Field 110)
 
 Number bits in transmitted byte order: bit 0 is the most significant bit of
-byte 0. The native accessor uses byte `bit >> 3` and bit position
-`7 - (bit & 7)`. Do not cast the bitmap to a host integer and assume
+byte 0. The native accessor uses byte `bit >> 3` and bit position `7 - (bit &
+7)`. Do not cast the bitmap to a host integer and assume
 least-significant-bit-first numbering.
 
 The following checks are explicitly recorded in the ledger:
@@ -372,16 +380,16 @@ The following checks are explicitly recorded in the ledger:
 | **39** | **Download folder** |
 | **40** | **Send private message** |
 
-This is an observed subset, not a complete replacement privilege registry.
-The previous table's assignment of private messaging to bit 19 is incorrect
-for this build. Bits 18/19 and unlisted entries are not assigned normative
+This is an observed subset, not a complete replacement privilege registry. The
+previous table's assignment of private messaging to bit 19 is incorrect for
+this build. Bits 18/19 and unlisted entries are not assigned normative
 meanings by this pass. Other operation-specific and folder/news privilege
 helpers need further analysis before mxd treats the entire bitmap as settled.
 In particular, do not infer arbitrary private-chat admin overrides from names
 such as “Open Chat” or “Close Chat”.
 
-Evidence: V030–V031, V055–V056, V073; `10008a90`, `1000f4e0`,
-`10012850`, `10013930`.
+Evidence: V030–V031, V055–V056, V073; `10008a90`, `1000f4e0`, `10012850`,
+`10013930`.
 
 ### Retrieving the User List (Transaction 300) – Client Initiates
 
@@ -411,9 +419,9 @@ Evidence: V032–V034, M007; `10011870` and the preserved SynHX `rcv.c`.
 
 ### User Appearance and Updates (Transaction 301 & 302) – Server Initiates
 
-**301:** the inspected settings-update builder sends fields user ID 103,
-icon 104, colour/status 112 and name 102. Recipient filtering, self-inclusion
-and ordering have not all been validated.
+**301:** the inspected settings-update builder sends fields user ID 103, icon
+104, colour/status 112 and name 102. Recipient filtering, self-inclusion and
+ordering have not all been validated.
 
 **302:** removal notification is retained as an unresolved catalogue entry.
 Its independent teardown producer, exact fields and delivery ordering were not
@@ -440,10 +448,10 @@ Evidence: V036; `10016150`.
 ### Changing User Settings (Transaction 304) – Client Initiates
 
 The handler uses the same settings helper as transaction 121, reading
-102/104/113/215. It does not implement an established “update only the supplied
-fields” contract: the helper reads name/icon/options regardless of presence,
-uses fallback name handling, and assigns values returned by the field reader.
-Do not rely on omission to preserve every old setting.
+102/104/113/215. It does not implement an established “update only the
+supplied fields” contract: the helper reads name/icon/options regardless of
+presence, uses fallback name handling, and assigns values returned by the
+field reader. Do not rely on omission to preserve every old setting.
 
 **Push:** no direct normal success reply is visible. The settings path emits
 301 updates. Flood handling can close the connection. These changes should not
@@ -460,9 +468,8 @@ Evidence: V028, V037–V038; `10016ad0`, `10004d50`, `10004f30`.
 **Push:** the handler formats text and sends 106 to eligible recipients; it
 checks send-chat permission and applies flood handling. An absent or zero room
 ID selects the main-chat path; a nonzero ID selects the room-specific path,
-which adds field 114.
-There is no normal direct success ACK in the inspected handler. A denied send
-can produce a type-104 notice instead of an error ACK.
+which adds field 114. There is no normal direct success ACK in the inspected
+handler. A denied send can produce a type-104 notice instead of an error ACK.
 
 Evidence: V039; `1000fc20`.
 
@@ -482,7 +489,8 @@ Evidence: V039, V048; `1000fc20`.
 **ACK:** optional subject 115 and repeated packed user records in field 300,
 using the same value layout as roster replies. When adding a member, the
 handler first notifies existing members with 117. Missing-chat errors use a
-direct error reply. This is an explicit second context where field 300 repeats.
+direct error reply. This is an explicit second context where field 300
+repeats.
 
 Evidence: V014, V040; `100183c0`.
 
@@ -511,14 +519,14 @@ Evidence: V040–V041; `100183c0`, `10018620`.
 ### Chat Invitations (Transactions 112, 113, 114) – Private Chats
 
 **112 — create chat:** reads repeated target-user field 103. It checks
-private-chat creation permission, creates a room containing the inviter,
-sends 113 invitations to eligible targets, and ACKs with room 114 plus the
-inviter's 103/104/112/102. Invited users are not all reported as already joined.
+private-chat creation permission, creates a room containing the inviter, sends
+113 invitations to eligible targets, and ACKs with room 114 plus the inviter's
+103/104/112/102. Invited users are not all reported as already joined.
 
-**113 — invite to an existing chat:** request includes room 114 and target
-UID fields 103, iterated by index. The sender builds notification 113 with
-room 114 and inviter UID/name 103/102. No normal direct success ACK was
-identified. Refusal/automatic-response branches can send type 104.
+**113 — invite to an existing chat:** request includes room 114 and target UID
+fields 103, iterated by index. The sender builds notification 113 with room
+114 and inviter UID/name 103/102. No normal direct success ACK was identified.
+Refusal/automatic-response branches can send type 104.
 
 **114 — reject invitation:** the inspected request handler reads chat ID 114.
 Complete rejection notification, expiry and recipient behaviour remain
@@ -532,8 +540,8 @@ Evidence: V042–V043, M005; `10017f30`, `100188e0`, `10018340`.
 
 **120 — set subject:** request fields chat ID 114 and subject 115. The handler
 updates room state and sends notification **119** with fields 114/115. No
-normal direct success ACK was identified. Empty-subject handling exists;
-all authorization and client presentation semantics remain unresolved.
+normal direct success ACK was identified. Empty-subject handling exists; all
+authorization and client presentation semantics remain unresolved.
 
 Evidence: V041; `10018760`.
 
@@ -551,8 +559,8 @@ text 214. In this message context, option values are enumerants:
 | 3 | Refuse-chat notice |
 | 4 | Automatic response |
 
-Do not infer that arbitrary bit combinations have meaningful semantics.
-The handler checks **private-message privilege bit 40**.
+Do not infer that arbitrary bit combinations have meaningful semantics. The
+handler checks **private-message privilege bit 40**.
 
 **ACK and delivery:** the normal path sends an empty direct success reply,
 then routes type 104 as appropriate. Permission and unavailable-recipient
@@ -561,7 +569,8 @@ failures return nonzero status and error-text field 100.
 For normal-message option 1, the server itself can generate refusal or
 automatic-response type-104 messages using the recipient's session settings.
 It suppresses delivery to a refusing recipient. Automatic response is not
-solely a speculative client responsibility. Flood/spam handling can disconnect.
+solely a speculative client responsibility. Flood/spam handling can
+disconnect.
 
 Evidence: V030, V043–V045; `1000f4e0`.
 
@@ -569,12 +578,12 @@ Evidence: V030, V043–V045; `1000f4e0`.
 
 The inspected routed-message path builds sender UID 103, name 102, option 113,
 text 101 and optional quoted text 214. Refusal/auto-response paths construct
-related 104 messages. Other type-104 send sites include chat-denial notices and
-some kick/ban notices, so not every 104 has the same field set.
+related 104 messages. Other type-104 send sites include chat-denial notices
+and some kick/ban notices, so not every 104 has the same field set.
 
 Complete server/admin notice variants and client rendering remain unresolved.
-An admin broadcast request 355 has its own observed type-355 delivery path;
-it should not be modelled as universally converted into 104.
+An admin broadcast request 355 has its own observed type-355 delivery path; it
+should not be modelled as universally converted into 104.
 
 Evidence: V043–V048, V071–V072.
 
@@ -588,8 +597,8 @@ These operations remain implemented in the 1.9 binary alongside threaded news:
 - **102:** server-originated old-board update carrying data 101.
 
 mxd may explicitly defer support, but that is an implementation scope choice,
-not evidence that these operations are absent or obsolete in the oracle.
-Full update ordering and storage semantics remain unresolved.
+not evidence that these operations are absent or obsolete in the oracle. Full
+update ordering and storage semantics remain unresolved.
 
 Evidence: V047; `1000f130`, `1000f260`.
 
@@ -609,9 +618,10 @@ Evidence: V049–V060.
 **Request:** path 202. The handler treats paths shorter than six bytes as the
 root/no-path case and delegates listing construction.
 
-**ACK:** file-list values described as repeated field 200. Exact record layout,
-name encoding and all filtering rules remain unresolved. Do not substitute
-plain path strings or guessed folder IDs for the unvalidated structured path.
+**ACK:** file-list values described as repeated field 200. Exact record
+layout, name encoding and all filtering rules remain unresolved. Do not
+substitute plain path strings or guessed folder IDs for the unvalidated
+structured path.
 
 Evidence: V049–V050; `100100a0`, `1002b0e0`.
 
@@ -621,9 +631,9 @@ Evidence: V049–V050; `100100a0`, `1002b0e0`.
 options 204. The handler checks file-download permission.
 
 **ACK:** transfer size 108, file size 207, four-byte transfer reference 107
-when a transfer is created, and waiting count 116 when queued. Options value
-2 follows a separate preview path; an empty preview can return size zero
-without a reference. Do not require a reference in every successful response.
+when a transfer is created, and waiting count 116 when queued. Options value 2
+follows a separate preview path; an empty preview can return size zero without
+a reference. Do not require a reference in every successful response.
 
 The field schemas do not establish that file size always equals transfer size,
 that preview mode is the default for all clients, or the full resume-stream
@@ -637,9 +647,9 @@ Evidence: V051; `100121a0`.
 108. The handler checks file-upload permission. Options value **1** selects
 its resume path; this field is not merely unused/default upload metadata.
 
-**ACK:** four-byte reference 107 and, on a resume path, resume data 203.
-The complete format and stream negotiation of resume data remain unresolved.
-No separate upload-queue protocol is established by this baseline.
+**ACK:** four-byte reference 107 and, on a resume path, resume data 203. The
+complete format and stream negotiation of resume data remain unresolved. No
+separate upload-queue protocol is established by this baseline.
 
 Evidence: V052; `100130f0`.
 
@@ -658,9 +668,10 @@ Evidence: V053; `100140e0`.
 
 **Request:** name 201 and path 202.
 
-**ACK:** the inspected handler sends direct success/error replies. A subsequent
-file-list refresh is a separate operation, not the only acknowledgement.
-Complete filesystem and permission edge cases remain unresolved.
+**ACK:** the inspected handler sends direct success/error replies. A
+subsequent file-list refresh is a separate operation, not the only
+acknowledgement. Complete filesystem and permission edge cases remain
+unresolved.
 
 Evidence: V053; `100143f0`.
 
@@ -684,8 +695,8 @@ Evidence: V017, V054; `10016ba0`.
 **Request:** current name 201, path 202, new name 211 and/or comment 210.
 
 **ACK:** normal success and error reply paths are present. Separate rename and
-comment permission handling exists, but complete partial-update semantics,
-all permission combinations and resulting refresh behaviour remain unresolved.
+comment permission handling exists, but complete partial-update semantics, all
+permission combinations and resulting refresh behaviour remain unresolved.
 
 Evidence: V053 and the captured handler `100170c0`.
 
@@ -744,8 +755,8 @@ Evidence: V056–V057; `10013930`.
 
 **ACK:** four-byte reference 107 and transfer size 108. The HTXF acceptor
 routes an odd reference with type 2 to the banner-transfer lookup. Banner
-metadata is advertised by transaction 122, not by adding image metadata to 109.
-The detailed banner stream remains outside the validated subset.
+metadata is advertised by transaction 122, not by adding image metadata to
+109. The detailed banner stream remains outside the validated subset.
 
 Evidence: V025, V058; `10012f40`, `1000bd20`.
 
@@ -768,9 +779,9 @@ Evidence: V059–V061; `1000bd20`, `10013040`.
 ### News Hierarchy
 
 The server implements category/folder listing, article listing, article data,
-posting and deletion. A fixed four-tier hierarchy, all parent/child constraints,
-flavour support and orphan handling have not been established. The old
-101/102/103 board remains separate and implemented.
+posting and deletion. A fixed four-tier hierarchy, all parent/child
+constraints, flavour support and orphan handling have not been established.
+The old 101/102/103 board remains separate and implemented.
 
 Evidence: V047, V062–V066.
 
@@ -780,9 +791,9 @@ Evidence: V047, V062–V066.
 fewer than six path bytes are supplied.
 
 **ACK:** the native builder emits repeated category-list fields **323** when
-the saved client-version value is at least **15**, and **320** otherwise.
-The comparison is literally `0x000f`; mapping it to a displayed release such
-as “1.5” is not established. Exact nested category record layouts remain
+the saved client-version value is at least **15**, and **320** otherwise. The
+comparison is literally `0x000f`; mapping it to a displayed release such as
+“1.5” is not established. Exact nested category record layouts remain
 unresolved.
 
 Evidence: V062; `100102c0`, `10005710`.
@@ -791,10 +802,10 @@ Evidence: V062; `100102c0`, `10005710`.
 
 **Request:** category path 325.
 
-**ACK:** a **single field 321 containing the serialized article list** returned
-by the database helper. It is not established as one repeated top-level
-field 321 per article. The nested list format still needs decoding before mxd
-can implement it from this guide alone.
+**ACK:** a **single field 321 containing the serialized article list**
+returned by the database helper. It is not established as one repeated
+top-level field 321 per article. The nested list format still needs decoding
+before mxd can implement it from this guide alone.
 
 Evidence: V063; `10011370`, `100059e0`.
 
@@ -815,8 +826,8 @@ Evidence: V063; `10011370`, `100059e0`.
 | 333 | Body, when nonempty |
 
 Exact previous/next/parent/child semantics, non-text flavour support and the
-news-date producer remain unresolved. Do not infer a particular Markdown,
-HTML or attachment implementation from the existence of a flavour field.
+news-date producer remain unresolved. Do not infer a particular Markdown, HTML
+or attachment implementation from the existence of a flavour field.
 
 Evidence: V064; `10011580`, `10005ac0`.
 
@@ -825,10 +836,10 @@ Evidence: V064; `10011580`, `10005ac0`.
 **Request:** path 325, article/parent-related ID 326, title 328, flags 334,
 flavour 327 and body 333.
 
-**ACK:** direct success/error replies are present. The handler checks post-news
-permission. Exact parent interpretation, flag bits, new-ID discovery and
-notifications after posting remain unresolved. Do not omit its direct reply
-or assume a new-board post is delivered through old-board type 102.
+**ACK:** direct success/error replies are present. The handler checks
+post-news permission. Exact parent interpretation, flag bits, new-ID discovery
+and notifications after posting remain unresolved. Do not omit its direct
+reply or assume a new-board post is delivered through old-board type 102.
 
 Evidence: V064–V066 and the captured handler `10010470`.
 
@@ -836,9 +847,10 @@ Evidence: V064–V066 and the captured handler `10010470`.
 
 **Request:** path 325, article ID 326 and recursive-delete-related field 337.
 
-**ACK:** direct success/error replies are present. The handler checks privilege
-33. Exact recursive semantics, orphan handling and notification side effects
-remain unresolved; no particular tree-reparenting behaviour is promised.
+**ACK:** direct success/error replies are present. The handler checks
+privilege 33. Exact recursive semantics, orphan handling and notification side
+effects remain unresolved; no particular tree-reparenting behaviour is
+promised.
 
 Evidence: V065–V066; `100108a0`.
 
@@ -870,21 +882,26 @@ These are request/reply operations with permission checks:
 | 352: get account | Login 105 | Account fields or error reply |
 | 353: update account | Name 102, login 105, password 106, bitmap 110, extra field 111 | Success/error ACK |
 
-The meaning of extra field **111** is unresolved. Account input credential
-encoding, durable password storage, rename semantics and active-session
-propagation require additional helper analysis. Do not assume deletion keeps
-sessions active or that editing privileges immediately sends 354.
+The meaning of extra field **111** is unresolved. Account credentials, copy
+limits and update defaults are now traced in [native wire
+details](native-wire-details.md). Changed privilege bytes propagate to
+matching active sessions through 354; effective identity/access changes can
+also emit roster updates. Durable-write guarantees, rename outcomes and
+deletion semantics still need further evidence.
 
 For **352**, the observed response includes name 102, complemented login bytes
 in 105, an eight-byte privilege bitmap 110, and password-presence handling:
 
 - If a password exists, field 106 contains the single literal byte **`x`**
-  (`78`). It is a placeholder, not the stored password or a recoverable encoding.
+  (`78`). It is a placeholder, not the stored password or a recoverable
+  encoding.
 - For an empty password, the zero-length writer omits field 106.
 
-A future update-account implementation must not assume that saving the
-placeholder back as a password preserves the old credential. That behaviour
-needs its own validated update contract.
+For update **353**, exactly one NUL byte (`00`) in field 106 selects
+preservation of the existing encoded password, clipped to 31 bytes. Literal
+`x` does not preserve it. Missing/empty 106 clears the newly built password
+value. Other missing fields are not general sparse-update instructions; see
+the supplement.
 
 Evidence: V067–V070; `100146f0`, `100149e0`, `10014bc0`, `10014df0`.
 
@@ -893,10 +910,10 @@ Evidence: V067–V070; `100146f0`, `100149e0`, `10014bc0`, `10014df0`.
 **110 request:** target UID 103, option 113 and optional data 101. The handler
 checks requester privilege 22 and target protection privilege 23.
 
-**ACK:** direct success/error paths are present. Options **1** and **2** select
-distinct branches; do not model them as independently combinable guessed IP/
-account ban bits. The option-2 path reads optional field 101. Exact meanings
-of the two ban helpers remain unresolved.
+**ACK:** direct success/error paths are present. Options **1** and **2**
+select distinct branches; do not model them as independently combinable
+guessed IP/ account ban bits. The option-2 path reads optional field 101.
+Exact meanings of the two ban helpers remain unresolved.
 
 The inspected option-1/2 notice branches send **104** before closing the
 target transport. A plain kick can close without such a notice. Do not require
@@ -925,17 +942,17 @@ Evidence: V046, V048; `1000f990`.
 
 ### Additional Admin Privileges Note
 
-A named privilege or an available transaction is not evidence of an unrestricted
-admin override. In particular, entering or closing arbitrary private chats,
-complete account-change propagation and every protected-user interaction
-remain unresolved beyond the explicit checks recorded above.
+A named privilege or an available transaction is not evidence of an
+unrestricted admin override. In particular, entering or closing arbitrary
+private chats, complete account-change propagation and every protected-user
+interaction remain unresolved beyond the explicit checks recorded above.
 
 Evidence: V070, V073.
 
 ## Additional Observed Requests and Scope Gaps
 
-The inspected dispatcher contains **45 request handlers**, including operations
-omitted from the previous guide:
+The inspected dispatcher contains **45 request handlers**, including
+operations omitted from the previous guide:
 
 | Type | Established observation | Remaining uncertainty |
 | ---: | --- | --- |
@@ -967,7 +984,8 @@ Evidence: V001, V048–V074, M002–M009.
 
 ## References and Correction Traceability
 
-- [Baseline validity ledger][ledger]: immutable pre-correction claims, addresses,
+- [Baseline validity ledger][ledger]: immutable pre-correction claims,
+  addresses,
   input snapshots and remaining validation work.
 - [Captured evidence][evidence]: query plans, raw MCP replies, assembly and
   decompilations tied to the binary hash above.
@@ -975,12 +993,14 @@ Evidence: V001, V048–V074, M002–M009.
   entry in this revision.
 - [Internal compatibility matrix](internal-compatibility-matrix.md): observed
   peer behaviour, mxd policies and unverified implementation/test claims.
+- [Native wire details](native-wire-details.md): traced parser, credential,
+  account, path, file-list, privilege and timer details.
 - [Gap analysis](gap-analysis.md): open questions, implementation impact and
   evidence required to complete the specification.
 
 The historical SynHX comparison is the supplied `../synhxd/server/` archive
-set, with selected trunk revision 1.1 and declared default branch 1.1.1. It
-is not a claim about every SynHX client or a currently released server.
+set, with selected trunk revision 1.1 and declared default branch 1.1.1. It is
+not a claim about every SynHX client or a currently released server.
 
 [ledger]: ../mothra/docs/baseline-validity-ledger.md
 [evidence]: ../mothra/evidence/hotline-server-1.9/
