@@ -113,9 +113,10 @@ merely because a numeric identifier collides.
 
 The frame receiver `100590e0` rejects either size word equal to zero or greater
 than the current global `10094a50`. Equality with that limit passes these
-comparisons. The retained initial value is 2 MiB; runtime configuration remains
-GAP-011. These are per-frame word checks, not a demonstrated bound on the sum
-of interleaved or accumulated fragments.
+comparisons. The retained data-image value is 2 MiB, but
+[startup assigns 512 KiB](session-transport-contracts.md#receive-limit-assignment-at-startup);
+Later configuration and boundary fixtures remain GAP-011. These are per-frame
+word checks, not a bound on the sum of accumulated or interleaved fragments.
 
 The receiver uses the is-reply byte as a zero/nonzero discriminator. The traced
 path does not validate the flags byte against a whitelist. Requests are grouped

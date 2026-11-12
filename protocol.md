@@ -49,8 +49,9 @@ The normal session handshake is twelve bytes:
 The native server rejects a different sub-protocol tag. `CHAT`, `FILE` and
 zero are not interchangeable with `HOTL`. It also recognizes sub-version 3,
 which enters a transfer-related handling path rather than creating a normal
-session. Its complete use is unresolved; sub-version is not an arbitrary
-application build number.
+session. [Session transport details](session-transport-contracts.md#sub-version-3-versus-the-data-endpoint)
+now establish its same-connection handover to HTXF after the success response.
+It does not create a normal user session or identify an application build.
 
 The supplied historical SynHX server source uses the same normal-session
 magic, `TRTPHOTL 00 01 00 02`. **Sub-version 2 cannot identify SynHX
@@ -182,9 +183,10 @@ No evidence establishes the old assertion that clients routinely fragment
 folder-upload requests into dozens of frames.
 
 The reader compares both size words against global `10094a50`. The preserved
-program image initializes it to `0x00200000` (2 MiB). Its value and
-configurability at runtime are not established; do not turn it into an
-immutable universal protocol limit without further validation.
+program image initializes it to 2 MiB, but the newly traced startup assigns
+**512 KiB**. See [startup limit details](session-transport-contracts.md#receive-limit-assignment-at-startup).
+Later writes/configurability and boundary fixtures remain unresolved; this is
+not an aggregate-memory or universal protocol limit.
 
 Evidence: V009–V012, V020–V021; `100590e0`, `10058e80`.
 
@@ -1019,6 +1021,10 @@ Evidence: V001, V048–V074, M002–M009.
   entry in this revision.
 - [Internal compatibility matrix](internal-compatibility-matrix.md): observed
   peer behaviour, mxd policies and unverified implementation/test claims.
+- [Core field schemas](core-field-schemas.md): types, cardinalities, defaults
+  and conditions for core requests, replies and notifications.
+- [Session transport contracts](session-transport-contracts.md): endpoints,
+  handshake failure paths, sub-version-3 handover and startup limits.
 - [Presence and messaging contracts](presence-messaging-contracts.md): settings,
   status masks, teardown, PM/room routing, shutdown and console messages.
 - [News contracts](news-contracts.md): category/article record boundaries,
