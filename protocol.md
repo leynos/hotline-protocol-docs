@@ -925,7 +925,7 @@ These are request/reply operations with permission checks:
 | ---: | --- | --- |
 | 350: create account | Name 102, login 105, password 106, bitmap 110, extra field 111 | Success/error ACK |
 | 351: delete account | Login 105 | Success/error ACK |
-| 352: get account | Login 105 | Account fields or error reply |
+| 352: get account | Uncomplemented lookup name 105 | Account fields or error reply |
 | 353: update account | Name 102, login 105, password 106, bitmap 110, extra field 111 | Success/error ACK |
 
 The meaning of extra field **111** is unresolved. Account credentials, copy
@@ -935,6 +935,9 @@ matching active sessions through 354; effective identity/access changes can
 also emit roster updates. Durable-write guarantees, rename outcomes and
 deletion semantics still need further evidence.
 
+Request **352** uses uncomplemented lookup bytes in 105, unlike the
+complemented inputs of 350/351/353. This asymmetry is established by the
+[account lookup fixtures](native-wire-details.md#account-lookup-name-encodings).
 For **352**, the observed response includes name 102, complemented login bytes
 in 105, an eight-byte privilege bitmap 110, and password-presence handling:
 

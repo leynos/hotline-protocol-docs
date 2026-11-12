@@ -3,11 +3,11 @@
   "title": "Hotline 1.9 protocol documentation gap register",
   "audited_at_utc": "2026-11-12T12:55:29.155796+00:00",
   "last_updated": "2026-11-12",
-  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-16/manifest.json",
-  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-16/sections.json",
+  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-17/manifest.json",
+  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-17/sections.json",
   "validity_ledger": "../mothra/docs/baseline-validity-ledger.md",
   "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
-  "method": "Documentation review and read-only native Ghidra follow-up, frozen source/host callback checks, portable evidence exports, and one operator-identified native handshake observation. The guest subsequently crashed; its complete runtime identity and component versions were not retained. Capture tooling has14 passing loopback tests. No full native/client corpus or Kani proof completion is claimed. Original audit and historical snapshots remain immutable; unchanged unmet criteria remain open.",
+  "method": "Documentation review and read-only native Ghidra/source analysis, portable evidence exports, host callback checks, and16 native core TCP-stream transcripts with emulator/ROM/base/application-fork hashes and host-loopback packets. Fourteen plans completed; two proxy EOF observations timed out and remain failed. Semantic checks cover known credential changes, representative errors, account enumeration and opaque111 storage. No full peer/native corpus or Kani completion is claimed. Historical inputs and closure criteria remain unchanged.",
   "gaps": [
     {
       "id": "GAP-001",
@@ -30,9 +30,9 @@
           "path": "internal-compatibility-matrix.md",
           "heading": "Open compatibility gaps and QA requirements",
           "level": 2,
-          "line_start": 274,
+          "line_start": 279,
           "anchor": "open-compatibility-gaps-and-qa-requirements",
-          "line_end": 306
+          "line_end": 311
         }
       ],
       "question": "Which of the 45 requests and server notifications must mxd implement now, defer explicitly, or reject, and which peer profiles are acceptance targets?",
@@ -89,7 +89,7 @@
           "level": 3,
           "line_start": 920,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 953
+          "line_end": 956
         }
       ],
       "question": "For every in-scope request, reply and notification, which fields are required, optional, conditional or repeatable, with what widths and value domains?",
@@ -137,9 +137,9 @@
           "path": "protocol.md",
           "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
           "level": 3,
-          "line_start": 954,
+          "line_start": 957,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 975
+          "line_end": 978
         }
       ],
       "question": "Which statuses, field-100 forms and connection outcomes apply to each failure, including errors in operations without a normal ACK?",
@@ -159,12 +159,12 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Captured the108-entry native-result table, verified sorted keys and documented representative internal domain/code mappings with resource meanings. These are not wire statuses; enclosing catch translation and native error packets remain required.",
+        "progress": "Captured the108-entry native-result table, verified sorted keys and documented representative internal domain/code mappings with resource meanings. These are not wire statuses; enclosing catch translation and native error packets remain required. Retained native status1 authentication, permission, missing room/file and unknown/replayed-operation replies, plus invalid zero-size closure. Internal exception translation and remaining failure/drain boundaries remain unresolved.",
         "evidence": [
-          "[Structure effects](news-contracts.md#structure-operation-effects-and-conflicts)",
-          "[Internal errors](error-outcomes.md#internal-exceptions-and-text-resources)"
+          "[Native core corpus](../mothra/evidence/gap-remediation/2026-11-12/native-core-01/manifest.json)",
+          "[Repeatable workflow](native-capture-workflow.md#recorded-native-core-fixtures)"
         ],
-        "closure": "Not closed: remaining acceptance evidence is listed above."
+        "closure": "Not closed: remaining unchanged acceptance requirements are explicitly retained above."
       }
     },
     {
@@ -253,9 +253,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 1000,
+          "line_start": 1003,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1037
+          "line_end": 1040
         }
       ],
       "question": "What are the handshake, login, agreement, idle and partial-frame deadlines, and what traffic resets them?",
@@ -385,9 +385,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 1000,
+          "line_start": 1003,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1037
+          "line_end": 1040
         }
       ],
       "question": "What can be sent before authentication, after login ACK, while agreement is pending, after early completion and during shutdown?",
@@ -758,7 +758,7 @@
           "level": 3,
           "line_start": 920,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 953
+          "line_end": 956
         },
         {
           "path": "protocol.md",
@@ -934,7 +934,7 @@
           "level": 2,
           "line_start": 83,
           "anchor": "credential-obfuscation-and-text-compatibility",
-          "line_end": 105
+          "line_end": 110
         },
         {
           "path": "protocol.md",
@@ -1016,7 +1016,7 @@
           "level": 3,
           "line_start": 920,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 953
+          "line_end": 956
         }
       ],
       "question": "What byte/character limits and truncation or rejection rules apply to every name, password, message, subject, comment and body?",
@@ -1132,7 +1132,7 @@
           "level": 3,
           "line_start": 920,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 953
+          "line_end": 956
         }
       ],
       "question": "When an ACK precedes routing or mutation side effects, what has it committed to, and what can fail or be retried afterwards?",
@@ -1167,7 +1167,7 @@
       "area": "Authentication and settings",
       "priority": "P0",
       "kind": "Unanswered",
-      "status": "Investigating",
+      "status": "Resolved",
       "owner": "Protocol documentation investigation",
       "title": "Native nonempty-password encoding",
       "sources": [
@@ -1193,7 +1193,7 @@
           "level": 3,
           "line_start": 920,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 953
+          "line_end": 956
         },
         {
           "path": "internal-compatibility-matrix.md",
@@ -1201,7 +1201,7 @@
           "level": 2,
           "line_start": 83,
           "anchor": "credential-obfuscation-and-text-compatibility",
-          "line_end": 105
+          "line_end": 110
         }
       ],
       "question": "What exact bytes does the 1.9 server expect for nonempty passwords in login and account mutation, independent of SynHX's helper?",
@@ -1222,13 +1222,15 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Traced native setter, reader/writer, recovery and exact-length login comparison; documented bytewise-complement password representation. Known-credential success/failure and mutation captures remain required.",
+        "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
         "evidence": [
-          "[Native wire details](native-wire-details.md)",
-          "[Batch 01](../mothra/evidence/gap-remediation/2026-11-12/batch-01/manifest.json)",
-          "[Batch 02](../mothra/evidence/gap-remediation/2026-11-12/batch-02/manifest.json)"
+          "[Native core manifest](../mothra/evidence/gap-remediation/2026-11-12/native-core-01/manifest.json)",
+          "[Semantic verification](../mothra/evidence/gap-remediation/2026-11-12/native-core-01/verification.json)",
+          "[Source and credential contracts](native-wire-details.md#credential-bytes-lookup-and-account-updates)",
+          "[Enumeration grammar](operation-contracts.md#administrative-account-list-and-batch-mutation)",
+          "[Unchanged criterion review](../mothra/evidence/gap-remediation/2026-11-12/closure-review-03/review.json)"
         ],
-        "closure": "Not closed: remaining acceptance evidence is listed above."
+        "closure": "Native setter/storage/comparison tracing is now joined by successful login with a created known nonempty password, network password change, acceptance of the replacement, rejection of the old password and plaintext replacement bytes, and the matching734-byte stored account record. This satisfies the unchanged credential criterion. Length extremes, restart durability, encoding policy and transport close timing remain GAP-019/064/072/082/084."
       }
     },
     {
@@ -1254,7 +1256,7 @@
           "level": 3,
           "line_start": 920,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 953
+          "line_end": 956
         }
       ],
       "question": "Are absent, empty, NUL-containing or differently cased logins equivalent; how are complemented bytes normalized and guest permissions chosen?",
@@ -1392,12 +1394,12 @@
         "GAP-024"
       ],
       "resolution": {
-        "progress": "Documented login ACK/301/online/354/109 ordering for early completion and 121 ACK/settings/301/online/354 ordering. Configuration/path native session fixtures remain required.",
+        "progress": "Documented login ACK/301/online/354/109 ordering for early completion and 121 ACK/settings/301/online/354 ordering. Configuration/path native session fixtures remain required. Captured early ACK/354/109 and delayed ACK/109 then121 ACK/354, plus duplicate online107/121 errors. Configured agreement/banner/visibility combinations and multi-peer ordering still need fixtures.",
         "evidence": [
-          "[Presence, messaging and administration](presence-messaging-contracts.md)",
-          "[Batch 06](../mothra/evidence/gap-remediation/2026-11-12/batch-06/manifest.json)"
+          "[Native core corpus](../mothra/evidence/gap-remediation/2026-11-12/native-core-01/manifest.json)",
+          "[Repeatable workflow](native-capture-workflow.md#recorded-native-core-fixtures)"
         ],
-        "closure": "Not closed: remaining acceptance evidence is listed above."
+        "closure": "Not closed: remaining unchanged acceptance requirements are explicitly retained above."
       }
     },
     {
@@ -1961,9 +1963,9 @@
           "path": "protocol.md",
           "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
           "level": 3,
-          "line_start": 954,
+          "line_start": 957,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 975
+          "line_end": 978
         }
       ],
       "question": "Which teardown paths emit 302, which fields/recipients are used, and when are rooms, queued transfers and IDs cleaned up?",
@@ -2069,9 +2071,9 @@
           "path": "protocol.md",
           "heading": "Additional Admin Privileges Note",
           "level": 3,
-          "line_start": 991,
+          "line_start": 994,
           "anchor": "additional-admin-privileges-note",
-          "line_end": 999
+          "line_end": 1002
         }
       ],
       "question": "Is the main room implicit, and what authorizes join, send, invite, topic edit or administrative access to a private room?",
@@ -2357,9 +2359,9 @@
           "path": "protocol.md",
           "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
           "level": 3,
-          "line_start": 954,
+          "line_start": 957,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 975
+          "line_end": 978
         },
         {
           "path": "protocol.md",
@@ -2427,9 +2429,9 @@
           "path": "protocol.md",
           "heading": "Broadcasting a Message (Transaction 355) – Admin/Server Initiated",
           "level": 3,
-          "line_start": 976,
+          "line_start": 979,
           "anchor": "broadcasting-a-message-transaction-355--adminserver-initiated",
-          "line_end": 990
+          "line_end": 993
         },
         {
           "path": "protocol.md",
@@ -3650,7 +3652,7 @@
           "level": 3,
           "line_start": 920,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 953
+          "line_end": 956
         }
       ],
       "question": "What is field 111's wire type, presence/default rule, stored meaning and effect on 350/353?",
@@ -3665,13 +3667,12 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Account111 remains stored opaque data, absent from inspected352/348 outputs. Inspected UI range was ban editing, and pinned shx account constants do not name111. No human label or no-use-anywhere claim is inferred; native representative fixtures remain required.",
+        "progress": "Account111 remains stored opaque data, absent from inspected352/348 outputs. Inspected UI range was ban editing, and pinned shx account constants do not name111. No human label or no-use-anywhere claim is inferred; native representative fixtures remain required. Captured absent/empty/value111 updates with native734-byte UserData: lengths0/0/8 and opaque-c content;352 omits111 in all three. Human meaning and later reads/use remain unresolved.",
         "evidence": [
-          "[Error outcomes](error-outcomes.md)",
-          "[Folder descriptor](transfer-contracts.md#folder-item-descriptor-bytes)",
-          "[Identified client source](identified-client-source.md)"
+          "[Native core corpus](../mothra/evidence/gap-remediation/2026-11-12/native-core-01/manifest.json)",
+          "[Repeatable workflow](native-capture-workflow.md#recorded-native-core-fixtures)"
         ],
-        "closure": "Not closed: remaining acceptance evidence is listed above."
+        "closure": "Not closed: remaining unchanged acceptance requirements are explicitly retained above."
       }
     },
     {
@@ -3689,7 +3690,7 @@
           "level": 3,
           "line_start": 920,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 953
+          "line_end": 956
         }
       ],
       "question": "How are target login, rename, absent/empty password, literal x, duplicate names, protected-account deletion and partial updates handled?",
@@ -3713,12 +3714,12 @@
         "GAP-071"
       ],
       "resolution": {
-        "progress": "Documented350 create grant subset check with bit27 exemption,353 update bit17 without the equivalent handler subset comparison,352/348 read bit16 and351 delete bit15. Delete helper moves account file to Trash; protected/self/conflict/persistence native fixtures remain required.",
+        "progress": "Documented350 create grant subset check with bit27 exemption,353 update bit17 without the equivalent handler subset comparison,352/348 read bit16 and351 delete bit15. Delete helper moves account file to Trash; protected/self/conflict/persistence native fixtures remain required. Captured create/change, wrong/complement/plaintext password controls and352 asymmetry: request lookup uses uncomplemented105, unlike350/351/353; reply105 is complemented. Sentinel, sparse/default, collision, rename and live-session boundary cases remain.",
         "evidence": [
-          "[Privilege registry](privilege-contracts.md)",
-          "[Native caller review](../mothra/evidence/gap-remediation/2026-11-12/batch-15/privilege-callsite-review.json)"
+          "[Native core corpus](../mothra/evidence/gap-remediation/2026-11-12/native-core-01/manifest.json)",
+          "[Repeatable workflow](native-capture-workflow.md#recorded-native-core-fixtures)"
         ],
-        "closure": "Not closed: remaining acceptance evidence is listed above."
+        "closure": "Not closed: remaining unchanged acceptance requirements are explicitly retained above."
       }
     },
     {
@@ -3736,7 +3737,7 @@
           "level": 3,
           "line_start": 920,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 953
+          "line_end": 956
         },
         {
           "path": "protocol.md",
@@ -3750,9 +3751,9 @@
           "path": "protocol.md",
           "heading": "Additional Admin Privileges Note",
           "level": 3,
-          "line_start": 991,
+          "line_start": 994,
           "anchor": "additional-admin-privileges-note",
-          "line_end": 999
+          "line_end": 1002
         }
       ],
       "question": "When do edited privileges, names or passwords affect current sessions, does deletion disconnect them, and what 354/301 notifications occur?",
@@ -3794,9 +3795,9 @@
           "path": "protocol.md",
           "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
           "level": 3,
-          "line_start": 954,
+          "line_start": 957,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 975
+          "line_end": 978
         }
       ],
       "question": "What exactly do options 1 and 2 do, including identity matching, ranges/duration, optional data 101, reconnection and protected users?",
@@ -3836,17 +3837,17 @@
           "path": "protocol.md",
           "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
           "level": 3,
-          "line_start": 954,
+          "line_start": 957,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 975
+          "line_end": 978
         },
         {
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 1000,
+          "line_start": 1003,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1037
+          "line_end": 1040
         }
       ],
       "question": "Does any native producer actually emit 111, under which conditions, with what fields and delivery/closure ordering?",
@@ -3884,9 +3885,9 @@
           "path": "protocol.md",
           "heading": "Broadcasting a Message (Transaction 355) – Admin/Server Initiated",
           "level": 3,
-          "line_start": 976,
+          "line_start": 979,
           "anchor": "broadcasting-a-message-transaction-355--adminserver-initiated",
-          "line_end": 990
+          "line_end": 993
         }
       ],
       "question": "Does a console-generated broadcast use the same 355 schema, and which connected/logged-in/refusing users receive each origin's broadcast?",
@@ -3916,7 +3917,7 @@
       "area": "Administration",
       "priority": "P2",
       "kind": "Unanswered",
-      "status": "Investigating",
+      "status": "Resolved",
       "owner": "Protocol documentation investigation",
       "title": "Request 348 schema and purpose",
       "sources": [
@@ -3924,9 +3925,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 1000,
+          "line_start": 1003,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1037
+          "line_end": 1040
         }
       ],
       "question": "What does 348 do, what fields and privileges apply, and how are its potentially nested account records serialized?",
@@ -3940,12 +3941,15 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Identified 348 as account enumeration, with repeated outer 101 values holding nested 102/105/106/110 TLVs and password-presence placeholders. Success/error native fixtures remain required.",
+        "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
         "evidence": [
-          "[Operation contracts](operation-contracts.md)",
-          "[Compatibility review](internal-compatibility-matrix.md#mxd-review-at-2e4c9c1)"
+          "[Native core manifest](../mothra/evidence/gap-remediation/2026-11-12/native-core-01/manifest.json)",
+          "[Semantic verification](../mothra/evidence/gap-remediation/2026-11-12/native-core-01/verification.json)",
+          "[Source and credential contracts](native-wire-details.md#credential-bytes-lookup-and-account-updates)",
+          "[Enumeration grammar](operation-contracts.md#administrative-account-list-and-batch-mutation)",
+          "[Unchanged criterion review](../mothra/evidence/gap-remediation/2026-11-12/closure-review-03/review.json)"
         ],
-        "closure": "Not closed: remaining acceptance evidence is listed above."
+        "closure": "Traced348 enumeration and its account reader/serializer; published no directly read request fields and repeated outer101 nested102/105/106/110 grammar. Native admin success and zero-privilege denial are retained, and the executable verifier checks nested records, password placeholders and exact fixture membership. This satisfies the unchanged representative-fixture criterion; no historical client identity or atomic snapshot guarantee is inferred."
       }
     },
     {
@@ -3961,9 +3965,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 1000,
+          "line_start": 1003,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1037
+          "line_end": 1040
         }
       ],
       "question": "What indexed/transitive fields does 349 consume, how are batch entries delimited, and are failures atomic or per-entry?",
@@ -4001,9 +4005,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 1000,
+          "line_start": 1003,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1037
+          "line_end": 1040
         }
       ],
       "question": "Is 500 a liveness operation or something else, who sends it and when, and does its ACK affect idle deadlines?",
@@ -4049,9 +4053,9 @@
           "path": "internal-compatibility-matrix.md",
           "heading": "Open compatibility gaps and QA requirements",
           "level": 2,
-          "line_start": 274,
+          "line_start": 279,
           "anchor": "open-compatibility-gaps-and-qa-requirements",
-          "line_end": 306
+          "line_end": 311
         }
       ],
       "question": "Which client builds are acceptance targets, what stable evidence distinguishes them after removing sub-version 2, and what is the unknown-peer fallback?",
@@ -4148,7 +4152,7 @@
           "level": 2,
           "line_start": 83,
           "anchor": "credential-obfuscation-and-text-compatibility",
-          "line_end": 105
+          "line_end": 110
         },
         {
           "path": "protocol.md",
@@ -4207,9 +4211,9 @@
           "path": "protocol.md",
           "heading": "References and Correction Traceability",
           "level": 2,
-          "line_start": 1038,
+          "line_start": 1041,
           "anchor": "references-and-correction-traceability",
-          "line_end": 1077
+          "line_end": 1080
         }
       ],
       "question": "Which release/client/server configurations do the selected RCS trunk snapshots represent, and how do the default vendor branch and build options differ?",
@@ -4262,9 +4266,9 @@
           "path": "internal-compatibility-matrix.md",
           "heading": "Open compatibility gaps and QA requirements",
           "level": 2,
-          "line_start": 274,
+          "line_start": 279,
           "anchor": "open-compatibility-gaps-and-qa-requirements",
-          "line_end": 306
+          "line_end": 311
         }
       ],
       "question": "Where are executable positive/negative fixtures for core handshake, authenticated login, both completion paths, errors and repeated-field handling?",
@@ -4285,13 +4289,12 @@
         "GAP-025"
       ],
       "resolution": {
-        "progress": " Added a14-test capture runner and the first positive native12/8-byte handshake. The guest later crashed; exact guest component versions and running executable hash were not retained. Negative/pipelined/login/data/identified-peer fixtures and complete provenance remain required.",
+        "progress": " Added a14-test capture runner and the first positive native12/8-byte handshake. The guest later crashed; exact guest component versions and running executable hash were not retained. Negative/pipelined/login/data/identified-peer fixtures and complete provenance remain required. Added16 native transcripts from hashed patched emulator/ROM/base/native application forks, host-loopback packet capture, account records and a semantic verifier. Fourteen plans completed; two EOF observations timed out and remain failed. No identified historical peer or full native corpus completion is claimed.",
         "evidence": [
-          "[Repeatable workflow](native-capture-workflow.md)",
-          "[First native observation](../mothra/evidence/gap-remediation/2026-11-12/native-handshake-01/manifest.json)",
-          "[Synthetic tool tests](../mothra/evidence/gap-remediation/2026-11-12/capture-tooling-01/manifest.json)"
+          "[Native core corpus](../mothra/evidence/gap-remediation/2026-11-12/native-core-01/manifest.json)",
+          "[Repeatable workflow](native-capture-workflow.md#recorded-native-core-fixtures)"
         ],
-        "closure": "Not closed: one limited handshake observation does not satisfy this entry’s unchanged acceptance criterion."
+        "closure": "Not closed: remaining unchanged acceptance requirements are explicitly retained above."
       }
     },
     {
@@ -4307,17 +4310,17 @@
           "path": "internal-compatibility-matrix.md",
           "heading": "Historical reported mxd test coverage",
           "level": 2,
-          "line_start": 138,
+          "line_start": 143,
           "anchor": "historical-reported-mxd-test-coverage",
-          "line_end": 165
+          "line_end": 170
         },
         {
           "path": "internal-compatibility-matrix.md",
           "heading": "Open compatibility gaps and QA requirements",
           "level": 2,
-          "line_start": 274,
+          "line_start": 279,
           "anchor": "open-compatibility-gaps-and-qa-requirements",
-          "line_end": 306
+          "line_end": 311
         }
       ],
       "question": "Do the named test/source references exist and pass at a recorded mxd revision, and do their assertions match the corrected protocol?",
@@ -4353,9 +4356,9 @@
           "path": "internal-compatibility-matrix.md",
           "heading": "Open compatibility gaps and QA requirements",
           "level": 2,
-          "line_start": 274,
+          "line_start": 279,
           "anchor": "open-compatibility-gaps-and-qa-requirements",
-          "line_end": 306
+          "line_end": 311
         },
         {
           "path": "internal-compatibility-matrix.md",
@@ -4411,9 +4414,9 @@
           "path": "protocol.md",
           "heading": "References and Correction Traceability",
           "level": 2,
-          "line_start": 1038,
+          "line_start": 1041,
           "anchor": "references-and-correction-traceability",
-          "line_end": 1077
+          "line_end": 1080
         },
         {
           "path": "baseline-correction-map.md",
@@ -5677,7 +5680,7 @@
       "level": 3,
       "line_start": 920,
       "anchor": "user-account-management--client-initiates-admin-tx-350353",
-      "line_end": 953,
+      "line_end": 956,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-002",
@@ -5706,9 +5709,9 @@
       "path": "protocol.md",
       "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
       "level": 3,
-      "line_start": 954,
+      "line_start": 957,
       "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-      "line_end": 975,
+      "line_end": 978,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-003",
@@ -5729,9 +5732,9 @@
       "path": "protocol.md",
       "heading": "Broadcasting a Message (Transaction 355) – Admin/Server Initiated",
       "level": 3,
-      "line_start": 976,
+      "line_start": 979,
       "anchor": "broadcasting-a-message-transaction-355--adminserver-initiated",
-      "line_end": 990,
+      "line_end": 993,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-045",
@@ -5746,9 +5749,9 @@
       "path": "protocol.md",
       "heading": "Additional Admin Privileges Note",
       "level": 3,
-      "line_start": 991,
+      "line_start": 994,
       "anchor": "additional-admin-privileges-note",
-      "line_end": 999,
+      "line_end": 1002,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-038",
@@ -5763,9 +5766,9 @@
       "path": "protocol.md",
       "heading": "Additional Observed Requests and Scope Gaps",
       "level": 2,
-      "line_start": 1000,
+      "line_start": 1003,
       "anchor": "additional-observed-requests-and-scope-gaps",
-      "line_end": 1037,
+      "line_end": 1040,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-005",
@@ -5788,9 +5791,9 @@
       "path": "protocol.md",
       "heading": "References and Correction Traceability",
       "level": 2,
-      "line_start": 1038,
+      "line_start": 1041,
       "anchor": "references-and-correction-traceability",
-      "line_end": 1077,
+      "line_end": 1080,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-083",
@@ -5887,7 +5890,7 @@
       "level": 2,
       "line_start": 83,
       "anchor": "credential-obfuscation-and-text-compatibility",
-      "line_end": 105,
+      "line_end": 110,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-018",
@@ -5904,9 +5907,9 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "Repeated fields and presence records",
       "level": 2,
-      "line_start": 106,
+      "line_start": 111,
       "anchor": "repeated-fields-and-presence-records",
-      "line_end": 137,
+      "line_end": 142,
       "review": "Reviewed",
       "direct_gap_ids": [],
       "related_gap_ids": [
@@ -5920,9 +5923,9 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "Historical reported mxd test coverage",
       "level": 2,
-      "line_start": 138,
+      "line_start": 143,
       "anchor": "historical-reported-mxd-test-coverage",
-      "line_end": 165,
+      "line_end": 170,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-085"
@@ -5935,9 +5938,9 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "Open compatibility gaps and QA requirements",
       "level": 2,
-      "line_start": 274,
+      "line_start": 279,
       "anchor": "open-compatibility-gaps-and-qa-requirements",
-      "line_end": 306,
+      "line_end": 311,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-001",
@@ -6015,7 +6018,7 @@
       "heading": "Parameter parsing and scalar access",
       "level": 2,
       "line_start": 9,
-      "line_end": 35,
+      "line_end": 36,
       "anchor": "parameter-parsing-and-scalar-access",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6039,8 +6042,8 @@
       "path": "native-wire-details.md",
       "heading": "Credential bytes, lookup and account updates",
       "level": 2,
-      "line_start": 36,
-      "line_end": 55,
+      "line_start": 37,
+      "line_end": 56,
       "anchor": "credential-bytes-lookup-and-account-updates",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6068,8 +6071,8 @@
       "path": "native-wire-details.md",
       "heading": "Account record and field schema",
       "level": 3,
-      "line_start": 56,
-      "line_end": 99,
+      "line_start": 57,
+      "line_end": 100,
       "anchor": "account-record-and-field-schema",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6089,8 +6092,8 @@
       "path": "native-wire-details.md",
       "heading": "Login lookup transformations",
       "level": 3,
-      "line_start": 100,
-      "line_end": 114,
+      "line_start": 121,
+      "line_end": 135,
       "anchor": "login-lookup-transformations",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6108,8 +6111,8 @@
       "path": "native-wire-details.md",
       "heading": "Changes to connected accounts",
       "level": 3,
-      "line_start": 115,
-      "line_end": 124,
+      "line_start": 136,
+      "line_end": 145,
       "anchor": "changes-to-connected-accounts",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6123,8 +6126,8 @@
       "path": "native-wire-details.md",
       "heading": "Structured file paths and file-list entries",
       "level": 2,
-      "line_start": 125,
-      "line_end": 168,
+      "line_start": 146,
+      "line_end": 189,
       "anchor": "structured-file-paths-and-file-list-entries",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6140,8 +6143,8 @@
       "path": "native-wire-details.md",
       "heading": "Privilege access and connection timers",
       "level": 2,
-      "line_start": 169,
-      "line_end": 219,
+      "line_start": 190,
+      "line_end": 242,
       "anchor": "privilege-access-and-connection-timers",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6161,8 +6164,8 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "mxd review at 2e4c9c1",
       "level": 2,
-      "line_start": 166,
-      "line_end": 188,
+      "line_start": 171,
+      "line_end": 193,
       "anchor": "mxd-review-at-2e4c9c1",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6184,8 +6187,8 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "Assertions requiring protocol reconciliation",
       "level": 3,
-      "line_start": 189,
-      "line_end": 204,
+      "line_start": 194,
+      "line_end": 209,
       "anchor": "assertions-requiring-protocol-reconciliation",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6203,8 +6206,8 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "Exact current text heuristic",
       "level": 3,
-      "line_start": 205,
-      "line_end": 225,
+      "line_start": 210,
+      "line_end": 230,
       "anchor": "exact-current-text-heuristic",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6224,8 +6227,8 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "Proof and QA limits",
       "level": 3,
-      "line_start": 226,
-      "line_end": 240,
+      "line_start": 231,
+      "line_end": 245,
       "anchor": "proof-and-qa-limits",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6365,7 +6368,7 @@
       "heading": "Administrative account list and batch mutation",
       "level": 2,
       "line_start": 199,
-      "line_end": 229,
+      "line_end": 235,
       "anchor": "administrative-account-list-and-batch-mutation",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7129,8 +7132,8 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "Historical source lineage and build limits",
       "level": 2,
-      "line_start": 256,
-      "line_end": 273,
+      "line_start": 261,
+      "line_end": 278,
       "anchor": "historical-source-lineage-and-build-limits",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7348,8 +7351,8 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "Newly identified client source evidence",
       "level": 2,
-      "line_start": 241,
-      "line_end": 255,
+      "line_start": 246,
+      "line_end": 260,
       "anchor": "newly-identified-client-source-evidence",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7422,8 +7425,8 @@
       "path": "error-outcomes.md",
       "heading": "Derived unknown-operation example",
       "level": 2,
-      "line_start": 36,
-      "line_end": 55,
+      "line_start": 53,
+      "line_end": 72,
       "anchor": "derived-unknown-operation-example",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7439,8 +7442,8 @@
       "path": "error-outcomes.md",
       "heading": "Internal exceptions and text resources",
       "level": 2,
-      "line_start": 56,
-      "line_end": 112,
+      "line_start": 73,
+      "line_end": 131,
       "anchor": "internal-exceptions-and-text-resources",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7929,8 +7932,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Acceptance and corpus coverage",
       "level": 2,
-      "line_start": 145,
-      "line_end": 169,
+      "line_start": 222,
+      "line_end": 248,
       "anchor": "acceptance-and-corpus-coverage",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7939,6 +7942,65 @@
       ],
       "related_gap_ids": [
         "GAP-008",
+        "GAP-084"
+      ]
+    },
+    {
+      "path": "native-wire-details.md",
+      "heading": "Account lookup name encodings",
+      "level": 3,
+      "line_start": 101,
+      "line_end": 120,
+      "anchor": "account-lookup-name-encodings",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-022",
+        "GAP-071",
+        "GAP-072"
+      ],
+      "related_gap_ids": [
+        "GAP-022",
+        "GAP-071",
+        "GAP-072"
+      ]
+    },
+    {
+      "path": "error-outcomes.md",
+      "heading": "Recorded representative native outcomes",
+      "level": 2,
+      "line_start": 36,
+      "line_end": 52,
+      "anchor": "recorded-representative-native-outcomes",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-003",
+        "GAP-084"
+      ],
+      "related_gap_ids": [
+        "GAP-003",
+        "GAP-084"
+      ]
+    },
+    {
+      "path": "native-capture-workflow.md",
+      "heading": "Recorded native core fixtures",
+      "level": 2,
+      "line_start": 145,
+      "line_end": 221,
+      "anchor": "recorded-native-core-fixtures",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-022",
+        "GAP-025",
+        "GAP-071",
+        "GAP-077",
+        "GAP-084"
+      ],
+      "related_gap_ids": [
+        "GAP-022",
+        "GAP-025",
+        "GAP-071",
+        "GAP-077",
         "GAP-084"
       ]
     }

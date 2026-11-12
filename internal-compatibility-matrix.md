@@ -99,7 +99,12 @@ Do not advertise the heuristic as an observed Hotline/SynHX wire guarantee.
 The immutable ledger left native nonempty-password encoding unresolved. New
 [native-path evidence](native-wire-details.md) establishes bytewise complement
 from the native account setter, storage and login comparison; it does not rely
-on the SynHX observation to establish that result.
+on the SynHX observation to establish that result. The
+[native core fixtures](native-capture-workflow.md#recorded-native-core-fixtures)
+now demonstrate creation/change of a known nonempty password, successful login
+with complemented bytes, and rejection of the old password and plaintext
+replacement bytes. General text heuristics and historical peer behaviour remain
+separate requirements.
 
 Evidence: M005, V016, V019, V043–V045.
 

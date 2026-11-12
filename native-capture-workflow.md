@@ -142,6 +142,83 @@ conformance. These are application TCP-stream transcripts; they do not contain
 IP/TCP headers or prove platform-level packet timing. Add a separately hashed
 packet capture when a requirement needs those properties.
 
+## Recorded native core fixtures
+
+The [native core corpus][native-core] contains 16 identified native transcripts:
+14 completed plans and two retained failed close-observation attempts. Its
+runtime record identifies the running emulator executable, pinned source/patch,
+ROM/base disk hashes, OS 9.0.4 environment and native application data/resource
+fork hashes. No ROM or OS disk is included. The generic harness now patches
+SLiRP's 32-bit queue allocations on Linux x86-64; the original host crash,
+ordinary-malloc negative control and threaded allocation checks remain in
+mothra's separate evidence batch.
+
+Run the semantic checks from `mothra`:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/verify_native_core.py \
+  evidence/gap-remediation/2026-11-12/native-core-01
+python3 -m unittest discover -s ../hotline-protocol-docs/scripts -p 'test_*.py'
+```
+
+The checks cover nonempty credential creation/change, accepted new and rejected
+old/plaintext passwords, both observed login paths, representative failures,
+plain-input 352 lookup, nested 348 enumeration/permission denial and account-111
+storage variants. Their tests also reject a structurally consistent wrong reply
+ID and a changed stored password. These are additional to the capture runner's
+14 loopback tests.
+
+For another native run, prepare the same supplied base disk and exact application
+as above, create only the dedicated `admin` / `mothra19` fixture, and keep banner
+and server-name options at their initial values. Start a host-loopback packet
+capture before replaying TCP plans. Follow `capture_order` in the retained
+manifest: account creation, initial login, password change and later rejection
+cases depend on that order. Begin with no `fixture-low` account. Replaying the
+create case against an existing fixture is not an equivalent run.
+
+Copy each retained `plan.json` to a new state directory, replace its `environment`
+with the new run's complete runtime record and identify its operator before
+using the capture command. Preserve expected timeout observations as failed;
+do not change them to success. Record the native `UserData` after password
+update and after each 111 variant. The original records are 734-byte data forks
+at `Hotline19/Users/fixture-low/UserData`; 111 has its length at `0x254`, content
+at `0x256`, and password length/content at `0x2bc`/`0x2be`.
+
+The initial run used repository-local Sleuth Kit 4.15.0 for read-only HFS+
+inspection. On the recorded Fedora 43 host, prepare it without installing into
+system directories:
+
+```sh
+mkdir -p tools/sleuthkit-rpms tools/sleuthkit
+dnf download --resolve --destdir tools/sleuthkit-rpms sleuthkit
+(
+  cd tools/sleuthkit
+  for task_package in ../sleuthkit-rpms/*.rpm; do
+    rpm2cpio "$task_package" | cpio -idm --quiet
+  done
+)
+```
+
+The native batch records the downloaded package filenames and SHA-256 values.
+These identify the tested binaries; availability of the same packages from a
+future Fedora repository is not guaranteed. With its executables/libraries
+under `mothra/tools/sleuthkit`, locate
+the current catalog record rather than assuming its original number:
+
+```sh
+export LD_LIBRARY_PATH="$PWD/tools/sleuthkit/usr/lib64"
+tools/sleuthkit/usr/bin/ifind -f hfs \
+  -n /Hotline19/Users/fixture-low/UserData \
+  state/mac-runtime/hotline19/working.dsk
+```
+
+Use `icat -f hfs IMAGE CATALOG_ID-4352-0` for that data fork. Save the password
+update record as `fixture-account-after-update.bin` and the three 111 records
+as `CASE/UserData.bin` beside their transcripts before running the semantic
+verifier. Read after the corresponding operation has finished; a mutable-disk
+observation does not prove crash durability. Shut down cleanly before archiving
+or resetting a guest disk. Do not commit the full disk or system components.
+
 ## Acceptance and corpus coverage
 
 A completed plan establishes its recorded exchange and expectations, not every
@@ -167,3 +244,5 @@ Run the tool tests from this repository with
 [tool-test]: ../mothra/evidence/gap-remediation/2026-11-12/capture-tooling-01/transcript/report.json
 
 [native-handshake]: ../mothra/evidence/gap-remediation/2026-11-12/native-handshake-01/manifest.json
+
+[native-core]: ../mothra/evidence/gap-remediation/2026-11-12/native-core-01/manifest.json

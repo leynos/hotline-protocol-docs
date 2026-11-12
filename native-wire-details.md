@@ -31,7 +31,8 @@ These are helper outcomes. They do not establish that every enclosing request
 succeeds: a handler can reject the resulting missing/default value. Preserve
 order and duplicates in the codec, then apply the operation's cardinality.
 An implementation may reject malformed TLVs more strictly, but must identify
-that as its own acceptance policy. No native negative-packet run was performed.
+that as its own acceptance policy. Dedicated TLV-boundary native fixtures
+remain outstanding.
 
 ## Credential bytes, lookup and account updates
 
@@ -96,6 +97,26 @@ inspected 352 retrieval or 348 enumeration output. The newly inspected native
 UI range `10018c60`–`10019690` concerns ban editing and does not supply an account
 label. The identified shx account constants also do not name 111. Its meaning
 remains opaque; these bounded negatives are not proof of no use anywhere.
+
+### Account lookup name encodings
+
+Field 105 is operation-specific. Login 107 and mutation requests 350/351/353
+complement incoming login bytes before their lookup/storage use. **352 instead
+passes its input name directly to the account reader, then complements it for
+the reply.** Handler `10014bc0` performs the read before its complement loop.
+Do not apply the output encoding to that request automatically.
+
+The [native core fixtures][native-core] demonstrate both outcomes: complemented
+`fixture-low` in 352 receives status 1 with a missing-account message;
+uncomplemented `fixture-low` succeeds, returning complemented 105, literal `x`
+in 106 and an eight-byte zero bitmap. The known nonempty password itself is
+never returned by 352. Account create/change/login fixtures independently prove
+the complemented password representation against the native stored record.
+
+The same corpus records 111 absent, empty and `opaque-c` in update requests.
+The first two store length zero; the value case stores eight bytes at `0x256`.
+All three 352 replies omit 111. This establishes those storage/output cases,
+not the attribute's human meaning or absence of every later consumer.
 
 ### Login lookup transformations
 
@@ -217,3 +238,5 @@ for exact comparisons, bounded negative findings and remaining timer fixtures.
 [priv-file]: ../mothra/evidence/gap-remediation/2026-11-12/batch-02/queries/B02-D-10008ab0.c
 [priv-news]: ../mothra/evidence/gap-remediation/2026-11-12/batch-02/queries/B02-D-10008ad0.c
 [clock]: ../mothra/evidence/gap-remediation/2026-11-12/batch-01/queries/B01-D-10057d00.c
+
+[native-core]: ../mothra/evidence/gap-remediation/2026-11-12/native-core-01/manifest.json

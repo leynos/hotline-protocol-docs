@@ -203,8 +203,12 @@ account-view privilege check succeeds. Its reply repeats outer field **101**;
 each value is itself a count-prefixed TLV stream with 102 (name), 105
 (complemented login), 106 (literal `x` if a password exists, otherwise omitted),
 and eight-byte 110. It does not expose the real encoded password. No input
-fields are read directly by this handler. GAP-077 retains representative
-success/error fixtures and source-independent historical naming.
+fields are read directly by this handler. The [native core fixtures][native-core]
+include a successful two-account response and a status-1 permission denial from
+a zero-privilege account. The executable verifier checks the nested grammar,
+password placeholders, account membership and denied reply. This satisfies
+GAP-077's unchanged semantics/grammar/representative-fixture criterion; it does
+not identify a historical client brand or establish snapshot atomicity.
 
 Request **349**, handler `10015500`, iterates outer fields in wire order and
 interprets each value as an account TLV stream. It does not filter outer IDs in
@@ -227,3 +231,5 @@ rename/conflict helper validation and complete permissions.
 [map]: ../mothra/evidence/hotline-server-1.9/dispatcher-map.json
 [queries]: ../mothra/evidence/hotline-server-1.9/queries/
 [unknown]: ../mothra/evidence/gap-remediation/2026-11-12/batch-03/queries/B03-D-10014640.c
+
+[native-core]: ../mothra/evidence/gap-remediation/2026-11-12/native-core-01/manifest.json

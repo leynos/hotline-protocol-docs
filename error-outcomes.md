@@ -16,7 +16,7 @@ separate from observations about this native server.
 
 | Trigger / path | Native result established in the traced code | Remaining boundary |
 | --- | --- | --- |
-| Failed account/password comparison in 107 | Direct status 1 with 100; records failure time, then dispatcher closes after age exceeds 30 seconds. | Native delivery and close timing fixtures. |
+| Failed account/password comparison in 107 | Direct status 1 with 100; static dispatcher path compares failure age against 30 seconds. | Native error delivered; proxy EOF was not observed within 15/45 host seconds. Guest-close timing and proxy propagation remain unresolved. |
 | Explicit permission denial in file/news/account/PM handlers | Direct status 1 with 100 at captured send sites. | Operation-specific partial effects and exceptions. |
 | Missing/disconnected PM target in 108 | Direct status 1 with 100, before ordinary successful-path routing. | Target state races and exact native packets. |
 | Missing room in 115 | Direct status 1 with 100. | Concurrent room removal. |
@@ -32,6 +32,23 @@ account batch 349 is sequential, comment mutation in 207 precedes rename checks,
 and article creation in 410 precedes body validation/write. Old-board 103 writes
 and ACKs before its repeated-hash branch can stop fan-out. See the corresponding
 supplements for those operation-specific orderings.
+
+## Recorded representative native outcomes
+
+The [native core corpus][native-core] retains successful early/delayed logins,
+nonempty password create/change cases, permission denial in 348, missing-room
+115 and missing-file 206 failures, and unknown/replayed online requests. These
+operation failures carry status 1 and text field 100 in the observed fixtures.
+A zero-size frame closes without a numbered reply. The executable verifier
+checks these bounded results and direct reply correlation.
+
+Failed-password replies contain `Incorrect login.`. Attempts to observe proxy
+EOF within 15 and 45 host seconds both timed out; those transcripts remain
+failed observations. They do not establish whether the guest had already closed
+its transport. The packet capture covers the host-to-SLiRP leg, so native close
+and proxy FIN propagation must be separated before publishing drain timing.
+Internal exception translation and broader failure boundaries remain GAP-003;
+this corpus does not turn every `SError` domain/code into a wire status.
 
 ## Derived unknown-operation example
 
@@ -110,3 +127,5 @@ fixtures remain explicit investigation work.
 [catalogue]: ../mothra/evidence/gap-remediation/2026-11-12/batch-11/internal-error-resource-catalogue.json
 
 [native-map]: ../mothra/evidence/gap-remediation/2026-11-12/batch-14/native-error-map-review.json
+
+[native-core]: ../mothra/evidence/gap-remediation/2026-11-12/native-core-01/manifest.json
