@@ -154,9 +154,10 @@ the previous guide's conversion to a timestamp's calendar year and seconds
 within that year.
 
 **Unresolved:** semantics of nonzero milliseconds, other year values, timezone
-handling and all non-file-date producers. The fixed-year observation does not
-establish that receivers must reject other years. A general annual-conversion
-algorithm is not certified by this baseline.
+handling and producers beyond the now-traced native news creation path.
+[News contracts](news-contracts.md#news-dates) records its fixed-1904-year form.
+This observation does not require receivers to reject other years. A general
+annual-conversion algorithm is not certified here.
 
 Evidence: V017; `10016ba0`, `1002c910`, `10058070`.
 
@@ -734,9 +735,10 @@ options 204.
 
 **ACK:** item count 220 and transfer size 108, with four-byte reference 107
 and queue count 116 when applicable. A no-transfer result can omit the
-reference. The full per-file stream state machine, traversal order and resume
-exchanges are unresolved. Action values 1/2/3 from the previous guide are not
-certified as a complete byte protocol by this pass.
+reference. The [folder-download states](transfer-contracts.md#folder-download-control-states)
+now establish the state-dependent 16-bit controls 1/2/3, per-file lengths and
+resume exchange. Exact item-descriptor bytes and nested/empty runtime fixtures
+remain open; those controls are not a symmetric upload contract.
 
 Evidence: V055, V057; `10012850`.
 
@@ -748,9 +750,10 @@ Evidence: V055, V057; `10012850`.
 **Permission:** folder-upload bit **38**, not simply file-upload bit 1.
 
 **ACK:** reference 107 when a transfer is created. If there is nothing to
-transfer, a successful empty field-list reply can omit it. The exact folder
-stream and resume/control exchanges are unresolved; do not implement them by
-assuming a symmetric inverse of folder download.
+transfer, a successful empty field-list reply can omit it. The [folder-upload states](transfer-contracts.md#folder-upload-control-states)
+now distinguish descriptor parsing, fresh/resumed file responses, directory/skip
+handling, lengths and completion. Conflict/invalid/partial runtime fixtures
+remain open; upload is not a symmetric inverse of folder download.
 
 Evidence: V056–V057; `10013930`.
 
@@ -1008,6 +1011,8 @@ Evidence: V001, V048–V074, M002–M009.
   entry in this revision.
 - [Internal compatibility matrix](internal-compatibility-matrix.md): observed
   peer behaviour, mxd policies and unverified implementation/test claims.
+- [News contracts](news-contracts.md): category/article record boundaries,
+  flavour selection, native dates and mutation ordering.
 - [Transfer contracts](transfer-contracts.md): HTXF dispatch, fork streams,
   resume records, queue notifications, cleanup scope and worker timers.
 - [Operation contracts](operation-contracts.md): complete dispatcher inventory,

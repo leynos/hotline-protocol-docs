@@ -217,4 +217,69 @@ Download completion means all advertised bytes have been enqueued by the worker;
 it does not itself prove the peer persisted them. The complete folder streams,
 transport-drain/EOF ordering and interruption semantics remain unresolved.
 
+## Folder-download control states
+
+The ordinary fork stream is reused per file, but the enclosing folder protocol
+is bidirectional. Worker `1000c6a0` and traversal helpers `100273a0`/`100262e0`
+are retained in [folder evidence][folder-batch]. Controls below are big-endian
+16-bit words sent on the data connection, not numbered control transactions.
+
+| Native state | Input from client | Server action / next state |
+| --- | --- | --- |
+| Await next item (0) | Control 3 | Advances native traversal, sends an item descriptor, then waits in state 0 for a directory or state 1 for a file. |
+| Await file choice (1) | Control 1 | Initializes a fresh flattened stream, sends BE32 stream length, enters sending state 2. |
+| Await file choice (1) | Control 2 | Enters state 10, reads a BE16 resume-value length, then in state 11 reads that many RFLT bytes. Applies resume, sends BE32 stream length, enters state 2. |
+| Await file choice (1) | Control 3 | Skips this file and immediately advances traversal. |
+| Sending file (2) | No per-chunk control | Queues FILP/fork bytes; when its per-file count reaches the chosen length, closes that file and returns to state 0. |
+
+A completed file is followed by another client control 3 to request the next
+item. When traversal has no next item, the worker removes its entry and closes
+the data connection; it does not emit a numbered completion ACK here. Other
+control values are consumed without an established protocol-error reply in the
+inspected branches. They must not be assigned guessed actions.
+
+The descriptor is constructed by walking backwards over a structured component
+path, removing the root component, then prepending its length and directory/file
+indicator. The decompiler's recovered stack-tail pointers are not sufficient
+to certify every descriptor offset. Exact descriptor bytes, empty-folder and
+nested traversal traces remain GAP-059, rather than a guessed symmetric upload
+record. Pending folder downloads use the same greater-than-500-second wait
+comparison as ordinary downloads.
+
+## Folder-upload control states
+
+Worker `1000dc60` implements a different receive protocol:
+
+| Native state | Input/output | Next action |
+| --- | --- | --- |
+| Initial (0) | Server sends BE16 control 3 | Waits for an item's BE16 descriptor length (state 1). |
+| Descriptor length (1) | Client sends BE16 length | Waits for the full descriptor (state 2). |
+| Descriptor (2) | Client sends descriptor bytes | First BE16 word is item flags; the remaining bytes are a structured path, normalized by `1006e960` and resolved under the upload root. |
+| New ordinary file | Server sends BE16 control 1 | Waits for BE32 stream length (state 3). |
+| Resumable ordinary file | Server sends BE16 control 2, BE16 RFLT length, then RFLT bytes | Waits for BE32 stream length (state 3). |
+| Skipped or directory item | Server sends BE16 control 3 | Counts that item, then waits for the next descriptor length or finishes. |
+| Stream length (3) | Client sends BE32 length | Resets per-file received count and enters stream state 4. |
+| Receiving stream (4) | Client sends FILP/fork bytes | Feeds the upload parser, finalizes/closes the file once count is at least expected; counts the item. |
+| More items after a file | Server sends BE16 control 3 | Returns to descriptor-length state 1. |
+
+Item flag bit zero selects the directory branch; other bits are not given
+semantics by this pass. The ordinary-file branch checks the target's native
+partial-transfer status before selecting resume, create or skip. Directory
+creation and conflict handling use filesystem helpers, not an assumption that
+every directory descriptor succeeds.
+
+Completion compares the processed-item count with the item count saved from
+request 213. On the final item it closes the data connection without sending
+another next-item control. A control 3 can mean initial readiness, skip or
+next-item readiness depending on state; a universal standalone meaning would
+be wrong. Pending timeout is greater than 500 seconds, while the connected
+worker closes when its recorded progress age is at least 121 seconds. Descriptor
+and control reads do not all refresh that progress timestamp in these branches.
+
+Zero/inconsistent item counts, truncated or tiny descriptors, invalid paths,
+resume conflicts and byte-count overshoot remain GAP-060/064 fixture work.
+Nothing here promises transactional rollback of previously uploaded items.
+
+[folder-batch]: ../mothra/evidence/gap-remediation/2026-11-12/batch-05/manifest.json
+
 [batch]: ../mothra/evidence/gap-remediation/2026-11-12/batch-04/manifest.json
