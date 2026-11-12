@@ -96,10 +96,12 @@ Request and server-notification types are described in the catalogue below. A
 direct reply does **not** need to echo the request's type: the inspected
 native reply construction leaves type zero and copies the request ID.
 
-The server's own ID generator skips zero. Rejection of a client-supplied zero
-ID was not established. mxd should track outstanding IDs explicitly; that is
-an implementation policy, not proof that every peer rejects zero or reuses IDs
-in the same way.
+The server's own notification-ID generator increments a 32-bit counter and
+skips wrapped zero. Direct replies instead echo client IDs: native captures
+accept zero, high-bit values and completed reuse. Equal IDs can collide while
+an assembly still exists. See the [ID/reassembly contract](session-transport-contracts.md#transaction-ids-reassembly-and-correlation)
+for native collisions, late replies and notification correlation. mxd
+resource and retry policies remain separate implementation choices.
 
 Evidence: V002, V007–V010, V022; `10058fd0`, `10058880`, `10058a70`.
 
@@ -182,19 +184,21 @@ The count belongs at the start of the reassembled parameter stream, not before
 every arbitrary fragment. Do not confuse application frames with separate TCP
 reads: the receiver also handles partial delivery of a frame's bytes.
 
-**Unresolved:** exact behaviour for interleaved IDs, changed type or total,
-overshoot, reused IDs, malformed parameter counts and truncated fields. The
-reader updates stored type/total on later frames; this baseline does not prove
-strict consistency checks. A conservative mxd encoder should keep type, ID and
-total stable, but that is not a claim about what the native receiver enforces.
+The native receiver appends matching-ID/request-class payloads, updates stored
+type/total from later frames and dispatches when accumulated bytes reach or
+exceed that total. The [captured reassembly matrix](session-transport-contracts.md#transaction-ids-reassembly-and-correlation)
+covers interleaving, collisions, changed totals/types, overshoot, underfilled
+EOF and partial TCP delivery. The [parameter parser](native-wire-details.md#parameter-parsing-and-scalar-access)
+separately specifies malformed counts and truncated records. A conservative
+mxd encoder should keep type, ID and total stable; this is its own writer policy.
 No evidence establishes the old assertion that clients routinely fragment
 folder-upload requests into dozens of frames.
 
 The reader compares both size words against global `10094a50`. The preserved
 program image initializes it to 2 MiB, but the newly traced startup assigns
 **512 KiB**. See [startup limit details](session-transport-contracts.md#receive-limit-assignment-at-startup).
-Later writes/configurability and boundary fixtures remain unresolved; this is
-not an aggregate-memory or universal protocol limit.
+Captured boundaries include equality and overshoot. Later writes/configurability
+and aggregate-memory limits remain separate unresolved requirements.
 
 Evidence: V009–V012, V020–V021; `100590e0`, `10058e80`.
 
@@ -215,6 +219,9 @@ that every branch replies. **Push** means the inspected handler routes a
 notification/update without a normal direct success reply. Permission
 failures, flood limits and connection closure can change the outcome.
 
+The [native envelope table](session-transport-contracts.md#native-envelope-acceptance-and-emission)
+specifies flags, reply-marker, type, status and size handling. Valid unmatched
+replies are silent; invalid zero-size replies close before correlation.
 Malformed framing can close the transport. There is no established universal
 rule requiring transaction 111 before closing a malformed connection.
 

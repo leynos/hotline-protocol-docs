@@ -750,3 +750,57 @@ OS/working disk is committed. Quiet windows and owner-pump delays are bounded
 observations; data connections carry no authenticated control-session identity.
 
 [htxf-corpus]: ../mothra/evidence/gap-remediation/2026-11-12/native-htxf-01/manifest.json
+
+## Reproducing ID, envelope and partial-input fixtures
+
+The [ID/envelope corpus][ids-corpus] retains24 sessions,25 read-only oracle
+queries, two host packet phases and one continuous guest packet window. Each
+stream reconciles exactly in both views, with no unread output. Reverify it
+without the guest:
+
+```sh
+python3 scripts/verify_native_correlation.py \
+  ../mothra/evidence/gap-remediation/2026-11-12/native-correlation-01
+```
+
+Use the same committed native harness and record the current executable,
+application identity, guest environment and server limits. The plans use the
+owned admin/mothra19 account and require its early login completion. They need
+no file creation, GUI reconfiguration, ROM modification or guest-memory writes.
+Prepare fresh plans from mothra:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/prepare_native_cases.py correlation \
+  --runtime-record state/native-sessions/NEW/runtime.json \
+  --output state/native-sessions/NEW/correlation-plans
+python3 ../hotline-protocol-docs/scripts/protocol_capture.py capture \
+  state/native-sessions/NEW/correlation-plans/pipelined-duplicate-id.json \
+  --oracle-binary evidence/hotline-server-1.9/inputs/HLserver19.pef \
+  --output state/native-sessions/NEW/captures/pipelined-duplicate-id
+```
+
+Run each generated plan sequentially into a distinct fresh directory with both
+packet recorders active. The same-ID pipeline deliberately puts both physical
+frames in one send; the separate-dispatch control pauses three seconds between
+sends without first reading the ACK. Scheduling can change a reproduced
+interleaving: retain its actual outcome instead of changing the report to match
+the expected collision. The mixed-type case checks both the final type and the
+first payload prefix through the emitted301 name/icon fields.
+
+The EOF cases first observe three seconds of silence, then half-close the
+client write side. Their native FINs follow client FINs. They must not be
+represented as server-initiated timeout closes. Late-reply cases instead keep
+the connection open and prove liveness with a subsequent complete request.
+No mandatory keepalive schedule is inferred from using request500 as a probe.
+
+The retained host phases report416 and68 packets, each with zero kernel drops.
+The complete plans preserve initial19, extended20 and final24-case preparation;
+source snapshots and the packaging helper are retained. The oracle captures
+include the rejected interior-address query and corrected function boundaries.
+ID wrap follows the retained PowerPC increment/zero-skip instructions; no live
+four-billion-request trial or guest state mutation is claimed. Repeat the
+read-only queries using `scripts/capture-ghidra-evidence.py` in mothra with its
+repository-local MCP Python and the retained `oracle-*.json` plans. The capture
+helper rejects a changed program hash before collecting evidence.
+
+[ids-corpus]: ../mothra/evidence/gap-remediation/2026-11-12/native-correlation-01/manifest.json

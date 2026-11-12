@@ -139,4 +139,28 @@ def correlation() -> dict:
             ],
             {"kind": "close"},
         )
+    for name, raw in [
+        ("partial-header-eof", packet(500, 10)[:18]),
+        ("partial-frame-body-eof", packet(500, 10)[:-2]),
+        ("underfilled-transaction-eof", packet(500, 10, b"\0\0", total=4)),
+        (
+            "interleaved-underfilled-transactions-eof",
+            packet(500, 10, b"\0\0", total=4) + packet(500, 11, b"\0\0", total=4),
+        ),
+    ]:
+        add(
+            name,
+            [
+                send(raw),
+                quiet(),
+                {"op": "shutdown_write", "connection": "main"},
+                {
+                    "op": "read_eof",
+                    "connection": "main",
+                    "timeout": 30,
+                    "expect_hex": "",
+                },
+            ],
+            {"kind": "close"},
+        )
     return cases

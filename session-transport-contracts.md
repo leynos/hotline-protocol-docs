@@ -151,10 +151,96 @@ The guest continued the same hashed runtime used by the transport corpus.
 | Sequential completed requests reuse ID 10 | Two distinct ACKs with ID 10. |
 
 These fixtures do not establish an assembly-age limit, maximum simultaneous
-partials, aggregate allocation cap, all reply-direction values or mxd policy.
+partials, aggregate allocation cap or mxd policy. The ID/envelope cases below
+add collision, late-reply and partial-input EOF outcomes.
 The [TLV/handler matrix](native-wire-details.md#captured-tlv-and-scalar-boundaries)
-separates structural indexing from request-specific outcome. GAP-011–013 and
+separates structural indexing from request-specific outcome. GAP-011 and
 GAP-015/017 retain their broader acceptance requirements.
+
+## Transaction IDs, reassembly and correlation
+
+The [native ID/envelope corpus][ids] retains 24 sessions and 25 identity-checked
+Ghidra queries. Each complete input/output stream reconciles independently at
+the host and guest boundaries. No unread bytes or failed native hypotheses are
+hidden. One exploratory function query at `10058960` fails; the corrected
+transaction destructor is captured at `100589b0`.
+
+The server notification sender `10058ca0` obtains its ID from `10058d70`.
+The connection constructor allocates zeroed state through `10052b70` /
+`10079e30`, so its counter begins at zero. The PowerPC instructions increment
+and store the 32-bit word at connection offset12, replacing a wrapped zero
+with1. Thus the first allocated ID is1 and `ffffffff` advances to1. This wrap
+rule is machine-code evidence, not a live four-billion-message trial. The
+sender does not scan this counter against client request IDs or create a
+waiting-reply entry for the notifications traced here.
+
+A direct reply instead copies the selected incoming request's ID. Its
+construction through `10058880` creates a separate reply object; `10058a70`
+emits it. Client IDs are neither allocated by the server counter nor required
+to be monotonic. Native request500 ACKs echo0,1,`7fffffff`,`80000000`,
+`fffffffe`,`ffffffff`,0,1 in that order. Login ACK1 coexists with notification
+354/ID1 and agreement109/ID2. Later request500/ID1 ACKs leave the next settings
+notification at301/ID3. Classify direct replies by the reply marker and known
+operation state; equal numeric IDs alone do not establish correlation.
+
+Receiver `100590e0` keys assemblies by full 32-bit ID plus request/reply class.
+Marker zero uses class3; every nonzero marker uses class4. An unmatched request
+creates an assembly. An unmatched reply creates none and is discarded after
+its physical bytes are consumed. An existing assembly receives appended bytes;
+the later frame supplies its recorded total and type. There is no consistency
+check requiring those to match the first frame. Completion selection
+`10058e80` requires accumulated length at least the currently recorded total,
+not exact equality. Once the handler finishes, `100589b0` / `10058df0` remove
+its request/reply objects. Connection destruction `10058160` releases remaining
+assemblies. There is no assembly-age comparison in these receiver/selector
+paths; connection and platform timers remain separate (GAP-005).
+
+| Native case | Captured outcome |
+| --- | --- |
+| Two complete request500 frames with ID10 in one write | One ACK10, then a three-second quiet interval; subsequent request11 ACKs. The receiver merges the frames while the same assembly exists. |
+| Same two request frames, with a three-second pause between writes | Two ACK10 frames, even though the client has not read the first before sending the second. Reuse after dispatch is distinct from assembly collision. |
+| Complete request IDs10 and11 pipelined together | Separate ACKs10 then11. |
+| Request500/ID10 followed in the same write by settings304/ID10 | Only settings301/ID3, then the later probe ACK. The later type governs, but the first payload's zero field count yields name `***` and icon0. |
+| Partial ID10 total100 with one byte, then a complete two-byte ID10 frame with total2 | ACK10 on three accumulated bytes; a later completed reuse also ACKs. |
+| Partial request plus marker255/type`ffff` reply with the same ID | Reply does not complete or alter the request; no output in the quiet window, then the remaining request fragment ACKs. |
+| Reply markers1/2/255 with type`ffff`, flags`ff`, error`ffffffff`, ID10 after its ACK | No output for three seconds; a reused request10 ACKs. |
+| Same reply variants using notification ID1 | No output for three seconds; client request1 ACKs normally. A notification ID alone does not create an outstanding reply slot. |
+| Partial nine-byte header, or a frame missing its last payload byte, followed by write-half-close | No dispatch during the preceding three-second quiet window; native FIN after client FIN, without a numbered reply. |
+| One underfilled transaction, or two interleaved underfilled transactions, then write-half-close | Same bounded silence and native FIN response; neither partial transaction dispatches. |
+
+The [earlier framing corpus][framing] adds total/type replacement, overshoot,
+interleaved completion order, an abandoned partial coexisting with an unrelated
+complete request, partial TCP header/body delivery and payload-limit boundaries.
+These are observed interleavings, not an exactly-once guarantee for duplicate
+operations. Header-only malformed input and a complete physical fragment with
+an incomplete logical transaction are different states. No global buffer cap,
+assembly lifetime guarantee or retry/durability policy follows from this
+matrix; resource limits and completion semantics remain GAP-011/021/064.
+
+## Native envelope acceptance and emission
+
+The table distinguishes what the native server receives from what its writer
+emits. Historical clients' tolerance is separately tracked by GAP-081; this
+server corpus does not certify another peer's receiver.
+
+| Header field | Native server input | Native server output |
+| --- | --- | --- |
+| Flags, byte0 | No whitelist, decompression branch or flag rejection in `100590e0`. Request500 succeeds with1,`80`,`ff`; reply probes use`ff`. | `10058fd0` emits0. |
+| Reply marker, byte1 | Zero selects request class; every nonzero byte selects reply class. Captured1/2/255 unmatched and late replies are silent, not requests. | Writer normalizes its boolean argument to0/1; direct replies use1, notifications0. |
+| Type, bytes2–3 | Request type selects the handler. Online unknown0 and`ffff` produce status1/field100 `Unknown transaction type!`. Reply type is not a lookup key; nonzero`ffff` is consumed in the unmatched/late-reply probes. | Native direct reply type0; notifications retain their operation types such as354,109,301. |
+| ID, bytes4–7 | Full 32-bit correlation/assembly key; zero and high-bit request IDs accepted in the captured cases. No zero-ID reject check in this receiver. | Direct reply echoes the client ID; notifications use the independent nonzero counter described above. |
+| Error, bytes8–11 | No header rejection for a nonzero request error word in this receiver. Request500 with`ffffffff` still ACKs success; unsupported types return their handler's status1 instead. | Success status0; error status set by the selected handler. This does not enumerate all operation failures. |
+| Total/data sizes, bytes12–19 | Both must be nonzero and at most the runtime receive limit before request/reply matching. Reply-marker1/255 frames with zero size close natively without a numbered response. | Ordinary empty ACKs have total/data2 and payload `0000`; other lengths describe emitted payload bytes. |
+
+Malformed reply framing is therefore not silently accepted merely because its
+ID would be unmatched. Conversely, a valid but unmatched reply is not an
+unsupported request type and does not receive the status1 unknown-operation
+response. The [512KiB boundary fixtures](#captured-framing-and-reassembly-boundaries)
+and startup analysis remain the authority for this runtime's size checks;
+configurability and mxd's explicit resource policy remain GAP-011.
+
+[ids]: ../mothra/evidence/gap-remediation/2026-11-12/native-correlation-01/manifest.json
+[framing]: ../mothra/evidence/gap-remediation/2026-11-12/native-framing-01/manifest.json
 
 ## Identifier domains
 
@@ -203,7 +289,8 @@ status instead of imposing a universal frame-assembly deadline.
 The last three rows are bounded negative findings. Lower transport/platform
 behaviour can still close a connection, and no global claim of unlimited
 lifetime is made. Native stalled-handshake/header/body/fragment fixtures remain
-GAP-005/008/012/055/084. These observations also do not prescribe mxd's chosen
+GAP-005/084; captured partial-input and HTXF cases are described above.
+These observations also do not prescribe mxd's chosen
 resource limits or deadlines.
 
 ### Captured failure-wait observations
