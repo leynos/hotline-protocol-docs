@@ -234,6 +234,24 @@ release owner or supply native session acceptance fixtures. Roadmap items
 conformance discrepancies. Release ownership, supported subset and acceptance
 of deliberate deviations remain GAP-001/086 decisions.
 
+## Historical source lineage and build limits
+
+The [lineage review][lineage] checks all 14 archived server files retained by
+the original ledger. Their administrative headers declare trunk head 1.1,
+default branch 1.1.1 and vendor revision 1.1.1.1. The retained `rcv.c` archive
+records an import on 3 September 2001 by `devinteske`. All 14 vendor delta texts
+are empty: for these archives the selected 1.1 content and the imported vendor
+revision have no content edit between them. This narrows the old trunk/vendor
+ambiguity without asserting a release number or matching client executable.
+
+These are server sources. Conditional paths include `CONFIG_CIPHER`,
+`CONFIG_COMPRESS`, `CONFIG_HFS`, `CONFIG_HTXF_QUEUE`, HTXF process/thread models,
+`CONFIG_IPV6` and SQL/platform-specific branches. A particular configured build
+or matching client corpus was not retained. The default branch relationship
+therefore does not establish how any deployed peer was built. Every source
+observation in this matrix applies to the selected hashed source and its named
+path; extrapolation to all SynHX clients remains unsupported (GAP-083/080).
+
 ## Open compatibility gaps and QA requirements
 
 Before recording support or signing off a release:
@@ -265,3 +283,5 @@ remaining questions and their closure criteria.
 [roster-log]: ../mothra/evidence/gap-remediation/2026-11-12/mxd-review/roster-tests.log
 [scenario-log]: ../mothra/evidence/gap-remediation/2026-11-12/mxd-review/scenario-tests.log
 [presence-log]: ../mothra/evidence/gap-remediation/2026-11-12/mxd-review/presence-tests.log
+
+[lineage]: ../mothra/evidence/gap-remediation/2026-11-12/batch-08/synhx-lineage-review.json

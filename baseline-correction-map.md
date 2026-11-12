@@ -10,6 +10,12 @@ line references refer to the original documents, not these revised files.
 All 83 entries have a disposition below. A qualified or unresolved claim has
 not been promoted to verified behaviour simply because the document was edited.
 
+This table preserves the initial correction dispositions, including then-open
+claims. Subsequent findings and closures are tracked in the
+[gap analysis](gap-analysis.md) and linked supplements; for example, password
+representation and native 111/302 producers are now traced. The original ledger
+statuses and evidence remain historical rather than being rewritten.
+
 The evidence checkout is the sibling `mothra` repository in this workspace.
 Keep that checkout or the hashed evidence package available when reviewing
 these provenance links. No mxd source change or new interoperability test

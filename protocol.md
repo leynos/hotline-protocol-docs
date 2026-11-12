@@ -670,10 +670,10 @@ Evidence: V052; `100130f0`.
 
 **Request:** name 201 and path 202.
 
-**ACK:** the success path replies after deletion; failures can return error
-replies. The handler checks separate file/folder delete privileges 0/6.
-Recursive deletion, refresh notifications and every filesystem failure case
-remain unresolved. Do not describe success as having no reply.
+**ACK:** the success path replies after the native helper moves the object to
+Trash; this is not a recursive erase. The handler checks separate file/folder
+delete privileges 0/6. Collision, refresh and filesystem failure fixtures remain
+open; [filesystem contracts](filesystem-and-board-contracts.md) trace the calls.
 
 Evidence: V053; `100140e0`.
 
@@ -707,9 +707,12 @@ Evidence: V017, V054; `10016ba0`.
 
 **Request:** current name 201, path 202, new name 211 and/or comment 210.
 
-**ACK:** normal success and error reply paths are present. Separate rename and
-comment permission handling exists, but complete partial-update semantics, all
-permission combinations and resulting refresh behaviour remain unresolved.
+**ACK:** normal success and error reply paths are present. Absent comment 210
+skips comment mutation; present empty/single-NUL clears it. Empty new name skips
+rename. Comment mutation occurs before later rename validation, so a rename
+error can follow a changed comment. See
+[filesystem contracts](filesystem-and-board-contracts.md#request-207-presence-and-mutation-order).
+Permission/conflict/refresh and partial-failure native fixtures remain open.
 
 Evidence: V053 and the captured handler `100170c0`.
 
@@ -1021,6 +1024,8 @@ Evidence: V001, V048–V074, M002–M009.
   entry in this revision.
 - [Internal compatibility matrix](internal-compatibility-matrix.md): observed
   peer behaviour, mxd policies and unverified implementation/test claims.
+- [Filesystem and board contracts](filesystem-and-board-contracts.md): target
+  variants, Trash deletion, metadata mutation order, moves/aliases and old news.
 - [Core field schemas](core-field-schemas.md): types, cardinalities, defaults
   and conditions for core requests, replies and notifications.
 - [Session transport contracts](session-transport-contracts.md): endpoints,
