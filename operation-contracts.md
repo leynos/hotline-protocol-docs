@@ -84,6 +84,70 @@ in [the gap analysis](gap-analysis.md).
 | 411 | Delete news article | [100108a0](../mothra/evidence/hotline-server-1.9/queries/D-100108a0.c) | 325, 326, 337 | ACK |
 | 500 | Undocumented empty ACK operation | [10018c00](../mothra/evidence/hotline-server-1.9/queries/D-10018c00.c) | None identified directly | ACK |
 
+## Per-operation reply and fan-out map
+
+Every request below is client-to-server; ACK/error and numbered notifications
+are server-to-client. Session eligibility is the state table above. **E** means
+an explicit status-1 direct-error branch or call to formatted-error helper
+`1000ef30` appears in the retained handler. A dash means no such direct branch
+was identified there; thrown exceptions still require GAP-003's translation
+work. These labels are not a claim that every failure has a numbered reply.
+
+| Request | Direct normal reply | E | Subsequent or associated native effects |
+| ---: | --- | :---: | --- |
+| 101 | Board-data ACK | E | Retrieval only; no board update push. |
+| 103 | Empty ACK after board write | E | Conditional 102 to eligible readers after repeated-hash check. |
+| 105 | None | — | Formatted 106 to eligible main/room recipients; denied chat can produce data/option 104 to sender. |
+| 107 | Login fields ACK | E | Early path: identity/301 then online/354 then 109; delayed path sends 109 and waits for 121. |
+| 108 | Empty ACK before routing | E | Conditional 104 original/refusal/automatic response according to routing table; ACK is not delivery. |
+| 110 | Empty ACK, including missing target | E | Conditional target 104, close request, later room 118/general 302 teardown. No mandatory 111. |
+| 112 | Room/creator ACK | E | Creator added and eligible 113 invitations sent before ACK; refusal/automatic feedback can use 104. |
+| 113 | None | — | Eligible target 113 and conditional 104 feedback; no atomic admission. |
+| 114 | None | — | Rejection text routed as room 106. |
+| 115 | Subject/roster ACK | E | Newly joining: 117 before membership insertion; ACK roster includes joiner. Repeated join omits duplicate insertion/push. |
+| 116 | None | — | 118 to remaining members or empty-room deletion. |
+| 120 | None | — | Subject update and 119 to ready members; empty subject field can be omitted. |
+| 121 | Empty ACK before settings | — | Settings/301, online/354, then eligible 122. Online replay takes dispatcher error path instead. |
+| 200 | Repeated file-list 200 ACK | E | Snapshot builder; no completion push. |
+| 202 | Size/reference/queue ACK | E | Entry created before ACK; later data stream and possible 211. Empty raw preview can ACK size zero without a reference. |
+| 203 | Upload-reference/resume ACK | E | Entry created before ACK; later HTXF/FILP worker completion/close, not a second numbered completion ACK. |
+| 204 | Empty ACK after Trash move | E | No automatic file-list refresh at normal success site. |
+| 205 | Empty ACK after directory create | E | Activity log follows success reply. |
+| 206 | File-info ACK | E | Target-kind metadata matrix; no update push. |
+| 207 | Empty ACK after requested effects | E | Comment may change before rename later fails; no rollback implied. |
+| 208 | Empty ACK after move | E | Activity log follows success reply. |
+| 209 | Empty ACK after alias create | E | Activity log follows success reply. |
+| 210 | Folder reference/size/item-count ACK | E | Later bidirectional folder stream and possible 211; empty traversal may produce no live entry. |
+| 212 | Banner reference/size ACK | — | Later raw current-banner bytes; not a metadata-122 request. |
+| 213 | Folder-upload reference ACK | E | Later per-item controls/streams; completion closes data transport without final numbered ACK. |
+| 214 | Empty ACK even on lookup miss | — | Owner-matched download cleanup; no proof of cancellation delivery from ACK alone. |
+| 300 | Repeated packed-user 300 ACK | — | Snapshot only; later changes use 301/302. |
+| 303 | Name/diagnostic-text ACK | E | Generated diagnostics; no state-change push. |
+| 304 | None | — | Apply settings then 301 fan-out; spam paths can interrupt. |
+| 348 | Nested repeated-account ACK | E | Enumeration, with password-presence placeholders. |
+| 349 | Empty final ACK on ordinary loop completion | E | Sequential writes/deletes; collision can use 104 and continue; live edits/deletes use 354/301 or 104/close. Earlier mutations can precede a final error. |
+| 350 | Empty ACK after create | E | Account activity/log callbacks after ACK. |
+| 351 | Empty ACK after account Trash move | E | Matching sessions get 104 and disconnect request after ACK, followed later by teardown. |
+| 352 | Single-account fields ACK | E | Password-presence placeholder, not actual password. |
+| 353 | Empty ACK after write | E | Matching live sessions can get 354 and roster propagation after ACK. |
+| 355 | Empty ACK before recipient loop | E | 355 to eligible ready/online recipients, distinct from console data-only 104. |
+| 370 | Repeated category 320/323 ACK | E | Version-selective builder; no list-change push at success site. |
+| 371 | One serialized list-321 ACK | E | Cached or rebuilt list; no subscription established. |
+| 380 | Empty ACK after Trash move | E | No structure-refresh push at success site. |
+| 381 | Empty ACK after directory create | E | Activity log follows success reply. |
+| 382 | Empty ACK after HLNZ create/write | E | Activity log follows success reply; failed write may follow file creation. |
+| 400 | Article/body/navigation ACK | E | Requested flavour lookup; no read receipt. |
+| 410 | Empty ACK after create/body write | E | No returned new ID or article push at success site; metadata creation precedes body validation. |
+| 411 | Empty ACK after graph/index rewrite | E | No article-list refresh push at success site. |
+| 500 | Empty ACK | — | Processed request refreshes activity; client scheduling/purpose remains GAP-079. |
+
+This completes GAP-006's operation/direction/state and reply/effect catalogue.
+All rows link to entry captures through the request catalogue. Associated
+notifications are conditional; silence is not success, and ACK does not certify
+transport delivery, durability, idempotency or all-or-nothing mutation. Internal
+exception translation remains GAP-003; request-specific runtime ordering,
+partial failure and conformance fixtures retain their existing gap IDs.
+
 ## Server notification catalogue
 
 | Type | Producer / role | Known value fields | Remaining contract |

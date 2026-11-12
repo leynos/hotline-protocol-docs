@@ -5,19 +5,19 @@ correction map. This register tracks gaps in the specification after the
 validity-ledger corrections. It does not reopen corrected findings or claim to
 resolve the remaining unknowns.
 
-The sweep records **87 gaps** across **168 reviewed document sections**. These
+The sweep records **87 gaps** across **173 reviewed document sections**. These
 are documentation questions and proposed investigation priorities, not
 confirmed binary defects, security severity ratings or mxd test failures.
 
 ## Scope, evidence and status
 
-Documentation review plus read-only Ghidra MCP follow-up against the recorded
-Hotline 1.9 data fork, paired resource-fork inspection, portable archive
-verification, pinned shx source review with seven host callback cases, and mxd
-review (55 focused tests passed). The original audit and validity ledger
-remain immutable; current sources have been reviewed and re-snapshotted. No
-native runtime/client captures or Kani proof results are claimed. Entries
-remain Investigating while their acceptance criteria are unmet.
+Documentation review and read-only native Ghidra follow-up, frozen source/host
+callback checks, portable evidence exports, and one operator-identified native
+handshake observation. The guest subsequently crashed; its complete runtime
+identity and component versions were not retained. Capture tooling has14
+passing loopback tests. No full native/client corpus or Kani proof completion
+is claimed. Original audit and historical snapshots remain immutable;
+unchanged unmet criteria remain open.
 
 The corrected documents deliberately contain unresolved statements. Unanswered
 entries refine those into actionable questions. Missing and Ambiguous entries
@@ -57,7 +57,7 @@ missing mandatory functionality.
 | --- | --- |
 | Priority | P0: 20, P1: 56, P2: 11 |
 | Kind | Ambiguous: 10, Decision: 3, Evidence: 5, Missing: 12, Unanswered: 57 |
-| Status | Investigating: 76, Open: 2, Resolved: 9 |
+| Status | Investigating: 76, Open: 1, Resolved: 10 |
 
 ## Suggested investigation order
 
@@ -72,32 +72,33 @@ unknown question has already been answered.
 
 ## Input provenance
 
-Audit captured at `2026-11-12T15:53:44.890774+00:00`. The source checkout has
-Git HEAD `38c0dc5d5d8b87236141b1507d970603b67a1250` with modified/untracked
+Audit captured at `2026-11-12T16:47:26.392394+00:00`. The source checkout has
+Git HEAD `929e4faeec0c98cf259c97f13e4c5664fd2a1a04` with modified/untracked
 reviewed files. The hashes below identify the actual reviewed worktree
 contents; HEAD alone does not. Source line ranges in entries refer to the
 frozen snapshots, while section links point to the current documents.
 
 | Reviewed input | SHA-256 | Frozen copy |
 | --- | --- | --- |
-| [protocol.md](protocol.md) | `b12b44aad9226de1a05cc12df18804a9e8a44ef2ee3bdc62c56cc70715b217f3` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-15/inputs/protocol.md.txt) |
-| [internal-compatibility-matrix.md](internal-compatibility-matrix.md) | `82ef1f4b4c66053166b8a0566734f132d1fe7cd9512a4fe436d7aa8c9468d261` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-15/inputs/internal-compatibility-matrix.md.txt) |
-| [baseline-correction-map.md](baseline-correction-map.md) | `08b3687d975dbd9ae9050d5d0b333d2c106b884f1d3d87a3a966cbbc604d7385` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-15/inputs/baseline-correction-map.md.txt) |
-| [native-wire-details.md](native-wire-details.md) | `ce2b82b1989e055c1665c6cc5a0029df79b8361b2f51b5f65240bb64c21a2540` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-15/inputs/native-wire-details.md.txt) |
-| [operation-contracts.md](operation-contracts.md) | `4f17fb5d19261c6dfcf69dc972fc1ed4bc25fd395c2a3f101b0ee202d445b3e6` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-15/inputs/operation-contracts.md.txt) |
-| [transfer-contracts.md](transfer-contracts.md) | `f0a9bdeb49647286b029f6e6946bd72d5f2b829dea8ba59122f200fcbff216d5` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-15/inputs/transfer-contracts.md.txt) |
-| [news-contracts.md](news-contracts.md) | `ff951636e03fc24ae05ccd67a1d751addf26622c3409139be4b92ec02e5b8760` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-15/inputs/news-contracts.md.txt) |
-| [presence-messaging-contracts.md](presence-messaging-contracts.md) | `0bdae4bd452f85ac4b9d0d0f1484c3d14d307531125bc2306f405ffde5d8b962` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-15/inputs/presence-messaging-contracts.md.txt) |
-| [core-field-schemas.md](core-field-schemas.md) | `58ececb4cee015a419dbcf9e8afa6d48d1e696a6e35211b2e98cf1866837d7b9` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-15/inputs/core-field-schemas.md.txt) |
-| [session-transport-contracts.md](session-transport-contracts.md) | `c868a58341fb7a4eaf9a1fe756a90d6ed641150a501a711f9762550a02ac21e7` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-15/inputs/session-transport-contracts.md.txt) |
-| [filesystem-and-board-contracts.md](filesystem-and-board-contracts.md) | `b41bdec440d3c039dfb55ddde942002a21117969894ca079bc47d89ec65d667d` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-15/inputs/filesystem-and-board-contracts.md.txt) |
-| [evidence-portability.md](evidence-portability.md) | `571225c97f9a1a3cae23363fb4d215886c77746d5df9ebc266eae56cd0221c14` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-15/inputs/evidence-portability.md.txt) |
-| [error-outcomes.md](error-outcomes.md) | `f48566a88ecadcf857697e75178251b458d92a7c71915714f9f31733975cd542` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-15/inputs/error-outcomes.md.txt) |
-| [identified-client-source.md](identified-client-source.md) | `8ae5ea40e8ae77af889b481262e662af6225df70fce7a92ddb104187c37becf7` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-15/inputs/identified-client-source.md.txt) |
-| [privilege-contracts.md](privilege-contracts.md) | `770195c43d9d649e389c37de09e543318f1ca8d1acc388b9757703065b21a7a3` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-15/inputs/privilege-contracts.md.txt) |
+| [protocol.md](protocol.md) | `b12b44aad9226de1a05cc12df18804a9e8a44ef2ee3bdc62c56cc70715b217f3` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-16/inputs/protocol.md.txt) |
+| [internal-compatibility-matrix.md](internal-compatibility-matrix.md) | `82ef1f4b4c66053166b8a0566734f132d1fe7cd9512a4fe436d7aa8c9468d261` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-16/inputs/internal-compatibility-matrix.md.txt) |
+| [baseline-correction-map.md](baseline-correction-map.md) | `08b3687d975dbd9ae9050d5d0b333d2c106b884f1d3d87a3a966cbbc604d7385` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-16/inputs/baseline-correction-map.md.txt) |
+| [native-wire-details.md](native-wire-details.md) | `ce2b82b1989e055c1665c6cc5a0029df79b8361b2f51b5f65240bb64c21a2540` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-16/inputs/native-wire-details.md.txt) |
+| [operation-contracts.md](operation-contracts.md) | `3db76bf4e38249c9268bb036f17f10f94aa2a666411acc8a591aad59374702dc` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-16/inputs/operation-contracts.md.txt) |
+| [transfer-contracts.md](transfer-contracts.md) | `f0a9bdeb49647286b029f6e6946bd72d5f2b829dea8ba59122f200fcbff216d5` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-16/inputs/transfer-contracts.md.txt) |
+| [news-contracts.md](news-contracts.md) | `ff951636e03fc24ae05ccd67a1d751addf26622c3409139be4b92ec02e5b8760` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-16/inputs/news-contracts.md.txt) |
+| [presence-messaging-contracts.md](presence-messaging-contracts.md) | `0bdae4bd452f85ac4b9d0d0f1484c3d14d307531125bc2306f405ffde5d8b962` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-16/inputs/presence-messaging-contracts.md.txt) |
+| [core-field-schemas.md](core-field-schemas.md) | `58ececb4cee015a419dbcf9e8afa6d48d1e696a6e35211b2e98cf1866837d7b9` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-16/inputs/core-field-schemas.md.txt) |
+| [session-transport-contracts.md](session-transport-contracts.md) | `c868a58341fb7a4eaf9a1fe756a90d6ed641150a501a711f9762550a02ac21e7` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-16/inputs/session-transport-contracts.md.txt) |
+| [filesystem-and-board-contracts.md](filesystem-and-board-contracts.md) | `b41bdec440d3c039dfb55ddde942002a21117969894ca079bc47d89ec65d667d` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-16/inputs/filesystem-and-board-contracts.md.txt) |
+| [evidence-portability.md](evidence-portability.md) | `571225c97f9a1a3cae23363fb4d215886c77746d5df9ebc266eae56cd0221c14` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-16/inputs/evidence-portability.md.txt) |
+| [error-outcomes.md](error-outcomes.md) | `f48566a88ecadcf857697e75178251b458d92a7c71915714f9f31733975cd542` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-16/inputs/error-outcomes.md.txt) |
+| [identified-client-source.md](identified-client-source.md) | `8ae5ea40e8ae77af889b481262e662af6225df70fce7a92ddb104187c37becf7` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-16/inputs/identified-client-source.md.txt) |
+| [privilege-contracts.md](privilege-contracts.md) | `770195c43d9d649e389c37de09e543318f1ca8d1acc388b9757703065b21a7a3` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-16/inputs/privilege-contracts.md.txt) |
+| [native-capture-workflow.md](native-capture-workflow.md) | `ef76d2ef727585894cf97616881f3e27b569778cd692d7956d8dda152e3dd564` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-16/inputs/native-capture-workflow.md.txt) |
 
 [Audit
-manifest](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-15/manifest.json);
+manifest](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-16/manifest.json);
 [machine-readable register](gap-register.json). No field or behaviour is
 silently made normative by being listed as a question.
 
@@ -110,7 +111,7 @@ silently made normative by being listed as a question.
 | [GAP-003](#gap-003) | P0 | Missing | Specification | Error-code and failure-outcome registry | Investigating |
 | [GAP-004](#gap-004) | P0 | Unanswered | Session and transport | Transaction ID lifecycle and correlation | Investigating |
 | [GAP-005](#gap-005) | P0 | Missing | Session and transport | Connection timers and liveness | Investigating |
-| [GAP-006](#gap-006) | P1 | Missing | Specification | Complete direction and reply-contract catalogue | Investigating |
+| [GAP-006](#gap-006) | P1 | Missing | Specification | Complete direction and reply-contract catalogue | Resolved |
 | [GAP-007](#gap-007) | P0 | Missing | Session and transport | Allowed operations by session state | Resolved |
 | [GAP-008](#gap-008) | P0 | Unanswered | Session and transport | Handshake failures and stream boundaries | Investigating |
 | [GAP-009](#gap-009) | P1 | Unanswered | Session and transport | Sub-version 3 and direct HTXF relationship | Investigating |
@@ -188,7 +189,7 @@ silently made normative by being listed as a question.
 | [GAP-081](#gap-081) | P2 | Evidence | Compatibility and evidence | Client tolerance of extra fields | Investigating |
 | [GAP-082](#gap-082) | P1 | Decision | Compatibility and evidence | Heuristic text-decoding policy | Investigating |
 | [GAP-083](#gap-083) | P2 | Evidence | Compatibility and evidence | Historical SynHX source identity and applicability | Investigating |
-| [GAP-084](#gap-084) | P0 | Evidence | Compatibility and evidence | Native conformance fixtures beyond one illustrative frame | Open |
+| [GAP-084](#gap-084) | P0 | Evidence | Compatibility and evidence | Native conformance fixtures beyond one illustrative frame | Investigating |
 | [GAP-085](#gap-085) | P2 | Evidence | Compatibility and evidence | mxd implementation and test evidence | Investigating |
 | [GAP-086](#gap-086) | P2 | Decision | Compatibility and evidence | Release/proof acceptance criteria | Investigating |
 | [GAP-087](#gap-087) | P2 | Missing | Documentation provenance | Portable, versioned evidence and document references | Resolved |
@@ -295,7 +296,7 @@ silently made normative by being listed as a question.
 
 #### Complete direction and reply-contract catalogue
 
-- **Tracking:** P1; Missing; Investigating; owner: Protocol documentation
+- **Tracking:** P1; Missing; Resolved; owner: Protocol documentation
   investigation.
 - **Sources:** [protocol.md — 4 Reply
   semantics](protocol.md#4-reply-semantics) (snapshot lines 201–222);
@@ -321,14 +322,21 @@ silently made normative by being listed as a question.
 - **Investigation leads:**
   [10058a70](../mothra/evidence/hotline-server-1.9/queries/D-10058a70.c),
   [10058ca0](../mothra/evidence/hotline-server-1.9/queries/D-10058ca0.c)
-- **Depends on:** [GAP-002](#gap-002), [GAP-003](#gap-003)
-- **Progress:** Catalogue now includes positively traced111/211/302 producers
-  as well as all45 explicit request paths. The earlier unknown-producer note
-  is superseded; exhaustive per-branch completion/error contracts remain open.
-- **Evidence:** [Error outcomes](error-outcomes.md); [Folder
-  descriptor](transfer-contracts.md#folder-item-descriptor-bytes); [Identified
-  client source](identified-client-source.md)
-- **Closure:** Not closed: remaining acceptance evidence is listed above.
+- **Depends on:** [GAP-002](#gap-002)
+- **Binary sha256:**
+  ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b
+- **Evidence:** [Reply and fan-out
+  map](operation-contracts.md#per-operation-reply-and-fan-out-map);
+  [Direction/state
+  eligibility](operation-contracts.md#session-eligibility-and-invalid-transitions);
+  [Unchanged criterion
+  review](../mothra/evidence/gap-remediation/2026-11-12/closure-review-02/review.json)
+- **Closure:** Published all45 explicit request paths with direction/state
+  eligibility, direct success and explicit-error outcomes, fan-out ordering
+  and acceptance/completion semantics. This satisfies the unchanged table
+  criterion. Exhaustive exception translation and runtime capture requirements
+  remain GAP-003/084; the former is not a prerequisite of this static
+  catalogue.
 
 ### GAP-021
 
@@ -509,14 +517,18 @@ silently made normative by being listed as a question.
 - **Progress:** Pending-handshake helper/walk has no inspected age comparison;
   no blanket unlimited-lifetime claim is made. Existing exact12-byte
   availability and failure sequences remain static. Stalled/pipelined/drain
-  native fixtures remain required.
-- **Evidence:** [Activity
-  clocks](session-transport-contracts.md#activity-clocks-and-incomplete-input);
-  [Flood
-  counters](session-transport-contracts.md#flood-and-connection-burst-counters);
-  [Transfer timer
-  resets](transfer-contracts.md#transfer-timer-origins-and-resets)
-- **Closure:** Not closed: remaining acceptance evidence is listed above.
+  native fixtures remain required. Added a14-test capture runner and the first
+  positive native12/8-byte handshake. The guest later crashed; exact guest
+  component versions and running executable hash were not retained.
+  Negative/pipelined/login/data/identified-peer fixtures and complete
+  provenance remain required.
+- **Evidence:** [Repeatable workflow](native-capture-workflow.md); [First
+  native
+  observation](../mothra/evidence/gap-remediation/2026-11-12/native-handshake-01/manifest.json);
+  [Synthetic tool
+  tests](../mothra/evidence/gap-remediation/2026-11-12/capture-tooling-01/manifest.json)
+- **Closure:** Not closed: one limited handshake observation does not satisfy
+  this entry’s unchanged acceptance criterion.
 
 ### GAP-009
 
@@ -3016,7 +3028,8 @@ silently made normative by being listed as a question.
 
 #### Native conformance fixtures beyond one illustrative frame
 
-- **Tracking:** P0; Evidence; Open; owner: Unassigned.
+- **Tracking:** P0; Evidence; Investigating; owner: Protocol documentation
+  investigation.
 - **Sources:** [protocol.md — 5 Worked example
   (Login)](protocol.md#5-worked-example-login) (snapshot lines 223–257);
   [protocol.md — 6 Implementation
@@ -3036,6 +3049,18 @@ silently made normative by being listed as a question.
 - **Investigation leads:** Needs peer/source/project evidence or an explicit
   policy decision.
 - **Depends on:** [GAP-022](#gap-022), [GAP-025](#gap-025)
+- **Progress:**  Added a14-test capture runner and the first positive
+  native12/8-byte handshake. The guest later crashed; exact guest component
+  versions and running executable hash were not retained.
+  Negative/pipelined/login/data/identified-peer fixtures and complete
+  provenance remain required.
+- **Evidence:** [Repeatable workflow](native-capture-workflow.md); [First
+  native
+  observation](../mothra/evidence/gap-remediation/2026-11-12/native-handshake-01/manifest.json);
+  [Synthetic tool
+  tests](../mothra/evidence/gap-remediation/2026-11-12/capture-tooling-01/manifest.json)
+- **Closure:** Not closed: one limited handshake observation does not satisfy
+  this entry’s unchanged acceptance criterion.
 
 ### GAP-085
 
@@ -3243,9 +3268,9 @@ of binary paths, clients or packet inputs.
 | operation-contracts.md | [Native operation and session dispatch contracts](operation-contracts.md#native-operation-and-session-dispatch-contracts) | 1–8 | 12 gaps; see section-specific rows and JSON register |
 | operation-contracts.md | [Session eligibility and invalid transitions](operation-contracts.md#session-eligibility-and-invalid-transitions) | 9–29 | [GAP-003](#gap-003), [GAP-007](#gap-007), [GAP-025](#gap-025), [GAP-079](#gap-079) |
 | operation-contracts.md | [Request catalogue](operation-contracts.md#request-catalogue) | 30–86 | [GAP-002](#gap-002), [GAP-006](#gap-006), [GAP-021](#gap-021) |
-| operation-contracts.md | [Server notification catalogue](operation-contracts.md#server-notification-catalogue) | 87–111 | [GAP-006](#gap-006), [GAP-036](#gap-036), [GAP-044](#gap-044), [GAP-061](#gap-061), [GAP-075](#gap-075) |
-| operation-contracts.md | [Frame acceptance and reassembly boundaries](operation-contracts.md#frame-acceptance-and-reassembly-boundaries) | 112–134 | [GAP-004](#gap-004), [GAP-011](#gap-011), [GAP-012](#gap-012), [GAP-013](#gap-013) |
-| operation-contracts.md | [Administrative account list and batch mutation](operation-contracts.md#administrative-account-list-and-batch-mutation) | 135–165 | [GAP-021](#gap-021), [GAP-072](#gap-072), [GAP-077](#gap-077), [GAP-078](#gap-078) |
+| operation-contracts.md | [Server notification catalogue](operation-contracts.md#server-notification-catalogue) | 151–175 | [GAP-006](#gap-006), [GAP-036](#gap-036), [GAP-044](#gap-044), [GAP-061](#gap-061), [GAP-075](#gap-075) |
+| operation-contracts.md | [Frame acceptance and reassembly boundaries](operation-contracts.md#frame-acceptance-and-reassembly-boundaries) | 176–198 | [GAP-004](#gap-004), [GAP-011](#gap-011), [GAP-012](#gap-012), [GAP-013](#gap-013) |
+| operation-contracts.md | [Administrative account list and batch mutation](operation-contracts.md#administrative-account-list-and-batch-mutation) | 199–229 | [GAP-021](#gap-021), [GAP-072](#gap-072), [GAP-077](#gap-077), [GAP-078](#gap-078) |
 | transfer-contracts.md | [Native transfer contracts](transfer-contracts.md#native-transfer-contracts) | 1–8 | 9 gaps; see section-specific rows and JSON register |
 | transfer-contracts.md | [HTXF connection header and dispatch](transfer-contracts.md#htxf-connection-header-and-dispatch) | 9–47 | [GAP-055](#gap-055) |
 | transfer-contracts.md | [Reference allocation and request 214](transfer-contracts.md#reference-allocation-and-request-214) | 48–76 | [GAP-033](#gap-033), [GAP-062](#gap-062) |
@@ -3324,6 +3349,11 @@ of binary paths, clients or packet inputs.
 | presence-messaging-contracts.md | [Content byte limits and reload effects](presence-messaging-contracts.md#content-byte-limits-and-reload-effects) | 143–166 | [GAP-011](#gap-011), [GAP-018](#gap-018), [GAP-019](#gap-019), [GAP-027](#gap-027), [GAP-028](#gap-028) |
 | presence-messaging-contracts.md | [Early completion and metadata changes](presence-messaging-contracts.md#early-completion-and-metadata-changes) | 67–84 | [GAP-028](#gap-028), [GAP-063](#gap-063), [GAP-084](#gap-084) |
 | core-field-schemas.md | [Login width and feature-condition matrix](core-field-schemas.md#login-width-and-feature-condition-matrix) | 56–90 | [GAP-024](#gap-024), [GAP-015](#gap-015), [GAP-025](#gap-025) |
+| operation-contracts.md | [Per-operation reply and fan-out map](operation-contracts.md#per-operation-reply-and-fan-out-map) | 87–150 | [GAP-006](#gap-006), [GAP-003](#gap-003), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Reproducing native protocol captures](native-capture-workflow.md#reproducing-native-protocol-captures) | 1–8 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Prepare the emulator and application](native-capture-workflow.md#prepare-the-emulator-and-application) | 9–82 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Capture an exchange](native-capture-workflow.md#capture-an-exchange) | 83–144 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Acceptance and corpus coverage](native-capture-workflow.md#acceptance-and-corpus-coverage) | 145–169 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
 
 ## Maintaining this analysis
 

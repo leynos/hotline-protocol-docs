@@ -3,11 +3,11 @@
   "title": "Hotline 1.9 protocol documentation gap register",
   "audited_at_utc": "2026-11-12T12:55:29.155796+00:00",
   "last_updated": "2026-11-12",
-  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-15/manifest.json",
-  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-15/sections.json",
+  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-16/manifest.json",
+  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-16/sections.json",
   "validity_ledger": "../mothra/docs/baseline-validity-ledger.md",
   "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
-  "method": "Documentation review plus read-only Ghidra MCP follow-up against the recorded Hotline 1.9 data fork, paired resource-fork inspection, portable archive verification, pinned shx source review with seven host callback cases, and mxd review (55 focused tests passed). The original audit and validity ledger remain immutable; current sources have been reviewed and re-snapshotted. No native runtime/client captures or Kani proof results are claimed. Entries remain Investigating while their acceptance criteria are unmet.",
+  "method": "Documentation review and read-only native Ghidra follow-up, frozen source/host callback checks, portable evidence exports, and one operator-identified native handshake observation. The guest subsequently crashed; its complete runtime identity and component versions were not retained. Capture tooling has14 passing loopback tests. No full native/client corpus or Kani proof completion is claimed. Original audit and historical snapshots remain immutable; unchanged unmet criteria remain open.",
   "gaps": [
     {
       "id": "GAP-001",
@@ -285,7 +285,7 @@
       "area": "Specification",
       "priority": "P1",
       "kind": "Missing",
-      "status": "Investigating",
+      "status": "Resolved",
       "owner": "Protocol documentation investigation",
       "title": "Complete direction and reply-contract catalogue",
       "sources": [
@@ -336,17 +336,16 @@
         "10058ca0"
       ],
       "depends_on": [
-        "GAP-002",
-        "GAP-003"
+        "GAP-002"
       ],
       "resolution": {
-        "progress": "Catalogue now includes positively traced111/211/302 producers as well as all45 explicit request paths. The earlier unknown-producer note is superseded; exhaustive per-branch completion/error contracts remain open.",
+        "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
         "evidence": [
-          "[Error outcomes](error-outcomes.md)",
-          "[Folder descriptor](transfer-contracts.md#folder-item-descriptor-bytes)",
-          "[Identified client source](identified-client-source.md)"
+          "[Reply and fan-out map](operation-contracts.md#per-operation-reply-and-fan-out-map)",
+          "[Direction/state eligibility](operation-contracts.md#session-eligibility-and-invalid-transitions)",
+          "[Unchanged criterion review](../mothra/evidence/gap-remediation/2026-11-12/closure-review-02/review.json)"
         ],
-        "closure": "Not closed: remaining acceptance evidence is listed above."
+        "closure": "Published all45 explicit request paths with direction/state eligibility, direct success and explicit-error outcomes, fan-out ordering and acceptance/completion semantics. This satisfies the unchanged table criterion. Exhaustive exception translation and runtime capture requirements remain GAP-003/084; the former is not a prerequisite of this static catalogue."
       }
     },
     {
@@ -451,13 +450,13 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Pending-handshake helper/walk has no inspected age comparison; no blanket unlimited-lifetime claim is made. Existing exact12-byte availability and failure sequences remain static. Stalled/pipelined/drain native fixtures remain required.",
+        "progress": "Pending-handshake helper/walk has no inspected age comparison; no blanket unlimited-lifetime claim is made. Existing exact12-byte availability and failure sequences remain static. Stalled/pipelined/drain native fixtures remain required. Added a14-test capture runner and the first positive native12/8-byte handshake. The guest later crashed; exact guest component versions and running executable hash were not retained. Negative/pipelined/login/data/identified-peer fixtures and complete provenance remain required.",
         "evidence": [
-          "[Activity clocks](session-transport-contracts.md#activity-clocks-and-incomplete-input)",
-          "[Flood counters](session-transport-contracts.md#flood-and-connection-burst-counters)",
-          "[Transfer timer resets](transfer-contracts.md#transfer-timer-origins-and-resets)"
+          "[Repeatable workflow](native-capture-workflow.md)",
+          "[First native observation](../mothra/evidence/gap-remediation/2026-11-12/native-handshake-01/manifest.json)",
+          "[Synthetic tool tests](../mothra/evidence/gap-remediation/2026-11-12/capture-tooling-01/manifest.json)"
         ],
-        "closure": "Not closed: remaining acceptance evidence is listed above."
+        "closure": "Not closed: one limited handshake observation does not satisfy this entry’s unchanged acceptance criterion."
       }
     },
     {
@@ -4239,8 +4238,8 @@
       "area": "Compatibility and evidence",
       "priority": "P0",
       "kind": "Evidence",
-      "status": "Open",
-      "owner": "Unassigned",
+      "status": "Investigating",
+      "owner": "Protocol documentation investigation",
       "title": "Native conformance fixtures beyond one illustrative frame",
       "sources": [
         {
@@ -4285,7 +4284,15 @@
         "GAP-022",
         "GAP-025"
       ],
-      "resolution": null
+      "resolution": {
+        "progress": " Added a14-test capture runner and the first positive native12/8-byte handshake. The guest later crashed; exact guest component versions and running executable hash were not retained. Negative/pipelined/login/data/identified-peer fixtures and complete provenance remain required.",
+        "evidence": [
+          "[Repeatable workflow](native-capture-workflow.md)",
+          "[First native observation](../mothra/evidence/gap-remediation/2026-11-12/native-handshake-01/manifest.json)",
+          "[Synthetic tool tests](../mothra/evidence/gap-remediation/2026-11-12/capture-tooling-01/manifest.json)"
+        ],
+        "closure": "Not closed: one limited handshake observation does not satisfy this entry’s unchanged acceptance criterion."
+      }
     },
     {
       "id": "GAP-085",
@@ -6313,8 +6320,8 @@
       "path": "operation-contracts.md",
       "heading": "Server notification catalogue",
       "level": 2,
-      "line_start": 87,
-      "line_end": 111,
+      "line_start": 151,
+      "line_end": 175,
       "anchor": "server-notification-catalogue",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6336,8 +6343,8 @@
       "path": "operation-contracts.md",
       "heading": "Frame acceptance and reassembly boundaries",
       "level": 2,
-      "line_start": 112,
-      "line_end": 134,
+      "line_start": 176,
+      "line_end": 198,
       "anchor": "frame-acceptance-and-reassembly-boundaries",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6357,8 +6364,8 @@
       "path": "operation-contracts.md",
       "heading": "Administrative account list and batch mutation",
       "level": 2,
-      "line_start": 135,
-      "line_end": 165,
+      "line_start": 199,
+      "line_end": 229,
       "anchor": "administrative-account-list-and-batch-mutation",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7846,6 +7853,93 @@
         "GAP-024",
         "GAP-015",
         "GAP-025"
+      ]
+    },
+    {
+      "path": "operation-contracts.md",
+      "heading": "Per-operation reply and fan-out map",
+      "level": 2,
+      "line_start": 87,
+      "line_end": 150,
+      "anchor": "per-operation-reply-and-fan-out-map",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-006",
+        "GAP-003",
+        "GAP-084"
+      ],
+      "related_gap_ids": [
+        "GAP-006",
+        "GAP-003",
+        "GAP-084"
+      ]
+    },
+    {
+      "path": "native-capture-workflow.md",
+      "heading": "Reproducing native protocol captures",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 8,
+      "anchor": "reproducing-native-protocol-captures",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-008",
+        "GAP-084"
+      ],
+      "related_gap_ids": [
+        "GAP-008",
+        "GAP-084"
+      ]
+    },
+    {
+      "path": "native-capture-workflow.md",
+      "heading": "Prepare the emulator and application",
+      "level": 2,
+      "line_start": 9,
+      "line_end": 82,
+      "anchor": "prepare-the-emulator-and-application",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-008",
+        "GAP-084"
+      ],
+      "related_gap_ids": [
+        "GAP-008",
+        "GAP-084"
+      ]
+    },
+    {
+      "path": "native-capture-workflow.md",
+      "heading": "Capture an exchange",
+      "level": 2,
+      "line_start": 83,
+      "line_end": 144,
+      "anchor": "capture-an-exchange",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-008",
+        "GAP-084"
+      ],
+      "related_gap_ids": [
+        "GAP-008",
+        "GAP-084"
+      ]
+    },
+    {
+      "path": "native-capture-workflow.md",
+      "heading": "Acceptance and corpus coverage",
+      "level": 2,
+      "line_start": 145,
+      "line_end": 169,
+      "anchor": "acceptance-and-corpus-coverage",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-008",
+        "GAP-084"
+      ],
+      "related_gap_ids": [
+        "GAP-008",
+        "GAP-084"
       ]
     }
   ]
