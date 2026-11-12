@@ -290,10 +290,12 @@ bytes directly against the account record. See [native wire
 details](native-wire-details.md) for provenance and byte examples.
 
 **ACK:** on success, the inspected handler writes server version **190** in
-160, community/banner identifier 161 and server name 162. These additions are
+160, unnamed numeric value 161 and server name 162. These additions are
 not gated by client kind or saved client version in this handler. Do not infer
 that SynHX or unknown clients require their omission. Failure paths reply with
-nonzero status and field 100 text; delayed closure can follow.
+nonzero status and field 100 text; delayed closure can follow. The
+[login extras and content sources](presence-messaging-contracts.md#login-extras-and-configured-content)
+separate field 161's unknown meaning from banner types and server-name loading.
 
 There are two observed login-completion paths:
 

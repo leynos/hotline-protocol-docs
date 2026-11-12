@@ -26,7 +26,7 @@ Normal `rcv_task_login` checks the low bit of the header status word. On a
 successful low-bit test it calls connection/UI hooks, then iterates TLVs with
 `dh_start` and handles **only UID field 103** in its switch. Other well-formed
 fields have no matching case. Thus source inspection does not support a rule
-that this callback must reject native version/banner/name extras 160/161/162.
+that this callback must reject native version/unnamed-value/name extras 160/161/162.
 
 The generic TLV iterator advances by each record's declared length within its
 buffer boundary checks. It is not a universal strict field-schema validator.

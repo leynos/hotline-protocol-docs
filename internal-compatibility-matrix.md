@@ -59,7 +59,7 @@ Evidence: M001–M004, V003–V004, V023–V027.
 The inspected native 1.9 successful-login path adds:
 
 - Server version 160 with value **190**.
-- Community/banner identifier 161.
+- Unnamed numeric server value 161; constructor initializes it to zero.
 - Server name 162.
 
 It does so without a saved-client-version or SynHX-kind condition in that

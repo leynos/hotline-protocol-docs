@@ -64,6 +64,88 @@ buffer and may also include 153 when configured. Field 152 is four bytes.
 These reads use current configuration; lifetime and change fixtures remain
 GAP-026/028. This is separate from unconditional login-success fields 161/162.
 
+## Login extras and configured content
+
+### Fields 160, 161 and 162
+
+Login success reads the current server object, rather than a saved per-client
+copy, for these values:
+
+| Field | Native source | Established representation / scope |
+| ---: | --- | --- |
+| 160 | Literal 190 | Generic numeric writer emits two bytes `00 be`. |
+| 161 | Server word at `+0x41c` | Numeric writer emits two bytes for values at most 65,535, four otherwise. Constructor initializes this word to zero. Meaning and any later assignment remain unknown. |
+| 162 | Pascal string at server `+0xcc` | Configuration reader copies at most 31 bytes into this string. Login writer omits an empty value; it does not prove a Unicode encoding. |
+
+[Constructor assembly][constructor] confirms the zero assignment for 161.
+A [bounded scan][store-scan] for direct PPC `stw` instructions with
+displacement `0x41c`
+found only that constructor store. It is not an exhaustive write analysis:
+indexed writes, aliases, multiple-register stores and other widths remain
+outside that scan. Therefore neither a constant-zero wire guarantee nor a
+persistent community/banner identifier is established. The earlier
+community/banner label is withdrawn.
+
+The preserved configuration reader loads 162 from the fourth Pascal string
+following its fixed configuration prefix and clears it on the fallback path.
+Options handling `100023a0` passes the current string into and out of its native
+options interface. No automatic broadcast of changed 161/162, persistence key
+for 161, or existing-client refresh protocol is established here (GAP-026).
+A zero 161 still has a two-byte numeric value; it is different from omitted 162.
+
+### Agreement and banner loading
+
+[Content loader `10003940`][content-loader] first reloads `Agreement.txt` into
+the agreement buffer. It then clears the banner type and chooses between URL
+metadata and file-backed image content using option-word bit `0x80`:
+
+| Configuration branch | Loader effects |
+| --- | --- |
+| `0x80` clear | Dispose old image buffer; copy the configured URL byte string to metadata buffer. Nonempty URL selects type `URL` + ASCII space (`55 52 4c 20`); empty URL leaves type zero. |
+| `0x80` set | Dispose old metadata buffer; load the configured banner file, infer its type, then copy an optional configured link byte string into metadata. Failed file loading leaves type zero. |
+
+The URL/link helper copies the Pascal-string content as bytes, with no NUL
+terminator in the resulting buffer. No URL fetch, transcoding or syntax
+validation appears in that helper. File-backed type selection examines the
+last four filename bytes after native case conversion, plus the file's native
+type value:
+
+| Suffix / native file type | Selected four-byte value |
+| --- | --- |
+| `.jpg`, or native `JPEG` / `JFIF` | `JPEG` |
+| `.gif`, or native `GIFf` | `GIFf` |
+| `.pct`, or native `PICT` | `PICT` |
+| `.bmp` / `.dib`, or native `BMP` + ASCII space | `BMP` + ASCII space |
+| None of those matches | Native file type unchanged, including zero if supplied |
+
+These are loader selection rules, not proof of image validation or successful
+decoding by every client. The earlier version/type/buffer table still controls
+whether 122 is sent. Neither this table nor field 152 assigns a meaning to 161.
+
+### Content byte limits and reload effects
+
+[File loader `10003bd0`][file-loader] disposes the previous destination buffer
+before resolving/reading its replacement. It accepts sizes equal to the limit
+and rejects larger values:
+
+| Native file type | Pre-conversion data-fork limit | Byte transformation |
+| --- | ---: | --- |
+| `TEXT` | 65,535 | Replace CRLF (`0d 0a`) pairs with CR (`0d`). |
+| Other types | 262,140 (`0x3fffc`) | No TEXT newline conversion in this branch. |
+
+The same helper loads agreement and image buffers; its limit depends on native
+file type, not solely on their intended role. It does not establish a character
+encoding, universal LF-to-CR conversion or a safe single-TLV grammar for a
+non-TEXT agreement larger than 65,535 bytes. Field-width/aggregate validation
+and peer acceptance remain GAP-011/018/019/027/028.
+
+Empty paths, missing files or size rejection do not preserve the old buffer
+in this helper. Options handling has an explicit content-reload call when its
+selected settings change; startup also loads content. This does not establish
+a filesystem watcher or atomic replacement across advertisement and data send.
+Native changed/missing/empty/over-limit content and concurrent-transfer fixtures
+remain required. A successful configuration load is not a native network test.
+
 ## Status word, separate from the privilege bitmap
 
 The low 16-bit result of `10005000` is a numeric status word used in 112 and
@@ -212,3 +294,9 @@ and notification fixtures remain GAP-084/076.
 
 [batch]: ../mothra/evidence/gap-remediation/2026-11-12/batch-06/manifest.json
 [status-asm]: ../mothra/evidence/gap-remediation/2026-11-12/batch-06/queries/B06-A-10005000.json
+
+[constructor]: ../mothra/evidence/gap-remediation/2026-11-12/batch-17/queries/B17-A-10000160.json
+[content-loader]: ../mothra/evidence/gap-remediation/2026-11-12/batch-17/queries/B17-D-10003940.c
+[file-loader]: ../mothra/evidence/gap-remediation/2026-11-12/batch-17/queries/B17-D-10003bd0.c
+
+[store-scan]: ../mothra/evidence/gap-remediation/2026-11-12/batch-17/discovery-offset-41c-stores.json
