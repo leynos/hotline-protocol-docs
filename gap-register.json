@@ -3,11 +3,11 @@
   "title": "Hotline 1.9 protocol documentation gap register",
   "audited_at_utc": "2026-11-12T12:55:29.155796+00:00",
   "last_updated": "2026-11-12",
-  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-17/manifest.json",
-  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-17/sections.json",
+  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/manifest.json",
+  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/sections.json",
   "validity_ledger": "../mothra/docs/baseline-validity-ledger.md",
   "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
-  "method": "Documentation review and read-only native Ghidra/source analysis, portable evidence exports, host callback checks, and16 native core TCP-stream transcripts with emulator/ROM/base/application-fork hashes and host-loopback packets. Fourteen plans completed; two proxy EOF observations timed out and remain failed. Semantic checks cover known credential changes, representative errors, account enumeration and opaque111 storage. No full peer/native corpus or Kani completion is claimed. Historical inputs and closure criteria remain unchanged.",
+  "method": "Documentation review and read-only native Ghidra/source analysis, portable exports, host callback checks, known-credential core sessions and a paired host/guest packet handshake corpus. Fourteen addressed boundary cases reconcile socket bytes and native FIN/RST order; timing and alternate-wrapper failures remain explicitly bounded. Earlier16 core transcripts and all historical snapshots remain immutable. No full peer/all-operation corpus or Kani completion is claimed.",
   "gaps": [
     {
       "id": "GAP-001",
@@ -271,13 +271,13 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Published timer origins/reset conditions: only selected logical requests refresh session activity; upload entry clocks begin at request creation and attachment does not reset them; consumed file chunks refresh them. Added bounded pending/partial-input negatives and late-attachment derived case. Lower-layer/configured timing and native boundary fixtures remain required.",
+        "progress": "Published timer origins/reset conditions: only selected logical requests refresh session activity; upload entry clocks begin at request creation and attachment does not reset them; consumed file chunks refresh them. Added bounded pending/partial-input negatives and late-attachment derived case. Lower-layer/configured timing and native boundary fixtures remain required. Guest trace establishes no FIN/RST during65.060281 host seconds after a failed-login reply before client cleanup. A separate isolated35-second quiet case resets the failed session92.254ms after a new control SYN. Added primary OT predicate/close helper captures. Dispatcher scheduling, guard semantics across profiles and clock/configuration boundaries remain open; no hard30-second deadline is claimed.",
         "evidence": [
-          "[Activity clocks](session-transport-contracts.md#activity-clocks-and-incomplete-input)",
-          "[Flood counters](session-transport-contracts.md#flood-and-connection-burst-counters)",
-          "[Transfer timer resets](transfer-contracts.md#transfer-timer-origins-and-resets)"
+          "[Native transport corpus](../mothra/evidence/gap-remediation/2026-11-12/native-transport-01/manifest.json)",
+          "[Captured boundaries and timers](session-transport-contracts.md)",
+          "[Repeatable transport fixtures](native-capture-workflow.md#recorded-native-transport-fixtures)"
         ],
-        "closure": "Not closed: remaining acceptance evidence is listed above."
+        "closure": "Not closed: the remaining unchanged acceptance requirements are explicitly retained above."
       }
     },
     {
@@ -420,7 +420,7 @@
       "area": "Session and transport",
       "priority": "P0",
       "kind": "Unanswered",
-      "status": "Investigating",
+      "status": "Resolved",
       "owner": "Protocol documentation investigation",
       "title": "Handshake failures and stream boundaries",
       "sources": [
@@ -450,13 +450,14 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Pending-handshake helper/walk has no inspected age comparison; no blanket unlimited-lifetime claim is made. Existing exact12-byte availability and failure sequences remain static. Stalled/pipelined/drain native fixtures remain required. Added a14-test capture runner and the first positive native12/8-byte handshake. The guest later crashed; exact guest component versions and running executable hash were not retained. Negative/pipelined/login/data/identified-peer fixtures and complete provenance remain required.",
+        "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
         "evidence": [
-          "[Repeatable workflow](native-capture-workflow.md)",
-          "[First native observation](../mothra/evidence/gap-remediation/2026-11-12/native-handshake-01/manifest.json)",
-          "[Synthetic tool tests](../mothra/evidence/gap-remediation/2026-11-12/capture-tooling-01/manifest.json)"
+          "[Boundary table](session-transport-contracts.md#captured-handshake-boundaries)",
+          "[Native transport manifest](../mothra/evidence/gap-remediation/2026-11-12/native-transport-01/manifest.json)",
+          "[Packet/stream semantic checks](../mothra/evidence/gap-remediation/2026-11-12/native-transport-01/verification.json)",
+          "[Unchanged criterion review](../mothra/evidence/gap-remediation/2026-11-12/closure-review-04/review.json)"
         ],
-        "closure": "Not closed: one limited handshake observation does not satisfy this entry’s unchanged acceptance criterion."
+        "closure": "Recorded positive and negative primary handshake exchanges, exact12-byte/prefix preservation, five3-second split observations, short-input half-close, pipelined login and failure response/guest RST-versus-FIN order. Fourteen addressed final cases include13 completed plans and an explicitly failed alternate-control probe. The unchanged ordinary handshake criterion is met; alternate wrapping, matched HTXF streams, scheduling and identified peers remain GAP-009/010/005/055/080/084."
       }
     },
     {
@@ -499,13 +500,13 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Traced sub-version-3 detach/dispose handover preserving the same transport into pending HTXF, versus direct data-port HTXF entry. Published endpoint-specific sequences; native coalescing/positive/negative stream fixtures remain required.",
+        "progress": "Traced sub-version-3 detach/dispose handover preserving the same transport into pending HTXF, versus direct data-port HTXF entry. Published endpoint-specific sequences; native coalescing/positive/negative stream fixtures remain required. Captured primary raw HTXF ref0 rejection and control v1/sub3 success followed by same-connection HTXF ref0 rejection. Matched-reference positive streams and endpoint-specific completion remain required.",
         "evidence": [
-          "[Session transport contracts](session-transport-contracts.md)",
-          "[Core schemas](core-field-schemas.md)",
-          "[Batch 07](../mothra/evidence/gap-remediation/2026-11-12/batch-07/manifest.json)"
+          "[Native transport corpus](../mothra/evidence/gap-remediation/2026-11-12/native-transport-01/manifest.json)",
+          "[Captured boundaries and timers](session-transport-contracts.md)",
+          "[Repeatable transport fixtures](native-capture-workflow.md#recorded-native-transport-fixtures)"
         ],
-        "closure": "Not closed: remaining acceptance evidence is listed above."
+        "closure": "Not closed: the remaining unchanged acceptance requirements are explicitly retained above."
       }
     },
     {
@@ -546,13 +547,13 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Traced configured base port (default 5500), ordinary base/base+1 and alternative-wrapper base+2/base+3 binds. Constructor modes are kept separate from unproven TLS/HTTP labels. Runtime/overflow/client connection fixtures remain required.",
+        "progress": "Traced configured base port (default 5500), ordinary base/base+1 and alternative-wrapper base+2/base+3 binds. Constructor modes are kept separate from unproven TLS/HTTP labels. Runtime/overflow/client connection fixtures remain required. Native primary control5500 and data5501 examples retained. Alternate5502/5503 accept TCP and acknowledge unwrapped input but return no application response within10 seconds; full wrapping and port-boundary/overflow configuration remain unverified.",
         "evidence": [
-          "[Session transport contracts](session-transport-contracts.md)",
-          "[Core schemas](core-field-schemas.md)",
-          "[Batch 07](../mothra/evidence/gap-remediation/2026-11-12/batch-07/manifest.json)"
+          "[Native transport corpus](../mothra/evidence/gap-remediation/2026-11-12/native-transport-01/manifest.json)",
+          "[Captured boundaries and timers](session-transport-contracts.md)",
+          "[Repeatable transport fixtures](native-capture-workflow.md#recorded-native-transport-fixtures)"
         ],
-        "closure": "Not closed: remaining acceptance evidence is listed above."
+        "closure": "Not closed: the remaining unchanged acceptance requirements are explicitly retained above."
       }
     },
     {
@@ -4289,12 +4290,13 @@
         "GAP-025"
       ],
       "resolution": {
-        "progress": " Added a14-test capture runner and the first positive native12/8-byte handshake. The guest later crashed; exact guest component versions and running executable hash were not retained. Negative/pipelined/login/data/identified-peer fixtures and complete provenance remain required. Added16 native transcripts from hashed patched emulator/ROM/base/native application forks, host-loopback packet capture, account records and a semantic verifier. Fourteen plans completed; two EOF observations timed out and remain failed. No identified historical peer or full native corpus completion is claimed.",
+        "progress": " Added a14-test capture runner and the first positive native12/8-byte handshake. The guest later crashed; exact guest component versions and running executable hash were not retained. Negative/pipelined/login/data/identified-peer fixtures and complete provenance remain required. Added16 native transcripts from hashed patched emulator/ROM/base/native application forks, host-loopback packet capture, account records and a semantic verifier. Fourteen plans completed; two EOF observations timed out and remain failed. No identified historical peer or full native corpus completion is claimed. Added14 addressed final handshake cases with paired host/guest packet reconciliation,39 total retained transcripts including explorations, a hashed clean prelaunch checkpoint and reset-aware analysis. Split windows are3 seconds; observed native FIN/RST distinctions are preserved even when the host proxy exposes EOF. Full operation/identified-peer corpus remains required.",
         "evidence": [
-          "[Native core corpus](../mothra/evidence/gap-remediation/2026-11-12/native-core-01/manifest.json)",
-          "[Repeatable workflow](native-capture-workflow.md#recorded-native-core-fixtures)"
+          "[Native transport corpus](../mothra/evidence/gap-remediation/2026-11-12/native-transport-01/manifest.json)",
+          "[Captured boundaries and timers](session-transport-contracts.md)",
+          "[Repeatable transport fixtures](native-capture-workflow.md#recorded-native-transport-fixtures)"
         ],
-        "closure": "Not closed: remaining unchanged acceptance requirements are explicitly retained above."
+        "closure": "Not closed: the remaining unchanged acceptance requirements are explicitly retained above."
       }
     },
     {
@@ -7029,7 +7031,7 @@
       "heading": "Native session and transport contracts",
       "level": 1,
       "line_start": 1,
-      "line_end": 7,
+      "line_end": 8,
       "anchor": "native-session-and-transport-contracts",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7053,8 +7055,8 @@
       "path": "session-transport-contracts.md",
       "heading": "Configured endpoints",
       "level": 2,
-      "line_start": 8,
-      "line_end": 33,
+      "line_start": 9,
+      "line_end": 38,
       "anchor": "configured-endpoints",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7068,8 +7070,8 @@
       "path": "session-transport-contracts.md",
       "heading": "Handshake consumption and failures",
       "level": 2,
-      "line_start": 34,
-      "line_end": 53,
+      "line_start": 39,
+      "line_end": 59,
       "anchor": "handshake-consumption-and-failures",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7083,8 +7085,8 @@
       "path": "session-transport-contracts.md",
       "heading": "Sub-version 3 versus the data endpoint",
       "level": 3,
-      "line_start": 54,
-      "line_end": 74,
+      "line_start": 89,
+      "line_end": 111,
       "anchor": "sub-version-3-versus-the-data-endpoint",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7100,8 +7102,8 @@
       "path": "session-transport-contracts.md",
       "heading": "Receive-limit assignment at startup",
       "level": 2,
-      "line_start": 75,
-      "line_end": 89,
+      "line_start": 112,
+      "line_end": 126,
       "anchor": "receive-limit-assignment-at-startup",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7115,8 +7117,8 @@
       "path": "session-transport-contracts.md",
       "heading": "Identifier domains",
       "level": 2,
-      "line_start": 90,
-      "line_end": 105,
+      "line_start": 127,
+      "line_end": 142,
       "anchor": "identifier-domains",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7425,8 +7427,8 @@
       "path": "error-outcomes.md",
       "heading": "Derived unknown-operation example",
       "level": 2,
-      "line_start": 53,
-      "line_end": 72,
+      "line_start": 56,
+      "line_end": 75,
       "anchor": "derived-unknown-operation-example",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7442,8 +7444,8 @@
       "path": "error-outcomes.md",
       "heading": "Internal exceptions and text resources",
       "level": 2,
-      "line_start": 73,
-      "line_end": 131,
+      "line_start": 76,
+      "line_end": 134,
       "anchor": "internal-exceptions-and-text-resources",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7712,8 +7714,8 @@
       "path": "session-transport-contracts.md",
       "heading": "Activity clocks and incomplete input",
       "level": 2,
-      "line_start": 106,
-      "line_end": 139,
+      "line_start": 143,
+      "line_end": 176,
       "anchor": "activity-clocks-and-incomplete-input",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7731,8 +7733,8 @@
       "path": "session-transport-contracts.md",
       "heading": "Flood and connection-burst counters",
       "level": 2,
-      "line_start": 140,
-      "line_end": 166,
+      "line_start": 199,
+      "line_end": 229,
       "anchor": "flood-and-connection-burst-counters",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7899,7 +7901,7 @@
       "heading": "Prepare the emulator and application",
       "level": 2,
       "line_start": 9,
-      "line_end": 82,
+      "line_end": 86,
       "anchor": "prepare-the-emulator-and-application",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7915,8 +7917,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Capture an exchange",
       "level": 2,
-      "line_start": 83,
-      "line_end": 144,
+      "line_start": 87,
+      "line_end": 153,
       "anchor": "capture-an-exchange",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7932,8 +7934,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Acceptance and corpus coverage",
       "level": 2,
-      "line_start": 222,
-      "line_end": 248,
+      "line_start": 274,
+      "line_end": 303,
       "anchor": "acceptance-and-corpus-coverage",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7969,7 +7971,7 @@
       "heading": "Recorded representative native outcomes",
       "level": 2,
       "line_start": 36,
-      "line_end": 52,
+      "line_end": 55,
       "anchor": "recorded-representative-native-outcomes",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7985,8 +7987,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Recorded native core fixtures",
       "level": 2,
-      "line_start": 145,
-      "line_end": 221,
+      "line_start": 154,
+      "line_end": 230,
       "anchor": "recorded-native-core-fixtures",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -8001,6 +8003,63 @@
         "GAP-025",
         "GAP-071",
         "GAP-077",
+        "GAP-084"
+      ]
+    },
+    {
+      "path": "session-transport-contracts.md",
+      "heading": "Captured handshake boundaries",
+      "level": 2,
+      "line_start": 60,
+      "line_end": 88,
+      "anchor": "captured-handshake-boundaries",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-008",
+        "GAP-010",
+        "GAP-084"
+      ],
+      "related_gap_ids": [
+        "GAP-008",
+        "GAP-010",
+        "GAP-084"
+      ]
+    },
+    {
+      "path": "session-transport-contracts.md",
+      "heading": "Captured failure-wait observations",
+      "level": 3,
+      "line_start": 177,
+      "line_end": 198,
+      "anchor": "captured-failure-wait-observations",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-005",
+        "GAP-084"
+      ],
+      "related_gap_ids": [
+        "GAP-005",
+        "GAP-084"
+      ]
+    },
+    {
+      "path": "native-capture-workflow.md",
+      "heading": "Recorded native transport fixtures",
+      "level": 2,
+      "line_start": 231,
+      "line_end": 273,
+      "anchor": "recorded-native-transport-fixtures",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-008",
+        "GAP-009",
+        "GAP-010",
+        "GAP-084"
+      ],
+      "related_gap_ids": [
+        "GAP-008",
+        "GAP-009",
+        "GAP-010",
         "GAP-084"
       ]
     }

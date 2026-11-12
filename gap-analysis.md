@@ -5,20 +5,19 @@ correction map. This register tracks gaps in the specification after the
 validity-ledger corrections. It does not reopen corrected findings or claim to
 resolve the remaining unknowns.
 
-The sweep records **87 gaps** across **176 reviewed document sections**. These
+The sweep records **87 gaps** across **179 reviewed document sections**. These
 are documentation questions and proposed investigation priorities, not
 confirmed binary defects, security severity ratings or mxd test failures.
 
 ## Scope, evidence and status
 
 Documentation review and read-only native Ghidra/source analysis, portable
-evidence exports, host callback checks, and16 native core TCP-stream
-transcripts with emulator/ROM/base/application-fork hashes and host-loopback
-packets. Fourteen plans completed; two proxy EOF observations timed out and
-remain failed. Semantic checks cover known credential changes, representative
-errors, account enumeration and opaque111 storage. No full peer/native corpus
-or Kani completion is claimed. Historical inputs and closure criteria remain
-unchanged.
+exports, host callback checks, known-credential core sessions and a paired
+host/guest packet handshake corpus. Fourteen addressed boundary cases
+reconcile socket bytes and native FIN/RST order; timing and alternate-wrapper
+failures remain explicitly bounded. Earlier16 core transcripts and all
+historical snapshots remain immutable. No full peer/all-operation corpus or
+Kani completion is claimed.
 
 The corrected documents deliberately contain unresolved statements. Unanswered
 entries refine those into actionable questions. Missing and Ambiguous entries
@@ -58,7 +57,7 @@ missing mandatory functionality.
 | --- | --- |
 | Priority | P0: 20, P1: 56, P2: 11 |
 | Kind | Ambiguous: 10, Decision: 3, Evidence: 5, Missing: 12, Unanswered: 57 |
-| Status | Investigating: 74, Open: 1, Resolved: 12 |
+| Status | Investigating: 73, Open: 1, Resolved: 13 |
 
 ## Suggested investigation order
 
@@ -73,33 +72,33 @@ unknown question has already been answered.
 
 ## Input provenance
 
-Audit captured at `2026-11-12T17:34:56.575219+00:00`. The source checkout has
-Git HEAD `09ef7fb2dac16ac5a363cf16ec4a7d14b519cd0c` with modified/untracked
+Audit captured at `2026-11-12T18:16:32.112888+00:00`. The source checkout has
+Git HEAD `22f2e8fcb070e703d03ca9fd6c1ed38840e02f57` with modified/untracked
 reviewed files. The hashes below identify the actual reviewed worktree
 contents; HEAD alone does not. Source line ranges in entries refer to the
 frozen snapshots, while section links point to the current documents.
 
 | Reviewed input | SHA-256 | Frozen copy |
 | --- | --- | --- |
-| [protocol.md](protocol.md) | `01f431e3955f885ffd6e1af6285ff8570a4959dde74f1300a179aab17d35f099` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-17/inputs/protocol.md.txt) |
-| [internal-compatibility-matrix.md](internal-compatibility-matrix.md) | `b08481becc789ed4c079bfc78dd90b273899cd6fb8d4c223d94a1c1d879e2747` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-17/inputs/internal-compatibility-matrix.md.txt) |
-| [baseline-correction-map.md](baseline-correction-map.md) | `08b3687d975dbd9ae9050d5d0b333d2c106b884f1d3d87a3a966cbbc604d7385` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-17/inputs/baseline-correction-map.md.txt) |
-| [native-wire-details.md](native-wire-details.md) | `9818f271613fbb4cf94a798c953c3c36f69506fef7abb294de62f7e2d7d11760` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-17/inputs/native-wire-details.md.txt) |
-| [operation-contracts.md](operation-contracts.md) | `4bd860232cdc917a7415c327769d6892ccb5a59954d5d62db711a1c1d02bed43` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-17/inputs/operation-contracts.md.txt) |
-| [transfer-contracts.md](transfer-contracts.md) | `f0a9bdeb49647286b029f6e6946bd72d5f2b829dea8ba59122f200fcbff216d5` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-17/inputs/transfer-contracts.md.txt) |
-| [news-contracts.md](news-contracts.md) | `ff951636e03fc24ae05ccd67a1d751addf26622c3409139be4b92ec02e5b8760` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-17/inputs/news-contracts.md.txt) |
-| [presence-messaging-contracts.md](presence-messaging-contracts.md) | `0bdae4bd452f85ac4b9d0d0f1484c3d14d307531125bc2306f405ffde5d8b962` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-17/inputs/presence-messaging-contracts.md.txt) |
-| [core-field-schemas.md](core-field-schemas.md) | `58ececb4cee015a419dbcf9e8afa6d48d1e696a6e35211b2e98cf1866837d7b9` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-17/inputs/core-field-schemas.md.txt) |
-| [session-transport-contracts.md](session-transport-contracts.md) | `c868a58341fb7a4eaf9a1fe756a90d6ed641150a501a711f9762550a02ac21e7` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-17/inputs/session-transport-contracts.md.txt) |
-| [filesystem-and-board-contracts.md](filesystem-and-board-contracts.md) | `b41bdec440d3c039dfb55ddde942002a21117969894ca079bc47d89ec65d667d` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-17/inputs/filesystem-and-board-contracts.md.txt) |
-| [evidence-portability.md](evidence-portability.md) | `571225c97f9a1a3cae23363fb4d215886c77746d5df9ebc266eae56cd0221c14` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-17/inputs/evidence-portability.md.txt) |
-| [error-outcomes.md](error-outcomes.md) | `faf9e8fc018f7b2e8aa0ab6b2c045cd998e033cba6fc5c2d2a1279686b63eb55` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-17/inputs/error-outcomes.md.txt) |
-| [identified-client-source.md](identified-client-source.md) | `8ae5ea40e8ae77af889b481262e662af6225df70fce7a92ddb104187c37becf7` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-17/inputs/identified-client-source.md.txt) |
-| [privilege-contracts.md](privilege-contracts.md) | `770195c43d9d649e389c37de09e543318f1ca8d1acc388b9757703065b21a7a3` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-17/inputs/privilege-contracts.md.txt) |
-| [native-capture-workflow.md](native-capture-workflow.md) | `2a5fbb4d21af00971c7e91ceacf4e99e1bb5bf803e8cb2d33c873aed2128a680` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-17/inputs/native-capture-workflow.md.txt) |
+| [protocol.md](protocol.md) | `01f431e3955f885ffd6e1af6285ff8570a4959dde74f1300a179aab17d35f099` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/protocol.md.txt) |
+| [internal-compatibility-matrix.md](internal-compatibility-matrix.md) | `b08481becc789ed4c079bfc78dd90b273899cd6fb8d4c223d94a1c1d879e2747` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/internal-compatibility-matrix.md.txt) |
+| [baseline-correction-map.md](baseline-correction-map.md) | `08b3687d975dbd9ae9050d5d0b333d2c106b884f1d3d87a3a966cbbc604d7385` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/baseline-correction-map.md.txt) |
+| [native-wire-details.md](native-wire-details.md) | `9818f271613fbb4cf94a798c953c3c36f69506fef7abb294de62f7e2d7d11760` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/native-wire-details.md.txt) |
+| [operation-contracts.md](operation-contracts.md) | `4bd860232cdc917a7415c327769d6892ccb5a59954d5d62db711a1c1d02bed43` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/operation-contracts.md.txt) |
+| [transfer-contracts.md](transfer-contracts.md) | `f0a9bdeb49647286b029f6e6946bd72d5f2b829dea8ba59122f200fcbff216d5` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/transfer-contracts.md.txt) |
+| [news-contracts.md](news-contracts.md) | `ff951636e03fc24ae05ccd67a1d751addf26622c3409139be4b92ec02e5b8760` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/news-contracts.md.txt) |
+| [presence-messaging-contracts.md](presence-messaging-contracts.md) | `0bdae4bd452f85ac4b9d0d0f1484c3d14d307531125bc2306f405ffde5d8b962` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/presence-messaging-contracts.md.txt) |
+| [core-field-schemas.md](core-field-schemas.md) | `58ececb4cee015a419dbcf9e8afa6d48d1e696a6e35211b2e98cf1866837d7b9` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/core-field-schemas.md.txt) |
+| [session-transport-contracts.md](session-transport-contracts.md) | `a28338d0c8bc9f123e0bc8bc18da81a50d48d4391a747fd96c7e6bc8c19ab509` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/session-transport-contracts.md.txt) |
+| [filesystem-and-board-contracts.md](filesystem-and-board-contracts.md) | `b41bdec440d3c039dfb55ddde942002a21117969894ca079bc47d89ec65d667d` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/filesystem-and-board-contracts.md.txt) |
+| [evidence-portability.md](evidence-portability.md) | `571225c97f9a1a3cae23363fb4d215886c77746d5df9ebc266eae56cd0221c14` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/evidence-portability.md.txt) |
+| [error-outcomes.md](error-outcomes.md) | `5c02b7006e3826923ee0d697ad46ab55a902214654bc3220445bbe531f9d1437` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/error-outcomes.md.txt) |
+| [identified-client-source.md](identified-client-source.md) | `8ae5ea40e8ae77af889b481262e662af6225df70fce7a92ddb104187c37becf7` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/identified-client-source.md.txt) |
+| [privilege-contracts.md](privilege-contracts.md) | `770195c43d9d649e389c37de09e543318f1ca8d1acc388b9757703065b21a7a3` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/privilege-contracts.md.txt) |
+| [native-capture-workflow.md](native-capture-workflow.md) | `3348fcb9c42ee7d6b156cafb7db13d384fc7f858ffbc44d605d9a19e500f1f11` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/inputs/native-capture-workflow.md.txt) |
 
 [Audit
-manifest](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-17/manifest.json);
+manifest](../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-18/manifest.json);
 [machine-readable register](gap-register.json). No field or behaviour is
 silently made normative by being listed as a question.
 
@@ -114,7 +113,7 @@ silently made normative by being listed as a question.
 | [GAP-005](#gap-005) | P0 | Missing | Session and transport | Connection timers and liveness | Investigating |
 | [GAP-006](#gap-006) | P1 | Missing | Specification | Complete direction and reply-contract catalogue | Resolved |
 | [GAP-007](#gap-007) | P0 | Missing | Session and transport | Allowed operations by session state | Resolved |
-| [GAP-008](#gap-008) | P0 | Unanswered | Session and transport | Handshake failures and stream boundaries | Investigating |
+| [GAP-008](#gap-008) | P0 | Unanswered | Session and transport | Handshake failures and stream boundaries | Resolved |
 | [GAP-009](#gap-009) | P1 | Unanswered | Session and transport | Sub-version 3 and direct HTXF relationship | Investigating |
 | [GAP-010](#gap-010) | P1 | Unanswered | Session and transport | Listening endpoints and data-port arithmetic | Investigating |
 | [GAP-011](#gap-011) | P0 | Unanswered | Framing and parsing | Frame, transaction and buffering limits | Investigating |
@@ -444,14 +443,20 @@ silently made normative by being listed as a question.
   request creation and attachment does not reset them; consumed file chunks
   refresh them. Added bounded pending/partial-input negatives and
   late-attachment derived case. Lower-layer/configured timing and native
-  boundary fixtures remain required.
-- **Evidence:** [Activity
-  clocks](session-transport-contracts.md#activity-clocks-and-incomplete-input);
-  [Flood
-  counters](session-transport-contracts.md#flood-and-connection-burst-counters);
-  [Transfer timer
-  resets](transfer-contracts.md#transfer-timer-origins-and-resets)
-- **Closure:** Not closed: remaining acceptance evidence is listed above.
+  boundary fixtures remain required. Guest trace establishes no FIN/RST
+  during65.060281 host seconds after a failed-login reply before client
+  cleanup. A separate isolated35-second quiet case resets the failed
+  session92.254ms after a new control SYN. Added primary OT predicate/close
+  helper captures. Dispatcher scheduling, guard semantics across profiles and
+  clock/configuration boundaries remain open; no hard30-second deadline is
+  claimed.
+- **Evidence:** [Native transport
+  corpus](../mothra/evidence/gap-remediation/2026-11-12/native-transport-01/manifest.json);
+  [Captured boundaries and timers](session-transport-contracts.md);
+  [Repeatable transport
+  fixtures](native-capture-workflow.md#recorded-native-transport-fixtures)
+- **Closure:** Not closed: the remaining unchanged acceptance requirements are
+  explicitly retained above.
 
 ### GAP-007
 
@@ -502,7 +507,7 @@ silently made normative by being listed as a question.
 
 #### Handshake failures and stream boundaries
 
-- **Tracking:** P0; Unanswered; Investigating; owner: Protocol documentation
+- **Tracking:** P0; Unanswered; Resolved; owner: Protocol documentation
   investigation.
 - **Sources:** [protocol.md — 1 Session-initialization
   handshake](protocol.md#1-session-initialization-handshake) (snapshot lines
@@ -520,21 +525,23 @@ silently made normative by being listed as a question.
   [100587f0](../mothra/evidence/hotline-server-1.9/queries/D-100587f0.c),
   [1000acf0](../mothra/evidence/hotline-server-1.9/queries/D-1000acf0.c)
 - **Depends on:** No prerequisite recorded.
-- **Progress:** Pending-handshake helper/walk has no inspected age comparison;
-  no blanket unlimited-lifetime claim is made. Existing exact12-byte
-  availability and failure sequences remain static. Stalled/pipelined/drain
-  native fixtures remain required. Added a14-test capture runner and the first
-  positive native12/8-byte handshake. The guest later crashed; exact guest
-  component versions and running executable hash were not retained.
-  Negative/pipelined/login/data/identified-peer fixtures and complete
-  provenance remain required.
-- **Evidence:** [Repeatable workflow](native-capture-workflow.md); [First
-  native
-  observation](../mothra/evidence/gap-remediation/2026-11-12/native-handshake-01/manifest.json);
-  [Synthetic tool
-  tests](../mothra/evidence/gap-remediation/2026-11-12/capture-tooling-01/manifest.json)
-- **Closure:** Not closed: one limited handshake observation does not satisfy
-  this entry’s unchanged acceptance criterion.
+- **Binary sha256:**
+  ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b
+- **Evidence:** [Boundary
+  table](session-transport-contracts.md#captured-handshake-boundaries);
+  [Native transport
+  manifest](../mothra/evidence/gap-remediation/2026-11-12/native-transport-01/manifest.json);
+  [Packet/stream semantic
+  checks](../mothra/evidence/gap-remediation/2026-11-12/native-transport-01/verification.json);
+  [Unchanged criterion
+  review](../mothra/evidence/gap-remediation/2026-11-12/closure-review-04/review.json)
+- **Closure:** Recorded positive and negative primary handshake exchanges,
+  exact12-byte/prefix preservation, five3-second split observations,
+  short-input half-close, pipelined login and failure response/guest
+  RST-versus-FIN order. Fourteen addressed final cases include13 completed
+  plans and an explicitly failed alternate-control probe. The unchanged
+  ordinary handshake criterion is met; alternate wrapping, matched HTXF
+  streams, scheduling and identified peers remain GAP-009/010/005/055/080/084.
 
 ### GAP-009
 
@@ -561,11 +568,17 @@ silently made normative by being listed as a question.
 - **Progress:** Traced sub-version-3 detach/dispose handover preserving the
   same transport into pending HTXF, versus direct data-port HTXF entry.
   Published endpoint-specific sequences; native coalescing/positive/negative
-  stream fixtures remain required.
-- **Evidence:** [Session transport contracts](session-transport-contracts.md);
-  [Core schemas](core-field-schemas.md); [Batch
-  07](../mothra/evidence/gap-remediation/2026-11-12/batch-07/manifest.json)
-- **Closure:** Not closed: remaining acceptance evidence is listed above.
+  stream fixtures remain required. Captured primary raw HTXF ref0 rejection
+  and control v1/sub3 success followed by same-connection HTXF ref0 rejection.
+  Matched-reference positive streams and endpoint-specific completion remain
+  required.
+- **Evidence:** [Native transport
+  corpus](../mothra/evidence/gap-remediation/2026-11-12/native-transport-01/manifest.json);
+  [Captured boundaries and timers](session-transport-contracts.md);
+  [Repeatable transport
+  fixtures](native-capture-workflow.md#recorded-native-transport-fixtures)
+- **Closure:** Not closed: the remaining unchanged acceptance requirements are
+  explicitly retained above.
 
 ### GAP-010
 
@@ -592,11 +605,17 @@ silently made normative by being listed as a question.
 - **Progress:** Traced configured base port (default 5500), ordinary
   base/base+1 and alternative-wrapper base+2/base+3 binds. Constructor modes
   are kept separate from unproven TLS/HTTP labels. Runtime/overflow/client
-  connection fixtures remain required.
-- **Evidence:** [Session transport contracts](session-transport-contracts.md);
-  [Core schemas](core-field-schemas.md); [Batch
-  07](../mothra/evidence/gap-remediation/2026-11-12/batch-07/manifest.json)
-- **Closure:** Not closed: remaining acceptance evidence is listed above.
+  connection fixtures remain required. Native primary control5500 and data5501
+  examples retained. Alternate5502/5503 accept TCP and acknowledge unwrapped
+  input but return no application response within10 seconds; full wrapping and
+  port-boundary/overflow configuration remain unverified.
+- **Evidence:** [Native transport
+  corpus](../mothra/evidence/gap-remediation/2026-11-12/native-transport-01/manifest.json);
+  [Captured boundaries and timers](session-transport-contracts.md);
+  [Repeatable transport
+  fixtures](native-capture-workflow.md#recorded-native-transport-fixtures)
+- **Closure:** Not closed: the remaining unchanged acceptance requirements are
+  explicitly retained above.
 
 ### GAP-079
 
@@ -3105,12 +3124,18 @@ silently made normative by being listed as a question.
   emulator/ROM/base/native application forks, host-loopback packet capture,
   account records and a semantic verifier. Fourteen plans completed; two EOF
   observations timed out and remain failed. No identified historical peer or
-  full native corpus completion is claimed.
-- **Evidence:** [Native core
-  corpus](../mothra/evidence/gap-remediation/2026-11-12/native-core-01/manifest.json);
-  [Repeatable
-  workflow](native-capture-workflow.md#recorded-native-core-fixtures)
-- **Closure:** Not closed: remaining unchanged acceptance requirements are
+  full native corpus completion is claimed. Added14 addressed final handshake
+  cases with paired host/guest packet reconciliation,39 total retained
+  transcripts including explorations, a hashed clean prelaunch checkpoint and
+  reset-aware analysis. Split windows are3 seconds; observed native FIN/RST
+  distinctions are preserved even when the host proxy exposes EOF. Full
+  operation/identified-peer corpus remains required.
+- **Evidence:** [Native transport
+  corpus](../mothra/evidence/gap-remediation/2026-11-12/native-transport-01/manifest.json);
+  [Captured boundaries and timers](session-transport-contracts.md);
+  [Repeatable transport
+  fixtures](native-capture-workflow.md#recorded-native-transport-fixtures)
+- **Closure:** Not closed: the remaining unchanged acceptance requirements are
   explicitly retained above.
 
 ### GAP-085
@@ -3354,12 +3379,12 @@ of binary paths, clients or packet inputs.
 | core-field-schemas.md | [Login and presence outputs](core-field-schemas.md#login-and-presence-outputs) | 91–103 | [GAP-002](#gap-002), [GAP-025](#gap-025), [GAP-026](#gap-026), [GAP-027](#gap-027), [GAP-028](#gap-028), [GAP-035](#gap-035), [GAP-036](#gap-036), [GAP-037](#gap-037) |
 | core-field-schemas.md | [Chat, PM and room requests](core-field-schemas.md#chat-pm-and-room-requests) | 104–121 | [GAP-002](#gap-002), [GAP-038](#gap-038), [GAP-039](#gap-039), [GAP-040](#gap-040), [GAP-041](#gap-041), [GAP-042](#gap-042), [GAP-043](#gap-043) |
 | core-field-schemas.md | [Room and message outputs](core-field-schemas.md#room-and-message-outputs) | 122–140 | [GAP-002](#gap-002), [GAP-044](#gap-044), [GAP-075](#gap-075), [GAP-076](#gap-076) |
-| session-transport-contracts.md | [Native session and transport contracts](session-transport-contracts.md#native-session-and-transport-contracts) | 1–7 | [GAP-008](#gap-008), [GAP-009](#gap-009), [GAP-010](#gap-010), [GAP-011](#gap-011), [GAP-024](#gap-024), [GAP-033](#gap-033) |
-| session-transport-contracts.md | [Configured endpoints](session-transport-contracts.md#configured-endpoints) | 8–33 | [GAP-010](#gap-010) |
-| session-transport-contracts.md | [Handshake consumption and failures](session-transport-contracts.md#handshake-consumption-and-failures) | 34–53 | [GAP-008](#gap-008) |
-| session-transport-contracts.md | [Sub-version 3 versus the data endpoint](session-transport-contracts.md#sub-version-3-versus-the-data-endpoint) | 54–74 | [GAP-009](#gap-009), [GAP-055](#gap-055) |
-| session-transport-contracts.md | [Receive-limit assignment at startup](session-transport-contracts.md#receive-limit-assignment-at-startup) | 75–89 | [GAP-011](#gap-011) |
-| session-transport-contracts.md | [Identifier domains](session-transport-contracts.md#identifier-domains) | 90–105 | [GAP-024](#gap-024), [GAP-033](#gap-033) |
+| session-transport-contracts.md | [Native session and transport contracts](session-transport-contracts.md#native-session-and-transport-contracts) | 1–8 | [GAP-008](#gap-008), [GAP-009](#gap-009), [GAP-010](#gap-010), [GAP-011](#gap-011), [GAP-024](#gap-024), [GAP-033](#gap-033) |
+| session-transport-contracts.md | [Configured endpoints](session-transport-contracts.md#configured-endpoints) | 9–38 | [GAP-010](#gap-010) |
+| session-transport-contracts.md | [Handshake consumption and failures](session-transport-contracts.md#handshake-consumption-and-failures) | 39–59 | [GAP-008](#gap-008) |
+| session-transport-contracts.md | [Sub-version 3 versus the data endpoint](session-transport-contracts.md#sub-version-3-versus-the-data-endpoint) | 89–111 | [GAP-009](#gap-009), [GAP-055](#gap-055) |
+| session-transport-contracts.md | [Receive-limit assignment at startup](session-transport-contracts.md#receive-limit-assignment-at-startup) | 112–126 | [GAP-011](#gap-011) |
+| session-transport-contracts.md | [Identifier domains](session-transport-contracts.md#identifier-domains) | 127–142 | [GAP-024](#gap-024), [GAP-033](#gap-033) |
 | internal-compatibility-matrix.md | [Historical source lineage and build limits](internal-compatibility-matrix.md#historical-source-lineage-and-build-limits) | 261–278 | [GAP-083](#gap-083) |
 | filesystem-and-board-contracts.md | [Native filesystem, diagnostics and legacy-board contracts](filesystem-and-board-contracts.md#native-filesystem-diagnostics-and-legacy-board-contracts) | 1–7 | [GAP-037](#gap-037), [GAP-046](#gap-046), [GAP-049](#gap-049), [GAP-050](#gap-050), [GAP-051](#gap-051), [GAP-052](#gap-052), [GAP-053](#gap-053), [GAP-054](#gap-054) |
 | filesystem-and-board-contracts.md | [File-info target kinds and field presence](filesystem-and-board-contracts.md#file-info-target-kinds-and-field-presence) | 8–28 | [GAP-049](#gap-049) |
@@ -3377,8 +3402,8 @@ of binary paths, clients or packet inputs.
 | transfer-contracts.md | [Folder item descriptor bytes](transfer-contracts.md#folder-item-descriptor-bytes) | 298–328 | [GAP-047](#gap-047), [GAP-059](#gap-059), [GAP-060](#gap-060) |
 | error-outcomes.md | [Native error and failure outcomes](error-outcomes.md#native-error-and-failure-outcomes) | 1–8 | [GAP-003](#gap-003), [GAP-021](#gap-021) |
 | error-outcomes.md | [Wire status and failure classes](error-outcomes.md#wire-status-and-failure-classes) | 9–35 | [GAP-003](#gap-003), [GAP-021](#gap-021) |
-| error-outcomes.md | [Derived unknown-operation example](error-outcomes.md#derived-unknown-operation-example) | 53–72 | [GAP-003](#gap-003), [GAP-084](#gap-084) |
-| error-outcomes.md | [Internal exceptions and text resources](error-outcomes.md#internal-exceptions-and-text-resources) | 73–131 | [GAP-003](#gap-003) |
+| error-outcomes.md | [Derived unknown-operation example](error-outcomes.md#derived-unknown-operation-example) | 56–75 | [GAP-003](#gap-003), [GAP-084](#gap-084) |
+| error-outcomes.md | [Internal exceptions and text resources](error-outcomes.md#internal-exceptions-and-text-resources) | 76–134 | [GAP-003](#gap-003) |
 | identified-client-source.md | [Identified shx source profile and bounded callback results](identified-client-source.md#identified-shx-source-profile-and-bounded-callback-results) | 1–16 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-083](#gap-083) |
 | identified-client-source.md | [Basic login and unknown fields](identified-client-source.md#basic-login-and-unknown-fields) | 17–35 | [GAP-024](#gap-024), [GAP-080](#gap-080), [GAP-081](#gap-081) |
 | identified-client-source.md | [Executed host callback matrix](identified-client-source.md#executed-host-callback-matrix) | 36–70 | [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085) |
@@ -3392,8 +3417,8 @@ of binary paths, clients or packet inputs.
 | privilege-contracts.md | [Account creation, update and batch rules](privilege-contracts.md#account-creation-update-and-batch-rules) | 87–119 | [GAP-032](#gap-032), [GAP-072](#gap-072), [GAP-073](#gap-073), [GAP-078](#gap-078) |
 | privilege-contracts.md | [Remaining acceptance evidence](privilege-contracts.md#remaining-acceptance-evidence) | 120–138 | [GAP-031](#gap-031), [GAP-032](#gap-032), [GAP-072](#gap-072), [GAP-073](#gap-073), [GAP-078](#gap-078) |
 | transfer-contracts.md | [Transfer timer origins and resets](transfer-contracts.md#transfer-timer-origins-and-resets) | 246–276 | [GAP-005](#gap-005), [GAP-059](#gap-059), [GAP-060](#gap-060), [GAP-061](#gap-061), [GAP-064](#gap-064) |
-| session-transport-contracts.md | [Activity clocks and incomplete input](session-transport-contracts.md#activity-clocks-and-incomplete-input) | 106–139 | [GAP-005](#gap-005), [GAP-008](#gap-008), [GAP-012](#gap-012) |
-| session-transport-contracts.md | [Flood and connection-burst counters](session-transport-contracts.md#flood-and-connection-burst-counters) | 140–166 | [GAP-005](#gap-005), [GAP-045](#gap-045), [GAP-074](#gap-074) |
+| session-transport-contracts.md | [Activity clocks and incomplete input](session-transport-contracts.md#activity-clocks-and-incomplete-input) | 143–176 | [GAP-005](#gap-005), [GAP-008](#gap-008), [GAP-012](#gap-012) |
+| session-transport-contracts.md | [Flood and connection-burst counters](session-transport-contracts.md#flood-and-connection-burst-counters) | 199–229 | [GAP-005](#gap-005), [GAP-045](#gap-045), [GAP-074](#gap-074) |
 | presence-messaging-contracts.md | [Login extras and configured content](presence-messaging-contracts.md#login-extras-and-configured-content) | 85–86 | [GAP-026](#gap-026), [GAP-028](#gap-028) |
 | presence-messaging-contracts.md | [Fields 160, 161 and 162](presence-messaging-contracts.md#fields-160-161-and-162) | 87–113 | [GAP-026](#gap-026) |
 | presence-messaging-contracts.md | [Agreement and banner loading](presence-messaging-contracts.md#agreement-and-banner-loading) | 114–142 | [GAP-026](#gap-026), [GAP-027](#gap-027), [GAP-028](#gap-028) |
@@ -3402,12 +3427,15 @@ of binary paths, clients or packet inputs.
 | core-field-schemas.md | [Login width and feature-condition matrix](core-field-schemas.md#login-width-and-feature-condition-matrix) | 56–90 | [GAP-024](#gap-024), [GAP-015](#gap-015), [GAP-025](#gap-025) |
 | operation-contracts.md | [Per-operation reply and fan-out map](operation-contracts.md#per-operation-reply-and-fan-out-map) | 87–150 | [GAP-006](#gap-006), [GAP-003](#gap-003), [GAP-084](#gap-084) |
 | native-capture-workflow.md | [Reproducing native protocol captures](native-capture-workflow.md#reproducing-native-protocol-captures) | 1–8 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
-| native-capture-workflow.md | [Prepare the emulator and application](native-capture-workflow.md#prepare-the-emulator-and-application) | 9–82 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
-| native-capture-workflow.md | [Capture an exchange](native-capture-workflow.md#capture-an-exchange) | 83–144 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
-| native-capture-workflow.md | [Acceptance and corpus coverage](native-capture-workflow.md#acceptance-and-corpus-coverage) | 222–248 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Prepare the emulator and application](native-capture-workflow.md#prepare-the-emulator-and-application) | 9–86 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Capture an exchange](native-capture-workflow.md#capture-an-exchange) | 87–153 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Acceptance and corpus coverage](native-capture-workflow.md#acceptance-and-corpus-coverage) | 274–303 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
 | native-wire-details.md | [Account lookup name encodings](native-wire-details.md#account-lookup-name-encodings) | 101–120 | [GAP-022](#gap-022), [GAP-071](#gap-071), [GAP-072](#gap-072) |
-| error-outcomes.md | [Recorded representative native outcomes](error-outcomes.md#recorded-representative-native-outcomes) | 36–52 | [GAP-003](#gap-003), [GAP-084](#gap-084) |
-| native-capture-workflow.md | [Recorded native core fixtures](native-capture-workflow.md#recorded-native-core-fixtures) | 145–221 | [GAP-022](#gap-022), [GAP-025](#gap-025), [GAP-071](#gap-071), [GAP-077](#gap-077), [GAP-084](#gap-084) |
+| error-outcomes.md | [Recorded representative native outcomes](error-outcomes.md#recorded-representative-native-outcomes) | 36–55 | [GAP-003](#gap-003), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Recorded native core fixtures](native-capture-workflow.md#recorded-native-core-fixtures) | 154–230 | [GAP-022](#gap-022), [GAP-025](#gap-025), [GAP-071](#gap-071), [GAP-077](#gap-077), [GAP-084](#gap-084) |
+| session-transport-contracts.md | [Captured handshake boundaries](session-transport-contracts.md#captured-handshake-boundaries) | 60–88 | [GAP-008](#gap-008), [GAP-010](#gap-010), [GAP-084](#gap-084) |
+| session-transport-contracts.md | [Captured failure-wait observations](session-transport-contracts.md#captured-failure-wait-observations) | 177–198 | [GAP-005](#gap-005), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Recorded native transport fixtures](native-capture-workflow.md#recorded-native-transport-fixtures) | 231–273 | [GAP-008](#gap-008), [GAP-009](#gap-009), [GAP-010](#gap-010), [GAP-084](#gap-084) |
 
 ## Maintaining this analysis
 

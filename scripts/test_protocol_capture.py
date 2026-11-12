@@ -255,6 +255,85 @@ class CaptureTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Checksum"):
             verify_capture(self.root / "capture")
 
+    def test_connect_retains_addresses_for_packet_correlation(self):
+        with peer(lambda c: c.sendall(b"x")) as port:
+            report = self.capture(
+                port, [{"op": "read", "connection": "main", "size": 1}]
+            )
+        event = report["events"][0]
+        self.assertEqual(event["peer_address"], ["127.0.0.1", port])
+        self.assertEqual(event["local_address"][0], "127.0.0.1")
+        self.assertGreater(event["local_address"][1], 0)
+
+    def test_half_close_preserves_receive_direction(self):
+        def respond(connection):
+            self.assertEqual(connection.recv(1), b"")
+            connection.sendall(b"after-fin")
+
+        with peer(respond) as port:
+            report = self.capture(
+                port,
+                [
+                    {"op": "shutdown_write", "connection": "main"},
+                    {
+                        "op": "read_eof",
+                        "connection": "main",
+                        "expect_hex": b"after-fin".hex(),
+                    },
+                ],
+            )
+        self.assertEqual(report["status"], "completed")
+        self.assertIn("shutdown_write", [e["event"] for e in report["events"]])
+
+    def test_quiet_window_is_bounded_and_connection_remains_usable(self):
+        def respond(connection):
+            self.assertEqual(connection.recv(1), b"x")
+            connection.sendall(b"y")
+
+        with peer(respond) as port:
+            report = self.capture(
+                port,
+                [
+                    {"op": "expect_quiet", "connection": "main", "timeout": 0.02},
+                    {"op": "send", "connection": "main", "hex": "78"},
+                    {"op": "read", "connection": "main", "size": 1, "expect_hex": "79"},
+                ],
+            )
+        self.assertEqual(report["status"], "completed")
+        self.assertIn("quiet", [e["event"] for e in report["events"]])
+
+    def test_quiet_window_rejects_eof_and_keeps_unexpected_bytes(self):
+        for value in [b"", b"unexpected"]:
+            with (
+                self.subTest(value=value),
+                peer(lambda c, value=value: c.sendall(value)) as port,
+            ):
+                plan = self.plan(
+                    port, [{"op": "expect_quiet", "connection": "main", "timeout": 0.2}]
+                )
+                report = run_plan(
+                    plan, self.binary, self.root / ("quiet-" + value.hex())
+                )
+            self.assertEqual(report["status"], "failed")
+            if value:
+                self.assertTrue(report["streams"]["main"]["received_hex"])
+            else:
+                self.assertIn("eof", [e["event"] for e in report["events"]])
+
+    def test_send_after_half_close_is_rejected_before_io(self):
+        with self.assertRaisesRegex(ValueError, "write side"):
+            run_plan(
+                self.plan(
+                    1,
+                    [
+                        {"op": "shutdown_write", "connection": "main"},
+                        {"op": "send", "connection": "main", "hex": "78"},
+                    ],
+                ),
+                self.binary,
+                self.root / "invalid",
+            )
+
 
 if __name__ == "__main__":
     unittest.main()

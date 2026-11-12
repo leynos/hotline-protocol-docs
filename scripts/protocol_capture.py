@@ -39,6 +39,7 @@ def validate_plan(plan: dict) -> None:
             raise ValueError("Invalid endpoint")
     connections: set[str] = set()
     declared: set[str] = set()
+    writes_closed: set[str] = set()
     variables: set[str] = set()
     for step in plan["steps"]:
         op = step["op"]
@@ -55,11 +56,23 @@ def validate_plan(plan: dict) -> None:
         elif op == "pause":
             if not 0 <= step["seconds"] <= 3600:
                 raise ValueError("Invalid pause")
-        elif op in {"send", "read", "read_frame", "read_eof", "close"}:
+        elif op in {
+            "send",
+            "read",
+            "read_frame",
+            "read_eof",
+            "close",
+            "shutdown_write",
+            "expect_quiet",
+        }:
             if name not in connections:
                 raise ValueError(f"Unknown connection: {name}")
             if op == "close":
                 connections.remove(name)
+            if op in {"send", "shutdown_write"} and name in writes_closed:
+                raise ValueError("Connection write side is already closed")
+            if op == "shutdown_write":
+                writes_closed.add(name)
         else:
             raise ValueError(f"Unknown action: {op}")
         if not 0 < step.get("timeout", 2) <= 3600:
@@ -183,12 +196,28 @@ class Recorder:
                 (endpoint["host"], endpoint["port"]), step.get("timeout", 2)
             )
             self.event(action, name, "connect")
+            self.events[-1].update(
+                local_address=list(self.sockets[name].getsockname()),
+                peer_address=list(self.sockets[name].getpeername()),
+            )
         elif op == "close":
             self.sockets.pop(name).close()
             self.event(action, name, "close")
         elif op == "pause":
             time.sleep(step["seconds"])
             self.event(action, name, "pause")
+        elif op == "shutdown_write":
+            self.sockets[name].shutdown(socket.SHUT_WR)
+            self.event(action, name, "shutdown_write")
+        elif op == "expect_quiet":
+            self.sockets[name].settimeout(step.get("timeout", 2))
+            try:
+                data = self.sockets[name].recv(1)
+            except TimeoutError:
+                self.event(action, name, "quiet")
+            else:
+                self.event(action, name, "receive" if data else "eof", data)
+                raise ValueError("Expected bounded silence, received bytes or EOF")
         elif op == "send":
             encoded = VARIABLE.sub(lambda m: self.variables[m[1]].hex(), step["hex"])
             data = bytes.fromhex(encoded)

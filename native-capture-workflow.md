@@ -53,6 +53,10 @@ the invoking UID/GID with process-scoped `CAP_SYS_RAWIO`. It does not change the
 host's `vm.mmap_min_addr`. Its patched TCP forwards bind to loopback: host
 15500–15503 forward to guest 5500–5503. Confirm the guest TCP/IP settings before
 using those ports; a listening proxy is not proof that Hotline is running.
+Use `--guest-pcap state/native-sessions/SESSION/guest.pcap` with a new path to
+record the emulated Ethernet boundary as well as a separate host-loopback
+capture. The observer refuses existing files and records host wall-clock
+timestamps; its location before packet injection does not prove guest receipt.
 
 Copy the prepared application folder from the guest's Unix/shared volume onto
 its native Mac disk using Finder before testing file/fork/Trash/alias effects.
@@ -122,7 +126,12 @@ python3 ../hotline-protocol-docs/scripts/protocol_capture.py verify \
 ```
 
 Each plan supports `connect`, `send`, fixed-size `read`, `read_frame`,
-`read_eof`, `pause` and `close`. Connections have unique lifetime labels.
+`read_eof`, `pause`, `shutdown_write`, `expect_quiet` and `close`. Connections
+have unique lifetime labels, and connect events retain local/peer socket
+addresses for packet correlation. `shutdown_write` sends a write-half-close
+while preserving reads; later sends on that lifetime are rejected before I/O.
+`expect_quiet` succeeds only when its bounded receive window expires without
+bytes or EOF. An unexpected byte or EOF is retained as a failed observation.
 `read_frame` reads the 20-byte header and declared physical payload; it does not
 silently reassemble logical fragments. A receive action can save a bounded byte
 slice as `{"save":{"name":"reference","offset":26,"size":4}}`; a later
@@ -166,7 +175,7 @@ old/plaintext passwords, both observed login paths, representative failures,
 plain-input 352 lookup, nested 348 enumeration/permission denial and account-111
 storage variants. Their tests also reject a structurally consistent wrong reply
 ID and a changed stored password. These are additional to the capture runner's
-14 loopback tests.
+current loopback tests.
 
 For another native run, prepare the same supplied base disk and exact application
 as above, create only the dedicated `admin` / `mothra19` fixture, and keep banner
@@ -219,6 +228,49 @@ verifier. Read after the corresponding operation has finished; a mutable-disk
 observation does not prove crash durability. Shut down cleanly before archiving
 or resetting a guest disk. Do not commit the full disk or system components.
 
+## Recorded native transport fixtures
+
+The [transport batch][native-transport] retains a final catalogue of 14 addressed
+handshake cases, initial explorations and superseded short quiet windows.
+The final split-input cases use three-second quiet windows at five byte offsets.
+Thirteen final plans completed; the alternate-control plain-TRTP attempt timed
+out and remains failed. Root checksums cover both packet views, all retained
+transcripts, emulator/source identities and the semantic checks. The 8 GiB
+prelaunch disk is retained only under ignored state; its hash and clean-unmount
+filesystem report are committed, not the image.
+
+Run the packet/stream and close-order checks from `mothra`:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/verify_native_handshakes.py \
+  evidence/gap-remediation/2026-11-12/native-transport-01
+```
+
+To repeat, launch the same native server with a new guest-capture path and start
+a separate host-loopback capture before the socket plans. Prepare new plan
+copies with the new runtime identity as described for the core corpus. Preserve
+local/peer addresses in connect events. The packet verifier matches these to
+both TCP views; do not infer tuple identity from a filename or merge reused
+socket lifetimes. Stop the host recorder and take a complete guest-capture
+snapshot after the planned connections have closed. Keep the original live
+capture separately if the emulator continues running.
+
+The analyser accepts complete classic microsecond PCAP Ethernet/IPv4 TCP input,
+checks sequence gaps and conflicting retransmissions, and keeps TCP reset
+payloads in packet records rather than appending them to Hotline stream bytes.
+IP-fragmented TCP requires separate reassembly and is rejected by this analyser.
+The recorded wrong-magic reset demonstrates why transport diagnostics must not
+be decoded as protocol frames. Preserve guest FIN/RST distinctions even when
+SLiRP exposes only EOF to the host socket.
+
+The separate failed-login timing trials retain a 65-second no-close baseline
+and an isolated 35-second quiet/new-connection case. Do not run other scripted
+guest connections or GUI actions during that quiet window. An earlier overlapping
+trial remains explicitly labelled and is not used to establish the isolated
+result. These measurements refine observed outcomes, not a general deadline or
+proof of a unique scheduling cause. Complete timer and alternate-wrapper
+requirements remain open.
+
 ## Acceptance and corpus coverage
 
 A completed plan establishes its recorded exchange and expectations, not every
@@ -236,8 +288,9 @@ before/after filesystem or account state, failures and explicit deviations.
 | Accounts and administration | Opaque 111 absent/empty/value; create/update/password sentinel/identity conflicts; live changes; bans/expiry/restart; 348/349 mixed outcomes. GAP-071–078/084. |
 | Identified peers and release | Hashed compiled historical clients, field-tolerance and ambiguous-text corpus; request-500 scheduling; test-policy reconciliation; chosen release subset/owner and scoped proof results. GAP-001/079–086. |
 
-The retained [synthetic transcript][tool-test] and 14 loopback tests validate the
-capture runner. They do not discharge the native scenario families above.
+The retained [synthetic transcript][tool-test] and the current loopback tests
+validate the capture runner. They do not discharge the native scenario
+families above.
 Run the tool tests from this repository with
 `python3 -m unittest discover -s scripts -p test_protocol_capture.py`.
 
@@ -246,3 +299,5 @@ Run the tool tests from this repository with
 [native-handshake]: ../mothra/evidence/gap-remediation/2026-11-12/native-handshake-01/manifest.json
 
 [native-core]: ../mothra/evidence/gap-remediation/2026-11-12/native-core-01/manifest.json
+
+[native-transport]: ../mothra/evidence/gap-remediation/2026-11-12/native-transport-01/manifest.json

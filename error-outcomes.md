@@ -16,7 +16,7 @@ separate from observations about this native server.
 
 | Trigger / path | Native result established in the traced code | Remaining boundary |
 | --- | --- | --- |
-| Failed account/password comparison in 107 | Direct status 1 with 100; static dispatcher path compares failure age against 30 seconds. | Native error delivered; proxy EOF was not observed within 15/45 host seconds. Guest-close timing and proxy propagation remain unresolved. |
+| Failed account/password comparison in 107 | Direct status 1 with 100; static dispatcher path compares failure age against 30 seconds. | Native error delivered; a later guest capture shows no FIN/RST during 65 seconds, then another isolated case resets after a new connection. Scheduling remains GAP-005. |
 | Explicit permission denial in file/news/account/PM handlers | Direct status 1 with 100 at captured send sites. | Operation-specific partial effects and exceptions. |
 | Missing/disconnected PM target in 108 | Direct status 1 with 100, before ordinary successful-path routing. | Target state races and exact native packets. |
 | Missing room in 115 | Direct status 1 with 100. | Concurrent room removal. |
@@ -45,8 +45,11 @@ checks these bounded results and direct reply correlation.
 Failed-password replies contain `Incorrect login.`. Attempts to observe proxy
 EOF within 15 and 45 host seconds both timed out; those transcripts remain
 failed observations. They do not establish whether the guest had already closed
-its transport. The packet capture covers the host-to-SLiRP leg, so native close
-and proxy FIN propagation must be separated before publishing drain timing.
+its transport in those earlier captures. The new
+[guest-boundary capture](session-transport-contracts.md#captured-failure-wait-observations)
+separately records the 65-second no-close case and a 35-second/new-connection
+reset case. Guest RST can appear as host socket EOF through SLiRP. Neither
+observation supplies a universal disconnect deadline.
 Internal exception translation and broader failure boundaries remain GAP-003;
 this corpus does not turn every `SError` domain/code into a wire status.
 

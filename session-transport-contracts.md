@@ -2,8 +2,9 @@
 
 The [guide](protocol.md) defines the ordinary frame. This supplement refines
 GAP-008–GAP-011, GAP-024 and identifier allocation using the baseline dispatcher
-and [batch 07][batch]. The exchanges below are derived from native code; they
-are not recorded client sessions or a certificate of transport-drain behaviour.
+and [batch 07][batch]. Static tables are derived from native code. The
+[captured boundary cases](#captured-handshake-boundaries) separately identify
+actual packet/stream outcomes; neither source establishes universal drain timing.
 
 ## Configured endpoints
 
@@ -28,8 +29,12 @@ session contract and requires separate tracing.
 
 Both control listeners feed the same dispatcher, and both data listeners feed
 the same HTXF acceptor. No independently negotiated per-request data-port field
-appears in this startup mapping. A successful bind or real client connection
-on this historical runtime has not been exercised (GAP-010).
+appears in this startup mapping. Native fixtures now establish a primary
+control exchange on 5500 and unmatched-reference HTXF rejection on 5501.
+The alternate 5502/5503 listeners accepted TCP and acknowledged ordinary
+unwrapped input but returned no application response within ten seconds.
+They are not established as interchangeable plain-protocol endpoints. Full
+alternate-wrapper negotiation and port-boundary configuration remain GAP-010.
 
 ## Handshake consumption and failures
 
@@ -48,8 +53,38 @@ the dispatcher's HOTL/sub-version checks. Derived outcomes are:
 
 A queued response is not proof that all eight bytes reach the peer before
 closure. Connection-limit rejection can also follow the success-handshake call,
-so success bytes alone do not promise authentication or admission. Exact drain,
-pipelining, short-read and closure-order native fixtures remain GAP-008.
+so success bytes alone do not promise authentication or admission. Drain
+behaviour outside the recorded boundary cases remains unverified. GAP-009/084
+retain complete transfer/peer scenarios.
+
+## Captured handshake boundaries
+
+The [native transport corpus][native-transport] records both host-to-proxy TCP
+and guest/SLiRP-boundary Ethernet packets. Its final catalogue contains 14
+addressed cases; the socket tuples select their exact packet flows. Packet
+analysis checks sequence continuity and retransmissions against both recorded
+application streams, retaining reset payloads as separate transport observations.
+
+| Input on the ordinary control listener | Recorded application bytes and guest close order |
+| --- | --- |
+| Normal twelve-byte version-1/sub-version-2 handshake | Eight-byte `TRTP 00000000`; client then closes. |
+| Wrong first magic | No handshake reply; guest RST with diagnostic payload. |
+| Version 2 | Eight-byte `TRTP 00000001`, then guest RST. |
+| Wrong sub-protocol / sub-version 4 | Eight-byte `TRTP 00000001`, then guest FIN before client closure. |
+| Split after 1, 4, 8, 10 or 11 bytes | No response/EOF during a three-second window; remaining bytes yield success. |
+| Eleven bytes followed by client write-half-close | No handshake reply; guest FIN follows the client FIN. |
+| Handshake and login in one send | Success handshake followed by login ACK, 354 and 109; following frame is preserved. |
+| Handshake plus byte 13, then the rest of login | Success handshake; byte 13 is retained as the frame prefix and login succeeds. |
+
+These satisfy GAP-008's unchanged boundary-fixture criterion for the ordinary
+session handshake. They do not certify matching-reference transfer completion,
+alternate-wrapper negotiation, all network stacks or physical-network timing.
+The observed RST diagnostics include `tcp_disconnect` and `No TCP`; they are
+not Hotline error fields or additional handshake bytes. TCP permits reset
+segments to contain diagnostic data, without defining a diagnostic format
+([RFC 9293 section 3.5.3](https://www.rfc-editor.org/rfc/rfc9293.html#section-3.5.3)).
+The host proxy exposed EOF where the guest emitted RST, so a socket EOF alone
+must not be described as a graceful native close.
 
 ### Sub-version 3 versus the data endpoint
 
@@ -69,8 +104,10 @@ The two derived entry sequences are:
 The HTXF reference must still match a collection created by a control operation.
 The handover does not fabricate a transfer or bypass the reference lookup.
 Direct data-port and handed-over connections converge on the same acceptor.
-Pipelined/coalesced delivery and all positive/negative native stream fixtures
-remain GAP-009/055.
+Native negative fixtures now show raw HTXF reference zero rejected on 5501,
+and the control sub-version-3 path returning success before rejecting the same
+HTXF header on that connection. Matched-reference upload/download/banner
+fixtures and complete streams remain GAP-009/055.
 
 ## Receive-limit assignment at startup
 
@@ -137,6 +174,28 @@ lifetime is made. Native stalled-handshake/header/body/fragment fixtures remain
 GAP-005/008/012/055/084. These observations also do not prescribe mxd's chosen
 resource limits or deadlines.
 
+### Captured failure-wait observations
+
+The compiled age comparisons above are not unconditional wall-clock deadlines.
+The dispatcher must run and its transport predicate must permit the branch.
+The retained [transport guard queries][guards] show primary predicate `10070790`
+checking Open Transport atomic bit 1 and endpoint state 6; closing helper
+`10070610` calls `OTSndDisconnect`. No human meaning is assigned to that numeric
+endpoint state without its platform definition.
+
+In the [timing fixtures][timing], a failed-login reply was followed by 65.060281
+host seconds with no guest FIN/RST before client cleanup. In a separate trial
+with no other scripted guest connections, a 35-second bounded-silence action
+completed; a new control SYN was followed 92.254 ms later by a reset of the
+failed session. The analyser verifies these packet/stream observations. An
+earlier trial overlapped data probes and is retained separately rather than
+used as an isolated timing experiment.
+
+This refines the close outcome, not a proof of the unique scheduling mechanism.
+Dispatcher invocation, platform events, clock changes and other profile/config
+conditions remain GAP-005. Do not publish a mandatory 30-second disconnect or
+attribute the 65-second result solely to host-proxy FIN propagation.
+
 ## Flood and connection-burst counters
 
 Two separate mechanisms appear in dispatcher `1000acf0`:
@@ -164,3 +223,7 @@ fixtures before claiming a conventional rate-limit algorithm (GAP-045/074).
 
 [select]: ../mothra/evidence/gap-remediation/2026-11-12/batch-16/queries/B16-D-10058e80.c
 [receive]: ../mothra/evidence/gap-remediation/2026-11-12/batch-16/queries/B16-D-100590e0.c
+
+[native-transport]: ../mothra/evidence/gap-remediation/2026-11-12/native-transport-01/manifest.json
+[timing]: ../mothra/evidence/gap-remediation/2026-11-12/native-transport-01/timing-observations.json
+[guards]: ../mothra/evidence/gap-remediation/2026-11-12/native-transport-01/transport-guards/transport-guards.json
