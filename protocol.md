@@ -69,8 +69,11 @@ The server's handshake reply is eight bytes:
 | 0 | 4 | Protocol ID | `TRTP` |
 | 4 | 4 | Status | Zero for success; nonzero for failure |
 
-A client consumes and checks both the magic and status. This reply is not a
-numbered transaction and does not contain a general transaction header.
+A canonical client should consume and check both magic and status. The
+[identified shx source](identified-client-source.md#other-receiver-observations-and-negative-scope)
+advances its receive state without inspecting those response bytes, so this is
+not a proven behaviour of every historical peer. The reply is unnumbered and
+does not contain a general transaction header.
 
 Evidence: V003–V006, M001; Ghidra `10058650`, `10058770`, `100587f0`,
 `1000acf0`.
@@ -1029,6 +1032,10 @@ Evidence: V001, V048–V074, M002–M009.
   entry in this revision.
 - [Internal compatibility matrix](internal-compatibility-matrix.md): observed
   peer behaviour, mxd policies and unverified implementation/test claims.
+- [Error outcomes](error-outcomes.md): explicit wire failures, derived reply
+  bytes and the separate native internal exception/message domains.
+- [Identified client source](identified-client-source.md): pinned shx 0.1.48
+  source observations and bounded host callback tests.
 - [Filesystem and board contracts](filesystem-and-board-contracts.md): target
   variants, Trash deletion, metadata mutation order, moves/aliases and old news.
 - [Core field schemas](core-field-schemas.md): types, cardinalities, defaults

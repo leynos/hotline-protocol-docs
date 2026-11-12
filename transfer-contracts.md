@@ -238,13 +238,36 @@ the data connection; it does not emit a numbered completion ACK here. Other
 control values are consumed without an established protocol-error reply in the
 inspected branches. They must not be assigned guessed actions.
 
-The descriptor is constructed by walking backwards over a structured component
-path, removing the root component, then prepending its length and directory/file
-indicator. The decompiler's recovered stack-tail pointers are not sufficient
-to certify every descriptor offset. Exact descriptor bytes, empty-folder and
-nested traversal traces remain GAP-059, rather than a guessed symmetric upload
-record. Pending folder downloads use the same greater-than-500-second wait
-comparison as ordinary downloads.
+### Folder item descriptor bytes
+
+[Assembly stores at `1000ca2c`–`1000ca98`][descriptor-asm] resolve the earlier
+stack-tail ambiguity. Traversal builds a component path backwards, removes its
+root component, then writes the adjusted component count, item flag and length
+in front. The complete record sent on the data connection is:
+
+| Offset | Size | Value |
+| ---: | ---: | --- |
+| 0 | 2 | Payload length `L`; excludes this length word |
+| 2 | 2 | Directory indicator: 1 for a directory, 0 for a file |
+| 4 | 2 | Number of remaining path components `k` |
+| 6 | Variable | `k` components: BE16 word, one-byte name length, then name bytes |
+
+Thus `L = 4 + sum(3 + component_name_length)`. The upload worker consumes the
+same two-byte item flag followed by the structured path. This establishes
+shared descriptor framing, not symmetric control state machines or identical
+path/conflict policies. The download traversal writes zero component words.
+
+These examples are **calculated from the stores**, not captured native packets:
+
+| Item after removing the transfer root | Derived descriptor bytes |
+| --- | --- |
+| Root directory, no remaining components | `00 04 00 01 00 00` |
+| One file component `foo` | `00 0a 00 00 00 01 00 00 03 66 6f 6f` |
+| One directory component `foo` | `00 0a 00 01 00 01 00 00 03 66 6f 6f` |
+
+Nested traversal, empty-directory sequencing, root inclusion in request item
+counts and invalid-descriptor native fixtures remain GAP-059/060. Pending folder
+downloads use the greater-than-500-second wait comparison already documented.
 
 ## Folder-upload control states
 
@@ -283,3 +306,5 @@ Nothing here promises transactional rollback of previously uploaded items.
 [folder-batch]: ../mothra/evidence/gap-remediation/2026-11-12/batch-05/manifest.json
 
 [batch]: ../mothra/evidence/gap-remediation/2026-11-12/batch-04/manifest.json
+
+[descriptor-asm]: ../mothra/evidence/gap-remediation/2026-11-12/batch-10/queries/B10-A-1000c6a0.json

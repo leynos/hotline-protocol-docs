@@ -3,11 +3,11 @@
   "title": "Hotline 1.9 protocol documentation gap register",
   "audited_at_utc": "2026-11-12T12:55:29.155796+00:00",
   "last_updated": "2026-11-12",
-  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-08/manifest.json",
-  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-08/sections.json",
+  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-09/manifest.json",
+  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-09/sections.json",
   "validity_ledger": "../mothra/docs/baseline-validity-ledger.md",
   "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
-  "method": "Documentation review plus read-only Ghidra MCP follow-up against the recorded Hotline 1.9 data fork, paired resource-fork inspection, portable archive round-trip verification, and revision-specific mxd source/test review (55 focused tests passed). The original audit and validity ledger remain immutable; current sources have been reviewed and re-snapshotted. No native runtime/client captures or Kani proof results are claimed. Entries remain Investigating while their acceptance criteria are unmet.",
+  "method": "Documentation review plus read-only Ghidra MCP follow-up against the recorded Hotline 1.9 data fork, paired resource-fork inspection, portable archive verification, pinned shx source review with seven host callback cases, and mxd review (55 focused tests passed). The original audit and validity ledger remain immutable; current sources have been reviewed and re-snapshotted. No native runtime/client captures or Kani proof results are claimed. Entries remain Investigating while their acceptance criteria are unmet.",
   "gaps": [
     {
       "id": "GAP-001",
@@ -30,9 +30,9 @@
           "path": "internal-compatibility-matrix.md",
           "heading": "Open compatibility gaps and QA requirements",
           "level": 2,
-          "line_start": 255,
+          "line_start": 274,
           "anchor": "open-compatibility-gaps-and-qa-requirements",
-          "line_end": 287
+          "line_end": 306
         }
       ],
       "question": "Which of the 45 requests and server notifications must mxd implement now, defer explicitly, or reject, and which peer profiles are acceptance targets?",
@@ -63,33 +63,33 @@
           "path": "protocol.md",
           "heading": "2 General transaction frame",
           "level": 3,
-          "line_start": 78,
+          "line_start": 81,
           "anchor": "2-general-transaction-frame",
-          "line_end": 102
+          "line_end": 105
         },
         {
           "path": "protocol.md",
           "heading": "2.1 Parameter list (payload block)",
           "level": 4,
-          "line_start": 103,
+          "line_start": 106,
           "anchor": "21-parameter-list-payload-block",
-          "line_end": 146
+          "line_end": 149
         },
         {
           "path": "protocol.md",
           "heading": "Login (Transaction 107) – Client Initiates",
           "level": 3,
-          "line_start": 280,
+          "line_start": 283,
           "anchor": "login-transaction-107--client-initiates",
-          "line_end": 305
+          "line_end": 308
         },
         {
           "path": "protocol.md",
           "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
           "level": 3,
-          "line_start": 903,
+          "line_start": 906,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 936
+          "line_end": 939
         }
       ],
       "question": "For every in-scope request, reply and notification, which fields are required, optional, conditional or repeatable, with what widths and value domains?",
@@ -129,17 +129,17 @@
           "path": "protocol.md",
           "heading": "4 Reply semantics",
           "level": 3,
-          "line_start": 198,
+          "line_start": 201,
           "anchor": "4-reply-semantics",
-          "line_end": 219
+          "line_end": 222
         },
         {
           "path": "protocol.md",
           "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
           "level": 3,
-          "line_start": 937,
+          "line_start": 940,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 958
+          "line_end": 961
         }
       ],
       "question": "Which statuses, field-100 forms and connection outcomes apply to each failure, including errors in operations without a normal ACK?",
@@ -159,10 +159,11 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Traced online unknown-operation reply status 1 with field 100 and distinguished pre-online close. Complete failure table and native representative packets remain required.",
+        "progress": "Published explicit failure-outcome table and derived51-byte unknown-operation reply. Reviewed all68 direct setter callsites in35 functions: each passes1. Separated internal SError/EMSG class/code resources from envelope status. Catch translation and native failure packets remain required.",
         "evidence": [
-          "[Operation contracts](operation-contracts.md)",
-          "[Compatibility review](internal-compatibility-matrix.md#mxd-review-at-2e4c9c1)"
+          "[Error outcomes](error-outcomes.md)",
+          "[Folder descriptor](transfer-contracts.md#folder-item-descriptor-bytes)",
+          "[Identified client source](identified-client-source.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -180,17 +181,17 @@
           "path": "protocol.md",
           "heading": "2 General transaction frame",
           "level": 3,
-          "line_start": 78,
+          "line_start": 81,
           "anchor": "2-general-transaction-frame",
-          "line_end": 102
+          "line_end": 105
         },
         {
           "path": "protocol.md",
           "heading": "3 Fragmentation rules",
           "level": 3,
-          "line_start": 170,
+          "line_start": 173,
           "anchor": "3-fragmentation-rules",
-          "line_end": 197
+          "line_end": 200
         }
       ],
       "question": "Are zero, duplicate, wrapped or reused IDs accepted, how are client and server ID spaces separated, and how are unsolicited replies treated?",
@@ -231,31 +232,31 @@
           "level": 3,
           "line_start": 43,
           "anchor": "1-session-initialization-handshake",
-          "line_end": 77
+          "line_end": 80
         },
         {
           "path": "protocol.md",
           "heading": "4 Reply semantics",
           "level": 3,
-          "line_start": 198,
+          "line_start": 201,
           "anchor": "4-reply-semantics",
-          "line_end": 219
+          "line_end": 222
         },
         {
           "path": "protocol.md",
           "heading": "Login (Transaction 107) – Client Initiates",
           "level": 3,
-          "line_start": 280,
+          "line_start": 283,
           "anchor": "login-transaction-107--client-initiates",
-          "line_end": 305
+          "line_end": 308
         },
         {
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 983,
+          "line_start": 986,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1020
+          "line_end": 1023
         }
       ],
       "question": "What are the handshake, login, agreement, idle and partial-frame deadlines, and what traffic resets them?",
@@ -292,33 +293,33 @@
           "path": "protocol.md",
           "heading": "4 Reply semantics",
           "level": 3,
-          "line_start": 198,
+          "line_start": 201,
           "anchor": "4-reply-semantics",
-          "line_end": 219
+          "line_end": 222
         },
         {
           "path": "protocol.md",
           "heading": "Sending a Chat Message (Transaction 105) – Client Initiates",
           "level": 3,
-          "line_start": 478,
+          "line_start": 481,
           "anchor": "sending-a-chat-message-transaction-105--client-initiates",
-          "line_end": 489
+          "line_end": 492
         },
         {
           "path": "protocol.md",
           "heading": "Leaving a Chat Room (Transaction 116) – Client Initiates",
           "level": 3,
-          "line_start": 511,
+          "line_start": 514,
           "anchor": "leaving-a-chat-room-transaction-116--client-initiates",
-          "line_end": 520
+          "line_end": 523
         },
         {
           "path": "protocol.md",
           "heading": "Changing User Settings (Transaction 304) – Client Initiates",
           "level": 3,
-          "line_start": 462,
+          "line_start": 465,
           "anchor": "changing-user-settings-transaction-304--client-initiates",
-          "line_end": 475
+          "line_end": 478
         }
       ],
       "question": "Which operation/direction/session-state combinations are accepted, and what direct success/error replies or subsequent notifications belong to each? The current ACK/Push prose is not a complete catalogue.",
@@ -339,10 +340,11 @@
         "GAP-003"
       ],
       "resolution": {
-        "progress": "Published all 45 request paths, reply directions and known notification producers; unknown 111/211/302 schemas and exhaustive branch completion contracts remain open.",
+        "progress": "Catalogue now includes positively traced111/211/302 producers as well as all45 explicit request paths. The earlier unknown-producer note is superseded; exhaustive per-branch completion/error contracts remain open.",
         "evidence": [
-          "[Operation contracts](operation-contracts.md)",
-          "[Compatibility review](internal-compatibility-matrix.md#mxd-review-at-2e4c9c1)"
+          "[Error outcomes](error-outcomes.md)",
+          "[Folder descriptor](transfer-contracts.md#folder-item-descriptor-bytes)",
+          "[Identified client source](identified-client-source.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -362,31 +364,31 @@
           "level": 3,
           "line_start": 43,
           "anchor": "1-session-initialization-handshake",
-          "line_end": 77
+          "line_end": 80
         },
         {
           "path": "protocol.md",
           "heading": "Login (Transaction 107) – Client Initiates",
           "level": 3,
-          "line_start": 280,
+          "line_start": 283,
           "anchor": "login-transaction-107--client-initiates",
-          "line_end": 305
+          "line_end": 308
         },
         {
           "path": "protocol.md",
           "heading": "Agreement Acceptance (Transaction 121) – Client Initiates",
           "level": 3,
-          "line_start": 320,
+          "line_start": 323,
           "anchor": "agreement-acceptance-transaction-121--client-initiates",
-          "line_end": 342
+          "line_end": 345
         },
         {
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 983,
+          "line_start": 986,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1020
+          "line_end": 1023
         }
       ],
       "question": "What can be sent before authentication, after login ACK, while agreement is pending, after early completion and during shutdown?",
@@ -429,7 +431,7 @@
           "level": 3,
           "line_start": 43,
           "anchor": "1-session-initialization-handshake",
-          "line_end": 77
+          "line_end": 80
         }
       ],
       "question": "How are short, long, pipelined, wrong-magic, wrong-version or unsupported-sub-version handshakes consumed, replied to and closed?",
@@ -473,15 +475,15 @@
           "level": 3,
           "line_start": 43,
           "anchor": "1-session-initialization-handshake",
-          "line_end": 77
+          "line_end": 80
         },
         {
           "path": "protocol.md",
           "heading": "Transfer Connection and Reference Cleanup",
           "level": 3,
-          "line_start": 788,
+          "line_start": 791,
           "anchor": "transfer-connection-and-reference-cleanup",
-          "line_end": 805
+          "line_end": 808
         }
       ],
       "question": "When does the TRTP sub-version-3 path apply, on which endpoint, and how does it relate to a direct sixteen-byte HTXF header?",
@@ -520,17 +522,17 @@
           "path": "protocol.md",
           "heading": "File Services (Files and Folders)",
           "level": 2,
-          "line_start": 619,
+          "line_start": 622,
           "anchor": "file-services-files-and-folders",
-          "line_end": 629
+          "line_end": 632
         },
         {
           "path": "protocol.md",
           "heading": "Transfer Connection and Reference Cleanup",
           "level": 3,
-          "line_start": 788,
+          "line_start": 791,
           "anchor": "transfer-connection-and-reference-cleanup",
-          "line_end": 805
+          "line_end": 808
         }
       ],
       "question": "How are control/data listeners selected and configured, and is the data port always the base port plus one in this build?",
@@ -567,9 +569,9 @@
           "path": "protocol.md",
           "heading": "3 Fragmentation rules",
           "level": 3,
-          "line_start": 170,
+          "line_start": 173,
           "anchor": "3-fragmentation-rules",
-          "line_end": 197
+          "line_end": 200
         }
       ],
       "question": "Is the image's 2 MiB value changed at runtime, does it bound a frame or aggregate transaction, and how are totals, fragments and concurrent buffers limited?",
@@ -608,9 +610,9 @@
           "path": "protocol.md",
           "heading": "3 Fragmentation rules",
           "level": 3,
-          "line_start": 170,
+          "line_start": 173,
           "anchor": "3-fragmentation-rules",
-          "line_end": 197
+          "line_end": 200
         }
       ],
       "question": "What happens when type/total changes, fragments interleave, lengths overrun or underfill, transactions are abandoned, or a partial frame ends in EOF?",
@@ -648,17 +650,17 @@
           "path": "protocol.md",
           "heading": "2 General transaction frame",
           "level": 3,
-          "line_start": 78,
+          "line_start": 81,
           "anchor": "2-general-transaction-frame",
-          "line_end": 102
+          "line_end": 105
         },
         {
           "path": "protocol.md",
           "heading": "4 Reply semantics",
           "level": 3,
-          "line_start": 198,
+          "line_start": 201,
           "anchor": "4-reply-semantics",
-          "line_end": 219
+          "line_end": 222
         }
       ],
       "question": "How are nonzero flags, reply markers other than zero/one, nonzero request error words, unsupported types and nonzero reply types handled?",
@@ -697,17 +699,17 @@
           "path": "protocol.md",
           "heading": "2.1 Parameter list (payload block)",
           "level": 4,
-          "line_start": 103,
+          "line_start": 106,
           "anchor": "21-parameter-list-payload-block",
-          "line_end": 146
+          "line_end": 149
         },
         {
           "path": "protocol.md",
           "heading": "3 Fragmentation rules",
           "level": 3,
-          "line_start": 170,
+          "line_start": 173,
           "anchor": "3-fragmentation-rules",
-          "line_end": 197
+          "line_end": 200
         }
       ],
       "question": "What happens with a missing count, count/length mismatch, truncated values, trailing bytes, zero field IDs, unknown fields or maximum field counts?",
@@ -746,25 +748,25 @@
           "path": "protocol.md",
           "heading": "2.1 Parameter list (payload block)",
           "level": 4,
-          "line_start": 103,
+          "line_start": 106,
           "anchor": "21-parameter-list-payload-block",
-          "line_end": 146
+          "line_end": 149
         },
         {
           "path": "protocol.md",
           "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
           "level": 3,
-          "line_start": 903,
+          "line_start": 906,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 936
+          "line_end": 939
         },
         {
           "path": "protocol.md",
           "heading": "Downloading a File (Transaction 202) – Client Initiates",
           "level": 3,
-          "line_start": 643,
+          "line_start": 646,
           "anchor": "downloading-a-file-transaction-202--client-initiates",
-          "line_end": 660
+          "line_end": 663
         }
       ],
       "question": "Which numeric fields permit one/two/four bytes, which are fixed-width or signed, and how are booleans, sentinel values and invalid widths interpreted?",
@@ -782,11 +784,11 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Documented generic 1/2/3/4/overlong numeric accessor behaviour. A complete field-specific scalar registry remains required.",
+        "progress": "Core registry now supplies field-specific scalar/byte/bitmap/record schemas. Non-core types and malformed-width/range native fixtures remain required.",
         "evidence": [
-          "[Native wire details](native-wire-details.md)",
-          "[Batch 01](../mothra/evidence/gap-remediation/2026-11-12/batch-01/manifest.json)",
-          "[Batch 02](../mothra/evidence/gap-remediation/2026-11-12/batch-02/manifest.json)"
+          "[Error outcomes](error-outcomes.md)",
+          "[Folder descriptor](transfer-contracts.md#folder-item-descriptor-bytes)",
+          "[Identified client source](identified-client-source.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -804,33 +806,33 @@
           "path": "protocol.md",
           "heading": "2.1 Parameter list (payload block)",
           "level": 4,
-          "line_start": 103,
+          "line_start": 106,
           "anchor": "21-parameter-list-payload-block",
-          "line_end": 146
+          "line_end": 149
         },
         {
           "path": "protocol.md",
           "heading": "5 Worked example (Login)",
           "level": 3,
-          "line_start": 220,
+          "line_start": 223,
           "anchor": "5-worked-example-login",
-          "line_end": 254
+          "line_end": 257
         },
         {
           "path": "protocol.md",
           "heading": "Login (Transaction 107) – Client Initiates",
           "level": 3,
-          "line_start": 280,
+          "line_start": 283,
           "anchor": "login-transaction-107--client-initiates",
-          "line_end": 305
+          "line_end": 308
         },
         {
           "path": "protocol.md",
           "heading": "Changing User Settings (Transaction 304) – Client Initiates",
           "level": 3,
-          "line_start": 462,
+          "line_start": 465,
           "anchor": "changing-user-settings-transaction-304--client-initiates",
-          "line_end": 475
+          "line_end": 478
         }
       ],
       "question": "Which operations distinguish an omitted field, a zero-length TLV, an empty string and numeric zero, and what defaults are applied?",
@@ -849,11 +851,11 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Documented account 353 absent/empty/NUL/literal-x password cases and cleared-record defaults; settings and other presence tables remain open.",
+        "progress": "Account and session settings presence/default tables are published, including missing/empty/NUL password and comment distinctions. Other operations and full native fixture coverage remain required.",
         "evidence": [
-          "[Native wire details](native-wire-details.md)",
-          "[Batch 01](../mothra/evidence/gap-remediation/2026-11-12/batch-01/manifest.json)",
-          "[Batch 02](../mothra/evidence/gap-remediation/2026-11-12/batch-02/manifest.json)"
+          "[Error outcomes](error-outcomes.md)",
+          "[Folder descriptor](transfer-contracts.md#folder-item-descriptor-bytes)",
+          "[Identified client source](identified-client-source.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -871,17 +873,17 @@
           "path": "protocol.md",
           "heading": "2.1 Parameter list (payload block)",
           "level": 4,
-          "line_start": 103,
+          "line_start": 106,
           "anchor": "21-parameter-list-payload-block",
-          "line_end": 146
+          "line_end": 149
         },
         {
           "path": "protocol.md",
           "heading": "Chat Invitations (Transactions 112, 113, 114) – Private Chats",
           "level": 3,
-          "line_start": 533,
+          "line_start": 536,
           "anchor": "chat-invitations-transactions-112-113-114--private-chats",
-          "line_end": 552
+          "line_end": 555
         }
       ],
       "question": "Beyond observed list/invitation cases, are duplicate scalars rejected, first-wins, last-wins or accumulated, and is order meaningful?",
@@ -930,25 +932,25 @@
           "path": "internal-compatibility-matrix.md",
           "heading": "Credential obfuscation and text compatibility",
           "level": 2,
-          "line_start": 79,
+          "line_start": 83,
           "anchor": "credential-obfuscation-and-text-compatibility",
-          "line_end": 101
+          "line_end": 105
         },
         {
           "path": "protocol.md",
           "heading": "Receiving a Chat Message (Transaction 106) – Server Initiates",
           "level": 3,
-          "line_start": 490,
+          "line_start": 493,
           "anchor": "receiving-a-chat-message-transaction-106--server-initiates",
-          "line_end": 498
+          "line_end": 501
         },
         {
           "path": "protocol.md",
           "heading": "Listing Files in a Folder (Transaction 200) – Client Initiates",
           "level": 3,
-          "line_start": 630,
+          "line_start": 633,
           "anchor": "listing-files-in-a-folder-transaction-200--client-initiates",
-          "line_end": 642
+          "line_end": 645
         }
       ],
       "question": "Which charset, normalization, NUL handling and line-ending rules apply to credentials, names, paths, chat, news and error text?",
@@ -989,33 +991,33 @@
           "path": "protocol.md",
           "heading": "2.1 Parameter list (payload block)",
           "level": 4,
-          "line_start": 103,
+          "line_start": 106,
           "anchor": "21-parameter-list-payload-block",
-          "line_end": 146
+          "line_end": 149
         },
         {
           "path": "protocol.md",
           "heading": "Changing User Settings (Transaction 304) – Client Initiates",
           "level": 3,
-          "line_start": 462,
+          "line_start": 465,
           "anchor": "changing-user-settings-transaction-304--client-initiates",
-          "line_end": 475
+          "line_end": 478
         },
         {
           "path": "protocol.md",
           "heading": "Sending a Chat Message (Transaction 105) – Client Initiates",
           "level": 3,
-          "line_start": 478,
+          "line_start": 481,
           "anchor": "sending-a-chat-message-transaction-105--client-initiates",
-          "line_end": 489
+          "line_end": 492
         },
         {
           "path": "protocol.md",
           "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
           "level": 3,
-          "line_start": 903,
+          "line_start": 906,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 936
+          "line_end": 939
         }
       ],
       "question": "What byte/character limits and truncation or rejection rules apply to every name, password, message, subject, comment and body?",
@@ -1057,17 +1059,17 @@
           "path": "protocol.md",
           "heading": "2.2 Date parameters",
           "level": 4,
-          "line_start": 147,
+          "line_start": 150,
           "anchor": "22-date-parameters",
-          "line_end": 169
+          "line_end": 172
         },
         {
           "path": "protocol.md",
           "heading": "Reading a News Article (Transaction 400) – Client Initiates",
           "level": 3,
-          "line_start": 841,
+          "line_start": 844,
           "anchor": "reading-a-news-article-transaction-400--client-initiates",
-          "line_end": 862
+          "line_end": 865
         }
       ],
       "question": "What epoch/units apply to the supplied filesystem value, how do nonzero milliseconds and other years work, and is news date 330 equivalent?",
@@ -1106,33 +1108,33 @@
           "path": "protocol.md",
           "heading": "4 Reply semantics",
           "level": 3,
-          "line_start": 198,
+          "line_start": 201,
           "anchor": "4-reply-semantics",
-          "line_end": 219
+          "line_end": 222
         },
         {
           "path": "protocol.md",
           "heading": "Sending an Instant Message (Transaction 108) – Client Initiates",
           "level": 3,
-          "line_start": 564,
+          "line_start": 567,
           "anchor": "sending-an-instant-message-transaction-108--client-initiates",
-          "line_end": 590
+          "line_end": 593
         },
         {
           "path": "protocol.md",
           "heading": "Posting a News Article (Transaction 410) – Client Initiates",
           "level": 3,
-          "line_start": 863,
+          "line_start": 866,
           "anchor": "posting-a-news-article-transaction-410--client-initiates",
-          "line_end": 874
+          "line_end": 877
         },
         {
           "path": "protocol.md",
           "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
           "level": 3,
-          "line_start": 903,
+          "line_start": 906,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 936
+          "line_end": 939
         }
       ],
       "question": "When an ACK precedes routing or mutation side effects, what has it committed to, and what can fail or be retried afterwards?",
@@ -1175,33 +1177,33 @@
           "path": "protocol.md",
           "heading": "Login (Transaction 107) – Client Initiates",
           "level": 3,
-          "line_start": 280,
+          "line_start": 283,
           "anchor": "login-transaction-107--client-initiates",
-          "line_end": 305
+          "line_end": 308
         },
         {
           "path": "protocol.md",
           "heading": "5 Worked example (Login)",
           "level": 3,
-          "line_start": 220,
+          "line_start": 223,
           "anchor": "5-worked-example-login",
-          "line_end": 254
+          "line_end": 257
         },
         {
           "path": "protocol.md",
           "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
           "level": 3,
-          "line_start": 903,
+          "line_start": 906,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 936
+          "line_end": 939
         },
         {
           "path": "internal-compatibility-matrix.md",
           "heading": "Credential obfuscation and text compatibility",
           "level": 2,
-          "line_start": 79,
+          "line_start": 83,
           "anchor": "credential-obfuscation-and-text-compatibility",
-          "line_end": 101
+          "line_end": 105
         }
       ],
       "question": "What exact bytes does the 1.9 server expect for nonempty passwords in login and account mutation, independent of SynHX's helper?",
@@ -1244,17 +1246,17 @@
           "path": "protocol.md",
           "heading": "Login (Transaction 107) – Client Initiates",
           "level": 3,
-          "line_start": 280,
+          "line_start": 283,
           "anchor": "login-transaction-107--client-initiates",
-          "line_end": 305
+          "line_end": 308
         },
         {
           "path": "protocol.md",
           "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
           "level": 3,
-          "line_start": 903,
+          "line_start": 906,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 936
+          "line_end": 939
         }
       ],
       "question": "Are absent, empty, NUL-containing or differently cased logins equivalent; how are complemented bytes normalized and guest permissions chosen?",
@@ -1292,25 +1294,25 @@
           "path": "protocol.md",
           "heading": "Login (Transaction 107) – Client Initiates",
           "level": 3,
-          "line_start": 280,
+          "line_start": 283,
           "anchor": "login-transaction-107--client-initiates",
-          "line_end": 305
+          "line_end": 308
         },
         {
           "path": "protocol.md",
           "heading": "2.1 Parameter list (payload block)",
           "level": 4,
-          "line_start": 103,
+          "line_start": 106,
           "anchor": "21-parameter-list-payload-block",
-          "line_end": 146
+          "line_end": 149
         },
         {
           "path": "internal-compatibility-matrix.md",
           "heading": "Compatibility matrix",
           "level": 2,
-          "line_start": 34,
+          "line_start": 35,
           "anchor": "compatibility-matrix",
-          "line_end": 54
+          "line_end": 56
         }
       ],
       "question": "Are fields 160/102/104 mandatory, what defaults apply if omitted or malformed, and does saved version affect anything besides the named banner/news paths?",
@@ -1352,25 +1354,25 @@
           "path": "protocol.md",
           "heading": "Login (Transaction 107) – Client Initiates",
           "level": 3,
-          "line_start": 280,
+          "line_start": 283,
           "anchor": "login-transaction-107--client-initiates",
-          "line_end": 305
+          "line_end": 308
         },
         {
           "path": "protocol.md",
           "heading": "Server Agreement (Transaction 109) – Server Initiates",
           "level": 3,
-          "line_start": 306,
+          "line_start": 309,
           "anchor": "server-agreement-transaction-109--server-initiates",
-          "line_end": 319
+          "line_end": 322
         },
         {
           "path": "protocol.md",
           "heading": "Agreement Acceptance (Transaction 121) – Client Initiates",
           "level": 3,
-          "line_start": 320,
+          "line_start": 323,
           "anchor": "agreement-acceptance-transaction-121--client-initiates",
-          "line_end": 342
+          "line_end": 345
         }
       ],
       "question": "What are the exact ACK, 109, 354, 122 and 301 ordering and state transitions for early completion, ordinary acceptance, no agreement, repeated 121 and delayed acceptance?",
@@ -1414,17 +1416,17 @@
           "path": "protocol.md",
           "heading": "Login (Transaction 107) – Client Initiates",
           "level": 3,
-          "line_start": 280,
+          "line_start": 283,
           "anchor": "login-transaction-107--client-initiates",
-          "line_end": 305
+          "line_end": 308
         },
         {
           "path": "internal-compatibility-matrix.md",
           "heading": "Login reply and banner policy",
           "level": 2,
-          "line_start": 55,
+          "line_start": 57,
           "anchor": "login-reply-and-banner-policy",
-          "line_end": 78
+          "line_end": 82
         }
       ],
       "question": "What are field 161's identifier semantics, widths and invalidation rules, and field 162's encoding/limits; how do they relate to banner 122 and download 212?",
@@ -1464,17 +1466,17 @@
           "path": "protocol.md",
           "heading": "Server Agreement (Transaction 109) – Server Initiates",
           "level": 3,
-          "line_start": 306,
+          "line_start": 309,
           "anchor": "server-agreement-transaction-109--server-initiates",
-          "line_end": 319
+          "line_end": 322
         },
         {
           "path": "protocol.md",
           "heading": "Agreement Acceptance (Transaction 121) – Client Initiates",
           "level": 3,
-          "line_start": 320,
+          "line_start": 323,
           "anchor": "agreement-acceptance-transaction-121--client-initiates",
-          "line_end": 342
+          "line_end": 345
         }
       ],
       "question": "When is 154 emitted, how do absent/empty/unreadable agreement text and account bypass privileges behave, and must a client send 121 after early completion?",
@@ -1512,17 +1514,17 @@
           "path": "protocol.md",
           "heading": "Banner Metadata (Transaction 122) – Server Initiates",
           "level": 3,
-          "line_start": 343,
+          "line_start": 346,
           "anchor": "banner-metadata-transaction-122--server-initiates",
-          "line_end": 357
+          "line_end": 360
         },
         {
           "path": "protocol.md",
           "heading": "Banner Download (Transaction 212) – Client Initiates",
           "level": 3,
-          "line_start": 775,
+          "line_start": 778,
           "anchor": "banner-download-transaction-212--client-initiates",
-          "line_end": 787
+          "line_end": 790
         }
       ],
       "question": "Which four-byte type tags and field-153 representations are valid, when are they required, and how does an early-completed session obtain metadata without a later 121?",
@@ -1563,17 +1565,17 @@
           "path": "protocol.md",
           "heading": "Changing User Settings (Transaction 304) – Client Initiates",
           "level": 3,
-          "line_start": 462,
+          "line_start": 465,
           "anchor": "changing-user-settings-transaction-304--client-initiates",
-          "line_end": 475
+          "line_end": 478
         },
         {
           "path": "protocol.md",
           "heading": "Agreement Acceptance (Transaction 121) – Client Initiates",
           "level": 3,
-          "line_start": 320,
+          "line_start": 323,
           "anchor": "agreement-acceptance-transaction-121--client-initiates",
-          "line_end": 342
+          "line_end": 345
         }
       ],
       "question": "Which omitted/empty 102/104/113/215 values reset, preserve or derive state, and what changes are session-only or durable?",
@@ -1611,25 +1613,25 @@
           "path": "protocol.md",
           "heading": "Agreement Acceptance (Transaction 121) – Client Initiates",
           "level": 3,
-          "line_start": 320,
+          "line_start": 323,
           "anchor": "agreement-acceptance-transaction-121--client-initiates",
-          "line_end": 342
+          "line_end": 345
         },
         {
           "path": "protocol.md",
           "heading": "Changing User Settings (Transaction 304) – Client Initiates",
           "level": 3,
-          "line_start": 462,
+          "line_start": 465,
           "anchor": "changing-user-settings-transaction-304--client-initiates",
-          "line_end": 475
+          "line_end": 478
         },
         {
           "path": "protocol.md",
           "heading": "Sending an Instant Message (Transaction 108) – Client Initiates",
           "level": 3,
-          "line_start": 564,
+          "line_start": 567,
           "anchor": "sending-an-instant-message-transaction-108--client-initiates",
-          "line_end": 590
+          "line_end": 593
         }
       ],
       "question": "How are unknown 113 bits, auto-response enable/disable transitions, missing 215 and default-response text handled across 121 and 304?",
@@ -1670,9 +1672,9 @@
           "path": "protocol.md",
           "heading": "Access Privilege Bits (Field 110)",
           "level": 4,
-          "line_start": 367,
+          "line_start": 370,
           "anchor": "access-privilege-bits-field-110",
-          "line_end": 405
+          "line_end": 408
         }
       ],
       "question": "What do all unlisted bits, including 18/19 and 41-63, mean, and which bits are reserved, ignored or preserved?",
@@ -1712,25 +1714,25 @@
           "path": "protocol.md",
           "heading": "Access Privilege Bits (Field 110)",
           "level": 4,
-          "line_start": 367,
+          "line_start": 370,
           "anchor": "access-privilege-bits-field-110",
-          "line_end": 405
+          "line_end": 408
         },
         {
           "path": "protocol.md",
           "heading": "File Services (Files and Folders)",
           "level": 2,
-          "line_start": 619,
+          "line_start": 622,
           "anchor": "file-services-files-and-folders",
-          "line_end": 629
+          "line_end": 632
         },
         {
           "path": "protocol.md",
           "heading": "Managing News Structure (Transactions 380, 381, 382) – Client Initiates (Admin/Mods)",
           "level": 3,
-          "line_start": 886,
+          "line_start": 889,
           "anchor": "managing-news-structure-transactions-380-381-382--client-initiates-adminmods",
-          "line_end": 900
+          "line_end": 903
         }
       ],
       "question": "How do general, folder and news helpers combine account rights, path-specific rules, inheritance and administrator overrides?",
@@ -1775,25 +1777,25 @@
           "path": "protocol.md",
           "heading": "Retrieving the User List (Transaction 300) – Client Initiates",
           "level": 3,
-          "line_start": 406,
+          "line_start": 409,
           "anchor": "retrieving-the-user-list-transaction-300--client-initiates",
-          "line_end": 431
+          "line_end": 434
         },
         {
           "path": "protocol.md",
           "heading": "Chat Invitations (Transactions 112, 113, 114) – Private Chats",
           "level": 3,
-          "line_start": 533,
+          "line_start": 536,
           "anchor": "chat-invitations-transactions-112-113-114--private-chats",
-          "line_end": 552
+          "line_end": 555
         },
         {
           "path": "protocol.md",
           "heading": "Transfer Connection and Reference Cleanup",
           "level": 3,
-          "line_start": 788,
+          "line_start": 791,
           "anchor": "transfer-connection-and-reference-cleanup",
-          "line_end": 805
+          "line_end": 808
         }
       ],
       "question": "What are each ID's wire width, allocation scope, sentinel values, wrap/reuse rules and persistence across reconnects or restart?",
@@ -1836,17 +1838,17 @@
           "path": "protocol.md",
           "heading": "Retrieving the User List (Transaction 300) – Client Initiates",
           "level": 3,
-          "line_start": 406,
+          "line_start": 409,
           "anchor": "retrieving-the-user-list-transaction-300--client-initiates",
-          "line_end": 431
+          "line_end": 434
         },
         {
           "path": "protocol.md",
           "heading": "User Appearance and Updates (Transaction 301 & 302) – Server Initiates",
           "level": 3,
-          "line_start": 432,
+          "line_start": 435,
           "anchor": "user-appearance-and-updates-transaction-301--302--server-initiates",
-          "line_end": 450
+          "line_end": 453
         }
       ],
       "question": "What does each field-112/packed-roster status bit represent and when does it change relative to settings, privileges or away state?",
@@ -1886,25 +1888,25 @@
           "path": "protocol.md",
           "heading": "Retrieving the User List (Transaction 300) – Client Initiates",
           "level": 3,
-          "line_start": 406,
+          "line_start": 409,
           "anchor": "retrieving-the-user-list-transaction-300--client-initiates",
-          "line_end": 431
+          "line_end": 434
         },
         {
           "path": "protocol.md",
           "heading": "User Appearance and Updates (Transaction 301 & 302) – Server Initiates",
           "level": 3,
-          "line_start": 432,
+          "line_start": 435,
           "anchor": "user-appearance-and-updates-transaction-301--302--server-initiates",
-          "line_end": 450
+          "line_end": 453
         },
         {
           "path": "protocol.md",
           "heading": "Login (Transaction 107) – Client Initiates",
           "level": 3,
-          "line_start": 280,
+          "line_start": 283,
           "anchor": "login-transaction-107--client-initiates",
-          "line_end": 305
+          "line_end": 308
         }
       ],
       "question": "Does 301 include the subject user, when is a session visible in 300, and how are snapshots ordered against concurrent changes and 354?",
@@ -1948,25 +1950,25 @@
           "path": "protocol.md",
           "heading": "User Appearance and Updates (Transaction 301 & 302) – Server Initiates",
           "level": 3,
-          "line_start": 432,
+          "line_start": 435,
           "anchor": "user-appearance-and-updates-transaction-301--302--server-initiates",
-          "line_end": 450
+          "line_end": 453
         },
         {
           "path": "protocol.md",
           "heading": "Leaving a Chat Room (Transaction 116) – Client Initiates",
           "level": 3,
-          "line_start": 511,
+          "line_start": 514,
           "anchor": "leaving-a-chat-room-transaction-116--client-initiates",
-          "line_end": 520
+          "line_end": 523
         },
         {
           "path": "protocol.md",
           "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
           "level": 3,
-          "line_start": 937,
+          "line_start": 940,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 958
+          "line_end": 961
         }
       ],
       "question": "Which teardown paths emit 302, which fields/recipients are used, and when are rooms, queued transfers and IDs cleaned up?",
@@ -2008,9 +2010,9 @@
           "path": "protocol.md",
           "heading": "Viewing User Info (Transaction 303) – Client Initiates",
           "level": 3,
-          "line_start": 451,
+          "line_start": 454,
           "anchor": "viewing-user-info-transaction-303--client-initiates",
-          "line_end": 461
+          "line_end": 464
         }
       ],
       "question": "Are the 303 text labels, line endings, address representation and transfer summaries stable protocol content or build/configuration-dependent presentation?",
@@ -2048,33 +2050,33 @@
           "path": "protocol.md",
           "heading": "Sending a Chat Message (Transaction 105) – Client Initiates",
           "level": 3,
-          "line_start": 478,
+          "line_start": 481,
           "anchor": "sending-a-chat-message-transaction-105--client-initiates",
-          "line_end": 489
+          "line_end": 492
         },
         {
           "path": "protocol.md",
           "heading": "Joining a Chat Room (Transaction 115) – Client Initiates",
           "level": 3,
-          "line_start": 499,
+          "line_start": 502,
           "anchor": "joining-a-chat-room-transaction-115--client-initiates",
-          "line_end": 510
+          "line_end": 513
         },
         {
           "path": "protocol.md",
           "heading": "Chat Invitations (Transactions 112, 113, 114) – Private Chats",
           "level": 3,
-          "line_start": 533,
+          "line_start": 536,
           "anchor": "chat-invitations-transactions-112-113-114--private-chats",
-          "line_end": 552
+          "line_end": 555
         },
         {
           "path": "protocol.md",
           "heading": "Additional Admin Privileges Note",
           "level": 3,
-          "line_start": 974,
+          "line_start": 977,
           "anchor": "additional-admin-privileges-note",
-          "line_end": 982
+          "line_end": 985
         }
       ],
       "question": "Is the main room implicit, and what authorizes join, send, invite, topic edit or administrative access to a private room?",
@@ -2120,9 +2122,9 @@
           "path": "protocol.md",
           "heading": "Chat Invitations (Transactions 112, 113, 114) – Private Chats",
           "level": 3,
-          "line_start": 533,
+          "line_start": 536,
           "anchor": "chat-invitations-transactions-112-113-114--private-chats",
-          "line_end": 552
+          "line_end": 555
         }
       ],
       "question": "How are duplicate target UIDs, declined/expired invitations, repeated joins, disconnected invitees and mixed valid/invalid target lists handled?",
@@ -2162,25 +2164,25 @@
           "path": "protocol.md",
           "heading": "Joining a Chat Room (Transaction 115) – Client Initiates",
           "level": 3,
-          "line_start": 499,
+          "line_start": 502,
           "anchor": "joining-a-chat-room-transaction-115--client-initiates",
-          "line_end": 510
+          "line_end": 513
         },
         {
           "path": "protocol.md",
           "heading": "Leaving a Chat Room (Transaction 116) – Client Initiates",
           "level": 3,
-          "line_start": 511,
+          "line_start": 514,
           "anchor": "leaving-a-chat-room-transaction-116--client-initiates",
-          "line_end": 520
+          "line_end": 523
         },
         {
           "path": "protocol.md",
           "heading": "Chat Room Notifications (Transactions 117 & 118) – Server Initiates",
           "level": 3,
-          "line_start": 521,
+          "line_start": 524,
           "anchor": "chat-room-notifications-transactions-117--118--server-initiates",
-          "line_end": 532
+          "line_end": 535
         }
       ],
       "question": "When is subject 115 omitted versus empty, does the joining user appear in the returned roster, and how do 117/118 interleave with join/leave replies?",
@@ -2220,9 +2222,9 @@
           "path": "protocol.md",
           "heading": "Chat Subject Management (Transactions 119 & 120)",
           "level": 3,
-          "line_start": 553,
+          "line_start": 556,
           "anchor": "chat-subject-management-transactions-119--120",
-          "line_end": 561
+          "line_end": 564
         }
       ],
       "question": "Who may change a topic, what are the maximum length/encoding rules, and do absent and empty 115 both clear it?",
@@ -2262,17 +2264,17 @@
           "path": "protocol.md",
           "heading": "Sending a Chat Message (Transaction 105) – Client Initiates",
           "level": 3,
-          "line_start": 478,
+          "line_start": 481,
           "anchor": "sending-a-chat-message-transaction-105--client-initiates",
-          "line_end": 489
+          "line_end": 492
         },
         {
           "path": "protocol.md",
           "heading": "Receiving a Chat Message (Transaction 106) – Server Initiates",
           "level": 3,
-          "line_start": 490,
+          "line_start": 493,
           "anchor": "receiving-a-chat-message-transaction-106--server-initiates",
-          "line_end": 498
+          "line_end": 501
         }
       ],
       "question": "What are option-109 values/defaults, exact server formatting, newline/NUL handling and recipient rules for main versus room chat?",
@@ -2311,9 +2313,9 @@
           "path": "protocol.md",
           "heading": "Sending an Instant Message (Transaction 108) – Client Initiates",
           "level": 3,
-          "line_start": 564,
+          "line_start": 567,
           "anchor": "sending-an-instant-message-transaction-108--client-initiates",
-          "line_end": 590
+          "line_end": 593
         }
       ],
       "question": "How do options 1-4, both peers' refusal/automatic-response flags, empty text and quoted field 214 combine, including post-ACK rejection or automatic-response loops?",
@@ -2352,25 +2354,25 @@
           "path": "protocol.md",
           "heading": "Receiving a Private Message (Transaction 104) – Server Initiates",
           "level": 3,
-          "line_start": 591,
+          "line_start": 594,
           "anchor": "receiving-a-private-message-transaction-104--server-initiates",
-          "line_end": 603
+          "line_end": 606
         },
         {
           "path": "protocol.md",
           "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
           "level": 3,
-          "line_start": 937,
+          "line_start": 940,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 958
+          "line_end": 961
         },
         {
           "path": "protocol.md",
           "heading": "Sending a Chat Message (Transaction 105) – Client Initiates",
           "level": 3,
-          "line_start": 478,
+          "line_start": 481,
           "anchor": "sending-a-chat-message-transaction-105--client-initiates",
-          "line_end": 489
+          "line_end": 492
         }
       ],
       "question": "Which fields identify user messages, server/admin notices, refusals and kick notices; are sender UID/name/options mandatory in each variant?",
@@ -2414,33 +2416,33 @@
           "path": "protocol.md",
           "heading": "Sending a Chat Message (Transaction 105) – Client Initiates",
           "level": 3,
-          "line_start": 478,
+          "line_start": 481,
           "anchor": "sending-a-chat-message-transaction-105--client-initiates",
-          "line_end": 489
+          "line_end": 492
         },
         {
           "path": "protocol.md",
           "heading": "Sending an Instant Message (Transaction 108) – Client Initiates",
           "level": 3,
-          "line_start": 564,
+          "line_start": 567,
           "anchor": "sending-an-instant-message-transaction-108--client-initiates",
-          "line_end": 590
+          "line_end": 593
         },
         {
           "path": "protocol.md",
           "heading": "Broadcasting a Message (Transaction 355) – Admin/Server Initiated",
           "level": 3,
-          "line_start": 959,
+          "line_start": 962,
           "anchor": "broadcasting-a-message-transaction-355--adminserver-initiated",
-          "line_end": 973
+          "line_end": 976
         },
         {
           "path": "protocol.md",
           "heading": "Changing User Settings (Transaction 304) – Client Initiates",
           "level": 3,
-          "line_start": 462,
+          "line_start": 465,
           "anchor": "changing-user-settings-transaction-304--client-initiates",
-          "line_end": 475
+          "line_end": 478
         }
       ],
       "question": "What counters, windows, limits and reset conditions cause rejection, delayed handling, ACK-then-close or disconnection for each operation?",
@@ -2482,9 +2484,9 @@
           "path": "protocol.md",
           "heading": "Legacy Message Board (Transactions 101, 102, 103)",
           "level": 3,
-          "line_start": 604,
+          "line_start": 607,
           "anchor": "legacy-message-board-transactions-101-102-103",
-          "line_end": 618
+          "line_end": 621
         }
       ],
       "question": "What are the aggregate 101 format, append/replace rules for 103, post size limits, persistence and 102 update ordering/recipients?",
@@ -2522,25 +2524,25 @@
           "path": "protocol.md",
           "heading": "Listing Files in a Folder (Transaction 200) – Client Initiates",
           "level": 3,
-          "line_start": 630,
+          "line_start": 633,
           "anchor": "listing-files-in-a-folder-transaction-200--client-initiates",
-          "line_end": 642
+          "line_end": 645
         },
         {
           "path": "protocol.md",
           "heading": "Moving Files/Folders (Transaction 208) – Client Initiates",
           "level": 3,
-          "line_start": 724,
+          "line_start": 727,
           "anchor": "moving-filesfolders-transaction-208--client-initiates",
-          "line_end": 733
+          "line_end": 736
         },
         {
           "path": "protocol.md",
           "heading": "Listing News Categories (Transaction 370) – Client Initiates",
           "level": 3,
-          "line_start": 817,
+          "line_start": 820,
           "anchor": "listing-news-categories-transaction-370--client-initiates",
-          "line_end": 829
+          "line_end": 832
         }
       ],
       "question": "What are the counts, component records, reserved bytes, root representation, limits and normalization rules for fields 202/212/325, and do those fields share a grammar?",
@@ -2558,11 +2560,11 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Documented file-path component framing and different last-component/traversal handling. News-path equivalence, sanitization and invalid-component fixtures remain required.",
+        "progress": "Assembly establishes folder descriptor prefix and root-removed structured path, matching upload prefix framing. Shared framing does not prove identical sanitization, resolver policy or invalid-component outcomes; fixtures remain required.",
         "evidence": [
-          "[Native wire details](native-wire-details.md)",
-          "[Batch 01](../mothra/evidence/gap-remediation/2026-11-12/batch-01/manifest.json)",
-          "[Batch 02](../mothra/evidence/gap-remediation/2026-11-12/batch-02/manifest.json)"
+          "[Error outcomes](error-outcomes.md)",
+          "[Folder descriptor](transfer-contracts.md#folder-item-descriptor-bytes)",
+          "[Identified client source](identified-client-source.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -2580,9 +2582,9 @@
           "path": "protocol.md",
           "heading": "Listing Files in a Folder (Transaction 200) – Client Initiates",
           "level": 3,
-          "line_start": 630,
+          "line_start": 633,
           "anchor": "listing-files-in-a-folder-transaction-200--client-initiates",
-          "line_end": 642
+          "line_end": 645
         }
       ],
       "question": "What are the exact field-200 offsets, metadata/tag meanings, size widths, entry kinds, sort order and empty-list representation?",
@@ -2621,9 +2623,9 @@
           "path": "protocol.md",
           "heading": "Getting File/Folder Info (Transaction 206) – Client Initiates",
           "level": 3,
-          "line_start": 696,
+          "line_start": 699,
           "anchor": "getting-filefolder-info-transaction-206--client-initiates",
-          "line_end": 710
+          "line_end": 713
         }
       ],
       "question": "Which fields and widths occur for files, folders, aliases and special items, including descriptive 205/206, raw 213 and size/date omissions?",
@@ -2663,9 +2665,9 @@
           "path": "protocol.md",
           "heading": "Deleting a File (Transaction 204) – Client Initiates",
           "level": 3,
-          "line_start": 674,
+          "line_start": 677,
           "anchor": "deleting-a-file-transaction-204--client-initiates",
-          "line_end": 684
+          "line_end": 687
         }
       ],
       "question": "Can 204 remove nonempty folders, which errors apply to missing/root/protected targets, and what state/notifications follow a partial filesystem failure?",
@@ -2705,9 +2707,9 @@
           "path": "protocol.md",
           "heading": "Creating a New Folder (Transaction 205) – Client Initiates",
           "level": 3,
-          "line_start": 685,
+          "line_start": 688,
           "anchor": "creating-a-new-folder-transaction-205--client-initiates",
-          "line_end": 695
+          "line_end": 698
         }
       ],
       "question": "How are name/path defaults, existing names, invalid names, missing parents and per-folder privilege checks handled by 205?",
@@ -2748,9 +2750,9 @@
           "path": "protocol.md",
           "heading": "Setting File/Folder Info (Transaction 207) – Client Initiates",
           "level": 3,
-          "line_start": 711,
+          "line_start": 714,
           "anchor": "setting-filefolder-info-transaction-207--client-initiates",
-          "line_end": 723
+          "line_end": 726
         }
       ],
       "question": "Do omitted/empty 210 and 211 preserve, clear or reject values, and what happens when one permitted sub-operation succeeds and another fails?",
@@ -2792,9 +2794,9 @@
           "path": "protocol.md",
           "heading": "Moving Files/Folders (Transaction 208) – Client Initiates",
           "level": 3,
-          "line_start": 724,
+          "line_start": 727,
           "anchor": "moving-filesfolders-transaction-208--client-initiates",
-          "line_end": 733
+          "line_end": 736
         }
       ],
       "question": "How do destination conflicts, aliases, cross-volume moves and interrupted filesystem operations affect 208 and its ACK/error result?",
@@ -2834,9 +2836,9 @@
           "path": "protocol.md",
           "heading": "Creating an Alias (Shortcut) (Transaction 209) – Client Initiates",
           "level": 3,
-          "line_start": 734,
+          "line_start": 737,
           "anchor": "creating-an-alias-shortcut-transaction-209--client-initiates",
-          "line_end": 743
+          "line_end": 746
         }
       ],
       "question": "What alias object is created, how is its name chosen, and when do listing/info/download resolve its target rather than expose the alias itself?",
@@ -2879,17 +2881,17 @@
           "path": "protocol.md",
           "heading": "Transfer Connection and Reference Cleanup",
           "level": 3,
-          "line_start": 788,
+          "line_start": 791,
           "anchor": "transfer-connection-and-reference-cleanup",
-          "line_end": 805
+          "line_end": 808
         },
         {
           "path": "protocol.md",
           "heading": "Banner Download (Transaction 212) – Client Initiates",
           "level": 3,
-          "line_start": 775,
+          "line_start": 778,
           "anchor": "banner-download-transaction-212--client-initiates",
-          "line_end": 787
+          "line_end": 790
         }
       ],
       "question": "What are every offset/width, type value, reserved field and reference-matching rule, and how do unknown, expired or other-session references fail?",
@@ -2930,25 +2932,25 @@
           "path": "protocol.md",
           "heading": "Transfer Connection and Reference Cleanup",
           "level": 3,
-          "line_start": 788,
+          "line_start": 791,
           "anchor": "transfer-connection-and-reference-cleanup",
-          "line_end": 805
+          "line_end": 808
         },
         {
           "path": "protocol.md",
           "heading": "Downloading a File (Transaction 202) – Client Initiates",
           "level": 3,
-          "line_start": 643,
+          "line_start": 646,
           "anchor": "downloading-a-file-transaction-202--client-initiates",
-          "line_end": 660
+          "line_end": 663
         },
         {
           "path": "protocol.md",
           "heading": "Uploading a File (Transaction 203) – Client Initiates",
           "level": 3,
-          "line_start": 661,
+          "line_start": 664,
           "anchor": "uploading-a-file-transaction-203--client-initiates",
-          "line_end": 673
+          "line_end": 676
         }
       ],
       "question": "What are stream headers, metadata/fork records, lengths, padding, order and termination for ordinary Mac files versus raw/preview transfers?",
@@ -2989,9 +2991,9 @@
           "path": "protocol.md",
           "heading": "Downloading a File (Transaction 202) – Client Initiates",
           "level": 3,
-          "line_start": 643,
+          "line_start": 646,
           "anchor": "downloading-a-file-transaction-202--client-initiates",
-          "line_end": 660
+          "line_end": 663
         }
       ],
       "question": "Which 204 values/defaults choose each mode, how are 108/207 calculated and when are 107/116 omitted or mandatory?",
@@ -3028,17 +3030,17 @@
           "path": "protocol.md",
           "heading": "Uploading a File (Transaction 203) – Client Initiates",
           "level": 3,
-          "line_start": 661,
+          "line_start": 664,
           "anchor": "uploading-a-file-transaction-203--client-initiates",
-          "line_end": 673
+          "line_end": 676
         },
         {
           "path": "protocol.md",
           "heading": "Downloading a File (Transaction 202) – Client Initiates",
           "level": 3,
-          "line_start": 643,
+          "line_start": 646,
           "anchor": "downloading-a-file-transaction-202--client-initiates",
-          "line_end": 660
+          "line_end": 663
         }
       ],
       "question": "What is the nested field-203 grammar, which forks/offsets it covers, and how are mismatch, completed and missing partial files handled?",
@@ -3078,9 +3080,9 @@
           "path": "protocol.md",
           "heading": "Downloading an Entire Folder (Transaction 210) – Client Initiates",
           "level": 3,
-          "line_start": 744,
+          "line_start": 747,
           "anchor": "downloading-an-entire-folder-transaction-210--client-initiates",
-          "line_end": 759
+          "line_end": 762
         }
       ],
       "question": "What are entry/path records, actions, traversal order, aggregate counts/sizes, skips and resume transitions for 210?",
@@ -3099,11 +3101,11 @@
         "GAP-056"
       ],
       "resolution": {
-        "progress": "Published direction-specific download control states, fresh/resume/skip exchange, per-file BE32 lengths and traversal completion. Exact item-descriptor offsets and nested/empty/skip/resume native fixtures remain required.",
+        "progress": "Assembly resolved exact descriptor offsets and length formula; published calculated root/file/directory examples alongside control states. Root inclusion/item counts, nested/empty/skip/resume native fixtures remain required.",
         "evidence": [
-          "[News contracts](news-contracts.md)",
-          "[Folder states](transfer-contracts.md#folder-download-control-states)",
-          "[Batch 05](../mothra/evidence/gap-remediation/2026-11-12/batch-05/manifest.json)"
+          "[Error outcomes](error-outcomes.md)",
+          "[Folder descriptor](transfer-contracts.md#folder-item-descriptor-bytes)",
+          "[Identified client source](identified-client-source.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -3121,9 +3123,9 @@
           "path": "protocol.md",
           "heading": "Uploading an Entire Folder (Transaction 213) – Client Initiates",
           "level": 3,
-          "line_start": 760,
+          "line_start": 763,
           "anchor": "uploading-an-entire-folder-transaction-213--client-initiates",
-          "line_end": 774
+          "line_end": 777
         }
       ],
       "question": "How are directories/files framed, acknowledged, counted, resumed or rolled back in 213, and how do empty transfers complete?",
@@ -3142,11 +3144,11 @@
         "GAP-056"
       ],
       "resolution": {
-        "progress": "Published upload descriptor framing, flag/path parsing, create/resume/skip controls, stream lengths, processed-item completion and timers. Invalid/conflicting/partial/nested native fixtures remain required.",
+        "progress": "Confirmed shared descriptor prefix/path framing with download while retaining different upload controls. Tiny/truncated descriptors, count mismatches, conflict and partial-transfer native fixtures remain required.",
         "evidence": [
-          "[News contracts](news-contracts.md)",
-          "[Folder states](transfer-contracts.md#folder-download-control-states)",
-          "[Batch 05](../mothra/evidence/gap-remediation/2026-11-12/batch-05/manifest.json)"
+          "[Error outcomes](error-outcomes.md)",
+          "[Folder descriptor](transfer-contracts.md#folder-item-descriptor-bytes)",
+          "[Identified client source](identified-client-source.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -3164,25 +3166,25 @@
           "path": "protocol.md",
           "heading": "Downloading a File (Transaction 202) – Client Initiates",
           "level": 3,
-          "line_start": 643,
+          "line_start": 646,
           "anchor": "downloading-a-file-transaction-202--client-initiates",
-          "line_end": 660
+          "line_end": 663
         },
         {
           "path": "protocol.md",
           "heading": "Downloading an Entire Folder (Transaction 210) – Client Initiates",
           "level": 3,
-          "line_start": 744,
+          "line_start": 747,
           "anchor": "downloading-an-entire-folder-transaction-210--client-initiates",
-          "line_end": 759
+          "line_end": 762
         },
         {
           "path": "protocol.md",
           "heading": "File Services (Files and Folders)",
           "level": 2,
-          "line_start": 619,
+          "line_start": 622,
           "anchor": "file-services-files-and-folders",
-          "line_end": 629
+          "line_end": 632
         }
       ],
       "question": "What fields/type/ordering does 211 use, how do queue positions and slots change, and when should the client connect, wait or retry?",
@@ -3222,9 +3224,9 @@
           "path": "protocol.md",
           "heading": "Transfer Connection and Reference Cleanup",
           "level": 3,
-          "line_start": 788,
+          "line_start": 791,
           "anchor": "transfer-connection-and-reference-cleanup",
-          "line_end": 805
+          "line_end": 808
         }
       ],
       "question": "Does 214 cancel queued/active/completed transfers, who owns the reference, and how are zero, unknown, duplicate or racing requests acknowledged?",
@@ -3263,17 +3265,17 @@
           "path": "protocol.md",
           "heading": "Banner Download (Transaction 212) – Client Initiates",
           "level": 3,
-          "line_start": 775,
+          "line_start": 778,
           "anchor": "banner-download-transaction-212--client-initiates",
-          "line_end": 787
+          "line_end": 790
         },
         {
           "path": "protocol.md",
           "heading": "Banner Metadata (Transaction 122) – Server Initiates",
           "level": 3,
-          "line_start": 343,
+          "line_start": 346,
           "anchor": "banner-metadata-transaction-122--server-initiates",
-          "line_end": 357
+          "line_end": 360
         }
       ],
       "question": "Is banner content raw or flattened, what exact bytes/size are transferred, and what happens if a configured banner changes or disappears after metadata delivery?",
@@ -3315,25 +3317,25 @@
           "path": "protocol.md",
           "heading": "File Services (Files and Folders)",
           "level": 2,
-          "line_start": 619,
+          "line_start": 622,
           "anchor": "file-services-files-and-folders",
-          "line_end": 629
+          "line_end": 632
         },
         {
           "path": "protocol.md",
           "heading": "Transfer Connection and Reference Cleanup",
           "level": 3,
-          "line_start": 788,
+          "line_start": 791,
           "anchor": "transfer-connection-and-reference-cleanup",
-          "line_end": 805
+          "line_end": 808
         },
         {
           "path": "protocol.md",
           "heading": "Uploading an Entire Folder (Transaction 213) – Client Initiates",
           "level": 3,
-          "line_start": 760,
+          "line_start": 763,
           "anchor": "uploading-an-entire-folder-transaction-213--client-initiates",
-          "line_end": 774
+          "line_end": 777
         }
       ],
       "question": "Which byte counts or markers prove completion, and what survives EOF, timeout, reconnect, disk-full, oversized files or an interrupted upload?",
@@ -3377,17 +3379,17 @@
           "path": "protocol.md",
           "heading": "Listing News Categories (Transaction 370) – Client Initiates",
           "level": 3,
-          "line_start": 817,
+          "line_start": 820,
           "anchor": "listing-news-categories-transaction-370--client-initiates",
-          "line_end": 829
+          "line_end": 832
         },
         {
           "path": "protocol.md",
           "heading": "News Hierarchy",
           "level": 3,
-          "line_start": 808,
+          "line_start": 811,
           "anchor": "news-hierarchy",
-          "line_end": 816
+          "line_end": 819
         }
       ],
       "question": "What are nested 320/323 record layouts and kind/count fields, and what peers actually send version values around literal threshold 15?",
@@ -3428,9 +3430,9 @@
           "path": "protocol.md",
           "heading": "Listing News Articles (Transaction 371) – Client Initiates",
           "level": 3,
-          "line_start": 830,
+          "line_start": 833,
           "anchor": "listing-news-articles-transaction-371--client-initiates",
-          "line_end": 840
+          "line_end": 843
         }
       ],
       "question": "What are field-321 headers, article records, counts, flags, dates, flavour records, ordering and size limits?",
@@ -3469,9 +3471,9 @@
           "path": "protocol.md",
           "heading": "Reading a News Article (Transaction 400) – Client Initiates",
           "level": 3,
-          "line_start": 841,
+          "line_start": 844,
           "anchor": "reading-a-news-article-transaction-400--client-initiates",
-          "line_end": 862
+          "line_end": 865
         }
       ],
       "question": "What precisely do 331/332/335/336 identify, what are sentinel/end conditions, which flavours work and how is 330 constructed?",
@@ -3512,9 +3514,9 @@
           "path": "protocol.md",
           "heading": "Posting a News Article (Transaction 410) – Client Initiates",
           "level": 3,
-          "line_start": 863,
+          "line_start": 866,
           "anchor": "posting-a-news-article-transaction-410--client-initiates",
-          "line_end": 874
+          "line_end": 877
         }
       ],
       "question": "How do omitted/zero 326, flags 334, supported flavours and body limits affect creation, and how is the resulting ID or update discovered after ACK?",
@@ -3555,9 +3557,9 @@
           "path": "protocol.md",
           "heading": "Deleting a News Article (Transaction 411) – Client Initiates",
           "level": 3,
-          "line_start": 875,
+          "line_start": 878,
           "anchor": "deleting-a-news-article-transaction-411--client-initiates",
-          "line_end": 885
+          "line_end": 888
         }
       ],
       "question": "What values/widths does 337 accept, and how are descendants, orphans, navigation IDs and notifications updated on success or partial failure?",
@@ -3596,17 +3598,17 @@
           "path": "protocol.md",
           "heading": "News Hierarchy",
           "level": 3,
-          "line_start": 808,
+          "line_start": 811,
           "anchor": "news-hierarchy",
-          "line_end": 816
+          "line_end": 819
         },
         {
           "path": "protocol.md",
           "heading": "Managing News Structure (Transactions 380, 381, 382) – Client Initiates (Admin/Mods)",
           "level": 3,
-          "line_start": 886,
+          "line_start": 889,
           "anchor": "managing-news-structure-transactions-380-381-382--client-initiates-adminmods",
-          "line_end": 900
+          "line_end": 903
         }
       ],
       "question": "What nesting/type/depth rules apply, how are paths and name fields interpreted, and what happens on create/delete conflicts or subtree failures?",
@@ -3650,9 +3652,9 @@
           "path": "protocol.md",
           "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
           "level": 3,
-          "line_start": 903,
+          "line_start": 906,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 936
+          "line_end": 939
         }
       ],
       "question": "What is field 111's wire type, presence/default rule, stored meaning and effect on 350/353?",
@@ -3667,10 +3669,11 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Recorded field111 opaque storage/caps previously. Inspected the exact data fork's paired AppleDouble resources; its lone DITL/DLOG pair does not establish an account-field label. Resource version strings are ancillary provenance, not a guessed field meaning; human meaning/use and fixtures remain open.",
+        "progress": "Account111 remains stored opaque data, absent from inspected352/348 outputs. Inspected UI range was ban editing, and pinned shx account constants do not name111. No human label or no-use-anywhere claim is inferred; native representative fixtures remain required.",
         "evidence": [
-          "[Account storage](native-wire-details.md#account-record-and-field-schema)",
-          "[Resource inventory](../mothra/evidence/gap-remediation/2026-11-12/batch-09/resource-inventory.json)"
+          "[Error outcomes](error-outcomes.md)",
+          "[Folder descriptor](transfer-contracts.md#folder-item-descriptor-bytes)",
+          "[Identified client source](identified-client-source.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -3688,9 +3691,9 @@
           "path": "protocol.md",
           "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
           "level": 3,
-          "line_start": 903,
+          "line_start": 906,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 936
+          "line_end": 939
         }
       ],
       "question": "How are target login, rename, absent/empty password, literal x, duplicate names, protected-account deletion and partial updates handled?",
@@ -3736,25 +3739,25 @@
           "path": "protocol.md",
           "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
           "level": 3,
-          "line_start": 903,
+          "line_start": 906,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 936
+          "line_end": 939
         },
         {
           "path": "protocol.md",
           "heading": "User Access Privileges (Transaction 354) – Server Initiates",
           "level": 3,
-          "line_start": 358,
+          "line_start": 361,
           "anchor": "user-access-privileges-transaction-354--server-initiates",
-          "line_end": 366
+          "line_end": 369
         },
         {
           "path": "protocol.md",
           "heading": "Additional Admin Privileges Note",
           "level": 3,
-          "line_start": 974,
+          "line_start": 977,
           "anchor": "additional-admin-privileges-note",
-          "line_end": 982
+          "line_end": 985
         }
       ],
       "question": "When do edited privileges, names or passwords affect current sessions, does deletion disconnect them, and what 354/301 notifications occur?",
@@ -3797,9 +3800,9 @@
           "path": "protocol.md",
           "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
           "level": 3,
-          "line_start": 937,
+          "line_start": 940,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 958
+          "line_end": 961
         }
       ],
       "question": "What exactly do options 1 and 2 do, including identity matching, ranges/duration, optional data 101, reconnection and protected users?",
@@ -3839,17 +3842,17 @@
           "path": "protocol.md",
           "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
           "level": 3,
-          "line_start": 937,
+          "line_start": 940,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 958
+          "line_end": 961
         },
         {
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 983,
+          "line_start": 986,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1020
+          "line_end": 1023
         }
       ],
       "question": "Does any native producer actually emit 111, under which conditions, with what fields and delivery/closure ordering?",
@@ -3887,9 +3890,9 @@
           "path": "protocol.md",
           "heading": "Broadcasting a Message (Transaction 355) – Admin/Server Initiated",
           "level": 3,
-          "line_start": 959,
+          "line_start": 962,
           "anchor": "broadcasting-a-message-transaction-355--adminserver-initiated",
-          "line_end": 973
+          "line_end": 976
         }
       ],
       "question": "Does a console-generated broadcast use the same 355 schema, and which connected/logged-in/refusing users receive each origin's broadcast?",
@@ -3927,9 +3930,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 983,
+          "line_start": 986,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1020
+          "line_end": 1023
         }
       ],
       "question": "What does 348 do, what fields and privileges apply, and how are its potentially nested account records serialized?",
@@ -3964,9 +3967,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 983,
+          "line_start": 986,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1020
+          "line_end": 1023
         }
       ],
       "question": "What indexed/transitive fields does 349 consume, how are batch entries delimited, and are failures atomic or per-entry?",
@@ -4004,9 +4007,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 983,
+          "line_start": 986,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1020
+          "line_end": 1023
         }
       ],
       "question": "Is 500 a liveness operation or something else, who sends it and when, and does its ACK affect idle deadlines?",
@@ -4022,10 +4025,11 @@
         "GAP-005"
       ],
       "resolution": {
-        "progress": "Recorded request 500 empty-ACK behaviour and state eligibility: rejected before online. A peer-side scheduling/purpose source remains required.",
+        "progress": "No500 definition/send site located in the inspected shx0.1.48 source snapshot. This bounded negative does not identify its native purpose or later-client scheduling; peer-side evidence remains required.",
         "evidence": [
-          "[Operation contracts](operation-contracts.md)",
-          "[Compatibility review](internal-compatibility-matrix.md#mxd-review-at-2e4c9c1)"
+          "[Error outcomes](error-outcomes.md)",
+          "[Folder descriptor](transfer-contracts.md#folder-item-descriptor-bytes)",
+          "[Identified client source](identified-client-source.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -4043,17 +4047,17 @@
           "path": "internal-compatibility-matrix.md",
           "heading": "Compatibility matrix",
           "level": 2,
-          "line_start": 34,
+          "line_start": 35,
           "anchor": "compatibility-matrix",
-          "line_end": 54
+          "line_end": 56
         },
         {
           "path": "internal-compatibility-matrix.md",
           "heading": "Open compatibility gaps and QA requirements",
           "level": 2,
-          "line_start": 255,
+          "line_start": 274,
           "anchor": "open-compatibility-gaps-and-qa-requirements",
-          "line_end": 287
+          "line_end": 306
         }
       ],
       "question": "Which client builds are acceptance targets, what stable evidence distinguishes them after removing sub-version 2, and what is the unknown-peer fallback?",
@@ -4072,10 +4076,11 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Identified the current mxd classifier and tests at an exact revision; confirmed that they retain the shared-sub-version identity assumption. No identified historical client corpus exists in this review.",
+        "progress": "Added hashed shx0.1.48 source at adb1bf8c8cb12f7eb2fa2c01673295a6312f262b. Source profile is identified; compiled-client/runtime corpus and fallback policy remain open.",
         "evidence": [
-          "[Operation contracts](operation-contracts.md)",
-          "[Compatibility review](internal-compatibility-matrix.md#mxd-review-at-2e4c9c1)"
+          "[Error outcomes](error-outcomes.md)",
+          "[Folder descriptor](transfer-contracts.md#folder-item-descriptor-bytes)",
+          "[Identified client source](identified-client-source.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -4093,17 +4098,17 @@
           "path": "internal-compatibility-matrix.md",
           "heading": "Login reply and banner policy",
           "level": 2,
-          "line_start": 55,
+          "line_start": 57,
           "anchor": "login-reply-and-banner-policy",
-          "line_end": 78
+          "line_end": 82
         },
         {
           "path": "internal-compatibility-matrix.md",
           "heading": "Compatibility matrix",
           "level": 2,
-          "line_start": 34,
+          "line_start": 35,
           "anchor": "compatibility-matrix",
-          "line_end": 54
+          "line_end": 56
         }
       ],
       "question": "Which identified clients accept 161/162, 122, native roster output and the SynHX subject addition, and when is an omission policy necessary?",
@@ -4125,10 +4130,11 @@
         "GAP-080"
       ],
       "resolution": {
-        "progress": "Verified execution of mxd login-extra omission tests, while distinguishing them from any historical client tolerance experiment. Peer-by-field acceptance matrix remains required.",
+        "progress": "Executed seven host-built cases of the unchanged basic-login callback/macros, including ignored160/161/162 and unknown fields with UID/status controls. Full historical peer-by-field sessions and other configured profiles remain required.",
         "evidence": [
-          "[Operation contracts](operation-contracts.md)",
-          "[Compatibility review](internal-compatibility-matrix.md#mxd-review-at-2e4c9c1)"
+          "[Error outcomes](error-outcomes.md)",
+          "[Folder descriptor](transfer-contracts.md#folder-item-descriptor-bytes)",
+          "[Identified client source](identified-client-source.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -4146,9 +4152,9 @@
           "path": "internal-compatibility-matrix.md",
           "heading": "Credential obfuscation and text compatibility",
           "level": 2,
-          "line_start": 79,
+          "line_start": 83,
           "anchor": "credential-obfuscation-and-text-compatibility",
-          "line_end": 101
+          "line_end": 105
         },
         {
           "path": "protocol.md",
@@ -4177,10 +4183,11 @@
         "GAP-080"
       ],
       "resolution": {
-        "progress": "Published exact selected field IDs, UTF-8 detection predicate, sticky state and inbound/outbound transforms of the current mxd heuristic. Ambiguity corpus, explicit policy approval and independent interoperability remain required.",
+        "progress": "Pinned shx basic source uses credential complement separately from ordinary text copying; no universal UTF8-triggered text mode is inferred. Existing mxd heuristic remains a distinct policy requiring ambiguity corpus and full interoperability evidence.",
         "evidence": [
-          "[Operation contracts](operation-contracts.md)",
-          "[Compatibility review](internal-compatibility-matrix.md#mxd-review-at-2e4c9c1)"
+          "[Error outcomes](error-outcomes.md)",
+          "[Folder descriptor](transfer-contracts.md#folder-item-descriptor-bytes)",
+          "[Identified client source](identified-client-source.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -4198,17 +4205,17 @@
           "path": "internal-compatibility-matrix.md",
           "heading": "Compatibility matrix",
           "level": 2,
-          "line_start": 34,
+          "line_start": 35,
           "anchor": "compatibility-matrix",
-          "line_end": 54
+          "line_end": 56
         },
         {
           "path": "protocol.md",
           "heading": "References and Correction Traceability",
           "level": 2,
-          "line_start": 1021,
+          "line_start": 1024,
           "anchor": "references-and-correction-traceability",
-          "line_end": 1056
+          "line_end": 1063
         }
       ],
       "question": "Which release/client/server configurations do the selected RCS trunk snapshots represent, and how do the default vendor branch and build options differ?",
@@ -4223,12 +4230,11 @@
       "investigation_leads": [],
       "depends_on": [],
       "resolution": {
-        "progress": "Reviewed all14 frozen RCS archives: head1.1/default1.1.1/vendor1.1.1.1, with empty vendor deltas in each. Recorded import provenance and relevant compile-time branches; no configured executable/client identity is inferred, which remains required for broader applicability.",
+        "progress": "Added a separately identified client source revision to the earlier14-archive server lineage review. README/version identifyshx0.1.48; optional build flags and actual compiled/distributed peer identity remain unresolved.",
         "evidence": [
-          "[Filesystem and board contracts](filesystem-and-board-contracts.md)",
-          "[Source lineage](internal-compatibility-matrix.md#historical-source-lineage-and-build-limits)",
-          "[Portability procedure](evidence-portability.md)",
-          "[Batch 08](../mothra/evidence/gap-remediation/2026-11-12/batch-08/manifest.json)"
+          "[Error outcomes](error-outcomes.md)",
+          "[Folder descriptor](transfer-contracts.md#folder-item-descriptor-bytes)",
+          "[Identified client source](identified-client-source.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -4246,25 +4252,25 @@
           "path": "protocol.md",
           "heading": "5 Worked example (Login)",
           "level": 3,
-          "line_start": 220,
+          "line_start": 223,
           "anchor": "5-worked-example-login",
-          "line_end": 254
+          "line_end": 257
         },
         {
           "path": "protocol.md",
           "heading": "6 Implementation checklist",
           "level": 3,
-          "line_start": 255,
+          "line_start": 258,
           "anchor": "6-implementation-checklist",
-          "line_end": 269
+          "line_end": 272
         },
         {
           "path": "internal-compatibility-matrix.md",
           "heading": "Open compatibility gaps and QA requirements",
           "level": 2,
-          "line_start": 255,
+          "line_start": 274,
           "anchor": "open-compatibility-gaps-and-qa-requirements",
-          "line_end": 287
+          "line_end": 306
         }
       ],
       "question": "Where are executable positive/negative fixtures for core handshake, authenticated login, both completion paths, errors and repeated-field handling?",
@@ -4299,17 +4305,17 @@
           "path": "internal-compatibility-matrix.md",
           "heading": "Historical reported mxd test coverage",
           "level": 2,
-          "line_start": 134,
+          "line_start": 138,
           "anchor": "historical-reported-mxd-test-coverage",
-          "line_end": 161
+          "line_end": 165
         },
         {
           "path": "internal-compatibility-matrix.md",
           "heading": "Open compatibility gaps and QA requirements",
           "level": 2,
-          "line_start": 255,
+          "line_start": 274,
           "anchor": "open-compatibility-gaps-and-qa-requirements",
-          "line_end": 287
+          "line_end": 306
         }
       ],
       "question": "Do the named test/source references exist and pass at a recorded mxd revision, and do their assertions match the corrected protocol?",
@@ -4345,9 +4351,9 @@
           "path": "internal-compatibility-matrix.md",
           "heading": "Open compatibility gaps and QA requirements",
           "level": 2,
-          "line_start": 255,
+          "line_start": 274,
           "anchor": "open-compatibility-gaps-and-qa-requirements",
-          "line_end": 287
+          "line_end": 306
         },
         {
           "path": "internal-compatibility-matrix.md",
@@ -4355,7 +4361,7 @@
           "level": 2,
           "line_start": 15,
           "anchor": "scope-and-status-labels",
-          "line_end": 33
+          "line_end": 34
         },
         {
           "path": "baseline-correction-map.md",
@@ -4403,9 +4409,9 @@
           "path": "protocol.md",
           "heading": "References and Correction Traceability",
           "level": 2,
-          "line_start": 1021,
+          "line_start": 1024,
           "anchor": "references-and-correction-traceability",
-          "line_end": 1056
+          "line_end": 1063
         },
         {
           "path": "baseline-correction-map.md",
@@ -4421,7 +4427,7 @@
           "level": 2,
           "line_start": 15,
           "anchor": "scope-and-status-labels",
-          "line_end": 33
+          "line_end": 34
         }
       ],
       "question": "How will readers obtain the sibling mothra evidence, identify the corrected uncommitted document revision and follow stable claim/line references after edits?",
@@ -4441,7 +4447,7 @@
           "[Fresh extraction verification](../mothra/evidence/gap-remediation/2026-11-12/package-review/verification.json)",
           "[Verification log](../mothra/evidence/gap-remediation/2026-11-12/package-review/verification.log)"
         ],
-        "closure": "Packaged both committed repositories with stable full revisions, artifact SHA256 values and intact sibling paths. Fresh extraction passed 22 outer/nested hash and baseline/current-document verification commands. Historical snapshots remain immutable, and documented stable-ID refresh/closure rules are enforced by the renderer. No external publication or native runtime conformance is implied."
+        "closure": "Packaged both committed repositories with stable full revisions, artifact SHA256 values and intact sibling paths. Fresh extraction passed22 outer/nested hash and baseline/current-document verification commands. Historical snapshots remain immutable, and documented stable-ID refresh/closure rules are enforced by the renderer. No external publication or native runtime conformance is implied."
       }
     }
   ],
@@ -4587,7 +4593,7 @@
       "level": 3,
       "line_start": 43,
       "anchor": "1-session-initialization-handshake",
-      "line_end": 77,
+      "line_end": 80,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-005",
@@ -4606,9 +4612,9 @@
       "path": "protocol.md",
       "heading": "2 General transaction frame",
       "level": 3,
-      "line_start": 78,
+      "line_start": 81,
       "anchor": "2-general-transaction-frame",
-      "line_end": 102,
+      "line_end": 105,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-002",
@@ -4632,9 +4638,9 @@
       "path": "protocol.md",
       "heading": "2.1 Parameter list (payload block)",
       "level": 4,
-      "line_start": 103,
+      "line_start": 106,
       "anchor": "21-parameter-list-payload-block",
-      "line_end": 146,
+      "line_end": 149,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-002",
@@ -4659,9 +4665,9 @@
       "path": "protocol.md",
       "heading": "2.2 Date parameters",
       "level": 4,
-      "line_start": 147,
+      "line_start": 150,
       "anchor": "22-date-parameters",
-      "line_end": 169,
+      "line_end": 172,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-020"
@@ -4674,9 +4680,9 @@
       "path": "protocol.md",
       "heading": "3 Fragmentation rules",
       "level": 3,
-      "line_start": 170,
+      "line_start": 173,
       "anchor": "3-fragmentation-rules",
-      "line_end": 197,
+      "line_end": 200,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-004",
@@ -4695,9 +4701,9 @@
       "path": "protocol.md",
       "heading": "4 Reply semantics",
       "level": 3,
-      "line_start": 198,
+      "line_start": 201,
       "anchor": "4-reply-semantics",
-      "line_end": 219,
+      "line_end": 222,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-003",
@@ -4718,9 +4724,9 @@
       "path": "protocol.md",
       "heading": "5 Worked example (Login)",
       "level": 3,
-      "line_start": 220,
+      "line_start": 223,
       "anchor": "5-worked-example-login",
-      "line_end": 254,
+      "line_end": 257,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-016",
@@ -4737,9 +4743,9 @@
       "path": "protocol.md",
       "heading": "6 Implementation checklist",
       "level": 3,
-      "line_start": 255,
+      "line_start": 258,
       "anchor": "6-implementation-checklist",
-      "line_end": 269,
+      "line_end": 272,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-084"
@@ -4752,9 +4758,9 @@
       "path": "protocol.md",
       "heading": "User Login and Presence",
       "level": 2,
-      "line_start": 270,
+      "line_start": 273,
       "anchor": "user-login-and-presence",
-      "line_end": 271,
+      "line_end": 274,
       "review": "Reviewed",
       "direct_gap_ids": [],
       "related_gap_ids": [
@@ -4789,9 +4795,9 @@
       "path": "protocol.md",
       "heading": "Session Handshake (Before Transactions Begin)",
       "level": 3,
-      "line_start": 272,
+      "line_start": 275,
       "anchor": "session-handshake-before-transactions-begin",
-      "line_end": 279,
+      "line_end": 282,
       "review": "Reviewed",
       "direct_gap_ids": [],
       "related_gap_ids": [
@@ -4803,9 +4809,9 @@
       "path": "protocol.md",
       "heading": "Login (Transaction 107) – Client Initiates",
       "level": 3,
-      "line_start": 280,
+      "line_start": 283,
       "anchor": "login-transaction-107--client-initiates",
-      "line_end": 305,
+      "line_end": 308,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-002",
@@ -4836,9 +4842,9 @@
       "path": "protocol.md",
       "heading": "Server Agreement (Transaction 109) – Server Initiates",
       "level": 3,
-      "line_start": 306,
+      "line_start": 309,
       "anchor": "server-agreement-transaction-109--server-initiates",
-      "line_end": 319,
+      "line_end": 322,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-025",
@@ -4853,9 +4859,9 @@
       "path": "protocol.md",
       "heading": "Agreement Acceptance (Transaction 121) – Client Initiates",
       "level": 3,
-      "line_start": 320,
+      "line_start": 323,
       "anchor": "agreement-acceptance-transaction-121--client-initiates",
-      "line_end": 342,
+      "line_end": 345,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-007",
@@ -4876,9 +4882,9 @@
       "path": "protocol.md",
       "heading": "Banner Metadata (Transaction 122) – Server Initiates",
       "level": 3,
-      "line_start": 343,
+      "line_start": 346,
       "anchor": "banner-metadata-transaction-122--server-initiates",
-      "line_end": 357,
+      "line_end": 360,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-028",
@@ -4893,9 +4899,9 @@
       "path": "protocol.md",
       "heading": "User Access Privileges (Transaction 354) – Server Initiates",
       "level": 3,
-      "line_start": 358,
+      "line_start": 361,
       "anchor": "user-access-privileges-transaction-354--server-initiates",
-      "line_end": 366,
+      "line_end": 369,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-073"
@@ -4910,9 +4916,9 @@
       "path": "protocol.md",
       "heading": "Access Privilege Bits (Field 110)",
       "level": 4,
-      "line_start": 367,
+      "line_start": 370,
       "anchor": "access-privilege-bits-field-110",
-      "line_end": 405,
+      "line_end": 408,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-031",
@@ -4927,9 +4933,9 @@
       "path": "protocol.md",
       "heading": "Retrieving the User List (Transaction 300) – Client Initiates",
       "level": 3,
-      "line_start": 406,
+      "line_start": 409,
       "anchor": "retrieving-the-user-list-transaction-300--client-initiates",
-      "line_end": 431,
+      "line_end": 434,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-033",
@@ -4946,9 +4952,9 @@
       "path": "protocol.md",
       "heading": "User Appearance and Updates (Transaction 301 & 302) – Server Initiates",
       "level": 3,
-      "line_start": 432,
+      "line_start": 435,
       "anchor": "user-appearance-and-updates-transaction-301--302--server-initiates",
-      "line_end": 450,
+      "line_end": 453,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-034",
@@ -4965,9 +4971,9 @@
       "path": "protocol.md",
       "heading": "Viewing User Info (Transaction 303) – Client Initiates",
       "level": 3,
-      "line_start": 451,
+      "line_start": 454,
       "anchor": "viewing-user-info-transaction-303--client-initiates",
-      "line_end": 461,
+      "line_end": 464,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-037"
@@ -4980,9 +4986,9 @@
       "path": "protocol.md",
       "heading": "Changing User Settings (Transaction 304) – Client Initiates",
       "level": 3,
-      "line_start": 462,
+      "line_start": 465,
       "anchor": "changing-user-settings-transaction-304--client-initiates",
-      "line_end": 475,
+      "line_end": 478,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-006",
@@ -5005,9 +5011,9 @@
       "path": "protocol.md",
       "heading": "Chat (Public and Private Chat Rooms)",
       "level": 2,
-      "line_start": 476,
+      "line_start": 479,
       "anchor": "chat-public-and-private-chat-rooms",
-      "line_end": 477,
+      "line_end": 480,
       "review": "Reviewed",
       "direct_gap_ids": [],
       "related_gap_ids": [
@@ -5030,9 +5036,9 @@
       "path": "protocol.md",
       "heading": "Sending a Chat Message (Transaction 105) – Client Initiates",
       "level": 3,
-      "line_start": 478,
+      "line_start": 481,
       "anchor": "sending-a-chat-message-transaction-105--client-initiates",
-      "line_end": 489,
+      "line_end": 492,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-006",
@@ -5055,9 +5061,9 @@
       "path": "protocol.md",
       "heading": "Receiving a Chat Message (Transaction 106) – Server Initiates",
       "level": 3,
-      "line_start": 490,
+      "line_start": 493,
       "anchor": "receiving-a-chat-message-transaction-106--server-initiates",
-      "line_end": 498,
+      "line_end": 501,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-018",
@@ -5072,9 +5078,9 @@
       "path": "protocol.md",
       "heading": "Joining a Chat Room (Transaction 115) – Client Initiates",
       "level": 3,
-      "line_start": 499,
+      "line_start": 502,
       "anchor": "joining-a-chat-room-transaction-115--client-initiates",
-      "line_end": 510,
+      "line_end": 513,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-038",
@@ -5089,9 +5095,9 @@
       "path": "protocol.md",
       "heading": "Leaving a Chat Room (Transaction 116) – Client Initiates",
       "level": 3,
-      "line_start": 511,
+      "line_start": 514,
       "anchor": "leaving-a-chat-room-transaction-116--client-initiates",
-      "line_end": 520,
+      "line_end": 523,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-006",
@@ -5108,9 +5114,9 @@
       "path": "protocol.md",
       "heading": "Chat Room Notifications (Transactions 117 & 118) – Server Initiates",
       "level": 3,
-      "line_start": 521,
+      "line_start": 524,
       "anchor": "chat-room-notifications-transactions-117--118--server-initiates",
-      "line_end": 532,
+      "line_end": 535,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-040"
@@ -5123,9 +5129,9 @@
       "path": "protocol.md",
       "heading": "Chat Invitations (Transactions 112, 113, 114) – Private Chats",
       "level": 3,
-      "line_start": 533,
+      "line_start": 536,
       "anchor": "chat-invitations-transactions-112-113-114--private-chats",
-      "line_end": 552,
+      "line_end": 555,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-017",
@@ -5144,9 +5150,9 @@
       "path": "protocol.md",
       "heading": "Chat Subject Management (Transactions 119 & 120)",
       "level": 3,
-      "line_start": 553,
+      "line_start": 556,
       "anchor": "chat-subject-management-transactions-119--120",
-      "line_end": 561,
+      "line_end": 564,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-041"
@@ -5159,9 +5165,9 @@
       "path": "protocol.md",
       "heading": "Private Messaging (Instant Messages)",
       "level": 2,
-      "line_start": 562,
+      "line_start": 565,
       "anchor": "private-messaging-instant-messages",
-      "line_end": 563,
+      "line_end": 566,
       "review": "Reviewed",
       "direct_gap_ids": [],
       "related_gap_ids": [
@@ -5177,9 +5183,9 @@
       "path": "protocol.md",
       "heading": "Sending an Instant Message (Transaction 108) – Client Initiates",
       "level": 3,
-      "line_start": 564,
+      "line_start": 567,
       "anchor": "sending-an-instant-message-transaction-108--client-initiates",
-      "line_end": 590,
+      "line_end": 593,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-021",
@@ -5198,9 +5204,9 @@
       "path": "protocol.md",
       "heading": "Receiving a Private Message (Transaction 104) – Server Initiates",
       "level": 3,
-      "line_start": 591,
+      "line_start": 594,
       "anchor": "receiving-a-private-message-transaction-104--server-initiates",
-      "line_end": 603,
+      "line_end": 606,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-044"
@@ -5213,9 +5219,9 @@
       "path": "protocol.md",
       "heading": "Legacy Message Board (Transactions 101, 102, 103)",
       "level": 3,
-      "line_start": 604,
+      "line_start": 607,
       "anchor": "legacy-message-board-transactions-101-102-103",
-      "line_end": 618,
+      "line_end": 621,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-046"
@@ -5228,9 +5234,9 @@
       "path": "protocol.md",
       "heading": "File Services (Files and Folders)",
       "level": 2,
-      "line_start": 619,
+      "line_start": 622,
       "anchor": "file-services-files-and-folders",
-      "line_end": 629,
+      "line_end": 632,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-010",
@@ -5270,9 +5276,9 @@
       "path": "protocol.md",
       "heading": "Listing Files in a Folder (Transaction 200) – Client Initiates",
       "level": 3,
-      "line_start": 630,
+      "line_start": 633,
       "anchor": "listing-files-in-a-folder-transaction-200--client-initiates",
-      "line_end": 642,
+      "line_end": 645,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-018",
@@ -5289,9 +5295,9 @@
       "path": "protocol.md",
       "heading": "Downloading a File (Transaction 202) – Client Initiates",
       "level": 3,
-      "line_start": 643,
+      "line_start": 646,
       "anchor": "downloading-a-file-transaction-202--client-initiates",
-      "line_end": 660,
+      "line_end": 663,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-015",
@@ -5312,9 +5318,9 @@
       "path": "protocol.md",
       "heading": "Uploading a File (Transaction 203) – Client Initiates",
       "level": 3,
-      "line_start": 661,
+      "line_start": 664,
       "anchor": "uploading-a-file-transaction-203--client-initiates",
-      "line_end": 673,
+      "line_end": 676,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-056",
@@ -5329,9 +5335,9 @@
       "path": "protocol.md",
       "heading": "Deleting a File (Transaction 204) – Client Initiates",
       "level": 3,
-      "line_start": 674,
+      "line_start": 677,
       "anchor": "deleting-a-file-transaction-204--client-initiates",
-      "line_end": 684,
+      "line_end": 687,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-050"
@@ -5344,9 +5350,9 @@
       "path": "protocol.md",
       "heading": "Creating a New Folder (Transaction 205) – Client Initiates",
       "level": 3,
-      "line_start": 685,
+      "line_start": 688,
       "anchor": "creating-a-new-folder-transaction-205--client-initiates",
-      "line_end": 695,
+      "line_end": 698,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-051"
@@ -5359,9 +5365,9 @@
       "path": "protocol.md",
       "heading": "Getting File/Folder Info (Transaction 206) – Client Initiates",
       "level": 3,
-      "line_start": 696,
+      "line_start": 699,
       "anchor": "getting-filefolder-info-transaction-206--client-initiates",
-      "line_end": 710,
+      "line_end": 713,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-049"
@@ -5374,9 +5380,9 @@
       "path": "protocol.md",
       "heading": "Setting File/Folder Info (Transaction 207) – Client Initiates",
       "level": 3,
-      "line_start": 711,
+      "line_start": 714,
       "anchor": "setting-filefolder-info-transaction-207--client-initiates",
-      "line_end": 723,
+      "line_end": 726,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-052"
@@ -5389,9 +5395,9 @@
       "path": "protocol.md",
       "heading": "Moving Files/Folders (Transaction 208) – Client Initiates",
       "level": 3,
-      "line_start": 724,
+      "line_start": 727,
       "anchor": "moving-filesfolders-transaction-208--client-initiates",
-      "line_end": 733,
+      "line_end": 736,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-047",
@@ -5406,9 +5412,9 @@
       "path": "protocol.md",
       "heading": "Creating an Alias (Shortcut) (Transaction 209) – Client Initiates",
       "level": 3,
-      "line_start": 734,
+      "line_start": 737,
       "anchor": "creating-an-alias-shortcut-transaction-209--client-initiates",
-      "line_end": 743,
+      "line_end": 746,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-054"
@@ -5421,9 +5427,9 @@
       "path": "protocol.md",
       "heading": "Downloading an Entire Folder (Transaction 210) – Client Initiates",
       "level": 3,
-      "line_start": 744,
+      "line_start": 747,
       "anchor": "downloading-an-entire-folder-transaction-210--client-initiates",
-      "line_end": 759,
+      "line_end": 762,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-059",
@@ -5438,9 +5444,9 @@
       "path": "protocol.md",
       "heading": "Uploading an Entire Folder (Transaction 213) – Client Initiates",
       "level": 3,
-      "line_start": 760,
+      "line_start": 763,
       "anchor": "uploading-an-entire-folder-transaction-213--client-initiates",
-      "line_end": 774,
+      "line_end": 777,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-060",
@@ -5455,9 +5461,9 @@
       "path": "protocol.md",
       "heading": "Banner Download (Transaction 212) – Client Initiates",
       "level": 3,
-      "line_start": 775,
+      "line_start": 778,
       "anchor": "banner-download-transaction-212--client-initiates",
-      "line_end": 787,
+      "line_end": 790,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-028",
@@ -5474,9 +5480,9 @@
       "path": "protocol.md",
       "heading": "Transfer Connection and Reference Cleanup",
       "level": 3,
-      "line_start": 788,
+      "line_start": 791,
       "anchor": "transfer-connection-and-reference-cleanup",
-      "line_end": 805,
+      "line_end": 808,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-009",
@@ -5501,9 +5507,9 @@
       "path": "protocol.md",
       "heading": "News (Bulletin Board System)",
       "level": 2,
-      "line_start": 806,
+      "line_start": 809,
       "anchor": "news-bulletin-board-system",
-      "line_end": 807,
+      "line_end": 810,
       "review": "Reviewed",
       "direct_gap_ids": [],
       "related_gap_ids": [
@@ -5523,9 +5529,9 @@
       "path": "protocol.md",
       "heading": "News Hierarchy",
       "level": 3,
-      "line_start": 808,
+      "line_start": 811,
       "anchor": "news-hierarchy",
-      "line_end": 816,
+      "line_end": 819,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-065",
@@ -5540,9 +5546,9 @@
       "path": "protocol.md",
       "heading": "Listing News Categories (Transaction 370) – Client Initiates",
       "level": 3,
-      "line_start": 817,
+      "line_start": 820,
       "anchor": "listing-news-categories-transaction-370--client-initiates",
-      "line_end": 829,
+      "line_end": 832,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-047",
@@ -5557,9 +5563,9 @@
       "path": "protocol.md",
       "heading": "Listing News Articles (Transaction 371) – Client Initiates",
       "level": 3,
-      "line_start": 830,
+      "line_start": 833,
       "anchor": "listing-news-articles-transaction-371--client-initiates",
-      "line_end": 840,
+      "line_end": 843,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-066"
@@ -5572,9 +5578,9 @@
       "path": "protocol.md",
       "heading": "Reading a News Article (Transaction 400) – Client Initiates",
       "level": 3,
-      "line_start": 841,
+      "line_start": 844,
       "anchor": "reading-a-news-article-transaction-400--client-initiates",
-      "line_end": 862,
+      "line_end": 865,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-020",
@@ -5589,9 +5595,9 @@
       "path": "protocol.md",
       "heading": "Posting a News Article (Transaction 410) – Client Initiates",
       "level": 3,
-      "line_start": 863,
+      "line_start": 866,
       "anchor": "posting-a-news-article-transaction-410--client-initiates",
-      "line_end": 874,
+      "line_end": 877,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-021",
@@ -5606,9 +5612,9 @@
       "path": "protocol.md",
       "heading": "Deleting a News Article (Transaction 411) – Client Initiates",
       "level": 3,
-      "line_start": 875,
+      "line_start": 878,
       "anchor": "deleting-a-news-article-transaction-411--client-initiates",
-      "line_end": 885,
+      "line_end": 888,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-069"
@@ -5621,9 +5627,9 @@
       "path": "protocol.md",
       "heading": "Managing News Structure (Transactions 380, 381, 382) – Client Initiates (Admin/Mods)",
       "level": 3,
-      "line_start": 886,
+      "line_start": 889,
       "anchor": "managing-news-structure-transactions-380-381-382--client-initiates-adminmods",
-      "line_end": 900,
+      "line_end": 903,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-032",
@@ -5638,9 +5644,9 @@
       "path": "protocol.md",
       "heading": "Administrative Functions",
       "level": 2,
-      "line_start": 901,
+      "line_start": 904,
       "anchor": "administrative-functions",
-      "line_end": 902,
+      "line_end": 905,
       "review": "Reviewed",
       "direct_gap_ids": [],
       "related_gap_ids": [
@@ -5667,9 +5673,9 @@
       "path": "protocol.md",
       "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
       "level": 3,
-      "line_start": 903,
+      "line_start": 906,
       "anchor": "user-account-management--client-initiates-admin-tx-350353",
-      "line_end": 936,
+      "line_end": 939,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-002",
@@ -5698,9 +5704,9 @@
       "path": "protocol.md",
       "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
       "level": 3,
-      "line_start": 937,
+      "line_start": 940,
       "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-      "line_end": 958,
+      "line_end": 961,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-003",
@@ -5721,9 +5727,9 @@
       "path": "protocol.md",
       "heading": "Broadcasting a Message (Transaction 355) – Admin/Server Initiated",
       "level": 3,
-      "line_start": 959,
+      "line_start": 962,
       "anchor": "broadcasting-a-message-transaction-355--adminserver-initiated",
-      "line_end": 973,
+      "line_end": 976,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-045",
@@ -5738,9 +5744,9 @@
       "path": "protocol.md",
       "heading": "Additional Admin Privileges Note",
       "level": 3,
-      "line_start": 974,
+      "line_start": 977,
       "anchor": "additional-admin-privileges-note",
-      "line_end": 982,
+      "line_end": 985,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-038",
@@ -5755,9 +5761,9 @@
       "path": "protocol.md",
       "heading": "Additional Observed Requests and Scope Gaps",
       "level": 2,
-      "line_start": 983,
+      "line_start": 986,
       "anchor": "additional-observed-requests-and-scope-gaps",
-      "line_end": 1020,
+      "line_end": 1023,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-005",
@@ -5780,9 +5786,9 @@
       "path": "protocol.md",
       "heading": "References and Correction Traceability",
       "level": 2,
-      "line_start": 1021,
+      "line_start": 1024,
       "anchor": "references-and-correction-traceability",
-      "line_end": 1056,
+      "line_end": 1063,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-083",
@@ -5824,7 +5830,7 @@
       "level": 2,
       "line_start": 15,
       "anchor": "scope-and-status-labels",
-      "line_end": 33,
+      "line_end": 34,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-086",
@@ -5839,9 +5845,9 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "Compatibility matrix",
       "level": 2,
-      "line_start": 34,
+      "line_start": 35,
       "anchor": "compatibility-matrix",
-      "line_end": 54,
+      "line_end": 56,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-024",
@@ -5860,9 +5866,9 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "Login reply and banner policy",
       "level": 2,
-      "line_start": 55,
+      "line_start": 57,
       "anchor": "login-reply-and-banner-policy",
-      "line_end": 78,
+      "line_end": 82,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-026",
@@ -5877,9 +5883,9 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "Credential obfuscation and text compatibility",
       "level": 2,
-      "line_start": 79,
+      "line_start": 83,
       "anchor": "credential-obfuscation-and-text-compatibility",
-      "line_end": 101,
+      "line_end": 105,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-018",
@@ -5896,9 +5902,9 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "Repeated fields and presence records",
       "level": 2,
-      "line_start": 102,
+      "line_start": 106,
       "anchor": "repeated-fields-and-presence-records",
-      "line_end": 133,
+      "line_end": 137,
       "review": "Reviewed",
       "direct_gap_ids": [],
       "related_gap_ids": [
@@ -5912,9 +5918,9 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "Historical reported mxd test coverage",
       "level": 2,
-      "line_start": 134,
+      "line_start": 138,
       "anchor": "historical-reported-mxd-test-coverage",
-      "line_end": 161,
+      "line_end": 165,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-085"
@@ -5927,9 +5933,9 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "Open compatibility gaps and QA requirements",
       "level": 2,
-      "line_start": 255,
+      "line_start": 274,
       "anchor": "open-compatibility-gaps-and-qa-requirements",
-      "line_end": 287,
+      "line_end": 306,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-001",
@@ -6061,7 +6067,7 @@
       "heading": "Account record and field schema",
       "level": 3,
       "line_start": 56,
-      "line_end": 93,
+      "line_end": 99,
       "anchor": "account-record-and-field-schema",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6081,8 +6087,8 @@
       "path": "native-wire-details.md",
       "heading": "Login lookup transformations",
       "level": 3,
-      "line_start": 94,
-      "line_end": 108,
+      "line_start": 100,
+      "line_end": 114,
       "anchor": "login-lookup-transformations",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6100,8 +6106,8 @@
       "path": "native-wire-details.md",
       "heading": "Changes to connected accounts",
       "level": 3,
-      "line_start": 109,
-      "line_end": 118,
+      "line_start": 115,
+      "line_end": 124,
       "anchor": "changes-to-connected-accounts",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6115,8 +6121,8 @@
       "path": "native-wire-details.md",
       "heading": "Structured file paths and file-list entries",
       "level": 2,
-      "line_start": 119,
-      "line_end": 160,
+      "line_start": 125,
+      "line_end": 166,
       "anchor": "structured-file-paths-and-file-list-entries",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6132,8 +6138,8 @@
       "path": "native-wire-details.md",
       "heading": "Privilege access and connection timers",
       "level": 2,
-      "line_start": 161,
-      "line_end": 206,
+      "line_start": 167,
+      "line_end": 212,
       "anchor": "privilege-access-and-connection-timers",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6153,8 +6159,8 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "mxd review at 2e4c9c1",
       "level": 2,
-      "line_start": 162,
-      "line_end": 184,
+      "line_start": 166,
+      "line_end": 188,
       "anchor": "mxd-review-at-2e4c9c1",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6176,8 +6182,8 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "Assertions requiring protocol reconciliation",
       "level": 3,
-      "line_start": 185,
-      "line_end": 200,
+      "line_start": 189,
+      "line_end": 204,
       "anchor": "assertions-requiring-protocol-reconciliation",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6195,8 +6201,8 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "Exact current text heuristic",
       "level": 3,
-      "line_start": 201,
-      "line_end": 221,
+      "line_start": 205,
+      "line_end": 225,
       "anchor": "exact-current-text-heuristic",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6216,8 +6222,8 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "Proof and QA limits",
       "level": 3,
-      "line_start": 222,
-      "line_end": 236,
+      "line_start": 226,
+      "line_end": 240,
       "anchor": "proof-and-qa-limits",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6541,7 +6547,7 @@
       "heading": "Folder-download control states",
       "level": 2,
       "line_start": 220,
-      "line_end": 248,
+      "line_end": 240,
       "anchor": "folder-download-control-states",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6555,8 +6561,8 @@
       "path": "transfer-contracts.md",
       "heading": "Folder-upload control states",
       "level": 2,
-      "line_start": 249,
-      "line_end": 285,
+      "line_start": 272,
+      "line_end": 310,
       "anchor": "folder-upload-control-states",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7121,8 +7127,8 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "Historical source lineage and build limits",
       "level": 2,
-      "line_start": 237,
-      "line_end": 254,
+      "line_start": 256,
+      "line_end": 273,
       "anchor": "historical-source-lineage-and-build-limits",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7334,6 +7340,194 @@
       ],
       "related_gap_ids": [
         "GAP-087"
+      ]
+    },
+    {
+      "path": "internal-compatibility-matrix.md",
+      "heading": "Newly identified client source evidence",
+      "level": 2,
+      "line_start": 241,
+      "line_end": 255,
+      "anchor": "newly-identified-client-source-evidence",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-080",
+        "GAP-081",
+        "GAP-082",
+        "GAP-083"
+      ],
+      "related_gap_ids": [
+        "GAP-080",
+        "GAP-081",
+        "GAP-082",
+        "GAP-083"
+      ]
+    },
+    {
+      "path": "transfer-contracts.md",
+      "heading": "Folder item descriptor bytes",
+      "level": 3,
+      "line_start": 241,
+      "line_end": 271,
+      "anchor": "folder-item-descriptor-bytes",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-047",
+        "GAP-059",
+        "GAP-060"
+      ],
+      "related_gap_ids": [
+        "GAP-047",
+        "GAP-059",
+        "GAP-060"
+      ]
+    },
+    {
+      "path": "error-outcomes.md",
+      "heading": "Native error and failure outcomes",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 8,
+      "anchor": "native-error-and-failure-outcomes",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-003",
+        "GAP-021"
+      ],
+      "related_gap_ids": [
+        "GAP-003",
+        "GAP-021"
+      ]
+    },
+    {
+      "path": "error-outcomes.md",
+      "heading": "Wire status and failure classes",
+      "level": 2,
+      "line_start": 9,
+      "line_end": 35,
+      "anchor": "wire-status-and-failure-classes",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-003",
+        "GAP-021"
+      ],
+      "related_gap_ids": [
+        "GAP-003",
+        "GAP-021"
+      ]
+    },
+    {
+      "path": "error-outcomes.md",
+      "heading": "Derived unknown-operation example",
+      "level": 2,
+      "line_start": 36,
+      "line_end": 55,
+      "anchor": "derived-unknown-operation-example",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-003",
+        "GAP-084"
+      ],
+      "related_gap_ids": [
+        "GAP-003",
+        "GAP-084"
+      ]
+    },
+    {
+      "path": "error-outcomes.md",
+      "heading": "Internal exceptions and text resources",
+      "level": 2,
+      "line_start": 56,
+      "line_end": 89,
+      "anchor": "internal-exceptions-and-text-resources",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-003"
+      ],
+      "related_gap_ids": [
+        "GAP-003"
+      ]
+    },
+    {
+      "path": "identified-client-source.md",
+      "heading": "Identified shx source profile and bounded callback results",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 16,
+      "anchor": "identified-shx-source-profile-and-bounded-callback-results",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-080",
+        "GAP-081",
+        "GAP-083"
+      ],
+      "related_gap_ids": [
+        "GAP-080",
+        "GAP-081",
+        "GAP-083"
+      ]
+    },
+    {
+      "path": "identified-client-source.md",
+      "heading": "Basic login and unknown fields",
+      "level": 2,
+      "line_start": 17,
+      "line_end": 35,
+      "anchor": "basic-login-and-unknown-fields",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-024",
+        "GAP-080",
+        "GAP-081"
+      ],
+      "related_gap_ids": [
+        "GAP-024",
+        "GAP-080",
+        "GAP-081"
+      ]
+    },
+    {
+      "path": "identified-client-source.md",
+      "heading": "Executed host callback matrix",
+      "level": 2,
+      "line_start": 36,
+      "line_end": 70,
+      "anchor": "executed-host-callback-matrix",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-081",
+        "GAP-082",
+        "GAP-085"
+      ],
+      "related_gap_ids": [
+        "GAP-081",
+        "GAP-082",
+        "GAP-085"
+      ]
+    },
+    {
+      "path": "identified-client-source.md",
+      "heading": "Other receiver observations and negative scope",
+      "level": 2,
+      "line_start": 71,
+      "line_end": 102,
+      "anchor": "other-receiver-observations-and-negative-scope",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-008",
+        "GAP-018",
+        "GAP-071",
+        "GAP-075",
+        "GAP-079",
+        "GAP-082"
+      ],
+      "related_gap_ids": [
+        "GAP-008",
+        "GAP-018",
+        "GAP-071",
+        "GAP-075",
+        "GAP-079",
+        "GAP-082"
       ]
     }
   ]

@@ -17,8 +17,9 @@ evidence and identifies policy assertions that conflict with native behaviour.
 Protocol evidence and implementation status are separate dimensions:
 
 - **Observed:** established in a named static path of the hashed 1.9 server.
-- **Source-observed:** established in the supplied historical SynHX server
-  snapshot, not in every SynHX client or release.
+- **Source-observed:** established in a named historical server/client source
+  snapshot, not in every client or release. A host fragment test remains a
+  different evidence class from executing a full historical peer.
 - **Policy requiring validation:** an mxd behaviour or classifier whose peer
   compatibility has not been established.
 - **Implementation unverified:** a supplied test/source citation has not been
@@ -38,7 +39,8 @@ Evidence: M008–M009.
 | Hotline 1.9 Mac PPC server | Normal-session magic `TRTPHOTL 00 01 00 02`; successful login reports version 190 and includes 161/162 without a client-kind gate | Observed in the hashed server's handshake/login paths | mxd login policy tests passed; native-parity discrepancies are recorded below |
 | Hotline 1.8.5 client profile | No identified client binary or session was validated; field 160 values `151..=189` do not by themselves prove this release | Policy requiring client validation | mxd threshold policy tested; identified-client compatibility unverified |
 | SynHX historical server source | Defines the same normal-session magic ending in sub-version 2; its roster writer uses packed field 300 and appends subject 115 | Source-observed in supplied RCS trunk snapshots | Comparison source only; does not establish client behaviour |
-| SynHX client profiles | No unique handshake marker, reply-field rejection rule or universal text-XOR mode was established | Policy requiring identified client/session evidence | Classifier/omission tests passed; disputed identity premise remains |
+| shx 0.1.48 source snapshot | README/version.c identify source at `adb1bf8`; basic login shares sub-version 2, omits 160 and ignores extras 161/162 | Source-observed; seven isolated host callback cases passed | Does not certify mxd or a compiled historical client |
+| Other SynHX client profiles | No unique handshake marker, reply-field rejection rule or universal text-XOR mode was established | Policy requiring identified client/session evidence | Classifier/omission tests passed; disputed identity premise remains |
 | Unknown or legacy client version | Native 1.9 login has no version/kind gate around reply fields 161/162; a missing/old version is not a proven profile identifier | Native behaviour observed; conservative omission remains a separate mxd policy | Omission-policy tests passed; native reply differs |
 
 **Sub-version 2 is shared, not a SynHX discriminator.** The native 1.9 server
@@ -66,8 +68,10 @@ therefore an **mxd policy requiring validation**, not native 1.9 behaviour or
 proof that including those fields is invalid.
 
 The supplied SynHX server's lack of that native augmentation does not establish
-that a SynHX **client** rejects those fields. Client tolerance needs client
-source or session evidence.
+that a SynHX **client** rejects those fields. A newly retained
+[shx source profile](identified-client-source.md) now supplies
+source and isolated callback evidence: its basic-login callback ignores these
+extras. Other profiles and full sessions still need peer-specific validation.
 
 Banner advertisement is separate: after agreement acceptance, native
 transaction **122** carries type 152 and optional 153, conditional on configured
@@ -233,6 +237,21 @@ release owner or supply native session acceptance fixtures. Roadmap items
 1.5.3–1.5.6 are checked, but that status does not resolve these newly identified
 conformance discrepancies. Release ownership, supported subset and acceptance
 of deliberate deviations remain GAP-001/086 decisions.
+
+## Newly identified client source evidence
+
+The [pinned shx profile](identified-client-source.md) is separate from the
+original server-only comparison. Its basic-login callback and TLV iterator were
+compiled unchanged with host UI stubs: seven cases passed, including native
+extras, unknown fields, UID handling and the low-bit error predicate. These
+results narrow field-tolerance uncertainty for this specific path. They do not
+validate every SynHX client, optional secure login or a full network session.
+
+The callback tests also show why native wire error 1 must not be conflated with
+all internal/native or mxd error values: a synthetic status 2 passes this
+callback's low-bit success test. The native setter-call inventory separately
+finds 68 explicit direct error calls passing 1. No deliberate mxd status-policy
+change has been made by this documentation investigation.
 
 ## Historical source lineage and build limits
 

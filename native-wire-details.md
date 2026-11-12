@@ -91,6 +91,12 @@ handlers copy up to 32. Preserve this distinction rather than declaring a
 single universal limit. Restart persistence, failed writes, and full 32-byte
 round trips still need runtime checks.
 
+Field 111 is stored by create/update handlers but is not included in the
+inspected 352 retrieval or 348 enumeration output. The newly inspected native
+UI range `10018c60`–`10019690` concerns ban editing and does not supply an account
+label. The identified shx account constants also do not name 111. Its meaning
+remains opaque; these bounded negatives are not proof of no use anywhere.
+
 ### Login lookup transformations
 
 Absent/empty field 105 selects the literal account name `guest`. A nonempty
