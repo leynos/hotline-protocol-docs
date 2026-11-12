@@ -3,8 +3,8 @@
   "title": "Hotline 1.9 protocol documentation gap register",
   "audited_at_utc": "2026-11-12T12:55:29.155796+00:00",
   "last_updated": "2026-11-12",
-  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-12/manifest.json",
-  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-12/sections.json",
+  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-13/manifest.json",
+  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-13/sections.json",
   "validity_ledger": "../mothra/docs/baseline-validity-ledger.md",
   "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
   "method": "Documentation review plus read-only Ghidra MCP follow-up against the recorded Hotline 1.9 data fork, paired resource-fork inspection, portable archive verification, pinned shx source review with seven host callback cases, and mxd review (55 focused tests passed). The original audit and validity ledger remain immutable; current sources have been reviewed and re-snapshotted. No native runtime/client captures or Kani proof results are claimed. Entries remain Investigating while their acceptance criteria are unmet.",
@@ -271,10 +271,11 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Added ordinary file/banner pending-connection and connected-upload inactivity timer comparisons in seconds. Other transport/folder timer and bounded timing fixtures remain required.",
+        "progress": "Published timer origins/reset conditions: only selected logical requests refresh session activity; upload entry clocks begin at request creation and attachment does not reset them; consumed file chunks refresh them. Added bounded pending/partial-input negatives and late-attachment derived case. Lower-layer/configured timing and native boundary fixtures remain required.",
         "evidence": [
-          "[Transfer contracts](transfer-contracts.md)",
-          "[Batch 04](../mothra/evidence/gap-remediation/2026-11-12/batch-04/manifest.json)"
+          "[Activity clocks](session-transport-contracts.md#activity-clocks-and-incomplete-input)",
+          "[Flood counters](session-transport-contracts.md#flood-and-connection-burst-counters)",
+          "[Transfer timer resets](transfer-contracts.md#transfer-timer-origins-and-resets)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -450,11 +451,11 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Published positive/negative handshake bytes and static call order, exact 12-byte availability boundary and success-before-admission caveat. Actual short-read/pipelining/drain/close native fixtures remain required.",
+        "progress": "Pending-handshake helper/walk has no inspected age comparison; no blanket unlimited-lifetime claim is made. Existing exact12-byte availability and failure sequences remain static. Stalled/pipelined/drain native fixtures remain required.",
         "evidence": [
-          "[Session transport contracts](session-transport-contracts.md)",
-          "[Core schemas](core-field-schemas.md)",
-          "[Batch 07](../mothra/evidence/gap-remediation/2026-11-12/batch-07/manifest.json)"
+          "[Activity clocks](session-transport-contracts.md#activity-clocks-and-incomplete-input)",
+          "[Flood counters](session-transport-contracts.md#flood-and-connection-burst-counters)",
+          "[Transfer timer resets](transfer-contracts.md#transfer-timer-origins-and-resets)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -628,10 +629,11 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Documented ID/reply-state grouping, overwritten type/total, completion on accumulated length at least total and unmatched reply handling. TCP/reassembly negative fixtures remain required.",
+        "progress": "Complete-request selection requires accumulated length at least total; partial TCP/frame/fragment progress does not update dispatcher activity in traced paths. No assembly-age check is established there. Native collision/abandonment and buffering fixtures remain required.",
         "evidence": [
-          "[Operation contracts](operation-contracts.md)",
-          "[Compatibility review](internal-compatibility-matrix.md#mxd-review-at-2e4c9c1)"
+          "[Activity clocks](session-transport-contracts.md#activity-clocks-and-incomplete-input)",
+          "[Flood counters](session-transport-contracts.md#flood-and-connection-burst-counters)",
+          "[Transfer timer resets](transfer-contracts.md#transfer-timer-origins-and-resets)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -2459,11 +2461,11 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Documented dispatcher request flood threshold/window and ban duration argument; per-operation configuration and timing fixtures remain required.",
+        "progress": "Separated per-session request counter from server-wide last-address connection burst. Documented preincrement >120 test, >60 reset, repeat >10 with <30 age and non-sliding same-address timestamp. Counter-boundary/interleaved-address/expiry native fixtures remain required.",
         "evidence": [
-          "[Native wire details](native-wire-details.md)",
-          "[Batch 01](../mothra/evidence/gap-remediation/2026-11-12/batch-01/manifest.json)",
-          "[Batch 02](../mothra/evidence/gap-remediation/2026-11-12/batch-02/manifest.json)"
+          "[Activity clocks](session-transport-contracts.md#activity-clocks-and-incomplete-input)",
+          "[Flood counters](session-transport-contracts.md#flood-and-connection-burst-counters)",
+          "[Transfer timer resets](transfer-contracts.md#transfer-timer-origins-and-resets)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -3098,11 +3100,11 @@
         "GAP-056"
       ],
       "resolution": {
-        "progress": "Assembly resolved exact descriptor offsets and length formula; published calculated root/file/directory examples alongside control states. Root inclusion/item counts, nested/empty/skip/resume native fixtures remain required.",
+        "progress": "Added download queue-admission timestamp reset and bounded absence of connected inactivity expiry in ordinary download worker. Folder state/framing remains documented; full nested/skip/resume and timing native fixtures remain required.",
         "evidence": [
-          "[Error outcomes](error-outcomes.md)",
-          "[Folder descriptor](transfer-contracts.md#folder-item-descriptor-bytes)",
-          "[Identified client source](identified-client-source.md)"
+          "[Activity clocks](session-transport-contracts.md#activity-clocks-and-incomplete-input)",
+          "[Flood counters](session-transport-contracts.md#flood-and-connection-burst-counters)",
+          "[Transfer timer resets](transfer-contracts.md#transfer-timer-origins-and-resets)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -3141,11 +3143,11 @@
         "GAP-056"
       ],
       "resolution": {
-        "progress": "Confirmed shared descriptor prefix/path framing with download while retaining different upload controls. Tiny/truncated descriptors, count mismatches, conflict and partial-transfer native fixtures remain required.",
+        "progress": "Confirmed folder upload progress slot begins at request creation and file chunks refresh it; descriptor/control reads and attachment do not. Late-attachment/descriptor-delay plus nested/conflict/partial-transfer native fixtures remain required.",
         "evidence": [
-          "[Error outcomes](error-outcomes.md)",
-          "[Folder descriptor](transfer-contracts.md#folder-item-descriptor-bytes)",
-          "[Identified client source](identified-client-source.md)"
+          "[Activity clocks](session-transport-contracts.md#activity-clocks-and-incomplete-input)",
+          "[Flood counters](session-transport-contracts.md#flood-and-connection-burst-counters)",
+          "[Transfer timer resets](transfer-contracts.md#transfer-timer-origins-and-resets)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -3200,10 +3202,11 @@
         "GAP-055"
       ],
       "resolution": {
-        "progress": "Traced producer 1000cfa0: notification 211 contains four-byte 107 and numeric 116, zero on admission and updated nonzero waiting positions. Concurrent scheduling, fairness, limit configuration and queue races still require runtime fixtures.",
+        "progress": "Queue admission resets ordinary/folder timestamps before active no-connection timeout. No queue-age expiry comparison in inspected worker; lower-layer queue lifetime remains unresolved. Scheduling/fairness/concurrency native fixtures remain required.",
         "evidence": [
-          "[Transfer contracts](transfer-contracts.md)",
-          "[Batch 04](../mothra/evidence/gap-remediation/2026-11-12/batch-04/manifest.json)"
+          "[Activity clocks](session-transport-contracts.md#activity-clocks-and-incomplete-input)",
+          "[Flood counters](session-transport-contracts.md#flood-and-connection-burst-counters)",
+          "[Transfer timer resets](transfer-contracts.md#transfer-timer-origins-and-resets)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -3355,11 +3358,11 @@
         "GAP-056"
       ],
       "resolution": {
-        "progress": "Traced INFO finalization effects, including current modification time, nonempty comment application and unchecked FlushVol return. Completion durability, truncation/overshoot and interrupted-transfer native fixtures remain required.",
+        "progress": "Added age-check-before-drain and late-first-attachment derived upload case, retaining separate500-second pending versus120-second connected comparisons. Native completion/interruption/durability fixtures remain required.",
         "evidence": [
-          "[Article navigation](news-contracts.md#reading-bodies-and-navigation)",
-          "[Deletion rewrite](news-contracts.md#deletion-graph-rewrite)",
-          "[INFO restoration](transfer-contracts.md#info-restoration-after-upload)"
+          "[Activity clocks](session-transport-contracts.md#activity-clocks-and-incomplete-input)",
+          "[Flood counters](session-transport-contracts.md#flood-and-connection-burst-counters)",
+          "[Transfer timer resets](transfer-contracts.md#transfer-timer-origins-and-resets)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -6134,7 +6137,7 @@
       "heading": "Privilege access and connection timers",
       "level": 2,
       "line_start": 169,
-      "line_end": 216,
+      "line_end": 219,
       "anchor": "privilege-access-and-connection-timers",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6541,8 +6544,8 @@
       "path": "transfer-contracts.md",
       "heading": "Folder-download control states",
       "level": 2,
-      "line_start": 246,
-      "line_end": 266,
+      "line_start": 277,
+      "line_end": 297,
       "anchor": "folder-download-control-states",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6556,8 +6559,8 @@
       "path": "transfer-contracts.md",
       "heading": "Folder-upload control states",
       "level": 2,
-      "line_start": 298,
-      "line_end": 338,
+      "line_start": 329,
+      "line_end": 371,
       "anchor": "folder-upload-control-states",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7106,7 +7109,7 @@
       "heading": "Identifier domains",
       "level": 2,
       "line_start": 90,
-      "line_end": 106,
+      "line_end": 105,
       "anchor": "identifier-domains",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7362,8 +7365,8 @@
       "path": "transfer-contracts.md",
       "heading": "Folder item descriptor bytes",
       "level": 3,
-      "line_start": 267,
-      "line_end": 297,
+      "line_start": 298,
+      "line_end": 328,
       "anchor": "folder-item-descriptor-bytes",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7673,6 +7676,67 @@
         "GAP-072",
         "GAP-073",
         "GAP-078"
+      ]
+    },
+    {
+      "path": "transfer-contracts.md",
+      "heading": "Transfer timer origins and resets",
+      "level": 3,
+      "line_start": 246,
+      "line_end": 276,
+      "anchor": "transfer-timer-origins-and-resets",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-005",
+        "GAP-059",
+        "GAP-060",
+        "GAP-061",
+        "GAP-064"
+      ],
+      "related_gap_ids": [
+        "GAP-005",
+        "GAP-059",
+        "GAP-060",
+        "GAP-061",
+        "GAP-064"
+      ]
+    },
+    {
+      "path": "session-transport-contracts.md",
+      "heading": "Activity clocks and incomplete input",
+      "level": 2,
+      "line_start": 106,
+      "line_end": 139,
+      "anchor": "activity-clocks-and-incomplete-input",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-005",
+        "GAP-008",
+        "GAP-012"
+      ],
+      "related_gap_ids": [
+        "GAP-005",
+        "GAP-008",
+        "GAP-012"
+      ]
+    },
+    {
+      "path": "session-transport-contracts.md",
+      "heading": "Flood and connection-burst counters",
+      "level": 2,
+      "line_start": 140,
+      "line_end": 166,
+      "anchor": "flood-and-connection-burst-counters",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-005",
+        "GAP-045",
+        "GAP-074"
+      ],
+      "related_gap_ids": [
+        "GAP-005",
+        "GAP-045",
+        "GAP-074"
       ]
     }
   ]

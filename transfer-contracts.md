@@ -243,6 +243,37 @@ Download completion means all advertised bytes have been enqueued by the worker;
 it does not itself prove the peer persisted them. The complete folder streams,
 transport-drain/EOF ordering and interruption semantics remain unresolved.
 
+### Transfer timer origins and resets
+
+The timer slot belongs to the transfer entry, not automatically to the accepted
+TCP connection. Request 203 initializes ordinary upload `entry + 0x0c`; request
+213 initializes folder upload `entry + 0x10`, both from the native seconds clock.
+The [HTXF attachment assembly][attach-asm] stores the transport (and ordinary
+upload's expected byte count) without resetting these timestamps. Reference
+lookup helpers `1000ec40`/`1000ec80` only find the matching entry.
+
+| Entry / state | Clock origin or refresh | Consequence in traced worker |
+| --- | --- | --- |
+| Ordinary upload, waiting | Request 203 timestamp | No connection: cleanup at age greater than 500. |
+| Ordinary upload, connected | Same slot; each consumed parser-input chunk refreshes it | Check age greater than 120 before draining available chunks; attachment alone does not start a fresh 120 seconds. |
+| Folder upload, waiting | Request 213 timestamp | No connection: cleanup at age greater than 500. |
+| Folder upload, connected | Same slot; file-stream receive chunks refresh it | Continue only while age is below 121. Descriptor/control reads do not refresh this slot. |
+| Queued ordinary/folder download | Queue-admission worker resets entry timestamp when moving it into the active collection | Waiting in the queue is distinct from the active worker's greater-than-500-second no-connection comparison. |
+| Connected ordinary download | Worker uses send-buffer/connection state and send-progress bookkeeping | No connected inactivity-expiry comparison is established in that worker; this does not rule out lower transport deadlines. |
+
+Thus a code-derived case is an upload entry created at time zero, first data
+connection attached at time 130, with no earlier received file chunks. The
+connected worker's age check can reject it immediately even though its pending
+500-second comparison did not yet expire. This is an inference from control
+flow, not a captured native timing result. Available bytes are read only after
+the connected age check passes.
+
+No queue-age expiry comparison appears in the inspected admission worker
+`1000cfa0`; owner/connection and capacity checks still apply. Whether a lower
+layer times out a queued connection remains open. GAP-005/059/060/061/064 retain
+late-attachment, long descriptor/control sequences, queue-wait and clock-boundary
+native fixtures. Timers here are not guarantees of exact wall-clock closure.
+
 ## Folder-download control states
 
 The ordinary fork stream is reused per file, but the enclosing folder protocol
@@ -336,3 +367,5 @@ Nothing here promises transactional rollback of previously uploaded items.
 [descriptor-asm]: ../mothra/evidence/gap-remediation/2026-11-12/batch-10/queries/B10-A-1000c6a0.json
 
 [info-restore]: ../mothra/evidence/gap-remediation/2026-11-12/batch-13/queries/B13-D-1002d2c0.c
+
+[attach-asm]: ../mothra/evidence/gap-remediation/2026-11-12/batch-16/queries/B16-A-1000bd20.json

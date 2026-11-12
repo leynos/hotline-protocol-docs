@@ -190,10 +190,13 @@ The dispatcher clock calls Mac `GetDateTime`; these comparisons use seconds:
 | Active session, last activity age greater than 600 seconds | Calls idle-state setter `10005400` with 1; this branch does not itself disconnect. |
 | More than 120 processed requests in the 60-second flood window | Flood/close path with a 1,800-second ban argument. |
 
-A processed request refreshes activity. Request 500 has an empty-ACK handler;
-this makes it usable as a request/response probe, but does not establish any
-client's intended heartbeat schedule. Initial-handshake, partial-frame and
-transfer timers remain open; these four rows are not an exhaustive timer table.
+A selected complete logical request refreshes activity; TCP byte arrival and
+incomplete fragments do not update that slot in the traced receive/dispatch
+paths. Request 500 has an empty-ACK handler, which makes it usable as a probe
+without establishing a client's intended schedule. See the
+[activity boundary table](session-transport-contracts.md#activity-clocks-and-incomplete-input)
+and [distinct flood counters](session-transport-contracts.md#flood-and-connection-burst-counters)
+for exact comparisons, bounded negative findings and remaining timer fixtures.
 
 [gaps]: gap-analysis.md
 [index]: ../mothra/evidence/gap-remediation/2026-11-12/batch-01/queries/B01-D-10056e20.c

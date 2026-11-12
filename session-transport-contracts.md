@@ -103,4 +103,64 @@ after 16-bit narrowing. Banner metadata uses the 151 threshold and category
 format uses 15. No threshold proves a named client build. ID reuse/wrap,
 version-boundary and identified-peer fixtures remain GAP-024/033/080.
 
+## Activity clocks and incomplete input
+
+The dispatcher samples `GetDateTime` once per invocation and uses unsigned
+32-bit subtraction for its elapsed comparisons. This is the native seconds
+clock, not evidence of a monotonic timer. Clock adjustment, counter rollover,
+worker scheduling and transport drain still require runtime fixtures.
+
+A new session initializes activity at `session + 0x9c` when the handshake has
+been admitted. The request loop updates that slot only after
+[complete-request selection `10058e80`][select] succeeds and before dispatching
+the handler. Its selector requires accumulated payload length at least the
+recorded total. The [frame receiver][receive] can consume a partial payload or
+retain incomplete fragments without returning a dispatchable request.
+
+Consequently, TCP byte arrival, a complete physical fragment and a processed
+logical request are different activity events. Partial input does not refresh
+the activity slot in these traced paths. Once online, the idle branch changes
+status instead of imposing a universal frame-assembly deadline.
+
+| State / counter | Native comparison and boundary | Reset / action |
+| --- | --- | --- |
+| Admitted but not online | Activity age at least 61 seconds | A selected request refreshes activity; expiry calls the close helper. |
+| Authentication failure recorded | Failure timestamp nonzero and age greater than 30 seconds | Normal request loop is bypassed; expiry calls close helper. |
+| Online idle status | Activity age greater than 600 seconds | Selected request clears idle state and refreshes activity; expiry sets idle, not a disconnect here. |
+| Fewer than 12 handshake bytes | Availability test waits | No age comparison in the dispatcher's pending-handshake walk or the inspected handshake helper. |
+| Raw HTXF accepted but fewer than 16 header bytes | Availability test waits | No age comparison in the inspected pending-HTXF walk; a transfer entry's separate timer is not automatically this connection's timer. |
+| Incomplete online frame or fragmented request | Receiver retains available partial state | No assembly-age comparison in the receiver or complete-request selector. |
+
+The last three rows are bounded negative findings. Lower transport/platform
+behaviour can still close a connection, and no global claim of unlimited
+lifetime is made. Native stalled-handshake/header/body/fragment fixtures remain
+GAP-005/008/012/055/084. These observations also do not prescribe mxd's chosen
+resource limits or deadlines.
+
+## Flood and connection-burst counters
+
+Two separate mechanisms appear in dispatcher `1000acf0`:
+
+| Mechanism | Native state / comparison | Consequence |
+| --- | --- | --- |
+| Per-session request flood | Reset counter when window age is greater than 60 seconds. Before dispatch, reject if the existing counter is greater than 120; otherwise increment it. | Close path, with a timed address-ban entry whose expiry is native time plus 1,800 seconds. |
+| Consecutive same-address connection burst | Server-wide last address, start time and repeat count. A changed address resets start/count to now/zero. For the same address, increment count, then test count greater than 10 and elapsed age less than 30 seconds. | Timed address-ban construction and pending-connection rejection. |
+
+Starting from a reset request counter of zero, 121 requests pass the counter
+check; the next is rejected unless the greater-than-60-second reset has occurred.
+This is a code-derived boundary, not a measured per-second throughput promise.
+At exactly 60 seconds this reset does not yet apply. The connection-burst branch
+uses a different strict comparison: exactly 30 seconds is outside its rejection
+window. Its initial address encounter has repeat count zero, so the twelfth
+consecutive encounter reaches count 11.
+
+The connection counter tracks the last address rather than a separate sliding
+window for every address. The inspected same-address branch does not restart
+its start time merely because 30 seconds have elapsed. Interleaved addresses,
+window boundaries, ban expiry/restart and control-loop batching need native
+fixtures before claiming a conventional rate-limit algorithm (GAP-045/074).
+
 [batch]: ../mothra/evidence/gap-remediation/2026-11-12/batch-07/manifest.json
+
+[select]: ../mothra/evidence/gap-remediation/2026-11-12/batch-16/queries/B16-D-10058e80.c
+[receive]: ../mothra/evidence/gap-remediation/2026-11-12/batch-16/queries/B16-D-100590e0.c
