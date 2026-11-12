@@ -26,6 +26,7 @@ from native_folder_upload_cases import (
     resumed_uploads,
 )
 from native_framing_cases import framing
+from native_htxf_cases import htxf
 from native_queue_cases import queues, timer
 from native_resume_cases import downloads as resume_downloads
 from native_resume_cases import upload_continuations, upload_probes
@@ -38,6 +39,7 @@ def main() -> None:
     parser.add_argument(
         "suite",
         choices=[
+            "htxf",
             "framing",
             "banner-none",
             "banner-format-seed",
@@ -82,6 +84,7 @@ def main() -> None:
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     cases = {
+        "htxf": htxf,
         "framing": framing,
         "banner-none": lambda: banner_metadata("none", None, None),
         "banner-format-seed": seed_formats,
@@ -143,6 +146,8 @@ def main() -> None:
                 "GAP-017",
             ]
             if args.suite == "framing"
+            else ["GAP-055", "GAP-084"]
+            if args.suite == "htxf"
             else ["GAP-055", "GAP-063", "GAP-084"]
             if args.suite.startswith("banner-")
             else ["GAP-058", "GAP-064"]
