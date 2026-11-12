@@ -72,8 +72,22 @@ handler ignores that return and sends an empty success ACK in every case.
 This helper does not search upload or banner collections. Therefore 214 is not
 a proven universal cancellation request. Its ACK means the request handler
 finished, not that a transfer existed, belonged to the requester or was stopped.
-Completion/cancellation races and repeated-cleanup runtime fixtures remain
-GAP-062; these observations do not promise rollback of transferred bytes.
+The ordinary-file and controlled-queue captures establish these bounded cases:
+
+| Reference state / requester | Captured 214 outcome |
+| --- | --- |
+| Absent field, explicit zero or unknown value | Empty success ACK; no removal is certified. |
+| Previously removed reference, repeated cleanup | Empty success ACK again. |
+| Another session's admitted download | Empty success ACK; owner slot remains occupied and its waiter stays blocked. |
+| Owner's queued reference without data connection | Removes waiter; later positions advance. |
+| Owner's queued reference with early HTXF attachment | Removes waiter and closes attached data connection without file bytes. |
+| Owner's pending admitted reference | Removes entry and permits the next eligible waiter. |
+| Owner's download after complete advertised-byte delivery | ACK followed by data EOF; already delivered bytes are not rolled back. |
+| Cancellation racing an in-progress download | Not yet captured; remains GAP-062. |
+
+These observations do not promise rollback of transferred bytes or universal
+cleanup of uploads and banners. In-progress completion/cancellation races remain
+required before GAP-062 can close.
 
 ## Resume data: RFLT
 
@@ -305,8 +319,94 @@ It moves the entry to the corresponding active collection and refreshes its
 pending-connection timestamp. For a still-waiting entry whose computed position
 changes, it sends the same fields with the new nonzero position. No additional
 211 is sent from this branch when the computed position is unchanged. Queue
-walking/order is observed; fairness under concurrent requests, exact limit
-configuration and queue/connection races still require GAP-061 fixtures.
+walking/order is observed. The controlled fixtures below exercise admission,
+position changes and two-owner ordering; they do not establish a starvation
+bound or universal FIFO policy. Completion/cancellation races remain GAP-062.
+
+### Captured controlled queues
+
+The [native queue corpus](../mothra/evidence/gap-remediation/2026-11-12/native-queue-01/manifest.json)
+retains four cases with paired packet captures and exact byte/position checks.
+The queue fixture configuration is **two simultaneous downloads globally and
+one per client session**. Both owners log in as the same fixture account on
+separate control connections; the native counters use their session UIDs.
+Saved/reopened General Options screenshots retain the prior limits 100/10 and
+the test limits 2/1. These are test settings, not protocol defaults.
+
+The mode matrix first holds one pending ordinary download without attaching
+its data connection, then requests the following on that same session:
+
+| Field 204 / file | Initial 108 | Initial 207 | Reference 107 | Queue position 116 |
+| --- | ---: | ---: | --- | ---: |
+| Absent / nonempty ordinary blocker | 510 | 330 | Four-byte odd value | Omitted while admitted |
+| 0, 1, 3 or 65,535 / nonempty | 510 | 330 | Four-byte odd value | 1, 2, 3, 4 respectively |
+| 2 / nonempty preview | 13 | 330 | Four-byte odd value | 5 |
+| Absent / empty ordinary file | 181 | 0 | Four-byte odd value | 6 |
+| 2 / empty preview | 0 | Omitted | Omitted | Omitted |
+
+Only numeric value 2 selects preview in the traced handler; the tested other
+values use ordinary FILP serialization. Queueing does not remove the reference
+or replace the transfer-size calculation. Empty preview returns before creating
+a queue entry. After the blocker is removed, all six queued cases deliver their
+advertised bytes with the expected FILP forks or raw preview data.
+
+The first waiter receives 211 with position zero on admission. Remaining
+positions decrease by one in queue order; each subsequent admitted/completed
+transfer advances the next. The captured notification sequences for initial
+positions 1 through 6 are `[0]`, `[1,0]`, `[2,1,0]`, `[3,2,1,0]`,
+`[4,3,2,1,0]` and `[5,4,3,2,1,0]`. No extra unchanged-position notifications
+appear in this finite case.
+
+A cancellation case holds one active reference and three waiters. The middle
+waiter attaches HTXF early and receives no bytes during a three-second window.
+Owner 214 removes it and closes that attached data connection without file
+bytes; the final waiter's position changes from 3 to 2. Removing the first
+waiter changes it to 1; removing the active reference admits it with 211/zero.
+It then connects and downloads successfully. A repeated cleanup ACK is empty.
+
+The two-owner case distinguishes queue order from eligibility. Owner A holds
+one active reference and two waiters; owner B then holds the second global
+slot and adds a waiter at position 3. Removing B's active reference admits B's
+later waiter while A's earlier requests remain blocked by A's per-session cap.
+The native packet timestamps establish B's admission before A's later admission.
+This is a bounded head-of-line bypass observation, not strict FIFO fairness.
+
+After A's active reference is removed, A's first waiter is admitted and its
+second waiter moves to position 1. That second waiter attaches HTXF early and
+stays silent for three seconds. B's 214 against A's admitted reference ACKs but
+does not free A's slot: the early data connection remains silent for another
+three seconds. A's own cleanup then admits the waiter, which delivers its full
+stream on the **already attached connection**, without a second HTXF exchange.
+Absent, zero, unknown and duplicate cleanup requests also receive empty ACKs.
+These fixtures support ownership and state-specific outcomes; in-progress
+completion/cancellation races remain separately required by GAP-062.
+
+### Captured pending-reference timeout
+
+The fourth case creates an admitted pending download with no data connection,
+then a same-owner waiter at position 1. It performs twelve measured 45-second
+pauses, each followed by a request-500 ACK on the owner control session.
+After that interval, attaching the old pending reference produces native reset
+and no application bytes. Attaching the waiting reference delivers the full
+510-byte file stream. The guest-side reset's diagnostic payload is retained
+as transport evidence, not decoded as Hotline data.
+
+The waiter's 211/zero notification is observed in the guest capture
+**542.973851 host seconds after the first download ACK**. This is when all its
+frame bytes were first observed, not an instrumented timestamp of internal
+entry removal or admission. The worker's traced predicate remains age greater
+than 500 Mac seconds; no unconditional 500-second network deadline follows
+from this run. Scheduling and flushing can affect when changes become visible.
+The admitted waiter remains usable after the original long wait, consistent
+with the traced timestamp refresh when a queued entry moves to the active list.
+
+A client can wait for 211/zero before attaching the advertised reference. The
+earlier cases also prove that this native server accepts an early attachment
+and later delivers on that same connection. Reconnecting a removed reference
+does not recreate a transfer: the expired reference above closes without a
+numbered transfer error. These observations are bounded to ordinary file
+queues at the recorded limits; mixed folder queues and universal starvation
+or scheduling guarantees are not established.
 
 ## Banner bytes and worker timers
 

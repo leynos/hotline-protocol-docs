@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 
 from native_framing_cases import framing
+from native_queue_cases import queues, timer
 from native_resume_cases import downloads as resume_downloads
 from native_resume_cases import upload_continuations, upload_probes
 from native_transfer_cases import downloads, transfers
@@ -23,6 +24,8 @@ def main() -> None:
             "resume-downloads",
             "resume-upload-probes",
             "resume-upload-continuations",
+            "queues",
+            "queue-timer",
         ],
     )
     parser.add_argument("--runtime-record", type=Path, required=True)
@@ -35,6 +38,8 @@ def main() -> None:
         "resume-downloads": resume_downloads,
         "resume-upload-probes": upload_probes,
         "resume-upload-continuations": upload_continuations,
+        "queues": queues,
+        "queue-timer": timer,
     }[args.suite]()
     args.output.mkdir(parents=True, exist_ok=False)
     for name, (steps, expectation) in cases.items():
@@ -55,6 +60,8 @@ def main() -> None:
             if args.suite == "framing"
             else ["GAP-058", "GAP-064"]
             if args.suite.startswith("resume-")
+            else ["GAP-057", "GAP-061", "GAP-062"]
+            if args.suite in {"queues", "queue-timer"}
             else ["GAP-009", "GAP-055", "GAP-056", "GAP-064"],
             "endpoints": {
                 "control": {"host": "127.0.0.1", "port": 15500},

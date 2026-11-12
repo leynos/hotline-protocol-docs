@@ -397,6 +397,49 @@ ordinary bounded offsets use advertised count and a three-second quiet window.
 Retain the initial timeout/EOF failures and any unread control suffixes with
 their complete paired packet evidence.
 
+## Recorded native queue fixtures
+
+Verify the [retained queue corpus](../mothra/evidence/gap-remediation/2026-11-12/native-queue-01/manifest.json)
+from `mothra` without running its nine-minute native capture again:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/verify_native_queues.py \
+  evidence/gap-remediation/2026-11-12/native-queue-01
+```
+
+The queue suite requires the ordinary-file corpus's nonempty and empty files
+and its known admin fixture account. In the native server's General Options,
+record the existing maximum simultaneous downloads and per-client values,
+change them to **2 globally / 1 per client**, save, reopen the dialog and verify
+the saved values. Close the dialog before recording. The captured setup used
+limits 100/10 beforehand and retained the IP connection limit of 5. Neither
+the prior values nor the test values are advertised as protocol defaults.
+
+Prepare `queues` and `queue-timer` with `prepare_native_cases.py`, separate new
+plan directories and the current verified runtime record. Include
+`queue_test_configuration` with numeric `global_max_downloads` 2 and
+`per_client_max_downloads` 1 in that record. Start fresh host packet recording
+and retain the continuous guest observer. Run the mode matrix, cancellation
+position case and two-owner ordering case sequentially, then the timer case.
+Each case cancels its remaining references and closes its control sessions.
+
+The timer plan takes at least nine host minutes: twelve measured 45-second
+pauses with a request-500 ACK after each. Those requests exercise a known ACK
+path and keep the observed control connection usable; they do not identify a
+historical client's purpose or scheduling for request 500. Do not run other
+native connections, edit settings or operate the guest UI during this timer
+case. Poll the existing recorder process/handle while it runs; an observation
+timeout does not authorize restarting the guest or replacing that attempt.
+
+After the cases close, stop the host recorder, snapshot complete guest packet
+records and preserve exact unread control suffixes separately from socket
+reports. Restore the server's prior General Options limits and retain proof
+that the restored values were saved. Keep ROMs, working disks and full runtime
+state outside Git. The standalone queue verifier checks packet/stream bytes,
+mode/fork outcomes, initial and updated positions, reference ownership and
+measured timer windows; screenshots supply operator-visible configuration
+provenance rather than replacing the runtime checks.
+
 ## Acceptance and corpus coverage
 
 A completed plan establishes its recorded exchange and expectations, not every

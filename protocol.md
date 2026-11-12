@@ -658,8 +658,9 @@ a reference. Do not require a reference in every successful response.
 The field schemas do not establish that file size always equals transfer size,
 that preview mode is the default for all clients, or the full resume-stream
 format. Queue advancement and notification 211 are now traced in
-[transfer contracts](transfer-contracts.md); concurrency/fairness fixtures
-remain open.
+[transfer contracts](transfer-contracts.md). The [controlled queue cases](transfer-contracts.md#captured-controlled-queues)
+cover response sizes, position changes and admission ordering; they do not
+establish a universal FIFO or starvation guarantee.
 
 For a nonqueued ordinary download, read the advertised transfer count rather
 than waiting for server EOF. The [native fork captures](transfer-contracts.md#captured-completion-and-eof-behaviour)
