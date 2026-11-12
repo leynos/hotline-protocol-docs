@@ -440,6 +440,42 @@ mode/fork outcomes, initial and updated positions, reference ownership and
 measured timer windows; screenshots supply operator-visible configuration
 provenance rather than replacing the runtime checks.
 
+## Recorded native cleanup fixtures
+
+The [cleanup corpus](../mothra/evidence/gap-remediation/2026-11-12/native-cleanup-01/manifest.json)
+contains ten completed captures and independent native fork extractions.
+Verify it from `mothra` without the emulator:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/verify_native_cleanup.py \
+  evidence/gap-remediation/2026-11-12/native-cleanup-01
+```
+
+Prepare `cleanup-seed`, `cleanup-downloads` and `cleanup-upload` with
+`prepare_native_cases.py`, separate new output directories and a current
+verified runtime record. This run used the restored 100-global/10-per-client
+limits, not the queue fixture's 2/1 limits. Start host and guest recording first.
+The files `mothra-race-fixture` and `mothra-214-upload` must be absent before
+their seed/upload plans; use a disposable native Files root.
+
+Run the seed, then the full baseline before the other download variants. Keep
+all three immediate and all three partial-read attempts even when their byte
+counts differ. The nonowner case uses two control sessions; raw transfer and
+stale-reference probes use separate data connections. Each case cleans up its
+reference and closes its sockets. Run the pending-upload case separately.
+
+Afterwards use the read-only HFS+ commands above to retain DATA, MACR and
+catalogue records for both files. The seed's DATA pattern is bytes 0–255 repeated
+4,096 times and its resource fork is the existing valid 317-byte fixture.
+Stop host recording and snapshot complete guest records after all sockets close.
+Keep any unread control suffix separate from the original application report.
+
+Cancellation `read_eof` steps deliberately retain any returned prefix. Do not
+require zero bytes or a complete FILP stream after a racing cleanup. Compare
+against the complete baseline instead. Keep application receive timing separate
+from the guest packet timestamps for incoming 214, outgoing ACK and data/close;
+neither timestamp instruments the handler's internal execution instant.
+
 ## Acceptance and corpus coverage
 
 A completed plan establishes its recorded exchange and expectations, not every

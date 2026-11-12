@@ -82,12 +82,75 @@ The ordinary-file and controlled-queue captures establish these bounded cases:
 | Owner's queued reference without data connection | Removes waiter; later positions advance. |
 | Owner's queued reference with early HTXF attachment | Removes waiter and closes attached data connection without file bytes. |
 | Owner's pending admitted reference | Removes entry and permits the next eligible waiter. |
-| Owner's download after complete advertised-byte delivery | ACK followed by data EOF; already delivered bytes are not rolled back. |
-| Cancellation racing an in-progress download | Not yet captured; remains GAP-062. |
+| Owner's download after complete advertised-byte delivery | Empty ACK and data-transport close; already delivered bytes are not rolled back. |
+| Cancellation racing an in-progress download | Partial baseline prefix, empty ACK and native close; the application can drain buffered bytes after reading the ACK. See the captured cases below. |
+| Pending ordinary upload | Empty ACK does not remove its reference; a later valid upload completes. |
 
 These observations do not promise rollback of transferred bytes or universal
-cleanup of uploads and banners. In-progress completion/cancellation races remain
-required before GAP-062 can close.
+cleanup of uploads and banners. Folder operation streams remain separately
+tracked, and no universal race byte count or cancellation deadline is claimed.
+
+### Captured cancellation and completion races
+
+The [native cleanup corpus](../mothra/evidence/gap-remediation/2026-11-12/native-cleanup-01/manifest.json)
+retains ten cases: a seeded multi-chunk file, its full download, three immediate
+owner cancellations, three cancellations after reading 1,024 bytes, nonowner
+cleanup and cleanup of a pending upload. Every stream reconciles with both
+host and guest packet views; an unread departure notification remains pinned
+separately. Native HFS+ fork extractions match the uploaded source bytes after
+all cases.
+
+The baseline file has 1,048,576 DATA bytes (`00` through `ff`, repeated 4,096
+times), 317 MACR bytes and a complete ordinary FILP stream of 1,049,073 bytes.
+Each cancelled stream is an exact prefix of that baseline. Counts below
+include FILP/INFO/fork headers, rather than only DATA bytes:
+
+| Cancellation attempt | Total stream bytes received | Application bytes read after owner ACK | Guest bytes first observed after complete incoming 214 |
+| --- | ---: | ---: | ---: |
+| Immediate 1 | 17,844 | 17,844 | 17,844 |
+| Immediate 2 | 11,112 | 11,112 | 11,112 |
+| Immediate 3 | 28,956 | 28,956 | 28,956 |
+| After 1,024-byte read, 1 | 261,252 | 260,228 | 258,332 |
+| After 1,024-byte read, 2 | 2,920 | 1,896 | 0 |
+| After 1,024-byte read, 3 | 2,920 | 1,896 | 0 |
+
+The distinct lengths are observations from six races, not minimum or maximum
+delivery guarantees. Complete incoming-request observation does not instrument
+handler entry. In these six cases, all native DATA packets and the first native
+close precede the complete control ACK; zero data bytes are first observed
+after that ACK. The application nevertheless reads buffered bytes afterwards.
+The first close precedes ACK observation by about 1–3 host milliseconds here;
+this is cross-connection packet evidence, not a protocol timing guarantee.
+
+The nonowner case sends 214 from a second control session after HTXF attachment.
+It receives an empty ACK, then 1,037,961 further stream bytes are first observed
+on the guest network. The owning session receives the full baseline and observes
+three seconds without more data or EOF before its own cleanup closes the
+connection. After each owner cleanup, a repeated 214 still ACKs and a new HTXF
+attempt using that removed reference closes with no application bytes.
+
+A pending-upload case sends 214 against the even reference from request 203
+before connecting its upload stream. The ACK is empty, but the subsequent
+HTXF/FILP upload completes with native EOF and correct DATA/MACR and TEXT/MOTH
+file metadata. This exercises the helper's omission of the upload collection;
+banner omission remains established by the traced collection search rather
+than a new banner runtime fixture.
+
+### Buffered receipt and packet ordering
+
+Control ACK and data EOF belong to different TCP connections. A client reading
+the ACK first can subsequently drain bytes already delivered to its data socket.
+Consequently, an empty ACK cannot serve as a rollback of prior data, a guarantee
+that no buffered bytes remain, or proof that an unknown/unowned reference was
+removed. Preserve partial data according to the application's own policy.
+
+The verifier reconciles all bytes, checks baseline prefixes, matches the exact
+request/reference/owner, and separately counts first-observed native bytes and
+application reads around ACK receipt. Retransmissions are deduplicated for
+those counts. Native resets can appear as host EOF; their diagnostic payloads
+remain transport records and are excluded from Hotline stream bytes. Source
+handler `10013040` ignores cleanup helper `1000e760`'s result before ACKing,
+which explains why success-envelope presence alone cannot certify removal.
 
 ## Resume data: RFLT
 
@@ -488,8 +551,10 @@ for server EOF as the only successful completion condition timed out after
 30 seconds in five initial probes; those failed assumptions remain immutable.
 
 In the reviewed raw download, request 214 on the owning control connection
-after the full read and quiet window receives an empty ACK, followed by EOF
-on the data connection. Other successful download cases close from the peer
+after the full read and quiet window receives an empty ACK and EOF on the data
+connection. The [cleanup races](#buffered-receipt-and-packet-ordering) distinguish
+application read order from packet order across these two connections.
+Other successful download cases close from the peer
 after the quiet window. Uploads instead receive native EOF after their
 advertised input has been consumed, with no additional numbered control ACK.
 Neither direction's observation proves persistence on another host or after a

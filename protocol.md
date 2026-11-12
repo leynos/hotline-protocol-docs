@@ -665,7 +665,10 @@ establish a universal FIFO or starvation guarantee.
 For a nonqueued ordinary download, read the advertised transfer count rather
 than waiting for server EOF. The [native fork captures](transfer-contracts.md#captured-completion-and-eof-behaviour)
 show full delivery followed by an open data connection; owner request 214 then
-ACKs and closes that connection. This is distinct from native upload completion,
+ACKs and closes that connection. Buffered bytes can still be read after the ACK;
+the [cleanup race captures](transfer-contracts.md#buffered-receipt-and-packet-ordering)
+distinguish application reads from packet ordering across the two connections.
+This is distinct from native upload completion,
 which closes the data connection without an additional numbered control ACK.
 
 Evidence: V051; `100121a0`.

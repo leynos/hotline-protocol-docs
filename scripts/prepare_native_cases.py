@@ -5,6 +5,9 @@ import argparse
 import json
 from pathlib import Path
 
+from native_cleanup_cases import downloads as cleanup_downloads
+from native_cleanup_cases import seed as cleanup_seed
+from native_cleanup_cases import upload_cleanup
 from native_framing_cases import framing
 from native_queue_cases import queues, timer
 from native_resume_cases import downloads as resume_downloads
@@ -26,6 +29,9 @@ def main() -> None:
             "resume-upload-continuations",
             "queues",
             "queue-timer",
+            "cleanup-seed",
+            "cleanup-downloads",
+            "cleanup-upload",
         ],
     )
     parser.add_argument("--runtime-record", type=Path, required=True)
@@ -40,6 +46,9 @@ def main() -> None:
         "resume-upload-continuations": upload_continuations,
         "queues": queues,
         "queue-timer": timer,
+        "cleanup-seed": cleanup_seed,
+        "cleanup-downloads": cleanup_downloads,
+        "cleanup-upload": upload_cleanup,
     }[args.suite]()
     args.output.mkdir(parents=True, exist_ok=False)
     for name, (steps, expectation) in cases.items():
@@ -60,6 +69,8 @@ def main() -> None:
             if args.suite == "framing"
             else ["GAP-058", "GAP-064"]
             if args.suite.startswith("resume-")
+            else ["GAP-062", "GAP-064"]
+            if args.suite.startswith("cleanup-")
             else ["GAP-057", "GAP-061", "GAP-062"]
             if args.suite in {"queues", "queue-timer"}
             else ["GAP-009", "GAP-055", "GAP-056", "GAP-064"],
