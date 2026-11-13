@@ -52,6 +52,10 @@ from native_login_extras_cases import NAMES as LOGIN_EXTRA_NAMES
 from native_login_extras_cases import configured as login_extras_configured
 from native_login_extras_cases import downloads as login_extras_downloads
 from native_login_extras_cases import lifetime as login_extras_lifetime
+from native_metadata_cases import cleanup as metadata_cleanup
+from native_metadata_cases import mutations as metadata_mutations
+from native_metadata_cases import preflight as metadata_preflight
+from native_metadata_cases import seed as metadata_seed
 from native_mkdir_cases import cleanup as mkdir_cleanup
 from native_mkdir_cases import creation as mkdir_creation
 from native_mkdir_cases import empty_root as mkdir_empty_root
@@ -69,6 +73,10 @@ def main() -> None:
     parser.add_argument(
         "suite",
         choices=[
+            "metadata-preflight",
+            "metadata-seed",
+            "metadata-mutations",
+            "metadata-cleanup",
             "alias-cleanup",
             "alias-supplementary",
             "alias-damage",
@@ -146,6 +154,10 @@ def main() -> None:
     if args.suite == "agreement-restore-stage" and args.original_agreement is None:
         parser.error("agreement-restore-stage requires --original-agreement")
     cases = {
+        "metadata-preflight": metadata_preflight,
+        "metadata-seed": metadata_seed,
+        "metadata-mutations": metadata_mutations,
+        "metadata-cleanup": metadata_cleanup,
         "alias-cleanup": alias_cleanup,
         "alias-supplementary": alias_supplementary,
         "alias-damage": alias_damage,
@@ -245,6 +257,8 @@ def main() -> None:
                 "GAP-017",
             ]
             if args.suite == "framing"
+            else ["GAP-016", "GAP-019", "GAP-052", "GAP-084"]
+            if args.suite.startswith("metadata-")
             else ["GAP-047", "GAP-048", "GAP-049", "GAP-054", "GAP-084"]
             if args.suite.startswith("alias-")
             else ["GAP-047", "GAP-048", "GAP-051", "GAP-019", "GAP-084"]
