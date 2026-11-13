@@ -5,7 +5,8 @@ This is the canonical wire-shape rule for the hashed native 1.9 server. The
 schemas](core-field-schemas.md#types-occurrence-and-direction-conventions),
 and [parser analysis](native-wire-details.md#parameter-parsing-and-scalar-access)
 give field meanings and limits. The [GAP-017 certificate][certificate] records
-the representative native tests; closure remains a separate decision.
+the representative native tests. The [parent acceptance][acceptance] meets
+the unchanged GAP-017 criterion with the limitations stated below.
 
 An outer parameter is a counted sequence of ID/length/value records. Preserve
 its order and duplicate IDs through decoding. **Scalar** below means one
@@ -50,3 +51,5 @@ every malformed-input permutation.
 [certificate]: ../mothra/evidence/gap-remediation/2026-11-13/multiplicity-criterion-01/b33-certificate.md
 [manifest]: ../mothra/evidence/gap-remediation/2026-11-13/multiplicity-criterion-01/manifest.json
 [framing]: ../mothra/evidence/gap-remediation/2026-11-12/native-framing-01/verification.json
+
+[acceptance]: ../mothra/evidence/gap-remediation/2026-11-13/multiplicity-acceptance-01/decision.json

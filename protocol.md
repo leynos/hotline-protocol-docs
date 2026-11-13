@@ -139,6 +139,9 @@ Preserve field order and multiplicity until the transaction-specific decoder
 handles them. Scalar lookup sorts an ID index and uses binary search;
 arbitrary duplicates have no general first/last-wins guarantee. See the
 supplement for malformed-TLV prefix handling and numeric-copy edge cases.
+The [transaction-specific multiplicity table](parameter-multiplicity.md)
+separates scalar fields, repeated TLVs and packed lists with native reorder
+and interleaving fixtures.
 
 The numeric writer emits two bytes for values through `0xffff`, otherwise
 four. The numeric reader also accepts one byte; its inspected three-byte case
@@ -1105,7 +1108,16 @@ checks requester privilege 22 and target protection privilege 23.
 **ACK:** direct success/error paths are present. Options **1** and **2**
 select distinct branches; do not model them as independently combinable
 guessed IP/ account ban bits. The option-2 path reads optional field 101.
-Exact meanings of the two ban helpers remain unresolved.
+Option 1 adds an in-memory address ban with a GetDateTime-plus-1800
+seconds deadline. Option 2 writes the persisted address-ban list. Actual
+expiry, restart behaviour and remaining branch boundaries stay open.
+
+The [captured option-1 fixture](native-ban-notices.md) delivered the
+data-only temporary-ban 104 and disconnected its target; the administrator's
+ACK preceded 302 in both packet views. A later probe completed the handshake
+but sent no login. The [Ghidra trace](presence-messaging-contracts.md#kick-options-and-native-console-messages)
+places the two list checks at the start of 107, before credentials. A ban does
+not imply refusal of the initial handshake in this captured case.
 
 The inspected option-1/2 notice branches send **104** before closing the
 target transport. A plain kick can close without such a notice. Do not require

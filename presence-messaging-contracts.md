@@ -406,6 +406,29 @@ requester. Option 1 uses `100063c0`; option 2 uses `10006230`, list reader
 writes list version 2. These are address bans, not account-name mutations.
 Expiry/restart/protection fixtures remain GAP-074.
 
+The [owned lab fixture](native-ban-notices.md) captures option 1 with an
+unprotected target: data-only 104, target close, then the administrator's
+success ACK before 302 on its own stream. Its single fresh probe completed
+TRTP but attempted no 107; the failed pre-login EOF expectation is preserved.
+This does not establish later login acceptance or rejection.
+
+The [fresh read-only oracle trace][ban-oracle] finds direct callers of both
+ban predicates only in login 107. `10011960` checks the permanent list first,
+then the temporary list, before reading login/password TLVs. A matching branch
+constructs status 1 with field 100: the compiled Pascal strings are
+You are permanently banned on this server. and
+You are temporarily banned on this server. This is code-derived error text;
+C32 did not request login after its ban. Direct-call coverage does not exclude
+all indirect or alternative paths.
+
+Temporary lookup calls `100064d0` to purge deadlines no later than current
+GetDateTime, then matches the address. The deadline is the native 32-bit
+GetDateTime word plus 1800; range matcher `10009960` includes both endpoints.
+This is a lazy lookup-time cleanup path, not a proved background timer.
+Actual expiry, multiple-expired-entry behaviour, rollover and restart cases
+remain untested. The permanent writer refreshes its active list after writing;
+its full persisted reason/layout contract still needs a native fixture.
+
 Console message dialog `10002dd0` sends **104** with field 101 only through
 online fan-out. It does not reuse client broadcast type 355 or add a fabricated
 sender UID/name. Client request 355 remains its own ACK-plus-355 path.
@@ -548,3 +571,5 @@ connection receives neither. Exact fields, finite silence windows, teardown
 tails and the missing first host handshake are retained. The complete guest
 view and three complete host views are distinguished from that partial view.
 The full A7 account/file/metadata/download postflight matches the baseline.
+
+[ban-oracle]: ../mothra/evidence/gap-remediation/2026-11-13/native-ban-oracle-01/manifest.json
