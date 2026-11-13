@@ -48,8 +48,10 @@ active transfer collections and the waiting collection separately. This
 native-specific text check establishes the witness; it does **not** select a
 mandatory exact-text policy for mxd.
 
-The active data socket delivered 65,536 file bytes after its 16-byte HTXF
-request. Recorder, host and guest packet views match exactly for this case;
+The active data socket delivered 65,536 flattened transfer-stream bytes after
+its 16-byte HTXF request. The saved prefix begins with the FILP header and
+INFO fork, so this count includes framing and metadata. Recorder, host and
+guest packet views match exactly for this case;
 there is no unread application payload tail. The host data lifetime ended
 with FIN packets. The guest data lifetime has a server RST carrying the raw
 five-byte SLiRP diagnostic `No TCP`, followed by client RST+ACK packets. That
