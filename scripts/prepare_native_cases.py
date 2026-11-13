@@ -5,6 +5,10 @@ import argparse
 import json
 from pathlib import Path
 
+from native_auth_cases import guest_create as auth_guest_create
+from native_auth_cases import lookup as auth_lookup
+from native_auth_cases import seed as auth_seed
+from native_auth_cases import states as auth_states
 from native_banner_cases import URL
 from native_banner_cases import absent_restored as banner_absent_restored
 from native_banner_cases import changed as banner_changed
@@ -40,6 +44,11 @@ def main() -> None:
     parser.add_argument(
         "suite",
         choices=[
+            "auth-seed",
+            "auth-lookup",
+            "auth-missing-guest",
+            "auth-guest-create",
+            "auth-states",
             "correlation",
             "htxf",
             "framing",
@@ -86,6 +95,11 @@ def main() -> None:
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     cases = {
+        "auth-seed": auth_seed,
+        "auth-lookup": auth_lookup,
+        "auth-missing-guest": lambda: auth_lookup(missing_guest=True),
+        "auth-guest-create": auth_guest_create,
+        "auth-states": auth_states,
         "correlation": correlation,
         "htxf": htxf,
         "framing": framing,
@@ -149,6 +163,8 @@ def main() -> None:
                 "GAP-017",
             ]
             if args.suite == "framing"
+            else ["GAP-023", "GAP-025", "GAP-026", "GAP-027", "GAP-084"]
+            if args.suite.startswith("auth-")
             else ["GAP-004", "GAP-012", "GAP-013", "GAP-084"]
             if args.suite == "correlation"
             else ["GAP-055", "GAP-084"]
