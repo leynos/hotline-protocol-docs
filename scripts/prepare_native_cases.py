@@ -5,6 +5,7 @@ import argparse
 import json
 from pathlib import Path
 
+import native_news_boundary_cases as news_boundary
 from native_agreement_cases import PHASES as AGREEMENT_PHASES
 from native_agreement_cases import cleanup as agreement_cleanup
 from native_agreement_cases import phase as agreement_phase
@@ -107,6 +108,14 @@ def main() -> None:
         "suite",
         choices=[
             "article-delete-preflight",
+            "news-boundary-preflight",
+            "news-boundary-seed",
+            "news-boundary-append",
+            "news-boundary-observe",
+            "news-boundary-final",
+            "news-boundary-cleanup",
+            "news-boundary-publish",
+            "news-boundary-remove",
             "article-delete-inspect",
             "article-delete-resume",
             "article-delete-categories",
@@ -220,6 +229,8 @@ def main() -> None:
     parser.add_argument("--case-name")
     parser.add_argument("--completed-nodes", type=int, default=0)
     parser.add_argument("--category-exists", action="store_true")
+    parser.add_argument("--first-child", type=int, default=1)
+    parser.add_argument("--last-child", type=int, default=10)
     args = parser.parse_args()
     if args.suite == "agreement-restore-stage" and args.original_agreement is None:
         parser.error("agreement-restore-stage requires --original-agreement")
@@ -235,6 +246,20 @@ def main() -> None:
             "article-delete-resume requires --case-name from the retained inventory"
         )
     cases = {
+        "news-boundary-preflight": lambda: {"preflight": news_boundary.preflight()},
+        "news-boundary-seed": lambda: {"seed": news_boundary.seed()},
+        "news-boundary-append": lambda: {
+            f"append-{args.first_child:03}-{args.last_child:03}": news_boundary.append(
+                args.first_child, args.last_child
+            )
+        },
+        "news-boundary-observe": lambda: {"observe": news_boundary.observe()},
+        "news-boundary-final": lambda: {"final": news_boundary.finalization()},
+        "news-boundary-cleanup": lambda: {"cleanup": news_boundary.cleanup()},
+        "news-boundary-publish": lambda: {"publish": news_boundary.publish_cleanup()},
+        "news-boundary-remove": lambda: {
+            "remove-publisher": news_boundary.remove_publisher()
+        },
         "article-delete-preflight": article_delete_preflight,
         "article-delete-inspect": article_delete_inspect,
         "article-delete-categories": article_delete_categories,
@@ -385,6 +410,8 @@ def main() -> None:
                 "GAP-084",
             ]
             if args.suite.startswith("article-delete-")
+            else ["GAP-067", "GAP-068", "GAP-084"]
+            if args.suite.startswith("news-boundary-")
             else ["GAP-003", "GAP-065", "GAP-066", "GAP-070", "GAP-084"]
             if args.suite.startswith("news-")
             else ["GAP-003", "GAP-047", "GAP-050", "GAP-053", "GAP-054", "GAP-084"]

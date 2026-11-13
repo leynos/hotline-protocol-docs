@@ -5,18 +5,18 @@ correction map. This register tracks gaps in the specification after the
 validity-ledger corrections. It does not reopen corrected findings or claim to
 resolve the remaining unknowns.
 
-The sweep records **87 gaps** across **243 reviewed document sections**. These
+The sweep records **87 gaps** across **245 reviewed document sections**. These
 are documentation questions and proposed investigation priorities, not
 confirmed binary defects, security severity ratings or mxd test failures.
 
 ## Scope, evidence and status
 
-Article deletion review: 58 reports (56 completed, two retained failures), 60
-paired connections, 25 independent trees, exact body/navigation graphs and
-native HLNZ counts/caches, fourteen scalar controls and fifteen
-identity-checked queries. Closure review 21 closes GAP-069 against its
-unchanged criterion. All 87 original criteria are preserved: 38 Resolved, 48
-Investigating, 1 Open; 49 remain unclosed.
+Native child append boundary review: 20 completed reports, 22 paired
+connections, ten identity-checked queries, direct orphan body reads and native
+103-record/index versus 102-entry list/cache evidence. All 87 original
+criteria and existing statuses are preserved: 38 Resolved, 48 Investigating, 1
+Open; 49 remain unclosed. Date/flavour boundaries, broader posting and all
+other original requirements remain active.
 
 The corrected documents deliberately contain unresolved statements. Unanswered
 entries refine those into actionable questions. Missing and Ambiguous entries
@@ -71,33 +71,33 @@ unknown question has already been answered.
 
 ## Input provenance
 
-Audit captured at `2026-11-13T08:40:29.658623+00:00`. The source checkout has
-Git HEAD `7cd5851b1b82f92c9e703b4034e3202eeb614493` with modified/untracked
+Audit captured at `2026-11-13T08:57:44.387584+00:00`. The source checkout has
+Git HEAD `5d0e32b1eb39a2f17696ce41f3d98c16618cbfd3` with modified/untracked
 reviewed files. The hashes below identify the actual reviewed worktree
 contents; HEAD alone does not. Source line ranges in entries refer to the
 frozen snapshots, while section links point to the current documents.
 
 | Reviewed input | SHA-256 | Frozen copy |
 | --- | --- | --- |
-| [protocol.md](protocol.md) | `6843df246b6bf0a30cb95140ba7717e0f1655e39bcc41f8a98f3038374198603` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-40/inputs/protocol.md.txt) |
-| [internal-compatibility-matrix.md](internal-compatibility-matrix.md) | `8f14e7d4918ab77fb51e32807d7891bd1e4ff0955f5a8b363c101ebae2b64705` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-40/inputs/internal-compatibility-matrix.md.txt) |
-| [baseline-correction-map.md](baseline-correction-map.md) | `08b3687d975dbd9ae9050d5d0b333d2c106b884f1d3d87a3a966cbbc604d7385` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-40/inputs/baseline-correction-map.md.txt) |
-| [native-wire-details.md](native-wire-details.md) | `14d94b52ff045c645ac194fb95af02b2ccf512ba6c01f5417e1f5fccb07c9ad2` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-40/inputs/native-wire-details.md.txt) |
-| [operation-contracts.md](operation-contracts.md) | `4bd860232cdc917a7415c327769d6892ccb5a59954d5d62db711a1c1d02bed43` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-40/inputs/operation-contracts.md.txt) |
-| [transfer-contracts.md](transfer-contracts.md) | `eb9758e73bdd9d3d2fc46e93037bd093d3ab64879a50a824af6e599d07244cf4` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-40/inputs/transfer-contracts.md.txt) |
-| [news-contracts.md](news-contracts.md) | `3aa8fb996fd336b6439af9e99ae62d0302e6ce3e910a144f3a0c86670ca9414c` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-40/inputs/news-contracts.md.txt) |
-| [presence-messaging-contracts.md](presence-messaging-contracts.md) | `8129927fbbaff121113bb3e2ebdb15e707b7bfda6981d4e19cb5cc9c652a8248` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-40/inputs/presence-messaging-contracts.md.txt) |
-| [core-field-schemas.md](core-field-schemas.md) | `f9c4904247a2bf3ab6b499a9d45676a9d96e49cb548706cb5be10fdc43ea2258` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-40/inputs/core-field-schemas.md.txt) |
-| [session-transport-contracts.md](session-transport-contracts.md) | `85f43b90b00feb5f1e6c2a9c62e6c6da9fd128802f1b9dc1803805cbdcbee80b` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-40/inputs/session-transport-contracts.md.txt) |
-| [filesystem-and-board-contracts.md](filesystem-and-board-contracts.md) | `e6c8ee0293d5a745a742a5f4e0537258c7f7ae42654f0f728bdbafd3da0ed88f` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-40/inputs/filesystem-and-board-contracts.md.txt) |
-| [evidence-portability.md](evidence-portability.md) | `571225c97f9a1a3cae23363fb4d215886c77746d5df9ebc266eae56cd0221c14` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-40/inputs/evidence-portability.md.txt) |
-| [error-outcomes.md](error-outcomes.md) | `180a7935c7569dda660f13ccf9e4710798b9a0739681cc63b43d345904c7ac1e` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-40/inputs/error-outcomes.md.txt) |
-| [identified-client-source.md](identified-client-source.md) | `914ade3e84ae312985ef7a29aecfe6bcd2b904e55269f69882f60f243c5a1474` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-40/inputs/identified-client-source.md.txt) |
-| [privilege-contracts.md](privilege-contracts.md) | `770195c43d9d649e389c37de09e543318f1ca8d1acc388b9757703065b21a7a3` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-40/inputs/privilege-contracts.md.txt) |
-| [native-capture-workflow.md](native-capture-workflow.md) | `56de997a9a2aaf041b8f0aa7200415ca9e6f6466c3760b87caada6b0993c1880` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-40/inputs/native-capture-workflow.md.txt) |
+| [protocol.md](protocol.md) | `b1821d952a711d5300d8e9eadceadcf029ca947f0cd3dcbf58fc8de696526afa` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-41/inputs/protocol.md.txt) |
+| [internal-compatibility-matrix.md](internal-compatibility-matrix.md) | `8f14e7d4918ab77fb51e32807d7891bd1e4ff0955f5a8b363c101ebae2b64705` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-41/inputs/internal-compatibility-matrix.md.txt) |
+| [baseline-correction-map.md](baseline-correction-map.md) | `08b3687d975dbd9ae9050d5d0b333d2c106b884f1d3d87a3a966cbbc604d7385` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-41/inputs/baseline-correction-map.md.txt) |
+| [native-wire-details.md](native-wire-details.md) | `14d94b52ff045c645ac194fb95af02b2ccf512ba6c01f5417e1f5fccb07c9ad2` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-41/inputs/native-wire-details.md.txt) |
+| [operation-contracts.md](operation-contracts.md) | `4bd860232cdc917a7415c327769d6892ccb5a59954d5d62db711a1c1d02bed43` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-41/inputs/operation-contracts.md.txt) |
+| [transfer-contracts.md](transfer-contracts.md) | `eb9758e73bdd9d3d2fc46e93037bd093d3ab64879a50a824af6e599d07244cf4` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-41/inputs/transfer-contracts.md.txt) |
+| [news-contracts.md](news-contracts.md) | `9b935a8b19f0baf4cc19115692f80c40912d2d8683a40e991d67867483b88597` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-41/inputs/news-contracts.md.txt) |
+| [presence-messaging-contracts.md](presence-messaging-contracts.md) | `8129927fbbaff121113bb3e2ebdb15e707b7bfda6981d4e19cb5cc9c652a8248` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-41/inputs/presence-messaging-contracts.md.txt) |
+| [core-field-schemas.md](core-field-schemas.md) | `f9c4904247a2bf3ab6b499a9d45676a9d96e49cb548706cb5be10fdc43ea2258` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-41/inputs/core-field-schemas.md.txt) |
+| [session-transport-contracts.md](session-transport-contracts.md) | `85f43b90b00feb5f1e6c2a9c62e6c6da9fd128802f1b9dc1803805cbdcbee80b` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-41/inputs/session-transport-contracts.md.txt) |
+| [filesystem-and-board-contracts.md](filesystem-and-board-contracts.md) | `e6c8ee0293d5a745a742a5f4e0537258c7f7ae42654f0f728bdbafd3da0ed88f` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-41/inputs/filesystem-and-board-contracts.md.txt) |
+| [evidence-portability.md](evidence-portability.md) | `571225c97f9a1a3cae23363fb4d215886c77746d5df9ebc266eae56cd0221c14` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-41/inputs/evidence-portability.md.txt) |
+| [error-outcomes.md](error-outcomes.md) | `180a7935c7569dda660f13ccf9e4710798b9a0739681cc63b43d345904c7ac1e` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-41/inputs/error-outcomes.md.txt) |
+| [identified-client-source.md](identified-client-source.md) | `914ade3e84ae312985ef7a29aecfe6bcd2b904e55269f69882f60f243c5a1474` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-41/inputs/identified-client-source.md.txt) |
+| [privilege-contracts.md](privilege-contracts.md) | `770195c43d9d649e389c37de09e543318f1ca8d1acc388b9757703065b21a7a3` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-41/inputs/privilege-contracts.md.txt) |
+| [native-capture-workflow.md](native-capture-workflow.md) | `b240d47e32ca4da9761efcfa7a0316252b277d0759da2ea3b3d8bbbc2f8c9531` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-41/inputs/native-capture-workflow.md.txt) |
 
 [Audit
-manifest](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-40/manifest.json);
+manifest](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-41/manifest.json);
 [machine-readable register](gap-register.json). No field or behaviour is
 silently made normative by being listed as a question.
 
@@ -234,7 +234,7 @@ silently made normative by being listed as a question.
   lines 290–331); [protocol.md — User Account Management – Client Initiates
   (Admin) (Tx
   350–353)](protocol.md#user-account-management--client-initiates-admin-tx-350353)
-  (snapshot lines 1030–1066)
+  (snapshot lines 1035–1071)
 - **Question:** For every in-scope request, reply and notification, which
   fields are required, optional, conditional or repeatable, with what widths
   and value domains?
@@ -269,7 +269,7 @@ silently made normative by being listed as a question.
   semantics](protocol.md#4-reply-semantics) (snapshot lines 205–229);
   [protocol.md — Disconnecting a User (Transaction 110 & 111) – Admin/Server
   Use](protocol.md#disconnecting-a-user-transaction-110--111--adminserver-use)
-  (snapshot lines 1067–1088)
+  (snapshot lines 1072–1093)
 - **Question:** Which statuses, field-100 forms and connection outcomes apply
   to each failure, including errors in operations without a normal ACK?
 - **Implementation impact:** Implementations cannot distinguish recoverable
@@ -422,10 +422,10 @@ silently made normative by being listed as a question.
   (snapshot lines 611–637); [protocol.md — Posting a News Article (Transaction
   410) – Client
   Initiates](protocol.md#posting-a-news-article-transaction-410--client-initiates)
-  (snapshot lines 977–993); [protocol.md — User Account Management – Client
+  (snapshot lines 977–998); [protocol.md — User Account Management – Client
   Initiates (Admin) (Tx
   350–353)](protocol.md#user-account-management--client-initiates-admin-tx-350353)
-  (snapshot lines 1030–1066)
+  (snapshot lines 1035–1071)
 - **Question:** When an ACK precedes routing or mutation side effects, what
   has it committed to, and what can fail or be retried afterwards?
 - **Implementation impact:** A client may treat acceptance as
@@ -461,7 +461,11 @@ silently made normative by being listed as a question.
   Article deletion ACKs correspond to observed tree/index/cache changes;
   storage writes are staged without demonstrated rollback. Independent
   positive upload publication preserves 27 original objects in Trash; forced
-  I/O interruption, lost ACK and restart durability remain unproved.
+  I/O interruption, lost ACK and restart durability remain unproved. Success
+  ACK does not guarantee full list discovery: append 102 retains all 103
+  indexed records but only 102 list entries. Direct orphan lookup still
+  succeeds. Native cache/index mismatch is positively retained; interruption
+  and restart outcomes remain required.
 - **Evidence:** [Structure
   effects](news-contracts.md#structure-operation-effects-and-conflicts);
   [Internal errors](error-outcomes.md#internal-exceptions-and-text-resources);
@@ -482,7 +486,13 @@ silently made normative by being listed as a question.
   [Article deletion
   corpus](../mothra/evidence/gap-remediation/2026-11-13/native-article-delete-01/manifest.json);
   [Repeatable deletion
-  workflow](native-capture-workflow.md#reproducing-isolated-article-deletion-fixtures)
+  workflow](native-capture-workflow.md#reproducing-isolated-article-deletion-fixtures);
+  [Captured child append
+  boundary](news-contracts.md#captured-child-append-boundary-and-indexed-orphan);
+  [Native boundary
+  corpus](../mothra/evidence/gap-remediation/2026-11-13/native-news-boundary-01/manifest.json);
+  [Repeatable boundary
+  workflow](native-capture-workflow.md#reproducing-the-child-append-boundary)
 - **Closure:** Not closed: remaining acceptance evidence is listed above.
 
 ## Session and transport
@@ -545,7 +555,7 @@ silently made normative by being listed as a question.
   Initiates](protocol.md#login-transaction-107--client-initiates) (snapshot
   lines 290–331); [protocol.md — Additional Observed Requests and Scope
   Gaps](protocol.md#additional-observed-requests-and-scope-gaps) (snapshot
-  lines 1113–1150)
+  lines 1118–1155)
 - **Question:** What are the handshake, login, agreement, idle and
   partial-frame deadlines, and what traffic resets them?
 - **Implementation impact:** A client can wait forever or disconnect a
@@ -603,7 +613,7 @@ silently made normative by being listed as a question.
   Initiates](protocol.md#agreement-acceptance-transaction-121--client-initiates)
   (snapshot lines 367–389); [protocol.md — Additional Observed Requests and
   Scope Gaps](protocol.md#additional-observed-requests-and-scope-gaps)
-  (snapshot lines 1113–1150)
+  (snapshot lines 1118–1155)
 - **Question:** What can be sent before authentication, after login ACK, while
   agreement is pending, after early completion and during shutdown?
 - **Implementation impact:** The guide has transaction descriptions but no
@@ -762,7 +772,7 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [protocol.md — Additional Observed Requests and Scope
   Gaps](protocol.md#additional-observed-requests-and-scope-gaps) (snapshot
-  lines 1113–1150)
+  lines 1118–1155)
 - **Question:** Is 500 a liveness operation or something else, who sends it
   and when, and does its ACK affect idle deadlines?
 - **Implementation impact:** Naming it a keepalive or scheduling it
@@ -998,7 +1008,7 @@ silently made normative by being listed as a question.
   108–151); [protocol.md — User Account Management – Client Initiates (Admin)
   (Tx
   350–353)](protocol.md#user-account-management--client-initiates-admin-tx-350353)
-  (snapshot lines 1030–1066); [protocol.md — Downloading a File (Transaction
+  (snapshot lines 1035–1071); [protocol.md — Downloading a File (Transaction
   202) – Client
   Initiates](protocol.md#downloading-a-file-transaction-202--client-initiates)
   (snapshot lines 690–717)
@@ -1208,7 +1218,7 @@ silently made normative by being listed as a question.
   (snapshot lines 525–536); [protocol.md — User Account Management – Client
   Initiates (Admin) (Tx
   350–353)](protocol.md#user-account-management--client-initiates-admin-tx-350353)
-  (snapshot lines 1030–1066)
+  (snapshot lines 1035–1071)
 - **Question:** What byte/character limits and truncation or rejection rules
   apply to every name, password, message, subject, comment and body?
 - **Implementation impact:** The 65,535-byte TLV limit does not describe
@@ -1244,6 +1254,9 @@ silently made normative by being listed as a question.
   Otherlimitsremainactive.
   Native410submitted64-bytetitleclips31contentbytes;serializerstaticcaps63title/31poster/63flavourremainseparate.
   Body65535roundtripsand321usesunsignedffff. Otherlengthlimitsremainactive.
+  Native child-chain append boundary: 101 children remain reachable; the 102nd
+  append returns ACK but bypasses child 101 (public ID102). This is not a
+  general 100-article category ceiling. Other semantic lengths remain active.
 - **Evidence:** [Login extras and
   content](presence-messaging-contracts.md#login-extras-and-configured-content);
   [Native
@@ -1265,7 +1278,13 @@ silently made normative by being listed as a question.
   [Captured native news
   contracts](news-contracts.md#captured-category-versions-and-header-metadata);
   [Native news
-  corpus](../mothra/evidence/gap-remediation/2026-11-13/native-news-01/manifest.json)
+  corpus](../mothra/evidence/gap-remediation/2026-11-13/native-news-01/manifest.json);
+  [Captured child append
+  boundary](news-contracts.md#captured-child-append-boundary-and-indexed-orphan);
+  [Native boundary
+  corpus](../mothra/evidence/gap-remediation/2026-11-13/native-news-boundary-01/manifest.json);
+  [Repeatable boundary
+  workflow](native-capture-workflow.md#reproducing-the-child-append-boundary)
 - **Closure:** Not closed: remaining acceptance evidence is listed above.
 
 ### GAP-020
@@ -1323,7 +1342,7 @@ silently made normative by being listed as a question.
   (Login)](protocol.md#5-worked-example-login) (snapshot lines 230–264);
   [protocol.md — User Account Management – Client Initiates (Admin) (Tx
   350–353)](protocol.md#user-account-management--client-initiates-admin-tx-350353)
-  (snapshot lines 1030–1066); [internal-compatibility-matrix.md — Credential
+  (snapshot lines 1035–1071); [internal-compatibility-matrix.md — Credential
   obfuscation and text
   compatibility](internal-compatibility-matrix.md#credential-obfuscation-and-text-compatibility)
   (snapshot lines 98–125)
@@ -1372,7 +1391,7 @@ silently made normative by being listed as a question.
   lines 290–331); [protocol.md — User Account Management – Client Initiates
   (Admin) (Tx
   350–353)](protocol.md#user-account-management--client-initiates-admin-tx-350353)
-  (snapshot lines 1030–1066)
+  (snapshot lines 1035–1071)
 - **Question:** Are absent, empty, NUL-containing or differently cased logins
   equivalent; how are complemented bytes normalized and guest permissions
   chosen?
@@ -1754,7 +1773,7 @@ silently made normative by being listed as a question.
   666–676); [protocol.md — Managing News Structure (Transactions 380, 381,
   382) – Client Initiates
   (Admin/Mods)](protocol.md#managing-news-structure-transactions-380-381-382--client-initiates-adminmods)
-  (snapshot lines 1011–1027)
+  (snapshot lines 1016–1032)
 - **Question:** How do general, folder and news helpers combine account
   rights, path-specific rules, inheritance and administrator overrides?
 - **Implementation impact:** Knowing a bit number does not establish which
@@ -1817,6 +1836,9 @@ silently made normative by being listed as a question.
   inferred.
   IndependentnativecategorieseachusepublicID1;325categorypathqualifiesthearticleID.
   SixmaincategoryIDsandbodygrapharecaptured,butbroaderuser/room/referenceallocation/reuseandwraplifetimesremainopen.
+  Public article ID102 remains indexed/readable despite omission from 371
+  after the 102nd child append. Absence from traversal is not ID invalidation.
+  Other domains/reuse/wrap remain active.
 - **Evidence:** [Session transport contracts](session-transport-contracts.md);
   [Core schemas](core-field-schemas.md); [Batch
   07](../mothra/evidence/gap-remediation/2026-11-12/batch-07/manifest.json);
@@ -1825,7 +1847,13 @@ silently made normative by being listed as a question.
   [Captured native news
   contracts](news-contracts.md#captured-category-versions-and-header-metadata);
   [Native news
-  corpus](../mothra/evidence/gap-remediation/2026-11-13/native-news-01/manifest.json)
+  corpus](../mothra/evidence/gap-remediation/2026-11-13/native-news-01/manifest.json);
+  [Captured child append
+  boundary](news-contracts.md#captured-child-append-boundary-and-indexed-orphan);
+  [Native boundary
+  corpus](../mothra/evidence/gap-remediation/2026-11-13/native-news-boundary-01/manifest.json);
+  [Repeatable boundary
+  workflow](native-capture-workflow.md#reproducing-the-child-append-boundary)
 - **Closure:** Not closed: remaining acceptance evidence is listed above.
 
 ### GAP-034
@@ -1925,7 +1953,7 @@ silently made normative by being listed as a question.
   (snapshot lines 558–567); [protocol.md — Disconnecting a User (Transaction
   110 & 111) – Admin/Server
   Use](protocol.md#disconnecting-a-user-transaction-110--111--adminserver-use)
-  (snapshot lines 1067–1088)
+  (snapshot lines 1072–1093)
 - **Question:** Which teardown paths emit 302, which fields/recipients are
   used, and when are rooms, queued transfers and IDs cleaned up?
 - **Implementation impact:** The known explicit-leave path does not specify
@@ -2007,7 +2035,7 @@ silently made normative by being listed as a question.
   Chats](protocol.md#chat-invitations-transactions-112-113-114--private-chats)
   (snapshot lines 580–599); [protocol.md — Additional Admin Privileges
   Note](protocol.md#additional-admin-privileges-note) (snapshot lines
-  1104–1112)
+  1109–1117)
 - **Question:** Is the main room implicit, and what authorizes join, send,
   invite, topic edit or administrative access to a private room?
 - **Implementation impact:** The presence of a room ID and bit-11 check does
@@ -2205,7 +2233,7 @@ silently made normative by being listed as a question.
   (snapshot lines 638–650); [protocol.md — Disconnecting a User (Transaction
   110 & 111) – Admin/Server
   Use](protocol.md#disconnecting-a-user-transaction-110--111--adminserver-use)
-  (snapshot lines 1067–1088); [protocol.md — Sending a Chat Message
+  (snapshot lines 1072–1093); [protocol.md — Sending a Chat Message
   (Transaction 105) – Client
   Initiates](protocol.md#sending-a-chat-message-transaction-105--client-initiates)
   (snapshot lines 525–536)
@@ -2245,7 +2273,7 @@ silently made normative by being listed as a question.
   (snapshot lines 611–637); [protocol.md — Broadcasting a Message (Transaction
   355) – Admin/Server
   Initiated](protocol.md#broadcasting-a-message-transaction-355--adminserver-initiated)
-  (snapshot lines 1089–1103); [protocol.md — Changing User Settings
+  (snapshot lines 1094–1108); [protocol.md — Changing User Settings
   (Transaction 304) – Client
   Initiates](protocol.md#changing-user-settings-transaction-304--client-initiates)
   (snapshot lines 509–522)
@@ -3218,6 +3246,9 @@ silently made normative by being listed as a question.
   Native-news01providescontrolled107versionboundary0/1/14/15/16/149/150/190/ffffandmixedfolder/category370fixtures;exact320/323grammars,nonzeroopaquetailsandHLNZheader/countcopiesareverified.
   Empty/multiple/threaded321,rawword/date/parent/flavourfields,65535bodylengthand395/10/73bytestoredcachesarecheckedacross43reports/45pairedsocketsand29freshqueries.
   Identifiedshx0.1.48omits160;controlledboundarycasesarenotattributedtoahistoricalrelease.
+  A separate native child-boundary corpus positively demonstrates category aux
+  count103 while cached article-list count is102; parsers must respect each
+  independently framed grammar. Existing category grammar closure unchanged.
 - **Evidence:** [Captured category versions and
   metadata](news-contracts.md#captured-category-versions-and-header-metadata);
   [Captured threaded
@@ -3229,7 +3260,13 @@ silently made normative by being listed as a question.
   [Separate actual peer
   evidence](identified-client-source.md#full-native-peer-acceptance-matrix);
   [Closure
-  review20](../mothra/evidence/gap-remediation/2026-11-13/closure-review-20/review.json)
+  review20](../mothra/evidence/gap-remediation/2026-11-13/closure-review-20/review.json);
+  [Captured child append
+  boundary](news-contracts.md#captured-child-append-boundary-and-indexed-orphan);
+  [Native boundary
+  corpus](../mothra/evidence/gap-remediation/2026-11-13/native-news-boundary-01/manifest.json);
+  [Repeatable boundary
+  workflow](native-capture-workflow.md#reproducing-the-child-append-boundary)
 - **Closure:**
   Closedagainstunchanged065grammar/version/mixedfixture/separatepeer-evidenceor066serializer/empty-multiple-threadedcriterion.
   No15-to-human-release
@@ -3258,6 +3295,10 @@ silently made normative by being listed as a question.
   Native-news01providescontrolled107versionboundary0/1/14/15/16/149/150/190/ffffandmixedfolder/category370fixtures;exact320/323grammars,nonzeroopaquetailsandHLNZheader/countcopiesareverified.
   Empty/multiple/threaded321,rawword/date/parent/flavourfields,65535bodylengthand395/10/73bytestoredcachesarecheckedacross43reports/45pairedsocketsand29freshqueries.
   Identifiedshx0.1.48omits160;controlledboundarycasesarenotattributedtoahistoricalrelease.
+  Serialized traversal follows the mutated sibling chain and bypasses indexed
+  ID102 after child append102. Its count102 and exact6229-byte cache differ
+  from header/index count103; original serializer criterion remains closed
+  without claiming index completeness.
 - **Evidence:** [Captured category versions and
   metadata](news-contracts.md#captured-category-versions-and-header-metadata);
   [Captured threaded
@@ -3269,7 +3310,13 @@ silently made normative by being listed as a question.
   [Separate actual peer
   evidence](identified-client-source.md#full-native-peer-acceptance-matrix);
   [Closure
-  review20](../mothra/evidence/gap-remediation/2026-11-13/closure-review-20/review.json)
+  review20](../mothra/evidence/gap-remediation/2026-11-13/closure-review-20/review.json);
+  [Captured child append
+  boundary](news-contracts.md#captured-child-append-boundary-and-indexed-orphan);
+  [Native boundary
+  corpus](../mothra/evidence/gap-remediation/2026-11-13/native-news-boundary-01/manifest.json);
+  [Repeatable boundary
+  workflow](native-capture-workflow.md#reproducing-the-child-append-boundary)
 - **Closure:**
   Closedagainstunchanged065grammar/version/mixedfixture/separatepeer-evidenceor066serializer/empty-multiple-threadedcriterion.
   No15-to-human-release
@@ -3305,6 +3352,11 @@ silently made normative by being listed as a question.
   Twenty-five independent article trees verify before/after sibling, parent
   and first-child graphs, surviving dates/bodies/flavours and removed-ID
   errors. Broader date/flavour/navigation boundaries remain active.
+  Native99/100/101/102-child fixtures establish the 100-link helper
+  consequence: public ID102 is bypassed when103 is attached after101. Six
+  direct body graphs and all103 physical/indexed records preserve the
+  asymmetric links. Date conversion/rollover and flavour-chain boundaries
+  remain required.
 - **Evidence:** [Article
   navigation](news-contracts.md#reading-bodies-and-navigation); [Deletion
   rewrite](news-contracts.md#deletion-graph-rewrite); [INFO
@@ -3318,7 +3370,13 @@ silently made normative by being listed as a question.
   [Article deletion
   corpus](../mothra/evidence/gap-remediation/2026-11-13/native-article-delete-01/manifest.json);
   [Repeatable deletion
-  workflow](native-capture-workflow.md#reproducing-isolated-article-deletion-fixtures)
+  workflow](native-capture-workflow.md#reproducing-isolated-article-deletion-fixtures);
+  [Captured child append
+  boundary](news-contracts.md#captured-child-append-boundary-and-indexed-orphan);
+  [Native boundary
+  corpus](../mothra/evidence/gap-remediation/2026-11-13/native-news-boundary-01/manifest.json);
+  [Repeatable boundary
+  workflow](native-capture-workflow.md#reproducing-the-child-append-boundary)
 - **Closure:** Not closed: remaining acceptance evidence is listed above.
 
 ### GAP-068
@@ -3330,7 +3388,7 @@ silently made normative by being listed as a question.
 - **Sources:** [protocol.md — Posting a News Article (Transaction 410) –
   Client
   Initiates](protocol.md#posting-a-news-article-transaction-410--client-initiates)
-  (snapshot lines 977–993)
+  (snapshot lines 977–998)
 - **Question:** How do omitted/zero 326, flags 334, supported flavours and
   body limits affect creation, and how is the resulting ID or update
   discovered after ACK?
@@ -3352,7 +3410,11 @@ silently made normative by being listed as a question.
   Onequietsecondisnotallpush/discovery/persistenceevidence;flagmeaningandotherpartialfailuresremainrequired.
   Interrupted seed is inventoried and resumed only from verified
   ID/title/parent prefixes. Broader post flags, discovery and partial failure
-  requirements remain active.
+  requirements remain active. Paced new-child posts all ACK successfully
+  through102, but polling no longer exposes every allocated ID: ID102 remains
+  directly readable and indexed while371 omits it. Native count/index/cache
+  mismatch is retained. Broader post defaults/flags, discovery peers,
+  persistence and invalid requests remain active.
 - **Evidence:** [Article
   navigation](news-contracts.md#reading-bodies-and-navigation); [Deletion
   rewrite](news-contracts.md#deletion-graph-rewrite); [INFO
@@ -3366,7 +3428,13 @@ silently made normative by being listed as a question.
   [Article deletion
   corpus](../mothra/evidence/gap-remediation/2026-11-13/native-article-delete-01/manifest.json);
   [Repeatable deletion
-  workflow](native-capture-workflow.md#reproducing-isolated-article-deletion-fixtures)
+  workflow](native-capture-workflow.md#reproducing-isolated-article-deletion-fixtures);
+  [Captured child append
+  boundary](news-contracts.md#captured-child-append-boundary-and-indexed-orphan);
+  [Native boundary
+  corpus](../mothra/evidence/gap-remediation/2026-11-13/native-news-boundary-01/manifest.json);
+  [Repeatable boundary
+  workflow](native-capture-workflow.md#reproducing-the-child-append-boundary)
 - **Closure:** Not closed: remaining acceptance evidence is listed above.
 
 ### GAP-069
@@ -3378,7 +3446,7 @@ silently made normative by being listed as a question.
 - **Sources:** [protocol.md — Deleting a News Article (Transaction 411) –
   Client
   Initiates](protocol.md#deleting-a-news-article-transaction-411--client-initiates)
-  (snapshot lines 994–1010)
+  (snapshot lines 999–1015)
 - **Question:** What values/widths does 337 accept, and how are descendants,
   orphans, navigation IDs and notifications updated on success or partial
   failure?
@@ -3421,7 +3489,7 @@ silently made normative by being listed as a question.
   (snapshot lines 906–914); [protocol.md — Managing News Structure
   (Transactions 380, 381, 382) – Client Initiates
   (Admin/Mods)](protocol.md#managing-news-structure-transactions-380-381-382--client-initiates-adminmods)
-  (snapshot lines 1011–1027)
+  (snapshot lines 1016–1032)
 - **Question:** What nesting/type/depth rules apply, how are paths and name
   fields interpreted, and what happens on create/delete conflicts or subtree
   failures?
@@ -3474,7 +3542,7 @@ silently made normative by being listed as a question.
 - **Sources:** [protocol.md — User Account Management – Client Initiates
   (Admin) (Tx
   350–353)](protocol.md#user-account-management--client-initiates-admin-tx-350353)
-  (snapshot lines 1030–1066)
+  (snapshot lines 1035–1071)
 - **Question:** What is field 111's wire type, presence/default rule, stored
   meaning and effect on 350/353?
 - **Implementation impact:** The documented account schema explicitly contains
@@ -3509,7 +3577,7 @@ silently made normative by being listed as a question.
 - **Sources:** [protocol.md — User Account Management – Client Initiates
   (Admin) (Tx
   350–353)](protocol.md#user-account-management--client-initiates-admin-tx-350353)
-  (snapshot lines 1030–1066)
+  (snapshot lines 1035–1071)
 - **Question:** How are target login, rename, absent/empty password, literal
   x, duplicate names, protected-account deletion and partial updates handled?
 - **Implementation impact:** Treating the 352 placeholder as an
@@ -3550,12 +3618,12 @@ silently made normative by being listed as a question.
 - **Sources:** [protocol.md — User Account Management – Client Initiates
   (Admin) (Tx
   350–353)](protocol.md#user-account-management--client-initiates-admin-tx-350353)
-  (snapshot lines 1030–1066); [protocol.md — User Access Privileges
+  (snapshot lines 1035–1071); [protocol.md — User Access Privileges
   (Transaction 354) – Server
   Initiates](protocol.md#user-access-privileges-transaction-354--server-initiates)
   (snapshot lines 405–413); [protocol.md — Additional Admin Privileges
   Note](protocol.md#additional-admin-privileges-note) (snapshot lines
-  1104–1112)
+  1109–1117)
 - **Question:** When do edited privileges, names or passwords affect current
   sessions, does deletion disconnect them, and what 354/301 notifications
   occur?
@@ -3586,7 +3654,7 @@ silently made normative by being listed as a question.
 - **Sources:** [protocol.md — Disconnecting a User (Transaction 110 & 111) –
   Admin/Server
   Use](protocol.md#disconnecting-a-user-transaction-110--111--adminserver-use)
-  (snapshot lines 1067–1088)
+  (snapshot lines 1072–1093)
 - **Question:** What exactly do options 1 and 2 do, including identity
   matching, ranges/duration, optional data 101, reconnection and protected
   users?
@@ -3617,9 +3685,9 @@ silently made normative by being listed as a question.
 - **Sources:** [protocol.md — Disconnecting a User (Transaction 110 & 111) –
   Admin/Server
   Use](protocol.md#disconnecting-a-user-transaction-110--111--adminserver-use)
-  (snapshot lines 1067–1088); [protocol.md — Additional Observed Requests and
+  (snapshot lines 1072–1093); [protocol.md — Additional Observed Requests and
   Scope Gaps](protocol.md#additional-observed-requests-and-scope-gaps)
-  (snapshot lines 1113–1150)
+  (snapshot lines 1118–1155)
 - **Question:** Does any native producer actually emit 111, under which
   conditions, with what fields and delivery/closure ordering?
 - **Implementation impact:** A retained catalogue entry cannot yet be
@@ -3653,7 +3721,7 @@ silently made normative by being listed as a question.
 - **Sources:** [protocol.md — Broadcasting a Message (Transaction 355) –
   Admin/Server
   Initiated](protocol.md#broadcasting-a-message-transaction-355--adminserver-initiated)
-  (snapshot lines 1089–1103)
+  (snapshot lines 1094–1108)
 - **Question:** Does a console-generated broadcast use the same 355 schema,
   and which connected/logged-in/refusing users receive each origin's
   broadcast?
@@ -3682,7 +3750,7 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [protocol.md — Additional Observed Requests and Scope
   Gaps](protocol.md#additional-observed-requests-and-scope-gaps) (snapshot
-  lines 1113–1150)
+  lines 1118–1155)
 - **Question:** What does 348 do, what fields and privileges apply, and how
   are its potentially nested account records serialized?
 - **Implementation impact:** An observed dispatcher entry cannot be advertised
@@ -3721,7 +3789,7 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [protocol.md — Additional Observed Requests and Scope
   Gaps](protocol.md#additional-observed-requests-and-scope-gaps) (snapshot
-  lines 1113–1150)
+  lines 1118–1155)
 - **Question:** What indexed/transitive fields does 349 consume, how are batch
   entries delimited, and are failures atomic or per-entry?
 - **Implementation impact:** Implementing guessed batch semantics can mutate
@@ -3892,7 +3960,7 @@ silently made normative by being listed as a question.
   matrix](internal-compatibility-matrix.md#compatibility-matrix) (snapshot
   lines 35–56); [protocol.md — References and Correction
   Traceability](protocol.md#references-and-correction-traceability) (snapshot
-  lines 1151–1192)
+  lines 1156–1197)
 - **Question:** Which release/client/server configurations do the selected RCS
   trunk snapshots represent, and how do the default vendor branch and build
   options differ?
@@ -4064,7 +4132,11 @@ silently made normative by being listed as a question.
   connections, 15 fresh queries and independently verified native
   counts/caches. Distinct old/recovered runtime identities and prefix-only
   recovery retained. Broader operation and actual-peer acceptance remains
-  active.
+  active. Added 20 completed reports, 22 paired connections, ten fresh
+  identity-checked queries, native 103-record/index versus 102-entry
+  list/cache boundary and positive owned cleanup. Initial out-of-range and
+  unrelated Trash probes stay explicitly inconclusive. Wider native/peer
+  acceptance remains active.
 - **Evidence:** [Native format/recovery/reset
   corpus](../mothra/evidence/gap-remediation/2026-11-12/native-banner-02/manifest.json);
   [Banner type/recovery
@@ -4114,7 +4186,13 @@ silently made normative by being listed as a question.
   [Article deletion
   corpus](../mothra/evidence/gap-remediation/2026-11-13/native-article-delete-01/manifest.json);
   [Repeatable deletion
-  workflow](native-capture-workflow.md#reproducing-isolated-article-deletion-fixtures)
+  workflow](native-capture-workflow.md#reproducing-isolated-article-deletion-fixtures);
+  [Captured child append
+  boundary](news-contracts.md#captured-child-append-boundary-and-indexed-orphan);
+  [Native boundary
+  corpus](../mothra/evidence/gap-remediation/2026-11-13/native-news-boundary-01/manifest.json);
+  [Repeatable boundary
+  workflow](native-capture-workflow.md#reproducing-the-child-append-boundary)
 - **Closure:** Not closed: the unchanged criterion still requires the
   outstanding evidence described above.
 
@@ -4145,9 +4223,18 @@ silently made normative by being listed as a question.
 - **Progress:** Reviewed frozen source/assertions and executed 55 focused mxd
   tests at 2e4c9c1df20b37a6f98a1369e0a8f09f9ee2a131. Disputed
   classifier/login-extra expectations still pass and require implementation
-  reconciliation; no false native-conformance claim is made.
+  reconciliation; no false native-conformance claim is made. Native child
+  append has an observed list/index inconsistency. Documenting it does not
+  require reproducing it in mxd; actual checkout/test reconciliation and a
+  separate compatibility policy remain required.
 - **Evidence:** [Operation contracts](operation-contracts.md); [Compatibility
-  review](internal-compatibility-matrix.md#mxd-review-at-2e4c9c1)
+  review](internal-compatibility-matrix.md#mxd-review-at-2e4c9c1); [Captured
+  child append
+  boundary](news-contracts.md#captured-child-append-boundary-and-indexed-orphan);
+  [Native boundary
+  corpus](../mothra/evidence/gap-remediation/2026-11-13/native-news-boundary-01/manifest.json);
+  [Repeatable boundary
+  workflow](native-capture-workflow.md#reproducing-the-child-append-boundary)
 - **Closure:** Not closed: remaining acceptance evidence is listed above.
 
 ### GAP-086
@@ -4195,7 +4282,7 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [protocol.md — References and Correction
   Traceability](protocol.md#references-and-correction-traceability) (snapshot
-  lines 1151–1192); [baseline-correction-map.md — Baseline correction
+  lines 1156–1197); [baseline-correction-map.md — Baseline correction
   map](baseline-correction-map.md#baseline-correction-map) (snapshot lines
   1–112); [internal-compatibility-matrix.md — Scope and status
   labels](internal-compatibility-matrix.md#scope-and-status-labels) (snapshot
@@ -4290,16 +4377,16 @@ of binary paths, clients or packet inputs.
 | protocol.md | [Listing News Categories (Transaction 370) – Client Initiates](protocol.md#listing-news-categories-transaction-370--client-initiates) | 915–932 | [GAP-047](#gap-047), [GAP-065](#gap-065) |
 | protocol.md | [Listing News Articles (Transaction 371) – Client Initiates](protocol.md#listing-news-articles-transaction-371--client-initiates) | 933–947 | [GAP-066](#gap-066) |
 | protocol.md | [Reading a News Article (Transaction 400) – Client Initiates](protocol.md#reading-a-news-article-transaction-400--client-initiates) | 948–976 | [GAP-020](#gap-020), [GAP-067](#gap-067) |
-| protocol.md | [Posting a News Article (Transaction 410) – Client Initiates](protocol.md#posting-a-news-article-transaction-410--client-initiates) | 977–993 | [GAP-021](#gap-021), [GAP-068](#gap-068) |
-| protocol.md | [Deleting a News Article (Transaction 411) – Client Initiates](protocol.md#deleting-a-news-article-transaction-411--client-initiates) | 994–1010 | [GAP-069](#gap-069) |
-| protocol.md | [Managing News Structure (Transactions 380, 381, 382) – Client Initiates (Admin/Mods)](protocol.md#managing-news-structure-transactions-380-381-382--client-initiates-adminmods) | 1011–1027 | [GAP-032](#gap-032), [GAP-070](#gap-070) |
-| protocol.md | [Administrative Functions](protocol.md#administrative-functions) | 1028–1029 | 17 gaps; see section-specific rows and JSON register |
-| protocol.md | [User Account Management – Client Initiates (Admin) (Tx 350–353)](protocol.md#user-account-management--client-initiates-admin-tx-350353) | 1030–1066 | 9 gaps; see section-specific rows and JSON register |
-| protocol.md | [Disconnecting a User (Transaction 110 & 111) – Admin/Server Use](protocol.md#disconnecting-a-user-transaction-110--111--adminserver-use) | 1067–1088 | [GAP-003](#gap-003), [GAP-036](#gap-036), [GAP-044](#gap-044), [GAP-074](#gap-074), [GAP-075](#gap-075) |
-| protocol.md | [Broadcasting a Message (Transaction 355) – Admin/Server Initiated](protocol.md#broadcasting-a-message-transaction-355--adminserver-initiated) | 1089–1103 | [GAP-045](#gap-045), [GAP-076](#gap-076) |
-| protocol.md | [Additional Admin Privileges Note](protocol.md#additional-admin-privileges-note) | 1104–1112 | [GAP-038](#gap-038), [GAP-073](#gap-073) |
-| protocol.md | [Additional Observed Requests and Scope Gaps](protocol.md#additional-observed-requests-and-scope-gaps) | 1113–1150 | [GAP-005](#gap-005), [GAP-007](#gap-007), [GAP-075](#gap-075), [GAP-077](#gap-077), [GAP-078](#gap-078), [GAP-079](#gap-079) |
-| protocol.md | [References and Correction Traceability](protocol.md#references-and-correction-traceability) | 1151–1192 | [GAP-083](#gap-083), [GAP-087](#gap-087) |
+| protocol.md | [Posting a News Article (Transaction 410) – Client Initiates](protocol.md#posting-a-news-article-transaction-410--client-initiates) | 977–998 | [GAP-021](#gap-021), [GAP-068](#gap-068) |
+| protocol.md | [Deleting a News Article (Transaction 411) – Client Initiates](protocol.md#deleting-a-news-article-transaction-411--client-initiates) | 999–1015 | [GAP-069](#gap-069) |
+| protocol.md | [Managing News Structure (Transactions 380, 381, 382) – Client Initiates (Admin/Mods)](protocol.md#managing-news-structure-transactions-380-381-382--client-initiates-adminmods) | 1016–1032 | [GAP-032](#gap-032), [GAP-070](#gap-070) |
+| protocol.md | [Administrative Functions](protocol.md#administrative-functions) | 1033–1034 | 17 gaps; see section-specific rows and JSON register |
+| protocol.md | [User Account Management – Client Initiates (Admin) (Tx 350–353)](protocol.md#user-account-management--client-initiates-admin-tx-350353) | 1035–1071 | 9 gaps; see section-specific rows and JSON register |
+| protocol.md | [Disconnecting a User (Transaction 110 & 111) – Admin/Server Use](protocol.md#disconnecting-a-user-transaction-110--111--adminserver-use) | 1072–1093 | [GAP-003](#gap-003), [GAP-036](#gap-036), [GAP-044](#gap-044), [GAP-074](#gap-074), [GAP-075](#gap-075) |
+| protocol.md | [Broadcasting a Message (Transaction 355) – Admin/Server Initiated](protocol.md#broadcasting-a-message-transaction-355--adminserver-initiated) | 1094–1108 | [GAP-045](#gap-045), [GAP-076](#gap-076) |
+| protocol.md | [Additional Admin Privileges Note](protocol.md#additional-admin-privileges-note) | 1109–1117 | [GAP-038](#gap-038), [GAP-073](#gap-073) |
+| protocol.md | [Additional Observed Requests and Scope Gaps](protocol.md#additional-observed-requests-and-scope-gaps) | 1118–1155 | [GAP-005](#gap-005), [GAP-007](#gap-007), [GAP-075](#gap-075), [GAP-077](#gap-077), [GAP-078](#gap-078), [GAP-079](#gap-079) |
+| protocol.md | [References and Correction Traceability](protocol.md#references-and-correction-traceability) | 1156–1197 | [GAP-083](#gap-083), [GAP-087](#gap-087) |
 | internal-compatibility-matrix.md | [Internal compatibility matrix (Hotline and SynHX)](internal-compatibility-matrix.md#internal-compatibility-matrix-hotline-and-synhx) | 1–14 | 13 gaps; see section-specific rows and JSON register |
 | internal-compatibility-matrix.md | [Scope and status labels](internal-compatibility-matrix.md#scope-and-status-labels) | 15–34 | [GAP-086](#gap-086), [GAP-087](#gap-087) |
 | internal-compatibility-matrix.md | [Compatibility matrix](internal-compatibility-matrix.md#compatibility-matrix) | 35–56 | [GAP-024](#gap-024), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-083](#gap-083) |
@@ -4341,10 +4428,10 @@ of binary paths, clients or packet inputs.
 | news-contracts.md | [Native nested news contracts](news-contracts.md#native-nested-news-contracts) | 1–8 | [GAP-020](#gap-020), [GAP-065](#gap-065), [GAP-066](#gap-066), [GAP-067](#gap-067), [GAP-068](#gap-068), [GAP-069](#gap-069), [GAP-070](#gap-070) |
 | news-contracts.md | [Category-list variants](news-contracts.md#category-list-variants) | 9–57 | [GAP-065](#gap-065) |
 | news-contracts.md | [Article-list field 321](news-contracts.md#article-list-field-321) | 58–104 | [GAP-066](#gap-066) |
-| news-contracts.md | [Reading bodies and navigation](news-contracts.md#reading-bodies-and-navigation) | 105–138 | [GAP-067](#gap-067) |
-| news-contracts.md | [News dates](news-contracts.md#news-dates) | 139–146 | [GAP-020](#gap-020), [GAP-067](#gap-067) |
-| news-contracts.md | [Posting, partial effects and deletion](news-contracts.md#posting-partial-effects-and-deletion) | 147–169 | [GAP-021](#gap-021), [GAP-068](#gap-068), [GAP-069](#gap-069) |
-| news-contracts.md | [Scope of hierarchy evidence](news-contracts.md#scope-of-hierarchy-evidence) | 198–207 | [GAP-047](#gap-047), [GAP-070](#gap-070) |
+| news-contracts.md | [Reading bodies and navigation](news-contracts.md#reading-bodies-and-navigation) | 105–139 | [GAP-067](#gap-067) |
+| news-contracts.md | [News dates](news-contracts.md#news-dates) | 140–147 | [GAP-020](#gap-020), [GAP-067](#gap-067) |
+| news-contracts.md | [Posting, partial effects and deletion](news-contracts.md#posting-partial-effects-and-deletion) | 148–170 | [GAP-021](#gap-021), [GAP-068](#gap-068), [GAP-069](#gap-069) |
+| news-contracts.md | [Scope of hierarchy evidence](news-contracts.md#scope-of-hierarchy-evidence) | 199–208 | [GAP-047](#gap-047), [GAP-070](#gap-070) |
 | presence-messaging-contracts.md | [Native presence, messaging and administration contracts](presence-messaging-contracts.md#native-presence-messaging-and-administration-contracts) | 1–7 | 18 gaps; see section-specific rows and JSON register |
 | presence-messaging-contracts.md | [Settings and login visibility](presence-messaging-contracts.md#settings-and-login-visibility) | 8–49 | [GAP-025](#gap-025), [GAP-029](#gap-029), [GAP-030](#gap-030), [GAP-035](#gap-035) |
 | presence-messaging-contracts.md | [Agreement and banner condition tables](presence-messaging-contracts.md#agreement-and-banner-condition-tables) | 100–121 | [GAP-026](#gap-026), [GAP-027](#gap-027), [GAP-028](#gap-028) |
@@ -4389,8 +4476,8 @@ of binary paths, clients or packet inputs.
 | identified-client-source.md | [Executed host callback matrix](identified-client-source.md#executed-host-callback-matrix) | 39–73 | [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085) |
 | identified-client-source.md | [Other receiver observations and negative scope](identified-client-source.md#other-receiver-observations-and-negative-scope) | 74–106 | [GAP-008](#gap-008), [GAP-018](#gap-018), [GAP-071](#gap-071), [GAP-075](#gap-075), [GAP-079](#gap-079), [GAP-082](#gap-082) |
 | transfer-contracts.md | [INFO restoration after upload](transfer-contracts.md#info-restoration-after-upload) | 396–417 | [GAP-020](#gap-020), [GAP-056](#gap-056), [GAP-064](#gap-064) |
-| news-contracts.md | [Deletion graph rewrite](news-contracts.md#deletion-graph-rewrite) | 170–197 | [GAP-067](#gap-067), [GAP-069](#gap-069) |
-| news-contracts.md | [Structure operation effects and conflicts](news-contracts.md#structure-operation-effects-and-conflicts) | 208–271 | [GAP-021](#gap-021), [GAP-047](#gap-047), [GAP-070](#gap-070) |
+| news-contracts.md | [Deletion graph rewrite](news-contracts.md#deletion-graph-rewrite) | 171–198 | [GAP-067](#gap-067), [GAP-069](#gap-069) |
+| news-contracts.md | [Structure operation effects and conflicts](news-contracts.md#structure-operation-effects-and-conflicts) | 209–272 | [GAP-021](#gap-021), [GAP-047](#gap-047), [GAP-070](#gap-070) |
 | privilege-contracts.md | [Native privilege registry and composition](privilege-contracts.md#native-privilege-registry-and-composition) | 1–8 | [GAP-031](#gap-031), [GAP-032](#gap-032) |
 | privilege-contracts.md | [Bitmap numbering and known uses](privilege-contracts.md#bitmap-numbering-and-known-uses) | 9–64 | [GAP-031](#gap-031), [GAP-034](#gap-034) |
 | privilege-contracts.md | [Operation-specific composition](privilege-contracts.md#operation-specific-composition) | 65–86 | [GAP-032](#gap-032), [GAP-047](#gap-047) |
@@ -4474,12 +4561,14 @@ of binary paths, clients or packet inputs.
 | native-capture-workflow.md | [Reproducing rename and comment fixtures](native-capture-workflow.md#reproducing-rename-and-comment-fixtures) | 1154–1201 | [GAP-003](#gap-003), [GAP-016](#gap-016), [GAP-019](#gap-019), [GAP-031](#gap-031), [GAP-052](#gap-052), [GAP-084](#gap-084) |
 | filesystem-and-board-contracts.md | [Captured move and Trash outcomes](filesystem-and-board-contracts.md#captured-move-and-trash-outcomes) | 409–483 | [GAP-003](#gap-003), [GAP-021](#gap-021), [GAP-031](#gap-031), [GAP-047](#gap-047), [GAP-050](#gap-050), [GAP-053](#gap-053), [GAP-054](#gap-054), [GAP-084](#gap-084) |
 | native-capture-workflow.md | [Reproducing move and Trash fixtures](native-capture-workflow.md#reproducing-move-and-trash-fixtures) | 1202–1249 | [GAP-003](#gap-003), [GAP-021](#gap-021), [GAP-031](#gap-031), [GAP-047](#gap-047), [GAP-050](#gap-050), [GAP-053](#gap-053), [GAP-054](#gap-054), [GAP-084](#gap-084) |
-| news-contracts.md | [Captured category versions and header metadata](news-contracts.md#captured-category-versions-and-header-metadata) | 272–317 | 14 gaps; see section-specific rows and JSON register |
-| news-contracts.md | [Captured threaded article lists and partial posts](news-contracts.md#captured-threaded-article-lists-and-partial-posts) | 318–380 | 14 gaps; see section-specific rows and JSON register |
-| news-contracts.md | [Captured hierarchy failures and owned cleanup](news-contracts.md#captured-hierarchy-failures-and-owned-cleanup) | 381–408 | 14 gaps; see section-specific rows and JSON register |
+| news-contracts.md | [Captured category versions and header metadata](news-contracts.md#captured-category-versions-and-header-metadata) | 273–318 | 14 gaps; see section-specific rows and JSON register |
+| news-contracts.md | [Captured threaded article lists and partial posts](news-contracts.md#captured-threaded-article-lists-and-partial-posts) | 319–381 | 14 gaps; see section-specific rows and JSON register |
+| news-contracts.md | [Captured hierarchy failures and owned cleanup](news-contracts.md#captured-hierarchy-failures-and-owned-cleanup) | 382–409 | 14 gaps; see section-specific rows and JSON register |
 | native-capture-workflow.md | [Reproducing category and threaded news fixtures](native-capture-workflow.md#reproducing-category-and-threaded-news-fixtures) | 1250–1313 | 14 gaps; see section-specific rows and JSON register |
-| news-contracts.md | [Captured article deletion and index effects](news-contracts.md#captured-article-deletion-and-index-effects) | 409–488 | 9 gaps; see section-specific rows and JSON register |
-| native-capture-workflow.md | [Reproducing isolated article deletion fixtures](native-capture-workflow.md#reproducing-isolated-article-deletion-fixtures) | 1314–1365 | 9 gaps; see section-specific rows and JSON register |
+| news-contracts.md | [Captured article deletion and index effects](news-contracts.md#captured-article-deletion-and-index-effects) | 410–490 | 9 gaps; see section-specific rows and JSON register |
+| native-capture-workflow.md | [Reproducing isolated article deletion fixtures](native-capture-workflow.md#reproducing-isolated-article-deletion-fixtures) | 1314–1366 | 9 gaps; see section-specific rows and JSON register |
+| news-contracts.md | [Captured child append boundary and indexed orphan](news-contracts.md#captured-child-append-boundary-and-indexed-orphan) | 491–554 | 9 gaps; see section-specific rows and JSON register |
+| native-capture-workflow.md | [Reproducing the child append boundary](native-capture-workflow.md#reproducing-the-child-append-boundary) | 1367–1422 | 9 gaps; see section-specific rows and JSON register |
 
 ## Maintaining this analysis
 

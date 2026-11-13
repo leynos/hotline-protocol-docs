@@ -1363,3 +1363,60 @@ Forced storage interruption and actual historical-client interoperability
 require separate evidence.
 
 [article-delete-corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-article-delete-01/manifest.json
+
+## Reproducing the child append boundary
+
+The [boundary corpus][news-boundary-corpus] runs in a separate owned
+`mothra-news25/siblings` category. Verify the actual runtime and initial News
+and Files listings first. With fresh output directories and a current runtime
+record, prepare `news-boundary-preflight` and `news-boundary-seed` using
+`prepare_native_cases.py`. Run the recorded plans with the capture driver and
+both host and guest packet recorders.
+
+Prepare and execute `news-boundary-append` serially with `--first-child` and
+`--last-child`: ranges 1–10, 11–20 through 81–90, then 91–99, 100–100,
+101–101 and 102–102. The generator refuses batches larger than ten and values
+outside 1–102. Every batch reads the list before posting and twice afterward,
+then pauses for three seconds. Require each before-list to match the preceding
+result. Do not replay a completed batch: repeated posts allocate new IDs.
+
+For example, from mothra, preparing the single-child boundary plan is:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/prepare_native_cases.py \
+  news-boundary-append --first-child 101 --last-child 101 \
+  --runtime-record state/native-sessions/your-run/runtime.json \
+  --output state/native-sessions/your-run/plans-101
+```
+
+This only prepares the plan. Inspect it, then use the documented capture driver
+to execute it against the verified native guest. `news-boundary-observe` reads
+the final list, bodies/navigation for IDs 1, 2, 100, 101, 102 and 103, category
+metadata and request-500 liveness, followed by three quiet seconds.
+`news-boundary-final` uploads the owned flush helper before independent list
+reads. Retain positive category forks before cleanup: header count, complete
+ID index, raw article links and stored serialized cache must be compared
+separately. An out-of-range catalogue scan is not an absence proof.
+
+Run `news-boundary-cleanup`, check empty News and exact Files baseline, and
+retain the initial disk probe even if it lacks owned objects. Then run
+`news-boundary-publish` and capture positive Trash identities/forks for the
+three original objects and separate publisher. `news-boundary-remove` removes
+only that publisher and rechecks the baseline. Do not claim restart durability
+from these wire/flush observations. ROMs and working images stay local.
+
+The offline replay check is:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/verify_native_news_boundary.py \
+  evidence/gap-remediation/2026-11-13/native-news-boundary-01
+```
+
+It retains the native mismatch: 103 stored/indexed articles but 102 reachable
+list entries, with bypassed ID 102 still directly readable. It also verifies
+20 reports, 22 paired connections, exact request bytes, chronological batches,
+measured pauses, ten oracle queries and positive cleanup publication. A
+working corrected implementation is not evidence that this native defect was
+absent; mxd's compatibility policy is a separate decision.
+
+[news-boundary-corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-news-boundary-01/manifest.json

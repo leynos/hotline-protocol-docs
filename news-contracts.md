@@ -132,9 +132,10 @@ The list record's offset-12 ID is the mapped parent, not its previous sibling.
 Do not confuse native record numbers with the public IDs transmitted here.
 
 The append search `100247f0` stops after at most 100 link reads, returning the
-last visited record. This is not proof that categories with more than 100
-siblings append correctly. Native navigation fixtures, including that boundary,
-remain GAP-067/068.
+last visited record. The captured child-append boundary below shows the
+consequence: the 102nd child bypasses the 101st child, while both remain
+indexed and directly readable. This is a child-chain defect, not a general
+100-article category ceiling. Other flavour/date boundaries remain GAP-067.
 
 ## News dates
 
@@ -486,3 +487,68 @@ preserving catalogue identities, paths, forks and caches. Its separate helper
 is then removed with wire controls. No restart-durability claim follows.
 
 [article-delete]: ../mothra/evidence/gap-remediation/2026-11-13/native-article-delete-01/manifest.json
+
+## Captured child append boundary and indexed orphan
+
+The [child-boundary corpus][news-boundary] retains 20 completed reports,
+22 paired host/guest connections and ten fresh identity-checked oracle queries.
+It creates one parent, public ID 1, and 102 children in an isolated category.
+Paced connections append at most ten children each, with separate observations
+after children 99, 100, 101 and 102. Every post returns an empty success ACK.
+
+| Children posted | Stored/indexed articles | 371 traversal IDs | Traversal count |
+| ---: | ---: | --- | ---: |
+| 99 | 100 | 1 through 100 | 100 |
+| 100 | 101 | 1 through 101 | 101 |
+| 101 | 102 | 1 through 102 | 102 |
+| 102 | 103 | 1 through 101, then 103 | 102 |
+
+The first three stored/indexed counts in this table are established by the
+successful posts and complete ID traversal; the final count is also verified
+in a positive native HLNZ snapshot and its complete ID index. Earlier disk
+snapshots were not taken at every boundary.
+
+For the last append, helper `100247f0` starts at the parent's first child and
+reads at most 100 links. With 101 existing children, it returns the 100th
+child's native record instead of the actual tail. `100229b0` writes the new
+child as that record's next sibling, bypassing the old tail. This explains the
+captured post-state without treating the traversal list as the ID index.
+
+| Article ID | Previous sibling 331 | Next sibling 332 | Parent 335 | First child 336 |
+| ---: | ---: | ---: | ---: | ---: |
+| 1 | 0 | 0 | 0 | 2 |
+| 2 | 0 | 3 | 1 | 0 |
+| 100 | 99 | 101 | 1 | 0 |
+| 101 | 100 | 103 | 1 | 0 |
+| 102 | 101 | 0 | 1 | 0 |
+| 103 | 101 | 0 | 1 | 0 |
+
+All six direct 400 reads succeed and retain their expected titles, dates,
+poster, flavour and body bytes. In particular, article 102 is absent from the
+final list but is not deleted or inaccessible by ID. Its previous link still
+names 101, whose next link now names 103. Field 331 is therefore not a guarantee
+that following the preceding article's 332 returns the current article for
+this affected state. Native record links independently match these replies.
+
+Modern category metadata reports article count 103. The HLNZ header at offset
+44 also stores 103; its 32-bucket ID index contains every ID 1 through 103,
+including 102. All 103 article records are present. The exact rebuilt/cached
+371 value has count 102 and excludes ID 102. An independent final read and the
+stored serialized cache reproduce those bytes. A client must not use a
+category count as the number of records to parse from the separately framed
+321 value, or infer deletion solely from omission from this list.
+
+This is observed native behaviour. It does not prescribe reproducing the defect
+in mxd, establish a general root-sibling limit, or prove behaviour for arbitrary
+later appends, corrupt files or restart. A compatibility decision about mxd's
+handling remains separate from documenting this 1.9 contract.
+
+Owned cleanup restores empty News and the exact 41-entry Files baseline.
+Initial out-of-range native probes have no positive matches; the first cleanup
+probe contains only six unrelated prior Trash objects. Those observations do
+not prove absence. A separate owned upload subsequently publishes all three
+original objects positively in Trash with unchanged catalogue identities,
+paths and forks, including the index/count/cache mismatch. Its helper is then
+removed with wire controls. Restart durability remains unproved.
+
+[news-boundary]: ../mothra/evidence/gap-remediation/2026-11-13/native-news-boundary-01/manifest.json

@@ -87,3 +87,15 @@ def cleanup() -> tuple[list[dict], dict]:
     steps += exchange(204, 11, [(201, b"m-nb25-flush")])
     steps += exchange(370, 90, []) + exchange(200, 91, [(202, b"\0\0")])
     return steps + [close()], {"kind": "news-boundary-cleanup"}
+
+
+def publish_cleanup() -> tuple[list[dict], dict]:
+    steps = login() + upload(80, b"m-nb25-publish", b"\0\0")
+    steps += exchange(370, 90, []) + exchange(200, 91, [(202, b"\0\0")])
+    return steps + [close()], {"kind": "news-boundary-publish"}
+
+
+def remove_publisher() -> tuple[list[dict], dict]:
+    steps = login() + exchange(204, 10, [(201, b"m-nb25-publish")])
+    steps += exchange(370, 90, []) + exchange(200, 91, [(202, b"\0\0")])
+    return steps + [close()], {"kind": "news-boundary-remove"}

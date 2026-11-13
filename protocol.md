@@ -991,6 +991,11 @@ requires further client evidence. See
 
 Evidence: V064–V066 and the captured handler `10010470`.
 
+The captured [child append boundary](news-contracts.md#captured-child-append-boundary-and-indexed-orphan)
+shows that posting a 102nd child can return success while bypassing the 101st
+child in list traversal. The bypassed article remains indexed and directly
+readable. Category counts and article-list cardinalities can therefore differ.
+
 ### Deleting a News Article (Transaction 411) – Client Initiates
 
 **Request:** path 325, article ID 326 and optional recursive boolean 337.
