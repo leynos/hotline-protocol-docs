@@ -1,5 +1,6 @@
 """Offline guards for the unexecuted A11 near-boundary packet."""
 
+import importlib.util
 import json
 import unittest
 from pathlib import Path
@@ -177,6 +178,25 @@ class NearWitnessTests(unittest.TestCase):
         ids = sent_ids(report)
         self.assertEqual(ids, [100, 100])
         self.assertNotEqual(len(ids), len(set(ids)))
+
+    def test_guest_only_ack_tail_rejects_wrong_id_status_and_clip(self) -> None:
+        source = (
+            Path(__file__).resolve().parents[2]
+            / "mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-near-01/verify_partial.py"
+        )
+        spec = importlib.util.spec_from_file_location("a12_partial", source)
+        assert spec is not None and spec.loader is not None
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        saved = bytes.fromhex("00010000000000cf0000000000000002000000020000")
+        self.assertEqual(module.guest_ack_tail(saved)["frame"]["id"], 207)
+        for malformed in (
+            saved[:-1],
+            saved[:7] + b"\xce" + saved[8:],
+            saved[:11] + b"\x01" + saved[12:],
+        ):
+            with self.assertRaises(ValueError):
+                module.guest_ack_tail(malformed)
 
 
 if __name__ == "__main__":
