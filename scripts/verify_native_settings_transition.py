@@ -24,22 +24,32 @@ def stage_frames(report: dict, window: dict, kind: int, connection: str) -> list
     ]
 
 
-def check_stage(
-    report: dict, plan: dict, window: dict, uid: bytes, main_uid: bytes = b"\0\x20"
-) -> dict:
+def check_update(report: dict, window: dict, uid: bytes, connection: str) -> None:
     label = window["label"]
     stage = next(s for s in cases.STAGES if s.label == label)
     require(len(uid) == 2, f"{label}: subject UID length differs")
+    update = stage_frames(report, window, 301, connection)
+    require(len(update) == 1, f"{label}: 301 count differs on {connection}")
+    actual = fields(update[0])
+    require(
+        actual.get(103) == uid
+        and actual.get(102) == stage.expected_name
+        and actual.get(104) == stage.expected_icon,
+        f"{label}: 301 name/icon/UID differs on {connection}",
+    )
+
+
+def check_updates(report: dict, window: dict, uid: bytes) -> None:
     for connection in ("main", "subject"):
-        update = stage_frames(report, window, 301, connection)
-        require(len(update) == 1, f"{label}: 301 count differs on {connection}")
-        actual = fields(update[0])
-        require(
-            actual.get(103) == uid
-            and actual.get(102) == stage.expected_name
-            and actual.get(104) == stage.expected_icon,
-            f"{label}: 301 name/icon/UID differs on {connection}",
-        )
+        check_update(report, window, uid, connection)
+
+
+def check_stage(
+    report: dict, plan: dict, window: dict, uid: bytes, main_uid: bytes = b"\0\x20"
+) -> dict:
+    check_updates(report, window, uid)
+    label = window["label"]
+    stage = next(s for s in cases.STAGES if s.label == label)
     all_104 = [
         frame
         for frame in report["frames"]
@@ -173,13 +183,36 @@ def run_gated(plan_path: Path, binary: Path, output: Path) -> dict:
     recorder = Recorder(plan)
     completed, status, error = 0, "completed", ""
     checked = []
+    saved = [
+        i
+        for i, item in enumerate(plan["steps"])
+        if item.get("save_fields") == {"peer_uid": 103}
+    ]
+    require(len(saved) == 1, "Subject UID save step differs")
+    require(
+        saved[0] < plan["expectation"]["windows"][0]["first"],
+        "Identity gate occurs after 304",
+    )
+    for window in plan["expectation"]["windows"]:
+        pair = plan["steps"][window["first"] + 1 : window["first"] + 3]
+        require(
+            [(s["op"], s.get("connection")) for s in pair]
+            == [("read_frame", "main"), ("read_frame", "subject")],
+            "Stage 301 gate layout differs",
+        )
+    uid, main_uid = b"", b""
     try:
         for index, step in enumerate(plan["steps"]):
             recorder.execute(index, step)
             completed += 1
+            if index == saved[0]:
+                uid, main_uid = current_uids({"frames": recorder.frames}, plan)
             for window in plan["expectation"]["windows"]:
+                if window["first"] + 1 == index:
+                    check_update({"frames": recorder.frames}, window, uid, "main")
+                if window["first"] + 2 == index:
+                    check_update({"frames": recorder.frames}, window, uid, "subject")
                 if window["last"] == index:
-                    uid, main_uid = current_uids({"frames": recorder.frames}, plan)
                     checked.append(
                         check_stage(
                             {"frames": recorder.frames}, plan, window, uid, main_uid

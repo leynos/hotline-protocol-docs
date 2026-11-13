@@ -33,8 +33,10 @@ The eight ordered stages are:
 
 Each stage reads 301 on both sockets, requires the labelled 108 empty ACK,
 reads expected 104 messages, then uses two 500 ACK/quiet barriers. The
-`--run` mode in `verify_native_settings_transition.py` checks decoded state
-at each barrier and stops after the first bad stage. It records the failed
+`--run` mode in `verify_native_settings_transition.py` checks the roster and
+subject identity before any 304, then both decoded 301 states before each
+stage's PM. It checks PM and quiet-barrier results at each stage end and
+stops after the first bad observation. It records the failed
 report and closes owned sockets. It sends no further settings or PM request
 after failure. On success the plan restores the subject's session
 name/icon/options, observes both 301s, uses a final barrier and closes both
