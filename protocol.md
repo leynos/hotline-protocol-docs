@@ -736,7 +736,11 @@ Evidence: V052; `100130f0`.
 
 **ACK:** the success path replies after the native helper moves the object to
 Trash; this is not a recursive erase. The handler checks separate file/folder
-delete privileges 0/6. Collision, refresh and filesystem failure fixtures remain
+delete privileges 0/6. The
+[captured Trash matrix](filesystem-and-board-contracts.md#captured-move-and-trash-outcomes)
+supplies ordinary/nonempty, missing-source, permission, path-derived and
+Trash-name collision fixtures. Protected/root targets, interrupted failures
+and broader refresh coverage remain
 open; [filesystem contracts](filesystem-and-board-contracts.md) trace the calls.
 
 Evidence: V053; `100140e0`.
@@ -800,8 +804,11 @@ Evidence: V053 and the captured handler `100170c0`.
 
 **Request:** name 201, source path 202 and destination path 212.
 
-**ACK:** direct success/error replies are present. Collision, overwrite,
-metadata preservation and filesystem failure behaviour require further
+**ACK:** direct success/error replies are present. The
+[captured move matrix](filesystem-and-board-contracts.md#captured-move-and-trash-outcomes)
+shows same-parent success, rejection of existing-name collisions, preserved
+ordinary forks and native alias source/destination handling. Cross-volume,
+protected-object and interrupted-filesystem behaviour require further
 validation rather than guessed defaults.
 
 Evidence: V053 and the captured handler `100177d0`.

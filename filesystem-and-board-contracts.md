@@ -49,7 +49,8 @@ retrying the move. This path does not recursively erase a directory's contents.
 A successful handler ACK follows the helper; there is no file-list refresh
 notification constructed at this success site. Filesystem errors route through
 the native exception machinery, not a promised all-or-nothing portable delete.
-Trash placement, conflicts, protected objects and failures remain GAP-050.
+The captured matrix below supplies Trash placement and name-conflict outcomes.
+Protected/root targets and interrupted failures remain GAP-050.
 
 **205 create:** the handler caps Pascal name input at 255 bytes, normalizes the
 name and resolves a creation target. Helper `1002b670` calls `FSpDirCreate`,
@@ -90,8 +91,9 @@ establish every later refresh; a nonzero reply does not prove unchanged metadata
 Move handler 208 resolves source 201/202 and destination directory 212, then
 calls `1002c130`. That helper rejects a different volume reference, verifies
 the destination is a directory and calls `FSpCatMove`. It does not implement a
-cross-volume copy/delete fallback or an explicit overwrite policy. Same-place,
-collision and failure results remain platform/runtime questions (GAP-053).
+cross-volume copy/delete fallback or an explicit overwrite policy. Captured
+same-place, collision and same-volume failures are documented below. Other
+volumes and interrupted-operation outcomes remain GAP-053.
 
 Alias handler 209 uses source 201/202 and destination path 212. With nonempty
 201 it constructs the destination with that source name. With absent/empty 201,
@@ -403,3 +405,79 @@ the complete 41-entry Files wire listing is restored. No full disk-persistence
 claim follows from those ACKs or listings.
 
 [metadata]: ../mothra/evidence/gap-remediation/2026-11-13/native-metadata-01/manifest.json
+
+## Captured move and Trash outcomes
+
+The [native move corpus][moves] contains 26 move cases, nine delete cases and
+four auxiliary reports: 39 completed-action reports/75 paired socket lifetimes.
+Eleven identity-checked oracle queries accompany exact plans, before/after
+listings and metadata, one-second measured quiet windows and positive native
+catalogue/fork observations. This continues the same live OS 9 guest. It does
+not cover another volume, locked/protected targets, interrupted I/O or restart
+persistence; GAP-050 and GAP-053 retain those unanswered requirements.
+
+| 208 move case | Native reply and effect |
+| --- | --- |
+| Ordinary file or nonempty directory to another owned folder | Empty success ACK; source disappears, destination appears with original name/metadata and catalogue identity; directory children retain identity/bytes |
+| Same parent, file or directory | Empty success ACK; both listings remain unchanged |
+| Existing file or folder with the same name | Status 1/conflict text; source and destination remain unchanged; no overwrite |
+| Missing source | Status 1/no-file-or-folder text; views unchanged |
+| Missing or ordinary-file destination | Status 1/destination-folder-not-found text; views unchanged |
+| Zero-privilege file/folder move | Status 1/permission text; source remains unchanged |
+| Absent, empty or zero-count 212 | Success; selects Files root on this profile |
+| Directory into itself or its child | Status 1/self-or-subfolder text; hierarchy unchanged |
+| File-alias source | Alias object moves; its target stays in place; resolved metadata remains available |
+| Alias to destination directory | Move succeeds into the resolved destination directory |
+
+Twelve moves succeed, including two same-parent no-ops; fourteen fail with exact
+status 1/text 100 outcomes. The collision literal says there is already a
+file/folder in the destination folder with the same name. The hierarchy literal
+says the source cannot move into itself or a subfolder of itself. File/folder
+permission messages are distinct. Raw reports retain native `d2`/`d3` quote
+bytes, rather than substituting display punctuation.
+
+Handler `100177d0` checks move privilege 4 or 8 after source classification and
+resolves destination 212. Helper `1002c130` flushes/prepares source state,
+rejects different native volume references before calling `FSpCatMove`, verifies
+the destination is a directory and updates its stored parent after success.
+The differing-volume branch is static evidence; no actual cross-volume fixture
+has run. The unchanged views for tested errors do not prove atomicity under
+an interrupted native filesystem operation.
+
+| 204 delete case | Native reply and effect |
+| --- | --- |
+| Ordinary file | Empty success ACK; original path stops resolving; positive catalogue identifies the same object in Trash |
+| Nonempty directory | Success; directory and child move to Trash with original identities and fork bytes |
+| Missing source | Status 1: cannot delete because it does not exist or cannot be found |
+| Zero-privilege file/folder deletion | Status 1/permission text; view unchanged |
+| Absent 201 with full owned-directory 202 | Success; resolves and moves that owned directory to Trash |
+| Two equal basenames from distinct owned parents | Both succeed; positive catalogue shows `m-del22-dupe` and `m-del22-dupe1`, with distinct source bytes preserved |
+| Target of a live alias | Target moves to Trash; 206 through the remaining alias still resolves its metadata |
+
+Six deletes succeed and three return expected errors. The path-only case uses
+an owned directory; it does not test deletion of the actual Files root. Native
+204 is a Trash move, not recursive erasure. Collision helpers can enter
+multi-step rename/move paths; this corpus does not force a failure between
+those steps or prove rollback. Locked/protected/root and interrupted-operation
+fixtures remain required by GAP-050.
+
+The target-in-Trash case is especially important for alias containment: the
+alias remains inside Files, while its target is positively identified outside
+that share in Trash. Native 206 still exposes `TEXT (alias)`, aggregate size
+332 and the target's comment. The alias resource bytes differ by the final
+snapshot. This is a bounded metadata-resolution observation, not a download
+fixture or a genuine missing-target case; GAP-047/GAP-054 remain active.
+
+Read-only catalogue snapshots retain all 72 seeded identities before cleanup,
+including moved subtrees, and add one independent flush file. Every ordinary
+DATA/resource fork is unchanged. The only changed seeded resource fork is the
+alias addressed after its target's Trash move. Positive child/fork controls
+support the observed preservation; they do not prove every metadata attribute.
+
+Owned cleanup restores the complete 41-entry Files wire listing. The immediate
+post-cleanup disk snapshot positively identifies 70 objects in Trash, including
+subtree paths. Three root-level file markers lack positive post-move probes.
+Do not turn those missing positive observations into absence, complete Trash
+persistence or restart-durability claims.
+
+[moves]: ../mothra/evidence/gap-remediation/2026-11-13/native-move-01/manifest.json

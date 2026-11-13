@@ -1198,3 +1198,51 @@ The verifier checks all 49 reports/72 socket lifetimes, exact as-run plans,
 partial effects and independent administrator views. Literal recorder files
 retain the original account-cleanup mistake and subsequent recovery, rather
 than presenting an edited successful transcript. No historical client is run.
+
+## Reproducing move and Trash fixtures
+
+Prepare `move-preflight`, `move-seed`, `move-moves`, `move-deletions`,
+`move-final` and `move-cleanup` plans with a current runtime record and unused
+output directories. The [frozen move corpus](../mothra/evidence/gap-remediation/2026-11-13/native-move-01/manifest.json)
+retains all 39 reports/75 sockets, as-run sources and eleven fresh oracle queries.
+The seed uses the existing verified `fixture-low` account; no account changes
+are made by these suites.
+
+Preflight the complete Files listing: `mothra-fs22` and every `m-mv22-` marker
+must be absent. Verify 352 returns the existing low account's zero bitmap.
+Abort on a conflicting owned name or unexpected privilege state. Seed only the
+new owned tree and validate every ACK before running moves in generator order,
+then deletions in generator order. Trash-name collision and target-alias cases
+require the earlier seed, rather than independently invented names.
+
+Every move compares source and destination listings and metadata before/after.
+Delete cases retain the parent view even when absent 201 selects a whole owned
+directory through 202. Never substitute the actual Files root for that fixture.
+The extra 500 and one measured quiet second bound liveness/notification claims.
+No cross-volume or interrupted-I/O observation is inferred from success or an
+unchanged view after another kind of error.
+
+Take bounded positive catalogue/fork observations after seed. Finalization
+performs an independent upload to invoke the known native flush path, then
+records Files/root/source/destination views and the alias whose target moved
+to Trash. Retain positive observations for the owned tree, its preflighted root
+markers and newly moved Trash objects. Restrict catalogue ranges to known owned
+allocations; a path missing from a positive probe is not an absence proof.
+
+Cleanup moves only the owned tree and root markers to Trash and requires the
+full Files listing to match preflight. The frozen immediate disk view contains
+70 positive Trash objects rather than complete coverage of all 73 final
+objects. Preserve that limitation. Do not empty Trash, erase unrelated objects,
+or claim persistence across a restart that was not performed.
+
+Run the offline verifier from mothra:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/verify_native_moves.py \
+  evidence/gap-remediation/2026-11-13/native-move-01
+```
+
+It checks paired packet streams, exact plans, 12 successful/14 failed moves,
+six successful/three failed deletes and positive catalogue/fork effects. The
+corpus advances GAP-050/GAP-053/GAP-054 without closing their remaining
+protected-target, other-volume, interrupted-operation or missing-target work.
