@@ -241,6 +241,7 @@ class ClassicLoginProxyTests(unittest.TestCase):
         self.assertFalse(timer.is_alive())
         self.assertEqual(control_peer.recv(1), b"")
         self.assertEqual(data_peer.recv(1), b"")
+        watchdog.mark_teardown()
         self.assertTrue(watchdog.receipt()["valid_30_seconds"])
 
     def test_watchdog_cancellation_and_late_cutoff(self) -> None:
@@ -259,34 +260,79 @@ class ClassicLoginProxyTests(unittest.TestCase):
         late.arm(self.source, self.source)
         now[0] += 31_000_000_000
         self.assertTrue(late.tick())
+        late.mark_teardown()
         self.assertFalse(late.receipt()["valid_30_seconds"])
 
-    def test_natural_socket_eof_cancels_watchdog(self) -> None:
+    def test_one_control_halfclose_does_not_cancel_watchdog(self) -> None:
         source, writer = socket.socketpair()
         sink, reader = socket.socketpair()
         for peer in (source, writer, sink, reader):
             self.addCleanup(peer.close)
         source.settimeout(0.1)
+        sink.settimeout(0.1)
+        writer.settimeout(1)
+        reader.settimeout(1)
+        now = [1_000_000_000]
+        watchdog = ObservationWatchdog(
+            Audit(time.monotonic() + 2),
+            lambda: (source.close(), sink.close()),
+            lambda: now[0],
+        )
+        client_relay = threading.Thread(
+            target=relay_frames,
+            args=(source, sink, watchdog.audit, "client", None, "baseline"),
+        )
+        server_errors: list[Exception] = []
+
+        def server_relay() -> None:
+            try:
+                relay_frames(
+                    sink,
+                    source,
+                    watchdog.audit,
+                    "server",
+                    9,
+                    "baseline",
+                    on_ack=watchdog.arm,
+                )
+            except (OSError, RuntimeError) as exc:
+                server_errors.append(exc)
+
+        server_thread = threading.Thread(target=server_relay)
+        client_relay.start()
+        server_thread.start()
+        request = frame(300, 9, [])
+        writer.sendall(request)
+        self.assertEqual(reader.recv(1024), request)
+        ack = frame(0, 9, [(161, b"\x00\x00")], reply=1)
+        reader.sendall(ack)
+        self.assertEqual(writer.recv(1024), ack)
+        writer.shutdown(socket.SHUT_WR)
+        self.assertEqual(reader.recv(1), b"")
+        client_relay.join(1)
+        self.assertFalse(client_relay.is_alive())
+        self.assertTrue(server_thread.is_alive())
+        now[0] += 28_000_000_000
+        self.assertTrue(watchdog.tick())
+        server_thread.join(1)
+        self.assertFalse(server_thread.is_alive())
+        self.assertTrue(server_errors)
+        self.assertEqual(watchdog.receipt()["state"], "fired")
+
+    def test_late_relay_teardown_invalidates_earlier_socket_close(self) -> None:
         now = [1_000_000_000]
         watchdog = ObservationWatchdog(
             Audit(time.monotonic() + 2), lambda: None, lambda: now[0]
         )
         watchdog.arm(self.source, self.source)
-        writer.sendall(frame(300, 9, []))
-        writer.shutdown(socket.SHUT_WR)
-        relay_frames(
-            source,
-            sink,
-            watchdog.audit,
-            "client",
-            None,
-            "baseline",
-            on_eof=watchdog.cancel,
-        )
-        self.assertEqual(reader.recv(1024), frame(300, 9, []))
-        now[0] += 31_000_000_000
-        self.assertFalse(watchdog.tick())
-        self.assertEqual(watchdog.receipt()["state"], "cancelled")
+        now[0] += 28_000_000_000
+        self.assertTrue(watchdog.tick())
+        now[0] += 3_000_000_000
+        watchdog.mark_teardown()
+        receipt = watchdog.receipt()
+        self.assertEqual(receipt["last_owned_socket_close_ns"], 29_000_000_000)
+        self.assertEqual(receipt["relay_teardown_ns"], 32_000_000_000)
+        self.assertFalse(receipt["valid_30_seconds"])
 
     def test_failed_ack_write_never_arms_watchdog(self) -> None:
         source, writer = socket.socketpair()

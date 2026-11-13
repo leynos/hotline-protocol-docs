@@ -137,6 +137,7 @@ class ObservationWatchdog:
         self.due_ns: int | None = None
         self.actual_ns: int | None = None
         self.closed_ns: int | None = None
+        self.teardown_ns: int | None = None
         self.raw_sha256: str | None = None
         self.forwarded_sha256: str | None = None
         self.error: str | None = None
@@ -177,6 +178,9 @@ class ObservationWatchdog:
             if self.state in {"waiting", "armed"}:
                 self.state = "cancelled"
 
+    def mark_teardown(self) -> None:
+        self.teardown_ns = self.clock_ns()
+
     def run(self) -> None:
         while not self.audit.abort.is_set():
             if self.tick() or self.state == "cancelled":
@@ -187,7 +191,8 @@ class ObservationWatchdog:
         valid = (
             self.ack_ns is not None
             and self.closed_ns is not None
-            and self.closed_ns - self.ack_ns <= MAX_OBSERVATION_NS
+            and self.teardown_ns is not None
+            and self.teardown_ns - self.ack_ns <= MAX_OBSERVATION_NS
             and self.error is None
         )
         return {
@@ -196,6 +201,7 @@ class ObservationWatchdog:
             "cutoff_due_ns": self.due_ns,
             "cutoff_actual_ns": self.actual_ns,
             "last_owned_socket_close_ns": self.closed_ns,
+            "relay_teardown_ns": self.teardown_ns,
             "valid_30_seconds": valid,
             "raw_ack_sha256": self.raw_sha256,
             "forwarded_ack_sha256": self.forwarded_sha256,
@@ -244,7 +250,6 @@ def relay_frames(
     variant: str,
     ack_forwarded: threading.Event | None = None,
     on_ack=None,
-    on_eof=None,
 ) -> None:
     first = True
     while raw := read_frame(source, audit):
@@ -263,8 +268,6 @@ def relay_frames(
         first = False
     if label == "server" and first:
         raise ValueError("Missing successful Login107 ACK")
-    if on_eof is not None:
-        on_eof()
     destination.shutdown(socket.SHUT_WR)
 
 
@@ -378,7 +381,6 @@ def serve(variant: str, output: Path, expected_netns: int, host_netns: int) -> d
                     variant,
                     ack_forwarded,
                     watchdog.arm if index else None,
-                    watchdog.cancel,
                 )
 
         actions = (
@@ -478,13 +480,7 @@ def serve(variant: str, output: Path, expected_netns: int, host_netns: int) -> d
             or watchdog.error
         ):
             raise RuntimeError("Proxy relay, watchdog or controlled ACK incomplete")
-        report["status"] = (
-            "intentional-observation-cutoff"
-            if watchdog.state == "fired" and watchdog.receipt()["valid_30_seconds"]
-            else "timing-invalid"
-            if watchdog.state == "fired"
-            else "completed"
-        )
+        report["status"] = "completed"
     except (OSError, ValueError, EOFError, RuntimeError) as exc:
         errors.append(f"{type(exc).__name__}: {exc}")
         audit.abort.set()
@@ -494,6 +490,16 @@ def serve(variant: str, output: Path, expected_netns: int, host_netns: int) -> d
         timer_thread.join(1)
         if data_thread is not None:
             data_thread.join(1)
+            if data_thread.is_alive():
+                errors.append("Data relay still alive after teardown")
+                report["status"] = "failed"
+        watchdog.mark_teardown()
+        if report["status"] == "completed" and watchdog.state == "fired":
+            report["status"] = (
+                "intentional-observation-cutoff"
+                if watchdog.receipt()["valid_30_seconds"]
+                else "timing-invalid"
+            )
         report["errors"] = errors
         report["observation"] = watchdog.receipt()
         report["pid"] = os.getpid()

@@ -74,15 +74,18 @@ An independent proxy watchdog starts before the first control accept. Only
 **after** the first matching successful Login107 ACK `sendall` returns does it
 arm at monotonic ACK time plus 28 seconds. Its receipt records the original
 and forwarded ACK SHA-256 values, trigger, due time, actual firing time and
-last owned-socket close time. This is a local write-completion trigger; the
-packet captures must still prove client delivery. The 28-second target leaves
+last owned-socket close and final relay-teardown times. The latter determines
+30-second validity even when a relay join finishes late. The ACK trigger is
+a local write completion; packet captures must still prove client delivery.
+The 28-second target leaves
 margin for the required <=30-second observation limit. A later close is
 `timing-invalid`, never successful tolerance evidence.
 
 At expiry the watchdog closes only proxy-owned control/data sockets and
 listeners. Accepted sockets racing with expiry are closed on registration.
 Relay errors from this intentional close are kept separate from real source,
-protocol or I/O failures. Natural control EOF cancels the timer; a native
+protocol or I/O failures. One control half-close leaves the timer armed;
+completion of both control relay directions cancels it. A native
 source mismatch remains a failure. A valid timer stop is reported as
 `intentional-observation-cutoff`, distinct from the proxy's natural
 `completed` status and from peer acceptance. The proxy writes the final
@@ -108,14 +111,14 @@ ty check --python ../mothra/tools/ghidramcp/.venv/bin/python \
 python3 -m unittest discover -s scripts -p 'test_classic_login_proxy.py'
 ```
 
-Fifteen tests cover ACK preservation and rebuilt widths/counts, ID/status and
+Sixteen tests cover ACK preservation and rebuilt widths/counts, ID/status and
 native-value rejection, malformed/fragmented input, socket-pair byte and EOF
 relay, no-forward rejection, deadline/log bounds, and the host namespace
 check, plus inaccessible `/proc/1` and host-sysfs discrepancy regressions.
 A nonlocal-route fault also fails the guard. New fake-clock and socket-pair
-controls cover ACK-only arming, failed send, shared socket closure, early-EOF
-cancellation and late-cutoff invalidity. They open no native or guest
-listener. Actual direct-system-service
+controls cover ACK-only arming, failed send, shared socket closure, one-sided
+half-close, and late close or relay-teardown invalidity. They open no native
+or guest listener. Actual direct-system-service
 lifecycle, namespace route proof, client data-port behavior, baseline wire/UI
 parity and error cleanup remain untested runtime gates. A future failed
 baseline stops before any modified 161 case; unexpected egress, extra
@@ -128,7 +131,7 @@ from 180 to 230 physical lines to model actual unprivileged `/proc` denial
 and namespace-independent sysfs observations. No safeguard was waived.
 B27 then raised production to 500 and finally 540 physical lines for explicit
 watchdog receipt, outcome arbitration and owned-socket cleanup. Tests rose to
-300 and then 325 to keep natural-EOF and data half-close controls. Production,
+300, 325, then 375 to keep half-close and late-teardown controls. Production,
 tests and this document remain within their revised bounds.
 
 ## Read-only actual namespace guard receipt
