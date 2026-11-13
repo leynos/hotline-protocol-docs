@@ -9,6 +9,7 @@ from native_agreement_cases import PHASES as AGREEMENT_PHASES
 from native_agreement_cases import cleanup as agreement_cleanup
 from native_agreement_cases import phase as agreement_phase
 from native_agreement_cases import preflight as agreement_preflight
+from native_agreement_cases import restore_stage as agreement_restore_stage
 from native_agreement_cases import seed as agreement_seed
 from native_agreement_cases import stages as agreement_stages
 from native_auth_cases import cleanup as auth_cleanup
@@ -55,6 +56,7 @@ def main() -> None:
             "agreement-preflight",
             "agreement-seed",
             "agreement-stages",
+            "agreement-restore-stage",
             "agreement-cleanup",
             *["agreement-" + name for name in AGREEMENT_PHASES],
             "auth-seed",
@@ -108,11 +110,17 @@ def main() -> None:
     )
     parser.add_argument("--runtime-record", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--original-agreement", type=Path)
     args = parser.parse_args()
+    if args.suite == "agreement-restore-stage" and args.original_agreement is None:
+        parser.error("agreement-restore-stage requires --original-agreement")
     cases = {
         "agreement-preflight": agreement_preflight,
         "agreement-seed": agreement_seed,
         "agreement-stages": agreement_stages,
+        "agreement-restore-stage": lambda: agreement_restore_stage(
+            args.original_agreement.read_bytes()
+        ),
         "agreement-cleanup": agreement_cleanup,
         **{
             "agreement-" + name: lambda name=name: agreement_phase(name)

@@ -1,6 +1,8 @@
 """Prepare agreement-content controls using the observed native login paths."""
 
-from native_auth_cases import PASSWORD, complement
+import hashlib
+
+from native_auth_cases import PASSWORD, authentication, complement, roster
 from native_auth_cases import states as auth_states
 from native_folder_cases import descriptor, upload_start, word
 from native_plan import close, eof, login, packet, payload, read, send
@@ -17,6 +19,9 @@ PHASES = [
     "text-over-limit",
     "binary-over-limit",
     "binary-field-over-limit",
+    "nontext",
+    "nontext-over-limit",
+    "nontext-field-over-limit",
     "restored",
 ]
 TEXT = b"Agreement\r\nsecond\nline\r\nbyte:\x80\x00end"
@@ -29,6 +34,26 @@ FILES = {
     "binary-over-limit": (b"m-agree-b-over", b"BINA", b"B" * 262141),
     "binary-field-over-limit": (b"m-agree-b-field", b"BINA", b"B" * 65536),
 }
+NON_TEXT_FILES = {
+    # One GUI setup retyped BINA Agreement.txt as TEXT. Verify the installed type;
+    # recognized BMP supplies a separate non-TEXT control with raw content.
+    "nontext": (b"m-agree-nontext", b"BMP ", TEXT),
+    "nontext-over-limit": (b"m-agree-n-over", b"BMP ", b"B" * 262141),
+    "nontext-field-over-limit": (b"m-agree-n-field", b"BMP ", b"B" * 65536),
+}
+ORIGINAL_AGREEMENT_SHA256 = (
+    "52f3930366ef00471568a7de275c4b7d7e826274604c058e2fdf0bc6976cc91a"
+)
+
+
+def restore_stage(data: bytes) -> dict:
+    if hashlib.sha256(data).hexdigest() != ORIGINAL_AGREEMENT_SHA256:
+        raise ValueError("Restoration requires the retained original agreement")
+    return {
+        "stage-agreement-restored": staged_file(
+            b"m-agr-restored", b"Agreement.txt", b"TEXT", data
+        )
+    }
 
 
 def staged_file(root: bytes, filename: bytes, kind: bytes, data: bytes) -> tuple:
@@ -60,7 +85,7 @@ def stages() -> dict:
         "stage-agreement-" + name: staged_file(
             b"m-agr-" + name.encode(), b"Agreement.txt", kind, data
         )
-        for name, (_, kind, data) in FILES.items()
+        for name, (_, kind, data) in (FILES | NON_TEXT_FILES).items()
     }
     cases["stage-agreement-directory"] = (
         upload_start(b"m-agr-directory", 1, 0)
@@ -151,11 +176,64 @@ def seed() -> dict:
 def phase(name: str) -> dict:
     if name not in PHASES:
         raise ValueError("Unknown agreement phase")
+    if name.endswith("field-over-limit"):
+        return field_overflow(name)
     return {
         name + "-" + label: (steps, {**expected, "phase": name})
         for label, (steps, expected) in auth_states().items()
         if label in {"early-admin", "delayed-admin", "early-bypass", "delayed-bypass"}
     }
+
+
+def field_overflow(name: str) -> dict:
+    """Observe partial login after a loaded buffer exceeds the TLV field cap."""
+    cases = {}
+    for early in [False, True]:
+        steps = [{**s, "connection": "observer"} for s in login()[:3]]
+        steps += [
+            authentication(b"m-auth-bypass", PASSWORD, connection="observer"),
+            read("observer"),
+            read("observer"),
+            read("observer"),
+        ] + roster(10)
+        steps += [{**s, "connection": "subject"} for s in login()[:3]]
+        steps += [
+            authentication(
+                b"admin",
+                b"mothra19",
+                name=b"auth-visible" if early else None,
+                icon=b"\0\1" if early else None,
+                connection="subject",
+            ),
+            read("subject"),
+        ]
+        if early:
+            steps += [read("subject")]
+        steps += [
+            {"op": "expect_quiet", "connection": "subject", "timeout": 3},
+            send(packet(500, 91), "subject"),
+        ]
+        if early:
+            steps += [read("subject", match_frame={"is_reply": 1, "id": 91})] + roster(
+                12
+            )
+            for kind, identifier in [(121, 2), (107, 3)]:
+                steps += [
+                    send(packet(kind, identifier), "subject"),
+                    read("subject", match_frame={"is_reply": 1, "id": identifier}),
+                ]
+            steps += roster(13)
+        else:
+            steps += [eof("subject")] + roster(12)
+        steps += [close("subject"), {"op": "pause", "seconds": 3}]
+        steps += roster(14 if early else 13)
+        steps += [close("observer")]
+        label = "early" if early else "delayed"
+        cases[name + "-" + label] = (
+            steps,
+            {"kind": "agreement-field-overflow", "phase": name, "early": early},
+        )
+    return cases
 
 
 def cleanup() -> dict:
