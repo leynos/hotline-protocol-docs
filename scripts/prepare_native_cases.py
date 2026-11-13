@@ -71,6 +71,15 @@ from native_move_cases import finalization as move_final
 from native_move_cases import moves as move_moves
 from native_move_cases import preflight as move_preflight
 from native_move_cases import seed as move_seed
+from native_news_cases import cleanup as news_cleanup
+from native_news_cases import finalization as news_final
+from native_news_cases import listings as news_listings
+from native_news_cases import posts as news_posts
+from native_news_cases import preflight as news_preflight
+from native_news_cases import seed as news_seed
+from native_news_cases import structures as news_structures
+from native_news_cases import thread_children as news_thread_children
+from native_news_cases import thread_grandchild as news_thread_grandchild
 from native_queue_cases import queues, timer
 from native_resume_cases import downloads as resume_downloads
 from native_resume_cases import upload_continuations, upload_probes
@@ -83,6 +92,15 @@ def main() -> None:
     parser.add_argument(
         "suite",
         choices=[
+            "news-preflight",
+            "news-thread-children",
+            "news-thread-grandchild",
+            "news-posts",
+            "news-seed",
+            "news-listings",
+            "news-structures",
+            "news-final",
+            "news-cleanup",
             "move-preflight",
             "move-seed",
             "move-moves",
@@ -170,10 +188,27 @@ def main() -> None:
     parser.add_argument("--runtime-record", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--original-agreement", type=Path)
+    parser.add_argument("--article-parent", type=int, default=0)
     args = parser.parse_args()
     if args.suite == "agreement-restore-stage" and args.original_agreement is None:
         parser.error("agreement-restore-stage requires --original-agreement")
+    if (
+        args.suite.startswith("news-thread-")
+        and not 0 < args.article_parent <= 0xFFFFFFFF
+    ):
+        parser.error(
+            "news-thread suites require a positive --article-parent from a captured list"
+        )
     cases = {
+        "news-preflight": news_preflight,
+        "news-thread-children": lambda: news_thread_children(args.article_parent),
+        "news-thread-grandchild": lambda: news_thread_grandchild(args.article_parent),
+        "news-posts": news_posts,
+        "news-seed": news_seed,
+        "news-listings": news_listings,
+        "news-structures": news_structures,
+        "news-final": news_final,
+        "news-cleanup": news_cleanup,
         "move-preflight": move_preflight,
         "move-seed": move_seed,
         "move-moves": move_moves,
@@ -287,6 +322,8 @@ def main() -> None:
                 "GAP-017",
             ]
             if args.suite == "framing"
+            else ["GAP-003", "GAP-065", "GAP-066", "GAP-070", "GAP-084"]
+            if args.suite.startswith("news-")
             else ["GAP-003", "GAP-047", "GAP-050", "GAP-053", "GAP-054", "GAP-084"]
             if args.suite.startswith("move-")
             else ["GAP-016", "GAP-019", "GAP-052", "GAP-084"]
