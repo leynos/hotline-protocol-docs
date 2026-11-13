@@ -2,9 +2,11 @@
 
 import socket
 import struct
+import subprocess
 import threading
 import time
 import unittest
+from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import patch
 
@@ -155,14 +157,65 @@ class ClassicLoginProxyTests(unittest.TestCase):
         thread.join(1)
         self.assertFalse(thread.is_alive())
 
-    def test_host_network_namespace_rejected_before_listener(self) -> None:
+    def test_unprivileged_namespace_guard_uses_socket_view(self) -> None:
+        def stat(path: str) -> SimpleNamespace:
+            if path == "/proc/1/ns/net":
+                raise PermissionError("UID1000 cannot inspect proc1")
+            self.assertEqual(path, "/proc/self/ns/net")
+            return SimpleNamespace(st_ino=42)
+
+        with (
+            patch("classic_login_proxy.os.stat", side_effect=stat),
+            patch(
+                "classic_login_proxy.Path.iterdir",
+                return_value=iter((Path("lo"), Path("eth0"))),
+            ),
+            patch("classic_login_proxy.socket.if_nameindex", return_value=[(1, "lo")]),
+            patch(
+                "classic_login_proxy.subprocess.run",
+                return_value=subprocess.CompletedProcess([], 0, "[]", ""),
+            ) as routes,
+        ):
+            self.assertEqual(namespace_guard(42, 1), 42)
+            self.assertEqual(routes.call_count, 2)
+
+    def test_namespace_guard_rejects_wrong_identity_and_interfaces(self) -> None:
+        with self.assertRaises(ValueError):
+            namespace_guard(42, 42)
         with (
             patch(
                 "classic_login_proxy.os.stat", return_value=SimpleNamespace(st_ino=42)
             ),
-            self.assertRaisesRegex(ValueError, "host network namespace"),
+            self.assertRaisesRegex(ValueError, "identity differs"),
         ):
-            namespace_guard()
+            namespace_guard(43, 1)
+        with (
+            patch(
+                "classic_login_proxy.os.stat", return_value=SimpleNamespace(st_ino=42)
+            ),
+            patch(
+                "classic_login_proxy.socket.if_nameindex",
+                return_value=[(1, "lo"), (2, "eth0")],
+            ),
+            self.assertRaisesRegex(ValueError, "non-loopback interface"),
+        ):
+            namespace_guard(42, 1)
+
+    def test_namespace_guard_rejects_nonlocal_route(self) -> None:
+        with (
+            patch(
+                "classic_login_proxy.os.stat", return_value=SimpleNamespace(st_ino=42)
+            ),
+            patch("classic_login_proxy.socket.if_nameindex", return_value=[(1, "lo")]),
+            patch(
+                "classic_login_proxy.subprocess.run",
+                return_value=subprocess.CompletedProcess(
+                    [], 0, '[{"dst":"default"}]', ""
+                ),
+            ),
+            self.assertRaisesRegex(ValueError, "nonlocal route"),
+        ):
+            namespace_guard(42, 1)
 
     def test_deadline_and_log_bounds_fail(self) -> None:
         audit = Audit(time.monotonic() - 1)

@@ -1,7 +1,8 @@
 # Classic Login107 field-161 proxy: preparation only
 
 This tool prepares a bounded *future* GAP-081 Classic client experiment. It
-has not been launched in a guest namespace or connected to the native server.
+has not opened listeners or connected to the native server. A guard-only,
+read-only call ran as UID 1000 inside the actual client namespace.
 It is protocol-specific: no mothra generic bridge, client app, native server,
 account, or configuration changes were made in this milestone.
 
@@ -10,9 +11,14 @@ account, or configuration changes were made in this milestone.
 The proxy is intended to run **inside the already isolated client network
 namespace** under a future direct system service with `User=1000` and
 `NetworkNamespacePath=` set to the verified client namespace. A user service
-that runs `sudo`/`nsenter` is not an approved substitute. On startup it rejects
-the host network namespace, any interface besides `lo`, and any IPv4/IPv6 main
-table route. It binds only `127.0.0.1:15652` for control and
+that runs `sudo`/`nsenter` is not an approved substitute. The CLI requires
+trusted operator-supplied
+`--expected-netns-inode` and `--host-netns-inode` values. The guard compares
+`/proc/self/ns/net` to both, then uses `socket.if_nameindex()` to require
+only `lo` and checks empty IPv4/IPv6 main route tables. It does not inspect
+`/proc/1/ns/net` or `/sys/class/net`: both gave misleading/inaccessible
+views to UID 1000 in the actual service context. Wrong, equal or nonpositive
+inodes fail before binding. It binds only `127.0.0.1:15652` for control and
 `127.0.0.1:15653` for automatic banner data. Those listeners connect only to
 the existing namespace-local `127.0.0.1:15500/15501` native bridges. The
 Classic app would use guest `10.0.2.2:15652`, allowing its automatic data
@@ -52,7 +58,10 @@ that ACK.
 All other ACK fields retain their order and raw values; flags, ID, status and
 other frames are preserved. The automatic banner data stream is relayed
 unchanged, with each direction's EOF forwarded by half-close. Every accepted
-handshake, control frame and data chunk logs original and forwarded hex.
+handshake, control frame and data chunk logs original and intended forwarded
+hex **before** `sendall`. In a failed report, those entries are not delivery
+proof. Even a successful local send requires packet and peer observations for
+acceptance.
 Proxy `completed` means only that its ACK and relay ran to completion. It is
 **not** proof the Classic app accepted the variant. The first authorised live
 case must be `baseline`, with host/client/server wire and UI parity against
@@ -71,10 +80,12 @@ ty check --python ../mothra/tools/ghidramcp/.venv/bin/python \
 python3 -m unittest discover -s scripts -p 'test_classic_login_proxy.py'
 ```
 
-Nine tests cover ACK preservation and rebuilt widths/counts, ID/status and
+Eleven tests cover ACK preservation and rebuilt widths/counts, ID/status and
 native-value rejection, malformed/fragmented input, socket-pair byte and EOF
 relay, no-forward rejection, deadline/log bounds, and the host namespace
-check. They open no native or guest listener. Actual direct-system-service
+check, plus inaccessible `/proc/1` and host-sysfs discrepancy regressions.
+A nonlocal-route fault also fails the guard. They open no native or guest
+listener. Actual direct-system-service
 lifecycle, namespace route proof, client data-port behavior, baseline wire/UI
 parity and error cleanup remain untested runtime gates. A future failed
 baseline stops before any modified 161 case; unexpected egress, extra
@@ -82,6 +93,18 @@ connection, packet gap or app-route ambiguity also stops the experiment.
 
 The original 350 physical production-line budget was increased to 430 by the
 supervisor. This **+80-line allowance** retains explicit frame validation,
-thread/deadline cleanup and bounded audit logging instead of compressing
-those safeguards. The preparation implementation is under the revised bound;
-tests remain under 180 lines and this document under 120 lines.
+thread/deadline cleanup and bounded audit logging. The test budget increased
+from 180 to 230 physical lines to model actual unprivileged `/proc` denial
+and namespace-independent sysfs observations. No safeguard was waived.
+Production, tests and this document remain within their revised bounds.
+
+## Read-only actual namespace guard receipt
+
+On 2026-11-13, the live client emulator PID was `1012834`, with executable
+SHA-256 `9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4`.
+The host netns inode was `4026531840`, and the emulator netns inode was
+`4026532479`. A read-only `nsenter -t 1012834 -n` followed by UID/GID 1000
+`setpriv` called only `namespace_guard(4026532479, 4026531840)`. It returned
+`4026532479`. This proves that guard call in that observed context, not
+listener, backend, proxy or Classic-client readiness. Recheck both inodes and
+process identity before any future service launch.

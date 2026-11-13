@@ -189,11 +189,13 @@ def relay_data(
         destination.sendall(chunk)
 
 
-def namespace_guard() -> int:
+def namespace_guard(expected_netns: int, host_netns: int) -> int:
+    if min(expected_netns, host_netns) <= 0 or expected_netns == host_netns:
+        raise ValueError("Expected and host namespace inodes must be distinct")
     own = os.stat("/proc/self/ns/net").st_ino
-    if own == os.stat("/proc/1/ns/net").st_ino:
-        raise ValueError("Proxy is in host network namespace")
-    if {p.name for p in Path("/sys/class/net").iterdir()} != {"lo"}:
+    if own != expected_netns or own == host_netns:
+        raise ValueError("Proxy network namespace identity differs")
+    if {name for _, name in socket.if_nameindex()} != {"lo"}:
         raise ValueError("Namespace has non-loopback interface")
     for family in ([], ["-6"]):
         result = subprocess.run(
@@ -223,10 +225,10 @@ def accept_one(
             continue
 
 
-def serve(variant: str, output: Path) -> dict:
+def serve(variant: str, output: Path, expected_netns: int, host_netns: int) -> dict:
     if variant not in VARIANTS:
         raise ValueError("Unknown variant")
-    netns = namespace_guard()
+    netns = namespace_guard(expected_netns, host_netns)
     output.mkdir(parents=True, exist_ok=False)
     audit = Audit(time.monotonic() + DEADLINE_SECONDS)
     sockets: list[socket.socket] = []
@@ -300,6 +302,8 @@ def serve(variant: str, output: Path) -> dict:
         "status": "failed",
         "variant": variant,
         "netns_inode": netns,
+        "expected_netns_inode": expected_netns,
+        "host_netns_inode": host_netns,
         "routes": BACKENDS,
         "listeners": LISTENERS,
         "deadline_seconds": DEADLINE_SECONDS,
@@ -374,8 +378,12 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--variant", choices=VARIANTS, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--expected-netns-inode", type=int, required=True)
+    parser.add_argument("--host-netns-inode", type=int, required=True)
     args = parser.parse_args()
-    result = serve(args.variant, args.output)
+    result = serve(
+        args.variant, args.output, args.expected_netns_inode, args.host_netns_inode
+    )
     print(result["status"])
     raise SystemExit(result["status"] != "completed")
 
