@@ -139,7 +139,7 @@ work. These labels are not a claim that every failure has a numbered reply.
 | 400 | Article/body/navigation ACK | E | Requested flavour lookup; no read receipt. |
 | 410 | Empty ACK after create/body write | E | No returned new ID or article push at success site; metadata creation precedes body validation. |
 | 411 | Empty ACK after graph/index rewrite | E | No article-list refresh push at success site. |
-| 500 | Empty ACK | — | Processed request refreshes activity; client scheduling/purpose remains GAP-079. |
+| 500 | Empty ACK | — | Processed request refreshes activity; one modern client’s optional schedule is scoped in the [request-500 contract](request-500-contract.md). |
 
 This completes GAP-006's operation/direction/state and reply/effect catalogue.
 All rows link to entry captures through the request catalogue. Associated

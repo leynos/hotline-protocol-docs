@@ -337,7 +337,9 @@ The dispatcher clock calls Mac `GetDateTime`; these comparisons use seconds:
 A selected complete logical request refreshes activity; TCP byte arrival and
 incomplete fragments do not update that slot in the traced receive/dispatch
 paths. Request 500 has an empty-ACK handler, which makes it usable as a probe
-without establishing a client's intended schedule. See the
+without establishing a mandatory client schedule. One modern client's
+optional timer is scoped in the
+[request-500 contract](request-500-contract.md). See the
 [activity boundary table](session-transport-contracts.md#activity-clocks-and-incomplete-input)
 and [distinct flood counters](session-transport-contracts.md#flood-and-connection-burst-counters)
 for exact comparisons, bounded negative findings and remaining timer fixtures.

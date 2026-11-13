@@ -1136,7 +1136,7 @@ operations omitted from the previous guide:
 | 214 | Reads reference 107, invokes cleanup and ACKs | Complete cancellation effects and historical name |
 | 348 | Account enumeration; repeated 101 values contain account TLVs, with native fixtures | Historical name and wider snapshot atomicity |
 | 349 | Captured sequential nested account mutations, permission/default rules and partial effects | Protected identity variants and arbitrary storage failures |
-| 500 | Handler sends an empty direct ACK | Purpose and triggering client behaviour |
+| 500 | Handler sends an empty direct ACK; [one modern client](request-500-contract.md) uses it after a quiet interval | Historical-client behaviour and universal scheduling |
 
 The [operation contracts](operation-contracts.md) catalogue all 45 handlers,
 normal reply directions, session-state eligibility and the recovered 348/349
