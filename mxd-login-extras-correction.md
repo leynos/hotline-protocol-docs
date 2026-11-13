@@ -1,8 +1,10 @@
 # mxd successful Login107 extras correction
 
-Status: a bounded, privately committed mxd correction from
+Status: accepted in canonical mxd by exact fast-forward from
 `20e891a059de7dd9dec5a657d7099570987d860d` to
-`cb907885cc2a61df2d708f38a3cf42da85c2a016`. The [portable C11
+`cb907885cc2a61df2d708f38a3cf42da85c2a016`. The [canonical import
+receipt][import] records the 28-blob comparison and passing live verifier.
+The [portable C11
 acceptance corpus][evidence] pins the source snapshots, patch, red witnesses,
 controlled full gate and retained service exit. This note updates the
 reconciliation record; it does not close GAP-085 or select a release owner or
@@ -78,3 +80,4 @@ to their own acceptance criteria. No new native client or Ghidra query ran
 for this correction.
 
 [evidence]: ../mothra/evidence/gap-remediation/2026-11-13/mxd-login-extras-01/manifest.json
+[import]: ../mothra/evidence/gap-remediation/2026-11-13/mxd-login-extras-import-01/manifest.json
