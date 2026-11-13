@@ -993,14 +993,18 @@ Evidence: V064–V066 and the captured handler `10010470`.
 
 ### Deleting a News Article (Transaction 411) – Client Initiates
 
-**Request:** path 325, article ID 326 and recursive-delete-related field 337.
+**Request:** path 325, article ID 326 and optional recursive boolean 337.
 
 **ACK:** direct success/error replies are present. The handler checks
-privilege 33. Nonzero 337 requests descendant deletion. Without recursion, the
+privilege 33. Scalar widths one, two and four are accepted; three bytes default
+to zero, and longer values use their leading four bytes. Nonzero 337 requests
+descendant deletion. Without recursion, the
 first child replaces the deleted article and adopts its former siblings after
 its existing children. See the
-[deletion graph rewrite](news-contracts.md#deletion-graph-rewrite) for the
-code-derived example and remaining native-fixture/atomicity questions.
+[captured deletion contract](news-contracts.md#captured-article-deletion-and-index-effects)
+for parent, leaf, root-endpoint and rejected-request fixtures, exact errors,
+body navigation and stored index/cache counts. Repeated deletion is an error.
+Forced interrupted-storage atomicity and restart durability remain unproved.
 
 Evidence: V065–V066; `100108a0`.
 

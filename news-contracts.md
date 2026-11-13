@@ -186,14 +186,14 @@ For non-recursive deletion with children, [the assembly][delete-asm] and helper
 
 For example, suppose `A.children = [B, C, F]` and `B.children = [D, E]`.
 Deleting A without recursion places B where A was, with
-`B.children = [D, E, C, F]`. C and F now have parent B. This is a code-derived
-example, not a captured native database result. Promoting all three children
-beside A would implement a different tree transformation.
+`B.children = [D, E, C, F]`. C and F now have parent B. The independent native
+fixtures below capture this exact rewrite, including body navigation links.
 
 Both paths update the article index/count and invalidate the serialized-list
 cache. The non-recursive path decrements the count by one. Storage writes occur
-in sequence without an established rollback guarantee; parent/leaf/branch
-fixtures, descendant counts and interrupted-write outcomes remain GAP-069.
+in sequence without an established rollback guarantee. The parent/leaf/branch
+fixtures below establish the ordinary and rejected-request outcomes; forced
+interrupted-storage behaviour remains unproved.
 
 ## Scope of hierarchy evidence
 
@@ -399,8 +399,90 @@ removed with ACK and complete wire-listing controls. No post-removal disk or
 restart-persistence claim is made for that helper file.
 
 No account is changed and no historical client runs in this corpus. Article
-recursive deletion remains GAP-069. Alias/root variants, interrupted category
-writes and broader hierarchy failure effects remain GAP-070. One-second quiet
-windows do not establish every later notification or durable completion.
+recursive deletion is covered by the separate corpus below. Alias/root
+variants, interrupted category writes and broader hierarchy failure effects
+remain GAP-070. One-second quiet windows do not establish every later
+notification or durable completion.
 
 [native-news]: ../mothra/evidence/gap-remediation/2026-11-13/native-news-01/manifest.json
+
+## Captured article deletion and index effects
+
+The [article-deletion corpus][article-delete] retains 58 reports: 56 completed
+and two failed, reconciled against 60 host/guest TCP connections. Each of 25
+independent categories starts with roots `L(1), A(2), R(3)`, A's children
+`B(4), C(5), F(6)` and B's children `D(7), E(8)`. Initial depth-first order is
+`1,2,4,7,8,5,6,3`. Every article has its letter as title, poster
+`framing-fixture`, zero flags and six-byte `text/plain` body `body-X`.
+
+| Deleted article and mode | Result | Stored count |
+| --- | --- | --- |
+| A, nonrecursive | Roots L,B,R; B's children D,E,C,F | 7 |
+| A, recursive | Roots L,R; all A descendants removed | 2 |
+| B, nonrecursive | A's children D,C,F; D's child E | 7 |
+| B, recursive | A's children C,F | 5 |
+| D, either mode | B's only child E | 7 |
+| L, nonrecursive | Roots A,R, with A's subtree intact | 7 |
+| R, nonrecursive | Roots L,A, with A's subtree intact | 7 |
+
+All survivors retain their original IDs, dates, bodies and flavour metadata.
+Every surviving 400 reply checks previous/next sibling, parent and first-child
+fields 331/332/335/336, including explicit two-byte zeros. Deleted IDs fail body
+reads with `Cannot get article data because an invalid category was specified.`
+The text is coarse: the category still exists.
+
+Field 337 uses the generic scalar-width reader, then a zero/nonzero test:
+
+| Input bytes | Observed deletion of A |
+| --- | --- |
+| Absent; empty; `00`; `0000`; `00000000` | Nonrecursive |
+| `01`; `02`; `ff`; `0001`; `8000`; `00010000` | Recursive |
+| `000001` (three bytes) | Nonrecursive: unsupported width defaults to zero |
+| `00000001ff` (five bytes) | Recursive: leading four bytes are nonzero |
+| `00000000ff` (five bytes) | Nonrecursive: trailing byte is ignored |
+
+Twenty-one primary requests succeed with empty ACKs. Four fail with status 1
+and field 100; a repeated successful deletion adds a fifth error:
+
+| Request | Exact field 100 text |
+| --- | --- |
+| Missing ID 99, omitted 326, repeated deletion | `Cannot delete article because an invalid category or item was specified.` |
+| Missing category | `Cannot delete article because the specified category could not be found.` |
+| Zero-privilege account | `You are not allowed to delete articles.` |
+
+Rejected requests preserve the complete list. The zero-privilege account can
+obtain 371 metadata but 400 returns `You are not allowed to read articles.`
+An independent administrator session subsequently reads its unchanged eight
+bodies. The observed 371 path therefore does not enforce the same permission
+gate as 400 or 411. Each deletion session remains live for request 500 and
+records three quiet seconds; this bounds the observation, not all later events.
+
+Before/after 371 reads, a repeated cached read and independent final reads
+agree exactly. Positive native HLNZ files have header count at offset 44
+matching each resulting tree, with the exact wire list in the stored cache
+selected by block size/index/length at offsets 32/36/40. The fresh
+`10023830`/`100249f0`/`10025060`/`10024620`/`10025120` queries trace descendant
+removal, target record/block release, index removal, link rewriting, cache
+invalidation and header/index writes. Their sequence supplies no transactional
+rollback guarantee for forced I/O interruption.
+
+The initial unpaced seed was interrupted after 121 ACKs including login,
+before the reply to request 219. A fresh login returned an explicit temporary
+ban, and the native GUI logged `Autobanned for flooding`. A later host display
+exit caused the emulator's XIO exit; the cause of the display exit is unknown.
+These are separate observations, with no supported native-server-crash claim.
+Recovery used a new managed runtime from a preserved, stopped unclean disk
+copy, followed by Disk First Aid completion and positive application fork
+identity checks. Successful access in that new process does not prove natural
+ban expiry or in-place unbanning.
+
+Recovery inventory found thirteen full categories, one containing only L, and
+eleven missing categories. Bounded per-category sessions retained the existing
+IDs and appended only the verified missing suffix. Three-second pauses pace
+these sessions. Owned cleanup restores empty News and the full 41-entry Files
+baseline. A first zero-positive disk probe remains inconclusive; a subsequent
+independent upload publishes all 27 original objects positively in Trash,
+preserving catalogue identities, paths, forks and caches. Its separate helper
+is then removed with wire controls. No restart-durability claim follows.
+
+[article-delete]: ../mothra/evidence/gap-remediation/2026-11-13/native-article-delete-01/manifest.json

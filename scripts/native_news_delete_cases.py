@@ -82,7 +82,8 @@ def preflight() -> dict:
     return {"preflight": (steps, {"kind": "news-delete-preflight"})}
 
 
-def seed() -> dict:
+def initial_burst_seed() -> dict:
+    """Reconstruct the retained unpaced failed plan; never exposed by the CLI."""
     steps = login() + exchange(381, 10, [(201, ROOT)])
     counter = 100
     for spec in specs():
@@ -105,6 +106,73 @@ def seed() -> dict:
             counter += 1
     steps += exchange(370, 900, [(325, BASE)]) + [close()]
     return {"seed": (steps, {"kind": "news-delete-seed"})}
+
+
+def seed() -> dict:
+    steps = (
+        login()
+        + exchange(381, 10, [(201, ROOT)])
+        + exchange(370, 90, [(325, BASE)])
+        + [close()]
+    )
+    return {"root": (steps, {"kind": "news-delete-root"})}
+
+
+def inspect_seed() -> dict:
+    steps = login() + exchange(370, 10, [(325, BASE)])
+    for identifier, spec in enumerate(specs(), 100):
+        steps += exchange(371, identifier, [(325, path((ROOT, spec["case"].encode())))])
+    steps += exchange(500, 90, []) + [close()]
+    return {"inventory": (steps, {"kind": "news-delete-inventory"})}
+
+
+def resume_category(case: str, completed: int = 0, exists: bool = False) -> dict:
+    if (
+        case not in {s["case"] for s in specs()}
+        or not 0 <= completed <= len(NODES)
+        or (completed and not exists)
+    ):
+        raise ValueError("Invalid owned category/prefix")
+    category = path((ROOT, case.encode()))
+    steps = login()
+    if exists:
+        steps += exchange(371, 10, [(325, category)])
+    else:
+        steps += exchange(382, 11, [(322, case.encode()), (325, BASE)])
+    for identifier, (_, title, parent) in enumerate(NODES[completed:], 100):
+        steps += exchange(
+            410,
+            identifier,
+            [
+                (325, category),
+                (326, parent.to_bytes(4, "big")),
+                (328, title),
+                (327, b"text/plain"),
+                (333, b"body-" + title),
+            ],
+        )
+    steps += exchange(371, 20, [(325, category)]) + [
+        {"op": "pause", "seconds": 3},
+        close(),
+    ]
+    return {
+        case: (
+            steps,
+            {
+                "kind": "news-delete-resume",
+                "case": case,
+                "completed": completed,
+                "exists": exists,
+            },
+        )
+    }
+
+
+def seed_categories() -> dict:
+    result = {}
+    for spec in specs():
+        result.update(resume_category(spec["case"]))
+    return result
 
 
 def deletions() -> dict:
@@ -139,7 +207,7 @@ def deletions() -> dict:
                 ],
             )
         steps += exchange(500, 90, []) + [
-            {"op": "expect_quiet", "connection": "main", "timeout": 1},
+            {"op": "expect_quiet", "connection": "main", "timeout": 3},
             close(),
         ]
         result[spec["case"]] = (steps, {"kind": "news-delete", **spec})

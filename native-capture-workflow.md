@@ -1310,3 +1310,56 @@ The verifier reconciles both packet boundaries, exact plans and chronology;
 checks category versions, thread graphs and cached/rebuilt bytes; and verifies
 native HLNZ/header/count and cleanup controls. Broader post/deletion/navigation,
 hierarchy failure and identified-modern-peer requirements remain active.
+
+## Reproducing isolated article deletion fixtures
+
+The frozen [article-deletion corpus][article-delete-corpus] includes the failed
+initial burst and explicit temporary-ban login. Preserve both failures. Do not
+execute the retained burst plan: it exceeds the native flood counter. Use
+`prepare_native_cases.py --help` for the current runtime/output arguments and
+the `article-delete-preflight`, `article-delete-seed`,
+`article-delete-categories`, `article-delete-cases`,
+`article-delete-final`, `article-delete-cleanup`, `article-delete-publish` and
+`article-delete-remove` suites. Each category plan uses one bounded
+connection and a three-second pause; run them serially with two packet views.
+
+Before a new run, verify the runtime and actual application forks, inspect
+News and Files, and require absence of the owned namespace. Keep ROMs, disks
+and credentials local. The generic display/emulator supervision is documented
+in [mothra's SheepShaver guide](../mothra/sheepshaver.md#managed-display-and-emulator-lifetime).
+Service acceptance and actual application readiness are separate checks.
+
+For an interrupted seed, `article-delete-inspect` reads every owned category.
+The frozen recovery inventory records the exact existing prefix: thirteen
+eight-article categories, one one-article category and eleven absent categories.
+Do not infer completion from the client error or replay all posts. Check public
+IDs, titles, parents, flags and flavours against the intended prefix before
+using `article-delete-resume --case-name NAME --completed-nodes N` and, only
+when actually present, `--category-exists`. Retain the inspection and all
+individual resume plans/reports. A changed prefix needs investigation rather
+than an overwrite. The recovered corpus has a new runtime/PID and separate
+packet files; it is not evidence of in-place unbanning or natural expiry.
+
+After the deletion cases, finalization independently rereads all lists and the
+permission-denied category's bodies. Capture positive native catalogue/fork
+snapshots after the owned upload flush. Cleanup removes only the owned root
+and helper. Require empty News and exact Files baseline. A zero-positive
+post-cleanup probe is inconclusive; preserve it and use the separate owned
+publisher before comparing the original 27 catalogue IDs, Trash paths and full
+fork/cache bytes. Remove that publisher with wire controls and retain the
+limits of the resulting persistence claim.
+
+Run the offline verifier from mothra:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/verify_native_article_deletion.py \
+  evidence/gap-remediation/2026-11-13/native-article-delete-01
+```
+
+It verifies all 58 reports, both runtime phases, 60 paired connections, exact
+plans, tree/body/cache effects, permission and missing-object errors, measured
+pauses/quiet windows, positive cleanup publication and 15 oracle queries.
+Forced storage interruption and actual historical-client interoperability
+require separate evidence.
+
+[article-delete-corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-article-delete-01/manifest.json

@@ -87,10 +87,13 @@ from native_news_cases import thread_grandchild as news_thread_grandchild
 from native_news_delete_cases import cleanup as article_delete_cleanup
 from native_news_delete_cases import deletions as article_delete_cases
 from native_news_delete_cases import finalization as article_delete_final
+from native_news_delete_cases import inspect_seed as article_delete_inspect
 from native_news_delete_cases import preflight as article_delete_preflight
 from native_news_delete_cases import publish_cleanup as article_delete_publish
 from native_news_delete_cases import remove_publisher as article_delete_remove
+from native_news_delete_cases import resume_category as article_delete_resume
 from native_news_delete_cases import seed as article_delete_seed
+from native_news_delete_cases import seed_categories as article_delete_categories
 from native_queue_cases import queues, timer
 from native_resume_cases import downloads as resume_downloads
 from native_resume_cases import upload_continuations, upload_probes
@@ -104,6 +107,9 @@ def main() -> None:
         "suite",
         choices=[
             "article-delete-preflight",
+            "article-delete-inspect",
+            "article-delete-resume",
+            "article-delete-categories",
             "article-delete-seed",
             "article-delete-cases",
             "article-delete-final",
@@ -211,6 +217,9 @@ def main() -> None:
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--original-agreement", type=Path)
     parser.add_argument("--article-parent", type=int, default=0)
+    parser.add_argument("--case-name")
+    parser.add_argument("--completed-nodes", type=int, default=0)
+    parser.add_argument("--category-exists", action="store_true")
     args = parser.parse_args()
     if args.suite == "agreement-restore-stage" and args.original_agreement is None:
         parser.error("agreement-restore-stage requires --original-agreement")
@@ -221,8 +230,17 @@ def main() -> None:
         parser.error(
             "news-thread suites require a positive --article-parent from a captured list"
         )
+    if args.suite == "article-delete-resume" and args.case_name is None:
+        parser.error(
+            "article-delete-resume requires --case-name from the retained inventory"
+        )
     cases = {
         "article-delete-preflight": article_delete_preflight,
+        "article-delete-inspect": article_delete_inspect,
+        "article-delete-categories": article_delete_categories,
+        "article-delete-resume": lambda: article_delete_resume(
+            args.case_name, args.completed_nodes, args.category_exists
+        ),
         "article-delete-seed": article_delete_seed,
         "article-delete-cases": article_delete_cases,
         "article-delete-final": article_delete_final,
