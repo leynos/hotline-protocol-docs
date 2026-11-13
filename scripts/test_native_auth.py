@@ -75,6 +75,21 @@ class AuthTests(unittest.TestCase):
                 verify_accounts(BATCH),
             )
 
+    def test_missing_agreement_field_is_distinct_from_empty_value(self) -> None:
+        report = self.report("early-admin")
+        frame = next(
+            f
+            for f in report["frames"]
+            if f["connection"] == "subject" and f["type"] == 109
+        )
+        frame["fields"] = []
+        check_state("early-admin", report, cases()["early-admin"][1], None)
+        with self.assertRaisesRegex(ValueError, "bypass contents differ"):
+            check_state("early-admin", report, cases()["early-admin"][1], b"")
+        frame["fields"] = [{"id": 101, "hex": ""}]
+        with self.assertRaisesRegex(ValueError, "bypass contents differ"):
+            check_state("early-admin", report, cases()["early-admin"][1], None)
+
     def test_native_canonical_key_is_checked_separately_from_login_ack(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

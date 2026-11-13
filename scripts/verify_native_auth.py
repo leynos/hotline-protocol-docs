@@ -122,7 +122,9 @@ def check_lookup(report: dict, expected: dict, agreement: bytes) -> None:
         )
 
 
-def check_state(name: str, report: dict, expected: dict, agreement: bytes) -> dict:
+def check_state(
+    name: str, report: dict, expected: dict, agreement: bytes | None
+) -> dict:
     subject = selected(report, "subject")
     views = {
         f["id"]: roster(f)
@@ -174,7 +176,13 @@ def check_state(name: str, report: dict, expected: dict, agreement: bytes) -> di
         notice = next(f for f in subject if f["type"] == 109)
         require(
             fields(notice)
-            == ({154: b"\0\1"} if expected["bypass"] else {101: agreement}),
+            == (
+                {154: b"\0\1"}
+                if expected["bypass"]
+                else {}
+                if agreement is None
+                else {101: agreement}
+            ),
             "Agreement bypass contents differ",
         )
         access = next(f for f in subject if f["type"] == 354)
