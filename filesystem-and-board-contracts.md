@@ -25,7 +25,8 @@ Successful branches add name 201. The literals and Pascal lengths are retained
 in batch 08 at `10091cfd`. A descriptive 205/206 is a byte string, not a fixed
 four-byte integer. Known type descriptions include application, StuffIt archive,
 text, incomplete file and Hotline bookmark; unknown types preserve the raw
-four bytes. Size and metadata alias/zero/unknown fixtures remain GAP-049.
+four bytes. The captured matrix below supplies alias, zero and unknown-value
+fixtures for this native profile.
 
 ## Delete, create, rename, comment, move and alias
 
@@ -91,16 +92,19 @@ the destination is a directory and calls `FSpCatMove`. It does not implement a
 cross-volume copy/delete fallback or an explicit overwrite policy. Same-place,
 collision and failure results remain platform/runtime questions (GAP-053).
 
-Alias handler 209 uses source 201/202 and destination path 212, constructing
-the destination with the same source name; it does not read a separate new-name
-211. Helper `1002fb00` calls `NewAlias`, creates a resource file, stores an
+Alias handler 209 uses source 201/202 and destination path 212. With nonempty
+201 it constructs the destination with that source name. With absent/empty 201,
+202 and 212 can supply complete source and destination paths, including a new
+destination leaf. It does not read a separate new-name 211. Helper `1002fb00`
+calls `NewAlias`, creates a resource file, stores an
 `alis` resource with ID zero and sets Finder alias flags. Directories use native
 folder-alias type/creator values; files use their native metadata. Error cleanup
 can delete a partially created alias resource file.
 
-This is a classic Mac alias, not a POSIX symlink wire promise. Alias-to-alias,
-missing-target, destination conflict and transfer resolution fixtures remain
-GAP-054. Native resource-fork/metadata preservation needs its own tests.
+This is a classic Mac alias. The captured cases below cover live targets,
+alias-to-alias sources, destination conflicts and resolved transfers. Genuine
+deleted-target resolution remains GAP-054; a cyclic self-alias does not supply
+that missing fixture.
 
 ## Legacy board 101/102/103
 
@@ -242,3 +246,91 @@ or restart-durability tests. No guest restart, debugger, account mutation or
 native configuration change is used.
 
 [mkdir]: ../mothra/evidence/gap-remediation/2026-11-13/native-mkdir-01/manifest.json
+
+## Captured alias and metadata matrix
+
+The [native alias corpus][aliases] contains 44 completed reports and one retained
+initial EOF timeout, 66 socket lifetimes reconciled independently at the host
+and guest boundaries, fourteen identity-checked Ghidra queries and 33 positive
+pre-cleanup catalogue objects. It uses a separately restarted OS 9.0.4 guest
+and the timer-patched emulator. Its provenance does not claim a clean shutdown
+of the earlier guest or a known cause for that process's disappearance.
+
+### File-info presence and values
+
+All successful 206 samples include alias/original name 201 and fields
+205/206/213. Dates, when present, each occupy eight bytes. The ordinary file
+contains 16 DATA bytes and 317 resource-fork bytes; its aggregate size is 333.
+Field 207 uses two bytes in these small samples. The shared integer writer's
+larger-value branches remain documented separately; this is not a fixed
+universal two-byte size contract.
+
+| Captured target | 205 description | 206 creator | 213 raw type | 207 | 208/209 | 210 |
+| --- | --- | --- | --- | --- | --- | --- |
+| Ordinary file | `Text File` | `MOTH` | `TEXT` | `014d` | Present | `alias-comment` |
+| Empty file | `Text File` | `MOTH` | `TEXT` | `0000` | Present | Omitted |
+| Zero-tag file | Four zero bytes | Four zero bytes | Four zero bytes | `0009` | Present | Omitted |
+| Unknown-tag file | `XxYz` | `ZzQq` | `XxYz` | `000c` | Present | `unknown-comment` |
+| Ordinary directory | `Folder` | `n/a` | `fldr` | Omitted | Present | Omitted when empty |
+| File alias or file-alias chain | `TEXT (alias)` | `MOTH` | `TEXT` | `014d` | Resolved target's dates | Resolved target's comment |
+| Directory alias or chain | `Folder Alias` | `n/a` | `fldr` | Omitted | Resolved target's dates | Resolved target's comment, omitted when empty |
+| Cyclic self-alias, classified unattached | `Unattached Alias` | `n/a` | `alis` | Omitted | Omitted | Omitted |
+
+The zero-tag fields are present binary values, not empty strings or missing
+fields. Empty-file size is a present scalar zero. An alias named `derived-link`
+returns that name in 201, whereas its downloaded FILP INFO names resolved target
+`file`. Source classification/resolution in `1002f600`/`1002cf90` and handler
+`10016ba0` explain this distinction: metadata comes from a resolved copy; the
+emitted name comes from the originally addressed object.
+
+A directory comment set through 207 appears through both ordinary directory
+and alias 206 views. Present empty and single-NUL comments each clear it and
+omit 210 from both subsequent views. Other rename/partial-failure combinations
+remain GAP-052.
+
+### Alias creation, collisions and transfer resolution
+
+Thirteen of nineteen creation cases succeed. Nonempty 201 keeps the source
+basename, including high byte `9a`; extra 211 is ignored. Missing, empty and
+zero-count 212 select Files root. Absent/empty 201 with full source 202 and
+full destination 212 creates the requested `derived-link`, `derived-empty` or
+`derived-dir` leaf.
+
+A pre-existing ordinary destination file is a significant exception to a
+blanket no-overwrite rule: alias creation succeeds at `C/same`, leaves its
+physical 21-byte DATA fork, and adds an `alis` ID 0 resource and Finder alias
+flag. Listing, info and download then resolve the 11-byte source `same`,
+including its source comment. An existing directory destination fails and
+preserves its ordinary child. Repeating an existing alias destination also
+fails; a separately created chain still resolves afterward.
+
+The six negative creation cases retain exact status 1/text 100 bytes: missing
+source, missing/non-directory destination, directory collision, and two
+zero-privilege denials. Permission text is `You are not allowed to make aliases.`
+Before/after listings, correlated ACKs, subsequent 500 and one measured second
+of silence bound the observations.
+
+Live file and directory aliases, including chains and a renamed destination,
+resolve during 202/210 downloads. File DATA/resource forks match the target;
+directory streams enumerate and transfer the ordinary `leaf`. Physical folder
+aliases instead have type `fdrp`, creator `MACS`, Finder alias flags and `alis`
+ID 0 resources. They are files on disk even when wire listings expose folders.
+
+Same-location creation succeeds but makes `self` unattached. Its physical
+`self-source` DATA remains, while listing reports `alis`/zero creator/value zero
+and 206 omits size/dates/comment. Download fails with text saying there is no
+file named `self`; that message does not prove physical absence. A genuine
+removed-target case is still required for GAP-054.
+
+The first file download received all 496 advertised FILP bytes but timed out
+waiting for EOF. Its report remains failed. Subsequent cases read exact lengths,
+observe three seconds of silence, cancel through 214, then observe EOF and a
+live control connection. This bounds a transfer observation; it does not prove
+all transfer-completion semantics.
+
+Owned cleanup restores the complete 41-entry Files wire listing. The live
+pre-cleanup snapshot contains 33 positive objects, but the immediate post-move
+snapshot supplies only three positive Trash observations. Do not extrapolate
+that partial disk view into complete Trash persistence or restart durability.
+
+[aliases]: ../mothra/evidence/gap-remediation/2026-11-13/native-alias-01/manifest.json

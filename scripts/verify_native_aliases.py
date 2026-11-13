@@ -430,6 +430,17 @@ def verify(directory: Path) -> dict:
         ),
     )
     listing_views(reports)
+    for original, aliases in [
+        ("ordinary-file", ["file-alias", "file-chain", "derived-alias"]),
+        ("ordinary-directory", ["directory-alias", "directory-chain"]),
+    ]:
+        target = fields(reply(reports["info/" + original], 10))
+        for alias in aliases:
+            resolved = fields(reply(reports["info/" + alias], 10))
+            require(
+                all(resolved.get(k) == target.get(k) for k in [207, 208, 209, 210]),
+                "Alias size/date/comment does not match resolved target",
+            )
     repeated = reports["damage/repeat-existing-alias"]
     require(
         reply(repeated, 12)["error"] == 1

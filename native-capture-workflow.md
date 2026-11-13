@@ -1098,3 +1098,55 @@ The two literal host recordings are retained with their statistics and exact
 chronological concatenation. Keep guest Ethernet capture active throughout both
 phases. These 205/202 fixtures do not settle field 212/325 equivalence, aliases,
 protected-object deletion or platform variants.
+
+## Reproducing alias and metadata fixtures
+
+The `alias-seed`, `alias-create`, `alias-info`, `alias-download`, `alias-damage`,
+`alias-supplementary` and `alias-cleanup` suites prepare the
+[retained alias observations](../mothra/evidence/gap-remediation/2026-11-13/native-alias-01/manifest.json).
+Use new output directories, a current runtime record and both packet recorders.
+Preflight the complete Files listing: `mothra-alias20` and the three
+`m-al20-absent`/`m-al20-empty`/`m-al20-zero` marker names must be absent. These
+fixed names identify an owned tree; do not run against somebody else's entries.
+The permission controls require the previously verified zero-privilege
+`fixture-low` account with its recorded password; this suite does not create or
+change accounts.
+
+Execute seed, creation cases in generator order, info, downloads, damage and
+supplementary cases in that order. Preserve exact plans and raw report statuses.
+Creation cases depend on earlier A/B aliases. The damage suite tests a repeated
+alias destination and an additional chain; its name does not establish damage
+or a deleted target. Supplementary cases cover collision download, unattached
+rejection, directory comments and a final independent empty upload to exercise
+the known volume-flush path.
+
+Take positive catalogue/fork observations before cleanup. Run owned cleanup,
+retain its ACKs and compare the complete Files wire listing with baseline.
+Bound disk claims to actual positive probes: this run's immediate post-move view
+had only three positive Trash objects. Do not label missing catalogue probes
+as absence or claim full disk persistence from successful ACKs.
+
+The initial file download timed out after receiving its complete advertised
+FILP body while waiting for EOF. Retain that failed report separately. Current
+ordinary-download plans read the exact advertised size, measure three quiet
+seconds, cancel through 214, then require EOF and control liveness. These plans
+test resolved bytes and bounded close behaviour, not universal completion.
+
+This run required a new guest. Verify the old process and forwarding ports are
+actually absent before preparing a copy of its stopped disk. Preserve the old
+image, hash the new base, and record that a stopped image may be unclean. Native
+Disk First Aid reported completion on the new copy; the record does not identify
+the old exit's cause or specific filesystem repairs. Record the actual running
+emulator hash: this run uses the timer patch, unlike the earlier directory run.
+Never export ROMs or working disks as evidence.
+
+Run the independent offline verifier from mothra:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/verify_native_aliases.py \
+  evidence/gap-remediation/2026-11-13/native-alias-01
+```
+
+It reconciles 45 reports/66 sockets, checks exact generated plans for the 44
+completed reports, retains the failed EOF observation, and checks the native
+metadata/listing/creation/transfer effects against positive physical forks.

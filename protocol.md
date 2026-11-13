@@ -771,6 +771,9 @@ Fields 205/206 can be descriptive strings; they are not always raw
 four-character type/creator codes. The ordinary file branch places a raw type
 value in field 213. Do not impose a universal four-byte schema on 205/206.
 Dates follow the observed eight-byte representation described above.
+The [native metadata matrix](filesystem-and-board-contracts.md#file-info-presence-and-values)
+supplies exact file, folder, alias, unattached, empty and zero/unknown-tag
+field-presence examples.
 
 Evidence: V017, V054; `10016ba0`.
 
@@ -802,8 +805,12 @@ Evidence: V053 and the captured handler `100177d0`.
 **Request:** source name 201, source path 202 and destination path 212.
 
 **ACK:** direct success/error replies are present. Exact alias resolution and
-transfer behaviour are unresolved; do not infer portable symlink semantics
-from the operation's name.
+transfer examples are documented in the
+[captured alias matrix](filesystem-and-board-contracts.md#captured-alias-and-metadata-matrix).
+Nonempty 201 keeps the source basename; absent/empty 201 can derive a new leaf
+from 212. An ordinary destination file can become an alias successfully.
+Live aliases and chains resolve in listing/info/download; a cyclic self-alias
+is classified unattached. Genuine deleted-target behaviour remains unresolved.
 
 Evidence: V053 and the captured handler `10017c10`.
 

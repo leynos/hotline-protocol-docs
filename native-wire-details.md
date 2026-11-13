@@ -253,7 +253,7 @@ Each field **200** in a file-list reply contains this unpadded record:
 | ---: | ---: | --- |
 | 0 | 4 | File type |
 | 4 | 4 | Creator |
-| 8 | 4 | Size from the native enumerator |
+| 8 | 4 | File aggregate fork size, immediate folder valence, or zero for unresolved alias |
 | 12 | 4 | Zero |
 | 16 | 2 | Zero |
 | 18 | 2 | Name length `n` |
@@ -262,9 +262,40 @@ Each field **200** in a file-list reply contains this unpadded record:
 Thus the value length is `20 + n`; the outer TLV length excludes its own
 four-byte header. Records repeat as field 200. The builder skips entries with
 its enumerator flag bit zero set and has an additional conditional type filter.
-It does not itself sort entries. The captured creation matrix supplies ordinary
-file and directory values, including matching immediate-entry counts; aliases,
-complete ordering and exact filtering still need their own verified examples.
+It does not itself sort entries. The native alias matrix below supplies exact
+file/folder/alias, non-ASCII, empty and multi-entry examples. The conditional
+filter is a static branch; these captures do not prove every filter mode.
+
+### Captured listing kinds and enumeration order
+
+The [alias corpus](../mothra/evidence/gap-remediation/2026-11-13/native-alias-01/manifest.json)
+checks exact field-200 grammar and ordered records against paired TCP streams.
+An empty directory returns no 200 fields. Each repeated record has its own
+20-byte header and exact name bytes, with no alignment padding. Names include
+high byte `9a`; earlier directory fixtures supply NUL/control-byte names.
+
+Ordinary files expose raw type/creator and DATA plus resource-fork length:
+the 16-byte DATA/317-byte resource example has value 333. Folders expose `fldr`,
+zero creator and immediate child count. Live aliases expose the corresponding
+resolved file/folder metadata and value, with their own entry names. No separate
+wire alias flag is emitted. Unattached `self` exposes `alis`, zero creator and
+value zero, despite nonempty physical forks.
+
+The owned root's recorded sequence is `A`, `B`, `C`, `D`, `dir`, `empty`, `file`,
+`hi-9a` (the last byte is binary `9a`), `m-al20-absent`, `m-al20-empty`,
+`m-al20-zero`, `same`, `self`, `unknown-tags`, `zero-tags`. Both alias directories
+A/B return `dir`, `file`. D returns `derived-dir`, `derived-empty`,
+`derived-link`, then the high-byte name. This is the captured native order;
+do not infer a Unicode or host-filesystem comparator from these examples.
+
+`1002cb20` obtains records using `PBGetCatInfoSync` with positive indices from
+one upward. It appends each result to a cache. `1002ce00` walks that cache;
+`100055a0` emits records in that order without a further sort. The cache uses
+four-byte alignment internally, but the emitter copies exactly `20 + n` bytes.
+Native catalogue enumeration therefore determines wire order on this profile.
+The invisible-entry bit and conditional `HTft` filter can remove entries without
+changing the remaining sequence. Other OS/filesystem orders and unexecuted
+filter modes are not established by this corpus.
 
 ### Captured field 202 directory-creation boundaries
 
