@@ -1035,3 +1035,23 @@ For download completion, compare the actual files under the private `work/`
 directory with both FILP forks and the known fixture. Do not replace that check
 with a terminal progress message. Record untested fields and optional build
 features explicitly before changing any compatibility policy.
+
+## Reproducing banner and roster-subject receiver fixtures
+
+Use `scripts/serve_shx_fixture.py` with an explicit mode: `control`, `banner`,
+`subject` or `banner-subject`. Supply the retained evidence directory and a new
+output directory. Its readiness file identifies localhost15510; verify that the
+specific listener process is still live before starting the contained peer.
+Use the matching retained receiver plan, including explicit `/who -r` and chat
+after fixture delivery. The as-run coordinator is retained in the
+[second peer corpus](../mothra/evidence/gap-remediation/2026-11-13/native-shx-02/sources/run-receivers.py.as-run.txt).
+
+Record host-loopback packets for15510 and retain listener events alongside peer
+syscalls/terminal output. The listener replays retained native bootstrap/banner
+frames and optionally adds the selected SynHX field115shape to roster replies.
+Its profile is `controlled-receiver-fixture`, never native-oracle execution.
+Require exact banner `hx.dump`, expected subject output and subsequent chat,
+not merely a process that stayed open. These cases have no guest connection.
+Run native configured162sessions separately with positive Prefs/ACK controls,
+then restore and compare the full baseline Prefs bytes. The independent offline
+verifier checks both groups without conflating their provenance.

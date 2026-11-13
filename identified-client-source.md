@@ -14,7 +14,8 @@ the source snapshot alone does not identify a configured executable, a
 particular distributed binary or every client called SynHX. The complete build
 and native sessions below now identify one configured modern executable.
 Compile-time HOPE, cipher, compression, IPv6 and UI features create additional
-profiles. GAP-080/083 retain those boundaries.
+profiles. The applicability record below addresses GAP-083; broader peer
+coverage remains GAP-080/081.
 
 ## Basic login and unknown fields
 
@@ -147,8 +148,9 @@ The basic client omits version field 160 from its request. Native nevertheless
 returns 160/161. The server name is empty, so 162 is omitted. No 122 banner is
 emitted in these sessions. The successful profile therefore supplies full-peer
 tolerance evidence for these 160/161 values and native roster/file records;
-it does not yet test configured 162, 122, the SynHX subject addition or other
-client builds/profiles (GAP-080/081).
+these initial sessions do not test configured 162, 122, the SynHX subject
+addition or other builds. The second corpus below adds native configured 162
+and controlled 122/subject delivery, with the evidence types kept explicit.
 
 The client automatically requests roster 300 after its login callback.
 Subsequent `/who` commands display the local roster and generate no additional
@@ -212,3 +214,105 @@ operation or treating supplied runtime metadata as process attestation.
 [full-build]: ../mothra/evidence/gap-remediation/2026-11-13/shx-build-01/inputs.json
 [full-corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-shx-01/manifest.json
 [peer-guide]: ../mothra/shx-peer.md
+
+## Native configured-name and controlled receiver matrix
+
+The [second full-peer corpus][extra-corpus] adds three actual native sessions
+with the same executable. Native InfoName is set through the GUI, flushed via
+an independent native file finalization, and retained as a positive Prefs fork.
+Each session completes login, cached roster display and chat. Native login
+ACKs include ASCII `mothra-peer-name`, then `mothra-peer-` followed by raw byte
+`9a` in field 162. Empty-name restoration omits 162. Fields 160/161 remain
+`00be`/`0000`. Preferences and ACK values agree byte-for-byte. The final 175-byte
+Prefs matches the earlier recorded baseline exactly; this is not a restart
+persistence test. Three owned empty flush files remain in Files.
+
+The same corpus retains four **controlled receiver fixtures**. These run the
+real unmodified peer against a local listener on host port 15510. The listener
+replays retained native handshake/login/privilege/agreement/roster/chat bytes.
+For banner cases it delivers the exact native 71-byte 122 frame from
+`native-login-extras-01/name-a-190-delayed`. For subject cases it appends field
+115 with `mothra-roster-subject` to the native roster records, following the
+selected SynHX roster producer's field shape. This is not execution of a native
+server for those sessions or a historical SynHX server executable.
+
+| Receiver case | Observed real-client result |
+| --- | --- |
+| Native roster control | Automatic roster and explicit `/who -r` reload succeed; no unknown-banner notice, subject display or dump file. |
+| Native 122 replay | Prints `unknown header type 0x0000007a`; `hx.dump` contains exactly the 71 native frame bytes; roster reload and chat still complete. |
+| Roster subject addition | Displays `chat 0x0 subject: mothra-roster-subject` after each of the two roster replies; reload and chat complete. |
+| Banner plus subject | Preserves the exact banner dump, prints the unknown-type notice once, displays the subject twice, then completes chat. |
+
+The receiver-fixture socket bytes match the real peer's syscall trace, the
+listener's send/receive events and host-loopback PCAP. They have no native guest
+connection. The three actual native sessions and three flush controls reconcile
+at both host and guest packet boundaries. The host recorder reports 230 packets
+and zero kernel drops. Every peer uses a private home and normal exit, with
+unchanged real-home file guards. The verifier rejects treating a fixture
+listener as native execution.
+
+This distinguishes **ignored with diagnostic/dump** from **implemented banner
+presentation**: this build tolerates the tested 122 without losing subsequent
+frames, but does not display or fetch its banner. Native 160/161/162, native
+roster records and the tested subject addition likewise cause no observed
+session failure. Other values, malformed inputs, optional builds and unknown
+clients remain untested; these results do not select a universal omission or
+fallback policy (GAP-080/081).
+
+The initial login callback handles UID field 103 only, but that is not the
+client's only identity path. Its roster callback checks for unset own UID,
+then matches its configured name and icon to a roster entry and stores that
+entry's UID/colour. Both native and controlled rosters contain that matching
+entry. This source path explains recovery after a login ACK without 103;
+complete self-identity-dependent feature acceptance still needs its own tests.
+
+## Source package identities and configuration applicability
+
+The [supplementary server profile record][server-profile] retains six additional
+RCS archives: README, version, configure input, configuration-header template,
+macro declarations and runtime configuration defaults. Their head is 1.1,
+default branch is 1.1.1, and the 1.1.1.1 vendor delta is empty. Re-extraction
+verifies the selected content, alongside the earlier 14 protocol-source
+archives. The records retain original paths and exact archive/content hashes.
+
+| Evidence profile | Identity and applicability |
+| --- | --- |
+| Selected server source | `version.c` declares `hxd_version = "0.1.48.1"`. README calls this the Synapse Hotline X Daemon server package and directs client users to shx. Comparisons apply to the selected hashed server files and named conditional paths. No deployed server executable is identified. |
+| Selected client source | Separate converted Git revision `adb1bf8c8cb12f7eb2fa2c01673295a6312f262b`; README/version identify shx 0.1.48. Basic and optional-branch source observations apply to that revision under their stated macros. |
+| Tested client executable | Modern terminal build `8fbbe56cef439d4c1732e8d9fbe2c676b9d45fbd273a42b22f8034e3b3914fa0`; exact patch, configuration, compiler and libraries are retained in `shx-build-01`. Native and controlled receiver results apply to that build only. |
+
+The server README describes modifications over `hxd-0.1.41`, while its version
+file declares 0.1.48.1. Preserve both statements: a development baseline is not
+a declaration that every selected file is from a released 0.1.41 package.
+Neither archive import dates nor these declarations identify a released tarball
+or a historical distributed executable.
+
+Server configure input records 18 enable options. HFS defaults to yes; most
+other option declarations default to no. These declarations are not the final
+configuration: if neither server type is selected, the script enables the
+Hotline server, and without pthread/clone selection it falls back to fork
+transfers. `--enable-all` changes multiple options. The retained `config.h.in`
+is a template, not a generated configuration proving any deployed build.
+Relevant conditional paths include HOPE, cipher/compression, IPv6, network UID
+mapping, HFS and transfer models; source queue branches also require their
+stated macro. Runtime defaults select CAP forks, but an actual configuration
+can override them. None of those server defaults is attributed to the native
+Mac oracle or used to identify a client from wire sub-version 2.
+
+The tested client has HFS and fork transfer macros enabled, with
+HOPE/cipher/compression/IPv6 disabled. Its generated Makefile selects terminal
+objects and `hx`; GTK acceptance is not inferred. GAP-083's source identity and
+applicability record now has archive lineage, selected/default relationships,
+relevant build flags and explicit observation scopes. GAP-080/081 continue to
+track the separate acceptance-target, peer-corpus and compatibility-policy work.
+
+Run both checks from mothra:
+
+```sh
+python3 scripts/verify-synhx-profiles.py
+python3 ../hotline-protocol-docs/scripts/verify_native_shx_extras.py \
+  evidence/gap-remediation/2026-11-13/native-shx-02
+```
+
+[extra-corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-shx-02/manifest.json
+[server-profile]: ../mothra/evidence/gap-remediation/2026-11-13/synhx-profile-01/manifest.json

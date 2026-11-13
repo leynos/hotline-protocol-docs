@@ -3,11 +3,11 @@
   "title": "Hotline 1.9 protocol documentation gap register",
   "audited_at_utc": "2026-11-12T12:55:29.155796+00:00",
   "last_updated": "2026-11-13",
-  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-33/manifest.json",
-  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-33/sections.json",
+  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-34/manifest.json",
+  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-34/sections.json",
   "validity_ledger": "../mothra/docs/baseline-validity-ledger.md",
   "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
-  "method": "Full historical-source shx terminal build and five native peer sessions, with controlled ambiguous-byte witness, exact syscall/host/guest streams and saved data/resource forks. One configured modern executable is identified; broader peer-field/fallback and mxd policy remain unresolved. Preserve all87 original criteria/statuses and57unclosed requirements.",
+  "method": "Three additional native configured-name peer sessions and four explicitly controlled banner/subject receiver fixtures. Six supplementary server metadata archives establish source identity, configuration distinctions and observation applicability. Closure review 16 closes GAP-083 against its unchanged criterion. All 87 original criteria are preserved: 31 Resolved, 55 Investigating and 1 Open; 56 remain unclosed.",
   "gaps": [
     {
       "id": "GAP-001",
@@ -30,9 +30,9 @@
           "path": "internal-compatibility-matrix.md",
           "heading": "Open compatibility gaps and QA requirements",
           "level": 2,
-          "line_start": 297,
+          "line_start": 307,
           "anchor": "open-compatibility-gaps-and-qa-requirements",
-          "line_end": 333
+          "line_end": 343
         }
       ],
       "question": "Which of the 45 requests and server notifications must mxd implement now, defer explicitly, or reject, and which peer profiles are acceptance targets?",
@@ -989,7 +989,7 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Added native TEXT content-loader CRLF-to-CR conversion with captured literal bytes and replacement helper. This is separate from encoding and credential complement. Other text fields and identified-peer byte fixtures remain required. Native14-query table and positive storedaccount keys corroborate ASCIIcase/CR/80->8a; NUL cases distinctfromempty. This isnot Unicodefolding or universalpeerencoding evidence. TEXT34bytes normalizeonlyCRLF to32; loneLF/80/NUL survive. RecognizedBMP preservesall34rawbytes. BINAfixture retypedtoTEXT duringGUIsetup isretained separately; noUnicode/peerencoding guarantee. Native InfoName highbyte9a isidentical inPrefs and162; itisnot UTF8reencoded.31-byte configurationdestination and32-byte typingprefix arecaptured. Thisisfield-specific nativebyte evidence, not a universalMacRoman/UTF8policy orhistoricalpeerresult. Native-shx-01 adds full-process receive evidence: controlled105 and native106 preserve80/9a/c3b6/ff testbytes through the real terminal peer stdout.bin. Localevariables are retained; no glyph rendering or universal encoding declaration inferred.",
+        "progress": "Added native TEXT content-loader CRLF-to-CR conversion with captured literal bytes and replacement helper. This is separate from encoding and credential complement. Other text fields and identified-peer byte fixtures remain required. Native14-query table and positive storedaccount keys corroborate ASCIIcase/CR/80->8a; NUL cases distinctfromempty. This isnot Unicodefolding or universalpeerencoding evidence. TEXT34bytes normalizeonlyCRLF to32; loneLF/80/NUL survive. RecognizedBMP preservesall34rawbytes. BINAfixture retypedtoTEXT duringGUIsetup isretained separately; noUnicode/peerencoding guarantee. Native InfoName highbyte9a isidentical inPrefs and162; itisnot UTF8reencoded.31-byte configurationdestination and32-byte typingprefix arecaptured. Thisisfield-specific nativebyte evidence, not a universalMacRoman/UTF8policy orhistoricalpeerresult. Native-shx-01 adds full-process receive evidence: controlled105 and native106 preserve80/9a/c3b6/ff testbytes through the real terminal peer stdout.bin. Localevariables are retained; no glyph rendering or universal encoding declaration inferred. Native-shx-02 adds actual configured162 byte9a consumed by the real peer while subsequent native chat succeeds. Preferences/ACK byte equality is checked, not glyph rendering or a universal decoder policy.",
         "evidence": [
           "[Login extras and content](presence-messaging-contracts.md#login-extras-and-configured-content)",
           "[Native loader](../mothra/evidence/gap-remediation/2026-11-12/batch-17/queries/B17-D-10003940.c)",
@@ -997,7 +997,9 @@
           "[Native agreement corpus](../mothra/evidence/gap-remediation/2026-11-13/native-agreement-01/manifest.json)",
           "[Native login-extra corpus](../mothra/evidence/gap-remediation/2026-11-13/native-login-extras-01/manifest.json)",
           "[Full historical peer sessions](identified-client-source.md#full-native-peer-acceptance-matrix)",
-          "[Native shx corpus](../mothra/evidence/gap-remediation/2026-11-13/native-shx-01/manifest.json)"
+          "[Native shx corpus](../mothra/evidence/gap-remediation/2026-11-13/native-shx-01/manifest.json)",
+          "[Configured native names and controlled receiver matrix](identified-client-source.md#native-configured-name-and-controlled-receiver-matrix)",
+          "[Second full-peer corpus](../mothra/evidence/gap-remediation/2026-11-13/native-shx-02/manifest.json)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -4123,9 +4125,9 @@
           "path": "internal-compatibility-matrix.md",
           "heading": "Open compatibility gaps and QA requirements",
           "level": 2,
-          "line_start": 297,
+          "line_start": 307,
           "anchor": "open-compatibility-gaps-and-qa-requirements",
-          "line_end": 333
+          "line_end": 343
         }
       ],
       "question": "Which client builds are acceptance targets, what stable evidence distinguishes them after removing sub-version 2, and what is the unknown-peer fallback?",
@@ -4144,13 +4146,15 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Added hashed shx0.1.48 source at adb1bf8c8cb12f7eb2fa2c01673295a6312f262b. Source profile is identified; compiled-client/runtime corpus and fallback policy remain open. Native-shx-01 identifies one complete modern Linux shx0.1.48 build at sourceadb1bf8c8cb1 and executable8fbbe56cef43. Five accepted sessions cover login/chat/list/forks/negativepassword/ambiguousbytes with paired packet evidence. Acceptance-target selection and unknown-peer fallback remain open; reported160 is absent in this peer request and is not used as identity.",
+        "progress": "Added hashed shx0.1.48 source at adb1bf8c8cb12f7eb2fa2c01673295a6312f262b. Source profile is identified; compiled-client/runtime corpus and fallback policy remain open. Native-shx-01 identifies one complete modern Linux shx0.1.48 build at sourceadb1bf8c8cb1 and executable8fbbe56cef43. Five accepted sessions cover login/chat/list/forks/negativepassword/ambiguousbytes with paired packet evidence. Acceptance-target selection and unknown-peer fallback remain open; reported160 is absent in this peer request and is not used as identity. Eight actual native full-peer sessions across native-shx-01/02 andfour labelled receiver fixtures identify one modern configured shx build. Acceptance-target selection and unknown-peer fallback still require a separate policy; no field160/sub-version peer identity is inferred.",
         "evidence": [
           "[Error outcomes](error-outcomes.md)",
           "[Folder descriptor](transfer-contracts.md#folder-item-descriptor-bytes)",
           "[Identified client source](identified-client-source.md)",
           "[Full historical peer sessions](identified-client-source.md#full-native-peer-acceptance-matrix)",
-          "[Native shx corpus](../mothra/evidence/gap-remediation/2026-11-13/native-shx-01/manifest.json)"
+          "[Native shx corpus](../mothra/evidence/gap-remediation/2026-11-13/native-shx-01/manifest.json)",
+          "[Configured native names and controlled receiver matrix](identified-client-source.md#native-configured-name-and-controlled-receiver-matrix)",
+          "[Second full-peer corpus](../mothra/evidence/gap-remediation/2026-11-13/native-shx-02/manifest.json)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -4200,13 +4204,15 @@
         "GAP-080"
       ],
       "resolution": {
-        "progress": "Executed seven host-built cases of the unchanged basic-login callback/macros, including ignored160/161/162 and unknown fields with UID/status controls. Full historical peer-by-field sessions and other configured profiles remain required. Full shx terminal sessions consume native160=00be/161=0000, automatic native roster records and repeated file-list records, then chat/download successfully. Empty configuredname omits162 and no122is emitted; configured162,122,subjectaddition and otherpeer/profile cases remain required before omission/default policy.",
+        "progress": "Executed seven host-built cases of the unchanged basic-login callback/macros, including ignored160/161/162 and unknown fields with UID/status controls. Full historical peer-by-field sessions and other configured profiles remain required. Full shx terminal sessions consume native160=00be/161=0000, automatic native roster records and repeated file-list records, then chat/download successfully. Empty configuredname omits162 and no122is emitted; configured162,122,subjectaddition and otherpeer/profile cases remain required before omission/default policy. Native-shx-02 adds actual ASCII/highbyte162 success andemptyname restoration. Controlled fullprocess matrix delivers exact native122 andsource-derived115 separately/together withnative roster controls:122is reportedunknown anddumpedexactly while reload/chat continue;115isdisplayed. No bannerUI, liveSynHXserver, optional-profile or universal omission/fallback policy claimed.",
         "evidence": [
           "[Error outcomes](error-outcomes.md)",
           "[Folder descriptor](transfer-contracts.md#folder-item-descriptor-bytes)",
           "[Identified client source](identified-client-source.md)",
           "[Full historical peer sessions](identified-client-source.md#full-native-peer-acceptance-matrix)",
-          "[Native shx corpus](../mothra/evidence/gap-remediation/2026-11-13/native-shx-01/manifest.json)"
+          "[Native shx corpus](../mothra/evidence/gap-remediation/2026-11-13/native-shx-01/manifest.json)",
+          "[Configured native names and controlled receiver matrix](identified-client-source.md#native-configured-name-and-controlled-receiver-matrix)",
+          "[Second full-peer corpus](../mothra/evidence/gap-remediation/2026-11-13/native-shx-02/manifest.json)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -4271,7 +4277,7 @@
       "area": "Compatibility and evidence",
       "priority": "P2",
       "kind": "Evidence",
-      "status": "Investigating",
+      "status": "Resolved",
       "owner": "Protocol documentation investigation",
       "title": "Historical SynHX source identity and applicability",
       "sources": [
@@ -4304,15 +4310,14 @@
       "investigation_leads": [],
       "depends_on": [],
       "resolution": {
-        "progress": "Added a separately identified client source revision to the earlier14-archive server lineage review. README/version identifyshx0.1.48; optional build flags and actual compiled/distributed peer identity remain unresolved. Frozen full shx source, four mechanical pointer-advance syntax fixes, GNUhosthelpers, compiler/configuration/dependency profiles and full executable identity are retained in shx-build-01. Terminal/IPv4/HFS/CAP/fork profile disablesGTK/HOPE/cipher/compression/IPv6. Five native sessions apply only to that modern build, not original distributed binaries or configured historical server peers. Earlier14-archive trunk/vendor review remains separate.",
+        "progress": "Supplementary six server metadata/configuration archives plus earlier14protocolarchives now establish selected/default relationship, declaredserver source0.1.48.1 versusclient0.1.48, configure/effectivefallback distinctions andexactobservation applicability. The testedclient8fbbe56 hasfullflags/config/compiler/library/patch provenance; originaldistributed/deployedserver identity isnot asserted.",
         "evidence": [
-          "[Error outcomes](error-outcomes.md)",
-          "[Folder descriptor](transfer-contracts.md#folder-item-descriptor-bytes)",
-          "[Identified client source](identified-client-source.md)",
-          "[Full historical peer sessions](identified-client-source.md#full-native-peer-acceptance-matrix)",
-          "[Native shx corpus](../mothra/evidence/gap-remediation/2026-11-13/native-shx-01/manifest.json)"
+          "[Source identities and applicability](identified-client-source.md#source-package-identities-and-configuration-applicability)",
+          "[Server profile record](../mothra/evidence/gap-remediation/2026-11-13/synhx-profile-01/manifest.json)",
+          "[Full build record](../mothra/evidence/gap-remediation/2026-11-13/shx-build-01/build/manifest.json)",
+          "[Closure review 16](../mothra/evidence/gap-remediation/2026-11-13/closure-review-16/review.json)"
         ],
-        "closure": "Not closed: remaining acceptance evidence is listed above."
+        "closure": "Closed against the unchanged source lineage/revision/flags/applicability criterion. GAP080/081 retain broader acceptance-target/fallback/peer-tolerance requirements; no universal deployed-binary claim is made."
       }
     },
     {
@@ -4344,9 +4349,9 @@
           "path": "internal-compatibility-matrix.md",
           "heading": "Open compatibility gaps and QA requirements",
           "level": 2,
-          "line_start": 297,
+          "line_start": 307,
           "anchor": "open-compatibility-gaps-and-qa-requirements",
-          "line_end": 333
+          "line_end": 343
         }
       ],
       "question": "Where are executable positive/negative fixtures for core handshake, authenticated login, both completion paths, errors and repeated-field handling?",
@@ -4367,7 +4372,7 @@
         "GAP-025"
       ],
       "resolution": {
-        "progress": " Added a14-test capture runner and the first positive native12/8-byte handshake. The guest later crashed; exact guest component versions and running executable hash were not retained. Negative/pipelined/login/data/identified-peer fixtures and complete provenance remain required. Added16 native transcripts from hashed patched emulator/ROM/base/native application forks, host-loopback packet capture, account records and a semantic verifier. Fourteen plans completed; two EOF observations timed out and remain failed. No identified historical peer or full native corpus completion is claimed. Added14 addressed final handshake cases with paired host/guest packet reconciliation,39 total retained transcripts including explorations, a hashed clean prelaunch checkpoint and reset-aware analysis. Split windows are3 seconds; observed native FIN/RST distinctions are preserved even when the host proxy exposes EOF. Full operation/identified-peer corpus remains required. Added62 reviewed framing/TLV sessions plus preserved disproven initial icon-width hypothesis, exact host/guest packet reconciliation scoped to UTC/SYN lifetimes, and independent missing-close/quiet-window controls. Full operations and identified peers remain required. Added two successfulordinaryuploads and eightrevieweddownload modes plus eight initialprobes. Exact pairedpackets and nativeHFS+ forks validated; oneunread59byte301 controlsuffix explicitly pinned in bothviews rather than addedtooriginalreport. Fulloperation/identifiedpeer corpus remains required. Added23 final resume observations and7 initialattempts with3 retainedfailures. Everytranscript reconciles exact pairedpackets, with2 pinnedinitialunread301suffixes. Before/after nativeHFS+ forks validate correct/inconsistent continuation. Boundedreplymatching preserves asynchronousnotifications. Full operations andidentifiedpeers remain required. Added four controlled queue cases with paired exact streams, full reply inventories, mode/fork sizes, owner-specific211 sequences and measured540second pause windows. One unread28byte302 is pinned explicitly in both packet views. Test limits2/1 and restored100/10 are verified in saved/reopened GUI screenshots; no ROM/disk committed. Full operations and identified peers remain required. Added ten completed cleanup/seed cases, paired exact streams, native HFS+ fork bytes and first-observed packet/request/ACK timing with retransmissions deduplicated. A28byte unread departure is pinned explicitly. Three immediate and three partial-read races plus nonowner delivery establish finite outcomes, not all-operation or identified-peer conformance. Added17 final folder cases,3 initial probes and1 auxiliary finalization. Core andtimed pairedpacket phases, positive before/after catalogue/fork snapshots and measured pauses are retained. Two initial failures occur before folder requests; one hostwrite never reaches guest boundary and is pinned separately. Path-based HFS enumeration fails; positive direct lookup succeeds, withoutabsence/exhaustiveness claims. Full operations andidentifiedpeers remain required. Added24 final banner cases with exact paired packet streams, positive native GIF fork/catalogue observations and retained exploratory failures. GUI phases overlap the expiry observation and are disclosed. Full operation and identified historical-peer coverage remain required. Added17 final format/recovery/reset sessions, five original exploratory reports and nine additional setup observations. Eight independently observed native file/type controls, protocol-confirmed absence/restoration, concurrent owner/observer reset and positive post-reset login are retained. All final packet streams reconcile; one exploratory22-byte post-reset host suffix never reaches the guest. Three completed exploratory Save hypotheses retain the wrong loaded configuration. Full operations and identified historical peers remain required. Delayed recovery directly retains an owner122 before disappearance; both early and delayed recovery streams pass independent packet/phase checks. Two rejected setup trials pin unread57-byte banner suffixes and301/302 controls explicitly. Added17 HTXF sessions plus preflight; all inputs/outputs independently reconcile at both packet boundaries. Three positive native DATA forks and seven semantic/mutation tests strengthen header/reference acceptance; complete operations and identified historical peers remain required. Added24 paired native ID/envelope/EOF sessions and25 read-only oracle queries, including a preserved rejected interior-address query. No unread packet suffixes. Zero/high-bit IDs, collision/reuse, late replies, emitted notifications, unsupported requests and underfilled EOF now have acceptance evidence; other operations and historical peers remain required. Added33accepted auth/lookup/state reports,2retained exploratory reports,14read-onlyoraclequeries,5positive UserData records andagreementfork. Everypacketstream reconciles withliteral28-byte delayed302tail retained. Fulloperations, configuration paths andhistoricalpeers remain required. Added42acceptedagreementcases,28setupcontrols,12exploratoryreports and16identitycheckedqueries withnativepath/type/fork controls. All42accepted and39nonstalled auxiliary streams reconcile exactly; host-timer failedboundary isexplicitly bounded withlateSYNACK retained. Originalagreementandaccountcleanupverified. Fulloperations/peers/mxd acceptance remain required. Added34acceptedlogin-extra/name-change/referencecases,11setupcontrols,5exploratoryreports and14identitycheckedqueries withpositivePrefs controls.49reportstreams reconcile exactly; failed90secondtrialexplicitlyretains hostonlylate121 andguestonly302. Allaccepted streams matchbothboundaries. Broaderoperations,identifiedpeers andmxd acceptance remain required. Five full historical-source terminal sessions plus a controlled script witness now reconcile sixpeer sockets and onewitness socket at both host and guest boundaries. SavedDATA13/MACR317 match knownfixture and FILP; hostrecorder170packets/zerodrops. This extends fixture coverage without closing otheroperation/peer/mxd acceptance requirements.",
+        "progress": " Added a14-test capture runner and the first positive native12/8-byte handshake. The guest later crashed; exact guest component versions and running executable hash were not retained. Negative/pipelined/login/data/identified-peer fixtures and complete provenance remain required. Added16 native transcripts from hashed patched emulator/ROM/base/native application forks, host-loopback packet capture, account records and a semantic verifier. Fourteen plans completed; two EOF observations timed out and remain failed. No identified historical peer or full native corpus completion is claimed. Added14 addressed final handshake cases with paired host/guest packet reconciliation,39 total retained transcripts including explorations, a hashed clean prelaunch checkpoint and reset-aware analysis. Split windows are3 seconds; observed native FIN/RST distinctions are preserved even when the host proxy exposes EOF. Full operation/identified-peer corpus remains required. Added62 reviewed framing/TLV sessions plus preserved disproven initial icon-width hypothesis, exact host/guest packet reconciliation scoped to UTC/SYN lifetimes, and independent missing-close/quiet-window controls. Full operations and identified peers remain required. Added two successfulordinaryuploads and eightrevieweddownload modes plus eight initialprobes. Exact pairedpackets and nativeHFS+ forks validated; oneunread59byte301 controlsuffix explicitly pinned in bothviews rather than addedtooriginalreport. Fulloperation/identifiedpeer corpus remains required. Added23 final resume observations and7 initialattempts with3 retainedfailures. Everytranscript reconciles exact pairedpackets, with2 pinnedinitialunread301suffixes. Before/after nativeHFS+ forks validate correct/inconsistent continuation. Boundedreplymatching preserves asynchronousnotifications. Full operations andidentifiedpeers remain required. Added four controlled queue cases with paired exact streams, full reply inventories, mode/fork sizes, owner-specific211 sequences and measured540second pause windows. One unread28byte302 is pinned explicitly in both packet views. Test limits2/1 and restored100/10 are verified in saved/reopened GUI screenshots; no ROM/disk committed. Full operations and identified peers remain required. Added ten completed cleanup/seed cases, paired exact streams, native HFS+ fork bytes and first-observed packet/request/ACK timing with retransmissions deduplicated. A28byte unread departure is pinned explicitly. Three immediate and three partial-read races plus nonowner delivery establish finite outcomes, not all-operation or identified-peer conformance. Added17 final folder cases,3 initial probes and1 auxiliary finalization. Core andtimed pairedpacket phases, positive before/after catalogue/fork snapshots and measured pauses are retained. Two initial failures occur before folder requests; one hostwrite never reaches guest boundary and is pinned separately. Path-based HFS enumeration fails; positive direct lookup succeeds, withoutabsence/exhaustiveness claims. Full operations andidentifiedpeers remain required. Added24 final banner cases with exact paired packet streams, positive native GIF fork/catalogue observations and retained exploratory failures. GUI phases overlap the expiry observation and are disclosed. Full operation and identified historical-peer coverage remain required. Added17 final format/recovery/reset sessions, five original exploratory reports and nine additional setup observations. Eight independently observed native file/type controls, protocol-confirmed absence/restoration, concurrent owner/observer reset and positive post-reset login are retained. All final packet streams reconcile; one exploratory22-byte post-reset host suffix never reaches the guest. Three completed exploratory Save hypotheses retain the wrong loaded configuration. Full operations and identified historical peers remain required. Delayed recovery directly retains an owner122 before disappearance; both early and delayed recovery streams pass independent packet/phase checks. Two rejected setup trials pin unread57-byte banner suffixes and301/302 controls explicitly. Added17 HTXF sessions plus preflight; all inputs/outputs independently reconcile at both packet boundaries. Three positive native DATA forks and seven semantic/mutation tests strengthen header/reference acceptance; complete operations and identified historical peers remain required. Added24 paired native ID/envelope/EOF sessions and25 read-only oracle queries, including a preserved rejected interior-address query. No unread packet suffixes. Zero/high-bit IDs, collision/reuse, late replies, emitted notifications, unsupported requests and underfilled EOF now have acceptance evidence; other operations and historical peers remain required. Added33accepted auth/lookup/state reports,2retained exploratory reports,14read-onlyoraclequeries,5positive UserData records andagreementfork. Everypacketstream reconciles withliteral28-byte delayed302tail retained. Fulloperations, configuration paths andhistoricalpeers remain required. Added42acceptedagreementcases,28setupcontrols,12exploratoryreports and16identitycheckedqueries withnativepath/type/fork controls. All42accepted and39nonstalled auxiliary streams reconcile exactly; host-timer failedboundary isexplicitly bounded withlateSYNACK retained. Originalagreementandaccountcleanupverified. Fulloperations/peers/mxd acceptance remain required. Added34acceptedlogin-extra/name-change/referencecases,11setupcontrols,5exploratoryreports and14identitycheckedqueries withpositivePrefs controls.49reportstreams reconcile exactly; failed90secondtrialexplicitlyretains hostonlylate121 andguestonly302. Allaccepted streams matchbothboundaries. Broaderoperations,identifiedpeers andmxd acceptance remain required. Five full historical-source terminal sessions plus a controlled script witness now reconcile sixpeer sockets and onewitness socket at both host and guest boundaries. SavedDATA13/MACR317 match knownfixture and FILP; hostrecorder170packets/zerodrops. This extends fixture coverage without closing otheroperation/peer/mxd acceptance requirements. Three actual native configured-name sessions andthree nativeflushcontrols reconcile bothpacketboundaries; four realpeer receiverfixtures reconcile hostPCAP/syscalls/listenerevents. PositivePrefs andbaseline restoration arechecked; controlled delivery isnever labellednative execution.",
         "evidence": [
           "[Native format/recovery/reset corpus](../mothra/evidence/gap-remediation/2026-11-12/native-banner-02/manifest.json)",
           "[Banner type/recovery contract](transfer-contracts.md#captured-banner-formats-and-recovery)",
@@ -4378,7 +4383,9 @@
           "[Native agreement corpus](../mothra/evidence/gap-remediation/2026-11-13/native-agreement-01/manifest.json)",
           "[Native login-extra corpus](../mothra/evidence/gap-remediation/2026-11-13/native-login-extras-01/manifest.json)",
           "[Full historical peer sessions](identified-client-source.md#full-native-peer-acceptance-matrix)",
-          "[Native shx corpus](../mothra/evidence/gap-remediation/2026-11-13/native-shx-01/manifest.json)"
+          "[Native shx corpus](../mothra/evidence/gap-remediation/2026-11-13/native-shx-01/manifest.json)",
+          "[Configured native names and controlled receiver matrix](identified-client-source.md#native-configured-name-and-controlled-receiver-matrix)",
+          "[Second full-peer corpus](../mothra/evidence/gap-remediation/2026-11-13/native-shx-02/manifest.json)"
         ],
         "closure": "Not closed: the unchanged criterion still requires the outstanding evidence described above."
       }
@@ -4404,9 +4411,9 @@
           "path": "internal-compatibility-matrix.md",
           "heading": "Open compatibility gaps and QA requirements",
           "level": 2,
-          "line_start": 297,
+          "line_start": 307,
           "anchor": "open-compatibility-gaps-and-qa-requirements",
-          "line_end": 333
+          "line_end": 343
         }
       ],
       "question": "Do the named test/source references exist and pass at a recorded mxd revision, and do their assertions match the corrected protocol?",
@@ -4442,9 +4449,9 @@
           "path": "internal-compatibility-matrix.md",
           "heading": "Open compatibility gaps and QA requirements",
           "level": 2,
-          "line_start": 297,
+          "line_start": 307,
           "anchor": "open-compatibility-gaps-and-qa-requirements",
-          "line_end": 333
+          "line_end": 343
         },
         {
           "path": "internal-compatibility-matrix.md",
@@ -6024,9 +6031,9 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "Open compatibility gaps and QA requirements",
       "level": 2,
-      "line_start": 297,
+      "line_start": 307,
       "anchor": "open-compatibility-gaps-and-qa-requirements",
-      "line_end": 333,
+      "line_end": 343,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-001",
@@ -7219,7 +7226,7 @@
       "heading": "Historical source lineage and build limits",
       "level": 2,
       "line_start": 276,
-      "line_end": 296,
+      "line_end": 306,
       "anchor": "historical-source-lineage-and-build-limits",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7544,7 +7551,7 @@
       "heading": "Identified shx source profile and bounded callback results",
       "level": 1,
       "line_start": 1,
-      "line_end": 18,
+      "line_end": 19,
       "anchor": "identified-shx-source-profile-and-bounded-callback-results",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7562,8 +7569,8 @@
       "path": "identified-client-source.md",
       "heading": "Basic login and unknown fields",
       "level": 2,
-      "line_start": 19,
-      "line_end": 37,
+      "line_start": 20,
+      "line_end": 38,
       "anchor": "basic-login-and-unknown-fields",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7581,8 +7588,8 @@
       "path": "identified-client-source.md",
       "heading": "Executed host callback matrix",
       "level": 2,
-      "line_start": 38,
-      "line_end": 72,
+      "line_start": 39,
+      "line_end": 73,
       "anchor": "executed-host-callback-matrix",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7600,8 +7607,8 @@
       "path": "identified-client-source.md",
       "heading": "Other receiver observations and negative scope",
       "level": 2,
-      "line_start": 73,
-      "line_end": 105,
+      "line_start": 74,
+      "line_end": 106,
       "anchor": "other-receiver-observations-and-negative-scope",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -8866,8 +8873,8 @@
       "path": "identified-client-source.md",
       "heading": "Identified complete terminal build",
       "level": 2,
-      "line_start": 106,
-      "line_end": 128,
+      "line_start": 107,
+      "line_end": 129,
       "anchor": "identified-complete-terminal-build",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -8891,8 +8898,8 @@
       "path": "identified-client-source.md",
       "heading": "Full native peer acceptance matrix",
       "level": 2,
-      "line_start": 129,
-      "line_end": 159,
+      "line_start": 130,
+      "line_end": 161,
       "anchor": "full-native-peer-acceptance-matrix",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -8916,8 +8923,8 @@
       "path": "identified-client-source.md",
       "heading": "Ambiguous text at the real peer boundary",
       "level": 2,
-      "line_start": 160,
-      "line_end": 184,
+      "line_start": 162,
+      "line_end": 186,
       "anchor": "ambiguous-text-at-the-real-peer-boundary",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -8941,8 +8948,8 @@
       "path": "identified-client-source.md",
       "heading": "Reproducing and checking full peer sessions",
       "level": 2,
-      "line_start": 185,
-      "line_end": 214,
+      "line_start": 187,
+      "line_end": 217,
       "anchor": "reproducing-and-checking-full-peer-sessions",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -8967,8 +8974,83 @@
       "heading": "Reproducing full historical shx sessions",
       "level": 2,
       "line_start": 1014,
-      "line_end": 1037,
+      "line_end": 1038,
       "anchor": "reproducing-full-historical-shx-sessions",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-018",
+        "GAP-080",
+        "GAP-081",
+        "GAP-082",
+        "GAP-083",
+        "GAP-084"
+      ],
+      "related_gap_ids": [
+        "GAP-018",
+        "GAP-080",
+        "GAP-081",
+        "GAP-082",
+        "GAP-083",
+        "GAP-084"
+      ]
+    },
+    {
+      "path": "identified-client-source.md",
+      "heading": "Native configured-name and controlled receiver matrix",
+      "level": 2,
+      "line_start": 218,
+      "line_end": 268,
+      "anchor": "native-configured-name-and-controlled-receiver-matrix",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-018",
+        "GAP-080",
+        "GAP-081",
+        "GAP-082",
+        "GAP-083",
+        "GAP-084"
+      ],
+      "related_gap_ids": [
+        "GAP-018",
+        "GAP-080",
+        "GAP-081",
+        "GAP-082",
+        "GAP-083",
+        "GAP-084"
+      ]
+    },
+    {
+      "path": "identified-client-source.md",
+      "heading": "Source package identities and configuration applicability",
+      "level": 2,
+      "line_start": 269,
+      "line_end": 318,
+      "anchor": "source-package-identities-and-configuration-applicability",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-018",
+        "GAP-080",
+        "GAP-081",
+        "GAP-082",
+        "GAP-083",
+        "GAP-084"
+      ],
+      "related_gap_ids": [
+        "GAP-018",
+        "GAP-080",
+        "GAP-081",
+        "GAP-082",
+        "GAP-083",
+        "GAP-084"
+      ]
+    },
+    {
+      "path": "native-capture-workflow.md",
+      "heading": "Reproducing banner and roster-subject receiver fixtures",
+      "level": 2,
+      "line_start": 1039,
+      "line_end": 1057,
+      "anchor": "reproducing-banner-and-roster-subject-receiver-fixtures",
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-018",

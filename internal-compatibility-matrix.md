@@ -283,16 +283,26 @@ are empty: for these archives the selected 1.1 content and the imported vendor
 revision have no content edit between them. This narrows the old trunk/vendor
 ambiguity without asserting a release number or matching client executable.
 
-These are server sources. Conditional paths include `CONFIG_CIPHER`,
-`CONFIG_COMPRESS`, `CONFIG_HFS`, `CONFIG_HTXF_QUEUE`, HTXF process/thread models,
-`CONFIG_IPV6` and SQL/platform-specific branches. A particular configured build
-was not retained for those server sources. The separately identified shx
-client now has a full terminal build and native session corpus, described in
-[Identified client source](identified-client-source.md#full-native-peer-acceptance-matrix).
-The default branch relationship
-therefore does not establish how any deployed peer was built. Every source
-observation in this matrix applies to the selected hashed source and its named
-path; extrapolation to all SynHX clients remains unsupported (GAP-083/080).
+The [supplementary package record][server-profile] retains six server metadata
+archives with the same selected/default revision relationship. Its version file
+declares **0.1.48.1**, and README distinguishes the server package from shx. Its
+reference to modifications over hxd0.1.41 does not identify a released package.
+Configure input/template/runtime defaults document the conditional server
+profiles, without establishing a deployed executable. Source comparisons remain
+specific to those hashed files and named branches.
+
+The separately identified shx client source is0.1.48, and its full terminal
+build has an exact executable/configuration identity. Native sessions establish
+160/161/162 and roster/file-record tolerance for that build. Controlled receiver
+fixtures show that122is dumped as unknown while later roster/chat still work,
+and the subject addition is displayed. These are not a native122session or a
+running historical SynHX server. See the
+[peer-by-field results](identified-client-source.md#native-configured-name-and-controlled-receiver-matrix)
+and [profile applicability](identified-client-source.md#source-package-identities-and-configuration-applicability).
+GAP-083 records source identity/applicability; broader target/fallback and peer
+coverage remain GAP-080/081.
+
+[server-profile]: ../mothra/evidence/gap-remediation/2026-11-13/synhx-profile-01/manifest.json
 
 ## Open compatibility gaps and QA requirements
 
