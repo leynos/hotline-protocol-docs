@@ -12,6 +12,11 @@ from native_agreement_cases import preflight as agreement_preflight
 from native_agreement_cases import restore_stage as agreement_restore_stage
 from native_agreement_cases import seed as agreement_seed
 from native_agreement_cases import stages as agreement_stages
+from native_alias_cases import create as alias_create
+from native_alias_cases import damage as alias_damage
+from native_alias_cases import downloads as alias_downloads
+from native_alias_cases import information as alias_information
+from native_alias_cases import seed as alias_seed
 from native_auth_cases import cleanup as auth_cleanup
 from native_auth_cases import guest_create as auth_guest_create
 from native_auth_cases import lookup as auth_lookup
@@ -62,6 +67,11 @@ def main() -> None:
     parser.add_argument(
         "suite",
         choices=[
+            "alias-damage",
+            "alias-seed",
+            "alias-create",
+            "alias-info",
+            "alias-download",
             "mkdir-root-empty",
             "mkdir-final",
             "mkdir-cleanup",
@@ -132,6 +142,11 @@ def main() -> None:
     if args.suite == "agreement-restore-stage" and args.original_agreement is None:
         parser.error("agreement-restore-stage requires --original-agreement")
     cases = {
+        "alias-damage": alias_damage,
+        "alias-seed": alias_seed,
+        "alias-create": alias_create,
+        "alias-info": alias_information,
+        "alias-download": alias_downloads,
         "mkdir-root-empty": mkdir_empty_root,
         "mkdir-final": mkdir_final,
         "mkdir-cleanup": mkdir_cleanup,
@@ -224,6 +239,8 @@ def main() -> None:
                 "GAP-017",
             ]
             if args.suite == "framing"
+            else ["GAP-047", "GAP-048", "GAP-049", "GAP-054", "GAP-084"]
+            if args.suite.startswith("alias-")
             else ["GAP-047", "GAP-048", "GAP-051", "GAP-019", "GAP-084"]
             if args.suite.startswith("mkdir-")
             else ["GAP-026", "GAP-018", "GAP-019", "GAP-084"]
