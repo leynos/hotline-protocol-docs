@@ -538,8 +538,9 @@ Evidence: V039; `1000fc20`.
 
 **Notification:** formatted data 101 and, on the room-specific path, chat ID
 114. Do not assume a separate sender UID exists in every chat message or infer
-how a client renders the formatted text. Complete formatting and encoding
-rules remain unresolved.
+how a client renders the formatted text. The [native room/chat matrix](presence-messaging-contracts.md#captured-private-rooms-invitations-and-chat-bytes)
+records exact formatting and recipient rules. Cross-client decoding policy
+remains separate.
 
 Evidence: V039, V048; `1000fc20`.
 
@@ -590,8 +591,10 @@ fields 103, iterated by index. The sender builds notification 113 with room
 Refusal/automatic-response branches can send type 104.
 
 **114 — reject invitation:** the inspected request handler reads chat ID 114.
-Complete rejection notification, expiry and recipient behaviour remain
-unresolved; no direct normal success ACK was identified.
+Rejection is a formatted room-chat 106 notification; repeated rejection does
+not prevent a later join. No direct normal success ACK was identified. The
+[native room matrix](presence-messaging-contracts.md#captured-private-rooms-invitations-and-chat-bytes)
+records mixed/duplicate targets, disconnect, refusal and retry outcomes.
 
 None of these paths establishes a universal SynHX-specific XOR text mode.
 

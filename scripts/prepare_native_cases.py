@@ -10,6 +10,7 @@ import native_account_identity_cases as account_identity
 import native_account_update_cases as account_update
 import native_live_account_cases as live_account
 import native_news_boundary_cases as news_boundary
+import native_room_cases as rooms
 from native_agreement_cases import PHASES as AGREEMENT_PHASES
 from native_agreement_cases import cleanup as agreement_cleanup
 from native_agreement_cases import phase as agreement_phase
@@ -115,6 +116,7 @@ def main() -> None:
             "account-update-preflight",
             "account-batch-preflight",
             "account-identity",
+            "rooms",
             "account-batch-seed",
             "account-batch-mutations",
             "account-batch-inspections",
@@ -291,6 +293,7 @@ def main() -> None:
         )
     cases = {
         "account-identity": account_identity.suites,
+        "rooms": rooms.suites,
         "account-batch-preflight": lambda: {"preflight": account_batch.preflight()},
         "account-batch-seed": lambda: {"seed": account_batch.seed()},
         "account-batch-mutations": lambda: {
@@ -528,6 +531,8 @@ def main() -> None:
                 "GAP-017",
             ]
             if args.suite == "framing"
+            else ["GAP-038", "GAP-039", "GAP-040", "GAP-041", "GAP-042", "GAP-084"]
+            if args.suite == "rooms"
             else [
                 "GAP-003",
                 "GAP-021",

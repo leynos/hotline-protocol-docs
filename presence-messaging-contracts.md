@@ -422,3 +422,108 @@ and notification fixtures remain GAP-084/076.
 
 [expanded-store-scan]: ../mothra/evidence/gap-remediation/2026-11-13/native-login-extras-01/all-direct-store-candidates.json
 [login-extras]: ../mothra/evidence/gap-remediation/2026-11-13/native-login-extras-01/manifest.json
+
+## Captured private rooms, invitations and chat bytes
+
+The [native room corpus][rooms-corpus] retains thirteen completed captures,
+two failed recorder expectations, 45 host/guest TCP lifetimes and sixteen
+identity-checked oracle queries. Three newly owned accounts have only receive
+chat (bit 9), send/receive chat (bits 9/10), or no privileges. The creator is
+the existing administrator. Room IDs are captured as four-byte values; subject
+UIDs are two bytes. No ID is copied from a previous connection or room.
+
+| Action / state | Native result |
+| --- | --- |
+| Zero-privilege 112 create | Status 1, field 100: `You are not allowed to create a new chat.` |
+| 115 join existing room without invitation, zero privileges | Success; returned packed roster includes creator and joining subject |
+| 115 repeated join | Same membership roster; no additional 117 |
+| 115 absent/zero or missing room | Status 1: `Cannot join private chat because it has been closed already.` |
+| 113 invite from zero-privilege non-member | Delivers invitations; neither room membership nor creation bit 11 is required |
+| 120 topic from zero-privilege non-member | Changes subject and sends 119 to room members; no direct ACK |
+| 105 room chat from send-enabled non-member | Reaches members with receive bit 9; sender membership is not required |
+| 105 from a member without send bit 10 | Data-only 104, option 109=`0001`, text `You are not allowed to participate in chat.` |
+| Receive-disabled member | Receives membership/topic notifications, but not room chat 106 |
+| 105 absent or zero room | Main-chat fan-out to eligible sessions, including sender; no explicit main-room join |
+
+The owner/administrator label supplies no universal room bypass or ownership
+ACL. Creation requires bit 11, sending requires bit 10, and chat reception
+requires bit 9; the observed join/invite/subject handlers impose their separate
+state checks. A topic-denial rule based on membership or privileges would be
+incorrect: the negative controls are missing-room silence and denied creation,
+while the zero-privilege non-member topic update succeeds.
+
+Topic 115 accepts raw bytes. Omitted and present-empty inputs clear it; 119
+and later join replies then omit 115 entirely. Seven-byte text and a nine-byte
+value containing NUL, CR, LF, `80` and `ff` survive exactly. Inputs of 255, 256
+and 65,535 bytes yield 255 stored/output bytes. The 119 fan-out reaches the
+creator and receive-only member, not the outsider who changed the subject.
+Repeated join returns the current subject without another membership event.
+No Unicode interpretation is established by these byte fixtures.
+
+A new join emits 117 to existing ready members before the handler adds the
+subject, then returns its post-add roster. Leave 116 removes the member and
+sends 118 to remaining members. Non-member leave adds no event; last-member
+leave deletes the room, and a later join reports the missing-room error.
+There is no normal direct leave ACK. Paired outstanding joins from two sockets
+return a two-member snapshot and a three-member snapshot, each including its
+own requester. Paired leaves produce each departure exactly once for the
+remaining creator and one cross-member departure notification. The trace
+establishes local enqueue order; these observations do not promise a universal
+receipt order across sockets or an atomic global snapshot.
+
+Mixed-target 112 and 113 requests retain valid invitations while skipping a
+missing UID. Repeated target UIDs produce repeated 113 notifications. Existing
+members and the inviting session are excluded by 113. A disconnected target
+is skipped and a later valid target still receives its invitation. Retrying
+113 can therefore repeat delivery. Invitations notify; they do not admit all
+targets, reserve membership, or supply a capability consumed by join.
+
+Two 114 rejections from the receive-only, unjoined invitee send this exact 106
+data to eligible room members, with room 114 and no separate sender field:
+
+```text
+\r<<< "Room30-reader" declined invitation to chat >>>
+```
+
+Here `\r` denotes one byte `0d`. The invitee joins successfully afterward.
+No pending-invitation deletion or expiry gate exists in the traced join path;
+uninvited and previously rejecting subjects both join. These results do not
+invent an invitation timer. A refusing target gets no invitation: the inviter
+receives 104 option 113=`0003` with refusal text, or `0004` with enabled
+automatic-response bytes. Other valid targets still receive 113. The inviter's
+PM-refusal setting suppresses that feedback, independently of invitation
+fan-out. The final refusing invitee can still join without receiving 113.
+
+Chat formatting uses these byte prefixes before applying the 8,192-byte
+handler output cap. Name formatting is byte-oriented:
+
+| Option 109 | Prefix |
+| --- | --- |
+| Exactly 1 | CR, ASCII space, `***`, ASCII space, full effective Pascal-name bytes, ASCII space |
+| Absent, 0, 2 or 65,535 | CR, first 13 name bytes right-justified to width 13, colon, two ASCII spaces |
+
+The formatter prepends the prefix, then replaces each CR in the input with
+that same prefix. LF remains LF, CRLF becomes prefix-plus-LF, and embedded NUL,
+`80` and `ff` remain bytes. Empty and absent text each yield the prefix alone.
+The captured short-name result is `\r       Talk30:  short-name30`; the long
+ordinary name becomes `Room30-speake`, while action text keeps `Room30-speaker`.
+The temporary short account name is restored before account cleanup. These
+ordinary/action/system and denied-send examples establish formatting and
+recipient rules; they do not choose a cross-client text-decoding policy.
+
+The failed width fixture substituted a four-byte room ID into a declared
+two-byte field and received EOF. Its corrected request succeeds in the same
+application epoch. Another recorder waited thirty seconds for a nonexistent
+304 ACK; the corrected version uses a later 500 liveness reply. Both failures
+remain failed, rather than becoming successful room examples or crash claims.
+
+Closing clients produces additional 118/301/302 bytes beyond recorded read
+prefixes. Both packet views agree on recorded application bytes; their late
+tails can differ because the guest queues further output after host closure.
+The corpus retains and verifies each view separately, with known participant
+and room identities. It does not trim the guest stream to make them identical.
+Cleanup restores the exact original `admin`/`fixture-low` enumeration and
+41-entry Files listing. No guest/application restart or original-account
+mutation is performed.
+
+[rooms-corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-rooms-01/manifest.json

@@ -1682,3 +1682,66 @@ It does not prove deletion protection for built-in identities, arbitrary name
 folding, native Trash-fork preservation, forced I/O or restart durability.
 
 [identity-corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-account-identity-01/manifest.json
+
+## Reproducing private rooms and chat byte fixtures
+
+The [room corpus][room-workflow] retains all plans, coordinator, as-run source
+versions, failures, packet views and view-specific unread tails. Use a dedicated
+instance with no other clients. Record fresh runtime/application identity and
+start host/guest captures before any exchange. From `mothra`, prepare templates:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/prepare_native_cases.py rooms \
+  --runtime-record state/native-sessions/runtime-30/runtime.json \
+  --output state/room-plans
+```
+
+Replace the runtime path with the current environment. Preparation performs no
+network I/O. Execute `preflight`; stop unless all three owned account names
+are absent and retain the original account/Files enumerations. Then run `seed`.
+The eight complete scenarios are `basics`, `topics`, `lifecycle`, `concurrent`,
+`create_invites`, `invites`, `refusals` and `formatting`. Each creates its own
+volatile room and opens fresh subject connections. Never re-use room IDs or
+UIDs: capture four-byte room 114 and two-byte subject 103 from that run.
+
+The retained coordinator uses fixed paths. Adapt it to a fresh directory and
+execute the complete scenarios in order, preserving each output. Correct
+settings 304, invitation 113/114, leave 116, topic 120 and chat 105 requests
+have no normal direct ACK; subsequent 500 replies drain preceding output.
+Three-second quiet/pause windows remain bounded observations. The concurrent
+case sends two joins before receiving either reply, then two leaves before
+waiting for either liveness reply. Do not serialize those sends by waiting for
+a first response when reproducing the concurrent fixture.
+
+The format scenario temporarily changes only the owned speaker's account name,
+then restores its original name and rights. Finish with `cleanup` and `final`;
+require the original account and complete Files listings to match. Closing
+all fixture connections removes their volatile rooms. This sequence does not
+require a server or guest restart.
+
+The historical width and 304-ACK failures are retained as failed plans with
+frozen hashes and source versions. Do not replay those mistakes as prerequisites
+for the corrected scenarios. To investigate a failed observation, first check
+its declared framing/expected reply and the live process/listener state; an
+observation timeout alone is not grounds to restart the emulator.
+
+After all stages terminate, stop host capture explicitly and preserve its
+packet/drop statistics. Copy the guest packet view and reconcile each SYN
+lifetime. Preserve separate host/guest unread tails: close-driven room and
+roster notifications may be queued at the guest boundary after the host stops
+receiving. Every tail frame must remain complete and identify the captured
+room/participant. Agreement on recorded prefixes does not imply identical late
+output in both views.
+
+Verify the recorded corpus offline with:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/verify_native_rooms.py \
+  evidence/gap-remediation/2026-11-13/native-rooms-01
+```
+
+This verifies local state/recipient/order and byte-format observations, not a
+universal cross-socket delivery order, historical-client rendering, arbitrary
+encoding policy or restart durability.
+
+[room-workflow]: ../mothra/evidence/gap-remediation/2026-11-13/native-rooms-01/manifest.json

@@ -11,8 +11,10 @@ def reconcile(
     host: list[dict],
     guest: list[dict],
     unread_output: dict[str, bytes] | None = None,
+    *,
+    guest_unread_output: dict[str, bytes] | None = None,
 ) -> dict:
-    """Require exact bytes in both views, retaining guest close observations."""
+    """Check both prefixes and retained tails, including post-close divergence."""
     observations = {}
     started = datetime.fromisoformat(report["started_at_utc"]).timestamp() * 1e6
     for event in report["events"]:
@@ -35,7 +37,12 @@ def reconcile(
                 stream(packets, client, server).hex() == recorded["sent_hex"],
                 f"{name}: {label} input differs",
             )
-            unread = (unread_output or {}).get(name, b"")
+            view_unread = (
+                guest_unread_output
+                if label == "guest" and guest_unread_output is not None
+                else unread_output
+            )
+            unread = (view_unread or {}).get(name, b"")
             require(
                 stream(packets, server, client)
                 == bytes.fromhex(recorded["received_hex"]) + unread,
@@ -59,5 +66,9 @@ def reconcile(
             if server_ends
             else None,
         }
+        if guest_unread_output is not None:
+            observations[name]["guest_unread_output_hex"] = guest_unread_output.get(
+                name, b""
+            ).hex()
     require(set(observations) == set(report["streams"]), "Missing socket identity")
     return observations
