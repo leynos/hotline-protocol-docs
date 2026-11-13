@@ -10,6 +10,7 @@ from native_agreement_cases import cleanup as agreement_cleanup
 from native_agreement_cases import phase as agreement_phase
 from native_agreement_cases import preflight as agreement_preflight
 from native_agreement_cases import seed as agreement_seed
+from native_agreement_cases import stages as agreement_stages
 from native_auth_cases import cleanup as auth_cleanup
 from native_auth_cases import guest_create as auth_guest_create
 from native_auth_cases import lookup as auth_lookup
@@ -53,6 +54,7 @@ def main() -> None:
         choices=[
             "agreement-preflight",
             "agreement-seed",
+            "agreement-stages",
             "agreement-cleanup",
             *["agreement-" + name for name in AGREEMENT_PHASES],
             "auth-seed",
@@ -110,6 +112,7 @@ def main() -> None:
     cases = {
         "agreement-preflight": agreement_preflight,
         "agreement-seed": agreement_seed,
+        "agreement-stages": agreement_stages,
         "agreement-cleanup": agreement_cleanup,
         **{
             "agreement-" + name: lambda name=name: agreement_phase(name)

@@ -2,6 +2,7 @@
 
 from native_auth_cases import PASSWORD, complement
 from native_auth_cases import states as auth_states
+from native_folder_cases import descriptor, upload_start, word
 from native_plan import close, login, packet, payload, read, send
 from native_transfer_cases import file_stream
 
@@ -28,6 +29,39 @@ FILES = {
     "binary-over-limit": (b"m-agree-b-over", b"BINA", b"B" * 262141),
     "binary-field-over-limit": (b"m-agree-b-field", b"BINA", b"B" * 65536),
 }
+
+
+def staged_file(root: bytes, filename: bytes, kind: bytes, data: bytes) -> tuple:
+    """Upload a correctly named child so Finder need only move/replace it."""
+    if len(kind) != 4:
+        raise ValueError("Finder type must contain four bytes")
+    body = bytearray(file_stream(data, b""))
+    body[44:48] = kind
+    steps = upload_start(root, 1, len(body)) + [
+        send(descriptor((filename,), False).hex(), "folder"),
+        word(1),
+        send((len(body).to_bytes(4, "big") + body).hex(), "folder"),
+        {"op": "read_eof", "connection": "folder", "timeout": 30, "expect_hex": ""},
+        close("folder"),
+        {"op": "pause", "seconds": 2},
+        close("a"),
+    ]
+    return steps, {
+        "kind": "agreement-staged-file",
+        "root_hex": root.hex(),
+        "filename_hex": filename.hex(),
+        "finder_type_hex": kind.hex(),
+        "data_hex": data.hex(),
+    }
+
+
+def stages() -> dict:
+    return {
+        "stage-agreement-" + name: staged_file(
+            b"m-agr-" + name.encode(), b"Agreement.txt", kind, data
+        )
+        for name, (_, kind, data) in FILES.items()
+    }
 
 
 def preflight() -> dict:
