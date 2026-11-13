@@ -84,13 +84,21 @@ system service with `User=1000`, `Group=1000`, and
 `NetworkNamespacePath=/proc/<actual-emulator-pid>/ns/net` keeps its main
 process in the named unit's control group and enforces a runtime cap.
 
-Start the Wireframe binary **directly** under that system unit, with
-`Type=exec`, `RemainAfterExit=yes`, a bounded `RuntimeMaxSec`, and
-`Restart=no`. Its argv is `env -i` with the same owned HOME/XDG set,
-`MXD_CONFIG_PATH=$FIXTURE/daemon.toml`, then:
+Start the Wireframe binary **directly** under a fresh system unit. Set
+`FIXTURE`, `BINARY`, `EMULATOR_PID`, and `UNIT` to the verified absolute
+paths, current actual PID, and unused unit name. C19 used this form:
 
-```text
-$BINARY --database $FIXTURE/fixture.sqlite \
+```bash
+sudo -n systemd-run --unit="$UNIT" --property=Type=exec \
+  --property=User=1000 --property=Group=1000 \
+  --property="NetworkNamespacePath=/proc/$EMULATOR_PID/ns/net" \
+  --property=RuntimeMaxSec=20min --property=RemainAfterExit=yes \
+  --property=Restart=no --no-block /usr/bin/env -i \
+  HOME="$FIXTURE/home" XDG_CONFIG_HOME="$FIXTURE/xdg-home" \
+  XDG_CONFIG_DIRS="$FIXTURE/xdg-dirs" \
+  XDG_DATA_HOME="$FIXTURE/xdg-data" XDG_CACHE_HOME="$FIXTURE/xdg-cache" \
+  MXD_CONFIG_PATH="$FIXTURE/daemon.toml" PATH=/usr/bin:/bin \
+  "$BINARY" --database "$FIXTURE/fixture.sqlite" \
   --bind 127.0.0.1:15650 --server-name mxd
 ```
 
@@ -102,8 +110,14 @@ empty nonlocal routes. C19 met those readiness conditions. If a check
 fails, stop only the newly owned system unit and preserve its logs. Do not
 connect the guest until an independently authorised client step.
 
-On completion, stop only the owned system unit. Prove its recorded PID is
-gone and 15650 is absent in the namespace and host; confirm 15500/15501
+On completion, stop only the owned system unit:
+
+```bash
+sudo -n systemctl stop "$UNIT"
+```
+
+Prove that its recorded PID is gone and 15650 is absent in the namespace
+and host; confirm 15500/15501
 bridges still run. Retain a filtered guest-PCAP delta and unit/identity
 receipts separately from the password-bearing fixture. mxd has no
 specialised `DownloadBanner` 212 handler or evidenced port-15651 data
