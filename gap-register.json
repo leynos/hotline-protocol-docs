@@ -3,11 +3,11 @@
   "title": "Hotline 1.9 protocol documentation gap register",
   "audited_at_utc": "2026-11-12T12:55:29.155796+00:00",
   "last_updated": "2026-11-13",
-  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-53/manifest.json",
-  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-53/sections.json",
+  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-55/manifest.json",
+  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-55/sections.json",
   "validity_ledger": "../mothra/docs/baseline-validity-ledger.md",
   "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
-  "method": "Integrate the bounded native one-active/one-waiting diagnostic witness, preserved parser failure and corrected replay, exact paired transfer-stream bytes, and saved settings/full baseline restoration. No density, near-1024, exact-text policy, full transfer or restart proof is inferred. All 87 original criteria/statuses remain unchanged: 45 Resolved, 41 Investigating, 1 Open; 42 unclosed.",
+  "method": "Integrate bounded native density and failed near-boundary witness with restoration, isolated Classic core session, accepted canonical mxd corrections and source-only modern keepalive contract. Resolve only GAP-079 and GAP-084 against their unchanged original criteria. All 87 criteria remain exact: 47 Resolved, 39 Investigating, 1 Open; 40 unclosed.",
   "gaps": [
     {
       "id": "GAP-001",
@@ -4348,7 +4348,7 @@
       "area": "Session and transport",
       "priority": "P2",
       "kind": "Unanswered",
-      "status": "Investigating",
+      "status": "Resolved",
       "owner": "Protocol documentation investigation",
       "title": "Request 500 purpose and scheduling",
       "sources": [
@@ -4374,14 +4374,15 @@
         "GAP-005"
       ],
       "resolution": {
-        "progress": "No500 definition/send site located in the inspected shx0.1.48 source snapshot. This bounded negative does not identify its native purpose or later-client scheduling; peer-side evidence remains required. Latest captured session: The first Classic peer capture has four numbered client requests 107/121/300/212 and no 500. Its last numbered request to FIN interval is 144.395409 seconds (SYN to FIN 248.777271 seconds). The planned 130-second local-only observation was stopped for automatic external HTTP traffic; finite measured absence does not establish purpose or universal scheduling.",
+        "progress": "No500 definition/send site located in the inspected shx0.1.48 source snapshot. This bounded negative does not identify its native purpose or later-client scheduling; peer-side evidence remains required. Latest captured session: The first Classic peer capture has four numbered client requests 107/121/300/212 and no 500. Its last numbered request to FIN interval is 144.395409 seconds (SYN to FIN 248.777271 seconds). The planned 130-second local-only observation was stopped for automatic external HTTP traffic; finite measured absence does not establish purpose or universal scheduling. Root acceptance revision54: Identified native dispatcher/handler and matched empty ACK captures establish online eligibility and common activity refresh. Pinned modern client source names connectionKeepAlive, starts after login, checks every 15 seconds and sends after at least 180 seconds traffic silence for reported server version >=185, otherwise 300; it cancels on disconnect and does not await the ACK. This is explicitly source-only and client-specific, with hashes, URLs, anchors and a reproducible source guard; no mandatory universal schedule is inferred.",
         "evidence": [
           "[Error outcomes](error-outcomes.md)",
           "[Folder descriptor](transfer-contracts.md#folder-item-descriptor-bytes)",
           "[Identified client source](identified-client-source.md)",
-          "[First Classic peer session](mac-peer-first-session.md)"
+          "[First Classic peer session](mac-peer-first-session.md)",
+          "[Request 500 scoped contract](request-500-contract.md)"
         ],
-        "closure": "Not closed: remaining acceptance evidence is listed above."
+        "closure": "Identified native dispatcher/handler and matched empty ACK captures establish online eligibility and common activity refresh. Pinned modern client source names connectionKeepAlive, starts after login, checks every 15 seconds and sends after at least 180 seconds traffic silence for reported server version >=185, otherwise 300; it cancels on disconnect and does not await the ACK. This is explicitly source-only and client-specific, with hashes, URLs, anchors and a reproducible source guard; no mandatory universal schedule is inferred."
       }
     },
     {
@@ -4614,7 +4615,7 @@
       "area": "Compatibility and evidence",
       "priority": "P0",
       "kind": "Evidence",
-      "status": "Investigating",
+      "status": "Resolved",
       "owner": "Protocol documentation investigation",
       "title": "Native conformance fixtures beyond one illustrative frame",
       "sources": [
@@ -4661,7 +4662,7 @@
         "GAP-025"
       ],
       "resolution": {
-        "progress": " Added a14-test capture runner and the first positive native12/8-byte handshake. The guest later crashed; exact guest component versions and running executable hash were not retained. Negative/pipelined/login/data/identified-peer fixtures and complete provenance remain required. Added16 native transcripts from hashed patched emulator/ROM/base/native application forks, host-loopback packet capture, account records and a semantic verifier. Fourteen plans completed; two EOF observations timed out and remain failed. No identified historical peer or full native corpus completion is claimed. Added14 addressed final handshake cases with paired host/guest packet reconciliation,39 total retained transcripts including explorations, a hashed clean prelaunch checkpoint and reset-aware analysis. Split windows are3 seconds; observed native FIN/RST distinctions are preserved even when the host proxy exposes EOF. Full operation/identified-peer corpus remains required. Added62 reviewed framing/TLV sessions plus preserved disproven initial icon-width hypothesis, exact host/guest packet reconciliation scoped to UTC/SYN lifetimes, and independent missing-close/quiet-window controls. Full operations and identified peers remain required. Added two successfulordinaryuploads and eightrevieweddownload modes plus eight initialprobes. Exact pairedpackets and nativeHFS+ forks validated; oneunread59byte301 controlsuffix explicitly pinned in bothviews rather than addedtooriginalreport. Fulloperation/identifiedpeer corpus remains required. Added23 final resume observations and7 initialattempts with3 retainedfailures. Everytranscript reconciles exact pairedpackets, with2 pinnedinitialunread301suffixes. Before/after nativeHFS+ forks validate correct/inconsistent continuation. Boundedreplymatching preserves asynchronousnotifications. Full operations andidentifiedpeers remain required. Added four controlled queue cases with paired exact streams, full reply inventories, mode/fork sizes, owner-specific211 sequences and measured540second pause windows. One unread28byte302 is pinned explicitly in both packet views. Test limits2/1 and restored100/10 are verified in saved/reopened GUI screenshots; no ROM/disk committed. Full operations and identified peers remain required. Added ten completed cleanup/seed cases, paired exact streams, native HFS+ fork bytes and first-observed packet/request/ACK timing with retransmissions deduplicated. A28byte unread departure is pinned explicitly. Three immediate and three partial-read races plus nonowner delivery establish finite outcomes, not all-operation or identified-peer conformance. Added17 final folder cases,3 initial probes and1 auxiliary finalization. Core andtimed pairedpacket phases, positive before/after catalogue/fork snapshots and measured pauses are retained. Two initial failures occur before folder requests; one hostwrite never reaches guest boundary and is pinned separately. Path-based HFS enumeration fails; positive direct lookup succeeds, withoutabsence/exhaustiveness claims. Full operations andidentifiedpeers remain required. Added24 final banner cases with exact paired packet streams, positive native GIF fork/catalogue observations and retained exploratory failures. GUI phases overlap the expiry observation and are disclosed. Full operation and identified historical-peer coverage remain required. Added17 final format/recovery/reset sessions, five original exploratory reports and nine additional setup observations. Eight independently observed native file/type controls, protocol-confirmed absence/restoration, concurrent owner/observer reset and positive post-reset login are retained. All final packet streams reconcile; one exploratory22-byte post-reset host suffix never reaches the guest. Three completed exploratory Save hypotheses retain the wrong loaded configuration. Full operations and identified historical peers remain required. Delayed recovery directly retains an owner122 before disappearance; both early and delayed recovery streams pass independent packet/phase checks. Two rejected setup trials pin unread57-byte banner suffixes and301/302 controls explicitly. Added17 HTXF sessions plus preflight; all inputs/outputs independently reconcile at both packet boundaries. Three positive native DATA forks and seven semantic/mutation tests strengthen header/reference acceptance; complete operations and identified historical peers remain required. Added24 paired native ID/envelope/EOF sessions and25 read-only oracle queries, including a preserved rejected interior-address query. No unread packet suffixes. Zero/high-bit IDs, collision/reuse, late replies, emitted notifications, unsupported requests and underfilled EOF now have acceptance evidence; other operations and historical peers remain required. Added33accepted auth/lookup/state reports,2retained exploratory reports,14read-onlyoraclequeries,5positive UserData records andagreementfork. Everypacketstream reconciles withliteral28-byte delayed302tail retained. Fulloperations, configuration paths andhistoricalpeers remain required. Added42acceptedagreementcases,28setupcontrols,12exploratoryreports and16identitycheckedqueries withnativepath/type/fork controls. All42accepted and39nonstalled auxiliary streams reconcile exactly; host-timer failedboundary isexplicitly bounded withlateSYNACK retained. Originalagreementandaccountcleanupverified. Fulloperations/peers/mxd acceptance remain required. Added34acceptedlogin-extra/name-change/referencecases,11setupcontrols,5exploratoryreports and14identitycheckedqueries withpositivePrefs controls.49reportstreams reconcile exactly; failed90secondtrialexplicitlyretains hostonlylate121 andguestonly302. Allaccepted streams matchbothboundaries. Broaderoperations,identifiedpeers andmxd acceptance remain required. Five full historical-source terminal sessions plus a controlled script witness now reconcile sixpeer sockets and onewitness socket at both host and guest boundaries. SavedDATA13/MACR317 match knownfixture and FILP; hostrecorder170packets/zerodrops. This extends fixture coverage without closing otheroperation/peer/mxd acceptance requirements. Three actual native configured-name sessions andthree nativeflushcontrols reconcile bothpacketboundaries; four realpeer receiverfixtures reconcile hostPCAP/syscalls/listenerevents. PositivePrefs andbaseline restoration arechecked; controlled delivery isnever labellednative execution. Native-mkdir-01 adds47creation/path cases plus sixempty-root inputs,51reports/53paired sockets, tenidentitycheckedqueries andpositivecatalogues. Literal1374+43 hostrecordings, zero drops, exactmergedcapture and44ownedTrashobjects are retained. Broader operation/peer/mxd acceptance remains active. Nativealias01 adds44completedreports plusoneinitialEOFtimeout,66pairedsockets,14identitycheckedqueries and33positiveprecleanupcatalogueobjects. Newtimerpatchedruntimeprovenance retained. Cleanuprestores41entrywirelisting;postcleanupdiskviewonly3positiveobservations,notcompletepersistenceproof. Native-metadata01adds49reports/72pairedsockets,36mainmutations,sixcombined-emptycases,22boundarywrites,13freshoraclequeriesandindependentadminfinalviews. Initialwrong351cleanupencodingandcorrectedrecoverybothretained;ownedaccountsabsentandFileswirelistingrestored. Broaderoperation/peer/mxdcriteriaremainactive. Native-move01adds39reports/75pairedsockets,11freshoraclequeries,72seeded/73finalpositiveobjectsand70postcleanupTrashobservations. Fileswirelistingrestored;threepostcleanupmarkerprobesnotpositive. Broaderoperation/peer/mxdacceptanceremainsactive. Native-news01adds43reports/45sockets,29freshoraclequeries,ninecontrolledversions,threaded/cached321andfivepositive/fournegativebodycases. Initialzero-positivecleanupviewisretainedinconclusive;subsequentnativeuploadpublishes10originalTrashobjectsandpreservedHLNZcaches. Broaderoperation/actual-peer/mxdacceptanceremainsactive. Article deletion adds 58 reports (56 completed, two retained failures), 60 paired connections, 15 fresh queries and independently verified native counts/caches. Distinct old/recovered runtime identities and prefix-only recovery retained. Broader operation and actual-peer acceptance remains active. Added 20 completed reports, 22 paired connections, ten fresh identity-checked queries, native 103-record/index versus 102-entry list/cache boundary and positive owned cleanup. Initial out-of-range and unrelated Trash probes stay explicitly inconclusive. Wider native/peer acceptance remains active. Added 31 completed reports, 34 paired connections, eleven identity-checked queries, complete before/after 734-byte records, nine positive/eight negative logins and positive owned Trash/cleanup observations. Broader operations and actual-peer acceptance remain active. Added 18 complete reports and an expected stopped failure, 25 host socket lifetimes with 24 established guest connections, sixteen identity-checked queries, explicit unread removal tails and application restart evidence. Host stage exit143 is retained with independent confirmation, not erased or called a native crash. Wider operations and actual peers remain required. Added 70 reports, 75 paired connections, eighteen primary batches and a distinct-password collision contrast, twelve oracle queries and complete native records. All 29 owned accounts removed; 64 original objects positively preserved in Trash. Actual peer and wider-operation fixtures remain active. Added fourteen complete reports, sixteen paired connections, ten identity-checked queries, two unread removal tails and nine independent regressions for duplicate/lookup echo, kick protection, self-delete ordering and server-first FIN. Actual peer and wider-operation evidence remain active. Added thirteen completed observations, two failed recorder expectations, 45 paired TCP lifetimes, sixteen oracle queries and sixteen regressions. All original account/Files listings restored. Wider operations, actual peers and mxd evidence remain active. Added five complete 303 native reports/six paired lifetimes with cleanup, plus independently labelled controlled peer and mxd source/test evidence. Only the diagnostic captures are new native-server exchanges; broader conformance requirements remain active. Five native representative failure classes are now rendered with exact plan/report/action indexes, hashes and bytes from existing identified captures. These are newly documented witnesses, not new runtime execution; broader conformance criteria remain active. Disposable runtime recovery now has preboot source/copy/ROM hashes, positive application forks, recorded automatic disk check on only the working copy and two readiness smokes. The first lacks independent host pcap and is preserved with that limit; the second has exact host/guest stream reconciliation and two-account enumeration. Preboot identity does not prove live post-repair image bytes. This restores a bounded runtime capability without closing broader conformance criteria. Three new paired-boundary observations preserve a failed diagnostic fixture and its controlled cleanup rather than relabel it successful. Active/queue conformance remains missing; at that checkpoint the separately acquired Mac client was not yet an interoperability fixture. Latest captured session: A new actual Classic-peer corpus retains all three raw control views and both guest data views, exact delayed agreement/roster/banner exchange and five automatic GET/404 exchanges. Offline verifier and four fault-control tests replay it. Recorder ready/drop/stop output was not saved as raw logs and is explicitly transcript-derived. This partial session does not complete the original native conformance criterion. Latest A8 phase 1: The A8 corpus adds two paired captures: one active/queued diagnostic and a complete restoration postflight. Original failed parser output is preserved; corrected semantic and packet checks replay without live execution. All 14 focused unit tests pass, including wrong-section grammar/count/cancellation controls. Broader original conformance criteria remain open.",
+        "progress": " Added a14-test capture runner and the first positive native12/8-byte handshake. The guest later crashed; exact guest component versions and running executable hash were not retained. Negative/pipelined/login/data/identified-peer fixtures and complete provenance remain required. Added16 native transcripts from hashed patched emulator/ROM/base/native application forks, host-loopback packet capture, account records and a semantic verifier. Fourteen plans completed; two EOF observations timed out and remain failed. No identified historical peer or full native corpus completion is claimed. Added14 addressed final handshake cases with paired host/guest packet reconciliation,39 total retained transcripts including explorations, a hashed clean prelaunch checkpoint and reset-aware analysis. Split windows are3 seconds; observed native FIN/RST distinctions are preserved even when the host proxy exposes EOF. Full operation/identified-peer corpus remains required. Added62 reviewed framing/TLV sessions plus preserved disproven initial icon-width hypothesis, exact host/guest packet reconciliation scoped to UTC/SYN lifetimes, and independent missing-close/quiet-window controls. Full operations and identified peers remain required. Added two successfulordinaryuploads and eightrevieweddownload modes plus eight initialprobes. Exact pairedpackets and nativeHFS+ forks validated; oneunread59byte301 controlsuffix explicitly pinned in bothviews rather than addedtooriginalreport. Fulloperation/identifiedpeer corpus remains required. Added23 final resume observations and7 initialattempts with3 retainedfailures. Everytranscript reconciles exact pairedpackets, with2 pinnedinitialunread301suffixes. Before/after nativeHFS+ forks validate correct/inconsistent continuation. Boundedreplymatching preserves asynchronousnotifications. Full operations andidentifiedpeers remain required. Added four controlled queue cases with paired exact streams, full reply inventories, mode/fork sizes, owner-specific211 sequences and measured540second pause windows. One unread28byte302 is pinned explicitly in both packet views. Test limits2/1 and restored100/10 are verified in saved/reopened GUI screenshots; no ROM/disk committed. Full operations and identified peers remain required. Added ten completed cleanup/seed cases, paired exact streams, native HFS+ fork bytes and first-observed packet/request/ACK timing with retransmissions deduplicated. A28byte unread departure is pinned explicitly. Three immediate and three partial-read races plus nonowner delivery establish finite outcomes, not all-operation or identified-peer conformance. Added17 final folder cases,3 initial probes and1 auxiliary finalization. Core andtimed pairedpacket phases, positive before/after catalogue/fork snapshots and measured pauses are retained. Two initial failures occur before folder requests; one hostwrite never reaches guest boundary and is pinned separately. Path-based HFS enumeration fails; positive direct lookup succeeds, withoutabsence/exhaustiveness claims. Full operations andidentifiedpeers remain required. Added24 final banner cases with exact paired packet streams, positive native GIF fork/catalogue observations and retained exploratory failures. GUI phases overlap the expiry observation and are disclosed. Full operation and identified historical-peer coverage remain required. Added17 final format/recovery/reset sessions, five original exploratory reports and nine additional setup observations. Eight independently observed native file/type controls, protocol-confirmed absence/restoration, concurrent owner/observer reset and positive post-reset login are retained. All final packet streams reconcile; one exploratory22-byte post-reset host suffix never reaches the guest. Three completed exploratory Save hypotheses retain the wrong loaded configuration. Full operations and identified historical peers remain required. Delayed recovery directly retains an owner122 before disappearance; both early and delayed recovery streams pass independent packet/phase checks. Two rejected setup trials pin unread57-byte banner suffixes and301/302 controls explicitly. Added17 HTXF sessions plus preflight; all inputs/outputs independently reconcile at both packet boundaries. Three positive native DATA forks and seven semantic/mutation tests strengthen header/reference acceptance; complete operations and identified historical peers remain required. Added24 paired native ID/envelope/EOF sessions and25 read-only oracle queries, including a preserved rejected interior-address query. No unread packet suffixes. Zero/high-bit IDs, collision/reuse, late replies, emitted notifications, unsupported requests and underfilled EOF now have acceptance evidence; other operations and historical peers remain required. Added33accepted auth/lookup/state reports,2retained exploratory reports,14read-onlyoraclequeries,5positive UserData records andagreementfork. Everypacketstream reconciles withliteral28-byte delayed302tail retained. Fulloperations, configuration paths andhistoricalpeers remain required. Added42acceptedagreementcases,28setupcontrols,12exploratoryreports and16identitycheckedqueries withnativepath/type/fork controls. All42accepted and39nonstalled auxiliary streams reconcile exactly; host-timer failedboundary isexplicitly bounded withlateSYNACK retained. Originalagreementandaccountcleanupverified. Fulloperations/peers/mxd acceptance remain required. Added34acceptedlogin-extra/name-change/referencecases,11setupcontrols,5exploratoryreports and14identitycheckedqueries withpositivePrefs controls.49reportstreams reconcile exactly; failed90secondtrialexplicitlyretains hostonlylate121 andguestonly302. Allaccepted streams matchbothboundaries. Broaderoperations,identifiedpeers andmxd acceptance remain required. Five full historical-source terminal sessions plus a controlled script witness now reconcile sixpeer sockets and onewitness socket at both host and guest boundaries. SavedDATA13/MACR317 match knownfixture and FILP; hostrecorder170packets/zerodrops. This extends fixture coverage without closing otheroperation/peer/mxd acceptance requirements. Three actual native configured-name sessions andthree nativeflushcontrols reconcile bothpacketboundaries; four realpeer receiverfixtures reconcile hostPCAP/syscalls/listenerevents. PositivePrefs andbaseline restoration arechecked; controlled delivery isnever labellednative execution. Native-mkdir-01 adds47creation/path cases plus sixempty-root inputs,51reports/53paired sockets, tenidentitycheckedqueries andpositivecatalogues. Literal1374+43 hostrecordings, zero drops, exactmergedcapture and44ownedTrashobjects are retained. Broader operation/peer/mxd acceptance remains active. Nativealias01 adds44completedreports plusoneinitialEOFtimeout,66pairedsockets,14identitycheckedqueries and33positiveprecleanupcatalogueobjects. Newtimerpatchedruntimeprovenance retained. Cleanuprestores41entrywirelisting;postcleanupdiskviewonly3positiveobservations,notcompletepersistenceproof. Native-metadata01adds49reports/72pairedsockets,36mainmutations,sixcombined-emptycases,22boundarywrites,13freshoraclequeriesandindependentadminfinalviews. Initialwrong351cleanupencodingandcorrectedrecoverybothretained;ownedaccountsabsentandFileswirelistingrestored. Broaderoperation/peer/mxdcriteriaremainactive. Native-move01adds39reports/75pairedsockets,11freshoraclequeries,72seeded/73finalpositiveobjectsand70postcleanupTrashobservations. Fileswirelistingrestored;threepostcleanupmarkerprobesnotpositive. Broaderoperation/peer/mxdacceptanceremainsactive. Native-news01adds43reports/45sockets,29freshoraclequeries,ninecontrolledversions,threaded/cached321andfivepositive/fournegativebodycases. Initialzero-positivecleanupviewisretainedinconclusive;subsequentnativeuploadpublishes10originalTrashobjectsandpreservedHLNZcaches. Broaderoperation/actual-peer/mxdacceptanceremainsactive. Article deletion adds 58 reports (56 completed, two retained failures), 60 paired connections, 15 fresh queries and independently verified native counts/caches. Distinct old/recovered runtime identities and prefix-only recovery retained. Broader operation and actual-peer acceptance remains active. Added 20 completed reports, 22 paired connections, ten fresh identity-checked queries, native 103-record/index versus 102-entry list/cache boundary and positive owned cleanup. Initial out-of-range and unrelated Trash probes stay explicitly inconclusive. Wider native/peer acceptance remains active. Added 31 completed reports, 34 paired connections, eleven identity-checked queries, complete before/after 734-byte records, nine positive/eight negative logins and positive owned Trash/cleanup observations. Broader operations and actual-peer acceptance remain active. Added 18 complete reports and an expected stopped failure, 25 host socket lifetimes with 24 established guest connections, sixteen identity-checked queries, explicit unread removal tails and application restart evidence. Host stage exit143 is retained with independent confirmation, not erased or called a native crash. Wider operations and actual peers remain required. Added 70 reports, 75 paired connections, eighteen primary batches and a distinct-password collision contrast, twelve oracle queries and complete native records. All 29 owned accounts removed; 64 original objects positively preserved in Trash. Actual peer and wider-operation fixtures remain active. Added fourteen complete reports, sixteen paired connections, ten identity-checked queries, two unread removal tails and nine independent regressions for duplicate/lookup echo, kick protection, self-delete ordering and server-first FIN. Actual peer and wider-operation evidence remain active. Added thirteen completed observations, two failed recorder expectations, 45 paired TCP lifetimes, sixteen oracle queries and sixteen regressions. All original account/Files listings restored. Wider operations, actual peers and mxd evidence remain active. Added five complete 303 native reports/six paired lifetimes with cleanup, plus independently labelled controlled peer and mxd source/test evidence. Only the diagnostic captures are new native-server exchanges; broader conformance requirements remain active. Five native representative failure classes are now rendered with exact plan/report/action indexes, hashes and bytes from existing identified captures. These are newly documented witnesses, not new runtime execution; broader conformance criteria remain active. Disposable runtime recovery now has preboot source/copy/ROM hashes, positive application forks, recorded automatic disk check on only the working copy and two readiness smokes. The first lacks independent host pcap and is preserved with that limit; the second has exact host/guest stream reconciliation and two-account enumeration. Preboot identity does not prove live post-repair image bytes. This restores a bounded runtime capability without closing broader conformance criteria. Three new paired-boundary observations preserve a failed diagnostic fixture and its controlled cleanup rather than relabel it successful. Active/queue conformance remains missing; at that checkpoint the separately acquired Mac client was not yet an interoperability fixture. Latest captured session: A new actual Classic-peer corpus retains all three raw control views and both guest data views, exact delayed agreement/roster/banner exchange and five automatic GET/404 exchanges. Offline verifier and four fault-control tests replay it. Recorder ready/drop/stop output was not saved as raw logs and is explicitly transcript-derived. This partial session does not complete the original native conformance criterion. Latest A8 phase 1: The A8 corpus adds two paired captures: one active/queued diagnostic and a complete restoration postflight. Original failed parser output is preserved; corrected semantic and packet checks replay without live execution. All 14 focused unit tests pass, including wrong-section grammar/count/cancellation controls. Broader original conformance criteria remain open. Root acceptance revision54: Native core-session fixtures and identified shx captures retain decoded/events results, reproducible runners, pinned identities and matched host/guest packet provenance. The isolated Classic session additionally checks login/agreement/roster and banner transfer bytes across three capture views, with a finite quiet interval and explicit UI limitation. This satisfies the original core-session fixture criterion; wider operation support and release selection remain separate requirements.",
         "evidence": [
           "[Native format/recovery/reset corpus](../mothra/evidence/gap-remediation/2026-11-12/native-banner-02/manifest.json)",
           "[Banner type/recovery contract](transfer-contracts.md#captured-banner-formats-and-recovery)",
@@ -4712,9 +4713,10 @@
           "[Second delegated investigation](runtime-recovery-20261113.md)",
           "[Second delegated investigation](diagnostic-transfer-boundaries.md)",
           "[First Classic peer session](mac-peer-first-session.md)",
-          "[Active and queued native diagnostic](native-diagnostic-existing-witness.md)"
+          "[Active and queued native diagnostic](native-diagnostic-existing-witness.md)",
+          "[Identified peer core-session fixtures](mac-peer-isolated-session.md)"
         ],
-        "closure": "Not closed: the unchanged criterion still requires the outstanding evidence described above."
+        "closure": "Native core-session fixtures and identified shx captures retain decoded/events results, reproducible runners, pinned identities and matched host/guest packet provenance. The isolated Classic session additionally checks login/agreement/roster and banner transfer bytes across three capture views, with a finite quiet interval and explicit UI limitation. This satisfies the original core-session fixture criterion; wider operation support and release selection remain separate requirements."
       }
     },
     {
@@ -6574,7 +6576,7 @@
       "heading": "Privilege access and connection timers",
       "level": 2,
       "line_start": 313,
-      "line_end": 366,
+      "line_end": 368,
       "anchor": "privilege-access-and-connection-timers",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -9118,8 +9120,8 @@
       "path": "native-wire-details.md",
       "heading": "Captured agreement configurations and partial login failures",
       "level": 2,
-      "line_start": 367,
-      "line_end": 442,
+      "line_start": 369,
+      "line_end": 444,
       "anchor": "captured-agreement-configurations-and-partial-login-failures",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -9164,8 +9166,8 @@
       "path": "native-wire-details.md",
       "heading": "Captured login extras, configuration bytes and refresh",
       "level": 2,
-      "line_start": 443,
-      "line_end": 507,
+      "line_start": 445,
+      "line_end": 509,
       "anchor": "captured-login-extras-configuration-bytes-and-refresh",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10171,8 +10173,8 @@
       "path": "native-wire-details.md",
       "heading": "Captured account replacement and password boundaries",
       "level": 2,
-      "line_start": 508,
-      "line_end": 574,
+      "line_start": 510,
+      "line_end": 576,
       "anchor": "captured-account-replacement-and-password-boundaries",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10233,8 +10235,8 @@
       "path": "native-wire-details.md",
       "heading": "Captured live account changes and server restart",
       "level": 2,
-      "line_start": 575,
-      "line_end": 666,
+      "line_start": 577,
+      "line_end": 668,
       "anchor": "captured-live-account-changes-and-server-restart",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10400,8 +10402,8 @@
       "path": "native-wire-details.md",
       "heading": "Captured account identity and protection contrasts",
       "level": 2,
-      "line_start": 667,
-      "line_end": 720,
+      "line_start": 669,
+      "line_end": 722,
       "anchor": "captured-account-identity-and-protection-contrasts",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -11330,7 +11332,7 @@
       "heading": "Existing-file diagnostic load preparation",
       "level": 1,
       "line_start": 1,
-      "line_end": 16,
+      "line_end": 17,
       "anchor": "existing-file-diagnostic-load-preparation",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -11346,8 +11348,8 @@
       "path": "native-diagnostic-existing-preparation.md",
       "heading": "Bounds and order",
       "level": 2,
-      "line_start": 17,
-      "line_end": 48,
+      "line_start": 18,
+      "line_end": 49,
       "anchor": "bounds-and-order",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -11363,8 +11365,8 @@
       "path": "native-diagnostic-existing-preparation.md",
       "heading": "Prepared commands",
       "level": 2,
-      "line_start": 49,
-      "line_end": 111,
+      "line_start": 50,
+      "line_end": 112,
       "anchor": "prepared-commands",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -11423,7 +11425,7 @@
       "heading": "Scope and reproduction",
       "level": 2,
       "line_start": 68,
-      "line_end": 105,
+      "line_end": 107,
       "anchor": "scope-and-reproduction",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -11437,6 +11439,241 @@
         "GAP-037",
         "GAP-064",
         "GAP-084"
+      ]
+    },
+    {
+      "path": "native-diagnostic-density-witness.md",
+      "heading": "Native 1.9 diagnostic density with existing downloads",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 9,
+      "anchor": "native-19-diagnostic-density-with-existing-downloads",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-037"
+      ],
+      "related_gap_ids": [
+        "GAP-037"
+      ]
+    },
+    {
+      "path": "native-diagnostic-density-witness.md",
+      "heading": "Fixed 303 observations",
+      "level": 2,
+      "line_start": 10,
+      "line_end": 39,
+      "anchor": "fixed-303-observations",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-037"
+      ],
+      "related_gap_ids": [
+        "GAP-037"
+      ]
+    },
+    {
+      "path": "native-diagnostic-density-witness.md",
+      "heading": "Packet views and restoration",
+      "level": 2,
+      "line_start": 40,
+      "line_end": 62,
+      "anchor": "packet-views-and-restoration",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-037"
+      ],
+      "related_gap_ids": [
+        "GAP-037"
+      ]
+    },
+    {
+      "path": "native-diagnostic-density-witness.md",
+      "heading": "Replay",
+      "level": 2,
+      "line_start": 63,
+      "line_end": 79,
+      "anchor": "replay",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-037"
+      ],
+      "related_gap_ids": [
+        "GAP-037"
+      ]
+    },
+    {
+      "path": "mxd-direct-ack-correction.md",
+      "heading": "mxd direct reply correction through 20e891a",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 69,
+      "anchor": "mxd-direct-reply-correction-through-20e891a",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-085"
+      ],
+      "related_gap_ids": [
+        "GAP-085"
+      ]
+    },
+    {
+      "path": "mxd-login-extras-correction.md",
+      "heading": "mxd successful Login107 extras correction",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 12,
+      "anchor": "mxd-successful-login107-extras-correction",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-081",
+        "GAP-085"
+      ],
+      "related_gap_ids": [
+        "GAP-081",
+        "GAP-085"
+      ]
+    },
+    {
+      "path": "mxd-login-extras-correction.md",
+      "heading": "Native baseline and corrected mxd behaviour",
+      "level": 2,
+      "line_start": 13,
+      "line_end": 49,
+      "anchor": "native-baseline-and-corrected-mxd-behaviour",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-081",
+        "GAP-085"
+      ],
+      "related_gap_ids": [
+        "GAP-081",
+        "GAP-085"
+      ]
+    },
+    {
+      "path": "mxd-login-extras-correction.md",
+      "heading": "Acceptance and replay",
+      "level": 2,
+      "line_start": 50,
+      "line_end": 83,
+      "anchor": "acceptance-and-replay",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-081",
+        "GAP-085"
+      ],
+      "related_gap_ids": [
+        "GAP-081",
+        "GAP-085"
+      ]
+    },
+    {
+      "path": "native-diagnostic-near-preparation.md",
+      "heading": "Native 303 near-boundary preparation",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 13,
+      "anchor": "native-303-near-boundary-preparation",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-037"
+      ],
+      "related_gap_ids": [
+        "GAP-037"
+      ]
+    },
+    {
+      "path": "native-diagnostic-near-preparation.md",
+      "heading": "Fixed bounds and decision gate",
+      "level": 2,
+      "line_start": 14,
+      "line_end": 43,
+      "anchor": "fixed-bounds-and-decision-gate",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-037"
+      ],
+      "related_gap_ids": [
+        "GAP-037"
+      ]
+    },
+    {
+      "path": "native-diagnostic-near-preparation.md",
+      "heading": "Offline preparation and replay commands",
+      "level": 2,
+      "line_start": 44,
+      "line_end": 69,
+      "anchor": "offline-preparation-and-replay-commands",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-037"
+      ],
+      "related_gap_ids": [
+        "GAP-037"
+      ]
+    },
+    {
+      "path": "native-diagnostic-near-witness.md",
+      "heading": "Native 1.9 diagnostic near-boundary observation",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 47,
+      "anchor": "native-19-diagnostic-near-boundary-observation",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-037"
+      ],
+      "related_gap_ids": [
+        "GAP-037"
+      ]
+    },
+    {
+      "path": "native-diagnostic-near-witness.md",
+      "heading": "Replay",
+      "level": 2,
+      "line_start": 48,
+      "line_end": 71,
+      "anchor": "replay",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-037"
+      ],
+      "related_gap_ids": [
+        "GAP-037"
+      ]
+    },
+    {
+      "path": "mac-peer-isolated-session.md",
+      "heading": "Isolated Classic client: one finite 1.9 session",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 59,
+      "anchor": "isolated-classic-client-one-finite-19-session",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-079",
+        "GAP-081",
+        "GAP-084"
+      ],
+      "related_gap_ids": [
+        "GAP-079",
+        "GAP-081",
+        "GAP-084"
+      ]
+    },
+    {
+      "path": "request-500-contract.md",
+      "heading": "Request 500: native reply and one modern client's schedule",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 46,
+      "anchor": "request-500-native-reply-and-one-modern-clients-schedule",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-079"
+      ],
+      "related_gap_ids": [
+        "GAP-079"
       ]
     }
   ]
