@@ -53,6 +53,17 @@ helper/default behaviour, not a promise of successful authentication.
 session assignments, not generic sparse or durable account edits. Exact
 agreement/configuration/runtime fixtures remain GAP-025/027/029.
 
+### Captured settings-option widths and defaults
+
+For 304 field 113, [ten native cases](native-settings-witness.md) compare
+wire input with actual PM delivery/refusal/automatic-response effects.
+Absent, empty and two-byte zero clear the flags. Three-byte `000001` yields
+zero; five-byte `00000001ff` yields one. Two duplicate sequences, including
+an interleaved reversal, each selected one. These measured cases corroborate
+N's width handling; they do not make duplicate selection first/last-wins or
+establish every other field's range. Each probe restores 102/104/113 and its
+full native account/file/transfer baseline.
+
 ### Login width and feature-condition matrix
 
 The native generic number reader copies at most four input bytes. Its effective

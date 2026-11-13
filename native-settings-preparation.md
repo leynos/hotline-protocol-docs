@@ -1,6 +1,8 @@
 # Native 1.9 settings field 113 preparation
 
-This is an **unrun** GAP-015/016/017 packet for transaction 304, field 113.
+This preparation defines the GAP-015/016/017 packet for transaction 304,
+field 113. [Captured results](native-settings-witness.md) are now retained;
+this recipe alone does not authorise another live execution.
 It uses the same native 1.9 binary SHA-256
 `ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`.
 The generic numeric reader is `10056b90`; the shared 121/304 settings helper

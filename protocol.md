@@ -518,6 +518,12 @@ field reader. Do not rely on omission to preserve every old setting.
 301 updates. Flood handling can close the connection. These changes should not
 be described as durable account-database edits without further evidence.
 
+The [ten captured field-113 cases](native-settings-witness.md) confirm
+absent, empty and zero clearing, three-byte defaulting, first-four-byte
+handling of a five-byte value, and two measured duplicate selections. These
+are operation-specific results, not a universal duplicate rule. Here 113 is
+a settings bitmask; the same field in PM 108/104 is an option enumerant.
+
 Evidence: V028, V037–V038; `10016ad0`, `10004d50`, `10004f30`.
 
 ## Chat (Public and Private Chat Rooms)
@@ -636,6 +642,12 @@ It suppresses delivery to a refusing recipient. Automatic response is not
 solely a speculative client responsibility. Flood/spam handling can
 disconnect.
 
+[Seven native PM cases](native-pm-witness.md) retain quoted delivery,
+refusal, automatic feedback alongside original delivery, sender-refusal
+suppression, options 2/3 and empty-text suppression. The direct ACK precedes
+feedback on the same sender stream. This is not a delivery receipt or a
+universal cross-socket arrival-order guarantee.
+
 Evidence: V030, V043–V045; `1000f4e0`.
 
 ### Receiving a Private Message (Transaction 104) – Server Initiates
@@ -645,9 +657,14 @@ text 101 and optional quoted text 214. Refusal/auto-response paths construct
 related 104 messages. Other type-104 send sites include chat-denial notices
 and some kick/ban notices, so not every 104 has the same field set.
 
-Complete server/admin notice variants and client rendering remain unresolved.
-An admin broadcast request 355 has its own observed type-355 delivery path; it
-should not be modelled as universally converted into 104.
+The [producer matrix](native-104-variants.md) defines the known field sets
+and their overlaps. Field presence cannot uniquely distinguish routed from
+generated feedback, chat denial from account collision, or console from
+other data-only notices. Direct PM, room, account and console fixtures are
+retained; native 110 ban-option notices still need a disposable-server trial.
+Client rendering remains a separate question. A client broadcast request 355
+has its own captured type-355 fan-out, as [console/broadcast evidence](
+native-console-broadcast.md) confirms.
 
 Evidence: V043–V048, V071–V072.
 

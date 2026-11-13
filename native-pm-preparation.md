@@ -1,6 +1,7 @@
 # Native private-message fixture preparation (A26)
 
-Status: prepared offline; no native capture or GAP-044 closure claim. This packet
+Status: prepared offline, then executed in the [native PM witness](native-pm-witness.md).
+GAP-044 remains open for other producer fixtures. This packet
 uses the existing `admin` account in two named, simultaneous sessions. It creates
 no account, file or persistent option. The native server lease requires a separate
 supervisor START.
