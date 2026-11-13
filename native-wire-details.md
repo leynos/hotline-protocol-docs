@@ -170,6 +170,47 @@ order are authoritative for this binary; the character encoding of each peer
 remains a separate evidence question. Unknown nonempty accounts do not become
 `guest` merely because lookup fails.
 
+### Captured login lookup and guest phases
+
+The [native authentication corpus][auth-corpus] retains missing-guest,
+configured-guest and verified cleanup phases. The original guest account is
+absent: admin352 returns status1. Three login107 probes with absent105,
+zero-length105 and explicit complemented `guest` each return status1 with
+field100 `Incorrect login.`. After creating an owned guest with an empty
+password and zero privileges, the same three inputs succeed and354 contains
+that zero bitmap. An unknown nonempty account with the same empty-password
+input still fails. Thus missing/empty login selects the guest account; it does
+not synthesize guest permissions or redirect every failed lookup to guest.
+
+| Input/control | Captured result |
+| --- | --- |
+| Complemented `AdMiN` or `ADMIN`, correct fixture password | Login succeeds; matches the lowercase account. |
+| Complemented `m-auth` + CR + `cr` | Succeeds against stored key `m-auth-cr`. |
+| Complemented key ending in byte`80` | Succeeds against the separately created/stored key ending in`8a`. This corroborates the native table, not Unicode folding. |
+| Decoded NUL at the start, middle or end of `admin`; decoded NUL alone | Status1 `Incorrect login.` even while empty-password guest login succeeds. A NUL-containing value is distinct from absent/zero-length105. |
+| Owned 31-byte account name | Account creation,352 readback and107 login succeed. |
+| Owned 32-byte account name | Creation and352 readback fail with status1 and native bad-file/folder-name diagnostics. Login also returns status1 with that diagnostic, rather than `Incorrect login.`. |
+| More than32 login bytes with the same32-byte prefix | Same diagnostic naming the clipped32-byte key. The helper copy cap is32; this does not establish a valid32-byte account on this guest. |
+
+For nonempty105, clipping precedes complement, table conversion and CR-to-hyphen
+replacement. Table byte0 maps to0; these operations do not interpret it as a
+C-string terminator or turn its nonzero Pascal length into an empty login.
+The raw request bytes,14 identity-checked Ghidra queries and five positive native
+734-byte account records retain the transformations' provenance. Native
+UserData keys, display names, encoded fixture passwords and privilege bitmaps
+are checked independently of successful ACKs. The high-byte catalogue path is
+rendered by SleuthKit in decomposed Unicode; that display is not a wire-encoding
+rule. The 32-byte filename failure is scoped to the retained native filesystem
+path; it is not a general claim that every Hotline account backend has that cap.
+The session's later stored-key copy cap31 remains distinct from the lookup cap32.
+
+All five temporary accounts are removed with351, followed by status1 readbacks;
+the original missing-guest outcome is restored. Positive live snapshots do not
+prove restart durability or exhaustive filesystem absence. Password rejection,
+malformed lookup errors and configured account privileges remain distinct.
+
+[auth-corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-auth-01/manifest.json
+
 ### Changes to connected accounts
 
 [The propagation helper][propagation] walks sessions matching the original

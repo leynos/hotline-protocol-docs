@@ -1,6 +1,6 @@
 """Prepare native account lookup and login/agreement transition observations."""
 
-from native_plan import close, connect, login, packet, payload, quiet, read, send
+from native_plan import close, login, packet, payload, quiet, read, send
 
 PASSWORD = b"auth-pass"
 KEY31 = b"m-auth-" + b"a" * 24
@@ -255,3 +255,69 @@ def states() -> dict:
         {"kind": "failed-password-acceptance"},
     )
     return cases
+
+
+def reauthentication() -> dict:
+    cases = {}
+    for before in [False, True]:
+        steps = [{**s, "connection": "observer"} for s in login()] + roster(10)
+        steps += [{**s, "connection": "subject"} for s in login()[:3]]
+        if before:
+            steps += [
+                send(packet(121, 1), "subject"),
+                read("subject", match_frame={"is_reply": 1, "id": 1}),
+            ]
+        else:
+            steps += [
+                authentication(
+                    b"admin", b"mothra19", name=None, icon=None, connection="subject"
+                ),
+                read("subject"),
+                read("subject"),
+            ]
+        steps += roster(11)
+        steps += [
+            authentication(b"admin", b"mothra19", connection="subject", identifier=2)
+        ]
+        if before:
+            steps += [{"op": "expect_quiet", "connection": "subject", "timeout": 3}]
+        else:
+            steps += [
+                read("subject", match_frame={"is_reply": 1, "id": 2}),
+                read("subject"),
+                read("subject"),
+            ]
+
+        steps += (
+            roster(12)
+            + [close("subject"), {"op": "pause", "seconds": 3}]
+            + roster(13)
+            + [close("observer")]
+        )
+        label = (
+            "login-after-premature-acceptance"
+            if before
+            else "repeated-login-before-acceptance"
+        )
+        cases[label] = (
+            steps,
+            {"kind": "reauthentication", "preauth_acceptance": before},
+        )
+    return cases
+
+
+def cleanup() -> dict:
+    steps = login()
+    for identifier, key in enumerate(
+        [b"guest"] + [key for key, _, _ in ACCOUNTS if key != KEY32], 10
+    ):
+        steps += [
+            send(packet(351, identifier, payload([(105, complement(key))]))),
+            read(match_frame={"is_reply": 1, "id": identifier}),
+        ]
+        steps += [
+            send(packet(352, identifier + 10, payload([(105, key)]))),
+            read(match_frame={"is_reply": 1, "id": identifier + 10}),
+        ]
+    steps += [{"op": "pause", "seconds": 3}, close()]
+    return {"remove-owned-auth-accounts": (steps, {"kind": "account-cleanup"})}

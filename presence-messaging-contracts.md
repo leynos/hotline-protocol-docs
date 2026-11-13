@@ -47,6 +47,55 @@ completion in 107, the login ACK precedes identity/301, online/354 and agreement
 restart persistence (GAP-029), or a requirement that every 109 precede online
 visibility (GAP-025).
 
+## Captured configured login states and visibility
+
+The [authentication corpus][auth] adds eight early/delayed condition cases,
+two out-of-state controls and two isolated reauthentication cases. The current
+configuration has a TEXT agreement with245 stored bytes and242 loaded bytes
+after CRLF conversion, plus the valid Local58-byte GIF. An observer uses300
+snapshots to separate authentication from roster visibility; each stream is
+reconciled with both packet boundaries. Fourteen read-only Ghidra queries and
+positive account/agreement forks retain the configuration provenance.
+
+| Subject path | Subject sequence and observer result |
+| --- | --- |
+| Nonempty name and nonzero icon, ordinary account | 107 ACK,354,109; observer sees301 and the subject in its next roster. No121 is needed to become visible; no122 is sent by this early path. |
+| Name absent, icon absent, name without icon, icon without name, or icon`00010000` narrowing to zero | 107 ACK,109; subject absent from observer roster. After a three-second wait,121 yields ACK,354,122 and the subject becomes visible. |
+| Icon`8000` with a name | Early completion; the roster retains BE16 icon`8000`. Nonzero does not mean strictly positive signed16. |
+| Bit27 bypass account, early completion | Same early readiness sequence, but109 contains154=`0001` instead of agreement101. |
+| Bit27 bypass account, delayed completion | 109 contains154, but the subject remains absent until121. Bypass changes content, not this readiness condition. |
+| 107 or121 repeated after online | Status1, field100 `Unknown transaction type!`; subsequent500 still ACKs. |
+| 121 before107 | Status1 with `Cannot read account` plus native quoted empty-name text. No301 or roster entry. A later valid107 produces no ACK during the accepted three-second observation; the original30-second failed recovery hypothesis is retained. No universal recovery deadline is inferred. |
+| 121 after an incorrect password | No response during three seconds; observer confirms no roster entry. |
+| 107 repeated while waiting for acceptance | Second107 with name/icon succeeds and completes early, producing ACK,354,109. The initial109 remains a separate earlier notification. |
+
+Both successful completion paths produce one301 for the existing observer;
+the joining subject does not receive that initial fan-out. On the subject's
+connection, early354 precedes109; delayed121 ACK precedes354 and122. Static
+calls enqueue301 before setting online. Cross-connection packet delivery is not
+promised to follow a single global order, and a roster request is a separate
+snapshot rather than an atomic subscription boundary.
+
+After failed or premature sessions close, the observer receives302 for a UID
+that was never listed in its rosters and had no301 update. After ordinary
+successful paths, the captured post-close snapshot excludes the subject.
+The isolated repeated107 case differs: its three-second post-close snapshot
+still lists the subject, then a native302 for that UID arrives unread. The
+literal28-byte tail is retained separately and reconciles in both packet
+views; the original report is unchanged. This is a bounded delayed-cleanup
+observation, not evidence of a permanent ghost or a guaranteed three-second
+cleanup deadline (GAP-035/036).
+
+One exploratory reauthentication trial overlapped account cleanup and includes
+another peer's301. It remains separate from the isolated repeat. The temporary
+guest and other owned accounts are removed and read back as missing; existing
+account records were not edited. These cases refine GAP-025/027 but do not
+close their configured absent/empty/unreadable-agreement requirements. Login
+field161 remains an unnamed zero in these observations; no banner-identity
+meaning or constant-zero guarantee is inferred (GAP-026).
+
+[auth]: ../mothra/evidence/gap-remediation/2026-11-13/native-auth-01/manifest.json
+
 ## Agreement and banner condition tables
 
 Login 107's agreement branch checks account privilege bit **27** independently

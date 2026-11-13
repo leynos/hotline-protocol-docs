@@ -5,8 +5,10 @@ import argparse
 import json
 from pathlib import Path
 
+from native_auth_cases import cleanup as auth_cleanup
 from native_auth_cases import guest_create as auth_guest_create
 from native_auth_cases import lookup as auth_lookup
+from native_auth_cases import reauthentication as auth_reauthentication
 from native_auth_cases import seed as auth_seed
 from native_auth_cases import states as auth_states
 from native_banner_cases import URL
@@ -49,6 +51,8 @@ def main() -> None:
             "auth-missing-guest",
             "auth-guest-create",
             "auth-states",
+            "auth-reauthentication",
+            "auth-cleanup",
             "correlation",
             "htxf",
             "framing",
@@ -100,6 +104,8 @@ def main() -> None:
         "auth-missing-guest": lambda: auth_lookup(missing_guest=True),
         "auth-guest-create": auth_guest_create,
         "auth-states": auth_states,
+        "auth-reauthentication": auth_reauthentication,
+        "auth-cleanup": auth_cleanup,
         "correlation": correlation,
         "htxf": htxf,
         "framing": framing,

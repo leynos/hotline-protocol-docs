@@ -289,12 +289,15 @@ Evidence: V003–V006, M001.
 
 ### Login (Transaction 107) – Client Initiates
 
-**Request:** login name 105, password 106 and client version 160. The handler
-also reads display name 102 and icon 104. It complements nonempty login-name
-bytes before account lookup; an empty login takes its guest-name path.
-Nonempty password bytes are also complemented; login compares the encoded
-bytes directly against the account record. See [native wire
-details](native-wire-details.md) for provenance and byte examples.
+**Request:** login name105, password106 and client version160; optional
+settings102/104 control early completion. Clients send complemented login and
+password bytes. The server complements the nonempty login, applies its byte
+table and CR replacement, then looks up the account. It compares incoming
+encoded password bytes directly against the stored encoded value. Absent/empty
+105 selects the actual guest account; unknown nonempty names do not fall back
+to guest. The [captured lookup contract](native-wire-details.md#captured-login-lookup-and-guest-phases)
+specifies case/high-byte/NUL handling, native account-length failures and guest
+permissions with configuration provenance.
 
 **ACK:** on success, the inspected handler writes server version **190** in
 160, unnamed numeric value 161 and server name 162. These additions are
@@ -312,6 +315,9 @@ There are two observed login-completion paths:
 
 Account bans, connection limits and configuration can affect admission. This
 baseline does not establish every account-storage or authentication edge case.
+The [configured state fixtures](presence-messaging-contracts.md#captured-configured-login-states-and-visibility)
+separate readiness, agreement bypass, duplicate/out-of-state requests and
+observer visibility; absent/empty agreement configurations remain open.
 
 Evidence: V023–V027; `10011960`.
 

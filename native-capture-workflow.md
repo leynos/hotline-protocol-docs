@@ -804,3 +804,57 @@ repository-local MCP Python and the retained `oracle-*.json` plans. The capture
 helper rejects a changed program hash before collecting evidence.
 
 [ids-corpus]: ../mothra/evidence/gap-remediation/2026-11-12/native-correlation-01/manifest.json
+
+## Reproducing native authentication and visibility fixtures
+
+The [authentication corpus][auth-corpus] retains33 accepted reports, two
+exploratory reports, both packet boundaries, five positive account UserData
+snapshots, the native agreement fork and14 identity-checked Ghidra queries.
+Reverify without the guest:
+
+```sh
+python3 scripts/verify_native_auth.py \
+  ../mothra/evidence/gap-remediation/2026-11-13/native-auth-01
+```
+
+Use the committed mothra harness and a fresh working copy of your prepared
+guest. Record its current identity and configuration. This run uses the owned
+admin/mothra19 account, configured TEXT agreement, Local58-byte GIF and
+General100/10/5 limits. Verify guest absence with admin352 before creating a
+temporary guest; never overwrite an existing user's guest/account policy.
+The `m-auth-*` account names must also be unused. Sequence the suites below
+through `prepare_native_cases.py` with the current `--runtime-record` and
+separate new output directories, then run each generated plan through
+`protocol_capture.py capture` with the identified oracle binary:
+
+1. `auth-seed`: creates owned CR/high-byte/31-byte/bypass controls. The32-byte
+   creation/readback failures are intentional recorded outcomes, not a seeded
+   valid32-byte account. Keep the original guest352 failure.
+2. `auth-missing-guest`: capture absent/empty/explicit guest failures.
+3. `auth-guest-create`: create the temporary empty-password, zero-privilege
+   guest and verify352 readback.
+4. `auth-lookup`: capture case/CR/high-byte/NUL/length and configured-guest
+   outcomes. Preserve failed hypotheses rather than changing old reports.
+5. `auth-states`: run observer/subject cases sequentially with no other
+   scripted peer overlapping. Snapshot the five owned account records and
+   native Agreement.txt using `snapshot_native_hfs.py` before cleanup.
+6. `auth-cleanup`: remove only the five owned accounts and verify352 failures.
+7. `auth-reauthentication`: run the final isolated admin-only controls after
+   cleanup; these do not depend on the temporary accounts.
+
+The generator uses `auth-pass` for owned non-guest accounts and no password
+for its temporary guest. Account bitmaps and native record fields are checked
+separately from login ACKs. Native catalogue IDs11283–11292 and11184 are run
+specific; rediscover exact paths in another guest. Failed resource-attribute
+reads remain recorded as failures. Native agreement245 bytes become242 loaded
+bytes through TEXT CRLF normalization. No ROM or OS/working disk is committed.
+
+Keep host and guest packet recording active for all phases. This run retained
+1,151 host packets with zero kernel drops. One28-byte302 tail follows the final
+repeated-login roster snapshot and stays separate from the application report.
+The original30-second recovery timeout and a completed cleanup-overlap trial
+remain exploratory. Neither timeout nor completion alone certifies its original
+hypothesis. The final isolated retry observes three seconds of silence; it does
+not establish a universal session-recovery policy or cleanup deadline.
+
+[auth-corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-auth-01/manifest.json
