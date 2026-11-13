@@ -93,8 +93,14 @@ python3 ../hotline-protocol-docs/scripts/verify_native_diagnostic_existing.py \
 Reconcile exact SYN lifetimes and client/server byte streams in both PCAPs.
 For unread density sockets, the recorder's received stream is only an observed
 prefix, while the packet views can hold more bytes. Preserve terminal packets,
-including SLiRP diagnostics, separately. The verifier's native text markers
-identify this build's witness; they do not define mxd's required prose. If 8+8
+including SLiRP diagnostics, separately. The verifier splits the five native
+section headings and requires complete
+fixture rows: 1/1 in the first case; 4/0, 8/4 and 8/8 at the density points;
+and 0/0 after cancellation and in postflight. It requires unrelated transfer
+sections to remain empty and checks each 214 request against its saved reference
+and successful ACK. An incomplete or clipped section is written as
+`incomplete-witness` and exits nonzero; it is not labelled proof of the planned
+counts. These native text markers do not define mxd's required prose. If 8+8
 stays below the source `0x400` formatting bound, report that negative reach
 result rather than enlarging the matrix. GAP-037's near-boundary witness and
 exact-text release decision remain open until independently resolved.

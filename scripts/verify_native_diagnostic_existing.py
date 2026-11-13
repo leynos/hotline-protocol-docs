@@ -3,13 +3,21 @@
 
 import argparse
 import json
+import re
 from pathlib import Path
 
 from native_diagnostic_existing_cases import CASES, NAME
-from protocol_capture import verify_capture
+from protocol_capture import decode_frame, verify_capture
 
 STREAM_BYTES = 1_049_073
 FORK_BYTES = 1_048_893
+HEADINGS = (
+    b"-------- File Downloads ---------",
+    b"------- Folder Downloads --------",
+    b"--------- File Uploads ----------",
+    b"-------- Folder Uploads ---------",
+    b"------- Waiting Downloads -------",
+)
 
 
 def require(condition: bool, message: str) -> None:
@@ -91,6 +99,79 @@ def check_diagnostic(report: dict, identifier: int, uid: bytes) -> dict:
     }
 
 
+def section_witness(text: bytes, active: int, waiting: int) -> dict:
+    """Count complete native rows; never equate an incomplete section with proof."""
+    result = {
+        "expected_active": active,
+        "expected_waiting": waiting,
+        "field101_bytes": len(text),
+        "status": "incomplete",
+    }
+    sections = {}
+    terminated = {}
+    rest = text
+    for index, heading in enumerate(HEADINGS):
+        marker = b"\r\r" + heading + b"\r\r"
+        if marker not in rest:
+            return {**result, "reason": f"Missing complete section {index}"}
+        _, _, rest = rest.partition(marker)
+        if index + 1 < len(HEADINGS):
+            next_marker = b"\r\r" + HEADINGS[index + 1] + b"\r\r"
+            if next_marker not in rest:
+                return {**result, "reason": f"Section {index} has no terminator"}
+            body, _, rest = rest.partition(next_marker)
+            # Keep the next heading for the following iteration.
+            rest = next_marker + rest
+        else:
+            body = rest
+        terminated[index] = body.endswith(b"\r")
+        lines = body.rstrip(b"\r").split(b"\r")
+        sections[index] = lines
+    if any(sections[index] != [b"None."] for index in (1, 2, 3)):
+        return {**result, "reason": "Unrelated transfer section is nonempty"}
+    counts = {}
+    for index, label in ((0, "active"), (4, "waiting")):
+        lines = sections[index]
+        if lines == [b"None."]:
+            counts[label] = 0
+        elif terminated[index] and all(
+            re.fullmatch(re.escape(NAME) + rb" +[0-9]{1,3}% +\S.*", line)
+            for line in lines
+        ):
+            counts[label] = len(lines)
+        else:
+            return {
+                **result,
+                "reason": f"Incomplete or foreign {label} row",
+                "observed_counts": counts,
+            }
+    result["observed_counts"] = counts
+    if counts == {"active": active, "waiting": waiting}:
+        result["status"] = "complete"
+    else:
+        result["reason"] = "Row counts differ from the planned density point"
+    return result
+
+
+def check_cancellations(report: dict, targets: dict[int, bytes]) -> None:
+    for identifier, expected_ref in targets.items():
+        reply(report, identifier)
+        sent = [
+            bytes.fromhex(event["hex"])
+            for event in report["events"]
+            if event["event"] == "send"
+            and event["connection"] == "a"
+            and int.from_bytes(bytes.fromhex(event["hex"])[2:4], "big") == 214
+            and int.from_bytes(bytes.fromhex(event["hex"])[4:8], "big") == identifier
+        ]
+        require(len(sent) == 1, f"Missing unique 214 send {identifier}")
+        request = decode_frame(sent[0])
+        require(
+            values(request) == {107: expected_ref},
+            f"Cancellation {identifier} targeted another reference",
+        )
+
+
 def semantic(case: str, report: dict, baseline: dict | None = None) -> dict:
     require(report["status"] == "completed", "Capture incomplete")
     plan = json.loads(report["_plan_path"].read_text())
@@ -116,7 +197,16 @@ def semantic(case: str, report: dict, baseline: dict | None = None) -> dict:
             len(roster) == 1 and roster[0]["id"] == 300, "Ambiguous postflight roster"
         )
         uid = bytes.fromhex(roster[0]["hex"])[:2]
-        return {"case": case, "diagnostics": {"14": check_diagnostic(report, 14, uid)}}
+        diagnostic = check_diagnostic(report, 14, uid)
+        witness = section_witness(bytes.fromhex(diagnostic["field101_hex"]), 0, 0)
+        return {
+            "case": case,
+            "status": "verified"
+            if witness["status"] == "complete"
+            else "incomplete-witness",
+            "diagnostics": {"14": diagnostic},
+            "witnesses": {"14": witness},
+        }
     uid = current_uid(report)
     if case == "one-active-one-queued":
         references = check_references(report, [11], [12])
@@ -126,26 +216,50 @@ def semantic(case: str, report: dict, baseline: dict | None = None) -> dict:
             reply(report, 14, success=False)["error"] == 1 and set(denied) == {100},
             "Missing-target control differs",
         )
-        require(
-            NAME in bytes.fromhex(diagnostics["13"]["field101_hex"]),
-            "No active fixture in 303",
-        )
-        active_text = bytes.fromhex(diagnostics["13"]["field101_hex"])
-        require(b"Waiting Downloads" in active_text, "No waiting section in 303")
-        require(
-            NAME in active_text.split(b"Waiting Downloads", 1)[1],
-            "No queued fixture in 303",
-        )
-        return {"case": case, **references, "diagnostics": diagnostics}
+        saved = [bytes.fromhex(value) for value in references["references"]]
+        check_cancellations(report, {15: saved[1], 16: saved[0]})
+        witnesses = {
+            "13": section_witness(
+                bytes.fromhex(diagnostics["13"]["field101_hex"]), 1, 1
+            ),
+            "17": section_witness(
+                bytes.fromhex(diagnostics["17"]["field101_hex"]), 0, 0
+            ),
+        }
+        complete = all(value["status"] == "complete" for value in witnesses.values())
+        return {
+            "case": case,
+            "status": "verified" if complete else "incomplete-witness",
+            **references,
+            "diagnostics": diagnostics,
+            "witnesses": witnesses,
+        }
     require(case == "density", "Unknown case")
     references = check_references(report, list(range(20, 28)), list(range(40, 48)))
     diagnostics = {str(i): check_diagnostic(report, i, uid) for i in [35, 60, 61, 90]}
-    for identifier in [35, 60, 61]:
-        require(
-            NAME in bytes.fromhex(diagnostics[str(identifier)]["field101_hex"]),
-            "No active fixture in density 303",
+    saved = [bytes.fromhex(value) for value in references["references"]]
+    check_cancellations(
+        report,
+        {
+            **{70 + index: saved[8 + index] for index in range(8)},
+            **{80 + index: saved[index] for index in range(8)},
+        },
+    )
+    points = {35: (4, 0), 60: (8, 4), 61: (8, 8), 90: (0, 0)}
+    witnesses = {
+        str(identifier): section_witness(
+            bytes.fromhex(diagnostics[str(identifier)]["field101_hex"]), *counts
         )
-    return {"case": case, **references, "diagnostics": diagnostics}
+        for identifier, counts in points.items()
+    }
+    complete = all(value["status"] == "complete" for value in witnesses.values())
+    return {
+        "case": case,
+        "status": "verified" if complete else "incomplete-witness",
+        **references,
+        "diagnostics": diagnostics,
+        "witnesses": witnesses,
+    }
 
 
 def main() -> None:
@@ -162,7 +276,9 @@ def main() -> None:
     if args.output.exists():
         raise SystemExit(f"Refusing existing output: {args.output}")
     args.output.write_text(json.dumps(result, indent=2) + "\n")
-    print(f"{args.case}: structural diagnostic checks passed")
+    print(f"{args.case}: {result['status']}")
+    if result["status"] != "verified":
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":

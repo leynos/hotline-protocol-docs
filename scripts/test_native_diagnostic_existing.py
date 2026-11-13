@@ -8,7 +8,12 @@ from pathlib import Path
 from native_diagnostic_existing_cases import CASES, NAME, build
 from native_plan import packet, payload
 from protocol_capture import decode_frame, validate_plan
-from verify_native_diagnostic_existing import check_diagnostic, check_references
+from verify_native_diagnostic_existing import (
+    check_cancellations,
+    check_diagnostic,
+    check_references,
+    section_witness,
+)
 
 
 def control_sends(plan: dict) -> list[tuple[int, int, int]]:
@@ -167,6 +172,71 @@ class CurrentUidTests(unittest.TestCase):
         event["hex"] = event["hex"][:-4] + "ffff"
         with self.assertRaisesRegex(ValueError, "target differs"):
             check_diagnostic(report, 14, b"\0\6")
+
+
+class SectionWitnessTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls) -> None:
+        path = (
+            Path(__file__).resolve().parents[2]
+            / "mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/capture/report.json"
+        )
+        cls.report = json.loads(path.read_text())
+        frame = next(f for f in cls.report["frames"] if f["is_reply"] and f["id"] == 14)
+        cls.idle = bytes.fromhex(
+            next(f["hex"] for f in frame["fields"] if f["id"] == 101)
+        )
+
+    def loaded(self, active: int, waiting: int) -> bytes:
+        text = self.idle
+        for heading, count in [
+            (b"-------- File Downloads ---------", active),
+            (b"------- Waiting Downloads -------", waiting),
+        ]:
+            if count:
+                marker = b"\r\r" + heading + b"\r\r"
+                text = text.replace(
+                    marker + b"None.", marker + (NAME + b"  0% 1MB\r") * count
+                )
+        return text
+
+    def test_exact_counts_and_empty_unrelated_sections(self) -> None:
+        for active, waiting in [(1, 1), (4, 0), (8, 4), (8, 8), (0, 0)]:
+            self.assertEqual(
+                section_witness(self.loaded(active, waiting), active, waiting)[
+                    "status"
+                ],
+                "complete",
+            )
+
+    def test_queue_without_active_and_reduced_density_are_incomplete(self) -> None:
+        self.assertEqual(
+            section_witness(self.loaded(0, 1), 1, 1)["status"], "incomplete"
+        )
+        self.assertEqual(
+            section_witness(self.loaded(7, 8), 8, 8)["status"], "incomplete"
+        )
+
+    def test_stale_post_cancel_row_and_truncation_are_incomplete(self) -> None:
+        self.assertEqual(
+            section_witness(self.loaded(1, 0), 0, 0)["status"], "incomplete"
+        )
+        self.assertEqual(
+            section_witness(self.loaded(8, 8)[:600], 8, 8)["status"], "incomplete"
+        )
+        self.assertEqual(
+            section_witness(self.loaded(8, 8)[:-2], 8, 8)["status"], "incomplete"
+        )
+
+    def test_unrelated_upload_section_is_not_idle(self) -> None:
+        marker = b"\r\r--------- File Uploads ----------\r\r"
+        text = self.idle.replace(marker + b"None.", marker + NAME + b"  0% 1MB\r")
+        self.assertEqual(section_witness(text, 0, 0)["status"], "incomplete")
+
+    def test_cancellation_target_matches_saved_a7_ref(self) -> None:
+        check_cancellations(self.report, {16: bytes.fromhex("00025b1b")})
+        with self.assertRaisesRegex(ValueError, "another reference"):
+            check_cancellations(self.report, {16: bytes.fromhex("00025b1c")})
 
 
 if __name__ == "__main__":
