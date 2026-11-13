@@ -5,17 +5,18 @@ correction map. This register tracks gaps in the specification after the
 validity-ledger corrections. It does not reopen corrected findings or claim to
 resolve the remaining unknowns.
 
-The sweep records **87 gaps** across **296 reviewed document sections**. These
+The sweep records **87 gaps** across **299 reviewed document sections**. These
 are documentation questions and proposed investigation priorities, not
 confirmed binary defects, security severity ratings or mxd test failures.
 
 ## Scope, evidence and status
 
-Integrate bounded receive-limit instructions, failed diagnostic-upload/guarded
-cleanup evidence and accepted canonical mxd correction48129491 with full
-retained quality-gate proof. Preserve Mac client label/resource-version
-ambiguity without claiming replay. All 87 original criteria/statuses remain
-unchanged: 45 Resolved, 41 Investigating, 1 Open; 42 unclosed.
+Integrate the first hash-identified Classic Mac peer partial session, complete
+three-view control and two-view data provenance, finite no-500 interval and
+automatic external HTTP safety stop. Preserve unsaved recorder output as
+transcription and release/profile/tolerance uncertainty. All 87 original
+criteria/statuses remain unchanged: 45 Resolved, 41 Investigating, 1 Open; 42
+unclosed.
 
 The corrected documents deliberately contain unresolved statements. Unanswered
 entries refine those into actionable questions. Missing and Ambiguous entries
@@ -70,43 +71,44 @@ unknown question has already been answered.
 
 ## Input provenance
 
-Audit captured at `2026-11-13T16:51:28.533631+00:00`. The source checkout has
-Git HEAD `5a751a9b571ab6e4f90211ebbeffc61144e71f2b` with modified/untracked
+Audit captured at `2026-11-13T18:10:36.120891+00:00`. The source checkout has
+Git HEAD `00cca193ce60fd7eaec06ce3fe00932d3d443e20` with modified/untracked
 reviewed files. The hashes below identify the actual reviewed worktree
 contents; HEAD alone does not. Source line ranges in entries refer to the
 frozen snapshots, while section links point to the current documents.
 
 | Reviewed input | SHA-256 | Frozen copy |
 | --- | --- | --- |
-| [protocol.md](protocol.md) | `bd30a72a4f31eea0ffba7e06b395e45a1466274860d1cbc11664ad36308cc5e2` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-51/inputs/protocol.md.txt) |
-| [internal-compatibility-matrix.md](internal-compatibility-matrix.md) | `8f14e7d4918ab77fb51e32807d7891bd1e4ff0955f5a8b363c101ebae2b64705` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-51/inputs/internal-compatibility-matrix.md.txt) |
-| [baseline-correction-map.md](baseline-correction-map.md) | `08b3687d975dbd9ae9050d5d0b333d2c106b884f1d3d87a3a966cbbc604d7385` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-51/inputs/baseline-correction-map.md.txt) |
-| [native-wire-details.md](native-wire-details.md) | `3b75adfa355d416ca5aa813b35301ba1a50cf79d010276ea17623580b69439b3` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-51/inputs/native-wire-details.md.txt) |
-| [operation-contracts.md](operation-contracts.md) | `216a941857e4959cf79317860ee76986bf62ee35a714e8d6bb8fe2f0e0c08f1b` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-51/inputs/operation-contracts.md.txt) |
-| [transfer-contracts.md](transfer-contracts.md) | `eb9758e73bdd9d3d2fc46e93037bd093d3ab64879a50a824af6e599d07244cf4` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-51/inputs/transfer-contracts.md.txt) |
-| [news-contracts.md](news-contracts.md) | `9b935a8b19f0baf4cc19115692f80c40912d2d8683a40e991d67867483b88597` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-51/inputs/news-contracts.md.txt) |
-| [presence-messaging-contracts.md](presence-messaging-contracts.md) | `c433dc36b1e90a1f4e25f819044483b954cbd59076a909012b07482f4d2a1512` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-51/inputs/presence-messaging-contracts.md.txt) |
-| [core-field-schemas.md](core-field-schemas.md) | `f9c4904247a2bf3ab6b499a9d45676a9d96e49cb548706cb5be10fdc43ea2258` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-51/inputs/core-field-schemas.md.txt) |
-| [session-transport-contracts.md](session-transport-contracts.md) | `e730cc5dea6f3848a1095a8c75ab821c2a414b2fa7d14ff3a71ca7a3f289e0b0` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-51/inputs/session-transport-contracts.md.txt) |
-| [filesystem-and-board-contracts.md](filesystem-and-board-contracts.md) | `e6c8ee0293d5a745a742a5f4e0537258c7f7ae42654f0f728bdbafd3da0ed88f` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-51/inputs/filesystem-and-board-contracts.md.txt) |
-| [evidence-portability.md](evidence-portability.md) | `571225c97f9a1a3cae23363fb4d215886c77746d5df9ebc266eae56cd0221c14` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-51/inputs/evidence-portability.md.txt) |
-| [error-outcomes.md](error-outcomes.md) | `419ae0be89242ad5f05d769996f5000c3632f243de5dff741e8d08587c68f453` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-51/inputs/error-outcomes.md.txt) |
-| [identified-client-source.md](identified-client-source.md) | `914ade3e84ae312985ef7a29aecfe6bcd2b904e55269f69882f60f243c5a1474` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-51/inputs/identified-client-source.md.txt) |
-| [privilege-contracts.md](privilege-contracts.md) | `18cd1ad6f83920ea7cdd69c10888151335da2edcb4df7a36f9ee5f651fb860e0` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-51/inputs/privilege-contracts.md.txt) |
-| [native-capture-workflow.md](native-capture-workflow.md) | `bd0c288bb77e5c2a6604475d8201bdffa50c9f58a42e371444aac8e7f85432bb` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-51/inputs/native-capture-workflow.md.txt) |
-| [diagnostic-replies.md](diagnostic-replies.md) | `9a4354096a84f32940e45720f986f067c1b05c41f2662ff57c2ca759cc2053ff` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-51/inputs/diagnostic-replies.md.txt) |
-| [peer-tolerance-matrix.md](peer-tolerance-matrix.md) | `aa6a7ab2c2c22743bbf9631cb5066fc0827f62c89a6d195b6117394653f30d8c` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-51/inputs/peer-tolerance-matrix.md.txt) |
-| [mxd-reconciliation.md](mxd-reconciliation.md) | `b101c9f12721b5ed16ba40ac7f63ec3515fbf80f0205fe58594f6807ebd295c9` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-51/inputs/mxd-reconciliation.md.txt) |
-| [bitmap-boundaries.md](bitmap-boundaries.md) | `e2fa41eab31ec8b6e1aed0a26f41adb015c9c0ea7db1fd9b84fffc4d29c4ec98` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-51/inputs/bitmap-boundaries.md.txt) |
-| [account-attribute-trace.md](account-attribute-trace.md) | `6ef02f7797611d7c8e888d83fd7aa9e613bd44460626fb92aec0f3c2c1e6e512` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-51/inputs/account-attribute-trace.md.txt) |
-| [mxd-limit-contracts.md](mxd-limit-contracts.md) | `50fd48d0503f8d0a15e18ef268421d3b034288257911d020e7c8fae1c68731be` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-51/inputs/mxd-limit-contracts.md.txt) |
-| [failure-representatives.md](failure-representatives.md) | `27dea3d30c579e4638c5aa54191d3c46f29977957fa445fa5c91e5ddaa100c56` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-51/inputs/failure-representatives.md.txt) |
-| [runtime-recovery-20261113.md](runtime-recovery-20261113.md) | `3a0f4ede01062a0a3cfc147ad508ab991ffc0c65ba1746f8939cf142a9c7cbb7` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-51/inputs/runtime-recovery-20261113.md.txt) |
-| [receive-limit-origin.md](receive-limit-origin.md) | `9b61b70f8929f55b4279e8ea5b01871302739e263d450d84d3b07bd0ccbb0347` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-51/inputs/receive-limit-origin.md.txt) |
-| [diagnostic-transfer-boundaries.md](diagnostic-transfer-boundaries.md) | `fad0fb66796ef317e9a9a8f9b1b05addcd200ddb3c914860de0b8db47fdf95f0` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-51/inputs/diagnostic-transfer-boundaries.md.txt) |
+| [protocol.md](protocol.md) | `bd30a72a4f31eea0ffba7e06b395e45a1466274860d1cbc11664ad36308cc5e2` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-52/inputs/protocol.md.txt) |
+| [internal-compatibility-matrix.md](internal-compatibility-matrix.md) | `8f14e7d4918ab77fb51e32807d7891bd1e4ff0955f5a8b363c101ebae2b64705` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-52/inputs/internal-compatibility-matrix.md.txt) |
+| [baseline-correction-map.md](baseline-correction-map.md) | `08b3687d975dbd9ae9050d5d0b333d2c106b884f1d3d87a3a966cbbc604d7385` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-52/inputs/baseline-correction-map.md.txt) |
+| [native-wire-details.md](native-wire-details.md) | `3b75adfa355d416ca5aa813b35301ba1a50cf79d010276ea17623580b69439b3` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-52/inputs/native-wire-details.md.txt) |
+| [operation-contracts.md](operation-contracts.md) | `216a941857e4959cf79317860ee76986bf62ee35a714e8d6bb8fe2f0e0c08f1b` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-52/inputs/operation-contracts.md.txt) |
+| [transfer-contracts.md](transfer-contracts.md) | `eb9758e73bdd9d3d2fc46e93037bd093d3ab64879a50a824af6e599d07244cf4` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-52/inputs/transfer-contracts.md.txt) |
+| [news-contracts.md](news-contracts.md) | `9b935a8b19f0baf4cc19115692f80c40912d2d8683a40e991d67867483b88597` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-52/inputs/news-contracts.md.txt) |
+| [presence-messaging-contracts.md](presence-messaging-contracts.md) | `c433dc36b1e90a1f4e25f819044483b954cbd59076a909012b07482f4d2a1512` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-52/inputs/presence-messaging-contracts.md.txt) |
+| [core-field-schemas.md](core-field-schemas.md) | `f9c4904247a2bf3ab6b499a9d45676a9d96e49cb548706cb5be10fdc43ea2258` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-52/inputs/core-field-schemas.md.txt) |
+| [session-transport-contracts.md](session-transport-contracts.md) | `e730cc5dea6f3848a1095a8c75ab821c2a414b2fa7d14ff3a71ca7a3f289e0b0` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-52/inputs/session-transport-contracts.md.txt) |
+| [filesystem-and-board-contracts.md](filesystem-and-board-contracts.md) | `e6c8ee0293d5a745a742a5f4e0537258c7f7ae42654f0f728bdbafd3da0ed88f` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-52/inputs/filesystem-and-board-contracts.md.txt) |
+| [evidence-portability.md](evidence-portability.md) | `571225c97f9a1a3cae23363fb4d215886c77746d5df9ebc266eae56cd0221c14` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-52/inputs/evidence-portability.md.txt) |
+| [error-outcomes.md](error-outcomes.md) | `419ae0be89242ad5f05d769996f5000c3632f243de5dff741e8d08587c68f453` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-52/inputs/error-outcomes.md.txt) |
+| [identified-client-source.md](identified-client-source.md) | `914ade3e84ae312985ef7a29aecfe6bcd2b904e55269f69882f60f243c5a1474` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-52/inputs/identified-client-source.md.txt) |
+| [privilege-contracts.md](privilege-contracts.md) | `18cd1ad6f83920ea7cdd69c10888151335da2edcb4df7a36f9ee5f651fb860e0` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-52/inputs/privilege-contracts.md.txt) |
+| [native-capture-workflow.md](native-capture-workflow.md) | `bd0c288bb77e5c2a6604475d8201bdffa50c9f58a42e371444aac8e7f85432bb` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-52/inputs/native-capture-workflow.md.txt) |
+| [diagnostic-replies.md](diagnostic-replies.md) | `9a4354096a84f32940e45720f986f067c1b05c41f2662ff57c2ca759cc2053ff` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-52/inputs/diagnostic-replies.md.txt) |
+| [peer-tolerance-matrix.md](peer-tolerance-matrix.md) | `aa6a7ab2c2c22743bbf9631cb5066fc0827f62c89a6d195b6117394653f30d8c` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-52/inputs/peer-tolerance-matrix.md.txt) |
+| [mxd-reconciliation.md](mxd-reconciliation.md) | `b101c9f12721b5ed16ba40ac7f63ec3515fbf80f0205fe58594f6807ebd295c9` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-52/inputs/mxd-reconciliation.md.txt) |
+| [bitmap-boundaries.md](bitmap-boundaries.md) | `e2fa41eab31ec8b6e1aed0a26f41adb015c9c0ea7db1fd9b84fffc4d29c4ec98` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-52/inputs/bitmap-boundaries.md.txt) |
+| [account-attribute-trace.md](account-attribute-trace.md) | `6ef02f7797611d7c8e888d83fd7aa9e613bd44460626fb92aec0f3c2c1e6e512` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-52/inputs/account-attribute-trace.md.txt) |
+| [mxd-limit-contracts.md](mxd-limit-contracts.md) | `50fd48d0503f8d0a15e18ef268421d3b034288257911d020e7c8fae1c68731be` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-52/inputs/mxd-limit-contracts.md.txt) |
+| [failure-representatives.md](failure-representatives.md) | `27dea3d30c579e4638c5aa54191d3c46f29977957fa445fa5c91e5ddaa100c56` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-52/inputs/failure-representatives.md.txt) |
+| [runtime-recovery-20261113.md](runtime-recovery-20261113.md) | `3a0f4ede01062a0a3cfc147ad508ab991ffc0c65ba1746f8939cf142a9c7cbb7` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-52/inputs/runtime-recovery-20261113.md.txt) |
+| [receive-limit-origin.md](receive-limit-origin.md) | `9b61b70f8929f55b4279e8ea5b01871302739e263d450d84d3b07bd0ccbb0347` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-52/inputs/receive-limit-origin.md.txt) |
+| [diagnostic-transfer-boundaries.md](diagnostic-transfer-boundaries.md) | `fad0fb66796ef317e9a9a8f9b1b05addcd200ddb3c914860de0b8db47fdf95f0` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-52/inputs/diagnostic-transfer-boundaries.md.txt) |
+| [mac-peer-first-session.md](mac-peer-first-session.md) | `bf97eb61d36d39108e76df85dceaea03769d793c2d0f63204a8467da6b09af9a` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-52/inputs/mac-peer-first-session.md.txt) |
 
 [Audit
-manifest](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-51/manifest.json);
+manifest](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-52/manifest.json);
 [machine-readable register](gap-register.json). No field or behaviour is
 silently made normative by being listed as a question.
 
@@ -896,10 +898,17 @@ silently made normative by being listed as a question.
 - **Depends on:** [GAP-005](#gap-005)
 - **Progress:** No500 definition/send site located in the inspected shx0.1.48
   source snapshot. This bounded negative does not identify its native purpose
-  or later-client scheduling; peer-side evidence remains required.
+  or later-client scheduling; peer-side evidence remains required. Latest
+  captured session: The first Classic peer capture has four numbered client
+  requests 107/121/300/212 and no 500. Its last numbered request to FIN
+  interval is 144.395409 seconds (SYN to FIN 248.777271 seconds). The planned
+  130-second local-only observation was stopped for automatic external HTTP
+  traffic; finite measured absence does not establish purpose or universal
+  scheduling.
 - **Evidence:** [Error outcomes](error-outcomes.md); [Folder
   descriptor](transfer-contracts.md#folder-item-descriptor-bytes); [Identified
-  client source](identified-client-source.md)
+  client source](identified-client-source.md); [First Classic peer
+  session](mac-peer-first-session.md)
 - **Closure:** Not closed: remaining acceptance evidence is listed above.
 
 ## Framing and parsing
@@ -1777,7 +1786,11 @@ silently made normative by being listed as a question.
   constant-zero/community/bannerlabel claim. A controlled full shx process
   tolerates omitted 161 and value 0001 as well as native 0000. This
   establishes receiver tolerance for one identified build, not field 161
-  meaning or lifetime.
+  meaning or lifetime. Latest captured session: The first hash-identified
+  Classic client completed the delayed agreement/roster path after receiving
+  native fields 160 = 190 and 161 = 0000. This one successful exchange is not
+  a semantic interpretation of field 161 or evidence for other values; field
+  162 was absent in this server configuration.
 - **Evidence:** [Configured login-extra byte and refresh
   evidence](native-wire-details.md#captured-login-extras-configuration-bytes-and-refresh);
   [Native login-extra
@@ -1788,7 +1801,8 @@ silently made normative by being listed as a question.
   discovery](../mothra/evidence/gap-remediation/2026-11-13/native-login-extras-01/all-direct-store-candidates.json);
   [Controlled peer tolerance matrix](peer-tolerance-matrix.md); [Peer
   tolerance
-  corpus](../mothra/evidence/gap-remediation/2026-11-13/delegated-peer-01/manifest.json)
+  corpus](../mothra/evidence/gap-remediation/2026-11-13/delegated-peer-01/manifest.json);
+  [First Classic peer session](mac-peer-first-session.md)
 - **Closure:** Not closed: field162 representation/configuration and
   boundedrefresh have native evidence; field161 purpose and
   completechange/lifetime semantics stillfail the unchangedcriterion.
@@ -4399,8 +4413,16 @@ silently made normative by being listed as a question.
   acquired Mac client archive is hashed and statically identified with
   APPL/HTLC PPC PEF forks. Archive/application labels say 1.9.2 while both
   embedded vers strings say 1.9.1.0. Keep these observations distinct from
-  opaque binary identity and vendor authenticity. No client replay or
-  additional profile/fallback decision has occurred.
+  opaque binary identity and vendor authenticity. At that acquisition
+  checkpoint, no client replay or additional profile/fallback decision had
+  occurred. Latest captured session: B13 executed the prelaunch
+  fork-hash-identified Classic candidate once against native 1.9. Three
+  independent control views reconcile 150 client/514 server bytes; both guest
+  data views reconcile 16/58 bytes for its automatic banner fetch. One
+  login/agreement/roster session succeeded, then automatic external
+  advertising HTTP caused a safety stop. Archive 1.9.2 versus resource 1.9.1.0
+  identity conflict remains explicit. Neither vendor identity, universal
+  profile classification nor fallback policy is inferred.
 - **Evidence:** [Error outcomes](error-outcomes.md); [Folder
   descriptor](transfer-contracts.md#folder-item-descriptor-bytes); [Identified
   client source](identified-client-source.md); [Full historical peer
@@ -4415,7 +4437,8 @@ silently made normative by being listed as a question.
   tolerance
   corpus](../mothra/evidence/gap-remediation/2026-11-13/delegated-peer-01/manifest.json);
   [Acquired Mac candidate
-  identity](../mothra/docs/delegation/mac-peer-candidate.md)
+  identity](../mothra/docs/delegation/mac-peer-candidate.md); [First Classic
+  peer session](mac-peer-first-session.md)
 - **Closure:** Not closed: remaining acceptance evidence is listed above.
 
 ### GAP-081
@@ -4459,7 +4482,13 @@ silently made normative by being listed as a question.
   omitted 161, changed 161, unknown login field32767 and native122 before
   automatic roster. Exact socket/packet/terminal bytes and continuation pass;
   three checksum-refreshed semantic mutations are rejected. Other selected
-  profiles and omission/default policy remain open.
+  profiles and omission/default policy remain open. Latest captured session:
+  The first actual Classic candidate consumed native login fields 160/161,
+  agreement 109, bitmap 354, banner 122 and a roster reply, and automatically
+  fetched the 58-byte banner. This is a finite positive witness for those
+  bytes/build only. There was no controlled extra-field perturbation matrix,
+  configured field 162 case or universal tolerance proof; the planned
+  local-only idle test was stopped.
 - **Evidence:** [Error outcomes](error-outcomes.md); [Folder
   descriptor](transfer-contracts.md#folder-item-descriptor-bytes); [Identified
   client source](identified-client-source.md); [Full historical peer
@@ -4472,7 +4501,8 @@ silently made normative by being listed as a question.
   corpus](../mothra/evidence/gap-remediation/2026-11-13/native-shx-02/manifest.json);
   [Controlled peer tolerance matrix](peer-tolerance-matrix.md); [Peer
   tolerance
-  corpus](../mothra/evidence/gap-remediation/2026-11-13/delegated-peer-01/manifest.json)
+  corpus](../mothra/evidence/gap-remediation/2026-11-13/delegated-peer-01/manifest.json);
+  [First Classic peer session](mac-peer-first-session.md)
 - **Closure:** Not closed: remaining acceptance evidence is listed above.
 
 ### GAP-082
@@ -4744,8 +4774,14 @@ silently made normative by being listed as a question.
   bounded runtime capability without closing broader conformance criteria.
   Three new paired-boundary observations preserve a failed diagnostic fixture
   and its controlled cleanup rather than relabel it successful. Active/queue
-  conformance remains missing; a separately acquired Mac client is not yet an
-  interoperability fixture.
+  conformance remains missing; at that checkpoint the separately acquired Mac
+  client was not yet an interoperability fixture. Latest captured session: A
+  new actual Classic-peer corpus retains all three raw control views and both
+  guest data views, exact delayed agreement/roster/banner exchange and five
+  automatic GET/404 exchanges. Offline verifier and four fault-control tests
+  replay it. Recorder ready/drop/stop output was not saved as raw logs and is
+  explicitly transcript-derived. This partial session does not complete the
+  original native conformance criterion.
 - **Evidence:** [Native format/recovery/reset
   corpus](../mothra/evidence/gap-remediation/2026-11-12/native-banner-02/manifest.json);
   [Banner type/recovery
@@ -4836,7 +4872,8 @@ silently made normative by being listed as a question.
   corpus](../mothra/evidence/gap-remediation/2026-11-13/native-diagnostics-01/manifest.json);
   [Second delegated investigation](failure-representatives.md); [Second
   delegated investigation](runtime-recovery-20261113.md); [Second delegated
-  investigation](diagnostic-transfer-boundaries.md)
+  investigation](diagnostic-transfer-boundaries.md); [First Classic peer
+  session](mac-peer-first-session.md)
 - **Closure:** Not closed: the unchanged criterion still requires the
   outstanding evidence described above.
 
@@ -5294,6 +5331,9 @@ of binary paths, clients or packet inputs.
 | diagnostic-transfer-boundaries.md | [GAP-037 transfer-state diagnostic attempt](diagnostic-transfer-boundaries.md#gap-037-transfer-state-diagnostic-attempt) | 1–9 | [GAP-021](#gap-021), [GAP-037](#gap-037), [GAP-064](#gap-064), [GAP-084](#gap-084) |
 | diagnostic-transfer-boundaries.md | [Bounded preparation and failure](diagnostic-transfer-boundaries.md#bounded-preparation-and-failure) | 10–32 | [GAP-021](#gap-021), [GAP-037](#gap-037), [GAP-064](#gap-064), [GAP-084](#gap-084) |
 | diagnostic-transfer-boundaries.md | [Positive partial-file cleanup](diagnostic-transfer-boundaries.md#positive-partial-file-cleanup) | 33–77 | [GAP-021](#gap-021), [GAP-037](#gap-037), [GAP-064](#gap-064), [GAP-084](#gap-084) |
+| mac-peer-first-session.md | [First Classic Mac peer session: finite wire observations](mac-peer-first-session.md#first-classic-mac-peer-session-finite-wire-observations) | 1–19 | [GAP-026](#gap-026), [GAP-079](#gap-079), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-084](#gap-084) |
+| mac-peer-first-session.md | [Observed control exchange](mac-peer-first-session.md#observed-control-exchange) | 20–49 | [GAP-026](#gap-026), [GAP-079](#gap-079), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-084](#gap-084) |
+| mac-peer-first-session.md | [Measured limits and safety stop](mac-peer-first-session.md#measured-limits-and-safety-stop) | 50–68 | [GAP-026](#gap-026), [GAP-079](#gap-079), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-084](#gap-084) |
 
 ## Maintaining this analysis
 
