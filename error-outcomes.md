@@ -35,6 +35,11 @@ supplements for those operation-specific orderings.
 
 ## Recorded representative native outcomes
 
+The [five captured failure examples](failure-representatives.md) give exact
+request bytes and measured error replies or transport outcomes for each
+original representative class. They distinguish the captured unknown-operation
+exchange from the calculated example below.
+
 The [native core corpus][native-core] retains successful early/delayed logins,
 nonempty password create/change cases, permission denial in 348, missing-room
 115 and missing-file 206 failures, and unknown/replayed online requests. These
