@@ -75,6 +75,22 @@ field-111 label. String search does not exhaust resource-fork text, dynamic
 composition or other UI paths. A semantic label therefore has **no positive
 support** in this corpus; the field remains an opaque account attribute.
 
+## Resource-fork search boundary
+
+A [read-only resource inventory][resource-audit] checks the supplied
+application resource fork against its recorded SHA-256. All 58 entries are
+listed by type, ID, name, size and data hash. Case-insensitive account/user,
+comment, note, description, directory/folder, email and owner/creator byte
+searches yield 17 content hits, all in filesystem error resource EMSG 4.
+The HTLS 0 resource name is Owner resource; no link to account field 111
+has been established. It is not a field label.
+
+This closes the earlier unexamined-resource-fork search boundary. It supplies
+no positive semantic consumer for 111: strings assembled dynamically, encoded
+labels, DATA-fork UI paths and indirect record access remain separate questions.
+The raw resource fork is not redistributed. The supplied extracted application
+is required to rerun the retained parser and compare the frozen inventory.
+
 ## Reproduce and decision boundary
 
 From the private `mothra` checkout, run the verifier and its five tests:
@@ -107,3 +123,5 @@ document only the opaque observed contract.
 [reader-callers]: ../mothra/evidence/gap-remediation/2026-11-13/account-attribute-01/queries/AA-C-100073c0.json
 [live]: ../mothra/evidence/gap-remediation/2026-11-13/native-account-update-01/oracle-queries/AC-D-10005d30.c
 [strings]: ../mothra/evidence/gap-remediation/2026-11-13/account-attribute-01/queries/AA-S-account.json
+
+[resource-audit]: ../mothra/evidence/gap-remediation/2026-11-13/account-resource-01/manifest.json
