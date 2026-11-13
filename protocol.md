@@ -1065,7 +1065,9 @@ For update **353**, exactly one NUL byte (`00`) in field 106 selects
 preservation of the existing encoded password, clipped to 31 bytes. Literal
 `x` does not preserve it. Missing/empty 106 clears the newly built password
 value. Other missing fields are not general sparse-update instructions; see
-the supplement.
+the [captured account-update matrix](native-wire-details.md#captured-account-replacement-and-password-boundaries).
+It verifies full 32-byte network password replacement/login, sentinel clipping,
+literal-`x` replacement, and clearing of omitted name/attribute/privilege fields.
 
 Evidence: V067–V070; `100146f0`, `100149e0`, `10014bc0`, `10014df0`.
 

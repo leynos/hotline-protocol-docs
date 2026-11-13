@@ -126,8 +126,9 @@ as an ordinary one-byte replacement password through this branch.
 
 The native local setter caps passwords at 31 bytes, while the network account
 handlers copy up to 32. Preserve this distinction rather than declaring a
-single universal limit. Restart persistence, failed writes, and full 32-byte
-round trips still need runtime checks.
+single universal limit. The captured update matrix below verifies the full
+32-byte network replacement/login round trip and the sentinel's 31-byte clip.
+Restart persistence and failed writes still need runtime checks.
 
 Field 111 is stored by create/update handlers but is not included in the
 inspected 352 retrieval or 348 enumeration output. The newly inspected native
@@ -503,3 +504,67 @@ purpose and exhaustive lifetime semantics remain unresolved. GAP-026 stays
 Investigating despite the new 162 and configured-banner evidence.
 
 [login-extras]: ../mothra/evidence/gap-remediation/2026-11-13/native-login-extras-01/manifest.json
+
+## Captured account replacement and password boundaries
+
+The [account-update corpus][account-updates] retains 31 completed reports,
+34 paired host/guest connections and eleven fresh identity-checked queries.
+Eight new owned accounts are absent at preflight, then created with display
+name, opaque attribute `opaque26` and access bitmap `2000000000000000`
+(download-file bit 2). Seven start with 15-byte password `account-base-26`;
+the preservation-boundary account starts with 32 `q` bytes. A successful login
+with those 32 bytes is recorded before its update.
+
+Each 353 has an empty success ACK, retains control liveness, and is followed
+by 352, positive/negative login probes and independent final retrieval. Every
+before/after native UserData file is checked as a complete 734-byte record,
+including version, field lengths, raw bytes, bitmap and cleared unused bytes.
+The account files retain their catalogue identities through replacement.
+
+| 353 password field 106 | Stored result | Login controls |
+| --- | --- | --- |
+| One byte `00`, existing 15-byte password | Original 15 complemented bytes | Original succeeds; unrelated password fails |
+| Omitted | Length zero | Empty succeeds; old 15-byte password fails |
+| Present, empty | Length zero | Empty succeeds; old 15-byte password fails |
+| Literal byte `78` (`x`) | Length 1, byte `78` | Plaintext byte `87` succeeds; old password fails |
+| Complemented 32-byte replacement | All 32 complemented bytes | New 32-byte password succeeds; old password fails |
+| One byte `00`, existing 32-byte password | First 31 complemented bytes | New 31-byte password succeeds; original 32 bytes fail |
+
+The same literal `x` can therefore appear as a password-presence placeholder
+in 352 and as actual encoded replacement input in 353. The receiving operation
+determines its meaning. Echoing the placeholder does not preserve a password.
+The successful 32-byte login and replacement distinguish the network handler
+from the separately traced local setter's 31-byte cap.
+
+A sparse 353 containing only login 105 and the NUL password sentinel retains
+the 15-byte password but clears the account name, attribute 111 and privilege
+bitmap. Its subsequent 352 omits 102 and 111, includes complemented 105 and
+the `x` password placeholder, and emits eight zero privilege bytes. Its fresh
+login succeeds with a zero-mask 354. This is replacement with a special
+password branch, not a general sparse-update operation.
+
+Another 353 submits 65 `X` bytes in 111: stored length is 64 with exactly those
+64 bytes at `0x256`; 352 still omits 111. In combination with the earlier
+absent/empty/value fixtures, this establishes copy/default/output boundaries.
+It does not identify the attribute's human meaning or every later consumer.
+
+The nine positive logins complete ACK/354/agreement and answer request 500.
+The eight wrong/old-password probes return status 1, field 100
+`Incorrect login.`. Their three quiet seconds are bounded observations, not a
+universal authentication-disconnect deadline. The positive and negative
+credential bytes are retained exactly in both packet views.
+
+Cleanup deletes only the eight new accounts and two flush helpers. Account
+enumeration returns exactly to its two-account baseline, and Files returns
+to its original 41 entries. Positive native Trash observations preserve all
+18 original objects with catalogue identities, paths and complete forks,
+including the replacement UserData contents. A separate owned publisher
+corroborates those objects and is then removed with wire controls. No
+post-removal disk or restart-durability claim is made for that publisher.
+
+Account rename/conflict and protected/self-deletion cases, active-session
+propagation, interrupted writes and restart persistence remain GAP-072/073.
+Field 111's meaning remains GAP-071. These fixtures change no existing account,
+server configuration or application and do not claim historical-client parity.
+
+[account-updates]: ../mothra/evidence/gap-remediation/2026-11-13/native-account-update-01/manifest.json

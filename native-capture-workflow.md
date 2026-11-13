@@ -1420,3 +1420,70 @@ working corrected implementation is not evidence that this native defect was
 absent; mxd's compatibility policy is a separate decision.
 
 [news-boundary-corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-news-boundary-01/manifest.json
+
+## Reproducing account replacement and password boundaries
+
+The [account-update corpus][account-update-corpus] uses eight owned
+`m-au26-*` accounts. Prepare `account-update-preflight` using the standard
+`prepare_native_cases.py` runtime/output arguments. Capture account enumeration,
+Files and failed 352 lookups for every proposed name. Stop if any name already
+exists. Do not use an existing account as a disposable fixture.
+
+`account-update-seed` creates those accounts and an owned upload flush helper.
+Retain positive native UserData snapshots before any mutation. Their exact
+paths are `/Hotline19/Users/m-au26-CASE/UserData`; the frozen run's initial
+snapshot contains 17 objects including eight directories, eight records and
+the flush helper. Discover the actual catalogue IDs in another image.
+
+Run `account-update-base32-login` before any update. It proves that the initial
+32-byte password works. `account-update-mutate` prepares one plan per account;
+`account-update-logins` prepares positive and negative probes. Execute each
+mutation followed by its matching `login-CASE` and `reject-CASE` plans, then
+proceed to the next case. Preserve their actual execution order. Each mutation
+records before/after 352 reads and a request-500 liveness probe; logins and
+mutations include measured three-second quiet windows.
+
+For example, plan preparation from mothra is:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/prepare_native_cases.py \
+  account-update-mutate \
+  --runtime-record state/native-sessions/your-run/runtime.json \
+  --output state/native-sessions/your-run/plans-mutate
+```
+
+Use both packet recorders and the standard capture driver to execute the plans.
+These credentials are disposable fixture values, including a deliberately
+non-ASCII one-byte plaintext password. Do not substitute a real password.
+If an outcome differs, retain the failed plan/report before adapting any
+following observation. Do not replay account creation or overwrite evidence.
+
+`account-update-final` performs a second owned upload flush and independently
+rereads every account. Retain native snapshots of all eight accounts and both
+helpers: compare complete 734-byte UserData records, not just 352 output,
+because 111 is omitted and 106 is only a presence placeholder. The frozen
+final snapshot contains 18 objects. The sentinel case must show 31 stored
+bytes after starting with 32; the replacement case must retain all 32.
+
+`account-update-cleanup` deletes only the owned accounts/helpers and checks
+the original enumeration and complete Files baseline. Retain positive native
+Trash identities and forks. `account-update-publish` adds a separate owned
+upload and repeats the wire baselines; retain another positive Trash snapshot.
+`account-update-remove` removes that publisher and rechecks both baselines.
+Do not infer restart persistence from upload publication. ROMs and images
+remain local.
+
+The offline verifier is:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/verify_native_account_updates.py \
+  evidence/gap-remediation/2026-11-13/native-account-update-01
+```
+
+It checks 31 completed reports, 34 paired connections, nine positive and eight
+negative logins, exact plans, full native records and positive cleanup, plus
+eleven identity-checked oracle queries. Field-111 meaning, live-session edits,
+conflicts/protected deletion, forced write failures and restart persistence
+still need separate evidence.
+
+[account-update-corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-account-update-01/manifest.json

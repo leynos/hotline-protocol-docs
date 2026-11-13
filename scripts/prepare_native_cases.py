@@ -5,6 +5,7 @@ import argparse
 import json
 from pathlib import Path
 
+import native_account_update_cases as account_update
 import native_news_boundary_cases as news_boundary
 from native_agreement_cases import PHASES as AGREEMENT_PHASES
 from native_agreement_cases import cleanup as agreement_cleanup
@@ -108,6 +109,15 @@ def main() -> None:
         "suite",
         choices=[
             "article-delete-preflight",
+            "account-update-preflight",
+            "account-update-seed",
+            "account-update-mutate",
+            "account-update-logins",
+            "account-update-base32-login",
+            "account-update-final",
+            "account-update-cleanup",
+            "account-update-publish",
+            "account-update-remove",
             "news-boundary-preflight",
             "news-boundary-seed",
             "news-boundary-append",
@@ -246,6 +256,40 @@ def main() -> None:
             "article-delete-resume requires --case-name from the retained inventory"
         )
     cases = {
+        "account-update-preflight": lambda: {"preflight": account_update.preflight()},
+        "account-update-seed": lambda: {"seed": account_update.seed()},
+        "account-update-mutate": lambda: {
+            "mutation-" + label: account_update.mutate(label)
+            for label in account_update.LABELS
+        },
+        "account-update-logins": lambda: {
+            **{
+                "login-" + label: account_update.probe(
+                    label, account_update.result_password(label), True
+                )
+                for label in account_update.LABELS
+            },
+            **{
+                "reject-" + label: account_update.probe(
+                    label,
+                    account_update.initial_password(label)
+                    if account_update.initial_password(label)
+                    != account_update.result_password(label)
+                    else b"wrong-account26",
+                    False,
+                )
+                for label in account_update.LABELS
+            },
+        },
+        "account-update-base32-login": lambda: {
+            "base32-login": account_update.probe("preserve32", b"q" * 32, True)
+        },
+        "account-update-final": lambda: {"final": account_update.finalization()},
+        "account-update-cleanup": lambda: {"cleanup": account_update.cleanup()},
+        "account-update-publish": lambda: {"publish": account_update.publish_cleanup()},
+        "account-update-remove": lambda: {
+            "remove-publisher": account_update.remove_publisher()
+        },
         "news-boundary-preflight": lambda: {"preflight": news_boundary.preflight()},
         "news-boundary-seed": lambda: {"seed": news_boundary.seed()},
         "news-boundary-append": lambda: {
@@ -398,6 +442,8 @@ def main() -> None:
                 "GAP-017",
             ]
             if args.suite == "framing"
+            else ["GAP-016", "GAP-019", "GAP-071", "GAP-072", "GAP-073", "GAP-084"]
+            if args.suite.startswith("account-update-")
             else [
                 "GAP-003",
                 "GAP-015",
