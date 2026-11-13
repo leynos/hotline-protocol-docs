@@ -329,6 +329,15 @@ can contain only data 101, and chat-denial notices can contain 109/101 instead.
 Field presence identifies known variants; no universal sender/option schema
 applies to every 104 (GAP-044).
 
+The [bounded native PM witness](native-pm-witness.md) now confirms seven 108
+cases with six delivered 104 frames: direct quoted text, recipient refusal,
+automatic feedback alongside original delivery, sender-refusal suppression,
+generated option-2/3 text and empty-text silence. The request's empty success
+ACK precedes feedback on the **same sender TCP stream** in the captured
+refusal/automatic cases. Separate recipient-stream delivery timing is not
+established by the sequential Recorder reads. These bytes do not supply a
+universal 104 origin discriminator or settle spam and text limits.
+
 GAP-043's routing-table criterion is satisfied by the sender/recipient/options
 matrix and the ACK/identity/field rules above. It covers feedback suppression,
 original delivery alongside auto response, empty ordinary text and non-whitelisted
