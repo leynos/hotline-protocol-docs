@@ -23,7 +23,9 @@ zero and returned reference `00014c8e`. The recorder passed 1,049,088 HTXF bytes
 to the host socket, then its read-for-EOF failed with `ConnectionResetError`
 104. Host and guest packet records retain only 193,913 and 74,295 incoming
 bytes respectively, both strict prefixes of the recorder's send. The host
-capture contains a server-side RST. The [guest log screen][abort] says “Upload
+capture contains a server-side proxy RST. The guest terminal reset travels
+from client to server, so these views do not establish a native-server-initiated
+reset. The [guest log screen][abort] says “Upload
 aborted”. The planned 206 success confirmation was never reached. The packet
 does not identify why this upload aborted; a successful send call does not
 prove complete delivery to the guest.

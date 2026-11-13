@@ -125,7 +125,8 @@ than the current global; equality passes that comparison. The startup assignment
 is not a sum-of-fragments, number-of-transactions or process-memory bound.
 Later indirect writes/configuration still need verification. The captured
 boundaries below apply to this runtime. The reference inventory does not prove
-can be no other writes (GAP-011).
+that there are no other writes (GAP-011). See the [bounded instruction and
+reference trace](receive-limit-origin.md) for the startup store and its limits.
 
 ### Captured framing and reassembly boundaries
 

@@ -1,11 +1,11 @@
-# mxd framing and memory limits at 2e4c9c1
+# mxd framing and memory limits through 4812949
 
-This review concerns GAP-011 at the pinned mxd base
-`2e4c9c1df20b37a6f98a1369e0a8f09f9ee2a131`. The adjacent private
-workspaces are identified in the [evidence manifest][run]. It separates
-native Hotline Server 1.9 observations, mxd's configured limits and the
-tested implementation boundaries. No native guest was contacted for this
-packet.
+This GAP-011 review pins the original finding at mxd
+`2e4c9c1df20b37a6f98a1369e0a8f09f9ee2a131` and its accepted correction at
+`481294915b48f4db06943c8af86cf31b7e47597a`. The [original evidence][run]
+and [accepted source and gates][acceptance] preserve both states. Native
+Hotline Server 1.9 observations remain separate from mxd's configured limits.
+These mxd checks did not contact the native guest.
 
 ## Native boundary and mxd policy
 
@@ -39,7 +39,7 @@ compatibility decision.
   The original `from_parts` incorrectly re-applied the 32 KiB physical limit
   to this normalized logical header. The retained red run passed 32,768
   bytes but rejected 32,769 and 1,048,576 with `InvalidData`/“payload too
-  large”. The private correction removes only that physical check from
+  large”. The accepted correction removes only that physical check from
   `from_parts`. Exact logical length, total/data consistency and the 1 MiB
   total limit remain checked there. The real physical decoder keeps its
   32 KiB rejection.
@@ -91,24 +91,34 @@ guards. No 32-bit executable was tested, and a bounded finite corpus is not
 an exhaustive proof. The Kani harness source covers `validate_header` and
 fragment ranges; Kani was not run for this packet.
 
-The full mxd `make test` gate did not reach test assertions. The first
-post-restart attempt and one serialized retry both failed while linking mxd
-test targets: the linker terminated with signal 11. The recorded `cc`
-invocation includes `-fuse-ld=mold`; these logs do not identify GNU `ld` as
-the failing implementation. The original pre-restart
-attempt has no exit record and remains unknown. Successful focused tests,
-format and lint checks are separate evidence from this blocked full gate.
+The initial full-gate attempts in [the limit corpus][run] failed while
+linking. [Subsequent recovery][recovery] isolated one truncated derived archive
+and retained the separate target-layout, interruption and watchdog failures.
+A [controlled diagnostic][watchdog] reproduced a sufficient scheduling mechanism
+for the watchdog test's finite-sleep assumption, without changing production
+timeout semantics or proving the historical cause.
 
-The two-file Rust correction remains an **uncommitted candidate** in the
-isolated mxd checkout. Its portable patch and base/final source snapshots
-are retained in the [evidence][run]. No source correction has been merged
-into the canonical mxd repository.
+Commit `50360bebff2c79a54272453ce734251be619c274` makes that test wait for
+actual cancellation. Commit `481294915b48f4db06943c8af86cf31b7e47597a` fixes
+the logical/physical framing confusion and adds boundary regressions. Both
+commits are now in the canonical mxd checkout. The tested bytes match those
+commits and the [supervised import record][import]. Formatting, lint and the
+complete managed `make test` gate passed: seven nextest profiles, with one
+recorded skip, and both doctest commands, with four recorded ignores. The
+portable [acceptance verifier][acceptance-verifier] checks the frozen results
+without requiring an mxd checkout. No Kani proof was run.
 
-GAP-011 remains open for a complete native later-write/configuration trace
-and independently measured aggregate buffering, plus any release decision
-about mxd's distinct defaults. The private correction and witnesses resolve
-the demonstrated mxd logical/physical confusion only; root reviews and
-integrates them before updating the central register.
+GAP-011 remains open for a complete native later-write/configuration trace and
+independently measured aggregate buffering, plus any release decision about
+mxd's distinct defaults. The accepted correction resolves the demonstrated
+logical/physical confusion. The broader native/configuration and memory
+criterion remains unmet.
 
 [native]: session-transport-contracts.md#receive-limit-assignment-at-startup
 [run]: ../mothra/evidence/gap-remediation/2026-11-13/mxd-limits-01/manifest.json
+
+[acceptance]: ../mothra/evidence/gap-remediation/2026-11-13/mxd-correction-01/manifest.json
+[recovery]: ../mothra/evidence/gap-remediation/2026-11-13/mxd-build-recovery-01/manifest.json
+[watchdog]: ../mothra/evidence/gap-remediation/2026-11-13/mxd-watchdog-h1-01/manifest.json
+[import]: ../mothra/evidence/gap-remediation/2026-11-13/mxd-source-import-01/manifest.json
+[acceptance-verifier]: scripts/verify_mxd_correction.py
