@@ -45,7 +45,10 @@ from native_login_extras_cases import NAMES as LOGIN_EXTRA_NAMES
 from native_login_extras_cases import configured as login_extras_configured
 from native_login_extras_cases import downloads as login_extras_downloads
 from native_login_extras_cases import lifetime as login_extras_lifetime
+from native_mkdir_cases import cleanup as mkdir_cleanup
 from native_mkdir_cases import creation as mkdir_creation
+from native_mkdir_cases import empty_root as mkdir_empty_root
+from native_mkdir_cases import finalization as mkdir_final
 from native_mkdir_cases import seed as mkdir_seed
 from native_queue_cases import queues, timer
 from native_resume_cases import downloads as resume_downloads
@@ -59,6 +62,9 @@ def main() -> None:
     parser.add_argument(
         "suite",
         choices=[
+            "mkdir-root-empty",
+            "mkdir-final",
+            "mkdir-cleanup",
             "mkdir-seed",
             "mkdir-create",
             "login-extras-lifetime",
@@ -126,6 +132,9 @@ def main() -> None:
     if args.suite == "agreement-restore-stage" and args.original_agreement is None:
         parser.error("agreement-restore-stage requires --original-agreement")
     cases = {
+        "mkdir-root-empty": mkdir_empty_root,
+        "mkdir-final": mkdir_final,
+        "mkdir-cleanup": mkdir_cleanup,
         "mkdir-seed": mkdir_seed,
         "mkdir-create": mkdir_creation,
         "login-extras-lifetime": login_extras_lifetime,
