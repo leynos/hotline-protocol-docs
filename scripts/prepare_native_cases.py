@@ -5,6 +5,11 @@ import argparse
 import json
 from pathlib import Path
 
+from native_agreement_cases import PHASES as AGREEMENT_PHASES
+from native_agreement_cases import cleanup as agreement_cleanup
+from native_agreement_cases import phase as agreement_phase
+from native_agreement_cases import preflight as agreement_preflight
+from native_agreement_cases import seed as agreement_seed
 from native_auth_cases import cleanup as auth_cleanup
 from native_auth_cases import guest_create as auth_guest_create
 from native_auth_cases import lookup as auth_lookup
@@ -46,6 +51,10 @@ def main() -> None:
     parser.add_argument(
         "suite",
         choices=[
+            "agreement-preflight",
+            "agreement-seed",
+            "agreement-cleanup",
+            *["agreement-" + name for name in AGREEMENT_PHASES],
             "auth-seed",
             "auth-lookup",
             "auth-missing-guest",
@@ -99,6 +108,13 @@ def main() -> None:
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     cases = {
+        "agreement-preflight": agreement_preflight,
+        "agreement-seed": agreement_seed,
+        "agreement-cleanup": agreement_cleanup,
+        **{
+            "agreement-" + name: lambda name=name: agreement_phase(name)
+            for name in AGREEMENT_PHASES
+        },
         "auth-seed": auth_seed,
         "auth-lookup": auth_lookup,
         "auth-missing-guest": lambda: auth_lookup(missing_guest=True),
@@ -169,6 +185,8 @@ def main() -> None:
                 "GAP-017",
             ]
             if args.suite == "framing"
+            else ["GAP-025", "GAP-027", "GAP-019", "GAP-084"]
+            if args.suite.startswith("agreement-")
             else ["GAP-023", "GAP-025", "GAP-026", "GAP-027", "GAP-084"]
             if args.suite.startswith("auth-")
             else ["GAP-004", "GAP-012", "GAP-013", "GAP-084"]
