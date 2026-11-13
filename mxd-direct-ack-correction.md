@@ -1,7 +1,8 @@
 # mxd direct reply header correction candidate
 
-Status: private implementation blocked at full PostgreSQL gate at mxd base
-`481294915b48f4db06943c8af86cf31b7e47597a`. This note supports
+Status: private implementation committed after a controlled full gate at
+`20e891a059de7dd9dec5a657d7099570987d860d` (parent
+`481294915b48f4db06943c8af86cf31b7e47597a`). This note supports
 [GAP-085](gap-analysis.md#gap-085); it does not change the baseline native
 1.9 contract or close that gap.
 
@@ -43,8 +44,13 @@ after the candidate. Focused wireframe, writer and BDD tests pass. The
 source hashes. The first failure was the repeated-300 validator dependency,
 which the candidate now corrects. The second gate ran 557 PostgreSQL cases:
 556 passed, and one failed during embedded database startup (`pg_ctl` could
-not start). Later feature profiles and doctests did not run. There is no mxd
-source commit or conformance claim yet.
+not start). Later feature profiles and doctests did not run in that attempt.
+C8's isolated exact case and an overlapping pair passed with real databases,
+but did not reveal the historical startup cause. A later
+[controlled full gate][controlled] passed all seven nextest profiles and both
+doctest groups with a fresh owned PostgreSQL root and two nextest test threads.
+The identical tested source was committed privately. This result does not
+establish stability at default parallelism or native peer conformance.
 
 This correction does not validate the existing peer classifier, choose
 whether any profile needs omitted extras, set configured server name 162,
@@ -54,3 +60,4 @@ at the final mxd revision; GAP-001 and GAP-086 need their independent
 scope and acceptance decisions. No new native peer test was run here.
 
 [evidence]: ../mothra/evidence/gap-remediation/2026-11-13/mxd-direct-ack-01/manifest.json
+[controlled]: ../mothra/evidence/gap-remediation/2026-11-13/mxd-direct-ack-02/manifest.json
