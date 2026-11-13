@@ -1487,3 +1487,74 @@ conflicts/protected deletion, forced write failures and restart persistence
 still need separate evidence.
 
 [account-update-corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-account-update-01/manifest.json
+
+## Reproducing live account edits, deletion and restart
+
+Use a current verified runtime with no unrelated clients. Prepare
+`account-live-preflight` with the standard runtime/output arguments, and
+require both owned names `m-live27` and `m-delete27` to be absent. Retain account
+enumeration and the full Files baseline before `account-live-seed` creates
+them. Keep the capture driver, host packet recorder and guest Ethernet recorder
+running through every stage, including the application restart.
+
+`account-live-edit` logs in an administrator and two matching subjects. It
+captures initial rosters, combined privilege/name/password replacement,
+download denials on existing sessions, password-only and attribute-only
+changes, three-second quiet windows and normal subject closes. Do not replace
+received order with a guessed cross-socket ordering. `account-live-delete`
+uses two subjects of the other account, records its 351 ACK and both data-only
+104 notices, then two bounded roster snapshots before closing the clients.
+Preserve any unread packet suffix: the frozen run's two late 302 frames lie
+beyond the observer's recorded receive prefix and are reconciled explicitly.
+
+Run `account-live-probes` and `account-live-final` before restart. The old and
+intermediate passwords and deleted account must be rejected; the final
+password must work. Finalization adds an owned upload flush and independently
+reads both accounts and enumeration. Retain positive native UserData/fork
+snapshots for `/Hotline19/Users/m-live27`, `/Trash/m-delete27` and
+`/Hotline19/Files/m-live27-flush`. Also record positive application-fork hashes
+and complete `/Hotline19/Prefs` bytes before the restart.
+
+Quit the native server with its Quit button after verifying zero connected
+users. Record a screenshot and timed action journal. Run
+`account-live-stopped` while it is stopped; this frozen observation is a
+deliberately failed capture, not a passing handshake or native crash. Its
+guest view contains SYN followed by RST with diagnostic `No listener` bytes.
+Preserve the failure and do not count it as an established guest connection.
+
+In Finder, select and open the same `HLserver19` application. Retain its
+startup log and dismiss the known Sounds Disabled alert. Record the actions
+and screenshots. The frozen X11 input source and journal are retained with
+the corpus for the `:99` display; screen coordinates depend on that specific
+desktop. The generic managed display/emulator launcher remains in mothra.
+Keep a distinct post-restart runtime record identifying a new server epoch
+within the same emulator, rather than claiming an OS/VM restart.
+
+Run `account-live-inspect` and the same four `account-live-probes` with fresh
+output directories. Re-extract the positive account/application/Prefs records
+and compare complete bytes and identities. The frozen host command returned
+143 after five completed transcripts; this fact and a further independent
+`account-live-inspect` confirmation are retained. Do not erase a host failure
+because its protocol reports completed, or infer a native-server failure from
+that host exit alone.
+
+`account-live-cleanup` deletes only the remaining owned account and flush file
+and restores enumeration/Files. Retain positive Trash paths, IDs and forks for
+all five original objects. `account-live-publish` adds a separate owned upload
+and another positive snapshot; `account-live-remove` removes that helper and
+rechecks both wire baselines. Keep ROMs, working images and full application
+fork extractions local.
+
+From mothra, verify the frozen corpus offline:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/verify_native_live_accounts.py \
+  evidence/gap-remediation/2026-11-13/native-live-accounts-01
+```
+
+It checks 18 complete reports, the expected stopped failure, 25 host lifetimes
+and 24 established guest connections, explicit unread removals, both server
+epochs, full account records, unchanged Prefs/application identities, cleanup
+and sixteen oracle queries. Protected/self-deletion, OS/power-loss restart,
+interrupted storage and universal room/transfer teardown still need separate
+evidence.

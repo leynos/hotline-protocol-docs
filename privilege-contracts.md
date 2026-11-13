@@ -114,8 +114,12 @@ shared native Trash mover. The inspected helper does not compare the requested
 login against the configured head-administrator name. The handler ACKs before
 `10005f90` scans matching connected account logins, sends a data-only 104 notice
 and requests transport disconnection. This ordering is distinct from live
-privilege updates, which use 354 and roster propagation. Protected-account,
-self-deletion, delivery and reconnect/persistence fixtures remain open.
+privilege updates, which use 354 and roster propagation. The
+[live-account corpus](native-wire-details.md#captured-live-account-changes-and-server-restart)
+captures two matching subjects for each path, including guest-first FIN,
+retained roster entries and later unread 302 messages after deletion. Normal
+server-restart persistence is verified separately. Protected-account and
+self-deletion variants remain open; orderly close is not atomic roster removal.
 
 ## Remaining acceptance evidence
 

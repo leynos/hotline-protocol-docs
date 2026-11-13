@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 
 import native_account_update_cases as account_update
+import native_live_account_cases as live_account
 import native_news_boundary_cases as news_boundary
 from native_agreement_cases import PHASES as AGREEMENT_PHASES
 from native_agreement_cases import cleanup as agreement_cleanup
@@ -110,6 +111,17 @@ def main() -> None:
         choices=[
             "article-delete-preflight",
             "account-update-preflight",
+            "account-live-preflight",
+            "account-live-seed",
+            "account-live-edit",
+            "account-live-delete",
+            "account-live-probes",
+            "account-live-final",
+            "account-live-inspect",
+            "account-live-stopped",
+            "account-live-cleanup",
+            "account-live-publish",
+            "account-live-remove",
             "account-update-seed",
             "account-update-mutate",
             "account-update-logins",
@@ -256,6 +268,22 @@ def main() -> None:
             "article-delete-resume requires --case-name from the retained inventory"
         )
     cases = {
+        "account-live-preflight": lambda: {"preflight": live_account.preflight()},
+        "account-live-seed": lambda: {"seed": live_account.seed()},
+        "account-live-edit": lambda: {"edit": live_account.edit()},
+        "account-live-delete": lambda: {"delete": live_account.delete()},
+        "account-live-probes": lambda: {
+            "login-" + label: live_account.probe(label)
+            for label in ["old", "intermediate", "final", "deleted"]
+        },
+        "account-live-final": lambda: {"final": live_account.finalize()},
+        "account-live-inspect": lambda: {"inspect": live_account.inspect()},
+        "account-live-stopped": lambda: {"stopped": live_account.stopped()},
+        "account-live-cleanup": lambda: {"cleanup": live_account.cleanup()},
+        "account-live-publish": lambda: {"publish": live_account.publish_cleanup()},
+        "account-live-remove": lambda: {
+            "remove-publisher": live_account.remove_publisher()
+        },
         "account-update-preflight": lambda: {"preflight": account_update.preflight()},
         "account-update-seed": lambda: {"seed": account_update.seed()},
         "account-update-mutate": lambda: {
@@ -442,6 +470,8 @@ def main() -> None:
                 "GAP-017",
             ]
             if args.suite == "framing"
+            else ["GAP-035", "GAP-036", "GAP-071", "GAP-072", "GAP-073", "GAP-084"]
+            if args.suite.startswith("account-live-")
             else ["GAP-016", "GAP-019", "GAP-071", "GAP-072", "GAP-073", "GAP-084"]
             if args.suite.startswith("account-update-")
             else [

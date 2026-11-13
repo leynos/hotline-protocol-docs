@@ -1047,8 +1047,10 @@ The meaning of extra field **111** is unresolved. Account credentials, copy
 limits and update defaults are now traced in [native wire
 details](native-wire-details.md). Changed privilege bytes propagate to
 matching active sessions through 354; effective identity/access changes can
-also emit roster updates. Durable-write guarantees, rename outcomes and
-deletion semantics still need further evidence.
+also emit roster updates. The [live-account fixtures](native-wire-details.md#captured-live-account-changes-and-server-restart)
+record two-session updates/deletion, late 302 removal and persistence across
+normal server application restart. Rename/protection variants, interrupted
+writes and broader durability guarantees still need further evidence.
 
 Request **352** uses uncomplemented lookup bytes in 105, unlike the
 complemented inputs of 350/351/353. This asymmetry is established by the

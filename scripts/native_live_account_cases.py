@@ -185,3 +185,15 @@ def cleanup() -> tuple[list[dict], dict]:
     steps += exchange(204, 11, [(201, b"m-live27-flush")])
     steps += exchange(348, 20, []) + exchange(200, 21, [(202, b"\0\0")])
     return steps + [close()], {"kind": "live-account-cleanup"}
+
+
+def publish_cleanup() -> tuple[list[dict], dict]:
+    steps = login() + upload(80, b"m-live27-publish", b"\0\0")
+    steps += exchange(348, 20, []) + exchange(200, 21, [(202, b"\0\0")])
+    return steps + [close()], {"kind": "live-account-publish"}
+
+
+def remove_publisher() -> tuple[list[dict], dict]:
+    steps = login() + exchange(204, 10, [(201, b"m-live27-publish")])
+    steps += exchange(348, 20, []) + exchange(200, 21, [(202, b"\0\0")])
+    return steps + [close()], {"kind": "live-account-remove"}

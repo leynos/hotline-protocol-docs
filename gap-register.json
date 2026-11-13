@@ -3,11 +3,11 @@
   "title": "Hotline 1.9 protocol documentation gap register",
   "audited_at_utc": "2026-11-12T12:55:29.155796+00:00",
   "last_updated": "2026-11-13",
-  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-42/manifest.json",
-  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-42/sections.json",
+  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-43/manifest.json",
+  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-43/sections.json",
   "validity_ledger": "../mothra/docs/baseline-validity-ledger.md",
   "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
-  "method": "Native account update review: 31 completed reports, 34 paired connections, eleven identity-checked queries, complete 734-byte records before/after, nine positive and eight negative logins, sentinel/default/32-byte password and 64-byte attribute boundaries. All 87 original criteria and statuses are preserved: 38 Resolved, 48 Investigating, 1 Open; 49 remain unclosed. Account meaning, conflicts/protection, live edits, restart persistence and every other original requirement remain active.",
+  "method": "Native live-account review: 18 complete reports plus an expected stopped-listener failure, 25 host socket lifetimes with 24 established guest connections, sixteen identity-checked queries, two-session update/delete sequences, explicit late removal tails and normal server-application restart persistence. Closure review 22 closes GAP-073 against its unchanged criterion. All 87 original criteria are preserved: 39 Resolved, 47 Investigating, 1 Open; 48 remain unclosed. Broader account, transport, peer and mxd requirements remain active.",
   "gaps": [
     {
       "id": "GAP-001",
@@ -89,7 +89,7 @@
           "level": 3,
           "line_start": 1035,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 1073
+          "line_end": 1075
         }
       ],
       "question": "For every in-scope request, reply and notification, which fields are required, optional, conditional or repeatable, with what widths and value domains?",
@@ -137,9 +137,9 @@
           "path": "protocol.md",
           "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
           "level": 3,
-          "line_start": 1074,
+          "line_start": 1076,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 1095
+          "line_end": 1097
         }
       ],
       "question": "Which statuses, field-100 forms and connection outcomes apply to each failure, including errors in operations without a normal ACK?",
@@ -159,7 +159,7 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Captured the108-entry native-result table, verified sorted keys and documented representative internal domain/code mappings with resource meanings. These are not wire statuses; enclosing catch translation and native error packets remain required. Retained native status1 authentication, permission, missing room/file and unknown/replayed-operation replies, plus invalid zero-size closure. Internal exception translation and remaining failure/drain boundaries remain unresolved. Added missing-buffer null-size and zero-byte transfer-allocation internal SError1/2 traces, plus native RSTs on data/owner/observer for the present-empty fixture and a successful fresh post-reset session. No numbered wire mapping or general reset threshold is inferred. Added native online unknown types0/FFFF with incomingflagsFF/errorFFFFFFFF, yielding type0/reply1/status1 plus exactfield100 text; zero-size replymarker1/255 closes without numbered response. Full operation-error taxonomy remains required. Added Incorrectlogin versus nativebadfilename account failures: bothwirestatus1, but32-byte path diagnostics include internal4/119[-37] infield100 text. Premature121 returns account-read error; online107/121 replay yields Unknowntransactiontype. Fullerror taxonomy remains required. Agreement65536 non-TEXT value loads but fails field101 serialization after successful107 ACK. Early readiness survives with354/roster/500, delayed staysunlisted andcloses afternext500; no errorreply explains109failure. InternalSError1/10 isnotwirestatus10. Fullerrorregistry remains required. Native-mkdir-01 adds exact status1/text100 permission, existing-file/directory/case-conflict and parent-resolution families, with before/after effects and liveness. Root absence/empty combinations fail as conflicts; malformed path prefixes can succeed. Other operation failure/partial-effect registries remain required. Native209sixcreationerrorcasesretainexactstatus1/text100,unchangedlistingandliveness. Same-location209successcanmakeunattachedalias;202missingfilemessagecanrefer tophysicallyexistingunattachedalias. Broaderregistryremainsrequired. Native-metadata01adds207permissionandcollisionfailureswithactualpartialcommentmutations;errorACKdoesnotimplyrollback. Broaderregistryremainsactive. Native-move01adds26moveand9deletecaseswithexactstatus1/text100permission,missingendpoint,collisionandhierarchyerrors,plusbefore/afterunchangedviewsandliveness. Sameparent208succeeds;missing204fails. Broaderfailure/partial-effectregistryremainsactive. Native-news01adds14structureerrorsandfour400article/flavourfailureswithcoarseinvalid-categorytextdespiteexistingcategory. Missing-body410returnsstatus1butleavesmetadata/indexrecord. Exactfamilies,livenessandbefore/afterviewsarecaptured;broaderregistryremainsactive. Article deletion adds exact missing-ID/category, omitted-ID, repeated-delete and permission errors, with unchanged lists and liveness. Broader failure registry remains active.",
+        "progress": "Captured the108-entry native-result table, verified sorted keys and documented representative internal domain/code mappings with resource meanings. These are not wire statuses; enclosing catch translation and native error packets remain required. Retained native status1 authentication, permission, missing room/file and unknown/replayed-operation replies, plus invalid zero-size closure. Internal exception translation and remaining failure/drain boundaries remain unresolved. Added missing-buffer null-size and zero-byte transfer-allocation internal SError1/2 traces, plus native RSTs on data/owner/observer for the present-empty fixture and a successful fresh post-reset session. No numbered wire mapping or general reset threshold is inferred. Added native online unknown types0/FFFF with incomingflagsFF/errorFFFFFFFF, yielding type0/reply1/status1 plus exactfield100 text; zero-size replymarker1/255 closes without numbered response. Full operation-error taxonomy remains required. Added Incorrectlogin versus nativebadfilename account failures: bothwirestatus1, but32-byte path diagnostics include internal4/119[-37] infield100 text. Premature121 returns account-read error; online107/121 replay yields Unknowntransactiontype. Fullerror taxonomy remains required. Agreement65536 non-TEXT value loads but fails field101 serialization after successful107 ACK. Early readiness survives with354/roster/500, delayed staysunlisted andcloses afternext500; no errorreply explains109failure. InternalSError1/10 isnotwirestatus10. Fullerrorregistry remains required. Native-mkdir-01 adds exact status1/text100 permission, existing-file/directory/case-conflict and parent-resolution families, with before/after effects and liveness. Root absence/empty combinations fail as conflicts; malformed path prefixes can succeed. Other operation failure/partial-effect registries remain required. Native209sixcreationerrorcasesretainexactstatus1/text100,unchangedlistingandliveness. Same-location209successcanmakeunattachedalias;202missingfilemessagecanrefer tophysicallyexistingunattachedalias. Broaderregistryremainsrequired. Native-metadata01adds207permissionandcollisionfailureswithactualpartialcommentmutations;errorACKdoesnotimplyrollback. Broaderregistryremainsactive. Native-move01adds26moveand9deletecaseswithexactstatus1/text100permission,missingendpoint,collisionandhierarchyerrors,plusbefore/afterunchangedviewsandliveness. Sameparent208succeeds;missing204fails. Broaderfailure/partial-effectregistryremainsactive. Native-news01adds14structureerrorsandfour400article/flavourfailureswithcoarseinvalid-categorytextdespiteexistingcategory. Missing-body410returnsstatus1butleavesmetadata/indexrecord. Exactfamilies,livenessandbefore/afterviewsarecaptured;broaderregistryremainsactive. Article deletion adds exact missing-ID/category, omitted-ID, repeated-delete and permission errors, with unchanged lists and liveness. Broader failure registry remains active. Account deletion sends data-only 104/101 notice and native first FIN, not a numbered error or politequit111. A stopped application yields a guest RST diagnostic No listener, not a protocol error frame. Broader failure taxonomy remains active.",
         "evidence": [
           "[Native format/recovery/reset corpus](../mothra/evidence/gap-remediation/2026-11-12/native-banner-02/manifest.json)",
           "[Banner type/recovery contract](transfer-contracts.md#captured-banner-formats-and-recovery)",
@@ -179,7 +179,10 @@
           "[Native news corpus](../mothra/evidence/gap-remediation/2026-11-13/native-news-01/manifest.json)",
           "[Captured article deletion](news-contracts.md#captured-article-deletion-and-index-effects)",
           "[Article deletion corpus](../mothra/evidence/gap-remediation/2026-11-13/native-article-delete-01/manifest.json)",
-          "[Repeatable deletion workflow](native-capture-workflow.md#reproducing-isolated-article-deletion-fixtures)"
+          "[Repeatable deletion workflow](native-capture-workflow.md#reproducing-isolated-article-deletion-fixtures)",
+          "[Live account events and restart](native-wire-details.md#captured-live-account-changes-and-server-restart)",
+          "[Native live account corpus](../mothra/evidence/gap-remediation/2026-11-13/native-live-accounts-01/manifest.json)",
+          "[Repeatable live/restart workflow](native-capture-workflow.md#reproducing-live-account-edits-deletion-and-restart)"
         ],
         "closure": "Not closed: remaining unchanged acceptance requirements are explicitly retained above."
       }
@@ -273,9 +276,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 1120,
+          "line_start": 1122,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1157
+          "line_end": 1159
         }
       ],
       "question": "What are the handshake, login, agreement, idle and partial-frame deadlines, and what traffic resets them?",
@@ -291,13 +294,16 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Published timer origins/reset conditions: only selected logical requests refresh session activity; upload entry clocks begin at request creation and attachment does not reset them; consumed file chunks refresh them. Added bounded pending/partial-input negatives and late-attachment derived case. Lower-layer/configured timing and native boundary fixtures remain required. Guest trace establishes no FIN/RST during65.060281 host seconds after a failed-login reply before client cleanup. A separate isolated35-second quiet case resets the failed session92.254ms after a new control SYN. Added primary OT predicate/close helper captures. Dispatcher scheduling, guard semantics across profiles and clock/configuration boundaries remain open; no hard30-second deadline is claimed. Added partial header/body/transaction silence then nativeFIN responses to client write-half-close. These are not timeout observations or mandatory deadlines; platform/scheduling/liveness requirements remain open. Native-login-extras-01 retains a90second waiting hypothesis: guest close at90.851866 reportseconds precedes host121send92.727286;121never reachesguest.20second configured-name change permits waiting121completion. This isnot a universal deadline orisolated options-save/timercause; scheduling/guard boundaries remain required.",
+        "progress": "Published timer origins/reset conditions: only selected logical requests refresh session activity; upload entry clocks begin at request creation and attachment does not reset them; consumed file chunks refresh them. Added bounded pending/partial-input negatives and late-attachment derived case. Lower-layer/configured timing and native boundary fixtures remain required. Guest trace establishes no FIN/RST during65.060281 host seconds after a failed-login reply before client cleanup. A separate isolated35-second quiet case resets the failed session92.254ms after a new control SYN. Added primary OT predicate/close helper captures. Dispatcher scheduling, guard semantics across profiles and clock/configuration boundaries remain open; no hard30-second deadline is claimed. Added partial header/body/transaction silence then nativeFIN responses to client write-half-close. These are not timeout observations or mandatory deadlines; platform/scheduling/liveness requirements remain open. Native-login-extras-01 retains a90second waiting hypothesis: guest close at90.851866 reportseconds precedes host121send92.727286;121never reachesguest.20second configured-name change permits waiting121completion. This isnot a universal deadline orisolated options-save/timercause; scheduling/guard boundaries remain required. Deleted-account subjects show native first FIN but remain in two bounded observer snapshots; late 302 messages follow the recorded receive prefix. No universal teardown deadline is inferred.",
         "evidence": [
           "[Native transport corpus](../mothra/evidence/gap-remediation/2026-11-12/native-transport-01/manifest.json)",
           "[Captured boundaries and timers](session-transport-contracts.md)",
           "[Repeatable transport fixtures](native-capture-workflow.md#recorded-native-transport-fixtures)",
           "[Native ID/envelope/EOF corpus](../mothra/evidence/gap-remediation/2026-11-12/native-correlation-01/manifest.json)",
-          "[Native login-extra corpus](../mothra/evidence/gap-remediation/2026-11-13/native-login-extras-01/manifest.json)"
+          "[Native login-extra corpus](../mothra/evidence/gap-remediation/2026-11-13/native-login-extras-01/manifest.json)",
+          "[Live account events and restart](native-wire-details.md#captured-live-account-changes-and-server-restart)",
+          "[Native live account corpus](../mothra/evidence/gap-remediation/2026-11-13/native-live-accounts-01/manifest.json)",
+          "[Repeatable live/restart workflow](native-capture-workflow.md#reproducing-live-account-edits-deletion-and-restart)"
         ],
         "closure": "Not closed: the remaining unchanged acceptance requirements are explicitly retained above."
       }
@@ -407,9 +413,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 1120,
+          "line_start": 1122,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1157
+          "line_end": 1159
         }
       ],
       "question": "What can be sent before authentication, after login ACK, while agreement is pending, after early completion and during shutdown?",
@@ -789,7 +795,7 @@
           "level": 3,
           "line_start": 1035,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 1073
+          "line_end": 1075
         },
         {
           "path": "protocol.md",
@@ -1075,7 +1081,7 @@
           "level": 3,
           "line_start": 1035,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 1073
+          "line_end": 1075
         }
       ],
       "question": "What byte/character limits and truncation or rejection rules apply to every name, password, message, subject, comment and body?",
@@ -1208,7 +1214,7 @@
           "level": 3,
           "line_start": 1035,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 1073
+          "line_end": 1075
         }
       ],
       "question": "When an ACK precedes routing or mutation side effects, what has it committed to, and what can fail or be retried afterwards?",
@@ -1230,7 +1236,7 @@
         "GAP-007"
       ],
       "resolution": {
-        "progress": "Added news structure order: Trash move or directory/category creation precedes ACK; creation activity logging follows ACK. INFO FlushVol return is unchecked. Disconnect-boundary, persistence, retry/idempotency and postACK failure fixtures remain required. Agreementfieldoverflow proves107successACK canprecede failed109construction withoutrollingback earlyreadiness. Noerrorreply oratomicrollback guarantee; broaderdurability/retry remains required. ImmediateURLPrefs snapshot retained stale188-byte forkextent despite liveURLwireconfiguration; independent203finalization invokes knownFlushVolpath and thenpositive222-byte fork iscomplete. Failedsnapshot/oldcontrols areseparate; final175-byte recordedbaseline isrestored exactly. NoACK/restartdurability rule inferred. Native208sameparentfile/foldermovesreturnemptysuccesswithoutvisiblechange. Native204missingtargetreturnsstatus1. Helpers/positivecataloguesseparateactualeffectsfromreplytext;lostACKretry,restartdurabilityandotheroperationcriteriaremainunproven. Missing-body410errorfollowsvisible/storedarticlecreationandcountincrement;rawHLNZcachepreservesthezero-flavourrecord. ErrorACKdoesnotimplyrollback. Ownedflushpublicationdemonstrateswhyaninitialzero-positiveprobeisnotabsence;restart/lostACKacceptanceremainsactive. Article deletion ACKs correspond to observed tree/index/cache changes; storage writes are staged without demonstrated rollback. Independent positive upload publication preserves 27 original objects in Trash; forced I/O interruption, lost ACK and restart durability remain unproved. Success ACK does not guarantee full list discovery: append 102 retains all 103 indexed records but only 102 list entries. Direct orphan lookup still succeeds. Native cache/index mismatch is positively retained; interruption and restart outcomes remain required. Complete before/after 734-byte account files match replacement semantics, including cleared unused bytes; independent positive Trash observations preserve all 18 original objects/forks. No interrupted-write, lostACK or restart guarantee is established.",
+        "progress": "Added news structure order: Trash move or directory/category creation precedes ACK; creation activity logging follows ACK. INFO FlushVol return is unchecked. Disconnect-boundary, persistence, retry/idempotency and postACK failure fixtures remain required. Agreementfieldoverflow proves107successACK canprecede failed109construction withoutrollingback earlyreadiness. Noerrorreply oratomicrollback guarantee; broaderdurability/retry remains required. ImmediateURLPrefs snapshot retained stale188-byte forkextent despite liveURLwireconfiguration; independent203finalization invokes knownFlushVolpath and thenpositive222-byte fork iscomplete. Failedsnapshot/oldcontrols areseparate; final175-byte recordedbaseline isrestored exactly. NoACK/restartdurability rule inferred. Native208sameparentfile/foldermovesreturnemptysuccesswithoutvisiblechange. Native204missingtargetreturnsstatus1. Helpers/positivecataloguesseparateactualeffectsfromreplytext;lostACKretry,restartdurabilityandotheroperationcriteriaremainunproven. Missing-body410errorfollowsvisible/storedarticlecreationandcountincrement;rawHLNZcachepreservesthezero-flavourrecord. ErrorACKdoesnotimplyrollback. Ownedflushpublicationdemonstrateswhyaninitialzero-positiveprobeisnotabsence;restart/lostACKacceptanceremainsactive. Article deletion ACKs correspond to observed tree/index/cache changes; storage writes are staged without demonstrated rollback. Independent positive upload publication preserves 27 original objects in Trash; forced I/O interruption, lost ACK and restart durability remain unproved. Success ACK does not guarantee full list discovery: append 102 retains all 103 indexed records but only 102 list entries. Direct orphan lookup still succeeds. Native cache/index mismatch is positively retained; interruption and restart outcomes remain required. Complete before/after 734-byte account files match replacement semantics, including cleared unused bytes; independent positive Trash observations preserve all 18 original objects/forks. No interrupted-write, lostACK or restart guarantee is established. Normal server application restart preserves account replacement and deletion, exact stored records and original catalogue objects. Application forks and complete Prefs bytes are unchanged. This does not establish OS/power-loss or interrupted-write durability.",
         "evidence": [
           "[Structure effects](news-contracts.md#structure-operation-effects-and-conflicts)",
           "[Internal errors](error-outcomes.md#internal-exceptions-and-text-resources)",
@@ -1248,7 +1254,10 @@
           "[Repeatable boundary workflow](native-capture-workflow.md#reproducing-the-child-append-boundary)",
           "[Captured account replacements](native-wire-details.md#captured-account-replacement-and-password-boundaries)",
           "[Native account update corpus](../mothra/evidence/gap-remediation/2026-11-13/native-account-update-01/manifest.json)",
-          "[Repeatable account update workflow](native-capture-workflow.md#reproducing-account-replacement-and-password-boundaries)"
+          "[Repeatable account update workflow](native-capture-workflow.md#reproducing-account-replacement-and-password-boundaries)",
+          "[Live account events and restart](native-wire-details.md#captured-live-account-changes-and-server-restart)",
+          "[Native live account corpus](../mothra/evidence/gap-remediation/2026-11-13/native-live-accounts-01/manifest.json)",
+          "[Repeatable live/restart workflow](native-capture-workflow.md#reproducing-live-account-edits-deletion-and-restart)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -1284,7 +1293,7 @@
           "level": 3,
           "line_start": 1035,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 1073
+          "line_end": 1075
         },
         {
           "path": "internal-compatibility-matrix.md",
@@ -1351,7 +1360,7 @@
           "level": 3,
           "line_start": 1035,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 1073
+          "line_end": 1075
         }
       ],
       "question": "Are absent, empty, NUL-containing or differently cased logins equivalent; how are complemented bytes normalized and guest permissions chosen?",
@@ -2040,12 +2049,15 @@
         "GAP-034"
       ],
       "resolution": {
-        "progress": "Traced online/ready fan-out including online self, and initial login 301 before new-session online flag. Snapshot concurrency and delivered ordering fixtures remain required. Observerrosters exclude authenticated delayedsubject until121 and include earlysubject before121. Repeated107 post-close3second snapshot stilllists subject, thenliteralunread302 arrives; noatomic snapshot/subscription oruniversalcleanup deadline claimed. 40configuredmatrixcases independentlyshowearly301/visibility before121 anddelayedvisibility after121. Overflowearlyremainsvisiblewithout109; delayedneverlisted. Noatomic300subscription/crossconnectiontotalorder claim.",
+        "progress": "Traced online/ready fan-out including online self, and initial login 301 before new-session online flag. Snapshot concurrency and delivered ordering fixtures remain required. Observerrosters exclude authenticated delayedsubject until121 and include earlysubject before121. Repeated107 post-close3second snapshot stilllists subject, thenliteralunread302 arrives; noatomic snapshot/subscription oruniversalcleanup deadline claimed. 40configuredmatrixcases independentlyshowearly301/visibility before121 anddelayedvisibility after121. Overflowearlyremainsvisiblewithout109; delayedneverlisted. Noatomic300subscription/crossconnectiontotalorder claim. Two matching sessions receive their new zero-mask 354 before their own 301; peer rename messages can precede that recipient's 354. Caller ACK precedes its two rename notifications and requested snapshot. Password/attribute-only edits emit no extra 354/301 in the observed windows. Broader snapshot races remain required.",
         "evidence": [
           "[Presence, messaging and administration](presence-messaging-contracts.md)",
           "[Batch 06](../mothra/evidence/gap-remediation/2026-11-12/batch-06/manifest.json)",
           "[Native authentication/state corpus](../mothra/evidence/gap-remediation/2026-11-13/native-auth-01/manifest.json)",
-          "[Native agreement corpus](../mothra/evidence/gap-remediation/2026-11-13/native-agreement-01/manifest.json)"
+          "[Native agreement corpus](../mothra/evidence/gap-remediation/2026-11-13/native-agreement-01/manifest.json)",
+          "[Live account events and restart](native-wire-details.md#captured-live-account-changes-and-server-restart)",
+          "[Native live account corpus](../mothra/evidence/gap-remediation/2026-11-13/native-live-accounts-01/manifest.json)",
+          "[Repeatable live/restart workflow](native-capture-workflow.md#reproducing-live-account-edits-deletion-and-restart)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -2079,9 +2091,9 @@
           "path": "protocol.md",
           "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
           "level": 3,
-          "line_start": 1074,
+          "line_start": 1076,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 1095
+          "line_end": 1097
         }
       ],
       "question": "Which teardown paths emit 302, which fields/recipients are used, and when are rooms, queued transfers and IDs cleaned up?",
@@ -2102,12 +2114,15 @@
         "GAP-035"
       ],
       "resolution": {
-        "progress": "Identified native 302 producer with UID 103 after per-room 118 and empty-room removal. Departing session is removed before fan-out; transfers clean via owner checks later. EOF/kick/timeout native traces remain required. Observerreceives302 for failed/premature sessions neverpresent inrosters andwithno301. Repeated107 case hasdelayed302 afterpostclose snapshot; literal28-byte tail pinned inbothviews. Broaderroomcleanup andtiming requirements remain. Overflowdelayed emits302withoutprevious301/listing; overflowearlycleanup removesvisibleUID. Fullroomcleanup/scheduling/lifetime remain required.",
+        "progress": "Identified native 302 producer with UID 103 after per-room 118 and empty-room removal. Departing session is removed before fan-out; transfers clean via owner checks later. EOF/kick/timeout native traces remain required. Observerreceives302 for failed/premature sessions neverpresent inrosters andwithno301. Repeated107 case hasdelayed302 afterpostclose snapshot; literal28-byte tail pinned inbothviews. Broaderroomcleanup andtiming requirements remain. Overflowdelayed emits302withoutprevious301/listing; overflowearlycleanup removesvisibleUID. Fullroomcleanup/scheduling/lifetime remain required. Account deletion delivers exact data-only 104 notice and guest-first FIN to two subjects. Two subsequent observer snapshots still contain them; two exact 28-byte 302 messages lie beyond the observer's recorded read prefix in both packet views. Broader room/transfer, timeout/kick and close scheduling criteria remain active.",
         "evidence": [
           "[Presence, messaging and administration](presence-messaging-contracts.md)",
           "[Batch 06](../mothra/evidence/gap-remediation/2026-11-12/batch-06/manifest.json)",
           "[Native authentication/state corpus](../mothra/evidence/gap-remediation/2026-11-13/native-auth-01/manifest.json)",
-          "[Native agreement corpus](../mothra/evidence/gap-remediation/2026-11-13/native-agreement-01/manifest.json)"
+          "[Native agreement corpus](../mothra/evidence/gap-remediation/2026-11-13/native-agreement-01/manifest.json)",
+          "[Live account events and restart](native-wire-details.md#captured-live-account-changes-and-server-restart)",
+          "[Native live account corpus](../mothra/evidence/gap-remediation/2026-11-13/native-live-accounts-01/manifest.json)",
+          "[Repeatable live/restart workflow](native-capture-workflow.md#reproducing-live-account-edits-deletion-and-restart)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -2189,9 +2204,9 @@
           "path": "protocol.md",
           "heading": "Additional Admin Privileges Note",
           "level": 3,
-          "line_start": 1111,
+          "line_start": 1113,
           "anchor": "additional-admin-privileges-note",
-          "line_end": 1119
+          "line_end": 1121
         }
       ],
       "question": "Is the main room implicit, and what authorizes join, send, invite, topic edit or administrative access to a private room?",
@@ -2477,9 +2492,9 @@
           "path": "protocol.md",
           "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
           "level": 3,
-          "line_start": 1074,
+          "line_start": 1076,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 1095
+          "line_end": 1097
         },
         {
           "path": "protocol.md",
@@ -2547,9 +2562,9 @@
           "path": "protocol.md",
           "heading": "Broadcasting a Message (Transaction 355) – Admin/Server Initiated",
           "level": 3,
-          "line_start": 1096,
+          "line_start": 1098,
           "anchor": "broadcasting-a-message-transaction-355--adminserver-initiated",
-          "line_end": 1110
+          "line_end": 1112
         },
         {
           "path": "protocol.md",
@@ -3852,7 +3867,7 @@
           "level": 3,
           "line_start": 1035,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 1073
+          "line_end": 1075
         }
       ],
       "question": "What is field 111's wire type, presence/default rule, stored meaning and effect on 350/353?",
@@ -3867,13 +3882,16 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Account111 remains stored opaque data, absent from inspected352/348 outputs. Inspected UI range was ban editing, and pinned shx account constants do not name111. No human label or no-use-anywhere claim is inferred; native representative fixtures remain required. Captured absent/empty/value111 updates with native734-byte UserData: lengths0/0/8 and opaque-c content;352 omits111 in all three. Human meaning and later reads/use remain unresolved. Native account-update 01 stores 65-byte 111 as length 64 with exact 64 X bytes, and sparse 353 clears its length/content. All 352 outputs still omit 111. Full stored-record evidence advances width/default rules but does not identify human meaning or all later consumers.",
+        "progress": "Account111 remains stored opaque data, absent from inspected352/348 outputs. Inspected UI range was ban editing, and pinned shx account constants do not name111. No human label or no-use-anywhere claim is inferred; native representative fixtures remain required. Captured absent/empty/value111 updates with native734-byte UserData: lengths0/0/8 and opaque-c content;352 omits111 in all three. Human meaning and later reads/use remain unresolved. Native account-update 01 stores 65-byte 111 as length 64 with exact 64 X bytes, and sparse 353 clears its length/content. All 352 outputs still omit 111. Full stored-record evidence advances width/default rules but does not identify human meaning or all later consumers. Attribute-only live update with password NUL sentinel leaves effective identity/access unchanged and emits no extra 354/301 during measured windows. This is a bounded propagation result, not an account-attribute meaning or no-consumer-anywhere claim.",
         "evidence": [
           "[Native core corpus](../mothra/evidence/gap-remediation/2026-11-12/native-core-01/manifest.json)",
           "[Repeatable workflow](native-capture-workflow.md#recorded-native-core-fixtures)",
           "[Captured account replacements](native-wire-details.md#captured-account-replacement-and-password-boundaries)",
           "[Native account update corpus](../mothra/evidence/gap-remediation/2026-11-13/native-account-update-01/manifest.json)",
-          "[Repeatable account update workflow](native-capture-workflow.md#reproducing-account-replacement-and-password-boundaries)"
+          "[Repeatable account update workflow](native-capture-workflow.md#reproducing-account-replacement-and-password-boundaries)",
+          "[Live account events and restart](native-wire-details.md#captured-live-account-changes-and-server-restart)",
+          "[Native live account corpus](../mothra/evidence/gap-remediation/2026-11-13/native-live-accounts-01/manifest.json)",
+          "[Repeatable live/restart workflow](native-capture-workflow.md#reproducing-live-account-edits-deletion-and-restart)"
         ],
         "closure": "Not closed: remaining unchanged acceptance requirements are explicitly retained above."
       }
@@ -3893,7 +3911,7 @@
           "level": 3,
           "line_start": 1035,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 1073
+          "line_end": 1075
         }
       ],
       "question": "How are target login, rename, absent/empty password, literal x, duplicate names, protected-account deletion and partial updates handled?",
@@ -3917,13 +3935,16 @@
         "GAP-071"
       ],
       "resolution": {
-        "progress": "Documented350 create grant subset check with bit27 exemption,353 update bit17 without the equivalent handler subset comparison,352/348 read bit16 and351 delete bit15. Delete helper moves account file to Trash; protected/self/conflict/persistence native fixtures remain required. Captured create/change, wrong/complement/plaintext password controls and352 asymmetry: request lookup uses uncomplemented105, unlike350/351/353; reply105 is complemented. Sentinel, sparse/default, collision, rename and live-session boundary cases remain. Eight replacement/default/sentinel/width cases, nine positive and eight negative logins, exact 352 placeholder/omission rules and complete native records are verified across 31 reports/34 pairedconnections. Enumeration and Files baselines restored. Rename/conflict, protected/self deletion and forced storage failures remain required.",
+        "progress": "Documented350 create grant subset check with bit27 exemption,353 update bit17 without the equivalent handler subset comparison,352/348 read bit16 and351 delete bit15. Delete helper moves account file to Trash; protected/self/conflict/persistence native fixtures remain required. Captured create/change, wrong/complement/plaintext password controls and352 asymmetry: request lookup uses uncomplemented105, unlike350/351/353; reply105 is complemented. Sentinel, sparse/default, collision, rename and live-session boundary cases remain. Eight replacement/default/sentinel/width cases, nine positive and eight negative logins, exact 352 placeholder/omission rules and complete native records are verified across 31 reports/34 pairedconnections. Enumeration and Files baselines restored. Rename/conflict, protected/self deletion and forced storage failures remain required. Owned account replacement and deletion persist across a normal native server application restart, with unchanged application/Prefs identities and full stored records. Protected/self-deletion, rename/conflict and forced write failures remain required.",
         "evidence": [
           "[Native core corpus](../mothra/evidence/gap-remediation/2026-11-12/native-core-01/manifest.json)",
           "[Repeatable workflow](native-capture-workflow.md#recorded-native-core-fixtures)",
           "[Captured account replacements](native-wire-details.md#captured-account-replacement-and-password-boundaries)",
           "[Native account update corpus](../mothra/evidence/gap-remediation/2026-11-13/native-account-update-01/manifest.json)",
-          "[Repeatable account update workflow](native-capture-workflow.md#reproducing-account-replacement-and-password-boundaries)"
+          "[Repeatable account update workflow](native-capture-workflow.md#reproducing-account-replacement-and-password-boundaries)",
+          "[Live account events and restart](native-wire-details.md#captured-live-account-changes-and-server-restart)",
+          "[Native live account corpus](../mothra/evidence/gap-remediation/2026-11-13/native-live-accounts-01/manifest.json)",
+          "[Repeatable live/restart workflow](native-capture-workflow.md#reproducing-live-account-edits-deletion-and-restart)"
         ],
         "closure": "Not closed: remaining unchanged acceptance requirements are explicitly retained above."
       }
@@ -3933,7 +3954,7 @@
       "area": "Administration",
       "priority": "P1",
       "kind": "Unanswered",
-      "status": "Investigating",
+      "status": "Resolved",
       "owner": "Protocol documentation investigation",
       "title": "Account changes and active sessions",
       "sources": [
@@ -3943,7 +3964,7 @@
           "level": 3,
           "line_start": 1035,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 1073
+          "line_end": 1075
         },
         {
           "path": "protocol.md",
@@ -3957,9 +3978,9 @@
           "path": "protocol.md",
           "heading": "Additional Admin Privileges Note",
           "level": 3,
-          "line_start": 1111,
+          "line_start": 1113,
           "anchor": "additional-admin-privileges-note",
-          "line_end": 1119
+          "line_end": 1121
         }
       ],
       "question": "When do edited privileges, names or passwords affect current sessions, does deletion disconnect them, and what 354/301 notifications occur?",
@@ -3980,15 +4001,19 @@
         "GAP-072"
       ],
       "resolution": {
-        "progress": "Traced351 order: account deletion and ACK precede matching-login session notification/disconnect scan. Distinguished live354 privilege propagation from deletion. Native self/delete/multiple-session delivery and reconnect fixtures remain required. Password/access/default replacements are visible on fresh connections and in stored records; these are not live-edit or restart fixtures. Fresh 10005 d 30/10005 f 90 queries retain propagation/deletion paths without a new runtime claim for active subjects.",
+        "progress": "Traced351 order: account deletion and ACK precede matching-login session notification/disconnect scan. Distinguished live354 privilege propagation from deletion. Native self/delete/multiple-session delivery and reconnect fixtures remain required. Password/access/default replacements are visible on fresh connections and in stored records; these are not live-edit or restart fixtures. Fresh 10005d30/10005f90 queries retain propagation/deletion paths without a new runtime claim for active subjects. Native two-session edits establish new privileges/name propagation and continued existing-session liveness after password changes. Two-session deletion establishes data-only104, guest-firstFIN, stale snapshots and explicit late302 tails. Old/intermediate/deleted reconnects fail and final credentials succeed before/after a normal application restart; complete account records, five owned objects, app forks and Prefs remain identical. Host exit143 is retained with independent confirmation.",
         "evidence": [
           "[Privilege registry](privilege-contracts.md)",
           "[Native caller review](../mothra/evidence/gap-remediation/2026-11-12/batch-15/privilege-callsite-review.json)",
           "[Captured account replacements](native-wire-details.md#captured-account-replacement-and-password-boundaries)",
           "[Native account update corpus](../mothra/evidence/gap-remediation/2026-11-13/native-account-update-01/manifest.json)",
-          "[Repeatable account update workflow](native-capture-workflow.md#reproducing-account-replacement-and-password-boundaries)"
+          "[Repeatable account update workflow](native-capture-workflow.md#reproducing-account-replacement-and-password-boundaries)",
+          "[Live account events and restart](native-wire-details.md#captured-live-account-changes-and-server-restart)",
+          "[Native live account corpus](../mothra/evidence/gap-remediation/2026-11-13/native-live-accounts-01/manifest.json)",
+          "[Repeatable live/restart workflow](native-capture-workflow.md#reproducing-live-account-edits-deletion-and-restart)",
+          "[Closure review 22](../mothra/evidence/gap-remediation/2026-11-13/closure-review-22/review.json)"
         ],
-        "closure": "Not closed: remaining acceptance evidence is listed above."
+        "closure": "Closed against unchanged account/session propagation, live-edit/delete sequences and reconnect/normal-server-restart persistence criterion. No OS/power-loss or forced-I/O durability, protected/self-deletion, rename/conflict or universal room/transfer teardown claim. Other original gaps remain active."
       }
     },
     {
@@ -4004,9 +4029,9 @@
           "path": "protocol.md",
           "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
           "level": 3,
-          "line_start": 1074,
+          "line_start": 1076,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 1095
+          "line_end": 1097
         }
       ],
       "question": "What exactly do options 1 and 2 do, including identity matching, ranges/duration, optional data 101, reconnection and protected users?",
@@ -4046,17 +4071,17 @@
           "path": "protocol.md",
           "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
           "level": 3,
-          "line_start": 1074,
+          "line_start": 1076,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 1095
+          "line_end": 1097
         },
         {
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 1120,
+          "line_start": 1122,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1157
+          "line_end": 1159
         }
       ],
       "question": "Does any native producer actually emit 111, under which conditions, with what fields and delivery/closure ordering?",
@@ -4094,9 +4119,9 @@
           "path": "protocol.md",
           "heading": "Broadcasting a Message (Transaction 355) – Admin/Server Initiated",
           "level": 3,
-          "line_start": 1096,
+          "line_start": 1098,
           "anchor": "broadcasting-a-message-transaction-355--adminserver-initiated",
-          "line_end": 1110
+          "line_end": 1112
         }
       ],
       "question": "Does a console-generated broadcast use the same 355 schema, and which connected/logged-in/refusing users receive each origin's broadcast?",
@@ -4134,9 +4159,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 1120,
+          "line_start": 1122,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1157
+          "line_end": 1159
         }
       ],
       "question": "What does 348 do, what fields and privileges apply, and how are its potentially nested account records serialized?",
@@ -4174,9 +4199,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 1120,
+          "line_start": 1122,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1157
+          "line_end": 1159
         }
       ],
       "question": "What indexed/transitive fields does 349 consume, how are batch entries delimited, and are failures atomic or per-entry?",
@@ -4214,9 +4239,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 1120,
+          "line_start": 1122,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1157
+          "line_end": 1159
         }
       ],
       "question": "Is 500 a liveness operation or something else, who sends it and when, and does its ACK affect idle deadlines?",
@@ -4430,9 +4455,9 @@
           "path": "protocol.md",
           "heading": "References and Correction Traceability",
           "level": 2,
-          "line_start": 1158,
+          "line_start": 1160,
           "anchor": "references-and-correction-traceability",
-          "line_end": 1199
+          "line_end": 1201
         }
       ],
       "question": "Which release/client/server configurations do the selected RCS trunk snapshots represent, and how do the default vendor branch and build options differ?",
@@ -4509,7 +4534,7 @@
         "GAP-025"
       ],
       "resolution": {
-        "progress": " Added a14-test capture runner and the first positive native12/8-byte handshake. The guest later crashed; exact guest component versions and running executable hash were not retained. Negative/pipelined/login/data/identified-peer fixtures and complete provenance remain required. Added16 native transcripts from hashed patched emulator/ROM/base/native application forks, host-loopback packet capture, account records and a semantic verifier. Fourteen plans completed; two EOF observations timed out and remain failed. No identified historical peer or full native corpus completion is claimed. Added14 addressed final handshake cases with paired host/guest packet reconciliation,39 total retained transcripts including explorations, a hashed clean prelaunch checkpoint and reset-aware analysis. Split windows are3 seconds; observed native FIN/RST distinctions are preserved even when the host proxy exposes EOF. Full operation/identified-peer corpus remains required. Added62 reviewed framing/TLV sessions plus preserved disproven initial icon-width hypothesis, exact host/guest packet reconciliation scoped to UTC/SYN lifetimes, and independent missing-close/quiet-window controls. Full operations and identified peers remain required. Added two successfulordinaryuploads and eightrevieweddownload modes plus eight initialprobes. Exact pairedpackets and nativeHFS+ forks validated; oneunread59byte301 controlsuffix explicitly pinned in bothviews rather than addedtooriginalreport. Fulloperation/identifiedpeer corpus remains required. Added23 final resume observations and7 initialattempts with3 retainedfailures. Everytranscript reconciles exact pairedpackets, with2 pinnedinitialunread301suffixes. Before/after nativeHFS+ forks validate correct/inconsistent continuation. Boundedreplymatching preserves asynchronousnotifications. Full operations andidentifiedpeers remain required. Added four controlled queue cases with paired exact streams, full reply inventories, mode/fork sizes, owner-specific211 sequences and measured540second pause windows. One unread28byte302 is pinned explicitly in both packet views. Test limits2/1 and restored100/10 are verified in saved/reopened GUI screenshots; no ROM/disk committed. Full operations and identified peers remain required. Added ten completed cleanup/seed cases, paired exact streams, native HFS+ fork bytes and first-observed packet/request/ACK timing with retransmissions deduplicated. A28byte unread departure is pinned explicitly. Three immediate and three partial-read races plus nonowner delivery establish finite outcomes, not all-operation or identified-peer conformance. Added17 final folder cases,3 initial probes and1 auxiliary finalization. Core andtimed pairedpacket phases, positive before/after catalogue/fork snapshots and measured pauses are retained. Two initial failures occur before folder requests; one hostwrite never reaches guest boundary and is pinned separately. Path-based HFS enumeration fails; positive direct lookup succeeds, withoutabsence/exhaustiveness claims. Full operations andidentifiedpeers remain required. Added24 final banner cases with exact paired packet streams, positive native GIF fork/catalogue observations and retained exploratory failures. GUI phases overlap the expiry observation and are disclosed. Full operation and identified historical-peer coverage remain required. Added17 final format/recovery/reset sessions, five original exploratory reports and nine additional setup observations. Eight independently observed native file/type controls, protocol-confirmed absence/restoration, concurrent owner/observer reset and positive post-reset login are retained. All final packet streams reconcile; one exploratory22-byte post-reset host suffix never reaches the guest. Three completed exploratory Save hypotheses retain the wrong loaded configuration. Full operations and identified historical peers remain required. Delayed recovery directly retains an owner122 before disappearance; both early and delayed recovery streams pass independent packet/phase checks. Two rejected setup trials pin unread57-byte banner suffixes and301/302 controls explicitly. Added17 HTXF sessions plus preflight; all inputs/outputs independently reconcile at both packet boundaries. Three positive native DATA forks and seven semantic/mutation tests strengthen header/reference acceptance; complete operations and identified historical peers remain required. Added24 paired native ID/envelope/EOF sessions and25 read-only oracle queries, including a preserved rejected interior-address query. No unread packet suffixes. Zero/high-bit IDs, collision/reuse, late replies, emitted notifications, unsupported requests and underfilled EOF now have acceptance evidence; other operations and historical peers remain required. Added33accepted auth/lookup/state reports,2retained exploratory reports,14read-onlyoraclequeries,5positive UserData records andagreementfork. Everypacketstream reconciles withliteral28-byte delayed302tail retained. Fulloperations, configuration paths andhistoricalpeers remain required. Added42acceptedagreementcases,28setupcontrols,12exploratoryreports and16identitycheckedqueries withnativepath/type/fork controls. All42accepted and39nonstalled auxiliary streams reconcile exactly; host-timer failedboundary isexplicitly bounded withlateSYNACK retained. Originalagreementandaccountcleanupverified. Fulloperations/peers/mxd acceptance remain required. Added34acceptedlogin-extra/name-change/referencecases,11setupcontrols,5exploratoryreports and14identitycheckedqueries withpositivePrefs controls.49reportstreams reconcile exactly; failed90secondtrialexplicitlyretains hostonlylate121 andguestonly302. Allaccepted streams matchbothboundaries. Broaderoperations,identifiedpeers andmxd acceptance remain required. Five full historical-source terminal sessions plus a controlled script witness now reconcile sixpeer sockets and onewitness socket at both host and guest boundaries. SavedDATA13/MACR317 match knownfixture and FILP; hostrecorder170packets/zerodrops. This extends fixture coverage without closing otheroperation/peer/mxd acceptance requirements. Three actual native configured-name sessions andthree nativeflushcontrols reconcile bothpacketboundaries; four realpeer receiverfixtures reconcile hostPCAP/syscalls/listenerevents. PositivePrefs andbaseline restoration arechecked; controlled delivery isnever labellednative execution. Native-mkdir-01 adds47creation/path cases plus sixempty-root inputs,51reports/53paired sockets, tenidentitycheckedqueries andpositivecatalogues. Literal1374+43 hostrecordings, zero drops, exactmergedcapture and44ownedTrashobjects are retained. Broader operation/peer/mxd acceptance remains active. Nativealias01 adds44completedreports plusoneinitialEOFtimeout,66pairedsockets,14identitycheckedqueries and33positiveprecleanupcatalogueobjects. Newtimerpatchedruntimeprovenance retained. Cleanuprestores41entrywirelisting;postcleanupdiskviewonly3positiveobservations,notcompletepersistenceproof. Native-metadata01adds49reports/72pairedsockets,36mainmutations,sixcombined-emptycases,22boundarywrites,13freshoraclequeriesandindependentadminfinalviews. Initialwrong351cleanupencodingandcorrectedrecoverybothretained;ownedaccountsabsentandFileswirelistingrestored. Broaderoperation/peer/mxdcriteriaremainactive. Native-move01adds39reports/75pairedsockets,11freshoraclequeries,72seeded/73finalpositiveobjectsand70postcleanupTrashobservations. Fileswirelistingrestored;threepostcleanupmarkerprobesnotpositive. Broaderoperation/peer/mxdacceptanceremainsactive. Native-news01adds43reports/45sockets,29freshoraclequeries,ninecontrolledversions,threaded/cached321andfivepositive/fournegativebodycases. Initialzero-positivecleanupviewisretainedinconclusive;subsequentnativeuploadpublishes10originalTrashobjectsandpreservedHLNZcaches. Broaderoperation/actual-peer/mxdacceptanceremainsactive. Article deletion adds 58 reports (56 completed, two retained failures), 60 paired connections, 15 fresh queries and independently verified native counts/caches. Distinct old/recovered runtime identities and prefix-only recovery retained. Broader operation and actual-peer acceptance remains active. Added 20 completed reports, 22 paired connections, ten fresh identity-checked queries, native 103-record/index versus 102-entry list/cache boundary and positive owned cleanup. Initial out-of-range and unrelated Trash probes stay explicitly inconclusive. Wider native/peer acceptance remains active. Added 31 completed reports, 34 paired connections, eleven identity-checked queries, complete before/after 734-byte records, nine positive/eight negative logins and positive owned Trash/cleanup observations. Broader operations and actual-peer acceptance remain active.",
+        "progress": " Added a14-test capture runner and the first positive native12/8-byte handshake. The guest later crashed; exact guest component versions and running executable hash were not retained. Negative/pipelined/login/data/identified-peer fixtures and complete provenance remain required. Added16 native transcripts from hashed patched emulator/ROM/base/native application forks, host-loopback packet capture, account records and a semantic verifier. Fourteen plans completed; two EOF observations timed out and remain failed. No identified historical peer or full native corpus completion is claimed. Added14 addressed final handshake cases with paired host/guest packet reconciliation,39 total retained transcripts including explorations, a hashed clean prelaunch checkpoint and reset-aware analysis. Split windows are3 seconds; observed native FIN/RST distinctions are preserved even when the host proxy exposes EOF. Full operation/identified-peer corpus remains required. Added62 reviewed framing/TLV sessions plus preserved disproven initial icon-width hypothesis, exact host/guest packet reconciliation scoped to UTC/SYN lifetimes, and independent missing-close/quiet-window controls. Full operations and identified peers remain required. Added two successfulordinaryuploads and eightrevieweddownload modes plus eight initialprobes. Exact pairedpackets and nativeHFS+ forks validated; oneunread59byte301 controlsuffix explicitly pinned in bothviews rather than addedtooriginalreport. Fulloperation/identifiedpeer corpus remains required. Added23 final resume observations and7 initialattempts with3 retainedfailures. Everytranscript reconciles exact pairedpackets, with2 pinnedinitialunread301suffixes. Before/after nativeHFS+ forks validate correct/inconsistent continuation. Boundedreplymatching preserves asynchronousnotifications. Full operations andidentifiedpeers remain required. Added four controlled queue cases with paired exact streams, full reply inventories, mode/fork sizes, owner-specific211 sequences and measured540second pause windows. One unread28byte302 is pinned explicitly in both packet views. Test limits2/1 and restored100/10 are verified in saved/reopened GUI screenshots; no ROM/disk committed. Full operations and identified peers remain required. Added ten completed cleanup/seed cases, paired exact streams, native HFS+ fork bytes and first-observed packet/request/ACK timing with retransmissions deduplicated. A28byte unread departure is pinned explicitly. Three immediate and three partial-read races plus nonowner delivery establish finite outcomes, not all-operation or identified-peer conformance. Added17 final folder cases,3 initial probes and1 auxiliary finalization. Core andtimed pairedpacket phases, positive before/after catalogue/fork snapshots and measured pauses are retained. Two initial failures occur before folder requests; one hostwrite never reaches guest boundary and is pinned separately. Path-based HFS enumeration fails; positive direct lookup succeeds, withoutabsence/exhaustiveness claims. Full operations andidentifiedpeers remain required. Added24 final banner cases with exact paired packet streams, positive native GIF fork/catalogue observations and retained exploratory failures. GUI phases overlap the expiry observation and are disclosed. Full operation and identified historical-peer coverage remain required. Added17 final format/recovery/reset sessions, five original exploratory reports and nine additional setup observations. Eight independently observed native file/type controls, protocol-confirmed absence/restoration, concurrent owner/observer reset and positive post-reset login are retained. All final packet streams reconcile; one exploratory22-byte post-reset host suffix never reaches the guest. Three completed exploratory Save hypotheses retain the wrong loaded configuration. Full operations and identified historical peers remain required. Delayed recovery directly retains an owner122 before disappearance; both early and delayed recovery streams pass independent packet/phase checks. Two rejected setup trials pin unread57-byte banner suffixes and301/302 controls explicitly. Added17 HTXF sessions plus preflight; all inputs/outputs independently reconcile at both packet boundaries. Three positive native DATA forks and seven semantic/mutation tests strengthen header/reference acceptance; complete operations and identified historical peers remain required. Added24 paired native ID/envelope/EOF sessions and25 read-only oracle queries, including a preserved rejected interior-address query. No unread packet suffixes. Zero/high-bit IDs, collision/reuse, late replies, emitted notifications, unsupported requests and underfilled EOF now have acceptance evidence; other operations and historical peers remain required. Added33accepted auth/lookup/state reports,2retained exploratory reports,14read-onlyoraclequeries,5positive UserData records andagreementfork. Everypacketstream reconciles withliteral28-byte delayed302tail retained. Fulloperations, configuration paths andhistoricalpeers remain required. Added42acceptedagreementcases,28setupcontrols,12exploratoryreports and16identitycheckedqueries withnativepath/type/fork controls. All42accepted and39nonstalled auxiliary streams reconcile exactly; host-timer failedboundary isexplicitly bounded withlateSYNACK retained. Originalagreementandaccountcleanupverified. Fulloperations/peers/mxd acceptance remain required. Added34acceptedlogin-extra/name-change/referencecases,11setupcontrols,5exploratoryreports and14identitycheckedqueries withpositivePrefs controls.49reportstreams reconcile exactly; failed90secondtrialexplicitlyretains hostonlylate121 andguestonly302. Allaccepted streams matchbothboundaries. Broaderoperations,identifiedpeers andmxd acceptance remain required. Five full historical-source terminal sessions plus a controlled script witness now reconcile sixpeer sockets and onewitness socket at both host and guest boundaries. SavedDATA13/MACR317 match knownfixture and FILP; hostrecorder170packets/zerodrops. This extends fixture coverage without closing otheroperation/peer/mxd acceptance requirements. Three actual native configured-name sessions andthree nativeflushcontrols reconcile bothpacketboundaries; four realpeer receiverfixtures reconcile hostPCAP/syscalls/listenerevents. PositivePrefs andbaseline restoration arechecked; controlled delivery isnever labellednative execution. Native-mkdir-01 adds47creation/path cases plus sixempty-root inputs,51reports/53paired sockets, tenidentitycheckedqueries andpositivecatalogues. Literal1374+43 hostrecordings, zero drops, exactmergedcapture and44ownedTrashobjects are retained. Broader operation/peer/mxd acceptance remains active. Nativealias01 adds44completedreports plusoneinitialEOFtimeout,66pairedsockets,14identitycheckedqueries and33positiveprecleanupcatalogueobjects. Newtimerpatchedruntimeprovenance retained. Cleanuprestores41entrywirelisting;postcleanupdiskviewonly3positiveobservations,notcompletepersistenceproof. Native-metadata01adds49reports/72pairedsockets,36mainmutations,sixcombined-emptycases,22boundarywrites,13freshoraclequeriesandindependentadminfinalviews. Initialwrong351cleanupencodingandcorrectedrecoverybothretained;ownedaccountsabsentandFileswirelistingrestored. Broaderoperation/peer/mxdcriteriaremainactive. Native-move01adds39reports/75pairedsockets,11freshoraclequeries,72seeded/73finalpositiveobjectsand70postcleanupTrashobservations. Fileswirelistingrestored;threepostcleanupmarkerprobesnotpositive. Broaderoperation/peer/mxdacceptanceremainsactive. Native-news01adds43reports/45sockets,29freshoraclequeries,ninecontrolledversions,threaded/cached321andfivepositive/fournegativebodycases. Initialzero-positivecleanupviewisretainedinconclusive;subsequentnativeuploadpublishes10originalTrashobjectsandpreservedHLNZcaches. Broaderoperation/actual-peer/mxdacceptanceremainsactive. Article deletion adds 58 reports (56 completed, two retained failures), 60 paired connections, 15 fresh queries and independently verified native counts/caches. Distinct old/recovered runtime identities and prefix-only recovery retained. Broader operation and actual-peer acceptance remains active. Added 20 completed reports, 22 paired connections, ten fresh identity-checked queries, native 103-record/index versus 102-entry list/cache boundary and positive owned cleanup. Initial out-of-range and unrelated Trash probes stay explicitly inconclusive. Wider native/peer acceptance remains active. Added 31 completed reports, 34 paired connections, eleven identity-checked queries, complete before/after 734-byte records, nine positive/eight negative logins and positive owned Trash/cleanup observations. Broader operations and actual-peer acceptance remain active. Added 18 complete reports and an expected stopped failure, 25 host socket lifetimes with 24 established guest connections, sixteen identity-checked queries, explicit unread removal tails and application restart evidence. Host stage exit143 is retained with independent confirmation, not erased or called a native crash. Wider operations and actual peers remain required.",
         "evidence": [
           "[Native format/recovery/reset corpus](../mothra/evidence/gap-remediation/2026-11-12/native-banner-02/manifest.json)",
           "[Banner type/recovery contract](transfer-contracts.md#captured-banner-formats-and-recovery)",
@@ -4541,7 +4566,10 @@
           "[Repeatable boundary workflow](native-capture-workflow.md#reproducing-the-child-append-boundary)",
           "[Captured account replacements](native-wire-details.md#captured-account-replacement-and-password-boundaries)",
           "[Native account update corpus](../mothra/evidence/gap-remediation/2026-11-13/native-account-update-01/manifest.json)",
-          "[Repeatable account update workflow](native-capture-workflow.md#reproducing-account-replacement-and-password-boundaries)"
+          "[Repeatable account update workflow](native-capture-workflow.md#reproducing-account-replacement-and-password-boundaries)",
+          "[Live account events and restart](native-wire-details.md#captured-live-account-changes-and-server-restart)",
+          "[Native live account corpus](../mothra/evidence/gap-remediation/2026-11-13/native-live-accounts-01/manifest.json)",
+          "[Repeatable live/restart workflow](native-capture-workflow.md#reproducing-live-account-edits-deletion-and-restart)"
         ],
         "closure": "Not closed: the unchanged criterion still requires the outstanding evidence described above."
       }
@@ -4666,9 +4694,9 @@
           "path": "protocol.md",
           "heading": "References and Correction Traceability",
           "level": 2,
-          "line_start": 1158,
+          "line_start": 1160,
           "anchor": "references-and-correction-traceability",
-          "line_end": 1199
+          "line_end": 1201
         },
         {
           "path": "baseline-correction-map.md",
@@ -5932,7 +5960,7 @@
       "level": 3,
       "line_start": 1035,
       "anchor": "user-account-management--client-initiates-admin-tx-350353",
-      "line_end": 1073,
+      "line_end": 1075,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-002",
@@ -5961,9 +5989,9 @@
       "path": "protocol.md",
       "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
       "level": 3,
-      "line_start": 1074,
+      "line_start": 1076,
       "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-      "line_end": 1095,
+      "line_end": 1097,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-003",
@@ -5984,9 +6012,9 @@
       "path": "protocol.md",
       "heading": "Broadcasting a Message (Transaction 355) – Admin/Server Initiated",
       "level": 3,
-      "line_start": 1096,
+      "line_start": 1098,
       "anchor": "broadcasting-a-message-transaction-355--adminserver-initiated",
-      "line_end": 1110,
+      "line_end": 1112,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-045",
@@ -6001,9 +6029,9 @@
       "path": "protocol.md",
       "heading": "Additional Admin Privileges Note",
       "level": 3,
-      "line_start": 1111,
+      "line_start": 1113,
       "anchor": "additional-admin-privileges-note",
-      "line_end": 1119,
+      "line_end": 1121,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-038",
@@ -6018,9 +6046,9 @@
       "path": "protocol.md",
       "heading": "Additional Observed Requests and Scope Gaps",
       "level": 2,
-      "line_start": 1120,
+      "line_start": 1122,
       "anchor": "additional-observed-requests-and-scope-gaps",
-      "line_end": 1157,
+      "line_end": 1159,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-005",
@@ -6043,9 +6071,9 @@
       "path": "protocol.md",
       "heading": "References and Correction Traceability",
       "level": 2,
-      "line_start": 1158,
+      "line_start": 1160,
       "anchor": "references-and-correction-traceability",
-      "line_end": 1199,
+      "line_end": 1201,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-083",
@@ -7898,7 +7926,7 @@
       "heading": "Account creation, update and batch rules",
       "level": 2,
       "line_start": 87,
-      "line_end": 119,
+      "line_end": 123,
       "anchor": "account-creation-update-and-batch-rules",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7918,8 +7946,8 @@
       "path": "privilege-contracts.md",
       "heading": "Remaining acceptance evidence",
       "level": 2,
-      "line_start": 120,
-      "line_end": 138,
+      "line_start": 124,
+      "line_end": 142,
       "anchor": "remaining-acceptance-evidence",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -9994,7 +10022,7 @@
       "heading": "Captured account replacement and password boundaries",
       "level": 2,
       "line_start": 508,
-      "line_end": 570,
+      "line_end": 574,
       "anchor": "captured-account-replacement-and-password-boundaries",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10025,7 +10053,7 @@
       "heading": "Reproducing account replacement and password boundaries",
       "level": 2,
       "line_start": 1424,
-      "line_end": 1489,
+      "line_end": 1490,
       "anchor": "reproducing-account-replacement-and-password-boundaries",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10045,6 +10073,68 @@
         "GAP-019",
         "GAP-021",
         "GAP-022",
+        "GAP-071",
+        "GAP-072",
+        "GAP-073",
+        "GAP-084"
+      ]
+    },
+    {
+      "path": "native-wire-details.md",
+      "heading": "Captured live account changes and server restart",
+      "level": 2,
+      "line_start": 575,
+      "line_end": 665,
+      "anchor": "captured-live-account-changes-and-server-restart",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-003",
+        "GAP-005",
+        "GAP-021",
+        "GAP-035",
+        "GAP-036",
+        "GAP-071",
+        "GAP-072",
+        "GAP-073",
+        "GAP-084"
+      ],
+      "related_gap_ids": [
+        "GAP-003",
+        "GAP-005",
+        "GAP-021",
+        "GAP-035",
+        "GAP-036",
+        "GAP-071",
+        "GAP-072",
+        "GAP-073",
+        "GAP-084"
+      ]
+    },
+    {
+      "path": "native-capture-workflow.md",
+      "heading": "Reproducing live account edits, deletion and restart",
+      "level": 2,
+      "line_start": 1491,
+      "line_end": 1560,
+      "anchor": "reproducing-live-account-edits-deletion-and-restart",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-003",
+        "GAP-005",
+        "GAP-021",
+        "GAP-035",
+        "GAP-036",
+        "GAP-071",
+        "GAP-072",
+        "GAP-073",
+        "GAP-084"
+      ],
+      "related_gap_ids": [
+        "GAP-003",
+        "GAP-005",
+        "GAP-021",
+        "GAP-035",
+        "GAP-036",
         "GAP-071",
         "GAP-072",
         "GAP-073",

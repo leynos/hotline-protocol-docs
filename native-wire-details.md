@@ -562,9 +562,104 @@ including the replacement UserData contents. A separate owned publisher
 corroborates those objects and is then removed with wire controls. No
 post-removal disk or restart-durability claim is made for that publisher.
 
-Account rename/conflict and protected/self-deletion cases, active-session
-propagation, interrupted writes and restart persistence remain GAP-072/073.
-Field 111's meaning remains GAP-071. These fixtures change no existing account,
-server configuration or application and do not claim historical-client parity.
+This replacement corpus alone does not establish rename/conflict,
+protected/self-deletion, live propagation, interrupted writes or restart
+persistence. The separate live-account corpus below supplies propagation and
+normal server-restart evidence. Other identity/protection/write-failure cases
+remain GAP-072, and field 111's meaning remains GAP-071. These replacement
+fixtures change no existing account, server configuration or application and
+do not claim historical-client parity.
 
 [account-updates]: ../mothra/evidence/gap-remediation/2026-11-13/native-account-update-01/manifest.json
+
+## Captured live account changes and server restart
+
+The [live-account corpus][live-accounts] retains 18 completed reports and one
+deliberately failed stopped-listener observation. Its 25 host socket lifetimes
+correspond to 24 established guest connections and one rejected guest SYN.
+Sixteen identity-checked queries trace replacement, session propagation,
+deletion, roster fan-out and transport close helpers. Two separate owned
+accounts distinguish replacement from deletion; two sessions use each account.
+
+Helper `10005d30` matches connected sessions by account login, copies changed
+privileges and sends 354, then updates stored identity and effective display
+name. When the new bitmap does not permit choosing a name, the account's
+display name supplies the effective name; when it permits that choice, the
+session's requested name is used instead. A privilege or effective-name change
+causes roster propagation through `10004f30`. Password and opaque attribute
+bytes are not read by this propagation helper. This trace does not identify
+every other consumer of attribute 111.
+
+The captured sessions start as `Stored Alpha27` with download-file bit 2,
+icons 7/8 and no permission to choose their own names. A single 353 changes
+their account to `Stored Beta27`, replaces its password and clears its bitmap:
+
+| Recipient / request | Delivered sequence or result |
+| --- | --- |
+| Administrator making the update | Empty ACK, two 301 updates, then the requested 300 snapshot showing both renamed subjects |
+| Each matching subject | New zero-mask 354 before its own 301; both subjects' 301 records are delivered |
+| Either existing subject's next 202 | Status 1, field 100 `You are not allowed to download files.` |
+| Existing subjects after password replacement | Request 500 still ACKs; neither session reauthenticates in this trial |
+| Password-only replacement | Empty ACK; no additional 354/301 during the measured windows |
+| Attribute-only update with NUL password sentinel | Empty ACK; no additional 354/301 during the measured windows |
+
+The two 301 records retain their subject UIDs and icons, use the new name and
+raw status word `0020`. Each subject can receive its peer's 301 before its own
+354; the established ordering is per socket and per subject, not a global
+notification-ID sequence. Each quiet window is three measured seconds.
+After the subjects close, the observer receives their two 302 records and
+later snapshots exclude them.
+
+The deletion account's two sessions instead receive type 104, status zero,
+with only field 101 containing:
+
+```text
+You are logged in with an account which was deleted.
+```
+
+Handler 351 deletes the account and sends its ACK before invoking matching
+session teardown. Helper `10058400` delegates through `1006db60`; the traced
+Open Transport backend `10070700` calls `OTSndOrderlyDisconnect`. Both subject
+connections show **guest-initiated FIN** before the controlled client closes.
+Nevertheless, the observer's two snapshots during the following bounded
+interval still contain both subjects. Account deletion and orderly send-side
+close do not make roster removal atomic.
+
+The observer's final recorded read does not include the eventual removals.
+Two exact 28-byte 302 messages, each containing only its subject UID in 103,
+follow the recorded receive prefix in both packet captures. They are retained
+as explicit unread tails and verified separately. Do not discard them, invent
+notification 111, or rewrite the earlier snapshots as already empty. This
+does not establish a universal teardown deadline or room/transfer ordering.
+
+Fresh reconnects reject the original password, the intermediate password and
+the deleted login; the final password succeeds with zero-mask 354. The server
+is then quit normally with zero connected users. A retained handshake attempt
+while it is stopped resets: the guest rejects SYN with a TCP RST carrying
+diagnostic bytes `No listener`, not an application frame. The same application
+is reopened in Finder and the known Sound Manager alert dismissed. Startup
+screenshots and the timed input journal retain this application boundary.
+
+After that normal server restart, retrieval, enumeration and the same four
+reconnect probes reproduce the stored replacement/deletion results. Complete
+734-byte account records and all five owned catalogue objects/forks match
+their pre-restart observations. Application data/resource identities and all
+Prefs bytes also match. This is **server application restart in the same
+running emulator**, not an OS restart, power-loss test or interrupted-write
+atomicity guarantee.
+
+The host execution tool returned exit 143 for one post-restart stage after all
+five complete transcripts were present. Its cause is not inferred. That
+observation remains separate from the native reports; an independent complete
+retrieval/enumeration confirmation followed before cleanup. It is not presented
+as a native-server crash or silently converted into a successful host exit.
+
+Cleanup restores the original two-account enumeration and exact 41-entry Files
+view. All five original owned objects are positively retained in Trash with
+unchanged identities, paths and forks; a separate upload corroborates them
+and its helper is removed with wire controls. Normal restart persistence and
+this captured live-edit/delete criterion close GAP-073. Protected/self-delete,
+rename/conflict and forced write failures remain GAP-072; broader teardown and
+snapshot races remain GAP-035/036, and field 111's meaning remains GAP-071.
+
+[live-accounts]: ../mothra/evidence/gap-remediation/2026-11-13/native-live-accounts-01/manifest.json
