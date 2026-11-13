@@ -5,12 +5,14 @@ from decimal import Decimal
 
 LINE = re.compile(r"^(\d+) (\d+\.\d+) (.*)$")
 IO = re.compile(
-    r"(read|write)\((\d+)<TCP:\[127\.0\.0\.1:(\d+)->127\.0\.0\.1:(1550[01])\]>, "
+    r"(read|write)\((\d+)<TCP:\[127\.0\.0\.1:(\d+)->127\.0\.0\.1:(\d+)\]>, "
     r'"((?:\\x[0-9a-f]{2})*)", (\d+)\) = (\d+)$'
 )
 
 
-def socket_io(trace: str) -> list[dict]:
+def socket_io(
+    trace: str, *, server_ports: frozenset[int] = frozenset({15500, 15501})
+) -> list[dict]:
     """Join per-process unfinished calls; reject truncated TCP read/write text."""
     pending: dict[int, tuple[int, str]] = {}
     records = []
@@ -36,6 +38,8 @@ def socket_io(trace: str) -> list[dict]:
         match = IO.fullmatch(text)
         if match:
             operation, fd, port, endpoint, raw, requested, actual = match.groups()
+            if int(endpoint) not in server_ports:
+                raise ValueError("Unexpected TCP fixture endpoint")
             data = bytes.fromhex(raw.replace("\\x", ""))
             count = int(actual)
             if count > int(requested) or len(data) < count:

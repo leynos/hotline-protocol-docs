@@ -64,7 +64,9 @@ def frames(data: bytes) -> list[dict]:
     return result
 
 
-def check_terminal(case: Path, source_hashes: set[str]) -> dict:
+def check_terminal(
+    case: Path, source_hashes: set[str], *, commands: list[str] | None = None
+) -> dict:
     report = json.loads((case / "report.json").read_text())
     plan = json.loads((case / "plan.json").read_text())
     profile = json.loads((case / "peer-profile.json").read_text())
@@ -96,18 +98,19 @@ def check_terminal(case: Path, source_hashes: set[str]) -> dict:
         "Real home file changed",
     )
     require(report["completed_steps"] == len(plan["steps"]), "Incomplete peer commands")
-    commands = ["/version", LOGIN, "/who"]
-    if case.name in {"root-listing", "fork-download"}:
-        commands.append("/ls")
-    if case.name == "fork-download":
-        commands.append("/get mothra-fork-fixture")
-    elif case.name == "basic-empty-name":
-        commands.append("mothra-shx-basic-chat")
-    elif case.name == "ambiguous-text":
-        commands.append("/who")
-    elif case.name == "wrong-password":
-        commands = ["/version", LOGIN.replace("mothra19", "wrong-shx-pass")]
-    commands.append("/quit")
+    if commands is None:
+        commands = ["/version", LOGIN, "/who"]
+        if case.name in {"root-listing", "fork-download"}:
+            commands.append("/ls")
+        if case.name == "fork-download":
+            commands.append("/get mothra-fork-fixture")
+        elif case.name == "basic-empty-name":
+            commands.append("mothra-shx-basic-chat")
+        elif case.name == "ambiguous-text":
+            commands.append("/who")
+        elif case.name == "wrong-password":
+            commands = ["/version", LOGIN.replace("mothra19", "wrong-shx-pass")]
+        commands.append("/quit")
     require(
         [s["command"] for s in plan["steps"]] == commands, "Peer command matrix differs"
     )
@@ -190,7 +193,15 @@ def check_packets(case: Path, host: list[dict], guest: list[dict]) -> list[dict]
     return connections
 
 
-def check_semantics(case: Path, connections: list[dict], agreement: bytes) -> dict:
+def check_semantics(
+    case: Path,
+    connections: list[dict],
+    agreement: bytes,
+    *,
+    kind: str | None = None,
+    login_name: bytes = b"",
+) -> dict:
+    case_name = kind or case.name
     control = next(c for c in connections if c["endpoint"] == 15500)
     require(
         control["sent"].startswith(bytes.fromhex("54525450484f544c00010002")),
@@ -202,7 +213,7 @@ def check_semantics(case: Path, connections: list[dict], agreement: bytes) -> di
     )
     requests, replies = frames(control["sent"][12:]), frames(control["received"][8:])
     login = requests[0]
-    credentials = b"wrong-shx-pass" if case.name == "wrong-password" else b"mothra19"
+    credentials = b"wrong-shx-pass" if case_name == "wrong-password" else b"mothra19"
     require(
         (login["type"], login["id"], login["is_reply"]) == (107, 1, 0),
         "Basic peer login header changed",
@@ -218,7 +229,7 @@ def check_semantics(case: Path, connections: list[dict], agreement: bytes) -> di
         "Peer login fields changed, including absent version160",
     )
     terminal = (case / "stdout.bin").read_bytes()
-    if case.name == "wrong-password":
+    if case_name == "wrong-password":
         require(
             len(requests) == len(replies) == len(connections) == 1,
             "Failed login continued",
@@ -239,8 +250,9 @@ def check_semantics(case: Path, connections: list[dict], agreement: bytes) -> di
         replies[0]["error"] == 0
         and replies[0]["id"] == 1
         and replies[0]["is_reply"] == 1
-        and fields(replies[0]) == {160: b"\0\xbe", 161: b"\0\0"},
-        "Native empty-name login extras differ",
+        and fields(replies[0])
+        == {160: b"\0\xbe", 161: b"\0\0", **({162: login_name} if login_name else {})},
+        "Native login extras differ",
     )
     require(
         [r["type"] for r in replies[1:3]] == [354, 109]
@@ -275,10 +287,10 @@ def check_semantics(case: Path, connections: list[dict], agreement: bytes) -> di
         "ambiguous-text": [107, 300],
     }
     require(
-        [r["type"] for r in requests] == expected_types[case.name],
+        [r["type"] for r in requests] == expected_types[case_name],
         "Peer operation sequence differs",
     )
-    if case.name == "basic-empty-name":
+    if case_name == "basic-empty-name":
         require(
             fields(requests[-1]) == {101: b"mothra-shx-basic-chat"},
             "Peer chat send differs",
@@ -290,14 +302,14 @@ def check_semantics(case: Path, connections: list[dict], agreement: bytes) -> di
             ),
             "Native chat echo missing",
         )
-    if case.name == "ambiguous-text":
+    if case_name == "ambiguous-text":
         chat = [fields(r)[101] for r in replies if r["type"] == 106]
         require(
             chat == [b"\rnative-byte-w:  " + CHAT],
             "Native ambiguous chat bytes changed",
         )
         require(CHAT in terminal, "Peer terminal reencoded ambiguous bytes")
-    if case.name in {"root-listing", "fork-download"}:
+    if case_name in {"root-listing", "fork-download"}:
         listing = next(
             r for r in replies if r["is_reply"] and r["id"] == requests[2]["id"]
         )
@@ -319,7 +331,7 @@ def check_semantics(case: Path, connections: list[dict], agreement: bytes) -> di
             "Missing exact fork fixture listing",
         )
         require(NAME in terminal, "Peer did not display listing")
-    if case.name == "fork-download":
+    if case_name == "fork-download":
         require(len(connections) == 2, "Missing transfer socket")
         data = next(c for c in connections if c["endpoint"] == 15501)
         ack = fields(
