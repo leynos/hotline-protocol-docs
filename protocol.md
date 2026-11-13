@@ -1055,7 +1055,7 @@ writes and broader durability guarantees still need further evidence.
 Request **352** uses uncomplemented lookup bytes in 105, unlike the
 complemented inputs of 350/351/353. This asymmetry is established by the
 [account lookup fixtures](native-wire-details.md#account-lookup-name-encodings).
-For **352**, the observed response includes name 102, complemented login bytes
+For **352**, the observed response includes name 102, complemented lookup bytes
 in 105, an eight-byte privilege bitmap 110, and password-presence handling:
 
 - If a password exists, field 106 contains the single literal byte **`x`**
@@ -1070,6 +1070,10 @@ value. Other missing fields are not general sparse-update instructions; see
 the [captured account-update matrix](native-wire-details.md#captured-account-replacement-and-password-boundaries).
 It verifies full 32-byte network password replacement/login, sentinel clipping,
 literal-`x` replacement, and clearing of omitted name/attribute/privilege fields.
+The [identity contrasts](native-wire-details.md#captured-account-identity-and-protection-contrasts)
+add exact/ASCII-case duplicate rejection, lookup-case echo in 352, bit-23
+kick protection versus account deletion, and self-deletion with ACK before
+notice. The original accounts are not used as deletion targets.
 
 Evidence: V067–V070; `100146f0`, `100149e0`, `10014bc0`, `10014df0`.
 

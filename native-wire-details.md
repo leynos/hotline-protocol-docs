@@ -663,3 +663,58 @@ rename/conflict and forced write failures remain GAP-072; broader teardown and
 snapshot races remain GAP-035/036, and field 111's meaning remains GAP-071.
 
 [live-accounts]: ../mothra/evidence/gap-remediation/2026-11-13/native-live-accounts-01/manifest.json
+
+## Captured account identity and protection contrasts
+
+The [identity corpus][account-identity] retains fourteen completed reports,
+sixteen paired host/guest TCP connections and ten identity-checked oracle
+queries. Three owned accounts are absent before creation. The original
+`admin` and `fixture-low` enumeration and complete 41-entry Files listing are
+restored after cleanup. An inherited as-run environment sentence calls the
+second account guest; the actual enumeration identifies `fixture-low`.
+
+An exact duplicate 350 and an ASCII-uppercase duplicate both return status 1,
+field 100, with the supplied login in this message:
+
+```text
+Cannot create account “m-id29-duplicate” because there is already an
+account with that login.
+```
+
+This display wraps one native line, whose quotes are Mac bytes `d2/d3`.
+Both attempts retain the original name, access mask, password and lowercase
+account enumeration. The original password succeeds; the attempted replacement
+password fails. Lowercase and uppercase 352 lookups retrieve the same record,
+but reply field 105 complements the **supplied lookup spelling**. It is not a
+canonical stored-login response. This ASCII observation does not settle the
+full native case-folding table, non-ASCII collisions or cross-platform rules.
+
+| Owned target | Effective bitmap | Request 110 | Request 351 |
+| --- | --- | --- | --- |
+| Protected subject | `0000010000000000` (bit 23) | Administrator kick rejected; subject still answers 500 | Administrator deletes account successfully |
+| Protected self-delete subject | `0001010000000000` (bits 15, 23) | Administrator kick rejected; subject still answers 500 | Subject successfully deletes its own account |
+
+Kick errors use status 1 and field 100, naming the protected display name:
+`You are not allowed to disconnect user … (user is protected).`
+The target UID is captured from that live subject's 301, rather than reused
+from another session. Bit 23 protects request-110 disconnection, not the
+account from request 351. A guessed blanket protected-account rule would
+contradict these captures. The configured head administrator is not deleted;
+these fixtures establish only the stated owned bit-23 and self-delete cases.
+
+Each deletion has an empty success ACK, a data-only 104 with field 101
+`You are logged in with an account which was deleted.`, and guest-first FIN.
+For self-deletion, ACK and notice are on the same target stream and ACK comes
+first. Readback and fresh login fail afterward. The administrator's roster
+snapshot three seconds after the notice still contains the target; an exact
+28-byte 302 naming that target follows the recorded receive prefix in both
+packet views. The unrelated earlier 302 already read in the protected case
+is retained and is not relabelled as the deleted target's removal.
+
+Full enumeration proves the three-account, two-account, one-account and
+restored baseline states. Cleanup here is verified on the wire; this corpus
+adds no native Trash-fork, forced-write, restart or power-loss claim. GAP-072
+remains Investigating for the remaining identity/storage-failure scope, while
+GAP-074 still requires plain kick and both ban-option/expiry fixtures.
+
+[account-identity]: ../mothra/evidence/gap-remediation/2026-11-13/native-account-identity-01/manifest.json

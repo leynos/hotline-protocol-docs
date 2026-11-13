@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 
 import native_account_batch_cases as account_batch
+import native_account_identity_cases as account_identity
 import native_account_update_cases as account_update
 import native_live_account_cases as live_account
 import native_news_boundary_cases as news_boundary
@@ -113,6 +114,7 @@ def main() -> None:
             "article-delete-preflight",
             "account-update-preflight",
             "account-batch-preflight",
+            "account-identity",
             "account-batch-seed",
             "account-batch-mutations",
             "account-batch-inspections",
@@ -288,6 +290,7 @@ def main() -> None:
             "article-delete-resume requires --case-name from the retained inventory"
         )
     cases = {
+        "account-identity": account_identity.suites,
         "account-batch-preflight": lambda: {"preflight": account_batch.preflight()},
         "account-batch-seed": lambda: {"seed": account_batch.seed()},
         "account-batch-mutations": lambda: {
@@ -525,6 +528,16 @@ def main() -> None:
                 "GAP-017",
             ]
             if args.suite == "framing"
+            else [
+                "GAP-003",
+                "GAP-021",
+                "GAP-031",
+                "GAP-036",
+                "GAP-072",
+                "GAP-074",
+                "GAP-084",
+            ]
+            if args.suite == "account-identity"
             else [
                 "GAP-003",
                 "GAP-016",

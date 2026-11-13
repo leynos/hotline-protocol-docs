@@ -1628,3 +1628,57 @@ deletion, arbitrary storage failures and general exception translation require
 separate evidence.
 
 [batch-corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-account-batch-01/manifest.json
+
+## Reproducing account identity and protection contrasts
+
+The [identity corpus][identity-corpus] retains the exact plans, coordinator,
+as-run sources, paired packet views and unread removal tails. Use a dedicated
+native instance with no other clients. Create a fresh output directory, retain
+fresh runtime and application identity, and record host and guest packets as
+in the preceding workflows. From `mothra`, prepare templates with:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/prepare_native_cases.py \
+  account-identity \
+  --runtime-record state/native-sessions/runtime-29/runtime.json \
+  --output state/account-identity-plans
+```
+
+Replace that example runtime path with the freshly recorded environment.
+Preparation performs no network execution. Execute `preflight` first and stop
+unless all three owned-name 352 probes fail as absent. Preserve complete
+original account enumeration and Files listing. Then run `seed`,
+`duplicate-exact`, `duplicate-uppercase`, `duplicate-original-login` and
+`duplicate-changed-login`. Inspect duplicate error text, both readbacks and
+the password controls before proceeding.
+
+Run `protected`, `protected-login`, `after-protected`, then `self`, `self-login`
+and `after-self`. Both target plans capture their UID from the new subject's
+301. Keep the instance isolated so this notification belongs to the owned
+subject; verify its name, icon and mask in the capture. A current observation
+must supply the UID; editing a plan to reuse an old UID is not equivalent.
+The protected target has only bit 23. The self-delete target has bits 15 and
+23. No original account is used as a deletion target. Finish with `cleanup`
+and `final`; require the original enumeration and Files listing to match.
+
+The retained coordinator has fixed run-specific paths and preflight guards;
+adapt its paths to a new directory rather than overwrite earlier captures.
+After all stages terminate, stop host capture explicitly and preserve its
+packet/drop statistics. Copy the guest capture, reconcile each connection by
+SYN lifetime and preserve every unread byte. These two deletion observations
+have separate 28-byte 302 tails on the administrator stream, positively
+matching each deleted target. Do not truncate packets to the socket read
+prefix or mistake an earlier unrelated 302 for that removal.
+
+Verify the committed corpus offline with:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/verify_native_account_identity.py \
+  evidence/gap-remediation/2026-11-13/native-account-identity-01
+```
+
+This proves the recorded bit-23/self-delete and duplicate/lookup-case contrasts.
+It does not prove deletion protection for built-in identities, arbitrary name
+folding, native Trash-fork preservation, forced I/O or restart durability.
+
+[identity-corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-account-identity-01/manifest.json

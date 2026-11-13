@@ -122,8 +122,11 @@ privilege updates, which use 354 and roster propagation. The
 [live-account corpus](native-wire-details.md#captured-live-account-changes-and-server-restart)
 captures two matching subjects for each path, including guest-first FIN,
 retained roster entries and later unread 302 messages after deletion. Normal
-server-restart persistence is verified separately. Protected-account and
-self-deletion variants remain open; orderly close is not atomic roster removal.
+server-restart persistence is verified separately. The
+[identity contrasts](native-wire-details.md#captured-account-identity-and-protection-contrasts)
+show that bit 23 rejects kicking while permitting account deletion, including
+self-deletion by an account with bit 15. This does not test deletion of the
+configured head administrator. Orderly close is not atomic roster removal.
 
 ## Remaining acceptance evidence
 

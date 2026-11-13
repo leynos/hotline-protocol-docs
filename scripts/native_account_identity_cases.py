@@ -91,14 +91,19 @@ def target_case(label: str) -> tuple[list[dict], dict]:
     }
 
 
-def probe(password: bytes, key: bytes) -> tuple[list[dict], dict]:
+def probe(
+    password: bytes, key: bytes, *, success: bool = False
+) -> tuple[list[dict], dict]:
     if key not in KEYS.values():
         raise ValueError("Owned account required")
     steps = login()[:3] + [authentication(key, password), read()]
+    if success:
+        steps += [read(), read()] + exchange(500, 90, [])
     return steps + [quiet(), close()], {
         "kind": "account-identity-login",
         "key_hex": key.hex(),
         "password_hex": password.hex(),
+        "success": success,
     }
 
 
@@ -106,3 +111,23 @@ def cleanup() -> tuple[list[dict], dict]:
     steps = login() + exchange(351, 10, [(105, complement(KEYS["duplicate"]))])
     steps += exchange(348, 20, []) + exchange(200, 21, [(202, b"\0\0")])
     return steps + [close()], {"kind": "account-identity-cleanup"}
+
+
+def suites() -> dict[str, tuple[list[dict], dict]]:
+    """Return preparation templates; execution must enforce the preflight guard."""
+    return {
+        "preflight": inspect(),
+        "seed": seed(),
+        "duplicate-exact": duplicate(),
+        "duplicate-uppercase": duplicate(True),
+        "duplicate-original-login": probe(PASSWORD, KEYS["duplicate"], success=True),
+        "duplicate-changed-login": probe(CHANGED, KEYS["duplicate"]),
+        "protected": target_case("protected"),
+        "protected-login": probe(PASSWORD, KEYS["protected"]),
+        "after-protected": inspect(),
+        "self": target_case("self"),
+        "self-login": probe(PASSWORD, KEYS["self"]),
+        "after-self": inspect(),
+        "cleanup": cleanup(),
+        "final": inspect(),
+    }
