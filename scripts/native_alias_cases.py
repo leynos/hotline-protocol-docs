@@ -386,3 +386,64 @@ def damage() -> dict:
             {"kind": "alias-repeat", "source_case": original},
         ),
     }
+
+
+def supplementary() -> dict:
+    transfers = downloads()
+    steps, _ = transfers["file-alias"]
+    steps = [dict(s) for s in steps]
+    steps[7] = send(
+        packet(202, 10, payload([(201, b"same"), (202, path((ROOT, b"C")))]))
+    )
+    collision = (steps, {"kind": "alias-collision-download"})
+    unattached = (
+        login()
+        + exchange(202, 10, [(201, b"self"), (202, BASE)])
+        + exchange(500, 90, [])
+        + [close()]
+    )
+    comment = login()
+    for identifier, value in [
+        (20, b"directory-comment"),
+        (30, b""),
+        (40, b"directory-comment"),
+        (50, b"\0"),
+    ]:
+        comment += exchange(207, identifier, [(201, b"dir"), (202, BASE), (210, value)])
+        comment += exchange(206, identifier + 1, [(201, b"dir"), (202, BASE)])
+        comment += exchange(
+            206, identifier + 2, [(201, b"dir"), (202, path((ROOT, b"A")))]
+        )
+    comment += exchange(500, 90, []) + [close()]
+    flush = (
+        login()
+        + upload(80, b"flush", (), body(b"", b"", b"TEXT", b"MOTH", b""))
+        + exchange(200, 90, [(202, BASE)])
+        + [close()]
+    )
+    return {
+        "collision-alias-download": collision,
+        "unattached-download-rejected": (
+            unattached,
+            {"kind": "alias-unattached-download"},
+        ),
+        "directory-comment-through-alias": (
+            comment,
+            {"kind": "alias-directory-comment"},
+        ),
+        "flush-owned-tree": (flush, {"kind": "alias-flush"}),
+    }
+
+
+def cleanup() -> dict:
+    steps = login() + exchange(200, 10, [(202, b"\0\0")])
+    names = [ROOT, b"m-al20-absent", b"m-al20-empty", b"m-al20-zero"]
+    for identifier, name in enumerate(names, 20):
+        steps += exchange(204, identifier, [(201, name)])
+    steps += exchange(200, 90, [(202, b"\0\0")]) + exchange(500, 91, []) + [close()]
+    return {
+        "cleanup-owned-alias-tree": (
+            steps,
+            {"kind": "alias-cleanup", "names_hex": [n.hex() for n in names]},
+        )
+    }

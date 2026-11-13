@@ -12,11 +12,13 @@ from native_agreement_cases import preflight as agreement_preflight
 from native_agreement_cases import restore_stage as agreement_restore_stage
 from native_agreement_cases import seed as agreement_seed
 from native_agreement_cases import stages as agreement_stages
+from native_alias_cases import cleanup as alias_cleanup
 from native_alias_cases import create as alias_create
 from native_alias_cases import damage as alias_damage
 from native_alias_cases import downloads as alias_downloads
 from native_alias_cases import information as alias_information
 from native_alias_cases import seed as alias_seed
+from native_alias_cases import supplementary as alias_supplementary
 from native_auth_cases import cleanup as auth_cleanup
 from native_auth_cases import guest_create as auth_guest_create
 from native_auth_cases import lookup as auth_lookup
@@ -67,6 +69,8 @@ def main() -> None:
     parser.add_argument(
         "suite",
         choices=[
+            "alias-cleanup",
+            "alias-supplementary",
             "alias-damage",
             "alias-seed",
             "alias-create",
@@ -142,6 +146,8 @@ def main() -> None:
     if args.suite == "agreement-restore-stage" and args.original_agreement is None:
         parser.error("agreement-restore-stage requires --original-agreement")
     cases = {
+        "alias-cleanup": alias_cleanup,
+        "alias-supplementary": alias_supplementary,
         "alias-damage": alias_damage,
         "alias-seed": alias_seed,
         "alias-create": alias_create,
