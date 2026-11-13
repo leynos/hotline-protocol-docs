@@ -63,5 +63,7 @@ python3 -m unittest discover -s ../hotline-protocol-docs/scripts \
   -p test_native_settings_corpus.py
 ```
 
-This packet adds field-113 rows to GAP-015/016/017. Their unchanged all-core
-width, presence/default and per-transaction multiplicity criteria remain open.
+This packet adds field-113 rows to GAP-015/016/017. The all-core width and
+presence/default criteria remain open. Subsequent combined review accepted
+GAP-017; see [parameter multiplicity](parameter-multiplicity.md) for the
+transaction-specific rules and the scope of that acceptance.
