@@ -71,11 +71,15 @@ from native_move_cases import finalization as move_final
 from native_move_cases import moves as move_moves
 from native_move_cases import preflight as move_preflight
 from native_move_cases import seed as move_seed
+from native_news_cases import bodies as news_bodies
 from native_news_cases import cleanup as news_cleanup
+from native_news_cases import files_preflight as news_files_preflight
 from native_news_cases import finalization as news_final
 from native_news_cases import listings as news_listings
 from native_news_cases import posts as news_posts
 from native_news_cases import preflight as news_preflight
+from native_news_cases import publish_cleanup as news_publish_cleanup
+from native_news_cases import remove_publisher as news_remove_publisher
 from native_news_cases import seed as news_seed
 from native_news_cases import structures as news_structures
 from native_news_cases import thread_children as news_thread_children
@@ -93,6 +97,10 @@ def main() -> None:
         "suite",
         choices=[
             "news-preflight",
+            "news-publish-cleanup",
+            "news-remove-publisher",
+            "news-files-preflight",
+            "news-bodies",
             "news-thread-children",
             "news-thread-grandchild",
             "news-posts",
@@ -201,6 +209,10 @@ def main() -> None:
         )
     cases = {
         "news-preflight": news_preflight,
+        "news-publish-cleanup": news_publish_cleanup,
+        "news-remove-publisher": news_remove_publisher,
+        "news-files-preflight": news_files_preflight,
+        "news-bodies": news_bodies,
         "news-thread-children": lambda: news_thread_children(args.article_parent),
         "news-thread-grandchild": lambda: news_thread_grandchild(args.article_parent),
         "news-posts": news_posts,

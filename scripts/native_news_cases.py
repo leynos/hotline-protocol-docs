@@ -16,6 +16,11 @@ def preflight() -> dict:
     return {"preflight": (steps, {"kind": "news-preflight"})}
 
 
+def files_preflight() -> dict:
+    steps = login() + exchange(200, 10, [(202, b"\0\0")]) + [close()]
+    return {"files": (steps, {"kind": "news-files-preflight"})}
+
+
 def seed() -> dict:
     steps = login() + exchange(381, 10, [(201, ROOT)])
     for identifier, name in [(20, b"bundle"), (21, b"empty"), (22, b"hi-\x9a")]:
@@ -216,3 +221,59 @@ def cleanup() -> dict:
     steps += exchange(204, 11, [(201, b"m-news23-flush")])
     steps += exchange(370, 90, []) + exchange(500, 91, []) + [close()]
     return {"cleanup": (steps, {"kind": "news-cleanup"})}
+
+
+def publish_cleanup() -> dict:
+    steps = login() + exchange(200, 10, [(202, b"\0\0")])
+    steps += upload(80, b"m-news23-publish", b"\0\0")
+    steps += exchange(370, 90, []) + exchange(200, 91, [(202, b"\0\0")]) + [close()]
+    return {"publish": (steps, {"kind": "news-publish-cleanup"})}
+
+
+def remove_publisher() -> dict:
+    steps = login() + exchange(204, 10, [(201, b"m-news23-publish")])
+    steps += (
+        exchange(200, 90, [(202, b"\0\0")])
+        + exchange(370, 91, [])
+        + exchange(500, 92, [])
+        + [close()]
+    )
+    return {"remove": (steps, {"kind": "news-remove-publisher"})}
+
+
+def bodies() -> dict:
+    result = {}
+    for label, identifier, flavour in [
+        ("root-first", 1, b"text/plain"),
+        ("root-second", 2, b"text/plain"),
+        ("child-first", 4, b"text/plain"),
+        ("child-second", 5, b"text/plain"),
+        ("grandchild", 6, b"text/plain"),
+        ("no-flavour", 3, b"text/plain"),
+        ("unknown-flavour", 1, b"application/unknown"),
+        ("flavour-case", 1, b"TEXT/PLAIN"),
+        ("unknown-article", 99, b"text/plain"),
+    ]:
+        steps = login() + exchange(
+            400,
+            10,
+            [
+                (325, path((ROOT, b"category"))),
+                (326, identifier.to_bytes(4, "big")),
+                (327, flavour),
+            ],
+        )
+        steps += exchange(500, 90, []) + [
+            {"op": "expect_quiet", "connection": "main", "timeout": 1},
+            close(),
+        ]
+        result[label] = (
+            steps,
+            {
+                "kind": "news-body",
+                "case": label,
+                "id": identifier,
+                "flavour_hex": flavour.hex(),
+            },
+        )
+    return result
