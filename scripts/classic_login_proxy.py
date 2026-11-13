@@ -2,6 +2,7 @@
 """One-use isolated Classic Login107 ACK proxy with fixed local routes."""
 
 import argparse
+import hashlib
 import json
 import os
 import socket
@@ -18,7 +19,10 @@ CLIENT_HELLO = bytes.fromhex("54525450484f544c00010002")
 SERVER_HELLO = bytes.fromhex("5452545000000000")
 VARIANTS = ("baseline", "omit-161", "one-byte-161", "four-byte-161")
 MAX_FRAME = 65535
+IP_BIN = "/usr/sbin/ip"
 DEADLINE_SECONDS = 180
+OBSERVATION_SECONDS = 28
+MAX_OBSERVATION_NS = 30_000_000_000
 BACKENDS = {"control": 15500, "data": 15501}
 LISTENERS = {"control": 15652, "data": 15653}
 
@@ -92,8 +96,11 @@ class Audit:
         self.used = 0
         self.lock = threading.Lock()
         self.abort = threading.Event()
+        self.cutoff = threading.Event()
 
     def check(self) -> None:
+        if self.cutoff.is_set():
+            raise ObservationCutoff("Intentional observation cutoff")
         if time.monotonic() >= self.deadline:
             raise TimeoutError("Proxy process deadline exceeded")
         if self.abort.is_set():
@@ -113,6 +120,87 @@ class Audit:
                 raise ValueError("Aggregate proxy log exceeds bound")
             self.entries.append(entry)
             self.used += cost
+
+
+class ObservationCutoff(RuntimeError):
+    """Owned sockets were intentionally closed at the observation deadline."""
+
+
+class ObservationWatchdog:
+    def __init__(self, audit: Audit, close_owned, clock_ns=time.monotonic_ns) -> None:
+        self.audit = audit
+        self.close_owned = close_owned
+        self.clock_ns = clock_ns
+        self.lock = threading.Lock()
+        self.state = "waiting"
+        self.ack_ns: int | None = None
+        self.due_ns: int | None = None
+        self.actual_ns: int | None = None
+        self.closed_ns: int | None = None
+        self.raw_sha256: str | None = None
+        self.forwarded_sha256: str | None = None
+        self.error: str | None = None
+
+    def arm(self, raw: bytes, forwarded: bytes) -> None:
+        self.audit.check()
+        with self.lock:
+            if self.state != "waiting":
+                raise ValueError("Observation watchdog armed twice")
+            self.ack_ns = self.clock_ns()
+            self.due_ns = self.ack_ns + OBSERVATION_SECONDS * 1_000_000_000
+            self.raw_sha256 = hashlib.sha256(raw).hexdigest()
+            self.forwarded_sha256 = hashlib.sha256(forwarded).hexdigest()
+            self.state = "armed"
+
+    def tick(self) -> bool:
+        with self.lock:
+            if (
+                self.state != "armed"
+                or self.due_ns is None
+                or self.clock_ns() < self.due_ns
+            ):
+                return False
+            self.state = "fired"
+            self.actual_ns = self.clock_ns()
+            self.audit.cutoff.set()
+        try:
+            self.close_owned()
+        except Exception as exc:  # noqa: BLE001 - watchdog failure must invalidate run
+            self.error = f"{type(exc).__name__}: {exc}"
+            self.audit.abort.set()
+        finally:
+            self.closed_ns = self.clock_ns()
+        return True
+
+    def cancel(self) -> None:
+        with self.lock:
+            if self.state in {"waiting", "armed"}:
+                self.state = "cancelled"
+
+    def run(self) -> None:
+        while not self.audit.abort.is_set():
+            if self.tick() or self.state == "cancelled":
+                return
+            time.sleep(0.05)
+
+    def receipt(self) -> dict:
+        valid = (
+            self.ack_ns is not None
+            and self.closed_ns is not None
+            and self.closed_ns - self.ack_ns <= MAX_OBSERVATION_NS
+            and self.error is None
+        )
+        return {
+            "state": self.state,
+            "ack_sent_monotonic_ns": self.ack_ns,
+            "cutoff_due_ns": self.due_ns,
+            "cutoff_actual_ns": self.actual_ns,
+            "last_owned_socket_close_ns": self.closed_ns,
+            "valid_30_seconds": valid,
+            "raw_ack_sha256": self.raw_sha256,
+            "forwarded_ack_sha256": self.forwarded_sha256,
+            "error": self.error,
+        }
 
 
 def read_exact(
@@ -155,6 +243,8 @@ def relay_frames(
     login_id: int | None,
     variant: str,
     ack_forwarded: threading.Event | None = None,
+    on_ack=None,
+    on_eof=None,
 ) -> None:
     first = True
     while raw := read_frame(source, audit):
@@ -165,11 +255,16 @@ def relay_frames(
             forwarded = transform_ack(raw, login_id, variant)
         audit.record(label, raw, forwarded)
         destination.sendall(forwarded)
-        if label == "server" and first and ack_forwarded is not None:
-            ack_forwarded.set()
+        if label == "server" and first:
+            if on_ack is not None:
+                on_ack(raw, forwarded)
+            if ack_forwarded is not None:
+                ack_forwarded.set()
         first = False
     if label == "server" and first:
         raise ValueError("Missing successful Login107 ACK")
+    if on_eof is not None:
+        on_eof()
     destination.shutdown(socket.SHUT_WR)
 
 
@@ -199,7 +294,7 @@ def namespace_guard(expected_netns: int, host_netns: int) -> int:
         raise ValueError("Namespace has non-loopback interface")
     for family in ([], ["-6"]):
         result = subprocess.run(
-            ["ip", "-j", *family, "route", "show", "table", "main"],
+            [IP_BIN, "-j", *family, "route", "show", "table", "main"],
             capture_output=True,
             text=True,
             check=True,
@@ -232,23 +327,37 @@ def serve(variant: str, output: Path, expected_netns: int, host_netns: int) -> d
     output.mkdir(parents=True, exist_ok=False)
     audit = Audit(time.monotonic() + DEADLINE_SECONDS)
     sockets: list[socket.socket] = []
+    sockets_lock = threading.Lock()
     errors: list[str] = []
     control_done = threading.Event()
     ack_forwarded = threading.Event()
 
+    def close_owned() -> None:
+        with sockets_lock:
+            owned = tuple(sockets)
+        for peer in owned:
+            peer.close()
+
+    watchdog = ObservationWatchdog(audit, close_owned)
+
     def track(peer: socket.socket) -> socket.socket:
-        sockets.append(peer)
+        with sockets_lock:
+            if audit.cutoff.is_set() or audit.abort.is_set():
+                peer.close()
+                raise ObservationCutoff("Owned socket created after cutoff")
+            sockets.append(peer)
         peer.settimeout(0.25)
         return peer
 
     def guarded(action) -> None:
         try:
             action()
-        except (OSError, ValueError, EOFError, RuntimeError) as exc:
+        except Exception as exc:  # noqa: BLE001 - thread failure must invalidate run
+            if audit.cutoff.is_set() and isinstance(exc, (ObservationCutoff, OSError)):
+                return
             errors.append(f"{type(exc).__name__}: {exc}")
             audit.abort.set()
-            for peer in sockets:
-                peer.close()
+            close_owned()
 
     def pair(
         source: socket.socket,
@@ -268,6 +377,8 @@ def serve(variant: str, output: Path, expected_netns: int, host_netns: int) -> d
                     login_id if index else None,
                     variant,
                     ack_forwarded,
+                    watchdog.arm if index else None,
+                    watchdog.cancel,
                 )
 
         actions = (
@@ -309,6 +420,8 @@ def serve(variant: str, output: Path, expected_netns: int, host_netns: int) -> d
         "deadline_seconds": DEADLINE_SECONDS,
     }
     data_thread: threading.Thread | None = None
+    timer_thread = threading.Thread(target=guarded, args=(watchdog.run,), daemon=True)
+    timer_thread.start()
     try:
         listeners = {}
         for name, port in LISTENERS.items():
@@ -353,19 +466,37 @@ def serve(variant: str, output: Path, expected_netns: int, host_netns: int) -> d
             pair(client, backend, False, parsed["id"])
         finally:
             control_done.set()
+            if watchdog.state != "fired":
+                watchdog.cancel()
         data_thread.join(max(0, audit.deadline - time.monotonic()))
-        if data_thread.is_alive() or not ack_forwarded.is_set() or errors:
-            raise RuntimeError("Proxy relay or controlled ACK incomplete")
-        report["status"] = "completed"
+        timer_thread.join(1)
+        if (
+            data_thread.is_alive()
+            or timer_thread.is_alive()
+            or not ack_forwarded.is_set()
+            or errors
+            or watchdog.error
+        ):
+            raise RuntimeError("Proxy relay, watchdog or controlled ACK incomplete")
+        report["status"] = (
+            "intentional-observation-cutoff"
+            if watchdog.state == "fired" and watchdog.receipt()["valid_30_seconds"]
+            else "timing-invalid"
+            if watchdog.state == "fired"
+            else "completed"
+        )
     except (OSError, ValueError, EOFError, RuntimeError) as exc:
         errors.append(f"{type(exc).__name__}: {exc}")
         audit.abort.set()
     finally:
-        for peer in sockets:
-            peer.close()
+        watchdog.cancel()
+        close_owned()
+        timer_thread.join(1)
         if data_thread is not None:
             data_thread.join(1)
         report["errors"] = errors
+        report["observation"] = watchdog.receipt()
+        report["pid"] = os.getpid()
         report["entries"] = audit.entries
         encoded = json.dumps(report, indent=2) + "\n"
         if len(encoded.encode()) > 1_000_000:
@@ -385,7 +516,9 @@ def main() -> None:
         args.variant, args.output, args.expected_netns_inode, args.host_netns_inode
     )
     print(result["status"])
-    raise SystemExit(result["status"] != "completed")
+    raise SystemExit(
+        result["status"] not in {"completed", "intentional-observation-cutoff"}
+    )
 
 
 if __name__ == "__main__":

@@ -68,6 +68,34 @@ case must be `baseline`, with host/client/server wire and UI parity against
 B21. Only a separate review may allow modified cases after that baseline.
 No 162 mutation is implemented here.
 
+## Automatic observation cutoff (B27 preparation)
+
+An independent proxy watchdog starts before the first control accept. Only
+**after** the first matching successful Login107 ACK `sendall` returns does it
+arm at monotonic ACK time plus 28 seconds. Its receipt records the original
+and forwarded ACK SHA-256 values, trigger, due time, actual firing time and
+last owned-socket close time. This is a local write-completion trigger; the
+packet captures must still prove client delivery. The 28-second target leaves
+margin for the required <=30-second observation limit. A later close is
+`timing-invalid`, never successful tolerance evidence.
+
+At expiry the watchdog closes only proxy-owned control/data sockets and
+listeners. Accepted sockets racing with expiry are closed on registration.
+Relay errors from this intentional close are kept separate from real source,
+protocol or I/O failures. Natural control EOF cancels the timer; a native
+source mismatch remains a failure. A valid timer stop is reported as
+`intentional-observation-cutoff`, distinct from the proxy's natural
+`completed` status and from peer acceptance. The proxy writes the final
+bounded report with its PID and timing receipt; unexpected timer or report
+failure invalidates the case. The app and native server remain separately
+owned. The existing 180-second process cap and future system-service
+`RuntimeMaxSec=180` still apply.
+
+The route check calls fixed `/usr/sbin/ip`, so it does not depend on the
+service's minimal `PATH`. A read-only guard call under `env -i PATH=/usr/bin`
+as UID 1000 inside the actual client namespace returned inode `4026532479`.
+It opened no listener or backend connection. Recheck identity on future use.
+
 ## Offline checks and remaining gate
 
 From the protocol-docs repository:
@@ -80,11 +108,13 @@ ty check --python ../mothra/tools/ghidramcp/.venv/bin/python \
 python3 -m unittest discover -s scripts -p 'test_classic_login_proxy.py'
 ```
 
-Eleven tests cover ACK preservation and rebuilt widths/counts, ID/status and
+Fifteen tests cover ACK preservation and rebuilt widths/counts, ID/status and
 native-value rejection, malformed/fragmented input, socket-pair byte and EOF
 relay, no-forward rejection, deadline/log bounds, and the host namespace
 check, plus inaccessible `/proc/1` and host-sysfs discrepancy regressions.
-A nonlocal-route fault also fails the guard. They open no native or guest
+A nonlocal-route fault also fails the guard. New fake-clock and socket-pair
+controls cover ACK-only arming, failed send, shared socket closure, early-EOF
+cancellation and late-cutoff invalidity. They open no native or guest
 listener. Actual direct-system-service
 lifecycle, namespace route proof, client data-port behavior, baseline wire/UI
 parity and error cleanup remain untested runtime gates. A future failed
@@ -96,7 +126,10 @@ supervisor. This **+80-line allowance** retains explicit frame validation,
 thread/deadline cleanup and bounded audit logging. The test budget increased
 from 180 to 230 physical lines to model actual unprivileged `/proc` denial
 and namespace-independent sysfs observations. No safeguard was waived.
-Production, tests and this document remain within their revised bounds.
+B27 then raised production to 500 and finally 540 physical lines for explicit
+watchdog receipt, outcome arbitration and owned-socket cleanup. Tests rose to
+300 and then 325 to keep natural-EOF and data half-close controls. Production,
+tests and this document remain within their revised bounds.
 
 ## Read-only actual namespace guard receipt
 

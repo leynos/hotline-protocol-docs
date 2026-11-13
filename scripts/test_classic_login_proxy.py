@@ -12,6 +12,7 @@ from unittest.mock import patch
 
 from classic_login_proxy import (
     Audit,
+    ObservationWatchdog,
     namespace_guard,
     parse_frame,
     relay_data,
@@ -216,6 +217,97 @@ class ClassicLoginProxyTests(unittest.TestCase):
             self.assertRaisesRegex(ValueError, "nonlocal route"),
         ):
             namespace_guard(42, 1)
+
+    def test_watchdog_arms_once_after_ack_and_closes_owned_sockets(self) -> None:
+        now = [1_000_000_000]
+        control, control_peer = socket.socketpair()
+        data, data_peer = socket.socketpair()
+        for peer in (control, control_peer, data, data_peer):
+            self.addCleanup(peer.close)
+        audit = Audit(time.monotonic() + 2)
+        watchdog = ObservationWatchdog(
+            audit, lambda: (control.close(), data.close()), lambda: now[0]
+        )
+        self.assertFalse(watchdog.tick())
+        watchdog.arm(self.source, self.source)
+        timer = threading.Thread(target=watchdog.run)
+        timer.start()
+        with self.assertRaises(ValueError):
+            watchdog.arm(self.source, self.source)
+        now[0] += 27_000_000_000
+        self.assertFalse(watchdog.tick())
+        now[0] += 1_000_000_000
+        timer.join(0.5)
+        self.assertFalse(timer.is_alive())
+        self.assertEqual(control_peer.recv(1), b"")
+        self.assertEqual(data_peer.recv(1), b"")
+        self.assertTrue(watchdog.receipt()["valid_30_seconds"])
+
+    def test_watchdog_cancellation_and_late_cutoff(self) -> None:
+        now = [1_000_000_000]
+        audit = Audit(time.monotonic() + 2)
+        closed = []
+        watchdog = ObservationWatchdog(
+            audit, lambda: closed.append(True), lambda: now[0]
+        )
+        watchdog.arm(self.source, self.source)
+        watchdog.cancel()
+        now[0] += 40_000_000_000
+        self.assertFalse(watchdog.tick())
+        self.assertEqual(closed, [])
+        late = ObservationWatchdog(audit, lambda: closed.append(True), lambda: now[0])
+        late.arm(self.source, self.source)
+        now[0] += 31_000_000_000
+        self.assertTrue(late.tick())
+        self.assertFalse(late.receipt()["valid_30_seconds"])
+
+    def test_natural_socket_eof_cancels_watchdog(self) -> None:
+        source, writer = socket.socketpair()
+        sink, reader = socket.socketpair()
+        for peer in (source, writer, sink, reader):
+            self.addCleanup(peer.close)
+        source.settimeout(0.1)
+        now = [1_000_000_000]
+        watchdog = ObservationWatchdog(
+            Audit(time.monotonic() + 2), lambda: None, lambda: now[0]
+        )
+        watchdog.arm(self.source, self.source)
+        writer.sendall(frame(300, 9, []))
+        writer.shutdown(socket.SHUT_WR)
+        relay_frames(
+            source,
+            sink,
+            watchdog.audit,
+            "client",
+            None,
+            "baseline",
+            on_eof=watchdog.cancel,
+        )
+        self.assertEqual(reader.recv(1024), frame(300, 9, []))
+        now[0] += 31_000_000_000
+        self.assertFalse(watchdog.tick())
+        self.assertEqual(watchdog.receipt()["state"], "cancelled")
+
+    def test_failed_ack_write_never_arms_watchdog(self) -> None:
+        source, writer = socket.socketpair()
+        sink, reader = socket.socketpair()
+        for peer in (source, writer, sink, reader):
+            self.addCleanup(peer.close)
+        source.settimeout(0.1)
+        reader.close()
+        watchdog = ObservationWatchdog(Audit(time.monotonic() + 2), lambda: None)
+        writer.sendall(self.source)
+        with self.assertRaises(OSError):
+            relay_frames(
+                source,
+                sink,
+                watchdog.audit,
+                "server",
+                7,
+                "baseline",
+                on_ack=watchdog.arm,
+            )
+        self.assertIsNone(watchdog.receipt()["ack_sent_monotonic_ns"])
 
     def test_deadline_and_log_bounds_fail(self) -> None:
         audit = Audit(time.monotonic() - 1)
