@@ -68,8 +68,11 @@ def preflight() -> dict:
     return {"preflight": (steps + [close()], {"kind": "metadata-preflight"})}
 
 
-def upload(identifier: int, name: bytes, parent: bytes = BASE) -> list[dict]:
-    value = body(b"metadata-data", b"", b"TEXT", b"MOTH", b"base-comment")
+def upload(
+    identifier: int, name: bytes, parent: bytes = BASE, value: bytes | None = None
+) -> list[dict]:
+    if value is None:
+        value = body(b"metadata-data", b"", b"TEXT", b"MOTH", b"base-comment")
     channel, reference = f"up{identifier}", f"ref{identifier}"
     return [
         send(

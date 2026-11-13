@@ -65,6 +65,12 @@ from native_mkdir_cases import creation as mkdir_creation
 from native_mkdir_cases import empty_root as mkdir_empty_root
 from native_mkdir_cases import finalization as mkdir_final
 from native_mkdir_cases import seed as mkdir_seed
+from native_move_cases import cleanup as move_cleanup
+from native_move_cases import deletions as move_deletions
+from native_move_cases import finalization as move_final
+from native_move_cases import moves as move_moves
+from native_move_cases import preflight as move_preflight
+from native_move_cases import seed as move_seed
 from native_queue_cases import queues, timer
 from native_resume_cases import downloads as resume_downloads
 from native_resume_cases import upload_continuations, upload_probes
@@ -77,6 +83,12 @@ def main() -> None:
     parser.add_argument(
         "suite",
         choices=[
+            "move-preflight",
+            "move-seed",
+            "move-moves",
+            "move-deletions",
+            "move-final",
+            "move-cleanup",
             "metadata-preflight",
             "metadata-combined-empty",
             "metadata-account-cleanup",
@@ -162,6 +174,12 @@ def main() -> None:
     if args.suite == "agreement-restore-stage" and args.original_agreement is None:
         parser.error("agreement-restore-stage requires --original-agreement")
     cases = {
+        "move-preflight": move_preflight,
+        "move-seed": move_seed,
+        "move-moves": move_moves,
+        "move-deletions": move_deletions,
+        "move-final": move_final,
+        "move-cleanup": move_cleanup,
         "metadata-preflight": metadata_preflight,
         "metadata-combined-empty": metadata_combined_empty,
         "metadata-account-cleanup": metadata_account_cleanup,
@@ -269,6 +287,8 @@ def main() -> None:
                 "GAP-017",
             ]
             if args.suite == "framing"
+            else ["GAP-003", "GAP-047", "GAP-050", "GAP-053", "GAP-054", "GAP-084"]
+            if args.suite.startswith("move-")
             else ["GAP-016", "GAP-019", "GAP-052", "GAP-084"]
             if args.suite.startswith("metadata-")
             else ["GAP-047", "GAP-048", "GAP-049", "GAP-054", "GAP-084"]
