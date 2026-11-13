@@ -78,7 +78,13 @@ transaction **122** carries type 152 and optional 153, conditional on configured
 banner state and saved client version at least 151. Agreement notification
 109 is not the combined agreement/banner structure described previously.
 
-Evidence: M002–M004, V024–V027, V058.
+Native [agreement configurations][agreements] now distinguish fieldless 109
+for missing/empty/unreadable content from bypass field 154. Early completion
+still needs no 121; delayed completion still needs it. A loaded agreement above
+the field limit can leave early completion online without 109, so a login ACK
+alone does not certify agreement delivery.
+
+Evidence: M002–M004, V024–V027, V058; native-agreement-01.
 
 ## Credential obfuscation and text compatibility
 
@@ -309,3 +315,5 @@ remaining questions and their closure criteria.
 [presence-log]: ../mothra/evidence/gap-remediation/2026-11-12/mxd-review/presence-tests.log
 
 [lineage]: ../mothra/evidence/gap-remediation/2026-11-12/batch-08/synhx-lineage-review.json
+
+[agreements]: native-wire-details.md#captured-agreement-configurations-and-partial-login-failures

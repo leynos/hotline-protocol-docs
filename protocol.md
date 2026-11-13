@@ -317,7 +317,8 @@ Account bans, connection limits and configuration can affect admission. This
 baseline does not establish every account-storage or authentication edge case.
 The [configured state fixtures](presence-messaging-contracts.md#captured-configured-login-states-and-visibility)
 separate readiness, agreement bypass, duplicate/out-of-state requests and
-observer visibility; absent/empty agreement configurations remain open.
+observer visibility. The [agreement configuration corpus](native-wire-details.md#captured-agreement-configurations-and-partial-login-failures)
+adds missing, empty, unreadable, typed-content and size-boundary paths.
 
 Evidence: V023–V027; `10011960`.
 
@@ -333,7 +334,28 @@ session remains inactive until transaction 121: the early-completion path
 above also exists. Client prompts and acceptance interface are not established
 by this server analysis.
 
-Evidence: V025, V027; `10011960`.
+Native configuration fixtures confirm that missing, zero-byte and unreadable
+(directory) agreements produce type109 with **zero fields**, rather than an
+empty value101 or a154 bypass flag. Bit27 still produces154=`0001` for each
+configuration. These outcomes leave the early/delayed readiness distinction
+intact: early completion needs no121; a delayed login still needs121, including
+when109 has no fields or carries154.
+
+TEXT data converts CRLF to CR; a lone LF, byte80 and embedded NUL survive.
+A recognized non-TEXT Finder type preserves those bytes unchanged. TEXT65535
+bytes serialize intact; TEXT65536 and non-TEXT262141 fail the loader's respective
+65535/262140 checks and subsequently yield a fieldless109. Oversized-file warning
+dialogs were acknowledged before those wire observations.
+
+A non-TEXT65536-byte agreement loads but cannot fit field101. In the retained
+partial-failure fixtures, early107 sends ACK and354, stays roster-visible and
+answers500, but sends no109 during three seconds. Online107/121 replay still
+fails. Delayed107 sends its ACK without109, stays unlisted during three seconds,
+then closes when500 is sent. A separate30-second no-trigger hypothesis timed
+out; no immediate-close or universal timeout rule follows. See the
+[condition and sequence evidence](native-wire-details.md#captured-agreement-configurations-and-partial-login-failures).
+
+Evidence: V025, V027; `10011960`, `10003bd0`, `100568b0`; native-agreement-01.
 
 ### Agreement Acceptance (Transaction 121) – Client Initiates
 

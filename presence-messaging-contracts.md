@@ -89,8 +89,9 @@ cleanup deadline (GAP-035/036).
 One exploratory reauthentication trial overlapped account cleanup and includes
 another peer's301. It remains separate from the isolated repeat. The temporary
 guest and other owned accounts are removed and read back as missing; existing
-account records were not edited. These cases refine GAP-025/027 but do not
-close their configured absent/empty/unreadable-agreement requirements. Login
+account records were not edited. These authentication cases originally left
+the absent, empty and unreadable agreement configurations open. Those are now
+covered by the separate [agreement corpus][agreements]. Login
 field161 remains an unnamed zero in these observations; no banner-identity
 meaning or constant-zero guarantee is inferred (GAP-026).
 
@@ -209,15 +210,19 @@ and rejects larger values:
 The same helper loads agreement and image buffers; its limit depends on native
 file type, not solely on their intended role. It does not establish a character
 encoding, universal LF-to-CR conversion or a safe single-TLV grammar for a
-non-TEXT agreement larger than 65,535 bytes. Field-width/aggregate validation
-and peer acceptance remain GAP-011/018/019/027/028.
+non-TEXT agreement larger than 65,535 bytes. The agreement corpus now confirms
+that the writer rejects a loaded 65,536-byte value before sending 109, with
+different early/delayed partial-login outcomes. Broader field validation, text
+policy and peer acceptance remain GAP-011/018/019/028.
 
 Empty paths, missing files or size rejection do not preserve the old buffer
 in this helper. Options handling has an explicit content-reload call when its
 selected settings change; startup also loads content. This does not establish
 a filesystem watcher or atomic replacement across advertisement and data send.
-Native changed/missing/empty/over-limit content and concurrent-transfer fixtures
-remain required. A successful configuration load is not a native network test.
+Native agreement changed/missing/empty/unreadable/over-limit cases now have
+paired network and positive-file evidence. Concurrent-transfer and broader
+content-refresh requirements remain separate. A successful configuration load
+alone does not establish a native network outcome.
 
 ## Status word, separate from the privilege bitmap
 
@@ -396,3 +401,5 @@ and notification fixtures remain GAP-084/076.
 [file-loader]: ../mothra/evidence/gap-remediation/2026-11-12/batch-17/queries/B17-D-10003bd0.c
 
 [store-scan]: ../mothra/evidence/gap-remediation/2026-11-12/batch-17/discovery-offset-41c-stores.json
+
+[agreements]: native-wire-details.md#captured-agreement-configurations-and-partial-login-failures

@@ -858,3 +858,78 @@ hypothesis. The final isolated retry observes three seconds of silence; it does
 not establish a universal session-recovery policy or cleanup deadline.
 
 [auth-corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-auth-01/manifest.json
+
+## Reproducing agreement configuration and partial-failure fixtures
+
+Use the running native server and independently identified oracle described
+above. Capture both host and guest boundaries throughout. The retained
+[agreement manifest](../mothra/evidence/gap-remediation/2026-11-13/native-agreement-01/manifest.json)
+separates accepted cases, setup controls and exploratory hypotheses. Preserve
+each report and plan in a new output directory; never overwrite a failed trial.
+
+Prepare `agreement-preflight` before `agreement-seed`. Check the 352 failure
+before creating the owned `m-auth-bypass` account. Seed uploads the original
+seven controls through 203; `agreement-stages` additionally prepares separate
+folders with exact-name children, including a directory child. For example,
+from the mothra checkout:
+
+```bash
+python3 ../hotline-protocol-docs/scripts/prepare_native_cases.py \
+  agreement-stages \
+  --runtime-record state/native-sessions/runtime-15/runtime.json \
+  --output state/agreement-stages-new
+python3 ../hotline-protocol-docs/scripts/protocol_capture.py capture \
+  state/agreement-stages-new/stage-agreement-text.json \
+  --oracle-binary evidence/hotline-server-1.9/inputs/HLserver19.pef \
+  --output state/agreement-upload-new
+```
+
+Run each selected upload plan once. The folder transfer creates
+`Files/m-agr-<phase>/Agreement.txt`; move that child into the application folder
+through Finder. Back up the original first. Between configurations remove only
+the owned replacement; preserve the original backup and existing server files.
+Reload once from the active native server window, acknowledge an oversized-file
+warning where applicable, and retain the screenshot/log diagnostic. Verify the
+exact positive native path, type and fork bytes with `snapshot_native_hfs.py`
+before accepting a phase. A completed GUI script or protocol upload is
+insufficient. Finder retyped the BINA control as TEXT in one trial; the accepted
+non-TEXT controls use BMP and verify that installed type.
+
+Prepare `agreement-<phase>` using fresh directories for original, absent, text,
+empty, directory, text-limit, text-over-limit, nontext, nontext-over-limit,
+nontext-field-over-limit and restored. Most produce four state cases; the
+oversized-field phase produces two distinct partial-failure probes using a
+bypass observer. Its delayed case observes three seconds of silence, sends 500,
+then reads EOF. Its early case observes silence then checks 500 ACK, online
+replay errors and visibility. Do not substitute an immediate-EOF assertion.
+
+Use the retained original agreement to prepare restoration, with a hash guard:
+
+```bash
+agreement_evidence=evidence/gap-remediation/2026-11-13/native-agreement-01
+python3 ../hotline-protocol-docs/scripts/prepare_native_cases.py \
+  agreement-restore-stage \
+  --original-agreement "$agreement_evidence/original-agreement.data" \
+  --runtime-record state/native-sessions/runtime-15/runtime.json \
+  --output state/agreement-restore-new
+```
+
+Upload that stage, move the child into place and reload. Verify 245 stored TEXT
+bytes and 242 bytes in 109; run all four restored cases before
+`agreement-cleanup`. Check 351 success and the following 352 error. The owned
+fixture files may remain in the Files area or Trash; their presence is not an
+account-cleanup or restart-durability result.
+
+For offline verification from adjacent clean exports:
+
+```bash
+python3 ../hotline-protocol-docs/scripts/verify_native_agreements.py \
+  evidence/gap-remediation/2026-11-13/native-agreement-01
+```
+
+The verifier checks planned transitions, exact notices, native types/forks,
+observer visibility, literal unread tails, account cleanup and paired TCP
+streams. The corpus retains the preparation scripts as run and the original
+runtime record. Its host timer recovery is recorded separately; no guest
+memory or register changes were used, and no ROM or working disk is required
+for offline verification.

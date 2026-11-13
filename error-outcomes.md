@@ -53,6 +53,15 @@ observation supplies a universal disconnect deadline.
 Internal exception translation and broader failure boundaries remain GAP-003;
 this corpus does not turn every `SError` domain/code into a wire status.
 
+The [agreement configuration corpus][agreements] adds a partial-failure case:
+a 65,536-byte non-TEXT agreement loads but exceeds the single-field limit.
+Both paths send the successful 107 ACK first. Early completion also sends 354,
+remains visible and answers 500 while omitting 109; delayed completion remains
+unlisted and closes after the next 500 request. Neither path sends a numbered
+error explaining the failed agreement. Internal `SError` 1/10 is established by
+the writer, not serialized as wire status 10. The retained quiet and failed
+30-second no-trigger hypotheses do not establish a universal close deadline.
+
 ## Derived unknown-operation example
 
 The following **calculated layout**, not a captured packet, combines the native
@@ -142,3 +151,5 @@ throws internal domain1/code2. Missing-buffer212 reaches a separate null-size
 check throwing the same pair before ACK construction. These internal values are
 not wire statuses. General exception translation, reset thresholds and mxd error
 containment remain GAP-003/064/085/086.
+
+[agreements]: native-wire-details.md#captured-agreement-configurations-and-partial-login-failures

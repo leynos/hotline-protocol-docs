@@ -318,3 +318,79 @@ for exact comparisons, bounded negative findings and remaining timer fixtures.
 [clock]: ../mothra/evidence/gap-remediation/2026-11-12/batch-01/queries/B01-D-10057d00.c
 
 [native-core]: ../mothra/evidence/gap-remediation/2026-11-12/native-core-01/manifest.json
+
+## Captured agreement configurations and partial login failures
+
+The [agreement corpus](../mothra/evidence/gap-remediation/2026-11-13/native-agreement-01/manifest.json)
+retains 42 accepted cases:40 ordinary/bypass state cases across 10 configurations
+and two oversized-field cases. It also retains 28 setup/control reports,
+12 exploratory reports and 16 identity-checked read-only Ghidra queries. The
+server remains the same Mac PPC oracle and live emulator PID used by the
+preceding authentication corpus. The original 245-byte TEXT agreement is backed
+up, then restored and independently read at the application path. The temporary
+bit 26/27 account is deleted and 352 subsequently fails to read it.
+
+For each ordinary configuration, both admin and the bypass account take both
+early and delayed completion paths. Every case includes observer rosters,
+duplicate online 107/121 errors, a successful 500 and post-close observations.
+Delayed cases wait three seconds before 121, then receive its ACK,354 and 122;
+early cases receive ACK,354,109 and are visible before any 121. Existing observer
+301 and subject 354/109 observations span different TCP connections; they do not
+establish a total delivery order or atomic roster subscription.
+
+| Configuration at application-relative Agreement.txt | Ordinary 109 | Bypass 109 |
+| --- | --- | --- |
+| Original/restored 245-byte TEXT | Field 101 with 242 bytes after CRLF conversion | 154=`0001` |
+| Missing path, with native missing-file reload diagnostic | Zero fields | 154=`0001` |
+| Present zero-byte TEXT | Zero fields | 154=`0001` |
+| Directory at the exact path, positively verified in HFS+ | Zero fields | 154=`0001` |
+| 34-byte TEXT containing CRLF, loneLF,80 andNUL | 32 bytes; only CRLF changes | 154=`0001` |
+| Same 34 raw bytes, native typeBMP | All 34 bytes unchanged | 154=`0001` |
+| TEXT 65535 bytes | Field 101 with 65535 bytes | 154=`0001` |
+| TEXT 65536 bytes | Warning at 65535, then zero fields | 154=`0001` |
+| BMP 262141 bytes | Warning at 262140, then zero fields | 154=`0001` |
+
+For empty files, zero-length field omission follows the writer; a fieldless 109
+alone does not distinguish a null buffer from a zero-size loaded handle.
+The loader releases the previous buffer before its replacement attempt. The
+nonempty-to-empty sequence proves that old text is not retained in the notice.
+BMP is a Finder type control here, not a valid image or an agreement encoding.
+
+A separate BMP 65536 fixture passes the loader but exceeds the 65535-byte TLV
+field cap. The writer asserts its maximum and raises internalSError 1/10 before
+constructing field 101; this does not wrap the length or emit a truncated field.
+The two final probes use a bypass observer so its own login can complete:
+
+| Subject path | Captured partial outcome |
+| --- | --- |
+| Early name/icon completion | ACK,354; no 109 in three seconds.500 ACKs; observer 301 and rosters show the subject online. Subsequent 121/107 return status 1, field 100 `Unknown transaction type!`. After client close,302 and a subject-free roster follow. |
+| Delayed completion | ACK without 109; three seconds of silence and no roster visibility. Sending 500 then yields EOF, corroborated by the guest close trace. The observer receives 302 for a UID never introduced by 301. |
+
+These are failed agreement serialization outcomes after an ACK. They are not a
+successful ordinary login contract, a complete session rollback, or evidence
+that the native writer permits arbitrary field lengths. The separate no-trigger
+30-second EOF hypothesis failed; retain it alongside the original pipelined
+liveness hypothesis and early-survival hypothesis. Do not replace those reports
+with the final plans.
+
+Every ordinary/overflow input and output reconciles exactly with both host and
+guest TCP lifetimes. All 28 setup and 11 non-stalled exploratory reports also
+reconcile. Two unread notification tails are pinned explicitly, in setup and
+exploratory streams; no accepted case needs an unread-tail allowance. Host
+capture statistics report 4337 packets and zero kernel drops.
+
+The remaining exploratory report hit the diagnosed host timer deadlock. During
+its 0.770-second failed observation the host proxy accepted 12 handshake bytes;
+the guest sent no response and consumed no application bytes. A late SYN-ACK
+286.213 seconds after the first SYN and the resulting reset are retained in the
+full lifetime. They do not turn that failed observation into a native rejection.
+The [timer diagnosis and patch](../mothra/evidence/gap-remediation/2026-11-13/timer-suspension-01/manifest.json)
+records host-only recovery. The patched executable was built and regression
+tested but is not the binary running these captures.
+
+A proposed BINA control became TEXT/ttxt during GUI setup and returned normalized
+text. Its four completed reports remain exploratory. Native Finder metadata,
+not the upload plan's intended type, selects the accepted non-TEXT control.
+Failed moves/renames and zero-record native scans are retained as setup history;
+a scan with no matching records does not establish path absence. No ROM,
+operating-system image, working disk or restart-durability claim is included.
