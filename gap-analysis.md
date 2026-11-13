@@ -5,20 +5,19 @@ correction map. This register tracks gaps in the specification after the
 validity-ledger corrections. It does not reopen corrected findings or claim to
 resolve the remaining unknowns.
 
-The sweep records **87 gaps** across **256 reviewed document sections**. These
+The sweep records **87 gaps** across **266 reviewed document sections**. These
 are documentation questions and proposed investigation priorities, not
 confirmed binary defects, security severity ratings or mxd test failures.
 
 ## Scope, evidence and status
 
-Native room review: thirteen completed captures, two retained failed recorder
-expectations, 45 paired TCP lifetimes, eight
-room/access/invitation/topic/lifecycle/format scenarios and sixteen oracle
-queries. Closure review 24 closes only GAP-038/039/040/041/042 against
-unchanged criteria. All 87 original criteria are preserved: 45 Resolved, 41
-Investigating, 1 Open; 42 unclosed. Other encoding, general
-teardown/flood/identifier lifetime, actual peer and separate mxd requirements
-remain active.
+First bounded delegated batch: five native diagnostic reports/six paired
+lifetimes, five isolated full-process controlled peer variants, and 55 focused
+mxd tests at unchanged 2e4c9c1 with 14 frozen source snapshots. Supervisor
+independently reviewed semantics, cleanup, portability and unmet criteria. All
+87 original criteria/statuses are preserved: 45 Resolved, 41 Investigating, 1
+Open; 42 unclosed. No stale test assertion, release choice, client identity or
+unrun proof is promoted to conformance.
 
 The corrected documents deliberately contain unresolved statements. Unanswered
 entries refine those into actionable questions. Missing and Ambiguous entries
@@ -73,33 +72,36 @@ unknown question has already been answered.
 
 ## Input provenance
 
-Audit captured at `2026-11-13T11:13:32.582683+00:00`. The source checkout has
-Git HEAD `7da4fbd950119e8435a0bc50fb76f0e2953dfacb` with modified/untracked
+Audit captured at `2026-11-13T11:37:06.719751+00:00`. The source checkout has
+Git HEAD `8509e2ea705ce4418f925807b103c1fd201fba17` with modified/untracked
 reviewed files. The hashes below identify the actual reviewed worktree
 contents; HEAD alone does not. Source line ranges in entries refer to the
 frozen snapshots, while section links point to the current documents.
 
 | Reviewed input | SHA-256 | Frozen copy |
 | --- | --- | --- |
-| [protocol.md](protocol.md) | `bd30a72a4f31eea0ffba7e06b395e45a1466274860d1cbc11664ad36308cc5e2` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-46/inputs/protocol.md.txt) |
-| [internal-compatibility-matrix.md](internal-compatibility-matrix.md) | `8f14e7d4918ab77fb51e32807d7891bd1e4ff0955f5a8b363c101ebae2b64705` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-46/inputs/internal-compatibility-matrix.md.txt) |
-| [baseline-correction-map.md](baseline-correction-map.md) | `08b3687d975dbd9ae9050d5d0b333d2c106b884f1d3d87a3a966cbbc604d7385` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-46/inputs/baseline-correction-map.md.txt) |
-| [native-wire-details.md](native-wire-details.md) | `3b75adfa355d416ca5aa813b35301ba1a50cf79d010276ea17623580b69439b3` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-46/inputs/native-wire-details.md.txt) |
-| [operation-contracts.md](operation-contracts.md) | `216a941857e4959cf79317860ee76986bf62ee35a714e8d6bb8fe2f0e0c08f1b` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-46/inputs/operation-contracts.md.txt) |
-| [transfer-contracts.md](transfer-contracts.md) | `eb9758e73bdd9d3d2fc46e93037bd093d3ab64879a50a824af6e599d07244cf4` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-46/inputs/transfer-contracts.md.txt) |
-| [news-contracts.md](news-contracts.md) | `9b935a8b19f0baf4cc19115692f80c40912d2d8683a40e991d67867483b88597` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-46/inputs/news-contracts.md.txt) |
-| [presence-messaging-contracts.md](presence-messaging-contracts.md) | `c433dc36b1e90a1f4e25f819044483b954cbd59076a909012b07482f4d2a1512` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-46/inputs/presence-messaging-contracts.md.txt) |
-| [core-field-schemas.md](core-field-schemas.md) | `f9c4904247a2bf3ab6b499a9d45676a9d96e49cb548706cb5be10fdc43ea2258` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-46/inputs/core-field-schemas.md.txt) |
-| [session-transport-contracts.md](session-transport-contracts.md) | `85f43b90b00feb5f1e6c2a9c62e6c6da9fd128802f1b9dc1803805cbdcbee80b` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-46/inputs/session-transport-contracts.md.txt) |
-| [filesystem-and-board-contracts.md](filesystem-and-board-contracts.md) | `e6c8ee0293d5a745a742a5f4e0537258c7f7ae42654f0f728bdbafd3da0ed88f` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-46/inputs/filesystem-and-board-contracts.md.txt) |
-| [evidence-portability.md](evidence-portability.md) | `571225c97f9a1a3cae23363fb4d215886c77746d5df9ebc266eae56cd0221c14` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-46/inputs/evidence-portability.md.txt) |
-| [error-outcomes.md](error-outcomes.md) | `180a7935c7569dda660f13ccf9e4710798b9a0739681cc63b43d345904c7ac1e` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-46/inputs/error-outcomes.md.txt) |
-| [identified-client-source.md](identified-client-source.md) | `914ade3e84ae312985ef7a29aecfe6bcd2b904e55269f69882f60f243c5a1474` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-46/inputs/identified-client-source.md.txt) |
-| [privilege-contracts.md](privilege-contracts.md) | `18cd1ad6f83920ea7cdd69c10888151335da2edcb4df7a36f9ee5f651fb860e0` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-46/inputs/privilege-contracts.md.txt) |
-| [native-capture-workflow.md](native-capture-workflow.md) | `bd0c288bb77e5c2a6604475d8201bdffa50c9f58a42e371444aac8e7f85432bb` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-46/inputs/native-capture-workflow.md.txt) |
+| [protocol.md](protocol.md) | `bd30a72a4f31eea0ffba7e06b395e45a1466274860d1cbc11664ad36308cc5e2` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-47/inputs/protocol.md.txt) |
+| [internal-compatibility-matrix.md](internal-compatibility-matrix.md) | `8f14e7d4918ab77fb51e32807d7891bd1e4ff0955f5a8b363c101ebae2b64705` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-47/inputs/internal-compatibility-matrix.md.txt) |
+| [baseline-correction-map.md](baseline-correction-map.md) | `08b3687d975dbd9ae9050d5d0b333d2c106b884f1d3d87a3a966cbbc604d7385` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-47/inputs/baseline-correction-map.md.txt) |
+| [native-wire-details.md](native-wire-details.md) | `3b75adfa355d416ca5aa813b35301ba1a50cf79d010276ea17623580b69439b3` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-47/inputs/native-wire-details.md.txt) |
+| [operation-contracts.md](operation-contracts.md) | `216a941857e4959cf79317860ee76986bf62ee35a714e8d6bb8fe2f0e0c08f1b` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-47/inputs/operation-contracts.md.txt) |
+| [transfer-contracts.md](transfer-contracts.md) | `eb9758e73bdd9d3d2fc46e93037bd093d3ab64879a50a824af6e599d07244cf4` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-47/inputs/transfer-contracts.md.txt) |
+| [news-contracts.md](news-contracts.md) | `9b935a8b19f0baf4cc19115692f80c40912d2d8683a40e991d67867483b88597` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-47/inputs/news-contracts.md.txt) |
+| [presence-messaging-contracts.md](presence-messaging-contracts.md) | `c433dc36b1e90a1f4e25f819044483b954cbd59076a909012b07482f4d2a1512` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-47/inputs/presence-messaging-contracts.md.txt) |
+| [core-field-schemas.md](core-field-schemas.md) | `f9c4904247a2bf3ab6b499a9d45676a9d96e49cb548706cb5be10fdc43ea2258` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-47/inputs/core-field-schemas.md.txt) |
+| [session-transport-contracts.md](session-transport-contracts.md) | `85f43b90b00feb5f1e6c2a9c62e6c6da9fd128802f1b9dc1803805cbdcbee80b` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-47/inputs/session-transport-contracts.md.txt) |
+| [filesystem-and-board-contracts.md](filesystem-and-board-contracts.md) | `e6c8ee0293d5a745a742a5f4e0537258c7f7ae42654f0f728bdbafd3da0ed88f` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-47/inputs/filesystem-and-board-contracts.md.txt) |
+| [evidence-portability.md](evidence-portability.md) | `571225c97f9a1a3cae23363fb4d215886c77746d5df9ebc266eae56cd0221c14` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-47/inputs/evidence-portability.md.txt) |
+| [error-outcomes.md](error-outcomes.md) | `180a7935c7569dda660f13ccf9e4710798b9a0739681cc63b43d345904c7ac1e` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-47/inputs/error-outcomes.md.txt) |
+| [identified-client-source.md](identified-client-source.md) | `914ade3e84ae312985ef7a29aecfe6bcd2b904e55269f69882f60f243c5a1474` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-47/inputs/identified-client-source.md.txt) |
+| [privilege-contracts.md](privilege-contracts.md) | `18cd1ad6f83920ea7cdd69c10888151335da2edcb4df7a36f9ee5f651fb860e0` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-47/inputs/privilege-contracts.md.txt) |
+| [native-capture-workflow.md](native-capture-workflow.md) | `bd0c288bb77e5c2a6604475d8201bdffa50c9f58a42e371444aac8e7f85432bb` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-47/inputs/native-capture-workflow.md.txt) |
+| [diagnostic-replies.md](diagnostic-replies.md) | `9a4354096a84f32940e45720f986f067c1b05c41f2662ff57c2ca759cc2053ff` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-47/inputs/diagnostic-replies.md.txt) |
+| [peer-tolerance-matrix.md](peer-tolerance-matrix.md) | `aa6a7ab2c2c22743bbf9631cb5066fc0827f62c89a6d195b6117394653f30d8c` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-47/inputs/peer-tolerance-matrix.md.txt) |
+| [mxd-reconciliation.md](mxd-reconciliation.md) | `b101c9f12721b5ed16ba40ac7f63ec3515fbf80f0205fe58594f6807ebd295c9` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-47/inputs/mxd-reconciliation.md.txt) |
 
 [Audit
-manifest](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-46/manifest.json);
+manifest](../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-47/manifest.json);
 [machine-readable register](gap-register.json). No field or behaviour is
 silently made normative by being listed as a question.
 
@@ -220,6 +222,14 @@ silently made normative by being listed as a question.
 - **Investigation leads:**
   [1000acf0](../mothra/evidence/hotline-server-1.9/queries/D-1000acf0.c)
 - **Depends on:** No prerequisite recorded.
+- **Progress:**  A delegated review maps current mxd scope/assertions to
+  native evidence but does not select required/deferred/excluded
+  operation/profile states or unsupported replies. The original scope decision
+  remains open.
+- **Evidence:** [Pinned mxd reconciliation](mxd-reconciliation.md); [Frozen
+  mxd source and test
+  evidence](../mothra/evidence/gap-remediation/2026-11-13/delegated-mxd-01/manifest.json)
+- **Closure:** Not closed: the original scope/policy criterion remains unmet.
 
 ### GAP-002
 
@@ -1723,7 +1733,10 @@ silently made normative by being listed as a question.
   confirms onlyconstructor directstore andloginload,
   butdoesnotcoverindexed/derived/aliasedwrites. Field161purpose
   andexhaustivechange/lifetimesemantics remain unresolved; do notreplacewith a
-  constant-zero/community/bannerlabel claim.
+  constant-zero/community/bannerlabel claim. A controlled full shx process
+  tolerates omitted 161 and value 0001 as well as native 0000. This
+  establishes receiver tolerance for one identified build, not field 161
+  meaning or lifetime.
 - **Evidence:** [Configured login-extra byte and refresh
   evidence](native-wire-details.md#captured-login-extras-configuration-bytes-and-refresh);
   [Native login-extra
@@ -1731,7 +1744,10 @@ silently made normative by being listed as a question.
   [Repeatable configuration
   workflow](native-capture-workflow.md#reproducing-login-extra-configuration-and-refresh-fixtures);
   [Expanded direct-store
-  discovery](../mothra/evidence/gap-remediation/2026-11-13/native-login-extras-01/all-direct-store-candidates.json)
+  discovery](../mothra/evidence/gap-remediation/2026-11-13/native-login-extras-01/all-direct-store-candidates.json);
+  [Controlled peer tolerance matrix](peer-tolerance-matrix.md); [Peer
+  tolerance
+  corpus](../mothra/evidence/gap-remediation/2026-11-13/delegated-peer-01/manifest.json)
 - **Closure:** Not closed: field162 representation/configuration and
   boundedrefresh have native evidence; field161 purpose and
   completechange/lifetime semantics stillfail the unchangedcriterion.
@@ -2258,12 +2274,19 @@ silently made normative by being listed as a question.
 - **Progress:** Documented diagnostic fields, generated
   session/account/address/transfer content and final 1024-byte formatting cap.
   Exact-text parity is an unchosen release policy; representative native
-  outputs/encoding fixtures remain required.
+  outputs/encoding fixtures remain required. Five native diagnostic reports
+  and six paired lifetimes verify allowed 299/303-byte text, raw8e
+  preservation, denied/missing families, stale UID negative control and
+  one-row same-connection self targeting. Account baseline restored. Active
+  transfer/queue and near-boundary examples plus exact-text release policy
+  remain open.
 - **Evidence:** [Filesystem and board
   contracts](filesystem-and-board-contracts.md); [Source
   lineage](internal-compatibility-matrix.md#historical-source-lineage-and-build-limits);
   [Portability procedure](evidence-portability.md); [Batch
-  08](../mothra/evidence/gap-remediation/2026-11-12/batch-08/manifest.json)
+  08](../mothra/evidence/gap-remediation/2026-11-12/batch-08/manifest.json);
+  [Native diagnostic replies](diagnostic-replies.md); [Native diagnostic
+  corpus](../mothra/evidence/gap-remediation/2026-11-13/native-diagnostics-01/manifest.json)
 - **Closure:** Not closed: remaining acceptance evidence is listed above.
 
 ## Chat and messaging
@@ -4307,7 +4330,11 @@ silently made normative by being listed as a question.
   Eight actual native full-peer sessions across native-shx-01/02 andfour
   labelled receiver fixtures identify one modern configured shx build.
   Acceptance-target selection and unknown-peer fallback still require a
-  separate policy; no field160/sub-version peer identity is inferred.
+  separate policy; no field160/sub-version peer identity is inferred. Five
+  full-process controlled sessions pin the same identified shx build and
+  source; reported sub-version2 stays separate from identity.
+  Omitted/varied161, unknown login TLV and earlier122 preserve continuation.
+  Target/fallback decisions and other selected profiles remain open.
 - **Evidence:** [Error outcomes](error-outcomes.md); [Folder
   descriptor](transfer-contracts.md#folder-item-descriptor-bytes); [Identified
   client source](identified-client-source.md); [Full historical peer
@@ -4317,7 +4344,10 @@ silently made normative by being listed as a question.
   [Configured native names and controlled receiver
   matrix](identified-client-source.md#native-configured-name-and-controlled-receiver-matrix);
   [Second full-peer
-  corpus](../mothra/evidence/gap-remediation/2026-11-13/native-shx-02/manifest.json)
+  corpus](../mothra/evidence/gap-remediation/2026-11-13/native-shx-02/manifest.json);
+  [Controlled peer tolerance matrix](peer-tolerance-matrix.md); [Peer
+  tolerance
+  corpus](../mothra/evidence/gap-remediation/2026-11-13/delegated-peer-01/manifest.json)
 - **Closure:** Not closed: remaining acceptance evidence is listed above.
 
 ### GAP-081
@@ -4357,7 +4387,11 @@ silently made normative by being listed as a question.
   andsource-derived115 separately/together withnative roster controls:122is
   reportedunknown anddumpedexactly while reload/chat continue;115isdisplayed.
   No bannerUI, liveSynHXserver, optional-profile or universal
-  omission/fallback policy claimed.
+  omission/fallback policy claimed. Controlled full-process matrix adds
+  omitted 161, changed 161, unknown login field32767 and native122 before
+  automatic roster. Exact socket/packet/terminal bytes and continuation pass;
+  three checksum-refreshed semantic mutations are rejected. Other selected
+  profiles and omission/default policy remain open.
 - **Evidence:** [Error outcomes](error-outcomes.md); [Folder
   descriptor](transfer-contracts.md#folder-item-descriptor-bytes); [Identified
   client source](identified-client-source.md); [Full historical peer
@@ -4367,7 +4401,10 @@ silently made normative by being listed as a question.
   [Configured native names and controlled receiver
   matrix](identified-client-source.md#native-configured-name-and-controlled-receiver-matrix);
   [Second full-peer
-  corpus](../mothra/evidence/gap-remediation/2026-11-13/native-shx-02/manifest.json)
+  corpus](../mothra/evidence/gap-remediation/2026-11-13/native-shx-02/manifest.json);
+  [Controlled peer tolerance matrix](peer-tolerance-matrix.md); [Peer
+  tolerance
+  corpus](../mothra/evidence/gap-remediation/2026-11-13/delegated-peer-01/manifest.json)
 - **Closure:** Not closed: remaining acceptance evidence is listed above.
 
 ### GAP-082
@@ -4402,13 +4439,18 @@ silently made normative by being listed as a question.
   peer receives a controlled80/9a/c3b6/ff chat suffix unchanged at native106
   and rawPTYoutput, independent of mxd heuristic tests. This one-profile
   ambiguity sample does not decide mxd field/state rules or unknown-peer
-  fallback.
+  fallback. Peer tolerance is measured independently of heuristic decoder
+  tests, but five controlled variants do not select mxd state/field decoding
+  rules or unknown-peer policy.
 - **Evidence:** [Error outcomes](error-outcomes.md); [Folder
   descriptor](transfer-contracts.md#folder-item-descriptor-bytes); [Identified
   client source](identified-client-source.md); [Full historical peer
   sessions](identified-client-source.md#full-native-peer-acceptance-matrix);
   [Native shx
-  corpus](../mothra/evidence/gap-remediation/2026-11-13/native-shx-01/manifest.json)
+  corpus](../mothra/evidence/gap-remediation/2026-11-13/native-shx-01/manifest.json);
+  [Controlled peer tolerance matrix](peer-tolerance-matrix.md); [Peer
+  tolerance
+  corpus](../mothra/evidence/gap-remediation/2026-11-13/delegated-peer-01/manifest.json)
 - **Closure:** Not closed: remaining acceptance evidence is listed above.
 
 ### GAP-083
@@ -4618,7 +4660,10 @@ silently made normative by being listed as a question.
   observations, two failed recorder expectations, 45 paired TCP lifetimes,
   sixteen oracle queries and sixteen regressions. All original account/Files
   listings restored. Wider operations, actual peers and mxd evidence remain
-  active.
+  active. Added five complete 303 native reports/six paired lifetimes with
+  cleanup, plus independently labelled controlled peer and mxd source/test
+  evidence. Only the diagnostic captures are new native-server exchanges;
+  broader conformance requirements remain active.
 - **Evidence:** [Native format/recovery/reset
   corpus](../mothra/evidence/gap-remediation/2026-11-12/native-banner-02/manifest.json);
   [Banner type/recovery
@@ -4704,7 +4749,9 @@ silently made normative by being listed as a question.
   [Native room
   corpus](../mothra/evidence/gap-remediation/2026-11-13/native-rooms-01/manifest.json);
   [Repeatable room
-  workflow](native-capture-workflow.md#reproducing-private-rooms-and-chat-byte-fixtures)
+  workflow](native-capture-workflow.md#reproducing-private-rooms-and-chat-byte-fixtures);
+  [Native diagnostic replies](diagnostic-replies.md); [Native diagnostic
+  corpus](../mothra/evidence/gap-remediation/2026-11-13/native-diagnostics-01/manifest.json)
 - **Closure:** Not closed: the unchanged criterion still requires the
   outstanding evidence described above.
 
@@ -4738,7 +4785,13 @@ silently made normative by being listed as a question.
   reconciliation; no false native-conformance claim is made. Native child
   append has an observed list/index inconsistency. Documenting it does not
   require reproducing it in mxd; actual checkout/test reconciliation and a
-  separate compatibility policy remain required.
+  separate compatibility policy remain required. At unchanged 2e4c9c1, four
+  focused locked/offline commands pass 55 tests. Fourteen frozen source
+  snapshots and optional live-source checks preserve portability. The
+  assertion map identifies stale sub-version classification, login-extra
+  omission, configured-name assumptions and type 107 versus native type 0
+  routing. No Rust correction was made; implementation reconciliation remains
+  open.
 - **Evidence:** [Operation contracts](operation-contracts.md); [Compatibility
   review](internal-compatibility-matrix.md#mxd-review-at-2e4c9c1); [Captured
   child append
@@ -4746,7 +4799,10 @@ silently made normative by being listed as a question.
   [Native boundary
   corpus](../mothra/evidence/gap-remediation/2026-11-13/native-news-boundary-01/manifest.json);
   [Repeatable boundary
-  workflow](native-capture-workflow.md#reproducing-the-child-append-boundary)
+  workflow](native-capture-workflow.md#reproducing-the-child-append-boundary);
+  [Pinned mxd reconciliation](mxd-reconciliation.md); [Frozen mxd source and
+  test
+  evidence](../mothra/evidence/gap-remediation/2026-11-13/delegated-mxd-01/manifest.json)
 - **Closure:** Not closed: remaining acceptance evidence is listed above.
 
 ### GAP-086
@@ -4779,9 +4835,14 @@ silently made normative by being listed as a question.
 - **Progress:** Reviewed the actual release checklist, checked roadmap
   statuses and bounded Kani harness source at the recorded revision. Kani was
   not run; release owner, native acceptance criteria and deliberate-deviation
+  decisions remain open. Current release/checklist, stale compatibility matrix
+  and unrun Kani policy assertions are mapped to exact frozen sources. No
+  release owner, subset, deferred-gap rule or proof result is invented; those
   decisions remain open.
 - **Evidence:** [Operation contracts](operation-contracts.md); [Compatibility
-  review](internal-compatibility-matrix.md#mxd-review-at-2e4c9c1)
+  review](internal-compatibility-matrix.md#mxd-review-at-2e4c9c1); [Pinned mxd
+  reconciliation](mxd-reconciliation.md); [Frozen mxd source and test
+  evidence](../mothra/evidence/gap-remediation/2026-11-13/delegated-mxd-01/manifest.json)
 - **Closure:** Not closed: remaining acceptance evidence is listed above.
 
 ## Documentation provenance
@@ -5092,6 +5153,16 @@ of binary paths, clients or packet inputs.
 | native-capture-workflow.md | [Reproducing account identity and protection contrasts](native-capture-workflow.md#reproducing-account-identity-and-protection-contrasts) | 1632–1685 | [GAP-003](#gap-003), [GAP-018](#gap-018), [GAP-021](#gap-021), [GAP-031](#gap-031), [GAP-036](#gap-036), [GAP-072](#gap-072), [GAP-074](#gap-074), [GAP-084](#gap-084) |
 | presence-messaging-contracts.md | [Captured private rooms, invitations and chat bytes](presence-messaging-contracts.md#captured-private-rooms-invitations-and-chat-bytes) | 426–529 | 12 gaps; see section-specific rows and JSON register |
 | native-capture-workflow.md | [Reproducing private rooms and chat byte fixtures](native-capture-workflow.md#reproducing-private-rooms-and-chat-byte-fixtures) | 1686–1747 | 12 gaps; see section-specific rows and JSON register |
+| diagnostic-replies.md | [Native 1.9 client diagnostics (303)](diagnostic-replies.md#native-19-client-diagnostics-303) | 1–10 | [GAP-037](#gap-037), [GAP-084](#gap-084) |
+| diagnostic-replies.md | [Representative reply matrix](diagnostic-replies.md#representative-reply-matrix) | 11–51 | [GAP-037](#gap-037), [GAP-084](#gap-084) |
+| diagnostic-replies.md | [Contract boundary](diagnostic-replies.md#contract-boundary) | 52–79 | [GAP-037](#gap-037), [GAP-084](#gap-084) |
+| diagnostic-replies.md | [Reproduction and checks](diagnostic-replies.md#reproduction-and-checks) | 80–120 | [GAP-037](#gap-037), [GAP-084](#gap-084) |
+| peer-tolerance-matrix.md | [Identified shx peer field tolerance: controlled matrix](peer-tolerance-matrix.md#identified-shx-peer-field-tolerance-controlled-matrix) | 1–57 | [GAP-026](#gap-026), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082) |
+| peer-tolerance-matrix.md | [Reproduce and verify](peer-tolerance-matrix.md#reproduce-and-verify) | 58–85 | [GAP-026](#gap-026), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082) |
+| mxd-reconciliation.md | [mxd compatibility reconciliation at 2e4c9c1](mxd-reconciliation.md#mxd-compatibility-reconciliation-at-2e4c9c1) | 1–17 | [GAP-001](#gap-001), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086) |
+| mxd-reconciliation.md | [Oracle and identified peer boundary](mxd-reconciliation.md#oracle-and-identified-peer-boundary) | 18–39 | [GAP-001](#gap-001), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086) |
+| mxd-reconciliation.md | [Assertion-to-requirement map](mxd-reconciliation.md#assertion-to-requirement-map) | 40–94 | [GAP-001](#gap-001), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086) |
+| mxd-reconciliation.md | [Bounded correction proposal](mxd-reconciliation.md#bounded-correction-proposal) | 95–131 | [GAP-001](#gap-001), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086) |
 
 ## Maintaining this analysis
 

@@ -84,7 +84,7 @@ only to the selected test run in the [new manifest][run].
   is not a negotiated native text mode; peer ambiguity and structured news
   fields remain GAP-080/082 work.
 
-The old [mxd compatibility matrix](../mxd/docs/internal-compatibility-matrix.md)
+The old [mxd compatibility matrix][old-mxd-matrix]
 still lists `sub_version != 2` for Hotline 1.8.5/1.9, calls sub-version 2 a
 SynHX identity, and labels unknown/legacy omission “Supported”. Its test
 references point to a former `compat_policy.rs` layout; the current tests are
@@ -127,3 +127,5 @@ scope. This evidence provides an exact starting revision and test map.
 
 [run]: ../mothra/evidence/gap-remediation/2026-11-13/delegated-mxd-01/manifest.json
 [verify]: scripts/verify_mxd_reconciliation.py
+
+[old-mxd-matrix]: ../mothra/evidence/gap-remediation/2026-11-13/delegated-mxd-01/inputs/docs/internal-compatibility-matrix.md.txt
