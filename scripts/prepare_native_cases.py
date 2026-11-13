@@ -84,6 +84,13 @@ from native_news_cases import seed as news_seed
 from native_news_cases import structures as news_structures
 from native_news_cases import thread_children as news_thread_children
 from native_news_cases import thread_grandchild as news_thread_grandchild
+from native_news_delete_cases import cleanup as article_delete_cleanup
+from native_news_delete_cases import deletions as article_delete_cases
+from native_news_delete_cases import finalization as article_delete_final
+from native_news_delete_cases import preflight as article_delete_preflight
+from native_news_delete_cases import publish_cleanup as article_delete_publish
+from native_news_delete_cases import remove_publisher as article_delete_remove
+from native_news_delete_cases import seed as article_delete_seed
 from native_queue_cases import queues, timer
 from native_resume_cases import downloads as resume_downloads
 from native_resume_cases import upload_continuations, upload_probes
@@ -96,6 +103,13 @@ def main() -> None:
     parser.add_argument(
         "suite",
         choices=[
+            "article-delete-preflight",
+            "article-delete-seed",
+            "article-delete-cases",
+            "article-delete-final",
+            "article-delete-cleanup",
+            "article-delete-publish",
+            "article-delete-remove",
             "news-preflight",
             "news-publish-cleanup",
             "news-remove-publisher",
@@ -208,6 +222,13 @@ def main() -> None:
             "news-thread suites require a positive --article-parent from a captured list"
         )
     cases = {
+        "article-delete-preflight": article_delete_preflight,
+        "article-delete-seed": article_delete_seed,
+        "article-delete-cases": article_delete_cases,
+        "article-delete-final": article_delete_final,
+        "article-delete-cleanup": article_delete_cleanup,
+        "article-delete-publish": article_delete_publish,
+        "article-delete-remove": article_delete_remove,
         "news-preflight": news_preflight,
         "news-publish-cleanup": news_publish_cleanup,
         "news-remove-publisher": news_remove_publisher,
@@ -334,6 +355,18 @@ def main() -> None:
                 "GAP-017",
             ]
             if args.suite == "framing"
+            else [
+                "GAP-003",
+                "GAP-015",
+                "GAP-016",
+                "GAP-021",
+                "GAP-031",
+                "GAP-033",
+                "GAP-067",
+                "GAP-069",
+                "GAP-084",
+            ]
+            if args.suite.startswith("article-delete-")
             else ["GAP-003", "GAP-065", "GAP-066", "GAP-070", "GAP-084"]
             if args.suite.startswith("news-")
             else ["GAP-003", "GAP-047", "GAP-050", "GAP-053", "GAP-054", "GAP-084"]
