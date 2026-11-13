@@ -3,11 +3,11 @@
   "title": "Hotline 1.9 protocol documentation gap register",
   "audited_at_utc": "2026-11-12T12:55:29.155796+00:00",
   "last_updated": "2026-11-13",
-  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-47/manifest.json",
-  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-47/sections.json",
+  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-48/manifest.json",
+  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-48/sections.json",
   "validity_ledger": "../mothra/docs/baseline-validity-ledger.md",
   "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
-  "method": "First bounded delegated batch: five native diagnostic reports/six paired lifetimes, five isolated full-process controlled peer variants, and 55 focused mxd tests at unchanged 2e4c9c1 with 14 frozen source snapshots. Supervisor independently reviewed semantics, cleanup, portability and unmet criteria. All 87 original criteria/statuses are preserved: 45 Resolved, 41 Investigating, 1 Open; 42 unclosed. No stale test assertion, release choice, client identity or unrun proof is promoted to conformance.",
+  "method": "Second bounded delegated batch: 13 native bitmap reports across 14 paired lifetimes, 34 account-attribute oracle calls, and 44 focused mxd limit tests with an uncommitted portable patch. Full mxd test attempts failed during linking; the interrupted run remains unknown. All 87 original criteria/statuses remain unchanged: 45 Resolved, 41 Investigating, 1 Open; 42 unclosed. No unknown-bit meaning, field111 human label, aggregate memory guarantee or release policy is inferred.",
   "gaps": [
     {
       "id": "GAP-001",
@@ -634,11 +634,12 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Captured explicit startup assignment of 512 KiB to receive-limit global, superseding the image-only 2 MiB assumption for that path. Indirect future writes, configurability, aggregate bounds and boundary fixtures remain required. Native boundary cases confirm zero/above512KiB size words close, equality524288 passes and aggregate524290 can dispatch. mxd limits, configuration/write paths and global buffering bounds remain required.",
+        "progress": "Captured explicit startup assignment of 512 KiB to receive-limit global, superseding the image-only 2 MiB assumption for that path. Indirect future writes, configurability, aggregate bounds and boundary fixtures remain required. Native boundary cases confirm zero/above512KiB size words close, equality524288 passes and aggregate524290 can dispatch. mxd limits, configuration/write paths and global buffering bounds remain required. Frozen mxd base2e4c9c1 incorrectly reapplies its32KiB physical limit to normalized logical transactions. A private uncommitted correction passes44 focused production tests while retaining1MiB logical and32KiB physical limits. Two full test attempts failed while linking; the earlier interrupted run has no exit. Aggregate buffering/native later-write trace and release policy remain open.",
         "evidence": [
           "[Framing evidence](../mothra/evidence/gap-remediation/2026-11-12/native-framing-01/manifest.json)",
           "[Native framing contracts](session-transport-contracts.md#captured-framing-and-reassembly-boundaries)",
-          "[TLV and scalar outcomes](native-wire-details.md#captured-tlv-and-scalar-boundaries)"
+          "[TLV and scalar outcomes](native-wire-details.md#captured-tlv-and-scalar-boundaries)",
+          "[Second delegated investigation](mxd-limit-contracts.md)"
         ],
         "closure": "Not closed: broader unchanged acceptance requirements remain as stated above."
       }
@@ -837,7 +838,7 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Core registry now supplies field-specific scalar/byte/bitmap/record schemas. Non-core types and malformed-width/range native fixtures remain required. Captured settings icon widths0..5, low16bit narrowing and301 signed-short promotion:8000 emitsffff8000; initial wrong hypothesis retained. Other core scalar/reference/bitmap malformed-width outcomes remain required. Captured file-info207 for the ordinary13-byte fixture is a two-byte scalar000d; directory206 omits207. New listing records have fldrtype/zero creator/value0; existing directory values26/3/1 match immediate counts. These are field-specific samples, not a universal scalar width. Nested321flavoursize65535isunsigned16bitffff,notthesign-extendinggenericouter-scalarcase. Bodygraphzero/smallIDfields331/332/335/336arepresenttwo-bytevalues. Otherfield-specifictypesremainrequired. Fourteen native 337 controls establish zero/nonzero semantics: three-byte width defaults zero; five-byte input uses leading four bytes. Body navigation explicitly emits two-byte zeros and small IDs. Other scalar fields remain active.",
+        "progress": "Core registry now supplies field-specific scalar/byte/bitmap/record schemas. Non-core types and malformed-width/range native fixtures remain required. Captured settings icon widths0..5, low16bit narrowing and301 signed-short promotion:8000 emitsffff8000; initial wrong hypothesis retained. Other core scalar/reference/bitmap malformed-width outcomes remain required. Captured file-info207 for the ordinary13-byte fixture is a two-byte scalar000d; directory206 omits207. New listing records have fldrtype/zero creator/value0; existing directory values26/3/1 match immediate counts. These are field-specific samples, not a universal scalar width. Nested321flavoursize65535isunsigned16bitffff,notthesign-extendinggenericouter-scalarcase. Bodygraphzero/smallIDfields331/332/335/336arepresenttwo-bytevalues. Otherfield-specifictypesremainrequired. Fourteen native 337 controls establish zero/nonzero semantics: three-byte width defaults zero; five-byte input uses leading four bytes. Body navigation explicitly emits two-byte zeros and small IDs. Other scalar fields remain active. Native 64 walking-bit replacements and width controls establish field110 serialization and padding/truncation boundaries. Bit semantics and policy remain open.",
         "evidence": [
           "[Framing evidence](../mothra/evidence/gap-remediation/2026-11-12/native-framing-01/manifest.json)",
           "[Native framing contracts](session-transport-contracts.md#captured-framing-and-reassembly-boundaries)",
@@ -848,7 +849,8 @@
           "[Native news corpus](../mothra/evidence/gap-remediation/2026-11-13/native-news-01/manifest.json)",
           "[Captured article deletion](news-contracts.md#captured-article-deletion-and-index-effects)",
           "[Article deletion corpus](../mothra/evidence/gap-remediation/2026-11-13/native-article-delete-01/manifest.json)",
-          "[Repeatable deletion workflow](native-capture-workflow.md#reproducing-isolated-article-deletion-fixtures)"
+          "[Repeatable deletion workflow](native-capture-workflow.md#reproducing-isolated-article-deletion-fixtures)",
+          "[Second delegated investigation](bitmap-boundaries.md)"
         ],
         "closure": "Not closed: broader unchanged acceptance requirements remain as stated above."
       }
@@ -911,7 +913,7 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Account and session settings presence/default tables are published, including missing/empty/NUL password and comment distinctions. Other operations and full native fixture coverage remain required. Absent/empty105 chooseactualguest; NULonly105 isdistinct. Missingguest fails; configuredempty-password zero-privilege guest succeeds. Otherfield-specific default/zero contracts remain required. Native missing/empty/unreadableagreement emits109withzero fields, distinct from101emptyvalue; bit27always154=1. Fieldwriter omitszero lengths. Otherfield defaults remain required. Native205 distinguishes empty201 from one NUL byte: the latter creates an entry named00. Absent/empty201 can derive the last202component as leaf. Six root/name presence combinations fail against existingFiles root rather than idempotent success. Other fields retain their original requirements. Native207matrixcoversallnineadminabsent/empty/new-nameversusabsent/empty/new-commentcombinationsforfiles/folders. SingleNULclearsandinteriorNULpersists;zero-privilegeabsentupdatesnoop succeeds. Otherfieldpresencecriteriaremainactive. Eight owned account cases verify absent/empty 106 clearing, NUL preservation, literal-x replacement and sparse 353 clearing of name, 111 and access. Complete 734-byte records and 352 output omission/presence are retained. Other field/state defaults remain active. Batch replacement clears omitted name, bitmap and attribute. Old-name plus NUL password preserves credentials; creation without old-name stores encoded NUL and accepts plaintext FF. Other operation defaults remain active.",
+        "progress": "Account and session settings presence/default tables are published, including missing/empty/NUL password and comment distinctions. Other operations and full native fixture coverage remain required. Absent/empty105 chooseactualguest; NULonly105 isdistinct. Missingguest fails; configuredempty-password zero-privilege guest succeeds. Otherfield-specific default/zero contracts remain required. Native missing/empty/unreadableagreement emits109withzero fields, distinct from101emptyvalue; bit27always154=1. Fieldwriter omitszero lengths. Otherfield defaults remain required. Native205 distinguishes empty201 from one NUL byte: the latter creates an entry named00. Absent/empty201 can derive the last202component as leaf. Six root/name presence combinations fail against existingFiles root rather than idempotent success. Other fields retain their original requirements. Native207matrixcoversallnineadminabsent/empty/new-nameversusabsent/empty/new-commentcombinationsforfiles/folders. SingleNULclearsandinteriorNULpersists;zero-privilegeabsentupdatesnoop succeeds. Otherfieldpresencecriteriaremainactive. Eight owned account cases verify absent/empty 106 clearing, NUL preservation, literal-x replacement and sparse 353 clearing of name, 111 and access. Complete 734-byte records and 352 output omission/presence are retained. Other field/state defaults remain active. Batch replacement clears omitted name, bitmap and attribute. Old-name plus NUL password preserves credentials; creation without old-name stores encoded NUL and accepts plaintext FF. Other operation defaults remain active. Native bitmap controls distinguish absent/empty zero defaults and short/long values. This does not establish every permission effect.",
         "evidence": [
           "[Error outcomes](error-outcomes.md)",
           "[Folder descriptor](transfer-contracts.md#folder-item-descriptor-bytes)",
@@ -927,7 +929,8 @@
           "[Repeatable account update workflow](native-capture-workflow.md#reproducing-account-replacement-and-password-boundaries)",
           "[Captured batch account rules](operation-contracts.md#captured-batch-account-framing-and-partial-effects)",
           "[Native batch account corpus](../mothra/evidence/gap-remediation/2026-11-13/native-account-batch-01/manifest.json)",
-          "[Repeatable batch workflow](native-capture-workflow.md#reproducing-account-batch-framing-and-partial-effects)"
+          "[Repeatable batch workflow](native-capture-workflow.md#reproducing-account-batch-framing-and-partial-effects)",
+          "[Second delegated investigation](bitmap-boundaries.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -1129,7 +1132,7 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Added content loader file-type-dependent inclusive limits: TEXT65535 and other types262140, plus configuration server-name copy cap31. Complete field/aggregate limits and native max/max-plus-one fixtures remain required. Native31-byte account create/read/login succeeds;32-byte creation/read/login reportsbadfilename. Over32login namesclippedto32 byhelper. Scopeisthisnativefilesystempath; no valid32-byte record orbackend-universalcap inferred. Positive native TEXT65535 emitsfull101; TEXT65536/BMP262141 hit65535/262140 loaderwarnings andomitfields. BMP65536 loadsbutfieldwriter raises1/10 before109; early/delayedpartialstates differ. Otherfieldlimits andtruncation remain required. PositivePrefs and162agree on31-byte exactname andfirst31bytes of32-byte typingattempt. Emptyname omits162. Thisconfiguration/UI capisdistinct fromgeneric65535-byte TLV andaccountlookup32/session31caps. Otherfieldlimits remain required. 205 reads up to255 Pascal content bytes, then preOSX normalization clips tested32/255/256/65535-byte names to31. A44-byte .txt name yields27-byte prefix plus extension. Static>=0a00 branch remains unexecuted; other semantic length requirements remain active. Native207/206boundarywrites0/1/198/199/200/201/254/255/256/300/65535show199maximumreadbackforbothfile/folderprofile. Setterwrapperclips255andlowerDesktopManagerhelperpassesatmost200;observedreadbackdoesnotproveportablecapacity/restartdurability. Otherlimitsremainactive. Native410submitted64-bytetitleclips31contentbytes;serializerstaticcaps63title/31poster/63flavourremainseparate. Body65535roundtripsand321usesunsignedffff. Otherlengthlimitsremainactive. Native child-chain append boundary: 101 children remain reachable; the 102nd append returns ACK but bypasses child 101 (public ID102). This is not a general 100-article category ceiling. Other semantic lengths remain active. Native network 350 stores 32-byte password and login 32 succeeds;353 replacement 32 also succeeds. NUL preservation of an existing 32-byte password clips 31, after which 31 succeeds and old 32 fails. Submitted 65-byte 111 clips 64. Other semantic length boundaries remain required. Batch nested records copy at most 512 bytes; complete known prefixes survive a 513-byte entry, while identity beyond an incomplete first field is unavailable. Other semantic caps remain active. Topic inputs of 255/256/65535 bytes establish a 255-byte cap with exact outputs and repeated-join readback. Other semantic caps remain active.",
+        "progress": "Added content loader file-type-dependent inclusive limits: TEXT65535 and other types262140, plus configuration server-name copy cap31. Complete field/aggregate limits and native max/max-plus-one fixtures remain required. Native31-byte account create/read/login succeeds;32-byte creation/read/login reportsbadfilename. Over32login namesclippedto32 byhelper. Scopeisthisnativefilesystempath; no valid32-byte record orbackend-universalcap inferred. Positive native TEXT65535 emitsfull101; TEXT65536/BMP262141 hit65535/262140 loaderwarnings andomitfields. BMP65536 loadsbutfieldwriter raises1/10 before109; early/delayedpartialstates differ. Otherfieldlimits andtruncation remain required. PositivePrefs and162agree on31-byte exactname andfirst31bytes of32-byte typingattempt. Emptyname omits162. Thisconfiguration/UI capisdistinct fromgeneric65535-byte TLV andaccountlookup32/session31caps. Otherfieldlimits remain required. 205 reads up to255 Pascal content bytes, then preOSX normalization clips tested32/255/256/65535-byte names to31. A44-byte .txt name yields27-byte prefix plus extension. Static>=0a00 branch remains unexecuted; other semantic length requirements remain active. Native207/206boundarywrites0/1/198/199/200/201/254/255/256/300/65535show199maximumreadbackforbothfile/folderprofile. Setterwrapperclips255andlowerDesktopManagerhelperpassesatmost200;observedreadbackdoesnotproveportablecapacity/restartdurability. Otherlimitsremainactive. Native410submitted64-bytetitleclips31contentbytes;serializerstaticcaps63title/31poster/63flavourremainseparate. Body65535roundtripsand321usesunsignedffff. Otherlengthlimitsremainactive. Native child-chain append boundary: 101 children remain reachable; the 102nd append returns ACK but bypasses child 101 (public ID102). This is not a general 100-article category ceiling. Other semantic lengths remain active. Native network 350 stores 32-byte password and login 32 succeeds;353 replacement 32 also succeeds. NUL preservation of an existing 32-byte password clips 31, after which 31 succeeds and old 32 fails. Submitted 65-byte 111 clips 64. Other semantic length boundaries remain required. Batch nested records copy at most 512 bytes; complete known prefixes survive a 513-byte entry, while identity beyond an incomplete first field is unavailable. Other semantic caps remain active. Topic inputs of 255/256/65535 bytes establish a 255-byte cap with exact outputs and repeated-join readback. Other semantic caps remain active. Native all-ones stored/login/readback evidence preserves raw bitmap identity; unknown-bit meanings remain open.",
         "evidence": [
           "[Login extras and content](presence-messaging-contracts.md#login-extras-and-configured-content)",
           "[Native loader](../mothra/evidence/gap-remediation/2026-11-12/batch-17/queries/B17-D-10003940.c)",
@@ -1153,7 +1156,8 @@
           "[Repeatable batch workflow](native-capture-workflow.md#reproducing-account-batch-framing-and-partial-effects)",
           "[Native room contract](presence-messaging-contracts.md#captured-private-rooms-invitations-and-chat-bytes)",
           "[Native room corpus](../mothra/evidence/gap-remediation/2026-11-13/native-rooms-01/manifest.json)",
-          "[Repeatable room workflow](native-capture-workflow.md#reproducing-private-rooms-and-chat-byte-fixtures)"
+          "[Repeatable room workflow](native-capture-workflow.md#reproducing-private-rooms-and-chat-byte-fixtures)",
+          "[Second delegated investigation](bitmap-boundaries.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -1846,7 +1850,7 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Published a registry covering bits0–63 with37 observed uses and explicit unknown ranges12–13,18–19,41–63. Reconciled40 direct accessor calls in25 functions; inline account/status/settings tests reviewed separately. Native serialization/enforcement and unknown-bit fixtures remain required. Threeownedtemporaryaccountbitmapcontrols0000000c00000000comment-only,1100000000000000rename-onlyandzero verify207file/foldercommentbits28/29andrenamebits3/7withactualeffects. Fullbitmapregistryremainsrequired. Native208and204admin/zerobitmapcontrolsconfirmpermissiondenialsforbothfile/folderclasses;freshhandlerqueriesretainbit4/8moveand0/6deletechecks. Thisisnotanisolatedsingle-bitprooforfullregistryclosure. Owned create-only, delete-only, update-only and zero-role fixtures establish admission, immediate per-item checks, subset denial and create exemption bit 27. Wider bitmap meanings remain active. Bit 23 alone rejects administrator request-110 kick but permits administrator account deletion. Bits 15/23 permit protected self-deletion. This confirms operation-specific protection rather than a blanket administrator override. Receive bit 9, send bit 10 and create bit 11 have independent native contrasts. Zero-role uninvited join, invite and topic update succeed; ordinary room notifications bypass receive-chat gating.",
+        "progress": "Published a registry covering bits0–63 with37 observed uses and explicit unknown ranges12–13,18–19,41–63. Reconciled40 direct accessor calls in25 functions; inline account/status/settings tests reviewed separately. Native serialization/enforcement and unknown-bit fixtures remain required. Threeownedtemporaryaccountbitmapcontrols0000000c00000000comment-only,1100000000000000rename-onlyandzero verify207file/foldercommentbits28/29andrenamebits3/7withactualeffects. Fullbitmapregistryremainsrequired. Native208and204admin/zerobitmapcontrolsconfirmpermissiondenialsforbothfile/folderclasses;freshhandlerqueriesretainbit4/8moveand0/6deletechecks. Thisisnotanisolatedsingle-bitprooforfullregistryclosure. Owned create-only, delete-only, update-only and zero-role fixtures establish admission, immediate per-item checks, subset denial and create exemption bit 27. Wider bitmap meanings remain active. Bit 23 alone rejects administrator request-110 kick but permits administrator account deletion. Bits 15/23 permit protected self-deletion. This confirms operation-specific protection rather than a blanket administrator override. Receive bit 9, send bit 10 and create bit 11 have independent native contrasts. Zero-role uninvited join, invite and topic update succeed; ordinary room notifications bypass receive-chat gating. Thirteen reports and14 paired lifetimes establish MSB-first bitmap serialization and exact width handling. Roundtrip is not proof that unknown bits are reserved or ignored.",
         "evidence": [
           "[Privilege registry](privilege-contracts.md)",
           "[Native caller review](../mothra/evidence/gap-remediation/2026-11-12/batch-15/privilege-callsite-review.json)",
@@ -1862,7 +1866,8 @@
           "[Repeatable identity workflow](native-capture-workflow.md#reproducing-account-identity-and-protection-contrasts)",
           "[Native room contract](presence-messaging-contracts.md#captured-private-rooms-invitations-and-chat-bytes)",
           "[Native room corpus](../mothra/evidence/gap-remediation/2026-11-13/native-rooms-01/manifest.json)",
-          "[Repeatable room workflow](native-capture-workflow.md#reproducing-private-rooms-and-chat-byte-fixtures)"
+          "[Repeatable room workflow](native-capture-workflow.md#reproducing-private-rooms-and-chat-byte-fixtures)",
+          "[Second delegated investigation](bitmap-boundaries.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -3967,7 +3972,7 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Account111 remains stored opaque data, absent from inspected352/348 outputs. Inspected UI range was ban editing, and pinned shx account constants do not name111. No human label or no-use-anywhere claim is inferred; native representative fixtures remain required. Captured absent/empty/value111 updates with native734-byte UserData: lengths0/0/8 and opaque-c content;352 omits111 in all three. Human meaning and later reads/use remain unresolved. Native account-update 01 stores 65-byte 111 as length 64 with exact 64 X bytes, and sparse 353 clears its length/content. All 352 outputs still omit 111. Full stored-record evidence advances width/default rules but does not identify human meaning or all later consumers. Attribute-only live update with password NUL sentinel leaves effective identity/access unchanged and emits no extra 354/301 during measured windows. This is a bounded propagation result, not an account-attribute meaning or no-consumer-anywhere claim. Batch field 111 is copied and default-cleared; opaque bytes alone do not establish its meaning.",
+        "progress": "Account111 remains stored opaque data, absent from inspected352/348 outputs. Inspected UI range was ban editing, and pinned shx account constants do not name111. No human label or no-use-anywhere claim is inferred; native representative fixtures remain required. Captured absent/empty/value111 updates with native734-byte UserData: lengths0/0/8 and opaque-c content;352 omits111 in all three. Human meaning and later reads/use remain unresolved. Native account-update 01 stores 65-byte 111 as length 64 with exact 64 X bytes, and sparse 353 clears its length/content. All 352 outputs still omit 111. Full stored-record evidence advances width/default rules but does not identify human meaning or all later consumers. Attribute-only live update with password NUL sentinel leaves effective identity/access unchanged and emits no extra 354/301 during measured windows. This is a bounded propagation result, not an account-attribute meaning or no-consumer-anywhere claim. Batch field 111 is copied and default-cleared; opaque bytes alone do not establish its meaning. Reader100073c0 has ten traced direct callers; local administrator password path10007780 preserves the whole734-byte record without a direct field111 dereference. Stored slot boundaries and prior native controls are linked. Human meaning and indirect/resource consumers remain unresolved.",
         "evidence": [
           "[Native core corpus](../mothra/evidence/gap-remediation/2026-11-12/native-core-01/manifest.json)",
           "[Repeatable workflow](native-capture-workflow.md#recorded-native-core-fixtures)",
@@ -3979,7 +3984,8 @@
           "[Repeatable live/restart workflow](native-capture-workflow.md#reproducing-live-account-edits-deletion-and-restart)",
           "[Captured batch account rules](operation-contracts.md#captured-batch-account-framing-and-partial-effects)",
           "[Native batch account corpus](../mothra/evidence/gap-remediation/2026-11-13/native-account-batch-01/manifest.json)",
-          "[Repeatable batch workflow](native-capture-workflow.md#reproducing-account-batch-framing-and-partial-effects)"
+          "[Repeatable batch workflow](native-capture-workflow.md#reproducing-account-batch-framing-and-partial-effects)",
+          "[Second delegated investigation](account-attribute-trace.md)"
         ],
         "closure": "Not closed: remaining unchanged acceptance requirements are explicitly retained above."
       }
@@ -4730,7 +4736,7 @@
         "GAP-001"
       ],
       "resolution": {
-        "progress": "Reviewed frozen source/assertions and executed 55 focused mxd tests at 2e4c9c1df20b37a6f98a1369e0a8f09f9ee2a131. Disputed classifier/login-extra expectations still pass and require implementation reconciliation; no false native-conformance claim is made. Native child append has an observed list/index inconsistency. Documenting it does not require reproducing it in mxd; actual checkout/test reconciliation and a separate compatibility policy remain required. At unchanged 2e4c9c1, four focused locked/offline commands pass 55 tests. Fourteen frozen source snapshots and optional live-source checks preserve portability. The assertion map identifies stale sub-version classification, login-extra omission, configured-name assumptions and type 107 versus native type 0 routing. No Rust correction was made; implementation reconciliation remains open.",
+        "progress": "Reviewed frozen source/assertions and executed 55 focused mxd tests at 2e4c9c1df20b37a6f98a1369e0a8f09f9ee2a131. Disputed classifier/login-extra expectations still pass and require implementation reconciliation; no false native-conformance claim is made. Native child append has an observed list/index inconsistency. Documenting it does not require reproducing it in mxd; actual checkout/test reconciliation and a separate compatibility policy remain required. At unchanged 2e4c9c1, four focused locked/offline commands pass 55 tests. Fourteen frozen source snapshots and optional live-source checks preserve portability. The assertion map identifies stale sub-version classification, login-extra omission, configured-name assumptions and type 107 versus native type 0 routing. No Rust correction was made; implementation reconciliation remains open. The portable uncommitted mxd patch and base/final snapshots document a logical/physical framing correction with44 focused passing tests. Full make test remains blocked at linking; no canonical Rust change or complete implementation reconciliation is claimed.",
         "evidence": [
           "[Operation contracts](operation-contracts.md)",
           "[Compatibility review](internal-compatibility-matrix.md#mxd-review-at-2e4c9c1)",
@@ -4738,7 +4744,8 @@
           "[Native boundary corpus](../mothra/evidence/gap-remediation/2026-11-13/native-news-boundary-01/manifest.json)",
           "[Repeatable boundary workflow](native-capture-workflow.md#reproducing-the-child-append-boundary)",
           "[Pinned mxd reconciliation](mxd-reconciliation.md)",
-          "[Frozen mxd source and test evidence](../mothra/evidence/gap-remediation/2026-11-13/delegated-mxd-01/manifest.json)"
+          "[Frozen mxd source and test evidence](../mothra/evidence/gap-remediation/2026-11-13/delegated-mxd-01/manifest.json)",
+          "[Second delegated investigation](mxd-limit-contracts.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -10708,6 +10715,239 @@
         "GAP-082",
         "GAP-085",
         "GAP-086"
+      ]
+    },
+    {
+      "path": "bitmap-boundaries.md",
+      "heading": "Native 1.9 privilege bitmap replacement and width observations",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 11,
+      "anchor": "native-19-privilege-bitmap-replacement-and-width-observations",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-015",
+        "GAP-016",
+        "GAP-019",
+        "GAP-031"
+      ],
+      "related_gap_ids": [
+        "GAP-015",
+        "GAP-016",
+        "GAP-019",
+        "GAP-031"
+      ]
+    },
+    {
+      "path": "bitmap-boundaries.md",
+      "heading": "All 64 bit positions",
+      "level": 2,
+      "line_start": 12,
+      "line_end": 36,
+      "anchor": "all-64-bit-positions",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-015",
+        "GAP-016",
+        "GAP-019",
+        "GAP-031"
+      ],
+      "related_gap_ids": [
+        "GAP-015",
+        "GAP-016",
+        "GAP-019",
+        "GAP-031"
+      ]
+    },
+    {
+      "path": "bitmap-boundaries.md",
+      "heading": "Field-110 presence and width",
+      "level": 2,
+      "line_start": 37,
+      "line_end": 64,
+      "anchor": "field-110-presence-and-width",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-015",
+        "GAP-016",
+        "GAP-019",
+        "GAP-031"
+      ],
+      "related_gap_ids": [
+        "GAP-015",
+        "GAP-016",
+        "GAP-019",
+        "GAP-031"
+      ]
+    },
+    {
+      "path": "bitmap-boundaries.md",
+      "heading": "Enforcement and remaining criteria",
+      "level": 2,
+      "line_start": 65,
+      "line_end": 89,
+      "anchor": "enforcement-and-remaining-criteria",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-015",
+        "GAP-016",
+        "GAP-019",
+        "GAP-031"
+      ],
+      "related_gap_ids": [
+        "GAP-015",
+        "GAP-016",
+        "GAP-019",
+        "GAP-031"
+      ]
+    },
+    {
+      "path": "bitmap-boundaries.md",
+      "heading": "Verification",
+      "level": 2,
+      "line_start": 90,
+      "line_end": 130,
+      "anchor": "verification",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-015",
+        "GAP-016",
+        "GAP-019",
+        "GAP-031"
+      ],
+      "related_gap_ids": [
+        "GAP-015",
+        "GAP-016",
+        "GAP-019",
+        "GAP-031"
+      ]
+    },
+    {
+      "path": "account-attribute-trace.md",
+      "heading": "Account field 111: stored-record and consumer trace",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 10,
+      "anchor": "account-field-111-stored-record-and-consumer-trace",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-071"
+      ],
+      "related_gap_ids": [
+        "GAP-071"
+      ]
+    },
+    {
+      "path": "account-attribute-trace.md",
+      "heading": "Positive field and storage evidence",
+      "level": 2,
+      "line_start": 11,
+      "line_end": 43,
+      "anchor": "positive-field-and-storage-evidence",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-071"
+      ],
+      "related_gap_ids": [
+        "GAP-071"
+      ]
+    },
+    {
+      "path": "account-attribute-trace.md",
+      "heading": "Direct reader boundary and forwarded records",
+      "level": 2,
+      "line_start": 44,
+      "line_end": 77,
+      "anchor": "direct-reader-boundary-and-forwarded-records",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-071"
+      ],
+      "related_gap_ids": [
+        "GAP-071"
+      ]
+    },
+    {
+      "path": "account-attribute-trace.md",
+      "heading": "Reproduce and decision boundary",
+      "level": 2,
+      "line_start": 78,
+      "line_end": 109,
+      "anchor": "reproduce-and-decision-boundary",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-071"
+      ],
+      "related_gap_ids": [
+        "GAP-071"
+      ]
+    },
+    {
+      "path": "mxd-limit-contracts.md",
+      "heading": "mxd framing and memory limits at 2e4c9c1",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 9,
+      "anchor": "mxd-framing-and-memory-limits-at-2e4c9c1",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-011",
+        "GAP-085"
+      ],
+      "related_gap_ids": [
+        "GAP-011",
+        "GAP-085"
+      ]
+    },
+    {
+      "path": "mxd-limit-contracts.md",
+      "heading": "Native boundary and mxd policy",
+      "level": 2,
+      "line_start": 10,
+      "line_end": 26,
+      "anchor": "native-boundary-and-mxd-policy",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-011",
+        "GAP-085"
+      ],
+      "related_gap_ids": [
+        "GAP-011",
+        "GAP-085"
+      ]
+    },
+    {
+      "path": "mxd-limit-contracts.md",
+      "heading": "Implementation paths and comparisons",
+      "level": 2,
+      "line_start": 27,
+      "line_end": 69,
+      "anchor": "implementation-paths-and-comparisons",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-011",
+        "GAP-085"
+      ],
+      "related_gap_ids": [
+        "GAP-011",
+        "GAP-085"
+      ]
+    },
+    {
+      "path": "mxd-limit-contracts.md",
+      "heading": "Boundary witnesses and error results",
+      "level": 2,
+      "line_start": 70,
+      "line_end": 114,
+      "anchor": "boundary-witnesses-and-error-results",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-011",
+        "GAP-085"
+      ],
+      "related_gap_ids": [
+        "GAP-011",
+        "GAP-085"
       ]
     }
   ]
