@@ -92,7 +92,7 @@ login session; those remain GAP-015/025/065/080/084.
 
 | Reply or notification | Fields and occurrence | Conditions/defaults |
 | --- | --- | --- |
-| 107 ACK | Scalar N 160 = 190, scalar N 161, scalar B 162 | Native success adds these without a client-kind gate; empty byte values can be omitted by the writer. 161 is an unnamed word initialized to zero; 162 is the current server-name string. See [content sources](presence-messaging-contracts.md#fields-160-161-and-162); later-value/lifetime fixtures remain GAP-026. |
+| 107 ACK | Scalar N 160 = 190, scalar N 161, scalar B 162 | Native success adds these without a client-kind gate; empty byte values can be omitted by the writer. 161 is an unnamed word initialized to zero; its purpose/full lifetime remain GAP-026. 162 is the current native server name, capped at31 stored bytes and omitted when empty. Captured high-byte and existing/fresh-session change controls appear in the [login-extra fixtures](native-wire-details.md#captured-login-extras-configuration-bytes-and-refresh). |
 | 109 notification | Scalar B 101 **or** scalar N 154 = 1, or empty list | Account bit 27 selects 154. Otherwise configured agreement bytes are used; absent buffer can yield empty list. |
 | 122 notification | Scalar four-byte 152, conditional scalar B 153 | After 121, reported version at least 151 and configured type/buffer conditions apply (GAP-028). |
 | 354 notification | Scalar A8 110 | Sent on login completion; changed live account privileges also use this form. |

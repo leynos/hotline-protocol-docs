@@ -149,23 +149,39 @@ copy, for these values:
 | ---: | --- | --- |
 | 160 | Literal 190 | Generic numeric writer emits two bytes `00 be`. |
 | 161 | Server word at `+0x41c` | Numeric writer emits two bytes for values at most 65,535, four otherwise. Constructor initializes this word to zero. Meaning and any later assignment remain unknown. |
-| 162 | Pascal string at server `+0xcc` | Configuration reader copies at most 31 bytes into this string. Login writer omits an empty value; it does not prove a Unicode encoding. |
+| 162 | Pascal string at server `+0xcc` | Configuration/UI readers copy at most 31 bytes. Captured 31-byte names and a 32-byte typing attempt corroborate this destination cap. Empty omits the field; native byte `9a` is preserved. |
 
 [Constructor assembly][constructor] confirms the zero assignment for 161.
-A [bounded scan][store-scan] for direct PPC `stw` instructions with
-displacement `0x41c`
-found only that constructor store. It is not an exhaustive write analysis:
-indexed writes, aliases, multiple-register stores and other widths remain
-outside that scan. Therefore neither a constant-zero wire guarantee nor a
-persistent community/banner identifier is established. The earlier
-community/banner label is withdrawn.
+The original [word-store scan][store-scan] found only that constructor store.
+The new [expanded direct-store scan][expanded-store-scan] also checks byte,
+halfword, floating-point/doubleword and multiple-register stores whose constant
+ranges intersect the slot; Ghidra confirms the same single constructor store.
+Indexed writes, split base derivations and aliases remain outside that discovery
+scan. Neither a constant-zero guarantee nor a persistent community/banner
+identifier is established. The earlier community/banner label remains withdrawn.
 
-The preserved configuration reader loads 162 from the fourth Pascal string
-following its fixed configuration prefix and clears it on the fallback path.
-Options handling `100023a0` passes the current string into and out of its native
-options interface. No automatic broadcast of changed 161/162, persistence key
-for 161, or existing-client refresh protocol is established here (GAP-026).
-A zero 161 still has a two-byte numeric value; it is different from omitted 162.
+The configuration reader loads 162 from the fourth Pascal string following
+its version-5 fixed prefix and clears it on the fallback path. Options handling
+passes this string to/from the Info pane's Name field; its getter limits the
+copy to 31 bytes. The [login-extra corpus][login-extras] confirms exact stored
+and wire bytes, omission when empty and emission without a client-version gate.
+A native Mac keyboard high byte `9a` survives unchanged; no Unicode conversion is
+established by that fixture.
+
+Changing the saved name from A to B leaves existing online and waiting login
+ACKs as A. A fresh login returns B; subsequent 121 and 500 replies carry no 161/162
+refresh in the accepted 20-second trial. Its separate 90-second hypothesis lost
+the waiting session before 121: that late request reached the host proxy after
+the guest had closed and never reached the native application. It is not a
+native rejection of a delivered 121 or a universal configuration/timer rule.
+
+Local GIF, Remote URL and empty Remote URL configurations all retain 161=`0000`
+in these samples. Two successful 212 downloads use different nonzero four-byte
+references while the login value stays zero. That excludes interpreting 161 as
+those observed transfer references; its purpose and full change/lifetime rules
+remain GAP-026. A zero 161 is present data, distinct from omitted 162. These
+observations do not establish an automatic existing-client refresh protocol or
+restart durability.
 
 ### Agreement and banner loading
 
@@ -403,3 +419,6 @@ and notification fixtures remain GAP-084/076.
 [store-scan]: ../mothra/evidence/gap-remediation/2026-11-12/batch-17/discovery-offset-41c-stores.json
 
 [agreements]: native-wire-details.md#captured-agreement-configurations-and-partial-login-failures
+
+[expanded-store-scan]: ../mothra/evidence/gap-remediation/2026-11-13/native-login-extras-01/all-direct-store-candidates.json
+[login-extras]: ../mothra/evidence/gap-remediation/2026-11-13/native-login-extras-01/manifest.json

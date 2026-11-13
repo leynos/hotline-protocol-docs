@@ -394,3 +394,68 @@ not the upload plan's intended type, selects the accepted non-TEXT control.
 Failed moves/renames and zero-record native scans are retained as setup history;
 a scan with no matching records does not establish path absence. No ROM,
 operating-system image, working disk or restart-durability claim is included.
+
+## Captured login extras, configuration bytes and refresh
+
+The [login-extra corpus][login-extras] retains 34 accepted cases,11 setup/control
+reports, five exploratory reports and 14 identity-checked read-only Ghidra
+queries. Positive HFS+ Prefs data corroborates the Info Name and banner settings.
+The server remains the same identified oracle and live emulator; no host resume,
+restart, guest memory/register modification or new account is used here.
+
+| Controlled condition | Captured result |
+| --- | --- |
+| Client version field 160 absent,0,150,151 or 190; early and delayed paths | Successful 107 replies include 160=`00be`,161=`0000` and the configured nonempty 162, without a version gate. |
+| The same version/path matrix after restoring an empty server name | 160/161 remain present;162 is omitted. |
+| 31-byte configured name | All 31 bytes appear in 162. |
+| 32-byte typing attempt with a distinct 31-byte prefix | Native Prefs and 162 contain the first 31 bytes. This is the native configuration destination boundary, not a universal Unicode character limit. |
+| Native keyboard input producing hex `6d6f746872612d9a` | The stored and wire suffix is byte `9a`, not its UTF-8 transcription. |
+| Local GIF versus Remote URL versus empty Remote URL | 161 remains two zero bytes. Delayed completion advertises 122 for 151/190 when content is configured, with GIFf/URL tags and their configured 153. No 122 for absent/0/150 versions or empty URL; early completion emits none. |
+| Two 212/raw-selector 2 downloads | Each has a nonzero four-byte 107 reference and 58 delivered GIF bytes. Those references differ from login 161's two zero bytes. The banner data channel has a three-second quiet tail, then client close. |
+
+The accepted name-change case establishes online and waiting sessions under
+`mothra-name-a`, then pauses 20 host seconds while the operator saves
+`mothra-name-b`. A fresh connection receives B. The waiting session completes
+with 121 ACK/354/122; neither it nor the existing online session receives a new
+161/162 value in the subsequent recorded replies. The earlier A ACKs remain
+separate observations. This proves the bounded change sequence, not a total
+cross-connection delivery order, polling API or universal notification policy.
+
+The original 90-second hypothesis ended before the waiting 121 could be read.
+The guest closed at 90.851866 seconds from report start; the client sent 121 at
+92.727286 seconds. The host proxy accepted that write, but the guest stream ends
+before it. A final 28-byte observer 302 exists only at the guest boundary after
+host observer cleanup. The diagnostic verifier keeps these asymmetric prefixes
+separate; it never rewrites the report or treats late 121 as native consumption.
+The other 49 reports reconcile exactly across both packet boundaries. Literal
+unread 301/302 bytes in the exploratory stream are pinned; accepted cases need
+no unread-tail allowance. Host capture reports 1101 packets with zero kernel
+drops. No universal waiting deadline or causal claim about the options save
+follows from this trial; GAP-005 retains those requirements.
+
+One early click only woke the screen saver, leaving the name empty. That
+completed control is retained as failed configuration setup. The first URL
+controls also completed, but the immediate HFS+ snapshot retained a stale
+188-byte fork length and truncated the new URL. It remains an intentionally
+rejected snapshot. An independent owned 203 upload finalization invokes the
+native volume flush; the subsequent 222-byte Prefs fork contains the complete
+URL. Fresh accepted URL cases follow that positive observation. No zero-record
+scan or completed GUI script substitutes for native configuration verification.
+
+The saved name, Local GIF, link and empty Remote URL are restored. The final
+175-byte Prefs data matches the first retained empty-name sample byte for byte;
+that first sample was captured after the unsuccessful empty-name GUI save,
+not independently before all GUI work or before launch. General 100/10/5 and
+control port 5500 are checked in every accepted configuration snapshot. The
+original 245-byte agreement still yields 242 loaded bytes. Owned flush files
+remain in Files; no accounts are added. Neither the snapshot nor a save/flush
+proves restart durability.
+
+The source scan checks all D-form scalar store widths and `stmw` ranges that
+intersect server+`041c..041f` in the uncompressed code section. Its only candidate
+is constructor store`1000035c`; the login load is`10011c3c`. Ghidra confirms both.
+The scan excludes indexed writes and derived/aliased bases, so field 161's
+purpose and exhaustive lifetime semantics remain unresolved. GAP-026 stays
+Investigating despite the new 162 and configured-banner evidence.
+
+[login-extras]: ../mothra/evidence/gap-remediation/2026-11-13/native-login-extras-01/manifest.json

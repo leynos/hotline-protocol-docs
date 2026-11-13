@@ -306,6 +306,13 @@ that SynHX or unknown clients require their omission. Failure paths reply with
 nonzero status and field 100 text; delayed closure can follow. The
 [login extras and content sources](presence-messaging-contracts.md#login-extras-and-configured-content)
 separate field 161's unknown meaning from banner types and server-name loading.
+The [configured login-extra fixtures][login-extra-fixtures] confirm that a
+nonempty 162 is emitted even for absent/zero client version. Empty name omits
+162; the native configuration destination retains at most 31 bytes, including
+the tested high byte `9a`. A saved name change affects a fresh login; no new
+161/162 refresh is observed for the existing online/waiting sessions in the
+accepted 20-second sequence. Field 161 stays two zero bytes across these name
+and banner modes, but its purpose remains unresolved.
 
 There are two observed login-completion paths:
 
@@ -1137,3 +1144,5 @@ not a claim about every SynHX client or a currently released server.
 
 [ledger]: ../mothra/docs/baseline-validity-ledger.md
 [evidence]: ../mothra/evidence/hotline-server-1.9/
+
+[login-extra-fixtures]: native-wire-details.md#captured-login-extras-configuration-bytes-and-refresh

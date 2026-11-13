@@ -933,3 +933,80 @@ streams. The corpus retains the preparation scripts as run and the original
 runtime record. Its host timer recovery is recorded separately; no guest
 memory or register changes were used, and no ROM or working disk is required
 for offline verification.
+
+## Reproducing login-extra configuration and refresh fixtures
+
+Use [native-login-extras-01][login-extras] with the same identity checks and
+paired boundaries as the earlier corpora. Its final source plans are generated
+by `native_login_extras_cases.py`; all UI, input, flush and packaging scripts
+are retained as run. Preserve every failed report in a new directory.
+
+Prepare `login-extras-name-a`, `login-extras-name-b`, `login-extras-name31`,
+`login-extras-name32`, `login-extras-macroman`, `login-extras-url`,
+`login-extras-none` and `login-extras-restored` for their corresponding recorded
+GUI phases. Name A and restored phases exercise both readiness paths at absent,
+zero,150,151 and 190 client versions; the other phases exercise 190. The explicit
+three-second pauses pace independent sessions and retain 500 liveness replies.
+
+```bash
+python3 ../hotline-protocol-docs/scripts/prepare_native_cases.py \
+  login-extras-name-a \
+  --runtime-record state/native-sessions/runtime-16/runtime.json \
+  --output state/login-extra-plans-new
+python3 ../hotline-protocol-docs/scripts/protocol_capture.py capture \
+  state/login-extra-plans-new/name-a-absent-delayed.json \
+  --oracle-binary evidence/hotline-server-1.9/inputs/HLserver19.pef \
+  --output state/login-extra-case-new
+```
+
+In native Options, Info's Name field supplies 162. The controls use
+`mothra-name-a`, `mothra-name-b`,30 `N` bytes followed by `A`, then a 32-byte
+attempt of 30 `N` bytes followed by `BZ`. Only the tested 31-byte prefix is stored.
+The high-byte fixture types `mothra-`, then Mac Option-U followed by `o`, yielding
+native byte `9a` in this guest. Verify the actual stored and wire bytes; do not
+assume a host Unicode key or clipboard injection produces the same input.
+
+The lifetime suite starts under name A, holds an online and a waiting session,
+then pauses 20 seconds. Save name B within that interval using the retained fast
+input helper; afterward a fresh login must see B and waiting 121 must complete.
+The initial 90-second hypothesis is a separate failed trial with late 121 after
+native close. Do not substitute its host send for proof of guest consumption,
+or require its waiting session to survive without new evidence.
+
+Remote URL uses `https://example.invalid/extras-url`; no banner uses an empty
+Remote URL. Local restoration selects `mothra-banner-b.gif`, preserves its link
+and clears both Info Name and Remote URL. The banner-reference suite
+`login-extras-downloads` runs with name B and the original Local GIF. It reads
+exactly the advertised 58 bytes, observes three seconds of silence and closes
+the data channel; an immediate-EOF assertion was disproved and retained.
+
+Before accepting configuration evidence, run the retained
+`flush-preferences.py` acquisition helper: it finalizes an independently named
+empty 203 upload in Files, exercising the known native FlushVol path. Then
+snapshot catalogue 11202 at `/Hotline19/Prefs` with `snapshot_native_hfs.py`.
+The configuration decoder checks version 5, the fixed 76-byte prefix and ten
+bounded Pascal strings. The fourth is the server name; the banner fields and
+General limits are checked too. An unflushed snapshot with stale fork length
+is retained and explicitly rejected, not repaired or promoted to a positive
+configuration record. These catalogue numbers belong to this guest and must
+be independently discovered for another installation.
+
+The final snapshot must match the first retained 175-byte empty-name Prefs;
+verify original agreement 242 loaded bytes and the valid 58-byte Local GIF.
+This proves the recorded configuration restoration, not restart durability or
+an independently captured prelaunch preference file.
+
+```bash
+python3 ../hotline-protocol-docs/scripts/verify_native_login_extras.py \
+  evidence/gap-remediation/2026-11-13/native-login-extras-01
+```
+
+The verifier checks 34 accepted cases plus 11 setup and five exploratory reports.
+It verifies equal paired streams for 49 reports and explicitly checks the
+90-second trial's late input and guest-only cleanup boundaries. Seven new tests
+reject missing/UTF-8-reencoded 162, wrong version gating, invented refresh,
+truncated preferences and reduced configuration inventories. The retained
+byte-store discovery remains candidate evidence; it cannot establish field 161's
+meaning or exclude aliases. That requirement remains GAP-026.
+
+[login-extras]: ../mothra/evidence/gap-remediation/2026-11-13/native-login-extras-01/manifest.json

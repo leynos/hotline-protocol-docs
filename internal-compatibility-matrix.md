@@ -60,12 +60,21 @@ The inspected native 1.9 successful-login path adds:
 
 - Server version 160 with value **190**.
 - Unnamed numeric server value 161; constructor initializes it to zero.
-- Server name 162.
+- Server name 162, omitted when empty and copied from the current native
+  configuration with a 31-byte destination cap.
 
 It does so without a saved-client-version or SynHX-kind condition in that
 handler. The former matrix's “omit 161/162 for SynHX or unknown peers” rule is
 therefore an **mxd policy requiring validation**, not native 1.9 behaviour or
 proof that including those fields is invalid.
+
+The [configured login-extra corpus][login-extra-fixtures] confirms 161=`0000`
+and nonempty 162 for absent/zero/150/151/190 client versions on both completion
+paths. It preserves a native high byte and the name-length boundary. Changing
+Local/Remote/empty banner configuration does not change 161 in these samples;
+its purpose remains unknown. A fresh login sees a saved name change, while the
+retained online/waiting clients receive no 161/162 refresh in the bounded trial.
+This does not certify historical-client tolerance or restart durability.
 
 The supplied SynHX server's lack of that native augmentation does not establish
 that a SynHX **client** rejects those fields. A newly retained
@@ -317,3 +326,5 @@ remaining questions and their closure criteria.
 [lineage]: ../mothra/evidence/gap-remediation/2026-11-12/batch-08/synhx-lineage-review.json
 
 [agreements]: native-wire-details.md#captured-agreement-configurations-and-partial-login-failures
+
+[login-extra-fixtures]: native-wire-details.md#captured-login-extras-configuration-bytes-and-refresh
