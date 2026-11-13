@@ -1,7 +1,10 @@
 """Prepare configured login-extra and existing-session refresh observations."""
 
 from native_auth_cases import complement
-from native_plan import close, login, packet, payload, read, send
+from native_banner_cases import GIF_B
+from native_plan import close, connect, login, packet, payload, read, send
+
+CONFIGURED_URL = b"https://example.invalid/extras-url"
 
 NAMES = {
     "name-a": b"mothra-name-a",
@@ -77,11 +80,50 @@ def configured(phase: str) -> dict:
     return cases
 
 
+def downloads() -> dict:
+    steps = start(190, True)
+    for identifier in [10, 11]:
+        reference, size, connection = (
+            f"ref{identifier}",
+            f"size{identifier}",
+            f"data{identifier}",
+        )
+        steps += [
+            send(packet(212, identifier)),
+            read(
+                match_frame={"is_reply": 1, "id": identifier},
+                save_fields={reference: 107, size: 108},
+            ),
+            connect(connection, "data"),
+            send("48545846{" + reference + "}0000000000020000", connection),
+            {
+                "op": "read",
+                "connection": connection,
+                "size_from": size,
+                "expect_hex": GIF_B.hex(),
+                "timeout": 30,
+            },
+            {"op": "expect_quiet", "connection": connection, "timeout": 3},
+            close(connection),
+        ]
+    steps += [close()]
+    return {
+        "login-value-versus-banner-references": (
+            steps,
+            {
+                "kind": "login-banner-reference",
+                "name_hex": NAMES["name-b"].hex(),
+                "banner_hex": GIF_B.hex(),
+            },
+        )
+    }
+
+
 def lifetime() -> dict:
     steps = start(190, True, "observer") + start(190, False, "waiting")
     # The operator saves name-b during this bounded pause. Before/after reports
     # and positive Prefs snapshots must prove that the change actually occurred.
-    steps += [{"op": "pause", "seconds": 90}]
+    steps += [{"op": "pause", "seconds": 20}]
     steps += start(190, True, "fresh") + [close("fresh")]
     steps += complete("waiting")
     for connection in ["waiting", "observer"]:
@@ -100,7 +142,7 @@ def lifetime() -> dict:
             steps,
             {
                 "kind": "login-name-lifetime",
-                "pause_seconds": 90,
+                "pause_seconds": 20,
                 "before_hex": NAMES["name-a"].hex(),
                 "after_hex": NAMES["name-b"].hex(),
             },

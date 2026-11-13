@@ -43,6 +43,7 @@ from native_framing_cases import framing
 from native_htxf_cases import htxf
 from native_login_extras_cases import NAMES as LOGIN_EXTRA_NAMES
 from native_login_extras_cases import configured as login_extras_configured
+from native_login_extras_cases import downloads as login_extras_downloads
 from native_login_extras_cases import lifetime as login_extras_lifetime
 from native_queue_cases import queues, timer
 from native_resume_cases import downloads as resume_downloads
@@ -57,6 +58,7 @@ def main() -> None:
         "suite",
         choices=[
             "login-extras-lifetime",
+            "login-extras-downloads",
             *["login-extras-" + name for name in LOGIN_EXTRA_NAMES],
             "agreement-preflight",
             "agreement-seed",
@@ -121,6 +123,7 @@ def main() -> None:
         parser.error("agreement-restore-stage requires --original-agreement")
     cases = {
         "login-extras-lifetime": login_extras_lifetime,
+        "login-extras-downloads": login_extras_downloads,
         **{
             "login-extras-" + name: lambda name=name: login_extras_configured(name)
             for name in LOGIN_EXTRA_NAMES
