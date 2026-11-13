@@ -3,7 +3,7 @@
 from native_auth_cases import PASSWORD, complement
 from native_auth_cases import states as auth_states
 from native_folder_cases import descriptor, upload_start, word
-from native_plan import close, login, packet, payload, read, send
+from native_plan import close, eof, login, packet, payload, read, send
 from native_transfer_cases import file_stream
 
 PHASES = [
@@ -56,12 +56,24 @@ def staged_file(root: bytes, filename: bytes, kind: bytes, data: bytes) -> tuple
 
 
 def stages() -> dict:
-    return {
+    cases = {
         "stage-agreement-" + name: staged_file(
             b"m-agr-" + name.encode(), b"Agreement.txt", kind, data
         )
         for name, (_, kind, data) in FILES.items()
     }
+    cases["stage-agreement-directory"] = (
+        upload_start(b"m-agr-directory", 1, 0)
+        + [
+            send(descriptor((b"Agreement.txt",), True).hex(), "folder"),
+            word(3),
+            eof("folder"),
+            close("folder"),
+            close("a"),
+        ],
+        {"kind": "agreement-staged-directory"},
+    )
+    return cases
 
 
 def preflight() -> dict:
