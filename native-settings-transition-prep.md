@@ -1,9 +1,9 @@
 # Same-session 304 transition preparation (A32)
 
-This is an offline preparation, not a native result. GAP-029/030 remain open.
-The A31 audit identifies missing persistence and 121 evidence. This packet
-covers one same-session 304 sequence. It makes no server option, account,
-file, agreement or restart change.
+This was the offline preparation for the measured
+[A33 native witness](native-settings-transition-witness.md). GAP-029/030
+remain open. The sequence made no server option, account, file, agreement
+or restart change.
 
 The generator `scripts/native_settings_transition_cases.py` takes an explicit
 runtime record and the exact A7 29-action/full-FILP baseline plan, SHA-256
