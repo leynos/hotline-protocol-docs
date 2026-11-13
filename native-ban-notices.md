@@ -85,3 +85,7 @@ python3 scripts/verify_native_ban_one.py \
   ../mothra/evidence/gap-remediation/2026-11-13/native-ban-one-01
 python3 -m unittest discover -s scripts -p 'test_native_ban_one.py'
 ```
+
+The [second-lab transfer failure](native-transfer-stall.md) preserves the
+failed mandatory baseline and offline packet findings. It supplies no
+option-two ban result.

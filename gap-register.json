@@ -3,11 +3,11 @@
   "title": "Hotline 1.9 protocol documentation gap register",
   "audited_at_utc": "2026-11-12T12:55:29.155796+00:00",
   "last_updated": "2026-11-13",
-  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-59/manifest.json",
-  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-59/sections.json",
+  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-60/manifest.json",
+  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-60/sections.json",
   "validity_ledger": "../mothra/docs/baseline-validity-ledger.md",
   "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
-  "method": "Clarify that the settings witness predates the combined GAP-017 acceptance. Preserve all 87 original criteria and statuses:50 Resolved,36 Investigating,1 Open;37 unclosed. Native protocol work continues; further mxd validation remains on hold.",
+  "method": "Retain the failed disposable-server transfer baseline and independently replayable packet findings. Preserve all 87 original criteria and statuses:50 Resolved,36 Investigating,1 Open;37 unclosed. The stall cause and permanent-ban fixture remain unresolved; further mxd validation remains on hold.",
   "gaps": [
     {
       "id": "GAP-001",
@@ -2623,13 +2623,14 @@
         "GAP-043"
       ],
       "resolution": {
-        "progress": "Separated routed user/feedback 104 schemas from data-only console/kick notices and chat-denial forms. All known producers and byte-level native variant fixtures still need completion. Existing-login create collision emits exact 104 fields 101 text and 109 marker 0001, followed by final successful batch reply. Other 104 variants remain active.",
+        "progress": "Separated routed user/feedback 104 schemas from data-only console/kick notices and chat-denial forms. All known producers and byte-level native variant fixtures still need completion. Existing-login create collision emits exact 104 fields 101 text and 109 marker 0001, followed by final successful batch reply. Other 104 variants remain active. Revision60: second disposable lab failed the mandatory full A7 download after 98,304 of 1,049,073 bytes, before any option-two request. Guest/namespace/recorder prefixes match; all observed payload was ACKed with positive receive windows. Producer stall cause remains unknown; this is a retained failure, not ban acceptance.",
         "evidence": [
           "[Presence, messaging and administration](presence-messaging-contracts.md)",
           "[Batch 06](../mothra/evidence/gap-remediation/2026-11-12/batch-06/manifest.json)",
           "[Captured batch account rules](operation-contracts.md#captured-batch-account-framing-and-partial-effects)",
           "[Native batch account corpus](../mothra/evidence/gap-remediation/2026-11-13/native-account-batch-01/manifest.json)",
-          "[Repeatable batch workflow](native-capture-workflow.md#reproducing-account-batch-framing-and-partial-effects)"
+          "[Repeatable batch workflow](native-capture-workflow.md#reproducing-account-batch-framing-and-partial-effects)",
+          "[Failed disposable-lab baseline and packet replay](native-transfer-stall.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -3637,14 +3638,15 @@
         "GAP-056"
       ],
       "resolution": {
-        "progress": "Added age-check-before-drain and late-first-attachment derived upload case, retaining separate500-second pending versus120-second connected comparisons. Native completion/interruption/durability fixtures remain required. Uploads receive nativeEOF after advertised consumption without extraACK. Downloads deliver advertised count and remainopen through3secondquiet; initial30secondEOF timeouts preserved. LiveHFS+ selectedfork/metadata observations are not restartdurability. Interruption/diskfull/large-size/partialretention remain required. Interrupted197of509byte upload retains13DATA/5MACR underHTft/HTLC; successfulcontinuation restores13/317. Inconsistent fullfork replay appends26/322 and finalizesTEXT/MOTH. Paired nativeforkreadback/extractions establish observed state, not restartdurability. Unsignedmax resume advertises180 but closes datawithoutbytes. Diskfull/large-size/reconnect/otherinterruption requirements remain open. Ten new cleanup cases retain a1MiB DATA baseline, native fork extractions and exact cancellation prefixes. Buffered application reads can follow ownerACK even though native DATA/close precede thatACK in these six races; no rollback is inferred. Pending upload survives214. Larger-than32bit representation, diskfull, restartdurability and remaining interruption states remain required. Folder count-three interruption retains a complete first file and partial second file; resumed continuation restores selected forks. Zero counts create a root withouttransferref; directory/file conflicts can share control3/EOF wire result. Late and descriptor-delay upload closes and long connected download choice are bounded observations. Unsafe/tiny/truncated descriptors, invalid paths, byte-count overshoot, diskfull/large-size/restartdurability remain unclosed. Present empty-banner attachment triggers a service reset in the retained fixture; ordinary upload/download/folder interruption, large sizes, disk-full and persistence remain separate unchanged requirements. An initial post-reset500 host write is explicitly not guest-consumed. Added three exact native uploadDATA controls, including ordinary HTXF byte count37 below request203 advertisement. Positive live forks establish storage at observation, not restart durability or general size/failure handling. Failed 1 MiB seed records host 193,913 and guest 74,295-byte prefixes of a 1,049,088-byte local send, host proxy-server RST and guest client-to-server RST, then positively identified Incomplete File metadata. One guarded 204 restored all 41 file records and two accounts. This establishes an interrupted artifact/cleanup example, not rejection of a fully received 1 MiB upload or a native-server-initiated reset. Latest A8 phase 1: An existing verified file supplied a 65,536-byte flattened-stream cancellation witness with exact recorder/host/guest bytes and no unread payload tail in this case. Guest RST payload No TCP is excluded from application data; host FIN and guest RST views remain distinct. This is partial-transfer cancellation and live restoration, not a successful full transfer or restart-persistence proof.",
+        "progress": "Added age-check-before-drain and late-first-attachment derived upload case, retaining separate500-second pending versus120-second connected comparisons. Native completion/interruption/durability fixtures remain required. Uploads receive nativeEOF after advertised consumption without extraACK. Downloads deliver advertised count and remainopen through3secondquiet; initial30secondEOF timeouts preserved. LiveHFS+ selectedfork/metadata observations are not restartdurability. Interruption/diskfull/large-size/partialretention remain required. Interrupted197of509byte upload retains13DATA/5MACR underHTft/HTLC; successfulcontinuation restores13/317. Inconsistent fullfork replay appends26/322 and finalizesTEXT/MOTH. Paired nativeforkreadback/extractions establish observed state, not restartdurability. Unsignedmax resume advertises180 but closes datawithoutbytes. Diskfull/large-size/reconnect/otherinterruption requirements remain open. Ten new cleanup cases retain a1MiB DATA baseline, native fork extractions and exact cancellation prefixes. Buffered application reads can follow ownerACK even though native DATA/close precede thatACK in these six races; no rollback is inferred. Pending upload survives214. Larger-than32bit representation, diskfull, restartdurability and remaining interruption states remain required. Folder count-three interruption retains a complete first file and partial second file; resumed continuation restores selected forks. Zero counts create a root withouttransferref; directory/file conflicts can share control3/EOF wire result. Late and descriptor-delay upload closes and long connected download choice are bounded observations. Unsafe/tiny/truncated descriptors, invalid paths, byte-count overshoot, diskfull/large-size/restartdurability remain unclosed. Present empty-banner attachment triggers a service reset in the retained fixture; ordinary upload/download/folder interruption, large sizes, disk-full and persistence remain separate unchanged requirements. An initial post-reset500 host write is explicitly not guest-consumed. Added three exact native uploadDATA controls, including ordinary HTXF byte count37 below request203 advertisement. Positive live forks establish storage at observation, not restart durability or general size/failure handling. Failed 1 MiB seed records host 193,913 and guest 74,295-byte prefixes of a 1,049,088-byte local send, host proxy-server RST and guest client-to-server RST, then positively identified Incomplete File metadata. One guarded 204 restored all 41 file records and two accounts. This establishes an interrupted artifact/cleanup example, not rejection of a fully received 1 MiB upload or a native-server-initiated reset. Latest A8 phase 1: An existing verified file supplied a 65,536-byte flattened-stream cancellation witness with exact recorder/host/guest bytes and no unread payload tail in this case. Guest RST payload No TCP is excluded from application data; host FIN and guest RST views remain distinct. This is partial-transfer cancellation and live restoration, not a successful full transfer or restart-persistence proof. Revision60: second disposable lab failed the mandatory full A7 download after 98,304 of 1,049,073 bytes, before any option-two request. Guest/namespace/recorder prefixes match; all observed payload was ACKed with positive receive windows. Producer stall cause remains unknown; this is a retained failure, not ban acceptance.",
         "evidence": [
           "[Native format/recovery/reset corpus](../mothra/evidence/gap-remediation/2026-11-12/native-banner-02/manifest.json)",
           "[Banner type/recovery contract](transfer-contracts.md#captured-banner-formats-and-recovery)",
           "[Repeatable format/recovery workflow](native-capture-workflow.md#reproducing-banner-format-and-recovery-fixtures)",
           "[Native HTXF header/reference corpus](../mothra/evidence/gap-remediation/2026-11-12/native-htxf-01/manifest.json)",
           "[Second delegated investigation](diagnostic-transfer-boundaries.md)",
-          "[Active and queued native diagnostic](native-diagnostic-existing-witness.md)"
+          "[Active and queued native diagnostic](native-diagnostic-existing-witness.md)",
+          "[Failed disposable-lab baseline and packet replay](native-transfer-stall.md)"
         ],
         "closure": "Not closed: broader unchanged acceptance requirements remain as stated above."
       }
@@ -4163,13 +4165,14 @@
         "GAP-036"
       ],
       "resolution": {
-        "progress": "Traced option 1 timed 1800-second address ban and option 2 persisted version-2 address-ban list; plain kick, missing target and protection branches documented. Expiry/restart/protected native fixtures remain required. Two bit-23 subjects reject administrator kicking and remain live before account deletion. Plain kick, both ban options, expiry/restart and broader protection fixtures remain active.",
+        "progress": "Traced option 1 timed 1800-second address ban and option 2 persisted version-2 address-ban list; plain kick, missing target and protection branches documented. Expiry/restart/protected native fixtures remain required. Two bit-23 subjects reject administrator kicking and remain live before account deletion. Plain kick, both ban options, expiry/restart and broader protection fixtures remain active. Revision60: second disposable lab failed the mandatory full A7 download after 98,304 of 1,049,073 bytes, before any option-two request. Guest/namespace/recorder prefixes match; all observed payload was ACKed with positive receive windows. Producer stall cause remains unknown; this is a retained failure, not ban acceptance.",
         "evidence": [
           "[Presence, messaging and administration](presence-messaging-contracts.md)",
           "[Batch 06](../mothra/evidence/gap-remediation/2026-11-12/batch-06/manifest.json)",
           "[Captured identity/protection contrasts](native-wire-details.md#captured-account-identity-and-protection-contrasts)",
           "[Native identity corpus](../mothra/evidence/gap-remediation/2026-11-13/native-account-identity-01/manifest.json)",
-          "[Repeatable identity workflow](native-capture-workflow.md#reproducing-account-identity-and-protection-contrasts)"
+          "[Repeatable identity workflow](native-capture-workflow.md#reproducing-account-identity-and-protection-contrasts)",
+          "[Failed disposable-lab baseline and packet replay](native-transfer-stall.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -12256,7 +12259,7 @@
       "heading": "Isolation and limits",
       "level": 2,
       "line_start": 63,
-      "line_end": 87,
+      "line_end": 91,
       "anchor": "isolation-and-limits",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -12332,6 +12335,44 @@
       "related_gap_ids": [
         "GAP-085",
         "GAP-086"
+      ]
+    },
+    {
+      "path": "native-transfer-stall.md",
+      "heading": "Disposable lab transfer stall before the option-two ban fixture",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 21,
+      "anchor": "disposable-lab-transfer-stall-before-the-option-two-ban-fixture",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-044",
+        "GAP-064",
+        "GAP-074"
+      ],
+      "related_gap_ids": [
+        "GAP-044",
+        "GAP-064",
+        "GAP-074"
+      ]
+    },
+    {
+      "path": "native-transfer-stall.md",
+      "heading": "What the frozen TCP views establish",
+      "level": 2,
+      "line_start": 22,
+      "line_end": 57,
+      "anchor": "what-the-frozen-tcp-views-establish",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-044",
+        "GAP-064",
+        "GAP-074"
+      ],
+      "related_gap_ids": [
+        "GAP-044",
+        "GAP-064",
+        "GAP-074"
       ]
     }
   ]
