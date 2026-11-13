@@ -68,7 +68,7 @@ def preflight() -> dict:
     return {"preflight": (steps + [close()], {"kind": "metadata-preflight"})}
 
 
-def upload(identifier: int, name: bytes) -> list[dict]:
+def upload(identifier: int, name: bytes, parent: bytes = BASE) -> list[dict]:
     value = body(b"metadata-data", b"", b"TEXT", b"MOTH", b"base-comment")
     channel, reference = f"up{identifier}", f"ref{identifier}"
     return [
@@ -77,7 +77,7 @@ def upload(identifier: int, name: bytes) -> list[dict]:
                 203,
                 identifier,
                 payload(
-                    [(201, name), (202, BASE), (108, len(value).to_bytes(4, "big"))]
+                    [(201, name), (202, parent), (108, len(value).to_bytes(4, "big"))]
                 ),
             )
         ),
@@ -163,7 +163,101 @@ def cleanup() -> dict:
     steps = login() + exchange(200, 10, [(202, b"\0\0")])
     steps += exchange(204, 20, [(201, ROOT)])
     for identifier, (name, _) in enumerate(ACCOUNTS.values(), 30):
-        steps += exchange(351, identifier, [(105, name)])
+        steps += exchange(351, identifier, [(105, complement(name))])
         steps += exchange(352, identifier + 10, [(105, name)])
     steps += exchange(200, 90, [(202, b"\0\0")]) + [close()]
     return {"cleanup": (steps, {"kind": "metadata-cleanup"})}
+
+
+def account_cleanup() -> dict:
+    steps = login()
+    for identifier, (name, _) in enumerate(ACCOUNTS.values(), 30):
+        steps += exchange(351, identifier, [(105, complement(name))])
+        steps += exchange(352, identifier + 10, [(105, name)])
+    steps += exchange(200, 90, [(202, b"\0\0")]) + [close()]
+    return {"accounts": (steps, {"kind": "metadata-account-cleanup"})}
+
+
+def final_name(spec: dict) -> bytes:
+    renamed = spec["case"].split("-", 1)[1] in {
+        "name-only",
+        "both-new",
+        "rename-only-privilege-name",
+    }
+    return bytes.fromhex(spec["new_hex"] if renamed else spec["name_hex"])
+
+
+def finalization() -> dict:
+    steps = login() + upload(80, b"flush")
+    for identifier, spec in enumerate(specs(), 100):
+        steps += exchange(206, identifier, [(201, final_name(spec)), (202, BASE)])
+    steps += exchange(200, 500, [(202, BASE)]) + exchange(500, 90, []) + [close()]
+    return {"final": (steps, {"kind": "metadata-final"})}
+
+
+def boundaries() -> dict:
+    result = {}
+    sizes = [0, 1, 198, 199, 200, 201, 254, 255, 256, 300, 65535]
+    for label, name in [("file", b"f15"), ("dir", b"d15")]:
+        steps = login() + exchange(206, 10, [(201, name), (202, BASE)])
+        for index, size in enumerate(sizes):
+            identifier = 100 + 2 * index
+            steps += exchange(
+                207, identifier, [(201, name), (202, BASE), (210, b"x" * size)]
+            )
+            steps += exchange(206, identifier + 1, [(201, name), (202, BASE)])
+        steps += exchange(500, 90, []) + [close()]
+        result[label] = (
+            steps,
+            {
+                "kind": "metadata-comment-boundaries",
+                "name_hex": name.hex(),
+                "sizes": sizes,
+            },
+        )
+    return result
+
+
+def combined_empty() -> dict:
+    """Fill the remaining empty-name/comment combinations in separate owned entries."""
+    result = {}
+    for folder in [False, True]:
+        for label, rename, comment in [
+            ("empty-name-new-comment", False, b"new-comment"),
+            ("both-empty", False, b""),
+            ("new-name-empty-comment", True, b""),
+        ]:
+            key = ("dir-" if folder else "file-") + label
+            name = b"m-m21-" + (b"d" if folder else b"f") + str(len(result)).encode()
+            new = name + b"-new" if rename else name
+            values = [(201, name), (202, b"\0\0")]
+            steps = login() + exchange(200, 9, [(202, b"\0\0")])
+            if folder:
+                steps += exchange(205, 30, [(201, name)])
+                steps += exchange(207, 31, values + [(210, b"base-comment")])
+            else:
+                steps += upload(30, name, b"\0\0")
+            steps += exchange(206, 10, values)
+            steps += exchange(
+                207, 12, values + [(211, new if rename else b""), (210, comment)]
+            )
+            steps += exchange(206, 20, values)
+            steps += exchange(206, 21, [(201, new), (202, b"\0\0")])
+            steps += exchange(200, 22, [(202, b"\0\0")])
+            steps += exchange(204, 40, [(201, new)])
+            steps += exchange(200, 90, [(202, b"\0\0")]) + exchange(500, 91, [])
+            steps += [
+                {"op": "expect_quiet", "connection": "main", "timeout": 1},
+                close(),
+            ]
+            result[key] = (
+                steps,
+                {
+                    "kind": "metadata-combined-empty",
+                    "folder": folder,
+                    "name_hex": name.hex(),
+                    "final_hex": new.hex(),
+                    "comment_hex": comment.hex(),
+                },
+            )
+    return result

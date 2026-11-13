@@ -52,7 +52,11 @@ from native_login_extras_cases import NAMES as LOGIN_EXTRA_NAMES
 from native_login_extras_cases import configured as login_extras_configured
 from native_login_extras_cases import downloads as login_extras_downloads
 from native_login_extras_cases import lifetime as login_extras_lifetime
+from native_metadata_cases import account_cleanup as metadata_account_cleanup
+from native_metadata_cases import boundaries as metadata_boundaries
 from native_metadata_cases import cleanup as metadata_cleanup
+from native_metadata_cases import combined_empty as metadata_combined_empty
+from native_metadata_cases import finalization as metadata_final
 from native_metadata_cases import mutations as metadata_mutations
 from native_metadata_cases import preflight as metadata_preflight
 from native_metadata_cases import seed as metadata_seed
@@ -74,6 +78,10 @@ def main() -> None:
         "suite",
         choices=[
             "metadata-preflight",
+            "metadata-combined-empty",
+            "metadata-account-cleanup",
+            "metadata-boundaries",
+            "metadata-final",
             "metadata-seed",
             "metadata-mutations",
             "metadata-cleanup",
@@ -155,6 +163,10 @@ def main() -> None:
         parser.error("agreement-restore-stage requires --original-agreement")
     cases = {
         "metadata-preflight": metadata_preflight,
+        "metadata-combined-empty": metadata_combined_empty,
+        "metadata-account-cleanup": metadata_account_cleanup,
+        "metadata-boundaries": metadata_boundaries,
+        "metadata-final": metadata_final,
         "metadata-seed": metadata_seed,
         "metadata-mutations": metadata_mutations,
         "metadata-cleanup": metadata_cleanup,
