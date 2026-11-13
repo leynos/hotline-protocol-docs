@@ -80,7 +80,16 @@ def cases() -> dict[str, tuple[list[dict], dict]]:
         steps += [read(match_frame={"type": 301})] + barrier("main", 41)
         steps += [pm_request(70, text), read(match_frame={"is_reply": 1, "id": 70})]
         steps += barrier("main", 71) + barrier("subject", 72)
-        steps += [send(packet(304, 80, payload([(113, b"\0\0")])), "subject")]
+        steps += [
+            send(
+                packet(
+                    304,
+                    80,
+                    payload([(102, b"settings25"), (104, b"\0\x07"), (113, b"\0\0")]),
+                ),
+                "subject",
+            )
+        ]
         steps += [read(match_frame={"type": 301})]
         steps += barrier("main", 81) + barrier("subject", 82)
         steps += [close("subject"), close()]

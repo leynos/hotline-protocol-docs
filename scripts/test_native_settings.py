@@ -50,6 +50,22 @@ class SettingsPreparationTests(unittest.TestCase):
                 self.assertEqual(kinds.count(108), 1)
                 self.assertEqual(kinds.count(304), 2)
                 self.assertFalse(set(kinds) & {350, 351, 352, 353})
+                settings = [
+                    decode_frame(bytes.fromhex(step["hex"]))
+                    for step in steps
+                    if step["op"] == "send"
+                    and step["connection"] == "subject"
+                    and step["hex"] != "54525450484f544c00010002"
+                    and decode_frame(bytes.fromhex(step["hex"]))["type"] == 304
+                ]
+                self.assertEqual(
+                    settings[-1]["fields"],
+                    [
+                        {"id": 102, "hex": b"settings25".hex()},
+                        {"id": 104, "hex": "0007"},
+                        {"id": 113, "hex": "0000"},
+                    ],
+                )
 
     def test_dynamic_uid_is_exact_two_byte_field(self) -> None:
         raw = bytes.fromhex(
