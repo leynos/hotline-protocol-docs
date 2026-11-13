@@ -92,9 +92,11 @@ historical checker limitation, not a failed native 303. The paired packet
 checker reads the committed corpus without writing unless `--output` names a
 new file.
 
-A8 **density at 8/8 was not run**. The native formatting boundary near the
-source's `0x400` destination and the exact-text release decision in GAP-037
-remain open. This one active/queued example must not be generalised into
+The later [A9 density witness](native-diagnostic-density-witness.md) reached
+8 active and 8 waiting downloads, but measured only 763 field-101 bytes. The
+native formatting boundary near the source's `0x400` destination and the
+exact-text release decision in GAP-037 remain open. This one active/queued
+example must not be generalised into
 mandatory wording, progress percentages or transfer scheduling guarantees.
 
 [a7]: ../mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/manifest.json
