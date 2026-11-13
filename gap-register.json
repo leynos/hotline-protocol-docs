@@ -3,11 +3,11 @@
   "title": "Hotline 1.9 protocol documentation gap register",
   "audited_at_utc": "2026-11-12T12:55:29.155796+00:00",
   "last_updated": "2026-11-13",
-  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-55/manifest.json",
-  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-55/sections.json",
+  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-57/manifest.json",
+  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-57/sections.json",
   "validity_ledger": "../mothra/docs/baseline-validity-ledger.md",
   "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
-  "method": "Integrate bounded native density and failed near-boundary witness with restoration, isolated Classic core session, accepted canonical mxd corrections and source-only modern keepalive contract. Resolve only GAP-079 and GAP-084 against their unchanged original criteria. All 87 criteria remain exact: 47 Resolved, 39 Investigating, 1 Open; 40 unclosed.",
+  "method": "Refresh the single mxd hold/handoff document after user instructions; native protocol documentation remains the task. Preserve all 87 original criteria and statuses:49 Resolved,37 Investigating,1 Open;38 unclosed. No further mxd validation was performed.",
   "gaps": [
     {
       "id": "GAP-001",
@@ -49,10 +49,11 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": " A delegated review maps current mxd scope/assertions to native evidence but does not select required/deferred/excluded operation/profile states or unsupported replies. The original scope decision remains open.",
+        "progress": " A delegated review maps current mxd scope/assertions to native evidence but does not select required/deferred/excluded operation/profile states or unsupported replies. The original scope decision remains open. User instruction13November2026: further mxd validation/fixes are on hold; consolidate completed evidence in mxd-validation.md. Canonical sourcecb907 has accepted framing/directACK/loginextras corrections. Actual Classic authenticates with fully transmitted24-byte fixture secret but waits for missing agreement handoff; no121/300/212 follows. This is partial startup, not release or complete compatibility evidence.",
         "evidence": [
           "[Pinned mxd reconciliation](mxd-reconciliation.md)",
-          "[Frozen mxd source and test evidence](../mothra/evidence/gap-remediation/2026-11-13/delegated-mxd-01/manifest.json)"
+          "[Frozen mxd source and test evidence](../mothra/evidence/gap-remediation/2026-11-13/delegated-mxd-01/manifest.json)",
+          "[mxd validation findings and hold](mxd-validation.md)"
         ],
         "closure": "Not closed: the original scope/policy criterion remains unmet."
       }
@@ -128,7 +129,7 @@
       "area": "Specification",
       "priority": "P0",
       "kind": "Missing",
-      "status": "Investigating",
+      "status": "Resolved",
       "owner": "Protocol documentation investigation",
       "title": "Error-code and failure-outcome registry",
       "sources": [
@@ -166,7 +167,7 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Captured the108-entry native-result table, verified sorted keys and documented representative internal domain/code mappings with resource meanings. These are not wire statuses; enclosing catch translation and native error packets remain required. Retained native status1 authentication, permission, missing room/file and unknown/replayed-operation replies, plus invalid zero-size closure. Internal exception translation and remaining failure/drain boundaries remain unresolved. Added missing-buffer null-size and zero-byte transfer-allocation internal SError1/2 traces, plus native RSTs on data/owner/observer for the present-empty fixture and a successful fresh post-reset session. No numbered wire mapping or general reset threshold is inferred. Added native online unknown types0/FFFF with incomingflagsFF/errorFFFFFFFF, yielding type0/reply1/status1 plus exactfield100 text; zero-size replymarker1/255 closes without numbered response. Full operation-error taxonomy remains required. Added Incorrectlogin versus nativebadfilename account failures: bothwirestatus1, but32-byte path diagnostics include internal4/119[-37] infield100 text. Premature121 returns account-read error; online107/121 replay yields Unknowntransactiontype. Fullerror taxonomy remains required. Agreement65536 non-TEXT value loads but fails field101 serialization after successful107 ACK. Early readiness survives with354/roster/500, delayed staysunlisted andcloses afternext500; no errorreply explains109failure. InternalSError1/10 isnotwirestatus10. Fullerrorregistry remains required. Native-mkdir-01 adds exact status1/text100 permission, existing-file/directory/case-conflict and parent-resolution families, with before/after effects and liveness. Root absence/empty combinations fail as conflicts; malformed path prefixes can succeed. Other operation failure/partial-effect registries remain required. Native209sixcreationerrorcasesretainexactstatus1/text100,unchangedlistingandliveness. Same-location209successcanmakeunattachedalias;202missingfilemessagecanrefer tophysicallyexistingunattachedalias. Broaderregistryremainsrequired. Native-metadata01adds207permissionandcollisionfailureswithactualpartialcommentmutations;errorACKdoesnotimplyrollback. Broaderregistryremainsactive. Native-move01adds26moveand9deletecaseswithexactstatus1/text100permission,missingendpoint,collisionandhierarchyerrors,plusbefore/afterunchangedviewsandliveness. Sameparent208succeeds;missing204fails. Broaderfailure/partial-effectregistryremainsactive. Native-news01adds14structureerrorsandfour400article/flavourfailureswithcoarseinvalid-categorytextdespiteexistingcategory. Missing-body410returnsstatus1butleavesmetadata/indexrecord. Exactfamilies,livenessandbefore/afterviewsarecaptured;broaderregistryremainsactive. Article deletion adds exact missing-ID/category, omitted-ID, repeated-delete and permission errors, with unchanged lists and liveness. Broader failure registry remains active. Account deletion sends data-only 104/101 notice and native first FIN, not a numbered error or politequit111. A stopped application yields a guest RST diagnostic No listener, not a protocol error frame. Broader failure taxonomy remains active. Request 349 distinguishes collision notice 104/101/109 followed by success, saving-list errors with later effects, and permission errors that stop later items. General exception translation remains active. Native duplicate 350 and bit-23 kick denial have distinct exact status-1/100 families; 351 and self-delete instead ACK before deletion notice/FIN. These do not settle all filesystem/exception errors. Room create/join errors, no-ACK operations and denied-chat 104 families now have native contrasts. Two wrong recorder expectations remain failed, not server-crash/error outcomes. A clause-level review distinguishes the original representative-byte requirement from unresolved exception/no-ACK outcomes. Five retained native examples now publish exact request bytes and captured status1/text100 replies for authentication, permission, missing object and unsupported operation; malformed zero-size input records no numbered response and host EOF with explicit proxy limits. The broader exception-to-wire question remains open.",
+        "progress": "Captured the108-entry native-result table, verified sorted keys and documented representative internal domain/code mappings with resource meanings. These are not wire statuses; enclosing catch translation and native error packets remain required. Retained native status1 authentication, permission, missing room/file and unknown/replayed-operation replies, plus invalid zero-size closure. Internal exception translation and remaining failure/drain boundaries remain unresolved. Added missing-buffer null-size and zero-byte transfer-allocation internal SError1/2 traces, plus native RSTs on data/owner/observer for the present-empty fixture and a successful fresh post-reset session. No numbered wire mapping or general reset threshold is inferred. Added native online unknown types0/FFFF with incomingflagsFF/errorFFFFFFFF, yielding type0/reply1/status1 plus exactfield100 text; zero-size replymarker1/255 closes without numbered response. Full operation-error taxonomy remains required. Added Incorrectlogin versus nativebadfilename account failures: bothwirestatus1, but32-byte path diagnostics include internal4/119[-37] infield100 text. Premature121 returns account-read error; online107/121 replay yields Unknowntransactiontype. Fullerror taxonomy remains required. Agreement65536 non-TEXT value loads but fails field101 serialization after successful107 ACK. Early readiness survives with354/roster/500, delayed staysunlisted andcloses afternext500; no errorreply explains109failure. InternalSError1/10 isnotwirestatus10. Fullerrorregistry remains required. Native-mkdir-01 adds exact status1/text100 permission, existing-file/directory/case-conflict and parent-resolution families, with before/after effects and liveness. Root absence/empty combinations fail as conflicts; malformed path prefixes can succeed. Other operation failure/partial-effect registries remain required. Native209sixcreationerrorcasesretainexactstatus1/text100,unchangedlistingandliveness. Same-location209successcanmakeunattachedalias;202missingfilemessagecanrefer tophysicallyexistingunattachedalias. Broaderregistryremainsrequired. Native-metadata01adds207permissionandcollisionfailureswithactualpartialcommentmutations;errorACKdoesnotimplyrollback. Broaderregistryremainsactive. Native-move01adds26moveand9deletecaseswithexactstatus1/text100permission,missingendpoint,collisionandhierarchyerrors,plusbefore/afterunchangedviewsandliveness. Sameparent208succeeds;missing204fails. Broaderfailure/partial-effectregistryremainsactive. Native-news01adds14structureerrorsandfour400article/flavourfailureswithcoarseinvalid-categorytextdespiteexistingcategory. Missing-body410returnsstatus1butleavesmetadata/indexrecord. Exactfamilies,livenessandbefore/afterviewsarecaptured;broaderregistryremainsactive. Article deletion adds exact missing-ID/category, omitted-ID, repeated-delete and permission errors, with unchanged lists and liveness. Broader failure registry remains active. Account deletion sends data-only 104/101 notice and native first FIN, not a numbered error or politequit111. A stopped application yields a guest RST diagnostic No listener, not a protocol error frame. Broader failure taxonomy remains active. Request 349 distinguishes collision notice 104/101/109 followed by success, saving-list errors with later effects, and permission errors that stop later items. General exception translation remains active. Native duplicate 350 and bit-23 kick denial have distinct exact status-1/100 families; 351 and self-delete instead ACK before deletion notice/FIN. These do not settle all filesystem/exception errors. Room create/join errors, no-ACK operations and denied-chat 104 families now have native contrasts. Two wrong recorder expectations remain failed, not server-crash/error outcomes. A clause-level review distinguishes the original representative-byte requirement from unresolved exception/no-ACK outcomes. Five retained native examples now publish exact request bytes and captured status1/text100 replies for authentication, permission, missing object and unsupported operation; malformed zero-size input records no numbered response and host EOF with explicit proxy limits. The broader exception-to-wire question remains open. Root acceptance revision56: The failure table and five retained request/result examples cover authentication, permission, missing-object, malformed-request and unsupported-operation cases. Parent replay matched the pinned reports, exact events/frames, error ID/status/text and host EOF. This meets the original representative criterion without claiming exhaustive SError catch translation or guest FIN/RST proof.",
         "evidence": [
           "[Native format/recovery/reset corpus](../mothra/evidence/gap-remediation/2026-11-12/native-banner-02/manifest.json)",
           "[Banner type/recovery contract](transfer-contracts.md#captured-banner-formats-and-recovery)",
@@ -199,9 +200,10 @@
           "[Native room contract](presence-messaging-contracts.md#captured-private-rooms-invitations-and-chat-bytes)",
           "[Native room corpus](../mothra/evidence/gap-remediation/2026-11-13/native-rooms-01/manifest.json)",
           "[Repeatable room workflow](native-capture-workflow.md#reproducing-private-rooms-and-chat-byte-fixtures)",
-          "[Second delegated investigation](failure-representatives.md)"
+          "[Second delegated investigation](failure-representatives.md)",
+          "[Captured failure representatives](failure-representatives.md)"
         ],
-        "closure": "Not closed: remaining unchanged acceptance requirements are explicitly retained above."
+        "closure": "The failure table and five retained request/result examples cover authentication, permission, missing-object, malformed-request and unsupported-operation cases. Parent replay matched the pinned reports, exact events/frames, error ID/status/text and host EOF. This meets the original representative criterion without claiming exhaustive SError catch translation or guest FIN/RST proof."
       }
     },
     {
@@ -4224,7 +4226,7 @@
       "area": "Administration",
       "priority": "P2",
       "kind": "Unanswered",
-      "status": "Investigating",
+      "status": "Resolved",
       "owner": "Protocol documentation investigation",
       "title": "Server-originated broadcast and eligibility",
       "sources": [
@@ -4251,12 +4253,13 @@
         "GAP-044"
       ],
       "resolution": {
-        "progress": "Identified console message 104/data-only versus client broadcast355 and documented online/ready recipient helper. Native self/state/message fixtures remain required.",
+        "progress": "Identified console message 104/data-only versus client broadcast355 and documented online/ready recipient helper. Native self/state/message fixtures remain required. Root acceptance revision56: Traced console104/data-only and client355 identity/data fan-out are now paired with four-state native fixtures, sender exclusion, online refusal-option recipient and waiting121 activation. Guest streams are complete; three host views are complete and the first host handshake loss is explicit. Full A7 postflight restores the baseline. The original origin/recipient/field/self/session-state criterion is met; other104 variants remain GAP044.",
         "evidence": [
           "[Presence, messaging and administration](presence-messaging-contracts.md)",
-          "[Batch 06](../mothra/evidence/gap-remediation/2026-11-12/batch-06/manifest.json)"
+          "[Batch 06](../mothra/evidence/gap-remediation/2026-11-12/batch-06/manifest.json)",
+          "[Native console and client broadcast recipients](native-console-broadcast.md)"
         ],
-        "closure": "Not closed: remaining acceptance evidence is listed above."
+        "closure": "Traced console104/data-only and client355 identity/data fan-out are now paired with four-state native fixtures, sender exclusion, online refusal-option recipient and waiting121 activation. Guest streams are complete; three host views are complete and the first host handshake loss is explicit. Full A7 postflight restores the baseline. The original origin/recipient/field/self/session-state criterion is met; other104 variants remain GAP044."
       }
     },
     {
@@ -4427,7 +4430,7 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Added hashed shx0.1.48 source at adb1bf8c8cb12f7eb2fa2c01673295a6312f262b. Source profile is identified; compiled-client/runtime corpus and fallback policy remain open. Native-shx-01 identifies one complete modern Linux shx0.1.48 build at sourceadb1bf8c8cb1 and executable8fbbe56cef43. Five accepted sessions cover login/chat/list/forks/negativepassword/ambiguousbytes with paired packet evidence. Acceptance-target selection and unknown-peer fallback remain open; reported160 is absent in this peer request and is not used as identity. Eight actual native full-peer sessions across native-shx-01/02 andfour labelled receiver fixtures identify one modern configured shx build. Acceptance-target selection and unknown-peer fallback still require a separate policy; no field160/sub-version peer identity is inferred. Five full-process controlled sessions pin the same identified shx build and source; reported sub-version2 stays separate from identity. Omitted/varied161, unknown login TLV and earlier122 preserve continuation. Target/fallback decisions and other selected profiles remain open. An acquired Mac client archive is hashed and statically identified with APPL/HTLC PPC PEF forks. Archive/application labels say 1.9.2 while both embedded vers strings say 1.9.1.0. Keep these observations distinct from opaque binary identity and vendor authenticity. At that acquisition checkpoint, no client replay or additional profile/fallback decision had occurred. Latest captured session: B13 executed the prelaunch fork-hash-identified Classic candidate once against native 1.9. Three independent control views reconcile 150 client/514 server bytes; both guest data views reconcile 16/58 bytes for its automatic banner fetch. One login/agreement/roster session succeeded, then automatic external advertising HTTP caused a safety stop. Archive 1.9.2 versus resource 1.9.1.0 identity conflict remains explicit. Neither vendor identity, universal profile classification nor fallback policy is inferred.",
+        "progress": "Added hashed shx0.1.48 source at adb1bf8c8cb12f7eb2fa2c01673295a6312f262b. Source profile is identified; compiled-client/runtime corpus and fallback policy remain open. Native-shx-01 identifies one complete modern Linux shx0.1.48 build at sourceadb1bf8c8cb1 and executable8fbbe56cef43. Five accepted sessions cover login/chat/list/forks/negativepassword/ambiguousbytes with paired packet evidence. Acceptance-target selection and unknown-peer fallback remain open; reported160 is absent in this peer request and is not used as identity. Eight actual native full-peer sessions across native-shx-01/02 andfour labelled receiver fixtures identify one modern configured shx build. Acceptance-target selection and unknown-peer fallback still require a separate policy; no field160/sub-version peer identity is inferred. Five full-process controlled sessions pin the same identified shx build and source; reported sub-version2 stays separate from identity. Omitted/varied161, unknown login TLV and earlier122 preserve continuation. Target/fallback decisions and other selected profiles remain open. An acquired Mac client archive is hashed and statically identified with APPL/HTLC PPC PEF forks. Archive/application labels say 1.9.2 while both embedded vers strings say 1.9.1.0. Keep these observations distinct from opaque binary identity and vendor authenticity. At that acquisition checkpoint, no client replay or additional profile/fallback decision had occurred. Latest captured session: B13 executed the prelaunch fork-hash-identified Classic candidate once against native 1.9. Three independent control views reconcile 150 client/514 server bytes; both guest data views reconcile 16/58 bytes for its automatic banner fetch. One login/agreement/roster session succeeded, then automatic external advertising HTTP caused a safety stop. Archive 1.9.2 versus resource 1.9.1.0 identity conflict remains explicit. Neither vendor identity, universal profile classification nor fallback policy is inferred. User instruction13November2026: further mxd validation/fixes are on hold; consolidate completed evidence in mxd-validation.md. Canonical sourcecb907 has accepted framing/directACK/loginextras corrections. Actual Classic authenticates with fully transmitted24-byte fixture secret but waits for missing agreement handoff; no121/300/212 follows. This is partial startup, not release or complete compatibility evidence.",
         "evidence": [
           "[Error outcomes](error-outcomes.md)",
           "[Folder descriptor](transfer-contracts.md#folder-item-descriptor-bytes)",
@@ -4439,7 +4442,8 @@
           "[Controlled peer tolerance matrix](peer-tolerance-matrix.md)",
           "[Peer tolerance corpus](../mothra/evidence/gap-remediation/2026-11-13/delegated-peer-01/manifest.json)",
           "[Acquired Mac candidate identity](../mothra/docs/delegation/mac-peer-candidate.md)",
-          "[First Classic peer session](mac-peer-first-session.md)"
+          "[First Classic peer session](mac-peer-first-session.md)",
+          "[mxd validation findings and hold](mxd-validation.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -4489,7 +4493,7 @@
         "GAP-080"
       ],
       "resolution": {
-        "progress": "Executed seven host-built cases of the unchanged basic-login callback/macros, including ignored160/161/162 and unknown fields with UID/status controls. Full historical peer-by-field sessions and other configured profiles remain required. Full shx terminal sessions consume native160=00be/161=0000, automatic native roster records and repeated file-list records, then chat/download successfully. Empty configuredname omits162 and no122is emitted; configured162,122,subjectaddition and otherpeer/profile cases remain required before omission/default policy. Native-shx-02 adds actual ASCII/highbyte162 success andemptyname restoration. Controlled fullprocess matrix delivers exact native122 andsource-derived115 separately/together withnative roster controls:122is reportedunknown anddumpedexactly while reload/chat continue;115isdisplayed. No bannerUI, liveSynHXserver, optional-profile or universal omission/fallback policy claimed. Controlled full-process matrix adds omitted 161, changed 161, unknown login field32767 and native122 before automatic roster. Exact socket/packet/terminal bytes and continuation pass; three checksum-refreshed semantic mutations are rejected. Other selected profiles and omission/default policy remain open. Latest captured session: The first actual Classic candidate consumed native login fields 160/161, agreement 109, bitmap 354, banner 122 and a roster reply, and automatically fetched the 58-byte banner. This is a finite positive witness for those bytes/build only. There was no controlled extra-field perturbation matrix, configured field 162 case or universal tolerance proof; the planned local-only idle test was stopped.",
+        "progress": "Executed seven host-built cases of the unchanged basic-login callback/macros, including ignored160/161/162 and unknown fields with UID/status controls. Full historical peer-by-field sessions and other configured profiles remain required. Full shx terminal sessions consume native160=00be/161=0000, automatic native roster records and repeated file-list records, then chat/download successfully. Empty configuredname omits162 and no122is emitted; configured162,122,subjectaddition and otherpeer/profile cases remain required before omission/default policy. Native-shx-02 adds actual ASCII/highbyte162 success andemptyname restoration. Controlled fullprocess matrix delivers exact native122 andsource-derived115 separately/together withnative roster controls:122is reportedunknown anddumpedexactly while reload/chat continue;115isdisplayed. No bannerUI, liveSynHXserver, optional-profile or universal omission/fallback policy claimed. Controlled full-process matrix adds omitted 161, changed 161, unknown login field32767 and native122 before automatic roster. Exact socket/packet/terminal bytes and continuation pass; three checksum-refreshed semantic mutations are rejected. Other selected profiles and omission/default policy remain open. Latest captured session: The first actual Classic candidate consumed native login fields 160/161, agreement 109, bitmap 354, banner 122 and a roster reply, and automatically fetched the 58-byte banner. This is a finite positive witness for those bytes/build only. There was no controlled extra-field perturbation matrix, configured field 162 case or universal tolerance proof; the planned local-only idle test was stopped. User instruction13November2026: further mxd validation/fixes are on hold; consolidate completed evidence in mxd-validation.md. Canonical sourcecb907 has accepted framing/directACK/loginextras corrections. Actual Classic authenticates with fully transmitted24-byte fixture secret but waits for missing agreement handoff; no121/300/212 follows. This is partial startup, not release or complete compatibility evidence.",
         "evidence": [
           "[Error outcomes](error-outcomes.md)",
           "[Folder descriptor](transfer-contracts.md#folder-item-descriptor-bytes)",
@@ -4500,7 +4504,8 @@
           "[Second full-peer corpus](../mothra/evidence/gap-remediation/2026-11-13/native-shx-02/manifest.json)",
           "[Controlled peer tolerance matrix](peer-tolerance-matrix.md)",
           "[Peer tolerance corpus](../mothra/evidence/gap-remediation/2026-11-13/delegated-peer-01/manifest.json)",
-          "[First Classic peer session](mac-peer-first-session.md)"
+          "[First Classic peer session](mac-peer-first-session.md)",
+          "[mxd validation findings and hold](mxd-validation.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -4757,7 +4762,7 @@
         "GAP-001"
       ],
       "resolution": {
-        "progress": "Reviewed frozen source/assertions and executed 55 focused mxd tests at 2e4c9c1df20b37a6f98a1369e0a8f09f9ee2a131. Disputed classifier/login-extra expectations still pass and require implementation reconciliation; no false native-conformance claim is made. Native child append has an observed list/index inconsistency. Documenting it does not require reproducing it in mxd; actual checkout/test reconciliation and a separate compatibility policy remain required. At unchanged 2e4c9c1, four focused locked/offline commands pass 55 tests. Fourteen frozen source snapshots and optional live-source checks preserve portability. The assertion map identifies stale sub-version classification, login-extra omission, configured-name assumptions and type 107 versus native type 0 routing. No Rust correction was made; implementation reconciliation remains open. The portable uncommitted mxd patch and base/final snapshots document a logical/physical framing correction with44 focused passing tests. Full make test remains blocked at linking; no canonical Rust change or complete implementation reconciliation is claimed. Canonical mxd commits 50360beb/48129491 fix the demonstrated logical/physical reassembly bug and an independently diagnosed watchdog test assumption. All seven nextest profiles and both doctest commands passed, retaining one skip/four ignores; source bytes match the supervised fast-forward. Other stale classifier/login-extra/routing assertions and requirement mappings remain open.",
+        "progress": "Reviewed frozen source/assertions and executed 55 focused mxd tests at 2e4c9c1df20b37a6f98a1369e0a8f09f9ee2a131. Disputed classifier/login-extra expectations still pass and require implementation reconciliation; no false native-conformance claim is made. Native child append has an observed list/index inconsistency. Documenting it does not require reproducing it in mxd; actual checkout/test reconciliation and a separate compatibility policy remain required. At unchanged 2e4c9c1, four focused locked/offline commands pass 55 tests. Fourteen frozen source snapshots and optional live-source checks preserve portability. The assertion map identifies stale sub-version classification, login-extra omission, configured-name assumptions and type 107 versus native type 0 routing. No Rust correction was made; implementation reconciliation remains open. The portable uncommitted mxd patch and base/final snapshots document a logical/physical framing correction with44 focused passing tests. Full make test remains blocked at linking; no canonical Rust change or complete implementation reconciliation is claimed. Canonical mxd commits 50360beb/48129491 fix the demonstrated logical/physical reassembly bug and an independently diagnosed watchdog test assumption. All seven nextest profiles and both doctest commands passed, retaining one skip/four ignores; source bytes match the supervised fast-forward. Other stale classifier/login-extra/routing assertions and requirement mappings remain open. User instruction13November2026: further mxd validation/fixes are on hold; consolidate completed evidence in mxd-validation.md. Canonical sourcecb907 has accepted framing/directACK/loginextras corrections. Actual Classic authenticates with fully transmitted24-byte fixture secret but waits for missing agreement handoff; no121/300/212 follows. This is partial startup, not release or complete compatibility evidence.",
         "evidence": [
           "[Operation contracts](operation-contracts.md)",
           "[Compatibility review](internal-compatibility-matrix.md#mxd-review-at-2e4c9c1)",
@@ -4767,7 +4772,8 @@
           "[Pinned mxd reconciliation](mxd-reconciliation.md)",
           "[Frozen mxd source and test evidence](../mothra/evidence/gap-remediation/2026-11-13/delegated-mxd-01/manifest.json)",
           "[Second delegated investigation](mxd-limit-contracts.md)",
-          "[Accepted mxd correction](../mothra/evidence/gap-remediation/2026-11-13/mxd-correction-01/manifest.json)"
+          "[Accepted mxd correction](../mothra/evidence/gap-remediation/2026-11-13/mxd-correction-01/manifest.json)",
+          "[mxd validation findings and hold](mxd-validation.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -4822,13 +4828,14 @@
         "GAP-085"
       ],
       "resolution": {
-        "progress": "Reviewed the actual release checklist, checked roadmap statuses and bounded Kani harness source at the recorded revision. Kani was not run; release owner, native acceptance criteria and deliberate-deviation decisions remain open. Current release/checklist, stale compatibility matrix and unrun Kani policy assertions are mapped to exact frozen sources. No release owner, subset, deferred-gap rule or proof result is invented; those decisions remain open. A complete managed quality gate now has retained successful oneshot properties, exact source snapshots and offline acceptance replay at mxd 48129491. Recorded skips/ignores are explicit; no Kani proof was run and release-owner/subset decisions remain unmet.",
+        "progress": "Reviewed the actual release checklist, checked roadmap statuses and bounded Kani harness source at the recorded revision. Kani was not run; release owner, native acceptance criteria and deliberate-deviation decisions remain open. Current release/checklist, stale compatibility matrix and unrun Kani policy assertions are mapped to exact frozen sources. No release owner, subset, deferred-gap rule or proof result is invented; those decisions remain open. A complete managed quality gate now has retained successful oneshot properties, exact source snapshots and offline acceptance replay at mxd 48129491. Recorded skips/ignores are explicit; no Kani proof was run and release-owner/subset decisions remain unmet. User instruction13November2026: further mxd validation/fixes are on hold; consolidate completed evidence in mxd-validation.md. Canonical sourcecb907 has accepted framing/directACK/loginextras corrections. Actual Classic authenticates with fully transmitted24-byte fixture secret but waits for missing agreement handoff; no121/300/212 follows. This is partial startup, not release or complete compatibility evidence.",
         "evidence": [
           "[Operation contracts](operation-contracts.md)",
           "[Compatibility review](internal-compatibility-matrix.md#mxd-review-at-2e4c9c1)",
           "[Pinned mxd reconciliation](mxd-reconciliation.md)",
           "[Frozen mxd source and test evidence](../mothra/evidence/gap-remediation/2026-11-13/delegated-mxd-01/manifest.json)",
-          "[Accepted mxd correction](../mothra/evidence/gap-remediation/2026-11-13/mxd-correction-01/manifest.json)"
+          "[Accepted mxd correction](../mothra/evidence/gap-remediation/2026-11-13/mxd-correction-01/manifest.json)",
+          "[mxd validation findings and hold](mxd-validation.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -7857,8 +7864,8 @@
       "path": "error-outcomes.md",
       "heading": "Derived unknown-operation example",
       "level": 2,
-      "line_start": 78,
-      "line_end": 97,
+      "line_start": 79,
+      "line_end": 98,
       "anchor": "derived-unknown-operation-example",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7874,8 +7881,8 @@
       "path": "error-outcomes.md",
       "heading": "Internal exceptions and text resources",
       "level": 2,
-      "line_start": 98,
-      "line_end": 168,
+      "line_start": 99,
+      "line_end": 169,
       "anchor": "internal-exceptions-and-text-resources",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -8401,7 +8408,7 @@
       "heading": "Recorded representative native outcomes",
       "level": 2,
       "line_start": 36,
-      "line_end": 77,
+      "line_end": 78,
       "anchor": "recorded-representative-native-outcomes",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10461,7 +10468,7 @@
       "heading": "Captured private rooms, invitations and chat bytes",
       "level": 2,
       "line_start": 426,
-      "line_end": 529,
+      "line_end": 530,
       "anchor": "captured-private-rooms-invitations-and-chat-bytes",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10498,7 +10505,7 @@
       "heading": "Reproducing private rooms and chat byte fixtures",
       "level": 2,
       "line_start": 1686,
-      "line_end": 1747,
+      "line_end": 1748,
       "anchor": "reproducing-private-rooms-and-chat-byte-fixtures",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -11674,6 +11681,352 @@
       ],
       "related_gap_ids": [
         "GAP-079"
+      ]
+    },
+    {
+      "path": "native-console-broadcast.md",
+      "heading": "Native console broadcast and client 355: bounded D1 witness",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 63,
+      "anchor": "native-console-broadcast-and-client-355-bounded-d1-witness",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-044",
+        "GAP-076"
+      ],
+      "related_gap_ids": [
+        "GAP-044",
+        "GAP-076"
+      ]
+    },
+    {
+      "path": "mxd-peer-capture-workflow.md",
+      "heading": "Run an actual Classic peer against an isolated mxd fixture",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 8,
+      "anchor": "run-an-actual-classic-peer-against-an-isolated-mxd-fixture",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-080",
+        "GAP-085"
+      ],
+      "related_gap_ids": [
+        "GAP-080",
+        "GAP-085"
+      ]
+    },
+    {
+      "path": "mxd-peer-capture-workflow.md",
+      "heading": "Pin the binary and prepare a new fixture",
+      "level": 2,
+      "line_start": 9,
+      "line_end": 67,
+      "anchor": "pin-the-binary-and-prepare-a-new-fixture",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-080",
+        "GAP-085"
+      ],
+      "related_gap_ids": [
+        "GAP-080",
+        "GAP-085"
+      ]
+    },
+    {
+      "path": "mxd-peer-capture-workflow.md",
+      "heading": "Supervise inside the existing client namespace",
+      "level": 2,
+      "line_start": 68,
+      "line_end": 127,
+      "anchor": "supervise-inside-the-existing-client-namespace",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-080",
+        "GAP-085"
+      ],
+      "related_gap_ids": [
+        "GAP-080",
+        "GAP-085"
+      ]
+    },
+    {
+      "path": "mxd-classic-login.md",
+      "heading": "Classic client login against an isolated mxd fixture",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 35,
+      "anchor": "classic-client-login-against-an-isolated-mxd-fixture",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-019",
+        "GAP-080",
+        "GAP-085"
+      ],
+      "related_gap_ids": [
+        "GAP-019",
+        "GAP-080",
+        "GAP-085"
+      ]
+    },
+    {
+      "path": "classic-login-proxy.md",
+      "heading": "Classic Login107 field-161 proxy: preparation only",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 8,
+      "anchor": "classic-login107-field-161-proxy-preparation-only",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-080",
+        "GAP-081"
+      ],
+      "related_gap_ids": [
+        "GAP-080",
+        "GAP-081"
+      ]
+    },
+    {
+      "path": "classic-login-proxy.md",
+      "heading": "Fixed topology and authority boundary",
+      "level": 2,
+      "line_start": 9,
+      "line_end": 38,
+      "anchor": "fixed-topology-and-authority-boundary",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-080",
+        "GAP-081"
+      ],
+      "related_gap_ids": [
+        "GAP-080",
+        "GAP-081"
+      ]
+    },
+    {
+      "path": "classic-login-proxy.md",
+      "heading": "Wire transformation",
+      "level": 2,
+      "line_start": 39,
+      "line_end": 70,
+      "anchor": "wire-transformation",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-080",
+        "GAP-081"
+      ],
+      "related_gap_ids": [
+        "GAP-080",
+        "GAP-081"
+      ]
+    },
+    {
+      "path": "classic-login-proxy.md",
+      "heading": "Offline checks and remaining gate",
+      "level": 2,
+      "line_start": 71,
+      "line_end": 100,
+      "anchor": "offline-checks-and-remaining-gate",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-080",
+        "GAP-081"
+      ],
+      "related_gap_ids": [
+        "GAP-080",
+        "GAP-081"
+      ]
+    },
+    {
+      "path": "classic-login-proxy.md",
+      "heading": "Read-only actual namespace guard receipt",
+      "level": 2,
+      "line_start": 101,
+      "line_end": 110,
+      "anchor": "read-only-actual-namespace-guard-receipt",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-080",
+        "GAP-081"
+      ],
+      "related_gap_ids": [
+        "GAP-080",
+        "GAP-081"
+      ]
+    },
+    {
+      "path": "mxd-validation.md",
+      "heading": "mxd validation findings and deferred work",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 7,
+      "anchor": "mxd-validation-findings-and-deferred-work",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-001",
+        "GAP-019",
+        "GAP-080",
+        "GAP-081",
+        "GAP-085",
+        "GAP-086"
+      ],
+      "related_gap_ids": [
+        "GAP-001",
+        "GAP-019",
+        "GAP-080",
+        "GAP-081",
+        "GAP-085",
+        "GAP-086"
+      ]
+    },
+    {
+      "path": "mxd-validation.md",
+      "heading": "Recorded checkout and corrections",
+      "level": 2,
+      "line_start": 8,
+      "line_end": 32,
+      "anchor": "recorded-checkout-and-corrections",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-001",
+        "GAP-019",
+        "GAP-080",
+        "GAP-081",
+        "GAP-085",
+        "GAP-086"
+      ],
+      "related_gap_ids": [
+        "GAP-001",
+        "GAP-019",
+        "GAP-080",
+        "GAP-081",
+        "GAP-085",
+        "GAP-086"
+      ]
+    },
+    {
+      "path": "mxd-validation.md",
+      "heading": "Two actual Classic-client trials",
+      "level": 2,
+      "line_start": 33,
+      "line_end": 59,
+      "anchor": "two-actual-classic-client-trials",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-001",
+        "GAP-019",
+        "GAP-080",
+        "GAP-081",
+        "GAP-085",
+        "GAP-086"
+      ],
+      "related_gap_ids": [
+        "GAP-001",
+        "GAP-019",
+        "GAP-080",
+        "GAP-081",
+        "GAP-085",
+        "GAP-086"
+      ]
+    },
+    {
+      "path": "mxd-validation.md",
+      "heading": "Startup hand-off missing from the current implementation",
+      "level": 2,
+      "line_start": 60,
+      "line_end": 83,
+      "anchor": "startup-hand-off-missing-from-the-current-implementation",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-001",
+        "GAP-019",
+        "GAP-080",
+        "GAP-081",
+        "GAP-085",
+        "GAP-086"
+      ],
+      "related_gap_ids": [
+        "GAP-001",
+        "GAP-019",
+        "GAP-080",
+        "GAP-081",
+        "GAP-085",
+        "GAP-086"
+      ]
+    },
+    {
+      "path": "mxd-validation.md",
+      "heading": "Repeatability and deferred validation",
+      "level": 2,
+      "line_start": 105,
+      "line_end": 131,
+      "anchor": "repeatability-and-deferred-validation",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-001",
+        "GAP-019",
+        "GAP-080",
+        "GAP-081",
+        "GAP-085",
+        "GAP-086"
+      ],
+      "related_gap_ids": [
+        "GAP-001",
+        "GAP-019",
+        "GAP-080",
+        "GAP-081",
+        "GAP-085",
+        "GAP-086"
+      ]
+    },
+    {
+      "path": "presence-messaging-contracts.md",
+      "heading": "Captured console and client broadcast recipients",
+      "level": 2,
+      "line_start": 531,
+      "line_end": 541,
+      "anchor": "captured-console-and-client-broadcast-recipients",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-044",
+        "GAP-076"
+      ],
+      "related_gap_ids": [
+        "GAP-044",
+        "GAP-076"
+      ]
+    },
+    {
+      "path": "native-capture-workflow.md",
+      "heading": "Reproducing console and client broadcast fixtures",
+      "level": 2,
+      "line_start": 1749,
+      "line_end": 1765,
+      "anchor": "reproducing-console-and-client-broadcast-fixtures",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-076"
+      ],
+      "related_gap_ids": [
+        "GAP-076"
+      ]
+    },
+    {
+      "path": "mxd-validation.md",
+      "heading": "Handoff locations",
+      "level": 2,
+      "line_start": 84,
+      "line_end": 104,
+      "anchor": "handoff-locations",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-085",
+        "GAP-086"
+      ],
+      "related_gap_ids": [
+        "GAP-085",
+        "GAP-086"
       ]
     }
   ]

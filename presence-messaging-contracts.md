@@ -527,3 +527,15 @@ Cleanup restores the exact original `admin`/`fixture-low` enumeration and
 mutation is performed.
 
 [rooms-corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-rooms-01/manifest.json
+
+## Captured console and client broadcast recipients
+
+The [D1 witness](native-console-broadcast.md) confirms the traced console
+104/data-only path and client 355 identity/data path with four session states.
+The console message reaches both online sessions; client 355 excludes its
+sender. The peer requesting refusal options still receives both forms. A
+waiting login receives the later 355 after 121 activation; the unauthenticated
+connection receives neither. Exact fields, finite silence windows, teardown
+tails and the missing first host handshake are retained. The complete guest
+view and three complete host views are distinguished from that partial view.
+The full A7 account/file/metadata/download postflight matches the baseline.

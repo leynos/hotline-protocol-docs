@@ -63,8 +63,9 @@ its transport in those earlier captures. The new
 separately records the 65-second no-close case and a 35-second/new-connection
 reset case. Guest RST can appear as host socket EOF through SLiRP. Neither
 observation supplies a universal disconnect deadline.
-Internal exception translation and broader failure boundaries remain GAP-003;
-this corpus does not turn every `SError` domain/code into a wire status.
+The five representative classes meet GAP-003's bounded criterion. Broader
+internal exception translation remains unresolved; this corpus does not turn
+every `SError` domain/code into a wire status.
 
 The [agreement configuration corpus][agreements] adds a partial-failure case:
 a 65,536-byte non-TEXT agreement loads but exceeds the single-field limit.

@@ -1745,3 +1745,21 @@ universal cross-socket delivery order, historical-client rendering, arbitrary
 encoding policy or restart durability.
 
 [room-workflow]: ../mothra/evidence/gap-remediation/2026-11-13/native-rooms-01/manifest.json
+
+## Reproducing console and client broadcast fixtures
+
+The [D1 plan and witness](native-console-broadcast.md) use four named sockets,
+one console UI message and two client 355 requests. Revalidate the native
+application identity and full account/file baseline, then copy the saved plan
+to a new owned session path with current environment provenance. Start both
+packet views before the driver. A managed capture PID alone is insufficient:
+D1 lost the first host SYN and client handshake during startup. Require an
+initialised PCAP header before opening the first test socket.
+
+During the plan's 20-second pause, the native server Broadcast button opens
+the message dialog; enter D1-console-message and click Send once. Preserve
+UI actions and screenshots. After the driver closes all four sockets, run
+the retained 29-action A7 postflight and compare the stable account, Files,
+metadata, idle 303 and full FILP bytes. Replay the offline checks linked by
+the witness. This recipe creates session state only; no account, file or
+server-option mutation is needed.
