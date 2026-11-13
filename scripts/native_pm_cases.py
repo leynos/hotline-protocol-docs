@@ -7,6 +7,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from native_auth_cases import authentication
+from native_diagnostic_existing_cases import NAME as FIXTURE_NAME
 from native_diagnostic_existing_cases import postflight
 from native_live_account_cases import request
 from native_plan import close, login, packet, payload, read, send
@@ -151,6 +152,7 @@ def plans(runtime: dict) -> dict[str, dict]:
             "steps": steps,
             "expectation": {
                 "case": label,
+                "fixture_name_hex": FIXTURE_NAME.hex(),
                 "cases": list(CASES) if label == "observe" else [],
                 "pm_request_count": len(CASES) if label == "observe" else 0,
             },

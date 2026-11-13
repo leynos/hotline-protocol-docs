@@ -39,8 +39,9 @@ missing delivery. Other 104 producers remain separate GAP-044 evidence.
    --oracle-binary ORIGINAL_ORACLE --output NEW_CAPTURE_DIR`. Record exact
    plan/report hashes and independent host/guest packet streams.
 3. Run `python3 scripts/verify_native_pm.py OBSERVE_CAPTURE --output
-   NEW_RESULT.json` and the existing A7 postflight verifier against its saved
-   baseline. The postflight plan is the exact A7 read-only 348/200/206/300/303
+   NEW_RESULT.json` and `python3 scripts/verify_native_diagnostic_existing.py
+   postflight POSTFLIGHT_CAPTURE --a7-baseline A7_CAPTURE --output
+   NEW_POSTFLIGHT_RESULT.json`. The postflight plan is the exact A7 read-only 348/200/206/300/303
    sequence, after both PM sessions have restored 304 name/icon/options and
    closed. Confirm original two accounts, 41 Files rows, and owned fixture.
 

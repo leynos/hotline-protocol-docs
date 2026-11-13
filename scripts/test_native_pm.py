@@ -13,6 +13,9 @@ class NativePMPlanTests(unittest.TestCase):
         self.assertEqual(set(plans), {"preflight", "observe", "postflight"})
         for plan in plans.values():
             validate_plan(plan)
+            self.assertEqual(
+                plan["expectation"]["fixture_name_hex"], b"mothra-race-fixture".hex()
+            )
         self.assertEqual(plans["preflight"]["steps"], plans["postflight"]["steps"])
         observe = plans["observe"]
         self.assertEqual(observe["expectation"]["pm_request_count"], 7)
