@@ -134,8 +134,12 @@ def section_witness(text: bytes, active: int, waiting: int) -> dict:
         lines = sections[index]
         if lines == [b"None."]:
             counts[label] = 0
-        elif terminated[index] and all(
-            re.fullmatch(re.escape(NAME) + rb" +[0-9]{1,3}% +\S.*", line)
+        elif (index < 4 or terminated[index]) and all(
+            re.fullmatch(
+                re.escape(NAME)
+                + (rb" +[0-9]{1,3}% +\S.*" if index == 0 else rb" +\(File\)"),
+                line,
+            )
             for line in lines
         ):
             counts[label] = len(lines)

@@ -186,19 +186,34 @@ class SectionWitnessTests(unittest.TestCase):
         cls.idle = bytes.fromhex(
             next(f["hex"] for f in frame["fields"] if f["id"] == 101)
         )
+        loaded_path = (
+            Path(__file__).resolve().parents[2]
+            / "mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-existing-01/one-active-one-queued/report.json"
+        )
+        loaded_report = json.loads(loaded_path.read_text())
+        active_reply = next(
+            f for f in loaded_report["frames"] if f["is_reply"] and f["id"] == 13
+        )
+        cls.captured = bytes.fromhex(
+            next(f["hex"] for f in active_reply["fields"] if f["id"] == 101)
+        )
 
     def loaded(self, active: int, waiting: int) -> bytes:
         text = self.idle
-        for heading, count in [
-            (b"-------- File Downloads ---------", active),
-            (b"------- Waiting Downloads -------", waiting),
+        for heading, count, row in [
+            (b"-------- File Downloads ---------", active, NAME + b"  0% 1MB\r"),
+            (b"------- Waiting Downloads -------", waiting, NAME + b"   (File)\r"),
         ]:
             if count:
                 marker = b"\r\r" + heading + b"\r\r"
-                text = text.replace(
-                    marker + b"None.", marker + (NAME + b"  0% 1MB\r") * count
-                )
+                text = text.replace(marker + b"None.", marker + row * count)
         return text
+
+    def test_exact_captured_350_byte_native_witness(self) -> None:
+        self.assertEqual(len(self.captured), 350)
+        result = section_witness(self.captured, 1, 1)
+        self.assertEqual(result["status"], "complete")
+        self.assertEqual(result["observed_counts"], {"active": 1, "waiting": 1})
 
     def test_exact_counts_and_empty_unrelated_sections(self) -> None:
         for active, waiting in [(1, 1), (4, 0), (8, 4), (8, 8), (0, 0)]:
@@ -227,6 +242,15 @@ class SectionWitnessTests(unittest.TestCase):
         self.assertEqual(
             section_witness(self.loaded(8, 8)[:-2], 8, 8)["status"], "incomplete"
         )
+
+    def test_swapped_grammars_and_clipped_file_token_are_incomplete(self) -> None:
+        active = NAME + b"   5%   1M\r"
+        waiting = NAME + b"   (File)\r"
+        swapped = self.captured.replace(active, b"TEMPORARY\r")
+        swapped = swapped.replace(waiting, active).replace(b"TEMPORARY\r", waiting)
+        self.assertEqual(section_witness(swapped, 1, 1)["status"], "incomplete")
+        clipped = self.captured.replace(b"(File)\r", b"(File\r")
+        self.assertEqual(section_witness(clipped, 1, 1)["status"], "incomplete")
 
     def test_unrelated_upload_section_is_not_idle(self) -> None:
         marker = b"\r\r--------- File Uploads ----------\r\r"

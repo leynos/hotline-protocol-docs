@@ -1,6 +1,9 @@
 # Existing-file diagnostic load preparation
 
-This A8 packet is **prepared but has not run**. It uses the already verified
+This A8 packet was prepared before phase 1. The [phase-1 witness]
+(native-diagnostic-existing-witness.md) now records one completed 2/1 case and
+restored postflight. The 8/8 density stage remains unrun. The packet uses the
+already verified
 `mothra-race-fixture` on native Hotline Server 1.9 for bounded transaction 303
 observations. No upload, file deletion, rename, account edit or server restart is
 part of this packet. The [A7 full readback][a7] proved the current DATA fork
