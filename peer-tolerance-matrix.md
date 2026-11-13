@@ -1,0 +1,85 @@
+# Identified shx peer field tolerance: controlled matrix
+
+This matrix extends the [identified client source](identified-client-source.md)
+record for GAP-080/081. It uses one identified **complete terminal shx 0.1.48
+build**, not a second historical client or a SynHX server. The source revision
+is `adb1bf8c8cb12f7eb2fa2c01673295a6312f262b`; the executable SHA-256 is
+`8fbbe56cef439d4c1732e8d9fbe2c676b9d45fbd273a42b22f8034e3b3914fa0`.
+The matching [profile record][profile] gives the build flags, patch and
+dependencies. The retained native 1.9 PEF SHA-256 is
+`ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`.
+Those identities are checked before launching the client. Neither reported
+sub-version 2 nor field 160 identifies the peer build.
+
+The [new corpus][corpus] contains five complete client sessions against a
+**controlled loopback receiver**, with ports 15600–15604. The fixture starts
+from exact retained native handshake/login/privileges/agreement/roster/chat
+frames. It changes only the named field or delivery order. Banner 122 is the
+exact 71-byte native frame retained in the earlier corpus. The listener and
+client syscall records, loopback PCAP, raw terminal bytes, process exits and
+private HOME outputs are preserved. This is real client behaviour under a
+controlled receiver; it is **not** execution of the Mac server or SynHX daemon.
+
+| Case | Deliberate receiver variant | Observed complete client result |
+| --- | --- | --- |
+| `control` | Native bootstrap, no banner | Login, automatic roster, explicit roster reload, chat and normal exit. |
+| `omit-161` | Remove field 161 from login reply | Same continuation and normal exit. |
+| `vary-161` | Change native 161 from `0000` to `0001` | Same continuation and normal exit; no claim about the field's meaning. |
+| `unknown-login` | Append field 32767 containing `mothra-unknown-login` | Same continuation and normal exit. |
+| `early-122` | Deliver exact native banner 122 after agreement, before automatic roster request | Client reports `unknown header type 0x0000007a`, writes the exact 71 bytes to `hx.dump`, then reloads the roster, chats and exits normally. |
+
+The five sessions used the same compiled profile and reported handshake
+`TRTPHOTL 00 01 00 02`. Each sent 166 client socket bytes. Receiver totals
+were 496, 490, 496, 520 and 567 bytes respectively. The loopback PCAP has
+114 retained packets and zero kernel drops. The verifier reconciles each
+direction's TCP stream with peer syscalls and listener events; it checks exact
+field bytes, frame ordering, banner dump, terminal continuation, identity,
+private-home save and checksum inventory. Four discovery tests include
+checksum-refreshed wrong identity, changed 161 value and changed banner order
+negative controls.
+
+Prior [native full-peer sessions][prior] already show this same build accepting
+native 160=`00be`, 161=`0000`, ASCII/high-byte 162 and native roster output.
+Prior controlled receiver sessions show field 115 subject presentation and
+122 delivery after the automatic roster. The new trials add omission/value/
+unknown-field and earlier 122 ordering checks. They do not establish arbitrary
+field tolerance, malformed-TLV tolerance, banner presentation, other compiled
+profiles or the behaviour of unidentified clients.
+
+GAP-080 remains open: acceptance-target selection, a second identified
+build/profile if required for release, stable peer distinctions and unknown-peer
+fallback require a separate policy decision. GAP-081 gains five observed
+conditions but still lacks a peer-by-field matrix across all selected release
+targets; no universal omission/default policy is chosen. GAP-082 remains open:
+the earlier ambiguous-byte chat sample is one build's byte-preservation
+evidence, and mxd's state/field decoder policy and independent interoperability
+tests are separate requirements.
+
+## Reproduce and verify
+
+In a clean adjacent checkout with the retained build, dependencies, `bwrap`,
+`strace` and permission for loopback `tcpdump`, run from `mothra`:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/peer_tolerance_run.py \
+  --root . --protocol ../hotline-protocol-docs \
+  --work state/delegation/peer/run-01 \
+  --destination evidence/gap-remediation/2026-11-13/delegated-peer-01
+python3 ../hotline-protocol-docs/scripts/verify_peer_tolerance.py \
+  evidence/gap-remediation/2026-11-13/delegated-peer-01 \
+  --source evidence/gap-remediation/2026-11-13
+python3 -m unittest discover -s ../hotline-protocol-docs/scripts \
+  -p 'test_peer_tolerance.py'
+```
+
+The work and destination paths must be fresh. The driver checks identities and
+available ports before creating them. It uses the existing capture driver's
+read-only system sandbox with a private HOME bound under
+`state/delegation/peer/run-01/captures/`. The real `~/.hxvars` before/after
+hash, size and timestamp are checked. The old client always writes `.hxvars`
+on normal exit, even with `-q`, so direct uncontained execution is unsafe.
+The fixture never contacts the shared native control port 15500.
+
+[profile]: ../mothra/evidence/gap-remediation/2026-11-13/native-shx-02/peer-profile.json
+[corpus]: ../mothra/evidence/gap-remediation/2026-11-13/delegated-peer-01/manifest.json
+[prior]: identified-client-source.md#native-configured-name-and-controlled-receiver-matrix
