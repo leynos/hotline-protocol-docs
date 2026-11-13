@@ -1,8 +1,9 @@
 # Classic Login107 field-161 proxy: preparation only
 
-This tool prepares a bounded *future* GAP-081 Classic client experiment. It
-has not opened listeners or connected to the native server. A guard-only,
-read-only call ran as UID 1000 inside the actual client namespace.
+This tool prepares a bounded *future* GAP-081 Classic client experiment. A
+synthetic full serve-path rehearsal passed, but the actual Classic client has
+not connected through this proxy. A guard-only, read-only call ran as UID
+1000 inside the actual client namespace.
 It is protocol-specific: no mothra generic bridge, client app, native server,
 account, or configuration changes were made in this milestone.
 
@@ -101,6 +102,15 @@ It opened no listener or backend connection. Recheck identity on future use.
 
 ## Offline checks and remaining gate
 
+The [B29 synthetic corpus][rehearsal] records a direct UID/GID 1000 system
+service in a fresh private namespace with fake local 15500/15501 upstreams.
+It passed the exact baseline ACK, later 109 and data bytes, then closed after
+a client half-close at ACK plus `28.097680969` seconds with a valid intentional
+cutoff. The child PID was gone and the owned unit stopped. B30 timed out before
+Connect; B31's one Connect click left the dialog open and produced no SYN.
+Both are zero-contact failures, so no actual baseline or field-tolerance
+result exists. The [Mothra handoff][handoff] details the evidence limits.
+
 From the protocol-docs repository:
 
 ```sh
@@ -144,3 +154,6 @@ The host netns inode was `4026531840`, and the emulator netns inode was
 `4026532479`. This proves that guard call in that observed context, not
 listener, backend, proxy or Classic-client readiness. Recheck both inodes and
 process identity before any future service launch.
+
+[rehearsal]: ../mothra/evidence/gap-remediation/2026-11-13/classic-proxy-rehearsal-01/
+[handoff]: ../mothra/docs/delegation/classic-proxy-rehearsal.md
