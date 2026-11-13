@@ -42,6 +42,14 @@ operation failures carry status 1 and text field 100 in the observed fixtures.
 A zero-size frame closes without a numbered reply. The executable verifier
 checks these bounded results and direct reply correlation.
 
+The [native directory matrix](filesystem-and-board-contracts.md#captured-native-folder-creation-and-field-202-paths)
+adds 205 permission, existing-file/directory/case-conflict and missing/non-directory
+parent failures. They all use status 1 and text 100, with distinct message families.
+Permission denial precedes the tested existing-target outcome. Absent/empty name
+against the Files root is also an error, while malformed 202 prefixes can still
+create at root/a valid directory. Before/after listings and liveness controls
+prevent treating an error label or input-validation assumption as the effect.
+
 Failed-password replies contain `Incorrect login.`. Attempts to observe proxy
 EOF within 15 and 45 host seconds both timed out; those transcripts remain
 failed observations. They do not establish whether the guest had already closed

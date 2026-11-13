@@ -743,12 +743,19 @@ Evidence: V053; `100140e0`.
 
 ### Creating a New Folder (Transaction 205) – Client Initiates
 
-**Request:** name 201 and path 202.
+**Request:** optional name 201 and structured path 202. Missing/empty name can
+select the last path component as the new leaf; an existing root/target is not
+an idempotent success. Native bit 5 controls creation.
 
-**ACK:** the inspected handler sends direct success/error replies. A
-subsequent file-list refresh is a separate operation, not the only
-acknowledgement. Complete filesystem and permission edge cases remain
-unresolved.
+**ACK:** empty success reply after creation, or status 1 with field 100 for the
+captured permission, conflict and parent-resolution failures. Explicit
+before/after listings prove the effects. On the recorded Mac OS 9.0.4 profile,
+name handling includes a 31-byte limit, tested extension preservation and
+opaque NUL/high-byte names. Short or incomplete paths can select root/a valid
+prefix rather than fail strict validation. See the
+[captured creation matrix](filesystem-and-board-contracts.md#captured-native-folder-creation-and-field-202-paths)
+for exact inputs, platform boundaries and cleanup. Field-212/325 equivalence,
+alias containment and general filesystem failures remain separate requirements.
 
 Evidence: V053; `100143f0`.
 

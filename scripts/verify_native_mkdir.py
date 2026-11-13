@@ -397,6 +397,29 @@ def verify(directory: Path) -> dict:
             set(listing(reply(final, identifier))) == expected_views[path(parts)],
             "Final native view differs from exact creation effects",
         )
+    for identifier, expected_info in [
+        (30, {205: b"Folder", 206: b"n/a", 213: b"fldr", 201: ROOT}),
+        (
+            31,
+            {
+                213: b"TEXT",
+                205: b"Text File",
+                206: b"MOTH",
+                207: b"\0\r",
+                201: b"ordinary",
+                210: b"fixture-comment",
+            },
+        ),
+    ]:
+        info = fields(reply(final, identifier))
+        require(
+            set(info) == set(expected_info) | {208, 209}
+            and all(info[key] == value for key, value in expected_info.items())
+            and all(
+                len(info[key]) == 8 and info[key] != bytes(8) for key in [208, 209]
+            ),
+            "Final native file-info kind matrix differs",
+        )
     require(
         listing(reply(cleaned, 10)) == listing(reply(final, 20))
         and listing(reply(cleaned, 90)) == initial,

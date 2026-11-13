@@ -3,7 +3,8 @@
 This supplement refines GAP-037, GAP-046 and GAP-049–GAP-054 from preserved
 native handlers and [batch 08][batch]. Native Toolbox calls are identified
 explicitly so implementations do not inherit guessed portable filesystem
-semantics. Runtime object/conflict/failure fixtures remain outstanding.
+semantics. The captured 205 matrix below now supplies creation/path fixtures;
+other operation-specific object/conflict/failure requirements remain active.
 
 ## File-info target kinds and field presence
 
@@ -54,7 +55,8 @@ name and resolves a creation target. Helper `1002b670` calls `FSpDirCreate`,
 then updates its native spec. The empty success ACK follows creation/closing.
 The handler distinguishes resolver failure conditions; it does not promise
 idempotent success on existing names, automatic parent creation or overwrite.
-Conflict/permission/root/empty/boundary native fixtures remain GAP-051.
+The captured matrix below supplies permission, conflict, root, empty and
+boundary fixtures for this handler (GAP-051).
 
 ### Request 207 presence and mutation order
 
@@ -140,3 +142,103 @@ textual parity. That decision, representative native outputs and encoding/
 boundary fixtures remain GAP-037/086.
 
 [batch]: ../mothra/evidence/gap-remediation/2026-11-12/batch-08/manifest.json
+
+## Captured native folder creation and field 202 paths
+
+The [directory/path corpus][mkdir] retains 47 creation/path cases, six additional
+absent/empty-name root combinations, setup/finalization/cleanup and ten
+identity-checked Ghidra queries. All 51 reports complete, and all 53 socket
+lifetimes reconcile at both host and guest packet boundaries. The two literal
+host recorder files contain 1,374 and 43 packets, each with zero kernel drops;
+the merged capture preserves their 1,417 records. The target is the continuing
+Mac OS 9.0.4 native executable, not a claim about the unexecuted OS X branch.
+
+### Create inputs, permissions and replies
+
+Field 201 is optional. The handler reads at most 255 content bytes into a
+Pascal destination, then applies platform normalization. On this pre-OS-X
+profile, ordinary 32-, 255-, 256- and 65,535-byte inputs yield the first 31 bytes.
+A tested 44-byte name ending in `.txt` yields its first 27 bytes plus `.txt`.
+The separate `1002c070` branch for system version at least `0a00` has a different
+limit; these captures do not execute it. The 31-byte outcome is not the TLV
+field-width limit.
+
+A missing/empty 201 can use the final component of 202 as the new leaf name:
+`ROOT/nest/via-path` and `ROOT/nest/via-empty` create those leaves. If that path
+instead names an existing directory, the operation fails. All six combinations
+of absent/empty 201 and absent/empty/zero-count 202 fail against the existing
+Files root; they do not mean successful idempotent creation.
+
+| Case | Captured outcome |
+| --- | --- |
+| New name at root or nested parent | Empty success ACK; exactly one new directory record in the explicit after-listing. |
+| Existing directory, existing ordinary file or ASCII case collision | Status 1, field 100: `Cannot create folder` followed by the quoted requested name and the existing-file-or-folder explanation. Existing listing records are unchanged. |
+| Missing parent or ordinary file used as parent | Status 1 with the enclosing-folder-could-not-be-found explanation; listing unchanged. |
+| Account with zero field-110 privileges | Status 1, field 100: `You are not allowed to create folders.` Both a new target and an existing-name target get this result. |
+| Absent/empty name with existing root | Status 1 with the existing-file-or-folder explanation and empty quoted name; root listing unchanged. |
+
+The native handler checks bit 5 before resolving the target. The tested
+administrator has bitmap `fff3cfefff800000`; the denied account has eight zero
+bytes. No account is changed for these controls. Successful creates and expected
+failures all complete request 500 afterward. Each ordinary case then observes
+one measured second of silence. That bounds the no-unsolicited-refresh
+observation; it is not a universal guarantee about all later notifications.
+
+### Name bytes and structured-path acceptance
+
+A one-byte NUL name creates a record whose native name is exactly `00`.
+Leading, trailing and interior NUL names remain distinct from an empty name.
+Colon becomes hyphen in the tested name and traversal components. Slash, CR,
+LF and high byte `9a` survive in returned native name bytes on this host.
+Directory records for literal `.` and `..` are created; subsequent structured
+paths address those empty child directories and create their own children.
+They are not interpreted as POSIX current/parent components in these fixtures.
+Traversal through the created high-byte and NUL-leading directories also
+completes. This does not establish alias containment or another platform's rules.
+
+| Field-202 input | Captured creation location |
+| --- | --- |
+| Absent, empty, zero count, one byte, count-only or five-byte input | Files root for the tested nonempty name. The wrappers ignore the tested values shorter than six bytes. |
+| Valid root component followed by truncated or zero-length component | Last complete directory, rather than blanket rejection of the entire path. |
+| Count two with only one complete component | The one complete directory. |
+| Component word `ffff` | Same tested directory as the zero-word control. |
+| Trailing bytes beyond the declared component count | Ignored by this tested traversal. |
+| Zero count followed by a complete unused record | Files root. |
+
+The before/create/after listings prove each claimed location and raw name.
+These are acceptance quirks of field 202 in this operation, not proof that
+fields 212 or 325 have identical contracts. Complete canonical component
+records remain the documented emission grammar; do not turn a parser's prefix
+acceptance into a new canonical wire format.
+
+### Listing, file-info and owned cleanup controls
+
+Every listing record retains the documented `20 + name_length` layout. Fresh
+empty directories have type `fldr`, zero creator and numeric value zero.
+The final root directory has value 26 and its `nest` child value 3, matching
+their immediate entry counts; the ordinary `TEXT`/`MOTH` file has value 13,
+matching its data length. These observations do not impose a common byte-size
+meaning on files and folders or prove a universal listing sort order.
+
+The directory's 206 reply contains 205=`Folder`, 206=`n/a`, 213=`fldr`, name
+and two eight-byte dates; size 207 and empty comment 210 are omitted. The
+ordinary file contains 205=`Text File`, 206=`MOTH`, 213=`TEXT`, two-byte
+207=`000d`, name, dates and `fixture-comment`. Alias/unknown/zero-metadata
+variants remain GAP-049.
+
+Read-only catalogue observations retain 36 positive records below the owned
+root before cleanup. Native 204 then moves that root, seven root-level marker
+directories and the empty flush file into Trash. All 44 objects are positively
+observed there, with the same catalogue IDs for the moved subtree. The ordinary
+child still contains `mkdir-fixture`. This corroborates move-to-Trash rather
+than recursive erasure, without closing permission/conflict/protected-object
+requirements for 204 (GAP-050). The complete Files listing matches its pre-seed
+bytes after cleanup; no unrelated Files entry is removed by the fixture script.
+
+TSK renders some control/high bytes in path text, including caret rendering of
+NUL. Raw filename assertions use native field-200 bytes, not that rendered
+path. Catalogue probes are positive observations, not arbitrary absence proofs
+or restart-durability tests. No guest restart, debugger, account mutation or
+native configuration change is used.
+
+[mkdir]: ../mothra/evidence/gap-remediation/2026-11-13/native-mkdir-01/manifest.json

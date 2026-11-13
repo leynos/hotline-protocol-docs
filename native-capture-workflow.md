@@ -1055,3 +1055,46 @@ not merely a process that stayed open. These cases have no guest connection.
 Run native configured162sessions separately with positive Prefs/ACK controls,
 then restore and compare the full baseline Prefs bytes. The independent offline
 verifier checks both groups without conflating their provenance.
+
+## Reproducing directory creation and path fixtures
+
+Use the `mkdir-seed`, `mkdir-create`, `mkdir-final`, `mkdir-cleanup` and
+`mkdir-root-empty` suites in `scripts/prepare_native_cases.py`. Supply a current
+runtime record and new plan/output directories; execute through
+`protocol_capture.py` with the verified oracle input. The
+[retained corpus](../mothra/evidence/gap-remediation/2026-11-13/native-mkdir-01/manifest.json)
+includes exact plans, as-run generators, ten read-only identity-checked Ghidra
+queries and independent packet/catalogue controls.
+
+Preflight requires no owned `mothra-fs19` root or `m-fs19-` markers in the Files
+listing. Seed creates the private directory tree and one ordinary-file conflict
+target. Run creation cases in generator order: later literal dot, colon,
+high-byte and NUL-component traversals depend on earlier directory creation.
+Each case records listings before and after creation, the 205 reply, a 500
+liveness reply and one measured second of silence. Preserve bytes rather than display-decoded
+filenames; one NUL byte is a tested nonempty name.
+
+Finalization uploads an independent empty file to invoke the known native
+volume-flush path, then retains the final directory and 206 views. Take bounded
+read-only HFS catalogue observations before cleanup. Native 204 cleanup moves
+only the owned root, marker directories and flush file to Trash; it does not
+recursively erase them. Retain positive post-move catalogue IDs and child bytes,
+and compare the complete Files listing with pre-seed. Capture the six root/name
+absence/empty combinations separately after cleanup. Existing Trash names can
+trigger native collision naming in a later run; retain that outcome and new
+catalogue IDs rather than reusing the frozen run's paths or treating a missing
+positive probe as absence.
+
+The frozen semantic verifier checks 47 creation/path cases plus six supplemental
+root inputs, all 51 reports/53 sockets, native setup/cleanup and byte preservation.
+Run from mothra:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/verify_native_mkdir.py \
+  evidence/gap-remediation/2026-11-13/native-mkdir-01
+```
+
+The two literal host recordings are retained with their statistics and exact
+chronological concatenation. Keep guest Ethernet capture active throughout both
+phases. These 205/202 fixtures do not settle field 212/325 equivalence, aliases,
+protected-object deletion or platform variants.

@@ -262,8 +262,21 @@ Each field **200** in a file-list reply contains this unpadded record:
 Thus the value length is `20 + n`; the outer TLV length excludes its own
 four-byte header. Records repeat as field 200. The builder skips entries with
 its enumerator flag bit zero set and has an additional conditional type filter.
-It does not itself sort entries; filesystem enumeration, folder sizes, aliases,
-and exact filtering still need their own verified examples.
+It does not itself sort entries. The captured creation matrix supplies ordinary
+file and directory values, including matching immediate-entry counts; aliases,
+complete ordering and exact filtering still need their own verified examples.
+
+### Captured field 202 directory-creation boundaries
+
+The [native create/path matrix](filesystem-and-board-contracts.md#captured-native-folder-creation-and-field-202-paths)
+checks root/nested/non-ASCII and invalid-prefix cases against real before/after
+listings. It includes absent/short root paths, count/length truncation,
+zero-length components, nonzero component words, unused trailing bytes and
+literal dot/dot-dot traversal. These field-202 outcomes do not establish
+field-212/325 equivalence or alias containment. Name 201 handling is separate:
+absent/empty can derive a leaf from 202; one NUL byte can remain a nonempty
+native name. Native path/name bytes are not interchangeable with rendered TSK
+paths, POSIX components or C strings.
 
 ## Privilege access and connection timers
 
