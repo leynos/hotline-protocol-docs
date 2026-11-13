@@ -3,11 +3,11 @@
   "title": "Hotline 1.9 protocol documentation gap register",
   "audited_at_utc": "2026-11-12T12:55:29.155796+00:00",
   "last_updated": "2026-11-13",
-  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-36/manifest.json",
-  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-36/sections.json",
+  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-37/manifest.json",
+  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-13/revision-37/sections.json",
   "validity_ledger": "../mothra/docs/baseline-validity-ledger.md",
   "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
-  "method": "Native alias/listing/metadata review: 44 completed reports plus one initial EOF timeout, 66 paired sockets, fourteen identity-checked oracle queries and positive physical forks. Closure review 18 closes GAP-048 and GAP-049 against unchanged criteria. All 87 original criteria are preserved: 34 Resolved, 52 Investigating, 1 Open; 53 remain unclosed.",
+  "method": "Native rename/comment review: 49 reports, 72 paired sockets, 36 main cases, six combined-empty cases, 22 boundary writes, thirteen identity-checked oracle queries and independent administrator views. Closure review 19 closes GAP-052 against its unchanged criterion. All 87 original criteria are preserved: 35 Resolved, 51 Investigating, 1 Open; 52 remain unclosed.",
   "gaps": [
     {
       "id": "GAP-001",
@@ -87,9 +87,9 @@
           "path": "protocol.md",
           "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
           "level": 3,
-          "line_start": 1000,
+          "line_start": 1006,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 1036
+          "line_end": 1042
         }
       ],
       "question": "For every in-scope request, reply and notification, which fields are required, optional, conditional or repeatable, with what widths and value domains?",
@@ -137,9 +137,9 @@
           "path": "protocol.md",
           "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
           "level": 3,
-          "line_start": 1037,
+          "line_start": 1043,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 1058
+          "line_end": 1064
         }
       ],
       "question": "Which statuses, field-100 forms and connection outcomes apply to each failure, including errors in operations without a normal ACK?",
@@ -159,7 +159,7 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Captured the108-entry native-result table, verified sorted keys and documented representative internal domain/code mappings with resource meanings. These are not wire statuses; enclosing catch translation and native error packets remain required. Retained native status1 authentication, permission, missing room/file and unknown/replayed-operation replies, plus invalid zero-size closure. Internal exception translation and remaining failure/drain boundaries remain unresolved. Added missing-buffer null-size and zero-byte transfer-allocation internal SError1/2 traces, plus native RSTs on data/owner/observer for the present-empty fixture and a successful fresh post-reset session. No numbered wire mapping or general reset threshold is inferred. Added native online unknown types0/FFFF with incomingflagsFF/errorFFFFFFFF, yielding type0/reply1/status1 plus exactfield100 text; zero-size replymarker1/255 closes without numbered response. Full operation-error taxonomy remains required. Added Incorrectlogin versus nativebadfilename account failures: bothwirestatus1, but32-byte path diagnostics include internal4/119[-37] infield100 text. Premature121 returns account-read error; online107/121 replay yields Unknowntransactiontype. Fullerror taxonomy remains required. Agreement65536 non-TEXT value loads but fails field101 serialization after successful107 ACK. Early readiness survives with354/roster/500, delayed staysunlisted andcloses afternext500; no errorreply explains109failure. InternalSError1/10 isnotwirestatus10. Fullerrorregistry remains required. Native-mkdir-01 adds exact status1/text100 permission, existing-file/directory/case-conflict and parent-resolution families, with before/after effects and liveness. Root absence/empty combinations fail as conflicts; malformed path prefixes can succeed. Other operation failure/partial-effect registries remain required. Native209sixcreationerrorcasesretainexactstatus1/text100,unchangedlistingandliveness. Same-location209successcanmakeunattachedalias;202missingfilemessagecanrefer tophysicallyexistingunattachedalias. Broaderregistryremainsrequired.",
+        "progress": "Captured the108-entry native-result table, verified sorted keys and documented representative internal domain/code mappings with resource meanings. These are not wire statuses; enclosing catch translation and native error packets remain required. Retained native status1 authentication, permission, missing room/file and unknown/replayed-operation replies, plus invalid zero-size closure. Internal exception translation and remaining failure/drain boundaries remain unresolved. Added missing-buffer null-size and zero-byte transfer-allocation internal SError1/2 traces, plus native RSTs on data/owner/observer for the present-empty fixture and a successful fresh post-reset session. No numbered wire mapping or general reset threshold is inferred. Added native online unknown types0/FFFF with incomingflagsFF/errorFFFFFFFF, yielding type0/reply1/status1 plus exactfield100 text; zero-size replymarker1/255 closes without numbered response. Full operation-error taxonomy remains required. Added Incorrectlogin versus nativebadfilename account failures: bothwirestatus1, but32-byte path diagnostics include internal4/119[-37] infield100 text. Premature121 returns account-read error; online107/121 replay yields Unknowntransactiontype. Fullerror taxonomy remains required. Agreement65536 non-TEXT value loads but fails field101 serialization after successful107 ACK. Early readiness survives with354/roster/500, delayed staysunlisted andcloses afternext500; no errorreply explains109failure. InternalSError1/10 isnotwirestatus10. Fullerrorregistry remains required. Native-mkdir-01 adds exact status1/text100 permission, existing-file/directory/case-conflict and parent-resolution families, with before/after effects and liveness. Root absence/empty combinations fail as conflicts; malformed path prefixes can succeed. Other operation failure/partial-effect registries remain required. Native209sixcreationerrorcasesretainexactstatus1/text100,unchangedlistingandliveness. Same-location209successcanmakeunattachedalias;202missingfilemessagecanrefer tophysicallyexistingunattachedalias. Broaderregistryremainsrequired. Native-metadata01adds207permissionandcollisionfailureswithactualpartialcommentmutations;errorACKdoesnotimplyrollback. Broaderregistryremainsactive.",
         "evidence": [
           "[Native format/recovery/reset corpus](../mothra/evidence/gap-remediation/2026-11-12/native-banner-02/manifest.json)",
           "[Banner type/recovery contract](transfer-contracts.md#captured-banner-formats-and-recovery)",
@@ -170,7 +170,9 @@
           "[Native directory and path matrix](filesystem-and-board-contracts.md#captured-native-folder-creation-and-field-202-paths)",
           "[Directory/path corpus](../mothra/evidence/gap-remediation/2026-11-13/native-mkdir-01/manifest.json)",
           "[Native alias and metadata matrix](filesystem-and-board-contracts.md#captured-alias-and-metadata-matrix)",
-          "[Alias corpus](../mothra/evidence/gap-remediation/2026-11-13/native-alias-01/manifest.json)"
+          "[Alias corpus](../mothra/evidence/gap-remediation/2026-11-13/native-alias-01/manifest.json)",
+          "[Native rename/comment matrix](filesystem-and-board-contracts.md#captured-rename-and-comment-mutation-matrix)",
+          "[Metadata corpus](../mothra/evidence/gap-remediation/2026-11-13/native-metadata-01/manifest.json)"
         ],
         "closure": "Not closed: remaining unchanged acceptance requirements are explicitly retained above."
       }
@@ -264,9 +266,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 1083,
+          "line_start": 1089,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1120
+          "line_end": 1126
         }
       ],
       "question": "What are the handshake, login, agreement, idle and partial-frame deadlines, and what traffic resets them?",
@@ -398,9 +400,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 1083,
+          "line_start": 1089,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1120
+          "line_end": 1126
         }
       ],
       "question": "What can be sent before authentication, after login ACK, while agreement is pending, after early completion and during shutdown?",
@@ -494,9 +496,9 @@
           "path": "protocol.md",
           "heading": "Transfer Connection and Reference Cleanup",
           "level": 3,
-          "line_start": 871,
+          "line_start": 877,
           "anchor": "transfer-connection-and-reference-cleanup",
-          "line_end": 890
+          "line_end": 896
         }
       ],
       "question": "When does the TRTP sub-version-3 path apply, on which endpoint, and how does it relate to a direct sixteen-byte HTXF header?",
@@ -545,9 +547,9 @@
           "path": "protocol.md",
           "heading": "Transfer Connection and Reference Cleanup",
           "level": 3,
-          "line_start": 871,
+          "line_start": 877,
           "anchor": "transfer-connection-and-reference-cleanup",
-          "line_end": 890
+          "line_end": 896
         }
       ],
       "question": "How are control/data listeners selected and configured, and is the data port always the base port plus one in this build?",
@@ -778,9 +780,9 @@
           "path": "protocol.md",
           "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
           "level": 3,
-          "line_start": 1000,
+          "line_start": 1006,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 1036
+          "line_end": 1042
         },
         {
           "path": "protocol.md",
@@ -875,7 +877,7 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Account and session settings presence/default tables are published, including missing/empty/NUL password and comment distinctions. Other operations and full native fixture coverage remain required. Absent/empty105 chooseactualguest; NULonly105 isdistinct. Missingguest fails; configuredempty-password zero-privilege guest succeeds. Otherfield-specific default/zero contracts remain required. Native missing/empty/unreadableagreement emits109withzero fields, distinct from101emptyvalue; bit27always154=1. Fieldwriter omitszero lengths. Otherfield defaults remain required. Native205 distinguishes empty201 from one NUL byte: the latter creates an entry named00. Absent/empty201 can derive the last202component as leaf. Six root/name presence combinations fail against existingFiles root rather than idempotent success. Other fields retain their original requirements.",
+        "progress": "Account and session settings presence/default tables are published, including missing/empty/NUL password and comment distinctions. Other operations and full native fixture coverage remain required. Absent/empty105 chooseactualguest; NULonly105 isdistinct. Missingguest fails; configuredempty-password zero-privilege guest succeeds. Otherfield-specific default/zero contracts remain required. Native missing/empty/unreadableagreement emits109withzero fields, distinct from101emptyvalue; bit27always154=1. Fieldwriter omitszero lengths. Otherfield defaults remain required. Native205 distinguishes empty201 from one NUL byte: the latter creates an entry named00. Absent/empty201 can derive the last202component as leaf. Six root/name presence combinations fail against existingFiles root rather than idempotent success. Other fields retain their original requirements. Native207matrixcoversallnineadminabsent/empty/new-nameversusabsent/empty/new-commentcombinationsforfiles/folders. SingleNULclearsandinteriorNULpersists;zero-privilegeabsentupdatesnoop succeeds. Otherfieldpresencecriteriaremainactive.",
         "evidence": [
           "[Error outcomes](error-outcomes.md)",
           "[Folder descriptor](transfer-contracts.md#folder-item-descriptor-bytes)",
@@ -883,7 +885,9 @@
           "[Native authentication/state corpus](../mothra/evidence/gap-remediation/2026-11-13/native-auth-01/manifest.json)",
           "[Native agreement corpus](../mothra/evidence/gap-remediation/2026-11-13/native-agreement-01/manifest.json)",
           "[Native directory and path matrix](filesystem-and-board-contracts.md#captured-native-folder-creation-and-field-202-paths)",
-          "[Directory/path corpus](../mothra/evidence/gap-remediation/2026-11-13/native-mkdir-01/manifest.json)"
+          "[Directory/path corpus](../mothra/evidence/gap-remediation/2026-11-13/native-mkdir-01/manifest.json)",
+          "[Native rename/comment matrix](filesystem-and-board-contracts.md#captured-rename-and-comment-mutation-matrix)",
+          "[Metadata corpus](../mothra/evidence/gap-remediation/2026-11-13/native-metadata-01/manifest.json)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -1051,9 +1055,9 @@
           "path": "protocol.md",
           "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
           "level": 3,
-          "line_start": 1000,
+          "line_start": 1006,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 1036
+          "line_end": 1042
         }
       ],
       "question": "What byte/character limits and truncation or rejection rules apply to every name, password, message, subject, comment and body?",
@@ -1073,7 +1077,7 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Added content loader file-type-dependent inclusive limits: TEXT65535 and other types262140, plus configuration server-name copy cap31. Complete field/aggregate limits and native max/max-plus-one fixtures remain required. Native31-byte account create/read/login succeeds;32-byte creation/read/login reportsbadfilename. Over32login namesclippedto32 byhelper. Scopeisthisnativefilesystempath; no valid32-byte record orbackend-universalcap inferred. Positive native TEXT65535 emitsfull101; TEXT65536/BMP262141 hit65535/262140 loaderwarnings andomitfields. BMP65536 loadsbutfieldwriter raises1/10 before109; early/delayedpartialstates differ. Otherfieldlimits andtruncation remain required. PositivePrefs and162agree on31-byte exactname andfirst31bytes of32-byte typingattempt. Emptyname omits162. Thisconfiguration/UI capisdistinct fromgeneric65535-byte TLV andaccountlookup32/session31caps. Otherfieldlimits remain required. 205 reads up to255 Pascal content bytes, then preOSX normalization clips tested32/255/256/65535-byte names to31. A44-byte .txt name yields27-byte prefix plus extension. Static>=0a00 branch remains unexecuted; other semantic length requirements remain active.",
+        "progress": "Added content loader file-type-dependent inclusive limits: TEXT65535 and other types262140, plus configuration server-name copy cap31. Complete field/aggregate limits and native max/max-plus-one fixtures remain required. Native31-byte account create/read/login succeeds;32-byte creation/read/login reportsbadfilename. Over32login namesclippedto32 byhelper. Scopeisthisnativefilesystempath; no valid32-byte record orbackend-universalcap inferred. Positive native TEXT65535 emitsfull101; TEXT65536/BMP262141 hit65535/262140 loaderwarnings andomitfields. BMP65536 loadsbutfieldwriter raises1/10 before109; early/delayedpartialstates differ. Otherfieldlimits andtruncation remain required. PositivePrefs and162agree on31-byte exactname andfirst31bytes of32-byte typingattempt. Emptyname omits162. Thisconfiguration/UI capisdistinct fromgeneric65535-byte TLV andaccountlookup32/session31caps. Otherfieldlimits remain required. 205 reads up to255 Pascal content bytes, then preOSX normalization clips tested32/255/256/65535-byte names to31. A44-byte .txt name yields27-byte prefix plus extension. Static>=0a00 branch remains unexecuted; other semantic length requirements remain active. Native207/206boundarywrites0/1/198/199/200/201/254/255/256/300/65535show199maximumreadbackforbothfile/folderprofile. Setterwrapperclips255andlowerDesktopManagerhelperpassesatmost200;observedreadbackdoesnotproveportablecapacity/restartdurability. Otherlimitsremainactive.",
         "evidence": [
           "[Login extras and content](presence-messaging-contracts.md#login-extras-and-configured-content)",
           "[Native loader](../mothra/evidence/gap-remediation/2026-11-12/batch-17/queries/B17-D-10003940.c)",
@@ -1081,7 +1085,9 @@
           "[Native agreement corpus](../mothra/evidence/gap-remediation/2026-11-13/native-agreement-01/manifest.json)",
           "[Native login-extra corpus](../mothra/evidence/gap-remediation/2026-11-13/native-login-extras-01/manifest.json)",
           "[Native directory and path matrix](filesystem-and-board-contracts.md#captured-native-folder-creation-and-field-202-paths)",
-          "[Directory/path corpus](../mothra/evidence/gap-remediation/2026-11-13/native-mkdir-01/manifest.json)"
+          "[Directory/path corpus](../mothra/evidence/gap-remediation/2026-11-13/native-mkdir-01/manifest.json)",
+          "[Native rename/comment matrix](filesystem-and-board-contracts.md#captured-rename-and-comment-mutation-matrix)",
+          "[Metadata corpus](../mothra/evidence/gap-remediation/2026-11-13/native-metadata-01/manifest.json)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -1107,9 +1113,9 @@
           "path": "protocol.md",
           "heading": "Reading a News Article (Transaction 400) – Client Initiates",
           "level": 3,
-          "line_start": 928,
+          "line_start": 934,
           "anchor": "reading-a-news-article-transaction-400--client-initiates",
-          "line_end": 952
+          "line_end": 958
         }
       ],
       "question": "What epoch/units apply to the supplied filesystem value, how do nonzero milliseconds and other years work, and is news date 330 equivalent?",
@@ -1164,17 +1170,17 @@
           "path": "protocol.md",
           "heading": "Posting a News Article (Transaction 410) – Client Initiates",
           "level": 3,
-          "line_start": 953,
+          "line_start": 959,
           "anchor": "posting-a-news-article-transaction-410--client-initiates",
-          "line_end": 967
+          "line_end": 973
         },
         {
           "path": "protocol.md",
           "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
           "level": 3,
-          "line_start": 1000,
+          "line_start": 1006,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 1036
+          "line_end": 1042
         }
       ],
       "question": "When an ACK precedes routing or mutation side effects, what has it committed to, and what can fail or be retried afterwards?",
@@ -1235,9 +1241,9 @@
           "path": "protocol.md",
           "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
           "level": 3,
-          "line_start": 1000,
+          "line_start": 1006,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 1036
+          "line_end": 1042
         },
         {
           "path": "internal-compatibility-matrix.md",
@@ -1298,9 +1304,9 @@
           "path": "protocol.md",
           "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
           "level": 3,
-          "line_start": 1000,
+          "line_start": 1006,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 1036
+          "line_end": 1042
         }
       ],
       "question": "Are absent, empty, NUL-containing or differently cased logins equivalent; how are complemented bytes normalized and guest permissions chosen?",
@@ -1574,9 +1580,9 @@
           "path": "protocol.md",
           "heading": "Banner Download (Transaction 212) – Client Initiates",
           "level": 3,
-          "line_start": 853,
+          "line_start": 859,
           "anchor": "banner-download-transaction-212--client-initiates",
-          "line_end": 870
+          "line_end": 876
         }
       ],
       "question": "Which four-byte type tags and field-153 representations are valid, when are they required, and how does an early-completed session obtain metadata without a later 121?",
@@ -1744,10 +1750,12 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Published a registry covering bits0–63 with37 observed uses and explicit unknown ranges12–13,18–19,41–63. Reconciled40 direct accessor calls in25 functions; inline account/status/settings tests reviewed separately. Native serialization/enforcement and unknown-bit fixtures remain required.",
+        "progress": "Published a registry covering bits0–63 with37 observed uses and explicit unknown ranges12–13,18–19,41–63. Reconciled40 direct accessor calls in25 functions; inline account/status/settings tests reviewed separately. Native serialization/enforcement and unknown-bit fixtures remain required. Threeownedtemporaryaccountbitmapcontrols0000000c00000000comment-only,1100000000000000rename-onlyandzero verify207file/foldercommentbits28/29andrenamebits3/7withactualeffects. Fullbitmapregistryremainsrequired.",
         "evidence": [
           "[Privilege registry](privilege-contracts.md)",
-          "[Native caller review](../mothra/evidence/gap-remediation/2026-11-12/batch-15/privilege-callsite-review.json)"
+          "[Native caller review](../mothra/evidence/gap-remediation/2026-11-12/batch-15/privilege-callsite-review.json)",
+          "[Native rename/comment matrix](filesystem-and-board-contracts.md#captured-rename-and-comment-mutation-matrix)",
+          "[Metadata corpus](../mothra/evidence/gap-remediation/2026-11-13/native-metadata-01/manifest.json)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -1781,9 +1789,9 @@
           "path": "protocol.md",
           "heading": "Managing News Structure (Transactions 380, 381, 382) – Client Initiates (Admin/Mods)",
           "level": 3,
-          "line_start": 981,
+          "line_start": 987,
           "anchor": "managing-news-structure-transactions-380-381-382--client-initiates-adminmods",
-          "line_end": 997
+          "line_end": 1003
         }
       ],
       "question": "How do general, folder and news helpers combine account rights, path-specific rules, inheritance and administrator overrides?",
@@ -1843,9 +1851,9 @@
           "path": "protocol.md",
           "heading": "Transfer Connection and Reference Cleanup",
           "level": 3,
-          "line_start": 871,
+          "line_start": 877,
           "anchor": "transfer-connection-and-reference-cleanup",
-          "line_end": 890
+          "line_end": 896
         }
       ],
       "question": "What are each ID's wire width, allocation scope, sentinel values, wrap/reuse rules and persistence across reconnects or restart?",
@@ -2019,9 +2027,9 @@
           "path": "protocol.md",
           "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
           "level": 3,
-          "line_start": 1037,
+          "line_start": 1043,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 1058
+          "line_end": 1064
         }
       ],
       "question": "Which teardown paths emit 302, which fields/recipients are used, and when are rooms, queued transfers and IDs cleaned up?",
@@ -2129,9 +2137,9 @@
           "path": "protocol.md",
           "heading": "Additional Admin Privileges Note",
           "level": 3,
-          "line_start": 1074,
+          "line_start": 1080,
           "anchor": "additional-admin-privileges-note",
-          "line_end": 1082
+          "line_end": 1088
         }
       ],
       "question": "Is the main room implicit, and what authorizes join, send, invite, topic edit or administrative access to a private room?",
@@ -2417,9 +2425,9 @@
           "path": "protocol.md",
           "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
           "level": 3,
-          "line_start": 1037,
+          "line_start": 1043,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 1058
+          "line_end": 1064
         },
         {
           "path": "protocol.md",
@@ -2487,9 +2495,9 @@
           "path": "protocol.md",
           "heading": "Broadcasting a Message (Transaction 355) – Admin/Server Initiated",
           "level": 3,
-          "line_start": 1059,
+          "line_start": 1065,
           "anchor": "broadcasting-a-message-transaction-355--adminserver-initiated",
-          "line_end": 1073
+          "line_end": 1079
         },
         {
           "path": "protocol.md",
@@ -2587,17 +2595,17 @@
           "path": "protocol.md",
           "heading": "Moving Files/Folders (Transaction 208) – Client Initiates",
           "level": 3,
-          "line_start": 793,
+          "line_start": 799,
           "anchor": "moving-filesfolders-transaction-208--client-initiates",
-          "line_end": 802
+          "line_end": 808
         },
         {
           "path": "protocol.md",
           "heading": "Listing News Categories (Transaction 370) – Client Initiates",
           "level": 3,
-          "line_start": 902,
+          "line_start": 908,
           "anchor": "listing-news-categories-transaction-370--client-initiates",
-          "line_end": 915
+          "line_end": 921
         }
       ],
       "question": "What are the counts, component records, reserved bytes, root representation, limits and normalization rules for fields 202/212/325, and do those fields share a grammar?",
@@ -2806,7 +2814,7 @@
       "area": "Files and paths",
       "priority": "P1",
       "kind": "Unanswered",
-      "status": "Investigating",
+      "status": "Resolved",
       "owner": "Protocol documentation investigation",
       "title": "Rename/comment partial updates",
       "sources": [
@@ -2816,7 +2824,7 @@
           "level": 3,
           "line_start": 780,
           "anchor": "setting-filefolder-info-transaction-207--client-initiates",
-          "line_end": 792
+          "line_end": 798
         }
       ],
       "question": "Do omitted/empty 210 and 211 preserve, clear or reject values, and what happens when one permitted sub-operation succeeds and another fails?",
@@ -2835,16 +2843,14 @@
         "GAP-047"
       ],
       "resolution": {
-        "progress": "Published absent/present-empty/single-NUL comment behaviour, no-op empty/equal rename and separate comment/rename permissions. Comment mutation precedes later rename validation, so errors can follow partial effects. Controlled before/after native fixtures remain required. Native207directorycommentset propagatestoalias206;presentempty/singleNULclearomits210frombothviews. Renameandpartialfailurecriteriaremainactive.",
+        "progress": "Native207file/folderpresence,permissionandconflictmatrixsupplies36maincasesplussixcombined-emptycases,22boundarywritesandindependentadministratorfinalviews. Comment-firstpartialsuccesssurvivesrenamepermission/collisionerror;commentdenialpreventsrename. All49reports/72socketsarepairedverifiedwith13freshoraclequeriesand13newregressions. Initialaccountcleanupmistakeandcorrectedrecoveryremainexplicit.",
         "evidence": [
-          "[Filesystem and board contracts](filesystem-and-board-contracts.md)",
-          "[Source lineage](internal-compatibility-matrix.md#historical-source-lineage-and-build-limits)",
-          "[Portability procedure](evidence-portability.md)",
-          "[Batch 08](../mothra/evidence/gap-remediation/2026-11-12/batch-08/manifest.json)",
-          "[Native alias and metadata matrix](filesystem-and-board-contracts.md#captured-alias-and-metadata-matrix)",
-          "[Alias corpus](../mothra/evidence/gap-remediation/2026-11-13/native-alias-01/manifest.json)"
+          "[Captured presence/permission/conflict matrix](filesystem-and-board-contracts.md#captured-rename-and-comment-mutation-matrix)",
+          "[Native metadata corpus](../mothra/evidence/gap-remediation/2026-11-13/native-metadata-01/manifest.json)",
+          "[Repeatable workflow](native-capture-workflow.md#reproducing-rename-and-comment-fixtures)",
+          "[Closure review19](../mothra/evidence/gap-remediation/2026-11-13/closure-review-19/review.json)"
         ],
-        "closure": "Not closed: remaining acceptance evidence is listed above."
+        "closure": "Closed againstunchanged207field-presence/permission/conflict/before-aftercriterion. Measuredquietwindowsdonotprovealllaterrefreshes;noatomicrollback,universalcommentcapacityorrestartdurabilityclaim."
       }
     },
     {
@@ -2860,9 +2866,9 @@
           "path": "protocol.md",
           "heading": "Moving Files/Folders (Transaction 208) – Client Initiates",
           "level": 3,
-          "line_start": 793,
+          "line_start": 799,
           "anchor": "moving-filesfolders-transaction-208--client-initiates",
-          "line_end": 802
+          "line_end": 808
         }
       ],
       "question": "How do destination conflicts, aliases, cross-volume moves and interrupted filesystem operations affect 208 and its ACK/error result?",
@@ -2902,9 +2908,9 @@
           "path": "protocol.md",
           "heading": "Creating an Alias (Shortcut) (Transaction 209) – Client Initiates",
           "level": 3,
-          "line_start": 803,
+          "line_start": 809,
           "anchor": "creating-an-alias-shortcut-transaction-209--client-initiates",
-          "line_end": 816
+          "line_end": 822
         }
       ],
       "question": "What alias object is created, how is its name chosen, and when do listing/info/download resolve its target rather than expose the alias itself?",
@@ -2949,17 +2955,17 @@
           "path": "protocol.md",
           "heading": "Transfer Connection and Reference Cleanup",
           "level": 3,
-          "line_start": 871,
+          "line_start": 877,
           "anchor": "transfer-connection-and-reference-cleanup",
-          "line_end": 890
+          "line_end": 896
         },
         {
           "path": "protocol.md",
           "heading": "Banner Download (Transaction 212) – Client Initiates",
           "level": 3,
-          "line_start": 853,
+          "line_start": 859,
           "anchor": "banner-download-transaction-212--client-initiates",
-          "line_end": 870
+          "line_end": 876
         }
       ],
       "question": "What are every offset/width, type value, reserved field and reference-matching rule, and how do unknown, expired or other-session references fail?",
@@ -3002,9 +3008,9 @@
           "path": "protocol.md",
           "heading": "Transfer Connection and Reference Cleanup",
           "level": 3,
-          "line_start": 871,
+          "line_start": 877,
           "anchor": "transfer-connection-and-reference-cleanup",
-          "line_end": 890
+          "line_end": 896
         },
         {
           "path": "protocol.md",
@@ -3159,9 +3165,9 @@
           "path": "protocol.md",
           "heading": "Downloading an Entire Folder (Transaction 210) – Client Initiates",
           "level": 3,
-          "line_start": 817,
+          "line_start": 823,
           "anchor": "downloading-an-entire-folder-transaction-210--client-initiates",
-          "line_end": 834
+          "line_end": 840
         }
       ],
       "question": "What are entry/path records, actions, traversal order, aggregate counts/sizes, skips and resume transitions for 210?",
@@ -3205,9 +3211,9 @@
           "path": "protocol.md",
           "heading": "Uploading an Entire Folder (Transaction 213) – Client Initiates",
           "level": 3,
-          "line_start": 835,
+          "line_start": 841,
           "anchor": "uploading-an-entire-folder-transaction-213--client-initiates",
-          "line_end": 852
+          "line_end": 858
         }
       ],
       "question": "How are directories/files framed, acknowledged, counted, resumed or rolled back in 213, and how do empty transfers complete?",
@@ -3259,9 +3265,9 @@
           "path": "protocol.md",
           "heading": "Downloading an Entire Folder (Transaction 210) – Client Initiates",
           "level": 3,
-          "line_start": 817,
+          "line_start": 823,
           "anchor": "downloading-an-entire-folder-transaction-210--client-initiates",
-          "line_end": 834
+          "line_end": 840
         },
         {
           "path": "protocol.md",
@@ -3312,9 +3318,9 @@
           "path": "protocol.md",
           "heading": "Transfer Connection and Reference Cleanup",
           "level": 3,
-          "line_start": 871,
+          "line_start": 877,
           "anchor": "transfer-connection-and-reference-cleanup",
-          "line_end": 890
+          "line_end": 896
         }
       ],
       "question": "Does 214 cancel queued/active/completed transfers, who owns the reference, and how are zero, unknown, duplicate or racing requests acknowledged?",
@@ -3357,9 +3363,9 @@
           "path": "protocol.md",
           "heading": "Banner Download (Transaction 212) – Client Initiates",
           "level": 3,
-          "line_start": 853,
+          "line_start": 859,
           "anchor": "banner-download-transaction-212--client-initiates",
-          "line_end": 870
+          "line_end": 876
         },
         {
           "path": "protocol.md",
@@ -3419,17 +3425,17 @@
           "path": "protocol.md",
           "heading": "Transfer Connection and Reference Cleanup",
           "level": 3,
-          "line_start": 871,
+          "line_start": 877,
           "anchor": "transfer-connection-and-reference-cleanup",
-          "line_end": 890
+          "line_end": 896
         },
         {
           "path": "protocol.md",
           "heading": "Uploading an Entire Folder (Transaction 213) – Client Initiates",
           "level": 3,
-          "line_start": 835,
+          "line_start": 841,
           "anchor": "uploading-an-entire-folder-transaction-213--client-initiates",
-          "line_end": 852
+          "line_end": 858
         }
       ],
       "question": "Which byte counts or markers prove completion, and what survives EOF, timeout, reconnect, disk-full, oversized files or an interrupted upload?",
@@ -3475,17 +3481,17 @@
           "path": "protocol.md",
           "heading": "Listing News Categories (Transaction 370) – Client Initiates",
           "level": 3,
-          "line_start": 902,
+          "line_start": 908,
           "anchor": "listing-news-categories-transaction-370--client-initiates",
-          "line_end": 915
+          "line_end": 921
         },
         {
           "path": "protocol.md",
           "heading": "News Hierarchy",
           "level": 3,
-          "line_start": 893,
+          "line_start": 899,
           "anchor": "news-hierarchy",
-          "line_end": 901
+          "line_end": 907
         }
       ],
       "question": "What are nested 320/323 record layouts and kind/count fields, and what peers actually send version values around literal threshold 15?",
@@ -3526,9 +3532,9 @@
           "path": "protocol.md",
           "heading": "Listing News Articles (Transaction 371) – Client Initiates",
           "level": 3,
-          "line_start": 916,
+          "line_start": 922,
           "anchor": "listing-news-articles-transaction-371--client-initiates",
-          "line_end": 927
+          "line_end": 933
         }
       ],
       "question": "What are field-321 headers, article records, counts, flags, dates, flavour records, ordering and size limits?",
@@ -3567,9 +3573,9 @@
           "path": "protocol.md",
           "heading": "Reading a News Article (Transaction 400) – Client Initiates",
           "level": 3,
-          "line_start": 928,
+          "line_start": 934,
           "anchor": "reading-a-news-article-transaction-400--client-initiates",
-          "line_end": 952
+          "line_end": 958
         }
       ],
       "question": "What precisely do 331/332/335/336 identify, what are sentinel/end conditions, which flavours work and how is 330 constructed?",
@@ -3610,9 +3616,9 @@
           "path": "protocol.md",
           "heading": "Posting a News Article (Transaction 410) – Client Initiates",
           "level": 3,
-          "line_start": 953,
+          "line_start": 959,
           "anchor": "posting-a-news-article-transaction-410--client-initiates",
-          "line_end": 967
+          "line_end": 973
         }
       ],
       "question": "How do omitted/zero 326, flags 334, supported flavours and body limits affect creation, and how is the resulting ID or update discovered after ACK?",
@@ -3653,9 +3659,9 @@
           "path": "protocol.md",
           "heading": "Deleting a News Article (Transaction 411) – Client Initiates",
           "level": 3,
-          "line_start": 968,
+          "line_start": 974,
           "anchor": "deleting-a-news-article-transaction-411--client-initiates",
-          "line_end": 980
+          "line_end": 986
         }
       ],
       "question": "What values/widths does 337 accept, and how are descendants, orphans, navigation IDs and notifications updated on success or partial failure?",
@@ -3694,17 +3700,17 @@
           "path": "protocol.md",
           "heading": "News Hierarchy",
           "level": 3,
-          "line_start": 893,
+          "line_start": 899,
           "anchor": "news-hierarchy",
-          "line_end": 901
+          "line_end": 907
         },
         {
           "path": "protocol.md",
           "heading": "Managing News Structure (Transactions 380, 381, 382) – Client Initiates (Admin/Mods)",
           "level": 3,
-          "line_start": 981,
+          "line_start": 987,
           "anchor": "managing-news-structure-transactions-380-381-382--client-initiates-adminmods",
-          "line_end": 997
+          "line_end": 1003
         }
       ],
       "question": "What nesting/type/depth rules apply, how are paths and name fields interpreted, and what happens on create/delete conflicts or subtree failures?",
@@ -3747,9 +3753,9 @@
           "path": "protocol.md",
           "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
           "level": 3,
-          "line_start": 1000,
+          "line_start": 1006,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 1036
+          "line_end": 1042
         }
       ],
       "question": "What is field 111's wire type, presence/default rule, stored meaning and effect on 350/353?",
@@ -3785,9 +3791,9 @@
           "path": "protocol.md",
           "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
           "level": 3,
-          "line_start": 1000,
+          "line_start": 1006,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 1036
+          "line_end": 1042
         }
       ],
       "question": "How are target login, rename, absent/empty password, literal x, duplicate names, protected-account deletion and partial updates handled?",
@@ -3832,9 +3838,9 @@
           "path": "protocol.md",
           "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
           "level": 3,
-          "line_start": 1000,
+          "line_start": 1006,
           "anchor": "user-account-management--client-initiates-admin-tx-350353",
-          "line_end": 1036
+          "line_end": 1042
         },
         {
           "path": "protocol.md",
@@ -3848,9 +3854,9 @@
           "path": "protocol.md",
           "heading": "Additional Admin Privileges Note",
           "level": 3,
-          "line_start": 1074,
+          "line_start": 1080,
           "anchor": "additional-admin-privileges-note",
-          "line_end": 1082
+          "line_end": 1088
         }
       ],
       "question": "When do edited privileges, names or passwords affect current sessions, does deletion disconnect them, and what 354/301 notifications occur?",
@@ -3892,9 +3898,9 @@
           "path": "protocol.md",
           "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
           "level": 3,
-          "line_start": 1037,
+          "line_start": 1043,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 1058
+          "line_end": 1064
         }
       ],
       "question": "What exactly do options 1 and 2 do, including identity matching, ranges/duration, optional data 101, reconnection and protected users?",
@@ -3934,17 +3940,17 @@
           "path": "protocol.md",
           "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
           "level": 3,
-          "line_start": 1037,
+          "line_start": 1043,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 1058
+          "line_end": 1064
         },
         {
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 1083,
+          "line_start": 1089,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1120
+          "line_end": 1126
         }
       ],
       "question": "Does any native producer actually emit 111, under which conditions, with what fields and delivery/closure ordering?",
@@ -3982,9 +3988,9 @@
           "path": "protocol.md",
           "heading": "Broadcasting a Message (Transaction 355) – Admin/Server Initiated",
           "level": 3,
-          "line_start": 1059,
+          "line_start": 1065,
           "anchor": "broadcasting-a-message-transaction-355--adminserver-initiated",
-          "line_end": 1073
+          "line_end": 1079
         }
       ],
       "question": "Does a console-generated broadcast use the same 355 schema, and which connected/logged-in/refusing users receive each origin's broadcast?",
@@ -4022,9 +4028,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 1083,
+          "line_start": 1089,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1120
+          "line_end": 1126
         }
       ],
       "question": "What does 348 do, what fields and privileges apply, and how are its potentially nested account records serialized?",
@@ -4062,9 +4068,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 1083,
+          "line_start": 1089,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1120
+          "line_end": 1126
         }
       ],
       "question": "What indexed/transitive fields does 349 consume, how are batch entries delimited, and are failures atomic or per-entry?",
@@ -4102,9 +4108,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 1083,
+          "line_start": 1089,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1120
+          "line_end": 1126
         }
       ],
       "question": "Is 500 a liveness operation or something else, who sends it and when, and does its ACK affect idle deadlines?",
@@ -4318,9 +4324,9 @@
           "path": "protocol.md",
           "heading": "References and Correction Traceability",
           "level": 2,
-          "line_start": 1121,
+          "line_start": 1127,
           "anchor": "references-and-correction-traceability",
-          "line_end": 1162
+          "line_end": 1168
         }
       ],
       "question": "Which release/client/server configurations do the selected RCS trunk snapshots represent, and how do the default vendor branch and build options differ?",
@@ -4397,7 +4403,7 @@
         "GAP-025"
       ],
       "resolution": {
-        "progress": " Added a14-test capture runner and the first positive native12/8-byte handshake. The guest later crashed; exact guest component versions and running executable hash were not retained. Negative/pipelined/login/data/identified-peer fixtures and complete provenance remain required. Added16 native transcripts from hashed patched emulator/ROM/base/native application forks, host-loopback packet capture, account records and a semantic verifier. Fourteen plans completed; two EOF observations timed out and remain failed. No identified historical peer or full native corpus completion is claimed. Added14 addressed final handshake cases with paired host/guest packet reconciliation,39 total retained transcripts including explorations, a hashed clean prelaunch checkpoint and reset-aware analysis. Split windows are3 seconds; observed native FIN/RST distinctions are preserved even when the host proxy exposes EOF. Full operation/identified-peer corpus remains required. Added62 reviewed framing/TLV sessions plus preserved disproven initial icon-width hypothesis, exact host/guest packet reconciliation scoped to UTC/SYN lifetimes, and independent missing-close/quiet-window controls. Full operations and identified peers remain required. Added two successfulordinaryuploads and eightrevieweddownload modes plus eight initialprobes. Exact pairedpackets and nativeHFS+ forks validated; oneunread59byte301 controlsuffix explicitly pinned in bothviews rather than addedtooriginalreport. Fulloperation/identifiedpeer corpus remains required. Added23 final resume observations and7 initialattempts with3 retainedfailures. Everytranscript reconciles exact pairedpackets, with2 pinnedinitialunread301suffixes. Before/after nativeHFS+ forks validate correct/inconsistent continuation. Boundedreplymatching preserves asynchronousnotifications. Full operations andidentifiedpeers remain required. Added four controlled queue cases with paired exact streams, full reply inventories, mode/fork sizes, owner-specific211 sequences and measured540second pause windows. One unread28byte302 is pinned explicitly in both packet views. Test limits2/1 and restored100/10 are verified in saved/reopened GUI screenshots; no ROM/disk committed. Full operations and identified peers remain required. Added ten completed cleanup/seed cases, paired exact streams, native HFS+ fork bytes and first-observed packet/request/ACK timing with retransmissions deduplicated. A28byte unread departure is pinned explicitly. Three immediate and three partial-read races plus nonowner delivery establish finite outcomes, not all-operation or identified-peer conformance. Added17 final folder cases,3 initial probes and1 auxiliary finalization. Core andtimed pairedpacket phases, positive before/after catalogue/fork snapshots and measured pauses are retained. Two initial failures occur before folder requests; one hostwrite never reaches guest boundary and is pinned separately. Path-based HFS enumeration fails; positive direct lookup succeeds, withoutabsence/exhaustiveness claims. Full operations andidentifiedpeers remain required. Added24 final banner cases with exact paired packet streams, positive native GIF fork/catalogue observations and retained exploratory failures. GUI phases overlap the expiry observation and are disclosed. Full operation and identified historical-peer coverage remain required. Added17 final format/recovery/reset sessions, five original exploratory reports and nine additional setup observations. Eight independently observed native file/type controls, protocol-confirmed absence/restoration, concurrent owner/observer reset and positive post-reset login are retained. All final packet streams reconcile; one exploratory22-byte post-reset host suffix never reaches the guest. Three completed exploratory Save hypotheses retain the wrong loaded configuration. Full operations and identified historical peers remain required. Delayed recovery directly retains an owner122 before disappearance; both early and delayed recovery streams pass independent packet/phase checks. Two rejected setup trials pin unread57-byte banner suffixes and301/302 controls explicitly. Added17 HTXF sessions plus preflight; all inputs/outputs independently reconcile at both packet boundaries. Three positive native DATA forks and seven semantic/mutation tests strengthen header/reference acceptance; complete operations and identified historical peers remain required. Added24 paired native ID/envelope/EOF sessions and25 read-only oracle queries, including a preserved rejected interior-address query. No unread packet suffixes. Zero/high-bit IDs, collision/reuse, late replies, emitted notifications, unsupported requests and underfilled EOF now have acceptance evidence; other operations and historical peers remain required. Added33accepted auth/lookup/state reports,2retained exploratory reports,14read-onlyoraclequeries,5positive UserData records andagreementfork. Everypacketstream reconciles withliteral28-byte delayed302tail retained. Fulloperations, configuration paths andhistoricalpeers remain required. Added42acceptedagreementcases,28setupcontrols,12exploratoryreports and16identitycheckedqueries withnativepath/type/fork controls. All42accepted and39nonstalled auxiliary streams reconcile exactly; host-timer failedboundary isexplicitly bounded withlateSYNACK retained. Originalagreementandaccountcleanupverified. Fulloperations/peers/mxd acceptance remain required. Added34acceptedlogin-extra/name-change/referencecases,11setupcontrols,5exploratoryreports and14identitycheckedqueries withpositivePrefs controls.49reportstreams reconcile exactly; failed90secondtrialexplicitlyretains hostonlylate121 andguestonly302. Allaccepted streams matchbothboundaries. Broaderoperations,identifiedpeers andmxd acceptance remain required. Five full historical-source terminal sessions plus a controlled script witness now reconcile sixpeer sockets and onewitness socket at both host and guest boundaries. SavedDATA13/MACR317 match knownfixture and FILP; hostrecorder170packets/zerodrops. This extends fixture coverage without closing otheroperation/peer/mxd acceptance requirements. Three actual native configured-name sessions andthree nativeflushcontrols reconcile bothpacketboundaries; four realpeer receiverfixtures reconcile hostPCAP/syscalls/listenerevents. PositivePrefs andbaseline restoration arechecked; controlled delivery isnever labellednative execution. Native-mkdir-01 adds47creation/path cases plus sixempty-root inputs,51reports/53paired sockets, tenidentitycheckedqueries andpositivecatalogues. Literal1374+43 hostrecordings, zero drops, exactmergedcapture and44ownedTrashobjects are retained. Broader operation/peer/mxd acceptance remains active. Nativealias01 adds44completedreports plusoneinitialEOFtimeout,66pairedsockets,14identitycheckedqueries and33positiveprecleanupcatalogueobjects. Newtimerpatchedruntimeprovenance retained. Cleanuprestores41entrywirelisting;postcleanupdiskviewonly3positiveobservations,notcompletepersistenceproof.",
+        "progress": " Added a14-test capture runner and the first positive native12/8-byte handshake. The guest later crashed; exact guest component versions and running executable hash were not retained. Negative/pipelined/login/data/identified-peer fixtures and complete provenance remain required. Added16 native transcripts from hashed patched emulator/ROM/base/native application forks, host-loopback packet capture, account records and a semantic verifier. Fourteen plans completed; two EOF observations timed out and remain failed. No identified historical peer or full native corpus completion is claimed. Added14 addressed final handshake cases with paired host/guest packet reconciliation,39 total retained transcripts including explorations, a hashed clean prelaunch checkpoint and reset-aware analysis. Split windows are3 seconds; observed native FIN/RST distinctions are preserved even when the host proxy exposes EOF. Full operation/identified-peer corpus remains required. Added62 reviewed framing/TLV sessions plus preserved disproven initial icon-width hypothesis, exact host/guest packet reconciliation scoped to UTC/SYN lifetimes, and independent missing-close/quiet-window controls. Full operations and identified peers remain required. Added two successfulordinaryuploads and eightrevieweddownload modes plus eight initialprobes. Exact pairedpackets and nativeHFS+ forks validated; oneunread59byte301 controlsuffix explicitly pinned in bothviews rather than addedtooriginalreport. Fulloperation/identifiedpeer corpus remains required. Added23 final resume observations and7 initialattempts with3 retainedfailures. Everytranscript reconciles exact pairedpackets, with2 pinnedinitialunread301suffixes. Before/after nativeHFS+ forks validate correct/inconsistent continuation. Boundedreplymatching preserves asynchronousnotifications. Full operations andidentifiedpeers remain required. Added four controlled queue cases with paired exact streams, full reply inventories, mode/fork sizes, owner-specific211 sequences and measured540second pause windows. One unread28byte302 is pinned explicitly in both packet views. Test limits2/1 and restored100/10 are verified in saved/reopened GUI screenshots; no ROM/disk committed. Full operations and identified peers remain required. Added ten completed cleanup/seed cases, paired exact streams, native HFS+ fork bytes and first-observed packet/request/ACK timing with retransmissions deduplicated. A28byte unread departure is pinned explicitly. Three immediate and three partial-read races plus nonowner delivery establish finite outcomes, not all-operation or identified-peer conformance. Added17 final folder cases,3 initial probes and1 auxiliary finalization. Core andtimed pairedpacket phases, positive before/after catalogue/fork snapshots and measured pauses are retained. Two initial failures occur before folder requests; one hostwrite never reaches guest boundary and is pinned separately. Path-based HFS enumeration fails; positive direct lookup succeeds, withoutabsence/exhaustiveness claims. Full operations andidentifiedpeers remain required. Added24 final banner cases with exact paired packet streams, positive native GIF fork/catalogue observations and retained exploratory failures. GUI phases overlap the expiry observation and are disclosed. Full operation and identified historical-peer coverage remain required. Added17 final format/recovery/reset sessions, five original exploratory reports and nine additional setup observations. Eight independently observed native file/type controls, protocol-confirmed absence/restoration, concurrent owner/observer reset and positive post-reset login are retained. All final packet streams reconcile; one exploratory22-byte post-reset host suffix never reaches the guest. Three completed exploratory Save hypotheses retain the wrong loaded configuration. Full operations and identified historical peers remain required. Delayed recovery directly retains an owner122 before disappearance; both early and delayed recovery streams pass independent packet/phase checks. Two rejected setup trials pin unread57-byte banner suffixes and301/302 controls explicitly. Added17 HTXF sessions plus preflight; all inputs/outputs independently reconcile at both packet boundaries. Three positive native DATA forks and seven semantic/mutation tests strengthen header/reference acceptance; complete operations and identified historical peers remain required. Added24 paired native ID/envelope/EOF sessions and25 read-only oracle queries, including a preserved rejected interior-address query. No unread packet suffixes. Zero/high-bit IDs, collision/reuse, late replies, emitted notifications, unsupported requests and underfilled EOF now have acceptance evidence; other operations and historical peers remain required. Added33accepted auth/lookup/state reports,2retained exploratory reports,14read-onlyoraclequeries,5positive UserData records andagreementfork. Everypacketstream reconciles withliteral28-byte delayed302tail retained. Fulloperations, configuration paths andhistoricalpeers remain required. Added42acceptedagreementcases,28setupcontrols,12exploratoryreports and16identitycheckedqueries withnativepath/type/fork controls. All42accepted and39nonstalled auxiliary streams reconcile exactly; host-timer failedboundary isexplicitly bounded withlateSYNACK retained. Originalagreementandaccountcleanupverified. Fulloperations/peers/mxd acceptance remain required. Added34acceptedlogin-extra/name-change/referencecases,11setupcontrols,5exploratoryreports and14identitycheckedqueries withpositivePrefs controls.49reportstreams reconcile exactly; failed90secondtrialexplicitlyretains hostonlylate121 andguestonly302. Allaccepted streams matchbothboundaries. Broaderoperations,identifiedpeers andmxd acceptance remain required. Five full historical-source terminal sessions plus a controlled script witness now reconcile sixpeer sockets and onewitness socket at both host and guest boundaries. SavedDATA13/MACR317 match knownfixture and FILP; hostrecorder170packets/zerodrops. This extends fixture coverage without closing otheroperation/peer/mxd acceptance requirements. Three actual native configured-name sessions andthree nativeflushcontrols reconcile bothpacketboundaries; four realpeer receiverfixtures reconcile hostPCAP/syscalls/listenerevents. PositivePrefs andbaseline restoration arechecked; controlled delivery isnever labellednative execution. Native-mkdir-01 adds47creation/path cases plus sixempty-root inputs,51reports/53paired sockets, tenidentitycheckedqueries andpositivecatalogues. Literal1374+43 hostrecordings, zero drops, exactmergedcapture and44ownedTrashobjects are retained. Broader operation/peer/mxd acceptance remains active. Nativealias01 adds44completedreports plusoneinitialEOFtimeout,66pairedsockets,14identitycheckedqueries and33positiveprecleanupcatalogueobjects. Newtimerpatchedruntimeprovenance retained. Cleanuprestores41entrywirelisting;postcleanupdiskviewonly3positiveobservations,notcompletepersistenceproof. Native-metadata01adds49reports/72pairedsockets,36mainmutations,sixcombined-emptycases,22boundarywrites,13freshoraclequeriesandindependentadminfinalviews. Initialwrong351cleanupencodingandcorrectedrecoverybothretained;ownedaccountsabsentandFileswirelistingrestored. Broaderoperation/peer/mxdcriteriaremainactive.",
         "evidence": [
           "[Native format/recovery/reset corpus](../mothra/evidence/gap-remediation/2026-11-12/native-banner-02/manifest.json)",
           "[Banner type/recovery contract](transfer-contracts.md#captured-banner-formats-and-recovery)",
@@ -4414,7 +4420,9 @@
           "[Native directory and path matrix](filesystem-and-board-contracts.md#captured-native-folder-creation-and-field-202-paths)",
           "[Directory/path corpus](../mothra/evidence/gap-remediation/2026-11-13/native-mkdir-01/manifest.json)",
           "[Native alias and metadata matrix](filesystem-and-board-contracts.md#captured-alias-and-metadata-matrix)",
-          "[Alias corpus](../mothra/evidence/gap-remediation/2026-11-13/native-alias-01/manifest.json)"
+          "[Alias corpus](../mothra/evidence/gap-remediation/2026-11-13/native-alias-01/manifest.json)",
+          "[Native rename/comment matrix](filesystem-and-board-contracts.md#captured-rename-and-comment-mutation-matrix)",
+          "[Metadata corpus](../mothra/evidence/gap-remediation/2026-11-13/native-metadata-01/manifest.json)"
         ],
         "closure": "Not closed: the unchanged criterion still requires the outstanding evidence described above."
       }
@@ -4536,9 +4544,9 @@
           "path": "protocol.md",
           "heading": "References and Correction Traceability",
           "level": 2,
-          "line_start": 1121,
+          "line_start": 1127,
           "anchor": "references-and-correction-traceability",
-          "line_end": 1162
+          "line_end": 1168
         },
         {
           "path": "baseline-correction-map.md",
@@ -5509,7 +5517,7 @@
       "level": 3,
       "line_start": 780,
       "anchor": "setting-filefolder-info-transaction-207--client-initiates",
-      "line_end": 792,
+      "line_end": 798,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-052"
@@ -5522,9 +5530,9 @@
       "path": "protocol.md",
       "heading": "Moving Files/Folders (Transaction 208) – Client Initiates",
       "level": 3,
-      "line_start": 793,
+      "line_start": 799,
       "anchor": "moving-filesfolders-transaction-208--client-initiates",
-      "line_end": 802,
+      "line_end": 808,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-047",
@@ -5539,9 +5547,9 @@
       "path": "protocol.md",
       "heading": "Creating an Alias (Shortcut) (Transaction 209) – Client Initiates",
       "level": 3,
-      "line_start": 803,
+      "line_start": 809,
       "anchor": "creating-an-alias-shortcut-transaction-209--client-initiates",
-      "line_end": 816,
+      "line_end": 822,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-054"
@@ -5554,9 +5562,9 @@
       "path": "protocol.md",
       "heading": "Downloading an Entire Folder (Transaction 210) – Client Initiates",
       "level": 3,
-      "line_start": 817,
+      "line_start": 823,
       "anchor": "downloading-an-entire-folder-transaction-210--client-initiates",
-      "line_end": 834,
+      "line_end": 840,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-059",
@@ -5571,9 +5579,9 @@
       "path": "protocol.md",
       "heading": "Uploading an Entire Folder (Transaction 213) – Client Initiates",
       "level": 3,
-      "line_start": 835,
+      "line_start": 841,
       "anchor": "uploading-an-entire-folder-transaction-213--client-initiates",
-      "line_end": 852,
+      "line_end": 858,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-060",
@@ -5588,9 +5596,9 @@
       "path": "protocol.md",
       "heading": "Banner Download (Transaction 212) – Client Initiates",
       "level": 3,
-      "line_start": 853,
+      "line_start": 859,
       "anchor": "banner-download-transaction-212--client-initiates",
-      "line_end": 870,
+      "line_end": 876,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-028",
@@ -5607,9 +5615,9 @@
       "path": "protocol.md",
       "heading": "Transfer Connection and Reference Cleanup",
       "level": 3,
-      "line_start": 871,
+      "line_start": 877,
       "anchor": "transfer-connection-and-reference-cleanup",
-      "line_end": 890,
+      "line_end": 896,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-009",
@@ -5634,9 +5642,9 @@
       "path": "protocol.md",
       "heading": "News (Bulletin Board System)",
       "level": 2,
-      "line_start": 891,
+      "line_start": 897,
       "anchor": "news-bulletin-board-system",
-      "line_end": 892,
+      "line_end": 898,
       "review": "Reviewed",
       "direct_gap_ids": [],
       "related_gap_ids": [
@@ -5656,9 +5664,9 @@
       "path": "protocol.md",
       "heading": "News Hierarchy",
       "level": 3,
-      "line_start": 893,
+      "line_start": 899,
       "anchor": "news-hierarchy",
-      "line_end": 901,
+      "line_end": 907,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-065",
@@ -5673,9 +5681,9 @@
       "path": "protocol.md",
       "heading": "Listing News Categories (Transaction 370) – Client Initiates",
       "level": 3,
-      "line_start": 902,
+      "line_start": 908,
       "anchor": "listing-news-categories-transaction-370--client-initiates",
-      "line_end": 915,
+      "line_end": 921,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-047",
@@ -5690,9 +5698,9 @@
       "path": "protocol.md",
       "heading": "Listing News Articles (Transaction 371) – Client Initiates",
       "level": 3,
-      "line_start": 916,
+      "line_start": 922,
       "anchor": "listing-news-articles-transaction-371--client-initiates",
-      "line_end": 927,
+      "line_end": 933,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-066"
@@ -5705,9 +5713,9 @@
       "path": "protocol.md",
       "heading": "Reading a News Article (Transaction 400) – Client Initiates",
       "level": 3,
-      "line_start": 928,
+      "line_start": 934,
       "anchor": "reading-a-news-article-transaction-400--client-initiates",
-      "line_end": 952,
+      "line_end": 958,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-020",
@@ -5722,9 +5730,9 @@
       "path": "protocol.md",
       "heading": "Posting a News Article (Transaction 410) – Client Initiates",
       "level": 3,
-      "line_start": 953,
+      "line_start": 959,
       "anchor": "posting-a-news-article-transaction-410--client-initiates",
-      "line_end": 967,
+      "line_end": 973,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-021",
@@ -5739,9 +5747,9 @@
       "path": "protocol.md",
       "heading": "Deleting a News Article (Transaction 411) – Client Initiates",
       "level": 3,
-      "line_start": 968,
+      "line_start": 974,
       "anchor": "deleting-a-news-article-transaction-411--client-initiates",
-      "line_end": 980,
+      "line_end": 986,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-069"
@@ -5754,9 +5762,9 @@
       "path": "protocol.md",
       "heading": "Managing News Structure (Transactions 380, 381, 382) – Client Initiates (Admin/Mods)",
       "level": 3,
-      "line_start": 981,
+      "line_start": 987,
       "anchor": "managing-news-structure-transactions-380-381-382--client-initiates-adminmods",
-      "line_end": 997,
+      "line_end": 1003,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-032",
@@ -5771,9 +5779,9 @@
       "path": "protocol.md",
       "heading": "Administrative Functions",
       "level": 2,
-      "line_start": 998,
+      "line_start": 1004,
       "anchor": "administrative-functions",
-      "line_end": 999,
+      "line_end": 1005,
       "review": "Reviewed",
       "direct_gap_ids": [],
       "related_gap_ids": [
@@ -5800,9 +5808,9 @@
       "path": "protocol.md",
       "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
       "level": 3,
-      "line_start": 1000,
+      "line_start": 1006,
       "anchor": "user-account-management--client-initiates-admin-tx-350353",
-      "line_end": 1036,
+      "line_end": 1042,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-002",
@@ -5831,9 +5839,9 @@
       "path": "protocol.md",
       "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
       "level": 3,
-      "line_start": 1037,
+      "line_start": 1043,
       "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-      "line_end": 1058,
+      "line_end": 1064,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-003",
@@ -5854,9 +5862,9 @@
       "path": "protocol.md",
       "heading": "Broadcasting a Message (Transaction 355) – Admin/Server Initiated",
       "level": 3,
-      "line_start": 1059,
+      "line_start": 1065,
       "anchor": "broadcasting-a-message-transaction-355--adminserver-initiated",
-      "line_end": 1073,
+      "line_end": 1079,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-045",
@@ -5871,9 +5879,9 @@
       "path": "protocol.md",
       "heading": "Additional Admin Privileges Note",
       "level": 3,
-      "line_start": 1074,
+      "line_start": 1080,
       "anchor": "additional-admin-privileges-note",
-      "line_end": 1082,
+      "line_end": 1088,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-038",
@@ -5888,9 +5896,9 @@
       "path": "protocol.md",
       "heading": "Additional Observed Requests and Scope Gaps",
       "level": 2,
-      "line_start": 1083,
+      "line_start": 1089,
       "anchor": "additional-observed-requests-and-scope-gaps",
-      "line_end": 1120,
+      "line_end": 1126,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-005",
@@ -5913,9 +5921,9 @@
       "path": "protocol.md",
       "heading": "References and Correction Traceability",
       "level": 2,
-      "line_start": 1121,
+      "line_start": 1127,
       "anchor": "references-and-correction-traceability",
-      "line_end": 1162,
+      "line_end": 1168,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-083",
@@ -7337,7 +7345,7 @@
       "heading": "Request 207 presence and mutation order",
       "level": 3,
       "line_start": 62,
-      "line_end": 86,
+      "line_end": 87,
       "anchor": "request-207-presence-and-mutation-order",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7351,8 +7359,8 @@
       "path": "filesystem-and-board-contracts.md",
       "heading": "Move and alias distinctions",
       "level": 3,
-      "line_start": 87,
-      "line_end": 108,
+      "line_start": 88,
+      "line_end": 109,
       "anchor": "move-and-alias-distinctions",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7368,8 +7376,8 @@
       "path": "filesystem-and-board-contracts.md",
       "heading": "Legacy board 101/102/103",
       "level": 2,
-      "line_start": 109,
-      "line_end": 133,
+      "line_start": 110,
+      "line_end": 134,
       "anchor": "legacy-board-101102103",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7383,8 +7391,8 @@
       "path": "filesystem-and-board-contracts.md",
       "heading": "Diagnostic text 303",
       "level": 2,
-      "line_start": 134,
-      "line_end": 149,
+      "line_start": 135,
+      "line_end": 150,
       "anchor": "diagnostic-text-303",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -9137,8 +9145,8 @@
       "path": "filesystem-and-board-contracts.md",
       "heading": "Captured native folder creation and field 202 paths",
       "level": 2,
-      "line_start": 150,
-      "line_end": 159,
+      "line_start": 151,
+      "line_end": 160,
       "anchor": "captured-native-folder-creation-and-field-202-paths",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -9172,8 +9180,8 @@
       "path": "filesystem-and-board-contracts.md",
       "heading": "Create inputs, permissions and replies",
       "level": 3,
-      "line_start": 160,
-      "line_end": 190,
+      "line_start": 161,
+      "line_end": 191,
       "anchor": "create-inputs-permissions-and-replies",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -9207,8 +9215,8 @@
       "path": "filesystem-and-board-contracts.md",
       "heading": "Name bytes and structured-path acceptance",
       "level": 3,
-      "line_start": 191,
-      "line_end": 217,
+      "line_start": 192,
+      "line_end": 218,
       "anchor": "name-bytes-and-structured-path-acceptance",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -9242,8 +9250,8 @@
       "path": "filesystem-and-board-contracts.md",
       "heading": "Listing, file-info and owned cleanup controls",
       "level": 3,
-      "line_start": 218,
-      "line_end": 249,
+      "line_start": 219,
+      "line_end": 250,
       "anchor": "listing-file-info-and-owned-cleanup-controls",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -9343,8 +9351,8 @@
       "path": "filesystem-and-board-contracts.md",
       "heading": "Captured alias and metadata matrix",
       "level": 2,
-      "line_start": 250,
-      "line_end": 258,
+      "line_start": 251,
+      "line_end": 259,
       "anchor": "captured-alias-and-metadata-matrix",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -9374,8 +9382,8 @@
       "path": "filesystem-and-board-contracts.md",
       "heading": "File-info presence and values",
       "level": 3,
-      "line_start": 259,
-      "line_end": 290,
+      "line_start": 260,
+      "line_end": 291,
       "anchor": "file-info-presence-and-values",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -9405,8 +9413,8 @@
       "path": "filesystem-and-board-contracts.md",
       "heading": "Alias creation, collisions and transfer resolution",
       "level": 3,
-      "line_start": 291,
-      "line_end": 336,
+      "line_start": 292,
+      "line_end": 338,
       "anchor": "alias-creation-collisions-and-transfer-resolution",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -9437,7 +9445,7 @@
       "heading": "Reproducing alias and metadata fixtures",
       "level": 2,
       "line_start": 1102,
-      "line_end": 1152,
+      "line_end": 1153,
       "anchor": "reproducing-alias-and-metadata-fixtures",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -9460,6 +9468,56 @@
         "GAP-052",
         "GAP-054",
         "GAP-064",
+        "GAP-084"
+      ]
+    },
+    {
+      "path": "filesystem-and-board-contracts.md",
+      "heading": "Captured rename and comment mutation matrix",
+      "level": 2,
+      "line_start": 339,
+      "line_end": 405,
+      "anchor": "captured-rename-and-comment-mutation-matrix",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-003",
+        "GAP-016",
+        "GAP-019",
+        "GAP-031",
+        "GAP-052",
+        "GAP-084"
+      ],
+      "related_gap_ids": [
+        "GAP-003",
+        "GAP-016",
+        "GAP-019",
+        "GAP-031",
+        "GAP-052",
+        "GAP-084"
+      ]
+    },
+    {
+      "path": "native-capture-workflow.md",
+      "heading": "Reproducing rename and comment fixtures",
+      "level": 2,
+      "line_start": 1154,
+      "line_end": 1200,
+      "anchor": "reproducing-rename-and-comment-fixtures",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-003",
+        "GAP-016",
+        "GAP-019",
+        "GAP-031",
+        "GAP-052",
+        "GAP-084"
+      ],
+      "related_gap_ids": [
+        "GAP-003",
+        "GAP-016",
+        "GAP-019",
+        "GAP-031",
+        "GAP-052",
         "GAP-084"
       ]
     }

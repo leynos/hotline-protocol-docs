@@ -1150,3 +1150,51 @@ python3 ../hotline-protocol-docs/scripts/verify_native_aliases.py \
 It reconciles 45 reports/66 sockets, checks exact generated plans for the 44
 completed reports, retains the failed EOF observation, and checks the native
 metadata/listing/creation/transfer effects against positive physical forks.
+
+## Reproducing rename and comment fixtures
+
+Use `metadata-preflight`, `metadata-seed`, `metadata-mutations`, `metadata-final`,
+`metadata-boundaries` and `metadata-cleanup` through the existing plan preparer
+and native capture driver. Supply a current runtime record and unused output
+paths. The [frozen metadata corpus](../mothra/evidence/gap-remediation/2026-11-13/native-metadata-01/manifest.json)
+records the complete plans and paired packet evidence.
+
+Before seeding, require the Files listing to lack `mothra-meta21` and verify
+that 352 reports no account for `m-meta21-comment`, `m-meta21-rename` and
+`m-meta21-neither`. Abort if any owned name already exists. The seed creates
+only those accounts and the private tree. Verify all creation ACKs and account
+privilege readbacks before running the 36 mutation cases in generator order.
+
+The final suite reads all resulting objects through an administrator session
+and performs an independent upload to invoke the known native flush path.
+Boundary cases then write 0/1/198/199/200/201/254/255/256/300/65,535-byte comments
+to two owned objects. Retain readback sizes separately from any claim about
+native storage or restart durability. A one-second quiet window is measured
+for mutation cases; it does not prove all possible notification timing.
+
+Cleanup moves the owned tree to Trash, deletes the three owned accounts with
+complemented 351 login bytes, and checks raw 352 lookups for absence. Verify the
+complete Files listing matches preflight. The frozen run's first cleanup
+mistakenly used raw 351 bytes, leaving explicit errors and positive account
+readbacks. It is preserved unchanged, followed by successful corrected
+`metadata-account-cleanup` recovery. The current regular cleanup is corrected;
+recovery is only needed when owned accounts actually remain.
+
+The `metadata-combined-empty` suite adds six independent administrator cases
+for empty-name/new-comment, both-empty and new-name/empty-comment combinations,
+for files and directories. Preflight all `m-m21-` names from the generated plans
+before execution. Each plan creates one owned entry, observes the mutation,
+moves it to Trash, and requires exact Files listing restoration. Do not reuse
+another operator's existing entries or treat ACK status as sufficient cleanup.
+
+Run from mothra without a live guest:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/verify_native_metadata.py \
+  evidence/gap-remediation/2026-11-13/native-metadata-01
+```
+
+The verifier checks all 49 reports/72 socket lifetimes, exact as-run plans,
+partial effects and independent administrator views. Literal recorder files
+retain the original account-cleanup mistake and subsequent recovery, rather
+than presenting an edited successful transcript. No historical client is run.

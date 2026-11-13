@@ -781,12 +781,18 @@ Evidence: V017, V054; `10016ba0`.
 
 **Request:** current name 201, path 202, new name 211 and/or comment 210.
 
+The [captured presence/permission matrix](filesystem-and-board-contracts.md#captured-rename-and-comment-mutation-matrix)
+distinguishes absent, empty and nonempty updates for files and folders. Comment
+mutation precedes rename: a rename error can leave an applied comment. Re-read
+metadata after a combined-operation error; the reply does not promise rollback.
+
 **ACK:** normal success and error reply paths are present. Absent comment 210
 skips comment mutation; present empty/single-NUL clears it. Empty new name skips
 rename. Comment mutation occurs before later rename validation, so a rename
 error can follow a changed comment. See
 [filesystem contracts](filesystem-and-board-contracts.md#request-207-presence-and-mutation-order).
-Permission/conflict/refresh and partial-failure native fixtures remain open.
+The captured matrix supplies permission/conflict and partial-failure fixtures;
+its bounded quiet windows do not establish every later refresh.
 
 Evidence: V053 and the captured handler `100170c0`.
 

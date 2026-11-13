@@ -81,8 +81,9 @@ and applicable path/name policy before native normalization and `FSpRename`.
 | Both absent | No mutation from these branches; normal empty ACK remains possible. |
 
 The helper wrappers flush/prepare native file state and invoke platform comment
-or rename operations. Delivered refresh, comment round-trip and partial-failure
-fixtures remain GAP-052; a nonzero reply does not prove unchanged metadata.
+or rename operations. The captured mutation matrix below supplies round-trip,
+permission and partial-failure fixtures. Its bounded quiet windows do not
+establish every later refresh; a nonzero reply does not prove unchanged metadata.
 
 ### Move and alias distinctions
 
@@ -334,3 +335,71 @@ snapshot supplies only three positive Trash observations. Do not extrapolate
 that partial disk view into complete Trash persistence or restart durability.
 
 [aliases]: ../mothra/evidence/gap-remediation/2026-11-13/native-alias-01/manifest.json
+
+## Captured rename and comment mutation matrix
+
+The [native metadata corpus][metadata] supplies 36 file/folder cases, six
+additional combined-empty cases, 22 comment-boundary writes and independent
+administrator views. All 49 reports complete their recorded actions; 72 socket
+lifetimes reconcile exactly at host and guest boundaries. Thirteen fresh,
+identity-checked oracle queries trace presence, permissions, comment/rename
+helpers and native Desktop Manager calls. This continues the same timer-patched
+OS 9 guest; it is not restart-durability evidence.
+
+For an ordinary file or directory, the captured administrator matrix is:
+
+| 211 new name | 210 absent | 210 empty | 210 nonempty |
+| --- | --- | --- | --- |
+| Absent | Preserve name and comment | Preserve name; clear comment | Preserve name; set comment |
+| Empty | Preserve name and comment | Preserve name; clear comment | Preserve name; set comment |
+| Changed nonempty name | Rename; preserve comment | Rename and clear comment | Set comment, then rename |
+
+Exactly one NUL byte in 210 also clears the comment. Interior NUL bytes in
+`aa\x00bb` remain part of a five-byte comment. After a clear, 206 omits 210 rather
+than returning a present empty value. A new name equal to the current name
+skips the changed-name operation. No-op requests with both updates absent
+succeed even for a zero-privilege account.
+
+Permission controls use three owned temporary accounts with bitmaps
+`0000000c00000000` (file/folder comments), `1100000000000000` (file/folder
+renames), and all zeroes. Native 354 and administrator 352 views verify these
+values. Comment processing precedes rename processing:
+
+| Combined operation | Reply | Before/after result |
+| --- | --- | --- |
+| Comment permitted; rename denied | Status 1, rename-permission text | New comment persists; original name remains; new name does not resolve |
+| Comment denied; rename permitted | Status 1, comment-permission text | Original comment and name remain; rename is not attempted |
+| Comment permitted; destination name conflicts | Status 1, native collision text | New comment persists; original name remains; existing destination is unchanged |
+| Both permitted; no conflict | Empty success ACK | New name resolves; old name fails; new comment persists |
+| Comment absent; rename permitted | Empty success ACK | Rename succeeds and original comment is preserved |
+| Comment absent; rename denied | Status 1, rename-permission text | Name and comment remain unchanged |
+
+Exact permission text distinguishes `files` and `folders`. The comment denial
+literal is `You are not allowed set comments for files.` (including the native
+wording). The file collision example is `Cannot set info for` followed by the
+quoted source name, CR, `A file or folder with the specified name already
+exists.`, CR and `ID 4/115 [-48]`. Raw report bytes preserve native quote bytes
+`d2`/`d3`; display punctuation is not the wire encoding.
+
+The comment setter wrapper `1002c690` clips input to 255 bytes, and lower helper
+`1007ea90` passes at most 200 bytes to `PBDTSetCommentSync`. This must not be
+confused with observed 206 readback: writes of 198 and 199 bytes return those
+lengths, while 200, 201, 254, 255, 256, 300 and 65,535 bytes each return 199 on
+this profile. The read helpers call `PBDTGetCommentSync`; these captures do not
+identify a universal storage capacity or establish how many bytes survive a
+restart. Empty and one-byte controls are retained for both files and folders.
+
+Each main case includes before/after metadata, directory listings, a 500
+liveness reply and one measured quiet second. An independent administrator
+session checks all 36 final objects. The observed silence does not promise
+absence of later notifications. No comment/rename rollback is implied by an
+error ACK: clients must re-read state when a combined request fails.
+
+The initial cleanup used the wrong 351 login encoding and explicitly failed
+for all three owned accounts. Their continued presence is retained. Corrected
+complemented-login requests then succeed and raw 352 lookups prove all three
+absent. The owned file tree and six supplementary entries are moved to Trash;
+the complete 41-entry Files wire listing is restored. No full disk-persistence
+claim follows from those ACKs or listings.
+
+[metadata]: ../mothra/evidence/gap-remediation/2026-11-13/native-metadata-01/manifest.json
