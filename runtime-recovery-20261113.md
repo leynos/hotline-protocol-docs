@@ -80,7 +80,7 @@ logged in with the existing disposable administrator fixture, read the login
 ACK and the 354/109 pushes, requested 348 account enumeration, then closed.
 Both [reports][report1] completed ten actions with status-zero ACKs and exactly
 two 101 account values: `administrator` and `fixture-low`. Neither plan
-changed an account, preference, File or other server state.
+requested an account, preference or filesystem mutation.
 
 The first run lacked an independent host pcap. Its report retains the exact
 host sent and received bytes, and its guest snapshot is retained, but it is
