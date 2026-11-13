@@ -1558,3 +1558,73 @@ epochs, full account records, unchanged Prefs/application identities, cleanup
 and sixteen oracle queries. Protected/self-deletion, OS/power-loss restart,
 interrupted storage and universal room/transfer teardown still need separate
 evidence.
+
+## Reproducing account batch framing and partial effects
+
+The frozen [batch corpus][batch-corpus] uses only `m-b28-*` identities.
+Prepare `account-batch-preflight` with a verified current runtime and fresh
+output directory. Require every proposed name to be absent; retain the
+two-account enumeration and complete Files baseline. `account-batch-seed`
+creates four single-right/zero-right actors and ten targets, then an owned
+flush helper. Snapshot all 29 positive directory/UserData/helper objects
+before any batch, using actual catalogue IDs for that image.
+
+`account-batch-mutations` prepares the eighteen primary cases;
+`account-batch-inspections` prepares their administrator lookups/enumerations.
+Run in the order returned by `native_account_batch_cases.specifications()`,
+with a fresh inspection before and after each corresponding mutation.
+Do not infer the resulting state from final ACK status or replay a batch to
+obtain a preferred result. Capture both packet boundaries and retain type-104
+notices, numbered errors, permission roles, record order and quiet windows.
+`account-batch-nul-login` verifies plaintext `ff` against a newly stored encoded
+NUL password. `account-batch-final` adds the second helper and independently
+reads every owned identity. Retain its 54 positive native objects and forks.
+
+The initial rename-collision observation prompted a separate password contrast;
+its original transcripts remain unchanged. Prepare
+`account-batch-distinct-inspect` before creating its four supplementary names,
+and stop if any exists. `account-batch-distinct-seed` creates source and
+destination with different passwords and a third helper. Snapshot the 59
+objects before `account-batch-distinct-case`. Inspect again afterward, then run
+the three `account-batch-distinct-logins` probes. The source password must work
+at both source and destination; the destination's original password must fail.
+`account-batch-distinct-final` adds the fourth helper and reads all names;
+retain the 64 positive native objects, complete records and original IDs.
+
+For example, from mothra:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/prepare_native_cases.py \
+  account-batch-distinct-case \
+  --runtime-record state/native-sessions/your-run/runtime.json \
+  --output state/native-sessions/your-run/plans-distinct
+```
+
+This prepares a plan; execute it with the standard capture driver only after
+the corresponding guards and snapshots. The as-run coordinator is retained in
+the corpus; its fixed run paths and catalogue numbers are provenance, not
+defaults for an arbitrary new image. ROMs and working images remain local.
+
+Build a JSON array of labels whose final 352 reads actually succeed. The frozen
+inventory has 29 names. Supply that file through `--account-inventory` to
+`account-batch-cleanup`; the generator refuses unknown or duplicate labels.
+It removes those accounts and the four owned helpers, then checks enumeration
+and Files. Retain positive Trash identities/forks for all 64 original objects.
+`account-batch-publish` adds a separate owned upload and another positive
+snapshot; `account-batch-remove` removes that publisher and rechecks baselines.
+Do not turn upload publication into a restart or power-loss guarantee.
+
+The offline check is:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/verify_native_account_batches.py \
+  evidence/gap-remediation/2026-11-13/native-account-batch-01
+```
+
+It checks 70 completed reports, 75 paired connections, eighteen primary and
+one distinct-password batch, all before/after enumerations, complete native
+records, rename/Trash identities and twelve oracle queries. Protected/self
+deletion, arbitrary storage failures and general exception translation require
+separate evidence.
+
+[batch-corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-account-batch-01/manifest.json

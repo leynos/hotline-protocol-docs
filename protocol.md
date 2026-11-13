@@ -1127,13 +1127,20 @@ operations omitted from the previous guide:
 | Type | Established observation | Remaining uncertainty |
 | ---: | --- | --- |
 | 214 | Reads reference 107, invokes cleanup and ACKs | Complete cancellation effects and historical name |
-| 348 | Account enumeration; repeated 101 values contain account TLVs | Runtime fixtures and historical name |
-| 349 | Sequential account batch mutations; earlier effects can precede an error | Permission/conflict helpers and mixed-outcome fixtures |
+| 348 | Account enumeration; repeated 101 values contain account TLVs, with native fixtures | Historical name and wider snapshot atomicity |
+| 349 | Captured sequential nested account mutations, permission/default rules and partial effects | Protected identity variants and arbitrary storage failures |
 | 500 | Handler sends an empty direct ACK | Purpose and triggering client behaviour |
 
 The [operation contracts](operation-contracts.md) catalogue all 45 handlers,
 normal reply directions, session-state eligibility and the recovered 348/349
 nested account grammar.
+
+The [captured batch matrix](operation-contracts.md#captured-batch-account-framing-and-partial-effects)
+includes type-104 collision notices followed by success, permission failures
+after earlier mutations, per-entry 512-byte clipping and rename collisions
+that overwrite the destination and continue before a final error. Inspect
+resulting account state before retrying; final ACK status is not an atomicity
+guarantee.
 
 Transaction 122 is an additional server-originated banner notification.
 Neither missing documentation nor lack of a client-request handler proves a
@@ -1142,14 +1149,17 @@ table are the coverage inventory for this revision.
 
 The following are still needed before this guide is a complete wire contract:
 
-- Complete path/file-list edge cases and runtime fixtures for recovered resume,
-  fork and transfer-header layouts; full folder-stream and nested-news schemas.
-- Per-field text encodings, status/privilege registries and unknown-field rules.
-- Malformed-input and fragmentation fixtures, including zero/duplicate IDs.
-- Both login paths, agreement/banner combinations and error/closure ordering.
-- Delivered teardown/shutdown/queue fixtures for the now-traced 302, 111 and
-  211 producers, including concurrent transfer cleanup.
-- Identified client builds for cross-version/SynHX interoperability claims.
+- Remaining path/name/collision/alias cases, transfer interruption/durability
+  and configured endpoint boundaries beyond the retained native fixtures.
+- Per-field encoding, scalar, multiplicity, presence, length and date rules,
+  remaining privilege bits and failure/partial-effect boundaries.
+- Presence, room/invitation/topic, broadcast, old-board and remaining news
+  flag/flavour/date/hierarchy cases.
+- Wider timer and teardown/queue ordering, including room and concurrent
+  transfer cleanup beyond the captured 302/211 and account cases.
+- Remaining account identity/protection and opaque field meanings.
+- Wider identified-peer coverage, extra-field/text tolerance, and separate
+  mxd revision/test/release acceptance evidence.
 
 Unresolved details are not permission to reproduce the old speculative
 behaviour in mxd. Record any chosen implementation policy separately and

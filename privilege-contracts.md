@@ -104,6 +104,10 @@ specific operation for each item. Deletion requires 15; rename/update requires
 17; creation requires 14 and repeats the create bitmap-subset check with the
 bit-27 exemption. A later failure can follow earlier mutations. This is neither
 all-or-nothing nor permission to perform every batch action once admitted.
+The [captured batch matrix](operation-contracts.md#captured-batch-account-framing-and-partial-effects)
+confirms each one-right actor, the bit-27 create exemption, immediate permission
+stops and a different rename-failure path that overwrites the destination and
+continues before its final error.
 
 [Read 352][read] and [enumeration 348][enumerate] require bit 16. The same gate
 does not imply identical reply shape: 348 returns nested repeated account values,

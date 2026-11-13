@@ -5,6 +5,7 @@ import argparse
 import json
 from pathlib import Path
 
+import native_account_batch_cases as account_batch
 import native_account_update_cases as account_update
 import native_live_account_cases as live_account
 import native_news_boundary_cases as news_boundary
@@ -111,6 +112,20 @@ def main() -> None:
         choices=[
             "article-delete-preflight",
             "account-update-preflight",
+            "account-batch-preflight",
+            "account-batch-seed",
+            "account-batch-mutations",
+            "account-batch-inspections",
+            "account-batch-nul-login",
+            "account-batch-final",
+            "account-batch-distinct-inspect",
+            "account-batch-distinct-seed",
+            "account-batch-distinct-case",
+            "account-batch-distinct-logins",
+            "account-batch-distinct-final",
+            "account-batch-cleanup",
+            "account-batch-publish",
+            "account-batch-remove",
             "account-live-preflight",
             "account-live-seed",
             "account-live-edit",
@@ -251,9 +266,14 @@ def main() -> None:
     parser.add_argument("--case-name")
     parser.add_argument("--completed-nodes", type=int, default=0)
     parser.add_argument("--category-exists", action="store_true")
+    parser.add_argument("--account-inventory", type=Path)
     parser.add_argument("--first-child", type=int, default=1)
     parser.add_argument("--last-child", type=int, default=10)
     args = parser.parse_args()
+    if args.suite == "account-batch-cleanup" and args.account_inventory is None:
+        parser.error(
+            "account-batch-cleanup requires --account-inventory from final native reads"
+        )
     if args.suite == "agreement-restore-stage" and args.original_agreement is None:
         parser.error("agreement-restore-stage requires --original-agreement")
     if (
@@ -268,6 +288,41 @@ def main() -> None:
             "article-delete-resume requires --case-name from the retained inventory"
         )
     cases = {
+        "account-batch-preflight": lambda: {"preflight": account_batch.preflight()},
+        "account-batch-seed": lambda: {"seed": account_batch.seed()},
+        "account-batch-mutations": lambda: {
+            s["case"]: account_batch.batch(s) for s in account_batch.specifications()
+        },
+        "account-batch-inspections": lambda: {
+            s["case"]: account_batch.inspect(s) for s in account_batch.specifications()
+        },
+        "account-batch-nul-login": lambda: {"nul-login": account_batch.probe_nul()},
+        "account-batch-final": lambda: {"final": account_batch.finalization()},
+        "account-batch-distinct-inspect": lambda: {
+            "inspect": account_batch.inspect(account_batch.supplementary_spec())
+        },
+        "account-batch-distinct-seed": lambda: {
+            "seed": account_batch.supplementary_seed()
+        },
+        "account-batch-distinct-case": lambda: {
+            "case": account_batch.batch(account_batch.supplementary_spec())
+        },
+        "account-batch-distinct-logins": lambda: {
+            name: account_batch.supplementary_probe(name)
+            for name in ["source", "destination-source", "destination-old"]
+        },
+        "account-batch-distinct-final": lambda: {
+            "final": account_batch.supplementary_final()
+        },
+        "account-batch-cleanup": lambda: {
+            "cleanup": account_batch.cleanup(
+                json.loads(args.account_inventory.read_text())
+            )
+        },
+        "account-batch-publish": lambda: {"publish": account_batch.publish_cleanup()},
+        "account-batch-remove": lambda: {
+            "remove-publisher": account_batch.remove_publisher()
+        },
         "account-live-preflight": lambda: {"preflight": live_account.preflight()},
         "account-live-seed": lambda: {"seed": live_account.seed()},
         "account-live-edit": lambda: {"edit": live_account.edit()},
@@ -470,6 +525,19 @@ def main() -> None:
                 "GAP-017",
             ]
             if args.suite == "framing"
+            else [
+                "GAP-003",
+                "GAP-016",
+                "GAP-017",
+                "GAP-019",
+                "GAP-021",
+                "GAP-031",
+                "GAP-071",
+                "GAP-072",
+                "GAP-078",
+                "GAP-084",
+            ]
+            if args.suite.startswith("account-batch-")
             else ["GAP-035", "GAP-036", "GAP-071", "GAP-072", "GAP-073", "GAP-084"]
             if args.suite.startswith("account-live-")
             else ["GAP-016", "GAP-019", "GAP-071", "GAP-072", "GAP-073", "GAP-084"]

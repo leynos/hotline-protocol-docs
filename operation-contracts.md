@@ -67,8 +67,8 @@ in [the gap analysis](gap-analysis.md).
 | 300 | Get user roster | [10011870](../mothra/evidence/hotline-server-1.9/queries/D-10011870.c) | None identified directly | ACK |
 | 303 | Get client diagnostic info | [10016150](../mothra/evidence/hotline-server-1.9/queries/D-10016150.c) | 103 | ACK |
 | 304 | Set client info | [10016ad0](../mothra/evidence/hotline-server-1.9/queries/D-10016ad0.c) | 102/104/113/215 through helper | Push |
-| 348 | Enumerate accounts | [10015160](../mothra/evidence/hotline-server-1.9/queries/D-10015160.c) | Transitive/indexed; not enumerated | ACK |
-| 349 | Batch account mutations | [10015500](../mothra/evidence/hotline-server-1.9/queries/D-10015500.c) | Transitive/indexed; not enumerated | ACK |
+| 348 | Enumerate accounts | [10015160](../mothra/evidence/hotline-server-1.9/queries/D-10015160.c) | None identified directly | ACK |
+| 349 | Batch account mutations | [10015500](../mothra/evidence/hotline-server-1.9/queries/D-10015500.c) | Ordered outer values containing nested 101/102/105/106/110/111 | ACK/error; possible 104 |
 | 350 | Create account | [100146f0](../mothra/evidence/hotline-server-1.9/queries/D-100146f0.c) | 102, 105, 106, 110, 111 | ACK |
 | 351 | Delete account | [100149e0](../mothra/evidence/hotline-server-1.9/queries/D-100149e0.c) | 105 | ACK |
 | 352 | Get account | [10014bc0](../mothra/evidence/hotline-server-1.9/queries/D-10014bc0.c) | 105 | ACK |
@@ -225,8 +225,116 @@ set a flag and processing continues, followed by an error reply after the loop.
 An existing-account collision on the no-old-name path sends a type-104 notice
 and continues, so a final empty ACK does not certify that every requested
 mutation happened. Retries require checking actual account state; no rollback
-or idempotency guarantee is established. GAP-078 retains mixed-outcome fixtures,
-rename/conflict helper validation and complete permissions.
+or idempotency guarantee is established. The captured matrix below supplies
+framing, role/default and mixed-outcome fixtures, including a rename collision
+that changes the destination record and continues before returning an error.
+
+## Captured batch account framing and partial effects
+
+The [batch-account corpus][batch-accounts] retains 70 completed reports and
+75 paired host/guest connections. Eighteen primary batches and a separate
+distinct-password collision are surrounded by administrator reads and complete
+enumerations. Four owned actors have only create bit 14, delete bit 15, update
+bit 17 or no account-mutation rights. Twelve identity-checked queries include
+the complete 555-instruction handler assembly and the rename/copy helpers.
+
+The outer request is the ordinary count-prefixed TLV stream. **Each outer
+value** is another count-prefixed account TLV stream; outer field IDs do not
+select the operation. One batch uses IDs `0,65000,0`: it creates A, renames A
+to B and updates B. Only B remains, with the last name and preserved password.
+This captures position-based processing, including repeated and unknown IDs.
+
+| Nested field | Input rule in this handler |
+| ---: | --- |
+| 101 | Complemented old login, copied up to 31 bytes; absent/empty means no old account |
+| 102 | New display-name bytes, copied up to 64 bytes |
+| 105 | Complemented new login, copied up to 32 bytes; presence also distinguishes update from deletion |
+| 106 | Encoded password, copied up to 32 bytes; one NUL preserves up to 31 old bytes only when 101 is nonempty |
+| 110 | Eight-byte access bitmap copied into the cleared replacement record |
+| 111 | Opaque attribute, copied up to 64 bytes; human meaning remains unresolved |
+
+Every nested value is copied through a **512-byte** buffer. The recorded
+512-byte value and a 513-byte value with known fields first both create their
+accounts. In the latter, the final unknown field is truncated and ignored.
+A separate value puts a 507-byte unknown field first: that record alone needs
+513 bytes including count/header, so the copied prefix has no complete field.
+Its later identity is not found, its account is not created, a following valid
+record is processed, and the batch ends with an error. This is a per-entry
+copy boundary, not a 512-byte maximum for the entire request.
+
+| Gate / branch | Observed outcome |
+| --- | --- |
+| None of bits 14/15/17 | Initial status 1: `You are not allowed to modify account information.` |
+| Create-only actor: create, update, create | First create persists; update returns that modify error; last create is skipped |
+| Delete-only actor: delete, create, delete | First account moves to Trash; `You are not allowed to create new accounts.`; last account survives |
+| Update-only actor: update, delete, update | First replacement persists; `You are not allowed to delete accounts.`; last replacement is skipped |
+| Create-only actor grants download bit 2 | `Cannot create account with more access than yourself.`; neither that nor the later account is created |
+| Create-only actor grants bit 27 | Creation succeeds and stored/retrieved bitmap retains `0000001000000000` |
+
+Admission through one account-mutation bit does not grant every item operation.
+The create subset comparison exempts bit 27; the native fixture confirms that
+exception without turning it into a general grant rule for other bits.
+
+With no old name, an existing-account collision sends type 104 with text in
+101 and marker 109=`0001`, then continues to a later successful creation and
+an **empty final success ACK**. The existing target stays unchanged. The text is:
+
+```text
+Cannot create account “m-b28-collision” because there is already an
+account with that login.
+```
+
+The example wraps the single captured line for readability.
+The raw message uses Mac bytes `d2/d3` for those quotes; retain the captured
+bytes rather than UTF-8-encoding this rendered example for an exact comparison.
+This 104 schema differs from the data-only account-deletion notice.
+
+An empty outer value, a complete empty nested TLV stream, and a record whose
+identity falls beyond the copied prefix each permit a following valid creation
+but produce final status 1, field 100 `Error saving list of accounts.` An empty
+batch produces that same error. Permission failures above instead return
+immediately and skip the remaining records. The final text does not identify
+an item number or certify that no earlier/later effects occurred.
+
+Normal rename preserves the source directory and UserData catalogue identities
+under the destination path and writes the new record with its preserved
+password. A replacement with old and new login but omitted display name,
+attribute and bitmap clears those values while the NUL sentinel retains the
+password. Without an old login, a new account with encoded NUL password stores
+one `00` byte; plaintext `ff` login succeeds. Do not apply 353's unconditional
+NUL-preservation branch to a new 349 account.
+
+### Rename collision does not preserve the destination account
+
+The two rename-collision batches return status 1 and the coarse saving-list
+error, but leave both source and destination directories present, **replace
+the destination UserData**, and process the following creation. Native helper
+`1002bc30` calls `FSpRename` and maps a nonzero result through the exception
+wrapper. The retained assembly and native outcomes prevent treating the
+decompiled success path as a complete exception/rollback contract.
+
+The second case begins with different source and destination passwords. After
+the failed rename, the source still accepts its original password; the
+destination now accepts that source password and rejects its own previous
+password. Full native records retain the destination's new display/login,
+source password and submitted replacement fields. Both original catalogue
+identities remain unchanged. The following creation also exists despite the
+error. A client must inspect resulting state before retrying this operation;
+neither error nor success ACK means all-or-nothing application.
+
+The final state contains 29 owned accounts. Complete native records, metadata
+and rename identities are checked across seed, main-final, distinct-seed and
+distinct-final snapshots. Cleanup restores the original two-account
+enumeration and exact 41-entry Files baseline. All 64 original objects,
+including a prior deletion, four flush helpers and their forks, are positively
+identified in Trash. A separate publisher corroborates them and is removed
+with wire controls. No restart/power-loss or arbitrary write-failure guarantee
+is inferred. This closes GAP-078's original batch framing/permission/default/
+partial-error/mixed-fixture criterion; protected/self-delete remains GAP-072,
+attribute meaning remains GAP-071, and general exception translation remains
+GAP-003.
+
+[batch-accounts]: ../mothra/evidence/gap-remediation/2026-11-13/native-account-batch-01/manifest.json
 
 [map]: ../mothra/evidence/hotline-server-1.9/dispatcher-map.json
 [queries]: ../mothra/evidence/hotline-server-1.9/queries/

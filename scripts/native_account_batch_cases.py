@@ -47,10 +47,13 @@ NEW = [
     "clash-skipped",
 ]
 OWNED = ["actor-" + name for name in ROLES] + TARGETS + NEW
+EXTRA = ["clash2-old", "clash2-new", "clash2-first", "clash2-last"]
+SOURCE_PASSWORD = b"source-pass28"
+TARGET_PASSWORD = b"target-pass28"
 
 
 def key(label: str) -> bytes:
-    if label not in OWNED:
+    if label not in OWNED + EXTRA:
         raise ValueError("Unknown owned batch account")
     return ("m-b28-" + label).encode()
 
@@ -337,12 +340,98 @@ def finalization() -> tuple[list[dict], dict]:
 
 
 def cleanup(existing: list[str]) -> tuple[list[dict], dict]:
-    if len(set(existing)) != len(existing) or not set(existing) <= set(OWNED):
+    if len(set(existing)) != len(existing) or not set(existing) <= set(OWNED + EXTRA):
         raise ValueError("Cleanup requires a unique observed owned inventory")
     steps = login()
     for identifier, label in enumerate(existing, 100):
         steps += exchange(351, identifier, [(105, complement(key(label)))])
-    for identifier, name in [(20, b"m-b28-seed-flush"), (21, b"m-b28-final-flush")]:
+    for identifier, name in [
+        (20, b"m-b28-seed-flush"),
+        (21, b"m-b28-final-flush"),
+        (22, b"m-b28-supp-seed-flush"),
+        (23, b"m-b28-supp-final-flush"),
+    ]:
         steps += exchange(204, identifier, [(201, name)])
     steps += exchange(348, 90, []) + exchange(200, 91, [(202, b"\0\0")])
     return steps + [close()], {"kind": "account-batch-cleanup", "existing": existing}
+
+
+def supplementary_seed() -> tuple[list[dict], dict]:
+    steps = login()
+    for identifier, label in enumerate(EXTRA, 100):
+        steps += exchange(352, identifier, [(105, key(label))])
+    for identifier, label, password in [
+        (10, "clash2-old", SOURCE_PASSWORD),
+        (11, "clash2-new", TARGET_PASSWORD),
+    ]:
+        steps += exchange(
+            350,
+            identifier,
+            [
+                (105, complement(key(label))),
+                (106, complement(password)),
+                (102, b"Distinct28-" + label.encode()),
+                (110, bytes(8)),
+                (111, b"distinct28"),
+            ],
+        )
+    steps += upload(80, b"m-b28-supp-seed-flush", b"\0\0")
+    return steps + [close()], {"kind": "account-batch-distinct-seed"}
+
+
+def supplementary_spec() -> dict:
+    return {
+        "case": "distinct-rename-collision",
+        "role": "admin",
+        "rows": [
+            (101, record("clash2-first")),
+            (
+                101,
+                record(
+                    "clash2-new",
+                    old="clash2-old",
+                    name=b"Distinct overwritten28",
+                    password=b"\0",
+                ),
+            ),
+            (101, record("clash2-last")),
+        ],
+        "names": EXTRA,
+    }
+
+
+def supplementary_probe(label: str) -> tuple[list[dict], dict]:
+    key_label, password, success = {
+        "source": ("clash2-old", SOURCE_PASSWORD, True),
+        "destination-source": ("clash2-new", SOURCE_PASSWORD, True),
+        "destination-old": ("clash2-new", TARGET_PASSWORD, False),
+    }[label]
+    steps = login()[:3] + [authentication(key(key_label), password), read()]
+    if success:
+        steps += [read(), read()] + exchange(500, 90, [])
+    return steps + [quiet(), close()], {
+        "kind": "account-batch-distinct-login",
+        "case": label,
+        "success": success,
+    }
+
+
+def supplementary_final() -> tuple[list[dict], dict]:
+    steps = login() + upload(80, b"m-b28-supp-final-flush", b"\0\0")
+    for identifier, label in enumerate(OWNED + EXTRA, 100):
+        steps += exchange(352, identifier, [(105, key(label))])
+    return steps + exchange(348, 90, []) + [close()], {
+        "kind": "account-batch-distinct-final"
+    }
+
+
+def publish_cleanup() -> tuple[list[dict], dict]:
+    steps = login() + upload(80, b"m-b28-publish", b"\0\0")
+    steps += exchange(348, 90, []) + exchange(200, 91, [(202, b"\0\0")])
+    return steps + [close()], {"kind": "account-batch-publish"}
+
+
+def remove_publisher() -> tuple[list[dict], dict]:
+    steps = login() + exchange(204, 10, [(201, b"m-b28-publish")])
+    steps += exchange(348, 90, []) + exchange(200, 91, [(202, b"\0\0")])
+    return steps + [close()], {"kind": "account-batch-remove"}
