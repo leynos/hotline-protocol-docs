@@ -286,7 +286,10 @@ ambiguity without asserting a release number or matching client executable.
 These are server sources. Conditional paths include `CONFIG_CIPHER`,
 `CONFIG_COMPRESS`, `CONFIG_HFS`, `CONFIG_HTXF_QUEUE`, HTXF process/thread models,
 `CONFIG_IPV6` and SQL/platform-specific branches. A particular configured build
-or matching client corpus was not retained. The default branch relationship
+was not retained for those server sources. The separately identified shx
+client now has a full terminal build and native session corpus, described in
+[Identified client source](identified-client-source.md#full-native-peer-acceptance-matrix).
+The default branch relationship
 therefore does not establish how any deployed peer was built. Every source
 observation in this matrix applies to the selected hashed source and its named
 path; extrapolation to all SynHX clients remains unsupported (GAP-083/080).

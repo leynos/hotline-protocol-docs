@@ -10,9 +10,11 @@ adb1bf8c8cb12f7eb2fa2c01673295a6312f262b
 
 The commit is dated 3 September 2001. README identifies **Synapse Hotline X
 (shx)**, and `version.c` declares **0.1.48**. This identifies source content;
-it does not identify a configured executable, a particular distributed binary
-or every client called SynHX. Compile-time HOPE, cipher, compression, IPv6 and
-UI features create additional profiles. GAP-080/083 retain those boundaries.
+the source snapshot alone does not identify a configured executable, a
+particular distributed binary or every client called SynHX. The complete build
+and native sessions below now identify one configured modern executable.
+Compile-time HOPE, cipher, compression, IPv6 and UI features create additional
+profiles. GAP-080/083 retain those boundaries.
 
 ## Basic login and unknown fields
 
@@ -100,3 +102,113 @@ human meaning for native account field 111. That value stays opaque (GAP-071).
 [manifest]: ../mothra/evidence/gap-remediation/2026-11-12/batch-12/manifest.json
 [driver]: ../mothra/scripts/verify-shx-login-fragment.py
 [result]: ../mothra/evidence/gap-remediation/2026-11-12/batch-12/host-fragment-result.json
+
+## Identified complete terminal build
+
+The [frozen full build][full-build] uses the same source commit, with terminal
+UI, IPv4, HFS/CAP forks and fork-based transfers enabled. GTK, HOPE, cipher,
+compression and IPv6 are disabled. Four obsolete cast-as-lvalue expressions
+in cached file-list traversal/rendering were replaced with explicit pointer
+advances. Modern GNU host-detection helpers replace their ancient counterparts.
+The build keeps the historical login/transport/serialization code and the
+legacy configure result for bundled `snprintf`. Both CFLAGS and CPPFLAGS point
+to the recorded local Readline/ncurses headers.
+
+The tested executable has SHA-256:
+
+```text
+8fbbe56cef439d4c1732e8d9fbe2c676b9d45fbd273a42b22f8034e3b3914fa0
+```
+
+This identifies a modern Linux build of historical source. It does not identify
+an original distributed executable. Build inputs, patch, configuration, compiler
+flags, dependency identities and logs are retained. An earlier exploratory
+manual build omitted CPPFLAGS and has a separate profile; its one basic session
+is retained under `initial/`, outside the accepted matrix.
+
+## Full native peer acceptance matrix
+
+The [full-process corpus][full-corpus] runs the complete terminal client against
+the continuing native Mac OS 9.0.4 server. Five sessions completed. Raw terminal
+output, command events, hexadecimal strace records and both host-loopback and
+guest-Ethernet PCAPs are retained. Six peer socket lifetimes and one controlled
+witness lifetime reconcile byte-for-byte at both packet boundaries. The host
+recorder reports 170 packets and zero kernel drops.
+
+| Session | Native exchange and independently checked result |
+| --- | --- |
+| Basic login/chat | Ordinary TRTP/HOTL version 1/sub-version 2; nonempty complemented password; login ACK includes 160=`00be`, 161=`0000`; privileges, agreement, automatic roster and chat echo complete. |
+| Root listing | Same bootstrap; request 200 and repeated field-200 native file records are consumed and displayed. The fork fixture is `TEXT`/`MOTH`, aggregate size 330. |
+| Fork download | Request 202 gets a nonzero reference; the child attaches to data port 5501 through host 15501 and consumes 510 FILP bytes. Saved DATA is 13 bytes and MACR is 317 bytes, each exactly equal to the known fixture and captured stream. |
+| Ambiguous-byte receive | A controlled script logs in as `native-byte-witness` and sends ordinary chat 105. Native 106 and the real peer's raw terminal output preserve the complete test bytes below. |
+| Wrong password | Native status 1 with field 100=`Incorrect login.`; the real client prints the task error and `login failed?`, then exits normally without sending the roster request. |
+
+The basic client omits version field 160 from its request. Native nevertheless
+returns 160/161. The server name is empty, so 162 is omitted. No 122 banner is
+emitted in these sessions. The successful profile therefore supplies full-peer
+tolerance evidence for these 160/161 values and native roster/file records;
+it does not yet test configured 162, 122, the SynHX subject addition or other
+client builds/profiles (GAP-080/081).
+
+The client automatically requests roster 300 after its login callback.
+Subsequent `/who` commands display the local roster and generate no additional
+300 requests in this corpus. The login reply contains no UID field 103, and the
+client's basic login callback handles only that field. Successful chat/listing
+is not proof that every self-identity-dependent feature has valid state.
+No delayed 121 acceptance occurs in these sessions.
+
+## Ambiguous text at the real peer boundary
+
+The controlled witness sends these field-101 bytes:
+
+```text
+mothra-peer-byte-80-9a-c3b6-ff-END
+```
+
+Here `80`, `9a`, `c3b6` and `ff` denote raw hexadecimal bytes between literal
+ASCII hyphens. The exact hex is
+`6d6f746872612d706565722d627974652d802d9a2dc3b62dff2d454e44`.
+Native prefixes the chat with CR, `native-byte-w:`, and two spaces. That truncated
+name is the captured server formatting, while the roster retains the full
+`native-byte-witness` name. The whole test suffix occurs unchanged in native
+106 and `stdout.bin`. It contains both invalid UTF-8 bytes and the valid UTF-8
+sequence `c3b6`, without triggering a credential-complement transformation.
+
+The capture records the locale variables for this session and forces
+`TERM=dumb`. The PTY applies ordinary terminal line-ending handling; this is
+byte-preservation evidence for the test suffix, not a glyph/font rendering test
+or a negotiated character-set declaration. `stdout.txt` is an escaped UTF-8
+convenience view; the verifier uses `stdout.bin` and packet bytes. The witness
+is a controlled script, not a second identified historical client. mxd decoding
+policy and unknown-peer fallback remain separate unresolved decisions.
+
+## Reproducing and checking full peer sessions
+
+Follow the repository-local [build and containment guide][peer-guide] and the
+native capture workflow. Use the retained plans with a new output directory,
+matching build profile and verified native oracle input. The driver maps a
+private repository-backed home over HOME, shares loopback networking and keeps
+the system root read-only. It records normal process exit and checks that the
+real `~/.hxvars` state is unchanged. The legacy client saves that file even
+with `-q`; direct execution can overwrite an existing file. The initial
+uncontained probe did so; no verified previous contents were recovered.
+
+Run the offline acceptance verifier from mothra:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/verify_native_shx.py \
+  evidence/gap-remediation/2026-11-13/native-shx-01
+```
+
+This check is part of `make check`. Nine regression cases reject missing
+sessions, omitted native extras, altered high bytes, a false successful login,
+changed guest packets and incorrect saved resource bytes; they also exercise
+truncated syscall text and partial writes. The recorder's
+`native_conformance: false` remains literal: the capture tool checks local
+hashes and records operator-supplied guest provenance. Independent packet and
+semantic checks establish the bounded results above, without certifying every
+operation or treating supplied runtime metadata as process attestation.
+
+[full-build]: ../mothra/evidence/gap-remediation/2026-11-13/shx-build-01/inputs.json
+[full-corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-shx-01/manifest.json
+[peer-guide]: ../mothra/shx-peer.md

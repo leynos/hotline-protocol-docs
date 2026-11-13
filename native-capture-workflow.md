@@ -1010,3 +1010,28 @@ byte-store discovery remains candidate evidence; it cannot establish field 161's
 meaning or exclude aliases. That requirement remains GAP-026.
 
 [login-extras]: ../mothra/evidence/gap-remediation/2026-11-13/native-login-extras-01/manifest.json
+
+## Reproducing full historical shx sessions
+
+The [full peer guide](identified-client-source.md#reproducing-and-checking-full-peer-sessions)
+links the frozen build, five accepted plans and exact executable identity.
+Build through `mothra/scripts/build-shx.py` using repository-local dependencies.
+Launch through `scripts/capture_shx_session.py`, with a new capture directory,
+the matching peer profile and the native oracle file. Keep host and guest
+packet recorders active across the session, including the data port for forks.
+
+The legacy `/quit` path always saves `~/.hxvars`, even with `-q`. The contained
+driver supplies a private repository-backed home, records the real file's
+before/after identity and fails if that identity changes. Its raw terminal,
+strace output and process exit must remain together. The initial uncontained
+probe truncated an existing real file; earlier contents remain unverified.
+No guessed restoration is part of this workflow.
+
+For ambiguous-byte receive, run the retained controlled witness plan alongside
+the historical peer plan. The witness pauses before sending, allowing the peer
+to complete login. Verify the sender's 105, native 106 and receiver's raw
+`stdout.bin`; an output regex or escaped `stdout.txt` alone is insufficient.
+For download completion, compare the actual files under the private `work/`
+directory with both FILP forks and the known fixture. Do not replace that check
+with a terminal progress message. Record untested fields and optional build
+features explicitly before changing any compatibility policy.
