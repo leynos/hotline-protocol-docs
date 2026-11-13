@@ -2,13 +2,12 @@
 """Prepare bounded, two-session native private-message observations."""
 
 import argparse
+import hashlib
 import json
 from dataclasses import dataclass
 from pathlib import Path
 
 from native_auth_cases import authentication
-from native_diagnostic_existing_cases import NAME as FIXTURE_NAME
-from native_diagnostic_existing_cases import postflight
 from native_live_account_cases import request
 from native_plan import close, login, packet, payload, read, send
 from protocol_capture import ORACLE_SHA256, validate_plan
@@ -16,6 +15,48 @@ from protocol_capture import ORACLE_SHA256, validate_plan
 MAIN = b"PM-Main-A26"
 PEER = b"PM-Peer-A26"
 QUOTE = b"quote-a26"
+BASELINE_SHA256 = "5d0aa3dccf65fc6523678aa729c9ace72cd6caffbef768b7f5bf949e6568b43e"
+FULL_STREAM_BYTES = 1049073
+
+
+def check_baseline_structure(plan: dict) -> None:
+    validate_plan(plan)
+    if plan["profile"] != "native-mac-oracle" or plan["oracle_sha256"] != ORACLE_SHA256:
+        raise ValueError("A7 baseline oracle identity differs")
+    if plan["expectation"] != {
+        "case": "existing-fixture-full-readback",
+        "name_hex": b"mothra-race-fixture".hex(),
+        "expected_stream_bytes": FULL_STREAM_BYTES,
+        "expected_data_sha256": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+        "expected_rsrc_sha256": "40a42dbcf2d879e22d9a5a9acf46bf15fa9fe3a77837f757a990e514436801e5",
+    }:
+        raise ValueError("A7 baseline full-fork expectation differs")
+    steps = plan["steps"]
+    if len(steps) != 29 or plan["endpoints"] != {
+        "control": {"host": "127.0.0.1", "port": 15500},
+        "data": {"host": "127.0.0.1", "port": 15501},
+    }:
+        raise ValueError("A7 baseline full 29-step/data-endpoint shape differs")
+    if (
+        steps[19]
+        != {
+            "op": "connect",
+            "connection": "download",
+            "endpoint": "data",
+            "timeout": 10,
+        }
+        or steps[21].get("size") != FULL_STREAM_BYTES
+        or steps[24]["op"] != "read_eof"
+    ):
+        raise ValueError("A7 baseline full download sequence differs")
+
+
+def load_baseline(raw: bytes) -> dict:
+    if hashlib.sha256(raw).hexdigest() != BASELINE_SHA256:
+        raise ValueError("A7 baseline input SHA-256 differs")
+    plan = json.loads(raw)
+    check_baseline_structure(plan)
+    return plan
 
 
 @dataclass(frozen=True)
@@ -134,45 +175,48 @@ def observe() -> list[dict]:
     return steps + [close("peer"), close()]
 
 
-def plans(runtime: dict) -> dict[str, dict]:
-    plans = {}
-    for label, steps in {
-        "preflight": postflight(),
-        "observe": observe(),
-        "postflight": postflight(),
-    }.items():
-        plan = {
-            "schema_version": 1,
-            "profile": "native-mac-oracle",
-            "operator": "delegated A26 PM preparation; live lease required",
-            "oracle_sha256": ORACLE_SHA256,
-            "gap_ids": ["GAP-044"],
-            "environment": runtime,
-            "endpoints": {"control": {"host": "127.0.0.1", "port": 15500}},
-            "steps": steps,
-            "expectation": {
-                "case": label,
-                "fixture_name_hex": FIXTURE_NAME.hex(),
-                "cases": list(CASES) if label == "observe" else [],
-                "pm_request_count": len(CASES) if label == "observe" else 0,
-            },
-        }
-        validate_plan(plan)
-        plans[label] = plan
-    return plans
+def plans(runtime: dict, baseline_raw: bytes) -> dict[str, dict]:
+    baseline = load_baseline(baseline_raw)
+    identity = ("oracle_sha256", "emulator_pid", "emulator_sha256", "guest_pcap")
+    if any(runtime.get(key) != baseline["environment"].get(key) for key in identity):
+        raise ValueError("Runtime identity differs from immutable A7 baseline")
+    observed = {
+        "schema_version": 1,
+        "profile": "native-mac-oracle",
+        "operator": "delegated A26 PM preparation; live lease required",
+        "oracle_sha256": ORACLE_SHA256,
+        "gap_ids": ["GAP-044"],
+        "environment": runtime,
+        "endpoints": {"control": {"host": "127.0.0.1", "port": 15500}},
+        "steps": observe(),
+        "expectation": {
+            "case": "observe",
+            "cases": list(CASES),
+            "pm_request_count": len(CASES),
+            "baseline_plan_sha256": BASELINE_SHA256,
+        },
+    }
+    validate_plan(observed)
+    return {"preflight": baseline, "observe": observed, "postflight": baseline}
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--runtime-record", type=Path, required=True)
+    parser.add_argument("--baseline-plan", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     if args.output.exists():
         parser.error("Refusing existing output")
-    prepared = plans(json.loads(args.runtime_record.read_text()))
+    baseline_raw = args.baseline_plan.read_bytes()
+    prepared = plans(json.loads(args.runtime_record.read_text()), baseline_raw)
     args.output.mkdir(parents=True)
     for label, plan in prepared.items():
-        (args.output / f"{label}.json").write_text(json.dumps(plan, indent=2) + "\n")
+        (args.output / f"{label}.json").write_bytes(
+            baseline_raw
+            if label != "observe"
+            else (json.dumps(plan, indent=2) + "\n").encode()
+        )
 
 
 if __name__ == "__main__":
