@@ -45,6 +45,8 @@ from native_login_extras_cases import NAMES as LOGIN_EXTRA_NAMES
 from native_login_extras_cases import configured as login_extras_configured
 from native_login_extras_cases import downloads as login_extras_downloads
 from native_login_extras_cases import lifetime as login_extras_lifetime
+from native_mkdir_cases import creation as mkdir_creation
+from native_mkdir_cases import seed as mkdir_seed
 from native_queue_cases import queues, timer
 from native_resume_cases import downloads as resume_downloads
 from native_resume_cases import upload_continuations, upload_probes
@@ -57,6 +59,8 @@ def main() -> None:
     parser.add_argument(
         "suite",
         choices=[
+            "mkdir-seed",
+            "mkdir-create",
             "login-extras-lifetime",
             "login-extras-downloads",
             *["login-extras-" + name for name in LOGIN_EXTRA_NAMES],
@@ -122,6 +126,8 @@ def main() -> None:
     if args.suite == "agreement-restore-stage" and args.original_agreement is None:
         parser.error("agreement-restore-stage requires --original-agreement")
     cases = {
+        "mkdir-seed": mkdir_seed,
+        "mkdir-create": mkdir_creation,
         "login-extras-lifetime": login_extras_lifetime,
         "login-extras-downloads": login_extras_downloads,
         **{
@@ -209,6 +215,8 @@ def main() -> None:
                 "GAP-017",
             ]
             if args.suite == "framing"
+            else ["GAP-047", "GAP-048", "GAP-051", "GAP-019", "GAP-084"]
+            if args.suite.startswith("mkdir-")
             else ["GAP-026", "GAP-018", "GAP-019", "GAP-084"]
             if args.suite.startswith("login-extras-")
             else ["GAP-025", "GAP-027", "GAP-019", "GAP-084"]
