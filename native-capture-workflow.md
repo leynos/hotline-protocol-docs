@@ -1246,3 +1246,67 @@ It checks paired packet streams, exact plans, 12 successful/14 failed moves,
 six successful/three failed deletes and positive catalogue/fork effects. The
 corpus advances GAP-050/GAP-053/GAP-054 without closing their remaining
 protected-target, other-volume, interrupted-operation or missing-target work.
+
+## Reproducing category and threaded news fixtures
+
+The [native news corpus](../mothra/evidence/gap-remediation/2026-11-13/native-news-01/manifest.json)
+retains 43 reports/45 paired sockets, 29 identity-checked oracle queries and
+positive HLNZ/cache/Trash observations. Use a current runtime record and unused
+plan/output directories with the existing preparation and capture drivers.
+These are controlled version and decoder fixtures, not historical-client runs.
+
+Run `news-preflight` first and require the configured News root to be empty.
+That establishes absence of the owned `mothra-news23` namespace and prevents
+testing the protected-root request around somebody else's news. Run `news-seed`
+and check every creation ACK before posting. The seed creates nested bundles,
+four categories and a high-byte folder name; it changes no accounts.
+
+Run `news-posts`, retaining the missing-body request's error and the resulting
+zero-flavour article. Decode returned 321 with `native_news_decode.articles`.
+Select the first root ID from the captured list, then prepare
+`news-thread-children --article-parent ID`. Read the first child's ID from its
+new list and prepare `news-thread-grandchild --article-parent CHILD_ID`.
+The frozen run uses 1 and 4. Verify the resulting IDs/titles/parents match the
+owned fresh-category sequence before executing `news-bodies`, whose retained
+cases address IDs 1–6 and deliberately unknown ID 99. Abort on an unexpected
+sequence; do not redirect those requests into another category.
+
+Run `news-listings`, `news-structures` and `news-bodies`. Versions 14/15 exercise
+the actual login-to-category-format transition. Keep every record tail byte:
+semantic before/after comparison excludes unassigned tail values, while raw
+packet reconciliation preserves them. Body requests include the 65,535-byte
+value, case-sensitive flavour errors and the article left by partial posting.
+Quiet windows are one measured second, not a claim about all later broadcasts.
+
+Before finalization, run `news-files-preflight` and require absence of both
+`m-news23-flush` and `m-news23-publish` in Files. `news-final` uses an owned
+upload to exercise the native flush path. Take positive catalogue/fork
+observations, including each category's HLNZ header and serialized cache, before
+`news-cleanup` moves the owned News tree and flush file to Trash. Reuse the
+read-only files-preflight plan under a new output path to compare Files with
+baseline; require the News root empty too.
+
+A nonmatching disk probe is inconclusive. The frozen first post-cleanup probe
+has zero positive records and remains unchanged. `news-publish-cleanup` performs
+an independent owned upload; a subsequent snapshot positively identifies all
+ten original objects in Trash and the separate publication file. Compare IDs,
+paths and complete forks/caches. Then `news-remove-publisher` removes that helper
+and checks the full Files listing and empty News root. Do not claim post-removal
+disk persistence or restart durability for a phase that lacks such evidence.
+
+Repeat runs may encounter old owned names in Trash and generate collision
+suffixes. Retain their actual paths/IDs; the offline verifier certifies the
+frozen run, not arbitrary new catalogue numbers or edited transcripts. Never
+empty Trash to force a golden-path match. ROMs and disk images remain local.
+
+Run from mothra:
+
+```sh
+python3 ../hotline-protocol-docs/scripts/verify_native_news.py \
+  evidence/gap-remediation/2026-11-13/native-news-01
+```
+
+The verifier reconciles both packet boundaries, exact plans and chronology;
+checks category versions, thread graphs and cached/rebuilt bytes; and verifies
+native HLNZ/header/count and cleanup controls. Broader post/deletion/navigation,
+hierarchy failure and identified-modern-peer requirements remain active.

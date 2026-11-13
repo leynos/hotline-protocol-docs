@@ -923,6 +923,10 @@ comparison is literally `0x000f`; mapping it to a displayed release such as
 “1.5” is not established. See the
 [category layouts](news-contracts.md#category-list-variants) for the
 distinct folder/category grammars and their opaque trailing bytes.
+The [captured category matrix](news-contracts.md#captured-category-versions-and-header-metadata)
+verifies the 14/15 boundary through native login requests, mixed kinds,
+count/valence values and nonzero opaque tails. Controlled version values and
+identified historical-peer evidence are distinguished explicitly.
 
 Evidence: V062; `100102c0`, `10005710`.
 
@@ -934,7 +938,10 @@ Evidence: V062; `100102c0`, `10005710`.
 returned by the database helper. It is not one repeated top-level field 321
 per article. The
 [nested list grammar](news-contracts.md#article-list-field-321) describes its
-header, article and flavour records; native fixtures remain required.
+header, article and flavour records. The
+[threaded native fixtures](news-contracts.md#captured-threaded-article-lists-and-partial-posts)
+validate empty/multiple/branching lists, depth-first ordering, raw flags,
+unsigned flavour lengths and exact cached/rebuilt bytes.
 
 Evidence: V063; `10011370`, `100059e0`.
 
@@ -960,6 +967,10 @@ news dates use the fixed-1904-year representation. See
 [body lookup and navigation](news-contracts.md#reading-bodies-and-navigation).
 No particular Markdown, HTML or attachment implementation follows from the
 existence of a flavour field.
+The [captured graph and body cases](news-contracts.md#captured-threaded-article-lists-and-partial-posts)
+verify these links and exact bytes, including a 65,535-byte body. Unknown or
+case-changed flavours, a zero-flavour record and an unknown article share a
+coarse invalid-category error; it does not prove the category is absent.
 
 Evidence: V064; `10011580`, `10005ac0`.
 
@@ -971,7 +982,9 @@ flavour 327 and body 333.
 **ACK:** normal success is an empty reply. The handler checks post-news
 privilege 21. A resolved 326 selects the parent; zero/unresolved lookup inserts
 at root level. Flags 334 are stored as a raw word with unnamed bit meanings.
-Creation precedes body validation, so failure can follow partial mutation.
+Creation precedes body validation. A captured missing-body request returns an
+error while leaving a listed zero-flavour article, so failure does not imply
+rollback.
 The success site sends neither a new ID nor an article notification; discovery
 requires further client evidence. See
 [posting effects](news-contracts.md#posting-partial-effects-and-deletion).

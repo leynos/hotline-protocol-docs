@@ -1,9 +1,10 @@
 # Native nested news contracts
 
-These static findings refine GAP-020 and GAP-065–GAP-070 for the hashed native
-1.9 server. The [baseline guide](protocol.md), its preserved handler captures,
-and [batch 05][batch] identify the oracle. A serialized example inferred from
-these builders is not a captured client exchange. Unknown words remain opaque.
+These static and captured findings refine GAP-020 and GAP-065–GAP-070 for the
+hashed native 1.9 server. The [baseline guide](protocol.md), preserved handler
+captures and [batch 05][batch] identify the oracle. The native fixture sections
+below distinguish captured exchanges from static branches and identified peers.
+Unknown words remain opaque.
 
 ## Category-list variants
 
@@ -34,7 +35,7 @@ padded C struct.
 
 The native call emits `n + 6` bytes. Do not silently shorten it to `n + 5`
 or declare the final byte zero. Its observed stack source is not a semantic
-field definition; native capture fixtures remain necessary.
+field definition; the captured category matrix below preserves actual tails.
 
 | Category offset | Size | Emitted value |
 | ---: | ---: | --- |
@@ -49,8 +50,9 @@ field definition; native capture fixtures remain necessary.
 
 The emitted category length is `n + 32`. Metadata helper `10022830` reads the
 HLNZ file header; its packed fields are not all semantically named by this
-investigation. Auxiliary/count interpretations and mixed-category fixtures
-remain GAP-065. Tail bytes must remain opaque rather than becoming invented
+investigation. The captured matrix below ties the auxiliary values to immediate
+folder valence and the category header's article count. Tail bytes remain
+opaque rather than becoming invented
 required padding or a zero-filled interoperability assertion.
 
 ## Article-list field 321
@@ -97,8 +99,8 @@ bounded to 32 iterations; the read-body helper has its own separate bound.
 The ID-mapping helper returns zero for an absent/unmapped related link. This
 establishes byte boundaries and traversal shape, not every previous/next/thread
 label or a promise that corrupt storage cannot produce malformed output.
-Empty/multiple/branching list fixtures and cached-versus-rebuilt equivalence
-remain GAP-066.
+The captured threaded matrix below supplies empty/multiple/branching lists and
+cached-versus-rebuilt equivalence for the observed native storage profile.
 
 ## Reading bodies and navigation
 
@@ -266,3 +268,139 @@ collision effects require environment-specific fixtures.
 [create-category]: ../mothra/evidence/hotline-server-1.9/queries/D-10011110.c
 [classify]: ../mothra/evidence/gap-remediation/2026-11-12/batch-14/queries/B14-D-1002f800.c
 [trash-move]: ../mothra/evidence/gap-remediation/2026-11-12/batch-08/queries/B08-D-1002ba20.c
+
+## Captured category versions and header metadata
+
+The [native news corpus][native-news] retains 43 reports/45 paired socket
+lifetimes and 29 fresh identity-checked oracle queries. Its nine controlled
+107 requests advertise two-byte values 0, 1, 14, 15, 16, 149, 150, 190 and
+`ffff`. Values 0/1/14 select field 320; 15 and the remaining tested values select
+323. These are decoder fixtures, not historical-client identities or release
+labels. In particular, the literal threshold 15 is not proof of “version 1.5”.
+
+The separately [identified shx 0.1.48 peer](identified-client-source.md#full-native-peer-acceptance-matrix)
+omits 160 in its basic login request. Its source and captured execution
+establish that absence, rather than transmission of 15. The native scalar
+accessor defaults an absent value to zero; inferring its legacy category branch
+is distinct from capturing a category exchange from that peer. No identified historical
+peer in this new corpus supplies the 14/15/16 boundary cases. Historical modern
+peer classification and wider interoperability remain separate open evidence
+requirements; do not relabel this controlled driver as an actual client release.
+
+The owned root contains folder `bundle`, category `category`, empty folder
+`empty`, folder `hi-9a` (final byte is binary `9a`) and category `zero-articles`,
+in that native enumeration order. `bundle` contains folder `child` and category
+`nested`; `child` contains empty category `deep`. Empty-folder listing returns
+no 320/323 fields. The same names and kind distinctions survive both formats.
+
+| Record | Legacy 320 | Modern 323 |
+| --- | --- | --- |
+| Folder | Marker 1, then exact name bytes | Kind 2; auxiliary is immediate child count; Pascal name at offset 4; total `n + 6` |
+| HLNZ category | Marker 10, then exact name bytes | Kind 3; auxiliary is low 16 bits of stored article count; Pascal name at offset 28; total `n + 32` |
+| Other native types | Static branch emits marker 255 | Static branch omits them; no foreign-type runtime fixture here |
+
+Captured modern tails are nonzero and can vary between otherwise unchanged
+listings. Folder examples include `10`, `61` and `79`; category examples include
+`5186a0` and `b5f000`. They are retained raw, excluded from semantic equality
+checks and given no required value. Their positions and emitted lengths remain
+part of the grammar. Removing them or demanding zero padding changes native
+bytes.
+
+Positive `HLNZ`/`HTLS` file observations tie category records to native storage:
+wire metadata bytes 4–19 equal file-header bytes 8–23; wire words at 20/24 copy
+header words at 24/28. The auxiliary copies the low half of the 32-bit article
+count at header offset 44. That count progresses through 0, 1, 2 and 3 during
+initial posting and reaches 6 after the thread fixtures. A missing-body post
+contributes to the count. The nested category has count 1 and empty categories
+have 0. Remaining metadata words are preserved by source offset; this does not
+assign a standard UUID or a guessed application meaning to them.
+
+## Captured threaded article lists and partial posts
+
+The initial 371 reply contains field 321 with exactly ten zero bytes. Three
+valid initial posts create two root articles in `category` and one independent
+root in `nested`. A fourth request omits body 333 and receives status 1,
+`Cannot post article because invalid data was specified.` Its title/date/index
+record nevertheless appears as public ID 3 with zero flavours. This is an
+observed partial mutation, not a rollback or a successful body post.
+
+Two children of ID 1 and a grandchild of the first child produce this list:
+
+| Serialized public ID | Parent | Title | Raw flags | Flavours and unsigned 16-bit body length |
+| ---: | ---: | --- | --- | --- |
+| 1 | 0 | `First root` | 0 | `text/plain`, 14 |
+| 4 | 1 | `long-` followed by 26 `x` bytes | 0 | `text/plain`, 65,535 |
+| 6 | 4 | `Grandchild` | 0 | `text/plain`, 15 |
+| 5 | 1 | `Second child` | 0 | `text/plain`, 9 |
+| 2 | 0 | `Second root` | `11223344` | `text/plain`, 11 |
+| 3 | 0 | `Missing body` | 0 | No flavours |
+
+This is depth-first child-before-sibling order, neither numeric-ID nor creation
+order. The offset-12 link is the parent public ID. Raw flags occupy four bytes;
+no named flag bits are inferred from `11223344`. Dates retain the eight-byte
+native representation with `0770` year, zero milliseconds and copied seconds.
+Each poster is the session name `framing-fixture`; a client-supplied poster is
+not used by this producer.
+
+The 64-byte submitted child title becomes 31 bytes through the post handler,
+while the serializer's separate static cap remains 63. Poster serialization's
+static cap is 31. The list stores a 65,535-byte flavour length as unsigned
+`ffff`; it must not pass through a signed outer-scalar interpretation. Bodies
+above that size can exist only through paths not exercised here; the static
+serializer narrows a stored 32-bit body length to 16 bits. These captures do not
+prove behaviour for every flavour-chain or sibling-count boundary.
+
+All nine version sessions return identical field-321 bytes for the populated,
+empty and nested categories. The first list after the final post matches the
+later cached replies. Positive HLNZ data independently retains those exact
+bytes at `512 + (cache_index - 1) * block_size`, using header offsets 32/36/40
+for block size, cache index and serialized byte length. The populated cache is
+395 bytes, the empty cache 10 and the independent nested list 73. This supports
+cached/rebuilt equivalence for these fixtures, without inventing an optional
+extra Pascal string in network mode zero.
+
+Five successful 400 reads return exact body bytes, including CR/LF/NUL/high-byte
+content and the 65,535-byte body. Their title/poster/date agree with 321. The
+four navigation outputs are present two-byte scalars for these small IDs:
+
+| Article | 331 previous sibling | 332 next sibling | 335 parent | 336 first child |
+| ---: | ---: | ---: | ---: | ---: |
+| 1 | 0 | 2 | 0 | 4 |
+| 4 | 0 | 5 | 1 | 6 |
+| 6 | 0 | 0 | 4 | 0 |
+| 5 | 4 | 0 | 1 | 0 |
+| 2 | 1 | 3 | 0 | 0 |
+
+The zero-flavour record, unknown flavour, case-changed `TEXT/PLAIN` and unknown
+article each receive status 1 with the same literal: `Cannot get article data
+because an invalid category was specified.` That coarse message does not prove
+the category itself is missing. Subsequent 500 replies and measured quiet
+windows retain liveness. Broader navigation/date/flavour limits remain GAP-067;
+post flag meanings, discovery/push and other partial failures remain GAP-068.
+
+## Captured hierarchy failures and owned cleanup
+
+Fourteen structure requests return exact errors without changing known listing
+semantics: folder/category name conflicts against both kinds, missing and
+category-as-parent locations, zero-privilege creation/deletion, missing target
+and protected configured news root. Protection and missing-target errors share
+`Cannot delete news item because it could not be found.` Before/after semantic
+comparisons preserve every name, kind, count and header value while allowing
+opaque tail bytes to vary.
+
+The successful seed creates a nested owned hierarchy; final 380 moves the
+whole owned root to Trash. Both native roots return to baseline: News empty,
+Files with its original 41 entries. The first disk probe after cleanup has no
+positive matching records and is retained as inconclusive. A separate owned
+upload then exercises the known native flush path: all ten original objects
+are positively identified in Trash with catalogue IDs, subtree paths, file
+forks and HLNZ caches preserved. Its separate publication file is subsequently
+removed with ACK and complete wire-listing controls. No post-removal disk or
+restart-persistence claim is made for that helper file.
+
+No account is changed and no historical client runs in this corpus. Article
+recursive deletion remains GAP-069. Alias/root variants, interrupted category
+writes and broader hierarchy failure effects remain GAP-070. One-second quiet
+windows do not establish every later notification or durable completion.
+
+[native-news]: ../mothra/evidence/gap-remediation/2026-11-13/native-news-01/manifest.json
