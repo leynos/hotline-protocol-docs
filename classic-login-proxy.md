@@ -88,7 +88,7 @@ B57 used a fresh leaf and completed the single ASCII case. B57's 28-second
 cutoff was intentional, not a client rejection. No alternate payload, width,
 codec, banner rendering or whole-profile policy is established.
 
-The `roster-subject-115` variant is **offline preparation only**. The client
+The `roster-subject-115` variant was exercised once in B62. The client
 relay records the first actual 300 request ID under a lock before forwarding
 that request. Only the first matching successful direct type-0 ACK with at
 least one structurally valid packed 300 user record is rebuilt. It appends one
@@ -102,8 +102,11 @@ roster reply (41 bytes, SHA-256 `0b294b5288d8875469cb8ff3e0985a3200b538c0caf3064
 would become 60 bytes, SHA-256
 `74b95dd00831a09c9ba59ba2633d05d5a739a70b9cea48c9c5bb5a7913f336fa`.
 That is an offline calculation tied to the retained reply, not a fixed live
-UID or evidence of client acceptance. No 115 trial, client policy or field
-meaning is established.
+UID or evidence of client acceptance. B62 instead measured its actual first
+roster ACK (ID 3), appending the same ASCII 115 while the identified Classic
+client displayed the `unnamed` Online Users row after receipt. See the
+[bounded B62 witness][classic115]. No subject rendering, generic 115 policy,
+or field meaning is established.
 
 ## Automatic observation cutoff (B27 preparation)
 
@@ -150,7 +153,8 @@ agreement and reached 121/300/212 plus automatic banner data. Their
 [portable corpus][baseline] has the five-view raw bytes and finite UI
 observations. These two baseline cases do not test altered 161 widths or
 omission; the later [B52 matrix][matrix] does. B57 tests one ASCII 162 value;
-none tests the prepared roster 115 variant or broader interoperability.
+B62 tests one first-roster 115 value and visible row continuation, not broader
+interoperability.
 The [Mothra handoff][handoff] details the earlier synthetic and zero-contact
 evidence limits.
 
@@ -207,3 +211,5 @@ process identity before any future service launch.
 [matrix]: classic-field161-matrix.md
 [classic162]: classic-server-name-162.md
 [native162]: ../mothra/evidence/gap-remediation/2026-11-13/native-login-extras-01/manifest.json
+
+[classic115]: classic-roster-subject-115.md
