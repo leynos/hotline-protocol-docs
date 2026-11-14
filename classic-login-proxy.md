@@ -1,10 +1,11 @@
 # Classic Login107 field-161 proxy
 
-The [B46/B47 baseline corpus][baseline] now records actual Classic client
+The [B46/B47 baseline corpus][baseline] records actual Classic client
 connections through this proxy. B47 reached the 121/300 roster, automatic
 212 request and 16/58-byte data attachment before the independent
-ACK-plus-28-second cutoff. The baseline ACK was byte-identical to native;
-modified field-161 variants remain unrun. Earlier B29 synthetic rehearsal
+ACK-plus-28-second cutoff. The baseline ACK was byte-identical to native.
+The later [B52 matrix][matrix] delivered three modified zero-valued 161
+shapes and reached those same measured stages. Earlier B29 synthetic rehearsal
 and B30/B31 zero-contact failures remain separate evidence. This tool is
 protocol-specific; it did not change the mothra generic bridge or native
 server configuration.
@@ -66,8 +67,8 @@ proof. Even a successful local send requires packet and peer observations for
 acceptance.
 Proxy `completed` means only that its ACK and relay ran to completion. It is
 **not** proof the Classic app accepted a variant. B46/B47 established the
-baseline across client, namespace, host and server captures. Only a separate
-review may allow modified cases.
+baseline across client, namespace, host and server captures. B52's modified
+cases have separate five-view delivery and subsequent client-request proof.
 No 162 mutation is implemented here.
 
 ## Automatic observation cutoff (B27 preparation)
@@ -113,8 +114,9 @@ Both are zero-contact failures. B42/B43/B45 also stopped before client
 contact. B46 reached Login107/109 before its cutoff; B47 accepted the known
 agreement and reached 121/300/212 plus automatic banner data. Their
 [portable corpus][baseline] has the five-view raw bytes and finite UI
-observations. These two baseline cases do not test altered 161 widths,
-omission, field 162, or broader interoperability. The [Mothra handoff][handoff]
+observations. These two baseline cases do not test altered 161 widths or
+omission; the later [B52 matrix][matrix] does. Neither corpus tests field 162
+or broader interoperability. The [Mothra handoff][handoff]
 details the earlier synthetic and zero-contact evidence limits.
 
 From the protocol-docs repository:
@@ -169,3 +171,4 @@ process identity before any future service launch.
 [rehearsal]: ../mothra/evidence/gap-remediation/2026-11-13/classic-proxy-rehearsal-01/
 [handoff]: ../mothra/docs/delegation/classic-proxy-rehearsal.md
 [baseline]: classic-native-baseline.md
+[matrix]: classic-field161-matrix.md
