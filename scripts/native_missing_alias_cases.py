@@ -10,7 +10,7 @@ from native_folder_cases import path
 from native_plan import packet, payload
 from protocol_capture import ORACLE_SHA256
 
-PORT = 15920
+PORT = 15960
 ROOT = b"m-alias54-only"
 TARGET = b"m-alias54-target"
 TARGET_DATA = b"alias54-live-target\n"
@@ -26,6 +26,7 @@ ENV_KEYS = (
     "owned_working_image",
     "owned_working_image_inode",
     "owned_runtime",
+    "initial_finf_sha256",
 )
 
 
@@ -67,9 +68,16 @@ def example_operator_receipt() -> dict:
 
 def source_plan(environment: dict, port: int = PORT) -> dict:
     if port != PORT or environment.get("fixture_profile") != "control-only":
-        raise ValueError("Only isolated control-only port 15920 is prepared")
+        raise ValueError("Only isolated control-only port 15960 is prepared")
     if any(not environment.get(key) for key in ENV_KEYS):
         raise ValueError("Incomplete runtime identity")
+    pin = environment["initial_finf_sha256"]
+    if (
+        not isinstance(pin, str)
+        or len(pin) != 64
+        or any(char not in "0123456789abcdef" for char in pin)
+    ):
+        raise ValueError("Invalid pre-staged Finder-info SHA-256")
     requests = [
         {
             "label": "create-owned-folder",

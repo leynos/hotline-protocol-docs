@@ -24,9 +24,10 @@ ENV = {
     "emulator_starttime": 456,
     "emulator_sha256": "a" * 64,
     "emulator_netns_inode": 789,
-    "owned_working_image": "/owned/native-alias-live-01/working.dsk",
+    "owned_working_image": "/owned/native-alias-live-02/working.dsk",
     "owned_working_image_inode": 321,
-    "owned_runtime": "/owned/native-alias-live-01",
+    "owned_runtime": "/owned/native-alias-live-02",
+    "initial_finf_sha256": cases.digest(b"U54TM54X" + bytes(24)),
 }
 
 
@@ -43,6 +44,9 @@ class AliasPlanTests(unittest.TestCase):
         self.assertNotIn("unlink", repr(plan).lower())
 
     def test_source_pin_and_dynamic_206(self):
+        for pin in ("", "Z" * 64, "a" * 63):
+            with self.subTest(pin=pin), self.assertRaises(ValueError):
+                cases.source_plan({**ENV, "initial_finf_sha256": pin})
         with tempfile.TemporaryDirectory() as temp:
             folder = Path(temp) / "plan"
             cases.write_plan(folder, ENV)
@@ -102,7 +106,7 @@ class AliasPlanTests(unittest.TestCase):
 
     def test_owned_target_and_finder_bytes(self):
         with tempfile.TemporaryDirectory() as temp:
-            runtime = Path(temp) / "native-alias-live-01"
+            runtime = Path(temp) / "native-alias-live-02"
             shared = runtime / "shared"
             (shared / ".finf").mkdir(parents=True)
             target = shared / cases.TARGET.decode()
@@ -263,12 +267,13 @@ class AliasPlanTests(unittest.TestCase):
     def test_failed_run_writes_partial_report_and_closes_real_fd(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
-            runtime = root / "native-alias-live-01"
+            runtime = root / "native-alias-live-02"
             shared = runtime / "shared"
             (shared / ".finf").mkdir(parents=True)
+            prestaged_finfo = b"U54TM54X" + b"\x01" + bytes(23)
             for path, data in (
                 (shared / cases.TARGET.decode(), cases.TARGET_DATA),
-                (shared / ".finf" / cases.TARGET.decode(), b"U54TM54X" + bytes(24)),
+                (shared / ".finf" / cases.TARGET.decode(), prestaged_finfo),
             ):
                 path.write_bytes(data)
                 os.chmod(path, 0o600)
@@ -277,6 +282,7 @@ class AliasPlanTests(unittest.TestCase):
                 "owned_runtime": str(runtime),
                 "owned_working_image": str(runtime / "working.dsk"),
                 "emulator_netns_inode": os.stat("/proc/self/ns/net").st_ino,
+                "initial_finf_sha256": cases.digest(prestaged_finfo),
             }
             folder = root / "plan"
             cases.write_plan(folder, env)
@@ -327,6 +333,21 @@ class AliasPlanTests(unittest.TestCase):
             self.assertEqual(report["terminals"]["main"], "eof")
             self.assertEqual(owned_fd[0].fileno(), -1)
             self.assertEqual(json.loads((root / "out/report.json").read_text()), report)
+            wrong = root / "wrong-plan"
+            cases.write_plan(
+                wrong, {**env, "initial_finf_sha256": ENV["initial_finf_sha256"]}
+            )
+            with (
+                patch.object(control, "runtime_gate"),
+                patch.object(
+                    control, "ORACLE_SHA256", control.digest(binary.read_bytes())
+                ),
+                self.assertRaisesRegex(ValueError, "Pre-socket Finder sidecar"),
+            ):
+                control.run(
+                    wrong, receipt, root / "operator.json", binary, root / "wrong-out"
+                )
+            self.assertFalse((root / "wrong-out").exists())
 
     def test_operator_gate_rejects_ambiguity(self):
         receipt = cases.example_operator_receipt()

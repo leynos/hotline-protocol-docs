@@ -69,7 +69,7 @@ def prepared(directory: Path) -> dict:
 def host_state(plan: dict) -> dict:
     runtime = Path(plan["environment"]["owned_runtime"])
     need(
-        runtime.is_absolute() and runtime.name == "native-alias-live-01",
+        runtime.is_absolute() and runtime.name == "native-alias-live-02",
         "Unexpected owned runtime root",
     )
     need(
@@ -302,8 +302,8 @@ def perform(wire: Wire, plan: dict, receipt_path: Path, guard) -> None:
     }
     before = host_state(plan)
     need(
-        before["finder"]["sha256"] == digest(b"U54TM54X" + bytes(24)),
-        "Initial Finder sidecar differs from approved 32 bytes",
+        before["finder"]["sha256"] == plan["environment"]["initial_finf_sha256"],
+        "Pre-staged Finder sidecar differs from runtime pin",
     )
     wire.partial["host_before"] = before
     guard()
@@ -413,8 +413,9 @@ def run(
     )
     need(digest(binary.read_bytes()) == ORACLE_SHA256, "Oracle DATA differs")
     need(
-        host_state(plan)["finder"]["sha256"] == digest(b"U54TM54X" + bytes(24)),
-        "Pre-socket Finder sidecar differs",
+        host_state(plan)["finder"]["sha256"]
+        == plan["environment"]["initial_finf_sha256"],
+        "Pre-socket Finder sidecar differs from runtime pin",
     )
     need(not output.exists(), "Output exists")
     output.mkdir(parents=True, exist_ok=False)

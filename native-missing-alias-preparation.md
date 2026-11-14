@@ -9,9 +9,9 @@ reviewed Finder receipt and never sends GUI input or executes receipt text.
 
 ## Exact boundary
 
-Use a fresh control-only runtime `state/mac-runtime/native-alias-live-01`,
-display `:121`, owned session `state/native-sessions/native-alias-live-01`,
-and namespace-local `127.0.0.1:15920`. Check identifier availability before
+Use a fresh control-only runtime `state/mac-runtime/native-alias-live-02`,
+display `:123`, owned session `state/native-sessions/native-alias-live-02`,
+and namespace-local `127.0.0.1:15960`. Check identifier availability before
 preparation. Before live START, root must validate the prepared ownership and
 pin all source, base, ROM, executable and target bytes.
 The guest sees server address `10.0.2.15:5500`.
@@ -29,10 +29,14 @@ Before boot, root stages only the owned `shared/m-alias54-target` DATA bytes
 `alias54-live-target\n` (20 bytes), UID 1000, mode 0600, regular and nlink1.
 Its `.finf/m-alias54-target` is exactly 32 bytes: `U54TM54X` plus 24 zero
 bytes, with the same ownership/mode/link constraints. Pin parent device/inode
-and the complete initial hashes. The coordinator checks both before the
-first protocol socket and after the Finder receipt; it permits a change to
-Finder flags or position bytes while requiring the same file identities and
-first eight type/creator bytes. Both full hashes remain in the report.
+and the complete staged hashes. Before planning/readiness, positively show
+the Unix target in Finder without making an alias, then record the **actual**
+32-byte sidecar SHA as runtime `initial_finf_sha256` (lower-case 64-hex).
+Finder selection may change flags/position; never reset them for a match.
+The coordinator checks that pinned full hash before the first case socket,
+then checks target identity and first eight bytes after the Finder receipt.
+Finder flags or position may change; file identity and type/creator must
+remain stable. Both full hashes remain in the report.
 Both file `mtime_ns` values are retained before/after UI and at postflight.
 Finder may quantise them to whole seconds; stability is not required, and
 no date-field assertion is made.
