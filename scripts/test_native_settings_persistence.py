@@ -4,11 +4,11 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 import native_settings_persistence as runner
 import native_settings_persistence_cases as cases
-from protocol_capture import ORACLE_SHA256, Recorder, digest, verify_capture
+from protocol_capture import Recorder, digest, verify_capture
 
 
 class PersistencePreparationTests(unittest.TestCase):
@@ -173,46 +173,97 @@ class PersistencePreparationTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "301"):
             runner.gate_update(report, plan, b"\0\2")
 
-    def test_serialized_completed_eofs_pass_generic_capture_gate(self) -> None:
-        plan = cases.plans(
-            {"emulator_pid": 123, "source_a7_sha256": cases.A7_SHA}, 15760
-        )["phase2"]
-        plan["steps"] = [s for s in plan["steps"] if s["op"] == "connect"] + plan[
-            "steps"
-        ][-2:]
-        recorder = Recorder(plan)
-        recorder.event(2, "subject", "eof")
-        recorder.event(3, "main", "eof")
-        raw = (json.dumps(plan) + "\n").encode()
-        report = {
-            "profile": plan["profile"],
-            "native_conformance": False,
-            "plan_sha256": digest(raw),
-            "oracle_sha256": ORACLE_SHA256,
-            "status": "completed",
-            "error": "",
-            "completed_actions": 4,
-            "events": recorder.events,
-            "streams": recorder.streams(),
-            "frames": [],
-        }
+    def test_runner_serialization_passes_generic_capture_gate(self) -> None:
+        class OfflineRecorder(Recorder):
+            def execute(self, action: int, step: dict) -> None:
+                name = step["connection"]
+                if step["op"] == "connect":
+                    self.sockets[name] = Mock()
+                    self.event(action, name, "connect")
+                elif step["op"] == "read_eof":
+                    self.event(action, name, "eof")
+                else:
+                    raise AssertionError("Unexpected offline action")
+
         with tempfile.TemporaryDirectory() as temporary:
-            directory = Path(temporary)
-            (directory / "plan.json").write_bytes(raw)
-
-            def save() -> None:
-                data = (json.dumps(report) + "\n").encode()
-                (directory / "report.json").write_bytes(data)
-                (directory / "checksums.sha256").write_text(
-                    f"{digest(raw)}  plan.json\n{digest(data)}  report.json\n"
+            root = Path(temporary)
+            binary = root / "oracle-fixture.bin"
+            binary.write_bytes(b"offline oracle identity fixture")
+            oracle = digest(binary.read_bytes())
+            plan = cases.plans(
+                {"emulator_pid": 123, "source_a7_sha256": cases.A7_SHA}, 15760
+            )["phase1"]
+            plan["profile"] = "synthetic-tool-test"
+            plan["oracle_sha256"] = oracle
+            plan["steps"] = [s for s in plan["steps"] if s["op"] == "connect"] + plan[
+                "steps"
+            ][-2:]
+            plan["expectation"]["observation_actions"] = 2
+            plans = root / "plans"
+            plans.mkdir()
+            raw = (json.dumps(plan) + "\n").encode()
+            (plans / "phase1.json").write_bytes(raw)
+            (plans / "source-hashes.json").write_text(
+                json.dumps({"phase1": digest(raw)})
+            )
+            sources = {
+                name: digest((Path(runner.__file__).parent / name).read_bytes())
+                for name in (
+                    "native_settings_persistence_cases.py",
+                    "native_settings_persistence.py",
                 )
-
-            save()
-            self.assertEqual(verify_capture(directory)["completed_actions"], 4)
-            report["completed_actions"] = 3
-            save()
+            }
+            (plans / "source-code-sha256.json").write_text(json.dumps(sources))
+            ready = root / "readiness"
+            ready.mkdir()
+            (ready / "plan.json").write_text(json.dumps(plan))
+            (ready / "report.json").write_text("{}")
+            receipt = root / "capture-ready.json"
+            receipt.write_text('{"emulator_pid": 123}')
+            output = root / "phase"
+            with (
+                patch.object(runner.os, "geteuid", return_value=0),
+                patch.object(runner, "ORACLE_SHA256", oracle),
+                patch.object(runner, "verify_plan", return_value=1),
+                patch.object(
+                    runner, "verify_capture", return_value={"oracle_sha256": oracle}
+                ),
+                patch.object(runner, "gate_readiness"),
+                patch.object(runner, "capture_gate"),
+                patch.object(runner, "phase_gate", return_value=None),
+                patch.object(runner, "Recorder", OfflineRecorder),
+            ):
+                result = runner.run_gated(
+                    plans / "phase1.json", ready, receipt, binary, output
+                )
+            self.assertEqual(result["status"], "completed")
+            self.assertEqual(result["completed_actions"], 4)
+            self.assertEqual(verify_capture(output)["completed_actions"], 4)
+            with (
+                patch.object(runner, "verify_plan", return_value=1),
+                patch.object(runner, "phase_gate", return_value=None),
+            ):
+                self.assertEqual(
+                    runner.semantic(result, plan)["status"], "verified_phase_only"
+                )
+                missing = {
+                    **result,
+                    "events": [
+                        e
+                        for e in result["events"]
+                        if not (e["event"] == "eof" and e["connection"] == "main")
+                    ],
+                }
+                with self.assertRaisesRegex(ValueError, "Owned socket EOFs"):
+                    runner.semantic(missing, plan)
+            report_path = output / "report.json"
+            result["completed_actions"] = 3
+            report_path.write_text(json.dumps(result) + "\n")
+            (output / "checksums.sha256").write_text(
+                f"{digest(raw)}  plan.json\n{digest(report_path.read_bytes())}  report.json\n"
+            )
             with self.assertRaisesRegex(ValueError, "Incomplete plan"):
-                verify_capture(directory)
+                verify_capture(output)
 
 
 if __name__ == "__main__":
