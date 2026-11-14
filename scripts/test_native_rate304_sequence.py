@@ -107,7 +107,34 @@ class Rate304SequenceTests(unittest.TestCase):
                 a for a in d["actions"] if a["label"] == "paced-304-after-quiet"
             ).__setitem__("elapsed_ns", 10_000_000_000),
         )
-        self.rejected("host quiet bracket")
+        self.rejected("Action causal timestamp|host quiet bracket")
+
+    def test_shifted_postquiet_action_times_rejected(self) -> None:
+        def mutate(report):
+            for action in report["actions"]:
+                if action["label"] in {
+                    "paced-304-after-quiet",
+                    "paced-500-after-quiet",
+                }:
+                    action["elapsed_ns"] += 1_000_000_000
+
+        self.change_json("raw/epoch/coordinator/report.json", mutate)
+        self.rejected("Action causal timestamp differs")
+
+    def test_shifted_icon27_frame_arrival_rejected(self) -> None:
+        def mutate(report):
+            frame = next(
+                f
+                for f in report["frames"]
+                if f["connection"] == "observer"
+                and f["type"] == 301
+                and {item["id"]: item["hex"] for item in f["fields"]}.get(103) == "0003"
+                and {item["id"]: item["hex"] for item in f["fields"]}.get(104) == "001b"
+            )
+            frame["arrival_elapsed_ns"] -= 500_000_000
+
+        self.change_json("raw/epoch/coordinator/report.json", mutate)
+        self.rejected("Frame causal timestamp differs")
 
     def test_terminal_label_rejected(self) -> None:
         self.change_json(

@@ -61,6 +61,13 @@ measured **70.103186 host seconds**. Fourteen observer idle `500` calls ran
 during that interval. Paced icon 28 then yielded a `301` on subject and
 observer, plus ACK 2026.
 
+The offline verifier bounds each action timestamp between its own send event
+and the next global event. It maps frame bytes to cumulative receive offsets,
+including the eight-byte TRTP reply, and bounds frame arrival between the
+completing receive event and the next global event. These causal checks allow
+separate runner clock calls; the 70.103186-second bracket remains the
+recorded value, not a reconstructed native clock.
+
 The burst subject sent 26 ordered `304` icon values 2–27 with `500` IDs
 4000–4025. Both recipients received the matching 26 `301`s and all barriers
 succeeded within a 0.231387-second host bracket. Its 27th `304` requested icon

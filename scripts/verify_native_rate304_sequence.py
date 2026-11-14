@@ -298,8 +298,20 @@ def events_and_actions(report: dict, plan: dict, modules) -> None:
     expected = {name: cases.HELLO for name in plan["schedule"]["flows"]}
     for action in actions:
         first, end = action["event_range"]
-        need(first < end <= len(events), "Action event range differs")
-        sent = "".join(e["hex"] for e in events[first:end] if e["event"] == "send")
+        need(first < end < len(events), "Action event range differs")
+        own_sends = [
+            e
+            for e in events[first:end]
+            if e["event"] == "send" and e["connection"] == action["connection"]
+        ]
+        need(bool(own_sends), "Action has no own send event")
+        need(
+            own_sends[-1]["elapsed_ns"]
+            <= action["elapsed_ns"]
+            <= events[end]["elapsed_ns"],
+            "Action causal timestamp differs",
+        )
+        sent = "".join(e["hex"] for e in own_sends)
         need(sent == action["hex"], "Action/send event bytes differ")
         expected[action["connection"]] += action["hex"]
     for name, stream in report["streams"].items():
@@ -321,6 +333,47 @@ def events_and_actions(report: dict, plan: dict, modules) -> None:
             all(frame.get(k) == v for k, v in decoded.items()),
             "Raw frame decode differs",
         )
+    receive_events: dict[str, list[tuple[int, int]]] = {}
+    cumulative: dict[str, int] = {}
+    for index, event in enumerate(events):
+        if event["event"] == "receive":
+            connection = event["connection"]
+            cumulative[connection] = cumulative.get(connection, 0) + len(
+                bytes.fromhex(event["hex"])
+            )
+            receive_events.setdefault(connection, []).append(
+                (cumulative[connection], index)
+            )
+    offsets = {name: len(bytes.fromhex(cases.HELLO_REPLY)) for name in expected}
+    for frame in frames:
+        connection = frame["connection"]
+        offsets[connection] += len(bytes.fromhex(frame["raw_hex"]))
+        completed = next(
+            (
+                index
+                for size, index in receive_events[connection]
+                if size >= offsets[connection]
+            ),
+            None,
+        )
+        need(
+            completed is not None and completed + 1 < len(events),
+            "Frame has no completing receive event",
+        )
+        assert completed is not None
+        need(
+            events[completed]["elapsed_ns"]
+            <= frame["arrival_elapsed_ns"]
+            <= events[completed + 1]["elapsed_ns"],
+            "Frame causal timestamp differs",
+        )
+    need(
+        all(
+            offsets[name] == len(bytes.fromhex(stream["received_hex"]))
+            for name, stream in report["streams"].items()
+        ),
+        "Frame receive offset differs",
+    )
     for name in plan["schedule"]["flows"]:
         terminal = [
             e["event"]
