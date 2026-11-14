@@ -319,7 +319,9 @@ and banner modes, but its purpose remains unresolved.
 
 The [pinned Classic client baseline](classic-native-baseline.md) accepted the
 unchanged two-zero-byte 161, completed 121 and roster 300, and received 58
-banner bytes. Width and omission variants remain untested in that corpus.
+banner bytes. A separate [three-case matrix](classic-field161-matrix.md)
+reached those stages with 161 omitted, one zero byte, or four zero bytes.
+These finite observations do not establish 161's meaning or nonzero values.
 
 There are two observed login-completion paths:
 

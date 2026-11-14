@@ -40,6 +40,8 @@ Evidence: M008–M009.
 | Hotline 1.8.5 client profile | No identified client binary or session was validated; field 160 values `151..=189` do not by themselves prove this release | Policy requiring client validation | mxd threshold policy tested; identified-client compatibility unverified |
 | SynHX historical server source | Defines the same normal-session magic ending in sub-version 2; its roster writer uses packed field 300 and appends subject 115 | Source-observed in supplied RCS trunk snapshots | Comparison source only; does not establish client behaviour |
 | shx 0.1.48 source snapshot | README/version.c identify source at `adb1bf8`; basic login shares sub-version 2, omits 160 and ignores extras 161/162 | Source-observed; seven isolated host callback cases passed | Does not certify mxd or a compiled historical client |
+| Identified modern shx build | Source `adb1bf8`, executable `8fbbe56cef43…`; full native sessions and controlled extra-field cases | [Build and session evidence](identified-client-source.md), [controlled matrix](peer-tolerance-matrix.md) | Further mxd validation is on hold |
+| Identified Classic PPC candidate | Archive/application label 1.9.2, embedded `vers` 1.9.1.0; DATA `7f286e3f…`, RSRC `f762cfde…` | [Native baseline](classic-native-baseline.md) and [161 width/omission matrix](classic-field161-matrix.md) reach 121/300 and banner data | Further mxd validation is on hold; native result does not certify mxd |
 | Other SynHX client profiles | No unique handshake marker, reply-field rejection rule or universal text-XOR mode was established | Policy requiring identified client/session evidence | Classifier/omission tests passed; disputed identity premise remains |
 | Unknown or legacy client version | Native 1.9 login has no version/kind gate around reply fields 161/162; a missing/old version is not a proven profile identifier | Native behaviour observed; conservative omission remains a separate mxd policy | Omission-policy tests passed; native reply differs |
 
@@ -80,7 +82,12 @@ The supplied SynHX server's lack of that native augmentation does not establish
 that a SynHX **client** rejects those fields. A newly retained
 [shx source profile](identified-client-source.md) now supplies
 source and isolated callback evidence: its basic-login callback ignores these
-extras. Other profiles and full sessions still need peer-specific validation.
+extras. The identified compiled shx and Classic candidate now have the finite
+native sessions linked in the matrix above. Other profiles still need their
+own identified evidence; no reported version alone selects one of these
+builds. The Classic 161 matrix establishes tolerance of absent, one-zero-byte
+and four-zero-byte values through its recorded stages. It supplies no
+nonzero-161 or field-162 result and does not choose an mxd omission policy.
 
 Banner advertisement is separate: after agreement acceptance, native
 transaction **122** carries type 152 and optional 153, conditional on configured

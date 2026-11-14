@@ -340,6 +340,8 @@ optional quoted 214. Feedback 104 uses the recipient's identity. System notices
 can contain only data 101, and chat-denial notices can contain 109/101 instead.
 Field presence identifies known variants; no universal sender/option schema
 applies to every 104 (GAP-044).
+The [producer inventory](notification-104-variants.md) records the overlapping
+schemas, contextual distinctions and remaining notification fixtures.
 
 The [bounded native PM witness](native-pm-witness.md) now confirms seven 108
 cases with six delivered 104 frames: direct quoted text, recipient refusal,
