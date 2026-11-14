@@ -112,3 +112,18 @@ ty check --extra-search-path \
   scripts/native_board_cases.py scripts/native_board_control.py \
   scripts/test_native_board.py
 ```
+
+## Readiness receipts and the aborted first lab
+
+The [first board lab](native-board-readiness-failure.md) stopped before any
+protocol request. Its manually assembled lease receipt and correction script
+failed setup checks; it supplies no board-operation evidence.
+
+Use the [validated receipt builder](../mothra/docs/native-capture-receipt.md)
+from the host as root. It reads the exact managed-unit properties, rechecks
+capture and emulator identity, and creates one new receipt exclusively.
+Prewrite and check readiness scripts before launching their units, and wait
+for the actual capture header before its first readiness check. Run the
+readiness and board coordinators inside the owned emulator namespace. A
+failed gate still stops the group; neither this helper nor its rehearsal
+authorizes a new native case or extends its fixed deadline.
