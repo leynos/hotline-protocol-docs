@@ -225,7 +225,14 @@ def check_case(base: Path, name: str, spec: dict, packets: dict) -> dict:
             replies = parse_frames(pairs[0][1][8:])
             require(
                 [f["type"] for f in requests] == [107, 121, 300, 212]
-                and [f["type"] for f in replies] == [0, 109, 0, 354, 122, 0, 0],
+                and [f["type"] for f in replies] == [0, 109, 0, 354, 122, 0, 0]
+                and [f["id"] for f in requests] == [1, 2, 3, 4]
+                and [f["id"] for f in replies] == [1, 1, 2, 2, 3, 3, 4]
+                and all(
+                    f["flags"] == f["error"] == f["is_reply"] == 0 for f in requests
+                )
+                and all(f["flags"] == f["error"] == 0 for f in replies)
+                and [f["is_reply"] for f in replies] == [1, 0, 1, 0, 0, 1, 1],
                 f"{name} control sequence",
             )
             require(field_map(replies[0]) == EXPECTED_FIELDS[name], f"{name} 161 shape")
