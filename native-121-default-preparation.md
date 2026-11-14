@@ -35,10 +35,13 @@ The expected automatic-response field 101 is the exact ASCII literal
 `I'm not able to respond right now. Please try later!` for both absent and
 empty 215. The name/icon/UID 301, option-4 104 and 109/121/354 ordering
 must be checked against complete report and paired packet streams before
-calling either case verified. The prepared capture plan records these
-frames; it does not itself provide per-field semantic stop gates. A live
-operator must first approve the verifier/gate strategy and stop on an
-unexpected login branch or first case failure, without improvising retries.
+calling either case verified. The prepared plan and
+`scripts/verify_native_121_default.py` check observer
+identity before either login, each pending 109 and pre-121 roster before 121,
+then the 121 ACK, matching subject 301 and own 354 before PM. The runner
+checks exact default 104 text before cleanup and completes the first case
+before opening the second subject. A mismatch preserves a failed report and
+closes owned sockets without later requests. No retries are authorised.
 
 The generator takes the pinned A7 29-action/full-FILP plan, checks its
 SHA-256 and runtime identity, and emits byte-identical `preflight.json` and
@@ -53,3 +56,25 @@ configuration, Files or restart operation is in the plan.
 This packet addresses only 121 default-wire fixtures. Re-login, restart,
 durability and general non-ASCII encoding remain outside its scope;
 GAP-029/030 retain those original requirements.
+
+For a separately approved live run, substitute fresh, operator-owned paths:
+
+```sh
+python3 scripts/native_121_default_cases.py \
+  --runtime-record RUNTIME.json --baseline-plan A7-plan.json \
+  --output NEW-plans
+python3 scripts/protocol_capture.py capture NEW-plans/preflight.json \
+  --oracle-binary HLserver19 --output NEW-preflight
+python3 scripts/verify_native_121_default.py --run NEW-plans/observe.json \
+  --binary HLserver19 --baseline-plan A7-plan.json \
+  --output NEW-observe
+python3 scripts/protocol_capture.py capture NEW-plans/postflight.json \
+  --oracle-binary HLserver19 --output NEW-postflight
+python3 scripts/verify_native_121_default.py --verify NEW-observe
+```
+
+The operator must check exact full A7 preflight before observing, start host
+packet capture before the first socket and retain the cumulative guest
+snapshot. On observation failure, the gate closes owned sockets; root decides
+postflight and cleanup timing under the separate live grant. `--verify` is
+read-only and cannot convert a failed report into a success.

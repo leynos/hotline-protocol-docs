@@ -91,8 +91,10 @@ def observe() -> tuple[list[dict], list[dict]]:
     steps = login() + roster(10)
     expected = []
     for index, label in enumerate(("absent", "empty")):
+        first = len(steps)
         case_steps, detail = delayed_case(label, index)
         steps += case_steps
+        detail.update(first=first, last=len(steps) - 1)
         expected.append(detail)
     return steps + [close()], expected
 
