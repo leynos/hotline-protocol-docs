@@ -9,13 +9,16 @@ reviewed Finder receipt and never sends GUI input or executes receipt text.
 
 ## Exact boundary
 
-Use a fresh control-only runtime `state/mac-runtime/native-alias-live-02`,
-display `:123`, owned session `state/native-sessions/native-alias-live-02`,
-and namespace-local `127.0.0.1:15960`. Check identifier availability before
+Use a fresh control-only runtime `state/mac-runtime/native-alias-live-03`,
+display `:124`, owned session `state/native-sessions/native-alias-live-03`,
+and namespace-local `127.0.0.1:15980`. Check identifier availability before
 preparation. Before live START, root must validate the prepared ownership and
 pin all source, base, ROM, executable and target bytes.
 The guest sees server address `10.0.2.15:5500`.
 Do not contact the original primary server or read a live working image.
+Select the owned Unix target and obtain root's reviewed receipt by epoch
++270 seconds; preserve the hard >=390-second case-start reserve. Retire a
+late lab without changing its deadline or re-pinning Finder metadata.
 
 The independent, closed control readiness has 18 actions: one TRTP
 handshake, one Login107 and five numbered control requests (348, 200, 206,
@@ -110,3 +113,35 @@ unknown Finder state ends this one case; it does not authorise another
 request or a new image. The unchanged 18-action control preflight and
 stopped-image alias extraction remain separate root-owned steps. Neither
 this guide nor a green offline test is permission to start M2 or M3.
+
+## Observed Finder preparation and case refusal
+
+[Retained evidence](../mothra/evidence/gap-remediation/2026-11-14/native-alias-prestage-01/manifest.json)
+records this run, its frozen sources and paired captures.
+
+The retained `native-alias-live-02` run reached the pre-stage gate. Those
+runtime paths are now quarantined; do not rerun these commands against its
+working image. A further attempt requires a new reviewed runtime profile.
+
+After normal server startup, activate an identified Finder window, close
+only the identified System 9 window, and use the observed application menu
+**Hide Others** to expose the desktop Unix volume. Open the owned HFS Files
+parent and Unix volume. Move the identified Unix window by its title bar so
+both window titles remain visible, then select `m-alias54-target`. Review
+fresh screenshots before each operation; retained coordinates describe one
+layout and are not a general automation recipe. No alias, Copy or Paste is
+needed during this preparation.
+
+Finder selection changed the full sidecar SHA from the staged zero-suffix
+value `1d0021b6…` to `8f0333df…`, while the target DATA and type/creator
+guards passed. This observed change supports pinning actual metadata after
+selection rather than resetting Finder bytes. Three screenshot files retain
+the same reviewed view; their hashes and the root receipt precede runtime
+construction and protocol readiness.
+
+All 18 readiness actions completed, including six numbered requests and
+their ordinary baseline 206. Only 367.6 seconds remained, below the required
+390-second case reserve. The case was refused: no case marker, 205, alias,
+Copy/Paste or alias-target 206 occurred. The native server Quit was observed;
+the VM was then stopped before its deadline without an orderly OS shutdown.
+This is preparation evidence, not a positive or missing-target alias result.
