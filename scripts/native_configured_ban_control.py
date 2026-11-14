@@ -115,7 +115,12 @@ def outcome(report: dict, plan: dict) -> None:
         ]
         require(
             len(notices) == 1
-            and notices[0]["is_reply"] == 0
+            and (
+                notices[0]["flags"],
+                notices[0]["is_reply"],
+                notices[0]["error"],
+            )
+            == (0, 0, 0)
             and fields(notices[0]) == {101: base.BAN_TEXT},
             f"{name} configured-ban notice differs",
         )

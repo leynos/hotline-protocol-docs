@@ -12,35 +12,52 @@ from unittest.mock import patch
 import native_configured_ban_cases as cases
 import native_configured_ban_control as control
 import protocol_capture
-from protocol_capture import Recorder, digest, validate_plan
+from native_plan import packet, payload
+from protocol_capture import (
+    Recorder,
+    decode_frame,
+    digest,
+    validate_plan,
+    verify_capture,
+)
 
 
-class FakeRecorder:
+class FakeRecorder(Recorder):
     def __init__(self, plan: dict) -> None:
-        self.plan = plan
+        super().__init__(plan)
         self.started_at_utc = "2026-11-14T04:00:00+00:00"
-        self.sockets = {}
         self.variables = {"target_uid": b"\0\5"}
-        self.frames = []
-        self.events = []
 
-    def execute(self, index: int, step: dict) -> None:
-        if index in (17, 18):
-            name = "main" if index == 17 else "target"
+    def execute(self, action: int, step: dict) -> None:
+        name = step["connection"]
+        op = step["op"]
+        if op == "send":
+            self.event(action, name, "send", bytes.fromhex(step["hex"]))
+        elif op == "read":
+            self.event(action, name, "receive", b"TRTP\0\0\0\0")
+        elif op == "read_frame":
+            kind, identifier, reply = {
+                4: (0, 1, 1),
+                5: (354, 0, 0),
+                6: (109, 0, 0),
+                11: (0, 1, 1),
+                12: (354, 0, 0),
+                13: (109, 0, 0),
+                14: (301, 0, 0),
+                16: (0, 32, 1),
+                17: (104, 0, 0),
+                18: (104, 0, 0),
+            }[action]
+            values = [(101, control.base.BAN_TEXT)] if kind == 104 else []
+            if kind == 301:
+                values = [(103, b"\0\5"), (102, cases.NAME)]
+            raw = bytes.fromhex(packet(kind, identifier, payload(values), reply=reply))
+            self.event(action, name, "receive", raw)
             self.frames.append(
-                {
-                    "connection": name,
-                    "type": 104,
-                    "is_reply": 0,
-                    "fields": [{"id": 101, "hex": control.base.BAN_TEXT.hex()}],
-                }
+                {"action": action, "connection": name, **decode_frame(raw)}
             )
-        if index in (19, 20):
-            name = "main" if index == 19 else "target"
-            self.events.append({"connection": name, "event": "eof", "hex": ""})
-
-    def streams(self) -> dict:
-        return {}
+        else:
+            self.event(action, name, "eof" if op == "read_eof" else op)
 
 
 class ConfiguredBanPreparationTest(unittest.TestCase):
@@ -168,6 +185,7 @@ class ConfiguredBanPreparationTest(unittest.TestCase):
                 )
                 restored = json.loads((root / "out/report.json").read_text())
                 self.assertEqual(restored, report)
+                self.assertEqual(verify_capture(root / "out"), restored)
                 self.assertEqual(report["completed_actions"], 23)
                 control.outcome(restored, plan)
                 shortened = copy.deepcopy(restored)
@@ -180,6 +198,16 @@ class ConfiguredBanPreparationTest(unittest.TestCase):
                 ]
                 with self.assertRaisesRegex(ValueError, "target close missing"):
                     control.outcome(no_eof, plan)
+                for header in ("flags", "is_reply", "error"):
+                    with self.subTest(header=header):
+                        wrong_header = copy.deepcopy(restored)
+                        next(f for f in wrong_header["frames"] if f["type"] == 104)[
+                            header
+                        ] = 1
+                        with self.assertRaisesRegex(
+                            ValueError, "main configured-ban notice differs"
+                        ):
+                            control.outcome(wrong_header, plan)
 
 
 if __name__ == "__main__":
