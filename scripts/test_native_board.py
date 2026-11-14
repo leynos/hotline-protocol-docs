@@ -321,6 +321,41 @@ class BoardTests(unittest.TestCase):
             client.close()
             server.close()
 
+    def test_real_wire_tail_failures_close_owned_fd_and_preserve_bytes(self):
+        for malformed in (False, True):
+            with self.subTest(malformed=malformed):
+                plan = cases.source_plan(environment())
+                recorder = Recorder(plan)
+                wire = Wire(recorder, time.monotonic() + 2)
+                client, server = socket.socketpair()
+                try:
+                    client.setblocking(False)
+                    recorder.sockets["sender"] = client
+                    wire.buffers["sender"] = bytearray()
+                    raw = (
+                        bytes.fromhex(packet(0, 77))[:9]
+                        if not malformed
+                        else bytes.fromhex(packet(0, 77))[:16] + b"\xff" * 4
+                    )
+                    server.sendall(raw)
+                    server.shutdown(socket.SHUT_WR)
+                    with self.assertRaisesRegex(ValueError, "Truncated|size bound"):
+                        wire.close("sender")
+                    self.assertEqual(client.fileno(), -1)
+                    self.assertNotIn("sender", recorder.sockets)
+                    self.assertEqual(
+                        b"".join(
+                            bytes.fromhex(e["hex"])
+                            for e in recorder.events
+                            if e["event"] == "receive"
+                        ),
+                        raw,
+                    )
+                    self.assertEqual(recorder.events[-1]["event"], "close")
+                finally:
+                    client.close()
+                    server.close()
+
     def test_faults_reject_report_claims(self):
         plan, report = fake_report()
         for alteration in (

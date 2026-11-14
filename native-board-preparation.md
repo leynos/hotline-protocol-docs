@@ -76,8 +76,10 @@ order is inferred.
 
 The custom nonblocking collector retains all send/receive chunks, decoded
 physical frames, timestamps, EOF or bounded no-EOF observations, and tails.
-FIN/RST classification requires the paired PCAPs. Limits:
-8 MiB of recorded bytes, 300 frames, 180-second case window inside a hard
+FIN/RST classification requires the paired PCAPs.
+Malformed tails fail the case but still close and remove the owned socket;
+the raw receive event and original parser error remain in `report.json`.
+Limits: 8 MiB of recorded bytes, 300 frames, 180-second case window inside a hard
 210-second runner cap. Missing expected replies, changed semantic fields,
 header/date overhead, source/identity mismatch, timeout, or exceeded limits
 fail the case and retain `report.json`; do not retry or retune the post

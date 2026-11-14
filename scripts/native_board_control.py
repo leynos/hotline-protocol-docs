@@ -185,20 +185,27 @@ class Wire:
         if sock is None:
             return
         try:
-            sock.shutdown(socket.SHUT_WR)
-            self.recorder.event(-1, name, "shutdown_write")
-        except OSError as exc:
-            self.recorder.event(-1, name, "shutdown_error")
-            self.recorder.events[-1]["error"] = str(exc)
-        stop = min(self.deadline, time.monotonic() + 2)
-        while name not in self.eof and time.monotonic() < stop:
-            self.poll(stop)
-        if name not in self.eof:
-            self.recorder.event(-1, name, "no_eof_within_2s")
-        sock.close()
-        self.recorder.event(-1, name, "close")
-        del self.recorder.sockets[name]
-        need(not self.buffers[name], "Truncated board frame in tail")
+            try:
+                sock.shutdown(socket.SHUT_WR)
+                self.recorder.event(-1, name, "shutdown_write")
+            except OSError as exc:
+                self.recorder.event(-1, name, "shutdown_error")
+                self.recorder.events[-1]["error"] = str(exc)
+            stop = min(self.deadline, time.monotonic() + 2)
+            while name not in self.eof and time.monotonic() < stop:
+                self.poll(stop)
+            if name not in self.eof:
+                self.recorder.event(-1, name, "no_eof_within_2s")
+            need(not self.buffers[name], "Truncated board frame in tail")
+        finally:
+            try:
+                sock.close()
+            except OSError as exc:
+                self.recorder.event(-1, name, "close_error")
+                self.recorder.events[-1]["error"] = str(exc)
+            else:
+                self.recorder.event(-1, name, "close")
+            del self.recorder.sockets[name]
 
 
 def success(frame: dict, identifier: int) -> dict[int, bytes]:
