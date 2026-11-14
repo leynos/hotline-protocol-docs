@@ -3,11 +3,11 @@
   "title": "Hotline 1.9 protocol documentation gap register",
   "audited_at_utc": "2026-11-12T12:55:29.155796+00:00",
   "last_updated": "2026-11-14",
-  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/manifest.json",
-  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/sections.json",
+  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-69/manifest.json",
+  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-69/sections.json",
   "validity_ledger": "../mothra/docs/baseline-validity-ledger.md",
   "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
-  "method": "Accept the original endpoint mapping and diagnostic-content documentation criteria after independent review and fresh Ghidra formatter tracing. Preserve all87 original closure criteria:57 Resolved,29 Investigating,1 Open;30 unclosed. Document the finite persisted-ban layout and opaque account111 preservation without closing their semantic/runtime gaps. Keep alternate-wrapper, high-port, at-cap, codec and expiry limits explicit. Further mxd validation remains on hold.",
+  "method": "Integrate bounded temporary-ban fixture preparation, stopped assets, independent pre-live fixes and static optional-reason copy evidence. Preserve all87 original closure criteria and all statuses:57 Resolved,29 Investigating,1 Open;30 unclosed. Eight focused tests and438native tests pass; no native kick/protection/expiry result is claimed by this preparation. Further mxd validation remains on hold.",
   "gaps": [
     {
       "id": "GAP-001",
@@ -1142,7 +1142,7 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Added content loader file-type-dependent inclusive limits: TEXT65535 and other types262140, plus configuration server-name copy cap31. Complete field/aggregate limits and native max/max-plus-one fixtures remain required. Native31-byte account create/read/login succeeds;32-byte creation/read/login reportsbadfilename. Over32login namesclippedto32 byhelper. Scopeisthisnativefilesystempath; no valid32-byte record orbackend-universalcap inferred. Positive native TEXT65535 emitsfull101; TEXT65536/BMP262141 hit65535/262140 loaderwarnings andomitfields. BMP65536 loadsbutfieldwriter raises1/10 before109; early/delayedpartialstates differ. Otherfieldlimits andtruncation remain required. PositivePrefs and162agree on31-byte exactname andfirst31bytes of32-byte typingattempt. Emptyname omits162. Thisconfiguration/UI capisdistinct fromgeneric65535-byte TLV andaccountlookup32/session31caps. Otherfieldlimits remain required. 205 reads up to255 Pascal content bytes, then preOSX normalization clips tested32/255/256/65535-byte names to31. A44-byte .txt name yields27-byte prefix plus extension. Static>=0a00 branch remains unexecuted; other semantic length requirements remain active. Native207/206boundarywrites0/1/198/199/200/201/254/255/256/300/65535show199maximumreadbackforbothfile/folderprofile. Setterwrapperclips255andlowerDesktopManagerhelperpassesatmost200;observedreadbackdoesnotproveportablecapacity/restartdurability. Otherlimitsremainactive. Native410submitted64-bytetitleclips31contentbytes;serializerstaticcaps63title/31poster/63flavourremainseparate. Body65535roundtripsand321usesunsignedffff. Otherlengthlimitsremainactive. Native child-chain append boundary: 101 children remain reachable; the 102nd append returns ACK but bypasses child 101 (public ID102). This is not a general 100-article category ceiling. Other semantic lengths remain active. Native network 350 stores 32-byte password and login 32 succeeds;353 replacement 32 also succeeds. NUL preservation of an existing 32-byte password clips 31, after which 31 succeeds and old 32 fails. Submitted 65-byte 111 clips 64. Other semantic length boundaries remain required. Batch nested records copy at most 512 bytes; complete known prefixes survive a 513-byte entry, while identity beyond an incomplete first field is unavailable. Other semantic caps remain active. Topic inputs of 255/256/65535 bytes establish a 255-byte cap with exact outputs and repeated-join readback. Other semantic caps remain active. Native all-ones stored/login/readback evidence preserves raw bitmap identity; unknown-bit meanings remain open.",
+        "progress": "Added content loader file-type-dependent inclusive limits: TEXT65535 and other types262140, plus configuration server-name copy cap31. Complete field/aggregate limits and native max/max-plus-one fixtures remain required. Native31-byte account create/read/login succeeds;32-byte creation/read/login reportsbadfilename. Over32login namesclippedto32 byhelper. Scopeisthisnativefilesystempath; no valid32-byte record orbackend-universalcap inferred. Positive native TEXT65535 emitsfull101; TEXT65536/BMP262141 hit65535/262140 loaderwarnings andomitfields. BMP65536 loadsbutfieldwriter raises1/10 before109; early/delayedpartialstates differ. Otherfieldlimits andtruncation remain required. PositivePrefs and162agree on31-byte exactname andfirst31bytes of32-byte typingattempt. Emptyname omits162. Thisconfiguration/UI capisdistinct fromgeneric65535-byte TLV andaccountlookup32/session31caps. Otherfieldlimits remain required. 205 reads up to255 Pascal content bytes, then preOSX normalization clips tested32/255/256/65535-byte names to31. A44-byte .txt name yields27-byte prefix plus extension. Static>=0a00 branch remains unexecuted; other semantic length requirements remain active. Native207/206boundarywrites0/1/198/199/200/201/254/255/256/300/65535show199maximumreadbackforbothfile/folderprofile. Setterwrapperclips255andlowerDesktopManagerhelperpassesatmost200;observedreadbackdoesnotproveportablecapacity/restartdurability. Otherlimitsremainactive. Native410submitted64-bytetitleclips31contentbytes;serializerstaticcaps63title/31poster/63flavourremainseparate. Body65535roundtripsand321usesunsignedffff. Otherlengthlimitsremainactive. Native child-chain append boundary: 101 children remain reachable; the 102nd append returns ACK but bypasses child 101 (public ID102). This is not a general 100-article category ceiling. Other semantic lengths remain active. Native network 350 stores 32-byte password and login 32 succeeds;353 replacement 32 also succeeds. NUL preservation of an existing 32-byte password clips 31, after which 31 succeeds and old 32 fails. Submitted 65-byte 111 clips 64. Other semantic length boundaries remain required. Batch nested records copy at most 512 bytes; complete known prefixes survive a 513-byte entry, while identity beyond an incomplete first field is unavailable. Other semantic caps remain active. Topic inputs of 255/256/65535 bytes establish a 255-byte cap with exact outputs and repeated-join readback. Other semantic caps remain active. Native all-ones stored/login/readback evidence preserves raw bitmap identity; unknown-bit meanings remain open. Revision69 adds the source-derived1024-byte final303 output cap and bounded63-byte request110 reason staging, including the inferred prefix-copy transformation; at-cap runtime clipping and nonempty stored-reason fixtures remain unobserved.",
         "evidence": [
           "[Login extras and content](presence-messaging-contracts.md#login-extras-and-configured-content)",
           "[Native loader](../mothra/evidence/gap-remediation/2026-11-12/batch-17/queries/B17-D-10003940.c)",
@@ -1167,7 +1167,9 @@
           "[Native room contract](presence-messaging-contracts.md#captured-private-rooms-invitations-and-chat-bytes)",
           "[Native room corpus](../mothra/evidence/gap-remediation/2026-11-13/native-rooms-01/manifest.json)",
           "[Repeatable room workflow](native-capture-workflow.md#reproducing-private-rooms-and-chat-byte-fixtures)",
-          "[Second delegated investigation](bitmap-boundaries.md)"
+          "[Second delegated investigation](bitmap-boundaries.md)",
+          "[Diagnostic formatter and emitted byte count](diagnostic-formatting-trace.md)",
+          "[Reason-copy trace and its limits](native-ban-file-format.md#request-110-reason-copy-path)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -4201,7 +4203,7 @@
         "GAP-036"
       ],
       "resolution": {
-        "progress": "Traced option 1 timed 1800-second address ban and option 2 persisted version-2 address-ban list; plain kick, missing target and protection branches documented. Expiry/restart/protected native fixtures remain required. Two bit-23 subjects reject administrator kicking and remain live before account deletion. Plain kick, both ban options, expiry/restart and broader protection fixtures remain active. Revision60: second disposable lab failed the mandatory full A7 download after 98,304 of 1,049,073 bytes, before any option-two request. Guest/namespace/recorder prefixes match; all observed payload was ACKed with positive receive windows. Producer stall cause remains unknown; this is a retained failure, not ban acceptance. Revision62: the third disposable lab also failed its mandatory 29-action A7 at the same 98,304-byte prefix, before any account seed or option-two request. Independent reassembly confirms C32 completed 1,049,073 bytes in both views; C35/C45 stopped at the identical prefix. Recorded source images, binaries and preferences match, but live worker/GUI state is missing and the cause remains unknown. Revision63: one delivered focus event did not resume the exact dual 98,304-byte prefix, and the stock full A7 failed. This falsifies that one event-resume claim only; no account or ban request ran. Revision64 imports the gated control-only permanent-ban preparation with root controller identity checks. C53 was retired without frontend contact. No permanent-ban case is accepted by this checkpoint; expiry, reload and protection requirements remain open. Revision65 accepts one option-two control-only ban with target identity/zero-access/current-roster gates, no reason101, successful same-admin postreadback and fresh TRTP+Login107 status1/100 permanent notice. The stopped49-byte Banned data fork is preserved. Temporary expiry, permanent reload and full protection fixtures remain open. Revision68 documents three stopped49-byte Banned v2 files with exact offsets and writer/reader trace: version/count, flag, twoIPv4 endpoints,33-byte display area and zero-length reason. In-memory expiry+4 is not serialized. The11-byte display remainder stays opaque; C56/C62 reload is one case, C68 has no reload. Temporary expiry, kick-only and protection fixtures remain required.",
+        "progress": "Traced option 1 timed 1800-second address ban and option 2 persisted version-2 address-ban list; plain kick, missing target and protection branches documented. Expiry/restart/protected native fixtures remain required. Two bit-23 subjects reject administrator kicking and remain live before account deletion. Plain kick, both ban options, expiry/restart and broader protection fixtures remain active. Revision60: second disposable lab failed the mandatory full A7 download after 98,304 of 1,049,073 bytes, before any option-two request. Guest/namespace/recorder prefixes match; all observed payload was ACKed with positive receive windows. Producer stall cause remains unknown; this is a retained failure, not ban acceptance. Revision62: the third disposable lab also failed its mandatory 29-action A7 at the same 98,304-byte prefix, before any account seed or option-two request. Independent reassembly confirms C32 completed 1,049,073 bytes in both views; C35/C45 stopped at the identical prefix. Recorded source images, binaries and preferences match, but live worker/GUI state is missing and the cause remains unknown. Revision63: one delivered focus event did not resume the exact dual 98,304-byte prefix, and the stock full A7 failed. This falsifies that one event-resume claim only; no account or ban request ran. Revision64 imports the gated control-only permanent-ban preparation with root controller identity checks. C53 was retired without frontend contact. No permanent-ban case is accepted by this checkpoint; expiry, reload and protection requirements remain open. Revision65 accepts one option-two control-only ban with target identity/zero-access/current-roster gates, no reason101, successful same-admin postreadback and fresh TRTP+Login107 status1/100 permanent notice. The stopped49-byte Banned data fork is preserved. Temporary expiry, permanent reload and full protection fixtures remain open. Revision68 documents three stopped49-byte Banned v2 files with exact offsets and writer/reader trace: version/count, flag, twoIPv4 endpoints,33-byte display area and zero-length reason. In-memory expiry+4 is not serialized. The11-byte display remainder stays opaque; C56/C62 reload is one case, C68 has no reload. Temporary expiry, kick-only and protection fixtures remain required. Revision69 supplies static instruction evidence for the request110 option2 optional-reason copy: bounded TLV payload lengthL is staged before its bytes; constructor raw-copies from the unadjusted length-byte pointer, predicting length byte plus firstL-1 content bytes forL1..63. This is not a nonempty runtime fixture or Options UI rule. The new expiry fixture is preparation only: first18baseline, deliberate35second connection-burst settling, kick0/protected/option1 plans, and separate pre/post first-lookup probes with current process/namespace/mutex/deadline gates. Eight focused tests and all438native tests pass; no kick/protection/expiry acceptance follows before live evidence.",
         "evidence": [
           "[Presence, messaging and administration](presence-messaging-contracts.md)",
           "[Batch 06](../mothra/evidence/gap-remediation/2026-11-12/batch-06/manifest.json)",
@@ -4213,7 +4215,10 @@
           "[Verified focus-event negative](native-ui-focus-witness.md)",
           "[Control-onlybanpreparation](native-ban-control-preparation.md)",
           "[Permanent-ban control witness](native-ban-control-witness.md)",
-          "[Observed Banned v2 layout](native-ban-file-format.md)"
+          "[Observed Banned v2 layout](native-ban-file-format.md)",
+          "[Request110 reason-copy source trace](native-ban-file-format.md#request-110-reason-copy-path)",
+          "[Bounded temporary-ban fixture preparation](native-ban-expiry-preparation.md)",
+          "[Stopped assets and pre-live reviews](../mothra/evidence/gap-remediation/2026-11-14/native-ban-expiry-preparation-01/manifest.json)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -13603,7 +13608,7 @@
       "heading": "Native Hotline Server 1.9 `Banned` data fork: observed v2 layout",
       "level": 1,
       "line_start": 1,
-      "line_end": 34,
+      "line_end": 36,
       "anchor": "native-hotline-server-19-banned-data-fork-observed-v2-layout",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -13617,9 +13622,24 @@
       "path": "native-ban-file-format.md",
       "heading": "Reader and writer bounds",
       "level": 2,
-      "line_start": 35,
-      "line_end": 62,
+      "line_start": 37,
+      "line_end": 65,
       "anchor": "reader-and-writer-bounds",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-074"
+      ],
+      "related_gap_ids": [
+        "GAP-074"
+      ]
+    },
+    {
+      "path": "native-ban-file-format.md",
+      "heading": "Request 110 reason-copy path",
+      "level": 2,
+      "line_start": 66,
+      "line_end": 89,
+      "anchor": "request-110-reason-copy-path",
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-074"
@@ -13632,9 +13652,99 @@
       "path": "native-ban-file-format.md",
       "heading": "Replay and limits",
       "level": 2,
-      "line_start": 63,
-      "line_end": 79,
+      "line_start": 90,
+      "line_end": 106,
       "anchor": "replay-and-limits",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-074"
+      ],
+      "related_gap_ids": [
+        "GAP-074"
+      ]
+    },
+    {
+      "path": "native-ban-expiry-preparation.md",
+      "heading": "Native temporary-ban expiry fixture preparation",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 6,
+      "anchor": "native-temporary-ban-expiry-fixture-preparation",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-074"
+      ],
+      "related_gap_ids": [
+        "GAP-074"
+      ]
+    },
+    {
+      "path": "native-ban-expiry-preparation.md",
+      "heading": "Scope and owned identities",
+      "level": 2,
+      "line_start": 7,
+      "line_end": 38,
+      "anchor": "scope-and-owned-identities",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-074"
+      ],
+      "related_gap_ids": [
+        "GAP-074"
+      ]
+    },
+    {
+      "path": "native-ban-expiry-preparation.md",
+      "heading": "Prepared case order",
+      "level": 2,
+      "line_start": 39,
+      "line_end": 64,
+      "anchor": "prepared-case-order",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-074"
+      ],
+      "related_gap_ids": [
+        "GAP-074"
+      ]
+    },
+    {
+      "path": "native-ban-expiry-preparation.md",
+      "heading": "Repeatable offline commands and live prerequisites",
+      "level": 2,
+      "line_start": 65,
+      "line_end": 129,
+      "anchor": "repeatable-offline-commands-and-live-prerequisites",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-074"
+      ],
+      "related_gap_ids": [
+        "GAP-074"
+      ]
+    },
+    {
+      "path": "native-ban-expiry-preparation.md",
+      "heading": "Time and interpretation",
+      "level": 2,
+      "line_start": 130,
+      "line_end": 143,
+      "anchor": "time-and-interpretation",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-074"
+      ],
+      "related_gap_ids": [
+        "GAP-074"
+      ]
+    },
+    {
+      "path": "native-ban-expiry-preparation.md",
+      "heading": "Verification and decision gates",
+      "level": 2,
+      "line_start": 144,
+      "line_end": 160,
+      "anchor": "verification-and-decision-gates",
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-074"

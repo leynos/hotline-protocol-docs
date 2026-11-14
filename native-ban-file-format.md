@@ -6,7 +6,9 @@ local server store, not a Hotline network packet. The [portable corpus](../mothr
 contains all three 49-byte files, decoded offsets, source query results, and
 SHA-256 inventory. The source queries identify the `HLserver19` PEF as
 PowerPC big-endian 32-bit; the application DATA fork identity is
-`ad7040db4eb6…`. No live image or Ghidra project was consulted for this note.
+`ad7040db4eb6…`. The layout comparison uses stopped files; the later
+reason-copy trace below
+uses a separate independent Ghidra import, with no live image access.
 
 <!-- markdownlint-disable MD013 -->
 | Offset | Size | Observed bytes and supported interpretation |
@@ -56,9 +58,34 @@ Constructor `10006230` sets in-memory `+4` to `ffffffff`, fills the display
 region and its length byte, sets the two endpoints, and caps the in-memory
 reason length at 63. Reader `1000a070` also initialises in-memory `+4` to
 `ffffffff`. **The v2 writer never serialises `+4`**: there is no four-byte
-expiry field in these records. The call to `100539c0` copies reason bytes, but
-its standalone implementation was not retained, so its handling of an input
-Pascal string or field 101 cannot be inferred here.
+expiry field in these records. The original layout corpus did not include
+the standalone copy helper.
+The later trace below supplies it; these three zero-reason samples alone
+cannot establish a nonempty reason transformation.
+
+## Request 110 reason-copy path
+
+The [later static corpus](../mothra/evidence/gap-remediation/2026-11-14/native-ban-reason-static-01/manifest.json)
+traces option 2's optional field 101 through instruction evidence and the
+bounded TLV reader. Handler `10015e70` copies at most 63 payload bytes into
+a stack buffer immediately after a one-byte returned length, then passes the
+**length byte's address** to constructor `10006230`.
+
+Helper `10056b60` forwards offset zero to `100566e0` and returns its count;
+its old decompiled `void` signature loses that return. The constructor sets
+its reason length from the first supplied byte, caps it at 63, then calls
+`100539c0` with the same unadjusted input pointer. That helper is a raw
+`BlockMoveData` wrapper and does not skip a length prefix.
+
+**Source-derived consequence:** for a present field yielding length `L` in
+1–63, this path predicts stored reason bytes `[L] + payload[:L-1]`: the
+length byte is copied and the last copied payload byte is omitted. This is
+an inferred native transformation, not a proposed repair or a captured
+nonempty-reason result. The three retained files all have reason length zero.
+The connected-client permanent-ban notice remains the fixed generated text,
+separate from this stored reason. Options Save reaches the list writer
+through its UI list transformation, so this request-110 inference must not
+be assigned to that separate input path without tracing it.
 
 ## Replay and limits
 
