@@ -55,3 +55,54 @@ positive windows, no primary bridge traffic and recorded lab retirement.
 It rejects a resealed false-success report, zero-window packet and truncated
 guest packet in focused controls. GAP-044 still lacks the option-two notice,
 post-ban login result and persistence observations.
+
+## Repeated baseline and a successful comparison
+
+An offline comparison completed on **14 November 2026**. The new portable
+corpus, `../mothra/evidence/gap-remediation/2026-11-14/native-transfer-repeat-01/`,
+keeps the original and as-run A7 plans, reports, launch and retirement
+receipts, configuration hashes, and guest, namespace and host PCAPs for three
+disposable labs. Its verifier selects each download flow by SYN and the
+runner's local port and time, then reconstructs application bytes from each
+packet view independently:
+
+| Lab | A7 actions | Lab guest bytes | Lab namespace bytes | Outcome |
+| --- | ---: | ---: | ---: | --- |
+| C32 | 29/29 | 1,049,073 | 1,049,073 | Completed |
+| C35 | 21/29 | 98,304 | 98,304 | Timed out |
+| C45 | 21/29 | 98,304 | 98,304 | Timed out |
+
+Both C32 packet views have the full flattened file, SHA-256
+`7d1f5bf5e2b69b8a18906633ce2ef550876b78252c0639e7d36eb61142787ab8`.
+C35 and C45 each have the same byte-identical 98,304-byte prefix, SHA-256
+`b4c6dc15be0d82de42d3aa7102c1feca67397b978591ac8be2d2c846d6a62e7c`.
+Each prefix ends after 72 payload packets; C32's 73rd followed its 72nd by
+5.337 ms in the guest capture. This confirms C32 success in the wire views,
+not just in a recorder label. It does not identify why C35 and C45 stopped.
+
+The three runs used the same 29 A7 steps and driver hash, immutable base
+disk, ROM, native app, emulator executable, 512 MiB RAM and guest preference
+file hash. Their normalized SheepShaver preferences match; display and
+frontend ports differ. The original download settings in the plans refer to
+an earlier screenshot, with `captured_options=false`, so contemporaneous lab
+GUI settings were **not recorded**. No guest worker counter, send queue or
+callback state was sampled at the stalled byte. C45 retired its owned lab
+after the mandatory A7 failure, before account creation or option two; its
+cleanup receipt retains the `/proc` race and unit absence rather than
+silently treating those intermediate errors as clean exits. Neither failure
+is evidence for a native transfer-size limit or permanent-ban behaviour.
+
+The exact emulator binary has DWARF and symbols for guest RAM and PPC CPU
+state, but its build disables the monitor and the PPC flight recorder is not
+started automatically. A future test would need separately approved,
+scheduling-aware observation of the download worker, queued bytes, `OTSnd`
+acceptance and callback delivery at the 98,304-byte boundary. No live
+attachment or new lab run was performed for this comparison.
+
+Replay the exported corpus without a VM or live socket:
+
+```sh
+python3 scripts/verify_native_transfer_repeat.py \
+  ../mothra/evidence/gap-remediation/2026-11-14/native-transfer-repeat-01
+python3 -m unittest discover -s scripts -p 'test_native_transfer_repeat.py'
+```
