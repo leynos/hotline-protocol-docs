@@ -29,6 +29,7 @@ def frame(
     fields: list[tuple[int, bytes]],
     *,
     reply: int = 0,
+    flags: int = 0,
     error: int = 0,
     total: int | None = None,
 ) -> bytes:
@@ -38,7 +39,7 @@ def frame(
     return (
         struct.pack(
             ">BBHIIII",
-            0,
+            flags,
             reply,
             kind,
             identifier,
@@ -459,6 +460,7 @@ class ClassicLoginProxyTests(unittest.TestCase):
         for raw in (
             frame(0, 3, [(300, packed)]),
             frame(0, 3, [(300, packed)], reply=1, error=1),
+            frame(0, 3, [(300, packed)], reply=1, flags=1),
             frame(109, 3, [(300, packed)]),
         ):
             with self.subTest(raw=raw.hex()):

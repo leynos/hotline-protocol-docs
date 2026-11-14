@@ -130,8 +130,14 @@ class RosterState:
             if (
                 self.first_id is None
                 or self.rewritten
-                or (frame["type"], frame["is_reply"], frame["id"], frame["error"])
-                != (0, 1, self.first_id, 0)
+                or (
+                    frame["type"],
+                    frame["is_reply"],
+                    frame["id"],
+                    frame["error"],
+                    frame["flags"],
+                )
+                != (0, 1, self.first_id, 0, 0)
             ):
                 return raw
             records = [value for key, value in frame["fields"] if key == 300]

@@ -95,7 +95,8 @@ least one structurally valid packed 300 user record is rebuilt. It appends one
 15-byte ASCII 115 after all existing fields, preserving every packed record,
 other field, flag, status and ID. An existing 115, malformed packed record or
 oversized rebuilt frame fails before forwarding. A different ID, notification,
-non-reply or error response passes unchanged; later 300 replies do too. The
+non-reply, error or nonzero-flags response passes unchanged; later 300 replies
+do too. The
 login ACK and independent 28-second timer are unchanged. The frozen B57 first
 roster reply (41 bytes, SHA-256 `0b294b5288d8875469cb8ff3e0985a3200b538c0caf30643869183774e9ad209`)
 would become 60 bytes, SHA-256
