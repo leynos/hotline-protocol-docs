@@ -58,3 +58,30 @@ client binary:
 sha256sum --quiet -c \
   evidence/gap-remediation/2026-11-14/classic-privilege-discovery-01/SHA256SUMS
 ```
+
+## Bounded follow-up of the class data reference
+
+Four later read-only runs against the **same saved independent Classic
+project** are frozen in the [follow-up corpus](../mothra/evidence/gap-remediation/2026-11-14/classic-privilege-followups-01/manifest.json).
+Each run made exactly two content calls with `--no-analyze --discard`; DATA,
+RSRC and extension-JAR hashes, PowerPC BE32 identity and 3,564 functions
+matched before and after. No GUI or native server project was used.
+
+The first run read the actual `CMyAdminEditUserWin` bytes at `1014fef8` and
+found one **DATA** xref from `1014ff30`, with no enclosing function. A second
+run read the bounded metadata window and found another DATA xref from
+`1014ff38` to `1014ff30`. A third run found **zero** xrefs to `1014ff38`.
+Its 16-byte read at `101390d4` contained four big-endian words, including
+`10090210` and `10090190`; their adjacency does not identify a vtable,
+constructor or UI control.
+
+The fourth run decompiled `10090210`: the body tests an object field,
+traverses a linked structure, and clears bit 6 of a byte at object offset
+`+0x12`. It does not connect that object to the class metadata or the
+eight-byte account privilege bitmap. A query at `10090190` returned the
+retained `FUNCTION_NOT_FOUND` error. These finite results provide no
+client checkbox-to-bit mapping and no server enforcement meaning for bits
+18/19 or 41–63. The old bit-19 private-message guess remains rejected.
+Any future label claim needs a positive class/control-to-account-object
+write edge; these data-only references and object-bit operation do not supply
+one. GAP-031 remains open.
