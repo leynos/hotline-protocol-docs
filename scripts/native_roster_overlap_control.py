@@ -270,6 +270,96 @@ def prepared(path: Path) -> dict:
     return plan
 
 
+def verify_operation_map(plan: dict, report: dict) -> None:
+    """Replay source operation labels and retained event/stream provenance."""
+    schedule = plan["coordinator"]
+    need(
+        report["plan_sha256"] == sha((json.dumps(plan, indent=2) + "\n").encode()),
+        "As-run plan source changed",
+    )
+    need(
+        schedule["schema_version"] == 1 and schedule["drain_action"] == -1,
+        "Coordinator schema differs",
+    )
+    need(
+        report["coordinator_sha256"]
+        == sha(json.dumps(schedule, sort_keys=True).encode()),
+        "Coordinator source changed",
+    )
+    mapped = report["operation_map"]
+    need(
+        [entry["label"] for entry in mapped]
+        == ["setup", *[op["label"] for op in schedule["operations"]], "teardown"],
+        "Operation map labels differ",
+    )
+    events, frames = report["events"], report["frames"]
+    event_cursor = frame_cursor = 0
+    for entry in mapped:
+        begin, end = entry["event_range"]
+        first, last = entry["frame_range"]
+        need(
+            begin == event_cursor <= end <= len(events)
+            and first == frame_cursor <= last <= len(frames),
+            "Operation map bounds differ",
+        )
+        event_cursor, frame_cursor = end, last
+        source = next(
+            (op for op in schedule["operations"] if op["label"] == entry["label"]), None
+        )
+        if source and source["op"] == "send":
+            chunks = [event for event in events[begin:end] if event["event"] == "send"]
+            need(
+                len(chunks) >= 1
+                and all(e["connection"] == source["connection"] for e in chunks)
+                and "".join(e["hex"] for e in chunks)
+                == plan["overlap"][source["packet_key"]],
+                "Injected request bytes differ",
+            )
+        if source and source["op"] == "drain":
+            need(
+                all(e["action"] == -1 for e in events[begin:end])
+                and all(
+                    f["action"] == -1
+                    and f["raw_hex"]
+                    and decode_frame(bytes.fromhex(f["raw_hex"]))["id"] == f["id"]
+                    for f in frames[first:last]
+                ),
+                "Custom drain event/frame provenance differs",
+            )
+            for label in ("a", "b"):
+                wire = "".join(
+                    e["hex"]
+                    for e in events[begin:end]
+                    if e["event"] == "receive" and e["connection"] == label
+                )
+                parsed = "".join(
+                    f["raw_hex"] for f in frames[first:last] if f["connection"] == label
+                )
+                need(wire == parsed, "Custom drain raw frames differ from bytes")
+        if source and source["op"] == "quiet":
+            need(
+                len(events[begin:end]) == 1
+                and events[begin]["connection"] == source["connection"]
+                and events[begin]["event"] in {"quiet", "receive", "eof"},
+                "Quiet observation connection differs",
+            )
+    need(
+        event_cursor == len(events) and frame_cursor == len(frames),
+        "Unmapped as-run event or frame",
+    )
+    rebuilt = {}
+    for event in events:
+        label = event["connection"]
+        if not label:
+            continue
+        stream = rebuilt.setdefault(label, {"sent_hex": "", "received_hex": ""})
+        if event["event"] == "send":
+            stream["sent_hex"] += event["hex"]
+        elif event["event"] == "receive":
+            stream["received_hex"] += event["hex"]
+    need(rebuilt == report["streams"], "Recorded TCP streams differ from raw events")
+
+
 def run(plan_dir: Path, receipt_path: Path, binary: Path, output: Path) -> dict:
     plan = prepared(plan_dir)
     receipt = json.loads(receipt_path.read_text())
@@ -286,11 +376,25 @@ def run(plan_dir: Path, receipt_path: Path, binary: Path, output: Path) -> dict:
         MAX_SECONDS, (deadline - datetime.now(timezone.utc)).total_seconds()
     )
     status, error, old_or_new = "completed", "", None
+    overlap_status, teardown_status = "not_completed", "not_started"
+    operation_map: list[dict] = []
+    late_observations: list[str] = []
     drain = None
     actions = 0
+
+    def mark(label: str, event_start: int, frame_start: int) -> None:
+        operation_map.append(
+            {
+                "label": label,
+                "event_range": [event_start, len(recorder.events)],
+                "frame_range": [frame_start, len(recorder.frames)],
+            }
+        )
+
     try:
         steps = plan["steps"]
         teardown = next(i for i, s in enumerate(steps) if s["op"] == "shutdown_write")
+        event_start, frame_start = len(recorder.events), len(recorder.frames)
         for action, step in enumerate(steps[:teardown]):
             remaining = end - time.monotonic()
             need(remaining > 0, "Setup deadline reached")
@@ -298,73 +402,93 @@ def run(plan_dir: Path, receipt_path: Path, binary: Path, output: Path) -> dict:
                 action, {**step, "timeout": min(step.get("timeout", 2), remaining)}
             )
             actions += 1
+        mark("setup", event_start, frame_start)
         a_uid, b_uid = check_setup(recorder)
         runtime_gate(receipt, plan["environment"], deadline)
         overlap = plan["overlap"]
         drain = DualDrain(recorder, end)
-        for label, key in (
-            ("a", "a_300"),
-            ("b", "b_304"),
-            ("a", "a_500"),
-            ("b", "b_500"),
-        ):
-            recorder.execute(
-                actions,
-                {
-                    "op": "send",
-                    "connection": label,
-                    "hex": overlap[key],
-                    "timeout": min(2, end - time.monotonic()),
-                },
-            )
-            actions += 1
-        first = drain.until(
-            {
-                ("a", 1, 0, 11),
-                ("a", 1, 0, 12),
-                ("b", 1, 0, 12),
-                ("a", 0, 301, 0),
-                ("b", 0, 301, 0),
-            },
-            overlap["drain_seconds"],
-        )
-        old_or_new = check_overlap(first, a_uid, b_uid)
-        recorder.execute(
-            actions,
-            {
-                "op": "send",
-                "connection": "a",
-                "hex": overlap["a_final_300"],
-                "timeout": min(2, end - time.monotonic()),
-            },
-        )
-        actions += 1
-        final = drain.until({("a", 1, 0, 13)}, overlap["drain_seconds"])
-        need(len(final) == 1, "Unexpected frame before stable snapshot")
-        exact_rows(one(final, "a", 0, 13, 1), a_uid, b_uid, b_new=True)
-        for label in ("a", "b"):
-            recorder.execute(
-                actions,
-                {
-                    "op": "expect_quiet",
-                    "connection": label,
-                    "timeout": min(overlap["quiet_seconds"], end - time.monotonic()),
-                },
-            )
-            actions += 1
+        for operation in plan["coordinator"]["operations"]:
+            event_start, frame_start = len(recorder.events), len(recorder.frames)
+            try:
+                if operation["op"] == "send":
+                    recorder.execute(
+                        actions,
+                        {
+                            "op": "send",
+                            "connection": operation["connection"],
+                            "hex": overlap[operation["packet_key"]],
+                            "timeout": min(2, end - time.monotonic()),
+                        },
+                    )
+                    actions += 1
+                elif operation["op"] == "drain":
+                    required = {tuple(item) for item in operation["required"]}
+                    frames = drain.until(required, overlap["drain_seconds"])
+                    if operation["label"] == "overlap-drain":
+                        old_or_new = check_overlap(frames, a_uid, b_uid)
+                    else:
+                        need(
+                            len(frames) == 1, "Unexpected frame before stable snapshot"
+                        )
+                        exact_rows(one(frames, "a", 0, 13, 1), a_uid, b_uid, b_new=True)
+                        overlap_status = "completed"
+                elif operation["op"] == "quiet":
+                    try:
+                        recorder.execute(
+                            actions,
+                            {
+                                "op": "expect_quiet",
+                                "connection": operation["connection"],
+                                "timeout": min(
+                                    overlap["quiet_seconds"], end - time.monotonic()
+                                ),
+                            },
+                        )
+                    except ValueError as failure:
+                        late_observations.append(f"{operation['label']}: {failure}")
+                    actions += 1
+                else:
+                    raise ValueError("Unrecognised coordinator operation")
+            finally:
+                mark(operation["label"], event_start, frame_start)
         before_teardown = len(recorder.frames)
-        for step in steps[teardown:]:
-            remaining = end - time.monotonic()
-            need(remaining > 0, "Teardown deadline reached")
-            recorder.execute(
-                actions, {**step, "timeout": min(step.get("timeout", 2), remaining)}
-            )
-            actions += 1
-        leave = one(recorder.frames, "a", 302, 0, 0)
+        event_start, frame_start = len(recorder.events), len(recorder.frames)
+        eof_actions: set[int] = set()
+        teardown_status = "in_progress"
+        try:
+            for step in steps[teardown:]:
+                remaining = end - time.monotonic()
+                need(remaining > 0, "Teardown deadline reached")
+                if step["op"] == "read_eof":
+                    eof_actions.add(actions)
+                recorder.execute(
+                    actions, {**step, "timeout": min(step.get("timeout", 2), remaining)}
+                )
+                actions += 1
+        finally:
+            mark("teardown", event_start, frame_start)
+        leaves = [
+            frame
+            for frame in recorder.frames[before_teardown:]
+            if expected_frame(frame, "a", 302, 0, 0)
+            and fields(frame).get(103) == b_uid.to_bytes(2, "big")
+        ]
         need(
-            len(recorder.frames[before_teardown:]) == 1
-            and fields(leave).get(103) == b_uid.to_bytes(2, "big"),
-            "Departure UID differs",
+            bool(leaves),
+            "Departure UID missing from retained teardown",
+        )
+        late_bytes = any(
+            event["event"] == "receive"
+            and event["hex"]
+            and event["action"] in eof_actions
+            for event in recorder.events[event_start:]
+        )
+        teardown_status = (
+            "completed_with_late_bytes"
+            if late_observations
+            or late_bytes
+            or len(recorder.frames[before_teardown:]) > len(leaves)
+            else "completed"
         )
     except (
         OSError,
@@ -377,12 +501,17 @@ def run(plan_dir: Path, receipt_path: Path, binary: Path, output: Path) -> dict:
         KeyboardInterrupt,
     ) as failure:
         status, error = "failed", f"{type(failure).__name__}: {failure}"
+        if teardown_status == "in_progress":
+            teardown_status = "failed"
     finally:
         for label, sock in list(recorder.sockets.items()):
             sock.close()
             recorder.event(actions, label, "close")
     result = {
         "status": status,
+        "overlap_status": overlap_status,
+        "teardown_status": teardown_status,
+        "late_observations": late_observations,
         "error": error,
         "completed_actions": actions,
         "old_or_new_snapshot": old_or_new,
@@ -390,6 +519,10 @@ def run(plan_dir: Path, receipt_path: Path, binary: Path, output: Path) -> dict:
         "oracle_sha256": ORACLE_SHA256,
         "plan_sha256": sha((plan_dir / "plan.json").read_bytes()),
         "receipt_sha256": sha(receipt_path.read_bytes()),
+        "coordinator_sha256": sha(
+            json.dumps(plan["coordinator"], sort_keys=True).encode()
+        ),
+        "operation_map": operation_map,
         "started_at_utc": recorder.started_at_utc,
         "recorded_at_utc": datetime.now(timezone.utc).isoformat(),
         "events": recorder.events,
@@ -399,6 +532,12 @@ def run(plan_dir: Path, receipt_path: Path, binary: Path, output: Path) -> dict:
         else {name: data.hex() for name, data in drain.buffers.items()},
         "streams": recorder.streams(),
     }
+    if result["status"] == "completed":
+        try:
+            verify_operation_map(plan, result)
+        except (ValueError, KeyError, IndexError) as failure:
+            result["status"] = "failed"
+            result["error"] = f"As-run map: {failure}"
     (output / "plan.json").write_text(json.dumps(plan, indent=2) + "\n")
     (output / "report.json").write_text(json.dumps(result, indent=2) + "\n")
     return result

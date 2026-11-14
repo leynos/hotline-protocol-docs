@@ -71,6 +71,23 @@ At most two control connections are opened, below the ten-connection cap.
    close; A's B-UID 302 is checked. Unexpected bytes remain in the failed
    report and external packet captures.
 
+The versioned `coordinator.operations` schedule declares five injected sends,
+two unordered drains with exact required frame keys, and two quiet checks.
+Custom drain receives use action `-1`. The as-run report records schedule
+SHA and operation labels with event/frame ranges. `verify_operation_map`
+checks plan/schedule hashes, contiguous ranges, injected bytes, custom
+receive provenance, quiet connections and reconstructed streams.
+Generic `protocol_capture.verify_capture` does **not** certify this custom
+report. Freeze the plan, report and exact producer/runner sources for portable
+publication; host/guest packet parity remains a separate check.
+
+`overlap_status` becomes `completed` only after ID 11 and stable ID 13 pass.
+Teardown has a separate status. Planned half-close/read-to-EOF retains late
+bytes without requiring empty tails; observed extras are classified as
+`completed_with_late_bytes`. Cleanup failure leaves overall `status=failed`
+while retaining a completed overlap result. The B-UID 302 is required, but
+other late frames do not invalidate the earlier roster measurement.
+
 TCP preserves each connection's request order. Treat the 500 ACK as a
 same-socket **handler** barrier only after confirming the traced dispatcher
 finishes the prior handler before processing 500. Neither barrier gives a
@@ -81,8 +98,9 @@ A 300 ACK after B's 304 send is not proof that 304 executed first.
 
 ## Verification and unresolved requirements
 
-The five focused socket tests feed a generated plan to the actual bounded
-dual-socket reader. They cover both ACK-before-301 and 301-before-ACK,
+Six focused tests feed a generated plan to the bounded reader and whole
+coordinator over fake socketpairs. They cover both ACK-before-301 and
+301-before-ACK, nonempty late EOF, changed injected bytes and action `-1`,
 truncated and malformed frames, wrong ID, torn name/icon pairs, extra frames,
 an unexpected third roster row, and modified plan hash. Ruff format/check,
 `ty check`, Markdownlint and Nixie are the scoped gates. The private clone
@@ -96,3 +114,7 @@ and test host/guest packet parity. A natural early reply/error, capture gap,
 identity drift or time limit ends this one case without retry or widened
 window. A finite old/new result can document the observed schedule; it does
 not close broader GAP-035 concurrency by itself.
+
+B71 raised source/test/prose caps to 760/380/160 physical lines for the
+declared schedule, whole-run socketpair regression and separate late-tail
+classification. No live authority was added.

@@ -70,11 +70,11 @@ def source_plan(environment: dict, port: int = MAX_PORT) -> dict:
         {"op": "expect_quiet", "connection": "a", "timeout": 0.25},
         {"op": "expect_quiet", "connection": "b", "timeout": 0.25},
         {"op": "shutdown_write", "connection": "b"},
-        {"op": "read_eof", "connection": "b", "expect_hex": "", "timeout": 10},
+        {"op": "read_eof", "connection": "b", "timeout": 10},
         close("b"),
         read("a", match_frame={"type": 302}),
         {"op": "shutdown_write", "connection": "a"},
-        {"op": "read_eof", "connection": "a", "expect_hex": "", "timeout": 10},
+        {"op": "read_eof", "connection": "a", "timeout": 10},
         close("a"),
     ]
     result = {
@@ -99,6 +99,63 @@ def source_plan(environment: dict, port: int = MAX_PORT) -> dict:
             "drain_seconds": 5,
             "quiet_seconds": 0.5,
             "eof_seconds": 10,
+        },
+        "coordinator": {
+            "schema_version": 1,
+            "drain_action": -1,
+            "operations": [
+                {
+                    "label": "a300-outstanding",
+                    "op": "send",
+                    "connection": "a",
+                    "packet_key": "a_300",
+                },
+                {
+                    "label": "b304-rename",
+                    "op": "send",
+                    "connection": "b",
+                    "packet_key": "b_304",
+                },
+                {
+                    "label": "a500-barrier",
+                    "op": "send",
+                    "connection": "a",
+                    "packet_key": "a_500",
+                },
+                {
+                    "label": "b500-barrier",
+                    "op": "send",
+                    "connection": "b",
+                    "packet_key": "b_500",
+                },
+                {
+                    "label": "overlap-drain",
+                    "op": "drain",
+                    "action": -1,
+                    "required": [
+                        ["a", 1, 0, 11],
+                        ["a", 1, 0, 12],
+                        ["b", 1, 0, 12],
+                        ["a", 0, 301, 0],
+                        ["b", 0, 301, 0],
+                    ],
+                },
+                {
+                    "label": "a300-stable",
+                    "op": "send",
+                    "connection": "a",
+                    "packet_key": "a_final_300",
+                },
+                {
+                    "label": "stable-drain",
+                    "op": "drain",
+                    "action": -1,
+                    "required": [["a", 1, 0, 13]],
+                },
+                {"label": "quiet-a", "op": "quiet", "connection": "a"},
+                {"label": "quiet-b", "op": "quiet", "connection": "b"},
+            ],
+            "teardown": "source steps from first shutdown_write through final close",
         },
         "expectation": {
             "case": "300-outstanding-304-rename",

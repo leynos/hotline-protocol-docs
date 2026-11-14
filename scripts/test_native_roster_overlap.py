@@ -5,7 +5,10 @@ import socket
 import tempfile
 import time
 import unittest
+from datetime import datetime, timedelta, timezone
+from hashlib import sha256
 from pathlib import Path
+from unittest.mock import patch
 
 import native_roster_overlap_cases as cases
 import native_roster_overlap_control as control
@@ -220,6 +223,153 @@ class RosterOverlapTests(unittest.TestCase):
         recorder.frames[4] = decoded(third, "a")
         with self.assertRaisesRegex(ValueError, "third member"):
             control.check_setup(recorder)
+
+
+class FakeNativeRecorder(Recorder):
+    """Actual Recorder over socketpairs; responses follow generated requests."""
+
+    order = "ack-first"
+    late_tail = False
+    latest = None
+
+    def __init__(self, plan: dict) -> None:
+        super().__init__(plan)
+        self.peers: dict[str, socket.socket] = {}
+        FakeNativeRecorder.latest = self
+
+    def execute(self, action: int, step: dict) -> None:
+        name, op = step["connection"], step["op"]
+        if op == "connect":
+            client, peer = socket.socketpair()
+            self.sockets[name], self.peers[name] = client, peer
+            self.event(action, name, "connect")
+            return
+        super().execute(action, step)
+        if op == "close":
+            self.peers[name].close()
+        elif op == "shutdown_write":
+            if name == "b":
+                self.peers["a"].sendall(notice(302, 88, [(103, b"\0\x02")]))
+                if self.late_tail:
+                    self.peers["b"].sendall(b"late-tail")
+            self.peers[name].shutdown(socket.SHUT_WR)
+        elif op == "send":
+            raw = bytes.fromhex(step["hex"])
+            self.peers[name].recv(len(raw))
+            if raw == b"TRTPHOTL\0\1\0\2":
+                self.peers[name].sendall(b"TRTP\0\0\0\0")
+                return
+            request = decode_frame(raw)
+            kind, identifier = request["type"], request["id"]
+            if kind == 107:
+                self.peers[name].sendall(
+                    reply(0, 1, [])
+                    + notice(354, 2, [(110, ADMIN)])
+                    + notice(109, 3, [])
+                )
+                if name == "b":
+                    self.peers["a"].sendall(
+                        notice(
+                            301,
+                            4,
+                            [
+                                (103, b"\0\x02"),
+                                (102, cases.OLD_B),
+                                (104, cases.ICON_B),
+                                (112, b"\0\x20"),
+                            ],
+                        )
+                    )
+            elif kind == 300 and identifier == 10:
+                self.peers[name].sendall(roster_reply(10))
+            elif kind == 300 and identifier == 11 and self.order == "ack-first":
+                self.peers["a"].sendall(roster_reply(11))
+            elif kind == 304:
+                update = notice(
+                    301,
+                    77,
+                    [
+                        (103, b"\0\x02"),
+                        (104, cases.ICON_NEW),
+                        (112, b"\0\x20"),
+                        (102, cases.NEW_B),
+                    ],
+                )
+                self.peers["a"].sendall(update)
+                self.peers["b"].sendall(update)
+                if self.order == "update-first":
+                    self.peers["a"].sendall(roster_reply(11, name=cases.NEW_B, icon=3))
+            elif kind == 500:
+                self.peers[name].sendall(reply(0, identifier, []))
+            elif kind == 300 and identifier == 13:
+                self.peers["a"].sendall(roster_reply(13, name=cases.NEW_B, icon=3))
+
+
+class WholeRunTests(unittest.TestCase):
+    def test_generated_plan_through_actual_coordinator_both_orders_and_tail(
+        self,
+    ) -> None:
+        for order, late in (("ack-first", False), ("update-first", True)):
+            with self.subTest(order=order), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                cases.write_plan(root / "plans", environment())
+                binary = root / "oracle"
+                binary.write_bytes(b"oracle")
+                (root / "receipt.json").write_text(
+                    json.dumps(
+                        {
+                            "deadline_utc": (
+                                datetime.now(timezone.utc) + timedelta(minutes=2)
+                            ).isoformat()
+                        }
+                    )
+                )
+                FakeNativeRecorder.order, FakeNativeRecorder.late_tail = order, late
+                with (
+                    patch.object(control, "runtime_gate"),
+                    patch.object(
+                        control, "ORACLE_SHA256", sha256(b"oracle").hexdigest()
+                    ),
+                    patch.object(control, "Recorder", FakeNativeRecorder),
+                ):
+                    report = control.run(
+                        root / "plans", root / "receipt.json", binary, root / "out"
+                    )
+                self.assertEqual(report["status"], "completed", report["error"])
+                self.assertEqual(report["overlap_status"], "completed")
+                self.assertEqual(
+                    report["old_or_new_snapshot"],
+                    "old" if order == "ack-first" else "new",
+                )
+                self.assertEqual(
+                    report["teardown_status"],
+                    "completed_with_late_bytes" if late else "completed",
+                )
+                control.verify_operation_map(cases.source_plan(environment()), report)
+                changed = json.loads(json.dumps(report))
+                injected = next(
+                    e for e in changed["operation_map"] if e["label"] == "b304-rename"
+                )
+                changed["events"][injected["event_range"][0]]["hex"] = "00"
+                with self.assertRaisesRegex(ValueError, "Injected request bytes"):
+                    control.verify_operation_map(
+                        cases.source_plan(environment()), changed
+                    )
+                changed = json.loads(json.dumps(report))
+                drain = next(
+                    e for e in changed["operation_map"] if e["label"] == "overlap-drain"
+                )
+                changed["events"][drain["event_range"][0]]["action"] = 1
+                with self.assertRaisesRegex(ValueError, "Custom drain"):
+                    control.verify_operation_map(
+                        cases.source_plan(environment()), changed
+                    )
+                changed = json.loads(json.dumps(report))
+                changed["operation_map"][2]["event_range"][0] += 1
+                with self.assertRaisesRegex(ValueError, "Operation map bounds"):
+                    control.verify_operation_map(
+                        cases.source_plan(environment()), changed
+                    )
 
 
 if __name__ == "__main__":
