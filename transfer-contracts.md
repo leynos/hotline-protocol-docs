@@ -7,6 +7,13 @@ sessions cited below. Static findings are distinguished from captured outcomes.
 Captured folder streams and cancellation cases are specified below. Broader
 metadata, failure and persistence requirements remain open.
 
+The [ordinary-download send path](native-download-send-path.md) distinguishes
+advertised length, the worker's requested/enqueued byte count, queued bytes
+in the inspected OpenTransport branch, and TCP acknowledgement. Reaching the
+worker's count closes its file; it does not prove peer receipt or persistence.
+The [failed disposable baseline](native-transfer-stall.md) remains a separate
+runtime observation with an unexplained 98,304-byte prefix.
+
 ## HTXF connection header and dispatch
 
 The baseline acceptor `1000bd20` waits until 16 bytes are available, consumes

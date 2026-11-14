@@ -29,6 +29,15 @@ The exact byte classification table is retained in batch 06 at `100945c8`.
 It is not a Unicode category rule. The default text bytes are retained at
 `1008fd2d`; no peer-wide locale or UTF-8 encoding guarantee follows.
 
+The [eight same-session transitions](native-settings-transition-witness.md)
+measure this naming-allowed branch with prior nonzero name/icon and explicit
+automatic-response text. Omitted and empty 102/104 reset the observed state to
+`***`/0; enabled auto-response with omitted or empty 215 emits the exact
+default bytes. Option 8 alone disables feedback, 12 enables it, and absent or
+zero 113 disables it before a later re-enable selects the default again.
+These are 304 observations; agreement-path and persistence evidence remains
+separate.
+
 Settings retain a 16-bit icon. The 301 sender promotes that word as signed
 before numeric serialization: high-bit icons use four bytes (`8000` becomes
 `ffff8000`, `ffff` becomes `ffffffff`). The [native settings captures](native-wire-details.md#captured-tlv-and-scalar-boundaries)

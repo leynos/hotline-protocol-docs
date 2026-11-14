@@ -527,6 +527,13 @@ handling of a five-byte value, and two measured duplicate selections. These
 are operation-specific results, not a universal duplicate rule. Here 113 is
 a settings bitmask; the same field in PM 108/104 is an option enumerant.
 
+The [same-session transition witness](native-settings-transition-witness.md)
+adds eight before/after cases: on the naming-allowed admin session,
+omitted/empty name and icon become `***` and zero, while omitted/empty 215
+with auto-response enabled selects the exact default text. Unknown-only 8,
+mixed 12, disable and re-enable cases retain their measured PM outcomes.
+These captures do not establish restart persistence or transaction-121 parity.
+
 Evidence: V028, V037–V038; `10016ad0`, `10004d50`, `10004f30`.
 
 ## Chat (Public and Private Chat Rooms)
@@ -1066,7 +1073,10 @@ These are request/reply operations with permission checks:
 | 352: get account | Uncomplemented lookup name 105 | Account fields or error reply |
 | 353: update account | Name 102, login 105, password 106, bitmap 110, extra field 111 | Success/error ACK |
 
-The meaning of extra field **111** is unresolved. Account credentials, copy
+The meaning of extra field **111** is unresolved. The inspected
+[Classic account constructors](classic-account-constructors.md) omit it;
+that bounded client trace does not establish a reserved or unused field.
+Account credentials, copy
 limits and update defaults are now traced in [native wire
 details](native-wire-details.md). Changed privilege bytes propagate to
 matching active sessions through 354; effective identity/access changes can

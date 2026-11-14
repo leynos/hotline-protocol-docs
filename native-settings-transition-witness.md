@@ -7,6 +7,11 @@ preflight and postflight readbacks. The pinned server binary has SHA-256
 This is measured behaviour of that server and these inputs. It does not close
 the unchanged GAP-029/030 criteria by itself.
 
+The subject used the existing admin account. Its 354 bitmap was
+`fff3cfefff800000`, with naming privilege bit 26 set under the documented
+MSB-first numbering. The `***` results below are from that naming-allowed
+branch; an account-name fallback is a different branch.
+
 The subject's UID `0032` came from its announcement on the current observer
 connection. The observer's own UID was established from the same-session 300
 roster. Every stage read 301 on both sockets, checked the 108 success ACK,

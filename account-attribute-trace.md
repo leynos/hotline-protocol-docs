@@ -91,6 +91,17 @@ labels, DATA-fork UI paths and indirect record access remain separate questions.
 The raw resource fork is not redistributed. The supplied extracted application
 is required to rerun the retained parser and compare the frozen inventory.
 
+## Identified Classic client construction boundary
+
+The [identified Classic client's account constructors](classic-account-constructors.md)
+provide a separate executable trace. The inspected 350/353 constructors append
+105/106/102/110, and the 349 serializer adds conditional old-login 101 before
+those fields. The deletion-list shape is inner 101 and outer 101. These
+functions do not emit field 111; four immediate `0x6f` candidates instead pass
+an error code. This does not establish whole-client absence or a semantic
+label. The field remains opaque, with its server storage and fixture outcomes
+specified above.
+
 ## Reproduce and decision boundary
 
 From the private `mothra` checkout, run the verifier and its five tests:
