@@ -36,8 +36,17 @@ first SYN and retain complete TCP lifetimes. This runner does not create
 capture services, acquire the lease, or establish an original A7 full-file
 baseline; those are root-owned live prerequisites.
 
+Use a finite managed unit with
+`NetworkNamespacePath=/proc/<actual-emulator-pid>/ns/net`; the inherited
+runner gate rejects a different process namespace before opening a socket.
+The equivalent namespace context for its payload is:
+
 ```sh
-sudo python3 scripts/native_roster_overlap_control.py \
+roster_emulator_pid="$(python3 -c \
+  'import json,sys; print(json.load(open(sys.argv[1]))["emulator_pid"])' \
+  state/native-roster-overlap-01/runtime.json)"
+sudo nsenter --target "$roster_emulator_pid" --net -- \
+  python3 scripts/native_roster_overlap_control.py \
   --plan-dir state/native-roster-overlap-01/plans \
   --capture-receipt state/native-roster-overlap-01/receipt.json \
   --binary /absolute/owned/native-server-data-fork \

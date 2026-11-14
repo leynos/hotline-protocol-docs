@@ -1152,13 +1152,17 @@ connected clients and then closing them; that case sends no request 110.
 Option 1 adds an in-memory address ban with a GetDateTime-plus-1800
 seconds deadline. Option 2 writes the persisted address-ban list. A
 [one-restart witness](native-ban-reload-witness.md) preserves the stored row
-and observes fresh Login107 rejection. Actual expiry and remaining
-restart/protection boundaries stay open.
+and observes fresh Login107 rejection. The later temporary-ban observation
+covers immediate rejection and
+post-deadline acceptance; it does not measure the exact cutoff. Other
+restart, range and clock-boundary combinations remain untested.
 
 The [later first-epoch witness](native-ban-expiry-first-witness.md) records
 kick-only/reconnect, a protected target's error and bounded continued
 operation, and immediate valid Login107 rejection after a temporary ban.
-These are finite control fixtures; expiry still awaits the later timed probes.
+The [later witness](native-ban-expiry-later-witness.md) accepts the same
+valid login after 2,032 host-relative seconds. The missed pre-window control
+and unmeasured exact cutoff remain explicit; 1,800 seconds is source-derived.
 
 The [captured option-1 fixture](native-ban-notices.md) delivered the
 data-only temporary-ban 104 and disconnected its target; the administrator's

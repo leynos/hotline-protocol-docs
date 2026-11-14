@@ -3,11 +3,11 @@
   "title": "Hotline 1.9 protocol documentation gap register",
   "audited_at_utc": "2026-11-12T12:55:29.155796+00:00",
   "last_updated": "2026-11-14",
-  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-70/manifest.json",
-  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-70/sections.json",
+  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-71/manifest.json",
+  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-71/sections.json",
   "validity_ledger": "../mothra/docs/baseline-validity-ledger.md",
   "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
-  "method": "Integrate the paired nine-case temporary-ban first epoch and retained zero-action wrong-namespace failure, guarded staged cleanup and bounded roster-overlap preparation. Preserve all87 original closure criteria and statuses:57 Resolved,29 Investigating,1 Open;30 unclosed. Expiry and native roster overlap still await their actual later captures. Further mxd validation remains on hold.",
+  "method": "Accept the original kick/ban criterion after paired later-login, cleanup, clock and stopped-file review. Preserve all87 original criteria:58 Resolved,28 Investigating,1 Open;29 unclosed. Keep missed pre-window, source-derived1800s versus observed2032s, allocatedTrash, forcedretirement and other limits explicit. Roster overlap remains preparation; further mxd validation stays on hold.",
   "gaps": [
     {
       "id": "GAP-001",
@@ -147,7 +147,7 @@
           "level": 3,
           "line_start": 1140,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 1181
+          "line_end": 1185
         }
       ],
       "question": "Which statuses, field-100 forms and connection outcomes apply to each failure, including errors in operations without a normal ACK?",
@@ -295,9 +295,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 1206,
+          "line_start": 1210,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1253
+          "line_end": 1257
         }
       ],
       "question": "What are the handshake, login, agreement, idle and partial-frame deadlines, and what traffic resets them?",
@@ -432,9 +432,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 1206,
+          "line_start": 1210,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1253
+          "line_end": 1257
         }
       ],
       "question": "What can be sent before authentication, after login ACK, while agreement is pending, after early completion and during shutdown?",
@@ -1286,7 +1286,7 @@
         "GAP-007"
       ],
       "resolution": {
-        "progress": "Added news structure order: Trash move or directory/category creation precedes ACK; creation activity logging follows ACK. INFO FlushVol return is unchecked. Disconnect-boundary, persistence, retry/idempotency and postACK failure fixtures remain required. Agreementfieldoverflow proves107successACK canprecede failed109construction withoutrollingback earlyreadiness. Noerrorreply oratomicrollback guarantee; broaderdurability/retry remains required. ImmediateURLPrefs snapshot retained stale188-byte forkextent despite liveURLwireconfiguration; independent203finalization invokes knownFlushVolpath and thenpositive222-byte fork iscomplete. Failedsnapshot/oldcontrols areseparate; final175-byte recordedbaseline isrestored exactly. NoACK/restartdurability rule inferred. Native208sameparentfile/foldermovesreturnemptysuccesswithoutvisiblechange. Native204missingtargetreturnsstatus1. Helpers/positivecataloguesseparateactualeffectsfromreplytext;lostACKretry,restartdurabilityandotheroperationcriteriaremainunproven. Missing-body410errorfollowsvisible/storedarticlecreationandcountincrement;rawHLNZcachepreservesthezero-flavourrecord. ErrorACKdoesnotimplyrollback. Ownedflushpublicationdemonstrateswhyaninitialzero-positiveprobeisnotabsence;restart/lostACKacceptanceremainsactive. Article deletion ACKs correspond to observed tree/index/cache changes; storage writes are staged without demonstrated rollback. Independent positive upload publication preserves 27 original objects in Trash; forced I/O interruption, lost ACK and restart durability remain unproved. Success ACK does not guarantee full list discovery: append 102 retains all 103 indexed records but only 102 list entries. Direct orphan lookup still succeeds. Native cache/index mismatch is positively retained; interruption and restart outcomes remain required. Complete before/after 734-byte account files match replacement semantics, including cleared unused bytes; independent positive Trash observations preserve all 18 original objects/forks. No interrupted-write, lostACK or restart guarantee is established. Normal server application restart preserves account replacement and deletion, exact stored records and original catalogue objects. Application forks and complete Prefs bytes are unchanged. This does not establish OS/power-loss or interrupted-write durability. Native rename collision returns error after overwriting destination credentials and continues later creation; earlier effects remain. Error does not imply rollback or atomicity. Wider durability/retry rules remain active. Self-delete ACK precedes its notice on the same subject stream. Both deletions retain a stale administrator snapshot and a later unread target-specific 302. No new storage/restart durability claim. A 203 status-zero reservation preceded an upload abort and an observed Incomplete File artifact. Recorder send completion exceeded bytes observed at host and guest, so it is not transfer completion. Guarded204 removed only the owned path and restored baseline views. No universal post-ACK error or retry guarantee follows. Latest A8 phase 1: A new live 202/HTXF example distinguishes a status-zero reservation from an active flattened transfer: the saved 303 had one active and one waiting row before cancellation. Its 65,536-byte received prefix includes FILP/INFO framing, not that many DATA-fork bytes. Cancellation and restored idle state were verified; no universal durability or completion guarantee follows. Revision61: The static ordinary-download trace separates advertised, requested/enqueued and OpenTransport pending bytes from TCP ACKs. Reaching the producer count closes its file but does not prove client receipt or durability.",
+        "progress": "Added news structure order: Trash move or directory/category creation precedes ACK; creation activity logging follows ACK. INFO FlushVol return is unchecked. Disconnect-boundary, persistence, retry/idempotency and postACK failure fixtures remain required. Agreementfieldoverflow proves107successACK canprecede failed109construction withoutrollingback earlyreadiness. Noerrorreply oratomicrollback guarantee; broaderdurability/retry remains required. ImmediateURLPrefs snapshot retained stale188-byte forkextent despite liveURLwireconfiguration; independent203finalization invokes knownFlushVolpath and thenpositive222-byte fork iscomplete. Failedsnapshot/oldcontrols areseparate; final175-byte recordedbaseline isrestored exactly. NoACK/restartdurability rule inferred. Native208sameparentfile/foldermovesreturnemptysuccesswithoutvisiblechange. Native204missingtargetreturnsstatus1. Helpers/positivecataloguesseparateactualeffectsfromreplytext;lostACKretry,restartdurabilityandotheroperationcriteriaremainunproven. Missing-body410errorfollowsvisible/storedarticlecreationandcountincrement;rawHLNZcachepreservesthezero-flavourrecord. ErrorACKdoesnotimplyrollback. Ownedflushpublicationdemonstrateswhyaninitialzero-positiveprobeisnotabsence;restart/lostACKacceptanceremainsactive. Article deletion ACKs correspond to observed tree/index/cache changes; storage writes are staged without demonstrated rollback. Independent positive upload publication preserves 27 original objects in Trash; forced I/O interruption, lost ACK and restart durability remain unproved. Success ACK does not guarantee full list discovery: append 102 retains all 103 indexed records but only 102 list entries. Direct orphan lookup still succeeds. Native cache/index mismatch is positively retained; interruption and restart outcomes remain required. Complete before/after 734-byte account files match replacement semantics, including cleared unused bytes; independent positive Trash observations preserve all 18 original objects/forks. No interrupted-write, lostACK or restart guarantee is established. Normal server application restart preserves account replacement and deletion, exact stored records and original catalogue objects. Application forks and complete Prefs bytes are unchanged. This does not establish OS/power-loss or interrupted-write durability. Native rename collision returns error after overwriting destination credentials and continues later creation; earlier effects remain. Error does not imply rollback or atomicity. Wider durability/retry rules remain active. Self-delete ACK precedes its notice on the same subject stream. Both deletions retain a stale administrator snapshot and a later unread target-specific 302. No new storage/restart durability claim. A 203 status-zero reservation preceded an upload abort and an observed Incomplete File artifact. Recorder send completion exceeded bytes observed at host and guest, so it is not transfer completion. Guarded204 removed only the owned path and restored baseline views. No universal post-ACK error or retry guarantee follows. Latest A8 phase 1: A new live 202/HTXF example distinguishes a status-zero reservation from an active flattened transfer: the saved 303 had one active and one waiting row before cancellation. Its 65,536-byte received prefix includes FILP/INFO framing, not that many DATA-fork bytes. Cancellation and restored idle state were verified; no universal durability or completion guarantee follows. Revision61: The static ordinary-download trace separates advertised, requested/enqueued and OpenTransport pending bytes from TCP ACKs. Reaching the producer count closes its file but does not prove client receipt or durability. Revision71 stoppedHFS evidence corroborates351 movingownedfolders/UserData intoallocatedTrash; native352missingand348originaltwo proveactiveaccountremoval, notphysicalerasure. Originalnamedforks unchanged afterappQuit/forcedemulatorretirement. This isnot a353failed-writeratomicity fixture or allstorage guarantee.",
         "evidence": [
           "[Structure effects](news-contracts.md#structure-operation-effects-and-conflicts)",
           "[Internal errors](error-outcomes.md#internal-exceptions-and-text-resources)",
@@ -1316,7 +1316,8 @@
           "[Repeatable identity workflow](native-capture-workflow.md#reproducing-account-identity-and-protection-contrasts)",
           "[Second delegated investigation](diagnostic-transfer-boundaries.md)",
           "[Active and queued native diagnostic](native-diagnostic-existing-witness.md)",
-          "[Native documentation evidence](native-download-send-path.md)"
+          "[Native documentation evidence](native-download-send-path.md)",
+          "[Allocated Trash records after account deletion](operation-contracts.md#account-deletion-and-allocated-trash-records)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -2183,7 +2184,7 @@
           "level": 3,
           "line_start": 1140,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 1181
+          "line_end": 1185
         }
       ],
       "question": "Which teardown paths emit 302, which fields/recipients are used, and when are rooms, queued transfers and IDs cleaned up?",
@@ -2307,9 +2308,9 @@
           "path": "protocol.md",
           "heading": "Additional Admin Privileges Note",
           "level": 3,
-          "line_start": 1197,
+          "line_start": 1201,
           "anchor": "additional-admin-privileges-note",
-          "line_end": 1205
+          "line_end": 1209
         }
       ],
       "question": "Is the main room implicit, and what authorizes join, send, invite, topic edit or administrative access to a private room?",
@@ -2617,7 +2618,7 @@
           "level": 3,
           "line_start": 1140,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 1181
+          "line_end": 1185
         },
         {
           "path": "protocol.md",
@@ -2698,9 +2699,9 @@
           "path": "protocol.md",
           "heading": "Broadcasting a Message (Transaction 355) \u2013 Admin/Server Initiated",
           "level": 3,
-          "line_start": 1182,
+          "line_start": 1186,
           "anchor": "broadcasting-a-message-transaction-355--adminserver-initiated",
-          "line_end": 1196
+          "line_end": 1200
         },
         {
           "path": "protocol.md",
@@ -4083,7 +4084,7 @@
         "GAP-071"
       ],
       "resolution": {
-        "progress": "Documented350 create grant subset check with bit27 exemption,353 update bit17 without the equivalent handler subset comparison,352/348 read bit16 and351 delete bit15. Delete helper moves account file to Trash; protected/self/conflict/persistence native fixtures remain required. Captured create/change, wrong/complement/plaintext password controls and352 asymmetry: request lookup uses uncomplemented105, unlike350/351/353; reply105 is complemented. Sentinel, sparse/default, collision, rename and live-session boundary cases remain. Eight replacement/default/sentinel/width cases, nine positive and eight negative logins, exact 352 placeholder/omission rules and complete native records are verified across 31 reports/34 pairedconnections. Enumeration and Files baselines restored. Rename/conflict, protected/self deletion and forced storage failures remain required. Owned account replacement and deletion persist across a normal native server application restart, with unchanged application/Prefs identities and full stored records. Protected/self-deletion, rename/conflict and forced write failures remain required. Successful rename preserves catalogue identity. Distinct-password collision leaves source intact but overwrites destination with source credentials, then continues later creation despite final error. Protected/self-delete and remaining forced storage failures remain active. Exact/ASCII-case duplicate 350 preserve original account/password; 352 echoes complemented lookup spelling. Owned bit-23 account deletion and bit-15/23 self-deletion succeed despite prior kick denial; account read and reconnect then fail. Original admin/fixture-low and Files enumeration restored. Built-in identities and forced storage/atomicity failures remain untested; no native Trash-fork claim.",
+        "progress": "Documented350 create grant subset check with bit27 exemption,353 update bit17 without the equivalent handler subset comparison,352/348 read bit16 and351 delete bit15. Delete helper moves account file to Trash; protected/self/conflict/persistence native fixtures remain required. Captured create/change, wrong/complement/plaintext password controls and352 asymmetry: request lookup uses uncomplemented105, unlike350/351/353; reply105 is complemented. Sentinel, sparse/default, collision, rename and live-session boundary cases remain. Eight replacement/default/sentinel/width cases, nine positive and eight negative logins, exact 352 placeholder/omission rules and complete native records are verified across 31 reports/34 pairedconnections. Enumeration and Files baselines restored. Rename/conflict, protected/self deletion and forced storage failures remain required. Owned account replacement and deletion persist across a normal native server application restart, with unchanged application/Prefs identities and full stored records. Protected/self-deletion, rename/conflict and forced write failures remain required. Successful rename preserves catalogue identity. Distinct-password collision leaves source intact but overwrites destination with source credentials, then continues later creation despite final error. Protected/self-delete and remaining forced storage failures remain active. Exact/ASCII-case duplicate 350 preserve original account/password; 352 echoes complemented lookup spelling. Owned bit-23 account deletion and bit-15/23 self-deletion succeed despite prior kick denial; account read and reconnect then fail. Original admin/fixture-low and Files enumeration restored. Built-in identities and forced storage/atomicity failures remain untested; no native Trash-fork claim. Revision71 stoppedHFS evidence corroborates351 movingownedfolders/UserData intoallocatedTrash; native352missingand348originaltwo proveactiveaccountremoval, notphysicalerasure. Originalnamedforks unchanged afterappQuit/forcedemulatorretirement. This isnot a353failed-writeratomicity fixture or allstorage guarantee.",
         "evidence": [
           "[Native core corpus](../mothra/evidence/gap-remediation/2026-11-12/native-core-01/manifest.json)",
           "[Repeatable workflow](native-capture-workflow.md#recorded-native-core-fixtures)",
@@ -4098,7 +4099,8 @@
           "[Repeatable batch workflow](native-capture-workflow.md#reproducing-account-batch-framing-and-partial-effects)",
           "[Captured identity/protection contrasts](native-wire-details.md#captured-account-identity-and-protection-contrasts)",
           "[Native identity corpus](../mothra/evidence/gap-remediation/2026-11-13/native-account-identity-01/manifest.json)",
-          "[Repeatable identity workflow](native-capture-workflow.md#reproducing-account-identity-and-protection-contrasts)"
+          "[Repeatable identity workflow](native-capture-workflow.md#reproducing-account-identity-and-protection-contrasts)",
+          "[Allocated Trash records after account deletion](operation-contracts.md#account-deletion-and-allocated-trash-records)"
         ],
         "closure": "Not closed: remaining unchanged acceptance requirements are explicitly retained above."
       }
@@ -4132,9 +4134,9 @@
           "path": "protocol.md",
           "heading": "Additional Admin Privileges Note",
           "level": 3,
-          "line_start": 1197,
+          "line_start": 1201,
           "anchor": "additional-admin-privileges-note",
-          "line_end": 1205
+          "line_end": 1209
         }
       ],
       "question": "When do edited privileges, names or passwords affect current sessions, does deletion disconnect them, and what 354/301 notifications occur?",
@@ -4175,7 +4177,7 @@
       "area": "Administration",
       "priority": "P1",
       "kind": "Unanswered",
-      "status": "Investigating",
+      "status": "Resolved",
       "owner": "Protocol documentation investigation",
       "title": "Kick/ban option branches",
       "sources": [
@@ -4185,7 +4187,7 @@
           "level": 3,
           "line_start": 1140,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 1181
+          "line_end": 1185
         }
       ],
       "question": "What exactly do options 1 and 2 do, including identity matching, ranges/duration, optional data 101, reconnection and protected users?",
@@ -4204,7 +4206,7 @@
         "GAP-036"
       ],
       "resolution": {
-        "progress": "Traced option 1 timed 1800-second address ban and option 2 persisted version-2 address-ban list; plain kick, missing target and protection branches documented. Expiry/restart/protected native fixtures remain required. Two bit-23 subjects reject administrator kicking and remain live before account deletion. Plain kick, both ban options, expiry/restart and broader protection fixtures remain active. Revision60: second disposable lab failed the mandatory full A7 download after 98,304 of 1,049,073 bytes, before any option-two request. Guest/namespace/recorder prefixes match; all observed payload was ACKed with positive receive windows. Producer stall cause remains unknown; this is a retained failure, not ban acceptance. Revision62: the third disposable lab also failed its mandatory 29-action A7 at the same 98,304-byte prefix, before any account seed or option-two request. Independent reassembly confirms C32 completed 1,049,073 bytes in both views; C35/C45 stopped at the identical prefix. Recorded source images, binaries and preferences match, but live worker/GUI state is missing and the cause remains unknown. Revision63: one delivered focus event did not resume the exact dual 98,304-byte prefix, and the stock full A7 failed. This falsifies that one event-resume claim only; no account or ban request ran. Revision64 imports the gated control-only permanent-ban preparation with root controller identity checks. C53 was retired without frontend contact. No permanent-ban case is accepted by this checkpoint; expiry, reload and protection requirements remain open. Revision65 accepts one option-two control-only ban with target identity/zero-access/current-roster gates, no reason101, successful same-admin postreadback and fresh TRTP+Login107 status1/100 permanent notice. The stopped49-byte Banned data fork is preserved. Temporary expiry, permanent reload and full protection fixtures remain open. Revision68 documents three stopped49-byte Banned v2 files with exact offsets and writer/reader trace: version/count, flag, twoIPv4 endpoints,33-byte display area and zero-length reason. In-memory expiry+4 is not serialized. The11-byte display remainder stays opaque; C56/C62 reload is one case, C68 has no reload. Temporary expiry, kick-only and protection fixtures remain required. Revision69 supplies static instruction evidence for the request110 option2 optional-reason copy: bounded TLV payload lengthL is staged before its bytes; constructor raw-copies from the unadjusted length-byte pointer, predicting length byte plus firstL-1 content bytes forL1..63. This is not a nonempty runtime fixture or Options UI rule. The new expiry fixture is preparation only: first18baseline, deliberate35second connection-burst settling, kick0/protected/option1 plans, and separate pre/post first-lookup probes with current process/namespace/mutex/deadline gates. Eight focused tests and all438native tests pass; no kick/protection/expiry acceptance follows before live evidence. Revision70 accepts C77 first-epoch packet evidence:13 paired control lifetimes,9 cases including option0 EOF/no104 then fresh107success, protected error then target500/one-secondquiet, option1notice/EOF/ACK and immediatevalid107temporaryerror. C76wrongnamespacefailure0actions is retained; frozenB68source andmetadata-only generic replay adaptation remainexplicit. Host/nsrecorders andmutex stopped; sameVM retainedsocket-free forlater probes. No expiryresult yet. Later runner guard checks itsOWN namespace beforecapture/socket work; staged cleanup permits guardonlyafteracceptedpost-probe anddeleteonlyafterownedaccountidentity/access proof.",
+        "progress": "Traced option 1 timed 1800-second address ban and option 2 persisted version-2 address-ban list; plain kick, missing target and protection branches documented. Expiry/restart/protected native fixtures remain required. Two bit-23 subjects reject administrator kicking and remain live before account deletion. Plain kick, both ban options, expiry/restart and broader protection fixtures remain active. Revision60: second disposable lab failed the mandatory full A7 download after 98,304 of 1,049,073 bytes, before any option-two request. Guest/namespace/recorder prefixes match; all observed payload was ACKed with positive receive windows. Producer stall cause remains unknown; this is a retained failure, not ban acceptance. Revision62: the third disposable lab also failed its mandatory 29-action A7 at the same 98,304-byte prefix, before any account seed or option-two request. Independent reassembly confirms C32 completed 1,049,073 bytes in both views; C35/C45 stopped at the identical prefix. Recorded source images, binaries and preferences match, but live worker/GUI state is missing and the cause remains unknown. Revision63: one delivered focus event did not resume the exact dual 98,304-byte prefix, and the stock full A7 failed. This falsifies that one event-resume claim only; no account or ban request ran. Revision64 imports the gated control-only permanent-ban preparation with root controller identity checks. C53 was retired without frontend contact. No permanent-ban case is accepted by this checkpoint; expiry, reload and protection requirements remain open. Revision65 accepts one option-two control-only ban with target identity/zero-access/current-roster gates, no reason101, successful same-admin postreadback and fresh TRTP+Login107 status1/100 permanent notice. The stopped49-byte Banned data fork is preserved. Temporary expiry, permanent reload and full protection fixtures remain open. Revision68 documents three stopped49-byte Banned v2 files with exact offsets and writer/reader trace: version/count, flag, twoIPv4 endpoints,33-byte display area and zero-length reason. In-memory expiry+4 is not serialized. The11-byte display remainder stays opaque; C56/C62 reload is one case, C68 has no reload. Temporary expiry, kick-only and protection fixtures remain required. Revision69 supplies static instruction evidence for the request110 option2 optional-reason copy: bounded TLV payload lengthL is staged before its bytes; constructor raw-copies from the unadjusted length-byte pointer, predicting length byte plus firstL-1 content bytes forL1..63. This is not a nonempty runtime fixture or Options UI rule. The new expiry fixture is preparation only: first18baseline, deliberate35second connection-burst settling, kick0/protected/option1 plans, and separate pre/post first-lookup probes with current process/namespace/mutex/deadline gates. Eight focused tests and all438native tests pass; no kick/protection/expiry acceptance follows before live evidence. Revision70 accepts C77 first-epoch packet evidence:13 paired control lifetimes,9 cases including option0 EOF/no104 then fresh107success, protected error then target500/one-secondquiet, option1notice/EOF/ACK and immediatevalid107temporaryerror. C76wrongnamespacefailure0actions is retained; frozenB68source andmetadata-only generic replay adaptation remainexplicit. Host/nsrecorders andmutex stopped; sameVM retainedsocket-free forlater probes. No expiryresult yet. Later runner guard checks itsOWN namespace beforecapture/socket work; staged cleanup permits guardonlyafteracceptedpost-probe anddeleteonlyafterownedaccountidentity/access proof. Revision71 accepts the complete later-epoch portable replay: sameVM/image, post-login success at2032.227663hostseconds, four paired laterflows, unchanged originalaccount/Prefs/appforks and controlledcleanup. C80pre-window remainedmissed with zero socketactions; source-derived1800seconddeadline andlazylookup cleanup are separate from observed immediate rejection/lateracceptance. Read-onlyguestclocks show ordinary progression withhostbrackets; not calibration ofGetDateTime. Both ownedfolders remain allocated inTrash despite352missing/348originaltwo. Retirement forcedemulatortermination afternativeappQuit, not orderlyOSshutdown.",
         "evidence": [
           "[Presence, messaging and administration](presence-messaging-contracts.md)",
           "[Batch 06](../mothra/evidence/gap-remediation/2026-11-12/batch-06/manifest.json)",
@@ -4223,9 +4225,12 @@
           "[Paired first-epoch witness](native-ban-expiry-first-witness.md)",
           "[First-epoch portable packet evidence](../mothra/evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/manifest.json)",
           "[Staged post-probe cleanup](native-ban-expiry-cleanup.md)",
-          "[Runner namespace failure regression](../mothra/evidence/gap-remediation/2026-11-14/native-runner-namespace-guard-01/manifest.json)"
+          "[Runner namespace failure regression](../mothra/evidence/gap-remediation/2026-11-14/native-runner-namespace-guard-01/manifest.json)",
+          "[Later expiry observation and cleanup](native-ban-expiry-later-witness.md)",
+          "[Later portable evidence](../mothra/evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/manifest.json)",
+          "[Original-criterion decision](../mothra/evidence/gap-remediation/2026-11-14/criterion-acceptance-05/decision.json)"
         ],
-        "closure": "Not closed: remaining acceptance evidence is listed above."
+        "closure": "Met at the original native 1.9 option/outcome/expiry/protection scope: both helper traces, kick-only and both ban-branch fixtures, protected target, immediate rejection and later acceptance, and the permanent reload/configured-apply cases are documented. The pre1700-second control was missed and is not treated as evidence. Exact1800-second cutoff, rollover/all clock adjustments, arbitrary ranges and nonempty reason bytes remain unmeasured; the optional reason transformation is explicitly source-derived. No universal purge mechanism, physical erasure or full-transfer guarantee follows."
       }
     },
     {
@@ -4243,15 +4248,15 @@
           "level": 3,
           "line_start": 1140,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 1181
+          "line_end": 1185
         },
         {
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 1206,
+          "line_start": 1210,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1253
+          "line_end": 1257
         }
       ],
       "question": "Does any native producer actually emit 111, under which conditions, with what fields and delivery/closure ordering?",
@@ -4289,9 +4294,9 @@
           "path": "protocol.md",
           "heading": "Broadcasting a Message (Transaction 355) \u2013 Admin/Server Initiated",
           "level": 3,
-          "line_start": 1182,
+          "line_start": 1186,
           "anchor": "broadcasting-a-message-transaction-355--adminserver-initiated",
-          "line_end": 1196
+          "line_end": 1200
         }
       ],
       "question": "Does a console-generated broadcast use the same 355 schema, and which connected/logged-in/refusing users receive each origin's broadcast?",
@@ -4330,9 +4335,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 1206,
+          "line_start": 1210,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1253
+          "line_end": 1257
         }
       ],
       "question": "What does 348 do, what fields and privileges apply, and how are its potentially nested account records serialized?",
@@ -4370,9 +4375,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 1206,
+          "line_start": 1210,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1253
+          "line_end": 1257
         }
       ],
       "question": "What indexed/transitive fields does 349 consume, how are batch entries delimited, and are failures atomic or per-entry?",
@@ -4414,9 +4419,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 1206,
+          "line_start": 1210,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1253
+          "line_end": 1257
         }
       ],
       "question": "Is 500 a liveness operation or something else, who sends it and when, and does its ACK affect idle deadlines?",
@@ -4655,9 +4660,9 @@
           "path": "protocol.md",
           "heading": "References and Correction Traceability",
           "level": 2,
-          "line_start": 1254,
+          "line_start": 1258,
           "anchor": "references-and-correction-traceability",
-          "line_end": 1295
+          "line_end": 1299
         }
       ],
       "question": "Which release/client/server configurations do the selected RCS trunk snapshots represent, and how do the default vendor branch and build options differ?",
@@ -4920,9 +4925,9 @@
           "path": "protocol.md",
           "heading": "References and Correction Traceability",
           "level": 2,
-          "line_start": 1254,
+          "line_start": 1258,
           "anchor": "references-and-correction-traceability",
-          "line_end": 1295
+          "line_end": 1299
         },
         {
           "path": "baseline-correction-map.md",
@@ -6217,7 +6222,7 @@
       "level": 3,
       "line_start": 1140,
       "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-      "line_end": 1181,
+      "line_end": 1185,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-003",
@@ -6238,9 +6243,9 @@
       "path": "protocol.md",
       "heading": "Broadcasting a Message (Transaction 355) \u2013 Admin/Server Initiated",
       "level": 3,
-      "line_start": 1182,
+      "line_start": 1186,
       "anchor": "broadcasting-a-message-transaction-355--adminserver-initiated",
-      "line_end": 1196,
+      "line_end": 1200,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-045",
@@ -6255,9 +6260,9 @@
       "path": "protocol.md",
       "heading": "Additional Admin Privileges Note",
       "level": 3,
-      "line_start": 1197,
+      "line_start": 1201,
       "anchor": "additional-admin-privileges-note",
-      "line_end": 1205,
+      "line_end": 1209,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-038",
@@ -6272,9 +6277,9 @@
       "path": "protocol.md",
       "heading": "Additional Observed Requests and Scope Gaps",
       "level": 2,
-      "line_start": 1206,
+      "line_start": 1210,
       "anchor": "additional-observed-requests-and-scope-gaps",
-      "line_end": 1253,
+      "line_end": 1257,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-005",
@@ -6297,9 +6302,9 @@
       "path": "protocol.md",
       "heading": "References and Correction Traceability",
       "level": 2,
-      "line_start": 1254,
+      "line_start": 1258,
       "anchor": "references-and-correction-traceability",
-      "line_end": 1295,
+      "line_end": 1299,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-083",
@@ -7253,7 +7258,7 @@
       "heading": "Rename collision does not preserve the destination account",
       "level": 3,
       "line_start": 307,
-      "line_end": 343,
+      "line_end": 344,
       "anchor": "rename-collision-does-not-preserve-the-destination-account",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7281,6 +7286,23 @@
         "GAP-072",
         "GAP-078",
         "GAP-084"
+      ]
+    },
+    {
+      "path": "operation-contracts.md",
+      "heading": "Account deletion and allocated Trash records",
+      "level": 2,
+      "line_start": 345,
+      "line_end": 358,
+      "anchor": "account-deletion-and-allocated-trash-records",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-072",
+        "GAP-021"
+      ],
+      "related_gap_ids": [
+        "GAP-072",
+        "GAP-021"
       ]
     },
     {
@@ -8456,7 +8478,7 @@
       "heading": "Kick options and native console messages",
       "level": 2,
       "line_start": 436,
-      "line_end": 525,
+      "line_end": 531,
       "anchor": "kick-options-and-native-console-messages",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -8474,8 +8496,8 @@
       "path": "presence-messaging-contracts.md",
       "heading": "Captured private rooms, invitations and chat bytes",
       "level": 2,
-      "line_start": 526,
-      "line_end": 630,
+      "line_start": 532,
+      "line_end": 636,
       "anchor": "captured-private-rooms-invitations-and-chat-bytes",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -8511,8 +8533,8 @@
       "path": "presence-messaging-contracts.md",
       "heading": "Captured console and client broadcast recipients",
       "level": 2,
-      "line_start": 631,
-      "line_end": 643,
+      "line_start": 637,
+      "line_end": 649,
       "anchor": "captured-console-and-client-broadcast-recipients",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -13793,7 +13815,7 @@
       "heading": "Plan and isolation",
       "level": 2,
       "line_start": 12,
-      "line_end": 54,
+      "line_end": 63,
       "anchor": "plan-and-isolation",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -13807,8 +13829,8 @@
       "path": "native-roster-overlap-preparation.md",
       "heading": "Bounded causal sequence",
       "level": 2,
-      "line_start": 55,
-      "line_end": 81,
+      "line_start": 64,
+      "line_end": 107,
       "anchor": "bounded-causal-sequence",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -13822,8 +13844,8 @@
       "path": "native-roster-overlap-preparation.md",
       "heading": "Verification and unresolved requirements",
       "level": 2,
-      "line_start": 82,
-      "line_end": 98,
+      "line_start": 108,
+      "line_end": 129,
       "anchor": "verification-and-unresolved-requirements",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -13921,6 +13943,82 @@
       ],
       "related_gap_ids": [
         "GAP-074"
+      ]
+    },
+    {
+      "path": "native-ban-expiry-later-witness.md",
+      "heading": "Native temporary-ban later epoch",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 8,
+      "anchor": "native-temporary-ban-later-epoch",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-074",
+        "GAP-072",
+        "GAP-021"
+      ],
+      "related_gap_ids": [
+        "GAP-074",
+        "GAP-072",
+        "GAP-021"
+      ]
+    },
+    {
+      "path": "native-ban-expiry-later-witness.md",
+      "heading": "The missed pre-window",
+      "level": 2,
+      "line_start": 9,
+      "line_end": 24,
+      "anchor": "the-missed-pre-window",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-074",
+        "GAP-072",
+        "GAP-021"
+      ],
+      "related_gap_ids": [
+        "GAP-074",
+        "GAP-072",
+        "GAP-021"
+      ]
+    },
+    {
+      "path": "native-ban-expiry-later-witness.md",
+      "heading": "Later login and cleanup",
+      "level": 2,
+      "line_start": 25,
+      "line_end": 75,
+      "anchor": "later-login-and-cleanup",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-074",
+        "GAP-072",
+        "GAP-021"
+      ],
+      "related_gap_ids": [
+        "GAP-074",
+        "GAP-072",
+        "GAP-021"
+      ]
+    },
+    {
+      "path": "native-ban-expiry-later-witness.md",
+      "heading": "Offline replay and limits",
+      "level": 2,
+      "line_start": 76,
+      "line_end": 100,
+      "anchor": "offline-replay-and-limits",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-074",
+        "GAP-072",
+        "GAP-021"
+      ],
+      "related_gap_ids": [
+        "GAP-074",
+        "GAP-072",
+        "GAP-021"
       ]
     }
   ]

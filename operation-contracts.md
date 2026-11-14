@@ -341,3 +341,18 @@ GAP-003.
 [unknown]: ../mothra/evidence/gap-remediation/2026-11-12/batch-03/queries/B03-D-10014640.c
 
 [native-core]: ../mothra/evidence/gap-remediation/2026-11-12/native-core-01/manifest.json
+
+## Account deletion and allocated Trash records
+
+The [later ban fixture](native-ban-expiry-later-witness.md) removed its two
+owned accounts with 351. Both 352 lookups then reported missing, and 348
+returned the original two accounts. The original account/Prefs data forks
+matched preflight after the native app quit and the emulator was terminated.
+
+Read-only TSK `fls -u` and `istat` found the owned folders and 734-byte UserData
+files still **allocated in Trash**. They were not unallocated recovered
+records. This corroborates the traced account Trash move; active account
+removal does not imply physical erasure. The fixture did not empty Trash or
+restart this post-deletion image. Other owned-account persistence examples
+remain separately scoped. This does not establish single-operation write
+failure atomicity for 350 or 353 (GAP-072/021).

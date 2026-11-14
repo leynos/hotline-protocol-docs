@@ -451,9 +451,10 @@ Option 1 uses `100063c0`; option 2 uses `10006230`, list reader
 `1000a070` and writer `10009d10`. The writer rotates the stored ban files and
 writes list version 2. These are address bans, not account-name mutations.
 The [first temporary-ban epoch](native-ban-expiry-first-witness.md) adds
-controlled kick-only and protection outcomes below. Actual expiry remains
-GAP-074; the [one-restart witness](native-ban-reload-witness.md) covers only
-its recorded permanent-ban reload.
+controlled kick-only and protection outcomes below. The
+[later temporary-ban witness](native-ban-expiry-later-witness.md) adds
+post-deadline login acceptance; the [one-restart witness](native-ban-reload-witness.md)
+covers only its recorded permanent-ban reload.
 
 The [owned lab fixture](native-ban-notices.md) captures option 1 with an
 unprotected target: data-only 104, target close, then the administrator's
@@ -478,7 +479,12 @@ second of bounded target silence contains no 104 or EOF. One option-1 kick
 then produces the temporary notice/EOF, followed by a full valid Login107
 rejected with the temporary-ban text. The thirteen paired TCP lifetimes also
 retain the later admin-side 302 after deliberate fixture cleanup. These
-control-only observations do not yet establish expiry or full-file health.
+control-only observations do not exercise full-file health. The later
+witness accepts the same valid Login107 after 2,032 host-relative seconds on
+the same guest. The planned pre-window probe was missed without socket
+contact. Thus 1,800 seconds remains the code-derived deadline, while the
+native captures demonstrate immediate rejection and later acceptance; they
+do not measure the exact cutoff or background removal instant.
 
 The [fresh read-only oracle trace][ban-oracle] finds direct callers of both
 ban predicates only in login 107. `10011960` checks the permanent list first,
