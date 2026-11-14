@@ -1,7 +1,8 @@
 # Delayed 121 default-text preparation (A35)
 
-This is an offline route and fixture plan, not a live result. The pinned
-primary server can enter delayed transaction 121 using client-controlled
+This was the offline route and fixture plan for the measured
+[A37 native witness](native-121-default-witness.md). The pinned primary
+server entered delayed transaction 121 using client-controlled
 login fields alone. No agreement, account, file or server option change is
 needed for this branch. The [A33 corpus](native-settings-transition-witness.md)
 read back the original 242-byte agreement in a 109/101 notice and the two
