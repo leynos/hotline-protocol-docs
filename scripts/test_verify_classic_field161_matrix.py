@@ -7,7 +7,12 @@ import unittest
 from pathlib import Path
 
 from pcap_tcp import read_packets
-from verify_classic_field161_matrix import check_case, check_readiness, verify
+from verify_classic_field161_matrix import (
+    check_case,
+    check_readiness,
+    check_source_snapshot,
+    verify,
+)
 
 CORPUS = (
     Path(__file__).resolve().parents[2]
@@ -38,6 +43,12 @@ class ClassicField161MatrixTests(unittest.TestCase):
             set(result["cases"]), {"omit-161", "one-byte-161", "four-byte-161"}
         )
         self.assertTrue(result["capture"]["journals_zero_drops"])
+
+    def test_changed_frozen_proxy_source_rejected(self) -> None:
+        snapshot = self.base / "as-run/classic_login_proxy.py.txt"
+        snapshot.write_bytes(snapshot.read_bytes() + b"\n")
+        with self.assertRaisesRegex(ValueError, "proxy source snapshot"):
+            check_source_snapshot(self.base, self.manifest["source"], "proxy")
 
     def test_wrong_forwarded_ack_guest_byte_rejected(self) -> None:
         p = self.base / "pcaps/client-guest-post.pcap"

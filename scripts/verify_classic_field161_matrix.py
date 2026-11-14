@@ -14,6 +14,10 @@ SOURCE_ACK_SHA = "814b733a82d15dd7250cb0e8b7ed0c6c09a7a02d7169ab70ebaa359fb18eb6
 SOURCE_ACK_HEX = "0001000000000001000000000000000e0000000e000200a0000200be00a100020000"
 AGREEMENT_SHA = "5288d060a4270cf6ae899302c52b2ac784b30dea99f01d2d4cd1c1037c4bd1c7"
 VARIANTS = ("omit-161", "one-byte-161", "four-byte-161")
+SOURCE_SHAS = {
+    "proxy": "44bb68fe0bc464874aa455e823ca08b00704b88f5064d776119fcaf0682a5c7e",
+    "parser": "04c4fda2e62ccab35ed306c036dac6b1878af58adbfaccc6312a2805dd6897d7",
+}
 EXPECTED_FIELDS = {
     "omit-161": {160: bytes.fromhex("00be")},
     "one-byte-161": {160: bytes.fromhex("00be"), 161: b"\0"},
@@ -49,6 +53,24 @@ def inventory(base: Path) -> None:
         if p.is_file() and p.name != "SHA256SUMS"
     }
     require(names == actual, "SHA inventory file set")
+
+
+def check_source_snapshot(base: Path, source: dict, key: str) -> None:
+    names = {"proxy": "classic_login_proxy.py", "parser": "pcap_tcp.py"}
+    require(key in names, "unknown source snapshot")
+    name = names[key]
+    require(
+        source[f"{key}_path"] == f"../hotline-protocol-docs/scripts/{name}"
+        and source[f"{key}_revision"] == "79d867dc80c0aea50ad77569aae89e1d0bf37915"
+        and source[f"{key}_snapshot_path"] == f"as-run/{name}.txt"
+        and source[f"{key}_sha256"] == SOURCE_SHAS[key],
+        f"{key} source provenance",
+    )
+    require(
+        digest((base / source[f"{key}_snapshot_path"]).read_bytes())
+        == source[f"{key}_sha256"],
+        f"{key} source snapshot",
+    )
 
 
 def check_readiness(base: Path, manifest: dict) -> dict:
@@ -354,11 +376,7 @@ def verify(base: Path) -> dict:
     root = base.resolve().parents[3]
     source = manifest["source"]
     for key in ("proxy", "parser"):
-        require(
-            digest((root / source[f"{key}_path"]).read_bytes())
-            == source[f"{key}_sha256"],
-            f"{key} source identity",
-        )
+        check_source_snapshot(base, source, key)
     require(
         digest((root / "scripts/capture_readiness.py").read_bytes())
         == manifest["capture_gate_sha256"],

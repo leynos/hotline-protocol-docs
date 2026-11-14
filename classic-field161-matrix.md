@@ -3,7 +3,7 @@
 The [portable B52 corpus][corpus] records three one-attempt local sessions on
 14 November 2026 through the fixed, isolated [Classic login proxy][proxy].
 The actual native Hotline Server 1.9 sent the same successful Login107 ACK
-each time: field 160 `00be`, field 161 `0000`, 34 bytes. The unchanged proxy
+each time: field 160 `00be`, field 161 `0000`, 34 bytes. The as-run proxy
 source SHA-256 was `44bb68fe0bc464874aa455e823ca08b00704b88f5064d776119fcaf0682a5c7e`.
 Only the ACK field-161 shape changed on the downstream path. The archive and
 app label say **1.9.2**; embedded `vers` says **1.9.1.0**. The identified
@@ -58,8 +58,12 @@ had exited despite a valid PCAP header. The operator missed the absent
 `lsof` FD. The [B51 readiness gate][gate] checks the actual managed process,
 FD and remaining deadline; B52 used it. B50 was a capture failure, not a
 protocol result. The complete B52 source PCAPs remain ignored locally; the
-portable corpus retains selected complete TCP lifetimes, source hashes,
-packet indexes, action records, A7 reports, screenshots and SHA inventory.
+portable corpus retains selected complete TCP lifetimes, packet indexes, action
+records, A7 reports, screenshots, frozen as-run proxy and parser sources at
+revision `79d867d`, and a SHA inventory. The verifier checks the historical
+source snapshots, while current transformation code is separately checked
+against the retained ACK outputs. Later proxy edits do not change the recorded
+source identity.
 
 Replay from this repository in an adjacent two-repository export:
 
