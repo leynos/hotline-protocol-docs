@@ -44,12 +44,16 @@ The ignored C52 preparation record and five plan hashes are at
    `owned_working_image`, `emulator_netns`, `ns_routes=[]`, and
    `primary_syn_count=0`. The coordinator verifies live process identities
    and 24-byte PCAP headers before the first socket and each phase.
-3. Run **once** inside the actual lab namespace as UID 1000:
+3. Run **once** inside the actual lab namespace as root (UID 0):
    `python scripts/native_control_readiness.py run --plans PLANS --binary
    MOTHRA/evidence/hotline-server-1.9/inputs/HLserver19.pef
    --capture-ready CAPTURE-READY.json --output CAPTURES`. Set a managed
-   one-shot unit with retained stdout/stderr/exit and bounded runtime.
-   Never target primary `15500` or use the original server. The coordinator
+   one-shot system unit with direct `NetworkNamespacePath` to the actual lab,
+   retained stdout/stderr/exit and bounded runtime. Root is required to read
+   the non-dumpable UID-1000 emulator's `/proc` executable and FD links; the
+   emulator itself remains UID 1000. The guarded ban capture records
+   `controller_uid=0`. Never target primary `15500` or use the
+   original server. The coordinator
    stops at the first failed semantic gate and closes all owned sockets.
 4. The 18-action first plan checks exact admin login/privileges/agreement,
    original account attributes (348), 41-entry Files listing (200), fixture

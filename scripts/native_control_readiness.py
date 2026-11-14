@@ -290,6 +290,13 @@ def capture_gate(receipt: dict) -> None:
     )
 
 
+def require_controller_uid() -> None:
+    if os.geteuid() != 0:
+        raise PermissionError(
+            "Live coordinator requires root to inspect emulator /proc identity"
+        )
+
+
 def plan_gate(directory: Path, emulator_pid: int) -> None:
     names = {"readiness", "guard", "seed", "ban", "probe"}
     hashes = json.loads((directory / "source-hashes.json").read_text())
@@ -344,6 +351,7 @@ def run_guarded_ban(plan_path: Path, binary: Path, output: Path) -> dict:
         "native_conformance": False,
         "operator": plan["operator"],
         "oracle_sha256": plan["oracle_sha256"],
+        "controller_uid": os.geteuid(),
         "plan_sha256": digest(source),
         "driver_sha256": digest(Path(__file__).read_bytes()),
         "recorded_at_utc": datetime.now(timezone.utc).isoformat(),
@@ -387,6 +395,7 @@ def main() -> None:
             json.dumps(result, indent=2) + "\n"
         )
     else:
+        require_controller_uid()
         receipt = json.loads(args.capture_ready.read_text())
         capture_gate(receipt)
         plan_gate(args.plans, receipt["emulator_pid"])

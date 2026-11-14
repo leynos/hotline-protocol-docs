@@ -7,7 +7,7 @@ from tempfile import TemporaryDirectory
 from unittest.mock import patch
 
 import native_ban_control_cases as cases
-from native_control_readiness import execute_ban_step, plan_gate, target_gate
+from native_control_readiness import execute_ban_step, main, plan_gate, target_gate
 from native_plan import packet, payload
 from protocol_capture import Recorder
 
@@ -127,6 +127,26 @@ class NativeControlReadinessTests(unittest.TestCase):
             path.write_bytes(path.read_bytes() + b" ")
             with self.assertRaisesRegex(ValueError, "source plan changed"):
                 plan_gate(directory, 42)
+
+    def test_live_cli_rejects_unprivileged_controller_before_receipt_read(self) -> None:
+        argv = [
+            "program",
+            "run",
+            "--plans",
+            "/missing-plans",
+            "--binary",
+            "/missing-binary",
+            "--capture-ready",
+            "/missing-receipt",
+            "--output",
+            "/missing-output",
+        ]
+        with (
+            patch("sys.argv", argv),
+            patch("native_control_readiness.os.geteuid", return_value=1000),
+            self.assertRaisesRegex(PermissionError, "requires root"),
+        ):
+            main()
 
 
 if __name__ == "__main__":
