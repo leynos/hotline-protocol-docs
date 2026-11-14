@@ -9,13 +9,21 @@ reviewed Finder receipt and never sends GUI input or executes receipt text.
 
 ## Exact boundary
 
-Use a fresh control-only runtime `state/mac-runtime/native-alias-live-03`,
+The third control-only profile used `state/mac-runtime/native-alias-live-03`,
 display `:124`, owned session `state/native-sessions/native-alias-live-03`,
 and namespace-local `127.0.0.1:15980`. Check identifier availability before
 preparation. Before live START, root must validate the prepared ownership and
 pin all source, base, ROM, executable and target bytes.
 The guest sees server address `10.0.2.15:5500`.
 Do not contact the original primary server or read a live working image.
+
+That runtime is now retired. Its target was not selected by the preparation
+checkpoint, and no protocol request ran. A menu mis-hit opened an empty
+Broadcast dialog. It was cancelled without Send, but continuing preparation
+breached the stop-and-escalate rule. Do not reuse the image or its pins.
+[Retained abort evidence](../mothra/evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/manifest.json)
+records this deviation and the early retirement. Any further attempt needs
+a separately reviewed preparation budget and fresh profile.
 Select the owned Unix target and obtain root's reviewed receipt by epoch
 +270 seconds; preserve the hard >=390-second case-start reserve. Retire a
 late lab without changing its deadline or re-pinning Finder metadata.
