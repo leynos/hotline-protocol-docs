@@ -1,17 +1,19 @@
-# Classic Login107 field-161 proxy: preparation only
+# Classic Login107 field-161 proxy
 
-This tool prepares a bounded *future* GAP-081 Classic client experiment. A
-synthetic full serve-path rehearsal passed, but the actual Classic client has
-not connected through this proxy. A guard-only, read-only call ran as UID
-1000 inside the actual client namespace.
-It is protocol-specific: no mothra generic bridge, client app, native server,
-account, or configuration changes were made in this milestone.
+The [B46/B47 baseline corpus][baseline] now records actual Classic client
+connections through this proxy. B47 reached the 121/300 roster, automatic
+212 request and 16/58-byte data attachment before the independent
+ACK-plus-28-second cutoff. The baseline ACK was byte-identical to native;
+modified field-161 variants remain unrun. Earlier B29 synthetic rehearsal
+and B30/B31 zero-contact failures remain separate evidence. This tool is
+protocol-specific; it did not change the mothra generic bridge or native
+server configuration.
 
 ## Fixed topology and authority boundary
 
-The proxy is intended to run **inside the already isolated client network
-namespace** under a future direct system service with `User=1000` and
-`NetworkNamespacePath=` set to the verified client namespace. A user service
+The proxy ran **inside the isolated client network namespace** under a direct
+system service with `User=1000` and `NetworkNamespacePath=` set to the
+verified client namespace. A user service
 that runs `sudo`/`nsenter` is not an approved substitute. The CLI requires
 trusted operator-supplied
 `--expected-netns-inode` and `--host-netns-inode` values. The guard compares
@@ -22,16 +24,15 @@ views to UID 1000 in the actual service context. Wrong, equal or nonpositive
 inodes fail before binding. It binds only `127.0.0.1:15652` for control and
 `127.0.0.1:15653` for automatic banner data. Those listeners connect only to
 the existing namespace-local `127.0.0.1:15500/15501` native bridges. The
-Classic app would use guest `10.0.2.2:15652`, allowing its automatic data
-fetch on 15653; confirming that client data-port selection needs a separate
-runtime baseline. There is no arbitrary backend address or production port
-option. This route must be reviewed with the actual service and namespace
-identity before any client run.
+Classic app used guest `10.0.2.2:15652` and automatically attached to
+15653 for the banner data in B47. There is no arbitrary backend address or
+production port option. Recheck the service and namespace identities on
+every future run.
 
 The process accepts at most one control connection and at most one data
 connection, then closes the listeners. It has a 180-second monotonic deadline,
 short socket timeouts, and an aggregate raw/forwarded JSON log cap below 1 MiB.
-A future service should also set `RuntimeMaxSec=180` as an independent process
+A future service must also set `RuntimeMaxSec=180` as an independent process
 stop. Failure after output creation closes owned sockets and writes a failed
 report under a fresh, exclusive output directory. All traffic stays local
 to the known native bridge. The output may include the controlled fixture
@@ -64,9 +65,9 @@ hex **before** `sendall`. In a failed report, those entries are not delivery
 proof. Even a successful local send requires packet and peer observations for
 acceptance.
 Proxy `completed` means only that its ACK and relay ran to completion. It is
-**not** proof the Classic app accepted the variant. The first authorised live
-case must be `baseline`, with host/client/server wire and UI parity against
-B21. Only a separate review may allow modified cases after that baseline.
+**not** proof the Classic app accepted a variant. B46/B47 established the
+baseline across client, namespace, host and server captures. Only a separate
+review may allow modified cases.
 No 162 mutation is implemented here.
 
 ## Automatic observation cutoff (B27 preparation)
@@ -92,7 +93,7 @@ source mismatch remains a failure. A valid timer stop is reported as
 `completed` status and from peer acceptance. The proxy writes the final
 bounded report with its PID and timing receipt; unexpected timer or report
 failure invalidates the case. The app and native server remain separately
-owned. The existing 180-second process cap and future system-service
+owned. The existing 180-second process cap and system-service
 `RuntimeMaxSec=180` still apply.
 
 The route check calls fixed `/usr/sbin/ip`, so it does not depend on the
@@ -108,8 +109,13 @@ It passed the exact baseline ACK, later 109 and data bytes, then closed after
 a client half-close at ACK plus `28.097680969` seconds with a valid intentional
 cutoff. The child PID was gone and the owned unit stopped. B30 timed out before
 Connect; B31's one Connect click left the dialog open and produced no SYN.
-Both are zero-contact failures, so no actual baseline or field-tolerance
-result exists. The [Mothra handoff][handoff] details the evidence limits.
+Both are zero-contact failures. B42/B43/B45 also stopped before client
+contact. B46 reached Login107/109 before its cutoff; B47 accepted the known
+agreement and reached 121/300/212 plus automatic banner data. Their
+[portable corpus][baseline] has the five-view raw bytes and finite UI
+observations. These two baseline cases do not test altered 161 widths,
+omission, field 162, or broader interoperability. The [Mothra handoff][handoff]
+details the earlier synthetic and zero-contact evidence limits.
 
 From the protocol-docs repository:
 
@@ -128,11 +134,16 @@ check, plus inaccessible `/proc/1` and host-sysfs discrepancy regressions.
 A nonlocal-route fault also fails the guard. New fake-clock and socket-pair
 controls cover ACK-only arming, failed send, shared socket closure, one-sided
 half-close, and late close or relay-teardown invalidity. They open no native
-or guest listener. Actual direct-system-service
-lifecycle, namespace route proof, client data-port behavior, baseline wire/UI
-parity and error cleanup remain untested runtime gates. A future failed
-baseline stops before any modified 161 case; unexpected egress, extra
-connection, packet gap or app-route ambiguity also stops the experiment.
+or guest listener. The B46/B47 live receipts establish direct-system-service
+lifecycle, namespace route proof, client data-port selection and baseline
+wire/UI continuation. For a future run, frontload the exact A7 242-byte
+agreement check, stage the dialog before starting the proxy, and use one
+Return to activate Connect. Escape may dismiss the exact known idle Aros
+display if it obscures the guest. On the known agreement dialog, click Agree
+promptly within the independent 28-second window; B46 shows why a delayed
+click cannot test acceptance. Recheck identities, capture readiness and
+housekeeping prompts on every run. Unexpected egress, extra connection,
+packet gap or app-route ambiguity stops any modified case.
 
 The original 350 physical production-line budget was increased to 430 by the
 supervisor. This **+80-line allowance** retains explicit frame validation,
@@ -157,3 +168,4 @@ process identity before any future service launch.
 
 [rehearsal]: ../mothra/evidence/gap-remediation/2026-11-13/classic-proxy-rehearsal-01/
 [handoff]: ../mothra/docs/delegation/classic-proxy-rehearsal.md
+[baseline]: classic-native-baseline.md
