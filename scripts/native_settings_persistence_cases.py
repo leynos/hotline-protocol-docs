@@ -135,6 +135,11 @@ def observation(phase: int) -> tuple[list[dict], dict]:
                     "auto": active,
                 }
             )
+    expectation["observation_actions"] = len(steps)
+    steps += [
+        {"op": "read_eof", "connection": name, "timeout": 720}
+        for name in ("subject", "main")
+    ]
     return steps, expectation
 
 

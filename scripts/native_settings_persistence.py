@@ -194,11 +194,9 @@ def semantic(report: dict, plan: dict) -> dict:
     """Replay bounded stage gates; a completed phase still needs guest shutdown proof."""
     verify_plan(plan)
     require(report["status"] == "completed", "Phase capture incomplete")
-    require(
-        report["completed_actions"] == len(plan["steps"]) + 2, "Quit EOF count differs"
-    )
+    require(report["completed_actions"] == len(plan["steps"]), "Quit EOF count differs")
     passed = []
-    for index in range(len(plan["steps"])):
+    for index in range(plan["expectation"]["observation_actions"]):
         result = phase_gate(
             {"frames": report["frames"], "completed_actions": index + 1}, plan, index
         )
@@ -207,7 +205,11 @@ def semantic(report: dict, plan: dict) -> dict:
     require(passed == report["gates"], "Live and replayed stage gates differ")
     eof = [event for event in report["events"] if event["event"] == "eof"]
     require(
-        len(eof) == 2 and {event["connection"] for event in eof} == {"main", "subject"},
+        [(event["action"], event["connection"]) for event in eof]
+        == [
+            (plan["expectation"]["observation_actions"], "subject"),
+            (plan["expectation"]["observation_actions"] + 1, "main"),
+        ],
         "Owned socket EOFs differ",
     )
     return {
@@ -285,7 +287,9 @@ def run_gated(
     recorder = Recorder(plan)
     status, error, passed, completed = "completed", "", [], 0
     try:
-        for index, step in enumerate(plan["steps"]):
+        for index, step in enumerate(
+            plan["steps"][: plan["expectation"]["observation_actions"]]
+        ):
             if (time.monotonic_ns() - recorder.started) / 1e9 >= LIMIT_SECONDS:
                 raise TimeoutError("Phase exceeded 12 minutes")
             recorder.execute(index, step)
@@ -307,12 +311,15 @@ def run_gated(
             + "\n"
         )
         # Operator now performs native File > Quit with both sessions still open.
-        for name in ("subject", "main"):
+        for index, step in enumerate(
+            plan["steps"][plan["expectation"]["observation_actions"] :],
+            start=plan["expectation"]["observation_actions"],
+        ):
             remaining = LIMIT_SECONDS - (time.monotonic_ns() - recorder.started) / 1e9
             if remaining <= 0:
                 raise TimeoutError("Phase exceeded 12 minutes before app Quit")
             recorder.execute(
-                completed, {"op": "read_eof", "connection": name, "timeout": remaining}
+                index, {**step, "timeout": min(step["timeout"], remaining)}
             )
             completed += 1
     except (

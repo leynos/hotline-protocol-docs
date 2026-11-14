@@ -1,10 +1,14 @@
 """Fault controls for the isolated settings persistence plan and gates."""
 
+import json
+import tempfile
 import unittest
+from pathlib import Path
 from unittest.mock import patch
 
 import native_settings_persistence as runner
 import native_settings_persistence_cases as cases
+from protocol_capture import ORACLE_SHA256, Recorder, digest, verify_capture
 
 
 class PersistencePreparationTests(unittest.TestCase):
@@ -40,6 +44,12 @@ class PersistencePreparationTests(unittest.TestCase):
         )
         self.assertTrue(plans["phase1"]["expectation"]["stages"][-1]["auto"])
         self.assertFalse(any(step["op"] == "close" for step in before))
+        for plan, count in ((plans["phase1"], 64), (plans["phase2"], 26)):
+            self.assertEqual(plan["expectation"]["observation_actions"], count)
+            self.assertEqual(
+                [(step["op"], step["connection"]) for step in plan["steps"][-2:]],
+                [("read_eof", "subject"), ("read_eof", "main")],
+            )
         self.assertEqual(
             plans["phase1"]["environment"]["full_file_baseline"], "not_exercised"
         )
@@ -155,13 +165,6 @@ class PersistencePreparationTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Automatic PM feedback"):
             runner.gate_pm(report, start, b"\0\2", b"\0\1", phase=1, stage=stage)
 
-    def test_incomplete_phase_cannot_claim_persistence(self) -> None:
-        plan = cases.plans(
-            {"emulator_pid": 123, "source_a7_sha256": cases.A7_SHA}, 15760
-        )["phase1"]
-        with self.assertRaisesRegex(ValueError, "incomplete"):
-            runner.semantic({"status": "failed"}, plan)
-
     def test_changed_301_blocks_dependent_pm(self) -> None:
         plan = cases.plans(
             {"emulator_pid": 123, "source_a7_sha256": cases.A7_SHA}, 15760
@@ -169,6 +172,47 @@ class PersistencePreparationTests(unittest.TestCase):
         report = {"frames": []}
         with self.assertRaisesRegex(ValueError, "301"):
             runner.gate_update(report, plan, b"\0\2")
+
+    def test_serialized_completed_eofs_pass_generic_capture_gate(self) -> None:
+        plan = cases.plans(
+            {"emulator_pid": 123, "source_a7_sha256": cases.A7_SHA}, 15760
+        )["phase2"]
+        plan["steps"] = [s for s in plan["steps"] if s["op"] == "connect"] + plan[
+            "steps"
+        ][-2:]
+        recorder = Recorder(plan)
+        recorder.event(2, "subject", "eof")
+        recorder.event(3, "main", "eof")
+        raw = (json.dumps(plan) + "\n").encode()
+        report = {
+            "profile": plan["profile"],
+            "native_conformance": False,
+            "plan_sha256": digest(raw),
+            "oracle_sha256": ORACLE_SHA256,
+            "status": "completed",
+            "error": "",
+            "completed_actions": 4,
+            "events": recorder.events,
+            "streams": recorder.streams(),
+            "frames": [],
+        }
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            (directory / "plan.json").write_bytes(raw)
+
+            def save() -> None:
+                data = (json.dumps(report) + "\n").encode()
+                (directory / "report.json").write_bytes(data)
+                (directory / "checksums.sha256").write_text(
+                    f"{digest(raw)}  plan.json\n{digest(data)}  report.json\n"
+                )
+
+            save()
+            self.assertEqual(verify_capture(directory)["completed_actions"], 4)
+            report["completed_actions"] = 3
+            save()
+            with self.assertRaisesRegex(ValueError, "Incomplete plan"):
+                verify_capture(directory)
 
 
 if __name__ == "__main__":

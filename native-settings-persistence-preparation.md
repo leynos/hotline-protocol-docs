@@ -1,6 +1,10 @@
 # Isolated native settings persistence preparation (A42)
 
-This is an **unrun** GAP-029 persistence fixture.
+A46 phase one ran on the private A41 image; phase two remains **unrun** and
+requires separate root START. The A46 plan/report are frozen historical
+evidence: its 64 planned observation actions plus two runner-added EOFs require
+explicit legacy validation. Never rewrite their counts, checksums or driver hash.
+
 The same-session 304 transitions and delayed 121 defaults are already measured
 in `native-settings-transition-witness.md` and `native-121-default-witness.md`.
 
@@ -36,6 +40,12 @@ The private protocol checkout command is:
 python3 scripts/native_settings_persistence_cases.py \
   --runtime "$RUNTIME_JSON" --port 15760 --output "$OWNED_PLAN_DIR"
 ```
+
+The corrected generator includes two planned EOF actions after a 64-action phase
+one observation or 26-action phase two observation. The runner writes hold-ready
+after observation, then executes those planned EOFs after visible File > Quit. A
+completed report now has exactly 66 or 28 actions and passes the generic capture
+format gate; the separate semantic gate still checks both EOFs and stage results.
 
 The generator writes exact `readiness.json`, `phase1.json`, `phase2.json`,
 `source-hashes.json` and `source-code-sha256.json`. Re-run it after reboot
