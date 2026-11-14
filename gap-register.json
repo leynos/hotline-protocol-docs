@@ -3,11 +3,11 @@
   "title": "Hotline 1.9 protocol documentation gap register",
   "audited_at_utc": "2026-11-12T12:55:29.155796+00:00",
   "last_updated": "2026-11-14",
-  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-77/manifest.json",
-  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-77/sections.json",
+  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-78/manifest.json",
+  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-78/sections.json",
   "validity_ledger": "../mothra/docs/baseline-validity-ledger.md",
   "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
-  "method": "Retain all 87 original closure criteria and 60 Resolved, 26 Investigating, 1 Open. Separate the source-predicted 304 limiter from the failed native first pair, delayed-response fixture rehearsals and bounded recipient trace. Archive the field111 alias investigation without assigning meaning. No rate/reset/ban criterion is newly closed. Further mxd validation stays on hold.",
+  "method": "Retain all 87 original closure criteria and 60 Resolved, 26 Investigating, 1 Open. Archive the precontact rate startup failure and packet-triggered capture source; separate disk identity and later guest capture readiness with an independently reviewed offline helper. Preserve distinct GetDateTime log/limiter samples without claiming native clock calibration or rate behaviour. Further mxd validation stays on hold.",
   "gaps": [
     {
       "id": "GAP-001",
@@ -1218,13 +1218,14 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Confirmed INFO upload restoration does not consume transmitted dates: it sets modification time from GetDateTime, incrementing if unchanged. News and file serializers retain fixed1904year date encoding; native timezone/rollover/date fixtures remain required. Native321and400copyidentical8bytedateswith0770year,zero millisecondsandsecondswordsacrossthreadedfixtures. Actualtimezone/rolloverboundariesremainuntested.",
+        "progress": "Confirmed INFO upload restoration does not consume transmitted dates: it sets modification time from GetDateTime, incrementing if unchanged. News and file serializers retain fixed1904year date encoding; native timezone/rollover/date fixtures remain required. Native321and400copyidentical8bytedateswith0770year,zero millisecondsandsecondswordsacrossthreadedfixtures. Actualtimezone/rolloverboundariesremainuntested. Revision78 freezes three read-only source queries with exact before/after native program identity. GUI log formatting and the limiter make separate Mac GetDateTime calls; formatter0x22 requests seconds through TimeString Boolean1, supported by Apple API documentation and a retained guest log screenshot. The separate Connect Log file writer is conditional on bit8. Neither a per304 clock word, counter origin, rollover conversion nor native60 interval calibration is established.",
         "evidence": [
           "[Article navigation](news-contracts.md#reading-bodies-and-navigation)",
           "[Deletion rewrite](news-contracts.md#deletion-graph-rewrite)",
           "[INFO restoration](transfer-contracts.md#info-restoration-after-upload)",
           "[Captured native news contracts](news-contracts.md#captured-category-versions-and-header-metadata)",
-          "[Native news corpus](../mothra/evidence/gap-remediation/2026-11-13/native-news-01/manifest.json)"
+          "[Native news corpus](../mothra/evidence/gap-remediation/2026-11-13/native-news-01/manifest.json)",
+          "[Native clock and GUI log source](../mothra/docs/native-clock-evidence.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -2744,7 +2745,7 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Separated per-session request counter from server-wide last-address connection burst. Documented preincrement >120 test, >60 reset, repeat >10 with <30 age and non-sliding same-address timestamp. Counter-boundary/interleaved-address/expiry native fixtures remain required. Initial seed receives 121 ACKs including login within 17.74 seconds, then EOF before request 219; fresh login explicitly reports a temporary ban and GUI says Autobanned for flooding. Dispatcher trace has count/60-second/1800-second branches. Recovery is a new process, not natural expiry evidence; broader rate/timing criteria remain active. Revision77 separates the source-predicted 26/27 settings boundary and 60-second native-time reset from a failed first-pair native fixture. C107 sent exactly one304 and one500 after two logins/rosters; its 0.55-second wait ended before paced301/icon2 and ACK2000 arrived during client cleanup. The observer had already sent FIN. Three paired TCP lifetimes and stopped fork receipts replay exactly, with no RST or native limiter/reset/ban proof. B91 pipelines the unchanged26 ordered pairs and concurrently collects both recipients under a20-second host bound; delayed socketpair rehearsals pass, but no new native run is inferred. The identified recipient bit is set by the accepted TRTP response path; this bounded trace gives no positive icon-only304 gate-clearing edge and proves no universal delivery or global absence of another clearer.",
+        "progress": "Separated per-session request counter from server-wide last-address connection burst. Documented preincrement >120 test, >60 reset, repeat >10 with <30 age and non-sliding same-address timestamp. Counter-boundary/interleaved-address/expiry native fixtures remain required. Initial seed receives 121 ACKs including login within 17.74 seconds, then EOF before request 219; fresh login explicitly reports a temporary ban and GUI says Autobanned for flooding. Dispatcher trace has count/60-second/1800-second branches. Recovery is a new process, not natural expiry evidence; broader rate/timing criteria remain active. Revision77 separates the source-predicted 26/27 settings boundary and 60-second native-time reset from a failed first-pair native fixture. C107 sent exactly one304 and one500 after two logins/rosters; its 0.55-second wait ended before paced301/icon2 and ACK2000 arrived during client cleanup. The observer had already sent FIN. Three paired TCP lifetimes and stopped fork receipts replay exactly, with no RST or native limiter/reset/ban proof. B91 pipelines the unchanged26 ordered pairs and concurrently collects both recipients under a20-second host bound; delayed socketpair rehearsals pass, but no new native run is inferred. The identified recipient bit is set by the accepted TRTP response path; this bounded trace gives no positive icon-only304 gate-clearing edge and proves no universal delivery or global absence of another clearer. Revision78 retains the second rate lab as precontact startup-gate failure, not a native protocol result. The actual VM opened its owned disk but no guest capture was observed at the five-second gate; no readiness or304 ran, and all owned processes retired before the fixed deadline. Existing local source opens the PCAP on the first Ethernet packet. A111 separates early actual-process/disk identity from later same-process writable capture/header readiness before protocol traffic. The real-child rehearsal and strengthened identity/header fault tests pass independent B95/B96 review for that offline sequence, with the distinct-namespace fact mocked in rehearsal. No next boot or limiter/reset result is inferred.",
         "evidence": [
           "[Activity clocks](session-transport-contracts.md#activity-clocks-and-incomplete-input)",
           "[Flood counters](session-transport-contracts.md#flood-and-connection-burst-counters)",
@@ -2755,7 +2756,11 @@
           "[Source-predicted settings limiter](rate304-contract.md)",
           "[Failed first-pair native witness](native-rate304-first-pair.md)",
           "[Revised bounded fixture preparation](native-rate304-preparation.md)",
-          "[Recipient predicate source trace](rate304-recipient-predicate.md)"
+          "[Recipient predicate source trace](rate304-recipient-predicate.md)",
+          "[Precontact rate startup failure](native-rate304-startup-gate.md)",
+          "[Packet-triggered guest capture source](../mothra/docs/guest-capture-startup.md)",
+          "[Phased emulator readiness](../mothra/docs/native-emulator-readiness.md)",
+          "[Phased helper independent review and fault regressions](../mothra/evidence/gap-remediation/2026-11-14/emulator-readiness-review-01/manifest.json)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -9968,7 +9973,7 @@
       "heading": "Prepare the emulator and application",
       "level": 2,
       "line_start": 9,
-      "line_end": 86,
+      "line_end": 98,
       "anchor": "prepare-the-emulator-and-application",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -9984,8 +9989,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Capture an exchange",
       "level": 2,
-      "line_start": 87,
-      "line_end": 153,
+      "line_start": 99,
+      "line_end": 165,
       "anchor": "capture-an-exchange",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10001,8 +10006,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Recorded native core fixtures",
       "level": 2,
-      "line_start": 154,
-      "line_end": 230,
+      "line_start": 166,
+      "line_end": 242,
       "anchor": "recorded-native-core-fixtures",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10024,8 +10029,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Recorded native transport fixtures",
       "level": 2,
-      "line_start": 231,
-      "line_end": 273,
+      "line_start": 243,
+      "line_end": 285,
       "anchor": "recorded-native-transport-fixtures",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10045,8 +10050,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Recorded native framing fixtures",
       "level": 2,
-      "line_start": 274,
-      "line_end": 308,
+      "line_start": 286,
+      "line_end": 320,
       "anchor": "recorded-native-framing-fixtures",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10062,8 +10067,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Recorded native ordinary-file fixtures",
       "level": 2,
-      "line_start": 309,
-      "line_end": 358,
+      "line_start": 321,
+      "line_end": 370,
       "anchor": "recorded-native-ordinary-file-fixtures",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10081,8 +10086,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Recorded native resume fixtures",
       "level": 2,
-      "line_start": 359,
-      "line_end": 399,
+      "line_start": 371,
+      "line_end": 411,
       "anchor": "recorded-native-resume-fixtures",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10098,8 +10103,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Recorded native queue fixtures",
       "level": 2,
-      "line_start": 400,
-      "line_end": 442,
+      "line_start": 412,
+      "line_end": 454,
       "anchor": "recorded-native-queue-fixtures",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10117,8 +10122,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Recorded native cleanup fixtures",
       "level": 2,
-      "line_start": 443,
-      "line_end": 478,
+      "line_start": 455,
+      "line_end": 490,
       "anchor": "recorded-native-cleanup-fixtures",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10134,8 +10139,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Recorded native folder fixtures",
       "level": 2,
-      "line_start": 479,
-      "line_end": 540,
+      "line_start": 491,
+      "line_end": 552,
       "anchor": "recorded-native-folder-fixtures",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10153,8 +10158,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Acceptance and corpus coverage",
       "level": 2,
-      "line_start": 541,
-      "line_end": 571,
+      "line_start": 553,
+      "line_end": 583,
       "anchor": "acceptance-and-corpus-coverage",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10170,8 +10175,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Recorded native banner fixtures",
       "level": 2,
-      "line_start": 572,
-      "line_end": 632,
+      "line_start": 584,
+      "line_end": 644,
       "anchor": "recorded-native-banner-fixtures",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10189,8 +10194,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Reproducing banner format and recovery fixtures",
       "level": 2,
-      "line_start": 633,
-      "line_end": 702,
+      "line_start": 645,
+      "line_end": 714,
       "anchor": "reproducing-banner-format-and-recovery-fixtures",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10210,8 +10215,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Reproducing HTXF header and reference fixtures",
       "level": 2,
-      "line_start": 703,
-      "line_end": 753,
+      "line_start": 715,
+      "line_end": 765,
       "anchor": "reproducing-htxf-header-and-reference-fixtures",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10231,8 +10236,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Reproducing ID, envelope and partial-input fixtures",
       "level": 2,
-      "line_start": 754,
-      "line_end": 807,
+      "line_start": 766,
+      "line_end": 819,
       "anchor": "reproducing-id-envelope-and-partial-input-fixtures",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10252,8 +10257,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Reproducing native authentication and visibility fixtures",
       "level": 2,
-      "line_start": 808,
-      "line_end": 861,
+      "line_start": 820,
+      "line_end": 873,
       "anchor": "reproducing-native-authentication-and-visibility-fixtures",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10277,8 +10282,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Reproducing agreement configuration and partial-failure fixtures",
       "level": 2,
-      "line_start": 862,
-      "line_end": 936,
+      "line_start": 874,
+      "line_end": 948,
       "anchor": "reproducing-agreement-configuration-and-partial-failure-fixtures",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10300,8 +10305,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Reproducing login-extra configuration and refresh fixtures",
       "level": 2,
-      "line_start": 937,
-      "line_end": 1013,
+      "line_start": 949,
+      "line_end": 1025,
       "anchor": "reproducing-login-extra-configuration-and-refresh-fixtures",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10323,8 +10328,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Reproducing full historical shx sessions",
       "level": 2,
-      "line_start": 1014,
-      "line_end": 1038,
+      "line_start": 1026,
+      "line_end": 1050,
       "anchor": "reproducing-full-historical-shx-sessions",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10348,8 +10353,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Reproducing banner and roster-subject receiver fixtures",
       "level": 2,
-      "line_start": 1039,
-      "line_end": 1058,
+      "line_start": 1051,
+      "line_end": 1070,
       "anchor": "reproducing-banner-and-roster-subject-receiver-fixtures",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10373,8 +10378,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Reproducing directory creation and path fixtures",
       "level": 2,
-      "line_start": 1059,
-      "line_end": 1101,
+      "line_start": 1071,
+      "line_end": 1113,
       "anchor": "reproducing-directory-creation-and-path-fixtures",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10408,8 +10413,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Reproducing alias and metadata fixtures",
       "level": 2,
-      "line_start": 1102,
-      "line_end": 1153,
+      "line_start": 1114,
+      "line_end": 1165,
       "anchor": "reproducing-alias-and-metadata-fixtures",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10439,8 +10444,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Reproducing rename and comment fixtures",
       "level": 2,
-      "line_start": 1154,
-      "line_end": 1201,
+      "line_start": 1166,
+      "line_end": 1213,
       "anchor": "reproducing-rename-and-comment-fixtures",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10464,8 +10469,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Reproducing move and Trash fixtures",
       "level": 2,
-      "line_start": 1202,
-      "line_end": 1249,
+      "line_start": 1214,
+      "line_end": 1261,
       "anchor": "reproducing-move-and-trash-fixtures",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10493,8 +10498,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Reproducing category and threaded news fixtures",
       "level": 2,
-      "line_start": 1250,
-      "line_end": 1313,
+      "line_start": 1262,
+      "line_end": 1325,
       "anchor": "reproducing-category-and-threaded-news-fixtures",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10534,8 +10539,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Reproducing isolated article deletion fixtures",
       "level": 2,
-      "line_start": 1314,
-      "line_end": 1366,
+      "line_start": 1326,
+      "line_end": 1378,
       "anchor": "reproducing-isolated-article-deletion-fixtures",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10565,8 +10570,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Reproducing the child append boundary",
       "level": 2,
-      "line_start": 1367,
-      "line_end": 1423,
+      "line_start": 1379,
+      "line_end": 1435,
       "anchor": "reproducing-the-child-append-boundary",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10596,8 +10601,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Reproducing account replacement and password boundaries",
       "level": 2,
-      "line_start": 1424,
-      "line_end": 1490,
+      "line_start": 1436,
+      "line_end": 1502,
       "anchor": "reproducing-account-replacement-and-password-boundaries",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10627,8 +10632,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Reproducing live account edits, deletion and restart",
       "level": 2,
-      "line_start": 1491,
-      "line_end": 1561,
+      "line_start": 1503,
+      "line_end": 1573,
       "anchor": "reproducing-live-account-edits-deletion-and-restart",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10658,8 +10663,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Reproducing account batch framing and partial effects",
       "level": 2,
-      "line_start": 1562,
-      "line_end": 1631,
+      "line_start": 1574,
+      "line_end": 1643,
       "anchor": "reproducing-account-batch-framing-and-partial-effects",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10693,8 +10698,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Reproducing account identity and protection contrasts",
       "level": 2,
-      "line_start": 1632,
-      "line_end": 1685,
+      "line_start": 1644,
+      "line_end": 1697,
       "anchor": "reproducing-account-identity-and-protection-contrasts",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10722,8 +10727,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Reproducing private rooms and chat byte fixtures",
       "level": 2,
-      "line_start": 1686,
-      "line_end": 1748,
+      "line_start": 1698,
+      "line_end": 1760,
       "anchor": "reproducing-private-rooms-and-chat-byte-fixtures",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10759,8 +10764,8 @@
       "path": "native-capture-workflow.md",
       "heading": "Reproducing console and client broadcast fixtures",
       "level": 2,
-      "line_start": 1749,
-      "line_end": 1765,
+      "line_start": 1761,
+      "line_end": 1777,
       "anchor": "reproducing-console-and-client-broadcast-fixtures",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -14590,7 +14595,7 @@
       "heading": "Prepared scope",
       "level": 2,
       "line_start": 13,
-      "line_end": 111,
+      "line_end": 126,
       "anchor": "prepared-scope",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -14604,8 +14609,8 @@
       "path": "native-rate304-preparation.md",
       "heading": "Offline commands",
       "level": 2,
-      "line_start": 112,
-      "line_end": 132,
+      "line_start": 127,
+      "line_end": 147,
       "anchor": "offline-commands",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -14727,6 +14732,66 @@
       "line_start": 59,
       "line_end": 75,
       "anchor": "replay-and-provenance",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-045"
+      ],
+      "related_gap_ids": [
+        "GAP-045"
+      ]
+    },
+    {
+      "path": "native-rate304-startup-gate.md",
+      "heading": "Native rate 304 lab: startup observation gate",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 12,
+      "anchor": "native-rate-304-lab-startup-observation-gate",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-045"
+      ],
+      "related_gap_ids": [
+        "GAP-045"
+      ]
+    },
+    {
+      "path": "native-rate304-startup-gate.md",
+      "heading": "Stopped preparation",
+      "level": 2,
+      "line_start": 13,
+      "line_end": 32,
+      "anchor": "stopped-preparation",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-045"
+      ],
+      "related_gap_ids": [
+        "GAP-045"
+      ]
+    },
+    {
+      "path": "native-rate304-startup-gate.md",
+      "heading": "Sole boot attempt and boundary",
+      "level": 2,
+      "line_start": 33,
+      "line_end": 67,
+      "anchor": "sole-boot-attempt-and-boundary",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-045"
+      ],
+      "related_gap_ids": [
+        "GAP-045"
+      ]
+    },
+    {
+      "path": "native-rate304-startup-gate.md",
+      "heading": "Offline check",
+      "level": 2,
+      "line_start": 68,
+      "line_end": 81,
+      "anchor": "offline-check",
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-045"

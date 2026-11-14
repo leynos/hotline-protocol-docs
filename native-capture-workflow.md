@@ -58,6 +58,18 @@ record the emulated Ethernet boundary as well as a separate host-loopback
 capture. The observer refuses existing files and records host wall-clock
 timestamps; its location before packet injection does not prove guest receipt.
 
+Check emulator identity and guest capture in separate stages. The
+[capture startup trace](../mothra/docs/guest-capture-startup.md) shows that
+the observer creates its PCAP on the first Ethernet packet. Immediately after
+launch, verify the actual disk-owning process without requiring that file.
+After guest networking starts, bind the capture's writable FD and header to
+the same process before sending any Hotline request. The
+[phased readiness helper](../mothra/docs/native-emulator-readiness.md)
+provides the commands and identity checks. A bounded missing-file observation
+does not establish process exit; retain and inspect the same process handle.
+The [failed startup gate](native-rate304-startup-gate.md) records the earlier
+precontact timeout and retirement without treating it as a protocol result.
+
 Copy the prepared application folder from the guest's Unix/shared volume onto
 its native Mac disk using Finder before testing file/fork/Trash/alias effects.
 Run the copy there, accept its application licence and configure a dedicated

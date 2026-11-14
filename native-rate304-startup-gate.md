@@ -59,9 +59,11 @@ quarantined. No read of its bytes occurred while the emulator held it.
 
 The five-second timeout establishes only that this gate did not observe FD16
 in its window. It does not establish why FD16 was absent, whether it would
-have appeared later, or any native server behaviour. A separate A110 source
-audit must precede a redesigned observation gate; this document authorises
-no VM retry.
+have appeared later, or any native server behaviour. The subsequent
+[source trace](../mothra/docs/guest-capture-startup.md) identifies creation
+on the first Ethernet packet, which is distinct from initial process
+identity. This supports separate readiness stages, without proving the guest
+event sequence during this failed window. This document authorises no retry.
 
 ## Offline check
 

@@ -13,7 +13,7 @@ Mothra delegation state.
 ## Prepared scope
 
 The fixture uses one **new disposable** Mac runtime and process from a stopped
-immutable base. Candidate display `:120`, `R native-rate304-02`, and control
+immutable base. Candidate display `:120`, `R native-rate304-03`, and control
 port `15880` require parent conflict review. The host and namespace captures,
 guest PCAP, owned executable/ROM/image fork hashes, actual emulator
 PID/start/exe/working-image inode/FD6/FD16, loopback-only routes, managed
@@ -28,6 +28,16 @@ before contact.
 
 The failed version-1 runtime `native-rate304-01` is retired and quarantined;
 its earlier permissions do not authorize reuse or another boot.
+
+The later `native-rate304-02` startup also retired before protocol contact:
+its immediate capture gate expired while the actual VM held its disk but
+had not opened the packet-triggered guest PCAP. See the
+[startup witness](native-rate304-startup-gate.md) and
+[source boundary](../mothra/docs/guest-capture-startup.md). A future lab needs
+the separate disk and capture stages described by the
+[readiness helper](../mothra/docs/native-emulator-readiness.md); neither
+earlier runtime is a retry target. Each new lab requires its own absent paths
+and reviewed command packet.
 
 Run an unchanged separate 18-action control-only preflight on that **same new
 process** before the coordinator. Verify two original accounts, 41 Files
@@ -96,6 +106,11 @@ deadline fails closed and retains the raw report. One bounded failed run is
 not permission to retry. The fixture addresses only the native 304 local
 limiter; dispatcher/burst/chat/PM/board thresholds and mxd policy remain open
 GAP-045 work.
+
+The [clock source evidence](../mothra/docs/native-clock-evidence.md) links
+GUI log formatting and the limiter to separate GetDateTime calls. The
+observed log displays seconds; it does not expose each counter origin or
+calibrate this prepared experiment's native reset interval.
 
 C107 was a fixture failure after the first 304/500 pair: the old 0.55-second
 wait expired before the subject's 301 and 500 ACK were observed at about
