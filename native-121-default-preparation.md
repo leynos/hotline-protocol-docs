@@ -13,9 +13,10 @@ Frozen `10011960` enters early completion only when both a nonempty 102 and
 nonzero 104 are present during 107. `native_auth_cases.states()` already
 uses `name=None, icon=None` for delayed-admin. The restored native capture
 has 107 ACK, 109/101(242), then 121 empty ACK and 354; a 122 is possible
-on this path. Frozen `10011ee0` calls the shared settings helper, sends the
-empty ACK, then emits 301, marks the session online and sends 354, with an
-optional later 122. This is send-call order; the observer 301 and subject
+on this path. Frozen `10011ee0` sends the empty ACK before calling the shared settings
+helper, whose path emits 301. The 121 handler then marks the session online
+and sends 354, with an optional later 122. This is send-call order; the
+observer 301 and subject
 354 travel on separate TCP flows and have no asserted total receipt order.
 
 `scripts/native_121_default_cases.py` prepares two **sequential** admin
