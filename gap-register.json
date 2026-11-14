@@ -3,11 +3,11 @@
   "title": "Hotline 1.9 protocol documentation gap register",
   "audited_at_utc": "2026-11-12T12:55:29.155796+00:00",
   "last_updated": "2026-11-14",
-  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-69/manifest.json",
-  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-69/sections.json",
+  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-70/manifest.json",
+  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-70/sections.json",
   "validity_ledger": "../mothra/docs/baseline-validity-ledger.md",
   "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
-  "method": "Integrate bounded temporary-ban fixture preparation, stopped assets, independent pre-live fixes and static optional-reason copy evidence. Preserve all87 original closure criteria and all statuses:57 Resolved,29 Investigating,1 Open;30 unclosed. Eight focused tests and438native tests pass; no native kick/protection/expiry result is claimed by this preparation. Further mxd validation remains on hold.",
+  "method": "Integrate the paired nine-case temporary-ban first epoch and retained zero-action wrong-namespace failure, guarded staged cleanup and bounded roster-overlap preparation. Preserve all87 original closure criteria and statuses:57 Resolved,29 Investigating,1 Open;30 unclosed. Expiry and native roster overlap still await their actual later captures. Further mxd validation remains on hold.",
   "gaps": [
     {
       "id": "GAP-001",
@@ -147,7 +147,7 @@
           "level": 3,
           "line_start": 1140,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 1176
+          "line_end": 1181
         }
       ],
       "question": "Which statuses, field-100 forms and connection outcomes apply to each failure, including errors in operations without a normal ACK?",
@@ -295,9 +295,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 1201,
+          "line_start": 1206,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1248
+          "line_end": 1253
         }
       ],
       "question": "What are the handshake, login, agreement, idle and partial-frame deadlines, and what traffic resets them?",
@@ -432,9 +432,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 1201,
+          "line_start": 1206,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1248
+          "line_end": 1253
         }
       ],
       "question": "What can be sent before authentication, after login ACK, while agreement is pending, after early completion and during shutdown?",
@@ -2138,7 +2138,7 @@
         "GAP-034"
       ],
       "resolution": {
-        "progress": "Traced online/ready fan-out including online self, and initial login 301 before new-session online flag. Snapshot concurrency and delivered ordering fixtures remain required. Observerrosters exclude authenticated delayedsubject until121 and include earlysubject before121. Repeated107 post-close3second snapshot stilllists subject, thenliteralunread302 arrives; noatomic snapshot/subscription oruniversalcleanup deadline claimed. 40configuredmatrixcases independentlyshowearly301/visibility before121 anddelayedvisibility after121. Overflowearlyremainsvisiblewithout109; delayedneverlisted. Noatomic300subscription/crossconnectiontotalorder claim. Two matching sessions receive their new zero-mask 354 before their own 301; peer rename messages can precede that recipient's 354. Caller ACK precedes its two rename notifications and requested snapshot. Password/attribute-only edits emit no extra 354/301 in the observed windows. Broader snapshot races remain required.",
+        "progress": "Traced online/ready fan-out including online self, and initial login 301 before new-session online flag. Snapshot concurrency and delivered ordering fixtures remain required. Observerrosters exclude authenticated delayedsubject until121 and include earlysubject before121. Repeated107 post-close3second snapshot stilllists subject, thenliteralunread302 arrives; noatomic snapshot/subscription oruniversalcleanup deadline claimed. 40configuredmatrixcases independentlyshowearly301/visibility before121 anddelayedvisibility after121. Overflowearlyremainsvisiblewithout109; delayedneverlisted. Noatomic300subscription/crossconnectiontotalorder claim. Two matching sessions receive their new zero-mask 354 before their own 301; peer rename messages can precede that recipient's 354. Caller ACK precedes its two rename notifications and requested snapshot. Password/attribute-only edits emit no extra 354/301 in the observed windows. Broader snapshot races remain required. Revision70 prepares a bounded two-session300/304 overlap collector with old/new name-icon pair checks, same-socket500barriers, stable300 andretainedtails. Five socketpair tests exercise bothACK/301orders and malformed/truncated/correlation/torn/extra-row cases; this is offlinepreparation, not the required native overlap trace or universalatomicity proof.",
         "evidence": [
           "[Presence, messaging and administration](presence-messaging-contracts.md)",
           "[Batch 06](../mothra/evidence/gap-remediation/2026-11-12/batch-06/manifest.json)",
@@ -2146,7 +2146,8 @@
           "[Native agreement corpus](../mothra/evidence/gap-remediation/2026-11-13/native-agreement-01/manifest.json)",
           "[Live account events and restart](native-wire-details.md#captured-live-account-changes-and-server-restart)",
           "[Native live account corpus](../mothra/evidence/gap-remediation/2026-11-13/native-live-accounts-01/manifest.json)",
-          "[Repeatable live/restart workflow](native-capture-workflow.md#reproducing-live-account-edits-deletion-and-restart)"
+          "[Repeatable live/restart workflow](native-capture-workflow.md#reproducing-live-account-edits-deletion-and-restart)",
+          "[Roster-overlap preparation](native-roster-overlap-preparation.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -2182,7 +2183,7 @@
           "level": 3,
           "line_start": 1140,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 1176
+          "line_end": 1181
         }
       ],
       "question": "Which teardown paths emit 302, which fields/recipients are used, and when are rooms, queued transfers and IDs cleaned up?",
@@ -2306,9 +2307,9 @@
           "path": "protocol.md",
           "heading": "Additional Admin Privileges Note",
           "level": 3,
-          "line_start": 1192,
+          "line_start": 1197,
           "anchor": "additional-admin-privileges-note",
-          "line_end": 1200
+          "line_end": 1205
         }
       ],
       "question": "Is the main room implicit, and what authorizes join, send, invite, topic edit or administrative access to a private room?",
@@ -2616,7 +2617,7 @@
           "level": 3,
           "line_start": 1140,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 1176
+          "line_end": 1181
         },
         {
           "path": "protocol.md",
@@ -2697,9 +2698,9 @@
           "path": "protocol.md",
           "heading": "Broadcasting a Message (Transaction 355) \u2013 Admin/Server Initiated",
           "level": 3,
-          "line_start": 1177,
+          "line_start": 1182,
           "anchor": "broadcasting-a-message-transaction-355--adminserver-initiated",
-          "line_end": 1191
+          "line_end": 1196
         },
         {
           "path": "protocol.md",
@@ -4131,9 +4132,9 @@
           "path": "protocol.md",
           "heading": "Additional Admin Privileges Note",
           "level": 3,
-          "line_start": 1192,
+          "line_start": 1197,
           "anchor": "additional-admin-privileges-note",
-          "line_end": 1200
+          "line_end": 1205
         }
       ],
       "question": "When do edited privileges, names or passwords affect current sessions, does deletion disconnect them, and what 354/301 notifications occur?",
@@ -4184,7 +4185,7 @@
           "level": 3,
           "line_start": 1140,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 1176
+          "line_end": 1181
         }
       ],
       "question": "What exactly do options 1 and 2 do, including identity matching, ranges/duration, optional data 101, reconnection and protected users?",
@@ -4203,7 +4204,7 @@
         "GAP-036"
       ],
       "resolution": {
-        "progress": "Traced option 1 timed 1800-second address ban and option 2 persisted version-2 address-ban list; plain kick, missing target and protection branches documented. Expiry/restart/protected native fixtures remain required. Two bit-23 subjects reject administrator kicking and remain live before account deletion. Plain kick, both ban options, expiry/restart and broader protection fixtures remain active. Revision60: second disposable lab failed the mandatory full A7 download after 98,304 of 1,049,073 bytes, before any option-two request. Guest/namespace/recorder prefixes match; all observed payload was ACKed with positive receive windows. Producer stall cause remains unknown; this is a retained failure, not ban acceptance. Revision62: the third disposable lab also failed its mandatory 29-action A7 at the same 98,304-byte prefix, before any account seed or option-two request. Independent reassembly confirms C32 completed 1,049,073 bytes in both views; C35/C45 stopped at the identical prefix. Recorded source images, binaries and preferences match, but live worker/GUI state is missing and the cause remains unknown. Revision63: one delivered focus event did not resume the exact dual 98,304-byte prefix, and the stock full A7 failed. This falsifies that one event-resume claim only; no account or ban request ran. Revision64 imports the gated control-only permanent-ban preparation with root controller identity checks. C53 was retired without frontend contact. No permanent-ban case is accepted by this checkpoint; expiry, reload and protection requirements remain open. Revision65 accepts one option-two control-only ban with target identity/zero-access/current-roster gates, no reason101, successful same-admin postreadback and fresh TRTP+Login107 status1/100 permanent notice. The stopped49-byte Banned data fork is preserved. Temporary expiry, permanent reload and full protection fixtures remain open. Revision68 documents three stopped49-byte Banned v2 files with exact offsets and writer/reader trace: version/count, flag, twoIPv4 endpoints,33-byte display area and zero-length reason. In-memory expiry+4 is not serialized. The11-byte display remainder stays opaque; C56/C62 reload is one case, C68 has no reload. Temporary expiry, kick-only and protection fixtures remain required. Revision69 supplies static instruction evidence for the request110 option2 optional-reason copy: bounded TLV payload lengthL is staged before its bytes; constructor raw-copies from the unadjusted length-byte pointer, predicting length byte plus firstL-1 content bytes forL1..63. This is not a nonempty runtime fixture or Options UI rule. The new expiry fixture is preparation only: first18baseline, deliberate35second connection-burst settling, kick0/protected/option1 plans, and separate pre/post first-lookup probes with current process/namespace/mutex/deadline gates. Eight focused tests and all438native tests pass; no kick/protection/expiry acceptance follows before live evidence.",
+        "progress": "Traced option 1 timed 1800-second address ban and option 2 persisted version-2 address-ban list; plain kick, missing target and protection branches documented. Expiry/restart/protected native fixtures remain required. Two bit-23 subjects reject administrator kicking and remain live before account deletion. Plain kick, both ban options, expiry/restart and broader protection fixtures remain active. Revision60: second disposable lab failed the mandatory full A7 download after 98,304 of 1,049,073 bytes, before any option-two request. Guest/namespace/recorder prefixes match; all observed payload was ACKed with positive receive windows. Producer stall cause remains unknown; this is a retained failure, not ban acceptance. Revision62: the third disposable lab also failed its mandatory 29-action A7 at the same 98,304-byte prefix, before any account seed or option-two request. Independent reassembly confirms C32 completed 1,049,073 bytes in both views; C35/C45 stopped at the identical prefix. Recorded source images, binaries and preferences match, but live worker/GUI state is missing and the cause remains unknown. Revision63: one delivered focus event did not resume the exact dual 98,304-byte prefix, and the stock full A7 failed. This falsifies that one event-resume claim only; no account or ban request ran. Revision64 imports the gated control-only permanent-ban preparation with root controller identity checks. C53 was retired without frontend contact. No permanent-ban case is accepted by this checkpoint; expiry, reload and protection requirements remain open. Revision65 accepts one option-two control-only ban with target identity/zero-access/current-roster gates, no reason101, successful same-admin postreadback and fresh TRTP+Login107 status1/100 permanent notice. The stopped49-byte Banned data fork is preserved. Temporary expiry, permanent reload and full protection fixtures remain open. Revision68 documents three stopped49-byte Banned v2 files with exact offsets and writer/reader trace: version/count, flag, twoIPv4 endpoints,33-byte display area and zero-length reason. In-memory expiry+4 is not serialized. The11-byte display remainder stays opaque; C56/C62 reload is one case, C68 has no reload. Temporary expiry, kick-only and protection fixtures remain required. Revision69 supplies static instruction evidence for the request110 option2 optional-reason copy: bounded TLV payload lengthL is staged before its bytes; constructor raw-copies from the unadjusted length-byte pointer, predicting length byte plus firstL-1 content bytes forL1..63. This is not a nonempty runtime fixture or Options UI rule. The new expiry fixture is preparation only: first18baseline, deliberate35second connection-burst settling, kick0/protected/option1 plans, and separate pre/post first-lookup probes with current process/namespace/mutex/deadline gates. Eight focused tests and all438native tests pass; no kick/protection/expiry acceptance follows before live evidence. Revision70 accepts C77 first-epoch packet evidence:13 paired control lifetimes,9 cases including option0 EOF/no104 then fresh107success, protected error then target500/one-secondquiet, option1notice/EOF/ACK and immediatevalid107temporaryerror. C76wrongnamespacefailure0actions is retained; frozenB68source andmetadata-only generic replay adaptation remainexplicit. Host/nsrecorders andmutex stopped; sameVM retainedsocket-free forlater probes. No expiryresult yet. Later runner guard checks itsOWN namespace beforecapture/socket work; staged cleanup permits guardonlyafteracceptedpost-probe anddeleteonlyafterownedaccountidentity/access proof.",
         "evidence": [
           "[Presence, messaging and administration](presence-messaging-contracts.md)",
           "[Batch 06](../mothra/evidence/gap-remediation/2026-11-12/batch-06/manifest.json)",
@@ -4218,7 +4219,11 @@
           "[Observed Banned v2 layout](native-ban-file-format.md)",
           "[Request110 reason-copy source trace](native-ban-file-format.md#request-110-reason-copy-path)",
           "[Bounded temporary-ban fixture preparation](native-ban-expiry-preparation.md)",
-          "[Stopped assets and pre-live reviews](../mothra/evidence/gap-remediation/2026-11-14/native-ban-expiry-preparation-01/manifest.json)"
+          "[Stopped assets and pre-live reviews](../mothra/evidence/gap-remediation/2026-11-14/native-ban-expiry-preparation-01/manifest.json)",
+          "[Paired first-epoch witness](native-ban-expiry-first-witness.md)",
+          "[First-epoch portable packet evidence](../mothra/evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/manifest.json)",
+          "[Staged post-probe cleanup](native-ban-expiry-cleanup.md)",
+          "[Runner namespace failure regression](../mothra/evidence/gap-remediation/2026-11-14/native-runner-namespace-guard-01/manifest.json)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -4238,15 +4243,15 @@
           "level": 3,
           "line_start": 1140,
           "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-          "line_end": 1176
+          "line_end": 1181
         },
         {
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 1201,
+          "line_start": 1206,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1248
+          "line_end": 1253
         }
       ],
       "question": "Does any native producer actually emit 111, under which conditions, with what fields and delivery/closure ordering?",
@@ -4284,9 +4289,9 @@
           "path": "protocol.md",
           "heading": "Broadcasting a Message (Transaction 355) \u2013 Admin/Server Initiated",
           "level": 3,
-          "line_start": 1177,
+          "line_start": 1182,
           "anchor": "broadcasting-a-message-transaction-355--adminserver-initiated",
-          "line_end": 1191
+          "line_end": 1196
         }
       ],
       "question": "Does a console-generated broadcast use the same 355 schema, and which connected/logged-in/refusing users receive each origin's broadcast?",
@@ -4325,9 +4330,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 1201,
+          "line_start": 1206,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1248
+          "line_end": 1253
         }
       ],
       "question": "What does 348 do, what fields and privileges apply, and how are its potentially nested account records serialized?",
@@ -4365,9 +4370,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 1201,
+          "line_start": 1206,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1248
+          "line_end": 1253
         }
       ],
       "question": "What indexed/transitive fields does 349 consume, how are batch entries delimited, and are failures atomic or per-entry?",
@@ -4409,9 +4414,9 @@
           "path": "protocol.md",
           "heading": "Additional Observed Requests and Scope Gaps",
           "level": 2,
-          "line_start": 1201,
+          "line_start": 1206,
           "anchor": "additional-observed-requests-and-scope-gaps",
-          "line_end": 1248
+          "line_end": 1253
         }
       ],
       "question": "Is 500 a liveness operation or something else, who sends it and when, and does its ACK affect idle deadlines?",
@@ -4650,9 +4655,9 @@
           "path": "protocol.md",
           "heading": "References and Correction Traceability",
           "level": 2,
-          "line_start": 1249,
+          "line_start": 1254,
           "anchor": "references-and-correction-traceability",
-          "line_end": 1290
+          "line_end": 1295
         }
       ],
       "question": "Which release/client/server configurations do the selected RCS trunk snapshots represent, and how do the default vendor branch and build options differ?",
@@ -4915,9 +4920,9 @@
           "path": "protocol.md",
           "heading": "References and Correction Traceability",
           "level": 2,
-          "line_start": 1249,
+          "line_start": 1254,
           "anchor": "references-and-correction-traceability",
-          "line_end": 1290
+          "line_end": 1295
         },
         {
           "path": "baseline-correction-map.md",
@@ -6212,7 +6217,7 @@
       "level": 3,
       "line_start": 1140,
       "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use",
-      "line_end": 1176,
+      "line_end": 1181,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-003",
@@ -6233,9 +6238,9 @@
       "path": "protocol.md",
       "heading": "Broadcasting a Message (Transaction 355) \u2013 Admin/Server Initiated",
       "level": 3,
-      "line_start": 1177,
+      "line_start": 1182,
       "anchor": "broadcasting-a-message-transaction-355--adminserver-initiated",
-      "line_end": 1191,
+      "line_end": 1196,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-045",
@@ -6250,9 +6255,9 @@
       "path": "protocol.md",
       "heading": "Additional Admin Privileges Note",
       "level": 3,
-      "line_start": 1192,
+      "line_start": 1197,
       "anchor": "additional-admin-privileges-note",
-      "line_end": 1200,
+      "line_end": 1205,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-038",
@@ -6267,9 +6272,9 @@
       "path": "protocol.md",
       "heading": "Additional Observed Requests and Scope Gaps",
       "level": 2,
-      "line_start": 1201,
+      "line_start": 1206,
       "anchor": "additional-observed-requests-and-scope-gaps",
-      "line_end": 1248,
+      "line_end": 1253,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-005",
@@ -6292,9 +6297,9 @@
       "path": "protocol.md",
       "heading": "References and Correction Traceability",
       "level": 2,
-      "line_start": 1249,
+      "line_start": 1254,
       "anchor": "references-and-correction-traceability",
-      "line_end": 1290,
+      "line_end": 1295,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-083",
@@ -8451,7 +8456,7 @@
       "heading": "Kick options and native console messages",
       "level": 2,
       "line_start": 436,
-      "line_end": 511,
+      "line_end": 525,
       "anchor": "kick-options-and-native-console-messages",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -8469,8 +8474,8 @@
       "path": "presence-messaging-contracts.md",
       "heading": "Captured private rooms, invitations and chat bytes",
       "level": 2,
-      "line_start": 512,
-      "line_end": 616,
+      "line_start": 526,
+      "line_end": 630,
       "anchor": "captured-private-rooms-invitations-and-chat-bytes",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -8506,8 +8511,8 @@
       "path": "presence-messaging-contracts.md",
       "heading": "Captured console and client broadcast recipients",
       "level": 2,
-      "line_start": 617,
-      "line_end": 629,
+      "line_start": 631,
+      "line_end": 643,
       "anchor": "captured-console-and-client-broadcast-recipients",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -13713,7 +13718,7 @@
       "heading": "Repeatable offline commands and live prerequisites",
       "level": 2,
       "line_start": 65,
-      "line_end": 129,
+      "line_end": 142,
       "anchor": "repeatable-offline-commands-and-live-prerequisites",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -13727,8 +13732,8 @@
       "path": "native-ban-expiry-preparation.md",
       "heading": "Time and interpretation",
       "level": 2,
-      "line_start": 130,
-      "line_end": 143,
+      "line_start": 143,
+      "line_end": 156,
       "anchor": "time-and-interpretation",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -13742,9 +13747,174 @@
       "path": "native-ban-expiry-preparation.md",
       "heading": "Verification and decision gates",
       "level": 2,
-      "line_start": 144,
-      "line_end": 160,
+      "line_start": 157,
+      "line_end": 174,
       "anchor": "verification-and-decision-gates",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-074"
+      ],
+      "related_gap_ids": [
+        "GAP-074"
+      ]
+    },
+    {
+      "path": "native-ban-expiry-preparation.md",
+      "heading": "Observed first epoch",
+      "level": 2,
+      "line_start": 175,
+      "line_end": 180,
+      "anchor": "observed-first-epoch",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-074"
+      ],
+      "related_gap_ids": [
+        "GAP-074"
+      ]
+    },
+    {
+      "path": "native-roster-overlap-preparation.md",
+      "heading": "Native roster overlap fixture preparation",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 11,
+      "anchor": "native-roster-overlap-fixture-preparation",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-035"
+      ],
+      "related_gap_ids": [
+        "GAP-035"
+      ]
+    },
+    {
+      "path": "native-roster-overlap-preparation.md",
+      "heading": "Plan and isolation",
+      "level": 2,
+      "line_start": 12,
+      "line_end": 54,
+      "anchor": "plan-and-isolation",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-035"
+      ],
+      "related_gap_ids": [
+        "GAP-035"
+      ]
+    },
+    {
+      "path": "native-roster-overlap-preparation.md",
+      "heading": "Bounded causal sequence",
+      "level": 2,
+      "line_start": 55,
+      "line_end": 81,
+      "anchor": "bounded-causal-sequence",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-035"
+      ],
+      "related_gap_ids": [
+        "GAP-035"
+      ]
+    },
+    {
+      "path": "native-roster-overlap-preparation.md",
+      "heading": "Verification and unresolved requirements",
+      "level": 2,
+      "line_start": 82,
+      "line_end": 98,
+      "anchor": "verification-and-unresolved-requirements",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-035"
+      ],
+      "related_gap_ids": [
+        "GAP-035"
+      ]
+    },
+    {
+      "path": "native-ban-expiry-cleanup.md",
+      "heading": "Restore the owned ban-expiry accounts after the final probe",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 8,
+      "anchor": "restore-the-owned-ban-expiry-accounts-after-the-final-probe",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-074"
+      ],
+      "related_gap_ids": [
+        "GAP-074"
+      ]
+    },
+    {
+      "path": "native-ban-expiry-cleanup.md",
+      "heading": "Guard, then delete",
+      "level": 2,
+      "line_start": 9,
+      "line_end": 44,
+      "anchor": "guard-then-delete",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-074"
+      ],
+      "related_gap_ids": [
+        "GAP-074"
+      ]
+    },
+    {
+      "path": "native-ban-expiry-cleanup.md",
+      "heading": "Postflight and evidence limits",
+      "level": 2,
+      "line_start": 45,
+      "line_end": 69,
+      "anchor": "postflight-and-evidence-limits",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-074"
+      ],
+      "related_gap_ids": [
+        "GAP-074"
+      ]
+    },
+    {
+      "path": "native-ban-expiry-first-witness.md",
+      "heading": "Native temporary-ban first epoch",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 6,
+      "anchor": "native-temporary-ban-first-epoch",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-074"
+      ],
+      "related_gap_ids": [
+        "GAP-074"
+      ]
+    },
+    {
+      "path": "native-ban-expiry-first-witness.md",
+      "heading": "Reproducible record",
+      "level": 2,
+      "line_start": 7,
+      "line_end": 51,
+      "anchor": "reproducible-record",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-074"
+      ],
+      "related_gap_ids": [
+        "GAP-074"
+      ]
+    },
+    {
+      "path": "native-ban-expiry-first-witness.md",
+      "heading": "Offline replay",
+      "level": 2,
+      "line_start": 52,
+      "line_end": 73,
+      "anchor": "offline-replay",
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-074"

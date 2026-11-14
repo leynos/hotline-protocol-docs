@@ -450,7 +450,10 @@ requester's ACK; this is not a cross-socket arrival-order guarantee.
 Option 1 uses `100063c0`; option 2 uses `10006230`, list reader
 `1000a070` and writer `10009d10`. The writer rotates the stored ban files and
 writes list version 2. These are address bans, not account-name mutations.
-Expiry/restart/protection fixtures remain GAP-074.
+The [first temporary-ban epoch](native-ban-expiry-first-witness.md) adds
+controlled kick-only and protection outcomes below. Actual expiry remains
+GAP-074; the [one-restart witness](native-ban-reload-witness.md) covers only
+its recorded permanent-ban reload.
 
 The [owned lab fixture](native-ban-notices.md) captures option 1 with an
 unprotected target: data-only 104, target close, then the administrator's
@@ -464,7 +467,18 @@ fresh Login107 rejection with the same text in error field 100. The existing
 admin connection remains usable for the exact account and Files readback.
 Its readiness profile covers control operations; it makes no full-transfer
 baseline claim. The stopped image contains a 49-byte `Banned` data fork.
-Expiry and behaviour after reload remain untested.
+The [one-restart witness](native-ban-reload-witness.md) later preserves that
+file and rejects a fresh Login107. It does not establish temporary expiry.
+
+The [first temporary-ban epoch](native-ban-expiry-first-witness.md) measures
+explicit option 0 closing its owned zero-access target without 104, followed
+by a successful fresh Login107. A separately owned bit-23 protected target
+receives the protection-error outcome: its subsequent 500 succeeds and one
+second of bounded target silence contains no 104 or EOF. One option-1 kick
+then produces the temporary notice/EOF, followed by a full valid Login107
+rejected with the temporary-ban text. The thirteen paired TCP lifetimes also
+retain the later admin-side 302 after deliberate fixture cleanup. These
+control-only observations do not yet establish expiry or full-file health.
 
 The [fresh read-only oracle trace][ban-oracle] finds direct callers of both
 ban predicates only in login 107. `10011960` checks the permanent list first,

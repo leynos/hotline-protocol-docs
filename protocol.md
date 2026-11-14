@@ -1155,6 +1155,11 @@ seconds deadline. Option 2 writes the persisted address-ban list. A
 and observes fresh Login107 rejection. Actual expiry and remaining
 restart/protection boundaries stay open.
 
+The [later first-epoch witness](native-ban-expiry-first-witness.md) records
+kick-only/reconnect, a protected target's error and bounded continued
+operation, and immediate valid Login107 rejection after a temporary ban.
+These are finite control fixtures; expiry still awaits the later timed probes.
+
 The [captured option-1 fixture](native-ban-notices.md) delivered the
 data-only temporary-ban 104 and disconnected its target; the administrator's
 ACK preceded 302 in both packet views. A later probe completed the handshake

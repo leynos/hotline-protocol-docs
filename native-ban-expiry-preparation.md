@@ -93,14 +93,24 @@ The runner checks live values again and refuses a stale receipt. Root
 must review and grant the actual unit, launch, capture and cleanup commands
 before use.
 
+The runner must itself share the verified emulator network namespace. Set
+`NetworkNamespacePath=/proc/<actual-emulator-pid>/ns/net` on its finite managed
+unit. The runner rejects a different namespace before opening any socket.
+The equivalent payload context for the command templates is:
+
 ```sh
-sudo python3 scripts/native_ban_expiry_control.py --run --phase first \
+expiry_emulator_pid="$(python3 -c \
+  'import json,sys; print(json.load(open(sys.argv[1]))["emulator_pid"])' \
+  state/native-ban-expiry-01/runtime.json)"
+sudo nsenter --target "$expiry_emulator_pid" --net -- \
+  python3 scripts/native_ban_expiry_control.py --run --phase first \
   --plans state/native-ban-expiry-01/plans \
   --readiness-dir state/native-ban-expiry-01/epoch-first/readiness \
   --capture-receipt state/native-ban-expiry-01/epoch-first/receipt.json \
   --binary /absolute/owned/native-server-data-fork \
   --output state/native-ban-expiry-01/epoch-first/results
-sudo python3 scripts/native_ban_expiry_control.py --run --phase pre \
+sudo nsenter --target "$expiry_emulator_pid" --net -- \
+  python3 scripts/native_ban_expiry_control.py --run --phase pre \
   --plans state/native-ban-expiry-01/plans \
   --capture-receipt state/native-ban-expiry-01/epoch-pre/receipt.json \
   --binary /absolute/owned/native-server-data-fork \
@@ -117,8 +127,11 @@ epoch; no automatic retry is built in.
 The first summary records `full18_control_only`. The pre summary records
 `not_exercised_ban_active`; the post summary records
 `not_exercised_preserve_first_lookup`. Run a full 18-action control baseline
-**after** the intended post-probe 107 succeeds, as a separately captured
-operator postflight. The runner does not execute it. It cannot substitute for
+**after** the intended post-probe 107 succeeds and the two owned accounts
+are guarded and removed through the
+[staged cleanup](native-ban-expiry-cleanup.md),
+as a separately captured operator postflight. The runner does not execute
+it. It cannot substitute for
 pre-probe readiness or count as the first lookup. No prior Login107 of any
 account is permitted in pre/post.
 
@@ -158,3 +171,10 @@ and failure-report safeguards; B67 allowed 1040 for readiness ordering.
 B68 allows 1120 production and 490 test lines for identity, namespace and
 the 35-second order regression (68 formatted test lines, 35 estimated).
 No live work is part of this packet.
+
+## Observed first epoch
+
+The [first-epoch witness](native-ban-expiry-first-witness.md) records C76's
+wrong-namespace failure and C77's corrected nine cases. Its frozen B68 source
+precedes the additional runner-namespace guard above. Expiry remains a later
+measurement; this guide is not evidence that the timed probes have run.

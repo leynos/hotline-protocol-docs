@@ -257,6 +257,19 @@ class BanExpiryTests(unittest.TestCase):
             bound.gate("post", start + timedelta(seconds=1903), receipt)["host_window"],
             [1900, 2400],
         )
+        for phase, elapsed in (("pre", 1690), ("post", 1903)):
+            with self.subTest(phase=phase):
+                recorded = receipt | {"emulator_starttime": "111"}
+                self.assertEqual(
+                    bound.gate(phase, start + timedelta(seconds=elapsed), recorded),
+                    bound.gate(phase, start + timedelta(seconds=elapsed), receipt),
+                )
+                with self.assertRaisesRegex(ValueError, "identity changed"):
+                    bound.gate(
+                        phase,
+                        start + timedelta(seconds=elapsed),
+                        receipt | {"emulator_starttime": "112"},
+                    )
         self.assertFalse(
             bound.gate("pre", start + timedelta(seconds=1690), receipt)[
                 "native_getdatetime_seconds_proven"
@@ -359,6 +372,28 @@ class BanExpiryTests(unittest.TestCase):
                     self.assertIsNone(result["readiness_report_sha256"])
                     self.assertEqual(run.call_count, 1)
                     self.assertEqual(run.call_args.args[1], f"{phase}-probe")
+
+    def test_wrong_runner_namespace_stops_before_capture_or_socket_work(self) -> None:
+        original = environment()
+        deadline = datetime.now(timezone.utc) + timedelta(minutes=2)
+        with (
+            patch.object(control.os, "geteuid", return_value=0),
+            patch.object(control.os, "stat") as stat,
+            patch.object(
+                control, "capture_gate", side_effect=AssertionError("capture")
+            ) as capture,
+        ):
+            stat.return_value = SimpleNamespace(
+                st_ino=original["emulator_netns_inode"] + 1
+            )
+            with self.assertRaisesRegex(ValueError, "Runner.*namespace"):
+                control.runtime_gate(original, original, deadline)
+            capture.assert_not_called()
+            stat.assert_called_with("/proc/self/ns/net")
+            stat.return_value = SimpleNamespace(st_ino=original["emulator_netns_inode"])
+            with self.assertRaisesRegex(AssertionError, "capture"):
+                control.runtime_gate(original, original, deadline)
+            capture.assert_called_once_with(original)
 
     def test_live_runtime_binding_and_namespace_routes(self) -> None:
         original = environment()

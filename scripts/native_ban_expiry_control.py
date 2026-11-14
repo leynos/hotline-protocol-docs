@@ -96,7 +96,7 @@ class TimingBounds:
         require(
             (
                 receipt["emulator_pid"],
-                receipt["emulator_starttime"],
+                int(str(receipt["emulator_starttime"])),
                 receipt["emulator_sha256"],
                 receipt["owned_working_image_inode"],
                 receipt["emulator_netns_inode"],
@@ -485,6 +485,10 @@ def runtime_gate(receipt: dict, env: dict, deadline_utc: datetime) -> None:
             )
         ),
         "Runtime receipt differs from plan",
+    )
+    require(
+        os.stat("/proc/self/ns/net").st_ino == receipt["emulator_netns_inode"],
+        "Runner is not in the emulator network namespace",
     )
     capture_gate(receipt)
     namespace_gate(receipt)

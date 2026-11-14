@@ -25,9 +25,11 @@ runner namespace, and completed the nine planned cases once each.
 The cases guarded two absent account names, seeded a zero-access target and a
 protected control, tested kick option 0 and a fresh successful login, tested
 the protected error path, then issued one option-1 temporary ban and an
-immediate valid login probe. The protected case produced a type-302 packet
-after the Recorder stopped reading that socket: the exact 28-byte tail appears
-in **both** packet views and is retained by replay. The 35-second pause after
+immediate valid login probe. After the fixture closed the protected target
+during cleanup, the admin
+socket received a type-302 packet that its Recorder had stopped reading.
+That exact 28-byte tail appears in **both** packet views and is retained by
+replay; it is not a kick of the protected target. The 35-second pause after
 readiness had no namespace packets. That is a bounded, recorded interval;
 traffic after capture stop was not observed by these recorders.
 
