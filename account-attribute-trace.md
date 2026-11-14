@@ -136,3 +136,32 @@ document only the opaque observed contract.
 [strings]: ../mothra/evidence/gap-remediation/2026-11-13/account-attribute-01/queries/AA-S-account.json
 
 [resource-audit]: ../mothra/evidence/gap-remediation/2026-11-13/account-resource-01/manifest.json
+
+## Bounded reader-alias follow-up
+
+The [A95–A98 trace][alias-trace] maps the native PEF's uncompressed Code
+section to loaded addresses and records a limited scan for direct positive
+`0x254`/`0x256` offsets. That scan found no matching direct positive-load
+word; branch immediates containing `0x254` are not field references. Stack
+relative offsets can differ, so this is a filter, not an absence proof.
+
+Six read-only disassemblies followed the known record reader's concrete
+caller-supplied buffers in account-list UI `100197e0`, enumeration
+`10015160`, batch `10015500`, startup `10003170`, setup `10007fa0`, and
+local administrator update `10007780`. Their calculated field-111 stack
+offsets had no direct access in the inspected instruction listings. The
+batch listing was initially limited to 500 of 555 instructions. One further
+query captured instructions 500–554 with `has_more=false`; no direct access
+to its calculated `+0xa94/+0xa96` offsets appeared there either. The 555
+instructions are complete in Ghidra's **function model** for `10015500`,
+not a complete program dataflow or proof about indirect callees.
+
+Both query sessions used the independently saved PowerPC BE32 project,
+1,840-function before/after identity, pinned DATA and extension JAR hashes,
+and `--no-analyze --discard`. The conditional callback and callee queries
+were unused because no positive field-derived edge was established. The
+wire/storage schema and whole-record byte-preservation path above remain
+positive facts. No field-111-specific value-dependent consumer or human
+meaning has been established; GAP-071's use question remains open.
+
+[alias-trace]: ../mothra/evidence/gap-remediation/2026-11-14/account111-alias-trace-01/manifest.json
