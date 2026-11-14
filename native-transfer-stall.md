@@ -106,3 +106,15 @@ python3 scripts/verify_native_transfer_repeat.py \
   ../mothra/evidence/gap-remediation/2026-11-14/native-transfer-repeat-01
 python3 -m unittest discover -s scripts -p 'test_native_transfer_repeat.py'
 ```
+
+## One focus event on the repeated prefix
+
+C50 ran the same 29-action A7 once more in an isolated disposable lab. Both
+packet views again stopped at the 98,304-byte prefix. After at least five
+seconds without further bytes, one click activated the server Log window;
+the title changed from inactive to active, but neither stream advanced in
+the following ten seconds. The stock A7 then timed out after 21 actions.
+The one-event resume claim is contradicted under this recorded state. The
+cause of the transfer stall remains unknown; no option-two ban was attempted.
+The offline replay and focus-delivery limits are in
+[native-ui-focus-witness.md](native-ui-focus-witness.md).
