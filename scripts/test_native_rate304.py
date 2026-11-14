@@ -3,6 +3,7 @@
 import copy
 import json
 import socket
+import threading
 import time
 import unittest
 from unittest.mock import patch
@@ -164,6 +165,8 @@ class Rate304Tests(unittest.TestCase):
             cases.source_plan({**ENV, "fixture_profile": "full-a7"})
 
     def test_generated_schedule_exact(self):
+        self.assertEqual(self.plan["schedule"]["schema_version"], 2)
+        self.assertIn("26 ordered 304+500", self.plan["schedule"]["phase_mode"])
         actions = control.expected_actions(self.plan, 14)
         self.assertEqual(
             actions[0], ("observer-login", "observer", self.plan["logins"]["observer"])
@@ -282,6 +285,140 @@ class Rate304Tests(unittest.TestCase):
         self.assertEqual(wire.terminals["observer"], "eof")
         self.assertEqual(wire.buffers["observer"], b"\xaa\xbb")
 
+    def rehearse_phase(
+        self,
+        delay,
+        *,
+        missing=False,
+        duplicate=False,
+        foreign=False,
+        observer_first=False,
+        seconds=2,
+    ):
+        """Run actual 52 request sends and two response sockets with delayed peers."""
+        wire = control.Wire(self.plan, time.monotonic() + 4)
+        subject, subject_peer = socket.socketpair()
+        observer, observer_peer = socket.socketpair()
+        for name, sock in (("paced", subject), ("observer", observer)):
+            wire.recorder.sockets[name] = sock
+            wire.buffers[name] = bytearray()
+        for sock in (subject_peer, observer_peer):
+            sock.settimeout(3)
+        errors = []
+
+        def exactly(sock, size):
+            raw = bytearray()
+            while len(raw) < size:
+                part = sock.recv(size - len(raw))
+                if not part:
+                    raise EOFError("Synthetic peer closed early")
+                raw.extend(part)
+            return bytes(raw)
+
+        def peer():
+            try:
+                received = []
+                for _ in range(52):
+                    header = exactly(subject_peer, 20)
+                    body = exactly(subject_peer, int.from_bytes(header[16:20], "big"))
+                    received.append(control.decode_frame(header + body))
+                self.assertEqual(
+                    [(f["type"], f["id"]) for f in received],
+                    [
+                        item
+                        for i in range(26)
+                        for item in ((304, 1000 + i), (500, 2000 + i))
+                    ],
+                )
+                time.sleep(delay)
+                if foreign:
+                    observer_peer.sendall(
+                        bytes.fromhex(packet(301, 0, payload(update(77, 2))))
+                    )
+                for index in range(26):
+                    notice = bytes.fromhex(
+                        packet(301, 0, payload(update(2, index + 2)))
+                    )
+                    if observer_first and not (missing and index == 25):
+                        observer_peer.sendall(notice)
+                    subject_peer.sendall(notice)
+                    if not observer_first and not (missing and index == 25):
+                        observer_peer.sendall(notice)
+                    if duplicate and index == 5:
+                        observer_peer.sendall(notice)
+                    subject_peer.sendall(
+                        bytes.fromhex(packet(0, 2000 + index, reply=1))
+                    )
+            except (OSError, EOFError, AssertionError, ValueError) as error:
+                errors.append(error)
+
+        worker = threading.Thread(target=peer, daemon=True)
+        worker.start()
+        try:
+            if missing or duplicate or foreign or seconds < delay:
+                with self.assertRaises(ValueError):
+                    control.run_update_phase(wire, "paced", 2, seconds)
+            else:
+                receipt = control.run_update_phase(wire, "paced", 2, seconds)
+                self.assertEqual(receipt["mode"], self.plan["schedule"]["phase_mode"])
+                self.assertNotIn("observer", wire.terminals)
+                self.assertEqual(len(wire.match("paced", 0, None, 1)), 26)
+            self.assertTrue(wire.recorder.streams()["paced"]["sent_hex"])
+            self.assertTrue(
+                wire.recorder.streams()["paced"]["received_hex"] or seconds < delay
+            )
+            if missing or duplicate or foreign:
+                self.assertTrue(wire.recorder.streams()["observer"]["received_hex"])
+            if missing:
+                self.assertEqual(control.validated_phase_progress(wire, "paced", 2), 25)
+            if duplicate:
+                self.assertEqual(control.validated_phase_progress(wire, "paced", 2), 5)
+        finally:
+            worker.join(timeout=3)
+            for sock in (subject, observer, subject_peer, observer_peer):
+                sock.close()
+        self.assertFalse(worker.is_alive())
+        self.assertEqual(errors, [])
+        self.assertEqual(wire.recorder.sockets["observer"].fileno(), -1)
+
+    def test_real_delayed_peer_pipeline_and_faults(self):
+        self.rehearse_phase(0.75)
+        self.rehearse_phase(0.75, observer_first=True)
+        self.rehearse_phase(0.75, missing=True, seconds=1.1)
+        self.rehearse_phase(0.75, duplicate=True)
+        self.rehearse_phase(0.75, foreign=True)
+        self.rehearse_phase(0.75, seconds=0.6)
+
+    def test_old_pair_boundary_fails_before_delayed_response(self):
+        wire = control.Wire(self.plan, time.monotonic() + 2)
+        subject, peer = socket.socketpair()
+        wire.recorder.sockets["paced"] = subject
+        wire.buffers["paced"] = bytearray()
+
+        def delayed_reply():
+            time.sleep(0.75)
+            peer.sendall(bytes.fromhex(packet(301, 0, payload(update(2, 2)))))
+            peer.sendall(bytes.fromhex(packet(0, 2000, reply=1)))
+
+        try:
+            wire.send("paced", cases.update(1000, 2), "paced-304-00")
+            wire.send("paced", cases.barrier(2000), "paced-500-00")
+            worker = threading.Thread(target=delayed_reply)
+            worker.start()
+            with self.assertRaisesRegex(ValueError, "Missing old 0.55s pair"):
+                wire.wait_for(
+                    lambda: bool(wire.match("paced", 0, 2000, 1)),
+                    0.55,
+                    "old 0.55s pair",
+                )
+            self.assertIn("paced", wire.recorder.sockets)
+            wire.wait_for(lambda: bool(wire.match("paced", 0, 2000, 1)), 1, "late ACK")
+            worker.join(timeout=1)
+            self.assertFalse(worker.is_alive())
+        finally:
+            subject.close()
+            peer.close()
+
     def full_fake_report(self, observer_after_barrier=False):
         source = fake_report(self.plan)
         pool = source["frames"] + [
@@ -382,6 +519,57 @@ class Rate304Tests(unittest.TestCase):
             **source,
             "status": "completed",
             "native_clock_calibrated": False,
+            "phase_progress": {"paced": 26, "burst": 26},
+            "phase_mode": self.plan["schedule"]["phase_mode"],
+            "phase_receipts": {
+                name: {
+                    "mode": self.plan["schedule"]["phase_mode"],
+                    "started_elapsed_ns": next(
+                        a["elapsed_ns"]
+                        for a in actions
+                        if a["label"] == f"{name}-304-00"
+                    )
+                    - 1,
+                    "all_pairs_sent_elapsed_ns": next(
+                        a["elapsed_ns"]
+                        for a in actions
+                        if a["label"] == f"{name}-500-25"
+                    ),
+                    "completed_elapsed_ns": max(
+                        next(
+                            a["elapsed_ns"]
+                            for a in actions
+                            if a["label"] == f"{name}-500-25"
+                        ),
+                        *(
+                            f["arrival_elapsed_ns"]
+                            for f in observed
+                            if (
+                                f["connection"] in (name, "observer")
+                                and f["type"] == 301
+                                and control.exact_fields(f).get(103)
+                                == (2 if name == "paced" else 3).to_bytes(2, "big")
+                                and 2
+                                <= int.from_bytes(
+                                    control.exact_fields(f).get(104, b"\0\0"), "big"
+                                )
+                                <= 27
+                            )
+                            or (
+                                f["connection"] == name
+                                and f["type"] == 0
+                                and f["is_reply"] == 1
+                                and f["id"]
+                                in range(
+                                    2000 if name == "paced" else 4000,
+                                    2026 if name == "paced" else 4026,
+                                )
+                            )
+                        ),
+                    ),
+                }
+                for name in ("paced", "burst")
+            },
             "plan_sha256": cases.digest(
                 (json.dumps(self.plan, indent=2) + "\n").encode()
             ),
@@ -413,6 +601,10 @@ class Rate304Tests(unittest.TestCase):
             lambda r: r["terminals"].__setitem__("burst", "bounded_no_eof"),
             lambda r: r["frames"].pop(),
             lambda r: r["unparsed_hex"].__setitem__("paced", "aa"),
+            lambda r: r["phase_receipts"]["paced"].__setitem__(
+                "completed_elapsed_ns", 99_000_000_000
+            ),
+            lambda r: r["phase_progress"].__setitem__("paced", 25),
         ]
         for mutate in faults:
             with self.subTest(fault=mutate), self.assertRaises(ValueError):

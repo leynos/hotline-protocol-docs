@@ -42,13 +42,21 @@ Source allocation zeroes the 304 count/timestamp, and first 304 resets that
 counter under an ordinary positive native clock; a clock-origin anomaly makes
 the boundary inconclusive. Every 304 contains **only** field104 with
 big-endian two-byte icon, varying 2–27. It has no normal direct ACK.
-Send a same-subject numbered 500 immediately after each 304. Before
-considering the pair complete, require its 500 ACK and both subject and
-observer 301 UID/name/icon; their cross-socket arrival order is not fixed.
-Complete 26 pairs within <=20 host seconds, or retain a timing-invalid report.
+Send a same-subject numbered 500 immediately after each 304. The version 2
+schedule pipelines all 26 ordered 304+500 pairs, then drains subject and
+observer sockets concurrently. Before declaring the **phase** complete, require
+all 26 exact subject 301, all 26 exact observer 301, and all 26 numbered 500
+ACKs; their cross-socket arrival order is not fixed. The as-run report records
+first send, final send, final required arrival, and contiguous validated pairs.
+On a failed run, that progress count may include bytes received during bounded
+cleanup; it is evidence of observed frames, not proof that the trial completed.
+Complete each 26-pair phase within <=20 host seconds, or retain a timing-invalid
+report.
 The paced subject then sends no request for
 >=70 host seconds while the separate observer sends 500 every five seconds.
-Its next 304 icon28 plus 500 ACK tests the reset, after which it closes and
+Its next 304 icon28 plus 500 ACK waits up to five seconds for both 301 views
+and its ACK; this does not extend the 26-pair host bracket. It tests the reset,
+after which it closes and
 the observer's 302 is retained. A new subject sends 26 pairs within <=20 host
 seconds; its icon28 27th 304 has no 500 barrier. Retain EOF/RST or bounded
 no-close and the observer's 302. One new valid Login107 probes the known
@@ -84,6 +92,17 @@ deadline fails closed and retains the raw report. One bounded failed run is
 not permission to retry. The fixture addresses only the native 304 local
 limiter; dispatcher/burst/chat/PM/board thresholds and mxd policy remain open
 GAP-045 work.
+
+C107 was a fixture failure after the first 304/500 pair: the old 0.55-second
+wait expired before the subject's 301 and 500 ACK were observed at about
+0.75 seconds; observer cleanup began first. The failed report remains unchanged.
+This synthetic pipeline rehearsal proves only that delayed two-socket responses
+can be collected within its declared bracket. It does not establish ordinary
+native latency, why the observer update was absent in C107, a native clock
+threshold, or a new native result. A separate live grant is required.
+The bounded A103 source review supports retaining the icon-only 304 shape for
+the zero-ACL subject; the full transport-readiness helper was outside that
+review, so recipient delivery remains a measured question.
 
 ## Offline commands
 

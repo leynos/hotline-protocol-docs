@@ -407,6 +407,7 @@ class Wire:
         self.next_action = 0
         self.tail_bytes: dict[str, int] = {}
         self.tail_mode = False
+        self.identities: dict[str, int] = {}
 
     def execute(self, step: dict) -> None:
         remaining = self.deadline - time.monotonic()
@@ -604,42 +605,106 @@ class Wire:
 
 
 def update_and_barrier(wire: Wire, name: str, index: int, uid: int) -> None:
+    """Send one ordered pair; its replies are checked at phase completion."""
     paced = name == "paced"
     request_id = (1000 if paced else 3000) + index
     barrier_id = (2000 if paced else 4000) + index
     icon = index + 2
     wire.send(name, cases.update(request_id, icon), f"{name}-304-{index:02d}")
     wire.send(name, cases.barrier(barrier_id), f"{name}-500-{index:02d}")
+
+
+def phase_complete(wire: Wire, name: str, uid: int) -> bool:
+    """A readiness predicate only; full cardinality and grammar follow."""
+    expected_uid = uid.to_bytes(2, "big")
+    for index in range(26):
+        icon = (index + 2).to_bytes(2, "big")
+        for receiver in ("observer", name):
+            if not any(
+                f["connection"] == receiver
+                and f["type"] == 301
+                and f["is_reply"] == 0
+                and exact_fields(f).get(103) == expected_uid
+                and exact_fields(f).get(104) == icon
+                for f in wire.frames
+            ):
+                return False
+        if not wire.match(name, 0, (2000 if name == "paced" else 4000) + index, 1):
+            return False
+    return True
+
+
+def run_update_phase(wire: Wire, name: str, uid: int, seconds: float = 20) -> dict:
+    """Pipeline exact requests, then drain all owned sockets until complete."""
+    started = time.monotonic()
+    started_ns = time.monotonic_ns() - wire.recorder.started
+    started_frames = len(wire.frames)
+    for index in range(26):
+        update_and_barrier(wire, name, index, uid)
+        need(time.monotonic() - started <= seconds, f"{name}26 send window exceeded")
+    sent_ns = time.monotonic_ns() - wire.recorder.started
     wire.wait_for(
-        lambda: (
-            all(
-                any(
-                    f["connection"] == receiver
-                    and f["type"] == 301
-                    and f["is_reply"] == 0
-                    and exact_fields(f).get(103) == uid.to_bytes(2, "big")
-                    and exact_fields(f).get(104) == icon.to_bytes(2, "big")
-                    for f in wire.frames
-                )
-                for receiver in ("observer", name)
-            )
-            and bool(wire.match(name, 0, barrier_id, 1))
-        ),
-        0.55,
-        f"{name} subject/observer301 and500 ACK icon{icon}",
+        lambda: phase_complete(wire, name, uid),
+        max(0, seconds - (time.monotonic() - started)),
+        f"{name} 26 subject/observer301 and500 ACKs",
     )
-    for receiver in ("observer", name):
-        matches = [
-            f
-            for f in wire.frames
-            if f["connection"] == receiver
-            and f["type"] == 301
-            and exact_fields(f).get(103) == uid.to_bytes(2, "big")
-            and exact_fields(f).get(104) == icon.to_bytes(2, "big")
-        ]
-        need(len(matches) == 1, f"{receiver} duplicate 301 icon{icon}")
-        update_frame(matches[0], uid, icon)
-    successful(one(wire.frames, name, 0, barrier_id, 1))
+    completed_ns = time.monotonic_ns() - wire.recorder.started
+    need(time.monotonic() - started <= seconds, f"{name}26 host bracket exceeded")
+    for frame in wire.frames[started_frames:]:
+        if frame["connection"] in ("observer", name) and frame["type"] == 301:
+            content = exact_fields(frame)
+            need(
+                content.get(103) == uid.to_bytes(2, "big")
+                and 2 <= int.from_bytes(content.get(104, b""), "big") <= 27,
+                f"{name} foreign 301 during phase",
+            )
+    for index in range(26):
+        icon = index + 2
+        for receiver in ("observer", name):
+            matches = [
+                f
+                for f in wire.frames
+                if f["connection"] == receiver
+                and f["type"] == 301
+                and exact_fields(f).get(103) == uid.to_bytes(2, "big")
+                and exact_fields(f).get(104) == icon.to_bytes(2, "big")
+            ]
+            need(len(matches) == 1, f"{receiver} duplicate 301 icon{icon}")
+            update_frame(matches[0], uid, icon)
+        successful(
+            one(wire.frames, name, 0, (2000 if name == "paced" else 4000) + index, 1)
+        )
+    return {
+        "mode": wire.plan["schedule"]["phase_mode"],
+        "started_elapsed_ns": started_ns,
+        "all_pairs_sent_elapsed_ns": sent_ns,
+        "completed_elapsed_ns": completed_ns,
+    }
+
+
+def validated_phase_progress(wire: Wire, name: str, uid: int) -> int:
+    """Count only the contiguous exact pairs present in a partial capture."""
+    for index in range(26):
+        try:
+            for receiver in ("observer", name):
+                matches = [
+                    f
+                    for f in wire.frames
+                    if f["connection"] == receiver
+                    and f["type"] == 301
+                    and exact_fields(f).get(103) == uid.to_bytes(2, "big")
+                    and exact_fields(f).get(104) == (index + 2).to_bytes(2, "big")
+                ]
+                need(len(matches) == 1, "Missing/duplicate update")
+                update_frame(matches[0], uid, index + 2)
+            successful(
+                one(
+                    wire.frames, name, 0, (2000 if name == "paced" else 4000) + index, 1
+                )
+            )
+        except (ValueError, KeyError, IndexError):
+            return index
+    return 26
 
 
 def roster_uid(wire: Wire, name: str) -> int:
@@ -676,9 +741,9 @@ def perform(wire: Wire, plan: dict) -> dict:
     )
     wire.connect_login("paced")
     paced_uid = roster_uid(wire, "paced")
+    wire.identities["paced_uid"] = paced_uid
     first_paced = time.monotonic()
-    for index in range(26):
-        update_and_barrier(wire, "paced", index, paced_uid)
+    paced_phase = run_update_phase(wire, "paced", paced_uid)
     paced_trial = time.monotonic() - first_paced
     need(paced_trial <= 20, "Paced26 exceeded host20s bracket")
     last_subject_request = time.monotonic()
@@ -721,7 +786,7 @@ def perform(wire: Wire, plan: dict) -> dict:
             )
             and bool(wire.match("paced", 0, 2026, 1))
         ),
-        2,
+        5,
         "paced 27th subject/observer301 and500 ACK",
     )
     for receiver in ("observer", "paced"):
@@ -749,9 +814,9 @@ def perform(wire: Wire, plan: dict) -> dict:
     )
     wire.connect_login("burst")
     burst_uid = roster_uid(wire, "burst")
+    wire.identities["burst_uid"] = burst_uid
     first_burst = time.monotonic()
-    for index in range(26):
-        update_and_barrier(wire, "burst", index, burst_uid)
+    burst_phase = run_update_phase(wire, "burst", burst_uid)
     burst_trial = time.monotonic() - first_burst
     need(burst_trial <= 20, "Burst26 exceeded host20s bracket")
     wire.send("burst", cases.update(3026, 28), "burst-304-terminal")
@@ -786,6 +851,7 @@ def perform(wire: Wire, plan: dict) -> dict:
     return {
         "paced_uid": paced_uid,
         "burst_uid": burst_uid,
+        "phase_receipts": {"paced": paced_phase, "burst": burst_phase},
         "timing": {
             "paced_trial_seconds": paced_trial,
             "burst_trial_seconds": burst_trial,
@@ -798,6 +864,14 @@ def perform(wire: Wire, plan: dict) -> dict:
 def verify_report(plan: dict, report: dict) -> None:
     need(report["status"] == "completed", "Rate304 run incomplete")
     need(report["native_clock_calibrated"] is False, "Native clock not calibrated")
+    need(
+        report["phase_progress"] == {"paced": 26, "burst": 26},
+        "Incomplete phase progress",
+    )
+    need(
+        report["phase_mode"] == plan["schedule"]["phase_mode"],
+        "As-run pipeline mode differs",
+    )
     need(
         report["plan_sha256"] == digest((json.dumps(plan, indent=2) + "\n").encode())
         and report["cases_sha256"] == digest(Path(cases.__file__).read_bytes())
@@ -851,6 +925,51 @@ def verify_report(plan: dict, report: dict) -> None:
             0 <= elapsed <= report["timing"][f"{label}_trial_seconds"] <= 20,
             f"{label} request timing receipt differs",
         )
+        phase = report["phase_receipts"][label]
+        need(
+            phase["mode"] == plan["schedule"]["phase_mode"]
+            and phase["started_elapsed_ns"]
+            <= action_times[first]
+            <= action_times[last]
+            <= phase["all_pairs_sent_elapsed_ns"]
+            <= phase["completed_elapsed_ns"]
+            and 0
+            <= (phase["completed_elapsed_ns"] - phase["started_elapsed_ns"]) / 1e9
+            <= report["timing"][f"{label}_trial_seconds"]
+            <= 20,
+            f"{label} pipeline timing receipt differs",
+        )
+        for receiver in ("observer", label):
+            for frame in report["frames"]:
+                if (
+                    frame["connection"] == receiver
+                    and frame["type"] == 301
+                    and exact_fields(frame).get(103)
+                    == report["identities"][f"{label}_uid"].to_bytes(2, "big")
+                    and 2
+                    <= int.from_bytes(exact_fields(frame).get(104, b"\0\0"), "big")
+                    <= 27
+                ):
+                    need(
+                        action_times[first]
+                        <= frame["arrival_elapsed_ns"]
+                        <= phase["completed_elapsed_ns"],
+                        f"{label} update outside phase receipt",
+                    )
+        for index in range(26):
+            ack = one(
+                report["frames"],
+                label,
+                0,
+                (2000 if label == "paced" else 4000) + index,
+                1,
+            )
+            need(
+                action_times[first]
+                <= ack["arrival_elapsed_ns"]
+                <= phase["completed_elapsed_ns"],
+                f"{label} barrier outside phase receipt",
+            )
     quiet_bound = (
         action_times["paced-304-after-quiet"] - action_times["paced-500-25"]
     ) / 1e9
@@ -969,7 +1088,16 @@ def run(plan_dir: Path, receipt_path: Path, binary: Path, output: Path) -> dict:
         "recorded_at_utc": datetime.now(timezone.utc).isoformat(),
         "elapsed_seconds": time.monotonic() - started,
         "native_clock_calibrated": False,
-        "identities": {k: result.get(k) for k in ("paced_uid", "burst_uid")},
+        "phase_mode": plan["schedule"]["phase_mode"],
+        "phase_receipts": result.get("phase_receipts", {}),
+        "identities": {
+            k: wire.identities.get(k, result.get(k)) for k in ("paced_uid", "burst_uid")
+        },
+        "phase_progress": {
+            name: validated_phase_progress(wire, name, wire.identities[f"{name}_uid"])
+            for name in ("paced", "burst")
+            if f"{name}_uid" in wire.identities
+        },
         "timing": result.get("timing", {}),
         "actions": wire.actions,
         "events": wire.recorder.events,

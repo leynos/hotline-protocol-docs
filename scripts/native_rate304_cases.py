@@ -61,7 +61,7 @@ def source_plan(environment: dict, port: int = PORT) -> dict:
         "logins": logins,
         "scope": "native 304 local counter and reset, one process, no full A7 postflight",
         "schedule": {
-            "schema_version": 1,
+            "schema_version": 2,
             "flows": ["observer", "paced", "burst", "probe"],
             "preflight": "separate unchanged 18-action control before runner contact",
             "max_connections_including_preflight": 5,
@@ -76,6 +76,8 @@ def source_plan(environment: dict, port: int = PORT) -> dict:
             "max_tail_bytes_per_flow": 65536,
             "observer_500_interval_seconds": 5,
             "barrier": "same-subject numbered 500 ACK after each accepted 304",
+            "phase_mode": "send 26 ordered 304+500 pairs, then concurrently drain both sockets",
+            "phase_completion": "26 subject301, 26 observer301 and 26 numbered500 ACKs within 20 host seconds",
             "read_mode": "bounded select drain of every open socket, no global frame order",
             "terminal_mode": "bounded EOF/RST/quiet with all observed raw tails",
             "postflight": "retained observer controls 348/200/206/300/303 only",
