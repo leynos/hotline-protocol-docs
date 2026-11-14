@@ -35,6 +35,7 @@ roster with distinct admin UID. All four plans contain no request 110.
 The held plan has **23 source actions**: 17 before Options, then `104` and EOF
 on each of the two sockets, then both closes. The controller retains one report
 whose `completed_actions` must equal the original 23-step source plan. It
+retains any bytes after the matched notices through each EOF for later parsing.
 publishes `held-ready.json` only after the semantic identity gates pass. Any
 readable socket before reviewed Save, including a notice or EOF triggered by
 **Add**, aborts the observation. A separate operator may create a

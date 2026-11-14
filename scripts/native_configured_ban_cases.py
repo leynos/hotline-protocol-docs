@@ -22,6 +22,12 @@ def exchange(kind: int, identifier: int, values: list[tuple[int, bytes]]) -> lis
     ]
 
 
+def tail_eof(connection: str) -> dict:
+    step = eof(connection)
+    del step["expect_hex"]
+    return step
+
+
 def plans() -> dict[str, list[dict]]:
     ready = login()
     ready += exchange(348, 10, [])
@@ -56,8 +62,8 @@ def plans() -> dict[str, list[dict]]:
     held += [
         read(match_frame={"type": 104}),
         read("target", match_frame={"type": 104}),
-        eof(),
-        eof("target"),
+        tail_eof("main"),
+        tail_eof("target"),
         close(),
         close("target"),
     ]

@@ -114,6 +114,9 @@ class ConfiguredBanPreparationTest(unittest.TestCase):
                 ("close", "target"),
             ],
         )
+        self.assertTrue(
+            all("expect_hex" not in step for step in steps["held-apply"][-4:-2])
+        )
         for phase in steps.values():
             for step in phase:
                 if step["op"] == "send" and "{" not in step["hex"]:
