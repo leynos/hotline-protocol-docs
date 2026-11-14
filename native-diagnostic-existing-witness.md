@@ -94,8 +94,11 @@ new file.
 
 The later [A9 density witness](native-diagnostic-density-witness.md) reached
 8 active and 8 waiting downloads, but measured only 763 field-101 bytes. The
-native formatting boundary near the source's `0x400` destination and the
-exact-text release decision in GAP-037 remain open. This one active/queued
+later [near-boundary observation](native-diagnostic-near-witness.md)
+contains 995 bytes inside an overall failed plan. The
+[formatter trace](diagnostic-formatting-trace.md) supplies the static cap
+and distinguishes descriptive baseline wording from a separate mxd release
+promise. Live at-cap behaviour remains unobserved. This one active/queued
 example must not be generalised into
 mandatory wording, progress percentages or transfer scheduling guarantees.
 

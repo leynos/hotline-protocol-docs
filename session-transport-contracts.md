@@ -34,7 +34,13 @@ control exchange on 5500 and unmatched-reference HTXF rejection on 5501.
 The alternate 5502/5503 listeners accepted TCP and acknowledged ordinary
 unwrapped input but returned no application response within ten seconds.
 They are not established as interchangeable plain-protocol endpoints. Full
-alternate-wrapper negotiation and port-boundary configuration remain GAP-010.
+alternate-wrapper negotiation and high-port bind outcomes remain unverified.
+This maps GAP-010's four listener paths and tested exceptions without claiming
+that every configured base yields four usable ports. In the assignments,
+base 65535 would narrow base+1 to zero, base+2 to one and base+3 to two;
+those are arithmetic consequences, not measured bind outcomes. Sub-version-3
+control-to-HTXF handover below is another exception to treating base+1 as the
+only possible data connection.
 
 ## Handshake consumption and failures
 

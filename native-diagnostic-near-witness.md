@@ -63,8 +63,10 @@ python3 "$a12/verify_partial.py" > /tmp/a12-partial-replay.json
 The first capture verification reports `failed; 94 actions` as expected. The
 partial checker reports `positive-partial-observation; capture-failed` and
 must not be read as a fully verified near plan. The [preparation][prep]
-records the fixed proposal and its original 24-reference bound. GAP-037's
-exact-text release policy remains open.
+records the fixed proposal and its original 24-reference bound. The
+[later formatter trace](diagnostic-formatting-trace.md) establishes the
+source-derived cap and descriptive baseline text rule; it does not turn this
+partial observation into a passed capture or an at-cap fixture.
 
 [a12]: ../mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-near-01/manifest.json
 [partial]: ../mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-near-01/verification-partial.json

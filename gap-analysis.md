@@ -5,17 +5,19 @@ correction map. This register tracks gaps in the specification after the
 validity-ledger corrections. It does not reopen corrected findings or claim to
 resolve the remaining unknowns.
 
-The sweep records **87 gaps** across **424 reviewed document sections**. These
+The sweep records **87 gaps** across **431 reviewed document sections**. These
 are documentation questions and proposed investigation priorities, not
 confirmed binary defects, security severity ratings or mxd test failures.
 
 ## Scope, evidence and status
 
-Accept the original bounded criteria for session-settings persistence, known
-type-104 producers and the two-build peer field matrix. Preserve all 87
-original closure criteria: 55 Resolved, 31 Investigating, 1 Open; 32 unclosed.
-Retain lifecycle, lock, codec, rendering and expiry limitations. Further mxd
-validation remains on hold.
+Accept the original endpoint mapping and diagnostic-content documentation
+criteria after independent review and fresh Ghidra formatter tracing. Preserve
+all87 original closure criteria:57 Resolved,29 Investigating,1 Open;30
+unclosed. Document the finite persisted-ban layout and opaque account111
+preservation without closing their semantic/runtime gaps. Keep
+alternate-wrapper, high-port, at-cap, codec and expiry limits explicit.
+Further mxd validation remains on hold.
 
 The corrected documents deliberately contain unresolved statements. Unanswered
 entries refine those into actionable questions. Missing and Ambiguous entries
@@ -55,7 +57,7 @@ missing mandatory functionality.
 | --- | --- |
 | Priority | P0: 20, P1: 56, P2: 11 |
 | Kind | Ambiguous: 10, Decision: 3, Evidence: 5, Missing: 12, Unanswered: 57 |
-| Status | Investigating: 31, Open: 1, Resolved: 55 |
+| Status | Investigating: 29, Open: 1, Resolved: 57 |
 
 ## Suggested investigation order
 
@@ -70,89 +72,91 @@ unknown question has already been answered.
 
 ## Input provenance
 
-Audit captured at `2026-11-14T05:15:52.997655+00:00`. The source checkout has
-Git HEAD `9ecd1d94b6cfcfd562035e20ec1cbefd450ee3f3` with modified/untracked
+Audit captured at `2026-11-14T05:32:20.877607+00:00`. The source checkout has
+Git HEAD `b85b05e759866907497bc49ba95ec1a30afb7873` with modified/untracked
 reviewed files. The hashes below identify the actual reviewed worktree
 contents; HEAD alone does not. Source line ranges in entries refer to the
 frozen snapshots, while section links point to the current documents.
 
 | Reviewed input | SHA-256 | Frozen copy |
 | --- | --- | --- |
-| [protocol.md](protocol.md) | `b5621f0c0ecbe30c55d2eee213cf571a68319da71d38803c22eec1f0c104b850` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/protocol.md.txt) |
-| [internal-compatibility-matrix.md](internal-compatibility-matrix.md) | `dd8ec84cbc83bb8e6f94e157d8fea0bec3410e3196beff18ec37de110a5800d4` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/internal-compatibility-matrix.md.txt) |
-| [baseline-correction-map.md](baseline-correction-map.md) | `08b3687d975dbd9ae9050d5d0b333d2c106b884f1d3d87a3a966cbbc604d7385` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/baseline-correction-map.md.txt) |
-| [native-wire-details.md](native-wire-details.md) | `c603ef083824d012f3fbf60decb45ca8d41240824d728e539db1ce089fefb4dd` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-wire-details.md.txt) |
-| [operation-contracts.md](operation-contracts.md) | `d05a754cc98fd65784a37e75b441f1576683e1904153c574f1b00e9a7127858a` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/operation-contracts.md.txt) |
-| [transfer-contracts.md](transfer-contracts.md) | `6d2d069880c6b567caef5b46fac8ab8563b5f3e1d8273d5cec4221179aac8612` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/transfer-contracts.md.txt) |
-| [news-contracts.md](news-contracts.md) | `9b935a8b19f0baf4cc19115692f80c40912d2d8683a40e991d67867483b88597` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/news-contracts.md.txt) |
-| [presence-messaging-contracts.md](presence-messaging-contracts.md) | `e1053261190dc57e3e598d5e53742e181f5b88b6e10aedf1c933d13cc94e850a` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/presence-messaging-contracts.md.txt) |
-| [core-field-schemas.md](core-field-schemas.md) | `00b7af54c4ef8c153fcc495927e131dad2753b89cbe10b80a37d233f454f791c` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/core-field-schemas.md.txt) |
-| [session-transport-contracts.md](session-transport-contracts.md) | `e730cc5dea6f3848a1095a8c75ab821c2a414b2fa7d14ff3a71ca7a3f289e0b0` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/session-transport-contracts.md.txt) |
-| [filesystem-and-board-contracts.md](filesystem-and-board-contracts.md) | `e6c8ee0293d5a745a742a5f4e0537258c7f7ae42654f0f728bdbafd3da0ed88f` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/filesystem-and-board-contracts.md.txt) |
-| [evidence-portability.md](evidence-portability.md) | `571225c97f9a1a3cae23363fb4d215886c77746d5df9ebc266eae56cd0221c14` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/evidence-portability.md.txt) |
-| [error-outcomes.md](error-outcomes.md) | `7c0ede126803b9c15c6c6dfa3017d8c3e885d326c653e6cae57f104445e9bb35` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/error-outcomes.md.txt) |
-| [identified-client-source.md](identified-client-source.md) | `ea5097f26bad3bc396ca543a88d2cd644950e1a15cb539e9bb46208ec4a5128a` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/identified-client-source.md.txt) |
-| [privilege-contracts.md](privilege-contracts.md) | `18cd1ad6f83920ea7cdd69c10888151335da2edcb4df7a36f9ee5f651fb860e0` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/privilege-contracts.md.txt) |
-| [native-capture-workflow.md](native-capture-workflow.md) | `c7f9741d06fb6c4d92fbca5154b907446fded3a5b54eeddab19aeaa827d58f4d` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-capture-workflow.md.txt) |
-| [diagnostic-replies.md](diagnostic-replies.md) | `9a4354096a84f32940e45720f986f067c1b05c41f2662ff57c2ca759cc2053ff` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/diagnostic-replies.md.txt) |
-| [peer-tolerance-matrix.md](peer-tolerance-matrix.md) | `989c948279211ce001071d0048e1d7a2fbed9a5c68c0d2a1558377b1c68535dc` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/peer-tolerance-matrix.md.txt) |
-| [mxd-reconciliation.md](mxd-reconciliation.md) | `b101c9f12721b5ed16ba40ac7f63ec3515fbf80f0205fe58594f6807ebd295c9` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/mxd-reconciliation.md.txt) |
-| [bitmap-boundaries.md](bitmap-boundaries.md) | `e2fa41eab31ec8b6e1aed0a26f41adb015c9c0ea7db1fd9b84fffc4d29c4ec98` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/bitmap-boundaries.md.txt) |
-| [account-attribute-trace.md](account-attribute-trace.md) | `b64bd4dfb584f0e4cbb42db6f86159c495d89d7af0dfb869c0c5500b204143b1` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/account-attribute-trace.md.txt) |
-| [mxd-limit-contracts.md](mxd-limit-contracts.md) | `50fd48d0503f8d0a15e18ef268421d3b034288257911d020e7c8fae1c68731be` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/mxd-limit-contracts.md.txt) |
-| [failure-representatives.md](failure-representatives.md) | `27dea3d30c579e4638c5aa54191d3c46f29977957fa445fa5c91e5ddaa100c56` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/failure-representatives.md.txt) |
-| [runtime-recovery-20261113.md](runtime-recovery-20261113.md) | `3a0f4ede01062a0a3cfc147ad508ab991ffc0c65ba1746f8939cf142a9c7cbb7` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/runtime-recovery-20261113.md.txt) |
-| [receive-limit-origin.md](receive-limit-origin.md) | `9b61b70f8929f55b4279e8ea5b01871302739e263d450d84d3b07bd0ccbb0347` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/receive-limit-origin.md.txt) |
-| [diagnostic-transfer-boundaries.md](diagnostic-transfer-boundaries.md) | `fad0fb66796ef317e9a9a8f9b1b05addcd200ddb3c914860de0b8db47fdf95f0` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/diagnostic-transfer-boundaries.md.txt) |
-| [mac-peer-first-session.md](mac-peer-first-session.md) | `bf97eb61d36d39108e76df85dceaea03769d793c2d0f63204a8467da6b09af9a` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/mac-peer-first-session.md.txt) |
-| [native-diagnostic-existing-preparation.md](native-diagnostic-existing-preparation.md) | `ad15c2ed5ff4fa2eaba8df9e2fc22f8972ed66e30cbaadd8ae2119f660379ba6` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-diagnostic-existing-preparation.md.txt) |
-| [native-diagnostic-existing-witness.md](native-diagnostic-existing-witness.md) | `245c831ed3739e7d9dc267038bfb965fb58a88f452ce01d7e872786ae71736fb` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-diagnostic-existing-witness.md.txt) |
-| [native-diagnostic-density-witness.md](native-diagnostic-density-witness.md) | `056cdecc57884407f1a942ff9f2e9e426bcd61fcbdf745bf8633a9305ea0de13` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-diagnostic-density-witness.md.txt) |
-| [mxd-direct-ack-correction.md](mxd-direct-ack-correction.md) | `72bda2e0d279b44976f480ba7651f0f6f8f19e4bd285e74f8a392043d5a41ffc` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/mxd-direct-ack-correction.md.txt) |
-| [mxd-login-extras-correction.md](mxd-login-extras-correction.md) | `ff0cd8772ee38802350954c5322c490052217cdb07fe25439ca2407168a1e827` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/mxd-login-extras-correction.md.txt) |
-| [native-diagnostic-near-preparation.md](native-diagnostic-near-preparation.md) | `4cb5e050b99b5ef2d2a806578fdfb4361eaca0ff8531de84864a36c8bb4b12bc` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-diagnostic-near-preparation.md.txt) |
-| [native-diagnostic-near-witness.md](native-diagnostic-near-witness.md) | `bf2c67e432d69b2abf6c99733df5e5706be2dc1a60924ea577b342ef815afcb4` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-diagnostic-near-witness.md.txt) |
-| [mac-peer-isolated-session.md](mac-peer-isolated-session.md) | `33086d1bf8a631f2bf047b5ac388aa4aff4def53ec2a0dd0d847b43ddb06f12b` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/mac-peer-isolated-session.md.txt) |
-| [request-500-contract.md](request-500-contract.md) | `8362b1780d50b6042f91d044b9f9c8c0c25ce4f7646dc251002e2e9ee138cbb8` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/request-500-contract.md.txt) |
-| [native-console-broadcast.md](native-console-broadcast.md) | `01693a42d90d00042d5c8a7f1603046c244313bb1256073b755928fbd695fece` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-console-broadcast.md.txt) |
-| [mxd-peer-capture-workflow.md](mxd-peer-capture-workflow.md) | `abd18f4d3202faf4de1e87c0f77b67ab01c59adce93da8135ef7e3c11698e277` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/mxd-peer-capture-workflow.md.txt) |
-| [mxd-classic-login.md](mxd-classic-login.md) | `1bebe6593339823f012eede3816ecc99501e3ed45254af010ef947f0bbec5ec8` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/mxd-classic-login.md.txt) |
-| [classic-login-proxy.md](classic-login-proxy.md) | `f46a333447d02ee66bbd2e2d835e0bdb93c258fd3aafd2bb0baa22f11f062a66` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/classic-login-proxy.md.txt) |
-| [mxd-validation.md](mxd-validation.md) | `fc5179617167558a7958534ae4496f1892852718cdfef0844b70734a1b7a9330` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/mxd-validation.md.txt) |
-| [native-pm-preparation.md](native-pm-preparation.md) | `28df4cdaa33bf02240e4e614b8e508d7de78018a2b7536c800723803648d2714` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-pm-preparation.md.txt) |
-| [native-pm-witness.md](native-pm-witness.md) | `94b2af274067b60eaec0f75b243911b61962783f55d92b7f76874b4d3fc71934` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-pm-witness.md.txt) |
-| [native-104-variants.md](native-104-variants.md) | `51426947f3f49c2fcdd2e875bed0d0e3e1ae32e6387e310d877582a288347457` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-104-variants.md.txt) |
-| [native-settings-preparation.md](native-settings-preparation.md) | `f91d179af7f6468122a04058d36c5f2d84db231a858294c0e3613d6268a4cb1e` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-settings-preparation.md.txt) |
-| [native-settings-witness.md](native-settings-witness.md) | `e6e81bdf254f973837cd2e2f672a16ead054a19f234893b365849d452bc3da5a` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-settings-witness.md.txt) |
-| [native-ban-notices.md](native-ban-notices.md) | `7879f06d73ffd49fec2087f70a5ce80234e8273699497ca1d90be046ccd1b30c` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-ban-notices.md.txt) |
-| [parameter-multiplicity.md](parameter-multiplicity.md) | `bd7cbdc8be0561ec1b22f74e4e6413775f38516138b17d2460c06efe3b8ffea3` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/parameter-multiplicity.md.txt) |
-| [native-transfer-stall.md](native-transfer-stall.md) | `caaff7459dcdeafc055be01ead0b617c14da30f56d801cf3d19d588858075339` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-transfer-stall.md.txt) |
-| [native-settings-transition-prep.md](native-settings-transition-prep.md) | `1e5b739bb537635c2f6e742a4629c54271045574eb9423d9d88bcfc4279dfaad` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-settings-transition-prep.md.txt) |
-| [native-settings-transition-witness.md](native-settings-transition-witness.md) | `7748151b8471180c8844609231395a4c7b9b8456426f2d290d660eafe2cfa202` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-settings-transition-witness.md.txt) |
-| [native-download-send-path.md](native-download-send-path.md) | `b85e5c92b96a7f09b9cbdb504f6ec0300913c49c3f813f81ab0890991a97bc4a` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-download-send-path.md.txt) |
-| [classic-account-constructors.md](classic-account-constructors.md) | `7e292d53804e7fdf274f9b5aa65f6fde8311be62a9d1db6854ec1452e5958152` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/classic-account-constructors.md.txt) |
-| [native-121-default-preparation.md](native-121-default-preparation.md) | `ddf4534145c9785ba6f8d1c95953504ad05435eeb5b92bdd1c04d77524bc8c9b` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-121-default-preparation.md.txt) |
-| [native-121-default-witness.md](native-121-default-witness.md) | `2caf385aa9417859fea49b52c7910744c3357620a141928be8ace483d15dbfd8` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-121-default-witness.md.txt) |
-| [classic-native-baseline.md](classic-native-baseline.md) | `36b560f7b864691377c75d500262ae8a7e973350db050d102ececd0b265fde88` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/classic-native-baseline.md.txt) |
-| [native-ui-focus-witness.md](native-ui-focus-witness.md) | `1199f5e79a3535ee554713c0fbd0f54de953bf6a8b8741598cb1f83697e14e1e` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-ui-focus-witness.md.txt) |
-| [native-control-readiness.md](native-control-readiness.md) | `e6245be4429cea9a571102b28612acf87002cf0178de452c284025f55b6e792f` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-control-readiness.md.txt) |
-| [classic-field161-matrix.md](classic-field161-matrix.md) | `4b3853cc15d8271826833c2029e21bd80989e48b2502c2eab6ee661f74400357` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/classic-field161-matrix.md.txt) |
-| [native-ban-control-preparation.md](native-ban-control-preparation.md) | `4b42ca3e3e86dd9d395f06c82810d809324bd28972b65316308b5daddf2ef2ca` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-ban-control-preparation.md.txt) |
-| [notification-104-variants.md](notification-104-variants.md) | `1f56ba0d55ab9dbfb848276742f562f534963af70ee4910b051805cfa9e3affe` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/notification-104-variants.md.txt) |
-| [peer-profile-rules.md](peer-profile-rules.md) | `e4cf33c959a103ed5fe5ee5ec3687186470781c0ae27ac524602a1eeb14c9e98` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/peer-profile-rules.md.txt) |
-| [native-settings-persistence-preparation.md](native-settings-persistence-preparation.md) | `50b1a08dd784fade9d608b9abb19884bf812ec7a105ea746c4fdfb5e0192ef7a` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-settings-persistence-preparation.md.txt) |
-| [native-ban-control-witness.md](native-ban-control-witness.md) | `15847edc9474e8b9f72c3fcf1a9a365c28b49cef6a0d43764787b424a7517579` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-ban-control-witness.md.txt) |
-| [classic-server-name-162.md](classic-server-name-162.md) | `bf52554c2cc4e49d5c4db13ad8374d11ef401c6303f6b4f33641d204a95e52bf` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/classic-server-name-162.md.txt) |
-| [native-configured-ban-static.md](native-configured-ban-static.md) | `2c5f5ae4ebb55ce3633f1ddba4c9f119f38662fbff16a66d4a4119695f143989` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-configured-ban-static.md.txt) |
-| [native-configured-ban-ui-resources.md](native-configured-ban-ui-resources.md) | `2617da153c6c1717dc813e4e741f8e4390b055ea0e70649e68f0360a346783a2` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-configured-ban-ui-resources.md.txt) |
-| [native-ban-reload-witness.md](native-ban-reload-witness.md) | `11e7574f03852b952b552315ff99d720f4dc40546b50651e07069a3af4866515` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-ban-reload-witness.md.txt) |
-| [native-settings-persistence-witness.md](native-settings-persistence-witness.md) | `ffb816b323a38c1be5986605a5a289ddac6dfa078011463ec7be166b08643edc` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-settings-persistence-witness.md.txt) |
-| [classic-roster-subject-115.md](classic-roster-subject-115.md) | `19393fc904c23bdb3e00aea53b037443c81ce4667cf5355d0ff1b936ad3a8f11` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/classic-roster-subject-115.md.txt) |
-| [native-configured-ban-preparation.md](native-configured-ban-preparation.md) | `5e99de6f51fb35a35038a905c489896acfe50a95d150310b588d69aa74662b26` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-configured-ban-preparation.md.txt) |
-| [native-configured-ban-witness.md](native-configured-ban-witness.md) | `de2cde35bdebec4ba18610e53aca9a19744f8de1b7f15dfd317888e9677369b9` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/inputs/native-configured-ban-witness.md.txt) |
+| [protocol.md](protocol.md) | `11edd73fac2d17dfd84d2ea6120378185834f6c2118926b1f71adbf28cd5fb22` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/protocol.md.txt) |
+| [internal-compatibility-matrix.md](internal-compatibility-matrix.md) | `dd8ec84cbc83bb8e6f94e157d8fea0bec3410e3196beff18ec37de110a5800d4` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/internal-compatibility-matrix.md.txt) |
+| [baseline-correction-map.md](baseline-correction-map.md) | `08b3687d975dbd9ae9050d5d0b333d2c106b884f1d3d87a3a966cbbc604d7385` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/baseline-correction-map.md.txt) |
+| [native-wire-details.md](native-wire-details.md) | `c603ef083824d012f3fbf60decb45ca8d41240824d728e539db1ce089fefb4dd` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-wire-details.md.txt) |
+| [operation-contracts.md](operation-contracts.md) | `d05a754cc98fd65784a37e75b441f1576683e1904153c574f1b00e9a7127858a` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/operation-contracts.md.txt) |
+| [transfer-contracts.md](transfer-contracts.md) | `6d2d069880c6b567caef5b46fac8ab8563b5f3e1d8273d5cec4221179aac8612` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/transfer-contracts.md.txt) |
+| [news-contracts.md](news-contracts.md) | `9b935a8b19f0baf4cc19115692f80c40912d2d8683a40e991d67867483b88597` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/news-contracts.md.txt) |
+| [presence-messaging-contracts.md](presence-messaging-contracts.md) | `e1053261190dc57e3e598d5e53742e181f5b88b6e10aedf1c933d13cc94e850a` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/presence-messaging-contracts.md.txt) |
+| [core-field-schemas.md](core-field-schemas.md) | `00b7af54c4ef8c153fcc495927e131dad2753b89cbe10b80a37d233f454f791c` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/core-field-schemas.md.txt) |
+| [session-transport-contracts.md](session-transport-contracts.md) | `a3a28aee4cf3a7f0cc773382eda4800b3de09be94e6805cfc438b66b948f45a7` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/session-transport-contracts.md.txt) |
+| [filesystem-and-board-contracts.md](filesystem-and-board-contracts.md) | `e6c8ee0293d5a745a742a5f4e0537258c7f7ae42654f0f728bdbafd3da0ed88f` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/filesystem-and-board-contracts.md.txt) |
+| [evidence-portability.md](evidence-portability.md) | `571225c97f9a1a3cae23363fb4d215886c77746d5df9ebc266eae56cd0221c14` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/evidence-portability.md.txt) |
+| [error-outcomes.md](error-outcomes.md) | `7c0ede126803b9c15c6c6dfa3017d8c3e885d326c653e6cae57f104445e9bb35` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/error-outcomes.md.txt) |
+| [identified-client-source.md](identified-client-source.md) | `ea5097f26bad3bc396ca543a88d2cd644950e1a15cb539e9bb46208ec4a5128a` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/identified-client-source.md.txt) |
+| [privilege-contracts.md](privilege-contracts.md) | `18cd1ad6f83920ea7cdd69c10888151335da2edcb4df7a36f9ee5f651fb860e0` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/privilege-contracts.md.txt) |
+| [native-capture-workflow.md](native-capture-workflow.md) | `c7f9741d06fb6c4d92fbca5154b907446fded3a5b54eeddab19aeaa827d58f4d` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-capture-workflow.md.txt) |
+| [diagnostic-replies.md](diagnostic-replies.md) | `4e1b8ed87288de3b4570df24d1f40fa47b8825ebfe8664e085cd8934f2f70b06` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/diagnostic-replies.md.txt) |
+| [peer-tolerance-matrix.md](peer-tolerance-matrix.md) | `989c948279211ce001071d0048e1d7a2fbed9a5c68c0d2a1558377b1c68535dc` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/peer-tolerance-matrix.md.txt) |
+| [mxd-reconciliation.md](mxd-reconciliation.md) | `b101c9f12721b5ed16ba40ac7f63ec3515fbf80f0205fe58594f6807ebd295c9` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/mxd-reconciliation.md.txt) |
+| [bitmap-boundaries.md](bitmap-boundaries.md) | `e2fa41eab31ec8b6e1aed0a26f41adb015c9c0ea7db1fd9b84fffc4d29c4ec98` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/bitmap-boundaries.md.txt) |
+| [account-attribute-trace.md](account-attribute-trace.md) | `b64bd4dfb584f0e4cbb42db6f86159c495d89d7af0dfb869c0c5500b204143b1` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/account-attribute-trace.md.txt) |
+| [mxd-limit-contracts.md](mxd-limit-contracts.md) | `50fd48d0503f8d0a15e18ef268421d3b034288257911d020e7c8fae1c68731be` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/mxd-limit-contracts.md.txt) |
+| [failure-representatives.md](failure-representatives.md) | `27dea3d30c579e4638c5aa54191d3c46f29977957fa445fa5c91e5ddaa100c56` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/failure-representatives.md.txt) |
+| [runtime-recovery-20261113.md](runtime-recovery-20261113.md) | `3a0f4ede01062a0a3cfc147ad508ab991ffc0c65ba1746f8939cf142a9c7cbb7` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/runtime-recovery-20261113.md.txt) |
+| [receive-limit-origin.md](receive-limit-origin.md) | `9b61b70f8929f55b4279e8ea5b01871302739e263d450d84d3b07bd0ccbb0347` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/receive-limit-origin.md.txt) |
+| [diagnostic-transfer-boundaries.md](diagnostic-transfer-boundaries.md) | `fad0fb66796ef317e9a9a8f9b1b05addcd200ddb3c914860de0b8db47fdf95f0` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/diagnostic-transfer-boundaries.md.txt) |
+| [mac-peer-first-session.md](mac-peer-first-session.md) | `bf97eb61d36d39108e76df85dceaea03769d793c2d0f63204a8467da6b09af9a` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/mac-peer-first-session.md.txt) |
+| [native-diagnostic-existing-preparation.md](native-diagnostic-existing-preparation.md) | `ad15c2ed5ff4fa2eaba8df9e2fc22f8972ed66e30cbaadd8ae2119f660379ba6` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-diagnostic-existing-preparation.md.txt) |
+| [native-diagnostic-existing-witness.md](native-diagnostic-existing-witness.md) | `ffa30a1b5c624715b3c59f36284c5b701f4759409fe40e3b21d1cab90aec8ec9` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-diagnostic-existing-witness.md.txt) |
+| [native-diagnostic-density-witness.md](native-diagnostic-density-witness.md) | `bd59a4c90a51c163eebea280acc3c4efb1a9c129daa0c57d84a2583d4f3b4b8f` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-diagnostic-density-witness.md.txt) |
+| [mxd-direct-ack-correction.md](mxd-direct-ack-correction.md) | `72bda2e0d279b44976f480ba7651f0f6f8f19e4bd285e74f8a392043d5a41ffc` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/mxd-direct-ack-correction.md.txt) |
+| [mxd-login-extras-correction.md](mxd-login-extras-correction.md) | `ff0cd8772ee38802350954c5322c490052217cdb07fe25439ca2407168a1e827` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/mxd-login-extras-correction.md.txt) |
+| [native-diagnostic-near-preparation.md](native-diagnostic-near-preparation.md) | `4cb5e050b99b5ef2d2a806578fdfb4361eaca0ff8531de84864a36c8bb4b12bc` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-diagnostic-near-preparation.md.txt) |
+| [native-diagnostic-near-witness.md](native-diagnostic-near-witness.md) | `98e3f2742654ac1f4b75d6c52c0c354a5be207227c5f6fe2684b3f1b26e22f01` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-diagnostic-near-witness.md.txt) |
+| [mac-peer-isolated-session.md](mac-peer-isolated-session.md) | `33086d1bf8a631f2bf047b5ac388aa4aff4def53ec2a0dd0d847b43ddb06f12b` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/mac-peer-isolated-session.md.txt) |
+| [request-500-contract.md](request-500-contract.md) | `8362b1780d50b6042f91d044b9f9c8c0c25ce4f7646dc251002e2e9ee138cbb8` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/request-500-contract.md.txt) |
+| [native-console-broadcast.md](native-console-broadcast.md) | `01693a42d90d00042d5c8a7f1603046c244313bb1256073b755928fbd695fece` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-console-broadcast.md.txt) |
+| [mxd-peer-capture-workflow.md](mxd-peer-capture-workflow.md) | `abd18f4d3202faf4de1e87c0f77b67ab01c59adce93da8135ef7e3c11698e277` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/mxd-peer-capture-workflow.md.txt) |
+| [mxd-classic-login.md](mxd-classic-login.md) | `1bebe6593339823f012eede3816ecc99501e3ed45254af010ef947f0bbec5ec8` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/mxd-classic-login.md.txt) |
+| [classic-login-proxy.md](classic-login-proxy.md) | `f46a333447d02ee66bbd2e2d835e0bdb93c258fd3aafd2bb0baa22f11f062a66` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/classic-login-proxy.md.txt) |
+| [mxd-validation.md](mxd-validation.md) | `fc5179617167558a7958534ae4496f1892852718cdfef0844b70734a1b7a9330` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/mxd-validation.md.txt) |
+| [native-pm-preparation.md](native-pm-preparation.md) | `28df4cdaa33bf02240e4e614b8e508d7de78018a2b7536c800723803648d2714` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-pm-preparation.md.txt) |
+| [native-pm-witness.md](native-pm-witness.md) | `94b2af274067b60eaec0f75b243911b61962783f55d92b7f76874b4d3fc71934` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-pm-witness.md.txt) |
+| [native-104-variants.md](native-104-variants.md) | `51426947f3f49c2fcdd2e875bed0d0e3e1ae32e6387e310d877582a288347457` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-104-variants.md.txt) |
+| [native-settings-preparation.md](native-settings-preparation.md) | `f91d179af7f6468122a04058d36c5f2d84db231a858294c0e3613d6268a4cb1e` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-settings-preparation.md.txt) |
+| [native-settings-witness.md](native-settings-witness.md) | `e6e81bdf254f973837cd2e2f672a16ead054a19f234893b365849d452bc3da5a` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-settings-witness.md.txt) |
+| [native-ban-notices.md](native-ban-notices.md) | `7879f06d73ffd49fec2087f70a5ce80234e8273699497ca1d90be046ccd1b30c` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-ban-notices.md.txt) |
+| [parameter-multiplicity.md](parameter-multiplicity.md) | `bd7cbdc8be0561ec1b22f74e4e6413775f38516138b17d2460c06efe3b8ffea3` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/parameter-multiplicity.md.txt) |
+| [native-transfer-stall.md](native-transfer-stall.md) | `caaff7459dcdeafc055be01ead0b617c14da30f56d801cf3d19d588858075339` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-transfer-stall.md.txt) |
+| [native-settings-transition-prep.md](native-settings-transition-prep.md) | `1e5b739bb537635c2f6e742a4629c54271045574eb9423d9d88bcfc4279dfaad` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-settings-transition-prep.md.txt) |
+| [native-settings-transition-witness.md](native-settings-transition-witness.md) | `7748151b8471180c8844609231395a4c7b9b8456426f2d290d660eafe2cfa202` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-settings-transition-witness.md.txt) |
+| [native-download-send-path.md](native-download-send-path.md) | `b85e5c92b96a7f09b9cbdb504f6ec0300913c49c3f813f81ab0890991a97bc4a` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-download-send-path.md.txt) |
+| [classic-account-constructors.md](classic-account-constructors.md) | `7e292d53804e7fdf274f9b5aa65f6fde8311be62a9d1db6854ec1452e5958152` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/classic-account-constructors.md.txt) |
+| [native-121-default-preparation.md](native-121-default-preparation.md) | `ddf4534145c9785ba6f8d1c95953504ad05435eeb5b92bdd1c04d77524bc8c9b` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-121-default-preparation.md.txt) |
+| [native-121-default-witness.md](native-121-default-witness.md) | `2caf385aa9417859fea49b52c7910744c3357620a141928be8ace483d15dbfd8` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-121-default-witness.md.txt) |
+| [classic-native-baseline.md](classic-native-baseline.md) | `36b560f7b864691377c75d500262ae8a7e973350db050d102ececd0b265fde88` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/classic-native-baseline.md.txt) |
+| [native-ui-focus-witness.md](native-ui-focus-witness.md) | `1199f5e79a3535ee554713c0fbd0f54de953bf6a8b8741598cb1f83697e14e1e` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-ui-focus-witness.md.txt) |
+| [native-control-readiness.md](native-control-readiness.md) | `e6245be4429cea9a571102b28612acf87002cf0178de452c284025f55b6e792f` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-control-readiness.md.txt) |
+| [classic-field161-matrix.md](classic-field161-matrix.md) | `4b3853cc15d8271826833c2029e21bd80989e48b2502c2eab6ee661f74400357` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/classic-field161-matrix.md.txt) |
+| [native-ban-control-preparation.md](native-ban-control-preparation.md) | `4b42ca3e3e86dd9d395f06c82810d809324bd28972b65316308b5daddf2ef2ca` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-ban-control-preparation.md.txt) |
+| [notification-104-variants.md](notification-104-variants.md) | `1f56ba0d55ab9dbfb848276742f562f534963af70ee4910b051805cfa9e3affe` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/notification-104-variants.md.txt) |
+| [peer-profile-rules.md](peer-profile-rules.md) | `e4cf33c959a103ed5fe5ee5ec3687186470781c0ae27ac524602a1eeb14c9e98` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/peer-profile-rules.md.txt) |
+| [native-settings-persistence-preparation.md](native-settings-persistence-preparation.md) | `50b1a08dd784fade9d608b9abb19884bf812ec7a105ea746c4fdfb5e0192ef7a` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-settings-persistence-preparation.md.txt) |
+| [native-ban-control-witness.md](native-ban-control-witness.md) | `15847edc9474e8b9f72c3fcf1a9a365c28b49cef6a0d43764787b424a7517579` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-ban-control-witness.md.txt) |
+| [classic-server-name-162.md](classic-server-name-162.md) | `bf52554c2cc4e49d5c4db13ad8374d11ef401c6303f6b4f33641d204a95e52bf` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/classic-server-name-162.md.txt) |
+| [native-configured-ban-static.md](native-configured-ban-static.md) | `2c5f5ae4ebb55ce3633f1ddba4c9f119f38662fbff16a66d4a4119695f143989` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-configured-ban-static.md.txt) |
+| [native-configured-ban-ui-resources.md](native-configured-ban-ui-resources.md) | `2617da153c6c1717dc813e4e741f8e4390b055ea0e70649e68f0360a346783a2` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-configured-ban-ui-resources.md.txt) |
+| [native-ban-reload-witness.md](native-ban-reload-witness.md) | `11e7574f03852b952b552315ff99d720f4dc40546b50651e07069a3af4866515` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-ban-reload-witness.md.txt) |
+| [native-settings-persistence-witness.md](native-settings-persistence-witness.md) | `ffb816b323a38c1be5986605a5a289ddac6dfa078011463ec7be166b08643edc` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-settings-persistence-witness.md.txt) |
+| [classic-roster-subject-115.md](classic-roster-subject-115.md) | `19393fc904c23bdb3e00aea53b037443c81ce4667cf5355d0ff1b936ad3a8f11` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/classic-roster-subject-115.md.txt) |
+| [native-configured-ban-preparation.md](native-configured-ban-preparation.md) | `5e99de6f51fb35a35038a905c489896acfe50a95d150310b588d69aa74662b26` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-configured-ban-preparation.md.txt) |
+| [native-configured-ban-witness.md](native-configured-ban-witness.md) | `de2cde35bdebec4ba18610e53aca9a19744f8de1b7f15dfd317888e9677369b9` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-configured-ban-witness.md.txt) |
+| [diagnostic-formatting-trace.md](diagnostic-formatting-trace.md) | `76c8e6f9e50e3f41addf1d3a1519900f9d3608b36ca1da7b50b8821629a8ac38` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/diagnostic-formatting-trace.md.txt) |
+| [native-ban-file-format.md](native-ban-file-format.md) | `e73b3a12988a514e6e5de8b65784f1223da5049bebdde49c9f1846dc858edf7f` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/inputs/native-ban-file-format.md.txt) |
 
 [Audit
-manifest](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-67/manifest.json);
+manifest](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-68/manifest.json);
 [machine-readable register](gap-register.json). No field or behaviour is
 silently made normative by being listed as a question.
 
@@ -169,7 +173,7 @@ silently made normative by being listed as a question.
 | [GAP-007](#gap-007) | P0 | Missing | Session and transport | Allowed operations by session state | Resolved |
 | [GAP-008](#gap-008) | P0 | Unanswered | Session and transport | Handshake failures and stream boundaries | Resolved |
 | [GAP-009](#gap-009) | P1 | Unanswered | Session and transport | Sub-version 3 and direct HTXF relationship | Resolved |
-| [GAP-010](#gap-010) | P1 | Unanswered | Session and transport | Listening endpoints and data-port arithmetic | Investigating |
+| [GAP-010](#gap-010) | P1 | Unanswered | Session and transport | Listening endpoints and data-port arithmetic | Resolved |
 | [GAP-011](#gap-011) | P0 | Unanswered | Framing and parsing | Frame, transaction and buffering limits | Investigating |
 | [GAP-012](#gap-012) | P0 | Unanswered | Framing and parsing | Fragment reassembly edge cases | Resolved |
 | [GAP-013](#gap-013) | P0 | Missing | Framing and parsing | Accepted envelope values and reserved bytes | Resolved |
@@ -196,7 +200,7 @@ silently made normative by being listed as a question.
 | [GAP-034](#gap-034) | P1 | Unanswered | Presence and permissions | Colour/status bitmap semantics | Resolved |
 | [GAP-035](#gap-035) | P1 | Unanswered | Presence and permissions | Roster and update ordering | Investigating |
 | [GAP-036](#gap-036) | P1 | Unanswered | Presence and permissions | Disconnect notification and cleanup | Investigating |
-| [GAP-037](#gap-037) | P2 | Ambiguous | Presence and permissions | Diagnostic-text output contract | Investigating |
+| [GAP-037](#gap-037) | P2 | Ambiguous | Presence and permissions | Diagnostic-text output contract | Resolved |
 | [GAP-038](#gap-038) | P1 | Unanswered | Chat and messaging | Room access and main-chat membership | Resolved |
 | [GAP-039](#gap-039) | P1 | Unanswered | Chat and messaging | Invitation lifecycle and partial failures | Resolved |
 | [GAP-040](#gap-040) | P1 | Ambiguous | Chat and messaging | Room snapshot and notification ordering | Resolved |
@@ -303,7 +307,7 @@ silently made normative by being listed as a question.
   lines 293–344); [protocol.md — User Account Management – Client Initiates
   (Admin) (Tx
   350–353)](protocol.md#user-account-management--client-initiates-admin-tx-350353)
-  (snapshot lines 1088–1135)
+  (snapshot lines 1092–1139)
 - **Question:** For every in-scope request, reply and notification, which
   fields are required, optional, conditional or repeatable, with what widths
   and value domains?
@@ -338,7 +342,7 @@ silently made normative by being listed as a question.
   semantics](protocol.md#4-reply-semantics) (snapshot lines 208–232);
   [protocol.md — Disconnecting a User (Transaction 110 & 111) – Admin/Server
   Use](protocol.md#disconnecting-a-user-transaction-110--111--adminserver-use)
-  (snapshot lines 1136–1172)
+  (snapshot lines 1140–1176)
 - **Question:** Which statuses, field-100 forms and connection outcomes apply
   to each failure, including errors in operations without a normal ACK?
 - **Implementation impact:** Implementations cannot distinguish recoverable
@@ -544,10 +548,10 @@ silently made normative by being listed as a question.
   (snapshot lines 653–685); [protocol.md — Posting a News Article (Transaction
   410) – Client
   Initiates](protocol.md#posting-a-news-article-transaction-410--client-initiates)
-  (snapshot lines 1030–1051); [protocol.md — User Account Management – Client
+  (snapshot lines 1034–1055); [protocol.md — User Account Management – Client
   Initiates (Admin) (Tx
   350–353)](protocol.md#user-account-management--client-initiates-admin-tx-350353)
-  (snapshot lines 1088–1135)
+  (snapshot lines 1092–1139)
 - **Question:** When an ACK precedes routing or mutation side effects, what
   has it committed to, and what can fail or be retried afterwards?
 - **Implementation impact:** A client may treat acceptance as
@@ -730,7 +734,7 @@ silently made normative by being listed as a question.
   Initiates](protocol.md#login-transaction-107--client-initiates) (snapshot
   lines 293–344); [protocol.md — Additional Observed Requests and Scope
   Gaps](protocol.md#additional-observed-requests-and-scope-gaps) (snapshot
-  lines 1197–1244)
+  lines 1201–1248)
 - **Question:** What are the handshake, login, agreement, idle and
   partial-frame deadlines, and what traffic resets them?
 - **Implementation impact:** A client can wait forever or disconnect a
@@ -797,7 +801,7 @@ silently made normative by being listed as a question.
   Initiates](protocol.md#agreement-acceptance-transaction-121--client-initiates)
   (snapshot lines 380–408); [protocol.md — Additional Observed Requests and
   Scope Gaps](protocol.md#additional-observed-requests-and-scope-gaps)
-  (snapshot lines 1197–1244)
+  (snapshot lines 1201–1248)
 - **Question:** What can be sent before authentication, after login ACK, while
   agreement is pending, after early completion and during shutdown?
 - **Implementation impact:** The guide has transaction descriptions but no
@@ -877,7 +881,7 @@ silently made normative by being listed as a question.
   handshake](protocol.md#1-session-initialization-handshake) (snapshot lines
   43–80); [protocol.md — Transfer Connection and Reference
   Cleanup](protocol.md#transfer-connection-and-reference-cleanup) (snapshot
-  lines 937–956)
+  lines 941–960)
 - **Question:** When does the TRTP sub-version-3 path apply, on which
   endpoint, and how does it relate to a direct sixteen-byte HTXF header?
 - **Implementation impact:** An implementer could perform the wrong handshake
@@ -915,13 +919,13 @@ silently made normative by being listed as a question.
 
 #### Listening endpoints and data-port arithmetic
 
-- **Tracking:** P1; Unanswered; Investigating; owner: Protocol documentation
+- **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
 - **Sources:** [protocol.md — File Services (Files and
   Folders)](protocol.md#file-services-files-and-folders) (snapshot lines
-  719–729); [protocol.md — Transfer Connection and Reference
+  719–733); [protocol.md — Transfer Connection and Reference
   Cleanup](protocol.md#transfer-connection-and-reference-cleanup) (snapshot
-  lines 937–956)
+  lines 941–960)
 - **Question:** How are control/data listeners selected and configured, and is
   the data port always the base port plus one in this build?
 - **Implementation impact:** File-transfer connection setup cannot be derived
@@ -939,14 +943,28 @@ silently made normative by being listed as a question.
   connection fixtures remain required. Native primary control5500 and data5501
   examples retained. Alternate5502/5503 accept TCP and acknowledge unwrapped
   input but return no application response within10 seconds; full wrapping and
-  port-boundary/overflow configuration remain unverified.
+  port-boundary/overflow configuration remain unverified. Revision68:
+  reconcile the baseline with the traced default/configured four-listener map
+  and complete ordinary control/data examples. Both alternate ports have
+  bounded TCP/no-ordinary-response observations. Halfword narrowing and
+  sub-version3 control-to-HTXF handover are explicit exceptions to a universal
+  usable-base-plus-one rule. Independent headless callback descriptor reads
+  are retained, including FUNCTION_NOT_FOUND for their unanalysed entries; no
+  alternate-wrapper protocol is invented.
 - **Evidence:** [Native transport
   corpus](../mothra/evidence/gap-remediation/2026-11-12/native-transport-01/manifest.json);
   [Captured boundaries and timers](session-transport-contracts.md);
   [Repeatable transport
-  fixtures](native-capture-workflow.md#recorded-native-transport-fixtures)
-- **Closure:** Not closed: the remaining unchanged acceptance requirements are
-  explicitly retained above.
+  fixtures](native-capture-workflow.md#recorded-native-transport-fixtures);
+  [Configured endpoints and
+  exceptions](session-transport-contracts.md#configured-endpoints);
+  [Independent criterion and formatter
+  audits](../mothra/evidence/gap-remediation/2026-11-14/criterion-acceptance-04/decisions.json)
+- **Closure:** Met for listener creation/configuration, endpoint mapping,
+  documented exceptions and verified connection examples. Ordinary base/base+1
+  and alternate-wrapper base+2/base+3 are traced; arbitrary high-base bind
+  success and complete mode0 wire negotiation remain unverified. Do not infer
+  TLS/HTTP or guarantee four usable adjacent ports.
 
 ### GAP-079
 
@@ -956,7 +974,7 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [protocol.md — Additional Observed Requests and Scope
   Gaps](protocol.md#additional-observed-requests-and-scope-gaps) (snapshot
-  lines 1197–1244)
+  lines 1201–1248)
 - **Question:** Is 500 a liveness operation or something else, who sends it
   and when, and does its ACK affect idle deadlines?
 - **Implementation impact:** Naming it a keepalive or scheduling it
@@ -1249,10 +1267,10 @@ silently made normative by being listed as a question.
   108–154); [protocol.md — User Account Management – Client Initiates (Admin)
   (Tx
   350–353)](protocol.md#user-account-management--client-initiates-admin-tx-350353)
-  (snapshot lines 1088–1135); [protocol.md — Downloading a File (Transaction
+  (snapshot lines 1092–1139); [protocol.md — Downloading a File (Transaction
   202) – Client
   Initiates](protocol.md#downloading-a-file-transaction-202--client-initiates)
-  (snapshot lines 743–770)
+  (snapshot lines 747–774)
 - **Question:** Which numeric fields permit one/two/four bytes, which are
   fixed-width or signed, and how are booleans, sentinel values and invalid
   widths interpreted?
@@ -1414,7 +1432,7 @@ silently made normative by being listed as a question.
   (snapshot lines 576–585); [protocol.md — Listing Files in a Folder
   (Transaction 200) – Client
   Initiates](protocol.md#listing-files-in-a-folder-transaction-200--client-initiates)
-  (snapshot lines 730–742)
+  (snapshot lines 734–746)
 - **Question:** Which charset, normalization, NUL handling and line-ending
   rules apply to credentials, names, paths, chat, news and error text?
 - **Implementation impact:** A generic UTF-8 or XOR heuristic can change valid
@@ -1517,7 +1535,7 @@ silently made normative by being listed as a question.
   (snapshot lines 564–575); [protocol.md — User Account Management – Client
   Initiates (Admin) (Tx
   350–353)](protocol.md#user-account-management--client-initiates-admin-tx-350353)
-  (snapshot lines 1088–1135)
+  (snapshot lines 1092–1139)
 - **Question:** What byte/character limits and truncation or rejection rules
   apply to every name, password, message, subject, comment and body?
 - **Implementation impact:** The 65,535-byte TLV limit does not describe
@@ -1626,7 +1644,7 @@ silently made normative by being listed as a question.
   parameters](protocol.md#22-date-parameters) (snapshot lines 155–177);
   [protocol.md — Reading a News Article (Transaction 400) – Client
   Initiates](protocol.md#reading-a-news-article-transaction-400--client-initiates)
-  (snapshot lines 1001–1029)
+  (snapshot lines 1005–1033)
 - **Question:** What epoch/units apply to the supplied filesystem value, how
   do nonzero milliseconds and other years work, and is news date 330
   equivalent?
@@ -1671,7 +1689,7 @@ silently made normative by being listed as a question.
   (Login)](protocol.md#5-worked-example-login) (snapshot lines 233–267);
   [protocol.md — User Account Management – Client Initiates (Admin) (Tx
   350–353)](protocol.md#user-account-management--client-initiates-admin-tx-350353)
-  (snapshot lines 1088–1135); [internal-compatibility-matrix.md — Credential
+  (snapshot lines 1092–1139); [internal-compatibility-matrix.md — Credential
   obfuscation and text
   compatibility](internal-compatibility-matrix.md#credential-obfuscation-and-text-compatibility)
   (snapshot lines 112–139)
@@ -1730,7 +1748,7 @@ silently made normative by being listed as a question.
   lines 293–344); [protocol.md — User Account Management – Client Initiates
   (Admin) (Tx
   350–353)](protocol.md#user-account-management--client-initiates-admin-tx-350353)
-  (snapshot lines 1088–1135)
+  (snapshot lines 1092–1139)
 - **Question:** Are absent, empty, NUL-containing or differently cased logins
   equivalent; how are complemented bytes normalized and guest permissions
   chosen?
@@ -1983,7 +2001,7 @@ silently made normative by being listed as a question.
   (snapshot lines 409–423); [protocol.md — Banner Download (Transaction 212) –
   Client
   Initiates](protocol.md#banner-download-transaction-212--client-initiates)
-  (snapshot lines 919–936)
+  (snapshot lines 923–940)
 - **Question:** Which four-byte type tags and field-153 representations are
   valid, when are they required, and how does an early-completed session
   obtain metadata without a later 121?
@@ -2200,10 +2218,10 @@ silently made normative by being listed as a question.
   110)](protocol.md#access-privilege-bits-field-110) (snapshot lines 433–471);
   [protocol.md — File Services (Files and
   Folders)](protocol.md#file-services-files-and-folders) (snapshot lines
-  719–729); [protocol.md — Managing News Structure (Transactions 380, 381,
+  719–733); [protocol.md — Managing News Structure (Transactions 380, 381,
   382) – Client Initiates
   (Admin/Mods)](protocol.md#managing-news-structure-transactions-380-381-382--client-initiates-adminmods)
-  (snapshot lines 1069–1085)
+  (snapshot lines 1073–1089)
 - **Question:** How do general, folder and news helpers combine account
   rights, path-specific rules, inheritance and administrator overrides?
 - **Implementation impact:** Knowing a bit number does not establish which
@@ -2242,7 +2260,7 @@ silently made normative by being listed as a question.
   Chats](protocol.md#chat-invitations-transactions-112-113-114--private-chats)
   (snapshot lines 620–641); [protocol.md — Transfer Connection and Reference
   Cleanup](protocol.md#transfer-connection-and-reference-cleanup) (snapshot
-  lines 937–956)
+  lines 941–960)
 - **Question:** What are each ID's wire width, allocation scope, sentinel
   values, wrap/reuse rules and persistence across reconnects or restart?
 - **Implementation impact:** A shared numeric value can be misinterpreted
@@ -2403,7 +2421,7 @@ silently made normative by being listed as a question.
   (snapshot lines 598–607); [protocol.md — Disconnecting a User (Transaction
   110 & 111) – Admin/Server
   Use](protocol.md#disconnecting-a-user-transaction-110--111--adminserver-use)
-  (snapshot lines 1136–1172)
+  (snapshot lines 1140–1176)
 - **Question:** Which teardown paths emit 302, which fields/recipients are
   used, and when are rooms, queued transfers and IDs cleaned up?
 - **Implementation impact:** The known explicit-leave path does not specify
@@ -2468,7 +2486,7 @@ silently made normative by being listed as a question.
 
 #### Diagnostic-text output contract
 
-- **Tracking:** P2; Ambiguous; Investigating; owner: Protocol documentation
+- **Tracking:** P2; Ambiguous; Resolved; owner: Protocol documentation
   investigation.
 - **Sources:** [protocol.md — Viewing User Info (Transaction 303) – Client
   Initiates](protocol.md#viewing-user-info-transaction-303--client-initiates)
@@ -2504,7 +2522,15 @@ silently made normative by being listed as a question.
   saved references were cancelled, original 100/10/IP5 settings
   restored/reopened, and exact account/41-file/metadata/idle baselines
   verified. Density at 8/8, near-1024 formatting and the exact-text release
-  decision remain unmet.
+  decision remain unmet. Revision68: consolidate the mandatory 303
+  request/privilege/reply envelope and descriptive text boundary with idle,
+  active/queued, density and 995-byte positive partial observations.
+  Independent Ghidra formatter/wrapper/handler/field-writer traces show a
+  final cap of1024 bytes, no reserved or appended NUL, and the returned byte
+  count as TLV101 length. The old void decompiler wrapper signature is
+  corrected by instruction evidence. For the baseline, generated labels/prose
+  are descriptive and exact wording is not required; any mxd byte-for-byte
+  presentation release promise remains separate and on hold.
 - **Evidence:** [Filesystem and board
   contracts](filesystem-and-board-contracts.md); [Source
   lineage](internal-compatibility-matrix.md#historical-source-lineage-and-build-limits);
@@ -2513,8 +2539,15 @@ silently made normative by being listed as a question.
   [Native diagnostic replies](diagnostic-replies.md); [Native diagnostic
   corpus](../mothra/evidence/gap-remediation/2026-11-13/native-diagnostics-01/manifest.json);
   [Second delegated investigation](diagnostic-transfer-boundaries.md); [Active
-  and queued native diagnostic](native-diagnostic-existing-witness.md)
-- **Closure:** Not closed: remaining acceptance evidence is listed above.
+  and queued native diagnostic](native-diagnostic-existing-witness.md);
+  [Diagnostic contract](diagnostic-replies.md); [Formatter-to-field
+  trace](diagnostic-formatting-trace.md); [Independent criterion and formatter
+  audits](../mothra/evidence/gap-remediation/2026-11-14/criterion-acceptance-04/decisions.json)
+- **Closure:** Met for mandatory versus descriptive content, raw-byte encoding
+  observations, source-derived limits and representative replies. The995-byte
+  reply is inside an overall failed capture; no at-cap native clipping
+  fixture, general codec, every intermediate buffer safety or all-client
+  parsing claim is made.
 
 ## Chat and messaging
 
@@ -2535,7 +2568,7 @@ silently made normative by being listed as a question.
   Chats](protocol.md#chat-invitations-transactions-112-113-114--private-chats)
   (snapshot lines 620–641); [protocol.md — Additional Admin Privileges
   Note](protocol.md#additional-admin-privileges-note) (snapshot lines
-  1188–1196)
+  1192–1200)
 - **Question:** Is the main room implicit, and what authorizes join, send,
   invite, topic edit or administrative access to a private room?
 - **Implementation impact:** The presence of a room ID and bit-11 check does
@@ -2816,7 +2849,7 @@ silently made normative by being listed as a question.
   (snapshot lines 686–703); [protocol.md — Disconnecting a User (Transaction
   110 & 111) – Admin/Server
   Use](protocol.md#disconnecting-a-user-transaction-110--111--adminserver-use)
-  (snapshot lines 1136–1172); [protocol.md — Sending a Chat Message
+  (snapshot lines 1140–1176); [protocol.md — Sending a Chat Message
   (Transaction 105) – Client
   Initiates](protocol.md#sending-a-chat-message-transaction-105--client-initiates)
   (snapshot lines 564–575)
@@ -2914,7 +2947,7 @@ silently made normative by being listed as a question.
   (snapshot lines 653–685); [protocol.md — Broadcasting a Message (Transaction
   355) – Admin/Server
   Initiated](protocol.md#broadcasting-a-message-transaction-355--adminserver-initiated)
-  (snapshot lines 1173–1187); [protocol.md — Changing User Settings
+  (snapshot lines 1177–1191); [protocol.md — Changing User Settings
   (Transaction 304) – Client
   Initiates](protocol.md#changing-user-settings-transaction-304--client-initiates)
   (snapshot lines 528–561)
@@ -2998,13 +3031,13 @@ silently made normative by being listed as a question.
 - **Sources:** [protocol.md — Listing Files in a Folder (Transaction 200) –
   Client
   Initiates](protocol.md#listing-files-in-a-folder-transaction-200--client-initiates)
-  (snapshot lines 730–742); [protocol.md — Moving Files/Folders (Transaction
+  (snapshot lines 734–746); [protocol.md — Moving Files/Folders (Transaction
   208) – Client
   Initiates](protocol.md#moving-filesfolders-transaction-208--client-initiates)
-  (snapshot lines 856–868); [protocol.md — Listing News Categories
+  (snapshot lines 860–872); [protocol.md — Listing News Categories
   (Transaction 370) – Client
   Initiates](protocol.md#listing-news-categories-transaction-370--client-initiates)
-  (snapshot lines 968–985)
+  (snapshot lines 972–989)
 - **Question:** What are the counts, component records, reserved bytes, root
   representation, limits and normalization rules for fields 202/212/325, and
   do those fields share a grammar?
@@ -3067,7 +3100,7 @@ silently made normative by being listed as a question.
 - **Sources:** [protocol.md — Listing Files in a Folder (Transaction 200) –
   Client
   Initiates](protocol.md#listing-files-in-a-folder-transaction-200--client-initiates)
-  (snapshot lines 730–742)
+  (snapshot lines 734–746)
 - **Question:** What are the exact field-200 offsets, metadata/tag meanings,
   size widths, entry kinds, sort order and empty-list representation?
 - **Implementation impact:** A client cannot render or navigate file listings
@@ -3110,7 +3143,7 @@ silently made normative by being listed as a question.
 - **Sources:** [protocol.md — Getting File/Folder Info (Transaction 206) –
   Client
   Initiates](protocol.md#getting-filefolder-info-transaction-206--client-initiates)
-  (snapshot lines 819–836)
+  (snapshot lines 823–840)
 - **Question:** Which fields and widths occur for files, folders, aliases and
   special items, including descriptive 205/206, raw 213 and size/date
   omissions?
@@ -3153,7 +3186,7 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [protocol.md — Deleting a File (Transaction 204) – Client
   Initiates](protocol.md#deleting-a-file-transaction-204--client-initiates)
-  (snapshot lines 786–800)
+  (snapshot lines 790–804)
 - **Question:** Can 204 remove nonempty folders, which errors apply to
   missing/root/protected targets, and what state/notifications follow a
   partial filesystem failure?
@@ -3199,7 +3232,7 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [protocol.md — Creating a New Folder (Transaction 205) – Client
   Initiates](protocol.md#creating-a-new-folder-transaction-205--client-initiates)
-  (snapshot lines 801–818)
+  (snapshot lines 805–822)
 - **Question:** How are name/path defaults, existing names, invalid names,
   missing parents and per-folder privilege checks handled by 205?
 - **Implementation impact:** An encoder can issue a valid TLV request but
@@ -3241,7 +3274,7 @@ silently made normative by being listed as a question.
 - **Sources:** [protocol.md — Setting File/Folder Info (Transaction 207) –
   Client
   Initiates](protocol.md#setting-filefolder-info-transaction-207--client-initiates)
-  (snapshot lines 837–855)
+  (snapshot lines 841–859)
 - **Question:** Do omitted/empty 210 and 211 preserve, clear or reject values,
   and what happens when one permitted sub-operation succeeds and another
   fails?
@@ -3279,7 +3312,7 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [protocol.md — Moving Files/Folders (Transaction 208) – Client
   Initiates](protocol.md#moving-filesfolders-transaction-208--client-initiates)
-  (snapshot lines 856–868)
+  (snapshot lines 860–872)
 - **Question:** How do destination conflicts, aliases, cross-volume moves and
   interrupted filesystem operations affect 208 and its ACK/error result?
 - **Implementation impact:** The operation name does not establish overwrite,
@@ -3319,7 +3352,7 @@ silently made normative by being listed as a question.
 - **Sources:** [protocol.md — Creating an Alias (Shortcut) (Transaction 209) –
   Client
   Initiates](protocol.md#creating-an-alias-shortcut-transaction-209--client-initiates)
-  (snapshot lines 869–882)
+  (snapshot lines 873–886)
 - **Question:** What alias object is created, how is its name chosen, and when
   do listing/info/download resolve its target rather than expose the alias
   itself?
@@ -3372,9 +3405,9 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [protocol.md — Transfer Connection and Reference
   Cleanup](protocol.md#transfer-connection-and-reference-cleanup) (snapshot
-  lines 937–956); [protocol.md — Banner Download (Transaction 212) – Client
+  lines 941–960); [protocol.md — Banner Download (Transaction 212) – Client
   Initiates](protocol.md#banner-download-transaction-212--client-initiates)
-  (snapshot lines 919–936)
+  (snapshot lines 923–940)
 - **Question:** What are every offset/width, type value, reserved field and
   reference-matching rule, and how do unknown, expired or other-session
   references fail?
@@ -3417,12 +3450,12 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [protocol.md — Transfer Connection and Reference
   Cleanup](protocol.md#transfer-connection-and-reference-cleanup) (snapshot
-  lines 937–956); [protocol.md — Downloading a File (Transaction 202) – Client
+  lines 941–960); [protocol.md — Downloading a File (Transaction 202) – Client
   Initiates](protocol.md#downloading-a-file-transaction-202--client-initiates)
-  (snapshot lines 743–770); [protocol.md — Uploading a File (Transaction 203)
+  (snapshot lines 747–774); [protocol.md — Uploading a File (Transaction 203)
   – Client
   Initiates](protocol.md#uploading-a-file-transaction-203--client-initiates)
-  (snapshot lines 771–785)
+  (snapshot lines 775–789)
 - **Question:** What are stream headers, metadata/fork records, lengths,
   padding, order and termination for ordinary Mac files versus raw/preview
   transfers?
@@ -3465,7 +3498,7 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [protocol.md — Downloading a File (Transaction 202) – Client
   Initiates](protocol.md#downloading-a-file-transaction-202--client-initiates)
-  (snapshot lines 743–770)
+  (snapshot lines 747–774)
 - **Question:** Which 204 values/defaults choose each mode, how are 108/207
   calculated and when are 107/116 omitted or mandatory?
 - **Implementation impact:** A successful zero-size response or differing
@@ -3505,10 +3538,10 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [protocol.md — Uploading a File (Transaction 203) – Client
   Initiates](protocol.md#uploading-a-file-transaction-203--client-initiates)
-  (snapshot lines 771–785); [protocol.md — Downloading a File (Transaction
+  (snapshot lines 775–789); [protocol.md — Downloading a File (Transaction
   202) – Client
   Initiates](protocol.md#downloading-a-file-transaction-202--client-initiates)
-  (snapshot lines 743–770)
+  (snapshot lines 747–774)
 - **Question:** What is the nested field-203 grammar, which forks/offsets it
   covers, and how are mismatch, completed and missing partial files handled?
 - **Implementation impact:** Neither upload nor download resume can be
@@ -3553,7 +3586,7 @@ silently made normative by being listed as a question.
 - **Sources:** [protocol.md — Downloading an Entire Folder (Transaction 210) –
   Client
   Initiates](protocol.md#downloading-an-entire-folder-transaction-210--client-initiates)
-  (snapshot lines 883–900)
+  (snapshot lines 887–904)
 - **Question:** What are entry/path records, actions, traversal order,
   aggregate counts/sizes, skips and resume transitions for 210?
 - **Implementation impact:** The known initiation fields do not describe a
@@ -3599,7 +3632,7 @@ silently made normative by being listed as a question.
 - **Sources:** [protocol.md — Uploading an Entire Folder (Transaction 213) –
   Client
   Initiates](protocol.md#uploading-an-entire-folder-transaction-213--client-initiates)
-  (snapshot lines 901–918)
+  (snapshot lines 905–922)
 - **Question:** How are directories/files framed, acknowledged, counted,
   resumed or rolled back in 213, and how do empty transfers complete?
 - **Implementation impact:** Assuming the inverse of download would invent
@@ -3646,12 +3679,12 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [protocol.md — Downloading a File (Transaction 202) – Client
   Initiates](protocol.md#downloading-a-file-transaction-202--client-initiates)
-  (snapshot lines 743–770); [protocol.md — Downloading an Entire Folder
+  (snapshot lines 747–774); [protocol.md — Downloading an Entire Folder
   (Transaction 210) – Client
   Initiates](protocol.md#downloading-an-entire-folder-transaction-210--client-initiates)
-  (snapshot lines 883–900); [protocol.md — File Services (Files and
+  (snapshot lines 887–904); [protocol.md — File Services (Files and
   Folders)](protocol.md#file-services-files-and-folders) (snapshot lines
-  719–729)
+  719–733)
 - **Question:** What fields/type/ordering does 211 use, how do queue positions
   and slots change, and when should the client connect, wait or retry?
 - **Implementation impact:** Queued transfers cannot make reliable progress
@@ -3696,7 +3729,7 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [protocol.md — Transfer Connection and Reference
   Cleanup](protocol.md#transfer-connection-and-reference-cleanup) (snapshot
-  lines 937–956)
+  lines 941–960)
 - **Question:** Does 214 cancel queued/active/completed transfers, who owns
   the reference, and how are zero, unknown, duplicate or racing requests
   acknowledged?
@@ -3744,7 +3777,7 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [protocol.md — Banner Download (Transaction 212) – Client
   Initiates](protocol.md#banner-download-transaction-212--client-initiates)
-  (snapshot lines 919–936); [protocol.md — Banner Metadata (Transaction 122) –
+  (snapshot lines 923–940); [protocol.md — Banner Metadata (Transaction 122) –
   Server
   Initiates](protocol.md#banner-metadata-transaction-122--server-initiates)
   (snapshot lines 409–423)
@@ -3795,12 +3828,12 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [protocol.md — File Services (Files and
   Folders)](protocol.md#file-services-files-and-folders) (snapshot lines
-  719–729); [protocol.md — Transfer Connection and Reference
+  719–733); [protocol.md — Transfer Connection and Reference
   Cleanup](protocol.md#transfer-connection-and-reference-cleanup) (snapshot
-  lines 937–956); [protocol.md — Uploading an Entire Folder (Transaction 213)
+  lines 941–960); [protocol.md — Uploading an Entire Folder (Transaction 213)
   – Client
   Initiates](protocol.md#uploading-an-entire-folder-transaction-213--client-initiates)
-  (snapshot lines 901–918)
+  (snapshot lines 905–922)
 - **Question:** Which byte counts or markers prove completion, and what
   survives EOF, timeout, reconnect, disk-full, oversized files or an
   interrupted upload?
@@ -3905,8 +3938,8 @@ silently made normative by being listed as a question.
 - **Sources:** [protocol.md — Listing News Categories (Transaction 370) –
   Client
   Initiates](protocol.md#listing-news-categories-transaction-370--client-initiates)
-  (snapshot lines 968–985); [protocol.md — News
-  Hierarchy](protocol.md#news-hierarchy) (snapshot lines 959–967)
+  (snapshot lines 972–989); [protocol.md — News
+  Hierarchy](protocol.md#news-hierarchy) (snapshot lines 963–971)
 - **Question:** What are nested 320/323 record layouts and kind/count fields,
   and what peers actually send version values around literal threshold 15?
 - **Implementation impact:** A known top-level field switch does not permit
@@ -3956,7 +3989,7 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [protocol.md — Listing News Articles (Transaction 371) – Client
   Initiates](protocol.md#listing-news-articles-transaction-371--client-initiates)
-  (snapshot lines 986–1000)
+  (snapshot lines 990–1004)
 - **Question:** What are field-321 headers, article records, counts, flags,
   dates, flavour records, ordering and size limits?
 - **Implementation impact:** The correction to one containing field still
@@ -4007,7 +4040,7 @@ silently made normative by being listed as a question.
 - **Sources:** [protocol.md — Reading a News Article (Transaction 400) –
   Client
   Initiates](protocol.md#reading-a-news-article-transaction-400--client-initiates)
-  (snapshot lines 1001–1029)
+  (snapshot lines 1005–1033)
 - **Question:** What precisely do 331/332/335/336 identify, what are
   sentinel/end conditions, which flavours work and how is 330 constructed?
 - **Implementation impact:** A client cannot traverse threads or interpret all
@@ -4064,7 +4097,7 @@ silently made normative by being listed as a question.
 - **Sources:** [protocol.md — Posting a News Article (Transaction 410) –
   Client
   Initiates](protocol.md#posting-a-news-article-transaction-410--client-initiates)
-  (snapshot lines 1030–1051)
+  (snapshot lines 1034–1055)
 - **Question:** How do omitted/zero 326, flags 334, supported flavours and
   body limits affect creation, and how is the resulting ID or update
   discovered after ACK?
@@ -4122,7 +4155,7 @@ silently made normative by being listed as a question.
 - **Sources:** [protocol.md — Deleting a News Article (Transaction 411) –
   Client
   Initiates](protocol.md#deleting-a-news-article-transaction-411--client-initiates)
-  (snapshot lines 1052–1068)
+  (snapshot lines 1056–1072)
 - **Question:** What values/widths does 337 accept, and how are descendants,
   orphans, navigation IDs and notifications updated on success or partial
   failure?
@@ -4162,10 +4195,10 @@ silently made normative by being listed as a question.
 - **Tracking:** P1; Unanswered; Investigating; owner: Protocol documentation
   investigation.
 - **Sources:** [protocol.md — News Hierarchy](protocol.md#news-hierarchy)
-  (snapshot lines 959–967); [protocol.md — Managing News Structure
+  (snapshot lines 963–971); [protocol.md — Managing News Structure
   (Transactions 380, 381, 382) – Client Initiates
   (Admin/Mods)](protocol.md#managing-news-structure-transactions-380-381-382--client-initiates-adminmods)
-  (snapshot lines 1069–1085)
+  (snapshot lines 1073–1089)
 - **Question:** What nesting/type/depth rules apply, how are paths and name
   fields interpreted, and what happens on create/delete conflicts or subtree
   failures?
@@ -4218,7 +4251,7 @@ silently made normative by being listed as a question.
 - **Sources:** [protocol.md — User Account Management – Client Initiates
   (Admin) (Tx
   350–353)](protocol.md#user-account-management--client-initiates-admin-tx-350353)
-  (snapshot lines 1088–1135)
+  (snapshot lines 1092–1139)
 - **Question:** What is field 111's wire type, presence/default rule, stored
   meaning and effect on 350/353?
 - **Implementation impact:** The documented account schema explicitly contains
@@ -4252,7 +4285,11 @@ silently made normative by being listed as a question.
   A separate hashed Classic client trace proves that 350/353 append
   105/106/102/110 and 349 builds nested fields 101/105/106/102/110. The
   inspected constructors omit 111 and immediate 0x6f candidates are error
-  codes; no whole-client absence or semantic meaning is inferred.
+  codes; no whole-client absence or semantic meaning is inferred. Revision68
+  independent consumer audit traces full-record reading and local
+  administrator password-update rewriting, which preserves opaque111 bytes.
+  This is a whole-record preservation consumer, not a field-specific semantic
+  read; stored meaning remains unresolved.
 - **Evidence:** [Native core
   corpus](../mothra/evidence/gap-remediation/2026-11-12/native-core-01/manifest.json);
   [Repeatable
@@ -4276,7 +4313,8 @@ silently made normative by being listed as a question.
   [Repeatable batch
   workflow](native-capture-workflow.md#reproducing-account-batch-framing-and-partial-effects);
   [Second delegated investigation](account-attribute-trace.md); [Native
-  documentation evidence](classic-account-constructors.md)
+  documentation evidence](classic-account-constructors.md); [Field111 consumer
+  audit](../mothra/evidence/gap-remediation/2026-11-14/criterion-acceptance-04/a53-account111-consumer-audit.md.txt)
 - **Closure:** Not closed: remaining unchanged acceptance requirements are
   explicitly retained above.
 
@@ -4289,7 +4327,7 @@ silently made normative by being listed as a question.
 - **Sources:** [protocol.md — User Account Management – Client Initiates
   (Admin) (Tx
   350–353)](protocol.md#user-account-management--client-initiates-admin-tx-350353)
-  (snapshot lines 1088–1135)
+  (snapshot lines 1092–1139)
 - **Question:** How are target login, rename, absent/empty password, literal
   x, duplicate names, protected-account deletion and partial updates handled?
 - **Implementation impact:** Treating the 352 placeholder as an
@@ -4372,12 +4410,12 @@ silently made normative by being listed as a question.
 - **Sources:** [protocol.md — User Account Management – Client Initiates
   (Admin) (Tx
   350–353)](protocol.md#user-account-management--client-initiates-admin-tx-350353)
-  (snapshot lines 1088–1135); [protocol.md — User Access Privileges
+  (snapshot lines 1092–1139); [protocol.md — User Access Privileges
   (Transaction 354) – Server
   Initiates](protocol.md#user-access-privileges-transaction-354--server-initiates)
   (snapshot lines 424–432); [protocol.md — Additional Admin Privileges
   Note](protocol.md#additional-admin-privileges-note) (snapshot lines
-  1188–1196)
+  1192–1200)
 - **Question:** When do edited privileges, names or passwords affect current
   sessions, does deletion disconnect them, and what 354/301 notifications
   occur?
@@ -4436,7 +4474,7 @@ silently made normative by being listed as a question.
 - **Sources:** [protocol.md — Disconnecting a User (Transaction 110 & 111) –
   Admin/Server
   Use](protocol.md#disconnecting-a-user-transaction-110--111--adminserver-use)
-  (snapshot lines 1136–1172)
+  (snapshot lines 1140–1176)
 - **Question:** What exactly do options 1 and 2 do, including identity
   matching, ranges/duration, optional data 101, reconnection and protected
   users?
@@ -4475,7 +4513,12 @@ silently made normative by being listed as a question.
   reason101, successful same-admin postreadback and fresh TRTP+Login107
   status1/100 permanent notice. The stopped49-byte Banned data fork is
   preserved. Temporary expiry, permanent reload and full protection fixtures
-  remain open.
+  remain open. Revision68 documents three stopped49-byte Banned v2 files with
+  exact offsets and writer/reader trace: version/count, flag, twoIPv4
+  endpoints,33-byte display area and zero-length reason. In-memory expiry+4 is
+  not serialized. The11-byte display remainder stays opaque; C56/C62 reload is
+  one case, C68 has no reload. Temporary expiry, kick-only and protection
+  fixtures remain required.
 - **Evidence:** [Presence, messaging and
   administration](presence-messaging-contracts.md); [Batch
   06](../mothra/evidence/gap-remediation/2026-11-12/batch-06/manifest.json);
@@ -4490,7 +4533,8 @@ silently made normative by being listed as a question.
   control](native-transfer-stall.md#repeated-baseline-and-a-successful-comparison);
   [Verified focus-event negative](native-ui-focus-witness.md);
   [Control-onlybanpreparation](native-ban-control-preparation.md);
-  [Permanent-ban control witness](native-ban-control-witness.md)
+  [Permanent-ban control witness](native-ban-control-witness.md); [Observed
+  Banned v2 layout](native-ban-file-format.md)
 - **Closure:** Not closed: remaining acceptance evidence is listed above.
 
 ### GAP-075
@@ -4502,9 +4546,9 @@ silently made normative by being listed as a question.
 - **Sources:** [protocol.md — Disconnecting a User (Transaction 110 & 111) –
   Admin/Server
   Use](protocol.md#disconnecting-a-user-transaction-110--111--adminserver-use)
-  (snapshot lines 1136–1172); [protocol.md — Additional Observed Requests and
+  (snapshot lines 1140–1176); [protocol.md — Additional Observed Requests and
   Scope Gaps](protocol.md#additional-observed-requests-and-scope-gaps)
-  (snapshot lines 1197–1244)
+  (snapshot lines 1201–1248)
 - **Question:** Does any native producer actually emit 111, under which
   conditions, with what fields and delivery/closure ordering?
 - **Implementation impact:** A retained catalogue entry cannot yet be
@@ -4538,7 +4582,7 @@ silently made normative by being listed as a question.
 - **Sources:** [protocol.md — Broadcasting a Message (Transaction 355) –
   Admin/Server
   Initiated](protocol.md#broadcasting-a-message-transaction-355--adminserver-initiated)
-  (snapshot lines 1173–1187)
+  (snapshot lines 1177–1191)
 - **Question:** Does a console-generated broadcast use the same 355 schema,
   and which connected/logged-in/refusing users receive each origin's
   broadcast?
@@ -4582,7 +4626,7 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [protocol.md — Additional Observed Requests and Scope
   Gaps](protocol.md#additional-observed-requests-and-scope-gaps) (snapshot
-  lines 1197–1244)
+  lines 1201–1248)
 - **Question:** What does 348 do, what fields and privileges apply, and how
   are its potentially nested account records serialized?
 - **Implementation impact:** An observed dispatcher entry cannot be advertised
@@ -4621,7 +4665,7 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [protocol.md — Additional Observed Requests and Scope
   Gaps](protocol.md#additional-observed-requests-and-scope-gaps) (snapshot
-  lines 1197–1244)
+  lines 1201–1248)
 - **Question:** What indexed/transitive fields does 349 consume, how are batch
   entries delimited, and are failures atomic or per-entry?
 - **Implementation impact:** Implementing guessed batch semantics can mutate
@@ -4924,7 +4968,7 @@ silently made normative by being listed as a question.
   matrix](internal-compatibility-matrix.md#compatibility-matrix) (snapshot
   lines 35–62); [protocol.md — References and Correction
   Traceability](protocol.md#references-and-correction-traceability) (snapshot
-  lines 1245–1286)
+  lines 1249–1290)
 - **Question:** Which release/client/server configurations do the selected RCS
   trunk snapshots represent, and how do the default vendor branch and build
   options differ?
@@ -5388,7 +5432,7 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [protocol.md — References and Correction
   Traceability](protocol.md#references-and-correction-traceability) (snapshot
-  lines 1245–1286); [baseline-correction-map.md — Baseline correction
+  lines 1249–1290); [baseline-correction-map.md — Baseline correction
   map](baseline-correction-map.md#baseline-correction-map) (snapshot lines
   1–112); [internal-compatibility-matrix.md — Scope and status
   labels](internal-compatibility-matrix.md#scope-and-status-labels) (snapshot
@@ -5464,35 +5508,35 @@ of binary paths, clients or packet inputs.
 | protocol.md | [Sending an Instant Message (Transaction 108) – Client Initiates](protocol.md#sending-an-instant-message-transaction-108--client-initiates) | 653–685 | [GAP-021](#gap-021), [GAP-030](#gap-030), [GAP-043](#gap-043), [GAP-045](#gap-045) |
 | protocol.md | [Receiving a Private Message (Transaction 104) – Server Initiates](protocol.md#receiving-a-private-message-transaction-104--server-initiates) | 686–703 | [GAP-044](#gap-044) |
 | protocol.md | [Legacy Message Board (Transactions 101, 102, 103)](protocol.md#legacy-message-board-transactions-101-102-103) | 704–718 | [GAP-046](#gap-046) |
-| protocol.md | [File Services (Files and Folders)](protocol.md#file-services-files-and-folders) | 719–729 | 25 gaps; see section-specific rows and JSON register |
-| protocol.md | [Listing Files in a Folder (Transaction 200) – Client Initiates](protocol.md#listing-files-in-a-folder-transaction-200--client-initiates) | 730–742 | [GAP-018](#gap-018), [GAP-047](#gap-047), [GAP-048](#gap-048) |
-| protocol.md | [Downloading a File (Transaction 202) – Client Initiates](protocol.md#downloading-a-file-transaction-202--client-initiates) | 743–770 | [GAP-015](#gap-015), [GAP-056](#gap-056), [GAP-057](#gap-057), [GAP-058](#gap-058), [GAP-061](#gap-061) |
-| protocol.md | [Uploading a File (Transaction 203) – Client Initiates](protocol.md#uploading-a-file-transaction-203--client-initiates) | 771–785 | [GAP-056](#gap-056), [GAP-058](#gap-058) |
-| protocol.md | [Deleting a File (Transaction 204) – Client Initiates](protocol.md#deleting-a-file-transaction-204--client-initiates) | 786–800 | [GAP-050](#gap-050) |
-| protocol.md | [Creating a New Folder (Transaction 205) – Client Initiates](protocol.md#creating-a-new-folder-transaction-205--client-initiates) | 801–818 | [GAP-051](#gap-051) |
-| protocol.md | [Getting File/Folder Info (Transaction 206) – Client Initiates](protocol.md#getting-filefolder-info-transaction-206--client-initiates) | 819–836 | [GAP-049](#gap-049) |
-| protocol.md | [Setting File/Folder Info (Transaction 207) – Client Initiates](protocol.md#setting-filefolder-info-transaction-207--client-initiates) | 837–855 | [GAP-052](#gap-052) |
-| protocol.md | [Moving Files/Folders (Transaction 208) – Client Initiates](protocol.md#moving-filesfolders-transaction-208--client-initiates) | 856–868 | [GAP-047](#gap-047), [GAP-053](#gap-053) |
-| protocol.md | [Creating an Alias (Shortcut) (Transaction 209) – Client Initiates](protocol.md#creating-an-alias-shortcut-transaction-209--client-initiates) | 869–882 | [GAP-054](#gap-054) |
-| protocol.md | [Downloading an Entire Folder (Transaction 210) – Client Initiates](protocol.md#downloading-an-entire-folder-transaction-210--client-initiates) | 883–900 | [GAP-059](#gap-059), [GAP-061](#gap-061) |
-| protocol.md | [Uploading an Entire Folder (Transaction 213) – Client Initiates](protocol.md#uploading-an-entire-folder-transaction-213--client-initiates) | 901–918 | [GAP-060](#gap-060), [GAP-064](#gap-064) |
-| protocol.md | [Banner Download (Transaction 212) – Client Initiates](protocol.md#banner-download-transaction-212--client-initiates) | 919–936 | [GAP-028](#gap-028), [GAP-055](#gap-055), [GAP-063](#gap-063) |
-| protocol.md | [Transfer Connection and Reference Cleanup](protocol.md#transfer-connection-and-reference-cleanup) | 937–956 | [GAP-009](#gap-009), [GAP-010](#gap-010), [GAP-033](#gap-033), [GAP-055](#gap-055), [GAP-056](#gap-056), [GAP-062](#gap-062), [GAP-064](#gap-064) |
-| protocol.md | [News (Bulletin Board System)](protocol.md#news-bulletin-board-system) | 957–958 | 10 gaps; see section-specific rows and JSON register |
-| protocol.md | [News Hierarchy](protocol.md#news-hierarchy) | 959–967 | [GAP-065](#gap-065), [GAP-070](#gap-070) |
-| protocol.md | [Listing News Categories (Transaction 370) – Client Initiates](protocol.md#listing-news-categories-transaction-370--client-initiates) | 968–985 | [GAP-047](#gap-047), [GAP-065](#gap-065) |
-| protocol.md | [Listing News Articles (Transaction 371) – Client Initiates](protocol.md#listing-news-articles-transaction-371--client-initiates) | 986–1000 | [GAP-066](#gap-066) |
-| protocol.md | [Reading a News Article (Transaction 400) – Client Initiates](protocol.md#reading-a-news-article-transaction-400--client-initiates) | 1001–1029 | [GAP-020](#gap-020), [GAP-067](#gap-067) |
-| protocol.md | [Posting a News Article (Transaction 410) – Client Initiates](protocol.md#posting-a-news-article-transaction-410--client-initiates) | 1030–1051 | [GAP-021](#gap-021), [GAP-068](#gap-068) |
-| protocol.md | [Deleting a News Article (Transaction 411) – Client Initiates](protocol.md#deleting-a-news-article-transaction-411--client-initiates) | 1052–1068 | [GAP-069](#gap-069) |
-| protocol.md | [Managing News Structure (Transactions 380, 381, 382) – Client Initiates (Admin/Mods)](protocol.md#managing-news-structure-transactions-380-381-382--client-initiates-adminmods) | 1069–1085 | [GAP-032](#gap-032), [GAP-070](#gap-070) |
-| protocol.md | [Administrative Functions](protocol.md#administrative-functions) | 1086–1087 | 17 gaps; see section-specific rows and JSON register |
-| protocol.md | [User Account Management – Client Initiates (Admin) (Tx 350–353)](protocol.md#user-account-management--client-initiates-admin-tx-350353) | 1088–1135 | 9 gaps; see section-specific rows and JSON register |
-| protocol.md | [Disconnecting a User (Transaction 110 & 111) – Admin/Server Use](protocol.md#disconnecting-a-user-transaction-110--111--adminserver-use) | 1136–1172 | [GAP-003](#gap-003), [GAP-036](#gap-036), [GAP-044](#gap-044), [GAP-074](#gap-074), [GAP-075](#gap-075) |
-| protocol.md | [Broadcasting a Message (Transaction 355) – Admin/Server Initiated](protocol.md#broadcasting-a-message-transaction-355--adminserver-initiated) | 1173–1187 | [GAP-045](#gap-045), [GAP-076](#gap-076) |
-| protocol.md | [Additional Admin Privileges Note](protocol.md#additional-admin-privileges-note) | 1188–1196 | [GAP-038](#gap-038), [GAP-073](#gap-073) |
-| protocol.md | [Additional Observed Requests and Scope Gaps](protocol.md#additional-observed-requests-and-scope-gaps) | 1197–1244 | [GAP-005](#gap-005), [GAP-007](#gap-007), [GAP-075](#gap-075), [GAP-077](#gap-077), [GAP-078](#gap-078), [GAP-079](#gap-079) |
-| protocol.md | [References and Correction Traceability](protocol.md#references-and-correction-traceability) | 1245–1286 | [GAP-083](#gap-083), [GAP-087](#gap-087) |
+| protocol.md | [File Services (Files and Folders)](protocol.md#file-services-files-and-folders) | 719–733 | 25 gaps; see section-specific rows and JSON register |
+| protocol.md | [Listing Files in a Folder (Transaction 200) – Client Initiates](protocol.md#listing-files-in-a-folder-transaction-200--client-initiates) | 734–746 | [GAP-018](#gap-018), [GAP-047](#gap-047), [GAP-048](#gap-048) |
+| protocol.md | [Downloading a File (Transaction 202) – Client Initiates](protocol.md#downloading-a-file-transaction-202--client-initiates) | 747–774 | [GAP-015](#gap-015), [GAP-056](#gap-056), [GAP-057](#gap-057), [GAP-058](#gap-058), [GAP-061](#gap-061) |
+| protocol.md | [Uploading a File (Transaction 203) – Client Initiates](protocol.md#uploading-a-file-transaction-203--client-initiates) | 775–789 | [GAP-056](#gap-056), [GAP-058](#gap-058) |
+| protocol.md | [Deleting a File (Transaction 204) – Client Initiates](protocol.md#deleting-a-file-transaction-204--client-initiates) | 790–804 | [GAP-050](#gap-050) |
+| protocol.md | [Creating a New Folder (Transaction 205) – Client Initiates](protocol.md#creating-a-new-folder-transaction-205--client-initiates) | 805–822 | [GAP-051](#gap-051) |
+| protocol.md | [Getting File/Folder Info (Transaction 206) – Client Initiates](protocol.md#getting-filefolder-info-transaction-206--client-initiates) | 823–840 | [GAP-049](#gap-049) |
+| protocol.md | [Setting File/Folder Info (Transaction 207) – Client Initiates](protocol.md#setting-filefolder-info-transaction-207--client-initiates) | 841–859 | [GAP-052](#gap-052) |
+| protocol.md | [Moving Files/Folders (Transaction 208) – Client Initiates](protocol.md#moving-filesfolders-transaction-208--client-initiates) | 860–872 | [GAP-047](#gap-047), [GAP-053](#gap-053) |
+| protocol.md | [Creating an Alias (Shortcut) (Transaction 209) – Client Initiates](protocol.md#creating-an-alias-shortcut-transaction-209--client-initiates) | 873–886 | [GAP-054](#gap-054) |
+| protocol.md | [Downloading an Entire Folder (Transaction 210) – Client Initiates](protocol.md#downloading-an-entire-folder-transaction-210--client-initiates) | 887–904 | [GAP-059](#gap-059), [GAP-061](#gap-061) |
+| protocol.md | [Uploading an Entire Folder (Transaction 213) – Client Initiates](protocol.md#uploading-an-entire-folder-transaction-213--client-initiates) | 905–922 | [GAP-060](#gap-060), [GAP-064](#gap-064) |
+| protocol.md | [Banner Download (Transaction 212) – Client Initiates](protocol.md#banner-download-transaction-212--client-initiates) | 923–940 | [GAP-028](#gap-028), [GAP-055](#gap-055), [GAP-063](#gap-063) |
+| protocol.md | [Transfer Connection and Reference Cleanup](protocol.md#transfer-connection-and-reference-cleanup) | 941–960 | [GAP-009](#gap-009), [GAP-010](#gap-010), [GAP-033](#gap-033), [GAP-055](#gap-055), [GAP-056](#gap-056), [GAP-062](#gap-062), [GAP-064](#gap-064) |
+| protocol.md | [News (Bulletin Board System)](protocol.md#news-bulletin-board-system) | 961–962 | 10 gaps; see section-specific rows and JSON register |
+| protocol.md | [News Hierarchy](protocol.md#news-hierarchy) | 963–971 | [GAP-065](#gap-065), [GAP-070](#gap-070) |
+| protocol.md | [Listing News Categories (Transaction 370) – Client Initiates](protocol.md#listing-news-categories-transaction-370--client-initiates) | 972–989 | [GAP-047](#gap-047), [GAP-065](#gap-065) |
+| protocol.md | [Listing News Articles (Transaction 371) – Client Initiates](protocol.md#listing-news-articles-transaction-371--client-initiates) | 990–1004 | [GAP-066](#gap-066) |
+| protocol.md | [Reading a News Article (Transaction 400) – Client Initiates](protocol.md#reading-a-news-article-transaction-400--client-initiates) | 1005–1033 | [GAP-020](#gap-020), [GAP-067](#gap-067) |
+| protocol.md | [Posting a News Article (Transaction 410) – Client Initiates](protocol.md#posting-a-news-article-transaction-410--client-initiates) | 1034–1055 | [GAP-021](#gap-021), [GAP-068](#gap-068) |
+| protocol.md | [Deleting a News Article (Transaction 411) – Client Initiates](protocol.md#deleting-a-news-article-transaction-411--client-initiates) | 1056–1072 | [GAP-069](#gap-069) |
+| protocol.md | [Managing News Structure (Transactions 380, 381, 382) – Client Initiates (Admin/Mods)](protocol.md#managing-news-structure-transactions-380-381-382--client-initiates-adminmods) | 1073–1089 | [GAP-032](#gap-032), [GAP-070](#gap-070) |
+| protocol.md | [Administrative Functions](protocol.md#administrative-functions) | 1090–1091 | 17 gaps; see section-specific rows and JSON register |
+| protocol.md | [User Account Management – Client Initiates (Admin) (Tx 350–353)](protocol.md#user-account-management--client-initiates-admin-tx-350353) | 1092–1139 | 9 gaps; see section-specific rows and JSON register |
+| protocol.md | [Disconnecting a User (Transaction 110 & 111) – Admin/Server Use](protocol.md#disconnecting-a-user-transaction-110--111--adminserver-use) | 1140–1176 | [GAP-003](#gap-003), [GAP-036](#gap-036), [GAP-044](#gap-044), [GAP-074](#gap-074), [GAP-075](#gap-075) |
+| protocol.md | [Broadcasting a Message (Transaction 355) – Admin/Server Initiated](protocol.md#broadcasting-a-message-transaction-355--adminserver-initiated) | 1177–1191 | [GAP-045](#gap-045), [GAP-076](#gap-076) |
+| protocol.md | [Additional Admin Privileges Note](protocol.md#additional-admin-privileges-note) | 1192–1200 | [GAP-038](#gap-038), [GAP-073](#gap-073) |
+| protocol.md | [Additional Observed Requests and Scope Gaps](protocol.md#additional-observed-requests-and-scope-gaps) | 1201–1248 | [GAP-005](#gap-005), [GAP-007](#gap-007), [GAP-075](#gap-075), [GAP-077](#gap-077), [GAP-078](#gap-078), [GAP-079](#gap-079) |
+| protocol.md | [References and Correction Traceability](protocol.md#references-and-correction-traceability) | 1249–1290 | [GAP-083](#gap-083), [GAP-087](#gap-087) |
 | internal-compatibility-matrix.md | [Internal compatibility matrix (Hotline and SynHX)](internal-compatibility-matrix.md#internal-compatibility-matrix-hotline-and-synhx) | 1–14 | 13 gaps; see section-specific rows and JSON register |
 | internal-compatibility-matrix.md | [Scope and status labels](internal-compatibility-matrix.md#scope-and-status-labels) | 15–34 | [GAP-086](#gap-086), [GAP-087](#gap-087) |
 | internal-compatibility-matrix.md | [Compatibility matrix](internal-compatibility-matrix.md#compatibility-matrix) | 35–62 | [GAP-024](#gap-024), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-083](#gap-083) |
@@ -5603,18 +5647,18 @@ of binary paths, clients or packet inputs.
 | core-field-schemas.md | [Chat, PM and room requests](core-field-schemas.md#chat-pm-and-room-requests) | 122–139 | [GAP-002](#gap-002), [GAP-038](#gap-038), [GAP-039](#gap-039), [GAP-040](#gap-040), [GAP-041](#gap-041), [GAP-042](#gap-042), [GAP-043](#gap-043) |
 | core-field-schemas.md | [Room and message outputs](core-field-schemas.md#room-and-message-outputs) | 140–158 | [GAP-002](#gap-002), [GAP-044](#gap-044), [GAP-075](#gap-075), [GAP-076](#gap-076) |
 | session-transport-contracts.md | [Native session and transport contracts](session-transport-contracts.md#native-session-and-transport-contracts) | 1–8 | [GAP-008](#gap-008), [GAP-009](#gap-009), [GAP-010](#gap-010), [GAP-011](#gap-011), [GAP-024](#gap-024), [GAP-033](#gap-033) |
-| session-transport-contracts.md | [Configured endpoints](session-transport-contracts.md#configured-endpoints) | 9–38 | [GAP-010](#gap-010) |
-| session-transport-contracts.md | [Handshake consumption and failures](session-transport-contracts.md#handshake-consumption-and-failures) | 39–60 | [GAP-008](#gap-008) |
-| session-transport-contracts.md | [Captured handshake boundaries](session-transport-contracts.md#captured-handshake-boundaries) | 61–89 | [GAP-008](#gap-008), [GAP-010](#gap-010), [GAP-084](#gap-084) |
-| session-transport-contracts.md | [Sub-version 3 versus the data endpoint](session-transport-contracts.md#sub-version-3-versus-the-data-endpoint) | 90–114 | [GAP-009](#gap-009), [GAP-055](#gap-055) |
-| session-transport-contracts.md | [Receive-limit assignment at startup](session-transport-contracts.md#receive-limit-assignment-at-startup) | 115–130 | [GAP-011](#gap-011) |
-| session-transport-contracts.md | [Captured framing and reassembly boundaries](session-transport-contracts.md#captured-framing-and-reassembly-boundaries) | 131–160 | [GAP-011](#gap-011), [GAP-012](#gap-012), [GAP-013](#gap-013), [GAP-084](#gap-084) |
-| session-transport-contracts.md | [Transaction IDs, reassembly and correlation](session-transport-contracts.md#transaction-ids-reassembly-and-correlation) | 161–220 | [GAP-004](#gap-004), [GAP-012](#gap-012), [GAP-013](#gap-013), [GAP-084](#gap-084) |
-| session-transport-contracts.md | [Native envelope acceptance and emission](session-transport-contracts.md#native-envelope-acceptance-and-emission) | 221–245 | [GAP-004](#gap-004), [GAP-012](#gap-012), [GAP-013](#gap-013), [GAP-084](#gap-084) |
-| session-transport-contracts.md | [Identifier domains](session-transport-contracts.md#identifier-domains) | 246–261 | [GAP-024](#gap-024), [GAP-033](#gap-033) |
-| session-transport-contracts.md | [Activity clocks and incomplete input](session-transport-contracts.md#activity-clocks-and-incomplete-input) | 262–296 | [GAP-005](#gap-005), [GAP-008](#gap-008), [GAP-012](#gap-012) |
-| session-transport-contracts.md | [Captured failure-wait observations](session-transport-contracts.md#captured-failure-wait-observations) | 297–318 | [GAP-005](#gap-005), [GAP-084](#gap-084) |
-| session-transport-contracts.md | [Flood and connection-burst counters](session-transport-contracts.md#flood-and-connection-burst-counters) | 319–349 | [GAP-005](#gap-005), [GAP-045](#gap-045), [GAP-074](#gap-074) |
+| session-transport-contracts.md | [Configured endpoints](session-transport-contracts.md#configured-endpoints) | 9–44 | [GAP-010](#gap-010) |
+| session-transport-contracts.md | [Handshake consumption and failures](session-transport-contracts.md#handshake-consumption-and-failures) | 45–66 | [GAP-008](#gap-008) |
+| session-transport-contracts.md | [Captured handshake boundaries](session-transport-contracts.md#captured-handshake-boundaries) | 67–95 | [GAP-008](#gap-008), [GAP-010](#gap-010), [GAP-084](#gap-084) |
+| session-transport-contracts.md | [Sub-version 3 versus the data endpoint](session-transport-contracts.md#sub-version-3-versus-the-data-endpoint) | 96–120 | [GAP-009](#gap-009), [GAP-055](#gap-055) |
+| session-transport-contracts.md | [Receive-limit assignment at startup](session-transport-contracts.md#receive-limit-assignment-at-startup) | 121–136 | [GAP-011](#gap-011) |
+| session-transport-contracts.md | [Captured framing and reassembly boundaries](session-transport-contracts.md#captured-framing-and-reassembly-boundaries) | 137–166 | [GAP-011](#gap-011), [GAP-012](#gap-012), [GAP-013](#gap-013), [GAP-084](#gap-084) |
+| session-transport-contracts.md | [Transaction IDs, reassembly and correlation](session-transport-contracts.md#transaction-ids-reassembly-and-correlation) | 167–226 | [GAP-004](#gap-004), [GAP-012](#gap-012), [GAP-013](#gap-013), [GAP-084](#gap-084) |
+| session-transport-contracts.md | [Native envelope acceptance and emission](session-transport-contracts.md#native-envelope-acceptance-and-emission) | 227–251 | [GAP-004](#gap-004), [GAP-012](#gap-012), [GAP-013](#gap-013), [GAP-084](#gap-084) |
+| session-transport-contracts.md | [Identifier domains](session-transport-contracts.md#identifier-domains) | 252–267 | [GAP-024](#gap-024), [GAP-033](#gap-033) |
+| session-transport-contracts.md | [Activity clocks and incomplete input](session-transport-contracts.md#activity-clocks-and-incomplete-input) | 268–302 | [GAP-005](#gap-005), [GAP-008](#gap-008), [GAP-012](#gap-012) |
+| session-transport-contracts.md | [Captured failure-wait observations](session-transport-contracts.md#captured-failure-wait-observations) | 303–324 | [GAP-005](#gap-005), [GAP-084](#gap-084) |
+| session-transport-contracts.md | [Flood and connection-burst counters](session-transport-contracts.md#flood-and-connection-burst-counters) | 325–355 | [GAP-005](#gap-005), [GAP-045](#gap-045), [GAP-074](#gap-074) |
 | filesystem-and-board-contracts.md | [Native filesystem, diagnostics and legacy-board contracts](filesystem-and-board-contracts.md#native-filesystem-diagnostics-and-legacy-board-contracts) | 1–8 | [GAP-037](#gap-037), [GAP-046](#gap-046), [GAP-049](#gap-049), [GAP-050](#gap-050), [GAP-051](#gap-051), [GAP-052](#gap-052), [GAP-053](#gap-053), [GAP-054](#gap-054) |
 | filesystem-and-board-contracts.md | [File-info target kinds and field presence](filesystem-and-board-contracts.md#file-info-target-kinds-and-field-presence) | 9–30 | [GAP-049](#gap-049) |
 | filesystem-and-board-contracts.md | [Delete, create, rename, comment, move and alias](filesystem-and-board-contracts.md#delete-create-rename-comment-move-and-alias) | 31–62 | [GAP-050](#gap-050), [GAP-051](#gap-051), [GAP-052](#gap-052), [GAP-053](#gap-053), [GAP-054](#gap-054) |
@@ -5690,10 +5734,10 @@ of binary paths, clients or packet inputs.
 | native-capture-workflow.md | [Reproducing account identity and protection contrasts](native-capture-workflow.md#reproducing-account-identity-and-protection-contrasts) | 1632–1685 | [GAP-003](#gap-003), [GAP-018](#gap-018), [GAP-021](#gap-021), [GAP-031](#gap-031), [GAP-036](#gap-036), [GAP-072](#gap-072), [GAP-074](#gap-074), [GAP-084](#gap-084) |
 | native-capture-workflow.md | [Reproducing private rooms and chat byte fixtures](native-capture-workflow.md#reproducing-private-rooms-and-chat-byte-fixtures) | 1686–1748 | 12 gaps; see section-specific rows and JSON register |
 | native-capture-workflow.md | [Reproducing console and client broadcast fixtures](native-capture-workflow.md#reproducing-console-and-client-broadcast-fixtures) | 1749–1765 | [GAP-076](#gap-076) |
-| diagnostic-replies.md | [Native 1.9 client diagnostics (303)](diagnostic-replies.md#native-19-client-diagnostics-303) | 1–10 | [GAP-037](#gap-037), [GAP-084](#gap-084) |
-| diagnostic-replies.md | [Representative reply matrix](diagnostic-replies.md#representative-reply-matrix) | 11–51 | [GAP-037](#gap-037), [GAP-084](#gap-084) |
-| diagnostic-replies.md | [Contract boundary](diagnostic-replies.md#contract-boundary) | 52–79 | [GAP-037](#gap-037), [GAP-084](#gap-084) |
-| diagnostic-replies.md | [Reproduction and checks](diagnostic-replies.md#reproduction-and-checks) | 80–120 | [GAP-037](#gap-037), [GAP-084](#gap-084) |
+| diagnostic-replies.md | [Native 1.9 client diagnostics (303)](diagnostic-replies.md#native-19-client-diagnostics-303) | 1–11 | [GAP-037](#gap-037), [GAP-084](#gap-084) |
+| diagnostic-replies.md | [Representative reply matrix](diagnostic-replies.md#representative-reply-matrix) | 12–52 | [GAP-037](#gap-037), [GAP-084](#gap-084) |
+| diagnostic-replies.md | [Contract boundary](diagnostic-replies.md#contract-boundary) | 53–87 | [GAP-037](#gap-037), [GAP-084](#gap-084) |
+| diagnostic-replies.md | [Reproduction and checks](diagnostic-replies.md#reproduction-and-checks) | 88–128 | [GAP-037](#gap-037), [GAP-084](#gap-084) |
 | peer-tolerance-matrix.md | [Identified shx peer field tolerance: controlled matrix](peer-tolerance-matrix.md#identified-shx-peer-field-tolerance-controlled-matrix) | 1–57 | [GAP-026](#gap-026), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082) |
 | peer-tolerance-matrix.md | [Reproduce and verify](peer-tolerance-matrix.md#reproduce-and-verify) | 58–86 | [GAP-026](#gap-026), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082) |
 | peer-tolerance-matrix.md | [Cross-peer acceptance and omission rules](peer-tolerance-matrix.md#cross-peer-acceptance-and-omission-rules) | 87–124 | [GAP-081](#gap-081) |
@@ -5741,11 +5785,11 @@ of binary paths, clients or packet inputs.
 | native-diagnostic-existing-preparation.md | [Prepared commands](native-diagnostic-existing-preparation.md#prepared-commands) | 50–112 | [GAP-037](#gap-037), [GAP-084](#gap-084) |
 | native-diagnostic-existing-witness.md | [Native 1.9 diagnostic with one active and one waiting download](native-diagnostic-existing-witness.md#native-19-diagnostic-with-one-active-and-one-waiting-download) | 1–8 | [GAP-021](#gap-021), [GAP-037](#gap-037), [GAP-064](#gap-064), [GAP-084](#gap-084) |
 | native-diagnostic-existing-witness.md | [Native observation](native-diagnostic-existing-witness.md#native-observation) | 9–67 | [GAP-021](#gap-021), [GAP-037](#gap-037), [GAP-064](#gap-064), [GAP-084](#gap-084) |
-| native-diagnostic-existing-witness.md | [Scope and reproduction](native-diagnostic-existing-witness.md#scope-and-reproduction) | 68–107 | [GAP-021](#gap-021), [GAP-037](#gap-037), [GAP-064](#gap-064), [GAP-084](#gap-084) |
+| native-diagnostic-existing-witness.md | [Scope and reproduction](native-diagnostic-existing-witness.md#scope-and-reproduction) | 68–110 | [GAP-021](#gap-021), [GAP-037](#gap-037), [GAP-064](#gap-064), [GAP-084](#gap-084) |
 | native-diagnostic-density-witness.md | [Native 1.9 diagnostic density with existing downloads](native-diagnostic-density-witness.md#native-19-diagnostic-density-with-existing-downloads) | 1–9 | [GAP-037](#gap-037) |
-| native-diagnostic-density-witness.md | [Fixed 303 observations](native-diagnostic-density-witness.md#fixed-303-observations) | 10–39 | [GAP-037](#gap-037) |
-| native-diagnostic-density-witness.md | [Packet views and restoration](native-diagnostic-density-witness.md#packet-views-and-restoration) | 40–62 | [GAP-037](#gap-037) |
-| native-diagnostic-density-witness.md | [Replay](native-diagnostic-density-witness.md#replay) | 63–79 | [GAP-037](#gap-037) |
+| native-diagnostic-density-witness.md | [Fixed 303 observations](native-diagnostic-density-witness.md#fixed-303-observations) | 10–41 | [GAP-037](#gap-037) |
+| native-diagnostic-density-witness.md | [Packet views and restoration](native-diagnostic-density-witness.md#packet-views-and-restoration) | 42–64 | [GAP-037](#gap-037) |
+| native-diagnostic-density-witness.md | [Replay](native-diagnostic-density-witness.md#replay) | 65–81 | [GAP-037](#gap-037) |
 | mxd-direct-ack-correction.md | [mxd direct reply correction through 20e891a](mxd-direct-ack-correction.md#mxd-direct-reply-correction-through-20e891a) | 1–69 | [GAP-085](#gap-085) |
 | mxd-login-extras-correction.md | [mxd successful Login107 extras correction](mxd-login-extras-correction.md#mxd-successful-login107-extras-correction) | 1–12 | [GAP-081](#gap-081), [GAP-085](#gap-085) |
 | mxd-login-extras-correction.md | [Native baseline and corrected mxd behaviour](mxd-login-extras-correction.md#native-baseline-and-corrected-mxd-behaviour) | 13–49 | [GAP-081](#gap-081), [GAP-085](#gap-085) |
@@ -5754,7 +5798,7 @@ of binary paths, clients or packet inputs.
 | native-diagnostic-near-preparation.md | [Fixed bounds and decision gate](native-diagnostic-near-preparation.md#fixed-bounds-and-decision-gate) | 14–43 | [GAP-037](#gap-037) |
 | native-diagnostic-near-preparation.md | [Offline preparation and replay commands](native-diagnostic-near-preparation.md#offline-preparation-and-replay-commands) | 44–69 | [GAP-037](#gap-037) |
 | native-diagnostic-near-witness.md | [Native 1.9 diagnostic near-boundary observation](native-diagnostic-near-witness.md#native-19-diagnostic-near-boundary-observation) | 1–47 | [GAP-037](#gap-037) |
-| native-diagnostic-near-witness.md | [Replay](native-diagnostic-near-witness.md#replay) | 48–71 | [GAP-037](#gap-037) |
+| native-diagnostic-near-witness.md | [Replay](native-diagnostic-near-witness.md#replay) | 48–73 | [GAP-037](#gap-037) |
 | mac-peer-isolated-session.md | [Isolated Classic client: one finite 1.9 session](mac-peer-isolated-session.md#isolated-classic-client-one-finite-19-session) | 1–59 | [GAP-079](#gap-079), [GAP-081](#gap-081), [GAP-084](#gap-084) |
 | request-500-contract.md | [Request 500: native reply and one modern client's schedule](request-500-contract.md#request-500-native-reply-and-one-modern-clients-schedule) | 1–46 | [GAP-079](#gap-079) |
 | native-console-broadcast.md | [Native console broadcast and client 355: bounded D1 witness](native-console-broadcast.md#native-console-broadcast-and-client-355-bounded-d1-witness) | 1–63 | [GAP-044](#gap-044), [GAP-076](#gap-076) |
@@ -5854,6 +5898,13 @@ of binary paths, clients or packet inputs.
 | native-configured-ban-witness.md | [Boundary and setup](native-configured-ban-witness.md#boundary-and-setup) | 14–36 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
 | native-configured-ban-witness.md | [One Add and Save](native-configured-ban-witness.md#one-add-and-save) | 37–69 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
 | native-configured-ban-witness.md | [Limits](native-configured-ban-witness.md#limits) | 70–78 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
+| diagnostic-formatting-trace.md | [Native 1.9 diagnostic text: formatting and wire length](diagnostic-formatting-trace.md#native-19-diagnostic-text-formatting-and-wire-length) | 1–9 | [GAP-037](#gap-037), [GAP-019](#gap-019) |
+| diagnostic-formatting-trace.md | [Formatter-to-field trace](diagnostic-formatting-trace.md#formatter-to-field-trace) | 10–31 | [GAP-037](#gap-037), [GAP-019](#gap-019) |
+| diagnostic-formatting-trace.md | [Observed lengths and compatibility](diagnostic-formatting-trace.md#observed-lengths-and-compatibility) | 32–57 | [GAP-037](#gap-037), [GAP-019](#gap-019) |
+| diagnostic-formatting-trace.md | [Reproduction and limits](diagnostic-formatting-trace.md#reproduction-and-limits) | 58–77 | [GAP-037](#gap-037), [GAP-019](#gap-019) |
+| native-ban-file-format.md | [Native Hotline Server 1.9 `Banned` data fork: observed v2 layout](native-ban-file-format.md#native-hotline-server-19-banned-data-fork-observed-v2-layout) | 1–34 | [GAP-074](#gap-074) |
+| native-ban-file-format.md | [Reader and writer bounds](native-ban-file-format.md#reader-and-writer-bounds) | 35–62 | [GAP-074](#gap-074) |
+| native-ban-file-format.md | [Replay and limits](native-ban-file-format.md#replay-and-limits) | 63–79 | [GAP-074](#gap-074) |
 
 ## Maintaining this analysis
 

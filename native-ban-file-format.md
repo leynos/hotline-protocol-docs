@@ -15,7 +15,7 @@ PowerPC big-endian 32-bit; the application DATA fork identity is
 | 2–5 | 4 | `00000001`: one record, written from list count and iterated by the reader. |
 | 6 | 1 | `01`: record flag at in-memory offset 0. Constructor sets 1. |
 | 7–10 | 4 | `0a000202`: first address-range endpoint, 10.0.2.2 in these IPv4 fixtures; memory offset `+8`. |
-| 11–14 | 4 | `0a000202`: second endpoint, memory offset `+0xc`; both fixtures are single-address ranges. |
+| 11–14 | 4 | `0a000202`: second endpoint, memory offset `+0xc`; all three samples are single-address ranges. |
 | 15–47 | 33 | Fixed display area, memory offset `+0x10`: first byte `15` gives 21 displayed bytes, followed by 11 opaque remainder bytes. |
 | 48 | 1 | `00`: reason-byte count zero. No reason bytes follow in these samples. |
 <!-- markdownlint-enable MD013 -->

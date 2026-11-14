@@ -35,7 +35,9 @@ The maximum measured field 101 is **763 bytes, 261 below** the handler's
 `0x400` destination bound. This finite 8/8 fixture did not reach that bound.
 It does not establish a truncation rule or a near-1,024-byte native example.
 The exact wording and progress percentages remain descriptive native output;
-GAP-037's exact-text release policy remains undecided.
+The [later formatter trace](diagnostic-formatting-trace.md) gives the
+source-derived cap and baseline text classification; an mxd promise of
+exact presentation parity remains a separate decision.
 
 ## Packet views and restoration
 

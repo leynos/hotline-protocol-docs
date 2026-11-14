@@ -2,7 +2,8 @@
 
 This note records five bounded Mac OS 9.0.4 Hotline Server 1.9 exchanges against
 the [exact Mac PPC oracle][corpus]. It addresses GAP-037 as measured evidence;
-the original criterion remains open where listed below. The application DATA
+the original criterion is assessed with the later formatter trace below.
+The application DATA
 SHA-256 is `ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`.
 The continuing emulator PID, executable hash, guest configuration and capture
 method are in the [runtime record][runtime]. The [manifest][manifest] identifies
@@ -61,21 +62,28 @@ is tracked separately.
 The field-101 prose, labels, spacing, section headings, address spelling and
 transfer descriptions are generated presentation. They are not a structured
 profile or proof of a stable text grammar across builds, configurations or
-locales. The handler's final formatting call supplies `0x400` (1,024) as its
-destination bound. That source bound does not by itself establish every
-observable wire length or truncation rule. These two examples use 299 and 303
-data bytes. Their `\x8e` byte and CR separators are raw observations; a general
-character-set conversion rule is not established by two examples.
+locales. The [formatter-to-field trace](diagnostic-formatting-trace.md)
+shows a final cap of 1,024 output bytes, returned as the field-101 length
+without reserving or appending a NUL. This is a source-derived bound; the
+largest recorded native example is 995 bytes, not an at-cap clipping test.
+The raw `8e` byte and CR separators are observations, not a general codec.
 
-**Exact textual parity remains an unchosen release policy.** The existing
-baseline must not silently promise or reject parity for mxd. Selecting that
-policy requires an explicit release decision, then tests scoped to its chosen
-build/configuration and required text. This corpus makes neither choice.
+For this protocol baseline, exact field-101 wording is **descriptive and is
+not required for compatibility**. Preserve the request, authorization,
+success/error envelopes and raw field roles. Do not parse generated labels,
+spacing, addresses or progress text as a stable record grammar. Exact bytes
+remain recorded for comparisons with this build/configuration. An mxd release
+promise of exact presentation parity remains a separate decision, with
+further mxd validation on hold.
 
-GAP-037 still lacks an active-transfer/queue example, native formatting-boundary
-example near the 1,024-byte destination, and the release policy decision. The
-finite idle examples do not establish that every output section is mandatory,
-nor do they settle how unusual names or addresses are encoded at all lengths.
+Later [active/queued](native-diagnostic-existing-witness.md) and
+[density](native-diagnostic-density-witness.md) fixtures add representative
+transfer summaries. The [near-boundary observation](native-diagnostic-near-witness.md)
+retains a successful 995-byte reply inside a failed overall capture; its
+incomplete cleanup plan remains failed. Together with the traced output cap
+and envelope rules, these meet GAP-037's original documentation criterion.
+They do not establish a universal character set, every intermediate buffer
+boundary or live behaviour at and above the formatting cap.
 
 ## Reproduction and checks
 

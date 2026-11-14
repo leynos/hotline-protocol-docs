@@ -722,8 +722,12 @@ The control transactions below negotiate operations and transfers. Exact path,
 file-list, resume and flattened-fork formats remain incomplete. The native
 transfer acceptor handles client-initiated incoming connections; the assertion
 that the queued server itself initiates the data connection is unsupported.
-Listener setup and the usual base-port-plus-one convention still need tracing
-before the port relation is a certified property of this build.
+The [traced listener map](session-transport-contracts.md#configured-endpoints)
+uses ordinary base/base+1 and alternative-wrapper base+2/base+3 pairs.
+Port fields narrow to 16 bits; this does not guarantee usable adjacent ports
+at every boundary configuration or plain-protocol operation on the
+alternative pair. Captured ordinary control/data examples and alternative
+no-response observations are retained separately.
 
 Evidence: V049–V060.
 
