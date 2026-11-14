@@ -16,7 +16,7 @@ the source was an alias. Handler 206 builds these variants:
 | Target kind | 205 | 206 | 213 | 207 size | 208/209 dates and 210 comment |
 | --- | --- | --- | --- | --- | --- |
 | Ordinary file (2) | Known native type description or raw four type bytes | Known creator description or raw four creator bytes | Four raw type bytes | Numeric value | Included, subject to empty-comment omission |
-| File alias (4) | Four type bytes, space and `(alias)` | Creator description/raw bytes | Four raw type bytes | Numeric value | Included from resolved object |
+| File alias (4) | Four type bytes, space and `(alias)` | Creator description/raw bytes | Four raw type bytes | Resolved target DATA-plus-resource aggregate in the captured cases | Included from resolved object |
 | Directory (3) | `Folder` | `n/a` | `fldr` | Not added in this branch | Included |
 | Directory alias (5) | `Folder Alias` | `n/a` | `fldr` | Not added in this branch | Included from resolved object |
 | Unattached alias (6) | `Unattached Alias` | `n/a` | `alis` | Not added | Not added |
@@ -313,6 +313,14 @@ of the earlier guest or a known cause for that process's disappearance.
 All successful 206 samples include alias/original name 201 and fields
 205/206/213. Dates, when present, each occupy eight bytes. The ordinary file
 contains 16 DATA bytes and 317 resource-fork bytes; its aggregate size is 333.
+The file alias and chain also report 333: the size helper receives the
+resolved target, whose DATA and resource forks total 16 + 317. That value is
+neither the target's DATA-only length nor the alias file's own fork total.
+The older read-only catalogue observations give the aliases' own fork totals
+as 540/546; they have no stopped-image consistency or durability proof.
+The [size-scope review](../mothra/evidence/gap-remediation/2026-11-14/alias-positive-basis-01/a131-size-scope.md)
+retains the source/capture distinction and that provenance limit.
+
 Field 207 uses two bytes in these small samples. The shared integer writer's
 larger-value branches remain documented separately; this is not a fixed
 universal two-byte size contract.
@@ -512,10 +520,12 @@ fixtures remain required by GAP-050.
 
 The target-in-Trash case is especially important for alias containment: the
 alias remains inside Files, while its target is positively identified outside
-that share in Trash. Native 206 still exposes `TEXT (alias)`, aggregate size
-332 and the target's comment. The alias resource bytes differ by the final
-snapshot. This is a bounded metadata-resolution observation, not a download
-fixture or a genuine missing-target case; GAP-047/GAP-054 remain active.
+that share in Trash. Native 206 still exposes `TEXT (alias)`, resolved-target
+aggregate size 332 and the target's comment. The alias resource bytes differ
+by the final snapshot. This is a bounded metadata-resolution observation,
+not a download fixture or a genuine missing-target case. Missing-target and
+broader alias-resolution requirements remain GAP-054; the separately
+published path contracts do not imply universal alias containment.
 
 Read-only catalogue snapshots retain all 72 seeded identities before cleanup,
 including moved subtrees, and add one independent flush file. Every ordinary

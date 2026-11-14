@@ -857,7 +857,8 @@ name handling includes a 31-byte limit, tested extension preservation and
 opaque NUL/high-byte names. Short or incomplete paths can select root/a valid
 prefix rather than fail strict validation. See the
 [captured creation matrix](filesystem-and-board-contracts.md#captured-native-folder-creation-and-field-202-paths)
-for exact inputs, platform boundaries and cleanup. Field-212/325 equivalence,
+for exact inputs, platform boundaries and cleanup. Fields 212/325 have
+[separate path contracts](native-wire-details.md#field-212-files-destinations);
 alias containment and general filesystem failures remain separate requirements.
 
 Evidence: V053; `100143f0`.
@@ -873,6 +874,8 @@ whether the target is a file, folder, alias or other special item.
 Fields 205/206 can be descriptive strings; they are not always raw
 four-character type/creator codes. The ordinary file branch places a raw type
 value in field 213. Do not impose a universal four-byte schema on 205/206.
+For the captured file aliases, 207 is the resolved target's DATA-plus-resource
+aggregate; it is not a DATA-only length or the alias file's own fork size.
 Dates follow the observed eight-byte representation described above.
 The [native metadata matrix](filesystem-and-board-contracts.md#file-info-presence-and-values)
 supplies exact file, folder, alias, unattached, empty and zero/unknown-tag

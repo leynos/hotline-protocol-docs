@@ -73,6 +73,12 @@ M2 acceptance additionally requires post-retirement HFS Finder alias flag
 and `alis` ID 0 tying the same object to the Unix leaf; this live-wire
 coordinator does not assert that stopped-image fact.
 
+The supervisor may additionally inspect the copied alias's read-only Get Info
+Original field, as bounded in the ExecPlan, to identify the Unix volume and
+owned leaf. Save that image and binding receipt separately from the exact six
+controller screenshot keys. A resource ID alone or a string search does not
+prove the target binding. This adds no Hotline request or unlink authority.
+
 ## Commands and limits
 
 After root has approved the runtime and source closure, write a fresh plan:
