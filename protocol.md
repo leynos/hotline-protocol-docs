@@ -484,9 +484,16 @@ Evidence: V030–V031, V055–V056, V073; `10008a90`, `1000f4e0`, `10012850`,
 | 8 | Name length | Name bytes |
 
 The enclosing field length is `8 + name_length`. The native builder includes
-active sessions with nonempty names and has no minimum-entry check. Use a
+sessions with the online-state byte set and nonempty names. It has no
+minimum-entry check. Use a
 zero-or-more structural grammar; this pass does not prove that a zero-entry
 snapshot is reachable during an ordinary logged-in session.
+
+The [ordering contract](presence-messaging-contracts.md#roster-snapshots-and-concurrent-updates)
+records initial-login eligibility, rename recipients and a measured overlap:
+one outstanding snapshot showed the old name/icon, then a later snapshot
+after the recorded barriers showed the complete new pair. This is one finite
+schedule, not a global atomic-snapshot guarantee.
 
 The native 1.9 roster builder does not add subject field 115. The supplied
 historical SynHX **server** roster writer does append 115, and uses the same

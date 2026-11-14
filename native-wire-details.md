@@ -660,9 +660,13 @@ Cleanup restores the original two-account enumeration and exact 41-entry Files
 view. All five original owned objects are positively retained in Trash with
 unchanged identities, paths and forks; a separate upload corroborates them
 and its helper is removed with wire controls. Normal restart persistence and
-this captured live-edit/delete criterion close GAP-073. Protected/self-delete,
-rename/conflict and forced write failures remain GAP-072; broader teardown and
-snapshot races remain GAP-035/036, and field 111's meaning remains GAP-071.
+this captured live-edit/delete criterion close GAP-073. Later account-identity
+and batch fixtures cover the measured protected/self
+delete and rename/conflict cases. Single-operation failed-write atomicity
+remains GAP-072; the [writer trace](account-write-ordering.md) specifies the
+normal call order and its limits. The [roster-ordering contract](presence-messaging-contracts.md#roster-snapshots-and-concurrent-updates)
+adds the bounded snapshot-race trace. Broader teardown remains GAP-036, and
+field 111's meaning remains GAP-071.
 
 [live-accounts]: ../mothra/evidence/gap-remediation/2026-11-13/native-live-accounts-01/manifest.json
 

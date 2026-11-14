@@ -45,8 +45,8 @@ no such short write has been observed.
 
 The 350 creation helper (`AC-D-100071a0.c`) explicitly creates an account
 folder and `UserData` before using the same open, length, write, and close
-sequence. A prior successful 353 rename retained the target catalogue identity.
-These facts distinguish normal creation from replacement; they do not define
+sequence. These facts distinguish normal creation from direct replacement;
+they do not define
 either operation's failed-write behaviour. Field 111's role remains unknown.
 
 ## GAP-072 boundary

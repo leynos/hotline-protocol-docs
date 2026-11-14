@@ -318,8 +318,52 @@ transitions hold with other inputs fixed; they are not captured native events:
 
 This satisfies GAP-034's traced registry and transition-example criterion.
 Settings rules are specified above, and the live-account and identified-peer
-fixtures cover their measured notification paths. Concurrent snapshot and
-delivery ordering remain GAP-035.
+fixtures cover their measured notification paths. The bounded roster-ordering
+rules below retain the unproved global
+interleavings explicitly.
+
+## Roster snapshots and concurrent updates
+
+The 300 builder includes sessions whose online-state byte is set and whose
+name is nonempty. Initial login broadcasts 301 to existing eligible sessions
+before setting that byte on the joiner; the joiner then receives 354. When an
+already-online session changes settings, the 301 fan-out can include that
+sender. The configured-login fixtures above distinguish authentication from
+visibility: a delayed 107 is not a roster subscription boundary.
+
+The [native overlap witness](native-roster-overlap-witness.md) records two
+owned sessions while A's 300 ID11 is outstanding and B sends 304 ID20 to
+change its name and icon. A and B then send 500 ID12 on their own sockets.
+The source-declared two-socket collector retains all frames without imposing
+a cross-socket arrival order. No direct 304 ACK is expected by this path.
+
+| Observation | Captured result |
+| --- | --- |
+| A's outstanding 300 ID11 | B UID `0003`, `Order B`, icon 2. |
+| Rename 301 on both A and B | Same B UID, `Order New`, icon 3. |
+| Each connection's 500 ID12 | Correlated successful ACK. |
+| A's final 300 ID13 after the recorded barriers | Same B UID with the complete new name/icon pair. |
+
+The inline 304 handler applies settings and queues the updates before
+returning to the request loop. The 500 ACK is a handler barrier for that
+inspected same-socket path, not a general completion or durability barrier
+for operations that launch workers. A's first snapshot contains old state
+and its later snapshot contains new state in this one schedule. The fixture
+found no torn pair or extra roster row; it does not prove their impossibility
+under every interleaving.
+
+For account edits affecting multiple live sessions, the prior live-account
+fixtures separately show each subject's 354 before its own 301, while a peer's
+301 can precede that recipient's 354. These are per-socket and per-subject
+rules. Client send order, local frame-completion timestamps and cross-socket
+packet arrival do not define one server execution order or a global
+snapshot/subscription point.
+
+Together with initial-login and rename traces, this supplies GAP-035's
+original finite event-trace criterion. It does not promise universal snapshot
+atomicity or a race-free subscription algorithm. The control-only lab has
+paired packet evidence and unchanged checked account/Prefs/application forks;
+full-file health and orderly OS shutdown were not exercised.
 
 ## Disconnect teardown and notification 302
 
