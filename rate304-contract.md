@@ -4,8 +4,10 @@ The [frozen source corpus](../mothra/evidence/gap-remediation/2026-11-14/rate304
 copies the existing PowerPC decompilation bodies and query metadata for the
 native server DATA fork SHA-256
 `ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`.
-A93 made no new oracle call or native request. The 26/27 boundary below is a
-**source prediction**, pending a bounded packet and native-clock witness.
+A93 made no new oracle call or native request. The comparison below is a
+**source prediction**. The later [native sequence](native-rate304-sequence.md)
+captures 26 admitted updates followed by closure on a 27th burst update;
+the exact native 60-second interval remains uncalibrated.
 
 ## Counter and ordinary response
 
@@ -60,8 +62,11 @@ every complete request, bracket the native 60-second window, compare each
 301 and terminal TCP bytes across both packet views, and test the later
 valid login separately. A host-duration bracket alone is not native-clock
 calibration. The existing eight-stage 304 transition corpus proves ordinary
-settings effects, not this 26/27 boundary. No rate boundary, mxd parity
-policy, general exemption, or GAP-045 closure is claimed here.
+settings effects, not this 26/27 sequence. Native-clock calibration, mxd parity
+policy, general exemptions and GAP-045 closure remain unproved. The later
+[sequence witness](native-rate304-sequence.md) provides the bounded packet
+observations while retaining those measurement limits and its final
+fieldless-303 fixture failure.
 
 The [first native pair](native-rate304-first-pair.md) failed its fixture
 wait before the late subject response, during observer cleanup. It establishes

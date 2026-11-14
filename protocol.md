@@ -413,10 +413,17 @@ Transaction 108 uses 113 as an enumerated PM option, a separate grammar.
 
 The [settings rate-path trace](rate304-contract.md) predicts a separate
 26-update counter within a native-time window and a close/temporary-ban path
-on the next update. This remains a source prediction. The
-[failed first-pair experiment](native-rate304-first-pair.md) sent one 304 and
-one 500; its wait expired before late responses arrived during client
-cleanup. It proves no counter boundary, reset interval or ban outcome.
+on the next update. The later [captured sequence](native-rate304-sequence.md)
+has 26 admitted updates, each followed by numbered 500, with matching 301
+on subject and observer. After a request-free interval of at least 70.103
+host seconds on the paced subject, one further update was admitted.
+A fresh session's 26 updates were followed
+by a 27th update without 500; its relay reported EOF and the guest capture
+retained a reset diagnostic. One new login received the temporary-ban error.
+This is a finite sequence, with no
+calibrated native 60-second boundary or measured ban expiry. The run failed
+at its final fieldless 303 control, whose missing-target error is documented
+below; the earlier paired packet observations remain independently checked.
 
 Evidence: V026–V029; `10011ee0`, `10004d50`.
 
@@ -543,6 +550,11 @@ Evidence: V035, V048; `10004f30`, `10005000`.
 text containing nickname, account, address and transfer summaries. It is not
 established as an administrator-configured short profile or real-name field.
 Permission and missing-user failures produce error replies.
+
+The [captured settings-rate sequence](native-rate304-sequence.md) ended with
+an administrator's fieldless 303. It returned error 1 and field 100 stating
+that the specified client did not exist. Omission did not select the caller;
+a self-information request still needs the caller's current UID in field 103.
 
 Evidence: V036; `10016150`.
 

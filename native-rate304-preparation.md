@@ -1,7 +1,9 @@
 # Native 304 rate and reset preparation
 
-Version 2 is an **offline prepared** GAP-045 fixture. This version has not
-contacted Hotline Server 1.9. The source prediction is a session-local 304
+The corrected observer-UID control is **offline prepared** and has not run
+against native 1.9. The earlier [sequence](native-rate304-sequence.md)
+reached the rate observations but failed its fieldless 303 control.
+The source prediction is a session-local 304
 counter: existing values 0–25 enter settings helper `10004d50`; a 27th request
 in the same native `GetDateTime` window closes the socket, inserts a
 1,800-second address ban and logs. After age greater than 60 seconds the
@@ -13,8 +15,9 @@ Mothra delegation state.
 ## Prepared scope
 
 The fixture uses one **new disposable** Mac runtime and process from a stopped
-immutable base. Candidate display `:120`, `R native-rate304-03`, and control
-port `15880` require parent conflict review. The host and namespace captures,
+immutable base. Choose unused runtime, capture and display paths; the current
+producer uses control port `15880`. Check those resources before launch.
+The host and namespace captures,
 guest PCAP, owned executable/ROM/image fork hashes, actual emulator
 PID/start/exe/working-image inode/FD6/FD16, loopback-only routes, managed
 capture units and exclusive oracle lock are live gates. Do not run this in the
@@ -38,6 +41,11 @@ the separate disk and capture stages described by the
 [readiness helper](../mothra/docs/native-emulator-readiness.md); neither
 earlier runtime is a retry target. Each new lab requires its own absent paths
 and reviewed command packet.
+
+The subsequent `native-rate304-03` lab is also retired. Its
+[packet and runtime witness](native-rate304-sequence.md) preserves the rate
+sequence and the final missing-target error. Its captured sources remain
+unchanged by the later offline UID correction.
 
 Run an unchanged separate 18-action control-only preflight on that **same new
 process** before the coordinator. Verify two original accounts, 41 Files
