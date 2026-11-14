@@ -41,10 +41,12 @@ its actual UID, effective `fixture-low` name, icon1 and eight-zero access.
 Source allocation zeroes the 304 count/timestamp, and first 304 resets that
 counter under an ordinary positive native clock; a clock-origin anomaly makes
 the boundary inconclusive. Every 304 contains **only** field104 with
-big-endian two-byte icon, varying 2–27. It has no normal direct ACK. Require
-its observer 301 UID/name/icon, then a same-subject numbered 500 ACK as a
-per-socket processing barrier. Complete 26 pairs within <=20 host seconds, or
-retain a timing-invalid report. The paced subject then sends no request for
+big-endian two-byte icon, varying 2–27. It has no normal direct ACK.
+Send a same-subject numbered 500 immediately after each 304. Before
+considering the pair complete, require its 500 ACK and both subject and
+observer 301 UID/name/icon; their cross-socket arrival order is not fixed.
+Complete 26 pairs within <=20 host seconds, or retain a timing-invalid report.
+The paced subject then sends no request for
 >=70 host seconds while the separate observer sends 500 every five seconds.
 Its next 304 icon28 plus 500 ACK tests the reset, after which it closes and
 the observer's 302 is retained. A new subject sends 26 pairs within <=20 host

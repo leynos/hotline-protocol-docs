@@ -88,6 +88,7 @@ def fake_report(plan):
         add("observer", 301, 0, update(uid, 1), when=when)
         for index in range(26):
             add("observer", 301, 0, update(uid, index + 2), when=when + index + 1)
+            add(name, 301, 0, update(uid, index + 2), when=when + index + 1)
             add(
                 name,
                 0,
@@ -97,6 +98,7 @@ def fake_report(plan):
                 when=when + index + 1,
             )
     add("observer", 301, 0, update(2, 28), when=1000)
+    add("paced", 301, 0, update(2, 28), when=1000)
     add("paced", 0, 2026, [], reply=1, when=1000)
     add("observer", 302, 0, [(103, b"\0\2")], when=1001)
     add("observer", 302, 0, [(103, b"\0\3")], when=1400)
@@ -110,7 +112,11 @@ def fake_report(plan):
     return {
         "frames": frames,
         "identities": {"paced_uid": 2, "burst_uid": 3},
-        "actions": [{"label": "burst-login", "elapsed_ns": 1050}],
+        "actions": [
+            {"label": "burst-login", "elapsed_ns": 1050},
+            {"label": "burst-304-terminal", "elapsed_ns": 1350},
+            {"label": "probe-login", "elapsed_ns": 1450},
+        ],
         "timing": {
             "paced_trial_seconds": 9,
             "burst_trial_seconds": 9,
@@ -169,7 +175,25 @@ class Rate304Tests(unittest.TestCase):
 
     def test_fake_wire_acceptance_and_semantic_faults(self):
         control.classify(self.plan, self.report)
+        terminal = copy.deepcopy(self.report)
+        terminal["frames"].extend(
+            [
+                frame("burst", 104, 7, [(101, b"observed terminal notice")], when=1370),
+                frame("observer", 302, 0, [(103, b"\0\4")], when=1550),
+            ]
+        )
+        control.classify(self.plan, terminal)
         faults = [
+            (
+                lambda r: r["frames"].pop(
+                    next(
+                        i
+                        for i, f in enumerate(r["frames"])
+                        if f["connection"] == "paced" and f["type"] == 301
+                    )
+                ),
+                "subject301-missing-observer-and-barrier-intact",
+            ),
             (
                 lambda r: r["frames"].pop(
                     next(
@@ -258,7 +282,7 @@ class Rate304Tests(unittest.TestCase):
         self.assertEqual(wire.terminals["observer"], "eof")
         self.assertEqual(wire.buffers["observer"], b"\xaa\xbb")
 
-    def full_fake_report(self):
+    def full_fake_report(self, observer_after_barrier=False):
         source = fake_report(self.plan)
         pool = source["frames"] + [
             frame("observer", 0, 5000 + i, [], reply=1) for i in range(14)
@@ -321,7 +345,9 @@ class Rate304Tests(unittest.TestCase):
                 take("observer", 302, icon=None)
             elif label.startswith(("paced-304-", "burst-304-")):
                 icon = 28 if label == "paced-304-after-quiet" else int(label[-2:]) + 2
-                take("observer", 301, icon=icon)
+                if not observer_after_barrier:
+                    take("observer", 301, icon=icon)
+                take(name, 301, icon=icon)
             elif label.startswith(("paced-500-", "burst-500-")):
                 ident = (
                     2026
@@ -329,6 +355,11 @@ class Rate304Tests(unittest.TestCase):
                     else int.from_bytes(bytes.fromhex(raw)[4:8], "big")
                 )
                 take(name, 0, ident)
+                if observer_after_barrier:
+                    icon = (
+                        28 if label == "paced-500-after-quiet" else int(label[-2:]) + 2
+                    )
+                    take("observer", 301, icon=icon)
                 if label == "paced-500-after-quiet":
                     take("observer", 302, icon=None)
             elif label.startswith("observer-idle500-"):
@@ -371,6 +402,9 @@ class Rate304Tests(unittest.TestCase):
     def test_full_fake_wire_report_and_faults(self):
         report = self.full_fake_report()
         control.verify_report(self.plan, report)
+        control.verify_report(
+            self.plan, self.full_fake_report(observer_after_barrier=True)
+        )
         faults = [
             lambda r: r.__setitem__("source_sha256", "0" * 64),
             lambda r: r.__setitem__("native_clock_calibrated", True),
@@ -385,6 +419,30 @@ class Rate304Tests(unittest.TestCase):
                 changed = copy.deepcopy(report)
                 mutate(changed)
                 control.verify_report(self.plan, changed)
+
+    def test_extra_notification_rejected_with_consistent_raw_stream(self):
+        original = self.full_fake_report()
+        for name, kind, values in (
+            ("observer", 301, update(77, 9)),
+            ("observer", 104, [(101, b"unsolicited")]),
+            ("observer", 302, [(103, b"\0\1")]),
+        ):
+            with self.subTest(kind=kind):
+                report = copy.deepcopy(original)
+                when = report["events"][-1]["elapsed_ns"] + 1
+                extra = frame(name, kind, 99, values, when=when)
+                report["frames"].append(extra)
+                report["events"].append(
+                    {
+                        "connection": name,
+                        "event": "receive",
+                        "hex": extra["raw_hex"],
+                        "elapsed_ns": when,
+                    }
+                )
+                report["streams"][name]["received_hex"] += extra["raw_hex"]
+                with self.assertRaises(ValueError):
+                    control.verify_report(self.plan, report)
 
 
 if __name__ == "__main__":

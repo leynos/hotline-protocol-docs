@@ -173,21 +173,29 @@ def classify(plan: dict, report: dict) -> None:
         ("paced", paced_uid, 1000, 2000),
         ("burst", burst_uid, 3000, 4000),
     ):
-        updates = [
-            f
-            for f in frames
-            if f["connection"] == "observer"
-            and f["type"] == 301
-            and not f["is_reply"]
-            and exact_fields(f).get(103) == uid.to_bytes(2, "big")
-            and (f["arrival_elapsed_ns"] < burst_start) == (name == "paced")
-        ]
-        expected_icons = [1] + (
-            list(range(2, 29)) if name == "paced" else list(range(2, 28))
-        )
-        need(len(updates) == len(expected_icons), f"{name} 301 cardinality differs")
-        for frame, icon in zip(updates, expected_icons, strict=True):
-            update_frame(frame, uid, icon)
+        expected_subject = list(range(2, 29)) if name == "paced" else list(range(2, 28))
+        for receiver, expected_icons in (
+            ("observer", [1, *expected_subject]),
+            (name, expected_subject),
+        ):
+            updates = [
+                f
+                for f in frames
+                if f["connection"] == receiver
+                and f["type"] == 301
+                and not f["is_reply"]
+                and exact_fields(f).get(103) == uid.to_bytes(2, "big")
+                and (
+                    receiver != "observer"
+                    or (f["arrival_elapsed_ns"] < burst_start) == (name == "paced")
+                )
+            ]
+            need(
+                len(updates) == len(expected_icons),
+                f"{name}/{receiver} 301 cardinality differs",
+            )
+            for frame, icon in zip(updates, expected_icons, strict=True):
+                update_frame(frame, uid, icon)
         for offset in range(26 + (name == "paced")):
             successful(one(frames, name, 0, bars + offset, 1))
         need(
@@ -201,7 +209,7 @@ def classify(plan: dict, report: dict) -> None:
         )
     need(
         not any(
-            f["connection"] == "observer"
+            f["connection"] in {"observer", "burst"}
             and f["type"] == 301
             and f["arrival_elapsed_ns"] >= burst_start
             and exact_fields(f).get(103) == burst_uid.to_bytes(2, "big")
@@ -209,6 +217,70 @@ def classify(plan: dict, report: dict) -> None:
             for f in frames
         ),
         "Terminal 27th 304 unexpectedly broadcast 301",
+    )
+    notifications = [f for f in frames if f["type"] in {301, 302, 104}]
+    expected_301 = {"observer": 55, "paced": 27, "burst": 26}
+    for receiver, count in expected_301.items():
+        need(
+            sum(f["type"] == 301 and f["connection"] == receiver for f in notifications)
+            == count,
+            f"Unexpected/foreign {receiver} 301",
+        )
+    need(
+        not any(
+            f["type"] == 301 and f["connection"] not in expected_301
+            for f in notifications
+        ),
+        "Foreign 301 recipient",
+    )
+    probe_start = next(
+        a["elapsed_ns"] for a in report["actions"] if a["label"] == "probe-login"
+    )
+    terminal_start = next(
+        a["elapsed_ns"] for a in report["actions"] if a["label"] == "burst-304-terminal"
+    )
+    departures = [f for f in notifications if f["type"] == 302]
+    need(
+        all(
+            f["connection"] == "observer"
+            and f["flags"] == 0
+            and f["is_reply"] == 0
+            and f["error"] == 0
+            and set(exact_fields(f)) == {103}
+            and len(exact_fields(f)[103]) == 2
+            for f in departures
+        ),
+        "Unexpected departure302 grammar/recipient",
+    )
+    paced_leave = [f for f in departures if f["arrival_elapsed_ns"] < burst_start]
+    burst_leave = [
+        f for f in departures if burst_start <= f["arrival_elapsed_ns"] < probe_start
+    ]
+    probe_leave = [f for f in departures if f["arrival_elapsed_ns"] >= probe_start]
+    need(
+        len(paced_leave) == len(burst_leave) == 1
+        and exact_fields(paced_leave[0])[103] == paced_uid.to_bytes(2, "big")
+        and exact_fields(burst_leave[0])[103] == burst_uid.to_bytes(2, "big")
+        and len(probe_leave) <= 1
+        and all(
+            exact_fields(f)[103] != initial_rows[0]["uid"].to_bytes(2, "big")
+            for f in probe_leave
+        ),
+        "Known departure or optional unassigned probe302 differs",
+    )
+    notices = [f for f in notifications if f["type"] == 104]
+    need(
+        len(notices) <= 1
+        and all(
+            f["connection"] == "burst"
+            and f["flags"] == 0
+            and f["is_reply"] == 0
+            and f["error"] == 0
+            and f["arrival_elapsed_ns"] >= terminal_start
+            and bool(exact_fields(f))
+            for f in notices
+        ),
+        "Unexpected 104 outside bounded terminal-burst phase",
     )
     probe = one(frames, "probe", 0, 1, 1)
     need(
@@ -532,24 +604,36 @@ def update_and_barrier(wire: Wire, name: str, index: int, uid: int) -> None:
     barrier_id = (2000 if paced else 4000) + index
     icon = index + 2
     wire.send(name, cases.update(request_id, icon), f"{name}-304-{index:02d}")
-    wire.wait_for(
-        lambda: any(
-            f["connection"] == "observer"
-            and f["type"] == 301
-            and f["is_reply"] == 0
-            and exact_fields(f).get(103) == uid.to_bytes(2, "big")
-            and exact_fields(f).get(104) == icon.to_bytes(2, "big")
-            for f in wire.frames
-        ),
-        0.55,
-        f"{name} observer301 icon{icon}",
-    )
     wire.send(name, cases.barrier(barrier_id), f"{name}-500-{index:02d}")
     wire.wait_for(
-        lambda: bool(wire.match(name, 0, barrier_id, 1)),
-        0.4,
-        f"{name} barrier500 id{barrier_id}",
+        lambda: (
+            all(
+                any(
+                    f["connection"] == receiver
+                    and f["type"] == 301
+                    and f["is_reply"] == 0
+                    and exact_fields(f).get(103) == uid.to_bytes(2, "big")
+                    and exact_fields(f).get(104) == icon.to_bytes(2, "big")
+                    for f in wire.frames
+                )
+                for receiver in ("observer", name)
+            )
+            and bool(wire.match(name, 0, barrier_id, 1))
+        ),
+        0.55,
+        f"{name} subject/observer301 and500 ACK icon{icon}",
     )
+    for receiver in ("observer", name):
+        matches = [
+            f
+            for f in wire.frames
+            if f["connection"] == receiver
+            and f["type"] == 301
+            and exact_fields(f).get(103) == uid.to_bytes(2, "big")
+            and exact_fields(f).get(104) == icon.to_bytes(2, "big")
+        ]
+        need(len(matches) == 1, f"{receiver} duplicate 301 icon{icon}")
+        update_frame(matches[0], uid, icon)
     successful(one(wire.frames, name, 0, barrier_id, 1))
 
 
@@ -617,21 +701,35 @@ def perform(wire: Wire, plan: dict) -> dict:
             next_observer += 5
     quiet = time.monotonic() - last_subject_request
     wire.send("paced", cases.update(1026, 28), "paced-304-after-quiet")
+    wire.send("paced", cases.barrier(2026), "paced-500-after-quiet")
     wire.wait_for(
-        lambda: any(
-            f["connection"] == "observer"
+        lambda: (
+            all(
+                any(
+                    f["connection"] == receiver
+                    and f["type"] == 301
+                    and exact_fields(f).get(103) == paced_uid.to_bytes(2, "big")
+                    and exact_fields(f).get(104) == b"\0\x1c"
+                    for f in wire.frames
+                )
+                for receiver in ("observer", "paced")
+            )
+            and bool(wire.match("paced", 0, 2026, 1))
+        ),
+        2,
+        "paced 27th subject/observer301 and500 ACK",
+    )
+    for receiver in ("observer", "paced"):
+        updates = [
+            f
+            for f in wire.frames
+            if f["connection"] == receiver
             and f["type"] == 301
             and exact_fields(f).get(103) == paced_uid.to_bytes(2, "big")
             and exact_fields(f).get(104) == b"\0\x1c"
-            for f in wire.frames
-        ),
-        2,
-        "paced 27th accepted301",
-    )
-    wire.send("paced", cases.barrier(2026), "paced-500-after-quiet")
-    wire.wait_for(
-        lambda: bool(wire.match("paced", 0, 2026, 1)), 2, "paced 27th barrier"
-    )
+        ]
+        need(len(updates) == 1, f"{receiver} duplicate post-quiet301")
+        update_frame(updates[0], paced_uid, 28)
     successful(one(wire.frames, "paced", 0, 2026, 1))
     wire.shutdown_and_close("paced")
     wire.wait_for(
