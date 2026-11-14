@@ -3,11 +3,11 @@
   "title": "Hotline 1.9 protocol documentation gap register",
   "audited_at_utc": "2026-11-12T12:55:29.155796+00:00",
   "last_updated": "2026-11-14",
-  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-82/manifest.json",
-  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-82/sections.json",
+  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-83/manifest.json",
+  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-83/sections.json",
   "validity_ledger": "../mothra/docs/baseline-validity-ledger.md",
   "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
-  "method": "Preserve all 87 original criteria and 61 Resolved, 25 Investigating, 1 Open. Reconcile the M2b alias preparation guide with fresh live-02 identifiers, pre-staged Finder selection and full sidecar hash pin; this is preparation, not native acceptance. Reuse byte-identical prior snapshots and refresh affected section locations. Further mxd validation stays on hold.",
+  "method": "Preserve all 87 original criteria and 61 Resolved, 25 Investigating, 1 Open. Reconcile the fresh live-03 alias preparation and the frozen live-02 prestage/readiness refusal; the observed section is bounded evidence, not a native alias outcome. Reuse byte-identical prior snapshots and refresh affected section locations. Further mxd validation stays on hold.",
   "gaps": [
     {
       "id": "GAP-001",
@@ -15070,7 +15070,7 @@
       "heading": "Exact boundary",
       "level": 2,
       "line_start": 10,
-      "line_end": 43,
+      "line_end": 46,
       "anchor": "exact-boundary",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -15086,8 +15086,8 @@
       "path": "native-missing-alias-preparation.md",
       "heading": "Reviewed Finder receipt",
       "level": 2,
-      "line_start": 44,
-      "line_end": 85,
+      "line_start": 47,
+      "line_end": 88,
       "anchor": "reviewed-finder-receipt",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -15103,9 +15103,26 @@
       "path": "native-missing-alias-preparation.md",
       "heading": "Commands and limits",
       "level": 2,
-      "line_start": 86,
-      "line_end": 112,
+      "line_start": 89,
+      "line_end": 116,
       "anchor": "commands-and-limits",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-054"
+      ],
+      "related_gap_ids": [
+        "GAP-049",
+        "GAP-054",
+        "GAP-084"
+      ]
+    },
+    {
+      "path": "native-missing-alias-preparation.md",
+      "heading": "Observed Finder preparation and case refusal",
+      "level": 2,
+      "line_start": 117,
+      "line_end": 147,
+      "anchor": "observed-finder-preparation-and-case-refusal",
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-054"
