@@ -322,6 +322,10 @@ unchanged two-zero-byte 161, completed 121 and roster 300, and received 58
 banner bytes. A separate [three-case matrix](classic-field161-matrix.md)
 reached those stages with 161 omitted, one zero byte, or four zero bytes.
 These finite observations do not establish 161's meaning or nonzero values.
+The [one ASCII server-name case](classic-server-name-162.md) also reaches
+those stages after appending 162=`fixture-native` to the unchanged native
+login ACK. It establishes tolerance of that value, not its UI rendering or a
+general text codec.
 
 There are two observed login-completion paths:
 

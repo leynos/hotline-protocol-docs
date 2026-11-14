@@ -30,14 +30,15 @@ from these labels to other binaries are unproved. The
 | Native login and roster | Captured full-process sessions | Captured baseline and proxy sessions |
 | Native zero-valued 161 | Accepted in native sessions | Accepted in native baseline |
 | 161 omission/variation | Controlled receiver: absent and `0001` continue | Native proxy: absent, one zero byte and four zero bytes continue |
-| Nonempty 162 | Native ASCII/high-byte configured names accepted through recorded stages | No accepted nonempty-162 fixture in this checkpoint |
+| Nonempty 162 | Native ASCII/high-byte configured names accepted through recorded stages | One proxy-appended ASCII value accepted through login/roster/banner-data stages |
 | Unknown login TLV | Controlled field 32767 continues | Untested |
 | Roster subject 115 | Controlled receiver observation | Untested |
 | Banner 122 | Controlled ordering cases continue; early frame produces diagnostic/dump | Native 212 request and 58-byte data transfer; rendering unproved |
 
 The [shx evidence](peer-tolerance-matrix.md),
-[Classic baseline](classic-native-baseline.md) and
-[Classic 161 matrix](classic-field161-matrix.md) define each cell's actual
+[Classic baseline](classic-native-baseline.md),
+[Classic 161 matrix](classic-field161-matrix.md), and
+[ASCII 162 case](classic-server-name-162.md) define each cell's actual
 transport, transformations and observed stopping point. A controlled receiver
 is not native server execution. A native proxy tests the named rewrite;
 unchanged upstream/downstream views and complete TCP tails bound that claim.

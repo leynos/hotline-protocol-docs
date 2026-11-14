@@ -90,8 +90,11 @@ extras. The identified compiled shx and Classic candidate now have the finite
 native sessions linked in the matrix above. Other profiles still need their
 own identified evidence; no reported version alone selects one of these
 builds. The Classic 161 matrix establishes tolerance of absent, one-zero-byte
-and four-zero-byte values through its recorded stages. It supplies no
-nonzero-161 or field-162 result and does not choose an mxd omission policy.
+and four-zero-byte values through its recorded stages. A separate
+[ASCII 162 trial](classic-server-name-162.md) appends `fixture-native` and
+reaches login, roster and banner data with all other bytes unchanged. Neither
+trial establishes nonzero-161 meaning, general 162 encoding, banner rendering
+or an mxd omission policy.
 
 Banner advertisement is separate: after agreement acceptance, native
 transaction **122** carries type 152 and optional 153, conditional on configured

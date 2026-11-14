@@ -16,7 +16,7 @@ wire. Field numbers below are decimal; integers use big-endian bytes.
 | `10015e70`, 110 option 1 | 101 temporary-ban text only | [Disposable option-one witness](native-ban-notices.md) |
 | `10015e70`, 110 option 2 | 101 permanent-ban text only | [Permanent-ban control witness](native-ban-control-witness.md) |
 | Console message dialog `10002dd0` | 101 operator-supplied text only | [Console witness](native-console-broadcast.md) |
-| `10006590`, applying configured address bans to connected users | 101 configured-ban notice only | Static trace; native notification fixture outstanding |
+| `10006590`, applying configured address bans to connected users | 101 configured-ban notice only | [Static bytes and caller](native-configured-ban-static.md); native notification fixture outstanding |
 
 The room and account corpus directories in this table are below
 `../mothra/evidence/gap-remediation/2026-11-13/`. Their semantic verifiers
@@ -37,6 +37,8 @@ message, deleted account, or ban. Operator-supplied text can match a generated
 notice verbatim. A receiver must preserve these ambiguities instead of
 inventing an origin, sender UID, or mandatory 113. Known surrounding actions
 can provide context, but their absence does not make the payload malformed.
+The configured-ban helper's compiled 101 text is the same 42-byte permanent
+notice as option 2; that equality is static evidence, not a new wire fixture.
 
 The 349 collision fixture captures the notification before the final success
 ACK on the same requesting socket. That ordering does not make 104 a direct
