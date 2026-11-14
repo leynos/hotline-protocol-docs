@@ -116,6 +116,7 @@ def protected_case() -> list[dict]:
         read(match_frame={"is_reply": 1, "id": 33}),
     ]
     steps += exchange(500, 80, [], "target")
+    steps.append({"op": "expect_quiet", "connection": "target", "timeout": 1})
     steps += [close("target"), close()]
     return steps
 

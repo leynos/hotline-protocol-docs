@@ -7,6 +7,7 @@ import time
 import unittest
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from types import SimpleNamespace
 from typing import ClassVar
 from unittest.mock import patch
 
@@ -144,6 +145,7 @@ class BanExpiryTests(unittest.TestCase):
         )
         self.assertEqual(len(generated["readiness"]), 18)
         self.assertEqual(len(generated["tempban"]), 24)
+        self.assertEqual(generated["protected"][-3]["op"], "expect_quiet")
         for name, steps in generated.items():
             plan = cases.plan(name, steps, environment(), 15800)
             validate_plan(plan)
@@ -199,6 +201,20 @@ class BanExpiryTests(unittest.TestCase):
         control.identity_before_110(identity_frames(True), b"\0\x32", protected=True)
         with self.assertRaisesRegex(ValueError, "UID/name"):
             control.identity_before_110(good, b"\0\x33", protected=False)
+        extra = identity_frames()
+        extra[-1] = frame(
+            0,
+            32,
+            [
+                (300, roster_record(1, b"framing-fixture")),
+                (300, roster_record(50, cases.ZERO_NAME)),
+                (300, roster_record(51, b"other")),
+            ],
+            "main",
+            is_reply=1,
+        )
+        with self.assertRaisesRegex(ValueError, "roster target identity"):
+            control.identity_before_110(extra, b"\0\x32", protected=False)
         with self.assertRaisesRegex(ValueError, "access"):
             control.identity_before_110(good, b"\0\x32", protected=True)
         with self.assertRaisesRegex(ValueError, "privilege22"):
@@ -297,26 +313,15 @@ class BanExpiryTests(unittest.TestCase):
             root = Path(tmp)
             cases.write_plans(root / "plans", environment())
             (root / "binary").write_bytes(b"oracle")
+            now = datetime.now(timezone.utc)
             (root / "receipt.json").write_text(
-                json.dumps(
-                    {
-                        "deadline_utc": (
-                            datetime.now(timezone.utc) + timedelta(minutes=2)
-                        ).isoformat()
-                    }
-                )
+                json.dumps({"deadline_utc": (now + timedelta(minutes=2)).isoformat()})
             )
             (root / "clock.json").write_text(
                 json.dumps(
-                    {
-                        "request_utc": datetime.now(timezone.utc).isoformat(),
-                        "ack_utc": datetime.now(timezone.utc).isoformat(),
-                        "image_inode": 222,
-                        "emulator_pid": 9001,
-                        "emulator_start_ticks": 111,
-                        "emulator_sha256": "a" * 64,
-                        "namespace_inode": 456,
-                    }
+                    control.TimingBounds(
+                        now, now, 222, 9001, 111, "a" * 64, 456
+                    ).to_json()
                 )
             )
             for phase, marker in (
@@ -354,6 +359,131 @@ class BanExpiryTests(unittest.TestCase):
                     self.assertIsNone(result["readiness_report_sha256"])
                     self.assertEqual(run.call_count, 1)
                     self.assertEqual(run.call_args.args[1], f"{phase}-probe")
+
+    def test_live_runtime_binding_and_namespace_routes(self) -> None:
+        original = environment()
+        with (
+            patch.object(control.os, "geteuid", return_value=0),
+            patch.object(control, "capture_gate", side_effect=AssertionError("live")),
+        ):
+            for key in (
+                "emulator_starttime",
+                "emulator_sha256",
+                "emulator_netns_inode",
+                "owned_working_image_inode",
+            ):
+                with self.subTest(key=key), self.assertRaisesRegex(ValueError, "plan"):
+                    control.runtime_gate(
+                        original | {key: "changed"},
+                        original,
+                        datetime.now(timezone.utc) + timedelta(minutes=2),
+                    )
+        receipt = {
+            "namespace_recorder_pid": 123,
+            "emulator_pid": 456,
+            "emulator_netns_inode": 789,
+        }
+
+        def inode(value: int) -> SimpleNamespace:
+            return SimpleNamespace(st_ino=value)
+
+        with (
+            patch.object(control.os, "stat", side_effect=[inode(789), inode(789)]),
+            patch.object(
+                control.subprocess,
+                "run",
+                side_effect=[
+                    SimpleNamespace(stdout="[]"),
+                    SimpleNamespace(stdout="[]"),
+                    SimpleNamespace(stdout='[{"ifname":"lo"}]'),
+                ],
+            ) as run,
+        ):
+            control.namespace_gate(receipt)
+            self.assertEqual(run.call_count, 3)
+        with (
+            patch.object(control.os, "stat", side_effect=[inode(999), inode(789)]),
+            self.assertRaisesRegex(ValueError, "not in the emulator namespace"),
+        ):
+            control.namespace_gate(receipt)
+        with (
+            patch.object(control.os, "stat", side_effect=[inode(789), inode(789)]),
+            patch.object(
+                control.subprocess,
+                "run",
+                side_effect=[SimpleNamespace(stdout='[{"dst":"default"}]')],
+            ),
+            self.assertRaisesRegex(ValueError, "routes changed"),
+        ):
+            control.namespace_gate(receipt)
+
+    def test_first_epoch_settles_before_any_account_socket(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            cases.write_plans(root / "plans", environment())
+            ready = root / "ready"
+            ready.mkdir()
+            (ready / "plan.json").write_bytes(
+                (root / "plans/readiness.json").read_bytes()
+            )
+            (ready / "report.json").write_text("{}")
+            (root / "binary").write_bytes(b"oracle")
+            (root / "receipt.json").write_text(
+                json.dumps(
+                    {
+                        "deadline_utc": (
+                            datetime.now(timezone.utc) + timedelta(minutes=2)
+                        ).isoformat()
+                    }
+                )
+            )
+            sequence = []
+            clock = control.TimingBounds(
+                datetime.now(timezone.utc),
+                datetime.now(timezone.utc),
+                222,
+                9001,
+                111,
+                "a" * 64,
+                456,
+            )
+
+            def fake_case(_plan: dict, name: str, *_args) -> dict:
+                sequence.append(name)
+                return {"status": "completed", "error": ""}
+
+            with (
+                patch.multiple(
+                    control,
+                    runtime_gate=lambda *_: None,
+                    verify_capture=lambda *_: {
+                        "oracle_sha256": hashlib.sha256(b"oracle").hexdigest()
+                    },
+                    readiness=lambda *_: None,
+                    run_case=fake_case,
+                    ban_timing=lambda *_: clock,
+                    ORACLE_SHA256=hashlib.sha256(b"oracle").hexdigest(),
+                ),
+                patch.object(
+                    control.time,
+                    "sleep",
+                    side_effect=lambda n: sequence.append(f"settle-{n}"),
+                ),
+                patch.object(
+                    control.time, "monotonic_ns", side_effect=[0, 35_000_000_000]
+                ),
+            ):
+                result = control.run_epoch(
+                    "first",
+                    root / "plans",
+                    ready,
+                    root / "receipt.json",
+                    root / "binary",
+                    root / "out",
+                )
+            self.assertEqual(result["status"], "completed")
+            self.assertEqual(sequence, ["settle-35", *control.EPOCH_CASES["first"]])
+            self.assertEqual(result["post_readiness_settle"]["elapsed_seconds"], 35)
 
 
 if __name__ == "__main__":

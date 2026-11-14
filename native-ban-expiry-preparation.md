@@ -1,18 +1,16 @@
 # Native temporary-ban expiry fixture preparation
 
-This packet prepares a **future, separately authorised** GAP-074 control-only
-run. It does not launch a guest, contact the native server, adjust a clock, or
-claim temporary-ban expiry. The original full-file A7 baseline is explicitly
-`not_exercised` in these plans.
+This prepares a separately authorised GAP-074 control-only run. No guest,
+native contact or clock change occurs here. The full-file A7 baseline is
+`not_exercised`; no expiry result is claimed.
 
 ## Scope and owned identities
 
 - Use a new disposable runtime at `state/mac-runtime/native-ban-expiry-01`, a
   new display at `state/mac-displays/native-ban-expiry-01`, and ports
   15800–15803. The live operator must prove the stopped base, ROM, new
-  working-image inode, actual emulator PID/start time/executable SHA, FD 6/16,
-  namespace, loopback-only routes, and zero primary contact. Never copy a live
-  working image.
+  image inode, emulator PID/start/exe SHA, FD 6/16, namespace, loopback-only
+  routes and zero primary contact. Never copy a live working image.
 - The two new account keys are `m-expiry-zero` (zero 64-bit ACL) and
   `m-expiry-protected` (only privilege bit 23). They never name the original
   administrator. Existing names cause the guard to fail; no overwrite or retry
@@ -34,6 +32,9 @@ claim temporary-ban expiry. The original full-file A7 baseline is explicitly
   independent lock contention, native binary SHA, guest FD 16, and the frozen
   plan hash. The runner requires root only to inspect `/proc`; no privilege
   adjustment occurs inside the guest.
+- The runtime gate binds prepared PID, start, exe, namespace and image inode
+  to the receipt, then rereads the recorder's actual namespace, both IP route
+  tables and the interface list. Only `lo` and empty main routes pass.
 
 ## Prepared case order
 
@@ -50,6 +51,11 @@ claim temporary-ban expiry. The original full-file A7 baseline is explicitly
 - **Pre:** pre-probe. Fresh 107 remains rejected in the host-time window.
 - **Post:** post-probe. Fresh 107 succeeds in the host-time window.
 
+The first epoch records a deadline-checked 35-second socket-free runner wait
+after its 18-action readiness and before guard-zero. This reduces the native
+same-address request-counter confound; it does not prove a guest clock rate.
+The protected case checks a target 500 ACK, then one second of bounded quiet.
+Rejected 107 cases claim only their correlated reply; retain raw TCP tails.
 The target UID is captured from an actual 301 and checked against a fresh roster
 300, not hardcoded. Every 110 is blocked unless admin access, target access,
 name and UID match. The successful and rejected 107 vectors are complete fresh
@@ -116,6 +122,11 @@ operator postflight. The runner does not execute it. It cannot substitute for
 pre-probe readiness or count as the first lookup. No prior Login107 of any
 account is permitted in pre/post.
 
+The private checkout lacks canonical `native_ban_control_cases.py` and
+`native_control_readiness.py`. Offline tests use
+`PYTHONPATH=scripts:/data/leynos/Projects/hotline-protocol-docs/scripts`.
+Root must import these dependencies before a fresh export.
+
 ## Time and interpretation
 
 The option-1 request send and complete ACK receipt become `T_req` and `T_ack`.
@@ -132,7 +143,7 @@ this isolated lab.
 
 ## Verification and decision gates
 
-Offline checks: Ruff format/check, `ty check`, the five focused `unittest`
+Offline checks: Ruff format/check, `ty check`, eight focused `unittest`
 controls, Markdownlint and Nixie. The producer limits the port and source A7
 identity; the consumer rejects changed plans, account identity, admin privilege,
 wrong notice/EOF, mistimed probes, emulator/image changes and incomplete
@@ -142,7 +153,8 @@ linkage, postflight, cleanup, and any GAP-074 status decision. Unexpected UI,
 source identity, route, capture, mutex or outcome stops the authorised epoch
 without widening the fixture.
 
-Production allowance increased from 900 to 960 physical lines for fresh
-managed-unit, mutex, PID/FD checks, deadline-clamped reads and preservation of
-semantic failures. B67 allows 1040 production lines to correct later-epoch
-readiness ordering and its tests. No live work is part of this packet.
+B66 allowed 960 production lines for managed-unit, mutex, PID/FD, deadline
+and failure-report safeguards; B67 allowed 1040 for readiness ordering.
+B68 allows 1120 production and 490 test lines for identity, namespace and
+the 35-second order regression (68 formatted test lines, 35 estimated).
+No live work is part of this packet.

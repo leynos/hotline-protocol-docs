@@ -196,7 +196,8 @@ def identity_before_110(
     require(len(snapshots) == 1, "Current roster missing")
     rows = roster(snapshots[0])
     require(
-        sum(
+        len(rows) == 2
+        and sum(
             r["uid"] == int.from_bytes(saved_uid, "big")
             and r["name_hex"] == expected_name.hex()
             for r in rows
@@ -275,9 +276,8 @@ def probe_gate(report: dict, accepted: bool) -> None:
             and field_map(response) == {100: TEMP_TEXT},
             "Fresh Login107 temporary-ban error differs",
         )
-        require(
-            not relevant(report, "main", kind=354), "Rejected login received privileges"
-        )
+        # Only the correlated Login107 reply is claimed. The complete TCP
+        # capture, not this parsed-frame list, bounds any later observed tail.
     sends = [e["hex"] for e in report["events"] if e["event"] == "send"]
     require(
         len(sends) == (3 if accepted else 2)
@@ -313,13 +313,20 @@ def outcome_gate(report: dict, name: str) -> None:
             "Protected target kick was not rejected",
         )
         require(
-            reply(report, 80)["error"] == 0
+            reply(report, 80, "target")["error"] == 0
             and not relevant(report, "target", kind=104)
             and not any(
                 e["connection"] == "target" and e["event"] == "eof"
                 for e in report["events"]
             ),
             "Protected target did not remain live",
+        )
+        require(
+            any(
+                e["connection"] == "target" and e["event"] == "quiet"
+                for e in report["events"]
+            ),
+            "Protected target lacked post-500 bounded quiet barrier",
         )
     elif name in {"kick0", "tempban"}:
         identity_before_110(
@@ -405,14 +412,82 @@ def live_service(meta: dict, deadline_utc: datetime) -> None:
     )
 
 
+def namespace_gate(receipt: dict) -> None:
+    """Re-read recorder placement and routes in its actual network namespace."""
+    recorder_pid = receipt["namespace_recorder_pid"]
+    emulator_pid = receipt["emulator_pid"]
+    expected = receipt["emulator_netns_inode"]
+    require(
+        os.stat(f"/proc/{recorder_pid}/ns/net").st_ino
+        == os.stat(f"/proc/{emulator_pid}/ns/net").st_ino
+        == expected,
+        "Namespace recorder is not in the emulator namespace",
+    )
+    prefix = ["/usr/sbin/nsenter", "-t", str(recorder_pid), "-n", "/usr/sbin/ip", "-j"]
+    for family in ("-4", "-6"):
+        output = subprocess.run(
+            [*prefix, family, "route", "show", "table", "main"],
+            capture_output=True,
+            text=True,
+            check=True,
+            timeout=5,
+        ).stdout
+        require(json.loads(output) == [], f"Live {family} namespace routes changed")
+    output = subprocess.run(
+        [*prefix, "link", "show"],
+        capture_output=True,
+        text=True,
+        check=True,
+        timeout=5,
+    ).stdout
+    require(
+        [link["ifname"] for link in json.loads(output)] == ["lo"],
+        "Live namespace has a non-loopback interface",
+    )
+
+
+def settle_first_epoch(summary: dict, deadline_utc: datetime) -> None:
+    """Leave a socket-free margin after readiness before the account cases."""
+    started = datetime.now(timezone.utc)
+    require(
+        (deadline_utc - started).total_seconds() >= 45,
+        "Insufficient epoch deadline for35s post-readiness settling",
+    )
+    started_ns = time.monotonic_ns()
+    settle: dict[str, str | float | int] = {"started_utc": started.isoformat()}
+    summary["post_readiness_settle"] = settle
+    time.sleep(35)
+    elapsed = (time.monotonic_ns() - started_ns) / 1_000_000_000
+    settle.update(
+        completed_utc=datetime.now(timezone.utc).isoformat(),
+        elapsed_seconds=elapsed,
+        runner_socket_actions_during_wait=0,
+    )
+    require(
+        elapsed >= 35
+        and (deadline_utc - datetime.now(timezone.utc)).total_seconds() > 10,
+        "Post-readiness settling incomplete or epoch deadline reached",
+    )
+
+
 def runtime_gate(receipt: dict, env: dict, deadline_utc: datetime) -> None:
     require(os.geteuid() == 0, "Live runner requires root for /proc identity")
     require(
-        receipt["emulator_pid"] == env["emulator_pid"]
-        and receipt["owned_working_image"] == env["owned_working_image"],
+        all(
+            receipt[key] == env[key]
+            for key in (
+                "emulator_pid",
+                "emulator_starttime",
+                "emulator_sha256",
+                "emulator_netns_inode",
+                "owned_working_image",
+                "owned_working_image_inode",
+            )
+        ),
         "Runtime receipt differs from plan",
     )
     capture_gate(receipt)
+    namespace_gate(receipt)
     require(
         os.readlink(f"/proc/{receipt['emulator_pid']}/fd/16") == receipt["guest_pcap"],
         "Guest PCAP FD changed",
@@ -663,6 +738,8 @@ def run_epoch(
         "timing_gate": timing_result,
     }
     try:
+        if phase == "first":
+            settle_first_epoch(summary, deadline)
         for name in EPOCH_CASES[phase]:
             runtime_gate(receipt, first["environment"], deadline)
             planned, actual = plan_gate(plans_dir / f"{name}.json")
