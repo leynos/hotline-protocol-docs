@@ -1,9 +1,9 @@
 # Same-session 304 transition preparation (A32)
 
 This was the offline preparation for the measured
-[A33 native witness](native-settings-transition-witness.md). GAP-029/030
-remain open. The sequence made no server option, account, file, agreement
-or restart change.
+[A33 native witness](native-settings-transition-witness.md). GAP-029 remains
+open; combined 121/304 evidence has since satisfied GAP-030. The sequence
+made no server option, account, file, agreement or restart change.
 
 The generator `scripts/native_settings_transition_cases.py` takes an explicit
 runtime record and the exact A7 29-action/full-FILP baseline plan, SHA-256

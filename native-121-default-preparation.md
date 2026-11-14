@@ -57,7 +57,8 @@ configuration, Files or restart operation is in the plan.
 
 This packet addresses only 121 default-wire fixtures. Re-login, restart,
 durability and general non-ASCII encoding remain outside its scope;
-GAP-029/030 retain those original requirements.
+GAP-029 and GAP-018 retain those separate requirements. Combined native
+evidence now satisfies GAP-030; see the measured witness and gap register.
 
 For a separately approved live run, substitute fresh, operator-owned paths:
 

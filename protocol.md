@@ -317,6 +317,10 @@ the tested high byte `9a`. A saved name change affects a fresh login; no new
 accepted 20-second sequence. Field 161 stays two zero bytes across these name
 and banner modes, but its purpose remains unresolved.
 
+The [pinned Classic client baseline](classic-native-baseline.md) accepted the
+unchanged two-zero-byte 161, completed 121 and roster 300, and received 58
+banner bytes. Width and omission variants remain untested in that corpus.
+
 There are two observed login-completion paths:
 
 - With nonempty name 102 and nonzero icon 104, the handler can mark the session
@@ -384,9 +388,15 @@ Options 113 is a bitmap in this settings context:
 | 2 | Refuse private-chat invitations |
 | 4 | Enable automatic response |
 
-When automatic response is enabled without text 215, the settings helper
-supplies default text. Do not confuse these bitmap settings with the
-enumerated message-option values used by transaction 108.
+With bit 2 (value 4) enabled and 215 absent or empty, the default response
+is exactly 52 ASCII bytes:
+`I'm not able to respond right now. Please try later!`.
+The [two delayed-121 cases](native-121-default-witness.md) and
+[eight 304 transitions](native-settings-transition-witness.md) capture these
+defaults and the enable/disable/update rules. Only bits 0–2 participate in
+the helper's three flag assignments; measured values 8 and 12 agree with that
+mask. This establishes the default's bytes, not a general supplied-text codec.
+Transaction 108 uses 113 as an enumerated PM option, a separate grammar.
 
 Evidence: V026–V029; `10011ee0`, `10004d50`.
 
@@ -532,7 +542,9 @@ adds eight before/after cases: on the naming-allowed admin session,
 omitted/empty name and icon become `***` and zero, while omitted/empty 215
 with auto-response enabled selects the exact default text. Unknown-only 8,
 mixed 12, disable and re-enable cases retain their measured PM outcomes.
-These captures do not establish restart persistence or transaction-121 parity.
+The separate [121 default cases](native-121-default-witness.md) match the
+same default bytes. Restart persistence and broader agreement-path edge cases
+remain separate requirements.
 
 Evidence: V028, V037–V038; `10016ad0`, `10004d50`, `10004f30`.
 

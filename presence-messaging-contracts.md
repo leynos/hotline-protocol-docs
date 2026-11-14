@@ -35,8 +35,11 @@ automatic-response text. Omitted and empty 102/104 reset the observed state to
 `***`/0; enabled auto-response with omitted or empty 215 emits the exact
 default bytes. Option 8 alone disables feedback, 12 enables it, and absent or
 zero 113 disables it before a later re-enable selects the default again.
-These are 304 observations; agreement-path and persistence evidence remains
-separate.
+These are 304 observations. The [two delayed-121 defaults](native-121-default-witness.md)
+independently produce the same exact 52-byte ASCII response for absent and
+empty 215. Combined review meets GAP-030's unchanged criterion. Session
+persistence remains GAP-029 and supplied-text encoding remains GAP-018;
+the default literal does not establish a general codec.
 
 Settings retain a 16-bit icon. The 301 sender promotes that word as signed
 before numeric serialization: high-bit icons use four bytes (`8000` becomes

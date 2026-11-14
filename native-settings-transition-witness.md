@@ -71,4 +71,6 @@ python3 -m unittest discover -s \
 
 The observed 304 sequence does not test agreement transaction 121,
 re-login, process restart, account-file durability or general non-ASCII
-text encoding. GAP-029 and GAP-030 remain open for those original clauses.
+text encoding. The [delayed-121 witness](native-121-default-witness.md)
+adds the separate default-text cases. Combined acceptance closes GAP-030;
+persistence (GAP-029) and general encoding (GAP-018) remain open.
