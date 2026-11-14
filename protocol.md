@@ -157,6 +157,8 @@ transfer references are explicitly serialized as four bytes, and access
 bitmaps as eight. Use the field's schema where its width is established.
 Field-specific narrowing, signedness and invalid-width effects are in the
 [core scalar registry](native-wire-details.md#core-scalar-width-registry).
+The [presence/default registry](presence-defaults.md) distinguishes omission,
+empty values, NUL bytes and numeric zero in each operation context.
 
 Evidence: V011, V013–V016, V032, V040, V042, V062; `100568b0`, `10056a90`,
 `10056b90`, `10056d00`.
@@ -167,7 +169,7 @@ The observed file-date representation is eight bytes:
 
 | Offset | Size | Observed file-date value |
 | ---: | ---: | --- |
-| 0 | 2 | Year, set to 1904 (`07 70`) by the inspected builder |
+| 0 | 2 | Fixed base-year word 1904 (`07 70`), not the calendar year |
 | 2 | 2 | Milliseconds slot, set to zero |
 | 4 | 4 | Supplied filesystem timestamp value |
 
@@ -176,11 +178,14 @@ The file-info handler emits eight-byte creation/modification values in fields
 the previous guide's conversion to a timestamp's calendar year and seconds
 within that year.
 
-**Unresolved:** semantics of nonzero milliseconds, other year values, timezone
-handling and producers beyond the now-traced native news creation path.
-[News contracts](news-contracts.md#news-dates) records its fixed-1904-year form.
-This observation does not require receivers to reject other years. A general
-annual-conversion algorithm is not certified here.
+The [date producer/consumer registry](date-contracts.md) traces file-info,
+transfer INFO and news dates. The native clock/catalogue APIs use seconds
+since 1 January 1904; the traced builders copy that word unchanged.
+
+**Unresolved:** nonzero millisecond/other-year consumer behaviour, the guest
+timezone basis and native rollover. A copied date is not verified UTC. This
+observation does not require receivers to reject other years or certify a
+general annual-conversion algorithm.
 
 Evidence: V017; `10016ba0`, `1002c910`, `10058070`.
 

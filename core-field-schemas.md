@@ -23,7 +23,9 @@ BE32. For reliable canonical output use those emitted widths. This tolerance
 does not make every numeric field unbounded: assignment can narrow a UID/icon
 to 16 bits. The [core scalar registry](native-wire-details.md#core-scalar-width-registry)
 records field-specific ranges and invalid-width effects. Remaining semantic
-length boundaries are tracked in GAP-019.
+length boundaries are tracked in GAP-019. The [presence/default
+registry](presence-defaults.md) separates omission, empty fields and zero
+values, with measured and source-only effects marked individually.
 
 **B** is an uninterpreted byte string in the outer TLV; there is no embedded
 length or terminator unless explicitly shown. **A8** is the exact eight-byte
