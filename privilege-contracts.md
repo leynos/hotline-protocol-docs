@@ -12,7 +12,8 @@ Field 110 is eight bytes. Bit `b` uses byte `b >> 3` and mask
 `0x80 >> (b & 7)`. The three accessors read exactly that bit from the session;
 they do not implement inherited rights or a universal administrator override.
 Unknown entries below are **unknown**, not declared reserved, rejected or safe
-to clear. The table covers the full 0–63 numbering space.
+to clear. The table covers the full 0–63 numbering space. The [per-bit evidence
+index](privilege-bits.md) gives all 64 bitmap values and native readback IDs.
 
 | Bit | Observed native use | Evidence / condition |
 | ---: | --- | --- |
@@ -134,7 +135,9 @@ GAP-032's decision-table deliverable is satisfied for the three accessor domains
 all read the session bitmap directly, and the composition table separates base,
 additional, target and grant checks. There is no helper-level inheritance or
 administrator override to document as an extra permission source. GAP-031
-retains serialization/enforcement fixtures and unknown-bit meanings; alias and
+retains the semantic meaning of 27 unknown positions; the [per-bit
+index](privilege-bits.md) separately records all-64 serialization and links
+representative enforcement fixtures. Alias and
 byte-name predicates, configuration changes and complete runtime branch coverage
 remain GAP-047/054/084. Account grant/update,
 batch partial effects and live-delete sequencing require before/after native

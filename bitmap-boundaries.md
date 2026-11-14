@@ -21,7 +21,9 @@ eight ordered replacement/readback pairs. The bit formula is byte index
 `01 00 00 00 00 00 00 00`, bit 8 is
 `00 80 00 00 00 00 00 00`, and bit 63 is
 `00 00 00 00 00 00 00 01`. This is measured replacement/readback for all
-positions, including currently unlabelled bits. It does not show that each
+positions, including currently unlabelled bits. The [readable per-bit
+index](privilege-bits.md) joins these exact records to known source uses.
+It does not show that each
 position grants a distinct permission or is safe to use.
 
 Each 353 request repeated the owned complemented login, fixed display name,

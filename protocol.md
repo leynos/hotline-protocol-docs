@@ -460,6 +460,9 @@ Evidence: V029, V070; `10011960`, `10011ee0`.
 
 #### Access Privilege Bits (Field 110)
 
+The [64-row evidence index](privilege-bits.md) records exact bitmap bytes,
+native update/readback IDs, known uses and explicitly unknown positions.
+
 Number bits in transmitted byte order: bit 0 is the most significant bit of
 byte 0. The native accessor uses byte `bit >> 3` and bit position `7 - (bit &
 7)`. Do not cast the bitmap to a host integer and assume
