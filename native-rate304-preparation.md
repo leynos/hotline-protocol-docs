@@ -62,7 +62,11 @@ and live replies are a **retained-session control**, not fresh Login107,
 fresh admin login would confound this stage. The runner retains every
 sent/received chunk, parsed frame, action ID/timestamp, dynamic UID, all
 observed tails, finite EOF/RST/no-EOF classification and an explicit unparsed
-tail. Its verifier reconstructs per-flow streams and action bytes; it does not
+tail. Its notification inventory rejects extra 301/302/104, except for at
+most one recorded terminal 104 on the burst flow and one observer 302 after
+the ban probe with a UID different from observer and both departed subjects.
+Neither exception assigns meaning to an unknown notice or UID. Its verifier
+reconstructs per-flow streams and action bytes; it does not
 substitute generic `verify_capture` for this custom multi-socket schedule. The
 parent must pair host/namespace/guest PCAP lifetimes, check primary SYN/drops,
 and read stopped original account/Prefs/server/board forks plus any Banned

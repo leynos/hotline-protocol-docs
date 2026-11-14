@@ -263,7 +263,12 @@ def classify(plan: dict, report: dict) -> None:
         and exact_fields(burst_leave[0])[103] == burst_uid.to_bytes(2, "big")
         and len(probe_leave) <= 1
         and all(
-            exact_fields(f)[103] != initial_rows[0]["uid"].to_bytes(2, "big")
+            exact_fields(f)[103]
+            not in {
+                initial_rows[0]["uid"].to_bytes(2, "big"),
+                paced_uid.to_bytes(2, "big"),
+                burst_uid.to_bytes(2, "big"),
+            }
             for f in probe_leave
         ),
         "Known departure or optional unassigned probe302 differs",

@@ -422,10 +422,13 @@ class Rate304Tests(unittest.TestCase):
 
     def test_extra_notification_rejected_with_consistent_raw_stream(self):
         original = self.full_fake_report()
-        for name, kind, values in (
-            ("observer", 301, update(77, 9)),
-            ("observer", 104, [(101, b"unsolicited")]),
-            ("observer", 302, [(103, b"\0\1")]),
+        for name, kind, values, rejected in (
+            ("observer", 301, update(77, 9), True),
+            ("observer", 104, [(101, b"unsolicited")], True),
+            ("observer", 302, [(103, b"\0\1")], True),
+            ("observer", 302, [(103, b"\0\2")], True),
+            ("observer", 302, [(103, b"\0\3")], True),
+            ("observer", 302, [(103, b"\0\4")], False),
         ):
             with self.subTest(kind=kind):
                 report = copy.deepcopy(original)
@@ -441,7 +444,10 @@ class Rate304Tests(unittest.TestCase):
                     }
                 )
                 report["streams"][name]["received_hex"] += extra["raw_hex"]
-                with self.assertRaises(ValueError):
+                if rejected:
+                    with self.assertRaises(ValueError):
+                        control.verify_report(self.plan, report)
+                else:
                     control.verify_report(self.plan, report)
 
 
