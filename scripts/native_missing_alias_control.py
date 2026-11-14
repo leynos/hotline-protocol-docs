@@ -69,7 +69,7 @@ def prepared(directory: Path) -> dict:
 def host_state(plan: dict) -> dict:
     runtime = Path(plan["environment"]["owned_runtime"])
     need(
-        runtime.is_absolute() and runtime.name == "native-alias-live-04",
+        runtime.is_absolute() and runtime.name == "native-alias-live-05",
         "Unexpected owned runtime root",
     )
     need(

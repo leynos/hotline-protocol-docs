@@ -10,7 +10,7 @@ from native_folder_cases import path
 from native_plan import packet, payload
 from protocol_capture import ORACLE_SHA256
 
-PORT = 16000
+PORT = 16020
 ROOT = b"m-alias54-only"
 TARGET = b"m-alias54-target"
 TARGET_DATA = b"alias54-live-target\n"
@@ -68,7 +68,7 @@ def example_operator_receipt() -> dict:
 
 def source_plan(environment: dict, port: int = PORT) -> dict:
     if port != PORT or environment.get("fixture_profile") != "control-only":
-        raise ValueError("Only isolated control-only port 16000 is prepared")
+        raise ValueError("Only isolated control-only port 16020 is prepared")
     if any(not environment.get(key) for key in ENV_KEYS):
         raise ValueError("Incomplete runtime identity")
     profile = environment.get("capture_window_profile")
