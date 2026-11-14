@@ -70,10 +70,11 @@ Proxy `completed` means only that its ACK and relay ran to completion. It is
 **not** proof the Classic app accepted a variant. B46/B47 established the
 baseline across client, namespace, host and server captures. B52's modified
 cases have separate five-view delivery and subsequent client-request proof.
-The `server-name-162` variant is offline preparation only. It requires native
-161=`0000` and **no** existing 162, then appends one 14-byte ASCII value.
-The [native login-extra corpus][native162] proves that the server's nonempty
-configured name is emitted as 162; it does not prove this fixture's UI meaning.
+The `server-name-162` variant requires native 161=`0000` and **no** existing
+162, then appends one 14-byte ASCII value. The [native login-extra
+corpus][native162] proves that the server's nonempty configured name is emitted
+as 162. One [actual Classic session][classic162] accepted `fixture-native`
+through login, roster, and banner data. Its UI meaning remains unproved.
 The expected full 52-byte ACK and SHA-256 are:
 
 ```text
@@ -81,11 +82,10 @@ The expected full 52-byte ACK and SHA-256 are:
 3f5185b7bc222e684697fd2fce46ff0f625bc13ddf301e8a787bfe47594caedb
 ```
 
-A future single case must first verify the known A7 agreement, stage the
-isolated Classic dialog and both managed recorders, then run one fixed proxy
-and one Return; promptly accept only the exact controlled agreement. A
-client error, early EOF or independent 28-second cutoff are distinct outcomes.
-No live 162 case, alternate payload/width, codec or profile policy is proved.
+B56 stopped before connection because its proxy output leaf already existed;
+B57 used a fresh leaf and completed the single ASCII case. B57's 28-second
+cutoff was intentional, not a client rejection. No alternate payload, width,
+codec, banner rendering or whole-profile policy is established.
 
 ## Automatic observation cutoff (B27 preparation)
 
@@ -184,4 +184,5 @@ process identity before any future service launch.
 [handoff]: ../mothra/docs/delegation/classic-proxy-rehearsal.md
 [baseline]: classic-native-baseline.md
 [matrix]: classic-field161-matrix.md
+[classic162]: classic-server-name-162.md
 [native162]: ../mothra/evidence/gap-remediation/2026-11-13/native-login-extras-01/manifest.json
