@@ -80,8 +80,12 @@ No automatic retry.
 The still-open observer sends only five read-only controls 348, 200, 206, 300
 and 303 afterward. Their known `framing-fixture` field hashes, one-row roster
 and live replies are a **retained-session control**, not fresh Login107,
-18-action postflight or full A7. The ban applies to the shared lab IP; another
-fresh admin login would confound this stage. The runner retains every
+18-action postflight or full A7. Control 303 targets field 103 with the
+two-byte big-endian observer UID resolved from the initial own roster. A
+fieldless 303 or a zero/default UID is invalid; the report checks the sent
+target against that independent roster evidence. The ban applies to the shared
+lab IP; another fresh admin login would confound this stage. The runner retains
+every
 sent/received chunk, parsed frame, action ID/timestamp, dynamic UID, all
 observed tails, finite EOF/RST/no-EOF classification and an explicit unparsed
 tail. Its notification inventory rejects extra 301/302/104, except for at

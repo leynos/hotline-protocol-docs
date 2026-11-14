@@ -81,6 +81,7 @@ def source_plan(environment: dict, port: int = PORT) -> dict:
             "read_mode": "bounded select drain of every open socket, no global frame order",
             "terminal_mode": "bounded EOF/RST/quiet with all observed raw tails",
             "postflight": "retained observer controls 348/200/206/300/303 only",
+            "observer_303_target": "TLV103 BE16 initial own-roster UID, resolved at runtime",
         },
         "request_ids": {
             "login": 1,
@@ -124,9 +125,19 @@ def barrier(identifier: int) -> str:
     return packet(500, identifier)
 
 
-def observer_control(kind: int, identifier: int) -> str:
+def observer_control(
+    kind: int, identifier: int, observer_uid: int | None = None
+) -> str:
     if kind not in (348, 200, 206, 300, 303):
         raise ValueError("Unapproved observer control")
+    if kind == 303:
+        if observer_uid is None or not 1 <= observer_uid <= 65535:
+            raise ValueError("303 requires resolved nonzero observer UID")
+        return packet(
+            kind, identifier, payload([(103, observer_uid.to_bytes(2, "big"))])
+        )
+    if observer_uid is not None:
+        raise ValueError("Only 303 accepts a dynamic observer UID")
     return packet(kind, identifier)
 
 

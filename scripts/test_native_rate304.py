@@ -57,7 +57,7 @@ def update(uid, icon):
     ]
 
 
-def fake_report(plan):
+def fake_report(plan, observer_uid=1):
     frames = []
 
     def add(name, kind, identifier, fields, *, reply=0, error=0, when=0):
@@ -73,14 +73,21 @@ def fake_report(plan):
         add(name, 0, 1, [(160, b"\0\xbe"), (161, b"\0\0")], reply=1, when=when)
         add(name, 354, 0, [(110, access)], when=when)
         add(name, 109, 0, [(101, AGREEMENT)], when=when)
-    add("observer", 0, 10, [(300, roster(1, 1, cases.OBS_NAME))], reply=1, when=0)
+    add(
+        "observer",
+        0,
+        10,
+        [(300, roster(observer_uid, 1, cases.OBS_NAME))],
+        reply=1,
+        when=0,
+    )
     for name, uid, when in (("paced", 2, 100), ("burst", 3, 1100)):
         add(
             name,
             0,
             10,
             [
-                (300, roster(1, 1, cases.OBS_NAME)),
+                (300, roster(observer_uid, 1, cases.OBS_NAME)),
                 (300, roster(uid, 1, cases.SUBJECT_NAME)),
             ],
             reply=1,
@@ -106,13 +113,13 @@ def fake_report(plan):
     add("probe", 0, 1, [(100, cases.TEMPORARY_BAN)], reply=1, error=1, when=1500)
     for kind, identifier in plan["request_ids"]["observer_controls"].items():
         if kind == "300":
-            data = [(300, roster(1, 1, cases.OBS_NAME))]
+            data = [(300, roster(observer_uid, 1, cases.OBS_NAME))]
         else:
             data = [(101, b"fixture")]
         add("observer", 0, identifier, data, reply=1, when=1600)
     return {
         "frames": frames,
-        "identities": {"paced_uid": 2, "burst_uid": 3},
+        "identities": {"observer_uid": observer_uid, "paced_uid": 2, "burst_uid": 3},
         "actions": [
             {"label": "burst-login", "elapsed_ns": 1050},
             {"label": "burst-304-terminal", "elapsed_ns": 1350},
@@ -167,14 +174,65 @@ class Rate304Tests(unittest.TestCase):
     def test_generated_schedule_exact(self):
         self.assertEqual(self.plan["schedule"]["schema_version"], 2)
         self.assertIn("26 ordered 304+500", self.plan["schedule"]["phase_mode"])
-        actions = control.expected_actions(self.plan, 14)
+        actions = control.expected_actions(self.plan, 14, 1)
         self.assertEqual(
             actions[0], ("observer-login", "observer", self.plan["logins"]["observer"])
         )
         self.assertEqual(actions[-1][0], "observer-303")
         self.assertEqual(len(actions), 4 + 52 + 14 + 4 + 52 + 2 + 5)
         with self.assertRaises(ValueError):
-            control.expected_actions(self.plan, 16)
+            control.expected_actions(self.plan, 16, 1)
+
+    def test_observer_303_uses_dynamic_self_uid(self):
+        raw = cases.observer_control(303, 6004, 7)
+        decoded = decode_frame(bytes.fromhex(raw))
+        self.assertEqual(decoded["type"], 303)
+        self.assertEqual(decoded["fields"], [{"id": 103, "hex": "0007"}])
+        self.assertEqual(control.expected_actions(self.plan, 14, 7)[-1][2], raw)
+        for uid in (None, 0, -1, 65536):
+            with self.subTest(uid=uid), self.assertRaises(ValueError):
+                cases.observer_control(303, 6004, uid)
+        with self.assertRaises(ValueError):
+            cases.observer_control(300, 10, 7)
+
+    def test_303_report_target_must_match_independent_roster_uid(self):
+        valid = self.full_fake_report(observer_uid=7)
+        control.verify_report(self.plan, valid)
+        self.assertEqual(valid["identities"]["observer_uid"], 7)
+        with self.assertRaises(ValueError):
+            control.verify_report(
+                self.plan, self.full_fake_report(observer_uid=7, target_uid=1)
+            )
+
+    def test_post_ban_roster_uid_drift_rejected_with_consistent_raw(self):
+        report = self.full_fake_report(observer_uid=7)
+        old = next(
+            f
+            for f in report["frames"]
+            if f["connection"] == "observer" and f["id"] == 6003
+        )
+        changed = frame(
+            "observer",
+            0,
+            6003,
+            [(300, roster(8, 1, cases.OBS_NAME))],
+            reply=1,
+            when=old["arrival_elapsed_ns"],
+        )
+        report["frames"][report["frames"].index(old)] = changed
+        event = next(
+            e
+            for e in report["events"]
+            if e["event"] == "receive" and e["hex"] == old["raw_hex"]
+        )
+        event["hex"] = changed["raw_hex"]
+        received = report["streams"]["observer"]["received_hex"]
+        self.assertEqual(received.count(old["raw_hex"]), 1)
+        report["streams"]["observer"]["received_hex"] = received.replace(
+            old["raw_hex"], changed["raw_hex"], 1
+        )
+        with self.assertRaisesRegex(ValueError, "post-ban roster UID"):
+            control.verify_report(self.plan, report)
 
     def test_fake_wire_acceptance_and_semantic_faults(self):
         control.classify(self.plan, self.report)
@@ -419,8 +477,10 @@ class Rate304Tests(unittest.TestCase):
             subject.close()
             peer.close()
 
-    def full_fake_report(self, observer_after_barrier=False):
-        source = fake_report(self.plan)
+    def full_fake_report(
+        self, observer_after_barrier=False, observer_uid=1, target_uid=None
+    ):
+        source = fake_report(self.plan, observer_uid)
         pool = source["frames"] + [
             frame("observer", 0, 5000 + i, [], reply=1) for i in range(14)
         ]
@@ -451,7 +511,9 @@ class Rate304Tests(unittest.TestCase):
                 return
             raise AssertionError((name, kind, identifier, icon))
 
-        for label, name, raw in control.expected_actions(self.plan, 14):
+        for label, name, raw in control.expected_actions(
+            self.plan, 14, target_uid or observer_uid
+        ):
             if label == "paced-304-after-quiet":
                 tick += 71_000_000_000
             if label.endswith("-login"):

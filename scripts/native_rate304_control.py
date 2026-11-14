@@ -158,6 +158,8 @@ def classify(plan: dict, report: dict) -> None:
         and bytes.fromhex(initial_rows[0]["name_hex"]) == cases.OBS_NAME,
         "Initial observer roster differs",
     )
+    observer_uid = initial_rows[0]["uid"]
+    need(1 <= observer_uid <= 65535, "Initial observer UID invalid")
     paced_uid = subject_identity(frames, "paced")
     burst_uid = subject_identity(frames, "burst")
     burst_start = next(
@@ -166,7 +168,12 @@ def classify(plan: dict, report: dict) -> None:
         if action["label"] == "burst-login"
     )
     need(
-        report["identities"] == {"paced_uid": paced_uid, "burst_uid": burst_uid},
+        report["identities"]
+        == {
+            "observer_uid": observer_uid,
+            "paced_uid": paced_uid,
+            "burst_uid": burst_uid,
+        },
         "Reported dynamic UIDs differ",
     )
     for name, uid, prefix, bars in (
@@ -314,6 +321,7 @@ def classify(plan: dict, report: dict) -> None:
                 len(rows) == 1 and bytes.fromhex(rows[0]["name_hex"]) == cases.OBS_NAME,
                 "Observer post-ban roster differs",
             )
+            need(rows[0]["uid"] == observer_uid, "Observer post-ban roster UID differs")
     need(
         report["timing"]["paced_trial_seconds"] <= 20
         and report["timing"]["burst_trial_seconds"] <= 20
@@ -334,8 +342,11 @@ def classify(plan: dict, report: dict) -> None:
     )
 
 
-def expected_actions(plan: dict, idle_count: int) -> list[tuple[str, str, str]]:
+def expected_actions(
+    plan: dict, idle_count: int, observer_uid: int
+) -> list[tuple[str, str, str]]:
     need(13 <= idle_count <= 15, "Observer idle cadence differs")
+    need(1 <= observer_uid <= 65535, "Observer UID invalid for expected actions")
     actions = [
         ("observer-login", "observer", plan["logins"]["observer"]),
         ("observer-roster-initial", "observer", cases.observer_control(300, 10)),
@@ -387,7 +398,9 @@ def expected_actions(plan: dict, idle_count: int) -> list[tuple[str, str, str]]:
             (
                 f"observer-{kind}",
                 "observer",
-                cases.observer_control(int(kind), identifier),
+                cases.observer_control(
+                    int(kind), identifier, observer_uid if int(kind) == 303 else None
+                ),
             )
         )
     return actions
@@ -714,10 +727,15 @@ def roster_uid(wire: Wire, name: str) -> int:
 
 
 def observer_baseline(wire: Wire, plan: dict) -> None:
+    observer_uid = wire.identities["observer_uid"]
     for kind_text, identifier in plan["request_ids"]["observer_controls"].items():
         kind = int(kind_text)
         wire.send(
-            "observer", cases.observer_control(kind, identifier), f"observer-{kind}"
+            "observer",
+            cases.observer_control(
+                kind, identifier, observer_uid if kind == 303 else None
+            ),
+            f"observer-{kind}",
         )
         wire.wait_for(
             lambda identifier=identifier: bool(
@@ -727,6 +745,12 @@ def observer_baseline(wire: Wire, plan: dict) -> None:
             f"observer control {kind}",
         )
         successful(one(wire.frames, "observer", 0, identifier, 1))
+        if kind == 300:
+            rows = roster(one(wire.frames, "observer", 0, identifier, 1))
+            need(
+                len(rows) == 1 and rows[0]["uid"] == observer_uid,
+                "Observer post-ban roster UID differs before 303",
+            )
 
 
 def perform(wire: Wire, plan: dict) -> dict:
@@ -739,6 +763,13 @@ def perform(wire: Wire, plan: dict) -> dict:
         len(roster(one(wire.frames, "observer", 0, 10, 1))) == 1,
         "Observer roster not solo",
     )
+    observer_row = roster(one(wire.frames, "observer", 0, 10, 1))[0]
+    need(
+        bytes.fromhex(observer_row["name_hex"]) == cases.OBS_NAME,
+        "Observer identity differs",
+    )
+    need(1 <= observer_row["uid"] <= 65535, "Observer UID invalid")
+    wire.identities["observer_uid"] = observer_row["uid"]
     wire.connect_login("paced")
     paced_uid = roster_uid(wire, "paced")
     wire.identities["paced_uid"] = paced_uid
@@ -897,7 +928,11 @@ def verify_report(plan: dict, report: dict) -> None:
     idle_count = sum(a["label"].startswith("observer-idle500-") for a in actions)
     need(
         [(a["label"], a["connection"], a["hex"]) for a in actions]
-        == expected_actions(plan, idle_count),
+        == expected_actions(
+            plan,
+            idle_count,
+            roster(one(report["frames"], "observer", 0, 10, 1))[0]["uid"],
+        ),
         "As-run request action schedule differs",
     )
     prior_end = 0
@@ -1091,7 +1126,8 @@ def run(plan_dir: Path, receipt_path: Path, binary: Path, output: Path) -> dict:
         "phase_mode": plan["schedule"]["phase_mode"],
         "phase_receipts": result.get("phase_receipts", {}),
         "identities": {
-            k: wire.identities.get(k, result.get(k)) for k in ("paced_uid", "burst_uid")
+            k: wire.identities.get(k, result.get(k))
+            for k in ("observer_uid", "paced_uid", "burst_uid")
         },
         "phase_progress": {
             name: validated_phase_progress(wire, name, wire.identities[f"{name}_uid"])
