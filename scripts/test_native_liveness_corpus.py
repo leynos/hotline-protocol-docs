@@ -3,10 +3,13 @@
 import hashlib
 import json
 import shutil
+import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
+import native_control_readiness
 import verify_native_liveness as witness
 
 
@@ -49,6 +52,26 @@ class LivenessCorpus(unittest.TestCase):
 
     def test_baseline(self) -> None:
         witness.verify(self.corpus)
+
+    def test_frozen_imports_restore_after_success_and_semantic_failure(self) -> None:
+        original = sys.modules["native_control_readiness"]
+        original_path = sys.path.copy()
+        original_bytecode = sys.dont_write_bytecode
+        witness.verify(self.corpus)
+        self.assertIs(sys.modules["native_control_readiness"], original)
+        self.assertIs(original, native_control_readiness)
+        with patch("native_control_readiness.login_gate") as mocked:
+            self.assertIs(original.login_gate, mocked)
+        self.change_json(
+            "raw/coordinator/report.json",
+            lambda report: report.__setitem__("status", "failed"),
+        )
+        self.rejected("Complete custom case identity")
+        self.assertIs(sys.modules["native_control_readiness"], original)
+        self.assertEqual(sys.path, original_path)
+        self.assertEqual(sys.dont_write_bytecode, original_bytecode)
+        with patch("native_control_readiness.login_gate") as mocked:
+            self.assertIs(original.login_gate, mocked)
 
     def test_observer_uid_change(self) -> None:
         self.change_json(

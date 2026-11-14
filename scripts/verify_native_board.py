@@ -9,6 +9,7 @@ import hashlib
 import importlib
 import json
 import sys
+from contextlib import contextmanager
 from pathlib import Path
 
 CORPUS = (
@@ -96,25 +97,38 @@ def inventory(corpus: Path) -> dict:
     return manifest
 
 
+@contextmanager
 def frozen(corpus: Path):
-    sys.dont_write_bytecode = True
-    root = corpus / "sources/protocol"
-    closure = read(corpus / "sources/dependency-closure.json")
-    need(closure["module_count"] == len(closure["hashes"]), "Source closure differs")
-    for name, digest in closure["hashes"].items():
-        need(sha(root / f"{name}.py") == digest, f"Frozen source differs: {name}")
-        sys.modules.pop(name, None)
-    path = str(root)
-    if path in sys.path:
-        sys.path.remove(path)
-    sys.path.insert(0, path)
-    return (
-        importlib.import_module("native_board_control"),
-        importlib.import_module("native_board_cases"),
-        importlib.import_module("native_control_readiness"),
-        importlib.import_module("protocol_capture"),
-        importlib.import_module("pcap_tcp"),
-    )
+    original_modules = sys.modules.copy()
+    original_path = sys.path.copy()
+    original_bytecode = sys.dont_write_bytecode
+    try:
+        sys.dont_write_bytecode = True
+        root = corpus / "sources/protocol"
+        closure = read(corpus / "sources/dependency-closure.json")
+        need(
+            closure["module_count"] == len(closure["hashes"]), "Source closure differs"
+        )
+        for name, digest in closure["hashes"].items():
+            need(sha(root / f"{name}.py") == digest, f"Frozen source differs: {name}")
+            sys.modules.pop(name, None)
+        path = str(root)
+        if path in sys.path:
+            sys.path.remove(path)
+        sys.path.insert(0, path)
+        yield (
+            importlib.import_module("native_board_control"),
+            importlib.import_module("native_board_cases"),
+            importlib.import_module("native_control_readiness"),
+            importlib.import_module("protocol_capture"),
+            importlib.import_module("pcap_tcp"),
+        )
+    finally:
+        for name in set(sys.modules) - original_modules.keys():
+            del sys.modules[name]
+        sys.modules.update(original_modules)
+        sys.path[:] = original_path
+        sys.dont_write_bytecode = original_bytecode
 
 
 def source_and_plan(corpus: Path, modules) -> dict:
@@ -501,12 +515,12 @@ def terminal(corpus: Path, report: dict) -> None:
 
 def verify(corpus: Path = CORPUS) -> dict:
     inventory(corpus)
-    modules = frozen(corpus)
-    plan = source_and_plan(corpus, modules)
-    identity(corpus)
-    report = reports(corpus, modules, plan)
-    flows = packets(corpus, modules, report)
-    terminal(corpus, report)
+    with frozen(corpus) as modules:
+        plan = source_and_plan(corpus, modules)
+        identity(corpus)
+        report = reports(corpus, modules, plan)
+        flows = packets(corpus, modules, report)
+        terminal(corpus, report)
     return {
         "status": "PASS",
         "corpus": str(corpus),

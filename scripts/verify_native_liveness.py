@@ -7,6 +7,7 @@ import hashlib
 import importlib
 import json
 import sys
+from contextlib import contextmanager
 from pathlib import Path
 
 SCHEMA = "native-liveness-01"
@@ -57,22 +58,33 @@ def utc(value: str) -> dt.datetime:
     return dt.datetime.fromisoformat(value.replace("Z", "+00:00"))
 
 
+@contextmanager
 def frozen(corpus: Path):
-    sys.dont_write_bytecode = True
-    path = str(corpus / "sources/protocol")
-    closure = read(corpus / "sources/dependency-closure.json")
-    for name in closure["hashes"]:
-        sys.modules.pop(name, None)
-    if path in sys.path:
-        sys.path.remove(path)
-    sys.path.insert(0, path)
-    return (
-        importlib.import_module("native_liveness_control"),
-        importlib.import_module("native_liveness_cases"),
-        importlib.import_module("native_control_readiness"),
-        importlib.import_module("protocol_capture"),
-        importlib.import_module("pcap_tcp"),
-    )
+    original_modules = sys.modules.copy()
+    original_path = sys.path.copy()
+    original_bytecode = sys.dont_write_bytecode
+    try:
+        sys.dont_write_bytecode = True
+        path = str(corpus / "sources/protocol")
+        closure = read(corpus / "sources/dependency-closure.json")
+        for name in closure["hashes"]:
+            sys.modules.pop(name, None)
+        if path in sys.path:
+            sys.path.remove(path)
+        sys.path.insert(0, path)
+        yield (
+            importlib.import_module("native_liveness_control"),
+            importlib.import_module("native_liveness_cases"),
+            importlib.import_module("native_control_readiness"),
+            importlib.import_module("protocol_capture"),
+            importlib.import_module("pcap_tcp"),
+        )
+    finally:
+        for name in set(sys.modules) - original_modules.keys():
+            del sys.modules[name]
+        sys.modules.update(original_modules)
+        sys.path[:] = original_path
+        sys.dont_write_bytecode = original_bytecode
 
 
 def inventory(corpus: Path) -> dict:
@@ -510,12 +522,12 @@ def terminal(corpus: Path) -> None:
 
 def verify(corpus: Path = CORPUS) -> None:
     inventory(corpus)
-    modules = frozen(corpus)
-    plan = source_gate(corpus, modules)
-    identity(corpus)
-    report = report_gate(corpus, modules, plan)
-    packet_gate(corpus, modules, report)
-    terminal(corpus)
+    with frozen(corpus) as modules:
+        plan = source_gate(corpus, modules)
+        identity(corpus)
+        report = report_gate(corpus, modules, plan)
+        packet_gate(corpus, modules, report)
+        terminal(corpus)
 
 
 def main() -> None:
