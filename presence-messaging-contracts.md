@@ -26,8 +26,9 @@ It operates on session state rather than writing the account file:
 | Auto-response enabled, 215 nonempty | Pascal destination has 128-byte capacity, at most 127 content bytes. |
 
 The exact byte classification table is retained in batch 06 at `100945c8`.
-It is not a Unicode category rule. The default text bytes are retained at
-`1008fd2d`; no peer-wide locale or UTF-8 encoding guarantee follows.
+It is not a Unicode category rule. The helper uses `1008fd2d` for the
+three-byte `***` name fallback and `1008fd31` for the default automatic
+response. No peer-wide locale or UTF-8 encoding guarantee follows.
 
 The [eight same-session transitions](native-settings-transition-witness.md)
 measure this naming-allowed branch with prior nonzero name/icon and explicit
@@ -37,9 +38,10 @@ default bytes. Option 8 alone disables feedback, 12 enables it, and absent or
 zero 113 disables it before a later re-enable selects the default again.
 These are 304 observations. The [two delayed-121 defaults](native-121-default-witness.md)
 independently produce the same exact 52-byte ASCII response for absent and
-empty 215. Combined review meets GAP-030's unchanged criterion. Session
-persistence remains GAP-029 and supplied-text encoding remains GAP-018;
-the default literal does not establish a general codec.
+empty 215. Combined review meets GAP-030's unchanged criterion. The
+[two-phase persistence witness](native-settings-persistence-witness.md)
+adds the bounded storage/restart observation below. Supplied-text encoding
+remains GAP-018; the default literal does not establish a general codec.
 
 Settings retain a 16-bit icon. The 301 sender promotes that word as signed
 before numeric serialization: high-bit icons use four bytes (`8000` becomes
@@ -56,8 +58,36 @@ by this fan-out. The new session is then marked online and receives 354.
 For 121, the direct empty ACK precedes settings/301 and online/354. For early
 completion in 107, the login ACK precedes identity/301, online/354 and agreement
 109. These sequences do not establish a race-free roster snapshot (GAP-035),
-restart persistence (GAP-029), or a requirement that every 109 precede online
+all-storage durability, or a requirement that every 109 precede online
 visibility (GAP-025).
+
+## Settings persistence boundary
+
+| Field | Update/default rule | Persistence rule in the inspected settings path |
+| --- | --- | --- |
+| 102 | Absent/empty requested name becomes `***`; naming privilege determines the effective name. | Helper writes session name buffers, not the account record. With naming disabled, 121 can derive the account name; 304 has no account input and can retain the effective name. |
+| 104 | Absent/empty/zero supplies zero; a supplied numeric icon replaces it. | Stored in the session's icon word. |
+| 113 | Absent/empty/zero clears the three settings flags; bits 0–2 assign refusal/refusal/automatic response. | The three destination bytes belong to the session; this is distinct from account privilege bitmap 110. |
+| 215 | Disabled automatic response clears its length; enabled absent/empty text selects the 52-byte default. | Text and length belong to the session; custom text is observed through PM feedback, not carried in 301. |
+
+In the native 304 witness, explicit name/icon/automatic text changed the
+emitted 301 and PM behaviour, survived a disable/re-enable sequence within
+that session, and were left enabled before app Quit. Both named 734-byte
+UserData records and the complete 175-byte Prefs fork remained unchanged
+after that shutdown and after a second boot of the same working image.
+The second boot used identical fixed Login107 bytes and returned to its
+baseline name/icon and no automatic feedback.
+
+Fresh 107 itself reruns settings, so that result alone does not exclude
+stored state. The unchanged named forks and static session-only helper
+provide the additional evidence. The 121 handler rereads account data and
+calls the same helper without an account-file writer: its session-settings
+persistence rule is **inferred from that trace**, not a separately executed
+121 restart test. Durable account changes use their account-update paths.
+
+The witness retains its legacy capture-format mismatch, operator-observed
+shutdown/FD evidence limits and A48 lock omission. It supports the bounded
+GAP-029 rule, with no power-loss, all-storage or general codec guarantee.
 
 ## Captured configured login states and visibility
 
@@ -287,8 +317,9 @@ transitions hold with other inputs fixed; they are not captured native events:
 | Toggle automatic response alone | No status-bit change from that setting alone. |
 
 This satisfies GAP-034's traced registry and transition-example criterion.
-Settings/privilege notification delivery and concurrent state changes remain
-GAP-029/035/073/084.
+Settings rules are specified above, and the live-account and identified-peer
+fixtures cover their measured notification paths. Concurrent snapshot and
+delivery ordering remain GAP-035.
 
 ## Disconnect teardown and notification 302
 
@@ -341,7 +372,7 @@ can contain only data 101, and chat-denial notices can contain 109/101 instead.
 Field presence identifies known variants; no universal sender/option schema
 applies to every 104 (GAP-044).
 The [producer inventory](notification-104-variants.md) records the overlapping
-schemas, contextual distinctions and remaining notification fixtures.
+schemas, contextual distinctions and known-producer fixtures.
 
 The [bounded native PM witness](native-pm-witness.md) now confirms seven 108
 cases with six delivered 104 frames: direct quoted text, recipient refusal,

@@ -12,11 +12,11 @@ wire. Field numbers below are decimal; integers use big-endian bytes.
 | `100188e0` / `10017f30`, 112/113 invitation feedback | 103 invited user's UID, 102 their name, 113=3 or 4, 101 refusal/automatic text | [Room contract](presence-messaging-contracts.md#captured-private-rooms-invitations-and-chat-bytes) and `native-rooms-01` |
 | `1000fc20`, 105 without send-chat access | 109=`0001`, 101 denial text | `native-rooms-01`, denied-chat cases |
 | `10015500`, 349 creation collision | 101 collision text, 109=`0001` | [Account batch contract](operation-contracts.md), `native-account-batch-01` |
-| `10005f90`, deleting an account with connected users | 101 deletion text only | `native-live-accounts-01`, two connected targets |
+| `10005f90`, standalone 351 or qualifying nested 349 account deletion with connected users | 101 deletion text only | `native-live-accounts-01`, two connected targets |
 | `10015e70`, 110 option 1 | 101 temporary-ban text only | [Disposable option-one witness](native-ban-notices.md) |
 | `10015e70`, 110 option 2 | 101 permanent-ban text only | [Permanent-ban control witness](native-ban-control-witness.md) |
 | Console message dialog `10002dd0` | 101 operator-supplied text only | [Console witness](native-console-broadcast.md) |
-| `10006590`, applying configured address bans to connected users | 101 configured-ban notice only | [Static bytes and caller](native-configured-ban-static.md); native notification fixture outstanding |
+| `10006590`, applying configured address bans to connected users | 101 configured-ban notice only | [Static bytes and caller](native-configured-ban-static.md), [one-Save native witness](native-configured-ban-witness.md) |
 
 The room and account corpus directories in this table are below
 `../mothra/evidence/gap-remediation/2026-11-13/`. Their semantic verifiers
@@ -38,7 +38,10 @@ notice verbatim. A receiver must preserve these ambiguities instead of
 inventing an origin, sender UID, or mandatory 113. Known surrounding actions
 can provide context, but their absence does not make the payload malformed.
 The configured-ban helper's compiled 101 text is the same 42-byte permanent
-notice as option 2; that equality is static evidence, not a new wire fixture.
+notice as option 2. The configured-application witness independently records
+that exact payload after one Options Save, on both connected clients, followed
+by EOF. It sends no request 110. Payload equality still cannot identify which
+of those two producers emitted an otherwise context-free notice.
 
 The 349 collision fixture captures the notification before the final success
 ACK on the same requesting socket. That ordering does not make 104 a direct
@@ -62,7 +65,12 @@ refreshing the active ban list; the captured caller is
 [`B17-D-100023a0.c`](../mothra/evidence/gap-remediation/2026-11-12/batch-17/queries/B17-D-100023a0.c).
 Applying a list and rejecting a later Login107 are separate execution paths.
 
-GAP-044 remains open: configured-ban application still needs an accepted
-native fixture. This inventory does not establish
-that no further producer exists. Expiry, reload persistence, rate limits,
-text boundaries, and general encoding remain their separate requirements.
+The positive fixtures now cover every producer listed above and meet
+GAP-044's original known-producer criterion. Account deletion reaches
+`10005f90` through standalone 351 and the qualifying nested 349 delete branch;
+353 and 349 live updates instead call `10005d30` and must not inherit a
+deletion-notice claim. This inventory does not establish that no further
+producer exists or that every origin is decidable from its fields. Expiry,
+rate limits, text boundaries, and general encoding remain separate
+requirements; the [one-restart ban witness](native-ban-reload-witness.md)
+covers only its specified permanent-ban reload case.

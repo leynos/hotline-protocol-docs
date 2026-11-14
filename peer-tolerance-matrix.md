@@ -83,3 +83,42 @@ The fixture never contacts the shared native control port 15500.
 [profile]: ../mothra/evidence/gap-remediation/2026-11-13/native-shx-02/peer-profile.json
 [corpus]: ../mothra/evidence/gap-remediation/2026-11-13/delegated-peer-01/manifest.json
 [prior]: identified-client-source.md#native-configured-name-and-controlled-receiver-matrix
+
+## Cross-peer acceptance and omission rules
+
+The [profile registry](peer-profile-rules.md) pins the exact shx executable
+and Classic DATA/RSRC pair. The following cells consolidate their measured
+coverage; a product name or reported version does not extend a cell to
+another build.
+
+| Field/output | Identified shx terminal build | Identified Classic candidate |
+| --- | --- | --- |
+| Native 161=`0000` | Native sessions continue. | Native baseline continues through login, roster and banner data. |
+| 161 omission/value/width | Controlled omission and `0001` continue. | Native proxy omission, one zero byte and four zero bytes continue. |
+| Nonempty 162 | Native ASCII/high-byte configured names continue through the recorded stages. | One 14-byte ASCII append continues through login, roster and banner data. |
+| Banner 122 | Controlled delivery/order tests produce an unknown-header diagnostic and exact dump, then roster/chat continuation; banner presentation is unsupported. | Native advertisement leads to a 16-byte data request and 58-byte banner response; image rendering remains unproved. |
+| Native packed roster 300 | Native sessions and controlled reload continue. | The Online Users row is displayed. |
+| SynHX-shaped subject 115 addition | Controlled receiver observation includes subject display and continuation. | One 15-byte ASCII append to the first roster reply preserves subsequent Online Users row display; subject rendering remains unproved. |
+
+The additional Classic evidence is the
+[native baseline](classic-native-baseline.md),
+[161 matrix](classic-field161-matrix.md),
+[ASCII server name](classic-server-name-162.md), and
+[first-roster subject](classic-roster-subject-115.md). Each proxy corpus
+retains both the native and modified streams. The subject test's later
+Online Users row supplies a processing observation; a TCP ACK or an earlier
+212 request alone would not establish that the roster was processed. Its
+screenshot file timestamp is a receipt bound, not a measured capture-start
+time. No topic or banner rendering claim follows.
+
+No observed field rejection in these cells requires a family-based omission
+rule. The shx 122 diagnostic is an observed unsupported feature with continued
+operation, not an inferred session failure. Keep native 1.9's documented
+producer rules, including its numeric version/configuration condition for
+122, separate from peer identity. Unknown builds and untested values remain
+unknown; this is not universal tolerance of malformed or arbitrary TLVs.
+
+This matrix meets GAP-081's original finite evidence criterion before any
+omission/default policy is selected. It does not choose an mxd implementation
+or release policy. Non-ASCII ambiguity, field meanings, and release sign-off
+remain their separate requirements.

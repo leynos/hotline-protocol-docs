@@ -68,5 +68,7 @@ This witness covers two delayed 121 defaults only. It does not establish
 re-login or restart persistence, filesystem durability, or general
 non-ASCII encoding. Combined review with the 304 and PM corpora accepts
 GAP-030; the [acceptance decision](../mothra/evidence/gap-remediation/2026-11-14/settings-default-acceptance-01/decision.json)
-records its unchanged criterion and limits. Persistence remains GAP-029;
-general supplied-text encoding remains GAP-018.
+records its unchanged criterion and limits. The
+[later persistence witness](native-settings-persistence-witness.md) and
+shared-helper trace address GAP-029 with explicit evidence limits. General
+supplied-text encoding remains GAP-018.

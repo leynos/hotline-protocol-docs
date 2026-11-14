@@ -73,4 +73,5 @@ The observed 304 sequence does not test agreement transaction 121,
 re-login, process restart, account-file durability or general non-ASCII
 text encoding. The [delayed-121 witness](native-121-default-witness.md)
 adds the separate default-text cases. Combined acceptance closes GAP-030;
-persistence (GAP-029) and general encoding (GAP-018) remain open.
+the [later persistence witness](native-settings-persistence-witness.md)
+addresses GAP-029's separate clause. General encoding remains GAP-018.

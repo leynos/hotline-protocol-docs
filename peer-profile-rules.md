@@ -32,13 +32,14 @@ from these labels to other binaries are unproved. The
 | 161 omission/variation | Controlled receiver: absent and `0001` continue | Native proxy: absent, one zero byte and four zero bytes continue |
 | Nonempty 162 | Native ASCII/high-byte configured names accepted through recorded stages | One proxy-appended ASCII value accepted through login/roster/banner-data stages |
 | Unknown login TLV | Controlled field 32767 continues | Untested |
-| Roster subject 115 | Controlled receiver observation | Untested |
+| Roster subject 115 | Controlled receiver observation | One ASCII append preserves subsequent Online Users row display; subject rendering unproved |
 | Banner 122 | Controlled ordering cases continue; early frame produces diagnostic/dump | Native 212 request and 58-byte data transfer; rendering unproved |
 
 The [shx evidence](peer-tolerance-matrix.md),
 [Classic baseline](classic-native-baseline.md),
-[Classic 161 matrix](classic-field161-matrix.md), and
-[ASCII 162 case](classic-server-name-162.md) define each cell's actual
+[Classic 161 matrix](classic-field161-matrix.md),
+[ASCII 162 case](classic-server-name-162.md), and
+[subject 115 case](classic-roster-subject-115.md) define each cell's actual
 transport, transformations and observed stopping point. A controlled receiver
 is not native server execution. A native proxy tests the named rewrite;
 unchanged upstream/downstream views and complete TCP tails bound that claim.
@@ -69,5 +70,7 @@ to omit 161/162. An mxd omission or fallback policy would be a separately
 identified implementation/release decision and is not selected here.
 
 GAP-080's hashed corpus, exact-build targets and evidence-based unknown-peer
-rule are covered by this registry. Per-field acceptance remains GAP-081;
-161's meaning, general text decoding and release sign-off remain separate.
+rule are covered by this registry. The
+[cross-peer matrix](peer-tolerance-matrix.md#cross-peer-acceptance-and-omission-rules)
+covers GAP-081's finite field evidence. Field 161's meaning, general text
+decoding and release sign-off remain separate.

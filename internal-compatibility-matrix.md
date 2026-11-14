@@ -315,7 +315,9 @@ running historical SynHX server. See the
 and [profile applicability](identified-client-source.md#source-package-identities-and-configuration-applicability).
 GAP-083 records source identity/applicability. The
 [profile registry](peer-profile-rules.md) supplies GAP-080's exact-build
-targets and unknown-peer rule; per-field coverage remains GAP-081.
+targets and unknown-peer rule. The
+[cross-peer matrix](peer-tolerance-matrix.md#cross-peer-acceptance-and-omission-rules)
+consolidates GAP-081's finite field coverage; untested builds remain unknown.
 
 [server-profile]: ../mothra/evidence/gap-remediation/2026-11-13/synhx-profile-01/manifest.json
 

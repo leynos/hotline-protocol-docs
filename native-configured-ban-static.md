@@ -44,6 +44,9 @@ owned admin and zero-access target before applying Options, capture both
 type-104 notices and closes without assuming the admin survives, and retire
 the lab with zero primary-port SYNs. No 110 request belongs in that trial.
 
-The exact 42-byte compiled string is established statically. Its configured
-application on the wire, exact UI mapping, close timing, and GAP-044 closure
-remain open.
+The exact 42-byte compiled string is established statically. The later
+[configured-ban witness](native-configured-ban-witness.md) records one Add
+and Save, matching notices on both held clients and EOF, with its paired
+captures and limits. That finite observation supplies the remaining known
+producer fixture in the [type-104 inventory](notification-104-variants.md);
+this static note alone did not establish wire behaviour.

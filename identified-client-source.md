@@ -14,8 +14,10 @@ the source snapshot alone does not identify a configured executable, a
 particular distributed binary or every client called SynHX. The complete build
 and native sessions below now identify one configured modern executable.
 Compile-time HOPE, cipher, compression, IPv6 and UI features create additional
-profiles. The applicability record below addresses GAP-083; broader peer
-coverage remains GAP-081; [profile rules](peer-profile-rules.md) cover GAP-080.
+profiles. The applicability record below addresses GAP-083;
+[profile rules](peer-profile-rules.md) cover GAP-080, and the
+[cross-peer matrix](peer-tolerance-matrix.md#cross-peer-acceptance-and-omission-rules)
+consolidates GAP-081's finite coverage. Other builds remain unverified.
 
 ## Basic login and unknown fields
 
@@ -259,7 +261,9 @@ roster records and the tested subject addition likewise cause no observed
 session failure. Other values, malformed inputs, optional builds and unknown
 clients remain untested; these results do not select a universal omission or
 fallback policy. The [profile registry](peer-profile-rules.md) supplies the
-native baseline for unknown peers; wider field acceptance remains GAP-081.
+native baseline for unknown peers; the
+[cross-peer matrix](peer-tolerance-matrix.md#cross-peer-acceptance-and-omission-rules)
+records the measured field acceptance and its limits.
 
 The initial login callback handles UID field 103 only, but that is not the
 client's only identity path. Its roster callback checks for unset own UID,
@@ -307,8 +311,8 @@ objects and `hx`; GTK acceptance is not inferred. GAP-083's source identity and
 applicability record now has archive lineage, selected/default relationships,
 relevant build flags and explicit observation scopes. The
 [profile registry](peer-profile-rules.md) names the evaluated protocol targets
-and unknown-peer rule; remaining per-field acceptance is GAP-081. Release
-target and implementation policies remain separate decisions.
+and unknown-peer rule; the cross-peer matrix supplies GAP-081's field
+evidence. Release-target and implementation policies remain separate decisions.
 
 Run both checks from mothra:
 

@@ -534,8 +534,9 @@ presence, uses fallback name handling, and assigns values returned by the
 field reader. Do not rely on omission to preserve every old setting.
 
 **Push:** no direct normal success reply is visible. The settings path emits
-301 updates. Flood handling can close the connection. These changes should not
-be described as durable account-database edits without further evidence.
+301 updates. Flood handling can close the connection. The inspected helper
+updates session name, icon, flags and text; durable account edits use the
+account-update paths.
 
 The [ten captured field-113 cases](native-settings-witness.md) confirm
 absent, empty and zero clearing, three-byte defaulting, first-four-byte
@@ -549,8 +550,12 @@ omitted/empty name and icon become `***` and zero, while omitted/empty 215
 with auto-response enabled selects the exact default text. Unknown-only 8,
 mixed 12, disable and re-enable cases retain their measured PM outcomes.
 The separate [121 default cases](native-121-default-witness.md) match the
-same default bytes. Restart persistence and broader agreement-path edge cases
-remain separate requirements.
+same default bytes. The [two-phase persistence witness](native-settings-persistence-witness.md)
+records the 304 transitions, unchanged named account/Prefs forks and a fresh
+login on the same restarted image. The
+[persistence boundary](presence-messaging-contracts.md#settings-persistence-boundary)
+distinguishes that native observation from the shared-helper inference for
+121 and from broader durability or encoding requirements.
 
 Evidence: V028, V037–V038; `10016ad0`, `10004d50`, `10004f30`.
 
@@ -1136,9 +1141,15 @@ checks requester privilege 22 and target protection privilege 23.
 **ACK:** direct success/error paths are present. Options **1** and **2**
 select distinct branches; do not model them as independently combinable
 guessed IP/ account ban bits. The option-2 path reads optional field 101.
+A separate [configured-address ban witness](native-configured-ban-witness.md)
+observes Options > Ban > Save sending the permanent data-only 104 to both
+connected clients and then closing them; that case sends no request 110.
+
 Option 1 adds an in-memory address ban with a GetDateTime-plus-1800
-seconds deadline. Option 2 writes the persisted address-ban list. Actual
-expiry, restart behaviour and remaining branch boundaries stay open.
+seconds deadline. Option 2 writes the persisted address-ban list. A
+[one-restart witness](native-ban-reload-witness.md) preserves the stored row
+and observes fresh Login107 rejection. Actual expiry and remaining
+restart/protection boundaries stay open.
 
 The [captured option-1 fixture](native-ban-notices.md) delivered the
 data-only temporary-ban 104 and disconnected its target; the administrator's
