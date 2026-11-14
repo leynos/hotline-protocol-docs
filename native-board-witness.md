@@ -7,7 +7,7 @@ stopped HFS storage. The portable corpus is
 Run `python3 scripts/verify_native_board.py` from this repository, or pass
 `--corpus PATH` after exporting this repository beside `mothra`. The verifier
 uses frozen source, reports, whole packet captures, and stopped fork bytes; it
-needs no guest, ROM, server process, or Ghidra project. Its 15 fault controls run
+needs no guest, ROM, server process, or Ghidra project. Its 17 fault controls run
 with `python3 -m unittest discover -s scripts -p test_native_board_corpus.py`.
 
 ## Fixture and observed results
@@ -77,4 +77,6 @@ This one run supports the measured empty-board, multi-post, size-boundary,
 recipient, read-prefix, and stopped-storage clauses of GAP-046. It does not
 establish all timing interleavings, a universal online predicate, non-ASCII
 rendering, spam policy, power-loss persistence, or a full-file server health
-baseline. Root review decides the gap status from the original criterion.
+baseline. The [criterion decision](../mothra/evidence/gap-remediation/2026-11-14/criterion-acceptance-07/decision.json)
+accepts GAP-046 against its original finite fixture requirement, with these
+limits retained.

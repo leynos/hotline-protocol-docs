@@ -719,14 +719,23 @@ Evidence: V043–V048, V071–V072.
 
 These operations remain implemented in the 1.9 binary alongside threaded news:
 
-- **101:** request to read the configured old board; ACK contains data 101.
-- **103:** request to post data 101; the handler checks news-post permission,
-  updates board state, ACKs and sends **102** updates to eligible users.
-- **102:** server-originated old-board update carrying data 101.
+- **101:** requires read-news privilege20. Its reply carries at most65,535
+  bytes in field101; an empty board omits that field.
+- **103:** requires post-news privilege21. Field101 accepts zero through8,192
+  bytes inclusive; the8,193-byte fixture returns an error without changing
+  the stored board. The normal path prepends a formatted segment, writes the
+  whole board, ACKs and sends102 updates to eligible users.
+- **102:** carries the new formatted segment in field101, rather than the
+  whole retained board. It is an unsolicited server notification.
 
 mxd may explicitly defer support, but that is an implementation scope choice,
-not evidence that these operations are absent or obsolete in the oracle. Full
-update ordering and storage semantics remain unresolved.
+not evidence that these operations are absent or obsolete in the oracle. The
+[finite native board witness](native-board-witness.md) pairs12 successful
+posts with read prefixes, recipient observations and an exact65,629-byte
+stopped file. Sender ACK precedes its own102 in every successful case; no
+cross-socket total order or crash-durability guarantee follows. The
+[board contract](filesystem-and-board-contracts.md#captured-legacy-board-boundaries-and-updates)
+gives the measured boundaries and remaining limits.
 
 Evidence: V047; `1000f130`, `1000f260`.
 

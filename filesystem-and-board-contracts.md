@@ -138,9 +138,50 @@ branch can suppress fan-out and close/temporarily ban the sender.
 
 The old board and new hierarchical articles therefore have different framing,
 discovery and mutation order. Exact header/separator bytes are retained through
-`10004110` and its referenced data. Multi-post/empty/boundary/update-recipient
-fixtures and filesystem durability remain GAP-046/021; no UTF-8 or CR/LF
-normalization rule is invented here.
+`10004110` and its referenced data. The captured matrix below supplies
+multi-post, empty, boundary and recipient examples. Crash/failure persistence
+remains GAP-021; no UTF-8 or CR/LF normalization rule is invented here.
+
+### Captured legacy-board boundaries and updates
+
+The [native board witness](native-board-witness.md) records one isolated run
+with an initially empty `MessageBoard.txt`, four case sockets and separate
+18-action control checks before and after. The file's empty starting state
+is proved both by stopped HFS inspection and the live101 reply, which omits
+field101. The account without read privilege receives a101 error.
+
+| Post case | Native result |
+| --- | --- |
+| Explicit empty101, then two distinct seven-byte posts | Success; each creates a segment, prepended newest first. |
+| 8,191 bytes and six distinct8,192-byte posts | Success; sender and eligible reader each receive the complete new segment in102. |
+| Measured7,155-byte filler | Stored/retrieved aggregate reaches exactly65,535 bytes. |
+| One additional byte | Stored aggregate grows to65,629 bytes;101 returns its newest65,535-byte prefix. |
+| 8,193 bytes | Status1/field100 error; no new102 or change to the reconstructed or stopped board. |
+
+Each observed segment has a33-byte header ending in CR CR, the raw post,
+then the60-byte separator. In this run the header is
+`From BoardSender (Nov14 09:14):` followed by those two CR bytes. Its rendered
+overhead is measured, not a promise that every name, locale or date has the
+same length. The twelve exact102 segments, reversed into newest-first order,
+equal the complete65,629-byte stopped file, including the94 bytes beyond
+the retrieved prefix. Resource size remains zero and Finder type/creator
+remain `TEXT`/`ttxt`; the five original account/preferences/application forks
+remain byte-identical.
+
+The sender and eligible online reader each receive all12 updates. The denied
+reader receives none. The waiting account receives none during the first
+three posts before its client closes. That last absence does not establish
+an online-flag check: its active session ACL and Open Transport predicate are
+not independently measured. The traced fan-out condition still governs.
+
+Within the sender's stream, each success ACK precedes its matching102.
+Arrival order on another socket is not a global execution order. All six
+TCP lifetimes have exact namespace/guest/runner application-byte equality,
+including tails. The full stopped-file comparison proves normal completed
+storage effects in this case; power-loss atomicity, write-failure recovery,
+universal recipient states, date/timezone and text-encoding rules remain
+separate questions. The repeated-hash suppression branch is source-derived;
+this unique-post fixture does not exercise its threshold.
 
 ## Diagnostic text 303
 

@@ -118,6 +118,8 @@ ty check --extra-search-path \
 The [first board lab](native-board-readiness-failure.md) stopped before any
 protocol request. Its manually assembled lease receipt and correction script
 failed setup checks; it supplies no board-operation evidence.
+The [successful second lab](native-board-witness.md) supplies the paired
+protocol and stopped-file evidence for the fixture described here.
 
 Use the [validated receipt builder](../mothra/docs/native-capture-receipt.md)
 from the host as root. It reads the exact managed-unit properties, rechecks
