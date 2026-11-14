@@ -4,10 +4,12 @@ from __future__ import annotations
 
 import copy
 import json
+import tempfile
 import unittest
 from pathlib import Path
 
 from verify_classic_native_baseline import (
+    check_source_snapshot,
     equal_pairs,
     flow,
     verify,
@@ -55,6 +57,18 @@ class ClassicNativeBaselineTests(unittest.TestCase):
             receipt["b47"]["control"]["request_types"], [107, 121, 300, 212]
         )
         self.assertEqual(receipt["b47"]["data_bytes"], [16, 58])
+
+    def test_changed_frozen_proxy_source(self) -> None:
+        source = json.loads((CORPUS / "manifest.json").read_text())["source"]
+        with tempfile.TemporaryDirectory() as tmp:
+            base = Path(tmp)
+            snapshot = base / source["proxy_snapshot_path"]
+            snapshot.parent.mkdir()
+            snapshot.write_bytes(
+                (CORPUS / source["proxy_snapshot_path"]).read_bytes() + b"\n"
+            )
+            with self.assertRaisesRegex(ValueError, "As-run proxy snapshot"):
+                check_source_snapshot(base, source, "proxy")
 
     def test_changed_reply_type(self) -> None:
         server = bytearray(self.server["b47"])

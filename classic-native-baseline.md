@@ -72,8 +72,10 @@ python3 -m unittest discover -s ../hotline-protocol-docs/scripts \
 Ten tests include incorrect reply type/ID, changed 161 and agreement,
 fabricated B46 activation, a mismatched capture view, missing SYN, late
 teardown, a false rejection label, and changed banner bytes. `as-run.txt`,
-`manifest.json`, raw PCAPs, source hashes, screenshots, A7 reports, and
-root-relative `SHA256SUMS` make this finite result portable. The app was
+`manifest.json`, raw PCAPs, frozen as-run proxy and parser sources at
+revision `79d867d`, screenshots, A7 reports, and
+root-relative `SHA256SUMS` make this finite result portable. The verifier
+checks those historical source snapshots even after later proxy edits. The app was
 quit and owned proxy/listeners/sockets were gone after each attempt; the
 native and client emulator processes and fixed bridges remained live.
 This is evidence for one baseline path, not full peer interoperability,

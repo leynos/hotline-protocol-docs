@@ -14,6 +14,7 @@ AGREEMENT_SHA = "5288d060a4270cf6ae899302c52b2ac784b30dea99f01d2d4cd1c1037c4bd1c
 DATA_SHA = "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83"
 RSRC_SHA = "40a42dbcf2d879e22d9a5a9acf46bf15fa9fe3a77837f757a990e514436801e5"
 PROXY_SHA = "44bb68fe0bc464874aa455e823ca08b00704b88f5064d776119fcaf0682a5c7e"
+PARSER_SHA = "04c4fda2e62ccab35ed306c036dac6b1878af58adbfaccc6312a2805dd6897d7"
 STATIC_ACTIONS = (4, 5, 6, 8, 10, 12, 16, 23, 27)
 
 
@@ -24,6 +25,24 @@ def require(condition: bool, message: str) -> None:
 
 def digest(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
+
+
+def check_source_snapshot(base: Path, source: dict, key: str) -> None:
+    names = {"proxy": "classic_login_proxy.py", "parser": "pcap_tcp.py"}
+    require(key in names, "Unknown source snapshot")
+    name = names[key]
+    expected = PROXY_SHA if key == "proxy" else PARSER_SHA
+    require(
+        source[f"{key}_path"] == f"../hotline-protocol-docs/scripts/{name}"
+        and source[f"{key}_revision"] == "79d867dc80c0aea50ad77569aae89e1d0bf37915"
+        and source[f"{key}_snapshot_path"] == f"as-run/{name}.txt"
+        and source[f"{key}_sha256"] == expected,
+        f"As-run {key} provenance",
+    )
+    require(
+        digest((base / source[f"{key}_snapshot_path"]).read_bytes()) == expected,
+        f"As-run {key} snapshot",
+    )
 
 
 def ordered_frames(frames: list[dict]) -> list[tuple[int, int, int, int, int]]:
@@ -276,13 +295,8 @@ def verify(base: Path) -> dict:
     require(manifest["schema_version"] == 1, "Manifest schema")
     source = manifest["source"]
     require(source["proxy_sha256"] == PROXY_SHA, "As-run proxy source")
-    mothra = base.resolve().parents[3]
     for key in ("proxy", "parser"):
-        require(
-            digest((mothra / source[f"{key}_path"]).read_bytes())
-            == source[f"{key}_sha256"],
-            f"Source changed: {key}",
-        )
+        check_source_snapshot(base, source, key)
     require(manifest["runtime"]["client_netns_inode"] == 4026532479, "Client namespace")
     return {
         case: verify_case(base, case, manifest["runs"][case]) for case in ("b46", "b47")
