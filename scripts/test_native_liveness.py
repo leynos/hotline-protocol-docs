@@ -61,6 +61,7 @@ class FakeConsumer(control.Timeline):
         wrong_b_id: bool = False,
         b_error: bool = False,
         f_success: bool = False,
+        a_eof: bool = False,
     ) -> None:
         super().__init__(plan, time.monotonic() + 3)
         self.peers: dict[str, socket.socket] = {}
@@ -68,6 +69,7 @@ class FakeConsumer(control.Timeline):
         self.wrong_b_id = wrong_b_id
         self.b_error = b_error
         self.f_success = f_success
+        self.a_eof = a_eof
 
     def connect(self, name: str) -> None:
         client, server = socket.socketpair()
@@ -97,6 +99,9 @@ class FakeConsumer(control.Timeline):
         super().send(name, raw_hex)
         raw = bytes.fromhex(raw_hex)
         self.assert_bytes(self.peers[name], raw)
+        if name == "a" and self.a_eof:
+            self.peers[name].shutdown(socket.SHUT_WR)
+            self.poll(0.002)
         if len(raw) < 20 or len(raw) != 20 + int.from_bytes(raw[16:20], "big"):
             return  # A header and B body remain incomplete; no logical reply.
         frame = decode_frame(raw)
@@ -171,21 +176,43 @@ class LivenessTests(unittest.TestCase):
 
     def report(self, fake: FakeConsumer) -> dict:
         plan = fake.plan
+        events = deepcopy(fake.recorder.events)
+        operations = deepcopy(fake.operations)
+        t0 = 1_000_000_000
+        for index, event in enumerate(events[: operations[1]["event_range"][0]]):
+            event["elapsed_ns"] = index
+        operations[0]["elapsed_ns"] = t0
+        previous = t0
+        for item, op in zip(
+            operations[1:], plan["schedule"]["operations"], strict=True
+        ):
+            actual = max(
+                previous + 1_000_000, t0 + op["at_seconds"] * 1_000_000_000 + 1_000_000
+            )
+            for event in events[slice(*item["event_range"])]:
+                event["elapsed_ns"] = actual
+            item["actual_elapsed_ns"] = actual
+            previous = actual
         return {
             "status": "completed",
             "window_completed": True,
+            "window_elapsed_ns": t0 + 135_002_000_000,
             "window_frame_count": fake.window_frame_count,
             "native_conformance": False,
             "plan_sha256": control.digest((json.dumps(plan, indent=2) + "\n").encode()),
             "cases_sha256": control.digest(Path(cases.__file__).read_bytes()),
             "source_sha256": control.digest(Path(control.__file__).read_bytes()),
             "oracle_sha256": control.ORACLE_SHA256,
-            "events": deepcopy(fake.recorder.events),
+            "events": events,
             "frames": deepcopy(fake.frames),
-            "operations": deepcopy(fake.operations),
+            "operations": operations,
             "streams": fake.recorder.streams(),
             "unparsed_hex": {name: raw.hex() for name, raw in fake.buffers.items()},
             "window_status": dict(fake.window_status),
+            "terminals": {
+                name: fake.terminals.get(name, "bounded_no_eof")
+                for name in fake.buffers
+            },
         }
 
     def test_generated_schedule_through_fake_consumer(self) -> None:
@@ -328,6 +355,35 @@ class LivenessTests(unittest.TestCase):
         altered = deepcopy(source)
         altered["frames"][0]["id"] = 999
         with self.assertRaisesRegex(ValueError, "Decoded frame"):
+            control.verify_report(fake.plan, altered)
+
+    def test_relabelled_real_eof_rejected(self) -> None:
+        fake = self.exercise(a_eof=True)
+        source = self.report(fake)
+        self.assertEqual(source["window_status"]["a"], "eof")
+        control.verify_report(fake.plan, source)
+        altered = deepcopy(source)
+        altered["window_status"]["a"] = "bounded_no_eof_through_window"
+        with self.assertRaisesRegex(ValueError, "Window socket outcome"):
+            control.verify_report(fake.plan, altered)
+        altered = deepcopy(source)
+        altered["terminals"]["a"] = "bounded_no_eof"
+        with self.assertRaisesRegex(ValueError, "Final socket outcome"):
+            control.verify_report(fake.plan, altered)
+
+    def test_moved_operation_and_window_time_rejected(self) -> None:
+        fake = self.exercise()
+        source = self.report(fake)
+        control.verify_report(fake.plan, source)
+        altered = deepcopy(source)
+        altered["operations"][20]["actual_elapsed_ns"] += 10_000_000_000
+        with self.assertRaisesRegex(ValueError, "Scheduled time"):
+            control.verify_report(fake.plan, altered)
+        altered = deepcopy(source)
+        altered["window_elapsed_ns"] = (
+            altered["operations"][0]["elapsed_ns"] + 125_000_000_000
+        )
+        with self.assertRaisesRegex(ValueError, "window timing"):
             control.verify_report(fake.plan, altered)
 
 

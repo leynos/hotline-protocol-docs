@@ -19,6 +19,8 @@ from verify_native_shx import fields
 
 MAX_WINDOW_SECONDS = 720
 AGREEMENT_SHA256 = "5288d060a4270cf6ae899302c52b2ac784b30dea99f01d2d4cd1c1037c4bd1c7"
+SCHEDULE_LATE_NS = 5_000_000_000
+SCHEDULE_EARLY_NS = 5_000_000  # Float seconds to monotonic-ns conversion allowance.
 
 
 def need(condition: bool, message: str) -> None:
@@ -348,8 +350,28 @@ def verify_report(plan: dict, report: dict) -> None:
         == [op["label"] for op in schedule],
         "As-run schedule labels differ",
     )
+    t0 = operation_log[0]["elapsed_ns"]
+    window = report["window_elapsed_ns"]
+    need(
+        isinstance(t0, int)
+        and isinstance(window, int)
+        and 0 <= t0 < window
+        and t0 + 135_000_000_000 - SCHEDULE_EARLY_NS
+        <= window
+        <= t0 + 135_000_000_000 + SCHEDULE_LATE_NS,
+        "135-second window timing differs",
+    )
+    prior_event_ns = -1
+    for event in events:
+        elapsed = event["elapsed_ns"]
+        need(
+            isinstance(elapsed, int) and prior_event_ns <= elapsed,
+            "Raw event times are not monotonic",
+        )
+        prior_event_ns = elapsed
     event_cursor = operation_log[1]["event_range"][0]
     frame_cursor = operation_log[1]["frame_range"][0]
+    previous_operation_ns = t0
     for item, op in zip(operation_log[1:], schedule, strict=True):
         first, last = item["event_range"]
         front, back = item["frame_range"]
@@ -358,12 +380,29 @@ def verify_report(plan: dict, report: dict) -> None:
             and front == frame_cursor <= back <= len(report["frames"]),
             "As-run ranges are gapped or overlapping",
         )
+        actual = item["actual_elapsed_ns"]
+        target = t0 + op["at_seconds"] * 1_000_000_000
+        need(
+            isinstance(actual, int)
+            and previous_operation_ns <= actual <= window
+            and target - SCHEDULE_EARLY_NS <= actual <= target + SCHEDULE_LATE_NS
+            and all(
+                previous_operation_ns <= event["elapsed_ns"] <= actual
+                for event in events[first:last]
+            ),
+            f"Scheduled time differs at {op['label']}",
+        )
         injected = "".join(
             event["hex"] for event in events[first:last] if event["event"] == "send"
         )
         planned = (cases.HELLO if op["op"] in {"admit", "stimulus"} else "") + op["hex"]
         need(injected == planned, f"Injected bytes differ at {op['label']}")
         event_cursor, frame_cursor = last, back
+        previous_operation_ns = actual
+    need(
+        all(event["elapsed_ns"] >= window for event in events[event_cursor:]),
+        "Teardown event predates window boundary",
+    )
     need(
         all(item["arrival_elapsed_ns"] >= 0 for item in report["frames"]),
         "Missing frame arrival timing",
@@ -388,6 +427,50 @@ def verify_report(plan: dict, report: dict) -> None:
         all(name in report["window_status"] for name in expected),
         "Missing finite socket status",
     )
+    need(set(report["window_status"]) == set(expected), "Extra window socket status")
+    for name in expected:
+        terminal = [
+            event["event"]
+            for event in events
+            if event["connection"] == name
+            and event["elapsed_ns"] <= window
+            and event["event"] in {"eof", "rst"}
+        ]
+        need(len(terminal) <= 1, f"Conflicting terminal events: {name}")
+        closed = any(
+            event["connection"] == name
+            and event["elapsed_ns"] <= window
+            and event["event"] == "close"
+            for event in events
+        )
+        observed = (
+            terminal[0]
+            if terminal
+            else "client_closed_after_bounded_observation"
+            if closed
+            else "bounded_no_eof_through_window"
+        )
+        need(
+            report["window_status"][name] == observed,
+            f"Window socket outcome differs from events: {name}",
+        )
+        full_terminal = [
+            event["event"]
+            for event in events
+            if event["connection"] == name and event["event"] in {"eof", "rst"}
+        ]
+        need(len(full_terminal) <= 1, f"Conflicting full terminal events: {name}")
+        final_observed = (
+            full_terminal[0]
+            if full_terminal
+            else "client_closed_after_bounded_observation"
+            if closed
+            else "bounded_no_eof"
+        )
+        need(
+            report["terminals"].get(name) == final_observed,
+            f"Final socket outcome differs from events: {name}",
+        )
     need(
         isinstance(report["window_frame_count"], int)
         and 0 <= report["window_frame_count"] <= len(report["frames"]),
@@ -479,6 +562,7 @@ def run(plan_dir: Path, receipt_path: Path, binary: Path, output: Path) -> dict:
         while time.monotonic() < t0 + 135:
             timeline.poll(min(0.05, t0 + 135 - time.monotonic()))
         window_completed = True
+        window_elapsed_ns = time.monotonic_ns() - timeline.recorder.started
         timeline.window_frame_count = len(timeline.frames)
         timeline.window_status = {
             name: timeline.terminals.get(name, "bounded_no_eof_through_window")
@@ -508,6 +592,7 @@ def run(plan_dir: Path, receipt_path: Path, binary: Path, output: Path) -> dict:
         "status": status,
         "error": error,
         "window_completed": window_completed,
+        "window_elapsed_ns": window_elapsed_ns if window_completed else None,
         "window_frame_count": timeline.window_frame_count,
         "native_conformance": False,
         "preflight": "operator-provided separate18 control report, not runner-executed",

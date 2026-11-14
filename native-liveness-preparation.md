@@ -99,6 +99,14 @@ budget or unexpected route invalidates the fixture; retain its failed report
 and raw PCAPs without retry. The custom report is checked by
 `verify_report`, not generic `verify_capture`.
 
+The portable verifier reconstructs each window and final socket outcome from
+its retained EOF/RST/close events. It checks global event-time monotonicity,
+operation times against their declared seconds, and the measured 135-second
+window marker. Up to 5 ms early is allowed for float-to-nanosecond conversion;
+up to 5 seconds late is allowed for scheduling/transport jitter. A larger
+delay makes this finite fixture timing-invalid, without proving a native
+timer fault. Source and raw bytes remain independently pinned.
+
 A future native report may constrain GAP-005 selected-request reset and
 partial-input timing, and GAP-036 timeout/failure 302 recipients/fields if
 seen. It cannot prove a unique dispatcher wake cause, configurable timers,
