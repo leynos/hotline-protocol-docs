@@ -396,6 +396,7 @@ def run(
     output: Path,
 ) -> dict:
     plan = prepared(plan_dir)
+    profile = plan["environment"].get("capture_window_profile")
     receipt_raw = capture_receipt.read_bytes()
     receipt = json.loads(receipt_raw)
     deadline = utc(receipt["deadline_utc"])
@@ -405,7 +406,7 @@ def run(
         receipt["emulator_pid"] == plan["environment"]["emulator_pid"],
         "Capture/runtime PID differs",
     )
-    runtime_gate(receipt, plan["environment"], deadline)
+    runtime_gate(receipt, plan["environment"], deadline, capture_window_profile=profile)
     need(
         os.stat("/proc/self/ns/net").st_ino
         == plan["environment"]["emulator_netns_inode"],
@@ -430,7 +431,9 @@ def run(
             },
         },
         min(time.monotonic() + 210, time.monotonic() + remaining),
-        lambda: runtime_gate(receipt, plan["environment"], deadline),
+        lambda: runtime_gate(
+            receipt, plan["environment"], deadline, capture_window_profile=profile
+        ),
     )
     wire.request_count = 0
     status, error = "completed", ""
@@ -439,7 +442,9 @@ def run(
             wire,
             plan,
             operator_receipt,
-            lambda: runtime_gate(receipt, plan["environment"], deadline),
+            lambda: runtime_gate(
+                receipt, plan["environment"], deadline, capture_window_profile=profile
+            ),
         )
     except (OSError, ValueError, TimeoutError, EOFError, KeyError, IndexError) as exc:
         status, error = "failed", f"{type(exc).__name__}: {exc}"
@@ -454,7 +459,9 @@ def run(
                 wire.recorder.event(-1, name, "close_after_failure")
     try:
         need(prepared(plan_dir) == plan, "Post-run source/plan differs")
-        runtime_gate(receipt, plan["environment"], deadline)
+        runtime_gate(
+            receipt, plan["environment"], deadline, capture_window_profile=profile
+        )
         postflight = host_state(plan)
         wire.partial["host_postflight"] = postflight
         if wire.partial.get("host_before") is not None:

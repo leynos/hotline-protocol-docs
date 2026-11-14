@@ -24,9 +24,31 @@ breached the stop-and-escalate rule. Do not reuse the image or its pins.
 [Retained abort evidence](../mothra/evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/manifest.json)
 records this deviation and the early retirement. Any further attempt needs
 a separately reviewed preparation budget and fresh profile.
-Select the owned Unix target and obtain root's reviewed receipt by epoch
-+270 seconds; preserve the hard >=390-second case-start reserve. Retire a
-late lab without changing its deadline or re-pinning Finder metadata.
+For any later reviewed lab, aim to select the owned Unix target and obtain
+root's reviewed receipt by epoch +270 seconds. Preserve the hard >=390-second
+case-start reserve. Retire a late lab without changing its deadline or
+re-pinning Finder metadata.
+
+## Optional alias UI capture window
+
+The source gate accepts one explicit `capture_window_profile` value,
+`native-missing-alias-ui-30m-v1`, only with
+`capture_window_purpose=native-missing-alias-positive`. Put both fields in
+the approved runtime before plan generation. Pass the exact profile through
+the root-owned readiness and receipt CLIs as
+`--capture-window-profile native-missing-alias-ui-30m-v1`; the controller
+selects it from the validated plan. The fixed epoch is at most 1800 seconds.
+Each managed recorder and lease must have an actual 2100-second runtime cap;
+the lease command must use `sleep 2100`. The live gate re-reads their unit
+properties, process and FD identities, and monotonic coverage through the
+fixed deadline plus five seconds.
+
+With both fields and CLI options absent, the old 720-second epoch and
+900-second units and lease sleep remain in force. Unknown or mismatched
+profiles and purposes stop before a protocol socket. This source change
+does not start a new lab or alter the 390-second reserve, case duration,
+request counts or Finder receipt review. A fresh runtime, operator checkpoint
+and managed-unit rehearsal require separate root approval.
 
 The independent, closed control readiness has 18 actions: one TRTP
 handshake, one Login107 and five numbered control requests (348, 200, 206,
@@ -140,7 +162,7 @@ fresh screenshots before each operation; retained coordinates describe one
 layout and are not a general automation recipe. No alias, Copy or Paste is
 needed during this preparation.
 
-Finder selection changed the full sidecar SHA from the staged zero-suffix
+Finder preparation changed the full sidecar SHA from the staged zero-suffix
 value `1d0021b6…` to `8f0333df…`, while the target DATA and type/creator
 guards passed. This observed change supports pinning actual metadata after
 selection rather than resetting Finder bytes. Three screenshot files retain

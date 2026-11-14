@@ -43,6 +43,22 @@ class AliasPlanTests(unittest.TestCase):
         self.assertEqual(plan["mutations"], 1)
         self.assertNotIn("unlink", repr(plan).lower())
 
+    def test_named_alias_window_keeps_request_budget(self):
+        env = {
+            **ENV,
+            "capture_window_profile": "native-missing-alias-ui-30m-v1",
+            "capture_window_purpose": "native-missing-alias-positive",
+        }
+        plan = cases.source_plan(env)
+        self.assertEqual(plan["limits"]["epoch_seconds"], 1800)
+        self.assertEqual(plan["requests"], cases.source_plan(ENV)["requests"])
+        for change in (
+            {"capture_window_purpose": "other"},
+            {"capture_window_profile": "unknown"},
+        ):
+            with self.subTest(change=change), self.assertRaises(ValueError):
+                cases.source_plan({**env, **change})
+
     def test_source_pin_and_dynamic_206(self):
         for pin in ("", "Z" * 64, "a" * 63):
             with self.subTest(pin=pin), self.assertRaises(ValueError):

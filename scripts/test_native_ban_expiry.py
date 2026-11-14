@@ -137,6 +137,137 @@ class FakeRecorder:
 
 
 class BanExpiryTests(unittest.TestCase):
+    def test_named_live_service_rechecks_actual_cap_and_coverage(self):
+        now = datetime.now(timezone.utc)
+        deadline = now + timedelta(seconds=1200)
+        monotonic_us = time.monotonic_ns() // 1000
+        props = {
+            "ActiveState": "active",
+            "SubState": "running",
+            "MainPID": "321",
+            "RuntimeMaxUSec": "35min",
+            "ActiveEnterTimestampMonotonic": str(monotonic_us - 100_000_000),
+            "KillMode": "control-group",
+        }
+        meta = {
+            "unit": "mothra-alias-test.service",
+            "pid": 321,
+            "unit_properties": props,
+        }
+
+        def show(actual):
+            return SimpleNamespace(
+                stdout="".join(f"{k}={v}\n" for k, v in actual.items())
+            )
+
+        with patch.object(control.subprocess, "run", return_value=show(props)) as run:
+            control.live_service(meta, deadline, 2100)
+            run.assert_called_once()
+        for changed, expected in (
+            ({"RuntimeMaxUSec": "2101s"}, "Managed service changed"),
+            (
+                {"ActiveEnterTimestampMonotonic": str(monotonic_us - 1_100_000_000)},
+                "expires before epoch deadline",
+            ),
+        ):
+            actual = props | changed
+            recorded = (
+                meta
+                if "RuntimeMaxUSec" in changed
+                else meta | {"unit_properties": actual}
+            )
+            with (
+                self.subTest(changed=changed),
+                patch.object(control.subprocess, "run", return_value=show(actual)),
+                self.assertRaisesRegex(ValueError, expected),
+            ):
+                control.live_service(recorded, deadline, 2100)
+        over_cap = props | {"RuntimeMaxUSec": "2101s"}
+        with (
+            patch.object(control.subprocess, "run", return_value=show(over_cap)),
+            self.assertRaisesRegex(ValueError, "Managed service changed"),
+        ):
+            control.live_service(meta | {"unit_properties": over_cap}, deadline, 2100)
+        with (
+            patch.object(control.subprocess, "run", return_value=show(props)),
+            self.assertRaisesRegex(ValueError, "Managed service changed"),
+        ):
+            control.live_service(meta, deadline)  # Legacy caller requires 900 seconds.
+
+    def test_named_runtime_gate_passes_2100_to_all_managed_units(self):
+        profile = "native-missing-alias-ui-30m-v1"
+        now = datetime.now(timezone.utc)
+        deadline = now + timedelta(seconds=1200)
+        env = environment() | {
+            "capture_window_profile": profile,
+            "capture_window_purpose": "native-missing-alias-positive",
+        }
+        props = {
+            "ActiveState": "active",
+            "MainPID": "321",
+            "RuntimeMaxUSec": "35min",
+            "KillMode": "control-group",
+        }
+
+        def unit(pid):
+            return {
+                "pid": pid,
+                "fd": 4,
+                "deadline_utc": deadline.isoformat(),
+                "unit_properties": props | {"MainPID": str(pid)},
+            }
+
+        receipt = env | {
+            "guest_pcap": "/guest.pcap",
+            "epoch_started_utc": (deadline - timedelta(seconds=1800)).isoformat(),
+            "managed_capture": {"host": unit(321), "namespace": unit(322)},
+            "host_recorder_pid": 321,
+            "namespace_recorder_pid": 322,
+            "host_pcap": "/host.pcap",
+            "namespace_pcap": "/namespace.pcap",
+            "managed_lock": unit(323) | {"busy_exit": 1},
+            "oracle_lock": "/oracle.lock",
+        }
+        with self.assertRaisesRegex(ValueError, "profile"):
+            control.runtime_gate(receipt, env, deadline)
+        with (
+            patch.object(control.os, "geteuid", return_value=0),
+            patch.object(control.os, "stat", return_value=SimpleNamespace(st_ino=456)),
+            patch.object(control.os, "readlink", return_value="/guest.pcap"),
+            patch.object(control, "capture_gate"),
+            patch.object(control, "namespace_gate"),
+            patch.object(
+                control.Path, "stat", return_value=SimpleNamespace(st_ino=222, st_dev=1)
+            ),
+            patch.object(control.Path, "read_text", return_value="flags:\t0100001\n"),
+            patch.object(control, "live_service") as live,
+            patch.object(
+                control.subprocess, "run", return_value=SimpleNamespace(returncode=1)
+            ),
+        ):
+            control.runtime_gate(receipt, env, deadline, capture_window_profile=profile)
+            self.assertEqual(live.call_count, 3)
+            self.assertEqual([call.args[2] for call in live.call_args_list], [2100] * 3)
+
+    def test_window_profile_requires_alias_purpose_and_explicit_selection(self):
+        profile = "native-missing-alias-ui-30m-v1"
+        self.assertEqual(control.capture_window_bounds({}, {}, None), (720, 900))
+        values = {
+            "capture_window_profile": profile,
+            "capture_window_purpose": "native-missing-alias-positive",
+        }
+        self.assertEqual(
+            control.capture_window_bounds(values, values, profile), (1800, 2100)
+        )
+        for receipt, env, selected in (
+            (values, values, None),
+            (values, values, "unknown"),
+            (values, {**values, "capture_window_purpose": "other"}, profile),
+            ({}, values, profile),
+        ):
+            with self.subTest(selected=selected), self.assertRaises(ValueError):
+                control.capture_window_bounds(receipt, env, selected)
+
     def test_production_plans_are_finite_and_byte_pinned(self) -> None:
         generated = cases.plans()
         self.assertEqual(

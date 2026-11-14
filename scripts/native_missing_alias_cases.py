@@ -71,6 +71,17 @@ def source_plan(environment: dict, port: int = PORT) -> dict:
         raise ValueError("Only isolated control-only port 15980 is prepared")
     if any(not environment.get(key) for key in ENV_KEYS):
         raise ValueError("Incomplete runtime identity")
+    profile = environment.get("capture_window_profile")
+    purpose = environment.get("capture_window_purpose")
+    if profile is None and purpose is None:
+        epoch_seconds = 720
+    elif (
+        profile == "native-missing-alias-ui-30m-v1"
+        and purpose == "native-missing-alias-positive"
+    ):
+        epoch_seconds = 1800
+    else:
+        raise ValueError("Unsupported alias capture window profile or purpose")
     pin = environment["initial_finf_sha256"]
     if (
         not isinstance(pin, str)
@@ -114,7 +125,7 @@ def source_plan(environment: dict, port: int = PORT) -> dict:
         "connections": {"readiness": 1, "case": 1},
         "limits": {
             "case_seconds": 210,
-            "epoch_seconds": 720,
+            "epoch_seconds": epoch_seconds,
             "start_margin_seconds": 390,
             "max_frames": 64,
             "max_bytes": 65536,

@@ -24,6 +24,40 @@ EPOCH_CASES = {
 }
 TEMP_TEXT = cases.TEMPORARY_NOTICE
 MAX_WINDOW_SECONDS = 720
+ALIAS_WINDOW = "native-missing-alias-ui-30m-v1"
+ALIAS_PURPOSE = "native-missing-alias-positive"
+
+
+def capture_window_bounds(
+    receipt: dict, env: dict, selected: str | None
+) -> tuple[int, int]:
+    profile = receipt.get("capture_window_profile")
+    require(
+        profile == env.get("capture_window_profile") == selected,
+        "Capture window profile differs",
+    )
+    purpose = receipt.get("capture_window_purpose")
+    require(
+        purpose == env.get("capture_window_purpose"), "Capture window purpose differs"
+    )
+    if profile is None:
+        require(purpose is None, "Unexpected capture window purpose")
+        return 720, 900
+    require(
+        profile == ALIAS_WINDOW and purpose == ALIAS_PURPOSE,
+        "Unknown capture window profile or purpose",
+    )
+    return 1800, 2100
+
+
+def runtime_cap_seconds(value: str) -> int:
+    if value.endswith("min") and value[:-3].isdigit():
+        return int(value[:-3]) * 60
+    if value.endswith("s") and value[:-1].isdigit():
+        return int(value[:-1])
+    raise ValueError("Unrecognised managed runtime cap")
+
+
 MAX_BRACKET_SECONDS = 20
 PRE_EARLIEST = 1600
 PRE_LATEST = 1700
@@ -378,7 +412,9 @@ def plan_gate(plan_path: Path) -> tuple[dict, str]:
     return value, name
 
 
-def live_service(meta: dict, deadline_utc: datetime) -> None:
+def live_service(
+    meta: dict, deadline_utc: datetime, service_seconds: int = 900
+) -> None:
     unit = meta["unit"]
     require(
         unit.startswith("mothra-") and unit.endswith(".service"),
@@ -399,13 +435,13 @@ def live_service(meta: dict, deadline_utc: datetime) -> None:
         and actual["SubState"] == "running"
         and actual["MainPID"] == str(meta["pid"])
         and actual["KillMode"] == "control-group"
-        and actual["RuntimeMaxUSec"] == "15min",
+        and runtime_cap_seconds(actual["RuntimeMaxUSec"]) == service_seconds,
         "Managed service changed",
     )
     remaining_us = (
         deadline_utc - datetime.now(timezone.utc)
     ).total_seconds() * 1_000_000
-    expiry = int(actual["ActiveEnterTimestampMonotonic"]) + 900_000_000
+    expiry = int(actual["ActiveEnterTimestampMonotonic"]) + service_seconds * 1_000_000
     require(
         expiry - time.monotonic_ns() // 1000 >= remaining_us + 5_000_000,
         "Managed service expires before epoch deadline",
@@ -470,7 +506,16 @@ def settle_first_epoch(summary: dict, deadline_utc: datetime) -> None:
     )
 
 
-def runtime_gate(receipt: dict, env: dict, deadline_utc: datetime) -> None:
+def runtime_gate(
+    receipt: dict,
+    env: dict,
+    deadline_utc: datetime,
+    *,
+    capture_window_profile: str | None = None,
+) -> None:
+    epoch_seconds, service_seconds = capture_window_bounds(
+        receipt, env, capture_window_profile
+    )
     require(os.geteuid() == 0, "Live runner requires root for /proc identity")
     require(
         all(
@@ -507,8 +552,8 @@ def runtime_gate(receipt: dict, env: dict, deadline_utc: datetime) -> None:
     )
     require(
         (deadline_utc - utc(receipt["epoch_started_utc"])).total_seconds()
-        <= MAX_WINDOW_SECONDS,
-        "Epoch exceeds12min",
+        <= epoch_seconds,
+        "Epoch exceeds selected capture window",
     )
     for label in ("host", "namespace"):
         meta = receipt["managed_capture"][label]
@@ -518,11 +563,12 @@ def runtime_gate(receipt: dict, env: dict, deadline_utc: datetime) -> None:
             and meta["fd"] >= 0
             and meta["unit_properties"]["MainPID"] == str(meta["pid"])
             and meta["unit_properties"]["ActiveState"] == "active"
-            and meta["unit_properties"]["RuntimeMaxUSec"] == "15min"
+            and runtime_cap_seconds(meta["unit_properties"]["RuntimeMaxUSec"])
+            == service_seconds
             and meta["unit_properties"]["KillMode"] == "control-group",
             "Managed recorder receipt differs",
         )
-        live_service(meta, deadline_utc)
+        live_service(meta, deadline_utc, service_seconds)
         capture = Path(receipt[f"{label}_pcap"])
         fd = Path(f"/proc/{meta['pid']}/fd/{meta['fd']}")
         require(
@@ -553,7 +599,7 @@ def runtime_gate(receipt: dict, env: dict, deadline_utc: datetime) -> None:
         and lock["unit_properties"]["MainPID"] == str(lock["pid"]),
         "Managed oracle lease not proven busy",
     )
-    live_service(lock, deadline_utc)
+    live_service(lock, deadline_utc, service_seconds)
     expected_lock = Path(receipt["oracle_lock"])
     lock_fd = Path(f"/proc/{lock['pid']}/fd/{lock['fd']}")
     require(
