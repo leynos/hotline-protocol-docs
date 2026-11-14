@@ -3,11 +3,11 @@
   "title": "Hotline 1.9 protocol documentation gap register",
   "audited_at_utc": "2026-11-12T12:55:29.155796+00:00",
   "last_updated": "2026-11-14",
-  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-64/manifest.json",
-  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-64/sections.json",
+  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-65/manifest.json",
+  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-65/sections.json",
   "validity_ledger": "../mothra/docs/baseline-validity-ledger.md",
   "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
-  "method": "Review the published Classic 161 matrix, immutable as-run provenance and known 104 producer schemas; retain the prepared control-only ban case as unaccepted. Preserve all 87 original criteria and all statuses: 51 Resolved, 35 Investigating, 1 Open; 36 unclosed. Further mxd validation remains on hold.",
+  "method": "Accept GAP-080 from the exact-build registry and evidence-based native unknown-peer rule. Integrate the control-only permanent-ban witness and unrun persistence preparation. Preserve all 87 original criteria; close only GAP-080: 52 Resolved, 34 Investigating, 1 Open; 35 unclosed. Per-field tolerance, configured-ban notification, expiry/reload and settings persistence remain open. Further mxd validation remains on hold.",
   "gaps": [
     {
       "id": "GAP-001",
@@ -30,9 +30,9 @@
           "path": "internal-compatibility-matrix.md",
           "heading": "Open compatibility gaps and QA requirements",
           "level": 2,
-          "line_start": 314,
+          "line_start": 319,
           "anchor": "open-compatibility-gaps-and-qa-requirements",
-          "line_end": 350
+          "line_end": 355
         }
       ],
       "question": "Which of the 45 requests and server notifications must mxd implement now, defer explicitly, or reject, and which peer profiles are acceptance targets?",
@@ -1018,9 +1018,9 @@
           "path": "internal-compatibility-matrix.md",
           "heading": "Credential obfuscation and text compatibility",
           "level": 2,
-          "line_start": 105,
+          "line_start": 109,
           "anchor": "credential-obfuscation-and-text-compatibility",
-          "line_end": 132
+          "line_end": 136
         },
         {
           "path": "protocol.md",
@@ -1354,9 +1354,9 @@
           "path": "internal-compatibility-matrix.md",
           "heading": "Credential obfuscation and text compatibility",
           "level": 2,
-          "line_start": 105,
+          "line_start": 109,
           "anchor": "credential-obfuscation-and-text-compatibility",
-          "line_end": 132
+          "line_end": 136
         }
       ],
       "question": "What exact bytes does the 1.9 server expect for nonempty passwords in login and account mutation, independent of SynHX's helper?",
@@ -1472,7 +1472,7 @@
           "level": 2,
           "line_start": 35,
           "anchor": "compatibility-matrix",
-          "line_end": 58
+          "line_end": 62
         }
       ],
       "question": "Are fields 160/102/104 mandatory, what defaults apply if omitted or malformed, and does saved version affect anything besides the named banner/news paths?",
@@ -1586,9 +1586,9 @@
           "path": "internal-compatibility-matrix.md",
           "heading": "Login reply and banner policy",
           "level": 2,
-          "line_start": 59,
+          "line_start": 63,
           "anchor": "login-reply-and-banner-policy",
-          "line_end": 104
+          "line_end": 108
         }
       ],
       "question": "What are field 161's value semantics, widths and invalidation rules, and field 162's encoding/limits; how do they relate to banner 122 and download 212?",
@@ -1763,12 +1763,13 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Documented per-field session settings defaults/clearing and named byte caps, plus native 301 fan-out. Restart persistence and before/after native fixtures remain required. Revision61: Eight same-session 304 transitions now have paired 301 and 104 outcomes between exact full A7 baselines; 121 and persistence clauses remain open. Revision62: client-only delayed 121 default-text plans and immediate semantic gates are prepared against the existing agreement/account state; no new 121 default-response result is claimed.",
+        "progress": "Documented per-field session settings defaults/clearing and named byte caps, plus native 301 fan-out. Restart persistence and before/after native fixtures remain required. Revision61: Eight same-session 304 transitions now have paired 301 and 104 outcomes between exact full A7 baselines; 121 and persistence clauses remain open. Revision62: client-only delayed 121 default-text plans and immediate semantic gates are prepared against the existing agreement/account state; no new 121 default-response result is claimed. Revision65 imports the unrun two-phase persistence preparation. Its runner holds two controlled sockets through native app Quit and explicitly refuses to claim persistence before orderly OS shutdown and stopped-image account/Prefs comparisons. No persistence run is accepted here.",
         "evidence": [
           "[Presence, messaging and administration](presence-messaging-contracts.md)",
           "[Batch 06](../mothra/evidence/gap-remediation/2026-11-12/batch-06/manifest.json)",
           "[Native documentation evidence](native-settings-transition-witness.md)",
-          "[Delayed 121 default-text preparation](native-121-default-preparation.md)"
+          "[Delayed 121 default-text preparation](native-121-default-preparation.md)",
+          "[Unrun settings persistence preparation](native-settings-persistence-preparation.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -2635,7 +2636,7 @@
         "GAP-043"
       ],
       "resolution": {
-        "progress": "Separated routed user/feedback 104 schemas from data-only console/kick notices and chat-denial forms. All known producers and byte-level native variant fixtures still need completion. Existing-login create collision emits exact 104 fields 101 text and 109 marker 0001, followed by final successful batch reply. Other 104 variants remain active. Revision60: second disposable lab failed the mandatory full A7 download after 98,304 of 1,049,073 bytes, before any option-two request. Guest/namespace/recorder prefixes match; all observed payload was ACKed with positive receive windows. Producer stall cause remains unknown; this is a retained failure, not ban acceptance. Revision62: the third disposable lab also failed its mandatory 29-action A7 at the same 98,304-byte prefix, before any account seed or option-two request. Independent reassembly confirms C32 completed 1,049,073 bytes in both views; C35/C45 stopped at the identical prefix. Recorded source images, binaries and preferences match, but live worker/GUI state is missing and the cause remains unknown. Revision64 consolidates known 104 producer schemas and explicitly overlapping data-only and 109=1 variants. Ordinary PM/feedback, invitation feedback, denied chat, batch collision, account deletion, console and temporary ban have captured witnesses. Permanent ban and configured address-ban application still need accepted native fixtures. No universal origin discriminator is asserted.",
+        "progress": "Separated routed user/feedback 104 schemas from data-only console/kick notices and chat-denial forms. All known producers and byte-level native variant fixtures still need completion. Existing-login create collision emits exact 104 fields 101 text and 109 marker 0001, followed by final successful batch reply. Other 104 variants remain active. Revision60: second disposable lab failed the mandatory full A7 download after 98,304 of 1,049,073 bytes, before any option-two request. Guest/namespace/recorder prefixes match; all observed payload was ACKed with positive receive windows. Producer stall cause remains unknown; this is a retained failure, not ban acceptance. Revision62: the third disposable lab also failed its mandatory 29-action A7 at the same 98,304-byte prefix, before any account seed or option-two request. Independent reassembly confirms C32 completed 1,049,073 bytes in both views; C35/C45 stopped at the identical prefix. Recorded source images, binaries and preferences match, but live worker/GUI state is missing and the cause remains unknown. Revision64 consolidates known 104 producer schemas and explicitly overlapping data-only and 109=1 variants. Ordinary PM/feedback, invitation feedback, denied chat, batch collision, account deletion, console and temporary ban have captured witnesses. Permanent ban and configured address-ban application still need accepted native fixtures. No universal origin discriminator is asserted. Revision65 accepts the C56 control-only option-two notice: data-only104/101 exact42 ASCII bytes, target EOF, requester ACK/302 and same-admin readback. Six complete paired TCP lifetimes and stopped49-byte Banned data are retained. Configured-address-ban application104 producer10006590 still lacks a fixture; no universal origin discriminator or complete closure follows.",
         "evidence": [
           "[Presence, messaging and administration](presence-messaging-contracts.md)",
           "[Batch 06](../mothra/evidence/gap-remediation/2026-11-12/batch-06/manifest.json)",
@@ -2645,7 +2646,8 @@
           "[Failed disposable-lab baseline and packet replay](native-transfer-stall.md)",
           "[Repeated baseline failure and successful control](native-transfer-stall.md#repeated-baseline-and-a-successful-comparison)",
           "[Control-onlybanpreparation](native-ban-control-preparation.md)",
-          "[104producerinventory](notification-104-variants.md)"
+          "[104producerinventory](notification-104-variants.md)",
+          "[Permanent-ban control witness](native-ban-control-witness.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -4184,7 +4186,7 @@
         "GAP-036"
       ],
       "resolution": {
-        "progress": "Traced option 1 timed 1800-second address ban and option 2 persisted version-2 address-ban list; plain kick, missing target and protection branches documented. Expiry/restart/protected native fixtures remain required. Two bit-23 subjects reject administrator kicking and remain live before account deletion. Plain kick, both ban options, expiry/restart and broader protection fixtures remain active. Revision60: second disposable lab failed the mandatory full A7 download after 98,304 of 1,049,073 bytes, before any option-two request. Guest/namespace/recorder prefixes match; all observed payload was ACKed with positive receive windows. Producer stall cause remains unknown; this is a retained failure, not ban acceptance. Revision62: the third disposable lab also failed its mandatory 29-action A7 at the same 98,304-byte prefix, before any account seed or option-two request. Independent reassembly confirms C32 completed 1,049,073 bytes in both views; C35/C45 stopped at the identical prefix. Recorded source images, binaries and preferences match, but live worker/GUI state is missing and the cause remains unknown. Revision63: one delivered focus event did not resume the exact dual 98,304-byte prefix, and the stock full A7 failed. This falsifies that one event-resume claim only; no account or ban request ran. Revision64 imports the gated control-only permanent-ban preparation with root controller identity checks. C53 was retired without frontend contact. No permanent-ban case is accepted by this checkpoint; expiry, reload and protection requirements remain open.",
+        "progress": "Traced option 1 timed 1800-second address ban and option 2 persisted version-2 address-ban list; plain kick, missing target and protection branches documented. Expiry/restart/protected native fixtures remain required. Two bit-23 subjects reject administrator kicking and remain live before account deletion. Plain kick, both ban options, expiry/restart and broader protection fixtures remain active. Revision60: second disposable lab failed the mandatory full A7 download after 98,304 of 1,049,073 bytes, before any option-two request. Guest/namespace/recorder prefixes match; all observed payload was ACKed with positive receive windows. Producer stall cause remains unknown; this is a retained failure, not ban acceptance. Revision62: the third disposable lab also failed its mandatory 29-action A7 at the same 98,304-byte prefix, before any account seed or option-two request. Independent reassembly confirms C32 completed 1,049,073 bytes in both views; C35/C45 stopped at the identical prefix. Recorded source images, binaries and preferences match, but live worker/GUI state is missing and the cause remains unknown. Revision63: one delivered focus event did not resume the exact dual 98,304-byte prefix, and the stock full A7 failed. This falsifies that one event-resume claim only; no account or ban request ran. Revision64 imports the gated control-only permanent-ban preparation with root controller identity checks. C53 was retired without frontend contact. No permanent-ban case is accepted by this checkpoint; expiry, reload and protection requirements remain open. Revision65 accepts one option-two control-only ban with target identity/zero-access/current-roster gates, no reason101, successful same-admin postreadback and fresh TRTP+Login107 status1/100 permanent notice. The stopped49-byte Banned data fork is preserved. Temporary expiry, permanent reload and full protection fixtures remain open.",
         "evidence": [
           "[Presence, messaging and administration](presence-messaging-contracts.md)",
           "[Batch 06](../mothra/evidence/gap-remediation/2026-11-12/batch-06/manifest.json)",
@@ -4194,7 +4196,8 @@
           "[Failed disposable-lab baseline and packet replay](native-transfer-stall.md)",
           "[Repeated baseline failure and successful control](native-transfer-stall.md#repeated-baseline-and-a-successful-comparison)",
           "[Verified focus-event negative](native-ui-focus-witness.md)",
-          "[Control-onlybanpreparation](native-ban-control-preparation.md)"
+          "[Control-onlybanpreparation](native-ban-control-preparation.md)",
+          "[Permanent-ban control witness](native-ban-control-witness.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -4419,7 +4422,7 @@
       "area": "Compatibility and evidence",
       "priority": "P1",
       "kind": "Evidence",
-      "status": "Investigating",
+      "status": "Resolved",
       "owner": "Protocol documentation investigation",
       "title": "Identified peer corpus and fallback classifier",
       "sources": [
@@ -4429,15 +4432,15 @@
           "level": 2,
           "line_start": 35,
           "anchor": "compatibility-matrix",
-          "line_end": 58
+          "line_end": 62
         },
         {
           "path": "internal-compatibility-matrix.md",
           "heading": "Open compatibility gaps and QA requirements",
           "level": 2,
-          "line_start": 314,
+          "line_start": 319,
           "anchor": "open-compatibility-gaps-and-qa-requirements",
-          "line_end": 350
+          "line_end": 355
         }
       ],
       "question": "Which client builds are acceptance targets, what stable evidence distinguishes them after removing sub-version 2, and what is the unknown-peer fallback?",
@@ -4456,7 +4459,7 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Added hashed shx0.1.48 source at adb1bf8c8cb12f7eb2fa2c01673295a6312f262b. Source profile is identified; compiled-client/runtime corpus and fallback policy remain open. Native-shx-01 identifies one complete modern Linux shx0.1.48 build at sourceadb1bf8c8cb1 and executable8fbbe56cef43. Five accepted sessions cover login/chat/list/forks/negativepassword/ambiguousbytes with paired packet evidence. Acceptance-target selection and unknown-peer fallback remain open; reported160 is absent in this peer request and is not used as identity. Eight actual native full-peer sessions across native-shx-01/02 andfour labelled receiver fixtures identify one modern configured shx build. Acceptance-target selection and unknown-peer fallback still require a separate policy; no field160/sub-version peer identity is inferred. Five full-process controlled sessions pin the same identified shx build and source; reported sub-version2 stays separate from identity. Omitted/varied161, unknown login TLV and earlier122 preserve continuation. Target/fallback decisions and other selected profiles remain open. An acquired Mac client archive is hashed and statically identified with APPL/HTLC PPC PEF forks. Archive/application labels say 1.9.2 while both embedded vers strings say 1.9.1.0. Keep these observations distinct from opaque binary identity and vendor authenticity. At that acquisition checkpoint, no client replay or additional profile/fallback decision had occurred. Latest captured session: B13 executed the prelaunch fork-hash-identified Classic candidate once against native 1.9. Three independent control views reconcile 150 client/514 server bytes; both guest data views reconcile 16/58 bytes for its automatic banner fetch. One login/agreement/roster session succeeded, then automatic external advertising HTTP caused a safety stop. Archive 1.9.2 versus resource 1.9.1.0 identity conflict remains explicit. Neither vendor identity, universal profile classification nor fallback policy is inferred. User instruction13November2026: further mxd validation/fixes are on hold; consolidate completed evidence in mxd-validation.md. Canonical sourcecb907 has accepted framing/directACK/loginextras corrections. Actual Classic authenticates with fully transmitted24-byte fixture secret but waits for missing agreement handoff; no121/300/212 follows. This is partial startup, not release or complete compatibility evidence. Revision63: the pinned Classic client completed the unchanged 161=0000 baseline through 121/300 and a 16-byte HTXF request/58-byte banner transfer. All five views match. Banner rendering is unproved. B52 width probes remain a separate pending publication; no broader profile or field-162 policy is inferred. Revision64 accepts the published B52 three-case Classic 161 matrix with five-view complete TCP lifetimes and exact A7 preflight/postflight. Build identities remain separate from archive/version labels. No universal classifier or release-target decision follows.",
+        "progress": "Added hashed shx0.1.48 source at adb1bf8c8cb12f7eb2fa2c01673295a6312f262b. Source profile is identified; compiled-client/runtime corpus and fallback policy remain open. Native-shx-01 identifies one complete modern Linux shx0.1.48 build at sourceadb1bf8c8cb1 and executable8fbbe56cef43. Five accepted sessions cover login/chat/list/forks/negativepassword/ambiguousbytes with paired packet evidence. Acceptance-target selection and unknown-peer fallback remain open; reported160 is absent in this peer request and is not used as identity. Eight actual native full-peer sessions across native-shx-01/02 andfour labelled receiver fixtures identify one modern configured shx build. Acceptance-target selection and unknown-peer fallback still require a separate policy; no field160/sub-version peer identity is inferred. Five full-process controlled sessions pin the same identified shx build and source; reported sub-version2 stays separate from identity. Omitted/varied161, unknown login TLV and earlier122 preserve continuation. Target/fallback decisions and other selected profiles remain open. An acquired Mac client archive is hashed and statically identified with APPL/HTLC PPC PEF forks. Archive/application labels say 1.9.2 while both embedded vers strings say 1.9.1.0. Keep these observations distinct from opaque binary identity and vendor authenticity. At that acquisition checkpoint, no client replay or additional profile/fallback decision had occurred. Latest captured session: B13 executed the prelaunch fork-hash-identified Classic candidate once against native 1.9. Three independent control views reconcile 150 client/514 server bytes; both guest data views reconcile 16/58 bytes for its automatic banner fetch. One login/agreement/roster session succeeded, then automatic external advertising HTTP caused a safety stop. Archive 1.9.2 versus resource 1.9.1.0 identity conflict remains explicit. Neither vendor identity, universal profile classification nor fallback policy is inferred. User instruction13November2026: further mxd validation/fixes are on hold; consolidate completed evidence in mxd-validation.md. Canonical sourcecb907 has accepted framing/directACK/loginextras corrections. Actual Classic authenticates with fully transmitted24-byte fixture secret but waits for missing agreement handoff; no121/300/212 follows. This is partial startup, not release or complete compatibility evidence. Revision63: the pinned Classic client completed the unchanged 161=0000 baseline through 121/300 and a 16-byte HTXF request/58-byte banner transfer. All five views match. Banner rendering is unproved. B52 width probes remain a separate pending publication; no broader profile or field-162 policy is inferred. Revision64 accepts the published B52 three-case Classic 161 matrix with five-view complete TCP lifetimes and exact A7 preflight/postflight. Build identities remain separate from archive/version labels. No universal classifier or release-target decision follows. Revision65 root acceptance: peer-profile-rules.md publishes two exact evaluated build identities, finite measured/untested cells and the native1.9 unknown-peer producer rule. Independent A43/A44 criterion audits support closure against the original criterion. Missing build provenance stays unknown; shared sub-version2/reported160 never classify. Classic archive/app1.9.2 versus vers1.9.1.0 remains explicit. No universal compatibility or mxd release/policy decision follows.",
         "evidence": [
           "[Error outcomes](error-outcomes.md)",
           "[Folder descriptor](transfer-contracts.md#folder-item-descriptor-bytes)",
@@ -4471,9 +4474,11 @@
           "[First Classic peer session](mac-peer-first-session.md)",
           "[mxd validation findings and hold](mxd-validation.md)",
           "[Classic native baseline](classic-native-baseline.md)",
-          "[Classic161matrix](classic-field161-matrix.md)"
+          "[Classic161matrix](classic-field161-matrix.md)",
+          "[Evaluated profiles and unknown-peer rule](peer-profile-rules.md)",
+          "[Root peer-profile acceptance](../mothra/evidence/gap-remediation/2026-11-14/peer-profile-acceptance-01/decision.json)"
         ],
-        "closure": "Not closed: remaining acceptance evidence is listed above."
+        "closure": "Resolved against the unchanged criterion: two hashed executable/capture profiles, explicit evaluated-build targets, separate reported-version observations, and native1.9 unknown-peer rules are published. Per-field tolerance and release/mxd decisions remain separate."
       }
     },
     {
@@ -4489,9 +4494,9 @@
           "path": "internal-compatibility-matrix.md",
           "heading": "Login reply and banner policy",
           "level": 2,
-          "line_start": 59,
+          "line_start": 63,
           "anchor": "login-reply-and-banner-policy",
-          "line_end": 104
+          "line_end": 108
         },
         {
           "path": "internal-compatibility-matrix.md",
@@ -4499,7 +4504,7 @@
           "level": 2,
           "line_start": 35,
           "anchor": "compatibility-matrix",
-          "line_end": 58
+          "line_end": 62
         }
       ],
       "question": "Which identified clients accept 161/162, 122, native roster output and the SynHX subject addition, and when is an omission policy necessary?",
@@ -4535,7 +4540,8 @@
           "[First Classic peer session](mac-peer-first-session.md)",
           "[mxd validation findings and hold](mxd-validation.md)",
           "[Classic native baseline](classic-native-baseline.md)",
-          "[Classic161matrix](classic-field161-matrix.md)"
+          "[Classic161matrix](classic-field161-matrix.md)",
+          "[Evaluated profiles and unknown-peer rule](peer-profile-rules.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -4553,9 +4559,9 @@
           "path": "internal-compatibility-matrix.md",
           "heading": "Credential obfuscation and text compatibility",
           "level": 2,
-          "line_start": 105,
+          "line_start": 109,
           "anchor": "credential-obfuscation-and-text-compatibility",
-          "line_end": 132
+          "line_end": 136
         },
         {
           "path": "protocol.md",
@@ -4612,7 +4618,7 @@
           "level": 2,
           "line_start": 35,
           "anchor": "compatibility-matrix",
-          "line_end": 58
+          "line_end": 62
         },
         {
           "path": "protocol.md",
@@ -4674,9 +4680,9 @@
           "path": "internal-compatibility-matrix.md",
           "heading": "Open compatibility gaps and QA requirements",
           "level": 2,
-          "line_start": 314,
+          "line_start": 319,
           "anchor": "open-compatibility-gaps-and-qa-requirements",
-          "line_end": 350
+          "line_end": 355
         }
       ],
       "question": "Where are executable positive/negative fixtures for core handshake, authenticated login, both completion paths, errors and repeated-field handling?",
@@ -4767,17 +4773,17 @@
           "path": "internal-compatibility-matrix.md",
           "heading": "Historical reported mxd test coverage",
           "level": 2,
-          "line_start": 165,
+          "line_start": 169,
           "anchor": "historical-reported-mxd-test-coverage",
-          "line_end": 192
+          "line_end": 196
         },
         {
           "path": "internal-compatibility-matrix.md",
           "heading": "Open compatibility gaps and QA requirements",
           "level": 2,
-          "line_start": 314,
+          "line_start": 319,
           "anchor": "open-compatibility-gaps-and-qa-requirements",
-          "line_end": 350
+          "line_end": 355
         }
       ],
       "question": "Do the named test/source references exist and pass at a recorded mxd revision, and do their assertions match the corrected protocol?",
@@ -4821,9 +4827,9 @@
           "path": "internal-compatibility-matrix.md",
           "heading": "Open compatibility gaps and QA requirements",
           "level": 2,
-          "line_start": 314,
+          "line_start": 319,
           "anchor": "open-compatibility-gaps-and-qa-requirements",
-          "line_end": 350
+          "line_end": 355
         },
         {
           "path": "internal-compatibility-matrix.md",
@@ -6321,7 +6327,7 @@
       "level": 2,
       "line_start": 35,
       "anchor": "compatibility-matrix",
-      "line_end": 58,
+      "line_end": 62,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-024",
@@ -6340,9 +6346,9 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "Login reply and banner policy",
       "level": 2,
-      "line_start": 59,
+      "line_start": 63,
       "anchor": "login-reply-and-banner-policy",
-      "line_end": 104,
+      "line_end": 108,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-026",
@@ -6357,9 +6363,9 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "Credential obfuscation and text compatibility",
       "level": 2,
-      "line_start": 105,
+      "line_start": 109,
       "anchor": "credential-obfuscation-and-text-compatibility",
-      "line_end": 132,
+      "line_end": 136,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-018",
@@ -6376,9 +6382,9 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "Repeated fields and presence records",
       "level": 2,
-      "line_start": 133,
+      "line_start": 137,
       "anchor": "repeated-fields-and-presence-records",
-      "line_end": 164,
+      "line_end": 168,
       "review": "Reviewed",
       "direct_gap_ids": [],
       "related_gap_ids": [
@@ -6392,9 +6398,9 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "Historical reported mxd test coverage",
       "level": 2,
-      "line_start": 165,
+      "line_start": 169,
       "anchor": "historical-reported-mxd-test-coverage",
-      "line_end": 192,
+      "line_end": 196,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-085"
@@ -6407,9 +6413,9 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "Open compatibility gaps and QA requirements",
       "level": 2,
-      "line_start": 314,
+      "line_start": 319,
       "anchor": "open-compatibility-gaps-and-qa-requirements",
-      "line_end": 350,
+      "line_end": 355,
       "review": "Reviewed",
       "direct_gap_ids": [
         "GAP-001",
@@ -6633,8 +6639,8 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "mxd review at 2e4c9c1",
       "level": 2,
-      "line_start": 193,
-      "line_end": 215,
+      "line_start": 197,
+      "line_end": 219,
       "anchor": "mxd-review-at-2e4c9c1",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6656,8 +6662,8 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "Assertions requiring protocol reconciliation",
       "level": 3,
-      "line_start": 216,
-      "line_end": 231,
+      "line_start": 220,
+      "line_end": 235,
       "anchor": "assertions-requiring-protocol-reconciliation",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6675,8 +6681,8 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "Exact current text heuristic",
       "level": 3,
-      "line_start": 232,
-      "line_end": 252,
+      "line_start": 236,
+      "line_end": 256,
       "anchor": "exact-current-text-heuristic",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -6696,8 +6702,8 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "Proof and QA limits",
       "level": 3,
-      "line_start": 253,
-      "line_end": 267,
+      "line_start": 257,
+      "line_end": 271,
       "anchor": "proof-and-qa-limits",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7337,7 +7343,7 @@
       "heading": "Kick options and native console messages",
       "level": 2,
       "line_start": 405,
-      "line_end": 471,
+      "line_end": 480,
       "anchor": "kick-options-and-native-console-messages",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7601,8 +7607,8 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "Historical source lineage and build limits",
       "level": 2,
-      "line_start": 283,
-      "line_end": 313,
+      "line_start": 287,
+      "line_end": 318,
       "anchor": "historical-source-lineage-and-build-limits",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -7820,8 +7826,8 @@
       "path": "internal-compatibility-matrix.md",
       "heading": "Newly identified client source evidence",
       "level": 2,
-      "line_start": 268,
-      "line_end": 282,
+      "line_start": 272,
+      "line_end": 286,
       "anchor": "newly-identified-client-source-evidence",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -9300,7 +9306,7 @@
       "heading": "Ambiguous text at the real peer boundary",
       "level": 2,
       "line_start": 162,
-      "line_end": 186,
+      "line_end": 187,
       "anchor": "ambiguous-text-at-the-real-peer-boundary",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -9324,8 +9330,8 @@
       "path": "identified-client-source.md",
       "heading": "Reproducing and checking full peer sessions",
       "level": 2,
-      "line_start": 187,
-      "line_end": 217,
+      "line_start": 188,
+      "line_end": 218,
       "anchor": "reproducing-and-checking-full-peer-sessions",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -9374,8 +9380,8 @@
       "path": "identified-client-source.md",
       "heading": "Native configured-name and controlled receiver matrix",
       "level": 2,
-      "line_start": 218,
-      "line_end": 268,
+      "line_start": 219,
+      "line_end": 270,
       "anchor": "native-configured-name-and-controlled-receiver-matrix",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -9399,8 +9405,8 @@
       "path": "identified-client-source.md",
       "heading": "Source package identities and configuration applicability",
       "level": 2,
-      "line_start": 269,
-      "line_end": 318,
+      "line_start": 271,
+      "line_end": 322,
       "anchor": "source-package-identities-and-configuration-applicability",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -10497,8 +10503,8 @@
       "path": "presence-messaging-contracts.md",
       "heading": "Captured private rooms, invitations and chat bytes",
       "level": 2,
-      "line_start": 472,
-      "line_end": 576,
+      "line_start": 481,
+      "line_end": 585,
       "anchor": "captured-private-rooms-invitations-and-chat-bytes",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -12014,8 +12020,8 @@
       "path": "presence-messaging-contracts.md",
       "heading": "Captured console and client broadcast recipients",
       "level": 2,
-      "line_start": 577,
-      "line_end": 589,
+      "line_start": 586,
+      "line_end": 598,
       "anchor": "captured-console-and-client-broadcast-recipients",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -12234,7 +12240,7 @@
       "heading": "Native 1.9 temporary ban notice: disposable option-one witness",
       "level": 1,
       "line_start": 1,
-      "line_end": 8,
+      "line_end": 9,
       "anchor": "native-19-temporary-ban-notice-disposable-option-one-witness",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -12250,8 +12256,8 @@
       "path": "native-ban-notices.md",
       "heading": "Identity and baseline",
       "level": 2,
-      "line_start": 9,
-      "line_end": 29,
+      "line_start": 10,
+      "line_end": 30,
       "anchor": "identity-and-baseline",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -12267,8 +12273,8 @@
       "path": "native-ban-notices.md",
       "heading": "One option-one exchange",
       "level": 2,
-      "line_start": 30,
-      "line_end": 62,
+      "line_start": 31,
+      "line_end": 63,
       "anchor": "one-option-one-exchange",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -12284,8 +12290,8 @@
       "path": "native-ban-notices.md",
       "heading": "Isolation and limits",
       "level": 2,
-      "line_start": 63,
-      "line_end": 91,
+      "line_start": 64,
+      "line_end": 92,
       "anchor": "isolation-and-limits",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -12830,7 +12836,7 @@
       "heading": "Isolated permanent-ban control fixture (C52 preparation)",
       "level": 1,
       "line_start": 1,
-      "line_end": 9,
+      "line_end": 10,
       "anchor": "isolated-permanent-ban-control-fixture-c52-preparation",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -12846,8 +12852,8 @@
       "path": "native-ban-control-preparation.md",
       "heading": "Prepared image and immutable inputs",
       "level": 2,
-      "line_start": 10,
-      "line_end": 27,
+      "line_start": 11,
+      "line_end": 28,
       "anchor": "prepared-image-and-immutable-inputs",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -12863,8 +12869,8 @@
       "path": "native-ban-control-preparation.md",
       "heading": "Bounded next live sequence (requires separate grant)",
       "level": 2,
-      "line_start": 28,
-      "line_end": 86,
+      "line_start": 29,
+      "line_end": 87,
       "anchor": "bounded-next-live-sequence-requires-separate-grant",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -12919,6 +12925,176 @@
       ],
       "related_gap_ids": [
         "GAP-044"
+      ]
+    },
+    {
+      "path": "peer-profile-rules.md",
+      "heading": "Identified peer profiles and the unknown-peer rule",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 9,
+      "anchor": "identified-peer-profiles-and-the-unknown-peer-rule",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-080",
+        "GAP-081",
+        "GAP-026"
+      ],
+      "related_gap_ids": [
+        "GAP-080",
+        "GAP-081",
+        "GAP-026"
+      ]
+    },
+    {
+      "path": "peer-profile-rules.md",
+      "heading": "Evaluated build identities",
+      "level": 2,
+      "line_start": 10,
+      "line_end": 45,
+      "anchor": "evaluated-build-identities",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-080",
+        "GAP-081",
+        "GAP-026"
+      ],
+      "related_gap_ids": [
+        "GAP-080",
+        "GAP-081",
+        "GAP-026"
+      ]
+    },
+    {
+      "path": "peer-profile-rules.md",
+      "heading": "Profile assignment and unknown-peer fallback",
+      "level": 2,
+      "line_start": 46,
+      "line_end": 72,
+      "anchor": "profile-assignment-and-unknown-peer-fallback",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-080",
+        "GAP-081",
+        "GAP-026"
+      ],
+      "related_gap_ids": [
+        "GAP-080",
+        "GAP-081",
+        "GAP-026"
+      ]
+    },
+    {
+      "path": "native-settings-persistence-preparation.md",
+      "heading": "Isolated native settings persistence preparation (A42)",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 6,
+      "anchor": "isolated-native-settings-persistence-preparation-a42",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-029"
+      ],
+      "related_gap_ids": [
+        "GAP-029"
+      ]
+    },
+    {
+      "path": "native-settings-persistence-preparation.md",
+      "heading": "Assets and authority",
+      "level": 2,
+      "line_start": 7,
+      "line_end": 28,
+      "anchor": "assets-and-authority",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-029"
+      ],
+      "related_gap_ids": [
+        "GAP-029"
+      ]
+    },
+    {
+      "path": "native-settings-persistence-preparation.md",
+      "heading": "Fixed observation",
+      "level": 2,
+      "line_start": 29,
+      "line_end": 110,
+      "anchor": "fixed-observation",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-029"
+      ],
+      "related_gap_ids": [
+        "GAP-029"
+      ]
+    },
+    {
+      "path": "native-ban-control-witness.md",
+      "heading": "Native 1.9 permanent ban control witness",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 8,
+      "anchor": "native-19-permanent-ban-control-witness",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-044",
+        "GAP-074"
+      ],
+      "related_gap_ids": [
+        "GAP-044",
+        "GAP-074"
+      ]
+    },
+    {
+      "path": "native-ban-control-witness.md",
+      "heading": "Scope and provenance",
+      "level": 2,
+      "line_start": 9,
+      "line_end": 28,
+      "anchor": "scope-and-provenance",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-044",
+        "GAP-074"
+      ],
+      "related_gap_ids": [
+        "GAP-044",
+        "GAP-074"
+      ]
+    },
+    {
+      "path": "native-ban-control-witness.md",
+      "heading": "Observed sequence",
+      "level": 2,
+      "line_start": 29,
+      "line_end": 60,
+      "anchor": "observed-sequence",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-044",
+        "GAP-074"
+      ],
+      "related_gap_ids": [
+        "GAP-044",
+        "GAP-074"
+      ]
+    },
+    {
+      "path": "native-ban-control-witness.md",
+      "heading": "Offline replay",
+      "level": 2,
+      "line_start": 61,
+      "line_end": 75,
+      "anchor": "offline-replay",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-044",
+        "GAP-074"
+      ],
+      "related_gap_ids": [
+        "GAP-044",
+        "GAP-074"
       ]
     }
   ]

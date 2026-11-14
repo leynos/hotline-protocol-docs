@@ -1,8 +1,9 @@
 # Isolated permanent-ban control fixture (C52 preparation)
 
-Status: prepared offline, **not run**. The root-approved
+The preparation below was exercised by the
+[C56 permanent-ban witness](native-ban-control-witness.md). The root-approved
 [control-readiness profile](native-control-readiness.md) applies only after a
-separate live grant. Set `fixture_profile=control-only` and
+separate live grant for any new run. Set `fixture_profile=control-only` and
 `full_file_baseline=not_exercised` in every report. The C35, C45, and C50 lab
 full-file baselines all failed at the 98,304-byte prefix; this fixture cannot
 turn them into passes or support transfer claims.

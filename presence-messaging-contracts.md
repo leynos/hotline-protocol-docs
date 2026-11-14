@@ -414,8 +414,9 @@ target produces an error without performing the ordinary kick branch.
 | 2 | Sends a different data-only 104 notice; adds the target address range to the persisted ban list, with `ffffffff` expiry in the constructed entry and optional reason bytes capped at 63. |
 | Other, including absent/zero | Closes the target without either ban helper or those notices. |
 
-All these normal branches close the target control transport before ACKing the
-requester. Option 1 uses `100063c0`; option 2 uses `10006230`, list reader
+These normal branches invoke the target-close helper before constructing the
+requester's ACK; this is not a cross-socket arrival-order guarantee.
+Option 1 uses `100063c0`; option 2 uses `10006230`, list reader
 `1000a070` and writer `10009d10`. The writer rotates the stored ban files and
 writes list version 2. These are address bans, not account-name mutations.
 Expiry/restart/protection fixtures remain GAP-074.
@@ -425,6 +426,14 @@ unprotected target: data-only 104, target close, then the administrator's
 success ACK before 302 on its own stream. Its single fresh probe completed
 TRTP but attempted no 107; the failed pre-login EOF expectation is preserved.
 This does not establish later login acceptance or rejection.
+
+The [separate option-two witness](native-ban-control-witness.md) captures a
+42-byte data-only permanent-ban notice, target EOF, requester ACK/302 and a
+fresh Login107 rejection with the same text in error field 100. The existing
+admin connection remains usable for the exact account and Files readback.
+Its readiness profile covers control operations; it makes no full-transfer
+baseline claim. The stopped image contains a 49-byte `Banned` data fork.
+Expiry and behaviour after reload remain untested.
 
 The [fresh read-only oracle trace][ban-oracle] finds direct callers of both
 ban predicates only in login 107. `10011960` checks the permanent list first,

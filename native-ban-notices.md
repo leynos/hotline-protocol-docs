@@ -2,8 +2,9 @@
 
 This is a bounded **GAP-044** observation from one disposable Mac OS 9
 Hotline Server 1.9 lab. The byte-level option-one notice is witnessed; option
-two, post-ban Login 107 rejection, the 1,800-second expiry, and persistence
-remain open. The portable capture is
+two and post-ban Login107 were later measured in a
+[separate control-only witness](native-ban-control-witness.md). The
+1,800-second expiry and reload persistence remain open. The option-one capture is
 `../mothra/evidence/gap-remediation/2026-11-13/native-ban-one-01/`.
 
 ## Identity and baseline

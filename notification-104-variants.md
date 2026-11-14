@@ -14,7 +14,7 @@ wire. Field numbers below are decimal; integers use big-endian bytes.
 | `10015500`, 349 creation collision | 101 collision text, 109=`0001` | [Account batch contract](operation-contracts.md), `native-account-batch-01` |
 | `10005f90`, deleting an account with connected users | 101 deletion text only | `native-live-accounts-01`, two connected targets |
 | `10015e70`, 110 option 1 | 101 temporary-ban text only | [Disposable option-one witness](native-ban-notices.md) |
-| `10015e70`, 110 option 2 | 101 permanent-ban text only | [Prepared control fixture](native-ban-control-preparation.md); not yet accepted |
+| `10015e70`, 110 option 2 | 101 permanent-ban text only | [Permanent-ban control witness](native-ban-control-witness.md) |
 | Console message dialog `10002dd0` | 101 operator-supplied text only | [Console witness](native-console-broadcast.md) |
 | `10006590`, applying configured address bans to connected users | 101 configured-ban notice only | Static trace; native notification fixture outstanding |
 
@@ -60,7 +60,7 @@ refreshing the active ban list; the captured caller is
 [`B17-D-100023a0.c`](../mothra/evidence/gap-remediation/2026-11-12/batch-17/queries/B17-D-100023a0.c).
 Applying a list and rejecting a later Login107 are separate execution paths.
 
-GAP-044 remains open: the option-two notification and configured-ban
-application need accepted native fixtures. This inventory does not establish
+GAP-044 remains open: configured-ban application still needs an accepted
+native fixture. This inventory does not establish
 that no further producer exists. Expiry, reload persistence, rate limits,
 text boundaries, and general encoding remain their separate requirements.
