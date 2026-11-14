@@ -1,9 +1,10 @@
 # Isolated native settings persistence preparation (A42)
 
-A46 phase one ran on the private A41 image; phase two remains **unrun** and
-requires separate root START. The A46 plan/report are frozen historical
-evidence: its 64 planned observation actions plus two runner-added EOFs require
-explicit legacy validation. Never rewrite their counts, checksums or driver hash.
+A46 and A48 ran on the same private A41 working image. Their bounded result
+is recorded in [the persistence witness](native-settings-persistence-witness.md).
+The A46 plan/report remain frozen historical evidence: 64 planned observations
+plus two runner-added EOFs require explicit legacy validation. Never rewrite
+their counts, checksums or driver hash.
 
 The same-session 304 transitions and delayed 121 defaults are already measured
 in `native-settings-transition-witness.md` and `native-121-default-witness.md`.
