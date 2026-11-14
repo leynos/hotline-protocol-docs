@@ -305,7 +305,8 @@ resource limits or deadlines.
 The compiled age comparisons above are not unconditional wall-clock deadlines.
 The dispatcher must run and its transport predicate must permit the branch.
 The retained [transport guard queries][guards] show primary predicate `10070790`
-checking Open Transport atomic bit 1 and endpoint state 6; closing helper
+returning true when Open Transport atomic bit 1 is set **or** endpoint state
+6 is returned; closing helper
 `10070610` calls `OTSndDisconnect`. No human meaning is assigned to that numeric
 endpoint state without its platform definition.
 

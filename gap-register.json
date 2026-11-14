@@ -3,11 +3,11 @@
   "title": "Hotline 1.9 protocol documentation gap register",
   "audited_at_utc": "2026-11-12T12:55:29.155796+00:00",
   "last_updated": "2026-11-14",
-  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-72/manifest.json",
-  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-72/sections.json",
+  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-73/manifest.json",
+  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-73/sections.json",
   "validity_ledger": "../mothra/docs/baseline-validity-ledger.md",
   "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
-  "method": "Accept original roster visibility/recipient/ordering criterion after independent review and native overlap packet replay. Preserve all87 original criteria:59 Resolved,27 Investigating,1 Open;28 unclosed. Keep finite-schedule, namespace-observation, storage and failed-write limits explicit. Add direct account-writer trace without closing failed-write atomicity. Further mxd validation stays on hold.",
+  "method": "Preserve all87 original criteria and59 Resolved/27 Investigating/1 Open. Add reviewed liveness preparation with14 offline controls, distinguish it from future native evidence, and retain bounded Classic privilege-string discovery without assigning meanings. Make the transport predicate bit1 OR state6 explicit from retained Ghidra source. Further mxd validation stays on hold.",
   "gaps": [
     {
       "id": "GAP-001",
@@ -313,7 +313,7 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Published timer origins/reset conditions: only selected logical requests refresh session activity; upload entry clocks begin at request creation and attachment does not reset them; consumed file chunks refresh them. Added bounded pending/partial-input negatives and late-attachment derived case. Lower-layer/configured timing and native boundary fixtures remain required. Guest trace establishes no FIN/RST during65.060281 host seconds after a failed-login reply before client cleanup. A separate isolated35-second quiet case resets the failed session92.254ms after a new control SYN. Added primary OT predicate/close helper captures. Dispatcher scheduling, guard semantics across profiles and clock/configuration boundaries remain open; no hard30-second deadline is claimed. Added partial header/body/transaction silence then nativeFIN responses to client write-half-close. These are not timeout observations or mandatory deadlines; platform/scheduling/liveness requirements remain open. Native-login-extras-01 retains a90second waiting hypothesis: guest close at90.851866 reportseconds precedes host121send92.727286;121never reachesguest.20second configured-name change permits waiting121completion. This isnot a universal deadline orisolated options-save/timercause; scheduling/guard boundaries remain required. Deleted-account subjects show native first FIN but remain in two bounded observer snapshots; late 302 messages follow the recorded receive prefix. No universal teardown deadline is inferred.",
+        "progress": "Published timer origins/reset conditions: only selected logical requests refresh session activity; upload entry clocks begin at request creation and attachment does not reset them; consumed file chunks refresh them. Added bounded pending/partial-input negatives and late-attachment derived case. Lower-layer/configured timing and native boundary fixtures remain required. Guest trace establishes no FIN/RST during65.060281 host seconds after a failed-login reply before client cleanup. A separate isolated35-second quiet case resets the failed session92.254ms after a new control SYN. Added primary OT predicate/close helper captures. Dispatcher scheduling, guard semantics across profiles and clock/configuration boundaries remain open; no hard30-second deadline is claimed. Added partial header/body/transaction silence then nativeFIN responses to client write-half-close. These are not timeout observations or mandatory deadlines; platform/scheduling/liveness requirements remain open. Native-login-extras-01 retains a90second waiting hypothesis: guest close at90.851866 reportseconds precedes host121send92.727286;121never reachesguest.20second configured-name change permits waiting121completion. This isnot a universal deadline orisolated options-save/timercause; scheduling/guard boundaries remain required. Deleted-account subjects show native first FIN but remain in two bounded observer snapshots; late 302 messages follow the recorded receive prefix. No universal teardown deadline is inferred. Revision73 prepares a finite135second A/B/F/O liveness timeline with source-gated delayed107 and partial121. Fourteen offline controls validate generatedbytes, semanticnegativecases and reporttiming/terminal reconstruction. This is preparation only; a native case and pairedpacket publication remain required. Onlineidle>600 and broaderroom/transfercleanup are not covered.",
         "evidence": [
           "[Native transport corpus](../mothra/evidence/gap-remediation/2026-11-12/native-transport-01/manifest.json)",
           "[Captured boundaries and timers](session-transport-contracts.md)",
@@ -322,7 +322,8 @@
           "[Native login-extra corpus](../mothra/evidence/gap-remediation/2026-11-13/native-login-extras-01/manifest.json)",
           "[Live account events and restart](native-wire-details.md#captured-live-account-changes-and-server-restart)",
           "[Native live account corpus](../mothra/evidence/gap-remediation/2026-11-13/native-live-accounts-01/manifest.json)",
-          "[Repeatable live/restart workflow](native-capture-workflow.md#reproducing-live-account-edits-deletion-and-restart)"
+          "[Repeatable live/restart workflow](native-capture-workflow.md#reproducing-live-account-edits-deletion-and-restart)",
+          "[Finite native liveness fixture preparation](native-liveness-preparation.md)"
         ],
         "closure": "Not closed: the remaining unchanged acceptance requirements are explicitly retained above."
       }
@@ -1882,7 +1883,7 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Published a registry covering bits0\u201363 with37 observed uses and explicit unknown ranges12\u201313,18\u201319,41\u201363. Reconciled40 direct accessor calls in25 functions; inline account/status/settings tests reviewed separately. Native serialization/enforcement and unknown-bit fixtures remain required. Threeownedtemporaryaccountbitmapcontrols0000000c00000000comment-only,1100000000000000rename-onlyandzero verify207file/foldercommentbits28/29andrenamebits3/7withactualeffects. Fullbitmapregistryremainsrequired. Native208and204admin/zerobitmapcontrolsconfirmpermissiondenialsforbothfile/folderclasses;freshhandlerqueriesretainbit4/8moveand0/6deletechecks. Thisisnotanisolatedsingle-bitprooforfullregistryclosure. Owned create-only, delete-only, update-only and zero-role fixtures establish admission, immediate per-item checks, subset denial and create exemption bit 27. Wider bitmap meanings remain active. Bit 23 alone rejects administrator request-110 kick but permits administrator account deletion. Bits 15/23 permit protected self-deletion. This confirms operation-specific protection rather than a blanket administrator override. Receive bit 9, send bit 10 and create bit 11 have independent native contrasts. Zero-role uninvited join, invite and topic update succeed; ordinary room notifications bypass receive-chat gating. Thirteen reports and14 paired lifetimes establish MSB-first bitmap serialization and exact width handling. Roundtrip is not proof that unknown bits are reserved or ignored.",
+        "progress": "Published a registry covering bits0\u201363 with37 observed uses and explicit unknown ranges12\u201313,18\u201319,41\u201363. Reconciled40 direct accessor calls in25 functions; inline account/status/settings tests reviewed separately. Native serialization/enforcement and unknown-bit fixtures remain required. Threeownedtemporaryaccountbitmapcontrols0000000c00000000comment-only,1100000000000000rename-onlyandzero verify207file/foldercommentbits28/29andrenamebits3/7withactualeffects. Fullbitmapregistryremainsrequired. Native208and204admin/zerobitmapcontrolsconfirmpermissiondenialsforbothfile/folderclasses;freshhandlerqueriesretainbit4/8moveand0/6deletechecks. Thisisnotanisolatedsingle-bitprooforfullregistryclosure. Owned create-only, delete-only, update-only and zero-role fixtures establish admission, immediate per-item checks, subset denial and create exemption bit 27. Wider bitmap meanings remain active. Bit 23 alone rejects administrator request-110 kick but permits administrator account deletion. Bits 15/23 permit protected self-deletion. This confirms operation-specific protection rather than a blanket administrator override. Receive bit 9, send bit 10 and create bit 11 have independent native contrasts. Zero-role uninvited join, invite and topic update succeed; ordinary room notifications bypass receive-chat gating. Thirteen reports and14 paired lifetimes establish MSB-first bitmap serialization and exact width handling. Roundtrip is not proof that unknown bits are reserved or ignored. Revision73 fresh independent Classicclient import preserves exact7f286e/PPCBE32/3564 identity. Three defined-string queries find CMyAdminEditUserWin at1014fef8 but no defined privilege labels. Negative listing is not absence from loadedmemory; no label-to-bit map or field111meaning is inferred. CompressedPEF fileoffsets cannot be treated as loadedaddresses.",
         "evidence": [
           "[Privilege registry](privilege-contracts.md)",
           "[Native caller review](../mothra/evidence/gap-remediation/2026-11-12/batch-15/privilege-callsite-review.json)",
@@ -1899,7 +1900,8 @@
           "[Native room contract](presence-messaging-contracts.md#captured-private-rooms-invitations-and-chat-bytes)",
           "[Native room corpus](../mothra/evidence/gap-remediation/2026-11-13/native-rooms-01/manifest.json)",
           "[Repeatable room workflow](native-capture-workflow.md#reproducing-private-rooms-and-chat-byte-fixtures)",
-          "[Second delegated investigation](bitmap-boundaries.md)"
+          "[Second delegated investigation](bitmap-boundaries.md)",
+          "[Classic privilege discovery bounds](classic-privilege-discovery.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -2210,7 +2212,7 @@
         "GAP-035"
       ],
       "resolution": {
-        "progress": "Identified native 302 producer with UID 103 after per-room 118 and empty-room removal. Departing session is removed before fan-out; transfers clean via owner checks later. EOF/kick/timeout native traces remain required. Observerreceives302 for failed/premature sessions neverpresent inrosters andwithno301. Repeated107 case hasdelayed302 afterpostclose snapshot; literal28-byte tail pinned inbothviews. Broaderroomcleanup andtiming requirements remain. Overflowdelayed emits302withoutprevious301/listing; overflowearlycleanup removesvisibleUID. Fullroomcleanup/scheduling/lifetime remain required. Account deletion delivers exact data-only 104 notice and guest-first FIN to two subjects. Two subsequent observer snapshots still contain them; two exact 28-byte 302 messages lie beyond the observer's recorded read prefix in both packet views. Broader room/transfer, timeout/kick and close scheduling criteria remain active. Two new owned deletion cases have guest-first FIN and stale snapshots after a measured three-second pause. Exact 28-byte target-specific 302 tails are retained in both packet views; an earlier unrelated 302 is distinguished. Wider teardown cases remain active. Client closes generate additional room 118 and roster 302 tails. Recorded prefixes agree at host/guest boundaries, but late guest output can exceed host output after closure. Each view and target/room identity is retained separately; general teardown remains active.",
+        "progress": "Identified native 302 producer with UID 103 after per-room 118 and empty-room removal. Departing session is removed before fan-out; transfers clean via owner checks later. EOF/kick/timeout native traces remain required. Observerreceives302 for failed/premature sessions neverpresent inrosters andwithno301. Repeated107 case hasdelayed302 afterpostclose snapshot; literal28-byte tail pinned inbothviews. Broaderroomcleanup andtiming requirements remain. Overflowdelayed emits302withoutprevious301/listing; overflowearlycleanup removesvisibleUID. Fullroomcleanup/scheduling/lifetime remain required. Account deletion delivers exact data-only 104 notice and guest-first FIN to two subjects. Two subsequent observer snapshots still contain them; two exact 28-byte 302 messages lie beyond the observer's recorded read prefix in both packet views. Broader room/transfer, timeout/kick and close scheduling criteria remain active. Two new owned deletion cases have guest-first FIN and stale snapshots after a measured three-second pause. Exact 28-byte target-specific 302 tails are retained in both packet views; an earlier unrelated 302 is distinguished. Wider teardown cases remain active. Client closes generate additional room 118 and roster 302 tails. Recorded prefixes agree at host/guest boundaries, but late guest output can exceed host output after closure. Each view and target/room identity is retained separately; general teardown remains active. Revision73 prepares a finite135second A/B/F/O liveness timeline with source-gated delayed107 and partial121. Fourteen offline controls validate generatedbytes, semanticnegativecases and reporttiming/terminal reconstruction. This is preparation only; a native case and pairedpacket publication remain required. Onlineidle>600 and broaderroom/transfercleanup are not covered.",
         "evidence": [
           "[Presence, messaging and administration](presence-messaging-contracts.md)",
           "[Batch 06](../mothra/evidence/gap-remediation/2026-11-12/batch-06/manifest.json)",
@@ -2224,7 +2226,8 @@
           "[Repeatable identity workflow](native-capture-workflow.md#reproducing-account-identity-and-protection-contrasts)",
           "[Native room contract](presence-messaging-contracts.md#captured-private-rooms-invitations-and-chat-bytes)",
           "[Native room corpus](../mothra/evidence/gap-remediation/2026-11-13/native-rooms-01/manifest.json)",
-          "[Repeatable room workflow](native-capture-workflow.md#reproducing-private-rooms-and-chat-byte-fixtures)"
+          "[Repeatable room workflow](native-capture-workflow.md#reproducing-private-rooms-and-chat-byte-fixtures)",
+          "[Finite native liveness fixture preparation](native-liveness-preparation.md)"
         ],
         "closure": "Not closed: remaining acceptance evidence is listed above."
       }
@@ -4030,7 +4033,7 @@
       ],
       "depends_on": [],
       "resolution": {
-        "progress": "Account111 remains stored opaque data, absent from inspected352/348 outputs. Inspected UI range was ban editing, and pinned shx account constants do not name111. No human label or no-use-anywhere claim is inferred; native representative fixtures remain required. Captured absent/empty/value111 updates with native734-byte UserData: lengths0/0/8 and opaque-c content;352 omits111 in all three. Human meaning and later reads/use remain unresolved. Native account-update 01 stores 65-byte 111 as length 64 with exact 64 X bytes, and sparse 353 clears its length/content. All 352 outputs still omit 111. Full stored-record evidence advances width/default rules but does not identify human meaning or all later consumers. Attribute-only live update with password NUL sentinel leaves effective identity/access unchanged and emits no extra 354/301 during measured windows. This is a bounded propagation result, not an account-attribute meaning or no-consumer-anywhere claim. Batch field 111 is copied and default-cleared; opaque bytes alone do not establish its meaning. Reader100073c0 has ten traced direct callers; local administrator password path10007780 preserves the whole734-byte record without a direct field111 dereference. Stored slot boundaries and prior native controls are linked. Human meaning and indirect/resource consumers remain unresolved. Revision61: A separate hashed Classic client trace proves that 350/353 append 105/106/102/110 and 349 builds nested fields 101/105/106/102/110. The inspected constructors omit 111 and immediate 0x6f candidates are error codes; no whole-client absence or semantic meaning is inferred. Revision68 independent consumer audit traces full-record reading and local administrator password-update rewriting, which preserves opaque111 bytes. This is a whole-record preservation consumer, not a field-specific semantic read; stored meaning remains unresolved.",
+        "progress": "Account111 remains stored opaque data, absent from inspected352/348 outputs. Inspected UI range was ban editing, and pinned shx account constants do not name111. No human label or no-use-anywhere claim is inferred; native representative fixtures remain required. Captured absent/empty/value111 updates with native734-byte UserData: lengths0/0/8 and opaque-c content;352 omits111 in all three. Human meaning and later reads/use remain unresolved. Native account-update 01 stores 65-byte 111 as length 64 with exact 64 X bytes, and sparse 353 clears its length/content. All 352 outputs still omit 111. Full stored-record evidence advances width/default rules but does not identify human meaning or all later consumers. Attribute-only live update with password NUL sentinel leaves effective identity/access unchanged and emits no extra 354/301 during measured windows. This is a bounded propagation result, not an account-attribute meaning or no-consumer-anywhere claim. Batch field 111 is copied and default-cleared; opaque bytes alone do not establish its meaning. Reader100073c0 has ten traced direct callers; local administrator password path10007780 preserves the whole734-byte record without a direct field111 dereference. Stored slot boundaries and prior native controls are linked. Human meaning and indirect/resource consumers remain unresolved. Revision61: A separate hashed Classic client trace proves that 350/353 append 105/106/102/110 and 349 builds nested fields 101/105/106/102/110. The inspected constructors omit 111 and immediate 0x6f candidates are error codes; no whole-client absence or semantic meaning is inferred. Revision68 independent consumer audit traces full-record reading and local administrator password-update rewriting, which preserves opaque111 bytes. This is a whole-record preservation consumer, not a field-specific semantic read; stored meaning remains unresolved. Revision73 fresh independent Classicclient import preserves exact7f286e/PPCBE32/3564 identity. Three defined-string queries find CMyAdminEditUserWin at1014fef8 but no defined privilege labels. Negative listing is not absence from loadedmemory; no label-to-bit map or field111meaning is inferred. CompressedPEF fileoffsets cannot be treated as loadedaddresses.",
         "evidence": [
           "[Native core corpus](../mothra/evidence/gap-remediation/2026-11-12/native-core-01/manifest.json)",
           "[Repeatable workflow](native-capture-workflow.md#recorded-native-core-fixtures)",
@@ -4045,7 +4048,8 @@
           "[Repeatable batch workflow](native-capture-workflow.md#reproducing-account-batch-framing-and-partial-effects)",
           "[Second delegated investigation](account-attribute-trace.md)",
           "[Native documentation evidence](classic-account-constructors.md)",
-          "[Field111 consumer audit](../mothra/evidence/gap-remediation/2026-11-14/criterion-acceptance-04/a53-account111-consumer-audit.md.txt)"
+          "[Field111 consumer audit](../mothra/evidence/gap-remediation/2026-11-14/criterion-acceptance-04/a53-account111-consumer-audit.md.txt)",
+          "[Classic privilege discovery bounds](classic-privilege-discovery.md)"
         ],
         "closure": "Not closed: remaining unchanged acceptance requirements are explicitly retained above."
       }
@@ -8955,7 +8959,7 @@
       "heading": "Captured failure-wait observations",
       "level": 3,
       "line_start": 303,
-      "line_end": 324,
+      "line_end": 325,
       "anchor": "captured-failure-wait-observations",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -8971,8 +8975,8 @@
       "path": "session-transport-contracts.md",
       "heading": "Flood and connection-burst counters",
       "level": 2,
-      "line_start": 325,
-      "line_end": 355,
+      "line_start": 326,
+      "line_end": 356,
       "anchor": "flood-and-connection-burst-counters",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -14121,6 +14125,108 @@
       "related_gap_ids": [
         "GAP-072",
         "GAP-021"
+      ]
+    },
+    {
+      "path": "native-liveness-preparation.md",
+      "heading": "Native preonline liveness fixture preparation",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 7,
+      "anchor": "native-preonline-liveness-fixture-preparation",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-005",
+        "GAP-036"
+      ],
+      "related_gap_ids": [
+        "GAP-005",
+        "GAP-036"
+      ]
+    },
+    {
+      "path": "native-liveness-preparation.md",
+      "heading": "Source and case boundary",
+      "level": 2,
+      "line_start": 8,
+      "line_end": 40,
+      "anchor": "source-and-case-boundary",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-005",
+        "GAP-036"
+      ],
+      "related_gap_ids": [
+        "GAP-005",
+        "GAP-036"
+      ]
+    },
+    {
+      "path": "native-liveness-preparation.md",
+      "heading": "Preflight and exact runner inputs",
+      "level": 2,
+      "line_start": 41,
+      "line_end": 88,
+      "anchor": "preflight-and-exact-runner-inputs",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-005",
+        "GAP-036"
+      ],
+      "related_gap_ids": [
+        "GAP-005",
+        "GAP-036"
+      ]
+    },
+    {
+      "path": "native-liveness-preparation.md",
+      "heading": "Retained output and interpretation",
+      "level": 2,
+      "line_start": 89,
+      "line_end": 114,
+      "anchor": "retained-output-and-interpretation",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-005",
+        "GAP-036"
+      ],
+      "related_gap_ids": [
+        "GAP-005",
+        "GAP-036"
+      ]
+    },
+    {
+      "path": "classic-privilege-discovery.md",
+      "heading": "Classic privilege editor string discovery",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 18,
+      "anchor": "classic-privilege-editor-string-discovery",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-031",
+        "GAP-071"
+      ],
+      "related_gap_ids": [
+        "GAP-031",
+        "GAP-071"
+      ]
+    },
+    {
+      "path": "classic-privilege-discovery.md",
+      "heading": "What the queries found",
+      "level": 2,
+      "line_start": 19,
+      "line_end": 60,
+      "anchor": "what-the-queries-found",
+      "review": "Reviewed",
+      "direct_gap_ids": [
+        "GAP-031",
+        "GAP-071"
+      ],
+      "related_gap_ids": [
+        "GAP-031",
+        "GAP-071"
       ]
     }
   ]
