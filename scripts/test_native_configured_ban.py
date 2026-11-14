@@ -44,6 +44,42 @@ class FakeRecorder:
 
 
 class ConfiguredBanPreparationTest(unittest.TestCase):
+    def test_identity_gate_requires_current_uid_name_and_distinct_roster(self) -> None:
+        def frame(connection, kind, identifier=0, *, reply=0, error=0, values=()):
+            return {
+                "connection": connection,
+                "type": kind,
+                "id": identifier,
+                "is_reply": reply,
+                "error": error,
+                "fields": [{"id": key, "hex": value.hex()} for key, value in values],
+            }
+
+        frames = [frame("main", 0), frame("main", 354), frame("main", 109)]
+        frames += [
+            frame("target", 0, 1, reply=1),
+            frame("target", 354, values=[(110, cases.ZERO)]),
+            frame("target", 109),
+            frame("main", 301, values=[(103, b"\0\5"), (102, cases.NAME)]),
+            frame("main", 0, 32, reply=1),
+        ]
+        rows = [
+            {"uid": 5, "name_hex": cases.NAME.hex()},
+            {"uid": 4, "name_hex": b"framing-fixture".hex()},
+        ]
+        with (
+            patch.object(control.base, "login_gate"),
+            patch.object(control, "roster", return_value=rows),
+        ):
+            self.assertEqual(control.identity_gate(frames), b"\0\5")
+            wrong_name = copy.deepcopy(frames)
+            wrong_name[6]["fields"][1]["hex"] = b"intruder".hex()
+            with self.assertRaisesRegex(ValueError, "UID/name differs"):
+                control.identity_gate(wrong_name)
+            rows[1]["uid"] = 5
+            with self.assertRaisesRegex(ValueError, "roster identities differ"):
+                control.identity_gate(frames)
+
     def test_plan_has_complete_tail_and_no_110(self) -> None:
         steps = cases.plans()
         self.assertEqual(
