@@ -68,6 +68,22 @@ class RosterSubjectEvidenceTests(unittest.TestCase):
                 "proxy audit/control bytes",
             ),
             (
+                "wrong packed roster UID in audit",
+                lambda b: edit_json(
+                    b,
+                    "run/proxy/report.json",
+                    lambda d: d["entries"][11].update(
+                        raw_hex=d["entries"][11]["raw_hex"].replace(
+                            "004f019e", "0050019e"
+                        ),
+                        forwarded_hex=d["entries"][11]["forwarded_hex"].replace(
+                            "004f019e", "0050019e"
+                        ),
+                    ),
+                ),
+                "proxy audit/control bytes",
+            ),
+            (
                 "wrong data reference in audit",
                 lambda b: edit_json(
                     b,
