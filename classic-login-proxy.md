@@ -58,6 +58,7 @@ that ACK.
 | `one-byte-161` | One byte `00`; count and body sizes rebuilt |
 | `four-byte-161` | Four bytes `00000000`; count and body sizes rebuilt |
 | `server-name-162` | Keep 161=`0000`; append 162=`fixture-native` |
+| `roster-subject-115` | First matched 300 ACK adds 115; login unchanged |
 
 All other ACK fields retain their order and raw values; flags, ID, status and
 other frames are preserved. The automatic banner data stream is relayed
@@ -86,6 +87,22 @@ B56 stopped before connection because its proxy output leaf already existed;
 B57 used a fresh leaf and completed the single ASCII case. B57's 28-second
 cutoff was intentional, not a client rejection. No alternate payload, width,
 codec, banner rendering or whole-profile policy is established.
+
+The `roster-subject-115` variant is **offline preparation only**. The client
+relay records the first actual 300 request ID under a lock before forwarding
+that request. Only the first matching successful direct type-0 ACK with at
+least one structurally valid packed 300 user record is rebuilt. It appends one
+15-byte ASCII 115 after all existing fields, preserving every packed record,
+other field, flag, status and ID. An existing 115, malformed packed record or
+oversized rebuilt frame fails before forwarding. A different ID, notification,
+non-reply or error response passes unchanged; later 300 replies do too. The
+login ACK and independent 28-second timer are unchanged. The frozen B57 first
+roster reply (41 bytes, SHA-256 `0b294b5288d8875469cb8ff3e0985a3200b538c0caf30643869183774e9ad209`)
+would become 60 bytes, SHA-256
+`74b95dd00831a09c9ba59ba2633d05d5a739a70b9cea48c9c5bb5a7913f336fa`.
+That is an offline calculation tied to the retained reply, not a fixed live
+UID or evidence of client acceptance. No 115 trial, client policy or field
+meaning is established.
 
 ## Automatic observation cutoff (B27 preparation)
 
@@ -131,9 +148,10 @@ contact. B46 reached Login107/109 before its cutoff; B47 accepted the known
 agreement and reached 121/300/212 plus automatic banner data. Their
 [portable corpus][baseline] has the five-view raw bytes and finite UI
 observations. These two baseline cases do not test altered 161 widths or
-omission; the later [B52 matrix][matrix] does. Neither corpus tests field 162
-or broader interoperability. The [Mothra handoff][handoff]
-details the earlier synthetic and zero-contact evidence limits.
+omission; the later [B52 matrix][matrix] does. B57 tests one ASCII 162 value;
+none tests the prepared roster 115 variant or broader interoperability.
+The [Mothra handoff][handoff] details the earlier synthetic and zero-contact
+evidence limits.
 
 From the protocol-docs repository:
 
@@ -145,7 +163,7 @@ ty check --python ../mothra/tools/ghidramcp/.venv/bin/python \
 python3 -m unittest discover -s scripts -p 'test_classic_login_proxy.py'
 ```
 
-Sixteen tests cover ACK preservation and rebuilt widths/counts, ID/status and
+Twenty-seven tests cover ACK preservation and rebuilt widths/counts, ID/status and
 native-value rejection, malformed/fragmented input, socket-pair byte and EOF
 relay, no-forward rejection, deadline/log bounds, and the host namespace
 check, plus inaccessible `/proc/1` and host-sysfs discrepancy regressions.
@@ -167,7 +185,9 @@ The supervisor raised source limits from 350 to 430 for frame, thread,
 deadline and log safeguards, then to 500/540 for watchdog and cleanup.
 Tests rose from 180 to 230 for real UID 1000 `/proc` and sysfs guards, then
 to 300/325/375 for half-close and timing controls. B54 allows 560 source,
-450 test and 190 guide lines for the fixed 162 variant; no guard was waived.
+450 test and 190 guide lines for the fixed 162 variant. B59 permits 660
+source, 600 test and 230 guide lines for first-300 ID correlation and packed
+record validation; no deadline or topology guard was waived.
 
 ## Read-only actual namespace guard receipt
 

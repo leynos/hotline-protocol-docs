@@ -14,6 +14,7 @@ from unittest.mock import patch
 from classic_login_proxy import (
     Audit,
     ObservationWatchdog,
+    RosterState,
     namespace_guard,
     parse_frame,
     relay_data,
@@ -432,6 +433,157 @@ class ClassicLoginProxyTests(unittest.TestCase):
                 on_ack=watchdog.arm,
             )
         self.assertIsNone(watchdog.receipt()["ack_sent_monotonic_ns"])
+
+    def test_roster_variant_keeps_login_ack_byte_exact(self) -> None:
+        native = frame(0, 1, [(160, b"\0\xbe"), (161, b"\0\0")], reply=1)
+        self.assertEqual(transform_ack(native, 1, "roster-subject-115"), native)
+
+    def test_roster_first_matching_ack_and_second_unchanged(self) -> None:
+        state = RosterState()
+        first = frame(300, 3, [])
+        second = frame(300, 4, [])
+        state.observe_client(first)
+        state.observe_client(second)
+        packed = bytes.fromhex("004c019e00120007756e6e616d6564")
+        wrong = frame(0, 4, [(300, packed)], reply=1)
+        self.assertEqual(state.rewrite_reply(wrong), wrong)
+        native = frame(0, 3, [(300, packed)], reply=1)
+        expected = frame(0, 3, [(300, packed), (115, b"fixture-subject")], reply=1)
+        self.assertEqual(state.rewrite_reply(native), expected)
+        self.assertEqual(state.rewrite_reply(native), native)
+
+    def test_roster_nonreply_or_error_stays_unchanged(self) -> None:
+        state = RosterState()
+        state.observe_client(frame(300, 3, []))
+        packed = bytes.fromhex("004c019e00120007756e6e616d6564")
+        for raw in (
+            frame(0, 3, [(300, packed)]),
+            frame(0, 3, [(300, packed)], reply=1, error=1),
+            frame(109, 3, [(300, packed)]),
+        ):
+            with self.subTest(raw=raw.hex()):
+                self.assertEqual(state.rewrite_reply(raw), raw)
+
+    def test_roster_duplicate_115_and_invalid_packed_record_rejected(self) -> None:
+        packed = bytes.fromhex("004c019e00120007756e6e616d6564")
+        for fields in (
+            [(300, packed), (115, b"already")],
+            [(300, packed[:-1])],
+            [(115, b"subject")],
+        ):
+            with self.subTest(fields=fields):
+                state = RosterState()
+                state.observe_client(frame(300, 3, []))
+                with self.assertRaisesRegex(ValueError, "roster"):
+                    state.rewrite_reply(frame(0, 3, fields, reply=1))
+
+    def test_existing_115_fails_before_forwarding(self) -> None:
+        source, writer = socket.socketpair()
+        sink, reader = socket.socketpair()
+        for peer in (source, writer, sink, reader):
+            self.addCleanup(peer.close)
+        source.settimeout(0.1)
+        reader.settimeout(0.1)
+        state = RosterState()
+        state.observe_client(frame(300, 3, []))
+        login_ack = frame(0, 1, [(160, b"\0\xbe"), (161, b"\0\0")], reply=1)
+        packed = bytes.fromhex("004c019e00120007756e6e616d6564")
+        duplicate = frame(0, 3, [(300, packed), (115, b"already")], reply=1)
+        writer.sendall(login_ack + duplicate)
+        with self.assertRaisesRegex(ValueError, "already has 115"):
+            relay_frames(
+                source,
+                sink,
+                Audit(time.monotonic() + 2),
+                "server",
+                1,
+                "roster-subject-115",
+                roster=state,
+            )
+        self.assertEqual(reader.recv(1024), login_ack)
+        with self.assertRaises(TimeoutError):
+            reader.recv(1)
+
+    def test_roster_preserves_repeated_records_and_other_fields(self) -> None:
+        packed = bytes.fromhex("004c019e00120007756e6e616d6564")
+        records = [(300, packed), (108, b"\0*"), (300, packed)]
+        state = RosterState()
+        reply = frame(0, 3, records, reply=1)
+        self.assertEqual(state.rewrite_reply(reply), reply)
+        state.observe_client(frame(300, 3, []))
+        result = parse_frame(state.rewrite_reply(reply))
+        self.assertEqual(result["fields"], records + [(115, b"fixture-subject")])
+
+    def test_frozen_b57_roster_reply_derives_expected_sha(self) -> None:
+        import json
+
+        corpus = (
+            Path(__file__).resolve().parents[2]
+            / "mothra/evidence/gap-remediation/2026-11-14/classic-server-name-162-01"
+        )
+        report = json.loads((corpus / "b57/proxy/report.json").read_text())
+        request = bytes.fromhex(report["entries"][9]["raw_hex"])
+        native = bytes.fromhex(report["entries"][11]["raw_hex"])
+        self.assertEqual(
+            hashlib.sha256(native).hexdigest(),
+            "0b294b5288d8875469cb8ff3e0985a3200b538c0caf30643869183774e9ad209",
+        )
+        state = RosterState()
+        state.observe_client(request)
+        forwarded = state.rewrite_reply(native)
+        self.assertEqual(
+            hashlib.sha256(forwarded).hexdigest(),
+            "74b95dd00831a09c9ba59ba2633d05d5a739a70b9cea48c9c5bb5a7913f336fa",
+        )
+
+    def test_roster_socketpair_correlates_before_forwarding(self) -> None:
+        client, client_writer = socket.socketpair()
+        server, server_writer = socket.socketpair()
+        for peer in (client, client_writer, server, server_writer):
+            self.addCleanup(peer.close)
+        client.settimeout(0.1)
+        server.settimeout(0.1)
+        client_writer.settimeout(1)
+        server_writer.settimeout(1)
+        audit = Audit(time.monotonic() + 2)
+        state = RosterState()
+        failures: list[Exception] = []
+
+        def run(src: socket.socket, dst: socket.socket, label: str) -> None:
+            try:
+                relay_frames(
+                    src,
+                    dst,
+                    audit,
+                    label,
+                    1 if label == "server" else None,
+                    "roster-subject-115",
+                    roster=state,
+                )
+            except Exception as exc:  # noqa: BLE001 - test captures thread failures
+                failures.append(exc)
+
+        client_thread = threading.Thread(target=run, args=(client, server, "client"))
+        server_thread = threading.Thread(target=run, args=(server, client, "server"))
+        client_thread.start()
+        server_thread.start()
+        login_ack = frame(0, 1, [(160, b"\0\xbe"), (161, b"\0\0")], reply=1)
+        server_writer.sendall(login_ack)
+        self.assertEqual(client_writer.recv(1024), login_ack)
+        request = frame(300, 3, [])
+        client_writer.sendall(request)
+        self.assertEqual(server_writer.recv(1024), request)
+        packed = bytes.fromhex("004c019e00120007756e6e616d6564")
+        raw = frame(0, 3, [(300, packed)], reply=1)
+        expected = frame(0, 3, [(300, packed), (115, b"fixture-subject")], reply=1)
+        server_writer.sendall(raw)
+        self.assertEqual(client_writer.recv(1024), expected)
+        client_writer.shutdown(socket.SHUT_WR)
+        server_writer.shutdown(socket.SHUT_WR)
+        client_thread.join(1)
+        server_thread.join(1)
+        self.assertFalse(client_thread.is_alive() or server_thread.is_alive())
+        self.assertEqual(failures, [])
 
     def test_deadline_and_log_bounds_fail(self) -> None:
         audit = Audit(time.monotonic() - 1)

@@ -17,7 +17,14 @@ from protocol_capture import decode_frame
 
 CLIENT_HELLO = bytes.fromhex("54525450484f544c00010002")
 SERVER_HELLO = bytes.fromhex("5452545000000000")
-VARIANTS = ("baseline", "omit-161", "one-byte-161", "four-byte-161", "server-name-162")
+VARIANTS = (
+    "baseline",
+    "omit-161",
+    "one-byte-161",
+    "four-byte-161",
+    "server-name-162",
+    "roster-subject-115",
+)
 MAX_FRAME = 65535
 IP_BIN = "/usr/sbin/ip"
 DEADLINE_SECONDS = 180
@@ -67,6 +74,7 @@ def transform_ack(raw: bytes, login_id: int, variant: str) -> bytes:
     else:
         replacement = {
             "baseline": b"\x00\x00",
+            "roster-subject-115": b"\x00\x00",
             "omit-161": None,
             "one-byte-161": b"\x00",
             "four-byte-161": b"\x00" * 4,
@@ -90,9 +98,69 @@ def transform_ack(raw: bytes, login_id: int, variant: str) -> bytes:
             error=frame["error"],
         )
     )
-    if variant == "baseline" and result != raw:
+    if variant in ("baseline", "roster-subject-115") and result != raw:
         raise ValueError("Baseline ACK reconstruction differs")
     return result
+
+
+class RosterState:
+    """Correlate the first actual 300 request with its direct success ACK."""
+
+    def __init__(self) -> None:
+        self.lock = threading.Lock()
+        self.first_id: int | None = None
+        self.rewritten = False
+
+    def observe_client(self, raw: bytes) -> None:
+        frame = parse_frame(raw)
+        if (frame["type"], frame["is_reply"], frame["error"], frame["flags"]) != (
+            300,
+            0,
+            0,
+            0,
+        ):
+            return
+        with self.lock:
+            if self.first_id is None:
+                self.first_id = frame["id"]
+
+    def rewrite_reply(self, raw: bytes) -> bytes:
+        frame = parse_frame(raw)
+        with self.lock:
+            if (
+                self.first_id is None
+                or self.rewritten
+                or (frame["type"], frame["is_reply"], frame["id"], frame["error"])
+                != (0, 1, self.first_id, 0)
+            ):
+                return raw
+            records = [value for key, value in frame["fields"] if key == 300]
+            if not records or any(key == 115 for key, _ in frame["fields"]):
+                raise ValueError(
+                    "Native roster has no valid 300 record or already has 115"
+                )
+            for record in records:
+                if len(record) < 8:
+                    raise ValueError("Native roster packed 300 record is short")
+                name_size = int.from_bytes(record[6:8], "big")
+                if not name_size or len(record) != 8 + name_size:
+                    raise ValueError("Native roster packed 300 record length differs")
+            fields = [*frame["fields"], (115, b"fixture-subject")]
+            body = payload(fields)
+            if len(body) > MAX_FRAME:
+                raise ValueError("Native roster rewrite exceeds frame bound")
+            forwarded = bytes.fromhex(
+                packet(
+                    frame["type"],
+                    frame["id"],
+                    body,
+                    flags=frame["flags"],
+                    reply=frame["is_reply"],
+                    error=frame["error"],
+                )
+            )
+            self.rewritten = True
+            return forwarded
 
 
 class Audit:
@@ -257,6 +325,7 @@ def relay_frames(
     variant: str,
     ack_forwarded: threading.Event | None = None,
     on_ack=None,
+    roster: RosterState | None = None,
 ) -> None:
     first = True
     while raw := read_frame(source, audit):
@@ -265,6 +334,10 @@ def relay_frames(
             if login_id is None:
                 raise ValueError("Missing observed login ID")
             forwarded = transform_ack(raw, login_id, variant)
+        elif label == "server" and roster is not None:
+            forwarded = roster.rewrite_reply(raw)
+        elif label == "client" and roster is not None:
+            roster.observe_client(raw)
         audit.record(label, raw, forwarded)
         destination.sendall(forwarded)
         if label == "server" and first:
@@ -341,6 +414,7 @@ def serve(variant: str, output: Path, expected_netns: int, host_netns: int) -> d
     errors: list[str] = []
     control_done = threading.Event()
     ack_forwarded = threading.Event()
+    roster = RosterState() if variant == "roster-subject-115" else None
 
     def close_owned() -> None:
         with sockets_lock:
@@ -388,6 +462,7 @@ def serve(variant: str, output: Path, expected_netns: int, host_netns: int) -> d
                     variant,
                     ack_forwarded,
                     watchdog.arm if index else None,
+                    roster,
                 )
 
         actions = (
