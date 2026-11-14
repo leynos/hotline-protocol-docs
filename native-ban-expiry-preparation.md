@@ -24,8 +24,12 @@ claim temporary-ban expiry. The original full-file A7 baseline is explicitly
   primary capture must have no SYN before the case. Three epochs are separate:
   stop recorders and release the lease during the approximately 30-minute idle
   interval. No source writes or scheduled mutations occur in that interval.
-- The control-only 18-action readiness capture must pass in **each** epoch,
-  then run `first`, `pre`, or `post`. The runner rechecks actual managed
+- The control-only 18-action login readiness capture must pass **only before
+  the first epoch**. Option 1 bans the shared guest address, including admin;
+  a pre-epoch admin 107 would fail. A post-epoch admin 107 could itself invoke
+  lazy purge before the intended owned probe. The pre and post epochs use
+  fresh recorder, PID, FD, route, mutex, and source gates; the intended owned
+  probe's TRTP handshake is their first socket. The runner rechecks actual managed
   service properties, PID/start, writable FD/inode, lock FD/inode and
   independent lock contention, native binary SHA, guest FD 16, and the frozen
   plan hash. The runner requires root only to inspect `/proc`; no privilege
@@ -77,8 +81,9 @@ emulator PID/start/SHA, `emulator_netns` symlink, owned working-image path, plus
 unit, PID, FD and exact `systemctl show` properties `ActiveState`, `SubState`,
 `MainPID`, `RuntimeMaxUSec`, `ActiveEnterTimestampMonotonic`, `KillMode`; the
 lock entry additionally records `busy_exit: 1` from a nonblocking independent
-flock probe. Capture the real 18-action readiness directory before invoking each
-epoch. The runner checks live values again and refuses a stale receipt. Root
+flock probe. Capture the real 18-action readiness directory before the first
+epoch only. Later epochs must omit `--readiness-dir`; the runner rejects it.
+The runner checks live values again and refuses a stale receipt. Root
 must review and grant the actual unit, launch, capture and cleanup commands
 before use.
 
@@ -91,18 +96,25 @@ sudo python3 scripts/native_ban_expiry_control.py --run --phase first \
   --output state/native-ban-expiry-01/epoch-first/results
 sudo python3 scripts/native_ban_expiry_control.py --run --phase pre \
   --plans state/native-ban-expiry-01/plans \
-  --readiness-dir state/native-ban-expiry-01/epoch-pre/readiness \
   --capture-receipt state/native-ban-expiry-01/epoch-pre/receipt.json \
   --binary /absolute/owned/native-server-data-fork \
   --ban-clock state/native-ban-expiry-01/epoch-first/results/ban-clock.json \
   --output state/native-ban-expiry-01/epoch-pre/results
 ```
 
-The `post` command uses `--phase post`, the post epoch receipt/readiness/output,
+The `post` command uses `--phase post`, the post epoch receipt/output,
 and the same first-epoch ban-clock file. These commands are templates: the
 binary path and runtime receipt must be checked against the actual prepared
 guest. A failed semantic condition is retained in the case report and stops the
 epoch; no automatic retry is built in.
+
+The first summary records `full18_control_only`. The pre summary records
+`not_exercised_ban_active`; the post summary records
+`not_exercised_preserve_first_lookup`. Run a full 18-action control baseline
+**after** the intended post-probe 107 succeeds, as a separately captured
+operator postflight. The runner does not execute it. It cannot substitute for
+pre-probe readiness or count as the first lookup. No prior Login107 of any
+account is permitted in pre/post.
 
 ## Time and interpretation
 
@@ -132,4 +144,5 @@ without widening the fixture.
 
 Production allowance increased from 900 to 960 physical lines for fresh
 managed-unit, mutex, PID/FD checks, deadline-clamped reads and preservation of
-semantic failures. No live work is part of B66.
+semantic failures. B67 allows 1040 production lines to correct later-epoch
+readiness ordering and its tests. No live work is part of this packet.

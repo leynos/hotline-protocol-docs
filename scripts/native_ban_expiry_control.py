@@ -604,7 +604,7 @@ def ban_timing(report: dict, receipt: dict) -> TimingBounds:
 def run_epoch(
     phase: str,
     plans_dir: Path,
-    readiness_dir: Path,
+    readiness_dir: Path | None,
     receipt_path: Path,
     binary: Path,
     output: Path,
@@ -619,14 +619,27 @@ def run_epoch(
     require(
         digest(binary.read_bytes()) == ORACLE_SHA256, "Native binary identity differs"
     )
-    ready_plan = load(readiness_dir / "plan.json")
-    ready_report = verify_capture(readiness_dir)
-    require(
-        ready_plan == load(plans_dir / "readiness.json"),
-        "Control-only readiness plan changed",
-    )
-    require(ready_report["oracle_sha256"] == ORACLE_SHA256, "Readiness oracle differs")
-    readiness(ready_report)
+    readiness_sha = None
+    if phase == "first":
+        if readiness_dir is None:
+            raise ValueError("First epoch requires full18 readiness")
+        ready_plan = load(readiness_dir / "plan.json")
+        ready_report = verify_capture(readiness_dir)
+        require(
+            ready_plan == load(plans_dir / "readiness.json"),
+            "Control-only readiness plan changed",
+        )
+        require(
+            ready_report["oracle_sha256"] == ORACLE_SHA256,
+            "Readiness oracle differs",
+        )
+        readiness(ready_report)
+        readiness_sha = digest((readiness_dir / "report.json").read_bytes())
+    else:
+        require(
+            readiness_dir is None,
+            "Later epoch must not perform a prior Login107 readiness",
+        )
     bounds = None
     timing_result = None
     if phase != "first":
@@ -640,7 +653,12 @@ def run_epoch(
         "status": "completed",
         "full_file_baseline": "not_exercised",
         "capture_receipt_sha256": digest(receipt_path.read_bytes()),
-        "readiness_report_sha256": digest((readiness_dir / "report.json").read_bytes()),
+        "readiness_report_sha256": readiness_sha,
+        "preprobe_baseline": {
+            "first": "full18_control_only",
+            "pre": "not_exercised_ban_active",
+            "post": "not_exercised_preserve_first_lookup",
+        }[phase],
         "cases": {},
         "timing_gate": timing_result,
     }
@@ -684,7 +702,7 @@ def main() -> None:
     parser.add_argument("--run", action="store_true", required=True)
     parser.add_argument("--phase", choices=tuple(EPOCH_CASES), required=True)
     parser.add_argument("--plans", type=Path, required=True)
-    parser.add_argument("--readiness-dir", type=Path, required=True)
+    parser.add_argument("--readiness-dir", type=Path)
     parser.add_argument("--capture-receipt", type=Path, required=True)
     parser.add_argument("--binary", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

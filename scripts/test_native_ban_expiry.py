@@ -1,5 +1,6 @@
 """Offline controls for the finite temporary-ban fixture and its runner."""
 
+import hashlib
 import json
 import tempfile
 import time
@@ -290,6 +291,69 @@ class BanExpiryTests(unittest.TestCase):
                 "failed",
             )
             self.assertEqual(len(bad["events"]), len(post["steps"]))
+
+    def test_later_epochs_never_require_admin_login_readiness(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            cases.write_plans(root / "plans", environment())
+            (root / "binary").write_bytes(b"oracle")
+            (root / "receipt.json").write_text(
+                json.dumps(
+                    {
+                        "deadline_utc": (
+                            datetime.now(timezone.utc) + timedelta(minutes=2)
+                        ).isoformat()
+                    }
+                )
+            )
+            (root / "clock.json").write_text(
+                json.dumps(
+                    {
+                        "request_utc": datetime.now(timezone.utc).isoformat(),
+                        "ack_utc": datetime.now(timezone.utc).isoformat(),
+                        "image_inode": 222,
+                        "emulator_pid": 9001,
+                        "emulator_start_ticks": 111,
+                        "emulator_sha256": "a" * 64,
+                        "namespace_inode": 456,
+                    }
+                )
+            )
+            for phase, marker in (
+                ("pre", "not_exercised_ban_active"),
+                ("post", "not_exercised_preserve_first_lookup"),
+            ):
+                with (
+                    self.subTest(phase=phase),
+                    patch.object(control, "runtime_gate"),
+                    patch.object(control.TimingBounds, "gate", return_value={}),
+                    patch.object(
+                        control,
+                        "verify_capture",
+                        side_effect=AssertionError("prior107"),
+                    ),
+                    patch.object(
+                        control,
+                        "run_case",
+                        return_value={"status": "completed", "error": ""},
+                    ) as run,
+                    patch.object(
+                        control, "ORACLE_SHA256", hashlib.sha256(b"oracle").hexdigest()
+                    ),
+                ):
+                    result = control.run_epoch(
+                        phase,
+                        root / "plans",
+                        None,
+                        root / "receipt.json",
+                        root / "binary",
+                        root / phase,
+                        bounds_path=root / "clock.json",
+                    )
+                    self.assertEqual(result["preprobe_baseline"], marker)
+                    self.assertIsNone(result["readiness_report_sha256"])
+                    self.assertEqual(run.call_count, 1)
+                    self.assertEqual(run.call_args.args[1], f"{phase}-probe")
 
 
 if __name__ == "__main__":
