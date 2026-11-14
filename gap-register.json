@@ -3,11 +3,11 @@
   "title": "Hotline 1.9 protocol documentation gap register",
   "audited_at_utc": "2026-11-12T12:55:29.155796+00:00",
   "last_updated": "2026-11-14",
-  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-81/manifest.json",
-  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-81/sections.json",
+  "source_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-82/manifest.json",
+  "source_sections": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-82/sections.json",
   "validity_ledger": "../mothra/docs/baseline-validity-ledger.md",
   "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
-  "method": "Preserve all 87 original criteria and 61 Resolved, 25 Investigating, 1 Open. Clarify resolved-target aggregate size and older catalogue provenance. Record the positive-only alias fixture as preparation, not native acceptance. Reuse byte-identical immutable prior snapshots; capture changed/new documents and refresh all section locations. Further mxd validation stays on hold.",
+  "method": "Preserve all 87 original criteria and 61 Resolved, 25 Investigating, 1 Open. Reconcile the M2b alias preparation guide with fresh live-02 identifiers, pre-staged Finder selection and full sidecar hash pin; this is preparation, not native acceptance. Reuse byte-identical prior snapshots and refresh affected section locations. Further mxd validation stays on hold.",
   "gaps": [
     {
       "id": "GAP-001",
@@ -15070,7 +15070,7 @@
       "heading": "Exact boundary",
       "level": 2,
       "line_start": 10,
-      "line_end": 39,
+      "line_end": 43,
       "anchor": "exact-boundary",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -15086,8 +15086,8 @@
       "path": "native-missing-alias-preparation.md",
       "heading": "Reviewed Finder receipt",
       "level": 2,
-      "line_start": 40,
-      "line_end": 81,
+      "line_start": 44,
+      "line_end": 85,
       "anchor": "reviewed-finder-receipt",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -15103,8 +15103,8 @@
       "path": "native-missing-alias-preparation.md",
       "heading": "Commands and limits",
       "level": 2,
-      "line_start": 82,
-      "line_end": 108,
+      "line_start": 86,
+      "line_end": 112,
       "anchor": "commands-and-limits",
       "review": "Reviewed",
       "direct_gap_ids": [
