@@ -323,6 +323,49 @@ Dispatcher invocation, platform events, clock changes and other profile/config
 conditions remain GAP-005. Do not publish a mandatory 30-second disconnect or
 attribute the 65-second result solely to host-proxy FIN propagation.
 
+### Captured selected-request and partial-input timing
+
+The [isolated liveness witness](native-liveness-witness.md) compares three
+preonline sessions while an online observer sends request500 every five host
+seconds. T0 begins after the observer's successful login. The observation
+window lasts135.000159328 host-monotonic seconds; it does not calibrate the
+guest's `GetDateTime` clock. The separate18-action control checks before and
+after the case pass against the same two-account/41-Files baseline.
+
+| Session | Input after TRTP | Runner observation relative to T0 | Guest TCP observation |
+| --- | --- | --- | --- |
+| A | Nine bytes of a107 header; no complete request | EOF at65.116360s | Server-side RST |
+| B | Complete valid107 at T45, nonempty102 and absent104; partial121 body at T50 | Login ACK at45.009757s,109 at45.014993s; EOF at110.017097s | Server-side RST |
+| F | Complete107 with a wrong password near T0 | Error reply at0.825468s; EOF at35.138506s | Server-side RST |
+| Online observer | Complete login, then26 request500/ACK pairs through T130 | No EOF through the window; EOF at135.008015s during final drain | Client-first FIN after the window, followed by server FIN |
+
+B receives neither354 nor a roster entry in the observer's T46 snapshot.
+Its selected107 therefore refreshes activity while leaving it preonline;
+the following121 has its complete header but only one of two payload bytes.
+The later close is consistent with the static selected-request reset rule.
+The wire timings alone do not isolate every guest-clock phase or prove the
+effect of partial input independently of that source trace.
+
+Three additional TRTP-only connections at T35/T75/T120 act as recorded event
+stimuli and then close from the client. The failed-login session's reset follows
+the first stimulus, but this does not identify a unique dispatcher wake cause.
+The T46 roster lists only the observer, and no301 is recorded during the case.
+The observer receives six302 messages, each with field103 alone. Exact bytes and
+the limits of assigning notification UIDs to individual sockets belong to the
+witness. No room or transfer is created by this fixture.
+
+The relay exposes the guest resets as local EOF. A socket API's EOF therefore
+does not by itself identify a native FIN, graceful application shutdown or
+application crash. All nine TCP lifetimes have matching sent and received
+application bytes in namespace and guest views, including teardown tails.
+One stimulus SYN is retransmitted; it is not a tenth connection.
+
+These results supply a finite activity/reset and preonline302 example. They
+do not establish universal30/61-second wall-clock deadlines, configurable
+timer values, online idle behaviour beyond600 seconds, or the full
+normal-EOF/kick/room/transfer cleanup contract. GAP-005 and GAP-036 remain
+Investigating.
+
 ## Flood and connection-burst counters
 
 Two separate mechanisms appear in dispatcher `1000acf0`:

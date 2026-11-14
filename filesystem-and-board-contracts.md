@@ -122,6 +122,14 @@ then the raw post and the native separator to the existing board buffer. It
 writes the whole updated buffer to the board file before returning. The handler
 then sends an empty ACK and performs its repeated-hash spam check.
 
+The [static format-byte trace](legacy-board-format.md) identifies the Pascal
+filename `MessageBoard.txt` and the separator's 60 emitted bytes: CR, 58
+underscores, CR. Its leading stored byte `3c` supplies that length and is not
+an emitted `<`. The immutable fixture base has an allocated empty board file;
+that stopped-image fact does not substitute for a live101 empty-board reply.
+The retained format string alone does not establish a timezone or full text
+encoding rule.
+
 On the normal fan-out path, 102 contains field 101 holding the **new formatted
 post segment**, not the whole retained board. It is sent to transport-ready
 sessions with read-news privilege 20; this loop does not independently require

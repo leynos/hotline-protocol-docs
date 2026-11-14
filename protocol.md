@@ -75,6 +75,13 @@ advances its receive state without inspecting those response bytes, so this is
 not a proven behaviour of every historical peer. The reply is unnumbered and
 does not contain a general transaction header.
 
+Admission does not establish an unconditional wall-clock timeout. The native
+dispatcher refreshes activity after selecting a complete logical request;
+partial TCP input is a different event. The [activity table and finite native
+liveness capture](session-transport-contracts.md#captured-selected-request-and-partial-input-timing)
+distinguish the compiled age checks, guest TCP resets, relay EOF and the
+remaining scheduling and clock uncertainties.
+
 Evidence: V003–V006, M001; Ghidra `10058650`, `10058770`, `100587f0`,
 `1000acf0`.
 
