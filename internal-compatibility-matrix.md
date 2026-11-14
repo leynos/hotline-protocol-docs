@@ -54,6 +54,10 @@ The 1.9 server's own login version value 190 does not prove that every client
 reporting at least 190 is the same client family. Numeric thresholds and peer
 identities must be recorded separately.
 
+The [evaluated-build registry and unknown-peer rule](peer-profile-rules.md)
+name the protocol evidence targets and the native 1.9 fallback. Missing build
+provenance remains unknown; this registry does not select an mxd release set.
+
 Evidence: M001–M004, V003–V004, V023–V027.
 
 ## Login reply and banner policy
@@ -246,7 +250,7 @@ Nonselected values remain unchanged. Invalid TLV decoding returns an error.
 
 This is an observed mxd heuristic, not negotiated native encoding. Plaintext
 high bytes can trigger it, and complemented bytes can be valid UTF-8 without
-triggering it; the peer ambiguity corpus and policy decision remain GAP-080/082.
+triggering it; the peer ambiguity corpus and decoder policy remain GAP-082.
 Its news-field inclusion also needs schema-aware review now that structured
 layouts are being recovered.
 
@@ -306,8 +310,9 @@ and the subject addition is displayed. These are not a native122session or a
 running historical SynHX server. See the
 [peer-by-field results](identified-client-source.md#native-configured-name-and-controlled-receiver-matrix)
 and [profile applicability](identified-client-source.md#source-package-identities-and-configuration-applicability).
-GAP-083 records source identity/applicability; broader target/fallback and peer
-coverage remain GAP-080/081.
+GAP-083 records source identity/applicability. The
+[profile registry](peer-profile-rules.md) supplies GAP-080's exact-build
+targets and unknown-peer rule; per-field coverage remains GAP-081.
 
 [server-profile]: ../mothra/evidence/gap-remediation/2026-11-13/synhx-profile-01/manifest.json
 

@@ -15,7 +15,7 @@ particular distributed binary or every client called SynHX. The complete build
 and native sessions below now identify one configured modern executable.
 Compile-time HOPE, cipher, compression, IPv6 and UI features create additional
 profiles. The applicability record below addresses GAP-083; broader peer
-coverage remains GAP-080/081.
+coverage remains GAP-081; [profile rules](peer-profile-rules.md) cover GAP-080.
 
 ## Basic login and unknown fields
 
@@ -181,8 +181,9 @@ The capture records the locale variables for this session and forces
 byte-preservation evidence for the test suffix, not a glyph/font rendering test
 or a negotiated character-set declaration. `stdout.txt` is an escaped UTF-8
 convenience view; the verifier uses `stdout.bin` and packet bytes. The witness
-is a controlled script, not a second identified historical client. mxd decoding
-policy and unknown-peer fallback remain separate unresolved decisions.
+is a controlled script, not a second identified historical client. mxd
+decoding policy remains separate. The protocol's
+[unknown-peer rule](peer-profile-rules.md) does not select an mxd policy.
 
 ## Reproducing and checking full peer sessions
 
@@ -257,7 +258,8 @@ frames, but does not display or fetch its banner. Native 160/161/162, native
 roster records and the tested subject addition likewise cause no observed
 session failure. Other values, malformed inputs, optional builds and unknown
 clients remain untested; these results do not select a universal omission or
-fallback policy (GAP-080/081).
+fallback policy. The [profile registry](peer-profile-rules.md) supplies the
+native baseline for unknown peers; wider field acceptance remains GAP-081.
 
 The initial login callback handles UID field 103 only, but that is not the
 client's only identity path. Its roster callback checks for unset own UID,
@@ -303,8 +305,10 @@ The tested client has HFS and fork transfer macros enabled, with
 HOPE/cipher/compression/IPv6 disabled. Its generated Makefile selects terminal
 objects and `hx`; GTK acceptance is not inferred. GAP-083's source identity and
 applicability record now has archive lineage, selected/default relationships,
-relevant build flags and explicit observation scopes. GAP-080/081 continue to
-track the separate acceptance-target, peer-corpus and compatibility-policy work.
+relevant build flags and explicit observation scopes. The
+[profile registry](peer-profile-rules.md) names the evaluated protocol targets
+and unknown-peer rule; remaining per-field acceptance is GAP-081. Release
+target and implementation policies remain separate decisions.
 
 Run both checks from mothra:
 

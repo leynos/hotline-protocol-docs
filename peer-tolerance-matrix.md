@@ -46,11 +46,11 @@ unknown-field and earlier 122 ordering checks. They do not establish arbitrary
 field tolerance, malformed-TLV tolerance, banner presentation, other compiled
 profiles or the behaviour of unidentified clients.
 
-GAP-080 remains open: acceptance-target selection, a second identified
-build/profile if required for release, stable peer distinctions and unknown-peer
-fallback require a separate policy decision. GAP-081 gains five observed
-conditions but still lacks a peer-by-field matrix across all selected release
-targets; no universal omission/default policy is chosen. GAP-082 remains open:
+The [exact-build registry](peer-profile-rules.md) now supplies GAP-080's
+protocol targets and unknown-peer rule, including the separately identified
+Classic candidate. These five conditions remain finite GAP-081 evidence;
+untested cells stay explicit and no universal omission/default policy is
+chosen. Release-target selection remains separate. GAP-082 remains open:
 the earlier ambiguous-byte chat sample is one build's byte-preservation
 evidence, and mxd's state/field decoder policy and independent interoperability
 tests are separate requirements.
