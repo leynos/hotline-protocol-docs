@@ -65,9 +65,10 @@ encoding and the complete login state machine (GAP-002–GAP-025). Build
 provenanced native session fixtures alongside that work (GAP-084). Then
 complete presence/permission/message contracts, followed by the in-scope file,
 transfer, news and administration schemas. Peer-corpus identification
-(GAP-080) and verification of mxd claims (GAP-085) can proceed independently.
-Dependency links identify shared prerequisite artefacts; they do not imply the
-unknown question has already been answered.
+(GAP-080) can proceed independently. Further mxd validation (GAP-085) remains
+on hold; its findings and resumption instructions are retained in
+mxd-validation.md. Dependency links identify shared prerequisite artefacts;
+they do not imply the unknown question has already been answered.
 
 ## Input provenance
 
