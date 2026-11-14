@@ -24,9 +24,9 @@ ENV = {
     "emulator_starttime": 456,
     "emulator_sha256": "a" * 64,
     "emulator_netns_inode": 789,
-    "owned_working_image": "/owned/native-alias-live-03/working.dsk",
+    "owned_working_image": "/owned/native-alias-live-04/working.dsk",
     "owned_working_image_inode": 321,
-    "owned_runtime": "/owned/native-alias-live-03",
+    "owned_runtime": "/owned/native-alias-live-04",
     "initial_finf_sha256": cases.digest(b"U54TM54X" + bytes(24)),
 }
 
@@ -122,7 +122,7 @@ class AliasPlanTests(unittest.TestCase):
 
     def test_owned_target_and_finder_bytes(self):
         with tempfile.TemporaryDirectory() as temp:
-            runtime = Path(temp) / "native-alias-live-03"
+            runtime = Path(temp) / "native-alias-live-04"
             shared = runtime / "shared"
             (shared / ".finf").mkdir(parents=True)
             target = shared / cases.TARGET.decode()
@@ -283,7 +283,7 @@ class AliasPlanTests(unittest.TestCase):
     def test_failed_run_writes_partial_report_and_closes_real_fd(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
-            runtime = root / "native-alias-live-03"
+            runtime = root / "native-alias-live-04"
             shared = runtime / "shared"
             (shared / ".finf").mkdir(parents=True)
             prestaged_finfo = b"U54TM54X" + b"\x01" + bytes(23)
