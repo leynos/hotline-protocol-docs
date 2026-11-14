@@ -173,6 +173,75 @@ usually uses a newly generated server ID, while a direct reply copies its
 request's ID. Do not match notifications as completion of an unrelated request
 merely because a numeric identifier collides.
 
+## Field and aggregate byte limits (GAP-019)
+
+This is a **contextual limit inventory** for the 1.9 native server. All sizes
+below count raw bytes unless a row names another unit. A handler's copy bound,
+the native filesystem's returned value, and the outer TLV ceiling are separate
+limits. “Source” identifies a retained handler/helper comparison; “native”
+identifies a controlled packet or stored-fork outcome. A source-only maximum
+does not assert a network result at maximum plus one. No row sets mxd policy:
+its distinct framing/memory limits are in [mxd limit contracts](mxd-limit-contracts.md).
+
+| Operation and field | Native limit and unit | Boundary evidence and confidence |
+| --- | --- | --- |
+| All outer TLVs | 65,535 value bytes per BE16 length; no global semantic character count | Wire layout, not a promise a handler accepts that much. [Parser and scalar captures](native-wire-details.md#parameter-parsing-and-scalar-access). |
+| 107 input 105 login; 106 password | 32 copied bytes each; login lookup then uses the native filename backend | Source; 31-byte owned account succeeds, 32-byte create/read/login reports `badfilename`, and over-32 login names clip to 32. This does not establish a valid 32-byte account. [Identity captures](native-wire-details.md#account-lookup-name-encodings). |
+| 350/351/352/353 input 105 account key | Tested native filesystem key accepts 31 bytes and rejects 32; request encodings differ | Native create, 352 readback and 107 login establish the 31/32 outcome. The 352 input is uncomplemented, whereas 350/351/353 complement theirs before lookup; a shared wire transform would be wrong. [Account lookup captures](native-wire-details.md#account-lookup-name-encodings). |
+| 107 input 102 display name | 32 copied bytes; later session effective name uses 31 | Source and native 65,535-byte settings input clipped to 31; keep the login copy and session assignment distinct. [Login/settings](core-field-schemas.md#login-and-settings-requests). |
+| 121/304 input 102, 215 | 31 requested-name bytes; 127 automatic-response content bytes | Source and framing native name clip; 215 is conditional on automatic response. [Settings schema](core-field-schemas.md#login-and-settings-requests). Exact 127/128 native output is still unmeasured. |
+| 350/353 fields 102, 111, 105, 106 | Account record copies 64, 64, 32, 32 bytes respectively | Source; native 65-byte 111 stores first 64; 32-byte 106 replacement/login succeeds; preserve-sentinel branch clips old password to 31. [Account update corpus](native-wire-details.md#captured-account-replacement-and-password-boundaries). |
+| 349 outer value | At most 512 copied bytes **per nested record**, not whole request | Source; native 513-byte outer entry retains its complete prefix, with unavailable identity beyond an incomplete field. [Batch rules](operation-contracts.md#administrative-account-list-and-batch-mutation). Aggregate number/bytes of records is not established by this copy cap. |
+| 105 field 101 | Chat text copied toward an 8,192-byte formatted output buffer; CR expansion and sender prefix consume capacity | Source plus native formatting controls, not a universal 8,192-byte accepted input. [Chat contract](presence-messaging-contracts.md#captured-private-rooms-invitations-and-chat-bytes). Exact output-cap-plus-one outcome remains unmeasured. |
+| 108 field 101; optional quoted 214 | Main PM text 4,096-byte cap; quote has separate bounded copy path | Source. Quote maximum and its max-plus-one behaviour are still open. [PM contract](presence-messaging-contracts.md#private-message-routing). |
+| 115/120 field 115 subject | 255 stored/output bytes | Native 255, 256 and 65,535 inputs produce 255 bytes, including repeated-join readback. [Room corpus](presence-messaging-contracts.md#captured-private-rooms-invitations-and-chat-bytes). |
+| 205 field 201 folder name | 255-byte Pascal input staging, then tested pre-OS-X path normalization clips to 31 name bytes | Native 32/255/256/65,535 input and `.txt` example; the alternate platform branch remains unexecuted. [Folder matrix](filesystem-and-board-contracts.md#captured-native-folder-creation-and-field-202-paths). |
+| 207 field 210 comment and 211 rename | Each staged in a 256-byte Pascal destination (up to 255 content bytes); lower comment setter passes at most 200 | Native 198/199 read back exactly and 200 through 65,535 read back 199 for file and folder. This is observed readback, not a portable capacity. [Comment matrix](filesystem-and-board-contracts.md#captured-rename-and-comment-mutation-matrix). Rename max-plus-one is unmeasured. |
+| 103 field 101 board post | 8,192 post bytes, separate from formatted segment and stored aggregate | Native 8,191/8,192 accepted, 8,193 status 1 with no 102/storage change. [Board captures](filesystem-and-board-contracts.md#captured-legacy-board-boundaries-and-updates). |
+| 101 board reply / board file | Reply is newest 65,535-byte prefix; stored DATA may exceed it | Native exact 65,535 aggregate and 65,629 stored bytes after one more post, with reply clipped to 65,535. [Board captures](filesystem-and-board-contracts.md#captured-legacy-board-boundaries-and-updates). |
+| 410 field 328 title; 333 body | Title 31 stored content bytes on tested native path; body 65,535-byte stored flavour | Native 64-byte title clips to 31; body 65,535 round-trips. Serializer has separate 63-byte title/31-byte poster/63-byte flavour caps. [News captures](news-contracts.md#captured-category-versions-and-header-metadata). Body 65,536 outcome is not captured here. |
+| Configured agreement/banner 109/212 | Loader: `TEXT` 65,535 source bytes; other types 262,140. A non-TEXT loaded value above BE16 TLV capacity fails the writer before 109 | Native TEXT 65,535 emits complete 101; TEXT 65,536 and non-TEXT 262,141 omit it after loader warning; non-TEXT 65,536 triggers writer failure. [Content captures](presence-messaging-contracts.md#content-byte-limits-and-reload-effects). |
+| 107 ACK field 162 server name | Native configuration stores at most 31 bytes; empty omits field | Native 31-byte exact and 32-byte typing attempt clipped to first 31. This is a GUI/Pprefs destination limit, not account-name policy. [Login extras](native-wire-details.md#captured-login-extras-configuration-bytes-and-refresh). |
+| 355 field 101 broadcast text | At most 4,096 copied input bytes | Handler `1000f990` passes `0x1000` to its field copier, then forwards that copied length. This is **source only**; 4,096/4,097 native delivery is untested. [Handler](../mothra/evidence/hotline-server-1.9/queries/D-1000f990.c). Console-originated 104 has a different source path. |
+| 303 reply field 101 generated diagnostic | Final formatter cap 1,024 output bytes, with no reserved/appended NUL; length is returned as TLV length | [Formatter trace](diagnostic-formatting-trace.md) and [native examples](diagnostic-replies.md#contract-boundary) reach 995 bytes. The 1,024/1,025 formatted-output case is **not** a native observation; GAP-037's descriptive-text decision does not establish it. |
+| 110 option-2 field 101 reason | At most 63 request payload bytes staged; constructed/stored reason length at most 63 | [Instruction trace](native-ban-file-format.md#request-110-reason-copy-path) predicts a length-prefix copy for nonempty reason, but all retained stored ban reasons are empty. No nonempty 63/64 native write is claimed. |
+| 202 field 203 resume descriptor | At most 512 copied bytes; helper requires a 42-byte RFLT minimum | [Transfer trace](transfer-contracts.md#resume-data-rflt) establishes source copy and format; it does not make 512/513 bytes a successful transfer or validate arbitrary larger descriptors. |
+| 208/209 field 212 Files destination; 370 field 325 News path | 2,048 copied path bytes per handler | Both 2,048 and 2,049 submitted values with a valid prefix plus padding select the same owned destination; parsing of byte 2,049 is unproved. [Structured-path captures](native-wire-details.md#field-212-files-destinations). Path component and depth limits are separate. |
+| 410 field 325 path; 326 parent ID; 327 flavour; 328 title; 333 body | 2,048 copied path bytes; separate stored title/flavour/body and list serialization bounds | Handler `10010470` uses `0x800` for 325. [News schema](news-contracts.md#posting-partial-effects-and-deletion) distinguishes a 31-byte created title from a 63-byte serialized title, and a 65,535-byte body round trip. A single generic “news string” cap would be false. |
+| 300/301/303 user-name outputs; 348/352 account-name outputs | Session effective name is a separate 31-byte destination; account record 102 is a separate 64-byte destination | [Session-name assignment](core-field-schemas.md#login-and-settings-requests) and [account record](native-wire-details.md#account-record-and-field-schema). A returned roster/diagnostic or account-list name inherits the relevant stored source; its outer TLV width does not widen that source. |
+| 200/206 file names and 370/371/400 news names | Native filesystem/catalogue name and serializer capacities differ by operation | [File path/list grammar](native-wire-details.md#structured-file-paths-and-file-list-entries) and [news list](news-contracts.md#article-list-field-321) give the observed layout. There is no source-backed universal 31-byte bound for all output names or all platforms. |
+
+### Remaining boundary cells and aggregate scope
+
+The [45-handler catalogue](#request-catalogue) bounds the operation inventory,
+but not every field has an independently proven value limit. The narrow cells
+below are the outstanding ones for the original name/password/message/subject/
+comment/body question. A bounded native fixture must preserve the exact
+request bytes, reply/status, subsequent output and any stored value; a static
+copy constant alone is marked as such above.
+
+| Context | Exact unresolved boundary or aggregate question | Smallest next evidence using existing tooling |
+| --- | --- | --- |
+| 303 generated 101 | Source final 1,024 bytes; native positive 995 only. Does the formatted 1,024/1,025 case clip, reject or lose a field? | Reuse the existing diagnostic transfer/density fixture with one owned additional long-name/queue state, capture the exact formatter input/output and retained cleanup. No general presentation-parity promise follows. |
+| 110 option-2 reason 101 | Source stages at most 63 and predicts prefix-copy; no nonempty persisted reason at 63/64. | One isolated owned zero-ACL target, exact option-2 63/64 inputs, native Banned record bytes and postflight; the existing ban fixture tools and [reason trace](native-ban-file-format.md#request-110-reason-copy-path) provide the shape. Never use the original administrator as victim. |
+| 105/108/355 text and 108 quote 214 | 8,192 formatted chat output, 4,096 PM/broadcast copies, quoted value's separate bound; native exact cap-plus-one delivery/storage not shown. | Three isolated owned senders/recipients with existing chat/PM/broadcast plans, one at-cap and one plus-one raw value per operation; inspect source quote copier before choosing its numeric bound. No broad spam/flood inference. |
+| 207 rename 211 and 381/382/410 names | Native comment readback is bounded, but these other names have separate 31/63/255 paths and no complete max-plus-one matrix. | Use the existing owned file/news fixture builders for 31/32 and 255/256 byte names, with before/after list and stored-fork checks; keep the Mac filesystem branch explicit. |
+| Aggregate request/reassembly | BE16 TLV values, per-record 349 copy512 and native per-frame startup comparator512 KiB are not a cross-field/fragment allocation cap. | A bounded multi-field/fragment plan with current `protocol_capture.py` and host/guest parity, including equality and one-over each declared size; report close versus ACK, not an inferred heap ceiling. GAP-011/012 retain the broader receiver question. |
+| Stored/list aggregates | Board store may exceed its65,535-byte reply prefix; news list321 stores unsigned 65,535 flavour length; transfer advertised size/reference/queue bounds depend on their own fields. | Keep the existing board and news at-cap-plus-one witnesses as separate aggregates. Any additional transfer-size claim needs a transfer-specific native fixture, not reuse of the TLV cap. |
+
+The table is a finite status map, not a claim that all unlisted fields are
+unlimited. No complete GAP-019 certificate follows while the named
+source-only and native-unmeasured cells above remain. mxd currently has its
+own 32-KiB physical-frame and 1-MiB logical-total checks and explicit memory
+budgets; those are [implementation policy](mxd-limit-contracts.md), not the
+native field limits in this registry.
+
+A 65,536-byte **single** TLV value is not representable with BE16 length; it
+cannot be used as a well-formed max-plus-one field fixture. Where a smaller
+semantic cap is 65,535, the meaningful next question is whether a larger
+aggregate or malformed declared length is accepted, rejected or closed, with
+that different input class stated explicitly.
+
 ## Frame acceptance and reassembly boundaries
 
 The frame receiver `100590e0` rejects either size word equal to zero or greater
