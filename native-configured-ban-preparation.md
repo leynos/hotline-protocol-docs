@@ -36,7 +36,7 @@ The held plan has **23 source actions**: 17 before Options, then `104` and EOF
 on each of the two sockets, then both closes. The controller retains one report
 whose `completed_actions` must equal the original 23-step source plan. It
 retains any bytes after the matched notices through each EOF for later parsing.
-publishes `held-ready.json` only after the semantic identity gates pass. Any
+It publishes `held-ready.json` only after the semantic identity gates pass. Any
 readable socket before reviewed Save, including a notice or EOF triggered by
 **Add**, aborts the observation. A separate operator may create a
 `reviewed-save\n` trigger only after the new checked row and unchanged sockets
@@ -77,3 +77,10 @@ ban-file schema, reload behaviour, expiry, full-file health, or mxd parity
 follows from this preparation. The prior C35/C45/C50 full-file failures remain
 separate; `fixture_profile=control-only` and `full_file_baseline=not_exercised`
 are mandatory.
+
+## Observed result
+
+The later control-only Save observation is recorded in
+[the configured-ban witness](native-configured-ban-witness.md). This
+preparation remains the as-planned contract; the witness records the actual
+C65 failure, C66 correction, C67/C68 traffic, and limits.
