@@ -34,7 +34,7 @@ walks recipient sessions for 301 and invokes the enqueue helper only when
 **both** the recipient connection's `10058600` result is nonzero and the
 recipient session's `+0x14a` online sign is set. This is a recipient test.
 It does not inspect the sender's requested name, icon, option flags, status
-field 112, or presence of field 102. In the A104 direct 104-only 304 chain,
+field 112, or presence of field 102. In the A103/A105 direct icon-only 304 chain,
 omitting 102 changes a requested-name field but shows no edge clearing this
 recipient bit or online sign. That is a bounded source observation, not a
 claim that no other path can clear either state.

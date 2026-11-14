@@ -411,6 +411,13 @@ the helper's three flag assignments; measured values 8 and 12 agree with that
 mask. This establishes the default's bytes, not a general supplied-text codec.
 Transaction 108 uses 113 as an enumerated PM option, a separate grammar.
 
+The [settings rate-path trace](rate304-contract.md) predicts a separate
+26-update counter within a native-time window and a close/temporary-ban path
+on the next update. This remains a source prediction. The
+[failed first-pair experiment](native-rate304-first-pair.md) sent one 304 and
+one 500; its wait expired before late responses arrived during client
+cleanup. It proves no counter boundary, reset interval or ban outcome.
+
 Evidence: V026–V029; `10011ee0`, `10004d50`.
 
 ### Banner Metadata (Transaction 122) – Server Initiates

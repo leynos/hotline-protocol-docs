@@ -1,18 +1,19 @@
 # Native 304 rate and reset preparation
 
-This is an **offline prepared** GAP-045 fixture. It has not contacted Hotline
-Server 1.9. The source prediction is a session-local 304 counter: existing
-values 0–25 enter settings helper `10004d50`; a 27th request in the same
-native `GetDateTime` window closes the socket, inserts a 1,800-second address
-ban and logs. After age greater than 60 seconds the counter resets. A complete
-online request also increments the separate dispatcher flood counter. See
-retained `D-1000acf0.c`, `D-10016ad0.c`, `D-10004d50.c`, `D-10004f30.c`; A92's
-read-only source review is retained in Mothra delegation state.
+Version 2 is an **offline prepared** GAP-045 fixture. This version has not
+contacted Hotline Server 1.9. The source prediction is a session-local 304
+counter: existing values 0–25 enter settings helper `10004d50`; a 27th request
+in the same native `GetDateTime` window closes the socket, inserts a
+1,800-second address ban and logs. After age greater than 60 seconds the
+counter resets. A complete online request also increments the separate
+dispatcher flood counter. See retained `D-1000acf0.c`, `D-10016ad0.c`,
+`D-10004d50.c`, `D-10004f30.c`; A92's read-only source review is retained in
+Mothra delegation state.
 
 ## Prepared scope
 
 The fixture uses one **new disposable** Mac runtime and process from a stopped
-immutable base. Candidate display `:120`, `R native-rate304-01`, and control
+immutable base. Candidate display `:120`, `R native-rate304-02`, and control
 port `15880` require parent conflict review. The host and namespace captures,
 guest PCAP, owned executable/ROM/image fork hashes, actual emulator
 PID/start/exe/working-image inode/FD6/FD16, loopback-only routes, managed
@@ -24,6 +25,9 @@ end. The producer refuses other ports/profiles. The run needs at least 390
 seconds remaining in a fixed <=12-minute capture epoch; units have
 <=900-second caps. Case hard stop is 210 seconds. Missing gate evidence stops
 before contact.
+
+The failed version-1 runtime `native-rate304-01` is retired and quarantined;
+its earlier permissions do not authorize reuse or another boot.
 
 Run an unchanged separate 18-action control-only preflight on that **same new
 process** before the coordinator. Verify two original accounts, 41 Files
@@ -100,9 +104,10 @@ This synthetic pipeline rehearsal proves only that delayed two-socket responses
 can be collected within its declared bracket. It does not establish ordinary
 native latency, why the observer update was absent in C107, a native clock
 threshold, or a new native result. A separate live grant is required.
-The bounded A103 source review supports retaining the icon-only 304 shape for
-the zero-ACL subject; the full transport-readiness helper was outside that
-review, so recipient delivery remains a measured question.
+The bounded [recipient-predicate trace](rate304-recipient-predicate.md)
+identifies the handshake path that sets the connection bit checked by 301
+fan-out. It finds no direct icon-only 304 edge clearing observer eligibility;
+delivery remains a measured question.
 
 ## Offline commands
 

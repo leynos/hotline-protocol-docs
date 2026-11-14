@@ -63,6 +63,12 @@ calibration. The existing eight-stage 304 transition corpus proves ordinary
 settings effects, not this 26/27 boundary. No rate boundary, mxd parity
 policy, general exemption, or GAP-045 closure is claimed here.
 
+The [first native pair](native-rate304-first-pair.md) failed its fixture
+wait before the late subject response, during observer cleanup. It establishes
+no rate boundary. The [recipient trace](rate304-recipient-predicate.md)
+separately identifies the handshake-set connection bit and online-session
+gate used by 301 fan-out; it does not prove delivery to a closing observer.
+
 Related repeat-hash branches are separately frozen in the corpus. For board
 103, the hash input is the **formatted segment**, whose header includes
 native date/time; equal posted field101 bytes can produce different segment
