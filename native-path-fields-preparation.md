@@ -1,5 +1,8 @@
 # Native path-field matrix preparation
 
+The subsequent [native path witness](native-path-fields.md) records the
+completed twelve-case run and its limits. This page describes preparation.
+
 This is an **offline fixture**, not a native result. It implements M1 of
 Mothra's `docs/execplans/structured-path-fields.md`. The prospective endpoint
 is `127.0.0.1:15900` inside the owned emulator namespace. The guest server is

@@ -901,7 +901,10 @@ Evidence: V053 and the captured handler `100170c0`.
 
 ### Moving Files/Folders (Transaction 208) – Client Initiates
 
-**Request:** name 201, source path 202 and destination path 212.
+**Request:** name 201, source path 202 and destination path 212. The
+[field-specific path contracts](native-wire-details.md#field-212-files-destinations)
+distinguish canonical component records from native prefix acceptance and the
+reader's copied-width cap.
 
 **ACK:** direct success/error replies are present. The
 [captured move matrix](filesystem-and-board-contracts.md#captured-move-and-trash-outcomes)
@@ -1014,7 +1017,10 @@ Evidence: V047, V062–V066.
 ### Listing News Categories (Transaction 370) – Client Initiates
 
 **Request:** news path 325. The handler uses its top-level listing path when
-fewer than six path bytes are supplied.
+fewer than six path bytes are supplied. The
+[field-325 contract](native-wire-details.md#field-325-news-paths) records its
+News root, high-byte and malformed-component outcomes separately from Files
+paths.
 
 **ACK:** the native builder emits repeated category-list fields **323** when
 the saved client-version value is at least **15**, and **320** otherwise. The

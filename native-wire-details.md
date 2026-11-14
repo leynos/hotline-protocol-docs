@@ -248,6 +248,63 @@ the last-component helper requires at least six bytes and traversal can stop
 at an invalid component rather than reject the entire value. Alias resolution
 and name sanitization are separate helper steps.
 
+### Field 202: Files paths
+
+Emit a big-endian count followed by complete component records as above. The
+root is the configured **Files** location. The
+[field-202 creation matrix](filesystem-and-board-contracts.md#name-bytes-and-structured-path-acceptance)
+records its operation-specific acceptance separately from the emission grammar.
+
+| Input or rule | Field-202 evidence and scope |
+| --- | --- |
+| Root | Absent, empty, `0000`, and the tested values shorter than six bytes select Files root for 205 with a nonempty name. A root selection does not make creation at an existing root succeed. |
+| Nested components | Root-relative and nested creates are located by before/after 200 listings. |
+| Non-ASCII and normalization | Traversal through high byte `9a` and NUL-leading names completes. Colon becomes hyphen in the measured pre-OS-X profile; literal dot and dotdot are native child names in these fixtures. |
+| Invalid records | Tested truncated/empty suffixes or excess count can select the last complete directory. Word `ffff` and trailing bytes retain the tested zero-word destination. |
+| Limits | Pascal name lengths, platform name clipping and the outer TLV length are distinct. The captured 205 name boundaries do not establish a universal maximum structured-path depth or wire length. |
+
+### Field 212: Files destinations
+
+Field 212 uses the same count/component emission frame, but its role depends
+on the operation. In208 it names the destination directory under Files;
+209 can derive a destination leaf when 201 is absent or empty. Do not replace
+these roles with a single unspecified path policy. The
+[move matrix](filesystem-and-board-contracts.md#captured-move-and-trash-outcomes)
+and [twelve-cell path witness](native-path-fields.md) retain the measured cases.
+
+| Input or rule | Field-212 evidence and scope |
+| --- | --- |
+| Root | Earlier208 absent, empty and `0000` destinations move the owned file to Files root. |
+| Nested / non-ASCII | Two complete records naming `m-path47/H-9a` select that owned directory in 208. Here `9a` denotes the literal high byte, not the two ASCII characters. Three candidate-parent 200 views and 206 locate each marker. |
+| Empty suffix / excess count | A declared third empty component, or count 3 with only two complete records, still selects the same H directory in the two measured cases. |
+| Opaque word | Replacing the second component word with `ffff` selects H in this case. The word is not globally specified as reserved or ignored. |
+| Copied width / submitted length | Handler `100177d0` reads 212 with a 2048-byte copy cap. Both 2048- and 2049-byte submitted values consisting of the valid 19-byte prefix plus `ee` padding select H. This does not prove that byte 2049 was parsed. |
+| Normalization | The 208 call reaches the shared resolver/sanitizer. Colon/NUL transformations for 212 were not independently measured here; the 202 observations must retain their field/operation scope. |
+
+### Field 325: News paths
+
+Field 325 emits the same count/component frame and resolves under the
+configured **News** root. The 370 top-level shortcut and News kind checks are
+separate from Files behaviour. See the
+[News structure contracts](news-contracts.md#structure-operation-effects-and-conflicts)
+and [path witness](native-path-fields.md).
+
+| Input or rule | Field-325 evidence and scope |
+| --- | --- |
+| Root | `0000` lists News root in the captured 370 controls. Handler `100102c0` takes its top-level path for returned lengths below six bytes. |
+| Nested | The earlier News matrix lists both `bundle` and `bundle/child`; this run lists the high-byte owned folder `m-n47-9a`. Only that folder contains the distinguishing `m-cat47` category. |
+| Empty suffix / excess count | A declared second empty component, or count 2 with only one complete record, still returns the owned high-folder category in the measured 370 cases. |
+| Opaque word | Word `ffff` in the first component returns that same category in this case. This is a finite observation, not a general word contract. |
+| Copied width / submitted length | Handler `100102c0` reads 325 with a 2048-byte copy cap. Both 2048- and 2049-byte submitted values consisting of the valid 12-byte prefix plus `ee` padding return the high-folder category; parsing of byte 2049 is unproven. |
+| Non-ASCII / normalization | The raw path component contains `9a` and resolves the owned high-byte folder. Shared sanitization is source-backed; separate 325 colon/NUL outcomes and a universal text codec are not established by these captures. |
+
+These tables prove common record framing and the listed outcomes. They do
+not establish identical roots, permission rules, alias containment or
+acceptance for every malformed byte string. Complete canonical records remain
+the emission grammar even when native traversal accepts a prefix.
+
+### File-list entry records
+
 Each field **200** in a file-list reply contains this unpadded record:
 
 | Offset | Size | Value |

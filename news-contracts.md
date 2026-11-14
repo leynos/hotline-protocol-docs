@@ -200,6 +200,10 @@ interrupted-storage behaviour remains unproved.
 
 These wire handlers resolve field 325 through the structured filesystem-path
 resolver used elsewhere in this binary, with an operation-specific news root.
+The [field-325 table](native-wire-details.md#field-325-news-paths) and
+[twelve-cell witness](native-path-fields.md) add measured high-byte,
+empty/count/word and padded-length outcomes for 370. Those finite positive
+prefix selections are separate from the complete-record emission grammar.
 That is evidence for shared framing, not proof of identical allowed names,
 permissions, alias resolution or maximum depth. Operations 380/381/382 remain
 subject to GAP-070's hierarchy/conflict/recursive-effect tables and fixtures.
