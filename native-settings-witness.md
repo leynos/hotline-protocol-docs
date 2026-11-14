@@ -63,7 +63,9 @@ python3 -m unittest discover -s ../hotline-protocol-docs/scripts \
   -p test_native_settings_corpus.py
 ```
 
-This packet adds field-113 rows to GAP-015/016/017. The all-core width and
-presence/default criteria remain open. Subsequent combined review accepted
-GAP-017; see [parameter multiplicity](parameter-multiplicity.md) for the
+This packet adds field-113 rows to GAP-015/016/017. The combined
+[scalar registry](native-wire-details.md#core-scalar-width-registry) now covers
+the core width contract; GAP-016 presence/default criteria remain open.
+Subsequent combined review accepted GAP-017; see
+[parameter multiplicity](parameter-multiplicity.md) for the
 transaction-specific rules and the scope of that acceptance.

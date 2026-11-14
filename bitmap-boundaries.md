@@ -82,8 +82,9 @@ labels. Separate native fixtures provide specific operation contrasts:
 Those fixtures have their own identities and scopes. They do not prove a
 meaning for every unlabelled bit. GAP-031's original per-bit meaning and
 reserved/ignored distinctions remain open for unknown positions. GAP-015's
-all-core-scalar criterion and GAP-016's all-field default table remain open;
-this packet contributes field-110 rows only. GAP-019 retains broader fields,
+all-core-scalar contract is now in the [scalar registry](native-wire-details.md#core-scalar-width-registry);
+this packet contributes field-110 corroboration only. GAP-016's all-field
+default table remains open. GAP-019 retains broader fields,
 input lengths and aggregate limits. Nothing here chooses mxd's compatibility
 or release policy.
 

@@ -33,6 +33,52 @@ order and duplicates in the codec, then apply the operation's cardinality.
 An implementation may reject malformed TLVs more strictly, but must identify
 that as its own acceptance policy.
 
+### Core scalar width registry
+
+The table distinguishes an **effective native read** from a canonical wire
+encoding and from an enclosing request's success. `N` means the generic
+unsigned accessor above: absent/empty and three bytes yield zero; one, two
+and four bytes yield BE unsigned values; five or more use the first four.
+Thus three bytes are structurally indexed but are not a valid way to express
+a nonzero scalar. Numeric sender values through `ffff` normally emit BE16;
+larger values emit BE32. The [core operation registry](core-field-schemas.md)
+gives direction and presence conditions; this table adds width/range and
+invalid-width effects without assuming that every field uses `N`.
+The sender rule is the frozen [numeric writer][numeric-writer].
+
+| Field and core operation context | Native wire type, width and effective range | Invalid-width or out-of-range effect and evidence |
+| --- | --- | --- |
+| 160 in login 107 request | `N`, stored as unsigned 32-bit reported version; canonical nonzero 1/2/4-byte values | Three bytes become zero; over four bytes use their BE32 prefix. Native login/version controls and the [numeric reader][numeric-reader] establish this accessor outcome, not a peer identity. |
+| 104 in 107, 121 and 304 requests | `N`, then low 16 bits stored as icon; effective `0..65535` | Three bytes become zero; over four use their prefix; high 16 bits are discarded. [Captured settings icons](#captured-tlv-and-scalar-boundaries) include lengths zero through five and the signed 301 emission exception. |
+| 113 in 121/304 session settings | `N`, low option bits 0/1/2 selected; full accessor range `0..ffffffff` before bit tests | Three bytes become zero and five bytes use the first four; [ten native settings cases](native-settings-witness.md) prove absent/empty/zero and selected width effects for 304. Unknown high bits are not assigned meanings here. |
+| 109 in chat 105 | `N`, unsigned `0..ffffffff`; exactly 1 selects the action prefix, all other effective values ordinary chat | Three bytes become zero; overlong input uses its first four. [Chat handler 1000fc20](../mothra/evidence/hotline-server-1.9/queries/D-1000fc20.c) tests the full returned word. Notification-104 option 109 is a server output, not this client input. |
+| 113 in PM 108 | `N`, then signed 16-bit narrowing; the special sender-feedback branch compares the narrowed value with 1 | Three bytes become zero; overlong input uses its first four before narrowing. [PM handler 1000f4e0](../mothra/evidence/hotline-server-1.9/queries/D-1000f4e0.c) and [captured variants](native-pm-witness.md) distinguish this from settings field 113's bitmask. |
+| 113 option and 103 target in kick 110 | `N` option uses the full unsigned `0..ffffffff` result; exactly 1 or 2 selects the corresponding notice/ban branch. Target 103 narrows to signed 16-bit UID lookup | Three-byte option or target reads as zero; overlong uses the first four. [Kick handler 10015e70](../mothra/evidence/hotline-server-1.9/queries/D-10015e70.c) and [bounded kick fixtures](presence-messaging-contracts.md#kick-options-and-native-console-messages) distinguish this 113 from PM and settings. |
+| 103 target/UID in PM 108, repeated invitation 112/113 and diagnostic 303 | `N` or its [indexed numeric counterpart][indexed-number]; target lookup narrows the result to signed 16-bit UID, so only its low 16 bits select a session | Three bytes become zero and overlong input uses its first four before narrowing. The [UID lookup][uid-lookup], [PM handler](../mothra/evidence/hotline-server-1.9/queries/D-1000f4e0.c) and [303 handler](../mothra/evidence/hotline-server-1.9/queries/D-10016150.c) show the narrow lookup; absent/zero or a nonmatching narrowed UID fails by handler. |
+| 114 room in chat/room requests 105/113–116/120 | `N`, full unsigned 32-bit room ID; [room lookup][room-lookup] compares the complete word, unlike UID lookup | Three bytes become zero and overlong input uses its first four; zero selects main chat in 105, while room operations require a matching nonzero room. [Room handler 100183c0](../mothra/evidence/hotline-server-1.9/queries/D-100183c0.c) passes the full reader result to lookup. |
+| 103/104/112 in 301; 114/103/104/112 in room-112 ACK and 117; 114/103 in 113 and 118; 114 in conditional 106 and 119; 103 in 302 and 355; variant 103/113 or denial 109 in 104 | Sender numeric TLVs normally BE16 for `0..65535`, BE32 above; 301 icon 104 instead promotes stored signed BE16, so `8000` emits `ffff8000` | Invalid *client input* width is inapplicable to these server emissions. [Core notification and room schemas](core-field-schemas.md#room-and-message-outputs), [captured icon boundaries](#captured-tlv-and-scalar-boundaries), and builder `10004f30` prove the scoped exception; packed roster 300 retains BE16 icon. Field 104 notification variants have their own source/fixture discriminator table. |
+| 116 queue position in notification 211 | Sender numeric position `0..ffffffff` uses BE16/BE32; zero signals admission from the waiting queue | Invalid client width is inapplicable. [Queue source and controlled native positions](transfer-contracts.md#queue-notification-211) prove zero/nonzero cases, not an unbounded queue-capacity guarantee. |
+| Packed roster field 300 in 300/115 replies | Structured bytes: BE16 UID, icon, status and name length, followed by exactly that many name bytes | There is no outer `N` read for these four nested words. A malformed inner length is a roster-record error; [the core roster schema](core-field-schemas.md#types-occurrence-and-direction-conventions) defines their `0..65535` representation. |
+| 110 in account 350/353 and nested 349 mutations; 348/352 replies and 354 push | `A8`: eight MSB-first bitmap bytes, effective bit positions 0–63 | In 353 an absent/empty value gives eight zeros; short values zero-fill, and nine bytes truncate to eight. The [six native width controls](bitmap-boundaries.md#field-110-presence-and-width) prove lengths 0/1/7/8/9; [batch handler 10015500](../mothra/evidence/hotline-server-1.9/queries/D-10015500.c) also copies nested 110 into eight cleared bytes. [348 builder 10015160](../mothra/evidence/hotline-server-1.9/queries/D-10015160.c) emits exactly eight nested bytes, as 352/354 do; this is not `N` or a scalar integer. |
+| 107 in transfer replies and request 214 | Generated references are four BE bytes; 214 copies at most four input bytes into a zero-initialized word | Absent/zero skips cleanup. Short input zero-fills and overlong input is capped at four by [request 214's reader](transfer-contracts.md#reference-allocation-and-request-214); its ACK does not establish a match. Do not apply the generic three-byte-to-zero rule to this direct-copy path. |
+| 204 transfer option in 202/203/210/213; 108 size in 203/213; 220 item count in 213 | Each is an outer `N` input with unsigned accessor range `0..ffffffff`; options 2 for download preview and 1 for upload resume are handler-specific, not global bit flags | Absent/empty/three bytes yield zero; overlong input uses its first four. Frozen [download 202](../mothra/evidence/hotline-server-1.9/queries/D-100121a0.c), [upload 203](../mothra/evidence/hotline-server-1.9/queries/D-100130f0.c) and [folder upload 213](../mothra/evidence/hotline-server-1.9/queries/D-10013930.c) handlers call the numeric reader for these IDs. Field 203 resume data is a separate `RFLT` byte record, not a scalar. |
+| 160/161 in successful 107 ACK, 154 in agreement 109, and 152 in conditional banner 122 | Sender values: 160 is 190 (`00be`); captured 161 is zero (`0000`); 154 is one (`0001`); banner 152 is an explicitly four-byte tag | Invalid client width is inapplicable to these server-only fields. [Captured login extras](#captured-login-extras-configuration-bytes-and-refresh), [agreement fixtures](#captured-agreement-configurations-and-partial-login-failures), and the [banner schema](core-field-schemas.md#login-and-presence-outputs) establish the measured widths/conditions; 161's human meaning remains GAP-026. |
+| 108 transfer size and 220 item count in transfer ACKs; 207 file size in transfer ACKs and file-info 206 replies | Sender `uint32` values use the BE16/BE32 [numeric writer][numeric-writer] for `0..ffffffff`; reference 107 remains the fixed four-byte exception | Invalid client width is inapplicable to these reply fields. Frozen [download 202](../mothra/evidence/hotline-server-1.9/queries/D-100121a0.c), [folder download 210](../mothra/evidence/hotline-server-1.9/queries/D-10012850.c), and [file-info 206](../mothra/evidence/hotline-server-1.9/queries/D-10016ba0.c) builders pass these words to the writer. [Captured file/folder sizes and counts](transfer-contracts.md#captured-folder-downloads) establish finite values, not a 64-bit file size or every overflow path. |
+| 326 article ID in news 400/410/411; 334 flags in 410; 337 recursive option in 411 | Outer `N` inputs, unsigned accessor `0..ffffffff`; 334 stores the resulting raw word, and 337 converts zero to false and any nonzero to true | Absent/empty/three bytes yield zero; overlong input uses its first four. [Post handler 10010470](../mothra/evidence/hotline-server-1.9/queries/D-10010470.c), [read handler 10011580](../mothra/evidence/hotline-server-1.9/queries/D-10011580.c) and [delete handler 100108a0](../mothra/evidence/hotline-server-1.9/queries/D-100108a0.c) read those IDs; [14 captured 337 controls](news-contracts.md#captured-article-deletion-and-index-effects) prove its boolean width outcomes. Unresolved 326 can select root posting but is an error for read/delete. |
+| 331/332/335/336 navigation in article 400 replies | Sender numeric public IDs, using BE16 for `0..65535` and BE32 above; absent links are explicit BE16 zero | Client invalid-width handling is inapplicable to these reply-only IDs. [Captured body graph](news-contracts.md#captured-threaded-article-lists-and-partial-posts) proves zero/small values, not every 32-bit ID allocation boundary. |
+| Nested 321 flavour size in news records | Unsigned BE16, effective `0..65535` inside the structured value, not an outer numeric TLV | `ffff` is 65,535, not signed `-1`; malformed nested length is a record-grammar issue. The [article-list schema](news-contracts.md#article-list-field-321) and retained native boundary establish this distinct representation. |
+
+These are source-derived accessor and handler effects, with native fixtures
+where cited. They do not promise that an arbitrary in-range numeric value names
+an extant session or room, or that every malformed-width request receives an
+ACK. Sender-only widths do not imply acceptance of malformed client input.
+Fields 208/209 are separate eight-byte date records, not `N` words.
+Boolean-like meanings are contextual: settings 113 tests bits, news 337 tests
+zero versus nonzero, queue 116 uses zero as admission, and notification 154
+is a server-generated flag. The one-NUL password-preservation sentinel in
+353 field 106 is a byte-string rule, not a numeric zero; a zero field-107
+reference in 214 skips cleanup. Neither is a universal null-scalar rule.
+
 ### Captured TLV and scalar boundaries
 
 The [native framing corpus](../mothra/evidence/gap-remediation/2026-11-12/native-framing-01/manifest.json)
@@ -405,6 +451,11 @@ for exact comparisons, bounded negative findings and remaining timer fixtures.
 [index]: ../mothra/evidence/gap-remediation/2026-11-12/batch-01/queries/B01-D-10056e20.c
 [lookup]: ../mothra/evidence/gap-remediation/2026-11-12/batch-01/queries/B01-D-10057180.c
 [copy]: ../mothra/evidence/gap-remediation/2026-11-12/batch-01/queries/B01-D-100565b0.c
+[numeric-reader]: ../mothra/evidence/hotline-server-1.9/queries/D-10056b90.c
+[numeric-writer]: ../mothra/evidence/hotline-server-1.9/queries/D-10056a90.c
+[indexed-number]: ../mothra/evidence/hotline-server-1.9/queries/D-10056c00.c
+[uid-lookup]: ../mothra/evidence/gap-remediation/2026-11-12/batch-07/queries/B07-D-10004730.c
+[room-lookup]: ../mothra/evidence/gap-remediation/2026-11-12/batch-07/queries/B07-D-10004760.c
 [account-read]: ../mothra/evidence/gap-remediation/2026-11-12/batch-01/queries/B01-D-100073c0.c
 [account-write]: ../mothra/evidence/gap-remediation/2026-11-12/batch-01/queries/B01-D-100075e0.c
 [password-set]: ../mothra/evidence/gap-remediation/2026-11-12/batch-01/queries/B01-D-10007780.c

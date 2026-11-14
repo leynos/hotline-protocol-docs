@@ -144,6 +144,10 @@ request or a new image. The unchanged 18-action control preflight and
 stopped-image alias extraction remain separate root-owned steps. Neither
 this guide nor a green offline test is permission to start M2 or M3.
 
+The optional [recorded-target decoder](alias-record-v2.md) checks the reviewed
+v2 subset after extraction. Its recorded path is one binding witness; positive
+native resolution and stopped Finder/resource-map proofs remain mandatory.
+
 ## Observed Finder preparation and case refusal
 
 [Retained evidence](../mothra/evidence/gap-remediation/2026-11-14/native-alias-prestage-01/manifest.json)

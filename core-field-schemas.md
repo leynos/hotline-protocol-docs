@@ -21,7 +21,9 @@ operation says otherwise.
 overlong value. Native numeric emission uses BE16 through 65,535, otherwise
 BE32. For reliable canonical output use those emitted widths. This tolerance
 does not make every numeric field unbounded: assignment can narrow a UID/icon
-to 16 bits. Remaining boundary/range outcomes are GAP-015/019.
+to 16 bits. The [core scalar registry](native-wire-details.md#core-scalar-width-registry)
+records field-specific ranges and invalid-width effects. Remaining semantic
+length boundaries are tracked in GAP-019.
 
 **B** is an uninterpreted byte string in the outer TLV; there is no embedded
 length or terminator unless explicitly shown. **A8** is the exact eight-byte
@@ -95,9 +97,11 @@ for the thresholds below; no client-brand inference follows from any width.
 | Saved version at least 151 | 121 considers 122, subject to type/buffer conditions. |
 
 These tables complete GAP-024's input-condition deliverable using the retained
-numeric reader, login handler and category/banner branches. They do not certify
-identified-peer compatibility, malformed-input network outcomes or a delivered
-login session; those remain GAP-015/025/065/080/084.
+numeric reader, login handler and category/banner branches. Identified-peer
+compatibility, malformed-input network outcomes and delivered login sessions
+are separate evidence obligations; the gap register records their status.
+The [scalar registry](native-wire-details.md#core-scalar-width-registry) records
+the field-specific accessor effects.
 
 ## Login and presence outputs
 

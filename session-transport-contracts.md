@@ -161,8 +161,10 @@ These fixtures do not establish an assembly-age limit, maximum simultaneous
 partials, aggregate allocation cap or mxd policy. The ID/envelope cases below
 add collision, late-reply and partial-input EOF outcomes.
 The [TLV/handler matrix](native-wire-details.md#captured-tlv-and-scalar-boundaries)
-separates structural indexing from request-specific outcome. GAP-011 and
-GAP-015/017 retain their broader acceptance requirements.
+separates structural indexing from request-specific outcome. Remaining
+framing/allocation limits belong to GAP-011. Field widths are in the
+[scalar registry](native-wire-details.md#core-scalar-width-registry), and
+occurrence rules are in [parameter multiplicity](parameter-multiplicity.md).
 
 ## Transaction IDs, reassembly and correlation
 

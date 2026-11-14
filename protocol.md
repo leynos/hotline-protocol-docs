@@ -155,6 +155,8 @@ four. The numeric reader also accepts one byte; its inspected three-byte case
 returns zero. This does not make every field variable-width: for example,
 transfer references are explicitly serialized as four bytes, and access
 bitmaps as eight. Use the field's schema where its width is established.
+Field-specific narrowing, signedness and invalid-width effects are in the
+[core scalar registry](native-wire-details.md#core-scalar-width-registry).
 
 Evidence: V011, V013–V016, V032, V040, V042, V062; `100568b0`, `10056a90`,
 `10056b90`, `10056d00`.
