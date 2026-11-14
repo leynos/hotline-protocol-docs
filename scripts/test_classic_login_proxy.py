@@ -1,5 +1,6 @@
 """Offline frame and socket-pair controls for the Classic 161 proxy."""
 
+import hashlib
 import socket
 import struct
 import subprocess
@@ -77,6 +78,83 @@ class ClassicLoginProxyTests(unittest.TestCase):
                 self.assertEqual(parsed["data_size"], parsed["total_size"])
                 if variant == "baseline":
                     self.assertEqual(output, self.source)
+
+    def test_server_name_162_has_canonical_fields_and_lengths(self) -> None:
+        native = bytes.fromhex(
+            "0001000000000001000000000000000e0000000e000200a0000200be00a100020000"
+        )
+        expected = bytes.fromhex(
+            "0001000000000001000000000000002000000020000300a0000200be"
+            "00a10002000000a2000e666978747572652d6e6174697665"
+        )
+        output = transform_ack(native, 1, "server-name-162")
+        parsed = parse_frame(output)
+        self.assertEqual(output, expected)
+        self.assertEqual(len(output), 52)
+        self.assertEqual(
+            parsed["fields"],
+            [
+                (160, bytes.fromhex("00be")),
+                (161, b"\0\0"),
+                (162, b"fixture-native"),
+            ],
+        )
+        self.assertEqual(
+            (
+                parsed["flags"],
+                parsed["is_reply"],
+                parsed["type"],
+                parsed["id"],
+                parsed["error"],
+            ),
+            (0, 1, 0, 1, 0),
+        )
+        self.assertEqual((parsed["total_size"], parsed["data_size"]), (32, 32))
+        self.assertEqual(
+            hashlib.sha256(output).hexdigest(),
+            "3f5185b7bc222e684697fd2fce46ff0f625bc13ddf301e8a787bfe47594caedb",
+        )
+
+    def test_server_name_162_rejects_existing_native_field_without_forwarding(
+        self,
+    ) -> None:
+        with self.assertRaisesRegex(ValueError, "already contains field 162"):
+            transform_ack(self.source, 7, "server-name-162")
+        source, writer = socket.socketpair()
+        sink, reader = socket.socketpair()
+        for peer in (source, writer, sink, reader):
+            self.addCleanup(peer.close)
+        source.settimeout(0.1)
+        reader.settimeout(0.05)
+        writer.sendall(self.source)
+        with self.assertRaisesRegex(ValueError, "already contains field 162"):
+            relay_frames(
+                source,
+                sink,
+                Audit(time.monotonic() + 1),
+                "server",
+                7,
+                "server-name-162",
+            )
+        with self.assertRaises(TimeoutError):
+            reader.recv(1)
+
+    def test_existing_variant_ack_hashes_remain_frozen(self) -> None:
+        native = bytes.fromhex(
+            "0001000000000001000000000000000e0000000e000200a0000200be00a100020000"
+        )
+        expected = {
+            "baseline": "814b733a82d15dd7250cb0e8b7ed0c6c09a7a02d7169ab70ebaa359fb18eb6d0",
+            "omit-161": "4b6b35015db432791da28371985d8733859a78ffec32be679b9d7b073ec4b7a3",
+            "one-byte-161": "904b105c30b784c1b2146cf4c86c04f3ce4f4651905822d76400ffd4d82dc1df",
+            "four-byte-161": "32ce979fc0b1b2b23d13761324f09a2c0267d2f7e2898d9c4dc475fdcfeb5827",
+        }
+        for variant, expected_sha in expected.items():
+            with self.subTest(variant=variant):
+                self.assertEqual(
+                    hashlib.sha256(transform_ack(native, 1, variant)).hexdigest(),
+                    expected_sha,
+                )
 
     def test_unknown_header_flags_preserved_by_baseline(self) -> None:
         marked = b"\x80" + self.source[1:]

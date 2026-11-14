@@ -17,7 +17,7 @@ from protocol_capture import decode_frame
 
 CLIENT_HELLO = bytes.fromhex("54525450484f544c00010002")
 SERVER_HELLO = bytes.fromhex("5452545000000000")
-VARIANTS = ("baseline", "omit-161", "one-byte-161", "four-byte-161")
+VARIANTS = ("baseline", "omit-161", "one-byte-161", "four-byte-161", "server-name-162")
 MAX_FRAME = 65535
 IP_BIN = "/usr/sbin/ip"
 DEADLINE_SECONDS = 180
@@ -60,19 +60,26 @@ def transform_ack(raw: bytes, login_id: int, variant: str) -> bytes:
     values = [value for key, value in frame["fields"] if key == 161]
     if values != [b"\x00\x00"]:
         raise ValueError("Native 161 source is not exactly two zero bytes")
-    replacement = {
-        "baseline": b"\x00\x00",
-        "omit-161": None,
-        "one-byte-161": b"\x00",
-        "four-byte-161": b"\x00" * 4,
-    }[variant]
-    if replacement is None:
-        frame["fields"] = [(key, value) for key, value in frame["fields"] if key != 161]
+    if variant == "server-name-162":
+        if any(key == 162 for key, _ in frame["fields"]):
+            raise ValueError("Native ACK already contains field 162")
+        frame["fields"].append((162, b"fixture-native"))
     else:
-        frame["fields"] = [
-            (key, replacement if key == 161 else value)
-            for key, value in frame["fields"]
-        ]
+        replacement = {
+            "baseline": b"\x00\x00",
+            "omit-161": None,
+            "one-byte-161": b"\x00",
+            "four-byte-161": b"\x00" * 4,
+        }[variant]
+        if replacement is None:
+            frame["fields"] = [
+                (key, value) for key, value in frame["fields"] if key != 161
+            ]
+        else:
+            frame["fields"] = [
+                (key, replacement if key == 161 else value)
+                for key, value in frame["fields"]
+            ]
     result = bytes.fromhex(
         packet(
             frame["type"],

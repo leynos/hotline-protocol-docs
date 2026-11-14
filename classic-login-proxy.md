@@ -51,12 +51,13 @@ matching successful direct ACK (`is_reply=1`, type 0, status 0). It requires
 exactly one field 161 with raw bytes `0000` before forwarding anything from
 that ACK.
 
-| Variant | Field 161 sent to Classic client |
+| Variant | ACK change sent to Classic client |
 | --- | --- |
 | `baseline` | Original two bytes `0000`, with exact full ACK byte equality |
 | `omit-161` | Field removed; count and body sizes rebuilt |
 | `one-byte-161` | One byte `00`; count and body sizes rebuilt |
 | `four-byte-161` | Four bytes `00000000`; count and body sizes rebuilt |
+| `server-name-162` | Keep 161=`0000`; append 162=`fixture-native` |
 
 All other ACK fields retain their order and raw values; flags, ID, status and
 other frames are preserved. The automatic banner data stream is relayed
@@ -69,7 +70,22 @@ Proxy `completed` means only that its ACK and relay ran to completion. It is
 **not** proof the Classic app accepted a variant. B46/B47 established the
 baseline across client, namespace, host and server captures. B52's modified
 cases have separate five-view delivery and subsequent client-request proof.
-No 162 mutation is implemented here.
+The `server-name-162` variant is offline preparation only. It requires native
+161=`0000` and **no** existing 162, then appends one 14-byte ASCII value.
+The [native login-extra corpus][native162] proves that the server's nonempty
+configured name is emitted as 162; it does not prove this fixture's UI meaning.
+The expected full 52-byte ACK and SHA-256 are:
+
+```text
+0001000000000001000000000000002000000020000300a0000200be00a10002000000a2000e666978747572652d6e6174697665
+3f5185b7bc222e684697fd2fce46ff0f625bc13ddf301e8a787bfe47594caedb
+```
+
+A future single case must first verify the known A7 agreement, stage the
+isolated Classic dialog and both managed recorders, then run one fixed proxy
+and one Return; promptly accept only the exact controlled agreement. A
+client error, early EOF or independent 28-second cutoff are distinct outcomes.
+No live 162 case, alternate payload/width, codec or profile policy is proved.
 
 ## Automatic observation cutoff (B27 preparation)
 
@@ -147,15 +163,11 @@ click cannot test acceptance. Recheck identities, capture readiness and
 housekeeping prompts on every run. Unexpected egress, extra connection,
 packet gap or app-route ambiguity stops any modified case.
 
-The original 350 physical production-line budget was increased to 430 by the
-supervisor. This **+80-line allowance** retains explicit frame validation,
-thread/deadline cleanup and bounded audit logging. The test budget increased
-from 180 to 230 physical lines to model actual unprivileged `/proc` denial
-and namespace-independent sysfs observations. No safeguard was waived.
-B27 then raised production to 500 and finally 540 physical lines for explicit
-watchdog receipt, outcome arbitration and owned-socket cleanup. Tests rose to
-300, 325, then 375 to keep half-close and late-teardown controls. Production,
-tests and this document remain within their revised bounds.
+The supervisor raised source limits from 350 to 430 for frame, thread,
+deadline and log safeguards, then to 500/540 for watchdog and cleanup.
+Tests rose from 180 to 230 for real UID 1000 `/proc` and sysfs guards, then
+to 300/325/375 for half-close and timing controls. B54 allows 560 source,
+450 test and 190 guide lines for the fixed 162 variant; no guard was waived.
 
 ## Read-only actual namespace guard receipt
 
@@ -172,3 +184,4 @@ process identity before any future service launch.
 [handoff]: ../mothra/docs/delegation/classic-proxy-rehearsal.md
 [baseline]: classic-native-baseline.md
 [matrix]: classic-field161-matrix.md
+[native162]: ../mothra/evidence/gap-remediation/2026-11-13/native-login-extras-01/manifest.json
