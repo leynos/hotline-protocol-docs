@@ -5,18 +5,17 @@ correction map. This register tracks gaps in the specification after the
 validity-ledger corrections. It does not reopen corrected findings or claim to
 resolve the remaining unknowns.
 
-The sweep records **87 gaps** across **542 reviewed document sections**. These
+The sweep records **87 gaps** across **543 reviewed document sections**. These
 are documentation questions and proposed investigation priorities, not
 confirmed binary defects, security severity ratings or mxd test failures.
 
 ## Scope, evidence and status
 
 Preserve all 87 original closure criteria and prior question/status strings.
-Snapshot three changed privilege-related inputs and the new 64-row per-bit
-index; reuse 98 byte-identical earlier inputs. Directly review the index for
-GAP-031, with GAP-015/032 related context. Unknown bit meanings remain
-unknown, not reserved or ignored; GAP-031 remains Investigating. Further mxd
-validation is held.
+Snapshot the updated alias preparation guide and new R04 checkpoint-abort
+section; reuse 101 byte-identical inputs. R04 did not run the alias case;
+GAP-054 remains Investigating. Related GAP-049/084 coverage does not reopen
+their resolved criteria. Further mxd validation remains held.
 
 The corrected documents deliberately contain unresolved statements. Unanswered
 entries refine those into actionable questions. Missing and Ambiguous entries
@@ -72,8 +71,8 @@ they do not imply the unknown question has already been answered.
 
 ## Input provenance
 
-Audit captured at `2026-11-14T21:13:45.783668+00:00`. The source checkout has
-Git HEAD `6946f143ee0bbe23a06f63759690d2d5603aedd6`. The audit manifest
+Audit captured at `2026-11-14T22:22:37.756364+00:00`. The source checkout has
+Git HEAD `cb7a12b1fb15f78098c7df37c96c258cf79be4a9`. The audit manifest
 records its worktree status. The hashes below identify the actual reviewed
 worktree contents; HEAD alone does not. Source line ranges in entries refer to
 the frozen snapshots, while section links point to the current documents.
@@ -176,7 +175,7 @@ the frozen snapshots, while section links point to the current documents.
 | [native-rate304-sequence.md](native-rate304-sequence.md) | `7120e40472092ead4c598cfcac715a2f641a55783125ec2c3d628f7afa96bcb6` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-rate304-sequence.md.txt) |
 | [native-path-fields-preparation.md](native-path-fields-preparation.md) | `a77086be2bdfc0a4df77b26c29f18c76e86dc14b8bc9ea058a8e63d814c22e77` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-path-fields-preparation.md.txt) |
 | [native-path-fields.md](native-path-fields.md) | `819816d15b58543f4ab9cea4af9d3f033f43ab942bec5fb70cbcaa9c9c75f4f6` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-path-fields.md.txt) |
-| [native-missing-alias-preparation.md](native-missing-alias-preparation.md) | `ea2d4c520227c67d56678d73899ace4872a901617135c125f637f955a02763dc` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-85/inputs/native-missing-alias-preparation.md.txt) |
+| [native-missing-alias-preparation.md](native-missing-alias-preparation.md) | `a84bac54f00b7ab6f7d9c1e3e847beae2846e814a5b6b3d7927ec513001c5612` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-88/inputs/native-missing-alias-preparation.md.txt) |
 | [alias-record-v2.md](alias-record-v2.md) | `ada57b498995d5118cd4380ec75dc62e66782152367730ed8fb33c92761750b7` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-85/inputs/alias-record-v2.md.txt) |
 | [date-contracts.md](date-contracts.md) | `95996f4c4a2becd1da1e82db72ff72fc7f29aef6e67721ec8527938aebe81a83` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-86/inputs/date-contracts.md.txt) |
 | [presence-defaults.md](presence-defaults.md) | `7637601f86bd6f8e2cc19acb74750a88e286ca8cb41cd754be634afb7f8753f3` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-86/inputs/presence-defaults.md.txt) |
@@ -184,7 +183,7 @@ the frozen snapshots, while section links point to the current documents.
 | [privilege-bits.md](privilege-bits.md) | `04ce9bc367440f546dbd0b4e96fa15bb137b107278933125b2ae2fb9fca4eff0` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-87/inputs/privilege-bits.md.txt) |
 
 [Audit
-manifest](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-87/manifest.json);
+manifest](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-88/manifest.json);
 [machine-readable register](gap-register.json). No field or behaviour is
 silently made normative by being listed as a question.
 
@@ -3668,7 +3667,10 @@ silently made normative by being listed as a question.
 - **Sources:** [protocol.md — Creating an Alias (Shortcut) (Transaction 209) –
   Client
   Initiates](protocol.md#creating-an-alias-shortcut-transaction-209--client-initiates)
-  (snapshot lines 931–944)
+  (snapshot lines 931–944); [native-missing-alias-preparation.md — R04:
+  selection completed, parent checkpoint
+  missed](native-missing-alias-preparation.md#r04-selection-completed-parent-checkpoint-missed)
+  (snapshot lines 184–203)
 - **Question:** What alias object is created, how is its name chosen, and when
   do listing/info/download resolve its target rather than expose the alias
   itself?
@@ -3698,7 +3700,14 @@ silently made normative by being listed as a question.
   candidate preparation is complete; exact scripts/source gates remain
   separately reviewed before any live START. Actual extfs alias creation/copy,
   positive wire response and stopped resource binding remain M2 gates; true
-  target absence is later M3.
+  target absence is later M3. R04 launched the pinned isolated server and
+  completed Finder target selection, but the parent protected-receipt guard
+  missed the fixed+1200 checkpoint. No readiness/case request or alias
+  creation occurred; bothPCAPs containzeroTCP. ExactownedVM forcedstop
+  precededdeadline; appQuit/OSshutdownunobserved.
+  Stoppedfiveforks/twoaccounts/emptyboard match, targetunchanged,
+  FInfooffsets8/13changed. Thispreparationabortdoesnotadvance the
+  missing-targetresponse requirement.
 - **Evidence:** [Filesystem and board
   contracts](filesystem-and-board-contracts.md); [Source
   lineage](internal-compatibility-matrix.md#historical-source-lineage-and-build-limits);
@@ -3719,7 +3728,9 @@ silently made normative by being listed as a question.
   size-scope
   basis](../mothra/evidence/gap-remediation/2026-11-14/alias-positive-basis-01/manifest.json);
   [Retained Finder control
-  basis](../mothra/evidence/gap-remediation/2026-11-14/alias-ui-basis-01/manifest.json)
+  basis](../mothra/evidence/gap-remediation/2026-11-14/alias-ui-basis-01/manifest.json);
+  [R04 parent-checkpoint abort and stopped
+  evidence](../mothra/evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-02/manifest.json)
 - **Closure:** Not closed: a genuine missing-target response and its complete
   provenance remain required. Live/chain and target-in-Trash fixtures, static
   proof corrections, offline tests and a stopped candidate do not replace that
@@ -6418,11 +6429,11 @@ of binary paths, clients or packet inputs.
 | native-path-fields.md | [Scope and results](native-path-fields.md#scope-and-results) | 11–32 | [GAP-047](#gap-047) |
 | native-path-fields.md | [Provenance and limits](native-path-fields.md#provenance-and-limits) | 33–67 | [GAP-047](#gap-047) |
 | native-missing-alias-preparation.md | [Missing-target alias: positive rehearsal preparation](native-missing-alias-preparation.md#missing-target-alias-positive-rehearsal-preparation) | 1–9 | [GAP-049](#gap-049), [GAP-054](#gap-054), [GAP-084](#gap-084) |
-| native-missing-alias-preparation.md | [Exact boundary](native-missing-alias-preparation.md#exact-boundary) | 10–31 | [GAP-049](#gap-049), [GAP-054](#gap-054), [GAP-084](#gap-084) |
-| native-missing-alias-preparation.md | [Optional alias UI capture window](native-missing-alias-preparation.md#optional-alias-ui-capture-window) | 32–76 | [GAP-049](#gap-049), [GAP-054](#gap-054), [GAP-084](#gap-084) |
-| native-missing-alias-preparation.md | [Reviewed Finder receipt](native-missing-alias-preparation.md#reviewed-finder-receipt) | 77–118 | [GAP-049](#gap-049), [GAP-054](#gap-054), [GAP-084](#gap-084) |
-| native-missing-alias-preparation.md | [Commands and limits](native-missing-alias-preparation.md#commands-and-limits) | 119–150 | [GAP-049](#gap-049), [GAP-054](#gap-054), [GAP-084](#gap-084) |
-| native-missing-alias-preparation.md | [Observed Finder preparation and case refusal](native-missing-alias-preparation.md#observed-finder-preparation-and-case-refusal) | 151–181 | [GAP-049](#gap-049), [GAP-054](#gap-054), [GAP-084](#gap-084) |
+| native-missing-alias-preparation.md | [Exact boundary](native-missing-alias-preparation.md#exact-boundary) | 10–32 | [GAP-049](#gap-049), [GAP-054](#gap-054), [GAP-084](#gap-084) |
+| native-missing-alias-preparation.md | [Optional alias UI capture window](native-missing-alias-preparation.md#optional-alias-ui-capture-window) | 33–77 | [GAP-049](#gap-049), [GAP-054](#gap-054), [GAP-084](#gap-084) |
+| native-missing-alias-preparation.md | [Reviewed Finder receipt](native-missing-alias-preparation.md#reviewed-finder-receipt) | 78–119 | [GAP-049](#gap-049), [GAP-054](#gap-054), [GAP-084](#gap-084) |
+| native-missing-alias-preparation.md | [Commands and limits](native-missing-alias-preparation.md#commands-and-limits) | 120–151 | [GAP-049](#gap-049), [GAP-054](#gap-054), [GAP-084](#gap-084) |
+| native-missing-alias-preparation.md | [Observed Finder preparation and case refusal](native-missing-alias-preparation.md#observed-finder-preparation-and-case-refusal) | 152–183 | [GAP-049](#gap-049), [GAP-054](#gap-054), [GAP-084](#gap-084) |
 | alias-record-v2.md | [Recorded Alias Record v2 identity](alias-record-v2.md#recorded-alias-record-v2-identity) | 1–38 | [GAP-049](#gap-049), [GAP-054](#gap-054), [GAP-084](#gap-084) |
 | date-contracts.md | [Native 1.9 date fields and clock boundaries](date-contracts.md#native-19-date-fields-and-clock-boundaries) | 1–10 | [GAP-020](#gap-020), [GAP-067](#gap-067) |
 | date-contracts.md | [Byte grammar, units and range](date-contracts.md#byte-grammar-units-and-range) | 11–42 | [GAP-020](#gap-020), [GAP-067](#gap-067) |
@@ -6440,6 +6451,7 @@ of binary paths, clients or packet inputs.
 | native-diagnostic-boundary-preparation.md | [Exact planned wire actions](native-diagnostic-boundary-preparation.md#exact-planned-wire-actions) | 56–86 | [GAP-019](#gap-019) |
 | native-diagnostic-boundary-preparation.md | [Result classification and stop rules](native-diagnostic-boundary-preparation.md#result-classification-and-stop-rules) | 87–108 | [GAP-019](#gap-019) |
 | privilege-bits.md | [Native 1.9 access bitmap: per-bit evidence index](privilege-bits.md#native-19-access-bitmap-per-bit-evidence-index) | 1–105 | [GAP-031](#gap-031), [GAP-015](#gap-015), [GAP-032](#gap-032) |
+| native-missing-alias-preparation.md | [R04: selection completed, parent checkpoint missed](native-missing-alias-preparation.md#r04-selection-completed-parent-checkpoint-missed) | 184–203 | [GAP-054](#gap-054), [GAP-049](#gap-049), [GAP-084](#gap-084) |
 
 ## Maintaining this analysis
 

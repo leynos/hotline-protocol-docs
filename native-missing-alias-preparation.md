@@ -24,10 +24,11 @@ breached the stop-and-escalate rule. Do not reuse the image or its pins.
 [Retained abort evidence](../mothra/evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/manifest.json)
 records this deviation and the early retirement. Any further attempt needs
 a separately reviewed preparation budget and fresh profile.
-For any later reviewed lab, aim to select the owned Unix target and obtain
-root's reviewed receipt by epoch +270 seconds. Preserve the hard >=390-second
-case-start reserve. Retire a late lab without changing its deadline or
-re-pinning Finder metadata.
+The earlier +270-second checkpoint belonged to that retired short-window
+attempt. A later packet must name its own reviewed operator checkpoint; the
+30-minute R04 packet used a +600 aim and +1200 hard parent-receipt cutoff.
+Preserve the hard >=390-second case-start reserve. Retire a late lab without
+changing its deadline or re-pinning Finder metadata.
 
 ## Optional alias UI capture window
 
@@ -179,3 +180,24 @@ their ordinary baseline 206. Only 367.6 seconds remained, below the required
 Copy/Paste or alias-target 206 occurred. The native server Quit was observed;
 the VM was then stopped before its deadline without an orderly OS shutdown.
 This is preparation evidence, not a positive or missing-target alias result.
+
+## R04: selection completed, parent checkpoint missed
+
+The [R04 preparation](../mothra/evidence/gap-remediation/2026-11-14/native-alias-preparation-04/manifest.json)
+used required reflinks for both disks after reviewed cache cleanup. The
+isolated 1.9 server started, and actual disk/capture identity gates passed.
+Finder displayed the sole Unix target selected with the Files parent visible.
+The operator completed that selection before epoch+1200, but the parent's
+protected receipt writer ran after the hard checkpoint and refused to write.
+
+The [retired run](../mothra/evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-02/manifest.json)
+sent no readiness or case request: both captures contain zero TCP packets.
+No 205, alias, Copy/Paste or live-alias 206 occurred. The owned VM was stopped
+before its fixed deadline; neither application Quit nor OS shutdown was
+observed. Stopped checks retain the two users, five pinned forks and empty
+board. Target DATA stayed unchanged; Finder metadata changed at offsets8/13.
+
+This is a preparation abort, not a failed native alias response. A subsequent
+packet should consolidate routine, already identified startup/Finder actions
+and pre-author the parent's receipt command before boot. Preserve every hard
+checkpoint, the case reserve and the separate readiness/case grants.
