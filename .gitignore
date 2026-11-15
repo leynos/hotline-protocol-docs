@@ -21,3 +21,6 @@ nohup.out
 /evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/stopped-hfs/server-data.bin
 /evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/stopped-hfs/server-rsrc.bin
 /evidence/gap-remediation/2026-11-12/batch-09/inputs/HLserver19.appledouble
+
+# Run-time scratch written by the inherited verifiers and their tests.
+/state/
