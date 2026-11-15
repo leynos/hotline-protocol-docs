@@ -675,6 +675,25 @@ The script work is a behaviour-preserving refactor.
   in EP-M8 and reviewed against the register in EP-M9. Date/Author: 2026-11-15,
   lead.
 
+- Decision D27: mothra's published branch is a single snapshot commit of the
+  general tooling on top of its published initial commit, not a filtered
+  history, and it keeps only evidence that does not name this project.
+  Rationale: filtering by path left 98 commits whose messages and earlier file
+  versions name Hotline, the audit and the gaps, which conflicts with the
+  owner's rule that nothing in mothra is specific to this project; the history
+  of the general tools is short and of little value beside that rule.
+  Consequences: the EP-M4 commands that call `git filter-repo` are replaced by
+  a keep-list filter followed by `git commit-tree` onto `4ef7b8d`; mothra keeps
+  `evidence/runtime-network`, `evidence/runtime-supervision` and
+  `alias-window-profile-01`; the corpora `guest-capture-startup-01`,
+  `receipt-builder-rehearsal-01`, `runtime-retirement-01` and
+  `runtime-storage-audit-01` name the project inside hashed files, are cited by
+  nothing here, and so are neither published in mothra nor imported (D22). They
+  remain in the owner's local mothra checkout. Mothra's
+  `scripts/capture_readiness.py` and `scripts/mac_network_isolation.py` stay
+  byte-identical, because verifiers here compare their SHA-256. Date/Author:
+  2026-11-16, lead.
+
 ## Outcomes & retrospective
 
 Not yet started. To be completed at EP-M11.
