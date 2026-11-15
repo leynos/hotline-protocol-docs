@@ -1,0 +1,632 @@
+{
+  "schema_version": 1,
+  "targets": [
+    "evidence-verify",
+    "evidence-verify-known-red"
+  ],
+  "records": {
+    "evidence-verify: python3 scripts/verify_native_path_fields.py --corpus evidence/gap-remediation/2026-11-14/native-path-fields-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "d27e8e974f5188d2d0decff540905495a5c557ce1f15130f9f118419f8c139cb",
+      "output_bytes": 288,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 -m unittest discover -s scripts -p 'test_verify_native_path_fields.py'": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "8c6da4b11bfe4137c5f1a178950dbf70102b8aa3246a0a26029c06b7e1fd3b15",
+      "output_bytes": 100,
+      "last_line": "OK"
+    },
+    "evidence-verify: python3 scripts/verify_native_rate304_sequence.py --corpus evidence/gap-remediation/2026-11-14/native-rate304-sequence-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "8094cd8e4fb36400aae193fe3fdc01e92007f81df069a120dfa14e4256b19273",
+      "output_bytes": 523,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_rate304_partial.py --corpus evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "e2ba06bf389c3325edc61230f828a1fbc647e517050470c7b7178e746827819d",
+      "output_bytes": 73,
+      "last_line": "native rate304 first pair: failed case and three complete flows verified"
+    },
+    "evidence-verify: python3 scripts/verify_native_board.py --corpus evidence/gap-remediation/2026-11-14/native-board-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "0d89bc18414b70bd6a23d80269b8187c8d7a085af0cc2fc053309f485aa15546",
+      "output_bytes": 1430,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_liveness.py --corpus evidence/gap-remediation/2026-11-14/native-liveness-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "2d6ab54c0555d4277e35bedc94118f80601451cb1b426c4c30bff73741c3d584",
+      "output_bytes": 37,
+      "last_line": "native liveness: offline replay PASS"
+    },
+    "evidence-verify: python3 scripts/verify_native_roster_overlap.py --corpus evidence/gap-remediation/2026-11-14/native-roster-overlap-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "cb44245957c57ae771745c243d95bf46bc5fcc557f6f50b00df8884117e02f6a",
+      "output_bytes": 43,
+      "last_line": "native roster overlap: offline replay PASS"
+    },
+    "evidence-verify: python3 scripts/verify_native_ban_expiry_later.py evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "105f98d6c1005c417601fe956850ec524ec60138569af53ea10bc1065c3f06b8",
+      "output_bytes": 934,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_ban_expiry_first.py evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "ee49cf9ddbc52abf7bd57aee2e50da06086ecaa3b2e76c2dbfeb3ba3196a9150",
+      "output_bytes": 335,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_ban_reload.py evidence/gap-remediation/2026-11-14/native-ban-reload-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "0c56215ef6cdfb9ffbb321c9e07dc84ffe182d7d355e89b5e05e069f50e3fca2",
+      "output_bytes": 331,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_settings_persistence.py evidence/gap-remediation/2026-11-14/native-settings-persistence-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "5f3c9ae51d1f103daef451ded6e7359c8b509902db1978c0f07238c738934ac7",
+      "output_bytes": 1235,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_classic_roster_subject_115.py evidence/gap-remediation/2026-11-14/classic-roster-subject-115-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "a92b594d1198f74f7201f0702e8b2df5612026a21c0e43a0c9e318eb826ce5cc",
+      "output_bytes": 748,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_configured_ban.py evidence/gap-remediation/2026-11-14/native-configured-ban-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "47b2e1fc6e5be3f765fa2b1e9f6598dcb63df5f92db47c189029a8dc0038fb0f",
+      "output_bytes": 425,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_classic_server_name_162.py evidence/gap-remediation/2026-11-14/classic-server-name-162-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "259862ef0e5b9b3f922b4de3e5c551ffbe649365584fe8b9f1c50bad4a06fcc0",
+      "output_bytes": 1050,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_ban_control.py evidence/gap-remediation/2026-11-14/native-ban-control-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "68e8f5eb2a2fd370564f6e59b8a1c9fb1bab17507dba608f89c18e7c43c76c1d",
+      "output_bytes": 337,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_classic_native_baseline.py evidence/gap-remediation/2026-11-14/classic-proxy-baseline-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "5a9367a4ed2040336239ce0c4620a958e97ee354ce560dc83a8fb668c4403edd",
+      "output_bytes": 1022,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_ui_focus.py evidence/gap-remediation/2026-11-14/native-ui-focus-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "984f634a2cef010fac7686755ea4e7ce17ac4713c3a67d931425a2f38b014d71",
+      "output_bytes": 186,
+      "last_line": "}"
+    },
+    "evidence-verify: tmp=$(mktemp -d) && trap 'rm -rf \"$tmp\"' EXIT && root=\"$tmp/hotline-protocol-docs\" && mkdir -p \"$root\" && cp -a scripts \"$root/scripts\" && { cp -al evidence \"$root/evidence\" 2>/dev/null || cp -a evidence \"$root/evidence\"; } && cd \"$root\" && python3 evidence/gap-remediation/2026-11-14/native-121-defaults-01/verify_packets.py": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "6c344420ce13e5462edf550f20f602096418adc47283d0e0439832b4ba99af47",
+      "output_bytes": 1315,
+      "last_line": "}"
+    },
+    "evidence-verify: tmp=$(mktemp -d) && trap 'rm -rf \"$tmp\"' EXIT && root=\"$tmp/hotline-protocol-docs\" && mkdir -p \"$root\" && cp -a scripts \"$root/scripts\" && { cp -al evidence \"$root/evidence\" 2>/dev/null || cp -a evidence \"$root/evidence\"; } && cd \"$root\" && python3 -m unittest discover -s evidence/gap-remediation/2026-11-14/native-121-defaults-01 -p test_verify_packets.py": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "8c6da4b11bfe4137c5f1a178950dbf70102b8aa3246a0a26029c06b7e1fd3b15",
+      "output_bytes": 100,
+      "last_line": "OK"
+    },
+    "evidence-verify: python3 scripts/verify_native_transfer_repeat.py evidence/gap-remediation/2026-11-14/native-transfer-repeat-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "2326c719670e3927ee3784889e2893cd56affb165e47a2f9ac1be985e58eea8e",
+      "output_bytes": 396,
+      "last_line": "}"
+    },
+    "evidence-verify: tmp=$(mktemp -d) && trap 'rm -rf \"$tmp\"' EXIT && root=\"$tmp/hotline-protocol-docs\" && mkdir -p \"$root\" && cp -a scripts \"$root/scripts\" && { cp -al evidence \"$root/evidence\" 2>/dev/null || cp -a evidence \"$root/evidence\"; } && cd \"$root\" && python3 evidence/gap-remediation/2026-11-13/native-settings-transitions-01/verify_packets.py": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "de1b06f3b78b14c37bfb0d0963d4454aefb2d7a3b78cedb96b29e485d36ebf75",
+      "output_bytes": 1848,
+      "last_line": "}"
+    },
+    "evidence-verify: tmp=$(mktemp -d) && trap 'rm -rf \"$tmp\"' EXIT && root=\"$tmp/hotline-protocol-docs\" && mkdir -p \"$root\" && cp -a scripts \"$root/scripts\" && { cp -al evidence \"$root/evidence\" 2>/dev/null || cp -a evidence \"$root/evidence\"; } && cd \"$root\" && python3 -m unittest discover -s evidence/gap-remediation/2026-11-13/native-settings-transitions-01 -p test_verify_packets.py": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "8c6da4b11bfe4137c5f1a178950dbf70102b8aa3246a0a26029c06b7e1fd3b15",
+      "output_bytes": 100,
+      "last_line": "OK"
+    },
+    "evidence-verify: python3 scripts/verify_classic_account_constructors.py": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "2a3fbea845cecb2c06aab499756e184057db1cd9a3e9289ee1eb0aa2a7208001",
+      "output_bytes": 186,
+      "last_line": "{\"client_sha256\": \"7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315\", \"content_queries\": {\"B37\": 12, \"B38\": 8, \"B39\": 3}, \"status\": \"verified-bo"
+    },
+    "evidence-verify: python3 -m unittest scripts.test_verify_classic_account_constructors": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "2fb982059be45a97a274f69942800f3034d28ecc1828af959aa561567f405e18",
+      "output_bytes": 103,
+      "last_line": "OK"
+    },
+    "evidence-verify: python3 scripts/verify_native_download_send_path.py evidence/gap-remediation/2026-11-13/native-download-send-path-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "22e6eacf46dddd6d2079b34919870e946f650046ae5500d90718036fa84b5034",
+      "output_bytes": 36,
+      "last_line": "native download send path: verified"
+    },
+    "evidence-verify: python3 scripts/verify_native_transfer_stall.py evidence/gap-remediation/2026-11-13/native-transfer-stall-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "786a4a4e1f5cc2bdd518bf7aa4e7d1c57ee468f65e3811e0862c2730f4b4b438",
+      "output_bytes": 451,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_ban_one.py evidence/gap-remediation/2026-11-13/native-ban-one-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "6cd27786fc73d5e6cf8ae626e934a88b3932a2a37077a526618f69eacf4571e3",
+      "output_bytes": 382,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_settings_corpus.py evidence/gap-remediation/2026-11-13/native-settings-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "150de803f17ee8a6c82ccf4a50732da0117183a8f0f9632e42963b28389280d6",
+      "output_bytes": 1630,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_pm_packet.py evidence/gap-remediation/2026-11-13/native-pm-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "e438ab68dae71108a4097050fe773e67cb4633f2a952bd3bcdf1e70321205e96",
+      "output_bytes": 27,
+      "last_line": "verified-bounded-native-pm"
+    },
+    "evidence-verify: python3 scripts/verify_native_console_broadcast.py evidence/gap-remediation/2026-11-13/native-console-broadcast-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "df7f723a961c21426e79e167d4d02696157aa5ff7d1705e516c6cf00438e6a81",
+      "output_bytes": 661,
+      "last_line": "}"
+    },
+    "evidence-verify: tmp=$(mktemp -d) && trap 'rm -rf \"$tmp\"' EXIT && root=\"$tmp/hotline-protocol-docs\" && mkdir -p \"$root\" && cp -a scripts \"$root/scripts\" && { cp -al evidence \"$root/evidence\" 2>/dev/null || cp -a evidence \"$root/evidence\"; } && cd \"$root\" && python3 evidence/gap-remediation/2026-11-13/failure-criterion-review-01/verify.py.txt": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "12e5169fe900cc07a8758a840354aa63e8067e25a3093abb7c8dafa0d6fd8284",
+      "output_bytes": 1431,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 -m unittest discover -s scripts -p 'test_request500_client_source.py'": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "8c6da4b11bfe4137c5f1a178950dbf70102b8aa3246a0a26029c06b7e1fd3b15",
+      "output_bytes": 100,
+      "last_line": "OK"
+    },
+    "evidence-verify: python3 scripts/protocol_capture.py verify evidence/gap-remediation/2026-11-12/capture-tooling-01/transcript": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "a89c099762b8dd08c648669337db26e6dc01f701f294fb87375866a7f2d6a07b",
+      "output_bytes": 42,
+      "last_line": "synthetic-tool-test: completed; 4 actions"
+    },
+    "evidence-verify: python3 scripts/protocol_capture.py verify evidence/gap-remediation/2026-11-12/native-handshake-01/transcript": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "b7889cf8fe9bed5e2fbadcca44bcecd43fcfc05aea7b87a3f688a596b226ab85",
+      "output_bytes": 40,
+      "last_line": "native-mac-oracle: completed; 4 actions"
+    },
+    "evidence-verify: python3 scripts/verify_native_core.py evidence/gap-remediation/2026-11-12/native-core-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "c1e4ecef0e6f61ab6499b7504019c2a8ea8b6829f50298fcf5203b0396f8debb",
+      "output_bytes": 412,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_handshakes.py evidence/gap-remediation/2026-11-12/native-transport-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "eae50ea1d5315118f0fc750692774c8bee0e612a7c792e3429c3ff2651cb3919",
+      "output_bytes": 4973,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_framing.py evidence/gap-remediation/2026-11-12/native-framing-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "34fb1cd25c5a8819d4e639537451f48521e19f18c1b6c5c211f9012237e1d79c",
+      "output_bytes": 18249,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_forks.py evidence/gap-remediation/2026-11-12/native-forks-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "edc11f62e42d3427b44f71fcce65210676bf1d5e0317203f3552c434082d68cf",
+      "output_bytes": 8865,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_resume.py evidence/gap-remediation/2026-11-12/native-resume-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "9cbec4b008d71c96b3646de8cf2fed2f13687f54bfab703322d18d1c5d9e3b79",
+      "output_bytes": 15846,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_queues.py evidence/gap-remediation/2026-11-12/native-queue-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "e6c1e82e5934e2e81dff6c8d7af46b11bb4aa0f8326704c62ee6515b72eec3a4",
+      "output_bytes": 6357,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_cleanup.py evidence/gap-remediation/2026-11-12/native-cleanup-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "6721d93228fa9490f41f91f38fe3041d128f68deea2b3711b61408a2a9823190",
+      "output_bytes": 10545,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_folders.py evidence/gap-remediation/2026-11-12/native-folder-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "0634d15e69a09b202d79bc23c04358d82c89dcd54b14f79616951ecceea541b9",
+      "output_bytes": 22833,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_banners.py evidence/gap-remediation/2026-11-12/native-banner-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "a67b3736140edc44038ec4cd557a25ad1ae637b7d2897b793ba68a4ce818d456",
+      "output_bytes": 32032,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_banner_formats.py evidence/gap-remediation/2026-11-12/native-banner-02": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "58975f88835094f0f2e73dcc415068e883d398f85e6927581f8c85a7b2db87f7",
+      "output_bytes": 15286,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_htxf.py evidence/gap-remediation/2026-11-12/native-htxf-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "7975259c1f55afbe8f6ce85ec2c480dd01b5c15b7fac135428b39290bdc50e68",
+      "output_bytes": 62,
+      "last_line": "Verified 18 native HTXF observations and three native uploads"
+    },
+    "evidence-verify: python3 scripts/verify_native_correlation.py evidence/gap-remediation/2026-11-12/native-correlation-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "46f7ccedc8230b84f5397cd00774cf82eb89a373a8a885835f114991aba0fd8a",
+      "output_bytes": 59,
+      "last_line": "Verified 24 native ID/envelope cases and 25 oracle queries"
+    },
+    "evidence-verify: python3 scripts/verify_native_auth.py evidence/gap-remediation/2026-11-13/native-auth-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "6fd49aac5bc086dfa4b6df8660ecb99f748b847c9e0f4168028ebf6b8a5298e4",
+      "output_bytes": 77,
+      "last_line": "Verified 33 native authentication cases and two retained exploratory reports"
+    },
+    "evidence-verify: python3 scripts/verify_native_agreements.py evidence/gap-remediation/2026-11-13/native-agreement-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "a433c91ac067820cb8a41115c97ef05371ba8402f02c45520e3cc4e240257453",
+      "output_bytes": 56,
+      "last_line": "Verified 42 configured agreement cases across 11 phases"
+    },
+    "evidence-verify: python3 scripts/verify_native_login_extras.py evidence/gap-remediation/2026-11-13/native-login-extras-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "6bcfb1b3917be20604cc229f7f308d43530037650d69fb7e6e949fee7292fc0d",
+      "output_bytes": 54,
+      "last_line": "Verified 34 configured login-extra and lifetime cases"
+    },
+    "evidence-verify: python3 scripts/verify_native_shx.py evidence/gap-remediation/2026-11-13/native-shx-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "7becda52c5ede7dc025f048413b91d662a62c408d7bb370979cc82b896964d07",
+      "output_bytes": 2648,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_shx_extras.py evidence/gap-remediation/2026-11-13/native-shx-02": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "89305d9099f9f4a5e6cdb94f4f575d09bb278e7eb904f3b69a995c3cebd8bb7f",
+      "output_bytes": 2065,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_mkdir.py evidence/gap-remediation/2026-11-13/native-mkdir-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "df12f59c7c4f1a169f1b3f21c0b20591e4929f10a22dcafe9eae0f0dc60f68e6",
+      "output_bytes": 69795,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_aliases.py evidence/gap-remediation/2026-11-13/native-alias-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "5ee49110454f66328c366a0ff90b258b119abadf02b1d466debf969a059551d9",
+      "output_bytes": 493,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_metadata.py evidence/gap-remediation/2026-11-13/native-metadata-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "4a4430eb9bda85a2c6e253a492b0d3441015f48faafe02bc681ccc73a7baf039",
+      "output_bytes": 6997,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_moves.py evidence/gap-remediation/2026-11-13/native-move-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "f2136a90195c652033f6100db3ec9b1a3157d5f545e3fa47739ec20c4df43eba",
+      "output_bytes": 3961,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_news.py evidence/gap-remediation/2026-11-13/native-news-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "a0d0dd2efdbaed4adec46453d35cb001b78a837ebcef66385ba4f70bbd006067",
+      "output_bytes": 1021,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_article_deletion.py evidence/gap-remediation/2026-11-13/native-article-delete-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "1a1abad524f8c93968af6c80b2acd4e7d85667620aaa3b0b9df4f7fd3ddfd592",
+      "output_bytes": 307,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_news_boundary.py evidence/gap-remediation/2026-11-13/native-news-boundary-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "c11f6b1add62746f96fcb4532bd0b0333f6514b8ff17ba2202e201cde49b48e9",
+      "output_bytes": 413,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_account_updates.py evidence/gap-remediation/2026-11-13/native-account-update-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "e9da8bf9f3ccfc8d69417f5740d9c411b14c863610d05fff72a2cf0a2e40eb3c",
+      "output_bytes": 418,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_live_accounts.py evidence/gap-remediation/2026-11-13/native-live-accounts-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "406d3ad1b95d6ecfe51a1937e2fcd0120c6cda2a3171cd1b8826b7d5f5988dad",
+      "output_bytes": 527,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_account_batches.py evidence/gap-remediation/2026-11-13/native-account-batch-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "4482b8bb532fedf796dc03a2e4d3dc73dd835c8bde8a001dfe8e302bdefa7e25",
+      "output_bytes": 533,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_account_identity.py evidence/gap-remediation/2026-11-13/native-account-identity-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "c946aaceff07200c16ccb9bbc52b4d02298c028f48ab6c401abcbefc406091d9",
+      "output_bytes": 382,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_rooms.py evidence/gap-remediation/2026-11-13/native-rooms-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "f38833024f965c5191c8a36656f5ee5b5962613507c3a9e478a6d8f60f63087e",
+      "output_bytes": 396,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_native_diagnostics.py evidence/gap-remediation/2026-11-13/native-diagnostics-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "5af2384da730e6b40fbbc30ec5afdea89f236e0fa6d6e9cebfeecc7f9abbb174",
+      "output_bytes": 228,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_peer_tolerance.py evidence/gap-remediation/2026-11-13/delegated-peer-01 --source evidence/gap-remediation/2026-11-13": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "5f7c499422c14ffad9a377c5ef85ff122ad2707b7b32625982c529a97a553055",
+      "output_bytes": 747,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_mxd_reconciliation.py evidence/gap-remediation/2026-11-13/delegated-mxd-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "38aa67eb52321212542050d3a82d80ddc2ecf477966de9fda9de6ef65723b0bb",
+      "output_bytes": 66,
+      "last_line": "verified 55 mxd tests at 2e4c9c1df20b37a6f98a1369e0a8f09f9ee2a131"
+    },
+    "evidence-verify: python3 scripts/verify_native_bitmaps.py evidence/gap-remediation/2026-11-13/native-bitmaps-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "02eccebd9f5c7b4ed7b21de0ccaba63af7361e69fc1a01b4cb8adf1c0c634cb9",
+      "output_bytes": 365,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_account_attribute.py evidence/gap-remediation/2026-11-13/account-attribute-01 --root .": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "9c378c9782456f6ca222da24dda657afde5116f8c10d6bb86f6ed2be8bfea3b5",
+      "output_bytes": 849,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_mxd_limits.py evidence/gap-remediation/2026-11-13/mxd-limits-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "ec840f8f43be8d3c05f58a2982789c48e22ff9553615db017fdbb010975dc8b7",
+      "output_bytes": 36,
+      "last_line": "verified 44 focused mxd limit tests"
+    },
+    "evidence-verify: python3 scripts/verify_native_diagnostic_load.py evidence/gap-remediation/2026-11-13/native-diagnostic-load-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "3b71dea6022f8f4a4211efb2bb93dc44b24016f7f03ddbf602cce3c40bcd74ca",
+      "output_bytes": 1427,
+      "last_line": "}"
+    },
+    "evidence-verify: tmp=$(mktemp -d) && trap 'rm -rf \"$tmp\"' EXIT && root=\"$tmp/hotline-protocol-docs\" && mkdir -p \"$root\" && cp -a scripts \"$root/scripts\" && { cp -al evidence \"$root/evidence\" 2>/dev/null || cp -a evidence \"$root/evidence\"; } && cd \"$root\" && python3 evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/verify.py": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "d1ac28e0e94d5a198071a9ec509613882e4982b2166556554113130c2ec9e7f2",
+      "output_bytes": 39,
+      "last_line": "A7 existing-fixture readback: verified"
+    },
+    "evidence-verify: tmp=$(mktemp -d) && trap 'rm -rf \"$tmp\"' EXIT && root=\"$tmp/hotline-protocol-docs\" && mkdir -p \"$root\" && cp -a scripts \"$root/scripts\" && { cp -al evidence \"$root/evidence\" 2>/dev/null || cp -a evidence \"$root/evidence\"; } && cd \"$root\" && python3 evidence/gap-remediation/2026-11-13/native-diagnostic-existing-01/verify_packets.py": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "b7af091d53311365a99b4d9fd6f911bd89f8f5f8edf26d4b7e964f4c315cc01a",
+      "output_bytes": 40,
+      "last_line": "A8 phase-1 host/guest streams: verified"
+    },
+    "evidence-verify: tmp=$(mktemp -d) && trap 'rm -rf \"$tmp\"' EXIT && root=\"$tmp/hotline-protocol-docs\" && mkdir -p \"$root\" && cp -a scripts \"$root/scripts\" && { cp -al evidence \"$root/evidence\" 2>/dev/null || cp -a evidence \"$root/evidence\"; } && cd \"$root\" && python3 evidence/gap-remediation/2026-11-13/native-diagnostic-density-01/verify_density.py": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "7bfd880e9672df48594613757510c53257ff559621f8c93796cc24b4faf2c109",
+      "output_bytes": 55,
+      "last_line": "A9 density semantics and paired TCP prefixes: verified"
+    },
+    "evidence-verify: python3 scripts/verify_mxd_correction.py evidence/gap-remediation/2026-11-13/mxd-correction-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "fe8655ce3a1162da9c1bc468b972d8b5ffdc7d08978916efc664faa787dcb5b2",
+      "output_bytes": 88,
+      "last_line": "verified 7 profiles and 2 doctest summaries at 481294915b48f4db06943c8af86cf31b7e47597a"
+    },
+    "evidence-verify: python3 scripts/test_mxd_direct_ack.py evidence/gap-remediation/2026-11-13/mxd-direct-ack-02": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "b6ac9418a13d198fb860ec52d97fbdd8f4280ba2148727aac3b7344d044c95ff",
+      "output_bytes": 91,
+      "last_line": "verified seven profiles and two doctest groups at 20e891a059de7dd9dec5a657d7099570987d860d"
+    },
+    "evidence-verify: tmp=$(mktemp -d) && trap 'rm -rf \"$tmp\"' EXIT && root=\"$tmp/hotline-protocol-docs\" && mkdir -p \"$root\" && cp -a scripts \"$root/scripts\" && { cp -al evidence \"$root/evidence\" 2>/dev/null || cp -a evidence \"$root/evidence\"; } && cd \"$root\" && python3 evidence/gap-remediation/2026-11-13/native-diagnostic-near-01/verify_partial.py": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "384e06a9a4c9eb9c41b74ed6379a83316f29c595f8201ac58186bc975e15e6be",
+      "output_bytes": 23191,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_mxd_login_extras.py --evidence evidence/gap-remediation/2026-11-13/mxd-login-extras-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "20894023d025561cdcc938aa442091d58848f5b73ccf923aed50bdfac668dba0",
+      "output_bytes": 49,
+      "last_line": "verified 7 nextest profiles and 2 doctest groups"
+    },
+    "evidence-verify: python3 scripts/verify_mac_peer_isolated_session.py evidence/gap-remediation/2026-11-13/mac-peer-isolated-session-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "da5aa88bbf4e5ca7789110a3c84cb88cfdb24e6685ac8b7fa18679fc18ee7a59",
+      "output_bytes": 1036,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify_mac_peer_first_session.py evidence/gap-remediation/2026-11-13/mac-peer-first-session-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "7c6537db374fbd532e8ee2eba55c40d44da7b0e10f9666d45c0a2921a3bc1398",
+      "output_bytes": 1069,
+      "last_line": "}"
+    },
+    "evidence-verify: python3 scripts/verify-shx-login-fragment.py": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "5c47c419e6f06bbd48dfb90eca36ea7cff81ac57ee6e2e9d4e7d8ee82eb82713",
+      "output_bytes": 83,
+      "last_line": "Verified 7 isolated shx callback cases at adb1bf8c8cb12f7eb2fa2c01673295a6312f262b"
+    },
+    "evidence-verify: python3 scripts/verify-synhx-profiles.py": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "11e2921f501f436401a3b30b0ee1d62f72f335a58750bc3bc31190d14f5dd901",
+      "output_bytes": 460,
+      "last_line": "}"
+    },
+    "evidence-verify: sha256sum --quiet -c evidence/hotline-server-1.9/SHA256SUMS": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_bytes": 0,
+      "last_line": ""
+    },
+    "evidence-verify: python3 scripts/extract-synhxd-evidence.py": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "ec57519c7426b53ced1632f44392fabd0d00d446aaf6db0fe2c21402a7e12e2f",
+      "output_bytes": 293,
+      "last_line": "hotline.h 1.1 verified"
+    },
+    "evidence-verify: python3 scripts/verify-baseline-evidence.py": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "5792e7c3dc3eacc536e5342f05b7dbda21dab5c9024dd582ad49a979dbc111e1",
+      "output_bytes": 171,
+      "last_line": "{'Doc defect': 8, 'Supported': 16, 'Contradicted': 26, 'Partial': 18, 'Unverified': 15}"
+    },
+    "evidence-verify: python3 -m unittest discover -s scripts -p 'test_alias_record_v2.py'": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "8c6da4b11bfe4137c5f1a178950dbf70102b8aa3246a0a26029c06b7e1fd3b15",
+      "output_bytes": 100,
+      "last_line": "OK"
+    },
+    "evidence-verify: python3 -m unittest discover -s scripts -p 'test_classic_proxy_rehearsal.py'": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "32f38f40707b2a9ffd217cecd2414c385c2454903bb23b9ac83572b112d705d6",
+      "output_bytes": 101,
+      "last_line": "OK"
+    },
+    "evidence-verify: python3 scripts/verify_classic_proxy_rehearsal.py evidence/gap-remediation/2026-11-13/classic-proxy-rehearsal-01": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "7a52d4bcb23ee185f3a46d211351d6e3622ddadd6f19022a33cf83bc07102cfa",
+      "output_bytes": 83,
+      "last_line": "{\"elapsed_seconds\": 28.097680969, \"status\": \"verified-synthetic-and-zero-contact\"}"
+    },
+    "evidence-verify: tmp=$(mktemp -d) && trap 'rm -rf \"$tmp\"' EXIT && root=\"$tmp/hotline-protocol-docs\" && mkdir -p \"$root\" && cp -a scripts \"$root/scripts\" && { cp -al evidence \"$root/evidence\" 2>/dev/null || cp -a evidence \"$root/evidence\"; } && cd \"$root\" && bash evidence/gap-remediation/2026-11-13/native-runtime-recovery-01/verify-smoke.txt \"$root\"": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "5b4882581bc23196bc99288f276ca0be34020bdc9bf1f947c60bb1d3b541a60e",
+      "output_bytes": 3291,
+      "last_line": "Both smokes semantic; smoke-002 paired host/guest SYN and streams verified"
+    },
+    "evidence-verify-known-red: python3 scripts/verify_classic_field161_matrix.py evidence/gap-remediation/2026-11-14/classic-field161-01": {
+      "target": "evidence-verify-known-red",
+      "exit_code": 1,
+      "output_sha256": "bd28f434886e9eb2910bae44c76ccdc8d6523b0ace5472f33f35ffd802182b8e",
+      "output_bytes": 881,
+      "last_line": "ValueError: capture gate source identity"
+    }
+  }
+}
