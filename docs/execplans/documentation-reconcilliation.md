@@ -226,6 +226,18 @@ The script work is a behaviour-preserving refactor.
   10 tensions) in the session scratch directory.
 - [x] (2026-11-15 20:40Z) Owner raised the tooling tolerance (D24) and asked
   for the SynHX naming to be clarified and a comprehensive glossary (D25).
+- [x] (2026-11-16 06:30Z) EP-M3 complete: the INV-SCRIPT goldens are in
+  `tests/goldens/` with `tools/capture_goldens.py` and the `goldens-check`
+  target. They record 89 verifier recipes (88 pass, the known-red one fails),
+  196 planner invocations covering 844 plan files (one skipped: it needs the
+  Mac oracle binary and stamps the wall clock) and 785 tests (784 pass, one
+  known error). `make goldens-check` prints `0 differences` on this branch and
+  `make all` passes with 221 tests. Negative controls: a changed comparison
+  constant in `verify_native_liveness.py` and a changed byte in
+  `native_news_boundary_cases.py` were each reported. The comparison takes
+  three to ten minutes and is not part of `make all`. A planner's embedded
+  SHA-256 of a script is recorded by script name, because it must change when
+  the script is refactored.
 - [x] (2026-11-16 05:00Z) EP-M4 complete. Mothra's branch
   `documentation-reconcilliation` is pushed at
   `57aeaac4f12065bfb2de3d47943f4b45622392a9`: one snapshot commit of the
@@ -293,7 +305,8 @@ The script work is a behaviour-preserving refactor.
   `make all` is green and includes `json-check` and `links-check`.
 - [x] (2026-11-15) EP-M2: audit refresh tool proven against revision 89
   (`002aaae`); the golden test and mothra's `validate` pass.
-- [ ] EP-M3: Hotline material imported; repository self-contained; revision 90.
+- [x] EP-M3: Hotline material imported; repository self-contained; revision 90
+  (see the dated entries above).
 - [x] EP-M4: mothra generalized on a branch and pushed (see the entry dated
   2026-11-16 05:00Z).
 - [ ] EP-M5: all scripts meet the df12 Python standards; revision 91.
@@ -724,6 +737,14 @@ The script work is a behaviour-preserving refactor.
   `scripts/capture_readiness.py` and `scripts/mac_network_isolation.py` stay
   byte-identical, because verifiers here compare their SHA-256. Date/Author:
   2026-11-16, lead.
+
+- Decision D28 (open, for the owner): the tooling tolerance of D24 is
+  exceeded. With the golden tools, `tools/` holds 6,199 lines against the limit
+  of 6,000, and the relocation tool, the evidence check and the style check are
+  still to be written. Options: raise the limit to about 8,000, or hold it and
+  condense the seven golden modules. The lead recommends raising it. Until the
+  owner rules, no further tooling is added; work continues on milestones that
+  change `scripts/` and documents only. Date/Author: 2026-11-16, lead.
 
 ## Outcomes & retrospective
 
