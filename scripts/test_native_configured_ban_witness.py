@@ -11,8 +11,8 @@ from protocol_capture import Recorder, decode_frame
 from verify_native_configured_ban import verify
 
 CORPUS = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-14/native-configured-ban-01"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-14/native-configured-ban-01"
 )
 CASE = Path("native-configured-apply-c66")
 HELD = CASE / "captures/held-apply"

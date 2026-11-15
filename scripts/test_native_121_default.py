@@ -12,8 +12,8 @@ import native_121_default_cases as cases
 import verify_native_121_default as verifier
 
 BASELINE = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/capture/plan.json"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/capture/plan.json"
 )
 
 

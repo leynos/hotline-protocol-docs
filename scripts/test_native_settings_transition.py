@@ -13,8 +13,8 @@ import verify_native_settings_transition as verifier
 from verify_native_settings_transition import check_stage
 
 BASELINE = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/capture/plan.json"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/capture/plan.json"
 )
 
 

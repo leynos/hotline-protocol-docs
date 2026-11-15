@@ -11,8 +11,8 @@ from protocol_capture import verify_capture
 from verify_native_core import verify
 
 FIXTURES = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-12/native-core-01"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-12/native-core-01"
 )
 
 

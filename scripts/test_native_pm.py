@@ -17,8 +17,8 @@ class NativePMPlanTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.baseline_raw = (
-            Path(__file__).resolve().parents[2]
-            / "mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/capture/plan.json"
+            Path(__file__).resolve().parents[1]
+            / "evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/capture/plan.json"
         ).read_bytes()
         cls.baseline = cases.load_baseline(cls.baseline_raw)
         cls.runtime = cls.baseline["environment"]
@@ -127,8 +127,8 @@ class NativePMPlanTests(unittest.TestCase):
                     str(record),
                     "--baseline-plan",
                     str(
-                        Path(__file__).resolve().parents[2]
-                        / "mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/capture/plan.json"
+                        Path(__file__).resolve().parents[1]
+                        / "evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/capture/plan.json"
                     ),
                     "--output",
                     str(output),

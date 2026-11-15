@@ -10,8 +10,8 @@ from verify_native_metadata import comment_boundaries, info, mutation, verify
 from verify_native_mkdir import creation_quiet
 
 BATCH = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-13/native-metadata-01"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-13/native-metadata-01"
 )
 
 

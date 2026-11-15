@@ -12,9 +12,7 @@ import tempfile
 from pathlib import Path
 
 SCHEMA = "native-ban-expiry-later-01"
-ROOT = (
-    Path(__file__).resolve().parents[2] / "mothra/evidence/gap-remediation/2026-11-14"
-)
+ROOT = Path(__file__).resolve().parents[1] / "evidence/gap-remediation/2026-11-14"
 CORPUS = ROOT / SCHEMA
 FIRST = ROOT / "native-ban-expiry-first-01"
 PID, START, NS, INODE = 774195, "5983214", 4026533397, 3290756512

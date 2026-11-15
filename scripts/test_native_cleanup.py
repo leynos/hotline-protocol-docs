@@ -12,8 +12,8 @@ from verify_native_cleanup import bytes_after, check_download, flow, reply, veri
 from verify_native_queues import frame_time
 
 BATCH = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-12/native-cleanup-01"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-12/native-cleanup-01"
 )
 
 

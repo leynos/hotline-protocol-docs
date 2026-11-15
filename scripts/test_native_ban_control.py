@@ -12,8 +12,8 @@ import native_control_readiness as gates
 from verify_native_ban_control import verify
 
 CORPUS = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-14/native-ban-control-01"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-14/native-ban-control-01"
 )
 
 

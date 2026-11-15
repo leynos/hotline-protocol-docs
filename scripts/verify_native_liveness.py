@@ -12,8 +12,8 @@ from pathlib import Path
 
 SCHEMA = "native-liveness-01"
 CORPUS = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-14/native-liveness-01"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-14/native-liveness-01"
 )
 PID, START, NS, INODE = 1221811, "6825819", "net:[4026533605]", 71221932
 DEADLINE = "2026-11-14T08:17:11.974963+00:00"

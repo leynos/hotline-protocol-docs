@@ -13,8 +13,8 @@ from contextlib import contextmanager
 from pathlib import Path
 
 CORPUS = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-14/native-board-01"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-14/native-board-01"
 )
 SCHEMA = "native-board-01"
 PID, START, NS, INODE = 1441133, "7213582", "net:[4026532471]", 1678261667

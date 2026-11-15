@@ -12,8 +12,8 @@ from pcap_tcp import read_packets
 from verify_native_ui_focus import verify
 
 CORPUS = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-14/native-ui-focus-01"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-14/native-ui-focus-01"
 )
 
 

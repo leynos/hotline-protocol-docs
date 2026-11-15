@@ -250,7 +250,7 @@ def main() -> None:
     parser.add_argument(
         "--evidence",
         type=Path,
-        default=Path(__file__).resolve().parents[2] / "mothra" / CORPUS,
+        default=Path(__file__).resolve().parents[1] / CORPUS,
     )
     parser.add_argument("--mxd", type=Path)
     args = parser.parse_args()

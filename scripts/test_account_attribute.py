@@ -9,7 +9,7 @@ from pathlib import Path
 
 from verify_account_attribute import decode_record, verify
 
-ROOT = Path(__file__).resolve().parents[2] / "mothra"
+ROOT = Path(__file__).resolve().parents[1]
 CORPUS = ROOT / "evidence/gap-remediation/2026-11-13/account-attribute-01"
 PREFIX = Path("evidence/gap-remediation/2026-11-13/account-attribute-01")
 

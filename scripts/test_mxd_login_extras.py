@@ -11,7 +11,7 @@ from pathlib import Path
 
 from verify_mxd_login_extras import CORPUS, verify
 
-EVIDENCE = Path(__file__).resolve().parents[2] / "mothra" / CORPUS
+EVIDENCE = Path(__file__).resolve().parents[1] / CORPUS
 
 
 def refresh_checksum(evidence: Path, name: str) -> None:

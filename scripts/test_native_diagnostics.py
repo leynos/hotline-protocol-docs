@@ -10,8 +10,8 @@ from protocol_capture import decode_frame
 from verify_native_diagnostics import semantic, verify
 
 CORPUS = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-13/native-diagnostics-01"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-13/native-diagnostics-01"
 )
 
 

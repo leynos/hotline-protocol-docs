@@ -8,8 +8,8 @@ from pcap_tcp import read_packets
 from verify_native_queues import check_case, notices, references, verify
 
 BATCH = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-12/native-queue-01"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-12/native-queue-01"
 )
 
 

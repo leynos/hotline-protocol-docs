@@ -9,8 +9,8 @@ from pathlib import Path
 from verify_native_htxf import check_case, verify, verify_native_uploads
 
 BATCH = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-12/native-htxf-01"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-12/native-htxf-01"
 )
 
 

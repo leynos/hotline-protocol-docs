@@ -14,6 +14,7 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
+from mothra_root import mothra_root
 from protocol_capture import ORACLE_SHA256
 
 
@@ -24,8 +25,7 @@ def digest(path: Path) -> str:
 def capture(
     plan_path: Path, binary: Path, profile_path: Path, oracle: Path, output: Path
 ) -> dict:
-    root = Path(__file__).resolve().parents[2] / "mothra"
-    root = root.resolve()
+    root = mothra_root().resolve()
     binary, output = binary.resolve(), output.resolve()
     require_paths = [binary, output]
     if any(not path.is_relative_to(root) for path in require_paths):

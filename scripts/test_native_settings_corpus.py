@@ -10,8 +10,8 @@ from pathlib import Path
 from verify_native_settings_corpus import verify
 
 BUNDLE = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-13/native-settings-01"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-13/native-settings-01"
 )
 
 

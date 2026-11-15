@@ -9,8 +9,8 @@ import native_bitmap_cases as cases
 from verify_native_bitmaps import semantic, verify
 
 CORPUS = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-13/native-bitmaps-01"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-13/native-bitmaps-01"
 )
 
 

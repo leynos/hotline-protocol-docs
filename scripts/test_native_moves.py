@@ -12,8 +12,8 @@ from verify_native_mkdir import creation_quiet
 from verify_native_moves import catalogue, deletion, move, verify
 
 BATCH = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-13/native-move-01"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-13/native-move-01"
 )
 
 

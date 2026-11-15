@@ -15,8 +15,8 @@ from verify_native_banner_formats import (
 )
 
 BATCH = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-12/native-banner-02"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-12/native-banner-02"
 )
 
 

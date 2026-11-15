@@ -10,8 +10,8 @@ import runpy
 from pathlib import Path
 
 CORPUS = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01"
 )
 CASES = "1f03bde7d498f7831c82e87e09ec3e7d02bc43124a56cd1411e985546220e43f"
 RUNNER = "a1d57bc585d145e03d7c499ee5896477d03c0da83a8a6483b65c32dbd88559b5"

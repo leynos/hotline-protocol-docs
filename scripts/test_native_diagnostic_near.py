@@ -82,8 +82,8 @@ class NearWitnessTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         path = (
-            Path(__file__).resolve().parents[2]
-            / "mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-density-01/verification-density.json"
+            Path(__file__).resolve().parents[1]
+            / "evidence/gap-remediation/2026-11-13/native-diagnostic-density-01/verification-density.json"
         )
         data = json.loads(path.read_text())["diagnostics"]
         cls.actual_8_8 = bytes.fromhex(data["61"]["field101_hex"])
@@ -181,8 +181,8 @@ class NearWitnessTests(unittest.TestCase):
 
     def test_guest_only_ack_tail_rejects_wrong_id_status_and_clip(self) -> None:
         source = (
-            Path(__file__).resolve().parents[2]
-            / "mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-near-01/verify_partial.py"
+            Path(__file__).resolve().parents[1]
+            / "evidence/gap-remediation/2026-11-13/native-diagnostic-near-01/verify_partial.py"
         )
         spec = importlib.util.spec_from_file_location("a12_partial", source)
         assert spec is not None and spec.loader is not None

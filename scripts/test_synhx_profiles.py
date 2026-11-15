@@ -7,7 +7,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2] / "mothra"
+ROOT = Path(__file__).resolve().parents[1]
 API = runpy.run_path(str(ROOT / "scripts/verify-synhx-profiles.py"))
 DIRECTORY = ROOT / "evidence/gap-remediation/2026-11-13/synhx-profile-01"
 

@@ -8,6 +8,7 @@ import struct
 from datetime import datetime
 from pathlib import Path
 
+from mothra_root import mothra_root
 from pcap_tcp import lifetime, read_packets, stream
 from verify_mac_peer_first_session import AGREEMENT, field_map, parse_frames, require
 
@@ -345,10 +346,7 @@ def verify(directory: Path) -> dict:
         )
     require(
         hashlib.sha256(
-            (
-                Path(__file__).resolve().parents[2]
-                / "mothra/scripts/mac_network_isolation.py"
-            ).read_bytes()
+            (mothra_root() / "scripts/mac_network_isolation.py").read_bytes()
         ).hexdigest()
         == manifest["helper_sha256"],
         "Isolated helper source differs",

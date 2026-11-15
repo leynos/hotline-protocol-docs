@@ -14,8 +14,8 @@ from contextlib import contextmanager
 from pathlib import Path
 
 CORPUS = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-14/native-path-fields-01"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-14/native-path-fields-01"
 )
 PREFIX = "evidence/gap-remediation/2026-11-14/native-path-fields-01/"
 PLAN = "dac0a99b766855d07005195c279f34396ea6c966308ba0bb7ee00fb725c0f947"

@@ -10,8 +10,8 @@ from verify_native_account_identity import deletion, duplicate, verify
 from verify_native_auth import reply
 
 CORPUS = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-13/native-account-identity-01"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-13/native-account-identity-01"
 )
 
 

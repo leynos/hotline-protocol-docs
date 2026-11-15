@@ -17,8 +17,8 @@ from verify_classic_server_name_162 import (
 )
 
 CORPUS = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-14/classic-server-name-162-01"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-14/classic-server-name-162-01"
 )
 
 

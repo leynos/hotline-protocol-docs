@@ -10,8 +10,8 @@ from pathlib import Path
 from verify_native_download_send_path import verify
 
 CORPUS = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-13/native-download-send-path-01"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-13/native-download-send-path-01"
 )
 
 

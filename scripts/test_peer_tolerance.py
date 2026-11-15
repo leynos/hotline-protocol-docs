@@ -9,7 +9,7 @@ from pathlib import Path
 
 from verify_peer_tolerance import verify
 
-ROOT = Path(__file__).resolve().parents[2] / "mothra"
+ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "evidence/gap-remediation/2026-11-13"
 CORPUS = SOURCE / "delegated-peer-01"
 

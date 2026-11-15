@@ -11,8 +11,8 @@ from pathlib import Path
 
 SCHEMA = "native-roster-overlap-01"
 CORPUS = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-14/native-roster-overlap-01"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-14/native-roster-overlap-01"
 )
 PID, START, NS, INODE = 953125, "6421050", "net:[4026532547]", 5973041789
 DEADLINE = "2026-11-14T07:09:57.615913+00:00"

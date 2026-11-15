@@ -19,8 +19,8 @@ from verify_classic_native_baseline import (
 )
 
 CORPUS = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-14/classic-proxy-baseline-01"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-14/classic-proxy-baseline-01"
 )
 
 

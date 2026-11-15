@@ -12,8 +12,8 @@ from protocol_capture import digest
 from verify_native_settings_persistence import verify
 
 CORPUS = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-14/native-settings-persistence-01"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-14/native-settings-persistence-01"
 )
 
 

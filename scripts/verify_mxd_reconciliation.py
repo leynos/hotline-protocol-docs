@@ -1,6 +1,6 @@
 """Verify the pinned mxd test run and its source provenance.
 
-Example: python3 scripts/verify_mxd_reconciliation.py ../mothra/evidence/gap-remediation/2026-11-13/delegated-mxd-01
+Example: python3 scripts/verify_mxd_reconciliation.py evidence/gap-remediation/2026-11-13/delegated-mxd-01
 """
 
 from __future__ import annotations

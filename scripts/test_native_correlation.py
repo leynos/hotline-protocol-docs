@@ -12,8 +12,8 @@ from verify_native_correlation import check_outcome, verify, verify_oracle
 from verify_native_framing import check_quiet
 
 BATCH = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-12/native-correlation-01"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-12/native-correlation-01"
 )
 
 

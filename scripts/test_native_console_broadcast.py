@@ -11,8 +11,8 @@ from pathlib import Path
 from verify_native_console_broadcast import verify
 
 SOURCE = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-13/native-console-broadcast-01"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-13/native-console-broadcast-01"
 )
 
 

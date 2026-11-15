@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 
 from classic_login_proxy import transform_ack
+from mothra_root import mothra_root
 from pcap_tcp import read_packets
 from verify_classic_native_baseline import flow, verify_a7
 from verify_mac_peer_first_session import field_map, parse_frames
@@ -373,7 +374,7 @@ def verify(base: Path) -> dict:
         and manifest["original_ack_sha256"] == SOURCE_ACK_SHA,
         "original two-zero ACK guard",
     )
-    root = base.resolve().parents[3]
+    root = mothra_root()
     source = manifest["source"]
     for key in ("proxy", "parser"):
         check_source_snapshot(base, source, key)

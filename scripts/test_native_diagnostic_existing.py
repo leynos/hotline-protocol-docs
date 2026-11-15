@@ -155,8 +155,8 @@ class CurrentUidTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         path = (
-            Path(__file__).resolve().parents[2]
-            / "mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/capture/report.json"
+            Path(__file__).resolve().parents[1]
+            / "evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/capture/report.json"
         )
         cls.report = json.loads(path.read_text())
 
@@ -178,8 +178,8 @@ class SectionWitnessTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         path = (
-            Path(__file__).resolve().parents[2]
-            / "mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/capture/report.json"
+            Path(__file__).resolve().parents[1]
+            / "evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/capture/report.json"
         )
         cls.report = json.loads(path.read_text())
         frame = next(f for f in cls.report["frames"] if f["is_reply"] and f["id"] == 14)
@@ -187,8 +187,8 @@ class SectionWitnessTests(unittest.TestCase):
             next(f["hex"] for f in frame["fields"] if f["id"] == 101)
         )
         loaded_path = (
-            Path(__file__).resolve().parents[2]
-            / "mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-existing-01/one-active-one-queued/report.json"
+            Path(__file__).resolve().parents[1]
+            / "evidence/gap-remediation/2026-11-13/native-diagnostic-existing-01/one-active-one-queued/report.json"
         )
         loaded_report = json.loads(loaded_path.read_text())
         active_reply = next(

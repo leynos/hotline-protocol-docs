@@ -1,6 +1,6 @@
 """Verify C2 mxd limit witnesses from frozen source and test transcripts.
 
-Example: python3 scripts/verify_mxd_limits.py ../mothra/evidence/gap-remediation/2026-11-13/mxd-limits-01
+Example: python3 scripts/verify_mxd_limits.py evidence/gap-remediation/2026-11-13/mxd-limits-01
 """
 
 from __future__ import annotations

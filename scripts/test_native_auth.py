@@ -10,8 +10,8 @@ from pathlib import Path
 from verify_native_auth import cases, check_lookup, check_state, verify, verify_accounts
 
 BATCH = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-13/native-auth-01"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-13/native-auth-01"
 )
 
 

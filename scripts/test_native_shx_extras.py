@@ -15,8 +15,8 @@ from verify_native_shx import check_packets, check_semantics, fields, frames, sh
 from verify_native_shx_extras import receiver, verify
 
 BATCH = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-13/native-shx-02"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-13/native-shx-02"
 )
 
 

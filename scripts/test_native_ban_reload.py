@@ -11,8 +11,8 @@ from native_control_readiness import probe
 from verify_native_ban_reload import verify
 
 CORPUS = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-14/native-ban-reload-01"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-14/native-ban-reload-01"
 )
 C56 = CORPUS.parent / "native-ban-control-01"
 

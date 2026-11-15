@@ -520,8 +520,8 @@ class ClassicLoginProxyTests(unittest.TestCase):
         import json
 
         corpus = (
-            Path(__file__).resolve().parents[2]
-            / "mothra/evidence/gap-remediation/2026-11-14/classic-server-name-162-01"
+            Path(__file__).resolve().parents[1]
+            / "evidence/gap-remediation/2026-11-14/classic-server-name-162-01"
         )
         report = json.loads((corpus / "b57/proxy/report.json").read_text())
         request = bytes.fromhex(report["entries"][9]["raw_hex"])

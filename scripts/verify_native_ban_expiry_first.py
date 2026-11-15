@@ -13,8 +13,8 @@ from pathlib import Path
 
 SCHEMA = "native-ban-expiry-first-01"
 CORPUS = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01"
 )
 FIRST = (
     "guard-zero",

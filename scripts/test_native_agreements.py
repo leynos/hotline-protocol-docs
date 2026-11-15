@@ -10,8 +10,8 @@ from verify_native_agreements import check_overflow, native_file, verify
 from verify_native_auth import check_state
 
 BATCH = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-13/native-agreement-01"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-13/native-agreement-01"
 )
 
 

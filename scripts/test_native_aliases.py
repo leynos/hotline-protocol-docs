@@ -17,8 +17,8 @@ from verify_native_aliases import (
 from verify_native_auth import reply
 
 BATCH = (
-    Path(__file__).resolve().parents[2]
-    / "mothra/evidence/gap-remediation/2026-11-13/native-alias-01"
+    Path(__file__).resolve().parents[1]
+    / "evidence/gap-remediation/2026-11-13/native-alias-01"
 )
 
 
