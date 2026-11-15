@@ -1,206 +1,126 @@
 """Prepare owned native directory creation and path-boundary observations."""
 
+import typing as typ
+
 from native_auth_cases import authentication
 from native_folder_cases import path
-from native_plan import close, connect, eof, login, packet, payload, read, send
+from native_mkdir_specs import specs
+from native_mkdir_steps import BASE, EMPTY_PATH, ROOT, Cases, exchange, upload
+from native_plan import Action, close, login
 from native_transfer_cases import file_stream
+from native_wire_names import (
+    FIELD_FILE_NAME,
+    FIELD_FILE_PATH,
+    TYPE_CREATE_FOLDER,
+    TYPE_DELETE_FILE,
+    TYPE_EMPTY_ACK,
+    TYPE_GET_FILE_INFO,
+    TYPE_LIST_FILES,
+)
 
-ROOT = b"mothra-fs19"
-BASE = path((ROOT,))
+# prepare_native_cases imports the seed, creation, finalization, cleanup and
+# empty_root planners; verify_native_mkdir imports those with BASE, ROOT and
+# specs; and the account, alias, move, news, room, diagnostic, bitmap, metadata
+# and verify_native_aliases modules import exchange. test_native_mkdir imports
+# specs.
+__all__ = [
+    "BASE",
+    "ROOT",
+    "cleanup",
+    "creation",
+    "empty_root",
+    "exchange",
+    "finalization",
+    "seed",
+    "specs",
+]
+
+EMPTY_VIEW_HEX = "0000"  # the view of a zero-component path (the count word)
+LOW_ROLE_STEP = 3  # the login request that follows the handshake steps
+QUIET_SECONDS = 1
 
 
-def exchange(kind: int, identifier: int, values: list[tuple[int, bytes]]) -> list[dict]:
-    return [
-        send(packet(kind, identifier, payload(values))),
-        read(match_frame={"is_reply": 1, "id": identifier}),
-    ]
+def quiet_main() -> Action:
+    """Plan a one-second silence on the main connection.
+
+    Returns
+    -------
+    native_plan.Action
+        The ``expect_quiet`` action.
+    """
+    return {"op": "expect_quiet", "connection": "main", "timeout": QUIET_SECONDS}
 
 
-def seed() -> dict:
-    steps = login() + exchange(200, 9, [(202, b"\0\0")])
+def seed() -> Cases:
+    """Plan the owned root, its folders and one uploaded file.
+
+    Returns
+    -------
+    dict[str, tuple[list[dict[str, typing.Any]], dict[str, typing.Any]]]
+        The one seeding case.
+    """
+    steps = login() + exchange(TYPE_LIST_FILES, 9, [(FIELD_FILE_PATH, EMPTY_PATH)])
     for identifier, name, parent in [
-        (10, ROOT, b"\0\0"),
+        (10, ROOT, EMPTY_PATH),
         (11, b"exists", BASE),
         (12, b"nest", BASE),
         (13, b"leaf", path((ROOT, b"nest"))),
     ]:
-        steps += exchange(205, identifier, [(201, name), (202, parent)])
+        steps += exchange(
+            TYPE_CREATE_FOLDER,
+            identifier,
+            [(FIELD_FILE_NAME, name), (FIELD_FILE_PATH, parent)],
+        )
     body = file_stream(b"mkdir-fixture", b"")
-    steps += [
-        send(
-            packet(
-                203,
-                14,
-                payload(
-                    [
-                        (201, b"ordinary"),
-                        (202, BASE),
-                        (108, len(body).to_bytes(4, "big")),
-                    ]
-                ),
-            )
-        ),
-        read(
-            match_frame={"is_reply": 1, "id": 14},
-            save_field={"name": "reference", "id": 107},
-        ),
-        connect("upload", "data"),
-        send(
-            "48545846{reference}"
-            + len(body).to_bytes(4, "big").hex()
-            + "00000000"
-            + body.hex(),
-            "upload",
-        ),
-        eof("upload"),
-        close("upload"),
-    ]
-    steps += exchange(200, 15, [(202, BASE)]) + [close()]
+    steps += upload(
+        14,
+        [(FIELD_FILE_NAME, b"ordinary"), (FIELD_FILE_PATH, BASE)],
+        body,
+    )
+    steps += [*exchange(TYPE_LIST_FILES, 15, [(FIELD_FILE_PATH, BASE)]), close()]
     return {"seed-owned-root": (steps, {"kind": "mkdir-seed", "root_hex": ROOT.hex()})}
 
 
-def specs() -> list[dict]:
-    cases = []
+def creation() -> Cases:
+    """Plan each directory-creation case with its readbacks and its login role.
 
-    def add(
-        label: str,
-        name: bytes | None,
-        parent: bytes | None = BASE,
-        view: bytes = BASE,
-        role: str = "admin",
-    ) -> None:
-        cases.append(
-            {
-                "case": label,
-                "name_hex": None if name is None else name.hex(),
-                "path_hex": None if parent is None else parent.hex(),
-                "view_hex": view.hex(),
-                "role": role,
-            }
-        )
-
-    for label, name in [
-        ("ascii", b"plain"),
-        ("existing-directory", b"exists"),
-        ("existing-file", b"ordinary"),
-        ("case-collision", b"EXISTS"),
-        ("name-absent", None),
-        ("name-empty", b""),
-        ("name-nul-only", b"\0"),
-        ("name-nul-interior", b"nu\0l"),
-        ("name-nul-leading", b"\0nul"),
-        ("name-nul-trailing", b"nul\0"),
-        ("name-colon", b"co:lon"),
-        ("name-slash", b"sl/ash"),
-        ("name-cr", b"cr\rname"),
-        ("name-lf", b"lf\nname"),
-        ("name-high-byte", b"hi-\x9a"),
-        ("name31", b"n31-" + b"a" * 27),
-        ("name32", b"n32-" + b"b" * 28),
-        ("name255", b"n255-" + b"c" * 250),
-        ("name256", b"n256-" + b"d" * 251),
-        ("name65535", b"n65535-" + b"e" * (65535 - 7)),
-        ("long-extension", b"ext-" + b"x" * 36 + b".txt"),
-        ("dot-name", b"."),
-        ("dotdot-name", b".."),
-    ]:
-        add(label, name)
-    add(
-        "nested",
-        b"nested-child",
-        path((ROOT, b"nest", b"leaf")),
-        path((ROOT, b"nest", b"leaf")),
-    )
-    add("parent-file", b"no-file-parent", path((ROOT, b"ordinary")))
-    add("parent-missing", b"no-missing-parent", path((ROOT, b"absent-parent")))
-    for label, parent in [
-        ("root-absent", None),
-        ("root-empty", b""),
-        ("root-zero-count", b"\0\0"),
-        ("path-one-byte", b"\0"),
-        ("path-count-only", b"\0\1"),
-        ("path-five-bytes", b"\0\1\0\0\1"),
-    ]:
-        add(label, ("m-fs19-" + label).encode(), parent, b"\0\0")
-    add("path-truncated-last", b"truncated-last", b"\0\2" + BASE[2:] + b"\0\0\5ab")
-    add("path-empty-component", b"empty-component", b"\0\2" + BASE[2:] + b"\0\0\0")
-    add("path-word-ffff", b"word-ffff", b"\0\1\xff\xff" + BASE[4:])
-    add("path-trailing", b"trailing", BASE + b"\xde\xad")
-    add(
-        "path-count-zero-trailing", b"m-fs19-zero-trailing", b"\0\0" + BASE[2:], b"\0\0"
-    )
-    add("path-count-too-high", b"count-too-high", b"\0\2" + BASE[2:])
-    add(
-        "path-supplies-name",
-        None,
-        path((ROOT, b"nest", b"via-path")),
-        path((ROOT, b"nest")),
-    )
-    add(
-        "empty-name-path-supplies",
-        b"",
-        path((ROOT, b"nest", b"via-empty")),
-        path((ROOT, b"nest")),
-    )
-    add("low-permission-new", b"denied-new", role="low")
-    add("low-permission-conflict", b"exists", role="low")
-    for label, parent, child in [
-        ("path-dot-component", b".", b"literal-dot"),
-        ("path-dotdot-component", b"..", b"literal-dotdot"),
-        ("path-colon-component", b"co:lon", b"inside-colon"),
-        ("path-high-component", b"hi-\x9a", b"inside-high"),
-        ("path-nul-component", b"\0nul", b"inside-nul"),
-    ]:
-        view_parent = b"co-lon" if parent == b"co:lon" else parent
-        add(label, child, path((ROOT, parent)), path((ROOT, view_parent)))
-    return cases
-
-
-def creation() -> dict:
-    cases = {}
+    Returns
+    -------
+    dict[str, tuple[list[dict[str, typing.Any]], dict[str, typing.Any]]]
+        The steps and expectation of each case, by its label.
+    """
+    cases: Cases = {}
     for expected in specs():
         steps = login()
         if expected["role"] == "low":
-            steps[3] = authentication(b"fixture-low", b"next-pass")
+            steps[LOW_ROLE_STEP] = authentication(b"fixture-low", b"next-pass")
         view = bytes.fromhex(expected["view_hex"])
-        values = []
-        for field, key in [(201, "name_hex"), (202, "path_hex")]:
+        values: list[tuple[int, bytes]] = []
+        for field, key in [
+            (FIELD_FILE_NAME, "name_hex"),
+            (FIELD_FILE_PATH, "path_hex"),
+        ]:
             if expected[key] is not None:
                 values.append((field, bytes.fromhex(expected[key])))
-        steps += exchange(200, 10, [(202, view)])
-        steps += exchange(205, 11, values)
-        steps += exchange(200, 12, [(202, view)])
-        steps += exchange(500, 90, [])
-        steps += [{"op": "expect_quiet", "connection": "main", "timeout": 1}, close()]
+        steps += exchange(TYPE_LIST_FILES, 10, [(FIELD_FILE_PATH, view)])
+        steps += exchange(TYPE_CREATE_FOLDER, 11, values)
+        steps += exchange(TYPE_LIST_FILES, 12, [(FIELD_FILE_PATH, view)])
+        steps += exchange(TYPE_EMPTY_ACK, 90, [])
+        steps += [quiet_main(), close()]
         cases[expected["case"]] = (steps, {"kind": "mkdir-create", **expected})
     return cases
 
 
-def finalization() -> dict:
+def finalization() -> Cases:
+    """Plan the flush upload and the final inventory of the owned root.
+
+    Returns
+    -------
+    dict[str, tuple[list[dict[str, typing.Any]], dict[str, typing.Any]]]
+        The one finalization case.
+    """
     body = file_stream(b"", b"")
-    steps = login() + [
-        send(
-            packet(
-                203,
-                10,
-                payload([(201, b"m-fs19-flush"), (108, len(body).to_bytes(4, "big"))]),
-            )
-        ),
-        read(
-            match_frame={"is_reply": 1, "id": 10},
-            save_field={"name": "reference", "id": 107},
-        ),
-        connect("upload", "data"),
-        send(
-            "48545846{reference}"
-            + len(body).to_bytes(4, "big").hex()
-            + "00000000"
-            + body.hex(),
-            "upload",
-        ),
-        eof("upload"),
-        close("upload"),
-    ]
+    steps = login() + upload(10, [(FIELD_FILE_NAME, b"m-fs19-flush")], body)
     for identifier, parts in [
         (20, ()),
         (21, (ROOT,)),
@@ -212,60 +132,82 @@ def finalization() -> dict:
         (27, (ROOT, b"hi-\x9a")),
         (28, (ROOT, b"\0nul")),
     ]:
-        steps += exchange(200, identifier, [(202, path(parts))])
+        steps += exchange(TYPE_LIST_FILES, identifier, [(FIELD_FILE_PATH, path(parts))])
     steps += (
-        exchange(206, 30, [(201, ROOT)])
-        + exchange(206, 31, [(201, b"ordinary"), (202, BASE)])
+        exchange(TYPE_GET_FILE_INFO, 30, [(FIELD_FILE_NAME, ROOT)])
+        + exchange(
+            TYPE_GET_FILE_INFO,
+            31,
+            [(FIELD_FILE_NAME, b"ordinary"), (FIELD_FILE_PATH, BASE)],
+        )
         + [close()]
     )
     return {"final-inventory-and-flush": (steps, {"kind": "mkdir-final"})}
 
 
-def cleanup() -> dict:
+def cleanup() -> Cases:
+    """Plan the removal of the owned objects and their readbacks.
+
+    Returns
+    -------
+    dict[str, tuple[list[dict[str, typing.Any]], dict[str, typing.Any]]]
+        The one cleanup case.
+    """
     names = (
         [ROOT]
-        + [bytes.fromhex(c["name_hex"]) for c in specs() if c["view_hex"] == "0000"]
+        + [
+            bytes.fromhex(c["name_hex"])
+            for c in specs()
+            if c["view_hex"] == EMPTY_VIEW_HEX
+        ]
         + [b"m-fs19-flush"]
     )
-    steps = login() + exchange(200, 10, [(202, b"\0\0")])
+    steps = login() + exchange(TYPE_LIST_FILES, 10, [(FIELD_FILE_PATH, EMPTY_PATH)])
     for identifier, name in enumerate(names, 20):
-        steps += exchange(204, identifier, [(201, name)])
-    steps += exchange(200, 90, [(202, b"\0\0")]) + exchange(500, 91, [])
-    steps += [{"op": "expect_quiet", "connection": "main", "timeout": 1}, close()]
+        steps += exchange(TYPE_DELETE_FILE, identifier, [(FIELD_FILE_NAME, name)])
+    steps += exchange(TYPE_LIST_FILES, 90, [(FIELD_FILE_PATH, EMPTY_PATH)])
+    steps += [*exchange(TYPE_EMPTY_ACK, 91, []), quiet_main(), close()]
     return {
         "cleanup-owned-objects": (
             steps,
             {
                 "kind": "mkdir-cleanup",
                 "names_hex": [n.hex() for n in names],
-                "scope": "Native204 moves owned objects to Trash; no permanent deletion or root outside Files requested.",
+                "scope": (
+                    "Native204 moves owned objects to Trash; no permanent deletion "
+                    "or root outside Files requested."
+                ),
             },
         )
     }
 
 
-def empty_root() -> dict:
-    """Check absent/empty names against absent/empty/canonical-root paths."""
-    steps = login() + exchange(200, 10, [(202, b"\0\0")])
-    inputs = []
+def empty_root() -> Cases:
+    """Check absent/empty names against absent/empty/canonical-root paths.
+
+    Returns
+    -------
+    dict[str, tuple[list[dict[str, typing.Any]], dict[str, typing.Any]]]
+        The one empty-root case, with its input matrix in order.
+    """
+    steps = login() + exchange(TYPE_LIST_FILES, 10, [(FIELD_FILE_PATH, EMPTY_PATH)])
+    inputs: list[dict[str, typ.Any]] = []
     for name in [None, b""]:
         for parent in [None, b"", b"\0\0"]:
-            values = []
+            values: list[tuple[int, bytes]] = []
             if name is not None:
-                values.append((201, name))
+                values.append((FIELD_FILE_NAME, name))
             if parent is not None:
-                values.append((202, parent))
+                values.append((FIELD_FILE_PATH, parent))
             identifier = 20 + len(inputs)
-            inputs.append(
-                {
-                    "id": identifier,
-                    "name_hex": None if name is None else name.hex(),
-                    "path_hex": None if parent is None else parent.hex(),
-                }
-            )
-            steps += exchange(205, identifier, values)
-    steps += exchange(200, 90, [(202, b"\0\0")]) + exchange(500, 91, [])
-    steps += [{"op": "expect_quiet", "connection": "main", "timeout": 1}, close()]
+            inputs.append({
+                "id": identifier,
+                "name_hex": None if name is None else name.hex(),
+                "path_hex": None if parent is None else parent.hex(),
+            })
+            steps += exchange(TYPE_CREATE_FOLDER, identifier, values)
+    steps += exchange(TYPE_LIST_FILES, 90, [(FIELD_FILE_PATH, EMPTY_PATH)])
+    steps += [*exchange(TYPE_EMPTY_ACK, 91, []), quiet_main(), close()]
     return {
         "empty-root-input-matrix": (
             steps,

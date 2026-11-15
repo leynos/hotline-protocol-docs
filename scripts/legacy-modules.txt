@@ -47,7 +47,6 @@ scripts/native_login_extras_cases.py
 scripts/native_metadata_cases.py
 scripts/native_missing_alias_cases.py
 scripts/native_missing_alias_control.py
-scripts/native_mkdir_cases.py
 scripts/native_move_cases.py
 scripts/native_news_boundary_cases.py
 scripts/native_news_cases.py
@@ -128,7 +127,6 @@ scripts/test_native_liveness_corpus.py
 scripts/test_native_login_extras.py
 scripts/test_native_metadata.py
 scripts/test_native_missing_alias.py
-scripts/test_native_mkdir.py
 scripts/test_native_moves.py
 scripts/test_native_news.py
 scripts/test_native_news_boundary.py
@@ -199,7 +197,6 @@ scripts/verify_native_live_accounts.py
 scripts/verify_native_liveness.py
 scripts/verify_native_login_extras.py
 scripts/verify_native_metadata.py
-scripts/verify_native_mkdir.py
 scripts/verify_native_moves.py
 scripts/verify_native_news.py
 scripts/verify_native_news_boundary.py
