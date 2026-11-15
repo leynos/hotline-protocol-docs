@@ -4,6 +4,7 @@ import typing as typ
 
 import check_sums
 import lfs_rule
+from repo_files import git
 from tool_support import EXIT_FINDINGS, EXIT_OK
 from withheld_helpers import seed_repo
 
@@ -64,6 +65,27 @@ def test_a_pointer_left_in_the_working_tree_fails_with_the_remedy(
     committed(tmp_path, {"evidence/a.png": POINTER}, {})
     failures = lfs_rule.check_lfs(tmp_path).failures
     assert any("git lfs pull" in f and "a.png" in f for f in failures), failures
+
+
+def test_staged_files_with_identical_content_are_each_counted(
+    tmp_path: Path,
+) -> None:
+    """Two staged, uncommitted pointers to one object are two LFS paths.
+
+    ``git lfs ls-files`` lists such paths once, so the rule reads the index.
+    """
+    committed(tmp_path, {"evidence/keep.json": "{}\n"}, {})
+    for name in ("evidence/one.pcap", "evidence/two.pcap", "evidence/three.png"):
+        (tmp_path / name).write_text(POINTER, encoding="utf-8")
+    result = git("-C", str(tmp_path), "add", "--", "evidence").run_sync()
+    assert result.exit_code == 0, result.stderr
+    for name in ("evidence/one.pcap", "evidence/two.pcap", "evidence/three.png"):
+        (tmp_path / name).write_bytes(b"real")
+    report = lfs_rule.check_lfs(tmp_path)
+    assert not report.failures, report.failures
+    assert report.notes == ["4 tracked paths, 3 expected in LFS, 3 stored in LFS"], (
+        report.notes
+    )
 
 
 def test_command_line_exit_codes(tmp_path: Path) -> None:

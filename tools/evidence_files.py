@@ -16,7 +16,9 @@ from git_lossless import as_arg, git_names
 if typ.TYPE_CHECKING:
     import collections.abc as cabc
 
-CITATION = re.compile(rb"evidence/[A-Za-z0-9_./-]+")
+# The lookbehind keeps a longer word, such as a shell variable named
+# agreement_evidence, from being read as the start of an evidence path.
+CITATION = re.compile(rb"(?<![A-Za-z0-9_])evidence/[A-Za-z0-9_./-]+")
 TRIM = "./"
 SKIPPED_DIRECTORIES = frozenset({".git", "__pycache__", ".venv", "node_modules"})
 
