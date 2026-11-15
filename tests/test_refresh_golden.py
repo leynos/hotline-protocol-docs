@@ -17,12 +17,15 @@ import audit_model as am
 import audit_workspace as aw
 import refresh_audit as ra
 from git_helpers import init_repo
+from repo_files import git
 
 if typ.TYPE_CHECKING:
     import types
 
 REPO = Path(__file__).resolve().parents[1]
 REVISION_89 = Path("evidence/protocol-gap-analysis/2026-11-15/revision-89")
+# The last commit whose register matched revision 89; later commits re-audit.
+REGISTER_BASELINE = "4e62e00d675c9959642adbdf76624fcde0b6c012"
 NEW_REVISION = 90
 GAPS = 87
 SECTIONS = 543
@@ -86,7 +89,11 @@ def arrange(base: Path, mothra: Path) -> tuple[Path, Path]:
         target = root / item["path"]
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(snapshot, target)
-    shutil.copyfile(REPO / "gap-register.json", root / "gap-register.json")
+    shown = git(
+        "-C", str(REPO), "show", f"{REGISTER_BASELINE}:gap-register.json"
+    ).run_sync()
+    assert shown.exit_code == 0, f"baseline register unavailable: {shown.stderr}"
+    (root / "gap-register.json").write_text(shown.stdout or "", encoding="utf-8")
     previous = evidence.parent / REVISION_89
     previous.mkdir(parents=True)
     for name in ("manifest.json", "sections.json"):

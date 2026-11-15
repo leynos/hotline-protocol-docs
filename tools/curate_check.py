@@ -10,6 +10,7 @@ the source's, with nothing extra and nothing missing (obligation INV-IMPORT)?
 import dataclasses as dc
 import functools
 import hashlib
+import json
 import typing as typ
 from concurrent import futures
 
@@ -24,7 +25,9 @@ if typ.TYPE_CHECKING:
     from pathlib import Path
 
 CURATION_RELATIVE = "evidence/curation.json"
-ALLOWED_NAMES = frozenset({MANIFEST_RELATIVE, CURATION_RELATIVE})
+# Corpora created in this repository, which the source never held.
+LOCAL_RELATIVE = "evidence/local-corpora.json"
+ALLOWED_NAMES = frozenset({MANIFEST_RELATIVE, CURATION_RELATIVE, LOCAL_RELATIVE})
 PATCH_SUFFIX = ".bsdiff"
 WORKERS = 8
 # A cited path ending in one of these was truncated at a format placeholder.
@@ -172,6 +175,28 @@ def _compare(request: CheckRequest, names: list[str], result: CheckResult) -> No
     result.differences += sum(1 for v in verdicts if v)
 
 
+def _unexpected(request: CheckRequest, names: set[str]) -> list[str]:
+    """List files absent from the source that nothing accounts for.
+
+    The manifests, the patches, files named by ``--local-file`` and files in a
+    corpus created here are all accounted for.
+
+    Returns
+    -------
+    list[str]
+        The remaining paths, sorted.
+    """
+    allowed = ALLOWED_NAMES | set(request.local_files)
+    created_here = _local_corpora(request.root)
+    return sorted(
+        name
+        for name in names
+        if name not in allowed
+        and not name.endswith(PATCH_SUFFIX)
+        and corpus_of(name) not in created_here
+    )
+
+
 def _check_source(
     request: CheckRequest, included: set[str], here: list[str], result: CheckResult
 ) -> None:
@@ -191,12 +216,7 @@ def _check_source(
     in_source = {as_arg(name) for name in listing}
     expected = {n for n in in_source if corpus_of(n) in included and n not in withheld}
     local = set(here)
-    allowed = ALLOWED_NAMES | set(request.local_files)
-    extras = sorted(
-        n
-        for n in local - in_source
-        if n not in allowed and not n.endswith(PATCH_SUFFIX)
-    )
+    extras = _unexpected(request, local - in_source)
     missing = sorted(expected - local)
     result.failures += [f"{n}: missing from the import" for n in missing]
     result.failures += [f"{n}: absent from the source commit" for n in extras]
@@ -204,6 +224,24 @@ def _check_source(
     common = sorted(expected & local)
     _compare(request, common, result)
     result.compared = len(expected)
+
+
+def _local_corpora(root: Path) -> set[str]:
+    """Read the corpora that were created in this repository.
+
+    ``evidence/local-corpora.json`` lists them, each with the reason it exists.
+    They belong in the tree although the source commit never held them.
+
+    Returns
+    -------
+    set[str]
+        The corpus paths; empty when there is no such file.
+    """
+    record = root / LOCAL_RELATIVE
+    if not record.is_file():
+        return set()
+    listed = json.loads(record.read_text(encoding="utf-8"))["corpora"]
+    return {entry["path"] for entry in listed}
 
 
 def _withheld(request: CheckRequest) -> frozenset[str]:
@@ -246,7 +284,7 @@ def check(request: CheckRequest) -> CheckResult:
     included = {c.path for c in load_curation(curation) if c.disposition == INCLUDED}
     result = CheckResult()
     here = list_files(request.root)
-    _check_corpora(here, included, result)
+    _check_corpora(here, included | _local_corpora(request.root), result)
     _check_citations(request, _withheld(request), result)
     if request.source_root is not None:
         if not request.source_commit:

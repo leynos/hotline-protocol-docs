@@ -228,6 +228,27 @@ def test_a_path_template_resolves_by_prefix(tmp_path: Path) -> None:
     assert f"{ch.PM1}/E-" in failures[0], failures
 
 
+LOCAL_CORPUS = "evidence/protocol-gap-analysis/2026-11-15/revision-90"
+
+
+def test_a_corpus_created_here_must_be_declared_local(tmp_path: Path) -> None:
+    """A corpus that the source never held passes only when recorded as local."""
+    w = world(tmp_path)
+    (w.root / LOCAL_CORPUS).mkdir(parents=True)
+    (w.root / LOCAL_CORPUS / "manifest.json").write_text("{}\n", encoding="utf-8")
+    undeclared = " ".join(check(w).failures)
+    assert f"{LOCAL_CORPUS}: present but not included" in undeclared, undeclared
+    assert "absent from the source commit" in undeclared, undeclared
+    (w.root / curate_check.LOCAL_RELATIVE).write_text(
+        '{"schema_version": 1, "corpora": [{"path": "'
+        + LOCAL_CORPUS
+        + '", "reason": "audit revision cut here"}]}\n',
+        encoding="utf-8",
+    )
+    declared = check(w).failures
+    assert not declared, declared
+
+
 def test_command_line_exit_codes(
     tmp_path: Path, capsys: pytest.CaptureFixture[str]
 ) -> None:
