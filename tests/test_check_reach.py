@@ -131,3 +131,27 @@ def test_link_checker_applies_the_rule_only_when_contents_exists(
     make_tree(tmp_path, {"docs/contents.md": "# Contents\n"})
     failures = check_links.check(tmp_path).failures
     assert failures == ["docs/loose.md: is not listed in docs/contents.md"], failures
+
+
+def test_a_link_in_a_later_table_cell_is_a_reference_not_a_listing(
+    tmp_path: Path, make_tree: TreeBuilder
+) -> None:
+    """Only the first cell of a row lists a document; other cells may cite it."""
+    files = tree()
+    files["docs/a/README.md"] = (
+        OVERVIEW + "\n| Topic | See |\n| --- | --- |\n| t | [One](one.md) |\n"
+    )
+    make_tree(tmp_path, files)
+    assert check_reach.check_reach(tmp_path) == [], "a citing cell was counted"
+
+
+def test_a_link_inside_a_contents_description_is_not_a_listing(
+    tmp_path: Path, make_tree: TreeBuilder
+) -> None:
+    """In the contents page only the link that opens a list item lists a document."""
+    files = tree()
+    files["docs/contents.md"] = CONTENTS.replace(
+        "- [B](a/two.md)\n", "- [B](a/two.md): uses the [guide](guide.md).\n"
+    )
+    make_tree(tmp_path, files)
+    assert check_reach.check_reach(tmp_path) == [], "a described link was counted"

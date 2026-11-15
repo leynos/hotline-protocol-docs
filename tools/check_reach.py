@@ -1,9 +1,11 @@
 """Check that every document under ``docs/`` can be reached from the indexes.
 
 Every Markdown document under ``docs/`` appears exactly once in
-``docs/contents.md``. A document inside a set directory, ``docs/<set>/``, also
-appears exactly once in a table row of that set's overview,
-``docs/<set>/README.md``. Execution plans, the contents page, the set
+``docs/contents.md``, as the link that opens a list item. A document inside a
+set directory, ``docs/<set>/``, also appears exactly once in the first cell of
+a table row of that set's overview, ``docs/<set>/README.md``. Links elsewhere,
+in a description or in a later cell, are references and are not counted.
+Execution plans, the contents page, the set
 overviews and any explicitly exempt working records are not themselves
 required to be listed.
 """
@@ -21,6 +23,7 @@ EXECPLANS = "docs/execplans/"
 OVERVIEW = "README.md"
 SET_DEPTH = 3
 EXTERNAL = ("http://", "https://", "mailto:")
+LIST_ITEM_LINK = "- ["
 
 
 def _resolved(source: Path, target: str) -> str | None:
@@ -45,6 +48,32 @@ def _resolved(source: Path, target: str) -> str | None:
     return "/".join(parts) if escapes == 0 else None
 
 
+def _listing_part(line: str, *, tables_only: bool) -> str:
+    """Return the part of an index line that lists a document.
+
+    Parameters
+    ----------
+    line : str
+        One line of an index document.
+    tables_only : bool
+        ``True`` for a set overview, ``False`` for the contents page.
+
+    Returns
+    -------
+    str
+        The first cell of a table row, or the link that opens a list item;
+        empty when the line lists nothing.
+    """
+    stripped = line.lstrip()
+    if tables_only:
+        cells = stripped.split("|")
+        return cells[1] if stripped.startswith("|") and len(cells) > 1 else ""
+    if not stripped.startswith(LIST_ITEM_LINK):
+        return ""
+    end = stripped.find(")")
+    return stripped[: end + 1]
+
+
 def _targets(root: Path, source: Path, *, tables_only: bool) -> col.Counter[str]:
     """Count the documents that ``source`` links to.
 
@@ -55,7 +84,8 @@ def _targets(root: Path, source: Path, *, tables_only: bool) -> col.Counter[str]
     source : pathlib.Path
         The index document, relative to the root.
     tables_only : bool
-        Count only links that sit in a table row.
+        Count the links in the first cell of each table row; otherwise count
+        the link that opens each list item.
 
     Returns
     -------
@@ -65,9 +95,7 @@ def _targets(root: Path, source: Path, *, tables_only: bool) -> col.Counter[str]
     text = (root / source).read_text(encoding="utf-8")
     counts: col.Counter[str] = col.Counter()
     for _, line in mm.unfenced_lines(text):
-        if tables_only and not line.lstrip().startswith("|"):
-            continue
-        for link in mm.extract_links(line):
+        for link in mm.extract_links(_listing_part(line, tables_only=tables_only)):
             target = _resolved(source, link.target)
             if target is not None:
                 counts[target] += 1
