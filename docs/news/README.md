@@ -1,0 +1,107 @@
+# News
+
+This set covers the news of the native Hotline Server 1.9: the threaded news
+[transactions](../glossary.md#transaction) that list categories and articles,
+read, post and delete articles, and the category-list and article-list fields
+that they return. It also covers the legacy message board, which the server
+still implements alongside threaded news. The set states which statements are
+[observed](../glossary.md#observed), which are read from source, and which
+remain [unresolved](../glossary.md#unresolved). It deliberately leaves the
+layout of the shared request and reply [fields](../glossary.md#field) to the
+[protocol](../protocol/README.md) set, the news privilege bits to the accounts
+and privileges set, and the path fields and filesystem behaviour of the file
+transactions to the files and transfers set. The identified client evidence is
+in the peers set, and the validation of the mxd implementation is in the
+[mxd](../mxd/README.md) set.
+
+## Where to start
+
+Read the two documents in this order.
+
+1. [News contracts](news-contracts.md) first. It gives the category-list
+   variants, the nested article list, the reading and posting of articles, and
+   deletion, from static analysis and captured fixtures.
+2. [Legacy board format](legacy-board-format.md) second. The protocol guide
+   describes the 101, 102 and 103 board as separate from threaded news, and
+   this document records the static constants of that board.
+
+Neither document links to the other. The legacy board is a different subject
+from threaded news, so it is best read after the contracts.
+
+## Documents
+
+The kind names what a document is: a contract states the rules that its
+evidence supports, and a schema gives byte or field layouts.
+
+| Document                                      | What it covers                                                                                                                                                                       | Kind     |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
+| [News contracts](news-contracts.md)           | The category-list variants, the nested article list, reading and posting articles and their partial effects, and deletion, from static analysis and captured threaded-news fixtures. | contract |
+| [Legacy board format](legacy-board-format.md) | The static constants of the 1.9 legacy message board, which are pointers and literal bytes recovered from the binary and not a captured post.                                        | schema   |
+
+_Table 1: The documents of the news set._
+
+## Evidence
+
+The news documents cite gap-remediation corpora, each recorded with a manifest,
+and they also cite decompilation query records under the `hotline-server-1.9`
+evidence directory. Examples are the
+[legacy board static corpus](../../evidence/gap-remediation/2026-11-14/legacy-board-static-01/manifest.json),
+the
+[native news corpus](../../evidence/gap-remediation/2026-11-13/native-news-01/manifest.json)
+and the
+[native article deletion corpus](../../evidence/gap-remediation/2026-11-13/native-article-delete-01/manifest.json).
+The procedure for re-verifying the retained evidence is in the
+[guide to recreating the evidence](../native-evidence/recreating-evidence.md).
+
+## Open questions
+
+The
+[ledger of remaining evidence work](../provenance/remaining-evidence-work.md)
+lists the gaps that are not Resolved. The [gap analysis](../../gap-analysis.md)
+holds the full text of each gap.
+
+The ledger lists these gaps as not Resolved, and this set cites them or names
+its documents as the prepared work:
+
+- [GAP-020]: date and timestamp semantics.
+- [GAP-021]: ACK versus completion, durability
+  and retry.
+- [GAP-067]: article navigation, flavour and
+  date semantics.
+- [GAP-068]: posting and new-article discovery.
+- [GAP-070]: news hierarchy and structure
+  mutations.
+
+The documents also cite [GAP-046] and [GAP-065]. The ledger does not list them
+as not Resolved, and this overview does not restate their status.
+
+## Related sets
+
+- [Protocol](../protocol/README.md): the shared transaction envelope, the field
+  types and the dispatch rules that the news transactions use. Go there for the
+  request and reply layouts.
+- [Presence and messaging](../presence-and-messaging/README.md): the field
+  presence and default rules, whose document cites the news contracts. Go there
+  for how an absent field is read.
+- [Accounts and privileges](../accounts-and-privileges/README.md): the news
+  privilege bits for reading, posting and deleting articles, and the category
+  privileges. Go there for who may act.
+- [Files and transfers](../files-and-transfers/README.md): the filesystem and
+  board contracts, which also cover the legacy board. Go there for the file
+  side of the board.
+- [Peers](../peers/identified-client-source.md): identified client evidence for
+  how a client reads news lists.
+- [mxd](../mxd/README.md): the separate server implementation and its checks of
+  news behaviour.
+- [Native evidence](../native-evidence/recreating-evidence.md): the witness
+  documents for the news runs, and how to re-verify them.
+- [Provenance](../provenance/remaining-evidence-work.md): the ledger of
+  remaining evidence work and the open gaps.
+
+[GAP-020]: ../../gap-analysis.md#gap-020
+[GAP-021]: ../../gap-analysis.md#gap-021
+[GAP-046]: ../../gap-analysis.md#gap-046
+[GAP-065]: ../../gap-analysis.md#gap-065
+[GAP-067]: ../../gap-analysis.md#gap-067
+[GAP-068]: ../../gap-analysis.md#gap-068
+[GAP-070]: ../../gap-analysis.md#gap-070
