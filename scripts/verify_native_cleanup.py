@@ -1,266 +1,83 @@
 #!/usr/bin/env python3
 """Verify download cancellation races without treating ACK as receive rollback."""
 
-import argparse
+import dataclasses as dc
 import hashlib
 import json
-from datetime import datetime
+import typing as typ
 from pathlib import Path
 
-from native_cleanup_cases import FILENAME, data_fork, downloads, seed, upload_cleanup
+from native_cleanup_cases import (
+    FILENAME,
+    UPLOAD_DATA,
+    UPLOAD_FILENAME,
+    data_fork,
+    downloads,
+    seed,
+    upload_cleanup,
+)
 from native_filp import decode
 from native_packet_evidence import reconcile
-from native_transfer_cases import file_stream, resource_fork
-from pcap_tcp import direction, lifetime, read_packets, stream
+from native_transfer_cases import resource_fork
+from native_wire_names import TYPE_USER_LEFT
+from pcap_tcp import read_packets
 from protocol_capture import decode_frame, verify_capture
+from script_cli import run
+from verify_native_cleanup_checks import check_download, check_upload, reply
+from verify_native_cleanup_timing import bytes_after, flow, request_time
 from verify_native_core import require
-from verify_native_forks import check_file_info, check_metadata, fields
+from verify_native_forks import check_metadata
 from verify_native_framing import check_quiet
-from verify_native_queues import frame_time
+
+type Report = dict[str, typ.Any]
+
+# The checks live in verify_native_cleanup_checks and the packet timeline in
+# verify_native_cleanup_timing; the names below stay importable from this module.
+# flow is imported by native_folder_clock_checks and verify_native_folder_probes;
+# bytes_after, check_download, flow, reply and verify by test_native_cleanup;
+# request_time and check_upload are kept because the original module defined
+# them publicly.
+__all__ = [
+    "bytes_after",
+    "check_download",
+    "check_upload",
+    "flow",
+    "main",
+    "reply",
+    "request_time",
+    "verify",
+]
+
+DEPARTURE_BYTES = 28  # the length of the retained unread departure notice
+REQUEST_HEADER_HEX = 40  # the 20-byte header of a request, in hex digits
+ID_START = 4  # the header's transaction ID, bytes 4 to 8
+ID_END = 8
+SCOPE = (
+    "Ten finite ordinary-file cases; buffered-prefix and observed packet "
+    "ordering, not a universal race byte count or cancellation deadline"
+)
 
 
-def reply(report: dict, owner: str, identifier: int) -> dict:
-    selected = [
-        f
-        for f in report["frames"]
-        if f["connection"] == owner and f["is_reply"] == 1 and f["id"] == identifier
-    ]
-    require(len(selected) == 1, "Missing or duplicate cleanup reply")
-    fields(selected[0])
-    return selected[0]
+@dc.dataclass(frozen=True, slots=True)
+class Corpus:
+    """What each case is checked against: packets, hashes and the baseline."""
+
+    directory: Path
+    host: list[Report]
+    guest: list[Report]
+    unread: Report
+    source_hashes: set[str]
+    baseline: bytes
 
 
-def flow(
-    report: dict, connection: str, guest: list[dict]
-) -> tuple[list[dict], tuple, tuple]:
-    event = next(
-        e
-        for e in report["events"]
-        if e["event"] == "connect" and e["connection"] == connection
-    )
-    source = ("10.0.2.2", event["local_address"][1])
-    endpoint = ("10.0.2.15", 5500 + event["peer_address"][1] - 15500)
-    when = int(
-        datetime.fromisoformat(report["started_at_utc"]).timestamp() * 1e6
-        + event["elapsed_ns"] / 1000
-    )
-    return lifetime(guest, source, endpoint, when), source, endpoint
+def check_baseline(directory: Path) -> bytes:
+    """Check the baseline download's forks and metadata.
 
-
-def request_time(report: dict, response: dict, guest: list[dict]) -> int:
-    """Observe complete incoming214 bytes, not the internal handler instant."""
-    action = response["action"] - 1
-    wire = bytes.fromhex(
-        "".join(
-            e["hex"]
-            for e in report["events"]
-            if e["action"] == action and e["event"] == "send"
-        )
-    )
-    require(
-        len(wire) == 30 and int.from_bytes(wire[2:4], "big") == 214,
-        "Unexpected cleanup request bytes",
-    )
-    packets, source, endpoint = flow(report, response["connection"], guest)
-    raw = stream(packets, source, endpoint)
-    require(raw.count(wire) == 1, "Cleanup request not unique")
-    start = raw.index(wire)
-    selected = direction(packets, source, endpoint)
-    base = (next(p["sequence"] for p in selected if p["flags"] & 2) + 1) & 0xFFFFFFFF
-    seen: dict[int, int] = {}
-    for packet in selected:
-        if packet["flags"] & 4:
-            continue
-        offset = (packet["sequence"] + bool(packet["flags"] & 2) - base) & 0xFFFFFFFF
-        count = len(bytes.fromhex(packet["payload_hex"]))
-        for index in range(max(start, offset), min(start + len(wire), offset + count)):
-            seen[index] = min(
-                seen.get(index, packet["timestamp_us"]), packet["timestamp_us"]
-            )
-    require(len(seen) == len(wire), "Missing timed cleanup request bytes")
-    return max(seen.values())
-
-
-def bytes_after(
-    packets: list[dict], source: tuple, endpoint: tuple, total: int, cutoff: int
-) -> int:
-    """Count bytes first observed after cutoff without double-counting retries."""
-    selected = direction(packets, source, endpoint)
-    base = (next(p["sequence"] for p in selected if p["flags"] & 2) + 1) & 0xFFFFFFFF
-    before = []
-    for packet in selected:
-        if packet["flags"] & 4 or packet["timestamp_us"] > cutoff:
-            continue
-        start = (packet["sequence"] + bool(packet["flags"] & 2) - base) & 0xFFFFFFFF
-        end = min(total, start + len(bytes.fromhex(packet["payload_hex"])))
-        if start < end:
-            before.append((start, end))
-    covered, end = 0, 0
-    for start, stop in sorted(before):
-        covered += max(0, stop - max(start, end))
-        end = max(end, stop)
-    return total - covered
-
-
-def check_download(
-    report: dict, expectation: dict, baseline: bytes, packets: dict, guest: list[dict]
-) -> dict:
-    variant = expectation["variant"]
-    values = fields(reply(report, "a", 10))
-    reference = values[107]
-    require(
-        len(reference) == 4 and int.from_bytes(reference, "big") & 1 != 0,
-        "Cleanup download reference parity differs",
-    )
-    require(
-        int.from_bytes(values[108], "big") == len(baseline),
-        "Cleanup advertised size differs",
-    )
-    require(
-        int.from_bytes(values[207], "big") == len(data_fork()) + len(resource_fork()),
-        "Cleanup logical size differs",
-    )
-    recorded = report["streams"]["reference"]
-    require(
-        bytes.fromhex(recorded["sent_hex"]) == b"HTXF" + reference + bytes(8),
-        "Cleanup HTXF differs",
-    )
-    received = bytes.fromhex(recorded["received_hex"])
-    require(baseline.startswith(received), "Cancelled data is not a baseline prefix")
-    if variant in {"baseline", "nonowner"}:
-        require(received == baseline, "Full/nonowner download was truncated")
-        require(
-            any(
-                e["event"] == "quiet" and e["connection"] == "reference"
-                for e in report["events"]
-            ),
-            "Missing completed/nonowner open-connection observation",
-        )
-    else:
-        require(
-            expectation["prefix_size"] <= len(received) < len(baseline),
-            "Race did not establish bounded partial delivery",
-        )
-    response = reply(report, "a", 21)
-    require(
-        response["payload_hex"] == "0000"
-        and reply(report, "a", 22)["payload_hex"] == "0000",
-        "Owner/duplicate cleanup ACK differs",
-    )
-    require(
-        packets["reference"]["guest_server_initiated_close"],
-        "Missing native cleanup close",
-    )
-    require(
-        report["streams"]["stale"]["received_hex"] == ""
-        and packets["stale"]["guest_server_initiated_close"],
-        "Removed reference reattached successfully",
-    )
-    require(
-        bytes.fromhex(report["streams"]["stale"]["sent_hex"])
-        == b"HTXF" + reference + bytes(8),
-        "Stale-reference header differs",
-    )
-    after = sum(
-        len(bytes.fromhex(e["hex"]))
-        for e in report["events"]
-        if e["connection"] == "reference"
-        and e["event"] == "receive"
-        and e["action"] > response["action"]
-    )
-    before = len(received) - after
-    require(
-        before
-        == (
-            len(baseline)
-            if variant in {"baseline", "nonowner"}
-            else expectation["prefix_size"]
-        ),
-        "Application receive/cancel ordering differs",
-    )
-    data_packets, client, server = flow(report, "reference", guest)
-    ack_time = frame_time(report, response, guest)
-    observed_request = request_time(report, response, guest)
-    outgoing = direction(data_packets, server, client)
-    closes = [p for p in outgoing if p["flags"] & 5]
-    require(bool(closes), "Missing native close packet")
-    result = {
-        "received_stream_bytes": len(received),
-        "application_bytes_read_after_owner_ack": after,
-        "guest_bytes_first_observed_after_owner_request": bytes_after(
-            data_packets, server, client, len(received), observed_request
-        ),
-        "guest_bytes_first_observed_after_owner_ack": bytes_after(
-            data_packets, server, client, len(received), ack_time
-        ),
-        "guest_close_minus_owner_ack_us": closes[0]["timestamp_us"] - ack_time,
-    }
-    if variant == "nonowner":
-        other = reply(report, "b", 20)
-        require(other["payload_hex"] == "0000", "Nonowner cleanup ACK differs")
-        result["guest_bytes_first_observed_after_nonowner_ack"] = bytes_after(
-            data_packets,
-            server,
-            client,
-            len(received),
-            frame_time(report, other, guest),
-        )
-        require(
-            result["guest_bytes_first_observed_after_nonowner_ack"] > 0,
-            "Nonowner case did not overlap native data delivery",
-        )
-    return result
-
-
-def check_upload(report: dict, expectation: dict, packets: dict) -> dict:
-    small = expectation["kind"] == "cleanup-upload"
-    filename = bytes.fromhex(expectation["name_hex"]) if small else FILENAME
-    data = b"data-fork\r\n\x00\xff" if small else data_fork()
-    values = fields(reply(report, "a", 10))
-    reference = values[107]
-    require(
-        len(reference) == 4 and not int.from_bytes(reference, "big") & 1,
-        "Cleanup upload reference differs",
-    )
-    body = file_stream(data, resource_fork())
-    require(
-        bytes.fromhex(report["streams"]["upload"]["sent_hex"])
-        == b"HTXF" + reference + len(body).to_bytes(4, "big") + bytes(4) + body,
-        "Cleanup upload body differs",
-    )
-    require(
-        not report["streams"]["upload"]["received_hex"]
-        and packets["upload"]["guest_server_initiated_close"],
-        "Cleanup upload completion differs",
-    )
-    check_file_info(
-        reply(report, "a", 12 if small else 11),
-        filename,
-        len(data) + len(resource_fork()),
-    )
-    if small:
-        require(
-            reply(report, "a", 11)["payload_hex"] == "0000"
-            and reply(report, "a", 13)["payload_hex"] == "0000",
-            "Upload214 ACK differs",
-        )
-    return {"uploaded_data_bytes": len(data), "pending_upload_survived214": small}
-
-
-def verify(directory: Path) -> dict:
-    host, guest = (
-        read_packets(directory / "host.pcap"),
-        read_packets(directory / "guest.pcap"),
-    )
-    expected = seed() | downloads() | upload_cleanup()
-    require(
-        {p.name for p in (directory / "transcripts").iterdir()} == set(expected),
-        "Cleanup corpus inventory differs",
-    )
-    source_hashes = {
-        hashlib.sha256(p.read_bytes()).hexdigest()
-        for p in (directory / "sources").glob("protocol_capture*.txt")
-    }
+    Returns
+    -------
+    bytes
+        The baseline stream, which every other download is a prefix of.
+    """
     baseline_report = verify_capture(directory / "transcripts/cleanup-baseline")
     baseline = bytes.fromhex(baseline_report["streams"]["reference"]["received_hex"])
     forks = decode(baseline)
@@ -268,7 +85,18 @@ def verify(directory: Path) -> dict:
         forks["DATA"] == data_fork() and forks["MACR"] == resource_fork(),
         "Native baseline fork bytes differ",
     )
-    check_metadata(forks["INFO"], FILENAME, False)
+    check_metadata(forks["INFO"], FILENAME, uploaded=False)
+    return baseline
+
+
+def check_unread(directory: Path) -> Report:
+    """Check the retained unread output, which holds one departure notice.
+
+    Returns
+    -------
+    dict[str, typing.Any]
+        The unread output by case and connection.
+    """
     unread = json.loads((directory / "unread-output.json").read_text())
     require(
         set(unread) == {"cleanup-nonowner"}
@@ -278,52 +106,77 @@ def verify(directory: Path) -> dict:
     suffix = bytes.fromhex(unread["cleanup-nonowner"]["a"])
     departure = decode_frame(suffix)
     require(
-        len(suffix) == 28 and departure["type"] == 302 and departure["is_reply"] == 0,
+        len(suffix) == DEPARTURE_BYTES
+        and departure["type"] == TYPE_USER_LEFT
+        and departure["is_reply"] == 0,
         "Unread departure differs",
     )
-    observations: list[dict] = []
-    for name, (steps, expectation) in expected.items():
-        case = directory / "transcripts" / name
-        plan = json.loads((case / "plan.json").read_text())
-        report = verify_capture(case)
-        require(report["status"] == "completed", "Cleanup capture failed")
-        require(
-            report["driver_sha256"] in source_hashes, "Missing cleanup capture source"
-        )
-        require(
-            plan["steps"] == steps and plan["expectation"] == expectation,
-            "Cleanup plan differs",
-        )
-        packets = reconcile(
-            report,
-            host,
-            guest,
-            {k: bytes.fromhex(v) for k, v in unread.get(name, {}).items()},
-        )
-        check_quiet(report, plan)
-        for owner in {f["connection"] for f in report["frames"]}:
-            requests = [
-                int.from_bytes(bytes.fromhex(s["hex"][:40])[4:8], "big")
-                for s in steps
-                if s["op"] == "send"
-                and s["connection"] == owner
-                and len(s["hex"]) >= 40
-            ]
-            replies = [
-                f["id"]
-                for f in report["frames"]
-                if f["connection"] == owner and f["is_reply"]
-            ]
-            require(
-                sorted(requests) == sorted(replies),
-                "Cleanup request/reply inventory differs",
+    return unread
+
+
+def check_inventory(report: Report, steps: list[Report]) -> None:
+    """Check that each connection received one reply per request it sent."""
+    for owner in {f["connection"] for f in report["frames"]}:
+        requests = [
+            int.from_bytes(
+                bytes.fromhex(s["hex"][:REQUEST_HEADER_HEX])[ID_START:ID_END], "big"
             )
-        outcome = (
-            check_download(report, expectation, baseline, packets, guest)
-            if expectation["kind"] == "cleanup-download"
-            else check_upload(report, expectation, packets)
+            for s in steps
+            if s["op"] == "send"
+            and s["connection"] == owner
+            and len(s["hex"]) >= REQUEST_HEADER_HEX
+        ]
+        replies = [
+            f["id"]
+            for f in report["frames"]
+            if f["connection"] == owner and f["is_reply"]
+        ]
+        require(
+            sorted(requests) == sorted(replies),
+            "Cleanup request/reply inventory differs",
         )
-        observations.append({"case": name, "connections": packets, **outcome})
+
+
+def check_case(
+    corpus: Corpus, name: str, steps: list[Report], expectation: Report
+) -> Report:
+    """Check one recorded case.
+
+    Returns
+    -------
+    dict[str, typing.Any]
+        The case, its connections' packet reconciliation and its measurements.
+    """
+    case = corpus.directory / "transcripts" / name
+    plan = json.loads((case / "plan.json").read_text())
+    report = verify_capture(case)
+    require(report["status"] == "completed", "Cleanup capture failed")
+    require(
+        report["driver_sha256"] in corpus.source_hashes,
+        "Missing cleanup capture source",
+    )
+    require(
+        plan["steps"] == steps and plan["expectation"] == expectation,
+        "Cleanup plan differs",
+    )
+    packets = reconcile(
+        report,
+        corpus.host,
+        corpus.guest,
+        {k: bytes.fromhex(v) for k, v in corpus.unread.get(name, {}).items()},
+    )
+    check_quiet(report, plan)
+    check_inventory(report, steps)
+    outcome = (
+        check_download(report, expectation, corpus.baseline, packets, corpus.guest)
+        if expectation["kind"] == "cleanup-download"
+        else check_upload(report, expectation, packets)
+    )
+    return {"case": name, "connections": packets, **outcome}
+
+
+def check_races(observations: list[Report], baseline: bytes) -> None:
+    """Check that the corpus saw a cancellation race and buffered delivery."""
     require(
         any(
             c.get("guest_bytes_first_observed_after_owner_request", 0) > 0
@@ -338,9 +191,13 @@ def verify(directory: Path) -> dict:
         ),
         "No observed buffered receive after cleanup ACK",
     )
+
+
+def check_native_files(directory: Path) -> None:
+    """Check that the native file store still holds the uploaded fork bytes."""
     for name, data in [
         (FILENAME.decode(), data_fork()),
-        ("mothra-214-upload", b"data-fork\r\n\x00\xff"),
+        (UPLOAD_FILENAME.decode(), UPLOAD_DATA),
     ]:
         require(
             (directory / "native-files" / (name + ".data")).read_bytes() == data,
@@ -351,18 +208,53 @@ def verify(directory: Path) -> dict:
             == resource_fork(),
             "Native cleanup MACR differs",
         )
+
+
+def verify(directory: Path) -> Report:
+    """Verify the retained cleanup corpus.
+
+    Returns
+    -------
+    dict[str, typing.Any]
+        The observations of every case and the scope of the claim.
+    """
+    host, guest = (
+        read_packets(directory / "host.pcap"),
+        read_packets(directory / "guest.pcap"),
+    )
+    expected = seed() | downloads() | upload_cleanup()
+    require(
+        {p.name for p in (directory / "transcripts").iterdir()} == set(expected),
+        "Cleanup corpus inventory differs",
+    )
+    source_hashes = {
+        hashlib.sha256(p.read_bytes()).hexdigest()
+        for p in (directory / "sources").glob("protocol_capture*.txt")
+    }
+    baseline = check_baseline(directory)
+    unread = check_unread(directory)
+    corpus = Corpus(directory, host, guest, unread, source_hashes, baseline)
+    observations = [
+        check_case(corpus, name, steps, expectation)
+        for name, (steps, expectation) in expected.items()
+    ]
+    check_races(observations, baseline)
+    check_native_files(directory)
     return {
         "cases": observations,
         "baseline_stream_bytes": len(baseline),
-        "scope": "Ten finite ordinary-file cases; buffered-prefix and observed packet ordering, not a universal race byte count or cancellation deadline",
+        "scope": SCOPE,
     }
 
 
+def show(directory: str) -> None:
+    """Print the verification of the corpus in ``directory``."""
+    print(json.dumps(verify(Path(directory)), indent=2))
+
+
 def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("directory", type=Path)
-    args = parser.parse_args()
-    print(json.dumps(verify(args.directory), indent=2))
+    """Verify a native cleanup corpus from the command line."""
+    run(show, __doc__)
 
 
 if __name__ == "__main__":

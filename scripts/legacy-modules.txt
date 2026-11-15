@@ -27,7 +27,6 @@ scripts/native_ban_expiry_control.py
 scripts/native_bitmap_cases.py
 scripts/native_board_cases.py
 scripts/native_board_control.py
-scripts/native_cleanup_cases.py
 scripts/native_configured_ban_cases.py
 scripts/native_configured_ban_control.py
 scripts/native_control_readiness.py  # live bytes compared with a recorded hash
@@ -102,7 +101,6 @@ scripts/test_native_ban_reload.py
 scripts/test_native_bitmaps.py
 scripts/test_native_board.py
 scripts/test_native_board_corpus.py
-scripts/test_native_cleanup.py
 scripts/test_native_configured_ban.py
 scripts/test_native_configured_ban_witness.py
 scripts/test_native_console_broadcast.py
@@ -172,7 +170,6 @@ scripts/verify_native_ban_one.py
 scripts/verify_native_ban_reload.py
 scripts/verify_native_bitmaps.py
 scripts/verify_native_board.py
-scripts/verify_native_cleanup.py
 scripts/verify_native_configured_ban.py
 scripts/verify_native_console_broadcast.py
 scripts/verify_native_correlation.py
