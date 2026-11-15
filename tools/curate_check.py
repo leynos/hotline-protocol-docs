@@ -27,6 +27,8 @@ CURATION_RELATIVE = "evidence/curation.json"
 ALLOWED_NAMES = frozenset({MANIFEST_RELATIVE, CURATION_RELATIVE})
 PATCH_SUFFIX = ".bsdiff"
 WORKERS = 8
+# A cited path ending in one of these was truncated at a format placeholder.
+TEMPLATE_ENDINGS = ("-", "_")
 
 
 @dc.dataclass(frozen=True, slots=True)
@@ -86,6 +88,26 @@ def _check_corpora(here: list[str], included: set[str], result: CheckResult) -> 
     result.notes.append(f"{len(present)} corpora present, {len(included)} included")
 
 
+def _resolves(root: Path, path: str) -> bool:
+    """Say whether a cited evidence path names something that exists.
+
+    A citation that ends in a hyphen or an underscore was cut short at a format
+    placeholder, as in ``queries/D-{address}.c``. It names a family of files
+    and resolves when any file in that directory begins with it.
+
+    Returns
+    -------
+    bool
+        ``True`` if the path, or a file completing the template, exists.
+    """
+    target = root / path
+    if target.exists():
+        return True
+    if not path.endswith(TEMPLATE_ENDINGS) or not target.parent.is_dir():
+        return False
+    return any(child.name.startswith(target.name) for child in target.parent.iterdir())
+
+
 def _check_citations(
     request: CheckRequest, withheld: frozenset[str], result: CheckResult
 ) -> None:
@@ -96,8 +118,9 @@ def _check_citations(
             for path in cited_paths(file.read_bytes()):
                 first.setdefault(path, file)
     for path, file in sorted(first.items()):
-        if not (request.root / path).exists() and path not in withheld:
-            result.failures.append(f"{path}: cited by {file}, does not resolve")
+        if path in withheld or _resolves(request.root, path):
+            continue
+        result.failures.append(f"{path}: cited by {file}, does not resolve")
     result.notes.append(f"{len(first)} cited paths checked")
 
 

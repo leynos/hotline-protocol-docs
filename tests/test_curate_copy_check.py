@@ -211,6 +211,23 @@ def test_unresolved_citations_are_listed(tmp_path: Path) -> None:
     assert not any(ch.WITHHELD_PATH in f for f in failures), "a withheld path resolves"
 
 
+def test_a_path_template_resolves_by_prefix(tmp_path: Path) -> None:
+    """A citation cut short at a format placeholder names a family of files.
+
+    A script that builds ``.../queries/D-{address}.c`` is read as citing
+    ``.../queries/D-``. That resolves when some file begins with it, and fails
+    when none does.
+    """
+    w = world(tmp_path)
+    (w.root / ch.PM1 / "D-1000.c").write_text("x", encoding="utf-8")
+    w.document.write_text(
+        f"{CITED} {ch.PM1}/D-{{address}}.c {ch.PM1}/E-{{address}}.c", encoding="utf-8"
+    )
+    failures = [f for f in check(w).failures if "does not resolve" in f]
+    assert len(failures) == 1, failures
+    assert f"{ch.PM1}/E-" in failures[0], failures
+
+
 def test_command_line_exit_codes(
     tmp_path: Path, capsys: pytest.CaptureFixture[str]
 ) -> None:
