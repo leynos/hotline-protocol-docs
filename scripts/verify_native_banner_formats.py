@@ -90,14 +90,15 @@ class Corpus:
     guest : list[dict[str, typing.Any]]
         The guest packet capture.
     driver_hash : str
-        The hash of the capture driver as it ran.
+        The hash of the capture driver as it ran; empty until the inventory has
+        been checked, because the driver is read after the inventory.
     """
 
     directory: Path
     manifest: Report
     host: list[Report]
     guest: list[Report]
-    driver_hash: str
+    driver_hash: str = ""
 
 
 def check_inventory(corpus: Corpus) -> None:
@@ -286,20 +287,31 @@ def check_setup_cases(corpus: Corpus) -> list[Report]:
 
 
 def open_corpus(directory: Path) -> Corpus:
-    """Read the manifest, both packet captures and the driver hash of a corpus.
+    """Read the manifest and both packet captures of a corpus.
 
     Returns
     -------
     Corpus
-        The corpus.
+        The corpus, without its driver hash.
     """
     manifest = json.loads((directory / "manifest.json").read_text())
     host = read_packets(directory / "host.pcap")
     guest = read_packets(directory / "guest.pcap")
+    return Corpus(directory, manifest, host, guest)
+
+
+def with_driver_hash(corpus: Corpus) -> Corpus:
+    """Read the driver hash of a corpus, which follows its inventory check.
+
+    Returns
+    -------
+    Corpus
+        The corpus with its driver hash.
+    """
     driver_hash = hashlib.sha256(
-        (directory / "protocol_capture.py.as-run.txt").read_bytes()
+        (corpus.directory / "protocol_capture.py.as-run.txt").read_bytes()
     ).hexdigest()
-    return Corpus(directory, manifest, host, guest, driver_hash)
+    return dc.replace(corpus, driver_hash=driver_hash)
 
 
 def check_native_restores(
@@ -320,6 +332,7 @@ def verify(directory: Path) -> Report:
     """
     corpus = open_corpus(directory)
     check_inventory(corpus)
+    corpus = with_driver_hash(corpus)
     reports, packets = load_captures(corpus)
     native_files = verify_native_files(directory)
     oracle = verify_oracle(directory)
