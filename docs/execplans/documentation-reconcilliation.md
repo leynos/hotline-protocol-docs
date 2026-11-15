@@ -34,6 +34,12 @@ After this work:
 - The mxd set reads as one coherent account: current status first, then the
   compatibility policy, the accepted corrections, the client trials and the
   how-to, each stated once.
+- Every Python script in the repository, the 236 inherited capture and
+  verification scripts included, meets the df12 Python standards, with its
+  behaviour shown unchanged.
+- A reader who wants to regenerate a piece of evidence finds directions here
+  that use the mothra toolset. Those directions assume a working toolset and
+  link to mothra for its set-up; they do not repeat it.
 - `make all` proves that every link and anchor resolves, every cited gap,
   ledger entry and evidence artefact exists, prose about gap status agrees with
   the register, Mermaid diagrams render, tables are well formed, spelling
@@ -44,6 +50,7 @@ The model for the tree is the Lody documentation at
 
 This is an editorial and structural pass. It makes no new protocol observation,
 closes no gap, and does not resume the parked native and mxd investigations.
+The script work is a behaviour-preserving refactor.
 
 ## Constraints
 
@@ -51,23 +58,29 @@ closes no gap, and does not resume the parked native and mxd investigations.
   prose are: link targets, spelling, wrapping, table layout, captions,
   screen-reader descriptions, letter-case of headings, orientation paragraphs,
   and dated supersession notes that quote the gap register. The mxd set may
-  additionally be reorganized under the rules of EP-M6.
+  additionally be reorganized under the rules of EP-M7.
 - The gap register keeps exactly 87 gaps. Every `id`, `status`, `question`,
   `closure_criteria`, `priority`, `kind` and `depends_on` value stays
   byte-identical. Only source locations, coverage locations and link targets
   inside strings may change.
-- Outside the mxd set, no heading in an existing document may be added,
-  removed or reordered, and a heading's anchor slug must not change. Case-only
-  edits are allowed because the slug is lowercased.
+- Outside the mxd set and the set-up passages moved to mothra, no heading in
+  an existing document may be added, removed or reordered, and a heading's
+  anchor slug must not change. Case-only edits are allowed because the slug is
+  lowercased.
 - Evidence files are never modified. They move from `mothra/evidence/` to
   `evidence/` in this repository with identical bytes and identical paths
   beneath `evidence/`, so every existing `SHA256SUMS` file still verifies from
   the repository root. Formatters and linters never touch `evidence/`.
 - Path strings inside existing evidence that name `../mothra/` or the old flat
   document paths are historical and stay as written.
-- Legacy scripts keep their file names and behaviour. The only permitted
-  change to them is the expression that locates the evidence root or the mothra
-  checkout.
+- Legacy scripts keep their behaviour. Capture planners, control scripts and
+  `verify_*.py` checkers keep their file names and their documented command
+  lines, because documents and evidence records cite them. Every verifier must
+  reach the same verdict on every retained corpus before and after, and every
+  planner must emit byte-identical plans.
+- General guidance on installing or setting up the mothra toolset is not
+  written or kept in this repository. Where an existing document contains it,
+  the passage moves to mothra in general form and is replaced by a link.
 - After EP-M4, mothra must not name this repository, Hotline, mxd, SynHX or
   shx in any tracked file, and this repository must not contain a relative link
   into a mothra checkout.
@@ -87,9 +100,10 @@ closes no gap, and does not resume the parked native and mxd investigations.
 ## Tolerances (exception triggers)
 
 - Scope: this ExecPlan file, imported files and pure moves are excluded from
-  all counts. Stop and escalate if more than 60 new authored files or 7,500 net
-  new lines of code and documentation are needed, or if new Python tooling
-  exceeds 2,200 lines excluding tests.
+  all counts, as is the script refactor of EP-M5, which has its own limit
+  below. Stop and escalate if more than 65 new authored files or 8,500 net new
+  lines of code and documentation are needed, or if new Python tooling exceeds
+  2,200 lines excluding tests.
 - Meaning: if reconciling two documents requires choosing between claims that
   the retained evidence does not decide, stop for that item, record it in the
   reconciliation log, and continue with the rest. If more than ten such items
@@ -98,8 +112,19 @@ closes no gap, and does not resume the parked native and mxd investigations.
 - Classification: if a mothra file is partly general and partly
   Hotline-specific and cannot be split by deleting or parameterizing the
   specific part in under 50 changed lines, stop for that file and escalate.
-- Legacy scripts: if a script needs any change beyond its path expression to
-  pass its existing tests after the import, stop for that script.
+- Script behaviour: if any verifier verdict, planner output or existing test
+  outcome differs after a change to a legacy script, stop work on that script
+  family, revert the change and escalate. Do not adjust a test or a golden file
+  to make a refactor pass.
+- Suppressions: lint suppressions in legacy scripts must be line-scoped and
+  carry a reason. If more than 40 are needed in total, or any file-wide or
+  rule-wide exemption beyond those in the df12 template, stop and escalate.
+- Untestable scripts: if a script that drives the emulator or a live server
+  has no test and cannot be given one without a native run, refactor it only as
+  far as mechanical fixes allow, list it in `Decision log`, and continue. If
+  more than fifteen scripts fall in this class, stop and escalate.
+- Script effort: if the script milestone exceeds 25,000 changed lines
+  excluding moved tests, stop and report before continuing.
 - Dependencies: the tools named in `Interfaces and dependencies` are approved.
   Any other new dependency triggers escalation.
 - Iterations: if a gate still fails after five attempts at one cause, stop.
@@ -133,6 +158,15 @@ closes no gap, and does not resume the parked native and mxd investigations.
 - Risk: reorganizing the mxd documents loses or duplicates a finding.
   Severity: high. Likelihood: medium. Mitigation: obligation INV-MXD, a claim
   inventory made before any edit and reconciled after.
+- Risk: refactoring about 61,600 lines of evidence-producing scripts changes
+  what a verifier accepts. Severity: high. Likelihood: medium. Mitigation:
+  obligation INV-SCRIPT; verdicts, plans and test outcomes are captured as
+  goldens before the first change and compared after every family.
+- Risk: the evidence-recreation directions cannot be exercised end to end,
+  because no native run is permitted in this pass. Severity: medium.
+  Likelihood: certain. Mitigation: every offline step is executed; steps that
+  need the emulator are checked for the existence and command-line validity of
+  each script they name, and the guide states which parts were not re-run.
 - Risk: the spelling gate flags protocol tokens such as `FILP` and `alis`,
   tempting unsafe edits to quoted bytes. Severity: medium. Likelihood: high.
   Mitigation: wrap wire tokens in backticks, which the gate ignores, or add
@@ -152,18 +186,21 @@ closes no gap, and does not resume the parked native and mxd investigations.
 - [x] (2026-11-15 12:33Z) Drafted this ExecPlan (commit `8dc6714`).
 - [x] (2026-11-15 12:55Z) Revised for three owner directions: mothra becomes
   general, mothra links become GitHub links, and the mxd set is tidied.
-- [ ] Approval of the plan and of decisions D1, D2, D4 and D10.
+- [x] (2026-11-15 13:20Z) Owner settled D1, D2 (full scope), D4 and D10, and
+  asked for evidence-recreation directions; plan revised.
+- [ ] Explicit approval to begin implementation.
 - [ ] EP-M0: baseline, mothra pushed, classification manifest.
 - [ ] EP-M1: tooling foundation and link gate.
 - [ ] EP-M2: audit refresh tool proven against revision 89.
 - [ ] EP-M3: Hotline material imported; repository self-contained; revision 90.
 - [ ] EP-M4: mothra generalized on a branch and pushed.
-- [ ] EP-M5: documents relocated into sets; revision 91.
-- [ ] EP-M6: mxd set consolidated; revision 92.
-- [ ] EP-M7: on-ramps, orientation documents and diagrams.
-- [ ] EP-M8: evidence correlation and reconciliation; revision 93.
-- [ ] EP-M9: style conformance and cross-references; revision 94.
-- [ ] EP-M10: final validation and retrospective.
+- [ ] EP-M5: all scripts meet the df12 Python standards; revision 91.
+- [ ] EP-M6: documents relocated into sets; revision 92.
+- [ ] EP-M7: mxd set consolidated; revision 93.
+- [ ] EP-M8: on-ramps, orientation, recreation guide and diagrams.
+- [ ] EP-M9: evidence correlation and reconciliation; revision 94.
+- [ ] EP-M10: style conformance and cross-references; revision 95.
+- [ ] EP-M11: final validation and retrospective.
 
 ## Surprises & discoveries
 
@@ -187,7 +224,7 @@ closes no gap, and does not resume the parked native and mxd investigations.
   say GAP-044 remains open, `native-settings-preparation.md` says GAP-015 stays
   open, and `native-diagnostic-existing-preparation.md` says GAP-037 remains
   open; the register marks all three Resolved. Impact: known positives for the
-  status check in EP-M8.
+  status check in EP-M9.
 - Observation: seven gaps (GAP-009, 013, 056, 058, 060, 066 and 069) are
   mentioned nowhere outside `gap-analysis.md`, and 48 non-test scripts are
   cited by no document. Impact: inputs to the correlation pass.
@@ -196,32 +233,39 @@ closes no gap, and does not resume the parked native and mxd investigations.
   headings or only two; the same three corrections are described in
   `mxd-validation.md`, in their own documents and in
   `internal-compatibility-matrix.md`; current status, history and procedure are
-  interleaved. Impact: EP-M6.
+  interleaved. Impact: EP-M7.
+- Observation: the legacy scripts are far from the df12 standard. Evidence:
+  with episodic's Ruff configuration and Ruff 0.16.8, `scripts/` has 7,079
+  findings (chiefly magic values, missing docstrings, `unittest` assertions,
+  bare `ValueError` messages and complexity) and 74 files need reformatting; 47
+  modules exceed 400 lines; 107 use `argparse`; 12 use `subprocess`; the 88
+  test files hold 758 `unittest` tests. Impact: EP-M5 is the largest milestone.
+- Observation: `native-capture-workflow.md` opens with "Prepare the emulator
+  and application", which mixes general emulator set-up with Hotline-specific
+  preparation. Impact: EP-M4 and EP-M8 split it.
 - Observation: the existing documents are otherwise close to clean. With the
   Lody markdownlint configuration only 18 MD049 findings appear, no local link
   is broken, and default `typos` reports 90 findings, mostly protocol tokens.
 
 ## Decision log
 
-- Decision D1 (proposed, needs approval): relocate the documents into a
+- Decision D1 (accepted by the owner, 2026-11-15): relocate the documents into a
   `docs/<set>/` tree instead of adding an index over the flat directory.
   Rationale: the request is to model the tree on Lody's, and 103 siblings
   defeat orientation however good the index. Date/Author: 2026-11-15, planning
   agent.
-- Decision D2 (proposed, needs approval): the df12 Python standards apply in
-  full to new tooling under `tools/` and `tests/`. The legacy scripts, 236 here
-  plus those imported from mothra, change only in their path expressions and
-  stay under the default Ruff rules and `ty`, as mothra gates them today.
-  Rationale: they are evidence-producing artefacts of about 61,600 lines;
-  bringing them to the stricter standard is a separate project. Date/Author:
-  2026-11-15, planning agent.
+- Decision D2 (settled by the owner, 2026-11-15): the df12 Python standards
+  apply in full to every Python file, including the 236 legacy scripts and
+  those imported from mothra. The planning agent had proposed limiting them to
+  new tooling; the owner chose full scope. Consequence: milestone EP-M5 and
+  obligation INV-SCRIPT.
 - Decision D3 (settled by the owner, 2026-11-15): mothra is a general
   reverse-engineering and validation toolset. Everything Hotline-specific moves
   here. This replaces the earlier proposal to add audit revisions inside mothra.
-- Decision D4 (proposed, needs approval): stale status statements in dated
-  preparation and witness records are not rewritten. A dated note is added
-  beneath them giving the register's current status. Rationale: the records are
-  historical. Date/Author: 2026-11-15, planning agent.
+- Decision D4 (accepted by the owner, 2026-11-15): stale status statements in
+  dated preparation and witness records are not rewritten. A dated note is
+  added beneath them giving the register's current status. Rationale: the
+  records are historical. Date/Author: 2026-11-15, planning agent.
 - Decision D5: evidence citations stay as inline links to evidence artefacts,
   ledger identifiers and gap identifiers. Lody-style `E-…` row identifiers are
   not retrofitted. Rationale: 743 evidence links and 521 ledger citations
@@ -231,10 +275,10 @@ closes no gap, and does not resume the parked native and mxd investigations.
   Rationale: they state nothing that a member document does not state.
   Date/Author: 2026-11-15, planning agent.
 - Decision D7: from the df12 template's lint chain, adopt Ruff, `ty`,
-  `interrogate`, Pylint with the df12 messages, and pytest. Omit the dead-code,
-  duplication, workflow-lint and mutation gates. Rationale: there is no
-  installable package and no workflow here. Date/Author: 2026-11-15, planning
-  agent.
+  `interrogate`, Pylint with the df12 messages, and pytest, for every Python
+  file. Omit the dead-code, duplication, workflow-lint and mutation gates.
+  Rationale: there is no installable package and no workflow here. Date/Author:
+  2026-11-15, planning agent.
 - Decision D8 (settled by the owner, 2026-11-15): mothra `main` may be pushed
   to `origin`. Consequence accepted: the Hotline evidence remains in mothra's
   published history; later commits remove it from the tree.
@@ -243,8 +287,8 @@ closes no gap, and does not resume the parked native and mxd investigations.
   clone followed by a merge of unrelated histories. Rationale: history shows
   when each corpus was captured, and the same content already packs to about
   326 MiB. Date/Author: 2026-11-15, planning agent.
-- Decision D10 (proposed, needs approval): the mxd set is reorganized into the
-  six documents listed under EP-M6. Rationale: one document per reader
+- Decision D10 (accepted by the owner, 2026-11-15): the mxd set is reorganized
+  into the six documents listed under EP-M7. Rationale: one document per reader
   question, each finding stated once. Date/Author: 2026-11-15, planning agent.
 - Decision D11 (settled by the owner, 2026-11-15): links from these documents
   to mothra are absolute GitHub URLs. They are written as permalinks,
@@ -257,9 +301,24 @@ closes no gap, and does not resume the parked native and mxd investigations.
   document link, and the dependency runs one way only. Date/Author: 2026-11-15,
   planning agent.
 
+- Decision D13: scripts run in the project environment through `uv run`, as
+  episodic's do, and carry no per-script dependency header. Rationale: they
+  import one another as sibling modules, which a self-contained script header
+  does not support. Date/Author: 2026-11-15, planning agent.
+- Decision D14: tests for legacy scripts move from `scripts/test_*.py` to
+  `scripts/tests/`, as the df12 scripting standards prescribe, and become
+  pytest tests. Modules over 400 lines are split into a module of the same name
+  plus helper modules, so cited file names survive. Date/Author: 2026-11-15,
+  planning agent.
+- Decision D15 (settled by the owner, 2026-11-15): this repository gives
+  directions for recreating its evidence with the mothra toolset and gives no
+  general toolset set-up guidance. The directions live in
+  `docs/native-evidence/recreating-evidence.md`, and each row of a generated
+  evidence index links to the procedure that recreates that corpus.
+
 ## Outcomes & retrospective
 
-Not yet started. To be completed at EP-M10.
+Not yet started. To be completed at EP-M11.
 
 ## Context and orientation
 
@@ -343,7 +402,7 @@ throughout, and modules under 400 lines.
 ## Conformance basis
 
 No Terms of Reference, technical design or ADR exists for this work. The
-upstream authority is the owner's request and three later directions, all of
+upstream authority is the owner's request and five later directions, all of
 15 November 2026:
 
 - REQ-1: reconcile the documents with one another and with the register.
@@ -352,26 +411,30 @@ upstream authority is the owner's request and three later directions, all of
 - REQ-4: follow the df12 documentation style guide at commit `991af84`.
 - REQ-5: validate with nixie, mdtablefix, spelling and markdownlint as netsuke
   does.
-- REQ-6: Python tooling follows the df12 Python standards.
+- REQ-6: every Python script follows the df12 Python standards, the legacy
+  scripts included.
 - REQ-7: include Mermaid diagrams where they help, validated by nixie.
 - REQ-8: nothing in mothra is specific to the Hotline work.
 - REQ-9: links to mothra are absolute GitHub links.
 - REQ-10: the mxd validation documents are tidied into a coherent set.
+- REQ-11: the documents give directions for recreating the evidence with the
+  mothra toolset, without general guidance on setting that toolset up.
 
 Trace links:
 
 ```plaintext
-REQ-1  -> EP-M8 -> make evidence-check (status, identifiers); docs/reconciliation-log.md
-REQ-2  -> EP-M8 -> docs/<set>/evidence.md generated; make evidence-check
-REQ-3  -> EP-M5, EP-M7, EP-M9 -> make links-check (reachability, contents)
-REQ-4  -> EP-M1, EP-M9 -> make markdownlint, make style-check
-REQ-5  -> EP-M1, EP-M9 -> make check-fmt, markdownlint, spelling, nixie
-REQ-6  -> EP-M1, EP-M2 -> make lint-python, typecheck, test
-REQ-7  -> EP-M7, EP-M9 -> make nixie
+REQ-1  -> EP-M9 -> make evidence-check (status, identifiers); docs/reconciliation-log.md
+REQ-2  -> EP-M9 -> docs/<set>/evidence.md generated; make evidence-check
+REQ-3  -> EP-M6, EP-M8, EP-M10 -> make links-check (reachability, contents)
+REQ-4  -> EP-M1, EP-M10 -> make markdownlint, make style-check
+REQ-5  -> EP-M1, EP-M10 -> make check-fmt, markdownlint, spelling, nixie
+REQ-6  -> EP-M1, EP-M2, EP-M5 -> make lint-python, typecheck, test; INV-SCRIPT
+REQ-7  -> EP-M8, EP-M10 -> make nixie
 REQ-8  -> EP-M3, EP-M4 -> INV-IMPORT; mothra name search empty; mothra make check
 REQ-9  -> EP-M3 -> make links-check (no relative mothra link; permalink shape and target)
-REQ-10 -> EP-M6 -> INV-MXD claim inventory reconciled
-audit validity (inherited) -> EP-M2, EP-M3, EP-M5, EP-M6, EP-M8, EP-M9 -> make audit-check
+REQ-10 -> EP-M7 -> INV-MXD claim inventory reconciled
+REQ-11 -> EP-M4, EP-M8, EP-M9 -> INV-RECREATE; docs/native-evidence/recreating-evidence.md
+audit validity (inherited) -> EP-M2, EP-M3, EP-M6, EP-M7, EP-M9, EP-M10 -> make audit-check
 ```
 
 ## Verification plan
@@ -451,8 +514,36 @@ with hyphens. The link tool uses the same rule, and a test pins it against the
 - Obligation INV-STATUS: no sentence asserts a gap status that contradicts the
   register, unless it sits in a dated supersession note. Method: parameterized
   tests over phrasings, and the real run. Evidence: the check fails on the four
-  known cases before EP-M8 and passes after. Residual gap: the phrase list is
-  finite; the review in EP-M8 reads every sentence that names a Resolved gap.
+  known cases before EP-M9 and passes after. Residual gap: the phrase list is
+  finite; the review in EP-M9 reads every sentence that names a Resolved gap.
+- Obligation INV-SCRIPT: refactoring a legacy script changes no observable
+  behaviour. Three oracles are captured as goldens in EP-M0 and EP-M3, before
+  any refactor: the verdict, exit code and output of every `verify_*.py`
+  checker on every retained corpus it is run against; the byte content of every
+  plan that a `*_cases.py` planner emits offline; and the name and outcome of
+  every existing test. Lemma: converting a `unittest` test to pytest preserves
+  what it asserts, shown by a one-to-one mapping of test names with no test
+  deleted and assertion counts per test not reduced. Method: golden comparison
+  after each script family, plus parameterized tests for each documented
+  command line, which must still parse to the same arguments after the move to
+  Cyclopts. Artefact: `tests/goldens/`, `tests/test_legacy_goldens.py` and
+  `tools/capture_goldens.py`. Evidence: `make evidence-verify` and `make test`
+  report the baseline counts, and the golden comparison prints `0 differences`.
+  Non-vacuity: a negative control alters one comparison constant in one
+  verifier and one byte in one emitted plan, and each must be reported; the
+  baseline must show at least one verifier per corpus named in
+  `evidence-verify` and at least 758 tests. Residual gap: scripts that only run
+  against a live emulator are covered by their tests and plans, not by
+  execution.
+- Obligation INV-RECREATE: every corpus listed in a generated evidence index
+  maps either to a procedure in the recreation guide or to a stated reason it
+  cannot be recreated, and every script and command the guide names exists and
+  parses. Method: parameterized tests and the real run, as part of
+  `tools/check_evidence.py`; each named command is invoked with `--help`.
+  Evidence: `make evidence-check` reports the corpus count with none unmapped.
+  Non-vacuity: a seeded corpus with no procedure, and a seeded reference to a
+  script that does not exist, are rejected. Residual gap: procedures that need
+  the emulator are not executed in this pass, and the guide says so.
 - Obligation INV-GENERAL: no tracked file on the mothra branch contains
   `hotline`, `hlserver`, `mxd`, `synhx`, `shx`, `HOTL`, `GAP-` followed by
   digits, or `protocol-docs`, in any letter case, and mothra's `make check`
@@ -470,30 +561,44 @@ classification manifest: one line for every tracked mothra path outside
 
 Stage B and C, tooling built test-first, are EP-M1 and EP-M2. Add
 `pyproject.toml`, `Makefile`, `.markdownlint-cli2.jsonc`, `typos.local.toml`,
-`.gitignore` and `.gitattributes` entries, `scripts/ruff.toml`, `AGENTS.md` and
-the style guide copy. Write `tools/check_links.py` and then
-`tools/refresh_audit.py`, each from failing tests. Documentation gates are
-wired in EP-M1 but only the Python and link gates must pass until EP-M9,
-because fixing document findings earlier would invalidate the audit before the
-refresh tool exists.
+`.gitignore` and `.gitattributes` entries, a temporary `scripts/ruff.toml` that
+holds the legacy scripts at their present rules, `AGENTS.md` and the style
+guide copy. Write `tools/check_links.py` and then `tools/refresh_audit.py`,
+each from failing tests. Documentation gates are wired in EP-M1 but only the
+Python and link gates must pass until EP-M10, because fixing document findings
+earlier would invalidate the audit before the refresh tool exists.
 
 EP-M3 makes this repository self-contained. Import the selected mothra paths
 with history. Rewrite `../mothra/evidence/` links to in-repository links and
 every other mothra link to a GitHub permalink. Change the path expressions in
 the legacy scripts. Bring over the renderer and the Hotline check targets from
-mothra's `Makefile`. Cut revision 90 inside this repository.
+mothra's `Makefile`. Capture the INV-SCRIPT goldens. Cut revision 90 inside
+this repository.
 
 EP-M4 generalizes mothra on a branch: delete what was imported, reduce its
 `Makefile`, `README.md` and remaining guides to general tooling, and push the
-branch.
+branch. General emulator and toolset set-up passages found in this repository's
+documents move to mothra in general form in the same milestone.
 
-EP-M5 relocates documents into sets with `tools/migrate_layout.py`. EP-M6
-reorganizes the mxd set. EP-M7 writes the orientation layer as new files. EP-M8
-adds `tools/check_evidence.py`, generates the evidence indexes and reconciles
-drift. EP-M9 applies the style guide inside existing documents, adds neighbour
-links and diagrams, and turns on every gate in `make all`. EP-M10 deletes the
-one-off migration tooling, runs every gate in both repositories and writes the
-retrospective.
+EP-M5 brings every legacy script to the df12 standard, one family at a time. A
+family is a planner, its control script, its verifier and their tests, for
+example the rate-304 family. Shared libraries (`protocol_capture`, `pcap_tcp`,
+`native_packet_evidence`, `verify_native_core` and similar) go first. For each
+family: convert its tests to pytest under `scripts/tests/`; apply formatting
+and safe automatic fixes; then work through the remaining findings by adding
+docstrings and annotations, naming magic values, replacing bare exceptions with
+domain errors, reducing complexity by extracting functions, splitting modules
+over 400 lines, moving command lines to Cyclopts and external processes to
+`cuprum`; run the goldens; commit. When the last family is done, delete
+`scripts/ruff.toml` so the root configuration governs everything.
+
+EP-M6 relocates documents into sets with `tools/migrate_layout.py`. EP-M7
+reorganizes the mxd set. EP-M8 writes the orientation layer as new files,
+including the evidence-recreation guide. EP-M9 adds `tools/check_evidence.py`,
+generates the evidence indexes and reconciles drift. EP-M10 applies the style
+guide inside existing documents, adds neighbour links and diagrams, and turns
+on every gate in `make all`. EP-M11 deletes the one-off migration tooling, runs
+every gate in both repositories and writes the retrospective.
 
 ## Milestones and plateaus
 
@@ -526,34 +631,47 @@ retrospective.
   Requirements: REQ-8. Evidence: INV-GENERAL. Conformance: this repository's
   `make all` subset from EP-M3 still passes against the mothra branch.
   Recovery: the branch is not merged; delete it to undo. Compatibility: none.
-- EP-M5, relocation. Outcome: documents live under `docs/<set>/`; revision 91
+- EP-M5, script standards. Outcome: every Python file passes the df12 gates
+  under one configuration; tests are pytest under `scripts/tests/`; no module
+  exceeds 400 lines; revision 91 covers documents whose cited test paths
+  changed. Requirements: REQ-6. Evidence: INV-SCRIPT;
+  `make lint-python typecheck test evidence-verify`. Conformance: verifier
+  verdicts, planner output and test outcomes identical to the goldens; planner,
+  control and verifier file names unchanged; no suppression beyond tolerance.
+  Recovery: each family is its own commit and can be reverted alone. Remaining:
+  none for scripts. Compatibility: none; the `unittest` entry points are not
+  kept.
+- EP-M6, relocation. Outcome: documents live under `docs/<set>/`; revision 92
   is accepted. Requirements: REQ-3 advanced. Evidence: INV-MOVE, INV-LINK,
   `make audit-check`. Conformance: `git diff -M --stat` shows renames with
   link-only changes. Recovery: revert the relocation commit. Compatibility:
   none; old paths are tabulated in `docs/repository-layout.md`, not aliased.
-- EP-M6, mxd set. Outcome: six documents replace eight; revision 92 is
+- EP-M7, mxd set. Outcome: six documents replace eight; revision 93 is
   accepted. Requirements: REQ-10. Evidence: INV-MXD, INV-AUDIT with the section
   map, INV-LINK. Conformance: no finding changed; every inbound link from other
   sets and from the register updated. Recovery: revert the milestone's commits.
-- EP-M7, on-ramps. Outcome: `README.md`, `docs/contents.md`,
-  `docs/repository-layout.md`, `docs/developers-guide.md` and the set overviews
-  exist with at least five validated Mermaid diagrams. Requirements: REQ-3,
-  REQ-7. Evidence: INV-REACH, `make nixie`. Conformance: new files only.
-  Recovery: revert.
-- EP-M8, correlation and reconciliation. Outcome: generated
+- EP-M8, on-ramps. Outcome: `README.md`, `docs/contents.md`,
+  `docs/repository-layout.md`, `docs/developers-guide.md`, the set overviews and
+  `docs/native-evidence/recreating-evidence.md` exist with at least five
+  validated Mermaid diagrams. Requirements: REQ-3, REQ-7, REQ-11 advanced.
+  Evidence: INV-REACH, `make nixie`. Conformance: new files only. Recovery:
+  revert.
+- EP-M9, correlation and reconciliation. Outcome: generated
   `docs/<set>/evidence.md` indexes; status drift resolved by dated notes;
   `docs/reconciliation-log.md` lists every discrepancy examined and its
-  disposition; revision 93. Requirements: REQ-1, REQ-2. Evidence: INV-EVID,
-  INV-STATUS. Conformance: no claim changed meaning; 87 gaps. Recovery: revert.
-- EP-M9, style and cross-references. Outcome: every gate in `make all`
-  passes; revision 94. Requirements: REQ-4, REQ-5, REQ-7. Conformance: heading
-  anchor sequences identical to revision 93. Recovery: revert per set; each set
+  disposition; every indexed corpus maps to a recreation procedure or a stated
+  reason; revision 94. Requirements: REQ-1, REQ-2, REQ-11. Evidence: INV-EVID,
+  INV-STATUS, INV-RECREATE. Conformance: no claim changed meaning; 87 gaps.
+  Recovery: revert.
+- EP-M10, style and cross-references. Outcome: every gate in `make all`
+  passes; revision 95. Requirements: REQ-4, REQ-5, REQ-7. Conformance: heading
+  anchor sequences identical to revision 94. Recovery: revert per set; each set
   is a separate commit.
-- EP-M10, completion. Outcome: both repositories pass their full gates;
+- EP-M11, completion. Outcome: both repositories pass their full gates;
   retrospective written; status COMPLETE. Merging either branch is left to the
   owner.
 
-The mxd set after EP-M6, with the source of each document:
+The mxd set after EP-M7, with the source of each document:
 
 - `README.md`: scope, the pinned mxd revisions, the hold of 13 November 2026,
   a one-page summary and the reading order. New.
@@ -578,6 +696,20 @@ The mxd set after EP-M6, with the source of each document:
 Titles describe the subject; commit hashes move into a "Revisions examined"
 table in the overview. Statements of what happened in what order move to a
 short history section at the end of each document.
+
+The recreation guide, `docs/native-evidence/recreating-evidence.md`, is a
+how-to organized by the kind of evidence a reader wants to regenerate. It opens
+with what the reader must already have, each item a GitHub permalink to the
+mothra guide that covers it, and repeats none of that guidance. Its sections
+are: static analysis records from the Ghidra oracle; native server captures, as
+the cycle of preparation packet, supervised run, witness record and verifier;
+peer client captures for the Classic client and shx; mxd fixture trials; audit
+revisions and the gap analysis; and building the portable evidence package.
+Each section gives the Hotline-specific inputs, the exact commands, the
+expected output, the verifier that accepts the result, and what cannot be
+recreated and why. It links into the existing per-fixture sections of
+`native-capture-workflow.md` and the preparation records, and does not restate
+them.
 
 ## Concrete steps
 
@@ -651,13 +783,27 @@ git push -u origin documentation-reconcilliation
 
 Expect the search to print nothing.
 
-EP-M5 to EP-M9 repeat one pattern: edit one set, run `make fmt`, run the gates
+EP-M5. Once, before the first refactor, and again after each family:
+
+```sh
+uv run tools/capture_goldens.py --check
+uv run pytest scripts/tests -q
+make evidence-verify
+make lint-python
+make typecheck
+```
+
+The first command prints `0 differences`. To see remaining findings for one
+family while working, run Ruff on its files alone; do not run the gates in
+parallel.
+
+EP-M6 to EP-M10 repeat one pattern: edit one set, run `make fmt`, run the gates
 in the order `check-fmt`, `markdownlint`, `nixie`, `links-check`,
 `evidence-check`, commit; at the end of the milestone refresh the audit with
 the next revision number, regenerate `gap-analysis.md`, run `make audit-check`,
 and commit.
 
-EP-M10:
+EP-M11:
 
 ```sh
 make all
@@ -690,19 +836,25 @@ The mxd overview answers, in its first screen, what was validated, at which
 revision, and what is outstanding; each correction and trial is described in
 one place.
 
+A reader who wants to regenerate, say, the private-message witness opens the
+recreation guide from the `native-evidence` overview or from that corpus's row
+in the evidence index, and finds the inputs, commands and verifier without
+being told how to install the emulator.
+
 Red-Green-Refactor evidence is recorded per tool in `Artefacts and notes`: the
 failing test run, the passing run, and the lint, type-check and test run after
 refactoring.
 
 Quality criteria:
 
-- Tests: `make test` passes; the legacy `unittest` suite passes with the
-  recorded count; every new tool has happy-path and failure-path tests.
-- Verification: the nine obligations discharged as specified, with
+- Tests: `make test` passes; the converted legacy suite has at least the 758
+  baseline tests plus those imported, none deleted; every new tool has
+  happy-path and failure-path tests.
+- Verification: the eleven obligations discharged as specified, with
   non-vacuity counts recorded.
 - Lint and type checks:
-  `make lint-python lint-legacy typecheck check-fmt markdownlint spelling nixie`
-  pass.
+  `make lint-python typecheck check-fmt markdownlint spelling nixie` pass over
+  every Python and Markdown file, with no separate rule set for legacy code.
 - Performance: `make all` completes in under ten minutes on this machine.
 - Security: tools write only inside this worktree; the refresh tool refuses
   to overwrite an existing revision directory; credential-bearing captures that
@@ -749,7 +901,7 @@ in the mxd set.
   `classic-native-baseline`, `classic-field161-matrix`,
   `classic-roster-subject-115`, `classic-server-name-162`,
   `mac-peer-first-session`, `mac-peer-isolated-session`.
-- `mxd` (8 become 6): see EP-M6.
+- `mxd` (8 become 6): see EP-M7.
 - `native-evidence` (42): `native-capture-workflow`,
   `native-control-readiness`, `runtime-recovery-20261113`, and every remaining
   `native-*` file.
@@ -805,15 +957,16 @@ New files at the end of EP-M3:
 - `pyproject.toml`: `requires-python = ">=3.14"`, a `dev` dependency group,
   and the Ruff, Pylint and pytest tables from the df12 template with
   `target-version = "py314"`.
-- `scripts/ruff.toml`: default Ruff settings for the legacy scripts.
+- `scripts/ruff.toml`: default Ruff settings for the legacy scripts, present
+  from EP-M1 and deleted at the end of EP-M5.
 - `Makefile` with `.NOTPARALLEL:` and the targets `help`, `all`, `fmt`,
   `check-fmt`, `markdownlint`, `spelling`, `nixie`, `links-check`,
   `evidence-check`, `style-check`, `audit-check`, `evidence-verify`,
-  `lint-python`, `lint-legacy`, `typecheck` and `test`. `markdownlint` depends
-  on `spelling`, as in netsuke. Markdown tools receive an explicit file list
-  from `git ls-files '*.md' ':!evidence/**'`. `evidence-verify` carries the
-  corpus checks formerly in mothra's `Makefile`. `audit-check` runs the
-  renderer with `--check`.
+  `lint-python`, `typecheck` and `test`. `markdownlint` depends on `spelling`,
+  as in netsuke. Markdown tools receive an explicit file list from
+  `git ls-files '*.md' ':!evidence/**'`. `evidence-verify` carries the corpus
+  checks formerly in mothra's `Makefile`. `audit-check` runs the renderer with
+  `--check`.
 - `.markdownlint-cli2.jsonc`: netsuke's rules plus Lody's `MD024`
   `siblings_only`, `MD033` allowing `a` and `br`, and `MD049` underscore;
   ignoring `evidence/**`, `.uv-cache` and `.uv-tools`.
@@ -834,14 +987,17 @@ def check(root: Path, *, mothra: Path | None = None) -> Report: ...
 # tools/refresh_audit.py
 def refresh(root: Path, revision: int, *, today: dt.date, section_map: Path | None = None) -> Revision: ...
 
-# tools/check_import.py  (deleted in EP-M10)
+# tools/check_import.py  (deleted in EP-M11)
 def compare(root: Path, mothra: Path, commit: str, selected: Sequence[PurePosixPath]) -> Report: ...
 
-# tools/migrate_layout.py  (deleted in EP-M10)
+# tools/migrate_layout.py  (deleted in EP-M11)
 def rewrite_link(link: str, source: PurePosixPath, moves: Mapping[PurePosixPath, PurePosixPath]) -> str: ...
 
 # tools/check_evidence.py
 def check(root: Path, *, write: bool = False) -> Report: ...
+
+# tools/capture_goldens.py
+def capture(root: Path, *, check: bool = False) -> Report: ...
 
 # tools/check_style.py
 def check(root: Path) -> Report: ...
@@ -856,13 +1012,21 @@ related gaps, and ledger identifiers.
 
 ## Revision note
 
-Revised on 15 November 2026 after three owner directions. mothra must be a
-general toolset, so the plan now imports all Hotline-specific material into
-this repository (EP-M3) and generalizes mothra on a branch (EP-M4), replacing
-the earlier design that added audit revisions inside mothra and paired the two
-worktrees with a symlink. Links to mothra become GitHub permalinks, which adds
+First revision, 15 November 2026, after three owner directions. mothra must be
+a general toolset, so the plan imports all Hotline-specific material into this
+repository (EP-M3) and generalizes mothra on a branch (EP-M4), replacing the
+earlier design that added audit revisions inside mothra and paired the two
+worktrees with a symlink. Links to mothra became GitHub permalinks, which added
 a push of mothra `main` in EP-M0 and new cases to INV-LINK. The mxd documents
-are reorganized in a new milestone, EP-M6, guarded by INV-MXD. Milestones were
-renumbered to EP-M0 through EP-M10, audit revisions now run from 90 to 94, the
-constraint that legacy scripts stay byte-identical was relaxed to allow
-path-expression changes, and tolerances were raised accordingly.
+gained their own milestone, guarded by INV-MXD.
+
+Second revision, 15 November 2026. The owner accepted D1, D4 and D10, chose
+full scope for D2, and asked for evidence-recreation directions. The plan now
+brings every legacy script to the df12 Python standards in a new milestone,
+EP-M5, guarded by INV-SCRIPT with goldens captured before any refactor; the
+constraint limiting script changes to path expressions was replaced by a
+behaviour-preservation constraint. A recreation guide is added in EP-M8 and
+checked for coverage in EP-M9 by INV-RECREATE, and general toolset set-up
+passages move to mothra in EP-M4. Later milestones were renumbered, so the plan
+now runs from EP-M0 to EP-M11 and audit revisions from 90 to 95. The remaining
+work is unchanged in kind but larger: EP-M5 is now the biggest milestone.
