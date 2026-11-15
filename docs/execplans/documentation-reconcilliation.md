@@ -226,6 +226,16 @@ The script work is a behaviour-preserving refactor.
   10 tensions) in the session scratch directory.
 - [x] (2026-11-15 20:40Z) Owner raised the tooling tolerance (D24) and asked
   for the SynHX naming to be clarified and a comprehensive glossary (D25).
+- [x] (2026-11-16 15:30Z) EP-M6 complete (`546b65c`). `tools/migrate_layout.py`
+  moved 109 documents into nine sets under `docs/` and rewrote 1,078 links; its
+  INV-MOVE check passed before reflow, and a word-level comparison of every
+  moved document with its earlier text shows no difference beyond link targets.
+  Audit revision 92 was cut through a section map
+  (`87 gaps, 0 protected fields changed`). `make all` passes with 340 tests,
+  `make docs-gates` passes, `links-check` reports `4869 links, 0 failures`, and
+  `make goldens-check` prints `0 differences`. Deviation from the proposed
+  sets, recorded as D30: the validity ledger, `gap-register.json` and
+  `gap-analysis.md` stay where they were.
 - [x] (2026-11-16 13:00Z) EP-M5 wave 1 integrated (`8f2058a` to `706a046`):
   the queue, transfer, resume, framing and banner families meet the standard
   (630 findings to 0, two suppressions, 34 tests converted with names
@@ -356,7 +366,8 @@ The script work is a behaviour-preserving refactor.
 - [x] EP-M4: mothra generalized on a branch and pushed (see the entry dated
   2026-11-16 05:00Z).
 - [ ] EP-M5: all scripts meet the df12 Python standards; revision 91.
-- [ ] EP-M6: documents relocated into sets; revision 92.
+- [x] EP-M6: documents relocated into sets; revision 92 (see the entry dated
+  2026-11-16 15:30Z).
 - [ ] EP-M7: mxd set consolidated; revision 93.
 - [ ] EP-M8: on-ramps, orientation, recreation guide and diagrams.
 - [ ] EP-M9: evidence correlation and reconciliation; revision 94.
@@ -880,6 +891,18 @@ The script work is a behaviour-preserving refactor.
   - The check needs the pinned commit in the local history, so it does not
     work in a shallow clone; the recreation guide says so.
   Date/Author: 2026-11-16, owner; recorded by the lead.
+
+- Decision D30: three files do not move in EP-M6.
+  `docs/baseline-validity-ledger.md` is hash-pinned by the evidence index, and
+  moving it would change its relative links and so its bytes.
+  `gap-register.json` and the generated `gap-analysis.md` stay at the root
+  because the renderer, the audit refresh, the `Makefile` and the tests read
+  them by name; moving them is possible later as its own change and gains
+  little. The relocation is committed as one change with the reflow that longer
+  link targets require, checked by word-level equality, and not as two commits
+  with an audit revision each. The relocation tool came to 1,283 lines with
+  docstrings (513 of code), inside the ceiling of D28; it is deleted in EP-M11.
+  Date/Author: 2026-11-16, lead.
 
 ## Outcomes & retrospective
 
