@@ -23,12 +23,26 @@ DF12_PYLINT = $(UV) tool run --python $(LINT_PYTHON) --from 'pylint==$(PYLINT_VE
 	--with '$(DF12_PYTHON_LINTS)' pylint --disable=all --load-plugins=df12_python_lints \
 	--enable=syntax-error,$(DF12_PYLINT_MESSAGES)
 
-# Python that meets the df12 standards in pyproject.toml. The inherited scripts
-# in scripts/ join this list as each family is brought to that standard.
-PYTHON_TARGETS = $(shell git ls-files --cached --others --exclude-standard \
-	'tools/*.py' 'tools/**/*.py' 'tests/*.py' 'tests/**/*.py')
+# Inherited scripts that are still held at the legacy rules: scripts/legacy-modules.txt
+# lists them, and an entry is deleted as its script is brought to the standard.
+LEGACY_LIST = scripts/legacy-modules.txt
+LEGACY_PYTHON = $(shell sed -e 's/[[:space:]]*\#.*//' -e '/^$$/d' $(LEGACY_LIST))
+# Python that meets the df12 standards in pyproject.toml: the tools, their tests,
+# the pytest files in scripts/tests, and every script not on the legacy list.
+PYTHON_TARGETS = $(filter-out $(LEGACY_PYTHON),$(shell git ls-files --cached --others \
+	--exclude-standard 'tools/*.py' 'tools/**/*.py' 'tests/*.py' 'tests/**/*.py' \
+	'scripts/*.py' 'scripts/**/*.py'))
+# scripts/ruff.toml is nearer than pyproject.toml to the files in scripts/, so
+# name the configuration for each run instead of letting Ruff discover it.
+RUFF_ROOT = --config pyproject.toml
+RUFF_LEGACY = --config scripts/ruff.toml
 # The repository tools run in the project environment.
 PYTHON ?= $(UV) run --group dev python
+# Recipes run the inherited scripts as `python3`, as the documents do. The project
+# environment leads PATH so that a script already brought to the df12 standard
+# finds Cyclopts and cuprum, and an evidence-held verifier that imports one of
+# the scripts runs under the same interpreter.
+export PATH := $(CURDIR)/.venv/bin:$(PATH)
 # Evidence JSON that cannot be canonical is exempted by hash in this file, once
 # it exists (see tools/check_json.py).
 JSON_EXCEPTIONS ?= json-exceptions.txt
@@ -41,9 +55,6 @@ MOTHRA_ARG = $(if $(MOTHRA),--mothra $(MOTHRA))
 # The run must examine at least this many links, so an empty run cannot pass.
 LINKS_MIN ?= 2000
 LINKS_ARGS ?= --forbid-relative-mothra
-# Inherited capture and verification scripts, held at their earlier rules by
-# scripts/ruff.toml.
-LEGACY_PYTHON = scripts
 # Evidence is preserved byte for byte, so no Markdown tool may select it.
 MD_FILES = $(shell git ls-files --cached --others --exclude-standard '*.md' ':!:evidence/**')
 # gap-analysis.md is generated from gap-register.json; its layout belongs to the
@@ -103,15 +114,15 @@ build: ## Create the virtual environment and install the development tools
 	$(UV) sync --group dev
 
 fmt: ## Format the Python and Markdown sources
-	$(RUFF) format $(PYTHON_TARGETS)
-	$(RUFF) check --select I --fix $(PYTHON_TARGETS)
+	$(RUFF) format $(RUFF_ROOT) $(PYTHON_TARGETS)
+	$(RUFF) check $(RUFF_ROOT) --select I --fix $(PYTHON_TARGETS)
 	$(PYTHON) tools/check_json.py --root . --write $(JSON_EXCEPTIONS_ARG)
 	$(MDTABLEFIX) --in-place $(MDTABLEFIX_RULES) $(MD_AUTHORED)
 
 check-fmt: check-fmt-python check-fmt-markdown ## Verify all formatting
 
 check-fmt-python: ## Verify Python formatting
-	$(RUFF) format --check $(PYTHON_TARGETS)
+	$(RUFF) format $(RUFF_ROOT) --check $(PYTHON_TARGETS)
 
 check-fmt-markdown: ## Verify Markdown table and wrapping layout
 	$(call ensure_tool,$(MDTABLEFIX))
@@ -161,18 +172,18 @@ curation-skip:
 	@printf 'curation-check skipped: evidence/curation.json does not exist yet\n'
 
 lint-python: build ## Lint the Python that meets the df12 standards
-	$(RUFF) check $(PYTHON_TARGETS)
+	$(RUFF) check $(RUFF_ROOT) $(PYTHON_TARGETS)
 	$(UV) run --group dev interrogate --fail-under 100 $(PYTHON_TARGETS)
 	$(PYLINT) $(PYTHON_TARGETS)
 	$(DF12_PYLINT) $(PYTHON_TARGETS)
 
 lint-legacy: ## Lint the inherited scripts at their earlier rules
-	$(RUFF) check $(LEGACY_PYTHON)
-	$(RUFF) format --check $(LEGACY_PYTHON)
+	$(if $(LEGACY_PYTHON),$(RUFF) check $(RUFF_LEGACY) $(LEGACY_PYTHON))
+	$(if $(LEGACY_PYTHON),$(RUFF) format $(RUFF_LEGACY) --check $(LEGACY_PYTHON))
 
 typecheck: build ## Type-check the Python that meets the df12 standards
 	$(TY) --version
-	$(TY) check --extra-search-path tools --extra-search-path tests $(PYTHON_TARGETS)
+	$(TY) check --extra-search-path tools --extra-search-path tests --extra-search-path scripts $(PYTHON_TARGETS)
 
 test: build ## Run the tests of the repository tooling
 	$(UV) run --group dev pytest -v

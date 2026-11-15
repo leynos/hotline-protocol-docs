@@ -302,7 +302,10 @@ verbose = 1
 [tool.pytest.ini_options]
 # Tests automatically killed after seconds elapsed
 timeout = 30
-testpaths = ["tests"]
+# scripts/tests holds the pytest form of the inherited unittests; the scripts they
+# import are top-level modules in scripts/.
+testpaths = ["tests", "scripts/tests"]
+pythonpath = ["scripts"]
 
 [tool.uv]
 package = false
