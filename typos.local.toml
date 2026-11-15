@@ -16,8 +16,21 @@ accepted = []
 ignore = [
   # Inline code spans carry wire tokens, identifiers and quoted bytes.
   '`[^`\n]+`',
+  # FILP is the flattened-file stream tag carried on the wire.
+  '\bFILP\b',
+  # Eight-digit hexadecimal addresses of functions in the analysed binary.
+  '\b1[0-9a-f]{7}\b',
+  # Plural of the PNG image format.
+  '\bPNGs\b',
+  # Placeholder for a Sleuth Kit catalogue address in a quoted command.
+  '\bCATALOG-[0-9]+-[0-9]+\b',
+  # An audited heading: its anchor is recorded in the gap register, so its
+  # spelling is kept until an audit revision renames the section.
+  '(?m)^## Preparation and later authorised capture$',
 ]
 
 [files]
 # Evidence is preserved byte for byte. The style guide is an upstream copy.
-exclude = ["evidence/**", "docs/documentation-style-guide.md"]
+# gap-analysis.md is generated from gap-register.json, whose recorded strings
+# are preserved as written.
+exclude = ["evidence/**", "docs/documentation-style-guide.md", "gap-analysis.md"]

@@ -38,9 +38,12 @@ JSON_EXCEPTIONS_ARG = $(if $(wildcard $(JSON_EXCEPTIONS)),--exceptions $(JSON_EX
 LEGACY_PYTHON = scripts
 # Evidence is preserved byte for byte, so no Markdown tool may select it.
 MD_FILES = $(shell git ls-files --cached --others --exclude-standard '*.md' ':!:evidence/**')
+# gap-analysis.md is generated from gap-register.json; its layout belongs to the
+# renderer, so it is linted but never reflowed.
+MD_AUTHORED = $(filter-out gap-analysis.md,$(MD_FILES))
 
 .PHONY: help all build fmt check-fmt check-fmt-python check-fmt-markdown \
-	lint-python lint-legacy typecheck test docs-gates markdownlint spelling nixie \
+	lint lint-python lint-legacy typecheck test docs-gates markdownlint spelling nixie \
 	json-check
 
 .DEFAULT_GOAL := all
@@ -48,6 +51,8 @@ MD_FILES = $(shell git ls-files --cached --others --exclude-standard '*.md' ':!:
 .NOTPARALLEL:
 
 all: build check-fmt-python json-check lint-python lint-legacy typecheck test ## Run the gates that must pass at every commit
+
+lint: lint-python lint-legacy ## Run every Python linter
 
 docs-gates: check-fmt-markdown markdownlint nixie ## Run the Markdown gates (they join `all` once every document conforms)
 
@@ -66,7 +71,7 @@ fmt: ## Format the Python and Markdown sources
 	$(RUFF) format $(PYTHON_TARGETS)
 	$(RUFF) check --select I --fix $(PYTHON_TARGETS)
 	$(PYTHON) tools/check_json.py --root . --write $(JSON_EXCEPTIONS_ARG)
-	$(MDTABLEFIX) --in-place $(MDTABLEFIX_RULES) $(MD_FILES)
+	$(MDTABLEFIX) --in-place $(MDTABLEFIX_RULES) $(MD_AUTHORED)
 
 check-fmt: check-fmt-python check-fmt-markdown ## Verify all formatting
 
@@ -78,7 +83,7 @@ check-fmt-markdown: ## Verify Markdown table and wrapping layout
 	@test "$$($(MDTABLEFIX) --version)" = "mdtablefix $(MDTABLEFIX_VERSION)" || { \
 	  printf 'Error: mdtablefix %s is required\n' '$(MDTABLEFIX_VERSION)' >&2; exit 1; \
 	}
-	$(MDTABLEFIX) --check $(MDTABLEFIX_RULES) $(MD_FILES)
+	$(MDTABLEFIX) --check $(MDTABLEFIX_RULES) $(MD_AUTHORED)
 
 json-check: ## Verify that every tracked JSON file is in canonical layout
 	$(PYTHON) tools/check_json.py --root . $(JSON_EXCEPTIONS_ARG)
