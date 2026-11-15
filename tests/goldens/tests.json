@@ -2925,10 +2925,6 @@
       "outcome": "ok",
       "detail": ""
     },
-    "test_protocol_capture.CaptureTests.test_dynamic_read_size_rejects_tool_bound_overflow": {
-      "outcome": "ok",
-      "detail": ""
-    },
     "test_protocol_capture.CaptureTests.test_dynamic_size_on_eof_read_is_rejected_before_io": {
       "outcome": "ok",
       "detail": ""
@@ -2945,15 +2941,7 @@
       "outcome": "ok",
       "detail": ""
     },
-    "test_protocol_capture.CaptureTests.test_frame_decoding_and_saved_reference_use_real_received_bytes": {
-      "outcome": "ok",
-      "detail": ""
-    },
     "test_protocol_capture.CaptureTests.test_half_close_preserves_receive_direction": {
-      "outcome": "ok",
-      "detail": ""
-    },
-    "test_protocol_capture.CaptureTests.test_invalid_reply_match_is_rejected_before_io": {
       "outcome": "ok",
       "detail": ""
     },
@@ -2961,19 +2949,7 @@
       "outcome": "ok",
       "detail": ""
     },
-    "test_protocol_capture.CaptureTests.test_matching_reply_preserves_interleaved_notification": {
-      "outcome": "ok",
-      "detail": ""
-    },
     "test_protocol_capture.CaptureTests.test_modified_capture_fails_hash_verification": {
-      "outcome": "ok",
-      "detail": ""
-    },
-    "test_protocol_capture.CaptureTests.test_multiple_saved_fields_drive_an_exact_length_read": {
-      "outcome": "ok",
-      "detail": ""
-    },
-    "test_protocol_capture.CaptureTests.test_oversized_advertised_frame_is_not_allocated": {
       "outcome": "ok",
       "detail": ""
     },
@@ -2982,22 +2958,6 @@
       "detail": ""
     },
     "test_protocol_capture.CaptureTests.test_quiet_window_rejects_eof_and_keeps_unexpected_bytes": {
-      "outcome": "ok",
-      "detail": ""
-    },
-    "test_protocol_capture.CaptureTests.test_recomputed_checksums_do_not_hide_a_wrong_decoded_view": {
-      "outcome": "ok",
-      "detail": ""
-    },
-    "test_protocol_capture.CaptureTests.test_reply_match_has_bounded_intervening_frame_count": {
-      "outcome": "ok",
-      "detail": ""
-    },
-    "test_protocol_capture.CaptureTests.test_saved_field_rejects_absent_duplicate_and_incomplete_values": {
-      "outcome": "ok",
-      "detail": ""
-    },
-    "test_protocol_capture.CaptureTests.test_saved_field_selects_reference_after_variable_width_metadata": {
       "outcome": "ok",
       "detail": ""
     },
@@ -3014,6 +2974,46 @@
       "detail": ""
     },
     "test_protocol_capture.CaptureTests.test_wrong_expected_bytes_do_not_become_a_success": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_protocol_capture_frames.FrameCaptureTests.test_dynamic_read_size_rejects_tool_bound_overflow": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_protocol_capture_frames.FrameCaptureTests.test_frame_decoding_and_saved_reference_use_real_received_bytes": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_protocol_capture_frames.FrameCaptureTests.test_invalid_reply_match_is_rejected_before_io": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_protocol_capture_frames.FrameCaptureTests.test_matching_reply_preserves_interleaved_notification": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_protocol_capture_frames.FrameCaptureTests.test_multiple_saved_fields_drive_an_exact_length_read": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_protocol_capture_frames.FrameCaptureTests.test_oversized_advertised_frame_is_not_allocated": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_protocol_capture_frames.FrameCaptureTests.test_recomputed_checksums_do_not_hide_a_wrong_decoded_view": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_protocol_capture_frames.FrameCaptureTests.test_reply_match_has_bounded_intervening_frame_count": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_protocol_capture_frames.FrameCaptureTests.test_saved_field_rejects_absent_duplicate_and_incomplete_values": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_protocol_capture_frames.FrameCaptureTests.test_saved_field_selects_reference_after_variable_width_metadata": {
       "outcome": "ok",
       "detail": ""
     },

@@ -176,9 +176,7 @@ scripts/test_native_shx_extras.py
 scripts/test_native_transfer_repeat.py
 scripts/test_native_transfer_stall.py
 scripts/test_native_ui_focus.py
-scripts/test_pcap_tcp.py
 scripts/test_peer_tolerance.py
-scripts/test_protocol_capture.py
 scripts/test_request500_client_source.py
 scripts/test_snapshot_native_hfs.py
 scripts/test_synhx_profiles.py
