@@ -317,6 +317,11 @@ The script work is a behaviour-preserving refactor.
   `evidence/runtime-supervision/`, which must be classified at EP-M3.
 - Observation: mdtablefix joins a run of links separated only by commas into
   one unbreakable line. Impact: two such lists gained articles so they wrap.
+- Observation: the import selects 17,603 files in 263 commits, and 790 of
+  them fall under the LFS rule, not the 795 counted earlier. Evidence: a
+  scratch clone filtered and converted on 15 November 2026. The earlier count
+  included `evidence/runtime-network/` and `evidence/runtime-supervision/`,
+  which hold evidence about the general toolset and stay in mothra.
 - Observation: the existing documents are otherwise close to clean. With the
   Lody markdownlint configuration only 18 MD049 findings appear, no local link
   is broken, and default `typos` reports 90 findings, mostly protocol tokens.
@@ -438,6 +443,16 @@ The script work is a behaviour-preserving refactor.
   mothra's `scripts/capture_readiness.py` no longer matches the manifest. The
   INV-SCRIPT goldens record that verdict as the starting state. Date/Author:
   2026-11-15, lead.
+
+- Decision D19 (escalated to the owner, 2026-11-15): the tolerance on new
+  Python tooling, 2,200 lines excluding tests, was reached at the end of EP-M2.
+  The three tools delivered so far total 2,289 lines counted with docstrings
+  and blank lines, or 876 lines of code, and five planned tools remain. The
+  df12 standards require a numpy-style docstring on every function, which more
+  than doubles the raw count. Options: count code lines only and keep 2,200; or
+  keep the raw count and raise the limit to about 6,000. No further tool is
+  started until the owner chooses. Work that adds no tooling continues.
+  Date/Author: 2026-11-15, lead.
 
 ## Outcomes & retrospective
 
@@ -602,7 +617,7 @@ with hyphens. The link tool uses the same rule, and a test pins it against the
   `17,5xx files, 0 differences` and 415 sums files verified. Non-vacuity: tests
   seed an altered blob, a missing file, an extra file, a PNG left in ordinary
   Git and a JSON file wrongly in LFS; the real run asserts the expected file
-  count and exactly the 795 LFS objects measured.
+  count and exactly the 790 LFS objects measured.
 - Obligation INV-MOVE: relocation changes nothing but link targets. For each
   moved document, the heading sequence and every line containing no link are
   identical before and after, and every link resolves to the moved counterpart
