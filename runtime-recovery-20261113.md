@@ -50,7 +50,7 @@ python3 scripts/snapshot_native_hfs.py \
 For a new disposable run, retain the same source-content checks but use the
 FD-free read-only `native-board-02/base.dsk` donor and its matching ROM. The
 retained
-[retirement records](../mothra/evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/manifest.json)
+[retirement records](evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/manifest.json)
 confirm that donor matches the recorded `e5cbbaaf…` source and `18da89e4…`
 ROM. Choose fresh runtime, display and session names. Before every source read
 or copy, verify positive root FD-free results; never substitute either live
@@ -129,12 +129,12 @@ choice, failed application startup or unexpected account inventory, stop and
 preserve the guest and capture handles for review. Do not restart the original
 runtime or mutate original accounts to make a smoke pass.
 
-[batch]: ../mothra/evidence/gap-remediation/2026-11-13/native-runtime-recovery-01/manifest.json
-[as-run]: ../mothra/evidence/gap-remediation/2026-11-13/native-runtime-recovery-01/as-run-recovery.txt
-[gate]: ../mothra/evidence/gap-remediation/2026-11-13/native-runtime-recovery-01/preboot-gate.json
-[forks]: ../mothra/evidence/gap-remediation/2026-11-13/native-runtime-recovery-01/preboot-app/extraction.json
-[services]: ../mothra/evidence/gap-remediation/2026-11-13/native-runtime-recovery-01/sheep-service.json
-[repair-screen]: ../mothra/evidence/gap-remediation/2026-11-13/native-runtime-recovery-01/boot-observation-03.png
-[app-screen]: ../mothra/evidence/gap-remediation/2026-11-13/native-runtime-recovery-01/app-observation-02.png
-[report1]: ../mothra/evidence/gap-remediation/2026-11-13/native-runtime-recovery-01/smoke-001/report.json
-[report2]: ../mothra/evidence/gap-remediation/2026-11-13/native-runtime-recovery-01/smoke-002/report.json
+[batch]: evidence/gap-remediation/2026-11-13/native-runtime-recovery-01/manifest.json
+[as-run]: evidence/gap-remediation/2026-11-13/native-runtime-recovery-01/as-run-recovery.txt
+[gate]: evidence/gap-remediation/2026-11-13/native-runtime-recovery-01/preboot-gate.json
+[forks]: evidence/gap-remediation/2026-11-13/native-runtime-recovery-01/preboot-app/extraction.json
+[services]: evidence/gap-remediation/2026-11-13/native-runtime-recovery-01/sheep-service.json
+[repair-screen]: evidence/gap-remediation/2026-11-13/native-runtime-recovery-01/boot-observation-03.png
+[app-screen]: evidence/gap-remediation/2026-11-13/native-runtime-recovery-01/app-observation-02.png
+[report1]: evidence/gap-remediation/2026-11-13/native-runtime-recovery-01/smoke-001/report.json
+[report2]: evidence/gap-remediation/2026-11-13/native-runtime-recovery-01/smoke-002/report.json

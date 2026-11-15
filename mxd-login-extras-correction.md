@@ -79,5 +79,5 @@ GAP-018/019/026/080/081/082/085 and the release owner/subset remain subject to
 their own acceptance criteria. No new native client or Ghidra query ran for
 this correction.
 
-[evidence]: ../mothra/evidence/gap-remediation/2026-11-13/mxd-login-extras-01/manifest.json
-[import]: ../mothra/evidence/gap-remediation/2026-11-13/mxd-login-extras-import-01/manifest.json
+[evidence]: evidence/gap-remediation/2026-11-13/mxd-login-extras-01/manifest.json
+[import]: evidence/gap-remediation/2026-11-13/mxd-login-extras-import-01/manifest.json

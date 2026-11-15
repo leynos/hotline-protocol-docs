@@ -101,9 +101,9 @@ Live at-cap behaviour remains unobserved. This one active/queued example must
 not be generalized into mandatory wording, progress percentages or transfer
 scheduling guarantees.
 
-[a7]: ../mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/manifest.json
-[a8]: ../mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-existing-01/manifest.json
-[load]: ../mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-existing-01/one-active-one-queued/report.json
-[strings]: ../mothra/evidence/hotline-server-1.9/queries/S004-strings.json
-[handler]: ../mothra/evidence/hotline-server-1.9/queries/D-10016150.c
+[a7]: evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/manifest.json
+[a8]: evidence/gap-remediation/2026-11-13/native-diagnostic-existing-01/manifest.json
+[load]: evidence/gap-remediation/2026-11-13/native-diagnostic-existing-01/one-active-one-queued/report.json
+[strings]: evidence/hotline-server-1.9/queries/S004-strings.json
+[handler]: evidence/hotline-server-1.9/queries/D-10016150.c
 [preparation]: native-diagnostic-existing-preparation.md

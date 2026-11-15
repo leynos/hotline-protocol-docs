@@ -1,7 +1,7 @@
 # Native preonline liveness witness
 
 The
-[portable corpus](../mothra/evidence/gap-remediation/2026-11-14/native-liveness-01/manifest.json)
+[portable corpus](evidence/gap-remediation/2026-11-14/native-liveness-01/manifest.json)
 records one finite Hotline Server 1.9 lab run against an isolated, disposable
 Mac server. The source-declared schedule admitted an online observer (`O`), a
 partial-107 connection (`A`), a preonline connection (`B`), a failed-login

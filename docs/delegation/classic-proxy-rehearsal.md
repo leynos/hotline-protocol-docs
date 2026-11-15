@@ -43,7 +43,7 @@ before press and 120 ms down/up delays. That is an observed input timing
 difference, not an established cause of B31's nonactivation. The B21 capture
 proves a successful Connect at its recorded time, but no exact as-run button
 event log was retained for a byte-level input comparison. No new UI trial is
-authorised by this record.
+authorized by this record.
 
 ## Offline check
 

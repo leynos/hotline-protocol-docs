@@ -22,7 +22,7 @@ assessed here.
   (`missing password`) before creating SQLite: `MXD_CONFIG_PATH` selects
   top-level config but not the independent subcommand file discovery.
 - [x] Copied the same secret bytes to the discovered owned
-  `home/.mxd.toml` without display. Exactly one authorised retry exited 0.
+  `home/.mxd.toml` without display. Exactly one authorized retry exited 0.
   Read-only SQLite integrity is `ok`; the users table contains only
   `mxd-peer-c14`. No native admin credential or test-only alice fixture was
   imported.

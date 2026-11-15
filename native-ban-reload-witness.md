@@ -27,7 +27,7 @@ After the recognized disk-repair and sound prompts, the native server started
 with zero clients. Opening Options and selecting **Ban** showed a checked
 `10.0.2.2` row and `IP: 10.0.2.2`, with an empty Info field. The operator
 clicked **Cancel** without editing, adding, deleting or saving. The
-[C61/C62 corpus](../mothra/evidence/gap-remediation/2026-11-14/native-ban-reload-01/manifest.json)
+[C61/C62 corpus](evidence/gap-remediation/2026-11-14/native-ban-reload-01/manifest.json)
 retains timestamped UI actions, screenshots and their hashes. The resource
 catalogue identifies menu `Options...`, but not the PowerPlant ban-list control
 IDs; see [C60](native-configured-ban-ui-resources.md).
@@ -60,7 +60,7 @@ a second restart or a clean-shutdown durability proof.
 From the protocol repository with adjacent Mothra evidence:
 
 ```sh
-python scripts/verify_native_ban_reload.py ../mothra/evidence/gap-remediation/2026-11-14/native-ban-reload-01
+python scripts/verify_native_ban_reload.py evidence/gap-remediation/2026-11-14/native-ban-reload-01
 python -m unittest discover -s scripts -p test_native_ban_reload.py -q
 ```
 

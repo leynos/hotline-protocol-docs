@@ -69,10 +69,10 @@ example, and exact-text release policy remain open under the original GAP-037
 criterion. A later packet needs a new owned fixture plan and review; this run
 authorizes no blind upload retry or additional guest mutation.
 
-[batch]: ../mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-load-01/manifest.json
+[batch]: evidence/gap-remediation/2026-11-13/native-diagnostic-load-01/manifest.json
 [idle]: diagnostic-replies.md
-[options]: ../mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-load-01/options-after-cleanup.png
-[abort]: ../mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-load-01/guest-after-seed-failure.png
-[cleanup]: ../mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-load-01/cleanup/report.json
+[options]: evidence/gap-remediation/2026-11-13/native-diagnostic-load-01/options-after-cleanup.png
+[abort]: evidence/gap-remediation/2026-11-13/native-diagnostic-load-01/guest-after-seed-failure.png
+[cleanup]: evidence/gap-remediation/2026-11-13/native-diagnostic-load-01/cleanup/report.json
 [verifier]: scripts/verify_native_diagnostic_load.py
-[as-run]: ../mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-load-01/as-run.txt
+[as-run]: evidence/gap-remediation/2026-11-13/native-diagnostic-load-01/as-run.txt

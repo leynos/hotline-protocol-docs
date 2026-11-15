@@ -120,10 +120,10 @@ The verifier rejects a wrong field, status, target UID, ambiguous self roster
 or changed reply order and reconciles six host/guest TCP lifetimes, including
 the unread removal notice. Hash agreement alone is not a semantic proof.
 
-[corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-diagnostics-01/
-[manifest]: ../mothra/evidence/gap-remediation/2026-11-13/native-diagnostics-01/manifest.json
-[runtime]: ../mothra/evidence/gap-remediation/2026-11-13/native-diagnostics-01/runtime.json
-[preflight]: ../mothra/evidence/gap-remediation/2026-11-13/native-diagnostics-01/preflight/report.json
-[cleanup]: ../mothra/evidence/gap-remediation/2026-11-13/native-diagnostics-01/cleanup/report.json
-[self]: ../mothra/evidence/gap-remediation/2026-11-13/native-diagnostics-01/self/report.json
-[handler]: ../mothra/evidence/hotline-server-1.9/queries/D-10016150.c
+[corpus]: evidence/gap-remediation/2026-11-13/native-diagnostics-01/
+[manifest]: evidence/gap-remediation/2026-11-13/native-diagnostics-01/manifest.json
+[runtime]: evidence/gap-remediation/2026-11-13/native-diagnostics-01/runtime.json
+[preflight]: evidence/gap-remediation/2026-11-13/native-diagnostics-01/preflight/report.json
+[cleanup]: evidence/gap-remediation/2026-11-13/native-diagnostics-01/cleanup/report.json
+[self]: evidence/gap-remediation/2026-11-13/native-diagnostics-01/self/report.json
+[handler]: evidence/hotline-server-1.9/queries/D-10016150.c

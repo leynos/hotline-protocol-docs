@@ -74,5 +74,5 @@ live maximum/maximum-plus-one test, and these captures do not settle arbitrary
 names, locales, IPv6 display, concurrent transfer changes or every intermediate
 buffer boundary.
 
-[oracle]: ../mothra/evidence/gap-remediation/2026-11-14/native-format-endpoint-oracle-01/manifest.json
+[oracle]: evidence/gap-remediation/2026-11-14/native-format-endpoint-oracle-01/manifest.json
 [replies]: diagnostic-replies.md

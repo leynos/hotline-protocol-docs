@@ -75,7 +75,7 @@ python3 ../hotline-protocol-docs/scripts/protocol_capture.py verify "$a9/postfli
 python3 "$a9/verify_density.py"
 ```
 
-[a9]: ../mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-density-01/manifest.json
-[a7]: ../mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/manifest.json
+[a9]: evidence/gap-remediation/2026-11-13/native-diagnostic-density-01/manifest.json
+[a7]: evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/manifest.json
 [a8]: native-diagnostic-existing-witness.md
-[packets]: ../mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-density-01/verification-packets.json
+[packets]: evidence/gap-remediation/2026-11-13/native-diagnostic-density-01/verification-packets.json

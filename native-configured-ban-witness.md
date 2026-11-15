@@ -2,12 +2,12 @@
 
 This control-only fixture observes the connected-client notice path when an
 administrator adds `10.0.2.2` in Options > Ban and saves once. The
-[portable corpus](../mothra/evidence/gap-remediation/2026-11-14/native-configured-ban-01/manifest.json)
+[portable corpus](evidence/gap-remediation/2026-11-14/native-configured-ban-01/manifest.json)
 contains the original plans, as-run captures, paired TCP streams, screenshots,
 process and capture receipts, and stopped-image readbacks. Replay it offline:
 
 ```sh
-python scripts/verify_native_configured_ban.py ../mothra/evidence/gap-remediation/2026-11-14/native-configured-ban-01
+python scripts/verify_native_configured_ban.py evidence/gap-remediation/2026-11-14/native-configured-ban-01
 python -m unittest discover -s scripts -p test_native_configured_ban_witness.py
 ```
 

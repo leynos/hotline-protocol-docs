@@ -50,7 +50,7 @@ rate304 capture ended after one 304/500 pair when its fixture wait expired; it
 contains no completed 26/27 boundary or 70-second quiet period. The screenshot
 is not a clock calibration for that aborted case.
 
-A later authorised case would need the actual source-correlated log rows and
+A later authorized case would need the actual source-correlated log rows and
 request/response timestamps, an unchanged guest clock and source identity, and
 explicit upper/lower time brackets before applying the `>60` source predicate
 to a measured result. Neither every 304 nor every counter reset is logged. The

@@ -4,7 +4,7 @@ This control-only witness follows the
 [first temporary-ban epoch](native-ban-expiry-first-witness.md) on the **same**
 disposable Hotline Server 1.9 VM and working image. The complete portable
 corpus is
-[`native-ban-expiry-later-01`](../mothra/evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/manifest.json).
+[`native-ban-expiry-later-01`](evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/manifest.json).
 The full file-transfer A7 baseline was **not exercised** in this lab.
 
 ## The missed pre-window

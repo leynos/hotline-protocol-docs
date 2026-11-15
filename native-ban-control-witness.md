@@ -9,7 +9,7 @@ resolve the transfer stall or establish general native-server health.
 ## Scope and provenance
 
 The
-[frozen corpus](../mothra/evidence/gap-remediation/2026-11-14/native-ban-control-01/manifest.json)
+[frozen corpus](evidence/gap-remediation/2026-11-14/native-ban-control-01/manifest.json)
 includes the C53 no-contact retirement, C55 boot and recorder readiness, five
 C56 as-run plans and captures, six complete TCP lifetimes in both namespace and
 guest views, the host primary-port SYN capture, managed unit and teardown
@@ -63,7 +63,7 @@ own 104 fixture. This witness does not close that question or establish option
 From the protocol repository with the adjacent Mothra evidence export:
 
 ```sh
-python scripts/verify_native_ban_control.py ../mothra/evidence/gap-remediation/2026-11-14/native-ban-control-01
+python scripts/verify_native_ban_control.py evidence/gap-remediation/2026-11-14/native-ban-control-01
 python -m unittest discover -s scripts -p test_native_ban_control.py -q
 ```
 

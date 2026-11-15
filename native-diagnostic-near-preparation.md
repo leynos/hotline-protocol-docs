@@ -64,6 +64,6 @@ restored postflight use the same verifier's `postflight` case with
 The verifier returns `incomplete-witness` for complete but unexpected row/size
 combinations and nonzero for malformed or inconsistent evidence.
 
-[a9]: ../mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-density-01/manifest.json
-[handler]: ../mothra/evidence/hotline-server-1.9/queries/D-10016150.c
+[a9]: evidence/gap-remediation/2026-11-13/native-diagnostic-density-01/manifest.json
+[handler]: evidence/hotline-server-1.9/queries/D-10016150.c
 [a8]: native-diagnostic-existing-preparation.md

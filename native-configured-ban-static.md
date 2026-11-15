@@ -7,7 +7,7 @@ witness is in [native-ban-control-witness.md](native-ban-control-witness.md).
 ## Raw text and source path
 
 The
-[C59 corpus](../mothra/evidence/gap-remediation/2026-11-14/configured-ban-static-01/manifest.json)
+[C59 corpus](evidence/gap-remediation/2026-11-14/configured-ban-static-01/manifest.json)
 records a single 160-byte memory read from a fresh independent Ghidra import
 of Server 1.9 DATA SHA-256 `ad7040db…`. The import explicitly selected
 `PowerPC:BE:32:default`, returned the expected address range and 4-byte pointer

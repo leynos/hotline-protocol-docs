@@ -9,10 +9,9 @@ flattened FILP bytes, SHA-256
 **failed mandatory baseline**, with no account guard, seed, ban option two or
 post-ban probe.
 
-The frozen corpus is
-`../mothra/evidence/gap-remediation/2026-11-14/native-ui-focus-01/`. It
-contains source and as-run A7 plans, the failed report, the corrected observer
-as inert text alongside its original six-argument version, both focus
+The frozen corpus is `evidence/gap-remediation/2026-11-14/native-ui-focus-01/`.
+It contains source and as-run A7 plans, the failed report, the corrected
+observer as inert text alongside its original six-argument version, both focus
 screenshots, complete guest and namespace PCAPs, primary-port capture,
 runtime/source identity receipts and terminal cleanup proof. ROM, disk,
 emulator, Ghidra project and live RAM bytes are excluded. The manifest and
@@ -55,7 +54,7 @@ script:
 
 ```sh
 python3 scripts/verify_native_ui_focus.py \
-  ../mothra/evidence/gap-remediation/2026-11-14/native-ui-focus-01
+  evidence/gap-remediation/2026-11-14/native-ui-focus-01
 python3 -m unittest discover -s scripts -p 'test_native_ui_focus.py'
 ```
 

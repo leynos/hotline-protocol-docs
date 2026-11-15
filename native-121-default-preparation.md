@@ -7,7 +7,7 @@ agreement, account, file or server option change is needed for this branch. The
 [A33 corpus](native-settings-transition-witness.md)
 read back the original 242-byte agreement in a 109/101 notice and the two
 existing account records; the original delayed-admin capture in
-`../mothra/evidence/gap-remediation/2026-11-13/native-agreement-01/captures/restored-delayed-admin/`
+`evidence/gap-remediation/2026-11-13/native-agreement-01/captures/restored-delayed-admin/`
 shows a successful 121 after admin 107 omitted both 102 and 104.
 
 Frozen `10011960` enters early completion only when both a nonempty 102 and

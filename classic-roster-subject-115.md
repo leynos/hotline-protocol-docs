@@ -4,7 +4,7 @@ This is one controlled observation of the identified Classic Hotline client
 against Hotline Server 1.9. The archive labels the client “1.9.2 Classic”; its
 retained `vers` short string is `1.9.1.0`. Its DATA and resource-fork SHA-256
 values are pinned in the
-[portable manifest](../mothra/evidence/gap-remediation/2026-11-14/classic-roster-subject-115-01/manifest.json).
+[portable manifest](evidence/gap-remediation/2026-11-14/classic-roster-subject-115-01/manifest.json).
 Vendor authenticity has not been established.
 
 ## B62 session, 14 November 2026
@@ -31,7 +31,7 @@ SYN-scoped capture views. The automatic data connection carried a 16-byte HTXF
 request and 58-byte GIF response with the matching reference.
 
 The
-[connected screenshot](../mothra/evidence/gap-remediation/2026-11-14/classic-roster-subject-115-01/run/after-agree-1s.png)
+[connected screenshot](evidence/gap-remediation/2026-11-14/classic-roster-subject-115-01/run/after-agree-1s.png)
 shows `unnamed` in Online Users while the client remained connected. The
 transformed packet reached the client guest at 04:18:25.744557 UTC; the
 screenshot source file mtime was 04:18:26.672474 UTC, about 0.928 seconds
@@ -50,7 +50,7 @@ GIF bytes on the wire do not prove the UI rendered them.
 ## Provenance and replay
 
 The
-[corpus](../mothra/evidence/gap-remediation/2026-11-14/classic-roster-subject-115-01/manifest.json)
+[corpus](evidence/gap-remediation/2026-11-14/classic-roster-subject-115-01/manifest.json)
 retains four selected PCAPs containing complete SYN lifetimes and tails for
 five control and five data views, the full A7 reports, proxy audit,
 screenshots, managed capture receipts/journals, and SHA inventory. The as-run
@@ -62,7 +62,7 @@ records their hashes and selected record indexes.
 Run from `hotline-protocol-docs` with the adjacent `mothra` checkout:
 
 ```sh
-python3 scripts/verify_classic_roster_subject_115.py ../mothra/evidence/gap-remediation/2026-11-14/classic-roster-subject-115-01
+python3 scripts/verify_classic_roster_subject_115.py evidence/gap-remediation/2026-11-14/classic-roster-subject-115-01
 python3 -m unittest discover -s scripts -p test_classic_roster_subject_115.py
 ```
 

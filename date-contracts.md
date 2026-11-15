@@ -55,8 +55,8 @@ comparison needs a separately measured timezone basis.
 Board request 103 formats a human-readable `From` line using a separate
 date/time path; it does not emit one of these eight-byte date fields. GUI log
 seconds and the request limiter likewise make separate `GetDateTime` calls;
-[their source trace](../mothra/docs/native-clock-evidence.md) cannot calibrate
-a specific 206, INFO, 321 or 330 timestamp after the fact.
+[their source trace](docs/native-clock-evidence.md) cannot calibrate a specific
+206, INFO, 321 or 330 timestamp after the fact.
 
 ## What would settle conversion and rollover
 
@@ -79,13 +79,13 @@ consumer behaviour and rollover. Source gives the second unit and 1904 base;
 the native captures corroborate selected byte equality and ignored uploaded
 dates. No mxd date-policy conclusion is made here.
 
-[file-builder]: ../mothra/evidence/hotline-server-1.9/queries/D-10058070.c
-[file-catalogue]: ../mothra/evidence/hotline-server-1.9/queries/D-1002c910.c
-[file-info]: ../mothra/evidence/hotline-server-1.9/queries/D-10016ba0.c
-[info-builder]: ../mothra/evidence/gap-remediation/2026-11-12/batch-04/queries/B04-D-1002d130.c
-[info-restore]: ../mothra/evidence/gap-remediation/2026-11-12/batch-13/queries/B13-D-1002d2c0.c
-[news-create]: ../mothra/evidence/gap-remediation/2026-11-12/batch-05/queries/B05-D-100229b0.c
-[news-clock]: ../mothra/evidence/gap-remediation/2026-11-12/batch-05/queries/B05-D-10057de0.c
-[news-read]: ../mothra/evidence/gap-remediation/2026-11-13/native-news-01/oracle-queries/NW-D-10005ac0.c
+[file-builder]: evidence/hotline-server-1.9/queries/D-10058070.c
+[file-catalogue]: evidence/hotline-server-1.9/queries/D-1002c910.c
+[file-info]: evidence/hotline-server-1.9/queries/D-10016ba0.c
+[info-builder]: evidence/gap-remediation/2026-11-12/batch-04/queries/B04-D-1002d130.c
+[info-restore]: evidence/gap-remediation/2026-11-12/batch-13/queries/B13-D-1002d2c0.c
+[news-create]: evidence/gap-remediation/2026-11-12/batch-05/queries/B05-D-100229b0.c
+[news-clock]: evidence/gap-remediation/2026-11-12/batch-05/queries/B05-D-10057de0.c
+[news-read]: evidence/gap-remediation/2026-11-13/native-news-01/oracle-queries/NW-D-10005ac0.c
 [apple-time]: https://leopard-adc.pepas.com/documentation/mac/OSUtilities/OSUtilities-105.html
 [apple-file]: https://leopard-adc.pepas.com/documentation/Carbon/Reference/File_Manager/Reference/reference.html

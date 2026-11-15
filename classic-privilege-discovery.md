@@ -1,7 +1,7 @@
 # Classic privilege editor string discovery
 
 This
-[bounded corpus](../mothra/evidence/gap-remediation/2026-11-14/classic-privilege-discovery-01/manifest.json)
+[bounded corpus](evidence/gap-remediation/2026-11-14/classic-privilege-discovery-01/manifest.json)
 preserves one fresh independent Ghidra 12.2 import of the identified Classic
 client and three read-only defined-string queries. The archive calls the app
 “Hotline Client 1.9.2 Classic”; its embedded `vers` resources say **1.9.1.0**.
@@ -64,7 +64,7 @@ sha256sum --quiet -c \
 
 Four later read-only runs against the **same saved independent Classic
 project** are frozen in the
-[follow-up corpus](../mothra/evidence/gap-remediation/2026-11-14/classic-privilege-followups-01/manifest.json).
+[follow-up corpus](evidence/gap-remediation/2026-11-14/classic-privilege-followups-01/manifest.json).
 Each run made exactly two content calls with `--no-analyze --discard`; DATA,
 RSRC and extension-JAR hashes, PowerPC BE32 identity and 3,564 functions
 matched before and after. No GUI or native server project was used.

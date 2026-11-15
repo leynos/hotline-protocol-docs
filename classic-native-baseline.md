@@ -82,5 +82,5 @@ emulator processes and fixed bridges remained live. This is evidence for one
 baseline path, not full peer interoperability, optional-field tolerance,
 universal banner behaviour, or a scheduling rule.
 
-[corpus]: ../mothra/evidence/gap-remediation/2026-11-14/classic-proxy-baseline-01/
-[candidate]: ../mothra/docs/delegation/mac-peer-candidate.md
+[corpus]: evidence/gap-remediation/2026-11-14/classic-proxy-baseline-01/
+[candidate]: docs/delegation/mac-peer-candidate.md

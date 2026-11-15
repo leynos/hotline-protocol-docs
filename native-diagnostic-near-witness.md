@@ -68,6 +68,6 @@ fixed proposal and its original 24-reference bound. The
 source-derived cap and descriptive baseline text rule; it does not turn this
 partial observation into a passed capture or an at-cap fixture.
 
-[a12]: ../mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-near-01/manifest.json
-[partial]: ../mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-near-01/verification-partial.json
+[a12]: evidence/gap-remediation/2026-11-13/native-diagnostic-near-01/manifest.json
+[partial]: evidence/gap-remediation/2026-11-13/native-diagnostic-near-01/verification-partial.json
 [prep]: native-diagnostic-near-preparation.md

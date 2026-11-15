@@ -141,7 +141,7 @@ startup store and its limits.
 ### Captured framing and reassembly boundaries
 
 The
-[62-case framing corpus](../mothra/evidence/gap-remediation/2026-11-12/native-framing-01/verification.json)
+[62-case framing corpus](evidence/gap-remediation/2026-11-12/native-framing-01/verification.json)
 reconciles socket bytes with host-loopback and guest Ethernet TCP lifetimes.
 The guest continued the same hashed runtime used by the transport corpus.
 
@@ -254,8 +254,8 @@ response. The
 startup analysis remain the authority for this runtime's size checks;
 configurability and mxd's explicit resource policy remain GAP-011.
 
-[ids]: ../mothra/evidence/gap-remediation/2026-11-12/native-correlation-01/manifest.json
-[framing]: ../mothra/evidence/gap-remediation/2026-11-12/native-framing-01/manifest.json
+[ids]: evidence/gap-remediation/2026-11-12/native-correlation-01/manifest.json
+[framing]: evidence/gap-remediation/2026-11-12/native-framing-01/manifest.json
 
 ## Identifier domains
 
@@ -396,11 +396,11 @@ its start time merely because 30 seconds have elapsed. Interleaved addresses,
 window boundaries, ban expiry/restart and control-loop batching need native
 fixtures before claiming a conventional rate-limit algorithm (GAP-045/074).
 
-[batch]: ../mothra/evidence/gap-remediation/2026-11-12/batch-07/manifest.json
+[batch]: evidence/gap-remediation/2026-11-12/batch-07/manifest.json
 
-[select]: ../mothra/evidence/gap-remediation/2026-11-12/batch-16/queries/B16-D-10058e80.c
-[receive]: ../mothra/evidence/gap-remediation/2026-11-12/batch-16/queries/B16-D-100590e0.c
+[select]: evidence/gap-remediation/2026-11-12/batch-16/queries/B16-D-10058e80.c
+[receive]: evidence/gap-remediation/2026-11-12/batch-16/queries/B16-D-100590e0.c
 
-[native-transport]: ../mothra/evidence/gap-remediation/2026-11-12/native-transport-01/manifest.json
-[timing]: ../mothra/evidence/gap-remediation/2026-11-12/native-transport-01/timing-observations.json
-[guards]: ../mothra/evidence/gap-remediation/2026-11-12/native-transport-01/transport-guards/transport-guards.json
+[native-transport]: evidence/gap-remediation/2026-11-12/native-transport-01/manifest.json
+[timing]: evidence/gap-remediation/2026-11-12/native-transport-01/timing-observations.json
+[guards]: evidence/gap-remediation/2026-11-12/native-transport-01/transport-guards/transport-guards.json

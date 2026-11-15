@@ -146,9 +146,9 @@ sequencing require before/after native fixtures under GAP-072/073/078/084. No
 mxd release scope or deliberate deviation is chosen by these native
 observations.
 
-[calls]: ../mothra/evidence/gap-remediation/2026-11-12/batch-15/privilege-callsite-review.json
-[create]: ../mothra/evidence/hotline-server-1.9/queries/D-100146f0.c
-[update]: ../mothra/evidence/hotline-server-1.9/queries/D-10014df0.c
-[read]: ../mothra/evidence/hotline-server-1.9/queries/D-10014bc0.c
-[enumerate]: ../mothra/evidence/hotline-server-1.9/queries/D-10015160.c
-[delete]: ../mothra/evidence/gap-remediation/2026-11-12/batch-15/queries/B15-D-10007340.c
+[calls]: evidence/gap-remediation/2026-11-12/batch-15/privilege-callsite-review.json
+[create]: evidence/hotline-server-1.9/queries/D-100146f0.c
+[update]: evidence/hotline-server-1.9/queries/D-10014df0.c
+[read]: evidence/hotline-server-1.9/queries/D-10014bc0.c
+[enumerate]: evidence/hotline-server-1.9/queries/D-10015160.c
+[delete]: evidence/gap-remediation/2026-11-12/batch-15/queries/B15-D-10007340.c

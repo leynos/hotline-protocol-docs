@@ -122,4 +122,4 @@ has no specialized `DownloadBanner` 212 handler or evidenced port-15651 data
 service. Its configured server name is ASCII at most 31 bytes; native raw
 high-byte 162 and clipping remain separate gaps.
 
-[runtime]: ../mothra/docs/delegation/mxd-peer-runtime.md
+[runtime]: docs/delegation/mxd-peer-runtime.md

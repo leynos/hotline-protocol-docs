@@ -56,4 +56,4 @@ screenshots and action timestamps. The old B13 public HTTP capture and its
 partial-session verifier remain separate evidence; this isolated run does not
 reinterpret that earlier safety stop.
 
-[corpus]: ../mothra/evidence/gap-remediation/2026-11-13/mac-peer-isolated-session-01/
+[corpus]: evidence/gap-remediation/2026-11-13/mac-peer-isolated-session-01/

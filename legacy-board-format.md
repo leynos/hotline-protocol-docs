@@ -2,7 +2,7 @@
 
 This note records bytes recovered from the pinned Hotline Server 1.9 PEF, not a
 captured board post. The
-[read-only oracle corpus](../mothra/evidence/gap-remediation/2026-11-14/legacy-board-static-01/manifest.json)
+[read-only oracle corpus](evidence/gap-remediation/2026-11-14/legacy-board-static-01/manifest.json)
 contains the six memory replies, before/after program identities, query
 script, and checksums. The binary SHA-256 is
 `ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`. The saved
@@ -29,11 +29,11 @@ At `1008ee20`, the pointer is `1008f87e`. That address begins with Pascal length
 read are adjacent strings, outside this filename.
 
 The
-[frozen writer `10004110`](../mothra/evidence/gap-remediation/2026-11-12/batch-08/queries/B08-D-10004110.c)
+[frozen writer `10004110`](evidence/gap-remediation/2026-11-12/batch-08/queries/B08-D-10004110.c)
 connects these pointers to board-segment construction and file writing. The
-[101 reader](../mothra/evidence/hotline-server-1.9/queries/D-1000f130.c) and
-[103 handler](../mothra/evidence/hotline-server-1.9/queries/D-1000f260.c)
-establish the aggregate reply and post/update paths. See the
+[101 reader](evidence/hotline-server-1.9/queries/D-1000f130.c) and
+[103 handler](evidence/hotline-server-1.9/queries/D-1000f260.c) establish the
+aggregate reply and post/update paths. See the
 [legacy-board contract](filesystem-and-board-contracts.md#legacy-board-101102103)
 for the bounded transaction rules.
 

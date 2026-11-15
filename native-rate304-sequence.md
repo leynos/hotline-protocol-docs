@@ -120,5 +120,5 @@ stopped named forks. It never imports a live server project or starts a VM. Its
 `PASS` means this **failed-run witness** is internally and independently
 replayable; it does not reclassify C119 as a completed experiment.
 
-[corpus]: ../mothra/evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/manifest.json
-[audit]: ../mothra/evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/reviews/a114/audit.md.txt
+[corpus]: evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/manifest.json
+[audit]: evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/reviews/a114/audit.md.txt

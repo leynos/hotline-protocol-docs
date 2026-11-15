@@ -3,7 +3,7 @@
 This is a **failed fixture**, retained to bound the next rate and reset test.
 The live runner stopped at its first response wait. It establishes neither a
 304 limit nor a reset interval or ban rule. The corpus is
-[`native-rate304-first-pair-01`](../mothra/evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/manifest.json).
+[`native-rate304-first-pair-01`](evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/manifest.json).
 
 ## What ran
 

@@ -3,7 +3,7 @@
 This finite, isolated Mac OS 9 fixture exercises Hotline Server 1.9
 message-board requests `101` and `103`, the `102` update, recipient access,
 size boundaries, and stopped HFS storage. The portable corpus is
-[`native-board-01`](../mothra/evidence/gap-remediation/2026-11-14/native-board-01/manifest.json).
+[`native-board-01`](evidence/gap-remediation/2026-11-14/native-board-01/manifest.json).
 Run `python3 scripts/verify_native_board.py` from this repository, or pass
 `--corpus PATH` after exporting this repository beside `mothra`. The verifier
 uses frozen source, reports, whole packet captures, and stopped fork bytes; it
@@ -80,6 +80,6 @@ recipient, read-prefix, and stopped-storage clauses of GAP-046. It does not
 establish all timing interleavings, a universal online predicate, non-ASCII
 rendering, spam policy, power-loss persistence, or a full-file server health
 baseline. The
-[criterion decision](../mothra/evidence/gap-remediation/2026-11-14/criterion-acceptance-07/decision.json)
+[criterion decision](evidence/gap-remediation/2026-11-14/criterion-acceptance-07/decision.json)
 accepts GAP-046 against its original finite fixture requirement, with these
 limits retained.

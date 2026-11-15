@@ -114,8 +114,8 @@ permission to retry. The fixture addresses only the native 304 local limiter;
 dispatcher/burst/chat/PM/board thresholds and mxd policy remain open GAP-045
 work.
 
-The [clock source evidence](../mothra/docs/native-clock-evidence.md) links GUI
-log formatting and the limiter to separate GetDateTime calls. The observed log
+The [clock source evidence](docs/native-clock-evidence.md) links GUI log
+formatting and the limiter to separate GetDateTime calls. The observed log
 displays seconds; it does not expose each counter origin or calibrate this
 prepared experiment's native reset interval.
 

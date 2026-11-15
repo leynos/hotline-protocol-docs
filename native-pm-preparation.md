@@ -31,7 +31,7 @@ GAP-044 evidence.
 ## Operator sequence after separate START
 
 The explicit baseline input is the committed A7
-`../mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/capture/plan.json`
+`evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/capture/plan.json`
 (SHA-256 `5d0aa3dccf65fc6523678aa729c9ace72cd6caffbef768b7f5bf949e6568b43e`).
 The generator checks that exact byte hash, oracle/profile, 29-step shape, data
 endpoint, full 1,049,073-byte read, DATA/MACR expected hashes, and runtime

@@ -118,16 +118,16 @@ with `protocol_capture.py capture`, copying the original guest pcap only after
 stopping the host observer. Retain failed reports and distinct unread tails; a
 timeout does not authorize a restart.
 
-[corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-bitmaps-01/manifest.json
-[runtime]: ../mothra/evidence/gap-remediation/2026-11-13/native-bitmaps-01/runtime.json
-[bits]: ../mothra/evidence/gap-remediation/2026-11-13/native-bitmaps-01/per-bit.json
-[walk]: ../mothra/evidence/gap-remediation/2026-11-13/native-bitmaps-01/walk-00/report.json
-[widths]: ../mothra/evidence/gap-remediation/2026-11-13/native-bitmaps-01/widths/report.json
-[allones]: ../mothra/evidence/gap-remediation/2026-11-13/native-bitmaps-01/all-ones/report.json
-[handler]: ../mothra/evidence/hotline-server-1.9/queries/D-10014df0.c
+[corpus]: evidence/gap-remediation/2026-11-13/native-bitmaps-01/manifest.json
+[runtime]: evidence/gap-remediation/2026-11-13/native-bitmaps-01/runtime.json
+[bits]: evidence/gap-remediation/2026-11-13/native-bitmaps-01/per-bit.json
+[walk]: evidence/gap-remediation/2026-11-13/native-bitmaps-01/walk-00/report.json
+[widths]: evidence/gap-remediation/2026-11-13/native-bitmaps-01/widths/report.json
+[allones]: evidence/gap-remediation/2026-11-13/native-bitmaps-01/all-ones/report.json
+[handler]: evidence/hotline-server-1.9/queries/D-10014df0.c
 [record]: native-wire-details.md#account-record-and-field-schema
 [registry]: privilege-contracts.md#bitmap-numbering-and-known-uses
-[metadata]: ../mothra/evidence/gap-remediation/2026-11-13/native-metadata-01/manifest.json
-[rooms]: ../mothra/evidence/gap-remediation/2026-11-13/native-rooms-01/manifest.json
-[batch]: ../mothra/evidence/gap-remediation/2026-11-13/native-account-batch-01/manifest.json
-[identity]: ../mothra/evidence/gap-remediation/2026-11-13/native-account-identity-01/manifest.json
+[metadata]: evidence/gap-remediation/2026-11-13/native-metadata-01/manifest.json
+[rooms]: evidence/gap-remediation/2026-11-13/native-rooms-01/manifest.json
+[batch]: evidence/gap-remediation/2026-11-13/native-account-batch-01/manifest.json
+[identity]: evidence/gap-remediation/2026-11-13/native-account-identity-01/manifest.json

@@ -9,15 +9,14 @@ guard, seed, request 110 and post-ban probe were not run. This failure cannot
 be counted as an option-two notice or ban result.
 
 The compact frozen corpus is
-`../mothra/evidence/gap-remediation/2026-11-13/native-transfer-stall-01/`. It
-retains the immutable and as-run 29-action plans, failed report, terminal
-receipt, exact lab namespace/guest/host PCAPs, recorder logs and C36/C37
-analyses. Those lab captures total less than 250 KiB; the primary server's
-large guest capture, ROMs and disk images are not included. The manifest and
-source-provenance records bind each exported byte to its original ignored
-source file. The lab was stopped; the original server and client FD identities
-remained intact. Host and namespace records show no use of the fixed
-primary-port bridge.
+`evidence/gap-remediation/2026-11-13/native-transfer-stall-01/`. It retains the
+immutable and as-run 29-action plans, failed report, terminal receipt, exact
+lab namespace/guest/host PCAPs, recorder logs and C36/C37 analyses. Those lab
+captures total less than 250 KiB; the primary server's large guest capture,
+ROMs and disk images are not included. The manifest and source-provenance
+records bind each exported byte to its original ignored source file. The lab
+was stopped; the original server and client FD identities remained intact. Host
+and namespace records show no use of the fixed primary-port bridge.
 
 ## What the frozen TCP views establish
 
@@ -44,7 +43,7 @@ Replay without a VM, ROM, Ghidra project or live socket:
 
 ```sh
 python3 scripts/verify_native_transfer_stall.py \
-  ../mothra/evidence/gap-remediation/2026-11-13/native-transfer-stall-01
+  evidence/gap-remediation/2026-11-13/native-transfer-stall-01
 python3 -m unittest discover -s scripts -p 'test_native_transfer_stall.py'
 ```
 
@@ -58,13 +57,12 @@ login result and persistence observations.
 ## Repeated baseline and a successful comparison
 
 An offline comparison completed on **14 November 2026**. The new portable
-corpus,
-`../mothra/evidence/gap-remediation/2026-11-14/native-transfer-repeat-01/`,
-keeps the original and as-run A7 plans, reports, launch and retirement
-receipts, configuration hashes, and guest, namespace and host PCAPs for three
-disposable labs. Its verifier selects each download flow by SYN and the
-runner's local port and time, then reconstructs application bytes from each
-packet view independently:
+corpus, `evidence/gap-remediation/2026-11-14/native-transfer-repeat-01/`, keeps
+the original and as-run A7 plans, reports, launch and retirement receipts,
+configuration hashes, and guest, namespace and host PCAPs for three disposable
+labs. Its verifier selects each download flow by SYN and the runner's local
+port and time, then reconstructs application bytes from each packet view
+independently:
 
 | Lab | A7 actions | Lab guest bytes | Lab namespace bytes | Outcome   |
 | --- | ---------: | --------------: | ------------------: | --------- |
@@ -103,7 +101,7 @@ Replay the exported corpus without a VM or live socket:
 
 ```sh
 python3 scripts/verify_native_transfer_repeat.py \
-  ../mothra/evidence/gap-remediation/2026-11-14/native-transfer-repeat-01
+  evidence/gap-remediation/2026-11-14/native-transfer-repeat-01
 python3 -m unittest discover -s scripts -p 'test_native_transfer_repeat.py'
 ```
 

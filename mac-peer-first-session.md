@@ -11,10 +11,10 @@ The replay stopped for safety after the client made automatic HTTP requests to
 a public IP. This is a **partial session**, not the planned 130-second
 local-only quiet test. The raw host, client-guest, and server-guest PCAPs,
 verification output, copied B12 staging report, and staging manifest are in
-`../mothra/evidence/gap-remediation/2026-11-13/mac-peer-first-session-01/`. Run:
+`evidence/gap-remediation/2026-11-13/mac-peer-first-session-01/`. Run:
 
 ```sh
-python3 scripts/verify_mac_peer_first_session.py ../mothra/evidence/gap-remediation/2026-11-13/mac-peer-first-session-01
+python3 scripts/verify_mac_peer_first_session.py evidence/gap-remediation/2026-11-13/mac-peer-first-session-01
 ```
 
 ## Observed control exchange

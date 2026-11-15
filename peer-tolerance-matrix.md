@@ -80,8 +80,8 @@ hash, size and timestamp are checked. The old client always writes `.hxvars` on
 normal exit, even with `-q`, so direct uncontained execution is unsafe. The
 fixture never contacts the shared native control port 15500.
 
-[profile]: ../mothra/evidence/gap-remediation/2026-11-13/native-shx-02/peer-profile.json
-[corpus]: ../mothra/evidence/gap-remediation/2026-11-13/delegated-peer-01/manifest.json
+[profile]: evidence/gap-remediation/2026-11-13/native-shx-02/peer-profile.json
+[corpus]: evidence/gap-remediation/2026-11-13/delegated-peer-01/manifest.json
 [prior]: identified-client-source.md#native-configured-name-and-controlled-receiver-matrix
 
 ## Cross-peer acceptance and omission rules

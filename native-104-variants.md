@@ -45,20 +45,20 @@ console delivery is also captured; its first host flow has the documented
 missing-prefix limit. Exact client rendering and any untraced 104 producers
 remain unestablished.
 
-[pm]: ../mothra/evidence/hotline-server-1.9/queries/D-1000f4e0.c
-[invite]: ../mothra/evidence/hotline-server-1.9/queries/D-100188e0.c
-[chat]: ../mothra/evidence/hotline-server-1.9/queries/D-1000fc20.c
-[kick]: ../mothra/evidence/hotline-server-1.9/queries/D-10015e70.c
-[batch]: ../mothra/evidence/hotline-server-1.9/queries/D-10015500.c
-[create]: ../mothra/evidence/hotline-server-1.9/queries/D-100146f0.c
-[delete]: ../mothra/evidence/gap-remediation/2026-11-13/native-live-accounts-01/oracle-queries/LA-D-10005f90.c
-[console]: ../mothra/evidence/gap-remediation/2026-11-12/batch-06/queries/B06-D-10002dd0.c
-[fanout]: ../mothra/evidence/gap-remediation/2026-11-12/batch-06/queries/B06-D-10005510.c
-[rooms-refusals]: ../mothra/evidence/gap-remediation/2026-11-13/native-rooms-01/refusals/report.json
-[rooms-basics]: ../mothra/evidence/gap-remediation/2026-11-13/native-rooms-01/basics/report.json
-[batch-collision]: ../mothra/evidence/gap-remediation/2026-11-13/native-account-batch-01/batch-collision-continues/report.json
-[direct-duplicate]: ../mothra/evidence/gap-remediation/2026-11-13/native-account-identity-01/duplicate-exact/report.json
-[live-delete]: ../mothra/evidence/gap-remediation/2026-11-13/native-live-accounts-01/delete/report.json
-[identity-delete]: ../mothra/evidence/gap-remediation/2026-11-13/native-account-identity-01/self/report.json
-[console-corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-console-broadcast-01/manifest.json
-[pm-corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-pm-01/manifest.json
+[pm]: evidence/hotline-server-1.9/queries/D-1000f4e0.c
+[invite]: evidence/hotline-server-1.9/queries/D-100188e0.c
+[chat]: evidence/hotline-server-1.9/queries/D-1000fc20.c
+[kick]: evidence/hotline-server-1.9/queries/D-10015e70.c
+[batch]: evidence/hotline-server-1.9/queries/D-10015500.c
+[create]: evidence/hotline-server-1.9/queries/D-100146f0.c
+[delete]: evidence/gap-remediation/2026-11-13/native-live-accounts-01/oracle-queries/LA-D-10005f90.c
+[console]: evidence/gap-remediation/2026-11-12/batch-06/queries/B06-D-10002dd0.c
+[fanout]: evidence/gap-remediation/2026-11-12/batch-06/queries/B06-D-10005510.c
+[rooms-refusals]: evidence/gap-remediation/2026-11-13/native-rooms-01/refusals/report.json
+[rooms-basics]: evidence/gap-remediation/2026-11-13/native-rooms-01/basics/report.json
+[batch-collision]: evidence/gap-remediation/2026-11-13/native-account-batch-01/batch-collision-continues/report.json
+[direct-duplicate]: evidence/gap-remediation/2026-11-13/native-account-identity-01/duplicate-exact/report.json
+[live-delete]: evidence/gap-remediation/2026-11-13/native-live-accounts-01/delete/report.json
+[identity-delete]: evidence/gap-remediation/2026-11-13/native-account-identity-01/self/report.json
+[console-corpus]: evidence/gap-remediation/2026-11-13/native-console-broadcast-01/manifest.json
+[pm-corpus]: evidence/gap-remediation/2026-11-13/native-pm-01/manifest.json

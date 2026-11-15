@@ -15,7 +15,7 @@ ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b
 ```
 
 The
-[paired resource-fork inventory](../mothra/evidence/gap-remediation/2026-11-12/batch-09/resource-inventory.json)
+[paired resource-fork inventory](evidence/gap-remediation/2026-11-12/batch-09/resource-inventory.json)
 advertises `Hotline Connect Server 1.9.1.0` in both version resources. This
 identifies the labelled build within the intended 1.9 family; the data-fork
 hash above remains the code oracle, and its login wire version is still 190.
@@ -1375,7 +1375,7 @@ The historical SynHX comparison is the supplied `../synhxd/server/` archive
 set, with selected trunk revision 1.1 and declared default branch 1.1.1. It is
 not a claim about every SynHX client or a currently released server.
 
-[ledger]: ../mothra/docs/baseline-validity-ledger.md
-[evidence]: ../mothra/evidence/hotline-server-1.9/
+[ledger]: docs/baseline-validity-ledger.md
+[evidence]: evidence/hotline-server-1.9/
 
 [login-extra-fixtures]: native-wire-details.md#captured-login-extras-configuration-bytes-and-refresh

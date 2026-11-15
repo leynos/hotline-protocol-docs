@@ -5,7 +5,7 @@ Server 1.9 lab. The byte-level option-one notice is witnessed; option two and
 post-ban Login107 were later measured in a
 [separate control-only witness](native-ban-control-witness.md). The
 1,800-second expiry and reload persistence remain open. The option-one capture
-is `../mothra/evidence/gap-remediation/2026-11-13/native-ban-one-01/`.
+is `evidence/gap-remediation/2026-11-13/native-ban-one-01/`.
 
 ## Identity and baseline
 
@@ -56,8 +56,8 @@ EOF. Its report status is **failed** at two completed actions. It did not send
 Login 107, so this probe establishes neither post-ban login rejection nor an
 enforcement defect. A separate Ghidra read places ban checks at Login 107; its
 own independent evidence belongs in
-`../mothra/evidence/gap-remediation/2026-11-13/native-ban-oracle-01/` when
-published. No runtime retest was made on that basis.
+`evidence/gap-remediation/2026-11-13/native-ban-oracle-01/` when published. No
+runtime retest was made on that basis.
 
 ## Isolation and limits
 
@@ -81,7 +81,7 @@ Offline replay, from the adjacent protocol documentation repository:
 
 ```sh
 python3 scripts/verify_native_ban_one.py \
-  ../mothra/evidence/gap-remediation/2026-11-13/native-ban-one-01
+  evidence/gap-remediation/2026-11-13/native-ban-one-01
 python3 -m unittest discover -s scripts -p 'test_native_ban_one.py'
 ```
 

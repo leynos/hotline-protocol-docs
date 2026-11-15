@@ -3,7 +3,7 @@
 This is one bounded live matrix for transaction 304, field 113, against the
 exact Hotline Server 1.9 binary SHA-256
 `ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`. The retained
-[corpus](../mothra/evidence/gap-remediation/2026-11-13/native-settings-01/manifest.json)
+[corpus](evidence/gap-remediation/2026-11-13/native-settings-01/manifest.json)
 contains ten source/as-run plans, reports, host/guest PCAPs, packet tails,
 execution receipts and exact A7 preflight/postflight readbacks. The frozen
 capture was made on the original Mac guest; this document can be checked

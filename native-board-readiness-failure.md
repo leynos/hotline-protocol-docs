@@ -1,7 +1,7 @@
 # Native board lab: aborted readiness
 
 The
-[frozen corpus](../mothra/evidence/gap-remediation/2026-11-14/native-board-readiness-failure-01/manifest.json)
+[frozen corpus](evidence/gap-remediation/2026-11-14/native-board-readiness-failure-01/manifest.json)
 records an isolated Hotline Server 1.9 board lab on 14 November 2026. The VM
 booted and the server opened its owned listener. The **18-action control
 readiness did not run**, and the board case did not run. The namespace PCAP has

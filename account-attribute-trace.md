@@ -124,20 +124,20 @@ the absence of a direct read in the inspected functions. A later closure
 decision needs positive semantic consumer evidence or an explicit decision to
 document only the opaque observed contract.
 
-[corpus]: ../mothra/evidence/gap-remediation/2026-11-13/account-attribute-01/manifest.json
-[core]: ../mothra/evidence/gap-remediation/2026-11-12/native-core-01/manifest.json
-[update]: ../mothra/evidence/gap-remediation/2026-11-13/native-account-update-01/manifest.json
-[create]: ../mothra/evidence/gap-remediation/2026-11-13/account-attribute-01/queries/AA-A-100146f0.json
-[replace]: ../mothra/evidence/gap-remediation/2026-11-13/account-attribute-01/queries/AA-A-10014df0.json
-[batch]: ../mothra/evidence/gap-remediation/2026-11-13/native-account-batch-01/oracle-queries/BA-D-10015500.c
-[creator]: ../mothra/evidence/gap-remediation/2026-11-13/native-account-update-01/oracle-queries/AC-D-100071a0.c
-[writer]: ../mothra/evidence/gap-remediation/2026-11-13/native-account-update-01/oracle-queries/AC-D-100075e0.c
-[admin-update]: ../mothra/evidence/gap-remediation/2026-11-13/account-attribute-01/queries/AA-D-10007780.c
-[reader-callers]: ../mothra/evidence/gap-remediation/2026-11-13/account-attribute-01/queries/AA-C-100073c0.json
-[live]: ../mothra/evidence/gap-remediation/2026-11-13/native-account-update-01/oracle-queries/AC-D-10005d30.c
-[strings]: ../mothra/evidence/gap-remediation/2026-11-13/account-attribute-01/queries/AA-S-account.json
+[corpus]: evidence/gap-remediation/2026-11-13/account-attribute-01/manifest.json
+[core]: evidence/gap-remediation/2026-11-12/native-core-01/manifest.json
+[update]: evidence/gap-remediation/2026-11-13/native-account-update-01/manifest.json
+[create]: evidence/gap-remediation/2026-11-13/account-attribute-01/queries/AA-A-100146f0.json
+[replace]: evidence/gap-remediation/2026-11-13/account-attribute-01/queries/AA-A-10014df0.json
+[batch]: evidence/gap-remediation/2026-11-13/native-account-batch-01/oracle-queries/BA-D-10015500.c
+[creator]: evidence/gap-remediation/2026-11-13/native-account-update-01/oracle-queries/AC-D-100071a0.c
+[writer]: evidence/gap-remediation/2026-11-13/native-account-update-01/oracle-queries/AC-D-100075e0.c
+[admin-update]: evidence/gap-remediation/2026-11-13/account-attribute-01/queries/AA-D-10007780.c
+[reader-callers]: evidence/gap-remediation/2026-11-13/account-attribute-01/queries/AA-C-100073c0.json
+[live]: evidence/gap-remediation/2026-11-13/native-account-update-01/oracle-queries/AC-D-10005d30.c
+[strings]: evidence/gap-remediation/2026-11-13/account-attribute-01/queries/AA-S-account.json
 
-[resource-audit]: ../mothra/evidence/gap-remediation/2026-11-13/account-resource-01/manifest.json
+[resource-audit]: evidence/gap-remediation/2026-11-13/account-resource-01/manifest.json
 
 ## Bounded reader-alias follow-up
 
@@ -166,4 +166,4 @@ schema and whole-record byte-preservation path above remain positive facts. No
 field-111-specific value-dependent consumer or human meaning has been
 established; GAP-071's use question remains open.
 
-[alias-trace]: ../mothra/evidence/gap-remediation/2026-11-14/account111-alias-trace-01/manifest.json
+[alias-trace]: evidence/gap-remediation/2026-11-14/account111-alias-trace-01/manifest.json

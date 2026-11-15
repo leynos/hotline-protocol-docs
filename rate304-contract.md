@@ -1,7 +1,7 @@
 # Native 1.9 settings rate path: source prediction
 
 The
-[frozen source corpus](../mothra/evidence/gap-remediation/2026-11-14/rate304-static-01/manifest.json)
+[frozen source corpus](evidence/gap-remediation/2026-11-14/rate304-static-01/manifest.json)
 copies the existing PowerPC decompilation bodies and query metadata for the
 native server DATA fork SHA-256
 `ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`. A93 made no

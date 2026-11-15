@@ -68,7 +68,7 @@ Replay the exported corpus without Ghidra, the VM or any live server:
 
 ```sh
 python3 scripts/verify_native_download_send_path.py \
-  ../mothra/evidence/gap-remediation/2026-11-13/native-download-send-path-01
+  evidence/gap-remediation/2026-11-13/native-download-send-path-01
 python3 -m unittest discover -s scripts -p 'test_native_download_send_path.py'
 ```
 
@@ -85,4 +85,4 @@ Both headless runs used `--no-analyze --discard` on the separate saved project
 with PEF SHA-256
 `ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`.
 
-[corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-download-send-path-01/manifest.json
+[corpus]: evidence/gap-remediation/2026-11-13/native-download-send-path-01/manifest.json

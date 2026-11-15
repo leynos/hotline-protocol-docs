@@ -99,10 +99,10 @@ Representative [native metadata][metadata], [room][rooms],
 selected granted and denied operations. Their evidence does not extend
 enforcement claims to unknown rows.
 
-[native]: ../mothra/evidence/gap-remediation/2026-11-13/native-bitmaps-01/per-bit.json
-[calls]: ../mothra/evidence/gap-remediation/2026-11-12/batch-15/privilege-callsite-review.json
-[all-ones]: ../mothra/evidence/gap-remediation/2026-11-13/native-bitmaps-01/all-ones/report.json
-[metadata]: ../mothra/evidence/gap-remediation/2026-11-13/native-metadata-01/manifest.json
-[rooms]: ../mothra/evidence/gap-remediation/2026-11-13/native-rooms-01/manifest.json
-[batch]: ../mothra/evidence/gap-remediation/2026-11-13/native-account-batch-01/manifest.json
-[identity]: ../mothra/evidence/gap-remediation/2026-11-13/native-account-identity-01/manifest.json
+[native]: evidence/gap-remediation/2026-11-13/native-bitmaps-01/per-bit.json
+[calls]: evidence/gap-remediation/2026-11-12/batch-15/privilege-callsite-review.json
+[all-ones]: evidence/gap-remediation/2026-11-13/native-bitmaps-01/all-ones/report.json
+[metadata]: evidence/gap-remediation/2026-11-13/native-metadata-01/manifest.json
+[rooms]: evidence/gap-remediation/2026-11-13/native-rooms-01/manifest.json
+[batch]: evidence/gap-remediation/2026-11-13/native-account-batch-01/manifest.json
+[identity]: evidence/gap-remediation/2026-11-13/native-account-identity-01/manifest.json

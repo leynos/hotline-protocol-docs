@@ -113,10 +113,10 @@ logical/physical confusion. The broader native/configuration and memory
 criterion remains unmet.
 
 [native]: session-transport-contracts.md#receive-limit-assignment-at-startup
-[run]: ../mothra/evidence/gap-remediation/2026-11-13/mxd-limits-01/manifest.json
+[run]: evidence/gap-remediation/2026-11-13/mxd-limits-01/manifest.json
 
-[acceptance]: ../mothra/evidence/gap-remediation/2026-11-13/mxd-correction-01/manifest.json
-[recovery]: ../mothra/evidence/gap-remediation/2026-11-13/mxd-build-recovery-01/manifest.json
-[watchdog]: ../mothra/evidence/gap-remediation/2026-11-13/mxd-watchdog-h1-01/manifest.json
-[import]: ../mothra/evidence/gap-remediation/2026-11-13/mxd-source-import-01/manifest.json
+[acceptance]: evidence/gap-remediation/2026-11-13/mxd-correction-01/manifest.json
+[recovery]: evidence/gap-remediation/2026-11-13/mxd-build-recovery-01/manifest.json
+[watchdog]: evidence/gap-remediation/2026-11-13/mxd-watchdog-h1-01/manifest.json
+[import]: evidence/gap-remediation/2026-11-13/mxd-source-import-01/manifest.json
 [acceptance-verifier]: scripts/verify_mxd_correction.py

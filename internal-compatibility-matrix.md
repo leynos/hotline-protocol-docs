@@ -323,7 +323,7 @@ targets and unknown-peer rule. The
 [cross-peer matrix](peer-tolerance-matrix.md#cross-peer-acceptance-and-omission-rules)
 consolidates GAP-081's finite field coverage; untested builds remain unknown.
 
-[server-profile]: ../mothra/evidence/gap-remediation/2026-11-13/synhx-profile-01/manifest.json
+[server-profile]: evidence/gap-remediation/2026-11-13/synhx-profile-01/manifest.json
 
 ## Open compatibility gaps and QA requirements
 
@@ -349,15 +349,15 @@ the disposition of all matrix and protocol ledger entries, and the
 [gap analysis](gap-analysis.md) for the remaining questions and their closure
 criteria.
 
-[ledger]: ../mothra/docs/baseline-validity-ledger.md
+[ledger]: docs/baseline-validity-ledger.md
 
-[mxd-review]: ../mothra/evidence/gap-remediation/2026-11-12/mxd-review/manifest.json
-[compat-log]: ../mothra/evidence/gap-remediation/2026-11-12/mxd-review/compat-tests.log
-[roster-log]: ../mothra/evidence/gap-remediation/2026-11-12/mxd-review/roster-tests.log
-[scenario-log]: ../mothra/evidence/gap-remediation/2026-11-12/mxd-review/scenario-tests.log
-[presence-log]: ../mothra/evidence/gap-remediation/2026-11-12/mxd-review/presence-tests.log
+[mxd-review]: evidence/gap-remediation/2026-11-12/mxd-review/manifest.json
+[compat-log]: evidence/gap-remediation/2026-11-12/mxd-review/compat-tests.log
+[roster-log]: evidence/gap-remediation/2026-11-12/mxd-review/roster-tests.log
+[scenario-log]: evidence/gap-remediation/2026-11-12/mxd-review/scenario-tests.log
+[presence-log]: evidence/gap-remediation/2026-11-12/mxd-review/presence-tests.log
 
-[lineage]: ../mothra/evidence/gap-remediation/2026-11-12/batch-08/synhx-lineage-review.json
+[lineage]: evidence/gap-remediation/2026-11-12/batch-08/synhx-lineage-review.json
 
 [agreements]: native-wire-details.md#captured-agreement-configurations-and-partial-login-failures
 

@@ -30,6 +30,6 @@ another bounded one-connect capture. Do not relabel this failed attempt as a
 successful Classic compatibility witness.
 
 [workflow]: mxd-peer-capture-workflow.md
-[corpus]: ../mothra/evidence/gap-remediation/2026-11-13/mxd-classic-login-01/manifest.json
-[verifier]: ../mothra/scripts/verify_mxd_classic_login.py
-[runtime]: ../mothra/docs/delegation/mxd-peer-runtime.md
+[corpus]: evidence/gap-remediation/2026-11-13/mxd-classic-login-01/manifest.json
+[verifier]: scripts/verify_mxd_classic_login.py
+[runtime]: docs/delegation/mxd-peer-runtime.md

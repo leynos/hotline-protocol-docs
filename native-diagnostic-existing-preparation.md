@@ -109,4 +109,4 @@ bound, report that negative reach result rather than enlarging the matrix.
 GAP-037's near-boundary witness and exact-text release decision remain open
 until independently resolved.
 
-[a7]: ../mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/manifest.json
+[a7]: evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/manifest.json

@@ -1,7 +1,7 @@
 # Native 1.9 same-session 304 transition witness (A33)
 
 The
-[portable A33 corpus](../mothra/evidence/gap-remediation/2026-11-13/native-settings-transitions-01/manifest.json)
+[portable A33 corpus](evidence/gap-remediation/2026-11-13/native-settings-transitions-01/manifest.json)
 records one eight-stage transaction 304 sequence between exact full A7
 preflight and postflight readbacks. The pinned server binary has SHA-256
 `ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`. This is

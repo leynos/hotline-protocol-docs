@@ -116,7 +116,7 @@ retain the same handle and fixed deadline.
 Do not infer that an alias is unresolved from a Trash move, self-cycle, missing
 209 source, an error string, or an empty transfer. The exact alias must first
 resolve a positively present owned target. A Locate dialog is not to be
-navigated; one recognised Cancel may be approved for M3. Never extend a live
+navigated; one recognized Cancel may be approved for M3. Never extend a live
 epoch or retry/retune a failed case for a preferable result.
 
 ## Tolerances (exception triggers)
@@ -174,7 +174,7 @@ boot/readiness 180, Finder/setup/positive gate 180, guarded unlink and post
 probes/modal 120, retirement 120, with 120 seconds slack. These are proposed
 ceilings, not measured guest timings. If a phase exceeds its allocation or
 cannot leave the stated downstream margin, stop before the next mutation. No
-automatic second epoch is authorised; an unsuccessful epoch ends with
+automatic second epoch is authorized; an unsuccessful epoch ends with
 quarantined image and a new decision.
 
 ## Risks
@@ -211,7 +211,7 @@ health.
 - [ ] M2 fresh live-alias rehearsal, positive 206 and retirement; **no
   unlink**.
 - [ ] M3 separate fresh missing-target epoch after independent M2 review and
-  root authorisation.
+  root authorization.
 - [ ] M4 portable replay, protocol correction and original-criterion decision.
 
 ## Surprises & discoveries
@@ -263,7 +263,7 @@ need not match. Capture recorder events are the timing bound, not operator
 labels.
 
 Lemma L1: if the same `alis` object and owned target inode are positively bound
-before unlink, and the validated leaf is ENOENT afterward, then the later
+before unlink, and the validated leaf is ENOENT afterwards, then the later
 206/transfer probes concern a genuinely missing target for this extfs-origin
 alias. Discharge with before/after catalogue/forks, host FD/stat/unlink receipt
 and correlated native IDs. This lemma does not assert the server must return
@@ -297,7 +297,7 @@ missing alias identity. Do not substitute shortcuts or another copy route. The
 operator retains fresh screenshots at every gate. The coordinator waits for an
 explicit reviewed operator receipt; it does not guess coordinates or invoke
 arbitrary commands. Native206 and stopped HFS alias-resource checks then decide
-success. No host unlink is authorised in this rehearsal.
+success. No host unlink is authorized in this rehearsal.
 
 This resolves B109's missing-control-label objection without another boot. It
 does not claim extfs alias creation/copy success in advance. If M1 discovers
@@ -349,7 +349,7 @@ copied alias name from the reviewed UI receipt;205 is the twelve bytes
 `553534542028616c69617329` (`U54T (alias)`);206 is `4d353458` (`M54X`); 213 is
 `55353454` (`U54T`). Reject bare `U54T`, `Unattached Alias`, wrong or duplicate
 tags, a mismatched name, error, timeout or unknown modal. Record 207 as
-observed; no new202/210 read is authorised to repair a failed gate.
+observed; no new202/210 read is authorized to repair a failed gate.
 
 Before and after Finder interaction, require the same owned target inode, UID,
 regular/nlink1, DATA bytes/hash and stable type/creator bytes. Record
@@ -438,13 +438,13 @@ catalogue/Finder flag/`alis` ID0 and both alias forks from the stopped image.
 Quarantine it; never reset it for M3. Independent replay and root review of
 this positive gate and stopped alias identity precede M3.
 
-## M3: one separately authorised missing-target epoch
+## M3: one separately authorized missing-target epoch
 
 M3 is conditional on an accepted M2 positive result and root review of the
 exact-object unlink helper and UI Cancel policy. Use a **fresh** absent runtime
 and the same source/ownership gates; repeat the exact positive sequence once on
 its own alias. A previous image's 206 or stopped `alis` snapshot cannot
-authorise deletion in this image. Before unlink require GUI/protocol alias
+authorize deletion in this image. Before unlink require GUI/protocol alias
 identity, correlated positive206 with the distinct resolved-target tags below,
 exact host leaf identity, capture views, current namespace, fixed deadline and
 120-second retirement reserve. Compare M3 `alis`/fork bytes only after this VM
@@ -458,7 +458,7 @@ mount ambiguity or open target handles. It unlinks the literal basename using
 removes sidecars nor touches Trash or an HFS file. A failed check performs
 **zero unlink** and ends the experiment. Keep the alias on HFS and run only one
 200/206 and conditional one 202 **or** 210. Record status/fields and complete
-control/data lifetimes; if a recognised Locate modal appears, capture it and
+control/data lifetimes; if a recognized Locate modal appears, capture it and
 use only the separately approved one Cancel. A timeout or unknown prompt stops
 further requests. Optional 204 cleanup is allowed only after status and
 identity checks and within retirement margin; quarantine instead if unsafe.
@@ -543,19 +543,19 @@ Revision note, 2026-11-14: B109 correctly stops before guessing Finder input.
 C132 supplies retained named menus and prior application-copy evidence; root
 freezes that basis and permits M1 to use an explicit operator UI gate. Keep
 actual alias creation/copy and positive206 as M2 observations. No extra UI-only
-boot, native START or host unlink is authorised by this revision.
+boot, native START or host unlink is authorized by this revision.
 
 Revision note, 2026-11-14: Permit bounded stopped C133 preparation in parallel.
 B110 identifies that206 field207 is an aggregate rather than target DATA
 length; the positive proof rule is under A130 review before coordinator
-implementation. No size-equality assertion or native result is authorised while
+implementation. No size-equality assertion or native result is authorized while
 that correction is unresolved.
 
 Revision note, 2026-11-14: Accept the A130/A131 metadata predicate for M1.
 Correct the DATA-length assumption using resolved-target type/creator and
 alias-form fields, host identity and stopped alias-resource binding. Keep 207
 observational; stage one exact owned Finder-info sidecar. No data-channel or
-request-count expansion, native START or host unlink is authorised.
+request-count expansion, native START or host unlink is authorized.
 
 Revision note, 2026-11-14: B111 stops at the production-size exception:
 formatted producer/coordinator total605 lines against550. Root increases only
@@ -565,7 +565,7 @@ I/O retention. Four files,260 test/120 guide lines and experiment scope stay
 fixed; allow20 additional active minutes. No guard may be dropped to fit.
 
 Revision note, 2026-11-14: A134 finds that set equality accepts duplicate alias
-listing rows despite the exact-one-entry requirement. Authorise a bounded B112
+listing rows despite the exact-one-entry requirement. Authorize a bounded B112
 correction with320 test lines (previously260), keeping700 production/120
 guide/four-file limits. Preserve a failing duplicate-row fixture before fixing
 the predicate; allow20 active minutes for review fixes. No native START or
@@ -591,7 +591,7 @@ an overstrict-ROM-mode failure before correction. The pinned source ROM is 0644
 and untouched, not permission-immutable. C135 may prewrite at most10
 operational launch/readiness/case/UI/retirement scripts totalling800 physical
 lines in the preparation directory, with30 active minutes. No execution,
-source-plan generation or service is authorised. Complete canonical source
+source-plan generation or service is authorized. Complete canonical source
 closure, scripts and staged receipts require independent root review before
 START; all script hashes must be frozen first. The task-specific XTest helper
 may address only the new display121 and must be included in that review.
@@ -604,7 +604,7 @@ across10 scripts. Startup input requires owned display/PID/deadline; case input
 additionally requires the bound READY event, active owned case unit and absent
 terminal report. Refuse startup-mode input once the case has begun. Log actual
 input arguments/times; accept no arbitrary shell commands. All code is
-reviewed/pinned before START; no GUI action is authorised now.
+reviewed/pinned before START; no GUI action is authorized now.
 
 Revision note, 2026-11-14: A137 requires three preboot corrections before any
 START. Enforce exact reviewed M1(two), protocol(35), helper(three),
@@ -617,7 +617,7 @@ minutes and1040 operational lines across the same10 files for these fixes and
 safe model/negative checks. Independent review remains required.
 
 Revision note, 2026-11-14: B115 identifies the AliasRecord parser boundary.
-Authorise one read-only Get Info observation on the owned alias, preserving
+Authorize one read-only Get Info observation on the owned alias, preserving
 Original volume/leaf separately from the six controller screenshots. Keep all
 wire/source/runtime limits unchanged and M3 gated on independent binding.
 
@@ -713,7 +713,7 @@ at most ten scripts/1150 physical lines,180 prose lines and150 separate
 model-test lines. Preserve all first-lab scripts and pins. Use canonical
 committedf6ec1a6 sources and their complete local-import closure. No disk/ROM
 copy, image preparation, socket, display, service, VM or GUI operation is
-authorised by this implementation packet. Validate scripts and all negative
+authorized by this implementation packet. Validate scripts and all negative
 models without X before independent review and source approval.
 
 The new helper may include a narrowly scoped retirement phase fixed before
@@ -740,7 +740,7 @@ initial32-byte Finder sidecar as UID1000/mode0600/nlink1; retain stopped
 catalogue and five named fork hash receipts. No service, display, VM, socket,
 GUI input, source edit or alias operation is in this grant. Existing
 destination paths, hash drift or uncertain FD ownership stops it. This
-preparation does not authorise the later boot or case START.
+preparation does not authorize the later boot or case START.
 
 Revision note, 2026-11-14: C escalated before source freeze because Ruff
 formatting the inherited templates produces1216 operational lines. Root raises
@@ -782,7 +782,7 @@ first-eight-byte guards passed. Closed18 readiness completed, but its
 alias or alias-target206 occurred; baseline readiness has its own206. Native
 app Quit was observed, then forced VM retirement completed before
 17:48:52.587463Z; parent verified PIDgone/rootFDfree at17:47:41Z. There was no
-orderly OS shutdown. R02 is quarantined. Authorise at most35 additional guide
+orderly OS shutdown. R02 is quarantined. Authorize at most35 additional guide
 lines to record this observed preparation and refusal, without changing wire
 claims or gap status. C148 freezes its stopped evidence and A148 reviews it
 independently; B121 proposes the next measured timing decision. No new native
@@ -905,7 +905,7 @@ cap fail. Exercise stale activation, deadline coverage below5s, wrong
 PID/FD/namespace and actual-versus-recorded unit mismatch. Run focused alias,
 capture, receipt and ban suites, Ruff/ty, and a fresh adjacent offline export.
 Root independently reviews exact diffs and all tests before import. No
-synthetic service is authorised by this source packet. A later separately
+synthetic service is authorized by this source packet. A later separately
 reviewed managed lease/capture rehearsal must verify actual systemd duration
 representation before any Mac VM START.
 
@@ -920,7 +920,7 @@ For menu operation use held down, a fresh menu image, move to the named item, a
 fresh highlighted-item image, then up and a fresh result image. Never release
 and click a row based on an old menu screenshot. Any unexpected dialog may
 receive one clearly identified safe Cancel, then input stops and the parent is
-notified immediately. Cancellation does not authorise continued preparation or
+notified immediately. Cancellation does not authorize continued preparation or
 protocol work. Preserve the deviation receipt/screens before retiring; a new
 root decision is required to do anything beyond retirement.
 
@@ -984,7 +984,7 @@ at least150 bytes, declared big-endian size at offset4 equal to the exact
 payload length, version2 at6 and file/directory kind0/1 at8. Bound volume
 Pascal length at10 by27 and target Pascal length at50 by63 before reading;
 retain raw name bytes as hex and the recorded parent/target CNIDs at46/114. Do
-not resolve CNIDs, infer host inodes, normalise paths or claim liveness.
+not resolve CNIDs, infer host inodes, normalize paths or claim liveness.
 
 Starting at150, parse signed16-bit tag/unsigned16-bit length entries with
 bounded data and even-byte padding. Support only the reviewed legacy tags 0,1,2
@@ -1078,7 +1078,7 @@ case window and reviewed controls. Unsupported data/UI remains unproved.
 Any unexpected UI, conflicting oracle identity, unsafe or out-of-scope
 condition stops the actor immediately. One clearly identified safe Cancel is
 permitted, followed by an immediate parent report with screen/log paths; no
-resumed preparation or protocol action is authorised by cancellation.
+resumed preparation or protocol action is authorized by cancellation.
 Retirement has a separate bounded grant. Observation timeout requires
 rechecking the same live handle, never an inferred restart. No new native START
 is implied by this plan revision or by the finished tooling reviews.
@@ -1196,13 +1196,13 @@ offsets8/13. Preserve this as a parent-checkpoint preparation abort.
 Root's per-dialog review loops consumed the window. For the next finite packet,
 pre-author and review the parent's receipt command before BOOT. Bootstrap may
 handle only already identified routine Launcher activation, owned application
-launch, Sounds Disabled OK and bounded recognised-saver wakes without another
+launch, Sounds Disabled OK and bounded recognized-saver wakes without another
 parent grant between those named steps. Finder may perform the already reviewed
 activation/close/Hide Others/Files/Unix/target sequence as one bounded grant.
 Unfamiliar UI, identity or evidence failures still stop immediately; readiness
 and case each retain a separate grant. Do not change the1200 hard
 checkpoint,390 reserve,1800 epoch or case limits. No new shared harness feature
-or generic recovery interface is authorised.
+or generic recovery interface is authorized.
 
 A179 pre-authors the R05 parent receipt operation before any next BOOT. Root
 prospectively approves120 lines (from90) for complete identity, exclusive

@@ -150,16 +150,16 @@ function/catch contract or changed in the live analysis merely to obtain a
 clean decompilation. Missing catch coverage and controlled native failure
 fixtures remain explicit investigation work.
 
-[status-review]: ../mothra/evidence/gap-remediation/2026-11-12/batch-11/error-status-callsite-review.json
-[unknown-text]: ../mothra/evidence/gap-remediation/2026-11-12/batch-11/queries/B11-M-unknown-operation-text.json
-[catalogue]: ../mothra/evidence/gap-remediation/2026-11-12/batch-11/internal-error-resource-catalogue.json
+[status-review]: evidence/gap-remediation/2026-11-12/batch-11/error-status-callsite-review.json
+[unknown-text]: evidence/gap-remediation/2026-11-12/batch-11/queries/B11-M-unknown-operation-text.json
+[catalogue]: evidence/gap-remediation/2026-11-12/batch-11/internal-error-resource-catalogue.json
 
-[native-map]: ../mothra/evidence/gap-remediation/2026-11-12/batch-14/native-error-map-review.json
+[native-map]: evidence/gap-remediation/2026-11-12/batch-14/native-error-map-review.json
 
-[native-core]: ../mothra/evidence/gap-remediation/2026-11-12/native-core-01/manifest.json
+[native-core]: evidence/gap-remediation/2026-11-12/native-core-01/manifest.json
 
 The
-[banner format/recovery corpus](../mothra/evidence/gap-remediation/2026-11-12/native-banner-02/manifest.json)
+[banner format/recovery corpus](evidence/gap-remediation/2026-11-12/native-banner-02/manifest.json)
 adds a native failure boundary: a present empty GIF is advertised and returns
 a size-zero reference, then attachment resets the owner, an independent
 observer and the data connection. The GUI records the repeated-error reset; a

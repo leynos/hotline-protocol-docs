@@ -198,11 +198,11 @@ host netns inode was `4026531840`, and the emulator netns inode was
 listener, backend, proxy or Classic-client readiness. Recheck both inodes and
 process identity before any future service launch.
 
-[rehearsal]: ../mothra/evidence/gap-remediation/2026-11-13/classic-proxy-rehearsal-01/
-[handoff]: ../mothra/docs/delegation/classic-proxy-rehearsal.md
+[rehearsal]: evidence/gap-remediation/2026-11-13/classic-proxy-rehearsal-01/
+[handoff]: docs/delegation/classic-proxy-rehearsal.md
 [baseline]: classic-native-baseline.md
 [matrix]: classic-field161-matrix.md
 [classic162]: classic-server-name-162.md
-[native162]: ../mothra/evidence/gap-remediation/2026-11-13/native-login-extras-01/manifest.json
+[native162]: evidence/gap-remediation/2026-11-13/native-login-extras-01/manifest.json
 
 [classic115]: classic-roster-subject-115.md

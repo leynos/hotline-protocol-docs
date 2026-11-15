@@ -68,5 +68,5 @@ isolated source-address design because those operations ban the address used by
 the shared oracle. Origin can remain ambiguous for identical 104 field sets; no
 universal variant discriminator is asserted.
 
-[corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-pm-01/manifest.json
-[handler]: ../mothra/evidence/hotline-server-1.9/queries/D-1000f4e0.c
+[corpus]: evidence/gap-remediation/2026-11-13/native-pm-01/manifest.json
+[handler]: evidence/hotline-server-1.9/queries/D-1000f4e0.c

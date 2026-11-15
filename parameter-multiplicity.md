@@ -48,8 +48,8 @@ fixture includes duplicate, missing and zero target IDs. These measure specific
 operations. They do not establish arbitrary duplicate semantics or every
 malformed-input permutation.
 
-[certificate]: ../mothra/evidence/gap-remediation/2026-11-13/multiplicity-criterion-01/b33-certificate.md
-[manifest]: ../mothra/evidence/gap-remediation/2026-11-13/multiplicity-criterion-01/manifest.json
-[framing]: ../mothra/evidence/gap-remediation/2026-11-12/native-framing-01/verification.json
+[certificate]: evidence/gap-remediation/2026-11-13/multiplicity-criterion-01/b33-certificate.md
+[manifest]: evidence/gap-remediation/2026-11-13/multiplicity-criterion-01/manifest.json
+[framing]: evidence/gap-remediation/2026-11-12/native-framing-01/verification.json
 
-[acceptance]: ../mothra/evidence/gap-remediation/2026-11-13/multiplicity-acceptance-01/decision.json
+[acceptance]: evidence/gap-remediation/2026-11-13/multiplicity-acceptance-01/decision.json

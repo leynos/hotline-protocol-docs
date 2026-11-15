@@ -7,7 +7,7 @@ The full file-transfer A7 baseline was **not exercised** in this lab.
 ## Reproducible record
 
 The portable corpus is
-[`native-ban-expiry-first-01`](../mothra/evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/manifest.json).
+[`native-ban-expiry-first-01`](evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/manifest.json).
 Its manifest binds the original preboot image and native binary identities,
 the actual emulator PID 774195, start tick 5983214, image inode 3290756512,
 namespace `net:[4026533397]`, capture units, fixed 05:56:51 UTC deadline, 12

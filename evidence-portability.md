@@ -80,5 +80,5 @@ pair rather than relying on the live sibling checkout. The
 closes GAP-087's portable package criterion; native execution and peer fixtures
 remain separate gaps.
 
-[verification]: ../mothra/evidence/gap-remediation/2026-11-12/package-review/verification.json
-[export]: ../mothra/evidence/gap-remediation/2026-11-12/package-review/export-manifest.json
+[verification]: evidence/gap-remediation/2026-11-12/package-review/verification.json
+[export]: evidence/gap-remediation/2026-11-12/package-review/export-manifest.json

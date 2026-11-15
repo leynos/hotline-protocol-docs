@@ -4,6 +4,7 @@
 import argparse
 import hashlib
 import json
+import os
 import re
 import textwrap
 from collections import Counter
@@ -66,6 +67,20 @@ def section_inventory(text: str) -> list[Section]:
     return sections
 
 
+MOTHRA_PREFIX = "../mothra/"
+
+
+def mothra_checkout() -> Path:
+    """Locate the general toolset checkout that a few links still point at."""
+    if "MOTHRA_ROOT" in os.environ:
+        return Path(os.environ["MOTHRA_ROOT"])
+    root = Path(__file__).resolve().parent.parent
+    for candidate in (root.parent / "mothra", root.parent.parent / "mothra"):
+        if candidate.is_dir():
+            return candidate
+    return root.parent / "mothra"
+
+
 def check_links(path: Path, text: str) -> int:
     links = re.findall(r"\]\(([^)\s]+)\)", text)
     links += re.findall(r"^\[[^\]]+\]: (\S+)", text, re.MULTILINE)
@@ -74,6 +89,9 @@ def check_links(path: Path, text: str) -> int:
             continue
         relative, _, fragment = link.partition("#")
         target = (path.parent / relative).resolve() if relative else path.resolve()
+        if relative.startswith(MOTHRA_PREFIX):
+            # Guides that remain in the general toolset; see mothra_checkout().
+            target = mothra_checkout() / relative.removeprefix(MOTHRA_PREFIX)
         if not target.exists() and target != path.resolve():
             raise ValueError(f"Broken link in {path.name}: {link}")
         if fragment and target.suffix == ".md":
@@ -327,7 +345,7 @@ def render(register: dict, manifest: dict) -> str:
             related = ", ".join(gap["related_ledger_entries"]) or "No prior entry"
             leads = (
                 ", ".join(
-                    f"[{address}](../mothra/evidence/hotline-server-1.9/queries/D-{address}.c)"
+                    f"[{address}](evidence/hotline-server-1.9/queries/D-{address}.c)"
                     for address in gap["investigation_leads"]
                 )
                 or "Needs peer/source/project evidence or an explicit policy decision."
@@ -422,12 +440,12 @@ def render(register: dict, manifest: dict) -> str:
                 "The baseline validity ledger and its original snapshots remain immutable."
             ),
             "",
-            "From the sibling mothra checkout:",
+            "From the repository root:",
             "",
             "```sh",
             "python3 scripts/render-protocol-gap-analysis.py",
             "python3 scripts/render-protocol-gap-analysis.py --check",
-            "make gap-check",
+            "make audit-check",
             "```",
             "",
             "The check validates snapshot/current-source hashes, references, IDs,",
@@ -442,7 +460,7 @@ def main() -> None:
     parser.add_argument("--check", action="store_true", help="Check without writing")
     args = parser.parse_args()
     root = Path(__file__).resolve().parent.parent
-    directory = root.parent / "hotline-protocol-docs"
+    directory = root
     register = json.loads((directory / "gap-register.json").read_text())
     manifest = validate(root, directory, register)
     generated = render(register, manifest)

@@ -259,21 +259,21 @@ long-name fallback to a generated 32-byte name. These are transformations, not
 a blanket rejection or UTF-8 normalization contract. Which platform branch runs
 and collision effects require environment-specific fixtures.
 
-[batch]: ../mothra/evidence/gap-remediation/2026-11-12/batch-05/manifest.json
-[category-asm]: ../mothra/evidence/gap-remediation/2026-11-12/batch-05/queries/B05-A-10005710.json
+[batch]: evidence/gap-remediation/2026-11-12/batch-05/manifest.json
+[category-asm]: evidence/gap-remediation/2026-11-12/batch-05/queries/B05-A-10005710.json
 
-[create-asm]: ../mothra/evidence/gap-remediation/2026-11-12/batch-13/queries/B13-A-100229b0.json
-[delete-asm]: ../mothra/evidence/gap-remediation/2026-11-12/batch-13/queries/B13-A-10023830.json
+[create-asm]: evidence/gap-remediation/2026-11-12/batch-13/queries/B13-A-100229b0.json
+[delete-asm]: evidence/gap-remediation/2026-11-12/batch-13/queries/B13-A-10023830.json
 
-[category-create]: ../mothra/evidence/gap-remediation/2026-11-12/batch-14/queries/B14-D-10022670.c
-[spec-equal]: ../mothra/evidence/gap-remediation/2026-11-12/batch-14/queries/B14-D-1002cac0.c
-[sanitize]: ../mothra/evidence/gap-remediation/2026-11-12/batch-14/queries/B14-D-1002f0c0.c
+[category-create]: evidence/gap-remediation/2026-11-12/batch-14/queries/B14-D-10022670.c
+[spec-equal]: evidence/gap-remediation/2026-11-12/batch-14/queries/B14-D-1002cac0.c
+[sanitize]: evidence/gap-remediation/2026-11-12/batch-14/queries/B14-D-1002f0c0.c
 
-[delete-structure]: ../mothra/evidence/hotline-server-1.9/queries/D-10010b70.c
-[create-folder]: ../mothra/evidence/hotline-server-1.9/queries/D-10010ee0.c
-[create-category]: ../mothra/evidence/hotline-server-1.9/queries/D-10011110.c
-[classify]: ../mothra/evidence/gap-remediation/2026-11-12/batch-14/queries/B14-D-1002f800.c
-[trash-move]: ../mothra/evidence/gap-remediation/2026-11-12/batch-08/queries/B08-D-1002ba20.c
+[delete-structure]: evidence/hotline-server-1.9/queries/D-10010b70.c
+[create-folder]: evidence/hotline-server-1.9/queries/D-10010ee0.c
+[create-category]: evidence/hotline-server-1.9/queries/D-10011110.c
+[classify]: evidence/gap-remediation/2026-11-12/batch-14/queries/B14-D-1002f800.c
+[trash-move]: evidence/gap-remediation/2026-11-12/batch-08/queries/B08-D-1002ba20.c
 
 ## Captured category versions and header metadata
 
@@ -416,7 +416,7 @@ variants, interrupted category writes and broader hierarchy failure effects
 remain GAP-070. One-second quiet windows do not establish every later
 notification or durable completion.
 
-[native-news]: ../mothra/evidence/gap-remediation/2026-11-13/native-news-01/manifest.json
+[native-news]: evidence/gap-remediation/2026-11-13/native-news-01/manifest.json
 
 ## Captured article deletion and index effects
 
@@ -498,7 +498,7 @@ independent upload publishes all 27 original objects positively in Trash,
 preserving catalogue identities, paths, forks and caches. Its separate helper
 is then removed with wire controls. No restart-durability claim follows.
 
-[article-delete]: ../mothra/evidence/gap-remediation/2026-11-13/native-article-delete-01/manifest.json
+[article-delete]: evidence/gap-remediation/2026-11-13/native-article-delete-01/manifest.json
 
 ## Captured child append boundary and indexed orphan
 
@@ -564,4 +564,4 @@ original objects positively in Trash with unchanged catalogue identities, paths
 and forks, including the index/count/cache mismatch. Its helper is then removed
 with wire controls. Restart durability remains unproved.
 
-[news-boundary]: ../mothra/evidence/gap-remediation/2026-11-13/native-news-boundary-01/manifest.json
+[news-boundary]: evidence/gap-remediation/2026-11-13/native-news-boundary-01/manifest.json

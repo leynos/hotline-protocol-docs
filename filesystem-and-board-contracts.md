@@ -199,7 +199,7 @@ choose a new mxd release requirement for exact prose, spacing or localized
 textual parity. That decision, representative native outputs and encoding/
 boundary fixtures remain GAP-037/086.
 
-[batch]: ../mothra/evidence/gap-remediation/2026-11-12/batch-08/manifest.json
+[batch]: evidence/gap-remediation/2026-11-12/batch-08/manifest.json
 
 ## Captured native folder creation and field 202 paths
 
@@ -300,7 +300,7 @@ path. Catalogue probes are positive observations, not arbitrary absence proofs
 or restart-durability tests. No guest restart, debugger, account mutation or
 native configuration change is used.
 
-[mkdir]: ../mothra/evidence/gap-remediation/2026-11-13/native-mkdir-01/manifest.json
+[mkdir]: evidence/gap-remediation/2026-11-13/native-mkdir-01/manifest.json
 
 ## Captured alias and metadata matrix
 
@@ -321,7 +321,7 @@ target, whose DATA and resource forks total 16 + 317. That value is neither the
 target's DATA-only length nor the alias file's own fork total. The older
 read-only catalogue observations give the aliases' own fork totals as 540/546;
 they have no stopped-image consistency or durability proof. The
-[size-scope review](../mothra/evidence/gap-remediation/2026-11-14/alias-positive-basis-01/a131-size-scope.md)
+[size-scope review](evidence/gap-remediation/2026-11-14/alias-positive-basis-01/a131-size-scope.md)
 retains the source/capture distinction and that provenance limit.
 
 Field 207 uses two bytes in these small samples. The shared integer writer's
@@ -396,7 +396,7 @@ pre-cleanup snapshot contains 33 positive objects, but the immediate post-move
 snapshot supplies only three positive Trash observations. Do not extrapolate
 that partial disk view into complete Trash persistence or restart durability.
 
-[aliases]: ../mothra/evidence/gap-remediation/2026-11-13/native-alias-01/manifest.json
+[aliases]: evidence/gap-remediation/2026-11-13/native-alias-01/manifest.json
 
 ## Captured rename and comment mutation matrix
 
@@ -465,7 +465,7 @@ absent. The owned file tree and six supplementary entries are moved to Trash;
 the complete 41-entry Files wire listing is restored. No full disk-persistence
 claim follows from those ACKs or listings.
 
-[metadata]: ../mothra/evidence/gap-remediation/2026-11-13/native-metadata-01/manifest.json
+[metadata]: evidence/gap-remediation/2026-11-13/native-metadata-01/manifest.json
 
 ## Captured move and Trash outcomes
 
@@ -543,4 +543,4 @@ subtree paths. Three root-level file markers lack positive post-move probes. Do
 not turn those missing positive observations into absence, complete Trash
 persistence or restart-durability claims.
 
-[moves]: ../mothra/evidence/gap-remediation/2026-11-13/native-move-01/manifest.json
+[moves]: evidence/gap-remediation/2026-11-13/native-move-01/manifest.json

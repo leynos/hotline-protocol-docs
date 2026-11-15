@@ -3,7 +3,7 @@
 This control-only Hotline Server 1.9 lab exercised one outstanding roster
 request (300) while another session changed its own name and icon (304). The
 portable
-[corpus](../mothra/evidence/gap-remediation/2026-11-14/native-roster-overlap-01/manifest.json)
+[corpus](evidence/gap-remediation/2026-11-14/native-roster-overlap-01/manifest.json)
 contains the original plans, reports, source snapshots, both packet views, and
 retirement receipts. Replay it without a VM:
 

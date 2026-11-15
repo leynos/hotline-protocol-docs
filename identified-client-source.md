@@ -103,9 +103,9 @@ prove that later clients never use 500 or settle its native purpose (GAP-079).
 Likewise the client account constants/selected account paths do not establish a
 human meaning for native account field 111. That value stays opaque (GAP-071).
 
-[manifest]: ../mothra/evidence/gap-remediation/2026-11-12/batch-12/manifest.json
-[driver]: ../mothra/scripts/verify-shx-login-fragment.py
-[result]: ../mothra/evidence/gap-remediation/2026-11-12/batch-12/host-fragment-result.json
+[manifest]: evidence/gap-remediation/2026-11-12/batch-12/manifest.json
+[driver]: scripts/verify-shx-login-fragment.py
+[result]: evidence/gap-remediation/2026-11-12/batch-12/host-fragment-result.json
 
 ## Identified complete terminal build
 
@@ -215,9 +215,9 @@ hashes and records operator-supplied guest provenance. Independent packet and
 semantic checks establish the bounded results above, without certifying every
 operation or treating supplied runtime metadata as process attestation.
 
-[full-build]: ../mothra/evidence/gap-remediation/2026-11-13/shx-build-01/inputs.json
-[full-corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-shx-01/manifest.json
-[peer-guide]: ../mothra/shx-peer.md
+[full-build]: evidence/gap-remediation/2026-11-13/shx-build-01/inputs.json
+[full-corpus]: evidence/gap-remediation/2026-11-13/native-shx-01/manifest.json
+[peer-guide]: shx-peer.md
 
 ## Native configured-name and controlled receiver matrix
 
@@ -324,5 +324,5 @@ python3 ../hotline-protocol-docs/scripts/verify_native_shx_extras.py \
   evidence/gap-remediation/2026-11-13/native-shx-02
 ```
 
-[extra-corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-shx-02/manifest.json
-[server-profile]: ../mothra/evidence/gap-remediation/2026-11-13/synhx-profile-01/manifest.json
+[extra-corpus]: evidence/gap-remediation/2026-11-13/native-shx-02/manifest.json
+[server-profile]: evidence/gap-remediation/2026-11-13/synhx-profile-01/manifest.json

@@ -111,10 +111,10 @@ collision/wrap behaviour. Those broader lifetime requirements remain GAP-033.
 Request214's separate owner check remains as documented below: bearer matching
 at data attachment does not remove that control-operation check.
 
-[htxf-corpus]: ../mothra/evidence/gap-remediation/2026-11-12/native-htxf-01/manifest.json
-[htxf-forks]: ../mothra/evidence/gap-remediation/2026-11-12/native-forks-01/manifest.json
-[htxf-banners]: ../mothra/evidence/gap-remediation/2026-11-12/native-banner-01/manifest.json
-[htxf-folders]: ../mothra/evidence/gap-remediation/2026-11-12/native-folder-01/manifest.json
+[htxf-corpus]: evidence/gap-remediation/2026-11-12/native-htxf-01/manifest.json
+[htxf-forks]: evidence/gap-remediation/2026-11-12/native-forks-01/manifest.json
+[htxf-banners]: evidence/gap-remediation/2026-11-12/native-banner-01/manifest.json
+[htxf-folders]: evidence/gap-remediation/2026-11-12/native-folder-01/manifest.json
 
 ## Reference allocation and request 214
 
@@ -164,7 +164,7 @@ tracked, and no universal race byte count or cancellation deadline is claimed.
 ### Captured cancellation and completion races
 
 The
-[native cleanup corpus](../mothra/evidence/gap-remediation/2026-11-12/native-cleanup-01/manifest.json)
+[native cleanup corpus](evidence/gap-remediation/2026-11-12/native-cleanup-01/manifest.json)
 retains ten cases: a seeded multi-chunk file, its full download, three
 immediate owner cancellations, three cancellations after reading 1,024 bytes,
 nonowner cleanup and cleanup of a pending upload. Every stream reconciles with
@@ -264,7 +264,7 @@ supply field 203 or that folder resume uses an identical state machine.
 ### Captured RFLT download boundaries
 
 The
-[native resume corpus](../mothra/evidence/gap-remediation/2026-11-12/native-resume-01/manifest.json)
+[native resume corpus](evidence/gap-remediation/2026-11-12/native-resume-01/manifest.json)
 contains 16 reviewed download cases and seven upload cases. Its packet
 verifier reconciles every retained transcript with both host and guest TCP
 streams; initial failed expectations remain separate and unchanged.
@@ -466,7 +466,7 @@ bound or universal FIFO policy. Completion/cancellation races remain GAP-062.
 ### Captured controlled queues
 
 The
-[native queue corpus](../mothra/evidence/gap-remediation/2026-11-12/native-queue-01/manifest.json)
+[native queue corpus](evidence/gap-remediation/2026-11-12/native-queue-01/manifest.json)
 retains four cases with paired packet captures and exact byte/position checks.
 The queue fixture configuration is **two simultaneous downloads globally and
 one per client session**. Both owners log in as the same fixture account on
@@ -576,7 +576,7 @@ cases below distinguish delivery count from transport close.
 ## Captured ordinary-file round trips
 
 The
-[native fork corpus](../mothra/evidence/gap-remediation/2026-11-12/native-forks-01/manifest.json)
+[native fork corpus](evidence/gap-remediation/2026-11-12/native-forks-01/manifest.json)
 retains two uploads, eight reviewed download cases, eight initial probes, both
 packet views and read-only HFS+ observations. Both supported entry paths work:
 
@@ -588,7 +588,7 @@ packet views and read-only HFS+ observations. Both supported entry paths work:
 Both paths use a separate owning control session to request 203/202 first.
 Upload references are four-byte even values; download references are four-byte
 odd values. The
-[earlier transport negatives](../mothra/evidence/gap-remediation/2026-11-12/native-transport-01/manifest.json)
+[earlier transport negatives](evidence/gap-remediation/2026-11-12/native-transport-01/manifest.json)
 retain unmatched-reference rejection through both paths. No 12-byte ordinary
 control handshake is sent to the raw data listener. No second TCP connection is
 inserted between the sub-version-3 reply and its HTXF header.
@@ -737,7 +737,7 @@ second comparison already documented.
 ### Captured folder downloads
 
 The
-[folder corpus](../mothra/evidence/gap-remediation/2026-11-12/native-folder-01/manifest.json)
+[folder corpus](evidence/gap-remediation/2026-11-12/native-folder-01/manifest.json)
 retains exact direction-specific control/item streams. Its HFS+ source tree is:
 
 ```text
@@ -875,20 +875,20 @@ conflicting file. A missing zero-length resource attribute is labelled as an
 absent attribute, rather than a successful extraction. No restart-durability
 claim follows from these live-image observations.
 
-[folder-batch]: ../mothra/evidence/gap-remediation/2026-11-12/batch-05/manifest.json
+[folder-batch]: evidence/gap-remediation/2026-11-12/batch-05/manifest.json
 
-[batch]: ../mothra/evidence/gap-remediation/2026-11-12/batch-04/manifest.json
+[batch]: evidence/gap-remediation/2026-11-12/batch-04/manifest.json
 
-[descriptor-asm]: ../mothra/evidence/gap-remediation/2026-11-12/batch-10/queries/B10-A-1000c6a0.json
+[descriptor-asm]: evidence/gap-remediation/2026-11-12/batch-10/queries/B10-A-1000c6a0.json
 
-[info-restore]: ../mothra/evidence/gap-remediation/2026-11-12/batch-13/queries/B13-D-1002d2c0.c
+[info-restore]: evidence/gap-remediation/2026-11-12/batch-13/queries/B13-D-1002d2c0.c
 
-[attach-asm]: ../mothra/evidence/gap-remediation/2026-11-12/batch-16/queries/B16-A-1000bd20.json
+[attach-asm]: evidence/gap-remediation/2026-11-12/batch-16/queries/B16-A-1000bd20.json
 
 ## Captured banner observations
 
 The
-[banner corpus](../mothra/evidence/gap-remediation/2026-11-12/native-banner-01/manifest.json)
+[banner corpus](evidence/gap-remediation/2026-11-12/native-banner-01/manifest.json)
 adds native GIF and URL fixtures to the handler traces. These are bounded
 observations of the identified 1.9-family oracle, rather than a claim that
 every advertised image type or historical client has been tested.
@@ -998,4 +998,4 @@ header/reference cases above add owner cleanup and bounded duplicate/reuse
 outcomes. General identifier lifetimes, client rendering and mxd policy remain
 separate acceptance work.
 
-[banner-formats]: ../mothra/evidence/gap-remediation/2026-11-12/native-banner-02/manifest.json
+[banner-formats]: evidence/gap-remediation/2026-11-12/native-banner-02/manifest.json

@@ -55,9 +55,9 @@ cd ../mothra
 sha256sum --quiet -c evidence/gap-remediation/2026-11-14/classic-server-name-162-01/SHA256SUMS
 cd ../hotline-protocol-docs
 python3 scripts/verify_classic_server_name_162.py \
-  ../mothra/evidence/gap-remediation/2026-11-14/classic-server-name-162-01
+  evidence/gap-remediation/2026-11-14/classic-server-name-162-01
 python3 -m unittest discover -s scripts -p 'test_classic_server_name_162.py'
 ```
 
-[corpus]: ../mothra/evidence/gap-remediation/2026-11-14/classic-server-name-162-01/
+[corpus]: evidence/gap-remediation/2026-11-14/classic-server-name-162-01/
 [proxy]: classic-login-proxy.md

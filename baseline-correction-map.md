@@ -1,7 +1,7 @@
 # Baseline correction map
 
 This revision applies the 12 November 2026
-[Hotline 1.9 validity ledger](../mothra/docs/baseline-validity-ledger.md) to
+[Hotline 1.9 validity ledger](docs/baseline-validity-ledger.md) to
 [protocol.md](protocol.md) and the
 [compatibility matrix](internal-compatibility-matrix.md).
 

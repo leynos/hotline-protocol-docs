@@ -23,7 +23,7 @@ python3 scripts/mac_runtime.py prepare "$NATIVE_RUNTIME" \
 Choose an unused runtime name for `NATIVE_RUNTIME` and keep that value for the
 whole experiment. The historical `hotline19` instance was retired on
 15 November 2026; its
-[hashes and small recovery records](../mothra/evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/manifest.json)
+[hashes and small recovery records](evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/manifest.json)
 remain archived.
 
 Preparation hashes the supplied ROM and extracted base disk, creates a writable
@@ -307,7 +307,7 @@ alternate-wrapper requirements remain open.
 ## Recorded native framing fixtures
 
 The
-[framing batch](../mothra/evidence/gap-remediation/2026-11-12/native-framing-01/manifest.json)
+[framing batch](evidence/gap-remediation/2026-11-12/native-framing-01/manifest.json)
 contains 62 reviewed sessions and one separately retained disproven icon-width
 hypothesis. It includes both packet views, runtime identity and exact capture
 driver versions. Run its independent checks from `mothra`:
@@ -343,7 +343,7 @@ Retain original failed expectations rather than editing historical reports.
 ## Recorded native ordinary-file fixtures
 
 The
-[fork corpus](../mothra/evidence/gap-remediation/2026-11-12/native-forks-01/manifest.json)
+[fork corpus](evidence/gap-remediation/2026-11-12/native-forks-01/manifest.json)
 includes nonempty DATA/MACR and empty-file uploads, raw/control-handover
 downloads, preview, noncanonical selector 7 and wrong-collection selectors.
 Verify it from `mothra`:
@@ -395,7 +395,7 @@ rewrite them. The verifier also accounts explicitly for the one unread control
 ## Recorded native resume fixtures
 
 The
-[resume corpus](../mothra/evidence/gap-remediation/2026-11-12/native-resume-01/manifest.json)
+[resume corpus](evidence/gap-remediation/2026-11-12/native-resume-01/manifest.json)
 retains 23 reviewed cases and seven initial attempts. Run its packet, fork,
 offset and failure checks from `mothra`:
 
@@ -437,7 +437,7 @@ with their complete paired packet evidence.
 ## Recorded native queue fixtures
 
 Verify the
-[retained queue corpus](../mothra/evidence/gap-remediation/2026-11-12/native-queue-01/manifest.json)
+[retained queue corpus](evidence/gap-remediation/2026-11-12/native-queue-01/manifest.json)
 from `mothra` without running its nine-minute native capture again:
 
 ```sh
@@ -482,7 +482,7 @@ provenance rather than replacing the runtime checks.
 ## Recorded native cleanup fixtures
 
 The
-[cleanup corpus](../mothra/evidence/gap-remediation/2026-11-12/native-cleanup-01/manifest.json)
+[cleanup corpus](evidence/gap-remediation/2026-11-12/native-cleanup-01/manifest.json)
 contains ten completed captures and independent native fork extractions.
 Verify it from `mothra` without the emulator:
 
@@ -520,7 +520,7 @@ neither timestamp instruments the handler's internal execution instant.
 ## Recorded native folder fixtures
 
 The
-[folder corpus](../mothra/evidence/gap-remediation/2026-11-12/native-folder-01/manifest.json)
+[folder corpus](evidence/gap-remediation/2026-11-12/native-folder-01/manifest.json)
 contains 17 final cases, three initial probes and one auxiliary finalization.
 Verify it from `mothra` without rerunning the emulator or timing waits:
 
@@ -604,25 +604,25 @@ validate the capture runner. They do not discharge the native scenario families
 above. Run the tool tests from this repository with
 `python3 -m unittest discover -s scripts -p test_protocol_capture.py`.
 
-[tool-test]: ../mothra/evidence/gap-remediation/2026-11-12/capture-tooling-01/transcript/report.json
+[tool-test]: evidence/gap-remediation/2026-11-12/capture-tooling-01/transcript/report.json
 
-[native-handshake]: ../mothra/evidence/gap-remediation/2026-11-12/native-handshake-01/manifest.json
+[native-handshake]: evidence/gap-remediation/2026-11-12/native-handshake-01/manifest.json
 
-[native-core]: ../mothra/evidence/gap-remediation/2026-11-12/native-core-01/manifest.json
+[native-core]: evidence/gap-remediation/2026-11-12/native-core-01/manifest.json
 
-[native-transport]: ../mothra/evidence/gap-remediation/2026-11-12/native-transport-01/manifest.json
+[native-transport]: evidence/gap-remediation/2026-11-12/native-transport-01/manifest.json
 
 ## Recorded native banner fixtures
 
 The
-[banner corpus](../mothra/evidence/gap-remediation/2026-11-12/native-banner-01/manifest.json)
+[banner corpus](evidence/gap-remediation/2026-11-12/native-banner-01/manifest.json)
 retains24 final cases and42 exploratory cases, plans, socket reports, paired
 packet views, GUI configuration screenshots and positive native catalogue/fork
 observations. Reverify it without an emulator:
 
 ```sh
 python3 scripts/verify_native_banners.py \
-  ../mothra/evidence/gap-remediation/2026-11-12/native-banner-01
+  evidence/gap-remediation/2026-11-12/native-banner-01
 ```
 
 Use `prepare_native_cases.py` with `banner-seed`, `banner-none`, `banner-url`,
@@ -685,7 +685,7 @@ independently observed Finder types. Reverify without the guest:
 
 ```sh
 python3 scripts/verify_native_banner_formats.py \
-  ../mothra/evidence/gap-remediation/2026-11-12/native-banner-02
+  evidence/gap-remediation/2026-11-12/native-banner-02
 ```
 
 The committed `fixtures/banner` assets contain one-pixel JPEG, BMP, PICT and
@@ -742,7 +742,7 @@ banner bytes each; literal301/302 control suffixes are also pinned. Accepted
 final cases have no unread output. Positive live fork reads do not establish
 restart durability, and no ROM or OS/working image is committed.
 
-[format-corpus]: ../mothra/evidence/gap-remediation/2026-11-12/native-banner-02/manifest.json
+[format-corpus]: evidence/gap-remediation/2026-11-12/native-banner-02/manifest.json
 
 ## Reproducing HTXF header and reference fixtures
 
@@ -753,7 +753,7 @@ Reverify the retained corpus without the guest:
 
 ```sh
 python3 scripts/verify_native_htxf.py \
-  ../mothra/evidence/gap-remediation/2026-11-12/native-htxf-01
+  evidence/gap-remediation/2026-11-12/native-htxf-01
 ```
 
 For another live run, use the committed mothra harness and a new working copy
@@ -793,7 +793,7 @@ failures, alongside the native resource-size-zero observation. No ROM or
 OS/working disk is committed. Quiet windows and owner-pump delays are bounded
 observations; data connections carry no authenticated control-session identity.
 
-[htxf-corpus]: ../mothra/evidence/gap-remediation/2026-11-12/native-htxf-01/manifest.json
+[htxf-corpus]: evidence/gap-remediation/2026-11-12/native-htxf-01/manifest.json
 
 ## Reproducing ID, envelope and partial-input fixtures
 
@@ -804,7 +804,7 @@ without the guest:
 
 ```sh
 python3 scripts/verify_native_correlation.py \
-  ../mothra/evidence/gap-remediation/2026-11-12/native-correlation-01
+  evidence/gap-remediation/2026-11-12/native-correlation-01
 ```
 
 Use the same committed native harness and record the current executable,
@@ -847,7 +847,7 @@ read-only queries using `scripts/capture-ghidra-evidence.py` in mothra with its
 repository-local MCP Python and the retained `oracle-*.json` plans. The capture
 helper rejects a changed program hash before collecting evidence.
 
-[ids-corpus]: ../mothra/evidence/gap-remediation/2026-11-12/native-correlation-01/manifest.json
+[ids-corpus]: evidence/gap-remediation/2026-11-12/native-correlation-01/manifest.json
 
 ## Reproducing native authentication and visibility fixtures
 
@@ -858,7 +858,7 @@ Reverify without the guest:
 
 ```sh
 python3 scripts/verify_native_auth.py \
-  ../mothra/evidence/gap-remediation/2026-11-13/native-auth-01
+  evidence/gap-remediation/2026-11-13/native-auth-01
 ```
 
 Use the committed mothra harness and a fresh working copy of your prepared
@@ -901,13 +901,13 @@ remain exploratory. Neither timeout nor completion alone certifies its original
 hypothesis. The final isolated retry observes three seconds of silence; it does
 not establish a universal session-recovery policy or cleanup deadline.
 
-[auth-corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-auth-01/manifest.json
+[auth-corpus]: evidence/gap-remediation/2026-11-13/native-auth-01/manifest.json
 
 ## Reproducing agreement configuration and partial-failure fixtures
 
 Use the running native server and independently identified oracle described
 above. Capture both host and guest boundaries throughout. The retained
-[agreement manifest](../mothra/evidence/gap-remediation/2026-11-13/native-agreement-01/manifest.json)
+[agreement manifest](evidence/gap-remediation/2026-11-13/native-agreement-01/manifest.json)
 separates accepted cases, setup controls and exploratory hypotheses. Preserve
 each report and plan in a new output directory; never overwrite a failed trial.
 
@@ -1055,7 +1055,7 @@ refresh, truncated preferences and reduced configuration inventories. The
 retained byte-store discovery remains candidate evidence; it cannot establish
 field 161's meaning or exclude aliases. That requirement remains GAP-026.
 
-[login-extras]: ../mothra/evidence/gap-remediation/2026-11-13/native-login-extras-01/manifest.json
+[login-extras]: evidence/gap-remediation/2026-11-13/native-login-extras-01/manifest.json
 
 ## Reproducing full historical shx sessions
 
@@ -1092,7 +1092,7 @@ output directory. Its readiness file identifies localhost15510; verify that the
 specific listener process is still live before starting the contained peer. Use
 the matching retained receiver plan, including explicit `/who -r` and chat
 after fixture delivery. The as-run coordinator is retained in the
-[second peer corpus](../mothra/evidence/gap-remediation/2026-11-13/native-shx-02/sources/run-receivers.py.as-run.txt).
+[second peer corpus](evidence/gap-remediation/2026-11-13/native-shx-02/sources/run-receivers.py.as-run.txt).
 
 Record host-loopback packets for15510 and retain listener events alongside peer
 syscalls/terminal output. The listener replays retained native bootstrap/banner
@@ -1110,7 +1110,7 @@ Use the `mkdir-seed`, `mkdir-create`, `mkdir-final`, `mkdir-cleanup` and
 `mkdir-root-empty` suites in `scripts/prepare_native_cases.py`. Supply a
 current runtime record and new plan/output directories; execute through
 `protocol_capture.py` with the verified oracle input. The
-[retained corpus](../mothra/evidence/gap-remediation/2026-11-13/native-mkdir-01/manifest.json)
+[retained corpus](evidence/gap-remediation/2026-11-13/native-mkdir-01/manifest.json)
 includes exact plans, as-run generators, ten read-only identity-checked Ghidra
 queries and independent packet/catalogue controls.
 
@@ -1151,7 +1151,7 @@ aliases, protected-object deletion or platform variants.
 
 The `alias-seed`, `alias-create`, `alias-info`, `alias-download`,
 `alias-damage`, `alias-supplementary` and `alias-cleanup` suites prepare the
-[retained alias observations](../mothra/evidence/gap-remediation/2026-11-13/native-alias-01/manifest.json).
+[retained alias observations](evidence/gap-remediation/2026-11-13/native-alias-01/manifest.json).
 Use new output directories, a current runtime record and both packet
 recorders. Preflight the complete Files listing: `mothra-alias20` and the three
 `m-al20-absent`/`m-al20-empty`/`m-al20-zero` marker names must be absent. These
@@ -1205,7 +1205,7 @@ Use `metadata-preflight`, `metadata-seed`, `metadata-mutations`,
 `metadata-final`, `metadata-boundaries` and `metadata-cleanup` through the
 existing plan preparer and native capture driver. Supply a current runtime
 record and unused output paths. The
-[frozen metadata corpus](../mothra/evidence/gap-remediation/2026-11-13/native-metadata-01/manifest.json)
+[frozen metadata corpus](evidence/gap-remediation/2026-11-13/native-metadata-01/manifest.json)
 records the complete plans and paired packet evidence.
 
 Before seeding, require the Files listing to lack `mothra-meta21` and verify
@@ -1254,7 +1254,7 @@ than presenting an edited successful transcript. No historical client is run.
 Prepare `move-preflight`, `move-seed`, `move-moves`, `move-deletions`,
 `move-final` and `move-cleanup` plans with a current runtime record and unused
 output directories. The
-[frozen move corpus](../mothra/evidence/gap-remediation/2026-11-13/native-move-01/manifest.json)
+[frozen move corpus](evidence/gap-remediation/2026-11-13/native-move-01/manifest.json)
 retains all 39 reports/75 sockets, as-run sources and eleven fresh oracle
 queries. The seed uses the existing verified `fixture-low` account; no account
 changes are made by these suites.
@@ -1301,7 +1301,7 @@ protected-target, other-volume, interrupted-operation or missing-target work.
 ## Reproducing category and threaded news fixtures
 
 The
-[native news corpus](../mothra/evidence/gap-remediation/2026-11-13/native-news-01/manifest.json)
+[native news corpus](evidence/gap-remediation/2026-11-13/native-news-01/manifest.json)
 retains 43 reports/45 paired sockets, 29 identity-checked oracle queries and
 positive HLNZ/cache/Trash observations. Use a current runtime record and unused
 plan/output directories with the existing preparation and capture drivers.
@@ -1417,7 +1417,7 @@ pauses/quiet windows, positive cleanup publication and 15 oracle queries.
 Forced storage interruption and actual historical-client interoperability
 require separate evidence.
 
-[article-delete-corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-article-delete-01/manifest.json
+[article-delete-corpus]: evidence/gap-remediation/2026-11-13/native-article-delete-01/manifest.json
 
 ## Reproducing the child append boundary
 
@@ -1474,7 +1474,7 @@ measured pauses, ten oracle queries and positive cleanup publication. A working
 corrected implementation is not evidence that this native defect was absent;
 mxd's compatibility policy is a separate decision.
 
-[news-boundary-corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-news-boundary-01/manifest.json
+[news-boundary-corpus]: evidence/gap-remediation/2026-11-13/native-news-boundary-01/manifest.json
 
 ## Reproducing account replacement and password boundaries
 
@@ -1541,7 +1541,7 @@ eleven identity-checked oracle queries. Field-111 meaning, live-session edits,
 conflicts/protected deletion, forced write failures and restart persistence
 still need separate evidence.
 
-[account-update-corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-account-update-01/manifest.json
+[account-update-corpus]: evidence/gap-remediation/2026-11-13/native-account-update-01/manifest.json
 
 ## Reproducing live account edits, deletion and restart
 
@@ -1683,7 +1683,7 @@ records, rename/Trash identities and twelve oracle queries. Protected/self
 deletion, arbitrary storage failures and general exception translation require
 separate evidence.
 
-[batch-corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-account-batch-01/manifest.json
+[batch-corpus]: evidence/gap-remediation/2026-11-13/native-account-batch-01/manifest.json
 
 ## Reproducing account identity and protection contrasts
 
@@ -1739,7 +1739,7 @@ contrasts. It does not prove deletion protection for built-in identities,
 arbitrary name folding, native Trash-fork preservation, forced I/O or restart
 durability.
 
-[identity-corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-account-identity-01/manifest.json
+[identity-corpus]: evidence/gap-remediation/2026-11-13/native-account-identity-01/manifest.json
 
 ## Reproducing private rooms and chat byte fixtures
 
@@ -1803,7 +1803,7 @@ This verifies local state/recipient/order and byte-format observations, not a
 universal cross-socket delivery order, historical-client rendering, arbitrary
 encoding policy or restart durability.
 
-[room-workflow]: ../mothra/evidence/gap-remediation/2026-11-13/native-rooms-01/manifest.json
+[room-workflow]: evidence/gap-remediation/2026-11-13/native-rooms-01/manifest.json
 
 ## Reproducing console and client broadcast fixtures
 

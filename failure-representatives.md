@@ -97,20 +97,20 @@ The [broader registry][registry] and [reply/effect map][replies] retain those
 boundaries. No universal connection deadline, 111-before-close behaviour or
 error taxonomy is inferred from this sample.
 
-[selection]: ../mothra/evidence/gap-remediation/2026-11-13/failure-representatives-01/selected-witnesses.json
-[core]: ../mothra/evidence/gap-remediation/2026-11-12/native-core-01/manifest.json
-[runtime]: ../mothra/evidence/gap-remediation/2026-11-12/native-core-01/runtime.json
-[auth-plan]: ../mothra/evidence/gap-remediation/2026-11-12/native-core-01/old-password-rejected/plan.json
-[auth-report]: ../mothra/evidence/gap-remediation/2026-11-12/native-core-01/old-password-rejected/report.json
-[permission-plan]: ../mothra/evidence/gap-remediation/2026-11-12/native-core-01/low-privilege-and-missing-room/plan.json
-[permission-report]: ../mothra/evidence/gap-remediation/2026-11-12/native-core-01/low-privilege-and-missing-room/report.json
-[missing-plan]: ../mothra/evidence/gap-remediation/2026-11-12/native-core-01/missing-file-info/plan.json
-[missing-report]: ../mothra/evidence/gap-remediation/2026-11-12/native-core-01/missing-file-info/report.json
-[malformed-plan]: ../mothra/evidence/gap-remediation/2026-11-12/native-core-01/malformed-zero-size/plan.json
-[malformed-report]: ../mothra/evidence/gap-remediation/2026-11-12/native-core-01/malformed-zero-size/report.json
-[unsupported-plan]: ../mothra/evidence/gap-remediation/2026-11-12/native-core-01/early-login-and-errors/plan.json
-[unsupported-report]: ../mothra/evidence/gap-remediation/2026-11-12/native-core-01/early-login-and-errors/report.json
-[timing]: ../mothra/evidence/gap-remediation/2026-11-12/native-transport-01/timing-observations.json
+[selection]: evidence/gap-remediation/2026-11-13/failure-representatives-01/selected-witnesses.json
+[core]: evidence/gap-remediation/2026-11-12/native-core-01/manifest.json
+[runtime]: evidence/gap-remediation/2026-11-12/native-core-01/runtime.json
+[auth-plan]: evidence/gap-remediation/2026-11-12/native-core-01/old-password-rejected/plan.json
+[auth-report]: evidence/gap-remediation/2026-11-12/native-core-01/old-password-rejected/report.json
+[permission-plan]: evidence/gap-remediation/2026-11-12/native-core-01/low-privilege-and-missing-room/plan.json
+[permission-report]: evidence/gap-remediation/2026-11-12/native-core-01/low-privilege-and-missing-room/report.json
+[missing-plan]: evidence/gap-remediation/2026-11-12/native-core-01/missing-file-info/plan.json
+[missing-report]: evidence/gap-remediation/2026-11-12/native-core-01/missing-file-info/report.json
+[malformed-plan]: evidence/gap-remediation/2026-11-12/native-core-01/malformed-zero-size/plan.json
+[malformed-report]: evidence/gap-remediation/2026-11-12/native-core-01/malformed-zero-size/report.json
+[unsupported-plan]: evidence/gap-remediation/2026-11-12/native-core-01/early-login-and-errors/plan.json
+[unsupported-report]: evidence/gap-remediation/2026-11-12/native-core-01/early-login-and-errors/report.json
+[timing]: evidence/gap-remediation/2026-11-12/native-transport-01/timing-observations.json
 [derived]: error-outcomes.md#derived-unknown-operation-example
 [registry]: error-outcomes.md#wire-status-and-failure-classes
 [replies]: operation-contracts.md#per-operation-reply-and-fan-out-map

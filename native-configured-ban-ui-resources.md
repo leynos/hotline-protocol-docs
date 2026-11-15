@@ -1,7 +1,7 @@
 # Configured-ban Options resource reconnaissance
 
 The
-[C60 resource corpus](../mothra/evidence/gap-remediation/2026-11-14/configured-ban-ui-resources-01/manifest.json)
+[C60 resource corpus](evidence/gap-remediation/2026-11-14/configured-ban-ui-resources-01/manifest.json)
 catalogues the native Server 1.9 resource fork without starting a guest or
 opening Ghidra. The fork was previously extracted read-only from catalogue
 record 11183, `/Hotline19/HLserver19`, in the immutable base image. The current

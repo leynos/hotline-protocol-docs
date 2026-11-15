@@ -4,7 +4,7 @@ The second disposable rate 304 lab stopped **before protocol contact**. Its
 five-second emulator observation gate timed out while guest capture FD16 was
 absent. This is a preparation failure, not a Hotline protocol response, server
 crash, 304 limit, or reset observation. The immutable
-[corpus](../mothra/evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/manifest.json)
+[corpus](evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/manifest.json)
 keeps the as-run commands, checks, raw failure, and retirement receipts. The
 first failed rate 304 pair remains a separate
 [wire witness](native-rate304-first-pair.md); neither failed working image is

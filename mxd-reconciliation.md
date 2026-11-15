@@ -127,7 +127,7 @@ checked; that status cannot validate the new baseline. GAP-085 remains open
 until stale expectations are fixed or retired and rerun against the chosen
 scope. This evidence provides an exact starting revision and test map.
 
-[run]: ../mothra/evidence/gap-remediation/2026-11-13/delegated-mxd-01/manifest.json
+[run]: evidence/gap-remediation/2026-11-13/delegated-mxd-01/manifest.json
 [verify]: scripts/verify_mxd_reconciliation.py
 
-[old-mxd-matrix]: ../mothra/evidence/gap-remediation/2026-11-13/delegated-mxd-01/inputs/docs/internal-compatibility-matrix.md.txt
+[old-mxd-matrix]: evidence/gap-remediation/2026-11-13/delegated-mxd-01/inputs/docs/internal-compatibility-matrix.md.txt

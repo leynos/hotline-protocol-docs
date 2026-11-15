@@ -1,7 +1,7 @@
 # Native 1.9 delayed 121 default response (A37)
 
 The
-[portable A37 corpus](../mothra/evidence/gap-remediation/2026-11-14/native-121-defaults-01/manifest.json)
+[portable A37 corpus](evidence/gap-remediation/2026-11-14/native-121-defaults-01/manifest.json)
 records one 70-action, two-case delayed agreement observation between exact
 full A7 preflight and postflight readbacks. The pinned Hotline Server 1.9
 binary has SHA-256
@@ -68,7 +68,7 @@ python3 -m unittest discover -s \
 This witness covers two delayed 121 defaults only. It does not establish
 re-login or restart persistence, filesystem durability, or general non-ASCII
 encoding. Combined review with the 304 and PM corpora accepts GAP-030; the
-[acceptance decision](../mothra/evidence/gap-remediation/2026-11-14/settings-default-acceptance-01/decision.json)
+[acceptance decision](evidence/gap-remediation/2026-11-14/settings-default-acceptance-01/decision.json)
 records its unchanged criterion and limits. The
 [later persistence witness](native-settings-persistence-witness.md) and
 shared-helper trace address GAP-029 with explicit evidence limits. General

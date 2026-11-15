@@ -61,7 +61,7 @@ implementation-policy tests. GAP-085 still needs source/test reconciliation at
 the final mxd revision; GAP-001 and GAP-086 need their independent scope and
 acceptance decisions. No new native peer test was run here.
 
-[evidence]: ../mothra/evidence/gap-remediation/2026-11-13/mxd-direct-ack-01/manifest.json
-[controlled]: ../mothra/evidence/gap-remediation/2026-11-13/mxd-direct-ack-02/manifest.json
+[evidence]: evidence/gap-remediation/2026-11-13/mxd-direct-ack-01/manifest.json
+[controlled]: evidence/gap-remediation/2026-11-13/mxd-direct-ack-02/manifest.json
 
-[import]: ../mothra/evidence/gap-remediation/2026-11-13/mxd-direct-ack-import-01/manifest.json
+[import]: evidence/gap-remediation/2026-11-13/mxd-direct-ack-import-01/manifest.json

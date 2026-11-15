@@ -140,7 +140,7 @@ covered by the separate [agreement corpus][agreements]. Login field161 remains
 an unnamed zero in these observations; no banner-identity meaning or
 constant-zero guarantee is inferred (GAP-026).
 
-[auth]: ../mothra/evidence/gap-remediation/2026-11-13/native-auth-01/manifest.json
+[auth]: evidence/gap-remediation/2026-11-13/native-auth-01/manifest.json
 
 ## Agreement and banner condition tables
 
@@ -564,19 +564,19 @@ the previously unresolved catalogue entry, not evidence that every kick,
 malformed frame or disconnect must send 111. Exact delivered shutdown timing
 and notification fixtures remain GAP-084/076.
 
-[batch]: ../mothra/evidence/gap-remediation/2026-11-12/batch-06/manifest.json
-[status-asm]: ../mothra/evidence/gap-remediation/2026-11-12/batch-06/queries/B06-A-10005000.json
+[batch]: evidence/gap-remediation/2026-11-12/batch-06/manifest.json
+[status-asm]: evidence/gap-remediation/2026-11-12/batch-06/queries/B06-A-10005000.json
 
-[constructor]: ../mothra/evidence/gap-remediation/2026-11-12/batch-17/queries/B17-A-10000160.json
-[content-loader]: ../mothra/evidence/gap-remediation/2026-11-12/batch-17/queries/B17-D-10003940.c
-[file-loader]: ../mothra/evidence/gap-remediation/2026-11-12/batch-17/queries/B17-D-10003bd0.c
+[constructor]: evidence/gap-remediation/2026-11-12/batch-17/queries/B17-A-10000160.json
+[content-loader]: evidence/gap-remediation/2026-11-12/batch-17/queries/B17-D-10003940.c
+[file-loader]: evidence/gap-remediation/2026-11-12/batch-17/queries/B17-D-10003bd0.c
 
-[store-scan]: ../mothra/evidence/gap-remediation/2026-11-12/batch-17/discovery-offset-41c-stores.json
+[store-scan]: evidence/gap-remediation/2026-11-12/batch-17/discovery-offset-41c-stores.json
 
 [agreements]: native-wire-details.md#captured-agreement-configurations-and-partial-login-failures
 
-[expanded-store-scan]: ../mothra/evidence/gap-remediation/2026-11-13/native-login-extras-01/all-direct-store-candidates.json
-[login-extras]: ../mothra/evidence/gap-remediation/2026-11-13/native-login-extras-01/manifest.json
+[expanded-store-scan]: evidence/gap-remediation/2026-11-13/native-login-extras-01/all-direct-store-candidates.json
+[login-extras]: evidence/gap-remediation/2026-11-13/native-login-extras-01/manifest.json
 
 ## Captured private rooms, invitations and chat bytes
 
@@ -682,7 +682,7 @@ Cleanup restores the exact original `admin`/`fixture-low` enumeration and
 41-entry Files listing. No guest/application restart or original-account
 mutation is performed.
 
-[rooms-corpus]: ../mothra/evidence/gap-remediation/2026-11-13/native-rooms-01/manifest.json
+[rooms-corpus]: evidence/gap-remediation/2026-11-13/native-rooms-01/manifest.json
 
 ## Captured console and client broadcast recipients
 
@@ -696,4 +696,4 @@ tails and the missing first host handshake are retained. The complete guest
 view and three complete host views are distinguished from that partial view.
 The full A7 account/file/metadata/download postflight matches the baseline.
 
-[ban-oracle]: ../mothra/evidence/gap-remediation/2026-11-13/native-ban-oracle-01/manifest.json
+[ban-oracle]: evidence/gap-remediation/2026-11-13/native-ban-oracle-01/manifest.json

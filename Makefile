@@ -82,7 +82,7 @@ IMPORT_COMMIT ?= f9b4108ec33e59956c9f2bfbd391dc3a8a279299
 # Shared build caches require sequential gates even when make receives -j.
 .NOTPARALLEL:
 
-all: build check-fmt-python json-check links-check $(WITHHELD_GATE) $(EVIDENCE_GATE) $(CURATION_GATE) lint-python lint-legacy typecheck test ## Run the gates that must pass at every commit
+all: build check-fmt-python json-check links-check audit-check $(WITHHELD_GATE) $(EVIDENCE_GATE) $(CURATION_GATE) lint-python lint-legacy typecheck test ## Run the gates that must pass at every commit
 
 lint: lint-python lint-legacy ## Run every Python linter
 
@@ -123,13 +123,10 @@ json-check: ## Verify that every tracked JSON file is in canonical layout
 links-check: ## Verify every Markdown link, fragment and mothra reference
 	$(PYTHON) tools/check_links.py --root . $(MOTHRA_ARG) --min-links $(LINKS_MIN) $(LINKS_ARGS)
 
-# The renderer hard-codes root.parent / "hotline-protocol-docs", so this checks
-# the MAIN checkout of this repository, not the current worktree. It is
-# therefore not part of `all` yet. A later milestone imports the renderer into
-# this repository, after which the target joins `all`.
-audit-check: ## Validate the gap register with mothra's renderer (main checkout only)
-	@test -n "$(MOTHRA)" || { printf 'Error: no mothra checkout found; set MOTHRA\n' >&2; exit 2; }
-	python3 $(MOTHRA)/scripts/render-protocol-gap-analysis.py --check
+# The renderer validates the register against the audit revision it names and
+# fails if any audited document has changed since that revision was cut.
+audit-check: ## Validate the gap register against the current audit revision and gap-analysis.md
+	python3 scripts/render-protocol-gap-analysis.py --check
 
 withheld-check: ## Verify the withheld-files manifest, .gitignore and patches
 	$(PYTHON) tools/check_withheld.py check --root .

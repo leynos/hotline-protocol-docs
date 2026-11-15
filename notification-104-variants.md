@@ -19,9 +19,9 @@ numbers below are decimal; integers use big-endian bytes.
 | `10006590`, applying configured address bans to connected users                           | 101 configured-ban notice only                                                       | [Static bytes and caller](native-configured-ban-static.md), [one-Save native witness](native-configured-ban-witness.md)  |
 
 The room and account corpus directories in this table are below
-`../mothra/evidence/gap-remediation/2026-11-13/`. Their semantic verifiers
-check the observed fields and participant identities. These are finite
-fixtures; their text is not a universal origin discriminator.
+`evidence/gap-remediation/2026-11-13/`. Their semantic verifiers check the
+observed fields and participant identities. These are finite fixtures; their
+text is not a universal origin discriminator.
 
 ## Discrimination and ambiguity
 
@@ -55,14 +55,14 @@ order between a target notice and an administrator's ACK or 302.
 The pinned oracle is native Server 1.9, DATA SHA-256
 `ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`. The primary
 producer decompilations are in
-[`queries/`](../mothra/evidence/hotline-server-1.9/queries/). The deletion
-helper is separately captured in
-[`account-attribute-01`](../mothra/evidence/gap-remediation/2026-11-13/account-attribute-01/queries/AA-D-10005f90.c).
+[`queries/`](evidence/hotline-server-1.9/queries/). The deletion helper is
+separately captured in
+[`account-attribute-01`](evidence/gap-remediation/2026-11-13/account-attribute-01/queries/AA-D-10005f90.c).
 The configured-ban helper is in
-[`native-login-extras-01`](../mothra/evidence/gap-remediation/2026-11-13/native-login-extras-01/oracle-queries/LX-D-10006590.c).
+[`native-login-extras-01`](evidence/gap-remediation/2026-11-13/native-login-extras-01/oracle-queries/LX-D-10006590.c).
 Its caller `100023a0` applies configuration and invokes that helper after
 refreshing the active ban list; the captured caller is
-[`B17-D-100023a0.c`](../mothra/evidence/gap-remediation/2026-11-12/batch-17/queries/B17-D-100023a0.c).
+[`B17-D-100023a0.c`](evidence/gap-remediation/2026-11-12/batch-17/queries/B17-D-100023a0.c).
 Applying a list and rejecting a later Login107 are separate execution paths.
 
 The positive fixtures now cover every producer listed above and meet GAP-044's

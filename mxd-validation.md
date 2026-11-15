@@ -16,11 +16,11 @@ binary was built offline from that revision and has SHA-256:
 
 Three corrections were accepted before this hold:
 
-| Area                                     | Recorded result and evidence                                                                                                                                                                                                           |
-| ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Physical frames and logical transactions | Separate frame and reassembly limits, with overflow and boundary controls. See [limit contracts](mxd-limit-contracts.md) and the [accepted correction](../mothra/evidence/gap-remediation/2026-11-13/mxd-correction-01/manifest.json). |
-| Direct replies                           | Type 0 with reply marker 1 and copied request ID; repeated roster records remain accepted. Notifications retain their own type and marker. See [direct replies](mxd-direct-ack-correction.md).                                         |
-| Successful-login extras                  | Two opaque zero bytes in 161; configured nonempty ASCII 162, at most 31 bytes. Inferred client-family gates were removed. See [login extras](mxd-login-extras-correction.md).                                                          |
+| Area                                     | Recorded result and evidence                                                                                                                                                                                                 |
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Physical frames and logical transactions | Separate frame and reassembly limits, with overflow and boundary controls. See [limit contracts](mxd-limit-contracts.md) and the [accepted correction](evidence/gap-remediation/2026-11-13/mxd-correction-01/manifest.json). |
+| Direct replies                           | Type 0 with reply marker 1 and copied request ID; repeated roster records remain accepted. Notifications retain their own type and marker. See [direct replies](mxd-direct-ack-correction.md).                               |
+| Successful-login extras                  | Two opaque zero bytes in 161; configured nonempty ASCII 162, at most 31 bytes. Inferred client-family gates were removed. See [login extras](mxd-login-extras-correction.md).                                                |
 
 The last correction's controlled full gates passed seven nextest profiles and
 both doctest groups. PostgreSQL had 565 passing tests, SQLite 569, and
@@ -127,7 +127,7 @@ Resume mxd work only when requested, starting with these recorded items:
 5. Obtain the separate release subset, sign-off owner and proof obligations
    for GAP-001/086. Do not infer them from the native 1.9 documentation target.
 
-[correction]: ../mothra/evidence/gap-remediation/2026-11-13/mxd-login-extras-01/manifest.json
+[correction]: evidence/gap-remediation/2026-11-13/mxd-login-extras-01/manifest.json
 [native]: mac-peer-isolated-session.md
-[short]: ../mothra/evidence/gap-remediation/2026-11-13/mxd-classic-short-login-01/redacted-witness.json
-[review]: ../mothra/evidence/gap-remediation/2026-11-13/mxd-validation-hold-01/source-reconciliation.as-reviewed.txt
+[short]: evidence/gap-remediation/2026-11-13/mxd-classic-short-login-01/redacted-witness.json
+[review]: evidence/gap-remediation/2026-11-13/mxd-validation-hold-01/source-reconciliation.as-reviewed.txt

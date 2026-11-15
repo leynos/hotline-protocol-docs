@@ -82,16 +82,16 @@ rechecked from mothra with:
 sha256sum --quiet -c evidence/gap-remediation/2026-11-13/receive-limit-origin-01/SHA256SUMS
 ```
 
-[corpus]: ../mothra/evidence/gap-remediation/2026-11-13/receive-limit-origin-01/result-summary.json
-[report]: ../mothra/evidence/gap-remediation/2026-11-13/receive-limit-origin-01/report.json
-[script]: ../mothra/evidence/gap-remediation/2026-11-13/receive-limit-origin-01/receive_limit_probe.py.txt
-[startup]: ../mothra/evidence/gap-remediation/2026-11-13/receive-limit-origin-01/04-startup-decomp.json
-[startup-asm]: ../mothra/evidence/gap-remediation/2026-11-13/receive-limit-origin-01/05-startup-disasm.json
-[global-xrefs]: ../mothra/evidence/gap-remediation/2026-11-13/receive-limit-origin-01/06-global-xrefs.json
-[slot-xrefs]: ../mothra/evidence/gap-remediation/2026-11-13/receive-limit-origin-01/07-toc-xrefs.json
-[outgoing]: ../mothra/evidence/gap-remediation/2026-11-13/receive-limit-origin-01/08-toc-outgoing.json
-[pointer]: ../mothra/evidence/gap-remediation/2026-11-13/receive-limit-origin-01/10-toc-pointer.json
-[receiver]: ../mothra/evidence/gap-remediation/2026-11-13/receive-limit-origin-01/02-receiver-decomp.json
-[receiver-asm]: ../mothra/evidence/gap-remediation/2026-11-13/receive-limit-origin-01/03-receiver-disasm.json
-[framing]: ../mothra/evidence/gap-remediation/2026-11-12/native-framing-01/manifest.json
-[config]: ../mothra/evidence/gap-remediation/2026-11-13/receive-limit-origin-01/11-selected-consumer.json
+[corpus]: evidence/gap-remediation/2026-11-13/receive-limit-origin-01/result-summary.json
+[report]: evidence/gap-remediation/2026-11-13/receive-limit-origin-01/report.json
+[script]: evidence/gap-remediation/2026-11-13/receive-limit-origin-01/receive_limit_probe.py.txt
+[startup]: evidence/gap-remediation/2026-11-13/receive-limit-origin-01/04-startup-decomp.json
+[startup-asm]: evidence/gap-remediation/2026-11-13/receive-limit-origin-01/05-startup-disasm.json
+[global-xrefs]: evidence/gap-remediation/2026-11-13/receive-limit-origin-01/06-global-xrefs.json
+[slot-xrefs]: evidence/gap-remediation/2026-11-13/receive-limit-origin-01/07-toc-xrefs.json
+[outgoing]: evidence/gap-remediation/2026-11-13/receive-limit-origin-01/08-toc-outgoing.json
+[pointer]: evidence/gap-remediation/2026-11-13/receive-limit-origin-01/10-toc-pointer.json
+[receiver]: evidence/gap-remediation/2026-11-13/receive-limit-origin-01/02-receiver-decomp.json
+[receiver-asm]: evidence/gap-remediation/2026-11-13/receive-limit-origin-01/03-receiver-disasm.json
+[framing]: evidence/gap-remediation/2026-11-12/native-framing-01/manifest.json
+[config]: evidence/gap-remediation/2026-11-13/receive-limit-origin-01/11-selected-consumer.json

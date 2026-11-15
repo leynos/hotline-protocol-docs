@@ -3,7 +3,7 @@
 This note describes three **stopped-image** data forks and the retained PowerPC
 decompilations of the reader, writer, and record constructor. It is a local
 server store, not a Hotline network packet. The
-[portable corpus](../mothra/evidence/gap-remediation/2026-11-14/ban-file-format-01/manifest.json)
+[portable corpus](evidence/gap-remediation/2026-11-14/ban-file-format-01/manifest.json)
 contains all three 49-byte files, decoded offsets, source query results, and
 SHA-256 inventory. The source queries identify the `HLserver19` PEF as PowerPC
 big-endian 32-bit; the application DATA fork identity is `ad7040db4eb6…`. The
@@ -64,7 +64,7 @@ zero-reason samples alone cannot establish a nonempty reason transformation.
 ## Request 110 reason-copy path
 
 The
-[later static corpus](../mothra/evidence/gap-remediation/2026-11-14/native-ban-reason-static-01/manifest.json)
+[later static corpus](evidence/gap-remediation/2026-11-14/native-ban-reason-static-01/manifest.json)
 traces option 2's optional field 101 through instruction evidence and the
 bounded TLV reader. Handler `10015e70` copies at most 63 payload bytes into a
 stack buffer immediately after a one-byte returned length, then passes the

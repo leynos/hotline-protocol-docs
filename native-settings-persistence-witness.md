@@ -1,7 +1,7 @@
 # Native 1.9 settings persistence witness (A46/A48)
 
 The
-[portable control corpus](../mothra/evidence/gap-remediation/2026-11-14/native-settings-persistence-01/manifest.json)
+[portable control corpus](evidence/gap-remediation/2026-11-14/native-settings-persistence-01/manifest.json)
 records a bounded before/after restart test on one disposable Mac OS 9 working
 image. It addresses the persistence clause of GAP-029 alongside the existing
 [same-session 304 transitions](native-settings-transition-witness.md) and
@@ -39,22 +39,22 @@ state and emitted 301 fixtures. The gap status remains for the parent audit.
   04:08:34 UTC. Final stopped image SHA-256 was `be0b2c95…`.
 
 The
-[A41 baseline](../mothra/evidence/gap-remediation/2026-11-14/native-settings-persistence-01/baseline/a41-assets.json)
+[A41 baseline](evidence/gap-remediation/2026-11-14/native-settings-persistence-01/baseline/a41-assets.json)
 and path-based stopped reads resolve admin UserData to catalogue 11193 (734
 bytes), fixture-low UserData to 11201 (734 bytes), and `/Hotline19/Prefs` to
 11202 (175 bytes). All three complete data-fork hashes matched the baseline
 after **both** operator-observed guest shutdown sequences: `26612ad4…`,
 `fce81359…`, and `4ed2b3e1…`. The base image remained `e5cbbaaf…`; image-level
 hashes changed across boots as expected. The
-[timeline and byte-identified screenshots](../mothra/evidence/gap-remediation/2026-11-14/native-settings-persistence-01/baseline/operator-timeline.json)
+[timeline and byte-identified screenshots](evidence/gap-remediation/2026-11-14/native-settings-persistence-01/baseline/operator-timeline.json)
 retain the observed order. The
-[user service journal](../mothra/evidence/gap-remediation/2026-11-14/native-settings-persistence-01/baseline/user-sheep-journal.txt)
+[user service journal](evidence/gap-remediation/2026-11-14/native-settings-persistence-01/baseline/user-sheep-journal.txt)
 records both owned boots but **no explicit emulator exit status**. PID absence
 and the lack of a prior host stop were contemporaneous operator observations,
 not independent machine-watcher receipts; FD-free was gated before the HFS
 reads but that gate's empty output was not retained. Therefore the lifecycle
 evidence supports an orderly-shutdown interpretation with this proof limit. The
-[offline FD-free recheck](../mothra/evidence/gap-remediation/2026-11-14/native-settings-persistence-01/baseline/postpublication-fd-free.json)
+[offline FD-free recheck](evidence/gap-remediation/2026-11-14/native-settings-persistence-01/baseline/postpublication-fd-free.json)
 is explicitly dated after extraction and is not a retroactive timestamp.
 
 Static native handler `10016ad0` calls helper `10004d50` with a zero account
@@ -86,12 +86,12 @@ events/frames/streams through a temporary normalized plan. That temporary plan
 is analysis only and is never presented as the as-run source. A48 pins generator
 `29ad770a…` and runner `a2474c41…`: its **original** 28-action capture passes
 both generic `verify_capture` and its three-gate semantic verifier. The
-[independent A46 replay receipt](../mothra/evidence/gap-remediation/2026-11-14/native-settings-persistence-01/baseline/a46-parent-verification.json)
+[independent A46 replay receipt](evidence/gap-remediation/2026-11-14/native-settings-persistence-01/baseline/a46-parent-verification.json)
 is retained.
 
 ```sh
 python3 scripts/verify_native_settings_persistence.py \
-  ../mothra/evidence/gap-remediation/2026-11-14/native-settings-persistence-01
+  evidence/gap-remediation/2026-11-14/native-settings-persistence-01
 python3 -m unittest discover -s scripts \
   -p test_native_settings_persistence_witness.py
 ```

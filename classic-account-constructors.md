@@ -70,8 +70,8 @@ final copy is not the exact source of the first two invocations. The raw report
 arguments/results and logs are the authority for those runs. No native server,
 client app or existing Ghidra project is needed for offline checking.
 
-[candidate]: ../mothra/docs/delegation/mac-peer-candidate.md
-[corpus]: ../mothra/evidence/gap-remediation/2026-11-13/client-account-constructors-01/manifest.json
-[verifier]: ../mothra/scripts/verify_classic_account_constructors.py
+[candidate]: docs/delegation/mac-peer-candidate.md
+[corpus]: evidence/gap-remediation/2026-11-13/client-account-constructors-01/manifest.json
+[verifier]: scripts/verify_classic_account_constructors.py
 [batch]: operation-contracts.md#administrative-account-list-and-batch-mutation
 [server]: account-attribute-trace.md

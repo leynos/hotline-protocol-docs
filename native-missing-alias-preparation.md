@@ -22,7 +22,7 @@ checkpoint, and no protocol request ran. A mistaken menu selection opened an
 empty Broadcast dialog. It was cancelled without Send, but continuing
 preparation breached the stop-and-escalate rule. Do not reuse the image or its
 pins.
-[Retained abort evidence](../mothra/evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/manifest.json)
+[Retained abort evidence](evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/manifest.json)
 records this deviation and the early retirement. Any further attempt needs a
 separately reviewed preparation budget and fresh profile. The earlier
 +270-second checkpoint belonged to that retired short-window attempt. A later
@@ -150,7 +150,7 @@ native resolution and stopped Finder/resource-map proofs remain mandatory.
 
 ## Observed Finder preparation and case refusal
 
-[Retained evidence](../mothra/evidence/gap-remediation/2026-11-14/native-alias-prestage-01/manifest.json)
+[Retained evidence](evidence/gap-remediation/2026-11-14/native-alias-prestage-01/manifest.json)
 records this run, its frozen sources and paired captures.
 
 The retained `native-alias-live-02` run reached the pre-stage gate. Those
@@ -183,7 +183,7 @@ This is preparation evidence, not a positive or missing-target alias result.
 ## R04: selection completed, parent checkpoint missed
 
 The
-[R04 preparation](../mothra/evidence/gap-remediation/2026-11-14/native-alias-preparation-04/manifest.json)
+[R04 preparation](evidence/gap-remediation/2026-11-14/native-alias-preparation-04/manifest.json)
 used required reflinks for both disks after reviewed cache cleanup. The
 isolated 1.9 server started, and actual disk/capture identity gates passed.
 Finder displayed the sole Unix target selected with the Files parent visible.
@@ -191,7 +191,7 @@ The operator completed that selection before epoch+1200, but the parent's
 protected receipt writer ran after the hard checkpoint and refused to write.
 
 The
-[retired run](../mothra/evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-02/manifest.json)
+[retired run](evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-02/manifest.json)
 sent no readiness or case request: both captures contain zero TCP packets. No
 205, alias, Copy/Paste or live-alias 206 occurred. The owned VM was stopped
 before its fixed deadline; neither application Quit nor OS shutdown was
