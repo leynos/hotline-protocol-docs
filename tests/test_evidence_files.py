@@ -23,6 +23,11 @@ import pytest
             id="longer word ending in evidence",
         ),
         pytest.param(
+            b"[guide](../native-evidence/recreating-evidence.md)",
+            set(),
+            id="directory name ending in -evidence",
+        ),
+        pytest.param(
             b"(evidence/a/b) 'evidence/c/d'",
             {"evidence/a/b", "evidence/c/d"},
             id="after punctuation",

@@ -76,10 +76,8 @@ EVIDENCE_VERIFY_GATE = $(if $(wildcard evidence),evidence-verify)
 CURATION_GATE = $(if $(wildcard evidence/curation.json),curation-check,curation-skip)
 # Documents whose evidence citations must resolve, and the mothra commit that the
 # evidence was imported from (D22).
-CITING_DOCS = $(filter-out gap-analysis.md,$(wildcard *.md)) \
-	$(filter-out docs/documentation-style-guide.md docs/baseline-validity-ledger.md,$(wildcard docs/*.md)) \
-	$(wildcard docs/delegation/*.md) \
-	$(filter-out docs/execplans/documentation-reconcilliation.md,$(wildcard docs/execplans/*.md))
+CITING_DOCS = $(filter-out gap-analysis.md docs/documentation-style-guide.md \
+	docs/baseline-validity-ledger.md docs/execplans/documentation-reconcilliation.md,$(MD_FILES))
 CITING_ARGS ?= $(foreach f,$(CITING_DOCS),--citing document=$(f)) \
 	$(if $(wildcard docs/baseline-validity-ledger.md),--citing ledger=docs/baseline-validity-ledger.md) \
 	$(if $(wildcard gap-register.json),--citing register=gap-register.json) \

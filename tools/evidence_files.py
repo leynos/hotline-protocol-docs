@@ -17,8 +17,9 @@ if typ.TYPE_CHECKING:
     import collections.abc as cabc
 
 # The lookbehind keeps a longer word, such as a shell variable named
-# agreement_evidence, from being read as the start of an evidence path.
-CITATION = re.compile(rb"(?<![A-Za-z0-9_])evidence/[A-Za-z0-9_./-]+")
+# agreement_evidence or the directory docs/native-evidence, from being read as
+# the start of an evidence path.
+CITATION = re.compile(rb"(?<![A-Za-z0-9_-])evidence/[A-Za-z0-9_./-]+")
 TRIM = "./"
 SKIPPED_DIRECTORIES = frozenset({".git", "__pycache__", ".venv", "node_modules"})
 

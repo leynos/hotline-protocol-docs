@@ -86,6 +86,14 @@ MOTHRA_SCRIPTS = (
 )
 
 
+# Documents whose citations do not decide what is imported: the generated gap
+# report, the upstream style guide, the ledger (read from mothra) and the plan.
+UNCITING_DOCUMENTS = frozenset({
+    "gap-analysis.md",
+    "documentation-style-guide.md",
+    "baseline-validity-ledger.md",
+    "documentation-reconcilliation.md",
+})
 MOTHRA_DOCUMENTS = (
     "docs/native-clock-evidence.md",
     "shx-peer.md",
@@ -107,8 +115,8 @@ def real_citing(mothra: Path) -> tuple[CitingRoot, ...]:
     repo = Path(__file__).resolve().parents[1]
     roots = [
         CitingRoot("document", path)
-        for path in sorted(repo.glob("*.md"))
-        if path.name != "gap-analysis.md"
+        for path in sorted([*repo.glob("*.md"), *(repo / "docs").rglob("*.md")])
+        if path.name not in UNCITING_DOCUMENTS
     ]
     roots.append(CitingRoot("register", repo / "gap-register.json"))
     roots += [CitingRoot("script", p) for p in sorted((repo / "scripts").glob("*.py"))]
