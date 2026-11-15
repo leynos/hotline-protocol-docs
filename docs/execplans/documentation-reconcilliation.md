@@ -820,17 +820,18 @@ The script work is a behaviour-preserving refactor.
   byte-identical, because verifiers here compare their SHA-256. Date/Author:
   2026-11-16, lead.
 
-- Decision D28 (open, for the owner): the tooling tolerance of D24 is
-  exceeded. With the golden tools, `tools/` holds 6,199 lines against the limit
-  of 6,000, and the relocation tool, the evidence check and the style check are
-  still to be written. Options: raise the limit to about 8,000, or hold it and
-  condense the seven golden modules. The lead recommends raising it. Until the
-  owner rules, no further tooling is added; work continues on milestones that
-  change `scripts/` and documents only. Date/Author: 2026-11-16, lead.
+- Decision D28 (superseded by the owner's ruling below): the tooling tolerance
+  of D24 is exceeded. With the golden tools, `tools/` holds 6,199 lines against
+  the limit of 6,000, and the relocation tool, the evidence check and the style
+  check are still to be written. Options: raise the limit to about 8,000, or
+  hold it and condense the seven golden modules. The lead recommends raising
+  it. Until the owner rules, no further tooling is added; work continues on
+  milestones that change `scripts/` and documents only. Date/Author:
+  2026-11-16, lead.
 
-- Decision D29 (open, for the owner): sixteen scripts cannot change without
-  turning a verifier red, so REQ-6 at full scope (D2) cannot be met for them as
-  they stand. Three are pinned by the evidence index
+- Decision D29 (superseded by the owner's ruling below): sixteen scripts cannot
+  change without turning a verifier red, so REQ-6 at full scope (D2) cannot be
+  met for them as they stand. Three are pinned by the evidence index
   (`capture-ghidra-evidence.py`, `extract-synhxd-evidence.py`,
   `verify-baseline-evidence.py`). Thirteen more have their live bytes compared
   with hashes recorded at capture: `protocol_capture`, `pcap_tcp`,
@@ -851,6 +852,34 @@ The script work is a behaviour-preserving refactor.
   script is migrated, quoted `unittest discover` commands no longer find
   converted tests, and abbreviated options are no longer accepted. Date/Author:
   2026-11-16, lead.
+
+- Decision D28 (settled by the owner, 2026-11-16): the tooling tolerance is
+  doubled. The limit on new Python tooling is 12,000 lines excluding tests,
+  counted with docstrings and blank lines. This supersedes D24 and closes the
+  question recorded above; tooling work resumes.
+- Decision D29 (settled by the owner, 2026-11-16): the blind comparison of a
+  live script's bytes with a recorded hash is replaced by a reference to the
+  file at a given Git commit. In the owner's words, "as long as there is test
+  coverage that spans that committed version and the refactored version, you
+  have continuity of evidentiary basis". Consequences:
+  - A record in the repository names, for each of the sixteen scripts, the
+    commit at which its bytes carry the recorded hash. A helper returns the
+    bytes of a script at its pinned commit.
+  - Verifiers in `scripts/` that compared live bytes compare the pinned
+    bytes instead; the recorded hash constants and the manifests under
+    `evidence/` are unchanged.
+  - Verifiers held under `evidence/` cannot be edited and hash files in the
+    `scripts/` directory beside them; the `in_legacy_layout` recipe stages the
+    pinned bytes of the hash-referenced files for them.
+  - Continuity: the goldens were captured with the pinned bytes in place and
+    must print `0 differences` with the refactored scripts, and a test runs
+    the tests of each pinned script against both its pinned and its current
+    version.
+  - The sixteen scripts then join the script-standards work, so REQ-6 holds
+    at full scope with no exception.
+  - The check needs the pinned commit in the local history, so it does not
+    work in a shallow clone; the recreation guide says so.
+  Date/Author: 2026-11-16, owner; recorded by the lead.
 
 ## Outcomes & retrospective
 
