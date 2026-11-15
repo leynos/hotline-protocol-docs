@@ -1,0 +1,23 @@
+# Repository-specific identifiers, quotations and deliberate fixtures.
+# typos.toml is generated from this overlay by typos-config-builder; never
+# edit typos.toml by hand.
+
+schema = 1
+
+[oxford]
+stems = []
+
+[words]
+accepted = []
+
+[words.corrections]
+
+[patterns]
+ignore = [
+  # Inline code spans carry wire tokens, identifiers and quoted bytes.
+  '`[^`\n]+`',
+]
+
+[files]
+# Evidence is preserved byte for byte. The style guide is an upstream copy.
+exclude = ["evidence/**", "docs/documentation-style-guide.md"]

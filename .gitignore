@@ -1,2 +1,10 @@
 __pycache__/
+*.py[cod]
 .ruff_cache/
+.pytest_cache/
+.hypothesis/
+.venv/
+.uv-cache/
+.uv-tools/
+.typos-oxendict-base.json
+.typos-oxendict-base.toml
