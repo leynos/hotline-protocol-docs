@@ -64,8 +64,9 @@ def invoke(app: cyclopts.App, argv: cabc.Sequence[str] | None) -> int:
     Returns
     -------
     int
-        The command's integer result, or ``EXIT_MISSING`` for usage errors and
-        missing inputs.
+        The command's integer result, ``EXIT_OK`` when a meta-option such as
+        ``--help`` handled the invocation, or ``EXIT_MISSING`` for usage errors
+        and missing inputs.
     """
     try:
         result = app(None if argv is None else list(argv), exit_on_error=False)
@@ -78,4 +79,5 @@ def invoke(app: cyclopts.App, argv: cabc.Sequence[str] | None) -> int:
     except ToolError as exc:
         sys.stderr.write(f"refused: {exc}\n")
         return EXIT_FINDINGS
-    return int(result)
+    # Meta-options such as --help print their output and return nothing.
+    return EXIT_OK if result is None else int(result)
