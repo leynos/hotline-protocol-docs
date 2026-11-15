@@ -1,0 +1,4332 @@
+{
+  "docs/protocol/protocol.md": [
+    {
+      "heading": "Hotline Server Protocol 1.9: Transactions and Functionality Guide",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 34,
+      "anchor": "hotline-server-protocol-19-transactions-and-functionality-guide"
+    },
+    {
+      "heading": "Binary Message Formats (Hotline Protocol 1.9)",
+      "level": 2,
+      "line_start": 35,
+      "line_end": 42,
+      "anchor": "binary-message-formats-hotline-protocol-19"
+    },
+    {
+      "heading": "1 Session-initialization handshake",
+      "level": 3,
+      "line_start": 43,
+      "line_end": 86,
+      "anchor": "1-session-initialization-handshake"
+    },
+    {
+      "heading": "2 General transaction frame",
+      "level": 3,
+      "line_start": 87,
+      "line_end": 114,
+      "anchor": "2-general-transaction-frame"
+    },
+    {
+      "heading": "2.1 Parameter list (payload block)",
+      "level": 4,
+      "line_start": 115,
+      "line_end": 166,
+      "anchor": "21-parameter-list-payload-block"
+    },
+    {
+      "heading": "2.2 Date parameters",
+      "level": 4,
+      "line_start": 167,
+      "line_end": 192,
+      "anchor": "22-date-parameters"
+    },
+    {
+      "heading": "3 Fragmentation rules",
+      "level": 3,
+      "line_start": 193,
+      "line_end": 226,
+      "anchor": "3-fragmentation-rules"
+    },
+    {
+      "heading": "4 Reply semantics",
+      "level": 3,
+      "line_start": 227,
+      "line_end": 252,
+      "anchor": "4-reply-semantics"
+    },
+    {
+      "heading": "5 Worked example (Login)",
+      "level": 3,
+      "line_start": 253,
+      "line_end": 287,
+      "anchor": "5-worked-example-login"
+    },
+    {
+      "heading": "6 Implementation checklist",
+      "level": 3,
+      "line_start": 288,
+      "line_end": 301,
+      "anchor": "6-implementation-checklist"
+    },
+    {
+      "heading": "User Login and Presence",
+      "level": 2,
+      "line_start": 302,
+      "line_end": 303,
+      "anchor": "user-login-and-presence"
+    },
+    {
+      "heading": "Session Handshake (Before Transactions Begin)",
+      "level": 3,
+      "line_start": 304,
+      "line_end": 311,
+      "anchor": "session-handshake-before-transactions-begin"
+    },
+    {
+      "heading": "Login (Transaction 107) – Client Initiates",
+      "level": 3,
+      "line_start": 312,
+      "line_end": 367,
+      "anchor": "login-transaction-107--client-initiates"
+    },
+    {
+      "heading": "Server Agreement (Transaction 109) – Server Initiates",
+      "level": 3,
+      "line_start": 368,
+      "line_end": 402,
+      "anchor": "server-agreement-transaction-109--server-initiates"
+    },
+    {
+      "heading": "Agreement Acceptance (Transaction 121) – Client Initiates",
+      "level": 3,
+      "line_start": 403,
+      "line_end": 446,
+      "anchor": "agreement-acceptance-transaction-121--client-initiates"
+    },
+    {
+      "heading": "Banner Metadata (Transaction 122) – Server Initiates",
+      "level": 3,
+      "line_start": 447,
+      "line_end": 461,
+      "anchor": "banner-metadata-transaction-122--server-initiates"
+    },
+    {
+      "heading": "User Access Privileges (Transaction 354) – Server Initiates",
+      "level": 3,
+      "line_start": 462,
+      "line_end": 470,
+      "anchor": "user-access-privileges-transaction-354--server-initiates"
+    },
+    {
+      "heading": "Access Privilege Bits (Field 110)",
+      "level": 4,
+      "line_start": 471,
+      "line_end": 514,
+      "anchor": "access-privilege-bits-field-110"
+    },
+    {
+      "heading": "Retrieving the User List (Transaction 300) – Client Initiates",
+      "level": 3,
+      "line_start": 515,
+      "line_end": 548,
+      "anchor": "retrieving-the-user-list-transaction-300--client-initiates"
+    },
+    {
+      "heading": "User Appearance and Updates (Transaction 301 & 302) – Server Initiates",
+      "level": 3,
+      "line_start": 549,
+      "line_end": 567,
+      "anchor": "user-appearance-and-updates-transaction-301--302--server-initiates"
+    },
+    {
+      "heading": "Viewing User Info (Transaction 303) – Client Initiates",
+      "level": 3,
+      "line_start": 568,
+      "line_end": 585,
+      "anchor": "viewing-user-info-transaction-303--client-initiates"
+    },
+    {
+      "heading": "Changing User Settings (Transaction 304) – Client Initiates",
+      "level": 3,
+      "line_start": 586,
+      "line_end": 622,
+      "anchor": "changing-user-settings-transaction-304--client-initiates"
+    },
+    {
+      "heading": "Chat (Public and Private Chat Rooms)",
+      "level": 2,
+      "line_start": 623,
+      "line_end": 624,
+      "anchor": "chat-public-and-private-chat-rooms"
+    },
+    {
+      "heading": "Sending a Chat Message (Transaction 105) – Client Initiates",
+      "level": 3,
+      "line_start": 625,
+      "line_end": 636,
+      "anchor": "sending-a-chat-message-transaction-105--client-initiates"
+    },
+    {
+      "heading": "Receiving a Chat Message (Transaction 106) – Server Initiates",
+      "level": 3,
+      "line_start": 637,
+      "line_end": 647,
+      "anchor": "receiving-a-chat-message-transaction-106--server-initiates"
+    },
+    {
+      "heading": "Joining a Chat Room (Transaction 115) – Client Initiates",
+      "level": 3,
+      "line_start": 648,
+      "line_end": 658,
+      "anchor": "joining-a-chat-room-transaction-115--client-initiates"
+    },
+    {
+      "heading": "Leaving a Chat Room (Transaction 116) – Client Initiates",
+      "level": 3,
+      "line_start": 659,
+      "line_end": 668,
+      "anchor": "leaving-a-chat-room-transaction-116--client-initiates"
+    },
+    {
+      "heading": "Chat Room Notifications (Transactions 117 & 118) – Server Initiates",
+      "level": 3,
+      "line_start": 669,
+      "line_end": 680,
+      "anchor": "chat-room-notifications-transactions-117--118--server-initiates"
+    },
+    {
+      "heading": "Chat Invitations (Transactions 112, 113, 114) – Private Chats",
+      "level": 3,
+      "line_start": 681,
+      "line_end": 702,
+      "anchor": "chat-invitations-transactions-112-113-114--private-chats"
+    },
+    {
+      "heading": "Chat Subject Management (Transactions 119 & 120)",
+      "level": 3,
+      "line_start": 703,
+      "line_end": 711,
+      "anchor": "chat-subject-management-transactions-119--120"
+    },
+    {
+      "heading": "Private Messaging (Instant Messages)",
+      "level": 2,
+      "line_start": 712,
+      "line_end": 713,
+      "anchor": "private-messaging-instant-messages"
+    },
+    {
+      "heading": "Sending an Instant Message (Transaction 108) – Client Initiates",
+      "level": 3,
+      "line_start": 714,
+      "line_end": 745,
+      "anchor": "sending-an-instant-message-transaction-108--client-initiates"
+    },
+    {
+      "heading": "Receiving a Private Message (Transaction 104) – Server Initiates",
+      "level": 3,
+      "line_start": 746,
+      "line_end": 764,
+      "anchor": "receiving-a-private-message-transaction-104--server-initiates"
+    },
+    {
+      "heading": "Legacy Message Board (Transactions 101, 102, 103)",
+      "level": 3,
+      "line_start": 765,
+      "line_end": 789,
+      "anchor": "legacy-message-board-transactions-101-102-103"
+    },
+    {
+      "heading": "File Services (Files and Folders)",
+      "level": 2,
+      "line_start": 790,
+      "line_end": 804,
+      "anchor": "file-services-files-and-folders"
+    },
+    {
+      "heading": "Listing Files in a Folder (Transaction 200) – Client Initiates",
+      "level": 3,
+      "line_start": 805,
+      "line_end": 817,
+      "anchor": "listing-files-in-a-folder-transaction-200--client-initiates"
+    },
+    {
+      "heading": "Downloading a File (Transaction 202) – Client Initiates",
+      "level": 3,
+      "line_start": 818,
+      "line_end": 848,
+      "anchor": "downloading-a-file-transaction-202--client-initiates"
+    },
+    {
+      "heading": "Uploading a File (Transaction 203) – Client Initiates",
+      "level": 3,
+      "line_start": 849,
+      "line_end": 864,
+      "anchor": "uploading-a-file-transaction-203--client-initiates"
+    },
+    {
+      "heading": "Deleting a File (Transaction 204) – Client Initiates",
+      "level": 3,
+      "line_start": 865,
+      "line_end": 880,
+      "anchor": "deleting-a-file-transaction-204--client-initiates"
+    },
+    {
+      "heading": "Creating a New Folder (Transaction 205) – Client Initiates",
+      "level": 3,
+      "line_start": 881,
+      "line_end": 899,
+      "anchor": "creating-a-new-folder-transaction-205--client-initiates"
+    },
+    {
+      "heading": "Getting File/Folder Info (Transaction 206) – Client Initiates",
+      "level": 3,
+      "line_start": 900,
+      "line_end": 919,
+      "anchor": "getting-filefolder-info-transaction-206--client-initiates"
+    },
+    {
+      "heading": "Setting File/Folder Info (Transaction 207) – Client Initiates",
+      "level": 3,
+      "line_start": 920,
+      "line_end": 940,
+      "anchor": "setting-filefolder-info-transaction-207--client-initiates"
+    },
+    {
+      "heading": "Moving Files/Folders (Transaction 208) – Client Initiates",
+      "level": 3,
+      "line_start": 941,
+      "line_end": 956,
+      "anchor": "moving-filesfolders-transaction-208--client-initiates"
+    },
+    {
+      "heading": "Creating an Alias (Shortcut) (Transaction 209) – Client Initiates",
+      "level": 3,
+      "line_start": 957,
+      "line_end": 970,
+      "anchor": "creating-an-alias-shortcut-transaction-209--client-initiates"
+    },
+    {
+      "heading": "Downloading an Entire Folder (Transaction 210) – Client Initiates",
+      "level": 3,
+      "line_start": 971,
+      "line_end": 991,
+      "anchor": "downloading-an-entire-folder-transaction-210--client-initiates"
+    },
+    {
+      "heading": "Uploading an Entire Folder (Transaction 213) – Client Initiates",
+      "level": 3,
+      "line_start": 992,
+      "line_end": 1011,
+      "anchor": "uploading-an-entire-folder-transaction-213--client-initiates"
+    },
+    {
+      "heading": "Banner Download (Transaction 212) – Client Initiates",
+      "level": 3,
+      "line_start": 1012,
+      "line_end": 1030,
+      "anchor": "banner-download-transaction-212--client-initiates"
+    },
+    {
+      "heading": "Transfer Connection and Reference Cleanup",
+      "level": 3,
+      "line_start": 1031,
+      "line_end": 1051,
+      "anchor": "transfer-connection-and-reference-cleanup"
+    },
+    {
+      "heading": "News (Bulletin Board System)",
+      "level": 2,
+      "line_start": 1052,
+      "line_end": 1053,
+      "anchor": "news-bulletin-board-system"
+    },
+    {
+      "heading": "News Hierarchy",
+      "level": 3,
+      "line_start": 1054,
+      "line_end": 1062,
+      "anchor": "news-hierarchy"
+    },
+    {
+      "heading": "Listing News Categories (Transaction 370) – Client Initiates",
+      "level": 3,
+      "line_start": 1063,
+      "line_end": 1083,
+      "anchor": "listing-news-categories-transaction-370--client-initiates"
+    },
+    {
+      "heading": "Listing News Articles (Transaction 371) – Client Initiates",
+      "level": 3,
+      "line_start": 1084,
+      "line_end": 1097,
+      "anchor": "listing-news-articles-transaction-371--client-initiates"
+    },
+    {
+      "heading": "Reading a News Article (Transaction 400) – Client Initiates",
+      "level": 3,
+      "line_start": 1098,
+      "line_end": 1126,
+      "anchor": "reading-a-news-article-transaction-400--client-initiates"
+    },
+    {
+      "heading": "Posting a News Article (Transaction 410) – Client Initiates",
+      "level": 3,
+      "line_start": 1127,
+      "line_end": 1148,
+      "anchor": "posting-a-news-article-transaction-410--client-initiates"
+    },
+    {
+      "heading": "Deleting a News Article (Transaction 411) – Client Initiates",
+      "level": 3,
+      "line_start": 1149,
+      "line_end": 1164,
+      "anchor": "deleting-a-news-article-transaction-411--client-initiates"
+    },
+    {
+      "heading": "Managing News Structure (Transactions 380, 381, 382) – Client Initiates (Admin/Mods)",
+      "level": 3,
+      "line_start": 1165,
+      "line_end": 1182,
+      "anchor": "managing-news-structure-transactions-380-381-382--client-initiates-adminmods"
+    },
+    {
+      "heading": "Administrative Functions",
+      "level": 2,
+      "line_start": 1183,
+      "line_end": 1184,
+      "anchor": "administrative-functions"
+    },
+    {
+      "heading": "User Account Management – Client Initiates (Admin) (Tx 350–353)",
+      "level": 3,
+      "line_start": 1185,
+      "line_end": 1234,
+      "anchor": "user-account-management--client-initiates-admin-tx-350353"
+    },
+    {
+      "heading": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use",
+      "level": 3,
+      "line_start": 1235,
+      "line_end": 1283,
+      "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use"
+    },
+    {
+      "heading": "Broadcasting a Message (Transaction 355) – Admin/Server Initiated",
+      "level": 3,
+      "line_start": 1284,
+      "line_end": 1298,
+      "anchor": "broadcasting-a-message-transaction-355--adminserver-initiated"
+    },
+    {
+      "heading": "Additional Admin Privileges Note",
+      "level": 3,
+      "line_start": 1299,
+      "line_end": 1307,
+      "anchor": "additional-admin-privileges-note"
+    },
+    {
+      "heading": "Additional Observed Requests and Scope Gaps",
+      "level": 2,
+      "line_start": 1308,
+      "line_end": 1355,
+      "anchor": "additional-observed-requests-and-scope-gaps"
+    },
+    {
+      "heading": "References and Correction Traceability",
+      "level": 2,
+      "line_start": 1356,
+      "line_end": 1400,
+      "anchor": "references-and-correction-traceability"
+    }
+  ],
+  "docs/provenance/baseline-correction-map.md": [
+    {
+      "heading": "Baseline correction map",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 113,
+      "anchor": "baseline-correction-map"
+    }
+  ],
+  "docs/protocol/native-wire-details.md": [
+    {
+      "heading": "Hotline 1.9 native wire details",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 9,
+      "anchor": "hotline-19-native-wire-details"
+    },
+    {
+      "heading": "Parameter parsing and scalar access",
+      "level": 2,
+      "line_start": 10,
+      "line_end": 36,
+      "anchor": "parameter-parsing-and-scalar-access"
+    },
+    {
+      "heading": "Core scalar width registry",
+      "level": 3,
+      "line_start": 37,
+      "line_end": 82,
+      "anchor": "core-scalar-width-registry"
+    },
+    {
+      "heading": "Captured TLV and scalar boundaries",
+      "level": 3,
+      "line_start": 83,
+      "line_end": 121,
+      "anchor": "captured-tlv-and-scalar-boundaries"
+    },
+    {
+      "heading": "Credential bytes, lookup and account updates",
+      "level": 2,
+      "line_start": 122,
+      "line_end": 141,
+      "anchor": "credential-bytes-lookup-and-account-updates"
+    },
+    {
+      "heading": "Account record and field schema",
+      "level": 3,
+      "line_start": 142,
+      "line_end": 187,
+      "anchor": "account-record-and-field-schema"
+    },
+    {
+      "heading": "Account lookup name encodings",
+      "level": 3,
+      "line_start": 188,
+      "line_end": 207,
+      "anchor": "account-lookup-name-encodings"
+    },
+    {
+      "heading": "Login lookup transformations",
+      "level": 3,
+      "line_start": 208,
+      "line_end": 222,
+      "anchor": "login-lookup-transformations"
+    },
+    {
+      "heading": "Captured login lookup and guest phases",
+      "level": 3,
+      "line_start": 223,
+      "line_end": 264,
+      "anchor": "captured-login-lookup-and-guest-phases"
+    },
+    {
+      "heading": "Changes to connected accounts",
+      "level": 3,
+      "line_start": 265,
+      "line_end": 274,
+      "anchor": "changes-to-connected-accounts"
+    },
+    {
+      "heading": "Structured file paths and file-list entries",
+      "level": 2,
+      "line_start": 275,
+      "line_end": 301,
+      "anchor": "structured-file-paths-and-file-list-entries"
+    },
+    {
+      "heading": "Field 202: Files paths",
+      "level": 3,
+      "line_start": 302,
+      "line_end": 316,
+      "anchor": "field-202-files-paths"
+    },
+    {
+      "heading": "Field 212: Files destinations",
+      "level": 3,
+      "line_start": 317,
+      "line_end": 335,
+      "anchor": "field-212-files-destinations"
+    },
+    {
+      "heading": "Field 325: News paths",
+      "level": 3,
+      "line_start": 336,
+      "line_end": 357,
+      "anchor": "field-325-news-paths"
+    },
+    {
+      "heading": "File-list entry records",
+      "level": 3,
+      "line_start": 358,
+      "line_end": 378,
+      "anchor": "file-list-entry-records"
+    },
+    {
+      "heading": "Captured listing kinds and enumeration order",
+      "level": 3,
+      "line_start": 379,
+      "line_end": 410,
+      "anchor": "captured-listing-kinds-and-enumeration-order"
+    },
+    {
+      "heading": "Captured field 202 directory-creation boundaries",
+      "level": 3,
+      "line_start": 411,
+      "line_end": 423,
+      "anchor": "captured-field-202-directory-creation-boundaries"
+    },
+    {
+      "heading": "Privilege access and connection timers",
+      "level": 2,
+      "line_start": 424,
+      "line_end": 485,
+      "anchor": "privilege-access-and-connection-timers"
+    },
+    {
+      "heading": "Captured agreement configurations and partial login failures",
+      "level": 2,
+      "line_start": 486,
+      "line_end": 564,
+      "anchor": "captured-agreement-configurations-and-partial-login-failures"
+    },
+    {
+      "heading": "Captured login extras, configuration bytes and refresh",
+      "level": 2,
+      "line_start": 565,
+      "line_end": 630,
+      "anchor": "captured-login-extras-configuration-bytes-and-refresh"
+    },
+    {
+      "heading": "Captured account replacement and password boundaries",
+      "level": 2,
+      "line_start": 631,
+      "line_end": 697,
+      "anchor": "captured-account-replacement-and-password-boundaries"
+    },
+    {
+      "heading": "Captured live account changes and server restart",
+      "level": 2,
+      "line_start": 698,
+      "line_end": 794,
+      "anchor": "captured-live-account-changes-and-server-restart"
+    },
+    {
+      "heading": "Captured account identity and protection contrasts",
+      "level": 2,
+      "line_start": 795,
+      "line_end": 848,
+      "anchor": "captured-account-identity-and-protection-contrasts"
+    }
+  ],
+  "docs/protocol/operation-contracts.md": [
+    {
+      "heading": "Native operation and session dispatch contracts",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 8,
+      "anchor": "native-operation-and-session-dispatch-contracts"
+    },
+    {
+      "heading": "Session eligibility and invalid transitions",
+      "level": 2,
+      "line_start": 9,
+      "line_end": 29,
+      "anchor": "session-eligibility-and-invalid-transitions"
+    },
+    {
+      "heading": "Request catalogue",
+      "level": 2,
+      "line_start": 30,
+      "line_end": 86,
+      "anchor": "request-catalogue"
+    },
+    {
+      "heading": "Per-operation reply and fan-out map",
+      "level": 2,
+      "line_start": 87,
+      "line_end": 151,
+      "anchor": "per-operation-reply-and-fan-out-map"
+    },
+    {
+      "heading": "Server notification catalogue",
+      "level": 2,
+      "line_start": 152,
+      "line_end": 176,
+      "anchor": "server-notification-catalogue"
+    },
+    {
+      "heading": "Field and aggregate byte limits (GAP-019)",
+      "level": 2,
+      "line_start": 177,
+      "line_end": 215,
+      "anchor": "field-and-aggregate-byte-limits-gap-019"
+    },
+    {
+      "heading": "Remaining boundary cells and aggregate scope",
+      "level": 3,
+      "line_start": 216,
+      "line_end": 246,
+      "anchor": "remaining-boundary-cells-and-aggregate-scope"
+    },
+    {
+      "heading": "Frame acceptance and reassembly boundaries",
+      "level": 2,
+      "line_start": 247,
+      "line_end": 269,
+      "anchor": "frame-acceptance-and-reassembly-boundaries"
+    },
+    {
+      "heading": "Administrative account list and batch mutation",
+      "level": 2,
+      "line_start": 270,
+      "line_end": 303,
+      "anchor": "administrative-account-list-and-batch-mutation"
+    },
+    {
+      "heading": "Captured batch account framing and partial effects",
+      "level": 2,
+      "line_start": 304,
+      "line_end": 378,
+      "anchor": "captured-batch-account-framing-and-partial-effects"
+    },
+    {
+      "heading": "Rename collision does not preserve the destination account",
+      "level": 3,
+      "line_start": 379,
+      "line_end": 416,
+      "anchor": "rename-collision-does-not-preserve-the-destination-account"
+    },
+    {
+      "heading": "Account deletion and allocated Trash records",
+      "level": 2,
+      "line_start": 417,
+      "line_end": 431,
+      "anchor": "account-deletion-and-allocated-trash-records"
+    }
+  ],
+  "docs/files-and-transfers/transfer-contracts.md": [
+    {
+      "heading": "Native transfer contracts",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 16,
+      "anchor": "native-transfer-contracts"
+    },
+    {
+      "heading": "HTXF connection header and dispatch",
+      "level": 2,
+      "line_start": 17,
+      "line_end": 57,
+      "anchor": "htxf-connection-header-and-dispatch"
+    },
+    {
+      "heading": "Captured HTXF field and reference cases",
+      "level": 2,
+      "line_start": 58,
+      "line_end": 118,
+      "anchor": "captured-htxf-field-and-reference-cases"
+    },
+    {
+      "heading": "Reference allocation and request 214",
+      "level": 2,
+      "line_start": 119,
+      "line_end": 163,
+      "anchor": "reference-allocation-and-request-214"
+    },
+    {
+      "heading": "Captured cancellation and completion races",
+      "level": 3,
+      "line_start": 164,
+      "line_end": 211,
+      "anchor": "captured-cancellation-and-completion-races"
+    },
+    {
+      "heading": "Buffered receipt and packet ordering",
+      "level": 3,
+      "line_start": 212,
+      "line_end": 228,
+      "anchor": "buffered-receipt-and-packet-ordering"
+    },
+    {
+      "heading": "Resume data: RFLT",
+      "level": 2,
+      "line_start": 229,
+      "line_end": 263,
+      "anchor": "resume-data-rflt"
+    },
+    {
+      "heading": "Captured RFLT download boundaries",
+      "level": 3,
+      "line_start": 264,
+      "line_end": 312,
+      "anchor": "captured-rflt-download-boundaries"
+    },
+    {
+      "heading": "Captured upload continuation and inconsistent state",
+      "level": 3,
+      "line_start": 313,
+      "line_end": 349,
+      "anchor": "captured-upload-continuation-and-inconsistent-state"
+    },
+    {
+      "heading": "Flattened ordinary-file stream",
+      "level": 2,
+      "line_start": 350,
+      "line_end": 379,
+      "anchor": "flattened-ordinary-file-stream"
+    },
+    {
+      "heading": "INFO metadata value",
+      "level": 3,
+      "line_start": 380,
+      "line_end": 407,
+      "anchor": "info-metadata-value"
+    },
+    {
+      "heading": "INFO restoration after upload",
+      "level": 3,
+      "line_start": 408,
+      "line_end": 431,
+      "anchor": "info-restoration-after-upload"
+    },
+    {
+      "heading": "Upload consumption and completion",
+      "level": 3,
+      "line_start": 432,
+      "line_end": 448,
+      "anchor": "upload-consumption-and-completion"
+    },
+    {
+      "heading": "Queue notification 211",
+      "level": 2,
+      "line_start": 449,
+      "line_end": 465,
+      "anchor": "queue-notification-211"
+    },
+    {
+      "heading": "Captured controlled queues",
+      "level": 3,
+      "line_start": 466,
+      "line_end": 524,
+      "anchor": "captured-controlled-queues"
+    },
+    {
+      "heading": "Captured pending-reference timeout",
+      "level": 3,
+      "line_start": 525,
+      "line_end": 551,
+      "anchor": "captured-pending-reference-timeout"
+    },
+    {
+      "heading": "Banner bytes and worker timers",
+      "level": 2,
+      "line_start": 552,
+      "line_end": 575,
+      "anchor": "banner-bytes-and-worker-timers"
+    },
+    {
+      "heading": "Captured ordinary-file round trips",
+      "level": 2,
+      "line_start": 576,
+      "line_end": 623,
+      "anchor": "captured-ordinary-file-round-trips"
+    },
+    {
+      "heading": "Captured completion and EOF behaviour",
+      "level": 3,
+      "line_start": 624,
+      "line_end": 649,
+      "anchor": "captured-completion-and-eof-behaviour"
+    },
+    {
+      "heading": "Transfer timer origins and resets",
+      "level": 3,
+      "line_start": 650,
+      "line_end": 681,
+      "anchor": "transfer-timer-origins-and-resets"
+    },
+    {
+      "heading": "Folder-download control states",
+      "level": 2,
+      "line_start": 682,
+      "line_end": 702,
+      "anchor": "folder-download-control-states"
+    },
+    {
+      "heading": "Folder item descriptor bytes",
+      "level": 3,
+      "line_start": 703,
+      "line_end": 736,
+      "anchor": "folder-item-descriptor-bytes"
+    },
+    {
+      "heading": "Captured folder downloads",
+      "level": 3,
+      "line_start": 737,
+      "line_end": 782,
+      "anchor": "captured-folder-downloads"
+    },
+    {
+      "heading": "Folder-upload control states",
+      "level": 2,
+      "line_start": 783,
+      "line_end": 819,
+      "anchor": "folder-upload-control-states"
+    },
+    {
+      "heading": "Captured folder uploads",
+      "level": 3,
+      "line_start": 820,
+      "line_end": 847,
+      "anchor": "captured-folder-uploads"
+    },
+    {
+      "heading": "Captured folder timing and filesystem observations",
+      "level": 3,
+      "line_start": 848,
+      "line_end": 887,
+      "anchor": "captured-folder-timing-and-filesystem-observations"
+    },
+    {
+      "heading": "Captured banner observations",
+      "level": 2,
+      "line_start": 888,
+      "line_end": 932,
+      "anchor": "captured-banner-observations"
+    },
+    {
+      "heading": "Captured banner formats and recovery",
+      "level": 2,
+      "line_start": 933,
+      "line_end": 1001,
+      "anchor": "captured-banner-formats-and-recovery"
+    }
+  ],
+  "docs/news/news-contracts.md": [
+    {
+      "heading": "Native nested news contracts",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 8,
+      "anchor": "native-nested-news-contracts"
+    },
+    {
+      "heading": "Category-list variants",
+      "level": 2,
+      "line_start": 9,
+      "line_end": 57,
+      "anchor": "category-list-variants"
+    },
+    {
+      "heading": "Article-list field 321",
+      "level": 2,
+      "line_start": 58,
+      "line_end": 104,
+      "anchor": "article-list-field-321"
+    },
+    {
+      "heading": "Reading bodies and navigation",
+      "level": 2,
+      "line_start": 105,
+      "line_end": 140,
+      "anchor": "reading-bodies-and-navigation"
+    },
+    {
+      "heading": "News dates",
+      "level": 2,
+      "line_start": 141,
+      "line_end": 148,
+      "anchor": "news-dates"
+    },
+    {
+      "heading": "Posting, partial effects and deletion",
+      "level": 2,
+      "line_start": 149,
+      "line_end": 171,
+      "anchor": "posting-partial-effects-and-deletion"
+    },
+    {
+      "heading": "Deletion graph rewrite",
+      "level": 3,
+      "line_start": 172,
+      "line_end": 199,
+      "anchor": "deletion-graph-rewrite"
+    },
+    {
+      "heading": "Scope of hierarchy evidence",
+      "level": 2,
+      "line_start": 200,
+      "line_end": 213,
+      "anchor": "scope-of-hierarchy-evidence"
+    },
+    {
+      "heading": "Structure operation effects and conflicts",
+      "level": 3,
+      "line_start": 214,
+      "line_end": 277,
+      "anchor": "structure-operation-effects-and-conflicts"
+    },
+    {
+      "heading": "Captured category versions and header metadata",
+      "level": 2,
+      "line_start": 278,
+      "line_end": 327,
+      "anchor": "captured-category-versions-and-header-metadata"
+    },
+    {
+      "heading": "Captured threaded article lists and partial posts",
+      "level": 2,
+      "line_start": 328,
+      "line_end": 392,
+      "anchor": "captured-threaded-article-lists-and-partial-posts"
+    },
+    {
+      "heading": "Captured hierarchy failures and owned cleanup",
+      "level": 2,
+      "line_start": 393,
+      "line_end": 420,
+      "anchor": "captured-hierarchy-failures-and-owned-cleanup"
+    },
+    {
+      "heading": "Captured article deletion and index effects",
+      "level": 2,
+      "line_start": 421,
+      "line_end": 502,
+      "anchor": "captured-article-deletion-and-index-effects"
+    },
+    {
+      "heading": "Captured child append boundary and indexed orphan",
+      "level": 2,
+      "line_start": 503,
+      "line_end": 567,
+      "anchor": "captured-child-append-boundary-and-indexed-orphan"
+    }
+  ],
+  "docs/presence-and-messaging/presence-messaging-contracts.md": [
+    {
+      "heading": "Native presence, messaging and administration contracts",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 8,
+      "anchor": "native-presence-messaging-and-administration-contracts"
+    },
+    {
+      "heading": "Settings and login visibility",
+      "level": 2,
+      "line_start": 9,
+      "line_end": 67,
+      "anchor": "settings-and-login-visibility"
+    },
+    {
+      "heading": "Settings persistence boundary",
+      "level": 2,
+      "line_start": 68,
+      "line_end": 95,
+      "anchor": "settings-persistence-boundary"
+    },
+    {
+      "heading": "Captured configured login states and visibility",
+      "level": 2,
+      "line_start": 96,
+      "line_end": 145,
+      "anchor": "captured-configured-login-states-and-visibility"
+    },
+    {
+      "heading": "Agreement and banner condition tables",
+      "level": 2,
+      "line_start": 146,
+      "line_end": 168,
+      "anchor": "agreement-and-banner-condition-tables"
+    },
+    {
+      "heading": "Early completion and metadata changes",
+      "level": 3,
+      "line_start": 169,
+      "line_end": 187,
+      "anchor": "early-completion-and-metadata-changes"
+    },
+    {
+      "heading": "Login extras and configured content",
+      "level": 2,
+      "line_start": 188,
+      "line_end": 189,
+      "anchor": "login-extras-and-configured-content"
+    },
+    {
+      "heading": "Fields 160, 161 and 162",
+      "level": 3,
+      "line_start": 190,
+      "line_end": 234,
+      "anchor": "fields-160-161-and-162"
+    },
+    {
+      "heading": "Agreement and banner loading",
+      "level": 3,
+      "line_start": 235,
+      "line_end": 263,
+      "anchor": "agreement-and-banner-loading"
+    },
+    {
+      "heading": "Content byte limits and reload effects",
+      "level": 3,
+      "line_start": 264,
+      "line_end": 291,
+      "anchor": "content-byte-limits-and-reload-effects"
+    },
+    {
+      "heading": "Status word, separate from the privilege bitmap",
+      "level": 2,
+      "line_start": 292,
+      "line_end": 330,
+      "anchor": "status-word-separate-from-the-privilege-bitmap"
+    },
+    {
+      "heading": "Roster snapshots and concurrent updates",
+      "level": 2,
+      "line_start": 331,
+      "line_end": 375,
+      "anchor": "roster-snapshots-and-concurrent-updates"
+    },
+    {
+      "heading": "Disconnect teardown and notification 302",
+      "level": 2,
+      "line_start": 376,
+      "line_end": 392,
+      "anchor": "disconnect-teardown-and-notification-302"
+    },
+    {
+      "heading": "Private-message routing",
+      "level": 2,
+      "line_start": 393,
+      "line_end": 452,
+      "anchor": "private-message-routing"
+    },
+    {
+      "heading": "Rooms, invitations and subjects",
+      "level": 2,
+      "line_start": 453,
+      "line_end": 488,
+      "anchor": "rooms-invitations-and-subjects"
+    },
+    {
+      "heading": "Kick options and native console messages",
+      "level": 2,
+      "line_start": 489,
+      "line_end": 588,
+      "anchor": "kick-options-and-native-console-messages"
+    },
+    {
+      "heading": "Captured private rooms, invitations and chat bytes",
+      "level": 2,
+      "line_start": 589,
+      "line_end": 694,
+      "anchor": "captured-private-rooms-invitations-and-chat-bytes"
+    },
+    {
+      "heading": "Captured console and client broadcast recipients",
+      "level": 2,
+      "line_start": 695,
+      "line_end": 707,
+      "anchor": "captured-console-and-client-broadcast-recipients"
+    }
+  ],
+  "docs/protocol/core-field-schemas.md": [
+    {
+      "heading": "Core transaction field schemas",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 9,
+      "anchor": "core-transaction-field-schemas"
+    },
+    {
+      "heading": "Types, occurrence and direction conventions",
+      "level": 2,
+      "line_start": 10,
+      "line_end": 41,
+      "anchor": "types-occurrence-and-direction-conventions"
+    },
+    {
+      "heading": "Login and settings requests",
+      "level": 2,
+      "line_start": 42,
+      "line_end": 63,
+      "anchor": "login-and-settings-requests"
+    },
+    {
+      "heading": "Captured settings-option widths and defaults",
+      "level": 3,
+      "line_start": 64,
+      "line_end": 75,
+      "anchor": "captured-settings-option-widths-and-defaults"
+    },
+    {
+      "heading": "Login width and feature-condition matrix",
+      "level": 3,
+      "line_start": 76,
+      "line_end": 112,
+      "anchor": "login-width-and-feature-condition-matrix"
+    },
+    {
+      "heading": "Login and presence outputs",
+      "level": 2,
+      "line_start": 113,
+      "line_end": 133,
+      "anchor": "login-and-presence-outputs"
+    },
+    {
+      "heading": "Chat, PM and room requests",
+      "level": 2,
+      "line_start": 134,
+      "line_end": 152,
+      "anchor": "chat-pm-and-room-requests"
+    },
+    {
+      "heading": "Room and message outputs",
+      "level": 2,
+      "line_start": 153,
+      "line_end": 171,
+      "anchor": "room-and-message-outputs"
+    }
+  ],
+  "docs/protocol/session-transport-contracts.md": [
+    {
+      "heading": "Native session and transport contracts",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 9,
+      "anchor": "native-session-and-transport-contracts"
+    },
+    {
+      "heading": "Configured endpoints",
+      "level": 2,
+      "line_start": 10,
+      "line_end": 45,
+      "anchor": "configured-endpoints"
+    },
+    {
+      "heading": "Handshake consumption and failures",
+      "level": 2,
+      "line_start": 46,
+      "line_end": 67,
+      "anchor": "handshake-consumption-and-failures"
+    },
+    {
+      "heading": "Captured handshake boundaries",
+      "level": 2,
+      "line_start": 68,
+      "line_end": 97,
+      "anchor": "captured-handshake-boundaries"
+    },
+    {
+      "heading": "Sub-version 3 versus the data endpoint",
+      "level": 3,
+      "line_start": 98,
+      "line_end": 123,
+      "anchor": "sub-version-3-versus-the-data-endpoint"
+    },
+    {
+      "heading": "Receive-limit assignment at startup",
+      "level": 2,
+      "line_start": 124,
+      "line_end": 140,
+      "anchor": "receive-limit-assignment-at-startup"
+    },
+    {
+      "heading": "Captured framing and reassembly boundaries",
+      "level": 3,
+      "line_start": 141,
+      "line_end": 173,
+      "anchor": "captured-framing-and-reassembly-boundaries"
+    },
+    {
+      "heading": "Transaction IDs, reassembly and correlation",
+      "level": 2,
+      "line_start": 174,
+      "line_end": 233,
+      "anchor": "transaction-ids-reassembly-and-correlation"
+    },
+    {
+      "heading": "Native envelope acceptance and emission",
+      "level": 2,
+      "line_start": 234,
+      "line_end": 259,
+      "anchor": "native-envelope-acceptance-and-emission"
+    },
+    {
+      "heading": "Identifier domains",
+      "level": 2,
+      "line_start": 260,
+      "line_end": 275,
+      "anchor": "identifier-domains"
+    },
+    {
+      "heading": "Activity clocks and incomplete input",
+      "level": 2,
+      "line_start": 276,
+      "line_end": 309,
+      "anchor": "activity-clocks-and-incomplete-input"
+    },
+    {
+      "heading": "Captured failure-wait observations",
+      "level": 3,
+      "line_start": 310,
+      "line_end": 332,
+      "anchor": "captured-failure-wait-observations"
+    },
+    {
+      "heading": "Captured selected-request and partial-input timing",
+      "level": 3,
+      "line_start": 333,
+      "line_end": 375,
+      "anchor": "captured-selected-request-and-partial-input-timing"
+    },
+    {
+      "heading": "Flood and connection-burst counters",
+      "level": 2,
+      "line_start": 376,
+      "line_end": 406,
+      "anchor": "flood-and-connection-burst-counters"
+    }
+  ],
+  "docs/files-and-transfers/filesystem-and-board-contracts.md": [
+    {
+      "heading": "Native filesystem, diagnostics and legacy-board contracts",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 8,
+      "anchor": "native-filesystem-diagnostics-and-legacy-board-contracts"
+    },
+    {
+      "heading": "File-info target kinds and field presence",
+      "level": 2,
+      "line_start": 9,
+      "line_end": 30,
+      "anchor": "file-info-target-kinds-and-field-presence"
+    },
+    {
+      "heading": "Delete, create, rename, comment, move and alias",
+      "level": 2,
+      "line_start": 31,
+      "line_end": 62,
+      "anchor": "delete-create-rename-comment-move-and-alias"
+    },
+    {
+      "heading": "Request 207 presence and mutation order",
+      "level": 3,
+      "line_start": 63,
+      "line_end": 90,
+      "anchor": "request-207-presence-and-mutation-order"
+    },
+    {
+      "heading": "Move and alias distinctions",
+      "level": 3,
+      "line_start": 91,
+      "line_end": 113,
+      "anchor": "move-and-alias-distinctions"
+    },
+    {
+      "heading": "Legacy board 101/102/103",
+      "level": 2,
+      "line_start": 114,
+      "line_end": 146,
+      "anchor": "legacy-board-101102103"
+    },
+    {
+      "heading": "Captured legacy-board boundaries and updates",
+      "level": 3,
+      "line_start": 147,
+      "line_end": 187,
+      "anchor": "captured-legacy-board-boundaries-and-updates"
+    },
+    {
+      "heading": "Diagnostic text 303",
+      "level": 2,
+      "line_start": 188,
+      "line_end": 203,
+      "anchor": "diagnostic-text-303"
+    },
+    {
+      "heading": "Captured native folder creation and field 202 paths",
+      "level": 2,
+      "line_start": 204,
+      "line_end": 213,
+      "anchor": "captured-native-folder-creation-and-field-202-paths"
+    },
+    {
+      "heading": "Create inputs, permissions and replies",
+      "level": 3,
+      "line_start": 214,
+      "line_end": 244,
+      "anchor": "create-inputs-permissions-and-replies"
+    },
+    {
+      "heading": "Name bytes and structured-path acceptance",
+      "level": 3,
+      "line_start": 245,
+      "line_end": 272,
+      "anchor": "name-bytes-and-structured-path-acceptance"
+    },
+    {
+      "heading": "Listing, file-info and owned cleanup controls",
+      "level": 3,
+      "line_start": 273,
+      "line_end": 304,
+      "anchor": "listing-file-info-and-owned-cleanup-controls"
+    },
+    {
+      "heading": "Captured alias and metadata matrix",
+      "level": 2,
+      "line_start": 305,
+      "line_end": 313,
+      "anchor": "captured-alias-and-metadata-matrix"
+    },
+    {
+      "heading": "File-info presence and values",
+      "level": 3,
+      "line_start": 314,
+      "line_end": 353,
+      "anchor": "file-info-presence-and-values"
+    },
+    {
+      "heading": "Alias creation, collisions and transfer resolution",
+      "level": 3,
+      "line_start": 354,
+      "line_end": 400,
+      "anchor": "alias-creation-collisions-and-transfer-resolution"
+    },
+    {
+      "heading": "Captured rename and comment mutation matrix",
+      "level": 2,
+      "line_start": 401,
+      "line_end": 469,
+      "anchor": "captured-rename-and-comment-mutation-matrix"
+    },
+    {
+      "heading": "Captured move and Trash outcomes",
+      "level": 2,
+      "line_start": 470,
+      "line_end": 546,
+      "anchor": "captured-move-and-trash-outcomes"
+    }
+  ],
+  "docs/provenance/evidence-portability.md": [
+    {
+      "heading": "Reproducing the protocol evidence baseline",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 8,
+      "anchor": "reproducing-the-protocol-evidence-baseline"
+    },
+    {
+      "heading": "Build a revision-pinned package",
+      "level": 2,
+      "line_start": 9,
+      "line_end": 29,
+      "anchor": "build-a-revision-pinned-package"
+    },
+    {
+      "heading": "Verify and extract elsewhere",
+      "level": 2,
+      "line_start": 30,
+      "line_end": 55,
+      "anchor": "verify-and-extract-elsewhere"
+    },
+    {
+      "heading": "Updating evidence without rewriting history",
+      "level": 2,
+      "line_start": 56,
+      "line_end": 70,
+      "anchor": "updating-evidence-without-rewriting-history"
+    },
+    {
+      "heading": "Recorded extraction verification",
+      "level": 2,
+      "line_start": 71,
+      "line_end": 84,
+      "anchor": "recorded-extraction-verification"
+    }
+  ],
+  "docs/protocol/error-outcomes.md": [
+    {
+      "heading": "Native error and failure outcomes",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 8,
+      "anchor": "native-error-and-failure-outcomes"
+    },
+    {
+      "heading": "Wire status and failure classes",
+      "level": 2,
+      "line_start": 9,
+      "line_end": 35,
+      "anchor": "wire-status-and-failure-classes"
+    },
+    {
+      "heading": "Recorded representative native outcomes",
+      "level": 2,
+      "line_start": 36,
+      "line_end": 80,
+      "anchor": "recorded-representative-native-outcomes"
+    },
+    {
+      "heading": "Derived unknown-operation example",
+      "level": 2,
+      "line_start": 81,
+      "line_end": 100,
+      "anchor": "derived-unknown-operation-example"
+    },
+    {
+      "heading": "Internal exceptions and text resources",
+      "level": 2,
+      "line_start": 101,
+      "line_end": 172,
+      "anchor": "internal-exceptions-and-text-resources"
+    }
+  ],
+  "docs/peers/identified-client-source.md": [
+    {
+      "heading": "Identified shx source profile and bounded callback results",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 21,
+      "anchor": "identified-shx-source-profile-and-bounded-callback-results"
+    },
+    {
+      "heading": "Basic login and unknown fields",
+      "level": 2,
+      "line_start": 22,
+      "line_end": 41,
+      "anchor": "basic-login-and-unknown-fields"
+    },
+    {
+      "heading": "Executed host callback matrix",
+      "level": 2,
+      "line_start": 42,
+      "line_end": 76,
+      "anchor": "executed-host-callback-matrix"
+    },
+    {
+      "heading": "Other receiver observations and negative scope",
+      "level": 2,
+      "line_start": 77,
+      "line_end": 109,
+      "anchor": "other-receiver-observations-and-negative-scope"
+    },
+    {
+      "heading": "Identified complete terminal build",
+      "level": 2,
+      "line_start": 110,
+      "line_end": 132,
+      "anchor": "identified-complete-terminal-build"
+    },
+    {
+      "heading": "Full native peer acceptance matrix",
+      "level": 2,
+      "line_start": 133,
+      "line_end": 164,
+      "anchor": "full-native-peer-acceptance-matrix"
+    },
+    {
+      "heading": "Ambiguous text at the real peer boundary",
+      "level": 2,
+      "line_start": 165,
+      "line_end": 190,
+      "anchor": "ambiguous-text-at-the-real-peer-boundary"
+    },
+    {
+      "heading": "Reproducing and checking full peer sessions",
+      "level": 2,
+      "line_start": 191,
+      "line_end": 221,
+      "anchor": "reproducing-and-checking-full-peer-sessions"
+    },
+    {
+      "heading": "Native configured-name and controlled receiver matrix",
+      "level": 2,
+      "line_start": 222,
+      "line_end": 275,
+      "anchor": "native-configured-name-and-controlled-receiver-matrix"
+    },
+    {
+      "heading": "Source package identities and configuration applicability",
+      "level": 2,
+      "line_start": 276,
+      "line_end": 328,
+      "anchor": "source-package-identities-and-configuration-applicability"
+    }
+  ],
+  "docs/accounts-and-privileges/privilege-contracts.md": [
+    {
+      "heading": "Native privilege registry and composition",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 9,
+      "anchor": "native-privilege-registry-and-composition"
+    },
+    {
+      "heading": "Bitmap numbering and known uses",
+      "level": 2,
+      "line_start": 10,
+      "line_end": 67,
+      "anchor": "bitmap-numbering-and-known-uses"
+    },
+    {
+      "heading": "Operation-specific composition",
+      "level": 2,
+      "line_start": 68,
+      "line_end": 89,
+      "anchor": "operation-specific-composition"
+    },
+    {
+      "heading": "Account creation, update and batch rules",
+      "level": 2,
+      "line_start": 90,
+      "line_end": 133,
+      "anchor": "account-creation-update-and-batch-rules"
+    },
+    {
+      "heading": "Remaining acceptance evidence",
+      "level": 2,
+      "line_start": 134,
+      "line_end": 154,
+      "anchor": "remaining-acceptance-evidence"
+    }
+  ],
+  "docs/native-evidence/native-capture-workflow.md": [
+    {
+      "heading": "Reproducing native protocol captures",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 8,
+      "anchor": "reproducing-native-protocol-captures"
+    },
+    {
+      "heading": "Prepare the emulator and application",
+      "level": 2,
+      "line_start": 9,
+      "line_end": 109,
+      "anchor": "prepare-the-emulator-and-application"
+    },
+    {
+      "heading": "Capture an exchange",
+      "level": 2,
+      "line_start": 110,
+      "line_end": 176,
+      "anchor": "capture-an-exchange"
+    },
+    {
+      "heading": "Recorded native core fixtures",
+      "level": 2,
+      "line_start": 177,
+      "line_end": 263,
+      "anchor": "recorded-native-core-fixtures"
+    },
+    {
+      "heading": "Recorded native transport fixtures",
+      "level": 2,
+      "line_start": 264,
+      "line_end": 306,
+      "anchor": "recorded-native-transport-fixtures"
+    },
+    {
+      "heading": "Recorded native framing fixtures",
+      "level": 2,
+      "line_start": 307,
+      "line_end": 342,
+      "anchor": "recorded-native-framing-fixtures"
+    },
+    {
+      "heading": "Recorded native ordinary-file fixtures",
+      "level": 2,
+      "line_start": 343,
+      "line_end": 394,
+      "anchor": "recorded-native-ordinary-file-fixtures"
+    },
+    {
+      "heading": "Recorded native resume fixtures",
+      "level": 2,
+      "line_start": 395,
+      "line_end": 436,
+      "anchor": "recorded-native-resume-fixtures"
+    },
+    {
+      "heading": "Recorded native queue fixtures",
+      "level": 2,
+      "line_start": 437,
+      "line_end": 481,
+      "anchor": "recorded-native-queue-fixtures"
+    },
+    {
+      "heading": "Recorded native cleanup fixtures",
+      "level": 2,
+      "line_start": 482,
+      "line_end": 519,
+      "anchor": "recorded-native-cleanup-fixtures"
+    },
+    {
+      "heading": "Recorded native folder fixtures",
+      "level": 2,
+      "line_start": 520,
+      "line_end": 584,
+      "anchor": "recorded-native-folder-fixtures"
+    },
+    {
+      "heading": "Acceptance and corpus coverage",
+      "level": 2,
+      "line_start": 585,
+      "line_end": 614,
+      "anchor": "acceptance-and-corpus-coverage"
+    },
+    {
+      "heading": "Recorded native banner fixtures",
+      "level": 2,
+      "line_start": 615,
+      "line_end": 677,
+      "anchor": "recorded-native-banner-fixtures"
+    },
+    {
+      "heading": "Reproducing banner format and recovery fixtures",
+      "level": 2,
+      "line_start": 678,
+      "line_end": 746,
+      "anchor": "reproducing-banner-format-and-recovery-fixtures"
+    },
+    {
+      "heading": "Reproducing HTXF header and reference fixtures",
+      "level": 2,
+      "line_start": 747,
+      "line_end": 797,
+      "anchor": "reproducing-htxf-header-and-reference-fixtures"
+    },
+    {
+      "heading": "Reproducing ID, envelope and partial-input fixtures",
+      "level": 2,
+      "line_start": 798,
+      "line_end": 851,
+      "anchor": "reproducing-id-envelope-and-partial-input-fixtures"
+    },
+    {
+      "heading": "Reproducing native authentication and visibility fixtures",
+      "level": 2,
+      "line_start": 852,
+      "line_end": 905,
+      "anchor": "reproducing-native-authentication-and-visibility-fixtures"
+    },
+    {
+      "heading": "Reproducing agreement configuration and partial-failure fixtures",
+      "level": 2,
+      "line_start": 906,
+      "line_end": 980,
+      "anchor": "reproducing-agreement-configuration-and-partial-failure-fixtures"
+    },
+    {
+      "heading": "Reproducing login-extra configuration and refresh fixtures",
+      "level": 2,
+      "line_start": 981,
+      "line_end": 1059,
+      "anchor": "reproducing-login-extra-configuration-and-refresh-fixtures"
+    },
+    {
+      "heading": "Reproducing full historical shx sessions",
+      "level": 2,
+      "line_start": 1060,
+      "line_end": 1086,
+      "anchor": "reproducing-full-historical-shx-sessions"
+    },
+    {
+      "heading": "Reproducing banner and roster-subject receiver fixtures",
+      "level": 2,
+      "line_start": 1087,
+      "line_end": 1106,
+      "anchor": "reproducing-banner-and-roster-subject-receiver-fixtures"
+    },
+    {
+      "heading": "Reproducing directory creation and path fixtures",
+      "level": 2,
+      "line_start": 1107,
+      "line_end": 1149,
+      "anchor": "reproducing-directory-creation-and-path-fixtures"
+    },
+    {
+      "heading": "Reproducing alias and metadata fixtures",
+      "level": 2,
+      "line_start": 1150,
+      "line_end": 1201,
+      "anchor": "reproducing-alias-and-metadata-fixtures"
+    },
+    {
+      "heading": "Reproducing rename and comment fixtures",
+      "level": 2,
+      "line_start": 1202,
+      "line_end": 1251,
+      "anchor": "reproducing-rename-and-comment-fixtures"
+    },
+    {
+      "heading": "Reproducing move and Trash fixtures",
+      "level": 2,
+      "line_start": 1252,
+      "line_end": 1300,
+      "anchor": "reproducing-move-and-trash-fixtures"
+    },
+    {
+      "heading": "Reproducing category and threaded news fixtures",
+      "level": 2,
+      "line_start": 1301,
+      "line_end": 1367,
+      "anchor": "reproducing-category-and-threaded-news-fixtures"
+    },
+    {
+      "heading": "Reproducing isolated article deletion fixtures",
+      "level": 2,
+      "line_start": 1368,
+      "line_end": 1421,
+      "anchor": "reproducing-isolated-article-deletion-fixtures"
+    },
+    {
+      "heading": "Reproducing the child append boundary",
+      "level": 2,
+      "line_start": 1422,
+      "line_end": 1478,
+      "anchor": "reproducing-the-child-append-boundary"
+    },
+    {
+      "heading": "Reproducing account replacement and password boundaries",
+      "level": 2,
+      "line_start": 1479,
+      "line_end": 1545,
+      "anchor": "reproducing-account-replacement-and-password-boundaries"
+    },
+    {
+      "heading": "Reproducing live account edits, deletion and restart",
+      "level": 2,
+      "line_start": 1546,
+      "line_end": 1616,
+      "anchor": "reproducing-live-account-edits-deletion-and-restart"
+    },
+    {
+      "heading": "Reproducing account batch framing and partial effects",
+      "level": 2,
+      "line_start": 1617,
+      "line_end": 1687,
+      "anchor": "reproducing-account-batch-framing-and-partial-effects"
+    },
+    {
+      "heading": "Reproducing account identity and protection contrasts",
+      "level": 2,
+      "line_start": 1688,
+      "line_end": 1743,
+      "anchor": "reproducing-account-identity-and-protection-contrasts"
+    },
+    {
+      "heading": "Reproducing private rooms and chat byte fixtures",
+      "level": 2,
+      "line_start": 1744,
+      "line_end": 1807,
+      "anchor": "reproducing-private-rooms-and-chat-byte-fixtures"
+    },
+    {
+      "heading": "Reproducing console and client broadcast fixtures",
+      "level": 2,
+      "line_start": 1808,
+      "line_end": 1826,
+      "anchor": "reproducing-console-and-client-broadcast-fixtures"
+    }
+  ],
+  "docs/protocol/diagnostic-replies.md": [
+    {
+      "heading": "Native 1.9 client diagnostics (303)",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 11,
+      "anchor": "native-19-client-diagnostics-303"
+    },
+    {
+      "heading": "Representative reply matrix",
+      "level": 2,
+      "line_start": 12,
+      "line_end": 52,
+      "anchor": "representative-reply-matrix"
+    },
+    {
+      "heading": "Contract boundary",
+      "level": 2,
+      "line_start": 53,
+      "line_end": 88,
+      "anchor": "contract-boundary"
+    },
+    {
+      "heading": "Reproduction and checks",
+      "level": 2,
+      "line_start": 89,
+      "line_end": 129,
+      "anchor": "reproduction-and-checks"
+    }
+  ],
+  "docs/peers/peer-tolerance-matrix.md": [
+    {
+      "heading": "Identified shx peer field tolerance: controlled matrix",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 57,
+      "anchor": "identified-shx-peer-field-tolerance-controlled-matrix"
+    },
+    {
+      "heading": "Reproduce and verify",
+      "level": 2,
+      "line_start": 58,
+      "line_end": 86,
+      "anchor": "reproduce-and-verify"
+    },
+    {
+      "heading": "Cross-peer acceptance and omission rules",
+      "level": 2,
+      "line_start": 87,
+      "line_end": 124,
+      "anchor": "cross-peer-acceptance-and-omission-rules"
+    }
+  ],
+  "docs/protocol/bitmap-boundaries.md": [
+    {
+      "heading": "Native 1.9 privilege bitmap replacement and width observations",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 11,
+      "anchor": "native-19-privilege-bitmap-replacement-and-width-observations"
+    },
+    {
+      "heading": "All 64 bit positions",
+      "level": 2,
+      "line_start": 12,
+      "line_end": 36,
+      "anchor": "all-64-bit-positions"
+    },
+    {
+      "heading": "Field-110 presence and width",
+      "level": 2,
+      "line_start": 37,
+      "line_end": 64,
+      "anchor": "field-110-presence-and-width"
+    },
+    {
+      "heading": "Enforcement and remaining criteria",
+      "level": 2,
+      "line_start": 65,
+      "line_end": 90,
+      "anchor": "enforcement-and-remaining-criteria"
+    },
+    {
+      "heading": "Verification",
+      "level": 2,
+      "line_start": 91,
+      "line_end": 133,
+      "anchor": "verification"
+    }
+  ],
+  "docs/accounts-and-privileges/account-attribute-trace.md": [
+    {
+      "heading": "Account field 111: stored-record and consumer trace",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 10,
+      "anchor": "account-field-111-stored-record-and-consumer-trace"
+    },
+    {
+      "heading": "Positive field and storage evidence",
+      "level": 2,
+      "line_start": 11,
+      "line_end": 43,
+      "anchor": "positive-field-and-storage-evidence"
+    },
+    {
+      "heading": "Direct reader boundary and forwarded records",
+      "level": 2,
+      "line_start": 44,
+      "line_end": 77,
+      "anchor": "direct-reader-boundary-and-forwarded-records"
+    },
+    {
+      "heading": "Resource-fork search boundary",
+      "level": 2,
+      "line_start": 78,
+      "line_end": 94,
+      "anchor": "resource-fork-search-boundary"
+    },
+    {
+      "heading": "Identified Classic client construction boundary",
+      "level": 2,
+      "line_start": 95,
+      "line_end": 106,
+      "anchor": "identified-classic-client-construction-boundary"
+    },
+    {
+      "heading": "Reproduce and decision boundary",
+      "level": 2,
+      "line_start": 107,
+      "line_end": 141,
+      "anchor": "reproduce-and-decision-boundary"
+    },
+    {
+      "heading": "Bounded reader-alias follow-up",
+      "level": 2,
+      "line_start": 142,
+      "line_end": 169,
+      "anchor": "bounded-reader-alias-follow-up"
+    }
+  ],
+  "docs/protocol/failure-representatives.md": [
+    {
+      "heading": "Captured representative native failures",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 19,
+      "anchor": "captured-representative-native-failures"
+    },
+    {
+      "heading": "Authentication: rejected password",
+      "level": 2,
+      "line_start": 20,
+      "line_end": 34,
+      "anchor": "authentication-rejected-password"
+    },
+    {
+      "heading": "Permission: account enumeration denied",
+      "level": 2,
+      "line_start": 35,
+      "line_end": 48,
+      "anchor": "permission-account-enumeration-denied"
+    },
+    {
+      "heading": "Missing object: file information lookup",
+      "level": 2,
+      "line_start": 49,
+      "line_end": 62,
+      "anchor": "missing-object-file-information-lookup"
+    },
+    {
+      "heading": "Malformed request: zero-size frame",
+      "level": 2,
+      "line_start": 63,
+      "line_end": 77,
+      "anchor": "malformed-request-zero-size-frame"
+    },
+    {
+      "heading": "Unsupported operation: unknown online transaction",
+      "level": 2,
+      "line_start": 78,
+      "line_end": 116,
+      "anchor": "unsupported-operation-unknown-online-transaction"
+    }
+  ],
+  "docs/native-evidence/runtime-recovery-20261113.md": [
+    {
+      "heading": "Disposable Mac OS 9 runtime recovery, 13 November 2026",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 9,
+      "anchor": "disposable-mac-os-9-runtime-recovery-13-november-2026"
+    },
+    {
+      "heading": "Recovery boundary",
+      "level": 2,
+      "line_start": 10,
+      "line_end": 68,
+      "anchor": "recovery-boundary"
+    },
+    {
+      "heading": "Boot and guest observation",
+      "level": 2,
+      "line_start": 69,
+      "line_end": 95,
+      "anchor": "boot-and-guest-observation"
+    },
+    {
+      "heading": "Read-only readiness smokes",
+      "level": 2,
+      "line_start": 96,
+      "line_end": 140,
+      "anchor": "read-only-readiness-smokes"
+    }
+  ],
+  "docs/protocol/receive-limit-origin.md": [
+    {
+      "heading": "Receive-limit origin and indexed reference boundary",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 8,
+      "anchor": "receive-limit-origin-and-indexed-reference-boundary"
+    },
+    {
+      "heading": "Positive native-code comparison",
+      "level": 2,
+      "line_start": 9,
+      "line_end": 44,
+      "anchor": "positive-native-code-comparison"
+    },
+    {
+      "heading": "Configuration and remaining question",
+      "level": 2,
+      "line_start": 45,
+      "line_end": 61,
+      "anchor": "configuration-and-remaining-question"
+    },
+    {
+      "heading": "Reproduce the bounded query",
+      "level": 2,
+      "line_start": 62,
+      "line_end": 97,
+      "anchor": "reproduce-the-bounded-query"
+    }
+  ],
+  "docs/protocol/diagnostic-transfer-boundaries.md": [
+    {
+      "heading": "GAP-037 transfer-state diagnostic attempt",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 9,
+      "anchor": "gap-037-transfer-state-diagnostic-attempt"
+    },
+    {
+      "heading": "Bounded preparation and failure",
+      "level": 2,
+      "line_start": 10,
+      "line_end": 33,
+      "anchor": "bounded-preparation-and-failure"
+    },
+    {
+      "heading": "Positive partial-file cleanup",
+      "level": 2,
+      "line_start": 34,
+      "line_end": 78,
+      "anchor": "positive-partial-file-cleanup"
+    }
+  ],
+  "docs/peers/mac-peer-first-session.md": [
+    {
+      "heading": "First Classic Mac peer session: finite wire observations",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 19,
+      "anchor": "first-classic-mac-peer-session-finite-wire-observations"
+    },
+    {
+      "heading": "Observed control exchange",
+      "level": 2,
+      "line_start": 20,
+      "line_end": 46,
+      "anchor": "observed-control-exchange"
+    },
+    {
+      "heading": "Measured limits and safety stop",
+      "level": 2,
+      "line_start": 47,
+      "line_end": 63,
+      "anchor": "measured-limits-and-safety-stop"
+    }
+  ],
+  "docs/native-evidence/native-diagnostic-existing-preparation.md": [
+    {
+      "heading": "Existing-file diagnostic load preparation",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 16,
+      "anchor": "existing-file-diagnostic-load-preparation"
+    },
+    {
+      "heading": "Bounds and order",
+      "level": 2,
+      "line_start": 17,
+      "line_end": 48,
+      "anchor": "bounds-and-order"
+    },
+    {
+      "heading": "Prepared commands",
+      "level": 2,
+      "line_start": 49,
+      "line_end": 112,
+      "anchor": "prepared-commands"
+    }
+  ],
+  "docs/native-evidence/native-diagnostic-existing-witness.md": [
+    {
+      "heading": "Native 1.9 diagnostic with one active and one waiting download",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 8,
+      "anchor": "native-19-diagnostic-with-one-active-and-one-waiting-download"
+    },
+    {
+      "heading": "Native observation",
+      "level": 2,
+      "line_start": 9,
+      "line_end": 66,
+      "anchor": "native-observation"
+    },
+    {
+      "heading": "Scope and reproduction",
+      "level": 2,
+      "line_start": 67,
+      "line_end": 109,
+      "anchor": "scope-and-reproduction"
+    }
+  ],
+  "docs/native-evidence/native-diagnostic-density-witness.md": [
+    {
+      "heading": "Native 1.9 diagnostic density with existing downloads",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 9,
+      "anchor": "native-19-diagnostic-density-with-existing-downloads"
+    },
+    {
+      "heading": "Fixed 303 observations",
+      "level": 2,
+      "line_start": 10,
+      "line_end": 41,
+      "anchor": "fixed-303-observations"
+    },
+    {
+      "heading": "Packet views and restoration",
+      "level": 2,
+      "line_start": 42,
+      "line_end": 64,
+      "anchor": "packet-views-and-restoration"
+    },
+    {
+      "heading": "Replay",
+      "level": 2,
+      "line_start": 65,
+      "line_end": 81,
+      "anchor": "replay"
+    }
+  ],
+  "docs/native-evidence/native-diagnostic-near-preparation.md": [
+    {
+      "heading": "Native 303 near-boundary preparation",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 13,
+      "anchor": "native-303-near-boundary-preparation"
+    },
+    {
+      "heading": "Fixed bounds and decision gate",
+      "level": 2,
+      "line_start": 14,
+      "line_end": 43,
+      "anchor": "fixed-bounds-and-decision-gate"
+    },
+    {
+      "heading": "Offline preparation and replay commands",
+      "level": 2,
+      "line_start": 44,
+      "line_end": 69,
+      "anchor": "offline-preparation-and-replay-commands"
+    }
+  ],
+  "docs/native-evidence/native-diagnostic-near-witness.md": [
+    {
+      "heading": "Native 1.9 diagnostic near-boundary observation",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 47,
+      "anchor": "native-19-diagnostic-near-boundary-observation"
+    },
+    {
+      "heading": "Replay",
+      "level": 2,
+      "line_start": 48,
+      "line_end": 73,
+      "anchor": "replay"
+    }
+  ],
+  "docs/peers/mac-peer-isolated-session.md": [
+    {
+      "heading": "Isolated Classic client: one finite 1.9 session",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 59,
+      "anchor": "isolated-classic-client-one-finite-19-session"
+    }
+  ],
+  "docs/protocol/request-500-contract.md": [
+    {
+      "heading": "Request 500: native reply and one modern client's schedule",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 45,
+      "anchor": "request-500-native-reply-and-one-modern-clients-schedule"
+    }
+  ],
+  "docs/presence-and-messaging/native-console-broadcast.md": [
+    {
+      "heading": "Native console broadcast and client 355: bounded D1 witness",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 63,
+      "anchor": "native-console-broadcast-and-client-355-bounded-d1-witness"
+    }
+  ],
+  "docs/peers/classic-login-proxy.md": [
+    {
+      "heading": "Classic Login107 field-161 proxy",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 11,
+      "anchor": "classic-login107-field-161-proxy"
+    },
+    {
+      "heading": "Fixed topology and authority boundary",
+      "level": 2,
+      "line_start": 12,
+      "line_end": 38,
+      "anchor": "fixed-topology-and-authority-boundary"
+    },
+    {
+      "heading": "Wire transformation",
+      "level": 2,
+      "line_start": 39,
+      "line_end": 106,
+      "anchor": "wire-transformation"
+    },
+    {
+      "heading": "Automatic observation cutoff (B27 preparation)",
+      "level": 2,
+      "line_start": 107,
+      "line_end": 135,
+      "anchor": "automatic-observation-cutoff-b27-preparation"
+    },
+    {
+      "heading": "Offline checks and remaining gate",
+      "level": 2,
+      "line_start": 136,
+      "line_end": 189,
+      "anchor": "offline-checks-and-remaining-gate"
+    },
+    {
+      "heading": "Read-only actual namespace guard receipt",
+      "level": 2,
+      "line_start": 190,
+      "line_end": 208,
+      "anchor": "read-only-actual-namespace-guard-receipt"
+    }
+  ],
+  "docs/native-evidence/native-pm-preparation.md": [
+    {
+      "heading": "Native private-message fixture preparation (A26)",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 8,
+      "anchor": "native-private-message-fixture-preparation-a26"
+    },
+    {
+      "heading": "Matrix",
+      "level": 2,
+      "line_start": 9,
+      "line_end": 30,
+      "anchor": "matrix"
+    },
+    {
+      "heading": "Operator sequence after separate START",
+      "level": 2,
+      "line_start": 31,
+      "line_end": 81,
+      "anchor": "operator-sequence-after-separate-start"
+    }
+  ],
+  "docs/native-evidence/native-pm-witness.md": [
+    {
+      "heading": "Native 1.9 private-message 104 witness (A29)",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 72,
+      "anchor": "native-19-private-message-104-witness-a29"
+    }
+  ],
+  "docs/presence-and-messaging/native-104-variants.md": [
+    {
+      "heading": "Native 1.9 type-104 producer matrix (A28)",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 21,
+      "anchor": "native-19-type-104-producer-matrix-a28"
+    },
+    {
+      "heading": "Parsing and evidence limits",
+      "level": 2,
+      "line_start": 22,
+      "line_end": 64,
+      "anchor": "parsing-and-evidence-limits"
+    }
+  ],
+  "docs/native-evidence/native-settings-preparation.md": [
+    {
+      "heading": "Native 1.9 settings field 113 preparation",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 13,
+      "anchor": "native-19-settings-field-113-preparation"
+    },
+    {
+      "heading": "Bounded matrix and observer",
+      "level": 2,
+      "line_start": 14,
+      "line_end": 38,
+      "anchor": "bounded-matrix-and-observer"
+    },
+    {
+      "heading": "Preparation and later authorised capture",
+      "level": 2,
+      "line_start": 39,
+      "line_end": 69,
+      "anchor": "preparation-and-later-authorised-capture"
+    }
+  ],
+  "docs/native-evidence/native-settings-witness.md": [
+    {
+      "heading": "Native 1.9 settings field 113 witness",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 71,
+      "anchor": "native-19-settings-field-113-witness"
+    }
+  ],
+  "docs/presence-and-messaging/native-ban-notices.md": [
+    {
+      "heading": "Native 1.9 temporary ban notice: disposable option-one witness",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 9,
+      "anchor": "native-19-temporary-ban-notice-disposable-option-one-witness"
+    },
+    {
+      "heading": "Identity and baseline",
+      "level": 2,
+      "line_start": 10,
+      "line_end": 28,
+      "anchor": "identity-and-baseline"
+    },
+    {
+      "heading": "One option-one exchange",
+      "level": 2,
+      "line_start": 29,
+      "line_end": 61,
+      "anchor": "one-option-one-exchange"
+    },
+    {
+      "heading": "Isolation and limits",
+      "level": 2,
+      "line_start": 62,
+      "line_end": 91,
+      "anchor": "isolation-and-limits"
+    }
+  ],
+  "docs/protocol/parameter-multiplicity.md": [
+    {
+      "heading": "Parameter multiplicity and ordering in Hotline Server 1.9",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 56,
+      "anchor": "parameter-multiplicity-and-ordering-in-hotline-server-19"
+    }
+  ],
+  "docs/files-and-transfers/native-transfer-stall.md": [
+    {
+      "heading": "Disposable lab transfer stall before the option-two ban fixture",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 20,
+      "anchor": "disposable-lab-transfer-stall-before-the-option-two-ban-fixture"
+    },
+    {
+      "heading": "What the frozen TCP views establish",
+      "level": 2,
+      "line_start": 21,
+      "line_end": 56,
+      "anchor": "what-the-frozen-tcp-views-establish"
+    },
+    {
+      "heading": "Repeated baseline and a successful comparison",
+      "level": 2,
+      "line_start": 57,
+      "line_end": 107,
+      "anchor": "repeated-baseline-and-a-successful-comparison"
+    },
+    {
+      "heading": "One focus event on the repeated prefix",
+      "level": 2,
+      "line_start": 108,
+      "line_end": 118,
+      "anchor": "one-focus-event-on-the-repeated-prefix"
+    }
+  ],
+  "docs/native-evidence/native-settings-transition-prep.md": [
+    {
+      "heading": "Same-session 304 transition preparation (A32)",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 63,
+      "anchor": "same-session-304-transition-preparation-a32"
+    }
+  ],
+  "docs/native-evidence/native-settings-transition-witness.md": [
+    {
+      "heading": "Native 1.9 same-session 304 transition witness (A33)",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 78,
+      "anchor": "native-19-same-session-304-transition-witness-a33"
+    }
+  ],
+  "docs/files-and-transfers/native-download-send-path.md": [
+    {
+      "heading": "Native ordinary-download send path",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 12,
+      "anchor": "native-ordinary-download-send-path"
+    },
+    {
+      "heading": "Request, attachment and producer",
+      "level": 2,
+      "line_start": 13,
+      "line_end": 54,
+      "anchor": "request-attachment-and-producer"
+    },
+    {
+      "heading": "Limits and next proof",
+      "level": 2,
+      "line_start": 55,
+      "line_end": 88,
+      "anchor": "limits-and-next-proof"
+    }
+  ],
+  "docs/accounts-and-privileges/classic-account-constructors.md": [
+    {
+      "heading": "Classic client account request constructors",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 14,
+      "anchor": "classic-client-account-request-constructors"
+    },
+    {
+      "heading": "What the executable trace establishes",
+      "level": 2,
+      "line_start": 15,
+      "line_end": 49,
+      "anchor": "what-the-executable-trace-establishes"
+    },
+    {
+      "heading": "Repeat or check without a live server",
+      "level": 2,
+      "line_start": 50,
+      "line_end": 77,
+      "anchor": "repeat-or-check-without-a-live-server"
+    }
+  ],
+  "docs/native-evidence/native-121-default-preparation.md": [
+    {
+      "heading": "Delayed 121 default-text preparation (A35)",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 83,
+      "anchor": "delayed-121-default-text-preparation-a35"
+    }
+  ],
+  "docs/native-evidence/native-121-default-witness.md": [
+    {
+      "heading": "Native 1.9 delayed 121 default response (A37)",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 75,
+      "anchor": "native-19-delayed-121-default-response-a37"
+    }
+  ],
+  "docs/peers/classic-native-baseline.md": [
+    {
+      "heading": "Classic client to native Hotline 1.9 baseline through the fixed proxy",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 12,
+      "anchor": "classic-client-to-native-hotline-19-baseline-through-the-fixed-proxy"
+    },
+    {
+      "heading": "Provenance and finite result",
+      "level": 2,
+      "line_start": 13,
+      "line_end": 59,
+      "anchor": "provenance-and-finite-result"
+    },
+    {
+      "heading": "Offline replay",
+      "level": 2,
+      "line_start": 60,
+      "line_end": 86,
+      "anchor": "offline-replay"
+    }
+  ],
+  "docs/native-evidence/native-ui-focus-witness.md": [
+    {
+      "heading": "One server Log focus event during a stalled native download",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 19,
+      "anchor": "one-server-log-focus-event-during-a-stalled-native-download"
+    },
+    {
+      "heading": "Measured event and result",
+      "level": 2,
+      "line_start": 20,
+      "line_end": 67,
+      "anchor": "measured-event-and-result"
+    }
+  ],
+  "docs/native-evidence/native-control-readiness.md": [
+    {
+      "heading": "Readiness for isolated control-operation fixtures",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 16,
+      "anchor": "readiness-for-isolated-control-operation-fixtures"
+    },
+    {
+      "heading": "Why a separate profile is appropriate",
+      "level": 2,
+      "line_start": 17,
+      "line_end": 29,
+      "anchor": "why-a-separate-profile-is-appropriate"
+    },
+    {
+      "heading": "Required gates",
+      "level": 2,
+      "line_start": 30,
+      "line_end": 46,
+      "anchor": "required-gates"
+    },
+    {
+      "heading": "Ban fixture boundary",
+      "level": 2,
+      "line_start": 47,
+      "line_end": 71,
+      "anchor": "ban-fixture-boundary"
+    },
+    {
+      "heading": "Acceptance and escalation",
+      "level": 2,
+      "line_start": 72,
+      "line_end": 82,
+      "anchor": "acceptance-and-escalation"
+    }
+  ],
+  "docs/peers/classic-field161-matrix.md": [
+    {
+      "heading": "Classic client field-161 width and omission matrix",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 78,
+      "anchor": "classic-client-field-161-width-and-omission-matrix"
+    }
+  ],
+  "docs/native-evidence/native-ban-control-preparation.md": [
+    {
+      "heading": "Isolated permanent-ban control fixture (C52 preparation)",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 10,
+      "anchor": "isolated-permanent-ban-control-fixture-c52-preparation"
+    },
+    {
+      "heading": "Prepared image and immutable inputs",
+      "level": 2,
+      "line_start": 11,
+      "line_end": 28,
+      "anchor": "prepared-image-and-immutable-inputs"
+    },
+    {
+      "heading": "Bounded next live sequence (requires separate grant)",
+      "level": 2,
+      "line_start": 29,
+      "line_end": 91,
+      "anchor": "bounded-next-live-sequence-requires-separate-grant"
+    }
+  ],
+  "docs/presence-and-messaging/notification-104-variants.md": [
+    {
+      "heading": "Native type-104 notification variants",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 25,
+      "anchor": "native-type-104-notification-variants"
+    },
+    {
+      "heading": "Discrimination and ambiguity",
+      "level": 2,
+      "line_start": 26,
+      "line_end": 52,
+      "anchor": "discrimination-and-ambiguity"
+    },
+    {
+      "heading": "Provenance and remaining acceptance",
+      "level": 2,
+      "line_start": 53,
+      "line_end": 76,
+      "anchor": "provenance-and-remaining-acceptance"
+    }
+  ],
+  "docs/peers/peer-profile-rules.md": [
+    {
+      "heading": "Identified peer profiles and the unknown-peer rule",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 9,
+      "anchor": "identified-peer-profiles-and-the-unknown-peer-rule"
+    },
+    {
+      "heading": "Evaluated build identities",
+      "level": 2,
+      "line_start": 10,
+      "line_end": 47,
+      "anchor": "evaluated-build-identities"
+    },
+    {
+      "heading": "Profile assignment and unknown-peer fallback",
+      "level": 2,
+      "line_start": 48,
+      "line_end": 76,
+      "anchor": "profile-assignment-and-unknown-peer-fallback"
+    }
+  ],
+  "docs/native-evidence/native-settings-persistence-preparation.md": [
+    {
+      "heading": "Isolated native settings persistence preparation (A42)",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 11,
+      "anchor": "isolated-native-settings-persistence-preparation-a42"
+    },
+    {
+      "heading": "Assets and authority",
+      "level": 2,
+      "line_start": 12,
+      "line_end": 34,
+      "anchor": "assets-and-authority"
+    },
+    {
+      "heading": "Fixed observation",
+      "level": 2,
+      "line_start": 35,
+      "line_end": 124,
+      "anchor": "fixed-observation"
+    }
+  ],
+  "docs/native-evidence/native-ban-control-witness.md": [
+    {
+      "heading": "Native 1.9 permanent ban control witness",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 8,
+      "anchor": "native-19-permanent-ban-control-witness"
+    },
+    {
+      "heading": "Scope and provenance",
+      "level": 2,
+      "line_start": 9,
+      "line_end": 28,
+      "anchor": "scope-and-provenance"
+    },
+    {
+      "heading": "Observed sequence",
+      "level": 2,
+      "line_start": 29,
+      "line_end": 60,
+      "anchor": "observed-sequence"
+    },
+    {
+      "heading": "Offline replay",
+      "level": 2,
+      "line_start": 61,
+      "line_end": 75,
+      "anchor": "offline-replay"
+    }
+  ],
+  "docs/peers/classic-server-name-162.md": [
+    {
+      "heading": "Classic client acceptance of one ASCII server-name field",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 63,
+      "anchor": "classic-client-acceptance-of-one-ascii-server-name-field"
+    }
+  ],
+  "docs/accounts-and-privileges/native-configured-ban-static.md": [
+    {
+      "heading": "Native 1.9 configured-ban application: static preparation",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 7,
+      "anchor": "native-19-configured-ban-application-static-preparation"
+    },
+    {
+      "heading": "Raw text and source path",
+      "level": 2,
+      "line_start": 8,
+      "line_end": 35,
+      "anchor": "raw-text-and-source-path"
+    },
+    {
+      "heading": "Next preparation gate",
+      "level": 2,
+      "line_start": 36,
+      "line_end": 54,
+      "anchor": "next-preparation-gate"
+    }
+  ],
+  "docs/accounts-and-privileges/native-configured-ban-ui-resources.md": [
+    {
+      "heading": "Configured-ban Options resource reconnaissance",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 29,
+      "anchor": "configured-ban-options-resource-reconnaissance"
+    }
+  ],
+  "docs/native-evidence/native-ban-reload-witness.md": [
+    {
+      "heading": "Native 1.9 persisted-ban reload witness",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 9,
+      "anchor": "native-19-persisted-ban-reload-witness"
+    },
+    {
+      "heading": "Pinned stopped image and UI",
+      "level": 2,
+      "line_start": 10,
+      "line_end": 35,
+      "anchor": "pinned-stopped-image-and-ui"
+    },
+    {
+      "heading": "One fresh Login 107",
+      "level": 2,
+      "line_start": 36,
+      "line_end": 58,
+      "anchor": "one-fresh-login-107"
+    },
+    {
+      "heading": "Offline replay and limit",
+      "level": 2,
+      "line_start": 59,
+      "line_end": 78,
+      "anchor": "offline-replay-and-limit"
+    }
+  ],
+  "docs/native-evidence/native-settings-persistence-witness.md": [
+    {
+      "heading": "Native 1.9 settings persistence witness (A46/A48)",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 11,
+      "anchor": "native-19-settings-persistence-witness-a46a48"
+    },
+    {
+      "heading": "Controlled sequence",
+      "level": 2,
+      "line_start": 12,
+      "line_end": 68,
+      "anchor": "controlled-sequence"
+    },
+    {
+      "heading": "Replay and provenance",
+      "level": 2,
+      "line_start": 69,
+      "line_end": 110,
+      "anchor": "replay-and-provenance"
+    }
+  ],
+  "docs/peers/classic-roster-subject-115.md": [
+    {
+      "heading": "Classic client: first roster reply with field 115",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 9,
+      "anchor": "classic-client-first-roster-reply-with-field-115"
+    },
+    {
+      "heading": "B62 session, 14 November 2026",
+      "level": 2,
+      "line_start": 10,
+      "line_end": 49,
+      "anchor": "b62-session-14-november-2026"
+    },
+    {
+      "heading": "Provenance and replay",
+      "level": 2,
+      "line_start": 50,
+      "line_end": 77,
+      "anchor": "provenance-and-replay"
+    }
+  ],
+  "docs/native-evidence/native-configured-ban-preparation.md": [
+    {
+      "heading": "Configured-address ban application: control-only preparation",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 7,
+      "anchor": "configured-address-ban-application-control-only-preparation"
+    },
+    {
+      "heading": "Owned image and identity",
+      "level": 2,
+      "line_start": 8,
+      "line_end": 23,
+      "anchor": "owned-image-and-identity"
+    },
+    {
+      "heading": "Planned traffic and gates",
+      "level": 2,
+      "line_start": 24,
+      "line_end": 61,
+      "anchor": "planned-traffic-and-gates"
+    },
+    {
+      "heading": "Later live handoff and retirement",
+      "level": 2,
+      "line_start": 62,
+      "line_end": 80,
+      "anchor": "later-live-handoff-and-retirement"
+    },
+    {
+      "heading": "Observed result",
+      "level": 2,
+      "line_start": 81,
+      "line_end": 86,
+      "anchor": "observed-result"
+    }
+  ],
+  "docs/native-evidence/native-configured-ban-witness.md": [
+    {
+      "heading": "Hotline Server 1.9 configured-address ban application",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 13,
+      "anchor": "hotline-server-19-configured-address-ban-application"
+    },
+    {
+      "heading": "Boundary and setup",
+      "level": 2,
+      "line_start": 14,
+      "line_end": 36,
+      "anchor": "boundary-and-setup"
+    },
+    {
+      "heading": "One Add and Save",
+      "level": 2,
+      "line_start": 37,
+      "line_end": 68,
+      "anchor": "one-add-and-save"
+    },
+    {
+      "heading": "Limits",
+      "level": 2,
+      "line_start": 69,
+      "line_end": 77,
+      "anchor": "limits"
+    }
+  ],
+  "docs/protocol/diagnostic-formatting-trace.md": [
+    {
+      "heading": "Native 1.9 diagnostic text: formatting and wire length",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 9,
+      "anchor": "native-19-diagnostic-text-formatting-and-wire-length"
+    },
+    {
+      "heading": "Formatter-to-field trace",
+      "level": 2,
+      "line_start": 10,
+      "line_end": 31,
+      "anchor": "formatter-to-field-trace"
+    },
+    {
+      "heading": "Observed lengths and compatibility",
+      "level": 2,
+      "line_start": 32,
+      "line_end": 58,
+      "anchor": "observed-lengths-and-compatibility"
+    },
+    {
+      "heading": "Reproduction and limits",
+      "level": 2,
+      "line_start": 59,
+      "line_end": 78,
+      "anchor": "reproduction-and-limits"
+    }
+  ],
+  "docs/accounts-and-privileges/native-ban-file-format.md": [
+    {
+      "heading": "Native Hotline Server 1.9 `Banned` data fork: observed v2 layout",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 35,
+      "anchor": "native-hotline-server-19-banned-data-fork-observed-v2-layout"
+    },
+    {
+      "heading": "Reader and writer bounds",
+      "level": 2,
+      "line_start": 36,
+      "line_end": 63,
+      "anchor": "reader-and-writer-bounds"
+    },
+    {
+      "heading": "Request 110 reason-copy path",
+      "level": 2,
+      "line_start": 64,
+      "line_end": 88,
+      "anchor": "request-110-reason-copy-path"
+    },
+    {
+      "heading": "Replay and limits",
+      "level": 2,
+      "line_start": 89,
+      "line_end": 105,
+      "anchor": "replay-and-limits"
+    }
+  ],
+  "docs/native-evidence/native-ban-expiry-preparation.md": [
+    {
+      "heading": "Native temporary-ban expiry fixture preparation",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 6,
+      "anchor": "native-temporary-ban-expiry-fixture-preparation"
+    },
+    {
+      "heading": "Scope and owned identities",
+      "level": 2,
+      "line_start": 7,
+      "line_end": 38,
+      "anchor": "scope-and-owned-identities"
+    },
+    {
+      "heading": "Prepared case order",
+      "level": 2,
+      "line_start": 39,
+      "line_end": 64,
+      "anchor": "prepared-case-order"
+    },
+    {
+      "heading": "Repeatable offline commands and live prerequisites",
+      "level": 2,
+      "line_start": 65,
+      "line_end": 140,
+      "anchor": "repeatable-offline-commands-and-live-prerequisites"
+    },
+    {
+      "heading": "Time and interpretation",
+      "level": 2,
+      "line_start": 141,
+      "line_end": 154,
+      "anchor": "time-and-interpretation"
+    },
+    {
+      "heading": "Verification and decision gates",
+      "level": 2,
+      "line_start": 155,
+      "line_end": 172,
+      "anchor": "verification-and-decision-gates"
+    },
+    {
+      "heading": "Observed first epoch",
+      "level": 2,
+      "line_start": 173,
+      "line_end": 178,
+      "anchor": "observed-first-epoch"
+    }
+  ],
+  "docs/native-evidence/native-roster-overlap-preparation.md": [
+    {
+      "heading": "Native roster overlap fixture preparation",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 11,
+      "anchor": "native-roster-overlap-fixture-preparation"
+    },
+    {
+      "heading": "Plan and isolation",
+      "level": 2,
+      "line_start": 12,
+      "line_end": 63,
+      "anchor": "plan-and-isolation"
+    },
+    {
+      "heading": "Bounded causal sequence",
+      "level": 2,
+      "line_start": 64,
+      "line_end": 107,
+      "anchor": "bounded-causal-sequence"
+    },
+    {
+      "heading": "Verification and unresolved requirements",
+      "level": 2,
+      "line_start": 108,
+      "line_end": 129,
+      "anchor": "verification-and-unresolved-requirements"
+    }
+  ],
+  "docs/native-evidence/native-ban-expiry-cleanup.md": [
+    {
+      "heading": "Restore the owned ban-expiry accounts after the final probe",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 8,
+      "anchor": "restore-the-owned-ban-expiry-accounts-after-the-final-probe"
+    },
+    {
+      "heading": "Guard, then delete",
+      "level": 2,
+      "line_start": 9,
+      "line_end": 44,
+      "anchor": "guard-then-delete"
+    },
+    {
+      "heading": "Postflight and evidence limits",
+      "level": 2,
+      "line_start": 45,
+      "line_end": 69,
+      "anchor": "postflight-and-evidence-limits"
+    }
+  ],
+  "docs/native-evidence/native-ban-expiry-first-witness.md": [
+    {
+      "heading": "Native temporary-ban first epoch",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 6,
+      "anchor": "native-temporary-ban-first-epoch"
+    },
+    {
+      "heading": "Reproducible record",
+      "level": 2,
+      "line_start": 7,
+      "line_end": 50,
+      "anchor": "reproducible-record"
+    },
+    {
+      "heading": "Offline replay",
+      "level": 2,
+      "line_start": 51,
+      "line_end": 72,
+      "anchor": "offline-replay"
+    }
+  ],
+  "docs/native-evidence/native-ban-expiry-later-witness.md": [
+    {
+      "heading": "Native temporary-ban later epoch",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 9,
+      "anchor": "native-temporary-ban-later-epoch"
+    },
+    {
+      "heading": "The missed pre-window",
+      "level": 2,
+      "line_start": 10,
+      "line_end": 25,
+      "anchor": "the-missed-pre-window"
+    },
+    {
+      "heading": "Later login and cleanup",
+      "level": 2,
+      "line_start": 26,
+      "line_end": 77,
+      "anchor": "later-login-and-cleanup"
+    },
+    {
+      "heading": "Offline replay and limits",
+      "level": 2,
+      "line_start": 78,
+      "line_end": 102,
+      "anchor": "offline-replay-and-limits"
+    }
+  ],
+  "docs/native-evidence/native-roster-overlap-witness.md": [
+    {
+      "heading": "Native roster overlap witness",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 14,
+      "anchor": "native-roster-overlap-witness"
+    },
+    {
+      "heading": "Scope and result",
+      "level": 2,
+      "line_start": 15,
+      "line_end": 82,
+      "anchor": "scope-and-result"
+    }
+  ],
+  "docs/accounts-and-privileges/account-write-ordering.md": [
+    {
+      "heading": "Hotline Server 1.9 account write ordering",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 11,
+      "anchor": "hotline-server-19-account-write-ordering"
+    },
+    {
+      "heading": "Direct 353 replacement path",
+      "level": 2,
+      "line_start": 12,
+      "line_end": 52,
+      "anchor": "direct-353-replacement-path"
+    },
+    {
+      "heading": "GAP-072 boundary",
+      "level": 2,
+      "line_start": 53,
+      "line_end": 69,
+      "anchor": "gap-072-boundary"
+    }
+  ],
+  "docs/native-evidence/native-liveness-preparation.md": [
+    {
+      "heading": "Native preonline liveness fixture preparation",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 7,
+      "anchor": "native-preonline-liveness-fixture-preparation"
+    },
+    {
+      "heading": "Source and case boundary",
+      "level": 2,
+      "line_start": 8,
+      "line_end": 40,
+      "anchor": "source-and-case-boundary"
+    },
+    {
+      "heading": "Preflight and exact runner inputs",
+      "level": 2,
+      "line_start": 41,
+      "line_end": 88,
+      "anchor": "preflight-and-exact-runner-inputs"
+    },
+    {
+      "heading": "Retained output and interpretation",
+      "level": 2,
+      "line_start": 89,
+      "line_end": 114,
+      "anchor": "retained-output-and-interpretation"
+    }
+  ],
+  "docs/accounts-and-privileges/classic-privilege-discovery.md": [
+    {
+      "heading": "Classic privilege editor string discovery",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 19,
+      "anchor": "classic-privilege-editor-string-discovery"
+    },
+    {
+      "heading": "What the queries found",
+      "level": 2,
+      "line_start": 20,
+      "line_end": 62,
+      "anchor": "what-the-queries-found"
+    },
+    {
+      "heading": "Bounded follow-up of the class data reference",
+      "level": 2,
+      "line_start": 63,
+      "line_end": 89,
+      "anchor": "bounded-follow-up-of-the-class-data-reference"
+    }
+  ],
+  "docs/native-evidence/native-liveness-witness.md": [
+    {
+      "heading": "Native preonline liveness witness",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 19,
+      "anchor": "native-preonline-liveness-witness"
+    },
+    {
+      "heading": "Finite results",
+      "level": 2,
+      "line_start": 20,
+      "line_end": 74,
+      "anchor": "finite-results"
+    },
+    {
+      "heading": "Provenance and limits",
+      "level": 2,
+      "line_start": 75,
+      "line_end": 98,
+      "anchor": "provenance-and-limits"
+    }
+  ],
+  "docs/news/legacy-board-format.md": [
+    {
+      "heading": "Native 1.9 legacy board format: static constants",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 11,
+      "anchor": "native-19-legacy-board-format-static-constants"
+    },
+    {
+      "heading": "Pointers and literal bytes",
+      "level": 2,
+      "line_start": 12,
+      "line_end": 48,
+      "anchor": "pointers-and-literal-bytes"
+    }
+  ],
+  "docs/native-evidence/native-board-preparation.md": [
+    {
+      "heading": "Isolated legacy message board fixture preparation",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 8,
+      "anchor": "isolated-legacy-message-board-fixture-preparation"
+    },
+    {
+      "heading": "Evidence and source boundaries",
+      "level": 2,
+      "line_start": 9,
+      "line_end": 29,
+      "anchor": "evidence-and-source-boundaries"
+    },
+    {
+      "heading": "Separate guarded epochs",
+      "level": 2,
+      "line_start": 30,
+      "line_end": 114,
+      "anchor": "separate-guarded-epochs"
+    },
+    {
+      "heading": "Readiness receipts and the aborted first lab",
+      "level": 2,
+      "line_start": 115,
+      "line_end": 131,
+      "anchor": "readiness-receipts-and-the-aborted-first-lab"
+    }
+  ],
+  "docs/native-evidence/native-board-readiness-failure.md": [
+    {
+      "heading": "Native board lab: aborted readiness",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 74,
+      "anchor": "native-board-lab-aborted-readiness"
+    }
+  ],
+  "docs/native-evidence/native-board-witness.md": [
+    {
+      "heading": "Native Hotline Server 1.9 message-board witness",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 13,
+      "anchor": "native-hotline-server-19-message-board-witness"
+    },
+    {
+      "heading": "Fixture and observed results",
+      "level": 2,
+      "line_start": 14,
+      "line_end": 66,
+      "anchor": "fixture-and-observed-results"
+    },
+    {
+      "heading": "Provenance and limits",
+      "level": 2,
+      "line_start": 67,
+      "line_end": 85,
+      "anchor": "provenance-and-limits"
+    }
+  ],
+  "docs/presence-and-messaging/rate304-contract.md": [
+    {
+      "heading": "Native 1.9 settings rate path: source prediction",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 13,
+      "anchor": "native-19-settings-rate-path-source-prediction"
+    },
+    {
+      "heading": "Counter and ordinary response",
+      "level": 2,
+      "line_start": 14,
+      "line_end": 59,
+      "anchor": "counter-and-ordinary-response"
+    },
+    {
+      "heading": "Measurement boundary",
+      "level": 2,
+      "line_start": 60,
+      "line_end": 86,
+      "anchor": "measurement-boundary"
+    }
+  ],
+  "docs/native-evidence/native-rate304-preparation.md": [
+    {
+      "heading": "Native 304 rate and reset preparation",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 13,
+      "anchor": "native-304-rate-and-reset-preparation"
+    },
+    {
+      "heading": "Prepared scope",
+      "level": 2,
+      "line_start": 14,
+      "line_end": 134,
+      "anchor": "prepared-scope"
+    },
+    {
+      "heading": "Offline commands",
+      "level": 2,
+      "line_start": 135,
+      "line_end": 155,
+      "anchor": "offline-commands"
+    }
+  ],
+  "docs/native-evidence/native-rate304-first-pair.md": [
+    {
+      "heading": "Native 1.9 rate 304: failed first pair",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 7,
+      "anchor": "native-19-rate-304-failed-first-pair"
+    },
+    {
+      "heading": "What ran",
+      "level": 2,
+      "line_start": 8,
+      "line_end": 39,
+      "anchor": "what-ran"
+    },
+    {
+      "heading": "Packet and terminal boundary",
+      "level": 2,
+      "line_start": 40,
+      "line_end": 64,
+      "anchor": "packet-and-terminal-boundary"
+    },
+    {
+      "heading": "Offline replay",
+      "level": 2,
+      "line_start": 65,
+      "line_end": 78,
+      "anchor": "offline-replay"
+    }
+  ],
+  "docs/presence-and-messaging/rate304-recipient-predicate.md": [
+    {
+      "heading": "Native 1.9 notification recipient predicates",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 10,
+      "anchor": "native-19-notification-recipient-predicates"
+    },
+    {
+      "heading": "Connection bit and recipient gate",
+      "level": 2,
+      "line_start": 11,
+      "line_end": 44,
+      "anchor": "connection-bit-and-recipient-gate"
+    },
+    {
+      "heading": "Roster uses a different predicate",
+      "level": 2,
+      "line_start": 45,
+      "line_end": 61,
+      "anchor": "roster-uses-a-different-predicate"
+    },
+    {
+      "heading": "Replay and provenance",
+      "level": 2,
+      "line_start": 62,
+      "line_end": 78,
+      "anchor": "replay-and-provenance"
+    }
+  ],
+  "docs/native-evidence/native-rate304-startup-gate.md": [
+    {
+      "heading": "Native rate 304 lab: startup observation gate",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 12,
+      "anchor": "native-rate-304-lab-startup-observation-gate"
+    },
+    {
+      "heading": "Stopped preparation",
+      "level": 2,
+      "line_start": 13,
+      "line_end": 32,
+      "anchor": "stopped-preparation"
+    },
+    {
+      "heading": "Sole boot attempt and boundary",
+      "level": 2,
+      "line_start": 33,
+      "line_end": 68,
+      "anchor": "sole-boot-attempt-and-boundary"
+    },
+    {
+      "heading": "Offline check",
+      "level": 2,
+      "line_start": 69,
+      "line_end": 82,
+      "anchor": "offline-check"
+    }
+  ],
+  "docs/native-evidence/native-rate304-sequence.md": [
+    {
+      "heading": "Native 1.9 rate304 sequence: measured prefix, failed final control",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 10,
+      "anchor": "native-19-rate304-sequence-measured-prefix-failed-final-control"
+    },
+    {
+      "heading": "Identity and capture boundary",
+      "level": 2,
+      "line_start": 11,
+      "line_end": 49,
+      "anchor": "identity-and-capture-boundary"
+    },
+    {
+      "heading": "Observed request and notification sequence",
+      "level": 2,
+      "line_start": 50,
+      "line_end": 92,
+      "anchor": "observed-request-and-notification-sequence"
+    },
+    {
+      "heading": "Stopped state and replay",
+      "level": 2,
+      "line_start": 93,
+      "line_end": 124,
+      "anchor": "stopped-state-and-replay"
+    }
+  ],
+  "docs/native-evidence/native-path-fields-preparation.md": [
+    {
+      "heading": "Native path-field matrix preparation",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 13,
+      "anchor": "native-path-field-matrix-preparation"
+    },
+    {
+      "heading": "Inputs and commands",
+      "level": 2,
+      "line_start": 14,
+      "line_end": 39,
+      "anchor": "inputs-and-commands"
+    },
+    {
+      "heading": "Fixed case",
+      "level": 2,
+      "line_start": 40,
+      "line_end": 78,
+      "anchor": "fixed-case"
+    },
+    {
+      "heading": "Offline checks",
+      "level": 2,
+      "line_start": 79,
+      "line_end": 85,
+      "anchor": "offline-checks"
+    }
+  ],
+  "docs/files-and-transfers/native-path-fields.md": [
+    {
+      "heading": "Native 1.9 structured path observations",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 10,
+      "anchor": "native-19-structured-path-observations"
+    },
+    {
+      "heading": "Scope and results",
+      "level": 2,
+      "line_start": 11,
+      "line_end": 32,
+      "anchor": "scope-and-results"
+    },
+    {
+      "heading": "Provenance and limits",
+      "level": 2,
+      "line_start": 33,
+      "line_end": 67,
+      "anchor": "provenance-and-limits"
+    }
+  ],
+  "docs/native-evidence/native-missing-alias-preparation.md": [
+    {
+      "heading": "Missing-target alias: positive rehearsal preparation",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 9,
+      "anchor": "missing-target-alias-positive-rehearsal-preparation"
+    },
+    {
+      "heading": "Exact boundary",
+      "level": 2,
+      "line_start": 10,
+      "line_end": 33,
+      "anchor": "exact-boundary"
+    },
+    {
+      "heading": "Optional alias UI capture window",
+      "level": 2,
+      "line_start": 34,
+      "line_end": 77,
+      "anchor": "optional-alias-ui-capture-window"
+    },
+    {
+      "heading": "Reviewed Finder receipt",
+      "level": 2,
+      "line_start": 78,
+      "line_end": 118,
+      "anchor": "reviewed-finder-receipt"
+    },
+    {
+      "heading": "Commands and limits",
+      "level": 2,
+      "line_start": 119,
+      "line_end": 152,
+      "anchor": "commands-and-limits"
+    },
+    {
+      "heading": "Observed Finder preparation and case refusal",
+      "level": 2,
+      "line_start": 153,
+      "line_end": 184,
+      "anchor": "observed-finder-preparation-and-case-refusal"
+    },
+    {
+      "heading": "R04: selection completed, parent checkpoint missed",
+      "level": 2,
+      "line_start": 185,
+      "line_end": 206,
+      "anchor": "r04-selection-completed-parent-checkpoint-missed"
+    }
+  ],
+  "docs/files-and-transfers/alias-record-v2.md": [
+    {
+      "heading": "Recorded Alias Record v2 identity",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 38,
+      "anchor": "recorded-alias-record-v2-identity"
+    }
+  ],
+  "docs/protocol/date-contracts.md": [
+    {
+      "heading": "Native 1.9 date fields and clock boundaries",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 10,
+      "anchor": "native-19-date-fields-and-clock-boundaries"
+    },
+    {
+      "heading": "Byte grammar, units and range",
+      "level": 2,
+      "line_start": 11,
+      "line_end": 43,
+      "anchor": "byte-grammar-units-and-range"
+    },
+    {
+      "heading": "Producer and consumer registry",
+      "level": 2,
+      "line_start": 44,
+      "line_end": 60,
+      "anchor": "producer-and-consumer-registry"
+    },
+    {
+      "heading": "What would settle conversion and rollover",
+      "level": 2,
+      "line_start": 61,
+      "line_end": 91,
+      "anchor": "what-would-settle-conversion-and-rollover"
+    }
+  ],
+  "docs/presence-and-messaging/presence-defaults.md": [
+    {
+      "heading": "Native 1.9 field presence and defaults",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 11,
+      "anchor": "native-19-field-presence-and-defaults"
+    },
+    {
+      "heading": "Four cases are not four distinct wire encodings",
+      "level": 2,
+      "line_start": 12,
+      "line_end": 27,
+      "anchor": "four-cases-are-not-four-distinct-wire-encodings"
+    },
+    {
+      "heading": "Credentials and session settings",
+      "level": 2,
+      "line_start": 28,
+      "line_end": 41,
+      "anchor": "credentials-and-session-settings"
+    },
+    {
+      "heading": "Account replacements and related lookup",
+      "level": 2,
+      "line_start": 42,
+      "line_end": 60,
+      "anchor": "account-replacements-and-related-lookup"
+    },
+    {
+      "heading": "Other core requests and generated fields",
+      "level": 2,
+      "line_start": 61,
+      "line_end": 102,
+      "anchor": "other-core-requests-and-generated-fields"
+    },
+    {
+      "heading": "Explicitly unmeasured cells",
+      "level": 2,
+      "line_start": 103,
+      "line_end": 129,
+      "anchor": "explicitly-unmeasured-cells"
+    }
+  ],
+  "docs/native-evidence/native-diagnostic-boundary-preparation.md": [
+    {
+      "heading": "Native 303 final-text boundary preparation",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 6,
+      "anchor": "native-303-final-text-boundary-preparation"
+    },
+    {
+      "heading": "Evidence and prediction",
+      "level": 2,
+      "line_start": 7,
+      "line_end": 29,
+      "anchor": "evidence-and-prediction"
+    },
+    {
+      "heading": "Dedicated-session prerequisites and authority gate",
+      "level": 2,
+      "line_start": 30,
+      "line_end": 54,
+      "anchor": "dedicated-session-prerequisites-and-authority-gate"
+    },
+    {
+      "heading": "Exact planned wire actions",
+      "level": 2,
+      "line_start": 55,
+      "line_end": 84,
+      "anchor": "exact-planned-wire-actions"
+    },
+    {
+      "heading": "Result classification and stop rules",
+      "level": 2,
+      "line_start": 85,
+      "line_end": 106,
+      "anchor": "result-classification-and-stop-rules"
+    }
+  ],
+  "docs/accounts-and-privileges/privilege-bits.md": [
+    {
+      "heading": "Native 1.9 access bitmap: per-bit evidence index",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 108,
+      "anchor": "native-19-access-bitmap-per-bit-evidence-index"
+    }
+  ],
+  "docs/mxd/validation-status.md": [
+    {
+      "heading": "mxd validation status",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 7,
+      "anchor": "mxd-validation-status"
+    },
+    {
+      "heading": "Status of the validation work",
+      "level": 2,
+      "line_start": 8,
+      "line_end": 16,
+      "anchor": "status-of-the-validation-work"
+    },
+    {
+      "heading": "Revisions examined",
+      "level": 2,
+      "line_start": 17,
+      "line_end": 46,
+      "anchor": "revisions-examined"
+    },
+    {
+      "heading": "Gate results for the last correction",
+      "level": 2,
+      "line_start": 47,
+      "line_end": 72,
+      "anchor": "gate-results-for-the-last-correction"
+    },
+    {
+      "heading": "Scope of the gate results",
+      "level": 2,
+      "line_start": 73,
+      "line_end": 79,
+      "anchor": "scope-of-the-gate-results"
+    },
+    {
+      "heading": "Startup hand-off missing from the current implementation",
+      "level": 2,
+      "line_start": 80,
+      "line_end": 111,
+      "anchor": "startup-hand-off-missing-from-the-current-implementation"
+    },
+    {
+      "heading": "Handoff locations",
+      "level": 2,
+      "line_start": 112,
+      "line_end": 154,
+      "anchor": "handoff-locations"
+    },
+    {
+      "heading": "Repeatability and deferred validation",
+      "level": 2,
+      "line_start": 155,
+      "line_end": 180,
+      "anchor": "repeatability-and-deferred-validation"
+    },
+    {
+      "heading": "Bounded correction proposal",
+      "level": 2,
+      "line_start": 181,
+      "line_end": 213,
+      "anchor": "bounded-correction-proposal"
+    },
+    {
+      "heading": "History",
+      "level": 2,
+      "line_start": 214,
+      "line_end": 220,
+      "anchor": "history"
+    }
+  ],
+  "docs/mxd/classic-client-trials.md": [
+    {
+      "heading": "Classic client trials against an isolated mxd fixture",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 8,
+      "anchor": "classic-client-trials-against-an-isolated-mxd-fixture"
+    },
+    {
+      "heading": "Trials and their limits",
+      "level": 2,
+      "line_start": 9,
+      "line_end": 10,
+      "anchor": "trials-and-their-limits"
+    },
+    {
+      "heading": "Revisions examined",
+      "level": 3,
+      "line_start": 11,
+      "line_end": 22,
+      "anchor": "revisions-examined"
+    },
+    {
+      "heading": "Shared trial conditions",
+      "level": 3,
+      "line_start": 23,
+      "line_end": 28,
+      "anchor": "shared-trial-conditions"
+    },
+    {
+      "heading": "Client build identity",
+      "level": 3,
+      "line_start": 29,
+      "line_end": 37,
+      "anchor": "client-build-identity"
+    },
+    {
+      "heading": "Failed trial with a 48-character password",
+      "level": 3,
+      "line_start": 38,
+      "line_end": 82,
+      "anchor": "failed-trial-with-a-48-character-password"
+    },
+    {
+      "heading": "Partial startup with a 24-character password",
+      "level": 3,
+      "line_start": 83,
+      "line_end": 105,
+      "anchor": "partial-startup-with-a-24-character-password"
+    },
+    {
+      "heading": "Timing deviation in the second observation",
+      "level": 3,
+      "line_start": 106,
+      "line_end": 112,
+      "anchor": "timing-deviation-in-the-second-observation"
+    },
+    {
+      "heading": "Retained evidence and private replay",
+      "level": 3,
+      "line_start": 113,
+      "line_end": 133,
+      "anchor": "retained-evidence-and-private-replay"
+    },
+    {
+      "heading": "Teardown after the trials",
+      "level": 3,
+      "line_start": 134,
+      "line_end": 142,
+      "anchor": "teardown-after-the-trials"
+    },
+    {
+      "heading": "Procedure for a Classic peer against an isolated fixture",
+      "level": 2,
+      "line_start": 143,
+      "line_end": 151,
+      "anchor": "procedure-for-a-classic-peer-against-an-isolated-fixture"
+    },
+    {
+      "heading": "Pin the binary and prepare a new fixture",
+      "level": 3,
+      "line_start": 152,
+      "line_end": 219,
+      "anchor": "pin-the-binary-and-prepare-a-new-fixture"
+    },
+    {
+      "heading": "Supervise inside the existing client namespace",
+      "level": 3,
+      "line_start": 220,
+      "line_end": 290,
+      "anchor": "supervise-inside-the-existing-client-namespace"
+    },
+    {
+      "heading": "History",
+      "level": 2,
+      "line_start": 291,
+      "line_end": 327,
+      "anchor": "history"
+    }
+  ],
+  "docs/mxd/assertion-reconciliation.md": [
+    {
+      "heading": "mxd assertion reconciliation",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 8,
+      "anchor": "mxd-assertion-reconciliation"
+    },
+    {
+      "heading": "Revisions examined",
+      "level": 2,
+      "line_start": 9,
+      "line_end": 17,
+      "anchor": "revisions-examined"
+    },
+    {
+      "heading": "Review scope",
+      "level": 2,
+      "line_start": 18,
+      "line_end": 36,
+      "anchor": "review-scope"
+    },
+    {
+      "heading": "Test runs",
+      "level": 2,
+      "line_start": 37,
+      "line_end": 38,
+      "anchor": "test-runs"
+    },
+    {
+      "heading": "Commands and counts",
+      "level": 3,
+      "line_start": 39,
+      "line_end": 65,
+      "anchor": "commands-and-counts"
+    },
+    {
+      "heading": "Evidence records",
+      "level": 3,
+      "line_start": 66,
+      "line_end": 84,
+      "anchor": "evidence-records"
+    },
+    {
+      "heading": "Verifier",
+      "level": 3,
+      "line_start": 85,
+      "line_end": 94,
+      "anchor": "verifier"
+    },
+    {
+      "heading": "Limits of the evidence",
+      "level": 2,
+      "line_start": 95,
+      "line_end": 106,
+      "anchor": "limits-of-the-evidence"
+    },
+    {
+      "heading": "Assertion-to-requirement map",
+      "level": 2,
+      "line_start": 107,
+      "line_end": 112,
+      "anchor": "assertion-to-requirement-map"
+    },
+    {
+      "heading": "Shared handshake and peer identity",
+      "level": 3,
+      "line_start": 113,
+      "line_end": 129,
+      "anchor": "shared-handshake-and-peer-identity"
+    },
+    {
+      "heading": "Successful login field 161",
+      "level": 3,
+      "line_start": 130,
+      "line_end": 152,
+      "anchor": "successful-login-field-161"
+    },
+    {
+      "heading": "Configured server name 162",
+      "level": 3,
+      "line_start": 153,
+      "line_end": 160,
+      "anchor": "configured-server-name-162"
+    },
+    {
+      "heading": "Failed login and direct reply type",
+      "level": 3,
+      "line_start": 161,
+      "line_end": 183,
+      "anchor": "failed-login-and-direct-reply-type"
+    },
+    {
+      "heading": "Version parser and unknown fallback",
+      "level": 3,
+      "line_start": 184,
+      "line_end": 197,
+      "anchor": "version-parser-and-unknown-fallback"
+    },
+    {
+      "heading": "Repeated roster records",
+      "level": 3,
+      "line_start": 198,
+      "line_end": 209,
+      "anchor": "repeated-roster-records"
+    },
+    {
+      "heading": "Presence routing",
+      "level": 3,
+      "line_start": 210,
+      "line_end": 219,
+      "anchor": "presence-routing"
+    },
+    {
+      "heading": "XOR compatibility",
+      "level": 3,
+      "line_start": 220,
+      "line_end": 227,
+      "anchor": "xor-compatibility"
+    },
+    {
+      "heading": "Exact current text heuristic",
+      "level": 3,
+      "line_start": 228,
+      "line_end": 248,
+      "anchor": "exact-current-text-heuristic"
+    },
+    {
+      "heading": "Old mxd compatibility matrix",
+      "level": 3,
+      "line_start": 249,
+      "line_end": 259,
+      "anchor": "old-mxd-compatibility-matrix"
+    },
+    {
+      "heading": "History",
+      "level": 2,
+      "line_start": 260,
+      "line_end": 266,
+      "anchor": "history"
+    }
+  ],
+  "docs/mxd/compatibility-matrix.md": [
+    {
+      "heading": "Native, SynHX and mxd compatibility matrix",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 8,
+      "anchor": "native-synhx-and-mxd-compatibility-matrix"
+    },
+    {
+      "heading": "Baseline and limits",
+      "level": 2,
+      "line_start": 9,
+      "line_end": 22,
+      "anchor": "baseline-and-limits"
+    },
+    {
+      "heading": "Scope and status labels",
+      "level": 2,
+      "line_start": 23,
+      "line_end": 42,
+      "anchor": "scope-and-status-labels"
+    },
+    {
+      "heading": "Compatibility matrix",
+      "level": 2,
+      "line_start": 43,
+      "line_end": 61,
+      "anchor": "compatibility-matrix"
+    },
+    {
+      "heading": "Peer identity and sub-version 2",
+      "level": 2,
+      "line_start": 62,
+      "line_end": 82,
+      "anchor": "peer-identity-and-sub-version-2"
+    },
+    {
+      "heading": "Identified client sessions",
+      "level": 2,
+      "line_start": 83,
+      "line_end": 98,
+      "anchor": "identified-client-sessions"
+    },
+    {
+      "heading": "Login reply and banner policy",
+      "level": 2,
+      "line_start": 99,
+      "line_end": 184,
+      "anchor": "login-reply-and-banner-policy"
+    },
+    {
+      "heading": "Credential obfuscation and text compatibility",
+      "level": 2,
+      "line_start": 185,
+      "line_end": 212,
+      "anchor": "credential-obfuscation-and-text-compatibility"
+    },
+    {
+      "heading": "Repeated fields and presence records",
+      "level": 2,
+      "line_start": 213,
+      "line_end": 255,
+      "anchor": "repeated-fields-and-presence-records"
+    },
+    {
+      "heading": "Historical reported mxd test coverage",
+      "level": 2,
+      "line_start": 256,
+      "line_end": 287,
+      "anchor": "historical-reported-mxd-test-coverage"
+    },
+    {
+      "heading": "Proof and QA limits",
+      "level": 2,
+      "line_start": 288,
+      "line_end": 304,
+      "anchor": "proof-and-qa-limits"
+    },
+    {
+      "heading": "Pinned shx profile and callback evidence",
+      "level": 2,
+      "line_start": 305,
+      "line_end": 320,
+      "anchor": "pinned-shx-profile-and-callback-evidence"
+    },
+    {
+      "heading": "Historical source lineage and build limits",
+      "level": 2,
+      "line_start": 321,
+      "line_end": 354,
+      "anchor": "historical-source-lineage-and-build-limits"
+    },
+    {
+      "heading": "Open compatibility gaps and QA requirements",
+      "level": 2,
+      "line_start": 355,
+      "line_end": 381,
+      "anchor": "open-compatibility-gaps-and-qa-requirements"
+    },
+    {
+      "heading": "Revision identifiers",
+      "level": 2,
+      "line_start": 382,
+      "line_end": 393,
+      "anchor": "revision-identifiers"
+    },
+    {
+      "heading": "History",
+      "level": 2,
+      "line_start": 394,
+      "line_end": 407,
+      "anchor": "history"
+    }
+  ],
+  "docs/mxd/corrections.md": [
+    {
+      "heading": "mxd accepted corrections",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 10,
+      "anchor": "mxd-accepted-corrections"
+    },
+    {
+      "heading": "Revisions examined",
+      "level": 2,
+      "line_start": 11,
+      "line_end": 24,
+      "anchor": "revisions-examined"
+    },
+    {
+      "heading": "Framing limits",
+      "level": 2,
+      "line_start": 25,
+      "line_end": 26,
+      "anchor": "framing-limits"
+    },
+    {
+      "heading": "Framing limits: native baseline",
+      "level": 3,
+      "line_start": 27,
+      "line_end": 46,
+      "anchor": "framing-limits-native-baseline"
+    },
+    {
+      "heading": "Framing limits: behaviour before",
+      "level": 3,
+      "line_start": 47,
+      "line_end": 55,
+      "anchor": "framing-limits-behaviour-before"
+    },
+    {
+      "heading": "Framing limits: correction",
+      "level": 3,
+      "line_start": 56,
+      "line_end": 104,
+      "anchor": "framing-limits-correction"
+    },
+    {
+      "heading": "Framing limits: acceptance evidence",
+      "level": 3,
+      "line_start": 105,
+      "line_end": 179,
+      "anchor": "framing-limits-acceptance-evidence"
+    },
+    {
+      "heading": "Direct replies",
+      "level": 2,
+      "line_start": 180,
+      "line_end": 181,
+      "anchor": "direct-replies"
+    },
+    {
+      "heading": "Direct replies: native baseline",
+      "level": 3,
+      "line_start": 182,
+      "line_end": 188,
+      "anchor": "direct-replies-native-baseline"
+    },
+    {
+      "heading": "Direct replies: behaviour before",
+      "level": 3,
+      "line_start": 189,
+      "line_end": 210,
+      "anchor": "direct-replies-behaviour-before"
+    },
+    {
+      "heading": "Direct replies: correction",
+      "level": 3,
+      "line_start": 211,
+      "line_end": 256,
+      "anchor": "direct-replies-correction"
+    },
+    {
+      "heading": "Direct replies: acceptance evidence",
+      "level": 3,
+      "line_start": 257,
+      "line_end": 297,
+      "anchor": "direct-replies-acceptance-evidence"
+    },
+    {
+      "heading": "Login extras",
+      "level": 2,
+      "line_start": 298,
+      "line_end": 299,
+      "anchor": "login-extras"
+    },
+    {
+      "heading": "Login extras: native baseline",
+      "level": 3,
+      "line_start": 300,
+      "line_end": 326,
+      "anchor": "login-extras-native-baseline"
+    },
+    {
+      "heading": "Login extras: behaviour before",
+      "level": 3,
+      "line_start": 327,
+      "line_end": 341,
+      "anchor": "login-extras-behaviour-before"
+    },
+    {
+      "heading": "Login extras: correction",
+      "level": 3,
+      "line_start": 342,
+      "line_end": 375,
+      "anchor": "login-extras-correction"
+    },
+    {
+      "heading": "Login extras: acceptance evidence",
+      "level": 3,
+      "line_start": 376,
+      "line_end": 441,
+      "anchor": "login-extras-acceptance-evidence"
+    },
+    {
+      "heading": "History",
+      "level": 2,
+      "line_start": 442,
+      "line_end": 488,
+      "anchor": "history"
+    }
+  ],
+  "docs/mxd/README.md": [
+    {
+      "heading": "mxd validation",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 8,
+      "anchor": "mxd-validation"
+    },
+    {
+      "heading": "State of the work",
+      "level": 2,
+      "line_start": 9,
+      "line_end": 24,
+      "anchor": "state-of-the-work"
+    },
+    {
+      "heading": "Reading order",
+      "level": 2,
+      "line_start": 25,
+      "line_end": 57,
+      "anchor": "reading-order"
+    },
+    {
+      "heading": "Revisions examined",
+      "level": 2,
+      "line_start": 58,
+      "line_end": 77,
+      "anchor": "revisions-examined"
+    },
+    {
+      "heading": "Related material",
+      "level": 2,
+      "line_start": 78,
+      "line_end": 83,
+      "anchor": "related-material"
+    }
+  ]
+}

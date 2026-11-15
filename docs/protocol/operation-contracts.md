@@ -183,7 +183,7 @@ limits. “Source” identifies a retained handler/helper comparison; “native�
 identifies a controlled packet or stored-fork outcome. A source-only maximum
 does not assert a network result at maximum plus one. No row sets mxd policy:
 its distinct framing/memory limits are in
-[mxd limit contracts](../mxd/mxd-limit-contracts.md).
+[mxd limit contracts](../mxd/corrections.md).
 
 | Operation and field                                                 | Native limit and unit                                                                                                                | Boundary evidence and confidence                                                                                                                                                                                                                                                                                                                                                    |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -235,8 +235,8 @@ The table is a finite status map, not a claim that all unlisted fields are
 unlimited. No complete GAP-019 certificate follows while the named source-only
 and native-unmeasured cells above remain. mxd currently has its own 32-KiB
 physical-frame and 1-MiB logical-total checks and explicit memory budgets;
-those are [implementation policy](../mxd/mxd-limit-contracts.md), not the
-native field limits in this registry.
+those are [implementation policy](../mxd/corrections.md), not the native field
+limits in this registry.
 
 A 65,536-byte **single** TLV value is not representable with BE16 length; it
 cannot be used as a well-formed max-plus-one field fixture. Where a smaller

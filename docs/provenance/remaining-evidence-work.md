@@ -54,7 +54,7 @@ condensed from the register and the sources of each claim.
 
 | Gap                                      | Priority | Status        | Title                                                  | Kind of work    | What remains                                                                                                    | Prepared                                                                                        | Blocked by                                    | Pick up                                                                                         |
 | ---------------------------------------- | -------- | ------------- | ------------------------------------------------------ | --------------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | --------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| [GAP-001](../../gap-analysis.md#gap-001) | P1       | Open          | Define the supported 1.9 subset                        | Decision        | Operation-by-profile scope matrix                                                                               | [mxd reconciliation](../mxd/mxd-reconciliation.md)                                              | None; owner unassigned                        | [mxd validation](../mxd/mxd-validation.md)                                                      |
+| [GAP-001](../../gap-analysis.md#gap-001) | P1       | Open          | Define the supported 1.9 subset                        | Decision        | Operation-by-profile scope matrix                                                                               | [mxd reconciliation](../mxd/assertion-reconciliation.md)                                        | None; owner unassigned                        | [mxd validation](../mxd/validation-status.md)                                                   |
 | [GAP-005](../../gap-analysis.md#gap-005) | P0       | Investigating | Connection timers and liveness                         | Native capture  | Timer and state table; native clock, wake cause, configuration, idle beyond 600 s                               | [Liveness witness](../native-evidence/native-liveness-witness.md)                               | None                                          | [Liveness witness](../native-evidence/native-liveness-witness.md)                               |
 | [GAP-011](../../gap-analysis.md#gap-011) | P0       | Investigating | Frame, transaction and buffering limits                | Static analysis | Later-write trace and native configuration; aggregate buffering; release policy                                 | [Receive-limit origin](../protocol/receive-limit-origin.md)                                     | None                                          | [Receive-limit origin](../protocol/receive-limit-origin.md)                                     |
 | [GAP-016](../../gap-analysis.md#gap-016) | P0       | Investigating | Absent, empty and zero-valued fields                   | Native capture  | Five remaining fixture groups, not named in the register                                                        | [Presence defaults](../presence-and-messaging/presence-defaults.md)                             | None; GAP-072 waits on it                     | [Presence defaults](../presence-and-messaging/presence-defaults.md)                             |
@@ -76,9 +76,9 @@ condensed from the register and the sources of each claim.
 | [GAP-070](../../gap-analysis.md#gap-070) | P1       | Investigating | News hierarchy and structure mutations                 | Native capture  | Alias and root variants; interrupted category writes                                                            | [News contracts](../news/news-contracts.md)                                                     | None                                          | [News contracts](../news/news-contracts.md)                                                     |
 | [GAP-071](../../gap-analysis.md#gap-071) | P1       | Investigating | Account field 111                                      | Static analysis | Human meaning of field 111; indirect consumers                                                                  | [Account attribute trace](../accounts-and-privileges/account-attribute-trace.md)                | None                                          | [Account attribute trace](../accounts-and-privileges/account-attribute-trace.md)                |
 | [GAP-072](../../gap-analysis.md#gap-072) | P1       | Investigating | Account update, placeholder and identity rules         | Native capture  | Rename and conflict; protected and self deletion; forced storage failure                                        | [Native wire details](../protocol/native-wire-details.md)                                       | GAP-016; GAP-071                              | [Native wire details](../protocol/native-wire-details.md)                                       |
-| [GAP-082](../../gap-analysis.md#gap-082) | P1       | Investigating | Heuristic text-decoding policy                         | Decision        | mxd text-decoding policy; ambiguity corpus                                                                      | [Peer tolerance matrix](../peers/peer-tolerance-matrix.md)                                      | GAP-018                                       | [Compatibility matrix](../mxd/internal-compatibility-matrix.md)                                 |
-| [GAP-085](../../gap-analysis.md#gap-085) | P2       | Investigating | mxd implementation and test evidence                   | mxd validation  | Reconcile stale mxd assertions; map requirements; on hold                                                       | [mxd validation](../mxd/mxd-validation.md)                                                      | GAP-001                                       | [mxd validation](../mxd/mxd-validation.md)                                                      |
-| [GAP-086](../../gap-analysis.md#gap-086) | P2       | Investigating | Release/proof acceptance criteria                      | Decision        | Release owner, subset, deferred-gap rule and Kani scope                                                         | [mxd validation](../mxd/mxd-validation.md)                                                      | GAP-001; GAP-085                              | [mxd validation](../mxd/mxd-validation.md)                                                      |
+| [GAP-082](../../gap-analysis.md#gap-082) | P1       | Investigating | Heuristic text-decoding policy                         | Decision        | mxd text-decoding policy; ambiguity corpus                                                                      | [Peer tolerance matrix](../peers/peer-tolerance-matrix.md)                                      | GAP-018                                       | [Compatibility matrix](../mxd/compatibility-matrix.md)                                          |
+| [GAP-085](../../gap-analysis.md#gap-085) | P2       | Investigating | mxd implementation and test evidence                   | mxd validation  | Reconcile stale mxd assertions; map requirements; on hold                                                       | [mxd validation](../mxd/validation-status.md)                                                   | GAP-001                                       | [mxd validation](../mxd/validation-status.md)                                                   |
+| [GAP-086](../../gap-analysis.md#gap-086) | P2       | Investigating | Release/proof acceptance criteria                      | Decision        | Release owner, subset, deferred-gap rule and Kani scope                                                         | [mxd validation](../mxd/validation-status.md)                                                   | GAP-001; GAP-085                              | [mxd validation](../mxd/validation-status.md)                                                   |
 
 _Table 1: Gaps that are not Resolved, ordered by priority and identifier._
 
@@ -167,7 +167,7 @@ The focus event witness's preparation plan is kept under the evidence tree, at
 
 ## Parked mxd work
 
-The [mxd validation record](../mxd/mxd-validation.md) has been on hold since
+The [mxd validation record](../mxd/validation-status.md) has been on hold since
 13 November 2026. It preserves the findings made before the hold. It is not a
 release sign-off, and it does not claim full native compatibility.
 
@@ -241,12 +241,12 @@ The register and the evidence decide the facts; this section does not.
   90 follows", and its input snapshots are under `revision-91`.
   `gap-register.json`, lines 6 and 7, cite `revision-91`, and its `method` text
   at line 10 describes revision 90.
-- Canonical mxd revision. The [mxd validation record](../mxd/mxd-validation.md),
-  lines 10 and 94, says canonical mxd remains at `cb907885` and that no newer
-  mxd changes have been imported. `gap-register.json` line 646 (GAP-011) names
-  canonical mxd `48129491`. Line 4977 (GAP-085) names commits `50360beb` and
-  `48129491`, and also "Canonical source cb907". Line 5043 (GAP-086) names mxd
-  `48129491`.
+- Canonical mxd revision. The
+  [mxd validation record](../mxd/validation-status.md), lines 10 and 94, says
+  canonical mxd remains at `cb907885` and that no newer mxd changes have been
+  imported. `gap-register.json` line 646 (GAP-011) names canonical mxd
+  `48129491`. Line 4977 (GAP-085) names commits `50360beb` and `48129491`, and
+  also "Canonical source cb907". Line 5043 (GAP-086) names mxd `48129491`.
 - Location of the canonical protocol documents. The
   [protocol handoff](protocol-handoff.md), lines 9 and 10, says the canonical
   protocol documents are in a sibling `hotline-protocol-docs` checkout. This
@@ -273,13 +273,13 @@ Quoted text is taken from the register.
   deferred and excluded states, including replies to unsupported operations."
   The progress text says that the original scope decision remains open, and
   that the delegated review selects no states.
-- **Prepared:** [mxd reconciliation](../mxd/mxd-reconciliation.md) and
-  [mxd validation](../mxd/mxd-validation.md).
+- **Prepared:** [mxd reconciliation](../mxd/assertion-reconciliation.md) and
+  [mxd validation](../mxd/validation-status.md).
 - **Blocked by:** no `depends_on` entries. The owner is recorded as unassigned.
   The mxd work that informs it is on hold.
 - **Pick up:** the section "Open compatibility gaps and QA requirements" of the
-  [compatibility matrix](../mxd/internal-compatibility-matrix.md), which the
-  register cites.
+  [compatibility matrix](../mxd/compatibility-matrix.md), which the register
+  cites.
 
 ### GAP-005
 
@@ -310,7 +310,7 @@ Quoted text is taken from the register.
 - **Kind chosen by the scribe:** static analysis. The next step is the
   later-write trace. Native configuration capture follows it.
 - **Prepared:** [receive-limit origin](../protocol/receive-limit-origin.md),
-  [mxd limit contracts](../mxd/mxd-limit-contracts.md), and the framing corpus
+  [mxd limit contracts](../mxd/corrections.md), and the framing corpus
   `evidence/gap-remediation/2026-11-12/native-framing-01/manifest.json`.
 - **Blocked by:** no `depends_on` entries.
 - **Pick up:** [receive-limit origin](../protocol/receive-limit-origin.md).
@@ -624,9 +624,9 @@ Quoted text is taken from the register.
   evidence".
 - **Prepared:** [peer tolerance matrix](../peers/peer-tolerance-matrix.md), and
   the credential obfuscation section of the
-  [compatibility matrix](../mxd/internal-compatibility-matrix.md).
+  [compatibility matrix](../mxd/compatibility-matrix.md).
 - **Blocked by:** GAP-018, which is Investigating. GAP-080 is Resolved.
-- **Pick up:** [compatibility matrix](../mxd/internal-compatibility-matrix.md),
+- **Pick up:** [compatibility matrix](../mxd/compatibility-matrix.md),
   section "Credential obfuscation and text compatibility".
 
 ### GAP-085
@@ -638,12 +638,11 @@ Quoted text is taken from the register.
   reconciliation. The mxd work is on hold.
 - **Kind chosen by the scribe:** mxd validation. The register's `kind` is
   "Evidence", which describes the gap rather than the work.
-- **Prepared:** [mxd reconciliation](../mxd/mxd-reconciliation.md),
-  [mxd limit contracts](../mxd/mxd-limit-contracts.md), and the frozen mxd
-  source evidence
-  `evidence/gap-remediation/2026-11-13/delegated-mxd-01/manifest.json`.
+- **Prepared:** [mxd reconciliation](../mxd/assertion-reconciliation.md),
+  [mxd limit contracts](../mxd/corrections.md), and the frozen mxd source
+  evidence `evidence/gap-remediation/2026-11-13/delegated-mxd-01/manifest.json`.
 - **Blocked by:** GAP-001, which is Open.
-- **Pick up:** [mxd validation](../mxd/mxd-validation.md), section
+- **Pick up:** [mxd validation](../mxd/validation-status.md), section
   "Repeatability and deferred validation", item 3.
 
 ### GAP-086
@@ -652,10 +651,10 @@ Quoted text is taken from the register.
   identified revision, including deferred gaps and the scope/results of any
   Kani claims." The progress text says that Kani was not run, and that no
   release owner, subset, deferred-gap rule or proof result has been invented.
-- **Prepared:** [compatibility matrix](../mxd/internal-compatibility-matrix.md),
+- **Prepared:** [compatibility matrix](../mxd/compatibility-matrix.md),
   section "Scope and status labels"; the
   [baseline correction map](baseline-correction-map.md); and
-  [mxd validation](../mxd/mxd-validation.md).
+  [mxd validation](../mxd/validation-status.md).
 - **Blocked by:** GAP-001 and GAP-085. GAP-080 and GAP-084 are Resolved.
-- **Pick up:** [mxd validation](../mxd/mxd-validation.md), section
+- **Pick up:** [mxd validation](../mxd/validation-status.md), section
   "Repeatability and deferred validation", item 5.

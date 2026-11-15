@@ -28,10 +28,9 @@ analysis of that build; it does not mean exercised in a live network test.
 than treat the previous guide's guesses as requirements.
 
 Client interface details and project implementation status are outside this
-wire specification. The
-[compatibility matrix](../mxd/internal-compatibility-matrix.md) separates
-protocol observations from mxd policy and reported test coverage. Tracker and
-HTTP tunnelling details remain outside this guide's scope.
+wire specification. The [compatibility matrix](../mxd/compatibility-matrix.md)
+separates protocol observations from mxd policy and reported test coverage.
+Tracker and HTTP tunnelling details remain outside this guide's scope.
 
 ## Binary Message Formats (Hotline Protocol 1.9)
 
@@ -1362,7 +1361,7 @@ Evidence: V001, V048–V074, M002–M009.
   decompilations tied to the binary hash above.
 - [Correction map](../provenance/baseline-correction-map.md): disposition of
   every ledger entry in this revision.
-- [Internal compatibility matrix](../mxd/internal-compatibility-matrix.md):
+- [Internal compatibility matrix](../mxd/compatibility-matrix.md):
   observed peer behaviour, mxd policies and unverified implementation/test
   claims.
 - [Error outcomes](error-outcomes.md): explicit wire failures, derived reply

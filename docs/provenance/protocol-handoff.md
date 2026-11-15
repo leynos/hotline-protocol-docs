@@ -8,9 +8,9 @@ The current protocol audit is revision 89: 62 Resolved, 24 Investigating and 1
 Open, with all 87 original closure criteria unchanged. Canonical protocol
 documents are in the sibling `hotline-protocol-docs` checkout. Its
 [gap analysis](../../gap-analysis.md) records remaining requirements; its
-[mxd handoff](../mxd/mxd-validation.md) remains the pickup document for parked
-validation. No new 355 boundary or missing-target alias observation was made
-during this storage work.
+[mxd handoff](../mxd/validation-status.md) remains the pickup document for
+parked validation. No new 355 boundary or missing-target alias observation was
+made during this storage work.
 
 R06 at `state/mac-runtime/native-wire-boundary-06` is prepared and stopped,
 working inode 3789972917. Its approval of 54 source files and 104-line GUI

@@ -1,17 +1,24 @@
-# Internal compatibility matrix (Hotline and SynHX)
+# Native, SynHX and mxd compatibility matrix
 
-This matrix separates observed protocol behaviour from mxd compatibility policy
-and reported implementation coverage. Its baseline is the
-[Hotline 1.9 validity ledger][ledger], captured on 12 November 2026, and the
-[corrected protocol guide](../protocol/protocol.md).
+This document separates observed protocol behaviour from mxd compatibility
+policy and from reported implementation coverage. It sets the native Hotline
+Server 1.9 behaviour, the SynHX and identified client evidence, and the mxd
+policy side by side. The matrix is a baseline with a revision-specific review
+attached, and its limits are stated first.
+
+## Baseline and limits
+
+The matrix's baseline is the [Hotline 1.9 validity ledger][ledger], captured on
+12 November 2026, and the [corrected protocol guide](../protocol/protocol.md).
 
 The ledger used the Mac PPC `HLserver19` binary and the supplied historical
 SynHX server source. It did not inspect an mxd checkout, run its tests or Kani
 proofs, or validate particular Hotline/SynHX client builds. Consequently this
-matrix is **not sufficient by itself for release-note QA sign-off**. A
-subsequent [revision-specific review](#mxd-review-at-2e4c9c1) now supplies
-executed test evidence and identifies policy assertions that conflict with
-native behaviour.
+matrix is **not sufficient by itself for release-note QA sign-off**.
+
+Revision-specific results are set out in the
+[assertion reconciliation](assertion-reconciliation.md), and the order in which
+the reviews were made is recorded in the [History](#history) section.
 
 ## Scope and status labels
 
@@ -46,10 +53,21 @@ Evidence: M008–M009.
 | Other SynHX client profiles      | No unique handshake marker, reply-field rejection rule or universal text-XOR mode was established                                 | Policy requiring identified client/session evidence                                                                                                       | Classifier/omission tests passed; disputed identity premise remains           |
 | Unknown or legacy client version | Native 1.9 login has no version/kind gate around reply fields 161/162; a missing/old version is not a proven profile identifier   | Native behaviour observed; conservative omission remains a separate mxd policy                                                                            | Omission-policy tests passed; native reply differs                            |
 
-**Sub-version 2 is shared, not a SynHX discriminator.** The native 1.9 server
-uses it for normal sessions; its sub-version-3 path is transfer-related. Remove
-`sub_version != 2` as a Hotline requirement and do not classify every
-sub-version-2 peer as SynHX.
+_Table 1: Peers and profiles with their observed markers, protocol evidence and
+mxd implementation status._
+
+In the Hotline 1.9 row, “recorded below” refers to the
+[assertion reconciliation](assertion-reconciliation.md).
+
+## Peer identity and sub-version 2
+
+**Sub-version 2 is shared, not a SynHX discriminator.** The normal handshake's
+sub-version 2 is shared with the historical shx source and cannot identify a
+SynHX peer on its own.
+
+The native 1.9 server uses it for normal sessions; its sub-version-3 path is
+transfer-related. Remove `sub_version != 2` as a Hotline requirement and do not
+classify every sub-version-2 peer as SynHX.
 
 The 1.9 server's own login version value 190 does not prove that every client
 reporting at least 190 is the same client family. Numeric thresholds and peer
@@ -62,7 +80,28 @@ provenance remains unknown; this registry does not select an mxd release set.
 
 Evidence: M001–M004, V003–V004, V023–V027.
 
+## Identified client sessions
+
+The
+[identified shx 0.1.48 full-process corpus](../peers/identified-client-source.md#full-native-peer-acceptance-matrix)
+completed five native sessions with a pinned terminal build. Its ordinary
+handshake used sub-version 2, omitted request field 160, and consumed native
+login fields 160/161 before roster, chat and file operations.
+
+A
+[second native corpus](../peers/identified-client-source.md#native-configured-name-and-controlled-receiver-matrix)
+completed three sessions with configured field 162, including a raw `9a` byte.
+In that section, the banner 122 and roster-subject 115 cases used a controlled
+receiver, not the native server. These are finite observations for that exact
+build; they do not identify every SynHX client or set a universal omission
+policy.
+
 ## Login reply and banner policy
+
+The
+[corrected login contract](../protocol/protocol.md#login-transaction-107--client-initiates)
+states that a successful native 1.9 login sends server version 160, numeric
+field 161 and, when configured nonempty, server name 162.
 
 The inspected native 1.9 successful-login path adds:
 
@@ -76,6 +115,10 @@ handler. The former matrix's “omit 161/162 for SynHX or unknown peers” rule 
 therefore an **mxd policy requiring validation**, not native 1.9 behaviour or
 proof that including those fields is invalid.
 
+The [native configuration corpus][login-extra-fixtures] observed this with
+request version 160 absent, 0, 150, 151 and 190 in early and delayed login
+paths. Field 161 was `0000`; an empty configured name omitted 162.
+
 The [configured login-extra corpus][login-extra-fixtures] confirms 161=`0000`
 and nonempty 162 for absent/zero/150/151/190 client versions on both completion
 paths. It preserves a native high byte and the name-length boundary. Changing
@@ -85,18 +128,37 @@ retained online/waiting clients receive no 161/162 refresh in the bounded
 trial. This does not certify historical-client tolerance or restart durability.
 
 The supplied SynHX server's lack of that native augmentation does not establish
-that a SynHX **client** rejects those fields. A newly retained
-[shx source profile](../peers/identified-client-source.md) now supplies source
-and isolated callback evidence: its basic-login callback ignores these extras.
-The identified compiled shx and Classic candidate now have the finite native
-sessions linked in the matrix above. Other profiles still need their own
-identified evidence; no reported version alone selects one of these builds. The
-Classic 161 matrix establishes tolerance of absent, one-zero-byte and
-four-zero-byte values through its recorded stages. A separate
-[ASCII 162 trial](../peers/classic-server-name-162.md) appends `fixture-native`
-and reaches login, roster and banner data with all other bytes unchanged.
-Neither trial establishes nonzero-161 meaning, general 162 encoding, banner
-rendering or an mxd omission policy.
+that a SynHX **client** rejects those fields. The
+[shx source profile](../peers/identified-client-source.md) supplies source and
+isolated callback evidence: its basic-login callback ignores these extras. The
+identified compiled shx and Classic candidate have the finite native sessions
+linked in the matrix above. Other profiles still need their own identified
+evidence; no reported version alone selects one of these builds. The Classic
+161 matrix establishes tolerance of absent, one-zero-byte and four-zero-byte
+values through its recorded stages.
+
+Unreconciled: the Classic 161 matrix statement above (ICM-064) covers absent,
+one-zero-byte and four-zero-byte values. The `mxd-login-extras-correction.md`
+record gives native field 161 as the two-byte `0000` (LEX-011) and states that
+the old mxd field 161 was four bytes (LEX-035). `mxd-reconciliation.md` records
+field 161 as `0000` (REC-017). The four-zero-byte width is not reconciled with
+the native two-byte value in the source documents. The classic-field161-matrix
+record linked at ICM-036 is not among the source documents.
+
+A separate [ASCII 162 trial](../peers/classic-server-name-162.md) appends
+`fixture-native` and reaches login, roster and banner data with all other bytes
+unchanged. Neither trial establishes nonzero-161 meaning, general 162 encoding,
+banner rendering or an mxd omission policy.
+
+Unreconciled: this matrix states that the ASCII 162 trial reaches roster and
+banner data (ICM-066). The validation record `mxd-validation.md` states that
+one identified Classic startup must be completed before roster, banner or
+general interoperability is claimed, and that authentication-only results are
+kept separate (VAL-084). The same record states that in the 24-character trial
+no 121, 300 or 212 request followed (VAL-036). This matrix names a separate
+trial record for the ASCII 162 trial but does not state which server it used
+(ICM-065). That record is not among the source documents, so the source
+documents do not decide the question.
 
 Banner advertisement is separate: after agreement acceptance, native
 transaction **122** carries type 152 and optional 153, conditional on
@@ -104,11 +166,19 @@ configured banner state and saved client version at least 151. Agreement
 notification 109 is not the combined agreement/banner structure described
 previously.
 
-Native [agreement configurations][agreements] now distinguish fieldless 109 for
+Native [agreement configurations][agreements] distinguish fieldless 109 for
 missing/empty/unreadable content from bypass field 154. Early completion still
-needs no 121; delayed completion still needs it. A loaded agreement above the
-field limit can leave early completion online without 109, so a login ACK alone
-does not certify agreement delivery.
+needs no 121; delayed completion still needs it.
+
+Unreconciled: this matrix states that early completion still needs no 121 and
+delayed completion still needs it (ICM-071). The validation record
+`mxd-validation.md` states that `src/commands/parsing.rs:48–76` has no
+implemented 121 command branch (VAL-050), and lists the 109/121 sequence as an
+item to design and test (VAL-083). The source documents do not decide whether
+the Classic path needs 121.
+
+A loaded agreement above the field limit can leave early completion online
+without 109, so a login ACK alone does not certify agreement delivery.
 
 Evidence: M002–M004, V024–V027, V058; native-agreement-01.
 
@@ -128,12 +198,12 @@ These observations concern credential fields. They do **not** establish:
 If mxd retains heuristic text decoding, document its exact fields and behaviour
 as policy, including ambiguous plaintext/encoded inputs and how state changes.
 Do not advertise the heuristic as an observed Hotline/SynHX wire guarantee. The
-immutable ledger left native nonempty-password encoding unresolved. New
+immutable ledger left native nonempty-password encoding unresolved. The
 [native-path evidence](../protocol/native-wire-details.md) establishes bytewise
 complement from the native account setter, storage and login comparison; it
 does not rely on the SynHX observation to establish that result. The
 [native core fixtures](../native-evidence/native-capture-workflow.md#recorded-native-core-fixtures)
-now demonstrate creation/change of a known nonempty password, successful login
+demonstrate creation/change of a known nonempty password, successful login
 with complemented bytes, and rejection of the old password and plaintext
 replacement bytes. General text heuristics and historical peer behaviour remain
 separate requirements.
@@ -150,15 +220,26 @@ The native server establishes at least these additional cases:
 - **370 reply:** repeated category-list field 323 on the modern-version path.
 
 The guide's file-list schema also describes repeated field 200;
-[native wire details](../protocol/native-wire-details.md) now gives its 20-byte
+[native wire details](../protocol/native-wire-details.md) gives its 20-byte
 fixed header and variable name. Use transaction-specific validation and
-preserve order/multiplicity until decoding; arbitrary scalar-field duplication
-is not validated by these examples.
+preserve order/multiplicity until decoding, because arbitrary scalar-field
+duplication is not validated by these examples.
+
+Unreconciled: this matrix states that a global rule allowing repetition only in
+transaction-300 replies is incorrect (ICM-088), and its historical table asks
+for the global transaction-300-only repetition restriction to be removed
+(ICM-114). The direct-reply correction record `mxd-direct-ack-correction.md`
+states that the approved correction permits repeated field 300 for marker-1
+direct replies regardless of wire type (ACK-019), and that tested marker-0
+Login requests, 301 notifications, marker 2 and unrelated duplicate fields
+remain rejected (ACK-020). The source documents do not state whether the
+corrected mxd rule is still restricted by marker, transaction or both. The
+frozen ACK source and tests would show it.
 
 Field 300's value layout is supported by both the native roster builder and the
 supplied historical SynHX roster writer:
 
-```text
+```plaintext
 BE16 uid | BE16 icon | BE16 colour/status | BE16 name_length | name bytes
 ```
 
@@ -176,9 +257,10 @@ Evidence: M006–M007, V014, V032–V038, V040, V042, V062.
 
 The following references are retained from the supplied matrix for follow-up.
 At the initial audit they were **reported citations, not executed evidence**.
-The review below records subsequent checks. Their presence or names do not
-establish protocol correctness; tests encoding the old discriminator or
-repetition rule need semantic review before being used as acceptance gates.
+The [revision-specific review](assertion-reconciliation.md) records subsequent
+checks. Their presence or names do not establish protocol correctness; tests
+encoding the old discriminator or repetition rule need semantic review before
+being used as acceptance gates.
 
 | Reported area                | Supplied source/test references                                                                                                                                                                                                              | Required review                                                                               |
 | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
@@ -194,73 +276,16 @@ repetition rule need semantic review before being used as acceptance gates.
 | Presence routing             | `src/wireframe/routes/tests/presence_routing_cases.rs::process_transaction_bytes_user_name_list_returns_online_snapshot`                                                                                                                     | Verify at a recorded revision and check other repeated-field contexts                         |
 | Presence scenario            | `tests/features/wireframe_presence.feature`: `Login, update, and disconnect notifications reach peers`                                                                                                                                       | Check actual execution and packet semantics, including remaining native teardown gaps         |
 
+_Table 2: Reported mxd test references and the review each one requires._
+
 The original supplied matrix omitted a named news-specific XOR scenario. The
-current checkout does contain one, and it passed in the review below. This
-verifies an mxd test outcome; it does not establish a native universal XOR mode.
+current checkout does contain one, and it passed in the
+[revision-specific review](assertion-reconciliation.md). This verifies an mxd
+test outcome; it does not establish a native universal XOR mode.
 
 Evidence: M005, M008.
 
-## mxd review at 2e4c9c1
-
-Reviewed and tested on 12 November 2026 at revision
-`2e4c9c1df20b37a6f98a1369e0a8f09f9ee2a131`. Tracked files were unchanged; the
-checkout had an unrelated untracked `mxd.worktrees/` directory. The
-[review manifest][mxd-review] records commands, environment, source hashes and
-frozen copies. Build output was kept under `mothra/state/mxd-target`.
-
-| Executed scope                     | Result                        | Evidence                     |
-| ---------------------------------- | ----------------------------- | ---------------------------- |
-| Library filter `wireframe::compat` | 31 passed                     | [Log][compat-log]            |
-| Library filter `user_name_list`    | 3 passed                      | [Log][roster-log]            |
-| `wireframe_compat_guardrails_bdd`  | 6 passed                      | [Scenario log][scenario-log] |
-| `wireframe_login_compat`           | 9 passed                      | [Scenario log][scenario-log] |
-| `wireframe_xor_compat`             | 5 passed, including news body | [Scenario log][scenario-log] |
-| `wireframe_presence_bdd`           | 1 passed                      | [Log][presence-log]          |
-
-All commands used `--offline --locked`; integration runs enabled
-`test-support`. An initial filter named the source filename instead of its Rust
-module and matched zero tests; its retained log is not counted as coverage. The
-corrected runs above executed **55 tests**. Kani was not run. These tests use
-mxd's own fixtures, not identified historical Hotline/SynHX client binaries.
-
-### Assertions requiring protocol reconciliation
-
-| Source/test observation                                                                                               | Relationship to native 1.9                                                     | Documentation disposition                                                       |
-| --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
-| `compat_policy/mod.rs::kind` classifies every sub-version-2 connection as SynHX, before checking field 160            | Shared normal handshake is not an identity discriminator                       | Existing policy confirmed; native-conformance claim rejected                    |
-| Login extras are enabled only for classified Hotline85/Hotline19; tests explicitly enforce omission for SynHX/unknown | Native successful login includes 161/162 without this gate                     | Passing policy tests do not validate native parity                              |
-| `is_successful_login_reply` requires reply type 107                                                                   | Native direct reply type is zero, correlated by ID                             | Review routing context before transplanting this policy to native replies       |
-| Version parser accepts exactly 2/4 bytes and rejects values outside `u16`                                             | Native generic numeric helper also accepts 1 byte and has other edge behaviour | Explicit acceptance-policy difference; no assertion of equivalent boundaries    |
-| Roster tests assert repeated packed field 300                                                                         | Native roster layout agrees                                                    | Verified mxd assertion/result for this scope; other repetitions remain separate |
-| Presence scenario asserts peer login/update/disconnect delivery                                                       | Native 302 teardown order remains untraced                                     | Passing mxd scenario does not close GAP-036                                     |
-
-No mxd code/tests were changed by this documentation investigation. In
-particular, the incorrect peer identity must not become a protocol requirement
-merely because its current regression test passes. GAP-085 remains open for
-implementation/test reconciliation rather than recording false conformance.
-
-### Exact current text heuristic
-
-`compat.rs` starts a connection with XOR disabled, ignoring handshake metadata.
-For a decoded parameter list, it considers these field IDs text: **101, 105,
-106, 162, 201, 321, 323, 325, 327, 328, 329, 333**. This includes structured
-news fields; it does not include display-name 102, subject 115, quoted text 214
-or auto-response 215.
-
-When disabled, it enables XOR if at least one selected field exists, at least
-one selected value is invalid UTF-8, and every selected value becomes valid
-UTF-8 after complementing. On that request it complements all selected fields.
-Once enabled, it complements all selected inbound/outbound values without
-redetection; the state has no disable transition in this implementation.
-Nonselected values remain unchanged. Invalid TLV decoding returns an error.
-
-This is an observed mxd heuristic, not negotiated native encoding. Plaintext
-high bytes can trigger it, and complemented bytes can be valid UTF-8 without
-triggering it; the peer ambiguity corpus and decoder policy remain GAP-082. Its
-news-field inclusion also needs schema-aware review now that structured layouts
-are being recovered.
-
-### Proof and QA limits
+## Proof and QA limits
 
 The current Kani source contains 8-byte complement round-trip and two-field
 4-byte text/numeric vector harnesses, plus symbolic sub-version/login-version
@@ -271,11 +296,13 @@ UTF-8 heuristic matches historical clients. No proof result is asserted here.
 The checked-in QA checklist requests a compatibility-matrix link, review of
 affected rows and a literal sign-off statement. It does not identify a current
 release owner or supply native session acceptance fixtures. Roadmap items
-1.5.3–1.5.6 are checked, but that status does not resolve these newly
-identified conformance discrepancies. Release ownership, supported subset and
-acceptance of deliberate deviations remain GAP-001/086 decisions.
+1.5.3–1.5.6 are checked, but that status does not resolve the conformance
+discrepancies identified in the
+[revision-specific review](assertion-reconciliation.md). Release ownership,
+supported subset and acceptance of deliberate deviations remain GAP-001/086
+decisions.
 
-## Newly identified client source evidence
+## Pinned shx profile and callback evidence
 
 The [pinned shx profile](../peers/identified-client-source.md) is separate from
 the original server-only comparison. Its basic-login callback and TLV iterator
@@ -310,12 +337,12 @@ package. Configure input/template/runtime defaults document the conditional
 server profiles, without establishing a deployed executable. Source comparisons
 remain specific to those hashed files and named branches.
 
-The separately identified shx client source is0.1.48, and its full terminal
+The separately identified shx client source is 0.1.48, and its full terminal
 build has an exact executable/configuration identity. Native sessions establish
 160/161/162 and roster/file-record tolerance for that build. Controlled
-receiver fixtures show that122is dumped as unknown while later roster/chat
-still work, and the subject addition is displayed. These are not a
-native122session or a running historical SynHX server. See the
+receiver fixtures show that 122 is dumped as unknown while later roster/chat
+still work, and the subject addition is displayed. These are not a native 122
+session or a running historical SynHX server. See the
 [peer-by-field results](../peers/identified-client-source.md#native-configured-name-and-controlled-receiver-matrix)
 and
 [profile applicability](../peers/identified-client-source.md#source-package-identities-and-configuration-applicability).
@@ -325,14 +352,14 @@ exact-build targets and unknown-peer rule. The
 [cross-peer matrix](../peers/peer-tolerance-matrix.md#cross-peer-acceptance-and-omission-rules)
 consolidates GAP-081's finite field coverage; untested builds remain unknown.
 
-[server-profile]: ../../evidence/gap-remediation/2026-11-13/synhx-profile-01/manifest.json
-
 ## Open compatibility gaps and QA requirements
 
 Before recording support or signing off a release:
 
-1. Use the revision-specific results above as the current implementation
-   checkpoint, and rerun them after correcting the disputed expectations.
+1. Use the revision-specific results in the
+   [revision-specific review](assertion-reconciliation.md) as the current
+   implementation checkpoint, and rerun them after correcting the disputed
+   expectations.
 2. Reconcile classifier, banner, repetition, ACK and privilege semantics with
    the corrected 1.9 guide and its unresolved areas.
 3. Identify client binaries/source or sessions for the intended Hotline and
@@ -352,16 +379,29 @@ of all matrix and protocol ledger entries, and the
 [gap analysis](../../gap-analysis.md) for the remaining questions and their
 closure criteria.
 
+## Revision identifiers
+
+The identifiers below occur in the claims of this matrix. Each is a shx or
+archive revision, not an mxd revision.
+
+| Identifier                | Type                                            | Where it occurs                                                                       |
+| ------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `adb1bf8`                 | shx source revision                             | Compatibility matrix: shx 0.1.48 source snapshot and identified modern shx build rows |
+| `1.1`, `1.1.1`, `1.1.1.1` | RCS revision identifiers in the archive headers | Historical source lineage and build limits                                            |
+
+_Table 3: Revision identifiers used in this matrix and where they occur._
+
+## History
+
+The source describes the shx source profile as newly retained. The baseline
+itself is described in [Baseline and limits](#baseline-and-limits).
+
+A subsequent revision-specific review supplies executed test evidence and
+identifies policy assertions that conflict with native behaviour. Its evidence
+is linked as the [assertion reconciliation](assertion-reconciliation.md).
+
 [ledger]: ../baseline-validity-ledger.md
-
-[mxd-review]: ../../evidence/gap-remediation/2026-11-12/mxd-review/manifest.json
-[compat-log]: ../../evidence/gap-remediation/2026-11-12/mxd-review/compat-tests.log
-[roster-log]: ../../evidence/gap-remediation/2026-11-12/mxd-review/roster-tests.log
-[scenario-log]: ../../evidence/gap-remediation/2026-11-12/mxd-review/scenario-tests.log
-[presence-log]: ../../evidence/gap-remediation/2026-11-12/mxd-review/presence-tests.log
-
-[lineage]: ../../evidence/gap-remediation/2026-11-12/batch-08/synhx-lineage-review.json
-
-[agreements]: ../protocol/native-wire-details.md#captured-agreement-configurations-and-partial-login-failures
-
 [login-extra-fixtures]: ../protocol/native-wire-details.md#captured-login-extras-configuration-bytes-and-refresh
+[agreements]: ../protocol/native-wire-details.md#captured-agreement-configurations-and-partial-login-failures
+[lineage]: ../../evidence/gap-remediation/2026-11-12/batch-08/synhx-lineage-review.json
+[server-profile]: ../../evidence/gap-remediation/2026-11-13/synhx-profile-01/manifest.json

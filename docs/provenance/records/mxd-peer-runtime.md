@@ -88,5 +88,5 @@ observed outcome belongs in a separate capture record. Native high-byte field
 162, local 31-byte clipping, banner 212/data transfer, release owner/subset,
 and other GAP criteria remain unresolved here.
 
-[runbook]: ../../mxd/mxd-peer-capture-workflow.md
+[runbook]: ../../mxd/classic-client-trials.md
 [evidence]: ../../../evidence/gap-remediation/2026-11-13/mxd-peer-runtime-01/manifest.json

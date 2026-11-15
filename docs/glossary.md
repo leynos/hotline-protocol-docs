@@ -86,8 +86,8 @@ Authoritative source: [protocol guide](protocol/protocol.md), opening section.
 Evidence: the retained ledger did not inspect an mxd checkout, run its tests or
 run its `Kani` proofs, so the implementation status of mxd lies outside the
 retained evidence
-([internal compatibility matrix](mxd/internal-compatibility-matrix.md),
-opening section). The ledger's claim M008 refers to mxd's Rust tests
+([internal compatibility matrix](mxd/compatibility-matrix.md), opening
+section). The ledger's claim M008 refers to mxd's Rust tests
 ([validity ledger](baseline-validity-ledger.md#compatibility-matrix-ledger)).
 
 ### Native
@@ -514,7 +514,7 @@ Authoritative source: [protocol guide](protocol/protocol.md), opening section.
 
 Evidence: the compatibility matrix uses "Source-observed" for facts established
 in a named historical source snapshot, not in every client or release
-([matrix scope and status labels](mxd/internal-compatibility-matrix.md#scope-and-status-labels)).
+([matrix scope and status labels](mxd/compatibility-matrix.md#scope-and-status-labels)).
 
 ### Oracle
 
