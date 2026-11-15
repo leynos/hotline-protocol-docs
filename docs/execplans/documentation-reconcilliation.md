@@ -224,6 +224,8 @@ The script work is a behaviour-preserving refactor.
 - [x] (2026-11-15 20:10Z) Owner asked for curated evidence without noise
   (D22); mxd claim inventory complete (566 claims, 54 duplicates, 3 conflicts,
   10 tensions) in the session scratch directory.
+- [x] (2026-11-15 20:40Z) Owner raised the tooling tolerance (D24) and asked
+  for the SynHX naming to be clarified and a comprehensive glossary (D25).
 - [x] (2026-11-15 17:10Z) EP-M0 surveys complete: baseline gates,
   classification of mothra, set-up passage census, JSON census.
 - [x] (2026-11-15 17:10Z) EP-M1 foundation committed (`b4d4449`), and the
@@ -543,6 +545,35 @@ The script work is a behaviour-preserving refactor.
   which is the figure offered in D19. This supersedes the code-line reading of
   D23; the code-line count is still reported for each tool as a guide.
 
+- Decision D25 (settled by the owner, 2026-11-15): the documentation gains a
+  comprehensive glossary at `docs/glossary.md`, and the relation between the
+  SynHX names is stated plainly wherever it matters. The source archive at
+  `../synhxd` shows that "Synapse Hotline X" is a fork of hx and hxd 0.1.41;
+  its server was first named `synhxd` (0.1.42, August 2001); at 0.1.47 the
+  client was split out as `shx` (0.1.48, 31 August 2001) and the server became
+  `shxd` (0.1.48.1). So shx is the client of the SynHX family, not an earlier
+  client replaced by one called SynHX. The existing documents use "SynHX" 52
+  times in 10 files and "shx" 46 times in 12 without stating this. The glossary
+  covers at least:
+  - the peers and implementations: Hotline Server 1.9 and its build label,
+    the Classic client, hx, hxd, SynHX, synhxd, shx, shxd and mxd;
+  - wire terms: transaction, request, reply, notification, field and its
+    numbering, the handshake tags, the transfer protocol and its stream
+    tags, forks, flattened files and aliases;
+  - evidence terms: oracle, corpus, preparation, witness, verifier, capture
+    plan, readback, source prediction, observed, unresolved, withheld file;
+  - register and provenance terms: gap and its kinds, priorities and
+    statuses, ledger entry and its three identifier series, audit revision,
+    correction map;
+  - the work-packet labels that appear in titles and prose, such as A26 and
+    C52, with what each series denotes;
+  - toolset terms the documents rely on: the emulator, the disassembler, the
+    container format of the binary, the forensic file-system tools.
+  Each entry gives a one- or two-sentence definition, the document that is
+  authoritative for it, and, for a factual claim such as the SynHX lineage, a
+  citation of retained evidence. Existing statements that use a family name
+  loosely are reworded to name the thing meant, without changing the claim.
+
 ## Outcomes & retrospective
 
 Not yet started. To be completed at EP-M11.
@@ -648,6 +679,8 @@ upstream authority is the owner's request and later directions, all of
   mothra toolset, without general guidance on setting that toolset up.
 - REQ-12: large binary evidence uses Git LFS; JSON stays in Git and is held
   to a formatting gate.
+- REQ-13: the relation of shx to SynHX is clarified, and the documentation
+  includes a comprehensive glossary.
 
 Trace links:
 
@@ -664,6 +697,7 @@ REQ-9  -> EP-M3 -> make links-check (no relative mothra link; permalink shape an
 REQ-10 -> EP-M7 -> INV-MXD claim inventory reconciled
 REQ-11 -> EP-M4, EP-M8, EP-M9 -> INV-RECREATE; docs/native-evidence/recreating-evidence.md
 REQ-12 -> EP-M1, EP-M3 -> make lfs-check, make json-check; INV-IMPORT, INV-JSON
+REQ-13 -> EP-M8, EP-M9 -> INV-GLOSSARY; docs/glossary.md
 audit validity (inherited) -> EP-M2, EP-M3, EP-M6, EP-M7, EP-M9, EP-M10 -> make audit-check
 ```
 
@@ -808,6 +842,18 @@ with hyphens. The link tool uses the same rule, and a test pins it against the
   scan run against mothra's local `main` must report the eight known objects'
   two blob identifiers; tests seed a blob with a withheld hash and a patch
   whose base hash is wrong.
+- Obligation INV-GLOSSARY: every term on a maintained list of required terms
+  has exactly one entry in `docs/glossary.md`; entries are in alphabetical
+  order with unique anchors; every set overview links to the glossary; and
+  every work-packet label and every ledger or gap identifier series used in a
+  document is covered by an entry. Method: parameterized tests and the real
+  run, as part of `tools/check_style.py`; the label check scans the documents
+  for the label pattern and requires each series letter to be defined. Evidence:
+  `make style-check` reports the term count with none missing. Non-vacuity: a
+  seeded missing term, a duplicated entry, an out-of-order entry and an
+  undefined label series are each rejected. Residual gap: the check shows that
+  a term is defined, not that the definition is right; definitions are reviewed
+  against their cited sources in EP-M9.
 - Obligation INV-GENERAL: no tracked file on the mothra branch contains
   `hotline`, `hlserver`, `mxd`, `synhx`, `shx`, `HOTL`, `GAP-` followed by
   digits, or `protocol-docs`, in any letter case, and mothra's `make check`
@@ -915,17 +961,19 @@ every gate in both repositories and writes the retrospective.
   accepted. Requirements: REQ-10. Evidence: INV-MXD, INV-AUDIT with the section
   map, INV-LINK. Conformance: no finding changed; every inbound link from other
   sets and from the register updated. Recovery: revert the milestone's commits.
-- EP-M8, on-ramps. Outcome: `README.md`, `docs/contents.md`,
-  `docs/repository-layout.md`, `docs/developers-guide.md`, the set overviews and
-  `docs/native-evidence/recreating-evidence.md` exist with at least five
-  validated Mermaid diagrams. Requirements: REQ-3, REQ-7, REQ-11 advanced.
-  Evidence: INV-REACH, `make nixie`. Conformance: new files only. Recovery:
-  revert.
+- EP-M8, on-ramps. Outcome: `docs/glossary.md`, `README.md`,
+  `docs/contents.md`, `docs/repository-layout.md`, `docs/developers-guide.md`,
+  the set overviews and `docs/native-evidence/recreating-evidence.md` exist
+  with at least five validated Mermaid diagrams. Requirements: REQ-3, REQ-7,
+  REQ-13, REQ-11 advanced. Evidence: INV-REACH, `make nixie`. Conformance: new
+  files only. Recovery: revert.
 - EP-M9, correlation and reconciliation. Outcome: generated
   `docs/<set>/evidence.md` indexes; status drift resolved by dated notes;
   `docs/reconciliation-log.md` lists every discrepancy examined and its
   disposition; every indexed corpus maps to a recreation procedure or a stated
-  reason; revision 94. Requirements: REQ-1, REQ-2, REQ-11. Evidence: INV-EVID,
+  reason; every use of a SynHX family name says which program is meant, and
+  each glossary definition has been checked against its cited source; revision
+  94. Requirements: REQ-1, REQ-2, REQ-11, REQ-13. Evidence: INV-EVID,
   INV-STATUS, INV-RECREATE. Conformance: no claim changed meaning; 87 gaps.
   Recovery: revert.
 - EP-M10, style and cross-references. Outcome: every gate in `make all`
@@ -1502,3 +1550,8 @@ cite. Decision D23 applies the tooling tolerance to lines of code. EP-M3
 changes accordingly: it copies the selected corpora, writes
 `evidence/curation.json` and `evidence/withheld.json`, and verifies content
 hashes against mothra at `f9b4108`.
+
+Eighth revision, 15 November 2026. The owner asked for the shx and SynHX
+relation to be clarified and recommended a comprehensive glossary. Decision D25
+adds `docs/glossary.md` to EP-M8, a terminology review to EP-M9 and a new
+obligation, INV-GLOSSARY, checked by the style tool.
