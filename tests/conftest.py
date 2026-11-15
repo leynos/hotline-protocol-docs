@@ -5,6 +5,7 @@ package, so their directory is placed on the import path here. Tests can then
 import each tool as a top-level module, for example ``import check_links``.
 """
 
+import os
 import sys
 import typing as typ
 from pathlib import Path
@@ -42,3 +43,30 @@ def make_tree() -> TreeBuilder:
             target.write_bytes(data)
 
     return build
+
+
+@pytest.fixture
+def mothra() -> Path:
+    """Locate the sibling mothra checkout that holds the retained evidence.
+
+    The lookup order is the ``MOTHRA_ROOT`` environment variable, then
+    ``../mothra`` and ``../../mothra`` relative to the repository root.
+
+    Returns
+    -------
+    pathlib.Path
+        The checkout's root directory.
+    """
+    repo = Path(__file__).resolve().parents[1]
+    candidates = (
+        [Path(os.environ["MOTHRA_ROOT"])] if "MOTHRA_ROOT" in os.environ else []
+    )
+    candidates += [repo.parent / "mothra", repo.parent.parent / "mothra"]
+    found = next((c for c in candidates if (c / "evidence").is_dir()), None)
+    if found is None:
+        searched = ", ".join(str(c) for c in candidates)
+        pytest.fail(
+            "the mothra checkout is required for this test; set MOTHRA_ROOT or "
+            f"place it at ../mothra or ../../mothra (searched: {searched})"
+        )
+    return found
