@@ -181,6 +181,11 @@ The script work is a behaviour-preserving refactor.
   Likelihood: certain. Mitigation: every offline step is executed; steps that
   need the emulator are checked for the existence and command-line validity of
   each script they name, and the guide states which parts were not re-run.
+- Risk: parallel sub-agents overwrite one another's work or report success
+  that the gates do not bear out. Severity: medium. Likelihood: medium.
+  Mitigation: disjoint edit lists, commits by the lead or journeyman only, and
+  no progress recorded without scrutineer evidence; see
+  `Delegation and escalation`.
 - Risk: the spelling gate flags protocol tokens such as `FILP` and `alis`,
   tempting unsafe edits to quoted bytes. Severity: medium. Likelihood: high.
   Mitigation: wrap wire tokens in backticks, which the gate ignores, or add
@@ -203,6 +208,7 @@ The script work is a behaviour-preserving refactor.
 - [x] (2026-11-15 13:20Z) Owner settled D1, D2 (full scope), D4 and D10, and
   asked for evidence-recreation directions; plan revised.
 - [x] (2026-11-15 14:50Z) Revised to store large evidence through Git LFS.
+- [x] (2026-11-15 15:05Z) Added the delegation and escalation protocol.
 - [ ] Explicit approval to begin implementation.
 - [ ] EP-M0: baseline, mothra pushed, LFS quota checked, classification
   manifest.
@@ -736,6 +742,121 @@ recreated and why. It links into the existing per-fixture sections of
 `native-capture-workflow.md` and the preparation records, and does not restate
 them.
 
+## Delegation and escalation
+
+The work is carried out by a lead and teams of specialist sub-agents. The lead
+is the main agent holding this plan. It owns the plan, the decision log, every
+commit and push, and every exchange with the owner. Sub-agents receive bounded
+packets and report back; they do not widen their own scope.
+
+Roles:
+
+- Journeyman: leads one milestone, or one coherent part of it, end to end. It
+  splits the work into packets, hands them to artisans and scribes, integrates
+  the results, asks for gate runs, keeps the milestone's entries in `Progress`
+  current and returns a milestone report to the lead.
+- Artisan: implements one packet of code, such as one tool with its tests or
+  one script family in EP-M5. It edits only the files its packet lists.
+- Scribe: carries out one packet of prose, such as one set overview, the
+  style pass over one set, one document of the mxd set or one section of the
+  recreation guide.
+- Wyvern: fast, read-only reconnaissance. It classifies, counts and extracts,
+  and changes nothing: the mothra classification manifest, the mxd claim
+  inventory, section maps, link and citation censuses.
+- Scrutineer: runs the gates and returns the commands, exit codes and
+  captured failures. It never edits a tracked file. It is the only sub-agent
+  that runs tests, linters or formatters in check mode, and only one scrutineer
+  runs at a time, so gates never run in parallel.
+- Alchemist: tests one stated hypothesis about a failure whose cause is not
+  evident, such as a golden difference in EP-M5 or an audit mismatch. The lead
+  or journeyman first writes the hypothesis, the prediction that would refute
+  it and the test; the alchemist reports refuted or not refuted with evidence,
+  and fixes nothing.
+
+Use by milestone:
+
+- EP-M0: wyverns classify mothra's tracked paths and take the baseline
+  censuses; a scrutineer records the baseline gate results. The lead pushes
+  mothra `main` itself.
+- EP-M1 and EP-M2: one journeyman; one artisan per tool, in sequence, because
+  the tools share modules; a scrutineer for each red, green and refactor run.
+- EP-M3: the lead performs the import and merge itself, because it rewrites
+  history in a scratch clone and changes the repository's shape. Artisans then
+  take the path-expression change by script family, and a scribe takes the link
+  rewrite review.
+- EP-M4: one journeyman in the mothra worktree, with scribes for the guides
+  and an artisan for the `Makefile`; a scrutineer runs the name search and
+  mothra's gates. The lead pushes the branch.
+- EP-M5: one journeyman per wave. The shared libraries are one serial wave.
+  After that, up to four artisans work at once, each on one script family with
+  a disjoint file list. A scrutineer runs the goldens and gates after each
+  family, one family at a time.
+- EP-M6: the lead runs the relocation script; a scrutineer verifies it.
+- EP-M7: a wyvern builds the claim inventory; one scribe per target document,
+  in sequence, because findings move between documents; the lead reviews the
+  reconciled inventory.
+- EP-M8: scribes, one per set overview and one for the recreation guide, up
+  to four at once; a scrutineer runs `nixie` and the link gate.
+- EP-M9: an artisan for `tools/check_evidence.py`; wyverns list every
+  sentence that names a Resolved gap; scribes add the dated notes.
+- EP-M10: one scribe per set, up to four at once, each confined to its set's
+  directory.
+- EP-M11: a scrutineer runs every gate in both repositories; the lead writes
+  the retrospective.
+
+Every packet states, in this order: its identifier (milestone, a sequence
+number and a short name, for example `EP-M5-014 rate304 family`); the objective
+in one sentence; the files it may edit, as an explicit list; the files it
+should read; the constraints from this plan that apply, quoted, not
+paraphrased; the acceptance evidence a scrutineer will collect; what is out of
+scope; and the stop conditions below. A packet that cannot be written this
+completely is not ready to hand out.
+
+Rules that hold for every sub-agent:
+
+- Two agents never hold packets with overlapping edit lists at the same time.
+- No sub-agent commits, pushes, deletes evidence, or edits the plan's
+  `Constraints`, `Tolerances` or `Decision log`.
+- A report is a claim until a scrutineer's evidence or the lead's own
+  inspection of the diff supports it. Nothing is ticked in `Progress` on a
+  report alone.
+- The journeyman or lead commits each accepted packet separately, after its
+  gates pass.
+
+Escalation protocol. A sub-agent stops at once, without attempting a
+workaround, when any of these occurs: it would need to edit a file outside its
+packet; an instruction in the packet conflicts with what it finds; a constraint
+or tolerance in this plan would be breached; a claim's meaning would have to
+change; a verifier verdict, planner output or test outcome would differ; or it
+has made two attempts at the same failure. It then returns one of four
+statuses, with what it did, what it found, the evidence and the options it sees:
+
+- `DONE`: the packet is complete and ready for the scrutineer.
+- `BLOCKED`: it cannot proceed and needs something it does not have.
+- `NEEDS-DECISION`: there is more than one valid way forward and the choice
+  affects the result.
+- `OUT-OF-PACKET`: finishing requires work the packet does not cover.
+
+Escalation runs upward one level at a time:
+
+1. Artisan, scribe, wyvern, scrutineer or alchemist reports to the
+   journeyman, or to the lead where no journeyman is assigned.
+2. The journeyman resolves the matter only if the answer lies inside its
+   milestone and inside this plan: it may reissue a corrected packet, split
+   one, or assign an alchemist. It records what it did in its milestone report.
+   Anything else goes to the lead.
+3. The lead resolves the matter if this plan already decides it, and records
+   the outcome in `Decision log` or `Surprises & discoveries`.
+4. The lead stops and asks the owner when a tolerance is reached, a
+   constraint would be violated, the approved design cannot be followed, an
+   outward-facing or irreversible step is not already authorized, or two
+   requirements conflict. The plan's status becomes `BLOCKED` until the owner
+   answers. Work that does not depend on the answer continues.
+
+A packet that comes back `BLOCKED` twice is not reissued a third time at the
+same level; it moves up. An unexplained failure is never retried in the hope
+that it passes: it gets a written hypothesis and an alchemist, or it goes up.
+
 ## Concrete steps
 
 All commands run from the worktree root
@@ -1077,3 +1198,10 @@ stores large and binary evidence through LFS under a fixed rule, converts it in
 the scratch clone before the merge so history is kept, and adds an `lfs-check`
 gate. INV-IMPORT compares content hashes instead of blob hashes and checks the
 LFS rule. EP-M0 gains a quota check. No milestone was added or renumbered.
+
+Fourth revision, 15 November 2026. The owner asked for the work to be divided
+among journeyman, artisan, scribe, wyvern, scrutineer and alchemist agents with
+a structured escalation protocol. A new section, `Delegation and escalation`,
+assigns roles by milestone, fixes the contents of a task packet, and defines
+four report statuses and a four-level escalation path. The milestones and their
+acceptance evidence are unchanged.
