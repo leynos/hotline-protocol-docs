@@ -58,6 +58,25 @@ class Sample(unittest.TestCase):
             with self.subTest(number=number):
                 self.assertEqual(number, 1)
 """
+MOVED = """\
+import pytest
+
+
+class MovedTests:
+    def test_pass(self):
+        pass
+
+    @pytest.mark.parametrize("number", [1, 2])
+    def test_fail(self, number):
+        assert number == 1
+
+    def test_error(self):
+        raise ValueError("boom")
+
+
+def test_plain():
+    pass
+"""
 
 
 def normaliser(root: Path, scratch: Path) -> gm.Normaliser:
@@ -218,6 +237,32 @@ def test_capture_tests_honours_a_filter(tree: Path) -> None:
     run = gr.RecipeRun(tree, None, normaliser(tree, tree.parent))
     records = gt.capture_tests(run, ["test_pass"])
     assert list(records) == ["test_sample.Sample.test_pass"], list(records)
+
+
+def test_pytest_outcomes_keep_the_unittest_key(
+    tree: Path, make_tree: TreeBuilder
+) -> None:
+    """A moved test is keyed module.Class.test, with the worst outcome of its ids."""
+    config = '[tool.pytest.ini_options]\npython_classes = ["*Tests"]\n'
+    make_tree(tree, {"scripts/tests/test_moved.py": MOVED, "pyproject.toml": config})
+    run = gr.RecipeRun(tree, None, normaliser(tree, tree.parent))
+    outcomes = {k: v["outcome"] for k, v in gt.capture_pytests(run, []).items()}
+    expected = {
+        "test_moved.MovedTests.test_pass": "ok",
+        "test_moved.MovedTests.test_fail": "fail",
+        "test_moved.MovedTests.test_error": "fail",
+        "test_moved.test_plain": "ok",
+    }
+    assert outcomes == expected, outcomes
+    only = gt.capture_pytests(run, ["test_plain"])
+    assert list(only) == ["test_moved.test_plain"], list(only)
+    assert gt.capture_pytests(run, ["absent"]) == {}, "expected no match"
+
+
+def test_no_pytest_directory_means_no_pytest_outcomes(tree: Path) -> None:
+    """Before any test has moved, the pytest half of the oracle is empty."""
+    run = gr.RecipeRun(tree, None, normaliser(tree, tree.parent))
+    assert gt.capture_pytests(run, []) == {}, "expected no outcomes"
 
 
 def write_planner(root: Path, body: str) -> gp.PlannerRun:

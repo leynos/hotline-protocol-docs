@@ -306,6 +306,9 @@ timeout = 30
 # import are top-level modules in scripts/.
 testpaths = ["tests", "scripts/tests"]
 pythonpath = ["scripts"]
+# A converted unittest keeps its class name, and so its golden key; see
+# tools/golden_pytest_plugin.py.
+python_classes = ["Test*", "*Tests"]
 
 [tool.uv]
 package = false
