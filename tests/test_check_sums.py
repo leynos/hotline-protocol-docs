@@ -4,6 +4,8 @@ import json
 import typing as typ
 
 import check_sums
+import curate_select
+import curation_helpers as ch
 import pytest
 from tool_support import EXIT_FINDINGS, EXIT_MISSING, EXIT_OK
 from withheld_helpers import (
@@ -272,3 +274,20 @@ def test_source_mode_against_the_real_mothra_checkout(
     report = check_sums.check(check_sums.SumsRequest(root=mothra, withheld=withheld))
     assert report.files >= 400, report.summary()
     assert not report.failures, "\n".join([*report.failures[:40], report.summary()])
+
+
+def test_source_mode_with_the_generated_curation_has_no_failures(
+    tmp_path: Path, mothra: Path
+) -> None:
+    """Corpora that curation excludes turn the 84 absent tarballs into counts."""
+    withheld = write_mothra_manifest(tmp_path, mothra)
+    selection = curate_select.select(
+        curate_select.SelectRequest(mothra, ch.real_citing(mothra), withheld)
+    )
+    curation = tmp_path / "curation.json"
+    curation.write_text(curate_select.selection_text(selection), encoding="utf-8")
+    request = check_sums.SumsRequest(root=mothra, withheld=withheld, curation=curation)
+    report = check_sums.check(request)
+    assert report.files >= 400, report.summary()
+    assert not report.failures, "\n".join([*report.failures[:40], report.summary()])
+    assert report.not_imported >= 84, report.summary()

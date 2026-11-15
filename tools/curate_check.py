@@ -1,0 +1,233 @@
+"""Check an imported ``evidence/`` tree against its curation record.
+
+Three questions are answered. Is the set of corpora present exactly the set
+that ``curation.json`` includes? Does every evidence path that the citing files
+name resolve to a file, a directory or a withheld path? And, given the source
+checkout and commit, is every file of every included corpus byte-identical to
+the source's, with nothing extra and nothing missing (obligation INV-IMPORT)?
+"""
+
+import dataclasses as dc
+import functools
+import hashlib
+import typing as typ
+from concurrent import futures
+
+from evidence_corpus import INCLUDED, corpus_of, load_curation
+from evidence_files import CitingRoot, cited_paths, citing_files, list_files
+from git_lossless import as_arg, git_names, git_text
+from lfs_rule import POINTER_PREFIX
+from tool_support import MissingInputError
+from withheld_model import MANIFEST_RELATIVE, NotedReport, load_manifest
+
+if typ.TYPE_CHECKING:
+    from pathlib import Path
+
+CURATION_RELATIVE = "evidence/curation.json"
+ALLOWED_NAMES = frozenset({MANIFEST_RELATIVE, CURATION_RELATIVE})
+PATCH_SUFFIX = ".bsdiff"
+WORKERS = 8
+
+
+@dc.dataclass(frozen=True, slots=True)
+class CheckRequest:
+    """What a curation check examines.
+
+    Attributes
+    ----------
+    root : pathlib.Path
+        The repository that holds the imported ``evidence/``.
+    curation : pathlib.Path | None
+        The curation file; defaults to ``evidence/curation.json``.
+    withheld : pathlib.Path | None
+        The withheld manifest; defaults to ``evidence/withheld.json``.
+    citing : tuple[CitingRoot, ...]
+        Files and directories whose citations must resolve.
+    source_root : pathlib.Path | None
+        The source checkout, for the content comparison.
+    source_commit : str
+        The commit of the source checkout to compare against.
+    local_files : tuple[str, ...]
+        Extra paths that may exist here without existing in the source.
+    """
+
+    root: Path
+    curation: Path | None = None
+    withheld: Path | None = None
+    citing: tuple[CitingRoot, ...] = ()
+    source_root: Path | None = None
+    source_commit: str = ""
+    local_files: tuple[str, ...] = ()
+
+
+@dc.dataclass(slots=True)
+class CheckResult(NotedReport):
+    """The outcome of a curation check.
+
+    Attributes
+    ----------
+    compared : int
+        How many files were compared with the source.
+    differences : int
+        How many differences the comparison found.
+    """
+
+    compared: int = 0
+    differences: int = 0
+
+
+def _check_corpora(here: list[str], included: set[str], result: CheckResult) -> None:
+    """Require the corpora present to be exactly the included ones."""
+    present = {c for c in map(corpus_of, here) if c}
+    result.failures += [
+        f"{c}: present but not included" for c in sorted(present - included)
+    ]
+    result.failures += [f"{c}: included but absent" for c in sorted(included - present)]
+    result.notes.append(f"{len(present)} corpora present, {len(included)} included")
+
+
+def _check_citations(
+    request: CheckRequest, withheld: frozenset[str], result: CheckResult
+) -> None:
+    """Require every cited evidence path to resolve."""
+    first: dict[str, Path] = {}
+    for citing in request.citing:
+        for file in citing_files(citing):
+            for path in cited_paths(file.read_bytes()):
+                first.setdefault(path, file)
+    for path, file in sorted(first.items()):
+        if not (request.root / path).exists() and path not in withheld:
+            result.failures.append(f"{path}: cited by {file}, does not resolve")
+    result.notes.append(f"{len(first)} cited paths checked")
+
+
+def _digest_here(path: Path) -> tuple[str, bool]:
+    """Hash a local file.
+
+    Returns
+    -------
+    tuple[str, bool]
+        The SHA-256 of its content, and whether it is a Git LFS pointer.
+    """
+    data = path.read_bytes()
+    return hashlib.sha256(data).hexdigest(), data.startswith(POINTER_PREFIX)
+
+
+def _digest_source(source: Path, commit: str, name: str) -> str:
+    """Hash a file as the source commit holds it.
+
+    Returns
+    -------
+    str
+        The SHA-256 of the blob.
+    """
+    blob = git_text(source, "cat-file", "blob", f"{commit}:{name}").encode("latin-1")
+    return hashlib.sha256(blob).hexdigest()
+
+
+def _judge(request: CheckRequest, name: str) -> str | None:
+    """Compare one file here with the source commit's.
+
+    Returns
+    -------
+    str | None
+        A failure message, or ``None`` when the content is identical.
+    """
+    source = typ.cast("Path", request.source_root)
+    here, pointer = _digest_here(request.root / name)
+    if here == _digest_source(source, request.source_commit, name):
+        return None
+    hint = ": Git LFS pointer, not content; run git lfs pull" if pointer else ""
+    return f"{name}: content differs from the source{hint}"
+
+
+def _compare(request: CheckRequest, names: list[str], result: CheckResult) -> None:
+    """Compare the content of ``names`` here and in the source."""
+    with futures.ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        verdicts = list(pool.map(functools.partial(_judge, request), names))
+    result.failures += [v for v in verdicts if v]
+    result.differences += sum(1 for v in verdicts if v)
+
+
+def _check_source(
+    request: CheckRequest, included: set[str], here: list[str], result: CheckResult
+) -> None:
+    """Compare every included file with the source commit (INV-IMPORT)."""
+    source = typ.cast("Path", request.source_root)
+    withheld = _withheld(request)
+    listing = git_names(
+        source,
+        "ls-tree",
+        "-r",
+        "-z",
+        "--name-only",
+        request.source_commit,
+        "--",
+        "evidence",
+    )
+    in_source = {as_arg(name) for name in listing}
+    expected = {n for n in in_source if corpus_of(n) in included and n not in withheld}
+    local = set(here)
+    allowed = ALLOWED_NAMES | set(request.local_files)
+    extras = sorted(
+        n
+        for n in local - in_source
+        if n not in allowed and not n.endswith(PATCH_SUFFIX)
+    )
+    missing = sorted(expected - local)
+    result.failures += [f"{n}: missing from the import" for n in missing]
+    result.failures += [f"{n}: absent from the source commit" for n in extras]
+    result.differences += len(missing) + len(extras)
+    common = sorted(expected & local)
+    _compare(request, common, result)
+    result.compared = len(expected)
+
+
+def _withheld(request: CheckRequest) -> frozenset[str]:
+    """Read the withheld paths, if there is a manifest.
+
+    Returns
+    -------
+    frozenset[str]
+        The paths.
+    """
+    manifest = request.withheld or request.root / MANIFEST_RELATIVE
+    if request.withheld is None and not manifest.is_file():
+        return frozenset()
+    return load_manifest(manifest).paths
+
+
+def check(request: CheckRequest) -> CheckResult:
+    """Run the curation check.
+
+    Parameters
+    ----------
+    request : CheckRequest
+        What to examine.
+
+    Returns
+    -------
+    CheckResult
+        The failures and counts.
+
+    Raises
+    ------
+    MissingInputError
+        If the root has no ``evidence/`` directory, or the source comparison
+        lacks a commit.
+    """
+    if not (request.root / "evidence").is_dir():
+        message = f"no evidence directory below {request.root}"
+        raise MissingInputError(message)
+    curation = request.curation or request.root / CURATION_RELATIVE
+    included = {c.path for c in load_curation(curation) if c.disposition == INCLUDED}
+    result = CheckResult()
+    here = list_files(request.root)
+    _check_corpora(here, included, result)
+    _check_citations(request, _withheld(request), result)
+    if request.source_root is not None:
+        if not request.source_commit:
+            message = "--source-commit is required with --source-root"
+            raise MissingInputError(message)
+        _check_source(request, included, here, result)
+    return result

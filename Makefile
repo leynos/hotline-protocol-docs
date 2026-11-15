@@ -57,16 +57,25 @@ WITHHELD_GATE = $(if $(wildcard evidence/withheld.json),withheld-check,withheld-
 # The evidence gates need the imported evidence/ directory.
 EVIDENCE_GATE = $(if $(wildcard evidence),sums-check lfs-check,evidence-skip)
 
+# The curation gate needs the record that the evidence import creates.
+CURATION_GATE = $(if $(wildcard evidence/curation.json),curation-check,curation-skip)
+# Documents whose evidence citations must resolve, and the mothra commit that the
+# evidence was imported from (D22).
+CITING_ARGS ?= $(foreach f,$(filter-out gap-analysis.md,$(wildcard *.md)),--citing document=$(f)) \
+	$(if $(wildcard gap-register.json),--citing register=gap-register.json) \
+	$(foreach f,$(wildcard scripts/*.py),--citing script=$(f))
+IMPORT_COMMIT ?= f9b4108ec33e59956c9f2bfbd391dc3a8a279299
+
 .PHONY: help all build fmt check-fmt check-fmt-python check-fmt-markdown \
 	lint lint-python lint-legacy typecheck test docs-gates markdownlint spelling nixie \
 	json-check links-check audit-check withheld-check withheld-scan withheld-skip \
-	sums-check lfs-check evidence-skip
+	sums-check lfs-check evidence-skip curation-check import-check curation-skip
 
 .DEFAULT_GOAL := all
 # Shared build caches require sequential gates even when make receives -j.
 .NOTPARALLEL:
 
-all: build check-fmt-python json-check links-check $(WITHHELD_GATE) $(EVIDENCE_GATE) lint-python lint-legacy typecheck test ## Run the gates that must pass at every commit
+all: build check-fmt-python json-check links-check $(WITHHELD_GATE) $(EVIDENCE_GATE) $(CURATION_GATE) lint-python lint-legacy typecheck test ## Run the gates that must pass at every commit
 
 lint: lint-python lint-legacy ## Run every Python linter
 
@@ -132,6 +141,17 @@ lfs-check: ## Verify that exactly the PNG, PCAP and gzip evidence is stored in G
 
 evidence-skip:
 	@printf 'sums-check and lfs-check skipped: evidence/ does not exist yet\n'
+
+curation-check: ## Verify the imported corpora match evidence/curation.json and every citation resolves
+	$(PYTHON) tools/curate_evidence.py check --root . $(CITING_ARGS)
+
+import-check: ## As curation-check, and compare every included file with the mothra commit
+	@test -n "$(MOTHRA)" || { printf 'Error: no mothra checkout found; set MOTHRA\n' >&2; exit 2; }
+	$(PYTHON) tools/curate_evidence.py check --root . $(CITING_ARGS) \
+		--source-root $(MOTHRA) --source-commit $(IMPORT_COMMIT)
+
+curation-skip:
+	@printf 'curation-check skipped: evidence/curation.json does not exist yet\n'
 
 lint-python: build ## Lint the Python that meets the df12 standards
 	$(RUFF) check $(PYTHON_TARGETS)
