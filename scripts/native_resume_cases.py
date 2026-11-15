@@ -1,224 +1,173 @@
 """Prepare bounded RFLT resume observations with complete entry records."""
 
-import struct
+from native_plan import (
+    QUIET_WINDOW_SECONDS,
+    Action,
+    close,
+    connect,
+    eof,
+    login,
+    packet,
+    payload,
+    read,
+    send,
+)
+from native_resume_rflt import (
+    DATA_BYTES,
+    FOLLOWUP_ID,
+    FORK_NAME,
+    HTXF_DOWNLOAD_TAIL,
+    MACR_BYTES,
+    PAUSE_SECONDS,
+    READ_SECONDS,
+    REQUEST_ID,
+    RFLT_UPGRADE_VERSION,
+    UINT32_MAX,
+    Case,
+    Entries,
+    rflt,
+)
 
-from native_plan import close, connect, eof, login, packet, payload, read, send
-from native_transfer_cases import file_stream, resource_fork
+# verify_native_resume, prepare_native_cases and native_folder_cases import
+# these names from this module, whose planners they belong to.
+from native_resume_uploads import upload_continuations, upload_probes
+from native_wire_names import (
+    FIELD_FILE_NAME,
+    FIELD_RESUME_DATA,
+    FIELD_TRANSFER_REFERENCE,
+    FIELD_TRANSFER_SIZE,
+    HTXF_MAGIC_HEX,
+    RFLT_MAGIC,
+    RFLT_MIN_BYTES,
+    RFLT_VERSION,
+    TYPE_DOWNLOAD_FILE,
+    TYPE_EMPTY_ACK,
+)
 
+__all__ = ["downloads", "rflt", "upload_continuations", "upload_probes"]
 
-def rflt(entries: list[tuple[bytes, int]]) -> bytes:
-    """Build complete version1 records; unexamined reserved words are zero."""
-    return (
-        b"RFLT\0\1"
-        + bytes(34)
-        + struct.pack(">H", len(entries))
-        + b"".join(
-            tag + offset.to_bytes(4, "big") + bytes(8) for tag, offset in entries
-        )
-    )
-
-
-def downloads() -> dict[str, tuple[list[dict], dict]]:
-    cases = {}
-    variants = {
-        "zero-entries": [],
-        "data-zero": [(b"DATA", 0)],
-        "data-inside": [(b"DATA", 3)],
-        "resource-inside": [(b"MACR", 4)],
-        "both-inside": [(b"DATA", 3), (b"MACR", 4)],
-        "both-eof": [(b"DATA", 13), (b"MACR", 317)],
-        "both-beyond": [(b"DATA", 14), (b"MACR", 318)],
-        "both-uint32-max": [(b"DATA", 0xFFFFFFFF), (b"MACR", 0xFFFFFFFF)],
-        "unknown-tag": [(b"XXXX", 123)],
-        "duplicate-data-3-4": [(b"DATA", 3), (b"DATA", 4)],
-        "duplicate-data-4-3": [(b"DATA", 4), (b"DATA", 3)],
-        "duplicate-data-beyond-inside": [(b"DATA", 14), (b"DATA", 1)],
-        "duplicate-resource-3-4": [(b"MACR", 3), (b"MACR", 4)],
-    }
-    for name, entries in variants.items():
-        filename = b"mothra-fork-fixture"
-        encoded = rflt(entries)
-        steps = login() + [
-            send(packet(202, 10, payload([(201, filename), (203, encoded)]))),
-            read(
-                match_frame={"is_reply": 1, "id": 10},
-                save_fields={"reference": 107, "size": 108},
-            ),
-            connect("download", "data"),
-            send("48545846{reference}0000000000000000", "download"),
-        ]
-        if name == "both-uint32-max":
-            steps += [eof("download")]
-        else:
-            steps += [
-                {
-                    "op": "read",
-                    "connection": "download",
-                    "size_from": "size",
-                    "timeout": 30,
-                },
-                {"op": "expect_quiet", "connection": "download", "timeout": 3},
-            ]
-        steps += [
-            close("download"),
-            close(),
-        ]
-        cases["resume-download-" + name] = (
-            steps,
-            {
-                "kind": "resume-data-error"
-                if name == "both-uint32-max"
-                else "resume-download",
-                "name_hex": filename.hex(),
-                "rflt_hex": encoded.hex(),
-                "entries": [
-                    {"tag": tag.decode(), "offset": offset} for tag, offset in entries
-                ],
-            },
-        )
-    for name, encoded in {
-        "short-41": rflt([])[:41],
-        "wrong-magic": b"XXXX" + rflt([])[4:],
-        "wrong-version": rflt([])[:4] + b"\0\2" + rflt([])[6:],
-    }.items():
-        steps = login() + [
-            send(
-                packet(
-                    202, 10, payload([(201, b"mothra-fork-fixture"), (203, encoded)])
-                )
-            ),
-            {"op": "pause", "seconds": 3},
-            send(packet(500, 11)),
-            read(match_frame={"is_reply": 1, "id": 11}),
-            close(),
-        ]
-        cases["resume-download-" + name] = (
-            steps,
-            {"kind": "resume-no-reply", "rflt_hex": encoded.hex()},
-        )
-    return cases
+VARIANTS: dict[str, Entries] = {
+    "zero-entries": [],
+    "data-zero": [(b"DATA", 0)],
+    "data-inside": [(b"DATA", 3)],
+    "resource-inside": [(b"MACR", 4)],
+    "both-inside": [(b"DATA", 3), (b"MACR", 4)],
+    "both-eof": [(b"DATA", DATA_BYTES), (b"MACR", MACR_BYTES)],
+    "both-beyond": [(b"DATA", DATA_BYTES + 1), (b"MACR", MACR_BYTES + 1)],
+    "both-uint32-max": [(b"DATA", UINT32_MAX), (b"MACR", UINT32_MAX)],
+    "unknown-tag": [(b"XXXX", 123)],
+    "duplicate-data-3-4": [(b"DATA", 3), (b"DATA", 4)],
+    "duplicate-data-4-3": [(b"DATA", 4), (b"DATA", 3)],
+    "duplicate-data-beyond-inside": [(b"DATA", DATA_BYTES + 1), (b"DATA", 1)],
+    "duplicate-resource-3-4": [(b"MACR", 3), (b"MACR", 4)],
+}
+OVERFLOW_VARIANT = "both-uint32-max"
 
 
-def seed_upload(filename: bytes) -> tuple[list[dict], dict]:
-    """Leave DATA13/MACR5 under the native incomplete-file type."""
-    body = file_stream(b"data-fork\r\n\x00\xff", resource_fork())
-    prefix = body[:-312]
-    steps = login() + [
-        send(
-            packet(
-                203, 10, payload([(201, filename), (108, len(body).to_bytes(4, "big"))])
-            )
-        ),
-        read(
-            match_frame={"is_reply": 1, "id": 10},
-            save_field={"name": "reference", "id": 107},
-        ),
-        connect("upload", "data"),
-        send(
-            "48545846{reference}"
-            + len(body).to_bytes(4, "big").hex()
-            + "00000000"
-            + prefix.hex(),
-            "upload",
-        ),
-        {"op": "expect_quiet", "connection": "upload", "timeout": 3},
-        close("upload"),
-        {"op": "pause", "seconds": 2},
-        send(packet(206, 11, payload([(201, filename)]))),
-        read(match_frame={"is_reply": 1, "id": 11}),
-        close(),
-    ]
-    return steps, {
-        "kind": "upload-prefix",
-        "name_hex": filename.hex(),
-        "prefix_hex": prefix.hex(),
-        "full_stream_hex": body.hex(),
-    }
+def download_stream(variant: str) -> list[Action]:
+    """Plan the data connection that follows a resume download request.
 
-
-def upload_probes() -> dict[str, tuple[list[dict], dict]]:
-    """Seed an interrupted native upload, then inspect resume negotiation."""
-    filename = b"mothra-resume-partial"
-    cases = {"resume-upload-seed": seed_upload(filename)}
-    body = file_stream(b"data-fork\r\n\x00\xff", resource_fork())
-    for name, target_name in [
-        ("partial", filename),
-        ("missing", b"mothra-missing-partial"),
-        ("completed", b"mothra-fork-fixture"),
-    ]:
-        cases["resume-upload-probe-" + name] = (
-            login()
-            + [
-                send(
-                    packet(
-                        203,
-                        10,
-                        payload(
-                            [
-                                (201, target_name),
-                                (204, b"\0\1"),
-                                (108, len(body).to_bytes(4, "big")),
-                            ]
-                        ),
-                    )
-                ),
-                read(match_frame={"is_reply": 1, "id": 10}),
-                close(),
-            ],
-            {"kind": "resume-upload-probe", "name_hex": target_name.hex()},
-        )
-    return cases
-
-
-def finish_upload(filename: bytes, inconsistent: bool) -> tuple[list[dict], dict]:
-    data = b"data-fork\r\n\x00\xff" if inconsistent else b""
-    resource = resource_fork() if inconsistent else resource_fork()[5:]
-    body = file_stream(data, resource)
-    fields = [(201, filename), (204, b"\0\1"), (108, len(body).to_bytes(4, "big"))]
-    if inconsistent:
-        fields.append((203, rflt([(b"DATA", 0), (b"MACR", 0)])))
-    steps = login() + [
-        send(packet(203, 10, payload(fields))),
-        read(
-            match_frame={"is_reply": 1, "id": 10},
-            save_fields={"reference": 107, "offsets": 203},
-        ),
-        connect("upload", "data"),
-        send(
-            "48545846{reference}"
-            + len(body).to_bytes(4, "big").hex()
-            + "00000000"
-            + body.hex(),
-            "upload",
-        ),
-        eof("upload"),
-        close("upload"),
-        send(packet(206, 11, payload([(201, filename)]))),
-        read(match_frame={"is_reply": 1, "id": 11}),
-        send(packet(202, 12, payload([(201, filename)]))),
-        read(
-            match_frame={"is_reply": 1, "id": 12},
-            save_fields={"download_reference": 107, "size": 108},
-        ),
+    Returns
+    -------
+    list[native_plan.Action]
+        The connect, the greeting, and either the end of stream, for the offset
+        that overflows, or the sized read and a quiet window.
+    """
+    steps: list[Action] = [
         connect("download", "data"),
-        send("48545846{download_reference}0000000000000000", "download"),
-        {"op": "read", "connection": "download", "size_from": "size", "timeout": 30},
-        {"op": "expect_quiet", "connection": "download", "timeout": 3},
+        send(HTXF_MAGIC_HEX + "{reference}" + HTXF_DOWNLOAD_TAIL, "download"),
+    ]
+    if variant == OVERFLOW_VARIANT:
+        return [*steps, eof("download")]
+    return [
+        *steps,
+        {
+            "op": "read",
+            "connection": "download",
+            "size_from": "size",
+            "timeout": READ_SECONDS,
+        },
+        {
+            "op": "expect_quiet",
+            "connection": "download",
+            "timeout": QUIET_WINDOW_SECONDS,
+        },
+    ]
+
+
+def resume_download(name: str, entries: Entries) -> Case:
+    """Plan a download that supplies a resume descriptor.
+
+    Returns
+    -------
+    tuple[list[native_plan.Action], dict[str, typing.Any]]
+        The steps and expectation of the case.
+    """
+    encoded = rflt(entries)
+    fields = [(FIELD_FILE_NAME, FORK_NAME), (FIELD_RESUME_DATA, encoded)]
+    steps = [
+        *login(),
+        send(packet(TYPE_DOWNLOAD_FILE, REQUEST_ID, payload(fields))),
+        read(
+            match_frame={"is_reply": 1, "id": REQUEST_ID},
+            save_fields={
+                "reference": FIELD_TRANSFER_REFERENCE,
+                "size": FIELD_TRANSFER_SIZE,
+            },
+        ),
+        *download_stream(name),
         close("download"),
         close(),
     ]
     return steps, {
-        "kind": "resume-upload-completion",
-        "name_hex": filename.hex(),
-        "inconsistent": inconsistent,
-        "stream_hex": body.hex(),
+        "kind": "resume-data-error" if name == OVERFLOW_VARIANT else "resume-download",
+        "name_hex": FORK_NAME.hex(),
+        "rflt_hex": encoded.hex(),
+        "entries": [{"tag": tag.decode(), "offset": offset} for tag, offset in entries],
     }
 
 
-def upload_continuations() -> dict[str, tuple[list[dict], dict]]:
-    other = b"mothra-resume-inconsistent"
-    return {
-        "resume-upload-complete": finish_upload(b"mothra-resume-partial", False),
-        "resume-upload-inconsistent-seed": seed_upload(other),
-        "resume-upload-inconsistent-complete": finish_upload(other, True),
+def rejected_download(encoded: bytes) -> Case:
+    """Plan a download whose descriptor is refused, so that no reply comes.
+
+    Returns
+    -------
+    tuple[list[native_plan.Action], dict[str, typing.Any]]
+        The steps and expectation of the case.
+    """
+    fields = [(FIELD_FILE_NAME, FORK_NAME), (FIELD_RESUME_DATA, encoded)]
+    steps = [
+        *login(),
+        send(packet(TYPE_DOWNLOAD_FILE, REQUEST_ID, payload(fields))),
+        {"op": "pause", "seconds": PAUSE_SECONDS},
+        send(packet(TYPE_EMPTY_ACK, FOLLOWUP_ID)),
+        read(match_frame={"is_reply": 1, "id": FOLLOWUP_ID}),
+        close(),
+    ]
+    return steps, {"kind": "resume-no-reply", "rflt_hex": encoded.hex()}
+
+
+def downloads() -> dict[str, Case]:
+    """Plan the resume downloads, then those with an unusable descriptor.
+
+    Returns
+    -------
+    dict[str, tuple[list[native_plan.Action], dict[str, typing.Any]]]
+        The steps and expectation of each case, by name.
+    """
+    cases = {
+        "resume-download-" + name: resume_download(name, entries)
+        for name, entries in VARIANTS.items()
     }
+    valid = rflt([])
+    for name, encoded in {
+        "short-41": valid[: RFLT_MIN_BYTES - 1],
+        "wrong-magic": b"XXXX" + valid[len(RFLT_MAGIC) :],
+        "wrong-version": (
+            valid[: len(RFLT_MAGIC)]
+            + RFLT_UPGRADE_VERSION
+            + valid[len(RFLT_MAGIC + RFLT_VERSION) :]
+        ),
+    }.items():
+        cases["resume-download-" + name] = rejected_download(encoded)
+    return cases
