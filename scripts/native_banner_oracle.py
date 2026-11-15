@@ -1,14 +1,28 @@
 """Check retained banner exception and allocation evidence at the native oracle."""
 
 import json
-from pathlib import Path
+import typing as typ
+
+# Kept at runtime: inspect and get_type_hints evaluate verify's annotation.
+from pathlib import Path  # ruff: ignore[typing-only-standard-library-import]
 
 from protocol_capture import ORACLE_SHA256
 from verify_native_core import require
 
+# The retained banner oracle inventory holds this many queries.
+QUERY_COUNT = 12
 
-def verify(directory: Path) -> dict:
-    records = {}
+
+def verify(directory: Path) -> dict[str, typ.Any]:
+    """Check the retained banner oracle queries that ``directory`` holds.
+
+    Returns
+    -------
+    dict[str, typing.Any]
+        The query count and the facts that the checks establish; the scope names
+        what they do not establish.
+    """
+    records: dict[str, typ.Any] = {}
     for query in (directory / "oracle-queries").glob("*.json"):
         record = json.loads(query.read_text())
         require(
@@ -23,7 +37,7 @@ def verify(directory: Path) -> dict:
                 "Format oracle code differs",
             )
         records[query.stem] = result
-    require(len(records) == 12, "Banner oracle query inventory differs")
+    require(len(records) == QUERY_COUNT, "Banner oracle query inventory differs")
     checks = {
         "1000d5e0": {
             "1000d62c": "lwz r3,0xc(r26)",
@@ -64,5 +78,8 @@ def verify(directory: Path) -> dict:
         "worker_size_forwarding_checked": True,
         "zero_allocator_internal_domain": 1,
         "zero_allocator_internal_code": 2,
-        "scope": "Native null/zero exception and ABI paths; no general reset threshold or wire-status mapping",
+        "scope": (
+            "Native null/zero exception and ABI paths; "
+            "no general reset threshold or wire-status mapping"
+        ),
     }

@@ -19,9 +19,11 @@ TYPE_LOGIN = 107
 TYPE_SEND_PRIVATE_MESSAGE = 108
 TYPE_LOGIN_AGREEMENT = 109
 TYPE_ACCEPT_AGREEMENT = 121
+TYPE_BANNER_METADATA = 122  # operation-contracts.md: configured banner metadata
 TYPE_DOWNLOAD_FILE = 202
 TYPE_UPLOAD_FILE = 203
 TYPE_GET_FILE_INFO = 206
+TYPE_DOWNLOAD_BANNER = 212  # operation-contracts.md: banner reference and size ACK
 TYPE_QUEUE_NOTIFICATION = 211  # transfer-contracts.md, "Queue notification 211"
 TYPE_REFERENCE_CLEANUP = 214  # owner-matched cleanup of a transfer reference
 TYPE_GET_USER_ROSTER = 300
@@ -49,6 +51,8 @@ FIELD_ACCESS_BITMAP = 110  # eight bytes, most significant bit first
 FIELD_ACCOUNT_ATTRIBUTE = 111  # opaque account attribute (GAP-071)
 FIELD_OPTIONS = 113  # low bits: PM refusal, chat refusal, automatic response
 FIELD_QUEUE_POSITION = 116  # numeric; zero means admission from the queue
+FIELD_BANNER_TYPE = 152  # four-byte tag of a 122 notification (core-field-schemas.md)
+FIELD_BANNER_LINK = 153  # optional link of a 122 notification
 FIELD_VERSION = 160  # reported version; a native success reply carries 190
 FIELD_UNNAMED_WORD = 161  # unnamed word that a native success reply zeroes
 FIELD_FILE_NAME = 201  # native-wire-details.md, transfer and file requests
@@ -78,6 +82,10 @@ HANDSHAKE_REPLY_BYTES = 8
 # session-transport-contracts.md: `TRTP HOTL 0001 0003` hands the connection to
 # HTXF processing and queues the same success bytes.
 HANDSHAKE_HANDOVER_REQUEST_HEX = "54525450484f544c00010003"
+
+# core-field-schemas.md, "122 notification": the notification follows 121 only
+# when the reported version is at least this.
+BANNER_MIN_VERSION = 151
 
 # Data connection (transfer-contracts.md, "HTXF"): the magic `HTXF`, the four
 # byte reference, a four-byte size word, a two-byte selector and a reserved word.
