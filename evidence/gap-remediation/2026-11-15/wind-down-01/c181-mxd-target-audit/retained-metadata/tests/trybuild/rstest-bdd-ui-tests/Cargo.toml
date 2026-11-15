@@ -1,0 +1,53 @@
+[package]
+name = "rstest-bdd-ui-tests-tests"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies.rstest]
+workspace = true
+
+[dependencies.rstest-bdd]
+workspace = true
+
+[dependencies.rstest-bdd-harness-tokio]
+workspace = true
+
+[dependencies.rstest-bdd-macros]
+workspace = true
+
+[dependencies.tokio]
+version = "1"
+default-features = true
+
+[[bin]]
+name = "rstest-bdd-ui-tests-tests"
+path = "main.rs"
+
+[[bin]]
+name = "trybuild000"
+path = "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/tests/rstest-bdd-ui/tests/ui/pass_named_harness.rs"
+
+[[bin]]
+name = "trybuild001"
+path = "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/tests/rstest-bdd-ui/tests/ui/pass_mutable_world_async_steps.rs"
+
+[[bin]]
+name = "trybuild002"
+path = "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/tests/rstest-bdd-ui/tests/ui/fail_missing_scenario.rs"
+
+[workspace.dependencies.rstest]
+version = "0.27.0"
+default-features = true
+
+[workspace.dependencies.rstest-bdd]
+version = "0.6.0"
+default-features = true
+
+[workspace.dependencies.rstest-bdd-harness-tokio]
+version = "0.6.0"
+default-features = true
+
+[workspace.dependencies.rstest-bdd-macros]
+version = "0.6.0"
+features = ["compile-time-validation"]

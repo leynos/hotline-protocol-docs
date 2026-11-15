@@ -1,0 +1,9 @@
+{
+  "unit": "mothra-native-alias-live-01-namespace.service",
+  "pid": 2905758,
+  "fd": 5,
+  "inode": 162170915,
+  "header24": "d4c3b2a10200040000000000000000000000040001000000",
+  "wait_seconds": 0.01513009300106205,
+  "deadline_utc": "2026-11-14T16:44:35.770792+00:00"
+}

@@ -1,0 +1,75 @@
+{
+  "created_utc": "2026-11-15T00:05:02.465136+00:00",
+  "status": "witness_preserved_cache_not_deleted",
+  "retained_executable": {
+    "path": "/data/leynos/Projects/mothra/state/git-recovery/mxd-wireframe-server-3da44eac",
+    "sha256": "3da44eac362e1a5433eee4cace8f030e383a9c4a8ea8f587055610299c879375",
+    "size": 54878640,
+    "device": 2097,
+    "inode": 89295232,
+    "nlink": 1,
+    "mode": "0o444"
+  },
+  "original_executable": {
+    "path": "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/mxd-wireframe-server",
+    "sha256": "3da44eac362e1a5433eee4cace8f030e383a9c4a8ea8f587055610299c879375",
+    "size": 54878640,
+    "device": 2097,
+    "inode": 3823027641,
+    "nlink": 2,
+    "mode": "0o700"
+  },
+  "source_revision": "cb907885cc2a61df2d708f38a3cf42da85c2a016",
+  "protocol_evidence_revision": "407320048b42c52bc102573bb28ab84f346b7f5c",
+  "target_snapshot": {
+    "path": "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target",
+    "dev": 2097,
+    "inode": 3518705279,
+    "files": 33145,
+    "directories": 12649,
+    "hardlink_groups": 67,
+    "references": [],
+    "uncertain": [],
+    "du_allocated_bytes": 14371885056,
+    "checked_utc": "2026-11-15T00:04:20.064997+00:00"
+  },
+  "retained_evidence": [
+    {
+      "path": "/data/leynos/Projects/hotline-protocol-docs/mxd-validation.md",
+      "sha256": "fc5179617167558a7958534ae4496f1892852718cdfef0844b70734a1b7a9330"
+    },
+    {
+      "path": "/data/leynos/Projects/mothra/evidence/gap-remediation/2026-11-13/mxd-login-extras-01/summary.txt",
+      "sha256": "1cae2b143b040acb1f5b6d70ed103a7fa23fef6700b59b2c6afaf6295e695a6f"
+    },
+    {
+      "path": "/data/leynos/Projects/mothra/evidence/gap-remediation/2026-11-13/mxd-login-extras-01/verification-receipt.txt",
+      "sha256": "d1d1eef01e3da5e8ff395c46dd8a01830e12a61a16282a47b812a7d5184f9534"
+    },
+    {
+      "path": "/data/leynos/Projects/mothra/evidence/gap-remediation/2026-11-13/mxd-login-extras-01/full/full.log",
+      "sha256": "2b651711b73e8845046849d2a2fba4289b1021180da7778a5728227bbf2a8159"
+    },
+    {
+      "path": "/data/leynos/Projects/mothra/evidence/gap-remediation/2026-11-13/mxd-login-extras-01/full/full.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/data/leynos/Projects/mothra/state/delegation/c181-mxd-target-audit/retained-metadata.json",
+      "sha256": "ad15a0eb914892b95dd0bc97c0b33c7996889dd0e313f30b08ceb204b1195468"
+    },
+    {
+      "path": "/data/leynos/Projects/mothra/state/delegation/c184-mxd-cache-retirement/binary-preservation.json",
+      "sha256": "5f2410330bb31a0417f94ae54f092df69bb07fed834d2bca5803a95912a77d3d"
+    },
+    {
+      "path": "/data/leynos/Projects/mothra/state/delegation/c184-mxd-cache-retirement/predelete-review.json",
+      "sha256": "76bfa1349ad72b8614dc98b35d180d9b3494b476045e9574e2ace88e220724df"
+    },
+    {
+      "path": "/data/leynos/Projects/mothra/state/delegation/c184-mxd-cache-retirement/fresh-inventory.jsonl",
+      "sha256": "a0d66031de68f7596cda9a9825e9d73ba53ea8b85290a0ac9046c5d0ebf5bc06"
+    }
+  ],
+  "note": "Exact old trial executable and committed results retained outside cache. This snapshot is not deletion authority; rerun fresh gate immediately before any removal."
+}

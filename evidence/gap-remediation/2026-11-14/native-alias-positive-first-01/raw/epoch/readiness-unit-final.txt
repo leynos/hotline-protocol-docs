@@ -1,0 +1,4 @@
+Id=mothra-native-alias-live-01-readiness.service
+ActiveState=active
+Result=success
+ExecMainStatus=0

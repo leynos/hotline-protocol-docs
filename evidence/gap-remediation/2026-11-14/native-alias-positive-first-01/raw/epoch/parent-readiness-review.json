@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "emulator_pid": 2881568,
+  "deadline": "2026-11-14T16:44:35.770792+00:00",
+  "remaining_seconds": 556.233834,
+  "plan_sha256": "81fa75744e450ec4ba9c32ef60014ae0ddffeae2e9151c4995abb9ff20638e54",
+  "case_numbered": 5,
+  "total_numbered": 11,
+  "maximum_protocol_mutations": 1
+}

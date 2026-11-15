@@ -1,0 +1,60 @@
+2026-11-13 22:50:59 INFO  (DefaultProject) Opening project: /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-account/mothra/state/oracle-headless-01/project/hotline19-headless-01  
+2026-11-13 22:51:00 DEBUG (SleighLanguage) Took 370ms (73ms inside lock) to initialize language /data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Processors/PowerPC/data/languages/ppc_32_be.slaspec -> /data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Processors/PowerPC/data/languages/ppc_32_be.sla  
+2026-11-13 22:51:01 INFO  (BackendHttpServer) GhidraMCP backend listening on 127.0.0.1:39069  
+2026-11-14 00:08:56 INFO  (LoggingInitialization) Using log config file: jar:file:/data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2026-11-14 00:08:56 INFO  (LoggingInitialization) Using log file: /data/leynos/Projects/mothra/state/config/leynos-ghidra/ghidra_12.2_PUBLIC/application.log  
+2026-11-14 00:08:57 INFO  (Preferences) Loading user preferences: /data/leynos/Projects/mothra/state/config/leynos-ghidra/ghidra_12.2_PUBLIC/preferences  
+2026-11-14 00:08:58 DEBUG (GhidraObjectInputFilter) Including serial input filter: FileSystem/data/client.rmi.serial.filter  
+2026-11-14 00:08:58 INFO  (ClassSearcher) Searching for classes...  
+2026-11-14 00:09:00 INFO  (ClassSearcher) Class search complete (1648 ms)  
+2026-11-14 00:09:00 INFO  (DefaultSSLContextInitializer) Initializing SSL Context  
+2026-11-14 00:09:00 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2026-11-14 00:09:00 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2026-11-14 00:09:00 INFO  (UnixSystemTrustKeyStoreUtil) Loaded 118 trusted CA certificate(s) from /etc/ssl/certs/ca-certificates.crt  
+2026-11-14 00:09:00 INFO  (DefaultTrustManagerFactory) Loaded 118 trusted CA certificates from the OS trust store.  
+2026-11-14 00:09:00 INFO  (DefaultTrustManagerFactory) Loaded 118 trusted CA certificates from the Java default trust store.  
+2026-11-14 00:09:00 INFO  (GhidraRun) User leynos started Ghidra.  
+2026-11-14 00:09:00 INFO  (GhidraRun) User settings directory: /data/leynos/Projects/mothra/state/config/leynos-ghidra/ghidra_12.2_PUBLIC  
+2026-11-14 00:09:00 INFO  (GhidraRun) User temp directory: /data/leynos/Projects/mothra/state/tmp/leynos-ghidra  
+2026-11-14 00:09:00 INFO  (GhidraRun) User cache directory: /data/leynos/Projects/mothra/state/cache/leynos-ghidra  
+2026-11-14 00:09:02 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2026-11-14 00:09:03 INFO  (DefaultProject) Opening project: /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-account/mothra/state/oracle-headless-01/project/hotline19-headless-01  
+2026-11-14 00:09:03 INFO  (GhidraRun) Ghidra startup complete (7857 ms)  
+2026-11-14 03:33:19 INFO  (LoggingInitialization) Using log config file: jar:file:/data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2026-11-14 03:33:19 INFO  (LoggingInitialization) Using log file: /data/leynos/Projects/mothra/state/config/leynos-ghidra/ghidra_12.2_PUBLIC/application.log  
+2026-11-14 03:33:19 DEBUG (GhidraObjectInputFilter) Including serial input filter: FileSystem/data/client.rmi.serial.filter  
+2026-11-14 03:33:19 INFO  (Preferences) Loading user preferences: /data/leynos/Projects/mothra/state/config/leynos-ghidra/ghidra_12.2_PUBLIC/preferences  
+2026-11-14 03:33:19 INFO  (ClassSearcher) Searching for classes...  
+2026-11-14 03:33:20 INFO  (ClassSearcher) Class search complete (1439 ms)  
+2026-11-14 03:33:21 INFO  (DefaultSSLContextInitializer) Initializing SSL Context  
+2026-11-14 03:33:21 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2026-11-14 03:33:21 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2026-11-14 03:33:21 INFO  (UnixSystemTrustKeyStoreUtil) Loaded 118 trusted CA certificate(s) from /etc/ssl/certs/ca-certificates.crt  
+2026-11-14 03:33:21 INFO  (DefaultTrustManagerFactory) Loaded 118 trusted CA certificates from the OS trust store.  
+2026-11-14 03:33:21 INFO  (DefaultTrustManagerFactory) Loaded 118 trusted CA certificates from the Java default trust store.  
+2026-11-14 03:33:22 INFO  (DefaultProject) Creating project: /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/configured-ban-static-01/project/configured-ban-static-c59  
+2026-11-14 03:33:23 DEBUG (SleighLanguage) Took 531ms (151ms inside lock) to initialize language /data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Processors/PowerPC/data/languages/ppc_64_isa_vle_be.slaspec -> /data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Processors/PowerPC/data/languages/ppc_64_isa_vle_be.sla  
+2026-11-14 03:33:23 INFO  (ProgramLoader) Using Loader: Preferred Executable Format (PEF)  
+2026-11-14 03:33:23 INFO  (ProgramLoader) Using Language/Compiler: PowerPC:BE:64:VLE-32addr:default  
+2026-11-14 03:33:23 INFO  (ProgramLoader) Using Library Search Path: [., /bin, /lib, /lib64, /lib/x86_64-linux-gnu, /lib/aarch64-linux-gnu, /usr/bin, /usr/lib, /usr/X11R6/bin, /usr/X11R6/lib, /usr/java/packages/lib, /usr/lib64]  
+2026-11-14 03:33:25 INFO  (LocalFileSystem) /HLserver19.pef: file created (leynos)  
+2026-11-14 03:33:25 INFO  (BackendHttpServer) GhidraMCP backend listening on 127.0.0.1:33683  
+2026-11-14 03:33:53 INFO  (LoggingInitialization) Using log config file: jar:file:/data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2026-11-14 03:33:53 INFO  (LoggingInitialization) Using log file: /data/leynos/Projects/mothra/state/config/leynos-ghidra/ghidra_12.2_PUBLIC/application.log  
+2026-11-14 03:33:53 DEBUG (GhidraObjectInputFilter) Including serial input filter: FileSystem/data/client.rmi.serial.filter  
+2026-11-14 03:33:53 INFO  (Preferences) Loading user preferences: /data/leynos/Projects/mothra/state/config/leynos-ghidra/ghidra_12.2_PUBLIC/preferences  
+2026-11-14 03:33:53 INFO  (ClassSearcher) Searching for classes...  
+2026-11-14 03:33:55 INFO  (ClassSearcher) Class search complete (1429 ms)  
+2026-11-14 03:33:55 INFO  (DefaultSSLContextInitializer) Initializing SSL Context  
+2026-11-14 03:33:55 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2026-11-14 03:33:55 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2026-11-14 03:33:55 INFO  (UnixSystemTrustKeyStoreUtil) Loaded 118 trusted CA certificate(s) from /etc/ssl/certs/ca-certificates.crt  
+2026-11-14 03:33:55 INFO  (DefaultTrustManagerFactory) Loaded 118 trusted CA certificates from the OS trust store.  
+2026-11-14 03:33:55 INFO  (DefaultTrustManagerFactory) Loaded 118 trusted CA certificates from the Java default trust store.  
+2026-11-14 03:33:56 INFO  (DefaultProject) Creating project: /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/configured-ban-static-01/project-ppc32/configured-ban-static-c59-ppc32  
+2026-11-14 03:33:57 DEBUG (SleighLanguage) Took 362ms (65ms inside lock) to initialize language /data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Processors/PowerPC/data/languages/ppc_32_be.slaspec -> /data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Processors/PowerPC/data/languages/ppc_32_be.sla  
+2026-11-14 03:33:57 INFO  (ProgramLoader) Using Loader: Preferred Executable Format (PEF)  
+2026-11-14 03:33:57 INFO  (ProgramLoader) Using Language/Compiler: PowerPC:BE:32:default:default  
+2026-11-14 03:33:57 INFO  (ProgramLoader) Using Library Search Path: [., /bin, /lib, /lib64, /lib/x86_64-linux-gnu, /lib/aarch64-linux-gnu, /usr/bin, /usr/lib, /usr/X11R6/bin, /usr/X11R6/lib, /usr/java/packages/lib, /usr/lib64]  
+2026-11-14 03:33:58 INFO  (LocalFileSystem) /HLserver19.pef: file created (leynos)  
+2026-11-14 03:33:59 INFO  (BackendHttpServer) GhidraMCP backend listening on 127.0.0.1:38609  

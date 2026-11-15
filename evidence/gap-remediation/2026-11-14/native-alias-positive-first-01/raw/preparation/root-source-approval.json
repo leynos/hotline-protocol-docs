@@ -1,0 +1,41 @@
+{
+  "utc": "2026-11-14T16:30:24.837215+00:00",
+  "scope": "Approved exact source and script bytes for separately gated single M2 boot/readiness; case needs later parent readiness review. No host unlink.",
+  "proposal_sha256": "2eab41d2f6d52ab3e38737158ce518295ea50ccf2ac115435ccc67b473c3ed74",
+  "pins": {
+    "approved-alias-live-sources.sha256": {
+      "sha256": "195b214e1e1668da722ca9970e860cd408c3226178a25ffa2870b5d9dfb7a001",
+      "entries": 2
+    },
+    "approved-source-closure.sha256": {
+      "sha256": "91544b727c01cb64b4705c6de8b9c49c5e4c4ad6b221edae3f544015b3c2c29a",
+      "entries": 35
+    },
+    "approved-helpers.sha256": {
+      "sha256": "65b56c87f306dd31521056eca22085e711071d6698b52fd9bba3d17f3431dd45",
+      "entries": 3
+    },
+    "approved-runtime-launchers.sha256": {
+      "sha256": "c5528ba0ad635b40ef1752fc9ebc04738a0dec633c168dc96f016ecd7efdb838",
+      "entries": 2
+    },
+    "script-SHA256SUMS": {
+      "sha256": "45ad7bcacd4cc780e3d2077ac384e2cd6e6b536333961126f99db7508ef40891",
+      "entries": 10
+    }
+  },
+  "counts": {
+    "protocol": 35,
+    "capture_helpers": 3,
+    "runtime_launchers": 2,
+    "scripts": 10
+  },
+  "reviews": [
+    "a136-missing-alias-m1-final.md",
+    "a138-alias-preboot-corrections.md",
+    "a140-alias-final-pin-review.md"
+  ],
+  "validator": "Actual first inline pre-service validator PASS with real root-owned0444 pins; no shell boot executed",
+  "mothra_head": "53bb4dc5c411cc082a46e5bf1774ddc6bbf69259",
+  "protocol_head": "6a51245c2628afdd1029a386122910a1fe95c9c5"
+}

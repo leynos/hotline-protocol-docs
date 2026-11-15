@@ -1,0 +1,34 @@
+# B150 one-root export-cache cleanup review
+
+Final frozen sources: root gate SHA-256
+`2cb8ded32c62d315c1664863176afe9b52c9c9da68cc704111cbbe13fb51cefe`
+(218 lines), cleanup SHA-256
+`bc78b122bcda96c03c222ec833c3b4fdf5e3b903c466c57ff557c84c7481d573`
+(172 lines), negative model SHA-256
+`f60124f3582f1007950b107c2219df1cde12fd5aaeab4d6c20cfc4025ad8ba0a`.
+Review was read-only; no authorization or removal log existed at review.
+
+- The gate pins the exact `state/protocol-exports` inode, all 42 package
+  directories and their exact five-file sets (210 files). It rehashes
+  every current file and checks the committed recovered inventory,
+  metadata and byte-exact Git archive parity. Its fresh proof at
+  23:44:04 UTC reports `passed_no_delete_performed`, 42 packages,
+  210 files and zero live references.
+- Root gate checks nested mounts, Git worktrees, `/proc` cwd/root/FD,
+  inotify and command-line references before deletion. Cleanup invokes
+  the gate afresh after a separate parent operational grant, then repeats
+  the complete set scan before its first unlink.
+- Cleanup holds the exact root dirfd, opens package dirfds with
+  `O_NOFOLLOW`, checks package device/inode, and checks each regular
+  single-link file's device, inode, size and SHA-256 before unlink.
+  It removes only those five listed names per package, then the exact
+  package and root directories. It records partial failure and stops.
+- I reran the synthetic model: extra file and swapped symlink package
+  parent rejected before any unlink, with outside bytes unchanged.
+
+Concurrent writers after the scan remain a documented residual race;
+the exact hash and no-follow checks fail on detected drift. The parent
+grant is an operational record, not an adversarial UID boundary.
+
+**Disposition:** source-bound review passes for the frozen one-root packet.
+Root owns the actual grant, invocation, terminal log and free-space check.

@@ -1,0 +1,50 @@
+#!/usr/bin/env python3
+"""One read-only health and program identity attempt at the configured GUI backend."""
+import datetime as dt
+import fcntl
+import json
+from pathlib import Path
+
+import requests
+
+ROOT = Path('/data/leynos/Projects/mothra')
+OUT = ROOT / 'state/delegation/a198-oracle-recheck-20261115'
+config = json.loads((ROOT / '.mcp.json').read_text())['mcpServers']['ghidra']
+args = config['args']
+assert config['command'] == str(ROOT / 'ghidra-mcp')
+assert args == ['--ghidra-server', 'http://127.0.0.1:8080/']
+base = args[1]
+lock = (ROOT / 'state/delegation/oracle.lock').open('rb')
+fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+session = requests.Session()
+session.trust_env = False
+result = {'queried_at_utc': dt.datetime.now(dt.UTC).isoformat(),
+          'base': base, 'requests': []}
+try:
+    for name in ('health', 'program_info'):
+        entry = {'method': 'GET', 'path': '/' + name}
+        try:
+            response = session.get(base + name, timeout=(2, 2))
+            raw = response.content
+            (OUT / (name + '.raw')).write_bytes(raw)
+            entry.update(http_status=response.status_code, raw_bytes=len(raw))
+            try:
+                body = response.json()
+            except ValueError:
+                entry['parse_error'] = 'non-JSON response'
+                result['requests'].append(entry)
+                break
+            (OUT / (name + '.json')).write_text(json.dumps(body, indent=2) + '\n')
+            entry['success'] = body.get('success') if isinstance(body, dict) else None
+            result['requests'].append(entry)
+            if entry['success'] is not True:
+                break
+        except requests.RequestException as exc:
+            entry['transport_error'] = type(exc).__name__ + ': ' + str(exc)
+            result['requests'].append(entry)
+            break
+finally:
+    (OUT / 'result.json').write_text(json.dumps(result, indent=2) + '\n')
+    fcntl.flock(lock, fcntl.LOCK_UN)
+    lock.close()
+print(json.dumps(result))

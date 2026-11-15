@@ -1,0 +1,55 @@
+# A193 mxd Cargo target retention review
+
+Scope: only `state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target`
+(C181: 14,371,885,056 allocated bytes, 45,794 entries). This was a
+read-only review of C181's inventory and committed evidence. No mxd
+build, test, daemon, VM or cleanup action occurred.
+
+## One exact executable worth preserving
+
+The current `debug/mxd-wireframe-server` is 54,878,640 bytes and hashes
+to `3da44eac362e1a5433eee4cace8f030e383a9c4a8ea8f587055610299c879375`.
+Committed `../hotline-protocol-docs/mxd-validation.md` pins that exact
+trial binary, and committed `mxd-peer-runtime-01`, `mxd-classic-login-01`
+and `mxd-classic-short-login-01` receipts cite the same hash and the
+absolute target path. Before deleting the target, copy this one regular
+binary to a retained location **outside** the target, then rehash the
+copy to the pinned value and record its original path, source inode,
+mode and copy hash. This preserves the actual tested executable bytes
+without keeping the whole compiler cache. Its hardlink twin under
+`debug/build/mxd/.../out/` shares the same inode; do not count it as an
+independent 55 MB preservation requirement.
+
+Current `debug/mxd` hashes to `4f3a56f0c42af2ca0d0576132721bc1a0fbdff1a0bc831bddd74591e6ccc2e00`
+and `debug/gen_corpus` to `cee200c384b3a11c578cbbf48e3195fb45b71c36635ee8d94a5b2ad826300146`.
+Neither hash appears in the reviewed committed docs/evidence search;
+no recorded validation result requires those exact bytes. Their source
+and build recipe are retained, so they can be rebuilt when mxd work
+resumes. No byte-identical rebuild claim is needed for cache retirement.
+
+## Result and source retention
+
+C181 found no `*.stdout`, `*.stderr`, `*.snap` or `*.log` in the target.
+Its eight small generated metadata files (58,910 logical bytes), including
+the trybuild Cargo manifest/lock/main and `.rustc_info.json` records,
+were already copied and hashed under
+`state/delegation/c181-mxd-target-audit/retained-metadata/`.
+Committed `evidence/gap-remediation/2026-11-13/mxd-login-extras-01/`
+retains full test logs/exits; other committed mxd correction and peer
+corpora retain commands, source snapshots and outcome receipts outside
+the target. The mxd checkout at `cb907885cc2a61df2d708f38a3cf42da85c2a016`
+and its `Cargo.lock`/pinned toolchain remain separate from this cache.
+
+The `.o`, `.rlib`, depfiles, fingerprints and trybuild/dylint build
+products are derived compiler outputs. C181's root `/proc` check found
+zero live inode references and every hardlink group internal to this
+target. Their exact bytes need not be copied for the user's deferred
+mxd validation; old passing test logs remain evidence, and future tests
+must be rerun after rebuilding.
+
+**Recommendation:** preserve only the exact wireframe server binary and
+the already copied metadata, then retire the one complete, freshly
+revalidated target root. Recheck its dev/inode, complete inventory,
+live references, hardlink boundary and the copied binary SHA immediately
+before any separately authorised deletion. A partial deletion or new
+process reference stops the operation. This review grants no deletion.

@@ -1,0 +1,74 @@
+# B151: GAP-020 disposable guest date fixture feasibility
+
+Read-only review, 2026-11-14. No guest, clock, image, service, or protocol action was taken.
+Source checkout: `tools/macemu` `8e6793d83bdc36349500a1bc356a10aeccad83f1`;
+protocol checkout: `407320048b42c52bc102573bb28ab84f346b7f5c`.
+
+## Source-backed clock route
+
+- The Unix SheepShaver build includes `Unix/timer_unix.cpp` via
+  `SheepShaver/src/Unix/Makefile:65`; that file is a symlink to
+  `BasiliskII/src/Unix/timer_unix.cpp`. Its `TimerDateTime()` calls
+  `TimeToMacTime(time(NULL))` (`:79-85`).
+- `SheepShaver/src/macos_util.cpp:319-342` uses `localtime(&t)` to produce a
+  32-bit seconds-since-1904 word. Thus the **emulator process's** timezone
+  affects this low-memory word; this is a source prediction, not a native
+  fixture result. The Unix loop writes it to guest low memory `0x20c` on a
+  pseudo-1 Hz interrupt (`SheepShaver/src/Unix/main_unix.cpp:1412-1416`).
+- No `SetDateTime`/`ReadDateTime` trap implementation or clock-offset
+  preference appears in the searched SheepShaver Unix sources or
+  `prefs_items.cpp`. The ROM/guest could implement those traps, but this
+  source review does not establish a persistent guest-settable clock: the
+  periodic host-derived write could override it. A Date & Time UI change
+  cannot yet be treated as an isolated alternate-year fixture.
+- Existing `scripts/mac_runtime.py:275-296` writes disk/ROM/extfs/display,
+  SLiRP and redirect preferences, with no time setting. Its actual emulator
+  launch (`:312-335`) crosses `sudo setpriv env` and explicitly passes
+  `DISPLAY`, SDL, capture and cache variables, but **not `TZ`**. Merely
+  setting `TZ` on an outer managed unit does not prove it reaches the
+  emulator; a direct process-local override would need an approved launch
+  recipe and an observed `/proc/<emulator>/environ` receipt. No such route is
+  currently part of the supported harness.
+- The Unix extfs path converts a host `stat.st_mtime` with the same
+  `TimeToMacTime` (`BasiliskII/src/extfs.cpp:1298-1319,1435-1449`; SheepShaver
+  shares that source via `SheepShaver/src/Unix/extfs_unix.cpp`). It sets file
+  creation to zero on ordinary Unix (`extfs.cpp:1310-1318`). This could make
+  an owned extfs file useful for *modification* comparison, but it does not
+  prove a server HFS file or field 208 is controllable by host `mtime`.
+
+## Protocol relevance and finite future checks
+
+`../hotline-protocol-docs/date-contracts.md:11-39,43-54` traces file 206
+208/209, FILP INFO offsets 52/60, new article 410, list 371/321 and body
+400/330. `10058070` always emits `0770 0000` plus a copied BE32 seconds word;
+410 obtains `GetDateTime`, while 321/330 copy stored bytes. The upload
+restorer ignores transmitted INFO dates. A controlled ordinary file/news
+comparison could test **copied-word consistency and one-second granularity**:
+in one new disposable guest, bracket file creation and two owned article
+posts across visible clock ticks, compare raw 206/INFO and stored 321/330
+words, then stop and inspect the stopped copy. Preserve both actual fork and
+catalogue values. This is a candidate experiment, not a timezone or rollover
+test; GUI log seconds are separate calls (`docs/native-clock-evidence.md`).
+
+The minimal supported-control prerequisite for a timezone test is a
+process-local `TZ` value proven in the *actual emulator* and two otherwise
+identical new disposable guests, with the same intended host instant and
+recorded guest/host clocks. Prediction from `localtime`: shifting `TZ` changes
+the low-memory word by the corresponding local offset; compare raw native
+410/321/330 and 206/INFO words, not just rendered UI hours. This requires
+parent review of a launch method and runtime identities first. DST boundary
+handling must use explicit zone/date pairs and observed offset, not an
+assumed fixed difference.
+
+There is **no supported existing control** found for setting the emulator's
+`time(NULL)` to an alternate year or near the BE32 wrap while leaving the
+host clock unchanged. Guest Date & Time control persistence is unproved;
+`TZ` changes offset, not year; host `mtime` can target only the extfs file
+metadata conversion and may be normalized when copied to HFS. No identified
+ordinary wire producer accepts nonzero milliseconds/other year words.
+Therefore alternate-year, actual rollover and consumer interpretation of
+subsecond/other-year bytes remain blocked by an identified isolated clock
+or catalogue-setting interface (and a separately approved guest-only test),
+not by a missing broad protocol harness. The source's `uint32` return
+predicts modular arithmetic, but neither a native 2040 rollover nor guest
+OS acceptance follows.

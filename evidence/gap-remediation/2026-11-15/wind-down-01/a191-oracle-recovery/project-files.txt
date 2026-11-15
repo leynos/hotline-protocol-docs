@@ -1,0 +1,8 @@
+independent-endpoint-01.rep/project.prp 159
+independent-endpoint-01.rep/idata/00/00000000.prp 489
+independent-endpoint-01.rep/idata/~index.bak 109
+independent-endpoint-01.rep/idata/~index.dat 109
+independent-endpoint-01.rep/user/~index.dat 59
+independent-endpoint-01.rep/versioned/~index.bak 59
+independent-endpoint-01.rep/versioned/~index.dat 59
+independent-endpoint-01.gpr 0

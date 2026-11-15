@@ -1,0 +1,32 @@
+{
+  "exact": {
+    "accepted": true,
+    "exit": 0,
+    "stderr_tail": ""
+  },
+  "short_m1": {
+    "accepted": false,
+    "exit": 1,
+    "stderr_tail": "n <module>\n    assert len(rows) == len(required) and all(len(row) == 2 for row in rows)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  "short_closure": {
+    "accepted": false,
+    "exit": 1,
+    "stderr_tail": "n <module>\n    assert len(rows) == len(required) and all(len(row) == 2 for row in rows)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  "short_helpers": {
+    "accepted": false,
+    "exit": 1,
+    "stderr_tail": "n <module>\n    assert len(rows) == len(required) and all(len(row) == 2 for row in rows)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  "short_launchers": {
+    "accepted": false,
+    "exit": 1,
+    "stderr_tail": "n <module>\n    assert len(rows) == len(required) and all(len(row) == 2 for row in rows)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  "short_scripts": {
+    "accepted": false,
+    "exit": 1,
+    "stderr_tail": "n <module>\n    assert len(rows) == len(required) and all(len(row) == 2 for row in rows)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  }
+}

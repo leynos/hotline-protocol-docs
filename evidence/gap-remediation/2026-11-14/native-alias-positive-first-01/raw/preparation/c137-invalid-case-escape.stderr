@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/data/leynos/Projects/mothra/state/native-sessions/native-alias-live-preparation-01/ui-input-alias-live.py", line 133, in <module>
+    main()
+    ~~~~^^
+  File "/data/leynos/Projects/mothra/state/native-sessions/native-alias-live-preparation-01/ui-input-alias-live.py", line 90, in main
+    assert args.action != 'escape' or args.phase == 'startup'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

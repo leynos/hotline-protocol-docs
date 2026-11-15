@@ -1,0 +1,2 @@
+{"emulator_netns_inode": 4026533819, "emulator_pid": 2881568, "event": "READY", "numbered_requests": 3, "plan_sha256": "81fa75744e450ec4ba9c32ef60014ae0ddffeae2e9151c4995abb9ff20638e54", "stage": "awaiting-reviewed-Finder-receipt"}
+{"status": "failed", "error": "ValueError: Reviewed Finder receipt absent"}

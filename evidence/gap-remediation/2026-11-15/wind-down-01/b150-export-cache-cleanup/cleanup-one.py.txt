@@ -1,0 +1,172 @@
+#!/usr/bin/env python3
+"""Remove one exact approved export cache after a fresh root gate."""
+
+import hashlib
+import importlib.util
+import json
+import os
+import stat
+import subprocess
+from datetime import datetime, timezone
+from pathlib import Path
+
+BASE = Path('/data/leynos/Projects/mothra')
+ROOT = BASE / 'state/protocol-exports'
+AUDIT = BASE / 'state/delegation/b150-export-cache-cleanup'
+AUTH = AUDIT / 'parent-authorization.json'
+GATE = AUDIT / 'predelete-gate.py'
+LOG = AUDIT / 'removed-paths.jsonl'
+GATE_SHA = '2cb8ded32c62d315c1664863176afe9b52c9c9da68cc704111cbbe13fb51cefe'
+INVENTORY_SHA = 'a212996f8542518b7dbc8973c7ef9253e88157639880902736573960b7f2bbc2'
+PARITY_SHA = '619ffbd766890ee5eca1edc7bdd3f1ab3b2d70b7498ce8e77703b8573f88e192'
+ROOT_INODE = 4374633087
+DIR_FLAGS = os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW
+
+
+def sha(path):
+    digest = hashlib.sha256()
+    with path.open('rb') as stream:
+        while chunk := stream.read(1024 * 1024):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def gate_module():
+    if sha(GATE) != GATE_SHA:
+        raise ValueError('reviewed read-only gate changed')
+    spec = importlib.util.spec_from_file_location('b150_gate', GATE)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def prepare(module, inventory):
+    """Check the complete package and file set before the first unlink."""
+    module.boundary_scan(inventory)
+    fd = os.open(ROOT, DIR_FLAGS)
+    info = os.fstat(fd)
+    if info.st_ino != ROOT_INODE or info.st_dev != ROOT.lstat().st_dev:
+        os.close(fd)
+        raise ValueError('root swapped after complete scan')
+    return fd
+
+
+def package_fd(rootfd, package):
+    name = package['name']
+    if Path(name).name != name or name in ('.', '..'):
+        raise ValueError(f'unsafe package name: {name}')
+    fd = os.open(name, DIR_FLAGS, dir_fd=rootfd)
+    info = os.fstat(fd)
+    if (info.st_dev, info.st_ino) != (package['dev'], package['inode']):
+        os.close(fd)
+        raise ValueError(f'package swapped: {name}')
+    return fd
+
+
+def checked_file(fd, row):
+    name = row['name']
+    item = os.stat(name, dir_fd=fd, follow_symlinks=False)
+    if (not stat.S_ISREG(item.st_mode) or item.st_nlink != 1
+            or item.st_dev != os.fstat(fd).st_dev
+            or item.st_ino != row['inode'] or item.st_size != row['size']):
+        raise ValueError(f'unsafe file: {name}')
+    opened_fd = os.open(name, os.O_RDONLY | os.O_NOFOLLOW, dir_fd=fd)
+    digest = hashlib.sha256()
+    try:
+        opened = os.fstat(opened_fd)
+        if (opened.st_dev, opened.st_ino, opened.st_size) != (
+                item.st_dev, item.st_ino, item.st_size):
+            raise ValueError(f'file swapped before read: {name}')
+        with os.fdopen(opened_fd, 'rb', closefd=False) as stream:
+            while chunk := stream.read(1024 * 1024):
+                digest.update(chunk)
+    finally:
+        os.close(opened_fd)
+    after = os.stat(name, dir_fd=fd, follow_symlinks=False)
+    if ((after.st_dev, after.st_ino, after.st_size, after.st_mtime_ns,
+         after.st_ctime_ns) != (item.st_dev, item.st_ino, item.st_size,
+         item.st_mtime_ns, item.st_ctime_ns)
+            or digest.hexdigest() != row['sha256']):
+        raise ValueError(f'file content changed: {name}')
+
+
+def remove(rootfd, inventory, stream):
+    removed = 0
+    for package in inventory['packages']:
+        root = ROOT.lstat()
+        if ROOT.is_symlink() or root.st_ino != ROOT_INODE:
+            raise ValueError('root path swapped')
+        fd = package_fd(rootfd, package)
+        try:
+            for row in package['files']:
+                checked_file(fd, row)
+                os.unlink(row['name'], dir_fd=fd)
+                stream.write(json.dumps({'package': package['name'],
+                                         'file': row['name'], 'sha256': row['sha256']}) + '\n')
+                removed += 1
+                if removed % 20 == 0:
+                    stream.flush()
+                    os.fsync(stream.fileno())
+        finally:
+            os.close(fd)
+        directory = os.stat(package['name'], dir_fd=rootfd, follow_symlinks=False)
+        if (not stat.S_ISDIR(directory.st_mode)
+                or (directory.st_dev, directory.st_ino) != (
+                    package['dev'], package['inode'])):
+            raise ValueError(f'package path swapped: {package["name"]}')
+        os.rmdir(package['name'], dir_fd=rootfd)
+        stream.write(json.dumps({'package': package['name'], 'type': 'directory'}) + '\n')
+    if ROOT.is_symlink() or ROOT.lstat().st_ino != ROOT_INODE:
+        raise ValueError('root swapped before removal')
+    ROOT.rmdir()
+    stream.write(json.dumps({'path': str(ROOT), 'type': 'root'}) + '\n')
+    stream.flush()
+    os.fsync(stream.fileno())
+    return {'files_removed': removed, 'directories_removed': len(inventory['packages']) + 1}
+
+
+def main():
+    if os.geteuid() != 1000 or LOG.exists():
+        raise PermissionError('requires owner UID1000 and fresh removal log')
+    auth = json.loads(AUTH.read_text())
+    if (auth['status'] != 'authorise_b150_one_cache_after_parent_review'
+            or auth['root'] != str(ROOT) or auth['root_inode'] != ROOT_INODE
+            or auth['inventory_sha256'] != INVENTORY_SHA
+            or auth['parity_sha256'] != PARITY_SHA or auth['gate_sha256'] != GATE_SHA):
+        raise ValueError('parent authorization drift')
+    module = gate_module()
+    gate = subprocess.run(['sudo', '-n', 'python3', str(GATE)],
+                          capture_output=True, check=False)
+    (AUDIT / 'cleanup-gate.stdout').write_bytes(gate.stdout)
+    (AUDIT / 'cleanup-gate.stderr').write_bytes(gate.stderr)
+    (AUDIT / 'cleanup-gate.exit').write_text(f'{gate.returncode}\n')
+    if gate.returncode:
+        raise RuntimeError('fresh root predelete gate failed')
+    proof = json.loads((AUDIT / 'predelete-gate.json').read_text())
+    if (proof['status'] != 'passed_no_delete_performed' or proof['root'] != str(ROOT)
+            or proof['root_inode'] != ROOT_INODE or proof['packages'] != 42
+            or proof['files'] != 210 or proof['references']
+            or proof['inventory_sha256'] != INVENTORY_SHA
+            or proof['parity_sha256'] != PARITY_SHA):
+        raise ValueError('fresh root proof incomplete')
+    inventory = json.loads((AUDIT / 'recovery/full-inventory.json').read_text())
+    rootfd = prepare(module, inventory)
+    receipt = {'status': 'started', 'started_utc': datetime.now(timezone.utc).isoformat(),
+               'fresh_gate_sha256': sha(AUDIT / 'predelete-gate.json'),
+               'authorization_sha256': sha(AUTH)}
+    try:
+        with LOG.open('x', buffering=1) as stream:
+            receipt.update(remove(rootfd, inventory, stream))
+            receipt['status'] = 'completed'
+    except BaseException as error:
+        receipt['status'] = 'failed_partial_cleanup'
+        receipt['error'] = f'{type(error).__name__}: {error}'
+        raise
+    finally:
+        os.close(rootfd)
+        receipt['finished_utc'] = datetime.now(timezone.utc).isoformat()
+        (AUDIT / 'cleanup-terminal.json').write_text(json.dumps(receipt, indent=2) + '\n')
+
+
+if __name__ == '__main__':
+    main()

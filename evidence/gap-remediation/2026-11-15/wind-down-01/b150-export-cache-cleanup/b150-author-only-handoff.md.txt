@@ -1,0 +1,47 @@
+# B150 one-root export cache cleanup — author-only plateau
+
+No cache file was deleted. `parent-authorization.json` and
+`removed-paths.jsonl` are absent. Parent authorization is an operational
+execution record, not a same-UID security boundary; root must review and
+invoke the exact script separately.
+
+## Frozen inputs and source
+
+| Item | SHA-256 / count |
+| --- | --- |
+| Recovery commit | `e8e27d7`, `evidence/gap-remediation/2026-11-14/export-cache-recovery-03` |
+| Full 210-file inventory | `a212996f8542518b7dbc8973c7ef9253e88157639880902736573960b7f2bbc2` |
+| 84-archive raw-tar parity receipt | `619ffbd766890ee5eca1edc7bdd3f1ab3b2d70b7498ce8e77703b8573f88e192` |
+| Retained current producer source | `611591cde23326da4d2d4f55316214ef988a948c76bdf6b18aeefe65edc1e5e9` |
+| `predelete-gate.py` | `2cb8ded32c62d315c1664863176afe9b52c9c9da68cc704111cbbe13fb51cefe`; 218/220 lines |
+| `cleanup-one.py` | `bc78b122bcda96c03c222ec833c3b4fdf5e3b903c466c57ff557c84c7481d573`; 172/180 lines |
+| `model-negative.py` | `f60124f3582f1007950b107c2219df1cde12fd5aaeab4d6c20cfc4025ad8ba0a`; 85/90 lines |
+
+Recovery contains all 126 non-archive metadata files, the full inventory,
+the producer snapshot, and all 84 raw Git-tar parity records. It uses 651,264
+allocated bytes, below the 5 MB bound. No full compressed archive was copied.
+All 84 source commits are HEAD ancestors; every source archive SHA and four
+covered checksums per package matched in B149. The complete 8,584,960,000
+raw tar bytes matched `git archive` before this packet and again during
+recovery preparation. Exact gzip regeneration was sampled, not asserted for
+all 84 archives.
+
+The root gate checks recovery content against commit `e8e27d7` and HEAD,
+all 42 package names, exact 210-file set, inode/size/SHA-256, archive manifest
+hashes and reachable source commits, plus mounts, worktrees and root `/proc`
+cwd/root/FD/cmdline/inotify references. It reports
+`passed_no_delete_performed`, 210 files, zero references in the retained
+read-only run. A future cleanup would run this gate afresh and then recheck
+the complete set before opening an exclusive removal log.
+
+The cleanup holds the one root via `O_DIRECTORY|O_NOFOLLOW`, opens each
+package with a bound directory descriptor, and opens each file with
+`O_NOFOLLOW`; it rehashes and checks inode, size and device before
+`os.unlink(..., dir_fd=fd)`. It records every removal and a partial-failure
+terminal receipt. Synthetic extra-file and swapped-symlink-parent models
+both rejected before unlink with outside bytes unchanged. Ruff passed.
+
+Review must bind the exact cleanup source hash above; then root can create
+the matching operational authorization record and invoke it. A fresh gate
+and source commit reachability are required at that time. This packet stops
+before authorization or deletion.

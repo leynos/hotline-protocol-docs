@@ -819,12 +819,11 @@
       "withheld": 0,
       "cited_by": [
         "document",
-        "linked-document",
         "recipe",
         "script"
       ],
       "required_by": [],
-      "reason": "cited by document, linked-document, recipe, script"
+      "reason": "cited by document, recipe, script"
     },
     {
       "path": "evidence/gap-remediation/2026-11-13/client-account-constructors-01",
@@ -1362,12 +1361,12 @@
       "bytes": 24379,
       "withheld": 0,
       "cited_by": [
-        "linked-document"
+        "document"
       ],
       "required_by": [
         "evidence/gap-remediation/2026-11-13/client-account-constructors-01"
       ],
-      "reason": "cited by linked-document; required by 1 corpora"
+      "reason": "cited by document; required by 1 corpora"
     },
     {
       "path": "evidence/gap-remediation/2026-11-13/mac-peer-first-session-01",
@@ -1576,10 +1575,10 @@
       "bytes": 31312,
       "withheld": 0,
       "cited_by": [
-        "linked-document"
+        "document"
       ],
       "required_by": [],
-      "reason": "cited by linked-document"
+      "reason": "cited by document"
     },
     {
       "path": "evidence/gap-remediation/2026-11-13/mxd-source-import-01",
@@ -2182,12 +2181,11 @@
       "withheld": 0,
       "cited_by": [
         "document",
-        "linked-document",
         "register",
         "script"
       ],
       "required_by": [],
-      "reason": "cited by document, linked-document, register, script"
+      "reason": "cited by document, register, script"
     },
     {
       "path": "evidence/gap-remediation/2026-11-13/synhx-profile-01",
@@ -2281,10 +2279,11 @@
       "bytes": 2565358,
       "withheld": 0,
       "cited_by": [
+        "document",
         "register"
       ],
       "required_by": [],
-      "reason": "cited by register"
+      "reason": "cited by document, register"
     },
     {
       "path": "evidence/gap-remediation/2026-11-14/alias-window-profile-01",
@@ -2583,13 +2582,15 @@
     },
     {
       "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01",
-      "disposition": "excluded",
+      "disposition": "included",
       "files": 275,
       "bytes": 10976948,
       "withheld": 0,
-      "cited_by": [],
+      "cited_by": [
+        "document"
+      ],
       "required_by": [],
-      "reason": "not cited by any citing file or relevant manifest"
+      "reason": "cited by document"
     },
     {
       "path": "evidence/gap-remediation/2026-11-14/native-alias-preparation-04",
@@ -2765,10 +2766,10 @@
       "bytes": 790821,
       "withheld": 0,
       "cited_by": [
-        "linked-document"
+        "document"
       ],
       "required_by": [],
-      "reason": "cited by linked-document"
+      "reason": "cited by document"
     },
     {
       "path": "evidence/gap-remediation/2026-11-14/native-configured-ban-01",
@@ -3173,13 +3174,15 @@
     },
     {
       "path": "evidence/gap-remediation/2026-11-15/native-wire-stopped-preparation-01",
-      "disposition": "excluded",
+      "disposition": "included",
       "files": 69,
       "bytes": 932177,
       "withheld": 0,
-      "cited_by": [],
+      "cited_by": [
+        "document"
+      ],
       "required_by": [],
-      "reason": "not cited by any citing file or relevant manifest"
+      "reason": "cited by document"
     },
     {
       "path": "evidence/gap-remediation/2026-11-15/runtime-retirement-01",
@@ -3215,13 +3218,15 @@
     },
     {
       "path": "evidence/gap-remediation/2026-11-15/wind-down-01",
-      "disposition": "excluded",
+      "disposition": "included",
       "files": 71,
       "bytes": 2055998,
       "withheld": 0,
-      "cited_by": [],
+      "cited_by": [
+        "document"
+      ],
       "required_by": [],
-      "reason": "not cited by any citing file or relevant manifest"
+      "reason": "cited by document"
     },
     {
       "path": "evidence/hotline-server-1.9/(root)",
@@ -3250,7 +3255,6 @@
       "cited_by": [
         "document",
         "ledger",
-        "linked-document",
         "script"
       ],
       "required_by": [
@@ -3259,7 +3263,7 @@
         "evidence/gap-remediation/2026-11-14/native-clock-log-source-01",
         "evidence/hotline-server-1.9/(root)"
       ],
-      "reason": "cited by document, ledger, linked-document, script; required by 4 corpora"
+      "reason": "cited by document, ledger, script; required by 4 corpora"
     },
     {
       "path": "evidence/hotline-server-1.9/plans",

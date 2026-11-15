@@ -48,7 +48,9 @@ LEGACY_PYTHON = scripts
 MD_FILES = $(shell git ls-files --cached --others --exclude-standard '*.md' ':!:evidence/**')
 # gap-analysis.md is generated from gap-register.json; its layout belongs to the
 # renderer, so it is linted but never reflowed.
-MD_AUTHORED = $(filter-out gap-analysis.md,$(MD_FILES))
+# The validity ledger is hash-pinned by the evidence index, so it is never
+# reflowed either.
+MD_AUTHORED = $(filter-out gap-analysis.md docs/baseline-validity-ledger.md,$(MD_FILES))
 
 # The withheld-files gate needs the manifest that the evidence import creates;
 # until it exists the gate is skipped, with a message.
@@ -61,7 +63,12 @@ EVIDENCE_GATE = $(if $(wildcard evidence),sums-check lfs-check,evidence-skip)
 CURATION_GATE = $(if $(wildcard evidence/curation.json),curation-check,curation-skip)
 # Documents whose evidence citations must resolve, and the mothra commit that the
 # evidence was imported from (D22).
-CITING_ARGS ?= $(foreach f,$(filter-out gap-analysis.md,$(wildcard *.md)),--citing document=$(f)) \
+CITING_DOCS = $(filter-out gap-analysis.md,$(wildcard *.md)) \
+	$(filter-out docs/documentation-style-guide.md docs/baseline-validity-ledger.md,$(wildcard docs/*.md)) \
+	$(wildcard docs/delegation/*.md) \
+	$(filter-out docs/execplans/documentation-reconcilliation.md,$(wildcard docs/execplans/*.md))
+CITING_ARGS ?= $(foreach f,$(CITING_DOCS),--citing document=$(f)) \
+	$(if $(wildcard docs/baseline-validity-ledger.md),--citing ledger=docs/baseline-validity-ledger.md) \
 	$(if $(wildcard gap-register.json),--citing register=gap-register.json) \
 	$(foreach f,$(wildcard scripts/*.py),--citing script=$(f))
 IMPORT_COMMIT ?= f9b4108ec33e59956c9f2bfbd391dc3a8a279299

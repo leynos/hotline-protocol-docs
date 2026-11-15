@@ -33,4 +33,12 @@ ignore = [
 # Evidence is preserved byte for byte. The style guide is an upstream copy.
 # gap-analysis.md is generated from gap-register.json, whose recorded strings
 # are preserved as written.
-exclude = ["evidence/**", "docs/documentation-style-guide.md", "gap-analysis.md"]
+exclude = [
+  "evidence/**",
+  "docs/documentation-style-guide.md",
+  "gap-analysis.md",
+  # Hash-pinned by evidence/hotline-server-1.9; preserved byte for byte.
+  "docs/baseline-validity-ledger.md",
+  # Upstream patch text.
+  "patches/**",
+]

@@ -1,0 +1,41 @@
+# A189 R06 GUI bootstrap review
+
+Frozen C179 wrapper SHA-256
+`71741d5d49a9e5a90a711229141307947916fdb98b0744a5982ef0ba243be5f6`
+(100 lines); handoff SHA-256
+`7e90c7275f4a88ccb9f614c5fed68633bc3510e6dd47f8379bdb16d4f7fdecc4`.
+Read-only review; no display, VM, UI, service, socket, image or native
+protocol action was performed.
+
+## One concrete blocker
+
+The click loop sends Button1 down and later up, but `finally` only calls
+`XCloseDisplay`. A fault or interruption between those two sends can leave
+Button1 held on the owned Xvfb display. Add an unconditional Button1-up and
+flush in `finally` before closing the X connection, preserving the original
+exception if release itself fails. Root authorised a 104-line successor
+cap for this safeguard. This is a neutral release, not an extra GUI action.
+
+## Other checked boundaries
+
+- `scripts/mac_runtime.py` records display-service `command` with `--`
+  followed by `/usr/sbin/Xvfb :127 -screen 0 1024x768x24 -nolisten tcp
+  -ac -noreset`; wrapper comparison matches that actual interface. It
+  checks live service state, PID, UID, argv and saves display identity
+  before later action.
+- `native_emulator_readiness.py` disk receipt carries PID/start,
+  `working_inode`, executable SHA and namespace inode; wrapper rechecks
+  those against actual `/proc` and FD6, and checks FD16 if the lazy guest
+  capture receipt exists. It does not read working-image bytes.
+- The wrapper accepts only `capture`, `click`, `double-click` on :127 with
+  output under O06/guiboot. Every input requires a fresh screenshot path
+  and matching SHA within 30 seconds. The handoff requires human review
+  of the visible target before using retained R04 coordinates, and stops
+  on any unrecognised prompt or ambiguous target.
+- Inputs cover the witnessed Launcher title activation, known HLserver19
+  icon, one saver wake and visible Sounds Disabled OK. No Finder file
+  navigation, alias, account, settings or protocol action is included.
+
+**Disposition:** reject the frozen wrapper pending the one neutral-release
+correction; recheck exact successor hash and static syntax before any
+future bootstrap approval.

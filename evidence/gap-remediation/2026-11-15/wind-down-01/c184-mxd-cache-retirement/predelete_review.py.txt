@@ -1,0 +1,153 @@
+#!/usr/bin/env python3
+"""Fresh, read-only identity and reference gate for one retired Cargo target."""
+
+import collections
+import datetime as dt
+import json
+import os
+import stat
+from pathlib import Path
+
+BASE = Path("/data/leynos/Projects/mothra")
+ROOT = BASE / "state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target"
+C181 = BASE / "state/delegation/c181-mxd-target-audit"
+OUT = BASE / "state/delegation/c184-mxd-cache-retirement"
+
+
+def row(path):
+    info = path.lstat()
+    kind = ("file" if stat.S_ISREG(info.st_mode) else
+            "directory" if stat.S_ISDIR(info.st_mode) else
+            "symlink" if stat.S_ISLNK(info.st_mode) else "special")
+    return {"path": str(path.relative_to(ROOT)), "kind": kind,
+            "dev": info.st_dev, "inode": info.st_ino,
+            "uid": info.st_uid, "gid": info.st_gid,
+            "mode": oct(stat.S_IMODE(info.st_mode)), "nlink": info.st_nlink,
+            "size": info.st_size, "allocated": info.st_blocks * 512,
+            "mtime_ns": info.st_mtime_ns}
+
+
+def process_refs(keys):
+    refs, uncertain = [], []
+    prefix = str(ROOT) + "/"
+    for proc in Path("/proc").iterdir():
+        if not proc.name.isdigit():
+            continue
+        try:
+            pid = int(proc.name)
+            comm = (proc / "comm").read_text().strip()
+            for label in ("cwd", "root", "exe"):
+                item = proc / label
+                try:
+                    target = os.readlink(item)
+                    info = item.stat()
+                except OSError:
+                    continue
+                if target == str(ROOT) or target.startswith(prefix) or (info.st_dev, info.st_ino) in keys:
+                    refs.append({"pid": pid, "comm": comm, "kind": label,
+                                 "target": target, "inode": info.st_ino})
+            for fd in (proc / "fd").iterdir():
+                try:
+                    target = os.readlink(fd)
+                    info = fd.stat()
+                except OSError:
+                    continue
+                if target == str(ROOT) or target.startswith(prefix) or (info.st_dev, info.st_ino) in keys:
+                    refs.append({"pid": pid, "comm": comm, "kind": "fd", "fd": fd.name,
+                                 "target": target, "inode": info.st_ino})
+                try:
+                    fdinfo = (proc / "fdinfo" / fd.name).read_text()
+                except OSError:
+                    continue
+                for line in fdinfo.splitlines():
+                    if not line.startswith("inotify wd:"):
+                        continue
+                    fields = dict(part.split(":", 1) for part in line.split() if ":" in part)
+                    try:
+                        key = (int(fields["sdev"], 16), int(fields["ino"], 16))
+                    except (KeyError, ValueError):
+                        uncertain.append({"pid": pid, "fd": fd.name, "watch": line})
+                        continue
+                    if key in keys:
+                        refs.append({"pid": pid, "comm": comm, "kind": "inotify",
+                                     "fd": fd.name, "watch": line})
+            try:
+                maps = (proc / "maps").read_text()
+            except OSError:
+                maps = ""
+            for line in maps.splitlines():
+                if str(ROOT) in line:
+                    refs.append({"pid": pid, "comm": comm, "kind": "mapping", "line": line})
+        except OSError as error:
+            if proc.exists():
+                uncertain.append({"pid": proc.name, "reason": str(error)})
+    return refs, uncertain
+
+
+def main():
+    if os.geteuid() != 0:
+        raise PermissionError("root /proc census required")
+    baseline = {json.loads(line)["path"]: json.loads(line)
+                for line in (C181 / "file-inventory.jsonl").open()}
+    old = json.loads((C181 / "summary.json").read_text())
+    parents = []
+    for path in (BASE, BASE / "state", BASE / "state/delegation",
+                 BASE / "state/delegation/workspaces",
+                 BASE / "state/delegation/workspaces/batch-02-mxd",
+                 BASE / "state/delegation/workspaces/batch-02-mxd/mothra",
+                 BASE / "state/delegation/workspaces/batch-02-mxd/mothra/state",
+                 BASE / "state/delegation/workspaces/batch-02-mxd/mothra/state/delegation",
+                 ROOT):
+        info = path.lstat()
+        if not stat.S_ISDIR(info.st_mode) or info.st_dev != old["root_dev"]:
+            raise RuntimeError(f"Parent link/mount drift: {path}")
+        parents.append({"path": str(path), "dev": info.st_dev, "inode": info.st_ino})
+    if parents[-1]["inode"] != old["root_inode"]:
+        raise RuntimeError("Target root inode drift")
+    mountpoints = []
+    for line in Path("/proc/self/mountinfo").read_text().splitlines():
+        mountpoint = line.split()[4].replace("\\040", " ")
+        if mountpoint == str(ROOT) or mountpoint.startswith(str(ROOT) + "/"):
+            mountpoints.append(mountpoint)
+    current, groups, keys = {}, collections.defaultdict(list), {(old["root_dev"], old["root_inode"])}
+    for base, dirs, files in os.walk(ROOT, followlinks=False):
+        for name in sorted(dirs + files):
+            path = Path(base) / name
+            item = row(path)
+            rel = item["path"]
+            if rel in current:
+                raise RuntimeError(f"Duplicate path: {rel}")
+            current[rel] = item
+            keys.add((item["dev"], item["inode"]))
+            if item["kind"] not in ("file", "directory") or item["dev"] != old["root_dev"]:
+                raise RuntimeError(f"Unexpected type or mount: {rel}")
+            if item["kind"] == "file" and item["nlink"] > 1:
+                groups[(item["dev"], item["inode"])].append(rel)
+    if mountpoints or set(current) != set(baseline):
+        raise RuntimeError(f"Mount or path-set drift: mounts={mountpoints}, added={set(current)-set(baseline)}, missing={set(baseline)-set(current)}")
+    for rel, item in current.items():
+        expected = baseline[rel]
+        for key in ("kind", "dev", "inode", "uid", "gid", "mode", "nlink", "size", "allocated", "mtime_ns"):
+            if item[key] != expected[key]:
+                raise RuntimeError(f"Inventory drift: {rel} {key}: {item[key]} != {expected[key]}")
+    bad_groups = [paths for paths in groups.values() if len(paths) != current[paths[0]]["nlink"]]
+    if bad_groups or len(groups) != 67:
+        raise RuntimeError(f"Hardlink closure drift: groups={len(groups)}, bad={bad_groups}")
+    refs, uncertain = process_refs(keys)
+    result = {"checked_utc": dt.datetime.now(dt.UTC).isoformat(), "status": "pass" if not refs and not uncertain else "hold",
+              "root": str(ROOT), "parents": parents, "mountpoints_inside": mountpoints,
+              "files": sum(item["kind"] == "file" for item in current.values()),
+              "directories": sum(item["kind"] == "directory" for item in current.values()),
+              "hardlink_groups": len(groups), "hardlink_names": sum(map(len, groups.values())),
+              "allocated_path_sum": sum(item["allocated"] for item in current.values()),
+              "references": refs, "uncertain": uncertain}
+    OUT.mkdir(exist_ok=True)
+    (OUT / "fresh-inventory.jsonl").write_text("".join(json.dumps(current[k], sort_keys=True) + "\n" for k in sorted(current)))
+    (OUT / "predelete-review.json").write_text(json.dumps(result, indent=2) + "\n")
+    if result["status"] != "pass":
+        raise RuntimeError(f"Active or uncertain target references: {len(refs)}, {len(uncertain)}")
+    print(json.dumps({k: result[k] for k in ("status", "files", "directories", "hardlink_groups", "references", "uncertain")}))
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,116 @@
+#!/usr/bin/env python3
+"""Read-only metadata inventory of the single retired mxd Cargo target."""
+
+import collections
+import datetime as dt
+import json
+import os
+import stat
+from pathlib import Path
+
+ROOT = Path('/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target')
+OUT = Path('/data/leynos/Projects/mothra/state/delegation/c181-mxd-target-audit')
+
+
+def kind(mode):
+    if stat.S_ISREG(mode): return 'file'
+    if stat.S_ISDIR(mode): return 'directory'
+    if stat.S_ISLNK(mode): return 'symlink'
+    return 'special'
+
+
+def category(rel):
+    name = rel.name
+    if name in ('Cargo.toml','Cargo.lock','main.rs','.rustc_info.json','CACHEDIR.TAG'):
+        return 'generated-metadata'
+    if name.startswith('output') or name.endswith(('.log','.stderr','.stdout')):
+        return 'build-output'
+    if name.endswith(('.rlib','.rmeta','.o','.so','.a')): return 'object'
+    if name.endswith('.d'): return 'depfile'
+    if name.endswith('.json'): return 'fingerprint-json'
+    return 'other-cargo-artifact'
+
+
+def process_references(keys):
+    path_prefix = str(ROOT) + '/'
+    refs = []
+    watchers = []
+    uncertain = []
+    for proc in Path('/proc').iterdir():
+        if not proc.name.isdigit(): continue
+        pid = int(proc.name)
+        try:
+            comm = (proc/'comm').read_text().strip()
+            for label in ('cwd','root','exe'):
+                try: value = os.readlink(proc/label)
+                except OSError: continue
+                if value == str(ROOT) or value.startswith(path_prefix):
+                    refs.append({'pid':pid,'comm':comm,'link':label,'path':value})
+            fdroot = proc/'fd'
+            for fd in fdroot.iterdir():
+                try: value = os.readlink(fd)
+                except OSError: continue
+                if value == str(ROOT) or value.startswith(path_prefix):
+                    refs.append({'pid':pid,'comm':comm,'link':'fd/'+fd.name,'path':value})
+                try: info = (proc/'fdinfo'/fd.name).read_text()
+                except OSError: continue
+                if 'inotify wd:' not in info: continue
+                for line in info.splitlines():
+                    if not line.startswith('inotify wd:'): continue
+                    fields = {}
+                    for part in line.split():
+                        if ':' in part:
+                            k,v=part.split(':',1)
+                            if v: fields[k]=v
+                    try: key=(int(fields['sdev'],16),int(fields['ino'],16))
+                    except (KeyError,ValueError):
+                        uncertain.append({'pid':pid,'fd':fd.name,'line':line}); continue
+                    if key in keys:
+                        watchers.append({'pid':pid,'comm':comm,'fd':fd.name,'watch':line})
+        except (OSError,PermissionError):
+            uncertain.append({'pid':pid,'reason':'proc walk incomplete'})
+    return refs,watchers,uncertain
+
+
+def main():
+    if os.geteuid()!=0: raise PermissionError('root /proc visibility required')
+    if ROOT.is_symlink() or not ROOT.is_dir(): raise ValueError('target root changed')
+    OUT.mkdir(exist_ok=True)
+    target=ROOT.lstat(); keys={(target.st_dev,target.st_ino)}
+    counts=collections.Counter(); allocated=collections.Counter(); logical=collections.Counter()
+    anomalies=[]; candidates=[]; top=collections.Counter()
+    inventory=OUT/'file-inventory.jsonl'
+    if inventory.exists(): raise FileExistsError(inventory)
+    with inventory.open('x') as stream:
+        for base,dirs,files in os.walk(ROOT,followlinks=False):
+            for name in sorted(dirs+files):
+                path=Path(base)/name; rel=path.relative_to(ROOT); info=path.lstat()
+                klass=kind(info.st_mode); cat=category(rel) if klass=='file' else klass
+                row={'path':str(rel),'kind':klass,'category':cat,'dev':info.st_dev,
+                     'inode':info.st_ino,'uid':info.st_uid,'gid':info.st_gid,
+                     'mode':oct(stat.S_IMODE(info.st_mode)),'nlink':info.st_nlink,
+                     'size':info.st_size,'allocated':info.st_blocks*512,
+                     'mtime_ns':info.st_mtime_ns}
+                if klass=='symlink': row['target']=os.readlink(path)
+                stream.write(json.dumps(row,sort_keys=True)+'\n')
+                keys.add((info.st_dev,info.st_ino))
+                counts[cat]+=1; allocated[cat]+=row['allocated']; logical[cat]+=info.st_size
+                top[rel.parts[0]]+=row['allocated']
+                if info.st_dev!=target.st_dev or klass in ('symlink','special') or (klass=='file' and info.st_nlink!=1):
+                    anomalies.append(row)
+                if klass=='file' and cat=='generated-metadata': candidates.append(row)
+    refs,watchers,uncertain=process_references(keys)
+    result={'checked_utc':dt.datetime.now(dt.UTC).isoformat(),
+            'root':str(ROOT),'root_dev':target.st_dev,'root_inode':target.st_ino,
+            'root_uid':target.st_uid,'root_gid':target.st_gid,
+            'counts':counts,'allocated':allocated,'logical':logical,'top_allocated':top,
+            'anomalies':anomalies,'small_metadata_candidates':candidates,
+            'process_path_references':refs,'inotify_watchers':watchers,
+            'proc_scan_uncertain':uncertain}
+    (OUT/'summary.json').write_text(json.dumps(result,indent=2,default=dict)+'\n')
+    print(json.dumps({'files':sum(1 for x in inventory.open()),
+                      'allocated':sum(allocated.values()),'path_refs':len(refs),
+                      'watchers':len(watchers),'anomalies':len(anomalies)}))
+
+
+if __name__=='__main__': main()

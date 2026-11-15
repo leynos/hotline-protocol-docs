@@ -1,0 +1,12 @@
+{
+  "status": "passed_no_delete_performed",
+  "checked_utc": "2026-11-14T23:46:23.330674+00:00",
+  "root": "/data/leynos/Projects/mothra/state/protocol-exports",
+  "root_inode": 4374633087,
+  "packages": 42,
+  "files": 210,
+  "inventory_sha256": "a212996f8542518b7dbc8973c7ef9253e88157639880902736573960b7f2bbc2",
+  "parity_sha256": "619ffbd766890ee5eca1edc7bdd3f1ab3b2d70b7498ce8e77703b8573f88e192",
+  "recovery_commit": "e8e27d7",
+  "references": []
+}

@@ -1,0 +1,18 @@
+# A189 C180 bootstrap successor review
+
+C180 preserves the rejected 100-line draft as `.as-prepared.txt` and
+freezes a 104-line successor at SHA-256
+`5d31815580b0ac1a4fb95a00d52c3ef61157cace8f543f8acfc4f326064615ed`.
+The handoff SHA-256 is
+`4a66aaab09dfdd5d946586dbbe1f46535a775e83376e60a4f84095fef9ba2f8f`.
+
+The input `finally` now unconditionally sends Button1-up and flushes X11
+before closing the display. If a click fault is already pending, a later
+release exception does not replace it; if only release fails, it propagates.
+The reviewed script parses as Python AST and passes Ruff. C180 reports its
+no-X model passed interrupted-down, dual-failure and release-only faults.
+No other input capability or R06 state transition was added.
+
+**Disposition:** narrow bootstrap source review passes. Fresh screenshot
+inspection, parent source pin and a separate live grant remain mandatory.
+No UI, service, VM, image or native protocol action was performed here.

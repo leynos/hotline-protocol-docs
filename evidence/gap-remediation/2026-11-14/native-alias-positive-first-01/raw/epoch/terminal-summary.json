@@ -1,0 +1,22 @@
+{
+  "checked_utc": "2026-11-14T16:40:22.925257+00:00",
+  "status": "pre_alias_case_failed_no_alias_created",
+  "case_failure": "ValueError: Reviewed Finder receipt absent",
+  "case_exit": 1,
+  "actual_emulator_pid": 2881568,
+  "actual_emulator_start_ticks": 9866291,
+  "actual_emulator_gone": true,
+  "owned_working_fuser_exit": 1,
+  "original_ticks_unchanged": {
+    "1099659": 767842,
+    "1012834": 2357813
+  },
+  "primary_pcap_bytes": 24,
+  "host_capture_packets": 0,
+  "host_drop_packets": 0,
+  "namespace_capture_packets": 51,
+  "namespace_drop_packets": 0,
+  "no_alias_copy_getinfo_or_host_unlink": true,
+  "screen_saver_wake": "one guarded blank click at 450,300 after guarded move did not wake",
+  "limitation": "Operator did not positively identify Unix target before 110-second input cutoff; no native alias rejection observed"
+}

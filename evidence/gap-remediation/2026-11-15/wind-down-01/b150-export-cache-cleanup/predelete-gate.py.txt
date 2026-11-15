@@ -1,0 +1,218 @@
+#!/usr/bin/env python3
+"""Read-only root gate for the one protocol-exports cache root."""
+
+import hashlib
+import json
+import os
+import stat
+import subprocess
+from datetime import datetime, timezone
+from pathlib import Path
+
+BASE = Path('/data/leynos/Projects/mothra')
+ROOT = BASE / 'state/protocol-exports'
+AUDIT = BASE / 'state/delegation/b150-export-cache-cleanup'
+RECOVERY = AUDIT / 'recovery'
+COMMITTED = BASE / 'evidence/gap-remediation/2026-11-14/export-cache-recovery-03'
+COMMIT = 'e8e27d7'
+INVENTORY_SHA = 'a212996f8542518b7dbc8973c7ef9253e88157639880902736573960b7f2bbc2'
+PARITY_SHA = '619ffbd766890ee5eca1edc7bdd3f1ab3b2d70b7498ce8e77703b8573f88e192'
+ROOT_INODE = 4374633087
+EXPECTED_PACKAGES = 42
+EXPECTED_FILES = 210
+NAMES = {'mothra.tar.gz', 'hotline-protocol-docs.tar.gz',
+         'manifest.json', 'README.txt', 'SHA256SUMS'}
+OUT = AUDIT / 'predelete-gate.json'
+
+
+def sha(path):
+    digest = hashlib.sha256()
+    with path.open('rb') as stream:
+        while chunk := stream.read(1024 * 1024):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def git_blob(revision, path):
+    return subprocess.run(['git', '-C', str(BASE), 'show',
+                           f'{revision}:{path.relative_to(BASE)}'],
+                          capture_output=True, check=True).stdout
+
+
+def recovery_gate():
+    if sha(AUDIT / 'recovery/full-inventory.json') != INVENTORY_SHA:
+        raise ValueError('recovered full inventory changed')
+    if sha(BASE / 'state/delegation/b149-protocol-exports-inventory.json') != INVENTORY_SHA:
+        raise ValueError('source inventory changed')
+    if sha(RECOVERY / 'archive-parity.json') != PARITY_SHA:
+        raise ValueError('raw tar parity receipt changed')
+    for path, expected in ((COMMITTED / 'full-inventory.json', INVENTORY_SHA),
+                           (COMMITTED / 'archive-parity.json', PARITY_SHA)):
+        if sha(path) != expected:
+            raise ValueError(f'committed recovery differs: {path}')
+        for revision in (COMMIT, 'HEAD'):
+            if hashlib.sha256(git_blob(revision, path)).hexdigest() != expected:
+                raise ValueError(f'Git recovery differs at {revision}: {path}')
+    if subprocess.run(['git', '-C', str(BASE), 'merge-base', '--is-ancestor',
+                       COMMIT, 'HEAD'], check=False).returncode:
+        raise ValueError('recovery commit not in HEAD history')
+    inventory = json.loads((RECOVERY / 'full-inventory.json').read_text())
+    parity = json.loads((RECOVERY / 'archive-parity.json').read_text())
+    if (inventory['status'] != 'read_only_complete' or inventory['root'] != str(ROOT)
+            or inventory['root_inode'] != ROOT_INODE
+            or inventory['package_count'] != EXPECTED_PACKAGES
+            or inventory['file_count'] != EXPECTED_FILES or inventory['issues']
+            or parity['status'] != 'recovered_metadata_and_raw_git_parity'
+            or parity['metadata_count'] != EXPECTED_PACKAGES * 3
+            or parity['archive_count'] != EXPECTED_PACKAGES * 2):
+        raise ValueError('inventory or parity structure drift')
+    metadata = {(row['package'], row['name']): row for row in parity['metadata']}
+    archives = {(row['package'], row['archive']): row for row in parity['archives']}
+    if len(metadata) != EXPECTED_PACKAGES * 3 or len(archives) != EXPECTED_PACKAGES * 2:
+        raise ValueError('duplicate recovered metadata/archive rows')
+    for item in inventory['packages']:
+        name = item['name']
+        for file in item['files']:
+            key = (name, file['name'])
+            if file['name'] in ('mothra.tar.gz', 'hotline-protocol-docs.tar.gz'):
+                row = archives[key]
+                if (row['archive_sha256'] != file['sha256']
+                        or not row['matches_git_archive']):
+                    raise ValueError(f'raw tar parity binding changed: {key}')
+                continue
+            row = metadata[key]
+            original = ROOT / name / file['name']
+            local = RECOVERY / 'packages' / name / file['name']
+            committed = COMMITTED / 'packages' / name / file['name']
+            if (row['sha256'] != file['sha256'] or row['size'] != file['size']
+                    or sha(original) != row['sha256'] or sha(local) != row['sha256']
+                    or sha(committed) != row['sha256']):
+                raise ValueError(f'metadata recovery drift: {key}')
+            for revision in (COMMIT, 'HEAD'):
+                if hashlib.sha256(git_blob(revision, committed)).hexdigest() != row['sha256']:
+                    raise ValueError(f'committed metadata drift: {key}')
+        manifest = json.loads((ROOT / name / 'manifest.json').read_text())
+        if (len(manifest['repositories']) != 2 or name != '-'.join(
+                row['commit'][:12] for row in manifest['repositories'])):
+            raise ValueError(f'package commit mapping changed: {name}')
+        for row in manifest['repositories']:
+            repo = BASE if row['repository'] == 'mothra' else BASE.parent / 'hotline-protocol-docs'
+            if row['repository'] not in ('mothra', 'hotline-protocol-docs'):
+                raise ValueError(f'unknown repository: {name}')
+            if (row['sha256'] != archives[(name, row['archive'])]['archive_sha256']
+                    or row['commit'] != archives[(name, row['archive'])]['commit']
+                    or subprocess.run(['git', '-C', str(repo), 'merge-base',
+                                       '--is-ancestor', row['commit'], 'HEAD'],
+                                      check=False).returncode):
+                raise ValueError(f'archive source commit drift: {name}')
+    return inventory, parity
+
+
+def boundary_scan(inventory):
+    rootinfo = ROOT.lstat()
+    if (ROOT.is_symlink() or not stat.S_ISDIR(rootinfo.st_mode)
+            or (rootinfo.st_ino, rootinfo.st_uid, rootinfo.st_gid) != (
+                ROOT_INODE, 1000, 1000)):
+        raise ValueError('root identity drift')
+    actual_dirs = {p.name for p in ROOT.iterdir()}
+    expected_dirs = {item['name'] for item in inventory['packages']}
+    if actual_dirs != expected_dirs:
+        raise ValueError('complete package-directory set changed')
+    keys = {(rootinfo.st_dev, rootinfo.st_ino)}
+    for item in inventory['packages']:
+        package = ROOT / item['name']
+        info = package.lstat()
+        keys.add((info.st_dev, info.st_ino))
+        if (package.is_symlink() or not stat.S_ISDIR(info.st_mode)
+                or (info.st_dev, info.st_ino, info.st_uid, info.st_gid) != (
+                    item['dev'], item['inode'], item['uid'], item['gid'])):
+            raise ValueError(f'package directory changed: {package}')
+        files = {p.name for p in package.iterdir()}
+        if files != NAMES or {row['name'] for row in item['files']} != NAMES:
+            raise ValueError(f'complete file set changed: {package}')
+        for row in item['files']:
+            path = package / row['name']
+            s = path.lstat()
+            keys.add((s.st_dev, s.st_ino))
+            if (path.is_symlink() or not stat.S_ISREG(s.st_mode) or s.st_nlink != 1
+                    or s.st_dev != rootinfo.st_dev or s.st_ino != row['inode']
+                    or s.st_size != row['size'] or sha(path) != row['sha256']):
+                raise ValueError(f'file identity/content changed: {path}')
+    return keys
+
+
+def live_references(keys):
+    under = lambda p: p == str(ROOT) or p.startswith(str(ROOT) + '/')
+    mounts = [line.split()[4].replace('\\040', ' ') for line in
+              Path('/proc/self/mountinfo').read_text().splitlines()]
+    if any(under(p) for p in mounts):
+        raise ValueError('candidate includes mount')
+    for repo in (BASE, BASE.parent / 'hotline-protocol-docs'):
+        output = subprocess.run(['git', '-C', str(repo), 'worktree', 'list',
+                                 '--porcelain'], capture_output=True, text=True,
+                                check=True).stdout
+        if any(under(line[9:]) for line in output.splitlines() if line.startswith('worktree ')):
+            raise ValueError('candidate is Git worktree')
+    hits = []
+    for proc in Path('/proc').iterdir():
+        if not proc.name.isdigit():
+            continue
+        for kind in ('cwd', 'root'):
+            try:
+                target = os.readlink(proc / kind)
+            except OSError:
+                continue
+            if under(target):
+                hits.append((proc.name, kind, target))
+        try:
+            fds = list((proc / 'fd').iterdir())
+        except OSError:
+            continue
+        for fd in fds:
+            try:
+                target = os.readlink(fd)
+            except OSError:
+                continue
+            if under(target):
+                hits.append((proc.name, 'fd', target))
+            try:
+                lines = (proc / 'fdinfo' / fd.name).read_text().splitlines()
+            except OSError:
+                continue
+            for line in lines:
+                if not line.startswith('inotify wd:'):
+                    continue
+                fields = dict(part.split(':', 1) for part in line.split() if ':' in part)
+                if ('ino' in fields and 'sdev' in fields
+                        and (int(fields['sdev'], 16), int(fields['ino'], 16)) in keys):
+                    hits.append((proc.name, 'inotify', line))
+        try:
+            cmd = (proc / 'cmdline').read_bytes().decode(errors='replace')
+        except OSError:
+            cmd = ''
+        if str(ROOT) in cmd:
+            hits.append((proc.name, 'cmdline', 'match'))
+    return hits
+
+
+def main():
+    if os.geteuid() != 0:
+        raise PermissionError('root /proc coverage required')
+    inventory, _ = recovery_gate()
+    keys = boundary_scan(inventory)
+    hits = live_references(keys)
+    if hits:
+        raise ValueError(f'live references: {hits[:3]}')
+    proof = {'status': 'passed_no_delete_performed',
+             'checked_utc': datetime.now(timezone.utc).isoformat(),
+             'root': str(ROOT), 'root_inode': ROOT_INODE,
+             'packages': EXPECTED_PACKAGES, 'files': EXPECTED_FILES,
+             'inventory_sha256': INVENTORY_SHA, 'parity_sha256': PARITY_SHA,
+             'recovery_commit': COMMIT, 'references': hits}
+    OUT.write_text(json.dumps(proof, indent=2) + '\n')
+    print(json.dumps({'status': proof['status'], 'files': proof['files'],
+                      'references': len(hits)}))
+
+
+if __name__ == '__main__':
+    main()

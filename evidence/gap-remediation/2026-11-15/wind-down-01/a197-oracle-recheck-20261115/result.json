@@ -1,0 +1,11 @@
+{
+  "queried_at_utc": "2026-11-15T00:34:32.847090+00:00",
+  "base": "http://127.0.0.1:8080/",
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/health",
+      "transport_error": "ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /health (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=8080): Failed to establish a new connection: [Errno 111] Connection refused\"))"
+    }
+  ]
+}

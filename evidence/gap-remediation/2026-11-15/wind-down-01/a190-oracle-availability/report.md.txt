@@ -1,0 +1,21 @@
+# A190 Ghidra GUI oracle availability
+
+At 2026-11-14 23:48:02 UTC, `.mcp.json` selected the repository-local
+`ghidra-mcp` launcher with backend `http://127.0.0.1:8080/`. The retained
+server identity expected for Hotline Server 1.9 is SHA-256
+`ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`,
+PowerPC big-endian 32-bit, 1,840 functions. The separately identified
+Classic client candidate has DATA SHA-256 beginning `7f286e` and 3,564
+functions; it is a different program identity.
+
+One nonblocking canonical oracle-lock acquisition succeeded. The sole
+HTTP GET `/health` attempt returned connection refused at 127.0.0.1:8080.
+The exact transport exception and timestamp are retained in `result.json`;
+there is no HTTP response body to save. The probe stopped there and did
+not call `/program_info`, because health was unavailable. Active program
+identity therefore remains **unverified**.
+
+No backend, project, GUI process or native protocol state was changed.
+No restart, import, analysis, retry loop or gap closure followed. Future
+oracle work needs an independently approved available backend and fresh
+program identity check before any content query.

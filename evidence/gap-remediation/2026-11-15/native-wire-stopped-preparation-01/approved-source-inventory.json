@@ -1,0 +1,69 @@
+{
+  "a7": {
+    "evidence/gap-remediation/2026-11-14/native-121-defaults-01/preflight/plan.json": "5d0aa3dccf65fc6523678aa729c9ace72cd6caffbef768b7f5bf949e6568b43e"
+  },
+  "composer": {
+    "state/delegation/b145-broadcast-boundary/compose.py": "ec91a096a144a0e2243a70cd1f20e769a596c76de3b3e4bd0914077130a0cb6d"
+  },
+  "mothra": {
+    "scripts/capture_readiness.py": "0ad1b5fbaf2e6c030c5870d2919cb643d6fee86f8e90a78a8415ef9f679b45bc",
+    "scripts/mac_network_isolation.py": "2c9eecb35d2c11f8f2e9878f9938c0e0a24129a45ee6b546da87cdd46a666bbb",
+    "scripts/mac_runtime.py": "c507d264cc0bcebdb1a8a456d6076294f805ef91f03e53fd5a8478507421d88b",
+    "scripts/native_capture_receipt.py": "d29e2e4ffe9eed9dd88a3475283520cc5770773a3f973561915875364557121e",
+    "scripts/native_emulator_readiness.py": "56200bfe9dcf779bb72e2a711a0ce98bb9351f5f42dc57245a40d1dd603cca7e"
+  },
+  "ops": {
+    "state/native-sessions/native-wire-boundary-preparation-06/boot-wire-06.sh": "0f53dd6ffb7a48404cda3c7ac1e0232f745a9620d3967b08e69db1d2a9a5d86f",
+    "state/native-sessions/native-wire-boundary-preparation-06/build-runtime-wire-06.py": "f2025d8d0b57dc9763710c3fd5418152bb55b928ae8db4097d2a9b6adbc7cb9d",
+    "state/native-sessions/native-wire-boundary-preparation-06/candidate-wire-06.py": "40762d3391bd8bcf1d8ce22a0d1301c152f4a1bc59462c04200188d4e712ae2e",
+    "state/native-sessions/native-wire-boundary-preparation-06/check-cutoff-wire-06.py": "2e361f3450582776e88ebf922b200d0be1c7a1aa55261d2f3c6dfb03fc4c406f",
+    "state/native-sessions/native-wire-boundary-preparation-06/complete-wire-06.sh": "8b746c4557133fee32f3a283b35eab695bf9de634958ac6210e7c6058f672324",
+    "state/native-sessions/native-wire-boundary-preparation-06/launch-observe-wire-06.sh": "b729fdd2649470d75f03ed091e82798bbc5e5f94573f0275b4c2acef146d7c26",
+    "state/native-sessions/native-wire-boundary-preparation-06/retire-wire-06.sh": "20bf39d080df3f49df6ca80eec021d2130175f3d5e0e0abc96a6c6a97d02990e",
+    "state/native-sessions/native-wire-boundary-preparation-06/run-a7-wire-06.sh": "4d0a127400681c3202338a71fa1e8addc537ed8a89307dc5e385e4b892d4206e",
+    "state/native-sessions/native-wire-boundary-preparation-06/run-observe-wire-06.sh": "47f493fec82d8b231be7fca11f953dcc541312ae72398b1118b65abe7cc00af8",
+    "state/native-sessions/native-wire-boundary-preparation-06/wait-managed-wire-06.py": "54292438ee498b109efe5b97d59fceae9552913e9949ee8c9c28b0cba2e60308"
+  },
+  "protocol": {
+    "scripts/native_account_update_cases.py": "52e22dd5615b881901bdeb7c78da47c8b85e7a3fa973bded77230ef40d7da52a",
+    "scripts/native_alias_cases.py": "4fc894876d775359131b86c2d4662d77dc86787d62fe7952e8027cf5669f9c62",
+    "scripts/native_auth_cases.py": "adb3eaf2d949aafd6c5605c80fa01ae882e2b2f603dc280ad8ae2c71d22179a7",
+    "scripts/native_ban_control_cases.py": "3df9ba8f86f9701842da820f6c2cdbc3d2e935a4392090c6b6c01a799ab3c144",
+    "scripts/native_ban_expiry_cases.py": "b55180ed77b4eb780e2a28decbb113db3442f939410a0c78e1ce9567296e3bc2",
+    "scripts/native_ban_expiry_control.py": "ff2cdf6a9178b3b9007e02c5b7adac669a1b0972a1e9309b35db5be5d5bce5d4",
+    "scripts/native_banner_cases.py": "5899e0a33af267c110f2ef7faa376c2790f16c2adfd081390879d0ad5ffc39a5",
+    "scripts/native_control_readiness.py": "afb2dcbabae9765b9708efa21e4e3d7ff74ad33e90bee0f03d953cfa95d1c1da",
+    "scripts/native_filp.py": "4712f522af6f378d1fc07c5db3128767734cb727b8509b5fddcad1b3a079c0f1",
+    "scripts/native_folder_cases.py": "c26ddc3a4d83ca7c764ec1746d1acb3841cb51b775d835c80f6132ab859733c8",
+    "scripts/native_framing_cases.py": "fbb2d023be35f90a3f5c09b17d28295be27f451a4031efb365553cda3038c845",
+    "scripts/native_live_account_cases.py": "0bf5031b7c0872fef5dafd0ad1498771a543d64010062bf5eee8d15469445cce",
+    "scripts/native_metadata_cases.py": "a24b43e544fce546cf53efa4c678bfc766fea3533d5ba452ebd5813a403dba03",
+    "scripts/native_mkdir_cases.py": "2d4cf707f0fcf7b12e0fe8c57c3502e8a2f5bb619288a5a3d57828d8280db0cd",
+    "scripts/native_news_decode.py": "e38355d9395255db391b2c8b57d972ad828915906bcb1b42da8226f36268cd56",
+    "scripts/native_news_delete_cases.py": "c664b292c5fb4021e3a1d8b41a58682afe0738ac40cfc0e534869b66e3d00956",
+    "scripts/native_packet_evidence.py": "db12bb46aa662af4cd7d5b009b74081c67215b05c4cc481ef84a38b314086412",
+    "scripts/native_plan.py": "770ec5eedb850add8ecbccecf0c84a763d316883a33e71be224fa55ca1627895",
+    "scripts/native_pm_cases.py": "204ac49850d223cb031f490d98014041c4c5516ef1191e04bfdf3586d1a7324c",
+    "scripts/native_queue_cases.py": "7061adbeb93f6b1ee986f045fe95e12a896c43dad53c5c70f5bcd4935d438064",
+    "scripts/native_resume_cases.py": "68d1a71b01f266640f0019d31726d806e81ef6320d7dd11239db310288b406d7",
+    "scripts/native_settings_cases.py": "19f42b355002c78780bd18046cb5a175d9979148f6eda786d5a205531c28d536",
+    "scripts/native_transfer_cases.py": "2b685a4b2889c0ed57e16a493888f290d1054785e7cbe713110f1ce4b52fa0dc",
+    "scripts/pcap_tcp.py": "04c4fda2e62ccab35ed306c036dac6b1878af58adbfaccc6312a2805dd6897d7",
+    "scripts/protocol_capture.py": "2fba0972f4d9a8e3845c4204dce150dd7c90da0e19a9e5720d5289e2c94faf01",
+    "scripts/shx_syscalls.py": "6ba453fdaf8db468eab77990d3cb42171ed5df5679a92bd868724558f25d73c5",
+    "scripts/verify_native_account_updates.py": "3b5d42e9861c495241de7dc2457e787cbc840441fe4f935564a9324f584a8ef6",
+    "scripts/verify_native_article_deletion.py": "9cd2cf9cfee53c3e8fbd9dd01fdae0bc2b48c6f9d91ed3e5a7ffdfde981472c6",
+    "scripts/verify_native_auth.py": "a16bb58857623d2c4260fe00202b9f633983d8dd069c87e99912a6f00e5134c5",
+    "scripts/verify_native_banners.py": "362999691a1d158ea5a5ea6a0e72e56511de3f92e6784dd7a24978bdd8c4c1cf",
+    "scripts/verify_native_core.py": "17f37563f924ec577db800999f2d0ca8d96c7aaf9fc1fe2b7a52e79b7aaf2283",
+    "scripts/verify_native_framing.py": "0a46468846243b8232420b0f45fceb238de73d8a1904f4a4241b9d2ae3397855",
+    "scripts/verify_native_mkdir.py": "d9d7d6622d0fdcf387a9fe59c563d5432477032682953a41b16577ca18425e51",
+    "scripts/verify_native_settings.py": "f908ad925f0534f55f8aa9b5b21a652081f04fd60558d9c2cc480fa5202712fc",
+    "scripts/verify_native_settings_corpus.py": "60ffd5daf7989de0aaf2c8118afbe7df393fc818724bd33047def42939f9de75",
+    "scripts/verify_native_shx.py": "32d2f6fa2a4b03bb8be9f80400c3d678f05741a6ffc772d9b5d8d79333bc61ef"
+  },
+  "schema": "wire06-source-approval-v1",
+  "stopped_prep": {
+    "state/native-sessions/native-wire-boundary-preparation-06/prepare-required-reflink-06.py": "b9f26aa510f706d10e491de04cb96a92fa2abfcf1076153871320e1cac99a72c"
+  }
+}

@@ -1,0 +1,14 @@
+{"action": "click", "before_utc": "2026-11-14T16:33:20.068815+00:00", "phase": "startup", "status": "attempted", "x": 692, "y": 323}
+{"action": "click", "after_utc": "2026-11-14T16:33:20.605135+00:00", "before_utc": "2026-11-14T16:33:20.068815+00:00", "phase": "startup", "status": "completed", "x": 692, "y": 323}
+{"action": "double-click", "before_utc": "2026-11-14T16:33:55.578247+00:00", "phase": "startup", "status": "attempted", "x": 958, "y": 70}
+{"action": "double-click", "after_utc": "2026-11-14T16:33:56.225400+00:00", "before_utc": "2026-11-14T16:33:55.578247+00:00", "phase": "startup", "status": "completed", "x": 958, "y": 70}
+{"action": "double-click", "before_utc": "2026-11-14T16:34:05.641471+00:00", "phase": "startup", "status": "attempted", "x": 585, "y": 168}
+{"action": "double-click", "after_utc": "2026-11-14T16:34:06.305008+00:00", "before_utc": "2026-11-14T16:34:05.641471+00:00", "phase": "startup", "status": "completed", "x": 585, "y": 168}
+{"action": "double-click", "before_utc": "2026-11-14T16:34:23.823103+00:00", "phase": "startup", "status": "attempted", "x": 390, "y": 233}
+{"action": "double-click", "after_utc": "2026-11-14T16:34:24.586293+00:00", "before_utc": "2026-11-14T16:34:23.823103+00:00", "phase": "startup", "status": "completed", "x": 390, "y": 233}
+{"action": "click", "before_utc": "2026-11-14T16:34:36.981297+00:00", "phase": "startup", "status": "attempted", "x": 627, "y": 311}
+{"action": "click", "after_utc": "2026-11-14T16:34:37.388369+00:00", "before_utc": "2026-11-14T16:34:36.981297+00:00", "phase": "startup", "status": "completed", "x": 627, "y": 311}
+{"action": "move", "before_utc": "2026-11-14T16:37:17.204577+00:00", "phase": "case", "status": "attempted", "x": 450, "y": 300}
+{"action": "move", "after_utc": "2026-11-14T16:37:17.363910+00:00", "before_utc": "2026-11-14T16:37:17.204577+00:00", "phase": "case", "status": "completed", "x": 450, "y": 300}
+{"action": "click", "before_utc": "2026-11-14T16:37:31.736216+00:00", "phase": "case", "status": "attempted", "x": 450, "y": 300}
+{"action": "click", "after_utc": "2026-11-14T16:37:36.483599+00:00", "before_utc": "2026-11-14T16:37:31.736216+00:00", "phase": "case", "status": "completed", "x": 450, "y": 300}

@@ -1,0 +1,23 @@
+{
+  "unit": "mothra-bridge-167969fb2aa3",
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=mothra-bridge-167969fb2aa3",
+    "--collect",
+    "--service-type=exec",
+    "--property=WorkingDirectory=/data/leynos/Projects/mothra",
+    "--property=StandardOutput=append:/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-01/isolated-network/bridge-service.log",
+    "--property=StandardError=append:/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-01/isolated-network/bridge-service.log",
+    "--property=Restart=no",
+    "--",
+    "/usr/sbin/python3",
+    "/data/leynos/Projects/mothra/scripts/mac_network_isolation.py",
+    "host-bridge",
+    "--socket",
+    "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-01/isolated-network/bridge.sock",
+    "--target-port",
+    "15500"
+  ],
+  "readiness": "Check systemctl --user show and the actual display/listener; no automatic restart"
+}

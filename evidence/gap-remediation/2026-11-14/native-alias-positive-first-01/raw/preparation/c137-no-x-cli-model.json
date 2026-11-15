@@ -1,0 +1,11 @@
+{
+  "rejected": {
+    "unknown_action": 2,
+    "left_of_screen": 1,
+    "right_of_screen": 1,
+    "below_screen": 1,
+    "up_with_coordinates": 1,
+    "case_escape": 1
+  },
+  "no_display_opened": true
+}

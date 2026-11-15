@@ -1,0 +1,85 @@
+"""No-delete synthetic controls for the exact export-root cleanup."""
+
+import hashlib
+import importlib.util
+import io
+import json
+import os
+import tempfile
+from pathlib import Path
+from unittest.mock import patch
+
+HERE = Path(__file__).parent
+
+
+def load(name, label):
+    spec = importlib.util.spec_from_file_location(label, HERE / name)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+gate = load('predelete-gate.py', 'b150_gate_model')
+cleanup = load('cleanup-one.py', 'b150_cleanup_model')
+
+
+def fixture(base):
+    root = base / 'exports'
+    pkg = root / 'one-package'
+    pkg.mkdir(parents=True)
+    rows = []
+    for name in sorted(gate.NAMES):
+        file = pkg / name
+        raw = ('reviewed-' + name).encode()
+        file.write_bytes(raw)
+        info = file.stat()
+        rows.append({'name': name, 'inode': info.st_ino, 'size': info.st_size,
+                     'sha256': hashlib.sha256(raw).hexdigest()})
+    info = pkg.stat()
+    inv = {'packages': [{'name': pkg.name, 'dev': info.st_dev, 'inode': info.st_ino,
+                         'uid': info.st_uid, 'gid': info.st_gid, 'files': rows}]}
+    return root, pkg, inv, {row['name']: (pkg / row['name']).read_bytes() for row in rows}
+
+
+with tempfile.TemporaryDirectory(prefix='b150-extra-') as temp:
+    root, pkg, inv, original = fixture(Path(temp))
+    (pkg / 'extra').write_bytes(b'late unique')
+    calls = []
+    with patch.object(gate, 'ROOT', root), patch.object(cleanup, 'ROOT', root), \
+            patch.object(gate, 'ROOT_INODE', root.stat().st_ino), \
+            patch.object(cleanup, 'ROOT_INODE', root.stat().st_ino), \
+            patch.object(os, 'unlink', side_effect=lambda *a, **k: calls.append((a, k))):
+        try:
+            cleanup.prepare(gate, inv)
+        except ValueError as error:
+            assert 'complete file set changed' in str(error)
+        else:
+            raise AssertionError('extra file passed complete-set check')
+    assert not calls and all((pkg / name).read_bytes() == raw for name, raw in original.items())
+
+with tempfile.TemporaryDirectory(prefix='b150-symlink-') as temp:
+    base = Path(temp)
+    root, pkg, inv, original = fixture(base)
+    outside = base / 'outside'
+    outside.mkdir()
+    for name, raw in original.items():
+        (outside / name).write_bytes(raw)
+    with patch.object(gate, 'ROOT', root), patch.object(cleanup, 'ROOT', root), \
+            patch.object(gate, 'ROOT_INODE', root.stat().st_ino), \
+            patch.object(cleanup, 'ROOT_INODE', root.stat().st_ino):
+        fd = cleanup.prepare(gate, inv)
+        pkg.rename(root / 'old-package')
+        pkg.symlink_to(outside, target_is_directory=True)
+        calls = []
+        with patch.object(os, 'unlink', side_effect=lambda *a, **k: calls.append((a, k))):
+            try:
+                cleanup.remove(fd, inv, io.StringIO())
+            except (OSError, ValueError):
+                pass
+            else:
+                raise AssertionError('symlink parent passed no-follow open')
+        os.close(fd)
+        assert not calls and all((outside / name).read_bytes() == raw for name, raw in original.items())
+
+print(json.dumps({'extra_file': 'rejected_before_unlink',
+                  'symlink_parent': 'rejected_before_unlink', 'unlink_calls': 0}))

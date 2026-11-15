@@ -1,0 +1,13 @@
+{
+  "success": true,
+  "data": {
+    "status": "ok",
+    "version": "2.0.0",
+    "ghidra_version": "12.2",
+    "mode": "gui",
+    "capabilities": [
+      "gui_context"
+    ],
+    "program": null
+  }
+}

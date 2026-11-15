@@ -1,0 +1,11 @@
+{
+  "status": "prepared-stopped-not-booted",
+  "source_sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910",
+  "working_image_inode": 3789972917,
+  "source_approval_sha256": "519451892ce968193e8c07060f0f9840c7c0fcd24660aec336cfa387b64e4b53",
+  "five_forks_two_users_empty_board_checked": true,
+  "native_protocol_execution": false,
+  "boot_or_gui_execution": false,
+  "bootstrap_source_review": "A189 accepted104-line Button1-release successor. No live UI action was performed.",
+  "capacity_blocker": "Cleared by observed host free-space change before preparation; no attribution to runtime deletion."
+}

@@ -1,0 +1,5 @@
+Nov 14 16:36:55 ibara systemd[1]: Starting mothra-native-alias-live-01-case.service - [systemd-run] /bin/bash /data/leynos/Projects/mothra/state/native-sessions/native-alias-live-preparation-01/run-case-alias-live.sh...
+Nov 14 16:36:55 ibara systemd[1]: Started mothra-native-alias-live-01-case.service - [systemd-run] /bin/bash /data/leynos/Projects/mothra/state/native-sessions/native-alias-live-preparation-01/run-case-alias-live.sh.
+Nov 14 16:38:56 ibara systemd[1]: mothra-native-alias-live-01-case.service: Main process exited, code=exited, status=1/FAILURE
+Nov 14 16:38:56 ibara systemd[1]: mothra-native-alias-live-01-case.service: Failed with result 'exit-code'.
+Nov 14 16:38:56 ibara systemd[1]: mothra-native-alias-live-01-case.service: Consumed 33.994s CPU time, 19.3M memory peak.

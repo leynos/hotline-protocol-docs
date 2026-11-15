@@ -1,0 +1,20 @@
+{
+  "queried_at_utc": "2026-11-15T00:38:40.393134+00:00",
+  "base": "http://127.0.0.1:8080/",
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/health",
+      "http_status": 200,
+      "raw_bytes": 232,
+      "success": true
+    },
+    {
+      "method": "GET",
+      "path": "/program_info",
+      "http_status": 200,
+      "raw_bytes": 645,
+      "success": true
+    }
+  ]
+}

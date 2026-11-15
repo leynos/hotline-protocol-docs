@@ -1,0 +1,52 @@
+# A191 Ghidra recovery preparation
+
+Read-only inspection only. The GUI launcher PID 991612 and Java PID
+992158 are alive as UID 1000; Java has the pinned GhidraMCP JAR open.
+There is no listener on configured `127.0.0.1:8080`, matching A190's
+connection refusal. The GUI application log records older project opens
+and transient headless backend ports, but no current 8080 readiness.
+No GUI process was stopped, restarted or queried for program contents.
+
+The already-proven independent server project is
+`state/delegation/endpoint-oracle-01/project/independent-endpoint-01.gpr`.
+Its current `idata/~index.dat` names `HLserver19.pef`, and its corresponding
+`idata/00/00000000.prp` exists. No lock file or current Ghidra process
+handle to that project was found. This is an on-disk catalogue check,
+not a live Ghidra program identity check. The pinned input PEF SHA-256
+is `ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`;
+the extension JAR SHA-256 is
+`201d18ffde71a83a678eae607de265861f37e5a00b989d91958c1197664d2b43`.
+The previous successful run at 10:12 UTC opened that saved project with
+`--no-analyze --discard`; before and after identity was the same server
+PEF, PowerPC:BE:32:default, 1,840 functions.
+
+The repeatable **candidate** is the exact headless argument vector from
+`state/delegation/account111-alias-oracle-02/capture.py`:
+
+```text
+/data/leynos/Projects/mothra/tools/ghidramcp/.venv/bin/ghidra-mcp
+  --headless --binary /data/leynos/Projects/mothra/evidence/hotline-server-1.9/inputs/HLserver19.pef
+  --project /data/leynos/Projects/mothra/state/delegation/endpoint-oracle-01/project
+  --project-name independent-endpoint-01 --no-analyze --discard
+  --language PowerPC:BE:32:default --compiler default
+  --extension-jar /data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar
+  --ready-timeout 540
+```
+
+Run through the proven MCP stdio client, under the canonical nonblocking
+`state/delegation/oracle.lock` and a fresh ignored HOME/XDG/cache/tmp.
+The first tool call must be `get_program_info`; require the exact PEF
+SHA, PowerPC:BE:32:default, 1,840 functions and expected program name
+before any content query. Keep the original GUI process and its project
+untouched. A headless session uses a temporary backend port while alive;
+it does not restore the configured GUI endpoint at 8080.
+
+**Safety limit:** the current headless implementation opens the named
+project with `create=True` and imports the binary if Ghidra's project API
+does not find `/HLserver19.pef`. `--discard` skips save-on-exit but does
+not prevent that import path. The present on-disk index and prior run
+make the existing-program branch likely; they cannot prove it at the
+moment of a future launch. Therefore the candidate is **not authorised
+for execution under a strict no-import guarantee** until a read-only
+project-file existence guard is added or that risk is explicitly
+accepted. No headless session was launched for A191.

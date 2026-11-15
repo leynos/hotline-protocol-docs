@@ -1,0 +1,19 @@
+{
+  "status": "wind_down_at_user_quota_request",
+  "protocol_gaps": {
+    "Resolved": 62,
+    "Investigating": 24,
+    "Open": 1
+  },
+  "mxd_validation": "parked; no builds/tests or validation resumed",
+  "r06": "prepared and stopped; never booted or contacted",
+  "ghidra": "GUI MCP working with expected server1840/PPCBE32/ad704; only one serving tool and shared oracle lock",
+  "closed_work": [
+    "B150 export cache cleanup completed and recovery committed",
+    "C181/C184 cache retention review complete; witness preserved; cache NOT deleted",
+    "B151 date feasibility is a deferred read-only proposal, not execution approval",
+    "A191 headless proposal superseded by restored GUI; not authorised for launch"
+  ],
+  "next_action": "None without user resumption. Timed native fixture remains unexecuted.",
+  "no_os_rom_or_compiled_witness_binaries_committed": true
+}

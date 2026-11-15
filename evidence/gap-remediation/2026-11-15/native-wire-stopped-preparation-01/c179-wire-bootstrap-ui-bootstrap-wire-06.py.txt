@@ -1,0 +1,104 @@
+#!/usr/bin/env python3
+"""R06-only guarded capture or one reviewed known startup click on :127."""
+import argparse
+import ctypes
+import datetime as dt
+import hashlib
+import json
+import os
+import subprocess
+import sys
+import time
+from pathlib import Path
+
+ROOT = Path('/data/leynos/Projects/mothra')
+O = ROOT/'state/native-sessions/native-wire-boundary-06'; D = ROOT/'state/mac-displays/native-wire-boundary-06'
+R = ROOT/'state/mac-runtime/native-wire-boundary-06'; EXE = '9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4'
+def sha(path):
+    with path.open('rb') as stream: return hashlib.file_digest(stream,'sha256').hexdigest()
+def tick(pid):
+    raw=Path(f'/proc/{pid}/stat').read_text(); return int(raw[raw.rfind(')')+2:].split()[19])
+def display():
+    request=json.loads((D/'display-service.json').read_text())
+    unit=request['unit']+'.service'
+    cmd=['sudo','-n','-u','#1000','env','XDG_RUNTIME_DIR=/run/user/1000',
+         'DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus','systemctl','--user',
+         'show',unit,'--property=ActiveState,SubState,MainPID,Result']
+    out=subprocess.run(cmd,check=True,capture_output=True,text=True,timeout=3).stdout
+    props=dict(row.split('=',1) for row in out.splitlines() if '=' in row)
+    assert props['ActiveState']=='active' and props['SubState']=='running'
+    assert props['Result']=='success' and int(props['MainPID'])>0
+    pid=int(props['MainPID']); proc=Path(f'/proc/{pid}')
+    argv=request['command'][request['command'].index('--')+1:]
+    assert argv==['/usr/sbin/Xvfb',':127','-screen','0','1024x768x24',
+                  '-nolisten','tcp','-ac','-noreset']
+    assert proc.stat().st_uid==1000
+    assert (proc/'cmdline').read_bytes().rstrip(b'\0').split(b'\0')==[a.encode() for a in argv]
+    return {'unit':unit,'pid':pid,'start_ticks':tick(pid),
+            'exe_sha256':sha(proc/'exe'),'argv':argv}
+def gate(first_capture):
+    assert os.geteuid()==0 and not (O/'plans').exists()
+    deadline=dt.datetime.fromisoformat((O/'case-deadline.utc').read_text().strip())
+    assert dt.datetime.now(dt.UTC)<deadline
+    disk=json.loads((O/'disk-ready.json').read_text())
+    stopped=json.loads((ROOT/'state/native-sessions/native-wire-boundary-preparation-06/stopped-preparation/preflight.json').read_text())
+    pid=int(disk['pid']); proc=Path(f'/proc/{pid}'); image=R/'working.dsk'
+    assert disk['phase']=='disk' and disk['working_inode']==stopped['prepared']['working.dsk']['inode']
+    assert tick(pid)==disk['start_ticks'] and proc.stat().st_uid==1000
+    assert sha(proc/'exe')==disk['exe_sha256']==EXE
+    assert (proc/'fd/6').stat().st_ino==image.stat().st_ino==disk['working_inode']
+    assert os.readlink(proc/'fd/6')==str(image)
+    assert (proc/'ns/net').stat().st_ino==disk['netns_inode']
+    if (O/'guest-capture-ready.json').exists():
+        guest=json.loads((O/'guest-capture-ready.json').read_text())
+        assert guest['pid']==pid and guest['start_ticks']==disk['start_ticks']
+        assert os.readlink(proc/'fd/16')==str(O/'lab-guest.pcap')
+    current=display(); saved=O/'guiboot-display-identity.json'
+    if saved.exists(): assert json.loads(saved.read_text())==current
+    else:
+        assert first_capture
+        with saved.open('x') as stream: json.dump(current,stream,sort_keys=True)
+    return {'pid':pid,'start_ticks':disk['start_ticks'],'display':current}
+def main():
+    parser=argparse.ArgumentParser()
+    parser.add_argument('action',choices=('capture','click','double-click'))
+    parser.add_argument('output',type=Path)
+    parser.add_argument('x',nargs='?',type=int)
+    parser.add_argument('y',nargs='?',type=int)
+    parser.add_argument('--before',type=Path)
+    parser.add_argument('--before-sha256')
+    args=parser.parse_args()
+    assert args.output.parent==O/'guiboot' and not args.output.exists()
+    if args.action=='capture': assert args.x is args.y is None and args.before is None
+    else:
+        assert args.x is not None and args.y is not None
+        assert 0<=args.x<1024 and 0<=args.y<768
+        assert args.before is not None and args.before.parent==O/'guiboot'
+        assert sha(args.before)==args.before_sha256
+        assert 0<=time.time()-args.before.stat().st_mtime<30
+    proof=gate(args.action=='capture'); args.output.parent.mkdir(exist_ok=True)
+    if args.action=='capture':
+        subprocess.run(['import','-display',':127','-window','root',str(args.output)],
+                       check=True,timeout=5)
+    else:
+        x11=ctypes.CDLL('libX11.so.6'); xt=ctypes.CDLL('libXtst.so.6')
+        x11.XOpenDisplay.argtypes=[ctypes.c_char_p]; x11.XOpenDisplay.restype=ctypes.c_void_p
+        x11.XFlush.argtypes=[ctypes.c_void_p]; x11.XCloseDisplay.argtypes=[ctypes.c_void_p]
+        xt.XTestFakeMotionEvent.argtypes=[ctypes.c_void_p,ctypes.c_int,ctypes.c_int,ctypes.c_int,ctypes.c_ulong]
+        xt.XTestFakeButtonEvent.argtypes=[ctypes.c_void_p,ctypes.c_uint,ctypes.c_int,ctypes.c_ulong]
+        ptr=x11.XOpenDisplay(b':127'); assert ptr
+        try:
+            xt.XTestFakeMotionEvent(ptr,-1,args.x,args.y,0); x11.XFlush(ptr); time.sleep(.1)
+            for _ in range(2 if args.action=='double-click' else 1):
+                xt.XTestFakeButtonEvent(ptr,1,1,0); x11.XFlush(ptr); time.sleep(.12)
+                xt.XTestFakeButtonEvent(ptr,1,0,0); x11.XFlush(ptr); time.sleep(.14)
+        finally:
+            pending=sys.exc_info()[0]
+            try: xt.XTestFakeButtonEvent(ptr,1,0,0); x11.XFlush(ptr)
+            except Exception:
+                if pending is None: raise
+            finally: x11.XCloseDisplay(ptr)
+        args.output.write_text(json.dumps({'action':args.action,'xy':[args.x,args.y],
+            'before_sha256':args.before_sha256,'proof':proof,
+            'utc':dt.datetime.now(dt.UTC).isoformat()},indent=2)+'\n')
+if __name__=='__main__': main()

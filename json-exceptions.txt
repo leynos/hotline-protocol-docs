@@ -36,6 +36,8 @@ e76288eb30c4fdb034e4db4ec679e29048acfbfb58fb880ad6132e1edaa6ecb4  evidence/gap-r
 5f1c9a5e3b4dc5423908b70e2853ad3d598616bf32db0ce495a698d6f641c767  evidence/gap-remediation/2026-11-14/classic-server-name-162-01/b57/proxy/ready.json
 2c8d3add94c282d8570025545a9579828783a9f08d7d733395f8af77f3f8da2c  evidence/gap-remediation/2026-11-14/configured-ban-static-01/decoded.json
 a3d7e37de62dbe5c4867b09b1502aff0736c482663f090239c59da5be922d9b3  evidence/gap-remediation/2026-11-14/criterion-acceptance-05/decision.json
+cb80a59b8808c81ca2b70117aee3c654967f7968b2cbe78c4c9210c135125a5f  evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/case-begun.json
+4048aa2b8f9b44dd81a99aff7bfdf0585adc12cd904e8d3cce75961ccbe2bb2a  evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/source-prerun-check.json
 0883eee3d10130e3ad6dbb575370138f49945e27b01febb2f03bc2565344064f  evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/display-identity.json
 9cbe6f09b78e05ac3609d3e75b025f7e1acfeea5fc98981fc6f0057f307ac62b  evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/epoch/display-identity.json
 fcbe759d5d18f896d3e5369d056e788e91b05770e437b8e71517d2dad58c4d1a  evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/epoch/precase-abort.json
@@ -55,6 +57,9 @@ b9bbf0a9bde6404c1d8e14c33cab762ec3fe5cc78313823d7bf7854c3aaaf45b  evidence/gap-r
 4048aa2b8f9b44dd81a99aff7bfdf0585adc12cd904e8d3cce75961ccbe2bb2a  evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/source-prerun-check.json
 f9684fc248a6a175c6a7370f407cb4acf85fe5ed6558c1204260656b8860584a  evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/links.json
 32c64b73c5bb6ef5b76a6eb94eab31dc3f222bfe599cf960fc91d2f850d69b92  evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/roster-plan/source-hashes.json
+c1e30b4b5e7c34849ce6fd495dcd69a7eb1cd98255399e8ce22f87f8812ab795  evidence/gap-remediation/2026-11-15/wind-down-01/c181-mxd-target-audit/retained-metadata/.rustc_info.json
+96be5b1b81b6902ca27bf0dbfaa94b53bdd55f22aa58dadc2bf2e3759466ddfd  evidence/gap-remediation/2026-11-15/wind-down-01/c181-mxd-target-audit/retained-metadata/dylint/target/nightly-2026-05-28/.rustc_info.json
+8c32cca0e0abb372bc5de63badafd3abb555e93d201b507f27d860bb23ac1c83  evidence/gap-remediation/2026-11-15/wind-down-01/c181-mxd-target-audit/retained-metadata/tests/trybuild/.rustc_info.json
 d84a44764c47c91f13548d3c338d07309cabdaa801185eaf1cf170880991c0d4  evidence/protocol-gap-analysis/2026-11-12/revision-03/sections.json
 3e86a7707a646cd04f83b1cbb3910e948c0bd3ff7fccf3a40ebd1a2aa0caeb71  evidence/protocol-gap-analysis/2026-11-12/revision-04/sections.json
 af15d8a9063453a7bcd45db85c526c580a934a4cdfd91724a5ed3ea3c5479edb  evidence/protocol-gap-analysis/2026-11-12/revision-05/sections.json

@@ -1,0 +1,40 @@
+--- a/hx_commands.c
++++ b/hx_commands.c
+@@ -2951,7 +2951,7 @@
+ 	epchr = 0;
+ 	ambig = 0;
+ 	for (fh = cfl->fh; (u_int32_t)((char *)fh - (char *)cfl->fh) < cfl->fhlen;
+-	     (char *)fh += flen + SIZEOF_HL_DATA_HDR) {
++	     fh = (struct hl_filelist_hdr *)((char *)fh + flen + SIZEOF_HL_DATA_HDR)) {
+ 		L16NTOH(flen, &fh->len);
+ 		L32NTOH(fnlen, &fh->fnlen);
+ 		if (fnlen >= len && !strncmp(fh->fname, ent, len)) {
+@@ -3030,7 +3030,7 @@
+ 			continue;
+ 
+ 		for (fh = cfl->fh; (u_int32_t)((char *)fh - (char *)cfl->fh) < cfl->fhlen;
+-		     (char *)fh += flen + SIZEOF_HL_DATA_HDR) {
++		     fh = (struct hl_filelist_hdr *)((char *)fh + flen + SIZEOF_HL_DATA_HDR)) {
+ 			L16NTOH(flen, &fh->len);
+ 			L32NTOH(fnlen, &fh->fnlen);
+ 			len = strlen(cfl->path) + 1 + fnlen + 1;
+@@ -3113,7 +3113,7 @@
+ 		return 0;
+ 
+ 	for (fh = cfl->fh; (u_int32_t)((char *)fh - (char *)cfl->fh) < cfl->fhlen;
+-	     (char *)fh += flen + SIZEOF_HL_DATA_HDR) {
++	     fh = (struct hl_filelist_hdr *)((char *)fh + flen + SIZEOF_HL_DATA_HDR)) {
+ 		L16NTOH(flen, &fh->len);
+ 		L32NTOH(fnlen, &fh->fnlen);
+ 		if ((int)fnlen == len && !strncmp(fh->fname, ent, len))
+--- a/hx_tty.c
++++ b/hx_tty.c
+@@ -1080,7 +1080,7 @@
+ 	struct hl_filelist_hdr *fh;
+ 
+ 	for (fh = cfl->fh; (u_int32_t)((char *)fh - (char *)cfl->fh) < cfl->fhlen;
+-	     (char *)fh += ntohs(fh->len) + SIZEOF_HL_DATA_HDR) {
++	     fh = (struct hl_filelist_hdr *)((char *)fh + ntohs(fh->len) + SIZEOF_HL_DATA_HDR)) {
+ 		fnlen = ntohl(fh->fnlen);
+ 		for (i = 0, bpos = 0; i < fnlen && bpos < sizeof(buf); i++) {
+ 			if (!isgraph(fh->fname[i])) {

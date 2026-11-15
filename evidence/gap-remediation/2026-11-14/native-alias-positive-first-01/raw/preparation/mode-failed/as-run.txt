@@ -1,0 +1,6 @@
+Command: python3 state/native-sessions/native-alias-live-preparation-01/prepare.py
+Observed exit: 1
+Observed stderr: RuntimeError: source not immutable mode 0444 (prepare.py line 85)
+Both root fuser checks returned exit 1 with empty stdout/stderr before source hashes.
+R state/mac-runtime/native-alias-live-01 remained absent; no mac_runtime prepare, TSK, guest, or network action ran.
+The mode assertion was stricter than established fixture state: source base 0444, ROM 0644. Root accepted exact pinned ROM 0644 with before/after identity checks; corrected run is separate.

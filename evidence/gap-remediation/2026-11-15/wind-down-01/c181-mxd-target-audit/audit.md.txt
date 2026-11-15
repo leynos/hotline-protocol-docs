@@ -1,0 +1,75 @@
+# C181 old mxd Cargo target retention audit
+
+Read-only snapshot: 2026-11-14 23:46–23:49 UTC. Scope is exactly
+`state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target`.
+No build, test, runtime, image read, move or deletion was performed.
+The mxd validation hold remains in force.
+
+## Identity and layout
+
+- Root device 2097, inode 3518705279, UID:GID 1000:1000. `du -sB1`
+  measured 14,371,885,056 allocated bytes. The metadata inventory has
+  45,794 entries: 33,145 regular files and 12,649 directories.
+- This is a Cargo target: `.rustc_info.json`, `.cargo-*lock`, `debug/build`,
+  `debug/incremental`, nested `dylint/target/nightly-2026-05-28`, and
+  `tests/trybuild`. Nested `CACHEDIR.TAG` files identify Cargo caches.
+  Root `.rustc_info.json` names the pinned nightly-2026-11-12 toolchain.
+- Direct subtree allocated sizes: `debug` 11,992,391,680;
+  `dylint` 1,399,635,968; `tests` 979,845,120 bytes. The `debug/incremental`
+  directory is empty. `debug/build/mxd` is 7,091,322,880 bytes but contains
+  three hardlink groups crossing to top-level executable names.
+- Every one of 67 regular-file hardlink groups has exactly two names in this
+  target, matching `st_nlink=2`. The 134 names are not independent reclaim
+  bytes. No symlink, special file, mount boundary, `.git` directory, or
+  unaccounted external hardlink was found in the inventoried tree.
+- `dylint/target` has 63 internally paired hardlink groups; `tests/trybuild`
+  has one internal pair. Both are smaller than the current reserve shortfall.
+
+## Live references and output hazards
+
+- The path/inotify scan found zero target references. A separate root
+  `/proc` scan at 23:49:18 UTC matched **zero** cwd/root/exe/FD device+inode
+  keys and had zero uncertain processes. This is a point-in-time result.
+- There are no `*.stdout`, `*.stderr`, `*.snap`, or `*.log` files in the
+  target. Cargo's small `output*` files are build fingerprints. The 8 small
+  generated metadata files (58,910 logical bytes) were copied byte-for-byte
+  to `retained-metadata/` with path and SHA records before any proposal.
+- Top-level executables include `debug/mxd` (55,026,776 bytes, SHA
+  `4f3a56f0c42af2ca0d0576132721bc1a0fbdff1a0bc831bddd74591e6ccc2e00`),
+  `debug/mxd-wireframe-server` (54,878,640 bytes, SHA
+  `3da44eac362e1a5433eee4cace8f030e383a9c4a8ea8f587055610299c879375`),
+  and `debug/gen_corpus` (41,777,096 bytes). Exact executable bytes have
+  not been proven duplicated outside this cache. The wireframe hash is
+  recorded in committed `../hotline-protocol-docs/mxd-validation.md`.
+- The mxd source checkout is revision `cb907885cc2a61df2d708f38a3cf42da85c2a016`;
+  its `rust-toolchain.toml` pins nightly-2026-11-12 and its Cargo.lock exists.
+  Existing changes to two guides and `src/commands/support.rs` were left
+  untouched. Regeneration appears feasible from this source/toolchain, but
+  byte-identical rebuilds and availability of every build input are unproved.
+
+## Validation results retained outside the target
+
+Committed `../hotline-protocol-docs/mxd-validation.md` records the mxd hold,
+source revision, wireframe binary hash, and prior gate outcomes. Committed
+`evidence/gap-remediation/2026-11-13/mxd-login-extras-01/` contains
+`summary.txt`, `verification-receipt.txt`, `full/full.log` and
+`full/full.exit`: PostgreSQL 565, SQLite 569, wireframe 551, UI 3,
+verification 69 with one skip, fuzz 8, concurrency 7, and doctest results.
+Other committed correction and build recovery corpora preserve earlier
+outcomes. These are the recorded validation results needed to resume the hold;
+they do not duplicate every compiled binary or prove all output bytes.
+
+## Disposition
+
+No deletion is proposed or authorised by this audit. Empty
+`debug/incremental` cannot reclaim space. A hardlink-free compiled subtree
+large enough to meet the current capacity deficit was not established.
+Deleting `debug/build/mxd` would remove links to the exact top-level
+executables; smaller dylint/trybuild caches require separate path-specific
+owner and regeneration proof and do not individually close the deficit.
+Continuing host writes make the free-space observation unstable.
+
+Evidence: `inventory.py`, `file-inventory.jsonl`, `summary.json`,
+`live-recheck.json`, `inode-livecheck.json`, `retained-metadata.json`, and
+`retained-metadata/`. Inventory SHA-256:
+`08abd207629430778832c9ffd05a9c44e8f2843922f780223671c20f8d918116`.

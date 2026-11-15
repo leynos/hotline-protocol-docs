@@ -1,0 +1,9 @@
+{
+  "status": "completed",
+  "started_utc": "2026-11-14T23:46:25.894084+00:00",
+  "fresh_gate_sha256": "064ef8e2cb06b979cc944d556ffcdf3a1e7e1642f02b55eec81c4e821cebf11e",
+  "authorization_sha256": "3da74c91ff674685ea3fde3007f22e5e9c7fa9f95aea04e2923fd945e057d2a9",
+  "files_removed": 210,
+  "directories_removed": 43,
+  "finished_utc": "2026-11-14T23:46:28.843184+00:00"
+}

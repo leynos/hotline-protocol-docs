@@ -1,0 +1,42 @@
+# C184 mxd Cargo target retirement preparation
+
+Read-only target audit and one authorised witness copy. **The target was not
+deleted.** At the later parent check, `/data` had 670,515,560,448 bytes
+available, so immediate cache retirement was unnecessary.
+
+## Exact executable preserved
+
+- Source: `state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/
+  mxd-target/debug/mxd-wireframe-server`, device 2097, inode 3823027641,
+  nlink 2, mode 0700, size 54,878,640 bytes. The second link is internal to
+  the target. Root `fuser -a` reported no source holder.
+- Retained copy: `state/git-recovery/mxd-wireframe-server-3da44eac`, device
+  2097, inode 89295232, nlink 1, mode 0444, same size. `cp --reflink=always
+  --no-clobber` returned zero; both source and copy SHA-256 are
+  `3da44eac362e1a5433eee4cace8f030e383a9c4a8ea8f587055610299c879375`.
+  They are separate inodes. File and parent directory were fsynced.
+- The first parent-fsync wrapper raised `IsADirectoryError` from `fdopen`
+  after the copy and file fsync. A second operation fsynced the existing
+  directory FD, then rechecked the hashes and identities. No second copy
+  was made. `binary-preservation.json` records this sequence.
+- `state/git-recovery/mxd-wireframe-server-3da44eac.manifest.json` is the
+  durable recovery manifest. It pins the source/copy identities and SHA,
+  mxd source revision `cb907885...`, committed protocol evidence revision
+  `40732004...`, and hashes for retained test logs and C181 small metadata.
+
+## Fresh exact-target snapshot
+
+`predelete_review.py` (153 lines) rewalked **only** the single C181 target.
+Every path and metadata field matched C181's 45,794-entry inventory:
+33,145 regular files and 12,649 directories. Target dev/inode remained
+2097/3518705279; every ancestor was a real directory on that device.
+No target-internal mount, symlink, special file, added/missing path, or
+metadata drift was found. All 67 nlink-two file groups (134 names) are
+closed within the target. The root `/proc` cwd/root/exe/FD/inotify/path-map
+snapshot found zero references and zero unresolved processes. The target
+still measured 14,371,885,056 allocated bytes by `du -sB1`.
+
+The exact fresh paths and result are in `fresh-inventory.jsonl` and
+`predelete-review.json`. The result is a snapshot, not a deletion permit;
+any later removal needs a new live-ref and inventory check. No mxd build,
+test, runtime validation or VM/image action was performed.

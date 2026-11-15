@@ -1,0 +1,20 @@
+Nov 14 16:32:36 ibara systemd[1]: Starting mothra-native-alias-live-01-host.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-alias-live-01/primary-syn.pcap "(tcp port 15500 or tcp port 15501) and (tcp[tcpflags] & tcp-syn != 0)"...
+Nov 14 16:32:36 ibara systemd[1]: Started mothra-native-alias-live-01-host.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-alias-live-01/primary-syn.pcap "(tcp port 15500 or tcp port 15501) and (tcp[tcpflags] & tcp-syn != 0)".
+Nov 14 16:32:36 ibara tcpdump[2881392]: dropped privs to tcpdump
+Nov 14 16:32:36 ibara tcpdump[2881392]: tcpdump: listening on lo, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+Nov 14 16:34:45 ibara systemd[1]: Starting mothra-native-alias-live-01-namespace.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-alias-live-01/lab-namespace.pcap "(tcp port 15500 or tcp port 15501 or tcp port 15920 or tcp port 15921)"...
+Nov 14 16:34:46 ibara systemd[1]: Started mothra-native-alias-live-01-namespace.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-alias-live-01/lab-namespace.pcap "(tcp port 15500 or tcp port 15501 or tcp port 15920 or tcp port 15921)".
+Nov 14 16:34:46 ibara tcpdump[2905758]: dropped privs to tcpdump
+Nov 14 16:34:46 ibara tcpdump[2905758]: tcpdump: listening on lo, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+Nov 14 16:39:38 ibara tcpdump[2905758]: 51 packets captured
+Nov 14 16:39:38 ibara tcpdump[2905758]: 102 packets received by filter
+Nov 14 16:39:38 ibara tcpdump[2905758]: 0 packets dropped by kernel
+Nov 14 16:39:38 ibara systemd[1]: Stopping mothra-native-alias-live-01-namespace.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-alias-live-01/lab-namespace.pcap "(tcp port 15500 or tcp port 15501 or tcp port 15920 or tcp port 15921)"...
+Nov 14 16:39:38 ibara tcpdump[2881392]: 0 packets captured
+Nov 14 16:39:38 ibara tcpdump[2881392]: 0 packets received by filter
+Nov 14 16:39:38 ibara tcpdump[2881392]: 0 packets dropped by kernel
+Nov 14 16:39:38 ibara systemd[1]: Stopping mothra-native-alias-live-01-host.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-alias-live-01/primary-syn.pcap "(tcp port 15500 or tcp port 15501) and (tcp[tcpflags] & tcp-syn != 0)"...
+Nov 14 16:39:38 ibara systemd[1]: mothra-native-alias-live-01-host.service: Deactivated successfully.
+Nov 14 16:39:38 ibara systemd[1]: Stopped mothra-native-alias-live-01-host.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-alias-live-01/primary-syn.pcap "(tcp port 15500 or tcp port 15501) and (tcp[tcpflags] & tcp-syn != 0)".
+Nov 14 16:39:38 ibara systemd[1]: mothra-native-alias-live-01-namespace.service: Deactivated successfully.
+Nov 14 16:39:38 ibara systemd[1]: Stopped mothra-native-alias-live-01-namespace.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-alias-live-01/lab-namespace.pcap "(tcp port 15500 or tcp port 15501 or tcp port 15920 or tcp port 15921)".

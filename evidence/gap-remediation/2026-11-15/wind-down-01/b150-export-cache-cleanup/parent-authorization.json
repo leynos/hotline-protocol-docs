@@ -1,0 +1,13 @@
+{
+  "status": "authorise_b150_one_cache_after_parent_review",
+  "authorized_by": "root supervisor after source review, independent A189, fresh read-only gate and committed metadata/raw-Git-parity proof",
+  "utc": "2026-11-14T23:46:07.756011+00:00",
+  "root": "/data/leynos/Projects/mothra/state/protocol-exports",
+  "root_inode": 4374633087,
+  "inventory_sha256": "a212996f8542518b7dbc8973c7ef9253e88157639880902736573960b7f2bbc2",
+  "parity_sha256": "619ffbd766890ee5eca1edc7bdd3f1ab3b2d70b7498ce8e77703b8573f88e192",
+  "gate_sha256": "2cb8ded32c62d315c1664863176afe9b52c9c9da68cc704111cbbe13fb51cefe",
+  "cleanup_sha256": "bc78b122bcda96c03c222ec833c3b4fdf5e3b903c466c57ff557c84c7481d573",
+  "available_before": 3086319616,
+  "limitation": "All raw tar payloads reconstructible from Git; exact gzip representations only sampled. Metadata preserved in e8e27d7."
+}

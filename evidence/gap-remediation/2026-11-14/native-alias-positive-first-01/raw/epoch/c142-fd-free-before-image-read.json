@@ -1,0 +1,22 @@
+{
+  "working.dsk": {
+    "exit": 1,
+    "stdout": "",
+    "stderr": "",
+    "inode": 1815238450
+  },
+  "base.dsk": {
+    "exit": 1,
+    "stdout": "",
+    "stderr": "",
+    "inode": 1815238449
+  },
+  "rom": {
+    "exit": 1,
+    "stdout": "",
+    "stderr": "",
+    "inode": 1815238448
+  },
+  "owned_pid_gone": true,
+  "original_ticks_unchanged": true
+}

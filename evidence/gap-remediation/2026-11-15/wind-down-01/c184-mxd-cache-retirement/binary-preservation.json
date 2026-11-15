@@ -1,0 +1,41 @@
+{
+  "utc": "2026-11-15T00:03:01.564402+00:00",
+  "status": "preserved_after_parent_fsync_correction",
+  "source": {
+    "path": "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/mxd-wireframe-server",
+    "device": 2097,
+    "inode": 3823027641,
+    "mode": "0o700",
+    "uid": 1000,
+    "gid": 1000,
+    "nlink": 2,
+    "size": 54878640,
+    "mtime_ns": 1794602670923413267,
+    "sha256": "3da44eac362e1a5433eee4cace8f030e383a9c4a8ea8f587055610299c879375"
+  },
+  "retained_copy": {
+    "path": "/data/leynos/Projects/mothra/state/git-recovery/mxd-wireframe-server-3da44eac",
+    "device": 2097,
+    "inode": 89295232,
+    "mode": "0o444",
+    "uid": 1000,
+    "gid": 1000,
+    "nlink": 1,
+    "size": 54878640,
+    "mtime_ns": 1794700966384806636,
+    "sha256": "3da44eac362e1a5433eee4cace8f030e383a9c4a8ea8f587055610299c879375"
+  },
+  "copy_argv": [
+    "cp",
+    "--reflink=always",
+    "--no-clobber",
+    "--",
+    "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/mxd-wireframe-server",
+    "/data/leynos/Projects/mothra/state/git-recovery/mxd-wireframe-server-3da44eac"
+  ],
+  "copy_exit": 0,
+  "chmod_mode": "0444",
+  "file_fsync_completed_initial": true,
+  "initial_parent_fsync_error": "IsADirectoryError from fdopen on directory, no copy/hash failure",
+  "corrected_parent_fsync": true
+}

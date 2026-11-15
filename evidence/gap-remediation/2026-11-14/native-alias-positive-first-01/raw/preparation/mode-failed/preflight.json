@@ -1,0 +1,35 @@
+{
+  "scope": "C133 stopped alias-live preparation only",
+  "started_utc": "2026-11-14T14:54:07.186168+00:00",
+  "original_ticks_before": {
+    "1099659": "767842",
+    "1012834": "2357813"
+  },
+  "status": "failed",
+  "error": "RuntimeError: source not immutable mode 0444",
+  "commands": [
+    {
+      "label": "source-base-fuser",
+      "argv": [
+        "sudo",
+        "-n",
+        "fuser",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-board-02/base.dsk"
+      ],
+      "exit": 1,
+      "env_extra": {}
+    },
+    {
+      "label": "source-rom-fuser",
+      "argv": [
+        "sudo",
+        "-n",
+        "fuser",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-board-02/rom"
+      ],
+      "exit": 1,
+      "env_extra": {}
+    }
+  ],
+  "recorded_utc": "2026-11-14T14:54:31.995379+00:00"
+}

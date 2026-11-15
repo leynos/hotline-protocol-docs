@@ -1,0 +1,13 @@
+{
+  "checked_utc": "2026-11-14T16:32:40.901337+00:00",
+  "deadline_utc": "2026-11-14T16:44:35.770792+00:00",
+  "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "netns_inode": 4026533819,
+  "phase": "disk",
+  "pid": 2881568,
+  "start_ticks": 9866291,
+  "uid": 1000,
+  "working_dev": 2097,
+  "working_image": "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-01/working.dsk",
+  "working_inode": 1815238450
+}

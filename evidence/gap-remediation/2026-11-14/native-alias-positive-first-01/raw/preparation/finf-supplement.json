@@ -1,0 +1,92 @@
+{
+  "scope": "C134 stopped Finder sidecar supplement only",
+  "utc": "2026-11-14T15:00:34.985580+00:00",
+  "baseline_receipt": "state/native-sessions/native-alias-live-preparation-01/corrected/preflight.json",
+  "baseline_receipt_sha256": "e95a4febf4db15517bff7c67305761b78ebe7b6c54146a58d2c905bd9273e9b8",
+  "extfs_source": "tools/macemu/SheepShaver/src/Unix/extfs_unix.cpp",
+  "extfs_source_sha256": "3121708131dd9398a22d1ae3f1035b4e1d99613a13cbbb1b27d9b874a024b292",
+  "commands": [
+    {
+      "argv": [
+        "sudo",
+        "-n",
+        "fuser",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-01/base.dsk"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "sudo",
+        "-n",
+        "fuser",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-01/working.dsk"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "sudo",
+        "-n",
+        "fuser",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-01/rom"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "target_before": {
+    "device": 2097,
+    "inode": 3818213780,
+    "size": 20,
+    "mode": "0o600",
+    "uid": 1000,
+    "gid": 1000,
+    "nlink": 1,
+    "mtime_ns": 1794668290088333960,
+    "sha256": "8d1841a0106a3d6e9a4e4cee76eecd48912545fcc73d87446b05ada0800ae5a8"
+  },
+  "target_after": {
+    "device": 2097,
+    "inode": 3818213780,
+    "size": 20,
+    "mode": "0o600",
+    "uid": 1000,
+    "gid": 1000,
+    "nlink": 1,
+    "mtime_ns": 1794668290088333960,
+    "sha256": "8d1841a0106a3d6e9a4e4cee76eecd48912545fcc73d87446b05ada0800ae5a8"
+  },
+  "finf_dir": {
+    "device": 2097,
+    "inode": 3416384857,
+    "size": 30,
+    "mode": "0o700",
+    "uid": 1000,
+    "gid": 1000,
+    "nlink": 2,
+    "mtime_ns": 1794668435832318955
+  },
+  "sidecar": {
+    "path": "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-01/shared/.finf/m-alias54-target",
+    "device": 2097,
+    "inode": 3416384858,
+    "size": 32,
+    "mode": "0o600",
+    "uid": 1000,
+    "gid": 1000,
+    "nlink": 1,
+    "mtime_ns": 1794668435832318955,
+    "sha256": "1d0021b686112365330a5e1ba1214b05c8bfe6ed7f715dc8d139a883f1830e4d",
+    "first_eight_hex": "553534544d353458",
+    "trailing_24_zero": true,
+    "full_hex": "553534544d353458000000000000000000000000000000000000000000000000"
+  },
+  "rsrc_absent": true,
+  "status": "stopped_finf_staged"
+}

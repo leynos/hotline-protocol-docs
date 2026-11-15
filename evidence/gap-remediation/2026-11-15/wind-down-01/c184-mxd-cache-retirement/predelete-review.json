@@ -1,0 +1,60 @@
+{
+  "checked_utc": "2026-11-15T00:04:20.064997+00:00",
+  "status": "pass",
+  "root": "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target",
+  "parents": [
+    {
+      "path": "/data/leynos/Projects/mothra",
+      "dev": 2097,
+      "inode": 652002236
+    },
+    {
+      "path": "/data/leynos/Projects/mothra/state",
+      "dev": 2097,
+      "inode": 3902344054
+    },
+    {
+      "path": "/data/leynos/Projects/mothra/state/delegation",
+      "dev": 2097,
+      "inode": 3508227737
+    },
+    {
+      "path": "/data/leynos/Projects/mothra/state/delegation/workspaces",
+      "dev": 2097,
+      "inode": 5558986474
+    },
+    {
+      "path": "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd",
+      "dev": 2097,
+      "inode": 2344016019
+    },
+    {
+      "path": "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra",
+      "dev": 2097,
+      "inode": 2878672414
+    },
+    {
+      "path": "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state",
+      "dev": 2097,
+      "inode": 2343313495
+    },
+    {
+      "path": "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation",
+      "dev": 2097,
+      "inode": 2856951277
+    },
+    {
+      "path": "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target",
+      "dev": 2097,
+      "inode": 3518705279
+    }
+  ],
+  "mountpoints_inside": [],
+  "files": 33145,
+  "directories": 12649,
+  "hardlink_groups": 67,
+  "hardlink_names": 134,
+  "allocated_path_sum": 14827732992,
+  "references": [],
+  "uncertain": []
+}

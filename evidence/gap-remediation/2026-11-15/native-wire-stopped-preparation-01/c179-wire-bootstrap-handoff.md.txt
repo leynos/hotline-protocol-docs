@@ -1,0 +1,64 @@
+# C179 R06 ordinary GUI bootstrap, author-only
+
+No UI, display, VM, service, image or native protocol action ran in this
+packet. C178's ten scripts and proposal hashes are unchanged. The R06-only
+`ui-bootstrap-wire-06.py` is a separate proposed 100-line operator wrapper;
+it needs independent root review and an exact source pin before any boot.
+
+Retained R04 evidence: `native-alias-live-04/bootstrap2-before.png` shows
+Launcher active over the Hotline19 Finder window; its title is at (545,75).
+`bootstrap2-activated.png` confirms Finder activation before the recognised
+HLserver19 app icon at (355,234) was double-clicked. The result image
+`bootstrap2-app-result.png` shows the server started and the ordinary
+“Sounds Disabled” dialog. `bootstrap4-after-wake.png` and
+`bootstrap4-after-ok.png` witness one blank saver wake at (500,500) followed
+by that dialog's visible OK at (628,310). These are **R04 observations**, not
+coordinates valid without a fresh R06 screenshot. The R04 JSON receipts
+`bootstrap2-{activate,launch-app}.json` and `bootstrap4-{wake,ok}.json`
+retain the exact old command arguments and UTC brackets.
+
+Future R06 input preconditions: parent grants a known startup sequence only
+after C178 boot succeeds, disk-ready records actual PID/start tick/owned
+working inode/executable SHA/UID1000/private namespace, the display unit is
+live on :127, and the parent-installed 720-second cutoff is active. The
+wrapper runs as root to inspect protected receipts. Every invocation checks
+same actual PID/start/exe/FD6/netns and exact Xvfb unit/PID/argv/UID. It
+creates one immutable display identity on first capture and compares it on
+later calls. If lazy guest capture receipt exists, it also checks FD16.
+It does not read live working image bytes. Capture uses ImageMagick `import`
+on :127; XTest actions use 100 ms motion flush and one or two bounded clicks.
+The successor always emits Button1-up and flushes before closing X11, even
+after an interrupted click; the earlier draft is retained as `.as-prepared.txt`.
+
+Proposed commands below are templates. Set `ROOT` to Mothra absolute path,
+`P=$ROOT/state/delegation/c179-wire-bootstrap`, and
+`O=$ROOT/state/native-sessions/native-wire-boundary-06`. Save each command's
+exact argv, stdout, stderr, exit and UTC bracket outside the screenshot.
+Before every input, capture a new PNG, inspect its **window/title/control**,
+and pass the SHA of that exact PNG as `--before-sha256`.
+
+```sh
+sudo -n python3 "$P/ui-bootstrap-wire-06.py" capture "$O/guiboot/01-before.png"
+sudo -n python3 "$P/ui-bootstrap-wire-06.py" click "$O/guiboot/02-title.json" 545 75 --before "$O/guiboot/01-before.png" --before-sha256 ACTUAL_SHA
+sudo -n python3 "$P/ui-bootstrap-wire-06.py" capture "$O/guiboot/03-finder.png"
+sudo -n python3 "$P/ui-bootstrap-wire-06.py" double-click "$O/guiboot/04-launch.json" 355 234 --before "$O/guiboot/03-finder.png" --before-sha256 ACTUAL_SHA
+sudo -n python3 "$P/ui-bootstrap-wire-06.py" capture "$O/guiboot/05-app.png"
+```
+
+The title click is conditional: if the first fresh screenshot already shows
+Finder active and HLserver19 visibly identified, use that screenshot for the
+double-click. If a recognised saver obscures the already started app, one
+freshly reviewed blank click at (500,500) may wake it. Capture again. Only
+when the **same** Sounds Disabled dialog and its visible OK are present,
+click (628,310) with a fresh `--before` image and hash. Capture final server
+Log/Statistics showing normal startup and zero clients. All other dialog,
+disabled/ambiguous target, mismatched unit/FD, failed screenshot/input or
+expired cutoff: stop immediately, preserve the image/command receipt and
+notify parent. A clearly safe neutral release or Cancel may end the input
+attempt, but never licenses continuing startup. No Finder file navigation,
+alias action, protocol request, settings, account or clock edit occurs here.
+
+Parent may later grant this whole **known** sequence without per-dialog
+handoffs; the operator still evaluates every fresh image before each input.
+The C178 capture-phase and three-plan steps remain separate grants. No R06
+approval pin or live authority is created by this handoff.
