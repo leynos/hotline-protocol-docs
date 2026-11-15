@@ -226,6 +226,16 @@ The script work is a behaviour-preserving refactor.
   10 tensions) in the session scratch directory.
 - [x] (2026-11-15 20:40Z) Owner raised the tooling tolerance (D24) and asked
   for the SynHX naming to be clarified and a comprehensive glossary (D25).
+- [x] (2026-11-16 01:10Z) EP-M3, second part: the cited mothra documents and
+  seventeen Hotline-specific scripts imported at their mothra-relative paths
+  (`efea44a`); three further corpora came in with the handoff note and the
+  alias plan (203 corpora, 13,854 files, 0 differences from the source); links
+  rewritten to in-repository evidence and audit revision 90 cut (`cda5913`).
+  `make all` passes with 198 tests and now includes `audit-check`, which reports
+  `Validated 87 gaps and 543 reviewed sections;
+  checked 4364 local link references`,
+  the same counts as the baseline. Remaining in EP-M3: the script path change
+  and the ported check recipes, in progress in an isolated worktree.
 - [x] (2026-11-15 22:15Z) EP-M3, first part: import tools landed (`4bebeef`,
   `00db57f`, `bc49af4`, fixes `3804e1d` and the LFS and citation fix), and the
   curated evidence is imported (`7e85eae`): 200 corpora, 13,439 files, 757 LFS
@@ -364,6 +374,18 @@ The script work is a behaviour-preserving refactor.
   Evidence: a per-recipe run on 15 November 2026, kept in the session scratch
   directory as `baseline-verdicts.json`. Impact: this is the script baseline
   for INV-SCRIPT.
+- Observation: the evidence index pins the hashes of three helper scripts
+  (`capture-ghidra-evidence.py`, `extract-synhxd-evidence.py` and
+  `verify-baseline-evidence.py`) and of the validity ledger. Evidence:
+  `evidence/hotline-server-1.9/manifest.json`, read by the ledger verifier.
+  Impact: these four files stay byte-identical, so the three scripts cannot be
+  refactored in EP-M5 without a decision on how the verifier should treat the
+  pinned copies; the ledger is excluded from reflow and spelling.
+- Observation: the Markdown and spelling gates examine tracked files only, so
+  a new document is not checked until it is staged. Impact: stage before gating.
+- Observation: an audit revision cut here has no counterpart in the source
+  commit. Impact: `evidence/local-corpora.json` records such corpora, and the
+  curation check accepts them.
 - Observation: the existing documents are otherwise close to clean. With the
   Lody markdownlint configuration only 18 MD049 findings appear, no local link
   is broken, and default `typos` reports 90 findings, mostly protocol tokens.
