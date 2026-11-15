@@ -153,8 +153,6 @@ scripts/test_native_moves.py
 scripts/test_native_news.py
 scripts/test_native_news_boundary.py
 scripts/test_native_path_fields.py
-scripts/test_native_pm.py
-scripts/test_native_pm_packet.py
 scripts/test_native_queues.py
 scripts/test_native_rate304.py
 scripts/test_native_rate304_partial.py
@@ -237,7 +235,6 @@ scripts/verify_native_moves.py
 scripts/verify_native_news.py
 scripts/verify_native_news_boundary.py
 scripts/verify_native_path_fields.py
-scripts/verify_native_pm.py
 scripts/verify_native_pm_packet.py  # live bytes compared with a recorded hash
 scripts/verify_native_queues.py
 scripts/verify_native_rate304_partial.py
