@@ -270,24 +270,6 @@ def test_plan_reports_classes_and_changes_nothing(
     assert (repo / "a.md").is_file(), "plan moved a file"
 
 
-def lines_without_links(text: str) -> list[str]:
-    """Return the lines that hold no link.
-
-    Parameters
-    ----------
-    text : str
-        The Markdown source.
-
-    Returns
-    -------
-    list[str]
-        Those lines, line endings kept.
-    """
-    linked = {span.line for span in lrw.link_spans(text)}
-    lines = text.splitlines(keepends=True)
-    return [line for n, line in enumerate(lines, 1) if n not in linked]
-
-
 def test_apply_moves_and_rewrites_without_changing_anything_else(
     tmp_path: Path,
 ) -> None:
@@ -307,7 +289,7 @@ def test_apply_moves_and_rewrites_without_changing_anything_else(
         assert [s["heading"] for s in mm.section_inventory(old_text)] == [
             s["heading"] for s in mm.section_inventory(new_text)
         ], f"{old} headings"
-        assert lines_without_links(old_text) == lines_without_links(new_text), old
+        assert lh.lines_without_links(old_text) == lh.lines_without_links(new_text), old
     failures = check_links.check(repo).failures
     assert [f.split(":")[0] for f in failures] == ["gap-analysis.md"], failures
     assert {n: (repo / n).read_bytes() for n in before} == before, (
@@ -328,6 +310,16 @@ def test_apply_follows_the_register_but_leaves_paths_for_the_refresh(
     assert link.startswith("[A](docs/one/a.md#a)"), link
     assert register["gaps"][0]["sources"][0]["path"] == "a.md", (
         "paths wait for the refresh"
+    )
+
+
+def test_a_moved_generated_file_is_left_for_the_renderer(tmp_path: Path) -> None:
+    """The generated report moves but is neither rewritten nor verified."""
+    repo, moves = build(tmp_path, {**lh.MOVES, "gap-analysis.md": "docs/gap.md"})
+    assert ml.main(["apply", *args(repo, moves)]) == EXIT_OK, "apply exit"
+    moved = (repo / "docs/gap.md").read_text(encoding="utf-8")
+    assert moved == lh.TREE["gap-analysis.md"], (
+        "generated text must wait for the renderer"
     )
 
 

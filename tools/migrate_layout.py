@@ -237,7 +237,7 @@ def verify(root: Path, moves: Moves, done: Computation) -> list[str]:
         One message per violation; empty when the move is faithful.
     """
     problems = [f"{old}: still present" for old in moves if (root / old).exists()]
-    for path in sorted({*moves, *done.texts}):
+    for path in sorted({*moves, *done.texts} - {GENERATED}):
         if path.suffix == ".md":
             before = _head(root, path)
             after = read_exact(root / moves.get(path, path))

@@ -7,6 +7,7 @@ import posixpath
 import typing as typ
 from pathlib import PurePosixPath
 
+import layout_rewrite as lrw
 from hypothesis import strategies as st
 
 if typ.TYPE_CHECKING:
@@ -130,6 +131,24 @@ def classify(case: Case) -> col.Counter[str]:
     found["target moved"] += case.target in case.moves
     found["to directory"] += case.link.partition("#")[0].endswith("/")
     return found
+
+
+def lines_without_links(text: str) -> list[str]:
+    """Return the lines that hold no link.
+
+    Parameters
+    ----------
+    text : str
+        The Markdown source.
+
+    Returns
+    -------
+    list[str]
+        Those lines, line endings kept.
+    """
+    linked = {span.line for span in lrw.link_spans(text)}
+    lines = text.splitlines(keepends=True)
+    return [line for n, line in enumerate(lines, 1) if n not in linked]
 
 
 TREE = {
