@@ -11,13 +11,17 @@ confirmed binary defects, security severity ratings or mxd test failures.
 
 ## Scope, evidence and status
 
-Revision 90 follows the move of the evidence into the documentation
-repository. It preserves all 87 original closure criteria and every prior
-question and status string. The 102 input documents were reflowed to 80
-columns, corrected to Oxford spelling and had their evidence links pointed at
-the in-repository evidence tree; no heading or anchor changed, so each section
-corresponds by position to its predecessor in revision 89. No new native
-protocol observation or gap closure; mxd validation stays held.
+Revision 91 follows the publication of the general capture toolset. The only
+change to the input documents is that their thirteen links to that toolset's
+guides became commit permalinks; no heading or anchor changed, so each section
+corresponds by position to its predecessor in revision 90. Revision 90 follows
+the move of the evidence into the documentation repository. It preserves all
+87 original closure criteria and every prior question and status string. The
+102 input documents were reflowed to 80 columns, corrected to Oxford spelling
+and had their evidence links pointed at the in-repository evidence tree; no
+heading or anchor changed, so each section corresponds by position to its
+predecessor in revision 89. No new native protocol observation or gap closure;
+mxd validation stays held.
 
 The corrected documents deliberately contain unresolved statements. Unanswered
 entries refine those into actionable questions. Missing and Ambiguous entries
