@@ -64,10 +64,8 @@ scripts/native_news_boundary_cases.py
 scripts/native_news_cases.py
 scripts/native_news_decode.py
 scripts/native_news_delete_cases.py
-scripts/native_packet_evidence.py
 scripts/native_path_fields_cases.py
 scripts/native_path_fields_control.py
-scripts/native_plan.py
 scripts/native_pm_cases.py  # live bytes compared with a recorded hash
 scripts/native_queue_cases.py
 scripts/native_rate304_cases.py
@@ -133,7 +131,6 @@ scripts/test_native_configured_ban.py
 scripts/test_native_configured_ban_witness.py
 scripts/test_native_console_broadcast.py
 scripts/test_native_control_readiness.py
-scripts/test_native_core.py
 scripts/test_native_correlation.py
 scripts/test_native_diagnostic_existing.py
 scripts/test_native_diagnostic_load.py
@@ -220,7 +217,6 @@ scripts/verify_native_board.py
 scripts/verify_native_cleanup.py
 scripts/verify_native_configured_ban.py
 scripts/verify_native_console_broadcast.py
-scripts/verify_native_core.py
 scripts/verify_native_correlation.py
 scripts/verify_native_diagnostic_existing.py
 scripts/verify_native_diagnostic_load.py
