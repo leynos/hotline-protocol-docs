@@ -58,6 +58,8 @@ WITHHELD_GATE = $(if $(wildcard evidence/withheld.json),withheld-check,withheld-
 
 # The evidence gates need the imported evidence/ directory.
 EVIDENCE_GATE = $(if $(wildcard evidence),sums-check lfs-check,evidence-skip)
+# The legacy verifiers replay the retained corpora, so they need evidence/ too.
+EVIDENCE_VERIFY_GATE = $(if $(wildcard evidence),evidence-verify)
 
 # The curation gate needs the record that the evidence import creates.
 CURATION_GATE = $(if $(wildcard evidence/curation.json),curation-check,curation-skip)
@@ -82,7 +84,7 @@ IMPORT_COMMIT ?= f9b4108ec33e59956c9f2bfbd391dc3a8a279299
 # Shared build caches require sequential gates even when make receives -j.
 .NOTPARALLEL:
 
-all: build check-fmt-python json-check links-check audit-check $(WITHHELD_GATE) $(EVIDENCE_GATE) $(CURATION_GATE) lint-python lint-legacy typecheck test ## Run the gates that must pass at every commit
+all: build check-fmt-python json-check links-check audit-check $(WITHHELD_GATE) $(EVIDENCE_GATE) $(CURATION_GATE) $(EVIDENCE_VERIFY_GATE) lint-python lint-legacy typecheck test ## Run the gates that must pass at every commit
 
 lint: lint-python lint-legacy ## Run every Python linter
 
@@ -188,3 +190,129 @@ nixie: ## Validate Mermaid diagrams
 help: ## Show available targets
 	@grep -E '^[a-zA-Z_-]+:.*?##' $(MAKEFILE_LIST) | \
 	awk 'BEGIN {FS=":.*##"; printf "Available targets:\n"} {gsub(/^[[:space:]]+/, "", $$2); printf "  %-20s %s\n", $$1, $$2}'
+
+# Hotline-specific evidence verification, ported from mothra's *-check targets
+# (EP-M3-020). None needs a network, an emulator or Ghidra. Two verifiers read
+# mothra's general scripts through scripts/mothra_root.py (set MOTHRA_ROOT when
+# the checkout is not a sibling). Not ported: the verify_alias_window_profile.py
+# recipes (that script stays in mothra) and mothra's general recipes.
+# Several corpora carry their own verifier, written for a checkout named
+# hotline-protocol-docs with the corpus beneath it. Run those from a scratch tree
+# of that name that holds a copy of scripts/ and a hard-linked evidence/, so they
+# pass in a checkout or worktree of any name.
+# The scripts that still read mothra's general tooling find the checkout through
+# scripts/mothra_root.py; hand them the one that MOTHRA names.
+ifneq ($(MOTHRA),)
+export MOTHRA_ROOT ?= $(abspath $(MOTHRA))
+endif
+
+define in_legacy_layout
+tmp=$$(mktemp -d) && trap 'rm -rf "$$tmp"' EXIT && root="$$tmp/hotline-protocol-docs" && mkdir -p "$$root" && cp -a scripts "$$root/scripts" && { cp -al evidence "$$root/evidence" 2>/dev/null || cp -a evidence "$$root/evidence"; } && cd "$$root" && $(1)
+endef
+
+.PHONY: evidence-verify evidence-verify-known-red test-legacy typecheck-legacy
+
+# One recipe per line, in mothra's order, so a failure names its line.
+evidence-verify: ## Verify every retained Hotline corpus with its legacy verifier
+	python3 scripts/verify_native_path_fields.py --corpus evidence/gap-remediation/2026-11-14/native-path-fields-01
+	python3 -m unittest discover -s scripts -p 'test_verify_native_path_fields.py'
+	python3 scripts/verify_native_rate304_sequence.py --corpus evidence/gap-remediation/2026-11-14/native-rate304-sequence-01
+	python3 scripts/verify_native_rate304_partial.py --corpus evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01
+	python3 scripts/verify_native_board.py --corpus evidence/gap-remediation/2026-11-14/native-board-01
+	python3 scripts/verify_native_liveness.py --corpus evidence/gap-remediation/2026-11-14/native-liveness-01
+	python3 scripts/verify_native_roster_overlap.py --corpus evidence/gap-remediation/2026-11-14/native-roster-overlap-01
+	python3 scripts/verify_native_ban_expiry_later.py evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01
+	python3 scripts/verify_native_ban_expiry_first.py evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01
+	python3 scripts/verify_native_ban_reload.py evidence/gap-remediation/2026-11-14/native-ban-reload-01
+	python3 scripts/verify_native_settings_persistence.py evidence/gap-remediation/2026-11-14/native-settings-persistence-01
+	python3 scripts/verify_classic_roster_subject_115.py evidence/gap-remediation/2026-11-14/classic-roster-subject-115-01
+	python3 scripts/verify_native_configured_ban.py evidence/gap-remediation/2026-11-14/native-configured-ban-01
+	python3 scripts/verify_classic_server_name_162.py evidence/gap-remediation/2026-11-14/classic-server-name-162-01
+	python3 scripts/verify_native_ban_control.py evidence/gap-remediation/2026-11-14/native-ban-control-01
+	python3 scripts/verify_classic_native_baseline.py evidence/gap-remediation/2026-11-14/classic-proxy-baseline-01
+	python3 scripts/verify_native_ui_focus.py evidence/gap-remediation/2026-11-14/native-ui-focus-01
+	$(call in_legacy_layout,python3 evidence/gap-remediation/2026-11-14/native-121-defaults-01/verify_packets.py)
+	$(call in_legacy_layout,python3 -m unittest discover -s evidence/gap-remediation/2026-11-14/native-121-defaults-01 -p test_verify_packets.py)
+	python3 scripts/verify_native_transfer_repeat.py evidence/gap-remediation/2026-11-14/native-transfer-repeat-01
+	$(call in_legacy_layout,python3 evidence/gap-remediation/2026-11-13/native-settings-transitions-01/verify_packets.py)
+	$(call in_legacy_layout,python3 -m unittest discover -s evidence/gap-remediation/2026-11-13/native-settings-transitions-01 -p test_verify_packets.py)
+	python3 scripts/verify_classic_account_constructors.py
+	python3 -m unittest scripts.test_verify_classic_account_constructors
+	python3 scripts/verify_native_download_send_path.py evidence/gap-remediation/2026-11-13/native-download-send-path-01
+	python3 scripts/verify_native_transfer_stall.py evidence/gap-remediation/2026-11-13/native-transfer-stall-01
+	python3 scripts/verify_native_ban_one.py evidence/gap-remediation/2026-11-13/native-ban-one-01
+	python3 scripts/verify_native_settings_corpus.py evidence/gap-remediation/2026-11-13/native-settings-01
+	python3 scripts/verify_native_pm_packet.py evidence/gap-remediation/2026-11-13/native-pm-01
+	python3 scripts/verify_native_console_broadcast.py evidence/gap-remediation/2026-11-13/native-console-broadcast-01
+	$(call in_legacy_layout,python3 evidence/gap-remediation/2026-11-13/failure-criterion-review-01/verify.py.txt)
+	python3 -m unittest discover -s scripts -p 'test_request500_client_source.py'
+	python3 scripts/protocol_capture.py verify evidence/gap-remediation/2026-11-12/capture-tooling-01/transcript
+	python3 scripts/protocol_capture.py verify evidence/gap-remediation/2026-11-12/native-handshake-01/transcript
+	python3 scripts/verify_native_core.py evidence/gap-remediation/2026-11-12/native-core-01
+	python3 scripts/verify_native_handshakes.py evidence/gap-remediation/2026-11-12/native-transport-01
+	python3 scripts/verify_native_framing.py evidence/gap-remediation/2026-11-12/native-framing-01
+	python3 scripts/verify_native_forks.py evidence/gap-remediation/2026-11-12/native-forks-01
+	python3 scripts/verify_native_resume.py evidence/gap-remediation/2026-11-12/native-resume-01
+	python3 scripts/verify_native_queues.py evidence/gap-remediation/2026-11-12/native-queue-01
+	python3 scripts/verify_native_cleanup.py evidence/gap-remediation/2026-11-12/native-cleanup-01
+	python3 scripts/verify_native_folders.py evidence/gap-remediation/2026-11-12/native-folder-01
+	python3 scripts/verify_native_banners.py evidence/gap-remediation/2026-11-12/native-banner-01
+	python3 scripts/verify_native_banner_formats.py evidence/gap-remediation/2026-11-12/native-banner-02
+	python3 scripts/verify_native_htxf.py evidence/gap-remediation/2026-11-12/native-htxf-01
+	python3 scripts/verify_native_correlation.py evidence/gap-remediation/2026-11-12/native-correlation-01
+	python3 scripts/verify_native_auth.py evidence/gap-remediation/2026-11-13/native-auth-01
+	python3 scripts/verify_native_agreements.py evidence/gap-remediation/2026-11-13/native-agreement-01
+	python3 scripts/verify_native_login_extras.py evidence/gap-remediation/2026-11-13/native-login-extras-01
+	python3 scripts/verify_native_shx.py evidence/gap-remediation/2026-11-13/native-shx-01
+	python3 scripts/verify_native_shx_extras.py evidence/gap-remediation/2026-11-13/native-shx-02
+	python3 scripts/verify_native_mkdir.py evidence/gap-remediation/2026-11-13/native-mkdir-01
+	python3 scripts/verify_native_aliases.py evidence/gap-remediation/2026-11-13/native-alias-01
+	python3 scripts/verify_native_metadata.py evidence/gap-remediation/2026-11-13/native-metadata-01
+	python3 scripts/verify_native_moves.py evidence/gap-remediation/2026-11-13/native-move-01
+	python3 scripts/verify_native_news.py evidence/gap-remediation/2026-11-13/native-news-01
+	python3 scripts/verify_native_article_deletion.py evidence/gap-remediation/2026-11-13/native-article-delete-01
+	python3 scripts/verify_native_news_boundary.py evidence/gap-remediation/2026-11-13/native-news-boundary-01
+	python3 scripts/verify_native_account_updates.py evidence/gap-remediation/2026-11-13/native-account-update-01
+	python3 scripts/verify_native_live_accounts.py evidence/gap-remediation/2026-11-13/native-live-accounts-01
+	python3 scripts/verify_native_account_batches.py evidence/gap-remediation/2026-11-13/native-account-batch-01
+	python3 scripts/verify_native_account_identity.py evidence/gap-remediation/2026-11-13/native-account-identity-01
+	python3 scripts/verify_native_rooms.py evidence/gap-remediation/2026-11-13/native-rooms-01
+	python3 scripts/verify_native_diagnostics.py evidence/gap-remediation/2026-11-13/native-diagnostics-01
+	python3 scripts/verify_peer_tolerance.py evidence/gap-remediation/2026-11-13/delegated-peer-01 --source evidence/gap-remediation/2026-11-13
+	python3 scripts/verify_mxd_reconciliation.py evidence/gap-remediation/2026-11-13/delegated-mxd-01
+	python3 scripts/verify_native_bitmaps.py evidence/gap-remediation/2026-11-13/native-bitmaps-01
+	python3 scripts/verify_account_attribute.py evidence/gap-remediation/2026-11-13/account-attribute-01 --root .
+	python3 scripts/verify_mxd_limits.py evidence/gap-remediation/2026-11-13/mxd-limits-01
+	python3 scripts/verify_native_diagnostic_load.py evidence/gap-remediation/2026-11-13/native-diagnostic-load-01
+	$(call in_legacy_layout,python3 evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/verify.py)
+	$(call in_legacy_layout,python3 evidence/gap-remediation/2026-11-13/native-diagnostic-existing-01/verify_packets.py)
+	$(call in_legacy_layout,python3 evidence/gap-remediation/2026-11-13/native-diagnostic-density-01/verify_density.py)
+	python3 scripts/verify_mxd_correction.py evidence/gap-remediation/2026-11-13/mxd-correction-01
+	python3 scripts/test_mxd_direct_ack.py evidence/gap-remediation/2026-11-13/mxd-direct-ack-02
+	$(call in_legacy_layout,python3 evidence/gap-remediation/2026-11-13/native-diagnostic-near-01/verify_partial.py)
+	python3 scripts/verify_mxd_login_extras.py --evidence evidence/gap-remediation/2026-11-13/mxd-login-extras-01
+	python3 scripts/verify_mac_peer_isolated_session.py evidence/gap-remediation/2026-11-13/mac-peer-isolated-session-01
+	python3 scripts/verify_mac_peer_first_session.py evidence/gap-remediation/2026-11-13/mac-peer-first-session-01
+	python3 scripts/verify-shx-login-fragment.py
+	python3 scripts/verify-synhx-profiles.py
+	sha256sum --quiet -c evidence/hotline-server-1.9/SHA256SUMS
+	python3 scripts/extract-synhxd-evidence.py
+	python3 scripts/verify-baseline-evidence.py
+	python3 -m unittest discover -s scripts -p 'test_alias_record_v2.py'
+	python3 -m unittest discover -s scripts -p 'test_classic_proxy_rehearsal.py'
+	python3 scripts/verify_classic_proxy_rehearsal.py evidence/gap-remediation/2026-11-13/classic-proxy-rehearsal-01
+	$(call in_legacy_layout,bash evidence/gap-remediation/2026-11-13/native-runtime-recovery-01/verify-smoke.txt "$$root")
+
+# Known red (decision D18): the corpus records the SHA-256 of mothra's general
+# scripts/capture_readiness.py, which has changed since the corpus was recorded.
+# The expected result is ValueError: capture gate source identity.
+evidence-verify-known-red: ## Run the verifier that is known to fail (decision D18)
+	python3 scripts/verify_classic_field161_matrix.py evidence/gap-remediation/2026-11-14/classic-field161-01
+
+# Known red (decision D18): exactly one error, test_original_corpus_replays in
+# test_verify_classic_field161_matrix, for the reason given above.
+test-legacy: ## Run every inherited unittest (known red: one error)
+	python3 -m unittest discover -s scripts -p 'test_*.py'
+
+typecheck-legacy: ## Type-check the inherited scripts (not in all; see the plan)
+	$(TY) check --extra-search-path scripts scripts
