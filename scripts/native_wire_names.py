@@ -15,11 +15,14 @@ a name that says so.
 
 # Transaction types (operation-contracts.md, "Request inventory").
 TYPE_MESSAGE_NOTIFICATION = 104  # routed PM, feedback, denial and kick notices
+TYPE_SEND_CHAT = 105  # operation-contracts.md: its fan-out is a 106 push
+TYPE_CHAT_NOTIFICATION = 106  # operation-contracts.md: "Chat fan-out"
 TYPE_LOGIN = 107
 TYPE_SEND_PRIVATE_MESSAGE = 108
 TYPE_LOGIN_AGREEMENT = 109
 TYPE_ACCEPT_AGREEMENT = 121
 TYPE_BANNER_METADATA = 122  # operation-contracts.md: configured banner metadata
+TYPE_LIST_FILES = 200  # operation-contracts.md: repeated 200 file entries
 TYPE_DOWNLOAD_FILE = 202
 TYPE_UPLOAD_FILE = 203
 TYPE_GET_FILE_INFO = 206
@@ -57,6 +60,7 @@ FIELD_BANNER_LINK = 153  # optional link of a 122 notification
 FIELD_AGREEMENT_BYPASS = 154  # scalar N of a 109 notification (core-field-schemas.md)
 FIELD_VERSION = 160  # reported version; a native success reply carries 190
 FIELD_UNNAMED_WORD = 161  # unnamed word that a native success reply zeroes
+FIELD_SERVER_NAME = 162  # current server name of a login reply (core-field-schemas.md)
 FIELD_FILE_NAME = 201  # native-wire-details.md, transfer and file requests
 FIELD_RESUME_DATA = 203  # the RFLT resume descriptor (transfer-contracts.md)
 FIELD_TRANSFER_OPTION = 204  # transfer-contracts.md: 2 selects a download preview
@@ -66,6 +70,8 @@ FIELD_FILE_TYPE = 213  # file-info reply: raw type (filesystem-and-board-contrac
 FIELD_QUOTE = 214  # quoted text of a private message
 FIELD_AUTO_RESPONSE = 215  # automatic-response text, at most 127 bytes
 
+FIELD_FILE_ENTRY = 200  # repeated record of a 200 reply (native-wire-details.md)
+FIELD_ROSTER_SUBJECT = 115  # optional subject of a 300 reply (core-field-schemas.md)
 FIELD_USER_RECORD = 300  # repeated "U" field of a 300 reply (core-field-schemas.md)
 
 # Packed roster record, "U" (core-field-schemas.md): BE16 UID, BE16 icon, BE16
@@ -74,6 +80,11 @@ ROSTER_HEADER_BYTES = 8
 ROSTER_ICON_START = 2
 ROSTER_STATUS_START = 4
 ROSTER_NAME_LENGTH_START = 6
+
+# File-list entry (native-wire-details.md, "File-list entry records"): type,
+# creator, size, a zero word, a zero BE16 and the BE16 name length, then the name.
+FILE_ENTRY_HEADER_BYTES = 20
+FILE_ENTRY_NAME_LENGTH_START = 16
 
 # Physical frame (native-wire-details.md): flags, reply, type, ID, error, total
 # size and data size, then the data.
