@@ -123,3 +123,27 @@ def write_revision(directory: Path, files: dict[str, bytes]) -> None:
         digest = hashlib.sha256(files[name]).hexdigest()
         lines.append(f"{digest}  {target.relative_to(base).as_posix()}\n")
     (directory / "SHA256SUMS").write_text("".join(lines), encoding="utf-8")
+
+
+def record_local_corpus(directory: Path, reason: str) -> None:
+    """List a revision made here in the evidence tree's local-corpora record.
+
+    The record, ``<evidence>/local-corpora.json``, names every corpus that was
+    created in this repository and so is absent from the import source; the
+    curation check reads it.
+
+    Parameters
+    ----------
+    directory : pathlib.Path
+        The new directory, ``<evidence>/protocol-gap-analysis/<date>/revision-N``.
+    reason : str
+        Why the revision was cut.
+    """
+    evidence = directory.parent.parent.parent
+    record = evidence / "local-corpora.json"
+    listed: Json = (
+        read_json(record) if record.is_file() else {"schema_version": 1, "corpora": []}
+    )
+    path = directory.relative_to(evidence.parent).as_posix()
+    listed["corpora"].append({"path": path, "reason": reason})
+    record.write_bytes(dump(listed))

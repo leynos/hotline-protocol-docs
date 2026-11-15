@@ -25,7 +25,7 @@ from pathlib import Path
 
 import audit_model as am
 import cyclopts
-from audit_io import read_json
+from audit_io import read_json, record_local_corpus
 from audit_workspace import EXPECTED_GAPS, Workspace
 from section_map import RefreshRefusedError
 from tool_support import EXIT_FINDINGS, EXIT_OK, MissingInputError, invoke
@@ -55,6 +55,9 @@ class RefreshArgs:
         The required number of gaps.
     today : datetime.date | None
         The audit date; defaults to today (UTC).
+    reason : str | None
+        Why the revision is cut; given, the revision is listed in the evidence
+        tree's ``local-corpora.json``.
     """
 
     revision: int
@@ -65,6 +68,7 @@ class RefreshArgs:
     baseline: Path | None = None
     expected_gaps: int = EXPECTED_GAPS
     today: dt.date | None = None
+    reason: str | None = None
 
 
 def _summary(old: am.Register, new: am.Register) -> tuple[str, int]:
@@ -128,6 +132,8 @@ def refresh_command(
     except RefreshRefusedError as exc:
         sys.stdout.write(f"refused: {exc}\n")
         return EXIT_FINDINGS
+    if args.reason is not None:
+        record_local_corpus(written.directory, args.reason)
     sys.stdout.write(f"wrote {written.directory}\n")
     return EXIT_OK
 

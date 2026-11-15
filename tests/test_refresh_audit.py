@@ -264,3 +264,32 @@ def test_cli_exit_codes(tmp_path: Path) -> None:
     (world.root / "a.md").write_text(ah.ALPHA)
     assert ra.main(common) == EXIT_OK, "success"
     assert ra.main(common) == EXIT_FINDINGS, "second run refused"
+
+
+def test_a_reason_records_the_revision_as_a_local_corpus(tmp_path: Path) -> None:
+    """With ``--reason`` the new revision is appended to the local-corpora record."""
+    world = ah.build_world(tmp_path)
+    record = world.evidence / "local-corpora.json"
+    earlier = {"path": "evidence/earlier", "reason": "Kept."}
+    ah.write_json(record, {"schema_version": 1, "corpora": [earlier]})
+    arguments = [
+        "refresh", "--root", str(world.root), "--evidence-root", str(world.evidence),
+        "--out-root", str(world.evidence), "--revision", "2", "--expected-gaps", "2",
+        "--today", "2026-11-15", "--reason", "Cut for the test.",
+    ]  # fmt: skip
+    assert ra.main(arguments) == EXIT_OK, "refresh succeeds"
+    listed = ah.read_json(record)["corpora"]
+    relative = revision_dir(world).relative_to(world.evidence.parent).as_posix()
+    expected = [earlier, {"path": relative, "reason": "Cut for the test."}]
+    assert listed == expected, listed
+    assert record.read_text().endswith("}\n"), "canonical layout"
+
+
+def test_without_a_reason_the_local_corpora_record_is_untouched(tmp_path: Path) -> None:
+    """A refresh that gives no reason leaves the record's bytes alone."""
+    world = ah.build_world(tmp_path)
+    record = world.evidence / "local-corpora.json"
+    ah.write_json(record, {"schema_version": 1, "corpora": []})
+    before = record.read_bytes()
+    refresh(world)
+    assert record.read_bytes() == before, "record unchanged"
