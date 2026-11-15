@@ -25,9 +25,16 @@ TYPE_BANNER_METADATA = 122  # operation-contracts.md: configured banner metadata
 TYPE_LIST_FILES = 200  # operation-contracts.md: repeated 200 file entries
 TYPE_DOWNLOAD_FILE = 202
 TYPE_UPLOAD_FILE = 203
+TYPE_DELETE_FILE = 204  # operation-contracts.md: delete file or folder
+TYPE_CREATE_FOLDER = 205  # operation-contracts.md, "Request inventory"
 TYPE_GET_FILE_INFO = 206
-TYPE_DOWNLOAD_BANNER = 212  # operation-contracts.md: banner reference and size ACK
+TYPE_SET_FILE_INFO = 207  # operation-contracts.md, "Request inventory"
+TYPE_MOVE_FILE = 208  # operation-contracts.md: move file or folder
+TYPE_MAKE_ALIAS = 209  # operation-contracts.md, "Request inventory"
+TYPE_DOWNLOAD_FOLDER = 210  # operation-contracts.md, "Request inventory"
 TYPE_QUEUE_NOTIFICATION = 211  # transfer-contracts.md, "Queue notification 211"
+TYPE_DOWNLOAD_BANNER = 212  # operation-contracts.md: banner reference and size ACK
+TYPE_UPLOAD_FOLDER = 213  # operation-contracts.md, "Request inventory"
 TYPE_REFERENCE_CLEANUP = 214  # owner-matched cleanup of a transfer reference
 TYPE_GET_USER_ROSTER = 300
 TYPE_PRESENCE_UPDATE = 301
@@ -62,11 +69,15 @@ FIELD_VERSION = 160  # reported version; a native success reply carries 190
 FIELD_UNNAMED_WORD = 161  # unnamed word that a native success reply zeroes
 FIELD_SERVER_NAME = 162  # current server name of a login reply (core-field-schemas.md)
 FIELD_FILE_NAME = 201  # native-wire-details.md, transfer and file requests
+FIELD_FILE_PATH = (
+    202  # structured path (native-wire-details.md, "Structured file paths")
+)
 FIELD_RESUME_DATA = 203  # the RFLT resume descriptor (transfer-contracts.md)
 FIELD_TRANSFER_OPTION = 204  # transfer-contracts.md: 2 selects a download preview
 FIELD_FILE_SIZE = 207  # logical file size in a transfer ACK
 FIELD_FILE_CREATOR = 206  # file-info reply: creator (filesystem-and-board-contracts.md)
 FIELD_FILE_TYPE = 213  # file-info reply: raw type (filesystem-and-board-contracts.md)
+FIELD_ITEM_COUNT = 220  # native-wire-details.md: item count in 213 and in 210 ACKs
 FIELD_QUOTE = 214  # quoted text of a private message
 FIELD_AUTO_RESPONSE = 215  # automatic-response text, at most 127 bytes
 
@@ -116,6 +127,15 @@ SELECTOR_FOLDER = 1  # with an odd reference: folder download
 SELECTOR_BANNER = 2  # with an odd reference: banner download
 PREVIEW_OPTION = 2  # field 204 on request 202: raw preview, no FILP wrapper
 RESUME_OPTION = 1  # field 204 on request 203: resume an upload (native-wire-details.md)
+
+# Folder control words (transfer-contracts.md, "Folder-download control states"
+# and "Folder-upload control states"): big-endian 16-bit words on the data
+# connection. A file is sent fresh (1) or resumed (2); 3 asks for, or signals
+# readiness for, the next item and skips a file.
+FOLDER_CONTROL_FRESH = 1
+FOLDER_CONTROL_RESUME = 2
+FOLDER_CONTROL_NEXT = 3
+FOLDER_DIRECTORY_FLAG = 1  # the item flag's bit zero selects a directory
 
 # Flattened file (transfer-contracts.md, "Flattened ordinary-file stream"): a
 # 24-byte file header, then three forks, each a 16-byte header and its value.
