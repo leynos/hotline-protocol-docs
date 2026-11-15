@@ -226,6 +226,17 @@ The script work is a behaviour-preserving refactor.
   10 tensions) in the session scratch directory.
 - [x] (2026-11-15 20:40Z) Owner raised the tooling tolerance (D24) and asked
   for the SynHX naming to be clarified and a comprehensive glossary (D25).
+- [x] (2026-11-16 20:30Z) EP-M8, third part (`d9ea1ec`, `cb7e07d`): the root
+  `README.md`, `docs/contents.md`, `docs/repository-layout.md` and an overview
+  for each of the eight remaining sets, written by three scribes and gated.
+  INV-REACH holds: `links-check` reports
+  `126 documents, 6029 links, 0 failures`, with every document listed once in
+  the contents page and once in its set's overview. Ten Mermaid diagrams
+  validate. The reachability check now counts only listings (the link that
+  opens a contents item, or the first cell of an overview row). Still to do in
+  EP-M8: `docs/developers-guide.md`, once the script tooling settles after D29;
+  a glossary entry for "identified client"; replacing the set-up passages in
+  `native-capture-workflow.md` with links.
 - [x] (2026-11-16 19:00Z) EP-M5 wave 2 integrated (`1582886` to `1ae7af1`):
   the auth, shx, folder, mkdir, fork, metadata, alias and account-update
   families meet the standard (644 findings to 0, 14 suppressions, 86 tests
@@ -603,6 +614,27 @@ The script work is a behaviour-preserving refactor.
     installation in `shx-peer.md` and the namespace guard in
     `classic-login-proxy.md`.
   - Ten absolute local paths remain in six documents.
+
+- Status drift and stale statements found while writing the overviews, for
+  the EP-M9 reconciliation log (none changed yet):
+  - `docs/protocol/protocol.md` says the native option-one 110 ban notice
+    "still need[s] a disposable-server trial";
+    `docs/presence-and-messaging/native-ban-notices.md` records that trial as
+    witnessed, and two other documents cite the witness.
+  - `native-104-variants.md` and `native-pm-preparation.md` say GAP-044
+    remains open; the register lists it as Resolved, with closure text that
+    says other type-104 variants remain.
+  - The handoff note says "revision 89" and that the canonical documents are
+    in a sibling checkout; the alias record says "audit88". Both are working
+    records kept as written, so each needs a dated note, not an edit.
+  - One peer document names the candidate "Hotline Client 1.9.2 for OSX and
+    OS9" and two name it "Hotline Client 1.9.2 Classic".
+  - Overlaps without contradiction: two inventories of type-104 producers;
+    the 64 single-bit captures described in two sets; the shx 0.1.48 identity
+    repeated in four peer documents.
+- `mdtablefix` joins a run of comma-separated inline links into one long
+  line. Long runs of gap links in the overviews are reference links for that
+  reason.
 
 ## Decision log
 
