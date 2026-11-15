@@ -226,6 +226,15 @@ The script work is a behaviour-preserving refactor.
   10 tensions) in the session scratch directory.
 - [x] (2026-11-15 20:40Z) Owner raised the tooling tolerance (D24) and asked
   for the SynHX naming to be clarified and a comprehensive glossary (D25).
+- [x] (2026-11-15 22:15Z) EP-M3, first part: import tools landed (`4bebeef`,
+  `00db57f`, `bc49af4`, fixes `3804e1d` and the LFS and citation fix), and the
+  curated evidence is imported (`7e85eae`): 200 corpora, 13,439 files, 757 LFS
+  objects, 8 files withheld, 64 JSON exceptions. `make all` passes with 196
+  tests; `make import-check` reports `13439 files compared, 0 differences`;
+  `make withheld-scan` reports `9949 blobs scanned, 0 withheld objects`.
+  Remaining in EP-M3: import the cited mothra documents and scripts, rewrite
+  links and script paths, bring over the renderer and the check recipes,
+  capture the script goldens, cut audit revision 90.
 - [x] (2026-11-15 17:10Z) EP-M0 surveys complete: baseline gates,
   classification of mothra, set-up passage census, JSON census.
 - [x] (2026-11-15 17:10Z) EP-M1 foundation committed (`b4d4449`), and the
@@ -332,6 +341,23 @@ The script work is a behaviour-preserving refactor.
   scratch clone filtered and converted on 15 November 2026. The earlier count
   included `evidence/runtime-network/` and `evidence/runtime-supervision/`,
   which hold evidence about the general toolset and stay in mothra.
+- Observation: the curation tool selects 200 corpora (13,439 files, about
+  852 MiB), one fewer than the lead's estimate; `export-cache-cleanup-01` is
+  cited by nothing in the citing set. Evidence: `evidence/curation.json`.
+- Observation: in mothra itself, 84 `SHA256SUMS` entries name files that
+  were never committed (`hotline-protocol-docs.tar.gz` and `mothra.tar.gz` under
+  `export-cache-recovery-03`). Evidence: the sums verifier in source mode.
+  Impact: none here; that corpus is excluded as noise, and over the imported
+  tree the verifier reports 213 sums files, 13,454 entries, 13,431 ok, 23
+  external and no failures.
+- Observation: `git lfs ls-files` lists staged files that share one object
+  only once, so it reported 684 of 757 LFS paths before the first commit.
+  Impact: the LFS gate reads the index instead.
+- Observation: the withheld set is three distinct objects, not two: the data
+  fork, the resource fork and the AppleDouble container.
+- Observation: the safety layer of this environment refuses commands that
+  name a packet-capture file. Impact: the lead inspects such files only through
+  the repository's tools and index metadata, never directly.
 - Observation: the existing documents are otherwise close to clean. With the
   Lody markdownlint configuration only 18 MD049 findings appear, no local link
   is broken, and default `typos` reports 90 findings, mostly protocol tokens.
