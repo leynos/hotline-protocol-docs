@@ -78,7 +78,8 @@ IMPORT_COMMIT ?= f9b4108ec33e59956c9f2bfbd391dc3a8a279299
 .PHONY: help all build fmt check-fmt check-fmt-python check-fmt-markdown \
 	lint lint-python lint-legacy typecheck test docs-gates markdownlint spelling nixie \
 	json-check links-check audit-check withheld-check withheld-scan withheld-skip \
-	sums-check lfs-check evidence-skip curation-check import-check curation-skip
+	sums-check lfs-check evidence-skip curation-check import-check curation-skip \
+	goldens-check
 
 .DEFAULT_GOAL := all
 # Shared build caches require sequential gates even when make receives -j.
@@ -313,6 +314,15 @@ evidence-verify-known-red: ## Run the verifier that is known to fail (decision D
 # test_verify_classic_field161_matrix, for the reason given above.
 test-legacy: ## Run every inherited unittest (known red: one error)
 	python3 -m unittest discover -s scripts -p 'test_*.py'
+
+# Not in `all`: it re-runs every legacy verifier, planner and test, which takes
+# three to ten minutes. Run it after each change to a script family, with
+# GOLDENS_FILTER set to the family's name to compare that family alone.
+GOLDENS_FILTER ?=
+GOLDENS_FILTER_ARGS = $(foreach f,$(GOLDENS_FILTER),--filter $(f))
+
+goldens-check: build ## Compare the legacy scripts with tests/goldens (three to ten minutes; not in all)
+	$(PYTHON) tools/capture_goldens.py compare --root . $(if $(MOTHRA),--mothra $(MOTHRA)) $(GOLDENS_FILTER_ARGS)
 
 typecheck-legacy: ## Type-check the inherited scripts (not in all; see the plan)
 	$(TY) check --extra-search-path scripts scripts
