@@ -34,11 +34,11 @@ retain successful identity, earlier port/no-program failures and completed
 read-only proposals; those proposals are not execution authority.
 
 `install9` and `hotline19`–`21` were retired after committed recovery.
-[Runtime storage](../../mothra/docs/runtime-storage.md) explains the
-shared-extent accounting and protected live/donor directories. Three existing
-user emulators and the Ghidra GUI remain untouched. The older rate304 bridge
-owners remain recorded for later coordination. No experimental R06 process is
-running.
+[Runtime storage](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/runtime-storage.md)
+explains the shared-extent accounting and protected live/donor directories.
+Three existing user emulators and the Ghidra GUI remain untouched. The older
+rate304 bridge owners remain recorded for later coordination. No experimental
+R06 process is running.
 
 The 14.37 GB old mxd build cache was not deleted. Its exact wireframe witness
 is preserved outside the cache at

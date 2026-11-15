@@ -120,7 +120,8 @@ failed setup checks; it supplies no board-operation evidence. The
 [successful second lab](native-board-witness.md) supplies the paired protocol
 and stopped-file evidence for the fixture described here.
 
-Use the [validated receipt builder](../mothra/docs/native-capture-receipt.md)
+Use the
+[validated receipt builder](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/native-capture-receipt.md)
 from the host as root. It reads the exact managed-unit properties, rechecks
 capture and emulator identity, and creates one new receipt exclusively.
 Prewrite and check readiness scripts before launching their units, and wait for

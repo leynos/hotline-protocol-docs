@@ -4,6 +4,10 @@
     {
       "path": "evidence/protocol-gap-analysis/2026-11-15/revision-90",
       "reason": "Audit revision cut in this repository after the evidence import; it succeeds revision 89, the last one made in mothra."
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-15/revision-91",
+      "reason": "Audit revision cut in this repository when the links to the general toolset became commit permalinks."
     }
   ]
 }

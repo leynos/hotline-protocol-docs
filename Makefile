@@ -33,14 +33,14 @@ PYTHON ?= $(UV) run --group dev python
 # it exists (see tools/check_json.py).
 JSON_EXCEPTIONS ?= json-exceptions.txt
 JSON_EXCEPTIONS_ARG = $(if $(wildcard $(JSON_EXCEPTIONS)),--exceptions $(JSON_EXCEPTIONS))
-# The sibling mothra checkout that the documents still link into with
-# ../mothra/ paths. A later milestone replaces those links with permalinks and
-# adds --forbid-relative-mothra to LINKS_ARGS.
+# A local clone of mothra. Links to it are commit permalinks; the link check
+# confirms that each linked path exists at its commit in this clone, and
+# --forbid-relative-mothra in LINKS_ARGS rejects any ../mothra/ link.
 MOTHRA ?= $(firstword $(wildcard ../mothra ../../mothra))
 MOTHRA_ARG = $(if $(MOTHRA),--mothra $(MOTHRA))
 # The run must examine at least this many links, so an empty run cannot pass.
 LINKS_MIN ?= 2000
-LINKS_ARGS ?=
+LINKS_ARGS ?= --forbid-relative-mothra
 # Inherited capture and verification scripts, held at their earlier rules by
 # scripts/ruff.toml.
 LEGACY_PYTHON = scripts

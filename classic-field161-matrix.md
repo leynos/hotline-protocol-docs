@@ -75,4 +75,4 @@ python3 -m unittest discover -s scripts -p 'test_verify_classic_field161_matrix.
 
 [corpus]: evidence/gap-remediation/2026-11-14/classic-field161-01/
 [proxy]: classic-login-proxy.md
-[gate]: ../mothra/docs/capture-readiness.md
+[gate]: https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/capture-readiness.md

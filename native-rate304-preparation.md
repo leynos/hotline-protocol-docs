@@ -34,11 +34,11 @@ The later `native-rate304-02` startup also retired before protocol contact: its
 immediate capture gate expired while the actual VM held its disk but had not
 opened the packet-triggered guest PCAP. See the
 [startup witness](native-rate304-startup-gate.md) and
-[source boundary](../mothra/docs/guest-capture-startup.md). A future lab needs
-the separate disk and capture stages described by the
-[readiness helper](../mothra/docs/native-emulator-readiness.md); neither
-earlier runtime is a retry target. Each new lab requires its own absent paths
-and reviewed command packet.
+[source boundary](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/guest-capture-startup.md).
+A future lab needs the separate disk and capture stages described by the
+[readiness helper](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/native-emulator-readiness.md);
+neither earlier runtime is a retry target. Each new lab requires its own
+absent paths and reviewed command packet.
 
 The subsequent `native-rate304-03` lab is also retired. Its
 [packet and runtime witness](native-rate304-sequence.md) preserves the rate

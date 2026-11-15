@@ -60,10 +60,11 @@ quarantined. No read of its bytes occurred while the emulator held it.
 The five-second timeout establishes only that this gate did not observe FD16 in
 its window. It does not establish why FD16 was absent, whether it would have
 appeared later, or any native server behaviour. The subsequent
-[source trace](../mothra/docs/guest-capture-startup.md) identifies creation on
-the first Ethernet packet, which is distinct from initial process identity.
-This supports separate readiness stages, without proving the guest event
-sequence during this failed window. This document authorizes no retry.
+[source trace](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/guest-capture-startup.md)
+identifies creation on the first Ethernet packet, which is distinct from
+initial process identity. This supports separate readiness stages, without
+proving the guest event sequence during this failed window. This document
+authorizes no retry.
 
 ## Offline check
 

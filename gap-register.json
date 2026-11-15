@@ -3,8 +3,8 @@
   "title": "Hotline 1.9 protocol documentation gap register",
   "audited_at_utc": "2026-11-12T12:55:29.155796+00:00",
   "last_updated": "2026-11-15",
-  "source_manifest": "evidence/protocol-gap-analysis/2026-11-15/revision-90/manifest.json",
-  "source_sections": "evidence/protocol-gap-analysis/2026-11-15/revision-90/sections.json",
+  "source_manifest": "evidence/protocol-gap-analysis/2026-11-15/revision-91/manifest.json",
+  "source_sections": "evidence/protocol-gap-analysis/2026-11-15/revision-91/sections.json",
   "validity_ledger": "docs/baseline-validity-ledger.md",
   "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
   "method": "Revision 90 follows the move of the evidence into the documentation repository. It preserves all 87 original closure criteria and every prior question and status string. The 102 input documents were reflowed to 80 columns, corrected to Oxford spelling and had their evidence links pointed at the in-repository evidence tree; no heading or anchor changed, so each section corresponds by position to its predecessor in revision 89. No new native protocol observation or gap closure; mxd validation stays held.",
@@ -2829,8 +2829,8 @@
           "[Revised bounded fixture preparation](native-rate304-preparation.md)",
           "[Recipient predicate source trace](rate304-recipient-predicate.md)",
           "[Precontact rate startup failure](native-rate304-startup-gate.md)",
-          "[Packet-triggered guest capture source](../mothra/docs/guest-capture-startup.md)",
-          "[Phased emulator readiness](../mothra/docs/native-emulator-readiness.md)",
+          "[Packet-triggered guest capture source](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/guest-capture-startup.md)",
+          "[Phased emulator readiness](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/native-emulator-readiness.md)",
           "[Phased helper independent review and fault regressions](evidence/gap-remediation/2026-11-14/emulator-readiness-review-01/manifest.json)",
           "[Measured native 304 sequence and failed final control](native-rate304-sequence.md)",
           "[Portable packet and runtime corpus](evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/manifest.json)"
@@ -2877,7 +2877,7 @@
           "[Legacy board static format](legacy-board-format.md)",
           "[Native board fixture preparation](native-board-preparation.md)",
           "[Aborted pre-contact board lab](native-board-readiness-failure.md)",
-          "[Receipt-builder workflow and limits](../mothra/docs/native-capture-receipt.md)",
+          "[Receipt-builder workflow and limits](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/native-capture-receipt.md)",
           "[Native board witness](native-board-witness.md)",
           "[Portable board packet and storage corpus](evidence/gap-remediation/2026-11-14/native-board-01/manifest.json)",
           "[Captured board boundaries and updates](filesystem-and-board-contracts.md#captured-legacy-board-boundaries-and-updates)",
@@ -4931,7 +4931,7 @@
           "[Identified peer core-session fixtures](mac-peer-isolated-session.md)",
           "[Native board fixture preparation](native-board-preparation.md)",
           "[Aborted pre-contact board lab](native-board-readiness-failure.md)",
-          "[Receipt-builder workflow and limits](../mothra/docs/native-capture-receipt.md)"
+          "[Receipt-builder workflow and limits](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/native-capture-receipt.md)"
         ],
         "closure": "Native core-session fixtures and identified shx captures retain decoded/events results, reproducible runners, pinned identities and matched host/guest packet provenance. The isolated Classic session additionally checks login/agreement/roster and banner transfer bytes across three capture views, with a finite quiet interval and explicit UI limitation. This satisfies the original core-session fixture criterion; wider operation support and release selection remain separate requirements."
       }
@@ -14665,7 +14665,7 @@
       "heading": "Readiness receipts and the aborted first lab",
       "level": 2,
       "line_start": 115,
-      "line_end": 130,
+      "line_end": 131,
       "anchor": "readiness-receipts-and-the-aborted-first-lab",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -14984,7 +14984,7 @@
       "heading": "Sole boot attempt and boundary",
       "level": 2,
       "line_start": 33,
-      "line_end": 67,
+      "line_end": 68,
       "anchor": "sole-boot-attempt-and-boundary",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -14998,8 +14998,8 @@
       "path": "native-rate304-startup-gate.md",
       "heading": "Offline check",
       "level": 2,
-      "line_start": 68,
-      "line_end": 81,
+      "line_start": 69,
+      "line_end": 82,
       "anchor": "offline-check",
       "review": "Reviewed",
       "direct_gap_ids": [

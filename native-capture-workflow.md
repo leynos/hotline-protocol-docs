@@ -9,8 +9,8 @@ are local inputs under `mothra/state` or `mothra/tools`, never Git artefacts.
 ## Prepare the emulator and application
 
 Install the host prerequisites listed in the generic
-[SheepShaver harness guide](../mothra/sheepshaver.md). From `mothra`, build the
-pinned interpreter:
+[SheepShaver harness guide](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/sheepshaver.md).
+From `mothra`, build the pinned interpreter:
 
 ```sh
 NATIVE_RUNTIME=state/mac-runtime/NEW-RUNTIME
@@ -69,14 +69,14 @@ capture. The observer refuses existing files and records host wall-clock
 timestamps; its location before packet injection does not prove guest receipt.
 
 Check emulator identity and guest capture in separate stages. The
-[capture startup trace](../mothra/docs/guest-capture-startup.md) shows that the
-observer creates its PCAP on the first Ethernet packet. Immediately after
-launch, verify the actual disk-owning process without requiring that file.
-After guest networking starts, bind the capture's writable FD and header to the
-same process before sending any Hotline request. The
-[phased readiness helper](../mothra/docs/native-emulator-readiness.md) provides
-the commands and identity checks. A bounded missing-file observation does not
-establish process exit; retain and inspect the same process handle. The
+[capture startup trace](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/guest-capture-startup.md)
+shows that the observer creates its PCAP on the first Ethernet packet.
+Immediately after launch, verify the actual disk-owning process without
+requiring that file. After guest networking starts, bind the capture's writable
+FD and header to the same process before sending any Hotline request. The
+[phased readiness helper](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/native-emulator-readiness.md)
+provides the commands and identity checks. A bounded missing-file observation
+does not establish process exit; retain and inspect the same process handle. The
 [failed startup gate](native-rate304-startup-gate.md) records the earlier
 precontact timeout and retirement without treating it as a protocol result.
 
@@ -1380,7 +1380,7 @@ pause; run them serially with two packet views.
 Before a new run, verify the runtime and actual application forks, inspect News
 and Files, and require absence of the owned namespace. Keep ROMs, disks and
 credentials local. The generic display/emulator supervision is documented in
-[mothra's SheepShaver guide](../mothra/sheepshaver.md#managed-display-and-emulator-lifetime).
+[mothra's SheepShaver guide](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/sheepshaver.md#managed-display-and-emulator-lifetime).
 Service acceptance and actual application readiness are separate checks.
 
 For an interrupted seed, `article-delete-inspect` reads every owned category.
