@@ -227,8 +227,11 @@ The script work is a behaviour-preserving refactor.
   `main`, pending the owner's confirmation; the LFS quota reading).
 - [ ] EP-M0: baseline, mothra pushed, LFS quota checked, classification
   manifest.
-- [ ] EP-M1: tooling foundation and link gate.
-- [ ] EP-M2: audit refresh tool proven against revision 89.
+- [x] (2026-11-15) EP-M1: tooling foundation, JSON gate (`04efcbe`), Markdown
+  model (`c48e996`) and link gate with reachability rule (`b3bd149`);
+  `make all` is green and includes `json-check` and `links-check`.
+- [x] (2026-11-15) EP-M2: audit refresh tool proven against revision 89
+  (`002aaae`); the golden test and mothra's `validate` pass.
 - [ ] EP-M3: Hotline material imported; repository self-contained; revision 90.
 - [ ] EP-M4: mothra generalized on a branch and pushed.
 - [ ] EP-M5: all scripts meet the df12 Python standards; revision 91.
@@ -317,6 +320,24 @@ The script work is a behaviour-preserving refactor.
 - Observation: the existing documents are otherwise close to clean. With the
   Lody markdownlint configuration only 18 MD049 findings appear, no local link
   is broken, and default `typos` reports 90 findings, mostly protocol tokens.
+- Observation: the renderer's link regex skips links written with a space
+  after the opening parenthesis, so two links in `mxd-validation.md` and
+  `protocol.md` were never checked. Evidence: `]( mxd-reconciliation.md)` and
+  `]( native-console-broadcast.md)`. Impact: `tools/check_links.py` checks them
+  (the real run examines 4,370 links against the renderer's 4,364) and both
+  resolve.
+- Observation: revision 89's manifest carries run-description keys that a fresh
+  revision makes untrue: `snapshot_policy` ("reuse byte-identical older
+  snapshots") and `reused_prior_snapshots` (100). Impact: `refresh_audit.py`
+  carries every non-input key forward unchanged, as directed; the new revision
+  snapshots all inputs afresh, so those two values need a reviewed edit by the
+  lead.
+- Observation: the cuprum release pinned here treats a `cwd=` keyword as a
+  command-line flag. Impact: the tools call `git -C <dir>`.
+- Observation: new Python tooling measures 2,289 lines with docstrings and
+  blanks (876 lines of code) after three tools. Impact: against the 2,200-line
+  scope tolerance this needs a ruling on which measure applies; reported to the
+  lead.
 
 ## Decision log
 
@@ -1194,6 +1215,37 @@ Diagrams inside existing documents are added only where a described flow has
 three or more steps and the text already states each step.
 
 Transcripts and commit hashes are added here as milestones complete.
+
+Red-Green-Refactor evidence for EP-M1 and EP-M2 (commands run from the
+repository root; the stubs raise `NotImplementedError`, so every red failure is
+the missing behaviour, not a missing import):
+
+- `tools/check_json.py` (`04efcbe`). Red:
+  `uv run --group dev pytest -q tests/test_check_json.py tests/test_repo_files.py`
+  gave `20 failed`. Green: the same command gave `20 passed`. Refactor:
+  `make all` exited 0 (Ruff, interrogate 100%, Pylint 10.00/10, `ty` clean,
+  tests), confirmed by a scrutineer run. Real run: `make json-check` printed
+  `3 files, 0 failures`.
+- `tools/markdown_model.py` (`c48e996`). Red: 18 failed in
+  `tests/test_markdown_model.py`. Green: 18 passed, including the pin of the
+  slug rule against all 543 sections of revision 89 from their frozen
+  snapshots. Scrutineer: `make check-fmt-python`, `make lint`, `make typecheck`,
+  `make test`, `make json-check` all exit 0 after one fixture fix.
+- `tools/check_links.py`, `tools/mothra_links.py`, `tools/check_reach.py`
+  (`b3bd149`). Red: `tests/test_check_links.py` gave `23 failed`. Green: all 76
+  tests passed. Scrutineer: `make all` exit 0. Real run: `make links-check`
+  printed `106 documents, 4370 links, 0 failures`.
+- `tools/refresh_audit.py` with `audit_model.py`, `audit_workspace.py`,
+  `audit_io.py` and `section_map.py` (`002aaae`). Red: 26 failed, all
+  `NotImplementedError`. Green: 102 passed, including the golden test
+  (`tests/test_refresh_golden.py`): `sections.json` byte-identical to revision
+  89's, every gap's `sources` and every coverage entry unchanged,
+  `87 gaps, 0 protected fields changed`, and mothra's `validate` raising
+  nothing on the refreshed tree. Scrutineer: `make all` exit 0 (102 passed),
+  `make audit-check` printed
+  `Validated 87 gaps and 543 reviewed sections;
+  checked 4364 local link references`,
+  and `git -C ../../mothra status --short` was empty.
 
 ## Interfaces and dependencies
 
