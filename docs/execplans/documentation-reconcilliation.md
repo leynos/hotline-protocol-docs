@@ -226,6 +226,28 @@ The script work is a behaviour-preserving refactor.
   10 tensions) in the session scratch directory.
 - [x] (2026-11-15 20:40Z) Owner raised the tooling tolerance (D24) and asked
   for the SynHX naming to be clarified and a comprehensive glossary (D25).
+- [x] (2026-11-16 05:00Z) EP-M4 complete. Mothra's branch
+  `documentation-reconcilliation` is pushed at
+  `57aeaac4f12065bfb2de3d47943f4b45622392a9`: one snapshot commit of the
+  general tooling on the published initial commit (D27), then nine commits that
+  remove every project reference and add three general guides
+  (`docs/preparing-a-capture-run.md`,
+  `docs/peer-service-in-network-namespace.md`, `docs/ghidra-decompilation.md`).
+  INV-GENERAL: the name search over tracked file contents and file names prints
+  nothing, and the five kept archives hold no project name. INV-WITHHELD:
+  `281 blobs scanned, 0 withheld objects`. Mothra's `make check` passes with 83
+  tests (81 before). `scripts/capture_readiness.py`,
+  `scripts/mac_network_isolation.py`, `scripts/mac_runtime.py` and everything
+  under `evidence/` are byte-identical to mothra `f9b4108`. In this repository
+  the thirteen remaining relative links are permalinks to that commit,
+  `links-check` runs with `--forbid-relative-mothra`
+  (`4510 links, 0 failures`), and audit revision 91 is cut (`d51d1bb`).
+  Residuals, for the owner: the launcher `scripts/mac_runtime.py` keeps the
+  numeric guest port 5500 and host port 15500 as defaults, because kept
+  evidence compares its SHA-256 in live mode; the kept corpus
+  `alias-window-profile-01` keeps its `gap-remediation` path and window name.
+  The instructional set-up passages in this repository's documents are replaced
+  by links to the new guides in EP-M8.
 - [x] (2026-11-16 03:30Z) EP-M3, third part: the inherited scripts now find
   evidence inside this repository (`b514da7`, 79 files, path expressions only),
   reach mothra's general scripts through `scripts/mothra_root.py` (`3bee830`),
@@ -272,7 +294,8 @@ The script work is a behaviour-preserving refactor.
 - [x] (2026-11-15) EP-M2: audit refresh tool proven against revision 89
   (`002aaae`); the golden test and mothra's `validate` pass.
 - [ ] EP-M3: Hotline material imported; repository self-contained; revision 90.
-- [ ] EP-M4: mothra generalized on a branch and pushed.
+- [x] EP-M4: mothra generalized on a branch and pushed (see the entry dated
+  2026-11-16 05:00Z).
 - [ ] EP-M5: all scripts meet the df12 Python standards; revision 91.
 - [ ] EP-M6: documents relocated into sets; revision 92.
 - [ ] EP-M7: mxd set consolidated; revision 93.
@@ -432,6 +455,14 @@ The script work is a behaviour-preserving refactor.
   them with the live files, so the edits break no recorded hash.
 - The inherited verifiers and one test write a `state/` directory at the
   repository root; it is ignored (`b1cae01`).
+
+- Each audit revision cut here must also be listed in
+  `evidence/local-corpora.json`, or `curation-check` reports it as present but
+  not included. Revision 91 was added by hand; `tools/refresh_audit.py` should
+  add the entry itself before the next revision.
+- Mothra's local clone needs the published branch fetched
+  (`git fetch origin documentation-reconcilliation`) for the link check to
+  confirm permalink paths; the fetch adds a remote-tracking ref only.
 
 ## Decision log
 
