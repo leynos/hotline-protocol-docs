@@ -80,10 +80,15 @@ The script work is a behaviour-preserving refactor.
   planner must emit byte-identical plans.
 - Large and binary evidence is stored through Git LFS (Large File Storage),
   which keeps a small pointer in Git and the content in a separate store. The
-  rule is fixed: under `evidence/`, every `*.png`, `*.pcap` and `*.gz` file,
-  and every other file of 1 MiB or more, is an LFS object; everything else is
-  ordinary Git. The content of each file is unchanged. No file outside
-  `evidence/` uses LFS.
+  rule is fixed: under `evidence/`, every `*.png`, `*.pcap` and `*.gz` file is
+  an LFS object; everything else, JSON of any size included, is ordinary Git.
+  The content of each file is unchanged. No file outside `evidence/` uses LFS.
+- Every tracked `*.json` file must parse and must be in the canonical layout
+  the repository already uses: two-space indentation, keys in their existing
+  order, non-ASCII characters written literally, and one trailing newline.
+  Authored JSON outside `evidence/` is brought to that layout by `make fmt`.
+  JSON under `evidence/` is checked and never rewritten, because its bytes are
+  covered by recorded hashes.
 - General guidance on installing or setting up the mothra toolset is not
   written or kept in this repository. Where an existing document contains it,
   the passage moves to mothra in general form and is replaced by a link.
@@ -156,9 +161,9 @@ The script work is a behaviour-preserving refactor.
   owner authorized the push; it is recorded as decision D8 so the consequence
   is explicit.
 - Risk: this repository's working tree grows to about 1 GB. Severity: low.
-  Likelihood: certain. Mitigation: Git LFS keeps about 826 MiB of it out of the
+  Likelihood: certain. Mitigation: Git LFS keeps about 642 MiB of it out of the
   Git object store, and a clone can skip it with `GIT_LFS_SKIP_SMUDGE=1`.
-- Risk: the first push uploads about 826 MiB to GitHub's LFS store, which is
+- Risk: the first push uploads about 642 MiB to GitHub's LFS store, which is
   metered for storage and bandwidth. Severity: medium. Likelihood: certain.
   Mitigation: EP-M0 records the account's LFS quota and the expected upload
   before anything is pushed; if the quota is short, stop and escalate.
@@ -209,6 +214,7 @@ The script work is a behaviour-preserving refactor.
   asked for evidence-recreation directions; plan revised.
 - [x] (2026-11-15 14:50Z) Revised to store large evidence through Git LFS.
 - [x] (2026-11-15 15:05Z) Added the delegation and escalation protocol.
+- [x] (2026-11-15 15:20Z) Kept JSON in Git and added a JSON formatting gate.
 - [ ] Explicit approval to begin implementation.
 - [ ] EP-M0: baseline, mothra pushed, LFS quota checked, classification
   manifest.
@@ -310,9 +316,12 @@ The script work is a behaviour-preserving refactor.
   `git lfs migrate import` converts the qualifying files throughout that
   scratch history, and the result is merged as an unrelated history. The
   planning agent had proposed ordinary Git; the owner asked for LFS. Measured
-  effect: 537 PNG files (307 MiB), 241 packet captures (295 MiB), 17 gzip files
-  (39 MiB) and 55 other files of 1 MiB or more (184 MiB) become LFS objects;
-  about 16,700 smaller text files (roughly 160 MiB) stay in Git.
+  effect: 537 PNG files (307 MiB), 241 packet captures (295 MiB) and 17 gzip
+  files (39 MiB) become LFS objects, about 642 MiB in all; the remaining 16,790
+  or so files (roughly 345 MiB, mostly JSON and text) stay in Git. A first
+  draft also sent every file of 1 MiB or more to LFS; the owner asked for JSON
+  to stay in Git, and with JSON excluded only two such files remained, so the
+  size clause was dropped.
 - Decision D10 (accepted by the owner, 2026-11-15): the mxd set is reorganized
   into the six documents listed under EP-M7. Rationale: one document per reader
   question, each finding stated once. Date/Author: 2026-11-15, planning agent.
@@ -428,7 +437,7 @@ throughout, and modules under 400 lines.
 ## Conformance basis
 
 No Terms of Reference, technical design or ADR exists for this work. The
-upstream authority is the owner's request and five later directions, all of
+upstream authority is the owner's request and later directions, all of
 15 November 2026:
 
 - REQ-1: reconcile the documents with one another and with the register.
@@ -445,6 +454,8 @@ upstream authority is the owner's request and five later directions, all of
 - REQ-10: the mxd validation documents are tidied into a coherent set.
 - REQ-11: the documents give directions for recreating the evidence with the
   mothra toolset, without general guidance on setting that toolset up.
+- REQ-12: large binary evidence uses Git LFS; JSON stays in Git and is held
+  to a formatting gate.
 
 Trace links:
 
@@ -460,6 +471,7 @@ REQ-8  -> EP-M3, EP-M4 -> INV-IMPORT; mothra name search empty; mothra make chec
 REQ-9  -> EP-M3 -> make links-check (no relative mothra link; permalink shape and target)
 REQ-10 -> EP-M7 -> INV-MXD claim inventory reconciled
 REQ-11 -> EP-M4, EP-M8, EP-M9 -> INV-RECREATE; docs/native-evidence/recreating-evidence.md
+REQ-12 -> EP-M1, EP-M3 -> make lfs-check, make json-check; INV-IMPORT, INV-JSON
 audit validity (inherited) -> EP-M2, EP-M3, EP-M6, EP-M7, EP-M9, EP-M10 -> make audit-check
 ```
 
@@ -500,9 +512,9 @@ with hyphens. The link tool uses the same rule, and a test pins it against the
   `sha256sum --check` over all sums files with LFS content present. Artefact:
   `tools/check_import.py` with `tests/test_check_import.py`. Evidence:
   `17,5xx files, 0 differences` and 415 sums files verified. Non-vacuity: tests
-  seed an altered blob, a missing file, an extra file, a large file left in
-  ordinary Git and a small text file wrongly in LFS; the real run asserts the
-  expected file count and at least 800 LFS objects.
+  seed an altered blob, a missing file, an extra file, a PNG left in ordinary
+  Git and a JSON file wrongly in LFS; the real run asserts the expected file
+  count and exactly the 795 LFS objects measured.
 - Obligation INV-MOVE: relocation changes nothing but link targets. For each
   moved document, the heading sequence and every line containing no link are
   identical before and after, and every link resolves to the moved counterpart
@@ -575,6 +587,23 @@ with hyphens. The link tool uses the same rule, and a test pins it against the
   Non-vacuity: a seeded corpus with no procedure, and a seeded reference to a
   script that does not exist, are rejected. Residual gap: procedures that need
   the emulator are not executed in this pass, and the guide says so.
+- Obligation INV-JSON: every tracked `*.json` file parses, and its bytes equal
+  the canonical rendering of its parsed value: two-space indentation, key order
+  preserved, non-ASCII characters literal, one trailing newline. Method:
+  parameterized tests over layouts, plus a run over every tracked JSON file.
+  Rationale: the rendering is a pure function of the parsed value, so equality
+  is decidable per file and the finite set of layout faults can be enumerated.
+  Artefact: `tools/check_json.py` with `tests/test_check_json.py`. Evidence:
+  `make json-check` prints the file count and `0 failures`; before the import
+  it covers `gap-register.json` and the two fixture files, and after it about
+  5,140 evidence files as well. Non-vacuity: tests seed a syntax error, a
+  duplicate key, tab indentation, a missing trailing newline, an escaped
+  non-ASCII character and trailing whitespace, each rejected by name; a
+  duplicate key is a failure because parsing would silently drop it. Known
+  state: the three authored files and a sample of 400 evidence files already
+  conform. If any evidence file does not, it is not rewritten; it is listed
+  with its SHA-256 in an exceptions file that the gate reads, and the count is
+  reported in the retrospective.
 - Obligation INV-GENERAL: no tracked file on the mothra branch contains
   `hotline`, `hlserver`, `mxd`, `synhx`, `shx`, `HOTL`, `GAP-` followed by
   digits, or `protocol-docs`, in any letter case, and mothra's `make check`
@@ -892,8 +921,6 @@ git clone --no-local /data/leynos/Projects/mothra "$SCRATCH/mothra-import"
 git -C "$SCRATCH/mothra-import" filter-repo --paths-from-file "$SCRATCH/import-paths.txt"
 git -C "$SCRATCH/mothra-import" lfs migrate import --everything \
   --include='evidence/**/*.png,evidence/**/*.pcap,evidence/**/*.gz'
-git -C "$SCRATCH/mothra-import" lfs migrate import --everything \
-  --include='evidence/**' --above=1MiB
 git lfs install --local
 git remote add mothra-import "$SCRATCH/mothra-import"
 git fetch mothra-import
@@ -902,7 +929,7 @@ git remote remove mothra-import
 uv run tools/check_import.py --mothra /data/leynos/Projects/mothra
 ```
 
-The two `migrate` commands rewrite only the scratch clone and write the matching
+The `migrate` command rewrites only the scratch clone and writes the matching
 `.gitattributes` entries. After the merge, `git lfs fetch mothra-import --all`
 copies the objects into this repository's store before the remote is removed;
 run it between the `fetch` and `merge` lines if the merge reports missing
@@ -1005,7 +1032,7 @@ Quality criteria:
 - Tests: `make test` passes; the converted legacy suite has at least the 758
   baseline tests plus those imported, none deleted; every new tool has
   happy-path and failure-path tests.
-- Verification: the eleven obligations discharged as specified, with
+- Verification: the twelve obligations discharged as specified, with
   non-vacuity counts recorded.
 - Lint and type checks:
   `make lint-python typecheck check-fmt markdownlint spelling nixie` pass over
@@ -1120,7 +1147,9 @@ New files at the end of EP-M3:
 - `Makefile` with `.NOTPARALLEL:` and the targets `help`, `all`, `fmt`,
   `check-fmt`, `markdownlint`, `spelling`, `nixie`, `links-check`,
   `evidence-check`, `style-check`, `audit-check`, `evidence-verify`,
-  `lint-python`, `typecheck` and `test`. `markdownlint` depends on `spelling`,
+  `lfs-check`, `json-check`, `lint-python`, `typecheck` and `test`. `fmt`
+  rewrites JSON outside `evidence/` only; `check-fmt` depends on `json-check`,
+  which covers every tracked JSON file. `markdownlint` depends on `spelling`,
   as in netsuke. Markdown tools receive an explicit file list from
   `git ls-files '*.md' ':!evidence/**'`. `evidence-verify` carries the corpus
   checks formerly in mothra's `Makefile`. `audit-check` runs the renderer with
@@ -1129,7 +1158,7 @@ New files at the end of EP-M3:
   `siblings_only`, `MD033` allowing `a` and `br`, and `MD049` underscore;
   ignoring `evidence/**`, `.uv-cache` and `.uv-tools`.
 - `.gitattributes`: `evidence/** -whitespace`, as in mothra, plus the LFS
-  filter entries for the three extensions and the listed large files.
+  filter entries for the three extensions.
 - A `lfs-check` target: fails if any path the LFS rule selects is not a
   pointer in the index, if any other path is, or if LFS content is absent from
   the working tree.
@@ -1160,6 +1189,10 @@ def check(root: Path, *, write: bool = False) -> Report: ...
 
 # tools/capture_goldens.py
 def capture(root: Path, *, check: bool = False) -> Report: ...
+
+# tools/check_json.py
+def canonical(text: str) -> str: ...
+def check(root: Path, *, write: bool = False) -> Report: ...
 
 # tools/check_style.py
 def check(root: Path) -> Report: ...
@@ -1205,3 +1238,10 @@ a structured escalation protocol. A new section, `Delegation and escalation`,
 assigns roles by milestone, fixes the contents of a task packet, and defines
 four report statuses and a four-level escalation path. The milestones and their
 acceptance evidence are unchanged.
+
+Fifth revision, 15 November 2026. The owner asked for JSON to stay in Git under
+a formatting gate. The LFS rule is now by extension only (`*.png`, `*.pcap`,
+`*.gz`), about 642 MiB. A new obligation, INV-JSON, and a `json-check` target
+require every tracked JSON file to parse and to match the canonical two-space
+layout the repository already uses; authored JSON is formatted by `make fmt`,
+and evidence JSON is checked but never rewritten.
