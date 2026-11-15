@@ -358,6 +358,12 @@ The script work is a behaviour-preserving refactor.
 - Observation: the safety layer of this environment refuses commands that
   name a packet-capture file. Impact: the lead inspects such files only through
   the repository's tools and index metadata, never directly.
+- Observation: run one at a time in the original layout, 104 of mothra's 106
+  check recipes pass. The two that fail are the field-161 verifier and the
+  legacy test suite, both with the known `capture gate source identity` error.
+  Evidence: a per-recipe run on 15 November 2026, kept in the session scratch
+  directory as `baseline-verdicts.json`. Impact: this is the script baseline
+  for INV-SCRIPT.
 - Observation: the existing documents are otherwise close to clean. With the
   Lody markdownlint configuration only 18 MD049 findings appear, no local link
   is broken, and default `typos` reports 90 findings, mostly protocol tokens.
@@ -599,6 +605,28 @@ The script work is a behaviour-preserving refactor.
   authoritative for it, and, for a factual claim such as the SynHX lineage, a
   citation of retained evidence. Existing statements that use a family name
   loosely are reworded to name the thing meant, without changing the claim.
+
+- Decision D26: the documentation gains one ledger of remaining evidence
+  work, `docs/provenance/remaining-evidence-work.md`. The owner asked on
+  15 November 2026 whether a clear ledger existed; none does. The remaining
+  work is spread over five places: the `resolution.progress` strings of the 25
+  gaps that are not Resolved; mothra's `docs/protocol-handoff.md`, which names
+  the prepared and unstarted `native-wire-boundary-06` run; the four open
+  milestones of mothra's `docs/execplans/missing-target-alias.md`; the
+  untracked operator packets under mothra's `state/delegation/`, of which
+  `c179-wire-bootstrap/handoff.md` is the latest; and `mxd-validation.md` for
+  the parked mxd work. The ledger has one row for each unresolved gap: what its
+  closure criterion still needs, the kind of work (native capture, static
+  analysis, peer capture, mxd validation or a decision), what has been
+  prepared, what blocks it, and where to pick it up. A second table lists
+  prepared runs that have not started, with their preconditions. To support it,
+  the handoff note and the missing-target alias plan are imported after all, as
+  records under `docs/provenance/records/`, and the content of the latest
+  operator packet is summarized with the owner's consent, since it sits in
+  untracked state. A check requires every gap that is not Resolved to appear in
+  the ledger exactly once and no Resolved gap to appear. The ledger is written
+  in EP-M8 and reviewed against the register in EP-M9. Date/Author: 2026-11-15,
+  lead.
 
 ## Outcomes & retrospective
 
