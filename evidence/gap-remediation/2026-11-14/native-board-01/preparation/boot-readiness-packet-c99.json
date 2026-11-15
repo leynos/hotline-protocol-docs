@@ -1,0 +1,154 @@
+{
+  "schema": "native-board-02-boot-readiness-c99b",
+  "created_at_utc": "2026-11-14T09:04:29.611036+00:00",
+  "state": "PREPARED_ONLY_NOT_RUN",
+  "cwd": "/data/leynos/Projects/mothra",
+  "preflight": "/data/leynos/Projects/mothra/state/native-sessions/native-board-preparation-02/preflight.json",
+  "supplement": "/data/leynos/Projects/mothra/state/native-sessions/native-board-preparation-02/supplement.json",
+  "assets": {
+    "runtime": "/data/leynos/Projects/mothra/state/mac-runtime/native-board-02",
+    "display_state": "/data/leynos/Projects/mothra/state/mac-displays/native-board-02",
+    "capture_state": "/data/leynos/Projects/mothra/state/native-sessions/native-board-epoch-02",
+    "base_inode": 1678261666,
+    "working_inode": 1678261667,
+    "rom_inode": 1678261665,
+    "base_sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910",
+    "rom_sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+    "emulator_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+    "native_data_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+    "native_rsrc_sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12",
+    "board_baseline": {
+      "path": "Hotline19/MessageBoard.txt",
+      "catalog_id": 11191,
+      "data_size": 0,
+      "resource_size": 0,
+      "finder_type": "TEXT",
+      "finder_creator": "ttxt"
+    }
+  },
+  "scripts": {
+    "boot-c100.sh": {
+      "path": "/data/leynos/Projects/mothra/state/native-sessions/native-board-preparation-02/boot-c100.sh",
+      "sha256": "5c76de1bc1be1c348b134fa375aac829b8dc4899466035861b2f178a1ac4c1d4",
+      "mode": "0o700"
+    },
+    "build-runtime-c100.py": {
+      "path": "/data/leynos/Projects/mothra/state/native-sessions/native-board-preparation-02/build-runtime-c100.py",
+      "sha256": "147e045a4df52422122c567c83db7e776b074cb1c97bf4365fc20eb00631665b",
+      "mode": "0o700"
+    },
+    "complete-readiness-c100.sh": {
+      "path": "/data/leynos/Projects/mothra/state/native-sessions/native-board-preparation-02/complete-readiness-c100.sh",
+      "sha256": "13b56a046a7bdcc1a8b8209af417ba17cba6fb49b8d9455a603877d8188ad322",
+      "mode": "0o700"
+    },
+    "run18-c100.sh": {
+      "path": "/data/leynos/Projects/mothra/state/native-sessions/native-board-preparation-02/run18-c100.sh",
+      "sha256": "749b3fb34ebc24c0c48d56828a32c33cdffc7d9aabf0f81d7bee7569d91f37aa",
+      "mode": "0o700"
+    },
+    "wait-managed-c100.py": {
+      "path": "/data/leynos/Projects/mothra/state/native-sessions/native-board-preparation-02/wait-managed-c100.py",
+      "sha256": "54292438ee498b109efe5b97d59fceae9552913e9949ee8c9c28b0cba2e60308",
+      "mode": "0o700"
+    }
+  },
+  "sources": {
+    "mac_runtime.py": "c507d264cc0bcebdb1a8a456d6076294f805ef91f03e53fd5a8478507421d88b",
+    "capture_readiness.py": "7a75f4b78f1255f4486ced44fc5fb8882d6008c7de6844a82f4c107e7299d678",
+    "native_board_cases.py": "19e699317afd769c4a4b483e6094337fe92a5baaed279ae6ab98c18b7b554344",
+    "native_board_control.py": "da343b8d39f35c18bc267f301fdac316c720c0d5d4334eaec1d389ef381d1f6c"
+  },
+  "receipt_helper": {
+    "path": "/data/leynos/Projects/mothra/scripts/native_capture_receipt.py",
+    "cli_inspected": true,
+    "expected_sha256": "e3faecd2445195cbce776c67ad387727b53efffbe92d88214fbbfb0e1f7e8363",
+    "approval_file": "/data/leynos/Projects/mothra/state/native-sessions/native-board-preparation-02/approved-helper.sha256",
+    "approval_file_currently_absent": true,
+    "host_root_execution_required": true,
+    "manual_managed_lock_properties_forbidden": true,
+    "status": "B83 canonical hash known; A88 accepted; root must create approved-helper.sha256 only after final rehearsal/review"
+  },
+  "prerequisites": [
+    "Separate C100 START after B83 canonical SHAe3faecd/A88 independent review/root finite lease and capture rehearsal",
+    "Approved helper SHA file must be created after commit; boot script checks it before any lease/capture/display/VM",
+    "Revalidate new R source hashes/inodes, FD-free, D/O absent, display119 socket absent, ports15860-15863 free, original primary/client ticks",
+    "Canonical oracle.lock free and no competing native lease"
+  ],
+  "ordered_commands": [
+    {
+      "phase": "boot-and-host-capture",
+      "argv": [
+        "bash",
+        "/data/leynos/Projects/mothra/state/native-sessions/native-board-preparation-02/boot-c100.sh"
+      ],
+      "effect": "one fixed epoch: lease+host recorder before display, direct managed SYSTEM caps900, root host capture_readiness before VM; dependent display and sheep calls strict; no protocol"
+    },
+    {
+      "phase": "identify-actual-emulator",
+      "action": "After VM boot, inspect exact PID/start/exe/FD6 owned working inode1678261667/FD16 guest PCAP/netns; do not use wrapper PID; review server-ready screenshot"
+    },
+    {
+      "phase": "namespace-and-readiness",
+      "argv": [
+        "bash",
+        "/data/leynos/Projects/mothra/state/native-sessions/native-board-preparation-02/complete-readiness-c100.sh",
+        "${ACTUAL_EMULATOR_PID}"
+      ],
+      "effect": "host root runtime proof, namespace recorder, root capture_readiness, host-root B82 receipt helper, actual-PID plans/source snapshots, one managed SYSTEM root 18-action control preflight in emulator namespace; no board requests"
+    }
+  ],
+  "fixed_window": {
+    "epoch_start": "record once immediately before first managed lease",
+    "case_deadline": "epoch_start + 12 minutes, never reset",
+    "managed_caps_seconds": 900,
+    "capture_coverage": "independently prove each service covers case_deadline+5s",
+    "readiness_required": "18 exact control actions; generic and semantic PASS",
+    "C101_case_margin_seconds": 390,
+    "C101_start": "separate root grant after preflight proof; B79 nominal180/hard210 and future managed unit cap240"
+  },
+  "retirement": "If any gate fails or no C101 grant in time, stop only owned app/VM/captures/lock/bridges/display before same fixed deadline; prove actual PID gone, original ticks stable, primary SYN0/drops0/ports absent/lock free; only then stopped image named forks+board DATA/RSRC.",
+  "not_performed": [
+    "no lease",
+    "no capture",
+    "no display",
+    "no VM",
+    "no protocol",
+    "no live receipt",
+    "no actual PID",
+    "no runtime plan",
+    "no approved-helper.sha256 created"
+  ],
+  "preparation_checks": {
+    "stopped_board_exact": {
+      "catalog": "11191",
+      "data_fork_bytes": 0,
+      "resource_fork_bytes": 0,
+      "type": "TEXT",
+      "creator": "ttxt",
+      "istat_sha256": "a920fecd49fdd10ea6b3d01d6786edd743e62a1b7d92d7d96d25952780efbdf2"
+    },
+    "no_banned": true,
+    "two_original_accounts": [
+      "-/r 11193:\tHotline19/Users/admin/UserData",
+      "-/r 11201:\tHotline19/Users/fixture-low/UserData"
+    ],
+    "working_fd_holders": [],
+    "display119_absent": true,
+    "ports_15860_15863_absent": true,
+    "free_bytes": 191474614272,
+    "original_ticks": {
+      "1099659": "767842",
+      "1012834": "2357813"
+    }
+  },
+  "updated_at_utc": "2026-11-14T09:08:54.276042+00:00",
+  "bounded_start_waits": {
+    "helper": "/data/leynos/Projects/mothra/state/native-sessions/native-board-preparation-02/wait-managed-c100.py",
+    "max_seconds_per_unit": 5,
+    "lease": "actual SYSTEM MainPID running and matching oracle.lock FD before independent exclusive-busy check",
+    "host": "actual SYSTEM tcpdump MainPID running and matching PCAP FD/valid 24-byte classic header before first capture_readiness",
+    "namespace": "same actual recorder PID/FD/header gate before first capture_readiness in guest namespace",
+    "failure": "terminal unit, missed fixed deadline, missing header/FD after five seconds => stop; no retry of a failed capture_readiness"
+  }
+}

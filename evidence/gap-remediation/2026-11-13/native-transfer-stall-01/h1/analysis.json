@@ -1,0 +1,127 @@
+{
+  "hypothesis": "H1: guest emitted application bytes beyond recorder prefix",
+  "input_sha256": {
+    "report": "4864d9a0d2d76869455f1a98eaa16bc5232d163c5bbcef60650c312301bc575b",
+    "namespace_pcap": "837f3b1a37164acf5d7df4223b46f59cdbc2387539ff1b79235a5c0deb17578c",
+    "guest_pcap": "e7b156e0955300f915e9315af1fbc1c6575e4e57f845203c2c0de8506030eff7"
+  },
+  "report": {
+    "status": "failed",
+    "completed_actions": 21,
+    "error": "TimeoutError: timed out",
+    "connect_action": 19,
+    "local_port": 60206,
+    "connected_us": 1794611192455288,
+    "received_bytes": 98304,
+    "received_sha256": "b4c6dc15be0d82de42d3aa7102c1feca67397b978591ac8be2d2c846d6a62e7c"
+  },
+  "views": {
+    "namespace": {
+      "flow": {
+        "client": [
+          "127.0.0.1",
+          60206
+        ],
+        "server": [
+          "127.0.0.1",
+          15731
+        ]
+      },
+      "packets": 152,
+      "first_packet": [
+        29,
+        1794611192455209
+      ],
+      "last_packet": [
+        184,
+        1794611252527499
+      ],
+      "server_payload_packets": 72,
+      "raw_server_payload_bytes": 98304,
+      "retransmission_or_overlap_bytes": 0,
+      "first_server_payload": [
+        34,
+        1794611192480223
+      ],
+      "last_server_payload": [
+        177,
+        1794611192848662
+      ],
+      "client_application_bytes": 16,
+      "server_application_bytes": 98304,
+      "server_application_sha256": "b4c6dc15be0d82de42d3aa7102c1feca67397b978591ac8be2d2c846d6a62e7c",
+      "matches_recorder_prefix": true,
+      "suffix_bytes_beyond_recorder": 0,
+      "terminal_packets": [
+        {
+          "index": 180,
+          "timestamp_us": 1794611252512838,
+          "flags": 17,
+          "from_server": false,
+          "diagnostic_payload_hex": ""
+        },
+        {
+          "index": 183,
+          "timestamp_us": 1794611252527464,
+          "flags": 17,
+          "from_server": true,
+          "diagnostic_payload_hex": ""
+        }
+      ]
+    },
+    "guest": {
+      "flow": {
+        "client": [
+          "10.0.2.2",
+          60206
+        ],
+        "server": [
+          "10.0.2.15",
+          5501
+        ]
+      },
+      "packets": 151,
+      "first_packet": [
+        41,
+        1794611192455346
+      ],
+      "last_packet": [
+        195,
+        1794611252518937
+      ],
+      "server_payload_packets": 72,
+      "raw_server_payload_bytes": 98304,
+      "retransmission_or_overlap_bytes": 0,
+      "first_server_payload": [
+        47,
+        1794611192477509
+      ],
+      "last_server_payload": [
+        184,
+        1794611192817578
+      ],
+      "client_application_bytes": 16,
+      "server_application_bytes": 98304,
+      "server_application_sha256": "b4c6dc15be0d82de42d3aa7102c1feca67397b978591ac8be2d2c846d6a62e7c",
+      "matches_recorder_prefix": true,
+      "suffix_bytes_beyond_recorder": 0,
+      "terminal_packets": [
+        {
+          "index": 192,
+          "timestamp_us": 1794611252512912,
+          "flags": 17,
+          "from_server": false,
+          "diagnostic_payload_hex": ""
+        },
+        {
+          "index": 195,
+          "timestamp_us": 1794611252518937,
+          "flags": 4,
+          "from_server": true,
+          "diagnostic_payload_hex": "7463705f646973636f6e6e656374"
+        }
+      ]
+    }
+  },
+  "verdict": "H1 falsified: no additional guest application payload in exact SYN lifetime"
+}

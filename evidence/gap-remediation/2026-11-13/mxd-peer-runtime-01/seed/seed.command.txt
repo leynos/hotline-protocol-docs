@@ -1,0 +1,1 @@
+env -i HOME=<owned>/home XDG_CONFIG_HOME=<owned>/xdg-home XDG_CONFIG_DIRS=<owned>/xdg-dirs XDG_DATA_HOME=<owned>/xdg-data XDG_CACHE_HOME=<owned>/xdg-cache MXD_CONFIG_PATH=<owned>/seed.toml PATH=/usr/bin:/bin <binary> --database <owned>/fixture.sqlite create-user mxd-peer-c14

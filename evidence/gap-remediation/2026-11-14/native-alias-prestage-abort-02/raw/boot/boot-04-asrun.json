@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "bash",
+    "/data/leynos/Projects/mothra/state/native-sessions/native-alias-live-preparation-04/boot-alias-live-04.sh"
+  ],
+  "cwd": "/data/leynos/Projects/mothra",
+  "uid": 1000,
+  "script_sha256": "bb56161e8adb1bf65c8fac417184dd1f4d27c59fdc4bffb233488ca54f0165ae",
+  "started_utc": "2026-11-14T21:36:49.622489+00:00"
+}

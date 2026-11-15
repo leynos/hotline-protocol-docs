@@ -1,0 +1,58 @@
+{
+  "status": "verified-partial-session",
+  "control_bytes": {
+    "client": 150,
+    "server": 514
+  },
+  "control": {
+    "request_types": [
+      107,
+      121,
+      300,
+      212
+    ],
+    "reply_types": [
+      0,
+      109,
+      0,
+      354,
+      122,
+      0,
+      0
+    ]
+  },
+  "data_15501_bytes": {
+    "client": 16,
+    "server": 58
+  },
+  "http_exchanges": [
+    {
+      "guest_source_port": 49153,
+      "get_us": 1794592087713126,
+      "reply_us": 1794592087821422
+    },
+    {
+      "guest_source_port": 49154,
+      "get_us": 1794592189243691,
+      "reply_us": 1794592189355550
+    },
+    {
+      "guest_source_port": 49156,
+      "get_us": 1794592189808775,
+      "reply_us": 1794592189924982
+    },
+    {
+      "guest_source_port": 49157,
+      "get_us": 1794592191017864,
+      "reply_us": 1794592191134998
+    },
+    {
+      "guest_source_port": 49158,
+      "get_us": 1794592191551811,
+      "reply_us": 1794592191668792
+    }
+  ],
+  "last_request_to_fin_us": 144395409,
+  "control_syn_to_fin_us": 248777271,
+  "idle_test_valid": false
+}

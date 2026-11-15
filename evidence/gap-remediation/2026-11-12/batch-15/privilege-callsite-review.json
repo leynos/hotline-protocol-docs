@@ -1,0 +1,431 @@
+{
+  "scope": "Complete direct callers reported for three accessors, reconciled by caller count against retained decompilations. Does not enumerate inline bitmap reads or indirect calls.",
+  "call_site_count": 40,
+  "records": [
+    {
+      "accessor": "10008a90",
+      "caller": "10004790",
+      "capture": "evidence/gap-remediation/2026-11-12/batch-06/queries/B06-D-10004790.c",
+      "call_sites": [
+        "10004854"
+      ],
+      "calls": [
+        {
+          "bit": 9,
+          "arguments": "param_1,iVar4,9"
+        }
+      ]
+    },
+    {
+      "accessor": "10008a90",
+      "caller": "1000f130",
+      "capture": "evidence/hotline-server-1.9/queries/D-1000f130.c",
+      "call_sites": [
+        "1000f154"
+      ],
+      "calls": [
+        {
+          "bit": 20,
+          "arguments": "param_1,param_2,0x14"
+        }
+      ]
+    },
+    {
+      "accessor": "10008a90",
+      "caller": "1000f260",
+      "capture": "evidence/hotline-server-1.9/queries/D-1000f260.c",
+      "call_sites": [
+        "1000f288",
+        "1000f478"
+      ],
+      "calls": [
+        {
+          "bit": 21,
+          "arguments": "param_1,param_2,0x15"
+        },
+        {
+          "bit": 20,
+          "arguments": "param_1,puVar9,0x14"
+        }
+      ]
+    },
+    {
+      "accessor": "10008a90",
+      "caller": "1000f4e0",
+      "capture": "evidence/hotline-server-1.9/queries/D-1000f4e0.c",
+      "call_sites": [
+        "1000f66c"
+      ],
+      "calls": [
+        {
+          "bit": 40,
+          "arguments": "param_1,param_2,0x28"
+        }
+      ]
+    },
+    {
+      "accessor": "10008a90",
+      "caller": "1000f990",
+      "capture": "evidence/hotline-server-1.9/queries/D-1000f990.c",
+      "call_sites": [
+        "1000f9b8"
+      ],
+      "calls": [
+        {
+          "bit": 32,
+          "arguments": "param_1,param_2,0x20"
+        }
+      ]
+    },
+    {
+      "accessor": "10008a90",
+      "caller": "1000fc20",
+      "capture": "evidence/hotline-server-1.9/queries/D-1000fc20.c",
+      "call_sites": [
+        "1000fcc8",
+        "1000ffe8",
+        "10010044"
+      ],
+      "calls": [
+        {
+          "bit": 10,
+          "arguments": "param_1,param_2,10"
+        },
+        {
+          "bit": 9,
+          "arguments": "param_1,puVar12,9"
+        },
+        {
+          "bit": 9,
+          "arguments": "param_1,iVar11,9"
+        }
+      ]
+    },
+    {
+      "accessor": "10008a90",
+      "caller": "100100a0",
+      "capture": "evidence/hotline-server-1.9/queries/D-100100a0.c",
+      "call_sites": [
+        "100101e8"
+      ],
+      "calls": [
+        {
+          "bit": 30,
+          "arguments": "param_1,param_2,0x1e"
+        }
+      ]
+    },
+    {
+      "accessor": "10008a90",
+      "caller": "10015e70",
+      "capture": "evidence/hotline-server-1.9/queries/D-10015e70.c",
+      "call_sites": [
+        "10015e98",
+        "10015f30"
+      ],
+      "calls": [
+        {
+          "bit": 22,
+          "arguments": "param_1,param_2,0x16"
+        },
+        {
+          "bit": 23,
+          "arguments": "param_1,iVar2,0x17"
+        }
+      ]
+    },
+    {
+      "accessor": "10008a90",
+      "caller": "10016150",
+      "capture": "evidence/hotline-server-1.9/queries/D-10016150.c",
+      "call_sites": [
+        "10016194"
+      ],
+      "calls": [
+        {
+          "bit": 24,
+          "arguments": "param_1,param_2,0x18"
+        }
+      ]
+    },
+    {
+      "accessor": "10008a90",
+      "caller": "10017f30",
+      "capture": "evidence/hotline-server-1.9/queries/D-10017f30.c",
+      "call_sites": [
+        "10017fd0"
+      ],
+      "calls": [
+        {
+          "bit": 11,
+          "arguments": "param_1,param_2,0xb"
+        }
+      ]
+    },
+    {
+      "accessor": "10008ab0",
+      "caller": "100121a0",
+      "capture": "evidence/hotline-server-1.9/queries/D-100121a0.c",
+      "call_sites": [
+        "100121f0",
+        "10012410"
+      ],
+      "calls": [
+        {
+          "bit": 2,
+          "arguments": "param_1,param_2,2"
+        },
+        {
+          "bit": 30,
+          "arguments": "param_1,param_2,0x1e"
+        }
+      ]
+    },
+    {
+      "accessor": "10008ab0",
+      "caller": "10012850",
+      "capture": "evidence/hotline-server-1.9/queries/D-10012850.c",
+      "call_sites": [
+        "100128a0",
+        "10012ab8"
+      ],
+      "calls": [
+        {
+          "bit": 39,
+          "arguments": "param_1,param_2,0x27"
+        },
+        {
+          "bit": 30,
+          "arguments": "param_1,param_2,0x1e"
+        }
+      ]
+    },
+    {
+      "accessor": "10008ab0",
+      "caller": "100130f0",
+      "capture": "evidence/hotline-server-1.9/queries/D-100130f0.c",
+      "call_sites": [
+        "10013144",
+        "100132a8"
+      ],
+      "calls": [
+        {
+          "bit": 1,
+          "arguments": "param_1,param_2,1"
+        },
+        {
+          "bit": 25,
+          "arguments": "param_1,param_2,0x19"
+        }
+      ]
+    },
+    {
+      "accessor": "10008ab0",
+      "caller": "10013930",
+      "capture": "evidence/hotline-server-1.9/queries/D-10013930.c",
+      "call_sites": [
+        "10013980",
+        "10013af8"
+      ],
+      "calls": [
+        {
+          "bit": 38,
+          "arguments": "param_1,param_2,0x26"
+        },
+        {
+          "bit": 25,
+          "arguments": "param_1,param_2,0x19"
+        }
+      ]
+    },
+    {
+      "accessor": "10008ab0",
+      "caller": "100140e0",
+      "capture": "evidence/hotline-server-1.9/queries/D-100140e0.c",
+      "call_sites": [
+        "100141e0",
+        "10014274"
+      ],
+      "calls": [
+        {
+          "bit": 6,
+          "arguments": "param_1,param_2,6"
+        },
+        {
+          "bit": 0,
+          "arguments": "param_1,param_2,0"
+        }
+      ]
+    },
+    {
+      "accessor": "10008ab0",
+      "caller": "100143f0",
+      "capture": "evidence/hotline-server-1.9/queries/D-100143f0.c",
+      "call_sites": [
+        "10014458"
+      ],
+      "calls": [
+        {
+          "bit": 5,
+          "arguments": "param_1,param_2,5"
+        }
+      ]
+    },
+    {
+      "accessor": "10008ab0",
+      "caller": "100170c0",
+      "capture": "evidence/hotline-server-1.9/queries/D-100170c0.c",
+      "call_sites": [
+        "10017248",
+        "100172f4",
+        "10017468",
+        "10017514",
+        "100175c0"
+      ],
+      "calls": [
+        {
+          "bit": 29,
+          "arguments": "param_1,param_2,0x1d"
+        },
+        {
+          "bit": 28,
+          "arguments": "param_1,param_2,0x1c"
+        },
+        {
+          "bit": 7,
+          "arguments": "param_1,param_2,7"
+        },
+        {
+          "bit": 3,
+          "arguments": "param_1,param_2,3"
+        },
+        {
+          "bit": 30,
+          "arguments": "param_1,param_2,0x1e"
+        }
+      ]
+    },
+    {
+      "accessor": "10008ab0",
+      "caller": "100177d0",
+      "capture": "evidence/hotline-server-1.9/queries/D-100177d0.c",
+      "call_sites": [
+        "100178d4",
+        "10017968"
+      ],
+      "calls": [
+        {
+          "bit": 8,
+          "arguments": "param_1,param_2,8"
+        },
+        {
+          "bit": 4,
+          "arguments": "param_1,param_2,4"
+        }
+      ]
+    },
+    {
+      "accessor": "10008ab0",
+      "caller": "10017c10",
+      "capture": "evidence/hotline-server-1.9/queries/D-10017c10.c",
+      "call_sites": [
+        "10017c78"
+      ],
+      "calls": [
+        {
+          "bit": 31,
+          "arguments": "param_1,param_2,0x1f"
+        }
+      ]
+    },
+    {
+      "accessor": "10008ad0",
+      "caller": "10010470",
+      "capture": "evidence/hotline-server-1.9/queries/D-10010470.c",
+      "call_sites": [
+        "100104bc"
+      ],
+      "calls": [
+        {
+          "bit": 21,
+          "arguments": "param_1,param_2,0x15"
+        }
+      ]
+    },
+    {
+      "accessor": "10008ad0",
+      "caller": "100108a0",
+      "capture": "evidence/hotline-server-1.9/queries/D-100108a0.c",
+      "call_sites": [
+        "100108f0"
+      ],
+      "calls": [
+        {
+          "bit": 33,
+          "arguments": "param_1,param_2,0x21"
+        }
+      ]
+    },
+    {
+      "accessor": "10008ad0",
+      "caller": "10010b70",
+      "capture": "evidence/hotline-server-1.9/queries/D-10010b70.c",
+      "call_sites": [
+        "10010c98",
+        "10010d40"
+      ],
+      "calls": [
+        {
+          "bit": 37,
+          "arguments": "param_1,param_2,0x25"
+        },
+        {
+          "bit": 35,
+          "arguments": "param_1,param_2,0x23"
+        }
+      ]
+    },
+    {
+      "accessor": "10008ad0",
+      "caller": "10010ee0",
+      "capture": "evidence/hotline-server-1.9/queries/D-10010ee0.c",
+      "call_sites": [
+        "10010f48"
+      ],
+      "calls": [
+        {
+          "bit": 36,
+          "arguments": "param_1,param_2,0x24"
+        }
+      ]
+    },
+    {
+      "accessor": "10008ad0",
+      "caller": "10011110",
+      "capture": "evidence/hotline-server-1.9/queries/D-10011110.c",
+      "call_sites": [
+        "10011178"
+      ],
+      "calls": [
+        {
+          "bit": 34,
+          "arguments": "param_1,param_2,0x22"
+        }
+      ]
+    },
+    {
+      "accessor": "10008ad0",
+      "caller": "10011580",
+      "capture": "evidence/hotline-server-1.9/queries/D-10011580.c",
+      "call_sites": [
+        "100115e4"
+      ],
+      "calls": [
+        {
+          "bit": 20,
+          "arguments": "param_1,param_2,0x14"
+        }
+      ]
+    }
+  ]
+}

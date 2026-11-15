@@ -1,0 +1,21 @@
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`
+    Finished `test` profile [optimized] target(s) in 0.32s
+     Running unittests src/lib.rs (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/build/mxd/29c43d9412d22c7d/out/mxd-29c43d9412d22c7d)
+
+running 1 test
+
+thread 'wireframe::routes::tests::direct_ack_cases::direct_ack_login_success_uses_type_zero_and_correlation' (869040) panicked at src/wireframe/routes/tests/direct_ack_cases.rs:33:5:
+assertion `left == right` failed
+  left: Some([0, 0, 0, 0])
+ right: Some([0, 0])
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test wireframe::routes::tests::direct_ack_cases::direct_ack_login_success_uses_type_zero_and_correlation ... FAILED
+
+failures:
+
+failures:
+    wireframe::routes::tests::direct_ack_cases::direct_ack_login_success_uses_type_zero_and_correlation
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 410 filtered out; finished in 0.90s
+
+error: test failed, to rerun pass `--lib`

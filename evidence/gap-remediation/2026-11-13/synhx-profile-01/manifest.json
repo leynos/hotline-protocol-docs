@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "scope": "Six supplementary archive metadata/configuration files from the supplied server tree. Full trunk1.1 extraction; default vendor1.1.1.1 delta is empty. Declared source version is not proof of release packaging or a deployed executable. Earlier14 protocol-source files remain independently hashed in baseline and batch08.",
+  "archives": [
+    {
+      "archive": "archives/README.rcs",
+      "selected": "selected/README.txt",
+      "archive_sha256": "e9f2c03a162be579ca739e64a8e9156f0e2377cb314e48acf561bc4671ab5eb1",
+      "selected_sha256": "6741ed6182db7c191128763ffce322d7355d6d1bb0657edb9fef8807267884f0",
+      "selected_revision": "1.1",
+      "head": "1.1",
+      "default_branch": "1.1.1",
+      "vendor_revision": "1.1.1.1",
+      "vendor_delta_bytes": 0,
+      "original_path": "../synhxd/server/README,v"
+    },
+    {
+      "archive": "archives/version.c.rcs",
+      "selected": "selected/version.c.txt",
+      "archive_sha256": "aa10c9678e0a43bebdd7a8154f27dde7094081102a84d62ccac6012881454c84",
+      "selected_sha256": "d7b43a0fac74c159fb1e7c5dee01d85ebb8b921ecc79ef540f7ba3652ccbd959",
+      "selected_revision": "1.1",
+      "head": "1.1",
+      "default_branch": "1.1.1",
+      "vendor_revision": "1.1.1.1",
+      "vendor_delta_bytes": 0,
+      "original_path": "../synhxd/server/version.c,v"
+    },
+    {
+      "archive": "archives/configure.in.rcs",
+      "selected": "selected/configure.in.txt",
+      "archive_sha256": "4c2aa721c99b6aa41dbdd6eab2a996e18ed37f13d3d271ad4d6eb06390f79ecc",
+      "selected_sha256": "0ad146458015f167d44f1614c37f343f3ab84912ce396aa749b58e926f379db3",
+      "selected_revision": "1.1",
+      "head": "1.1",
+      "default_branch": "1.1.1",
+      "vendor_revision": "1.1.1.1",
+      "vendor_delta_bytes": 0,
+      "original_path": "../synhxd/server/configure.in,v"
+    },
+    {
+      "archive": "archives/config.h.in.rcs",
+      "selected": "selected/config.h.in.txt",
+      "archive_sha256": "b0df3984d4ed08ffdd4f674b27e90f6d2d0fe1c35b2b79b26c400b33289b4037",
+      "selected_sha256": "be454f87cbdf2dca9bec343ebfb7b058aa70c04a2df34db4134711b8f85f7842",
+      "selected_revision": "1.1",
+      "head": "1.1",
+      "default_branch": "1.1.1",
+      "vendor_revision": "1.1.1.1",
+      "vendor_delta_bytes": 0,
+      "original_path": "../synhxd/server/config.h.in,v"
+    },
+    {
+      "archive": "archives/acconfig.h.rcs",
+      "selected": "selected/acconfig.h.txt",
+      "archive_sha256": "b49334ba6c6dbccf085dee776316f94fdbb6f88f8350be30ac5a7762bbb74a96",
+      "selected_sha256": "732d833e3bad03823b75be7dc4584172c1b71232b408e55fe534ec5532d413a0",
+      "selected_revision": "1.1",
+      "head": "1.1",
+      "default_branch": "1.1.1",
+      "vendor_revision": "1.1.1.1",
+      "vendor_delta_bytes": 0,
+      "original_path": "../synhxd/server/acconfig.h,v"
+    },
+    {
+      "archive": "archives/hxd_config.c.rcs",
+      "selected": "selected/hxd_config.c.txt",
+      "archive_sha256": "09cf807bb13d920ee84d30d8223563e83da175d389657b9b70d92e270aa8b3f3",
+      "selected_sha256": "e8b4603d90c85c12a2f750203960f1185a41052b4614af5f8ac274d786ce2ebf",
+      "selected_revision": "1.1",
+      "head": "1.1",
+      "default_branch": "1.1.1",
+      "vendor_revision": "1.1.1.1",
+      "vendor_delta_bytes": 0,
+      "original_path": "../synhxd/server/hxd_config.c,v"
+    }
+  ],
+  "declared_server_version": "0.1.48.1",
+  "readme_identity": "Synapse Hotline X Daemon server package, derived from hxd; README names hxd0.1.41 as the modification baseline while version.c declares0.1.48.1. Preserve both facts; no released tarball mapping inferred.",
+  "configuration_options": [
+    {
+      "option": "hotline_server",
+      "declared_default": "no",
+      "line": "AC_ARG_ENABLE(hotline_server,\t[  --enable-hotline-server    compile hotline server], , enable_hotline_server=no)"
+    },
+    {
+      "option": "tracker_server",
+      "declared_default": "no",
+      "line": "AC_ARG_ENABLE(tracker_server,\t[  --enable-tracker-server    compile tracker server], , enable_tracker_server=no)"
+    },
+    {
+      "option": "tracker_register",
+      "declared_default": "no",
+      "line": "AC_ARG_ENABLE(tracker_register,\t[  --enable-tracker-register  compile tracker registration code for server], , enable_tracker_register=no)"
+    },
+    {
+      "option": "exec",
+      "declared_default": "no",
+      "line": "AC_ARG_ENABLE(exec,\t\t[  --enable-exec              enable remote execution of programs], , enable_exec=no)"
+    },
+    {
+      "option": "htxf-pthread",
+      "declared_default": "no",
+      "line": "AC_ARG_ENABLE(htxf-pthread,\t[  --enable-htxf-pthread      use pthread instead of fork or clone for htxf], , enable_htxf_pthread=no)"
+    },
+    {
+      "option": "htxf-clone",
+      "declared_default": "no",
+      "line": "AC_ARG_ENABLE(htxf-clone,\t[  --enable-htxf-clone        use clone instead of fork for htxf], , enable_htxf_clone=no)"
+    },
+    {
+      "option": "htxf-fork",
+      "declared_default": "no",
+      "line": "AC_ARG_ENABLE(htxf-fork,\t[  --enable-htxf-fork         use fork instead of clone for htxf], , enable_htxf_fork=no)"
+    },
+    {
+      "option": "htxf-preview",
+      "declared_default": "no",
+      "line": "AC_ARG_ENABLE(htxf-preview,\t[  --enable-htxf-preview      enable image preview (needs ImageMagick)], , enable_htxf_preview=no)"
+    },
+    {
+      "option": "hfs",
+      "declared_default": "yes",
+      "line": "AC_ARG_ENABLE(hfs,\t\t[  --enable-hfs               enable CAP/NetATalk/AppleDouble support], , enable_hfs=yes)"
+    },
+    {
+      "option": "hope",
+      "declared_default": "no",
+      "line": "AC_ARG_ENABLE(hope,\t\t[  --enable-hope              enable HOPE], , enable_hope=no)"
+    },
+    {
+      "option": "cipher",
+      "declared_default": "no",
+      "line": "AC_ARG_ENABLE(cipher,\t\t[  --enable-cipher            enable cipher], , enable_cipher=no)"
+    },
+    {
+      "option": "compress",
+      "declared_default": "no",
+      "line": "AC_ARG_ENABLE(compress,\t\t[  --enable-compress          enable compress], , enable_compress=no)"
+    },
+    {
+      "option": "network",
+      "declared_default": "no",
+      "line": "AC_ARG_ENABLE(network,\t\t[  --enable-network           enable network], , enable_network=no)"
+    },
+    {
+      "option": "windos_client_fix",
+      "declared_default": "no",
+      "line": "AC_ARG_ENABLE(windos_client_fix,[  --enable-windos-client-fix hack to make broken windos clients not display error messages when transfering files], , enable_windos_client_fix=no)"
+    },
+    {
+      "option": "nospam",
+      "declared_default": "no",
+      "line": "AC_ARG_ENABLE(nospam,\t\t[  --enable-nospam            spam protection], , enable_nospam=no)"
+    },
+    {
+      "option": "sql",
+      "declared_default": "no",
+      "line": "AC_ARG_ENABLE(sql,\t\t[  --enable-sql               use mysql logging], , enable_sql=no)"
+    },
+    {
+      "option": "ipv6",
+      "declared_default": "no",
+      "line": "AC_ARG_ENABLE(ipv6,\t\t[  --enable-ipv6              IPv6 support. IPv4 will not work], , enable_ipv6=no)"
+    },
+    {
+      "option": "all",
+      "declared_default": "no",
+      "line": "AC_ARG_ENABLE(all,\t\t[  --enable-all               do not enable this], , enable_all=no)"
+    }
+  ],
+  "client_source": "adb1bf8c8cb12f7eb2fa2c01673295a6312f262b shx0.1.48; separate package and modern tested build8fbbe56cef439d4c1732e8d9fbe2c676b9d45fbd273a42b22f8034e3b3914fa0",
+  "applicability": [
+    {
+      "profile": "selected-server-source",
+      "observations": "Baseline SynHX source comparisons apply to the14selected trunk1.1 files and named conditional branches, not the nativeMacbinary or any identified deployedSynHX executable."
+    },
+    {
+      "profile": "selected-client-source",
+      "observations": "Static basic/optional-branch observations apply to exactadb1bf8 source, gated by declared configuration macros."
+    },
+    {
+      "profile": "compiled-terminal-peer",
+      "observations": "Full-process native and controlled receiver results apply only to build8fbbe56, flags/config/dependencies in shx-build-01. No GTK/HOPE/cipher/compression/IPv6 acceptance claim."
+    }
+  ]
+}

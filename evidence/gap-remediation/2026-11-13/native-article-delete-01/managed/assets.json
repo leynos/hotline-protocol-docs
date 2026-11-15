@@ -1,0 +1,7 @@
+{
+  "rom_sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+  "base_disk_sha256": "1a248a62ad545223d948fd5a9f606541cbd0685db7be39e4e6081cdf73169ac7",
+  "source_rom": "/data/leynos/Projects/mothra/state/mac-runtime/hotline20/rom",
+  "source_disk": "/data/leynos/Projects/mothra/state/mac-runtime/hotline20/working.dsk",
+  "archive_member": null
+}

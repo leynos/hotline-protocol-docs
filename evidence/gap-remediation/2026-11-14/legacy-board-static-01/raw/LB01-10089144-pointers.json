@@ -1,0 +1,30 @@
+{
+  "captured_at_utc": "2026-11-14T08:16:42.328431+00:00",
+  "query": {
+    "id": "LB01-10089144-pointers",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "10089144",
+      "length": 8
+    }
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"address\": \"10089144\",\n  \"length\": 8,\n  \"hex\": \"10 08 26 bc 10 08 26 94\",\n  \"ascii\": \"..&...&.\",\n  \"gaps\": []\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "address": "10089144",
+      "length": 8,
+      "hex": "10 08 26 bc 10 08 26 94",
+      "ascii": "..&...&.",
+      "gaps": []
+    },
+    "isError": false
+  }
+}

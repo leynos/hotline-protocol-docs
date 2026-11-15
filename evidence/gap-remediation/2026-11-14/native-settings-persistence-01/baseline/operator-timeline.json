@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "scope": "operator timeline and byte-identified screenshots; not a machine exit attestation",
+  "journal_path": "baseline/user-sheep-journal.txt",
+  "phases": {
+    "phase1": {
+      "journal_start_utc": "2026-11-14T03:38:14+00:00",
+      "hold_ready_utc": "2026-11-14T03:43:51.949528+00:00",
+      "quit_prompt_image": "after-file-quit.png",
+      "after_quit_image": "after-quit-confirm.png",
+      "special_menu_image": "special-menu-hold2.png",
+      "shutdown_image": "shutdown-01.png",
+      "black_image": "shutdown-02.png",
+      "operator_pid_absent_by_utc": "2026-11-14T03:45:49+00:00",
+      "capture_stop_utc": "2026-11-14T03:46:11+00:00",
+      "fork_extraction_completed_utc": "2026-11-14T03:47:10+00:00",
+      "screenshots": {
+        "quit_prompt_image": {
+          "path": "phase1/screenshots/after-file-quit.png",
+          "sha256": "360b19a4bc76f4d6534482541f2870e623b75769bcede6f31ad91dc811b96d1e",
+          "source_mtime_utc": "2026-11-14T03:44:46.772692+00:00"
+        },
+        "after_quit_image": {
+          "path": "phase1/screenshots/after-quit-confirm.png",
+          "sha256": "d42b71e153c33831c5da88c86ca42c9d90c823129f466160ac325b947cd1b4c9",
+          "source_mtime_utc": "2026-11-14T03:45:03.672691+00:00"
+        },
+        "special_menu_image": {
+          "path": "phase1/screenshots/special-menu-hold2.png",
+          "sha256": "22ad1196c9db5627ac888fa2e40ef140e998ff240d2b6851396412594b42cf77",
+          "source_mtime_utc": "2026-11-14T03:45:26.820688+00:00"
+        },
+        "shutdown_image": {
+          "path": "phase1/screenshots/shutdown-01.png",
+          "sha256": "552d035a46b6dc41fbfee7e2fe01ac0e25343ccab24aa6d1134538bb8e755b31",
+          "source_mtime_utc": "2026-11-14T03:45:38.916687+00:00"
+        },
+        "black_image": {
+          "path": "phase1/screenshots/shutdown-02.png",
+          "sha256": "00d7d2037518ebad04c98c1f0a96d222ef48e98eceec63f571387c9a860e54d2",
+          "source_mtime_utc": "2026-11-14T03:45:49.644686+00:00"
+        }
+      },
+      "machine_journal_exit_status": "not recorded; unit journal has only startup messages",
+      "pid_absence_basis": "contemporaneous operator process check; terminal output not saved as a separate watcher receipt",
+      "fd_free_basis": "pre-extraction fuser gate reported empty; stdout not saved; later FD-free receipt is retrospective recheck"
+    },
+    "phase2": {
+      "journal_start_utc": "2026-11-14T04:05:00+00:00",
+      "hold_ready_utc": "2026-11-14T04:06:55.340469+00:00",
+      "quit_prompt_image": "quit-prompt.png",
+      "after_quit_image": "after-quit-confirm.png",
+      "special_menu_image": "special-menu-hold2.png",
+      "shutdown_image": "shutdown-01.png",
+      "black_image": null,
+      "operator_pid_absent_by_utc": "2026-11-14T04:08:34+00:00",
+      "capture_stop_utc": "2026-11-14T04:09:00+00:00",
+      "fork_extraction_completed_utc": "2026-11-14T04:09:11+00:00",
+      "screenshots": {
+        "quit_prompt_image": {
+          "path": "phase2/screenshots/quit-prompt.png",
+          "sha256": "edb37af03e04bfd097b3c63b6215d7ce5e40590bfee8603fe90bf0957430b6ef",
+          "source_mtime_utc": "2026-11-14T04:07:37.268544+00:00"
+        },
+        "after_quit_image": {
+          "path": "phase2/screenshots/after-quit-confirm.png",
+          "sha256": "35b14430de319f2d8bfcdf8006d2113698a86eae8116f89a5e8f82e56af7de15",
+          "source_mtime_utc": "2026-11-14T04:07:54.136542+00:00"
+        },
+        "special_menu_image": {
+          "path": "phase2/screenshots/special-menu-hold2.png",
+          "sha256": "14534d245b32c48d86edddeb40ac413a06aa3f445c00f750d15ba17346a48aa8",
+          "source_mtime_utc": "2026-11-14T04:08:17.336540+00:00"
+        },
+        "shutdown_image": {
+          "path": "phase2/screenshots/shutdown-01.png",
+          "sha256": "d0d1c9a3fcc3613c25aa83ea147d1043476aa604e400d8d3f49b8a840ade3418",
+          "source_mtime_utc": "2026-11-14T04:08:30.032539+00:00"
+        }
+      },
+      "machine_journal_exit_status": "not recorded; unit journal has only startup messages",
+      "pid_absence_basis": "contemporaneous operator process check; terminal output not saved as a separate watcher receipt",
+      "fd_free_basis": "pre-extraction fuser gate reported empty; stdout not saved; later FD-free receipt is retrospective recheck"
+    }
+  },
+  "a48_oracle_lock": "not held; deviation reported contemporaneously"
+}

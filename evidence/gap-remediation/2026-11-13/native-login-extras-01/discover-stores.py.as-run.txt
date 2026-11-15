@@ -1,0 +1,20 @@
+"""Bounded discovery of all D-form store widths intersecting server+0x41c."""
+import hashlib,json,struct
+from pathlib import Path
+r=Path('state/native-sessions/runtime-16');data=Path('evidence/hotline-server-1.9/inputs/HLserver19.pef').read_bytes()
+identity=hashlib.sha256(data).hexdigest();assert identity=='ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b'
+name,default,total,unpacked,packed,container,kind,share,alignment,reserved=struct.unpack_from('>iIIIIIBBBB',data,40)
+assert kind==0 and packed==unpacked and container+packed<=len(data)
+print('section0',default,total,unpacked,packed,container,kind)
+widths={36:4,37:4,38:1,39:1,44:2,45:2,52:4,53:4,54:8,55:8};candidates=[]
+for i in range(0,packed,4):
+ word=int.from_bytes(data[container+i:container+i+4],'big');op=word>>26;register=word>>21&31;base=word>>16&31;displacement=word&65535
+ if displacement&32768:displacement-=65536
+ width=4*(32-register) if op==47 else widths.get(op,0)
+ if width and displacement<0x420 and displacement+width>0x41c:
+  candidates.append({'address':f'{0x10000000+default+i:08x}','instruction_hex':f'{word:08x}','opcode':op,'source_register':register,'base_register':base,'displacement':displacement,'written_bytes':width})
+(r/'all-direct-store-candidates.json').write_text(json.dumps({'input_sha256':identity,'section0_container_offset':container,'section0_unpacked_bytes':unpacked,'scope':'Candidate discovery only. Covers scalar D-form byte/halfword/word/float/doubleword stores and stmw whose constant displacement range intersects041c..041f. Register bases may be unrelated stack/objects. Excludes indexed stores, split base derivation and aliases; not an exhaustive write proof. Ghidra confirmation required.','candidates':candidates},indent=2)+'\n')
+print(candidates)
+plan=[{'id':'LX-A-'+a,'tool':'disassemble_function','arguments':{'address':a,'limit':400}} for a in ['10000160','10011960']]
+for i,c in enumerate(candidates):plan.append({'id':f'LX-F-store-{i}','tool':'get_function_by_address','arguments':{'address':c['address']}})
+(r/'oracle-store-plan.json').write_text(json.dumps(plan,indent=2)+'\n')

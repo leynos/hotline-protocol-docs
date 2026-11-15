@@ -1,0 +1,11 @@
+{
+  "repository": "https://github.com/mierau/hotline",
+  "commit": "ace7945525429742874bc4b0bb377d76a836b239",
+  "status": "source-only; no client or native run in this packet",
+  "license": "not established at pinned commit within bounded lookup; full sources are not redistributed",
+  "files": [
+    {"name": "HotlineProtocol.swift", "path": "Hotline/Hotline/HotlineProtocol.swift", "url": "https://raw.githubusercontent.com/mierau/hotline/ace7945525429742874bc4b0bb377d76a836b239/Hotline/Hotline/HotlineProtocol.swift", "bytes": 44376, "sha256": "7f134f9131b2a1dbe31031c25aebcfd47c4b28c9c21bd33799c5cafb5803bbb2", "anchor": "1212: connectionKeepAlive = 500"},
+    {"name": "HotlineClient.swift", "path": "Hotline/Hotline/HotlineClient.swift", "url": "https://raw.githubusercontent.com/mierau/hotline/ace7945525429742874bc4b0bb377d76a836b239/Hotline/Hotline/HotlineClient.swift", "bytes": 77639, "sha256": "91e9fce24cf0bf14a1edb8952accd212235eec8f61cd4b8d195feea94f7c41a8", "anchors": ["428-446", "488-510", "517-532", "562-581", "712-720", "774-805"]},
+    {"name": "HotlineState+Connection.swift", "path": "Hotline/State/HotlineState+Connection.swift", "url": "https://raw.githubusercontent.com/mierau/hotline/ace7945525429742874bc4b0bb377d76a836b239/Hotline/State/HotlineState%2BConnection.swift", "bytes": 44042, "sha256": "cd2c98c16a8734e838f2d65dcdbcf83b4875325cae9399c77ca52af7dcf68092", "anchor": "390-422: post-login start"}
+  ]
+}

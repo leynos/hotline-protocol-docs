@@ -1,0 +1,42 @@
+{
+  "captured_at_utc": "2026-11-14T10:12:11.175963+00:00",
+  "query": {
+    "id": "identity-before",
+    "tool": "get_program_info",
+    "arguments": {}
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"name\": \"HLserver19.pef\",\n  \"project_path\": \"/HLserver19.pef\",\n  \"executable_path\": \"/data/leynos/Projects/mothra/evidence/hotline-server-1.9/inputs/HLserver19.pef\",\n  \"executable_format\": \"Preferred Executable Format (PEF)\",\n  \"language_id\": \"PowerPC:BE:32:default\",\n  \"compiler_spec\": \"default\",\n  \"processor\": \"PowerPC\",\n  \"endian\": \"big\",\n  \"pointer_size\": 4,\n  \"image_base\": \"00000000\",\n  \"min_address\": \"10000000\",\n  \"max_address\": \"1009734f\",\n  \"memory_size\": 619336,\n  \"function_count\": 1840,\n  \"external_function_count\": 4,\n  \"entry_points\": [\n    \"1007e970\"\n  ],\n  \"md5\": \"ca7a3b85106797ee80b59aea05816825\",\n  \"sha256\": \"ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b\"\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "name": "HLserver19.pef",
+      "project_path": "/HLserver19.pef",
+      "executable_path": "/data/leynos/Projects/mothra/evidence/hotline-server-1.9/inputs/HLserver19.pef",
+      "executable_format": "Preferred Executable Format (PEF)",
+      "language_id": "PowerPC:BE:32:default",
+      "compiler_spec": "default",
+      "processor": "PowerPC",
+      "endian": "big",
+      "pointer_size": 4,
+      "image_base": "00000000",
+      "min_address": "10000000",
+      "max_address": "1009734f",
+      "memory_size": 619336,
+      "function_count": 1840,
+      "external_function_count": 4,
+      "entry_points": [
+        "1007e970"
+      ],
+      "md5": "ca7a3b85106797ee80b59aea05816825",
+      "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+    },
+    "isError": false
+  }
+}

@@ -1,0 +1,5 @@
+exec(open('state/native-sessions/runtime-10/prepare.py').read().split("plan('none-metadata'")[0])
+plan('url-metadata',delayed()+[read()]+pump()+[close()],{'phase':'remote-url','kind':'metadata','type_hex':b'URL '.hex(),'url_hex':b'https://example.invalid/mothra-banner'.hex()})
+plan('url-early',login()+pump()+[close()],{'phase':'remote-url','kind':'early'})
+plan('url-transfer',login()+[send(packet(212,10)),quiet()]+pump()+[close()],{'phase':'remote-url','kind':'no-reply-212','window_seconds':3})
+plan('none-transfer-repeat',login()+[send(packet(212,10)),quiet()]+pump()+[close()],{'phase':'remote-empty','kind':'no-reply-212','window_seconds':3})

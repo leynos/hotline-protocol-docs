@@ -1,0 +1,10 @@
+{
+  "utc": "2026-11-14T14:02:55.202280+00:00",
+  "pid": 1058709,
+  "start_ticks": 8937287,
+  "exe": "/data/leynos/Projects/mothra/state/mac-runtime/native-path-fields-01/SheepShaver-9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "netns_inode": 4026533805,
+  "reason": "forced emulator TERM after confirmed native application Quit; guest OS shutdown not established",
+  "gone_after_term": true,
+  "gone_final": true
+}

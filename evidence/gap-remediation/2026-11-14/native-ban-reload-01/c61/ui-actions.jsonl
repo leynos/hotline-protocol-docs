@@ -1,0 +1,8 @@
+{"utc": "2026-11-14T03:56:30.679481+00:00", "action": "click", "x": 691, "y": 323, "reason": "recognised Disk First Aid Done", "input_sha256": "b07976522f664a05ef5e3df33e2719b70c49d86ef7f99c8a892344284a07cd9e"}
+{"utc": "2026-11-14T03:56:58.896882+00:00", "action": "double-click", "x": 389, "y": 260, "reason": "visible HLserver19 in owned Hotline19 folder; proven input motion flush 100ms"}
+{"utc": "2026-11-14T03:57:11.824129+00:00", "action": "click", "x": 629, "y": 310, "reason": "recognised Sounds Disabled OK"}
+{"utc": "2026-11-14T03:57:35.639897+00:00", "action": "click", "x": 936, "y": 85, "reason": "read-only Options window inspection; no Apply/OK authorised"}
+{"utc": "2026-11-14T03:57:46.984410+00:00", "action": "click", "x": 490, "y": 247, "reason": "read-only Ban tab inspection"}
+{"utc": "2026-11-14T03:58:07.669000+00:00", "action": "click", "x": 583, "y": 541, "reason": "Cancel Options without saving after read-only Ban tab inspection"}
+{"utc": "2026-11-14T04:01:11.943779+00:00", "action": "click", "x": 938, "y": 248, "reason": "normal owned Hotline Server Quit after one probe"}
+{"utc": "2026-11-14T04:01:25.966810+00:00", "action": "click", "x": 181, "y": 10, "reason": "inspect Finder Special menu for normal guest shutdown"}

@@ -1,0 +1,30 @@
+{
+  "captured_at_utc": "2026-11-14T08:16:42.347971+00:00",
+  "query": {
+    "id": "LB03-100826bc-candidate",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "100826bc",
+      "length": 64
+    }
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"address\": \"100826bc\",\n  \"length\": 64,\n  \"hex\": \"3c 0d 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 0d 00 00 00\",\n  \"ascii\": \"<.__________________________________________________________....\",\n  \"gaps\": []\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "address": "100826bc",
+      "length": 64,
+      "hex": "3c 0d 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 0d 00 00 00",
+      "ascii": "<.__________________________________________________________....",
+      "gaps": []
+    },
+    "isError": false
+  }
+}

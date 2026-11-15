@@ -1,0 +1,5 @@
+recorder process PID 2865250: absent
+owned TCP sessions at 15500/15501:
+State Recv-Q Send-Q Local Address:Port Peer Address:Port
+emulator PID 1099659 FD6: /data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/working.dsk
+emulator PID 1099659 FD16: /data/leynos/Projects/mothra/state/native-sessions/recovery-20261113-01/guest.pcap

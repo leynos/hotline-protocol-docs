@@ -1,0 +1,34 @@
+{
+  "scope": "Ten native ordinary-file cases: multi-chunk seed/baseline, three immediate and three partial-read cancellation attempts, nonowner cleanup and pending-upload214 behaviour",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "runtime": "runtime.json",
+  "verification": "verification.json",
+  "catalogue": "transcripts/; all ten capture plans completed",
+  "packet_provenance": "Fresh host runtime08 capture stopped by SIGINT; complete guest snapshot from continuing runtime04 observer. Same live emulator PID774378/executable identity. Every socket stream reconciles both views, with one pinned28-byte unread departure302 for the second control owner.",
+  "baseline": {
+    "filename": "mothra-race-fixture",
+    "data_bytes": 1048576,
+    "resource_bytes": 317,
+    "ordinary_stream_bytes": 1049073,
+    "data_pattern": "bytes0..255 repeated4096times",
+    "native_extraction": "native-files/; live HFS+ read-only records11218/11219; source DATA/MACR match seed and native baseline"
+  },
+  "observations": [
+    "Immediate cleanup attempts deliver prefixes17844/11112/28956 bytes; partial1024-byte-read attempts deliver261252/2920/2920 bytes total. Counts include FILP/INFO headers and are finite observations, not guaranteed race bounds.",
+    "Some bytes are first observed on the guest network after complete incoming214 request bytes. All observed race DATA and first native close precede the controlACK in these six cases.",
+    "The application drains buffered data after reading ownerACK; no rollback of bytes already delivered or queued is inferred.",
+    "Nonowner214 ACK is followed by1037961 further native data bytes; complete stream and3-second open-connection window survive until ownercleanup.",
+    "Duplicate ownercleanup ACKs and stale HTXF references close with no application bytes.",
+    "Pending ordinary upload survives214 ACK, then valid HTXF upload and native file-info/extraction complete successfully. Helper does not search upload/banner collections."
+  ],
+  "timing_method": "Host-wall-clock guest PCAP, first observation per byte with retransmissions deduplicated. Incoming request bytes and outgoing ACK observation do not instrument handler entry/return.",
+  "limitations": [
+    "Finite loopback/SLiRP races, not universal byte counts or a cancellation deadline",
+    "No new folder/banner/large-size/diskfull/restart-durability conformance; earlier queue corpus supplies queued/pending/missing/unknown/zero cases",
+    "Full native baseline is retained; partial race streams need not form complete FILP values",
+    "ROMs and OS images remain outside Git"
+  ],
+  "closure_candidates": [
+    "GAP-062"
+  ]
+}

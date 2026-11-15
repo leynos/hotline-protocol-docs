@@ -1,0 +1,9 @@
+{
+  "observed_at_utc": "2026-11-14T07:07:13.961646+00:00",
+  "status": "parent_custom_schedule_and_completed_outcome_accepted_pending_packet_pairing",
+  "snapshot": "old_before_rename_new_after_barriers",
+  "frames": 16,
+  "events": 51,
+  "asrun_plan_equal": true,
+  "packet_pairing_pending": true
+}

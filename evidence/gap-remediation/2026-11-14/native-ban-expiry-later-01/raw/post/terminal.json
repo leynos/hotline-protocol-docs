@@ -1,0 +1,22 @@
+{
+  "utc": "2026-11-14T06:37:08.643229+00:00",
+  "emulator_pid": 774195,
+  "emulator_start_ticks": 5983214,
+  "emulator_absent": true,
+  "sheep_wrapper_absent": true,
+  "bridge_pids_absent": true,
+  "stopped_image_inode": 3290756512,
+  "retirement": "native app Quit then user-unit stop; emulator termination, not orderly OS shutdown",
+  "guest_pcap": {
+    "bytes": 42613,
+    "sha256": "d56650833da32bf3e00eebc7b5e3763c10f2d20f36ab55fbae3ec5702ac7bbda"
+  },
+  "namespace_pcap": {
+    "bytes": 12715,
+    "sha256": "f4e0ddaebf4e5ab906e6ec0f505e5de2b0e7076bf5a62739b682f58d7a131b7d"
+  },
+  "primary_pcap": {
+    "bytes": 24,
+    "sha256": "704e5e5b3234433c01fcfd1b20a306e77e985038120492dc53965c3edd38a4ea"
+  }
+}

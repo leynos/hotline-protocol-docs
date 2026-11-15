@@ -1,0 +1,6 @@
+import subprocess,sys
+from pathlib import Path
+root=Path('state/native-sessions/runtime-10')
+for p in sorted((root/sys.argv[1]).glob('*.json')):
+ result=subprocess.run([sys.executable,'../hotline-protocol-docs/scripts/protocol_capture.py','capture',str(p),'--oracle-binary','evidence/hotline-server-1.9/inputs/HLserver19.pef','--output',str(root/'final-cases'/p.stem)])
+ if result.returncode:raise SystemExit(result.returncode)

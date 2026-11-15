@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "profile": "native-mac-oracle",
+  "operator": "C64 configured-address ban application operator",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "gap_ids": [
+    "GAP-044"
+  ],
+  "environment": {
+    "source_a7_sha256": "5d0aa3dccf65fc6523678aa729c9ace72cd6caffbef768b7f5bf949e6568b43e",
+    "emulator_pid": null,
+    "runtime_directory": "/data/leynos/Projects/mothra/state/mac-runtime/native-configured-apply-01",
+    "fixture_profile": "control-only",
+    "full_file_baseline": "not_exercised",
+    "prepared_only": true,
+    "display": ":114",
+    "front_ports": [
+      15770,
+      15771,
+      15772,
+      15773
+    ]
+  },
+  "endpoints": {
+    "control": {
+      "host": "127.0.0.1",
+      "port": 15770
+    }
+  },
+  "steps": [
+    {
+      "op": "connect",
+      "connection": "main",
+      "endpoint": "control",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "54525450484f544c00010002",
+      "timeout": 30
+    },
+    {
+      "op": "read",
+      "connection": "main",
+      "size": 8,
+      "expect_hex": "5452545000000000",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "0000006b000000010000000000000036000000360005006900059e9b929691006a000892908b978d9ecec600a0000200be0066000f6672616d696e672d66697874757265006800020001",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "0000015e0000001f00000000000000480000004800040069001092d29d9e91d29e8f8f9386d290919386006a000e9e8f8f9386d29d9e91d28f9e8c8c0066001042616e204170706c7920546172676574006e00080000000000000000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 31
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "00000160000000200000000000000016000000160001006900106d2d62616e2d6170706c792d6f6e6c79",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 32
+      }
+    },
+    {
+      "op": "close",
+      "connection": "main"
+    }
+  ],
+  "expectation": {
+    "case": "seed",
+    "owned_key_hex": "6d2d62616e2d6170706c792d6f6e6c79",
+    "address_hex": "31302e302e322e32"
+  }
+}

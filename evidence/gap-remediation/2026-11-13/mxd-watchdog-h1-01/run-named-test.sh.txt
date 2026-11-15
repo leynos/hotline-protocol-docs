@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+export PATH=/home/leynos/.cargo/bin:/home/leynos/.local/bin:/usr/local/bin:/usr/bin:/bin
+export CARGO_TARGET_DIR=/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target
+export CARGO_NET_OFFLINE=true
+export CARGO_BUILD_JOBS=1
+export RUSTFLAGS='-D warnings -Zthreads=8 -Clink-arg=-fuse-ld=mold'
+unset CARGO_ENCODED_RUSTFLAGS
+cd /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd
+printf '%s\n' "$(date -u +'%Y-%m-%d %H:%M:%S UTC')" > /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/diagnostics/watchdog-diagnosis-01/test.started
+exec cargo test --offline --locked --no-default-features --features 'postgres test-support legacy-networking' --lib diagnostic_delayed_watchdog_poll_order -- --nocapture >> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/diagnostics/watchdog-diagnosis-01/test.log 2>&1

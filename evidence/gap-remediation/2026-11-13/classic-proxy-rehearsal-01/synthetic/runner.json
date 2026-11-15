@@ -1,0 +1,49 @@
+{
+  "events": [
+    {
+      "namespace_inode": 4026532547,
+      "interfaces": [
+        "lo"
+      ]
+    },
+    {
+      "proxy_pid": 3284142,
+      "proxy_argv": [
+        "/usr/bin/python3",
+        "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-account/hotline-protocol-docs/scripts/classic_login_proxy.py",
+        "--variant",
+        "baseline",
+        "--output",
+        "/data/leynos/Projects/mothra/state/proxy-synthetic-b29/proxy",
+        "--expected-netns-inode",
+        "4026532547",
+        "--host-netns-inode",
+        "4026531840"
+      ]
+    },
+    {
+      "upstream_data_exchange": 31588909588661
+    },
+    {
+      "client_data_exchange": 31588909954236
+    },
+    {
+      "client_control_halfclose": 31588909998659
+    },
+    {
+      "upstream_control_halfclose": 31588910089378
+    },
+    {
+      "client_control_eof": 31616904110533
+    },
+    {
+      "proxy_exit_code": 0,
+      "status": "intentional-observation-cutoff"
+    },
+    {
+      "final_proxy_pid": 3284142,
+      "final_exit": 0
+    }
+  ],
+  "failures": []
+}

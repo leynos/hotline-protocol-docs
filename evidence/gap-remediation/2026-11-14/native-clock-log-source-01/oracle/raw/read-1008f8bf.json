@@ -1,0 +1,30 @@
+{
+  "captured_at_utc": "2026-11-14T11:05:12.698195+00:00",
+  "query": {
+    "id": "read-1008f8bf",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "1008f8bf",
+      "length": 96
+    }
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"address\": \"1008f8bf\",\n  \"length\": 96,\n  \"hex\": \"0b 43 6f 6e 6e 65 63 74 20 4c 6f 67 0b 41 63 63 6f 75 6e 74 20 4c 6f 67 12 48 6f 74 6c 69 6e 65 20 53 65 72 76 65 72 20 4c 6f 67 0e 48 6f 74 6c 69 6e 65 20 53 65 72 76 65 72 03 31 2e 39 05 55 73 65 72 73 05 46 69 6c 65 73 04 4e 65 77 73 0c 53 65 72 76 65 72 20 45 72 72 6f 72 63 50 6c 65\",\n  \"ascii\": \".Connect Log.Account Log.Hotline Server Log.Hotline Server.1.9.Users.Files.News.Server ErrorcPle\",\n  \"gaps\": []\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "address": "1008f8bf",
+      "length": 96,
+      "hex": "0b 43 6f 6e 6e 65 63 74 20 4c 6f 67 0b 41 63 63 6f 75 6e 74 20 4c 6f 67 12 48 6f 74 6c 69 6e 65 20 53 65 72 76 65 72 20 4c 6f 67 0e 48 6f 74 6c 69 6e 65 20 53 65 72 76 65 72 03 31 2e 39 05 55 73 65 72 73 05 46 69 6c 65 73 04 4e 65 77 73 0c 53 65 72 76 65 72 20 45 72 72 6f 72 63 50 6c 65",
+      "ascii": ".Connect Log.Account Log.Hotline Server Log.Hotline Server.1.9.Users.Files.News.Server ErrorcPle",
+      "gaps": []
+    },
+    "isError": false
+  }
+}

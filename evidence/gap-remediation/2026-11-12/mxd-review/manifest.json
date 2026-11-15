@@ -1,0 +1,165 @@
+{
+  "captured_at_utc": "2026-11-12T13:46:32.293421+00:00",
+  "source_git_head": "2e4c9c1df20b37a6f98a1369e0a8f09f9ee2a131",
+  "source_worktree_status": "?? mxd.worktrees/",
+  "inputs": [
+    {
+      "path": "src/wireframe/compat_policy/mod.rs",
+      "sha256": "efdc545b782bcdeec1490d9c34d95e241b5a72919233da3631492e4bc93248ab",
+      "snapshot": "inputs/src/wireframe/compat_policy/mod.rs.txt"
+    },
+    {
+      "path": "src/wireframe/compat_policy_tests.rs",
+      "sha256": "77900692d7c59616dd1b2418731ba35fb5eb34d916172dbc42bb032ea4238cd9",
+      "snapshot": "inputs/src/wireframe/compat_policy_tests.rs.txt"
+    },
+    {
+      "path": "src/wireframe/compat_policy/kani.rs",
+      "sha256": "5ed0e50d4733fc3f9329d7e104b1a7356980e876aec21e5bea9b8a9284f35c02",
+      "snapshot": "inputs/src/wireframe/compat_policy/kani.rs.txt"
+    },
+    {
+      "path": "src/wireframe/compat.rs",
+      "sha256": "ac71cedd8dd5d1bcc548745c5da20d8b540573370335d16998e16be11bb5fe32",
+      "snapshot": "inputs/src/wireframe/compat.rs.txt"
+    },
+    {
+      "path": "src/wireframe/compat/kani.rs",
+      "sha256": "46b01e5ba65e732093193ba932f3129173d34dc7ef9141e0972e909842032159",
+      "snapshot": "inputs/src/wireframe/compat/kani.rs.txt"
+    },
+    {
+      "path": "src/wireframe/compat_layer.rs",
+      "sha256": "d858d2e46c8a1cb5320ef8aeeafb411befd0ddec0bc86db14087ceb0776cf747",
+      "snapshot": "inputs/src/wireframe/compat_layer.rs.txt"
+    },
+    {
+      "path": "src/field_id.rs",
+      "sha256": "515e5bf55da761e3262c108f8b72e73f025114fbf5820a69057902beec0161c5",
+      "snapshot": "inputs/src/field_id.rs.txt"
+    },
+    {
+      "path": "src/presence_tests.rs",
+      "sha256": "052f5583e5d5312f1bc7305c2eacc4480e5d00bcdee73b54501799505ab1b9a8",
+      "snapshot": "inputs/src/presence_tests.rs.txt"
+    },
+    {
+      "path": "src/wireframe/routes/tests/presence_routing_cases.rs",
+      "sha256": "36f73465cdb612e6f467191fa76182d066146b2ffc897c6d904a54d761652476",
+      "snapshot": "inputs/src/wireframe/routes/tests/presence_routing_cases.rs.txt"
+    },
+    {
+      "path": "tests/wireframe_login_compat.rs",
+      "sha256": "c27e3b1ea9fa3433c465cd6f368d610150c11790386da894512fad79ff1b80f6",
+      "snapshot": "inputs/tests/wireframe_login_compat.rs.txt"
+    },
+    {
+      "path": "tests/wireframe_xor_compat.rs",
+      "sha256": "8392d8f224a69c624f158216dd5d3e8930b6874acecb2302779eabd98670000d",
+      "snapshot": "inputs/tests/wireframe_xor_compat.rs.txt"
+    },
+    {
+      "path": "tests/wireframe_compat_guardrails_bdd.rs",
+      "sha256": "8db65b1fc0b15468ad2cfa81541cdbd618286f9e7d5b1a5a8c0e205d7ee7c212",
+      "snapshot": "inputs/tests/wireframe_compat_guardrails_bdd.rs.txt"
+    },
+    {
+      "path": "tests/wireframe_presence_bdd.rs",
+      "sha256": "89fb42f80cfb094a14be537300e2d83487213e245fe0fd272d7d965562d326db",
+      "snapshot": "inputs/tests/wireframe_presence_bdd.rs.txt"
+    },
+    {
+      "path": "tests/features/wireframe_login_compat.feature",
+      "sha256": "84e755342e998ced440a4903ccab43eb1b93dd1836192dda33f6e797705a54a0",
+      "snapshot": "inputs/tests/features/wireframe_login_compat.feature.txt"
+    },
+    {
+      "path": "tests/features/wireframe_xor_compat.feature",
+      "sha256": "74ece9a47e545fb04bcfb0a89b2df099096d3886d0a6bfdb45e3e2f61f2ecb8e",
+      "snapshot": "inputs/tests/features/wireframe_xor_compat.feature.txt"
+    },
+    {
+      "path": "tests/features/wireframe_compat_guardrails.feature",
+      "sha256": "d8cb0c2e5f6e2b17b6c0dc8a4d1d14746d3399a7562532c26ea3572afdabcdde",
+      "snapshot": "inputs/tests/features/wireframe_compat_guardrails.feature.txt"
+    },
+    {
+      "path": "tests/features/wireframe_presence.feature",
+      "sha256": "1920faba33be857a68091683e27112294558e81c26f7edc8f6cfad04dfd84b8d",
+      "snapshot": "inputs/tests/features/wireframe_presence.feature.txt"
+    },
+    {
+      "path": "docs/release-notes-qa-sign-off.md",
+      "sha256": "c70e586f33d48948ea7960a470066918c64918a1b8ddb5c2114216b13599f13d",
+      "snapshot": "inputs/docs/release-notes-qa-sign-off.md.txt"
+    },
+    {
+      "path": "docs/roadmap.md",
+      "sha256": "d58caacd1920bc895947709ee0e0c492960561d140b7c4d9eb550a8ae518d0db",
+      "snapshot": "inputs/docs/roadmap.md.txt"
+    },
+    {
+      "path": "Cargo.toml",
+      "sha256": "ad430def9c0bf33f57f3d19f2f2c6a78336f2320fca5c7fc4a59cda475dc0fc9",
+      "snapshot": "inputs/Cargo.toml.txt"
+    },
+    {
+      "path": "Cargo.lock",
+      "sha256": "a75916c2eba9add420b656323df9717c91c052417f2ffcdcf1c95c2787372192",
+      "snapshot": "inputs/Cargo.lock.txt"
+    },
+    {
+      "path": "rust-toolchain.toml",
+      "sha256": "599e6ee97d76cb445fb1470a46d45a79354b2767da6bdfc677db4acd3b7766a9",
+      "snapshot": "inputs/rust-toolchain.toml.txt"
+    },
+    {
+      "path": ".cargo/config.toml",
+      "sha256": "8a8d07a5f80a10382fd1aa977eefab41b76e840ac196ebdcf296b9e27b2e2d46",
+      "snapshot": "inputs/.cargo/config.toml.txt"
+    }
+  ],
+  "environment": {
+    "CARGO_TARGET_DIR": "/data/leynos/Projects/mothra/state/mxd-target",
+    "toolchain": "nightly-2026-11-12",
+    "working_directory": "/data/leynos/Projects/mxd"
+  },
+  "commands": [
+    {
+      "command": "cargo test --offline --locked --lib wireframe::compat_policy_tests",
+      "log": "cargo-test.log",
+      "exit_code": 0,
+      "passed_tests": 0
+    },
+    {
+      "command": "cargo test --offline --locked --lib wireframe::compat",
+      "log": "compat-tests.log",
+      "exit_code": 0,
+      "passed_tests": 31
+    },
+    {
+      "command": "cargo test --offline --locked --lib user_name_list",
+      "log": "roster-tests.log",
+      "exit_code": 0,
+      "passed_tests": 3
+    },
+    {
+      "command": "cargo test --offline --locked --features test-support --test wireframe_login_compat --test wireframe_xor_compat --test wireframe_compat_guardrails_bdd",
+      "log": "scenario-tests.log",
+      "exit_code": 0,
+      "passed_tests": 20
+    },
+    {
+      "command": "cargo test --offline --locked --features test-support --test wireframe_presence_bdd",
+      "log": "presence-tests.log",
+      "exit_code": 0,
+      "passed_tests": 1
+    }
+  ],
+  "limitations": [
+    "Initial filter matched zero tests and is not counted.",
+    "55 passing tests exercise existing implementation policy; they do not certify native conformance.",
+    "No Kani invocation or identified historical client execution.",
+    "No source or tests changed in mxd."
+  ]
+}

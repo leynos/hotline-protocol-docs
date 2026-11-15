@@ -1,0 +1,317 @@
+[
+  {
+    "id": "D-1000f130",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1000f130"
+    }
+  },
+  {
+    "id": "D-1000f260",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1000f260"
+    }
+  },
+  {
+    "id": "D-1000fc20",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1000fc20"
+    }
+  },
+  {
+    "id": "D-10011960",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10011960"
+    }
+  },
+  {
+    "id": "D-1000f4e0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1000f4e0"
+    }
+  },
+  {
+    "id": "D-10015e70",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10015e70"
+    }
+  },
+  {
+    "id": "D-10017f30",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10017f30"
+    }
+  },
+  {
+    "id": "D-100188e0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100188e0"
+    }
+  },
+  {
+    "id": "D-10018340",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10018340"
+    }
+  },
+  {
+    "id": "D-100183c0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100183c0"
+    }
+  },
+  {
+    "id": "D-10018620",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10018620"
+    }
+  },
+  {
+    "id": "D-10018760",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10018760"
+    }
+  },
+  {
+    "id": "D-10011ee0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10011ee0"
+    }
+  },
+  {
+    "id": "D-100100a0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100100a0"
+    }
+  },
+  {
+    "id": "D-100121a0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100121a0"
+    }
+  },
+  {
+    "id": "D-100130f0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100130f0"
+    }
+  },
+  {
+    "id": "D-100140e0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100140e0"
+    }
+  },
+  {
+    "id": "D-100143f0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100143f0"
+    }
+  },
+  {
+    "id": "D-10016ba0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10016ba0"
+    }
+  },
+  {
+    "id": "D-100170c0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100170c0"
+    }
+  },
+  {
+    "id": "D-100177d0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100177d0"
+    }
+  },
+  {
+    "id": "D-10017c10",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10017c10"
+    }
+  },
+  {
+    "id": "D-10012850",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10012850"
+    }
+  },
+  {
+    "id": "D-10012f40",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10012f40"
+    }
+  },
+  {
+    "id": "D-10013930",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10013930"
+    }
+  },
+  {
+    "id": "D-10013040",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10013040"
+    }
+  },
+  {
+    "id": "D-10011870",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10011870"
+    }
+  },
+  {
+    "id": "D-10016150",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10016150"
+    }
+  },
+  {
+    "id": "D-10016ad0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10016ad0"
+    }
+  },
+  {
+    "id": "D-10015160",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10015160"
+    }
+  },
+  {
+    "id": "D-10015500",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10015500"
+    }
+  },
+  {
+    "id": "D-100146f0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100146f0"
+    }
+  },
+  {
+    "id": "D-100149e0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100149e0"
+    }
+  },
+  {
+    "id": "D-10014bc0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10014bc0"
+    }
+  },
+  {
+    "id": "D-10014df0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10014df0"
+    }
+  },
+  {
+    "id": "D-1000f990",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1000f990"
+    }
+  },
+  {
+    "id": "D-100102c0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100102c0"
+    }
+  },
+  {
+    "id": "D-10011370",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10011370"
+    }
+  },
+  {
+    "id": "D-10010b70",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10010b70"
+    }
+  },
+  {
+    "id": "D-10010ee0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10010ee0"
+    }
+  },
+  {
+    "id": "D-10011110",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10011110"
+    }
+  },
+  {
+    "id": "D-10011580",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10011580"
+    }
+  },
+  {
+    "id": "D-10010470",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10010470"
+    }
+  },
+  {
+    "id": "D-100108a0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100108a0"
+    }
+  },
+  {
+    "id": "D-10018c00",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10018c00"
+    }
+  }
+]

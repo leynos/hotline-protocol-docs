@@ -1,0 +1,42 @@
+import hashlib
+import json
+import sys
+from datetime import datetime
+from pathlib import Path
+from pcap_tcp import lifetime, read_packets, stream
+from protocol_capture import verify_capture
+
+root = Path(sys.argv[1])
+host = read_packets(root / 'host.pcap')
+guest = read_packets(root / 'guest-after-terminal.pcap')
+results = {}
+for label in ('preflight', 'observe', 'postflight'):
+    report = verify_capture(root / label)
+    started = int(datetime.fromisoformat(report['started_at_utc']).timestamp() * 1_000_000)
+    results[label] = {}
+    for event in report['events']:
+        if event['event'] != 'connect':
+            continue
+        name = event['connection']
+        local, target = event['local_address'][1], event['peer_address'][1]
+        when = started + event['elapsed_ns'] // 1000
+        recorded = report['streams'][name]
+        views = {}
+        for view, packets, client, server in (
+            ('host', host, ('127.0.0.1', local), ('127.0.0.1', target)),
+            ('guest', guest, ('10.0.2.2', local), ('10.0.2.15', 5500 + target - 15500)),
+        ):
+            selected = lifetime(packets, client, server, when)
+            sent = stream(selected, client, server)
+            received = stream(selected, server, client)
+            prefix = bytes.fromhex(recorded['received_hex'])
+            assert sent == bytes.fromhex(recorded['sent_hex']), (label, name, view, 'sent')
+            assert received.startswith(prefix), (label, name, view, 'received prefix')
+            tail = received[len(prefix):]
+            views[view] = {'packets': len(selected), 'sent_bytes': len(sent), 'received_bytes': len(received), 'recorder_prefix_bytes': len(prefix), 'unread_tail_bytes': len(tail), 'unread_tail_sha256': hashlib.sha256(tail).hexdigest(), 'unread_tail_hex': tail.hex() if len(tail) <= 64 else None}
+        results[label][name] = {'local_port': local, 'target_port': target, 'views': views}
+for before, after in (('guest-before.pcap', 'guest-after-preflight.pcap'), ('guest-after-preflight.pcap', 'guest-after-observe.pcap'), ('guest-after-observe.pcap', 'guest-after-postflight.pcap'), ('guest-after-postflight.pcap', 'guest-after-terminal.pcap')):
+    old, new = (root / before).read_bytes(), (root / after).read_bytes()
+    assert new.startswith(old), (before, after, 'guest prefix')
+(root / 'packet-reconciliation.json').write_text(json.dumps(results, indent=2) + '\n')
+print(json.dumps({label: {name: {view: row['unread_tail_bytes'] for view, row in socket['views'].items()} for name, socket in pairs.items()} for label, pairs in results.items()}, indent=2))

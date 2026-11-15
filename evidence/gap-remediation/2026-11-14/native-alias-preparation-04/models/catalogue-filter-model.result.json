@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "python3",
+    "state/native-sessions/native-alias-live-preparation-04/catalogue-filter-model.as-run.txt"
+  ],
+  "returncode": 0,
+  "stdout": "{\"as_run_user_rows\": 54, \"corrected_active_rows\": [\"-/r 11193:\\tHotline19/Users/admin/UserData\", \"-/r 11201:\\tHotline19/Users/fixture-low/UserData\"], \"catalogue_sha256\": \"1e6b2c52a5327f0a59fe8e463aaf212b4c62f96d70c6602b97010a0540333e33\", \"fork_and_tsk_constants_unchanged\": true}\n",
+  "stderr": "",
+  "script_sha256": "ec69baca7d25d86da17d1c4ce9250a771639346af055f3fab640c2c6244460b1"
+}

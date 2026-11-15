@@ -1,0 +1,27 @@
+Nov 14 06:28:53 ibara systemd[1]: Starting mothra-native-expiry-c82-post.service - [systemd-run] /usr/bin/python3 -u /data/leynos/Projects/hotline-protocol-docs/scripts/native_ban_expiry_control.py --run --phase post --plans /data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-first-01/plans --capture-receipt /data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-post-01/capture-ready.json --binary /data/leynos/Projects/mothra/evidence/hotline-server-1.9/inputs/HLserver19.pef --output /data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-post-01/results --ban-clock /data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-first-01/results-first-c77/ban-clock.json...
+Nov 14 06:28:53 ibara systemd[1]: Started mothra-native-expiry-c82-post.service - [systemd-run] /usr/bin/python3 -u /data/leynos/Projects/hotline-protocol-docs/scripts/native_ban_expiry_control.py --run --phase post --plans /data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-first-01/plans --capture-receipt /data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-post-01/capture-ready.json --binary /data/leynos/Projects/mothra/evidence/hotline-server-1.9/inputs/HLserver19.pef --output /data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-post-01/results --ban-clock /data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-first-01/results-first-c77/ban-clock.json.
+Nov 14 06:28:54 ibara python3[882810]: {
+Nov 14 06:28:54 ibara python3[882810]:   "phase": "post",
+Nov 14 06:28:54 ibara python3[882810]:   "status": "completed",
+Nov 14 06:28:54 ibara python3[882810]:   "full_file_baseline": "not_exercised",
+Nov 14 06:28:54 ibara python3[882810]:   "capture_receipt_sha256": "f5c8750a94f76f68a36e17827a9b04c4b97034c7f89df140ac9414bf0049f4f5",
+Nov 14 06:28:54 ibara python3[882810]:   "readiness_report_sha256": null,
+Nov 14 06:28:54 ibara python3[882810]:   "preprobe_baseline": "not_exercised_preserve_first_lookup",
+Nov 14 06:28:54 ibara python3[882810]:   "cases": {
+Nov 14 06:28:54 ibara python3[882810]:     "post-probe": {
+Nov 14 06:28:54 ibara python3[882810]:       "status": "completed",
+Nov 14 06:28:54 ibara python3[882810]:       "error": "",
+Nov 14 06:28:54 ibara python3[882810]:       "plan_sha256": "1869b2b1c6343a19aa9ff4ec7a2add04e39784c01342ea77bedabf8c81a6c67a"
+Nov 14 06:28:54 ibara python3[882810]:     }
+Nov 14 06:28:54 ibara python3[882810]:   },
+Nov 14 06:28:54 ibara python3[882810]:   "timing_gate": {
+Nov 14 06:28:54 ibara python3[882810]:     "phase": "post",
+Nov 14 06:28:54 ibara python3[882810]:     "host_elapsed_seconds": 2032.227663,
+Nov 14 06:28:54 ibara python3[882810]:     "host_window": [
+Nov 14 06:28:54 ibara python3[882810]:       1900,
+Nov 14 06:28:54 ibara python3[882810]:       2400
+Nov 14 06:28:54 ibara python3[882810]:     ],
+Nov 14 06:28:54 ibara python3[882810]:     "native_getdatetime_seconds_proven": false,
+Nov 14 06:28:54 ibara python3[882810]:     "interpretation": "host-relative bracket only; guest clock progression requires separately retained read-only witness"
+Nov 14 06:28:54 ibara python3[882810]:   }
+Nov 14 06:28:54 ibara python3[882810]: }

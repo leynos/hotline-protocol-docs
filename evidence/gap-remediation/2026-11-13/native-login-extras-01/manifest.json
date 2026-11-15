@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "cases": [
+    "login-value-versus-banner-references",
+    "macroman-190-delayed",
+    "macroman-190-early",
+    "name-a-0-delayed",
+    "name-a-0-early",
+    "name-a-150-delayed",
+    "name-a-150-early",
+    "name-a-151-delayed",
+    "name-a-151-early",
+    "name-a-190-delayed",
+    "name-a-190-early",
+    "name-a-absent-delayed",
+    "name-a-absent-early",
+    "name-b-190-delayed",
+    "name-b-190-early",
+    "name-change-with-existing-sessions",
+    "name31-190-delayed",
+    "name31-190-early",
+    "name32-190-delayed",
+    "name32-190-early",
+    "none-190-delayed",
+    "none-190-early",
+    "restored-0-delayed",
+    "restored-0-early",
+    "restored-150-delayed",
+    "restored-150-early",
+    "restored-151-delayed",
+    "restored-151-early",
+    "restored-190-delayed",
+    "restored-190-early",
+    "restored-absent-delayed",
+    "restored-absent-early",
+    "url-190-delayed",
+    "url-190-early"
+  ],
+  "configurations": {
+    "name-a": "native-name-a-retry",
+    "name-b": "native-short-name-b",
+    "name31": "native-name31",
+    "name32": "native-name32",
+    "macroman": "native-macroman",
+    "url": "native-url-flushed",
+    "none": "native-none-flushed",
+    "restored": "native-restored"
+  },
+  "original_preferences": "native-name-a",
+  "setup_cases": [
+    "baseline-fast-name-a",
+    "baseline-macroman",
+    "baseline-name-a-retry",
+    "baseline-name31",
+    "baseline-name32",
+    "baseline-none",
+    "baseline-original",
+    "baseline-url",
+    "flushes-none",
+    "flushes-restored",
+    "flushes-url"
+  ],
+  "initial_cases": [
+    "banner-eof-assumption",
+    "before-flush-url-190-delayed",
+    "before-flush-url-190-early",
+    "name-a-inactive-field",
+    "name-change-90s-waiting-expired"
+  ],
+  "packet_window_seconds": [
+    1794536167.010292,
+    1794538090.0990832
+  ],
+  "host_capture_packets": 1101,
+  "host_kernel_drops": 0,
+  "unread_output": {},
+  "other_unread_output": {
+    "initial/name-change-90s-waiting-expired": {
+      "observer": "0000012e00000003000000000000000800000008000100670002020a0000012d00000004000000000000002600000026000400670002020b0068000200010070000200120066000e6578747261732d66697874757265"
+    }
+  },
+  "scope": "34 accepted configured/name-lifetime/banner-reference cases,11setup controls and5exploratory reports. Native Prefs/version5,31-byte and high-byte name samples, Local/Remote/empty banner configurations. First retained empty-name175-byte Prefs is restored byte-for-byte; no restart durability claimed.161 remains zero in samples; its purpose and exhaustive write/lifetime semantics remain unresolved.",
+  "setup_history": "First NameA click only woke the saver, leaving empty name and a completed unchanged control. Slow click script retained; final20second lifetime trial uses fast clicks.90second waiting-session hypothesis closed before121; late121 was accepted by host proxy but not delivered to guest. Banner EOF hypothesis received58bytes then timed out; final probes retain known quiet tail. URL control2cases completed but immediate live snapshot retained stale188-byte fork length; after native volume flush, positive222-byte Prefs and final URL probes are retained. Snapshot native-url is intentionally rejected by regression test, never accepted for configuration proof.",
+  "original_preferences_scope": "First native Prefs observation follows the unsuccessful empty-name GUI save; it is not an independent prelaunch disk snapshot. Initial baseline wire name is also empty. Final native-restored bytes match that first retained175-byte sample."
+}

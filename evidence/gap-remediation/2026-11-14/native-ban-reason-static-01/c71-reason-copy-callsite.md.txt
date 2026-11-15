@@ -1,0 +1,60 @@
+# C71 read-only reason pointer trace (2026-11-14)
+
+Scope: frozen decompilations and independent PowerPC disassembly only. No guest,
+network, Ghidra query, tracked edit, or new reason fixture.
+## Raw copy at `100539c0`
+
+`state/delegation/endpoint-oracle-01/raw/EP-D-100539c0.c` shows a
+`BlockMoveData(param_2,param_1)` wrapper returning `param_3`.
+`endpoint-oracle-02/raw/EP2-A-100539c0.json` disassembly resolves the
+three PowerPC arguments: incoming r3=destination, r4=source, r5=size;
+`100539d0` saves destination, `100539d4` saves r5, `100539d8` puts incoming
+r4 into r3, `100539dc` puts old r3 into r4, then `100539e0` calls
+`BlockMoveData`. No source `+1` adjustment occurs in this wrapper.
+`B05-D-100539c0.c` from the older batch also contains this wrapper, though
+C70 did not include it. Both frozen results share the `ad7040db…` PEF identity.
+
+## Request 110 option 2 caller
+
+`native-account-identity-01/oracle-queries/ID-D-10015e70.c:22-53` is the
+request 110 handler. It selects field 103 target, field 113 option 2, then
+checks field 101 (`0x65`). If absent, it sets `local_160=0`. If present,
+it calls `FUN_10056b60(param_4,0x65,auStack_15f,0x3f)` and stores the return
+byte in `local_160`. The next call passes **`&local_160`** as fourth argument
+to `FUN_10006230`, with same target address for both range endpoints.
+The stack declaration places `auStack_15f[63]` immediately after the
+one-byte `local_160`; this is consistent with a length-prefixed staging
+buffer, but the exact field helper return/copied-byte contract is not in a
+retained standalone `10056b60` source and is not proven by layout alone.
+
+`B06-D-10006230.c:32-42` sets the record's reason length from the first byte
+of that passed pointer, caps it at 63, and calls
+`FUN_100539c0(record+0x32,param_4,reason_length)` with the **unadjusted
+pointer**. `endpoint-oracle-02/raw/EP2-A-10006230.json` confirms at
+`1000635c–10006368`: r3=`record+0x32`, r4=`r31` (saved fourth argument),
+r5=`record[0x31]`, then branch to `100539c0`. Thus the constructor copies
+`reason_length` bytes starting at the pointer's first byte. This is an exact
+machine-argument finding. It does not establish what `10056b60` wrote after
+that first byte, nor that the resulting bytes equal wire field 101 text.
+
+## Options Save path
+
+`B17-D-100023a0.c:110-233` loads the existing ban list via `1000a070`,
+passes it into `1001ddb0`, then on Save uses `1001e170`, writes the list with
+`10009d10`, and calls connected-client producer `10006590`. There is **no
+direct `10006230` call** in this retained Options handler. Its Ban list
+transform is delegated to UI helpers including `1001e7a0`; the retained
+`LX-D-1001e170.c` only shows a call to that helper, not the reason buffer's
+construction. Therefore the request-110 pointer result must not be applied
+to Options reasons without another caller trace.
+
+## Missing proof for a nonempty reason fixture
+
+Need retained disassembly/decompilation of `10056b60` with exact destination,
+return length, and zero/63-byte behavior; request-110 callsite machine
+arguments at its return and the `10006230` call; and an observed nonempty
+field-101 option-2 ban file or controlled wire fixture. For Options, need the
+Ban list item's reason construction inside `1001e7a0` or its called UI helper
+and a distinct observed nonempty Options reason. Existing C56/C62/C68 files
+all have reason length zero. No byte-level nonempty reason assertion or
+corrected public format claim follows yet.

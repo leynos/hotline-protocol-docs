@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T13:33:47.474494+00:00",
+  "query": {
+    "id": "B01-D-1002cb20",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002cb20"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_1002cb20\",\n    \"address\": \"1002cb20\"\n  },\n  \"code\": \"\\nundefined4 FUN_1002cb20(short *param_1,uint param_2)\\n\\n{\\n  undefined4 uVar1;\\n  undefined2 uVar4;\\n  undefined4 uVar2;\\n  undefined4 uVar3;\\n  short sVar5;\\n  ushort uVar6;\\n  char local_1e0;\\n  undefined1 uStack_1df;\\n  undefined1 auStack_1de [2];\\n  undefined1 auStack_1dc [18];\\n  byte *local_1ca;\\n  undefined2 local_1c6;\\n  ushort local_1c0;\\n  byte local_1be;\\n  undefined4 local_1bc;\\n  undefined4 local_1b8;\\n  ushort local_1b4;\\n  undefined4 local_1ac;\\n  ushort local_1a8;\\n  int local_1a6;\\n  int local_19c;\\n  undefined4 local_194;\\n  undefined4 local_190;\\n  undefined4 local_178;\\n  undefined2 local_170;\\n  undefined4 local_16e;\\n  byte local_16a [66];\\n  undefined4 local_128;\\n  undefined4 local_124;\\n  uint local_120;\\n  uint local_11c;\\n  undefined4 local_118;\\n  undefined2 local_114;\\n  undefined2 local_112;\\n  undefined4 local_110;\\n  undefined2 local_10c;\\n  undefined2 local_10a;\\n  undefined4 local_108;\\n  byte local_104 [232];\\n  \\n  if (param_1 == (short *)0x0) {\\n    FUN_10027c30(1,2);\\n  }\\n  uVar6 = 1;\\n  uVar1 = FUN_1002e1b0((int)*param_1,*(undefined4 *)(param_1 + 1),param_1 + 3,&local_1e0);\\n  if (local_1e0 == '\\\\0') {\\n    FUN_10027c30(4,0x7d);\\n  }\\n  uVar4 = FUN_1002e270(param_1 + 3,(int)*param_1);\\n  uVar2 = FUN_10052c50(4,0);\\n  local_10c = 0x770;\\n  local_114 = 0x770;\\n  local_10a = 0;\\n  local_112 = 0;\\n  local_118 = 0;\\n  while( true ) {\\n    local_1ca = local_104;\\n    local_1c6 = uVar4;\\n    local_1c0 = uVar6;\\n    local_1ac = uVar1;\\n    uVar3 = .glue::PBGetCatInfoSync(auStack_1dc);\\n    if ((short)uVar3 != 0) break;\\n    if ((local_1be & 0x10) == 0) {\\n      local_11c = local_1b4 >> 0xe & 1;\\n      if ((local_1b4 & 0x8000) != 0) {\\n        local_11c = local_11c | 2;\\n        local_170 = local_1c6;\\n        local_16e = local_178;\\n        .glue::BlockMoveData(local_104,local_16a,local_104[0] + 1);\\n        if (((param_2 & 1) == 0) &&\\n           (sVar5 = FUN_1002f5a0(&local_170,&uStack_1df,auStack_1de), sVar5 == 0)) {\\n          local_1ca = local_16a;\\n          local_1ac = local_16e;\\n          local_1c6 = local_170;\\n          local_1c0 = -(ushort)(local_16a[0] == 0);\\n          sVar5 = .glue::PBGetCatInfoSync(auStack_1dc);\\n          if (sVar5 == 0) {\\n            if ((local_1be & 0x10) != 0) goto LAB_1002cc14;\\n            goto LAB_1002cd1c;\\n          }\\n        }\\n        local_1bc = 0x616c6973;\\n        local_1b8 = 0;\\n        local_19c = 0;\\n        local_1a6 = 0;\\n      }\\nLAB_1002cd1c:\\n      local_128 = local_1bc;\\n      local_124 = local_1b8;\\n      local_120 = local_1a6 + local_19c;\\n    }\\n    else {\\nLAB_1002cc14:\\n      local_128 = 0x666c6472;\\n      local_124 = 0;\\n      local_120 = (uint)local_1a8;\\n      local_11c = local_1b4 >> 0xe & 1;\\n    }\\n    local_110 = local_194;\\n    local_108 = local_190;\\n    uVar3 = .glue::PtrAndHand(&local_128,uVar2,local_104[0] + 0x28 & 0xfffffffc);\\n    if ((short)uVar3 != 0) goto LAB_1002cdbc;\\n    uVar6 = uVar6 + 1;\\n  }\\n  if ((short)uVar3 == -0x2b) {\\n    if (uVar6 == 1) {\\n      FUN_10052e90(uVar2);\\n      uVar2 = 0;\\n    }\\n    else {\\n      FUN_10053890(uVar2,0,uVar6 - 1);\\n    }\\n  }\\n  else {\\nLAB_1002cdbc:\\n    FUN_10052e90(uVar2);\\n    FUN_10028190(uVar3,0,0);\\n    uVar2 = 0;\\n  }\\n  return uVar2;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_1002cb20",
+        "address": "1002cb20"
+      },
+      "code": "\nundefined4 FUN_1002cb20(short *param_1,uint param_2)\n\n{\n  undefined4 uVar1;\n  undefined2 uVar4;\n  undefined4 uVar2;\n  undefined4 uVar3;\n  short sVar5;\n  ushort uVar6;\n  char local_1e0;\n  undefined1 uStack_1df;\n  undefined1 auStack_1de [2];\n  undefined1 auStack_1dc [18];\n  byte *local_1ca;\n  undefined2 local_1c6;\n  ushort local_1c0;\n  byte local_1be;\n  undefined4 local_1bc;\n  undefined4 local_1b8;\n  ushort local_1b4;\n  undefined4 local_1ac;\n  ushort local_1a8;\n  int local_1a6;\n  int local_19c;\n  undefined4 local_194;\n  undefined4 local_190;\n  undefined4 local_178;\n  undefined2 local_170;\n  undefined4 local_16e;\n  byte local_16a [66];\n  undefined4 local_128;\n  undefined4 local_124;\n  uint local_120;\n  uint local_11c;\n  undefined4 local_118;\n  undefined2 local_114;\n  undefined2 local_112;\n  undefined4 local_110;\n  undefined2 local_10c;\n  undefined2 local_10a;\n  undefined4 local_108;\n  byte local_104 [232];\n  \n  if (param_1 == (short *)0x0) {\n    FUN_10027c30(1,2);\n  }\n  uVar6 = 1;\n  uVar1 = FUN_1002e1b0((int)*param_1,*(undefined4 *)(param_1 + 1),param_1 + 3,&local_1e0);\n  if (local_1e0 == '\\0') {\n    FUN_10027c30(4,0x7d);\n  }\n  uVar4 = FUN_1002e270(param_1 + 3,(int)*param_1);\n  uVar2 = FUN_10052c50(4,0);\n  local_10c = 0x770;\n  local_114 = 0x770;\n  local_10a = 0;\n  local_112 = 0;\n  local_118 = 0;\n  while( true ) {\n    local_1ca = local_104;\n    local_1c6 = uVar4;\n    local_1c0 = uVar6;\n    local_1ac = uVar1;\n    uVar3 = .glue::PBGetCatInfoSync(auStack_1dc);\n    if ((short)uVar3 != 0) break;\n    if ((local_1be & 0x10) == 0) {\n      local_11c = local_1b4 >> 0xe & 1;\n      if ((local_1b4 & 0x8000) != 0) {\n        local_11c = local_11c | 2;\n        local_170 = local_1c6;\n        local_16e = local_178;\n        .glue::BlockMoveData(local_104,local_16a,local_104[0] + 1);\n        if (((param_2 & 1) == 0) &&\n           (sVar5 = FUN_1002f5a0(&local_170,&uStack_1df,auStack_1de), sVar5 == 0)) {\n          local_1ca = local_16a;\n          local_1ac = local_16e;\n          local_1c6 = local_170;\n          local_1c0 = -(ushort)(local_16a[0] == 0);\n          sVar5 = .glue::PBGetCatInfoSync(auStack_1dc);\n          if (sVar5 == 0) {\n            if ((local_1be & 0x10) != 0) goto LAB_1002cc14;\n            goto LAB_1002cd1c;\n          }\n        }\n        local_1bc = 0x616c6973;\n        local_1b8 = 0;\n        local_19c = 0;\n        local_1a6 = 0;\n      }\nLAB_1002cd1c:\n      local_128 = local_1bc;\n      local_124 = local_1b8;\n      local_120 = local_1a6 + local_19c;\n    }\n    else {\nLAB_1002cc14:\n      local_128 = 0x666c6472;\n      local_124 = 0;\n      local_120 = (uint)local_1a8;\n      local_11c = local_1b4 >> 0xe & 1;\n    }\n    local_110 = local_194;\n    local_108 = local_190;\n    uVar3 = .glue::PtrAndHand(&local_128,uVar2,local_104[0] + 0x28 & 0xfffffffc);\n    if ((short)uVar3 != 0) goto LAB_1002cdbc;\n    uVar6 = uVar6 + 1;\n  }\n  if ((short)uVar3 == -0x2b) {\n    if (uVar6 == 1) {\n      FUN_10052e90(uVar2);\n      uVar2 = 0;\n    }\n    else {\n      FUN_10053890(uVar2,0,uVar6 - 1);\n    }\n  }\n  else {\nLAB_1002cdbc:\n    FUN_10052e90(uVar2);\n    FUN_10028190(uVar3,0,0);\n    uVar2 = 0;\n  }\n  return uVar2;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

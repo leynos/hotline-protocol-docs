@@ -1,0 +1,12 @@
+{
+  "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "query_count": 12,
+  "plans": [
+    "plans/alias-and-info-kinds.json",
+    "plans/filesystem-and-board.json"
+  ],
+  "derived_reviews": [
+    "synhx-lineage-review.json"
+  ],
+  "method": "Read-only native filesystem, legacy board and alias helpers; review of already frozen SynHX archives. No native network execution or configured SynHX build."
+}

@@ -1,0 +1,24 @@
+Updating 4812949..20e891a
+Fast-forward
+ src/header_util.rs                             |  12 +--
+ src/header_util/kani.rs                        |   2 +-
+ src/transaction/params.rs                      |   4 +-
+ src/wireframe/codec/framed_tests.rs            |  27 +++++-
+ src/wireframe/codec/mod.rs                     |   4 +-
+ src/wireframe/compat_layer.rs                  |  12 ++-
+ src/wireframe/compat_policy/mod.rs             |  18 ++--
+ src/wireframe/compat_policy_tests.rs           |  27 +++++-
+ src/wireframe/login_reply_augmenter.rs         |  12 ++-
+ src/wireframe/outbound_tests.rs                |   1 +
+ src/wireframe/routes/tests/direct_ack_cases.rs |  89 +++++++++++++++++
+ src/wireframe/routes/tests/error_cases.rs      |  31 +++++-
+ src/wireframe/routes/tests/middleware_cases.rs |   7 +-
+ src/wireframe/routes/tests/mod.rs              |   1 +
+ tests/direct_reply_validation.rs               | 126 +++++++++++++++++++++++++
+ tests/features/wireframe_routing.feature       |   4 +-
+ tests/transaction.rs                           |  35 ++++++-
+ tests/wireframe_login_compat.rs                |   6 +-
+ tests/wireframe_memory_budgets.rs              |   2 +-
+ 19 files changed, 369 insertions(+), 51 deletions(-)
+ create mode 100644 src/wireframe/routes/tests/direct_ack_cases.rs
+ create mode 100644 tests/direct_reply_validation.rs

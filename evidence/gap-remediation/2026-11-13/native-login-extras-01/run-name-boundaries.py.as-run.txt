@@ -1,0 +1,11 @@
+import json,subprocess,sys
+from pathlib import Path
+r=Path('state/native-sessions/runtime-16')
+for phase,requested,expected in [('name31','N'*30+'A',b'N'*30+b'A'),('name32','N'*30+'BZ',b'N'*30+b'B')]:
+ subprocess.run([sys.executable,str(r/'set-name.py'),requested,phase],check=True)
+ out=r/'baseline'/phase
+ subprocess.run([sys.executable,'../hotline-protocol-docs/scripts/protocol_capture.py','capture',str(r/'baseline-plan.json'),'--oracle-binary','evidence/hotline-server-1.9/inputs/HLserver19.pef','--output',str(out)],check=True)
+ report=json.load(open(out/'report.json'));ack=next(f for f in report['frames'] if f['is_reply'] and f['id']==1)
+ assert next(f['hex'] for f in ack['fields'] if f['id']==162)==expected.hex(),phase
+ subprocess.run([sys.executable,'../hotline-protocol-docs/scripts/snapshot_native_hfs.py','--image','state/mac-runtime/hotline19/working.dsk','--tsk-bin','tools/sleuthkit/usr/bin','--catalog-range','11202','11202','--root','/Hotline19/Prefs','--output',str(r/('native-'+phase))],check=True)
+ subprocess.run([sys.executable,str(r/'run-phase.py'),phase],check=True)

@@ -1,0 +1,242 @@
+{
+  "client-id-boundaries-and-reuse": {
+    "main": {
+      "client_port": 50290,
+      "sent_bytes": 262,
+      "received_bytes": 520,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "duplicate-id-after-dispatch-pause": {
+    "main": {
+      "client_port": 50298,
+      "sent_bytes": 130,
+      "received_bytes": 388,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "incomplete-request-id-reused-with-smaller-total": {
+    "main": {
+      "client_port": 36786,
+      "sent_bytes": 151,
+      "received_bytes": 388,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "interleaved-underfilled-transactions-eof": {
+    "main": {
+      "client_port": 45688,
+      "sent_bytes": 130,
+      "received_bytes": 344,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "late-reply-1-completed-client-id": {
+    "main": {
+      "client_port": 36790,
+      "sent_bytes": 152,
+      "received_bytes": 388,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "late-reply-2-completed-client-id": {
+    "main": {
+      "client_port": 45858,
+      "sent_bytes": 152,
+      "received_bytes": 388,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "late-reply-255-completed-client-id": {
+    "main": {
+      "client_port": 45866,
+      "sent_bytes": 152,
+      "received_bytes": 388,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "notification-and-direct-reply-id-spaces": {
+    "main": {
+      "client_port": 45882,
+      "sent_bytes": 178,
+      "received_bytes": 448,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "partial-frame-body-eof": {
+    "main": {
+      "client_port": 49724,
+      "sent_bytes": 107,
+      "received_bytes": 344,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "partial-header-eof": {
+    "main": {
+      "client_port": 49738,
+      "sent_bytes": 95,
+      "received_bytes": 344,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "partial-request-and-wide-reply-same-id": {
+    "main": {
+      "client_port": 45884,
+      "sent_bytes": 152,
+      "received_bytes": 366,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "pipelined-distinct-ids": {
+    "main": {
+      "client_port": 33322,
+      "sent_bytes": 130,
+      "received_bytes": 388,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "pipelined-duplicate-id": {
+    "main": {
+      "client_port": 33326,
+      "sent_bytes": 152,
+      "received_bytes": 388,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "pipelined-id-collision-last-type": {
+    "main": {
+      "client_port": 50720,
+      "sent_bytes": 176,
+      "received_bytes": 413,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "reply-1-server-notification-id": {
+    "main": {
+      "client_port": 38650,
+      "sent_bytes": 130,
+      "received_bytes": 366,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "reply-1-zero-size-rejection": {
+    "main": {
+      "client_port": 38666,
+      "sent_bytes": 106,
+      "received_bytes": 344,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": true,
+      "guest_server_close_kind": "RST"
+    }
+  },
+  "reply-2-server-notification-id": {
+    "main": {
+      "client_port": 38682,
+      "sent_bytes": 130,
+      "received_bytes": 366,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "reply-255-server-notification-id": {
+    "main": {
+      "client_port": 38696,
+      "sent_bytes": 130,
+      "received_bytes": 366,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "reply-255-zero-size-rejection": {
+    "main": {
+      "client_port": 52506,
+      "sent_bytes": 106,
+      "received_bytes": 344,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": true,
+      "guest_server_close_kind": "RST"
+    }
+  },
+  "request-flags-1-error-ffffffff": {
+    "main": {
+      "client_port": 52510,
+      "sent_bytes": 108,
+      "received_bytes": 366,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "request-flags-128-error-ffffffff": {
+    "main": {
+      "client_port": 52516,
+      "sent_bytes": 108,
+      "received_bytes": 366,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "underfilled-transaction-eof": {
+    "main": {
+      "client_port": 50168,
+      "sent_bytes": 108,
+      "received_bytes": 344,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "unsupported-request-type-0": {
+    "main": {
+      "client_port": 52518,
+      "sent_bytes": 130,
+      "received_bytes": 417,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "unsupported-request-type-65535": {
+    "main": {
+      "client_port": 52534,
+      "sent_bytes": 130,
+      "received_bytes": 417,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  }
+}

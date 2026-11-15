@@ -1,0 +1,128 @@
+[
+  {
+    "id": "B01-D-100073c0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100073c0"
+    }
+  },
+  {
+    "id": "B01-D-100075e0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100075e0"
+    }
+  },
+  {
+    "id": "B01-D-1006cd80",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1006cd80"
+    }
+  },
+  {
+    "id": "B01-D-100541e0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100541e0"
+    }
+  },
+  {
+    "id": "B01-D-10056e20",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10056e20"
+    }
+  },
+  {
+    "id": "B01-D-10057180",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10057180"
+    }
+  },
+  {
+    "id": "B01-D-1006dfb0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1006dfb0"
+    }
+  },
+  {
+    "id": "B01-D-1006e120",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1006e120"
+    }
+  },
+  {
+    "id": "B01-D-10058160",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10058160"
+    }
+  },
+  {
+    "id": "B01-D-100583b0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100583b0"
+    }
+  },
+  {
+    "id": "B01-D-10058400",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10058400"
+    }
+  },
+  {
+    "id": "B01-D-1006daf0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1006daf0"
+    }
+  },
+  {
+    "id": "B01-D-10057d00",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10057d00"
+    }
+  },
+  {
+    "id": "B01-D-1000ef30",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1000ef30"
+    }
+  },
+  {
+    "id": "B01-D-1002e8b0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002e8b0"
+    }
+  },
+  {
+    "id": "B01-D-100055a0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100055a0"
+    }
+  },
+  {
+    "id": "B01-D-10023180",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10023180"
+    }
+  },
+  {
+    "id": "B01-D-100233e0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100233e0"
+    }
+  }
+]

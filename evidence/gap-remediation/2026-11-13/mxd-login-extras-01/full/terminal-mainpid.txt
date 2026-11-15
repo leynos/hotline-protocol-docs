@@ -1,0 +1,7 @@
+Id=mxd-c11-full-20261113-1922.service
+ActiveState=active
+SubState=exited
+InvocationID=892ffaf601ef444c9d0e421f760e795b
+MainPID=0
+Result=success
+ExecMainStatus=0

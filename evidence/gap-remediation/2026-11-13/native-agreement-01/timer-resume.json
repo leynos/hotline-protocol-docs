@@ -1,0 +1,8 @@
+{
+  "utc": "2026-11-13T00:38:47.851405+00:00",
+  "emulator_pid": 774378,
+  "timer_tid": 774395,
+  "executable_sha256": "b109f5c470fca6a1a5e0e0eaec4b5f5658d0e45ddafabf6b59bb7c4b35340146",
+  "signal": 41,
+  "method": "Linux tgkill to the timer thread using its installed SIGRESUME handler. No guest memory/register writes, app restart or emulator restart. Read-only debugger confirmed mutex owner and suspended timer thread first."
+}

@@ -1,0 +1,47 @@
+A7 existing-fixture readback, 2026-11-13 UTC. One capture only.
+Private mothra base 479ffae8bee3ca4dc3b5ab879794560d1b782439;
+private protocol base 965b21b7f46615eaeae7d0b83abfadcfaedea189.
+Root leased sole native server access for this one preflight. B12 :101 client
+was not contacted. Server display :99, SheepShaver PID1099659 executable SHA
+9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4;
+service mothra-sheep-bf808bd28e0d active; 127.0.0.1:15500/15501 listening.
+
+The exact generated 29-action plan is capture/plan.json (also retained in
+private state/native-sessions/diagnostic-existing-a7-20261113-01/plan.json).
+It logs in to the known admin fixture, reads348/200/206, resolves a one-row
+same-connection roster UID, reads idle303, downloads the existing
+mothra-race-fixture via202/HTXF, reads fixed advertised 1049073 bytes, cancels
+the saved transient transfer ref via214, observes data EOF, reads idle303,
+then closes. It never sends203/204/304 or changes account/settings/files.
+
+Before connection, host tcpdump printed "listening on lo" and its new PCAP
+header was24 bytes:
+  sudo -n tcpdump -i lo -s 0 -U -w \
+    state/native-sessions/diagnostic-existing-a7-20261113-01/host.pcap \
+    'tcp and (port 15500 or port 15501)'
+The one plan was then captured:
+  python3 ../hotline-protocol-docs/scripts/protocol_capture.py capture \
+    state/native-sessions/diagnostic-existing-a7-20261113-01/plan.json \
+    --oracle-binary evidence/hotline-server-1.9/inputs/HLserver19.pef \
+    --output state/native-sessions/diagnostic-existing-a7-20261113-01/capture
+Result: completed all29 actions. Host tcpdump stopped with SIGINT afterward:
+1581 packets captured,3166 received by filter,0 kernel drops. Continuing
+guest source PCAP size before capture146404 bytes; after capture1309706 bytes;
+that latter state was copied to immutable guest-cumulative.pcap. No host
+recorder or capture socket remained live.
+
+  python3 ../hotline-protocol-docs/scripts/protocol_capture.py verify \
+    evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/capture
+  python3 evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/verify.py
+Both passed. Scoped ruff format/check on verify.py passed. The verifier proves
+exact 348/200 baseline and 41 listings, 206 metadata, full DATA/RSRC equality
+to the retained source, same-connection current UID, and exact host/guest
+application streams and terminal packets. verification.json contains lengths,
+hashes, packet counts and terminal flags. INFO is 108 bytes in the downloaded
+FILP, including the current outer filename; the original upload INFO length
+was107 with embedded metadata-only-name. The decisive DATA and MACR forks
+match their retained extraction byte-for-byte.
+
+Native lease returned to root after capture. SheepShaver remains PID1099659,
+service active and both listeners present. No load stage, restart, repair,
+setting edit, upload, rename or delete was attempted.

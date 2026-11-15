@@ -1,0 +1,5 @@
+tcpdump -i lo -s 0 -U -w host-smoke-002.pcap tcp and port 15500
+Recorder reported after SIGINT:
+20 packets captured
+40 packets received by filter
+0 packets dropped by kernel

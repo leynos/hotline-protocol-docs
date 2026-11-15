@@ -1,0 +1,3 @@
+7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315  state/mac-runtime/hotline-client-isolated-01/shared/returniso20/Hotline Client 1.9.2 Classic
+f762cfdedcc39758f841f720a4586dbbb88a7b74ec9e83db1793791b7c3f318b  state/mac-runtime/hotline-client-isolated-01/shared/returniso20/.rsrc/Hotline Client 1.9.2 Classic
+0d806d6e59920856ba0532fcfd36cece0221eb2b1e1be620842a8a9764058d2c  state/mac-runtime/hotline-client-isolated-01/shared/returniso20/.finf/Hotline Client 1.9.2 Classic

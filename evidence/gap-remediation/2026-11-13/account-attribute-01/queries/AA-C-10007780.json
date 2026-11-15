@@ -1,0 +1,105 @@
+{
+  "captured_at_utc": "2026-11-13T12:04:24.133966+00:00",
+  "query": {
+    "id": "AA-C-10007780",
+    "tool": "get_function_calls",
+    "arguments": {
+      "address": "10007780",
+      "direction": "callers",
+      "offset": 0,
+      "limit": 100
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_10007780\",\n    \"address\": \"10007780\"\n  },\n  \"callers\": {\n    \"items\": [\n      {\n        \"call_site\": \"10008110\",\n        \"caller\": {\n          \"name\": \"FUN_10008040\",\n          \"address\": \"10008040\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"100082d4\",\n        \"caller\": {\n          \"name\": \"FUN_10008210\",\n          \"address\": \"10008210\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10008538\",\n        \"caller\": {\n          \"name\": \"FUN_100083f0\",\n          \"address\": \"100083f0\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10008924\",\n        \"caller\": {\n          \"name\": \"FUN_10008850\",\n          \"address\": \"10008850\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      }\n    ],\n    \"offset\": 0,\n    \"limit\": 100,\n    \"total\": 4,\n    \"has_more\": false\n  },\n  \"callees\": null\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_10007780",
+        "address": "10007780"
+      },
+      "callers": {
+        "items": [
+          {
+            "call_site": "10008110",
+            "caller": {
+              "name": "FUN_10008040",
+              "address": "10008040"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "100082d4",
+            "caller": {
+              "name": "FUN_10008210",
+              "address": "10008210"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10008538",
+            "caller": {
+              "name": "FUN_100083f0",
+              "address": "100083f0"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10008924",
+            "caller": {
+              "name": "FUN_10008850",
+              "address": "10008850"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          }
+        ],
+        "offset": 0,
+        "limit": 100,
+        "total": 4,
+        "has_more": false
+      },
+      "callees": null
+    },
+    "isError": false
+  }
+}

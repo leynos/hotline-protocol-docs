@@ -1,0 +1,36 @@
+{
+  "selection_sha256": "42060278f9b68cf6becea8e910fd67beb7e9e14df3a4788e0536bc3eef0dfc6d",
+  "verified_classes": [
+    {
+      "class": "authentication",
+      "source_report": "evidence/gap-remediation/2026-11-12/native-core-01/old-password-rejected/report.json",
+      "request_type": 107,
+      "outcome": "matched direct status1 field100"
+    },
+    {
+      "class": "permission",
+      "source_report": "evidence/gap-remediation/2026-11-12/native-core-01/low-privilege-and-missing-room/report.json",
+      "request_type": 348,
+      "outcome": "matched direct status1 field100"
+    },
+    {
+      "class": "missing-object",
+      "source_report": "evidence/gap-remediation/2026-11-12/native-core-01/missing-file-info/report.json",
+      "request_type": 206,
+      "outcome": "matched direct status1 field100"
+    },
+    {
+      "class": "malformed-request",
+      "source_report": "evidence/gap-remediation/2026-11-12/native-core-01/malformed-zero-size/report.json",
+      "request_type": 300,
+      "outcome": "host EOF, no numbered reply"
+    },
+    {
+      "class": "unsupported-operation",
+      "source_report": "evidence/gap-remediation/2026-11-12/native-core-01/early-login-and-errors/report.json",
+      "request_type": 999,
+      "outcome": "matched direct status1 field100"
+    }
+  ],
+  "scope": "Original five-class representative criterion; not exhaustive internal exception translation or guest FIN/RST proof"
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "id": "BA-D-1002bc30",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002bc30"
+    }
+  },
+  {
+    "id": "BA-D-100565b0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100565b0"
+    }
+  }
+]

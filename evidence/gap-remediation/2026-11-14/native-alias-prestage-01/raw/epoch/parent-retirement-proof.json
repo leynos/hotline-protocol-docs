@@ -1,0 +1,13 @@
+{
+  "status": "retired_before_deadline",
+  "utc": "2026-11-14T17:47:41.730071+00:00",
+  "actual_emulator_pid": 3737215,
+  "pid_gone": true,
+  "working_inode": 203082518,
+  "root_fuser_exit": 1,
+  "root_fuser_stdout": "",
+  "root_fuser_stderr": "",
+  "native_app_quit_observed": true,
+  "orderly_os_shutdown_observed": false,
+  "retirement_mode": "forced VM stop after native app Quit"
+}

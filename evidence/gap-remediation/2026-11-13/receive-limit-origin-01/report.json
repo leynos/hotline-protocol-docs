@@ -1,0 +1,290 @@
+{
+  "schema_version": 1,
+  "started_at_utc": "2026-11-13T15:37:35.392500+00:00",
+  "status": "completed-12-read-only-calls",
+  "project": "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-account/mothra/state/oracle-headless-01/project/hotline19-headless-01",
+  "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "jar_sha256": "201d18ffde71a83a678eae607de265861f37e5a00b989d91958c1197664d2b43",
+  "command": "/data/leynos/Projects/mothra/tools/ghidramcp/.venv/bin/ghidra-mcp",
+  "args": [
+    "--headless",
+    "--binary",
+    "/data/leynos/Projects/mothra/evidence/hotline-server-1.9/inputs/HLserver19.pef",
+    "--project",
+    "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-account/mothra/state/oracle-headless-01/project",
+    "--project-name",
+    "hotline19-headless-01",
+    "--language",
+    "PowerPC:BE:32:default",
+    "--compiler",
+    "default",
+    "--extension-jar",
+    "/data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar",
+    "--ready-timeout",
+    "900",
+    "--no-analyze",
+    "--discard"
+  ],
+  "source_gui_query_sha256": {
+    "B16-D-100590e0.json": "1f5ab8938361233279d7edbf97ac4181ab078221d0b68e5fd442249d7c599c72",
+    "A-100590e0.json": "83ffdcb24fb60f226e973e9147787ea731be3870ee472fa269ff372f5aa89251",
+    "B07-D-100007b0.json": "e79ea16254e15c1cd0b24f5bbb9514fe2dd62e4cc00e9591bd9ae547ee4b441f"
+  },
+  "queries": [
+    {
+      "index": 1,
+      "label": "before",
+      "tool": "get_program_info",
+      "arguments": {},
+      "file": "01-before.json",
+      "sha256": "1858caf1a67a404add03b19d11791bc83f515e782b4047dd9d3a8bb621f4392c",
+      "is_error": false
+    },
+    {
+      "index": 2,
+      "label": "receiver-decomp",
+      "tool": "decompile_function_by_address",
+      "arguments": {
+        "address": "100590e0"
+      },
+      "file": "02-receiver-decomp.json",
+      "sha256": "02a1402225e6f98c9407c3dd95fc8d32fea5eb7353ac26206029f5b7c47e5450",
+      "is_error": false
+    },
+    {
+      "index": 3,
+      "label": "receiver-disasm",
+      "tool": "disassemble_function",
+      "arguments": {
+        "address": "100590e0",
+        "limit": 2000
+      },
+      "file": "03-receiver-disasm.json",
+      "sha256": "07272473a5b8ba0b063c927df236b5191f08dcbd0f1ac1bb6736bee38f9a9b0a",
+      "is_error": false
+    },
+    {
+      "index": 4,
+      "label": "startup-decomp",
+      "tool": "decompile_function_by_address",
+      "arguments": {
+        "address": "100007b0"
+      },
+      "file": "04-startup-decomp.json",
+      "sha256": "b732aeb63768db8f7066aa19da8ba40deed528d07410f1edca48551c88b0f70e",
+      "is_error": false
+    },
+    {
+      "index": 5,
+      "label": "startup-disasm",
+      "tool": "disassemble_function",
+      "arguments": {
+        "address": "100007b0",
+        "limit": 2000
+      },
+      "file": "05-startup-disasm.json",
+      "sha256": "5b3cc52f9295abcbee8169996d91c6f9c95d7bb81b51228a2c9fe13dd870b738",
+      "is_error": false
+    },
+    {
+      "index": 6,
+      "label": "global-xrefs",
+      "tool": "get_xrefs_to",
+      "arguments": {
+        "address": "10094a50",
+        "limit": 1000
+      },
+      "file": "06-global-xrefs.json",
+      "sha256": "8d1adbe2b042797a07625899f754b053d582979007727b2ef13c05936800fec3",
+      "is_error": false
+    },
+    {
+      "index": 7,
+      "label": "toc-xrefs",
+      "tool": "get_xrefs_to",
+      "arguments": {
+        "address": "10088d90",
+        "limit": 1000
+      },
+      "file": "07-toc-xrefs.json",
+      "sha256": "4b9a14fe79d2164d890001fb63846b12ed774582feaa66e2f11e8ccfcef9c833",
+      "is_error": false
+    },
+    {
+      "index": 8,
+      "label": "toc-outgoing",
+      "tool": "get_xrefs_from",
+      "arguments": {
+        "address": "10088d90",
+        "limit": 100
+      },
+      "file": "08-toc-outgoing.json",
+      "sha256": "e1752c8cd1977ad30dcc6b1422108de7766f18427513a3774c39715725ae72b6",
+      "is_error": false
+    },
+    {
+      "index": 9,
+      "label": "global-image",
+      "tool": "read_memory",
+      "arguments": {
+        "address": "10094a50",
+        "length": 4
+      },
+      "file": "09-global-image.json",
+      "sha256": "b6d87e9c54447a11d36beecb653fa2e205bba981c90e4a695fc6d2acb4e6098e",
+      "is_error": false
+    },
+    {
+      "index": 10,
+      "label": "toc-pointer",
+      "tool": "read_memory",
+      "arguments": {
+        "address": "10088d90",
+        "length": 4
+      },
+      "file": "10-toc-pointer.json",
+      "sha256": "399bf49a5c769bc8942883725901d6c0dc59871b4b6d0733c0cd105e162d66c2",
+      "is_error": false
+    },
+    {
+      "index": 11,
+      "label": "selected-consumer",
+      "tool": "decompile_function_by_address",
+      "arguments": {
+        "address": "10008fd0"
+      },
+      "file": "11-selected-consumer.json",
+      "sha256": "bcb89d2ba7c2372ceeacca802230398d7b338e95be057e45b7b79d824eb36764",
+      "is_error": false
+    },
+    {
+      "index": 12,
+      "label": "after",
+      "tool": "get_program_info",
+      "arguments": {},
+      "file": "12-after.json",
+      "sha256": "c0406c528316d9e9acfa400ae7905fc5bb229620cdd919f60fb16851bc39b143",
+      "is_error": false
+    }
+  ],
+  "project_before": {
+    "hotline19-headless-01.gpr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "hotline19-headless-01.rep/idata/00/00000000.prp": "04b235fbb3cfa38e48dcd311f6394df52ad559e61c9fae8f9e67290ad5173344",
+    "hotline19-headless-01.rep/idata/00/~00000000.db/db.1.gbf": "c28f12eab5ca2e4308def9d3710b74f11196ef4940cc577eb86d722528c01bfb",
+    "hotline19-headless-01.rep/idata/00/~00000000.db/db.2.gbf": "84d569f474a134d3edd3456925d095df82e537259e26cf958514dab102ce215a",
+    "hotline19-headless-01.rep/idata/~index.bak": "11c1a62b45e5edd4164c86e0c28a5e5942051848ea64f0c925d9650df68f54ac",
+    "hotline19-headless-01.rep/idata/~index.dat": "11c1a62b45e5edd4164c86e0c28a5e5942051848ea64f0c925d9650df68f54ac",
+    "hotline19-headless-01.rep/project.prp": "048866f6b7af57331b3d30555fbc283dcf28918bbb82e9af92bd28a7e1f82ae3",
+    "hotline19-headless-01.rep/user/~index.dat": "0a5034997e47499d758115fa580ad21d96557d2a32c89f2263bcfd3fa8a9a6e5",
+    "hotline19-headless-01.rep/versioned/~index.bak": "0a5034997e47499d758115fa580ad21d96557d2a32c89f2263bcfd3fa8a9a6e5",
+    "hotline19-headless-01.rep/versioned/~index.dat": "0a5034997e47499d758115fa580ad21d96557d2a32c89f2263bcfd3fa8a9a6e5"
+  },
+  "process_handle": {
+    "parent_pid": 1506855,
+    "observed_child_pids": [
+      "1507162"
+    ],
+    "at_utc": "2026-11-13T15:37:43.834321+00:00"
+  },
+  "before_differences": {},
+  "receiver-decomp_parity": {
+    "same_function": true,
+    "exact_code_equal": true,
+    "old_truncated": false,
+    "new_truncated": false,
+    "old_code_sha256": "6c2046d635b1e3bd57d5ef1c6973a4b786f1043edda8c0dfc8572bd34c959d6b",
+    "new_code_sha256": "6c2046d635b1e3bd57d5ef1c6973a4b786f1043edda8c0dfc8572bd34c959d6b"
+  },
+  "receiver_disasm_parity": {
+    "exact_address_bytes_equal": true,
+    "old_total": 219,
+    "new_total": 219,
+    "old_has_more": false,
+    "new_has_more": false,
+    "old_last": [
+      "10059490",
+      "4e800020"
+    ],
+    "new_last": [
+      "10059490",
+      "4e800020"
+    ]
+  },
+  "startup-decomp_parity": {
+    "same_function": true,
+    "exact_code_equal": true,
+    "old_truncated": false,
+    "new_truncated": false,
+    "old_code_sha256": "992279ccd5c52574b54c0f7723c5cc64cfb1d0db62508f84bc2fca2f93363a06",
+    "new_code_sha256": "992279ccd5c52574b54c0f7723c5cc64cfb1d0db62508f84bc2fca2f93363a06"
+  },
+  "startup_disasm": {
+    "total": 592,
+    "item_count": 592,
+    "has_more": false
+  },
+  "global_xrefs_data": {
+    "items": [
+      {
+        "from": "10088d90",
+        "type": "DATA",
+        "from_function": null
+      }
+    ],
+    "offset": 0,
+    "limit": 1000,
+    "total": 1,
+    "has_more": false
+  },
+  "toc_xrefs_data": {
+    "items": [],
+    "offset": 0,
+    "limit": 1000,
+    "total": 0,
+    "has_more": false
+  },
+  "toc_outgoing_data": {
+    "items": [
+      {
+        "to": "10094a50",
+        "type": "DATA",
+        "to_function": null,
+        "to_label": "DAT_10094a50"
+      }
+    ],
+    "offset": 0,
+    "limit": 100,
+    "total": 1,
+    "has_more": false
+  },
+  "global_image_hex": "00 20 00 00",
+  "toc_pointer_hex": "10 09 4a 50",
+  "query_11_selection": {
+    "address": "10008fd0",
+    "reason": "pinned configuration-loader fallback",
+    "candidate_count": 0
+  },
+  "selected_consumer": {
+    "address": "10008fd0",
+    "function": {
+      "name": "FUN_10008fd0",
+      "address": "10008fd0"
+    },
+    "truncated": false
+  },
+  "after_equal_before": true,
+  "project_after": {
+    "hotline19-headless-01.gpr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "hotline19-headless-01.rep/idata/00/00000000.prp": "04b235fbb3cfa38e48dcd311f6394df52ad559e61c9fae8f9e67290ad5173344",
+    "hotline19-headless-01.rep/idata/00/~00000000.db/db.1.gbf": "c28f12eab5ca2e4308def9d3710b74f11196ef4940cc577eb86d722528c01bfb",
+    "hotline19-headless-01.rep/idata/00/~00000000.db/db.2.gbf": "84d569f474a134d3edd3456925d095df82e537259e26cf958514dab102ce215a",
+    "hotline19-headless-01.rep/idata/~index.bak": "11c1a62b45e5edd4164c86e0c28a5e5942051848ea64f0c925d9650df68f54ac",
+    "hotline19-headless-01.rep/idata/~index.dat": "11c1a62b45e5edd4164c86e0c28a5e5942051848ea64f0c925d9650df68f54ac",
+    "hotline19-headless-01.rep/project.prp": "048866f6b7af57331b3d30555fbc283dcf28918bbb82e9af92bd28a7e1f82ae3",
+    "hotline19-headless-01.rep/user/~index.dat": "0a5034997e47499d758115fa580ad21d96557d2a32c89f2263bcfd3fa8a9a6e5",
+    "hotline19-headless-01.rep/versioned/~index.bak": "0a5034997e47499d758115fa580ad21d96557d2a32c89f2263bcfd3fa8a9a6e5",
+    "hotline19-headless-01.rep/versioned/~index.dat": "0a5034997e47499d758115fa580ad21d96557d2a32c89f2263bcfd3fa8a9a6e5"
+  },
+  "project_files_equal": true,
+  "finished_at_utc": "2026-11-13T15:38:49.259520+00:00"
+}

@@ -1,0 +1,12 @@
+2026-11-13 18:35:58 UTC
+low 0
+high 0
+max 0
+oom 0
+oom_kill 0
+oom_group_kill 0
+max 0
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sdd1       1.9T  1.9T   28G  99% /data
+Filesystem       Inodes    IUsed    IFree IUse% Mounted on
+/dev/sdd1      81671744 23865224 57806520   30% /data

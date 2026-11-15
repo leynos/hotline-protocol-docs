@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "reports": [
+    "preflight",
+    "seed",
+    "observe",
+    "self",
+    "cleanup"
+  ],
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "driver_sha256": "2fba0972f4d9a8e3845c4204dce150dd7c90da0e19a9e5720d5289e2c94faf01",
+  "initial_generator_sha256": "3210c13c7f526c3d87b969214ee4adb5b2be62672241d4c8a13c1e568dcf0665",
+  "method": "Five completed native plans; preflight absent-owned-key and two-account inventory; seed only m-diag31-zero; observed allowed, denied, missing and stale UID 303; same-session one-row self 303; delete owned account and restore exact baseline enumeration. Host and guest TCP streams reconciled including unread 302 tail. No restart or original account mutation.",
+  "identity_note": "The preflight admin UID 008d belongs only to that closed connection. Its later 303 is a stale missing-target control, not a self observation. The separate self plan saves UID 0091 from its own one-row 300 reply and uses it without closing the connection.",
+  "unmet": "Active transfer/queue diagnostic text and native near-1024 formatting boundary unmeasured; exact textual parity remains a release policy decision."
+}

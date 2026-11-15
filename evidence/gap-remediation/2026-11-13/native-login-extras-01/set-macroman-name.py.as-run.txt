@@ -1,0 +1,12 @@
+import subprocess,sys
+from pathlib import Path
+r=Path('state/native-sessions/runtime-16');name=sys.argv[1];label=sys.argv[2]
+def ui(*args):subprocess.run([sys.executable,str(r/'ui.py'),*map(str,args)],check=True)
+ui('click',910,560,2);ui('click',933,86);ui('click',375,248);ui('click',555,323);ui('key','Alt_L+a')
+if name:
+ ui('type',name)
+ ui('key','Super_L+u');ui('key','o')
+else:ui('key','BackSpace')
+subprocess.run(['import','-display',':97','-window','root',str(r/(label+'-before-save.png'))],check=True)
+ui('click',678,539)
+subprocess.run(['import','-display',':97','-window','root',str(r/(label+'-saved.png'))],check=True)

@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "import",
+    "-display",
+    ":125",
+    "-window",
+    "root",
+    "state/native-sessions/native-alias-live-04/first-guest-screen-after-display-proof.png"
+  ],
+  "exit": 0,
+  "stdout": "",
+  "stderr": "",
+  "host_before_utc": "2026-11-14T21:40:17.186195+00:00",
+  "host_after_utc": "2026-11-14T21:40:17.348874+00:00",
+  "sha256": "700c169b30eaf73e59af4ecee95fc7cf34dde396421562fad411c3266fd56902"
+}

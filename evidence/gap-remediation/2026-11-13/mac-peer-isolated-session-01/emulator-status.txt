@@ -1,0 +1,5 @@
+Name:	SheepShaver-9c9
+State:	S (sleeping)
+Uid:	1000	1000	1000	1000
+CapEff:	0000000000020000
+CapAmb:	0000000000020000

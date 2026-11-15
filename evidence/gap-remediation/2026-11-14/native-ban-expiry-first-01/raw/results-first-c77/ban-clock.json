@@ -1,0 +1,10 @@
+{
+  "request_utc": "2026-11-14T05:55:01.616113+00:00",
+  "ack_utc": "2026-11-14T05:55:01.632067+00:00",
+  "image_inode": 3290756512,
+  "emulator_pid": 774195,
+  "emulator_start_ticks": 5983214,
+  "emulator_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "namespace_inode": 4026533397,
+  "native_getdatetime_note": "Host UTC brackets one guest GetDateTime call; one-second guest clock progression is an unverified assumption until read-only guest witness."
+}

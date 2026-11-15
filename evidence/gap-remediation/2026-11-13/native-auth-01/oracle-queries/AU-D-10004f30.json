@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T23:58:12.879637+00:00",
+  "query": {
+    "id": "AU-D-10004f30",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10004f30"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_10004f30\",\n    \"address\": \"10004f30\"\n  },\n  \"code\": \"\\nvoid FUN_10004f30(undefined4 param_1,int param_2)\\n\\n{\\n  undefined4 uVar1;\\n  undefined2 uVar2;\\n  \\n  if (param_2 != 0) {\\n    uVar1 = FUN_10056380(0,0);\\n    FUN_10056a90(uVar1,0x67,*(undefined2 *)(param_2 + 0x14));\\n    FUN_10056a90(uVar1,0x68,(int)*(short *)(param_2 + 0x16));\\n    uVar2 = FUN_10005000(param_1,param_2);\\n    FUN_10056a90(uVar1,0x70,uVar2);\\n    FUN_10056ae0(uVar1,0x66,param_2 + 0x38);\\n    FUN_10005510(param_1,0x12d,uVar1);\\n    FUN_100563d0(uVar1);\\n  }\\n  return;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_10004f30",
+        "address": "10004f30"
+      },
+      "code": "\nvoid FUN_10004f30(undefined4 param_1,int param_2)\n\n{\n  undefined4 uVar1;\n  undefined2 uVar2;\n  \n  if (param_2 != 0) {\n    uVar1 = FUN_10056380(0,0);\n    FUN_10056a90(uVar1,0x67,*(undefined2 *)(param_2 + 0x14));\n    FUN_10056a90(uVar1,0x68,(int)*(short *)(param_2 + 0x16));\n    uVar2 = FUN_10005000(param_1,param_2);\n    FUN_10056a90(uVar1,0x70,uVar2);\n    FUN_10056ae0(uVar1,0x66,param_2 + 0x38);\n    FUN_10005510(param_1,0x12d,uVar1);\n    FUN_100563d0(uVar1);\n  }\n  return;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

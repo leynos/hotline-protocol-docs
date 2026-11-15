@@ -1,0 +1,13 @@
+{
+  "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "query_count": 14,
+  "plans": [
+    "plans/native-error-map.json",
+    "plans/news-structure-and-metadata.json",
+    "plans/structure-consumers-and-error-table-pointer.json"
+  ],
+  "derived_reviews": [
+    "native-error-map-review.json"
+  ],
+  "method": "Read-only news structure creation/classification, FSSpec equality, sanitization/logging and INFO-restoration assembly. Decode108 native-result mapping triples and verify strict ordering. Existing baseline handlers and batch08 filesystem helpers supply operation context. No native runtime/alias/filesystem fixtures."
+}

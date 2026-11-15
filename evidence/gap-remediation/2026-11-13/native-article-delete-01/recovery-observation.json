@@ -1,0 +1,14 @@
+{
+  "recorded_at_utc": "2026-11-13T07:59:01.973309+00:00",
+  "old_emulator_pid": 881007,
+  "old_display_pid": 867338,
+  "old_processes_present": false,
+  "old_forwarding_listener_present": false,
+  "emulator_log": "X connection to :98 broken; XIO fatal IO error22; launcher exit1",
+  "display_exit_status": 0,
+  "display_exit_cause": "Unknown; no supported claim of native server crash or a specific host termination cause.",
+  "native_seed_failure": "EOF before response to request219 after121 ACKs; subsequent fresh login returns explicit temporary-ban error. Native GUI log says Autobanned for flooding.",
+  "ban_removal": "No ban entry was removed through the GUI before host display exit. Any successful access after a new process must not be called natural expiry or in-place unbanning.",
+  "old_disk": "state/mac-runtime/hotline20/working.dsk",
+  "preservation": "Stopped image preserved; new runtime21 prepared from a stopped unclean copy. Must inspect actual category state before appending."
+}

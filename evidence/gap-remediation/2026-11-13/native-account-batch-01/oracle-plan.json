@@ -1,0 +1,65 @@
+[
+  {
+    "id": "BA-D-10015500",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10015500"
+    }
+  },
+  {
+    "id": "BA-D-10007510",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10007510"
+    }
+  },
+  {
+    "id": "BA-D-100076b0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100076b0"
+    }
+  },
+  {
+    "id": "BA-D-100071a0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100071a0"
+    }
+  },
+  {
+    "id": "BA-D-100075e0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100075e0"
+    }
+  },
+  {
+    "id": "BA-D-10007340",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10007340"
+    }
+  },
+  {
+    "id": "BA-D-100566b0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100566b0"
+    }
+  },
+  {
+    "id": "BA-D-10056d70",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10056d70"
+    }
+  },
+  {
+    "id": "BA-D-10053a60",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10053a60"
+    }
+  }
+]

@@ -1,0 +1,7 @@
+{
+  "status": "identity_rejected_before_content_query",
+  "error": "Independent oracle PowerPC BE mapping failed",
+  "reason": "auto-selected PowerPC:BE:64:VLE-32addr instead of frozen PowerPC:BE:32:default",
+  "raw_content_queries": 0,
+  "identity_file": "raw/identity-auto-before.json"
+}

@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "sudo",
+    "-n",
+    "systemctl",
+    "stop",
+    "mothra-native-alias-live-04-host.service"
+  ],
+  "exit": 0,
+  "stdout": "",
+  "stderr": "",
+  "before_utc": "2026-11-14T22:03:51.174915+00:00",
+  "after_utc": "2026-11-14T22:03:51.326108+00:00"
+}

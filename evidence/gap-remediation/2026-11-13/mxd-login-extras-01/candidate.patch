@@ -1,0 +1,1658 @@
+diff --git a/cli-defs/src/lib.rs b/cli-defs/src/lib.rs
+index 7a94478..e7d6a9d 100644
+--- a/cli-defs/src/lib.rs
++++ b/cli-defs/src/lib.rs
+@@ -66,6 +66,10 @@ pub struct AppConfig {
+     #[ortho_config(default = "mxd.db".to_owned())]
+     #[arg(long)]
+     pub database: String,
++    /// Name advertised in successful login replies (ASCII, at most 31 bytes).
++    #[ortho_config(default = "mxd".to_owned())]
++    #[arg(long)]
++    pub server_name: String,
+     /// Optional migration timeout in seconds.
+     #[arg(long)]
+     pub migration_timeout_secs: Option<u64>,
+diff --git a/docs/design.md b/docs/design.md
+index 0f08543..6c21e0c 100644
+--- a/docs/design.md
++++ b/docs/design.md
+@@ -220,18 +220,18 @@ preamble. Entries are cleared on connection teardown to prevent leakage between
+ sessions while keeping the data available for the full lifetime of each
+ connection.
+ 
+-Handshake metadata and login payloads now feed a `ClientCompatibility` policy
+-in the wireframe adapter. The handshake sub-version is reserved for SynHX
+-identification (`sub_version == 2`), while the login request's version field
+-(field 160) distinguishes Hotline 1.8.5 from 1.9 clients (`151..=189` vs
+-`>= 190`). Login replies always report server version 151, include banner
+-fields 161/162 for Hotline 1.8.5 and 1.9 clients, and omit those fields for
+-SynHX. Future quirks must consult this policy so adapter-layer gating remains
+-centralized. Roadmap item 1.5.6 implements ADR-0003 by wiring `AuthStrategy` and
+-`LoginReplyAugmenter` into the guardrail routing entrypoint while keeping
+-request-side login metadata handling separate from reply augmentation. This
+-preserves default Hotline and SynHX behaviour while keeping room for future
+-HOPE and SynHX hashed-auth extensions.
++Handshake metadata and login payloads feed `ClientCompatibility`, which
++preserves the raw handshake sub-version and optional reported login version.
++Sub-version 2 is shared by the native Mac client, the identified shx client,
++and historical SynHX source, so it does not establish peer identity. Nor does
++self-reported field 160. All peers use the same `DefaultAuthStrategy`.
++Successful Login107 direct ACKs receive server version 190, opaque two-byte
++field 161 `0000`, and configured field 162 when nonempty. The server name comes
++from validated ASCII configuration (at most 31 bytes); raw high-byte and native
++setter clipping parity remain separate decisions. C7's direct ACK correlation
++and C11's success/failure guard remain at the adapter boundary. The older ADRs
++describe the historical design; this paragraph records the current correction
++without treating those decisions as native evidence.
+ 
+ ### Exclusive OR (XOR) text-field compatibility
+ 
+@@ -253,13 +253,10 @@ XOR decode. This keeps the domain layer free of client quirks while allowing
+ future handshake-based toggles to replace the heuristic when the mapping is
+ known.
+ 
+-Roadmap item 1.5.4 adds bounded Kani proofs for compatibility logic so the
+-adapter-level quirks stay regression-resistant without widening runtime
+-behaviour. The proofs cover XOR round-trips for bounded parameter payloads and
+-client-kind/version gating boundaries, while `rstest` and `rstest-bdd`
+-scenarios continue to exercise end-to-end routing outcomes. This split keeps
+-formal checks focused on pure invariants and keeps transport integration
+-confidence in behavioural suites.
++Roadmap item 1.5.4 introduced bounded Kani harnesses for the earlier policy.
++The current source preserves raw handshake and reported login versions without
++client-kind gates. Its updated metadata harness is source only until Kani is
++run on this revision. `rstest` and `rstest-bdd` exercise routing outcomes.
+ 
+ ### Internal compatibility matrix governance
+ 
+@@ -894,9 +891,9 @@ routed transaction:
+ - **`on_reply`** — augments the reply with client-specific extras (banner
+   fields for Hotline 1.9 clients).
+ 
+-Roadmap item 1.5.6 finalizes this split: `WireframeRouter` selects an
+-`AuthStrategy` from `ClientKind`, `CompatibilityLayer::process_command` routes
+-login transactions through that strategy, and `CompatibilityLayer::on_reply`
++Roadmap item 1.5.6 finalizes this split: `WireframeRouter` selects an the
++default `AuthStrategy`, `CompatibilityLayer::process_command` routes login
++transactions through that strategy, and `CompatibilityLayer::on_reply`
+ delegates login reply decoration to `LoginReplyAugmenter`.
+ 
+ Because the router is the only public entrypoint, new routes cannot
+@@ -911,7 +908,7 @@ only for `TransactionType::Login`.
+ Hook ordering is verified by a **spy-based test** that asserts the sequence
+ `on_request` → dispatch → `on_reply` for login and non-login transactions. BDD
+ scenarios in `tests/features/wireframe_compat_guardrails.feature` cover banner
+-field inclusion for Hotline 1.9, banner omission for SynHX, XOR login, and file
++field inclusion across reported versions and sub-version 2, XOR login, and file
+ list after login.
+ 
+ See [ADR-0002](adrs/adr-0002-compatibility-guardrails-and-augmentation.md)
+diff --git a/docs/internal-compatibility-matrix.md b/docs/internal-compatibility-matrix.md
+index bc67011..8425a95 100644
+--- a/docs/internal-compatibility-matrix.md
++++ b/docs/internal-compatibility-matrix.md
+@@ -1,53 +1,31 @@
+-# Internal compatibility matrix (Hotline and SynHX)
+-
+-This internal matrix records implemented compatibility behaviour for Hotline
+-and SynHX clients in the wireframe adapter. It is the source of truth for
+-release-note quality assurance (QA) sign-off when validating roadmap item 1.5.3.
+-
+-For release-note quality assurance (QA) sign-off workflow details, use
+-`docs/release-notes-qa-sign-off.md`.
+-
+-## Scope and status labels
+-
+-- `Supported`: implemented and covered by automated tests.
+-- `Partial`: implemented only for listed transactions; other behaviour is still
+-  pending roadmap delivery.
+-- `Planned`: not implemented yet; included to prevent over-claiming support.
+-
+-## Compatibility matrix
+-
+-| Client profile                 | Detection markers                                                   | Status    | Supported scope                                                                                | Known deviations                                                          | Required toggles                                            | Evidence                                                                                                                                                                                                                                                                                                                                          |
+-| ------------------------------ | ------------------------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+-| Hotline 1.8.5                  | Handshake `sub_version != 2`; login field 160 in `151..=189`        | Partial   | Login handshake and login reply augmentation; text payloads may be auto-decoded if XOR-encoded | User-list and messaging parity remains pending later roadmap items        | None required for default login flow                        | `src/wireframe/compat_policy.rs::classifies_hotline_85_from_login_version`; `src/wireframe/compat_policy.rs::augments_login_reply_when_required`; `tests/features/wireframe_login_compat.feature` scenario `Hotline 1.8.5 login reply includes banner fields`                                                                                     |
+-| Hotline 1.9                    | Handshake `sub_version != 2`; login field 160 in `>=190`            | Partial   | Login handshake and login reply augmentation; text payloads may be auto-decoded if XOR-encoded | User-list and messaging parity remains pending later roadmap items        | None required for default login flow                        | `src/wireframe/compat_policy.rs::classifies_hotline_19_from_login_version`; `src/wireframe/compat_policy.rs::augments_login_reply_when_required`; `tests/features/wireframe_login_compat.feature` scenario `Hotline 1.9 login reply includes banner fields`                                                                                       |
+-| SynHX (non-XOR)                | Handshake `sub_version == 2`; login field 160 accepted              | Partial   | Login flow with SynHX banner-field omission semantics                                          | Field-level parity outside implemented transactions remains roadmap work  | None for non-XOR payloads                                   | `src/wireframe/compat_policy.rs::classifies_synhx_from_handshake`; `src/wireframe/compat_policy.rs::does_not_augment_login_reply_for_synhx`; `tests/features/wireframe_login_compat.feature` scenario `SynHX login reply omits banner fields`                                                                                                     |
+-| SynHX (XOR text mode)          | Same as SynHX plus XOR heuristic triggers on text fields            | Partial   | XOR login, XOR message payload detection, XOR news post payload decoding/encoding              | XOR mode is heuristic until a reliable handshake signal exists            | Client-side `encode` toggle enabled when using XOR payloads | `src/wireframe/compat.rs::decode_payload_enables_xor_on_invalid_utf8`; `src/wireframe/compat.rs::decode_payload_does_not_enable_xor_for_non_text_fields`; `tests/features/wireframe_xor_compat.feature` scenarios `XOR-encoded login succeeds`, `XOR-encoded message toggles compatibility`, `Plaintext message keeps XOR compatibility disabled` |
+-| Unknown / legacy login version | Handshake `sub_version != 2`; login field 160 below `151` or absent | Supported | Safety behaviour: login reply omits Hotline banner extras and remains protocol-valid           | Client is treated conservatively as unknown until explicit mapping exists | None                                                        | `src/wireframe/compat_policy.rs::classifies_unknown_for_older_login_versions`; `src/wireframe/compat_policy.rs::does_not_augment_login_reply_for_unknown_client_kind`; `tests/features/wireframe_login_compat.feature` scenario `Unknown client version omits banner fields`                                                                      |
+-
+-## Recorded protocol deviations
+-
+-- Get User Name List (300) replies are the only transactions allowed to repeat
+-  a field ID. Field 300 may repeat once per online user, and each value is the
+-  SynHX-compatible packed User Name with Info record documented in
+-  `docs/protocol.md`. Automated coverage:
+-  `src/presence_tests.rs::user_name_list_reply_contains_repeated_field_300_entries`,
+-  `src/wireframe/routes/tests/presence_routing_cases.rs::process_transaction_bytes_user_name_list_returns_online_snapshot`,
+-  and `tests/features/wireframe_presence.feature` scenario
+-  `Login, update, and disconnect notifications reach peers`.
+-
+-## Behavioural guarantees captured by tests
+-
+-- Hotline 1.8.5 and 1.9 replies include fields 161/162.
+-- SynHX replies omit fields 161/162.
+-- Unknown client versions omit fields 161/162.
+-- XOR-encoded login and news payloads are accepted when heuristics detect XOR.
+-- Plaintext message payloads do not accidentally enable XOR compatibility.
+-
+-## Open compatibility gaps
+-
+-- Session-presence and messaging parity for these client profiles depends on
+-  future roadmap items under sections 2.x and beyond.
+-- Kani proofs for XOR and sub-version invariants are tracked separately by
+-  roadmap item 1.5.4.
+-- Compatibility guardrail routing entrypoint work remains tracked by roadmap
+-  items 1.5.5 and 1.5.6.
++# Internal compatibility matrix (observed Hotline peers)
++
++This matrix records the implemented wireframe login behaviour. A handshake
++sub-version or a self-reported login version is an observed value, not proof of
++peer identity. In the native 1.9 baseline, the Mac client, identified shx
++client, and historical SynHX source all use sub-version 2. The wider release
++subset and owner remain undecided; see the protocol documentation's GAP-085.
++
++| Observed peer or input                         | Login facts retained                                    | mxd successful Login107 direct ACK                                                                                      | Remaining limits                                                                                                           |
++| ---------------------------------------------- | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
++| Mac Hotline 1.9                                | Handshake sub-version 2 and optional reported field 160 | Type 0, correlated ID, server version 190 in 160, opaque two-byte `0000` in 161, configured nonempty server name in 162 | Configured name currently accepts ASCII of at most 31 bytes; native raw high bytes and setter clipping are not reproduced. |
++| Identified shx 0.1.48                          | Handshake sub-version 2; reported version varies        | Same successful-login fields; no identity gate                                                                          | Other native client parity remains subject to separate evidence.                                                           |
++| Historical SynHX source                        | Source uses handshake sub-version 2                     | Same successful-login fields; no identity gate                                                                          | This source observation does not establish a tested release profile.                                                       |
++| Absent, zero, 150, 151 or 190 reported version | Raw request value retained when present                 | Same successful-login fields; no version gate                                                                           | Reported version is not an identity or release-profile signal.                                                             |
++| Failed Login107                                | Raw request value retained when present                 | No success-only 161 or 162                                                                                              | Error contract is separate from successful-login augmentation.                                                             |
++
++The `ClientCompatibility` adapter preserves handshake and login-version facts.
++The router uses one `DefaultAuthStrategy` for all peers. Field 162 is emitted
++as exact configured ASCII bytes when nonempty and omitted when empty.
++Configured names containing non-ASCII characters or more than 31 bytes fail
++validation before the wireframe listener starts. The default remains `mxd`, an
++mxd product default rather than an observed native default. XOR-enabled
++connections apply the existing bytewise XOR transform to field 162 after
++augmentation; field 161 is unchanged.
++
++This matrix describes an implemented subset, not full native 1.9 parity or a
++release decision. Native field 162's raw `9a` witness and 32-byte typing
++attempt clipped to 31 bytes require a separately approved encoding and
++configuration policy. Field 161's meaning is unresolved. Kani source harnesses
++are not proof unless run. The native observations and remaining decisions are
++tracked in the adjacent protocol documentation and its gap analysis.
+diff --git a/docs/protocol.md b/docs/protocol.md
+index 3279bac..6370436 100644
+--- a/docs/protocol.md
++++ b/docs/protocol.md
+@@ -217,15 +217,15 @@ negotiate client/server capabilities. **Initiator:** Client.
+   name (field 105), password (field 106), and client version number (field
+   160). The version field helps the server handle compatibility (Hotline 1.8.5
+   uses version code 151).
+-- **Response (Server→Client):** The server validates the credentials. If
+-  successful, it replies with its own version number (field 160). For Hotline
+-  1.8.5 (version ≥151), the server also sends additional info: a **community
+-  banner ID** (field 161) and the server’s name (field 162). These are used by
+-  the client to fetch and display a banner or server name in the UI. If login
+-  fails (bad password or user not allowed), the server will **deny the login**
+-  – typically by closing the connection or sending a disconnect message with an
+-  error reason (see “Disconnect Message” below), so the user sees a login
+-  failure message.
++- **Response (Server→Client):** On success, the direct ACK has wire type 0,
++  the correlated request ID and status zero. It includes server version 190 in
++  field 160, opaque two-byte `0000` in field 161, and field 162 when the
++  configured server name is nonempty. These success extras do not depend on
++  handshake sub-version or reported client version. Field 161's meaning is
++  unresolved; it is not a proven banner download reference. mxd currently
++  accepts ASCII configured names of at most 31 bytes, while native 1.9 also
++  preserves a tested raw high byte and clips a 32-byte local typing attempt.
++  Authentication failure has a nonzero status and no success extras.
+ 
+ **Server behaviour:** On receiving a Login request, the server checks the
+ username/password against its user accounts. If the user is permitted (and not
+diff --git a/docs/users-guide.md b/docs/users-guide.md
+index 3d5d7ae..772a41b 100644
+--- a/docs/users-guide.md
++++ b/docs/users-guide.md
+@@ -51,14 +51,17 @@ administrative subcommands. The command-line interface (CLI) definitions live in
+   fields (for example, SynHX with the `encode` toggle enabled). Once detected,
+   inbound payloads are decoded and outbound replies are encoded to match the
+   client, without any additional configuration.
+-- Login reply compatibility now depends on client metadata. SynHX is detected
+-  via handshake sub-version `2` and receives only the server version field
+-  (160). Hotline 1.8.5 and 1.9 clients are identified by the login request's
+-  version field (160) and receive the banner fields 161/162 in addition to the
+-  server version.
+-- Compatibility behaviour is unchanged by roadmap item 1.5.4; that milestone
+-  adds bounded Kani verification for XOR round-trips and login
+-  sub-version/version gating invariants.
++- Successful Login107 direct ACKs include server version 190 in field 160 and
++  opaque two-byte `0000` in field 161, regardless of handshake sub-version or
++  reported client version. Field 162 carries the configured server name when
++  nonempty. Configure it through `--server-name`, `MXD_SERVER_NAME`, or the
++  configuration file; the default is `mxd`. This mxd setting accepts ASCII
++  names of at most 31 bytes and rejects other values before the wireframe
++  server listens. Native 1.9 raw high-byte names and local clipping remain
++  outside this implemented subset. Failed logins receive no success extras.
++- The wireframe adapter records handshake and login-version values but does
++  not use either to infer peer identity. All peers use the default login auth
++  strategy. The updated Kani harness is source only unless run separately.
+ - Presence parity is now available in the wireframe server. After a successful
+   login, users whose account carries the `NO_AGREEMENT` privilege are
+   immediately visible to peers. Users who must accept the server agreement
+@@ -75,14 +78,12 @@ administrative subcommands. The command-line interface (CLI) definitions live in
+   `docs/release-notes-qa-sign-off.md`.
+ - `WireframeRouter` is the sole public routing entrypoint. It embeds a
+   `CompatibilityLayer` that applies XOR decoding, login-version recording, and
+-  banner-field augmentation on every routed transaction. Compatibility hooks
+-  cannot be accidentally bypassed by new routes. No user-visible behaviour
+-  change.
++  successful-login augmentation on routed transactions. Compatibility hooks
++  cannot be accidentally bypassed by new routes.
+ - Roadmap item 1.5.6 is complete: the guardrail routing entrypoint now wires
+   `AuthStrategy` for login dispatch and `LoginReplyAugmenter` for login reply
+-  decoration. Default Hotline 1.8.5/1.9 and SynHX behaviour remains unchanged,
+-  so this is an internal architecture refactor rather than a user-visible
+-  protocol change.
++  decoration. Later native evidence corrected the earlier identity and
++  successful-login extras gates described in historical milestone notes.
+ 
+ ## Selecting a runtime
+ 
+diff --git a/src/server/cli_tests/precedence.rs b/src/server/cli_tests/precedence.rs
+index ce125e4..1690b79 100644
+--- a/src/server/cli_tests/precedence.rs
++++ b/src/server/cli_tests/precedence.rs
+@@ -4,6 +4,7 @@ use super::*;
+ 
+ struct ExpectedConfiguration {
+     database: &'static str,
++    server_name: &'static str,
+     migration_timeout: Option<u64>,
+     time_cost: u32,
+     parallelism: u32,
+@@ -18,6 +19,7 @@ struct ExpectedConfiguration {
+     false,
+     ExpectedConfiguration {
+         database: "mxd.db",
++        server_name: "mxd",
+         migration_timeout: None,
+         time_cost: DEFAULT_ARGON2_T_COST,
+         parallelism: DEFAULT_ARGON2_P_COST,
+@@ -29,6 +31,7 @@ struct ExpectedConfiguration {
+     false,
+     ExpectedConfiguration {
+         database: "file.db",
++        server_name: "file-name",
+         migration_timeout: Some(31),
+         time_cost: 3,
+         parallelism: 4,
+@@ -40,6 +43,7 @@ struct ExpectedConfiguration {
+     true,
+     ExpectedConfiguration {
+         database: "env.db",
++        server_name: "env-name",
+         migration_timeout: Some(32),
+         time_cost: 5,
+         parallelism: 6,
+@@ -47,13 +51,14 @@ struct ExpectedConfiguration {
+ )]
+ #[case::command_line(
+     vec![
+-        "mxd", "--database", "cli.db", "--migration-timeout-secs", "33",
++        "mxd", "--database", "cli.db", "--server-name", "cli-name", "--migration-timeout-secs", "33",
+         "--argon2-t-cost", "7", "--argon2-p-cost", "8"
+     ],
+     true,
+     true,
+     ExpectedConfiguration {
+         database: "cli.db",
++        server_name: "cli-name",
+         migration_timeout: Some(33),
+         time_cost: 7,
+         parallelism: 8,
+@@ -73,6 +78,7 @@ fn conflicting_layers_resolve_each_field_by_precedence(
+             "tiers.toml",
+             concat!(
+                 "database = 'file.db'\n",
++                "server_name = 'file-name'\n",
+                 "migration_timeout_secs = 31\n",
+                 "argon2_t_cost = 3\n",
+                 "argon2_p_cost = 4\n"
+@@ -83,6 +89,7 @@ fn conflicting_layers_resolve_each_field_by_precedence(
+     if has_environment_values {
+         environment = environment
+             .with_var("MXD_DATABASE", "env.db")
++            .with_var("MXD_SERVER_NAME", "env-name")
+             .with_var("MXD_MIGRATION_TIMEOUT_SECS", "32")
+             .with_var("MXD_ARGON2_T_COST", "5")
+             .with_var("MXD_ARGON2_P_COST", "6");
+@@ -94,6 +101,11 @@ fn conflicting_layers_resolve_each_field_by_precedence(
+         expected.database,
+         "database precedence"
+     )?;
++    ensure_equal!(
++        cfg.server_name.as_str(),
++        expected.server_name,
++        "server name precedence"
++    )?;
+     ensure_equal!(
+         cfg.migration_timeout_secs,
+         expected.migration_timeout,
+diff --git a/src/server/wireframe/mod.rs b/src/server/wireframe/mod.rs
+index 885c33e..cd318f0 100644
+--- a/src/server/wireframe/mod.rs
++++ b/src/server/wireframe/mod.rs
+@@ -118,19 +118,27 @@ async fn run_daemon(config: AppConfig) -> Result<()> {
+ struct WireframeBootstrap {
+     bind_addr: SocketAddr,
+     config: Arc<AppConfig>,
++    server_name: Arc<str>,
+ }
+ 
+ impl WireframeBootstrap {
+     fn prepare(config: AppConfig) -> Result<Self> {
++        validate_server_name(&config.server_name)?;
+         let bind_addr = parse_bind_addr(&config.bind)?;
++        let server_name = Arc::<str>::from(config.server_name.as_str());
+         Ok(Self {
+             bind_addr,
+             config: Arc::new(config),
++            server_name,
+         })
+     }
+ 
+     async fn run(self) -> Result<()> {
+-        let Self { bind_addr, config } = self;
++        let Self {
++            bind_addr,
++            config,
++            server_name,
++        } = self;
+         println!("mxd-wireframe-server using database {}", config.database);
+         println!("mxd-wireframe-server binding to {}", config.bind);
+ 
+@@ -141,15 +149,15 @@ impl WireframeBootstrap {
+ 
+         let outbound_registry = Arc::new(WireframeOutboundRegistry::default());
+         let presence = Arc::new(PresenceRegistry::default());
+-        validate_app_factory(&pool, &argon2, &outbound_registry, &presence)
+-            .context("failed to validate wireframe app factory")?;
+-        let app_factory = {
+-            let pool = pool.clone();
+-            let argon2 = Arc::clone(&argon2);
+-            let outbound_registry = Arc::clone(&outbound_registry);
+-            let presence = Arc::clone(&presence);
+-            move || build_app_for_connection(&pool, &argon2, &outbound_registry, &presence)
++        let app_inputs = AppFactoryInputs {
++            pool,
++            argon2,
++            outbound_registry,
++            presence,
++            server_name,
+         };
++        validate_app_factory(&app_inputs).context("failed to validate wireframe app factory")?;
++        let app_factory = { move || build_app_for_connection(&app_inputs) };
+ 
+         let server = WireframeServer::new(app_factory).with_preamble::<HotlinePreamble>();
+         let server = handshake::install(server, protocol::HANDSHAKE_TIMEOUT);
+@@ -176,31 +184,29 @@ fn announce_listening(addr: SocketAddr) {
+     }
+ }
+ 
++#[derive(Clone)]
++struct AppFactoryInputs {
++    pool: DbPool,
++    argon2: Arc<Argon2<'static>>,
++    outbound_registry: Arc<WireframeOutboundRegistry>,
++    presence: Arc<PresenceRegistry>,
++    server_name: Arc<str>,
++}
++
+ fn build_app_for_connection(
+-    pool: &DbPool,
+-    argon2: &Arc<Argon2<'static>>,
+-    outbound_registry: &Arc<WireframeOutboundRegistry>,
+-    presence: &Arc<PresenceRegistry>,
++    inputs: &AppFactoryInputs,
+ ) -> std::result::Result<HotlineApp, AppFactoryError> {
+-    try_build_app(pool, argon2, outbound_registry, presence)
++    try_build_app(inputs)
+ }
+ 
+-fn try_build_app(
+-    pool: &DbPool,
+-    argon2: &Arc<Argon2<'static>>,
+-    outbound_registry: &Arc<WireframeOutboundRegistry>,
+-    presence: &Arc<PresenceRegistry>,
+-) -> std::result::Result<HotlineApp, AppFactoryError> {
+-    let build_context = build_app_context(pool, argon2, outbound_registry, presence)?;
++fn try_build_app(inputs: &AppFactoryInputs) -> std::result::Result<HotlineApp, AppFactoryError> {
++    let build_context = build_app_context(inputs)?;
+     map_build_application_result(build_app(build_context))
+ }
+ 
+-fn build_app_context<'a>(
+-    pool: &'a DbPool,
+-    argon2: &'a Arc<Argon2<'static>>,
+-    outbound_registry: &'a Arc<WireframeOutboundRegistry>,
+-    presence: &'a Arc<PresenceRegistry>,
+-) -> std::result::Result<AppBuildContext<'a>, AppFactoryError> {
++fn build_app_context(
++    inputs: &AppFactoryInputs,
++) -> std::result::Result<AppBuildContext<'_>, AppFactoryError> {
+     // Missing connection context indicates handshake setup failed; abort the
+     // connection rather than running without routing state. Returning a
+     // degraded app would accept traffic with broken routing and state.
+@@ -210,13 +216,14 @@ fn build_app_context<'a>(
+     let compat = Arc::new(XorCompatibility::from_handshake(&handshake));
+     let client_compat = Arc::new(ClientCompatibility::from_handshake(&handshake));
+     Ok(AppBuildContext {
+-        pool,
+-        argon2,
+-        outbound_registry,
+-        presence,
++        pool: &inputs.pool,
++        argon2: &inputs.argon2,
++        outbound_registry: &inputs.outbound_registry,
++        presence: &inputs.presence,
+         peer,
+         compat,
+         client_compat,
++        server_name: &inputs.server_name,
+     })
+ }
+ 
+@@ -228,6 +235,7 @@ struct AppBuildContext<'a> {
+     peer: SocketAddr,
+     compat: Arc<XorCompatibility>,
+     client_compat: Arc<ClientCompatibility>,
++    server_name: &'a Arc<str>,
+ }
+ 
+ fn build_app(context: AppBuildContext<'_>) -> wireframe::app::Result<HotlineApp> {
+@@ -239,6 +247,7 @@ fn build_app(context: AppBuildContext<'_>) -> wireframe::app::Result<HotlineApp>
+         peer,
+         compat,
+         client_compat,
++        server_name,
+     } = context;
+     let outbound_id = outbound_registry.allocate_id();
+     let session = Arc::new(TokioMutex::new(Session::default()));
+@@ -249,7 +258,7 @@ fn build_app(context: AppBuildContext<'_>) -> wireframe::app::Result<HotlineApp>
+         Some(tokio::runtime::Handle::current()),
+     ));
+     let outbound_messaging = WireframeOutboundMessaging::new(Arc::clone(&outbound_connection));
+-    let router = WireframeRouter::new(Arc::clone(&compat), client_compat);
++    let router = WireframeRouter::new(Arc::clone(&compat), client_compat, Arc::clone(server_name));
+     let protocol = HotlineProtocol::new(
+         pool.clone(),
+         Arc::clone(argon2),
+@@ -285,23 +294,19 @@ fn map_build_application_result(
+     result.map_err(|e| AppFactoryError::BuildApplication(anyhow!("wireframe error: {e}")))
+ }
+ 
+-fn validate_app_factory(
+-    pool: &DbPool,
+-    argon2: &Arc<Argon2<'static>>,
+-    outbound_registry: &Arc<WireframeOutboundRegistry>,
+-    presence: &Arc<PresenceRegistry>,
+-) -> Result<()> {
++fn validate_app_factory(inputs: &AppFactoryInputs) -> Result<()> {
+     let peer = SocketAddr::V4(SocketAddrV4::new(Ipv4Addr::LOCALHOST, 0));
+     let build_context = AppBuildContext {
+-        pool,
+-        argon2,
+-        outbound_registry,
+-        presence,
++        pool: &inputs.pool,
++        argon2: &inputs.argon2,
++        outbound_registry: &inputs.outbound_registry,
++        presence: &inputs.presence,
+         peer,
+         compat: Arc::new(XorCompatibility::disabled()),
+         client_compat: Arc::new(ClientCompatibility::from_handshake(
+             &HandshakeMetadata::default(),
+         )),
++        server_name: &inputs.server_name,
+     };
+     build_app(build_context)
+         .map_err(|e| anyhow!("failed to build wireframe application: {e}"))
+@@ -309,6 +314,16 @@ fn validate_app_factory(
+     Ok(())
+ }
+ 
++fn validate_server_name(name: &str) -> Result<()> {
++    if !name.is_ascii() {
++        return Err(anyhow!("server name must contain only ASCII characters"));
++    }
++    if name.len() > 31 {
++        return Err(anyhow!("server name must be at most 31 bytes"));
++    }
++    Ok(())
++}
++
+ fn routing_placeholder_handler() -> Handler<Envelope> {
+     // Wireframe requires a handler per route; transaction middleware owns replies.
+     Arc::new(|_: &Envelope| Box::pin(async {}))
+diff --git a/src/server/wireframe/tests.rs b/src/server/wireframe/tests.rs
+index 396d80c..4d6c666 100644
+--- a/src/server/wireframe/tests.rs
++++ b/src/server/wireframe/tests.rs
+@@ -67,6 +67,25 @@ fn bootstrap_captures_bind(bound_config: AppConfig) {
+     assert_eq!(bootstrap.config.bind, "127.0.0.1:7777");
+ }
+ 
++#[rstest]
++#[case("", true)]
++#[case("mxd", true)]
++#[case("1234567890123456789012345678901", true)]
++#[case("12345678901234567890123456789012", false)]
++#[case("mothra-ö", false)]
++fn server_name_validates_before_listening(#[case] name: &str, #[case] accepted: bool) {
++    let config = AppConfig {
++        server_name: name.to_owned(),
++        ..bound_config()
++    };
++    let result = WireframeBootstrap::prepare(config);
++    assert_eq!(result.is_ok(), accepted);
++    if !accepted {
++        let message = result.expect_err("invalid configured name").to_string();
++        assert!(message.contains("server name"), "{message}");
++    }
++}
++
+ fn run_factory_with_stored_context(
+     stored: Option<ConnectionContext>,
+ ) -> std::result::Result<HotlineApp, AppFactoryError> {
+@@ -95,7 +114,14 @@ where
+                 let _ = take_current_context();
+             }
+         }
+-        let app = build_app_for_connection(&pool, &argon2, &outbound_registry, &presence);
++        let inputs = AppFactoryInputs {
++            pool,
++            argon2,
++            outbound_registry,
++            presence,
++            server_name: Arc::<str>::from("mxd"),
++        };
++        let app = build_app_for_connection(&inputs);
+         assertions();
+         app
+     }))
+diff --git a/src/wireframe/auth_strategy.rs b/src/wireframe/auth_strategy.rs
+index 113e8ea..0014101 100644
+--- a/src/wireframe/auth_strategy.rs
++++ b/src/wireframe/auth_strategy.rs
+@@ -1,17 +1,10 @@
+ //! Login authentication strategy selection for wireframe routing.
+ //!
+-//! The guardrail router can route login command execution through strategy
+-//! implementations selected from compatibility metadata. For roadmap item 1.5.6
+-//! all strategies preserve current behaviour by delegating to
+-//! `Command::process_with_outbound`, but the abstraction keeps strategy choice
+-//! explicit for future SynHX/Hotline divergence.
++//! All observed peers use the same default login authentication strategy.
+ 
+ use std::{future::Future, pin::Pin};
+ 
+-use crate::{
+-    commands::{Command, CommandContext, CommandError},
+-    wireframe::compat_policy::ClientKind,
+-};
++use crate::commands::{Command, CommandContext, CommandError};
+ 
+ /// Boxed future returned by [`AuthStrategy`] execution.
+ pub(crate) type AuthStrategyFuture<'a> =
+@@ -27,7 +20,7 @@ pub(crate) trait AuthStrategy: Send + Sync {
+     ) -> AuthStrategyFuture<'a>;
+ }
+ 
+-/// Shared default strategy used by all current client kinds.
++/// Shared default strategy used by all current peers.
+ #[derive(Debug, Default)]
+ pub(crate) struct DefaultAuthStrategy;
+ 
+@@ -43,21 +36,13 @@ impl AuthStrategy for DefaultAuthStrategy {
+ 
+ /// Return the selected auth strategy label for diagnostics and tests.
+ #[must_use]
+-pub(crate) const fn auth_strategy_label(client_kind: ClientKind) -> &'static str {
+-    match client_kind {
+-        ClientKind::Hotline85 | ClientKind::Hotline19 => "hotline-default",
+-        ClientKind::SynHx => "synhx-default",
+-        ClientKind::Unknown => "unknown-default",
+-    }
+-}
++pub(crate) const fn auth_strategy_label() -> &'static str { "default" }
+ 
+ static DEFAULT_AUTH_STRATEGY: DefaultAuthStrategy = DefaultAuthStrategy;
+ 
+-/// Select the default login auth strategy for a classified client.
++/// Select the default login auth strategy.
+ #[must_use]
+-pub(crate) fn auth_strategy_for_client(_client_kind: ClientKind) -> &'static dyn AuthStrategy {
+-    &DEFAULT_AUTH_STRATEGY
+-}
++pub(crate) fn default_auth_strategy() -> &'static dyn AuthStrategy { &DEFAULT_AUTH_STRATEGY }
+ 
+ #[cfg(test)]
+ mod tests {
+@@ -65,17 +50,8 @@ mod tests {
+     use rstest::rstest;
+ 
+     use super::auth_strategy_label;
+-    use crate::wireframe::compat_policy::ClientKind;
+-
+     #[rstest]
+-    #[case(ClientKind::Hotline85, "hotline-default")]
+-    #[case(ClientKind::Hotline19, "hotline-default")]
+-    #[case(ClientKind::SynHx, "synhx-default")]
+-    #[case(ClientKind::Unknown, "unknown-default")]
+-    fn auth_strategy_label_matches_client_kind(
+-        #[case] client_kind: ClientKind,
+-        #[case] expected: &str,
+-    ) {
+-        assert_eq!(auth_strategy_label(client_kind), expected);
++    fn auth_strategy_label_matches_default() {
++        assert_eq!(auth_strategy_label(), "default");
+     }
+ }
+diff --git a/src/wireframe/compat_layer.rs b/src/wireframe/compat_layer.rs
+index d7e0567..1979579 100644
+--- a/src/wireframe/compat_layer.rs
++++ b/src/wireframe/compat_layer.rs
+@@ -31,8 +31,8 @@ const ERR_INTERNAL: u32 = 3;
+ ///
+ /// - [`process_command`](Self::process_command) — routes login command execution through
+ ///   [`AuthStrategy`].
+-/// - [`on_reply`](Self::on_reply) — augments the reply with client-specific extras (e.g. banner
+-///   fields for Hotline 1.9).
++/// - [`on_reply`](Self::on_reply) — adds successful-login fields independent of inferred peer
++///   identity.
+ pub(crate) struct CompatibilityLayer<'a> {
+     auth_strategy: &'a dyn AuthStrategy,
+     login_reply_augmenter: &'a dyn LoginReplyAugmenter,
+@@ -69,8 +69,7 @@ impl<'a> CompatibilityLayer<'a> {
+ 
+     /// Apply reply-side compatibility hooks.
+     ///
+-    /// Augments the reply transaction with client-specific extras
+-    /// (e.g. banner fields for Hotline 1.9 clients).
++    /// Adds successful-login fields to the reply transaction.
+     pub(crate) fn on_reply(&self, request_type: TransactionType, reply: &mut Transaction) {
+         self.login_reply_augmenter.augment(request_type, reply);
+     }
+diff --git a/src/wireframe/compat_policy/kani.rs b/src/wireframe/compat_policy/kani.rs
+index 382eca8..46a9eed 100644
+--- a/src/wireframe/compat_policy/kani.rs
++++ b/src/wireframe/compat_policy/kani.rs
+@@ -1,63 +1,25 @@
+-//! Kani harnesses for client compatibility policy invariants.
++//! Bounded invariants for preserving observed client metadata without classification.
+ 
+-use super::{
+-    ClientCompatibility,
+-    ClientKind,
+-    HOTLINE_19_MIN_VERSION,
+-    HOTLINE_85_MIN_VERSION,
+-    SYNHX_SUB_VERSION,
+-};
++use super::ClientCompatibility;
+ use crate::{protocol::VERSION, wireframe::connection::HandshakeMetadata};
+ 
+-fn handshake(sub_version: u16) -> HandshakeMetadata {
+-    HandshakeMetadata {
+-        sub_protocol: u32::from_be_bytes(*b"HOTL"),
+-        version: VERSION,
+-        sub_version,
+-    }
+-}
+-
+-fn expected_kind(sub_version: u16, login_version: u16) -> ClientKind {
+-    if sub_version == SYNHX_SUB_VERSION {
+-        return ClientKind::SynHx;
+-    }
+-    if login_version >= HOTLINE_19_MIN_VERSION {
+-        return ClientKind::Hotline19;
+-    }
+-    if login_version >= HOTLINE_85_MIN_VERSION {
+-        return ClientKind::Hotline85;
+-    }
+-    ClientKind::Unknown
+-}
+-
+ #[kani::proof]
+-fn kani_client_kind_sub_version_precedence() {
++fn kani_preserves_handshake_and_login_versions() {
+     let sub_version: u16 = kani::any();
+     let login_version: u16 = kani::any();
+-
+-    let compat = ClientCompatibility::from_handshake(&handshake(sub_version));
++    let handshake = HandshakeMetadata {
++        sub_protocol: u32::from_be_bytes(*b"HOTL"),
++        version: VERSION,
++        sub_version,
++    };
++    let compat = ClientCompatibility::from_handshake(&handshake);
+     compat.record_login_version(login_version);
+-    let expected_kind_value = expected_kind(sub_version, login_version);
+-
+     kani::assert(
+-        compat.kind() == expected_kind_value,
+-        "client kind classification matches version thresholds and SynHX precedence",
++        compat.handshake_sub_version() == sub_version,
++        "handshake fact is preserved",
+     );
+-}
+-
+-#[kani::proof]
+-fn kani_login_extras_boundary_gate() {
+-    let sub_version: u16 = kani::any();
+-    let login_version: u16 = kani::any();
+-
+-    let compat = ClientCompatibility::from_handshake(&handshake(sub_version));
+-    compat.record_login_version(login_version);
+-
+-    let should_include = compat.should_include_login_extras();
+-    let expected = sub_version != SYNHX_SUB_VERSION && (login_version >= HOTLINE_85_MIN_VERSION);
+-
+     kani::assert(
+-        should_include == expected,
+-        "login extras are enabled only for Hotline 1.8.5+ when not SynHX",
++        compat.login_version() == Some(login_version),
++        "reported version is preserved",
+     );
+ }
+diff --git a/src/wireframe/compat_policy/mod.rs b/src/wireframe/compat_policy/mod.rs
+index eaf78da..0af2787 100644
+--- a/src/wireframe/compat_policy/mod.rs
++++ b/src/wireframe/compat_policy/mod.rs
+@@ -1,10 +1,7 @@
+-//! Compatibility policy derived from handshake and login metadata.
++//! Preserve observed handshake and login metadata and add native login fields.
+ //!
+-//! The handshake sub-version identifies `SynHX` clients (sub-version 2). Hotline
+-//! 1.8.5 versus 1.9 is determined by the login request's version field (field
+-//! 160): `151..=189` maps to Hotline 1.8.5 and `>=190` maps to Hotline 1.9.
+-//! The adapter uses this policy to decide which login reply fields to include
+-//! without leaking quirks into the domain layer.
++//! Sub-version 2 is shared by multiple clients, and the reported login version
++//! does not establish peer identity or govern successful-login extras.
+ 
+ use std::sync::atomic::{AtomicU32, Ordering};
+ 
+@@ -26,24 +23,7 @@ use crate::{
+ mod kani;
+ 
+ const UNKNOWN_LOGIN_VERSION: u32 = u32::MAX;
+-const SYNHX_SUB_VERSION: u16 = 2;
+-const HOTLINE_85_MIN_VERSION: u16 = 151;
+-const HOTLINE_19_MIN_VERSION: u16 = 190;
+-const DEFAULT_BANNER_ID: i32 = 0;
+-const DEFAULT_SERVER_NAME: &str = "mxd";
+-
+-/// Classification of clients for compatibility decisions.
+-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+-pub enum ClientKind {
+-    /// `SynHX` client identified by handshake sub-version 2.
+-    SynHx,
+-    /// Hotline 1.8.5 client (login version 151..=189).
+-    Hotline85,
+-    /// Hotline 1.9 client (login version >= 190).
+-    Hotline19,
+-    /// Unknown client type; login version not observed yet.
+-    Unknown,
+-}
++const OPAQUE_LOGIN_FIELD_161: [u8; 2] = [0, 0];
+ 
+ /// Mutable compatibility state for a single connection.
+ #[derive(Debug)]
+@@ -77,24 +57,9 @@ impl ClientCompatibility {
+             .and_then(|raw| u16::try_from(raw).ok())
+     }
+ 
+-    /// Classify the connection by known handshake and login metadata.
++    /// Return the observed handshake sub-version without inferring peer identity.
+     #[must_use]
+-    pub fn kind(&self) -> ClientKind {
+-        if self.handshake_sub_version == SYNHX_SUB_VERSION {
+-            return ClientKind::SynHx;
+-        }
+-        match self.login_version() {
+-            Some(version) if version >= HOTLINE_19_MIN_VERSION => ClientKind::Hotline19,
+-            Some(version) if version >= HOTLINE_85_MIN_VERSION => ClientKind::Hotline85,
+-            Some(_) | None => ClientKind::Unknown,
+-        }
+-    }
+-
+-    /// Returns true when the login reply should include banner fields 161/162.
+-    #[must_use]
+-    pub fn should_include_login_extras(&self) -> bool {
+-        matches!(self.kind(), ClientKind::Hotline85 | ClientKind::Hotline19)
+-    }
++    pub const fn handshake_sub_version(&self) -> u16 { self.handshake_sub_version }
+ 
+     /// Capture the login version from the login request payload.
+     ///
+@@ -108,7 +73,7 @@ impl ClientCompatibility {
+         Ok(())
+     }
+ 
+-    /// Augment a successful login reply with banner fields when required.
++    /// Augment a successful login reply with opaque field 161 and the server name.
+     ///
+     /// Returns `true` if the reply was modified.
+     ///
+@@ -120,27 +85,26 @@ impl ClientCompatibility {
+         &self,
+         request_type: TransactionType,
+         reply: &mut Transaction,
++        server_name: &[u8],
+     ) -> Result<bool, TransactionError> {
+         if !is_successful_login_reply(request_type, reply) {
+             return Ok(false);
+         }
+-        if !self.should_include_login_extras() {
+-            return Ok(false);
+-        }
+         let mut params = decode_params(&reply.payload)?;
+-        let has_banner_id = params.iter().any(|(id, _)| *id == FieldId::BannerId);
++        let has_field_161 = params.iter().any(|(id, _)| *id == FieldId::BannerId);
+         let has_server_name = params.iter().any(|(id, _)| *id == FieldId::ServerName);
++        let mut changed = false;
+ 
+-        if !has_banner_id {
+-            #[expect(clippy::big_endian_bytes, reason = "network protocol uses big-endian")]
+-            let banner_id_bytes = DEFAULT_BANNER_ID.to_be_bytes();
+-            params.push((FieldId::BannerId, banner_id_bytes.to_vec()));
++        if !has_field_161 {
++            params.push((FieldId::BannerId, OPAQUE_LOGIN_FIELD_161.to_vec()));
++            changed = true;
+         }
+-        if !has_server_name {
+-            params.push((FieldId::ServerName, DEFAULT_SERVER_NAME.as_bytes().to_vec()));
++        if !has_server_name && !server_name.is_empty() {
++            params.push((FieldId::ServerName, server_name.to_vec()));
++            changed = true;
+         }
+ 
+-        if has_banner_id && has_server_name {
++        if !changed {
+             return Ok(false);
+         }
+ 
+diff --git a/src/wireframe/compat_policy_tests.rs b/src/wireframe/compat_policy_tests.rs
+index c7df359..cfe4ff3 100644
+--- a/src/wireframe/compat_policy_tests.rs
++++ b/src/wireframe/compat_policy_tests.rs
+@@ -1,7 +1,6 @@
+ //! Regression tests for wireframe compatibility policies.
+ //!
+-//! These cases bind handshake metadata to routing decisions so legacy-client
+-//! quirks remain isolated from normal protocol behaviour.
++//! These cases preserve raw metadata and the successful-login extras contract.
+ use rstest::rstest;
+ 
+ use super::*;
+@@ -36,23 +35,11 @@ fn reply_header(payload_len: usize) -> FrameHeader {
+ }
+ 
+ #[rstest]
+-fn classifies_synhx_from_handshake() {
+-    let compat = ClientCompatibility::from_handshake(&handshake(SYNHX_SUB_VERSION));
+-    assert_eq!(compat.kind(), ClientKind::SynHx);
+-}
+-
+-#[rstest]
+-fn classifies_hotline_85_from_login_version() {
+-    let compat = ClientCompatibility::from_handshake(&handshake(0));
+-    compat.record_login_version(151);
+-    assert_eq!(compat.kind(), ClientKind::Hotline85);
+-}
+-
+-#[rstest]
+-fn classifies_hotline_19_from_login_version() {
+-    let compat = ClientCompatibility::from_handshake(&handshake(0));
+-    compat.record_login_version(190);
+-    assert_eq!(compat.kind(), ClientKind::Hotline19);
++#[case(0)]
++#[case(2)]
++fn preserves_handshake_sub_version_without_identity(#[case] sub_version: u16) {
++    let compat = ClientCompatibility::from_handshake(&handshake(sub_version));
++    assert_eq!(compat.handshake_sub_version(), sub_version);
+ }
+ 
+ #[rstest]
+@@ -80,35 +67,51 @@ fn records_login_version_from_u32_payload() {
+     assert_eq!(compat.login_version(), Some(190));
+ }
+ 
+-fn assert_login_reply_augmentation(sub_version: u16, login_version: u16, expected_updated: bool) {
++fn assert_login_reply_augmentation(
++    sub_version: u16,
++    login_version: Option<u16>,
++    server_name: &[u8],
++) {
+     let compat = ClientCompatibility::from_handshake(&handshake(sub_version));
+-    compat.record_login_version(login_version);
+-    let version_bytes = [(login_version >> 8) as u8, (login_version & 0x00ff) as u8];
+-    let payload = match encode_params(&[(FieldId::Version, version_bytes)]) {
+-        Ok(payload) => payload,
+-        Err(err) => panic!("payload encodes: {err}"),
+-    };
++    if let Some(version) = login_version {
++        compat.record_login_version(version);
++    }
++    let payload = Vec::new();
+     let header = reply_header(payload.len());
+     let mut reply = Transaction { header, payload };
+ 
+-    let updated = match compat.augment_login_reply(TransactionType::Login, &mut reply) {
++    let updated = match compat.augment_login_reply(TransactionType::Login, &mut reply, server_name)
++    {
+         Ok(updated) => updated,
+         Err(err) => panic!("augment reply: {err}"),
+     };
+ 
+-    assert_eq!(updated, expected_updated);
++    assert!(updated);
+     let params = match decode_params(&reply.payload) {
+         Ok(params) => params,
+         Err(err) => panic!("decode reply params: {err}"),
+     };
+-    let has_banner_id = params.iter().any(|(id, _)| *id == FieldId::BannerId);
+-    let has_server_name = params.iter().any(|(id, _)| *id == FieldId::ServerName);
+-    assert_eq!(has_banner_id, expected_updated);
+-    assert_eq!(has_server_name, expected_updated);
++    let mut expected = vec![(FieldId::BannerId, vec![0, 0])];
++    if !server_name.is_empty() {
++        expected.push((FieldId::ServerName, server_name.to_vec()));
++    }
++    assert_eq!(params, expected);
+ }
+ 
+ #[rstest]
+-fn augments_login_reply_when_required() { assert_login_reply_augmentation(0, 151, true); }
++#[case(0, None)]
++#[case(0, Some(0))]
++#[case(0, Some(150))]
++#[case(0, Some(151))]
++#[case(0, Some(190))]
++#[case(2, None)]
++#[case(2, Some(190))]
++fn augments_every_successful_login(#[case] sub_version: u16, #[case] version: Option<u16>) {
++    assert_login_reply_augmentation(sub_version, version, b"mxd");
++}
++
++#[rstest]
++fn empty_name_omits_field_162() { assert_login_reply_augmentation(2, None, b""); }
+ 
+ #[rstest]
+ fn does_not_augment_successful_nonlogin_direct_reply() {
+@@ -121,29 +124,12 @@ fn does_not_augment_successful_nonlogin_direct_reply() {
+     };
+ 
+     let changed = compat
+-        .augment_login_reply(TransactionType::GetFileNameList, &mut reply)
++        .augment_login_reply(TransactionType::GetFileNameList, &mut reply, b"mxd")
+         .expect("augmentation checks request kind");
+     assert!(!changed);
+     assert_eq!(reply.payload, payload);
+ }
+ 
+-#[rstest]
+-fn does_not_augment_login_reply_for_synhx() {
+-    assert_login_reply_augmentation(SYNHX_SUB_VERSION, 190, false);
+-}
+-
+-#[rstest]
+-fn classifies_unknown_for_older_login_versions() {
+-    let compat = ClientCompatibility::from_handshake(&handshake(0));
+-    compat.record_login_version(100);
+-    assert_eq!(compat.kind(), ClientKind::Unknown);
+-}
+-
+-#[rstest]
+-fn does_not_augment_login_reply_for_unknown_client_kind() {
+-    assert_login_reply_augmentation(0, 100, false);
+-}
+-
+ fn assert_not_augmented_for(version: u16, is_reply: u16, error: u32) {
+     let compat = ClientCompatibility::from_handshake(&handshake(0));
+     compat.record_login_version(version);
+@@ -177,7 +163,7 @@ fn assert_not_augmented_for(version: u16, is_reply: u16, error: u32) {
+         payload: payload.clone(),
+     };
+ 
+-    let updated = match compat.augment_login_reply(TransactionType::Login, &mut txn) {
++    let updated = match compat.augment_login_reply(TransactionType::Login, &mut txn, b"mxd") {
+         Ok(updated) => updated,
+         Err(err) => panic!("augment reply: {err}"),
+     };
+@@ -201,29 +187,6 @@ fn records_u16_max_version_without_sentinel_collision() {
+     assert_eq!(compat.login_version(), Some(u16::MAX));
+ }
+ 
+-#[rstest]
+-fn synhx_classification_takes_precedence_over_login_version() {
+-    let compat = ClientCompatibility::from_handshake(&handshake(SYNHX_SUB_VERSION));
+-    compat.record_login_version(190);
+-    assert_eq!(compat.kind(), ClientKind::SynHx);
+-    assert!(!compat.should_include_login_extras());
+-}
+-
+-#[rstest]
+-#[case(150, false)]
+-#[case(151, true)]
+-#[case(189, true)]
+-#[case(190, true)]
+-fn login_extras_gate_matches_version_boundaries(
+-    #[case] login_version: u16,
+-    #[case] should_include: bool,
+-) {
+-    let compat = ClientCompatibility::from_handshake(&handshake(0));
+-    compat.record_login_version(login_version);
+-
+-    assert_eq!(compat.should_include_login_extras(), should_include);
+-}
+-
+ #[rstest]
+ fn augment_login_reply_is_idempotent_when_extras_exist() {
+     let compat = ClientCompatibility::from_handshake(&handshake(0));
+@@ -234,7 +197,7 @@ fn augment_login_reply_is_idempotent_when_extras_exist() {
+     )]
+     let payload = encode_params(&[
+         (FieldId::Version, 190u16.to_be_bytes().as_ref()),
+-        (FieldId::BannerId, 0i32.to_be_bytes().as_ref()),
++        (FieldId::BannerId, [0u8, 0u8].as_ref()),
+         (FieldId::ServerName, b"mxd".as_ref()),
+     ])
+     .expect("payload encodes");
+@@ -243,7 +206,7 @@ fn augment_login_reply_is_idempotent_when_extras_exist() {
+     let mut reply = Transaction { header, payload };
+ 
+     let updated = compat
+-        .augment_login_reply(TransactionType::Login, &mut reply)
++        .augment_login_reply(TransactionType::Login, &mut reply, b"mxd")
+         .expect("augment reply");
+ 
+     assert!(!updated, "extras are already present");
+@@ -261,5 +224,5 @@ fn record_login_payload_ignores_unparsable_version_lengths() {
+         .expect("record login payload");
+ 
+     assert_eq!(compat.login_version(), None);
+-    assert_eq!(compat.kind(), ClientKind::Unknown);
++    assert_eq!(compat.handshake_sub_version(), 0);
+ }
+diff --git a/src/wireframe/login_reply_augmenter.rs b/src/wireframe/login_reply_augmenter.rs
+index 2002a93..ee6b95e 100644
+--- a/src/wireframe/login_reply_augmenter.rs
++++ b/src/wireframe/login_reply_augmenter.rs
+@@ -19,19 +19,28 @@ pub(crate) trait LoginReplyAugmenter: Send + Sync {
+ /// Default login reply augmenter backed by [`ClientCompatibility`].
+ pub(crate) struct ClientCompatibilityLoginReplyAugmenter<'a> {
+     client: &'a ClientCompatibility,
++    server_name: &'a [u8],
+ }
+ 
+ impl<'a> ClientCompatibilityLoginReplyAugmenter<'a> {
+     /// Construct a login reply augmenter from client compatibility metadata.
+-    pub(crate) const fn new(client: &'a ClientCompatibility) -> Self { Self { client } }
++    pub(crate) const fn new(client: &'a ClientCompatibility, server_name: &'a [u8]) -> Self {
++        Self {
++            client,
++            server_name,
++        }
++    }
+ }
+ 
+ impl LoginReplyAugmenter for ClientCompatibilityLoginReplyAugmenter<'_> {
+     fn augment(&self, request_type: TransactionType, reply: &mut Transaction) {
+-        if let Err(error) = self.client.augment_login_reply(request_type, reply) {
++        if let Err(error) = self
++            .client
++            .augment_login_reply(request_type, reply, self.server_name)
++        {
+             tracing::warn!(
+                 %error,
+-                client_kind = ?self.client.kind(),
++                handshake_sub_version = self.client.handshake_sub_version(),
+                 login_version = ?self.client.login_version(),
+                 "failed to apply login compatibility extras"
+             );
+diff --git a/src/wireframe/router.rs b/src/wireframe/router.rs
+index b324fc0..bb81037 100644
+--- a/src/wireframe/router.rs
++++ b/src/wireframe/router.rs
+@@ -16,7 +16,7 @@ use crate::{
+     transaction::parse_transaction,
+     transaction_type::TransactionType,
+     wireframe::{
+-        auth_strategy::{auth_strategy_for_client, auth_strategy_label},
++        auth_strategy::{auth_strategy_label, default_auth_strategy},
+         compat::XorCompatibility,
+         compat_layer::{self, CompatibilityLayer},
+         compat_policy::ClientCompatibility,
+@@ -36,13 +36,22 @@ use crate::{
+ pub struct WireframeRouter {
+     xor: Arc<XorCompatibility>,
+     client: Arc<ClientCompatibility>,
++    server_name: Arc<str>,
+ }
+ 
+ impl WireframeRouter {
+     /// Construct a router with the given compatibility state.
+     #[must_use]
+-    pub const fn new(xor: Arc<XorCompatibility>, client: Arc<ClientCompatibility>) -> Self {
+-        Self { xor, client }
++    pub const fn new(
++        xor: Arc<XorCompatibility>,
++        client: Arc<ClientCompatibility>,
++        server_name: Arc<str>,
++    ) -> Self {
++        Self {
++            xor,
++            client,
++            server_name,
++        }
+     }
+ 
+     /// Route a raw transaction frame through the compatibility
+@@ -70,11 +79,9 @@ impl WireframeRouter {
+             Ok(parsed) => parsed,
+             Err(reply) => return reply,
+         };
+-        // Select strategy after request hooks so login version metadata affects
+-        // the first login dispatch.
+-        let client_kind = self.client.kind();
+-        let auth_strategy = auth_strategy_for_client(client_kind);
+-        let login_reply_augmenter = ClientCompatibilityLoginReplyAugmenter::new(&self.client);
++        let auth_strategy = default_auth_strategy();
++        let login_reply_augmenter =
++            ClientCompatibilityLoginReplyAugmenter::new(&self.client, self.server_name.as_bytes());
+         let compat_layer = CompatibilityLayer::new(auth_strategy, &login_reply_augmenter);
+ 
+         #[cfg(test)]
+@@ -82,7 +89,7 @@ impl WireframeRouter {
+             crate::wireframe::routes::dispatch_spy::record(peer, &header);
+             compat_spy::record(compat_spy::HookEvent::Dispatch {
+                 tx_type: header.ty,
+-                auth_strategy: auth_strategy_label(client_kind),
++                auth_strategy: auth_strategy_label(),
+             });
+         }
+ 
+@@ -97,7 +104,7 @@ impl WireframeRouter {
+             presence_connection_id: Some(presence_connection_id),
+         };
+         tracing::trace!(
+-            auth_strategy = auth_strategy_label(client_kind),
++            auth_strategy = auth_strategy_label(),
+             "routing transaction through selected login auth strategy"
+         );
+         compat_layer
+diff --git a/src/wireframe/router_tests.rs b/src/wireframe/router_tests.rs
+index 9065cab..eba05e2 100644
+--- a/src/wireframe/router_tests.rs
++++ b/src/wireframe/router_tests.rs
+@@ -35,13 +35,14 @@ fn test_router() -> WireframeRouter {
+         Arc::new(ClientCompatibility::from_handshake(
+             &HandshakeMetadata::default(),
+         )),
++        Arc::<str>::from("mxd"),
+     )
+ }
+ 
+ fn tx_id(tx_type: TransactionType) -> u16 { u16::from(tx_type) }
+ 
+-const AUTH_STRATEGY_UNKNOWN_DEFAULT: &str = "unknown-default";
+-const AUTH_STRATEGY_HOTLINE_DEFAULT: &str = "hotline-default";
++const AUTH_STRATEGY_UNKNOWN_DEFAULT: &str = "default";
++const AUTH_STRATEGY_HOTLINE_DEFAULT: &str = "default";
+ 
+ #[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
+ struct LoginVersion(u16);
+diff --git a/src/wireframe/routes/tests/direct_ack_cases.rs b/src/wireframe/routes/tests/direct_ack_cases.rs
+index 7f63d94..28292a8 100644
+--- a/src/wireframe/routes/tests/direct_ack_cases.rs
++++ b/src/wireframe/routes/tests/direct_ack_cases.rs
+@@ -3,8 +3,12 @@
+ use rstest::rstest;
+ use test_util::{AnyError, build_test_db, setup_files_db};
+ 
+-use super::helpers::{RouteTestContext, decode_reply_params, find_i32, find_string, runtime};
+-use crate::{field_id::FieldId, transaction_type::TransactionType};
++use super::helpers::{RouteTestContext, decode_reply_params, find_string, runtime};
++use crate::{
++    field_id::FieldId,
++    transaction_type::TransactionType,
++    wireframe::test_helpers::xor_bytes,
++};
+ 
+ #[expect(clippy::panic_in_result_fn, reason = "test assertions")]
+ #[rstest]
+@@ -30,11 +34,171 @@ fn direct_ack_login_success_uses_type_zero_and_correlation() -> Result<(), AnyEr
+     assert_eq!(reply.header.id, id);
+     assert_eq!(reply.header.error, 0);
+     let params = decode_reply_params(&reply)?;
+-    assert_eq!(find_i32(&params, FieldId::BannerId)?, 0);
++    assert_eq!(
++        params
++            .iter()
++            .find(|(field, _)| *field == FieldId::BannerId)
++            .map(|(_, bytes)| bytes.as_slice()),
++        Some(&[0, 0][..])
++    );
+     assert_eq!(find_string(&params, FieldId::ServerName)?, "mxd");
+     Ok(())
+ }
+ 
++#[expect(clippy::panic_in_result_fn, reason = "test assertions")]
++#[rstest]
++fn direct_ack_sub_version_two_still_has_native_login_extras() -> Result<(), AnyError> {
++    let rt = runtime()?;
++    let test_db = build_test_db(&rt, setup_files_db)?
++        .expect("the selected test profile must supply a database backend");
++    let mut ctx = RouteTestContext::with_sub_version(test_db.pool(), 2)?;
++    let id = 0x1234_5690;
++    let reply = rt.block_on(ctx.send(
++        TransactionType::Login,
++        id,
++        &[(FieldId::Login, b"alice"), (FieldId::Password, b"secret")],
++    ))?;
++    assert_eq!(
++        (
++            reply.header.is_reply,
++            reply.header.ty,
++            reply.header.id,
++            reply.header.error
++        ),
++        (1, 0, id, 0)
++    );
++    let params = decode_reply_params(&reply)?;
++    assert_eq!(
++        params
++            .iter()
++            .find(|(field, _)| *field == FieldId::BannerId)
++            .map(|(_, bytes)| bytes.as_slice()),
++        Some(&[0, 0][..])
++    );
++    assert_eq!(find_string(&params, FieldId::ServerName)?, "mxd");
++    Ok(())
++}
++
++#[rstest]
++#[case(0)]
++#[case(150)]
++#[case(151)]
++#[case(190)]
++fn direct_ack_login_extras_ignore_reported_version(#[case] version: u16) -> Result<(), AnyError> {
++    let rt = runtime()?;
++    let test_db = build_test_db(&rt, setup_files_db)?
++        .expect("the selected test profile must supply a database backend");
++    let mut ctx = RouteTestContext::with_sub_version(test_db.pool(), 2)?;
++    let id = u32::from(version) + 0x1234_6000;
++    let version_bytes = version.to_be_bytes();
++    let reply = rt.block_on(ctx.send(
++        TransactionType::Login,
++        id,
++        &[
++            (FieldId::Login, b"alice"),
++            (FieldId::Password, b"secret"),
++            (FieldId::Version, &version_bytes),
++        ],
++    ))?;
++    anyhow::ensure!(
++        (
++            reply.header.is_reply,
++            reply.header.ty,
++            reply.header.id,
++            reply.header.error
++        ) == (1, 0, id, 0),
++        "login ACK header differs for reported version {version}"
++    );
++    let params = decode_reply_params(&reply)?;
++    anyhow::ensure!(
++        params
++            .iter()
++            .find(|(field, _)| *field == FieldId::BannerId)
++            .map(|(_, bytes)| bytes.as_slice())
++            == Some(&[0, 0][..]),
++        "field 161 is not the native two-byte value"
++    );
++    anyhow::ensure!(
++        find_string(&params, FieldId::ServerName)? == "mxd",
++        "default name differs"
++    );
++    Ok(())
++}
++
++#[rstest]
++#[case("", false)]
++#[case("1234567890123456789012345678901", false)]
++#[case("mxd", true)]
++fn direct_ack_configured_name_obeys_clear_and_xor_paths(
++    #[case] name: &str,
++    #[case] xor_enabled: bool,
++) -> Result<(), AnyError> {
++    let rt = runtime()?;
++    let test_db = build_test_db(&rt, setup_files_db)?
++        .expect("the selected test profile must supply a database backend");
++    let mut ctx = RouteTestContext::with_configuration(test_db.pool(), 2, name, xor_enabled)?;
++    let login = if xor_enabled {
++        xor_bytes(b"alice")
++    } else {
++        b"alice".to_vec()
++    };
++    let password = if xor_enabled {
++        xor_bytes(b"secret")
++    } else {
++        b"secret".to_vec()
++    };
++    let id = 0x1234_6780;
++    let reply = rt.block_on(ctx.send(
++        TransactionType::Login,
++        id,
++        &[
++            (FieldId::Login, login.as_slice()),
++            (FieldId::Password, password.as_slice()),
++        ],
++    ))?;
++    anyhow::ensure!(
++        (
++            reply.header.is_reply,
++            reply.header.ty,
++            reply.header.id,
++            reply.header.error
++        ) == (1, 0, id, 0),
++        "configured-name login ACK header differs"
++    );
++    let params = decode_reply_params(&reply)?;
++    anyhow::ensure!(
++        params
++            .iter()
++            .find(|(field, _)| *field == FieldId::BannerId)
++            .map(|(_, bytes)| bytes.as_slice())
++            == Some(&[0, 0][..]),
++        "field 161 is not the native two-byte value"
++    );
++    let server_name = params
++        .iter()
++        .find(|(field, _)| *field == FieldId::ServerName)
++        .map(|(_, bytes)| bytes.as_slice());
++    let expected = name.as_bytes().to_vec();
++    anyhow::ensure!(
++        server_name == (!name.is_empty()).then_some(expected.as_slice()),
++        "clear server-name bytes differ"
++    );
++    if xor_enabled {
++        let encoded = ctx.xor().encode_payload(&reply.payload)?;
++        let encoded_params = crate::transaction::decode_params(&encoded)?;
++        let encoded_name = encoded_params
++            .iter()
++            .find(|(field, _)| *field == FieldId::ServerName)
++            .map(|(_, bytes)| bytes.as_slice());
++        let expected_encoded = xor_bytes(name.as_bytes());
++        anyhow::ensure!(
++            encoded_name == Some(expected_encoded.as_slice()),
++            "XOR server-name bytes differ"
++        );
++    }
++    Ok(())
++}
++
+ #[expect(clippy::panic_in_result_fn, reason = "test assertions")]
+ #[rstest]
+ fn direct_ack_login_failure_uses_type_zero_without_extras() -> Result<(), AnyError> {
+diff --git a/src/wireframe/routes/tests/error_cases.rs b/src/wireframe/routes/tests/error_cases.rs
+index 33e9e51..ba87d21 100644
+--- a/src/wireframe/routes/tests/error_cases.rs
++++ b/src/wireframe/routes/tests/error_cases.rs
+@@ -194,6 +194,7 @@ fn test_router() -> WireframeRouter {
+         Arc::new(ClientCompatibility::from_handshake(
+             &HandshakeMetadata::default(),
+         )),
++        Arc::<str>::from("mxd"),
+     )
+ }
+ 
+diff --git a/src/wireframe/routes/tests/helpers.rs b/src/wireframe/routes/tests/helpers.rs
+index 80145f8..1341429 100644
+--- a/src/wireframe/routes/tests/helpers.rs
++++ b/src/wireframe/routes/tests/helpers.rs
+@@ -48,12 +48,32 @@ impl RouteTestContext {
+     ///
+     /// Returns an error if the fixed peer address literal fails to parse.
+     pub(super) fn new(pool: DbPool) -> Result<Self, AnyError> {
++        Self::with_configuration(pool, 0, "mxd", false)
++    }
++
++    pub(super) fn with_sub_version(pool: DbPool, sub_version: u16) -> Result<Self, AnyError> {
++        Self::with_configuration(pool, sub_version, "mxd", false)
++    }
++
++    pub(super) fn with_configuration(
++        pool: DbPool,
++        sub_version: u16,
++        server_name: &str,
++        xor_enabled: bool,
++    ) -> Result<Self, AnyError> {
+         let peer = "127.0.0.1:12345".parse()?;
++        let handshake = crate::wireframe::connection::HandshakeMetadata {
++            sub_version,
++            ..crate::wireframe::connection::HandshakeMetadata::default()
++        };
+         let router = WireframeRouter::new(
+-            Arc::new(XorCompatibility::disabled()),
+-            Arc::new(ClientCompatibility::from_handshake(
+-                &crate::wireframe::connection::HandshakeMetadata::default(),
+-            )),
++            Arc::new(if xor_enabled {
++                XorCompatibility::enabled()
++            } else {
++                XorCompatibility::disabled()
++            }),
++            Arc::new(ClientCompatibility::from_handshake(&handshake)),
++            Arc::<str>::from(server_name),
+         );
+         Ok(Self {
+             pool,
+diff --git a/src/wireframe/routes/tests/middleware_cases.rs b/src/wireframe/routes/tests/middleware_cases.rs
+index 68f19a8..6f7bc21 100644
+--- a/src/wireframe/routes/tests/middleware_cases.rs
++++ b/src/wireframe/routes/tests/middleware_cases.rs
+@@ -57,6 +57,7 @@ fn setup_middleware_test(
+         Arc::new(ClientCompatibility::from_handshake(
+             &HandshakeMetadata::default(),
+         )),
++        Arc::<str>::from("mxd"),
+     );
+     let middleware = TransactionMiddleware::new(TransactionMiddlewareConfig {
+         router,
+diff --git a/src/wireframe/routes/tests/routing_cases.rs b/src/wireframe/routes/tests/routing_cases.rs
+index 31f623c..f15f08b 100644
+--- a/src/wireframe/routes/tests/routing_cases.rs
++++ b/src/wireframe/routes/tests/routing_cases.rs
+@@ -68,7 +68,13 @@ fn process_transaction_bytes_login_hotline_19_includes_banner_fields() -> Result
+ 
+     assert_eq!(reply.header.error, 0);
+     let params = decode_reply_params(&reply)?;
+-    assert_eq!(find_i32(&params, FieldId::BannerId)?, 0);
++    assert_eq!(
++        params
++            .iter()
++            .find(|(id, _)| *id == FieldId::BannerId)
++            .map(|(_, bytes)| bytes.as_slice()),
++        Some(&[0, 0][..])
++    );
+     assert_eq!(find_string(&params, FieldId::ServerName)?, "mxd");
+     Ok(())
+ }
+diff --git a/tests/create_user_bdd.rs b/tests/create_user_bdd.rs
+index 8b017cc..4324e54 100644
+--- a/tests/create_user_bdd.rs
++++ b/tests/create_user_bdd.rs
+@@ -79,6 +79,7 @@ impl CreateUserWorld {
+         let db_path = temp_dir.path().join("bdd.mxd.db");
+         let config = AppConfig {
+             database: db_path.to_string_lossy().into_owned(),
++            server_name: "mxd".to_owned(),
+             bind: "127.0.0.1:0".to_owned(),
+             migration_timeout_secs: None,
+             argon2_m_cost: Params::DEFAULT_M_COST,
+diff --git a/tests/features/wireframe_compat_guardrails.feature b/tests/features/wireframe_compat_guardrails.feature
+index 576ab02..8e2adeb 100644
+--- a/tests/features/wireframe_compat_guardrails.feature
++++ b/tests/features/wireframe_compat_guardrails.feature
+@@ -7,15 +7,15 @@ Feature: Wireframe compatibility guardrails
+     When a Hotline 1.9 client logs in
+     Then the login reply includes banner fields
+ 
+-  Scenario: Login with SynHX client omits banner fields
++  Scenario: Login with sub-version 2 includes fields
+     Given a wireframe server with user accounts
+-    When a SynHX client logs in
+-    Then the login reply does not include banner fields
++    When a sub-version 2 client logs in
++    Then the login reply includes banner fields
+ 
+-  Scenario: SynHX handshake takes precedence over Hotline 1.9 version
++  Scenario: Sub-version 2 with reported version 190 includes fields
+     Given a wireframe server with user accounts
+-    When a SynHX client logs in with Hotline 1.9 version
+-    Then the login reply does not include banner fields
++    When a sub-version 2 client logs in with Hotline 1.9 version
++    Then the login reply includes banner fields
+ 
+   Scenario: XOR-encoded login succeeds through the router
+     Given a wireframe server with user accounts
+diff --git a/tests/features/wireframe_login_compat.feature b/tests/features/wireframe_login_compat.feature
+index 95ec42e..459e2e7 100644
+--- a/tests/features/wireframe_login_compat.feature
++++ b/tests/features/wireframe_login_compat.feature
+@@ -1,6 +1,6 @@
+ Feature: Wireframe login compatibility
+-  Login replies should include banner fields for Hotline 1.8.5 and 1.9, while
+-  SynHX clients omit them based on handshake sub-version detection.
++  Successful login replies include fields 161 and 162 regardless of reported
++  client version or shared handshake sub-version 2.
+ 
+   Scenario: Hotline 1.8.5 login reply includes banner fields
+     Given a routing context with user accounts
+@@ -14,29 +14,29 @@ Feature: Wireframe login compatibility
+     When I send a login request with client version 190
+     Then the login reply includes banner fields
+ 
+-  Scenario: SynHX login reply omits banner fields
++  Scenario: Sub-version 2 login reply includes fields
+     Given a routing context with user accounts
+     And a handshake sub-version 2
+     When I send a login request with client version 190
+-    Then the login reply omits banner fields
++    Then the login reply includes banner fields
+ 
+-  Scenario: Unknown client version omits banner fields
++  Scenario: Reported version 100 still includes fields
+     Given a routing context with user accounts
+     And a handshake sub-version 0
+     When I send a login request with client version 100
+-    Then the login reply omits banner fields
++    Then the login reply includes banner fields
+ 
+-  Scenario: Login version boundary below Hotline 1.8.5 omits banner fields
++  Scenario: Reported version 150 still includes fields
+     Given a routing context with user accounts
+     And a handshake sub-version 0
+     When I send a login request with client version 150
+-    Then the login reply omits banner fields
++    Then the login reply includes banner fields
+ 
+-  Scenario: SynHX handshake takes precedence over login-version gating
++  Scenario: Sub-version 2 with reported version 151 includes fields
+     Given a routing context with user accounts
+     And a handshake sub-version 2
+     When I send a login request with client version 151
+-    Then the login reply omits banner fields
++    Then the login reply includes banner fields
+ 
+   Scenario: Login failure does not add banner fields
+     Given a routing context with user accounts
+@@ -50,8 +50,8 @@ Feature: Wireframe login compatibility
+     When I send a login request with client version 65535
+     Then the login reply includes banner fields
+ 
+-  Scenario: SynHX handshake takes precedence over max login version
++  Scenario: Sub-version 2 with max reported version includes fields
+     Given a routing context with user accounts
+     And a handshake sub-version 2
+     When I send a login request with client version 65535
+-    Then the login reply omits banner fields
++    Then the login reply includes banner fields
+diff --git a/tests/session_privileges_bdd.rs b/tests/session_privileges_bdd.rs
+index 5874450..9cc901a 100644
+--- a/tests/session_privileges_bdd.rs
++++ b/tests/session_privileges_bdd.rs
+@@ -68,6 +68,7 @@ impl PrivilegeWorld {
+             Arc::new(ClientCompatibility::from_handshake(
+                 &HandshakeMetadata::default(),
+             )),
++            Arc::<str>::from("mxd"),
+         );
+         Self {
+             runtime,
+diff --git a/tests/wireframe_compat_guardrails_bdd.rs b/tests/wireframe_compat_guardrails_bdd.rs
+index 187b84b..d1e5fa4 100644
+--- a/tests/wireframe_compat_guardrails_bdd.rs
++++ b/tests/wireframe_compat_guardrails_bdd.rs
+@@ -73,6 +73,7 @@ impl GuardrailWorld {
+         WireframeRouter::new(
+             Arc::new(xor),
+             Arc::new(ClientCompatibility::from_handshake(handshake)),
++            Arc::<str>::from("mxd"),
+         )
+     }
+ 
+@@ -188,7 +189,7 @@ fn when_hotline_19_login(world: &GuardrailWorld) {
+     );
+ }
+ 
+-#[when("a SynHX client logs in")]
++#[when("a sub-version 2 client logs in")]
+ fn when_synhx_login(world: &GuardrailWorld) {
+     if world.is_skipped() {
+         return;
+@@ -213,7 +214,7 @@ fn when_synhx_login(world: &GuardrailWorld) {
+     clippy::big_endian_bytes,
+     reason = "test fixture uses explicit network byte order payload"
+ )]
+-#[when("a SynHX client logs in with Hotline 1.9 version")]
++#[when("a sub-version 2 client logs in with Hotline 1.9 version")]
+ fn when_synhx_login_with_hotline_19_version(world: &GuardrailWorld) {
+     if world.is_skipped() {
+         return;
+diff --git a/tests/wireframe_login_compat.rs b/tests/wireframe_login_compat.rs
+index 721171c..40072e5 100644
+--- a/tests/wireframe_login_compat.rs
++++ b/tests/wireframe_login_compat.rs
+@@ -156,9 +156,9 @@ impl LoginCompatWorld {
+             .find(|(id, _)| *id == FieldId::ServerName)
+             .ok_or_else(|| Self::assertion_error("missing server name"))?;
+ 
+-        if banner.1 != [0u8, 0u8, 0u8, 0u8] {
++        if banner.1 != [0u8, 0u8] {
+             return Err(Self::assertion_error(format!(
+-                "expected banner id bytes [0, 0, 0, 0], got {:?}",
++                "expected field 161 bytes [0, 0], got {:?}",
+                 banner.1
+             )));
+         }
+diff --git a/tests/wireframe_presence_bdd/wireframe_presence_support.rs b/tests/wireframe_presence_bdd/wireframe_presence_support.rs
+index 88e881f..346f11b 100644
+--- a/tests/wireframe_presence_bdd/wireframe_presence_support.rs
++++ b/tests/wireframe_presence_bdd/wireframe_presence_support.rs
+@@ -75,6 +75,7 @@ impl PresenceWorld {
+                 Arc::new(ClientCompatibility::from_handshake(
+                     &HandshakeMetadata::default(),
+                 )),
++                Arc::<str>::from("mxd"),
+             ),
+             pool: RefCell::new(dummy_pool()),
+             db_guard: RefCell::new(None),

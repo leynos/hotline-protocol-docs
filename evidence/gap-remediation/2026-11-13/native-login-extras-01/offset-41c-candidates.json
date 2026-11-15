@@ -1,0 +1,24 @@
+{
+  "input_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "section0_file_offset": 9680,
+  "section0_size": 558872,
+  "scope": "Candidate discovery only: aligned D-form/logical immediate words041c..041f. Data may resemble instructions; excludes split-base derivations, indexed stores and aliases. Ghidra confirmation required.",
+  "candidates": [
+    {
+      "address": "1000035c",
+      "instruction_hex": "901e041c",
+      "opcode": 36,
+      "register": 0,
+      "base_register": 30,
+      "immediate": 1052
+    },
+    {
+      "address": "10011c3c",
+      "instruction_hex": "80bd041c",
+      "opcode": 32,
+      "register": 5,
+      "base_register": 29,
+      "immediate": 1052
+    }
+  ]
+}

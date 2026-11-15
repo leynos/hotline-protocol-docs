@@ -1,0 +1,138 @@
+{
+  "cases": 5,
+  "paired_connections": 7,
+  "observations": [
+    {
+      "case": "ambiguous-text",
+      "request_types": [
+        107,
+        300
+      ],
+      "received_types": [
+        0,
+        354,
+        109,
+        0,
+        106,
+        302
+      ],
+      "roster_names_hex": [
+        "6e61746976652d627974652d7769746e657373",
+        "7368782d706565722d61"
+      ],
+      "connections": [
+        {
+          "port": 58662,
+          "endpoint": 15500,
+          "pid": 3815804,
+          "sent_bytes": 97,
+          "received_bytes": 519
+        }
+      ]
+    },
+    {
+      "case": "basic-empty-name",
+      "request_types": [
+        107,
+        300,
+        105
+      ],
+      "received_types": [
+        0,
+        354,
+        109,
+        0,
+        106
+      ],
+      "roster_names_hex": [
+        "7368782d706565722d61"
+      ],
+      "connections": [
+        {
+          "port": 60334,
+          "endpoint": 15500,
+          "pid": 3652767,
+          "sent_bytes": 144,
+          "received_bytes": 452
+        }
+      ]
+    },
+    {
+      "case": "fork-download",
+      "request_types": [
+        107,
+        300,
+        200,
+        202
+      ],
+      "received_types": [
+        0,
+        354,
+        109,
+        0,
+        0,
+        0
+      ],
+      "roster_names_hex": [
+        "7368782d706565722d61"
+      ],
+      "connections": [
+        {
+          "port": 34396,
+          "endpoint": 15501,
+          "pid": 3685693,
+          "sent_bytes": 16,
+          "received_bytes": 510
+        },
+        {
+          "port": 39844,
+          "endpoint": 15500,
+          "pid": 3685042,
+          "sent_bytes": 176,
+          "received_bytes": 2049
+        }
+      ]
+    },
+    {
+      "case": "root-listing",
+      "request_types": [
+        107,
+        300,
+        200
+      ],
+      "received_types": [
+        0,
+        354,
+        109,
+        0,
+        0
+      ],
+      "roster_names_hex": [
+        "7368782d706565722d61"
+      ],
+      "connections": [
+        {
+          "port": 56576,
+          "endpoint": 15500,
+          "pid": 3654353,
+          "sent_bytes": 125,
+          "received_bytes": 2007
+        }
+      ]
+    },
+    {
+      "case": "wrong-password",
+      "failed_login": true,
+      "connections": [
+        {
+          "port": 37906,
+          "endpoint": 15500,
+          "pid": 3823849,
+          "sent_bytes": 81,
+          "received_bytes": 50
+        }
+      ]
+    }
+  ],
+  "scope": "One modern build of historical source; native160/161, roster/chat/list/download and opaque high-byte output. No universal peer, rendering,162/122 or optional-profile acceptance claim."
+}

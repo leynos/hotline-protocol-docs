@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-13T05:38:50.952593+00:00",
+  "query": {
+    "id": "AL-D-100055a0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100055a0"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_100055a0\",\n    \"address\": \"100055a0\"\n  },\n  \"code\": \"\\nvoid FUN_100055a0(undefined4 param_1,undefined4 param_2,char param_3,undefined4 param_4)\\n\\n{\\n  undefined4 uVar1;\\n  char cVar2;\\n  undefined1 auStack_330 [128];\\n  undefined4 local_270;\\n  int local_26c;\\n  undefined4 local_268;\\n  undefined4 local_264;\\n  uint local_260;\\n  undefined1 *local_244;\\n  byte local_240;\\n  undefined1 auStack_23f [255];\\n  int local_140;\\n  undefined4 local_13c;\\n  undefined4 local_138;\\n  undefined4 local_134;\\n  undefined2 local_130;\\n  ushort local_12e;\\n  undefined1 auStack_12c [280];\\n  \\n  FUN_10056820(param_4);\\n  local_270 = 0;\\n  uVar1 = FUN_1002cb20(param_2,0);\\n  local_244 = auStack_330 + 0x80;\\nLAB_10005678:\\n  do {\\n    cVar2 = FUN_1002ce00(uVar1,&local_270,&local_240,&local_26c,&local_268,&local_264,0,0);\\n    if (cVar2 == '\\\\0') {\\n      FUN_10052e90(uVar1);\\n      return;\\n    }\\n  } while ((local_260 & 1) != 0);\\n  if (param_3 != '\\\\0') goto code_r0x10005608;\\n  goto LAB_10005618;\\ncode_r0x10005608:\\n  if (local_26c == 0x48546674) {\\nLAB_10005618:\\n    local_134 = 0;\\n    local_130 = 0;\\n    local_12e = (ushort)local_240;\\n    FUN_100539c0(auStack_12c,auStack_23f,local_240);\\n    local_140 = local_26c;\\n    local_13c = local_268;\\n    local_138 = local_264;\\n    FUN_100568b0(param_4,200,&local_140,local_240 + 0x14);\\n  }\\n  goto LAB_10005678;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_100055a0",
+        "address": "100055a0"
+      },
+      "code": "\nvoid FUN_100055a0(undefined4 param_1,undefined4 param_2,char param_3,undefined4 param_4)\n\n{\n  undefined4 uVar1;\n  char cVar2;\n  undefined1 auStack_330 [128];\n  undefined4 local_270;\n  int local_26c;\n  undefined4 local_268;\n  undefined4 local_264;\n  uint local_260;\n  undefined1 *local_244;\n  byte local_240;\n  undefined1 auStack_23f [255];\n  int local_140;\n  undefined4 local_13c;\n  undefined4 local_138;\n  undefined4 local_134;\n  undefined2 local_130;\n  ushort local_12e;\n  undefined1 auStack_12c [280];\n  \n  FUN_10056820(param_4);\n  local_270 = 0;\n  uVar1 = FUN_1002cb20(param_2,0);\n  local_244 = auStack_330 + 0x80;\nLAB_10005678:\n  do {\n    cVar2 = FUN_1002ce00(uVar1,&local_270,&local_240,&local_26c,&local_268,&local_264,0,0);\n    if (cVar2 == '\\0') {\n      FUN_10052e90(uVar1);\n      return;\n    }\n  } while ((local_260 & 1) != 0);\n  if (param_3 != '\\0') goto code_r0x10005608;\n  goto LAB_10005618;\ncode_r0x10005608:\n  if (local_26c == 0x48546674) {\nLAB_10005618:\n    local_134 = 0;\n    local_130 = 0;\n    local_12e = (ushort)local_240;\n    FUN_100539c0(auStack_12c,auStack_23f,local_240);\n    local_140 = local_26c;\n    local_13c = local_268;\n    local_138 = local_264;\n    FUN_100568b0(param_4,200,&local_140,local_240 + 0x14);\n  }\n  goto LAB_10005678;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

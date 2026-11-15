@@ -1,0 +1,44 @@
+{
+  "status": "static_tool_asset_copy_only",
+  "no_boot_or_protocol_contact": true,
+  "files": {
+    "tools/macemu/SheepShaver/src/Unix/SheepShaver": {
+      "source": {
+        "path": "/data/leynos/Projects/mothra/tools/macemu/SheepShaver/src/Unix/SheepShaver",
+        "sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+        "size": 768696,
+        "inode": 1144984067,
+        "device": 2097,
+        "mtime_ns": 1794530282950822810
+      },
+      "target": {
+        "path": "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-native/mothra/tools/macemu/SheepShaver/src/Unix/SheepShaver",
+        "sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+        "size": 768696,
+        "inode": 648593980,
+        "device": 2097,
+        "mtime_ns": 1794626919500797623
+      }
+    },
+    "state/sheepshaver-build/manifest.json": {
+      "source": {
+        "path": "/data/leynos/Projects/mothra/state/sheepshaver-build/manifest.json",
+        "sha256": "b6ccfeb13ba835807998336da60ad3e3752fb2fd019d702cb0c6cd7abe6a66f4",
+        "size": 408,
+        "inode": 633906895,
+        "device": 2097,
+        "mtime_ns": 1794530282990822813
+      },
+      "target": {
+        "path": "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-native/mothra/state/sheepshaver-build/manifest.json",
+        "sha256": "b6ccfeb13ba835807998336da60ad3e3752fb2fd019d702cb0c6cd7abe6a66f4",
+        "size": 408,
+        "inode": 1182880133,
+        "device": 2097,
+        "mtime_ns": 1794626919508797623
+      }
+    }
+  },
+  "manifest_source_commit": "8e6793d83bdc36349500a1bc356a10aeccad83f1",
+  "manifest_patch_sha256": "00337f5f2d472bdcd7f5f632106593a2a813cd768173024e2285338711fced32"
+}

@@ -1,0 +1,8 @@
+Id=mothra-native-rate304-c107-case.service
+ActiveState=failed
+FragmentPath=/run/systemd/transient/mothra-native-rate304-c107-case.service
+RuntimeMaxUSec=4min
+MainPID=0
+Result=exit-code
+ExecMainStatus=1
+NetworkNamespacePath=/proc/1956254/ns/net

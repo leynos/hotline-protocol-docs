@@ -1,0 +1,260 @@
+{
+  "schema_version": 1,
+  "profile": "compiled-historical-peer",
+  "native_conformance": false,
+  "identity_scope": "Local hashes checked; remote native process identity remains operator-reported",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "peer_binary_sha256": "8fbbe56cef439d4c1732e8d9fbe2c676b9d45fbd273a42b22f8034e3b3914fa0",
+  "plan_sha256": "1787aa82765b6840f91bf4b35dc731f5e5169c734701a43ce04554cfa93f02ab",
+  "peer_profile_sha256": "ecd4760708c05703c38aa11771e1b7fe0a0570345128b934dd2ed9c666c79b91",
+  "driver_sha256": "878e583b829e657f71f7867ac6ccf47cc5bd189d74aa67f633b5b2df3058672d",
+  "started_at_utc": "2026-11-13T04:06:54.548585+00:00",
+  "environment": {
+    "emulator_pid": 774378,
+    "running_executable_sha256": "b109f5c470fca6a1a5e0e0eaec4b5f5658d0e45ddafabf6b59bb7c4b35340146",
+    "rom_and_base": {
+      "rom_sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+      "base_disk_sha256": "c36b7bc9c513b2b576d5e7bdd2d51c54a4d0af01a863e5154ce71274272a3ffe",
+      "source_rom": "/data/leynos/Projects/mothra/state/native-mac/Mac OS ROM",
+      "source_disk": "/data/leynos/Projects/mothra/state/native-mac/base-os9.dsk",
+      "archive_member": null
+    },
+    "launch": {
+      "command": [
+        "sudo",
+        "-n",
+        "setpriv",
+        "--reuid=1000",
+        "--regid=1000",
+        "--init-groups",
+        "--inh-caps=+sys_rawio",
+        "--ambient-caps=+sys_rawio",
+        "env",
+        "DISPLAY=:97",
+        "SDL_VIDEODRIVER=x11",
+        "SDL_AUDIODRIVER=dummy",
+        "MOTHRA_ETHERNET_PCAP=/data/leynos/Projects/mothra/state/native-sessions/runtime-04/guest.pcap",
+        "XDG_CACHE_HOME=/data/leynos/Projects/mothra/state/mac-runtime/hotline19/cache",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline19/SheepShaver-b109f5c470fca6a1a5e0e0eaec4b5f5658d0e45ddafabf6b59bb7c4b35340146",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline19/machine.sheepvm"
+      ],
+      "emulator_sha256": "b109f5c470fca6a1a5e0e0eaec4b5f5658d0e45ddafabf6b59bb7c4b35340146",
+      "host_ports": [
+        15500,
+        15501,
+        15502,
+        15503
+      ],
+      "tcp_bind": "127.0.0.1",
+      "guest_address": "10.0.2.15",
+      "guest_pcap": "/data/leynos/Projects/mothra/state/native-sessions/runtime-04/guest.pcap",
+      "guest_pcap_scope": "SLiRP Ethernet boundary; host wall-clock timestamps"
+    },
+    "source_application": {
+      "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+      "appledouble_sha256": "9ab8b9ec708ccdb8a4fed99b00162fd087c108b6039c7acc5943145bad419c2f",
+      "finder_info_sha256": "2bad82ff67c5c28b30be6d8b1f69f2a5e316b06b83d7c9a9c81c4968761e9bab",
+      "resource_fork_sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12",
+      "method": "AppleDouble entries9/2 copied to .finf/.rsrc; data fork unchanged"
+    },
+    "guest_os": "Mac OS9.0.4, PowerPC Enabler9.0.4,512MiB,virtual memory off; observed About This Computer",
+    "guest_components": "Base HFS+ catalog inventory has CarbonLib Preferences (US), but no named CarbonLib file located. No assertion about loaded/imported CarbonLib version.",
+    "server_path": "System 9:Hotline19:HLserver19",
+    "configuration": "Server quit and Mac OS shutdown completed cleanly before immutable prelaunch copy; full image hash retained; existing admin/mothra19 and fixture-low/next-pass accounts from prior core corpus; Sounds Disabled dialog acknowledged.",
+    "scope": "Full compiled historical peer sessions with repository-backed private home, read-only system namespace and syscall/paired TCP evidence",
+    "guest_native_file_verification": {
+      "method": "Read-only SleuthKit4.15.0 HFS+ inspection while application stopped; catalog11183",
+      "data_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+      "resource_sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12",
+      "finder_type": "APPL",
+      "finder_creator": "HTLS",
+      "resource_bytes": 38460
+    },
+    "prelaunch_disk_sha256": "3e9aed57f94982ab17f4c19ea6a416410d7b08c461ce7eb624c9fd4d7617e7ab",
+    "continuation_from": "native-login-extras-01: same live PID/executable, empty-name175-byte recordedPrefs restored, original245/242 agreement, LocalGIF58 and General100/10/5; no new accounts.",
+    "download_limits": {
+      "global": 100,
+      "per_session": 10,
+      "evidence": "native-queue-01/configuration/options-restored.png"
+    },
+    "banner_fixture_setup": "Uploaded GIFf/MOTH fixtures through203 into Files, then Finder-moved into application directory. Options Banner uses barefilename; fullpaths/relativepaths were failed setup probes."
+  },
+  "terminal_environment": {
+    "LANG": "C.UTF-8",
+    "LC_ALL": null,
+    "LC_CTYPE": "C.UTF-8",
+    "TERM": "dumb"
+  },
+  "command": [
+    "/usr/sbin/bwrap",
+    "--unshare-user",
+    "--die-with-parent",
+    "--ro-bind",
+    "/",
+    "/",
+    "--bind",
+    "/data/leynos/Projects/mothra",
+    "/data/leynos/Projects/mothra",
+    "--bind",
+    "/data/leynos/Projects/mothra/state/native-sessions/runtime-17/captures/wrong-password/home",
+    "/home/leynos",
+    "--bind",
+    "/data/leynos/Projects/mothra/state/native-sessions/runtime-17/captures/wrong-password/tmp",
+    "/tmp",
+    "--proc",
+    "/proc",
+    "--dev",
+    "/dev",
+    "--chdir",
+    "/data/leynos/Projects/mothra/state/native-sessions/runtime-17/captures/wrong-password/work",
+    "--",
+    "/usr/sbin/strace",
+    "-f",
+    "-ttt",
+    "-xx",
+    "-yy",
+    "-s",
+    "131072",
+    "-e",
+    "trace=network,read,write,close,execve,exit_group",
+    "-o",
+    "/data/leynos/Projects/mothra/state/native-sessions/runtime-17/captures/wrong-password/syscalls.log",
+    "/data/leynos/Projects/mothra/tools/shx-peer/source/hx",
+    "-q",
+    "-d"
+  ],
+  "events": [
+    {
+      "event": "output",
+      "step": -1,
+      "elapsed_ns": 41940376,
+      "hex": "0d0a"
+    },
+    {
+      "event": "output",
+      "step": -1,
+      "elapsed_ns": 42194730,
+      "hex": "30343a30363a35342031312f31332f32303236092f646174612f6c65796e6f732f50726f6a656374732f6d6f746872612f746f6f6c732f7368782d706565722f736f757263652f68783a20696e76616c6964206f7074696f6e202d2d20640d0a"
+    },
+    {
+      "event": "output",
+      "step": -1,
+      "elapsed_ns": 58571064,
+      "hex": "0d0a"
+    },
+    {
+      "event": "output",
+      "step": -1,
+      "elapsed_ns": 58820373,
+      "hex": "201b5b33366d5b1b5b306d1b5b33326d68781b5b306d1b5b33366d5d1b5b306d2030343a30363a35342031312f31332f32303236092f646174612f6c65796e6f732f50726f6a656374732f6d6f746872612f746f6f6c732f7368782d706565722f736f757263652f68783a20696e76616c6964206f7074696f6e202d2d20710d0a"
+    },
+    {
+      "event": "output",
+      "step": -1,
+      "elapsed_ns": 59338754,
+      "hex": "72756e6e696e6720696e2064756d62207465726d696e616c206d6f64650d0a00"
+    },
+    {
+      "event": "input",
+      "step": 0,
+      "elapsed_ns": 1061474110,
+      "hex": "2f76657273696f6e0a"
+    },
+    {
+      "event": "output",
+      "step": 0,
+      "elapsed_ns": 1070754426,
+      "hex": "2f76657273696f6e"
+    },
+    {
+      "event": "output",
+      "step": 0,
+      "elapsed_ns": 1071258655,
+      "hex": "0d0a"
+    },
+    {
+      "event": "output",
+      "step": 0,
+      "elapsed_ns": 1073186687,
+      "hex": "201b5b33366d5b1b5b306d1b5b33326d68781b5b306d1b5b33366d5d1b5b306d2068782076657273696f6e20302e312e34380d0a"
+    },
+    {
+      "event": "input",
+      "step": 1,
+      "elapsed_ns": 1273779808,
+      "hex": "2f736572766572202d6f202d6c2061646d696e202d702077726f6e672d7368782d70617373202d6e207368782d706565722d61202d6920353030203132372e302e302e313a31353530300a"
+    },
+    {
+      "event": "output",
+      "step": 1,
+      "elapsed_ns": 1327370323,
+      "hex": "2f736572766572202d6f202d6c2061646d696e202d702077726f6e672d7368782d70617373202d6e207368782d706565722d61202d6920353030203132372e302e302e313a3135353030"
+    },
+    {
+      "event": "output",
+      "step": 1,
+      "elapsed_ns": 1327716568,
+      "hex": "0d0a"
+    },
+    {
+      "event": "output",
+      "step": 1,
+      "elapsed_ns": 1342208794,
+      "hex": "201b5b33366d5b1b5b306d1b5b33326d68781b5b306d1b5b33366d5d1b5b306d20636f6e6e656374656420746f203132372e302e302e313a31353530300d0a"
+    },
+    {
+      "event": "output",
+      "step": 1,
+      "elapsed_ns": 1610334594,
+      "hex": "201b5b33366d5b1b5b306d1b5b33326d68781b5b306d1b5b33366d5d1b5b306d207461736b203078303030303030303120286c6f67696e29206572726f723a20496e636f7272656374206c6f67696e2e0d0a"
+    },
+    {
+      "event": "output",
+      "step": 1,
+      "elapsed_ns": 1610649330,
+      "hex": "201b5b33366d5b1b5b306d1b5b33326d68781b5b306d1b5b33366d5d1b5b306d203132372e302e302e313a31353530303a206c6f67696e206661696c65643f0d0a"
+    },
+    {
+      "event": "input",
+      "step": 2,
+      "elapsed_ns": 3615717286,
+      "hex": "2f717569740a"
+    },
+    {
+      "event": "output",
+      "step": 2,
+      "elapsed_ns": 3622605296,
+      "hex": "2f71756974"
+    },
+    {
+      "event": "output",
+      "step": 2,
+      "elapsed_ns": 3622987688,
+      "hex": "0d0a"
+    },
+    {
+      "event": "process-exit",
+      "step": 2,
+      "elapsed_ns": 3628987885,
+      "hex": "30"
+    }
+  ],
+  "completed_steps": 3,
+  "status": "completed",
+  "error": "",
+  "host_home_file_before": {
+    "exists": true,
+    "size": 0,
+    "mtime_ns": 1794540213655000242,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "controller_child_pid": 3823846,
+  "host_home_file_after": {
+    "exists": true,
+    "size": 0,
+    "mtime_ns": 1794540213655000242,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "peer_exit_code": 0,
+  "finished_at_utc": "2026-11-13T04:06:58.177948+00:00"
+}

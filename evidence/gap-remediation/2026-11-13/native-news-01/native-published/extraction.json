@@ -1,0 +1,371 @@
+{
+  "recorded_at_utc": "2026-11-13T07:07:24.047018+00:00",
+  "image": "state/mac-runtime/hotline20/working.dsk",
+  "tool_sha256": {
+    "istat": "f87c0cee5e263c55440c19fb3e478b80e33dcbae223388b5f83913ceb5fc4499",
+    "icat": "ab73038eda8ed52697c5d94874bbc0a19285184253e68a78f6e4ab347a042bba"
+  },
+  "catalog_range": [
+    11582,
+    11620
+  ],
+  "roots": [
+    "/Trash",
+    "/Hotline19/Files/m-news23-publish"
+  ],
+  "method": "Read-only direct catalogue observations. Positive paths verified by istat before fork reads. Not an exhaustive directory listing, path-absence proof, protocol certification or restart-durability result.",
+  "probes": [
+    {
+      "catalog": 11582,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11583,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11584,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11585,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11586,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11587,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11588,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11589,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11590,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11591,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11592,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11593,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11592)\n"
+    },
+    {
+      "catalog": 11594,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11592)\n"
+    },
+    {
+      "catalog": 11595,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11592)\n"
+    },
+    {
+      "catalog": 11596,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11592)\n"
+    },
+    {
+      "catalog": 11597,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11592)\n"
+    },
+    {
+      "catalog": 11598,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11592)\n"
+    },
+    {
+      "catalog": 11599,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11592)\n"
+    },
+    {
+      "catalog": 11600,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11592)\n"
+    },
+    {
+      "catalog": 11601,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11592)\n"
+    },
+    {
+      "catalog": 11602,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11592)\n"
+    },
+    {
+      "catalog": 11603,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11592)\n"
+    },
+    {
+      "catalog": 11604,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11592)\n"
+    },
+    {
+      "catalog": 11605,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11592)\n"
+    },
+    {
+      "catalog": 11606,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11592)\n"
+    },
+    {
+      "catalog": 11607,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11592)\n"
+    },
+    {
+      "catalog": 11608,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11592)\n"
+    },
+    {
+      "catalog": 11609,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11592)\n"
+    },
+    {
+      "catalog": 11610,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11592)\n"
+    },
+    {
+      "catalog": 11611,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11592)\n"
+    },
+    {
+      "catalog": 11612,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11592)\n"
+    },
+    {
+      "catalog": 11613,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11592)\n"
+    },
+    {
+      "catalog": 11614,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11592)\n"
+    },
+    {
+      "catalog": 11615,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11592)\n"
+    },
+    {
+      "catalog": 11616,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11592)\n"
+    },
+    {
+      "catalog": 11617,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11592)\n"
+    },
+    {
+      "catalog": 11618,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11592)\n"
+    },
+    {
+      "catalog": 11619,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11592)\n"
+    },
+    {
+      "catalog": 11620,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11592)\n"
+    }
+  ],
+  "records": [
+    {
+      "path": "/Trash/mothra-news23",
+      "key": "catalog-11582",
+      "catalog": 11582,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Trash/mothra-news23/bundle",
+      "key": "catalog-11583",
+      "catalog": 11583,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Trash/mothra-news23/empty",
+      "key": "catalog-11584",
+      "catalog": 11584,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Trash/mothra-news23/hi-o\u0308",
+      "key": "catalog-11585",
+      "catalog": 11585,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Trash/mothra-news23/category",
+      "key": "catalog-11586",
+      "catalog": 11586,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 71563,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Trash/mothra-news23/zero-articles",
+      "key": "catalog-11587",
+      "catalog": 11587,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 1034,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Trash/mothra-news23/bundle/nested",
+      "key": "catalog-11588",
+      "catalog": 11588,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 1865,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Trash/mothra-news23/bundle/child",
+      "key": "catalog-11589",
+      "catalog": 11589,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Trash/mothra-news23/bundle/child/deep",
+      "key": "catalog-11590",
+      "catalog": 11590,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 1024,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Trash/m-news23-flush",
+      "key": "catalog-11591",
+      "catalog": 11591,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 13,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/m-news23-publish",
+      "key": "catalog-11592",
+      "catalog": 11592,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 13,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    }
+  ]
+}

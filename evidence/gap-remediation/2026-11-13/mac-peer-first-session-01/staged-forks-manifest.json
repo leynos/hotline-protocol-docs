@@ -1,0 +1,14 @@
+{
+  "source_data_sha256": "7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315",
+  "source_appledouble_sha256": "655df272d898b87cd3cf193323f7f68a3e796386b4016f7f44cb71adefff9378",
+  "staged_resource_sha256": "f762cfdedcc39758f841f720a4586dbbb88a7b74ec9e83db1793791b7c3f318b",
+  "finder_entry_bytes": 179,
+  "finder_entry_sha256": "62299e7019d2dc751a1e71d6e547ecbe25cde69759eda1b035b00e0fa7946584",
+  "staged_finder_bytes": 32,
+  "staged_finder_sha256": "a3e2ee89d403a2f8c5f61d6eb5f0fbb4d2f55b66e907e12b4c19fd87f572f44d",
+  "finder_extension_bytes": 147,
+  "finder_extension_sha256": "51137970f2613f27d3381fb8053e4d2da925dd46b8a6aca381926a2e72266dc0",
+  "finder_type": "APPL",
+  "finder_creator": "HTLC",
+  "method": "AppleDouble entry 2 to .rsrc and first 32 bytes of entry 9 to .finf"
+}

@@ -1,0 +1,43 @@
+{
+  "started_utc": "2026-11-14T01:07:15.421539+00:00",
+  "status": "no_progress_after_verified_focus",
+  "event_count": 1,
+  "precondition": "dual SYN-scoped 98304-byte prefix unchanged >=5 s; runner live",
+  "before": {
+    "guest": {
+      "bytes": 98304,
+      "sha256": "b4c6dc15be0d82de42d3aa7102c1feca67397b978591ac8be2d2c846d6a62e7c",
+      "local_port": 47452,
+      "first_syn_us": 1794618427513006,
+      "last_packet_us": 1794618428081506
+    },
+    "namespace": {
+      "bytes": 98304,
+      "sha256": "b4c6dc15be0d82de42d3aa7102c1feca67397b978591ac8be2d2c846d6a62e7c",
+      "local_port": 47452,
+      "first_syn_us": 1794618427512817,
+      "last_packet_us": 1794618428081557
+    }
+  },
+  "title_gold_before": 0,
+  "event_utc": "2026-11-14T01:07:20.661146+00:00",
+  "event_return_utc": "2026-11-14T01:07:20.965443+00:00",
+  "title_gold_after": 278,
+  "after": {
+    "guest": {
+      "bytes": 98304,
+      "sha256": "b4c6dc15be0d82de42d3aa7102c1feca67397b978591ac8be2d2c846d6a62e7c",
+      "local_port": 47452,
+      "first_syn_us": 1794618427513006,
+      "last_packet_us": 1794618428081506
+    },
+    "namespace": {
+      "bytes": 98304,
+      "sha256": "b4c6dc15be0d82de42d3aa7102c1feca67397b978591ac8be2d2c846d6a62e7c",
+      "local_port": 47452,
+      "first_syn_us": 1794618427512817,
+      "last_packet_us": 1794618428081557
+    }
+  },
+  "ended_utc": "2026-11-14T01:07:31.255671+00:00"
+}

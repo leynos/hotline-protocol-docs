@@ -1,0 +1,73 @@
+import hashlib,json,shutil,struct,subprocess,sys
+from pathlib import Path
+from datetime import datetime,timezone
+sys.path.insert(0,'../hotline-protocol-docs/scripts')
+from pcap_tcp import read_packets,lifetime,stream,direction
+from native_packet_evidence import reconcile
+from protocol_capture import decode_frame,verify_capture
+r=Path('state/native-sessions/runtime-16');d=Path('evidence/gap-remediation/2026-11-13/native-login-extras-01');d.mkdir(parents=True)
+shutil.copytree(r/'captures',d/'captures');shutil.copytree(r/'initial',d/'initial');(d/'setup').mkdir()
+for group in ['baseline','flushes']:
+ for p in (r/group).iterdir():
+  if (p/'report.json').is_file():shutil.copytree(p,d/'setup'/((group+'-'+p.name)))
+for p in r.iterdir():
+ if p.is_dir() and (p/'extraction.json').is_file():shutil.copytree(p,d/p.name)
+shutil.copytree(r/'oracle-queries',d/'oracle-queries')
+for p in r.glob('oracle-*.json'):shutil.copy2(p,d/p.name)
+for p in r.glob('*.png'):
+ (d/'configuration').mkdir(exist_ok=True);shutil.copy2(p,d/'configuration'/p.name)
+for p in r.glob('*.py'):
+ if p.name!='package.py':shutil.copy2(p,d/(p.name+'.as-run.txt'))
+for p in r.glob('*.json'):
+ if not p.name.endswith('-plan.json'):shutil.copy2(p,d/p.name)
+shutil.copy2(r/'phase-events.jsonl',d/'phase-events.jsonl');shutil.copy2(r/'mac-input-slow.py.txt',d/'mac-input-slow.py.txt')
+for name in ['native_login_extras_cases.py','prepare_native_cases.py','protocol_capture.py']:
+ shutil.copy2(Path('../hotline-protocol-docs/scripts')/name,d/(name+'.as-run.txt'))
+shutil.copy2(Path('evidence/gap-remediation/2026-11-13/native-agreement-01/original-agreement.data'),d/'original-agreement.data')
+(d/'host-capture-statistics.txt').write_text('1101 packets captured\n2202 packets received by filter\n0 packets dropped by kernel\n')
+actual=subprocess.check_output(['sudo','-n','sha256sum','/proc/774378/exe'],text=True).split()[0];assert actual=='b109f5c470fca6a1a5e0e0eaec4b5f5658d0e45ddafabf6b59bb7c4b35340146'
+(d/'final-runtime-check.json').write_text(json.dumps({'recorded_at_utc':datetime.now(timezone.utc).isoformat(),'emulator_pid':774378,'running_executable_sha256':actual,'scope':'Same live process/executable, no restart or debugger/host resume used in this corpus. Prefs restored to the first retained175-byte empty-name sample; LocalGIF58, originalagreement245/242 and General100/10/5. No new accounts created.'},indent=2)+'\n')
+paths=sorted(d.glob('**/report.json'));reports=[json.loads(p.read_text()) for p in paths];lo=min(datetime.fromisoformat(x['started_at_utc']).timestamp() for x in reports)-2;hi=max(datetime.fromisoformat(x['started_at_utc']).timestamp()+max(e['elapsed_ns'] for e in x['events'])/1e9 for x in reports)+2
+for source,target in [(r/'host.pcap',d/'host.pcap'),(Path('state/native-sessions/runtime-04/guest.pcap'),d/'guest.pcap')]:
+ raw=source.read_bytes();out=bytearray(raw[:24]);order='<' if raw[:4]==b'\xd4\xc3\xb2\xa1' else '>';pos=24
+ while pos<len(raw):
+  assert pos+16<=len(raw);s,u,n,orig=struct.unpack_from(order+'IIII',raw,pos);end=pos+16+n;assert end<=len(raw)
+  if lo<=s+u/1e6<=hi:out.extend(raw[pos:end])
+  pos=end
+ target.write_bytes(out)
+host=read_packets(d/'host.pcap');guest=read_packets(d/'guest.pcap');tails={};observations={};notes=[]
+for p in paths:
+ key=str(p.parent.relative_to(d));report=json.loads(p.read_text());verify_capture(p.parent);extra={};boundary_difference={}
+ for e in report['events']:
+  if e['event']!='connect':continue
+  client=tuple(e['local_address']);server=tuple(e['peer_address']);start=datetime.fromisoformat(report['started_at_utc']).timestamp()*1e6;when=int(start+e['elapsed_ns']/1000);outputs=[];inputs=[];lives=[]
+  for packets,c,s in [(host,client,server),(guest,('10.0.2.2',client[1]),('10.0.2.15',5500+server[1]-15500))]:
+   life=lifetime(packets,c,s,when);inputs.append(stream(life,c,s));outputs.append(stream(life,s,c));lives.append(life)
+  sent=bytes.fromhex(report['streams'][e['connection']]['sent_hex']);assert inputs[0]==sent,(key,e['connection'],'hostinput')
+  if inputs[1]!=sent:
+   assert key=='initial/name-change-90s-waiting-expired' and e['connection']=='waiting' and sent.startswith(inputs[1]),(key,e['connection'],'guestinput')
+   missing=sent[len(inputs[1]):];frame=decode_frame(missing);assert frame['type']==121 and frame['id']==2
+   gc=('10.0.2.2',client[1]);gs=('10.0.2.15',5500);closes=[x for x in direction(lives[1],gs,gc) if x['flags']&5]
+   assert closes
+   trigger=next(x for x in report['events'] if x['event']=='send' and x['connection']=='waiting' and x['hex']==missing.hex())
+   assert closes[0]['timestamp_us']<start+trigger['elapsed_ns']/1000
+   boundary_difference[e['connection']]={'host_sent_hex':sent.hex(),'guest_delivered_hex':inputs[1].hex(),'host_only_after_native_close_hex':missing.hex(),'guest_close_seconds_after_report_start':(closes[0]['timestamp_us']-start)/1e6,'host_late_acceptance_seconds':trigger['elapsed_ns']/1e9,'scope':'121 sent to the host proxy after the guest had closed; not native application consumption.'}
+  if outputs[0]!=outputs[1]:
+   assert key=='initial/name-change-90s-waiting-expired' and e['connection']=='observer' and outputs[1].startswith(outputs[0]),(key,e['connection'],'outputboundary')
+   late=outputs[1][len(outputs[0]):];f=decode_frame(late);assert len(late)==28 and f['type']==302 and not f['is_reply']
+   boundary_difference[e['connection']]={'host_received_hex':outputs[0].hex(),'guest_sent_hex':outputs[1].hex(),'guest_only_output_hex':late.hex(),'scope':'Final302 emitted at guest after host-side observer cleanup; retained separately, not forced into equal streams.'}
+  received=bytes.fromhex(report['streams'][e['connection']]['received_hex']);assert outputs[0].startswith(received)
+  tail=outputs[0][len(received):]
+  if tail:
+   extra[e['connection']]=tail.hex();raw=tail;frames=[]
+   while raw:
+    assert len(raw)>=20;n=20+int.from_bytes(raw[16:20],'big');assert n<=len(raw)
+    f=decode_frame(raw[:n]);assert f['type'] in {301,302} and not f['is_reply'];frames.append(f);raw=raw[n:]
+   notes.append({'case':key,'connection':e['connection'],'unread_hex':tail.hex(),'notifications':frames})
+ if extra:tails[key]=extra
+ if boundary_difference:observations[key]={'boundary_difference':boundary_difference,'unread_output':extra}
+ else:observations[key]=reconcile(report,host,guest,{k:bytes.fromhex(v) for k,v in extra.items()})
+configs={'name-a':'native-name-a-retry','name-b':'native-short-name-b','name31':'native-name31','name32':'native-name32','macroman':'native-macroman','url':'native-url-flushed','none':'native-none-flushed','restored':'native-restored'}
+m={'schema_version':1,'oracle_sha256':reports[0]['oracle_sha256'],'cases':sorted(p.parent.name for p in (d/'captures').glob('*/report.json')),'configurations':configs,'original_preferences':'native-name-a','setup_cases':sorted(p.parent.name for p in (d/'setup').glob('*/report.json')),'initial_cases':sorted(p.parent.name for p in (d/'initial').glob('*/report.json')),'packet_window_seconds':[lo,hi],'host_capture_packets':1101,'host_kernel_drops':0,'unread_output':{k.removeprefix('captures/'):v for k,v in tails.items() if k.startswith('captures/')},'other_unread_output':{k:v for k,v in tails.items() if not k.startswith('captures/')},'scope':'34 accepted configured/name-lifetime/banner-reference cases,11setup controls and5exploratory reports. Native Prefs/version5,31-byte and high-byte name samples, Local/Remote/empty banner configurations. First retained empty-name175-byte Prefs is restored byte-for-byte; no restart durability claimed.161 remains zero in samples; its purpose and exhaustive write/lifetime semantics remain unresolved.','setup_history':'First NameA click only woke the saver, leaving empty name and a completed unchanged control. Slow click script retained; final20second lifetime trial uses fast clicks.90second waiting-session hypothesis closed before121; late121 was accepted by host proxy but not delivered to guest. Banner EOF hypothesis received58bytes then timed out; final probes retain known quiet tail. URL control2cases completed but immediate live snapshot retained stale188-byte fork length; after native volume flush, positive222-byte Prefs and final URL probes are retained. Snapshot native-url is intentionally rejected by regression test, never accepted for configuration proof.','original_preferences_scope':'First native Prefs observation follows the unsuccessful empty-name GUI save; it is not an independent prelaunch disk snapshot. Initial baseline wire name is also empty. Final native-restored bytes match that first retained175-byte sample.'}
+for name,obj in [('manifest.json',m),('unread-output.json',notes),('packet-reconciliation.json',observations)]:(d/name).write_text(json.dumps(obj,indent=2)+'\n')
+shutil.copy2(__file__,d/'package.py.as-run.txt');print('Retained',len(m['cases']),'accepted;',len(m['setup_cases']),'setup;',len(m['initial_cases']),'exploratory;',len(notes),'unread tails')

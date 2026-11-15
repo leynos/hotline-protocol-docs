@@ -1,0 +1,5 @@
+cargo fetch --locked
+# The `rstest-bdd-ui` profile raises the run-wide timeout, which an
+# override cannot do. See "Compile-time scenario contracts" in the
+# developers' guide.
+NEXTEST_PROFILE=rstest-bdd-ui env -u CARGO_ENCODED_RUSTFLAGS RUSTFLAGS="${RUSTFLAGS:+$RUSTFLAGS }-D warnings -Zthreads=8 -Clink-arg=-fuse-ld=mold" cargo nextest run -p rstest-bdd-ui-tests

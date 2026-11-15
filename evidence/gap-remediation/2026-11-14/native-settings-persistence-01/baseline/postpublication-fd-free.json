@@ -1,0 +1,9 @@
+{
+  "observed_utc": "2026-11-14T04:20:48.766710+00:00",
+  "working_image_inode": 2214366960,
+  "working_image_size": 8388608000,
+  "a46_pid_absent": true,
+  "a48_pid_absent": true,
+  "fuser_empty": true,
+  "scope": "Current offline recheck only; not retroactive proof of exact earlier FD state"
+}

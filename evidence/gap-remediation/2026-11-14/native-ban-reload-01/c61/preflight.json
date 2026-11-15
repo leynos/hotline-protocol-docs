@@ -1,0 +1,40 @@
+{
+  "utc": "2026-11-14T03:54:35.548319+00:00",
+  "source_paths": {
+    "working": "/data/leynos/Projects/mothra/state/mac-runtime/native-eventlab-one-01/working.dsk",
+    "base": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/base.dsk",
+    "rom": "/data/leynos/Projects/mothra/state/mac-runtime/native-eventlab-one-01/rom",
+    "emulator": "/data/leynos/Projects/mothra/state/mac-runtime/native-eventlab-one-01/SheepShaver-9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+    "server_data": "/data/leynos/Projects/mothra/evidence/hotline-server-1.9/inputs/HLserver19.pef"
+  },
+  "source_sha256": {
+    "working": "3717cd5e044bf63eb1e68d131290172a30777743ea073d12ab5b880a0ec4a6b9",
+    "base": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910",
+    "rom": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+    "emulator": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+    "server_data": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "working_fd_holders": [],
+  "ports_15750_15753_free": true,
+  "fls_sha256": "4a71296053ba08bf9c8b5bbf5e9663a7ce294ed9fa980d3df062ef5dc594c9fa",
+  "hfs_user_data_and_ban": {
+    "admin": {
+      "bytes": 734,
+      "sha256": "26612ad46cd91b90050feacf517d32a9e56d4a4aa92fbe6618eaf6e9e5ac60a3"
+    },
+    "fixture-low": {
+      "bytes": 734,
+      "sha256": "fce81359d0efcfc6c2dbf42852db66b0fb7a404b2889162b8f8fad81361ce2d5"
+    },
+    "m-ban52-only": {
+      "bytes": 734,
+      "sha256": "0df7dd5ad9c2c992ddefa4aa30af069c27d1e0d793ea19d112d0520e9fcc3e86"
+    },
+    "Banned": {
+      "bytes": 49,
+      "sha256": "53bec37683dc9bab6cc812f38fa465724085e9c35fc5b7bdf72e25dd09b727d4"
+    }
+  },
+  "full_file_baseline": "not_exercised",
+  "existing_ban_state_preserved": true
+}

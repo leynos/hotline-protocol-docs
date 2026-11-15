@@ -1,0 +1,29 @@
+{
+  "status": "verified-finite-native-console-broadcast",
+  "frames": {
+    "sender_uid_hex": "000f",
+    "console_104_recipients": [
+      "ConsoleSender",
+      "ConsoleRefuse"
+    ],
+    "before_355_recipients": [
+      "ConsoleRefuse"
+    ],
+    "after_355_recipients": [
+      "ConsoleRefuse",
+      "ConsoleWaiting"
+    ]
+  },
+  "capture": {
+    "guest_connections": 4,
+    "host_complete_connections": 3,
+    "host_sender_missing": "SYN and 12-byte handshake",
+    "teardown_tails": "three full 302 frames retained"
+  },
+  "postflight": {
+    "status": "restored-a7-baseline",
+    "accounts": 2,
+    "files_root": 41,
+    "download_bytes": 1049073
+  }
+}

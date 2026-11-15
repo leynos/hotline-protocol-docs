@@ -1,0 +1,18 @@
+{
+  "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "function_count": 1840,
+  "language": "PowerPC:BE:32:default",
+  "scope": "read-only static reason-copy call chain in own independent saved Ghidra import; no native reason fixture",
+  "links": {
+    "raw_copy_constructor_instructions": "../native-format-endpoint-oracle-01/query-batch-02/raw/EP2-A-10006230.json",
+    "raw_copy_helper_instructions": "../native-format-endpoint-oracle-01/query-batch-02/raw/EP2-A-100539c0.json",
+    "raw_copy_helper_decomp": "../native-format-endpoint-oracle-01/query-batch-01/raw/EP-D-100539c0.c"
+  },
+  "inference": "If supplied request110 option2 field101 yields length L=1..63, its staged buffer is length L followed by L copied content bytes; constructor copies L bytes starting at length, predicting the length byte followed by first L-1 content bytes. Not observed on disk for a nonempty reason.",
+  "not_claimed": [
+    "Options UI reason conversion",
+    "nonempty native runtime fixture",
+    "all malformed lengths",
+    "independent charset interpretation"
+  ]
+}

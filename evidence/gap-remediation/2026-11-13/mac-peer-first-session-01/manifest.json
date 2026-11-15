@@ -1,0 +1,53 @@
+{
+  "status": "safety-stop-after-one-local-connect",
+  "captured_utc_date": "2026-11-13",
+  "source": "ignored local B13 runtime snapshots; copies are byte-identical",
+  "capture": {
+    "host-final.pcap": {
+      "size": 2590,
+      "sha256": "0131f4f273ebca1937b1b3ae58d17b42ff35f57b7ae1fa2ae8ddc5301367d4dc"
+    },
+    "client-guest-final.pcap": {
+      "size": 11179,
+      "sha256": "f4cc40efe26668f9ebb361caf1cc87edcf87c7a8130ac2de82c4c8979cf8efa3"
+    },
+    "server-guest-final.pcap": {
+      "size": 1313182,
+      "sha256": "c6e85c6f0a17822ba8539f93e3e87e12d7bdd7de4c36495d04efcd74dce4efe8"
+    }
+  },
+  "timeline_utc": {
+    "client_app_launch": "17:44:41",
+    "manual_connect_click": "17:48:04",
+    "host_syn": "17:48:04.729501",
+    "first_external_http_get": "17:48:07.713126",
+    "agreement_accept": "17:49:48",
+    "last_control_request": "17:49:49.111363",
+    "client_disconnect": "17:52:13.506772",
+    "client_app_quit": "17:52:27",
+    "host_recorder_stop": "17:53:21"
+  },
+  "ports": {
+    "client_guest_control": 49152,
+    "host_nat_control": 59232,
+    "client_guest_data": 49155,
+    "server_guest_data_nat": 36936
+  },
+  "source_binary": {
+    "archive_label": "Hotline Client 1.9.2 for OSX and OS9",
+    "resource_vers": "1.9.1.0",
+    "vendor_authenticity": "unverified",
+    "data_sha256": "7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315",
+    "resource_sha256": "f762cfdedcc39758f841f720a4586dbbb88a7b74ec9e83db1793791b7c3f318b"
+  },
+  "emulator": {
+    "sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+    "client_pid": 3696275,
+    "server_pid": 1099659
+  },
+  "limits": [
+    "First external HTTP GET preceded agreement acceptance",
+    "No valid planned 130-second quiet test",
+    "No generic peer tolerance conclusion"
+  ]
+}

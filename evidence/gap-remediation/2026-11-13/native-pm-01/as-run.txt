@@ -1,0 +1,59 @@
+A29 bounded native PM run, 2026-11-13 UTC. One preflight, one seven-case
+observe, one postflight; no capture retry or expanded PM matrix.
+
+Native lease START from supervisor after C26 return. Preflight verified
+SheepShaver PID1099659, exe SHA256 9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4,
+managed unit mothra-sheep-bf808bd28e0d, FD6 hotline22-recovery/working.dsk,
+FD16 recovery-20261113-01/guest.pcap, oracle PEF SHA256
+ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b,
+127.0.0.1:15500/15501 listeners and no established sessions. No live disk
+was copied. A7 source plan hash was
+5d0aa3dccf65fc6523678aa729c9ace72cd6caffbef768b7f5bf949e6568b43e;
+preflight and postflight plan bytes are identical to it, 29 actions each.
+
+Generated prepared plans with scripts/native_pm_cases.py --runtime-record
+runtime.json --baseline-plan A7 capture/plan.json --output plans, from private
+protocol revision 2777bc32. Independent direct SYSTEM tcpdump unit
+mothra-pm-a29-capture.service PID3061462 started before first socket on lo,
+filter tcp15500/15501, snaplen full and -U, SIGINT stop, 15-minute cap.
+PCAP header24 bytes and 'listening on lo' were checked before the first
+capture. Source host recorder is host.pcap; cumulative host and guest snapshots
+were frozen after each of the three captures. Guest source capture was never
+truncated or reset. The copied host PCAP and snapshots preserve packet tails.
+
+Preflight completed all29 actions. Initial account enumeration had two rows;
+root Files list had41. One-row same-session current UID was002a, idle303
+before/after matched. Full FILP response was1,049,073 bytes, DATA SHA256
+fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83
+and MACR SHA256
+40a42dbcf2d879e22d9a5a9acf46bf15fa9fe3a77837f757a990e514436801e5.
+A first offline comparison assumed the dynamic roster UID would equal the
+historical A7 UID; that assertion failed at reply13. No capture was retried.
+The corrected readback check compared stable replies10/11/12, same-connection
+current UID and complete idle sections, and full fork hashes; it passed.
+
+Observe completed151 actions with seven 108 requests and no other PM action.
+Both existing admin sessions had current UIDs002b/002c and distinct names.
+Session 304 options/name/icon were restored before close. The A26 semantic
+verifier passed all direct/quoted, recipient refusal, auto+original,
+sender-refusal suppression, generated option2/3 and empty cases. The exact
+104 bytes are in observe/report.json and independently checked by the packet
+verifier. Same-flow ACK-before-feedback is verified; no universal cross-socket
+ACK-before-delivery claim is made.
+
+Postflight completed the exact29-action A7 plan. Replies10/11/12 matched the
+preflight and historical A7 stable fields, with two accounts/41 Files rows.
+Current UID002d, complete idle303 before/after, full1,049,073-byte FILP and
+both fork hashes passed. Recorder stopped with SIGINT: 3382 packets captured,
+6764 received by filter, zero kernel drops, unit inactive/MainPID0/success.
+No established15500/15501 socket remained. SheepShaver PID1099659 remained
+live with same executable hash, FDs and listeners; lease returned to root at
+21:50:22Z. No accounts/files/server options/UI/ROM/disk were changed.
+
+Saved packet-reconciliation.json matches every host and guest SYN-scoped
+client/server application stream to the recorder prefix. The observed main
+connection has one additional unread28-byte 302 departure frame for UID002c
+in both packet views. No other unread application tail was observed. The guest
+download stream has a terminal RST diagnostic outside application data; host
+saw FIN. No output was trimmed to force equality. Source runtime and final
+receipts remain ignored at state/native-sessions/native-pm-a29.

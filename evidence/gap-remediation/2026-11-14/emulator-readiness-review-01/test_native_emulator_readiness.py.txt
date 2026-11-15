@@ -1,0 +1,270 @@
+"""Exercise the disk/capture boundary with a real child and exact FDs."""
+
+import datetime as dt
+import hashlib
+import json
+import os
+import pathlib
+import struct
+import subprocess
+import sys
+import tempfile
+import unittest
+from types import SimpleNamespace
+from typing import cast
+from unittest.mock import patch
+
+import native_emulator_readiness as ready
+
+CHILD = r"""
+import os, struct, sys
+disk = os.open(sys.argv[1], os.O_RDWR)
+os.dup2(disk, 6)
+if disk != 6: os.close(disk)
+print('disk', flush=True)
+for line in sys.stdin:
+    if line.strip() == 'capture':
+        fd = os.open(sys.argv[2], os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+        os.dup2(fd, 16)
+        if fd != 16: os.close(fd)
+        os.write(16, struct.pack('<IHHIIII', 0xa1b2c3d4, 2, 4, 0, 0, 65535, 1))
+        print('capture', flush=True)
+    elif line.strip() == 'quit':
+        break
+"""
+
+
+class ReadinessTest(unittest.TestCase):
+    def setUp(self) -> None:
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        root = pathlib.Path(self.temp.name)
+        self.disk = root / "working.dsk"
+        self.disk.write_bytes(b"disk")
+        self.capture = root / "guest.pcap"
+        self.deadline = dt.datetime.now(dt.timezone.utc) + dt.timedelta(minutes=2)
+        self.digest = hashlib.sha256(
+            pathlib.Path(sys.executable).read_bytes()
+        ).hexdigest()
+        self.child = subprocess.Popen(
+            [sys.executable, "-u", "-c", CHILD, str(self.disk), str(self.capture)],
+            stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE,
+            text=True,
+        )
+        self.addCleanup(self.stop_child)
+        assert self.child.stdout is not None
+        self.assertEqual(self.child.stdout.readline().strip(), "disk")
+        host_ns = ready.netns_inode(os.getpid())
+        original = ready.netns_inode
+        self.namespace = patch.object(
+            ready,
+            "netns_inode",
+            side_effect=lambda pid: (
+                host_ns + 1 if pid == self.child.pid else original(pid)
+            ),
+        )
+        self.namespace.start()
+        self.addCleanup(self.namespace.stop)
+        self.inode = self.disk.stat().st_ino
+
+    def stop_child(self) -> None:
+        if self.child.poll() is None:
+            assert self.child.stdin is not None
+            self.child.stdin.write("quit\n")
+            self.child.stdin.flush()
+            self.child.wait(timeout=3)
+        assert self.child.stdin is not None and self.child.stdout is not None
+        self.child.stdin.close()
+        self.child.stdout.close()
+
+    def disk_receipt(self) -> dict[str, object]:
+        return ready.check(
+            "disk",
+            self.disk,
+            self.inode,
+            self.digest,
+            os.getuid(),
+            self.deadline,
+            wait_seconds=1,
+        )
+
+    def send_capture(self) -> None:
+        assert self.child.stdin is not None and self.child.stdout is not None
+        self.child.stdin.write("capture\n")
+        self.child.stdin.flush()
+        self.assertEqual(self.child.stdout.readline().strip(), "capture")
+
+    def capture_receipt(self, disk: dict[str, object]) -> dict[str, object]:
+        return ready.check(
+            "capture",
+            self.disk,
+            self.inode,
+            self.digest,
+            os.getuid(),
+            self.deadline,
+            disk,
+            self.capture,
+            wait_seconds=0.2,
+        )
+
+    def test_real_child_phases_and_absent_capture_is_nonterminal(self) -> None:
+        disk = self.disk_receipt()
+        self.assertEqual(disk["pid"], self.child.pid)
+        self.assertFalse(self.capture.exists())
+        with self.assertRaisesRegex(TimeoutError, "capture readiness not observed"):
+            self.capture_receipt(disk)
+        self.assertIsNone(self.child.poll())
+        self.send_capture()
+        captured = self.capture_receipt(disk)
+        self.assertEqual(captured["start_ticks"], disk["start_ticks"])
+        self.assertEqual(captured["guest_fd"], 16)
+        self.assertEqual(len(bytes.fromhex(cast(str, captured["header24"]))), 24)
+
+    def test_wrong_image_inode_and_executable_fail(self) -> None:
+        with self.assertRaisesRegex(ValueError, "inode differs"):
+            ready.check(
+                "disk",
+                self.disk,
+                self.inode + 1,
+                self.digest,
+                os.getuid(),
+                self.deadline,
+            )
+        with self.assertRaisesRegex(ValueError, "executable hash differs"):
+            ready.check(
+                "disk", self.disk, self.inode, "0" * 64, os.getuid(), self.deadline
+            )
+
+    def test_receipt_rejects_stale_tick_and_pid(self) -> None:
+        disk = self.disk_receipt()
+        self.send_capture()
+        for key, value in (
+            ("start_ticks", cast(int, disk["start_ticks"]) + 1),
+            ("pid", self.child.pid + 1),
+        ):
+            altered = disk | {key: value}
+            with (
+                self.subTest(key=key),
+                self.assertRaisesRegex(ValueError, "disk receipt .* differs"),
+            ):
+                self.capture_receipt(altered)
+
+    def test_foreign_namespace_rejected(self) -> None:
+        self.namespace.stop()
+        with self.assertRaisesRegex(ValueError, "host network namespace"):
+            self.disk_receipt()
+
+    def test_duplicate_disk_owner_rejected(self) -> None:
+        with (
+            patch.object(
+                ready,
+                "candidate_pids",
+                return_value=[self.child.pid, self.child.pid + 1],
+            ),
+            self.assertRaisesRegex(ValueError, "duplicate"),
+        ):
+            self.disk_receipt()
+
+    def test_truncated_header_and_replacement_inode_rejected(self) -> None:
+        disk = self.disk_receipt()
+        self.send_capture()
+        self.capture.write_bytes(b"\xd4\xc3\xb2\xa1")
+        with self.assertRaisesRegex(TimeoutError, "capture readiness not observed"):
+            self.capture_receipt(disk)
+        self.capture.unlink()
+        self.capture.write_bytes(
+            bytes.fromhex("d4c3b2a1020004000000000000000000ffff000001000000")
+        )
+        with self.assertRaisesRegex(ValueError, "FD16 (path|inode) differs"):
+            self.capture_receipt(disk)
+
+    def test_header_fields_follow_recorded_endianness(self) -> None:
+        disk = self.disk_receipt()
+        self.send_capture()
+        for order in ("<", ">"):
+            for changed, expected in (
+                ((2, 0, 0, 0, 65535, 1), "version"),
+                ((2, 4, 0, 0, 0, 1), "format"),
+                ((2, 4, 0, 0, 65535, 0), "format"),
+            ):
+                self.capture.write_bytes(
+                    struct.pack(order + "IHHIIII", 0xA1B2C3D4, *changed)
+                )
+                with (
+                    self.subTest(order=order, changed=changed),
+                    self.assertRaisesRegex(ValueError, expected),
+                ):
+                    self.capture_receipt(disk)
+        self.capture.write_bytes(
+            struct.pack(">IHHIIII", 0xA1B2C3D4, 2, 4, 0, 0, 65535, 1)
+        )
+        self.assertEqual(self.capture_receipt(disk)["guest_fd"], 16)
+
+    def test_final_executable_uid_and_namespace_are_rechecked(self) -> None:
+        hashes = iter((self.digest, "0" * 64))
+        with (
+            patch.object(ready, "exe_hash", side_effect=lambda pid: next(hashes)),
+            self.assertRaisesRegex(ValueError, "executable hash differs"),
+        ):
+            self.disk_receipt()
+
+        original_stat = pathlib.Path.stat
+        checks = 0
+
+        def changed_uid(
+            path: pathlib.Path, *, follow_symlinks: bool = True
+        ) -> os.stat_result:
+            nonlocal checks
+            if str(path) == f"/proc/{self.child.pid}":
+                checks += 1
+                if checks == 2:
+                    original = original_stat(path)
+                    return cast(
+                        os.stat_result, SimpleNamespace(st_uid=original.st_uid + 1)
+                    )
+            return original_stat(path, follow_symlinks=follow_symlinks)
+
+        with (
+            patch.object(pathlib.Path, "stat", changed_uid),
+            self.assertRaisesRegex(ValueError, "emulator UID differs"),
+        ):
+            self.disk_receipt()
+
+        self.namespace.stop()
+        host_ns = ready.netns_inode(os.getpid())
+        child_calls = 0
+
+        def changed_ns(pid: int) -> int:
+            nonlocal child_calls
+            if pid == self.child.pid:
+                child_calls += 1
+                return host_ns + child_calls
+            return host_ns
+
+        with (
+            patch.object(ready, "netns_inode", side_effect=changed_ns),
+            self.assertRaisesRegex(ValueError, "process identity changed"),
+        ):
+            self.disk_receipt()
+
+    def test_exclusive_output_and_fixed_deadline(self) -> None:
+        disk = self.disk_receipt()
+        output = pathlib.Path(self.temp.name) / "disk.json"
+        ready.write_exclusive(output, disk)
+        self.assertEqual(json.loads(output.read_text()), disk)
+        with self.assertRaises(FileExistsError):
+            ready.write_exclusive(output, disk)
+        with self.assertRaisesRegex(ValueError, "deadline passed"):
+            ready.check(
+                "disk",
+                self.disk,
+                self.inode,
+                self.digest,
+                os.getuid(),
+                dt.datetime.now(dt.timezone.utc) - dt.timedelta(seconds=1),
+            )
+
+
+if __name__ == "__main__":
+    unittest.main()

@@ -1,0 +1,35 @@
+{
+  "scope": "Two matched-reference ordinary uploads and eight reviewed download cases with paired host/guest TCP streams, selected metadata and native HFS+ fork observations",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "runtime": "runtime.json",
+  "verification": "verification.json",
+  "primary_catalogue": "transcripts/",
+  "initial_probes": "initial-eof-hypotheses/; five30-second EOF timeouts and three completed probes preserved",
+  "packet_provenance": "Same complete host/guest snapshots as native-framing-01, continued guest PID774378 and prelaunch identity as native-transport-01; guest observer snapshot includes earlier unrelated streams, verifier scopes lifetimes",
+  "filesystem": "native-files/;13-byteDATA and317-byteMACR match native catalogue11210; empty catalogue11211 reports no resource attribute, retained extraction error and native zeroMACR download distinguish absence from successful extraction",
+  "unread_control_suffix": "download-empty has59 bytes of301 beyond recorded socket prefix; complete bytes pinned in verifier and both packet views, report unchanged",
+  "tool_identity": {
+    "version": "SleuthKit4.15.0",
+    "icat_sha256": "ab73038eda8ed52697c5d94874bbc0a19285184253e68a78f6e4ab347a042bba",
+    "istat_sha256": "f87c0cee5e263c55440c19fb3e478b80e33dcbae223388b5f83913ceb5fc4499",
+    "ifind_sha256": "46f8c456aa0029896aa102406f5a9caf64a3e59a6dc141780e50130b964aa0e1"
+  },
+  "observations": [
+    "Raw5501 and control5500 TRTPv1sub3 handover both support matched-reference uploads and downloads",
+    "Upload serverEOF differs from ordinary download advertised-count completion with open connection",
+    "Raw download full read plus3-second quiet then owner214 ACK and dataEOF",
+    "INFO embedded name does not rename; selected type/creator/comment survive, flags8100 masked tozero and transmittedzero dates not restored",
+    "Preview is rawDATA; empty preview has sizezero with no reference; selectors1/2 reject ordinary reference, selector7 uses ordinary stream"
+  ],
+  "limitations": [
+    "Read-only live image inspection is not crash/restart durability",
+    "No resumed/folder/queued/banner/large-size conformance",
+    "Three-second quiet and initial30-second timeout are bounded observations",
+    "Known local fixture accounts and hostwallclock timing; no identified historical client exchange"
+  ],
+  "closure_candidates": [
+    "GAP-009",
+    "GAP-056"
+  ],
+  "source_versions": "sources/; exact report driver hashes match retained protocol_capture source versions"
+}

@@ -1,0 +1,1 @@
+timeout --signal=INT --kill-after=15s 600s flock --exclusive --nonblock state/delegation/oracle.lock tools/ghidramcp/.venv/bin/python state/delegation/account111-alias-oracle-01/capture.py

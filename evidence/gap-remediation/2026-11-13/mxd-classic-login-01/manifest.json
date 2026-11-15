@@ -1,0 +1,12 @@
+{
+  "packet": "A22 failed one-attempt Classic to mxd login",
+  "captured_at_utc": "2026-11-13",
+  "classification": "DERIVED_REDACTED_WITNESS_NOT_A_PCAP",
+  "source_runtime": "ignored canonical mothra/state/native-sessions/mxd-peer-a22/",
+  "raw_source_status": "three credential-bearing PCAPs and mode-0600 seed TOML remain ignored and are not redistributed",
+  "published": ["redacted-witness.json", "actions-redacted.txt", "connect-ready-masked.png", "failed-login-alert.png", "client-quit.png", "c19-readiness.json", "c19-terminal.json"],
+  "review_limit": "public metadata and screenshots verify only recorded metadata; complemented password prefix and host/guest packet parity require private raw replay",
+  "attempts": 1,
+  "login_result": "status 1 empty; no 161/162/300/212 reached",
+  "cleanup": "Classic quit, owned tcpdump stopped with zero kernel drops; root stopped C19 daemon and verified listener gone"
+}

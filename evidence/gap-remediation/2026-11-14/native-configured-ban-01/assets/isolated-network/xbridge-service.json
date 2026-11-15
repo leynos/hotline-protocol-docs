@@ -1,0 +1,23 @@
+{
+  "unit": "mothra-xbridge-f7855ef4141c",
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=mothra-xbridge-f7855ef4141c",
+    "--collect",
+    "--service-type=exec",
+    "--property=WorkingDirectory=/data/leynos/Projects/mothra",
+    "--property=StandardOutput=append:/data/leynos/Projects/mothra/state/mac-runtime/native-configured-apply-01/isolated-network/xbridge-service.log",
+    "--property=StandardError=append:/data/leynos/Projects/mothra/state/mac-runtime/native-configured-apply-01/isolated-network/xbridge-service.log",
+    "--property=Restart=no",
+    "--",
+    "/usr/sbin/python",
+    "/data/leynos/Projects/mothra/scripts/mac_network_isolation.py",
+    "host-x-bridge",
+    "--socket",
+    "/data/leynos/Projects/mothra/state/mac-runtime/native-configured-apply-01/isolated-network/x-bridge.sock",
+    "--display",
+    ":114"
+  ],
+  "readiness": "Check systemctl --user show and the actual display/listener; no automatic restart"
+}

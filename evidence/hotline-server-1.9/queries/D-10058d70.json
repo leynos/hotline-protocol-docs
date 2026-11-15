@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T12:14:50.462838+00:00",
+  "query": {
+    "id": "D-10058d70",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10058d70"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_10058d70\",\n    \"address\": \"10058d70\"\n  },\n  \"code\": \"\\nundefined4 FUN_10058d70(int param_1)\\n\\n{\\n  int iVar1;\\n  \\n  iVar1 = *(int *)(param_1 + 0xc) + 1;\\n  *(int *)(param_1 + 0xc) = iVar1;\\n  if (iVar1 == 0) {\\n    *(undefined4 *)(param_1 + 0xc) = 1;\\n  }\\n  return *(undefined4 *)(param_1 + 0xc);\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_10058d70",
+        "address": "10058d70"
+      },
+      "code": "\nundefined4 FUN_10058d70(int param_1)\n\n{\n  int iVar1;\n  \n  iVar1 = *(int *)(param_1 + 0xc) + 1;\n  *(int *)(param_1 + 0xc) = iVar1;\n  if (iVar1 == 0) {\n    *(undefined4 *)(param_1 + 0xc) = 1;\n  }\n  return *(undefined4 *)(param_1 + 0xc);\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

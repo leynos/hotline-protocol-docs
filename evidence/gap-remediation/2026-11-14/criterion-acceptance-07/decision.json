@@ -1,0 +1,102 @@
+{
+  "accepted_at_utc": "2026-11-14T09:41:35.889160+00:00",
+  "id": "GAP-046",
+  "previous_status": "Investigating",
+  "status": "Resolved",
+  "original_question": "What are the aggregate 101 format, append/replace rules for 103, post size limits, persistence and 102 update ordering/recipients?",
+  "original_closure_criteria": "Document board serialization and mutation semantics with multi-post, empty, boundary-size and update-recipient fixtures.",
+  "decision": "Met for documented legacy-board serialization and mutation rules with native empty, multi-post, size-boundary and recipient fixtures. The complete stopped 65629-byte board matches all twelve captured update segments; read101 clips to the newest65535 bytes rather than truncating storage. Same-sender ACK precedes its own102; no global cross-socket order, universal waiting-recipient predicate, crash durability, timezone/codec policy or spam threshold is inferred. The control-only fixture does not exercise full A7/FILP transfer health. Broader failure/durability/date/encoding/rate questions retain their own unchanged criteria.",
+  "clauses": {
+    "serialization": "Live empty101 omission; exact header/rawbody/60-byte separator;102newsegment;101newest-firstaggregateprefix.",
+    "mutation": "Twelve successful unique posts includingexplicit0; rejection8193 doesnotaddsegment; normalfilewriterthenACK source plusactualstoredbyteproof.",
+    "multi_post": "Every selected101 equals reverseconcatenation ofcaptured102segments, clippedonlyat65535.",
+    "size_boundaries": "8191/8192accepted;8193rejected; dynamic7155filler reaches65535 thenonebyte+overhead growsstoredboard65629.",
+    "recipients": "Sender andeligibleonlineadminreceive12; zeroACLreaderror/no102; waitingno102 onlyfiniteobservation.",
+    "ordering_storage": "All12same-senderACKbeforeown102; sixpairedflows byteexactincltails; fullstoppedboard65629 SHAa676c634...;fiveoriginalforksunchanged."
+  },
+  "parent_replay": {
+    "board_bytes": 65629,
+    "board_sha256": "a676c6349bb500411c0e0d73f29763a092cc1d9471809636c93433c5b430c4e0",
+    "corpus": "/data/leynos/Projects/mothra/evidence/gap-remediation/2026-11-14/native-board-01",
+    "flows": [
+      {
+        "connection": "main",
+        "guest_packets": 28,
+        "namespace_packets": 27,
+        "port": 44446,
+        "received": 2759,
+        "report": "readiness",
+        "sent": 231
+      },
+      {
+        "connection": "sender",
+        "guest_packets": 644,
+        "namespace_packets": 576,
+        "port": 52838,
+        "received": 322443,
+        "report": "coordinator",
+        "sent": 73302
+      },
+      {
+        "connection": "eligible",
+        "guest_packets": 151,
+        "namespace_packets": 147,
+        "port": 52852,
+        "received": 66434,
+        "report": "coordinator",
+        "sent": 148
+      },
+      {
+        "connection": "denied",
+        "guest_packets": 41,
+        "namespace_packets": 36,
+        "port": 52854,
+        "received": 576,
+        "report": "coordinator",
+        "sent": 177
+      },
+      {
+        "connection": "waiting",
+        "guest_packets": 16,
+        "namespace_packets": 15,
+        "port": 46468,
+        "received": 310,
+        "report": "coordinator",
+        "sent": 77
+      },
+      {
+        "connection": "main",
+        "guest_packets": 35,
+        "namespace_packets": 29,
+        "port": 47550,
+        "received": 2759,
+        "report": "postflight",
+        "sent": 231
+      }
+    ],
+    "full_file_baseline": "not_exercised",
+    "status": "PASS"
+  },
+  "tests": {
+    "native_only": 549,
+    "receipt_helper": 7,
+    "board_corpus": 19,
+    "liveness_corpus": 13,
+    "scope": "Focusedcorpus tests included in native_only; helper separate."
+  },
+  "integration_regression": {
+    "initial_native_suite": "3failures/1error causedfrozenimportmoduleleak",
+    "fix_commit": "b9450a540cd85a95343ba4206d005f844d0f87e1",
+    "fixed_native_only": "PASS549; no native rerun or evidence alteration"
+  },
+  "not_proven": [
+    "globalcrosssocketorder",
+    "universalwaitingrecipientpredicate",
+    "crash/powerlossatomicity",
+    "timezone/fullcodec",
+    "spamthreshold",
+    "orderlyMacOSshutdown",
+    "fullA7/FILPhealth"
+  ],
+  "mxd_validation": "on hold"
+}

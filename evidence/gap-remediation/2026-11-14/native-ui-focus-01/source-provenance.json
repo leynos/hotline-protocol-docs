@@ -1,0 +1,237 @@
+{
+  "schema": "native-ui-focus-01",
+  "captured_utc": "2026-11-14T01:31:02.812138+00:00",
+  "sources": {
+    "boot/disk-repair-ack.json": {
+      "source": "state/native-sessions/native-eventlab-c49/disk-repair-ack.json",
+      "bytes": 182,
+      "sha256": "d6c3da43d4dabfa61006a73ab4a8ce6926083e652c9bd49bc491228e51a2a93f"
+    },
+    "boot/display-launch.json": {
+      "source": "state/native-sessions/native-eventlab-c49/display-launch.json",
+      "bytes": 447,
+      "sha256": "82797cb81effa633c8f8337be1c9d225c7364b1d908fac1b83c2a5129054f435"
+    },
+    "boot/host-launch.json": {
+      "source": "state/native-sessions/native-eventlab-c49/host-launch.json",
+      "bytes": 912,
+      "sha256": "4eb90ff3a7b545597563450d2bada9dc046672f5a9bc1354784602dec72c1f18"
+    },
+    "boot/host-ready.json": {
+      "source": "state/native-sessions/native-eventlab-c49/host-ready.json",
+      "bytes": 251,
+      "sha256": "5f91aa654fc87104e49f613037c2f7c2365f17bff1ecae2b6950e5798fc3bb6f"
+    },
+    "boot/host-recorder.log": {
+      "source": "state/native-sessions/native-eventlab-c49/host-recorder.log",
+      "bytes": 185,
+      "sha256": "8f06f06beae888f7df1da46ac7411f3b8b07ca22386fa856138ac857345637a6"
+    },
+    "boot/identity.json": {
+      "source": "state/native-sessions/native-eventlab-c49/identity.json",
+      "bytes": 1453,
+      "sha256": "267b6429e743fda7b6ae30b46538b214347ae215b56f37fa07429d6ebbd421d4"
+    },
+    "boot/lab-guest.pcap": {
+      "source": "state/native-sessions/native-eventlab-c49/lab-guest.pcap",
+      "bytes": 115959,
+      "sha256": "89c23d53957aa3659f41f2680b43cf18c06a065974153c798f813bfbb0eb18d8"
+    },
+    "boot/lab-launch.json": {
+      "source": "state/native-sessions/native-eventlab-c49/lab-launch.json",
+      "bytes": 884,
+      "sha256": "1c789569d41a42e77f15136958a1430f1cc19a101b7e0b68726d4bbcd1313bb5"
+    },
+    "boot/lab-namespace.pcap": {
+      "source": "state/native-sessions/native-eventlab-c49/lab-namespace.pcap",
+      "bytes": 116545,
+      "sha256": "418d4fe265a233c92633f08e51be84a51545eb6a0e8eeb94cb8cf17b87192386"
+    },
+    "boot/ns-launch.json": {
+      "source": "state/native-sessions/native-eventlab-c49/ns-launch.json",
+      "bytes": 1028,
+      "sha256": "9401f975a0c24ca9131d134a88391a634d64d9462c1e3c085795ea3236eacf75"
+    },
+    "boot/ns-ready.json": {
+      "source": "state/native-sessions/native-eventlab-c49/ns-ready.json",
+      "bytes": 249,
+      "sha256": "a783343413433ac5350a3563a21c8fa3726aed5603e1f13fb822883037e6e042"
+    },
+    "boot/ns-recorder.log": {
+      "source": "state/native-sessions/native-eventlab-c49/ns-recorder.log",
+      "bytes": 189,
+      "sha256": "7db82c367eb4d64ec0dca9904f5e920a2d8aa7e7c482ffa0145d97ea156eeb83"
+    },
+    "boot/primary-host.pcap": {
+      "source": "state/native-sessions/native-eventlab-c49/primary-host.pcap",
+      "bytes": 24,
+      "sha256": "704e5e5b3234433c01fcfd1b20a306e77e985038120492dc53965c3edd38a4ea"
+    },
+    "boot/readiness.json": {
+      "source": "state/native-sessions/native-eventlab-c49/readiness.json",
+      "bytes": 4534,
+      "sha256": "33d729face0a50fa0d88e41bfa9de8128401003300d987f52657e0db4c40ed0b"
+    },
+    "boot/server-launch-ui.json": {
+      "source": "state/native-sessions/native-eventlab-c49/server-launch-ui.json",
+      "bytes": 272,
+      "sha256": "1fbbfcbbaeaf01d6c7c62e8ab7c352a9bb3ff4e997d4eb3f54033c30dd2d4322"
+    },
+    "boot/server-ready-initial.png": {
+      "source": "state/native-sessions/native-eventlab-c49/server-ready-initial.png",
+      "bytes": 706771,
+      "sha256": "b626d4179dbab3f7da5ae0954f9115b40ac54acdb42d1d974d6e4846082152a9"
+    },
+    "boot/sound-dialog-ack.json": {
+      "source": "state/native-sessions/native-eventlab-c49/sound-dialog-ack.json",
+      "bytes": 135,
+      "sha256": "8a5cdae944088981f2378862c84cbc166a25ddd52cb26506eae9cc7b4351148f"
+    },
+    "experiment/a7-as-run-plan.json": {
+      "source": "state/native-sessions/native-eventlab-c50/a7-as-run-plan.json",
+      "bytes": 7400,
+      "sha256": "6ab014ffab83c78bba22e525f5e98024d29bf5dbd9a216373e1cf5d19d0bde4a"
+    },
+    "experiment/a7-launch.json": {
+      "source": "state/native-sessions/native-eventlab-c50/a7-launch.json",
+      "bytes": 1328,
+      "sha256": "2a7adfa9dbee4bf086e71c01152b5856d0eab1923e51200e8ca0dbbdae2af361"
+    },
+    "experiment/a7-main.json": {
+      "source": "state/native-sessions/native-eventlab-c50/a7-main.json",
+      "bytes": 148,
+      "sha256": "1055c9bc1875509abf15fbce1cac38e699013afb79a2aa2445135231e666b6ba"
+    },
+    "experiment/a7-original-plan.json": {
+      "source": "state/native-sessions/native-eventlab-c50/a7-original-plan.json",
+      "bytes": 9487,
+      "sha256": "5d0aa3dccf65fc6523678aa729c9ace72cd6caffbef768b7f5bf949e6568b43e"
+    },
+    "experiment/a7.log": {
+      "source": "state/native-sessions/native-eventlab-c50/a7.log",
+      "bytes": 38,
+      "sha256": "0af9ee4db7e61e550eee28c52ed2c530dd1485b91c570c228a4ff877474c1fa4"
+    },
+    "experiment/capture/checksums.sha256": {
+      "source": "state/native-sessions/native-eventlab-c50/a7-capture/checksums.sha256",
+      "bytes": 154,
+      "sha256": "783a84a153e7f4f8df368348b240751297004cdedcb565c20c53cd1f3ee17c88"
+    },
+    "experiment/capture/plan.json": {
+      "source": "state/native-sessions/native-eventlab-c50/a7-capture/plan.json",
+      "bytes": 7400,
+      "sha256": "6ab014ffab83c78bba22e525f5e98024d29bf5dbd9a216373e1cf5d19d0bde4a"
+    },
+    "experiment/capture/report.json": {
+      "source": "state/native-sessions/native-eventlab-c50/a7-capture/report.json",
+      "bytes": 437621,
+      "sha256": "8c88a4c4fc1f91e651bff682b0d1dbab94dd37166e2fb21a8b6c6508c2c96aab"
+    },
+    "experiment/cleanup-signals.json": {
+      "source": "state/native-sessions/native-eventlab-c50/cleanup-signals.json",
+      "bytes": 185,
+      "sha256": "90c41fdd302ea2912d9650edc6ce7945ffac49ba408b0eac7b33fdc73c6599e1"
+    },
+    "experiment/focus-event/after.png": {
+      "source": "state/native-sessions/native-eventlab-c50/focus-event/after.png",
+      "bytes": 707833,
+      "sha256": "d1420682946931b157cdad6fd863c1d02185360b5cfe492cf627a1170f435082"
+    },
+    "experiment/focus-event/before.png": {
+      "source": "state/native-sessions/native-eventlab-c50/focus-event/before.png",
+      "bytes": 709229,
+      "sha256": "5fa2bb6182170a86375653786f705c020f7dc09d1d2bff8c9095ec2c5de74b9d"
+    },
+    "experiment/focus-event/result.json": {
+      "source": "state/native-sessions/native-eventlab-c50/focus-event/result.json",
+      "bytes": 1408,
+      "sha256": "d9836df4b59286d1f26978d2d2e07f8e42e5c5e25235b8c3ca8e0c2f2b49c1ae"
+    },
+    "experiment/observer-launch.json": {
+      "source": "state/native-sessions/native-eventlab-c50/observer-launch.json",
+      "bytes": 1240,
+      "sha256": "acd7e2c5a065e0ab287d0ba3ba5b1eac0ff32e9fce0c000014eebd180f1f7e7e"
+    },
+    "experiment/observer.log": {
+      "source": "state/native-sessions/native-eventlab-c50/observer.log",
+      "bytes": 288,
+      "sha256": "45c299db6172989c78570e3e1d3bcd7f3129c0f19f3c120fb6eb5fea2807df27"
+    },
+    "experiment/outcome.json": {
+      "source": "state/native-sessions/native-eventlab-c50/outcome.json",
+      "bytes": 550,
+      "sha256": "e8e4347b9b1f5e5e9003f184792e5dad3333dbaa4e318f8bcdf0c1b8dcf426d2"
+    },
+    "experiment/pre-measurement.png": {
+      "source": "state/native-sessions/native-eventlab-c50/pre-measurement.png",
+      "bytes": 706994,
+      "sha256": "690f92d4a0e4dcbfeea1b62f024aa59b686af88cef4344308429cff0d57a9f90"
+    },
+    "experiment/preflight.json": {
+      "source": "state/native-sessions/native-eventlab-c50/preflight.json",
+      "bytes": 331,
+      "sha256": "0137eb74bb74946b00ea43cdd1035dd288d5cb893c010874fd69c9405ebf5d17"
+    },
+    "experiment/terminal.json": {
+      "source": "state/native-sessions/native-eventlab-c50/terminal.json",
+      "bytes": 3107,
+      "sha256": "abb7adb6db8c05b883045e2e3a98cd0a34dbd2ddfde6fad6402f1077f6659189"
+    },
+    "experiment/unit-stops.json": {
+      "source": "state/native-sessions/native-eventlab-c50/unit-stops.json",
+      "bytes": 1041,
+      "sha256": "96ab3b419c84cb65283a05dafd673316ac2c9a0d06896dddceb01a7e77e150da"
+    },
+    "preparation/event-probe-revision.json": {
+      "source": "state/delegation/c48-eventlab/event-probe-revision.json",
+      "bytes": 518,
+      "sha256": "e6e9507f31100d0f9ad5d89f4309b7c9c3cdc368187a464e1109468cd5d70a38"
+    },
+    "preparation/observer-as-prepared.py.txt": {
+      "source": "state/delegation/c48-eventlab/event_probe.py.as-prepared.txt",
+      "bytes": 8055,
+      "sha256": "deec49121248489d2eed9a2a2c63cdbc2422d3026147bb3cbce74b6fbe76018a"
+    },
+    "preparation/observer-corrected.py.txt": {
+      "source": "state/delegation/c48-eventlab/event_probe.py",
+      "bytes": 8052,
+      "sha256": "4a39d24fbc68f492558deacb4794829d145e7cc100bab0acb8945f5497d4b3d4"
+    },
+    "preparation/plan.md": {
+      "source": "state/delegation/c48-eventlab/plan.md",
+      "bytes": 5277,
+      "sha256": "ec9a5e5e60aef8369418b3dec11a24db2152bb3e51317952fd86964340468929"
+    },
+    "preparation/postflight.json": {
+      "source": "state/delegation/c48-eventlab/postflight.json",
+      "bytes": 2229,
+      "sha256": "a4637ee35dc374bbbc021e9a94a3c674e97b54bf354809635bb2d70349e87a7a"
+    },
+    "preparation/preflight.json": {
+      "source": "state/delegation/c48-eventlab/preflight.json",
+      "bytes": 939,
+      "sha256": "409f78b457f1d341f4f6bacf2e84e14e14dfda6c79a77ac006cdee0e66c1be96"
+    },
+    "preparation/prepare-run.json": {
+      "source": "state/delegation/c48-eventlab/prepare-run.json",
+      "bytes": 542,
+      "sha256": "d2218e33f470fad1f80e67c7eee617d1a55eebcc2b12e8890e2e967e1ab6c7c7"
+    },
+    "runtime/assets.json": {
+      "source": "state/mac-runtime/native-eventlab-one-01/assets.json",
+      "bytes": 387,
+      "sha256": "d335ff16db3e4a43cfae089c9580d19e4664efa844e3ca433e9812ecd2e68020"
+    },
+    "runtime/build-manifest.json": {
+      "source": "state/sheepshaver-build/manifest.json",
+      "bytes": 408,
+      "sha256": "b6ccfeb13ba835807998336da60ad3e3752fb2fd019d702cb0c6cd7abe6a66f4"
+    },
+    "runtime/prefs.txt": {
+      "source": "state/mac-runtime/native-eventlab-one-01/machine.sheepvm/prefs",
+      "bytes": 534,
+      "sha256": "e5da5ee812211fd151311565c675dbc857c5b86b7e9a29c25b8fdba5c36ccfba"
+    }
+  },
+  "note": "Observer .py files are preserved as text and must not be executed by offline validation. ROM, disks, emulator, Ghidra project and live RAM are omitted."
+}

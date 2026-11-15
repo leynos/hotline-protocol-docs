@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "case": "immediate-probe",
+  "profile": "control-only",
+  "full_file_baseline": "not_exercised",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "started_at_utc": "2026-11-14T05:55:01.698459+00:00",
+  "recorded_at_utc": "2026-11-14T05:55:01.754894+00:00",
+  "completed_actions": 6,
+  "error": "",
+  "variables": {},
+  "events": [
+    {
+      "action": 0,
+      "connection": "main",
+      "event": "connect",
+      "elapsed_ns": 199723,
+      "hex": "",
+      "local_address": [
+        "127.0.0.1",
+        37082
+      ],
+      "peer_address": [
+        "127.0.0.1",
+        15800
+      ]
+    },
+    {
+      "action": 1,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 245087,
+      "hex": "54525450484f544c00010002"
+    },
+    {
+      "action": 2,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 40518933,
+      "hex": "5452545000000000"
+    },
+    {
+      "action": 3,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 40677268,
+      "hex": "0000006b000000010000000000000042000000420005006a00109a878f968d86d2859a8d90d28f9e8c8c00a0000200be0069000d92d29a878f968d86d2859a8d900066000b457870697279205a65726f006800020001"
+    },
+    {
+      "action": 4,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 56281209,
+      "hex": "0001000000000001000000010000003000000030"
+    },
+    {
+      "action": 4,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 56317988,
+      "hex": "00010064002a596f75206172652074656d706f726172696c792062616e6e6564206f6e2074686973207365727665722e"
+    },
+    {
+      "action": 5,
+      "connection": "main",
+      "event": "close",
+      "elapsed_ns": 56432752,
+      "hex": ""
+    }
+  ],
+  "frames": [
+    {
+      "action": 4,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 1,
+      "error": 1,
+      "total_size": 48,
+      "data_size": 48,
+      "payload_hex": "00010064002a596f75206172652074656d706f726172696c792062616e6e6564206f6e2074686973207365727665722e",
+      "fields": [
+        {
+          "id": 100,
+          "hex": "596f75206172652074656d706f726172696c792062616e6e6564206f6e2074686973207365727665722e"
+        }
+      ],
+      "declared_field_count": 1,
+      "unconsumed_hex": ""
+    }
+  ],
+  "streams": {
+    "main": {
+      "sent_hex": "54525450484f544c000100020000006b000000010000000000000042000000420005006a00109a878f968d86d2859a8d90d28f9e8c8c00a0000200be0069000d92d29a878f968d86d2859a8d900066000b457870697279205a65726f006800020001",
+      "received_hex": "5452545000000000000100000000000100000001000000300000003000010064002a596f75206172652074656d706f726172696c792062616e6e6564206f6e2074686973207365727665722e"
+    }
+  }
+}

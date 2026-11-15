@@ -1,0 +1,166 @@
+{
+  "utc": "2026-11-14T11:47:38.299156+00:00",
+  "image_inode": 1687370702,
+  "fuser_exit": 1,
+  "commands": [
+    {
+      "label": "fls-full",
+      "argv": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/fls",
+        "-r",
+        "-p",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-rate304-03/working.dsk"
+      ],
+      "exit": 0,
+      "stdout_sha256": "1a3aedbdcee83a17b21574ebb31f809aa745873b1dbfa342f354b5f6f671b7fb",
+      "stdout_bytes": 426497
+    },
+    {
+      "label": "fls-allocated",
+      "argv": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/fls",
+        "-u",
+        "-r",
+        "-p",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-rate304-03/working.dsk"
+      ],
+      "exit": 0,
+      "stdout_sha256": "1a3aedbdcee83a17b21574ebb31f809aa745873b1dbfa342f354b5f6f671b7fb",
+      "stdout_bytes": 426497
+    },
+    {
+      "label": "icat-admin",
+      "argv": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/icat",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-rate304-03/working.dsk",
+        "11193"
+      ],
+      "exit": 0,
+      "stdout_sha256": "26612ad46cd91b90050feacf517d32a9e56d4a4aa92fbe6618eaf6e9e5ac60a3",
+      "stdout_bytes": 734
+    },
+    {
+      "label": "icat-fixture-low",
+      "argv": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/icat",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-rate304-03/working.dsk",
+        "11201"
+      ],
+      "exit": 0,
+      "stdout_sha256": "fce81359d0efcfc6c2dbf42852db66b0fb7a404b2889162b8f8fad81361ce2d5",
+      "stdout_bytes": 734
+    },
+    {
+      "label": "icat-Prefs",
+      "argv": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/icat",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-rate304-03/working.dsk",
+        "11202"
+      ],
+      "exit": 0,
+      "stdout_sha256": "4ed2b3e14e6e8a6cf246d16f7d1b98f0b91d1b09f6ab5497de1056a6f617d196",
+      "stdout_bytes": 175
+    },
+    {
+      "label": "icat-server-data",
+      "argv": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/icat",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-rate304-03/working.dsk",
+        "11183-4352-0"
+      ],
+      "exit": 0,
+      "stdout_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+      "stdout_bytes": 616821
+    },
+    {
+      "label": "icat-server-rsrc",
+      "argv": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/icat",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-rate304-03/working.dsk",
+        "11183-4353-1"
+      ],
+      "exit": 0,
+      "stdout_sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12",
+      "stdout_bytes": 38460
+    },
+    {
+      "label": "icat-board",
+      "argv": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/icat",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-rate304-03/working.dsk",
+        "11191"
+      ],
+      "exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0
+    },
+    {
+      "label": "istat-board",
+      "argv": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/istat",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-rate304-03/working.dsk",
+        "11191"
+      ],
+      "exit": 0,
+      "stdout_sha256": "a920fecd49fdd10ea6b3d01d6786edd743e62a1b7d92d7d96d25952780efbdf2",
+      "stdout_bytes": 615
+    }
+  ],
+  "forks": {
+    "admin": {
+      "catalog": "11193",
+      "bytes": 734,
+      "sha256": "26612ad46cd91b90050feacf517d32a9e56d4a4aa92fbe6618eaf6e9e5ac60a3"
+    },
+    "fixture-low": {
+      "catalog": "11201",
+      "bytes": 734,
+      "sha256": "fce81359d0efcfc6c2dbf42852db66b0fb7a404b2889162b8f8fad81361ce2d5"
+    },
+    "Prefs": {
+      "catalog": "11202",
+      "bytes": 175,
+      "sha256": "4ed2b3e14e6e8a6cf246d16f7d1b98f0b91d1b09f6ab5497de1056a6f617d196"
+    },
+    "server-data": {
+      "catalog": "11183-4352-0",
+      "bytes": 616821,
+      "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+    },
+    "server-rsrc": {
+      "catalog": "11183-4353-1",
+      "bytes": 38460,
+      "sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12"
+    },
+    "board": {
+      "catalog": "11191",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "full_lines": 5504,
+  "allocated_lines": 5504,
+  "active_users": [
+    "-/r 11193:\tHotline19/Users/admin/UserData",
+    "-/r 11201:\tHotline19/Users/fixture-low/UserData"
+  ],
+  "banned_entries": []
+}

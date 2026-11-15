@@ -1,0 +1,65 @@
+# A192 `state/mac-runtime` metadata and holder audit
+
+Read-only census at the timestamp in `metadata.json`. The script uses
+`lstat`/`st_blocks`, parses small `assets.json` receipts, and reads root
+`/proc` process links/maps. It does not read disk or ROM file bytes.
+`metadata.json` records path, device, inode, size, block count, mode,
+owner, link count and timestamps for all 1,286 files in 26 runtime
+directories, plus process PID/start/FD/cwd/exe/mapping links.
+
+The tree is 391 GiB apparent and 378 GiB by summed file blocks. These
+block counts count shared reflink extents once per file and therefore do
+**not** measure unique reclaimable physical bytes. `/data` had
+7,217,184,768 bytes free during the scan. C182 is checking stopped base
+extent sharing without reading images; no deletion size is asserted here.
+
+## Live or otherwise held runtime directories
+
+| Directory | Actual image owner and identity | Other holders |
+| --- | --- | --- |
+| `hotline22-recovery` | `working.dsk`, PID 1099659, UID 1000, start 767842, FD6 read/write | service/log/lock processes 1099211, 1099299 |
+| `hotline-client-isolated-01` | `working.dsk`, PID 1012834, UID 1000, start 2357813, FD6 read/write | bridge/xbridge/dbridge and service processes |
+| `hotline-client-candidate-01` | `working.dsk`, PID 3696275, UID 1000, start 1555805, FD6 read/write | service/log/lock processes 3696214, 3696272 |
+| `native-rate304-03` | no image FD in the scan | bridge/xbridge log FDs, PIDs 3124795/3124847 |
+
+All four directories remain protected. The first two actual emulators
+are the original primary/client whose start ticks were already pinned;
+the third is an additional live client candidate. `native-rate304-03`
+has no image owner but still has process references to its tree.
+
+## FD-free image directories at this one-time scan
+
+The following stopped experiment directories had no cwd, exe, FD or
+mapping references in the root `/proc` census. Each has distinct
+`base.dsk` and `working.dsk` inodes, a ROM, and an `assets.json` receipt;
+exact identities and blocks are in `metadata.json`:
+
+- `native-alias-live-01`, `native-alias-live-02`, `native-alias-live-03`,
+  `native-alias-live-04`;
+- `native-ban-expiry-01`, `native-banlab-one-01`,
+  `native-banlab-two-01`, `native-banlab-three-01`;
+- `native-board-01`, `native-configured-apply-01`,
+  `native-eventlab-one-01`, `native-liveness-01`;
+- `native-path-fields-01`, `native-rate304-01`,
+  `native-rate304-02`, `native-roster-overlap-01`.
+
+These are **stopped candidates for further retention/provenance review**,
+not deletion approvals. Their working images may contain unique stopped
+guest state. `native-alias-live-01..03` base files each report about
+3.34 GiB of file blocks against 7.81 GiB logical size, consistent with
+sparse/reflink storage but not proof of unique physical reclaim.
+
+`hotline19`, `hotline20`, `hotline21` and `install9` are also FD-free,
+but form the historical installation/source chain in their receipts.
+Preserve their bases and working images pending a separate provenance
+decision. The current canonical experiment donor is the FD-free
+`native-board-02/base.dsk` (inode 1678261666) and `rom` (inode
+1678261665), both protected; `native-board-02/working.dsk` is a distinct
+stopped image. Many later `assets.json` records name that base and ROM
+as sources. Removing a named source could break repeatable recipes even
+where reflink sharing would preserve clone bytes.
+
+No file in `state/mac-runtime` was modified or removed. The holder
+census is a point-in-time observation; recheck root `/proc`, mount,
+source receipts and exact inode identity immediately before any future
+cleanup action.

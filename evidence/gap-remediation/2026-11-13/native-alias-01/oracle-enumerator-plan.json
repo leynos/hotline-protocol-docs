@@ -1,0 +1,30 @@
+[
+  {
+    "id": "AL-D-100055a0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100055a0"
+    }
+  },
+  {
+    "id": "AL-D-1002cb20",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002cb20"
+    }
+  },
+  {
+    "id": "AL-D-1002ce00",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002ce00"
+    }
+  },
+  {
+    "id": "AL-D-1002f310",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002f310"
+    }
+  }
+]

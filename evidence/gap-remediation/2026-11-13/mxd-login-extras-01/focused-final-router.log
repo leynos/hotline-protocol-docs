@@ -1,0 +1,22 @@
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`
+   Compiling mxd v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd)
+   Compiling test-util v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/test-util)
+    Finished `test` profile [optimized] target(s) in 28.10s
+     Running unittests src/lib.rs (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/build/mxd/29c43d9412d22c7d/out/mxd-29c43d9412d22c7d)
+
+running 12 tests
+test wireframe::routes::tests::error_cases::direct_ack_parse_error_uses_type_zero_and_correlation ... ok
+test wireframe::routes::tests::direct_ack_cases::direct_ack_login_extras_ignore_reported_version::case_4 ... ok
+test wireframe::routes::tests::direct_ack_cases::direct_ack_configured_name_obeys_clear_and_xor_paths::case_3 ... ok
+test wireframe::routes::tests::direct_ack_cases::direct_ack_nonlogin_uses_type_zero_and_correlation ... ok
+test wireframe::routes::tests::direct_ack_cases::direct_ack_configured_name_obeys_clear_and_xor_paths::case_1 ... ok
+test wireframe::routes::tests::direct_ack_cases::direct_ack_configured_name_obeys_clear_and_xor_paths::case_2 ... ok
+test wireframe::routes::tests::direct_ack_cases::direct_ack_login_extras_ignore_reported_version::case_2 ... ok
+test wireframe::routes::tests::direct_ack_cases::direct_ack_login_success_uses_type_zero_and_correlation ... ok
+test wireframe::routes::tests::direct_ack_cases::direct_ack_login_failure_uses_type_zero_without_extras ... ok
+test wireframe::routes::tests::direct_ack_cases::direct_ack_login_extras_ignore_reported_version::case_1 ... ok
+test wireframe::routes::tests::direct_ack_cases::direct_ack_sub_version_two_still_has_native_login_extras ... ok
+test wireframe::routes::tests::direct_ack_cases::direct_ack_login_extras_ignore_reported_version::case_3 ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 407 filtered out; finished in 1.16s
+

@@ -1,0 +1,22 @@
+from pathlib import Path
+import json,os,subprocess,sys
+stage=sys.argv[1];root=Path('state/native-sessions/runtime-09/native-files')/stage;root.mkdir()
+env=dict(os.environ,LD_LIBRARY_PATH=str(Path('tools/sleuthkit/usr/lib64').resolve()));b=Path('tools/sleuthkit/usr/bin');image='state/mac-runtime/hotline19/working.dsk'
+records=[]
+for dirname,files in [('mothra-folder-source',['alpha','zero','inner/leaf']),('mothra-folder-empty',[]),('mothra-folder-dirlast',[]),('mothra-folder-partial',['alpha','part'])]:
+ cat=subprocess.check_output([str(b/'ifind'),'-f','hfs','-n','/Hotline19/Files/'+dirname,image],env=env,text=True).strip();assert cat.isdecimal(),(dirname,cat)
+ (root/(dirname+'.listing.txt')).write_bytes(subprocess.check_output([str(b/'fls'),'-r','-p','-f','hfs',image,cat],env=env))
+ (root/(dirname+'.stat.txt')).write_bytes(subprocess.check_output([str(b/'istat'),'-f','hfs',image,cat],env=env))
+ records.append({'path':dirname,'catalog':int(cat),'directory':True})
+ for filename in files:
+  path=dirname+'/'+filename;key=path.replace('/','__');cat=subprocess.check_output([str(b/'ifind'),'-f','hfs','-n','/Hotline19/Files/'+path,image],env=env,text=True).strip();assert cat.isdecimal()
+  (root/(key+'.stat.txt')).write_bytes(subprocess.check_output([str(b/'istat'),'-f','hfs',image,cat],env=env))
+  record={'path':path,'key':key,'catalog':int(cat),'directory':False,'attributes':{}}
+  for suffix,attr in [('data','4352-0'),('rsrc','4353-1')]:
+   result=subprocess.run([str(b/'icat'),'-f','hfs',image,cat+'-'+attr],env=env,capture_output=True)
+   (root/(key+'.'+suffix)).write_bytes(result.stdout)
+   if result.stderr:(root/(key+'.'+suffix+'.stderr')).write_bytes(result.stderr)
+   record['attributes'][suffix]={'attribute':attr,'exit_code':result.returncode,'bytes':len(result.stdout),'stderr':result.stderr.decode()}
+  records.append(record)
+(root/'extraction.json').write_text(json.dumps({'tool':'SleuthKit4.15.0','method':'Read-only live HFS+ image inspection; no restart-durability claim','image':image,'stage':stage,'records':records},indent=2)+'\n')
+print(stage,[(r['path'],r['catalog']) for r in records])

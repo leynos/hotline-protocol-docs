@@ -1,0 +1,91 @@
+{
+  "source_a7_sha256": "5d0aa3dccf65fc6523678aa729c9ace72cd6caffbef768b7f5bf949e6568b43e",
+  "fixture_profile": "control-only",
+  "full_file_baseline": "not_exercised",
+  "emulator_pid": 1221811,
+  "emulator_starttime": "6825819",
+  "emulator_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "emulator_netns": "net:[4026533605]",
+  "emulator_netns_inode": 4026533605,
+  "owned_working_image": "/data/leynos/Projects/mothra/state/mac-runtime/native-liveness-01/working.dsk",
+  "owned_working_image_inode": 71221932,
+  "owned_runtime": "/data/leynos/Projects/mothra/state/mac-runtime/native-liveness-01",
+  "source_base_sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910",
+  "rom_sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+  "native_data_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "utc": "2026-11-14T08:09:28.791946+00:00",
+  "epoch_started_utc": "2026-11-14T08:05:11.974963+00:00",
+  "deadline_utc": "2026-11-14T08:17:11.974963+00:00",
+  "oracle_lock": "/data/leynos/Projects/mothra/state/delegation/oracle.lock",
+  "managed_lock": {
+    "unit": "mothra-native-liveness-c92-lease.service",
+    "pid": 1219462,
+    "start": "6822313",
+    "fd": 3,
+    "lock_inode": 3512552451,
+    "busy_exit": 1,
+    "uid": "Uid:\t1000\t1000\t1000\t1000",
+    "unit_properties": {
+      "ActiveState": "active",
+      "SubState": "running",
+      "ActiveEnterTimestampMonotonic": "68223144546",
+      "RuntimeMaxUSec": "15min",
+      "MainPID": "1219462",
+      "KillMode": "control-group"
+    }
+  },
+  "managed_capture": {
+    "host": {
+      "utc": "2026-11-14T08:08:14.924002+00:00",
+      "unit": "mothra-native-liveness-c92-host.service",
+      "pid": 1220710,
+      "start_ticks": 6823906,
+      "netns_inode": 4026531840,
+      "fd": 5,
+      "capture": "/data/leynos/Projects/mothra/state/native-sessions/native-liveness-epoch-01/primary-syn.pcap",
+      "dev": 2097,
+      "inode": 2743246157,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-14T08:17:11.974963+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "68239071855",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1220710",
+        "KillMode": "control-group"
+      }
+    },
+    "namespace": {
+      "utc": "2026-11-14T08:08:15.093594+00:00",
+      "unit": "mothra-native-liveness-c92-namespace.service",
+      "pid": 1227790,
+      "start_ticks": 6830891,
+      "netns_inode": 4026533605,
+      "fd": 5,
+      "capture": "/data/leynos/Projects/mothra/state/native-sessions/native-liveness-epoch-01/lab-namespace.pcap",
+      "dev": 2097,
+      "inode": 2743246189,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-14T08:17:11.974963+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "68308929843",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1227790",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "host_pcap": "/data/leynos/Projects/mothra/state/native-sessions/native-liveness-epoch-01/primary-syn.pcap",
+  "namespace_pcap": "/data/leynos/Projects/mothra/state/native-sessions/native-liveness-epoch-01/lab-namespace.pcap",
+  "guest_pcap": "/data/leynos/Projects/mothra/state/native-sessions/native-liveness-epoch-01/lab-guest.pcap",
+  "host_recorder_pid": 1220710,
+  "host_recorder_starttime": 6823906,
+  "namespace_recorder_pid": 1227790,
+  "namespace_recorder_starttime": 6830891,
+  "primary_syn_count": 0,
+  "ns_routes": [],
+  "runtime_mode": "liveness control readiness only"
+}

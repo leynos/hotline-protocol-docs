@@ -1,0 +1,286 @@
+ruff format --check scripts ../hotline-protocol-docs/scripts
+18 files already formatted
+ruff check scripts ../hotline-protocol-docs/scripts
+All checks passed!
+shellcheck ghidra ghidra-mcp scripts/build-sheepshaver
+ty check --extra-search-path ../hotline-protocol-docs/scripts --python tools/ghidramcp/.venv/bin/python scripts ../hotline-protocol-docs/scripts
+All checks passed!
+sha256sum --quiet -c evidence/hotline-server-1.9/SHA256SUMS
+python3 scripts/extract-synhxd-evidence.py
+decode.c 1.1 verified
+rcv.c 1.1 verified
+rcv.h 1.1 verified
+hlserver.c 1.1 verified
+hlwrite.c 1.1 verified
+trx.h 1.1 verified
+hxd.h 1.1 verified
+chat.c 1.1 verified
+news.c 1.1 verified
+accounts.c 1.1 verified
+files.c 1.1 verified
+htxf.c 1.1 verified
+htxf.h 1.1 verified
+hotline.h 1.1 verified
+python3 scripts/verify-baseline-evidence.py
+Verified 154 MCP queries and 83 ledger entries
+Complete data inventory: 4553 items
+{'Doc defect': 8, 'Supported': 16, 'Contradicted': 26, 'Partial': 18, 'Unverified': 15}
+python3 scripts/render-protocol-gap-analysis.py --check
+Validated 87 gaps and 179 reviewed sections; checked 1748 local link references
+markdownlint-cli2 --config .markdownlint.json "../hotline-protocol-docs/*.md"
+markdownlint-cli2 v0.20.0 (markdownlint v0.40.0)
+Finding: ../hotline-protocol-docs/*.md
+Linting: 17 file(s)
+Summary: 0 error(s)
+nixie ../hotline-protocol-docs
+==> ../hotline-protocol-docs/baseline-correction-map.md
+<== ../hotline-protocol-docs/baseline-correction-map.md
+==> ../hotline-protocol-docs/core-field-schemas.md
+<== ../hotline-protocol-docs/core-field-schemas.md
+==> ../hotline-protocol-docs/error-outcomes.md
+<== ../hotline-protocol-docs/error-outcomes.md
+==> ../hotline-protocol-docs/evidence-portability.md
+<== ../hotline-protocol-docs/evidence-portability.md
+==> ../hotline-protocol-docs/filesystem-and-board-contracts.md
+<== ../hotline-protocol-docs/filesystem-and-board-contracts.md
+==> ../hotline-protocol-docs/gap-analysis.md
+<== ../hotline-protocol-docs/gap-analysis.md
+==> ../hotline-protocol-docs/identified-client-source.md
+<== ../hotline-protocol-docs/identified-client-source.md
+==> ../hotline-protocol-docs/internal-compatibility-matrix.md
+<== ../hotline-protocol-docs/internal-compatibility-matrix.md
+==> ../hotline-protocol-docs/native-capture-workflow.md
+<== ../hotline-protocol-docs/native-capture-workflow.md
+==> ../hotline-protocol-docs/native-wire-details.md
+<== ../hotline-protocol-docs/native-wire-details.md
+==> ../hotline-protocol-docs/news-contracts.md
+<== ../hotline-protocol-docs/news-contracts.md
+==> ../hotline-protocol-docs/operation-contracts.md
+<== ../hotline-protocol-docs/operation-contracts.md
+==> ../hotline-protocol-docs/presence-messaging-contracts.md
+<== ../hotline-protocol-docs/presence-messaging-contracts.md
+==> ../hotline-protocol-docs/privilege-contracts.md
+<== ../hotline-protocol-docs/privilege-contracts.md
+==> ../hotline-protocol-docs/protocol.md
+<== ../hotline-protocol-docs/protocol.md
+==> ../hotline-protocol-docs/session-transport-contracts.md
+<== ../hotline-protocol-docs/session-transport-contracts.md
+==> ../hotline-protocol-docs/transfer-contracts.md
+<== ../hotline-protocol-docs/transfer-contracts.md
+🧜‍♀️✨ All diagrams validated successfully!
+python3 scripts/verify-shx-login-fragment.py
+Verified 7 isolated shx callback cases at adb1bf8c8cb12f7eb2fa2c01673295a6312f262b
+python3 -m unittest discover -s ../hotline-protocol-docs/scripts -p 'test_*.py'
+..............................
+----------------------------------------------------------------------
+Ran 30 tests in 0.239s
+
+OK
+python3 ../hotline-protocol-docs/scripts/protocol_capture.py verify evidence/gap-remediation/2026-11-12/capture-tooling-01/transcript
+synthetic-tool-test: completed; 4 actions
+python3 ../hotline-protocol-docs/scripts/protocol_capture.py verify evidence/gap-remediation/2026-11-12/native-handshake-01/transcript
+native-mac-oracle: completed; 4 actions
+python3 ../hotline-protocol-docs/scripts/verify_native_core.py evidence/gap-remediation/2026-11-12/native-core-01
+{
+  "transcripts": 16,
+  "checks": [
+    "nonempty-password-create-change-login",
+    "complement-vs-plaintext-negative",
+    "early-and-delayed-login",
+    "representative-errors-and-invalid-size-close",
+    "plain352-lookup",
+    "348-nested-success-and-permission-denial",
+    "opaque111-absent-empty-value-storage"
+  ],
+  "scope": "These fixtures only; no universal interoperability or timing certificate"
+}
+python3 ../hotline-protocol-docs/scripts/verify_native_handshakes.py evidence/gap-remediation/2026-11-12/native-transport-01
+{
+  "cases": [
+    {
+      "case": "normal-alternate-control",
+      "host_client_port": 40218,
+      "guest_server_port": 5502,
+      "sent_bytes": 12,
+      "received_bytes": 0,
+      "guest_first_close": "client",
+      "guest_server_close_kind": "FIN",
+      "reset_diagnostics_hex": [],
+      "capture_status": "failed"
+    },
+    {
+      "case": "normal-control",
+      "host_client_port": 56336,
+      "guest_server_port": 5500,
+      "sent_bytes": 12,
+      "received_bytes": 8,
+      "guest_first_close": "client",
+      "guest_server_close_kind": "FIN",
+      "reset_diagnostics_hex": [],
+      "capture_status": "completed"
+    },
+    {
+      "case": "pipelined-login",
+      "host_client_port": 34642,
+      "guest_server_port": 5500,
+      "sent_bytes": 84,
+      "received_bytes": 344,
+      "guest_first_close": "client",
+      "guest_server_close_kind": "FIN",
+      "reset_diagnostics_hex": [],
+      "capture_status": "completed"
+    },
+    {
+      "case": "segmented-1",
+      "host_client_port": 40158,
+      "guest_server_port": 5500,
+      "sent_bytes": 12,
+      "received_bytes": 8,
+      "guest_first_close": "client",
+      "guest_server_close_kind": "FIN",
+      "reset_diagnostics_hex": [],
+      "capture_status": "completed"
+    },
+    {
+      "case": "segmented-10",
+      "host_client_port": 57180,
+      "guest_server_port": 5500,
+      "sent_bytes": 12,
+      "received_bytes": 8,
+      "guest_first_close": "client",
+      "guest_server_close_kind": "FIN",
+      "reset_diagnostics_hex": [],
+      "capture_status": "completed"
+    },
+    {
+      "case": "segmented-11",
+      "host_client_port": 57182,
+      "guest_server_port": 5500,
+      "sent_bytes": 12,
+      "received_bytes": 8,
+      "guest_first_close": "client",
+      "guest_server_close_kind": "FIN",
+      "reset_diagnostics_hex": [],
+      "capture_status": "completed"
+    },
+    {
+      "case": "segmented-4",
+      "host_client_port": 40162,
+      "guest_server_port": 5500,
+      "sent_bytes": 12,
+      "received_bytes": 8,
+      "guest_first_close": "client",
+      "guest_server_close_kind": "FIN",
+      "reset_diagnostics_hex": [],
+      "capture_status": "completed"
+    },
+    {
+      "case": "segmented-8",
+      "host_client_port": 40168,
+      "guest_server_port": 5500,
+      "sent_bytes": 12,
+      "received_bytes": 8,
+      "guest_first_close": "client",
+      "guest_server_close_kind": "FIN",
+      "reset_diagnostics_hex": [],
+      "capture_status": "completed"
+    },
+    {
+      "case": "short-eof",
+      "host_client_port": 34640,
+      "guest_server_port": 5500,
+      "sent_bytes": 11,
+      "received_bytes": 0,
+      "guest_first_close": "client",
+      "guest_server_close_kind": "FIN",
+      "reset_diagnostics_hex": [],
+      "capture_status": "completed"
+    },
+    {
+      "case": "thirteenth-byte-is-frame-prefix",
+      "host_client_port": 34658,
+      "guest_server_port": 5500,
+      "sent_bytes": 84,
+      "received_bytes": 344,
+      "guest_first_close": "client",
+      "guest_server_close_kind": "FIN",
+      "reset_diagnostics_hex": [],
+      "capture_status": "completed"
+    },
+    {
+      "case": "wrong-magic",
+      "host_client_port": 34554,
+      "guest_server_port": 5500,
+      "sent_bytes": 12,
+      "received_bytes": 0,
+      "guest_first_close": "server",
+      "guest_server_close_kind": "RST",
+      "reset_diagnostics_hex": [
+        "7463705f646973636f6e6e656374"
+      ],
+      "capture_status": "completed"
+    },
+    {
+      "case": "wrong-subprotocol",
+      "host_client_port": 34572,
+      "guest_server_port": 5500,
+      "sent_bytes": 12,
+      "received_bytes": 8,
+      "guest_first_close": "server",
+      "guest_server_close_kind": "FIN",
+      "reset_diagnostics_hex": [],
+      "capture_status": "completed"
+    },
+    {
+      "case": "wrong-subversion",
+      "host_client_port": 34586,
+      "guest_server_port": 5500,
+      "sent_bytes": 12,
+      "received_bytes": 8,
+      "guest_first_close": "server",
+      "guest_server_close_kind": "FIN",
+      "reset_diagnostics_hex": [],
+      "capture_status": "completed"
+    },
+    {
+      "case": "wrong-version",
+      "host_client_port": 34568,
+      "guest_server_port": 5500,
+      "sent_bytes": 12,
+      "received_bytes": 8,
+      "guest_first_close": "server",
+      "guest_server_close_kind": "RST",
+      "reset_diagnostics_hex": [
+        "7463705f646973636f6e6e656374",
+        "4e6f20544350"
+      ],
+      "capture_status": "completed"
+    }
+  ],
+  "timing": {
+    "baseline_guest_silence_seconds": 65.060281,
+    "baseline_port_identification": "Unique SYN within250ms of UTC end minus monotonic duration; old recorder had no socket address metadata",
+    "isolated_reset_after_new_syn_ms": 92.254,
+    "scope": "Bounded observations; dispatcher scheduling and unique causal mechanism remain open"
+  },
+  "scope": "Recorded boundary exchanges and guest FIN/RST ordering only; no timer or alternate-wrapper negotiation completion"
+}
+python3 scripts/verify-sheep-slirp-lowmem.py
+4000 threaded allocation/grow/shrink/32-bit-link checks passed
+python3 scripts/verify-sheep-ethernet.py
+200 concurrent Ethernet packets, PCAP framing, disabled mode and overwrite refusal passed
+markdownlint-cli2 "**/*.md" "#downloads/**" "#tools/**" "#state/**" "#projects/**"
+markdownlint-cli2 v0.20.0 (markdownlint v0.40.0)
+Finding: **/*.md !downloads/** !tools/** !state/** !projects/**
+Linting: 4 file(s)
+Summary: 0 error(s)
+nixie .
+==> README.md
+<== README.md
+==> docs/baseline-validity-ledger.md
+<== docs/baseline-validity-ledger.md
+==> docs/gap-remediation-worklog.md
+<== docs/gap-remediation-worklog.md
+==> sheepshaver.md
+<== sheepshaver.md
+🧜‍♀️✨ All diagrams validated successfully!

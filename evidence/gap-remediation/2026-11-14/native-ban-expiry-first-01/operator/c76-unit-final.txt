@@ -1,0 +1,8 @@
+ActiveState=failed
+SubState=failed
+RuntimeMaxUSec=3min
+MainPID=0
+Result=exit-code
+ExecMainStatus=1
+ExecStart={ path=/usr/bin/bash ; argv[]=/usr/bin/bash /data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-first-01/run-first.sh ; ignore_errors=no ; start_time=[Sat 2026-11-14 05:51:42 GMT] ; stop_time=[Sat 2026-11-14 05:52:17 GMT] ; pid=794898 ; code=exited ; status=1 }
+NetworkNamespacePath=

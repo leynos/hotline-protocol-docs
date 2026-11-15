@@ -1,0 +1,2 @@
+Nov 13 16:02:22 ibara systemd[447]: Started mxd-watchdog-h1-20261113-1602.service - [systemd-run] /usr/bin/bash /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/diagnostics/watchdog-diagnosis-01/run-named-test.sh.
+Nov 13 16:04:30 ibara systemd[447]: mxd-watchdog-h1-20261113-1602.service: Consumed 35.478s CPU time, 1.4G memory peak.

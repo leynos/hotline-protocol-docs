@@ -1,0 +1,10 @@
+{
+  "pid": 590748,
+  "socket": "/data/leynos/Projects/mothra/state/mac-runtime/native-configured-apply-01/isolated-network/x-bridge.sock",
+  "socket_inode": 5971888907,
+  "fixed_target": {
+    "kind": "x-abstract",
+    "display": ":114"
+  },
+  "netns": "net:[4026531840]"
+}

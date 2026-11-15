@@ -1,0 +1,99 @@
+{
+  "source_git_directory": "/data/leynos/Projects/synhxd/output/client-20250605-214353/client.git",
+  "source_git_head": "adb1bf8c8cb12f7eb2fa2c01673295a6312f262b",
+  "source_commit_summary": "2001-09-03T18:55:03Z\nsf cvs sucks",
+  "identity": "README identifies Synapse Hotline X (shx); version.c declares 0.1.48. Source identity only, no configured executable or native execution.",
+  "inputs": [
+    {
+      "path": "README",
+      "git_blob": "ffce87fc313ab1e618f5a623d900697c1f1085e0",
+      "sha256": "a8ec7a420db6cdadd160750c3510d6bfc2a5e958d9fe528bdbaa1e7e78349bd4",
+      "snapshot": "client-source/README.txt"
+    },
+    {
+      "path": "COPYING",
+      "git_blob": "7c75c0d5402f67ce76342816fbd80555866fadbc",
+      "sha256": "58f5d05257af1fb964fde20e134d660fac9afa86b6fd8c70d63ead63068378fa",
+      "snapshot": "client-source/COPYING.txt"
+    },
+    {
+      "path": "version.c",
+      "git_blob": "9ddd88870fc7856c25708d629d082d620c8e0bd2",
+      "sha256": "37322b2ebeabe809070e5d303e45f1d0f2384fed6f0ac88c186f318961e3774c",
+      "snapshot": "client-source/version.c.txt"
+    },
+    {
+      "path": "hotline.h",
+      "git_blob": "865ac23fef19112512db0184cac332162e2a8ae9",
+      "sha256": "8115a38631a8736f3be919d6559d0edbf0bb83f4688a1f0661e6cbc10e2ac0b9",
+      "snapshot": "client-source/hotline.h.txt"
+    },
+    {
+      "path": "hlclient.c",
+      "git_blob": "2ab9c4cac69b545c21a57e8233b5aa7f4587980c",
+      "sha256": "535a158d81c8aebf28b262275015d7cf69088cd37e632bfb04ff4fd258155b69",
+      "snapshot": "client-source/hlclient.c.txt"
+    },
+    {
+      "path": "hlwrite.c",
+      "git_blob": "6fbe2d5d331cdbd27b7d7df869800958f3d35e90",
+      "sha256": "8061d7ac76a5e8c5eeb5cd317993dbc02c7d6259ad842953d0cbb31bb68823af",
+      "snapshot": "client-source/hlwrite.c.txt"
+    },
+    {
+      "path": "decode.c",
+      "git_blob": "7ac03aeb9917c59d8e1079ec283cf30819213260",
+      "sha256": "fff8fa683e45e4f53a1dcfa4e1cc826e534d0420c3da46a7d6805845ba68d88a",
+      "snapshot": "client-source/decode.c.txt"
+    },
+    {
+      "path": "hx_users.c",
+      "git_blob": "02a2fe1cd3e9a7d505068edb350a23e1919d205d",
+      "sha256": "cedb21f6dc75a8d54dd3aba2107ceee6a1cb298083d7a450d35ebdb1becbb673",
+      "snapshot": "client-source/hx_users.c.txt"
+    },
+    {
+      "path": "hx_chat.c",
+      "git_blob": "a6e516bf4d7dfd2b7107fe4c23de62f374fe521a",
+      "sha256": "01032079d30fa137e62a8200c860b20eeee2a36d30e97b250aa55afa76257c3d",
+      "snapshot": "client-source/hx_chat.c.txt"
+    },
+    {
+      "path": "hx_commands.c",
+      "git_blob": "92f214cd3ef7eb571d9c1773558a9a6d3febfd7f",
+      "sha256": "7c7a4c53035856903571fd0dce85f32b36ddf6a37939a9e3432f5d0fb55b2e57",
+      "snapshot": "client-source/hx_commands.c.txt"
+    },
+    {
+      "path": "hx.h",
+      "git_blob": "5518a527669aae7fe76f515b73c58d83e541a8f7",
+      "sha256": "80e4eace38dae0fa97e7f154372ac7676e30b4e98aa4a66171dfdc6edce57496",
+      "snapshot": "client-source/hx.h.txt"
+    },
+    {
+      "path": "hxd.h",
+      "git_blob": "14d3ca29171439c7b86e4d6efef1e93c837c948b",
+      "sha256": "dda92f79a56772c5521343777bb7d9783999992517c566dddc5580bbe8c726ee",
+      "snapshot": "client-source/hxd.h.txt"
+    },
+    {
+      "path": "hxd.c",
+      "git_blob": "651b8b7bcf6f89c64513c3326a5409e1bcfd662c",
+      "sha256": "41c2a6db010ee38f98666ce5abd8493444d72d672fbe4dea96647d124963466f",
+      "snapshot": "client-source/hxd.c.txt"
+    },
+    {
+      "path": "configure.in",
+      "git_blob": "41febbcbb6f0eb5ba0016e934e3d2ad733e41826",
+      "sha256": "6f3487e62ca736b5c2a99a1745c080fa85c4fd9630a2b46dd4bbce3e610bc143",
+      "snapshot": "client-source/configure.in.txt"
+    }
+  ],
+  "host_fragment_check": {
+    "result": "host-fragment-result.json",
+    "driver_snapshot": "harness/verify-shx-login-fragment.py.txt",
+    "harness_snapshot": "harness/shx-login-harness.c.txt",
+    "scope": "Unchanged basic-login callback and dh macros compiled on host with stubs; not a configured client binary or network session.",
+    "cases": 7
+  }
+}

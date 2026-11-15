@@ -1,0 +1,45 @@
+[
+  {
+    "case": "positive",
+    "exit": 0,
+    "expected_zero": true,
+    "passed": true,
+    "stderr_tail": []
+  },
+  {
+    "case": "old_35_line_pin",
+    "exit": 1,
+    "expected_zero": false,
+    "passed": true,
+    "stderr_tail": [
+      "AssertionError"
+    ]
+  },
+  {
+    "case": "duplicate_path",
+    "exit": 1,
+    "expected_zero": false,
+    "passed": true,
+    "stderr_tail": [
+      "AssertionError"
+    ]
+  },
+  {
+    "case": "wrong_digest",
+    "exit": 1,
+    "expected_zero": false,
+    "passed": true,
+    "stderr_tail": [
+      "AssertionError"
+    ]
+  },
+  {
+    "case": "extra_path",
+    "exit": 1,
+    "expected_zero": false,
+    "passed": true,
+    "stderr_tail": [
+      "AssertionError"
+    ]
+  }
+]

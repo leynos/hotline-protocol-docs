@@ -1,0 +1,29 @@
+File Path: /Hotline19/News/mothra-news24/parent-two-high
+Catalog Record: 11603
+Allocated
+Type:	File
+Mode:	r---------
+Size:	7602
+uid / gid: 99 / 99
+Link count:	1
+
+File Name: parent-two-high
+Admin flags: 0
+Owner flags: 0
+File type:	484c4e5a  HLNZ
+File creator:	48544c53  HTLS
+Text encoding:	0 = MacRoman
+Resource fork size:	0
+
+Times:
+Created:	2026-11-13 15:43:27 (GMT)
+Content Modified:	2026-11-13 16:18:38 (GMT)
+Attributes Modified:	0000-00-00 00:00:00 (UTC)
+Accessed:	0000-00-00 00:00:00 (UTC)
+Backed Up:	0000-00-00 00:00:00 (UTC)
+
+Data Fork Blocks:
+891265-891266  
+
+Attributes: 
+Type: DATA (4352-0)   Name: N/A   Non-Resident   size: 7602  init_size: 7602

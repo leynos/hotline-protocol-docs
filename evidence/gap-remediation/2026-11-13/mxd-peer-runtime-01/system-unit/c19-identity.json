@@ -1,0 +1,24 @@
+{
+  "pid": 2349333,
+  "starttime_ticks": 2795470,
+  "exe": "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/mxd-wireframe-server",
+  "sha256": "3da44eac362e1a5433eee4cace8f030e383a9c4a8ea8f587055610299c879375",
+  "uid": [
+    "1000",
+    "1000",
+    "1000",
+    "1000"
+  ],
+  "gid": [
+    "1000",
+    "1000",
+    "1000",
+    "1000"
+  ],
+  "cap_eff": "0000000000000000",
+  "netns": "net:[4026532479]",
+  "emulator_netns": "net:[4026532479]",
+  "cgroup": "0::/system.slice/mothra-mxd-peer-c19.service",
+  "unit_control_group": "/system.slice/mothra-mxd-peer-c19.service",
+  "invocation_id": "392dbcb6ecda46ed9bc83ef1a0b059bb"
+}

@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "case": "B57",
+  "recorded_utc": "2026-11-14T03:26:37.829417+00:00",
+  "group_deadline_utc": "2026-11-14T03:33:30Z",
+  "outcome": "intentional-observation-cutoff",
+  "source_sha256": "586d31f204ea1f2782a63346f7a4069d5e6f8f6112bba931488a4e687c25ccea",
+  "proxy_observation": {
+    "state": "fired",
+    "ack_sent_monotonic_ns": 51371546837004,
+    "cutoff_due_ns": 51399546837004,
+    "cutoff_actual_ns": 51399560633177,
+    "last_owned_socket_close_ns": 51399560696766,
+    "relay_teardown_ns": 51399742745143,
+    "valid_30_seconds": true,
+    "raw_ack_sha256": "814b733a82d15dd7250cb0e8b7ed0c6c09a7a02d7169ab70ebaa359fb18eb6d0",
+    "forwarded_ack_sha256": "3f5185b7bc222e684697fd2fce46ff0f625bc13ddf301e8a787bfe47594caedb",
+    "error": null
+  },
+  "wire": {
+    "status": "intentional-observation-cutoff",
+    "routes": {
+      "control": [
+        [
+          "client-guest-post.pcap",
+          "10.0.2.15",
+          49178,
+          "10.0.2.2",
+          15652
+        ],
+        [
+          "namespace.pcap",
+          "127.0.0.1",
+          39302,
+          "127.0.0.1",
+          15652
+        ],
+        [
+          "namespace.pcap",
+          "127.0.0.1",
+          37448,
+          "127.0.0.1",
+          15500
+        ],
+        [
+          "host.pcap",
+          "127.0.0.1",
+          37464,
+          "127.0.0.1",
+          15500
+        ],
+        [
+          "server-guest-post.pcap",
+          "10.0.2.2",
+          37464,
+          "10.0.2.15",
+          5500
+        ]
+      ],
+      "data": [
+        [
+          "client-guest-post.pcap",
+          "10.0.2.15",
+          49180,
+          "10.0.2.2",
+          15653
+        ],
+        [
+          "namespace.pcap",
+          "127.0.0.1",
+          34594,
+          "127.0.0.1",
+          15653
+        ],
+        [
+          "namespace.pcap",
+          "127.0.0.1",
+          37508,
+          "127.0.0.1",
+          15501
+        ],
+        [
+          "host.pcap",
+          "127.0.0.1",
+          37514,
+          "127.0.0.1",
+          15501
+        ],
+        [
+          "server-guest-post.pcap",
+          "10.0.2.2",
+          37514,
+          "10.0.2.15",
+          5501
+        ]
+      ]
+    },
+    "streams": {
+      "control": {
+        "client_bytes": 150,
+        "client_sha256": "32b21aa2db39b65895ef77ca50d75bda7b117be2082ab1681075ce054dd38995",
+        "downstream_server_bytes": 532,
+        "downstream_server_sha256": "4685757498e9aadb4d72eb587ea4bc5dd8c32ae7c335488eff6fd256c01fd261",
+        "raw_server_bytes": 514,
+        "raw_server_sha256": "a38456f9139dd0469f36b51342d223d82329ad3eff33dcbc37482475a9a6b8b4"
+      },
+      "data": {
+        "client_bytes": 16,
+        "client_sha256": "b84778815593fcadbde7c44124d350beaf5eb7c82cfdbabf4c55389cdf5db6e2",
+        "downstream_server_bytes": 58,
+        "downstream_server_sha256": "77762dd10d7336ea93a61bedc230b2b5f1514449fb3bd7cb331af70fe79d0381",
+        "raw_server_bytes": 58,
+        "raw_server_sha256": "77762dd10d7336ea93a61bedc230b2b5f1514449fb3bd7cb331af70fe79d0381"
+      }
+    },
+    "request_types": [
+      107,
+      121,
+      300,
+      212
+    ],
+    "reply_types": [
+      0,
+      109,
+      0,
+      354,
+      122,
+      0,
+      0
+    ],
+    "forwarded_ack_fields": {
+      "160": "00be",
+      "161": "0000",
+      "162": "666978747572652d6e6174697665"
+    },
+    "banner_reference_hex": "004cd011",
+    "teardown_seconds": 28.195908
+  },
+  "a7": {
+    "preflight": "completed29",
+    "postflight": "completed29",
+    "accounts": 2,
+    "files": 41,
+    "filp_bytes": 1049073,
+    "filp_sha256": "7d1f5bf5e2b69b8a18906633ce2ef550876b78252c0639e7d36eb61142787ab8",
+    "agreement_sha256": "5288d060a4270cf6ae899302c52b2ac784b30dea99f01d2d4cd1c1037c4bd1c7"
+  },
+  "captures": {
+    "host": "state/native-sessions/native-proxy-162-b57/host.pcap",
+    "namespace": "state/native-sessions/native-proxy-162-b57/namespace.pcap",
+    "client_guest_pre": "state/native-sessions/native-proxy-162-b57/client-guest-pre.pcap",
+    "client_guest_post": "state/native-sessions/native-proxy-162-b57/client-guest-post.pcap",
+    "server_guest_pre": "state/native-sessions/native-proxy-162-b57/server-guest-pre.pcap",
+    "server_guest_post": "state/native-sessions/native-proxy-162-b57/server-guest-post.pcap"
+  },
+  "ui": "one Return, exact known Agreement accepted once, Connected and roster transfer, banner Loading, Connection Closed after intentional cutoff; File Quit",
+  "limits": "finite one ASCII field162 append case; no banner rendering/whole client profile claim"
+}

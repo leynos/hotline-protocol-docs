@@ -1,0 +1,105 @@
+{
+  "kind": "DERIVED_REDACTED_WITNESS_NOT_A_PCAP",
+  "scope": "one new 24-character owned fixture, one Classic connection, positive login107 only",
+  "source_heads": {
+    "mxd_from_c21_readiness": "cb907885cc2a61df2d708f38a3cf42da85c2a016"
+  },
+  "runtime": {
+    "client_sheepshaver_pid": 1012834,
+    "client_executable_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+    "daemon_pid": 2512715,
+    "daemon_binary_sha256": "3da44eac362e1a5433eee4cace8f030e383a9c4a8ea8f587055610299c879375",
+    "network_namespace": "net:[4026532479]",
+    "namespace_capture_pid": 2525228,
+    "namespace_capture_packets": 14,
+    "namespace_capture_kernel_drops": 0
+  },
+  "times_utc": {
+    "app_launch": "2026-11-13 21:09:17",
+    "single_connect": "2026-11-13 21:10:12",
+    "disconnect": "2026-11-13 21:11:45",
+    "app_quit": "2026-11-13 21:11:57",
+    "connect_to_disconnect_seconds": 93,
+    "authorized_settle_seconds": 30,
+    "timing_deviation": true
+  },
+  "raw_ignored_captures": {
+    "namespace-15650.pcap": {
+      "bytes": 1323,
+      "sha256": "3777633069b597f34b8c6d751485005e58de2691c12a72b3ac77dd08809ea7c2"
+    },
+    "client-guest-pre.pcap": {
+      "bytes": 9637,
+      "sha256": "26261cea2edfc7d3db207137e6d3b05106874ff6a9478a84e24a689eddf2a486"
+    },
+    "client-guest-post.pcap": {
+      "bytes": 10754,
+      "sha256": "724bbb1d4f776ad7ea4d04b76f527e805def3b2b666438b8205fcc24da9d8252"
+    }
+  },
+  "private_replay": {
+    "guest_pre_is_post_prefix": true,
+    "guest_delta_tcp_packets": 12,
+    "guest_delta_native_15500_15501_SYN": 0,
+    "host_guest_application_streams_equal": true,
+    "secret_length": 24,
+    "wire_field106_length": 24,
+    "field106_matches_full_complemented_secret": true,
+    "field106_sha256": "35822fffe0698dbf3401b30251e61f37c3cfe24ca83e62435661c1d97b395944",
+    "credential_bytes_omitted": true
+  },
+  "decoded_public": {
+    "client_handshake_hex": "54525450484f544c00010002",
+    "server_handshake_hex": "5452545000000000",
+    "request_header_hex": "0000006b00000001000000000000003600000036",
+    "request_type": 107,
+    "request_id": 1,
+    "request_field_id_lengths": [
+      [
+        105,
+        14
+      ],
+      [
+        106,
+        24
+      ],
+      [
+        160,
+        2
+      ]
+    ],
+    "reply_header_hex": "0001000000000001000000000000001500000015",
+    "reply_type": 0,
+    "reply_marker": 1,
+    "reply_id": 1,
+    "reply_status": 0,
+    "reply_field_id_lengths": [
+      [
+        160,
+        2
+      ],
+      [
+        161,
+        2
+      ],
+      [
+        162,
+        3
+      ]
+    ],
+    "field161_hex": "0000",
+    "field162_ascii": "mxd",
+    "client_stream_length": 86,
+    "server_stream_length": 49,
+    "client_stream_sha256": "b19ccf7c8b22e856de76f5bc7eddac180b530a4ac98e88998b0924b3637c509c",
+    "server_stream_sha256": "c83efde3c99a3ac5c1fbc950f9c1143e73397a611074df53223d04cad89b291d",
+    "post_login_numbered_requests": 0
+  },
+  "limitations": [
+    "raw credential-bearing PCAPs and seed are not published",
+    "public metadata cannot replay full credential or host-guest packet parity",
+    "93-second observation exceeded authorized 30-second settle",
+    "no 121, roster300 or banner212 observed",
+    "positive 107 is not complete Classic session"
+  ]
+}

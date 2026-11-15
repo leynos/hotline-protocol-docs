@@ -1,0 +1,551 @@
+{
+  "formats": [
+    {
+      "format": "empty",
+      "filename_hex": "6d2d696d672d652e676966",
+      "finder_hex": "47494666",
+      "tag_hex": "47494666",
+      "native_file_bytes": 0,
+      "advertised_bytes": 0,
+      "received_bytes": 0
+    },
+    {
+      "format": "jpeg",
+      "filename_hex": "6d2d696d672d6a2e6a7067",
+      "finder_hex": "4a504547",
+      "tag_hex": "4a504547",
+      "native_file_bytes": 634,
+      "advertised_bytes": 634,
+      "received_bytes": 634
+    },
+    {
+      "format": "bmp",
+      "filename_hex": "6d2d696d672d622e626d70",
+      "finder_hex": "424d5020",
+      "tag_hex": "424d5020",
+      "native_file_bytes": 58,
+      "advertised_bytes": 58,
+      "received_bytes": 58
+    },
+    {
+      "format": "pict",
+      "filename_hex": "6d2d696d672d702e706374",
+      "finder_hex": "50494354",
+      "tag_hex": "50494354",
+      "native_file_bytes": 642,
+      "advertised_bytes": 642,
+      "received_bytes": 642
+    },
+    {
+      "format": "fallback",
+      "filename_hex": "6d2d696d672d662e646174",
+      "finder_hex": "504e4766",
+      "tag_hex": "504e4766",
+      "native_file_bytes": 69,
+      "advertised_bytes": 69,
+      "received_bytes": 69
+    },
+    {
+      "format": "zero-type",
+      "filename_hex": "6d2d696d672d7a2e646174",
+      "finder_hex": "00000000",
+      "tag_hex": null,
+      "native_file_bytes": 69,
+      "advertised_bytes": 69,
+      "received_bytes": 69
+    },
+    {
+      "format": "suffix-before-finder",
+      "filename_hex": "6d2d696d672d782e6a7067",
+      "finder_hex": "47494666",
+      "tag_hex": "4a504547",
+      "native_file_bytes": 43,
+      "advertised_bytes": 43,
+      "received_bytes": 43
+    },
+    {
+      "format": "text-conversion",
+      "filename_hex": "6d2d696d672d74",
+      "finder_hex": "54455854",
+      "tag_hex": "54455854",
+      "native_file_bytes": 43,
+      "advertised_bytes": 42,
+      "received_bytes": 42
+    }
+  ],
+  "setup": [
+    {
+      "case": "absence-unapplied-first",
+      "status": "failed",
+      "error": "ValueError: Expected bounded silence, received bytes or EOF",
+      "scope": "Setup observation; completion does not imply its configuration expectation passed"
+    },
+    {
+      "case": "absence-unapplied-second",
+      "status": "failed",
+      "error": "ValueError: Expected bounded silence, received bytes or EOF",
+      "scope": "Setup observation; completion does not imply its configuration expectation passed"
+    },
+    {
+      "case": "baseline-earlier",
+      "status": "completed",
+      "error": "",
+      "scope": "Setup observation; completion does not imply its configuration expectation passed"
+    },
+    {
+      "case": "baseline-unapplied",
+      "status": "failed",
+      "error": "TimeoutError: timed out",
+      "scope": "Setup observation; completion does not imply its configuration expectation passed"
+    },
+    {
+      "case": "delayed-absence-confirmed",
+      "status": "completed",
+      "error": "",
+      "scope": "Setup observation; completion does not imply its configuration expectation passed"
+    },
+    {
+      "case": "delayed-restoration-confirmed",
+      "status": "completed",
+      "error": "",
+      "scope": "Setup observation; completion does not imply its configuration expectation passed"
+    },
+    {
+      "case": "missing-check-first",
+      "status": "completed",
+      "error": "",
+      "scope": "Setup observation; completion does not imply its configuration expectation passed"
+    },
+    {
+      "case": "missing-check-offset",
+      "status": "completed",
+      "error": "",
+      "scope": "Setup observation; completion does not imply its configuration expectation passed"
+    },
+    {
+      "case": "remote-form-accepted",
+      "status": "completed",
+      "error": "",
+      "scope": "Setup observation; completion does not imply its configuration expectation passed"
+    }
+  ],
+  "oracle": {
+    "queries": 12,
+    "worker_size_forwarding_checked": true,
+    "zero_allocator_internal_domain": 1,
+    "zero_allocator_internal_code": 2,
+    "scope": "Native null/zero exception and ABI paths; no general reset threshold or wire-status mapping"
+  },
+  "initial": [
+    {
+      "case": "empty-followup-ack",
+      "status": "failed",
+      "error": "EOFError: EOF before 20 requested bytes"
+    },
+    {
+      "case": "empty-open-window",
+      "status": "failed",
+      "error": "ValueError: Expected bounded silence, received bytes or EOF"
+    },
+    {
+      "case": "remote-empty-held-save",
+      "status": "completed",
+      "error": ""
+    },
+    {
+      "case": "remote-empty-return",
+      "status": "completed",
+      "error": ""
+    },
+    {
+      "case": "remote-empty-save",
+      "status": "completed",
+      "error": ""
+    }
+  ],
+  "native_files": [
+    {
+      "format": "empty",
+      "path": "/Hotline19/m-img-e.gif",
+      "catalog": 11260,
+      "data_bytes": 0
+    },
+    {
+      "format": "jpeg",
+      "path": "/Hotline19/m-img-j.jpg",
+      "catalog": 11251,
+      "data_bytes": 634
+    },
+    {
+      "format": "bmp",
+      "path": "/Hotline19/m-img-b.bmp",
+      "catalog": 11252,
+      "data_bytes": 58
+    },
+    {
+      "format": "pict",
+      "path": "/Hotline19/m-img-p.pct",
+      "catalog": 11253,
+      "data_bytes": 642
+    },
+    {
+      "format": "fallback",
+      "path": "/Hotline19/m-img-f.dat",
+      "catalog": 11254,
+      "data_bytes": 69
+    },
+    {
+      "format": "zero-type",
+      "path": "/Hotline19/m-img-z.dat",
+      "catalog": 11255,
+      "data_bytes": 69
+    },
+    {
+      "format": "suffix-before-finder",
+      "path": "/Hotline19/m-img-x.jpg",
+      "catalog": 11256,
+      "data_bytes": 43
+    },
+    {
+      "format": "text-conversion",
+      "path": "/Hotline19/m-img-t",
+      "catalog": 11259,
+      "data_bytes": 43
+    }
+  ],
+  "recovery": {
+    "advertised_bytes": 58,
+    "initial_completion": "delayed",
+    "received_bytes": 58,
+    "planned_pause_seconds": 360,
+    "first_quiet_elapsed_seconds": 193.812702391,
+    "first_receive_elapsed_seconds": 390.926646906,
+    "first_native_data_after_ack_seconds": 287.313681
+  },
+  "early_recovery": {
+    "advertised_bytes": 58,
+    "initial_completion": "early",
+    "received_bytes": 58,
+    "planned_pause_seconds": 360,
+    "first_quiet_elapsed_seconds": 184.26885258,
+    "first_receive_elapsed_seconds": 368.076401489,
+    "first_native_data_after_ack_seconds": 270.47329
+  },
+  "packet_reconciliation": {
+    "before-delayed-recovery": {
+      "main": {
+        "client_port": 54100,
+        "sent_bytes": 151,
+        "received_bytes": 495,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      }
+    },
+    "cleanup-no-banner": {
+      "main": {
+        "client_port": 37764,
+        "sent_bytes": 129,
+        "received_bytes": 388,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      }
+    },
+    "format-bmp": {
+      "main": {
+        "client_port": 54322,
+        "sent_bytes": 173,
+        "received_bytes": 517,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      },
+      "banner": {
+        "client_port": 40006,
+        "sent_bytes": 16,
+        "received_bytes": 58,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      }
+    },
+    "format-empty": {
+      "main": {
+        "client_port": 33264,
+        "sent_bytes": 173,
+        "received_bytes": 576,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": true,
+        "guest_server_close_kind": "RST"
+      },
+      "observer": {
+        "client_port": 55104,
+        "sent_bytes": 108,
+        "received_bytes": 366,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": true,
+        "guest_server_close_kind": "RST"
+      },
+      "banner": {
+        "client_port": 51148,
+        "sent_bytes": 16,
+        "received_bytes": 0,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": true,
+        "guest_server_close_kind": "RST"
+      }
+    },
+    "format-fallback": {
+      "main": {
+        "client_port": 60938,
+        "sent_bytes": 173,
+        "received_bytes": 517,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      },
+      "banner": {
+        "client_port": 58286,
+        "sent_bytes": 16,
+        "received_bytes": 69,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      }
+    },
+    "format-jpeg": {
+      "main": {
+        "client_port": 56214,
+        "sent_bytes": 173,
+        "received_bytes": 517,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      },
+      "banner": {
+        "client_port": 56406,
+        "sent_bytes": 16,
+        "received_bytes": 634,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      }
+    },
+    "format-pict": {
+      "main": {
+        "client_port": 42542,
+        "sent_bytes": 173,
+        "received_bytes": 517,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      },
+      "banner": {
+        "client_port": 58884,
+        "sent_bytes": 16,
+        "received_bytes": 642,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      }
+    },
+    "format-suffix-before-finder": {
+      "main": {
+        "client_port": 58450,
+        "sent_bytes": 173,
+        "received_bytes": 517,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      },
+      "banner": {
+        "client_port": 40548,
+        "sent_bytes": 16,
+        "received_bytes": 43,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      }
+    },
+    "format-text-conversion": {
+      "main": {
+        "client_port": 50252,
+        "sent_bytes": 173,
+        "received_bytes": 517,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      },
+      "banner": {
+        "client_port": 38038,
+        "sent_bytes": 16,
+        "received_bytes": 42,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      }
+    },
+    "format-zero-type": {
+      "main": {
+        "client_port": 46074,
+        "sent_bytes": 173,
+        "received_bytes": 446,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      },
+      "banner": {
+        "client_port": 50514,
+        "sent_bytes": 16,
+        "received_bytes": 69,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      }
+    },
+    "missing-confirmation": {
+      "main": {
+        "client_port": 41126,
+        "sent_bytes": 129,
+        "received_bytes": 388,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      }
+    },
+    "phase-checked-early-recovery": {
+      "main": {
+        "client_port": 60504,
+        "sent_bytes": 416,
+        "received_bytes": 1120,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      },
+      "absent": {
+        "client_port": 53540,
+        "sent_bytes": 129,
+        "received_bytes": 388,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      },
+      "banner": {
+        "client_port": 59864,
+        "sent_bytes": 16,
+        "received_bytes": 58,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      },
+      "restored": {
+        "client_port": 37400,
+        "sent_bytes": 129,
+        "received_bytes": 459,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      }
+    },
+    "phase-checked-recovery": {
+      "main": {
+        "client_port": 41600,
+        "sent_bytes": 459,
+        "received_bytes": 1147,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      },
+      "absent": {
+        "client_port": 39002,
+        "sent_bytes": 129,
+        "received_bytes": 388,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      },
+      "banner": {
+        "client_port": 56704,
+        "sent_bytes": 16,
+        "received_bytes": 58,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      },
+      "restored": {
+        "client_port": 35504,
+        "sent_bytes": 129,
+        "received_bytes": 459,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      }
+    },
+    "post-reset-session": {
+      "main": {
+        "client_port": 59920,
+        "sent_bytes": 108,
+        "received_bytes": 366,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      }
+    },
+    "seed-empty": {
+      "main": {
+        "client_port": 38206,
+        "sent_bytes": 131,
+        "received_bytes": 374,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      },
+      "upload": {
+        "client_port": 35348,
+        "sent_bytes": 195,
+        "received_bytes": 0,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": true,
+        "guest_server_close_kind": "RST"
+      }
+    },
+    "seed-formats": {
+      "a": {
+        "client_port": 33488,
+        "sent_bytes": 147,
+        "received_bytes": 374,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      },
+      "folder": {
+        "client_port": 53754,
+        "sent_bytes": 2995,
+        "received_bytes": 28,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": true,
+        "guest_server_close_kind": "RST"
+      }
+    },
+    "seed-text": {
+      "main": {
+        "client_port": 34126,
+        "sent_bytes": 127,
+        "received_bytes": 374,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      },
+      "upload": {
+        "client_port": 55208,
+        "sent_bytes": 238,
+        "received_bytes": 0,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": true,
+        "guest_server_close_kind": "RST"
+      }
+    }
+  },
+  "scope": "Native loader/type and raw-byte fixtures; no client rendering or arbitrary lifetime/ownership proof"
+}

@@ -1,0 +1,20 @@
+{
+  "command": [
+    "python3",
+    "/data/leynos/Projects/hotline-protocol-docs/scripts/verify_native_ban_reload.py",
+    "/data/leynos/Projects/mothra/evidence/gap-remediation/2026-11-14/native-ban-reload-01"
+  ],
+  "exit_code": 0,
+  "stdout": {
+    "status": "verified_one_persisted_ban_reload_ui_and_login107",
+    "full_file_baseline": "not_exercised",
+    "connected_session_application_104": "not_exercised",
+    "login_error_bytes": 42,
+    "primary_syn_packets": 0,
+    "namespace_packets": 13,
+    "guest_packets": 12,
+    "lab_retired": true,
+    "guest_emulator_forced_term": true
+  },
+  "stderr": ""
+}

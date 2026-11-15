@@ -1,0 +1,44 @@
+[
+  {
+    "id": "D-10058650",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10058650"
+    }
+  },
+  {
+    "id": "D-10058770",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10058770"
+    }
+  },
+  {
+    "id": "D-100587f0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100587f0"
+    }
+  },
+  {
+    "id": "D-10008af0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10008af0"
+    }
+  },
+  {
+    "id": "D-1000bd20",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1000bd20"
+    }
+  },
+  {
+    "id": "D-100071a0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100071a0"
+    }
+  }
+]

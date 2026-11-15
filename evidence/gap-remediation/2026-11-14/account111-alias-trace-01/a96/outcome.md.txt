@@ -1,0 +1,41 @@
+# A96: bounded account-111 alias follow-up
+
+One saved independent server-project headless run made six approved
+`disassemble_function` content calls, after reading the four frozen assembly
+results named in A95. It used the pinned native DATA fork SHA-256
+`ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`
+and JAR SHA-256 `201d18ffde71a83a678eae607de265861f37e5a00b989d91958c1197664d2b43`.
+Before and after project identities compare exactly: PowerPC BE32, 1,840
+functions, `10000000` minimum address. The canonical oracle lock was
+acquired nonblockingly and released after terminal status `complete`.
+No GUI project, native VM, mxd, annotation, saved analysis or tracked file
+was touched. Exact requests/replies, script and stderr are retained here.
+
+| Caller | Exact reader call-site and stack record base | Field-111 direct candidate |
+| --- | --- | --- |
+| `100197e0` account-list UI | `10019854`, `r31+0x180` | No direct `+0x3d4/+0x3d6` word in complete 130-instruction listing. Its known `+0x418` load is login `+0x298`. |
+| `10015160` enumeration | `100152b4`, `r31+0x190` | No direct `+0x3e4/+0x3e6` in complete 191 instructions. |
+| `10015500` batch | `10015940`, `r31+0x840` | No direct `+0xa94/+0xa96` in first 500 of 555 instructions; **listing incomplete**. |
+| `10003170` startup | `100033a8`, `r31+0x338` | No direct `+0x58c/+0x58e` in complete 245 instructions. |
+| `10007fa0` setup | `10007fcc`, `r31+0x58` | No direct `+0x2ac/+0x2ae` in complete 27 instructions. |
+| `10007780` local admin update | `100077d4`, `r31+0x1b0` | No direct `+0x404/+0x406` in complete 416 instructions; whole-buffer rewrite remains positive byte-preservation use. |
+
+These derived displacements come from each retained call-site's `addi r5,r31,...`
+record pointer, plus the established stored offsets `0x254/0x256`.
+Checking literal displacement in one function is a **narrow negative**:
+another base register, indexed addressing, copies or a callee can read the
+slot without that text. The raw PEF Code scan in A95 likewise found no
+direct positive-displacement load but cannot establish global absence.
+No returned instruction established a positive field-111 value/alias passed
+to a uniquely identified new callee. Therefore the conditional `1001f140`
+and eighth follow-up calls were not made. Six content calls, two program
+identity calls; all individual tool results succeeded. No further call was
+spent merely to make a no-use claim.
+
+This packet does **not** identify stored meaning or value-dependent effect.
+GAP-071 remains open against its original use question. The smallest next
+bounded source step, if authorised, is the remaining 55 instructions of
+batch `10015500` with the same exact project gate, then inspect any actual
+record-derived indexed/callee edge. A nonempty-111 local-admin runtime
+contrast would test byte preservation only, not semantic meaning. Do not
+assign a human label from these negative offsets.

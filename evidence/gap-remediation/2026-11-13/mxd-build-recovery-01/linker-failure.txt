@@ -1,0 +1,9 @@
+Original captured failed link
+source: evidence/gap-remediation/2026-11-13/mxd-limits-01/first-link-failure.txt
+source SHA256: 5034870ee2f540ae9e3aae111fba731f07b1db627a43263fef6afee660c345a9
+
+error: linking with `cc` failed: exit status: 1
+linked_archive: /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/build/mxd/03fe09b6103be42f/out/libmxd-03fe09b6103be42f.rlib
+linker_flags: -fuse-ld=lld, -fuse-ld=mold
+stderr: = note: collect2: fatal error: ld terminated with signal 11 [Segmentation fault], core dumped
+The rustc diagnostic omits some arguments. The last flag requests mold, but the crashed executable was not captured.

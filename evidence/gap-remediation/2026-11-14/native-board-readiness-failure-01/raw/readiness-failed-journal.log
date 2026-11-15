@@ -1,0 +1,22 @@
+2026-11-14T08:47:10+00:00 ibara systemd[1]: Starting mothra-native-board-c97-readiness.service - [systemd-run] /bin/bash /data/leynos/Projects/mothra/state/native-sessions/native-board-epoch-01/run-readiness.sh...
+2026-11-14T08:47:10+00:00 ibara systemd[1]: Started mothra-native-board-c97-readiness.service - [systemd-run] /bin/bash /data/leynos/Projects/mothra/state/native-sessions/native-board-epoch-01/run-readiness.sh.
+2026-11-14T08:47:10+00:00 ibara bash[1375124]: Traceback (most recent call last):
+2026-11-14T08:47:10+00:00 ibara bash[1375124]:   File "<stdin>", line 8, in <module>
+2026-11-14T08:47:10+00:00 ibara bash[1375124]:   File "/data/leynos/Projects/hotline-protocol-docs/scripts/native_ban_expiry_control.py", line 556, in runtime_gate
+2026-11-14T08:47:10+00:00 ibara bash[1375124]:     live_service(lock, deadline_utc)
+2026-11-14T08:47:10+00:00 ibara bash[1375124]:     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+2026-11-14T08:47:10+00:00 ibara bash[1375124]:   File "/data/leynos/Projects/hotline-protocol-docs/scripts/native_ban_expiry_control.py", line 396, in live_service
+2026-11-14T08:47:10+00:00 ibara bash[1375124]:     require(
+2026-11-14T08:47:10+00:00 ibara bash[1375124]:     ~~~~~~~^
+2026-11-14T08:47:10+00:00 ibara bash[1375124]:         actual == meta["unit_properties"]
+2026-11-14T08:47:10+00:00 ibara bash[1375124]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-14T08:47:10+00:00 ibara bash[1375124]:     ...<5 lines>...
+2026-11-14T08:47:10+00:00 ibara bash[1375124]:         "Managed service changed",
+2026-11-14T08:47:10+00:00 ibara bash[1375124]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-14T08:47:10+00:00 ibara bash[1375124]:     )
+2026-11-14T08:47:10+00:00 ibara bash[1375124]:     ^
+2026-11-14T08:47:10+00:00 ibara bash[1375124]:   File "/data/leynos/Projects/hotline-protocol-docs/scripts/native_ban_expiry_control.py", line 36, in require
+2026-11-14T08:47:10+00:00 ibara bash[1375124]:     raise ValueError(reason)
+2026-11-14T08:47:10+00:00 ibara bash[1375124]: ValueError: Managed service changed
+2026-11-14T08:47:10+00:00 ibara systemd[1]: mothra-native-board-c97-readiness.service: Main process exited, code=exited, status=1/FAILURE
+2026-11-14T08:47:10+00:00 ibara systemd[1]: mothra-native-board-c97-readiness.service: Failed with result 'exit-code'.

@@ -1,0 +1,24 @@
+{
+  "source_sha256": "55a866a8a2d91aa4947078d938eeaecb14df9b622e75c515e313c6804250897a",
+  "connect_action_argv": [
+    "python3",
+    "state/native-sessions/native-proxy-baseline-b30/x11_input.py",
+    "click",
+    "626",
+    "484"
+  ],
+  "connect_action_time_utc": "2026-11-13T22:11:54.921241369Z",
+  "helper_event_sequence": [
+    "XTestFakeMotionEvent(display,-1,626,484,0)",
+    "XFlush; sleep(0.08)",
+    "XTestFakeButtonEvent(display,1,1,0)",
+    "XFlush; sleep(0.08)",
+    "XTestFakeButtonEvent(display,1,0,0)",
+    "XFlush; sleep(0.08)",
+    "sleep(0.15)"
+  ],
+  "modifier_calls_in_connect_action": [],
+  "ambient_modifier_state": "not independently measured",
+  "observation": "Connect dialog remained open; zero SYN in both retained 24-byte PCAPs",
+  "provenance": "Operator transcription from as-run helper and command; no raw XInput event monitor was retained"
+}

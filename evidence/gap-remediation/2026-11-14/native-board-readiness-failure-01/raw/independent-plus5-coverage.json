@@ -1,0 +1,44 @@
+{
+  "mothra-native-board-c97-lease.service": {
+    "properties": {
+      "ActiveState": "active",
+      "SubState": "running",
+      "ActiveEnterTimestamp": "Sat 2026-11-14 08:44:02 GMT",
+      "RuntimeMaxUSec": "15min",
+      "RemainAfterExit": "yes",
+      "MainPID": "1364777",
+      "KillMode": "control-group"
+    },
+    "earliest_runtime_end_utc": "2026-11-14T08:59:02+00:00",
+    "coverage_utc": "2026-11-14T08:56:07.051250+00:00",
+    "covers_plus5": true
+  },
+  "mothra-native-board-c97-host.service": {
+    "properties": {
+      "ActiveState": "active",
+      "SubState": "running",
+      "ActiveEnterTimestamp": "Sat 2026-11-14 08:44:02 GMT",
+      "RuntimeMaxUSec": "15min",
+      "RemainAfterExit": "yes",
+      "MainPID": "1364784",
+      "KillMode": "control-group"
+    },
+    "earliest_runtime_end_utc": "2026-11-14T08:59:02+00:00",
+    "coverage_utc": "2026-11-14T08:56:07.051250+00:00",
+    "covers_plus5": true
+  },
+  "mothra-native-board-c97-namespace.service": {
+    "properties": {
+      "ActiveState": "active",
+      "SubState": "running",
+      "ActiveEnterTimestamp": "Sat 2026-11-14 08:44:21 GMT",
+      "RuntimeMaxUSec": "15min",
+      "RemainAfterExit": "yes",
+      "MainPID": "1366433",
+      "KillMode": "control-group"
+    },
+    "earliest_runtime_end_utc": "2026-11-14T08:59:21+00:00",
+    "coverage_utc": "2026-11-14T08:56:07.051250+00:00",
+    "covers_plus5": true
+  }
+}

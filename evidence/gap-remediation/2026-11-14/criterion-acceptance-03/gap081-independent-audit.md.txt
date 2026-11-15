@@ -1,0 +1,46 @@
+# A50: frozen GAP-081 criterion audit (read only)
+
+Input: `evidence/protocol-gap-analysis/2026-11-12/initial-gap-register.json`,
+GAP-081. Question: “Which identified clients accept 161/162, 122, native roster
+output and the SynHX subject addition, and when is an omission policy necessary?”
+Criterion: “Run a peer-by-field acceptance matrix and record actual
+failures/tolerance before selecting omission/default policies.” The evaluated
+identities are the exact shx build (source adb1bf8, executable 8fbbe56) and
+Classic PPC candidate (DATA 7f286e, RSRC f762cf), per canonical
+`peer-profile-rules.md`. Neither reported version nor handshake sub-version
+identifies a build.
+
+| Cell | Exact shx build | Exact Classic candidate |
+| --- | --- | --- |
+| Native roster | Full native 1.9 sessions show automatic roster and explicit reload, with chat continuing; `identified-client-source.md` and `native-shx-02`. | Native baseline and B52/B57/B62 proxy sessions show 300, displayed Online Users, 212/data progression; `classic-native-baseline.md`, `classic-field161-matrix.md`, `classic-server-name-162.md`, `classic-roster-subject-115.md`. |
+| 161 native zero | Native 107 ACK `0000` accepted through roster/chat; `native-shx-02`. | Native ACK `0000` accepted through roster/data; `classic-native-baseline.md`. |
+| 161 variants/omission | Five controlled receiver sessions: omitted, `0001`, unknown login TLV all continue through roster/chat; `peer-tolerance-matrix.md`, `delegated-peer-01`. | B52 native proxy: absent, one zero byte, four zero bytes each reach 121/300/212 and data before intentional cutoff; `classic-field161-matrix.md`, `classic-field161-01`. |
+| Nonempty 162 | Three full native configured-name sessions, ASCII and high-byte, complete; `identified-client-source.md`, `native-shx-02`. | B57 one proxy-added 14-byte ASCII 162 reaches roster/212/data; `classic-server-name-162.md`, `classic-server-name-162-01`. Non-ASCII remains untested. |
+| 122 | Controlled exact 71-byte native frame is diagnosed as unknown and dumped, then roster/chat continue; `identified-client-source.md`, `native-shx-02`, `peer-tolerance-matrix.md`. This is tolerance with a diagnostic, not banner support. | Baseline/B52/B57/B62 native 122 triggers 212 and 58-byte GIF transport; client banner UI remains Loading, so rendering remains unproved. |
+| Subject 115 | Controlled appended subject is displayed twice after roster/reload, then chat continues; `identified-client-source.md`, `native-shx-02`. | B62 exact first-300 proxy appends one ASCII 115 to native roster. Five complete captured views show delivery; after-delivery connected screenshot shows Online Users row, then intentional 28-second cutoff. It does not show subject rendering. `classic-roster-subject-115.md`, `classic-roster-subject-115-01`. |
+
+The B62 UI screenshot file mtime follows packet delivery by about 0.928 s;
+mtime is **not** capture-start time or trusted exposure duration. Its row,
+fresh-app/connected state, native-to-client wire reconstruction, and bounded
+cutoff support one finite roster continuation. They cannot prove field-115
+meaning, renderer behavior, arbitrary values or long-term session stability.
+The earlier 212 was sent before roster delivery; it alone is not 115 evidence.
+The cutoff and resulting Connection Closed alert are not a field rejection.
+
+**Criterion disposition:** The two selected exact builds now have measured
+peer-by-field cells for all five named subjects, with no observed rejection
+that justifies a family-wide omission. The shx 122 diagnostic is an actual
+partial-support outcome. The finite native producer/default rules in canonical
+`peer-profile-rules.md` are a documented unknown-peer baseline, not an mxd
+release policy or a guarantee for unidentified clients. This meets the frozen
+criterion at bounded evidence scope *after* the central profile/matrix tables
+are reconciled: canonical `peer-profile-rules.md` still says Classic 115 is
+“Untested” and `peer-tolerance-matrix.md` predates B52/B57/B62. A closure
+record should point to B62 and explicitly retain subject-rendering and banner
+rendering unknowns; it should not say those features work generally.
+
+No additional peer traffic is required by the original criterion merely to
+obtain non-ASCII, all-vendor, long-duration, or mxd release acceptance. These
+are separate expansion/release decisions. GAP-081 has no criterion requiring
+a field-161 meaning (GAP-026), general codec (GAP-018/082), or mxd policy
+while mxd validation is on hold. Parent owns matrix integration and status.

@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T14:49:25.718861+00:00",
+  "query": {
+    "id": "B10-D-10018e10",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10018e10"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_10018e10\",\n    \"address\": \"10018e10\"\n  },\n  \"code\": \"\\nundefined4 FUN_10018e10(int param_1)\\n\\n{\\n  bool bVar1;\\n  byte bVar2;\\n  uint uVar3;\\n  undefined1 *puVar4;\\n  undefined1 uVar6;\\n  undefined4 uVar5;\\n  undefined1 local_90;\\n  undefined1 auStack_8f [63];\\n  byte local_50;\\n  undefined1 auStack_4f [67];\\n  \\n  local_90 = FUN_10042f80(*(undefined4 *)(*(int *)(param_1 + 0x70) + 0x2c),auStack_8f,0x3f);\\n  local_50 = FUN_10042f80(*(undefined4 *)(*(int *)(param_1 + 0x74) + 0x2c),auStack_4f,0x3f);\\n  bVar1 = true;\\n  uVar3 = FUN_10082630(param_1);\\n  if (uVar3 < 500) {\\n    puVar4 = (undefined1 *)FUN_1006d260(0x74);\\n    if (puVar4 != (undefined1 *)0x0) {\\n      FUN_10009930(puVar4);\\n    }\\n  }\\n  else {\\n    FUN_1006aa40(param_1);\\n    puVar4 = (undefined1 *)FUN_1001b000(param_1,1);\\n    bVar1 = false;\\n  }\\n  *puVar4 = 1;\\n  FUN_10009990(puVar4,&local_90);\\n  uVar6 = FUN_10057e30(puVar4 + 0x11,0x20,0x22);\\n  puVar4[0x10] = uVar6;\\n  *(undefined4 *)(puVar4 + 4) = 0xffffffff;\\n  if (local_50 < 0x40) {\\n    bVar2 = local_50;\\n  }\\n  else {\\n    bVar2 = 0x3f;\\n  }\\n  puVar4[0x31] = bVar2;\\n  FUN_100539c0(puVar4 + 0x32,auStack_4f,bVar2);\\n  *(undefined4 *)(param_1 + 0x78) = 0;\\n  if (bVar1) {\\n    uVar5 = FUN_1001b060(param_1,puVar4,1);\\n  }\\n  else {\\n    uVar5 = 0;\\n  }\\n  FUN_10082630(param_1,uVar5,1);\\n  if (!bVar1) {\\n    FUN_10069f70(param_1,uVar5);\\n  }\\n  return uVar5;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_10018e10",
+        "address": "10018e10"
+      },
+      "code": "\nundefined4 FUN_10018e10(int param_1)\n\n{\n  bool bVar1;\n  byte bVar2;\n  uint uVar3;\n  undefined1 *puVar4;\n  undefined1 uVar6;\n  undefined4 uVar5;\n  undefined1 local_90;\n  undefined1 auStack_8f [63];\n  byte local_50;\n  undefined1 auStack_4f [67];\n  \n  local_90 = FUN_10042f80(*(undefined4 *)(*(int *)(param_1 + 0x70) + 0x2c),auStack_8f,0x3f);\n  local_50 = FUN_10042f80(*(undefined4 *)(*(int *)(param_1 + 0x74) + 0x2c),auStack_4f,0x3f);\n  bVar1 = true;\n  uVar3 = FUN_10082630(param_1);\n  if (uVar3 < 500) {\n    puVar4 = (undefined1 *)FUN_1006d260(0x74);\n    if (puVar4 != (undefined1 *)0x0) {\n      FUN_10009930(puVar4);\n    }\n  }\n  else {\n    FUN_1006aa40(param_1);\n    puVar4 = (undefined1 *)FUN_1001b000(param_1,1);\n    bVar1 = false;\n  }\n  *puVar4 = 1;\n  FUN_10009990(puVar4,&local_90);\n  uVar6 = FUN_10057e30(puVar4 + 0x11,0x20,0x22);\n  puVar4[0x10] = uVar6;\n  *(undefined4 *)(puVar4 + 4) = 0xffffffff;\n  if (local_50 < 0x40) {\n    bVar2 = local_50;\n  }\n  else {\n    bVar2 = 0x3f;\n  }\n  puVar4[0x31] = bVar2;\n  FUN_100539c0(puVar4 + 0x32,auStack_4f,bVar2);\n  *(undefined4 *)(param_1 + 0x78) = 0;\n  if (bVar1) {\n    uVar5 = FUN_1001b060(param_1,puVar4,1);\n  }\n  else {\n    uVar5 = 0;\n  }\n  FUN_10082630(param_1,uVar5,1);\n  if (!bVar1) {\n    FUN_10069f70(param_1,uVar5);\n  }\n  return uVar5;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

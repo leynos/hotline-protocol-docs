@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-13T00:25:30.085711+00:00",
+  "query": {
+    "id": "AG-D-10003940",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10003940"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_10003940\",\n    \"address\": \"10003940\"\n  },\n  \"code\": \"\\nvoid FUN_10003940(int param_1,undefined4 param_2)\\n\\n{\\n  char cVar2;\\n  short sVar1;\\n  int local_20 [5];\\n  \\n  FUN_10003bd0(param_1,PTR_DAT_1008ee24,param_2,param_1 + 8,local_20);\\n  *(undefined4 *)(param_1 + 0x10) = 0;\\n  if ((*(uint *)(param_1 + 0xac) >> 7 & 1) == 0) {\\n    if (*(int *)(param_1 + 0xc) != 0) {\\n      FUN_10052e90(*(undefined4 *)(param_1 + 0xc));\\n      *(undefined4 *)(param_1 + 0xc) = 0;\\n    }\\n    cVar2 = FUN_10003e80(param_1,param_1 + 0x30c,param_1 + 0x14);\\n    if (cVar2 == '\\\\0') {\\n      return;\\n    }\\n    *(undefined4 *)(param_1 + 0x10) = 0x55524c20;\\n    return;\\n  }\\n  if (*(int *)(param_1 + 0x14) != 0) {\\n    FUN_10052e90(*(undefined4 *)(param_1 + 0x14));\\n    *(undefined4 *)(param_1 + 0x14) = 0;\\n  }\\n  cVar2 = FUN_10003bd0(param_1,param_1 + 0x18c,param_2,param_1 + 0xc,local_20);\\n  if (cVar2 == '\\\\0') {\\n    return;\\n  }\\n  local_20[1] = 0;\\n  if (4 < *(byte *)(param_1 + 0x18c)) {\\n    FUN_100539c0(local_20 + 1,param_1 + *(byte *)(param_1 + 0x18c) + 0x189,4);\\n    FUN_100541e0(local_20 + 1,4,0);\\n  }\\n  sVar1 = FUN_1006d130(local_20 + 1,0x1008fc1f,4);\\n  if (((sVar1 == 0) || (local_20[0] == 0x4a504547)) || (local_20[0] == 0x4a464946)) {\\n    *(undefined4 *)(param_1 + 0x10) = 0x4a504547;\\n  }\\n  else {\\n    sVar1 = FUN_1006d130(local_20 + 1,0x1008fc24,4);\\n    if ((sVar1 == 0) || (local_20[0] == 0x47494666)) {\\n      *(undefined4 *)(param_1 + 0x10) = 0x47494666;\\n    }\\n    else {\\n      sVar1 = FUN_1006d130(local_20 + 1,0x1008fc29,4);\\n      if ((sVar1 == 0) || (local_20[0] == 0x50494354)) {\\n        *(undefined4 *)(param_1 + 0x10) = 0x50494354;\\n      }\\n      else {\\n        sVar1 = FUN_1006d130(local_20 + 1,0x1008fc2e,4);\\n        if (((sVar1 == 0) || (sVar1 = FUN_1006d130(local_20 + 1,0x1008fc33,4), sVar1 == 0)) ||\\n           (local_20[0] == 0x424d5020)) {\\n          *(undefined4 *)(param_1 + 0x10) = 0x424d5020;\\n        }\\n      }\\n    }\\n  }\\n  if (*(int *)(param_1 + 0x10) == 0) {\\n    *(int *)(param_1 + 0x10) = local_20[0];\\n  }\\n  FUN_10003e80(param_1,param_1 + 0x20c,param_1 + 0x14);\\n  return;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_10003940",
+        "address": "10003940"
+      },
+      "code": "\nvoid FUN_10003940(int param_1,undefined4 param_2)\n\n{\n  char cVar2;\n  short sVar1;\n  int local_20 [5];\n  \n  FUN_10003bd0(param_1,PTR_DAT_1008ee24,param_2,param_1 + 8,local_20);\n  *(undefined4 *)(param_1 + 0x10) = 0;\n  if ((*(uint *)(param_1 + 0xac) >> 7 & 1) == 0) {\n    if (*(int *)(param_1 + 0xc) != 0) {\n      FUN_10052e90(*(undefined4 *)(param_1 + 0xc));\n      *(undefined4 *)(param_1 + 0xc) = 0;\n    }\n    cVar2 = FUN_10003e80(param_1,param_1 + 0x30c,param_1 + 0x14);\n    if (cVar2 == '\\0') {\n      return;\n    }\n    *(undefined4 *)(param_1 + 0x10) = 0x55524c20;\n    return;\n  }\n  if (*(int *)(param_1 + 0x14) != 0) {\n    FUN_10052e90(*(undefined4 *)(param_1 + 0x14));\n    *(undefined4 *)(param_1 + 0x14) = 0;\n  }\n  cVar2 = FUN_10003bd0(param_1,param_1 + 0x18c,param_2,param_1 + 0xc,local_20);\n  if (cVar2 == '\\0') {\n    return;\n  }\n  local_20[1] = 0;\n  if (4 < *(byte *)(param_1 + 0x18c)) {\n    FUN_100539c0(local_20 + 1,param_1 + *(byte *)(param_1 + 0x18c) + 0x189,4);\n    FUN_100541e0(local_20 + 1,4,0);\n  }\n  sVar1 = FUN_1006d130(local_20 + 1,0x1008fc1f,4);\n  if (((sVar1 == 0) || (local_20[0] == 0x4a504547)) || (local_20[0] == 0x4a464946)) {\n    *(undefined4 *)(param_1 + 0x10) = 0x4a504547;\n  }\n  else {\n    sVar1 = FUN_1006d130(local_20 + 1,0x1008fc24,4);\n    if ((sVar1 == 0) || (local_20[0] == 0x47494666)) {\n      *(undefined4 *)(param_1 + 0x10) = 0x47494666;\n    }\n    else {\n      sVar1 = FUN_1006d130(local_20 + 1,0x1008fc29,4);\n      if ((sVar1 == 0) || (local_20[0] == 0x50494354)) {\n        *(undefined4 *)(param_1 + 0x10) = 0x50494354;\n      }\n      else {\n        sVar1 = FUN_1006d130(local_20 + 1,0x1008fc2e,4);\n        if (((sVar1 == 0) || (sVar1 = FUN_1006d130(local_20 + 1,0x1008fc33,4), sVar1 == 0)) ||\n           (local_20[0] == 0x424d5020)) {\n          *(undefined4 *)(param_1 + 0x10) = 0x424d5020;\n        }\n      }\n    }\n  }\n  if (*(int *)(param_1 + 0x10) == 0) {\n    *(int *)(param_1 + 0x10) = local_20[0];\n  }\n  FUN_10003e80(param_1,param_1 + 0x20c,param_1 + 0x14);\n  return;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

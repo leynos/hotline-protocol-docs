@@ -1,0 +1,20 @@
+{
+  "recorded_at_utc": "2026-11-14T05:40:59.662348+00:00",
+  "protocol_git_head": "146b3650de337f82d16538b9847266e01b6b0766",
+  "fresh_export": "/data/leynos/Projects/mothra/state/delegation/b68-export-yb3kvdmo",
+  "command": [
+    "python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "scripts",
+    "-p",
+    "test_native_ban_expiry.py"
+  ],
+  "cwd": "/data/leynos/Projects/mothra/state/delegation/b68-export-yb3kvdmo/hotline-protocol-docs",
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.033s\n\nOK\n",
+  "canonical_PYTHONPATH_used": false
+}

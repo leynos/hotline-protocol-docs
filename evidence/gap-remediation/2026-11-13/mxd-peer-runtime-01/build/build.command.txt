@@ -1,0 +1,1 @@
+CARGO_TARGET_DIR=<private-mothra>/state/delegation/mxd-target CARGO_NET_OFFLINE=true CARGO_BUILD_JOBS=1 cargo build --locked --offline --bin mxd-wireframe-server

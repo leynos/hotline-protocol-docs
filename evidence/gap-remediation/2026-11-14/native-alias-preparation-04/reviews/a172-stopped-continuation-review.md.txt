@@ -1,0 +1,59 @@
+# A172 failed R04 preparation continuation review
+
+Read-only review of C172 frozen files on 2026-11-14:
+
+- corrected `prepare-required-reflink-04.py` SHA
+  `210ff9725513bce3d4f8391f8fbf8912dc26e4b29b21e898e4f0322d63e5dd23`;
+- new `continue-stopped-reflink-04.py` SHA
+  `b63939046b0c649e4e43528665ed145addf480174896511e0a13baa961036eea`
+  (110/110 lines).
+
+**REJECT wrapper execution pending a commit guard correction.** No module
+`main()` or wrapper was run; no image/ROM bytes were read or copied; no VM,
+service or protocol contact. Original failed `stopped-preparation/` files
+were left unchanged. A distinct successful continuation does not yet exist.
+
+## Corrected filter and retained failure
+
+The failed as-run module SHA `6ee80ec4…` selected every path ending
+`/UserData`, including 52 Trash records. The corrected module selects only
+`\tHotline19/Users/` rows and requires exactly admin catalogue11193 and
+fixture-low11201. The retained allocated catalogue SHA
+`1e6b2c52a5327f0a59fe8e463aaf212b4c62f96d70c6602b97010a0540333e33`
+matches the P03 catalogue byte-for-byte. C's AST model reports old54 versus
+new exact2, and pins unchanged `FORKS`, TSK and TSK environment constants.
+The original failed preflight SHA `df48030fca202d4a2c4b12632909664cde86ecf7d53e22159df55c5e8a30b9ae`
+has status `failed` with the expected filter error; its three copied asset
+hashes/inodes were recorded before the failed HFS check.
+
+## Wrapper scope and blocking finding
+
+The wrapper imports the corrected module without invoking its guarded
+`main()`; it redirects `S` and `commands` to a **new** continuation folder,
+requires absent continuation output, and never calls `clone()` or `cp`.
+It pins both as-run and corrected source hashes, failed preflight hash/status/
+error, original process ticks, existing base/working/ROM identities and
+source hashes. The reused `identity()` and `inspect_hfs()` retain root
+`fuser` before each actual image/ROM read. It checks current capacity,
+stages the same target/sidecar only after confirming the host shared paths
+absent, then writes separate result, source-after, forks, board, assets and
+new finf receipt. On exception its new receipt is marked failed. This is
+the approved no-recopy continuation shape.
+
+However, `checked_corpus()` uses `git ls-files --error-unmatch` for the
+failed corpus manifest and receipt. That command succeeds for paths in the
+Git **index** even when the corpus has never been committed. Root's explicit
+condition is an immutable **committed** failed corpus before continuation.
+Require both paths in the chosen HEAD tree and verify the worktree bytes
+match those committed blobs (or pin an exact committed corpus revision).
+The current gate can pass after `git add` alone, so it cannot authorise
+continuation. C and root were notified before execution.
+
+The wrapper deliberately writes success only to
+`stopped-preparation-continuation-01/preflight.json`, while frozen R04 boot
+and build-runtime still read the old **failed**
+`stopped-preparation/preflight.json`. A separate, reviewed operational
+receipt handoff/rebind is required after continuation success and before
+boot; this is an integration gate, not permission to overwrite the failed
+evidence in place. The immutable failed corpus must remain linked by exact
+hash from the successful receipt.

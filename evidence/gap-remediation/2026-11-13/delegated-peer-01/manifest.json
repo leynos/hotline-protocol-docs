@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "profile": "compiled-historical-peer and controlled-receiver-fixture",
+  "native_conformance": false,
+  "source_commit": "adb1bf8c8cb12f7eb2fa2c01673295a6312f262b",
+  "peer_binary_sha256": "8fbbe56cef439d4c1732e8d9fbe2c676b9d45fbd273a42b22f8034e3b3914fa0",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "cases": [
+    "control",
+    "omit-161",
+    "vary-161",
+    "unknown-login",
+    "early-122"
+  ],
+  "ports": [
+    15600,
+    15601,
+    15602,
+    15603,
+    15604
+  ],
+  "real_home_file_before": [
+    "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    0,
+    1794540213655000242
+  ],
+  "real_home_file_after": [
+    "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    0,
+    1794540213655000242
+  ],
+  "source_fixture_sha256": "8ee44059878369936a031dfc8fc07c95f7583e5d9c24b42059a54c2de5c2d139",
+  "source_runner_sha256": "f562350e90f556b95754368552e744412e62e780384556f5ff7edb7c2786de07"
+}

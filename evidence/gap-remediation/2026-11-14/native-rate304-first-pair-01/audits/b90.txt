@@ -1,0 +1,84 @@
+# B90: C107 first-pair timeout, read-only diagnosis
+
+Scope: canonical B89 source (`native_rate304_cases.py` SHA `1f03bde7…`,
+`native_rate304_control.py` SHA `a1d57bc5…`) and retained
+`state/native-sessions/native-rate304-epoch-01/coordinator/report.json`,
+`lab-namespace.pcap`, `lab-guest.pcap`. No rerun or source edit. Coordinator
+status is `failed`: `Missing paced subject/observer301 and500 ACK icon2`.
+Only the first 304/500 pair was sent; neither 26-count, 27th limiter nor
+70-second reset was reached. A 304 limit or native ban is therefore untested.
+
+## Exact sequence
+
+- Observer `admin` Login107 ACK ID1/status0, 354 admin access, 109 known
+  agreement, and 300 ID10 one `framing-fixture` row succeeded. Paced
+  `fixture-low` Login107 ACK ID1/status0, 354 eight-zero access and 109
+  succeeded; its 300 ID10 had observer UID2/icon1 and subject UID3/icon1.
+  The account/early-online branch is positive. Observer 301 ID3, UID3,
+  icon1, name `fixture-low`, arrived at report elapsed 0.754040s: **login
+  join**, not 304 update. Low ACL did not prevent online admission.
+- Paced request304 ID1000, sole field104=`0002`, was sent at report elapsed
+  0.837834s (action ends 0.837840s). Paced request500 ID2000 followed
+  at 0.837875s (action ends 0.837877s). The same TCP stream ordered the
+  two requests. The coordinator's `update_and_barrier` then waited for
+  subject301 UID3/icon2, observer301 UID3/icon2 and ID2000 ACK.
+- `Wire.wait_for` set `until=now+0.55s`; `poll` used `select` at <=0.05s
+  intervals and saw no matching response before that local deadline.
+  `perform` raised at about elapsed 1.388s. `run` immediately entered
+  `close_all`, starting with observer `shutdown_write` at 1.388185s;
+  observer EOF was read at 1.395745s. The host namespace PCAP shows
+  observer FIN index66 at 1794652191302047us. The receipt's 3.398s total
+  includes up to two seconds of bounded observer drain and later subject
+  cleanup, not a three-second first-pair wait.
+- After observer cleanup began, paced received 302 ID3, UID2 at 1.580643s:
+  **observer departure**, not subject departure or limiter evidence. Paced
+  received 301 ID4, UID3/icon2/name `fixture-low` at 1.585971s, then
+  direct type0 ID2000/status0 ACK at 1.585993s. Namespace PCAP indices
+  69/71 and guest indices 86/88 independently carry the 302 and 301+500
+  reply bytes. Subject response latency from 304 send was about 0.748s;
+  the configured 0.55s wait was shorter. The observer was already closed,
+  so absence of observer icon2 is confounded by fixture cleanup. Paced FIN
+  and server FIN occurred only during later owned teardown. No native
+  close/ban for 304 was observed.
+
+`Wire.poll` did not drop observed bytes; it preserved the late 302/301/ACK
+in `frames` and the raw receive stream. The immediate exception path closed
+observer before that fan-out could be observed. Thus this run proves a
+**fixture wait failure under this process timing**, not a 304 rejection or
+an ordinary per-pair latency distribution. Guest PCAP indices77/78 contain
+the same 304 bytes at identical TCP sequence `3810816111`, a retransmission
+rather than a second logical 304. The data cannot distinguish a
+scheduled dispatcher tick, transient guest load, the retransmission, or the
+observer FIN as the cause of the ~0.75s response.
+
+## Bounded next design gate; no implementation or native START
+
+A fixed >=0.8s per-pair wait would avoid this one cutoff, but 26 serial
+pairs at 0.8s already consume >=20.8s before setup/jitter. Merely raising
+0.55s while retaining the <=20 host-second trial guard is therefore an
+incomplete fix. A proposed coordinator revision should send 304 then
+same-socket500 for each icon2..27 without requiring both stream deliveries
+*before sending the next pair*, drain all sockets concurrently, and verify
+26 ordered subject301, 26 ordered observer301 and 26 numbered500 ACKs by
+UID/icon/ID before ending the trial. It must retain the original counter
+and global socket/byte/deadline guards, fail on duplicate/foreign frames,
+and mark a >20s trial timing-invalid rather than stretch the native window.
+It does not claim that pipelining is necessary or that the native server
+will process all 26 within 20s.
+
+First, parent-approved **synthetic process** rehearsal only: fresh fake
+loopback server and proposed revised pair executor in an owned
+namespace/managed unit, no emulator/native server. Model the exact
+TRTP/login/roster/301/500
+chain with a 0.75s first-response delay and alternate subject/observer
+arrival order. Assert no observer FIN before all 26+26+26 obligations, all
+raw tails retained, and a complete <=20s trial. A second slow schedule
+(>=0.8s serial per pair) must fail as timing-invalid without relabeling
+native rejection. Budget one synthetic 26-pair happy and one slow negative,
+<=4 flows, <=60s wall/owned units, no native contact or changed routes.
+If the process-level model cannot meet this or requires a new trust boundary,
+stop and return timings/source proof. Only then consider a separately
+approved disposable-native calibration or full C107 retry with new immutable
+runtime, full preflight/captures/lease; do not reuse the failed lab or infer
+native `GetDateTime` equivalence from host seconds. Existing C107 raw files
+and failure label must remain unchanged.

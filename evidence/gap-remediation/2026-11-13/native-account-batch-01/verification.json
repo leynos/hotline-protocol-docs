@@ -1,0 +1,12 @@
+{
+  "completed_reports": 70,
+  "paired_connections": 75,
+  "main_batch_cases": 18,
+  "distinct_password_collision": 1,
+  "terminal_batch_successes": 8,
+  "terminal_batch_errors": 11,
+  "owned_accounts_present_before_cleanup": 29,
+  "original_objects_in_trash": 64,
+  "oracle_queries": 12,
+  "scope": "Owned 349 framing/default/permission/mixed-outcome fixtures; rename collision overwrites destination and continues, without rollback. No protected/self-delete, arbitrary I/O, all-exception translation or historical-client claim."
+}

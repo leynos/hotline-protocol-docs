@@ -1,0 +1,7 @@
+C12 offline acceptance verifier receipt, 2026-11-13 UTC
+Protocol docs scripts/verify_mxd_login_extras.py: verified 7 nextest profiles and 2 doctest groups (offline default)
+Protocol docs scripts/verify_mxd_login_extras.py --mxd ../mxd: verified 7 nextest profiles and 2 doctest groups (private exact HEAD and clean tracked tree)
+Unittest discovery test_mxd_login_extras.py: 4 tests, OK; baseline and three checksum-consistent semantic fault controls.
+Fresh adjacent temporary export containing only protocol scripts and mothra evidence, no mxd checkout: verifier 7 profiles/2 doctest groups; unittest 4 tests, OK.
+Ruff check and format check: pass; ty check: pass; Markdown lint and Nixie on new protocol note: pass.
+Retained terminal-mainpid.txt is a supplementary read-only systemd property capture from the still-retained C11 oneshot unit. Existing raw full-gate and original unit log bytes were not changed.

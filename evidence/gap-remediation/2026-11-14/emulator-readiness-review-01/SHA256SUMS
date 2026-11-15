@@ -1,0 +1,8 @@
+9260bd49b209f0522016357e3cf7edf90dd4beb6c2b5c759caae8b22e72295e6  evidence/gap-remediation/2026-11-14/emulator-readiness-review-01/b95-initial-review.md.txt
+7d84a90cf81327aa063a445e9f24cf6911ba606aa5e6696c00289eeaa26615bc  evidence/gap-remediation/2026-11-14/emulator-readiness-review-01/b96-remediation-review.md.txt
+07f856c87a7b3be1ea68df832bf09fc1678f6762eec0ec558aebd63b60195eb6  evidence/gap-remediation/2026-11-14/emulator-readiness-review-01/manifest.json
+96c2933300fadf00f1d5aa8e59ed7d910e13d0b78a919ad986903bcccbf793e6  evidence/gap-remediation/2026-11-14/emulator-readiness-review-01/native-emulator-readiness.md.txt
+56200bfe9dcf779bb72e2a711a0ce98bb9351f5f42dc57245a40d1dd603cca7e  evidence/gap-remediation/2026-11-14/emulator-readiness-review-01/native_emulator_readiness.py.txt
+46df8babe046f421db117507bd898d4bb7d089554bd7d8b79ade571636363560  evidence/gap-remediation/2026-11-14/emulator-readiness-review-01/parent-code-gates.txt
+537e7db4657bf7e2093c6fde67e27e0a6c7279043ef5f1d15ef40cc837a89cc2  evidence/gap-remediation/2026-11-14/emulator-readiness-review-01/parent-final-tests.txt
+0ff9b0712a93ae7cd22385a13206db99e0fe6badfa3a85c3b480c8f852a12905  evidence/gap-remediation/2026-11-14/emulator-readiness-review-01/test_native_emulator_readiness.py.txt

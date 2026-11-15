@@ -1,0 +1,29 @@
+{
+  "scope": "23 final native resume cases with paired packet reconciliation and before/after HFS+ fork bytes;7 initial attempts preserved,3 failed",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "runtime": "runtime.json",
+  "verification": "verification.json",
+  "catalogue": "transcripts/;16 download and7 upload cases",
+  "initial_attempts": "initial-probes/; nonmatching302, unsignedmax advertised-byte EOF and shortRFLT numberedreply timeout are preserved",
+  "packet_provenance": "Fresh host capture runtime06 stopped by SIGINT; complete guest observer snapshot from continuing runtime04, same live PID774378 and executablehash. Every30transcript matches exact host/guest streams with two pinned initial unread control301suffixes.",
+  "filesystem": "native-files/; before13DATA/5MACR underHTft/HTLC, after correct13/317 and inconsistent26/322 underTEXT/MOTH; read-only liveHFS+ extraction, catalogues11214/11215; no restartdurability claim",
+  "observations": [
+    "RFLT DATA/MACR zero/inside/EOF/beyond offsets, unknown and repeated fork entries",
+    "Repeated entries update startoffset but subtract each offset from alreadyremaining count; explicit byte ranges are pinned",
+    "Unsignedmax offsets receive180byte advertisement but data connection closes without stream; no generic safe beyondEOF promise",
+    "Short41/wrongmagic/wrongversion RFLT produces no reply10 observed before3secondpause and later500 ACK;30secondfailedshortprobe preserved",
+    "Upload resume offsets reflect native fork EOFs; missing/completed files produce numberedstatus1 withoutreference",
+    "Interrupted fullDATA13 plusMACR5 persists incomplete type, correct continuation reconstructs original forks",
+    "Clientsupplied zerooffsetRFLT on203 does not override negotiated13/5; fullfork replay appends and is markedcomplete"
+  ],
+  "tooling": "Bounded match_frame selects a reply while retaining intervening notifications; maximum256frames and existing deadline/bytebounds. Independent verification redecodes all frames and checks completed match.",
+  "limitations": [
+    "No malformedentrycount out-of-bounds execution or safe-native-parser guarantee",
+    "No folder/queue/banner or largefile/restart/diskfull conformance",
+    "Three-second/30-second windows are bounded host observations",
+    "One screensaver-wake click after initialshortRFLT timeout, before correctedboundedprobes; no timingcausality claim"
+  ],
+  "closure_candidates": [
+    "GAP-058"
+  ]
+}

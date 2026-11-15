@@ -1,0 +1,12 @@
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`
+    Finished `test` profile [optimized] target(s) in 0.34s
+     Running unittests src/lib.rs (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/build/mxd/29c43d9412d22c7d/out/mxd-29c43d9412d22c7d)
+
+running 4 tests
+test server::cli::tests::precedence::conflicting_layers_resolve_each_field_by_precedence::case_1_defaults ... ok
+test server::cli::tests::precedence::conflicting_layers_resolve_each_field_by_precedence::case_2_file ... ok
+test server::cli::tests::precedence::conflicting_layers_resolve_each_field_by_precedence::case_4_command_line ... ok
+test server::cli::tests::precedence::conflicting_layers_resolve_each_field_by_precedence::case_3_environment ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 415 filtered out; finished in 0.00s
+

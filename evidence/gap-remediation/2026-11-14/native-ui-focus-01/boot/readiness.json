@@ -1,0 +1,77 @@
+{
+  "utc": "2026-11-14T01:03:10.157338+00:00",
+  "actual_emulator": {
+    "utc": "2026-11-14T01:00:11.994633+00:00",
+    "pid": 2055952,
+    "exe": "/data/leynos/Projects/mothra/state/mac-runtime/native-eventlab-one-01/SheepShaver-9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+    "fd6": "/data/leynos/Projects/mothra/state/mac-runtime/native-eventlab-one-01/working.dsk",
+    "netns": "net:[4026532615]",
+    "status": [
+      "Uid:\t1000\t1000\t1000\t1000",
+      "Gid:\t1000\t1000\t1000\t1000",
+      "CapEff:\t0000000000020000"
+    ],
+    "fd16": "/data/leynos/Projects/mothra/state/native-sessions/native-eventlab-c49/lab-guest.pcap",
+    "starttime": "4261101",
+    "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+    "addr": "1: lo    inet 127.0.0.1/8 scope host lo\\       valid_lft forever preferred_lft forever",
+    "routes": "",
+    "listeners": "State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess                                       \nLISTEN 0      1          127.0.0.1:15752      0.0.0.0:*    users:((\"SheepShaver-9c9\",pid=2055952,fd=13))\nLISTEN 0      1          127.0.0.1:15753      0.0.0.0:*    users:((\"SheepShaver-9c9\",pid=2055952,fd=14))\nLISTEN 0      1          127.0.0.1:15750      0.0.0.0:*    users:((\"SheepShaver-9c9\",pid=2055952,fd=11))\nLISTEN 0      1          127.0.0.1:15751      0.0.0.0:*    users:((\"SheepShaver-9c9\",pid=2055952,fd=12))\nLISTEN 0      32         127.0.0.1:15500      0.0.0.0:*    users:((\"python3\",pid=2055923,fd=5))",
+    "uid": "Uid:\t1000\t1000\t1000\t1000",
+    "cap_eff": "CapEff:\t0000000000020000"
+  },
+  "namespace": {
+    "addr": "1: lo    inet 127.0.0.1/8 scope host lo\\       valid_lft forever preferred_lft forever",
+    "routes": "",
+    "listeners": "State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess                                       \nLISTEN 0      1          127.0.0.1:15752      0.0.0.0:*    users:((\"SheepShaver-9c9\",pid=2055952,fd=13))\nLISTEN 0      1          127.0.0.1:15753      0.0.0.0:*    users:((\"SheepShaver-9c9\",pid=2055952,fd=14))\nLISTEN 0      1          127.0.0.1:15750      0.0.0.0:*    users:((\"SheepShaver-9c9\",pid=2055952,fd=11))\nLISTEN 0      1          127.0.0.1:15751      0.0.0.0:*    users:((\"SheepShaver-9c9\",pid=2055952,fd=12))\nLISTEN 0      32         127.0.0.1:15500      0.0.0.0:*    users:((\"python3\",pid=2055923,fd=5))"
+  },
+  "original": {
+    "primary": {
+      "pid": 1099659,
+      "netns": "net:[4026531840]",
+      "fd6": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/working.dsk",
+      "fd16": "/data/leynos/Projects/mothra/state/native-sessions/recovery-20261113-01/guest.pcap"
+    },
+    "client": {
+      "pid": 1012834,
+      "netns": "net:[4026532479]",
+      "fd6": "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/working.dsk",
+      "fd16": "/data/leynos/Projects/mothra/state/native-sessions/mac-peer-isolated-01/client-guest.pcap"
+    }
+  },
+  "capture": {
+    "primary-host.pcap": {
+      "bytes": 24,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "sha256": "704e5e5b3234433c01fcfd1b20a306e77e985038120492dc53965c3edd38a4ea"
+    },
+    "lab-namespace.pcap": {
+      "bytes": 24,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "sha256": "704e5e5b3234433c01fcfd1b20a306e77e985038120492dc53965c3edd38a4ea"
+    },
+    "lab-guest.pcap": {
+      "bytes": 1262,
+      "header24": "d4c3b2a1020004000000000000000000ffff000001000000",
+      "sha256": "d424406664bb2610a1017dae2e7bf66aeed8ee91fb9211c6f912e087aed20696"
+    }
+  },
+  "units": {
+    "mothra-native-event-c49-host-capture.service": "ActiveState=active\nActiveEnterTimestamp=Sat 2026-11-14 00:58:15 GMT\nRuntimeMaxUSec=20min\nMainPID=2055514",
+    "mothra-native-event-c49-ns-capture.service": "ActiveState=active\nActiveEnterTimestamp=Sat 2026-11-14 00:59:18 GMT\nRuntimeMaxUSec=20min\nMainPID=2063129"
+  },
+  "gui": {
+    "screenshot": "server-ready-initial.png",
+    "sha256": "b626d4179dbab3f7da5ae0954f9115b40ac54acdb42d1d974d6e4846082152a9",
+    "log_title_gold_pixels": 0,
+    "server_title_gold_pixels": 199,
+    "blank_log_pixel": [
+      450,
+      180
+    ],
+    "visual": "Hotline Server started at 10.0.2.15; Log inactive, Server and Statistics active, no overlay"
+  },
+  "source_base_stat_unchanged": true,
+  "observer_sha256": "4a39d24fbc68f492558deacb4794829d145e7cc100bab0acb8945f5497d4b3d4",
+  "no_frontend_contact": true
+}

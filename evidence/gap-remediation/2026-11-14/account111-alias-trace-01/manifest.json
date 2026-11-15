@@ -1,0 +1,50 @@
+{
+  "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "conditional_calls_unused": [
+    "1001f140",
+    "one actual field-derived callee"
+  ],
+  "content_queries": {
+    "a96": 6,
+    "a98": 1
+  },
+  "extension_jar_sha256": "201d18ffde71a83a678eae607de265861f37e5a00b989d91958c1197664d2b43",
+  "files": {
+    "a95-account111-code-offset-scan.json": "2b7693813d4b52485bd48884e9956e4697be9468ea4164b5281a2237cedfa87a",
+    "a95-account111-dataflow-preparation.md.txt": "c0722da14b262ffdb15377bb2cd1691c3ee5b53b36cad931e4953a09f65c8715",
+    "a96/SHA256SUMS": "248edc80c4715ed8b9d918573cd05e0635be4958d810f949f223bb4f3fbe03ac",
+    "a96/as-run.txt": "52a5f57b57126c5ab36530fa7d428efe472a2b35cb8d7ab2ce24e081e2e04fe3",
+    "a96/capture.py.txt": "e1455727ee19866699578624076657c1483698065767ab2e04efbb87a6bd6e42",
+    "a96/outcome.md.txt": "5c83e5a9a3ee9fd6f77f909090726fb8099f30475455bf51a36d72b96135768e",
+    "a96/raw/disassemble-10003170.json": "8914788c64d840914e2c877ea6859b8192948c6962199b906ee21f8e5fca0157",
+    "a96/raw/disassemble-10007780.json": "8a1c2aa4cb7125bdb6935f389193b98e3d9bfb42474f7d4b6eefdfafd71d9525",
+    "a96/raw/disassemble-10007fa0.json": "234932c2e787e84e0304f116e851d946307f294ee6108b26abb0deb3cdbb8004",
+    "a96/raw/disassemble-10015160.json": "dba3c41ddfd601775442f7b3f525605e0a66cb61e7e0f715b7544b5e1d753c51",
+    "a96/raw/disassemble-10015500.json": "483eead6da07c6d2a99c32f1e4354289ce3675edebf13d127609696b5e94c710",
+    "a96/raw/disassemble-100197e0.json": "9464304d4926a8c276c4c4f3119ad0e4c830e916dc2dcba397f98a535d1b3e36",
+    "a96/raw/identity-after.json": "97ce4015c2bbd6cfffd98c8a8a719d46ef6f8abd2c2851db1a3e458dbb0369e2",
+    "a96/raw/identity-before.json": "34c6b68578e7f827c9d7fa48eb23a0d4a42948a42d573ea1564e7e25cef35ccf",
+    "a96/report.json": "296d81d7493fb71a4e3d86f1ec0f89bfff5b600b7352eb9e616e18514321d45b",
+    "a96/server.stderr.log": "7f3d169a094f5bc17aec4def851f037588fad0357e7e45d3dd75fe9f3f4aa878",
+    "a98/SHA256SUMS": "756e892d5300b66411d8a1bdcf20b77046996b6d3c65dc40115a9f3e2bfd26cf",
+    "a98/as-run.txt": "11ef00686d16acfba46868de0be97cd8298ffec1cbfc33aa865b66358b7f059c",
+    "a98/capture.py.txt": "0b8975358c82a75bd18b5ed44aed2aa9384d0fd22ff9b284f442832e1685beed",
+    "a98/outcome.md.txt": "8c6a3acf9b3c008ee006b187c94b14fe3434f6e13d06a85a67ef68cca34653c6",
+    "a98/raw/disassemble-10015500-tail.json": "9e8e5a7db751cf8fc2d1849a9313c8c40bc93f31f8d325d5835c61ea3e329278",
+    "a98/raw/identity-after.json": "8d7f361a69cf3a2a1a2e0ead5af7c00958da1959f6cdca68f5abd20c97fe4c0b",
+    "a98/raw/identity-before.json": "84a34c4a6d22bff64b3074d413a867865ffc0b6146341773f09e6704a1c4fcef",
+    "a98/report.json": "d06559e8ac11a46b7bc07ac452086257980235df8c16772a09380b2d03dbc15c",
+    "a98/server.stderr.log": "3e1a65d186fad6756d73d1d5ca7089e0eea87bb39a1a2abfbe17e3ec20f0fe86"
+  },
+  "pagination": "10015500: A96 offset 0 limit 500 of total 555, A98 offset 500 returned 55 and has_more=false",
+  "program_identity": "PowerPC:BE:32:default; 1840 functions; before/after equal in both sessions",
+  "project": "independent-endpoint-01; --no-analyze --discard; not GUI project",
+  "scope": "Direct-displacement tests and bounded known-reader stack alias paths; no positive field-specific value consumer and no global absence proof.",
+  "source_origins": {
+    "a95-account111-code-offset-scan.json": "state/delegation/a95-account111-code-offset-scan.json",
+    "a95-account111-dataflow-preparation.md.txt": "state/delegation/a95-account111-dataflow-preparation.md",
+    "a96/*": "state/delegation/account111-alias-oracle-01 selected raw, wrapper and receipts",
+    "a98/*": "state/delegation/account111-alias-oracle-02 selected raw, wrapper and receipts"
+  },
+  "title": "Account field 111 bounded alias trace, A95/A96/A98"
+}

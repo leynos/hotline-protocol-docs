@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-13T00:29:06.400228+00:00",
+  "query": {
+    "id": "AG-D-100018b0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100018b0"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_100018b0\",\n    \"address\": \"100018b0\"\n  },\n  \"code\": \"\\nvoid FUN_100018b0(int param_1,undefined4 param_2,int param_3)\\n\\n{\\n  int iVar1;\\n  \\n  iVar1 = *(int *)(param_3 + 4);\\n  if (iVar1 == 0x6a) {\\n    FUN_100023a0(param_1);\\n  }\\n  else if (iVar1 < 0x6a) {\\n    if (iVar1 == 0x66) {\\n      FUN_10003f30(param_1);\\n      FUN_10003940(param_1,1);\\n    }\\n    else if (iVar1 < 0x66) {\\n      if (iVar1 == 100) {\\n        FUN_10002dd0(param_1);\\n      }\\n      else if (99 < iVar1) {\\n        FUN_10003170(param_1);\\n      }\\n    }\\n    else if (iVar1 == 0x68) {\\n      FUN_10002350(param_1);\\n    }\\n    else if (iVar1 < 0x68) {\\n      FUN_10002300(param_1);\\n    }\\n    else {\\n      FUN_10082630(param_1);\\n    }\\n  }\\n  else if (iVar1 == 0x6d) {\\n    if (*(int *)(param_1 + 0x94) != 0) {\\n      FUN_1001ecb0(*(undefined4 *)(param_1 + 0x94));\\n    }\\n  }\\n  else if (iVar1 < 0x6d) {\\n    if (iVar1 < 0x6c) {\\n      FUN_10082630(param_1);\\n    }\\n    else {\\n      FUN_10003640(param_1);\\n    }\\n  }\\n  else if (iVar1 == 0x77696e64) {\\n    FUN_10003680(param_1);\\n  }\\n  return;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_100018b0",
+        "address": "100018b0"
+      },
+      "code": "\nvoid FUN_100018b0(int param_1,undefined4 param_2,int param_3)\n\n{\n  int iVar1;\n  \n  iVar1 = *(int *)(param_3 + 4);\n  if (iVar1 == 0x6a) {\n    FUN_100023a0(param_1);\n  }\n  else if (iVar1 < 0x6a) {\n    if (iVar1 == 0x66) {\n      FUN_10003f30(param_1);\n      FUN_10003940(param_1,1);\n    }\n    else if (iVar1 < 0x66) {\n      if (iVar1 == 100) {\n        FUN_10002dd0(param_1);\n      }\n      else if (99 < iVar1) {\n        FUN_10003170(param_1);\n      }\n    }\n    else if (iVar1 == 0x68) {\n      FUN_10002350(param_1);\n    }\n    else if (iVar1 < 0x68) {\n      FUN_10002300(param_1);\n    }\n    else {\n      FUN_10082630(param_1);\n    }\n  }\n  else if (iVar1 == 0x6d) {\n    if (*(int *)(param_1 + 0x94) != 0) {\n      FUN_1001ecb0(*(undefined4 *)(param_1 + 0x94));\n    }\n  }\n  else if (iVar1 < 0x6d) {\n    if (iVar1 < 0x6c) {\n      FUN_10082630(param_1);\n    }\n    else {\n      FUN_10003640(param_1);\n    }\n  }\n  else if (iVar1 == 0x77696e64) {\n    FUN_10003680(param_1);\n  }\n  return;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

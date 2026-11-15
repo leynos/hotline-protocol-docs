@@ -1,0 +1,29 @@
+{
+  "schema": "native-download-send-path-01",
+  "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "oracle_function_count": 1840,
+  "c40_content_queries": 8,
+  "c41_content_queries": 8,
+  "source_commit": "1f2c469cf5bb150833c1c1e4bb556296b8e8009a",
+  "files": {
+    "notes/c39-native-transfer-producer.md.txt": "f58e9fe3077404353b43d1d1f85e37690011aec3522fd15d822ebc081d51554a",
+    "oracle/c40-query.py.txt": "264fb0e362d4cc195bd8698f2870191f328fbe71a31e6808227c76f9105ac64e",
+    "oracle/c40-report.json": "7b4b416265f6ac85541a363daf7879bbca4b9efc48c17a7681f44d9c71933299",
+    "oracle/c40-server.stderr.log": "fcddc19f789ea2cd0de75bac4723d1460499dee6dc977972271af94814347807",
+    "oracle/c40-caller.py.txt": "2e2de48912515df142aad1fcf606e4d36245f708369f2d2778c37bb5abe20e71",
+    "oracle/c40-caller.json": "02199efe2903ffb74a5a14562868c902d53363d0b3ef7afe89240df5677d5783",
+    "oracle/c40-caller.stderr.log": "214d2f95e73fb969a5e609e74e92d7df4a110d86f07641957636785ff602523b",
+    "oracle/c41-query.py.txt": "adf91a8127665d8ff1f8f9fcb824b01d3e7f5679df595530666863384cf19eca",
+    "oracle/c41-report.json": "31abd6e1cd9b47875ecba86377ef7493dd605b7f83f484d0f10261dcb48bfb32",
+    "oracle/c41-server.stderr.log": "8d796137e7182522d5e5d048c9f432535ab6e0f8aff6fdaf98779a7826fbfd26",
+    "oracle/c41-trace.md.txt": "b770c261db9e5616c6dcec7a45352f31775b616ebaa29ead5e38649cc3feee21",
+    "sources/D-1000acf0.c": "507eb359ba4198151f5d875e58a89354c6fdcd70910aebe8bd4e64b3970b8fb2",
+    "sources/D-100121a0.c": "061f73d6427fce1dfc5a972113a95f944f9cabccc90a76b4f25c4d200c5275e9",
+    "sources/D-1000bd20.c": "829df302b4b18a4f102695a5bd6f73c3f8c454c61c70726eeaed6890c03a4e6f",
+    "sources/B04-D-1000e600.c": "ebff55046f625d570d6717ac30f550789df7bece2da663747c81d62683fe1126",
+    "sources/B04-D-1000cfa0.c": "4995cef50ba03453da9f6a0ceb4f4ce659d1b5ef63f3d5810a9cb1056842a33d",
+    "sources/B04-D-1000c200.c": "c76fac21c7f8d3597feeb4bccde104500d5e43e9737f727bce22fea6e7acbee4",
+    "sources/B04-D-1002d830.c": "f49979b479c797061fa75db7e634e5f78a8dc89cbca16b9c44387cafc127a6c8",
+    "source-provenance.json": "b0dcbb189c903686e67c3060ce90d9c828695b515b0559bb3df818bc1f53c499"
+  }
+}

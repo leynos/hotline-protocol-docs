@@ -1,0 +1,1 @@
+sudo -n journalctl -u mothra-native-rate304-r03-host.service -u mothra-native-rate304-r03-namespace.service --no-pager -o cat

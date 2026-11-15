@@ -1,0 +1,30 @@
+{
+  "accepted_at_utc": "2026-11-14T07:39:13.424858+00:00",
+  "id": "GAP-035",
+  "previous_status": "Investigating",
+  "status": "Resolved",
+  "original_question": "Does 301 include the subject user, when is a session visible in 300, and how are snapshots ordered against concurrent changes and 354?",
+  "original_closure_criteria": "Document eligibility, recipient and ordering rules, with initial login, rename and snapshot-race event traces.",
+  "decision": "Met for documented eligibility/recipient rules and initial-login, rename and one snapshot-race event trace. Initial joiner301 is broadcast before joineronline/354; an already-online settings sender can receive its own301. The finite overlap returned old then new state after recorded same-socket handler barriers. Untested interleavings and stronger atomic snapshot/subscription promises remain unproved. No full A7 health, orderlyOSshutdown or observed runner/proc namespace receipt is claimed; unit namespace configuration, executed guard and paired TCP separately bound placement.",
+  "clauses": {
+    "eligibility": "Online-state byte/nonemptyname roster predicate; nativeearly/delayedlogin fixtures distinguishauthfromvisibility.",
+    "recipients": "Initial301toeligibleexistingpeers, already-online304senderreceivesown301, observedown354beforeown301on353update.",
+    "ordering": "Per-socket/per-subject rules; no cross-socket totalorder.",
+    "event_traces": "Existinginitial/rename plus C87client-pending300/304 race andstablepost-barrier300;4pairedflows."
+  },
+  "parent_replay": {
+    "verifier": "verify_native_roster_overlap.py --corpus .../native-roster-overlap-01",
+    "result": "PASS",
+    "witness_tests": 18,
+    "initial_cli_error": "Parent first used unsupported positional path; corrected --corpus passes. No native contact by either offline invocation."
+  },
+  "not_proven": [
+    "allinterleavings",
+    "universalatomicity",
+    "race-freesubscription",
+    "observed runner/proc namespace sample",
+    "fullA7",
+    "orderlyOSshutdown"
+  ],
+  "mxd_validation": "on hold"
+}

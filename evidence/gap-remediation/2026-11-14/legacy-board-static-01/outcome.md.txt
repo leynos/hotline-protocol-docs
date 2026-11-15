@@ -1,0 +1,24 @@
+# A75 board constants, read-only result
+
+One execution ran under nonblocking `state/delegation/oracle.lock` from
+08:16:35 to 08:16:42 UTC on 2026-11-14. It completed six fixed
+`read_memory` calls; all returned without error. The saved independent server
+project reported binary SHA-256 `ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`,
+language `PowerPC:BE:32:default`, min address `10000000` and 1,840 functions
+both before and after; the full identity objects compare equal. The lock was
+subsequently available via `flock -n ... true`. The source script hash is in
+`report.json`, and exact requests/replies are in `raw/`.
+
+| Address | Raw fact |
+| --- | --- |
+| `10089144` | Eight bytes `10 08 26 bc 10 08 26 94`, pointing to `100826bc` and `10082694`. |
+| `10082694` | NUL-terminated format bytes `From %#s (%s%2.2hu %2.2hu:%2.2hu):` followed by `0d 0d`; trailing read contains other data. |
+| `100826bc` | Pascal length byte `3c` (60); content `0d`, 58 copies of `5f`, `0d`. The apparent `<` is the length byte, not content. |
+| `1008ee20` | Four bytes `10 08 f8 7e`, pointing to `1008f87e`. |
+| `1008f87e` | Pascal length byte `10` (16), followed by ASCII `MessageBoard.txt`; subsequent bytes are adjacent strings, not part of this name. |
+| `1008fcf9` | Bytes include NUL-separated `Jan` through `Dec`, then `???` and `***`; no date or timezone interpretation is inferred. |
+
+This identifies constant bytes and one filename candidate, not a tested board
+message, file path location, runtime formatting of names/dates, or persistence.
+The static `B08-D-10004110.c` pointer use supplies the bounded connection to
+the formatter; any runtime claim still requires the separate board fixture.

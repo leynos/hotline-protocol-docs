@@ -1,0 +1,79 @@
+[
+  {
+    "id": "LA-D-10014df0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10014df0"
+    }
+  },
+  {
+    "id": "LA-D-100149e0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100149e0"
+    }
+  },
+  {
+    "id": "LA-D-10005d30",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10005d30"
+    }
+  },
+  {
+    "id": "LA-D-10005f90",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10005f90"
+    }
+  },
+  {
+    "id": "LA-D-10004f30",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10004f30"
+    }
+  },
+  {
+    "id": "LA-D-10011870",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10011870"
+    }
+  },
+  {
+    "id": "LA-D-10007340",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10007340"
+    }
+  },
+  {
+    "id": "LA-D-100073c0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100073c0"
+    }
+  },
+  {
+    "id": "LA-D-100075e0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100075e0"
+    }
+  },
+  {
+    "id": "LA-D-10007ad0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10007ad0"
+    }
+  },
+  {
+    "id": "LA-D-10018620",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10018620"
+    }
+  }
+]

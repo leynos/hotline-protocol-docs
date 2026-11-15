@@ -1,0 +1,12 @@
+ActiveState=active
+SubState=exited
+RuntimeMaxUSec=1min
+RemainAfterExit=yes
+MainPID=0
+Result=success
+NRestarts=0
+ExecMainStatus=0
+ControlGroup=
+User=1000
+Group=1000
+PrivateNetwork=yes

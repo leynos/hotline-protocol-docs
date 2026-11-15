@@ -1,0 +1,22 @@
+{
+  "status": "finder_target_selected_reviewed",
+  "utc": "2026-11-14T17:42:39.030456+00:00",
+  "emulator_pid": 3737215,
+  "emulator_starttime": 10252051,
+  "emulator_netns_inode": 4026533895,
+  "display": ":123",
+  "selected_target": "m-alias54-target",
+  "finder_visible": true,
+  "unix_volume_visible": true,
+  "hfs_files_parent_visible": true,
+  "alias_created": false,
+  "unexpected_prompt": false,
+  "disk_receipt_sha256": "db2af101e69522d5b484aae77cab28a38c64433aaf85e407b32f14869b1b3f1e",
+  "capture_receipt_sha256": "b849e3968cee3f85f6c29304a2636a7be42e81587acf5a844ebc854688f33f08",
+  "screenshots": {
+    "finder": "e5ca99846b7ec52c0a5ea8a4821c8a0141057282ed5bcac9eff9dc8bcf3631c1",
+    "unix": "e5ca99846b7ec52c0a5ea8a4821c8a0141057282ed5bcac9eff9dc8bcf3631c1",
+    "target": "e5ca99846b7ec52c0a5ea8a4821c8a0141057282ed5bcac9eff9dc8bcf3631c1"
+  },
+  "visibility_actions": "Observed Finder Close Window and application-menu Hide Others; bounded Unix-window title drag; target selected without alias/Copy/Paste"
+}

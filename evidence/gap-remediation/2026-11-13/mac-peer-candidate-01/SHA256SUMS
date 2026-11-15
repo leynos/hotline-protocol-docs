@@ -1,0 +1,10 @@
+1a3f83420ee8310d5ebf6b67285c8fbdfb26e2b63e4c847497d37362d380e3fe  evidence/gap-remediation/2026-11-13/mac-peer-candidate-01/derive_identity_hashes.py.txt
+cf4cf4b2be9c8284e1c4ee3d94aaf29ceb42945ef12b9b5d915f1cf5d0499a05  evidence/gap-remediation/2026-11-13/mac-peer-candidate-01/fetch_bounded.py.txt
+933ff192c22a597f5a6149dbff8ee8da9accf8672604322a345ce58f4fb179f3  evidence/gap-remediation/2026-11-13/mac-peer-candidate-01/finder-vers-hashes.json
+475b4cae6b386fa8e542b17deacac9d2962b2e8c01a08ab10923eecf1ba8b53b  evidence/gap-remediation/2026-11-13/mac-peer-candidate-01/inspect_mac.py.txt
+f66ea3f7e153411dd24c0c41ca95a9948f7b78fb172a0205b9d65800ba9c7740  evidence/gap-remediation/2026-11-13/mac-peer-candidate-01/inspect_zip.py.txt
+f9dc4adbe19ccc4c690a7ed1803fc1e76fe7ff1ecae9f7c1f9b32458703c6cd5  evidence/gap-remediation/2026-11-13/mac-peer-candidate-01/mac-identity.json
+4a1ee61eaf65417c3d9d0b8272126ac602c66e6c3743e3b0389d9e1f86832b85  evidence/gap-remediation/2026-11-13/mac-peer-candidate-01/retrieval.json
+fc3873c8b34303901d9d8981a0a276bd84d0b77d6e72b0fd7d73034c9489eddf  evidence/gap-remediation/2026-11-13/mac-peer-candidate-01/unar.log
+89fc9c642da8ebb373e610fa72803c0df1ccdd594960bdd53920dc2494349717  evidence/gap-remediation/2026-11-13/mac-peer-candidate-01/zip-inventory.json
+7e506b03cf20c4344ccdd1bd28db9e4a206fc45ab9e792d168001bffdda292fd  docs/delegation/mac-peer-candidate.md

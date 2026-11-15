@@ -1,0 +1,18 @@
+{
+  "utc": "2026-11-14T08:10:32.071994+00:00",
+  "source_protocol_head": "6cca54001279847fd514767393cb89b40636be6f",
+  "hashes": {
+    "native_liveness_cases.py": "6c475a226bb0a294727fe2d3c3ed01c09e364ac5801ba71913940203cb240633",
+    "native_liveness_control.py": "ad939bae0f3355c1e680fb3cc4d25d25f8fb730eb4deb8facff899db01408269",
+    "native_ban_expiry_control.py": "7f58d3c6cf105bcd591910828000c24fca3110d90b9a0b08ba277b1d369b112d",
+    "native_control_readiness.py": "afb2dcbabae9765b9708efa21e4e3d7ff74ad33e90bee0f03d953cfa95d1c1da",
+    "protocol_capture.py": "2fba0972f4d9a8e3845c4204dce150dd7c90da0e19a9e5720d5289e2c94faf01",
+    "native_auth_cases.py": "adb3eaf2d949aafd6c5605c80fa01ae882e2b2f603dc280ad8ae2c71d22179a7",
+    "native_plan.py": "770ec5eedb850add8ecbccecf0c84a763d316883a33e71be224fa55ca1627895",
+    "verify_native_auth.py": "a16bb58857623d2c4260fe00202b9f633983d8dd069c87e99912a6f00e5134c5",
+    "verify_native_shx.py": "32d2f6fa2a4b03bb8be9f80400c3d678f05741a6ffc772d9b5d8d79333bc61ef",
+    "pcap_tcp.py": "04c4fda2e62ccab35ed306c036dac6b1878af58adbfaccc6312a2805dd6897d7"
+  },
+  "cases_expected": "6c475a226bb0a294727fe2d3c3ed01c09e364ac5801ba71913940203cb240633",
+  "runner_expected": "ad939bae0f3355c1e680fb3cc4d25d25f8fb730eb4deb8facff899db01408269"
+}

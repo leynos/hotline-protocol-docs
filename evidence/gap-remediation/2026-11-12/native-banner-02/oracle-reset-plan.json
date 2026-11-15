@@ -1,0 +1,9 @@
+[
+  {
+    "id": "BF-X-reset-text",
+    "tool": "get_xrefs_to",
+    "arguments": {
+      "address": "1009031f"
+    }
+  }
+]

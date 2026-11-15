@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T15:15:39.731749+00:00",
+  "query": {
+    "id": "B14-D-100280b0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100280b0"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_100280b0\",\n    \"address\": \"100280b0\"\n  },\n  \"code\": \"\\n/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */\\n\\nvoid FUN_100280b0(short param_1,short *param_2,short *param_3)\\n\\n{\\n  short *psVar1;\\n  int iVar2;\\n  int iVar3;\\n  int iVar4;\\n  \\n  iVar4 = 1;\\n  iVar3 = 0x6c;\\n  do {\\n    iVar2 = iVar4 + iVar3 >> 1;\\n    psVar1 = (short *)(_DAT_100891a8 + iVar2 * 6 + -6);\\n    if (param_1 == *psVar1) {\\n      *param_2 = psVar1[1];\\n      *param_3 = psVar1[2];\\n      return;\\n    }\\n    if (param_1 < *psVar1) {\\n      iVar3 = iVar2 + -1;\\n    }\\n    if (*psVar1 <= param_1) {\\n      iVar4 = iVar2 + 1;\\n    }\\n  } while (iVar4 <= iVar3);\\n  *param_2 = 1;\\n  *param_3 = 1;\\n  return;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_100280b0",
+        "address": "100280b0"
+      },
+      "code": "\n/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */\n\nvoid FUN_100280b0(short param_1,short *param_2,short *param_3)\n\n{\n  short *psVar1;\n  int iVar2;\n  int iVar3;\n  int iVar4;\n  \n  iVar4 = 1;\n  iVar3 = 0x6c;\n  do {\n    iVar2 = iVar4 + iVar3 >> 1;\n    psVar1 = (short *)(_DAT_100891a8 + iVar2 * 6 + -6);\n    if (param_1 == *psVar1) {\n      *param_2 = psVar1[1];\n      *param_3 = psVar1[2];\n      return;\n    }\n    if (param_1 < *psVar1) {\n      iVar3 = iVar2 + -1;\n    }\n    if (*psVar1 <= param_1) {\n      iVar4 = iVar2 + 1;\n    }\n  } while (iVar4 <= iVar3);\n  *param_2 = 1;\n  *param_3 = 1;\n  return;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

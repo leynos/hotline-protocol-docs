@@ -1,0 +1,94 @@
+[
+  {
+    "case": "initial/field-over-limit-early-survived",
+    "connection": "observer",
+    "unread_hex": "0000012d0000000300000000000000240000002400040067000201ef0068000200010070000200120066000c617574682d76697369626c65",
+    "notifications": [
+      {
+        "flags": 0,
+        "is_reply": 0,
+        "type": 301,
+        "id": 3,
+        "error": 0,
+        "total_size": 36,
+        "data_size": 36,
+        "payload_hex": "00040067000201ef0068000200010070000200120066000c617574682d76697369626c65",
+        "fields": [
+          {
+            "id": 103,
+            "hex": "01ef"
+          },
+          {
+            "id": 104,
+            "hex": "0001"
+          },
+          {
+            "id": 112,
+            "hex": "0012"
+          },
+          {
+            "id": 102,
+            "hex": "617574682d76697369626c65"
+          }
+        ],
+        "declared_field_count": 4,
+        "unconsumed_hex": ""
+      }
+    ]
+  },
+  {
+    "case": "setup/stage-agreement-text-limit",
+    "connection": "a",
+    "unread_hex": "0000012d00000003000000000000002700000027000400670002019a0068000200010070000200120066000f6672616d696e672d666978747572650000012e00000004000000000000000800000008000100670002019a",
+    "notifications": [
+      {
+        "flags": 0,
+        "is_reply": 0,
+        "type": 301,
+        "id": 3,
+        "error": 0,
+        "total_size": 39,
+        "data_size": 39,
+        "payload_hex": "000400670002019a0068000200010070000200120066000f6672616d696e672d66697874757265",
+        "fields": [
+          {
+            "id": 103,
+            "hex": "019a"
+          },
+          {
+            "id": 104,
+            "hex": "0001"
+          },
+          {
+            "id": 112,
+            "hex": "0012"
+          },
+          {
+            "id": 102,
+            "hex": "6672616d696e672d66697874757265"
+          }
+        ],
+        "declared_field_count": 4,
+        "unconsumed_hex": ""
+      },
+      {
+        "flags": 0,
+        "is_reply": 0,
+        "type": 302,
+        "id": 4,
+        "error": 0,
+        "total_size": 8,
+        "data_size": 8,
+        "payload_hex": "000100670002019a",
+        "fields": [
+          {
+            "id": 103,
+            "hex": "019a"
+          }
+        ],
+        "declared_field_count": 1,
+        "unconsumed_hex": ""
+      }
+    ]
+  }
+]

@@ -1,0 +1,11 @@
+Id=mothra-native-board02-c101-case.service
+ActiveState=inactive
+SubState=dead
+MainPID=0
+Result=success
+
+Id=mothra-native-board02-c101-postflight.service
+ActiveState=inactive
+SubState=dead
+MainPID=0
+Result=success

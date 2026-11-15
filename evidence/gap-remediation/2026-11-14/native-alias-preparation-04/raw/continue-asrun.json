@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "flock",
+    "--exclusive",
+    "--nonblock",
+    "/data/leynos/Projects/mothra/state/delegation/oracle.lock",
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=5s",
+    "300s",
+    "python3",
+    "/data/leynos/Projects/mothra/state/native-sessions/native-alias-live-preparation-04/continue-stopped-reflink-04.py",
+    "/data/leynos/Projects/mothra/evidence/gap-remediation/2026-11-14/native-alias-preparation-04-failure-01",
+    "/data/leynos/Projects/mothra/evidence/gap-remediation/2026-11-14/native-alias-preparation-04-failure-01/raw/stopped-preparation/preflight.json"
+  ],
+  "cwd": "/data/leynos/Projects/mothra",
+  "uid": 1000,
+  "gid": 1000,
+  "script_sha256": "227f761ab22b64a850b3ec743085bd8e38b56f2a303691d644c68a9d2d8674ea",
+  "corrected_source_sha256": "210ff9725513bce3d4f8391f8fbf8912dc26e4b29b21e898e4f0322d63e5dd23",
+  "started_utc": "2026-11-14T20:59:15.729350+00:00"
+}

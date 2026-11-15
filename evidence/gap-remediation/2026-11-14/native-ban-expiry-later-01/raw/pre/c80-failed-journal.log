@@ -1,0 +1,29 @@
+Nov 14 06:22:13 ibara systemd[1]: Starting mothra-native-expiry-c80-pre.service - [systemd-run] /usr/bin/python3 -u /data/leynos/Projects/hotline-protocol-docs/scripts/native_ban_expiry_control.py --run --phase pre --plans /data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-first-01/plans --capture-receipt /data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-pre-01/capture-ready.json --binary /data/leynos/Projects/mothra/evidence/hotline-server-1.9/inputs/HLserver19.pef --output /data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-pre-01/results --ban-clock /data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-first-01/results-first-c77/ban-clock.json...
+Nov 14 06:22:13 ibara systemd[1]: Started mothra-native-expiry-c80-pre.service - [systemd-run] /usr/bin/python3 -u /data/leynos/Projects/hotline-protocol-docs/scripts/native_ban_expiry_control.py --run --phase pre --plans /data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-first-01/plans --capture-receipt /data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-pre-01/capture-ready.json --binary /data/leynos/Projects/mothra/evidence/hotline-server-1.9/inputs/HLserver19.pef --output /data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-pre-01/results --ban-clock /data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-first-01/results-first-c77/ban-clock.json.
+Nov 14 06:22:13 ibara python3[867824]: Traceback (most recent call last):
+Nov 14 06:22:13 ibara python3[867824]:   File "/data/leynos/Projects/hotline-protocol-docs/scripts/native_ban_expiry_control.py", line 807, in <module>
+Nov 14 06:22:13 ibara python3[867824]:     main()
+Nov 14 06:22:13 ibara python3[867824]:     ~~~~^^
+Nov 14 06:22:13 ibara python3[867824]:   File "/data/leynos/Projects/hotline-protocol-docs/scripts/native_ban_expiry_control.py", line 792, in main
+Nov 14 06:22:13 ibara python3[867824]:     result = run_epoch(
+Nov 14 06:22:13 ibara python3[867824]:         args.phase,
+Nov 14 06:22:13 ibara python3[867824]:     ...<5 lines>...
+Nov 14 06:22:13 ibara python3[867824]:         bounds_path=args.ban_clock,
+Nov 14 06:22:13 ibara python3[867824]:     )
+Nov 14 06:22:13 ibara python3[867824]:   File "/data/leynos/Projects/hotline-protocol-docs/scripts/native_ban_expiry_control.py", line 728, in run_epoch
+Nov 14 06:22:13 ibara python3[867824]:     timing_result = bounds.gate(phase, datetime.now(timezone.utc), receipt)
+Nov 14 06:22:13 ibara python3[867824]:   File "/data/leynos/Projects/hotline-protocol-docs/scripts/native_ban_expiry_control.py", line 96, in gate
+Nov 14 06:22:13 ibara python3[867824]:     require(
+Nov 14 06:22:13 ibara python3[867824]:     ~~~~~~~^
+Nov 14 06:22:13 ibara python3[867824]:         (
+Nov 14 06:22:13 ibara python3[867824]:         ^
+Nov 14 06:22:13 ibara python3[867824]:     ...<13 lines>...
+Nov 14 06:22:13 ibara python3[867824]:         "Guest/image identity changed during idle",
+Nov 14 06:22:13 ibara python3[867824]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Nov 14 06:22:13 ibara python3[867824]:     )
+Nov 14 06:22:13 ibara python3[867824]:     ^
+Nov 14 06:22:13 ibara python3[867824]:   File "/data/leynos/Projects/hotline-protocol-docs/scripts/native_ban_expiry_control.py", line 36, in require
+Nov 14 06:22:13 ibara python3[867824]:     raise ValueError(reason)
+Nov 14 06:22:13 ibara python3[867824]: ValueError: Guest/image identity changed during idle
+Nov 14 06:22:13 ibara systemd[1]: mothra-native-expiry-c80-pre.service: Main process exited, code=exited, status=1/FAILURE
+Nov 14 06:22:13 ibara systemd[1]: mothra-native-expiry-c80-pre.service: Failed with result 'exit-code'.

@@ -1,0 +1,6 @@
+{
+  "command": "ifind -f hfs -n /Hotline19/Files/mothra-folder-source state/mac-runtime/hotline19/working.dsk",
+  "exit_code": 1,
+  "stderr": "General file system error (hfs_dir_open_meta: nodesize value out of bounds) (hfs_cat_traverse: Callback returned error)",
+  "scope": "Path lookup after auxiliary finalization still failed; no evidence of path absence or successful fork extraction. Direct catalogue reads were used instead."
+}

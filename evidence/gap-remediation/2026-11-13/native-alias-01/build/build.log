@@ -1,0 +1,936 @@
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../main.cpp -o obj/main.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c main_unix.cpp -o obj/main_unix.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../prefs.cpp -o obj/prefs.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../prefs_items.cpp -o obj/prefs_items.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c prefs_unix.cpp -o obj/prefs_unix.o
+In file included from ../include/cpu_emulation.h:62,
+                 from main_unix.cpp:101:
+In function ‘void vm_do_write_memory_4(uint32*, uint32)’,
+    inlined from ‘void vm_write_memory_4(vm_addr_t, uint32)’ at ../kpx_cpu/src/cpu/vm.hpp:258:22,
+    inlined from ‘void WriteMacInt32(uint32, uint32)’ at ../include/cpu_emulation.h:68:75,
+    inlined from ‘void* tick_func(void*)’ at main_unix.cpp:1415:17:
+../kpx_cpu/src/cpu/vm.hpp:69:67: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+   69 | static inline void vm_do_write_memory_4(uint32 *a, uint32 v) { *a = bswap_32(v); }
+      |                                                                ~~~^~~~~~~~~~~~~
+In function ‘void* tick_func(void*)’:
+cc1plus: note: destination object is likely at address zero
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c sys_unix.cpp -o obj/sys_unix.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../rom_patches.cpp -o obj/rom_patches.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../rsrc_patches.cpp -o obj/rsrc_patches.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../emul_op.cpp -o obj/emul_op.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../name_registry.cpp -o obj/name_registry.o
+../emul_op.cpp: In function ‘void EmulOp(M68kRegisters*, uint32, int)’:
+../emul_op.cpp:297:66: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  297 |                                 memcpy((void *)DR_EMULATOR_BASE, (void *)(ROMBase + 0x370000), DR_EMULATOR_SIZE);
+      |                                                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ../include/cpu_emulation.h:62,
+                 from ../rsrc_patches.cpp:27:
+In function ‘void vm_do_write_memory_4(uint32*, uint32)’,
+    inlined from ‘void vm_write_memory_4(vm_addr_t, uint32)’ at ../kpx_cpu/src/cpu/vm.hpp:258:22,
+    inlined from ‘void WriteMacInt32(uint32, uint32)’ at ../include/cpu_emulation.h:68:75,
+    inlined from ‘void CheckLoad(uint32, int16, uint16*, uint32)’ at ../rsrc_patches.cpp:406:18:
+../kpx_cpu/src/cpu/vm.hpp:69:67: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+   69 | static inline void vm_do_write_memory_4(uint32 *a, uint32 v) { *a = bswap_32(v); }
+      |                                                                ~~~^~~~~~~~~~~~~
+In function ‘void CheckLoad(uint32, int16, uint16*, uint32)’:
+cc1plus: note: destination object is likely at address zero
+In function ‘void vm_do_write_memory_4(uint32*, uint32)’,
+    inlined from ‘void vm_write_memory_4(vm_addr_t, uint32)’ at ../kpx_cpu/src/cpu/vm.hpp:258:22,
+    inlined from ‘void WriteMacInt32(uint32, uint32)’ at ../include/cpu_emulation.h:68:75,
+    inlined from ‘void CheckLoad(uint32, int16, uint16*, uint32)’ at ../rsrc_patches.cpp:407:18:
+../kpx_cpu/src/cpu/vm.hpp:69:67: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+   69 | static inline void vm_do_write_memory_4(uint32 *a, uint32 v) { *a = bswap_32(v); }
+      |                                                                ~~~^~~~~~~~~~~~~
+In function ‘void CheckLoad(uint32, int16, uint16*, uint32)’:
+cc1plus: note: destination object is likely at address zero
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../macos_util.cpp -o obj/macos_util.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../timer.cpp -o obj/timer.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c timer_unix.cpp -o obj/timer_unix.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../xpram.cpp -o obj/xpram.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c xpram_unix.cpp -o obj/xpram_unix.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../adb.cpp -o obj/adb.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../sony.cpp -o obj/sony.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../disk.cpp -o obj/disk.o
+In file included from ../include/cpu_emulation.h:62,
+                 from ../rom_patches.cpp:33:
+In function ‘void vm_do_write_memory_4(uint32*, uint32)’,
+    inlined from ‘void vm_write_memory_4(vm_addr_t, uint32)’ at ../kpx_cpu/src/cpu/vm.hpp:258:22,
+    inlined from ‘void WriteMacInt32(uint32, uint32)’ at ../include/cpu_emulation.h:68:75,
+    inlined from ‘void InstallDrivers()’ at ../rom_patches.cpp:2386:15:
+../kpx_cpu/src/cpu/vm.hpp:69:67: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+   69 | static inline void vm_do_write_memory_4(uint32 *a, uint32 v) { *a = bswap_32(v); }
+      |                                                                ~~~^~~~~~~~~~~~~
+In function ‘void InstallDrivers()’:
+cc1plus: note: destination object is likely at address zero
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../cdrom.cpp -o obj/cdrom.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../scsi.cpp -o obj/scsi.o
+In file included from ../include/cpu_emulation.h:62,
+                 from ../sony.cpp:40:
+In function ‘void vm_do_write_memory_4(uint32*, uint32)’,
+    inlined from ‘void vm_write_memory_4(vm_addr_t, uint32)’ at ../kpx_cpu/src/cpu/vm.hpp:258:22,
+    inlined from ‘void WriteMacInt32(uint32, uint32)’ at ../include/cpu_emulation.h:68:75,
+    inlined from ‘int16 SonyOpen(uint32, uint32)’ at ../sony.cpp:274:15:
+../kpx_cpu/src/cpu/vm.hpp:69:67: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+   69 | static inline void vm_do_write_memory_4(uint32 *a, uint32 v) { *a = bswap_32(v); }
+      |                                                                ~~~^~~~~~~~~~~~~
+In function ‘int16 SonyOpen(uint32, uint32)’:
+cc1plus: note: destination object is likely at address zero
+In function ‘void vm_do_write_memory_2(uint16*, uint32)’,
+    inlined from ‘void vm_write_memory_2(vm_addr_t, uint32)’ at ../kpx_cpu/src/cpu/vm.hpp:253:22,
+    inlined from ‘void WriteMacInt16(uint32, uint32)’ at ../include/cpu_emulation.h:66:75,
+    inlined from ‘int16 set_dsk_err(int16)’ at ../sony.cpp:251:15,
+    inlined from ‘int16 SonyOpen(uint32, uint32)’ at ../sony.cpp:277:13:
+../kpx_cpu/src/cpu/vm.hpp:63:67: warning: writing 2 bytes into a region of size 0 [-Wstringop-overflow=]
+   63 | static inline void vm_do_write_memory_2(uint16 *a, uint32 v) { *a = bswap_16(v); }
+      |                                                                   ^
+In function ‘int16 SonyOpen(uint32, uint32)’:
+cc1plus: note: destination object is likely at address zero
+In function ‘void vm_do_write_memory_4(uint32*, uint32)’,
+    inlined from ‘void vm_write_memory_4(vm_addr_t, uint32)’ at ../kpx_cpu/src/cpu/vm.hpp:258:22,
+    inlined from ‘void WriteMacInt32(uint32, uint32)’ at ../include/cpu_emulation.h:68:75,
+    inlined from ‘int16 SonyPrime(uint32, uint32)’ at ../sony.cpp:358:16:
+../kpx_cpu/src/cpu/vm.hpp:69:67: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+   69 | static inline void vm_do_write_memory_4(uint32 *a, uint32 v) { *a = bswap_32(v); }
+      |                                                                ~~~^~~~~~~~~~~~~
+In function ‘int16 SonyPrime(uint32, uint32)’:
+cc1plus: note: destination object is likely at address zero
+In function ‘void vm_do_write_memory_4(uint32*, uint32)’,
+    inlined from ‘void vm_write_memory_4(vm_addr_t, uint32)’ at ../kpx_cpu/src/cpu/vm.hpp:258:22,
+    inlined from ‘void WriteMacInt32(uint32, uint32)’ at ../include/cpu_emulation.h:68:75,
+    inlined from ‘int16 SonyPrime(uint32, uint32)’ at ../sony.cpp:359:16:
+../kpx_cpu/src/cpu/vm.hpp:69:67: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+   69 | static inline void vm_do_write_memory_4(uint32 *a, uint32 v) { *a = bswap_32(v); }
+      |                                                                ~~~^~~~~~~~~~~~~
+In function ‘int16 SonyPrime(uint32, uint32)’:
+cc1plus: note: destination object is likely at address zero
+In function ‘void vm_do_write_memory_4(uint32*, uint32)’,
+    inlined from ‘void vm_write_memory_4(vm_addr_t, uint32)’ at ../kpx_cpu/src/cpu/vm.hpp:258:22,
+    inlined from ‘void WriteMacInt32(uint32, uint32)’ at ../include/cpu_emulation.h:68:75,
+    inlined from ‘int16 SonyPrime(uint32, uint32)’ at ../sony.cpp:360:16:
+../kpx_cpu/src/cpu/vm.hpp:69:67: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+   69 | static inline void vm_do_write_memory_4(uint32 *a, uint32 v) { *a = bswap_32(v); }
+      |                                                                ~~~^~~~~~~~~~~~~
+In function ‘int16 SonyPrime(uint32, uint32)’:
+cc1plus: note: destination object is likely at address zero
+In function ‘void vm_do_write_memory_2(uint16*, uint32)’,
+    inlined from ‘void vm_write_memory_2(vm_addr_t, uint32)’ at ../kpx_cpu/src/cpu/vm.hpp:253:22,
+    inlined from ‘void WriteMacInt16(uint32, uint32)’ at ../include/cpu_emulation.h:66:75,
+    inlined from ‘int16 set_dsk_err(int16)’ at ../sony.cpp:251:15,
+    inlined from ‘int16 SonyPrime(uint32, uint32)’ at ../sony.cpp:337:21:
+../kpx_cpu/src/cpu/vm.hpp:63:67: warning: writing 2 bytes into a region of size 0 [-Wstringop-overflow=]
+   63 | static inline void vm_do_write_memory_2(uint16 *a, uint32 v) { *a = bswap_16(v); }
+      |                                                                   ^
+In function ‘int16 SonyPrime(uint32, uint32)’:
+cc1plus: note: destination object is likely at address zero
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../gfxaccel.cpp -o obj/gfxaccel.o
+In function ‘void vm_do_write_memory_2(uint16*, uint32)’,
+    inlined from ‘void vm_write_memory_2(vm_addr_t, uint32)’ at ../kpx_cpu/src/cpu/vm.hpp:253:22,
+    inlined from ‘void WriteMacInt16(uint32, uint32)’ at ../include/cpu_emulation.h:66:75,
+    inlined from ‘int16 set_dsk_err(int16)’ at ../sony.cpp:251:15,
+    inlined from ‘int16 SonyControl(uint32, uint32)’ at ../sony.cpp:394:22:
+../kpx_cpu/src/cpu/vm.hpp:63:67: warning: writing 2 bytes into a region of size 0 [-Wstringop-overflow=]
+   63 | static inline void vm_do_write_memory_2(uint16 *a, uint32 v) { *a = bswap_16(v); }
+      |                                                                   ^
+In function ‘int16 SonyControl(uint32, uint32)’:
+cc1plus: note: destination object is likely at address zero
+In function ‘void vm_do_write_memory_2(uint16*, uint32)’,
+    inlined from ‘void vm_write_memory_2(vm_addr_t, uint32)’ at ../kpx_cpu/src/cpu/vm.hpp:253:22,
+    inlined from ‘void WriteMacInt16(uint32, uint32)’ at ../include/cpu_emulation.h:66:75,
+    inlined from ‘int16 set_dsk_err(int16)’ at ../sony.cpp:251:15,
+    inlined from ‘int16 SonyControl(uint32, uint32)’ at ../sony.cpp:391:22:
+../kpx_cpu/src/cpu/vm.hpp:63:67: warning: writing 2 bytes into a region of size 0 [-Wstringop-overflow=]
+   63 | static inline void vm_do_write_memory_2(uint16 *a, uint32 v) { *a = bswap_16(v); }
+      |                                                                   ^
+In function ‘int16 SonyControl(uint32, uint32)’:
+cc1plus: note: destination object is likely at address zero
+In function ‘void vm_do_write_memory_2(uint16*, uint32)’,
+    inlined from ‘void vm_write_memory_2(vm_addr_t, uint32)’ at ../kpx_cpu/src/cpu/vm.hpp:253:22,
+    inlined from ‘void WriteMacInt16(uint32, uint32)’ at ../include/cpu_emulation.h:66:75,
+    inlined from ‘int16 set_dsk_err(int16)’ at ../sony.cpp:251:15,
+    inlined from ‘int16 SonyControl(uint32, uint32)’ at ../sony.cpp:480:20:
+../kpx_cpu/src/cpu/vm.hpp:63:67: warning: writing 2 bytes into a region of size 0 [-Wstringop-overflow=]
+   63 | static inline void vm_do_write_memory_2(uint16 *a, uint32 v) { *a = bswap_16(v); }
+      |                                                                   ^
+In function ‘int16 SonyControl(uint32, uint32)’:
+cc1plus: note: destination object is likely at address zero
+In function ‘void vm_do_write_memory_2(uint16*, uint32)’,
+    inlined from ‘void vm_write_memory_2(vm_addr_t, uint32)’ at ../kpx_cpu/src/cpu/vm.hpp:253:22,
+    inlined from ‘void WriteMacInt16(uint32, uint32)’ at ../include/cpu_emulation.h:66:75,
+    inlined from ‘int16 set_dsk_err(int16)’ at ../sony.cpp:251:15,
+    inlined from ‘int16 SonyControl(uint32, uint32)’ at ../sony.cpp:407:21:
+../kpx_cpu/src/cpu/vm.hpp:63:67: warning: writing 2 bytes into a region of size 0 [-Wstringop-overflow=]
+   63 | static inline void vm_do_write_memory_2(uint16 *a, uint32 v) { *a = bswap_16(v); }
+      |                                                                   ^
+In function ‘int16 SonyControl(uint32, uint32)’:
+cc1plus: note: destination object is likely at address zero
+In function ‘void vm_do_write_memory_2(uint16*, uint32)’,
+    inlined from ‘void vm_write_memory_2(vm_addr_t, uint32)’ at ../kpx_cpu/src/cpu/vm.hpp:253:22,
+    inlined from ‘void WriteMacInt16(uint32, uint32)’ at ../include/cpu_emulation.h:66:75,
+    inlined from ‘int16 set_dsk_err(int16)’ at ../sony.cpp:251:15,
+    inlined from ‘int16 SonyStatus(uint32, uint32)’ at ../sony.cpp:496:21:
+../kpx_cpu/src/cpu/vm.hpp:63:67: warning: writing 2 bytes into a region of size 0 [-Wstringop-overflow=]
+   63 | static inline void vm_do_write_memory_2(uint16 *a, uint32 v) { *a = bswap_16(v); }
+      |                                                                   ^
+In function ‘int16 SonyStatus(uint32, uint32)’:
+cc1plus: note: destination object is likely at address zero
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../video.cpp -o obj/video.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../audio.cpp -o obj/audio.o
+../video.cpp: In function ‘bool VideoSnapshot(int, int, uint8*)’:
+../video.cpp:127:33: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  127 |                 uint8 *screen = (uint8 *)private_data->saveBaseAddr;
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../ether.cpp -o obj/ether.o
+In file included from ../ether.cpp:32:
+../include/ether_defs.h:528:19: warning: ignoring packed attribute because of unpacked non-POD field ‘nw_uint16 EnetPacketHeader::fProto’
+  528 |         nw_uint16 fProto;
+      |                   ^~~~~~
+../include/ether_defs.h:545:26: warning: ignoring packed attribute because of unpacked non-POD field ‘EnetPacketHeader T8022FullPacketHeader::fEnetPart’
+  545 |         EnetPacketHeader fEnetPart;
+      |                          ^~~~~~~~~
+../include/ether_defs.h:551:19: warning: ignoring packed attribute because of unpacked non-POD field ‘nw_uint16 T8022AddressStruct::fSAP’
+  551 |         nw_uint16 fSAP;
+      |                   ^~~~
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../thunks.cpp -o obj/thunks.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../serial.cpp -o obj/serial.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../extfs.cpp -o obj/extfs.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c disk_sparsebundle.cpp -o obj/disk_sparsebundle.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c tinyxml2.cpp -o obj/tinyxml2.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c about_window_unix.cpp -o obj/about_window_unix.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../user_strings.cpp -o obj/user_strings.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c user_strings_unix.cpp -o obj/user_strings_unix.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c rpc_unix.cpp -o obj/rpc_unix.o
+gcc -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -c sshpty.c -o obj/sshpty.o
+gcc -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -c strlcpy.c -o obj/strlcpy.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../CrossPlatform/vm_alloc.cpp -o obj/vm_alloc.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../CrossPlatform/sigsegv.cpp -o obj/sigsegv.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../CrossPlatform/video_blit.cpp -o obj/video_blit.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../SDL/video_sdl.cpp -o obj/video_sdl.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../SDL/video_sdl2.cpp -o obj/video_sdl2.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c extfs_unix.cpp -o obj/extfs_unix.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../dummy/prefs_dummy.cpp -o obj/prefs_dummy.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c serial_unix.cpp -o obj/serial_unix.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ether_unix.cpp -o obj/ether_unix.o
+In file included from ether_unix.cpp:84:
+../include/ether_defs.h:528:19: warning: ignoring packed attribute because of unpacked non-POD field ‘nw_uint16 EnetPacketHeader::fProto’
+  528 |         nw_uint16 fProto;
+      |                   ^~~~~~
+../include/ether_defs.h:545:26: warning: ignoring packed attribute because of unpacked non-POD field ‘EnetPacketHeader T8022FullPacketHeader::fEnetPart’
+  545 |         EnetPacketHeader fEnetPart;
+      |                          ^~~~~~~~~
+../include/ether_defs.h:551:19: warning: ignoring packed attribute because of unpacked non-POD field ‘nw_uint16 T8022AddressStruct::fSAP’
+  551 |         nw_uint16 fSAP;
+      |                   ^~~~
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c Linux/scsi_linux.cpp -o obj/scsi_linux.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../SDL/audio_sdl.cpp -o obj/audio_sdl.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../dummy/prefs_editor_dummy.cpp -o obj/prefs_editor_dummy.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../dummy/clip_dummy.cpp -o obj/clip_dummy.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../kpx_cpu/src/mathlib/ieeefp.cpp -o obj/ieeefp.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../kpx_cpu/src/mathlib/mathlib.cpp -o obj/mathlib.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../kpx_cpu/src/cpu/ppc/ppc-cpu.cpp -o obj/ppc-cpu.o
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../kpx_cpu/src/cpu/ppc/ppc-decode.cpp -o obj/ppc-decode.o
+gcc -E -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DGENEXEC ../kpx_cpu/src/cpu/ppc/ppc-decode.cpp | /usr/sbin/perl ../kpx_cpu/src/cpu/ppc/genexec.pl > ppc-execute-impl.cpp
+In file included from ../kpx_cpu/include/basic-cpu.hpp:24,
+                 from ../kpx_cpu/src/cpu/ppc/ppc-cpu.hpp:24,
+                 from ../kpx_cpu/src/cpu/ppc/ppc-decode.cpp:21:
+./sysdeps.h:32:2: error: #error "You don't have ANSI C header files."
+   32 | #error "You don't have ANSI C header files."
+      |  ^~~~~
+../kpx_cpu/src/mathlib/mathlib.cpp: In function ‘int mathlib_fpclassifyl(long double)’:
+../kpx_cpu/src/mathlib/mathlib.cpp:91:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   91 | }
+      | ^
+../kpx_cpu/src/mathlib/mathlib.cpp: In function ‘int mathlib_signbitl(long double)’:
+../kpx_cpu/src/mathlib/mathlib.cpp:117:1: warning: no return statement in function returning non-void [-Wreturn-type]
+  117 | }
+      | ^
+In file included from ../kpx_cpu/src/cpu/ppc/ppc-cpu.hpp:25,
+                 from ../kpx_cpu/src/cpu/ppc/ppc-cpu.cpp:26:
+../kpx_cpu/include/nvmemfun.hpp:60:34: warning: ‘template<class _Arg, class _Result> struct std::unary_function’ is deprecated [-Wdeprecated-declarations]
+   60 | class nv_mem_fun_t : public std::unary_function<T, R> {
+      |                                  ^~~~~~~~~~~~~~
+In file included from /usr/include/c++/15/functional:51,
+                 from ../kpx_cpu/include/nvmemfun.hpp:24:
+/usr/include/c++/15/bits/stl_function.h:120:12: note: declared here
+  120 |     struct unary_function
+      |            ^~~~~~~~~~~~~~
+../kpx_cpu/include/nvmemfun.hpp:71:40: warning: ‘template<class _Arg, class _Result> struct std::unary_function’ is deprecated [-Wdeprecated-declarations]
+   71 | class const_nv_mem_fun_t : public std::unary_function<T, R> {
+      |                                        ^~~~~~~~~~~~~~
+/usr/include/c++/15/bits/stl_function.h:120:12: note: declared here
+  120 |     struct unary_function
+      |            ^~~~~~~~~~~~~~
+../kpx_cpu/include/nvmemfun.hpp:82:35: warning: ‘template<class _Arg1, class _Arg2, class _Result> struct std::binary_function’ is deprecated [-Wdeprecated-declarations]
+   82 | class nv_mem_fun1_t : public std::binary_function<T, A, R> {
+      |                                   ^~~~~~~~~~~~~~~
+/usr/include/c++/15/bits/stl_function.h:134:12: note: declared here
+  134 |     struct binary_function
+      |            ^~~~~~~~~~~~~~~
+../kpx_cpu/include/nvmemfun.hpp:93:41: warning: ‘template<class _Arg1, class _Arg2, class _Result> struct std::binary_function’ is deprecated [-Wdeprecated-declarations]
+   93 | class const_nv_mem_fun1_t : public std::binary_function<T, A, R> {
+      |                                         ^~~~~~~~~~~~~~~
+/usr/include/c++/15/bits/stl_function.h:134:12: note: declared here
+  134 |     struct binary_function
+      |            ^~~~~~~~~~~~~~~
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../kpx_cpu/src/cpu/ppc/ppc-translate.cpp -o obj/ppc-translate.o
+In file included from ../kpx_cpu/src/cpu/ppc/ppc-cpu.hpp:25,
+                 from ../kpx_cpu/src/cpu/ppc/ppc-decode.cpp:21:
+../kpx_cpu/include/nvmemfun.hpp:60:34: warning: ‘template<class _Arg, class _Result> struct std::unary_function’ is deprecated [-Wdeprecated-declarations]
+   60 | class nv_mem_fun_t : public std::unary_function<T, R> {
+      |                                  ^~~~~~~~~~~~~~
+In file included from /usr/include/c++/15/functional:51,
+                 from ../kpx_cpu/include/nvmemfun.hpp:24:
+/usr/include/c++/15/bits/stl_function.h:120:12: note: declared here
+  120 |     struct unary_function
+      |            ^~~~~~~~~~~~~~
+../kpx_cpu/include/nvmemfun.hpp:71:40: warning: ‘template<class _Arg, class _Result> struct std::unary_function’ is deprecated [-Wdeprecated-declarations]
+   71 | class const_nv_mem_fun_t : public std::unary_function<T, R> {
+      |                                        ^~~~~~~~~~~~~~
+/usr/include/c++/15/bits/stl_function.h:120:12: note: declared here
+  120 |     struct unary_function
+      |            ^~~~~~~~~~~~~~
+../kpx_cpu/include/nvmemfun.hpp:82:35: warning: ‘template<class _Arg1, class _Arg2, class _Result> struct std::binary_function’ is deprecated [-Wdeprecated-declarations]
+   82 | class nv_mem_fun1_t : public std::binary_function<T, A, R> {
+      |                                   ^~~~~~~~~~~~~~~
+/usr/include/c++/15/bits/stl_function.h:134:12: note: declared here
+  134 |     struct binary_function
+      |            ^~~~~~~~~~~~~~~
+../kpx_cpu/include/nvmemfun.hpp:93:41: warning: ‘template<class _Arg1, class _Arg2, class _Result> struct std::binary_function’ is deprecated [-Wdeprecated-declarations]
+   93 | class const_nv_mem_fun1_t : public std::binary_function<T, A, R> {
+      |                                         ^~~~~~~~~~~~~~~
+/usr/include/c++/15/bits/stl_function.h:134:12: note: declared here
+  134 |     struct binary_function
+      |            ^~~~~~~~~~~~~~~
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../kpx_cpu/src/utils/utils-cpuinfo.cpp -o obj/utils-cpuinfo.o
+In file included from ../kpx_cpu/src/cpu/ppc/ppc-cpu.hpp:25,
+                 from ../kpx_cpu/src/cpu/ppc/ppc-translate.cpp:22:
+../kpx_cpu/include/nvmemfun.hpp:60:34: warning: ‘template<class _Arg, class _Result> struct std::unary_function’ is deprecated [-Wdeprecated-declarations]
+   60 | class nv_mem_fun_t : public std::unary_function<T, R> {
+      |                                  ^~~~~~~~~~~~~~
+In file included from /usr/include/c++/15/functional:51,
+                 from ../kpx_cpu/include/nvmemfun.hpp:24:
+/usr/include/c++/15/bits/stl_function.h:120:12: note: declared here
+  120 |     struct unary_function
+      |            ^~~~~~~~~~~~~~
+../kpx_cpu/include/nvmemfun.hpp:71:40: warning: ‘template<class _Arg, class _Result> struct std::unary_function’ is deprecated [-Wdeprecated-declarations]
+   71 | class const_nv_mem_fun_t : public std::unary_function<T, R> {
+      |                                        ^~~~~~~~~~~~~~
+/usr/include/c++/15/bits/stl_function.h:120:12: note: declared here
+  120 |     struct unary_function
+      |            ^~~~~~~~~~~~~~
+../kpx_cpu/include/nvmemfun.hpp:82:35: warning: ‘template<class _Arg1, class _Arg2, class _Result> struct std::binary_function’ is deprecated [-Wdeprecated-declarations]
+   82 | class nv_mem_fun1_t : public std::binary_function<T, A, R> {
+      |                                   ^~~~~~~~~~~~~~~
+/usr/include/c++/15/bits/stl_function.h:134:12: note: declared here
+  134 |     struct binary_function
+      |            ^~~~~~~~~~~~~~~
+../kpx_cpu/include/nvmemfun.hpp:93:41: warning: ‘template<class _Arg1, class _Arg2, class _Result> struct std::binary_function’ is deprecated [-Wdeprecated-declarations]
+   93 | class const_nv_mem_fun1_t : public std::binary_function<T, A, R> {
+      |                                         ^~~~~~~~~~~~~~~
+/usr/include/c++/15/bits/stl_function.h:134:12: note: declared here
+  134 |     struct binary_function
+      |            ^~~~~~~~~~~~~~~
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../kpx_cpu/sheepshaver_glue.cpp -o obj/sheepshaver_glue.o
+gcc -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -c ../kpx_cpu/ppc-dis.c -o obj/ppc-dis.o
+gcc -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -fno-strict-aliasing -c ../slirp/bootp.c -o obj/bootp.o
+In file included from ../slirp/bootp.c:24:
+../slirp/slirp.h:289:21: warning: inline function ‘remque_32’ declared but never defined
+  289 |  extern inline void remque_32(void *);
+      |                     ^~~~~~~~~
+../slirp/slirp.h:288:21: warning: inline function ‘insque_32’ declared but never defined
+  288 |  extern inline void insque_32(void *, void *);
+      |                     ^~~~~~~~~
+In file included from ../kpx_cpu/src/cpu/ppc/ppc-cpu.hpp:25,
+                 from ../kpx_cpu/sheepshaver_glue.cpp:31:
+../kpx_cpu/include/nvmemfun.hpp:60:34: warning: ‘template<class _Arg, class _Result> struct std::unary_function’ is deprecated [-Wdeprecated-declarations]
+   60 | class nv_mem_fun_t : public std::unary_function<T, R> {
+      |                                  ^~~~~~~~~~~~~~
+In file included from /usr/include/c++/15/functional:51,
+                 from ../kpx_cpu/include/nvmemfun.hpp:24:
+/usr/include/c++/15/bits/stl_function.h:120:12: note: declared here
+  120 |     struct unary_function
+      |            ^~~~~~~~~~~~~~
+../kpx_cpu/include/nvmemfun.hpp:71:40: warning: ‘template<class _Arg, class _Result> struct std::unary_function’ is deprecated [-Wdeprecated-declarations]
+   71 | class const_nv_mem_fun_t : public std::unary_function<T, R> {
+      |                                        ^~~~~~~~~~~~~~
+/usr/include/c++/15/bits/stl_function.h:120:12: note: declared here
+  120 |     struct unary_function
+      |            ^~~~~~~~~~~~~~
+../kpx_cpu/include/nvmemfun.hpp:82:35: warning: ‘template<class _Arg1, class _Arg2, class _Result> struct std::binary_function’ is deprecated [-Wdeprecated-declarations]
+   82 | class nv_mem_fun1_t : public std::binary_function<T, A, R> {
+      |                                   ^~~~~~~~~~~~~~~
+/usr/include/c++/15/bits/stl_function.h:134:12: note: declared here
+  134 |     struct binary_function
+      |            ^~~~~~~~~~~~~~~
+../kpx_cpu/include/nvmemfun.hpp:93:41: warning: ‘template<class _Arg1, class _Arg2, class _Result> struct std::binary_function’ is deprecated [-Wdeprecated-declarations]
+   93 | class const_nv_mem_fun1_t : public std::binary_function<T, A, R> {
+      |                                         ^~~~~~~~~~~~~~~
+/usr/include/c++/15/bits/stl_function.h:134:12: note: declared here
+  134 |     struct binary_function
+      |            ^~~~~~~~~~~~~~~
+gcc -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -fno-strict-aliasing -c ../slirp/ip_output.c -o obj/ip_output.o
+../kpx_cpu/sheepshaver_glue.cpp: In member function ‘void sheepshaver_cpu::execute_native_op(uint32)’:
+../kpx_cpu/sheepshaver_glue.cpp:1070:43: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ 1070 |                 gpr(3) = InitStreamModule((void *)gpr(3));
+      |                                           ^~~~~~~~~~~~~~
+../kpx_cpu/sheepshaver_glue.cpp:1076:37: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ 1076 |                 gpr(3) = ether_open((queue_t *)gpr(3), (void *)gpr(4), gpr(5), gpr(6), (void*)gpr(7));
+      |                                     ^~~~~~~~~~~~~~~~~
+../kpx_cpu/sheepshaver_glue.cpp:1076:56: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ 1076 |                 gpr(3) = ether_open((queue_t *)gpr(3), (void *)gpr(4), gpr(5), gpr(6), (void*)gpr(7));
+      |                                                        ^~~~~~~~~~~~~~
+../kpx_cpu/sheepshaver_glue.cpp:1076:88: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ 1076 |                 gpr(3) = ether_open((queue_t *)gpr(3), (void *)gpr(4), gpr(5), gpr(6), (void*)gpr(7));
+      |                                                                                        ^~~~~~~~~~~~~
+../kpx_cpu/sheepshaver_glue.cpp:1079:38: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ 1079 |                 gpr(3) = ether_close((queue_t *)gpr(3), gpr(4), (void *)gpr(5));
+      |                                      ^~~~~~~~~~~~~~~~~
+../kpx_cpu/sheepshaver_glue.cpp:1079:65: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ 1079 |                 gpr(3) = ether_close((queue_t *)gpr(3), gpr(4), (void *)gpr(5));
+      |                                                                 ^~~~~~~~~~~~~~
+../kpx_cpu/sheepshaver_glue.cpp:1082:37: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ 1082 |                 gpr(3) = ether_wput((queue_t *)gpr(3), (mblk_t *)gpr(4));
+      |                                     ^~~~~~~~~~~~~~~~~
+../kpx_cpu/sheepshaver_glue.cpp:1082:56: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ 1082 |                 gpr(3) = ether_wput((queue_t *)gpr(3), (mblk_t *)gpr(4));
+      |                                                        ^~~~~~~~~~~~~~~~
+../kpx_cpu/sheepshaver_glue.cpp:1085:37: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ 1085 |                 gpr(3) = ether_rsrv((queue_t *)gpr(3));
+      |                                     ^~~~~~~~~~~~~~~~~
+../slirp/ip_output.c: In function ‘ip_output’:
+../slirp/ip_output.c:52:1: warning: old-style function definition [-Wold-style-definition]
+   52 | ip_output(so, m0)
+      | ^~~~~~~~~
+In file included from ../slirp/ip_output.c:41:
+../slirp/slirp.h: At top level:
+../slirp/slirp.h:289:21: warning: inline function ‘remque_32’ declared but never defined
+  289 |  extern inline void remque_32(void *);
+      |                     ^~~~~~~~~
+../slirp/slirp.h:288:21: warning: inline function ‘insque_32’ declared but never defined
+  288 |  extern inline void insque_32(void *, void *);
+      |                     ^~~~~~~~~
+gcc -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -fno-strict-aliasing -c ../slirp/tcp_input.c -o obj/tcp_input.o
+../slirp/tcp_input.c: In function ‘tcp_reass’:
+../slirp/tcp_input.c:130:18: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  130 |         for (q = (struct tcpiphdr *)tp->seg_next; q != (struct tcpiphdr *)tp;
+      |                  ^
+../slirp/tcp_input.c:131:17: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  131 |             q = (struct tcpiphdr *)q->ti_next)
+      |                 ^
+../slirp/tcp_input.c:140:13: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  140 |         if ((struct tcpiphdr *)q->ti_prev != (struct tcpiphdr *)tp) {
+      |             ^
+../slirp/tcp_input.c:142:21: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  142 |                 q = (struct tcpiphdr *)q->ti_prev;
+      |                     ^
+../slirp/tcp_input.c:162:21: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  162 |                 q = (struct tcpiphdr *)(q->ti_next);
+      |                     ^
+../slirp/tcp_input.c:166:26: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  166 |         REASS_MBUF(ti) = (mbufp_32) m;          /* XXX */
+      |                          ^
+../slirp/tcp_input.c:179:31: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  179 |                         m_adj((struct mbuf *) REASS_MBUF(q), i);
+      |                               ^
+../slirp/tcp_input.c:182:21: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  182 |                 q = (struct tcpiphdr *)q->ti_next;
+      |                     ^
+In file included from ../slirp/tcp.h:84,
+                 from ../slirp/slirp.h:220,
+                 from ../slirp/tcp_input.c:42:
+../slirp/tcp_input.c:183:48: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  183 |                 m = (struct mbuf *) REASS_MBUF((struct tcpiphdr *)q->ti_prev);
+      |                                                ^
+../slirp/tcp_var.h:182:41: note: in definition of macro ‘REASS_MBUF’
+  182 | #define REASS_MBUF(ti) (*(mbufp_32 *)&((ti)->ti_t))
+      |                                         ^~
+../slirp/tcp_input.c:183:21: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  183 |                 m = (struct mbuf *) REASS_MBUF((struct tcpiphdr *)q->ti_prev);
+      |                     ^
+../slirp/tcp_input.c:184:27: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  184 |                 remque_32((void *)(q->ti_prev));
+      |                           ^
+../slirp/tcp_input.c:191:23: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  191 |         insque_32(ti, (void *)(q->ti_prev));
+      |                       ^
+../slirp/tcp_input.c:200:14: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  200 |         ti = (struct tcpiphdr *) tp->seg_next;
+      |              ^
+../slirp/tcp_input.c:209:21: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  209 |                 m = (struct mbuf *) REASS_MBUF(ti); /* XXX */
+      |                     ^
+../slirp/tcp_input.c:210:22: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  210 |                 ti = (struct tcpiphdr *)ti->ti_next;
+      |                      ^
+../slirp/tcp_input.c: In function ‘tcp_input’:
+../slirp/tcp_input.c:545:41: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  545 |                         tp->seg_next == (tcpiphdrp_32)tp &&
+      |                                         ^
+../slirp/tcp_input.c:94:31: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+   94 |             (tp)->seg_next == (tcpiphdrp_32)(tp) && \
+      |                               ^
+../slirp/tcp_input.c:1365:17: note: in expansion of macro ‘TCP_REASS’
+ 1365 |                 TCP_REASS(tp, ti, m, so, tiflags);
+      |                 ^~~~~~~~~
+../slirp/slirp.h: At top level:
+../slirp/slirp.h:289:21: warning: inline function ‘remque_32’ declared but never defined
+  289 |  extern inline void remque_32(void *);
+      |                     ^~~~~~~~~
+../slirp/slirp.h:288:21: warning: inline function ‘insque_32’ declared but never defined
+  288 |  extern inline void insque_32(void *, void *);
+      |                     ^~~~~~~~~
+gcc -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -fno-strict-aliasing -c ../slirp/cksum.c -o obj/cksum.o
+In file included from ../slirp/cksum.c:33:
+../slirp/slirp.h:289:21: warning: inline function ‘remque_32’ declared but never defined
+  289 |  extern inline void remque_32(void *);
+      |                     ^~~~~~~~~
+../slirp/slirp.h:288:21: warning: inline function ‘insque_32’ declared but never defined
+  288 |  extern inline void insque_32(void *, void *);
+      |                     ^~~~~~~~~
+gcc -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -fno-strict-aliasing -c ../slirp/mbuf.c -o obj/mbuf.o
+gcc -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -fno-strict-aliasing -c ../slirp/tcp_output.c -o obj/tcp_output.o
+In file included from ../slirp/mbuf.c:19:
+../slirp/slirp.h:289:21: warning: inline function ‘remque_32’ declared but never defined
+  289 |  extern inline void remque_32(void *);
+      |                     ^~~~~~~~~
+../slirp/slirp.h:288:21: warning: inline function ‘insque_32’ declared but never defined
+  288 |  extern inline void insque_32(void *, void *);
+      |                     ^~~~~~~~~
+In file included from ../slirp/tcp_output.c:41:
+../slirp/slirp.h:289:21: warning: inline function ‘remque_32’ declared but never defined
+  289 |  extern inline void remque_32(void *);
+      |                     ^~~~~~~~~
+../slirp/slirp.h:288:21: warning: inline function ‘insque_32’ declared but never defined
+  288 |  extern inline void insque_32(void *, void *);
+      |                     ^~~~~~~~~
+gcc -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -fno-strict-aliasing -c ../slirp/debug.c -o obj/debug.o
+../slirp/debug.c: In function ‘debug_init’:
+../slirp/debug.c:26:1: warning: old-style function definition [-Wold-style-definition]
+   26 | debug_init(file, dbg)
+      | ^~~~~~~~~~
+../slirp/debug.c: In function ‘dump_packet’:
+../slirp/debug.c:53:1: warning: old-style function definition [-Wold-style-definition]
+   53 | dump_packet(dat, n)
+      | ^~~~~~~~~~~
+In file included from ../slirp/debug.c:9:
+../slirp/slirp.h: At top level:
+../slirp/slirp.h:289:21: warning: inline function ‘remque_32’ declared but never defined
+  289 |  extern inline void remque_32(void *);
+      |                     ^~~~~~~~~
+../slirp/slirp.h:288:21: warning: inline function ‘insque_32’ declared but never defined
+  288 |  extern inline void insque_32(void *, void *);
+      |                     ^~~~~~~~~
+gcc -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -fno-strict-aliasing -c ../slirp/misc.c -o obj/misc.o
+../slirp/misc.c: In function ‘insque_32’:
+../slirp/misc.c:105:25: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  105 |         head->qh_link = (u_int32_t)element;
+      |                         ^
+../slirp/misc.c:106:29: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  106 |         element->qh_rlink = (u_int32_t)head;
+      |                             ^
+../slirp/misc.c:107:10: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  107 |         ((struct quehead_32 *)(element->qh_link))->qh_rlink
+      |          ^
+../slirp/misc.c:108:11: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  108 |         = (u_int32_t)element;
+      |           ^
+../slirp/misc.c: In function ‘remque_32’:
+../slirp/misc.c:114:10: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  114 |         ((struct quehead_32 *)(element->qh_link))->qh_rlink = element->qh_rlink;
+      |          ^
+../slirp/misc.c:115:10: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  115 |         ((struct quehead_32 *)(element->qh_rlink))->qh_link = element->qh_link;
+      |          ^
+gcc -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -fno-strict-aliasing -c ../slirp/tcp_subr.c -o obj/tcp_subr.o
+../slirp/tcp_subr.c: In function ‘tcp_newtcpcb’:
+../slirp/tcp_subr.c:197:39: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  197 |         tp->seg_next = tp->seg_prev = (tcpiphdrp_32)tp;
+      |                                       ^
+../slirp/tcp_subr.c: In function ‘tcp_close’:
+../slirp/tcp_subr.c:271:13: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  271 |         t = (struct tcpiphdr *) tp->seg_next;
+      |             ^
+../slirp/tcp_subr.c:273:21: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  273 |                 t = (struct tcpiphdr *)t->ti_next;
+      |                     ^
+In file included from ../slirp/tcp.h:84,
+                 from ../slirp/slirp.h:220,
+                 from ../slirp/tcp_subr.c:43:
+../slirp/tcp_subr.c:274:48: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  274 |                 m = (struct mbuf *) REASS_MBUF((struct tcpiphdr *)t->ti_prev);
+      |                                                ^
+../slirp/tcp_var.h:182:41: note: in definition of macro ‘REASS_MBUF’
+  182 | #define REASS_MBUF(ti) (*(mbufp_32 *)&((ti)->ti_t))
+      |                                         ^~
+../slirp/tcp_subr.c:274:21: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  274 |                 m = (struct mbuf *) REASS_MBUF((struct tcpiphdr *)t->ti_prev);
+      |                     ^
+../slirp/tcp_subr.c:275:27: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  275 |                 remque_32((struct tcpiphdr *) t->ti_prev);
+      |                           ^
+../slirp/slirp.h: At top level:
+../slirp/slirp.h:289:21: warning: inline function ‘remque_32’ declared but never defined
+  289 |  extern inline void remque_32(void *);
+      |                     ^~~~~~~~~
+../slirp/slirp.h:288:21: warning: inline function ‘insque_32’ declared but never defined
+  288 |  extern inline void insque_32(void *, void *);
+      |                     ^~~~~~~~~
+gcc -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -fno-strict-aliasing -c ../slirp/if.c -o obj/if.o
+../slirp/if.c: In function ‘ifs_insque’:
+../slirp/if.c:24:1: warning: old-style function definition [-Wold-style-definition]
+   24 | ifs_insque(ifm, ifmhead)
+      | ^~~~~~~~~~
+../slirp/if.c: In function ‘ifs_remque’:
+../slirp/if.c:34:1: warning: old-style function definition [-Wold-style-definition]
+   34 | ifs_remque(ifm)
+      | ^~~~~~~~~~
+../slirp/if.c: In function ‘if_output’:
+../slirp/if.c:161:1: warning: old-style function definition [-Wold-style-definition]
+  161 | if_output(so, ifm)
+      | ^~~~~~~~~
+In file included from ../slirp/if.c:8:
+../slirp/slirp.h: At top level:
+../slirp/slirp.h:289:21: warning: inline function ‘remque_32’ declared but never defined
+  289 |  extern inline void remque_32(void *);
+      |                     ^~~~~~~~~
+../slirp/slirp.h:288:21: warning: inline function ‘insque_32’ declared but never defined
+  288 |  extern inline void insque_32(void *, void *);
+      |                     ^~~~~~~~~
+gcc -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -fno-strict-aliasing -c ../slirp/sbuf.c -o obj/sbuf.o
+gcc -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -fno-strict-aliasing -c ../slirp/tcp_timer.c -o obj/tcp_timer.o
+In file included from ../slirp/sbuf.c:9:
+../slirp/slirp.h:289:21: warning: inline function ‘remque_32’ declared but never defined
+  289 |  extern inline void remque_32(void *);
+      |                     ^~~~~~~~~
+../slirp/slirp.h:288:21: warning: inline function ‘insque_32’ declared but never defined
+  288 |  extern inline void insque_32(void *, void *);
+      |                     ^~~~~~~~~
+../slirp/tcp_timer.c: In function ‘tcp_canceltimers’:
+../slirp/tcp_timer.c:117:1: warning: old-style function definition [-Wold-style-definition]
+  117 | tcp_canceltimers(tp)
+      | ^~~~~~~~~~~~~~~~
+../slirp/tcp_timer.c: In function ‘tcp_timers’:
+../slirp/tcp_timer.c:133:1: warning: old-style function definition [-Wold-style-definition]
+  133 | tcp_timers(tp, timer)
+      | ^~~~~~~~~~
+In file included from ../slirp/tcp_timer.c:33:
+../slirp/slirp.h: At top level:
+../slirp/slirp.h:289:21: warning: inline function ‘remque_32’ declared but never defined
+  289 |  extern inline void remque_32(void *);
+      |                     ^~~~~~~~~
+../slirp/slirp.h:288:21: warning: inline function ‘insque_32’ declared but never defined
+  288 |  extern inline void insque_32(void *, void *);
+      |                     ^~~~~~~~~
+gcc -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -fno-strict-aliasing -c ../slirp/ip_icmp.c -o obj/ip_icmp.o
+../slirp/ip_icmp.c: In function ‘icmp_input’:
+../slirp/ip_icmp.c:69:1: warning: old-style function definition [-Wold-style-definition]
+   69 | icmp_input(m, hlen)
+      | ^~~~~~~~~~
+../slirp/ip_icmp.c: In function ‘icmp_reflect’:
+../slirp/ip_icmp.c:324:1: warning: old-style function definition [-Wold-style-definition]
+  324 | icmp_reflect(m)
+      | ^~~~~~~~~~~~
+In file included from ../slirp/ip_icmp.c:33:
+../slirp/slirp.h: At top level:
+../slirp/slirp.h:289:21: warning: inline function ‘remque_32’ declared but never defined
+  289 |  extern inline void remque_32(void *);
+      |                     ^~~~~~~~~
+../slirp/slirp.h:288:21: warning: inline function ‘insque_32’ declared but never defined
+  288 |  extern inline void insque_32(void *, void *);
+      |                     ^~~~~~~~~
+gcc -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -fno-strict-aliasing -c ../slirp/slirp.c -o obj/slirp.o
+../slirp/slirp.c: In function ‘slirp_select_fill’:
+../slirp/slirp.c:214:60: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  214 |                                ((struct ipasfrag *)&ipq != (struct ipasfrag *)ipq.next));
+      |                                                            ^
+In file included from ../slirp/slirp.c:1:
+../slirp/slirp.h: At top level:
+../slirp/slirp.h:289:21: warning: inline function ‘remque_32’ declared but never defined
+  289 |  extern inline void remque_32(void *);
+      |                     ^~~~~~~~~
+../slirp/slirp.h:288:21: warning: inline function ‘insque_32’ declared but never defined
+  288 |  extern inline void insque_32(void *, void *);
+      |                     ^~~~~~~~~
+gcc -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -fno-strict-aliasing -c ../slirp/tftp.c -o obj/tftp.o
+In file included from ../slirp/tftp.c:25:
+../slirp/slirp.h:289:21: warning: inline function ‘remque_32’ declared but never defined
+  289 |  extern inline void remque_32(void *);
+      |                     ^~~~~~~~~
+../slirp/slirp.h:288:21: warning: inline function ‘insque_32’ declared but never defined
+  288 |  extern inline void insque_32(void *, void *);
+      |                     ^~~~~~~~~
+gcc -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -fno-strict-aliasing -c ../slirp/ip_input.c -o obj/ip_input.o
+gcc -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -fno-strict-aliasing -c ../slirp/socket.c -o obj/socket.o
+../slirp/ip_input.c: In function ‘ip_init’:
+gcc -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -fno-strict-aliasing -c ../slirp/udp.c -o obj/udp.o
+../slirp/ip_input.c:55:31: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+   55 |         ipq.next = ipq.prev = (ipqp_32)&ipq;
+      |                               ^
+../slirp/ip_input.c: In function ‘ip_input’:
+../slirp/ip_input.c:67:1: warning: old-style function definition [-Wold-style-definition]
+   67 | ip_input(m)
+      | ^~~~~~~~
+../slirp/ip_input.c:162:27: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  162 |                 for (fp = (struct ipq *) ipq.next; fp != &ipq;
+      |                           ^
+../slirp/ip_input.c:163:27: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  163 |                      fp = (struct ipq *) fp->next)
+      |                           ^
+../slirp/ip_input.c: In function ‘ip_reass’:
+../slirp/ip_input.c:235:1: warning: old-style function definition [-Wold-style-definition]
+  235 | ip_reass(ip, fp)
+      | ^~~~~~~~
+../slirp/ip_input.c:268:41: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  268 |           fp->ipq_next = fp->ipq_prev = (ipasfragp_32)fp;
+      |                                         ^
+../slirp/ip_input.c:278:18: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  278 |         for (q = (struct ipasfrag *)fp->ipq_next; q != (struct ipasfrag *)fp;
+      |                  ^
+../slirp/ip_input.c:279:17: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  279 |             q = (struct ipasfrag *)q->ipf_next)
+      |                 ^
+../slirp/ip_input.c:288:28: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  288 |         if (q->ipf_prev != (ipasfragp_32)fp) {
+      |                            ^
+../slirp/ip_input.c:289:22: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  289 |                 i = ((struct ipasfrag *)(q->ipf_prev))->ip_off +
+      |                      ^
+../slirp/ip_input.c:290:20: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  290 |                   ((struct ipasfrag *)(q->ipf_prev))->ip_len - ip->ip_off;
+      |                    ^
+../slirp/ip_input.c:312:21: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  312 |                 q = (struct ipasfrag *) q->ipf_next;
+      |                     ^
+../slirp/ip_input.c:313:30: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  313 |                 m_freem(dtom((struct ipasfrag *) q->ipf_prev));
+      |                              ^
+../slirp/ip_input.c:314:24: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  314 |                 ip_deq((struct ipasfrag *) q->ipf_prev);
+      |                        ^
+../slirp/ip_input.c:322:20: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  322 |         ip_enq(ip, (struct ipasfrag *) q->ipf_prev);
+      |                    ^
+../slirp/ip_input.c:324:18: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  324 |         for (q = (struct ipasfrag *) fp->ipq_next; q != (struct ipasfrag *)fp;
+      |                  ^
+../slirp/ip_input.c:325:18: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  325 |              q = (struct ipasfrag *) q->ipf_next) {
+      |                  ^
+../slirp/ip_input.c:330:14: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  330 |         if (((struct ipasfrag *)(q->ipf_prev))->ipf_mff & 1)
+      |              ^
+../slirp/ip_input.c:336:13: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  336 |         q = (struct ipasfrag *) fp->ipq_next;
+      |             ^
+../slirp/ip_input.c:339:13: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  339 |         q = (struct ipasfrag *) q->ipf_next;
+      |             ^
+../slirp/ip_input.c:343:15: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  343 |           q = (struct ipasfrag *) q->ipf_next;
+      |               ^
+../slirp/ip_input.c:353:14: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  353 |         ip = (struct ipasfrag *) fp->ipq_next;
+      |              ^
+../slirp/ip_input.c: In function ‘ip_freef’:
+../slirp/ip_input.c:394:1: warning: old-style function definition [-Wold-style-definition]
+  394 | ip_freef(fp)
+      | ^~~~~~~~
+../slirp/ip_input.c:399:18: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  399 |         for (q = (struct ipasfrag *) fp->ipq_next; q != (struct ipasfrag *)fp;
+      |                  ^
+../slirp/ip_input.c:401:21: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  401 |                 p = (struct ipasfrag *) q->ipf_next;
+      |                     ^
+../slirp/ip_input.c: In function ‘ip_enq’:
+../slirp/ip_input.c:414:1: warning: old-style function definition [-Wold-style-definition]
+  414 | ip_enq(p, prev)
+      | ^~~~~~
+../slirp/ip_input.c:419:23: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  419 |         p->ipf_prev = (ipasfragp_32) prev;
+      |                       ^
+../slirp/ip_input.c:421:10: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  421 |         ((struct ipasfrag *)(prev->ipf_next))->ipf_prev = (ipasfragp_32) p;
+      |          ^
+../slirp/ip_input.c:421:59: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  421 |         ((struct ipasfrag *)(prev->ipf_next))->ipf_prev = (ipasfragp_32) p;
+      |                                                           ^
+../slirp/ip_input.c:422:26: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  422 |         prev->ipf_next = (ipasfragp_32) p;
+      |                          ^
+../slirp/ip_input.c: In function ‘ip_deq’:
+../slirp/ip_input.c:429:1: warning: old-style function definition [-Wold-style-definition]
+  429 | ip_deq(p)
+      | ^~~~~~
+../slirp/ip_input.c:432:10: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  432 |         ((struct ipasfrag *)(p->ipf_prev))->ipf_next = p->ipf_next;
+      |          ^
+../slirp/ip_input.c:433:10: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  433 |         ((struct ipasfrag *)(p->ipf_next))->ipf_prev = p->ipf_prev;
+      |          ^
+../slirp/ip_input.c: In function ‘ip_slowtimo’:
+../slirp/ip_input.c:448:14: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  448 |         fp = (struct ipq *) ipq.next;
+      |              ^
+../slirp/ip_input.c:454:22: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  454 |                 fp = (struct ipq *) fp->next;
+      |                      ^
+../slirp/ip_input.c:455:22: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  455 |                 if (((struct ipq *)(fp->prev))->ipq_ttl == 0) {
+      |                      ^
+../slirp/ip_input.c:457:34: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  457 |                         ip_freef((struct ipq *) fp->prev);
+      |                                  ^
+../slirp/ip_input.c: In function ‘ip_stripoptions’:
+../slirp/ip_input.c:677:1: warning: old-style function definition [-Wold-style-definition]
+  677 | ip_stripoptions(m, mopt)
+      | ^~~~~~~~~~~~~~~
+In file included from ../slirp/ip_input.c:41:
+../slirp/slirp.h: At top level:
+../slirp/slirp.h:289:21: warning: inline function ‘remque_32’ declared but never defined
+  289 |  extern inline void remque_32(void *);
+      |                     ^~~~~~~~~
+../slirp/slirp.h:288:21: warning: inline function ‘insque_32’ declared but never defined
+  288 |  extern inline void insque_32(void *, void *);
+      |                     ^~~~~~~~~
+../slirp/socket.c: In function ‘solookup’:
+../slirp/socket.c:31:1: warning: old-style function definition [-Wold-style-definition]
+   31 | solookup(head, laddr, lport, faddr, fport)
+      | ^~~~~~~~
+../slirp/socket.c: In function ‘sofree’:
+../slirp/socket.c:77:1: warning: old-style function definition [-Wold-style-definition]
+   77 | sofree(so)
+      | ^~~~~~
+../slirp/socket.c: In function ‘soread’:
+../slirp/socket.c:103:1: warning: old-style function definition [-Wold-style-definition]
+  103 | soread(so)
+      | ^~~~~~
+../slirp/socket.c: In function ‘sorecvoob’:
+../slirp/socket.c:216:1: warning: old-style function definition [-Wold-style-definition]
+  216 | sorecvoob(so)
+      | ^~~~~~~~~
+../slirp/socket.c: In function ‘sosendoob’:
+../slirp/socket.c:244:1: warning: old-style function definition [-Wold-style-definition]
+  244 | sosendoob(so)
+      | ^~~~~~~~~
+../slirp/socket.c: In function ‘sowrite’:
+../slirp/socket.c:303:1: warning: old-style function definition [-Wold-style-definition]
+  303 | sowrite(so)
+      | ^~~~~~~
+../slirp/socket.c: In function ‘sorecvfrom’:
+../slirp/socket.c:399:1: warning: old-style function definition [-Wold-style-definition]
+  399 | sorecvfrom(so)
+      | ^~~~~~~~~~
+../slirp/socket.c: In function ‘sosendto’:
+../slirp/socket.c:502:1: warning: old-style function definition [-Wold-style-definition]
+  502 | sosendto(so, m)
+      | ^~~~~~~~
+../slirp/socket.c: In function ‘solisten’:
+../slirp/socket.c:553:1: warning: old-style function definition [-Wold-style-definition]
+  553 | solisten(port, laddr, lport, flags)
+      | ^~~~~~~~
+../slirp/socket.c: In function ‘sorwakeup’:
+../slirp/socket.c:629:1: warning: old-style function definition [-Wold-style-definition]
+  629 | sorwakeup(so)
+      | ^~~~~~~~~
+../slirp/socket.c: In function ‘sowwakeup’:
+../slirp/socket.c:642:1: warning: old-style function definition [-Wold-style-definition]
+  642 | sowwakeup(so)
+      | ^~~~~~~~~
+../slirp/socket.c: In function ‘soisfconnecting’:
+../slirp/socket.c:655:1: warning: old-style function definition [-Wold-style-definition]
+  655 | soisfconnecting(so)
+      | ^~~~~~~~~~~~~~~
+../slirp/socket.c: In function ‘soisfconnected’:
+../slirp/socket.c:664:1: warning: old-style function definition [-Wold-style-definition]
+  664 | soisfconnected(so)
+      | ^~~~~~~~~~~~~~
+../slirp/socket.c: In function ‘sofcantrcvmore’:
+../slirp/socket.c:672:1: warning: old-style function definition [-Wold-style-definition]
+  672 | sofcantrcvmore(so)
+      | ^~~~~~~~~~~~~~
+../slirp/socket.c: In function ‘sofcantsendmore’:
+../slirp/socket.c:689:1: warning: old-style function definition [-Wold-style-definition]
+  689 | sofcantsendmore(so)
+      | ^~~~~~~~~~~~~~~
+../slirp/socket.c: In function ‘soisfdisconnected’:
+../slirp/socket.c:709:1: warning: old-style function definition [-Wold-style-definition]
+  709 | soisfdisconnected(so)
+      | ^~~~~~~~~~~~~~~~~
+../slirp/socket.c: In function ‘sofwdrain’:
+../slirp/socket.c:725:1: warning: old-style function definition [-Wold-style-definition]
+  725 | sofwdrain(so)
+      | ^~~~~~~~~
+In file included from ../slirp/socket.c:10:
+../slirp/slirp.h: At top level:
+../slirp/slirp.h:289:21: warning: inline function ‘remque_32’ declared but never defined
+  289 |  extern inline void remque_32(void *);
+      |                     ^~~~~~~~~
+../slirp/slirp.h:288:21: warning: inline function ‘insque_32’ declared but never defined
+  288 |  extern inline void insque_32(void *, void *);
+      |                     ^~~~~~~~~
+../slirp/udp.c: In function ‘udp_input’:
+../slirp/udp.c:71:1: warning: old-style function definition [-Wold-style-definition]
+   71 | udp_input(m, iphlen)
+      | ^~~~~~~~~
+../slirp/udp.c: In function ‘udp_attach’:
+../slirp/udp.c:325:1: warning: old-style function definition [-Wold-style-definition]
+  325 | udp_attach(so)
+      | ^~~~~~~~~~
+../slirp/udp.c: In function ‘udp_detach’:
+../slirp/udp.c:355:1: warning: old-style function definition [-Wold-style-definition]
+  355 | udp_detach(so)
+      | ^~~~~~~~~~
+../slirp/udp.c: In function ‘udp_tos’:
+../slirp/udp.c:373:1: warning: old-style function definition [-Wold-style-definition]
+  373 | udp_tos(so)
+      | ^~~~~~~
+../slirp/udp.c: In function ‘udp_emu’:
+../slirp/udp.c:398:1: warning: old-style function definition [-Wold-style-definition]
+  398 | udp_emu(so, m)
+      | ^~~~~~~
+../slirp/udp.c: In function ‘udp_listen’:
+../slirp/udp.c:626:1: warning: old-style function definition [-Wold-style-definition]
+  626 | udp_listen(port, laddr, lport, flags)
+      | ^~~~~~~~~~
+In file included from ../slirp/udp.c:42:
+../slirp/slirp.h: At top level:
+../slirp/slirp.h:289:21: warning: inline function ‘remque_32’ declared but never defined
+  289 |  extern inline void remque_32(void *);
+      |                     ^~~~~~~~~
+../slirp/slirp.h:288:21: warning: inline function ‘insque_32’ declared but never defined
+  288 |  extern inline void insque_32(void *, void *);
+      |                     ^~~~~~~~~
+g++ -I../kpx_cpu/include -I../kpx_cpu/src -I../include -I. -I../CrossPlatform -I../slirp -DHAVE_CONFIG_H -D_REENTRANT -DDATADIR=\"/usr/local/share/SheepShaver\" -O2 -std=gnu++11 -fno-strict-aliasing -fno-delete-null-pointer-checks -fwrapv -DSTDC_HEADERS=1 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT  -c ../kpx_cpu/src/cpu/ppc/ppc-execute.cpp -o obj/ppc-execute.o
+In file included from ../kpx_cpu/src/cpu/ppc/ppc-cpu.hpp:25,
+                 from ../kpx_cpu/src/cpu/ppc/ppc-execute.cpp:28:
+../kpx_cpu/include/nvmemfun.hpp:60:34: warning: ‘template<class _Arg, class _Result> struct std::unary_function’ is deprecated [-Wdeprecated-declarations]
+   60 | class nv_mem_fun_t : public std::unary_function<T, R> {
+      |                                  ^~~~~~~~~~~~~~
+In file included from /usr/include/c++/15/functional:51,
+                 from ../kpx_cpu/include/nvmemfun.hpp:24:
+/usr/include/c++/15/bits/stl_function.h:120:12: note: declared here
+  120 |     struct unary_function
+      |            ^~~~~~~~~~~~~~
+../kpx_cpu/include/nvmemfun.hpp:71:40: warning: ‘template<class _Arg, class _Result> struct std::unary_function’ is deprecated [-Wdeprecated-declarations]
+   71 | class const_nv_mem_fun_t : public std::unary_function<T, R> {
+      |                                        ^~~~~~~~~~~~~~
+/usr/include/c++/15/bits/stl_function.h:120:12: note: declared here
+  120 |     struct unary_function
+      |            ^~~~~~~~~~~~~~
+../kpx_cpu/include/nvmemfun.hpp:82:35: warning: ‘template<class _Arg1, class _Arg2, class _Result> struct std::binary_function’ is deprecated [-Wdeprecated-declarations]
+   82 | class nv_mem_fun1_t : public std::binary_function<T, A, R> {
+      |                                   ^~~~~~~~~~~~~~~
+/usr/include/c++/15/bits/stl_function.h:134:12: note: declared here
+  134 |     struct binary_function
+      |            ^~~~~~~~~~~~~~~
+../kpx_cpu/include/nvmemfun.hpp:93:41: warning: ‘template<class _Arg1, class _Arg2, class _Result> struct std::binary_function’ is deprecated [-Wdeprecated-declarations]
+   93 | class const_nv_mem_fun1_t : public std::binary_function<T, A, R> {
+      |                                         ^~~~~~~~~~~~~~~
+/usr/include/c++/15/bits/stl_function.h:134:12: note: declared here
+  134 |     struct binary_function
+      |            ^~~~~~~~~~~~~~~
+../kpx_cpu/src/cpu/ppc/ppc-execute.cpp: In function ‘int ppc_to_native_rounding_mode(int)’:
+../kpx_cpu/src/cpu/ppc/ppc-execute.cpp:93:1: warning: control reaches end of non-void function [-Wreturn-type]
+   93 | }
+      | ^
+g++ -o SheepShaver -Wl,-T,ldscripts/linux-x86_64.ld 	obj/main.o obj/main_unix.o obj/prefs.o obj/prefs_items.o obj/prefs_unix.o obj/sys_unix.o obj/rom_patches.o obj/rsrc_patches.o obj/emul_op.o obj/name_registry.o obj/macos_util.o obj/timer.o obj/timer_unix.o obj/xpram.o obj/xpram_unix.o obj/adb.o obj/sony.o obj/disk.o obj/cdrom.o obj/scsi.o obj/gfxaccel.o obj/video.o obj/audio.o obj/ether.o obj/thunks.o obj/serial.o obj/extfs.o obj/disk_sparsebundle.o obj/tinyxml2.o obj/about_window_unix.o obj/user_strings.o obj/user_strings_unix.o obj/rpc_unix.o obj/sshpty.o obj/strlcpy.o obj/vm_alloc.o obj/sigsegv.o obj/video_blit.o obj/video_sdl.o obj/video_sdl2.o obj/extfs_unix.o obj/prefs_dummy.o obj/serial_unix.o obj/ether_unix.o obj/scsi_linux.o obj/audio_sdl.o obj/prefs_editor_dummy.o obj/clip_dummy.o obj/ieeefp.o obj/mathlib.o obj/ppc-cpu.o obj/ppc-decode.o obj/ppc-execute.o obj/ppc-translate.o obj/utils-cpuinfo.o obj/sheepshaver_glue.o obj/ppc-dis.o obj/bootp.o obj/ip_output.o obj/tcp_input.o obj/cksum.o obj/mbuf.o obj/tcp_output.o obj/debug.o obj/misc.o obj/tcp_subr.o obj/if.o obj/sbuf.o obj/tcp_timer.o obj/ip_icmp.o obj/slirp.o obj/tftp.o obj/ip_input.o obj/socket.o obj/udp.o -lpthread -lm  -lSDL 
+/usr/sbin/true SheepShaver

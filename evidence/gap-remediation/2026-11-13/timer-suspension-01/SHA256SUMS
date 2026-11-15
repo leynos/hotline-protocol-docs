@@ -1,0 +1,12 @@
+0457a9e3bb818a68261c34df15220f0421cf530c8d413c920c4586daa2dbbb6e  evidence/gap-remediation/2026-11-13/timer-suspension-01/input-mode-and-timer.txt
+04d4bf3ce58fa41e01ce425e7f241029425410f71e48fbaef54c66b993d609b1  evidence/gap-remediation/2026-11-13/timer-suspension-01/manifest.json
+b6ccfeb13ba835807998336da60ad3e3752fb2fd019d702cb0c6cd7abe6a66f4  evidence/gap-remediation/2026-11-13/timer-suspension-01/patched-build-manifest.json
+4c34946f1442f6cf5456ab87368e8081f1109b078bcf5cb8ff73f16f5126293e  evidence/gap-remediation/2026-11-13/timer-suspension-01/prior-runtime.json
+551f5c3621e12c60fa582eed70c0f219eb1d1a1bec4338997e985cbcfdfbc705  evidence/gap-remediation/2026-11-13/timer-suspension-01/recovered-liveness/checksums.sha256
+0ffa59ed64d84536cfcfee34db99946425f608a4b7614559804b4284777aa34a  evidence/gap-remediation/2026-11-13/timer-suspension-01/recovered-liveness/plan.json
+f2cb8a464766511d53214fd3f7b10fbbd71b6d1a61b6ff81dc3a6b93e512440f  evidence/gap-remediation/2026-11-13/timer-suspension-01/recovered-liveness/report.json
+e3080419a60d51730db7cc6bab58788b96812c47b0f5355b350cead5b036683a  evidence/gap-remediation/2026-11-13/timer-suspension-01/resume-timer.py
+7ba5e9c1b085da9cf962986274230786725e9b7371443ace51aa37ae996b1471  evidence/gap-remediation/2026-11-13/timer-suspension-01/stall-readonly-gdb.txt
+c365bde87792ee5648d817ed92e30d0dd48defdccae6849bfae6d46f00caaf46  evidence/gap-remediation/2026-11-13/timer-suspension-01/stall-timer-readonly.txt
+a394c04e02adbb0b9be7001b1c610e99c99edb0fa98ff54c0a81363455d51936  evidence/gap-remediation/2026-11-13/timer-suspension-01/timer-check-final.log
+b1701cb646e17d6ccbe9b30508bbc726fdbafa7a57943f507beb778645e02431  evidence/gap-remediation/2026-11-13/timer-suspension-01/timer-resume.json

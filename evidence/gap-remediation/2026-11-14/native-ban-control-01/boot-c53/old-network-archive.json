@@ -1,0 +1,14 @@
+{
+  "utc": "2026-11-14T02:52:16.107832+00:00",
+  "from": "/data/leynos/Projects/mothra/state/mac-runtime/native-eventlab-one-01/isolated-network",
+  "to": "/data/leynos/Projects/mothra/state/mac-runtime/native-eventlab-one-01/isolated-network-c49-retired-20261114",
+  "files_sha256": {
+    "bridge-service.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bridge-service.json": "618984e562d6d20e96a965cfd5a8b905adc93f327460dfca1088f5c7d5374c45",
+    "bridge-ready.json": "3dbec8524576548cb2aa9153fb57cc2966ae363b260f808ed747b1e67c0ea20b",
+    "xbridge-service.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "xbridge-service.json": "0350c6e0184e4401db0e4be2ded14a495f5731e20dd27266928c73a0b345b70f",
+    "x-bridge-ready.json": "4013c16c755f8c4a5c5b8bf516f7d800cdc7fd1a21af9ac6e20e0edc3b01ee50"
+  },
+  "old_units": "bridge/xbridge inactive MainPID0 before rename"
+}

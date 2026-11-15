@@ -1,0 +1,65 @@
+[
+  {
+    "id": "MT-D-100170c0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100170c0"
+    }
+  },
+  {
+    "id": "MT-D-1002c690",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002c690"
+    }
+  },
+  {
+    "id": "MT-D-1002bc30",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002bc30"
+    }
+  },
+  {
+    "id": "MT-D-1002c070",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002c070"
+    }
+  },
+  {
+    "id": "MT-D-1002f600",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002f600"
+    }
+  },
+  {
+    "id": "MT-D-100564c0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100564c0"
+    }
+  },
+  {
+    "id": "MT-D-10056c70",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10056c70"
+    }
+  },
+  {
+    "id": "MT-D-10008ab0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10008ab0"
+    }
+  },
+  {
+    "id": "MT-D-1002e120",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002e120"
+    }
+  }
+]

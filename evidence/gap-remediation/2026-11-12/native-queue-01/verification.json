@@ -1,0 +1,255 @@
+{
+  "cases": [
+    {
+      "case": "queue-mode-matrix",
+      "connections": {
+        "a": {
+          "client_port": 59264,
+          "sent_bytes": 848,
+          "received_bytes": 1766,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "m11": {
+          "client_port": 39158,
+          "sent_bytes": 16,
+          "received_bytes": 510,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        },
+        "m12": {
+          "client_port": 39170,
+          "sent_bytes": 16,
+          "received_bytes": 510,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        },
+        "m13": {
+          "client_port": 39176,
+          "sent_bytes": 16,
+          "received_bytes": 510,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        },
+        "m14": {
+          "client_port": 39474,
+          "sent_bytes": 16,
+          "received_bytes": 510,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        },
+        "m15": {
+          "client_port": 39488,
+          "sent_bytes": 16,
+          "received_bytes": 13,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        },
+        "m16": {
+          "client_port": 39496,
+          "sent_bytes": 16,
+          "received_bytes": 181,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "initial_positions": {
+        "blocker": null,
+        "m11": 1,
+        "m12": 2,
+        "m13": 3,
+        "m14": 4,
+        "m15": 5,
+        "m16": 6
+      },
+      "notification_positions": {
+        "blocker": [],
+        "m11": [
+          0
+        ],
+        "m12": [
+          1,
+          0
+        ],
+        "m13": [
+          2,
+          1,
+          0
+        ],
+        "m14": [
+          3,
+          2,
+          1,
+          0
+        ],
+        "m15": [
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        "m16": [
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ]
+      }
+    },
+    {
+      "case": "queue-cancel-position",
+      "connections": {
+        "a": {
+          "client_port": 44566,
+          "sent_bytes": 482,
+          "received_bytes": 814,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "a3": {
+          "client_port": 40276,
+          "sent_bytes": 16,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        },
+        "a4": {
+          "client_port": 49648,
+          "sent_bytes": 16,
+          "received_bytes": 510,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "initial_positions": {
+        "a1": null,
+        "a2": 1,
+        "a3": 2,
+        "a4": 3
+      },
+      "notification_positions": {
+        "a1": [],
+        "a2": [],
+        "a3": [],
+        "a4": [
+          2,
+          1,
+          0
+        ]
+      }
+    },
+    {
+      "case": "queue-two-owner-order",
+      "connections": {
+        "a": {
+          "client_port": 45510,
+          "sent_bytes": 489,
+          "received_bytes": 869,
+          "unread_output_hex": "0000012e00000007000000000000000800000008000100670002008d",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "b": {
+          "client_port": 45520,
+          "sent_bytes": 288,
+          "received_bytes": 558,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "b2": {
+          "client_port": 55392,
+          "sent_bytes": 16,
+          "received_bytes": 510,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        },
+        "a3": {
+          "client_port": 43340,
+          "sent_bytes": 16,
+          "received_bytes": 510,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "initial_positions": {
+        "a1": null,
+        "a2": 1,
+        "a3": 2,
+        "b1": null,
+        "b2": 3
+      },
+      "notification_positions": {
+        "a1": [],
+        "a2": [
+          0
+        ],
+        "a3": [
+          1,
+          0
+        ],
+        "b1": [],
+        "b2": [
+          0
+        ]
+      }
+    },
+    {
+      "case": "queue-pending-timeout",
+      "connections": {
+        "a": {
+          "client_port": 55898,
+          "sent_bytes": 470,
+          "received_bytes": 756,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "expired": {
+          "client_port": 37748,
+          "sent_bytes": 16,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        },
+        "waiting": {
+          "client_port": 37762,
+          "sent_bytes": 16,
+          "received_bytes": 510,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "initial_positions": {
+        "expired": null,
+        "waiting": 1
+      },
+      "notification_positions": {
+        "expired": [],
+        "waiting": [
+          0
+        ]
+      },
+      "admission_after_initial_ack_host_seconds": 542.973851,
+      "scope": "Host observer timing; no exact Mac-clock deadline claimed"
+    }
+  ],
+  "scope": "Controlled two-global/one-per-session queues, finite ordering and bounded timeout observations; no universal FIFO or starvation guarantee"
+}

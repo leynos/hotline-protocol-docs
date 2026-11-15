@@ -1,0 +1,27 @@
+SheepShaver V2.4 by Christian Bauer and Mar"c" Hellwig
+Using /data/leynos/Projects/mothra/state/mac-runtime/hotline20/machine.sheepvm as vmdir.
+X connection to :98 broken (explicit kill or server shutdown).
+XIO:  fatal IO error 22 (Invalid argument) on X server ":98"
+      after 8 requests (8 known processed) with 0 events remaining.
+Reading ROM file...
+selected Ethernet device type slirp
+PowerPC CPU emulator by Gwenole Beauchesne
+WARNING: Unknown DiskStatus(6)
+WARNING: Unknown DiskStatus(6)
+WARNING: Unknown DiskStatus(6)
+WARNING: Unknown DiskStatus(6)
+WARNING: RmvTime(1d610230): Descriptor not found
+Traceback (most recent call last):
+  File "/data/leynos/Projects/mothra/scripts/mac_runtime.py", line 199, in <module>
+    main()
+    ~~~~^^
+  File "/data/leynos/Projects/mothra/scripts/mac_runtime.py", line 195, in main
+    launch_sheep(args)
+    ~~~~~~~~~~~~^^^^^^
+  File "/data/leynos/Projects/mothra/scripts/mac_runtime.py", line 163, in launch_sheep
+    subprocess.run(command, check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib64/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['sudo', '-n', 'setpriv', '--reuid=1000', '--regid=1000', '--init-groups', '--inh-caps=+sys_rawio', '--ambient-caps=+sys_rawio', 'env', 'DISPLAY=:98', 'SDL_VIDEODRIVER=x11', 'SDL_AUDIODRIVER=dummy', 'MOTHRA_ETHERNET_PCAP=/data/leynos/Projects/mothra/state/native-sessions/runtime-20/guest.pcap', 'XDG_CACHE_HOME=/data/leynos/Projects/mothra/state/mac-runtime/hotline20/cache', '/data/leynos/Projects/mothra/state/mac-runtime/hotline20/SheepShaver-9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4', '/data/leynos/Projects/mothra/state/mac-runtime/hotline20/machine.sheepvm']' returned non-zero exit status 1.

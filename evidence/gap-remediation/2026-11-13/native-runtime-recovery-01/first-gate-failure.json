@@ -1,0 +1,9 @@
+{
+  "at_utc_approx": "2026-11-13T14:56:14+00:00",
+  "phase": "phase1 preflight",
+  "result": "refused before session creation",
+  "error": "Proposed fresh target/display/capture already exists",
+  "occupied_path": "/data/leynos/Projects/mothra/state/native-sessions/runtime-25",
+  "remediation": "root approved fresh recovery-20261113-01 destination; runtime-25 preserved",
+  "source_disk_modified": false
+}

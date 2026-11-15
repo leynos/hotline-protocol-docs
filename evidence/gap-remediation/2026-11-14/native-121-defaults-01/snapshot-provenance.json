@@ -1,0 +1,30 @@
+{
+  "source_a33_report_sha256": "1a88824ed127ea8382f9bb5602dce29cfca1df47897b7b506fac088d0922be75",
+  "snapshots": {
+    "guest-before.pcap": {
+      "bytes": 26828060,
+      "sha256": "44ae7e2eb56715897881ce68b4bc29d2f98c7816e119199aa3f6e4e3c6fc4ecd"
+    },
+    "guest-after-preflight.pcap": {
+      "bytes": 27991782,
+      "sha256": "ecaf14c231bb24cc0f27b80b41dafcfbafbfad5ec908aafaeb0afffe25760683"
+    },
+    "guest-after-observe.pcap": {
+      "bytes": 28005244,
+      "sha256": "959bd37a4f5d16fc4d6924092bf4684f7b076ee1917190a25c40e7b2bc871d02"
+    },
+    "guest-after-postflight.pcap": {
+      "bytes": 29169135,
+      "sha256": "700d2311985ee2134f08692b81d34bed3ab98ce654cc28553dcf1d0c167839e3"
+    },
+    "guest-after-terminal.pcap": {
+      "bytes": 29169135,
+      "sha256": "700d2311985ee2134f08692b81d34bed3ab98ce654cc28553dcf1d0c167839e3"
+    }
+  },
+  "prefix_verified": true,
+  "guest_delta_sha256": "aa5aa52acf84b36962de6d306730b379ee56b8ab498eded86d981ee43f869d8a",
+  "guest_delta_bytes": 2341099,
+  "filter": "tcp and (port 5500 or port 5501)",
+  "filter_tool": "tcpdump -r guest-delta.pcap -w guest-seven-flows.pcap"
+}

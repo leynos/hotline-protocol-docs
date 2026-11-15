@@ -1,0 +1,78 @@
+# A92: 304 rate fixture source prerequisites
+
+Read-only review of B86's `state/delegation/b86-rate304-plan.md` against
+retained PowerPC bodies. No VM/mxd action, query, project access, tracked
+edit or status change. No new oracle call was needed: all decisive bodies
+are frozen under `evidence/hotline-server-1.9/queries/`.
+
+## Session counter origin
+
+`D-1000acf0.c:405` allocates each admitted session with
+`FUN_10052b70(0x14c)`. `D-10052b70.c` delegates to `10079e30`; the latter
+zeroes the returned aligned allocation word by word. Thus both the
+session-local `+0xa8` timestamp and `+0x146` 304 counter initially contain
+zero. The inspected `D-10011960.c` 107, `D-10011ee0.c` 121,
+`D-10004bf0.c` early-login helper, and `D-10004d50.c` settings helper do
+not write either offset. `D-10016ad0.c` is the positive observed writer:
+if `(native_now - +0xa8) > 60` unsigned, it writes `native_now` to `+0xa8`
+and zero to `+0x146` before testing `<26`. On an ordinary current Mac clock,
+the first 304 takes that reset branch; source does not warrant assuming an
+arbitrary zero/near-epoch clock. Record clock origin or make the first-304
+observation a gate, not simply assume a starting counter in an unmeasured
+guest. Later 304s share this counter even when other request types are sent
+between them. The dispatcher `+0x52` counter is separate and counts every
+complete online request before type dispatch.
+
+## Early versus delayed online login
+
+`D-10011960.c` copies Login107 field102 name and numeric104 icon. If both
+are nonempty/nonzero, its successful branch calls `10004bf0`, sets the
+online bit at `+0x14a`, emits 354, and continues the online announcement.
+This **early** path does not need transaction121. The delayed continuation
+`D-10011ee0.c` calls `10004d50` and marks online after 121 only when 107
+left the session in that state. Therefore B86's literal “121/300 online
+identity” is unsafe as an unconditional wire sequence: an extra 121 after
+successful early login may get unknown/replayed-operation behaviour. Use
+an exact early Login107 (nonempty102, nonzero104) and positively require
+107 ACK, own354 access/name/icon, current-session 300/roster UID and 301
+online state before first 304. Reserve 121 only for a separately planned
+and observed delayed branch. Count any actual 300/500 control requests in
+the dispatcher's global-per-session limit. The known fixture-low account
+has zero ACL; verify its saved record and actual 354, not its typed alias.
+
+## Zero-ACL 304 result and observable repeated requests
+
+For 304, `D-10016ad0.c` calls `10004d50(param4=0)` on every admitted
+request; its only local guard is the rate counter. `10004d50` copies
+submitted field102 into temporary/session name at `+0x18`, sanitises or
+defaults it, but with naming bit26 clear and `param4=0` it **does not**
+rewrite effective display name at `+0x38`. That value came from the login
+account fallback in `10004bf0` and is what `10004f30` puts in 301 field102.
+It reads numeric field104 into icon `+0x16` on every call. It then calls
+`10004f30` unconditionally; that helper constructs and broadcasts type301
+with UID103, icon104, status112 and effective name102. There is no
+compare-with-old-settings test in the inspected direct chain, so identical
+304 requests still reach a 301 construction/send call. Actual delivery
+must be checked per eligible socket and paired packet stream; source alone
+does not attest 26 wire events under live scheduling.
+
+For the least ambiguous 26-update case, use the early-login name/icon solely
+to establish online identity, then send 304 containing just a two-byte
+numeric 104 icon that changes across intended updates (e.g. 1..26; the
+source assigns the parsed ushort without a range guard here). Omit 102,
+113 and 215 so the zero-ACL name branch cannot be mistaken for a requested
+rename; record the measured effective account name from the first 354/301.
+Using B86's fixed icon7 is still source-valid because repeated equal 304
+does not suppress 301 in this chain, but distinct icons make missing or
+reordered observations easier to falsify. Any other required login/control
+fields remain as the already verified baseline. Do not infer UI display
+meaning from arbitrary icon numbers.
+
+The source-predicted threshold remains: after a verified zero `+0x146`
+window, 26 accepted 304s emit 301 and the 27th within that same native
+60-second window calls socket close, `100063c0` address ban and logger.
+A host `<=20s` burst is a useful bracket but does not itself prove native
+time; retain native clock/header or a justified clock witness, else label
+the timing premise uncertain. In the paced trial, an observed 301 after a
+`>=70s` subject-idle interval supports reset only with unchanged subject
+session and no hidden 304. No new oracle query is required for preparation.

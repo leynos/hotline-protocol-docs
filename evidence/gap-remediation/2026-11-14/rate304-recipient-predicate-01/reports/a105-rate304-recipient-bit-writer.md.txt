@@ -1,0 +1,62 @@
+# A105: connection-bit writer and roster predicate
+
+Read-only review of existing frozen server decompilation only. No oracle
+query/project contact, VM, mxd or tracked edit. This follows the exact
+`connection+0x4c` high bit read by A104's `10058600`; equal numeric offsets
+on unrelated object types were not treated as writers.
+
+## Identified positive path
+
+In `evidence/hotline-server-1.9/queries/D-1000acf0.c:337–348`, the
+dispatcher calls `10058650(connection, &local_44, local_50)` after checking
+the connection; for a returned handshake and accepted `HOTL` with subversion
+2 or 3, it calls `10058770(connection)`. The frozen
+`D-10058650.c` reads the same `(undefined4 *)connection + 0x13` signed byte
+to distinguish already-set state from reading a new 12-byte TRTP header.
+These are concrete same-connection call edges, not an offset-only match.
+
+`D-10058770.c` checks the sign of that byte. When it is clear, it passes an
+8-byte `TRTP`/zero response buffer to `1006de90(*connection, ...)`, then
+sets the high bit with `byte & 0x7f | 0x80`. Pointer arithmetic on
+`undefined4 *` makes `+0x13` words exactly byte offset `+0x4c`. A104's
+untruncated `10058600` body reads this high bit and returns it as 0/1.
+This supports describing it as **the bit set on the accepted TRTP response
+path**. The source does not prove that `1006de90` delivered those bytes
+before the bit was set, or a universal transport-ready meaning.
+
+`D-100590e0.c` checks that same high bit before its frame-read loop. Its
+visible write at `+0x13` sets bit4 on an invalid frame-size path while
+preserving all other bits; it does not clear bit7. A search of retained
+`D-*.c` and batch-16 bodies found no other same-object bit7 writer or
+clearer. This is a local, non-exhaustive negative. Close/free and lower
+transport code may change viability without writing this byte in a retained
+body. No exhaustive dataflow or memory-lifetime claim follows.
+
+## Exact 300 branch and 301 eligibility
+
+The same dispatcher `D-1000acf0.c:214–215` maps transaction 300 to
+`10011870` (not a guessed nearby handler). Frozen `D-10011870.c` walks
+the server session list. It includes a row when the session's online sign
+at `+0x14a` is set **and** its effective-name length at `+0x38` is nonzero.
+It serialises UID, icon, status, and effective name. It does not call
+`10058600` or inspect connection `+0x4c`. A successful two-row roster is
+positive evidence for those two session predicates at that roster's
+execution time, but is not by itself a bit7 proof.
+
+For notification 301, frozen `10005510` checks each recipient's `10058600`
+bit7 result and the recipient online sign at `+0x14a`; it does **not** test
+the sender's field102 or status field112. C107's observer received the
+subject's initial 301 before the first 304, positively showing it passed
+this recipient gate then. The 104-only 304 helper neither clears the
+observer's connection bit nor changes observer online state in the traced
+direct chain. The subsequent same-subject 500 does not furnish a positive
+gate-changing edge in these bodies. Source therefore provides no reason
+for omitted 102 or pipelining alone to make the already-online observer
+ineligible. It does not prove uninterrupted bit7 state, successful enqueue,
+or on-wire delivery under all scheduling/close paths. In C107 the observer
+was closed after the 0.55-second timeout, before the paced 301/500 ACK
+reached the client, so its missing icon2 301 remains inconclusive.
+
+No stimulus change, runtime retry or global-causality assertion follows
+from this bounded trace. A later packet would need an explicitly approved
+longer observation with both sockets held open and paired packet checks.

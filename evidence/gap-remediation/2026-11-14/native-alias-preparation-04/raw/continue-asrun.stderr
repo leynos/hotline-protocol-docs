@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/data/leynos/Projects/mothra/state/native-sessions/native-alias-live-preparation-04/continue-stopped-reflink-04.py", line 110, in <module>
+    main(Path(sys.argv[1]), Path(sys.argv[2]))
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/leynos/Projects/mothra/state/native-sessions/native-alias-live-preparation-04/continue-stopped-reflink-04.py", line 64, in main
+    if module.capacity() < module.THRESHOLD:
+       ~~~~~~~~~~~~~~~^^
+  File "/data/leynos/Projects/mothra/state/native-sessions/native-alias-live-preparation-04/prepare-required-reflink-04.py", line 80, in capacity
+    raise RuntimeError(f"free {available} < required {THRESHOLD}")
+RuntimeError: free 8822157312 < required 10536091648

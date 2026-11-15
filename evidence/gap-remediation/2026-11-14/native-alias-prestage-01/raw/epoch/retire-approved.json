@@ -1,0 +1,16 @@
+{
+  "emulator_pid": 3737215,
+  "emulator_starttime": 10252051,
+  "display": ":123",
+  "deadline_utc": "2026-11-14T17:48:52.587463+00:00",
+  "reviewed_utc": "2026-11-14T17:45:57.131680+00:00",
+  "controls": [
+    {
+      "label": "Quit",
+      "x": 938,
+      "y": 249,
+      "screenshot": "quit.png",
+      "sha256": "1c4e132f138327883db0175efb4c75a90f1da230bb44e478d8c9d3e3aed2bbc1"
+    }
+  ]
+}

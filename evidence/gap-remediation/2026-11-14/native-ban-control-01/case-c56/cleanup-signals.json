@@ -1,0 +1,24 @@
+{
+  "pid": 4127848,
+  "expected": {
+    "exe": "/data/leynos/Projects/mothra/state/mac-runtime/native-eventlab-one-01/SheepShaver-9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+    "start": "5026815",
+    "netns": "net:[4026532619]",
+    "fd6": "/data/leynos/Projects/mothra/state/mac-runtime/native-eventlab-one-01/working.dsk"
+  },
+  "observed": {
+    "exe": "/data/leynos/Projects/mothra/state/mac-runtime/native-eventlab-one-01/SheepShaver-9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+    "start": "5026815",
+    "netns": "net:[4026532619]",
+    "fd6": "/data/leynos/Projects/mothra/state/mac-runtime/native-eventlab-one-01/working.dsk"
+  },
+  "events": [
+    {
+      "action": "TERM",
+      "exit": 0,
+      "stderr": "",
+      "utc": "2026-11-14T03:11:03.516012+00:00"
+    }
+  ],
+  "pid_gone": true
+}

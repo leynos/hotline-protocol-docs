@@ -1,0 +1,20 @@
+Nov 14 06:57:57 ibara systemd[1]: Starting mothra-native-roster-c86-host.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-roster-overlap-01/primary-syn.pcap "(tcp port 15500 or tcp port 15501) and (tcp[tcpflags] & tcp-syn != 0)"...
+Nov 14 06:57:57 ibara systemd[1]: Started mothra-native-roster-c86-host.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-roster-overlap-01/primary-syn.pcap "(tcp port 15500 or tcp port 15501) and (tcp[tcpflags] & tcp-syn != 0)".
+Nov 14 06:57:57 ibara tcpdump[950666]: dropped privs to tcpdump
+Nov 14 06:57:57 ibara tcpdump[950666]: tcpdump: listening on lo, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+Nov 14 06:59:13 ibara systemd[1]: Starting mothra-native-roster-c86-namespace.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-roster-overlap-01/lab-namespace.pcap "(tcp port 15500 or tcp port 15501 or tcp port 15820 or tcp port 15821)"...
+Nov 14 06:59:14 ibara systemd[1]: Started mothra-native-roster-c86-namespace.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-roster-overlap-01/lab-namespace.pcap "(tcp port 15500 or tcp port 15501 or tcp port 15820 or tcp port 15821)".
+Nov 14 06:59:14 ibara tcpdump[955532]: dropped privs to tcpdump
+Nov 14 06:59:14 ibara tcpdump[955532]: tcpdump: listening on lo, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+Nov 14 07:08:36 ibara tcpdump[955532]: 114 packets captured
+Nov 14 07:08:36 ibara tcpdump[955532]: 228 packets received by filter
+Nov 14 07:08:36 ibara tcpdump[955532]: 0 packets dropped by kernel
+Nov 14 07:08:36 ibara systemd[1]: Stopping mothra-native-roster-c86-namespace.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-roster-overlap-01/lab-namespace.pcap "(tcp port 15500 or tcp port 15501 or tcp port 15820 or tcp port 15821)"...
+Nov 14 07:08:36 ibara tcpdump[950666]: 0 packets captured
+Nov 14 07:08:36 ibara tcpdump[950666]: 4 packets received by filter
+Nov 14 07:08:36 ibara tcpdump[950666]: 0 packets dropped by kernel
+Nov 14 07:08:36 ibara systemd[1]: Stopping mothra-native-roster-c86-host.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-roster-overlap-01/primary-syn.pcap "(tcp port 15500 or tcp port 15501) and (tcp[tcpflags] & tcp-syn != 0)"...
+Nov 14 07:08:36 ibara systemd[1]: mothra-native-roster-c86-host.service: Deactivated successfully.
+Nov 14 07:08:36 ibara systemd[1]: Stopped mothra-native-roster-c86-host.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-roster-overlap-01/primary-syn.pcap "(tcp port 15500 or tcp port 15501) and (tcp[tcpflags] & tcp-syn != 0)".
+Nov 14 07:08:36 ibara systemd[1]: mothra-native-roster-c86-namespace.service: Deactivated successfully.
+Nov 14 07:08:36 ibara systemd[1]: Stopped mothra-native-roster-c86-namespace.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-roster-overlap-01/lab-namespace.pcap "(tcp port 15500 or tcp port 15501 or tcp port 15820 or tcp port 15821)".

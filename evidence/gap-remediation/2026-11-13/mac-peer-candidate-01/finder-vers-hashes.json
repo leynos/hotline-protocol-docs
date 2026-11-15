@@ -1,0 +1,20 @@
+{
+  "Hotline Client 1.9.2 Classic": {
+    "appledouble_entry9_bytes": 179,
+    "appledouble_entry9_sha256": "62299e7019d2dc751a1e71d6e547ecbe25cde69759eda1b035b00e0fa7946584",
+    "finder_first32_sha256": "a3e2ee89d403a2f8c5f61d6eb5f0fbb4d2f55b66e907e12b4c19fd87f572f44d",
+    "vers_payload_sha256_by_id": {
+      "1": "df58901535ca9ca745b8ce6908f3cd4685da9be551ba2e2bd8be24b52ab803df",
+      "2": "0d793cb5fba56af5ec5fdae406fdb22f44ba88d84b89927e015f54e763b18cca"
+    }
+  },
+  "Hotline Client 1.9.2 OS X": {
+    "appledouble_entry9_bytes": 32,
+    "appledouble_entry9_sha256": "51e15a0cfffb9ed721803f81a9af3703cce0ea64c7192b5ab9b756bb39444640",
+    "finder_first32_sha256": "51e15a0cfffb9ed721803f81a9af3703cce0ea64c7192b5ab9b756bb39444640",
+    "vers_payload_sha256_by_id": {
+      "1": "df58901535ca9ca745b8ce6908f3cd4685da9be551ba2e2bd8be24b52ab803df",
+      "2": "0d793cb5fba56af5ec5fdae406fdb22f44ba88d84b89927e015f54e763b18cca"
+    }
+  }
+}

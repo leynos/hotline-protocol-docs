@@ -1,0 +1,8 @@
+{
+  "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "query_count": 7,
+  "plans": [
+    "plans/news-links-and-transfer-metadata.json"
+  ],
+  "method": "Read-only article create/delete assembly, link helpers, date builders and INFO restoration. Graph examples are code-derived; no native session or filesystem execution."
+}

@@ -1,0 +1,511 @@
+{
+  "ledger_path": "docs/baseline-validity-ledger.md",
+  "ledger_sha256": "1e7bb723bc375df5fd378e9bbff06a897c234a5abc5277b00ccf9589bb3447e5",
+  "statuses": {
+    "Doc defect": 8,
+    "Supported": 16,
+    "Contradicted": 26,
+    "Partial": 18,
+    "Unverified": 15
+  },
+  "claims": [
+    {
+      "id": "V001",
+      "source_and_claim": "P:1–15 describes the target as 1.8.5 and claims every transaction.",
+      "status": "Doc defect",
+      "observation_and_action": "Intended target is 1.9. Retitle and revise version wording; the dispatcher and send paths contain undocumented transactions. See the coverage inventory below."
+    },
+    {
+      "id": "V002",
+      "source_and_claim": "P:17–19, 44–59: big-endian integers and a 20-byte envelope.",
+      "status": "Supported",
+      "observation_and_action": "[Frame writer][frame-write] stores byte flags, byte reply marker, BE16 type, then four BE32 values at offsets 4, 8, 12, 16; it sends `0x14` header bytes."
+    },
+    {
+      "id": "V003",
+      "source_and_claim": "P:23–28: handshake sub-protocol can be `CHAT`, `FILE`, or zero.",
+      "status": "Contradicted",
+      "observation_and_action": "[Handshake reader][handshake] reads 12 bytes and checks `TRTP`, version 1; [session dispatcher][dispatch] additionally requires `0x484f544c` (`HOTL`). Arbitrary tags are rejected."
+    },
+    {
+      "id": "V004",
+      "source_and_claim": "P:28: sub-version is an application-defined revision/build number.",
+      "status": "Contradicted",
+      "observation_and_action": "[Dispatcher][dispatch] accepts 2 or 3, creates a normal session for 2, and redirects 3 into the transfer-connection handling path. These are operationally distinct modes here, not an unconstrained build number."
+    },
+    {
+      "id": "V005",
+      "source_and_claim": "P:32–39: eight-byte server handshake reply, `TRTP` plus BE32 status.",
+      "status": "Supported",
+      "observation_and_action": "[Success writer][handshake-ok] sends `TRTP` and zero; [failure writer][handshake-error] sends `TRTP` and a nonzero status, normalizing zero to 1. A complete reply is eight bytes."
+    },
+    {
+      "id": "V006",
+      "source_and_claim": "P:37–39: client simply waits for the four-byte error code.",
+      "status": "Doc defect",
+      "observation_and_action": "State explicitly that the client consumes/checks the preceding four-byte `TRTP` too; otherwise the described read can interpret magic as status. V005 establishes the layout."
+    },
+    {
+      "id": "V007",
+      "source_and_claim": "P:50, 146–147: reply marker and request-ID correlation.",
+      "status": "Supported",
+      "observation_and_action": "[Reply construction][reply-build] copies the incoming ID into the reply object; [reply send][reply-send] supplies that ID and a true reply marker to [frame writer][frame-write]."
+    },
+    {
+      "id": "V008",
+      "source_and_claim": "P:51, 187–188: client IDs must be nonzero; never reuse before reply.",
+      "status": "Partial",
+      "observation_and_action": "[Server ID generator][id-generator] skips zero for its own generated IDs. [Frame reader][frame-read] groups incoming fragments by ID but does not establish a rejection of incoming ID zero. Outstanding-ID uniqueness is a sound implementation policy, not a proven peer requirement from this path."
+    },
+    {
+      "id": "V009",
+      "source_and_claim": "P:53–59, 133–140: total/current lengths and fragment accumulation.",
+      "status": "Partial",
+      "observation_and_action": "[Frame reader][frame-read] reads each 20-byte frame, accumulates payload bytes into a transaction object by ID and request/reply state; [ready lookup][ready] waits for accumulated bytes to reach total length. This supports reassembly, not every stated invariant."
+    },
+    {
+      "id": "V010",
+      "source_and_claim": "P:137–140: identical type/ID/header invariants across fragments are enforced.",
+      "status": "Unverified",
+      "observation_and_action": "ID grouping is visible, but the reader updates stored type and total on later frames. Do not claim checked type/total consistency or exact-equality completion without adversarial packet tests."
+    },
+    {
+      "id": "V011",
+      "source_and_claim": "P:148–152: zero-size or absent parameter blocks are normal empty replies.",
+      "status": "Contradicted",
+      "observation_and_action": "[Field-buffer accessor][field-buffer] materializes two zero bytes for an empty list; [reply send][reply-send] therefore emits a two-byte zero count. [Frame reader][frame-read] rejects either size equal to zero. Use payload `00 00`, sizes 2, for this baseline."
+    },
+    {
+      "id": "V012",
+      "source_and_claim": "P:49, 183–190: flags are emitted zero and invalid framing causes disconnect transaction 111.",
+      "status": "Partial",
+      "observation_and_action": "[Writer][frame-write] emits zero flags. [Reader][frame-read] sets a connection-error flag and closes its transport on invalid sizes; this does not establish a transaction-111 notice. Separate emitted format, receiver policy, and optional graceful-close advice."
+    },
+    {
+      "id": "V013",
+      "source_and_claim": "P:65–75: count followed by unpadded BE16 ID/BE16 length/value records.",
+      "status": "Supported",
+      "observation_and_action": "[TLV writer][tlv-write] stores count 1 and the first record in six bytes plus value, then increments count and appends four bytes plus each subsequent value. Field length is bounded to 65,535."
+    },
+    {
+      "id": "V014",
+      "source_and_claim": "P:77–81; P:413–424: only field 300 in transaction 300 may repeat.",
+      "status": "Contradicted",
+      "observation_and_action": "[Chat join][chat-join] also repeats field 300 in reply 115; [new-chat handler][chat-create] iterates repeated input field 103. File/news list builders repeat their own list fields. A global uniqueness validator would reject valid traffic. The guide also contradicts itself at P:657–662 and 754–757."
+    },
+    {
+      "id": "V015",
+      "source_and_claim": "P:80–81: numeric values use two or four bytes.",
+      "status": "Partial",
+      "observation_and_action": "[Numeric writer][integer-write] uses two bytes through `0xffff`, otherwise four. [Numeric reader][integer-read] also accepts one-byte integers; a three-byte value returns zero. Document writer convention separately from receiver acceptance."
+    },
+    {
+      "id": "V016",
+      "source_and_claim": "P:75: strings are ASCII, or otherwise opaque.",
+      "status": "Unverified",
+      "observation_and_action": "The inspected field readers copy raw bytes into Pascal or NUL-terminated local strings. No text-encoding negotiation or blanket UTF-8 rule was established. Retain bytes and define per-field encoding in a later pass."
+    },
+    {
+      "id": "V017",
+      "source_and_claim": "P:83–129: eight-byte date layout and annual conversion algorithm.",
+      "status": "Partial",
+      "observation_and_action": "[File-info handler][file-info] writes eight-byte fields 208/209. [File date builder][file-date] stores BE16 year **1904**, BE16 zero, then the supplied 32-bit filesystem time. Layout is supported; nonzero milliseconds, generic annual conversion, timezone, and all timestamp consumers are not validated. Document the observed 1904 form without rejecting other years based only on this path."
+    },
+    {
+      "id": "V018",
+      "source_and_claim": "P:155–175: login example has 20 parameter bytes, total frame 40.",
+      "status": "Doc defect",
+      "observation_and_action": "Including the missing BE16 count, the listed records require `2 + (4+5) + (4+0) + (4+2) = 21` bytes and a 41-byte frame. If empty password is omitted as the native writer does, count/lengths change again. Replace the example with explicitly counted bytes."
+    },
+    {
+      "id": "V019",
+      "source_and_claim": "P:171: literal ASCII `admin` is a working login-name example.",
+      "status": "Contradicted",
+      "observation_and_action": "[Login handler][login] complements every nonempty login-name byte before account lookup. The wire form of `admin` is `9e 9b 92 96 91`. Do not label plaintext bytes as a valid authenticated login example."
+    },
+    {
+      "id": "V020",
+      "source_and_claim": "P:191–192: many clients send dozens of fragments for folder uploads.",
+      "status": "Unverified",
+      "observation_and_action": "Fragment reception exists, but client frequency/size and folder-upload fragmentation behaviour require client or trace evidence. Keep this out of a normative baseline."
+    },
+    {
+      "id": "V021",
+      "source_and_claim": "P:181–195: no concrete maximum transaction size is given.",
+      "status": "Doc defect",
+      "observation_and_action": "[Reader][frame-read] compares both size words to global `10094a50`; the captured [initial image bytes][frame-limit] contain `0x00200000` (2 MiB). Record this build's image value and comparison, not a guaranteed immutable runtime cap."
+    },
+    {
+      "id": "V022",
+      "source_and_claim": "P:46–59: reply transaction type is unspecified.",
+      "status": "Doc defect",
+      "observation_and_action": "[Reply allocation][reply-allocate] uses a [zeroing allocator][zero-allocator]; [reply construction][reply-build] sets reply state and copies ID while leaving type zero. [Reply send][reply-send] serializes that zero type. Add the observed reply-type rule rather than requiring request type to be echoed."
+    },
+    {
+      "id": "V023",
+      "source_and_claim": "P:217–225: login fields 105/106/160; server version in field 160.",
+      "status": "Supported",
+      "observation_and_action": "[Login][login] reads these fields and also reads optional display name 102 and icon 104. On success it writes `160 = 0xbe` (**190**). Add the optional legacy/early-completion inputs."
+    },
+    {
+      "id": "V024",
+      "source_and_claim": "P:222–229 and M:19–25, 40–42: fields 161/162 depend on client class/version.",
+      "status": "Partial",
+      "observation_and_action": "[Successful login][login] unconditionally adds 160, 161, 162 before replying; no comparison of the saved client version guards these additions in this handler. The documented positive case is supported, but the matrix's omission policy is not native 1.9 behaviour. Its implementation status remains unverified."
+    },
+    {
+      "id": "V025",
+      "source_and_claim": "P:248–278: transaction 109 includes banner type/URL/image fields 152/153/151.",
+      "status": "Contradicted",
+      "observation_and_action": "[Login][login] builds 109 with agreement text 101 or no-agreement flag 154. [Agreed][agreed] later builds separate **122** with type 152 and optional URL 153 for client version at least 151 when a banner is configured. No inline image 151 is added by these inspected send paths."
+    },
+    {
+      "id": "V026",
+      "source_and_claim": "P:299–300: transaction 121 receives no direct reply.",
+      "status": "Contradicted",
+      "observation_and_action": "[Agreed][agreed] immediately sends an empty field-list reply before applying settings and sending access privileges. This is a 22-byte frame, not a header-only packet; see V011."
+    },
+    {
+      "id": "V027",
+      "source_and_claim": "P:281–317: all sessions must wait for transaction 121 to become online.",
+      "status": "Contradicted",
+      "observation_and_action": "[Login][login] can complete early when nonempty name 102 and nonzero icon 104 are supplied; it marks the session active and sends 354 before 109. The later-121 path also exists. Document both paths and their conditions."
+    },
+    {
+      "id": "V028",
+      "source_and_claim": "P:287–297, 530–538: options 1/2/4 and automatic-response field 215.",
+      "status": "Supported",
+      "observation_and_action": "[Settings helper][settings] maps bits 0/1/2 of field 113 to refusal/auto-response state and reads field 215; it supplies default response text when that field is absent."
+    },
+    {
+      "id": "V029",
+      "source_and_claim": "P:319–343: access notification 354 contains bitmap field 110.",
+      "status": "Supported",
+      "observation_and_action": "[Login][login] and [Agreed][agreed] serialize eight bytes from the session privilege bitmap as field 110 and send type `0x162` (354). The eight-byte width needs adding to the guide."
+    },
+    {
+      "id": "V030",
+      "source_and_claim": "P:345–391: privilege table is complete and Send Private Message is bit 19.",
+      "status": "Contradicted",
+      "observation_and_action": "[PM handler][pm] checks bit **40** using [MSB-first accessor][privilege]. [Folder upload][folder-upload] checks bit **38**, and [folder download][folder-download] bit **39**. The table ends at 37 and assigns PM to 19; it is incomplete/wrong for this build. Bits 18/19 and all other unused entries are not certified by this pass."
+    },
+    {
+      "id": "V031",
+      "source_and_claim": "P:345–391: bit numbering can be used without a byte-order rule.",
+      "status": "Doc defect",
+      "observation_and_action": "[Accessor][privilege] computes byte `bit >> 3`, then bit `7 - (bit & 7)`. Define bit 0 as byte 0's MSB, over eight transmitted bytes; do not implement an LSB-first host integer bitmap."
+    },
+    {
+      "id": "V032",
+      "source_and_claim": "P:400–413: roster field 300 has UID/icon/colour/name-length/name.",
+      "status": "Supported",
+      "observation_and_action": "[Roster builder][roster] writes four BE16 values, name bytes, and field length `8 + name_length`, once per active named session. Name length zero is skipped. This agrees with [SynHX roster source][syn-roster]."
+    },
+    {
+      "id": "V033",
+      "source_and_claim": "P:419–421: main-chat subject field 115 in transaction 300.",
+      "status": "Partial",
+      "observation_and_action": "[Supplied SynHX server][syn-roster] appends subject 115 to its roster reply. [Native 1.9 roster][roster] does not add 115. This is a source-observed server difference, not proof of what every SynHX client accepts."
+    },
+    {
+      "id": "V034",
+      "source_and_claim": "P:403–408: roster reply contains one or more entries.",
+      "status": "Partial",
+      "observation_and_action": "[Roster][roster] appends only eligible nonempty names; the builder has no minimum-entry check and can emit a zero count if none qualify. A normally logged-in requester may itself supply an entry. Prefer zero-or-more in the structural grammar; this pass does not prove an empty-roster session is reachable."
+    },
+    {
+      "id": "V035",
+      "source_and_claim": "P:445–492: notifications 301/302 describe online-state changes.",
+      "status": "Partial",
+      "observation_and_action": "[Update builder][presence-update] writes fields 103/104/112/102 and broadcasts 301. Roster entry status construction is [captured][status]. Exact self-exclusion, all disconnect-302 paths, and client UI effects remain unverified."
+    },
+    {
+      "id": "V036",
+      "source_and_claim": "P:495–522: transaction 303 returns an admin-configured short profile.",
+      "status": "Contradicted",
+      "observation_and_action": "[Client-info handler][client-info] assembles operational diagnostic text with nickname, account, address and transfer summaries; replies contain data 101 and name 102. Replace the invented profile/real-name semantics with observed content and its privilege-24 gate."
+    },
+    {
+      "id": "V037",
+      "source_and_claim": "P:530–547: transaction 304 updates only supplied fields.",
+      "status": "Contradicted",
+      "observation_and_action": "[304 handler][settings-handler] calls [settings helper][settings] unconditionally. That helper reads name/icon/options regardless of presence, supplies a fallback name for empty input, and assigns icon/options from the reader's returned value. Missing fields do not implement an established patch/merge contract here."
+    },
+    {
+      "id": "V038",
+      "source_and_claim": "P:539–547: transaction 304 has no direct reply.",
+      "status": "Supported",
+      "observation_and_action": "[304 handler][settings-handler] calls the settings/update path without invoking the direct reply helper. Flood handling can close the connection."
+    },
+    {
+      "id": "V039",
+      "source_and_claim": "P:578–641: 105 takes text/options/chat ID and generates 106 without an ACK.",
+      "status": "Supported",
+      "observation_and_action": "[Chat-send handler][chat-send] reads 101/109/114, formats the text, and sends 106 to eligible recipients; a room-specific send adds field 114. No direct success reply call appears. Permission and flood branches are configuration-dependent."
+    },
+    {
+      "id": "V040",
+      "source_and_claim": "P:643–678: join 115 returns subject and packed user-list records.",
+      "status": "Supported",
+      "observation_and_action": "[Join][chat-join] optionally adds subject 115 and appends repeated packed field-300 records; success and missing-chat error both use direct replies. It sends 117 to existing room members when adding a new member."
+    },
+    {
+      "id": "V041",
+      "source_and_claim": "P:700–743, 847–885: notifications 117/118/119 carry chat-scoped state.",
+      "status": "Partial",
+      "observation_and_action": "Join, leave, and subject handlers establish send sites for 117/118/119 and relevant chat/user fields. All leave/disconnect cleanup and client rendering semantics are not established. See the handler inventory and retained decompilations."
+    },
+    {
+      "id": "V042",
+      "source_and_claim": "P:749–785: create 112 accepts repeated target UID field 103.",
+      "status": "Supported",
+      "observation_and_action": "[Create-chat handler][chat-create] iterates every field by index and processes each 103. It creates a room containing the inviter, sends invites, then replies with room 114 and the inviter's 103/104/112/102; it does not return all invitees as already-joined participants."
+    },
+    {
+      "id": "V043",
+      "source_and_claim": "P:901–920: PM input fields 103/113/101 and optional quoted text 214.",
+      "status": "Supported",
+      "observation_and_action": "[PM handler][pm] reads those four fields, interpreting option values 1–4 as distinct cases rather than proving a freely combinable bitmap. Retain numeric enumerants; do not infer additional bit combinations."
+    },
+    {
+      "id": "V044",
+      "source_and_claim": "P:922–923, 959–971: sending transaction 108 has no direct reply.",
+      "status": "Contradicted",
+      "observation_and_action": "[PM handler][pm] sends a direct empty success reply before routing; permission/offline errors return status 1 and field 100 text. It then emits type 104 to recipients as applicable."
+    },
+    {
+      "id": "V045",
+      "source_and_claim": "P:942–957: the client probably handles automatic response/refusal.",
+      "status": "Contradicted",
+      "observation_and_action": "[PM handler][pm] itself generates type-104 refusal/auto-response messages using recipient session state for normal-message option 1. It suppresses delivery to a refusing recipient. This behaviour is visible server-side and should not be left as a client-only guess."
+    },
+    {
+      "id": "V046",
+      "source_and_claim": "P:1000–1018, 2119–2151: broadcast probably becomes type 104 or possibly 355.",
+      "status": "Contradicted",
+      "observation_and_action": "[Broadcast handler][broadcast] ACKs the initiator, builds fields 103/102/101, and sends **355** to other active connected users. Preserve this observed path, separately from server/admin type-104 notices."
+    },
+    {
+      "id": "V047",
+      "source_and_claim": "P:1036–1045, 1895–1905: legacy 101/102/103 are mostly ignorable.",
+      "status": "Contradicted",
+      "observation_and_action": "[Get-board 101][old-get] reads the configured old message-board buffer and replies with data 101. [Post-board 103][old-post] updates it, ACKs, and emits 102. They remain implemented alongside threaded news in this 1.9 build; deprecation is an mxd scope decision."
+    },
+    {
+      "id": "V048",
+      "source_and_claim": "P:613–641, 974–1034: exact client windows, styling, sender attribution.",
+      "status": "Unverified",
+      "observation_and_action": "The server establishes emitted text/fields, not Mac/SynHX client presentation. Keep UI expectations descriptive until a client or trace is checked."
+    },
+    {
+      "id": "V049",
+      "source_and_claim": "P:1055–1092: list 200 accepts path 202 and repeats file record 200.",
+      "status": "Partial",
+      "observation_and_action": "[List handler][file-list] reads path 202 and calls the list builder. Its exact record layout is not validated in this pass; the guide's vague record description is insufficient for mxd. Repeated-list fields are also documented here, contradicting V014's global prohibition."
+    },
+    {
+      "id": "V050",
+      "source_and_claim": "P:1064–1068: a path can be treated as unspecified opaque data or folder IDs.",
+      "status": "Unverified",
+      "observation_and_action": "[Path resolver entry][path-resolver] passes the bytes into a filesystem resolver; it treats lengths below six as no path. Exact counted path-component layout, reserved fields, and name encoding still need tracing before implementation."
+    },
+    {
+      "id": "V051",
+      "source_and_claim": "P:1094–1170: download request fields and reply size/reference/queue.",
+      "status": "Partial",
+      "observation_and_action": "[Download handler][file-download] reads 201/202/203/204, uses a fixed four-byte reference 107, and writes 108/207 plus 116 only when queued. Preview option 2 has a separate path; an empty preview can reply with size zero and no reference. Whole transfer-stream semantics remain open."
+    },
+    {
+      "id": "V052",
+      "source_and_claim": "P:1172–1227: upload initiation and resume direction.",
+      "status": "Partial",
+      "observation_and_action": "[Upload handler][file-upload] reads 201/202/204/108, takes a resume path when options equals 1, and may return resume data 203 plus four-byte reference 107. Confirm these fields; remove the guide's guess that this option may be unused. Full resume-stream format remains open."
+    },
+    {
+      "id": "V053",
+      "source_and_claim": "P:1229–1282, 1330–1434: delete/create/rename/move/alias have no reply.",
+      "status": "Contradicted",
+      "observation_and_action": "Handlers 204, 205, 207, 208, and 209 all contain direct reply calls, including success paths. Their per-handler evidence is linked in the dispatch inventory. Use ACK/error semantics rather than implicit refresh-only success."
+    },
+    {
+      "id": "V054",
+      "source_and_claim": "P:1284–1328: file-info fields and type/creator meanings.",
+      "status": "Partial",
+      "observation_and_action": "[File info][file-info] writes name 201, size 207 on file paths, dates 208/209, comment 210, and fields 205/206/213. Fields 205/206 can contain descriptive strings, not always four-character codes; raw file type is placed in 213 on the ordinary file branch. Document branch-specific representations."
+    },
+    {
+      "id": "V055",
+      "source_and_claim": "P:1436–1494: folder-download permission is ordinary Download File bit 2.",
+      "status": "Contradicted",
+      "observation_and_action": "[Folder download][folder-download] checks bit **39** through the folder privilege helper, not only bit 2; field inputs also include 203/204. Its initiation reply includes 220/108, plus reference/queue when applicable."
+    },
+    {
+      "id": "V056",
+      "source_and_claim": "P:1496–1539: folder-upload permission is ordinary Upload File bit 1.",
+      "status": "Contradicted",
+      "observation_and_action": "[Folder upload][folder-upload] checks bit **38**, takes 201/202/204/108/220, and can return an empty success reply without a transfer reference when there is nothing to transfer."
+    },
+    {
+      "id": "V057",
+      "source_and_claim": "P:1458–1478, 1510–1532: exact folder stream actions 1/2/3 and resume exchanges.",
+      "status": "Unverified",
+      "observation_and_action": "Captured initiation handlers and the HTXF acceptor do not establish the complete per-file state machine. Trace the download/upload stream workers and retain byte layouts before treating these descriptions as normative."
+    },
+    {
+      "id": "V058",
+      "source_and_claim": "P:1541–1574: banner 212 replies with transfer reference and size; HTXF type 2.",
+      "status": "Supported",
+      "observation_and_action": "[Banner handler][banner-download] writes reference 107 as four bytes and size 108. [HTXF acceptor][transfer-accept] routes odd reference + type 2 to its banner-transfer lookup. Banner advertisement comes from 122, not 109; see V025."
+    },
+    {
+      "id": "V059",
+      "source_and_claim": "P:1129–1147, 1190–1205: client connects to data endpoint using `HTXF` and reference.",
+      "status": "Partial",
+      "observation_and_action": "[Transfer acceptor][transfer-accept] accepts an incoming connection, waits for **16 bytes**, checks `HTXF`, and uses the reference, a later size word, and a type halfword to choose a worker. A complete offset table and reserved-byte interpretation are not yet established."
+    },
+    {
+      "id": "V060",
+      "source_and_claim": "P:1049–1053: data port is base port + 1; queued server initiates connection.",
+      "status": "Partial",
+      "observation_and_action": "The acceptor establishes a client-initiated connection for the inspected path, contradicting the later statement at P:1140–1141 that the server initiates it. The base-port arithmetic itself was not traced; verify listener setup separately."
+    },
+    {
+      "id": "V061",
+      "source_and_claim": "P:all file services: reference cancellation is absent.",
+      "status": "Doc defect",
+      "observation_and_action": "[Dispatcher][dispatch] accepts **214**, whose [handler][transfer-cancel] reads four-byte reference 107, calls transfer cleanup if nonzero, and ACKs. Name and document the operation after tracing the cleanup helper; cancellation is the current behavioural interpretation."
+    },
+    {
+      "id": "V062",
+      "source_and_claim": "P:1600–1645: 370 returns repeated 323; only pre-1.5 uses 320.",
+      "status": "Partial",
+      "observation_and_action": "[Category builder][news-categories] repeats 323 when saved client version is at least **15**, otherwise 320. The numeric comparison is `0xf`, not 150 or 151. Name the numeric threshold explicitly; don't infer a display-version conversion."
+    },
+    {
+      "id": "V063",
+      "source_and_claim": "P:1647–1677: 371 returns one field 321 per article.",
+      "status": "Contradicted",
+      "observation_and_action": "[Article-list builder][news-article-list] adds **one field 321 containing the entire serialized list** returned by its database helper. The nested record format still needs decoding; do not model it as repeated per-article TLVs from this description."
+    },
+    {
+      "id": "V064",
+      "source_and_claim": "P:1679–1726: 400 input 325/326/327 and metadata/body output.",
+      "status": "Supported",
+      "observation_and_action": "[400 handler][news-read] reads path/article ID/flavour. [Data builder][news-data] writes 333 when nonempty, 331/332/335/336, title 328, poster 329, flavour 327, and eight-byte date 330. Exact thread-navigation meanings and non-text flavours remain to be validated."
+    },
+    {
+      "id": "V065",
+      "source_and_claim": "P:1728–1905: 410/411/380/381/382 succeed without replies.",
+      "status": "Contradicted",
+      "observation_and_action": "Each captured handler invokes the shared direct reply helper on success and error paths. Do not omit ACKs for posting, deleting, or changing news structure."
+    },
+    {
+      "id": "V066",
+      "source_and_claim": "P:1588–1598, 1789–1818: fixed four-tier hierarchy and recursive-delete side effects.",
+      "status": "Unverified",
+      "observation_and_action": "Dispatch and field extraction establish relevant operations, not all hierarchy constraints, orphan handling, notifications, or rollback. These claims need database-helper analysis and runtime fixtures."
+    },
+    {
+      "id": "V067",
+      "source_and_claim": "P:1915–2054: account 350/351/353 have no direct success reply.",
+      "status": "Contradicted",
+      "observation_and_action": "[Create][account-create], [delete][account-delete], and [update][account-update] handlers send direct ACK/error replies. They include permission gates and should be documented as request/reply transactions."
+    },
+    {
+      "id": "V068",
+      "source_and_claim": "P:1980–2005: account 352 returns the password or an encoded copy.",
+      "status": "Contradicted",
+      "observation_and_action": "[Get-account handler][account-get] returns field 106 containing the one-byte literal **`x`** when a password exists; when empty, the zero-length-field writer omits it. It complements the login-name bytes for field 105. This is a presence placeholder, not password disclosure or recoverable obfuscation."
+    },
+    {
+      "id": "V069",
+      "source_and_claim": "P:1924–1936, 2013–2022: account input fields are only 102/105/106/110.",
+      "status": "Partial",
+      "observation_and_action": "Create/update additionally read field **111**. Its semantics are not established here. The eight-byte privilege width is established elsewhere. Do not silently discard this field from a complete 1.9 account schema."
+    },
+    {
+      "id": "V070",
+      "source_and_claim": "P:2025–2049: live account edits update permissions and preserve sessions.",
+      "status": "Unverified",
+      "observation_and_action": "Captured account handlers show mutation paths, but this pass does not certify every active-session propagation, account-renaming, password-storage, or disconnect consequence. Narrative guesses need deeper helper/runtime evidence."
+    },
+    {
+      "id": "V071",
+      "source_and_claim": "P:2056–2091: kick 110 has no reply; ban options are probably a bitmap.",
+      "status": "Contradicted",
+      "observation_and_action": "[Kick handler][kick] ACKs success, checks privileges 22/23, treats option **1** and **2** as distinct branches, and reads optional field 101 on the latter path. Do not invent independently combinable ban bits or account/IP meanings without tracing the two ban helpers."
+    },
+    {
+      "id": "V072",
+      "source_and_claim": "P:2093–2117: admin kick always sends disconnect type 111 with required text.",
+      "status": "Contradicted",
+      "observation_and_action": "[Kick handler][kick] emits type **104** on its option-1/2 notice branches, then closes the transport; a plain kick can close without that notice. No type-111 send is visible in this inspected kick path. Other 111 paths, if any, remain unverified."
+    },
+    {
+      "id": "V073",
+      "source_and_claim": "P:2162–2174: privileges 11/12 imply entering/closing any private chat.",
+      "status": "Unverified",
+      "observation_and_action": "The create-chat handler checks 11, but this does not establish all asserted admin overrides. Avoid implementing broad bypasses from this prose."
+    },
+    {
+      "id": "V074",
+      "source_and_claim": "P:2178–2185: the catalogue completely enumerates relevant server operations.",
+      "status": "Doc defect",
+      "observation_and_action": "The captured dispatcher also handles 348/349 and 500; the login path sends 122. These require explicit catalogue/scope decisions. The ledger does not assign names to 348/349/500 solely from their numbers."
+    },
+    {
+      "id": "M001",
+      "source_and_claim": "M:19–21: Hotline 1.8.5/1.9 use `sub_version != 2`; SynHX alone uses 2.",
+      "status": "Contradicted",
+      "observation_and_action": "Native [1.9 dispatcher][dispatch] uses 2 for normal sessions. Supplied [SynHX constants][syn-wire] define the same 12-byte magic and [receiver][syn-login] compares it. This marker cannot distinguish those peers."
+    },
+    {
+      "id": "M002",
+      "source_and_claim": "M:19–25: login version 151–189 versus at least 190 proves client profile.",
+      "status": "Unverified",
+      "observation_and_action": "Native [login][login] stores version 160, replies with 190, and uses at least 151 for later banner delivery. It does not establish the matrix's client classifier, nor identify every 151–189 client as 1.8.5. Preserve this as mxd policy pending client evidence."
+    },
+    {
+      "id": "M003",
+      "source_and_claim": "M:21–22, 41: SynHX replies must omit 161/162.",
+      "status": "Unverified",
+      "observation_and_action": "Supplied SynHX source lacks the inspected native 1.9 augmentation, but source omission is not proof that a SynHX client rejects these fields. Native [login][login] adds them without a peer-kind gate. Separate client tolerance from mxd response policy."
+    },
+    {
+      "id": "M004",
+      "source_and_claim": "M:25, 42: old/unknown clients omit 161/162 as conservative safety behaviour.",
+      "status": "Unverified",
+      "observation_and_action": "Native [successful login][login] has no such version/kind gate. The matrix records an mxd policy; it does not itself establish that inclusion is invalid or that omission is necessary. Verify that policy against the intended client builds and mxd tests."
+    },
+    {
+      "id": "M005",
+      "source_and_claim": "M:19–22, 43–44: arbitrary text may use heuristic XOR mode.",
+      "status": "Unverified",
+      "observation_and_action": "[SynHX `hl_code`][syn-code] complements bytes; [login parser][syn-login] applies it specifically to login/password. [Native login][login] complements login bytes too. This is not evidence for invalid-UTF-8-driven global XOR mode on chat/news/text, and credential obfuscation is not a SynHX fingerprint."
+    },
+    {
+      "id": "M006",
+      "source_and_claim": "M:29–36: only transaction 300 may repeat a field ID.",
+      "status": "Contradicted",
+      "observation_and_action": "Native [join 115][chat-join] repeats field 300; [create 112][chat-create] iterates repeated 103. The protocol guide also documents repeated file/news fields. A global allowlist restricted to transaction 300 is incompatible with the observed paths."
+    },
+    {
+      "id": "M007",
+      "source_and_claim": "M:29–36: packed field-300 roster layout is SynHX-compatible.",
+      "status": "Supported",
+      "observation_and_action": "Native [roster builder][roster] and supplied [SynHX roster writer][syn-roster] agree on BE16 UID/icon/colour/name length followed by name bytes. This validates the structure in these two implementations, not every client profile."
+    },
+    {
+      "id": "M008",
+      "source_and_claim": "M:3–15, 19–25, 38–44: listed mxd tests prove implementation status.",
+      "status": "Unverified",
+      "observation_and_action": "The supplied documents cite tests but no mxd checkout/revision or test execution is part of this evidence set. Ghidra cannot certify those Rust tests. Keep implementation status and protocol validity as separate columns."
+    },
+    {
+      "id": "M009",
+      "source_and_claim": "M:46–53: roadmap, Kani, sign-off, and future-work status.",
+      "status": "Unverified",
+      "observation_and_action": "These are project-management assertions, not binary properties. Required evidence is the exact mxd revision, cited test/proof outputs, roadmap and QA documents."
+    }
+  ]
+}

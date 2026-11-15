@@ -1,0 +1,13 @@
+{
+  "checked_utc": "2026-11-14T13:57:50.817176+00:00",
+  "deadline_utc": "2026-11-14T14:09:46.041564+00:00",
+  "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "netns_inode": 4026533805,
+  "phase": "disk",
+  "pid": 1058709,
+  "start_ticks": 8937287,
+  "uid": 1000,
+  "working_dev": 2097,
+  "working_image": "/data/leynos/Projects/mothra/state/mac-runtime/native-path-fields-01/working.dsk",
+  "working_inode": 5999397982
+}

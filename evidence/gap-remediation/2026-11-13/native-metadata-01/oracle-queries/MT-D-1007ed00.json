@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-13T06:10:20.201528+00:00",
+  "query": {
+    "id": "MT-D-1007ed00",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1007ed00"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_1007ed00\",\n    \"address\": \"1007ed00\"\n  },\n  \"code\": \"\\nundefined4\\nFUN_1007ed00(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined1 *param_4)\\n\\n{\\n  undefined4 uVar1;\\n  char cVar2;\\n  uint unaff_r27;\\n  undefined4 local_110;\\n  undefined1 auStack_10c [28];\\n  undefined1 auStack_f0 [18];\\n  undefined4 local_de;\\n  undefined1 *local_d0;\\n  undefined4 local_cc;\\n  undefined1 uStack_c5;\\n  undefined4 local_c0;\\n  undefined1 auStack_88 [18];\\n  undefined4 local_76;\\n  undefined2 local_72;\\n  uint local_6c;\\n  \\n  if (param_4 == (undefined1 *)0x0) {\\n    uVar1 = 0xffffffce;\\n  }\\n  else {\\n    *param_4 = 0;\\n    local_110 = 0x1c;\\n    uVar1 = FUN_1007ee80(param_3,param_1,auStack_10c,&local_110);\\n    if ((short)uVar1 == 0) {\\n      cVar2 = FUN_1007ef20(auStack_10c);\\n      if (cVar2 == '\\\\0') {\\n        uVar1 = 0xffffffce;\\n      }\\n      else {\\n        local_72 = (undefined2)param_1;\\n        local_76 = param_3;\\n        uVar1 = .glue::PBDTOpenInform(auStack_88);\\n        unaff_r27 = local_6c & 1 ^ 1;\\n        if ((short)uVar1 == -0x32) {\\n          uVar1 = .glue::PBDTGetPath(auStack_88);\\n          unaff_r27 = 0;\\n        }\\n      }\\n    }\\n    if ((short)uVar1 == 0) {\\n      if ((unaff_r27 & 0xff) == 0) {\\n        local_d0 = param_4 + 1;\\n        local_cc = 0xff;\\n        local_de = param_3;\\n        local_c0 = param_2;\\n        uVar1 = .glue::PBDTGetCommentSync(auStack_f0);\\n        if ((short)uVar1 == 0) {\\n          *param_4 = uStack_c5;\\n        }\\n      }\\n    }\\n    else {\\n      uVar1 = FUN_1007eb90(param_1,param_2,param_3,param_4);\\n      if ((short)uVar1 != 0) {\\n        uVar1 = 0xffffec6c;\\n      }\\n    }\\n  }\\n  return uVar1;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_1007ed00",
+        "address": "1007ed00"
+      },
+      "code": "\nundefined4\nFUN_1007ed00(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined1 *param_4)\n\n{\n  undefined4 uVar1;\n  char cVar2;\n  uint unaff_r27;\n  undefined4 local_110;\n  undefined1 auStack_10c [28];\n  undefined1 auStack_f0 [18];\n  undefined4 local_de;\n  undefined1 *local_d0;\n  undefined4 local_cc;\n  undefined1 uStack_c5;\n  undefined4 local_c0;\n  undefined1 auStack_88 [18];\n  undefined4 local_76;\n  undefined2 local_72;\n  uint local_6c;\n  \n  if (param_4 == (undefined1 *)0x0) {\n    uVar1 = 0xffffffce;\n  }\n  else {\n    *param_4 = 0;\n    local_110 = 0x1c;\n    uVar1 = FUN_1007ee80(param_3,param_1,auStack_10c,&local_110);\n    if ((short)uVar1 == 0) {\n      cVar2 = FUN_1007ef20(auStack_10c);\n      if (cVar2 == '\\0') {\n        uVar1 = 0xffffffce;\n      }\n      else {\n        local_72 = (undefined2)param_1;\n        local_76 = param_3;\n        uVar1 = .glue::PBDTOpenInform(auStack_88);\n        unaff_r27 = local_6c & 1 ^ 1;\n        if ((short)uVar1 == -0x32) {\n          uVar1 = .glue::PBDTGetPath(auStack_88);\n          unaff_r27 = 0;\n        }\n      }\n    }\n    if ((short)uVar1 == 0) {\n      if ((unaff_r27 & 0xff) == 0) {\n        local_d0 = param_4 + 1;\n        local_cc = 0xff;\n        local_de = param_3;\n        local_c0 = param_2;\n        uVar1 = .glue::PBDTGetCommentSync(auStack_f0);\n        if ((short)uVar1 == 0) {\n          *param_4 = uStack_c5;\n        }\n      }\n    }\n    else {\n      uVar1 = FUN_1007eb90(param_1,param_2,param_3,param_4);\n      if ((short)uVar1 != 0) {\n        uVar1 = 0xffffec6c;\n      }\n    }\n  }\n  return uVar1;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

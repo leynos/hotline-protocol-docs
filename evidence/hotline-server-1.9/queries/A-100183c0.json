@@ -1,0 +1,954 @@
+{
+  "captured_at_utc": "2026-11-12T12:14:53.392067+00:00",
+  "query": {
+    "id": "A-100183c0",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "100183c0",
+      "limit": 2000
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"items\": [\n    {\n      \"address\": \"100183c0\",\n      \"bytes\": \"7c0802a6\",\n      \"instruction\": \"mfspr r0,LR\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100183c4\",\n      \"bytes\": \"bf01ffe0\",\n      \"instruction\": \"stmw r24,-0x20(r1)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100183c8\",\n      \"bytes\": \"90010008\",\n      \"instruction\": \"stw r0,0x8(r1)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100183cc\",\n      \"bytes\": \"9421fd90\",\n      \"instruction\": \"stwu r1,-0x270(r1)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100183d0\",\n      \"bytes\": \"7c7b1b78\",\n      \"instruction\": \"or r27,r3,r3\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100183d4\",\n      \"bytes\": \"7c9d2378\",\n      \"instruction\": \"or r29,r4,r4\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100183d8\",\n      \"bytes\": \"7cba2b78\",\n      \"instruction\": \"or r26,r5,r5\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100183dc\",\n      \"bytes\": \"7cc33378\",\n      \"instruction\": \"or r3,r6,r6\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100183e0\",\n      \"bytes\": \"38800072\",\n      \"instruction\": \"li r4,0x72\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100183e4\",\n      \"bytes\": \"4803e7ad\",\n      \"instruction\": \"bl 0x10056b90\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100183e8\",\n      \"bytes\": \"60000000\",\n      \"instruction\": \"ori r0,r0,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100183ec\",\n      \"bytes\": \"7c781b78\",\n      \"instruction\": \"or r24,r3,r3\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100183f0\",\n      \"bytes\": \"7f63db78\",\n      \"instruction\": \"or r3,r27,r27\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100183f4\",\n      \"bytes\": \"7f04c378\",\n      \"instruction\": \"or r4,r24,r24\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100183f8\",\n      \"bytes\": \"4bfec369\",\n      \"instruction\": \"bl 0x10004760\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100183fc\",\n      \"bytes\": \"60000000\",\n      \"instruction\": \"ori r0,r0,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018400\",\n      \"bytes\": \"7c7c1b79\",\n      \"instruction\": \"or. r28,r3,r3\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018404\",\n      \"bytes\": \"418201a8\",\n      \"instruction\": \"beq 0x100185ac\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018408\",\n      \"bytes\": \"38600000\",\n      \"instruction\": \"li r3,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1001840c\",\n      \"bytes\": \"38800000\",\n      \"instruction\": \"li r4,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018410\",\n      \"bytes\": \"4803df71\",\n      \"instruction\": \"bl 0x10056380\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018414\",\n      \"bytes\": \"60000000\",\n      \"instruction\": \"ori r0,r0,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018418\",\n      \"bytes\": \"90610040\",\n      \"instruction\": \"stw r3,0x40(r1)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1001841c\",\n      \"bytes\": \"7fa3eb78\",\n      \"instruction\": \"or r3,r29,r29\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018420\",\n      \"bytes\": \"809c0004\",\n      \"instruction\": \"lwz r4,0x4(r28)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018424\",\n      \"bytes\": \"80bc0008\",\n      \"instruction\": \"lwz r5,0x8(r28)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018428\",\n      \"bytes\": \"48054b09\",\n      \"instruction\": \"bl 0x1006cf30\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1001842c\",\n      \"bytes\": \"60000000\",\n      \"instruction\": \"ori r0,r0,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018430\",\n      \"bytes\": \"28030000\",\n      \"instruction\": \"cmplwi r3,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018434\",\n      \"bytes\": \"408200a0\",\n      \"instruction\": \"bne 0x100184d4\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018438\",\n      \"bytes\": \"80610040\",\n      \"instruction\": \"lwz r3,0x40(r1)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1001843c\",\n      \"bytes\": \"38800072\",\n      \"instruction\": \"li r4,0x72\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018440\",\n      \"bytes\": \"7f05c378\",\n      \"instruction\": \"or r5,r24,r24\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018444\",\n      \"bytes\": \"4803e64d\",\n      \"instruction\": \"bl 0x10056a90\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018448\",\n      \"bytes\": \"60000000\",\n      \"instruction\": \"ori r0,r0,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1001844c\",\n      \"bytes\": \"a0bd0014\",\n      \"instruction\": \"lhz r5,0x14(r29)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018450\",\n      \"bytes\": \"80610040\",\n      \"instruction\": \"lwz r3,0x40(r1)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018454\",\n      \"bytes\": \"38800067\",\n      \"instruction\": \"li r4,0x67\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018458\",\n      \"bytes\": \"4803e639\",\n      \"instruction\": \"bl 0x10056a90\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1001845c\",\n      \"bytes\": \"60000000\",\n      \"instruction\": \"ori r0,r0,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018460\",\n      \"bytes\": \"a8bd0016\",\n      \"instruction\": \"lha r5,0x16(r29)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018464\",\n      \"bytes\": \"80610040\",\n      \"instruction\": \"lwz r3,0x40(r1)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018468\",\n      \"bytes\": \"38800068\",\n      \"instruction\": \"li r4,0x68\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1001846c\",\n      \"bytes\": \"4803e625\",\n      \"instruction\": \"bl 0x10056a90\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018470\",\n      \"bytes\": \"60000000\",\n      \"instruction\": \"ori r0,r0,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018474\",\n      \"bytes\": \"7f63db78\",\n      \"instruction\": \"or r3,r27,r27\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018478\",\n      \"bytes\": \"7fa4eb78\",\n      \"instruction\": \"or r4,r29,r29\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1001847c\",\n      \"bytes\": \"4bfecb85\",\n      \"instruction\": \"bl 0x10005000\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018480\",\n      \"bytes\": \"60000000\",\n      \"instruction\": \"ori r0,r0,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018484\",\n      \"bytes\": \"5465043e\",\n      \"instruction\": \"rlwinm r5,r3,0x0,0x10,0x1f\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018488\",\n      \"bytes\": \"80610040\",\n      \"instruction\": \"lwz r3,0x40(r1)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1001848c\",\n      \"bytes\": \"38800070\",\n      \"instruction\": \"li r4,0x70\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018490\",\n      \"bytes\": \"4803e601\",\n      \"instruction\": \"bl 0x10056a90\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018494\",\n      \"bytes\": \"60000000\",\n      \"instruction\": \"ori r0,r0,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018498\",\n      \"bytes\": \"80610040\",\n      \"instruction\": \"lwz r3,0x40(r1)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1001849c\",\n      \"bytes\": \"38800066\",\n      \"instruction\": \"li r4,0x66\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100184a0\",\n      \"bytes\": \"38bd0038\",\n      \"instruction\": \"addi r5,r29,0x38\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100184a4\",\n      \"bytes\": \"4803e63d\",\n      \"instruction\": \"bl 0x10056ae0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100184a8\",\n      \"bytes\": \"60000000\",\n      \"instruction\": \"ori r0,r0,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100184ac\",\n      \"bytes\": \"80c10040\",\n      \"instruction\": \"lwz r6,0x40(r1)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100184b0\",\n      \"bytes\": \"7f63db78\",\n      \"instruction\": \"or r3,r27,r27\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100184b4\",\n      \"bytes\": \"7f84e378\",\n      \"instruction\": \"or r4,r28,r28\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100184b8\",\n      \"bytes\": \"38a00075\",\n      \"instruction\": \"li r5,0x75\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100184bc\",\n      \"bytes\": \"4bfec3f5\",\n      \"instruction\": \"bl 0x100048b0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100184c0\",\n      \"bytes\": \"60000000\",\n      \"instruction\": \"ori r0,r0,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100184c4\",\n      \"bytes\": \"387c0004\",\n      \"instruction\": \"addi r3,r28,0x4\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100184c8\",\n      \"bytes\": \"7fa4eb78\",\n      \"instruction\": \"or r4,r29,r29\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100184cc\",\n      \"bytes\": \"4803d015\",\n      \"instruction\": \"bl 0x100554e0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100184d0\",\n      \"bytes\": \"60000000\",\n      \"instruction\": \"ori r0,r0,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100184d4\",\n      \"bytes\": \"3ba10048\",\n      \"instruction\": \"addi r29,r1,0x48\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100184d8\",\n      \"bytes\": \"83dc0004\",\n      \"instruction\": \"lwz r30,0x4(r28)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100184dc\",\n      \"bytes\": \"83fc0008\",\n      \"instruction\": \"lwz r31,0x8(r28)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100184e0\",\n      \"bytes\": \"80610040\",\n      \"instruction\": \"lwz r3,0x40(r1)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100184e4\",\n      \"bytes\": \"4803e33d\",\n      \"instruction\": \"bl 0x10056820\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100184e8\",\n      \"bytes\": \"60000000\",\n      \"instruction\": \"ori r0,r0,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100184ec\",\n      \"bytes\": \"801c0014\",\n      \"instruction\": \"lwz r0,0x14(r28)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100184f0\",\n      \"bytes\": \"28000000\",\n      \"instruction\": \"cmplwi r0,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100184f4\",\n      \"bytes\": \"41820018\",\n      \"instruction\": \"beq 0x1001850c\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100184f8\",\n      \"bytes\": \"80bc0014\",\n      \"instruction\": \"lwz r5,0x14(r28)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100184fc\",\n      \"bytes\": \"80610040\",\n      \"instruction\": \"lwz r3,0x40(r1)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018500\",\n      \"bytes\": \"38800073\",\n      \"instruction\": \"li r4,0x73\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018504\",\n      \"bytes\": \"4803e5dd\",\n      \"instruction\": \"bl 0x10056ae0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018508\",\n      \"bytes\": \"60000000\",\n      \"instruction\": \"ori r0,r0,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1001850c\",\n      \"bytes\": \"3b200000\",\n      \"instruction\": \"li r25,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018510\",\n      \"bytes\": \"48000074\",\n      \"instruction\": \"b 0x10018584\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018514\",\n      \"bytes\": \"5720103a\",\n      \"instruction\": \"rlwinm r0,r25,0x2,0x0,0x1d\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018518\",\n      \"bytes\": \"7f9e002e\",\n      \"instruction\": \"lwzx r28,r30,r0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1001851c\",\n      \"bytes\": \"a01c0014\",\n      \"instruction\": \"lhz r0,0x14(r28)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018520\",\n      \"bytes\": \"b01d0000\",\n      \"instruction\": \"sth r0,0x0(r29)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018524\",\n      \"bytes\": \"a81c0016\",\n      \"instruction\": \"lha r0,0x16(r28)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018528\",\n      \"bytes\": \"5400043e\",\n      \"instruction\": \"rlwinm r0,r0,0x0,0x10,0x1f\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1001852c\",\n      \"bytes\": \"b01d0002\",\n      \"instruction\": \"sth r0,0x2(r29)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018530\",\n      \"bytes\": \"7f63db78\",\n      \"instruction\": \"or r3,r27,r27\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018534\",\n      \"bytes\": \"7f84e378\",\n      \"instruction\": \"or r4,r28,r28\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018538\",\n      \"bytes\": \"4bfecac9\",\n      \"instruction\": \"bl 0x10005000\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1001853c\",\n      \"bytes\": \"60000000\",\n      \"instruction\": \"ori r0,r0,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018540\",\n      \"bytes\": \"b07d0004\",\n      \"instruction\": \"sth r3,0x4(r29)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018544\",\n      \"bytes\": \"8b1c0038\",\n      \"instruction\": \"lbz r24,0x38(r28)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018548\",\n      \"bytes\": \"387d0008\",\n      \"instruction\": \"addi r3,r29,0x8\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1001854c\",\n      \"bytes\": \"389c0039\",\n      \"instruction\": \"addi r4,r28,0x39\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018550\",\n      \"bytes\": \"7f05c378\",\n      \"instruction\": \"or r5,r24,r24\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018554\",\n      \"bytes\": \"4803b46d\",\n      \"instruction\": \"bl 0x100539c0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018558\",\n      \"bytes\": \"60000000\",\n      \"instruction\": \"ori r0,r0,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1001855c\",\n      \"bytes\": \"b31d0006\",\n      \"instruction\": \"sth r24,0x6(r29)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018560\",\n      \"bytes\": \"5700043f\",\n      \"instruction\": \"rlwinm. r0,r24,0x0,0x10,0x1f\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018564\",\n      \"bytes\": \"4182001c\",\n      \"instruction\": \"beq 0x10018580\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018568\",\n      \"bytes\": \"80610040\",\n      \"instruction\": \"lwz r3,0x40(r1)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1001856c\",\n      \"bytes\": \"3880012c\",\n      \"instruction\": \"li r4,0x12c\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018570\",\n      \"bytes\": \"7fa5eb78\",\n      \"instruction\": \"or r5,r29,r29\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018574\",\n      \"bytes\": \"38d80008\",\n      \"instruction\": \"addi r6,r24,0x8\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018578\",\n      \"bytes\": \"4803e339\",\n      \"instruction\": \"bl 0x100568b0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1001857c\",\n      \"bytes\": \"60000000\",\n      \"instruction\": \"ori r0,r0,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018580\",\n      \"bytes\": \"3b390001\",\n      \"instruction\": \"addi r25,r25,0x1\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018584\",\n      \"bytes\": \"7c19f840\",\n      \"instruction\": \"cmplw r25,r31\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018588\",\n      \"bytes\": \"4082ff8c\",\n      \"instruction\": \"bne 0x10018514\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1001858c\",\n      \"bytes\": \"80810040\",\n      \"instruction\": \"lwz r4,0x40(r1)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018590\",\n      \"bytes\": \"7f43d378\",\n      \"instruction\": \"or r3,r26,r26\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018594\",\n      \"bytes\": \"480404dd\",\n      \"instruction\": \"bl 0x10058a70\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018598\",\n      \"bytes\": \"60000000\",\n      \"instruction\": \"ori r0,r0,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1001859c\",\n      \"bytes\": \"80610040\",\n      \"instruction\": \"lwz r3,0x40(r1)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100185a0\",\n      \"bytes\": \"4803de31\",\n      \"instruction\": \"bl 0x100563d0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100185a4\",\n      \"bytes\": \"60000000\",\n      \"instruction\": \"ori r0,r0,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100185a8\",\n      \"bytes\": \"48000058\",\n      \"instruction\": \"b 0x10018600\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100185ac\",\n      \"bytes\": \"38600000\",\n      \"instruction\": \"li r3,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100185b0\",\n      \"bytes\": \"38800000\",\n      \"instruction\": \"li r4,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100185b4\",\n      \"bytes\": \"4803ddcd\",\n      \"instruction\": \"bl 0x10056380\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100185b8\",\n      \"bytes\": \"60000000\",\n      \"instruction\": \"ori r0,r0,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100185bc\",\n      \"bytes\": \"90610044\",\n      \"instruction\": \"stw r3,0x44(r1)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100185c0\",\n      \"bytes\": \"38800064\",\n      \"instruction\": \"li r4,0x64\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100185c4\",\n      \"bytes\": \"38a2fe00\",\n      \"instruction\": \"subi r5,r2,0x200\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100185c8\",\n      \"bytes\": \"38a51cf4\",\n      \"instruction\": \"addi r5,r5,0x1cf4\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100185cc\",\n      \"bytes\": \"4803e515\",\n      \"instruction\": \"bl 0x10056ae0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100185d0\",\n      \"bytes\": \"60000000\",\n      \"instruction\": \"ori r0,r0,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100185d4\",\n      \"bytes\": \"7f43d378\",\n      \"instruction\": \"or r3,r26,r26\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100185d8\",\n      \"bytes\": \"38800001\",\n      \"instruction\": \"li r4,0x1\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100185dc\",\n      \"bytes\": \"48040435\",\n      \"instruction\": \"bl 0x10058a10\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100185e0\",\n      \"bytes\": \"60000000\",\n      \"instruction\": \"ori r0,r0,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100185e4\",\n      \"bytes\": \"80810044\",\n      \"instruction\": \"lwz r4,0x44(r1)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100185e8\",\n      \"bytes\": \"7f43d378\",\n      \"instruction\": \"or r3,r26,r26\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100185ec\",\n      \"bytes\": \"48040485\",\n      \"instruction\": \"bl 0x10058a70\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100185f0\",\n      \"bytes\": \"60000000\",\n      \"instruction\": \"ori r0,r0,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100185f4\",\n      \"bytes\": \"80610044\",\n      \"instruction\": \"lwz r3,0x44(r1)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100185f8\",\n      \"bytes\": \"4803ddd9\",\n      \"instruction\": \"bl 0x100563d0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"100185fc\",\n      \"bytes\": \"60000000\",\n      \"instruction\": \"ori r0,r0,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018600\",\n      \"bytes\": \"80010278\",\n      \"instruction\": \"lwz r0,0x278(r1)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018604\",\n      \"bytes\": \"38210270\",\n      \"instruction\": \"addi r1,r1,0x270\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018608\",\n      \"bytes\": \"7c0803a6\",\n      \"instruction\": \"mtspr LR,r0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1001860c\",\n      \"bytes\": \"bb01ffe0\",\n      \"instruction\": \"lmw r24,-0x20(r1)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10018610\",\n      \"bytes\": \"4e800020\",\n      \"instruction\": \"blr\",\n      \"comment\": null\n    }\n  ],\n  \"offset\": 0,\n  \"limit\": 2000,\n  \"total\": 149,\n  \"has_more\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "items": [
+        {
+          "address": "100183c0",
+          "bytes": "7c0802a6",
+          "instruction": "mfspr r0,LR",
+          "comment": null
+        },
+        {
+          "address": "100183c4",
+          "bytes": "bf01ffe0",
+          "instruction": "stmw r24,-0x20(r1)",
+          "comment": null
+        },
+        {
+          "address": "100183c8",
+          "bytes": "90010008",
+          "instruction": "stw r0,0x8(r1)",
+          "comment": null
+        },
+        {
+          "address": "100183cc",
+          "bytes": "9421fd90",
+          "instruction": "stwu r1,-0x270(r1)",
+          "comment": null
+        },
+        {
+          "address": "100183d0",
+          "bytes": "7c7b1b78",
+          "instruction": "or r27,r3,r3",
+          "comment": null
+        },
+        {
+          "address": "100183d4",
+          "bytes": "7c9d2378",
+          "instruction": "or r29,r4,r4",
+          "comment": null
+        },
+        {
+          "address": "100183d8",
+          "bytes": "7cba2b78",
+          "instruction": "or r26,r5,r5",
+          "comment": null
+        },
+        {
+          "address": "100183dc",
+          "bytes": "7cc33378",
+          "instruction": "or r3,r6,r6",
+          "comment": null
+        },
+        {
+          "address": "100183e0",
+          "bytes": "38800072",
+          "instruction": "li r4,0x72",
+          "comment": null
+        },
+        {
+          "address": "100183e4",
+          "bytes": "4803e7ad",
+          "instruction": "bl 0x10056b90",
+          "comment": null
+        },
+        {
+          "address": "100183e8",
+          "bytes": "60000000",
+          "instruction": "ori r0,r0,0x0",
+          "comment": null
+        },
+        {
+          "address": "100183ec",
+          "bytes": "7c781b78",
+          "instruction": "or r24,r3,r3",
+          "comment": null
+        },
+        {
+          "address": "100183f0",
+          "bytes": "7f63db78",
+          "instruction": "or r3,r27,r27",
+          "comment": null
+        },
+        {
+          "address": "100183f4",
+          "bytes": "7f04c378",
+          "instruction": "or r4,r24,r24",
+          "comment": null
+        },
+        {
+          "address": "100183f8",
+          "bytes": "4bfec369",
+          "instruction": "bl 0x10004760",
+          "comment": null
+        },
+        {
+          "address": "100183fc",
+          "bytes": "60000000",
+          "instruction": "ori r0,r0,0x0",
+          "comment": null
+        },
+        {
+          "address": "10018400",
+          "bytes": "7c7c1b79",
+          "instruction": "or. r28,r3,r3",
+          "comment": null
+        },
+        {
+          "address": "10018404",
+          "bytes": "418201a8",
+          "instruction": "beq 0x100185ac",
+          "comment": null
+        },
+        {
+          "address": "10018408",
+          "bytes": "38600000",
+          "instruction": "li r3,0x0",
+          "comment": null
+        },
+        {
+          "address": "1001840c",
+          "bytes": "38800000",
+          "instruction": "li r4,0x0",
+          "comment": null
+        },
+        {
+          "address": "10018410",
+          "bytes": "4803df71",
+          "instruction": "bl 0x10056380",
+          "comment": null
+        },
+        {
+          "address": "10018414",
+          "bytes": "60000000",
+          "instruction": "ori r0,r0,0x0",
+          "comment": null
+        },
+        {
+          "address": "10018418",
+          "bytes": "90610040",
+          "instruction": "stw r3,0x40(r1)",
+          "comment": null
+        },
+        {
+          "address": "1001841c",
+          "bytes": "7fa3eb78",
+          "instruction": "or r3,r29,r29",
+          "comment": null
+        },
+        {
+          "address": "10018420",
+          "bytes": "809c0004",
+          "instruction": "lwz r4,0x4(r28)",
+          "comment": null
+        },
+        {
+          "address": "10018424",
+          "bytes": "80bc0008",
+          "instruction": "lwz r5,0x8(r28)",
+          "comment": null
+        },
+        {
+          "address": "10018428",
+          "bytes": "48054b09",
+          "instruction": "bl 0x1006cf30",
+          "comment": null
+        },
+        {
+          "address": "1001842c",
+          "bytes": "60000000",
+          "instruction": "ori r0,r0,0x0",
+          "comment": null
+        },
+        {
+          "address": "10018430",
+          "bytes": "28030000",
+          "instruction": "cmplwi r3,0x0",
+          "comment": null
+        },
+        {
+          "address": "10018434",
+          "bytes": "408200a0",
+          "instruction": "bne 0x100184d4",
+          "comment": null
+        },
+        {
+          "address": "10018438",
+          "bytes": "80610040",
+          "instruction": "lwz r3,0x40(r1)",
+          "comment": null
+        },
+        {
+          "address": "1001843c",
+          "bytes": "38800072",
+          "instruction": "li r4,0x72",
+          "comment": null
+        },
+        {
+          "address": "10018440",
+          "bytes": "7f05c378",
+          "instruction": "or r5,r24,r24",
+          "comment": null
+        },
+        {
+          "address": "10018444",
+          "bytes": "4803e64d",
+          "instruction": "bl 0x10056a90",
+          "comment": null
+        },
+        {
+          "address": "10018448",
+          "bytes": "60000000",
+          "instruction": "ori r0,r0,0x0",
+          "comment": null
+        },
+        {
+          "address": "1001844c",
+          "bytes": "a0bd0014",
+          "instruction": "lhz r5,0x14(r29)",
+          "comment": null
+        },
+        {
+          "address": "10018450",
+          "bytes": "80610040",
+          "instruction": "lwz r3,0x40(r1)",
+          "comment": null
+        },
+        {
+          "address": "10018454",
+          "bytes": "38800067",
+          "instruction": "li r4,0x67",
+          "comment": null
+        },
+        {
+          "address": "10018458",
+          "bytes": "4803e639",
+          "instruction": "bl 0x10056a90",
+          "comment": null
+        },
+        {
+          "address": "1001845c",
+          "bytes": "60000000",
+          "instruction": "ori r0,r0,0x0",
+          "comment": null
+        },
+        {
+          "address": "10018460",
+          "bytes": "a8bd0016",
+          "instruction": "lha r5,0x16(r29)",
+          "comment": null
+        },
+        {
+          "address": "10018464",
+          "bytes": "80610040",
+          "instruction": "lwz r3,0x40(r1)",
+          "comment": null
+        },
+        {
+          "address": "10018468",
+          "bytes": "38800068",
+          "instruction": "li r4,0x68",
+          "comment": null
+        },
+        {
+          "address": "1001846c",
+          "bytes": "4803e625",
+          "instruction": "bl 0x10056a90",
+          "comment": null
+        },
+        {
+          "address": "10018470",
+          "bytes": "60000000",
+          "instruction": "ori r0,r0,0x0",
+          "comment": null
+        },
+        {
+          "address": "10018474",
+          "bytes": "7f63db78",
+          "instruction": "or r3,r27,r27",
+          "comment": null
+        },
+        {
+          "address": "10018478",
+          "bytes": "7fa4eb78",
+          "instruction": "or r4,r29,r29",
+          "comment": null
+        },
+        {
+          "address": "1001847c",
+          "bytes": "4bfecb85",
+          "instruction": "bl 0x10005000",
+          "comment": null
+        },
+        {
+          "address": "10018480",
+          "bytes": "60000000",
+          "instruction": "ori r0,r0,0x0",
+          "comment": null
+        },
+        {
+          "address": "10018484",
+          "bytes": "5465043e",
+          "instruction": "rlwinm r5,r3,0x0,0x10,0x1f",
+          "comment": null
+        },
+        {
+          "address": "10018488",
+          "bytes": "80610040",
+          "instruction": "lwz r3,0x40(r1)",
+          "comment": null
+        },
+        {
+          "address": "1001848c",
+          "bytes": "38800070",
+          "instruction": "li r4,0x70",
+          "comment": null
+        },
+        {
+          "address": "10018490",
+          "bytes": "4803e601",
+          "instruction": "bl 0x10056a90",
+          "comment": null
+        },
+        {
+          "address": "10018494",
+          "bytes": "60000000",
+          "instruction": "ori r0,r0,0x0",
+          "comment": null
+        },
+        {
+          "address": "10018498",
+          "bytes": "80610040",
+          "instruction": "lwz r3,0x40(r1)",
+          "comment": null
+        },
+        {
+          "address": "1001849c",
+          "bytes": "38800066",
+          "instruction": "li r4,0x66",
+          "comment": null
+        },
+        {
+          "address": "100184a0",
+          "bytes": "38bd0038",
+          "instruction": "addi r5,r29,0x38",
+          "comment": null
+        },
+        {
+          "address": "100184a4",
+          "bytes": "4803e63d",
+          "instruction": "bl 0x10056ae0",
+          "comment": null
+        },
+        {
+          "address": "100184a8",
+          "bytes": "60000000",
+          "instruction": "ori r0,r0,0x0",
+          "comment": null
+        },
+        {
+          "address": "100184ac",
+          "bytes": "80c10040",
+          "instruction": "lwz r6,0x40(r1)",
+          "comment": null
+        },
+        {
+          "address": "100184b0",
+          "bytes": "7f63db78",
+          "instruction": "or r3,r27,r27",
+          "comment": null
+        },
+        {
+          "address": "100184b4",
+          "bytes": "7f84e378",
+          "instruction": "or r4,r28,r28",
+          "comment": null
+        },
+        {
+          "address": "100184b8",
+          "bytes": "38a00075",
+          "instruction": "li r5,0x75",
+          "comment": null
+        },
+        {
+          "address": "100184bc",
+          "bytes": "4bfec3f5",
+          "instruction": "bl 0x100048b0",
+          "comment": null
+        },
+        {
+          "address": "100184c0",
+          "bytes": "60000000",
+          "instruction": "ori r0,r0,0x0",
+          "comment": null
+        },
+        {
+          "address": "100184c4",
+          "bytes": "387c0004",
+          "instruction": "addi r3,r28,0x4",
+          "comment": null
+        },
+        {
+          "address": "100184c8",
+          "bytes": "7fa4eb78",
+          "instruction": "or r4,r29,r29",
+          "comment": null
+        },
+        {
+          "address": "100184cc",
+          "bytes": "4803d015",
+          "instruction": "bl 0x100554e0",
+          "comment": null
+        },
+        {
+          "address": "100184d0",
+          "bytes": "60000000",
+          "instruction": "ori r0,r0,0x0",
+          "comment": null
+        },
+        {
+          "address": "100184d4",
+          "bytes": "3ba10048",
+          "instruction": "addi r29,r1,0x48",
+          "comment": null
+        },
+        {
+          "address": "100184d8",
+          "bytes": "83dc0004",
+          "instruction": "lwz r30,0x4(r28)",
+          "comment": null
+        },
+        {
+          "address": "100184dc",
+          "bytes": "83fc0008",
+          "instruction": "lwz r31,0x8(r28)",
+          "comment": null
+        },
+        {
+          "address": "100184e0",
+          "bytes": "80610040",
+          "instruction": "lwz r3,0x40(r1)",
+          "comment": null
+        },
+        {
+          "address": "100184e4",
+          "bytes": "4803e33d",
+          "instruction": "bl 0x10056820",
+          "comment": null
+        },
+        {
+          "address": "100184e8",
+          "bytes": "60000000",
+          "instruction": "ori r0,r0,0x0",
+          "comment": null
+        },
+        {
+          "address": "100184ec",
+          "bytes": "801c0014",
+          "instruction": "lwz r0,0x14(r28)",
+          "comment": null
+        },
+        {
+          "address": "100184f0",
+          "bytes": "28000000",
+          "instruction": "cmplwi r0,0x0",
+          "comment": null
+        },
+        {
+          "address": "100184f4",
+          "bytes": "41820018",
+          "instruction": "beq 0x1001850c",
+          "comment": null
+        },
+        {
+          "address": "100184f8",
+          "bytes": "80bc0014",
+          "instruction": "lwz r5,0x14(r28)",
+          "comment": null
+        },
+        {
+          "address": "100184fc",
+          "bytes": "80610040",
+          "instruction": "lwz r3,0x40(r1)",
+          "comment": null
+        },
+        {
+          "address": "10018500",
+          "bytes": "38800073",
+          "instruction": "li r4,0x73",
+          "comment": null
+        },
+        {
+          "address": "10018504",
+          "bytes": "4803e5dd",
+          "instruction": "bl 0x10056ae0",
+          "comment": null
+        },
+        {
+          "address": "10018508",
+          "bytes": "60000000",
+          "instruction": "ori r0,r0,0x0",
+          "comment": null
+        },
+        {
+          "address": "1001850c",
+          "bytes": "3b200000",
+          "instruction": "li r25,0x0",
+          "comment": null
+        },
+        {
+          "address": "10018510",
+          "bytes": "48000074",
+          "instruction": "b 0x10018584",
+          "comment": null
+        },
+        {
+          "address": "10018514",
+          "bytes": "5720103a",
+          "instruction": "rlwinm r0,r25,0x2,0x0,0x1d",
+          "comment": null
+        },
+        {
+          "address": "10018518",
+          "bytes": "7f9e002e",
+          "instruction": "lwzx r28,r30,r0",
+          "comment": null
+        },
+        {
+          "address": "1001851c",
+          "bytes": "a01c0014",
+          "instruction": "lhz r0,0x14(r28)",
+          "comment": null
+        },
+        {
+          "address": "10018520",
+          "bytes": "b01d0000",
+          "instruction": "sth r0,0x0(r29)",
+          "comment": null
+        },
+        {
+          "address": "10018524",
+          "bytes": "a81c0016",
+          "instruction": "lha r0,0x16(r28)",
+          "comment": null
+        },
+        {
+          "address": "10018528",
+          "bytes": "5400043e",
+          "instruction": "rlwinm r0,r0,0x0,0x10,0x1f",
+          "comment": null
+        },
+        {
+          "address": "1001852c",
+          "bytes": "b01d0002",
+          "instruction": "sth r0,0x2(r29)",
+          "comment": null
+        },
+        {
+          "address": "10018530",
+          "bytes": "7f63db78",
+          "instruction": "or r3,r27,r27",
+          "comment": null
+        },
+        {
+          "address": "10018534",
+          "bytes": "7f84e378",
+          "instruction": "or r4,r28,r28",
+          "comment": null
+        },
+        {
+          "address": "10018538",
+          "bytes": "4bfecac9",
+          "instruction": "bl 0x10005000",
+          "comment": null
+        },
+        {
+          "address": "1001853c",
+          "bytes": "60000000",
+          "instruction": "ori r0,r0,0x0",
+          "comment": null
+        },
+        {
+          "address": "10018540",
+          "bytes": "b07d0004",
+          "instruction": "sth r3,0x4(r29)",
+          "comment": null
+        },
+        {
+          "address": "10018544",
+          "bytes": "8b1c0038",
+          "instruction": "lbz r24,0x38(r28)",
+          "comment": null
+        },
+        {
+          "address": "10018548",
+          "bytes": "387d0008",
+          "instruction": "addi r3,r29,0x8",
+          "comment": null
+        },
+        {
+          "address": "1001854c",
+          "bytes": "389c0039",
+          "instruction": "addi r4,r28,0x39",
+          "comment": null
+        },
+        {
+          "address": "10018550",
+          "bytes": "7f05c378",
+          "instruction": "or r5,r24,r24",
+          "comment": null
+        },
+        {
+          "address": "10018554",
+          "bytes": "4803b46d",
+          "instruction": "bl 0x100539c0",
+          "comment": null
+        },
+        {
+          "address": "10018558",
+          "bytes": "60000000",
+          "instruction": "ori r0,r0,0x0",
+          "comment": null
+        },
+        {
+          "address": "1001855c",
+          "bytes": "b31d0006",
+          "instruction": "sth r24,0x6(r29)",
+          "comment": null
+        },
+        {
+          "address": "10018560",
+          "bytes": "5700043f",
+          "instruction": "rlwinm. r0,r24,0x0,0x10,0x1f",
+          "comment": null
+        },
+        {
+          "address": "10018564",
+          "bytes": "4182001c",
+          "instruction": "beq 0x10018580",
+          "comment": null
+        },
+        {
+          "address": "10018568",
+          "bytes": "80610040",
+          "instruction": "lwz r3,0x40(r1)",
+          "comment": null
+        },
+        {
+          "address": "1001856c",
+          "bytes": "3880012c",
+          "instruction": "li r4,0x12c",
+          "comment": null
+        },
+        {
+          "address": "10018570",
+          "bytes": "7fa5eb78",
+          "instruction": "or r5,r29,r29",
+          "comment": null
+        },
+        {
+          "address": "10018574",
+          "bytes": "38d80008",
+          "instruction": "addi r6,r24,0x8",
+          "comment": null
+        },
+        {
+          "address": "10018578",
+          "bytes": "4803e339",
+          "instruction": "bl 0x100568b0",
+          "comment": null
+        },
+        {
+          "address": "1001857c",
+          "bytes": "60000000",
+          "instruction": "ori r0,r0,0x0",
+          "comment": null
+        },
+        {
+          "address": "10018580",
+          "bytes": "3b390001",
+          "instruction": "addi r25,r25,0x1",
+          "comment": null
+        },
+        {
+          "address": "10018584",
+          "bytes": "7c19f840",
+          "instruction": "cmplw r25,r31",
+          "comment": null
+        },
+        {
+          "address": "10018588",
+          "bytes": "4082ff8c",
+          "instruction": "bne 0x10018514",
+          "comment": null
+        },
+        {
+          "address": "1001858c",
+          "bytes": "80810040",
+          "instruction": "lwz r4,0x40(r1)",
+          "comment": null
+        },
+        {
+          "address": "10018590",
+          "bytes": "7f43d378",
+          "instruction": "or r3,r26,r26",
+          "comment": null
+        },
+        {
+          "address": "10018594",
+          "bytes": "480404dd",
+          "instruction": "bl 0x10058a70",
+          "comment": null
+        },
+        {
+          "address": "10018598",
+          "bytes": "60000000",
+          "instruction": "ori r0,r0,0x0",
+          "comment": null
+        },
+        {
+          "address": "1001859c",
+          "bytes": "80610040",
+          "instruction": "lwz r3,0x40(r1)",
+          "comment": null
+        },
+        {
+          "address": "100185a0",
+          "bytes": "4803de31",
+          "instruction": "bl 0x100563d0",
+          "comment": null
+        },
+        {
+          "address": "100185a4",
+          "bytes": "60000000",
+          "instruction": "ori r0,r0,0x0",
+          "comment": null
+        },
+        {
+          "address": "100185a8",
+          "bytes": "48000058",
+          "instruction": "b 0x10018600",
+          "comment": null
+        },
+        {
+          "address": "100185ac",
+          "bytes": "38600000",
+          "instruction": "li r3,0x0",
+          "comment": null
+        },
+        {
+          "address": "100185b0",
+          "bytes": "38800000",
+          "instruction": "li r4,0x0",
+          "comment": null
+        },
+        {
+          "address": "100185b4",
+          "bytes": "4803ddcd",
+          "instruction": "bl 0x10056380",
+          "comment": null
+        },
+        {
+          "address": "100185b8",
+          "bytes": "60000000",
+          "instruction": "ori r0,r0,0x0",
+          "comment": null
+        },
+        {
+          "address": "100185bc",
+          "bytes": "90610044",
+          "instruction": "stw r3,0x44(r1)",
+          "comment": null
+        },
+        {
+          "address": "100185c0",
+          "bytes": "38800064",
+          "instruction": "li r4,0x64",
+          "comment": null
+        },
+        {
+          "address": "100185c4",
+          "bytes": "38a2fe00",
+          "instruction": "subi r5,r2,0x200",
+          "comment": null
+        },
+        {
+          "address": "100185c8",
+          "bytes": "38a51cf4",
+          "instruction": "addi r5,r5,0x1cf4",
+          "comment": null
+        },
+        {
+          "address": "100185cc",
+          "bytes": "4803e515",
+          "instruction": "bl 0x10056ae0",
+          "comment": null
+        },
+        {
+          "address": "100185d0",
+          "bytes": "60000000",
+          "instruction": "ori r0,r0,0x0",
+          "comment": null
+        },
+        {
+          "address": "100185d4",
+          "bytes": "7f43d378",
+          "instruction": "or r3,r26,r26",
+          "comment": null
+        },
+        {
+          "address": "100185d8",
+          "bytes": "38800001",
+          "instruction": "li r4,0x1",
+          "comment": null
+        },
+        {
+          "address": "100185dc",
+          "bytes": "48040435",
+          "instruction": "bl 0x10058a10",
+          "comment": null
+        },
+        {
+          "address": "100185e0",
+          "bytes": "60000000",
+          "instruction": "ori r0,r0,0x0",
+          "comment": null
+        },
+        {
+          "address": "100185e4",
+          "bytes": "80810044",
+          "instruction": "lwz r4,0x44(r1)",
+          "comment": null
+        },
+        {
+          "address": "100185e8",
+          "bytes": "7f43d378",
+          "instruction": "or r3,r26,r26",
+          "comment": null
+        },
+        {
+          "address": "100185ec",
+          "bytes": "48040485",
+          "instruction": "bl 0x10058a70",
+          "comment": null
+        },
+        {
+          "address": "100185f0",
+          "bytes": "60000000",
+          "instruction": "ori r0,r0,0x0",
+          "comment": null
+        },
+        {
+          "address": "100185f4",
+          "bytes": "80610044",
+          "instruction": "lwz r3,0x44(r1)",
+          "comment": null
+        },
+        {
+          "address": "100185f8",
+          "bytes": "4803ddd9",
+          "instruction": "bl 0x100563d0",
+          "comment": null
+        },
+        {
+          "address": "100185fc",
+          "bytes": "60000000",
+          "instruction": "ori r0,r0,0x0",
+          "comment": null
+        },
+        {
+          "address": "10018600",
+          "bytes": "80010278",
+          "instruction": "lwz r0,0x278(r1)",
+          "comment": null
+        },
+        {
+          "address": "10018604",
+          "bytes": "38210270",
+          "instruction": "addi r1,r1,0x270",
+          "comment": null
+        },
+        {
+          "address": "10018608",
+          "bytes": "7c0803a6",
+          "instruction": "mtspr LR,r0",
+          "comment": null
+        },
+        {
+          "address": "1001860c",
+          "bytes": "bb01ffe0",
+          "instruction": "lmw r24,-0x20(r1)",
+          "comment": null
+        },
+        {
+          "address": "10018610",
+          "bytes": "4e800020",
+          "instruction": "blr",
+          "comment": null
+        }
+      ],
+      "offset": 0,
+      "limit": 2000,
+      "total": 149,
+      "has_more": false
+    },
+    "isError": false
+  }
+}

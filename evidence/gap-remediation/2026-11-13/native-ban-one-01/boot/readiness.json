@@ -1,0 +1,78 @@
+{
+  "utc": "2026-11-13T22:28:47.374228+00:00",
+  "lab_pid": 3953986,
+  "emulator_exe": "/data/leynos/Projects/mothra/state/mac-runtime/native-banlab-one-01/SheepShaver-9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "emulator_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "identity": {
+    "Uid": "1000\t1000\t1000\t1000",
+    "Gid": "1000\t1000\t1000\t1000",
+    "CapEff": "0000000000020000"
+  },
+  "fd6": "/data/leynos/Projects/mothra/state/mac-runtime/native-banlab-one-01/working.dsk",
+  "fd16": "/data/leynos/Projects/mothra/state/native-sessions/native-banlab-boot-c31/lab-guest.pcap",
+  "netns": {
+    "lab": "net:[4026532475]",
+    "original_server": "net:[4026531840]",
+    "isolated_client": "net:[4026532479]"
+  },
+  "pcaps": {
+    "primary-host.pcap": {
+      "size": 24,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000"
+    },
+    "lab-namespace.pcap": {
+      "size": 24,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000"
+    },
+    "lab-guest.pcap": {
+      "size": 1262,
+      "header24": "d4c3b2a1020004000000000000000000ffff000001000000"
+    }
+  },
+  "primary_syn_checks": {
+    "host_primary_syn": {
+      "exit": 0,
+      "packet_lines": [],
+      "stderr": "reading from file /data/leynos/Projects/mothra/state/native-sessions/native-banlab-boot-c31/primary-host.pcap, link-type EN10MB (Ethernet), snapshot length 262144\ndropped privs to tcpdump\n"
+    },
+    "namespace_primary_syn": {
+      "exit": 0,
+      "packet_lines": [],
+      "stderr": "reading from file /data/leynos/Projects/mothra/state/native-sessions/native-banlab-boot-c31/lab-namespace.pcap, link-type EN10MB (Ethernet), snapshot length 262144\ndropped privs to tcpdump\n"
+    }
+  },
+  "units": {
+    "mothra-native-banlab-c31-host-capture.service": {
+      "exit": 0,
+      "stdout": "ActiveState=active\nMainPID=3952233\nResult=success\nControlGroup=/system.slice/mothra-native-banlab-c31-host-capture.service\n",
+      "stderr": ""
+    },
+    "mothra-native-banlab-c31-ns-capture.service": {
+      "exit": 0,
+      "stdout": "ActiveState=active\nMainPID=3989452\nResult=success\nControlGroup=/system.slice/mothra-native-banlab-c31-ns-capture.service\n",
+      "stderr": ""
+    },
+    "mothra-sheep-af139612cba9.service": {
+      "exit": 0,
+      "stdout": "ActiveState=active\nMainPID=3953895\nResult=success\nControlGroup=/user.slice/user-1000.slice/user@1000.service/app.slice/mothra-sheep-af139612cba9.service\n",
+      "stderr": ""
+    },
+    "mothra-display-12ac2aac1017.service": {
+      "exit": 0,
+      "stdout": "ActiveState=active\nMainPID=3952630\nResult=success\nControlGroup=/user.slice/user-1000.slice/user@1000.service/app.slice/mothra-display-12ac2aac1017.service\n",
+      "stderr": ""
+    },
+    "mothra-bridge-38acda05bd0c.service": {
+      "exit": 0,
+      "stdout": "ActiveState=active\nMainPID=3953873\nResult=success\nControlGroup=/user.slice/user-1000.slice/user@1000.service/app.slice/mothra-bridge-38acda05bd0c.service\n",
+      "stderr": ""
+    },
+    "mothra-xbridge-38acda05bd0c.service": {
+      "exit": 0,
+      "stdout": "ActiveState=active\nMainPID=3953889\nResult=success\nControlGroup=/user.slice/user-1000.slice/user@1000.service/app.slice/mothra-xbridge-38acda05bd0c.service\n",
+      "stderr": ""
+    }
+  },
+  "guest_ui": "server-ready.png shows HLserver19 log Hotline Server started at 10.0.2.15; stats 0 connections",
+  "disk_repair": "one successful Disk First Aid dialog acknowledged on owned working disk"
+}

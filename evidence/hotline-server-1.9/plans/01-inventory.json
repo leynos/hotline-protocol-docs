@@ -1,0 +1,41 @@
+[
+  {
+    "id": "S001-program",
+    "tool": "get_program_info"
+  },
+  {
+    "id": "S002-imports",
+    "tool": "list_imports",
+    "arguments": {
+      "limit": 1000
+    }
+  },
+  {
+    "id": "S003-functions",
+    "tool": "list_functions",
+    "arguments": {
+      "limit": 2000
+    }
+  },
+  {
+    "id": "S004-strings",
+    "tool": "list_strings",
+    "arguments": {
+      "limit": 2000
+    }
+  },
+  {
+    "id": "S005-segments",
+    "tool": "list_segments",
+    "arguments": {
+      "limit": 100
+    }
+  },
+  {
+    "id": "S006-data",
+    "tool": "list_data_items",
+    "arguments": {
+      "limit": 2000
+    }
+  }
+]

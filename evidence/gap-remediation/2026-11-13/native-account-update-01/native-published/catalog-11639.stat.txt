@@ -1,0 +1,29 @@
+File Path: /Trash/m-au26-absent/UserData
+Catalog Record: 11639
+Allocated
+Type:	File
+Mode:	r---------
+Size:	734
+uid / gid: 99 / 99
+Link count:	1
+
+File Name: UserData
+Admin flags: 0
+Owner flags: 0
+File type:	48547564  HTud
+File creator:	48544c53  HTLS
+Text encoding:	0 = MacRoman
+Resource fork size:	0
+
+Times:
+Created:	2026-11-13 17:10:38 (GMT)
+Content Modified:	2026-11-13 17:11:14 (GMT)
+Attributes Modified:	0000-00-00 00:00:00 (UTC)
+Accessed:	0000-00-00 00:00:00 (UTC)
+Backed Up:	0000-00-00 00:00:00 (UTC)
+
+Data Fork Blocks:
+891325  
+
+Attributes: 
+Type: DATA (4352-0)   Name: N/A   Non-Resident   size: 734  init_size: 734

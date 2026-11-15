@@ -1,0 +1,48 @@
+INFO:ghidra_mcp.headless:Starting Ghidra from /data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC
+Picked up JAVA_TOOL_OPTIONS: -Duser.home=/data/leynos/Projects/mothra/state/client-account-pef-01/home -Djava.io.tmpdir=/data/leynos/Projects/mothra/state/client-account-pef-01/tmp
+Picked up JAVA_TOOL_OPTIONS: -Duser.home=/data/leynos/Projects/mothra/state/client-account-pef-01/home -Djava.io.tmpdir=/data/leynos/Projects/mothra/state/client-account-pef-01/tmp
+INFO:ghidra_mcp.headless:Using GhidraMCP classes from /data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar
+INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest
+INFO:ghidra_mcp.headless:Opening existing program /Hotline Client 1.9.2 Classic from the project
+INFO:ghidra_mcp.headless:Serving Hotline Client 1.9.2 Classic on http://127.0.0.1:45981/
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest
+INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest
+INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest
+INFO:ghidra_mcp.headless:Starting Ghidra from /data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC
+Picked up JAVA_TOOL_OPTIONS: -Duser.home=/data/leynos/Projects/mothra/state/client-account-pef-01/home -Djava.io.tmpdir=/data/leynos/Projects/mothra/state/client-account-pef-01/tmp
+Picked up JAVA_TOOL_OPTIONS: -Duser.home=/data/leynos/Projects/mothra/state/client-account-pef-01/home -Djava.io.tmpdir=/data/leynos/Projects/mothra/state/client-account-pef-01/tmp
+INFO:ghidra_mcp.headless:Using GhidraMCP classes from /data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar
+INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest
+INFO:ghidra_mcp.headless:Opening existing program /Hotline Client 1.9.2 Classic from the project
+INFO:ghidra_mcp.headless:Serving Hotline Client 1.9.2 Classic on http://127.0.0.1:39163/
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest
+INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest
+
+--- B38 run 3 ---
+INFO:ghidra_mcp.headless:Starting Ghidra from /data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC
+Picked up JAVA_TOOL_OPTIONS: -Duser.home=/data/leynos/Projects/mothra/state/client-account-pef-01/home -Djava.io.tmpdir=/data/leynos/Projects/mothra/state/client-account-pef-01/tmp
+Picked up JAVA_TOOL_OPTIONS: -Duser.home=/data/leynos/Projects/mothra/state/client-account-pef-01/home -Djava.io.tmpdir=/data/leynos/Projects/mothra/state/client-account-pef-01/tmp
+INFO:ghidra_mcp.headless:Using GhidraMCP classes from /data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar
+INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest
+INFO:ghidra_mcp.headless:Opening existing program /Hotline Client 1.9.2 Classic from the project
+INFO:ghidra_mcp.headless:Serving Hotline Client 1.9.2 Classic on http://127.0.0.1:38921/
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest
+INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest
+INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest
+
+--- B38 run 4 ---
+INFO:ghidra_mcp.headless:Starting Ghidra from /data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC
+Picked up JAVA_TOOL_OPTIONS: -Duser.home=/data/leynos/Projects/mothra/state/client-account-pef-01/home -Djava.io.tmpdir=/data/leynos/Projects/mothra/state/client-account-pef-01/tmp
+Picked up JAVA_TOOL_OPTIONS: -Duser.home=/data/leynos/Projects/mothra/state/client-account-pef-01/home -Djava.io.tmpdir=/data/leynos/Projects/mothra/state/client-account-pef-01/tmp
+INFO:ghidra_mcp.headless:Using GhidraMCP classes from /data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar
+INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest
+INFO:ghidra_mcp.headless:Opening existing program /Hotline Client 1.9.2 Classic from the project
+INFO:ghidra_mcp.headless:Serving Hotline Client 1.9.2 Classic on http://127.0.0.1:35351/
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest
+INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest
+
+--- B38 run 5 ---

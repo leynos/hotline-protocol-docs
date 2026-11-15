@@ -1,0 +1,51 @@
+{
+  "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "content_calls": 6,
+  "file_sha256": {
+    "as-run.txt": "45580e51ad4e4c2b8a489d5def4680f47fb80c9f89b47c2bc4d8eec5e74a0dcc",
+    "capture.py.txt": "5e9c8aa3f45b629035f36ddc5b4e8821de7e19e2d25fa239229f15148191f905",
+    "istat-base-11191.txt": "a920fecd49fdd10ea6b3d01d6786edd743e62a1b7d92d7d96d25952780efbdf2",
+    "outcome.md.txt": "21c22cba83647699b33134639fa0a2a4ea04793bf0e0a47cbc6982ed9d5cde5f",
+    "raw/LB01-10089144-pointers.json": "a5dd06653c98d45c87f0654a54cc250d8b243d2e63640f64d4a496afedd79589",
+    "raw/LB02-10082694-format.json": "2a8de9108c7070bc1a54cf477800539f95b6a798e5c24226818981ba7ccbe621",
+    "raw/LB03-100826bc-candidate.json": "2ffc8a9ed78d6e5eb25b1aa9b152b1662b7a358bac6332eb02176e50c807baa1",
+    "raw/LB04-1008ee20-path-pointer.json": "d24f183047c7fa3fc088f131ee0ad63dd004764832f70aef9c2eedffccd91e36",
+    "raw/LB05-1008f87e-path-candidate.json": "df594487365cd34ee0a67f82321d47efae0c3da2030fdd058e961d2a284ad531",
+    "raw/LB06-1008fcf9-month-candidate.json": "570e02296d918631bb2e4e98ddb3559b51cd46066a7666603aae4f50fe33f583",
+    "raw/identity-after.json": "3dd766eb7aefb87ff3427e86b62b45dce54e750d757cb1f0b1d26ee6fba77e73",
+    "raw/identity-before.json": "749a3a044ea49d34a8d63a8e7d0a8898b66d886e9d98c8a180b2248141c9bd69",
+    "report.json": "28ca5f670df0038cd87b5631b295cb0069c669e639726db9bab14ee7066c1ec8",
+    "server.stderr.log": "4f113b7ba58a46c2f9854a2d32cd105c5c2edf67d79035e06a3ea73538e311f3"
+  },
+  "function_count": 1840,
+  "identity_before_after_equal": true,
+  "immutable_base": {
+    "catalog_record": 11191,
+    "data_fork_bytes": 0,
+    "hfs_path": "/Hotline19/MessageBoard.txt",
+    "istat_command": "LD_LIBRARY_PATH=tools/sleuthkit/usr/lib64 tools/sleuthkit/usr/bin/istat -f hfs state/mac-runtime/native-liveness-01/base.dsk 11191",
+    "istat_exit": 0,
+    "istat_tool_sha256": "f87c0cee5e263c55440c19fb3e478b80e33dcbae223388b5f83913ceb5fc4499",
+    "path": "state/mac-runtime/native-liveness-01/base.dsk",
+    "resource_fork_bytes": 0,
+    "sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910"
+  },
+  "jar_sha256": "201d18ffde71a83a678eae607de265861f37e5a00b989d91958c1197664d2b43",
+  "mode": "--no-analyze --discard under canonical oracle.lock",
+  "program_language": "PowerPC:BE:32:default",
+  "project_name": "independent-endpoint-01",
+  "project_scope": "saved independent server project; no GUI/client project",
+  "schema": "legacy-board-static-01",
+  "scope": "A75 six read-only server memory replies plus immutable stopped-base HFS metadata; no native board post",
+  "source_root": "state/delegation/legacy-board-oracle-01",
+  "source_sha256": {
+    "evidence/gap-remediation/2026-11-12/batch-08/queries/B08-D-10004110.c": "45dc20a47de06ea5b5b33888de5a50caaa46d9c06e1ad5d16702078df3af558a",
+    "evidence/hotline-server-1.9/queries/D-1000f130.c": "34b80c3a22ac3b170a845d6b2988bb4cfe51c4fffde242e2a6a8f34edcc109f9",
+    "evidence/hotline-server-1.9/queries/D-1000f260.c": "87866c9ce34b7ebf3fee0c81cab2bdf3c7be4f810098883d8581ea9eccbc75bf"
+  },
+  "static_limits": [
+    "no wire 101/102 capture",
+    "no runtime formatting or timezone proof",
+    "no board write or durability proof"
+  ]
+}

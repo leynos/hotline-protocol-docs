@@ -1,0 +1,11 @@
+{
+  "recorded_at_utc": "2026-11-14T05:50:39.113169+00:00",
+  "status": "parent_runtime_and18_readiness_gates_pass",
+  "emulator_pid": 774195,
+  "start_ticks": "5983214",
+  "netns_inode": 4026533397,
+  "working_inode": 3290756512,
+  "plans_checked": 12,
+  "deadline_utc": "2026-11-14T05:56:51+00:00",
+  "first_mutating_epoch": "not_started"
+}

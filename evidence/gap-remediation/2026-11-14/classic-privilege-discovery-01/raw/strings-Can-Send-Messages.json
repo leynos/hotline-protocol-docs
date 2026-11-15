@@ -1,0 +1,30 @@
+{
+  "captured_at_utc": "2026-11-14T08:04:12.186373+00:00",
+  "query": {
+    "id": "strings-Can-Send-Messages",
+    "tool": "list_strings",
+    "arguments": {
+      "filter": "Can Send Messages",
+      "limit": 20
+    }
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"items\": [],\n  \"offset\": 0,\n  \"limit\": 20,\n  \"total\": 0,\n  \"has_more\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "items": [],
+      "offset": 0,
+      "limit": 20,
+      "total": 0,
+      "has_more": false
+    },
+    "isError": false
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "reports": [
+    "preflight",
+    "seed",
+    "walk-00",
+    "walk-01",
+    "walk-02",
+    "walk-03",
+    "walk-04",
+    "walk-05",
+    "walk-06",
+    "walk-07",
+    "widths",
+    "all-ones",
+    "cleanup"
+  ],
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "driver_sha256": "2fba0972f4d9a8e3845c4204dce150dd7c90da0e19a9e5720d5289e2c94faf01",
+  "generator_sha256": "c1815ea905e842368268924cec084677f54eae46bda67ef890e037f54f4a9228",
+  "original_guest_capture_source": "/data/leynos/Projects/mothra/state/native-sessions/runtime-24/guest-recovery.pcap",
+  "workspace_bases": {
+    "mothra": "e6821c402de03e3b187a45e02712f83fca5f23b9",
+    "hotline-protocol-docs": "0df6095e2d7c4205a779a59f20446833a940cd4b"
+  },
+  "method": "Thirteen complete native plans: owned absent preflight, zero bitmap seed, 64 sequential 353 walking-bit replacements with immediate 352 readback, six 110 width/default controls, all-ones 352/354 login, owned deletion and exact two-account enumeration restoration. Fourteen paired host/guest TCP lifetimes; separate unread tails. No restart, original account/preferences write, permission meaning inference or policy change.",
+  "scope": "Field110 serialization/readback on one owned account. Existing handler/corpus evidence separately supports operation enforcement; these captures do not exercise 64 operations."
+}

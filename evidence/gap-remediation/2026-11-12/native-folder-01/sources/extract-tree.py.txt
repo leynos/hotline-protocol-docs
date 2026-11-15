@@ -1,0 +1,23 @@
+from pathlib import Path
+import json,os,subprocess,sys
+stage=sys.argv[1];root=Path('state/native-sessions/runtime-09/native-files')/stage;root.mkdir()
+env=dict(os.environ,LD_LIBRARY_PATH=str(Path('tools/sleuthkit/usr/lib64').resolve()));b=Path('tools/sleuthkit/usr/bin');image='state/mac-runtime/hotline19/working.dsk';records=[];probes=[]
+roots=['mothra-folder-source','mothra-folder-empty','mothra-folder-dirlast','mothra-folder-partial']
+for cat in range(11220,11241):
+ result=subprocess.run([str(b/'istat'),'-f','hfs',image,str(cat)],env=env,capture_output=True)
+ probes.append({'catalog':cat,'exit_code':result.returncode,'stderr':result.stderr.decode()})
+ if result.returncode:continue
+ stat=result.stdout.decode();path=next((s.removeprefix('File Path: /Hotline19/Files/') for s in stat.splitlines() if s.startswith('File Path: /Hotline19/Files/')),None)
+ if path is None or path.split('/')[0] not in roots:continue
+ key=path.replace('/','__');(root/(key+'.stat.txt')).write_bytes(result.stdout)
+ directory='Type:\tFolder' in stat
+ record={'path':path,'key':key,'catalog':cat,'directory':directory,'attributes':{}}
+ if not directory:
+  for suffix,attr in [('data','4352-0'),('rsrc','4353-1')]:
+   item=subprocess.run([str(b/'icat'),'-f','hfs',image,str(cat)+'-'+attr],env=env,capture_output=True)
+   (root/(key+'.'+suffix)).write_bytes(item.stdout)
+   if item.stderr:(root/(key+'.'+suffix+'.stderr')).write_bytes(item.stderr)
+   record['attributes'][suffix]={'attribute':attr,'exit_code':item.returncode,'bytes':len(item.stdout),'stderr':item.stderr.decode()}
+ records.append(record)
+(root/'extraction.json').write_text(json.dumps({'tool':'SleuthKit4.15.0','method':'Read-only direct catalogue scan11220..11240; positive paths verified in istat output before fork reads. This is not an exhaustive directory listing or restart-durability proof. Path-based ifind/fls failed and is retained separately.','image':image,'stage':stage,'probes':probes,'records':records},indent=2)+'\n')
+print(stage,[(r['path'],r['catalog']) for r in records])

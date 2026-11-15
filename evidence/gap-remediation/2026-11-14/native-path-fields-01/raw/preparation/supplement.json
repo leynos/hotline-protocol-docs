@@ -1,0 +1,33 @@
+{
+  "recorded_at_utc": "2026-11-14T13:01:22.723822+00:00",
+  "results": [
+    {
+      "argv": [
+        "sudo",
+        "-n",
+        "fuser",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-path-fields-01/base.dsk",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-path-fields-01/working.dsk",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-path-fields-01/rom"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ss",
+        "-ltn",
+        "( sport = :15900 or sport = :15901 or sport = :15902 or sport = :15903 )"
+      ],
+      "exit": 0,
+      "stdout": "State Recv-Q Send-Q Local Address:Port Peer Address:Port\n",
+      "stderr": ""
+    }
+  ],
+  "future_display_absent": true,
+  "future_epoch_absent": true,
+  "x120_socket_absent": true,
+  "profile_port_proposed": 15900,
+  "action": "stopped preparation only"
+}

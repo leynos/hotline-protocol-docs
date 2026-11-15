@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-13T02:15:19.229144+00:00",
+  "query": {
+    "id": "LX-D-1001e170",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1001e170"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_1001e170\",\n    \"address\": \"1001e170\"\n  },\n  \"code\": \"\\nvoid FUN_1001e170(int param_1,undefined1 *param_2,undefined1 *param_3,undefined4 param_4,\\n                 undefined1 *param_5,undefined1 *param_6,undefined1 *param_7,undefined4 param_8)\\n\\n{\\n  uint uVar1;\\n  undefined1 uVar3;\\n  int iVar2;\\n  undefined4 *in_stack_00000038;\\n  undefined1 auStack_14f [31];\\n  undefined1 local_130;\\n  undefined1 auStack_12f [267];\\n  \\n  if (param_2 != (undefined1 *)0x0) {\\n    uVar3 = FUN_10042f80(*(undefined4 *)(*(int *)(param_1 + 0x20) + 0x2c),param_2 + 1,0x1f);\\n    *param_2 = uVar3;\\n  }\\n  if (param_3 != (undefined1 *)0x0) {\\n    uVar3 = FUN_10042f80(*(undefined4 *)(*(int *)(param_1 + 0x24) + 0x2c),param_3 + 1,0x7f);\\n    *param_3 = uVar3;\\n  }\\n  if (param_5 != (undefined1 *)0x0) {\\n    uVar3 = FUN_10042f80(*(undefined4 *)(*(int *)(param_1 + 0xac) + 0x2c),param_5 + 1,0x7f);\\n    *param_5 = uVar3;\\n  }\\n  if (param_6 != (undefined1 *)0x0) {\\n    uVar3 = FUN_10042f80(*(undefined4 *)(*(int *)(param_1 + 0xb0) + 0x2c),param_6 + 1,0xff);\\n    *param_6 = uVar3;\\n  }\\n  if (param_7 != (undefined1 *)0x0) {\\n    local_130 = FUN_10042f80(*(undefined4 *)(*(int *)(param_1 + 0xb4) + 0x2c),auStack_12f,0xff);\\n    uVar3 = FUN_1006d670(0x2a,auStack_12f,local_130,param_7 + 1,0xff);\\n    *param_7 = uVar3;\\n  }\\n  FUN_1001e7a0(param_1,param_4);\\n  *in_stack_00000038 = 0;\\n  uVar3 = FUN_10042f80(*(undefined4 *)(*(int *)(param_1 + 0x40) + 0x2c),auStack_14f,0x1f);\\n  iVar2 = FUN_10054000(auStack_14f,uVar3,0,0);\\n  if ((-1 < iVar2) && (iVar2 < 0x100)) {\\n    *(char *)in_stack_00000038 = (char)iVar2;\\n  }\\n  uVar3 = FUN_10042f80(*(undefined4 *)(*(int *)(param_1 + 0x44) + 0x2c),auStack_14f,0x1f);\\n  iVar2 = FUN_10054000(auStack_14f,uVar3,0,0);\\n  if ((-1 < iVar2) && (iVar2 < 0x100)) {\\n    *(char *)((int)in_stack_00000038 + 1) = (char)iVar2;\\n  }\\n  uVar3 = FUN_10042f80(*(undefined4 *)(*(int *)(param_1 + 0x48) + 0x2c),auStack_14f,0x1f);\\n  iVar2 = FUN_10054000(auStack_14f,uVar3,0,0);\\n  if ((-1 < iVar2) && (iVar2 < 0x100)) {\\n    *(char *)((int)in_stack_00000038 + 2) = (char)iVar2;\\n  }\\n  uVar3 = FUN_10042f80(*(undefined4 *)(*(int *)(param_1 + 0x4c) + 0x2c),auStack_14f,0x1f);\\n  iVar2 = FUN_10054000(auStack_14f,uVar3,0,0);\\n  if ((-1 < iVar2) && (iVar2 < 0x100)) {\\n    *(char *)((int)in_stack_00000038 + 3) = (char)iVar2;\\n  }\\n  uVar3 = FUN_10042f80(*(undefined4 *)(*(int *)(param_1 + 0x3c) + 0x2c),auStack_14f,0x1f);\\n  iVar2 = FUN_10054000(auStack_14f,uVar3,0,0);\\n  if ((0 < iVar2) && (iVar2 < 0xffff)) {\\n    *(short *)(in_stack_00000038 + 1) = (short)iVar2;\\n  }\\n  uVar3 = FUN_10042f80(*(undefined4 *)(*(int *)(param_1 + 0x30) + 0x2c),auStack_14f,0x1f);\\n  iVar2 = FUN_10054000(auStack_14f,uVar3,0,0);\\n  if ((0 < iVar2) && (iVar2 < 0xffff)) {\\n    *(short *)(in_stack_00000038 + 2) = (short)iVar2;\\n  }\\n  uVar3 = FUN_10042f80(*(undefined4 *)(*(int *)(param_1 + 0x34) + 0x2c),auStack_14f,0x1f);\\n  iVar2 = FUN_10054000(auStack_14f,uVar3,0,0);\\n  if ((0 < iVar2) && (iVar2 < 0xffff)) {\\n    *(short *)((int)in_stack_00000038 + 10) = (short)iVar2;\\n  }\\n  uVar3 = FUN_10042f80(*(undefined4 *)(*(int *)(param_1 + 0x38) + 0x2c),auStack_14f,0x1f);\\n  iVar2 = FUN_10054000(auStack_14f,uVar3,0,0);\\n  if ((-1 < iVar2) && (iVar2 < 0xffff)) {\\n    *(short *)(in_stack_00000038 + 3) = (short)iVar2;\\n  }\\n  uVar1 = (uint)(*(char *)(*(int *)(param_1 + 0x50) + 0x39) != '\\\\0');\\n  if (*(char *)(*(int *)(param_1 + 0x54) + 0x39) != '\\\\0') {\\n    uVar1 = uVar1 | 2;\\n  }\\n  if (*(char *)(*(int *)(param_1 + 0x58) + 0x39) != '\\\\0') {\\n    uVar1 = uVar1 | 4;\\n  }\\n  if (*(char *)(*(int *)(param_1 + 0x5c) + 0x39) != '\\\\0') {\\n    uVar1 = uVar1 | 8;\\n  }\\n  if (*(char *)(*(int *)(param_1 + 0x6c) + 0x39) != '\\\\0') {\\n    uVar1 = uVar1 | 0x40;\\n  }\\n  if (*(char *)(*(int *)(param_1 + 0x60) + 0x39) != '\\\\0') {\\n    uVar1 = uVar1 | 0x10;\\n  }\\n  if (*(char *)(*(int *)(param_1 + 100) + 0x39) != '\\\\0') {\\n    uVar1 = uVar1 | 0x20;\\n  }\\n  if (*(char *)(*(int *)(param_1 + 0x68) + 0x39) != '\\\\0') {\\n    uVar1 = uVar1 | 0x100;\\n  }\\n  if (*(char *)(*(int *)(param_1 + 0xb8) + 0x39) != '\\\\0') {\\n    uVar1 = uVar1 | 0x80;\\n  }\\n  in_stack_00000038[4] = uVar1;\\n  FUN_10018fd0(*(undefined4 *)(param_1 + 0x74));\\n  FUN_10022450(*(undefined4 *)(param_1 + 0x74),param_8);\\n  return;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_1001e170",
+        "address": "1001e170"
+      },
+      "code": "\nvoid FUN_1001e170(int param_1,undefined1 *param_2,undefined1 *param_3,undefined4 param_4,\n                 undefined1 *param_5,undefined1 *param_6,undefined1 *param_7,undefined4 param_8)\n\n{\n  uint uVar1;\n  undefined1 uVar3;\n  int iVar2;\n  undefined4 *in_stack_00000038;\n  undefined1 auStack_14f [31];\n  undefined1 local_130;\n  undefined1 auStack_12f [267];\n  \n  if (param_2 != (undefined1 *)0x0) {\n    uVar3 = FUN_10042f80(*(undefined4 *)(*(int *)(param_1 + 0x20) + 0x2c),param_2 + 1,0x1f);\n    *param_2 = uVar3;\n  }\n  if (param_3 != (undefined1 *)0x0) {\n    uVar3 = FUN_10042f80(*(undefined4 *)(*(int *)(param_1 + 0x24) + 0x2c),param_3 + 1,0x7f);\n    *param_3 = uVar3;\n  }\n  if (param_5 != (undefined1 *)0x0) {\n    uVar3 = FUN_10042f80(*(undefined4 *)(*(int *)(param_1 + 0xac) + 0x2c),param_5 + 1,0x7f);\n    *param_5 = uVar3;\n  }\n  if (param_6 != (undefined1 *)0x0) {\n    uVar3 = FUN_10042f80(*(undefined4 *)(*(int *)(param_1 + 0xb0) + 0x2c),param_6 + 1,0xff);\n    *param_6 = uVar3;\n  }\n  if (param_7 != (undefined1 *)0x0) {\n    local_130 = FUN_10042f80(*(undefined4 *)(*(int *)(param_1 + 0xb4) + 0x2c),auStack_12f,0xff);\n    uVar3 = FUN_1006d670(0x2a,auStack_12f,local_130,param_7 + 1,0xff);\n    *param_7 = uVar3;\n  }\n  FUN_1001e7a0(param_1,param_4);\n  *in_stack_00000038 = 0;\n  uVar3 = FUN_10042f80(*(undefined4 *)(*(int *)(param_1 + 0x40) + 0x2c),auStack_14f,0x1f);\n  iVar2 = FUN_10054000(auStack_14f,uVar3,0,0);\n  if ((-1 < iVar2) && (iVar2 < 0x100)) {\n    *(char *)in_stack_00000038 = (char)iVar2;\n  }\n  uVar3 = FUN_10042f80(*(undefined4 *)(*(int *)(param_1 + 0x44) + 0x2c),auStack_14f,0x1f);\n  iVar2 = FUN_10054000(auStack_14f,uVar3,0,0);\n  if ((-1 < iVar2) && (iVar2 < 0x100)) {\n    *(char *)((int)in_stack_00000038 + 1) = (char)iVar2;\n  }\n  uVar3 = FUN_10042f80(*(undefined4 *)(*(int *)(param_1 + 0x48) + 0x2c),auStack_14f,0x1f);\n  iVar2 = FUN_10054000(auStack_14f,uVar3,0,0);\n  if ((-1 < iVar2) && (iVar2 < 0x100)) {\n    *(char *)((int)in_stack_00000038 + 2) = (char)iVar2;\n  }\n  uVar3 = FUN_10042f80(*(undefined4 *)(*(int *)(param_1 + 0x4c) + 0x2c),auStack_14f,0x1f);\n  iVar2 = FUN_10054000(auStack_14f,uVar3,0,0);\n  if ((-1 < iVar2) && (iVar2 < 0x100)) {\n    *(char *)((int)in_stack_00000038 + 3) = (char)iVar2;\n  }\n  uVar3 = FUN_10042f80(*(undefined4 *)(*(int *)(param_1 + 0x3c) + 0x2c),auStack_14f,0x1f);\n  iVar2 = FUN_10054000(auStack_14f,uVar3,0,0);\n  if ((0 < iVar2) && (iVar2 < 0xffff)) {\n    *(short *)(in_stack_00000038 + 1) = (short)iVar2;\n  }\n  uVar3 = FUN_10042f80(*(undefined4 *)(*(int *)(param_1 + 0x30) + 0x2c),auStack_14f,0x1f);\n  iVar2 = FUN_10054000(auStack_14f,uVar3,0,0);\n  if ((0 < iVar2) && (iVar2 < 0xffff)) {\n    *(short *)(in_stack_00000038 + 2) = (short)iVar2;\n  }\n  uVar3 = FUN_10042f80(*(undefined4 *)(*(int *)(param_1 + 0x34) + 0x2c),auStack_14f,0x1f);\n  iVar2 = FUN_10054000(auStack_14f,uVar3,0,0);\n  if ((0 < iVar2) && (iVar2 < 0xffff)) {\n    *(short *)((int)in_stack_00000038 + 10) = (short)iVar2;\n  }\n  uVar3 = FUN_10042f80(*(undefined4 *)(*(int *)(param_1 + 0x38) + 0x2c),auStack_14f,0x1f);\n  iVar2 = FUN_10054000(auStack_14f,uVar3,0,0);\n  if ((-1 < iVar2) && (iVar2 < 0xffff)) {\n    *(short *)(in_stack_00000038 + 3) = (short)iVar2;\n  }\n  uVar1 = (uint)(*(char *)(*(int *)(param_1 + 0x50) + 0x39) != '\\0');\n  if (*(char *)(*(int *)(param_1 + 0x54) + 0x39) != '\\0') {\n    uVar1 = uVar1 | 2;\n  }\n  if (*(char *)(*(int *)(param_1 + 0x58) + 0x39) != '\\0') {\n    uVar1 = uVar1 | 4;\n  }\n  if (*(char *)(*(int *)(param_1 + 0x5c) + 0x39) != '\\0') {\n    uVar1 = uVar1 | 8;\n  }\n  if (*(char *)(*(int *)(param_1 + 0x6c) + 0x39) != '\\0') {\n    uVar1 = uVar1 | 0x40;\n  }\n  if (*(char *)(*(int *)(param_1 + 0x60) + 0x39) != '\\0') {\n    uVar1 = uVar1 | 0x10;\n  }\n  if (*(char *)(*(int *)(param_1 + 100) + 0x39) != '\\0') {\n    uVar1 = uVar1 | 0x20;\n  }\n  if (*(char *)(*(int *)(param_1 + 0x68) + 0x39) != '\\0') {\n    uVar1 = uVar1 | 0x100;\n  }\n  if (*(char *)(*(int *)(param_1 + 0xb8) + 0x39) != '\\0') {\n    uVar1 = uVar1 | 0x80;\n  }\n  in_stack_00000038[4] = uVar1;\n  FUN_10018fd0(*(undefined4 *)(param_1 + 0x74));\n  FUN_10022450(*(undefined4 *)(param_1 + 0x74),param_8);\n  return;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

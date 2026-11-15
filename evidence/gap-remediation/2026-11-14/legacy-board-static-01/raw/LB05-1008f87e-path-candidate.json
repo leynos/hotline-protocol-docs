@@ -1,0 +1,30 @@
+{
+  "captured_at_utc": "2026-11-14T08:16:42.369637+00:00",
+  "query": {
+    "id": "LB05-1008f87e-path-candidate",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "1008f87e",
+      "length": 260
+    }
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"address\": \"1008f87e\",\n  \"length\": 260,\n  \"hex\": \"10 4d 65 73 73 61 67 65 42 6f 61 72 64 2e 74 78 74 0d 41 67 72 65 65 6d 65 6e 74 2e 74 78 74 09 45 72 72 6f 72 20 4c 6f 67 0c 44 6f 77 6e 6c 6f 61 64 20 4c 6f 67 0a 55 70 6c 6f 61 64 20 4c 6f 67 0b 43 6f 6e 6e 65 63 74 20 4c 6f 67 0b 41 63 63 6f 75 6e 74 20 4c 6f 67 12 48 6f 74 6c 69 6e 65 20 53 65 72 76 65 72 20 4c 6f 67 0e 48 6f 74 6c 69 6e 65 20 53 65 72 76 65 72 03 31 2e 39 05 55 73 65 72 73 05 46 69 6c 65 73 04 4e 65 77 73 0c 53 65 72 76 65 72 20 45 72 72 6f 72 63 50 6c 65 61 73 65 20 63 68 61 6e 67 65 20 74 68 65 20 22 53 65 72 76 65 72 20 49 50 22 20 6f 72 20 22 53 65 72 76 65 72 20 70 6f 72 74 20 6e 75 6d 62 65 72 22 20 66 72 6f 6d 20 22 4f 70 74 69 6f 6e 73 2f 47 65 6e 65 72 61 6c 22 20 61 6e 64 20 72 65 73 74 61 72 74 20 74 68 65 20 73 65 72 76 65 72 ba 43 61\",\n  \"ascii\": \".MessageBoard.txt.Agreement.txt.Error Log.Download Log.Upload Log.Connect Log.Account Log.Hotline Server Log.Hotline Server.1.9.Users.Files.News.Server ErrorcPlease change the \\\"Server IP\\\" or \\\"Server port number\\\" from \\\"Options/General\\\" and restart the server.Ca\",\n  \"gaps\": []\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "address": "1008f87e",
+      "length": 260,
+      "hex": "10 4d 65 73 73 61 67 65 42 6f 61 72 64 2e 74 78 74 0d 41 67 72 65 65 6d 65 6e 74 2e 74 78 74 09 45 72 72 6f 72 20 4c 6f 67 0c 44 6f 77 6e 6c 6f 61 64 20 4c 6f 67 0a 55 70 6c 6f 61 64 20 4c 6f 67 0b 43 6f 6e 6e 65 63 74 20 4c 6f 67 0b 41 63 63 6f 75 6e 74 20 4c 6f 67 12 48 6f 74 6c 69 6e 65 20 53 65 72 76 65 72 20 4c 6f 67 0e 48 6f 74 6c 69 6e 65 20 53 65 72 76 65 72 03 31 2e 39 05 55 73 65 72 73 05 46 69 6c 65 73 04 4e 65 77 73 0c 53 65 72 76 65 72 20 45 72 72 6f 72 63 50 6c 65 61 73 65 20 63 68 61 6e 67 65 20 74 68 65 20 22 53 65 72 76 65 72 20 49 50 22 20 6f 72 20 22 53 65 72 76 65 72 20 70 6f 72 74 20 6e 75 6d 62 65 72 22 20 66 72 6f 6d 20 22 4f 70 74 69 6f 6e 73 2f 47 65 6e 65 72 61 6c 22 20 61 6e 64 20 72 65 73 74 61 72 74 20 74 68 65 20 73 65 72 76 65 72 ba 43 61",
+      "ascii": ".MessageBoard.txt.Agreement.txt.Error Log.Download Log.Upload Log.Connect Log.Account Log.Hotline Server Log.Hotline Server.1.9.Users.Files.News.Server ErrorcPlease change the \"Server IP\" or \"Server port number\" from \"Options/General\" and restart the server.Ca",
+      "gaps": []
+    },
+    "isError": false
+  }
+}

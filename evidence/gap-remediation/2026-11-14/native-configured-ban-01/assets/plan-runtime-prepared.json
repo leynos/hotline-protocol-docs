@@ -1,0 +1,15 @@
+{
+  "source_a7_sha256": "5d0aa3dccf65fc6523678aa729c9ace72cd6caffbef768b7f5bf949e6568b43e",
+  "emulator_pid": null,
+  "runtime_directory": "/data/leynos/Projects/mothra/state/mac-runtime/native-configured-apply-01",
+  "fixture_profile": "control-only",
+  "full_file_baseline": "not_exercised",
+  "prepared_only": true,
+  "display": ":114",
+  "front_ports": [
+    15770,
+    15771,
+    15772,
+    15773
+  ]
+}

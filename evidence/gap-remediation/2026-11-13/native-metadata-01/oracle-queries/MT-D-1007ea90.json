@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-13T06:07:30.577160+00:00",
+  "query": {
+    "id": "MT-D-1007ea90",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1007ea90"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_1007ea90\",\n    \"address\": \"1007ea90\"\n  },\n  \"code\": \"\\nvoid FUN_1007ea90(short *param_1,byte *param_2)\\n\\n{\\n  short sVar1;\\n  short sVar2;\\n  char cVar3;\\n  undefined4 uVar4;\\n  undefined4 local_110;\\n  undefined1 auStack_10c [28];\\n  undefined1 auStack_f0 [18];\\n  short *local_de;\\n  byte *local_d0;\\n  uint local_cc;\\n  undefined4 local_c0;\\n  undefined1 auStack_88 [18];\\n  short *local_76;\\n  short local_72;\\n  \\n  uVar4 = *(undefined4 *)(param_1 + 1);\\n  sVar1 = *param_1;\\n  local_110 = 0x1c;\\n  sVar2 = FUN_1007ee80(param_1 + 3,(int)sVar1,auStack_10c,&local_110);\\n  if (sVar2 == 0) {\\n    cVar3 = FUN_1007ef20(auStack_10c);\\n    if (cVar3 == '\\\\0') {\\n      sVar2 = -0x32;\\n    }\\n    else {\\n      local_76 = param_1 + 3;\\n      local_72 = sVar1;\\n      sVar2 = .glue::PBDTOpenInform(auStack_88);\\n      if (sVar2 == -0x32) {\\n        sVar2 = .glue::PBDTGetPath(auStack_88);\\n      }\\n    }\\n  }\\n  if (sVar2 == 0) {\\n    local_de = param_1 + 3;\\n    local_d0 = param_2 + 1;\\n    if (*param_2 < 0xc9) {\\n      local_cc = (uint)*param_2;\\n    }\\n    else {\\n      local_cc = 200;\\n    }\\n    local_c0 = uVar4;\\n    .glue::PBDTSetCommentSync(auStack_f0);\\n  }\\n  return;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_1007ea90",
+        "address": "1007ea90"
+      },
+      "code": "\nvoid FUN_1007ea90(short *param_1,byte *param_2)\n\n{\n  short sVar1;\n  short sVar2;\n  char cVar3;\n  undefined4 uVar4;\n  undefined4 local_110;\n  undefined1 auStack_10c [28];\n  undefined1 auStack_f0 [18];\n  short *local_de;\n  byte *local_d0;\n  uint local_cc;\n  undefined4 local_c0;\n  undefined1 auStack_88 [18];\n  short *local_76;\n  short local_72;\n  \n  uVar4 = *(undefined4 *)(param_1 + 1);\n  sVar1 = *param_1;\n  local_110 = 0x1c;\n  sVar2 = FUN_1007ee80(param_1 + 3,(int)sVar1,auStack_10c,&local_110);\n  if (sVar2 == 0) {\n    cVar3 = FUN_1007ef20(auStack_10c);\n    if (cVar3 == '\\0') {\n      sVar2 = -0x32;\n    }\n    else {\n      local_76 = param_1 + 3;\n      local_72 = sVar1;\n      sVar2 = .glue::PBDTOpenInform(auStack_88);\n      if (sVar2 == -0x32) {\n        sVar2 = .glue::PBDTGetPath(auStack_88);\n      }\n    }\n  }\n  if (sVar2 == 0) {\n    local_de = param_1 + 3;\n    local_d0 = param_2 + 1;\n    if (*param_2 < 0xc9) {\n      local_cc = (uint)*param_2;\n    }\n    else {\n      local_cc = 200;\n    }\n    local_c0 = uVar4;\n    .glue::PBDTSetCommentSync(auStack_f0);\n  }\n  return;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

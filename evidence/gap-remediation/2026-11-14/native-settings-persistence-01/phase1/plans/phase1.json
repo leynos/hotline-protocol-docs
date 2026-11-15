@@ -1,0 +1,508 @@
+{
+  "schema_version": 1,
+  "profile": "native-mac-oracle",
+  "operator": "A42 preparation; separate root START required",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "gap_ids": [
+    "GAP-029"
+  ],
+  "environment": {
+    "emulator_pid": 355862,
+    "source_a7_sha256": "5d0aa3dccf65fc6523678aa729c9ace72cd6caffbef768b7f5bf949e6568b43e",
+    "fixture_profile": "control-only",
+    "full_file_baseline": "not_exercised"
+  },
+  "endpoints": {
+    "control": {
+      "host": "127.0.0.1",
+      "port": 15760
+    }
+  },
+  "steps": [
+    {
+      "op": "connect",
+      "connection": "main",
+      "endpoint": "control",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "54525450484f544c00010002",
+      "timeout": 30
+    },
+    {
+      "op": "read",
+      "connection": "main",
+      "size": 8,
+      "expect_hex": "5452545000000000",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "0000006b000000010000000000000036000000360005006900059e9b929691006a000892908b978d9ecec600a0000200be0066000f6672616d696e672d66697874757265006800020001",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "0000012c0000000a0000000000000002000000020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 10
+      }
+    },
+    {
+      "op": "connect",
+      "connection": "subject",
+      "endpoint": "control",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "subject",
+      "hex": "54525450484f544c00010002",
+      "timeout": 30
+    },
+    {
+      "op": "read",
+      "connection": "subject",
+      "size": 8,
+      "expect_hex": "5452545000000000",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "subject",
+      "hex": "0000006b000000010000000000000033000000330005006a000892908b978d9ecec600a0000200be006900059e9b9296910066000c4134312d426173656c696e65006800020003",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "type": 301
+      },
+      "save_fields": {
+        "peer_uid": 103
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "0000006c0000003c000000000000001c0000001c000300670002{peer_uid}0071000200010065000a6134312d6265666f7265",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 60
+      }
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject",
+      "timeout": 30,
+      "match_frame": {
+        "type": 104
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000001f4000000a00000000000000002000000020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 160
+      }
+    },
+    {
+      "op": "expect_quiet",
+      "connection": "main",
+      "timeout": 2
+    },
+    {
+      "op": "send",
+      "connection": "subject",
+      "hex": "000001f4000000a00000000000000002000000020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 160
+      }
+    },
+    {
+      "op": "expect_quiet",
+      "connection": "subject",
+      "timeout": 2
+    },
+    {
+      "op": "send",
+      "connection": "subject",
+      "hex": "000001300000001e00000000000000350000003500040066000e4134312d506572736973742d4f6e00680002001100710002000400d700116134312d6578706c696369742d6175746f",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "type": 301
+      }
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject",
+      "timeout": 30,
+      "match_frame": {
+        "type": 301
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "0000006c0000003d000000000000001d0000001d000300670002{peer_uid}0071000200010065000b6134312d656e61626c6564",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 61
+      }
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "type": 104
+      }
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject",
+      "timeout": 30,
+      "match_frame": {
+        "type": 104
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000001f4000000a10000000000000002000000020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 161
+      }
+    },
+    {
+      "op": "expect_quiet",
+      "connection": "main",
+      "timeout": 2
+    },
+    {
+      "op": "send",
+      "connection": "subject",
+      "hex": "000001f4000000a10000000000000002000000020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 161
+      }
+    },
+    {
+      "op": "expect_quiet",
+      "connection": "subject",
+      "timeout": 2
+    },
+    {
+      "op": "send",
+      "connection": "subject",
+      "hex": "000001300000001f000000000000001b0000001b00020066000f4134312d506572736973742d4f6666006800020012",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "type": 301
+      }
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject",
+      "timeout": 30,
+      "match_frame": {
+        "type": 301
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "0000006c0000003e000000000000001e0000001e000300670002{peer_uid}0071000200010065000c6134312d64697361626c6564",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 62
+      }
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject",
+      "timeout": 30,
+      "match_frame": {
+        "type": 104
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000001f4000000a20000000000000002000000020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 162
+      }
+    },
+    {
+      "op": "expect_quiet",
+      "connection": "main",
+      "timeout": 2
+    },
+    {
+      "op": "send",
+      "connection": "subject",
+      "hex": "000001f4000000a20000000000000002000000020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 162
+      }
+    },
+    {
+      "op": "expect_quiet",
+      "connection": "subject",
+      "timeout": 2
+    },
+    {
+      "op": "send",
+      "connection": "subject",
+      "hex": "000001300000002000000000000000350000003500040066000e4134312d506572736973742d4f6e00680002001100710002000400d700116134312d6578706c696369742d6175746f",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "type": 301
+      }
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject",
+      "timeout": 30,
+      "match_frame": {
+        "type": 301
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "0000006c0000003f000000000000001b0000001b000300670002{peer_uid}007100020001006500096134312d66696e616c",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 63
+      }
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "type": 104
+      }
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject",
+      "timeout": 30,
+      "match_frame": {
+        "type": 104
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000001f4000000a30000000000000002000000020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 163
+      }
+    },
+    {
+      "op": "expect_quiet",
+      "connection": "main",
+      "timeout": 2
+    },
+    {
+      "op": "send",
+      "connection": "subject",
+      "hex": "000001f4000000a30000000000000002000000020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 163
+      }
+    },
+    {
+      "op": "expect_quiet",
+      "connection": "subject",
+      "timeout": 2
+    }
+  ],
+  "expectation": {
+    "case": "settings-persistence-phase1",
+    "identity_action": 16,
+    "baseline_pm_action": 17,
+    "fixed_login_hex": "0000006b000000010000000000000033000000330005006a000892908b978d9ecec600a0000200be006900059e9b9296910066000c4134312d426173656c696e65006800020003",
+    "baseline_name_hex": "4134312d426173656c696e65",
+    "marker_name_hex": "4134312d506572736973742d4f6e",
+    "marker_text_hex": "6134312d6578706c696369742d6175746f",
+    "sockets_held_for_app_quit": true,
+    "stages": [
+      {
+        "label": "enable",
+        "mutation_action": 26,
+        "update_action": 27,
+        "pm_action": 29,
+        "pm_id": 61,
+        "pm_text_hex": "6134312d656e61626c6564",
+        "name_hex": "4134312d506572736973742d4f6e",
+        "icon_hex": "0011",
+        "auto": true
+      },
+      {
+        "label": "disable",
+        "mutation_action": 39,
+        "update_action": 40,
+        "pm_action": 42,
+        "pm_id": 62,
+        "pm_text_hex": "6134312d64697361626c6564",
+        "name_hex": "4134312d506572736973742d4f6666",
+        "icon_hex": "0012",
+        "auto": false
+      },
+      {
+        "label": "reenable",
+        "mutation_action": 51,
+        "update_action": 52,
+        "pm_action": 54,
+        "pm_id": 63,
+        "pm_text_hex": "6134312d66696e616c",
+        "name_hex": "4134312d506572736973742d4f6e",
+        "icon_hex": "0011",
+        "auto": true
+      }
+    ]
+  }
+}

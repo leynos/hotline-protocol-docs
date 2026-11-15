@@ -1,0 +1,26 @@
+{
+  "method": "manual transcription of frozen screenshots; host UTC brackets around import command, not file mtime",
+  "observations": [
+    {
+      "screenshot": "clock-first.png",
+      "visible_menubar_clock_transcription": "Sat 5:49:09 AM",
+      "before_utc": "2026-11-14T05:49:10.192280248Z",
+      "after_utc": "2026-11-14T05:49:10.330912301Z",
+      "screenshot_sha256": "137bac1df80c268ecaf99800f51b8d3a15831ea9521e707b9c528d2a4d0b2f13"
+    },
+    {
+      "screenshot": "clock-second.png",
+      "visible_menubar_clock_transcription": "Sat 5:51:09 AM",
+      "before_utc": "2026-11-14T05:51:09.205855204Z",
+      "after_utc": "2026-11-14T05:51:09.348466825Z",
+      "screenshot_sha256": "a6ab9a2e37c69edcf9607c029788520458fe10ea4c992336c501ef123e9c4076"
+    },
+    {
+      "screenshot": "clock-after-first.png",
+      "visible_menubar_clock_transcription": "Sat 5:55:26 AM",
+      "before_utc": "2026-11-14T05:55:26.757687884Z",
+      "after_utc": "2026-11-14T05:55:26.900432470Z",
+      "screenshot_sha256": "43c43ceac8f5733592f4198d9be67fee0821f78098e0c9e9fead5d330830573e"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "captured_at_utc": "2026-11-14T11:05:12.684406+00:00",
+  "query": {
+    "id": "decompile-10057e90",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10057e90"
+    }
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_10057e90\",\n    \"address\": \"10057e90\"\n  },\n  \"code\": \"\\nint FUN_10057e90(undefined4 param_1,undefined1 *param_2,uint param_3,uint param_4)\\n\\n{\\n  undefined1 *puVar1;\\n  int local_25c;\\n  short local_230;\\n  short local_22e;\\n  short local_22c;\\n  byte local_220;\\n  undefined1 auStack_21f [255];\\n  byte local_120;\\n  undefined1 auStack_11f [267];\\n  \\n  if (param_3 < 0x20) {\\n    FUN_10027c30(1,2);\\n  }\\n  local_120 = 0;\\n  local_220 = 0;\\n  if ((param_4 & 1) == 0) {\\n    if ((param_4 & 2) == 0) {\\n      if ((param_4 & 4) == 0) {\\n        if ((param_4 & 8) != 0) {\\n          .glue::DateString(param_1,1,&local_220,0);\\n        }\\n      }\\n      else {\\n        .glue::DateString(param_1,2,&local_220,0);\\n      }\\n    }\\n    else {\\n      .glue::SecondsToDate(param_1,&local_230);\\n      local_220 = FUN_10054180(auStack_21f,param_3,local_25c + 0x4324,(int)local_22e,(int)local_22c,\\n                               (int)local_230);\\n    }\\n  }\\n  else {\\n    .glue::DateString(param_1,0,&local_220,0);\\n  }\\n  if ((param_4 & 0x10) == 0) {\\n    if ((param_4 & 0x20) != 0) {\\n      .glue::TimeString(param_1,1,&local_120,0);\\n    }\\n  }\\n  else {\\n    .glue::TimeString(param_1,0,&local_120,0);\\n  }\\n  puVar1 = param_2;\\n  if (local_220 != 0) {\\n    .glue::BlockMoveData(auStack_21f,param_2,local_220);\\n    puVar1 = param_2 + local_220;\\n  }\\n  if (local_220 != 0) {\\n    if (local_120 != 0) {\\n      if ((param_4 & 3) == 0) {\\n        *puVar1 = 0x2c;\\n        puVar1[1] = 0x20;\\n        puVar1 = puVar1 + 2;\\n      }\\n      else {\\n        *puVar1 = 0x20;\\n        puVar1 = puVar1 + 1;\\n      }\\n    }\\n  }\\n  if (local_120 != 0) {\\n    .glue::BlockMoveData(auStack_11f,puVar1,local_120);\\n    puVar1 = puVar1 + local_120;\\n  }\\n  return (int)puVar1 - (int)param_2;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_10057e90",
+        "address": "10057e90"
+      },
+      "code": "\nint FUN_10057e90(undefined4 param_1,undefined1 *param_2,uint param_3,uint param_4)\n\n{\n  undefined1 *puVar1;\n  int local_25c;\n  short local_230;\n  short local_22e;\n  short local_22c;\n  byte local_220;\n  undefined1 auStack_21f [255];\n  byte local_120;\n  undefined1 auStack_11f [267];\n  \n  if (param_3 < 0x20) {\n    FUN_10027c30(1,2);\n  }\n  local_120 = 0;\n  local_220 = 0;\n  if ((param_4 & 1) == 0) {\n    if ((param_4 & 2) == 0) {\n      if ((param_4 & 4) == 0) {\n        if ((param_4 & 8) != 0) {\n          .glue::DateString(param_1,1,&local_220,0);\n        }\n      }\n      else {\n        .glue::DateString(param_1,2,&local_220,0);\n      }\n    }\n    else {\n      .glue::SecondsToDate(param_1,&local_230);\n      local_220 = FUN_10054180(auStack_21f,param_3,local_25c + 0x4324,(int)local_22e,(int)local_22c,\n                               (int)local_230);\n    }\n  }\n  else {\n    .glue::DateString(param_1,0,&local_220,0);\n  }\n  if ((param_4 & 0x10) == 0) {\n    if ((param_4 & 0x20) != 0) {\n      .glue::TimeString(param_1,1,&local_120,0);\n    }\n  }\n  else {\n    .glue::TimeString(param_1,0,&local_120,0);\n  }\n  puVar1 = param_2;\n  if (local_220 != 0) {\n    .glue::BlockMoveData(auStack_21f,param_2,local_220);\n    puVar1 = param_2 + local_220;\n  }\n  if (local_220 != 0) {\n    if (local_120 != 0) {\n      if ((param_4 & 3) == 0) {\n        *puVar1 = 0x2c;\n        puVar1[1] = 0x20;\n        puVar1 = puVar1 + 2;\n      }\n      else {\n        *puVar1 = 0x20;\n        puVar1 = puVar1 + 1;\n      }\n    }\n  }\n  if (local_120 != 0) {\n    .glue::BlockMoveData(auStack_11f,puVar1,local_120);\n    puVar1 = puVar1 + local_120;\n  }\n  return (int)puVar1 - (int)param_2;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

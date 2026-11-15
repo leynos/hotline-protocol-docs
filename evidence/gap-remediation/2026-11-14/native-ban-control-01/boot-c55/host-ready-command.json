@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "sudo",
+    "-n",
+    "/usr/sbin/python3",
+    "/data/leynos/Projects/mothra/scripts/capture_readiness.py",
+    "--unit",
+    "mothra-native-control-c55-host.service",
+    "--pcap",
+    "/data/leynos/Projects/mothra/state/native-sessions/native-ban-control-c55/primary-syn.pcap",
+    "--netns-inode",
+    "4026531840",
+    "--deadline-utc",
+    "2026-11-14T03:18:55.796194+00:00",
+    "--filter",
+    "(tcp port 15500 or tcp port 15501) and (tcp[tcpflags] & tcp-syn != 0)"
+  ],
+  "exit": 0,
+  "stderr": ""
+}

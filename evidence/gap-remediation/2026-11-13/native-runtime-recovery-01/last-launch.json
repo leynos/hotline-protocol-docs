@@ -1,0 +1,31 @@
+{
+  "command": [
+    "sudo",
+    "-n",
+    "setpriv",
+    "--reuid=1000",
+    "--regid=1000",
+    "--init-groups",
+    "--inh-caps=+sys_rawio",
+    "--ambient-caps=+sys_rawio",
+    "env",
+    "DISPLAY=:99",
+    "SDL_VIDEODRIVER=x11",
+    "SDL_AUDIODRIVER=dummy",
+    "MOTHRA_ETHERNET_PCAP=/data/leynos/Projects/mothra/state/native-sessions/recovery-20261113-01/guest.pcap",
+    "XDG_CACHE_HOME=/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/cache",
+    "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/SheepShaver-9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+    "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/machine.sheepvm"
+  ],
+  "emulator_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "host_ports": [
+    15500,
+    15501,
+    15502,
+    15503
+  ],
+  "tcp_bind": "127.0.0.1",
+  "guest_address": "10.0.2.15",
+  "guest_pcap": "/data/leynos/Projects/mothra/state/native-sessions/recovery-20261113-01/guest.pcap",
+  "guest_pcap_scope": "SLiRP Ethernet boundary; host wall-clock timestamps"
+}

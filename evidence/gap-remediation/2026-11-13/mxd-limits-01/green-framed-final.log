@@ -1,0 +1,26 @@
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`
+   Compiling mxd v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd)
+    Finished `test` profile [optimized] target(s) in 9.07s
+     Running unittests src/lib.rs (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/build/mxd/29c43d9412d22c7d/out/mxd-29c43d9412d22c7d)
+
+running 17 tests
+test wireframe::codec::framed::tests::decodes_frame::case_2_empty_frame ... ok
+test wireframe::codec::framed::tests::decodes_frame::case_1_single_frame ... ok
+test wireframe::codec::framed::tests::decodes_logical_payload_across_physical_fragments::case_1_physical_ceiling ... ok
+test wireframe::codec::framed::tests::decodes_logical_payload_across_physical_fragments::case_2_first_logical_byte ... ok
+test wireframe::codec::framed::tests::encodes_empty_frame ... ok
+test wireframe::codec::framed::tests::encodes_single_frame ... ok
+test wireframe::codec::framed::tests::reassembles_two_fragments ... ok
+test wireframe::codec::framed::tests::preassembled_constructor_keeps_logical_limit_and_length_checks ... ok
+test wireframe::codec::framed::tests::rejects_incomplete_reassembly_at_eof ... ok
+test wireframe::codec::framed::tests::rejects_fragment_exceeding_remaining ... ok
+test wireframe::codec::framed::tests::rejects_invalid_flags ... ok
+test wireframe::codec::framed::tests::rejects_oversized_physical_fragment_before_buffering ... ok
+test wireframe::codec::framed::tests::rejects_oversized_total_before_buffering::case_1_over_logical_limit ... ok
+test wireframe::codec::framed::tests::returns_none_for_partial_header ... ok
+test wireframe::codec::framed::tests::rejects_oversized_total_before_buffering::case_2_overflow_word ... ok
+test wireframe::codec::framed::tests::returns_none_for_partial_payload ... ok
+test wireframe::codec::framed::tests::decodes_logical_payload_across_physical_fragments::case_3_logical_ceiling ... ok
+
+test result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 388 filtered out; finished in 0.01s
+

@@ -1,0 +1,25 @@
+diff --git a/BasiliskII/src/slirp/socket.c b/BasiliskII/src/slirp/socket.c
+index 42ba31b..eff6037 100644
+--- a/BasiliskII/src/slirp/socket.c
++++ b/BasiliskII/src/slirp/socket.c
+@@ -592,7 +592,7 @@ solisten(port, laddr, lport, flags)
+ 	
+ 	memset(&addr, 0, sizeof(struct sockaddr_in));
+ 	addr.sin_family = AF_INET;
+-	addr.sin_addr.s_addr = INADDR_ANY;
++	addr.sin_addr = loopback_addr;
+ 	addr.sin_port = port;
+ 	
+ 	if (((s = socket(AF_INET,SOCK_STREAM,0)) < 0) ||
+diff --git a/SheepShaver/src/Unix/prefs_unix.cpp b/SheepShaver/src/Unix/prefs_unix.cpp
+index 7f89a10..848bbef 100644
+--- a/SheepShaver/src/Unix/prefs_unix.cpp
++++ b/SheepShaver/src/Unix/prefs_unix.cpp
+@@ -29,6 +29,7 @@
+ 
+ // Platform-specific preferences items
+ prefs_desc platform_prefs_items[] = {
++	{"redir", TYPE_STRING, true,           "SLiRP port forwarding rule"},
+ 	{"ether", TYPE_STRING, false,          "device name of Mac ethernet adapter"},
+ 	{"etherconfig", TYPE_STRING, false,    "path of network config script"},
+ 	{"keycodes", TYPE_BOOLEAN, false,      "use keycodes rather than keysyms to decode keyboard"},

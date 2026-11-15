@@ -1,0 +1,5508 @@
+r/r 3:	$ExtentsFile
+r/r 4:	$CatalogFile
+r/r 5:	$BadBlockFile
+r/r 6:	$AllocationFile
+d/d 49:	Applications
++ d/d 4060:	After Dark Midnight Collection™
+++ -/r 4626:	After Dark Manual
+++ d/d 4089:	Patterns Sys 7.5x
++++ -/r 4654:	 READ ME
++++ -/r 4655:	Bad Dog A
++++ -/r 4656:	Bad Dog B
++++ -/r 4657:	Clocks
++++ -/r 4658:	Fish A
++++ -/r 4659:	Fish B
++++ -/r 4660:	Fish C
++++ -/r 4661:	Fish D
++++ -/r 4662:	Fish E
++++ -/r 4663:	Fish F
++++ -/r 4664:	Fish G
++++ -/r 4665:	Fish H
++++ -/r 4666:	Hula Girl A
++++ -/r 4667:	Hula Girl B
++++ -/r 4668:	Hula Girl C
++++ -/r 4669:	Marbles A
++++ -/r 4670:	Marbles B
++++ -/r 4671:	Marbles C
++++ -/r 4672:	Marbles D
++++ -/r 4673:	Messages A
++++ -/r 4674:	Messages B
++++ -/r 4675:	Psycho Deli A
++++ -/r 4676:	Psycho Deli B
++++ -/r 4677:	Psycho Deli C
++++ -/r 4678:	Rodger Dodger
++++ -/r 4679:	Shadow Agents A
++++ -/r 4680:	Shadow Agents B
++++ -/r 4681:	Toast
++++ -/r 4682:	Toasters
++ d/d 4697:	After Dark Tenth Anniversary™
+++ -/r 4787:	adxpl10.shl
+++ -/r 4788:	After Dark Manual
+++ -/r 4789:	Bad Dog 911
+++ d/d 4790:	Data
++++ -/r 4809:	.adp
++++ -/r 4791:	BadDog911.dat
++++ -/r 4792:	hula.srf
++++ -/r 4807:	mLastGame.adg
++++ -/r 4793:	Outer.srf
++++ -/r 4810:	Player.adp
++++ -/r 4811:	players.adg
++++ -/r 4812:	Roof.adg
++++ -/r 4794:	Roof.srf
++++ -/r 4795:	word.srf
+++ -/r 4796:	Hula Girl
+++ -/r 4797:	MSL C.PPC.DLL
+++ -/r 4798:	MSL RuntimePPC.DLL
+++ -/r 4799:	Read Me
+++ -/r 4800:	Roof Rats
++ d/d 37:	Apple Extras
+++ d/d 118:	Apple LaserWriter Software
++++ -/r 426:	Desktop Printer Utility
+++ d/d 64:	AppleScript
++++ -/r 532:	About AppleScript
++++ -/r 503:	AppleScript Guide
++++ -/r 4293:	Script Editor
+++ d/d 2036:	ColorSync Extras
++++ d/d 2037:	AppleScript Files
+++++ -/r 2096:	AutoMatch
+++++ -/r 2085:	Build profile info web page
+++++ -/r 2084:	Change display profile
+++++ -/r 2095:	DropEmbed
+++++ -/r 2094:	DropProof
+++++ -/r 2091:	Embed chosen profile
+++++ -/r 2090:	Embed specific profile
+++++ -/r 2077:	Extract profile
+++++ -/r 2089:	Match to chosen profiles
+++++ -/r 2093:	Match to CMYK
+++++ -/r 2088:	Match to specific profiles
+++++ -/r 2083:	Mimic PC monitor
+++++ -/r 2092:	PC to Mac Gamma
+++++ -/r 2087:	Proof to chosen profiles
+++++ -/r 2086:	Proof to specific profiles
+++++ -/r 2082:	Recursive embedder
+++++ -/r 2081:	Remove profile from image
+++++ -/r 2080:	Rename profile
+++++ -/r 2097:	Sample Scripts ReadMe
+++++ -/r 2079:	Set profile info
+++++ -/r 2078:	Show profile info
+++ d/d 85:	FireWire
++++ -/r 4297:	About FireWire
+++ d/d 115:	Font Extras
++++ -/r 436:	Create FontSync Profile
++++ -/r 381:	FontSync
++++ -/r 274:	Match FontSync Profile
+++ d/d 109:	Iomega
++++ -/r 4307:	Iomega Drive Options
++++ -/r 4306:	Tools
++++ -/r 166:	Tools Help
+++ d/d 2010:	Mac OS Runtime For Java
++++ -/r 2015:	About MRJ 2.1.4
++++ d/d 2013:	License Agreement
+++++ -/r 2033:	Deutsch
+++++ -/r 2032:	English
+++++ -/r 2031:	Español
+++++ -/r 2030:	Français
+++++ -/r 2029:	Italiano
+++++ -/r 2028:	Japanese
+++++ -/r 2027:	Nederlands
+++++ -/r 2026:	Svensk
+++ d/d 116:	Map Control Panel
++++ -/r 276:	Map
++++ -/r 275:	Map Control Panel Read Me
+++ d/d 79:	Monitors Extras Folder
++++ -/r 425:	DigitalColor Meter
++++ -/r 424:	DigitalColor Meter Guide
+++ -/r 252:	Note Pad
+++ -/r 1762:	Register with Apple
++ d/d 121:	Apple FM Radio ƒ
+++ -/r 517:	Apple FM Radio
+++ -/r 516:	Apple FM Radio Guide
++ d/d 120:	AppleCD Audio Player ƒ
+++ -/r 506:	AppleCD Audio Player
+++ -/r 505:	AppleCD Audio Player Guide
++ -/r 5954:	AppleCD Player
++ d/d 11150:	AppleScript
++ d/d 10914:	Bugdomƒ
+++ -/r 10915:	Bugdom Instructions.pdf
+++ -/r 10916:	Bugdom™
+++ -/r 10917:	Bugdom™ Read Me
+++ d/d 10918:	Data
++++ d/d 10919:	Audio
+++++ -/r 10920:	AntHill.sounds
+++++ -/r 10921:	AntHillSong.aiff
+++++ -/r 10922:	Bonus.sounds
+++++ -/r 10923:	BonusSong.aiff
+++++ -/r 10924:	Forest.aiff
+++++ -/r 10925:	Forest.sounds
+++++ -/r 10926:	HighScores.aiff
+++++ -/r 10927:	Hive.sounds
+++++ -/r 10928:	HiveLevel.aiff
+++++ -/r 10929:	Icon^
+++++ -/r 10930:	Lawn.sounds
+++++ -/r 10931:	LawnSong.aiff
+++++ -/r 10932:	LoseSong.aiff
+++++ -/r 10933:	Main.sounds
+++++ -/r 10934:	MenuSong.aiff
+++++ -/r 10935:	Night.aiff
+++++ -/r 10936:	Night.sounds
+++++ -/r 10937:	Pond.sounds
+++++ -/r 10938:	PondSong.aiff
+++++ -/r 10939:	Song_Pangea
+++++ -/r 10940:	WinSong.aiff
++++ -/r 10941:	Icon^
++++ d/d 10942:	Images
+++++ -/r 10943:	credits
+++++ -/r 10944:	help
+++++ -/r 10945:	help2
+++++ -/r 10946:	Info1
+++++ -/r 10947:	InfobarBottom
+++++ -/r 10948:	InfobarTop
++++ d/d 10949:	Models
++++ d/d 10966:	Skeletons
+++++ -/r 10967:	Ant.skeleton
+++++ -/r 10968:	AntKing.3dmf
+++++ -/r 10969:	AntKing.skeleton
+++++ -/r 10970:	Bat.3dmf
+++++ -/r 10971:	Bat.skeleton
+++++ -/r 10972:	BoxerFly.skeleton
+++++ -/r 10973:	Boxerfly10.3DMF 2
+++++ -/r 10974:	Buddy.3dmf
+++++ -/r 10975:	Buddy.skeleton
+++++ -/r 10976:	Caterpiller.3df
+++++ -/r 10977:	Caterpiller.skeleton
+++++ -/r 10978:	DoodleBug.3dmf
+++++ -/r 10979:	DoodleBug.skeleton
+++++ -/r 10980:	DragonFly.3df
+++++ -/r 10981:	DragonFly.skeleton
+++++ -/r 10982:	FireAnt.3dmf
+++++ -/r 10983:	FireAnt.skeleton
+++++ -/r 10984:	FireFly.3dmf
+++++ -/r 10985:	FireFly.skeleton
+++++ -/r 10986:	FlyingBee.3dmf
+++++ -/r 10987:	FlyingBee.skeleton
+++++ -/r 10988:	Foot.3df
+++++ -/r 10989:	Foot.skeleton
+++++ -/r 10990:	Icon^
+++++ -/r 10991:	LadyBug.skeleton
+++++ -/r 10992:	Larva.3dmf
+++++ -/r 10993:	Larva.skeleton
+++++ -/r 10994:	Mosquito.3dmf
+++++ -/r 10995:	Mosquito.skeleton
+++++ -/r 10996:	PondFish.3dmf
+++++ -/r 10997:	PondFish.skeleton
+++++ -/r 10998:	QueenBee.3dmf
+++++ -/r 10999:	QueenBee.skeleton
+++++ -/r 11000:	Roach.3dmf
+++++ -/r 11001:	Roach.skeleton
+++++ -/r 11002:	RootSwing.3dmf
+++++ -/r 11003:	RootSwing.skeleton
+++++ -/r 11004:	Skippy.3dmf
+++++ -/r 11005:	Skippy.skeleton
+++++ -/r 11006:	Slug.3dmf
+++++ -/r 11007:	Slug.skeleton
+++++ -/r 11008:	Spider.3dmf
+++++ -/r 11009:	Spider.skeleton
+++++ -/r 11010:	WaterBug.3dmf
+++++ -/r 11011:	WaterBug.skeleton
+++++ -/r 11012:	WingedFireAnt.3dmf
+++++ -/r 11013:	WorkerBee.3dmf
+++++ -/r 11014:	WorkerBee.skeleton
++++ d/d 11015:	Sprites
+++++ -/r 11016:	Infobar
+++++ -/r 11017:	Textures
++++ d/d 11018:	Terrain
+++++ -/r 11019:	AntHill.ter
+++++ -/r 11020:	AntKing.ter
+++++ -/r 11021:	Beach.ter
+++++ -/r 11022:	BeeHive.ter
+++++ -/r 11023:	Flight.ter
+++++ -/r 11024:	Lawn.ter
+++++ -/r 11025:	Night.ter
+++++ -/r 11026:	Pond.ter
+++++ -/r 11027:	QueenBee.ter
+++++ -/r 11028:	Training.ter
+++ -/r 11029:	OS 8.6 USERS READ ME!!!!
++ d/d 2792:	ClarisCAD 2.0 v3
+++ -/r 2793:	8 Color Stationery
+++ -/r 2794:	BEROL RapiDesign Sampler
+++ d/d 2795:	CAD 2.0 Tutorial Files 
++++ d/d 2796:	Section 1
+++++ d/d 2797:	Macintosh II Files
++++++ -/r 2798:	Section 1A
++++++ -/r 2799:	Section 1B
+++++ d/d 2800:	Other Macintosh Files
++++++ -/r 2801:	Section 1A
++++++ -/r 2802:	Section 1B
++++ d/d 2803:	Section 2
+++++ d/d 2804:	Macintosh II Files
++++++ -/r 2805:	Section 2A
+++++ d/d 2806:	Other Macintosh Files
++++++ -/r 2807:	Section 2A
++++ d/d 2808:	Section 3
+++++ -/r 2809:	CAMERA
+++++ -/r 2810:	CAMERA (Complete)
+++++ -/r 2811:	DRILL ADAPTER
+++++ -/r 2812:	DRILL ADAPTER (Complete)
+++++ -/r 2813:	FAN SHROUD
+++++ -/r 2814:	FAN SHROUD (Complete)
+++++ -/r 2815:	FLOORPLAN
+++++ -/r 2816:	FLOORPLAN (Complete)
+++++ -/r 2817:	FLOORPLAN LIBRARY
+++ -/r 2818:	Claris CAD
+++ -/r 2819:	Claris CAD Options
+++ d/d 2820:	Claris CAD Utilities
++++ -/r 2821:	MacPlot Configure
++++ -/r 2822:	MacPlot Driver
+++ d/d 2823:	ClarisCGT 1.1v1
++++ -/r 2824:	Claris Graphics Translator
+++ -/r 2825:	FileMaker Pro Object Database 
+++ d/d 2826:	Standard Formats
++ -/r 10723:	ColorFinder
++ -/r 6290:	Eric’s Solitaire Sample
++ d/d 10446:	eViewBox
+++ -/r 10447:	Attention
+++ -/r 10448:	EViewBox.new
+++ -/r 9922:	eViewBox.sit
+++ -/r 9932:	eViewBox.zip
+++ -/r 10449:	Icon^
+++ -/r 10450:	readme.txt
++ -/r 366:	Graphing Calculator
++ d/d 7399:	Hoyle Board Games
+++ -/r 7424:	_DS_Store
+++ -/r 7420:	BLINKS.prf
+++ -/r 7412:	BOARD.INI
+++ -/r 7425:	BOARD.INI.bak
+++ -/r 7426:	board.prf
+++ -/r 7404:	chars.prf
+++ -/r 7417:	common.prf
+++ -/r 7413:	custom.prf
+++ -/r 7401:	Hoyle Board Games
+++ -/r 7410:	Hoyle Board Games Help
+++ -/r 7411:	user0.log
+++ -/r 7408:	Zen0.grd
+++ -/r 7409:	Zen1.grd
+++ -/r 7414:	Zen10.grd
+++ -/r 7415:	Zen11.grd
+++ -/r 7418:	Zen12.grd
+++ -/r 7416:	Zen13.grd
+++ -/r 7423:	Zen14.grd
+++ -/r 7422:	Zen15.grd
+++ -/r 7419:	Zen16.grd
+++ -/r 7421:	Zen17.grd
+++ -/r 7407:	Zen2.grd
+++ -/r 7406:	Zen3.grd
+++ -/r 7402:	Zen4.grd
+++ -/r 7400:	Zen5.grd
+++ -/r 7403:	Zen6.grd
+++ -/r 7405:	Zen7.grd
+++ -/r 7428:	Zen8.grd
+++ -/r 7427:	Zen9.grd
++ d/d 7353:	Hoyle Card Games 3
+++ -/r 7371:	_DS_Store
+++ -/r 7360:	BLINKS.PRF
+++ -/r 7356:	CARD3.INI
+++ -/r 7368:	CARD3.PRF
+++ -/r 7354:	chars.prf
+++ -/r 7359:	COMMON.PRF
+++ -/r 7358:	custom.prf
+++ -/r 7370:	EULA.TXT
+++ d/d 7363:	FaceMaker
++++ -/r 7364:	1000000.prf
++++ -/r 7366:	Carl.fac
++++ -/r 7365:	facemaker.ini
+++ -/r 7357:	Hoyle Card Games 3
+++ -/r 7361:	Hoyle Card Games 3 Help
+++ -/r 7367:	Hoyle Card Games 3 README
+++ d/d 7362:	user0
+++ -/r 7355:	user0.log
+++ -/r 7369:	VERSION.TXT
++ d/d 7274:	Hoyle Mahjong Tiles
+++ -/r 7276:	CHARS.PRF
+++ -/r 7343:	CUSTOM.PRF
+++ -/r 7347:	EULA.TXT
+++ -/r 7344:	Hoyle Mahjong Tiles
+++ -/r 7278:	Hoyle Mahjong Tiles Help
+++ -/r 7345:	Hoyle Mahjong Tiles README
+++ -/r 7277:	Icon^
+++ d/d 7280:	Mahjong Layouts
++++ -/r 7335:	mjl0.grd
++++ -/r 7333:	mjl1.grd
++++ -/r 7291:	mjl10.grd
++++ -/r 7294:	mjl11.grd
++++ -/r 7290:	mjl12.grd
++++ -/r 7289:	mjl13.grd
++++ -/r 7297:	mjl14.grd
++++ -/r 7296:	mjl15.grd
++++ -/r 7299:	mjl16.grd
++++ -/r 7300:	mjl17.grd
++++ -/r 7308:	mjl18.grd
++++ -/r 7307:	mjl19.grd
++++ -/r 7337:	mjl2.grd
++++ -/r 7311:	mjl20.grd
++++ -/r 7314:	mjl21.grd
++++ -/r 7317:	mjl22.grd
++++ -/r 7316:	mjl23.grd
++++ -/r 7310:	mjl24.grd
++++ -/r 7305:	mjl25.grd
++++ -/r 7302:	mjl26.grd
++++ -/r 7303:	mjl27.grd
++++ -/r 7298:	mjl28.grd
++++ -/r 7295:	mjl29.grd
++++ -/r 7341:	mjl3.grd
++++ -/r 7309:	mjl30.grd
++++ -/r 7306:	mjl31.grd
++++ -/r 7301:	mjl32.grd
++++ -/r 7304:	mjl33.grd
++++ -/r 7312:	mjl34.grd
++++ -/r 7313:	mjl35.grd
++++ -/r 7318:	mjl36.grd
++++ -/r 7315:	mjl37.grd
++++ -/r 7292:	mjl38.grd
++++ -/r 7293:	mjl39.grd
++++ -/r 7326:	mjl4.grd
++++ -/r 7339:	mjl40.grd
++++ -/r 7340:	mjl41.grd
++++ -/r 7336:	mjl42.grd
++++ -/r 7331:	mjl43.grd
++++ -/r 7322:	mjl44.grd
++++ -/r 7321:	mjl45.grd
++++ -/r 7325:	mjl46.grd
++++ -/r 7330:	mjl47.grd
++++ -/r 7288:	mjl48.grd
++++ -/r 7285:	mjl49.grd
++++ -/r 7328:	mjl5.grd
++++ -/r 7323:	mjl50.grd
++++ -/r 7319:	mjl51.grd
++++ -/r 7327:	mjl52.grd
++++ -/r 7329:	mjl53.grd
++++ -/r 7338:	mjl54.grd
++++ -/r 7342:	mjl55.grd
++++ -/r 7334:	mjl56.grd
++++ -/r 7332:	mjl57.grd
++++ -/r 7281:	mjl58.grd
++++ -/r 7282:	mjl59.grd
++++ -/r 7324:	mjl6.grd
++++ -/r 7287:	mjl60.grd
++++ -/r 7286:	mjl61.grd
++++ -/r 7320:	mjl7.grd
++++ -/r 7283:	mjl8.grd
++++ -/r 7284:	mjl9.grd
+++ -/r 7346:	solmah.ini
+++ -/r 7348:	solmah.ini.bak
+++ -/r 7275:	SOLMAH.PRF
+++ -/r 7279:	user0.log
+++ -/r 10708:	user0\MJclas0.sav
++ d/d 7244:	KoalaCalc Classic 4
+++ -/r 7245:	.DS_Store
+++ -/r 7246:	KoalaCalc Classic
+++ -/r 7247:	READ ME.rtf
+++ -/r 7248:	Version history.rtf
+++ -/r 7249:	Visit our web site.webloc
++ d/d 8648:	MacMAME
+++ d/d 8696:	Artwork
++++ -/r 8697:	Icon^
+++ d/d 8694:	Cabinet Art
++++ -/r 8695:	Icon^
+++ d/d 9240:	Cabinet Marquees
+++ d/d 9250:	Categories
++++ -/r 9252:	Genre
++++ -/r 9251:	Icon^
+++ d/d 8702:	Config
+++ d/d 8650:	Documentation
++++ -/r 8653:	3D Hardware and MacMAME
++++ -/r 8662:	Icon^
++++ -/r 8668:	Joysticks and MacMAME
++++ -/r 8666:	MacMAME FAQ.html
++++ -/r 8661:	MacMAME Version History
++++ -/r 8663:	mame.txt
++++ -/r 8667:	Old MacMAME Version History
++++ -/r 8664:	Older MacMAME Version History
++++ -/r 8652:	Quickstart.html
++++ -/r 8669:	Troubleshooting.html
++++ -/r 8665:	Users Guide.html
++++ d/d 8654:	usersguideimages
+++++ -/r 8655:	audiotab.gif
+++++ -/r 8656:	frontend.gif
+++++ -/r 8658:	keyconfig.gif
+++++ -/r 8660:	misctab.gif
+++++ -/r 8659:	tabmenu.gif
+++++ -/r 8657:	videotab.gif
++++ -/r 8651:	whatsnew.txt
++++ -/r 8670:	whatsold.txt
+++ d/d 9243:	Game Flyers
++++ -/r 9244:	Icon^
+++ d/d 8671:	MacMAME
++++ d/d 8672:	Contents
+++++ d/d 8677:	Frameworks
++++++ d/d 8678:	HID.bundle
+++++++ d/d 8679:	Contents
++++++++ -/r 8685:	Info.plist
++++++++ d/d 8680:	MacOS
+++++++++ -/r 8681:	libHIDUtilities.dylib
++++++++ -/r 8686:	PkgInfo
++++++++ d/d 8682:	Resources
+++++++++ d/d 8683:	English.lproj
++++++++++ -/r 8684:	InfoPlist.strings
+++++ -/r 8687:	Info.plist
+++++ d/d 8673:	MacOS
++++++ -/r 8674:	MacMAME
+++++ -/r 8688:	PkgInfo
+++++ d/d 8675:	Resources
++++++ -/r 8676:	MacMAME.icns
++++ -/r 8689:	MacMAME
+++ -/r 9253:	MacMAME Message Board.url
+++ -/r 8712:	MacMAME Read Me First!
+++ d/d 8700:	Misc Support Files
++++ -/r 8701:	Icon^
+++ d/d 9245:	NVRAM
++++ -/r 9247:	Icon^
++++ -/r 9246:	marble.nv
++++ -/r 9248:	marble2.nv
++++ -/r 9249:	marble4.nv
+++ d/d 8713:	Plugins
++++ -/r 8716:	ATI Plugin
++++ -/r 8715:	Glide Plugin
++++ -/r 8714:	Icon^
++++ -/r 8717:	RAVE Plugin
+++ d/d 9241:	Replays
++++ -/r 9242:	Icon^
+++ d/d 8718:	Roms
++++ -/r 9169:	005.zip
++++ -/r 9026:	3stooges.zip
++++ -/r 9076:	99lstwra.zip
++++ -/r 9189:	_DS_Store
++++ -/r 8762:	_FBCIndex
++++ -/r 9197:	airwolf.zip
++++ -/r 9036:	alphaxz.zip
++++ -/r 8756:	amidar.zip
++++ -/r 8804:	amidaro.zip
++++ -/r 9021:	arkanoid.zip
++++ -/r 9043:	arknoidu.zip
++++ -/r 9148:	armora.zip
++++ -/r 8901:	asteroib.zip
++++ -/r 8837:	asteroid.zip
++++ -/r 8840:	Asteroids Deluxe (rev 2)
++++ -/r 8799:	ataxx.zip
++++ -/r 8820:	atetris.zip
++++ -/r 9085:	atomicp.zip
++++ -/r 8761:	barricad.zip
++++ -/r 8911:	battles.zip
++++ -/r 9202:	Battlezone
++++ -/r 9031:	berzerk.zip
++++ -/r 8723:	blastoff.zip
++++ -/r 8735:	bloxeed.zip
++++ -/r 9008:	boscoo2.zip
++++ -/r 9106:	bouldash.zip
++++ -/r 9232:	bowlrama.zip
++++ -/r 9100:	brain.zip
++++ -/r 8781:	brickyrd.zip
++++ -/r 8913:	btime.zip
++++ -/r 8857:	btime2.zip
++++ -/r 8785:	bubbles.zip
++++ -/r 9194:	bublbobl 2.zip
++++ -/r 9171:	bublbobl.zip
++++ -/r 9170:	bzone 2.zip
++++ -/r 8978:	bzone.zip
++++ -/r 9158:	bzone2.zip
++++ -/r 9221:	bzonec.zip
++++ -/r 9117:	Carnival
++++ -/r 8981:	carnival.zip
++++ -/r 8744:	carnvckt.zip
++++ -/r 8937:	cbdash.zip
++++ -/r 9019:	ccastle3.zip
++++ -/r 8971:	ccastles 2.zip
++++ -/r 9029:	ccastles.zip
++++ -/r 8797:	cclimber.zip
++++ -/r 9195:	cclimbr2.zip
++++ -/r 8967:	centipdb.zip
++++ -/r 8907:	centiped.zip
++++ -/r 8740:	cerberus.zip
++++ -/r 9049:	chqflag.zip
++++ -/r 8866:	ckong.zip
++++ -/r 8880:	club90s.zip
++++ -/r 9027:	Congo Bongo
++++ -/r 8752:	congo.zip
++++ -/r 9207:	crush.zip
++++ -/r 8933:	crystal2.zip
++++ -/r 9135:	cworld.zip
++++ -/r 8732:	dblplay.zip
++++ -/r 9061:	ddragn2w.zip
++++ -/r 9104:	ddragon.zip
++++ -/r 9048:	ddragon2.zip
++++ -/r 9082:	ddragon3.zip
++++ -/r 8766:	ddribble.zip
++++ -/r 8739:	defender.zip
++++ -/r 9130:	defendg.zip
++++ -/r 9022:	Dig Dug (Atari)
++++ -/r 8747:	digdug.zip
++++ -/r 9086:	digdug2 2.zip
++++ -/r 9213:	digdug2.zip
++++ -/r 8832:	digdugat.zip
++++ -/r 9141:	dkong.zip
++++ -/r 9095:	dkong3.zip
++++ -/r 9000:	dkongjr.zip
++++ -/r 9226:	dkongjrb.zip
++++ -/r 9084:	docastle.zip
++++ -/r 9094:	dokyusei.zip
++++ -/r 9053:	dokyusp.zip
++++ -/r 8878:	domino.zip
++++ -/r 9115:	dominos.zip
++++ -/r 8802:	Donkey Kong
++++ -/r 9143:	Donkey Kong 3
++++ -/r 8964:	dorunrun.zip
++++ -/r 9209:	dotron.zip
++++ -/r 9198:	dotrone.zip
++++ -/r 8765:	douni.zip
++++ -/r 8969:	dowild.zip
++++ -/r 9172:	Drmario.zip
++++ -/r 8826:	dyger.zip
++++ -/r 8854:	elevatob.zip
++++ -/r 8908:	elevator.zip
++++ -/r 8722:	elvact2u.zip
++++ -/r 9187:	Emeralda.zip
++++ -/r 8928:	exedexes.zip
++++ -/r 9235:	faceoff.zip
++++ -/r 9237:	fantasy.zip
++++ -/r 8997:	foodf.zip
++++ -/r 9006:	frogg.zip
++++ -/r 9023:	Frogger
++++ -/r 8859:	frogger.zip
++++ -/r 8931:	frogger2.zip
++++ -/r 8898:	frogger3.zip
++++ -/r 8894:	froggera.zip
++++ -/r 8932:	froggers.zip
++++ -/r 9045:	frogs.zip
++++ -/r 8961:	frogseg1.zip
++++ -/r 8881:	frogsega.zip
++++ -/r 9227:	gal10ren.zip
++++ -/r 9062:	Galaga
++++ -/r 8929:	galaga.zip
++++ -/r 9153:	galaga3.zip
++++ -/r 8751:	galaga3a.zip
++++ -/r 8968:	galaga84.zip
++++ -/r 9003:	galaga88.zip
++++ -/r 8812:	galagads.zip
++++ -/r 9103:	galap4.zip
++++ -/r 8991:	Galaxian (Midway)
++++ -/r 8847:	galaxian.zip
++++ -/r 8830:	galkaika.zip
++++ -/r 8778:	galkoku.zip
++++ -/r 9055:	galmidw.zip
++++ -/r 8835:	galxwars.zip
++++ -/r 9212:	gaplus.zip
++++ -/r 8777:	gaunt2.zip
++++ -/r 9054:	gauntlet.zip
++++ -/r 9109:	gcpinbal.zip
++++ -/r 9201:	geebee.zip
++++ -/r 8845:	GetStar.zip
++++ -/r 9064:	GoldBug.zip
++++ -/r 8910:	gorf.zip
++++ -/r 8924:	gorfpgm1.zip
++++ -/r 9133:	Gravitar
++++ -/r 9156:	gravitar 2.zip
++++ -/r 8966:	gravitar.zip
++++ -/r 8792:	gravitr2.zip
++++ -/r 8986:	gridlee.zip
++++ -/r 8770:	guzzler.zip
++++ -/r 9182:	gyrussce.zip
++++ -/r 8741:	hanamomo.zip
++++ -/r 9165:	hangon.zip
++++ -/r 9025:	hcastle.zip
++++ -/r 9018:	hvymetal.zip
++++ -/r 8738:	hypreac2.zip
++++ -/r 8784:	hypreact.zip
++++ -/r 8749:	Iceclimb.zip
++++ -/r 8808:	Icon^
++++ -/r 8719:	insectx.zip
++++ -/r 8896:	intrepid.zip
++++ -/r 8774:	invaderl.zip
++++ -/r 9147:	invaders.zip
++++ -/r 8905:	invadpt2.zip
++++ -/r 9057:	invrvnge.zip
++++ -/r 8950:	irobot.zip
++++ -/r 8806:	Joust
++++ -/r 9107:	joust.zip
++++ -/r 9219:	joust2.zip
++++ -/r 8925:	jrpacman.zip
++++ -/r 8909:	jumpbug.zip
++++ -/r 9047:	kangaroo.zip
++++ -/r 8973:	kittenk.zip
++++ -/r 8745:	Ladybug
++++ -/r 8987:	ladybug.zip
++++ -/r 8720:	ladykill.zip
++++ -/r 9056:	laser.zip
++++ -/r 8960:	ldrun.zip
++++ -/r 9185:	ldrun2.zip
++++ -/r 9206:	ldrun3.zip
++++ -/r 9108:	ldrun4.zip
++++ -/r 9020:	leprechn.zip
++++ -/r 9002:	levers.zip
++++ -/r 9193:	lizwiz.zip
++++ -/r 8823:	llander.zip
++++ -/r 8883:	logicpr2.zip
++++ -/r 8990:	logicpro.zip
++++ -/r 8954:	looper.zip
++++ -/r 9038:	looping.zip
++++ -/r 8903:	mahoudai.zip
++++ -/r 9140:	maiko.zip
++++ -/r 8993:	makaiden.zip
++++ -/r 8980:	maketrax.zip
++++ -/r 8742:	mappy.zip
++++ -/r 8788:	marble.zip
++++ -/r 8930:	marble2.zip
++++ -/r 8902:	marble3.zip
++++ -/r 8855:	marble4.zip
++++ -/r 8892:	marblea.zip
++++ -/r 9017:	marineb.zip
++++ -/r 9097:	mariner.zip
++++ -/r 8725:	mario.zip
++++ -/r 8810:	mars 2.zip
++++ -/r 9118:	mars.zip
++++ -/r 8955:	marvins.zip
++++ -/r 8989:	marvland.zip
++++ -/r 8821:	mayday.zip
++++ -/r 8844:	maze.zip
++++ -/r 9119:	mcontest.zip
++++ -/r 8867:	medlanes.zip
++++ -/r 9208:	mercs.zip
++++ -/r 9079:	mermaid.zip
++++ -/r 8816:	meteor.zip
++++ -/r 8979:	metrocrs.zip
++++ -/r 8763:	mgmen89.zip
++++ -/r 8726:	mightguy.zip
++++ -/r 9066:	milliped.zip
++++ -/r 8727:	minasan.zip
++++ -/r 8939:	minefld.zip
++++ -/r 8879:	minigol2.zip
++++ -/r 8849:	minigolf.zip
++++ -/r 9136:	minivadr.zip
++++ -/r 9012:	missb2.zip
++++ -/r 9152:	missile.zip
++++ -/r 8873:	missw96.zip
++++ -/r 8884:	mjanbari.zip
++++ -/r 8737:	mjegolf.zip
++++ -/r 9126:	mjfocus.zip
++++ -/r 8817:	mjgottsu.zip
++++ -/r 8848:	mjleague.zip
++++ -/r 9229:	mjlstory.zip
++++ -/r 8887:	mjnanpas.zip
++++ -/r 9072:	mjnquest.zip
++++ -/r 9098:	mjsikaku.zip
++++ -/r 8851:	mjuraden.zip
++++ -/r 9051:	mladyhtr.zip
++++ -/r 8858:	mmaze.zip
++++ -/r 9059:	mmehyou.zip
++++ -/r 9039:	mmonkey.zip
++++ -/r 8791:	moguchan.zip
++++ -/r 8885:	mole.zip
++++ -/r 8952:	momoko.zip
++++ -/r 8914:	monkeyd.zip
++++ -/r 9111:	monymony.zip
++++ -/r 9088:	moonbase.zip
++++ -/r 9116:	mooncrsb.zip
++++ -/r 9214:	mooncrsg.zip
++++ -/r 9128:	mooncrst.zip
++++ -/r 8992:	moonwalk.zip
++++ -/r 8780:	mrdo.zip
++++ -/r 9222:	mrdofix.zip
++++ -/r 9114:	mrdot.zip
++++ -/r 8828:	mrdoy.zip
++++ -/r 9181:	mrdu.zip
++++ -/r 9224:	mrjong.zip
++++ -/r 8827:	mscoutm.zip
++++ -/r 9186:	msgundam.zip
++++ -/r 8877:	mshj.zip
++++ -/r 9040:	msjiken.zip
++++ -/r 8882:	mslider.zip
++++ -/r 8876:	mspacman.zip
++++ -/r 9037:	msword.zip
++++ -/r 9146:	mtrap.zip
++++ -/r 9154:	mtrap3.zip
++++ -/r 9223:	mtrap4.zip
++++ -/r 9028:	mtwins.zip
++++ -/r 9125:	mysticm.zip
++++ -/r 8863:	mysticri.zip
++++ -/r 8822:	mystston.zip
++++ -/r 9074:	naughtyb.zip
++++ -/r 9058:	naughtyc.zip
++++ -/r 8953:	neomrdo.zip
++++ -/r 8775:	newfant.zip
++++ -/r 9035:	Nibbler
++++ -/r 9217:	nibbler.zip
++++ -/r 9164:	nitedrvr.zip
++++ -/r 8758:	nrallyx.zip
++++ -/r 9077:	omega.zip
++++ -/r 9005:	omegaf.zip
++++ -/r 8893:	omegafs.zip
++++ -/r 9102:	omegrace.zip
++++ -/r 8945:	orbitron.zip
++++ -/r 8888:	ozmawars.zip
++++ -/r 9142:	Pac-Man
++++ -/r 8874:	pachiten.zip
++++ -/r 9093:	pacland.zip
++++ -/r 8809:	pacman 2.zip
++++ -/r 8754:	pacman.zip
++++ -/r 8906:	pacmania.zip
++++ -/r 8963:	pacnpal.zip
++++ -/r 9205:	pacnpal2.zip
++++ -/r 9046:	pacplus.zip
++++ -/r 9050:	panic.zip
++++ -/r 9004:	paperboy.zip
++++ -/r 9196:	patimono.zip
++++ -/r 8760:	pbactio2.zip
++++ -/r 9123:	pbaction.zip
++++ -/r 8795:	pcktgal.zip
++++ -/r 9220:	pcktgalb.zip
++++ -/r 8861:	peekaboo.zip
++++ -/r 9070:	peepshow.zip
++++ -/r 9188:	pengo.zip
++++ -/r 9176:	pengo2u.zip
++++ -/r 8787:	pepper2.zip
++++ -/r 8983:	peterpak.zip
++++ -/r 8729:	phoenix.zip
++++ -/r 9129:	phoenixa.zip
++++ -/r 9155:	phoenixt.zip
++++ -/r 9199:	pignewt.zip
++++ -/r 8839:	pinbo.zip
++++ -/r 8843:	pingpong.zip
++++ -/r 8872:	pipedrm.zip
++++ -/r 9228:	pisces.zip
++++ -/r 9216:	pitfall2.zip
++++ -/r 9160:	pitfallu.zip
++++ -/r 8998:	pkunwar.zip
++++ -/r 8976:	pleiadbl.zip
++++ -/r 9225:	plgirls.zip
++++ -/r 8899:	plgirls2.zip
++++ -/r 9145:	polepos.zip
++++ -/r 8801:	polepos2.zip
++++ -/r 8985:	poleps2a.zip
++++ -/r 9112:	polyplay.zip
++++ -/r 8890:	ponpoko.zip
++++ -/r 8988:	pootan.zip
++++ -/r 8805:	pooyan.zip
++++ -/r 8927:	popeye.zip
++++ -/r 9157:	popeyebl.zip
++++ -/r 8759:	popnpop.zip
++++ -/r 8748:	popnpopa.zip
++++ -/r 8814:	popper.zip
++++ -/r 8923:	pow.zip
++++ -/r 9099:	psychic5.zip
++++ -/r 9151:	punchout.zip
++++ -/r 8734:	pururun.zip
++++ -/r 9131:	pushman.zip
++++ -/r 9113:	puzlclub.zip
++++ -/r 9087:	puzznic.zip
++++ -/r 9200:	pzlbowl.zip
++++ -/r 9013:	Q*Bert
++++ -/r 9175:	qad.zip
++++ -/r 8897:	qbert.zip
++++ -/r 9167:	qbertjp.zip
++++ -/r 8800:	qbertqub.zip
++++ -/r 9001:	qix.zip
++++ -/r 8776:	qix2.zip
++++ -/r 8746:	qixa.zip
++++ -/r 8936:	quantum.zip
++++ -/r 8868:	quartet.zip
++++ -/r 9007:	qzquest.zip
++++ -/r 8798:	radarscp.zip
++++ -/r 8743:	rainbow.zip
++++ -/r 8947:	rallyx.zip
++++ -/r 8915:	rampage.zip
++++ -/r 8886:	razmataz.zip
++++ -/r 9233:	reactor.zip
++++ -/r 9010:	Red Baron
++++ -/r 8793:	redbaron 2.zip
++++ -/r 9011:	redbaron.zip
++++ -/r 8934:	revx.zip
++++ -/r 8957:	ridleofp.zip
++++ -/r 8951:	ringrage.zip
++++ -/r 9211:	ripoff.zip
++++ -/r 8995:	robby.zip
++++ -/r 8946:	robotbwl.zip
++++ -/r 9052:	robotron 2.zip
++++ -/r 9110:	robotron.zip
++++ -/r 8922:	rodland.zip
++++ -/r 9168:	rollerg.zip
++++ -/r 9032:	rompers.zip
++++ -/r 9236:	romv58.zip
++++ -/r 8831:	roundup.zip
++++ -/r 8921:	royalmah.zip
++++ -/r 9210:	rpunch.zip
++++ -/r 9042:	runark.zip
++++ -/r 9218:	rygar.zip
++++ -/r 9075:	sailorws.zip
++++ -/r 8794:	samesame.zip
++++ -/r 8757:	saturn.zip
++++ -/r 9163:	sauro.zip
++++ -/r 9159:	sbrkout.zip
++++ -/r 9134:	schaser.zip
++++ -/r 8941:	scramble.zip
++++ -/r 9121:	sdungeon.zip
++++ -/r 8870:	seawolf.zip
++++ -/r 9179:	seawolf2.zip
++++ -/r 8846:	shangon.zip
++++ -/r 8895:	sharrier.zip
++++ -/r 8926:	shuffle.zip
++++ -/r 9096:	sidepckt.zip
++++ -/r 8860:	sidetrac.zip
++++ -/r 9124:	simpsons.zip
++++ -/r 8944:	sinistar.zip
++++ -/r 8815:	slapshot.zip
++++ -/r 9127:	solarfox.zip
++++ -/r 8773:	solarwar.zip
++++ -/r 8724:	sonson.zip
++++ -/r 8833:	spacbeam.zip
++++ -/r 8769:	spacduel 2.zip
++++ -/r 8728:	spacduel.zip
++++ -/r 8767:	Space Invaders
++++ -/r 8940:	spaceint.zip
++++ -/r 8838:	spaceod.zip
++++ -/r 9234:	spaceph.zip
++++ -/r 9067:	spaceskr.zip
++++ -/r 8786:	spacetrk.zip
++++ -/r 9174:	spacewar.zip
++++ -/r 8916:	spacezap.zip
++++ -/r 9204:	spacfury.zip
++++ -/r 8942:	spatter.zip
++++ -/r 9063:	spcewarl.zip
++++ -/r 8919:	spcewars.zip
++++ -/r 8977:	spectar.zip
++++ -/r 8865:	spiker.zip
++++ -/r 8972:	splash.zip
++++ -/r 9024:	splat.zip
++++ -/r 9191:	splatter.zip
++++ -/r 9183:	spnchout.zip
++++ -/r 8984:	spy.zip
++++ -/r 8772:	SQ221LE.sit
++++ -/r 9065:	sqbert.zip
++++ -/r 9080:	srumbler.zip
++++ -/r 9033:	ssi 2.zip
++++ -/r 8889:	ssi.zip
++++ -/r 8900:	sspaceat.zip
++++ -/r 8803:	stactics.zip
++++ -/r 8869:	stagger1.zip
++++ -/r 9015:	starcas.zip
++++ -/r 8807:	starfire.zip
++++ -/r 8829:	Stargate
++++ -/r 8783:	stargate.zip
++++ -/r 8862:	startrek.zip
++++ -/r 8764:	starwars.zip
++++ -/r 8962:	stinger.zip
++++ -/r 8853:	stompin.zip
++++ -/r 8796:	stratab.zip
++++ -/r 9166:	stratgyx.zip
++++ -/r 8974:	strider.zip
++++ -/r 8994:	subs.zip
++++ -/r 8999:	sucasino.zip
++++ -/r 9180:	sundance.zip
++++ -/r 8959:	supbtime.zip
++++ -/r 8841:	superman.zip
++++ -/r 9044:	superpac.zip
++++ -/r 9091:	superqix.zip
++++ -/r 9083:	suprloco.zip
++++ -/r 8755:	suprmous.zip
++++ -/r 8864:	suprmrio.zip
++++ -/r 8836:	swarm.zip
++++ -/r 8852:	swat.zip
++++ -/r 9105:	swimmer.zip
++++ -/r 8721:	szaxxon.zip
++++ -/r 8819:	tail2nos.zip
++++ -/r 9081:	tankbatt.zip
++++ -/r 8917:	tapper.zip
++++ -/r 8912:	tappera.zip
++++ -/r 8834:	targ.zip
++++ -/r 9073:	tazmania.zip
++++ -/r 8871:	tdragon.zip
++++ -/r 8842:	teddybb.zip
++++ -/r 8970:	teedoff.zip
++++ -/r 9090:	tempest.zip
++++ -/r 9078:	terracre.zip
++++ -/r 9138:	tetris.zip
++++ -/r 8996:	tetrisa.zip
++++ -/r 9016:	tetrist.zip
++++ -/r 9177:	thepit.zip
++++ -/r 9162:	thetogyu.zip
++++ -/r 9137:	thief.zip
++++ -/r 9030:	thnddrgn.zip
++++ -/r 8818:	tigerh.zip
++++ -/r 8790:	timber.zip
++++ -/r 9014:	timekill.zip
++++ -/r 9230:	timeplt.zip
++++ -/r 9192:	timetunl.zip
++++ -/r 9215:	tnk3.zip
++++ -/r 8920:	todruaga.zip
++++ -/r 8733:	toggle.zip
++++ -/r 8935:	toobin.zip
++++ -/r 8949:	topland.zip
++++ -/r 8856:	toypop.zip
++++ -/r 8982:	transfrm.zip
++++ -/r 8731:	trog.zip
++++ -/r 8768:	trojan.zip
++++ -/r 8771:	tron 2.zip
++++ -/r 8750:	tron 3.zip
++++ -/r 9120:	tron.zip
++++ -/r 9132:	trstar.zip
++++ -/r 9060:	tshoot.zip
++++ -/r 8875:	ttmahjng.zip
++++ -/r 9173:	tubeit.zip
++++ -/r 8850:	tumblep.zip
++++ -/r 9034:	turbo.zip
++++ -/r 8782:	turtles.zip
++++ -/r 9122:	tutankhm.zip
++++ -/r 8904:	uballoon.zip
++++ -/r 8948:	ultratnk.zip
++++ -/r 9068:	unknown.zip
++++ -/r 9161:	uopoko.zip
++++ -/r 8824:	upndown.zip
++++ -/r 9009:	valkyrie.zip
++++ -/r 9149:	vanguard.zip
++++ -/r 9203:	vanilla.zip
++++ -/r 9184:	vaportra.zip
++++ -/r 8779:	varth.zip
++++ -/r 9144:	vastar.zip
++++ -/r 9089:	videopin.zip
++++ -/r 8825:	viper.zip
++++ -/r 8943:	vsmahjng.zip
++++ -/r 8736:	vulcan.zip
++++ -/r 9069:	wacko.zip
++++ -/r 8789:	warofbug.zip
++++ -/r 9092:	warpwarp.zip
++++ -/r 9190:	wboy.zip
++++ -/r 8975:	wfortune.zip
++++ -/r 8811:	wndrplnt.zip
++++ -/r 8918:	xenophob.zip
++++ -/r 8938:	Xevious (Namco)
++++ -/r 8891:	xevious.zip
++++ -/r 8813:	xybots.zip
++++ -/r 9139:	yard.zip
++++ -/r 9231:	yiear.zip
++++ -/r 9178:	zarzon.zip
++++ -/r 9041:	zaxxon.zip
++++ -/r 9101:	zektor.zip
++++ -/r 8956:	zigzag.zip
++++ -/r 8730:	zingzip.zip
++++ -/r 9150:	zoar.zip
++++ -/r 8965:	zookeep.zip
++++ -/r 8753:	zwackery.zip
++++ -/r 9071:	zzyzzyx2.zip
++++ -/r 8958:	zzyzzyxx.zip
+++ d/d 8649:	Saved Games
+++ d/d 9238:	Scores
++++ -/r 9239:	Icon^
+++ d/d 8690:	Screenshots
++++ -/r 8692:	bzone.png
++++ -/r 8691:	Icon^
++++ -/r 8693:	marble.png
+++ d/d 8698:	Sound Samples
++++ -/r 8699:	Icon^
++ -/r 4348:	MacSolitaire Classic
++ d/d 8556:	Mage Tools
+++ d/d 8558:	Cyber Tarot
++++ -/r 8577:	Browser Launcher
++++ -/r 8646:	Carl
++++ -/r 8561:	Celtic Cross
++++ -/r 8565:	Cyber Tarot
++++ -/r 8560:	CYBER.DDB
++++ -/r 8578:	CyberTarot
++++ -/r 8563:	File List DB
++++ -/r 8573:	Generic Deck DB
++++ -/r 8571:	Large Card List DB
++++ -/r 8567:	Making a Choice
++++ -/r 8576:	Past Present and Future
++++ -/r 8575:	PD.DAT
++++ d/d 8568:	PREF
+++++ -/r 8569:	Icon^
+++++ -/r 8570:	MCADDRSS.txt
++++ -/r 8566:	Rider-Waite
++++ d/d 8579:	Saved Readings ƒ
+++++ -/r 8562:	Carl
+++++ -/r 8564:	Carl 20050927 Reading
+++++ -/r 8582:	Carl's First Reading
+++++ -/r 8580:	Carl's First Reading BU
+++++ -/r 8581:	My First Reading 09:05:2001
++++ -/r 8574:	Seven Stars
++++ -/r 8572:	Tarot Help
++++ -/r 8583:	What Is Tarot
++++ -/r 8559:	wtrider.ddb
+++ -/r 8557:	Icon^
+++ d/d 8584:	TarotWorks
++++ -/r 8609:	About TW Guide
++++ d/d 8599:	Documentation
+++++ -/r 8606:	About TarotWorks
+++++ -/r 8605:	Icon^
+++++ d/d 8600:	Internet Addresses
++++++ -/r 8601:	About Internet Addresses
++++++ -/r 8604:	Email TarotWorks
++++++ -/r 8602:	Icon^
++++++ -/r 8603:	TarotWorks website
+++++ -/r 8607:	TarotWorks Manual
++++ -/r 8642:	How to Register
++++ -/r 8608:	Icon^
++++ d/d 8618:	Sample Readings
+++++ -/r 8627:	Balance 1
+++++ -/r 8638:	Balance 2
+++++ -/r 8633:	Balance Export
+++++ -/r 8630:	Celtic 1
+++++ -/r 8639:	Celtic 2
+++++ -/r 8619:	Celtic Export
+++++ -/r 8640:	Creative 1
+++++ -/r 8631:	Creative 2
+++++ -/r 8626:	Creative Export
+++++ -/r 8635:	Daily 1
+++++ -/r 8622:	Daily 2
+++++ -/r 8628:	Daily Export
+++++ -/r 8620:	Esteem 1
+++++ -/r 8634:	Esteem 2
+++++ -/r 8625:	Esteem Export
+++++ -/r 8623:	Icon^
+++++ -/r 8636:	Lifetime 1
+++++ -/r 8624:	Lifetime 2
+++++ -/r 8629:	Lifetime Export
+++++ -/r 8621:	Relationship 1
+++++ -/r 8632:	Relationship 2
+++++ -/r 8637:	Relationship Export
++++ d/d 8585:	Tarot Plug-Ins
+++++ -/r 8590:	Balance
+++++ -/r 8595:	Celtic
+++++ -/r 8598:	Creative
+++++ -/r 8591:	Daily
+++++ -/r 8588:	Data A
+++++ -/r 8597:	Data B
+++++ -/r 8596:	Data C
+++++ -/r 8587:	Esteem
+++++ -/r 8586:	Icon^
+++++ -/r 8593:	Lifetime
+++++ -/r 8594:	Relationship
+++++ -/r 8589:	Standard Deck
+++++ -/r 8592:	Standard Text
++++ -/r 8610:	TarotWorks
++++ -/r 8641:	TarotWorks Guide
++++ d/d 8612:	TarotWorks Readings Folder
+++++ -/r 8613:	Future Freedom & Independence …
+++++ -/r 8615:	Future Freedom & Indepe… Export
+++++ -/r 8617:	Lifetime Carl P McCall Export
+++++ -/r 8614:	Lifetime Reading Carl P. McCall
+++++ -/r 8616:	Sunday Sept. 16th DR
++++ -/r 8611:	TW Shortcuts
++ -/r 257:	Network Browser
++ -/r 11154:	Note Pad
++ d/d 1423:	QuickTime
+++ -/r 1464:	PictureViewer
+++ -/r 1463:	QuickTime Player
+++ -/r 1462:	QuickTime Plugin
+++ -/r 1461:	QuickTime READ ME
+++ -/r 1460:	QuickTime Updater
+++ -/r 1459:	Sample Image
+++ -/r 1458:	Sample Movie
++ d/d 10433:	RDA 4.0.0 Dist. Folder
+++ -/r 10429:	randomdotstereogram4.00.sit.hqx
+++ -/r 10434:	rda 4.0.0
+++ -/r 10435:	rda 4.0.0 FP
+++ -/r 10436:	RDA ReadMe.txt
+++ -/r 10432:	RDA.4.0.sit
++ d/d 95:	Security
+++ -/r 515:	Apple File Security
+++ -/r 509:	Apple Verifier
++ -/r 207:	SimpleSound
++ -/r 206:	SimpleText
++ d/d 2611:	StuffIt Deluxe 7.0.3
+++ -/r 2614:	ArchiveSearch
+++ d/d 2624:	Documentation
++++ -/r 2625:	Deluxe QuickStart.pdf
++++ -/r 2626:	License Agreement
++++ -/r 2627:	StuffIt Deluxe Read Me!
++++ -/r 2628:	StuffIt Deluxe Users Guide.pdf
++++ -/r 2629:	StuffIt Primer.pdf
++++ -/r 2610:	What Was Installed
+++ d/d 2630:	Examples
++++ d/d 2631:	Stuffit Deluxe Examples
+++++ -/r 2632:	Sample Archive.sit
+++++ -/r 2633:	Sample Picture.gif
+++++ -/r 2634:	Sample Text file
++++ d/d 2635:	StuffIt Express Examples
+++++ -/r 2636:	Stuff and Mail Drop Box
+++++ -/r 2637:	Stuff and Mail Steps
+++++ -/r 2638:	Zip and Mail Drop Box
+++++ -/r 2639:	Zip and Mail Steps
+++ -/r 2612:	Icon^
+++ -/r 2613:	StuffIt Deluxe
+++ d/d 2616:	StuffIt Drag and Drop
++++ -/r 2617:	DropConvert
++++ -/r 2618:	DropSegment
++++ -/r 2619:	DropStuff
++++ -/r 2620:	DropTar
++++ -/r 2621:	DropZip
++++ -/r 2622:	Secure Delete
++++ -/r 2623:	StuffIt Expander
+++ -/r 2615:	StuffIt Express PE
+++ d/d 2640:	StuffIt Office Add-Ins
++++ -/r 2641:	StuffIt Word 2001 Add-In
++ d/d 9263:	vMac:MacOS v0.1.9a
+++ -/r 9389:	License
+++ -/r 9394:	minivmac-2.6.1-bin.bgcmachs.tgz
+++ d/d 9267:	minivmac.app
++++ d/d 9268:	Contents
+++++ -/r 9275:	Info.plist
+++++ d/d 9269:	MacOS
++++++ -/r 9270:	minivmac
+++++ -/r 9276:	PkgInfo
+++++ d/d 9271:	Resources
++++++ -/r 9272:	AppIcon.icns
++++++ -/r 9273:	DskIcon.icns
++++++ -/r 9274:	RomIcon.icns
+++ -/r 9266:	Software by RFB
+++ d/d 9277:	Source Code
++++ -/r 9327:	config.h
++++ d/d 9328:	CPU
++++ -/r 9386:	custom.c
++++ -/r 9385:	debug.c
++++ d/d 9279:	Hardware
++++ d/d 9369:	Includes
+++++ -/r 9373:	compiler.h
+++++ -/r 9371:	custom.h
+++++ -/r 9372:	debug.h
+++++ -/r 9375:	events.h
+++++ -/r 9377:	KernTimer.h
+++++ -/r 9374:	newcpu.h
+++++ -/r 9378:	options.h
+++++ -/r 9379:	prefs.h
+++++ -/r 9381:	readcpu.h
+++++ -/r 9376:	reentrant_newcpu.h
+++++ -/r 9384:	rmemory.h
+++++ -/r 9370:	sysconfig.h
+++++ -/r 9380:	sysconfig.h.in
+++++ -/r 9383:	sysdeps.h
+++++ -/r 9382:	universal.h
++++ d/d 9311:	MacOS
+++++ -/r 9313:	CPU_MacOS.h
+++++ d/d 9315:	Internet Config
++++++ -/r 9323:	ICAPI.h
++++++ -/r 9322:	ICCAPI.h
++++++ -/r 9318:	ICComponentSelectors.h
++++++ -/r 9317:	ICGlue.o
++++++ -/r 9316:	ICGlueFar.o
++++++ -/r 9321:	ICGluePPC.lib
++++++ -/r 9320:	ICKeys.p
++++++ -/r 9319:	ICTypes.p
+++++ -/r 9324:	MacOS.h
+++++ -/r 9326:	Main_MacOS.i
+++++ -/r 9325:	Mouse-MacOS.c
+++++ -/r 9314:	Screen-MacOS.c
+++++ -/r 9312:	vMac.rsrc
++++ -/r 9387:	main.c
++++ -/r 9278:	prefs.c
++++ -/r 9388:	Source Read Me
++++ -/r 9368:	vMac.π
+++ -/r 9393:	vMac (fat)
+++ -/r 9392:	VMac Drive Two.img
+++ -/r 9395:	Vmac Drive.img
+++ -/r 9391:	vMac Prefs
+++ -/r 9265:	vMac Read Me
+++ -/r 9390:	vMac Screen 512KE
+++ -/r 9396:	vMac.ROM
+++ -/r 9264:	vMacBoot.dsk
+d/d 54:	Assistants
++ -/r 1866:	Internet Setup Assistant
++ -/r 281:	Mac OS Setup Assistant
+d/d 2947:	Cleanup At Startup
+-/r 18:	Desktop DB
+-/r 17:	Desktop DF
+d/d 19:	Desktop Folder
++ d/d 10464:	Appearance Addons GM
+++ -/r 10465:	25¢ Sounds
+++ -/r 10466:	2999 A.D. Theme
+++ -/r 10467:	Acid SoundSet
+++ -/r 10468:	Acropolis
+++ -/r 10469:	Aerial
+++ -/r 10470:	AKIRA Sound Set
+++ -/r 10471:	AlienTwilight
+++ -/r 10472:	Apple platinum
+++ -/r 10473:	Aqua
+++ -/r 10474:	Aqua  v2.0.1
+++ -/r 10475:	Aqua SoundSet 1.0
+++ -/r 10476:	Aqua v2.0
+++ -/r 10477:	Beach on Ko Samui
+++ -/r 10478:	Birds in Flight
+++ -/r 10479:	BLACKSILVER
+++ -/r 10480:	Blue
+++ -/r 10481:	Blueberry Oxygen
+++ -/r 10482:	Blueberry Union
+++ -/r 10483:	Bottles
+++ -/r 10484:	Cancun Sunset
+++ -/r 10485:	Capsule
+++ -/r 10486:	Clickz 1.0
+++ -/r 10487:	Cliffs of Moher
+++ -/r 10488:	Convergence 1
+++ -/r 10489:	Convergence 10
+++ -/r 10490:	Convergence 11
+++ -/r 10491:	Convergence 4
+++ -/r 10492:	Custom Themes
+++ -/r 10493:	Dark Platinum
+++ -/r 10494:	Delta
+++ -/r 10495:	Dimple 1.0
+++ -/r 10496:	Drawing Board
+++ -/r 10497:	DrawingBoard Sounds
+++ -/r 10498:	DSG Theme
+++ -/r 10499:	Dune Sound Set
+++ -/r 10500:	Ensemble Themes
+++ -/r 10501:	Final Fantasy Sound Set 1.0
+++ -/r 10502:	Fish Eagle
+++ -/r 10503:	Galway Bay
+++ -/r 10504:	Geometry PR 3
+++ -/r 10505:	Geometry PR2
+++ -/r 10506:	Gizmo
+++ -/r 10507:	Gizmo Platinum 0.9
+++ -/r 10508:	Gizmo Sounds
+++ -/r 10509:	Glacier National Park
+++ -/r 10510:	Glass SoundSet
+++ -/r 10511:	Golden Poppy
+++ -/r 10512:	Grape Gravity
+++ -/r 10513:	Grape Mission
+++ -/r 10514:	Hi-Tech
+++ -/r 10515:	Hi-Tech Sounds
+++ -/r 10516:	Hi-Tech with Platinum Icons
+++ -/r 10517:	Highway 395
+++ -/r 10518:	Hong Kong at Night
+++ -/r 10519:	iBook
+++ -/r 10520:	iBookBB
+++ -/r 10521:	Icon^
+++ -/r 10522:	iMac Sounset V1.1
+++ -/r 10523:	Islamorada Sunrise
+++ -/r 10524:	iTech
+++ -/r 10525:	iTheme
+++ -/r 10526:	iThemePub1
+++ -/r 10527:	iThemePub2
+++ -/r 10528:	Jedi SoundSet
+++ -/r 10529:	Jimi Hendrix Riffs
+++ -/r 10530:	LCD1.0
+++ -/r 10531:	Lily Pad
+++ -/r 10532:	Lime Horizon
+++ -/r 10533:	Lime Sharp
+++ -/r 10534:	Liquid
+++ -/r 10535:	Liquid (icons)
+++ -/r 10536:	Long Island Sound
+++ -/r 10537:	LooneyTunes SoundSet 1.1b
+++ -/r 10538:	LUCENT
+++ -/r 10539:	Mac OS Background
+++ -/r 10540:	Marathon Soundset
+++ -/r 10541:	Martian Sounds !
+++ -/r 10542:	Matrix Soundset
+++ -/r 10543:	Metal Blips
+++ -/r 10544:	Midsummer Night
+++ -/r 10545:	Moby
+++ -/r 10546:	Moraine Lake
+++ -/r 10547:	Myst
+++ -/r 10548:	Myst Sound Set
+++ -/r 10549:	MYST SoundSet
+++ -/r 10550:	Neutech
+++ -/r 10551:	Neutech Lite
+++ -/r 10552:	NextGen™ 1.1
+++ -/r 10553:	NeXTheme 1.0.1
+++ -/r 10554:	NeXTheme 1.0.2
+++ -/r 10555:	Oasis in Baja
+++ -/r 10556:	oddworld soundset
+++ -/r 10557:	PACMAN Sound Set
+++ -/r 10558:	Paper
+++ -/r 10559:	Paper Blueberry
+++ -/r 10560:	Paper blugray
+++ -/r 10561:	Paper Grape
+++ -/r 10562:	Paper iMac Original 
+++ -/r 10563:	Paper Lime
+++ -/r 10564:	Paper Lite
+++ -/r 10565:	Paper Sky
+++ -/r 10566:	Paper Strawberry
+++ -/r 10567:	Paper Tangerine 
+++ -/r 10568:	Paper Tugray
+++ -/r 10569:	paper8
+++ -/r 10570:	PlasticWrap 1.1
+++ -/r 10571:	Platinum Sounds
+++ -/r 10572:	postpetDX Set
+++ -/r 10573:	Q's Paper SoundSet
+++ -/r 10574:	QLike
+++ -/r 10575:	QT4 Modoki
+++ -/r 10576:	Quantum Foam
+++ -/r 10577:	R2D2 SoundSet
+++ -/r 10578:	Red Clouds
+++ -/r 10579:	SGI Sounds
+++ -/r 10580:	Shutters
+++ -/r 10581:	Slate Board
+++ -/r 10582:	Sosumi
+++ -/r 10583:	Sound Sets 2016-04-14 19-20-18.
+++ -/r 10584:	Spooky Sounds1.0
+++ -/r 10585:	Squeaky Chair 1.0
+++ -/r 10586:	Stereolab Sound Set
+++ -/r 10587:	Strawberry Baby
+++ -/r 10588:	Strawberry Parabola
+++ -/r 10589:	Summer Tan
+++ -/r 10590:	System 7
+++ -/r 10591:	System 7 (No Icons)
+++ -/r 10592:	T&P Flatus SoundSet
+++ -/r 10593:	Tangerine Fusion
+++ -/r 10594:	Tangerine Melt
+++ -/r 10595:	Tech
+++ -/r 10596:	Tech Desktop
+++ -/r 10597:	Terminator 2 Sound Set
+++ -/r 10598:	Toronto Skyline
+++ -/r 10599:	Toy Chest SoundSet
+++ -/r 10600:	Tub
+++ -/r 10601:	Tuolumne Meadows
+++ -/r 10602:	UFO 1
+++ -/r 10603:	UFO 2
+++ -/r 10604:	WayOutSpace
+++ -/r 10605:	Wet SoundSet 1.0
+++ -/r 10606:	Win Doze 98
+++ -/r 10607:	Windose98 Sounds
+++ -/r 10608:	Windows Nt Soundset
+++ -/r 10609:	Y3K v2.0
+++ -/r 10610:	Y3K v2.0 Lite
+++ -/r 10611:	YOROZU 1.0.5
+++ -/r 10612:	Yosemite Valley
+++ -/r 10613:	Yucatan
+++ -/r 10614:	Ω
+++ -/r 10615:	Ω Theme Background
++ -/r 10463:	Appearance Addons GM.sea
++ -/r 9933:	Appearance Addons GM.sea.hqx
++ d/d 9911:	Appearance Panel
+++ d/d 9763:	Appearance Items Backup
++++ -/r 9820:	25¢ Sounds
++++ -/r 9818:	2999 A.D. Theme
++++ -/r 9821:	Acid SoundSet
++++ -/r 9861:	Acropolis
++++ -/r 9764:	Aerial
++++ -/r 9822:	AKIRA Sound Set
++++ -/r 9862:	AlienTwilight
++++ -/r 9765:	Apple platinum
++++ -/r 9766:	Aqua
++++ -/r 9767:	Aqua  v2.0.1
++++ -/r 9823:	Aqua SoundSet 1.0
++++ -/r 9768:	Aqua v2.0
++++ -/r 9863:	Beach on Ko Samui
++++ -/r 9864:	Birds in Flight
++++ -/r 9824:	BLACKSILVER
++++ -/r 9865:	Blueberry Oxygen
++++ -/r 9866:	Blueberry Union
++++ -/r 9867:	Bottles
++++ -/r 9868:	Cancun Sunset
++++ -/r 9869:	Capsule
++++ -/r 9825:	Clickz 1.0
++++ -/r 9870:	Cliffs of Moher
++++ -/r 9871:	Convergence 1
++++ -/r 9872:	Convergence 10
++++ -/r 9873:	Convergence 11
++++ -/r 9874:	Convergence 4
++++ -/r 9769:	Custom Themes
++++ -/r 9770:	Dark Platinum
++++ -/r 9819:	Dimple 1.0
++++ -/r 9771:	Drawing Board
++++ -/r 9826:	DrawingBoard Sounds
++++ -/r 9772:	DSG Theme
++++ -/r 9827:	Dune Sound Set
++++ -/r 9773:	Ensemble Themes
++++ -/r 9828:	Final Fantasy Sound Set 1.0
++++ -/r 9875:	Fish Eagle
++++ -/r 9876:	Galway Bay
++++ -/r 9774:	Geometry PR 3
++++ -/r 9775:	Geometry PR2
++++ -/r 9776:	Gizmo
++++ -/r 9777:	Gizmo Platinum 0.9
++++ -/r 9829:	Gizmo Sounds
++++ -/r 9877:	Glacier National Park
++++ -/r 9830:	Glass SoundSet
++++ -/r 9878:	Golden Poppy
++++ -/r 9879:	Grape Gravity
++++ -/r 9880:	Grape Mission
++++ -/r 9778:	Hi-Tech
++++ -/r 9831:	Hi-Tech Sounds
++++ -/r 9779:	Hi-Tech with Platinum Icons
++++ -/r 9881:	Highway 395
++++ -/r 9882:	Hong Kong at Night
++++ -/r 9780:	iBook
++++ -/r 9781:	iBookBB
++++ -/r 9832:	iMac Sounset V1.1
++++ -/r 9883:	Islamorada Sunrise
++++ -/r 9782:	iTech
++++ -/r 9783:	iTheme
++++ -/r 9784:	iThemePub1
++++ -/r 9785:	iThemePub2
++++ -/r 9860:	Jedi SoundSet
++++ -/r 9833:	Jimi Hendrix Riffs
++++ -/r 9786:	LCD1.0
++++ -/r 9884:	Lily Pad
++++ -/r 9885:	Lime Horizon
++++ -/r 9886:	Lime Sharp
++++ -/r 9787:	Liquid
++++ -/r 9788:	Liquid (icons)
++++ -/r 9887:	Long Island Sound
++++ -/r 9834:	LooneyTunes SoundSet 1.1b
++++ -/r 9789:	LUCENT
++++ -/r 9888:	Mac OS Background
++++ -/r 9835:	Marathon Soundset
++++ -/r 9836:	Martian Sounds !
++++ -/r 9837:	Matrix Soundset
++++ -/r 9838:	Metal Blips
++++ -/r 9889:	Midsummer Night
++++ -/r 9790:	Moby
++++ -/r 9890:	Moraine Lake
++++ -/r 9839:	Myst
++++ -/r 9840:	Myst Sound Set
++++ -/r 9841:	MYST SoundSet
++++ -/r 9791:	Neutech
++++ -/r 9792:	Neutech Lite
++++ -/r 9842:	NextGen™ 1.1
++++ -/r 9793:	NeXTheme 1.0.1
++++ -/r 9794:	NeXTheme 1.0.2
++++ -/r 9891:	Oasis in Baja
++++ -/r 9843:	PACMAN Sound Set
++++ -/r 9795:	Paper
++++ -/r 9796:	Paper Blueberry
++++ -/r 9797:	Paper blugray
++++ -/r 9798:	Paper Grape
++++ -/r 9799:	Paper iMac Original 
++++ -/r 9800:	Paper Lime
++++ -/r 9801:	Paper Lite
++++ -/r 9802:	Paper Sky
++++ -/r 9803:	Paper Strawberry
++++ -/r 9804:	Paper Tangerine 
++++ -/r 9805:	Paper Tugray
++++ -/r 9806:	paper8
++++ -/r 9844:	PlasticWrap 1.1
++++ -/r 9845:	Platinum Sounds
++++ -/r 9846:	postpetDX Set
++++ -/r 9847:	Q's Paper SoundSet
++++ -/r 9807:	QLike
++++ -/r 9808:	QT4 Modoki
++++ -/r 9892:	Quantum Foam
++++ -/r 9848:	R2D2 SoundSet
++++ -/r 9893:	Red Clouds
++++ -/r 9849:	SGI Sounds
++++ -/r 9894:	Shutters
++++ -/r 9809:	Slate Board
++++ -/r 9810:	Sosumi
++++ -/r 9850:	Spooky Sounds1.0
++++ -/r 9851:	Squeaky Chair 1.0
++++ -/r 9852:	Stereolab Sound Set
++++ -/r 9895:	Strawberry Baby
++++ -/r 9896:	Strawberry Parabola
++++ -/r 9811:	Summer Tan
++++ -/r 9812:	System 7
++++ -/r 9813:	System 7 (No Icons)
++++ -/r 9853:	T&P Flatus SoundSet
++++ -/r 9897:	Tangerine Fusion
++++ -/r 9898:	Tangerine Melt
++++ -/r 9899:	Tech Desktop
++++ -/r 9854:	Terminator 2 Sound Set
++++ -/r 9900:	Toronto Skyline
++++ -/r 9855:	Toy Chest SoundSet
++++ -/r 9901:	Tub
++++ -/r 9902:	Tuolumne Meadows
++++ -/r 9903:	UFO 1
++++ -/r 9904:	UFO 2
++++ -/r 9905:	WayOutSpace
++++ -/r 9856:	Wet SoundSet 1.0
++++ -/r 9814:	Win Doze 98
++++ -/r 9857:	Windose98 Sounds
++++ -/r 9858:	Windows Nt Soundset
++++ -/r 9815:	Y3K v2.0
++++ -/r 9816:	Y3K v2.0 Lite
++++ -/r 9859:	YOROZU 1.0.5
++++ -/r 9906:	Yosemite Valley
++++ -/r 9907:	Yucatan
++++ -/r 9817:	Ω
++++ -/r 9908:	Ω Theme Background
+++ -/r 9914:	Icon^
+++ -/r 9918:	Using these Appearance Items
++ -/r 9921:	Appearance Panel.zip
++ d/d 10095:	Aros Fractals Folder
+++ -/r 10096:	Aros Fractals
+++ -/r 10097:	Giant Cubic Newton 1
+++ -/r 10098:	Giant Rabid Newton 1
+++ -/r 10099:	Giant Rainbow Plasma Cloud
+++ -/r 10100:	Icon^
+++ -/r 10101:	Mandelbrot 1
+++ -/r 10102:	Rabid Newton 1
+++ -/r 10103:	Yipe Mandelbrot
++ -/r 10094:	Be iValentine
++ -/r 2869:	Claris CAD
++ -/r 10109:	hpdj3.1.sit.hqx
++ -/r 2710:	StuffIt Expander
+d/d 2525:	Downloads
++ d/d 3745:	Aladdin Stuffit
+++ -/r 2528:	Aladdin Expander™ 5.5 Installer
+++ -/r 3746:	Icon^
+++ -/r 2529:	STFDLX703CLASSIC.SIT
+++ -/r 2531:	StuffItDeluxe_7_0_3.smi
++ -/r 7207:	Appearance Addons GM.sea.hqx
++ d/d 3747:	Appearance Modifiers
+++ -/r 6641:	11-more.sit
+++ -/r 3869:	9-more-Sound-Sets.sit
+++ -/r 5949:	Additional Desktop Patterns
+++ d/d 3743:	After Dark Screensaver
++++ d/d 3733:	After Dark 10th Anniversary
+++++ -/r 3734:	Double-Click Me To Install
+++++ -/r 3735:	EULA.txt
+++++ -/r 3736:	Main
+++++ -/r 3737:	QuickTime Install Cache
+++++ -/r 3738:	QuickTime Installer
+++++ -/r 3739:	Read Me
++++ d/d 3955:	After Dark 2
+++++ -/r 4038:	After Dark
+++++ d/d 3957:	After Dark Files
++++ -/r 3744:	Icon^
++++ d/d 3742:	Midnight Collection
+++++ -/r 3751:	Double-Click Me to Install 
+++++ -/r 3752:	EULA.txt
+++++ -/r 3753:	Read Me
+++++ d/d 3754:	Sierra Attractions Demos
++++++ d/d 3755:	After Dark Games
+++++++ -/r 3756:	After Dark Games Demo Installer
++++++ d/d 3757:	HeadRush
+++++++ -/r 3758:	HeadRush™ Demo Installer
+++++++ -/r 3759:	Icon^
++++++ d/d 3760:	YOU DON'T KNOW JACK the Netshow
+++++++ -/r 3761:	JACKinstall
+++ d/d 7006:	Appearance Addons GM
++++ -/r 7100:	25¢ Sounds
++++ -/r 7143:	2999 A.D. Theme
++++ -/r 7101:	Acid SoundSet
++++ -/r 7056:	Acropolis
++++ -/r 7144:	Aerial
++++ -/r 7102:	AKIRA Sound Set
++++ -/r 7057:	AlienTwilight
++++ -/r 7145:	Apple platinum
++++ -/r 7146:	Aqua
++++ -/r 7147:	Aqua  v2.0.1
++++ -/r 7103:	Aqua SoundSet 1.0
++++ -/r 7148:	Aqua v2.0
++++ -/r 7058:	Beach on Ko Samui
++++ -/r 7059:	Birds in Flight
++++ -/r 7104:	BLACKSILVER
++++ -/r 7149:	Blue
++++ -/r 7060:	Blueberry Oxygen
++++ -/r 7061:	Blueberry Union
++++ -/r 7062:	Bottles
++++ -/r 7063:	Cancun Sunset
++++ -/r 7064:	Capsule
++++ -/r 7105:	Clickz 1.0
++++ -/r 7065:	Cliffs of Moher
++++ -/r 7053:	Convergence 1
++++ -/r 7055:	Convergence 10
++++ -/r 7054:	Convergence 11
++++ -/r 7052:	Convergence 4
++++ -/r 7150:	Custom Themes
++++ -/r 7151:	Dark Platinum
++++ -/r 7152:	Delta
++++ -/r 7153:	Dimple 1.0
++++ -/r 7154:	Drawing Board
++++ -/r 7106:	DrawingBoard Sounds
++++ -/r 7155:	DSG Theme
++++ -/r 7107:	Dune Sound Set
++++ -/r 7156:	Ensemble Themes
++++ -/r 7108:	Final Fantasy Sound Set 1.0
++++ -/r 7066:	Fish Eagle
++++ -/r 7067:	Galway Bay
++++ -/r 7157:	Geometry PR 3
++++ -/r 7158:	Geometry PR2
++++ -/r 7159:	Gizmo
++++ -/r 7160:	Gizmo Platinum 0.9
++++ -/r 7109:	Gizmo Sounds
++++ -/r 7068:	Glacier National Park
++++ -/r 7110:	Glass SoundSet
++++ -/r 7069:	Golden Poppy
++++ -/r 7070:	Grape Gravity
++++ -/r 7071:	Grape Mission
++++ -/r 7161:	Hi-Tech
++++ -/r 7111:	Hi-Tech Sounds
++++ -/r 7162:	Hi-Tech with Platinum Icons
++++ -/r 7072:	Highway 395
++++ -/r 7073:	Hong Kong at Night
++++ -/r 7163:	iBook
++++ -/r 7164:	iBookBB
++++ -/r 7007:	Icon^
++++ -/r 7112:	iMac Sounset V1.1
++++ -/r 7074:	Islamorada Sunrise
++++ -/r 7165:	iTech
++++ -/r 7166:	iTheme
++++ -/r 7167:	iThemePub1
++++ -/r 7168:	iThemePub2
++++ -/r 7113:	Jedi SoundSet
++++ -/r 7114:	Jimi Hendrix Riffs
++++ -/r 7169:	LCD1.0
++++ -/r 7075:	Lily Pad
++++ -/r 7076:	Lime Horizon
++++ -/r 7077:	Lime Sharp
++++ -/r 7170:	Liquid
++++ -/r 7171:	Liquid (icons)
++++ -/r 7078:	Long Island Sound
++++ -/r 7115:	LooneyTunes SoundSet 1.1b
++++ -/r 7172:	LUCENT
++++ -/r 7079:	Mac OS Background
++++ -/r 7116:	Marathon Soundset
++++ -/r 7117:	Martian Sounds !
++++ -/r 7118:	Matrix Soundset
++++ -/r 7119:	Metal Blips
++++ -/r 7080:	Midsummer Night
++++ -/r 7173:	Moby
++++ -/r 7081:	Moraine Lake
++++ -/r 7120:	Myst
++++ -/r 7121:	Myst Sound Set
++++ -/r 7122:	MYST SoundSet
++++ -/r 7174:	Neutech
++++ -/r 7175:	Neutech Lite
++++ -/r 7123:	NextGen™ 1.1
++++ -/r 7176:	NeXTheme 1.0.1
++++ -/r 7177:	NeXTheme 1.0.2
++++ -/r 7082:	Oasis in Baja
++++ -/r 7124:	oddworld soundset
++++ -/r 7125:	PACMAN Sound Set
++++ -/r 7178:	Paper
++++ -/r 7179:	Paper Blueberry
++++ -/r 7180:	Paper blugray
++++ -/r 7181:	Paper Grape
++++ -/r 7182:	Paper iMac Original 
++++ -/r 7183:	Paper Lime
++++ -/r 7184:	Paper Lite
++++ -/r 7185:	Paper Sky
++++ -/r 7186:	Paper Strawberry
++++ -/r 7187:	Paper Tangerine 
++++ -/r 7188:	Paper Tugray
++++ -/r 7189:	paper8
++++ -/r 7126:	PlasticWrap 1.1
++++ -/r 7127:	Platinum Sounds
++++ -/r 7128:	postpetDX Set
++++ -/r 7129:	Q's Paper SoundSet
++++ -/r 7190:	QLike
++++ -/r 7191:	QT4 Modoki
++++ -/r 7083:	Quantum Foam
++++ -/r 7130:	R2D2 SoundSet
++++ -/r 7084:	Red Clouds
++++ -/r 7131:	SGI Sounds
++++ -/r 7085:	Shutters
++++ -/r 7192:	Slate Board
++++ -/r 7193:	Sosumi
++++ -/r 7132:	Sound Sets 2016-04-14 19-20-18.
++++ -/r 7133:	Spooky Sounds1.0
++++ -/r 7134:	Squeaky Chair 1.0
++++ -/r 7135:	Stereolab Sound Set
++++ -/r 7086:	Strawberry Baby
++++ -/r 7087:	Strawberry Parabola
++++ -/r 7194:	Summer Tan
++++ -/r 7195:	System 7
++++ -/r 7196:	System 7 (No Icons)
++++ -/r 7136:	T&P Flatus SoundSet
++++ -/r 7088:	Tangerine Fusion
++++ -/r 7089:	Tangerine Melt
++++ -/r 7197:	Tech
++++ -/r 7090:	Tech Desktop
++++ -/r 7137:	Terminator 2 Sound Set
++++ -/r 7091:	Toronto Skyline
++++ -/r 7138:	Toy Chest SoundSet
++++ -/r 7092:	Tub
++++ -/r 7093:	Tuolumne Meadows
++++ -/r 7094:	UFO 1
++++ -/r 7095:	UFO 2
++++ -/r 7096:	WayOutSpace
++++ -/r 7139:	Wet SoundSet 1.0
++++ -/r 7198:	Win Doze 98
++++ -/r 7140:	Windose98 Sounds
++++ -/r 7141:	Windows Nt Soundset
++++ -/r 7199:	Y3K v2.0
++++ -/r 7200:	Y3K v2.0 Lite
++++ -/r 7142:	YOROZU 1.0.5
++++ -/r 7097:	Yosemite Valley
++++ -/r 7098:	Yucatan
++++ -/r 7201:	Ω
++++ -/r 7099:	Ω Theme Background
+++ -/r 7206:	Appearance Addons GM.sea.hqx
+++ -/r 2526:	appearanceaddons.sit
+++ d/d 6646:	Bonus Icons
++++ -/r 6647:	Applications
++++ -/r 6648:	Documents
++++ -/r 6649:	G4 Side
++++ -/r 6650:	Icon^
++++ -/r 6651:	Internet App
++++ -/r 6652:	mail
++++ -/r 6653:	Users
+++ -/r 2527:	forty-appearance-themes.sit
+++ -/r 6661:	Geometric Light blue
+++ -/r 6662:	Geometry Dark Blue
+++ -/r 3748:	Icon^
+++ -/r 3776:	Sound_Sets.sit
++ d/d 3749:	Claris CAD Installer
+++ -/r 2791:	ClarisCAD 2.0 v3 CD.img
+++ -/r 2790:	clariscad.sit
+++ -/r 3750:	Icon^
++ d/d 4349:	Games
+++ -/r 4350:	Icon^
+++ -/r 4346:	MacSolitaire.sea_.hqx
++ -/r 2532:	Icon^
++ -/r 7242:	KoalaCalc_Classic.sit
++ -/r 10303:	Marine Aquarium Setup.sea
++ d/d 5077:	Powerbook G3 Install CD
+++ -/r 5944:	About Mac OS 8
+++ -/r 5943:	About Mac OS 8.1 Update
+++ -/r 5942:	About Mac OS Extended Format
+++ d/d 5938:	Acrobat Reader
++++ -/r 5939:	Reader 3.01 Installer
++++ -/r 5940:	ReadMe-Reader
++++ -/r 5941:	ReadMe-Reader v. 3.01
+++ d/d 5935:	America Online
++++ -/r 5937:	Before You Install
++++ -/r 5936:	Install AOL 3.0.2a (PPC)
+++ -/r 5934:	Apple Software Restore
+++ d/d 5931:	ARA 3.0.1 Updater
++++ -/r 5933:	ARA 3.0.1 Updater
++++ -/r 5932:	Remote Access 3.0.1 ReadMe
+++ -/r 5930:	CD - Important Information
+++ d/d 5945:	CD Extras
++++ d/d 5948:	Additional Desktop Patterns
++++ d/d 5970:	Additional Desktop Pictures
++++ d/d 5950:	AppleCD Player
+++++ -/r 5956:	About Enhanced CDs
+++++ -/r 5951:	AppleCD Player Guide
+++++ -/r 5952:	AppleCD Player Read Me
+++++ -/r 5953:	Click here if you have Explorer
+++++ -/r 5955:	Click here if you have Netscape
++++ d/d 6279:	CSW 4000 Update
+++++ -/r 6281:	CSW 4000 Series
+++++ -/r 6280:	CSW 4000 Update 1.1 ReadMe
++++ d/d 5957:	Extra Alert Sounds
+++++ -/r 5963:	About the Extra Alert Sounds
++++ d/d 6282:	Games
+++++ d/d 6283:	Eric's Solitaire Sampler
++++++ -/r 6284:	Eric’s Solitaire Read Me
++++++ -/r 6285:	Eric’s Solitaire Sample
++++ d/d 6100:	Internal Modem
+++++ -/r 6101:	AT Commands.pdf
+++++ -/r 6102:	Internal Modem Read Me
++++ -/r 6121:	MoviePlayer
++++ d/d 5946:	MPEG Sample
+++++ -/r 5947:	Ngorongoro Chapter
++++ d/d 6122:	QuickDraw 3D Extras
+++++ d/d 6270:	Additional Models
++++++ d/d 6275:	Model Masters
+++++++ -/r 6276:	Globe
+++++++ -/r 6277:	Model Masters Read Me
++++++ d/d 6271:	Viewpoint Datalabs Intl.
+++++++ -/r 6274:	Manatee
+++++++ -/r 6272:	Raptor
+++++++ -/r 6273:	Viewpoint Datalabs Read Me
+++++ d/d 6123:	Additional Textures
++++++ d/d 6124:	Wraptures textures
+++++++ -/r 6135:	 Wraptures Read Me
+++++++ -/r 6130:	Bricks-Scoured
+++++++ -/r 6134:	CloudScape
+++++++ -/r 6132:	Clover 
+++++++ -/r 6133:	Jelly Beans
+++++++ -/r 6128:	Marble
+++++++ -/r 6129:	Marble-Blue
+++++++ -/r 6125:	Satin-Silver
+++++++ -/r 6131:	Tile-Blue
+++++++ -/r 6126:	Water-Pool 
+++++++ -/r 6127:	wood-Floor 
++++++ d/d 6136:	Xaos Fresco textures
+++++++ -/r 6141:	Foam
+++++++ -/r 6138:	Grade
+++++++ -/r 6140:	Spear
+++++++ -/r 6137:	Xaos Tools Read Me
+++++++ -/r 6139:	Yarrow
+++++ d/d 6143:	Cumulus 2.5 for QuickDraw™ 3D
++++++ d/d 6185:	Adapters
+++++++ -/r 6192:	Cumulus 2.0.1.add
+++++++ -/r 6189:	Cumulus Frame Module 2.0.1
+++++++ -/r 6191:	Cumulus Illustrator Adapter
+++++++ -/r 6188:	Cumulus Photoshop PlugIn
+++++++ -/r 6186:	Cumulus RT Adapter 2.0
+++++++ -/r 6190:	Cumulus XTension 2.0.2
+++++++ -/r 6187:	Icon^
++++++ -/r 6193:	Canto’s Distributors.pdf
++++++ -/r 6183:	Cumulus Network
++++++ d/d 6144:	Documentation
+++++++ d/d 6175:	About the Adapters
++++++++ -/r 6180:	About Cumulus Frame Module
++++++++ -/r 6176:	About Cumulus Photoshop PlugIn
++++++++ -/r 6179:	About Illustrator Adapter
++++++++ -/r 6178:	About PageMaker Addition
++++++++ -/r 6177:	About RagTime Adapter
++++++++ -/r 6181:	About the Cumulus XTension
+++++++ d/d 6145:	About the File Filters
++++++++ -/r 6161:	About 3D Metafile Filter
++++++++ -/r 6165:	About AIFF Filter
++++++++ -/r 6148:	About Canvas 3.5.2 Filter
++++++++ -/r 6155:	About EPSF Filter
++++++++ -/r 6146:	About Frame-Filter
++++++++ -/r 6172:	About FreeHand 3 Filter
++++++++ -/r 6153:	About FreeHand 4 Filter
++++++++ -/r 6157:	About FreeHand5 Template Filter
++++++++ -/r 6169:	About GIF-Filter
++++++++ -/r 6162:	About JPEG:JFIF Filter
++++++++ -/r 6168:	About Movie Filter
++++++++ -/r 6167:	About MultiAd-Filter
++++++++ -/r 6149:	About PageMaker 5 Filter
++++++++ -/r 6150:	About PDF Filter
++++++++ -/r 6163:	About PhotoCD Filter
++++++++ -/r 6158:	About Photoshop 2.5  Filter
++++++++ -/r 6159:	About Photoshop Filter
++++++++ -/r 6147:	About PICS Filter
++++++++ -/r 6164:	About PICT Filter
++++++++ -/r 6156:	About PowerPoint 3 Filter
++++++++ -/r 6170:	About QuarkXPress Filter
++++++++ -/r 6171:	About RIFF Filter
++++++++ -/r 6152:	About Scitex CT Filter
++++++++ -/r 6154:	About Scitex LW Filter
++++++++ -/r 6160:	About the Persuasion Filters
++++++++ -/r 6166:	About TIFF Filter
++++++++ -/r 6151:	About topCAD Filter
+++++++ -/r 6182:	Cumulus 2.5 and AppleScript.pdf
+++++++ -/r 6174:	Export Formats
+++++++ -/r 6173:	Icon^
++++++ -/r 6260:	Empty Image Database
++++++ d/d 6225:	File Filters
+++++++ -/r 6255:	3D Metafile Filter 2.5b1
+++++++ -/r 6233:	3D Metafile Text Filter 2.5b1
+++++++ -/r 6242:	AIFF Filter 2.0.1
+++++++ -/r 6227:	Canvas 3.5 Filter 2.5
+++++++ -/r 6237:	EPSF Filter
+++++++ -/r 6228:	Frame Filter 2.0.1
+++++++ -/r 6250:	FreeHand 3 Filter 2.0.2
+++++++ -/r 6251:	FreeHand 4 Filter 2.0
+++++++ -/r 6259:	FreeHand 5 Template Filter 2.5
+++++++ -/r 6229:	FreeHand Reader 1.2
+++++++ -/r 6247:	GIF Filter 2.0.1b1
+++++++ -/r 6232:	Icon^
+++++++ -/r 6231:	JFIF Filter 2.5b1
+++++++ -/r 6230:	JPEG Filter 2.5b1
+++++++ -/r 6252:	MacPaint Filter 2.0
+++++++ -/r 6248:	Movie Filter 2.0.1
+++++++ -/r 6240:	MultiAd Filter 2.0.1
+++++++ -/r 6243:	PageMaker 5 Filter 2.0.1
+++++++ -/r 6246:	PDF (TEXT) Filter 2.0.3
+++++++ -/r 6239:	PDF 2.0 Filter 2.0.3
+++++++ -/r 6235:	Persuasion 2 Filter 2.0.1
+++++++ -/r 6241:	Persuasion 3 Filter 2.0.1
+++++++ -/r 6254:	PhotoCD Filter 2.0
+++++++ -/r 6236:	Photoshop 2.5 Filter 2.0.1
+++++++ -/r 6258:	Photoshop Filter 2.0
+++++++ -/r 6244:	PICS Filter 2.0.1
+++++++ -/r 6256:	PICT Filter 2.0.3
+++++++ -/r 6226:	PowerPoint 3 Filter 2.0
+++++++ -/r 6234:	QuarkXPress Filter 2.0.2b1
+++++++ -/r 6245:	RIFF Filter 2.0
+++++++ -/r 6257:	Scitex CT Filter 2.0
+++++++ -/r 6238:	Scitex LW Filter 2.0
+++++++ -/r 6249:	TIFF Filter 2.5b2
+++++++ -/r 6253:	topCAD Filter 2.0
++++++ d/d 6194:	More Scripts
+++++++ -/r 6210:	count file types
+++++++ d/d 6205:	Cumulus->FileMaker
++++++++ -/r 6207:	Cumulus->FileMaker
++++++++ -/r 6206:	Cumulus2FileMaker
+++++++ -/r 6201:	CumulusContactSheet
+++++++ -/r 6202:	Hot Folder
+++++++ -/r 6204:	Hot Folder.Script
+++++++ -/r 6211:	keywords as one text
+++++++ -/r 6200:	keywords to text
+++++++ -/r 6196:	make new rows
+++++++ -/r 6209:	new keyword from current date
+++++++ -/r 6208:	Open DB with Remote Cumulus
+++++++ -/r 6198:	PICT File to Thumbnail
+++++++ -/r 6199:	Remove All Keywords
+++++++ -/r 6203:	text to keywords
+++++++ -/r 6197:	Thumbnails to PICT Files
+++++++ -/r 6195:	update database users
++++++ -/r 6184:	Read Me
++++++ d/d 6212:	Scripts
+++++++ -/r 6223:	Assign Multiple Keywords
+++++++ -/r 6224:	Catalog QuickTake Camera
+++++++ -/r 6219:	Copy DCS Files to Single Folder
+++++++ -/r 6220:	Folder Has Moved
+++++++ -/r 6215:	Icon^
+++++++ -/r 6213:	Join Duplicate Keywords
+++++++ -/r 6217:	Move Folder
+++++++ -/r 6222:	Optimize DB for Information
+++++++ -/r 6221:	Optimize DB for Safety
+++++++ -/r 6216:	Optimize DB for Speed
+++++++ -/r 6214:	Redirect File Reference
+++++++ -/r 6218:	Server Has Changed
+++++ d/d 6261:	Gerbils! Folder
++++++ -/r 6269:	Gerbils!
++++++ -/r 6262:	Gerbils! Read Me
++++++ d/d 6263:	Models Folder
+++++++ -/r 6264:	Red Truck
+++++++ -/r 6265:	X29 Jet
++++++ d/d 6266:	Textures Folder
+++++++ -/r 6268:	Foam
+++++++ -/r 6267:	Jelly Beans
+++++ -/r 6142:	QuickDraw™ 3D Extras Read Me
++++ d/d 6119:	QuickTime Sample
+++++ -/r 6120:	The Old Apartment - BNL
++++ d/d 6105:	Spanish Text-to-Speech
+++++ -/r 6118:	Installer
+++++ d/d 6106:	Mexican TTS 1
++++++ -/r 6111:	Installer
++++++ -/r 6108:	Mexican Spanish TTS Tome 1
++++++ -/r 6110:	Mexican TTS Install Script
++++++ -/r 6107:	SimpleText
++++++ -/r 6109:	Using Mexican Spanish TTS
+++++ d/d 6114:	Mexican TTS 2
++++++ -/r 6115:	Mexican Spanish TTS Tome 2
+++++ d/d 6112:	Mexican TTS 3
++++++ -/r 6113:	Mexican Spanish TTS Tome 3
+++++ -/r 6117:	Mexican TTS Install Script
+++++ -/r 6116:	Using Mexican Spanish TTS
++++ -/r 6278:	TeleAdapt Apple Solutions.pdf
++++ d/d 5993:	Third-Party PC Card Drivers
+++++ d/d 6097:	Dayna
++++++ -/r 6099:	CommuniCard Installer 2.2
++++++ -/r 6098:	ReadMe 2.2
+++++ d/d 6020:	Farallon
++++++ d/d 6021:	Install LAN:Modem PC Card
+++++++ -/r 6055:	EN Diagnostics 2.4
+++++++ -/r 6052:	EtherTalk Phase 2
+++++++ -/r 6022:	Farallon LAN:Modem
+++++++ -/r 6023:	Farallon Script
+++++++ d/d 6029:	Farallon Zterm
++++++++ d/d 6045:	System 7 & MacPlus
+++++++++ -/r 6047:	MacPlus users - Read Me
+++++++++ -/r 6046:	ZTerm Keyboard
++++++++ -/r 6030:	ZPhoneList
++++++++ d/d 6031:	ZTerm Docs
+++++++++ -/r 6037:	0. Title
+++++++++ -/r 6033:	1. Introduction
+++++++++ -/r 6040:	2. Getting Started
+++++++++ -/r 6043:	3. Terminal Functions
+++++++++ -/r 6038:	4. File Transfers
+++++++++ -/r 6035:	5. Scripting
+++++++++ -/r 6036:	6. Modem Commands
+++++++++ -/r 6039:	7. High Speed Modems
+++++++++ -/r 6041:	8. Trouble Shooting
+++++++++ -/r 6042:	9. Menu Reference
+++++++++ -/r 6032:	A. Appendices
+++++++++ -/r 6034:	G. Glossary
++++++++ -/r 6044:	ZTerm Farallon-1
+++++++ d/d 6058:	For CSS 3.0
++++++++ -/r 6063:	Farallon LAN Modem
++++++++ -/r 6059:	Farallon LAN Modem Enabler
++++++++ -/r 6060:	Farallon LAN Modem Window
++++++++ d/d 6061:	For PB2400
+++++++++ -/r 6062:	SS1130
+++++++ -/r 6064:	IMPORTANT - For PB2400 Users
+++++++ -/r 6057:	Installer
+++++++ d/d 6024:	Modem Docs
++++++++ -/r 6025:	AT Fax Commands
++++++++ -/r 6027:	AT Modem Commands
++++++++ -/r 6028:	Result Codes
++++++++ -/r 6026:	S-registers
+++++++ -/r 6054:	Modem Docs Icon
+++++++ d/d 6048:	Modem Support
++++++++ -/r 6049:	Farallon Modem Diagnostics.zts
+++++++ -/r 6051:	ModemProfiles
+++++++ -/r 6050:	Network
+++++++ -/r 6053:	ReadMe
+++++++ d/d 6065:	Scripts Folder
++++++++ d/d 6074:	AOL
+++++++++ -/r 6076:	Custom Modem Profiles
+++++++++ -/r 6075:	Farallon LAN:Modem
++++++++ d/d 6070:	AppleLink
+++++++++ -/r 6071:	Farallon LAN:Modem
++++++++ d/d 6068:	ARA
+++++++++ -/r 6069:	Farallon LAN:Modem for ARA 2.0
++++++++ d/d 6066:	Comm Toolbox:Modem Link
+++++++++ -/r 6067:	Farallon Modem Defs for AMT 1.5
++++++++ d/d 6081:	Compuserve
+++++++++ -/r 6082:	Configuring MacCIM
++++++++ d/d 6077:	First Class
+++++++++ -/r 6078:	Farallon LAN:Modem.mdm
++++++++ d/d 6072:	OT:PPP
+++++++++ -/r 6073:	Farallon LAN:Modem for OT:PPP
++++++++ d/d 6079:	Prodigy
+++++++++ -/r 6080:	Connecting to Prodigy
+++++++ -/r 6056:	Software Folder Icon
++++++ d/d 6083:	PC Card Installer 2.2
+++++++ -/r 6086:	Diagnostics ReadMe
+++++++ -/r 6092:	EN Diagnostics 2.4
+++++++ -/r 6087:	EtherTalk Phase 2
+++++++ -/r 6089:	Farallon PC Card
+++++++ -/r 6084:	Farallon Script
+++++++ d/d 6094:	For CSS 3.0
++++++++ -/r 6095:	EN PC Card CSS3.0
++++++++ -/r 6096:	EN PC Card Enabler
+++++++ d/d 6090:	For Newton Devices
++++++++ -/r 6091:	FarallonEthernet.pkg
+++++++ -/r 6093:	Installer
+++++++ -/r 6085:	Network
+++++++ -/r 6088:	ReadMe
+++++ d/d 5994:	Global Village
++++++ d/d 6004:	GV PC Card Installer Disk 1
+++++++ -/r 6007:	AppleGuide Files Archive
+++++++ -/r 6011:	GlobalFax Archive 1
+++++++ -/r 6006:	GlobalFax Archive 2
+++++++ -/r 6015:	Install Global Village PC Card
+++++++ -/r 6014:	Installer
+++++++ -/r 6008:	PP PC Card Script Archive
+++++++ -/r 6013:	Read Me - GV PC Card
+++++++ -/r 6012:	Read Me - PC Card 3.0.2 Update
+++++++ d/d 6009:	Registration Modules
++++++++ -/r 6010:	PPPCCardReg.module
+++++++ -/r 6005:	SimpleText
++++++ d/d 5995:	GV PC Card Installer Disk 2
+++++++ -/r 5996:	Ethernet Driver
+++++++ -/r 6001:	GF User's Guide Archive
+++++++ -/r 5998:	GV Software for C&SS 2.0
+++++++ -/r 5999:	GV Software for C&SS 3.0
+++++++ -/r 5997:	GV System Information Archive
+++++++ -/r 6000:	Zterm Archive
++++++ d/d 6002:	GV PC Card Installer Disk 3
+++++++ -/r 6003:	GV PC Card ROM Update Archive
++++++ -/r 6019:	Install Global Village PC Card
++++++ -/r 6018:	Installer
++++++ -/r 6017:	Read Me - GV PC Card
++++++ -/r 6016:	Read Me - PC Card 3.0.2 Update
++++ d/d 6103:	WebWhacker 3.0
+++++ -/r 6104:	WebWhacker 3.0 Installer
+++ d/d 5927:	Configurations
++++ -/r 5929:	PowerBook G3 Series HD.img
++++ -/r 5928:	PowerBook G3 Series HD.readme
+++ -/r 5078:	Icon^
+++ -/r 5926:	Install PowerBook G3 Series
+++ -/r 5925:	Installing Mac OS 8.1
+++ d/d 5918:	Internet Extras
++++ -/r 5922:	Before You Install
++++ -/r 5923:	International Internet Access
++++ -/r 5924:	ISP Information Form
++++ d/d 5919:	MacroMedia Plug-ins
+++ -/r 5917:	Mac OS Install
+++ d/d 5900:	Mac OS Read Me Files
++++ -/r 5913:	About AppleShare 3.6.5
++++ -/r 5916:	About English Text-to-Speech
++++ -/r 5914:	About Multiprocessing Software
++++ -/r 5901:	About QuickDraw GX
++++ -/r 5910:	Apple LaserWriter Printer Tips
++++ -/r 5915:	Apple Printer Software Read Me
++++ d/d 5902:	Open Transport Information
+++++ -/r 5904:	Open Transport UG
+++++ -/r 5905:	OT 1.3 ReadMe - Part1
+++++ -/r 5903:	OT 1.3 ReadMe - Part2
+++++ -/r 5906:	OT 1.3 Technical Info
++++ d/d 5907:	Open Transport:PPP Information
+++++ -/r 5909:	About Open Transport:PPP
+++++ -/r 5908:	OT:PPP User’s Manual.pdf
++++ -/r 5911:	QuickDraw™ 3D Read Me
++++ -/r 5912:	What User Groups Can Do For You
+++ d/d 5877:	Netscape Navigator
++++ -/r 5899:	Before You Install
++++ d/d 5878:	Navigator 4.04 PPC ƒ
+++++ -/r 5880:	Icon^
+++++ -/r 5879:	License
+++++ d/d 5882:	Navigator Module
++++++ -/r 5888:	Bookmarks.html
++++++ -/r 5891:	Custom Animation
++++++ -/r 5890:	Navigator Module
++++++ -/r 5889:	netscape.cfg
++++++ d/d 5883:	Security
+++++++ -/r 5885:	Certificates7
+++++++ -/r 5884:	Key Database3
+++++++ -/r 5886:	Security
+++++++ -/r 5887:	SignedAppletDB
+++++ d/d 5893:	Netscape Installer
++++++ -/r 5895:	Icon^
++++++ -/r 5897:	Installer Preferences
++++++ -/r 5894:	License
++++++ -/r 5898:	Netscape Installer
++++++ -/r 5896:	Read Me!
+++++ -/r 5892:	Netscape Installer - PPC
+++++ -/r 5881:	Read Me!
+++ -/r 5876:	PowerBook G3 Series Read Me
+++ -/r 5875:	Restoring PowerBook Software
+++ d/d 5088:	Software Installers
++++ d/d 5766:	Apple Remote Access Client
+++++ d/d 5767:	ARA Client Install 1
++++++ -/r 5768:	ARA Archive 1
++++++ -/r 5770:	Client Installation
++++++ -/r 5769:	Install Remote Access
++++++ -/r 5771:	Remote Access Read Me
+++++ d/d 5773:	ARA Client Install 2
++++++ -/r 5775:	ARA Archive 2
++++++ -/r 5774:	Modem Scripts Archive
+++++ -/r 5776:	Client Installation
+++++ -/r 5772:	Install Remote Access
+++++ -/r 5777:	Remote Access Read Me
++++ d/d 5697:	English Text-to-Speech
++++ d/d 5564:	Info Center
+++++ -/r 5652:	Info Center Installer
+++++ d/d 5565:	InfoCenter Update
++++++ d/d 5576:	cp
+++++++ -/r 5630:	cp.html
+++++++ -/r 5592:	cpbat.html
+++++++ -/r 5600:	cpbat1.gif
+++++++ -/r 5609:	cpbat2.gif
+++++++ -/r 5602:	cpbat3.gif
+++++++ -/r 5616:	cpbat4.gif
+++++++ -/r 5613:	cpbat5.gif
+++++++ -/r 5612:	cpbat7.gif
+++++++ -/r 5607:	cpclamlg.gif
+++++++ -/r 5628:	cpclamsm.gif
+++++++ -/r 5619:	cpcs.html
+++++++ -/r 5647:	cpcs1.gif
+++++++ -/r 5643:	cpcs2.gif
+++++++ -/r 5593:	cpdes.html
+++++++ -/r 5604:	cpether.gif
+++++++ -/r 5639:	cpether.html
+++++++ -/r 5625:	cpexpan.html
+++++++ -/r 5627:	cpexpan1.gif
+++++++ -/r 5596:	cpextm.gif
+++++++ -/r 5632:	cpextm.html
+++++++ -/r 5615:	cpfilea.html
+++++++ -/r 5578:	cpfilea1.gif
+++++++ -/r 5581:	cpfilea2.gif
+++++++ -/r 5580:	cphard.html
+++++++ -/r 5618:	cpir.gif
+++++++ -/r 5610:	cpir.html
+++++++ -/r 5605:	cpirf.html
+++++++ -/r 5586:	cpirf1.gif
+++++++ -/r 5595:	cpirf2.gif
+++++++ -/r 5589:	cpirf3.gif
+++++++ -/r 5620:	cplocm.html
+++++++ -/r 5646:	cplocm1.gif
+++++++ -/r 5642:	cplocm2.gif
+++++++ -/r 5624:	cpmod.gif
+++++++ -/r 5635:	cpmod.html
+++++++ -/r 5626:	cpmod2.gif
+++++++ -/r 5591:	cpopn.gif
+++++++ -/r 5606:	cppass.html
+++++++ -/r 5583:	cppass1.gif
+++++++ -/r 5590:	cppass2.gif
+++++++ -/r 5631:	cppcmcia.gif
+++++++ -/r 5621:	cppcmcia.html
+++++++ -/r 5637:	cppcmcia1.gif
+++++++ -/r 5629:	cppcmcia2.gif
+++++++ -/r 5633:	cppcmcia3.gif
+++++++ -/r 5640:	cppcmcia4.gif
+++++++ -/r 5641:	cppcmcia5.gif
+++++++ -/r 5645:	cppcmcia6.gif
+++++++ -/r 5644:	cppcmcia7.gif
+++++++ -/r 5601:	cpproc.html
+++++++ -/r 5585:	cpscsi.gif
+++++++ -/r 5636:	cpscsi.html
+++++++ -/r 5588:	cpscsim.html
+++++++ -/r 5599:	cpscsim1.gif
+++++++ -/r 5608:	cpscsim2.gif
+++++++ -/r 5623:	cpsoft.html
+++++++ -/r 5598:	cptrack.html
+++++++ -/r 5594:	cptrack1.gif
+++++++ -/r 5584:	cptrack2.gif
+++++++ -/r 5582:	cptrack3.gif
+++++++ -/r 5579:	cpxappb.html
+++++++ -/r 5611:	cpxappb1.gif
+++++++ -/r 5614:	cpxappb2.gif
+++++++ -/r 5587:	cpxappc.html
+++++++ -/r 5603:	cpxappc1.gif
+++++++ -/r 5597:	cpxappc2.gif
+++++++ -/r 5617:	cpxappe.html
+++++++ -/r 5577:	cpxappe1.gif
+++++++ -/r 5622:	cpxappg.html
+++++++ -/r 5634:	cpxappg1.gif
+++++++ -/r 5638:	cpxappg2.gif
++++++ -/r 5570:	Install InfoCenter Update
++++++ -/r 5571:	Mac OS Info Center
++++++ d/d 5566:	mn
+++++++ -/r 5567:	mnbut.gif
+++++++ -/r 5569:	mncpu.gif
+++++++ -/r 5568:	mnfea.gif
++++++ d/d 5572:	os
+++++++ -/r 5575:	os.html
+++++++ d/d 5573:	osint
++++++++ -/r 5574:	osint.html
+++++ -/r 5653:	Installer
+++++ d/d 5648:	Mac OS Info Center Install
++++++ -/r 5649:	Info Center Installer
++++++ -/r 5651:	Installer
++++++ -/r 5650:	parts
++++ d/d 5667:	Internet Access
+++++ -/r 5684:	About Internet Access
+++++ -/r 5672:	Icon^
+++++ -/r 5691:	Install Internet Access
+++++ -/r 5696:	Installer
+++++ d/d 5675:	Internet Access Disk 1
++++++ -/r 5676:	About Internet Access
++++++ -/r 5678:	Install Internet Access
++++++ -/r 5679:	Installer
++++++ -/r 5677:	Internet Access Tome 1
+++++ d/d 5685:	Internet Access Disk 10
++++++ -/r 5686:	Internet Access Tome 13
+++++ d/d 5694:	Internet Access Disk 2
++++++ -/r 5695:	Internet Access Tome 2
+++++ d/d 5687:	Internet Access Disk 3
++++++ -/r 5688:	Internet Access Tome 3
+++++ d/d 5689:	Internet Access Disk 4
++++++ -/r 5690:	Internet Access Tome 4
+++++ d/d 5692:	Internet Access Disk 5
++++++ -/r 5693:	Internet Access Tome 5
+++++ d/d 5680:	Internet Access Disk 6
++++++ -/r 5681:	Internet Access Tome 6
++++++ -/r 5682:	Internet Access Tome 7
++++++ -/r 5683:	Internet Access Tome 9
+++++ d/d 5668:	Internet Access Disk 7
++++++ -/r 5669:	Internet Access Tome 10
+++++ d/d 5673:	Internet Access Disk 8
++++++ -/r 5674:	Internet Access Tome 11
+++++ d/d 5670:	Internet Access Disk 9
++++++ -/r 5671:	Internet Access Tome 12
++++ d/d 5778:	Internet Explorer
+++++ -/r 5779:	IE Installer
+++++ -/r 5874:	Installer
+++++ d/d 5780:	Parts
++++++ -/r 5793:	ActiveX Plugin
++++++ -/r 5851:	Advanced Networking
++++++ -/r 5789:	Apple OEMI.rsrc
++++++ -/r 5809:	Arial
++++++ -/r 5861:	Arial Black
++++++ -/r 5833:	Comic Sans MS
++++++ -/r 5800:	Command.gif
++++++ -/r 5782:	Configurations
++++++ -/r 5871:	Cookies
++++++ -/r 5836:	Courier New
++++++ -/r 5812:	Custom.htm
++++++ -/r 5783:	Date Preferences^
++++++ -/r 5818:	Default Plugin
++++++ -/r 5801:	Diamond.gif
++++++ -/r 5864:	Downloads
++++++ -/r 5794:	Exclaim.gif
++++++ -/r 5848:	Favorites.htm
++++++ -/r 5795:	File Helpers
++++++ -/r 5873:	Find.htm
++++++ -/r 5853:	Fonts ReadMe
++++++ -/r 5842:	For Browsers Without ActiveX
++++++ -/r 5824:	General E-mail
++++++ -/r 5796:	Georgia
++++++ -/r 5849:	Glossary.htm
++++++ -/r 5816:	Home:Search Panel
++++++ -/r 5792:	Icon^
++++++ -/r 5865:	Iconfile.gif
++++++ -/r 5817:	IconFTP.gif
++++++ -/r 5858:	IconGlob.gif
++++++ -/r 5825:	IconMail.gif
++++++ -/r 5850:	IconNews.gif
++++++ -/r 5787:	IE Run Once Page.rsrc
++++++ -/r 5830:	IE_Static.gif
++++++ -/r 5803:	IEDefault.rsrc
++++++ -/r 5870:	IEHelp.htm
++++++ -/r 5788:	IElogo.gif
++++++ -/r 5828:	IEPreferences.htm
++++++ -/r 5868:	Impact
++++++ -/r 5866:	Indeo® Video
++++++ -/r 5852:	Intel Raw Video
++++++ -/r 5786:	Internet Explorer 3.01
++++++ -/r 5784:	Internet Explorer 3.01 License
++++++ -/r 5829:	Internet Preferences
++++++ -/r 5815:	Java
++++++ -/r 5791:	java.htm
++++++ -/r 5839:	JavaDefaults.rsrc
++++++ -/r 5855:	jgdw.68k
++++++ -/r 5797:	jgdw.ppc
++++++ -/r 5819:	Keywords.htm
++++++ -/r 5805:	Language:Fonts
++++++ -/r 5867:	License.htm
++++++ -/r 5804:	MailNews.htm
++++++ -/r 5811:	Microsoft Component Lib (68k)
++++++ -/r 5860:	Microsoft Component Library
++++++ -/r 5863:	MS C Library (68k)
++++++ -/r 5823:	MS C Library (PPC)
++++++ -/r 5872:	MS Configuration Lib 68k
++++++ -/r 5785:	MS Configuration Lib PPC
++++++ -/r 5834:	MS Container Lib (68k)
++++++ -/r 5856:	MS Container Lib (PPC)
++++++ -/r 5798:	MS Internet Library (68k)
++++++ -/r 5814:	MS Internet Library (PPC)
++++++ -/r 5781:	MS JScript (68k)
++++++ -/r 5810:	MS JScript (PPC)
++++++ -/r 5843:	MS Preferences Library 68K
++++++ -/r 5806:	MS Preferences Library PPC
++++++ -/r 5859:	MS Variant Lib (68k)
++++++ -/r 5827:	MS Variant Lib (PPC)
++++++ -/r 5835:	OEMSettings.rsrc
++++++ -/r 5854:	Password Dialogs
++++++ -/r 5840:	Pictures.htm
++++++ -/r 5807:	Protocol Helpers
++++++ -/r 5857:	Proxies
++++++ -/r 5790:	QTVR.jpg
++++++ -/r 5821:	QuickRef.htm
++++++ -/r 5802:	QuickTime Plugin
++++++ -/r 5813:	Ratings
++++++ -/r 5808:	Release Notes
++++++ -/r 5799:	Security
++++++ -/r 5846:	Security.htm
++++++ -/r 5837:	Sidebar.htm
++++++ -/r 5822:	Subscription.gif
++++++ -/r 5826:	Times New Roman
++++++ -/r 5862:	Trebuchet MS
++++++ -/r 5869:	Troubleshooting.htm
++++++ -/r 5845:	User Passwords
++++++ -/r 5844:	Utility Dialogs
++++++ -/r 5838:	Verdana
++++++ -/r 5832:	Web Browser UI
++++++ -/r 5841:	Web Content
++++++ -/r 5847:	Webpages.htm
++++++ -/r 5831:	Welcome.htm
++++++ -/r 5820:	Wingdings
++++ d/d 5731:	Location Manager Install
+++++ -/r 5737:	Apple Location Manager Read Me
+++++ -/r 5736:	Install Location Manager
+++++ -/r 5738:	Installer
+++++ d/d 5732:	Location Manager Install
++++++ -/r 5734:	Install Location Manager
++++++ -/r 5735:	Installer
++++++ -/r 5733:	Tome
++++ d/d 5122:	Mac OS Runtime for Java
+++++ -/r 5123:	About MRJ 2.0
+++++ -/r 5493:	Installer
+++++ d/d 5124:	MRJ Install Data
++++++ d/d 5142:	Apple Extras
+++++++ d/d 5143:	Mac OS Runtime For Java
++++++++ -/r 5144:	About MRJ 2.0
++++++++ d/d 5154:	Apple Applet Runner
+++++++++ -/r 5491:	Apple Applet Runner
+++++++++ d/d 5155:	Applets
++++++++++ d/d 5361:	Animator
+++++++++++ -/r 5381:	Animator.class
+++++++++++ -/r 5395:	Animator.java
+++++++++++ d/d 5382:	audio
++++++++++++ -/r 5386:	0.au
++++++++++++ -/r 5383:	1.au
++++++++++++ -/r 5392:	2.au
++++++++++++ -/r 5391:	3.au
++++++++++++ -/r 5385:	4.au
++++++++++++ -/r 5384:	5.au
++++++++++++ -/r 5393:	6.au
++++++++++++ -/r 5390:	7.au
++++++++++++ -/r 5389:	8.au
++++++++++++ -/r 5388:	9.au
++++++++++++ -/r 5387:	spacemusic.au
+++++++++++ -/r 5397:	DescriptionFrame.class
+++++++++++ -/r 5394:	example1.html
+++++++++++ -/r 5379:	example2.html
+++++++++++ -/r 5380:	example3.html
+++++++++++ -/r 5362:	example4.html
+++++++++++ d/d 5363:	images
++++++++++++ d/d 5368:	Beans
+++++++++++++ -/r 5371:	T1.gif
+++++++++++++ -/r 5374:	T10.gif
+++++++++++++ -/r 5372:	T2.gif
+++++++++++++ -/r 5373:	T3.gif
+++++++++++++ -/r 5377:	T4.gif
+++++++++++++ -/r 5378:	T5.gif
+++++++++++++ -/r 5376:	T6.gif
+++++++++++++ -/r 5375:	T7.gif
+++++++++++++ -/r 5369:	T8.gif
+++++++++++++ -/r 5370:	T9.gif
++++++++++++ -/r 5364:	loading-msg.gif
++++++++++++ d/d 5365:	SimpleAnimation
+++++++++++++ -/r 5366:	T1.gif
+++++++++++++ -/r 5367:	T2.gif
+++++++++++ -/r 5396:	ParseException.class
++++++++++ d/d 5448:	ArcTest
+++++++++++ -/r 5452:	ArcCanvas.class
+++++++++++ -/r 5453:	ArcControls.class
+++++++++++ -/r 5450:	ArcTest.class
+++++++++++ -/r 5449:	ArcTest.java
+++++++++++ -/r 5451:	example1.html
++++++++++ d/d 5257:	BarChart
+++++++++++ -/r 5259:	Chart.class
+++++++++++ -/r 5258:	Chart.java
+++++++++++ -/r 5260:	example1.html
++++++++++ d/d 5156:	Blink
+++++++++++ -/r 5158:	Blink.class
+++++++++++ -/r 5157:	Blink.java
+++++++++++ -/r 5159:	example1.html
++++++++++ d/d 5356:	CardTest
+++++++++++ -/r 5358:	CardPanel.class
+++++++++++ -/r 5357:	CardTest.class
+++++++++++ -/r 5360:	CardTest.java
+++++++++++ -/r 5359:	example1.html
++++++++++ d/d 5466:	Clock
+++++++++++ -/r 5469:	Clock2.class
+++++++++++ -/r 5467:	Clock2.java
+++++++++++ -/r 5468:	example1.html
++++++++++ d/d 5166:	DitherTest
+++++++++++ -/r 5170:	DitherCanvas.class
+++++++++++ -/r 5171:	DitherControls.class
+++++++++++ -/r 5167:	DitherTest.class
+++++++++++ -/r 5168:	DitherTest.java
+++++++++++ -/r 5169:	example1.html
++++++++++ d/d 5160:	DrawTest
+++++++++++ -/r 5163:	DrawControls.class
+++++++++++ -/r 5162:	DrawPanel.class
+++++++++++ -/r 5161:	DrawTest.class
+++++++++++ -/r 5164:	DrawTest.java
+++++++++++ -/r 5165:	example1.html
++++++++++ d/d 5323:	Fractal
+++++++++++ -/r 5329:	CLSFractal.class
+++++++++++ -/r 5324:	CLSFractal.java
+++++++++++ -/r 5328:	CLSRule.class
+++++++++++ -/r 5326:	CLSTurtle.class
+++++++++++ -/r 5325:	ContextLSystem.class
+++++++++++ -/r 5327:	example1.html
++++++++++ d/d 5261:	GraphicsTest
+++++++++++ -/r 5276:	AppletFrame.class
+++++++++++ -/r 5275:	AppletFrame.java
+++++++++++ -/r 5265:	ArcCard.class
+++++++++++ -/r 5273:	ArcDegreePanel.class
+++++++++++ -/r 5278:	ArcPanel.class
+++++++++++ -/r 5268:	ColorUtils.class
+++++++++++ -/r 5270:	example1.html
+++++++++++ -/r 5277:	GraphicsCards.class
+++++++++++ -/r 5271:	GraphicsFrame.class
+++++++++++ -/r 5267:	GraphicsTest.class
+++++++++++ -/r 5274:	GraphicsTest.java
+++++++++++ -/r 5272:	OvalShape.class
+++++++++++ -/r 5266:	PolygonShape.class
+++++++++++ -/r 5264:	RectShape.class
+++++++++++ -/r 5262:	RoundRectShape.class
+++++++++++ -/r 5269:	Shape.class
+++++++++++ -/r 5263:	ShapeTest.class
++++++++++ d/d 5434:	GraphLayout
+++++++++++ d/d 5441:	audio
++++++++++++ -/r 5443:	computer.au
++++++++++++ -/r 5442:	drip.au
++++++++++++ -/r 5444:	gong.au
+++++++++++ -/r 5437:	Edge.class
+++++++++++ -/r 5446:	example1.html
+++++++++++ -/r 5439:	example2.html
+++++++++++ -/r 5440:	example3.html
+++++++++++ -/r 5435:	example4.html
+++++++++++ -/r 5445:	Graph.class
+++++++++++ -/r 5438:	Graph.java
+++++++++++ -/r 5436:	GraphPanel.class
+++++++++++ -/r 5447:	Node.class
++++++++++ d/d 5172:	ImageMap
+++++++++++ -/r 5208:	AniArea.class
+++++++++++ -/r 5202:	AniArea.java
+++++++++++ d/d 5192:	audio
++++++++++++ -/r 5194:	chirp1.au
++++++++++++ -/r 5193:	hi.au
+++++++++++ -/r 5180:	ButtonFilter.class
+++++++++++ -/r 5203:	ButtonFilter.java
+++++++++++ -/r 5206:	ClickArea.class
+++++++++++ -/r 5209:	ClickArea.java
+++++++++++ -/r 5201:	DelayedSoundArea.class
+++++++++++ -/r 5187:	DelayedSoundArea.java
+++++++++++ -/r 5198:	example1.html
+++++++++++ -/r 5191:	HighlightArea.class
+++++++++++ -/r 5204:	HighlightArea.java
+++++++++++ -/r 5210:	HighlightFilter.class
+++++++++++ -/r 5199:	HighlightFilter.java
+++++++++++ -/r 5175:	HrefButtonArea.class
+++++++++++ -/r 5178:	HrefButtonArea.java
+++++++++++ -/r 5181:	ImageMap.class
+++++++++++ -/r 5177:	ImageMap.java
+++++++++++ -/r 5205:	ImageMapArea.class
+++++++++++ -/r 5200:	ImageMapArea.java
+++++++++++ d/d 5182:	images
++++++++++++ -/r 5183:	jim.graham.gif
+++++++++++ -/r 5190:	LinkArea.class
+++++++++++ -/r 5211:	LinkArea.java
+++++++++++ -/r 5173:	NameArea.class
+++++++++++ -/r 5174:	NameArea.java
+++++++++++ d/d 5184:	other
++++++++++++ -/r 5185:	imagemapcheat.html
++++++++++++ -/r 5186:	sources.html
+++++++++++ -/r 5179:	RoundButtonFilter.class
+++++++++++ -/r 5189:	RoundButtonFilter.java
+++++++++++ -/r 5197:	RoundHrefButtonArea.class
+++++++++++ -/r 5188:	RoundHrefButtonArea.java
+++++++++++ -/r 5176:	SoundArea.class
+++++++++++ -/r 5196:	SoundArea.java
+++++++++++ -/r 5207:	TickerArea.class
+++++++++++ -/r 5195:	TickerArea.java
++++++++++ d/d 5212:	Internationalization
+++++++++++ d/d 5218:	code
++++++++++++ -/r 5241:	BorderPanel.class
++++++++++++ -/r 5230:	BorderPanel.java
++++++++++++ -/r 5224:	ChoiceResource.class
++++++++++++ -/r 5222:	ChoiceResource.java
++++++++++++ -/r 5233:	ChoiceResource_da.class
++++++++++++ -/r 5220:	ChoiceResource_da.java
++++++++++++ -/r 5242:	ChoiceResource_de.class
++++++++++++ -/r 5245:	ChoiceResource_de.java
++++++++++++ -/r 5240:	ChoiceResource_en.class
++++++++++++ -/r 5237:	ChoiceResource_en.java
++++++++++++ -/r 5229:	ChoiceResource_fr.class
++++++++++++ -/r 5226:	ChoiceResource_fr.java
++++++++++++ -/r 5254:	ChoiceResource_it.class
++++++++++++ -/r 5232:	ChoiceResource_it.java
++++++++++++ -/r 5244:	ChoiceResource_ja.class
++++++++++++ -/r 5247:	ChoiceResource_ja.java
++++++++++++ -/r 5219:	CollateDemo.class
++++++++++++ -/r 5223:	CollateDemo.java
++++++++++++ -/r 5249:	CollateFrame.class
++++++++++++ -/r 5228:	DateTimeDemo.class
++++++++++++ -/r 5239:	DateTimeDemo.java
++++++++++++ -/r 5227:	DateTimeFrame.class
++++++++++++ -/r 5238:	DemoApplet.class
++++++++++++ -/r 5250:	DemoApplet.java
++++++++++++ -/r 5252:	MessageFormatDemo.class
++++++++++++ -/r 5246:	MessageFormatDemo.java
++++++++++++ -/r 5225:	MessageFormatFrame.class
++++++++++++ -/r 5234:	NumberFormatDemo.class
++++++++++++ -/r 5236:	NumberFormatDemo.java
++++++++++++ -/r 5231:	NumberFormatFrame.class
++++++++++++ -/r 5253:	TextBoundDemo.class
++++++++++++ -/r 5235:	TextBoundDemo.java
++++++++++++ -/r 5221:	TextBoundFrame.class
++++++++++++ -/r 5251:	Utility.class
++++++++++++ -/r 5248:	Utility.java
++++++++++++ -/r 5243:	XBorderPanel.class
+++++++++++ -/r 5213:	CollateExample.html
+++++++++++ -/r 5255:	DateTimeFormatExample.html
+++++++++++ -/r 5214:	MessageFormatExample.html
+++++++++++ -/r 5215:	NumberFormatExample.html
+++++++++++ d/d 5216:	other
++++++++++++ -/r 5217:	CollationDetails.html
+++++++++++ -/r 5256:	TextBoundExample.html
++++++++++ d/d 5297:	JumpingBox
++++++++++ d/d 5454:	Lightweight Gauge
+++++++++++ -/r 5455:	DoubleBufferPanel.class
+++++++++++ -/r 5462:	DoubleBufferPanel.java
+++++++++++ -/r 5463:	example1.html
+++++++++++ -/r 5456:	ExampleApplet.class
+++++++++++ -/r 5461:	ExampleApplet.java
+++++++++++ -/r 5465:	Gauge.class
+++++++++++ -/r 5458:	Gauge.java
+++++++++++ -/r 5464:	GaugeThread.class
+++++++++++ d/d 5459:	images
++++++++++++ -/r 5460:	mandrill.jpg
+++++++++++ -/r 5457:	PrettyPanel.class
++++++++++ d/d 5346:	Lightweight OpenlookButtons
+++++++++++ -/r 5353:	example1.html
+++++++++++ -/r 5351:	ExampleActionListener.class
+++++++++++ -/r 5347:	ExampleApplet.class
+++++++++++ -/r 5352:	ExampleApplet.java
+++++++++++ d/d 5349:	images
++++++++++++ -/r 5350:	scott.jpg
+++++++++++ -/r 5348:	OpenlookButton.class
+++++++++++ -/r 5355:	OpenlookButton.java
+++++++++++ -/r 5354:	OpenlookButtonListener.class
++++++++++ d/d 5279:	Lightweight RoundButtons
+++++++++++ -/r 5287:	example1.html
+++++++++++ -/r 5284:	ExampleActionListener.class
+++++++++++ -/r 5281:	ExampleApplet.class
+++++++++++ -/r 5286:	ExampleApplet.java
+++++++++++ d/d 5282:	images
++++++++++++ -/r 5283:	scott.jpg
+++++++++++ -/r 5285:	RoundButton.class
+++++++++++ -/r 5280:	RoundButton.java
++++++++++ d/d 5415:	Lightweight Spinner
+++++++++++ -/r 5422:	example1.html
+++++++++++ -/r 5416:	ExampleApplet.class
+++++++++++ -/r 5421:	ExampleApplet.java
+++++++++++ d/d 5417:	images
++++++++++++ -/r 5418:	orb.gif
+++++++++++ -/r 5420:	Spinner.class
+++++++++++ -/r 5423:	Spinner.java
+++++++++++ -/r 5419:	SpinnerThread.class
++++++++++ d/d 5398:	MoleculeViewer
+++++++++++ -/r 5411:	Atom.class
+++++++++++ -/r 5410:	example1.html
+++++++++++ -/r 5399:	example2.html
+++++++++++ -/r 5401:	example3.html
+++++++++++ -/r 5412:	Matrix3D.class
+++++++++++ -/r 5414:	Matrix3D.java
+++++++++++ d/d 5402:	models
++++++++++++ -/r 5403:	benzene.xyz
++++++++++++ -/r 5405:	buckminsterfullerine.xyz
++++++++++++ -/r 5406:	cyclohexane.xyz
++++++++++++ -/r 5407:	ethane.xyz
++++++++++++ -/r 5408:	HyaluronicAcid.xyz
++++++++++++ -/r 5404:	water.xyz
+++++++++++ -/r 5400:	XYZApp.class
+++++++++++ -/r 5413:	XYZApp.java
+++++++++++ -/r 5409:	XYZChemModel.class
++++++++++ d/d 5483:	NervousText
+++++++++++ -/r 5485:	example1.html
+++++++++++ -/r 5484:	NervousText.class
+++++++++++ -/r 5486:	NervousText.java
++++++++++ d/d 5487:	Reflection
+++++++++++ -/r 5490:	example1.html
+++++++++++ -/r 5489:	Reflectn.class
+++++++++++ -/r 5488:	Reflectn.java
++++++++++ d/d 5430:	SimpleGraph
+++++++++++ -/r 5432:	example1.html
+++++++++++ -/r 5431:	GraphApplet.class
+++++++++++ -/r 5433:	GraphApplet.java
++++++++++ d/d 5470:	SortDemo
+++++++++++ -/r 5478:	BidirBubbleSortAlgorithm.class
+++++++++++ -/r 5472:	BidirBubbleSortAlgorithm.java
+++++++++++ -/r 5482:	BubbleSortAlgorithm.class
+++++++++++ -/r 5481:	BubbleSortAlgorithm.java
+++++++++++ -/r 5474:	example1.html
+++++++++++ -/r 5473:	QSortAlgorithm.class
+++++++++++ -/r 5480:	QSortAlgorithm.java
+++++++++++ -/r 5471:	SortAlgorithm.class
+++++++++++ -/r 5475:	SortAlgorithm.java
+++++++++++ -/r 5477:	SortItem$ClockStarter.class
+++++++++++ -/r 5479:	SortItem.class
+++++++++++ -/r 5476:	SortItem.java
++++++++++ d/d 5288:	SpreadSheet
+++++++++++ -/r 5292:	Cell.class
+++++++++++ -/r 5290:	CellUpdater.class
+++++++++++ -/r 5295:	example1.html
+++++++++++ -/r 5294:	InputField.class
+++++++++++ -/r 5296:	Node.class
+++++++++++ -/r 5293:	SpreadSheet.class
+++++++++++ -/r 5291:	SpreadSheet.java
+++++++++++ -/r 5289:	SpreadSheetInput.class
++++++++++ d/d 5424:	symboltest
+++++++++++ -/r 5428:	example1.html
+++++++++++ -/r 5429:	SymbolCanvas.class
+++++++++++ -/r 5427:	SymbolTest$MyAdapter.class
+++++++++++ -/r 5426:	SymbolTest.class
+++++++++++ -/r 5425:	SymbolTest.java
++++++++++ d/d 5309:	TicTacToe
+++++++++++ d/d 5314:	audio
++++++++++++ -/r 5317:	beep.au
++++++++++++ -/r 5320:	ding.au
++++++++++++ -/r 5315:	joy.au
++++++++++++ -/r 5316:	return.au
++++++++++++ -/r 5319:	yahoo1.au
++++++++++++ -/r 5318:	yahoo2.au
+++++++++++ -/r 5321:	example1.html
+++++++++++ d/d 5311:	images
++++++++++++ -/r 5312:	cross.gif
++++++++++++ -/r 5313:	not.gif
+++++++++++ -/r 5310:	TicTacToe.class
+++++++++++ -/r 5322:	TicTacToe.java
++++++++++ d/d 5330:	WireFrame
+++++++++++ -/r 5340:	example1.html
+++++++++++ -/r 5333:	example2.html
+++++++++++ -/r 5334:	example3.html
+++++++++++ -/r 5331:	example4.html
+++++++++++ -/r 5342:	FileFormatException.class
+++++++++++ -/r 5341:	Matrix3D.class
+++++++++++ -/r 5343:	Matrix3D.java
+++++++++++ -/r 5345:	Model3D.class
+++++++++++ d/d 5335:	models
++++++++++++ -/r 5336:	cube.obj
++++++++++++ -/r 5337:	dinasaur.obj
++++++++++++ -/r 5338:	hughes_500.obj
++++++++++++ -/r 5339:	knoxS.obj
+++++++++++ -/r 5332:	ThreeD.class
+++++++++++ -/r 5344:	ThreeD.java
++++++++ d/d 5145:	License Agreement
+++++++++ -/r 5153:	Deutsch
+++++++++ -/r 5147:	English
+++++++++ -/r 5151:	Español
+++++++++ -/r 5150:	Français
+++++++++ -/r 5148:	Italiano
+++++++++ -/r 5146:	Japanese
+++++++++ -/r 5152:	Nederlands
+++++++++ -/r 5149:	Svensk
++++++ d/d 5125:	MRJ Libraries
+++++++ d/d 5127:	lib
++++++++ -/r 5128:	appletviewer.properties
++++++++ -/r 5131:	awt.properties
++++++++ -/r 5134:	content-types.properties
++++++++ -/r 5133:	rmic.properties
++++++++ d/d 5129:	security
+++++++++ -/r 5130:	java.security
++++++++ -/r 5132:	serialver.properties
+++++++ -/r 5126:	MRJ 68k JITC
+++++++ -/r 5136:	MRJ PPC JITC
+++++++ d/d 5137:	MRJClasses
++++++++ -/r 5138:	JDKClasses.zip
++++++++ -/r 5140:	MRJClasses.zip
++++++++ -/r 5139:	Properties.zip
+++++++ -/r 5135:	MRJLib
++++++ -/r 5141:	Tome 1
+++++ -/r 5492:	MRJ Installer
++++ d/d 5739:	Open Transport:PPP
+++++ -/r 5751:	Installer
+++++ -/r 5748:	LICENSE
+++++ d/d 5740:	OT:PPP Install
++++++ -/r 5747:	Installer
++++++ -/r 5741:	LICENSE
++++++ -/r 5742:	OT:PPP Files Archive
++++++ -/r 5743:	OT:PPP Installation
++++++ -/r 5746:	Read Me Before Installing
++++++ d/d 5744:	U.S.A. Modem CCLs
+++++++ -/r 5745:	U.S.A. Modem CCLs Archive
+++++ -/r 5749:	OT:PPP Installation
+++++ -/r 5750:	Read Me Before Installing
++++ d/d 5715:	OpenDoc
+++++ -/r 5729:	About OpenDoc
+++++ -/r 5722:	Install OpenDoc™
+++++ -/r 5730:	Installer
+++++ d/d 5716:	OpenDoc™ Disk 1
++++++ -/r 5719:	About OpenDoc
++++++ -/r 5718:	Install OpenDoc™
++++++ -/r 5720:	Installer
++++++ -/r 5721:	OpenDoc Tome 68K
++++++ -/r 5717:	OpenDoc Tome All
+++++ d/d 5723:	OpenDoc™ Disk 2
+++++ d/d 5727:	OpenDoc™ Disk 3
++++++ -/r 5728:	OpenDoc Tome Help
++++ d/d 5089:	Personal Web Sharing
+++++ -/r 5099:	About Personal Web Sharing
+++++ -/r 5100:	About Personal WebSharing.htm
+++++ d/d 5090:	Disk 1
++++++ -/r 5092:	About Personal Web Sharing
++++++ -/r 5094:	About Personal WebSharing.htm
++++++ -/r 5091:	default.html
++++++ -/r 5097:	Installer
++++++ -/r 5093:	Using Personal WebSharing.html
++++++ -/r 5098:	Web Sharing
++++++ -/r 5096:	Web Sharing Extension
++++++ -/r 5095:	WebScript
+++++ d/d 5101:	Disk 2
++++++ -/r 5106:	Calendar.html
++++++ d/d 5110:	Graphics
+++++++ -/r 5117:	calimage1.GIF
+++++++ -/r 5119:	docimage1.GIF
+++++++ -/r 5118:	docimage2.GIF
+++++++ -/r 5115:	listimage1.GIF
+++++++ -/r 5116:	listimage2.GIF
+++++++ -/r 5114:	macOS.GIF
+++++++ -/r 5113:	persimage1.GIF
+++++++ -/r 5112:	persimage2.GIF
+++++++ -/r 5111:	persimage3.GIF
++++++ -/r 5102:	Linksample.html
++++++ -/r 5107:	List.html
++++++ -/r 5104:	Personal.html
++++++ -/r 5108:	Template(calendar).html
++++++ -/r 5105:	Template(list).html
++++++ -/r 5109:	Template(personal).html
++++++ -/r 5103:	Using Sample FilesTemplates.htm
+++++ -/r 5121:	Installer
+++++ -/r 5120:	WebScript
++++ d/d 5654:	QuickDraw GX
++++ d/d 5494:	System Software
+++++ d/d 5549:	LaserWriter Software
++++++ -/r 5551:	Install LaserWriter
++++++ -/r 5552:	Installer
++++++ -/r 5550:	Tome 1
+++++ d/d 5553:	Mac OS 8
++++++ -/r 5557:	Big System Morsels
++++++ -/r 5559:	Install System Software
++++++ -/r 5555:	Installation Tome
++++++ -/r 5554:	Installation Tome Extras
++++++ -/r 5558:	Installer
++++++ -/r 5556:	System Extras
+++++ d/d 5502:	Mac OS 8.1 Update
++++++ -/r 5503:	Install Mac OS 8.1
++++++ -/r 5506:	Installer
++++++ -/r 5505:	System Resources
++++++ -/r 5504:	Tome 1
+++++ d/d 5511:	Open Transport Software
++++++ d/d 5513:	Install 1
+++++++ -/r 5529:	Installer
+++++++ d/d 5515:	Open Transport Files
++++++++ -/r 5518:	AppleTalk
++++++++ -/r 5522:	AppleTalk CDEV
++++++++ -/r 5524:	AppleTalk Preferences
++++++++ -/r 5516:	ASLM Resources
++++++++ -/r 5519:	Chooser
++++++++ -/r 5520:	Network
++++++++ -/r 5523:	Network Resources
++++++++ -/r 5525:	Network Software Selector
++++++++ -/r 5517:	TCP:IP CDEV
++++++++ -/r 5521:	TCP:IP Preferences
+++++++ -/r 5528:	Open Transport Installation
+++++++ -/r 5526:	OT 1.3.1 ReadMe - Part1
+++++++ -/r 5514:	OT 1.3.1 ReadMe - Part2
+++++++ -/r 5527:	OT 1.3.1 Technical Info
++++++ d/d 5533:	Install 2
+++++++ -/r 5534:	Open Tpt ATalk 68K Library
+++++++ -/r 5535:	Open Tpt Inet 68K Library
+++++++ -/r 5537:	Open Transport 68K Library
+++++++ -/r 5538:	OpenTransportLib.68K
+++++++ -/r 5536:	Shared Library Manager
++++++ d/d 5539:	Install 3
+++++++ -/r 5540:	Open Transport Library
+++++++ -/r 5542:	OpenTransportLib
+++++++ -/r 5541:	Shared Library Manager PPC
++++++ d/d 5543:	Install 4
++++++ -/r 5548:	Installer
++++++ -/r 5532:	Open Transport Installation
++++++ -/r 5530:	OT 1.3.1 ReadMe - Part1
++++++ -/r 5512:	OT 1.3.1 ReadMe - Part2
++++++ -/r 5531:	OT 1.3.1 Technical Info
+++++ d/d 5560:	PowerBook G3 Series
++++++ -/r 5563:	PowerBook G3 Series Installer
++++++ -/r 5562:	System Resources
++++++ -/r 5561:	Tome
+++++ d/d 5508:	PowerBook G3 Series Update
++++++ -/r 5510:	PowerBook G3 Series Update
++++++ -/r 5509:	Tome
+++++ d/d 5495:	QuickTime Installer
++++++ -/r 5497:	Install QuickTime™
++++++ -/r 5501:	Installer
++++++ d/d 5498:	QuickTime™ Pieces
+++++++ -/r 5500:	QuickTime™.compressed
+++++++ -/r 5499:	SimpleText
++++++ -/r 5496:	QuickTime™ READ ME
+++++ -/r 5507:	Restore System Icons
++++ d/d 5752:	Upgrader Files
+++ -/r 5087:	Standard ASR Prefs
+++ d/d 5079:	Utilities
++++ d/d 5083:	Disk Copy
+++++ -/r 5085:	Disk Copy
+++++ -/r 5084:	Disk Copy 6.2 Quick Reference
++++ -/r 5081:	Disk First Aid
++++ -/r 5086:	Drive Setup
++++ -/r 5082:	Drive Setup Guide
++++ -/r 5080:	SimpleText
++ d/d 7581:	QT_412_PPC_Mac
+++ -/r 7582:	QuickTime Install Cache
+++ -/r 7583:	QuickTime Installer
++ d/d 2878:	Unused Alias Cage
+++ -/r 1872:	Browse the Internet
+++ -/r 2709:	DropStuff alias
+++ -/r 2879:	Icon^
+++ -/r 2440:	Late Breaking News
+++ -/r 1465:	QuickTime Player
+++ -/r 2421:	Sherlock 2
++ d/d 10617:	Wayback Machine RecoveredSounds
+++ -/r 10632:	FF7 Battle
+++ -/r 10633:	FF7 Game Over
+++ -/r 10634:	FF7 Win
+++ -/r 10622:	FF7.sit
+++ -/r 10627:	MGS Game Over
+++ -/r 10628:	MGS Start
+++ -/r 10629:	MGS Win
+++ -/r 10623:	MGS.sit
+++ -/r 10620:	Power Of Dark Side
+++ -/r 10619:	R2-D2
+++ -/r 10621:	SWars.sit
+++ -/r 10618:	The Force Is With You
+d/d 2237:	File Transfer Folder^^
+d/d 11182:	Hotline19
++ -/r 11184:	Agreement.saved
++ -/r 11339:	Agreement.txt
++ -/r 11212:	Error Log
++ d/d 11189:	Files
+++ d/d 11328:	m-agr-binary
+++ d/d 11336:	m-agr-binary-field-over-limit
++++ -/r 11337:	Agreement.txt
+++ d/d 11334:	m-agr-binary-over-limit
++++ -/r 11335:	Agreement.txt
+++ d/d 11340:	m-agr-directory
+++ d/d 11326:	m-agr-empty
+++ d/d 11343:	m-agr-nontext
+++ d/d 11347:	m-agr-nontext-field-over-limit
+++ d/d 11345:	m-agr-nontext-over-limit
+++ d/d 11338:	m-agr-restored
+++ d/d 11323:	m-agr-text
+++ d/d 11330:	m-agr-text-limit
+++ d/d 11332:	m-agr-text-over-limit
+++ -/r 11303:	m-agree-b-field
+++ -/r 11302:	m-agree-b-over
+++ -/r 11299:	m-agree-binary
+++ -/r 11325:	m-agree-flush-01
+++ -/r 11300:	m-agree-t-limit
+++ -/r 11301:	m-agree-t-over
+++ -/r 11362:	m-extra-flush-none
+++ -/r 11367:	m-extra-flush-peer-ascii
+++ -/r 11368:	m-extra-flush-peer-macroman
+++ -/r 11369:	m-extra-flush-peer-restored
+++ -/r 11365:	m-extra-flush-restored
+++ -/r 11363:	m-extra-flush-url
+++ -/r 11282:	m-htxf-u0
+++ -/r 11280:	m-htxf-u2
+++ -/r 11281:	m-htxf-u65535
+++ -/r 11219:	mothra-214-upload
+++ d/d 11250:	mothra-banner-formats
+++ -/r 11211:	mothra-empty-fixture
+++ d/d 11235:	mothra-folder-descriptor-delay
++++ d/d 11237:	wait
+++ d/d 11227:	mothra-folder-dirlast
++++ d/d 11228:	only
+++ d/d 11226:	mothra-folder-empty
+++ -/r 11232:	mothra-folder-flush
+++ d/d 11236:	mothra-folder-late
+++ d/d 11229:	mothra-folder-partial
++++ -/r 11230:	alpha
++++ d/d 11233:	finish
++++ -/r 11231:	part
+++ d/d 11220:	mothra-folder-source
++++ -/r 11223:	alpha
++++ d/d 11221:	empty
++++ d/d 11222:	inner
+++++ -/r 11225:	leaf
++++ -/r 11224:	zero
+++ -/r 11210:	mothra-fork-fixture
+++ -/r 11218:	mothra-race-fixture
+++ -/r 11215:	mothra-resume-inconsistent
+++ -/r 11214:	mothra-resume-partial
++ -/r 11183:	HLserver19
++ -/r 11297:	m-agree-empty
++ -/r 11252:	m-img-b.bmp
++ -/r 11260:	m-img-e.gif
++ -/r 11254:	m-img-f.dat
++ -/r 11251:	m-img-j.jpg
++ -/r 11253:	m-img-p.pct
++ -/r 11259:	m-img-t
++ -/r 11257:	m-img-t.gif
++ -/r 11256:	m-img-x.jpg
++ -/r 11255:	m-img-z.dat
++ -/r 11191:	MessageBoard.txt
++ -/r 11240:	mothra-banner-a.gif
++ -/r 11241:	mothra-banner-b.gif
++ d/d 11190:	News
++ -/r 11202:	Prefs
++ -/r 11185:	source-manifest.json
++ d/d 11188:	Users
+++ d/d 11192:	admin
++++ -/r 11193:	UserData
+++ d/d 11200:	fixture-low
++++ -/r 11201:	UserData
+d/d 26:	Installer Logs
++ d/d 27:	Mac OS 9
+++ -/r 28:	Log File (1:21:22 10.12 AM)
+++ -/r 1874:	Log File (1:21:22 10.12 AM).2
+d/d 542:	Internet
++ -/r 1865:	About Internet Access
++ -/r 543:	Internet Alias
++ d/d 1478:	Internet Applications
+++ d/d 1481:	Internet Explorer 4.5 Folder
++++ d/d 1518:	Help
+++++ -/r 1851:	Explore.htm
+++++ -/r 1850:	Favorites.htm
+++++ -/r 1849:	Find.htm
+++++ -/r 1848:	Glossary.htm
+++++ -/r 1847:	IEHelp.htm
+++++ -/r 1846:	IEPreferences.htm
+++++ d/d 1520:	images
++++++ -/r 1845:	channel.gif
++++++ -/r 1844:	Command.gif
++++++ -/r 1843:	Diamond.gif
++++++ -/r 1842:	Exclaim.gif
++++++ -/r 1841:	Iconfile.gif
++++++ -/r 1840:	IconFTP.gif
++++++ -/r 1839:	IconGlob.gif
++++++ -/r 1838:	IconMail.gif
++++++ -/r 1837:	IconNews.gif
++++++ -/r 1836:	IE_Static.gif
++++++ -/r 1835:	IElogo.gif
++++++ -/r 1834:	pageholder.gif
++++++ -/r 1833:	QTVR.gif
++++++ -/r 1832:	Subscription.gif
+++++ -/r 1831:	Keywords.htm
+++++ -/r 1830:	MailNews.htm
+++++ -/r 1829:	PageHolder.htm
+++++ -/r 1828:	Preferences.htm
+++++ -/r 1827:	Save.htm
+++++ -/r 1826:	Security.htm
+++++ -/r 1825:	Sidebar.htm
+++++ d/d 1519:	Technical Support
++++++ -/r 1824:	Connecting to the Internet^
++++++ -/r 1823:	General Troubleshooting^
++++++ -/r 1822:	Problems Setting Up
++++++ -/r 1821:	Support.txt
+++++ -/r 1820:	Tips.htm
+++++ -/r 1819:	Troubleshooting.htm
+++++ -/r 1818:	Welcome.htm
++++ -/r 1817:	Icon^
++++ -/r 1816:	Internet Explorer 4.5
++++ -/r 1815:	Internet Explorer License
++++ d/d 1482:	Plug-ins
+++++ -/r 1527:	Default Plug-in
+++++ -/r 1686:	NP-PPC-Dir-Shockwave
+++++ -/r 7593:	QuickTime Plugin
+++++ -/r 7596:	QuickTimePlugin.class
+++++ -/r 1685:	Shockwave Flash NP-PPC
+++++ -/r 1684:	ShockwaveDownload
+++++ -/r 1683:	ShockwavePlugin.class
+++++ -/r 1682:	ShockwaveReadme.htm
++++ -/r 1814:	Read Me
+++ d/d 1517:	Microsoft Internet Self-Repair
+++ d/d 1479:	Netscape Communicator™ Folder
++++ -/r 1860:	Address Book Export
++++ -/r 1812:	Calendar Client Library
++++ d/d 1496:	Essential Files
+++++ -/r 1770:	Address Book shortcut
+++++ d/d 1509:	Defaults
++++++ -/r 1766:	Bookmarks.html
++++++ d/d 1510:	Security
+++++++ -/r 1764:	Certificates7
+++++++ -/r 1760:	Key Database3
+++++++ -/r 1754:	Security
+++++++ -/r 1752:	Security Modules
+++++++ -/r 1750:	SignedAppletDB
+++++ d/d 1501:	Dynamic Fonts
+++++ -/r 1679:	Icon^
+++++ d/d 1498:	Java
++++++ d/d 1500:	Lib
+++++++ -/r 1678:	ifc11.jar
+++++++ -/r 1677:	iiop10.jar
+++++++ -/r 1676:	jae40.jar
+++++++ -/r 1675:	java40.jar
+++++++ -/r 1674:	jio40.jar
+++++++ -/r 1673:	jsd10.jar
+++++++ -/r 1672:	resource.jar
+++++++ -/r 1671:	scd10.jar
++++++ d/d 1499:	netscape-classes
+++++++ -/r 1670:	SoundPlayer.class
+++++ -/r 1669:	JavaScript Debug Support
+++++ d/d 1497:	locale30
++++++ -/r 1668:	de.txt
++++++ -/r 1667:	de.tzd
++++++ -/r 1666:	default.txt
++++++ -/r 1665:	default.tzd
++++++ -/r 1664:	en.txt
++++++ -/r 1663:	en.tzd
++++++ -/r 1662:	fr.txt
++++++ -/r 1661:	fr.tzd
++++++ -/r 1660:	index.txt
++++++ -/r 1659:	ja.txt
++++++ -/r 1658:	ja.tzd
++++++ -/r 1657:	timezone.txt
++++++ -/r 1656:	tzdsumm.txt
+++++ -/r 1655:	Messenger Inbox shortcut
+++++ -/r 1654:	Navigator shortcut
+++++ -/r 1653:	Netscape Resources
+++++ -/r 1652:	netscape.cfg
+++++ -/r 1651:	netscape.dic
+++++ -/r 1650:	NSSpellChecker
+++++ -/r 1649:	pen4s324.dat
++++ -/r 1648:	Guest
++++ -/r 1647:	Icon^
++++ d/d 1495:	Import
+++++ -/r 1646:	Netscape Import
+++++ -/r 1645:	NSImport Eudora - PPC
+++++ -/r 1644:	NSImport Text - PPC
++++ -/r 1643:	Java Accelerator for PowerPC
++++ -/r 1642:	License
++++ d/d 1483:	NetHelp
+++++ -/r 1641:	Back_dep.gif
+++++ -/r 1640:	Back_dis.gif
+++++ -/r 1639:	Back_sel.gif
+++++ -/r 1638:	Back_up.gif
+++++ -/r 1637:	Blank.htm
+++++ -/r 1636:	Button.js
+++++ -/r 1635:	CntData.js
+++++ -/r 1634:	CntTool.htm
+++++ -/r 1633:	CntTool.js
+++++ -/r 1632:	Exit_dep.gif
+++++ -/r 1631:	Exit_sel.gif
+++++ -/r 1630:	Exit_up.gif
+++++ -/r 1629:	Forw_dep.gif
+++++ -/r 1628:	Forw_dis.gif
+++++ -/r 1627:	Forw_sel.gif
+++++ -/r 1626:	Forw_up.gif
+++++ -/r 1625:	Header.js
+++++ -/r 1624:	IdxData.js
+++++ -/r 1623:	IdxFill.htm
+++++ -/r 1622:	IdxKey.htm
+++++ -/r 1621:	IdxTool.htm
+++++ -/r 1620:	IdxTopic.htm
+++++ -/r 1619:	Local-1.js
+++++ -/r 1618:	NavUI.htm
+++++ d/d 1484:	Netscape
++++++ d/d 1494:	Collabra
+++++++ -/r 1617:	coll.htm
+++++++ -/r 1616:	collabra.gif
+++++++ -/r 1615:	collHdr.htm
+++++++ -/r 1614:	discgrps.gif
+++++++ -/r 1613:	help.hpf
+++++++ -/r 1612:	mailbox2.gif
++++++ d/d 1493:	Composer
+++++++ -/r 1611:	comp.htm
+++++++ -/r 1610:	compHdr.htm
+++++++ -/r 1609:	composer.gif
+++++++ -/r 1608:	comtlbr2.gif
+++++++ -/r 1607:	fmtlbr3.gif
+++++++ -/r 1606:	help.hpf
+++++++ -/r 1605:	tagicon2.gif
++++++ d/d 1492:	Home
+++++++ -/r 1604:	help.hpf
+++++++ -/r 1603:	home.gif
+++++++ -/r 1602:	home.htm
+++++++ -/r 1601:	homeHdr.htm
++++++ d/d 1489:	Messengr
+++++++ -/r 1600:	abook.gif
+++++++ -/r 1599:	compbar.gif
+++++++ -/r 1598:	help.hpf
+++++++ -/r 1597:	mailbox.gif
+++++++ -/r 1596:	mailbox2.gif
+++++++ -/r 1595:	mess.htm
+++++++ -/r 1594:	messengr.gif
+++++++ -/r 1593:	messHdr.htm
+++++++ -/r 1592:	mpctrl.gif
+++++++ -/r 1591:	newsgrp.gif
+++++++ -/r 1578:	tabs.gif
++++++ d/d 1488:	Navigatr
+++++++ -/r 1577:	help.hpf
+++++++ -/r 1576:	nav.htm
+++++++ -/r 1575:	navHdr.htm
+++++++ -/r 1574:	navigatr.gif
++++++ d/d 1487:	News
+++++++ -/r 1573:	abook.gif
+++++++ -/r 1572:	collabra.gif
+++++++ -/r 1571:	compbar.gif
+++++++ -/r 1570:	discgrps.gif
+++++++ -/r 1569:	help.hpf
+++++++ -/r 1568:	mailbox2.gif
+++++++ -/r 1567:	news.htm
+++++++ -/r 1566:	newsgrp.gif
++++++ d/d 1486:	Shared
+++++++ -/r 1565:	admnIcon.gif
+++++++ -/r 1564:	calIcon.gif
+++++++ -/r 1563:	collIcon.gif
+++++++ -/r 1562:	commIcon.gif
+++++++ -/r 1561:	compIcon.gif
+++++++ -/r 1560:	confIcon.gif
+++++++ -/r 1559:	ibmIcon.gif
+++++++ -/r 1558:	messIcon.gif
+++++++ -/r 1557:	navIcon.gif
+++++++ -/r 1556:	NetHelpm.css
+++++++ -/r 1555:	NetHelpu.css
+++++++ -/r 1554:	NetHelpw.css
+++++++ -/r 1553:	netIcon.gif
++++++ d/d 1485:	Trouble
+++++++ -/r 1552:	help.hpf
+++++++ -/r 1551:	trouble.htm
+++++ -/r 1550:	netwatch.gif
+++++ -/r 1549:	NoJSerr.htm
+++++ -/r 1548:	nshifrm.htm
+++++ -/r 1547:	picsfail.htm
+++++ -/r 1546:	picsfail.jar
+++++ -/r 1545:	Prnt_dep.gif
+++++ -/r 1544:	Prnt_sel.gif
+++++ -/r 1543:	Prnt_up.gif
+++++ -/r 1542:	scraps
+++++ -/r 1541:	Stack.js
+++++ -/r 1540:	Status.htm
+++++ -/r 1539:	System.htm
+++++ -/r 1538:	system.js
+++++ -/r 1537:	Tool_dep.gif
+++++ -/r 1536:	Tool_sel.gif
+++++ -/r 1535:	Tool_up.gif
+++++ -/r 1534:	ToolUI.htm
+++++ -/r 1533:	Topic.js
+++++ -/r 1532:	Utility.js
+++++ -/r 1531:	Wait.gif
++++ -/r 1530:	Netscape Communicator™
++++ d/d 1480:	Plug-ins
+++++ -/r 1529:	Beatnik Stub Plug-in
+++++ -/r 1528:	cpPack1.jar
+++++ -/r 1706:	Default Plug-in
+++++ -/r 1526:	Icon^
+++++ -/r 1583:	NP-PPC-Dir-Shockwave
+++++ -/r 7594:	QuickTime Plugin
+++++ -/r 7597:	QuickTimePlugin.class
+++++ -/r 1582:	Shockwave Flash NP-PPC
+++++ -/r 1581:	ShockwaveDownload
+++++ -/r 1580:	ShockwavePlugin.class
+++++ -/r 1579:	ShockwaveReadme.htm
++++ -/r 1525:	Read Me!
++++ d/d 1507:	Talkback
+++++ -/r 1738:	master.ini
++++ -/r 1524:	User Profile Manager
+++ d/d 1512:	Outlook Express 4.5 Folder
++++ d/d 1516:	Help
+++++ -/r 1811:	Command.gif
+++++ -/r 1810:	Contacts.htm
+++++ -/r 1809:	Customize.htm
+++++ -/r 1808:	Folders.htm
+++++ -/r 1807:	Glossary.htm
+++++ -/r 1806:	IE_static.gif
+++++ -/r 1805:	Keywords.htm
+++++ -/r 1804:	newsgroups.htm
+++++ -/r 1803:	OEHelp.htm
+++++ -/r 1802:	OEScripting.htm
+++++ -/r 1801:	Read.htm
+++++ -/r 1800:	Send.htm
+++++ -/r 1799:	Sidebar.htm
+++++ -/r 1798:	support.txt
+++++ -/r 1797:	Tips.htm
+++++ -/r 1796:	Troubleshooting.htm
+++++ -/r 1795:	Welcome.htm
++++ -/r 1794:	Icon^
++++ -/r 1793:	Outlook Express
++++ -/r 1792:	Outlook Express License
++++ d/d 1515:	Preference Panels
+++++ -/r 1791:	OE Display Panel
+++++ -/r 1790:	OE E-mail Panel
+++++ -/r 1789:	OE Fonts Panel
+++++ -/r 1788:	OE General Panel
+++++ -/r 1787:	OE LDAP Panel
+++++ -/r 1786:	OE Messages Panel
+++++ -/r 1785:	OE News Panel
+++++ -/r 1784:	OE Spelling Panel
+++++ -/r 1783:	OE StartQuit Panel
++++ -/r 1782:	Read Me
++++ d/d 1513:	Script Menu Items
+++++ -/r 1781:	 About This Menu...
+++++ -/r 1780:	 Send OE feedback
+++++ d/d 1514:	Color
++++++ -/r 1779:	Black
++++++ -/r 1778:	Blue
++++++ -/r 1777:	Green
++++++ -/r 1776:	Red
++++++ -/r 1775:	Use Default Color
+++++ -/r 1774:	Insert Explorer Address
+++++ -/r 1773:	Insert Text File...
+++++ -/r 1772:	Save Selection...
++ -/r 1867:	Internet Setup Assistant
++ d/d 1468:	Internet Utilities
+++ d/d 1470:	Aladdin Folder
++++ d/d 1491:	Aladdin DropStuff™ 5.1.2
+++++ -/r 1590:	DropStuff™
+++++ -/r 1589:	DropStuff™ Read Me
+++++ -/r 1588:	License Agreement
+++++ -/r 1587:	PictoGuide™
++++ -/r 1857:	License Agreement
++++ -/r 1742:	StuffIt Deluxe Upgrade Offer!
++++ d/d 1490:	StuffIt Expander™ 5.1.4
+++++ -/r 1586:	Register StuffIt Expander™
+++++ -/r 1585:	StuffIt Expander™
+++++ -/r 1584:	StuffIt Expander™ Read Me
++++ d/d 1522:	Updates & Special Offers
+++++ -/r 1856:	Aladdin Order Form
+++++ -/r 1855:	Aladdin Product Overview
+++++ -/r 1854:	Important Update Information
++++ -/r 1853:	What was installed (and where)
+++ -/r 1864:	Browse the Internet
+++ d/d 1477:	Internet Setup
++++ -/r 1862:	Internet Editor Assistant
++++ -/r 1861:	Internet Setup Assistant
++++ -/r 1858:	ISP Referral Assistant
++++ d/d 1521:	Referral Settings
+++++ -/r 1852:	Apple Canada:United States
+++ -/r 1859:	Mail
++ -/r 1870:	Microsoft Internet Explorer
++ -/r 1869:	Microsoft Outlook Express
++ -/r 1868:	Netscape Communicator™
+d/d 2210:	Network Assistant Folder
++ -/r 2212:	About Network Assistant Client
++ -/r 2213:	Network Assistant Security
+d/d 7586:	QuickTime™ Folder
++ -/r 7590:	PictureViewer
++ -/r 7602:	QuickTime Install Cache
++ -/r 7587:	QuickTime Player
++ -/r 7592:	QuickTime Plugin
++ -/r 7600:	QuickTime READ ME
++ -/r 7601:	QuickTime Updater
++ -/r 7595:	QuickTimePlugin.class
++ -/r 7591:	Sample Image
++ -/r 7589:	Sample Movie
+-/r 11206:	Shutdown Check
+d/d 10222:	Slide Show Folder
++ -/r 10233:	 IBM-Image Install
++ -/r 10232:	 Picture Puzzle
++ -/r 10223:	 Slide Show
++ -/r 10231:	 Uninstall
++ -/r 10229:	CATALOG.TXT
++ -/r 10227:	COMPANY.INI
++ d/d 10234:	Greg and Tim Hildebrandt
+++ -/r 10261:	BMP.GNR
+++ -/r 10259:	GENERIC.REF
+++ -/r 10260:	HILD.REF
+++ -/r 10235:	HILD01.SNX
+++ -/r 10236:	HILD02.SNX
+++ -/r 10237:	HILD03.SNX
+++ -/r 10238:	HILD04.SNX
+++ -/r 10239:	HILD05.SNX
+++ -/r 10240:	HILD06.SNX
+++ -/r 10241:	HILD07.SNX
+++ -/r 10242:	HILD08.SNX
+++ -/r 10243:	HILD09.SNX
+++ -/r 10244:	HILD10.SNX
+++ -/r 10245:	HILD11.SNX
+++ -/r 10246:	HILD12.SNX
+++ -/r 10247:	HILD13.SNX
+++ -/r 10248:	HILD14.SNX
+++ -/r 10249:	HILD15.SNX
+++ -/r 10250:	HILD16.SNX
+++ -/r 10251:	HILD17.SNX
+++ -/r 10252:	HILD18.SNX
+++ -/r 10253:	HILD19.SNX
+++ -/r 10254:	HILD20.SNX
+++ -/r 10255:	HILD21.SNX
+++ -/r 10256:	HILD22.SNX
+++ -/r 10257:	SNSI01.CAT
+++ -/r 10258:	SNSI02.CAT
++ -/r 10226:	INSTALL.TXT
++ -/r 10225:	SNLOGO.JPG
++ -/r 10228:	SNSIORDR.REF
+d/d 29:	System Folder
++ -/r 11164:	 StuffIt Helper
++ d/d 41:	Appearance
+++ d/d 42:	Desktop Pictures
++++ -/r 5987:	Acropolis
++++ -/r 6690:	AlienTwilight
++++ -/r 5988:	Beach on Ko Samui
++++ -/r 5973:	Birds in Flight
++++ -/r 487:	Blueberry Oxygen
++++ -/r 486:	Blueberry Union
++++ -/r 485:	Bottles
++++ -/r 5978:	Cancun Sunset
++++ -/r 473:	Capsule
++++ -/r 5977:	Cliffs of Moher
++++ -/r 441:	Convergence 1
++++ -/r 440:	Convergence 10
++++ -/r 439:	Convergence 11
++++ -/r 438:	Convergence 4
++++ -/r 5991:	Fish Eagle
++++ -/r 5989:	Galway Bay
++++ -/r 5990:	Glacier National Park
++++ -/r 369:	Golden Poppy
++++ -/r 368:	Grape Gravity
++++ -/r 367:	Grape Mission
++++ -/r 5983:	Highway 395
++++ -/r 5992:	Hong Kong at Night
++++ -/r 5984:	Islamorada Sunrise
++++ -/r 5986:	Lily Pad
++++ -/r 294:	Lime Horizon
++++ -/r 293:	Lime Sharp
++++ -/r 5976:	Long Island Sound
++++ -/r 5975:	Mac OS Background
++++ -/r 5981:	Midsummer Night
++++ -/r 5972:	Moraine Lake
++++ -/r 5979:	Oasis in Baja
++++ -/r 227:	Quantum Foam
++++ -/r 5985:	Red Clouds
++++ -/r 208:	Shutters
++++ -/r 187:	Strawberry Baby
++++ -/r 186:	Strawberry Parabola
++++ -/r 177:	Tangerine Fusion
++++ -/r 176:	Tangerine Melt
++++ -/r 6715:	Tech Desktop
++++ -/r 5974:	Toronto Skyline
++++ -/r 165:	Tub
++++ -/r 5971:	Tuolumne Meadows
++++ -/r 160:	UFO 1
++++ -/r 159:	UFO 2
++++ -/r 6691:	WayOutSpace
++++ -/r 5980:	Yosemite Valley
++++ -/r 5982:	Yucatan
++++ -/r 6723:	Ω Theme Background
+++ d/d 56:	Sound Sets
++++ -/r 6399:	25¢ Sounds
++++ -/r 3816:	Acid SoundSet
++++ -/r 3817:	AKIRA Sound Set
++++ -/r 3818:	Aqua SoundSet 1.0
++++ -/r 6403:	BLACKSILVER
++++ -/r 6406:	Clickz 1.0
++++ -/r 3820:	DrawingBoard Sounds
++++ -/r 3821:	Dune Sound Set
++++ -/r 3822:	Final Fantasy Sound Set 1.0
++++ -/r 3823:	Gizmo Sounds
++++ -/r 3824:	Glass SoundSet
++++ -/r 3825:	Hi-Tech Sounds
++++ -/r 3826:	iMac Sounset V1.1
++++ -/r 3827:	Jedi SoundSet
++++ -/r 3828:	Jimi Hendrix Riffs
++++ -/r 3829:	LooneyTunes SoundSet 1.1b
++++ -/r 3830:	Marathon Soundset
++++ -/r 3831:	Martian Sounds !
++++ -/r 3832:	Matrix Soundset
++++ -/r 3833:	Metal Blips
++++ -/r 3834:	Myst
++++ -/r 3835:	Myst Sound Set
++++ -/r 3836:	MYST SoundSet
++++ -/r 3837:	NextGen™ 1.1
++++ -/r 6435:	PACMAN Sound Set
++++ -/r 3839:	PlasticWrap 1.1
++++ -/r 3840:	Platinum Sounds
++++ -/r 3841:	postpetDX Set
++++ -/r 3842:	Q's Paper SoundSet
++++ -/r 3843:	R2D2 SoundSet
++++ -/r 3844:	SGI Sounds
++++ -/r 3846:	Spooky Sounds1.0
++++ -/r 3847:	Squeaky Chair 1.0
++++ -/r 6446:	Stereolab Sound Set
++++ -/r 3848:	T&P Flatus SoundSet
++++ -/r 3849:	Terminator 2 Sound Set
++++ -/r 3850:	Toy Chest SoundSet
++++ -/r 3851:	Wet SoundSet 1.0
++++ -/r 6447:	Windose98 Sounds
++++ -/r 6448:	Windows Nt Soundset
++++ -/r 6452:	YOROZU 1.0.5
+++ d/d 58:	Theme Files
++++ -/r 2489:	2999 A.D. Theme
++++ -/r 2487:	Aerial
++++ -/r 2516:	Apple platinum
++++ -/r 2491:	Aqua
++++ -/r 2518:	Aqua  v2.0.1
++++ -/r 2509:	Aqua v2.0
++++ -/r 2510:	Custom Themes
++++ -/r 2500:	Dark Platinum
++++ -/r 6654:	Dimple 1.0
++++ -/r 2521:	Drawing Board
++++ -/r 2486:	DSG Theme
++++ -/r 2508:	Ensemble Themes
++++ -/r 6664:	Geometry PR 3
++++ -/r 2476:	Geometry PR2
++++ -/r 2504:	Gizmo
++++ -/r 2471:	Gizmo Platinum 0.9
++++ -/r 2494:	Hi-Tech
++++ -/r 2470:	Hi-Tech with Platinum Icons
++++ -/r 2499:	iBook
++++ -/r 2482:	iBookBB
++++ -/r 6671:	iTech
++++ -/r 2502:	iTheme
++++ -/r 2484:	iThemePub1
++++ -/r 2468:	iThemePub2
++++ -/r 6677:	LCD1.0
++++ -/r 2514:	Liquid
++++ -/r 2505:	Liquid (icons)
++++ -/r 6706:	LUCENT
++++ -/r 6707:	Moby
++++ -/r 2469:	Neutech
++++ -/r 2488:	Neutech Lite
++++ -/r 2515:	NeXTheme 1.0.1
++++ -/r 2520:	NeXTheme 1.0.2
++++ -/r 2506:	Paper
++++ -/r 2492:	Paper Blueberry
++++ -/r 2474:	Paper blugray
++++ -/r 2501:	Paper Grape
++++ -/r 2485:	Paper iMac Original 
++++ -/r 2483:	Paper Lime
++++ -/r 2511:	Paper Lite
++++ -/r 2465:	Paper Sky
++++ -/r 2480:	Paper Strawberry
++++ -/r 2467:	Paper Tangerine 
++++ -/r 2473:	Paper Tugray
++++ -/r 2475:	paper8
++++ -/r 2519:	QLike
++++ -/r 2513:	QT4 Modoki
++++ -/r 2481:	Slate Board
++++ -/r 6709:	Sosumi
++++ -/r 2497:	Summer Tan
++++ -/r 2517:	System 7
++++ -/r 2512:	System 7 (No Icons)
++++ -/r 2507:	Win Doze 98
++++ -/r 2496:	Y3K v2.0
++++ -/r 2495:	Y3K v2.0 Lite
++++ -/r 6726:	Ω
++ d/d 52:	Apple Menu Items
+++ -/r 4119:	After Dark 4.0
+++ -/r 4315:	Apple System Profiler
+++ -/r 475:	Calculator
+++ -/r 465:	Chooser
+++ -/r 536:	Control Panels
+++ -/r 544:	Favorites
+++ -/r 338:	Key Caps
+++ -/r 7252:	KoalaCalc Classic
+++ -/r 2431:	Late Breaking News
+++ -/r 2877:	Launcher
+++ -/r 541:	Network Browser
+++ d/d 2268:	Recent Applications
++++ -/r 10268:	 IBM-Image Install
++++ -/r 10269:	 Picture Puzzle
++++ -/r 11745:	 StuffIt Helper
++++ -/r 10091:	Apple DVD Player
++++ -/r 10106:	Aros Fractals
++++ -/r 10104:	Be iValentine
++++ -/r 11031:	Bugdom™
++++ -/r 10860:	Claris CAD
++++ -/r 10724:	ColorFinder
++++ -/r 11156:	Desktop Printer Utility
++++ -/r 11176:	Disk First Aid
++++ -/r 10719:	Documentation
++++ -/r 10452:	EViewBox.new
++++ -/r 11293:	Find by Content Indexing
++++ -/r 11746:	HLserver19
++++ -/r 10862:	Hoyle Board Games
++++ -/r 10879:	Hoyle Card Games 3
++++ -/r 10641:	Hoyle Mahjong Tiles
++++ -/r 2269:	Icon^
++++ -/r 10221:	Install
++++ -/r 10296:	KILLA23LX2WC64263VO4
++++ -/r 10909:	MacSolitaire Classic
++++ -/r 10289:	Marine Aquarium 2
++++ -/r 11163:	Menu Preferences
++++ -/r 10437:	rda 4.0.0
++++ -/r 10439:	rda 4.0.0 FP
++++ -/r 10424:	Register
++++ -/r 10910:	Roof Rats
++++ -/r 11196:	SimpleText
++++ -/r 10844:	StuffIt Expander™
++++ -/r 11795:	Visual Client
+++ d/d 2279:	Recent Documents
++++ -/r 6394:	 READ ME
++++ -/r 10093:	Apple DVD Player Read Me
++++ -/r 10856:	Bugdom 1.1.3 Update READ ME
++++ -/r 11036:	Bugdom™ Read Me
++++ -/r 10428:	Coaster Description
++++ -/r 6289:	Eric’s Solitaire Read Me
++++ -/r 2280:	Icon^
++++ -/r 9262:	MacMAME Read Me First!
++++ -/r 10300:	Marine Aquarium Code
++++ -/r 11197:	MessageBoard.txt
++++ -/r 9762:	oddworld soundset
++++ -/r 11034:	OS 8.6 USERS READ ME!!!!
++++ -/r 10440:	RDA ReadMe.txt
++++ -/r 7884:	Read Me
++++ -/r 10442:	READ ME - Dots
++++ -/r 11166:	Read Me First
++++ -/r 9931:	readme
++++ -/r 10451:	readme.txt
++++ -/r 10417:	Release notes
++++ -/r 9915:	Using the Appearance Items
++++ -/r 10913:	Using these Appearance Items
+++ d/d 2386:	Recent Servers
++++ -/r 2387:	Icon^
+++ -/r 1949:	Remote Access Status
+++ -/r 220:	Scrapbook
+++ -/r 209:	Sherlock 2
+++ -/r 190:	Stickies
++ d/d 57:	Application Support
+++ d/d 2644:	Aladdin
++++ d/d 2645:	StuffIt
+++++ -/r 2646:	 StuffIt Helper
+++++ d/d 2647:	Magic Menu Extensions
++++++ -/r 2648:	Compression Extension
++++++ -/r 2649:	MagicTools Extension
+++++ -/r 2650:	Menu Preferences
+++++ d/d 2651:	TFI Extensions
++++++ -/r 2652:	ArchiveRename
++++++ -/r 2653:	Magic Menu
++++ d/d 2654:	StuffIt Express PE
+++ -/r 347:	Installer Engine
++ -/r 11161:	ArchiveRename
++ d/d 2852:	Claris
+++ -/r 2853:	Claris CAD Help
+++ -/r 2854:	Claris Help System
+++ d/d 2855:	Claris Translators
+++ -/r 2864:	Claris XTND System
+++ -/r 2865:	Icon^
++ -/r 2252:	Clipboard
++ d/d 47:	ColorSync Profiles
+++ -/r 521:	Apple Color SW Pro
+++ -/r 519:	Apple Color SW Pro SN
+++ -/r 2061:	Apple Multiple Scan 14
+++ -/r 2060:	Apple Multiple Scan 15
+++ -/r 2058:	Apple Multiple Scan 17 - 9300
+++ -/r 2057:	Apple Multiple Scan 17 - D50
+++ -/r 2056:	Apple Multiple Scan 17 - D65
+++ -/r 2059:	Apple Multiple Scan 1705
+++ -/r 2055:	Apple Multiple Scan 20 - 9300
+++ -/r 2054:	Apple Multiple Scan 20 - D50
+++ -/r 2053:	Apple Multiple Scan 20 - D65
+++ -/r 2040:	Color LW 12:600 PS Profile
+++ -/r 2039:	Color LW 12:660 PS Profile
+++ -/r 2051:	Color SW 1500 Pattern
+++ -/r 2050:	Color SW 1500 Scatter
+++ -/r 2049:	Color SW 2500 Pattern
+++ -/r 2048:	Color SW 2500 Pattern Best 1
+++ -/r 2047:	Color SW 2500 Pattern Best 2
+++ -/r 454:	Color SW 2500 PhotoGrade
+++ -/r 2046:	Color SW 2500 Scatter
+++ -/r 2045:	Color SW 2500 Scatter Best 1
+++ -/r 2044:	Color SW 2500 Scatter Best 2
+++ -/r 450:	Color SW Automatic
+++ -/r 2062:	ColorSync Display - 9300
+++ -/r 2043:	CSW 6500 Coated
+++ -/r 2042:	CSW 6500 Plain
+++ -/r 2041:	CSW 6500 Specialty
+++ d/d 2372:	Display Profiles
+++ -/r 2075:	Generic CMYK Profile
+++ -/r 2074:	Generic Gray Profile
+++ -/r 2073:	Generic Lab Profile
+++ -/r 2072:	Generic RGB Profile
+++ -/r 2071:	Generic XYZ Profile
+++ -/r 2068:	iMac Display
+++ -/r 2065:	PowerBook 2400 Standard
+++ -/r 2064:	PowerBook 3400
+++ -/r 2063:	PowerBook G3 Series
+++ -/r 2052:	sRGB Profile
+++ -/r 2070:	Studio Display 17 - 9300
+++ -/r 2069:	Studio Display 21 - 9300
+++ -/r 2067:	Studio Display AMLCD
+++ -/r 2066:	Twentieth Anniversary Macintosh
++ -/r 11159:	Compression Extension
++ d/d 55:	Contextual Menu Items
+++ -/r 387:	Find CM Items
+++ -/r 382:	Folder Actions Menus
+++ -/r 2679:	StuffItCM
+++ -/r 161:	UDFBridgeCMPlugin
++ d/d 38:	Control Panels
+++ -/r 4624:	After Dark 4.0
+++ d/d 4613:	After Dark Files
++++ d/d 4648:	AD 3.0 Resources
+++++ -/r 4750:	AD 3.0 Code
+++++ -/r 4751:	AD 3.0 Sound
++++ d/d 4765:	After Dark Images
+++++ -/r 4766:	Baby Bottle
+++++ -/r 4767:	Bad Dog
+++++ -/r 4768:	Fishies
+++++ -/r 4769:	Flying Toasters
+++++ -/r 4770:	Guernsey
+++++ -/r 4771:	Hula Girl
+++++ -/r 4772:	Marbles!
+++++ -/r 4773:	Out ’n About
+++++ -/r 4774:	Rodger Dodger
+++++ -/r 4775:	RPS
+++++ -/r 4776:	Super Guy
++++ d/d 4698:	After Dark Tenth Anniversary
+++++ -/r 4699:	After Dark 10th Faceplate
+++++ -/r 4704:	After Dark 4.0 Shared
+++++ -/r 4733:	Artist
+++++ -/r 4734:	Bad Dog
+++++ -/r 4708:	Bad Dog!
+++++ -/r 4725:	Bogglins
+++++ -/r 4726:	Boris
+++++ -/r 4715:	Bungee Roulette
+++++ -/r 4700:	Chameleon
+++++ -/r 4721:	CYb3r W@t
+++++ -/r 4735:	Daredevil Dan
+++++ -/r 4736:	DrawMorph
+++++ -/r 4737:	Fish Pro
+++++ -/r 4705:	Fish World
+++++ -/r 4727:	Fish!
+++++ -/r 4728:	Flying Toasters
+++++ -/r 4738:	Flying Toasters Pro
+++++ -/r 4707:	Flying Toasters!
+++++ -/r 4701:	Flying Toilets
+++++ -/r 4716:	FrankenScreen
+++++ -/r 4744:	Hall of Fame
+++++ -/r 4743:	HOF.adm
+++++ -/r 4742:	hof.srf
+++++ -/r 4710:	Hula Twins
+++++ -/r 4706:	Lunatic Fringe
+++++ -/r 4722:	Magic Turtle
+++++ -/r 4712:	Marbles!
+++++ -/r 4713:	Messages 4.0
+++++ -/r 4717:	Mike's So-called Life
+++++ -/r 4718:	Mime Hunt
+++++ -/r 4702:	Mowin' Boris
+++++ -/r 4729:	Mowin' Man
+++++ -/r 4730:	Nonsense
+++++ -/r 4719:	Phlegm Boy
+++++ -/r 4731:	Puzzle
+++++ -/r 4723:	Rainforest
+++++ -/r 4739:	Rat Race
+++++ -/r 4740:	Ray
+++++ -/r 4714:	Rodger Dodger
+++++ -/r 4709:	Shadow Agents
+++++ -/r 4732:	Slide Show
+++++ -/r 4724:	Super Guy
+++++ -/r 4711:	Time Flies
+++++ -/r 4745:	Toaster 2k
+++++ -/r 4720:	Toxic Swamp
+++++ -/r 4703:	Voyeur
+++++ -/r 4741:	You Bet Your Head
++++ d/d 3978:	Art of Darkness
+++++ -/r 3979:	Art of Darkness Setup Guide
++++ -/r 4031:	Blackboard
++++ -/r 3969:	Bogglins
++++ -/r 3993:	Boris
++++ -/r 4036:	Bouncing Ball
++++ -/r 4010:	Can of Worms
++++ -/r 4034:	Clock
++++ -/r 3985:	Confetti Factory
++++ -/r 3996:	Dominoes
++++ -/r 3975:	Doodles
++++ -/r 4025:	Down the Drain
++++ d/d 4683:	EcoLogic Files
+++++ -/r 4618:	MonitorSD
+++++ -/r 4619:	ShutDownSD
++++ -/r 3987:	FadeAway
++++ -/r 3974:	Fish!
++++ -/r 3958:	Flying Toasters
++++ -/r 3989:	Fractal Forest
++++ -/r 3983:	GeoBounce
++++ -/r 3977:	Globe
++++ -/r 3991:	GraphStat
++++ -/r 3971:	Gravity
++++ -/r 4012:	Hard Rain
++++ -/r 4017:	Life II
++++ -/r 4014:	Lissajous
++++ -/r 4009:	Logo
++++ -/r 3986:	Lunatic Fringe
++++ -/r 3992:	Major Metaphysical Appliances
++++ -/r 3994:	Mandelbrot
++++ -/r 4023:	Meadow
++++ -/r 3966:	Messages
++++ d/d 4614:	Midnight Collection
+++++ -/r 4615:	After Dark 4.0 Faceplate
+++++ -/r 4631:	After Dark 4.0 Shared
+++++ -/r 4635:	Bad Dog!
+++++ -/r 4627:	Chameleon
+++++ -/r 4632:	Fish World
+++++ -/r 4634:	Flying Toasters!
+++++ -/r 4628:	Flying Toilets
+++++ -/r 4638:	Hula Twins
+++++ -/r 4633:	Lunatic Fringe
+++++ -/r 4640:	Marbles!
+++++ -/r 4641:	Messages 4.0
+++++ -/r 4629:	Mowin' Boris
+++++ -/r 4637:	Psycho Deli
+++++ -/r 4642:	Rodger Dodger
+++++ -/r 4636:	Shadow Agents
+++++ -/r 4639:	Time Flies
+++++ -/r 4630:	Voyeur
++++ -/r 4016:	Modern Art
++++ d/d 4643:	Module Resources
+++++ -/r 4749:	After Dark 4.0 Library
+++++ -/r 4746:	Library 4.0
+++++ -/r 4747:	Twisted Art
+++++ -/r 4748:	Twisted Sound
++++ -/r 4020:	Mountains
++++ -/r 3999:	Movies 'Til Dawn
++++ -/r 4018:	Mowin' Man
++++ -/r 3984:	MultiModule
++++ d/d 4026:	MultiModule Settings
+++++ -/r 4030:	Good Vibrations (256 colors)
+++++ -/r 4028:	Grand Finale
+++++ -/r 4029:	Space Toasters!
+++++ -/r 4027:	Stormy Skyline
++++ d/d 4651:	Music
+++++ -/r 4752:	Baby Toasters Music
+++++ -/r 4753:	Flying Toasters Music
+++++ -/r 4754:	Toaster 2K Music
++++ -/r 3968:	NightLines
++++ -/r 3962:	Nocturnes
++++ -/r 4033:	Pearls
++++ -/r 3988:	PICS Player
++++ -/r 3965:	Picture Frame
++++ -/r 4011:	ProtoToasters
++++ -/r 3961:	Punchout
++++ -/r 3976:	Puzzle
++++ -/r 3970:	Rain
++++ -/r 3960:	Rainstorm
++++ -/r 4032:	Randomizer
++++ d/d 4684:	Randomizers
+++++ -/r 4813:	Randomizer
++++ d/d 4755:	Ray Folder
+++++ -/r 4756:	Bouncing Ball
+++++ -/r 4757:	Bouncing Diamond
+++++ -/r 4758:	Cube
+++++ -/r 4759:	Diamond
+++++ -/r 4760:	Gear
+++++ -/r 4761:	Pyrathing
+++++ -/r 4762:	Sphere
+++++ -/r 4763:	Spiny Rose
+++++ -/r 4764:	Three Balls
++++ -/r 3997:	Ripple
++++ -/r 4000:	Rose
++++ -/r 3963:	Rotating Cube.PICS
++++ -/r 4015:	Satori
++++ -/r 4004:	Say What_
++++ -/r 10230:	Second Nature
++++ -/r 3998:	Shapes
++++ -/r 3973:	Slide Show
++++ d/d 3980:	Slide Show Folder
+++++ -/r 3982:	After Dark Title
+++++ -/r 3981:	Berkeley Systems Logo
++++ -/r 4035:	Snake
++++ -/r 3972:	Spheres
++++ -/r 4008:	Spin Brush
++++ -/r 3990:	Spiral Gyra
++++ -/r 3967:	Spotlight
++++ -/r 3964:	Stained Glass
++++ -/r 4002:	Starry Skyline
++++ -/r 4006:	Strange Attractors
++++ -/r 4019:	String Art
++++ -/r 4013:	String Theory
++++ -/r 4024:	SunBurst
++++ -/r 3995:	Supernova
++++ -/r 3959:	Terraform
++++ -/r 4003:	Tunnel
++++ -/r 4007:	Vertigo
++++ -/r 4001:	Warp!
++++ -/r 4005:	Zot!
+++ -/r 525:	Appearance
+++ -/r 4329:	Apple Menu Options
+++ -/r 499:	AppleTalk
+++ -/r 2099:	ColorSync
+++ -/r 443:	Control Strip
+++ -/r 432:	Date & Time
+++ -/r 1883:	DialAssist
+++ -/r 4328:	Energy Saver
+++ -/r 401:	Extensions Manager
+++ -/r 397:	File Exchange
+++ -/r 396:	File Sharing
+++ -/r 374:	General Controls
+++ -/r 346:	Internet
+++ -/r 4298:	Keyboard
+++ -/r 335:	Keychain Access
+++ -/r 295:	Launcher
+++ -/r 292:	Location Manager
+++ -/r 11149:	Map
+++ -/r 272:	Memory
+++ -/r 1882:	Modem
+++ -/r 265:	Monitors
+++ -/r 263:	Mouse
+++ -/r 261:	Multiple Users
+++ -/r 251:	Numbers
+++ -/r 7605:	QuickTime™ Settings
+++ -/r 1947:	Remote Access
+++ -/r 4303:	Software Update
+++ -/r 4292:	Sound
+++ -/r 2117:	Speech
+++ -/r 4310:	Startup Disk
+++ -/r 180:	TCP:IP
+++ -/r 174:	Text
+++ -/r 2680:	True Finder Integration
+++ -/r 1956:	Web Sharing
++ d/d 43:	Control Strip Modules
+++ -/r 496:	AppleTalk Switch
+++ -/r 489:	Battery Monitor
+++ -/r 484:	CDStrip
+++ -/r 408:	Energy Settings
+++ -/r 392:	File Sharing Strip
+++ -/r 333:	Keychain Strip
+++ -/r 291:	Location Manager Controls
+++ -/r 273:	Media Bay
+++ -/r 268:	Monitor BitDepth
+++ -/r 267:	Monitor Resolution
+++ -/r 233:	Printer Selector
+++ -/r 7607:	QuickTime Strip
+++ -/r 1879:	Remote Access Control Strip
+++ -/r 197:	Sound Volume
+++ -/r 4309:	SoundSource Strip
+++ -/r 4318:	TV Mirroring
+++ -/r 154:	Video Mirroring
+++ -/r 1957:	Web Sharing CS
++ -/r 11155:	Desktop Printer Utility
++ d/d 30:	Extensions
++ d/d 61:	Favorites
+++ -/r 123:	www.apple.com
++ -/r 385:	Finder
++ d/d 44:	Fonts
+++ -/r 1745:	Andale Mono
+++ -/r 522:	Apple Chancery
+++ -/r 1743:	Arial
+++ -/r 1741:	Arial Black
+++ -/r 474:	Capitals
+++ -/r 470:	Charcoal
+++ -/r 469:	Chicago
+++ -/r 2866:	ClariCADFon
+++ -/r 2867:	ClariCADFonII
+++ -/r 1740:	Comic Sans MS
+++ -/r 437:	Courier
+++ -/r 1739:	Courier New
+++ -/r 375:	Gadget
+++ -/r 2868:	GD&T Font
+++ -/r 373:	Geneva
+++ -/r 1737:	Georgia
+++ -/r 356:	Helvetica
+++ -/r 354:	Hoefler Text
+++ -/r 1736:	Impact
+++ -/r 269:	Monaco
+++ -/r 254:	New York
+++ -/r 239:	Palatino
+++ -/r 221:	Sand
+++ -/r 204:	Skia
+++ -/r 184:	Symbol
+++ -/r 175:	Techno
+++ -/r 172:	Textile
+++ -/r 168:	Times
+++ -/r 1735:	Times New Roman
+++ -/r 1734:	Trebuchet MS
+++ -/r 1733:	Verdana
+++ -/r 1732:	Webdings
++ d/d 35:	Help
+++ d/d 102:	Apple Help Viewer
++++ d/d 103:	gfx
+++++ -/r 488:	Bkgd.gif
+++++ -/r 430:	DefaultIcon.gif
+++++ -/r 141:	gls.gif
+++++ -/r 371:	Go.gif
+++++ -/r 364:	HClg.gif
+++++ -/r 360:	HVT.gif
+++++ -/r 285:	MOS.gif
+++++ -/r 131:	mr.gif
+++++ -/r 230:	Pro.gif
+++++ -/r 203:	Soft.gif
+++++ -/r 222:	SR.gif
+++++ -/r 149:	Whoa.gif
++++ -/r 358:	Help Viewer
++++ -/r 357:	Help Viewer Guide
++++ -/r 139:	hvtps.htm
++++ d/d 106:	pgs
+++++ -/r 140:	hlpcntrtmpl.htm
+++ d/d 547:	AppleScript Help
++++ -/r 548:	AppleScript Help
++++ d/d 549:	at
+++++ -/r 550:	at idx
+++++ -/r 551:	atRTOC.htm
+++++ d/d 552:	gfx
++++++ -/r 553:	fddctnry.gif
++++++ -/r 554:	fdSEicn.gif
++++++ -/r 555:	Spkable.gif
+++++ d/d 556:	pgs
++++++ -/r 557:	at10.htm
++++++ -/r 558:	at20.htm
++++++ -/r 559:	at30.htm
++++++ -/r 560:	at40.htm
++++++ -/r 561:	at41.htm
++++++ -/r 562:	at42.htm
++++++ -/r 563:	at43.htm
++++++ -/r 564:	at45.htm
++++++ -/r 565:	at46.htm
++++++ -/r 566:	at47.htm
++++++ -/r 567:	at50.htm
++++++ -/r 568:	at51.htm
++++++ -/r 569:	at52.htm
++++++ -/r 570:	at70.htm
++++++ -/r 571:	at80.htm
++++++ -/r 572:	at81.htm
++++++ -/r 573:	at82.htm
++++++ -/r 574:	atFmSet.htm
+++++ d/d 575:	shrd
++++++ -/r 576:	atVers.htm
++++++ -/r 577:	Example 01
++++++ -/r 578:	Example 02
++++++ -/r 579:	Example 03
++++++ -/r 580:	Example 04
++++++ -/r 581:	Example 05
++++++ -/r 582:	Example 06
++++++ -/r 583:	Example 07
++++++ -/r 584:	Example 08
++++++ -/r 585:	Example 09
++++++ -/r 586:	Example 10
++++++ -/r 587:	Example 11
++++++ -/r 588:	Example 12
++++++ -/r 589:	Example 13
++++++ -/r 590:	Example 14
++++++ -/r 591:	Example 15
++++++ -/r 592:	Example 16
++++++ -/r 593:	Example 17
++++++ -/r 594:	Example 18
++++++ -/r 595:	Example 19
++++++ -/r 596:	Example 20
++++++ -/r 597:	Example 21
++++++ -/r 598:	Example 22
++++++ -/r 599:	Example 23
++++++ -/r 600:	Example 24
++++++ -/r 601:	Example 25
++++++ -/r 602:	Example 26
++++++ -/r 603:	Example 27
++++++ -/r 604:	Example 28
++++++ -/r 605:	spOpenSpeakableItemsFolder
++++ d/d 606:	cs
++++ d/d 637:	gfx
+++++ -/r 638:	apMn.gif
+++++ -/r 639:	asD.gif
+++++ -/r 640:	asik.gif
+++++ -/r 641:	asltocBk.gif
+++++ -/r 642:	asltocTi.gif
+++++ -/r 643:	asrtocBk.gif
+++++ -/r 644:	asrtocik.gif
+++++ -/r 645:	fndikn.gif
+++++ -/r 646:	scradfik.gif
+++++ -/r 647:	scradicn.gif
++++ d/d 648:	gs
++++ -/r 660:	rtfmhdy.htm
++++ d/d 661:	shrd
+++++ -/r 663:	as_cpyrt.htm
+++++ -/r 664:	as_linkToOtherModule
+++++ -/r 665:	as_OpenURL
+++++ -/r 662:	asVers.htm
+++++ -/r 666:	Crdts.htm
+++++ -/r 667:	ErrDialogLib
+++++ -/r 668:	linkToOtherBook
+++++ -/r 669:	openDictionary
+++++ -/r 670:	openSampleScript
+++++ -/r 671:	openSampleScriptWithWarning
+++++ -/r 672:	openScriptDictionary
+++++ -/r 673:	OpnApp
+++++ -/r 674:	shrd idx
++++ -/r 2428:	toc.htm
++++ -/r 675:	toctmpl.htm
++++ d/d 676:	wa
+++++ d/d 677:	gfx
+++++ d/d 678:	pgs
++++++ -/r 679:	wa01.htm
++++++ -/r 680:	wa02.htm
++++++ -/r 681:	wa10.htm
++++++ -/r 682:	wa20.htm
++++++ -/r 683:	wa30.htm
++++++ -/r 684:	wa40.htm
++++++ -/r 685:	wa50.htm
++++++ -/r 686:	wa60.htm
++++++ -/r 687:	wa70.htm
++++++ -/r 688:	wa80.htm
++++++ -/r 689:	wa90.htm
++++++ -/r 690:	wa99.htm
++++++ -/r 691:	waFmSet.htm
+++++ d/d 692:	shrd
++++++ -/r 693:	Example 41
++++++ -/r 694:	Example 42
++++++ -/r 695:	Example 44
++++++ -/r 696:	Example 45
++++++ -/r 697:	Example 46
++++++ -/r 698:	waVers.htm
+++++ -/r 699:	wa idx
+++++ -/r 700:	waRTOC.htm
+++ -/r 4037:	Finder Help
+++ -/r 2430:	Help Center
+++ d/d 701:	Mac Help
++++ d/d 702:	ba
+++++ -/r 703:	ba idx
+++++ -/r 704:	baRtoc.htm
+++++ d/d 705:	gfx
++++++ -/r 706:	baAppicn.gif
++++++ -/r 707:	baHier.gif
++++++ -/r 708:	baIcns.gif
++++++ -/r 709:	baInsert.gif
++++++ -/r 710:	baSlctxt.gif
++++++ -/r 711:	baWindow.gif
+++++ d/d 712:	pgs
++++++ -/r 713:	baCrtdoc.htm
++++++ -/r 714:	baEdttxt.htm
++++++ -/r 715:	baFmSet.htm
++++++ -/r 716:	baOpnfls.htm
++++++ -/r 717:	baOrgfls.htm
++++++ -/r 718:	baTrnoff.htm
++++++ -/r 719:	baWrkwnd.htm
+++++ d/d 720:	shrd
++++++ -/r 721:	baGuide
++++++ -/r 722:	baVers.htm
++++ d/d 723:	ca
+++++ -/r 724:	ca idx
+++++ -/r 725:	caRtoc.htm
+++++ d/d 726:	gfx
++++++ -/r 727:	caCsync.gif
++++++ -/r 728:	caDigtlClrMetr.gif
++++++ -/r 729:	caMScdev.gif
++++++ -/r 730:	d.gif
+++++ d/d 731:	pgs
++++++ -/r 732:	caAbtCS.htm
++++++ -/r 733:	caApp.htm
++++++ -/r 734:	caChset.htm
++++++ -/r 735:	caFmSet.htm
++++++ -/r 736:	caGtng.htm
++++++ -/r 737:	caManag.htm
++++++ -/r 738:	caMntrs.htm
++++++ -/r 739:	caMsrng.htm
++++++ -/r 740:	caPrnt.htm
++++++ -/r 741:	caShar.htm
+++++ d/d 742:	shrd
++++++ -/r 743:	caGuide
++++++ -/r 744:	caVers.htm
++++ d/d 745:	dk
+++++ -/r 746:	dk idx
+++++ -/r 747:	dkRtoc.htm
+++++ d/d 748:	gfx
++++++ -/r 749:	dkDrvstp.gif
++++++ -/r 750:	dkflex.gif
++++++ -/r 751:	dkFnd.gif
++++++ -/r 752:	dkFrstAid.gif
++++++ -/r 753:	dkL03CDs.gif
++++++ -/r 754:	dkL05Dnt.gif
++++++ -/r 755:	dkL11Zip.gif
++++++ -/r 756:	dkPass1.gif
++++++ -/r 757:	dkRnmdsk.gif
++++++ -/r 758:	dkScsi1.gif
++++++ -/r 759:	dkStrtupdskcp.gif
++++++ -/r 760:	dkZiptls.gif
+++++ d/d 761:	pgs
++++++ -/r 762:	dkChnnam.htm
++++++ -/r 763:	dkErsdsk.htm
++++++ -/r 764:	dkFmSet.htm
++++++ -/r 765:	dkInsflp.htm
++++++ -/r 766:	dkIntdsk.htm
++++++ -/r 767:	dkPrtCD.htm
++++++ -/r 768:	dkPrtInt.htm
++++++ -/r 769:	dkPrtRam.htm
++++++ -/r 770:	dkPrtZip.htm
++++++ -/r 771:	dkRprdsk.htm
++++++ -/r 772:	dkScsi1.htm
++++++ -/r 773:	dkStrdsk.htm
++++++ -/r 774:	dkUsncds.htm
+++++ d/d 775:	shrd
++++++ -/r 776:	dkGuide
++++++ -/r 777:	dkVers.htm
++++ d/d 778:	eq
+++++ -/r 779:	eq idx
+++++ -/r 780:	eqRTOC.htm
+++++ d/d 781:	gfx
++++++ -/r 782:	eqAplPrf.gif
++++++ -/r 783:	eqL17USa.gif
++++++ -/r 784:	eqL19USb.gif
++++++ -/r 785:	eqL43US4.gif
++++++ -/r 786:	eqL44Hb1.gif
++++++ -/r 787:	eqL45Hb2.gif
++++++ -/r 788:	eqL69Trs.gif
++++++ -/r 789:	eqL85USi.gif
++++++ -/r 790:	eqL86USc.gif
+++++ d/d 791:	pgs
++++++ -/r 792:	eqAddit.htm
++++++ -/r 793:	eqExtra.htm
++++++ -/r 794:	eqFmSet.htm
++++++ -/r 795:	eqUsbAdp.htm
++++++ -/r 796:	eqUsbBnf.htm
++++++ -/r 797:	eqUsbCnt.htm
++++++ -/r 798:	eqUsbHbs.htm
++++++ -/r 799:	eqUsbHrc.htm
++++++ -/r 800:	eqUsbInt.htm
++++++ -/r 801:	eqUsbMlp.htm
++++++ -/r 802:	eqUsbPrt.htm
++++++ -/r 803:	eqUsbSof.htm
++++++ -/r 804:	eqUsbTrb.htm
++++++ -/r 805:	eqUsbTyp.htm
+++++ d/d 806:	shrd
++++++ -/r 807:	eqVers.htm
++++ d/d 808:	fp
+++++ -/r 809:	fp idx
+++++ -/r 810:	fpRtoc.htm
+++++ d/d 811:	gfx
++++++ -/r 812:	fpCpyfls.gif
++++++ -/r 813:	fpflex.gif
++++++ -/r 814:	fpFnd.gif
++++++ -/r 815:	fpGnrlcp.gif
++++++ -/r 816:	fpHier.gif
++++++ -/r 817:	fpRnmicn.gif
++++++ -/r 818:	fpSwtSmIcn.gif
++++++ -/r 819:	fpSwtSmTxt.gif
+++++ d/d 820:	pgs
++++++ -/r 821:	fpApcmft.htm
++++++ -/r 822:	fpChgapr.htm
++++++ -/r 823:	fpChgnam.htm
++++++ -/r 824:	fpCopfls.htm
++++++ -/r 825:	fpCrIndx.htm
++++++ -/r 826:	fpFmSet.htm
++++++ -/r 827:	fpFndfls.htm
++++++ -/r 828:	fpFndsht.htm
++++++ -/r 829:	fpOpcfwm.htm
++++++ -/r 830:	fpOpFiPr.htm
++++++ -/r 831:	fpOpndoc.htm
++++++ -/r 832:	fpOpnprg.htm
++++++ -/r 833:	fpSvgdoc.htm
++++++ -/r 834:	fpSvSrch.htm
++++++ -/r 835:	fpSwtprg.htm
++++++ -/r 836:	fpThrfls.htm
+++++ d/d 837:	shrd
++++++ -/r 838:	AppSwitcherLowerLeft
++++++ -/r 839:	AppSwitcherLowerRight
++++++ -/r 840:	AppSwitcherRestoreDefaults
++++++ -/r 841:	fpGuide
++++++ -/r 842:	fpShwAppSwtchr
++++++ -/r 843:	fpVers.htm
++++++ -/r 844:	SetKeyboardSwitching
++++++ -/r 845:	wrnBfrEmpyTrsh
++++ d/d 846:	gfx
+++++ -/r 847:	D.gif
+++++ -/r 848:	Fnd.gif
+++++ -/r 849:	ltocBk.jpg
+++++ -/r 850:	ltocTi.gif
+++++ -/r 851:	MOSik.gif
+++++ -/r 852:	prntr.gif
+++++ -/r 853:	rtocBk.jpg
+++++ -/r 854:	rtocik.gif
++++ d/d 1410:	ln
+++++ d/d 1411:	gfx
+++++ -/r 1412:	ln idx
+++++ -/r 1413:	lnRtoc.htm
+++++ d/d 1414:	pgs
++++++ -/r 1415:	lnAbtMc.htm
++++++ -/r 1416:	lnFmSet.htm
+++++ d/d 1417:	shrd
++++++ -/r 1418:	lnVers.htm
++++ -/r 855:	Mac Help
++++ d/d 856:	mm
+++++ d/d 857:	gfx
++++++ -/r 858:	mmAVPicn.gif
++++++ -/r 859:	mmMScdev.gif
++++++ -/r 860:	mmOpenGL.gif
++++++ -/r 861:	mmQTplyricn.gif
++++++ -/r 862:	mmQtstgs.gif
++++++ -/r 863:	mmSimpTxtIcn.gif
+++++ -/r 864:	mm idx
+++++ -/r 865:	mmRtoc.htm
+++++ d/d 866:	pgs
++++++ -/r 867:	mm3dVR.htm
++++++ -/r 868:	mmFmSet.htm
++++++ -/r 869:	mmMov.htm
++++++ -/r 870:	mmOpenGL.htm
++++++ -/r 871:	mmPCD.htm
++++++ -/r 872:	mmQD3D.htm
++++++ -/r 873:	mmQD3Dts.htm
++++++ -/r 874:	mmQTVR.htm
++++++ -/r 875:	mmTap.htm
++++++ -/r 876:	mmTV.htm
++++++ -/r 877:	mmWeb.htm
+++++ d/d 878:	shrd
++++++ -/r 879:	mmGuide
++++++ -/r 880:	mmVers.htm
++++++ -/r 881:	Sample audio
++++++ -/r 882:	Sample Movie
++++++ -/r 883:	Sample object
++++++ -/r 884:	Sample Panorama
++++ d/d 885:	mr
+++++ d/d 886:	gfx
++++++ -/r 887:	mrMemrycp.gif
+++++ -/r 888:	mr idx
+++++ -/r 889:	mrRtoc.htm
+++++ d/d 890:	pgs
++++++ -/r 891:	mrDskCch.htm
++++++ -/r 892:	mrFmSet.htm
++++++ -/r 893:	mrMknmor.htm
++++++ -/r 894:	mrSngmmr.htm
++++++ -/r 895:	mrUsnrmd.htm
++++++ -/r 896:	mrVM.htm
+++++ d/d 897:	shrd
++++++ -/r 898:	mrGuide
++++++ -/r 899:	mrVers.htm
++++ d/d 900:	ms
+++++ d/d 901:	gfx
++++++ -/r 902:	msAprc.gif
++++++ -/r 903:	msExtDskB.gif
++++++ -/r 904:	msMirorB.gif
++++++ -/r 905:	msMScdev.gif
+++++ -/r 906:	ms idx
+++++ -/r 907:	msRtoc.htm
+++++ d/d 908:	pgs
++++++ -/r 909:	msAdjst.htm
++++++ -/r 910:	msFmSet.htm
++++++ -/r 911:	msMulti.htm
++++++ -/r 912:	msTV.htm
+++++ d/d 913:	shrd
++++++ -/r 914:	msVers.htm
++++ d/d 915:	nt
+++++ d/d 916:	gfx
++++++ -/r 917:	ntAtlkcp.gif
++++++ -/r 918:	ntchser.gif
++++++ -/r 919:	nteyes.gif
++++++ -/r 920:	ntflshar.gif
++++++ -/r 921:	ntFnd.gif
++++++ -/r 922:	ntintasst.gif
++++++ -/r 923:	ntintntcp.gif
++++++ -/r 924:	ntinttcp.gif
++++++ -/r 925:	ntIr1.gif
++++++ -/r 926:	ntIr3.gif
++++++ -/r 927:	ntkchncp.gif
++++++ -/r 928:	ntL28Etp.gif
++++++ -/r 929:	ntL33Nt1.gif
++++++ -/r 930:	ntL35Nt3.gif
++++++ -/r 931:	ntL46RJc.gif
++++++ -/r 932:	ntmdmcp.gif
++++++ -/r 933:	ntNAsec.gif
++++++ -/r 934:	ntprntr.gif
++++++ -/r 935:	ntrctsrv.gif
++++++ -/r 936:	ntrmotcp.gif
++++++ -/r 937:	ntrmotstrip.gif
++++++ -/r 938:	ntsnmpap.gif
++++++ -/r 939:	ntsrvbrwsbtn.gif
++++++ -/r 940:	ntsrvrbwsr.gif
++++++ -/r 941:	ntSWUpic.gif
++++++ -/r 942:	nttcpcp.gif
++++++ -/r 943:	ntwbshar.gif
++++++ -/r 944:	ntwkStup.gif
+++++ -/r 945:	nt idx
+++++ -/r 946:	ntRtoc.htm
+++++ d/d 947:	pgs
++++++ -/r 948:	ntAccfil.htm
++++++ -/r 949:	ntAdsnmp.htm
++++++ -/r 950:	ntArapwd.htm
++++++ -/r 951:	ntArasrv.htm
++++++ -/r 952:	ntConcto.htm
++++++ -/r 953:	ntConnet.htm
++++++ -/r 954:	ntCrEdCh.htm
++++++ -/r 955:	ntEtAdp.htm
++++++ -/r 956:	ntEtCbls.htm
++++++ -/r 957:	ntEtCnct.htm
++++++ -/r 958:	ntFmSet.htm
++++++ -/r 959:	ntFndint.htm
++++++ -/r 960:	ntGlsry.htm
++++++ -/r 961:	ntIntacc.htm
++++++ -/r 962:	ntIntadj.htm
++++++ -/r 963:	ntIntgrp.htm
++++++ -/r 964:	ntInttrb.htm
++++++ -/r 965:	ntIr1.htm
++++++ -/r 966:	ntIr2.htm
++++++ -/r 967:	ntIr3.htm
++++++ -/r 968:	ntKey.htm
++++++ -/r 969:	ntMdAnlg.htm
++++++ -/r 970:	ntMdTps.htm
++++++ -/r 971:	ntMdTst.htm
++++++ -/r 972:	ntMnflsh.htm
++++++ -/r 973:	ntNAadm.htm
++++++ -/r 974:	ntNAattr.htm
++++++ -/r 975:	ntNActrl.htm
++++++ -/r 976:	ntNAlog.htm
++++++ -/r 977:	ntNAuse.htm
++++++ -/r 978:	ntRascrp.htm
++++++ -/r 979:	ntRmot.htm
++++++ -/r 980:	ntSfUpdt.htm
++++++ -/r 981:	ntShare.htm
++++++ -/r 982:	ntShpriv.htm
++++++ -/r 983:	ntShrfil.htm
++++++ -/r 984:	ntSmlnet.htm
++++++ -/r 985:	ntStaptk.htm
++++++ -/r 986:	ntStucfg.htm
++++++ -/r 987:	ntStumdm.htm
++++++ -/r 988:	ntStura.htm
++++++ -/r 989:	ntStutcp.htm
++++++ -/r 990:	ntSvrbwr.htm
++++++ -/r 991:	ntTrbnet.htm
++++++ -/r 992:	ntTrbrmt.htm
++++++ -/r 993:	ntTrnEml.htm
++++++ -/r 994:	ntTrnEnt.htm
++++++ -/r 995:	ntTrnInt.htm
++++++ -/r 996:	ntTrnStr.htm
++++++ -/r 997:	ntTrnWeb.htm
++++++ -/r 998:	ntUmode.htm
++++++ -/r 999:	ntWbacc.htm
++++++ -/r 1000:	ntWbadj.htm
++++++ -/r 1001:	ntWbfldr.htm
++++++ -/r 1002:	ntWbpub.htm
++++++ -/r 1003:	ntWbtrbl.htm
++++++ -/r 1004:	ntWbview.htm
+++++ d/d 1005:	shrd
++++++ -/r 1006:	ntGuide
++++++ -/r 1007:	ntPrtNetAsst
++++++ -/r 1008:	ntVers.htm
++++ d/d 1009:	pm
+++++ d/d 1010:	gfx
++++++ -/r 1011:	pmAtlkcp.gif
++++++ -/r 1012:	pmGnrlcp.gif
++++++ -/r 1013:	pmInstlr.gif
++++++ -/r 1014:	pmKybdcp.gif
++++++ -/r 1015:	pmMemrycp.gif
++++++ -/r 1016:	pmMicecp.gif
++++++ -/r 1017:	pmPRAM.gif
++++++ -/r 1018:	pmTkpdcp.gif
++++++ -/r 1019:	pmwkStup.gif
+++++ d/d 1020:	pgs
++++++ -/r 1021:	pmCR.htm
++++++ -/r 1022:	pmCReqpt.htm
++++++ -/r 1023:	pmCRscsi.htm
++++++ -/r 1024:	pmCRsw.htm
++++++ -/r 1025:	pmCRxtn.htm
++++++ -/r 1026:	pmErrs.htm
++++++ -/r 1027:	pmFmSet.htm
++++++ -/r 1028:	pmPRAM.htm
++++++ -/r 1029:	pmPrfrmc.htm
++++++ -/r 1030:	pmPV.htm
++++++ -/r 1031:	pmPVbkup.htm
++++++ -/r 1032:	pmPVckvr.htm
++++++ -/r 1033:	pmPVupdt.htm
+++++ -/r 1034:	pm idx
+++++ -/r 1035:	pmRtoc.htm
+++++ d/d 1036:	shrd
++++++ -/r 1037:	mntrDpth256
++++++ -/r 1038:	pmVers.htm
++++ d/d 1039:	pt
+++++ d/d 1040:	gfx
++++++ -/r 1041:	ptAtlkcp.gif
++++++ -/r 1042:	ptChsr.gif
++++++ -/r 1043:	ptEm.gif
++++++ -/r 1044:	ptFntSic.gif
++++++ -/r 1045:	ptMemrycp.gif
++++++ -/r 1046:	ptwkStup.gif
+++++ d/d 1047:	pgs
++++++ -/r 1048:	ptBkgrnd.htm
++++++ -/r 1049:	ptDcprnt.htm
++++++ -/r 1050:	ptDsktpp.htm
++++++ -/r 1051:	ptFmSet.htm
++++++ -/r 1052:	ptFntSnc.htm
++++++ -/r 1053:	ptirda.htm
++++++ -/r 1054:	ptTrbsht.htm
++++++ -/r 1055:	ptUsgopt.htm
+++++ -/r 1056:	pt idx
+++++ -/r 1057:	ptRtoc.htm
+++++ d/d 1058:	shrd
++++++ -/r 1059:	ptGuide
++++++ -/r 1060:	ptVers.htm
++++ -/r 1061:	rtfmhdy.htm
++++ d/d 1062:	sc
+++++ d/d 1063:	gfx
++++++ -/r 1064:	scApVric.gif
++++++ -/r 1065:	scASCic.gif
++++++ -/r 1066:	scGnrlcp1.gif
++++++ -/r 1067:	scKyChic.gif
+++++ d/d 1068:	pgs
++++++ -/r 1069:	scCerts.htm
++++++ -/r 1070:	scCrAdKy.htm
++++++ -/r 1071:	scEncDec.htm
++++++ -/r 1072:	scFmSet.htm
++++++ -/r 1073:	scLok.htm
++++++ -/r 1074:	scPtFFld.htm
++++++ -/r 1075:	scPwds.htm
++++++ -/r 1076:	scSetng.htm
++++++ -/r 1077:	scStKyCh.htm
++++++ -/r 1078:	scTrnsfr.htm
++++++ -/r 1079:	scVrfSig.htm
+++++ -/r 1080:	sc idx
+++++ -/r 1081:	scRtoc.htm
+++++ d/d 1082:	shrd
++++ d/d 1085:	sd
+++++ d/d 1086:	gfx
++++++ -/r 1087:	sdCDAdio.gif
++++++ -/r 1088:	sdMSicn.gif
++++++ -/r 1089:	sdQTcdev.gif
++++++ -/r 1090:	sdsMScdev.gif
++++++ -/r 1091:	sdSndIcn.gif
+++++ d/d 1092:	pgs
++++++ -/r 1093:	sdAlrt.htm
++++++ -/r 1094:	sdAlrtNw.htm
++++++ -/r 1095:	sdAlrtRc.htm
++++++ -/r 1096:	sdCD.htm
++++++ -/r 1097:	sdEnhCD.htm
++++++ -/r 1098:	sdEq.htm
++++++ -/r 1099:	sdEqAV.htm
++++++ -/r 1100:	sdEqMic.htm
++++++ -/r 1101:	sdEqOt.htm
++++++ -/r 1102:	sdEqSpk.htm
++++++ -/r 1103:	sdFmSet.htm
++++++ -/r 1104:	sdVm.htm
++++++ -/r 1105:	sdVmAlrt.htm
++++++ -/r 1106:	sdVMAV.htm
++++++ -/r 1107:	sdVMiSpk.htm
++++++ -/r 1108:	sdVMxSpk.htm
+++++ -/r 1109:	sd idx
+++++ -/r 1110:	sdRtoc.htm
+++++ d/d 1111:	shrd
++++++ -/r 1112:	sdVers.htm
++++ d/d 1113:	sg
+++++ d/d 1114:	gfx
++++++ -/r 1115:	sgApprcp.gif
++++++ -/r 1116:	sgDtntmcp.gif
++++++ -/r 1117:	sgEzacc.gif
++++++ -/r 1118:	sgKybdcp.gif
++++++ -/r 1119:	sgKyCps.gif
++++++ -/r 1120:	sgLmang1.gif
++++++ -/r 1121:	sgLocmgrcp.gif
++++++ -/r 1122:	sgMicecp.gif
++++++ -/r 1123:	sgMUcdev.gif
++++++ -/r 1124:	sgNumbrscp.gif
++++++ -/r 1125:	sgTkpd1.gif
+++++ d/d 1126:	pgs
++++++ -/r 1127:	sgAccChr.htm
++++++ -/r 1128:	sgAdjinp.htm
++++++ -/r 1129:	sgAdjkyb.htm
++++++ -/r 1130:	sgAdjmou.htm
++++++ -/r 1131:	sgChgdkt.htm
++++++ -/r 1132:	sgChgnmb.htm
++++++ -/r 1133:	sgCJKInP.htm
++++++ -/r 1134:	sgCrPwAl.htm
++++++ -/r 1135:	sgCrUsEn.htm
++++++ -/r 1136:	sgCstDsk.htm
++++++ -/r 1137:	sgFmSet.htm
++++++ -/r 1138:	sgLInOut.htm
++++++ -/r 1139:	sgLmang1.htm
++++++ -/r 1140:	sgMuAcPv.htm
++++++ -/r 1141:	sgMuCrUr.htm
++++++ -/r 1142:	sgMultiU.htm
++++++ -/r 1143:	sgMuMgGo.htm
++++++ -/r 1144:	sgMuRApp.htm
++++++ -/r 1145:	sgSetdtt.htm
++++++ -/r 1146:	sgSlcLy.htm
++++++ -/r 1147:	sgSmpnov.htm
++++++ -/r 1148:	sgTrnext.htm
++++++ -/r 1149:	sgUsglng.htm
++++++ -/r 1150:	sgUsInsR.htm
++++++ -/r 1151:	sgUsWeb.htm
++++++ -/r 1152:	sgVwtms.htm
+++++ -/r 1153:	sg idx
+++++ -/r 1154:	sgRtoc.htm
+++++ d/d 1155:	shrd
++++++ -/r 1156:	sgGuide
++++++ -/r 1157:	sgVers.htm
++++ d/d 1158:	shrd
+++++ -/r 1159:	AGOpnNamSeqLib
+++++ -/r 1160:	AGOpnWSeqLib
+++++ -/r 1161:	chckSmplFndrAndOpnGuide
+++++ -/r 1162:	Cpyrt.htm
+++++ -/r 1163:	crdts.htm
+++++ -/r 1164:	ErrDialogLib
+++++ -/r 1165:	hiliteApp
+++++ -/r 1166:	linkToOtherBook
+++++ -/r 1167:	linkToOtherModule
+++++ -/r 1168:	loadedSearch
+++++ -/r 1169:	OpenFile
+++++ -/r 1170:	OpenURL
+++++ -/r 1171:	OpnAplMnuItm
+++++ -/r 1172:	OpnAplMnuItmWGuide
+++++ -/r 1173:	OpnApp
+++++ -/r 1174:	OpnAppWGuide
+++++ -/r 1175:	OpnCntrlPnl
+++++ -/r 1176:	OpnCntrlPnlApp
+++++ -/r 1177:	OpnCPappwGuide
+++++ -/r 1178:	OpnCPwGuide
+++++ -/r 1179:	OpnFileSharingCP
+++++ -/r 1180:	OpnFileSharingWGuide
+++++ -/r 1181:	OpnFndrPrf
+++++ -/r 1182:	OpnGuide
+++++ -/r 1183:	OpnScpt
+++++ -/r 1184:	OpnShrlck
+++++ -/r 1185:	OpnSpclFldr
+++++ -/r 1186:	osVers.htm
+++++ -/r 1187:	shrd idx
+++++ -/r 1188:	trnApplTlkoff
+++++ -/r 1189:	TrnSmplFndrOff
+++++ -/r 1190:	turnFileSharingOff
+++++ -/r 1191:	turnFileSharingOn
++++ d/d 1192:	sp
+++++ d/d 1193:	gfx
++++++ -/r 1194:	sp.gif
++++++ -/r 1195:	spApMOic.gif
++++++ -/r 1196:	spCnnSI.gif
++++++ -/r 1197:	spEm.gif
++++++ -/r 1198:	spITMs.gif
++++++ -/r 1199:	spMonsnd.gif
++++++ -/r 1200:	spMScdev.gif
++++++ -/r 1201:	spPrfld.gif
++++++ -/r 1202:	spSmtx.gif
+++++ d/d 1203:	pgs
++++++ -/r 1204:	spChv.htm
++++++ -/r 1205:	spCmdPrb.htm
++++++ -/r 1206:	spCmdTps.htm
++++++ -/r 1207:	spCrtcmd.htm
++++++ -/r 1208:	spFdbck.htm
++++++ -/r 1209:	spFmSet.htm
++++++ -/r 1210:	spGvCmd.htm
++++++ -/r 1211:	spItms.htm
++++++ -/r 1212:	spLstn.htm
++++++ -/r 1213:	spMcphch.htm
++++++ -/r 1214:	spMkBttr.htm
++++++ -/r 1215:	spMtcs.htm
++++++ -/r 1216:	spRspnd.htm
++++++ -/r 1217:	spTklrt.htm
+++++ d/d 1218:	shrd
++++++ -/r 1219:	spCnnTs
++++++ -/r 1220:	spExmple
++++++ -/r 1221:	spFdRes.mov
++++++ -/r 1222:	spGuide
++++++ -/r 1223:	spOpenSpeakableItemsFolder
++++++ -/r 1224:	spOpnSpkbleCmds
++++++ -/r 1225:	spVers.htm
+++++ -/r 1226:	sp idx
+++++ -/r 1227:	spRtoc.htm
++++ d/d 1228:	st
+++++ d/d 1229:	gfx
++++++ -/r 1230:	stAfpLoc.gif
++++++ -/r 1231:	stApplmnoptscp.gif
++++++ -/r 1232:	stAr.gif
++++++ -/r 1233:	stAscrpt.gif
++++++ -/r 1234:	stAtlkcp.gif
++++++ -/r 1235:	stAtzLoc.gif
++++++ -/r 1236:	stBat5.gif
++++++ -/r 1237:	stBat6.gif
++++++ -/r 1238:	stBgals.gif
++++++ -/r 1239:	stC.gif
++++++ -/r 1240:	stCa.gif
++++++ -/r 1241:	stCcp.gif
++++++ -/r 1242:	stCd.gif
++++++ -/r 1243:	stCda.gif
++++++ -/r 1244:	stCdlt.gif
++++++ -/r 1245:	stClar.gif
++++++ -/r 1246:	stCmd.gif
++++++ -/r 1247:	stCmper.gif
++++++ -/r 1248:	stCn.gif
++++++ -/r 1249:	stCntrlStripcp.gif
++++++ -/r 1250:	stCntrlstrp.gif
++++++ -/r 1251:	stCntrlStrpModfldr.gif
++++++ -/r 1252:	stCo.gif
++++++ -/r 1253:	stCoo.gif
++++++ -/r 1254:	stCopr.gif
++++++ -/r 1255:	stCoptn.gif
++++++ -/r 1256:	stCos.gif
++++++ -/r 1257:	stCosd.gif
++++++ -/r 1258:	stCosp.gif
++++++ -/r 1259:	stCosw.gif
++++++ -/r 1260:	stCrar.gif
++++++ -/r 1261:	stCs.gif
++++++ -/r 1262:	stCsf.gif
++++++ -/r 1263:	stCsfc.gif
++++++ -/r 1264:	stCst.gif
++++++ -/r 1265:	stCsu.gif
++++++ -/r 1266:	stCsv.gif
++++++ -/r 1267:	stCsw.gif
++++++ -/r 1268:	stCu.gif
++++++ -/r 1269:	stCw.gif
++++++ -/r 1270:	sted.gif
++++++ -/r 1271:	stEE.gif
++++++ -/r 1272:	stEmlLoc.gif
++++++ -/r 1273:	stEnrgysvr.gif
++++++ -/r 1274:	stEnt.gif
++++++ -/r 1275:	stExtMgricn.gif
++++++ -/r 1276:	stFcqt.gif
++++++ -/r 1277:	stFldAct.gif
++++++ -/r 1278:	stFldActScrptsicn.gif
++++++ -/r 1279:	stFtpLoc.gif
++++++ -/r 1280:	stFvrts.gif
++++++ -/r 1281:	stGrphClcicn.gif
++++++ -/r 1282:	stH.gif
++++++ -/r 1283:	stLNicn.gif
++++++ -/r 1284:	stMemrycp.gif
++++++ -/r 1285:	stNtPdicn.gif
++++++ -/r 1286:	stNwsLoc.gif
++++++ -/r 1287:	stOla.gif
++++++ -/r 1288:	stOp.gif
++++++ -/r 1289:	stOra.gif
++++++ -/r 1290:	stPBenrgycp.gif
++++++ -/r 1291:	stPBscsiCP.gif
++++++ -/r 1292:	stPd.gif
++++++ -/r 1293:	stPu.gif
++++++ -/r 1294:	stPwcnv1.gif
++++++ -/r 1295:	stPwr.gif
++++++ -/r 1296:	stPwsLoc.gif
++++++ -/r 1297:	stRet.gif
++++++ -/r 1298:	stSh.gif
++++++ -/r 1299:	stShtdwn.gif
++++++ -/r 1300:	stStcky.gif
++++++ -/r 1301:	stT.gif
++++++ -/r 1302:	stTxtclpng.gif
++++++ -/r 1303:	stUd.gif
++++++ -/r 1304:	stURLloc.gif
++++++ -/r 1305:	stwkStup.gif
++++++ -/r 1306:	stWWWLoc.gif
+++++ d/d 1307:	pgs
++++++ -/r 1308:	stAlss.htm
++++++ -/r 1309:	stApplmn.htm
++++++ -/r 1310:	stApScrp.htm
++++++ -/r 1311:	stClpfls.htm
++++++ -/r 1312:	stCntstp.htm
++++++ -/r 1313:	stCtxmns.htm
++++++ -/r 1314:	stDrgScr.htm
++++++ -/r 1315:	stFA.htm
++++++ -/r 1316:	stFA_ach.htm
++++++ -/r 1317:	stFA_sam.htm
++++++ -/r 1318:	stFA_wrk.htm
++++++ -/r 1319:	stFmSet.htm
++++++ -/r 1320:	stFvrts.htm
++++++ -/r 1321:	stGrclcr.htm
++++++ -/r 1322:	stIntLoc.htm
++++++ -/r 1323:	stKB.htm
++++++ -/r 1324:	stKBfrz.htm
++++++ -/r 1325:	stKBicns.htm
++++++ -/r 1326:	stKBlngs.htm
++++++ -/r 1327:	stKBopfl.htm
++++++ -/r 1328:	stKBstup.htm
++++++ -/r 1329:	stKBsvfl.htm
++++++ -/r 1330:	stKBtkpt.htm
++++++ -/r 1331:	stKBwnds.htm
++++++ -/r 1332:	stLN.htm
++++++ -/r 1333:	stLNadtm.htm
++++++ -/r 1334:	stLNdspl.htm
++++++ -/r 1335:	stLNgrpg.htm
++++++ -/r 1336:	stLowPwr.htm
++++++ -/r 1337:	stNtStk.htm
++++++ -/r 1338:	stPBBAT.htm
++++++ -/r 1339:	stPBchk.htm
++++++ -/r 1340:	stPBSLP.htm
++++++ -/r 1341:	stPBslp1.htm
++++++ -/r 1342:	stPBslp2.htm
++++++ -/r 1343:	stPBslp3.htm
++++++ -/r 1344:	stPBusg.htm
++++++ -/r 1345:	stPBusg1.htm
++++++ -/r 1346:	stPBusg4.htm
++++++ -/r 1347:	stPBwake.htm
++++++ -/r 1348:	stPwrCsv.htm
++++++ -/r 1349:	stST.htm
++++++ -/r 1350:	stSTopst.htm
++++++ -/r 1351:	stSTshdn.htm
+++++ d/d 1352:	shrd
++++++ -/r 1353:	AddAlias2ApplMn
++++++ -/r 1354:	opnCtrlStrpModsFldr
++++++ -/r 1355:	opnScrptActFldr
++++++ -/r 1356:	stGuide
++++++ -/r 1357:	stLNCHR_Grp
++++++ -/r 1358:	stOpnFvr
++++++ -/r 1359:	stStrtup
++++++ -/r 1360:	stVers.htm
+++++ -/r 1361:	st idx
+++++ -/r 1362:	stRtoc.htm
++++ -/r 2429:	toc.htm
++++ -/r 1363:	toctmpl.htm
++++ d/d 1364:	wn
+++++ d/d 1365:	gfx
+++++ d/d 1366:	pgs
+++++ d/d 1374:	shrd
++++++ -/r 1375:	wnVers.htm
+++++ -/r 1376:	wn idx
+++++ -/r 1377:	wnRtoc.htm
+++ d/d 1378:	QuickTime Help
++++ d/d 1379:	ah
+++++ -/r 1380:	ahRtoc.htm
++++ d/d 1381:	ap
+++++ -/r 1382:	apRtoc.htm
++++ d/d 1383:	ei
+++++ -/r 1384:	eiRtoc.htm
++++ d/d 1385:	em
++++ d/d 1387:	et
+++++ -/r 1388:	etRtoc.htm
++++ d/d 1389:	gfx
+++++ -/r 1390:	d.gif
+++++ -/r 1391:	ltoc.gif
+++++ -/r 1392:	mrkrs.jpg
+++++ -/r 1393:	QTIcon.gif
+++++ -/r 1394:	rtoc.jpg
++++ -/r 1395:	Howdy.htm
++++ d/d 1396:	pl
+++++ -/r 1397:	plRtoc.htm
++++ -/r 1398:	QuickTime Help
++++ -/r 1399:	QuickTime Help idx
++++ -/r 1400:	QuickTime Help.htm
++++ d/d 1401:	sc
+++++ -/r 1402:	scRtoc.htm
++++ d/d 1403:	shrd
+++++ -/r 1404:	Cpyrt.htm
++++ d/d 1405:	st
+++++ -/r 1406:	stRtoc.htm
++++ -/r 1407:	toc.htm
++ d/d 7585:	Internet Plug-Ins
+++ -/r 7598:	QuickTime Plugin
+++ -/r 7599:	QuickTimePlugin.class
++ d/d 36:	Internet Search Sites
+++ d/d 107:	Apple
++++ -/r 507:	Apple.src
++++ -/r 500:	AppleTIL.src
++++ -/r 144:	Channel Data
++++ -/r 278:	MacintoshGuide.src
+++ d/d 84:	Files
++++ -/r 494:	Applications
++++ -/r 328:	Larger than 1MB
++++ -/r 271:	Modified today
++++ -/r 270:	Modified yesterday
+++ d/d 105:	Internet
++++ -/r 2681:	Aladdin Tech Support.src
++++ -/r 2682:	Aladdin.src
++++ -/r 2460:	AladdinFAQ.src
++++ -/r 530:	AltaVista.src
++++ -/r 138:	Channel Data
++++ -/r 483:	CNET download.src
++++ -/r 481:	CNET.src
++++ -/r 423:	DirectHit.src
++++ -/r 403:	Excite.src
++++ -/r 370:	GoTo.src
++++ -/r 353:	HotBot.src
++++ -/r 349:	Infoseek.src
++++ -/r 287:	LookSmart.src
++++ -/r 286:	Lycos.src
++++ -/r 7231:	Selected Sites
+++ d/d 104:	My Channel
++++ -/r 134:	Channel Data
+++ d/d 101:	News
++++ -/r 130:	Channel Data
++++ -/r 482:	CNET news.src
++++ -/r 480:	CNN.src
++++ -/r 411:	ESPN.src
++++ -/r 264:	MotleyFool.src
++++ -/r 226:	Quicken.src
+++ d/d 100:	People
++++ -/r 127:	Channel Data
++++ -/r 137:	ldapBigFoot.src
++++ -/r 136:	ldapFour11.src
++++ -/r 135:	ldapYahoo.src
+++ d/d 99:	Reference
++++ -/r 126:	Channel Data
++++ -/r 410:	Encyclopedia.src
+++ d/d 98:	Shopping
++++ -/r 529:	AmazonAuction.src
++++ -/r 528:	AmazonBooks.src
++++ -/r 527:	AmazonMusic.src
++++ -/r 526:	AmazonVideo.src
++++ -/r 490:	BarnesAndNoble.src
++++ -/r 124:	Channel Data
++++ -/r 142:	eBay.src
++ d/d 111:	Language & Region Support
+++ -/r 468:	Chinese
+++ -/r 433:	Danish
+++ -/r 413:	Dutch
+++ -/r 407:	English
+++ -/r 384:	Finnish
+++ -/r 376:	French
+++ -/r 372:	German
+++ -/r 341:	Italian
+++ -/r 340:	Japanese
+++ -/r 332:	Korean
+++ -/r 253:	Norwegian
+++ -/r 193:	Spanish
+++ -/r 185:	Swedish
++ d/d 59:	Launcher Items
+++ -/r 11148:	Bugdom™
+++ -/r 2895:	Claris CAD
+++ -/r 8643:	CyberTarot
+++ -/r 2414:	Disk First Aid
+++ -/r 7223:	Eric’s Solitaire Sample
+++ -/r 2413:	Graphing Calculator
+++ -/r 7429:	Hoyle Board Games
+++ -/r 7372:	Hoyle Card Games 3
+++ -/r 7350:	Hoyle Mahjong Tiles
+++ -/r 2435:	Key Caps
+++ -/r 7251:	KoalaCalc Classic
+++ -/r 9260:	MacMAME
+++ -/r 4354:	MacSolitaire Classic
+++ -/r 2416:	Note Pad
+++ -/r 4256:	Roof Rats 
+++ -/r 538:	SimpleText
++ -/r 288:	Login
++ -/r 280:	MacTCP DNR
++ -/r 11162:	Magic Menu
++ -/r 11160:	MagicTools Extension
++ -/r 11165:	Menu Preferences
++ d/d 1506:	MS Preference Panels
+++ -/r 1731:	Advanced Networking
+++ -/r 1730:	AutoFill Profile
+++ -/r 1729:	Configurations
+++ -/r 1728:	Cookies
+++ -/r 1727:	Downloads
+++ -/r 1726:	File Helpers
+++ -/r 1725:	Forms AutoComplete
+++ -/r 1724:	General E-mail
+++ -/r 1723:	Home and Search
+++ -/r 1722:	Java
+++ -/r 1721:	Language and Fonts
+++ -/r 1720:	Password Dialogs
+++ -/r 1719:	Protocol Helpers
+++ -/r 1718:	Proxies
+++ -/r 1717:	Ratings
+++ -/r 1716:	Security
+++ -/r 1715:	Security Zones
+++ -/r 1714:	Subscriptions
+++ -/r 1713:	User Passwords
+++ -/r 1712:	Utility Dialogs
+++ -/r 1711:	Web Browser UI
+++ -/r 1710:	Web Content
++ -/r 238:	Panels
++ -/r 4330:	PowerPC Enabler 9.0.4
++ d/d 32:	Preferences
+++ d/d 4128:	After Dark Preferences
++++ -/r 4266:	Module Settings File
++++ -/r 4801:	Preferences
++++ -/r 4816:	Visual Client
++++ d/d 4267:	Zapped Walls
+++ d/d 6366:	Aladdin
++++ d/d 6367:	StuffIt Deluxe Recent Items
+++ d/d 2424:	Apple Help Prefs
++++ -/r 2425:	Help Viewer Prefs
++++ d/d 2426:	tmp
+++ -/r 2257:	Apple Menu Options Prefs
+++ -/r 3204:	AppleCD Audio Player Prefs
+++ -/r 2234:	AppleShare Prep
+++ -/r 497:	AppleTalk Preferences
+++ -/r 2254:	AppSwitcher Preferences
+++ -/r 534:	ASLM Preferences
+++ -/r 2404:	ASP Preferences
+++ -/r 2943:	Balderdoush.PREF
+++ d/d 10853:	Bugdom
++++ d/d 11037:	Data
+++++ d/d 11038:	Audio
++++++ -/r 11039:	AntHill.sounds
++++++ -/r 11040:	AntHillSong.aiff
++++++ -/r 11041:	Bonus.sounds
++++++ -/r 11042:	BonusSong.aiff
++++++ -/r 11043:	Forest.aiff
++++++ -/r 11044:	Forest.sounds
++++++ -/r 11045:	HighScores.aiff
++++++ -/r 11046:	Hive.sounds
++++++ -/r 11047:	HiveLevel.aiff
++++++ -/r 11048:	Icon^
++++++ -/r 11049:	Lawn.sounds
++++++ -/r 11050:	LawnSong.aiff
++++++ -/r 11051:	LoseSong.aiff
++++++ -/r 11052:	Main.sounds
++++++ -/r 11053:	MenuSong.aiff
++++++ -/r 11054:	Night.aiff
++++++ -/r 11055:	Night.sounds
++++++ -/r 11056:	Pond.sounds
++++++ -/r 11057:	PondSong.aiff
++++++ -/r 11058:	Song_Pangea
++++++ -/r 11059:	WinSong.aiff
+++++ -/r 11060:	Icon^
+++++ d/d 11061:	Images
++++++ -/r 11062:	credits
++++++ -/r 11063:	help
++++++ -/r 11064:	help2
++++++ -/r 11065:	Info1
++++++ -/r 11066:	InfobarBottom
++++++ -/r 11067:	InfobarTop
+++++ d/d 11068:	Models
++++++ -/r 11069:	AntHill_Models.3dmf
++++++ -/r 11070:	BeeHive_Models.3dmf
++++++ -/r 11071:	BonusScreen.3dmf
++++++ -/r 11072:	Forest_Models.3dmf
++++++ -/r 11073:	Global_Models1.3dmf
++++++ -/r 11074:	Global_Models2.3dmf
++++++ -/r 11075:	HighScores.3dmf
++++++ -/r 11076:	Lawn_Models1.3dmf
++++++ -/r 11077:	Lawn_Models2.3dmf
++++++ -/r 11078:	LevelIntro.3dmf
++++++ -/r 11079:	MainMenu.3dmf
++++++ -/r 11080:	Night_Models.3dmf
++++++ -/r 11081:	Pangea.3dmf
++++++ -/r 11082:	Pond_Models.3dmf
++++++ -/r 11083:	Title.3dmf
++++++ -/r 11084:	WinLose.3dmf
+++++ d/d 11085:	Skeletons
+++++ d/d 11134:	Sprites
+++++ d/d 11137:	Terrain
++++++ -/r 11138:	AntHill.ter
++++++ -/r 11139:	AntKing.ter
++++++ -/r 11140:	Beach.ter
++++++ -/r 11141:	BeeHive.ter
++++++ -/r 11142:	Flight.ter
++++++ -/r 11143:	Lawn.ter
++++++ -/r 11144:	Night.ter
++++++ -/r 11145:	Pond.ter
++++++ -/r 11146:	QueenBee.ter
++++++ -/r 11147:	Training.ter
++++ -/r 11032:	Prefs2
+++ -/r 2722:	CarbonLib Preferences (US)
+++ -/r 3205:	CD Remote Programs
+++ -/r 2373:	ColorSync Cache
+++ -/r 2369:	ColorSync Preferences
+++ -/r 2719:	com.aladdinsys.TFI
+++ -/r 6368:	com.stuffit.Deluxe.plist
+++ -/r 2711:	com.stuffit.DropStuff.plist
+++ -/r 2712:	com.stuffit.DropTar.plist
+++ -/r 2713:	com.stuffit.DropZip.plist
+++ -/r 2715:	com.stuffit.Engine.plist
+++ -/r 2937:	com.stuffit.Expander.plist
+++ -/r 2714:	com.stuffit.ExpressPE.plist
+++ -/r 2939:	com.stuffit.MenuPrefs.plist
+++ -/r 2368:	Control Strip Preferences
+++ -/r 2260:	Custom Desktop Patterns
+++ -/r 2218:	Date & Time Preferences
+++ -/r 1709:	Date Preferences^
+++ -/r 2385:	Desktop Pictures Prefs
+++ -/r 2379:	Disk Copy Log
+++ -/r 2377:	Disk Copy Prefs
+++ -/r 2367:	Display Preferences
+++ -/r 11157:	DTP Utility Preferences
+++ -/r 6292:	Eric’s Solitaire Sample Prefs
+++ -/r 2221:	Expansion Manager Prefs
+++ d/d 1505:	Explorer
++++ -/r 1708:	DefaultFavorites.html
++++ -/r 1707:	Favorites.html
+++ d/d 62:	Extensions Manager Preferences
++++ -/r 400:	Extensions Manager Info
++++ -/r 4314:	Mac OS 9.0.4 All
++++ -/r 4313:	Mac OS 9.0.4 Base
+++ -/r 2251:	FBC Indexing Preferences
+++ -/r 2219:	File Exchange Preferences
+++ -/r 11030:	File Sharing CP prefs
+++ -/r 2244:	Finder Preferences
+++ -/r 2233:	FontAnnexFile
+++ -/r 2240:	General Controls Prefs
+++ -/r 10397:	InputSprocket Calibrations
+++ -/r 9256:	InputSprocket Preferences
+++ -/r 344:	Internet Preferences
+++ -/r 2390:	Internet Scripting Addn Prefs
+++ -/r 2235:	Iomega Driver Preferences
+++ -/r 2242:	Keyboard Preferences
+++ d/d 546:	Keychains
+++ -/r 8460:	KoalaCalc.esud
+++ -/r 7255:	KoalaCalc4 Preferences
+++ -/r 2220:	Language Kit Preferences
+++ -/r 2395:	Launcher Preferences
+++ d/d 2226:	Location Manager Prefs
++++ -/r 2229:	Icon^
++++ -/r 2231:	Location Manager Prefs
++++ d/d 2227:	Locations
+++++ -/r 2230:	Icon^
+++ -/r 2214:	Lock Screen Picture
+++ -/r 2217:	Mac OS Preferences
+++ -/r 9255:	MacMAME Prefs
+++ -/r 4356:	MacSolitaire prefs
+++ -/r 10108:	Marine Aquarium 2 Preferences
+++ -/r 2241:	Memory Preferences
+++ -/r 8077:	Microsoft Help Preferences
+++ -/r 2273:	Modem Preferences
+++ d/d 2365:	Monitors Preferences
++++ -/r 2366:	Monitors Preferences
+++ -/r 2255:	Mouse Preferences
+++ d/d 2261:	Navigation Services
++++ -/r 2263:	Navigation Services Prefs1
++++ -/r 2266:	Navigation Services Prefs2
++++ d/d 2264:	Recent Items
+++ -/r 2239:	Network Assistant Log
+++ -/r 2236:	Network Assistant Preferences
+++ d/d 2751:	Open Transport Preferences
++++ -/r 2754:	Current Area
++++ d/d 2752:	Default Area
+++++ -/r 2764:	-18591
+++++ -/r 2762:	-22888
+++++ -/r 2776:	-24863
+++++ -/r 2761:	-762
+++++ -/r 2765:	24575
+++++ -/r 2763:	24685
+++++ -/r 2766:	28980
+++++ -/r 2781:	4108
+++++ -/r 2767:	6305
+++++ -/r 2758:	8110
+++++ d/d 2753:	Private
+++ -/r 10270:	Picture Puzzle Pref File
+++ d/d 113:	Printing Prefs
++++ -/r 448:	Confidential
++++ -/r 447:	Confidential (Color)
++++ -/r 445:	Contract
++++ -/r 444:	Contract (Color)
++++ -/r 420:	Do Not Copy
++++ -/r 419:	Do Not Copy (Color)
++++ -/r 418:	Draft
++++ -/r 417:	Draft (Color)
++++ -/r 390:	Final
++++ -/r 389:	Final (Color)
++++ -/r 379:	For Your Information
++++ -/r 378:	For Your Information (Color)
++++ -/r 237:	Personal
++++ -/r 236:	Personal (Color)
++++ -/r 229:	Proposal
++++ -/r 228:	Proposal (Color)
+++ -/r 1466:	QuickTime Preferences
+++ d/d 2222:	Remote Access
++++ -/r 2225:	Remote Access Connections
++++ -/r 2223:	Remote Access Log
++++ -/r 2224:	Remote Access Preferences
+++ -/r 3070:	Screen Posters Prefs
+++ d/d 7227:	Sherlock Prefs
++++ -/r 7229:	Sherlock Channels
++++ -/r 7230:	Sherlock Default
++++ -/r 7228:	Sherlock Preferences
+++ -/r 1687:	Shockwave Preferences
+++ -/r 10263:	Slide Show Pref File
+++ -/r 2232:	Sound Preferences
+++ -/r 2271:	Speech Preferences
+++ -/r 2398:	Stickies file
+++ -/r 2747:	Stickies Preferences
+++ -/r 2463:	StuffIt Expander Preferences
+++ -/r 2216:	System Preferences
+++ -/r 179:	TCP:IP Preferences
+++ -/r 2243:	TSM Preferences
+++ -/r 4300:	Updatable Items
+++ -/r 2250:	Users & Groups Data File
+++ -/r 2874:	XTND Translator List
++ d/d 2253:	PrintMonitor Documents
++ -/r 219:	Scrapbook File
++ d/d 48:	Scripting Additions
+++ -/r 428:	Desktop Printer Manager
+++ -/r 391:	FileSharing Commands
+++ -/r 336:	Keyboard Addition
+++ -/r 334:	Keychain Scripting
+++ -/r 266:	MonitorDepth
+++ -/r 255:	Network Setup Scripting
+++ -/r 1884:	Remote Access Commands
+++ -/r 2114:	Speech Listener
+++ -/r 4316:	Standard Additions
+++ -/r 157:	URL Access Scripting
++ d/d 45:	Scripts
+++ d/d 46:	Folder Action Scripts
++++ -/r 148:	add - duplicate to folders
++++ -/r 147:	add - new item alert
++++ -/r 146:	add - reject added items
++++ -/r 145:	add - set view prefs to match
++++ -/r 143:	close - close sub-folders
++++ -/r 133:	mount:unmount server aliases
++++ -/r 132:	move - align open sub-folders
++++ -/r 129:	open - open items labeled 1
++++ -/r 128:	open - show comments in dialog
++++ -/r 125:	remove - retrieve items
++ d/d 2248:	Servers
++ d/d 2246:	Shutdown Items
++ d/d 539:	Startup Items
+++ -/r 2717:	 StuffIt Helper
+++ -/r 2393:	Launcher
++ -/r 2112:	System
++ -/r 4333:	System Resources
++ d/d 2609:	Temporary Items
++ d/d 34:	Text Encodings
+++ -/r 493:	Arabic Encodings
+++ -/r 471:	Central European Encodings
+++ -/r 467:	Chinese Encodings
+++ -/r 466:	Chinese Encodings Supplement
+++ -/r 435:	Cyrillic Encodings
+++ -/r 365:	Greek Encodings
+++ -/r 359:	Hebrew Encodings
+++ -/r 350:	Indic Encodings
+++ -/r 339:	Japanese Encodings
+++ -/r 331:	Korean Encodings
+++ -/r 183:	Symbol Encodings
+++ -/r 171:	Thai Encodings
+++ -/r 164:	Turkish Encodings
+++ -/r 156:	Unicode Encodings
+++ -/r 150:	Western Language Encodings
++ -/r 11204:	VolumeNameIconPict
+d/d 10394:	Temporary Items
++ -/r 10396:	tempcxkplolld
+d/d 2945:	TheFindByContentFolder
++ -/r 2946:	TheFindByContentIndex
+d/d 16:	TheVolumeSettingsFolder
++ -/r 2249:	DesktopPrinters DB
++ -/r 2259:	OpenFolderListDF^
+d/d 20:	Trash
++ -/r 11348:	Agreement.txt
++ -/r 11327:	Agreement.txt copy
++ d/d 11341:	Agreement.txt copy 1
++ -/r 11329:	Agreement.txt copy 2
++ -/r 11331:	Agreement.txt copy 3
++ -/r 11333:	Agreement.txt copy 4
++ -/r 11344:	Agreement.txt copy 5
++ -/r 11346:	Agreement.txt copy 6
++ -/r 11578:	del-alias-target
++ -/r 11576:	del-file
++ d/d 11566:	del-nonempty
+++ -/r 11567:	leaf
++ d/d 11570:	del-path-only
+++ -/r 11571:	leaf
++ d/d 11291:	guest
+++ -/r 11292:	UserData
++ -/r 11449:	m-al20-absent
++ -/r 11450:	m-al20-empty
++ -/r 11451:	m-al20-zero
++ d/d 11638:	m-au26-absent
+++ -/r 11639:	UserData
++ d/d 11650:	m-au26-attribute65
+++ -/r 11651:	UserData
++ d/d 11640:	m-au26-empty
+++ -/r 11641:	UserData
++ -/r 11653:	m-au26-final-flush
++ d/d 11642:	m-au26-literal-x
+++ -/r 11643:	UserData
++ d/d 11636:	m-au26-preserve
++ d/d 11646:	m-au26-preserve32
+++ -/r 11647:	UserData
++ -/r 11654:	m-au26-publish
++ d/d 11644:	m-au26-replace32
+++ -/r 11645:	UserData
++ -/r 11652:	m-au26-seed-flush
++ d/d 11648:	m-au26-sparse
+++ -/r 11649:	UserData
++ d/d 11287:	m-auth-aaaaaaaaaaaaaaaaaaaaaaaa
+++ -/r 11288:	UserData
++ d/d 11285:	m-auth-ä
+++ -/r 11286:	UserData
++ d/d 11289:	m-auth-bypass
+++ -/r 11290:	UserData
++ d/d 11295:	m-auth-bypass1
+++ -/r 11296:	UserData
++ d/d 11283:	m-auth-cr
+++ -/r 11284:	UserData
++ d/d 11663:	m-b28-actor-create
+++ -/r 11664:	UserData
++ d/d 11665:	m-b28-actor-delete
+++ -/r 11666:	UserData
++ d/d 11669:	m-b28-actor-none
+++ -/r 11670:	UserData
++ d/d 11667:	m-b28-actor-update
+++ -/r 11668:	UserData
++ d/d 11694:	m-b28-after-collision
+++ -/r 11695:	UserData
++ d/d 11696:	m-b28-after-empty-copy
+++ -/r 11697:	UserData
++ d/d 11698:	m-b28-after-empty-tlv
+++ -/r 11699:	UserData
++ d/d 11710:	m-b28-after-late
+++ -/r 11711:	UserData
++ d/d 11712:	m-b28-clash-first
+++ -/r 11713:	UserData
++ d/d 11687:	m-b28-clash-new
++ d/d 11685:	m-b28-clash-old
++ d/d 11714:	m-b28-clash-skipped
+++ -/r 11715:	UserData
++ d/d 11722:	m-b28-clash2-first
+++ -/r 11723:	UserData
++ d/d 11724:	m-b28-clash2-last
+++ -/r 11725:	UserData
++ d/d 11719:	m-b28-clash2-new
+++ -/r 11720:	UserData
++ d/d 11717:	m-b28-clash2-old
+++ -/r 11718:	UserData
++ d/d 11671:	m-b28-collision
+++ -/r 11672:	UserData
++ d/d 11673:	m-b28-create-u
+++ -/r 11674:	UserData
++ d/d 11700:	m-b28-created-before-deny
+++ -/r 11701:	UserData
++ d/d 11689:	m-b28-defaults
+++ -/r 11690:	UserData
++ d/d 11675:	m-b28-delete-a
+++ -/r 11676:	UserData
++ d/d 11677:	m-b28-delete-b
+++ -/r 11678:	UserData
++ -/r 11716:	m-b28-final-flush
++ d/d 11702:	m-b28-grant-exempt
+++ -/r 11703:	UserData
++ d/d 11704:	m-b28-nul-new
+++ -/r 11705:	UserData
++ d/d 11692:	m-b28-order-b
+++ -/r 11693:	UserData
++ d/d 11706:	m-b28-pad512
+++ -/r 11707:	UserData
++ d/d 11708:	m-b28-pad513
++ -/r 11727:	m-b28-publish
++ d/d 11683:	m-b28-rename-new
+++ -/r 11684:	UserData
++ -/r 11691:	m-b28-seed-flush
++ -/r 11726:	m-b28-supp-final-flush
++ -/r 11721:	m-b28-supp-seed-flush
++ d/d 11679:	m-b28-update-a
+++ -/r 11680:	UserData
++ d/d 11681:	m-b28-update-b
+++ -/r 11682:	UserData
++ d/d 11742:	m-bit32-owned
+++ -/r 11743:	UserData
++ -/r 11573:	m-del22-dupe
++ -/r 11575:	m-del22-dupe1
++ d/d 11657:	m-delete27
+++ -/r 11658:	UserData
++ d/d 11740:	m-diag31-zero
+++ -/r 11741:	UserData
++ d/d 11756:	m-expiry-protected
+++ -/r 11757:	UserData
++ d/d 11754:	m-expiry-zero
+++ -/r 11755:	UserData
++ -/r 11414:	m-fs19-flush
++ d/d 11399:	m-fs19-path-count-only
++ d/d 11400:	m-fs19-path-five-bytes
++ d/d 11398:	m-fs19-path-one-byte
++ d/d 11395:	m-fs19-root-absent
++ d/d 11396:	m-fs19-root-empty
++ d/d 11397:	m-fs19-root-zero-count
++ d/d 11405:	m-fs19-zero-trailing
++ d/d 11732:	m-id29-duplicate
+++ -/r 11733:	UserData
++ d/d 11728:	m-id29-protected
+++ -/r 11729:	UserData
++ d/d 11730:	m-id29-self
+++ -/r 11731:	UserData
++ d/d 11655:	m-live27
+++ -/r 11656:	UserData
++ -/r 11659:	m-live27-flush
++ -/r 11662:	m-live27-publish
++ d/d 11505:	m-m21-d3
++ d/d 11506:	m-m21-d4
++ d/d 11507:	m-m21-d5-new
++ -/r 11502:	m-m21-f0
++ -/r 11503:	m-m21-f1
++ -/r 11504:	m-m21-f2-new
++ d/d 11457:	m-meta21-comment
+++ -/r 11458:	UserData
++ d/d 11461:	m-meta21-neither
+++ -/r 11462:	UserData
++ d/d 11459:	m-meta21-rename
++ d/d 11550:	m-mv22-d08
+++ d/d 11551:	child
++ d/d 11553:	m-mv22-d09
+++ d/d 11554:	child
++++ -/r 11555:	leaf
++ d/d 11556:	m-mv22-d10
+++ d/d 11557:	child
++++ -/r 11558:	leaf
++ -/r 11522:	m-mv22-f08
++ -/r 11523:	m-mv22-f09
++ -/r 11524:	m-mv22-f10
++ -/r 11633:	m-nb25-flush
++ -/r 11634:	m-nb25-publish
++ -/r 11629:	m-nd24-flush
++ -/r 11630:	m-nd24-publish
++ -/r 11591:	m-news23-flush
++ -/r 11592:	m-news23-publish
++ d/d 11736:	m-room30-reader
+++ -/r 11737:	UserData
++ d/d 11738:	m-room30-speaker
+++ -/r 11739:	UserData
++ d/d 11734:	m-room30-zero
+++ -/r 11735:	UserData
++ d/d 11424:	mothra-alias20
+++ d/d 11425:	A
++++ -/r 11445:	dir
++++ -/r 11444:	file
+++ d/d 11426:	B
+++ d/d 11427:	C
++++ d/d 11430:	dir
+++++ -/r 11443:	keep
++++ -/r 11442:	same
+++ d/d 11428:	D
++++ -/r 11454:	derived-dir
++++ -/r 11453:	derived-empty
++++ -/r 11452:	derived-link
++++ -/r 11455:	file
++++ -/r 11448:	hi-ö
+++ d/d 11429:	dir
++++ -/r 11441:	leaf
+++ -/r 11432:	empty
+++ -/r 11431:	file
+++ -/r 11456:	flush
+++ -/r 11437:	hi-ö
+++ -/r 11438:	m-al20-absent
+++ -/r 11439:	m-al20-empty
+++ -/r 11440:	m-al20-zero
+++ -/r 11435:	same
+++ -/r 11436:	self
+++ -/r 11434:	unknown-tags
+++ -/r 11433:	zero-tags
++ d/d 11371:	mothra-fs19
+++ d/d 11381:	co-lon
++++ d/d 11411:	inside-colon
+++ d/d 11406:	count-too-high
+++ d/d 11383:	cr^name
+++ d/d 11402:	empty-component
+++ d/d 11372:	exists
+++ d/d 11391:	ext-xxxxxxxxxxxxxxxxxxxxxxx.txt
+++ d/d 11385:	hi-ö
++++ d/d 11412:	inside-high
+++ d/d 11384:	lf^name
+++ d/d 11388:	n255-cccccccccccccccccccccccccc
+++ d/d 11389:	n256-dddddddddddddddddddddddddd
+++ d/d 11386:	n31-aaaaaaaaaaaaaaaaaaaaaaaaaaa
+++ d/d 11387:	n32-bbbbbbbbbbbbbbbbbbbbbbbbbbb
+++ d/d 11390:	n65535-eeeeeeeeeeeeeeeeeeeeeeee
+++ d/d 11373:	nest
++++ d/d 11374:	leaf
+++++ d/d 11394:	nested-child
++++ d/d 11408:	via-empty
++++ d/d 11407:	via-path
+++ d/d 11380:	nul^
+++ d/d 11378:	nu^l
+++ -/r 11375:	ordinary
+++ d/d 11376:	plain
+++ d/d 11382:	sl:ash
+++ d/d 11404:	trailing
+++ d/d 11401:	truncated-last
+++ d/d 11403:	word-ffff
+++ d/d 11377:	^
+++ d/d 11379:	^nul
++++ d/d 11413:	inside-nul
++ d/d 11508:	mothra-fs22
+++ d/d 11510:	D
++++ d/d 11527:	m-mv22-d00
+++++ d/d 11528:	child
++++++ -/r 11529:	leaf
++++ -/r 11536:	m-mv22-d02
++++ d/d 11540:	m-mv22-d03
++++ -/r 11513:	m-mv22-f00
++++ -/r 11516:	m-mv22-f02
++++ d/d 11518:	m-mv22-f03
++++ -/r 11525:	m-mv22-f11
++++ -/r 11526:	m-mv22-f12
+++ -/r 11565:	D-alias
+++ -/r 11579:	del-alias
+++ d/d 11572:	del-c1
+++ d/d 11574:	del-c2
+++ d/d 11568:	del-denied-dir
++++ -/r 11569:	leaf
+++ -/r 11577:	del-denied-file
+++ -/r 11511:	destination-file
+++ -/r 11581:	flush
+++ d/d 11509:	S
++++ -/r 11512:	alias-target
++++ d/d 11530:	m-mv22-d01
+++++ d/d 11531:	child
++++++ -/r 11532:	leaf
++++ d/d 11533:	m-mv22-d02
+++++ d/d 11534:	child
++++++ -/r 11535:	leaf
++++ d/d 11537:	m-mv22-d03
+++++ d/d 11538:	child
++++++ -/r 11539:	leaf
++++ d/d 11541:	m-mv22-d05
+++++ d/d 11542:	child
++++++ -/r 11543:	leaf
++++ d/d 11544:	m-mv22-d06
+++++ d/d 11545:	child
++++++ -/r 11546:	leaf
++++ d/d 11547:	m-mv22-d07
+++++ d/d 11548:	child
++++++ -/r 11549:	leaf
++++ d/d 11559:	m-mv22-d11
+++++ d/d 11560:	child
++++++ -/r 11561:	leaf
++++ d/d 11562:	m-mv22-d12
+++++ d/d 11563:	child
++++++ -/r 11564:	leaf
++++ -/r 11514:	m-mv22-f01
++++ -/r 11515:	m-mv22-f02
++++ -/r 11517:	m-mv22-f03
++++ -/r 11519:	m-mv22-f05
++++ -/r 11520:	m-mv22-f06
++++ -/r 11521:	m-mv22-f07
++ d/d 11463:	mothra-meta21
+++ d/d 11483:	d00
+++ d/d 11484:	d01
+++ d/d 11485:	d02
+++ d/d 11487:	d04
+++ d/d 11488:	d05
+++ d/d 11489:	d06
+++ d/d 11491:	d08
+++ d/d 11492:	d09
+++ d/d 11493:	d10
+++ d/d 11495:	d12
+++ d/d 11496:	d13
+++ d/d 11497:	d14
+++ d/d 11498:	d15
+++ d/d 11499:	d16
+++ d/d 11500:	d17
+++ -/r 11465:	f00
+++ -/r 11466:	f01
+++ -/r 11467:	f02
+++ -/r 11469:	f04
+++ -/r 11470:	f05
+++ -/r 11471:	f06
+++ -/r 11473:	f08
+++ -/r 11474:	f09
+++ -/r 11475:	f10
+++ -/r 11477:	f12
+++ -/r 11478:	f13
+++ -/r 11479:	f14
+++ -/r 11480:	f15
+++ -/r 11481:	f16
+++ -/r 11482:	f17
+++ -/r 11501:	flush
+++ d/d 11486:	n-d03
+++ d/d 11490:	n-d07
+++ d/d 11494:	n-d11
+++ -/r 11468:	n-f03
+++ -/r 11472:	n-f07
+++ -/r 11476:	n-f11
+++ -/r 11464:	occupied
++ d/d 11582:	mothra-news23
+++ d/d 11583:	bundle
++++ d/d 11589:	child
+++++ -/r 11590:	deep
++++ -/r 11588:	nested
+++ -/r 11586:	category
+++ d/d 11584:	empty
+++ d/d 11585:	hi-ö
+++ -/r 11587:	zero-articles
++ d/d 11593:	mothra-news24
+++ -/r 11625:	denied
+++ -/r 11619:	leaf-one
+++ -/r 11618:	leaf-zero
+++ -/r 11621:	middle-one
+++ -/r 11620:	middle-zero
+++ -/r 11626:	missing-category
+++ -/r 11624:	missing-id
+++ -/r 11627:	missing-id-field
+++ -/r 11594:	parent-absent
+++ -/r 11595:	parent-empty
+++ -/r 11606:	parent-five-one
+++ -/r 11607:	parent-five-zero
+++ -/r 11604:	parent-four-high
+++ -/r 11598:	parent-four-zero
+++ -/r 11601:	parent-one-ff
+++ -/r 11599:	parent-one-one
+++ -/r 11600:	parent-one-two
+++ -/r 11596:	parent-one-zero
+++ -/r 11605:	parent-three-one
+++ -/r 11603:	parent-two-high
+++ -/r 11602:	parent-two-one
+++ -/r 11597:	parent-two-zero
+++ -/r 11628:	repeat-delete
+++ -/r 11622:	root-head
+++ -/r 11623:	root-tail
++ d/d 11631:	mothra-news25
+++ -/r 11632:	siblings
+d/d 51:	Utilities
++ -/r 422:	Disk Copy
++ -/r 421:	Disk First Aid
++ d/d 117:	Drive Setup ƒ
+d/d 1951:	Web Pages
++ -/r 1977:	About Personal WebSharing.htm
++ -/r 1976:	default.html
++ d/d 1952:	Sample Files & Templates
+++ -/r 1971:	Calendar.html
+++ d/d 1953:	Graphics
++++ -/r 1962:	calimage1.GIF
++++ -/r 1958:	docimage1.GIF
++++ -/r 1961:	docimage2.GIF
++++ -/r 1960:	listimage1.GIF
++++ -/r 1959:	listimage2.GIF
++++ -/r 1975:	macOS.GIF
++++ -/r 1965:	persimage1.GIF
++++ -/r 1964:	persimage2.GIF
++++ -/r 1963:	persimage3.GIF
+++ -/r 1969:	Linksample.html
+++ -/r 1970:	List.html
+++ -/r 1972:	Personal.html
+++ -/r 1968:	template(calendar).html
+++ -/r 1966:	template(list).html
+++ -/r 1967:	Template(personal).html
+++ -/r 1973:	Using Sample FilesTemplates.htm
++ -/r 1974:	Using Personal WebSharing.html

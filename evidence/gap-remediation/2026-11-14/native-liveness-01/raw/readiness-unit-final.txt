@@ -1,0 +1,7 @@
+Id=mothra-native-liveness-c92-readiness.service
+ActiveState=active
+SubState=exited
+InvocationID=e90be4a8730e4ba49cd9cf084500fccd
+Result=success
+ExecMainStatus=0
+NetworkNamespacePath=/proc/1221811/ns/net

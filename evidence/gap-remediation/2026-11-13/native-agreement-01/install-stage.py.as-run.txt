@@ -1,0 +1,12 @@
+"""Install an owned, pre-uploaded exact-name child; retain every UI action."""
+import subprocess,sys,json
+from pathlib import Path
+r=Path('state/native-sessions/runtime-15');phase=sys.argv[1]
+assert phase in ['binary','text-limit','text-over-limit','binary-over-limit','binary-field-over-limit','restored','nontext','nontext-over-limit','nontext-field-over-limit']
+def ui(*args):subprocess.run([sys.executable,str(r/'ui.py'),*map(str,args)],check=True)
+ui('click',500,350,2);ui('click',480,74);ui('type','Agreement.txt');ui('key','Alt_L+BackSpace')
+ui('type','Files');ui('key','Alt_L+o');ui('type','m-agr-'+phase);ui('key','Alt_L+o')
+subprocess.run(['import','-display',':97','-window','root',str(r/(phase+'-stage-open.png'))],check=True)
+ui('drag',28,94,620,277)
+ui('click',910,560,2);ui('click',933,167)
+subprocess.run(['import','-display',':97','-window','root',str(r/(phase+'-stage-reload.png'))],check=True)

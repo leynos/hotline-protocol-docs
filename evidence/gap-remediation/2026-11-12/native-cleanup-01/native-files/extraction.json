@@ -1,0 +1,21 @@
+{
+  "tool": "SleuthKit4.15.0",
+  "method": "Read-only live HFS+ extraction after all cleanup cases; no restart-durability claim",
+  "image": "state/mac-runtime/hotline19/working.dsk",
+  "files": [
+    {
+      "name": "mothra-race-fixture",
+      "catalog": 11218,
+      "data_attribute": "4352-0",
+      "resource_attribute": "4353-1",
+      "all_exit_codes": 0
+    },
+    {
+      "name": "mothra-214-upload",
+      "catalog": 11219,
+      "data_attribute": "4352-0",
+      "resource_attribute": "4353-1",
+      "all_exit_codes": 0
+    }
+  ]
+}

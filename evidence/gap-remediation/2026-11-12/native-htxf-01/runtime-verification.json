@@ -1,0 +1,11 @@
+{
+  "verified_after_captures": true,
+  "command": [
+    "sudo",
+    "-n",
+    "sha256sum",
+    "/proc/774378/exe"
+  ],
+  "stdout": "b109f5c470fca6a1a5e0e0eaec4b5f5658d0e45ddafabf6b59bb7c4b35340146  /proc/774378/exe\n",
+  "identity_scope": "Same live emulator PID and executable as recorded runtime; native app data/resource identity established by the retained preceding native snapshot. Not a remote protocol process attestation."
+}

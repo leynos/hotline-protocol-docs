@@ -1,0 +1,55 @@
+# A167 R04 packet review
+
+Read-only independent review of the frozen P04 packet at
+`state/native-sessions/native-alias-live-preparation-04`, reported by C on
+2026-11-14. No VM, service, image read/copy, GUI input, approval pin or native
+request was made. This is an offline packet acceptance, not a live START.
+
+## Result
+
+Scoped pass for the **ten operational scripts**, contingent on separate
+reviewed stopped preparation and root approval pins. The first stale-X124
+concern was from my earlier pre-freeze A166 read; frozen boot SHA
+`bb56161e8adb1bf65c8fac417184dd1f4d27c59fdc4bffb233488ca54f0165ae`
+checks X125 at line 63. I withdrew that finding after checking the frozen
+bytes. A targeted scan found no `X124`, `:124`, `15980`–`15983`, or R03
+runtime/preparation references in P04 scripts and guides.
+
+## Exact gates checked
+
+- `proposed-script-SHA256SUMS` verifies all ten scripts; `script-inventory.json`
+  records 1,293 physical lines, below the 1,440 limit. Bash syntax and
+  `shellcheck` passed for all five shell scripts. A root-run, no-X model
+  rejected display/executable/FD16 replacement and replayed Quit.
+- `proposed-source-closure.json` is explicitly
+  `proposed_canonical_snapshot_not_root_approved`. Its 35 protocol module,
+  three helper and two launcher source hashes match their frozen files.
+  Current source cases SHA `d68c075d…` and control SHA `e47b1afc…` match
+  the proposal. All five `approved-*.sha256`/`script-SHA256SUMS` pin files
+  are absent, as are R04 runtime, output and display directories. The boot
+  script fails before its first managed service without these pins.
+- Normalising only R03→R04 names/display/ports leaves clock/profile edits:
+  boot fixes an 1,800-second deadline and 2,100-second lease/host recorder;
+  namespace recorder also uses 2,100 seconds. Host, namespace and receipt
+  calls explicitly select `native-missing-alias-ui-30m-v1`; runtime JSON
+  pins that profile and purpose `native-missing-alias-positive`; closed18
+  and case controller select the profile through `runtime_gate`. The
+  frozen builder also corrects its prior native DATA hash to `ad7040db…`.
+- Case START requires the same fixed cutoff with at least 390 seconds left;
+  system case unit remains 240 seconds, controller 210, Finder wait 120 and
+  action window 110. The separate operator checkpoint aims at +600 and
+  requires retirement if review is absent by +1200. Bootstrap, Finder,
+  readiness, case and retirement remain separate parent grants; no early
+  Make Alias/Copy/Paste/Get Info is authorised.
+- Boot binds actual stopped-preparation inode receipt, source pins,
+  root `fuser` before its own image/ROM hashes, original PID ticks, lock,
+  display and frontend ports. Complete readiness binds disk/capture receipt,
+  actual namespace, managed host/namespace capture, closed18 and source
+  closure before case. Current P04 does not itself implement the separate
+  required-reflink stopped-preparation step or grant it.
+
+The small model and syntax checks are offline checks only. The `compileall`
+syntax pass generated ignored `__pycache__` directories in P04; I notified
+C and left those caches untouched. They are outside the frozen source hashes.
+The actual root-approved source pins, stopped preparation, capacity,
+live PID/FD/port/readiness checks and timed execution remain future gates.

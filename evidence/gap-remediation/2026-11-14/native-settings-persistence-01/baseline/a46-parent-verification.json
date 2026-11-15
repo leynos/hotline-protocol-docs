@@ -1,0 +1,40 @@
+{
+  "status": "verified_phase_only",
+  "gates": [
+    "identity",
+    "baseline-delivery",
+    "baseline-pm",
+    "enable-301-1",
+    "enable-301-2",
+    "enable-delivery",
+    "enable-barrier",
+    "disable-301-1",
+    "disable-301-2",
+    "disable-delivery",
+    "disable-barrier",
+    "reenable-301-1",
+    "reenable-301-2",
+    "reenable-delivery",
+    "reenable-barrier"
+  ],
+  "guest_shutdown_proven": false,
+  "raw_checksums_frames_streams_verified": true,
+  "original_plan_actions": 64,
+  "recorded_actions": 66,
+  "generic_capture_verifier_result": "rejected: Incomplete plan reported as completed",
+  "frozen_wrapper_contract": "64 observation actions followed by two runtime-added EOF reads; originals preserved",
+  "stopped_forks": {
+    "stopped-fork-11193.bin": {
+      "bytes": 734,
+      "sha256": "26612ad46cd91b90050feacf517d32a9e56d4a4aa92fbe6618eaf6e9e5ac60a3"
+    },
+    "stopped-fork-11201.bin": {
+      "bytes": 734,
+      "sha256": "fce81359d0efcfc6c2dbf42852db66b0fb7a404b2889162b8f8fad81361ce2d5"
+    },
+    "stopped-fork-11202.bin": {
+      "bytes": 175,
+      "sha256": "4ed2b3e14e6e8a6cf246d16f7d1b98f0b91d1b09f6ab5497de1056a6f617d196"
+    }
+  }
+}

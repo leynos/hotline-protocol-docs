@@ -1,0 +1,22 @@
+File Path: /Hotline19/Users/m-au26-attribute65
+Catalog Record: 11650
+Allocated
+Type:	Folder
+Mode:	d---------
+Size:	0
+uid / gid: 99 / 99
+Link count:	1
+
+File Name: m-au26-attribute65
+Admin flags: 0
+Owner flags: 0
+Text encoding:	0 = MacRoman
+
+Times:
+Created:	2026-11-13 17:10:40 (GMT)
+Content Modified:	2026-11-13 17:10:40 (GMT)
+Attributes Modified:	0000-00-00 00:00:00 (UTC)
+Accessed:	0000-00-00 00:00:00 (UTC)
+Backed Up:	0000-00-00 00:00:00 (UTC)
+
+Attributes: 

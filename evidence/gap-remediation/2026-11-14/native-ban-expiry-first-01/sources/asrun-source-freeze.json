@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-14T05:57:56.525256+00:00",
+  "source_head": "e23c4e03102d04c8724d09bca715c74862134cb9",
+  "hashes": {
+    "native_ban_expiry_cases.py": "b55180ed77b4eb780e2a28decbb113db3442f939410a0c78e1ce9567296e3bc2",
+    "native_ban_expiry_control.py": "f5e46930ec466030dca62ee12ca79f8af856aa29ef88de34afaac50f4b0f0210",
+    "test_native_ban_expiry.py": "5f5f1a7af4f72c8bfa767f3f7861a13fa8c0d4647cb41d07e60c06498733292e",
+    "native_control_readiness.py": "afb2dcbabae9765b9708efa21e4e3d7ff74ad33e90bee0f03d953cfa95d1c1da",
+    "protocol_capture.py": "2fba0972f4d9a8e3845c4204dce150dd7c90da0e19a9e5720d5289e2c94faf01",
+    "pcap_tcp.py": "04c4fda2e62ccab35ed306c036dac6b1878af58adbfaccc6312a2805dd6897d7",
+    "verify_native_auth.py": "a16bb58857623d2c4260fe00202b9f633983d8dd069c87e99912a6f00e5134c5",
+    "verify_native_shx.py": "32d2f6fa2a4b03bb8be9f80400c3d678f05741a6ffc772d9b5d8d79333bc61ef",
+    "native_ban_control_cases.py": "3df9ba8f86f9701842da820f6c2cdbc3d2e935a4392090c6b6c01a799ab3c144"
+  }
+}

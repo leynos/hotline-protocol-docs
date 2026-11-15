@@ -1,0 +1,68 @@
+# B95 independent review: phased emulator readiness
+
+Reviewed canonical Mothra commit `e2ffc2fb13b68e1c04f3922c673d4cc1a6ad4e8b`
+on 14 November 2026. Read-only; no VM, service, oracle, native request,
+tracked edit, or guest disk byte read. Root's unrelated plan/worklog edits
+were present and untouched.
+
+## Decisive replay
+
+The first full-repository `/tmp` archive failed with `ENOSPC` during tar
+extraction; it discovered **zero** tests and is not test evidence. I removed
+only the exact three temporary exports I had created. A minimal committed
+archive of the helper, its test, capture-readiness dependency, and guide at
+private `state/delegation/b95-minimal-export` then passed all seven focused
+unittest cases, Ruff format/check, ty, Markdownlint and Nixie. Its real child
+opens FD6 before FD16; the namespace difference is mocked and does **not**
+prove an isolated SheepShaver process. The child/FD test is otherwise causal.
+
+## Positive properties
+
+- `candidate_pids` searches actual `/proc/*/fd/6` for the exact image path
+  and device/inode; duplicate matches fail. `disk_snapshot` checks inode,
+  process UID, executable SHA-256, non-host netns inode and start tick.
+  It reads the executable, not the working disk's bytes.
+- Capture checks the disk receipt's PID, start, executable hash, UID, netns,
+  image path/device/inode and fixed deadline against the current process;
+  FD16 must point to the exact capture inode and be writable. Missing FD16
+  or a short header waits only within the fixed deadline. The output uses
+  `O_EXCL`, so it cannot overwrite an existing receipt.
+- The seven tests cover a real child, absent-before-created capture, wrong
+  image/executable, stale receipt PID/tick, host netns, duplicate owner,
+  truncated/replaced capture, exclusivity and expired deadline.
+
+## Findings before using a receipt as proof
+
+1. **Disk-before-first-packet is procedural, not checked.** The disk phase
+   takes no capture path and does not inspect FD16 (`check`, lines 173–193).
+   Using the committed real-child fixture, I opened FD16 and wrote its
+   24-byte header **before** calling `disk_receipt()`; it returned `phase=disk`
+   while the capture existed. The receipt proves disk ownership at its check
+   time, not that it preceded the guest's first Ethernet packet. A preboot
+   script that needs this ordering must record an independent prepacket
+   witness or make disk phase fail when FD16 already exists. Do not infer
+   chronology from the names of two receipts.
+2. **Final recheck is narrower than the recorded identity.** `check` initially
+   calls `disk_snapshot`, but its final lines 214–225 recheck only candidate
+   PID, start tick, FD6 and (for capture) FD16/header. It does not rehash
+   `/proc/PID/exe`, reread UID, or reread netns at that final point. A
+   same-PID/start process that changes executable or namespace after the
+   snapshot can leave a stale identity in the success receipt. A synthetic
+   hash side-effect probe showed `exe_hash` was called once in the disk
+   check; its second changed value was never consulted. Recompute the full
+   disk snapshot and compare every recorded key at final validation;
+   separately gate identity immediately before any future protocol action.
+3. **Header check is deliberately partial.** `capture_snapshot`, lines
+   130–144, checks 24 bytes, supported magic and major version 2. It does
+   not check minor version 4, positive snaplen, or Ethernet link type 1.
+   In the real-child fixture, I changed the same captured file to minor 0,
+   snaplen 0 and DLT 0 while preserving magic/major; the capture phase still
+   returned success with the invalid header. The pinned `ether_unix.cpp`
+   writes 2.4/65535/Ethernet, so a later parser gate must reject this before
+   calling the bytes a usable Ethernet capture. If the helper is intended
+   to certify that exact header itself, add those checks and a fault test.
+
+The first two findings affect the stated chronology and stale-identity
+claims. The third limits header semantics; the receipt alone is not full
+PCAP validation. No source correction or live run is authorised by this
+review. Root retains the decision on preboot integration.

@@ -1,0 +1,184 @@
+[
+  {
+    "id": "D-10056d00",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10056d00"
+    }
+  },
+  {
+    "id": "D-10056d70",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10056d70"
+    }
+  },
+  {
+    "id": "D-100566e0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100566e0"
+    }
+  },
+  {
+    "id": "D-10056550",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10056550"
+    }
+  },
+  {
+    "id": "D-10056430",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10056430"
+    }
+  },
+  {
+    "id": "D-10056c00",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10056c00"
+    }
+  },
+  {
+    "id": "D-10058ba0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10058ba0"
+    }
+  },
+  {
+    "id": "D-10058d70",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10058d70"
+    }
+  },
+  {
+    "id": "D-10052b70",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10052b70"
+    }
+  },
+  {
+    "id": "D-1002c910",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002c910"
+    }
+  },
+  {
+    "id": "D-10005710",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10005710"
+    }
+  },
+  {
+    "id": "D-100059e0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100059e0"
+    }
+  },
+  {
+    "id": "D-10005ac0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10005ac0"
+    }
+  },
+  {
+    "id": "D-10005200",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10005200"
+    }
+  },
+  {
+    "id": "D-10004f30",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10004f30"
+    }
+  },
+  {
+    "id": "D-1000ef30",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1000ef30"
+    }
+  },
+  {
+    "id": "D-100053e0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100053e0"
+    }
+  },
+  {
+    "id": "D-1002b0e0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002b0e0"
+    }
+  },
+  {
+    "id": "S006-data-2000",
+    "tool": "list_data_items",
+    "arguments": {
+      "offset": 2000,
+      "limit": 2000
+    }
+  },
+  {
+    "id": "S006-data-4000",
+    "tool": "list_data_items",
+    "arguments": {
+      "offset": 4000,
+      "limit": 2000
+    }
+  },
+  {
+    "id": "A-1000acf0",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "1000acf0",
+      "limit": 2000
+    }
+  },
+  {
+    "id": "A-10011ee0",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "10011ee0",
+      "limit": 2000
+    }
+  },
+  {
+    "id": "A-10008a90",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "10008a90",
+      "limit": 2000
+    }
+  },
+  {
+    "id": "A-100183c0",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "100183c0",
+      "limit": 2000
+    }
+  },
+  {
+    "id": "A-100590e0",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "100590e0",
+      "limit": 2000
+    }
+  }
+]

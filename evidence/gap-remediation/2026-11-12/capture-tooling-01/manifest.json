@@ -1,0 +1,6 @@
+{
+  "method": "Synthetic loopback tool integration only; no Hotline native server executed. Four actions read/decode a reply, save received bytes, send those bytes, and record EOF.",
+  "native_conformance": false,
+  "unit_test_cases": 14,
+  "transcript": "transcript/report.json"
+}

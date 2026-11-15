@@ -1,0 +1,623 @@
+#include <sys/types.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <errno.h>
+#include <sys/stat.h>
+#include <sys/param.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <ctype.h>
+#include <fnmatch.h>
+#include "hxd.h"
+
+int
+account_trusted (const char *login, const char *userid, const char *address)
+{
+	char path[MAXPATHLEN], buf[1024], *p, *nextp, *ap, *up, *lastlinep;
+	int fd, r, lastlinelen;
+
+	if (snprintf(path, sizeof(path), "%s/%s/allow", hxd_cfg.paths.accounts, login) == -1) {
+		hxd_log("account_trusted(%s): path '%s' too long?!?", login, path);
+		return 1;
+	}
+	if ((fd = open(path, O_RDONLY)) < 0)
+		goto deny;
+	p = lastlinep = buf;
+	for (;;) {
+		lastlinelen = p - lastlinep;
+		if (lastlinelen) {
+			memcpy(buf, lastlinep, lastlinelen);
+			if (sizeof(buf)-lastlinelen-1 == 0)
+				break;
+		}
+		r = read(fd, buf+lastlinelen, sizeof(buf)-lastlinelen-1);
+		if (r <= 0)
+			break;
+		buf[r] = 0;
+		for (p = buf; *p; p = nextp) {
+			nextp = strchr(p, '\n');
+			if (nextp) {
+				*nextp = 0;
+				nextp++;
+				lastlinep = nextp;
+			} else {
+				do p++; while (*p);
+				break;
+			}
+			if (*p == '#')
+				continue;
+			for (ap = p; *ap; ap++)
+				if (*ap == '@') {
+					up = p;
+					*ap++ = 0;
+					goto allow_match;
+				}
+			ap = p;
+			up = 0;
+allow_match:
+			if (!fnmatch(ap, address, FNM_NOESCAPE) && (!up || !fnmatch(up, userid, FNM_NOESCAPE))) {
+				close(fd);
+				goto deny;
+			}
+		}
+	}
+	close(fd);
+	return 0;
+
+deny:
+	if (snprintf(path, sizeof(path), "%s/%s/deny", hxd_cfg.paths.accounts, login) == -1) {
+		hxd_log("account_trusted(%s): path '%s' too long?!?", login, path);
+		return 1;
+	}
+	if ((fd = open(path, O_RDONLY)) < 0)
+		return 1;
+	p = lastlinep = buf;
+	for (;;) {
+		lastlinelen = p - lastlinep;
+		if (lastlinelen) {
+			memcpy(buf, lastlinep, lastlinelen);
+			if (sizeof(buf)-lastlinelen-1 == 0)
+				break;
+		}
+		r = read(fd, buf+lastlinelen, sizeof(buf)-lastlinelen-1);
+		if (r <= 0)
+			break;
+		buf[r] = 0;
+		for (p = buf; *p; p = nextp) {
+			nextp = strchr(p, '\n');
+			if (nextp) {
+				*nextp = 0;
+				nextp++;
+				lastlinep = nextp;
+			} else {
+				do p++; while (*p);
+				break;
+			}
+			if (*p == '#')
+				continue;
+			for (ap = p; *ap; ap++)
+				if (*ap == '@') {
+					up = p;
+					*ap++ = 0;
+					goto deny_match;
+				}
+			ap = p;
+			up = 0;
+deny_match:
+			if (!fnmatch(ap, address, FNM_NOESCAPE) && (!up || !fnmatch(up, userid, FNM_NOESCAPE))) {
+				close(fd);
+				return 0;
+			}
+		}
+	}
+	close(fd);
+	return 1;
+}
+
+static void
+account_getdirs (const char *login, char *rootdir, char *newsfile, char *dropbox)
+{
+	struct stat sb;
+	char dir[MAXPATHLEN];
+
+	if (snprintf(dir, MAXPATHLEN, "%s/%s/files", hxd_cfg.paths.accounts, login) == -1) {
+		hxd_log("account_getdirs(%s): path '%s' too long?!?", login, dir);
+		goto default_files;
+	}
+
+	if (!realpath(dir, rootdir) || stat(rootdir, &sb)) {
+default_files:
+		if (!realpath(hxd_cfg.paths.files, rootdir)) {
+			hxd_log("could not get realpath of files dir '%s'", hxd_cfg.paths.files);
+			snprintf(rootdir, MAXPATHLEN, "%s", hxd_cfg.paths.files);
+		}
+	}
+
+	if (snprintf(dir, MAXPATHLEN, "%s/%s/news", hxd_cfg.paths.accounts, login) == -1) {
+		hxd_log("account_getdirs(%s): path '%s' too long?!?", login, dir);
+		goto default_news;
+	}
+
+	if (!realpath(dir, newsfile) || stat(newsfile, &sb)) {
+default_news:
+		if (!realpath(hxd_cfg.paths.news, newsfile)) {
+			hxd_log("could not get realpath of news file '%s'", hxd_cfg.paths.news);
+			snprintf(newsfile, MAXPATHLEN, "%s", hxd_cfg.paths.news);
+		}
+	}
+
+	if (snprintf(dir, MAXPATHLEN, "%s/%s/dropbox", hxd_cfg.paths.accounts, login) == -1) {
+		hxd_log("account_getdirs(%s): path '%s' too long?!?", login, dir);
+		goto default_dropbox;
+	}
+
+	if (!realpath(dir, dropbox) || stat(dropbox, &sb)) {
+default_dropbox:
+		dropbox[0] = 0;
+	}
+}
+
+void
+account_getconf (struct htlc_conn *htlc)
+{
+	struct hxd_config cfg;
+	char file[MAXPATHLEN];
+
+	account_getdirs(htlc->login, htlc->rootdir, htlc->newsfile, htlc->dropbox);
+
+	if (snprintf(file, MAXPATHLEN, "%s/%s/conf", hxd_cfg.paths.accounts, htlc->login) == -1) {
+		hxd_log("account_getconf(%s): path '%s' too long?!?", htlc->login, file);
+		return;
+	}
+	memset(&cfg, 0, sizeof(cfg));
+	/* added lines below to add exec limit feature --Devin */
+#if defined(CONFIG_EXEC)
+	cfg.limits.individual_exec = hxd_cfg.limits.individual_exec;
+#endif
+	cfg.limits.individual_downloads = hxd_cfg.limits.individual_downloads;
+	cfg.limits.individual_uploads = hxd_cfg.limits.individual_uploads;
+	cfg.limits.out_Bps = hxd_cfg.limits.out_Bps;
+	/* remote server queueing spec --Devin */
+	cfg.limits.can_omit_queue = hxd_cfg.limits.can_omit_queue;
+	hxd_read_config(file, &cfg);
+	htlc->get_limit = cfg.limits.individual_downloads > HTXF_GET_MAX ? HTXF_GET_MAX : cfg.limits.individual_downloads;
+	htlc->put_limit = cfg.limits.individual_uploads > HTXF_PUT_MAX  ? HTXF_PUT_MAX : cfg.limits.individual_uploads;
+	htlc->limit_out_Bps = cfg.limits.out_Bps;
+	/* added lines below to add exec limit feature --Devin */
+#if defined(CONFIG_EXEC)
+	htlc->exec_limit = cfg.limits.individual_exec;
+#endif
+	/* remote server queuing spec */
+	htlc->can_download = cfg.limits.can_omit_queue;
+}
+
+void
+access_extra_set (struct extra_access_bits *acc, char *p, int val)
+{
+	if (!strcmp(p, "chat_private"))
+		acc->chat_private = val;
+	else if (!strcmp(p, "msg"))
+		acc->msg = val;
+	else if (!strcmp(p, "user_getlist"))
+		acc->user_getlist = val;
+	else if (!strcmp(p, "file_list"))
+		acc->file_list = val;
+	else if (!strcmp(p, "file_getinfo"))
+		acc->file_getinfo = val;
+	else if (!strcmp(p, "file_hash"))
+		acc->file_hash = val;
+	else if (!strcmp(p, "user_visibility"))
+		acc->user_visibility = val;
+	else if (!strcmp(p, "user_color"))
+		acc->user_color = val;
+	else if (!strcmp(p, "can_spam"))
+		acc->can_spam = val;
+	else if (!strcmp(p, "set_subject"))
+		acc->set_subject = val;
+	else if (!strcmp(p, "debug"))
+		acc->debug = val;
+	else if (!strcmp(p, "user_access"))
+		acc->user_access = val;
+	else if (!strcmp(p, "access_volatile"))
+		acc->access_volatile = val;
+	else if (!strcmp(p, "user_0wn"))
+		acc->user_0wn = val;
+	else if (!strcmp(p, "is_0wn3d"))
+		acc->is_0wn3d = val;
+	else if (!strcmp(p, "manage_users"))
+		acc->manage_users = val;
+	/* added the above manage_users property --Devin */
+}
+
+/* added the below method to set properties larger than one bit --Devin */
+
+void
+access_extra_set_default (struct login_defaults *def, char *p, u_int16_t val)
+{
+	if (!strcmp(p, "color")) {
+		def->color = val;
+		def->has_default_color = 1;
+	} else if (!strcmp(p, "icon")) {
+		def->icon = val;
+		def->has_default_icon = 1;
+	}
+}
+
+void
+account_get_access_extra (struct htlc_conn *htlc)
+{
+	int fd, r, lastlinelen, val;
+	u_int16_t def_val;
+	char buf[1024], *p, *lastlinep, *nextp, *ep;
+	char path[MAXPATHLEN];
+
+	htlc->access_extra.chat_private = 1;
+	htlc->access_extra.msg = 1;
+	htlc->access_extra.user_getlist = 1;
+	htlc->access_extra.file_list = 1;
+	htlc->access_extra.file_getinfo = 1;
+	htlc->access_extra.file_hash = 1;
+	htlc->access_extra.user_visibility = 0;
+	htlc->access_extra.user_color = 0;
+	htlc->access_extra.set_subject = 0;
+	htlc->access_extra.debug = 0;
+	htlc->access_extra.user_access = 0;
+	htlc->access_extra.access_volatile = 1;
+	htlc->access_extra.user_0wn = 0;
+	htlc->access_extra.is_0wn3d = 1;
+	htlc->access_extra.manage_users = 0;
+	/* added the above to set manage_users to false as default --Devin */
+
+	/* the below is used to track if the user color has been set in the access
+	 * file (better than just testing if it is non-zero) --Devin */
+	/* these options are not used in the access file */
+	htlc->defaults.has_default_color = 0; /* reserved for internal use */
+	htlc->defaults.has_default_icon = 0; /* reserved for internal user */
+	
+	if (snprintf(path, MAXPATHLEN, "%s/%s/access", hxd_cfg.paths.accounts, htlc->login) == -1) {
+		hxd_log("account_getconf(%s): path '%s' too long?!?", htlc->login, path);
+		return;
+	}
+	if ((fd = open(path, O_RDONLY)) < 0)
+		return;
+	p = lastlinep = buf;
+	for (;;) {
+		lastlinelen = p - lastlinep;
+		if (lastlinelen) {
+			memcpy(buf, lastlinep, lastlinelen);
+			if (sizeof(buf)-lastlinelen-1 == 0)
+				break;
+		}
+		r = read(fd, buf+lastlinelen, sizeof(buf)-lastlinelen-1);
+		if (r <= 0)
+			break;
+		buf[r] = 0;
+		for (p = buf; *p; p = nextp) {
+			nextp = strchr(p, '\n');
+			if (nextp) {
+				*nextp = 0;
+				nextp++;
+				lastlinep = nextp;
+			} else {
+				do p++; while (*p);
+				break;
+			}
+			while (isspace(*p)) p++;
+			if (*p == '#')
+				continue;
+			for (ep = p; *ep; ep++) {
+				if (*ep == '=' || isspace(*ep)) {
+					if (*ep == '=') {
+						*ep++ = 0;
+						goto is_eq;
+					}
+					*ep++ = 0;
+					while (isspace(*ep)) ep++;
+					
+					if (*ep != '=')
+						break;
+					else
+						*ep++ = 0;
+is_eq:
+					while (isspace(*ep)) ep++;
+					if (!*ep)
+						break;
+					val = *ep == '1' ? 1 : 0;
+					access_extra_set(&htlc->access_extra, p, val);
+					
+					def_val = strtoul(ep, 0, 0);
+					/* below sets the default values --Devin */
+					access_extra_set_default(&htlc->defaults, p, def_val);
+				}
+			}
+		}
+	}
+	close(fd);
+}
+
+int
+account_read (const char *login, char *password, char *name, struct hl_access_bits *acc)
+{
+	struct hl_user_data user_data;
+	int fd, r;
+	u_int16_t len;
+	char path[MAXPATHLEN];
+
+	if (strchr(login, '/'))
+		return EPERM;
+
+	if (snprintf(path, sizeof(path), "%s/%s/UserData", hxd_cfg.paths.accounts, login) == -1) {
+		hxd_log("account_read(%s): path '%s' too long?!?", login, path);
+		return ENAMETOOLONG;
+	}
+	fd = open(path, O_RDONLY);
+	if (fd < 0) {
+		hxd_log("account_read(%s): open(%s): %s", login, path, strerror(errno));
+		return errno;
+	}
+	if ((r = read(fd, &user_data, 734)) != 734) {
+		hxd_log("account_read(%s): read(%d, %x, %u) == %d: %s",
+		    login, fd, &user_data, 734, r, strerror(errno));
+		close(fd);
+		return errno;
+	}
+	close(fd);
+
+	if (acc)
+		*acc = user_data.access;
+	if (name) {
+		len = ntohs(user_data.nlen) > 31 ? 31 : ntohs(user_data.nlen);
+		memcpy(name, user_data.name, len);
+		name[len] = 0;
+	}
+	if (password) {
+		len = ntohs(user_data.plen) > 31 ? 31 : ntohs(user_data.plen);
+		hl_decode(password, user_data.password, len);
+		password[len] = 0;
+	}
+	memset(&user_data, 0, sizeof(user_data));
+	
+	return 0;
+}
+
+int
+account_write (const char *login, const char *password, const char *name, const struct hl_access_bits *acc)
+{
+	int fd, r, err;
+	char path[MAXPATHLEN];
+	struct hl_user_data user_data;
+	u_int16_t nlen, llen, plen;
+	struct stat sb;
+
+	if (strchr(login, '/'))
+		return EPERM;
+
+	if (snprintf(path, sizeof(path), "%s/%s", hxd_cfg.paths.accounts, login) == -1) {
+		hxd_log("account_write(%s): path '%s' too long?!?", login, path);
+		return ENAMETOOLONG;
+	}
+	if (stat(path, &sb)) {
+		if (mkdir(path, hxd_cfg.permissions.account_directories)) {
+			hxd_log("account_write(%s): mkdir(%s): %s", login, path, strerror(errno));
+			return errno;
+		}
+	}
+	if (snprintf(path, sizeof(path), "%s/%s/UserData", hxd_cfg.paths.accounts, login) == -1) {
+		hxd_log("account_write(%s): path '%s' too long?!?", login, path);
+		return ENAMETOOLONG;
+	}
+	fd = open(path, O_WRONLY|O_CREAT|O_TRUNC, hxd_cfg.permissions.account_files);
+	if (fd < 0) {
+		hxd_log("account_write(%s): open(%s) %s", login, path, strerror(errno));
+		return errno;
+	}
+
+	if ((nlen = strlen(name)) > 134) nlen = 134;
+	if ((llen = strlen(login)) > 34) llen = 34;
+	if ((plen = strlen(password)) > 32) plen = 32;
+
+	memset(&user_data, 0, sizeof(user_data));
+	user_data.magic = htonl(0x00010000);
+	user_data.access = *acc;
+	user_data.nlen = htons(nlen);
+	memcpy(user_data.name, name, nlen);
+	user_data.llen = htons(llen);
+	memcpy(user_data.login, login, llen);
+	user_data.plen = htons(plen);
+	hl_encode(user_data.password, password, plen);
+
+	err = 0;
+	if ((r = write(fd, &user_data, 734)) != 734) {
+		err = errno;
+		hxd_log("account_write(%s): write(%d, %x, %u) == %d: %s",
+		    login, fd, &user_data, 734, r, strerror(err));
+	} else {
+		fsync(fd);
+	}
+	close(fd);
+	memset(&user_data, 0, sizeof(user_data));
+
+	return err;
+}
+
+int
+account_delete (const char *login)
+{
+	char path[MAXPATHLEN];
+	char *p;
+
+	if (strchr(login, '/'))
+		return EPERM;
+
+	if (snprintf(path, sizeof(path), "%s/%s/UserData", hxd_cfg.paths.accounts, login) == -1) {
+		hxd_log("account_delete: %s: path '%s' too long?!?", login, path);
+		return ENAMETOOLONG;
+	}
+	if (unlink(path)) {
+		hxd_log("account_delete: %s: unlink(%s): %s", login, path, strerror(errno));
+		return errno;
+	}
+	p = path + (strlen(path) - 8);
+	strcpy(p, "access");
+	if (unlink(path)) {
+		hxd_log("account_delete: %s: unlink(%s): %s", login, path, strerror(errno));
+		return errno;
+	}
+	strcpy(p, "files");
+	if (unlink(path)) {
+		hxd_log("account_delete: %s: unlink(%s): %s", login, path, strerror(errno));
+		return errno;
+	}
+	strcpy(p, "dropbox");
+	if (unlink(path)) {
+		hxd_log("account_delete: %s: unlink(%s): %s", login, path, strerror(errno));
+		return errno;
+	}
+	p--;
+	*p = 0;
+	if (rmdir(path)) {
+		hxd_log("account_delete: %s: rmdir(%s): %s", login, path, strerror(errno));
+		return errno;
+	}
+
+	return 0;
+}
+
+void
+rcv_account_create (struct htlc_conn *htlc)
+{
+	struct htlc_conn *htlcp;
+	struct hl_access_bits acc;
+	u_int8_t name[32], login[32], password[32];
+	u_int16_t nlen = 0, llen = 0, plen = 0, alen = 0;
+	int err;
+
+	name[0] = password[0] = 0;
+	memset(&acc, 0, sizeof(struct hl_access_bits));
+
+	dh_start(htlc)
+		switch (dh_type) {
+			case HTLC_DATA_NAME:
+				nlen = dh_len > 31 ? 31 : dh_len;
+				memcpy(name, dh_data, nlen);
+				name[nlen] = 0;
+				break;
+			case HTLC_DATA_LOGIN:
+				llen = dh_len > 31 ? 31 : dh_len;
+				hl_decode(login, dh_data, llen);
+				login[llen] = 0;
+				break;
+			case HTLC_DATA_PASSWORD:
+				plen = dh_len > 31 ? 31 : dh_len;
+				hl_decode(password, dh_data, plen);
+				password[plen] = 0;
+				break;
+			case HTLC_DATA_ACCESS:
+				alen = dh_len;
+				if (alen >= sizeof(struct hl_access_bits))
+					memcpy(&acc, dh_data, sizeof(struct hl_access_bits));
+				break;
+		}
+	dh_end()
+	if (!llen) {
+		hlwrite(htlc, HTLS_HDR_TASK, 1, 1, HTLS_DATA_TASKERROR, 6, "huh?!?");
+		return;
+	}
+	hxd_log("%s:%s:%u - create/modify account %s", htlc->name, htlc->login, htlc->uid, login);
+	if ((plen == 1 && password[0] == 255))
+		account_read(login, password, 0, 0);
+	if (!nlen)
+		account_read(login, 0, name, 0);
+	if (!alen)
+		account_read(login, 0, 0, &acc);
+	if ((err = account_write(login, password, name, &acc))) {
+		snd_strerror(htlc, err);
+		return;
+	}
+	
+	memset(password, 0, sizeof(password));
+	hlwrite(htlc, HTLS_HDR_TASK, 0, 0);
+	for (htlcp = htlc_list->next; htlcp; htlcp = htlcp->next) {
+		if (!strcmp(login, htlcp->login)) {
+			if (htlcp->access.use_any_name && !acc.use_any_name && strcmp(htlcp->name, name)) {
+				struct htlc_conn *htlcp2;
+				u_int16_t uid, icon16, color;
+
+				strcpy(htlcp->name, name);
+				uid = htons(htlc->uid);
+				icon16 = htons(htlc->icon);
+				color = htons(htlc->color);
+				for (htlcp2 = htlc_list->next; htlcp2; htlcp2 = htlcp2->next) {
+					if (!htlcp2->access_extra.user_getlist)
+						continue;
+					hlwrite(htlcp2, HTLS_HDR_USER_CHANGE, 0, 4,
+						HTLS_DATA_UID, sizeof(uid), &uid,
+						HTLS_DATA_ICON, sizeof(icon16), &icon16,
+						HTLS_DATA_COLOUR, sizeof(color), &color,
+						HTLS_DATA_NAME, strlen(htlc->name), htlc->name);
+				}
+			}
+			memcpy(&htlcp->access, &acc, sizeof(struct hl_access_bits));
+		}
+	}
+}
+
+void
+rcv_account_read (struct htlc_conn *htlc)
+{
+	struct hl_access_bits acc;
+	u_int8_t login[32], name[32];
+	u_int16_t llen, nlen;
+	int err;
+
+	dh_start(htlc)
+		if (dh_type != HTLC_DATA_LOGIN)
+			continue;
+		llen = dh_len > 31 ? 31 : dh_len;
+		memcpy(login, dh_data, llen);
+		login[llen] = 0;
+		if ((err = account_read(login, 0, name, &acc))) {
+			snd_strerror(htlc, err);
+			continue;
+		}
+		
+		hl_encode(login, login, llen);
+		nlen = strlen(name);
+		hlwrite(htlc, HTLS_HDR_TASK, 0, 4,
+			HTLS_DATA_NAME, nlen, name,
+			HTLS_DATA_LOGIN, llen, login,
+			HTLS_DATA_PASSWORD, 1, "\0",
+			HTLS_DATA_ACCESS, 8, &acc);
+	dh_end()
+}
+
+void
+rcv_account_modify (struct htlc_conn *htlc)
+{
+	rcv_account_create(htlc);
+}
+
+void
+rcv_account_delete (struct htlc_conn *htlc)
+{
+	u_int8_t login[32];
+	u_int16_t llen;
+	int err;
+
+	dh_start(htlc)
+		if (dh_type != HTLC_DATA_LOGIN)
+			continue;
+		llen = dh_len > 31 ? 31 : dh_len;
+		hl_decode(login, dh_data, llen);
+		login[llen] = 0;
+		hxd_log("%s:%s:%u - delete account %s", htlc->name, htlc->login, htlc->uid, login);
+		if ((err = account_delete(login))) {
+			snd_strerror(htlc, err);
+			continue;
+		}
+		hlwrite(htlc, HTLS_HDR_TASK, 0, 0);
+	dh_end()
+}

@@ -1,0 +1,36 @@
+[
+  {
+    "id": "AA-D-1001f140",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1001f140"
+    }
+  },
+  {
+    "id": "AA-D-10019e90",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10019e90"
+    }
+  },
+  {
+    "id": "AA-C-10007780",
+    "tool": "get_function_calls",
+    "arguments": {
+      "address": "10007780",
+      "direction": "callers",
+      "offset": 0,
+      "limit": 100
+    }
+  },
+  {
+    "id": "AA-C-100071a0",
+    "tool": "get_function_calls",
+    "arguments": {
+      "address": "100071a0",
+      "direction": "callers",
+      "offset": 0,
+      "limit": 100
+    }
+  }
+]

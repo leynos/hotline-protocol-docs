@@ -1,0 +1,14 @@
+{
+  "source_commit": "adb1bf8c8cb12f7eb2fa2c01673295a6312f262b",
+  "source_archive_sha256": "8f3fb013299731f1204f3d6684c2000feb2af65395fffca837f0642bb56fad0d",
+  "binary_sha256": "3ca26b9641a38370ea99ea263e5deb672dc71729b407885d6ac898747bbac5d1",
+  "config_h_sha256": "c7b3a708255fae6f6dc49f998b5e8972c0d6e9903d8136b42c3182fd240693c7",
+  "patch_sha256": "cababc2c7cb12722c7e7e32c7099827dd3f5c49d314174171cace003794fb71f",
+  "profile": "experimental full source TTY/HFS/fork/IPv4; HOPE,cipher,compression,GTK disabled; O0 gnu89 fcommon; modern host detection helpers",
+  "compiler": "gcc (GCC) 15.3.1 20260722 (Red Hat 15.3.1-1)",
+  "flags": "-O0 -g -std=gnu89 -fcommon -I/data/leynos/Projects/mothra/tools/shx-deps/usr/include",
+  "config_aux": {
+    "config.guess": "84339878730349f6ae49d0e10af84d6a52f937dffb652032584376d76822a002",
+    "config.sub": "d047a2613db0e587c9a9ab64f4ba0eb304421a6501ea8653a06c179eb57952be"
+  }
+}

@@ -1,0 +1,11 @@
+Id=mothra-bridge-53871ac102a8.service
+ActiveState=inactive
+SubState=dead
+MainPID=0
+Result=success
+
+Id=mothra-xbridge-53871ac102a8.service
+ActiveState=inactive
+SubState=dead
+MainPID=0
+Result=success

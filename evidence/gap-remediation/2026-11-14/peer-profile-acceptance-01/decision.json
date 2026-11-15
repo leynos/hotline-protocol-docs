@@ -1,0 +1,31 @@
+{
+  "captured_at_utc": "2026-11-14T03:20:52.184759+00:00",
+  "gap": "GAP-080",
+  "criterion_unchanged": "Create a hashed client/capture corpus and evidence-based profile/fallback rules; retain reported version values separately from proven identities.",
+  "question_unchanged": "Which client builds are acceptance targets, what stable evidence distinguishes them after removing sub-version 2, and what is the unknown-peer fallback?",
+  "decision": "Resolved against original native1.9 protocol documentation criterion",
+  "basis": [
+    "Two exact executable profiles and hashed native/controlled-capture corpora with finite measured/untested cells",
+    "Opaque build identity and configuration assign evaluated profile; absent provenance remains unknown",
+    "Native1.9 login producer behavior supplies unknown-peer baseline without family-based extra omission or a compatibility guarantee",
+    "Reported versions/handshake remain distinct from identity; Classic archive1.9.2/vers1.9.1.0 conflict preserved",
+    "Independent criterion/disposition audits reviewed; root reviewed published registry"
+  ],
+  "document": "../hotline-protocol-docs/peer-profile-rules.md",
+  "reviewed_source_hashes": {
+    "evidence/gap-remediation/2026-11-13/native-shx-01/manifest.json": "484a3140160652f6e000d946ad7890f27129fc765acd576a0591f68326a5632e",
+    "evidence/gap-remediation/2026-11-13/delegated-peer-01/manifest.json": "6dbc90c153a1e8d77f0b4987e3dc6e35f0d63c51e37dd92594c53ad427f13e21",
+    "evidence/gap-remediation/2026-11-14/classic-field161-01/manifest.json": "7909b090666efa3a241b90012223cf02bafb1418bb9e6dae53131b7eca08be9e"
+  },
+  "separate_open_requirements": {
+    "GAP-081": "Remaining per-field tolerance cells",
+    "GAP-018/GAP-082": "General text codecs and decoding policy",
+    "GAP-026": "Meaning/lifetime of161",
+    "GAP-086": "Release subset/sign-off/owner/proof claims"
+  },
+  "limits": [
+    "No vendor authenticity or product-family-wide profile",
+    "No universal unknown-client interoperability guarantee",
+    "No mxd release selection, policy change or further validation"
+  ]
+}

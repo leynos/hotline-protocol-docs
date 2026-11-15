@@ -1,0 +1,7 @@
+{
+  "source_commit": "8e6793d83bdc36349500a1bc356a10aeccad83f1",
+  "binary_sha256": "c209ca54fd63a7d49af99aef6d82f75782536a78f76b60357fa8e794d6c51a8c",
+  "patch_sha256": "963b21df1c8eae72883dc1807d95a1c399972cc117d3ba657dba39399c7c0556",
+  "scope": "Emulator build only; no ROM, OS image or native protocol conformance claim",
+  "configuration": "real addressing, interpreter, SDL video/audio, no GTK/mon"
+}

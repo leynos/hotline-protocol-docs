@@ -1,0 +1,26 @@
+from pathlib import Path
+import sys, json,hashlib,datetime,collections
+R=Path('/data/leynos/Projects/mothra');sys.path.insert(0,str(R.parent/'hotline-protocol-docs/scripts'))
+from pcap_tcp import read_packets,lifetime,stream
+OUT=R/'state/delegation/c46-offline'
+paths={'c32':('native-banlab-boot-c31',15721),'c35':('native-banlab-boot-c34',15731),'c45':('native-banlab-boot-c44',15741)}
+def sha(b):return hashlib.sha256(b).hexdigest()
+def load(p):return json.loads(p.read_text())
+result={'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'runs':{}}
+for run,(boot,port) in paths.items():
+ base=R/f'state/native-sessions/native-banlab-{run}';b=R/f'state/native-sessions/{boot}';report=load(base/'a7-capture/report.json');plan=load(base/'a7-as-run-plan.json');original=load(base/'a7-original-plan.json') if (base/'a7-original-plan.json').exists() else load(R/'state/native-sessions/native-banlab-prep-c43/a7-original-plan.json')
+ assert plan['steps']==original['steps'] and len(plan['steps'])==29
+ event=next(e for e in report['events'] if e['connection']=='download' and e['event']=='connect');local=event['local_address'][1];when=int(datetime.datetime.fromisoformat(report['started_at_utc']).timestamp()*1_000_000)+event['elapsed_ns']//1000
+ received=bytes.fromhex(report['streams']['download']['received_hex']);sent=bytes.fromhex(report['streams']['download']['sent_hex'])
+ item={'status':report['status'],'completed_actions':report['completed_actions'],'error':report['error'],'driver_sha256':report['driver_sha256'],'report_plan_sha256':report['plan_sha256'],'source_steps_sha256':sha(json.dumps(original['steps'],sort_keys=True,separators=(',',':')).encode()),'asrun_steps_same':True,'data_endpoint':plan['endpoints']['data'],'local_port':local,'recorder_bytes':len(received),'recorder_sha256':sha(received),'htxf_hex':sent.hex(),'started_at_utc':report['started_at_utc'],'transfer_event_elapsed_ns':event['elapsed_ns'],'views':{}}
+ for view,client,server,target,pfile in [('namespace','127.0.0.1','127.0.0.1',port,b/'lab-namespace.pcap'),('guest','10.0.2.2','10.0.2.15',5501,b/'lab-guest.pcap')]:
+  packets=read_packets(pfile);flow=lifetime(packets,(client,local),(server,target),when);server_packets=[p for p in flow if p['src_ip']==server and p['src_port']==target];client_packets=[p for p in flow if p['src_ip']==client and p['src_port']==local];body=stream(flow,(server,target),(client,local));request=stream(flow,(client,local),(server,target));payload=[p for p in server_packets if p['payload_hex'] and not p['flags']&4];sizes=collections.Counter(len(bytes.fromhex(p['payload_hex'])) for p in payload);timestamps=[p['timestamp_us'] for p in payload]
+  assert request==sent,(run,view,'HTXF differs')
+  assert body==received,(run,view,len(body),len(received),'packet/recorder differs')
+  item['views'][view]={'pcap_path':str(pfile.relative_to(R)),'pcap_sha256':sha(pfile.read_bytes()),'all_tcp_packets':len(packets),'flow_packets':len(flow),'server_payload_packets':len(payload),'server_bytes':len(body),'server_sha256':sha(body),'client_htxf_bytes':len(request),'first_server_packet_index':payload[0]['index'] if payload else None,'last_server_packet_index':payload[-1]['index'] if payload else None,'first_payload_us':timestamps[0] if timestamps else None,'last_payload_us':timestamps[-1] if timestamps else None,'payload_span_us':timestamps[-1]-timestamps[0] if timestamps else None,'payload_sizes':dict(sorted(sizes.items())),'fin_count':sum(bool(p['flags']&1) for p in flow),'rst_count':sum(bool(p['flags']&4) for p in flow)}
+ result['runs'][run]=item
+ assert item['views']['namespace']['server_sha256']==item['views']['guest']['server_sha256']
+assert result['runs']['c32']['views']['guest']['server_bytes']==result['runs']['c32']['views']['namespace']['server_bytes']==1049073
+assert result['runs']['c35']['views']['guest']['server_bytes']==result['runs']['c45']['views']['guest']['server_bytes']==98304
+(OUT/'packet-comparison.json').write_text(json.dumps(result,indent=2)+'\n')
+print('packet comparison passed',[(k,v['views']['guest']['server_bytes']) for k,v in result['runs'].items()])

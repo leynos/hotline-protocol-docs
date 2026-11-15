@@ -1,0 +1,227 @@
+{
+  "completed_reports": 49,
+  "paired_connections": 72,
+  "mutation_cases": 36,
+  "combined_empty_cases": 6,
+  "boundary_writes": 22,
+  "oracle_queries": 13,
+  "observations": [
+    {
+      "case": "file-both-omitted",
+      "error": false,
+      "renamed": false,
+      "comment_hex": "626173652d636f6d6d656e74"
+    },
+    {
+      "case": "file-empty-name",
+      "error": false,
+      "renamed": false,
+      "comment_hex": "626173652d636f6d6d656e74"
+    },
+    {
+      "case": "file-same-name",
+      "error": false,
+      "renamed": false,
+      "comment_hex": "626173652d636f6d6d656e74"
+    },
+    {
+      "case": "file-name-only",
+      "error": false,
+      "renamed": true,
+      "comment_hex": "626173652d636f6d6d656e74"
+    },
+    {
+      "case": "file-empty-comment",
+      "error": false,
+      "renamed": false,
+      "comment_hex": null
+    },
+    {
+      "case": "file-nul-comment",
+      "error": false,
+      "renamed": false,
+      "comment_hex": null
+    },
+    {
+      "case": "file-new-comment",
+      "error": false,
+      "renamed": false,
+      "comment_hex": "6e65772d636f6d6d656e74"
+    },
+    {
+      "case": "file-both-new",
+      "error": false,
+      "renamed": true,
+      "comment_hex": "6e65772d636f6d6d656e74"
+    },
+    {
+      "case": "file-comment-before-conflict",
+      "error": true,
+      "renamed": false,
+      "comment_hex": "7061727469616c2d636f6d6d656e74"
+    },
+    {
+      "case": "file-comment-only-privilege-combined",
+      "error": true,
+      "renamed": false,
+      "comment_hex": "7061727469616c2d636f6d6d656e74"
+    },
+    {
+      "case": "file-rename-only-privilege-combined",
+      "error": true,
+      "renamed": false,
+      "comment_hex": "626173652d636f6d6d656e74"
+    },
+    {
+      "case": "file-rename-only-privilege-name",
+      "error": false,
+      "renamed": true,
+      "comment_hex": "626173652d636f6d6d656e74"
+    },
+    {
+      "case": "file-comment-only-privilege-name",
+      "error": true,
+      "renamed": false,
+      "comment_hex": "626173652d636f6d6d656e74"
+    },
+    {
+      "case": "file-neither-noop",
+      "error": false,
+      "renamed": false,
+      "comment_hex": "626173652d636f6d6d656e74"
+    },
+    {
+      "case": "file-neither-empty-comment",
+      "error": true,
+      "renamed": false,
+      "comment_hex": "626173652d636f6d6d656e74"
+    },
+    {
+      "case": "file-comment255",
+      "error": false,
+      "renamed": false,
+      "comment_hex": "78787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878"
+    },
+    {
+      "case": "file-comment256",
+      "error": false,
+      "renamed": false,
+      "comment_hex": "78787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878"
+    },
+    {
+      "case": "file-comment-interior-nul",
+      "error": false,
+      "renamed": false,
+      "comment_hex": "6161006262"
+    },
+    {
+      "case": "dir-both-omitted",
+      "error": false,
+      "renamed": false,
+      "comment_hex": "626173652d636f6d6d656e74"
+    },
+    {
+      "case": "dir-empty-name",
+      "error": false,
+      "renamed": false,
+      "comment_hex": "626173652d636f6d6d656e74"
+    },
+    {
+      "case": "dir-same-name",
+      "error": false,
+      "renamed": false,
+      "comment_hex": "626173652d636f6d6d656e74"
+    },
+    {
+      "case": "dir-name-only",
+      "error": false,
+      "renamed": true,
+      "comment_hex": "626173652d636f6d6d656e74"
+    },
+    {
+      "case": "dir-empty-comment",
+      "error": false,
+      "renamed": false,
+      "comment_hex": null
+    },
+    {
+      "case": "dir-nul-comment",
+      "error": false,
+      "renamed": false,
+      "comment_hex": null
+    },
+    {
+      "case": "dir-new-comment",
+      "error": false,
+      "renamed": false,
+      "comment_hex": "6e65772d636f6d6d656e74"
+    },
+    {
+      "case": "dir-both-new",
+      "error": false,
+      "renamed": true,
+      "comment_hex": "6e65772d636f6d6d656e74"
+    },
+    {
+      "case": "dir-comment-before-conflict",
+      "error": true,
+      "renamed": false,
+      "comment_hex": "7061727469616c2d636f6d6d656e74"
+    },
+    {
+      "case": "dir-comment-only-privilege-combined",
+      "error": true,
+      "renamed": false,
+      "comment_hex": "7061727469616c2d636f6d6d656e74"
+    },
+    {
+      "case": "dir-rename-only-privilege-combined",
+      "error": true,
+      "renamed": false,
+      "comment_hex": "626173652d636f6d6d656e74"
+    },
+    {
+      "case": "dir-rename-only-privilege-name",
+      "error": false,
+      "renamed": true,
+      "comment_hex": "626173652d636f6d6d656e74"
+    },
+    {
+      "case": "dir-comment-only-privilege-name",
+      "error": true,
+      "renamed": false,
+      "comment_hex": "626173652d636f6d6d656e74"
+    },
+    {
+      "case": "dir-neither-noop",
+      "error": false,
+      "renamed": false,
+      "comment_hex": "626173652d636f6d6d656e74"
+    },
+    {
+      "case": "dir-neither-empty-comment",
+      "error": true,
+      "renamed": false,
+      "comment_hex": "626173652d636f6d6d656e74"
+    },
+    {
+      "case": "dir-comment255",
+      "error": false,
+      "renamed": false,
+      "comment_hex": "78787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878"
+    },
+    {
+      "case": "dir-comment256",
+      "error": false,
+      "renamed": false,
+      "comment_hex": "78787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878"
+    },
+    {
+      "case": "dir-comment-interior-nul",
+      "error": false,
+      "renamed": false,
+      "comment_hex": "6161006262"
+    }
+  ],
+  "scope": "Native207 metadata effects and bounded silence; no all-or-nothing guarantee, restart durability, portable comment storage capacity or complete error/notification coverage"
+}

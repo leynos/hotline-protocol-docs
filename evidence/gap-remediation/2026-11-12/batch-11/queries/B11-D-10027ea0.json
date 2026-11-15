@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T14:56:00.290627+00:00",
+  "query": {
+    "id": "B11-D-10027ea0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10027ea0"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_10027ea0\",\n    \"address\": \"10027ea0\"\n  },\n  \"code\": \"\\n/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */\\n\\nvoid FUN_10027ea0(int param_1)\\n\\n{\\n  undefined **ppuVar1;\\n  undefined *puVar2;\\n  char cVar3;\\n  undefined1 auStack_300 [128];\\n  undefined **local_26c;\\n  undefined1 auStack_240 [4];\\n  undefined4 local_23c;\\n  undefined1 auStack_238 [28];\\n  undefined1 *local_21c;\\n  undefined1 local_218;\\n  undefined1 auStack_217 [255];\\n  byte local_118 [268];\\n  \\n  local_21c = auStack_300 + 0x80;\\n  if ((*(byte *)(param_1 + 0x10) >> 6 & 1) == 0) {\\n    ppuVar1 = &_toc;\\n    if (_DAT_100893e4 == 0) {\\n      puVar2 = (undefined *).glue::GetNewDialog(0x24dd,0,0xffffffff);\\n      local_26c[-0x1ccf] = puVar2;\\n      ppuVar1 = local_26c;\\n      if (puVar2 == (undefined *)0x0) {\\n        FUN_10001bd0(s_UError___couldn_t_create_error_d_1009394c);\\n        .glue::SysBeep(0x14);\\n        .glue::SysBeep(0x14);\\n        .glue::ExitToShell();\\n      }\\n    }\\n    local_218 = FUN_10027d40(param_1,auStack_217,0xff);\\n    cVar3 = FUN_10027930(param_1,local_118 + 2,0xfd);\\n    local_118[0] = cVar3 + 2;\\n    local_118[1] = 0x28;\\n    local_118[local_118[0]] = 0x29;\\n    cVar3 = FUN_10053980(0x400);\\n    if (cVar3 == '\\\\0') {\\n      FUN_10001bd0(s_An_unknown_error_has_occured__No_1009397b + 0x46);\\n      .glue::SysBeep(0x14);\\n    }\\n    else {\\n      .glue::GetDialogItem(ppuVar1[-0x1ccf],2,auStack_240,&local_23c,auStack_238);\\n      .glue::SetDialogItemText(local_23c,&local_218);\\n      .glue::GetDialogItem(local_26c[-0x1ccf],4,auStack_240,&local_23c,auStack_238);\\n      .glue::SetDialogItemText(local_23c,local_118);\\n      .glue::GetDialogWindow(local_26c[-0x1ccf]);\\n      .glue::SelectWindow();\\n      .glue::GetDialogWindow(local_26c[-0x1ccf]);\\n      .glue::ShowWindow();\\n      .glue::ModalDialog(0,auStack_240);\\n      .glue::GetDialogWindow(local_26c[-0x1ccf]);\\n      .glue::HideWindow();\\n      cVar3 = FUN_1002a0d0();\\n      *(bool *)(local_26c + 0x1797) = cVar3 == '\\\\0';\\n      *(undefined1 *)((int)local_26c + 0x63d5) = 1;\\n    }\\n  }\\n  return;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_10027ea0",
+        "address": "10027ea0"
+      },
+      "code": "\n/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */\n\nvoid FUN_10027ea0(int param_1)\n\n{\n  undefined **ppuVar1;\n  undefined *puVar2;\n  char cVar3;\n  undefined1 auStack_300 [128];\n  undefined **local_26c;\n  undefined1 auStack_240 [4];\n  undefined4 local_23c;\n  undefined1 auStack_238 [28];\n  undefined1 *local_21c;\n  undefined1 local_218;\n  undefined1 auStack_217 [255];\n  byte local_118 [268];\n  \n  local_21c = auStack_300 + 0x80;\n  if ((*(byte *)(param_1 + 0x10) >> 6 & 1) == 0) {\n    ppuVar1 = &_toc;\n    if (_DAT_100893e4 == 0) {\n      puVar2 = (undefined *).glue::GetNewDialog(0x24dd,0,0xffffffff);\n      local_26c[-0x1ccf] = puVar2;\n      ppuVar1 = local_26c;\n      if (puVar2 == (undefined *)0x0) {\n        FUN_10001bd0(s_UError___couldn_t_create_error_d_1009394c);\n        .glue::SysBeep(0x14);\n        .glue::SysBeep(0x14);\n        .glue::ExitToShell();\n      }\n    }\n    local_218 = FUN_10027d40(param_1,auStack_217,0xff);\n    cVar3 = FUN_10027930(param_1,local_118 + 2,0xfd);\n    local_118[0] = cVar3 + 2;\n    local_118[1] = 0x28;\n    local_118[local_118[0]] = 0x29;\n    cVar3 = FUN_10053980(0x400);\n    if (cVar3 == '\\0') {\n      FUN_10001bd0(s_An_unknown_error_has_occured__No_1009397b + 0x46);\n      .glue::SysBeep(0x14);\n    }\n    else {\n      .glue::GetDialogItem(ppuVar1[-0x1ccf],2,auStack_240,&local_23c,auStack_238);\n      .glue::SetDialogItemText(local_23c,&local_218);\n      .glue::GetDialogItem(local_26c[-0x1ccf],4,auStack_240,&local_23c,auStack_238);\n      .glue::SetDialogItemText(local_23c,local_118);\n      .glue::GetDialogWindow(local_26c[-0x1ccf]);\n      .glue::SelectWindow();\n      .glue::GetDialogWindow(local_26c[-0x1ccf]);\n      .glue::ShowWindow();\n      .glue::ModalDialog(0,auStack_240);\n      .glue::GetDialogWindow(local_26c[-0x1ccf]);\n      .glue::HideWindow();\n      cVar3 = FUN_1002a0d0();\n      *(bool *)(local_26c + 0x1797) = cVar3 == '\\0';\n      *(undefined1 *)((int)local_26c + 0x63d5) = 1;\n    }\n  }\n  return;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

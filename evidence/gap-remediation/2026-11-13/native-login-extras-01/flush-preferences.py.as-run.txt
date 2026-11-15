@@ -1,0 +1,13 @@
+import json,subprocess,sys
+from pathlib import Path
+sys.path.insert(0,'../hotline-protocol-docs/scripts')
+from native_folder_upload_cases import catalogue_flush
+from native_plan import packet,payload
+from native_transfer_cases import file_stream
+r=Path('state/native-sessions/runtime-16');phase=sys.argv[1];name=('m-extra-flush-'+phase).encode();assert len(name)<=31
+p=json.load(open(r/'baseline-plan.json'));p['steps'],p['expectation']=next(iter(catalogue_flush().values()))
+assert p['steps'][7]['op']=='send'
+p['steps'][7]['hex']=packet(203,10,payload([(201,name),(108,len(file_stream(b'',b'')).to_bytes(4,'big'))]))
+p['expectation']={'kind':'native-preferences-volume-flush','phase':phase,'filename_hex':name.hex()}
+(r/'flush-plans').mkdir(exist_ok=True);plan=r/'flush-plans'/(phase+'.json');assert not plan.exists();plan.write_text(json.dumps(p,indent=2)+'\n')
+subprocess.run([sys.executable,'../hotline-protocol-docs/scripts/protocol_capture.py','capture',str(plan),'--oracle-binary','evidence/hotline-server-1.9/inputs/HLserver19.pef','--output',str(r/'flushes'/phase)],check=True)

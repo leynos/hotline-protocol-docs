@@ -1,0 +1,140 @@
+#!/usr/bin/env python3
+"""Inventory four stopped runtimes and retain only small provenance artefacts."""
+
+import hashlib
+import json
+import os
+import shutil
+import stat
+import subprocess
+from datetime import datetime, timezone
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[3]
+RUN = ROOT / "state/mac-runtime"
+OUT = Path(__file__).resolve().parent / "recovery"
+NAMES = ("install9", "hotline19", "hotline20", "hotline21")
+DONORS = ("hotline22-recovery", "native-board-02")
+EXPECTED = {
+    "hotline22-recovery": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910",
+    "native-board-02": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910",
+}
+
+
+def meta(path: Path) -> dict:
+    item = path.lstat()
+    return {
+        "device": item.st_dev,
+        "inode": item.st_ino,
+        "mode": stat.S_IMODE(item.st_mode),
+        "size": item.st_size,
+        "mtime_ns": item.st_mtime_ns,
+        "nlink": item.st_nlink,
+    }
+
+
+def free(path: Path) -> dict:
+    result = subprocess.run(
+        ["sudo", "-n", "fuser", "-v", str(path)],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if result.returncode != 1 or result.stdout or result.stderr:
+        raise RuntimeError(f"FD-free gate failed for {path}: {result!r}")
+    return {"path": str(path.relative_to(ROOT)), "exit": 1, "stdout": "", "stderr": ""}
+
+
+def sha(path: Path, *, disk_or_rom: bool) -> tuple[str, dict | None]:
+    before = meta(path)
+    if path.is_symlink() or not path.is_file() or before["nlink"] != 1:
+        raise RuntimeError(f"unsafe file: {path}")
+    gate = free(path) if disk_or_rom else None
+    digest = hashlib.sha256()
+    with path.open("rb") as source:
+        if os.fstat(source.fileno()).st_ino != before["inode"]:
+            raise RuntimeError(f"replaced after gate: {path}")
+        for block in iter(lambda: source.read(8 * 1024 * 1024), b""):
+            digest.update(block)
+    if meta(path) != before:
+        raise RuntimeError(f"changed while hashing: {path}")
+    return digest.hexdigest(), gate
+
+
+def preserve(rel: Path) -> bool:
+    parts = rel.parts
+    name = rel.name
+    if name in {"assets.json", "last-launch.json", "prefs", "nvram", "source-manifest.json"}:
+        return True
+    if name.startswith("sheep-service") and name.endswith((".json", ".log")):
+        return True
+    return ".finf" in parts or name == "shared" and parts[-2:] == (".finf", "shared")
+
+
+def main() -> None:
+    if OUT.exists():
+        raise FileExistsError(OUT)
+    OUT.mkdir(parents=True)
+    records: list[dict] = []
+    gates: list[dict] = []
+    for name in NAMES:
+        root = RUN / name
+        for path in [root, *sorted(root.rglob("*"))]:
+            rel = path.relative_to(root)
+            info = {"root": name, "path": rel.as_posix(), **meta(path)}
+            if path.is_symlink():
+                info["class"] = "symlink-refuse"
+                records.append(info)
+                raise RuntimeError(f"symlink in candidate: {path}")
+            if path.is_dir():
+                info["class"] = "directory"
+            elif path.is_file():
+                disk_rom = path.name in {"base.dsk", "working.dsk", "rom"} and path.parent == root
+                info["sha256"], gate = sha(path, disk_or_rom=disk_rom)
+                if gate is not None:
+                    gates.append(gate)
+                info["class"] = (
+                    "disk" if path.name in {"base.dsk", "working.dsk"} and disk_rom else
+                    "rom" if path.name == "rom" and disk_rom else
+                    "preserved-small" if preserve(rel) else "excluded-hashed"
+                )
+                if info["class"] == "preserved-small":
+                    if path.stat().st_size > 1024 * 1024:
+                        raise RuntimeError(f"small artefact too large: {path}")
+                    dest = OUT / "small" / name / rel
+                    dest.parent.mkdir(parents=True, exist_ok=True)
+                    with path.open("rb") as source, dest.open("xb") as sink:
+                        shutil.copyfileobj(source, sink)
+                    if hashlib.sha256(dest.read_bytes()).hexdigest() != info["sha256"]:
+                        raise RuntimeError(f"copied artefact mismatch: {path}")
+            else:
+                info["class"] = "other-refuse"
+                raise RuntimeError(f"unsupported candidate entry: {path}")
+            records.append(info)
+    donors: list[dict] = []
+    for name in DONORS:
+        for leaf in ("base.dsk", "rom"):
+            path = RUN / name / leaf
+            digest, gate = sha(path, disk_or_rom=True)
+            assert gate is not None
+            gates.append(gate)
+            donors.append({"path": str(path.relative_to(ROOT)), **meta(path), "sha256": digest})
+        if donors[-2]["sha256"] != EXPECTED[name]:
+            raise RuntimeError(f"donor hash mismatch: {name}")
+    old_working = next(x for x in records if x["root"] == "hotline21" and x["path"] == "working.dsk")
+    if old_working["sha256"] != EXPECTED["hotline22-recovery"]:
+        raise RuntimeError("hotline21 working does not equal canonical base")
+    report = {
+        "created_utc": datetime.now(timezone.utc).isoformat(),
+        "scope": list(NAMES),
+        "candidate_entries": records,
+        "donor_files": donors,
+        "fd_free_gates": gates,
+        "retirement_action": "none; inventory and small-provenance copy only",
+        "hotline21_rebuild_source": "state/mac-runtime/hotline22-recovery/base.dsk",
+    }
+    (OUT / "inventory.json").write_text(json.dumps(report, indent=2) + "\n")
+
+
+if __name__ == "__main__":
+    main()

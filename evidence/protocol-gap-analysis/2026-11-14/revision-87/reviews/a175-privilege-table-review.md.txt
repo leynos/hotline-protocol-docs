@@ -1,0 +1,32 @@
+# A175 literal privilege table review
+
+Read-only review of final frozen
+`../hotline-protocol-docs/privilege-bits.md` SHA
+`04ce9bc367440f546dbd0b4e96fa15bb137b107278933125b2ae2fb9fca4eff0`
+(105 lines), on 2026-11-14. No source/status edit, native query, image or
+service action. **Publication accuracy: PASS. GAP-031 remains Investigating
+under root's explicit decision.**
+
+I parsed all 64 Markdown rows and compared them with the retained
+`native-bitmaps-01/per-bit.json`, then expanded the range rows in
+`privilege-contracts.md`. Results:
+
+- Exactly one row for each bit 0–63, no duplicate or missing position.
+- Every row's eight-byte MSB-first one-bit hex, walk case, 353 update ID and
+  352 read ID exactly equals its JSON record; each submitted value equals
+  its native readback. The generated bit formula also matches every row.
+- All 37 source-use labels match the source registry verbatim and carry
+  `S+N`. The remaining 27 rows (12–13, 18–19, 41–63) say `Unknown` and
+  carry `N`, without importing a source-use label.
+- The introduction separates direct accessor-call review from the inline
+  account checks. The ending scopes preservation to the measured 353/352
+  replacement path and all-ones 354, and names representative enforcement
+  fixtures without treating one-bit readback as permission evidence.
+- Unknown rows are expressly **not** classified reserved, ignored or safe
+  to grant/clear. Bit 19's rejected private-message label and bit 40's
+  source-observed PM gate remain distinct.
+
+The literal table discharges the *publication-format* question raised in
+A174. It does not answer the original GAP-031 semantic question for 27
+bits or supply a complete account-editing policy. Root therefore retains
+GAP-031 Investigating; this note makes no closure or mxd policy decision.

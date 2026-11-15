@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T13:52:45.242610+00:00",
+  "query": {
+    "id": "B04-D-1002db60",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002db60"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_1002db60\",\n    \"address\": \"1002db60\"\n  },\n  \"code\": \"\\nundefined4 FUN_1002db60(int param_1)\\n\\n{\\n  int iVar1;\\n  undefined4 uVar2;\\n  undefined4 uVar3;\\n  undefined1 auStack_100 [128];\\n  short local_40;\\n  short local_3e;\\n  undefined4 local_3c;\\n  undefined4 *local_38;\\n  undefined4 local_34;\\n  undefined1 *local_1c;\\n  \\n  if (param_1 == 0) {\\n    FUN_10027c30(1,2);\\n  }\\n  if (*(short *)(param_1 + 0x50) != 0) {\\n    FUN_10027c30(1,3);\\n  }\\n  local_3e = 0;\\n  local_40 = 0;\\n  iVar1 = FUN_10052b70(0x294);\\n  local_1c = auStack_100 + 0x80;\\n  uVar2 = FUN_1007fc50(param_1,0x32,&local_40);\\n  if ((short)uVar2 != 0) {\\n    local_40 = 0;\\n    FUN_10028190(uVar2,0,0);\\n  }\\n  uVar2 = FUN_1007fe70(param_1,0x32,&local_3e);\\n  if ((short)uVar2 != 0) {\\n    local_3e = 0;\\n    FUN_10028190(uVar2,0,0);\\n  }\\n  uVar2 = FUN_10052db0(0x4a,0);\\n  local_34 = uVar2;\\n  local_38 = (undefined4 *)FUN_10053290();\\n  *local_38 = 0x52464c54;\\n  *(undefined2 *)(local_38 + 1) = 1;\\n  *(undefined2 *)(local_38 + 10) = 2;\\n  uVar3 = .glue::GetEOF((int)local_40,&local_3c);\\n  if ((short)uVar3 != 0) {\\n    FUN_10028190(uVar3,0,0);\\n  }\\n  *(undefined4 *)((int)local_38 + 0x2a) = 0x44415441;\\n  *(undefined4 *)((int)local_38 + 0x2e) = local_3c;\\n  *(undefined4 *)(iVar1 + 8) = local_3c;\\n  uVar3 = .glue::GetEOF((int)local_3e,&local_3c);\\n  if ((short)uVar3 != 0) {\\n    FUN_10028190(uVar3,0,0);\\n  }\\n  *(undefined4 *)((int)local_38 + 0x3a) = 0x4d414352;\\n  *(undefined4 *)((int)local_38 + 0x3e) = local_3c;\\n  *(undefined4 *)(iVar1 + 0xc) = local_3c;\\n  FUN_10053310(local_34);\\n  *(short *)(param_1 + 0x50) = local_40;\\n  *(short *)(param_1 + 0x52) = local_3e;\\n  *(int *)(param_1 + 0x4c) = iVar1;\\n  return uVar2;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_1002db60",
+        "address": "1002db60"
+      },
+      "code": "\nundefined4 FUN_1002db60(int param_1)\n\n{\n  int iVar1;\n  undefined4 uVar2;\n  undefined4 uVar3;\n  undefined1 auStack_100 [128];\n  short local_40;\n  short local_3e;\n  undefined4 local_3c;\n  undefined4 *local_38;\n  undefined4 local_34;\n  undefined1 *local_1c;\n  \n  if (param_1 == 0) {\n    FUN_10027c30(1,2);\n  }\n  if (*(short *)(param_1 + 0x50) != 0) {\n    FUN_10027c30(1,3);\n  }\n  local_3e = 0;\n  local_40 = 0;\n  iVar1 = FUN_10052b70(0x294);\n  local_1c = auStack_100 + 0x80;\n  uVar2 = FUN_1007fc50(param_1,0x32,&local_40);\n  if ((short)uVar2 != 0) {\n    local_40 = 0;\n    FUN_10028190(uVar2,0,0);\n  }\n  uVar2 = FUN_1007fe70(param_1,0x32,&local_3e);\n  if ((short)uVar2 != 0) {\n    local_3e = 0;\n    FUN_10028190(uVar2,0,0);\n  }\n  uVar2 = FUN_10052db0(0x4a,0);\n  local_34 = uVar2;\n  local_38 = (undefined4 *)FUN_10053290();\n  *local_38 = 0x52464c54;\n  *(undefined2 *)(local_38 + 1) = 1;\n  *(undefined2 *)(local_38 + 10) = 2;\n  uVar3 = .glue::GetEOF((int)local_40,&local_3c);\n  if ((short)uVar3 != 0) {\n    FUN_10028190(uVar3,0,0);\n  }\n  *(undefined4 *)((int)local_38 + 0x2a) = 0x44415441;\n  *(undefined4 *)((int)local_38 + 0x2e) = local_3c;\n  *(undefined4 *)(iVar1 + 8) = local_3c;\n  uVar3 = .glue::GetEOF((int)local_3e,&local_3c);\n  if ((short)uVar3 != 0) {\n    FUN_10028190(uVar3,0,0);\n  }\n  *(undefined4 *)((int)local_38 + 0x3a) = 0x4d414352;\n  *(undefined4 *)((int)local_38 + 0x3e) = local_3c;\n  *(undefined4 *)(iVar1 + 0xc) = local_3c;\n  FUN_10053310(local_34);\n  *(short *)(param_1 + 0x50) = local_40;\n  *(short *)(param_1 + 0x52) = local_3e;\n  *(int *)(param_1 + 0x4c) = iVar1;\n  return uVar2;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

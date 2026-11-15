@@ -1,0 +1,14 @@
+source_sha256=470f994bbd9caaa1e160800d99398386cd40dc92c855b440cd5423c6a963b4c0
+unit_derived_exit=0
+
+1172:      Summary [  24.382s] 544 tests run: 544 passed, 0 skipped
+2354:      Summary [  10.531s] 548 tests run: 548 passed, 0 skipped
+3493:      Summary [   9.109s] 530 tests run: 530 passed, 0 skipped
+3509:      Summary [   4.595s] 3 tests run: 3 passed, 0 skipped
+3588:      Summary [   0.195s] 69 tests run: 69 passed, 1 skipped
+3655:      Summary [   0.037s] 8 tests run: 8 passed, 0 skipped
+3680:      Summary [   0.009s] 7 tests run: 7 passed, 0 skipped
+3695: test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+3697: all doctests ran in 0.57s; merged doctests compilation took 0.56s
+3714: test result: ok. 5 passed; 0 failed; 4 ignored; 0 measured; 0 filtered out; finished in 0.01s
+3716: all doctests ran in 1.81s; merged doctests compilation took 1.78s

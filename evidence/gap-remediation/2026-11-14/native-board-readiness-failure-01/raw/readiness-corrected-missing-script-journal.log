@@ -1,0 +1,5 @@
+2026-11-14T08:48:14+00:00 ibara systemd[1]: Starting mothra-native-board-c97-readiness-corrected.service - [systemd-run] /bin/bash /data/leynos/Projects/mothra/state/native-sessions/native-board-epoch-01/run-readiness-corrected.sh...
+2026-11-14T08:48:14+00:00 ibara systemd[1]: Started mothra-native-board-c97-readiness-corrected.service - [systemd-run] /bin/bash /data/leynos/Projects/mothra/state/native-sessions/native-board-epoch-01/run-readiness-corrected.sh.
+2026-11-14T08:48:14+00:00 ibara bash[1378164]: /bin/bash: /data/leynos/Projects/mothra/state/native-sessions/native-board-epoch-01/run-readiness-corrected.sh: No such file or directory
+2026-11-14T08:48:14+00:00 ibara systemd[1]: mothra-native-board-c97-readiness-corrected.service: Main process exited, code=exited, status=127/n/a
+2026-11-14T08:48:14+00:00 ibara systemd[1]: mothra-native-board-c97-readiness-corrected.service: Failed with result 'exit-code'.

@@ -1,0 +1,352 @@
+//! Wireframe-based server runtime.
+//!
+//! This module bootstraps the Hotline protocol server using wireframe's
+//! connection handling with a custom `HotlineFrameCodec` for the 20-byte
+//! header framing. Routing is handled by middleware that dispatches Hotline
+//! transactions to domain commands.
+//!
+//! # Architecture
+//!
+//! The bootstrap process:
+//!
+//! 1. Establishes a database connection pool
+//! 2. Creates a shared Argon2 instance for password hashing
+//! 3. Builds a `WireframeServer` with Hotline preamble hooks
+//! 4. Registers the Hotline frame codec and routes
+//! 5. Binds and runs the server
+//!
+//! [`HotlineFrameCodec`]: crate::wireframe::codec::HotlineFrameCodec
+
+#![expect(
+    clippy::shadow_reuse,
+    reason = "intentional shadowing for server building"
+)]
+#![expect(
+    clippy::print_stdout,
+    reason = "intentional console output for server status"
+)]
+
+mod budgets;
+
+use std::{
+    io::{self, Write},
+    net::{Ipv4Addr, SocketAddr, SocketAddrV4, ToSocketAddrs},
+    sync::Arc,
+};
+
+use anyhow::{Context, Result, anyhow};
+use argon2::Argon2;
+use thiserror::Error;
+use tokio::sync::Mutex as TokioMutex;
+use tracing::warn;
+use wireframe::{
+    app::{Envelope, Handler, WireframeApp},
+    serializer::BincodeSerializer,
+    server::WireframeServer,
+};
+
+use super::{AppConfig, ResolvedCli, load_cli};
+use crate::{
+    db::{DbPool, establish_pool},
+    handler::Session,
+    presence::PresenceRegistry,
+    protocol,
+    server::admin,
+    wireframe::{
+        codec::HotlineFrameCodec,
+        compat::XorCompatibility,
+        compat_policy::ClientCompatibility,
+        connection::{HandshakeMetadata, take_current_context},
+        handshake,
+        message_assembly::HotlineMessageAssembler,
+        outbound::{
+            WireframeOutboundConnection,
+            WireframeOutboundMessaging,
+            WireframeOutboundRegistry,
+        },
+        preamble::HotlinePreamble,
+        protocol::HotlineProtocol,
+        route_ids::{FALLBACK_ROUTE_ID, ROUTE_IDS},
+        router::WireframeRouter,
+        routes::{TransactionMiddleware, TransactionMiddlewareConfig},
+    },
+};
+
+type HotlineApp = WireframeApp<BincodeSerializer, (), Envelope, HotlineFrameCodec>;
+
+#[derive(Debug, Error)]
+enum AppFactoryError {
+    #[error("missing handshake context in app factory")]
+    MissingHandshakeContext,
+    #[error("peer address missing in app factory")]
+    MissingPeerAddress,
+    #[error("failed to build wireframe application")]
+    BuildApplication(#[source] anyhow::Error),
+}
+
+/// Parse CLI arguments and start the Wireframe runtime.
+///
+/// # Errors
+///
+/// Returns any error emitted while parsing configuration or starting the Wireframe runtime.
+pub async fn run() -> Result<()> {
+    let cli = load_cli()?;
+    run_with_cli(cli).await
+}
+
+/// Execute the Wireframe runtime with a resolved [`ResolvedCli`].
+///
+/// # Errors
+///
+/// Returns any error raised while running administrative commands or binding
+/// the Wireframe listener.
+pub async fn run_with_cli(cli: ResolvedCli) -> Result<()> {
+    let ResolvedCli { config, command } = cli;
+    if let Some(command) = command {
+        admin::run_command(command, &config).await
+    } else {
+        run_daemon(config).await
+    }
+}
+
+async fn run_daemon(config: AppConfig) -> Result<()> {
+    let bootstrap = WireframeBootstrap::prepare(config)?;
+    bootstrap.run().await
+}
+
+#[derive(Clone, Debug)]
+struct WireframeBootstrap {
+    bind_addr: SocketAddr,
+    config: Arc<AppConfig>,
+    server_name: Arc<str>,
+}
+
+impl WireframeBootstrap {
+    fn prepare(config: AppConfig) -> Result<Self> {
+        validate_server_name(&config.server_name)?;
+        let bind_addr = parse_bind_addr(&config.bind)?;
+        let server_name = Arc::<str>::from(config.server_name.as_str());
+        Ok(Self {
+            bind_addr,
+            config: Arc::new(config),
+            server_name,
+        })
+    }
+
+    async fn run(self) -> Result<()> {
+        let Self {
+            bind_addr,
+            config,
+            server_name,
+        } = self;
+        println!("mxd-wireframe-server using database {}", config.database);
+        println!("mxd-wireframe-server binding to {}", config.bind);
+
+        let pool = establish_pool(&config.database)
+            .await
+            .context("failed to establish database pool")?;
+        let argon2 = Arc::new(admin::argon2_from_config(&config)?);
+
+        let outbound_registry = Arc::new(WireframeOutboundRegistry::default());
+        let presence = Arc::new(PresenceRegistry::default());
+        let app_inputs = AppFactoryInputs {
+            pool,
+            argon2,
+            outbound_registry,
+            presence,
+            server_name,
+        };
+        validate_app_factory(&app_inputs).context("failed to validate wireframe app factory")?;
+        let app_factory = { move || build_app_for_connection(&app_inputs) };
+
+        let server = WireframeServer::new(app_factory).with_preamble::<HotlinePreamble>();
+        let server = handshake::install(server, protocol::HANDSHAKE_TIMEOUT);
+        let server = server
+            .bind(bind_addr)
+            .context("failed to bind wireframe server")?;
+        let addr = server
+            .local_addr()
+            .ok_or_else(|| anyhow!("failed to get local address"))?;
+
+        announce_listening(addr);
+
+        server.run().await.context("wireframe server terminated")?;
+        Ok(())
+    }
+}
+
+fn announce_listening(addr: SocketAddr) {
+    println!("mxd-wireframe-server listening on {addr}");
+    // Explicit flush ensures the message reaches piped stdout immediately,
+    // which is critical for test harness readiness detection.
+    if let Err(error) = io::stdout().flush() {
+        warn!(%error, "failed to flush stdout");
+    }
+}
+
+#[derive(Clone)]
+struct AppFactoryInputs {
+    pool: DbPool,
+    argon2: Arc<Argon2<'static>>,
+    outbound_registry: Arc<WireframeOutboundRegistry>,
+    presence: Arc<PresenceRegistry>,
+    server_name: Arc<str>,
+}
+
+fn build_app_for_connection(
+    inputs: &AppFactoryInputs,
+) -> std::result::Result<HotlineApp, AppFactoryError> {
+    try_build_app(inputs)
+}
+
+fn try_build_app(inputs: &AppFactoryInputs) -> std::result::Result<HotlineApp, AppFactoryError> {
+    let build_context = build_app_context(inputs)?;
+    map_build_application_result(build_app(build_context))
+}
+
+fn build_app_context(
+    inputs: &AppFactoryInputs,
+) -> std::result::Result<AppBuildContext<'_>, AppFactoryError> {
+    // Missing connection context indicates handshake setup failed; abort the
+    // connection rather than running without routing state. Returning a
+    // degraded app would accept traffic with broken routing and state.
+    let context = take_current_context().ok_or(AppFactoryError::MissingHandshakeContext)?;
+    let (handshake, peer) = context.into_parts();
+    let peer = peer.ok_or(AppFactoryError::MissingPeerAddress)?;
+    let compat = Arc::new(XorCompatibility::from_handshake(&handshake));
+    let client_compat = Arc::new(ClientCompatibility::from_handshake(&handshake));
+    Ok(AppBuildContext {
+        pool: &inputs.pool,
+        argon2: &inputs.argon2,
+        outbound_registry: &inputs.outbound_registry,
+        presence: &inputs.presence,
+        peer,
+        compat,
+        client_compat,
+        server_name: &inputs.server_name,
+    })
+}
+
+struct AppBuildContext<'a> {
+    pool: &'a DbPool,
+    argon2: &'a Arc<Argon2<'static>>,
+    outbound_registry: &'a Arc<WireframeOutboundRegistry>,
+    presence: &'a Arc<PresenceRegistry>,
+    peer: SocketAddr,
+    compat: Arc<XorCompatibility>,
+    client_compat: Arc<ClientCompatibility>,
+    server_name: &'a Arc<str>,
+}
+
+fn build_app(context: AppBuildContext<'_>) -> wireframe::app::Result<HotlineApp> {
+    let AppBuildContext {
+        pool,
+        argon2,
+        outbound_registry,
+        presence,
+        peer,
+        compat,
+        client_compat,
+        server_name,
+    } = context;
+    let outbound_id = outbound_registry.allocate_id();
+    let session = Arc::new(TokioMutex::new(Session::default()));
+    let outbound_connection = Arc::new(WireframeOutboundConnection::new_with_runtime_handle(
+        outbound_id,
+        Arc::clone(outbound_registry),
+        Arc::clone(presence),
+        Some(tokio::runtime::Handle::current()),
+    ));
+    let outbound_messaging = WireframeOutboundMessaging::new(Arc::clone(&outbound_connection));
+    let router = WireframeRouter::new(Arc::clone(&compat), client_compat, Arc::clone(server_name));
+    let protocol = HotlineProtocol::new(
+        pool.clone(),
+        Arc::clone(argon2),
+        outbound_connection,
+        Arc::clone(&compat),
+    );
+
+    let app = HotlineApp::default()
+        .fragmentation(None)
+        .memory_budgets(budgets::explicit_memory_budgets())
+        .with_message_assembler(HotlineMessageAssembler::new())
+        .with_protocol(protocol)
+        .wrap(TransactionMiddleware::new(TransactionMiddlewareConfig {
+            router,
+            pool: pool.clone(),
+            session: Arc::clone(&session),
+            peer,
+            messaging: Arc::new(outbound_messaging),
+            presence: Arc::clone(presence),
+            presence_connection_id: outbound_id,
+        }))?;
+
+    let handler = routing_placeholder_handler();
+    let app = app.route(FALLBACK_ROUTE_ID, handler.clone())?;
+    ROUTE_IDS
+        .iter()
+        .try_fold(app, |app, id| app.route(*id, handler.clone()))
+}
+
+fn map_build_application_result(
+    result: wireframe::app::Result<HotlineApp>,
+) -> std::result::Result<HotlineApp, AppFactoryError> {
+    result.map_err(|e| AppFactoryError::BuildApplication(anyhow!("wireframe error: {e}")))
+}
+
+fn validate_app_factory(inputs: &AppFactoryInputs) -> Result<()> {
+    let peer = SocketAddr::V4(SocketAddrV4::new(Ipv4Addr::LOCALHOST, 0));
+    let build_context = AppBuildContext {
+        pool: &inputs.pool,
+        argon2: &inputs.argon2,
+        outbound_registry: &inputs.outbound_registry,
+        presence: &inputs.presence,
+        peer,
+        compat: Arc::new(XorCompatibility::disabled()),
+        client_compat: Arc::new(ClientCompatibility::from_handshake(
+            &HandshakeMetadata::default(),
+        )),
+        server_name: &inputs.server_name,
+    };
+    build_app(build_context)
+        .map_err(|e| anyhow!("failed to build wireframe application: {e}"))
+        .context("failed to register routes or middleware")?;
+    Ok(())
+}
+
+fn validate_server_name(name: &str) -> Result<()> {
+    if !name.is_ascii() {
+        return Err(anyhow!("server name must contain only ASCII characters"));
+    }
+    if name.len() > 31 {
+        return Err(anyhow!("server name must be at most 31 bytes"));
+    }
+    Ok(())
+}
+
+fn routing_placeholder_handler() -> Handler<Envelope> {
+    // Wireframe requires a handler per route; transaction middleware owns replies.
+    Arc::new(|_: &Envelope| Box::pin(async {}))
+}
+
+fn parse_bind_addr(target: &str) -> Result<SocketAddr> {
+    target
+        .parse()
+        .or_else(|_| resolve_hostname(target))
+        .with_context(|| format!("invalid bind address '{target}'"))
+}
+
+fn resolve_hostname(target: &str) -> Result<SocketAddr> {
+    let mut addrs = target
+        .to_socket_addrs()
+        .with_context(|| format!("failed to resolve '{target}'"))?;
+    addrs
+        .next()
+        .ok_or_else(|| anyhow!("failed to resolve '{target}'"))
+}
+
+#[cfg(test)]
+mod tests;
+
+#[cfg(test)]
+mod bdd;

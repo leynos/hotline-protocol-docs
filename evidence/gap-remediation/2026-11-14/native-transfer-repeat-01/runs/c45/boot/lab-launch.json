@@ -1,0 +1,20 @@
+{
+  "utc": "2026-11-13T23:54:21.560794+00:00",
+  "argv": [
+    "/usr/sbin/python3",
+    "/data/leynos/Projects/mothra/scripts/mac_runtime.py",
+    "sheep",
+    "/data/leynos/Projects/mothra/state/mac-runtime/native-banlab-three-01",
+    "--display",
+    ":111",
+    "--port",
+    "15740",
+    "--guest-pcap",
+    "/data/leynos/Projects/mothra/state/native-sessions/native-banlab-boot-c44/lab-guest.pcap",
+    "--service",
+    "--isolate-network"
+  ],
+  "exit": 0,
+  "stdout": "mothra-bridge-30a756604a1c\nmothra-xbridge-30a756604a1c\nmothra-sheep-2c2841ad725f\n",
+  "stderr": "Running as unit: mothra-bridge-30a756604a1c.service; invocation ID: e41058d57b37424780c4225de8b64813\nRunning as unit: mothra-xbridge-30a756604a1c.service; invocation ID: 88d7a6d254bc48cfbd8c90a1c83b4f5d\nRunning as unit: mothra-sheep-2c2841ad725f.service; invocation ID: d6e48a773dd549a485df099efb19b296\n"
+}

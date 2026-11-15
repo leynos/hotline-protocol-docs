@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T15:08:52.084522+00:00",
+  "query": {
+    "id": "B13-D-1002d2c0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002d2c0"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_1002d2c0\",\n    \"address\": \"1002d2c0\"\n  },\n  \"code\": \"\\nvoid FUN_1002d2c0(short *param_1,int param_2,int param_3)\\n\\n{\\n  undefined4 uVar1;\\n  int iVar2;\\n  ushort *puVar3;\\n  ushort uVar4;\\n  int local_180;\\n  undefined1 auStack_17c [18];\\n  undefined1 *local_16a;\\n  short local_166;\\n  undefined2 local_160;\\n  undefined4 local_15c;\\n  undefined4 local_158;\\n  ushort local_154;\\n  undefined4 local_14c;\\n  int local_130;\\n  undefined1 local_110;\\n  undefined1 auStack_10f [259];\\n  \\n  .glue::BlockMoveData(param_1 + 3,&local_110,*(byte *)(param_1 + 3) + 1);\\n  FUN_1006cd50(auStack_17c,0x6c);\\n  local_160 = 0;\\n  local_16a = &local_110;\\n  local_166 = *param_1;\\n  local_14c = *(undefined4 *)(param_1 + 1);\\n  uVar1 = .glue::PBGetCatInfoSync(auStack_17c);\\n  if ((short)uVar1 != 0) {\\n    FUN_10028190(uVar1,0,0);\\n  }\\n  local_160 = 0;\\n  local_16a = &local_110;\\n  local_166 = *param_1;\\n  local_14c = *(undefined4 *)(param_1 + 1);\\n  local_15c = *(undefined4 *)(param_2 + 4);\\n  local_158 = *(undefined4 *)(param_2 + 8);\\n  local_154 = (ushort)*(undefined4 *)(param_2 + 0x10);\\n  .glue::GetDateTime(&local_180);\\n  if (local_180 == local_130) {\\n    local_180 = local_180 + 1;\\n  }\\n  local_154 = local_154 & 0x7eff;\\n  local_130 = local_180;\\n  uVar1 = .glue::PBSetCatInfoSync(auStack_17c);\\n  if ((short)uVar1 != 0) {\\n    FUN_10028190(uVar1,0,0);\\n  }\\n  iVar2 = param_2 + (uint)*(ushort *)(param_2 + 0x46);\\n  puVar3 = (ushort *)(iVar2 + 0x48);\\n  if (puVar3 < (ushort *)(param_2 + param_3)) {\\n    uVar4 = *puVar3;\\n    if (uVar4 != 0) {\\n      if (0xff < uVar4) {\\n        uVar4 = 0xff;\\n      }\\n      local_110 = (undefined1)uVar4;\\n      .glue::BlockMoveData(iVar2 + 0x4a,auStack_10f);\\n      FUN_1007ea90(param_1,&local_110);\\n    }\\n  }\\n  .glue::FlushVol(0,(int)*param_1);\\n  return;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_1002d2c0",
+        "address": "1002d2c0"
+      },
+      "code": "\nvoid FUN_1002d2c0(short *param_1,int param_2,int param_3)\n\n{\n  undefined4 uVar1;\n  int iVar2;\n  ushort *puVar3;\n  ushort uVar4;\n  int local_180;\n  undefined1 auStack_17c [18];\n  undefined1 *local_16a;\n  short local_166;\n  undefined2 local_160;\n  undefined4 local_15c;\n  undefined4 local_158;\n  ushort local_154;\n  undefined4 local_14c;\n  int local_130;\n  undefined1 local_110;\n  undefined1 auStack_10f [259];\n  \n  .glue::BlockMoveData(param_1 + 3,&local_110,*(byte *)(param_1 + 3) + 1);\n  FUN_1006cd50(auStack_17c,0x6c);\n  local_160 = 0;\n  local_16a = &local_110;\n  local_166 = *param_1;\n  local_14c = *(undefined4 *)(param_1 + 1);\n  uVar1 = .glue::PBGetCatInfoSync(auStack_17c);\n  if ((short)uVar1 != 0) {\n    FUN_10028190(uVar1,0,0);\n  }\n  local_160 = 0;\n  local_16a = &local_110;\n  local_166 = *param_1;\n  local_14c = *(undefined4 *)(param_1 + 1);\n  local_15c = *(undefined4 *)(param_2 + 4);\n  local_158 = *(undefined4 *)(param_2 + 8);\n  local_154 = (ushort)*(undefined4 *)(param_2 + 0x10);\n  .glue::GetDateTime(&local_180);\n  if (local_180 == local_130) {\n    local_180 = local_180 + 1;\n  }\n  local_154 = local_154 & 0x7eff;\n  local_130 = local_180;\n  uVar1 = .glue::PBSetCatInfoSync(auStack_17c);\n  if ((short)uVar1 != 0) {\n    FUN_10028190(uVar1,0,0);\n  }\n  iVar2 = param_2 + (uint)*(ushort *)(param_2 + 0x46);\n  puVar3 = (ushort *)(iVar2 + 0x48);\n  if (puVar3 < (ushort *)(param_2 + param_3)) {\n    uVar4 = *puVar3;\n    if (uVar4 != 0) {\n      if (0xff < uVar4) {\n        uVar4 = 0xff;\n      }\n      local_110 = (undefined1)uVar4;\n      .glue::BlockMoveData(iVar2 + 0x4a,auStack_10f);\n      FUN_1007ea90(param_1,&local_110);\n    }\n  }\n  .glue::FlushVol(0,(int)*param_1);\n  return;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

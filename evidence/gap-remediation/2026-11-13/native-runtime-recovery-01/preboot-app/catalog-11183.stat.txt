@@ -1,0 +1,93 @@
+File Path: /Hotline19/HLserver19
+Catalog Record: 11183
+Allocated
+Type:	File
+Mode:	r---------
+Size:	616821
+uid / gid: 99 / 99
+Link count:	1
+
+File Name: HLserver19
+Admin flags: 0
+Owner flags: 0
+File type:	4150504c  APPL
+File creator:	48544c53  HTLS
+Text encoding:	0 = MacRoman
+Resource fork size:	38460
+
+Times:
+Created:	0000-00-00 00:00:00 (UTC)
+Content Modified:	2026-11-13 00:47:48 (GMT)
+Attributes Modified:	0000-00-00 00:00:00 (UTC)
+Accessed:	0000-00-00 00:00:00 (UTC)
+Backed Up:	0000-00-00 00:00:00 (UTC)
+
+Data Fork Blocks:
+889629-889779  
+
+Resource Fork Blocks:
+889780-889789  
+
+Attributes: 
+Type: DATA (4352-0)   Name: N/A   Non-Resident   size: 616821  init_size: 616821
+Type: RSRC (4353-1)   Name: RSRC   Non-Resident   size: 38460  init_size: 38460
+
+Resources:
+  Type: BNDL 	ID: 128   	Offset: 260   	Size: 36    	Name: <none>
+  Type: FREF 	ID: 128   	Offset: 300   	Size: 7     	Name: <none>
+  Type: FREF 	ID: 129   	Offset: 311   	Size: 7     	Name: <none>
+  Type: HTLS 	ID: 0     	Offset: 322   	Size: 256   	Name: Owner resource
+  Type: ICN# 	ID: 129   	Offset: 582   	Size: 256   	Name: <none>
+  Type: ICN# 	ID: 49081 	Offset: 842   	Size: 256   	Name: Ñ
+  Type: ICN# 	ID: 128   	Offset: 1102  	Size: 256   	Name: Ñ
+  Type: MSGB 	ID: 138   	Offset: 1362  	Size: 115   	Name: no sound
+  Type: MSGB 	ID: 150   	Offset: 1481  	Size: 287   	Name: misc
+  Type: cicn 	ID: 190   	Offset: 1772  	Size: 370   	Name: little green man
+  Type: cicn 	ID: 191   	Offset: 2146  	Size: 346   	Name: <none>
+  Type: cicn 	ID: 192   	Offset: 2496  	Size: 338   	Name: little red man
+  Type: cicn 	ID: 193   	Offset: 2838  	Size: 378   	Name: little yellow man
+  Type: cicn 	ID: 205   	Offset: 3220  	Size: 202   	Name: ie refresh
+  Type: cicn 	ID: 300   	Offset: 3426  	Size: 202   	Name: <none>
+  Type: cicn 	ID: 301   	Offset: 3632  	Size: 330   	Name: <none>
+  Type: cicn 	ID: 302   	Offset: 3966  	Size: 354   	Name: <none>
+  Type: cicn 	ID: 303   	Offset: 4324  	Size: 346   	Name: <none>
+  Type: cicn 	ID: 304   	Offset: 4674  	Size: 250   	Name: <none>
+  Type: cicn 	ID: 410   	Offset: 4928  	Size: 2458  	Name: Hotline
+  Type: cicn 	ID: 1000  	Offset: 28836 	Size: 946   	Name: <none>
+  Type: cicn 	ID: 1001  	Offset: 29786 	Size: 914   	Name: <none>
+  Type: cicn 	ID: 1002  	Offset: 30704 	Size: 914   	Name: <none>
+  Type: cicn 	ID: 1003  	Offset: 31622 	Size: 922   	Name: <none>
+  Type: icl4 	ID: 129   	Offset: 7390  	Size: 512   	Name: <none>
+  Type: icl8 	ID: 129   	Offset: 7906  	Size: 1024  	Name: <none>
+  Type: icl8 	ID: 49081 	Offset: 8934  	Size: 1024  	Name: Ñ
+  Type: icl8 	ID: 128   	Offset: 9962  	Size: 1024  	Name: Ñ
+  Type: ics# 	ID: 129   	Offset: 10990 	Size: 64    	Name: <none>
+  Type: ics# 	ID: 49081 	Offset: 11058 	Size: 64    	Name: Ñ
+  Type: ics# 	ID: 128   	Offset: 11126 	Size: 64    	Name: Ñ
+  Type: ics4 	ID: 129   	Offset: 11194 	Size: 128   	Name: <none>
+  Type: ics8 	ID: 129   	Offset: 11326 	Size: 256   	Name: <none>
+  Type: ics8 	ID: 49081 	Offset: 11586 	Size: 256   	Name: Ñ
+  Type: ics8 	ID: 128   	Offset: 11846 	Size: 256   	Name: Ñ
+  Type: snd  	ID: 128   	Offset: 12106 	Size: 5673  	Name: Open
+  Type: snd  	ID: 129   	Offset: 17783 	Size: 6374  	Name: Close
+  Type: snd  	ID: 130   	Offset: 24161 	Size: 4546  	Name: Error
+  Type: vers 	ID: 1     	Offset: 28711 	Size: 72    	Name: <none>
+  Type: vers 	ID: 2     	Offset: 28787 	Size: 45    	Name: <none>
+  Type: DITL 	ID: 9437  	Offset: 32548 	Size: 68    	Name: <none>
+  Type: DLOG 	ID: 9437  	Offset: 32620 	Size: 24    	Name: Error
+  Type: EMSG 	ID: 1     	Offset: 32648 	Size: 529   	Name: ER
+  Type: EMSG 	ID: 4     	Offset: 33233 	Size: 1652  	Name: FS
+  Type: EMSG 	ID: 3     	Offset: 34889 	Size: 179   	Name: ME
+  Type: EMSG 	ID: 8     	Offset: 35072 	Size: 797   	Name: TR
+  Type: dctb 	ID: 9437  	Offset: 33181 	Size: 48    	Name: Error
+  Type: MBAR 	ID: 128   	Offset: 35873 	Size: 10    	Name: <none>
+  Type: MBAR 	ID: 129   	Offset: 35887 	Size: 6     	Name: <none>
+  Type: MENU 	ID: 128   	Offset: 35897 	Size: 50    	Name: <none>
+  Type: MENU 	ID: 129   	Offset: 35951 	Size: 29    	Name: <none>
+  Type: MENU 	ID: 130   	Offset: 35984 	Size: 93    	Name: <none>
+  Type: MENU 	ID: 131   	Offset: 36081 	Size: 132   	Name: <none>
+  Type: carb 	ID: 0     	Offset: 36217 	Size: 0     	Name: <none>
+  Type: mctb 	ID: 131   	Offset: 36221 	Size: 32    	Name: Hotline menu
+  Type: plst 	ID: 128   	Offset: 36257 	Size: 984   	Name: <none>
+  Type: cfrg 	ID: 0     	Offset: 37245 	Size: 100   	Name: Generated cfrg
+  Type: SIZE 	ID: 65535 	Offset: 37349 	Size: 10    	Name: <none>

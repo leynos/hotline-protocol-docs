@@ -1,0 +1,106 @@
+{
+  "recorded_at_utc": "2026-11-13T23:23:52.205093+00:00",
+  "sources": {
+    "failure/a7-original-plan.json": {
+      "source": "state/native-sessions/native-banlab-c35/a7-original-plan.json",
+      "bytes": 9487,
+      "sha256": "5d0aa3dccf65fc6523678aa729c9ace72cd6caffbef768b7f5bf949e6568b43e"
+    },
+    "failure/a7-as-run-plan.json": {
+      "source": "state/native-sessions/native-banlab-c35/a7-as-run-plan.json",
+      "bytes": 10016,
+      "sha256": "7a3f6ab1d878181c8805026ef9d79cd278ace9e4a2352978e42647fc9ad300bf"
+    },
+    "failure/plan.json": {
+      "source": "state/native-sessions/native-banlab-c35/a7-capture/plan.json",
+      "bytes": 10016,
+      "sha256": "7a3f6ab1d878181c8805026ef9d79cd278ace9e4a2352978e42647fc9ad300bf"
+    },
+    "failure/report.json": {
+      "source": "state/native-sessions/native-banlab-c35/a7-capture/report.json",
+      "bytes": 437616,
+      "sha256": "4864d9a0d2d76869455f1a98eaa16bc5232d163c5bbcef60650c312301bc575b"
+    },
+    "failure/checksums.sha256": {
+      "source": "state/native-sessions/native-banlab-c35/a7-capture/checksums.sha256",
+      "bytes": 154,
+      "sha256": "600f6b07b6b49e53fb3dd327499ebe4e248880620e9713b698d6a08ebccf1f3b"
+    },
+    "failure/a7-launch.json": {
+      "source": "state/native-sessions/native-banlab-c35/a7-launch.json",
+      "bytes": 1294,
+      "sha256": "107eb4a487d046fc2b9aa40fceca349604e1b2b7d755feb3f2e7210851eb18b0"
+    },
+    "failure/terminal.json": {
+      "source": "state/native-sessions/native-banlab-c35/terminal.json",
+      "bytes": 2667,
+      "sha256": "2ce7adf86c440ee4cea1dabc42c4491ddecfb29918bb2363cdd441ff8b694dba"
+    },
+    "capture/namespace.pcap": {
+      "source": "state/native-sessions/native-banlab-boot-c34/lab-namespace.pcap",
+      "bytes": 116545,
+      "sha256": "837f3b1a37164acf5d7df4223b46f59cdbc2387539ff1b79235a5c0deb17578c"
+    },
+    "capture/guest.pcap": {
+      "source": "state/native-sessions/native-banlab-boot-c34/lab-guest.pcap",
+      "bytes": 115955,
+      "sha256": "e7b156e0955300f915e9315af1fbc1c6575e4e57f845203c2c0de8506030eff7"
+    },
+    "capture/host-primary.pcap": {
+      "source": "state/native-sessions/native-banlab-boot-c34/primary-host.pcap",
+      "bytes": 24,
+      "sha256": "704e5e5b3234433c01fcfd1b20a306e77e985038120492dc53965c3edd38a4ea"
+    },
+    "capture/namespace-recorder.log": {
+      "source": "state/native-sessions/native-banlab-boot-c34/ns-recorder.log",
+      "bytes": 189,
+      "sha256": "7db82c367eb4d64ec0dca9904f5e920a2d8aa7e7c482ffa0145d97ea156eeb83"
+    },
+    "capture/host-recorder.log": {
+      "source": "state/native-sessions/native-banlab-boot-c34/host-recorder.log",
+      "bytes": 185,
+      "sha256": "8f06f06beae888f7df1da46ac7411f3b8b07ca22386fa856138ac857345637a6"
+    },
+    "capture/readiness.json": {
+      "source": "state/native-sessions/native-banlab-boot-c34/readiness.json",
+      "bytes": 3917,
+      "sha256": "58ed691a93f9994fb43f338eaf731c4160515fccc6ecd7b2b8f8c51ba8e22e8a"
+    },
+    "h1/analysis.json": {
+      "source": "state/native-sessions/native-banlab-c36/analysis.json",
+      "bytes": 3395,
+      "sha256": "2dd057a64e04bbd550caf54bcad7497228af29705df81abfa2f725bc9c3c9361"
+    },
+    "h1/report.md": {
+      "source": "state/native-sessions/native-banlab-c36/h1-report.md",
+      "bytes": 2340,
+      "sha256": "4bdcc4168519ef884ac2219cbdb78968401094f060bf97713e0b2cd89914f019"
+    },
+    "h1/analyze_h1.py": {
+      "source": "state/native-sessions/native-banlab-c36/analyze_h1.py",
+      "bytes": 5136,
+      "sha256": "2f1726ea27e83252e737244eee09904a6704f0bda6b111a5050bdde6cc0f7152"
+    },
+    "h2/analysis.json": {
+      "source": "state/native-sessions/native-banlab-c37/analysis.json",
+      "bytes": 6782,
+      "sha256": "0de88954ca730ce433e17ef394d54b921d5ca36afaa187c18823d94f0bb8aa62"
+    },
+    "h2/report.md": {
+      "source": "state/native-sessions/native-banlab-c37/h2-report.md",
+      "bytes": 2645,
+      "sha256": "f6c85d1ca2e9cafc591ab7c78986a30d9545c5c4ef01807945b729af8a93b905"
+    },
+    "h2/analyze_h2.py": {
+      "source": "state/native-sessions/native-banlab-c37/analyze_h2.py",
+      "bytes": 8320,
+      "sha256": "11249ef61a23e3e4847a3fe13b8c8154d102771e3c5c91ca72b9f9dd695ea1a4"
+    },
+    "failure/a7.log": {
+      "source": "state/native-sessions/native-banlab-c35/a7.log",
+      "bytes": 38,
+      "sha256": "0af9ee4db7e61e550eee28c52ed2c530dd1485b91c570c228a4ff877474c1fa4"
+    }
+  },
+  "scope": "Frozen C35 failure and C36/C37 offline falsifications; no option2 request"
+}

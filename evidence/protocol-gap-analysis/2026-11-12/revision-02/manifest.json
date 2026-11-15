@@ -1,0 +1,39 @@
+{
+  "captured_at_utc": "2026-11-12T13:49:11.449585+00:00",
+  "source_git_head": "c41f412bf9fb411595db8c3f2f774cead95b4725",
+  "source_worktree_status": "M internal-compatibility-matrix.md\n M protocol.md\n?? operation-contracts.md",
+  "inputs": [
+    {
+      "path": "protocol.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-02/inputs/protocol.md.txt",
+      "sha256": "a7f8ce0f0182d43d38be767c1f16a1123a58318ed5197c95cd67c727b65e137b",
+      "lines": 1013
+    },
+    {
+      "path": "internal-compatibility-matrix.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-02/inputs/internal-compatibility-matrix.md.txt",
+      "sha256": "e301db771babc2de1912a55e535da89cdb356e6c48451738de138c6a47f5926c",
+      "lines": 267
+    },
+    {
+      "path": "baseline-correction-map.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-02/inputs/baseline-correction-map.md.txt",
+      "sha256": "a92254a423773367c1b1e35421bf4718c165f957031f371e55b486cdcb648c30",
+      "lines": 106
+    },
+    {
+      "path": "native-wire-details.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-02/inputs/native-wire-details.md.txt",
+      "sha256": "e80a9b0d883f04eec35f1188d7ec433265d6145fe554a061dc38f8a144698dbb",
+      "lines": 206
+    },
+    {
+      "path": "operation-contracts.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-02/inputs/operation-contracts.md.txt",
+      "sha256": "b1e9090e6287fcd244aba3c7f4f36cfabd1466fc0e3ff42c515aa8b1ac3b0b11",
+      "lines": 162
+    }
+  ],
+  "method": "Documentation review plus read-only Ghidra MCP follow-up against the recorded Hotline 1.9 data fork, and revision-specific mxd source/test review (55 focused tests passed). The original audit and validity ledger remain immutable; current sources have been reviewed and re-snapshotted. No native runtime/client captures or Kani proof results are claimed. Entries remain Investigating while their acceptance criteria are unmet.",
+  "previous_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-01/manifest.json"
+}

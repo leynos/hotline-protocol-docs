@@ -1,0 +1,55 @@
+{
+  "recorded_at_utc": "2026-11-14T11:28:35.134278+00:00",
+  "status": "offline-helper-accepted",
+  "initial_commit": "e2ffc2fb13b68e1c04f3922c673d4cc1a6ad4e8b",
+  "final_commit": "fdd73dddf4c2af95ede9119d2a6f64a88397ab85",
+  "tests": 9,
+  "source_counts": {
+    "production": 288,
+    "tests": 270,
+    "prose": 54
+  },
+  "files": {
+    "b95-initial-review.md.txt": {
+      "origin": "state/delegation/workspaces/batch-02-account/mothra/state/delegation/b95-emulator-readiness-review.md",
+      "sha256": "9260bd49b209f0522016357e3cf7edf90dd4beb6c2b5c759caae8b22e72295e6"
+    },
+    "b96-remediation-review.md.txt": {
+      "origin": "state/delegation/workspaces/batch-02-account/mothra/state/delegation/b96-emulator-readiness-review.md",
+      "sha256": "7d84a90cf81327aa063a445e9f24cf6911ba606aa5e6696c00289eeaa26615bc"
+    },
+    "parent-final-tests.txt": {
+      "origin": "state/delegation/a112-parent-tests.log",
+      "sha256": "537e7db4657bf7e2093c6fde67e27e0a6c7279043ef5f1d15ef40cc837a89cc2"
+    },
+    "parent-code-gates.txt": {
+      "origin": "state/delegation/revision78-code-gates-final.log",
+      "sha256": "46df8babe046f421db117507bd898d4bb7d089554bd7d8b79ade571636363560"
+    },
+    "native_emulator_readiness.py.txt": {
+      "origin": "scripts/native_emulator_readiness.py",
+      "sha256": "56200bfe9dcf779bb72e2a711a0ce98bb9351f5f42dc57245a40d1dd603cca7e"
+    },
+    "test_native_emulator_readiness.py.txt": {
+      "origin": "scripts/test_native_emulator_readiness.py",
+      "sha256": "0ff9b0712a93ae7cd22385a13206db99e0fe6badfa3a85c3b480c8f852a12905"
+    },
+    "native-emulator-readiness.md.txt": {
+      "origin": "docs/native-emulator-readiness.md",
+      "sha256": "96c2933300fadf00f1d5aa8e59ed7d910e13d0b78a919ad986903bcccbf793e6"
+    }
+  },
+  "review_dispositions": {
+    "B95-1": "Disk receipt proves identity only. Ethernet/DHCP may precede it; capture must precede first Hotline protocol request. Do not require capture absence.",
+    "B95-2": "Final prepublication recheck repeats full process identity. Executable, UID and namespace drift fault tests reject.",
+    "B95-3": "Full PCAP global header requires version2.4, zone0, accuracy0, snaplen65535 and Ethernet1 with magic-selected byte order."
+  },
+  "not_proven": [
+    "actual SheepShaver phased integration",
+    "real non-host namespace in unit rehearsal; only this fact is mocked",
+    "native rate/reset/ban behaviour",
+    "capture-before-first-Hotline chronology; future orchestrator gate",
+    "atomic process state across arbitrary subsequent execution"
+  ],
+  "mxd_validation": "on hold"
+}

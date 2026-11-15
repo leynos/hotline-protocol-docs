@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "python3",
+    "state/native-sessions/native-alias-live-preparation-04/continuation-commit-guard-model.as-run.txt"
+  ],
+  "returncode": 0,
+  "stdout": "{\"staged_only_rejected\": true, \"committed_accepted\": true, \"worktree_modified_rejected\": true, \"wrapper_sha256\": \"227f761ab22b64a850b3ec743085bd8e38b56f2a303691d644c68a9d2d8674ea\"}\n",
+  "stderr": "",
+  "model_sha256": "ce76c6a9fe19c5c7693fd955c3b1807fd146b10422b75c4dfb2829ee277c2136"
+}

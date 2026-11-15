@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "cases": [
+    "before-delayed-recovery",
+    "cleanup-no-banner",
+    "format-bmp",
+    "format-empty",
+    "format-fallback",
+    "format-jpeg",
+    "format-pict",
+    "format-suffix-before-finder",
+    "format-text-conversion",
+    "format-zero-type",
+    "missing-confirmation",
+    "phase-checked-early-recovery",
+    "phase-checked-recovery",
+    "post-reset-session",
+    "seed-empty",
+    "seed-formats",
+    "seed-text"
+  ],
+  "initial_cases": [
+    "empty-followup-ack",
+    "empty-open-window",
+    "remote-empty-held-save",
+    "remote-empty-return",
+    "remote-empty-save"
+  ],
+  "unread_output": {
+    "setup/absence-unapplied-first": {
+      "main": "0000012d00000004000000000000002600000026000400670002010a0068000200010070000200120066000e62616e6e65722d66697874757265",
+      "absent": "0000012e000000040000000000000008000000080001006700020109",
+      "banner": "494638396101000100800000000000ffffff21fe04420a00fe002c00000000010001000002024401003b6e61746976652d62616e6e65722d62"
+    },
+    "setup/absence-unapplied-second": {
+      "main": "0000012d00000006000000000000002600000026000400670002010d0068000200010070000200120066000e62616e6e65722d666978747572650000012e00000007000000000000000800000008000100670002010d",
+      "banner": "494638396101000100800000000000ffffff21fe04420a00fe002c00000000010001000002024401003b6e61746976652d62616e6e65722d62"
+    }
+  },
+  "packet_window_seconds": [
+    1794519890.056775,
+    1794524639.745033
+  ],
+  "host_capture_packets": [
+    712,
+    67,
+    490
+  ],
+  "host_kernel_drops": [
+    0,
+    0,
+    0
+  ],
+  "scope": "Native format/type selection, present empty-buffer reset and phase-checked absent/restored recovery. No client rendering, arbitrary lifetime, other-owner or restart-durability claim.",
+  "native_type_hypothesis": "The initial .gif TEXT input finalized GIFf/ogle. The extensionless replacement positively retains TEXT/MOTH. No FileExchange or Finder mechanism is inferred from coincidence.",
+  "snapshot_scope": "Positive exact-path fork reads; initial invalid root filter yielded zero selected records, not proof of file absence.",
+  "final_configuration": "The first cleanup positively confirmed an empty Remote banner. The final delayed recovery restores Local mothra-banner-b.gif, positively confirmed by121 and exact58-byte delivery. General100/10/5 unchanged.",
+  "oracle_query_ids": [
+    "BF-A-1000d5e0",
+    "BF-A-1006ddb0",
+    "BF-A-10070c30",
+    "BF-D-1000bd20",
+    "BF-D-1000d5e0",
+    "BF-D-10012f40",
+    "BF-D-10052b70",
+    "BF-D-10052c50",
+    "BF-D-10052f80",
+    "BF-D-1006ddb0",
+    "BF-D-10070c30",
+    "BF-X-reset-text"
+  ],
+  "setup_cases": [
+    "absence-unapplied-first",
+    "absence-unapplied-second",
+    "baseline-earlier",
+    "baseline-unapplied",
+    "delayed-absence-confirmed",
+    "delayed-restoration-confirmed",
+    "missing-check-first",
+    "missing-check-offset",
+    "remote-form-accepted"
+  ],
+  "input_diagnostics": "Read-only GDB host/ADB/keymap inspection between unsuccessful delayed attempts and the final accepted trial; no registers or memory written. Mouse-grab hotkeys toggled during setup. No accepted timed fixture spans an attachment. No operator emulator/app restart."
+}

@@ -1,0 +1,3 @@
+20e891a059de7dd9dec5a657d7099570987d860d
+481294915b48f4db06943c8af86cf31b7e47597a
+Correct direct replies and roster validation

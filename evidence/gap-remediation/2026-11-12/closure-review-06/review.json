@@ -1,0 +1,17 @@
+{
+  "source_register_commit": "31fd33efaa778eabcaed4195cccad4e2d7e89094",
+  "entries": [
+    {
+      "gap_id": "GAP-009",
+      "unchanged_closure_criteria": "Trace the two entry paths and document complete endpoint-specific sequences, transitions and fixture bytes.",
+      "prior_status": "Investigating",
+      "review": "Both raw5501 and primarycontrol5500 TRTPv1sub3 entry paths have positive matched-reference upload/download sequences with exact host/guest packet reconciliation. The handover success is read before same-connectionHTXF. Earlier native-transport-01 retains unmatched ref0 negatives through both entry paths. Completion boundaries are direction-specific: uploadEOF versus downloadadvertisedcount with open transport and explicit214 cleanup. Alternate5502/5503 wrapping remainsGAP-010, banner matchingGAP-055 and full peersGAP-084."
+    },
+    {
+      "gap_id": "GAP-056",
+      "unchanged_closure_criteria": "Trace transfer workers and publish byte grammars plus data/resource-fork, empty-file and metadata round-trip fixtures.",
+      "prior_status": "Investigating",
+      "review": "Retained worker/serializer/restoration code plus byte grammar and two successfuluploads/eightrevieweddownloads demonstrate data/resourcefork bytes, emptyforks, INFOtype/creator/name/comment/flags/dateeffects. Read-only native HFS+ fork extraction independently matches nonempty bytes; empty resource-attribute absence is labelled and zeroMACR captured. Selected metadata roundtrips satisfy the criterion; interruption/restartdurability and broadermetadata/datecases remainGAP-020/064."
+    }
+  ]
+}

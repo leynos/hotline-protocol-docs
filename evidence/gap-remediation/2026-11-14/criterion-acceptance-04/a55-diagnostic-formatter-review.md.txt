@@ -1,0 +1,68 @@
+# A55: read-only 303 formatter count review
+
+Scope: existing offline oracle snapshots only. `endpoint-oracle-02/03/04`
+reports pin the independent `HLserver19.pef` import to DATA SHA-256
+`ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`,
+PowerPC:BE:32, 1,840 functions, identical before/after query identity.
+The retained snapshot's decompile callback says `FUNCTION_NOT_FOUND`; that
+backend limitation is **not** evidence about the native program or alternate
+wrapper negotiation. This audit does not query the live backend.
+
+## Caller-to-field chain
+
+- `endpoint-oracle-04/raw/EP4-A-10016150-tail.json` has the complete tail:
+  `10016a40` loads the destination, `10016a44` sets r4=`0x400`, and
+  `10016a60` calls `10054180`. `10016a68` copies return r3 to r30;
+  `10016a78` copies r30 to r6, and `10016a7c` calls `100568b0` with field
+  r4=`0x65` (101). This is a formatter **return count**, not `strlen`.
+- `EP3-A-10054180.json` shows the wrapper saves arguments and calls
+  `10054310` at `100541a8`; after the call it restores LR/stack and returns
+  without changing r3. The older `RM-D-10054180.c` decompiler declaration
+  `void`/omitted args is therefore misleading for this call chain.
+- `EP2-D-10054310.c` and `EP3-A-10054310.json` agree: `100549b8` writes one
+  byte; `100549bc` increments count r10; `100549c0` compares r10 with
+  bound r4; equal branches to `10054a80`, which returns r10 in r3. The
+  decompilation's literal, conversion-output and width-padding loops each
+  return immediately when their post-write count equals the bound. Format
+  string NUL at `10054a78` also returns count. There is no implicit output
+  NUL write or byte reserved for one in this routine.
+- `EP2-D-100568b0.c` writes a TLV only if `param_4 != 0`, rejects lengths
+  above `0xffff`, stores the supplied count as the 16-bit field length, and
+  copies exactly that many bytes. For 303's nonempty observed format, the
+  source-level maximum field-101 payload is **1,024 bytes**, not 1,023.
+  If a hypothetical formatter call returned zero, this writer would omit
+  that field; the captured 303 cases are nonzero and do not exercise it.
+
+This establishes a **source-level upper bound**, not a native at-cap reply.
+The A12 8-active/16-waiting field-101 value is 995 bytes (29 below the
+bound) inside a failed overall plan with independently valid partial 303
+observation; A8/A9 and idle/denied/missing replies provide other raw examples.
+An overlong generated value can end at the bound, potentially in the middle
+of a label or byte sequence; no particular at-cap truncation point or
+multibyte conversion outcome has been captured. The `%s` handling is byte
+oriented and no general charset is established. Source-format strings,
+line endings and address spelling remain generated descriptive output.
+
+The identified shx build's pinned
+`tools/shx-peer/source/hx_commands.c:2390-2420` callback
+`rcv_task_user_info` copies at most 4,096 incoming data bytes, appends a
+local NUL, converts CR to LF and strips ANSI before handing data to UI/TTY
+output. This inspected callback has **no parser for native diagnostic labels**.
+It supports a bounded compatibility rationale for descriptive 101 text; it
+is not proof about every shx path, other clients or mxd's release promise.
+
+## GAP-037 disposition for root
+
+No counterexample to the proposed 1,024-byte source bound appeared in these
+retained instructions. The frozen criterion asks for mandatory/descriptive
+content, encoding/limits, representative replies, and an explicit exact-text
+parity statement. Together with the existing 303 corpora, these source
+results support documenting: status/field envelope mandatory for measured
+native 1.9 behavior; 101 generated raw bytes with a 1,024-byte **source
+bound**, no general character set or at-cap fixture; exact text recorded for
+cited examples but not a stable baseline parser requirement. Whether mxd
+promises byte-for-byte text parity remains a separate release choice on hold.
+This can meet the original documentation criterion without manufacturing an
+at-cap live fixture. Do not claim `max wire length=1024` for every possible
+303 implementation, nor that all native inputs actually reach 1,024 bytes.
+Root owns documentation and status.

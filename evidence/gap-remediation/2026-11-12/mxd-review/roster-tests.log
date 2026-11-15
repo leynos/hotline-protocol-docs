@@ -1,0 +1,11 @@
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mxd/.cargo/config.toml`
+    Finished `test` profile [optimized] target(s) in 0.35s
+     Running unittests src/lib.rs (/data/leynos/Projects/mothra/state/mxd-target/debug/build/mxd/29c43d9412d22c7d/out/mxd-29c43d9412d22c7d)
+
+running 3 tests
+test presence::tests::user_name_list_reply_contains_repeated_field_300_entries ... ok
+test wireframe::routes::tests::presence_routing_cases::process_transaction_bytes_user_name_list_requires_online_session ... ok
+test wireframe::routes::tests::presence_routing_cases::process_transaction_bytes_user_name_list_returns_online_snapshot ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 395 filtered out; finished in 0.94s
+

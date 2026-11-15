@@ -1,0 +1,968 @@
+make: Entering directory '/data/leynos/Projects/mothra/tools/shx-adb1bf8c8cb1'
+gcc -O0 -g -std=gnu89 -fcommon -I/data/leynos/Projects/mothra/tools/shx-deps/usr/include -Wall -W -DHAVE_CONFIG_H -D_REENTRANT -D_GNU_SOURCE  -I. -c fd.c
+gcc -O0 -g -std=gnu89 -fcommon -I/data/leynos/Projects/mothra/tools/shx-deps/usr/include -Wall -W -DHAVE_CONFIG_H -D_REENTRANT -D_GNU_SOURCE  -I. -c version.c
+gcc -O0 -g -std=gnu89 -fcommon -I/data/leynos/Projects/mothra/tools/shx-deps/usr/include -Wall -W -DHAVE_CONFIG_H -D_REENTRANT -D_GNU_SOURCE  -I. -c xmalloc.c
+gcc -O0 -g -std=gnu89 -fcommon -I/data/leynos/Projects/mothra/tools/shx-deps/usr/include -Wall -W -DHAVE_CONFIG_H -D_REENTRANT -D_GNU_SOURCE  -I. -c snprintf.c
+snprintf.c:523:20: warning: conflicting types for built-in function ‘pow10’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+  523 | static long double pow10 (int exp)
+      |                    ^~~~~
+snprintf.c:536:13: warning: conflicting types for built-in function ‘round’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+  536 | static long round (long double value)
+      |             ^~~~~
+snprintf.c:65:1: note: ‘round’ is declared in header ‘<math.h>’
+   64 | # include <stdarg.h>
+  +++ |+#include <math.h>
+   65 | # define HAVE_STDARGS    /* let's hope that works everywhere (mj) */
+snprintf.c: In function ‘dopr’:
+snprintf.c:284:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  284 |         flags |= DP_F_UP;
+      |               ^
+snprintf.c:285:7: note: here
+  285 |       case 'x':
+      |       ^~~~
+snprintf.c:304:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  304 |         flags |= DP_F_UP;
+      |               ^
+snprintf.c:305:7: note: here
+  305 |       case 'e':
+      |       ^~~~
+snprintf.c:312:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  312 |         flags |= DP_F_UP;
+      |               ^
+snprintf.c:313:7: note: here
+  313 |       case 'g':
+      |       ^~~~
+gcc -O0 -g -std=gnu89 -fcommon -I/data/leynos/Projects/mothra/tools/shx-deps/usr/include -Wall -W -DHAVE_CONFIG_H -D_REENTRANT -D_GNU_SOURCE  -I. -c inet_ntoa_r.c
+gcc -O0 -g -std=gnu89 -fcommon -I/data/leynos/Projects/mothra/tools/shx-deps/usr/include -Wall -W -DHAVE_CONFIG_H -D_REENTRANT -D_GNU_SOURCE  -I. -c hx_chat.c
+gcc -O0 -g -std=gnu89 -fcommon -I/data/leynos/Projects/mothra/tools/shx-deps/usr/include -Wall -W -DHAVE_CONFIG_H -D_REENTRANT -D_GNU_SOURCE  -I. -c hx_users.c
+hx_users.c: In function ‘hx_user_with_name’:
+hx_users.c:53:23: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+   53 |         nlen = strlen(name);
+      |                       ^~~~
+      |                       |
+      |                       u_int8_t * {aka unsigned char *}
+In file included from hx_users.c:3:
+/usr/include/string.h:407:35: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  407 | extern size_t strlen (const char *__s)
+      |                       ~~~~~~~~~~~~^~~
+hx_users.c:55:35: warning: pointer targets in passing argument 1 of ‘strncmp’ differ in signedness [-Wpointer-sign]
+   55 |                 if (!strncmp(userp->name, name, nlen)) {
+      |                              ~~~~~^~~~~~
+      |                                   |
+      |                                   u_int8_t * {aka unsigned char *}
+/usr/include/string.h:159:33: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  159 | extern int strncmp (const char *__s1, const char *__s2, size_t __n)
+      |                     ~~~~~~~~~~~~^~~~
+hx_users.c:55:43: warning: pointer targets in passing argument 2 of ‘strncmp’ differ in signedness [-Wpointer-sign]
+   55 |                 if (!strncmp(userp->name, name, nlen)) {
+      |                                           ^~~~
+      |                                           |
+      |                                           u_int8_t * {aka unsigned char *}
+/usr/include/string.h:159:51: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  159 | extern int strncmp (const char *__s1, const char *__s2, size_t __n)
+      |                                       ~~~~~~~~~~~~^~~~
+hx_users.c:57:51: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+   57 |                                 ulen = strlen(user->name);
+      |                                               ~~~~^~~~~~
+      |                                                   |
+      |                                                   u_int8_t * {aka unsigned char *}
+/usr/include/string.h:407:35: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  407 | extern size_t strlen (const char *__s)
+      |                       ~~~~~~~~~~~~^~~
+hx_users.c:58:53: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+   58 |                                 uplen = strlen(userp->name);
+      |                                                ~~~~~^~~~~~
+      |                                                     |
+      |                                                     u_int8_t * {aka unsigned char *}
+/usr/include/string.h:407:35: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  407 | extern size_t strlen (const char *__s)
+      |                       ~~~~~~~~~~~~^~~
+gcc -O0 -g -std=gnu89 -fcommon -I/data/leynos/Projects/mothra/tools/shx-deps/usr/include -Wall -W -DHAVE_CONFIG_H -D_REENTRANT -D_GNU_SOURCE  -I. -c hx_commands.c
+gcc -O0 -g -std=gnu89 -fcommon -I/data/leynos/Projects/mothra/tools/shx-deps/usr/include -Wall -W -DHAVE_CONFIG_H -D_REENTRANT -D_GNU_SOURCE  -I. -c macres.c
+hx_commands.c: In function ‘hx_rcv_msg’:
+hx_commands.c:157:37: warning: pointer targets in assignment from ‘u_int8_t *’ {aka ‘unsigned char *’} to ‘char *’ differ in signedness [-Wpointer-sign]
+  157 |                                 msg = dh_data;
+      |                                     ^
+hx_commands.c:161:38: warning: pointer targets in assignment from ‘u_int8_t *’ {aka ‘unsigned char *’} to ‘char *’ differ in signedness [-Wpointer-sign]
+  161 |                                 name = dh_data;
+      |                                      ^
+In file included from hx_commands.c:18:
+hx_commands.c: In function ‘hx_rcv_agreement_file’:
+hx_commands.c:195:23: warning: pointer targets in initialization of ‘char *’ from ‘u_int8_t *’ {aka ‘unsigned char *’} differ in signedness [-Wpointer-sign]
+  195 |                 CR2LF(dh_data, dh_len);
+      |                       ^~~~~~~
+hxd.h:536:20: note: in definition of macro ‘X2X’
+  536 |         char *_p = _ptr, *_end = _ptr + _len;   \
+      |                    ^~~~
+hx_commands.c:195:17: note: in expansion of macro ‘CR2LF’
+  195 |                 CR2LF(dh_data, dh_len);
+      |                 ^~~~~
+hx_commands.c:195:23: warning: pointer targets in initialization of ‘char *’ from ‘u_int8_t *’ {aka ‘unsigned char *’} differ in signedness [-Wpointer-sign]
+  195 |                 CR2LF(dh_data, dh_len);
+      |                       ^~~~~~~
+hxd.h:536:34: note: in definition of macro ‘X2X’
+  536 |         char *_p = _ptr, *_end = _ptr + _len;   \
+      |                                  ^~~~
+hx_commands.c:195:17: note: in expansion of macro ‘CR2LF’
+  195 |                 CR2LF(dh_data, dh_len);
+      |                 ^~~~~
+hx_commands.c:196:28: warning: pointer targets in passing argument 1 of ‘strip_ansi’ differ in signedness [-Wpointer-sign]
+  196 |                 strip_ansi(dh_data, dh_len);
+      |                            ^~~~~~~
+      |                            |
+      |                            u_int8_t * {aka unsigned char *}
+In file included from hx_commands.c:19:
+hx.h:168:19: note: expected ‘char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  168 | strip_ansi (char *buf, int len)
+      |             ~~~~~~^~~
+hx_commands.c:197:43: warning: pointer targets in passing argument 2 of ‘hx_output.agreement’ differ in signedness [-Wpointer-sign]
+  197 |                 hx_output.agreement(htlc, dh_data, dh_len);
+      |                                           ^~~~~~~
+      |                                           |
+      |                                           u_int8_t * {aka unsigned char *}
+hx_commands.c:197:43: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+hx_commands.c: In function ‘hx_rcv_news_post’:
+hx_commands.c:211:23: warning: pointer targets in initialization of ‘char *’ from ‘u_int8_t *’ {aka ‘unsigned char *’} differ in signedness [-Wpointer-sign]
+  211 |                 CR2LF(htlc->news_buf, dh_len);
+      |                       ^~~~
+hxd.h:536:20: note: in definition of macro ‘X2X’
+  536 |         char *_p = _ptr, *_end = _ptr + _len;   \
+      |                    ^~~~
+hx_commands.c:211:17: note: in expansion of macro ‘CR2LF’
+  211 |                 CR2LF(htlc->news_buf, dh_len);
+      |                 ^~~~~
+hx_commands.c:211:23: warning: pointer targets in initialization of ‘char *’ from ‘u_int8_t *’ {aka ‘unsigned char *’} differ in signedness [-Wpointer-sign]
+  211 |                 CR2LF(htlc->news_buf, dh_len);
+      |                       ^~~~
+hxd.h:536:34: note: in definition of macro ‘X2X’
+  536 |         char *_p = _ptr, *_end = _ptr + _len;   \
+      |                                  ^~~~
+hx_commands.c:211:17: note: in expansion of macro ‘CR2LF’
+  211 |                 CR2LF(htlc->news_buf, dh_len);
+      |                 ^~~~~
+hx_commands.c:212:32: warning: pointer targets in passing argument 1 of ‘strip_ansi’ differ in signedness [-Wpointer-sign]
+  212 |                 strip_ansi(htlc->news_buf, dh_len);
+      |                            ~~~~^~~~~~~~~~
+      |                                |
+      |                                u_int8_t * {aka unsigned char *}
+hx.h:168:19: note: expected ‘char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  168 | strip_ansi (char *buf, int len)
+      |             ~~~~~~^~~
+hx_commands.c:214:47: warning: pointer targets in passing argument 2 of ‘hx_output.news_post’ differ in signedness [-Wpointer-sign]
+  214 |                 hx_output.news_post(htlc, htlc->news_buf, dh_len);
+      |                                           ~~~~^~~~~~~~~~
+      |                                               |
+      |                                               u_int8_t * {aka unsigned char *}
+hx_commands.c:214:47: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+hx_commands.c: In function ‘task_error’:
+hx_commands.c:291:31: warning: pointer targets in initialization of ‘char *’ from ‘u_int8_t *’ {aka ‘unsigned char *’} differ in signedness [-Wpointer-sign]
+  291 |                         CR2LF(dh_data, dh_len);
+      |                               ^~~~~~~
+hxd.h:536:20: note: in definition of macro ‘X2X’
+  536 |         char *_p = _ptr, *_end = _ptr + _len;   \
+      |                    ^~~~
+hx_commands.c:291:25: note: in expansion of macro ‘CR2LF’
+  291 |                         CR2LF(dh_data, dh_len);
+      |                         ^~~~~
+hx_commands.c:291:31: warning: pointer targets in initialization of ‘char *’ from ‘u_int8_t *’ {aka ‘unsigned char *’} differ in signedness [-Wpointer-sign]
+  291 |                         CR2LF(dh_data, dh_len);
+      |                               ^~~~~~~
+hxd.h:536:34: note: in definition of macro ‘X2X’
+  536 |         char *_p = _ptr, *_end = _ptr + _len;   \
+      |                                  ^~~~
+hx_commands.c:291:25: note: in expansion of macro ‘CR2LF’
+  291 |                         CR2LF(dh_data, dh_len);
+      |                         ^~~~~
+hx_commands.c:292:36: warning: pointer targets in passing argument 1 of ‘strip_ansi’ differ in signedness [-Wpointer-sign]
+  292 |                         strip_ansi(dh_data, dh_len);
+      |                                    ^~~~~~~
+      |                                    |
+      |                                    u_int8_t * {aka unsigned char *}
+hx.h:168:19: note: expected ‘char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  168 | strip_ansi (char *buf, int len)
+      |             ~~~~~~^~~
+hx_commands.c: In function ‘user_print’:
+hx_commands.c:353:41: warning: pointer targets in passing argument 1 of ‘strstr’ differ in signedness [-Wpointer-sign]
+  353 |                 if (str && !strstr(userp->name, str))
+      |                                    ~~~~~^~~~~~
+      |                                         |
+      |                                         u_int8_t * {aka unsigned char *}
+In file included from hx_commands.c:4:
+/usr/include/string.h:350:34: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  350 | extern char *strstr (const char *__haystack, const char *__needle)
+      |                      ~~~~~~~~~~~~^~~~~~~~~~
+hx_commands.c: In function ‘hx_rcv_user_change’:
+hx_commands.c:392:44: warning: pointer targets in passing argument 1 of ‘strip_ansi’ differ in signedness [-Wpointer-sign]
+  392 |                                 strip_ansi(name, nlen);
+      |                                            ^~~~
+      |                                            |
+      |                                            u_int8_t * {aka unsigned char *}
+hx.h:168:19: note: expected ‘char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  168 | strip_ansi (char *buf, int len)
+      |             ~~~~~~^~~
+hx_commands.c:413:57: warning: pointer targets in passing argument 4 of ‘hx_output.user_create’ differ in signedness [-Wpointer-sign]
+  413 |                 hx_output.user_create(htlc, chat, user, name, icon, color);
+      |                                                         ^~~~
+      |                                                         |
+      |                                                         u_int8_t * {aka unsigned char *}
+hx_commands.c:413:57: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+hx_commands.c:416:69: warning: pointer targets in passing argument 4 of ‘hx_tty_output.user_create’ differ in signedness [-Wpointer-sign]
+  416 |                         hx_tty_output.user_create(htlc, chat, user, name, icon, color);
+      |                                                                     ^~~~
+      |                                                                     |
+      |                                                                     u_int8_t * {aka unsigned char *}
+hx_commands.c:416:69: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+hx_commands.c:422:65: warning: pointer targets in passing argument 4 of ‘hx_output.user_change’ differ in signedness [-Wpointer-sign]
+  422 |                         hx_output.user_change(htlc, chat, user, name, icon, color);
+      |                                                                 ^~~~
+      |                                                                 |
+      |                                                                 u_int8_t * {aka unsigned char *}
+hx_commands.c:422:65: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+hx_commands.c:425:69: warning: pointer targets in passing argument 4 of ‘hx_tty_output.user_change’ differ in signedness [-Wpointer-sign]
+  425 |                         hx_tty_output.user_change(htlc, chat, user, name, icon, color);
+      |                                                                     ^~~~
+      |                                                                     |
+      |                                                                     u_int8_t * {aka unsigned char *}
+hx_commands.c:425:69: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+hx_commands.c:439:28: warning: pointer targets in passing argument 1 of ‘strcpy’ differ in signedness [-Wpointer-sign]
+  439 |                 strcpy(htlc->name, user->name);
+      |                        ~~~~^~~~~~
+      |                            |
+      |                            u_int8_t * {aka unsigned char *}
+/usr/include/string.h:141:39: note: expected ‘char * __restrict__’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  141 | extern char *strcpy (char *__restrict __dest, const char *__restrict __src)
+      |                      ~~~~~~~~~~~~~~~~~^~~~~~
+hx_commands.c:439:40: warning: pointer targets in passing argument 2 of ‘strcpy’ differ in signedness [-Wpointer-sign]
+  439 |                 strcpy(htlc->name, user->name);
+      |                                    ~~~~^~~~~~
+      |                                        |
+      |                                        u_int8_t * {aka unsigned char *}
+/usr/include/string.h:141:70: note: expected ‘const char * __restrict__’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  141 | extern char *strcpy (char *__restrict __dest, const char *__restrict __src)
+      |                                               ~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+hx_commands.c: In function ‘hx_rcv_chat_subject’:
+hx_commands.c:505:55: warning: pointer targets in passing argument 3 of ‘hx_output.chat_subject’ differ in signedness [-Wpointer-sign]
+  505 |                 hx_output.chat_subject(htlc, cid, chat->subject);
+      |                                                   ~~~~^~~~~~~~~
+      |                                                       |
+      |                                                       u_int8_t * {aka unsigned char *}
+hx_commands.c:505:55: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+hx_commands.c: In function ‘hx_rcv_chat_invite’:
+hx_commands.c:536:44: warning: pointer targets in passing argument 1 of ‘strip_ansi’ differ in signedness [-Wpointer-sign]
+  536 |                                 strip_ansi(name, nlen);
+      |                                            ^~~~
+      |                                            |
+      |                                            u_int8_t * {aka unsigned char *}
+hx.h:168:19: note: expected ‘char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  168 | strip_ansi (char *buf, int len)
+      |             ~~~~~~^~~
+hx_commands.c:546:47: warning: pointer targets in passing argument 4 of ‘hx_output.chat_invite’ differ in signedness [-Wpointer-sign]
+  546 |         hx_output.chat_invite(htlc, cid, uid, name);
+      |                                               ^~~~
+      |                                               |
+      |                                               u_int8_t * {aka unsigned char *}
+hx_commands.c:546:47: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+hx_commands.c: In function ‘cmd_ignore’:
+hx_commands.c:1032:60: warning: pointer targets in passing argument 2 of ‘hx_user_with_name’ differ in signedness [-Wpointer-sign]
+ 1032 |                 user = hx_user_with_name(hchat->user_list, name);
+      |                                                            ^~~~
+      |                                                            |
+      |                                                            char *
+hx.h:192:76: note: expected ‘u_int8_t *’ {aka ‘unsigned char *’} but argument is of type ‘char *’
+  192 | extern struct hx_user *hx_user_with_name (struct hx_user *ulist, u_int8_t *name);
+      |                                                                  ~~~~~~~~~~^~~~
+hx_commands.c: In function ‘cmd_msg’:
+hx_commands.c:1076:59: warning: pointer targets in passing argument 2 of ‘hx_user_with_name’ differ in signedness [-Wpointer-sign]
+ 1076 |                 user = hx_user_with_name(chat->user_list, name);
+      |                                                           ^~~~
+      |                                                           |
+      |                                                           char *
+hx.h:192:76: note: expected ‘u_int8_t *’ {aka ‘unsigned char *’} but argument is of type ‘char *’
+  192 | extern struct hx_user *hx_user_with_name (struct hx_user *ulist, u_int8_t *name);
+      |                                                                  ~~~~~~~~~~^~~~
+hx_commands.c:1098:51: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+ 1098 |                 buflen = strlen(msg) + strlen(user->name) + 64 + strlen(col) + strlen(DEFAULT);
+      |                                               ~~~~^~~~~~
+      |                                                   |
+      |                                                   u_int8_t * {aka unsigned char *}
+/usr/include/string.h:407:35: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  407 | extern size_t strlen (const char *__s)
+      |                       ~~~~~~~~~~~~^~~
+hx_commands.c: In function ‘hx_change_name_icon’:
+hx_commands.c:1124:34: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+ 1124 |                 len = strlen(htlc->name);
+      |                              ~~~~^~~~~~
+      |                                  |
+      |                                  u_int8_t * {aka unsigned char *}
+/usr/include/string.h:407:35: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  407 | extern size_t strlen (const char *__s)
+      |                       ~~~~~~~~~~~~^~~
+hx_commands.c: In function ‘hx_connect’:
+hx_commands.c:1628:73: warning: operand of ‘?:’ changes signedness from ‘int’ to ‘long unsigned int’ due to unsignedness of other operand [-Wsign-compare]
+ 1628 |                                              ? sizeof(struct IN_ADDR) : he->h_length;
+      |                                                                         ^~~~~~~~~~~~
+hx_commands.c:1661:65: warning: operand of ‘?:’ changes signedness from ‘int’ to ‘long unsigned int’ due to unsignedness of other operand [-Wsign-compare]
+ 1661 |                                      ? sizeof(struct IN_ADDR) : he->h_length;
+      |                                                                 ^~~~~~~~~~~~
+hx_commands.c:1698:28: warning: pointer targets in passing argument 1 of ‘strcpy’ differ in signedness [-Wpointer-sign]
+ 1698 |                 strcpy(htlc->name, name);
+      |                        ~~~~^~~~~~
+      |                            |
+      |                            u_int8_t * {aka unsigned char *}
+/usr/include/string.h:141:39: note: expected ‘char * __restrict__’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  141 | extern char *strcpy (char *__restrict __dest, const char *__restrict __src)
+      |                      ~~~~~~~~~~~~~~~~~^~~~~~
+hx_commands.c:1720:28: warning: pointer targets in passing argument 1 of ‘strcpy’ differ in signedness [-Wpointer-sign]
+ 1720 |                 strcpy(htlc->login, login);
+      |                        ~~~~^~~~~~~
+      |                            |
+      |                            u_int8_t * {aka unsigned char *}
+/usr/include/string.h:141:39: note: expected ‘char * __restrict__’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  141 | extern char *strcpy (char *__restrict __dest, const char *__restrict __src)
+      |                      ~~~~~~~~~~~~~~~~~^~~~~~
+hx_commands.c:1813:52: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+ 1813 |                         HTLC_DATA_NAME, strlen(htlc->name), htlc->name);
+      |                                                ~~~~^~~~~~
+      |                                                    |
+      |                                                    u_int8_t * {aka unsigned char *}
+/usr/include/string.h:407:35: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  407 | extern size_t strlen (const char *__s)
+      |                       ~~~~~~~~~~~~^~~
+hx_commands.c:1818:52: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+ 1818 |                         HTLC_DATA_NAME, strlen(htlc->name), htlc->name);
+      |                                                ~~~~^~~~~~
+      |                                                    |
+      |                                                    u_int8_t * {aka unsigned char *}
+/usr/include/string.h:407:35: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  407 | extern size_t strlen (const char *__s)
+      |                       ~~~~~~~~~~~~^~~
+hx_commands.c: In function ‘cmd_server’:
+hx_commands.c:1838:28: warning: variable ‘compress’ set but not used [-Wunused-but-set-variable]
+ 1838 |         char *cipher = 0, *compress = 0;
+      |                            ^~~~~~~~
+hx_commands.c:1838:15: warning: variable ‘cipher’ set but not used [-Wunused-but-set-variable]
+ 1838 |         char *cipher = 0, *compress = 0;
+      |               ^~~~~~
+hx_commands.c: In function ‘rcv_task_news_file’:
+hx_commands.c:1933:23: warning: pointer targets in initialization of ‘char *’ from ‘u_int8_t *’ {aka ‘unsigned char *’} differ in signedness [-Wpointer-sign]
+ 1933 |                 CR2LF(htlc->news_buf, htlc->news_len);
+      |                       ^~~~
+hxd.h:536:20: note: in definition of macro ‘X2X’
+  536 |         char *_p = _ptr, *_end = _ptr + _len;   \
+      |                    ^~~~
+hx_commands.c:1933:17: note: in expansion of macro ‘CR2LF’
+ 1933 |                 CR2LF(htlc->news_buf, htlc->news_len);
+      |                 ^~~~~
+hx_commands.c:1933:23: warning: pointer targets in initialization of ‘char *’ from ‘u_int8_t *’ {aka ‘unsigned char *’} differ in signedness [-Wpointer-sign]
+ 1933 |                 CR2LF(htlc->news_buf, htlc->news_len);
+      |                       ^~~~
+hxd.h:536:34: note: in definition of macro ‘X2X’
+  536 |         char *_p = _ptr, *_end = _ptr + _len;   \
+      |                                  ^~~~
+hx_commands.c:1933:17: note: in expansion of macro ‘CR2LF’
+ 1933 |                 CR2LF(htlc->news_buf, htlc->news_len);
+      |                 ^~~~~
+hx_commands.c:1934:32: warning: pointer targets in passing argument 1 of ‘strip_ansi’ differ in signedness [-Wpointer-sign]
+ 1934 |                 strip_ansi(htlc->news_buf, htlc->news_len);
+      |                            ~~~~^~~~~~~~~~
+      |                                |
+      |                                u_int8_t * {aka unsigned char *}
+hx.h:168:19: note: expected ‘char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  168 | strip_ansi (char *buf, int len)
+      |             ~~~~~~^~~
+hx_commands.c:1937:39: warning: pointer targets in passing argument 2 of ‘hx_output.news_file’ differ in signedness [-Wpointer-sign]
+ 1937 |         hx_output.news_file(htlc, htlc->news_buf, htlc->news_len);
+      |                                   ~~~~^~~~~~~~~~
+      |                                       |
+      |                                       u_int8_t * {aka unsigned char *}
+hx_commands.c:1937:39: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+hx_commands.c: In function ‘cmd_news’:
+hx_commands.c:1955:47: warning: pointer targets in passing argument 2 of ‘hx_output.news_file’ differ in signedness [-Wpointer-sign]
+ 1955 |                 hx_output.news_file(htlc, htlc->news_buf, htlc->news_len);
+      |                                           ~~~~^~~~~~~~~~
+      |                                               |
+      |                                               u_int8_t * {aka unsigned char *}
+hx_commands.c:1955:47: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+hx_commands.c: In function ‘rcv_task_user_list’:
+hx_commands.c:1982:40: warning: pointer targets in passing argument 1 of ‘strip_ansi’ differ in signedness [-Wpointer-sign]
+ 1982 |                         strip_ansi(user->name, nlen);
+      |                                    ~~~~^~~~~~
+      |                                        |
+      |                                        u_int8_t * {aka unsigned char *}
+hx.h:168:19: note: expected ‘char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  168 | strip_ansi (char *buf, int len)
+      |             ~~~~~~^~~
+hx_commands.c:1984:55: warning: pointer targets in passing argument 1 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+ 1984 |                         if (!htlc->uid && !strcmp(user->name, htlc->name) && user->icon == htlc->icon) {
+      |                                                   ~~~~^~~~~~
+      |                                                       |
+      |                                                       u_int8_t * {aka unsigned char *}
+/usr/include/string.h:156:32: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  156 | extern int strcmp (const char *__s1, const char *__s2)
+      |                    ~~~~~~~~~~~~^~~~
+hx_commands.c:1984:67: warning: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+ 1984 |                         if (!htlc->uid && !strcmp(user->name, htlc->name) && user->icon == htlc->icon) {
+      |                                                               ~~~~^~~~~~
+      |                                                                   |
+      |                                                                   u_int8_t * {aka unsigned char *}
+/usr/include/string.h:156:50: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  156 | extern int strcmp (const char *__s1, const char *__s2)
+      |                                      ~~~~~~~~~~~~^~~~
+hx_commands.c:1997:61: warning: pointer targets in passing argument 3 of ‘hx_output.chat_subject’ differ in signedness [-Wpointer-sign]
+ 1997 |                 hx_output.chat_subject(htlc, chat->cid, chat->subject);
+      |                                                         ~~~~^~~~~~~~~
+      |                                                             |
+      |                                                             u_int8_t * {aka unsigned char *}
+hx_commands.c:1997:61: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+hx_commands.c: In function ‘cmd_chat’:
+hx_commands.c:2125:63: warning: pointer targets in passing argument 2 of ‘hx_user_with_name’ differ in signedness [-Wpointer-sign]
+ 2125 |                 user = hx_user_with_name(chat->user_list, argv[1]);
+      |                                                           ~~~~^~~
+      |                                                               |
+      |                                                               char *
+hx.h:192:76: note: expected ‘u_int8_t *’ {aka ‘unsigned char *’} but argument is of type ‘char *’
+  192 | extern struct hx_user *hx_user_with_name (struct hx_user *ulist, u_int8_t *name);
+      |                                                                  ~~~~~~~~~~^~~~
+hx_commands.c: In function ‘cmd_invite’:
+hx_commands.c:2164:63: warning: pointer targets in passing argument 2 of ‘hx_user_with_name’ differ in signedness [-Wpointer-sign]
+ 2164 |                 user = hx_user_with_name(chat->user_list, argv[2]);
+      |                                                           ~~~~^~~
+      |                                                               |
+      |                                                               char *
+hx.h:192:76: note: expected ‘u_int8_t *’ {aka ‘unsigned char *’} but argument is of type ‘char *’
+  192 | extern struct hx_user *hx_user_with_name (struct hx_user *ulist, u_int8_t *name);
+      |                                                                  ~~~~~~~~~~^~~~
+hx_commands.c: In function ‘cmd_join’:
+hx_commands.c:2206:14: warning: pointer targets in assignment from ‘char *’ to ‘u_int8_t *’ {aka ‘unsigned char *’} differ in signedness [-Wpointer-sign]
+ 2206 |         pass = argv[2];
+      |              ^
+hx_commands.c:2208:34: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+ 2208 |                 passlen = strlen(pass);
+      |                                  ^~~~
+      |                                  |
+      |                                  u_int8_t * {aka unsigned char *}
+/usr/include/string.h:407:35: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  407 | extern size_t strlen (const char *__s)
+      |                       ~~~~~~~~~~~~^~~
+hx_commands.c: In function ‘cmd_subject’:
+hx_commands.c:2265:19: warning: variable ‘len’ set but not used [-Wunused-but-set-variable]
+ 2265 |         u_int16_t len;
+      |                   ^~~
+hx_commands.c: In function ‘cmd_password’:
+hx_commands.c:2285:19: warning: variable ‘len’ set but not used [-Wunused-but-set-variable]
+ 2285 |         u_int16_t len;
+      |                   ^~~
+hx_commands.c: In function ‘cmd_kick’:
+hx_commands.c:2354:71: warning: pointer targets in passing argument 2 of ‘hx_user_with_name’ differ in signedness [-Wpointer-sign]
+ 2354 |                         user = hx_user_with_name(chat->user_list, argv[i]);
+      |                                                                   ~~~~^~~
+      |                                                                       |
+      |                                                                       char *
+hx.h:192:76: note: expected ‘u_int8_t *’ {aka ‘unsigned char *’} but argument is of type ‘char *’
+  192 | extern struct hx_user *hx_user_with_name (struct hx_user *ulist, u_int8_t *name);
+      |                                                                  ~~~~~~~~~~^~~~
+hx_commands.c: In function ‘rcv_task_user_info’:
+hx_commands.c:2407:44: warning: pointer targets in passing argument 1 of ‘strip_ansi’ differ in signedness [-Wpointer-sign]
+ 2407 |                                 strip_ansi(name, nlen);
+      |                                            ^~~~
+      |                                            |
+      |                                            u_int8_t * {aka unsigned char *}
+hx.h:168:19: note: expected ‘char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  168 | strip_ansi (char *buf, int len)
+      |             ~~~~~~^~~
+hx_commands.c:2412:23: warning: pointer targets in initialization of ‘char *’ from ‘u_int8_t *’ {aka ‘unsigned char *’} differ in signedness [-Wpointer-sign]
+ 2412 |                 CR2LF(info, ilen);
+      |                       ^~~~
+hxd.h:536:20: note: in definition of macro ‘X2X’
+  536 |         char *_p = _ptr, *_end = _ptr + _len;   \
+      |                    ^~~~
+hx_commands.c:2412:17: note: in expansion of macro ‘CR2LF’
+ 2412 |                 CR2LF(info, ilen);
+      |                 ^~~~~
+hx_commands.c:2412:23: warning: pointer targets in initialization of ‘char *’ from ‘u_int8_t *’ {aka ‘unsigned char *’} differ in signedness [-Wpointer-sign]
+ 2412 |                 CR2LF(info, ilen);
+      |                       ^~~~
+hxd.h:536:34: note: in definition of macro ‘X2X’
+  536 |         char *_p = _ptr, *_end = _ptr + _len;   \
+      |                                  ^~~~
+hx_commands.c:2412:17: note: in expansion of macro ‘CR2LF’
+ 2412 |                 CR2LF(info, ilen);
+      |                 ^~~~~
+hx_commands.c:2413:28: warning: pointer targets in passing argument 1 of ‘strip_ansi’ differ in signedness [-Wpointer-sign]
+ 2413 |                 strip_ansi(info, ilen);
+      |                            ^~~~
+      |                            |
+      |                            u_int8_t * {aka unsigned char *}
+hx.h:168:19: note: expected ‘char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  168 | strip_ansi (char *buf, int len)
+      |             ~~~~~~^~~
+hx_commands.c:2415:60: warning: pointer targets in passing argument 3 of ‘hx_tty_output.user_info’ differ in signedness [-Wpointer-sign]
+ 2415 |                         hx_tty_output.user_info(htlc, uid, name, info, ilen);
+      |                                                            ^~~~
+      |                                                            |
+      |                                                            u_int8_t * {aka unsigned char *}
+hx_commands.c:2415:60: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+hx_commands.c:2415:66: warning: pointer targets in passing argument 4 of ‘hx_tty_output.user_info’ differ in signedness [-Wpointer-sign]
+ 2415 |                         hx_tty_output.user_info(htlc, uid, name, info, ilen);
+      |                                                                  ^~~~
+      |                                                                  |
+      |                                                                  u_int8_t * {aka unsigned char *}
+hx_commands.c:2415:66: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+hx_commands.c:2417:56: warning: pointer targets in passing argument 3 of ‘hx_output.user_info’ differ in signedness [-Wpointer-sign]
+ 2417 |                         hx_output.user_info(htlc, uid, name, info, ilen);
+      |                                                        ^~~~
+      |                                                        |
+      |                                                        u_int8_t * {aka unsigned char *}
+hx_commands.c:2417:56: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+hx_commands.c:2417:62: warning: pointer targets in passing argument 4 of ‘hx_output.user_info’ differ in signedness [-Wpointer-sign]
+ 2417 |                         hx_output.user_info(htlc, uid, name, info, ilen);
+      |                                                              ^~~~
+      |                                                              |
+      |                                                              u_int8_t * {aka unsigned char *}
+hx_commands.c:2417:62: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+hx_commands.c: In function ‘hx_get_user_info’:
+hx_commands.c:2424:44: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ 2424 |         task_new(htlc, rcv_task_user_info, (void *)uid, text, "info");
+      |                                            ^
+hx_commands.c: In function ‘cmd_info’:
+hx_commands.c:2449:71: warning: pointer targets in passing argument 2 of ‘hx_user_with_name’ differ in signedness [-Wpointer-sign]
+ 2449 |                         user = hx_user_with_name(chat->user_list, argv[i]);
+      |                                                                   ~~~~^~~
+      |                                                                       |
+      |                                                                       char *
+hx.h:192:76: note: expected ‘u_int8_t *’ {aka ‘unsigned char *’} but argument is of type ‘char *’
+  192 | extern struct hx_user *hx_user_with_name (struct hx_user *ulist, u_int8_t *name);
+      |                                                                  ~~~~~~~~~~^~~~
+hx_commands.c: In function ‘cmd_type’:
+hx_commands.c:2573:86: warning: pointer targets in passing argument 2 of ‘hx_user_with_name’ differ in signedness [-Wpointer-sign]
+ 2573 |                                         user = hx_user_with_name(chat->user_list, opt.arg);
+      |                                                                                   ~~~^~~~
+      |                                                                                      |
+      |                                                                                      char *
+hx.h:192:76: note: expected ‘u_int8_t *’ {aka ‘unsigned char *’} but argument is of type ‘char *’
+  192 | extern struct hx_user *hx_user_with_name (struct hx_user *ulist, u_int8_t *name);
+      |                                                                  ~~~~~~~~~~^~~~
+hx_commands.c:2632:72: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+ 2632 |                                 msg_buflen = strlen(path) + strlen(user->name) + 32 + strlen(col) + strlen(DEFAULT);
+      |                                                                    ~~~~^~~~~~
+      |                                                                        |
+      |                                                                        u_int8_t * {aka unsigned char *}
+/usr/include/string.h:407:35: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  407 | extern size_t strlen (const char *__s)
+      |                       ~~~~~~~~~~~~^~~
+hx_commands.c: In function ‘rcv_task_file_list’:
+hxd.h:488:19: warning: variable ‘dh_data’ set but not used [-Wunused-but-set-variable]
+  488 |         u_int8_t *dh_data;              \
+      |                   ^~~~~~~
+hx_commands.c:2825:9: note: in expansion of macro ‘dh_start’
+ 2825 |         dh_start(htlc)
+      |         ^~~~~~~~
+hx_commands.c: In function ‘expand_path’:
+hx_commands.c:2954:25: error: lvalue required as left operand of assignment
+ 2954 |              (char *)fh += flen + SIZEOF_HL_DATA_HDR) {
+      |                         ^~
+hx_commands.c:2957:48: warning: pointer targets in passing argument 1 of ‘strncmp’ differ in signedness [-Wpointer-sign]
+ 2957 |                 if (fnlen >= len && !strncmp(fh->fname, ent, len)) {
+      |                                              ~~^~~~~~~
+      |                                                |
+      |                                                u_int8_t * {aka unsigned char *}
+/usr/include/string.h:159:33: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  159 | extern int strncmp (const char *__s1, const char *__s2, size_t __n)
+      |                     ~~~~~~~~~~~~^~~~
+hx_commands.c:2987:28: warning: pointer targets in assignment from ‘u_int8_t *’ {aka ‘unsigned char *’} to ‘char *’ differ in signedness [-Wpointer-sign]
+ 2987 |                         ep = fh->fname;
+      |                            ^
+hx_commands.c: In function ‘glob_remote’:
+hx_commands.c:3033:33: error: lvalue required as left operand of assignment
+ 3033 |                      (char *)fh += flen + SIZEOF_HL_DATA_HDR) {
+      |                                 ^~
+hx_commands.c:3007:19: warning: variable ‘ent’ set but not used [-Wunused-but-set-variable]
+ 3007 |         char *p, *ent, *patternbuf, *pathbuf, **paths;
+      |                   ^~~
+hx_commands.c: In function ‘exists_remote’:
+hx_commands.c:3116:25: error: lvalue required as left operand of assignment
+ 3116 |              (char *)fh += flen + SIZEOF_HL_DATA_HDR) {
+      |                         ^~
+hx_commands.c:3119:53: warning: pointer targets in passing argument 1 of ‘strncmp’ differ in signedness [-Wpointer-sign]
+ 3119 |                 if ((int)fnlen == len && !strncmp(fh->fname, ent, len))
+      |                                                   ~~^~~~~~~
+      |                                                     |
+      |                                                     u_int8_t * {aka unsigned char *}
+/usr/include/string.h:159:33: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  159 | extern int strncmp (const char *__s1, const char *__s2, size_t __n)
+      |                     ~~~~~~~~~~~~^~~~
+hx_commands.c: In function ‘rcv_task_file_getinfo’:
+hx_commands.c:3495:44: warning: pointer targets in passing argument 1 of ‘strip_ansi’ differ in signedness [-Wpointer-sign]
+ 3495 |                                 strip_ansi(name, nlen);
+      |                                            ^~~~
+      |                                            |
+      |                                            u_int8_t * {aka unsigned char *}
+hx.h:168:19: note: expected ‘char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  168 | strip_ansi (char *buf, int len)
+      |             ~~~~~~^~~
+hx_commands.c:3509:39: warning: pointer targets in initialization of ‘char *’ from ‘u_int8_t *’ {aka ‘unsigned char *’} differ in signedness [-Wpointer-sign]
+ 3509 |                                 CR2LF(comment, clen);
+      |                                       ^~~~~~~
+hxd.h:536:20: note: in definition of macro ‘X2X’
+  536 |         char *_p = _ptr, *_end = _ptr + _len;   \
+      |                    ^~~~
+hx_commands.c:3509:33: note: in expansion of macro ‘CR2LF’
+ 3509 |                                 CR2LF(comment, clen);
+      |                                 ^~~~~
+hx_commands.c:3509:39: warning: pointer targets in initialization of ‘char *’ from ‘u_int8_t *’ {aka ‘unsigned char *’} differ in signedness [-Wpointer-sign]
+ 3509 |                                 CR2LF(comment, clen);
+      |                                       ^~~~~~~
+hxd.h:536:34: note: in definition of macro ‘X2X’
+  536 |         char *_p = _ptr, *_end = _ptr + _len;   \
+      |                                  ^~~~
+hx_commands.c:3509:33: note: in expansion of macro ‘CR2LF’
+ 3509 |                                 CR2LF(comment, clen);
+      |                                 ^~~~~
+hx_commands.c:3510:44: warning: pointer targets in passing argument 1 of ‘strip_ansi’ differ in signedness [-Wpointer-sign]
+ 3510 |                                 strip_ansi(name, clen);
+      |                                            ^~~~
+      |                                            |
+      |                                            u_int8_t * {aka unsigned char *}
+hx.h:168:19: note: expected ‘char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  168 | strip_ansi (char *buf, int len)
+      |             ~~~~~~^~~
+hx_commands.c:3523:47: warning: pointer targets in passing argument 2 of ‘hx_tty_output.file_info’ differ in signedness [-Wpointer-sign]
+ 3523 |                 hx_tty_output.file_info(htlc, icon, type, crea, size, name, created, modified, comment);
+      |                                               ^~~~
+      |                                               |
+      |                                               u_int8_t * {aka unsigned char *}
+hx_commands.c:3523:47: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+hx_commands.c:3523:53: warning: pointer targets in passing argument 3 of ‘hx_tty_output.file_info’ differ in signedness [-Wpointer-sign]
+ 3523 |                 hx_tty_output.file_info(htlc, icon, type, crea, size, name, created, modified, comment);
+      |                                                     ^~~~
+      |                                                     |
+      |                                                     u_int8_t * {aka unsigned char *}
+hx_commands.c:3523:53: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+hx_commands.c:3523:59: warning: pointer targets in passing argument 4 of ‘hx_tty_output.file_info’ differ in signedness [-Wpointer-sign]
+ 3523 |                 hx_tty_output.file_info(htlc, icon, type, crea, size, name, created, modified, comment);
+      |                                                           ^~~~
+      |                                                           |
+      |                                                           u_int8_t * {aka unsigned char *}
+hx_commands.c:3523:59: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+hx_commands.c:3523:71: warning: pointer targets in passing argument 6 of ‘hx_tty_output.file_info’ differ in signedness [-Wpointer-sign]
+ 3523 |                 hx_tty_output.file_info(htlc, icon, type, crea, size, name, created, modified, comment);
+      |                                                                       ^~~~
+      |                                                                       |
+      |                                                                       u_int8_t * {aka unsigned char *}
+hx_commands.c:3523:71: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+hx_commands.c:3523:96: warning: pointer targets in passing argument 9 of ‘hx_tty_output.file_info’ differ in signedness [-Wpointer-sign]
+ 3523 |                 hx_tty_output.file_info(htlc, icon, type, crea, size, name, created, modified, comment);
+      |                                                                                                ^~~~~~~
+      |                                                                                                |
+      |                                                                                                u_int8_t * {aka unsigned char *}
+hx_commands.c:3523:96: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+hx_commands.c:3525:43: warning: pointer targets in passing argument 2 of ‘hx_output.file_info’ differ in signedness [-Wpointer-sign]
+ 3525 |                 hx_output.file_info(htlc, icon, type, crea, size, name, created, modified, comment);
+      |                                           ^~~~
+      |                                           |
+      |                                           u_int8_t * {aka unsigned char *}
+hx_commands.c:3525:43: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+hx_commands.c:3525:49: warning: pointer targets in passing argument 3 of ‘hx_output.file_info’ differ in signedness [-Wpointer-sign]
+ 3525 |                 hx_output.file_info(htlc, icon, type, crea, size, name, created, modified, comment);
+      |                                                 ^~~~
+      |                                                 |
+      |                                                 u_int8_t * {aka unsigned char *}
+hx_commands.c:3525:49: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+hx_commands.c:3525:55: warning: pointer targets in passing argument 4 of ‘hx_output.file_info’ differ in signedness [-Wpointer-sign]
+ 3525 |                 hx_output.file_info(htlc, icon, type, crea, size, name, created, modified, comment);
+      |                                                       ^~~~
+      |                                                       |
+      |                                                       u_int8_t * {aka unsigned char *}
+hx_commands.c:3525:55: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+hx_commands.c:3525:67: warning: pointer targets in passing argument 6 of ‘hx_output.file_info’ differ in signedness [-Wpointer-sign]
+ 3525 |                 hx_output.file_info(htlc, icon, type, crea, size, name, created, modified, comment);
+      |                                                                   ^~~~
+      |                                                                   |
+      |                                                                   u_int8_t * {aka unsigned char *}
+hx_commands.c:3525:67: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+hx_commands.c:3525:92: warning: pointer targets in passing argument 9 of ‘hx_output.file_info’ differ in signedness [-Wpointer-sign]
+ 3525 |                 hx_output.file_info(htlc, icon, type, crea, size, name, created, modified, comment);
+      |                                                                                            ^~~~~~~
+      |                                                                                            |
+      |                                                                                            u_int8_t * {aka unsigned char *}
+hx_commands.c:3525:92: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+hx_commands.c: In function ‘xfer_pipe_ready_read’:
+hx_commands.c:3613:39: warning: variable ‘usdiff’ set but not used [-Wunused-but-set-variable]
+ 3613 |                         time_t sdiff, usdiff, Bps;
+      |                                       ^~~~~~
+hx_commands.c: In function ‘exec_ready_read’:
+hx_commands.c:3688:31: warning: pointer targets in initialization of ‘char *’ from ‘u_int8_t *’ {aka ‘unsigned char *’} differ in signedness [-Wpointer-sign]
+ 3688 |                         LF2CR(buf, r);
+      |                               ^~~
+hxd.h:536:20: note: in definition of macro ‘X2X’
+  536 |         char *_p = _ptr, *_end = _ptr + _len;   \
+      |                    ^~~~
+hx_commands.c:3688:25: note: in expansion of macro ‘LF2CR’
+ 3688 |                         LF2CR(buf, r);
+      |                         ^~~~~
+hx_commands.c:3688:31: warning: pointer targets in initialization of ‘char *’ from ‘u_int8_t *’ {aka ‘unsigned char *’} differ in signedness [-Wpointer-sign]
+ 3688 |                         LF2CR(buf, r);
+      |                               ^~~
+hxd.h:536:34: note: in definition of macro ‘X2X’
+  536 |         char *_p = _ptr, *_end = _ptr + _len;   \
+      |                                  ^~~~
+hx_commands.c:3688:25: note: in expansion of macro ‘LF2CR’
+ 3688 |                         LF2CR(buf, r);
+      |                         ^~~~~
+hx_commands.c:3691:53: warning: pointer targets in passing argument 3 of ‘hx_send_chat’ differ in signedness [-Wpointer-sign]
+ 3691 |                         hx_send_chat(htlc, ex->cid, buf);
+      |                                                     ^~~
+      |                                                     |
+      |                                                     u_int8_t * {aka unsigned char *}
+hx.h:69:78: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+   69 | extern void hx_send_chat (struct htlc_conn *htlc, u_int32_t cid, const char *str);
+      |                                                                  ~~~~~~~~~~~~^~~
+hx_commands.c: In function ‘free_htxf’:
+hx_commands.c:4053:21: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+ 4053 |         pid_t pid = (pid_t)__arg;
+      |                     ^
+hx_commands.c: In function ‘hlclient_reap_pid’:
+hx_commands.c:4082:54: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ 4082 |                         timer_add_secs(0, free_htxf, (void *)pid);
+      |                                                      ^
+hx_commands.c: In function ‘cmd_xfers’:
+hx_commands.c:4109:31: warning: variable ‘usdiff’ set but not used [-Wunused-but-set-variable]
+ 4109 |                 time_t sdiff, usdiff, Bps, eta;
+      |                               ^~~~~~
+hx_commands.c: In function ‘cmd_put’:
+hx_commands.c:4817:27: warning: variable ‘htxf’ set but not used [-Wunused-but-set-variable]
+ 4817 |         struct htxf_conn *htxf;
+      |                           ^~~~
+hx_commands.c: In function ‘tracker_ready_read’:
+hx_commands.c:5192:23: warning: pointer targets in initialization of ‘char *’ from ‘unsigned char *’ differ in signedness [-Wpointer-sign]
+ 5192 |                 CR2LF(name, (size_t)buf[10]);
+      |                       ^~~~
+hxd.h:536:20: note: in definition of macro ‘X2X’
+  536 |         char *_p = _ptr, *_end = _ptr + _len;   \
+      |                    ^~~~
+hx_commands.c:5192:17: note: in expansion of macro ‘CR2LF’
+ 5192 |                 CR2LF(name, (size_t)buf[10]);
+      |                 ^~~~~
+hx_commands.c:5192:23: warning: pointer targets in initialization of ‘char *’ from ‘unsigned char *’ differ in signedness [-Wpointer-sign]
+ 5192 |                 CR2LF(name, (size_t)buf[10]);
+      |                       ^~~~
+hxd.h:536:34: note: in definition of macro ‘X2X’
+  536 |         char *_p = _ptr, *_end = _ptr + _len;   \
+      |                                  ^~~~
+hx_commands.c:5192:17: note: in expansion of macro ‘CR2LF’
+ 5192 |                 CR2LF(name, (size_t)buf[10]);
+      |                 ^~~~~
+hx_commands.c:5193:28: warning: pointer targets in passing argument 1 of ‘strip_ansi’ differ in signedness [-Wpointer-sign]
+ 5193 |                 strip_ansi(name, (size_t)buf[10]);
+      |                            ^~~~
+      |                            |
+      |                            unsigned char *
+hx.h:168:19: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+  168 | strip_ansi (char *buf, int len)
+      |             ~~~~~~^~~
+hx_commands.c:5200:23: warning: pointer targets in initialization of ‘char *’ from ‘unsigned char *’ differ in signedness [-Wpointer-sign]
+ 5200 |                 CR2LF(desc, (size_t)buf[0]);
+      |                       ^~~~
+hxd.h:536:20: note: in definition of macro ‘X2X’
+  536 |         char *_p = _ptr, *_end = _ptr + _len;   \
+      |                    ^~~~
+hx_commands.c:5200:17: note: in expansion of macro ‘CR2LF’
+ 5200 |                 CR2LF(desc, (size_t)buf[0]);
+      |                 ^~~~~
+hx_commands.c:5200:23: warning: pointer targets in initialization of ‘char *’ from ‘unsigned char *’ differ in signedness [-Wpointer-sign]
+ 5200 |                 CR2LF(desc, (size_t)buf[0]);
+      |                       ^~~~
+hxd.h:536:34: note: in definition of macro ‘X2X’
+  536 |         char *_p = _ptr, *_end = _ptr + _len;   \
+      |                                  ^~~~
+hx_commands.c:5200:17: note: in expansion of macro ‘CR2LF’
+ 5200 |                 CR2LF(desc, (size_t)buf[0]);
+      |                 ^~~~~
+hx_commands.c:5201:28: warning: pointer targets in passing argument 1 of ‘strip_ansi’ differ in signedness [-Wpointer-sign]
+ 5201 |                 strip_ansi(desc, (size_t)buf[0]);
+      |                            ^~~~
+      |                            |
+      |                            unsigned char *
+hx.h:168:19: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+  168 | strip_ansi (char *buf, int len)
+      |             ~~~~~~^~~
+hx_commands.c:5205:32: warning: pointer targets in passing argument 2 of ‘inet_ntoa_r’ differ in signedness [-Wpointer-sign]
+ 5205 |                 inet_ntoa_r(a, buf, sizeof(buf));
+      |                                ^~~
+      |                                |
+      |                                unsigned char *
+hxd.h:390:50: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+  390 | extern int inet_ntoa_r (struct in_addr in, char *buf, size_t buflen);
+      |                                            ~~~~~~^~~
+hx_commands.c:5207:73: warning: pointer targets in passing argument 2 of ‘hx_output.tracker_server_create’ differ in signedness [-Wpointer-sign]
+ 5207 |                 hx_output.tracker_server_create(hxd_files[s].conn.htlc, buf, port, nusers, name, desc);
+      |                                                                         ^~~
+      |                                                                         |
+      |                                                                         unsigned char *
+hx_commands.c:5207:73: note: expected ‘const char *’ but argument is of type ‘unsigned char *’
+hx_commands.c:5207:92: warning: pointer targets in passing argument 5 of ‘hx_output.tracker_server_create’ differ in signedness [-Wpointer-sign]
+ 5207 |                 hx_output.tracker_server_create(hxd_files[s].conn.htlc, buf, port, nusers, name, desc);
+      |                                                                                            ^~~~
+      |                                                                                            |
+      |                                                                                            unsigned char *
+hx_commands.c:5207:92: note: expected ‘const char *’ but argument is of type ‘unsigned char *’
+hx_commands.c:5207:98: warning: pointer targets in passing argument 6 of ‘hx_output.tracker_server_create’ differ in signedness [-Wpointer-sign]
+ 5207 |                 hx_output.tracker_server_create(hxd_files[s].conn.htlc, buf, port, nusers, name, desc);
+      |                                                                                                  ^~~~
+      |                                                                                                  |
+      |                                                                                                  unsigned char *
+hx_commands.c:5207:98: note: expected ‘const char *’ but argument is of type ‘unsigned char *’
+hx_commands.c: In function ‘hx_tracker_list’:
+hx_commands.c:5230:65: warning: operand of ‘?:’ changes signedness from ‘int’ to ‘long unsigned int’ due to unsignedness of other operand [-Wsign-compare]
+ 5230 |                                      ? sizeof(struct IN_ADDR) : he->h_length;
+      |                                                                 ^~~~~~~~~~~~
+gcc -O0 -g -std=gnu89 -fcommon -I/data/leynos/Projects/mothra/tools/shx-deps/usr/include  -Wall -W -DHAVE_CONFIG_H -D_REENTRANT -D_GNU_SOURCE  -I. -DONLY_CLIENT -c hlwrite.c -o hx_hlwrite.o
+hx_commands.c: In function ‘cmd_help’:
+hx_commands.c:5810:28: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 5810 |                         if (!strncmp(help_str, "away", 4)) {
+      |                            ^
+hx_commands.c:5814:17: note: here
+ 5814 |                 case 'b':
+      |                 ^~~~
+hx_commands.c:5815:28: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 5815 |                         if (!strncmp(help_str, "broadcast", 9)) {
+      |                            ^
+hx_commands.c:5819:17: note: here
+ 5819 |                 case 'c':
+      |                 ^~~~
+hx_commands.c:5835:35: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 5835 |                         } else if (!strncmp(help_str, "colorz", 6)) {
+      |                                   ^
+hx_commands.c:5839:17: note: here
+ 5839 |                 case 'd':
+      |                 ^~~~
+hx_commands.c:5840:28: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 5840 |                         if (!strncmp(help_str, "dirchar", 7)) {
+      |                            ^
+hx_commands.c:5844:17: note: here
+ 5844 |                 case 'e':
+      |                 ^~~~
+hx_commands.c:5845:28: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 5845 |                         if (!strncmp(help_str, "exec", 4)) {
+      |                            ^
+hx_commands.c:5849:17: note: here
+ 5849 |                 case 'f':
+      |                 ^~~~
+hx_commands.c:5850:28: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 5850 |                         if (!strncmp(help_str, "finfo", 5)) {
+      |                            ^
+hx_commands.c:5854:17: note: here
+ 5854 |                 case 'g':
+      |                 ^~~~
+hx_commands.c:5855:28: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 5855 |                         if (!strncmp(help_str, "get", 3)) {
+      |                            ^
+hx_commands.c:5859:17: note: here
+ 5859 |                 case 'h':
+      |                 ^~~~
+hx_commands.c:5863:35: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 5863 |                         } else if (!strncmp(help_str, "hostname", 8)) {
+      |                                   ^
+hx_commands.c:5867:17: note: here
+ 5867 |                 case 'i':
+      |                 ^~~~
+hx_commands.c:5877:35: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 5877 |                         } else if (!strncmp(help_str, "invite", 6)) {
+      |                                   ^
+hx_commands.c:5881:17: note: here
+ 5881 |                 case 'j':
+      |                 ^~~~
+hx_commands.c:5882:28: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 5882 |                         if (!strncmp(help_str, "join", 4)) {
+      |                            ^
+hx_commands.c:5886:17: note: here
+ 5886 |                 case 'k':
+      |                 ^~~~
+hx_commands.c:5887:28: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 5887 |                         if (!strncmp(help_str, "kick", 4)) {
+      |                            ^
+hx_commands.c:5891:17: note: here
+ 5891 |                 case 'l':
+      |                 ^~~~
+hx_commands.c:5907:35: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 5907 |                         } else if (!strncmp(help_str, "ls", 2)) {
+      |                                   ^
+hx_commands.c:5911:17: note: here
+ 5911 |                 case 'm':
+      |                 ^~~~
+hx_commands.c:5921:35: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 5921 |                         } else if (!strncmp(help_str, "mv", 2)) {
+      |                                   ^
+hx_commands.c:5925:17: note: here
+ 5925 |                 case 'n':
+      |                 ^~~~
+hx_commands.c:5929:35: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 5929 |                         } else if (!strncmp(help_str, "nick", 4)) {
+      |                                   ^
+hx_commands.c:5933:17: note: here
+ 5933 |                 case 'p':
+      |                 ^~~~
+hx_commands.c:5946:35: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 5946 |                         } else if (!strncmp(help_str, "pwd", 3)) {
+      |                                   ^
+hx_commands.c:5950:17: note: here
+ 5950 |                 case 'q':
+      |                 ^~~~
+hx_commands.c:5951:28: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 5951 |                         if (!strncmp(help_str, "quit", 4)) {
+      |                            ^
+hx_commands.c:5955:17: note: here
+ 5955 |                 case 'r':
+      |                 ^~~~
+hx_commands.c:5956:28: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 5956 |                         if (!strncmp(help_str, "rm", 2)) {
+      |                            ^
+hx_commands.c:5960:17: note: here
+ 5960 |                 case 's':
+      |                 ^~~~
+hx_commands.c:5976:35: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 5976 |                         } else if (!strncmp(help_str, "subject", 7)) {
+      |                                   ^
+hx_commands.c:5980:17: note: here
+ 5980 |                 case 't':
+      |                 ^~~~
+hx_commands.c:5987:35: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 5987 |                         } else if (!strncmp(help_str, "type", 4)) {
+      |                                   ^
+hx_commands.c:5991:17: note: here
+ 5991 |                 case 'u':
+      |                 ^~~~
+hx_commands.c:5992:28: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 5992 |                         if (!strncmp(help_str, "unignore", 8)) {
+      |                            ^
+hx_commands.c:5996:17: note: here
+ 5996 |                 case 'v':
+      |                 ^~~~
+hx_commands.c:5997:28: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 5997 |                         if (!strncmp(help_str, "version", 7)) {
+      |                            ^
+hx_commands.c:6001:17: note: here
+ 6001 |                 case 'w':
+      |                 ^~~~
+hx_commands.c:6002:28: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 6002 |                         if (!strncmp(help_str, "who", 3)) {
+      |                            ^
+hx_commands.c:6006:17: note: here
+ 6006 |                 case 'x':
+      |                 ^~~~
+hx_commands.c:6013:35: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 6013 |                         } else if (!strncmp(help_str, "xfkill", 6)) {
+      |                                   ^
+hx_commands.c:6017:17: note: here
+ 6017 |                 default:
+      |                 ^~~~~~~
+make: *** [Makefile:35: hx_commands.o] Error 1
+make: *** Waiting for unfinished jobs....
+hlwrite.c: In function ‘hlwrite’:
+hlwrite.c:19:9: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+   19 |         if (!htlc->fd)
+      |         ^~
+hlwrite.c:22:17: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   22 |                 q = &htlc->out;
+      |                 ^
+make: Leaving directory '/data/leynos/Projects/mothra/tools/shx-adb1bf8c8cb1'

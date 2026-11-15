@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+set -euo pipefail
+mothra=/data/leynos/Projects/mothra
+proto=/data/leynos/Projects/hotline-protocol-docs
+root=/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-native/mothra/state/delegation/a33-native-settings
+unit=mothra-a33-host-capture
+binary=/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19
+guest="$mothra/state/native-sessions/recovery-20261113-01/guest.pcap"
+base="$mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/capture/plan.json"
+runtime="$mothra/evidence/gap-remediation/2026-11-13/native-pm-01/runtime.json"
+[[ ! -e "$root" ]] || { echo 'Refusing existing A33 output' >&2; exit 2; }
+mkdir -p "$root"
+exec > >(tee "$root/operator.log") 2>&1
+cleanup() {
+  sudo -n systemctl kill -s SIGINT "$unit.service" 2>/dev/null || true
+  sleep 1
+  sudo -n systemctl show "$unit.service" -p ActiveState -p MainPID -p Result > "$root/host-capture-terminal.txt" 2>&1 || true
+  cp "$guest" "$root/guest-after-terminal.pcap" 2>/dev/null || true
+  date -u +'%Y-%m-%dT%H:%M:%SZ' > "$root/terminal-utc.txt"
+}
+trap cleanup EXIT
+[[ $(git -C "$proto" rev-parse HEAD) == 8983e28517a84a53e299f991ffa9878db9bbf76a ]]
+[[ $(sha256sum "$binary" | cut -d' ' -f1) == ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b ]]
+[[ $(sha256sum "$mothra/state/mac-runtime/hotline22-recovery/SheepShaver-9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4" | cut -d' ' -f1) == 9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4 ]]
+[[ $(sudo -n readlink /proc/1099659/fd/6) == "$mothra/state/mac-runtime/hotline22-recovery/working.dsk" ]]
+[[ $(sudo -n readlink /proc/1099659/fd/16) == "$guest" ]]
+[[ $(sudo -n readlink /proc/1099659/exe) == "$mothra/state/mac-runtime/hotline22-recovery/SheepShaver-9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4" ]]
+[[ $(systemctl --user show mothra-sheep-bf808bd28e0d -p ActiveState --value) == active ]]
+[[ $(systemctl --user show mothra-sheep-bf808bd28e0d -p MainPID --value) == 1099211 ]]
+[[ $(systemctl --user show mothra-display-f08732514eab -p ActiveState --value) == active ]]
+DISPLAY=:99 xdpyinfo >/dev/null
+[[ -z $(ss -Htn '( sport = :15500 or dport = :15500 or sport = :15501 or dport = :15501 )') ]]
+ss -Hlt '( sport = :15500 or sport = :15501 )' > "$root/listeners-before.txt"
+[[ $(wc -l < "$root/listeners-before.txt") == 2 ]]
+sha256sum "$proto/scripts/native_settings_transition_cases.py" "$proto/scripts/verify_native_settings_transition.py" "$proto/scripts/protocol_capture.py" "$base" "$runtime" "$binary" > "$root/source-sha256.txt"
+cp "$runtime" "$root/runtime.json"
+python3 "$proto/scripts/native_settings_transition_cases.py" --runtime-record "$runtime" --baseline-plan "$base" --output "$root/plans"
+sha256sum "$root"/plans/*.json > "$root/plan-sha256.txt"
+cp "$guest" "$root/guest-before.pcap"
+sudo -n systemd-run --system --unit="$unit" --collect --service-type=exec --property=KillSignal=SIGINT --property=RuntimeMaxSec=300 --property=StandardOutput="append:$root/tcpdump.log" --property=StandardError="append:$root/tcpdump.log" -- /usr/sbin/tcpdump -i lo -s 0 -U -w "$root/host.pcap" 'tcp port 15500 or tcp port 15501'
+for i in $(seq 1 50); do
+  if [[ -f "$root/host.pcap" ]] && [[ $(stat -c %s "$root/host.pcap") -ge 24 ]] && [[ $(sudo -n systemctl show "$unit.service" -p ActiveState --value) == active ]]; then break; fi
+  sleep 0.1
+done
+[[ -f "$root/host.pcap" ]] && [[ $(stat -c %s "$root/host.pcap") -ge 24 ]]
+sudo -n systemctl show "$unit.service" -p ActiveState -p MainPID -p ExecMainStartTimestampMonotonic > "$root/host-capture-ready.txt"
+[[ $(sed -n 's/^MainPID=//p' "$root/host-capture-ready.txt") =~ ^[1-9][0-9]*$ ]]
+echo "A33 first native connection $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+PYTHONPATH="$proto/scripts" python3 "$proto/scripts/protocol_capture.py" capture "$root/plans/preflight.json" --oracle-binary "$binary" --output "$root/preflight"
+PYTHONPATH="$proto/scripts" python3 - "$root" "$mothra" <<'PY'
+import json,sys
+from pathlib import Path
+from verify_native_pm_packet import full_readback
+root=Path(sys.argv[1]);mothra=Path(sys.argv[2])
+source=json.loads((mothra/'evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/capture/report.json').read_text())
+result=full_readback(root,'preflight',source)
+(root/'preflight-full-readback.json').write_text(json.dumps(result,indent=2)+'\n')
+print('A33 full A7 preflight passed',result['filp_bytes'])
+PY
+cp "$guest" "$root/guest-after-preflight.pcap"
+echo "A33 observation start $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+set +e
+PYTHONPATH="$proto/scripts" python3 "$proto/scripts/verify_native_settings_transition.py" --run "$root/plans/observe.json" --binary "$binary" --output "$root/observe"
+observe_rc=$?
+set -e
+cp "$guest" "$root/guest-after-observe.pcap"
+echo "A33 observation rc=$observe_rc postflight start $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+PYTHONPATH="$proto/scripts" python3 "$proto/scripts/protocol_capture.py" capture "$root/plans/postflight.json" --oracle-binary "$binary" --output "$root/postflight"
+PYTHONPATH="$proto/scripts" python3 - "$root" <<'PY'
+import json,sys
+from pathlib import Path
+from verify_native_pm_packet import full_readback
+root=Path(sys.argv[1]);source=json.loads((root/'preflight/report.json').read_text())
+result=full_readback(root,'postflight',source)
+(root/'postflight-full-readback.json').write_text(json.dumps(result,indent=2)+'\n')
+print('A33 full A7 postflight passed',result['filp_bytes'])
+PY
+cp "$guest" "$root/guest-after-postflight.pcap"
+echo "A33 traffic end $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+exit "$observe_rc"

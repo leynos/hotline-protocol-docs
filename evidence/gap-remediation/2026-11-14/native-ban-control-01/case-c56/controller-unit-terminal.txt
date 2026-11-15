@@ -1,0 +1,9 @@
+ActiveState=active
+SubState=exited
+Type=oneshot
+RemainAfterExit=yes
+MainPID=0
+Result=success
+ExecMainStartTimestamp=Sat 2026-11-14 03:10:14 GMT
+ExecMainExitTimestamp=Sat 2026-11-14 03:10:24 GMT
+ExecMainStatus=0

@@ -1,0 +1,21 @@
+{
+  "utc": "2026-11-14T03:57:25.902824+00:00",
+  "unit": "mothra-config-ban-ui-c61-host.service",
+  "pid": 409158,
+  "start_ticks": 5319363,
+  "netns_inode": 4026531840,
+  "fd": 5,
+  "capture": "/data/leynos/Projects/mothra/state/native-sessions/native-configured-ban-ui-c61/primary-syn.pcap",
+  "dev": 2097,
+  "inode": 2735789791,
+  "header24": "d4c3b2a10200040000000000000000000000040001000000",
+  "deadline_utc": "2026-11-14T04:04:48.284118+00:00",
+  "unit_properties": {
+    "ActiveState": "active",
+    "SubState": "running",
+    "ActiveEnterTimestampMonotonic": "53193641273",
+    "RuntimeMaxUSec": "15min",
+    "MainPID": "409158",
+    "KillMode": "control-group"
+  }
+}

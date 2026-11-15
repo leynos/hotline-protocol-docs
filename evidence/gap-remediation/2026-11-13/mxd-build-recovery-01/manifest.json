@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-11-13 15:43 UTC",
+  "mothra_base": "6db7f91a9c435b108f1f464db8ec3a07222cc0eb",
+  "mxd_base": "2e4c9c1df20b37a6f98a1369e0a8f09f9ee2a131",
+  "candidate_committed": false,
+  "full_gate_passed": false,
+  "source_logs_sha256": {
+    "mxd-linker-01/rebuild.log": "98d01b5a062322e8a1a29b4ad88a8b884c8b803eb13e2fdb1e4197340099c4ae",
+    "mxd-linker-01/full-test.log": "801466e02e2be89f55bdaa3b95b59b34fa2f36661b7f555425522c95e03b7046",
+    "mxd-ui-target-01/full-test.log": "a8b78fb3190474b703cab4f2310ebf46f7644e91252662398629305bcef31dc6",
+    "mxd-ui-target-02/full-test.log": "ca4e23ed03cac10519e200496b0867bc2c913147d84ed14dc34fac73f51cd018",
+    "evidence/gap-remediation/2026-11-13/mxd-limits-01/first-link-failure.txt": "5034870ee2f540ae9e3aae111fba731f07b1db627a43263fef6afee660c345a9",
+    "evidence/gap-remediation/2026-11-13/mxd-limits-01/make-test-resumed.log": "599a0b01c0cefe4dcf4ce5fb6d8f9021576588c9c54e30c02adcca13698c0ae4",
+    "evidence/gap-remediation/2026-11-13/mxd-limits-01/make-test-serialized.log": "959ebd7dc5b889fd24994efde14abaf0ccef941763e29a664132e46c67e2644e"
+  },
+  "runs": [
+    {
+      "name": "single-target-after-quarantine",
+      "exit": 0
+    },
+    {
+      "name": "first-full-after-repair",
+      "exit": 2,
+      "cause": "UI fixture paths under external target"
+    },
+    {
+      "name": "UI-override-full-pty",
+      "tool_reported_exit": 143,
+      "process_exit_recorded": false,
+      "cause": "unknown external interruption"
+    },
+    {
+      "name": "UI-override-full-user-service",
+      "unit": "mxd-c2-gate-20261113-1540.service",
+      "ExecMainStatus": 2,
+      "cause": "migration watchdog test failed; root cause unknown"
+    }
+  ],
+  "limitations": [
+    "No full mxd make test pass",
+    "No source candidate commit or import",
+    "No Kani run",
+    "Original truncated artifact preserved only in private ignored quarantine, not portable export"
+  ]
+}

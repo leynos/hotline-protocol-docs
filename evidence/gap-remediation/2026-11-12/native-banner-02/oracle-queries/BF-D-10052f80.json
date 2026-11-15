@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T21:53:54.010711+00:00",
+  "query": {
+    "id": "BF-D-10052f80",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10052f80"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_10052f80\",\n    \"address\": \"10052f80\"\n  },\n  \"code\": \"\\nuint FUN_10052f80(int *param_1)\\n\\n{\\n  uint uVar1;\\n  int iVar2;\\n  \\n  if (param_1 == (int *)0x0) {\\n    FUN_10027c30(1,2);\\n  }\\n  if (*param_1 == 0) {\\n    uVar1 = 0;\\n  }\\n  else {\\n    iVar2 = .glue::GetHandleSize(param_1);\\n    uVar1 = iVar2 - 4U & ~-(uint)(iVar2 == 0);\\n  }\\n  return uVar1;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_10052f80",
+        "address": "10052f80"
+      },
+      "code": "\nuint FUN_10052f80(int *param_1)\n\n{\n  uint uVar1;\n  int iVar2;\n  \n  if (param_1 == (int *)0x0) {\n    FUN_10027c30(1,2);\n  }\n  if (*param_1 == 0) {\n    uVar1 = 0;\n  }\n  else {\n    iVar2 = .glue::GetHandleSize(param_1);\n    uVar1 = iVar2 - 4U & ~-(uint)(iVar2 == 0);\n  }\n  return uVar1;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

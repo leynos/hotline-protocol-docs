@@ -1,0 +1,17 @@
+{
+  "source_register_commit": "f2d15e8976c04c28b5ab2e94dbaca9b73b3f848f",
+  "entries": [
+    {
+      "gap_id": "GAP-057",
+      "unchanged_closure_criteria": "Document mode and response-presence/size calculation tables with zero-size, preview, ordinary and queued fixtures.",
+      "prior_status": "Investigating",
+      "review": "Traced request-202 branches and size helpers are paired with native mode/response tables and delivered bytes for absent/0/1/3/65535 ordinary modes, numeric-2 preview, zero-size ordinary and empty-preview paths. Controlled queues retain four-byte references and advertised/logical sizes, add field 116 only when waiting, and deliver each expected FILP/raw stream after admission. Empty preview returns field 108 = zero without 107/207/116 and allocates no queue entry. Resume calculations remain independently established by GAP-058."
+    },
+    {
+      "gap_id": "GAP-061",
+      "unchanged_closure_criteria": "Trace queue workers and capture admission, advancement, notification, timeout and fairness/order behaviour under a small controlled queue.",
+      "prior_status": "Investigating",
+      "review": "Retained queue-worker code and four controlled native cases at saved limits of two globally and one per session establish initial positions, 211/zero admission, position advancement, finite unchanged-position silence, owner eligibility and early attached connections. Later eligible owner B advances before owner A waiters blocked by their own cap; no universal FIFO claim is made. Twelve measured 45-second pauses precede old-reference rejection and successful waiter delivery. The complete 211/zero frame is observed 542.973851 host seconds after the first ACK; this does not locate internal expiry/admission or establish an exact 500-second deadline. Universal starvation bounds and mixed-folder operation details remain unclaimed."
+    }
+  ]
+}

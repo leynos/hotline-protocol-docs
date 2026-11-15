@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "cases": [
+    "absent-delayed-admin",
+    "absent-delayed-bypass",
+    "absent-early-admin",
+    "absent-early-bypass",
+    "directory-delayed-admin",
+    "directory-delayed-bypass",
+    "directory-early-admin",
+    "directory-early-bypass",
+    "empty-delayed-admin",
+    "empty-delayed-bypass",
+    "empty-early-admin",
+    "empty-early-bypass",
+    "nontext-delayed-admin",
+    "nontext-delayed-bypass",
+    "nontext-early-admin",
+    "nontext-early-bypass",
+    "nontext-field-over-limit-delayed",
+    "nontext-field-over-limit-early",
+    "nontext-over-limit-delayed-admin",
+    "nontext-over-limit-delayed-bypass",
+    "nontext-over-limit-early-admin",
+    "nontext-over-limit-early-bypass",
+    "original-delayed-admin",
+    "original-delayed-bypass",
+    "original-early-admin",
+    "original-early-bypass",
+    "restored-delayed-admin",
+    "restored-delayed-bypass",
+    "restored-early-admin",
+    "restored-early-bypass",
+    "text-delayed-admin",
+    "text-delayed-bypass",
+    "text-early-admin",
+    "text-early-bypass",
+    "text-limit-delayed-admin",
+    "text-limit-delayed-bypass",
+    "text-limit-early-admin",
+    "text-limit-early-bypass",
+    "text-over-limit-delayed-admin",
+    "text-over-limit-delayed-bypass",
+    "text-over-limit-early-admin",
+    "text-over-limit-early-bypass"
+  ],
+  "phases": {
+    "absent": {
+      "snapshot": null
+    },
+    "directory": {
+      "snapshot": "native-directory-staged"
+    },
+    "empty": {
+      "snapshot": "native-empty-staged"
+    },
+    "nontext": {
+      "snapshot": "native-nontext-staged"
+    },
+    "nontext-field-over-limit": {
+      "snapshot": "native-nontext-field-over-limit-staged"
+    },
+    "nontext-over-limit": {
+      "snapshot": "native-nontext-over-limit-staged"
+    },
+    "original": {
+      "snapshot": "native-original-reference"
+    },
+    "restored": {
+      "snapshot": "native-restored-staged"
+    },
+    "text": {
+      "snapshot": "native-text-staged"
+    },
+    "text-limit": {
+      "snapshot": "native-text-limit-staged"
+    },
+    "text-over-limit": {
+      "snapshot": "native-text-over-limit-staged"
+    }
+  },
+  "setup_cases": [
+    "absence-control",
+    "absolute-reload-control",
+    "active-reload-control",
+    "binary-staged-control",
+    "directory-staged-control",
+    "empty-staged-control",
+    "flush-capture",
+    "liveness",
+    "nontext-staged-control",
+    "preflight-bypass-absence",
+    "remove-agreement-bypass-account",
+    "restored-staged-control",
+    "seed-agreement-files",
+    "stage-agreement-binary",
+    "stage-agreement-binary-field-over-limit",
+    "stage-agreement-binary-over-limit",
+    "stage-agreement-directory",
+    "stage-agreement-empty",
+    "stage-agreement-nontext",
+    "stage-agreement-nontext-field-over-limit",
+    "stage-agreement-nontext-over-limit",
+    "stage-agreement-restored",
+    "stage-agreement-text",
+    "stage-agreement-text-limit",
+    "stage-agreement-text-over-limit",
+    "text-final",
+    "text-limit-staged-control",
+    "text-staged-control"
+  ],
+  "initial_cases": [
+    "absent-before-timer-recovery",
+    "absent-delayed-admin-old-buffer",
+    "absent-delayed-bypass-old-buffer",
+    "absent-early-admin-old-buffer",
+    "absent-early-bypass-old-buffer",
+    "field-over-limit-early-survived",
+    "field-over-limit-no-trigger-30s",
+    "field-over-limit-pipelined-liveness",
+    "finder-retyped-binary-delayed-admin",
+    "finder-retyped-binary-delayed-bypass",
+    "finder-retyped-binary-early-admin",
+    "finder-retyped-binary-early-bypass"
+  ],
+  "packet_window_seconds": [
+    1794529403.432193,
+    1794535086.4626434
+  ],
+  "host_capture_packets": 4337,
+  "host_kernel_drops": 0,
+  "unread_output": {},
+  "other_unread_output": {
+    "initial/field-over-limit-early-survived": {
+      "observer": "0000012d0000000300000000000000240000002400040067000201ef0068000200010070000200120066000c617574682d76697369626c65"
+    },
+    "setup/stage-agreement-text-limit": {
+      "a": "0000012d00000003000000000000002700000027000400670002019a0068000200010070000200120066000f6672616d696e672d666978747572650000012e00000004000000000000000800000008000100670002019a"
+    }
+  },
+  "scope": "40 completed ordinary/bypass login paths over10 agreement configurations, plus2 oversized-field partial-login probes;28 setup/control reports and12 exploratory reports retained separately. Same live PID/executable continues through one diagnosed host timer deadlock and explicit host resume; fixed emulator is built but not running. No ROM/disk committed. Original agreement restored and owned bypass account deleted/read back missing.",
+  "original_reference": "Original positive245-byte TEXT snapshot retained from immediately preceding native-auth-01 on the same PID. Runtime15 backup independently retains those bytes as Agreement.saved; restored snapshot verifies a new catalogue file at Agreement.txt.",
+  "initial_scope": "Old-buffer and retyped-BINA trials are failed setup controls. Field-overflow pipelining,30-second no-trigger EOF hypothesis and early-survival hypothesis remain unchanged; final probes separately observe silence, trigger and early online readiness. Initial pre-recovery failed handshake is explicitly a host/guest boundary failure, not native consumption."
+}

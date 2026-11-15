@@ -1,0 +1,50 @@
+{
+  "catalogue": "raw/epoch/stopped-fls-allocated.stdout",
+  "timing": "Stopped image after cleanup; not temporal premove location proof",
+  "entries": [
+    {
+      "line_number": 5231,
+      "line": "-/r 11758:\tTrash/m-cat47"
+    },
+    {
+      "line_number": 5278,
+      "line": "d/d 11757:\tTrash/m-n47-o\u0308"
+    },
+    {
+      "line_number": 5285,
+      "line": "d/d 11747:\tTrash/m-path47"
+    },
+    {
+      "line_number": 5286,
+      "line": "d/d 11750:\tTrash/m-path47/H-o\u0308"
+    },
+    {
+      "line_number": 5287,
+      "line": "d/d 11751:\tTrash/m-path47/H-o\u0308/p0"
+    },
+    {
+      "line_number": 5288,
+      "line": "d/d 11752:\tTrash/m-path47/H-o\u0308/p1"
+    },
+    {
+      "line_number": 5289,
+      "line": "d/d 11753:\tTrash/m-path47/H-o\u0308/p2"
+    },
+    {
+      "line_number": 5290,
+      "line": "d/d 11754:\tTrash/m-path47/H-o\u0308/p3"
+    },
+    {
+      "line_number": 5291,
+      "line": "d/d 11755:\tTrash/m-path47/H-o\u0308/p4"
+    },
+    {
+      "line_number": 5292,
+      "line": "d/d 11756:\tTrash/m-path47/H-o\u0308/p5"
+    },
+    {
+      "line_number": 5293,
+      "line": "d/d 11749:\tTrash/m-path47/S"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+C8 embedded PostgreSQL startup falsification
+Start: 2026-11-13 18:26:50 UTC. Private mxd base: 481294915b48f4db06943c8af86cf31b7e47597a.
+Frozen candidate source: 19 paths; mismatches after tests: [].
+Canonical source unchanged; no source edits or commits in C8.
+
+Historical C7 failure: retained 557 PostgreSQL tests, 556 passed, one bootstrap
+failure. Exact historical pg_ctl argv, data-slot path, and start.log absent.
+C8 does not recreate or explain that historical failure.
+
+Semantics inspected before launch: pg-embed-setup-unpriv 0.7.0 derives
+<PG_EMBED_ROOT>/install and /data; a test cluster claims a slot under data.
+PG_RUNTIME_DIR overrides the install directory. PG_DATA_DIR would disable
+slot allocation and was deliberately left unset. Existing installed
+/var/tmp/pg-embed-1000/install/18.6.0 runtime binaries were used. Root
+was new and owned under this diagnostic directory. No fetch or clean.
+
+Nextest filter was verified with nextest list using the same locked
+PostgreSQL feature flags and source cache. CLI help confirmed --test,
+-E/--filterset, and --test-threads. Filter selected exactly the historical
+wireframe_compat_guardrails_login_failure_does_not_include_banner_fields.
+The first list attempt used unlike RUSTFLAGS and was interrupted during
+compilation; matched-flags list then succeeded. No test ran in either list.
+
+One isolated exact-case process: exit 0, one test
+passed, five other binary tests filtered. Watcher exit
+0. Its captured pg_ctl started a real 18.6.0
+cluster on port 41675; start.log says ready to accept connections then
+normal fast shutdown. This contradicts deterministic inability of that
+runtime to start in the controlled owned root (H3).
+
+One controlled pair: nextest process exits [0, 0],
+watcher exit 0; each selected case passed with
+a real database. Captured slot 608304... listened on 127.0.0.1:43791
+from 18:29:54.832 to fast shutdown 18:29:56.290 UTC. Captured slot
+608428... listened on 127.0.0.1:38591 from 18:29:55.037 to fast
+shutdown 18:29:56.517 UTC. Listener intervals overlap for over one
+second; this is genuine startup concurrency, not serialized execution.
+No bind/address error occurred in these two controlled instances.
+This does not rule out intermittent port collision in the historical
+run (H1).
+
+Resource evidence: resources-before.txt and resources-after.txt record
+file/process limits and /data space/inodes. /data was 99% used, with
+about 29 to 28 GiB free and tens of millions of free inodes at snapshots.
+The snapshot command looked for cgroup files at /sys/fs/cgroup; this
+host's process is /init.scope, so those attempted reads yielded no
+counter values. A later /sys/fs/cgroup/init.scope/memory.events read
+reported low/high/max/oom/oom_kill/oom_group_kill all zero, but no
+time-matched pre-run counter is available. No allocation/fork/storage
+failure was captured; H2 historical resource cause remains unknown.
+The owned root is on /data XFS, while the historical default root was
+under /var/tmp; filesystem conditions therefore differ.
+
+Bounded result: 3 focused test processes, no full gate, no source edit,
+no native/Ghidra/client traffic, no dependency install or existing
+PostgreSQL root cleanup. Watchers ended normally. Owned root data
+directories were swept by the wrapper, leaving only lock files; no
+owned PostgreSQL process survived. All test processes exited zero.
+A new full gate or change in concurrency/configuration requires separate
+root authority. Historical bootstrap cause remains unknown.

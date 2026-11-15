@@ -1,0 +1,14 @@
+{
+  "utc": "2026-11-13T22:23:48.495396+00:00",
+  "argv": [
+    "python3",
+    "scripts/mac_runtime.py",
+    "display",
+    "state/mac-displays/native-banlab-one-01",
+    "--display",
+    ":109"
+  ],
+  "exit": 0,
+  "stdout": "mothra-display-12ac2aac1017\n",
+  "stderr": "Running as unit: mothra-display-12ac2aac1017.service; invocation ID: 1de9a4db8ab64364ba5be237b847185b\n"
+}

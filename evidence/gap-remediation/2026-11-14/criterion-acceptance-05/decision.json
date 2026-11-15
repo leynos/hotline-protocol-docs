@@ -1,0 +1,19 @@
+{
+  "accepted_at_utc": "2026-11-14T06:59:01.453963+00:00",
+  "id": "GAP-074",
+  "previous_status": "Investigating",
+  "status": "Resolved",
+  "original_question": "What exactly do options 1 and 2 do, including identity matching, ranges/duration, optional data 101, reconnection and protected users?",
+  "original_closure_criteria": "Trace both ban helpers and publish option/outcome/expiry/protection rules with kick-only and both branch fixtures.",
+  "decision": "Met at the original native 1.9 option/outcome/expiry/protection scope: both helper traces, kick-only and both ban-branch fixtures, protected target, immediate rejection and later acceptance, and the permanent reload/configured-apply cases are documented. The pre1700-second control was missed and is not treated as evidence. Exact1800-second cutoff, rollover/all clock adjustments, arbitrary ranges and nonempty reason bytes remain unmeasured; the optional reason transformation is explicitly source-derived. No universal purge mechanism, physical erasure or full-transfer guarantee follows.",
+  "clauses": {
+    "option_identity_range": "Both helper traces use target address as both range endpoints; fixtures on10.0.2.2 only.",
+    "duration": "Source GetDateTime+1800 and expiry<=now lazy removal; immediate denial then accepted later lookup at2032hostseconds, no exact boundary measurement.",
+    "optional101": "Option2 alone reads capped63bytes; raw-copy prefix consequence inferred from instruction chain, no nonempty runtime claim.",
+    "reconnection": "Kick0 fresh107success, temporary immediate107error and later107success, permanent107error and one-restart error.",
+    "protection": "Request privilege22 and target23 traced; ownedbit23 target refuseskick and answers500 plus boundedquiet; no universal protected-delete inference."
+  },
+  "missed_pre_window": "C80failedbeforeallsockets; kept asmissed not reconstructed",
+  "no_extra_criterion": "Pre1600\u20131700 measurement not explicit in frozen criterion.",
+  "mxd_validation": "on hold"
+}

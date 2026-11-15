@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "reason": "Forks of the Hotline Server 1.9 binary are third-party material that this project may not publish. Their sizes and hashes are recorded so that a reader who holds the binary can verify it.",
+  "files": [
+    {
+      "path": "evidence/gap-remediation/2026-11-12/batch-09/inputs/HLserver19.appledouble",
+      "bytes": 38542,
+      "sha256": "9ab8b9ec708ccdb8a4fed99b00162fd087c108b6039c7acc5943145bad419c2f",
+      "fork": "container",
+      "patch": {
+        "path": "evidence/gap-remediation/2026-11-12/batch-09/inputs/HLserver19.appledouble.bsdiff",
+        "format": "BSDIFF40",
+        "base_sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12",
+        "patch_sha256": "b14c6151e8ed776b79ef15b46e098e4092fd4bf7e4c1140f675d2fe647f6cf81",
+        "result_sha256": "9ab8b9ec708ccdb8a4fed99b00162fd087c108b6039c7acc5943145bad419c2f"
+      }
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-ban-one-01/preparation/preboot-app/catalog-11183.data",
+      "bytes": 616821,
+      "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+      "fork": "data",
+      "patch": null
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-ban-one-01/preparation/preboot-app/catalog-11183.rsrc",
+      "bytes": 38460,
+      "sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12",
+      "fork": "resource",
+      "patch": null
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-runtime-recovery-01/preboot-app/catalog-11183.data",
+      "bytes": 616821,
+      "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+      "fork": "data",
+      "patch": null
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-runtime-recovery-01/preboot-app/catalog-11183.rsrc",
+      "bytes": 38460,
+      "sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12",
+      "fork": "resource",
+      "patch": null
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/stopped-hfs/server-data.bin",
+      "bytes": 616821,
+      "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+      "fork": "data",
+      "patch": null
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/stopped-hfs/server-rsrc.bin",
+      "bytes": 38460,
+      "sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12",
+      "fork": "resource",
+      "patch": null
+    },
+    {
+      "path": "evidence/hotline-server-1.9/inputs/HLserver19.pef",
+      "bytes": 616821,
+      "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+      "fork": "data",
+      "patch": null
+    }
+  ]
+}

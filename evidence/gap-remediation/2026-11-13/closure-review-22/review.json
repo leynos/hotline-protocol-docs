@@ -1,0 +1,36 @@
+{
+  "reviews": [
+    {
+      "gap_id": "GAP-073",
+      "status": "Resolved",
+      "unchanged_closure_criterion": "Trace account/session propagation and record live-edit/delete event sequences and persistence across reconnect/restart.",
+      "requirements": [
+        {
+          "requirement": "Trace account and session propagation",
+          "evidence": "Fresh 10014df0/10005d30/10004f30 queries show replacement ACK followed by matching-login access/identity propagation, new-mask-dependent effective display name and conditional354/301. Password and111 are not read by this helper. Deletion100149e0/10005f90 and close wrappers are separately captured; one backend calls OTSndOrderlyDisconnect."
+        },
+        {
+          "requirement": "Live edit sequences",
+          "evidence": "Two matching sessions receive zero-mask354 before their own301, with both subjects updated at the observer and both subjects. Existing connections continue500 but202 is denied after revocation. Password-only and attribute-only changes ACK with no extra354/301 in three-second per-socket windows; raw0020 statuses and independent notification IDs are retained."
+        },
+        {
+          "requirement": "Live deletion sequences",
+          "evidence": "Two matching subjects receive data-only104 with exact101 notice and guest-firstFIN. Two bounded observer snapshots still contain them. Two exact28-byte302 frames follow the recorded receive prefix in both packet views and are explicitly retained as unread tails. No immediate roster purge or universal close deadline is claimed."
+        },
+        {
+          "requirement": "Reconnect persistence",
+          "evidence": "Original and intermediate passwords and deleted login fail; final password succeeds with zero-mask354. Retrieval/enumeration independently show replaced account and absent deleted account."
+        },
+        {
+          "requirement": "Restart persistence",
+          "evidence": "Timed normal native Quit with zero users, stopped handshake ConnectionResetError plus guestRST diagnostic No listener, Finder reopening the same application and startup/alert screenshots establish an application restart in the same running emulator. Post-restart retrieval and four login probes reproduce outcomes; five original catalogue objects/forks and complete734-byte records persist. App data/resource hashes and complete Prefs bytes match before/after."
+        },
+        {
+          "requirement": "Provenance, irregular observations and cleanup",
+          "evidence": "18 complete reports plus one expected stopped failure cover25 host socket lifetimes,24 established guest connections and16 identity-checked queries. A host stage exit143 after five complete transcripts is retained without cause inference; independent confirmation precedes cleanup. Original two-account and41-entry Files baselines restored, with five positive Trash objects and a separate removed publisher."
+        }
+      ]
+    }
+  ],
+  "scope": "Close only the unchanged GAP-073 propagation, live-edit/delete and reconnect/normal-server-restart criterion. Protected/self-delete and rename/conflict/write-failure requirements remain GAP-072; broader snapshot/room/transfer teardown remains GAP-035/036, opaque111 meaning remains GAP-071 and OS/power-loss durability remains unproved. All other original criteria and statuses remain unchanged."
+}

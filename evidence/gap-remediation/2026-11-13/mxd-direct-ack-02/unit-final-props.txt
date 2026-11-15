@@ -1,0 +1,12 @@
+Id=mxd-c9-full-20261113-1835.service
+ActiveState=active
+SubState=exited
+InvocationID=cb3d33916da34bcb863e8185b15cd417
+Type=oneshot
+TimeoutStartUSec=40min
+TimeoutStopUSec=30s
+RemainAfterExit=yes
+MainPID=0
+Result=success
+ExecMainCode=1
+ExecMainStatus=0

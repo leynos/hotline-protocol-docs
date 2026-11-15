@@ -1,0 +1,29 @@
+from __future__ import annotations
+
+import json
+import pathlib
+import stat
+import zipfile
+
+root = pathlib.Path(__file__).parent
+source = root / "original.zip"
+report: dict[str, object] = {"source": str(source), "max_total_uncompressed_bytes": 20 * 1024 * 1024}
+entries = []
+issues = []
+total = 0
+with zipfile.ZipFile(source) as archive:
+    for info in archive.infolist():
+        name = info.filename
+        parts = pathlib.PurePosixPath(name).parts
+        mode = (info.external_attr >> 16) & 0xFFFF
+        if name.startswith("/") or "\\" in name or ".." in parts or (parts and ":" in parts[0]):
+            issues.append(f"unsafe path: {name!r}")
+        if stat.S_ISLNK(mode):
+            issues.append(f"symlink: {name!r}")
+        total += info.file_size
+        entries.append({"name": name, "compressed_size": info.compress_size, "uncompressed_size": info.file_size, "crc32": f"{info.CRC:08x}", "mode": oct(mode), "is_dir": info.is_dir()})
+if total > 20 * 1024 * 1024:
+    issues.append("declared total expansion exceeds 20 MiB")
+report.update({"entries": entries, "declared_total_uncompressed_bytes": total, "issues": issues, "safe_for_bounded_extraction": not issues})
+(root / "zip-inventory.json").write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
+print(json.dumps(report, indent=2, sort_keys=True))

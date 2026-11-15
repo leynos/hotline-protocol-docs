@@ -1,0 +1,605 @@
+{
+  "status": "completed-bounded-query-set",
+  "started_at_utc": "2026-11-13T23:28:18.392808+00:00",
+  "command": "/data/leynos/Projects/mothra/tools/ghidramcp/.venv/bin/ghidra-mcp",
+  "args": [
+    "--headless",
+    "--binary",
+    "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+    "--project",
+    "/data/leynos/Projects/mothra/state/client-account-pef-01/project",
+    "--project-name",
+    "hotline-client-classic-01",
+    "--language",
+    "PowerPC:BE:32:default",
+    "--compiler",
+    "default",
+    "--extension-jar",
+    "/data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar",
+    "--ready-timeout",
+    "540",
+    "--save"
+  ],
+  "binary_sha256": "7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315",
+  "resource_sha256": "f762cfdedcc39758f841f720a4586dbbb88a7b74ec9e83db1793791b7c3f318b",
+  "jar_sha256": "201d18ffde71a83a678eae607de265861f37e5a00b989d91958c1197664d2b43",
+  "ghidra_install": "/data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC",
+  "environment_paths": {
+    "JAVA_HOME": "/data/leynos/Projects/mothra/tools/jdk-25.0.5+8",
+    "GHIDRA_INSTALL_DIR": "/data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC",
+    "XDG_CONFIG_HOME": "/data/leynos/Projects/mothra/state/client-account-pef-01/config",
+    "XDG_CACHE_HOME": "/data/leynos/Projects/mothra/state/client-account-pef-01/cache",
+    "XDG_DATA_HOME": "/data/leynos/Projects/mothra/state/client-account-pef-01/data",
+    "TMPDIR": "/data/leynos/Projects/mothra/state/client-account-pef-01/tmp",
+    "JAVA_TOOL_OPTIONS": "-Duser.home=/data/leynos/Projects/mothra/state/client-account-pef-01/home -Djava.io.tmpdir=/data/leynos/Projects/mothra/state/client-account-pef-01/tmp"
+  },
+  "content_calls": 11,
+  "records": [
+    {
+      "label": "identity-before",
+      "tool": "get_program_info",
+      "arguments": {},
+      "at_utc": "2026-11-13T23:28:25.026377+00:00",
+      "result": {
+        "meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"name\": \"Hotline Client 1.9.2 Classic\",\n  \"project_path\": \"/Hotline Client 1.9.2 Classic\",\n  \"executable_path\": \"/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic\",\n  \"executable_format\": \"Preferred Executable Format (PEF)\",\n  \"language_id\": \"PowerPC:BE:32:default\",\n  \"compiler_spec\": \"default\",\n  \"processor\": \"PowerPC\",\n  \"endian\": \"big\",\n  \"pointer_size\": 4,\n  \"image_base\": \"00000000\",\n  \"min_address\": \"10000000\",\n  \"max_address\": \"10163333\",\n  \"memory_size\": 1454890,\n  \"function_count\": 3564,\n  \"external_function_count\": 4,\n  \"entry_points\": [\n    \"101255e0\"\n  ],\n  \"md5\": \"794944a7ca16e70cc9b9624e8b58c6fc\",\n  \"sha256\": \"7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315\"\n}",
+            "annotations": null,
+            "meta": null
+          }
+        ],
+        "structuredContent": {
+          "name": "Hotline Client 1.9.2 Classic",
+          "project_path": "/Hotline Client 1.9.2 Classic",
+          "executable_path": "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+          "executable_format": "Preferred Executable Format (PEF)",
+          "language_id": "PowerPC:BE:32:default",
+          "compiler_spec": "default",
+          "processor": "PowerPC",
+          "endian": "big",
+          "pointer_size": 4,
+          "image_base": "00000000",
+          "min_address": "10000000",
+          "max_address": "10163333",
+          "memory_size": 1454890,
+          "function_count": 3564,
+          "external_function_count": 4,
+          "entry_points": [
+            "101255e0"
+          ],
+          "md5": "794944a7ca16e70cc9b9624e8b58c6fc",
+          "sha256": "7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315"
+        },
+        "isError": false
+      },
+      "finished_at_utc": "2026-11-13T23:29:28.193799+00:00"
+    },
+    {
+      "label": "segments",
+      "tool": "list_segments",
+      "arguments": {
+        "offset": 0,
+        "limit": 20
+      },
+      "at_utc": "2026-11-13T23:29:28.194232+00:00",
+      "result": {
+        "meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"items\": [\n    {\n      \"name\": \"Code\",\n      \"start\": \"10000000\",\n      \"end\": \"1013580f\",\n      \"size\": 1267728,\n      \"permissions\": \"r-x\",\n      \"initialized\": true\n    },\n    {\n      \"name\": \"PackedData\",\n      \"start\": \"10135810\",\n      \"end\": \"10159ef8\",\n      \"size\": 149225,\n      \"permissions\": \"rw-\",\n      \"initialized\": true\n    },\n    {\n      \"name\": \"PackedData\",\n      \"start\": \"10159ef9\",\n      \"end\": \"10162bd5\",\n      \"size\": 36061,\n      \"permissions\": \"rw-\",\n      \"initialized\": false\n    },\n    {\n      \"name\": \"IMPORTS\",\n      \"start\": \"10162be0\",\n      \"end\": \"10163333\",\n      \"size\": 1876,\n      \"permissions\": \"r--\",\n      \"initialized\": true\n    }\n  ],\n  \"offset\": 0,\n  \"limit\": 20,\n  \"total\": 4,\n  \"has_more\": false\n}",
+            "annotations": null,
+            "meta": null
+          }
+        ],
+        "structuredContent": {
+          "items": [
+            {
+              "name": "Code",
+              "start": "10000000",
+              "end": "1013580f",
+              "size": 1267728,
+              "permissions": "r-x",
+              "initialized": true
+            },
+            {
+              "name": "PackedData",
+              "start": "10135810",
+              "end": "10159ef8",
+              "size": 149225,
+              "permissions": "rw-",
+              "initialized": true
+            },
+            {
+              "name": "PackedData",
+              "start": "10159ef9",
+              "end": "10162bd5",
+              "size": 36061,
+              "permissions": "rw-",
+              "initialized": false
+            },
+            {
+              "name": "IMPORTS",
+              "start": "10162be0",
+              "end": "10163333",
+              "size": 1876,
+              "permissions": "r--",
+              "initialized": true
+            }
+          ],
+          "offset": 0,
+          "limit": 20,
+          "total": 4,
+          "has_more": false
+        },
+        "isError": false
+      },
+      "finished_at_utc": "2026-11-13T23:29:28.206187+00:00"
+    },
+    {
+      "label": "code-mapping-witness",
+      "tool": "read_memory",
+      "arguments": {
+        "address": "100b2294",
+        "length": 4
+      },
+      "at_utc": "2026-11-13T23:29:28.207265+00:00",
+      "result": {
+        "meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"address\": \"100b2294\",\n  \"length\": 4,\n  \"hex\": \"38 80 00 6f\",\n  \"ascii\": \"8..o\",\n  \"gaps\": []\n}",
+            "annotations": null,
+            "meta": null
+          }
+        ],
+        "structuredContent": {
+          "address": "100b2294",
+          "length": 4,
+          "hex": "38 80 00 6f",
+          "ascii": "8..o",
+          "gaps": []
+        },
+        "isError": false
+      },
+      "finished_at_utc": "2026-11-13T23:29:28.216515+00:00"
+    },
+    {
+      "label": "field111-a-function",
+      "tool": "get_function_by_address",
+      "arguments": {
+        "address": "100b2294"
+      },
+      "at_utc": "2026-11-13T23:29:28.216989+00:00",
+      "result": {
+        "meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"name\": \"FUN_100b2160\",\n  \"address\": \"100b2160\",\n  \"signature\": \"undefined FUN_100b2160(void)\",\n  \"namespace\": \"Global\",\n  \"body_start\": \"100b2160\",\n  \"body_end\": \"100b235f\",\n  \"body_size\": 512,\n  \"calling_convention\": \"unknown\",\n  \"is_thunk\": false,\n  \"is_external\": false\n}",
+            "annotations": null,
+            "meta": null
+          }
+        ],
+        "structuredContent": {
+          "name": "FUN_100b2160",
+          "address": "100b2160",
+          "signature": "undefined FUN_100b2160(void)",
+          "namespace": "Global",
+          "body_start": "100b2160",
+          "body_end": "100b235f",
+          "body_size": 512,
+          "calling_convention": "unknown",
+          "is_thunk": false,
+          "is_external": false
+        },
+        "isError": false
+      },
+      "finished_at_utc": "2026-11-13T23:29:28.224784+00:00"
+    },
+    {
+      "label": "field111-b-function",
+      "tool": "get_function_by_address",
+      "arguments": {
+        "address": "100b28a0"
+      },
+      "at_utc": "2026-11-13T23:29:28.225242+00:00",
+      "result": {
+        "meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"name\": \"FUN_100b2840\",\n  \"address\": \"100b2840\",\n  \"signature\": \"undefined FUN_100b2840(void)\",\n  \"namespace\": \"Global\",\n  \"body_start\": \"100b2840\",\n  \"body_end\": \"100b28e7\",\n  \"body_size\": 168,\n  \"calling_convention\": \"unknown\",\n  \"is_thunk\": false,\n  \"is_external\": false\n}",
+            "annotations": null,
+            "meta": null
+          }
+        ],
+        "structuredContent": {
+          "name": "FUN_100b2840",
+          "address": "100b2840",
+          "signature": "undefined FUN_100b2840(void)",
+          "namespace": "Global",
+          "body_start": "100b2840",
+          "body_end": "100b28e7",
+          "body_size": 168,
+          "calling_convention": "unknown",
+          "is_thunk": false,
+          "is_external": false
+        },
+        "isError": false
+      },
+      "finished_at_utc": "2026-11-13T23:29:28.234499+00:00"
+    },
+    {
+      "label": "field111-c-function",
+      "tool": "get_function_by_address",
+      "arguments": {
+        "address": "100cf2bc"
+      },
+      "at_utc": "2026-11-13T23:29:28.234971+00:00",
+      "result": {
+        "meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"name\": \"FUN_100cf220\",\n  \"address\": \"100cf220\",\n  \"signature\": \"undefined FUN_100cf220(void)\",\n  \"namespace\": \"Global\",\n  \"body_start\": \"100cf220\",\n  \"body_end\": \"100cf713\",\n  \"body_size\": 1148,\n  \"calling_convention\": \"unknown\",\n  \"is_thunk\": false,\n  \"is_external\": false\n}",
+            "annotations": null,
+            "meta": null
+          }
+        ],
+        "structuredContent": {
+          "name": "FUN_100cf220",
+          "address": "100cf220",
+          "signature": "undefined FUN_100cf220(void)",
+          "namespace": "Global",
+          "body_start": "100cf220",
+          "body_end": "100cf713",
+          "body_size": 1148,
+          "calling_convention": "unknown",
+          "is_thunk": false,
+          "is_external": false
+        },
+        "isError": false
+      },
+      "finished_at_utc": "2026-11-13T23:29:28.241567+00:00"
+    },
+    {
+      "label": "field111-d-function",
+      "tool": "get_function_by_address",
+      "arguments": {
+        "address": "100efa10"
+      },
+      "at_utc": "2026-11-13T23:29:28.242031+00:00",
+      "result": {
+        "meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"name\": \"FUN_100ef9c0\",\n  \"address\": \"100ef9c0\",\n  \"signature\": \"undefined FUN_100ef9c0(void)\",\n  \"namespace\": \"Global\",\n  \"body_start\": \"100ef9c0\",\n  \"body_end\": \"100efa4b\",\n  \"body_size\": 140,\n  \"calling_convention\": \"unknown\",\n  \"is_thunk\": false,\n  \"is_external\": false\n}",
+            "annotations": null,
+            "meta": null
+          }
+        ],
+        "structuredContent": {
+          "name": "FUN_100ef9c0",
+          "address": "100ef9c0",
+          "signature": "undefined FUN_100ef9c0(void)",
+          "namespace": "Global",
+          "body_start": "100ef9c0",
+          "body_end": "100efa4b",
+          "body_size": 140,
+          "calling_convention": "unknown",
+          "is_thunk": false,
+          "is_external": false
+        },
+        "isError": false
+      },
+      "finished_at_utc": "2026-11-13T23:29:28.249156+00:00"
+    },
+    {
+      "label": "request349-function",
+      "tool": "get_function_by_address",
+      "arguments": {
+        "address": "1000c068"
+      },
+      "at_utc": "2026-11-13T23:29:28.249679+00:00",
+      "result": {
+        "meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"name\": \"FUN_1000bfa0\",\n  \"address\": \"1000bfa0\",\n  \"signature\": \"undefined FUN_1000bfa0(void)\",\n  \"namespace\": \"Global\",\n  \"body_start\": \"1000bfa0\",\n  \"body_end\": \"1000c0a3\",\n  \"body_size\": 260,\n  \"calling_convention\": \"unknown\",\n  \"is_thunk\": false,\n  \"is_external\": false\n}",
+            "annotations": null,
+            "meta": null
+          }
+        ],
+        "structuredContent": {
+          "name": "FUN_1000bfa0",
+          "address": "1000bfa0",
+          "signature": "undefined FUN_1000bfa0(void)",
+          "namespace": "Global",
+          "body_start": "1000bfa0",
+          "body_end": "1000c0a3",
+          "body_size": 260,
+          "calling_convention": "unknown",
+          "is_thunk": false,
+          "is_external": false
+        },
+        "isError": false
+      },
+      "finished_at_utc": "2026-11-13T23:29:28.258875+00:00"
+    },
+    {
+      "label": "request350-function",
+      "tool": "get_function_by_address",
+      "arguments": {
+        "address": "1000c3cc"
+      },
+      "at_utc": "2026-11-13T23:29:28.259401+00:00",
+      "result": {
+        "meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"name\": \"FUN_1000c210\",\n  \"address\": \"1000c210\",\n  \"signature\": \"undefined FUN_1000c210(void)\",\n  \"namespace\": \"Global\",\n  \"body_start\": \"1000c210\",\n  \"body_end\": \"1000c3ff\",\n  \"body_size\": 496,\n  \"calling_convention\": \"unknown\",\n  \"is_thunk\": false,\n  \"is_external\": false\n}",
+            "annotations": null,
+            "meta": null
+          }
+        ],
+        "structuredContent": {
+          "name": "FUN_1000c210",
+          "address": "1000c210",
+          "signature": "undefined FUN_1000c210(void)",
+          "namespace": "Global",
+          "body_start": "1000c210",
+          "body_end": "1000c3ff",
+          "body_size": 496,
+          "calling_convention": "unknown",
+          "is_thunk": false,
+          "is_external": false
+        },
+        "isError": false
+      },
+      "finished_at_utc": "2026-11-13T23:29:28.266751+00:00"
+    },
+    {
+      "label": "request353-function",
+      "tool": "get_function_by_address",
+      "arguments": {
+        "address": "1000c9d4"
+      },
+      "at_utc": "2026-11-13T23:29:28.270643+00:00",
+      "result": {
+        "meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"name\": \"FUN_1000c800\",\n  \"address\": \"1000c800\",\n  \"signature\": \"undefined FUN_1000c800(void)\",\n  \"namespace\": \"Global\",\n  \"body_start\": \"1000c800\",\n  \"body_end\": \"1000ca07\",\n  \"body_size\": 520,\n  \"calling_convention\": \"unknown\",\n  \"is_thunk\": false,\n  \"is_external\": false\n}",
+            "annotations": null,
+            "meta": null
+          }
+        ],
+        "structuredContent": {
+          "name": "FUN_1000c800",
+          "address": "1000c800",
+          "signature": "undefined FUN_1000c800(void)",
+          "namespace": "Global",
+          "body_start": "1000c800",
+          "body_end": "1000ca07",
+          "body_size": 520,
+          "calling_convention": "unknown",
+          "is_thunk": false,
+          "is_external": false
+        },
+        "isError": false
+      },
+      "finished_at_utc": "2026-11-13T23:29:28.277949+00:00"
+    },
+    {
+      "label": "field111-a-decompile",
+      "tool": "decompile_function_by_address",
+      "arguments": {
+        "address": "100b2294"
+      },
+      "at_utc": "2026-11-13T23:29:28.278465+00:00",
+      "result": {
+        "meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"function\": {\n    \"name\": \"FUN_100b2160\",\n    \"address\": \"100b2160\"\n  },\n  \"code\": \"\\n/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */\\n\\nundefined4 FUN_100b2160(undefined4 *param_1)\\n\\n{\\n  char cVar4;\\n  int iVar1;\\n  short sVar3;\\n  undefined4 uVar2;\\n  undefined4 uVar5;\\n  int local_30;\\n  int local_2c;\\n  undefined4 local_28;\\n  undefined4 local_24;\\n  undefined2 local_20;\\n  undefined2 uStack_1e;\\n  \\n  if (param_1 == (undefined4 *)0x0) {\\n    FUN_1007d7e0(1,2);\\n  }\\n  uVar5 = *param_1;\\n  if (*(char *)(param_1 + 0x13) < '\\\\0') {\\n    uVar5 = 3;\\n  }\\n  else if ((*(byte *)(param_1 + 0x13) >> 5 & 1) == 0) {\\n    sVar3 = FUN_100c9390(uVar5);\\n    if (sVar3 == 3) {\\n      local_28 = 0x54525450;\\n      local_24 = param_1[0x10];\\n      _local_20 = CONCAT22(1,*(undefined2 *)(param_1 + 0x12));\\n      uVar2 = FUN_1007ff80(_DAT_10136c70,param_1);\\n      param_1[0xe] = uVar2;\\n      FUN_100c9550(uVar5,&local_28,0xc);\\n      FUN_10080130(param_1[0xe],_DAT_10137034,0);\\n      *(byte *)(param_1 + 0x13) = *(byte *)(param_1 + 0x13) & 0xdf | 0x20;\\n      uVar5 = 2;\\n    }\\n    else {\\n      uVar5 = 1;\\n    }\\n  }\\n  else {\\n    cVar4 = FUN_100c91d0(uVar5);\\n    if (cVar4 == '\\\\0') {\\n      FUN_1007d7e0(8,0x66);\\n    }\\n    cVar4 = FUN_100c9850(uVar5,8);\\n    if ((cVar4 != '\\\\0') && (iVar1 = FUN_100c9670(uVar5,&local_30,8), iVar1 != 0)) {\\n      FUN_10080090(param_1[0xe]);\\n      param_1[0xe] = 0;\\n      if (local_30 != 0x54525450) {\\n        FUN_1007d7e0(1,8);\\n      }\\n      if (local_2c != 0) {\\n        FUN_1007d7e0(1,7);\\n      }\\n      *(byte *)(param_1 + 0x13) = *(byte *)(param_1 + 0x13) & 0x7f | 0x80;\\n      return 3;\\n    }\\n    if ((*(byte *)(param_1 + 0x13) >> 6 & 1) != 0) {\\n      FUN_10080090(param_1[0xe]);\\n      param_1[0xe] = 0;\\n      FUN_1007d7e0(8,0x6f);\\n    }\\n    uVar5 = 2;\\n  }\\n  return uVar5;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+            "annotations": null,
+            "meta": null
+          }
+        ],
+        "structuredContent": {
+          "function": {
+            "name": "FUN_100b2160",
+            "address": "100b2160"
+          },
+          "code": "\n/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */\n\nundefined4 FUN_100b2160(undefined4 *param_1)\n\n{\n  char cVar4;\n  int iVar1;\n  short sVar3;\n  undefined4 uVar2;\n  undefined4 uVar5;\n  int local_30;\n  int local_2c;\n  undefined4 local_28;\n  undefined4 local_24;\n  undefined2 local_20;\n  undefined2 uStack_1e;\n  \n  if (param_1 == (undefined4 *)0x0) {\n    FUN_1007d7e0(1,2);\n  }\n  uVar5 = *param_1;\n  if (*(char *)(param_1 + 0x13) < '\\0') {\n    uVar5 = 3;\n  }\n  else if ((*(byte *)(param_1 + 0x13) >> 5 & 1) == 0) {\n    sVar3 = FUN_100c9390(uVar5);\n    if (sVar3 == 3) {\n      local_28 = 0x54525450;\n      local_24 = param_1[0x10];\n      _local_20 = CONCAT22(1,*(undefined2 *)(param_1 + 0x12));\n      uVar2 = FUN_1007ff80(_DAT_10136c70,param_1);\n      param_1[0xe] = uVar2;\n      FUN_100c9550(uVar5,&local_28,0xc);\n      FUN_10080130(param_1[0xe],_DAT_10137034,0);\n      *(byte *)(param_1 + 0x13) = *(byte *)(param_1 + 0x13) & 0xdf | 0x20;\n      uVar5 = 2;\n    }\n    else {\n      uVar5 = 1;\n    }\n  }\n  else {\n    cVar4 = FUN_100c91d0(uVar5);\n    if (cVar4 == '\\0') {\n      FUN_1007d7e0(8,0x66);\n    }\n    cVar4 = FUN_100c9850(uVar5,8);\n    if ((cVar4 != '\\0') && (iVar1 = FUN_100c9670(uVar5,&local_30,8), iVar1 != 0)) {\n      FUN_10080090(param_1[0xe]);\n      param_1[0xe] = 0;\n      if (local_30 != 0x54525450) {\n        FUN_1007d7e0(1,8);\n      }\n      if (local_2c != 0) {\n        FUN_1007d7e0(1,7);\n      }\n      *(byte *)(param_1 + 0x13) = *(byte *)(param_1 + 0x13) & 0x7f | 0x80;\n      return 3;\n    }\n    if ((*(byte *)(param_1 + 0x13) >> 6 & 1) != 0) {\n      FUN_10080090(param_1[0xe]);\n      param_1[0xe] = 0;\n      FUN_1007d7e0(8,0x6f);\n    }\n    uVar5 = 2;\n  }\n  return uVar5;\n}\n\n",
+          "truncated": false
+        },
+        "isError": false
+      },
+      "finished_at_utc": "2026-11-13T23:29:28.599540+00:00"
+    },
+    {
+      "label": "field111-b-decompile",
+      "tool": "decompile_function_by_address",
+      "arguments": {
+        "address": "100b28a0"
+      },
+      "at_utc": "2026-11-13T23:29:28.600051+00:00",
+      "result": {
+        "meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"function\": {\n    \"name\": \"FUN_100b2840\",\n    \"address\": \"100b2840\"\n  },\n  \"code\": \"\\nundefined4 FUN_100b2840(undefined4 *param_1)\\n\\n{\\n  undefined4 uVar1;\\n  int iVar2;\\n  \\n  if (param_1 == (undefined4 *)0x0) {\\n    FUN_1007d7e0(1,2);\\n  }\\n  iVar2 = param_1[4];\\n  if (iVar2 == 0) {\\n    FUN_1007d7e0(1,2);\\n  }\\n  FUN_100b3000(*param_1);\\n  if (*(char *)(param_1 + 5) < '\\\\0') {\\n    FUN_1007d7e0(8,0x6f);\\n  }\\n  uVar1 = 0;\\n  if (((*(byte *)(iVar2 + 0x1c) >> 5 & 1) != 0) && (*(uint *)(iVar2 + 8) <= *(uint *)(iVar2 + 0xc)))\\n  {\\n    uVar1 = 1;\\n  }\\n  return uVar1;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+            "annotations": null,
+            "meta": null
+          }
+        ],
+        "structuredContent": {
+          "function": {
+            "name": "FUN_100b2840",
+            "address": "100b2840"
+          },
+          "code": "\nundefined4 FUN_100b2840(undefined4 *param_1)\n\n{\n  undefined4 uVar1;\n  int iVar2;\n  \n  if (param_1 == (undefined4 *)0x0) {\n    FUN_1007d7e0(1,2);\n  }\n  iVar2 = param_1[4];\n  if (iVar2 == 0) {\n    FUN_1007d7e0(1,2);\n  }\n  FUN_100b3000(*param_1);\n  if (*(char *)(param_1 + 5) < '\\0') {\n    FUN_1007d7e0(8,0x6f);\n  }\n  uVar1 = 0;\n  if (((*(byte *)(iVar2 + 0x1c) >> 5 & 1) != 0) && (*(uint *)(iVar2 + 8) <= *(uint *)(iVar2 + 0xc)))\n  {\n    uVar1 = 1;\n  }\n  return uVar1;\n}\n\n",
+          "truncated": false
+        },
+        "isError": false
+      },
+      "finished_at_utc": "2026-11-13T23:29:28.877946+00:00"
+    },
+    {
+      "label": "field111-c-decompile",
+      "tool": "decompile_function_by_address",
+      "arguments": {
+        "address": "100cf2bc"
+      },
+      "at_utc": "2026-11-13T23:29:28.878548+00:00",
+      "result": {
+        "meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"function\": {\n    \"name\": \"FUN_100cf220\",\n    \"address\": \"100cf220\"\n  },\n  \"code\": \"\\n/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */\\n\\nuint FUN_100cf220(int param_1)\\n\\n{\\n  undefined1 *puVar1;\\n  byte bVar2;\\n  undefined1 uVar3;\\n  undefined4 uVar4;\\n  int iVar5;\\n  short sVar7;\\n  undefined4 uVar6;\\n  uint uVar8;\\n  undefined1 *puVar9;\\n  int iVar10;\\n  uint uVar11;\\n  undefined1 auStack_180 [128];\\n  undefined1 local_b4;\\n  undefined1 uStack_b3;\\n  undefined1 auStack_ac [40];\\n  undefined1 *local_84;\\n  undefined1 *local_6c;\\n  undefined1 *local_54;\\n  undefined1 auStack_50 [4];\\n  uint local_4c;\\n  uint local_48;\\n  ushort local_42;\\n  uint local_40;\\n  uint local_30;\\n  \\n  uVar4 = _DAT_10136cb8;\\n  puVar1 = auStack_180 + 0x80;\\n  uVar11 = *(uint *)(param_1 + 0x38);\\n  do {\\n    while( true ) {\\n      while( true ) {\\n        bVar2 = *(byte *)(param_1 + 0x44);\\n        if (bVar2 != 4) break;\\n        local_54 = puVar1;\\n        uVar6 = FUN_100ac350(*(int *)(param_1 + 0x20) * *(int *)(param_1 + 0x18));\\n        *(undefined4 *)(param_1 + 0x2c) = uVar6;\\n        *(undefined1 *)(param_1 + 0x44) = 5;\\n      }\\n      if (3 < bVar2) break;\\n      if (bVar2 == 2) {\\n        iVar5 = FUN_100d1640(param_1,auStack_50,0x28,0);\\n        if (iVar5 == -2) goto LAB_100cf6ec;\\n        local_40 = local_40 << 0x18 | (local_40 >> 8 & 0xff) << 0x10 |\\n                   (local_40 >> 0x10 & 0xff) << 8 | local_40 >> 0x18;\\n        if (local_40 != 0) {\\n          FUN_1007d7e0(10,0x66);\\n        }\\n        local_4c = local_4c << 0x18 | (local_4c >> 8 & 0xff) << 0x10 |\\n                   (local_4c >> 0x10 & 0xff) << 8 | local_4c >> 0x18;\\n        local_48 = local_48 << 0x18 | (local_48 >> 8 & 0xff) << 0x10 |\\n                   (local_48 >> 0x10 & 0xff) << 8 | local_48 >> 0x18;\\n        uStack_b3 = (undefined1)local_42;\\n        local_b4 = (undefined1)(local_42 >> 8);\\n        local_42 = CONCAT11(uStack_b3,local_b4);\\n        local_30 = local_30 << 0x18 | (local_30 >> 8 & 0xff) << 0x10 |\\n                   (local_30 >> 0x10 & 0xff) << 8 | local_30 >> 0x18;\\n        *(uint *)(param_1 + 0x14) = local_4c;\\n        *(uint *)(param_1 + 0x18) = local_48;\\n        *(uint *)(param_1 + 0x1c) = (uint)local_42;\\n        *(uint *)(param_1 + 0x20) = local_4c * local_42 + 0x1f >> 3 & 0x1ffffffc;\\n        if (local_30 == 0) {\\n          if (local_42 == 4) {\\n            *(undefined4 *)(param_1 + 0x24) = 0x10;\\n          }\\n          else if (local_42 < 4) {\\n            if (local_42 == 1) {\\n              *(undefined4 *)(param_1 + 0x24) = 2;\\n            }\\n            else {\\nLAB_100cf40c:\\n              *(undefined4 *)(param_1 + 0x24) = 0;\\n            }\\n          }\\n          else {\\n            if (local_42 != 8) goto LAB_100cf40c;\\n            *(undefined4 *)(param_1 + 0x24) = 0x100;\\n          }\\n        }\\n        else {\\n          *(uint *)(param_1 + 0x24) = local_30;\\n        }\\n        if (*(int *)(param_1 + 0x24) == 0) {\\n          *(undefined1 *)(param_1 + 0x44) = 4;\\n        }\\n        else {\\n          local_84 = puVar1;\\n          uVar6 = FUN_100ac350(*(int *)(param_1 + 0x24) << 2);\\n          *(undefined4 *)(param_1 + 0x48) = uVar6;\\n          local_6c = puVar1;\\n          uVar6 = FUN_100ac350(*(int *)(param_1 + 0x24) << 2);\\n          *(undefined4 *)(param_1 + 0x30) = uVar6;\\n          *(undefined1 *)(param_1 + 0x44) = 3;\\n        }\\n      }\\n      else if (bVar2 < 2) {\\n        if ((bVar2 == 0) || (iVar5 = FUN_100d1640(param_1,auStack_ac,0xe,0), iVar5 == -2))\\n        goto LAB_100cf6ec;\\n        sVar7 = FUN_100c8920(auStack_ac,uVar4,2);\\n        if (sVar7 != 0) {\\n          FUN_1007d7e0(10,0x6f);\\n        }\\n        *(undefined1 *)(param_1 + 0x44) = 2;\\n      }\\n      else {\\n        iVar5 = FUN_100d1640(param_1,*(undefined4 *)(param_1 + 0x48),*(int *)(param_1 + 0x24) << 2,0\\n                            );\\n        if (iVar5 == -2) goto LAB_100cf6ec;\\n        puVar9 = *(undefined1 **)(param_1 + 0x30);\\n        for (uVar8 = 0; (uVar8 & 0xffff) < *(uint *)(param_1 + 0x24); uVar8 = uVar8 + 1) {\\n          *puVar9 = *(undefined1 *)(*(int *)(param_1 + 0x48) + (uVar8 & 0xffff) * 4 + 2);\\n          puVar9[1] = *(undefined1 *)(*(int *)(param_1 + 0x48) + (uVar8 & 0xffff) * 4 + 1);\\n          puVar9[2] = *(undefined1 *)(*(int *)(param_1 + 0x48) + (uVar8 & 0xffff) * 4);\\n          puVar9[3] = 0;\\n          puVar9 = puVar9 + 4;\\n        }\\n        FUN_100ac3f0(*(undefined4 *)(param_1 + 0x48));\\n        *(undefined4 *)(param_1 + 0x48) = 0;\\n        *(undefined1 *)(param_1 + 0x44) = 4;\\n      }\\n    }\\n    if (bVar2 == 6) {\\n      *(undefined1 *)(param_1 + 0x43) = 1;\\nLAB_100cf6ec:\\n      return (*(uint *)(param_1 + 0x38) << LZCOUNT(*(uint *)(param_1 + 0x38) ^ uVar11)) >> 0x1f;\\n    }\\n    if (5 < bVar2) goto LAB_100cf6ec;\\n    while (*(uint *)(param_1 + 0x38) < *(uint *)(param_1 + 0x18)) {\\n      iVar10 = *(int *)(param_1 + 0x2c) +\\n               *(int *)(param_1 + 0x20) *\\n               ((*(int *)(param_1 + 0x18) - *(int *)(param_1 + 0x38)) + -1);\\n      iVar5 = FUN_100d1640(param_1,iVar10,*(undefined4 *)(param_1 + 0x20),0);\\n      if (iVar5 == -2) break;\\n      if (*(int *)(param_1 + 0x1c) == 0x10) {\\n        for (uVar8 = 0; (uVar8 & 0xffff) < *(uint *)(param_1 + 0x14); uVar8 = uVar8 + 1) {\\n          *(ushort *)(iVar10 + (uVar8 & 0xffff) * 2) =\\n               *(short *)(iVar10 + (uVar8 & 0xffff) * 2) << 0xf |\\n               (ushort)((int)(uint)*(ushort *)(iVar10 + (uVar8 & 0xffff) * 2) >> 1);\\n        }\\n      }\\n      if (*(int *)(param_1 + 0x1c) == 0x18) {\\n        for (uVar8 = 0; (uVar8 & 0xffff) < *(uint *)(param_1 + 0x14); uVar8 = uVar8 + 1) {\\n          uVar3 = *(undefined1 *)(iVar10 + (uVar8 & 0xffff) * 3);\\n          *(undefined1 *)(iVar10 + (uVar8 & 0xffff) * 3) =\\n               *(undefined1 *)(iVar10 + (uVar8 & 0xffff) * 3 + 2);\\n          *(undefined1 *)(iVar10 + (uVar8 & 0xffff) * 3 + 2) = uVar3;\\n        }\\n      }\\n      *(int *)(param_1 + 0x38) = *(int *)(param_1 + 0x38) + 1;\\n    }\\n    if (*(int *)(param_1 + 0x38) != *(int *)(param_1 + 0x18)) goto LAB_100cf6ec;\\n    *(undefined1 *)(param_1 + 0x44) = 6;\\n  } while( true );\\n}\\n\\n\",\n  \"truncated\": false\n}",
+            "annotations": null,
+            "meta": null
+          }
+        ],
+        "structuredContent": {
+          "function": {
+            "name": "FUN_100cf220",
+            "address": "100cf220"
+          },
+          "code": "\n/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */\n\nuint FUN_100cf220(int param_1)\n\n{\n  undefined1 *puVar1;\n  byte bVar2;\n  undefined1 uVar3;\n  undefined4 uVar4;\n  int iVar5;\n  short sVar7;\n  undefined4 uVar6;\n  uint uVar8;\n  undefined1 *puVar9;\n  int iVar10;\n  uint uVar11;\n  undefined1 auStack_180 [128];\n  undefined1 local_b4;\n  undefined1 uStack_b3;\n  undefined1 auStack_ac [40];\n  undefined1 *local_84;\n  undefined1 *local_6c;\n  undefined1 *local_54;\n  undefined1 auStack_50 [4];\n  uint local_4c;\n  uint local_48;\n  ushort local_42;\n  uint local_40;\n  uint local_30;\n  \n  uVar4 = _DAT_10136cb8;\n  puVar1 = auStack_180 + 0x80;\n  uVar11 = *(uint *)(param_1 + 0x38);\n  do {\n    while( true ) {\n      while( true ) {\n        bVar2 = *(byte *)(param_1 + 0x44);\n        if (bVar2 != 4) break;\n        local_54 = puVar1;\n        uVar6 = FUN_100ac350(*(int *)(param_1 + 0x20) * *(int *)(param_1 + 0x18));\n        *(undefined4 *)(param_1 + 0x2c) = uVar6;\n        *(undefined1 *)(param_1 + 0x44) = 5;\n      }\n      if (3 < bVar2) break;\n      if (bVar2 == 2) {\n        iVar5 = FUN_100d1640(param_1,auStack_50,0x28,0);\n        if (iVar5 == -2) goto LAB_100cf6ec;\n        local_40 = local_40 << 0x18 | (local_40 >> 8 & 0xff) << 0x10 |\n                   (local_40 >> 0x10 & 0xff) << 8 | local_40 >> 0x18;\n        if (local_40 != 0) {\n          FUN_1007d7e0(10,0x66);\n        }\n        local_4c = local_4c << 0x18 | (local_4c >> 8 & 0xff) << 0x10 |\n                   (local_4c >> 0x10 & 0xff) << 8 | local_4c >> 0x18;\n        local_48 = local_48 << 0x18 | (local_48 >> 8 & 0xff) << 0x10 |\n                   (local_48 >> 0x10 & 0xff) << 8 | local_48 >> 0x18;\n        uStack_b3 = (undefined1)local_42;\n        local_b4 = (undefined1)(local_42 >> 8);\n        local_42 = CONCAT11(uStack_b3,local_b4);\n        local_30 = local_30 << 0x18 | (local_30 >> 8 & 0xff) << 0x10 |\n                   (local_30 >> 0x10 & 0xff) << 8 | local_30 >> 0x18;\n        *(uint *)(param_1 + 0x14) = local_4c;\n        *(uint *)(param_1 + 0x18) = local_48;\n        *(uint *)(param_1 + 0x1c) = (uint)local_42;\n        *(uint *)(param_1 + 0x20) = local_4c * local_42 + 0x1f >> 3 & 0x1ffffffc;\n        if (local_30 == 0) {\n          if (local_42 == 4) {\n            *(undefined4 *)(param_1 + 0x24) = 0x10;\n          }\n          else if (local_42 < 4) {\n            if (local_42 == 1) {\n              *(undefined4 *)(param_1 + 0x24) = 2;\n            }\n            else {\nLAB_100cf40c:\n              *(undefined4 *)(param_1 + 0x24) = 0;\n            }\n          }\n          else {\n            if (local_42 != 8) goto LAB_100cf40c;\n            *(undefined4 *)(param_1 + 0x24) = 0x100;\n          }\n        }\n        else {\n          *(uint *)(param_1 + 0x24) = local_30;\n        }\n        if (*(int *)(param_1 + 0x24) == 0) {\n          *(undefined1 *)(param_1 + 0x44) = 4;\n        }\n        else {\n          local_84 = puVar1;\n          uVar6 = FUN_100ac350(*(int *)(param_1 + 0x24) << 2);\n          *(undefined4 *)(param_1 + 0x48) = uVar6;\n          local_6c = puVar1;\n          uVar6 = FUN_100ac350(*(int *)(param_1 + 0x24) << 2);\n          *(undefined4 *)(param_1 + 0x30) = uVar6;\n          *(undefined1 *)(param_1 + 0x44) = 3;\n        }\n      }\n      else if (bVar2 < 2) {\n        if ((bVar2 == 0) || (iVar5 = FUN_100d1640(param_1,auStack_ac,0xe,0), iVar5 == -2))\n        goto LAB_100cf6ec;\n        sVar7 = FUN_100c8920(auStack_ac,uVar4,2);\n        if (sVar7 != 0) {\n          FUN_1007d7e0(10,0x6f);\n        }\n        *(undefined1 *)(param_1 + 0x44) = 2;\n      }\n      else {\n        iVar5 = FUN_100d1640(param_1,*(undefined4 *)(param_1 + 0x48),*(int *)(param_1 + 0x24) << 2,0\n                            );\n        if (iVar5 == -2) goto LAB_100cf6ec;\n        puVar9 = *(undefined1 **)(param_1 + 0x30);\n        for (uVar8 = 0; (uVar8 & 0xffff) < *(uint *)(param_1 + 0x24); uVar8 = uVar8 + 1) {\n          *puVar9 = *(undefined1 *)(*(int *)(param_1 + 0x48) + (uVar8 & 0xffff) * 4 + 2);\n          puVar9[1] = *(undefined1 *)(*(int *)(param_1 + 0x48) + (uVar8 & 0xffff) * 4 + 1);\n          puVar9[2] = *(undefined1 *)(*(int *)(param_1 + 0x48) + (uVar8 & 0xffff) * 4);\n          puVar9[3] = 0;\n          puVar9 = puVar9 + 4;\n        }\n        FUN_100ac3f0(*(undefined4 *)(param_1 + 0x48));\n        *(undefined4 *)(param_1 + 0x48) = 0;\n        *(undefined1 *)(param_1 + 0x44) = 4;\n      }\n    }\n    if (bVar2 == 6) {\n      *(undefined1 *)(param_1 + 0x43) = 1;\nLAB_100cf6ec:\n      return (*(uint *)(param_1 + 0x38) << LZCOUNT(*(uint *)(param_1 + 0x38) ^ uVar11)) >> 0x1f;\n    }\n    if (5 < bVar2) goto LAB_100cf6ec;\n    while (*(uint *)(param_1 + 0x38) < *(uint *)(param_1 + 0x18)) {\n      iVar10 = *(int *)(param_1 + 0x2c) +\n               *(int *)(param_1 + 0x20) *\n               ((*(int *)(param_1 + 0x18) - *(int *)(param_1 + 0x38)) + -1);\n      iVar5 = FUN_100d1640(param_1,iVar10,*(undefined4 *)(param_1 + 0x20),0);\n      if (iVar5 == -2) break;\n      if (*(int *)(param_1 + 0x1c) == 0x10) {\n        for (uVar8 = 0; (uVar8 & 0xffff) < *(uint *)(param_1 + 0x14); uVar8 = uVar8 + 1) {\n          *(ushort *)(iVar10 + (uVar8 & 0xffff) * 2) =\n               *(short *)(iVar10 + (uVar8 & 0xffff) * 2) << 0xf |\n               (ushort)((int)(uint)*(ushort *)(iVar10 + (uVar8 & 0xffff) * 2) >> 1);\n        }\n      }\n      if (*(int *)(param_1 + 0x1c) == 0x18) {\n        for (uVar8 = 0; (uVar8 & 0xffff) < *(uint *)(param_1 + 0x14); uVar8 = uVar8 + 1) {\n          uVar3 = *(undefined1 *)(iVar10 + (uVar8 & 0xffff) * 3);\n          *(undefined1 *)(iVar10 + (uVar8 & 0xffff) * 3) =\n               *(undefined1 *)(iVar10 + (uVar8 & 0xffff) * 3 + 2);\n          *(undefined1 *)(iVar10 + (uVar8 & 0xffff) * 3 + 2) = uVar3;\n        }\n      }\n      *(int *)(param_1 + 0x38) = *(int *)(param_1 + 0x38) + 1;\n    }\n    if (*(int *)(param_1 + 0x38) != *(int *)(param_1 + 0x18)) goto LAB_100cf6ec;\n    *(undefined1 *)(param_1 + 0x44) = 6;\n  } while( true );\n}\n\n",
+          "truncated": false
+        },
+        "isError": false
+      },
+      "finished_at_utc": "2026-11-13T23:29:29.215991+00:00"
+    },
+    {
+      "label": "field111-d-decompile",
+      "tool": "decompile_function_by_address",
+      "arguments": {
+        "address": "100efa10"
+      },
+      "at_utc": "2026-11-13T23:29:29.216508+00:00",
+      "result": {
+        "meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"function\": {\n    \"name\": \"FUN_100ef9c0\",\n    \"address\": \"100ef9c0\"\n  },\n  \"code\": \"\\nundefined4 FUN_100ef9c0(int param_1)\\n\\n{\\n  undefined4 uVar1;\\n  \\n  if (param_1 == 0) {\\n    FUN_1007d7e0(1,2);\\n  }\\n  if ((*(char *)(param_1 + 0xb) == '\\\\0') && (*(char *)(param_1 + 0xc) == '\\\\0')) {\\n    uVar1 = 1;\\n    if (*(char *)(param_1 + 0xd) != '\\\\0') {\\n      uVar1 = 3;\\n    }\\n  }\\n  else {\\n    if (*(char *)(param_1 + 0xe) != '\\\\0') {\\n      FUN_1007d7e0(8,0x6f);\\n    }\\n    uVar1 = 2;\\n  }\\n  return uVar1;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+            "annotations": null,
+            "meta": null
+          }
+        ],
+        "structuredContent": {
+          "function": {
+            "name": "FUN_100ef9c0",
+            "address": "100ef9c0"
+          },
+          "code": "\nundefined4 FUN_100ef9c0(int param_1)\n\n{\n  undefined4 uVar1;\n  \n  if (param_1 == 0) {\n    FUN_1007d7e0(1,2);\n  }\n  if ((*(char *)(param_1 + 0xb) == '\\0') && (*(char *)(param_1 + 0xc) == '\\0')) {\n    uVar1 = 1;\n    if (*(char *)(param_1 + 0xd) != '\\0') {\n      uVar1 = 3;\n    }\n  }\n  else {\n    if (*(char *)(param_1 + 0xe) != '\\0') {\n      FUN_1007d7e0(8,0x6f);\n    }\n    uVar1 = 2;\n  }\n  return uVar1;\n}\n\n",
+          "truncated": false
+        },
+        "isError": false
+      },
+      "finished_at_utc": "2026-11-13T23:29:29.483866+00:00"
+    },
+    {
+      "label": "identity-after",
+      "tool": "get_program_info",
+      "arguments": {},
+      "at_utc": "2026-11-13T23:29:29.484384+00:00",
+      "result": {
+        "meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"name\": \"Hotline Client 1.9.2 Classic\",\n  \"project_path\": \"/Hotline Client 1.9.2 Classic\",\n  \"executable_path\": \"/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic\",\n  \"executable_format\": \"Preferred Executable Format (PEF)\",\n  \"language_id\": \"PowerPC:BE:32:default\",\n  \"compiler_spec\": \"default\",\n  \"processor\": \"PowerPC\",\n  \"endian\": \"big\",\n  \"pointer_size\": 4,\n  \"image_base\": \"00000000\",\n  \"min_address\": \"10000000\",\n  \"max_address\": \"10163333\",\n  \"memory_size\": 1454890,\n  \"function_count\": 3564,\n  \"external_function_count\": 4,\n  \"entry_points\": [\n    \"101255e0\"\n  ],\n  \"md5\": \"794944a7ca16e70cc9b9624e8b58c6fc\",\n  \"sha256\": \"7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315\"\n}",
+            "annotations": null,
+            "meta": null
+          }
+        ],
+        "structuredContent": {
+          "name": "Hotline Client 1.9.2 Classic",
+          "project_path": "/Hotline Client 1.9.2 Classic",
+          "executable_path": "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+          "executable_format": "Preferred Executable Format (PEF)",
+          "language_id": "PowerPC:BE:32:default",
+          "compiler_spec": "default",
+          "processor": "PowerPC",
+          "endian": "big",
+          "pointer_size": 4,
+          "image_base": "00000000",
+          "min_address": "10000000",
+          "max_address": "10163333",
+          "memory_size": 1454890,
+          "function_count": 3564,
+          "external_function_count": 4,
+          "entry_points": [
+            "101255e0"
+          ],
+          "md5": "794944a7ca16e70cc9b9624e8b58c6fc",
+          "sha256": "7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315"
+        },
+        "isError": false
+      },
+      "finished_at_utc": "2026-11-13T23:29:29.498069+00:00"
+    }
+  ],
+  "segments": {
+    "items": [
+      {
+        "name": "Code",
+        "start": "10000000",
+        "end": "1013580f",
+        "size": 1267728,
+        "permissions": "r-x",
+        "initialized": true
+      },
+      {
+        "name": "PackedData",
+        "start": "10135810",
+        "end": "10159ef8",
+        "size": 149225,
+        "permissions": "rw-",
+        "initialized": true
+      },
+      {
+        "name": "PackedData",
+        "start": "10159ef9",
+        "end": "10162bd5",
+        "size": 36061,
+        "permissions": "rw-",
+        "initialized": false
+      },
+      {
+        "name": "IMPORTS",
+        "start": "10162be0",
+        "end": "10163333",
+        "size": 1876,
+        "permissions": "r--",
+        "initialized": true
+      }
+    ],
+    "offset": 0,
+    "limit": 20,
+    "total": 4,
+    "has_more": false
+  },
+  "candidate_code_bases": [
+    "0x10000000"
+  ],
+  "code_base": "10000000",
+  "finished_at_utc": "2026-11-13T23:29:30.711050+00:00",
+  "elapsed_seconds": 72.3229549059979
+}

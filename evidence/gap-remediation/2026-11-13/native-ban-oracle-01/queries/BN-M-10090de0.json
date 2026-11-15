@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-13T22:46:49.481125+00:00",
+  "query": {
+    "id": "BN-M-10090de0",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "10090de0",
+      "length": 86
+    }
+  },
+  "program": {
+    "name": "HLserver19.pef",
+    "project_path": "/HLserver19.pef",
+    "executable_path": "/data/leynos/Projects/mothra/evidence/hotline-server-1.9/inputs/HLserver19.pef",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"address\": \"10090de0\",\n  \"length\": 86,\n  \"hex\": \"2a 59 6f 75 20 61 72 65 20 70 65 72 6d 61 6e 65 6e 74 6c 79 20 62 61 6e 6e 65 64 20 6f 6e 20 74 68 69 73 20 73 65 72 76 65 72 2e 2a 59 6f 75 20 61 72 65 20 74 65 6d 70 6f 72 61 72 69 6c 79 20 62 61 6e 6e 65 64 20 6f 6e 20 74 68 69 73 20 73 65 72 76 65 72 2e\",\n  \"ascii\": \"*You are permanently banned on this server.*You are temporarily banned on this server.\",\n  \"gaps\": []\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "address": "10090de0",
+      "length": 86,
+      "hex": "2a 59 6f 75 20 61 72 65 20 70 65 72 6d 61 6e 65 6e 74 6c 79 20 62 61 6e 6e 65 64 20 6f 6e 20 74 68 69 73 20 73 65 72 76 65 72 2e 2a 59 6f 75 20 61 72 65 20 74 65 6d 70 6f 72 61 72 69 6c 79 20 62 61 6e 6e 65 64 20 6f 6e 20 74 68 69 73 20 73 65 72 76 65 72 2e",
+      "ascii": "*You are permanently banned on this server.*You are temporarily banned on this server.",
+      "gaps": []
+    },
+    "isError": false
+  }
+}

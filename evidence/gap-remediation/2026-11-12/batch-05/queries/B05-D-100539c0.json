@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T14:11:27.853477+00:00",
+  "query": {
+    "id": "B05-D-100539c0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100539c0"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_100539c0\",\n    \"address\": \"100539c0\"\n  },\n  \"code\": \"\\nundefined4 FUN_100539c0(undefined4 param_1,undefined4 param_2,undefined4 param_3)\\n\\n{\\n  .glue::BlockMoveData(param_2,param_1);\\n  return param_3;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_100539c0",
+        "address": "100539c0"
+      },
+      "code": "\nundefined4 FUN_100539c0(undefined4 param_1,undefined4 param_2,undefined4 param_3)\n\n{\n  .glue::BlockMoveData(param_2,param_1);\n  return param_3;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "captured_at_utc": "2026-11-14T08:16:42.376198+00:00",
+  "query": {
+    "id": "LB06-1008fcf9-month-candidate",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "1008fcf9",
+      "length": 64
+    }
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"address\": \"1008fcf9\",\n  \"length\": 64,\n  \"hex\": \"4a 61 6e 00 46 65 62 00 4d 61 72 00 41 70 72 00 4d 61 79 00 4a 75 6e 00 4a 75 6c 00 41 75 67 00 53 65 70 00 4f 63 74 00 4e 6f 76 00 44 65 63 00 3f 3f 3f 00 2a 2a 2a 00 49 27 6d 20 6e 6f 74 20\",\n  \"ascii\": \"Jan.Feb.Mar.Apr.May.Jun.Jul.Aug.Sep.Oct.Nov.Dec.???.***.I'm not \",\n  \"gaps\": []\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "address": "1008fcf9",
+      "length": 64,
+      "hex": "4a 61 6e 00 46 65 62 00 4d 61 72 00 41 70 72 00 4d 61 79 00 4a 75 6e 00 4a 75 6c 00 41 75 67 00 53 65 70 00 4f 63 74 00 4e 6f 76 00 44 65 63 00 3f 3f 3f 00 2a 2a 2a 00 49 27 6d 20 6e 6f 74 20",
+      "ascii": "Jan.Feb.Mar.Apr.May.Jun.Jul.Aug.Sep.Oct.Nov.Dec.???.***.I'm not ",
+      "gaps": []
+    },
+    "isError": false
+  }
+}

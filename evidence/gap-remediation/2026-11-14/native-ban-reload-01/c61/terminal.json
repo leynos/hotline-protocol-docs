@@ -1,0 +1,56 @@
+{
+  "utc": "2026-11-14T04:02:27.945192+00:00",
+  "profile": "persisted-ban-reload-readonly",
+  "full_file_baseline": "not_exercised",
+  "actual_emulator_pid": 415512,
+  "actual_pid_gone": true,
+  "server_quit_normal": true,
+  "guest_emulator_forced_term": true,
+  "working_fd_holders": [],
+  "stopped_image_sha256": "1a0f7ede44b2261ca0e2d264d25833337a5f0780bdf02b7f228b678233f00b64",
+  "Banned": {
+    "bytes": 49,
+    "sha256": "53bec37683dc9bab6cc812f38fa465724085e9c35fc5b7bdf72e25dd09b727d4"
+  },
+  "primary_syn_packets": 0,
+  "primary_syn_bytes": 24,
+  "namespace_packets": 13,
+  "namespace_bytes": 1274,
+  "host_recorder_log_tail": [
+    "0 packets captured",
+    "0 packets received by filter",
+    "0 packets dropped by kernel"
+  ],
+  "namespace_recorder_log_tail": [
+    "13 packets captured",
+    "26 packets received by filter",
+    "0 packets dropped by kernel"
+  ],
+  "original": {
+    "primary": {
+      "pid": 1099659,
+      "starttime": "767842",
+      "fd6": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/working.dsk",
+      "fd16": "/data/leynos/Projects/mothra/state/native-sessions/recovery-20261113-01/guest.pcap"
+    },
+    "client": {
+      "pid": 1012834,
+      "starttime": "2357813",
+      "fd6": "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/working.dsk",
+      "fd16": "/data/leynos/Projects/mothra/state/native-sessions/mac-peer-isolated-01/client-guest.pcap"
+    }
+  },
+  "owned_ports_absent": true,
+  "units": {
+    "mothra-sheep-bc2add75bbfa": "ActiveState=inactive\nMainPID=0\nResult=success\n",
+    "mothra-bridge-f8eb71efdf91": "ActiveState=inactive\nMainPID=0\nResult=success\n",
+    "mothra-xbridge-f8eb71efdf91": "ActiveState=inactive\nMainPID=0\nResult=success\n",
+    "mothra-display-51cf6b75610b": "ActiveState=inactive\nMainPID=0\nResult=success\n",
+    "mothra-config-ban-ui-c61-host": "ActiveState=inactive\nMainPID=0\nResult=success\nExecMainStatus=0\n",
+    "mothra-config-ban-ui-c61-namespace": "ActiveState=inactive\nMainPID=0\nResult=success\nExecMainStatus=0\n",
+    "mothra-config-ban-c62-probe": "ActiveState=inactive\nMainPID=0\nResult=success\nExecMainStatus=0\n"
+  },
+  "probe_one_success": true,
+  "probe_reruns": 0,
+  "account_or_ban_mutations": false
+}

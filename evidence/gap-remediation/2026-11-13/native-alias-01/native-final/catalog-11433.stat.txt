@@ -1,0 +1,29 @@
+File Path: /Hotline19/Files/mothra-alias20/zero-tags
+Catalog Record: 11433
+Allocated
+Type:	File
+Mode:	r---------
+Size:	9
+uid / gid: 99 / 99
+Link count:	1
+
+File Name: zero-tags
+Admin flags: 0
+Owner flags: 0
+File type:	0000      
+File creator:	0000      
+Text encoding:	0 = MacRoman
+Resource fork size:	0
+
+Times:
+Created:	2026-11-13 13:25:12 (GMT)
+Content Modified:	2026-11-13 13:25:12 (GMT)
+Attributes Modified:	0000-00-00 00:00:00 (UTC)
+Accessed:	0000-00-00 00:00:00 (UTC)
+Backed Up:	0000-00-00 00:00:00 (UTC)
+
+Data Fork Blocks:
+890574  
+
+Attributes: 
+Type: DATA (4352-0)   Name: N/A   Non-Resident   size: 9  init_size: 9

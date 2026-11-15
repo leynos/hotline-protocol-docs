@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-13T02:15:17.757383+00:00",
+  "query": {
+    "id": "LX-D-10000160",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10000160"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_10000160\",\n    \"address\": \"10000160\"\n  },\n  \"code\": \"\\nundefined4 * FUN_10000160(undefined4 *param_1)\\n\\n{\\n  undefined1 auStack_100 [128];\\n  undefined8 local_40;\\n  undefined8 local_38;\\n  undefined8 local_30;\\n  undefined1 *local_14;\\n  \\n  FUN_10028230();\\n  *param_1 = &PTR_PTR_1008f838;\\n  param_1[6] = 0;\\n  param_1[7] = 0;\\n  param_1[8] = 0;\\n  param_1[9] = 0;\\n  param_1[10] = 0;\\n  param_1[0xc] = 0;\\n  param_1[0xd] = 0;\\n  FUN_10055460(param_1 + 0xe);\\n  FUN_10055460(param_1 + 0x11);\\n  FUN_10055460(param_1 + 0x14);\\n  FUN_10055460(param_1 + 0x17);\\n  FUN_10055460(param_1 + 0x1a);\\n  FUN_10055460(param_1 + 0x1d);\\n  FUN_10055460(param_1 + 0x20);\\n  param_1[0x108] = 0;\\n  FUN_10055460(param_1 + 0x10f);\\n  FUN_10055460(param_1 + 0x112);\\n  local_40 = *(undefined8 *)PTR_DAT_10089160;\\n  local_38 = *(undefined8 *)(PTR_DAT_10089160 + 8);\\n  local_30 = *(undefined8 *)(PTR_DAT_10089160 + 0x10);\\n  *(undefined1 *)(param_1 + 0x2ab) = 0;\\n  *(byte *)(param_1 + 0x32) = *(byte *)(param_1 + 0x32) & 0xbf;\\n  local_14 = auStack_100 + 0x80;\\n  FUN_10057870();\\n  FUN_1006cd50(param_1 + 0x27,0x14);\\n  param_1[1] = 0;\\n  param_1[2] = 0;\\n  param_1[3] = 0;\\n  param_1[4] = 0;\\n  param_1[5] = 0;\\n  param_1[0xb] = 0;\\n  param_1[0x30] = 0;\\n  *(undefined2 *)((int)param_1 + 0xbe) = 0;\\n  *(undefined2 *)(param_1 + 0x2f) = 0;\\n  *(undefined2 *)(param_1 + 0x31) = 0;\\n  param_1[0x24] = 0;\\n  param_1[0x23] = 0;\\n  param_1[0x25] = 0;\\n  param_1[0x26] = 0;\\n  *(byte *)(param_1 + 0x32) = *(byte *)(param_1 + 0x32) & 0x7f;\\n  FUN_1006cd50(param_1 + 0x10a,0x14);\\n  *(undefined2 *)(param_1 + 0x103) = 0;\\n  *(undefined1 *)(param_1 + 0x109) = 0;\\n  param_1[0x107] = 0;\\n  param_1[0x2e] = 0;\\n  param_1[0x2d] = 0;\\n  param_1[0x2c] = 0;\\n  param_1[0x106] = 0;\\n  param_1[0x105] = 0;\\n  param_1[0x104] = 0;\\n  FUN_1003b300(&local_40,3,PTR_PTR_10088d98,param_1);\\n  return param_1;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_10000160",
+        "address": "10000160"
+      },
+      "code": "\nundefined4 * FUN_10000160(undefined4 *param_1)\n\n{\n  undefined1 auStack_100 [128];\n  undefined8 local_40;\n  undefined8 local_38;\n  undefined8 local_30;\n  undefined1 *local_14;\n  \n  FUN_10028230();\n  *param_1 = &PTR_PTR_1008f838;\n  param_1[6] = 0;\n  param_1[7] = 0;\n  param_1[8] = 0;\n  param_1[9] = 0;\n  param_1[10] = 0;\n  param_1[0xc] = 0;\n  param_1[0xd] = 0;\n  FUN_10055460(param_1 + 0xe);\n  FUN_10055460(param_1 + 0x11);\n  FUN_10055460(param_1 + 0x14);\n  FUN_10055460(param_1 + 0x17);\n  FUN_10055460(param_1 + 0x1a);\n  FUN_10055460(param_1 + 0x1d);\n  FUN_10055460(param_1 + 0x20);\n  param_1[0x108] = 0;\n  FUN_10055460(param_1 + 0x10f);\n  FUN_10055460(param_1 + 0x112);\n  local_40 = *(undefined8 *)PTR_DAT_10089160;\n  local_38 = *(undefined8 *)(PTR_DAT_10089160 + 8);\n  local_30 = *(undefined8 *)(PTR_DAT_10089160 + 0x10);\n  *(undefined1 *)(param_1 + 0x2ab) = 0;\n  *(byte *)(param_1 + 0x32) = *(byte *)(param_1 + 0x32) & 0xbf;\n  local_14 = auStack_100 + 0x80;\n  FUN_10057870();\n  FUN_1006cd50(param_1 + 0x27,0x14);\n  param_1[1] = 0;\n  param_1[2] = 0;\n  param_1[3] = 0;\n  param_1[4] = 0;\n  param_1[5] = 0;\n  param_1[0xb] = 0;\n  param_1[0x30] = 0;\n  *(undefined2 *)((int)param_1 + 0xbe) = 0;\n  *(undefined2 *)(param_1 + 0x2f) = 0;\n  *(undefined2 *)(param_1 + 0x31) = 0;\n  param_1[0x24] = 0;\n  param_1[0x23] = 0;\n  param_1[0x25] = 0;\n  param_1[0x26] = 0;\n  *(byte *)(param_1 + 0x32) = *(byte *)(param_1 + 0x32) & 0x7f;\n  FUN_1006cd50(param_1 + 0x10a,0x14);\n  *(undefined2 *)(param_1 + 0x103) = 0;\n  *(undefined1 *)(param_1 + 0x109) = 0;\n  param_1[0x107] = 0;\n  param_1[0x2e] = 0;\n  param_1[0x2d] = 0;\n  param_1[0x2c] = 0;\n  param_1[0x106] = 0;\n  param_1[0x105] = 0;\n  param_1[0x104] = 0;\n  FUN_1003b300(&local_40,3,PTR_PTR_10088d98,param_1);\n  return param_1;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

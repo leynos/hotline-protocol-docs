@@ -1,0 +1,31 @@
+Updating 20e891a..cb90788
+Fast-forward
+ cli-defs/src/lib.rs                                |   4 +
+ docs/design.md                                     |  43 +++---
+ docs/internal-compatibility-matrix.md              |  84 ++++------
+ docs/protocol.md                                   |  18 +--
+ docs/users-guide.md                                |  29 ++--
+ src/server/cli_tests/precedence.rs                 |  14 +-
+ src/server/wireframe/mod.rs                        |  99 +++++++-----
+ src/server/wireframe/tests.rs                      |  28 +++-
+ src/wireframe/auth_strategy.rs                     |  40 +----
+ src/wireframe/compat_layer.rs                      |   7 +-
+ src/wireframe/compat_policy/kani.rs                |  64 ++------
+ src/wireframe/compat_policy/mod.rs                 |  70 +++------
+ src/wireframe/compat_policy_tests.rs               | 119 +++++----------
+ src/wireframe/login_reply_augmenter.rs             |  15 +-
+ src/wireframe/router.rs                            |  27 ++--
+ src/wireframe/router_tests.rs                      |   5 +-
+ src/wireframe/routes/tests/direct_ack_cases.rs     | 170 ++++++++++++++++++++-
+ src/wireframe/routes/tests/error_cases.rs          |   1 +
+ src/wireframe/routes/tests/helpers.rs              |  28 +++-
+ src/wireframe/routes/tests/middleware_cases.rs     |   1 +
+ src/wireframe/routes/tests/routing_cases.rs        |   8 +-
+ tests/create_user_bdd.rs                           |   1 +
+ tests/features/wireframe_compat_guardrails.feature |  12 +-
+ tests/features/wireframe_login_compat.feature      |  24 +--
+ tests/session_privileges_bdd.rs                    |   1 +
+ tests/wireframe_compat_guardrails_bdd.rs           |   5 +-
+ tests/wireframe_login_compat.rs                    |   4 +-
+ .../wireframe_presence_support.rs                  |   1 +
+ 28 files changed, 516 insertions(+), 406 deletions(-)

@@ -1,0 +1,9 @@
+a878064e2337c297d4704b45a2580f73a7022b1089ba5f95d62d3b68e38239c2  evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/as-run.txt
+1e86a927c7ce349b383de592d62d6bef629c96ecf97b275b82e590f62453cbe6  evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/capture/checksums.sha256
+5d0aa3dccf65fc6523678aa729c9ace72cd6caffbef768b7f5bf949e6568b43e  evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/capture/plan.json
+5db4f2a8ea5f039fb3e186b4ff998854696c82aeca4d887cd1e09cf760e7b2d0  evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/capture/report.json
+e73243f5b1a3ebf0bf9303e13d666c4626c424ad48049a1dcb74759e5b16c646  evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/guest-cumulative.pcap
+bf6de4dd7451b1627e2f060ad95b0634b611376cfc05d21528698aa6495e99e0  evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/host.pcap
+c44c00176212b7c7522a57d12e2478101ec51f32c96877018dde85d6e0971524  evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/manifest.json
+ceee96657e59d5560f40fda7597d0aa763836d58aa617c8108ac293e85a04054  evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/verification.json
+2bf519e1c1ea634445db8554fb652f28423e2cabff1cf3e4f90b6f55165fa103  evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/verify.py

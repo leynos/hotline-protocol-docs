@@ -1,0 +1,21 @@
+{
+  "unit": "mothra-b62-oracle-lease.service",
+  "pid": 492350,
+  "command": [
+    "/usr/bin/flock",
+    "--exclusive",
+    "--nonblock",
+    "/data/leynos/Projects/mothra/state/delegation/oracle.lock",
+    "/usr/bin/sleep",
+    "900"
+  ],
+  "lock_dev": 2097,
+  "lock_inode": 3512552451,
+  "active_state_before": "active",
+  "proc_fd3_before": "/data/leynos/Projects/mothra/state/delegation/oracle.lock",
+  "independent_flock_n_before_exit": 1,
+  "after_stop_state": "inactive",
+  "after_stop_main_pid": 0,
+  "independent_flock_n_after_exit": 0,
+  "evidence_status": "operator tool-output transcription of before PID/FD/busy and after free, plus retained systemd journal and terminal unit properties; no saved raw before-ls or flock transcript"
+}

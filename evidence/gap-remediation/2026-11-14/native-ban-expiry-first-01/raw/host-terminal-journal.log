@@ -1,0 +1,10 @@
+Nov 14 05:45:20 ibara systemd[1]: Starting mothra-native-expiry-c75-host.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-first-01/primary-syn.pcap "(tcp port 15500 or tcp port 15501) and (tcp[tcpflags] & tcp-syn != 0)"...
+Nov 14 05:45:20 ibara systemd[1]: Started mothra-native-expiry-c75-host.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-first-01/primary-syn.pcap "(tcp port 15500 or tcp port 15501) and (tcp[tcpflags] & tcp-syn != 0)".
+Nov 14 05:45:20 ibara tcpdump[773908]: dropped privs to tcpdump
+Nov 14 05:45:20 ibara tcpdump[773908]: tcpdump: listening on lo, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+Nov 14 05:55:27 ibara tcpdump[773908]: 0 packets captured
+Nov 14 05:55:27 ibara tcpdump[773908]: 0 packets received by filter
+Nov 14 05:55:27 ibara tcpdump[773908]: 0 packets dropped by kernel
+Nov 14 05:55:27 ibara systemd[1]: Stopping mothra-native-expiry-c75-host.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-first-01/primary-syn.pcap "(tcp port 15500 or tcp port 15501) and (tcp[tcpflags] & tcp-syn != 0)"...
+Nov 14 05:55:27 ibara systemd[1]: mothra-native-expiry-c75-host.service: Deactivated successfully.
+Nov 14 05:55:27 ibara systemd[1]: Stopped mothra-native-expiry-c75-host.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-first-01/primary-syn.pcap "(tcp port 15500 or tcp port 15501) and (tcp[tcpflags] & tcp-syn != 0)".

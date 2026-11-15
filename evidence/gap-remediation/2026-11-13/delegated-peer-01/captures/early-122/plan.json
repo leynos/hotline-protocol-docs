@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "environment": {
+    "controlled_receiver_fixture": {
+      "profile": "controlled-receiver-fixture",
+      "case": "early-122",
+      "source_peer": "shx 0.1.48 modern terminal build"
+    }
+  },
+  "steps": [
+    {
+      "command": "/version",
+      "expect": "hx version 0.1.48",
+      "timeout": 5,
+      "settle_seconds": 0.2
+    },
+    {
+      "command": "/server -o -l admin -p mothra19 -n shx-peer-a -i 500 127.0.0.1:15604",
+      "expect": "This is the server agreement",
+      "timeout": 20,
+      "settle_seconds": 2
+    },
+    {
+      "command": "/who -r",
+      "expect": "shx-peer-a",
+      "timeout": 15,
+      "settle_seconds": 2
+    },
+    {
+      "command": "mothra-shx-basic-chat",
+      "expect": "shx-peer-a.*mothra-shx-basic-chat",
+      "timeout": 15,
+      "settle_seconds": 2
+    },
+    {
+      "command": "/quit",
+      "expect_exit": 0,
+      "timeout": 5
+    }
+  ]
+}

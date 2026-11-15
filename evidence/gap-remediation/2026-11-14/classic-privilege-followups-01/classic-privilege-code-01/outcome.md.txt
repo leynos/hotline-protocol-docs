@@ -1,0 +1,24 @@
+# A85 Classic Code-entry probes: bounded read-only result
+
+One nonblocking canonical oracle-lock execution ran 08:52:43–08:52:51 UTC
+on 2026-11-14 against the saved independent Classic project with
+`--no-analyze --discard`. Pinned DATA/RSRC/JAR hashes matched `report.json`;
+PowerPC BE32 PEF and 3,564-function identities matched before and after.
+The lock was available after terminal exit. No VM, GUI/server project, mxd
+or tracked file was touched.
+
+- `decompile_function_by_address(10090210)` succeeded with an untruncated
+  `FUN_10090210(int param_1,int param_2)`. It tests `*(param_1+4)==param_2`,
+  calls `100b4be0`, traverses a linked structure invoking `100ac3f0`,
+  clears bit 6 at `param_1+0x12`, and calls `100942d0` on `*(param_1+0xc)`.
+  This is a concrete code body, but the returned body does **not** connect
+  the class string/data xref to this function or show an account privilege
+  bitmap write. The object's bit is not named a protocol privilege.
+- `decompile_function_by_address(10090190)` returned the exact retained
+  `[FUNCTION_NOT_FOUND] No function found at or containing 10090190` tool
+  error. It was not silently treated as a successful decompilation.
+
+No uniquely supported class/editor edge justified the two optional
+`get_xrefs_to` calls; they remain unused. The two exact content replies,
+including the error, are in `raw/` with identity replies, script, as-run
+command and stderr. A cleanup-looking body alone is not a permission mapping.

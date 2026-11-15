@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "cases": [
+    "acceptance-after-failed-password",
+    "acceptance-before-login",
+    "admin-mixed-case",
+    "admin-upper-case",
+    "carriage-return-maps-to-hyphen",
+    "configured-guest-absent",
+    "configured-guest-empty",
+    "configured-guest-explicit",
+    "create-temporary-guest",
+    "delayed-admin",
+    "delayed-bypass",
+    "early-admin",
+    "early-bypass",
+    "high-bit-icon-is-nonzero",
+    "high-byte-80-maps-to-8a",
+    "icon-narrows-zero",
+    "icon-without-name",
+    "login-after-premature-acceptance",
+    "missing-guest-absent",
+    "missing-guest-empty",
+    "missing-guest-explicit",
+    "name-length31",
+    "name-length32",
+    "name-over32-clipped",
+    "name-without-icon",
+    "nul-interior",
+    "nul-leading",
+    "nul-only",
+    "nul-trailing",
+    "remove-owned-auth-accounts",
+    "repeated-login-before-acceptance",
+    "seed-owned-auth-accounts",
+    "unknown-nonempty"
+  ],
+  "packet_window_seconds": [
+    1794527789.162984,
+    1794528346.8680065
+  ],
+  "host_capture_packets": 1151,
+  "host_kernel_drops": 0,
+  "unread_output": {
+    "repeated-login-before-acceptance": {
+      "observer": "0000012e000000040000000000000008000000080001006700020175"
+    }
+  },
+  "initial_cases": [
+    "login-after-premature-acceptance",
+    "repeated-login-before-acceptance"
+  ],
+  "scope": "Account normalization with missing/configured/restored guest and login/agreement/visibility on current configured text+GIF. Temporary owned accounts removed. Initial failed30second recovery hypothesis and overlapping cleanup trial retained separately; no absent/empty agreement, changed server-name, general timeout or restart-durability claim.",
+  "preparation": "Seed/guest lookup phases precede temporary guest creation; configured lookup and state cases follow. Five owned accounts are removed and352 readbacks fail. Final isolated admin reauthentication cases follow cleanup. Initial30second recovery timeout and completed cleanup-overlap trial remain unchanged."
+}

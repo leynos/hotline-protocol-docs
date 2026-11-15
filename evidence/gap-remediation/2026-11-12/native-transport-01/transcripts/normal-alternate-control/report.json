@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "profile": "native-mac-oracle",
+  "status": "failed",
+  "native_conformance": false,
+  "identity_scope": "Local binary hash verified; remote process identity is operator-reported",
+  "operator": "Codex local native fixture operator",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "plan_sha256": "aa03a129ca68bb556ee7d16640a78cae9863bd648e7c162e08002cbb103ec491",
+  "driver_sha256": "3b31241249647abac95d8f6f11a1b9102745e11910b78bfed9e3eaa5e36ec507",
+  "recorded_at_utc": "2026-11-12T17:53:20.949641+00:00",
+  "gap_ids": [
+    "GAP-008",
+    "GAP-010",
+    "GAP-084"
+  ],
+  "completed_actions": 2,
+  "error": "TimeoutError: timed out",
+  "events": [
+    {
+      "action": 0,
+      "connection": "main",
+      "event": "connect",
+      "elapsed_ns": 1682473,
+      "hex": "",
+      "local_address": [
+        "127.0.0.1",
+        40218
+      ],
+      "peer_address": [
+        "127.0.0.1",
+        15502
+      ]
+    },
+    {
+      "action": 1,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 1737185,
+      "hex": "54525450484f544c00010002"
+    },
+    {
+      "action": 2,
+      "connection": "main",
+      "event": "close",
+      "elapsed_ns": 10011941295,
+      "hex": ""
+    }
+  ],
+  "frames": [],
+  "streams": {
+    "main": {
+      "sent_hex": "54525450484f544c00010002",
+      "received_hex": ""
+    }
+  }
+}

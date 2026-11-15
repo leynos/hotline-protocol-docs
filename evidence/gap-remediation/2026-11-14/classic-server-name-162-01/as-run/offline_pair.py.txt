@@ -1,0 +1,78 @@
+"""As-run B52 finite SYN-scoped five-view parity check."""
+import datetime
+import hashlib
+import json
+import pathlib
+import sys
+
+sys.path.insert(0, "/data/leynos/Projects/hotline-protocol-docs/scripts")
+from pcap_tcp import read_packets  # noqa: E402
+from verify_classic_native_baseline import flow  # noqa: E402
+from verify_mac_peer_first_session import field_map, parse_frames  # noqa: E402
+from classic_login_proxy import transform_ack  # noqa: E402
+
+base = pathlib.Path("state/native-sessions/native-proxy-162-b57")
+packets = {name: read_packets(base / name) for name in
+           ("client-guest-post.pcap", "namespace.pcap", "host.pcap", "server-guest-post.pcap")}
+ports = {
+    "server-name-162": {"control": (49178, 39302, 37448, 37464),
+                        "data": (49180, 34594, 37508, 37514)},
+}
+expected_ack = {
+    "server-name-162": "3f5185b7bc222e684697fd2fce46ff0f625bc13ddf301e8a787bfe47594caedb",
+}
+sha = lambda b: hashlib.sha256(b).hexdigest()
+result = {"utc": datetime.datetime.now(datetime.timezone.utc).isoformat(), "cases": {}}
+for variant, kinds in ports.items():
+    report = json.loads((base / "proxy/report.json").read_text())
+    case = {"status": report["status"], "routes": {}, "streams": {}}
+    for kind, (client_port, ingress_port, upstream_port, host_port) in kinds.items():
+        target = 15652 if kind == "control" else 15653
+        native = 15500 if kind == "control" else 15501
+        guest_native = 5500 if kind == "control" else 5501
+        routes = [
+            ["client-guest-post.pcap", "10.0.2.15", client_port, "10.0.2.2", target],
+            ["namespace.pcap", "127.0.0.1", ingress_port, "127.0.0.1", target],
+            ["namespace.pcap", "127.0.0.1", upstream_port, "127.0.0.1", native],
+            ["host.pcap", "127.0.0.1", host_port, "127.0.0.1", native],
+            ["server-guest-post.pcap", "10.0.2.2", host_port, "10.0.2.15", guest_native],
+        ]
+        pairs = [flow(packets[r[0]], r) for r in routes]
+        assert len({c for c, _ in pairs}) == 1, (variant, kind, "client parity")
+        if kind == "data":
+            assert len({s for _, s in pairs}) == 1, (variant, "data server parity")
+            assert len(pairs[0][0]) == 16 and pairs[0][0][:4] == b"HTXF"
+            assert len(pairs[0][1]) == 58 and pairs[0][1][:6] == b"GIF89a"
+        else:
+            assert pairs[0][1] == pairs[1][1], (variant, "downstream parity")
+            assert pairs[2][1] == pairs[3][1] == pairs[4][1], (variant, "raw parity")
+            raw = pairs[2][1]
+            size = int.from_bytes(raw[24:28], "big")
+            raw_ack = raw[8:28 + size]
+            rewritten = transform_ack(raw_ack, 1, variant)
+            assert sha(raw_ack) == "814b733a82d15dd7250cb0e8b7ed0c6c09a7a02d7169ab70ebaa359fb18eb6d0"
+            assert sha(rewritten) == expected_ack[variant]
+            assert pairs[0][1] == raw[:8] + rewritten + raw[8 + len(raw_ack):], (variant, "sole rewrite")
+            requests = parse_frames(pairs[0][0][12:])
+            replies = parse_frames(pairs[0][1][8:])
+            assert [f["type"] for f in requests] == [107, 121, 300, 212]
+            assert [f["type"] for f in replies] == [0, 109, 0, 354, 122, 0, 0]
+            assert sha(field_map(replies[1])[101]) == "5288d060a4270cf6ae899302c52b2ac784b30dea99f01d2d4cd1c1037c4bd1c7"
+            case["request_types"] = [f["type"] for f in requests]
+            case["reply_types"] = [f["type"] for f in replies]
+            case["forwarded_ack_fields"] = {str(k): v.hex() for k, v in field_map(replies[0]).items()}
+            case["banner_reference_hex"] = field_map(replies[6])[107].hex()
+        case["routes"][kind] = routes
+        case["streams"][kind] = {"client_bytes": len(pairs[0][0]), "client_sha256": sha(pairs[0][0]),
+                                 "downstream_server_bytes": len(pairs[0][1]), "downstream_server_sha256": sha(pairs[0][1]),
+                                 "raw_server_bytes": len(pairs[2][1]), "raw_server_sha256": sha(pairs[2][1])}
+        if kind == "data":
+            assert pairs[0][0][4:8].hex() == case["banner_reference_hex"]
+    obs = report["observation"]
+    assert report["status"] == "intentional-observation-cutoff" and obs["valid_30_seconds"] and not report["errors"]
+    case["teardown_seconds"] = round((obs["relay_teardown_ns"] - obs["ack_sent_monotonic_ns"]) / 1e9, 6)
+    assert case["teardown_seconds"] < 30
+    result["cases"][variant] = case
+(base / "offline-parity.json").write_text(json.dumps(result, indent=2) + "\n")
+for variant, case in result["cases"].items():
+    print(variant, case["forwarded_ack_fields"], case["request_types"], case["reply_types"], case["streams"]["data"]["client_bytes"], case["streams"]["data"]["downstream_server_bytes"], case["teardown_seconds"])

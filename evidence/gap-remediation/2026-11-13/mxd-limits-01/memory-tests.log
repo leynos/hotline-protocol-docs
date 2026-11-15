@@ -1,0 +1,12 @@
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`
+   Compiling mxd v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd)
+    Finished `test` profile [optimized] target(s) in 2.52s
+     Running tests/wireframe_memory_budgets.rs (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/build/mxd/2d384cbf7654938f/out/wireframe_memory_budgets-2d384cbf7654938f)
+
+running 3 tests
+test oversized_fragmented_request_is_disconnected_on_first_frame ... ok
+test fragmented_request_within_explicit_budget_still_routes ... ok
+test stalled_fragmented_request_is_disconnected_when_continuation_resumes ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 5.31s
+

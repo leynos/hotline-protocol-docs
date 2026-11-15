@@ -1,0 +1,3 @@
+state/mac-runtime/native-board-02/base.dsk 1678261666 8388608000 444 1794646407
+state/mac-runtime/native-board-02/working.dsk 1678261667 8388608000 644 1794647786
+state/mac-runtime/native-board-02/rom 1678261665 1945746 644 1794646407

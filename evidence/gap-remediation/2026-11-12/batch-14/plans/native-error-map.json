@@ -1,0 +1,10 @@
+[
+  {
+    "id": "B14-M-native-error-map",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "10082748",
+      "length": 648
+    }
+  }
+]

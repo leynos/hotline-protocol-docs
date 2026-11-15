@@ -1,0 +1,86 @@
+{
+  "date_utc": "2026-11-14",
+  "files": {
+    "oracle/as-run.txt": "adefb0adfe6620c61d2f0206d3e9dc6cffd76afe29c536e99b63d4c0b0dc486c",
+    "oracle/capture.py": "8af569f6ca7785effdbbc95dcc534c3bcefe09059f45aee7f7316a289e3ad8b7",
+    "oracle/original-SHA256SUMS.txt": "085c76c2b4db6eeb0900acda49f0c73908df804ad31e20fad31589feaeb41629",
+    "oracle/raw/decompile-10058600.json": "cf90fb9ee39b362fe60995990424e807643ae429587933c5803bf6ada2f6e582",
+    "oracle/raw/identity-after.json": "c623c5c0dbd1db9fbe0176e7d7ee0075de23597f031415f479863822e08ba9ca",
+    "oracle/raw/identity-before.json": "305c6d7f6940f83b16aabe3e656fdaf52441dc6fdad4d89743553af3b4c688ef",
+    "oracle/report.json": "861153dcf47f1c5b8f7d754f0d5e7121e21ba0ab55d366d326d3b64a37c3c3e3",
+    "oracle/server.stderr.log": "953a1fb37dc282b9fa9b22ca5a0a7db3b641424714534a4fa6cb1014645d21d6",
+    "reports/a104-rate304-recipient-predicate.md.txt": "cd5f81932d0500c884575ec72c37af1a2cb4eed2a02abc346fa678f4640902c3",
+    "reports/a105-rate304-recipient-bit-writer.md.txt": "a9376869698ee8bf496faf5c20d9d6edc2a8eb4ef312d8ccac70f6acafb9384a",
+    "reports/a106-b91-pipeline-review.md.txt": "2c0b80cfee6db88ce8b47f7ebfd63a49682a5b9eba748697494c015ba497407a",
+    "sources/B06-D-10005510.c": "ac4b7983c1e42069f93d5e2c2fa110e62302864d6096fcc5afd8cfc139a31da4",
+    "sources/B06-D-10005510.json": "60c44bf6a025d9581733325dc77766ca794ab61620dc8b86e7ef6bd2397f7a88",
+    "sources/D-1000acf0.c": "507eb359ba4198151f5d875e58a89354c6fdcd70910aebe8bd4e64b3970b8fb2",
+    "sources/D-1000acf0.json": "ef70d8ebbfd948bff41ca80886589c4d57bcbdbccdb901ddb32efa704bcc93ab",
+    "sources/D-10011870.c": "924d6a6a0c131a2677c75a7135853b2cf676db330030a77eb7a46a0a7e73f74a",
+    "sources/D-10011870.json": "195374e70705bc4f8b5fe666b39466718b7f65277bcd4438dabb9036d5b9f7db",
+    "sources/D-10058650.c": "79efefb53dbb903089fe99fe39505869d14b57416fb902f605a647863ed67515",
+    "sources/D-10058650.json": "356250e1277e936ca41ae8e3a04ce242872d6d7abd621db2619b81d32c65c0b0",
+    "sources/D-10058770.c": "2a372640a84a7f25dc4e6dbb6aee092dc1ec169273a3f74374e58aabdbc807b2",
+    "sources/D-10058770.json": "c89e77c9fcff70083511d7eedf154289f4a15f22d61a5dc96d76458699ae7edb",
+    "sources/D-100590e0.c": "6c2046d635b1e3bd57d5ef1c6973a4b786f1043edda8c0dfc8572bd34c959d6b",
+    "sources/D-100590e0.json": "1e9c246425cb98a22d85e9e7f0af647e8f7609a68b146ae61333623d8c09780d"
+  },
+  "function_count": 1840,
+  "language": "PowerPC:BE:32:default",
+  "oracle_project_scope": "saved independent server project, --no-analyze --discard",
+  "oracle_query": "decompile_function_by_address(10058600)",
+  "oracle_query_count": 1,
+  "schema": "rate304-recipient-predicate-01",
+  "source_binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "source_origins": {
+    "sources/B06-D-10005510.c": {
+      "origin": "evidence/gap-remediation/2026-11-12/batch-06/queries/B06-D-10005510.c",
+      "sha256": "ac4b7983c1e42069f93d5e2c2fa110e62302864d6096fcc5afd8cfc139a31da4"
+    },
+    "sources/B06-D-10005510.json": {
+      "origin": "evidence/gap-remediation/2026-11-12/batch-06/queries/B06-D-10005510.json",
+      "sha256": "60c44bf6a025d9581733325dc77766ca794ab61620dc8b86e7ef6bd2397f7a88"
+    },
+    "sources/D-1000acf0.c": {
+      "origin": "evidence/hotline-server-1.9/queries/D-1000acf0.c",
+      "sha256": "507eb359ba4198151f5d875e58a89354c6fdcd70910aebe8bd4e64b3970b8fb2"
+    },
+    "sources/D-1000acf0.json": {
+      "origin": "evidence/hotline-server-1.9/queries/D-1000acf0.json",
+      "sha256": "ef70d8ebbfd948bff41ca80886589c4d57bcbdbccdb901ddb32efa704bcc93ab"
+    },
+    "sources/D-10011870.c": {
+      "origin": "evidence/hotline-server-1.9/queries/D-10011870.c",
+      "sha256": "924d6a6a0c131a2677c75a7135853b2cf676db330030a77eb7a46a0a7e73f74a"
+    },
+    "sources/D-10011870.json": {
+      "origin": "evidence/hotline-server-1.9/queries/D-10011870.json",
+      "sha256": "195374e70705bc4f8b5fe666b39466718b7f65277bcd4438dabb9036d5b9f7db"
+    },
+    "sources/D-10058650.c": {
+      "origin": "evidence/hotline-server-1.9/queries/D-10058650.c",
+      "sha256": "79efefb53dbb903089fe99fe39505869d14b57416fb902f605a647863ed67515"
+    },
+    "sources/D-10058650.json": {
+      "origin": "evidence/hotline-server-1.9/queries/D-10058650.json",
+      "sha256": "356250e1277e936ca41ae8e3a04ce242872d6d7abd621db2619b81d32c65c0b0"
+    },
+    "sources/D-10058770.c": {
+      "origin": "evidence/hotline-server-1.9/queries/D-10058770.c",
+      "sha256": "2a372640a84a7f25dc4e6dbb6aee092dc1ec169273a3f74374e58aabdbc807b2"
+    },
+    "sources/D-10058770.json": {
+      "origin": "evidence/hotline-server-1.9/queries/D-10058770.json",
+      "sha256": "c89e77c9fcff70083511d7eedf154289f4a15f22d61a5dc96d76458699ae7edb"
+    },
+    "sources/D-100590e0.c": {
+      "origin": "evidence/hotline-server-1.9/queries/D-100590e0.c",
+      "sha256": "6c2046d635b1e3bd57d5ef1c6973a4b786f1043edda8c0dfc8572bd34c959d6b"
+    },
+    "sources/D-100590e0.json": {
+      "origin": "evidence/hotline-server-1.9/queries/D-100590e0.json",
+      "sha256": "1e9c246425cb98a22d85e9e7f0af647e8f7609a68b146ae61333623d8c09780d"
+    }
+  },
+  "status": "static-source-bounded"
+}

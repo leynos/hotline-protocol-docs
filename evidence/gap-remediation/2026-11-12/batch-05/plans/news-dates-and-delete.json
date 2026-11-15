@@ -1,0 +1,30 @@
+[
+  {
+    "id": "B05-D-10057de0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10057de0"
+    }
+  },
+  {
+    "id": "B05-D-100249f0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100249f0"
+    }
+  },
+  {
+    "id": "B05-D-10025120",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10025120"
+    }
+  },
+  {
+    "id": "B05-D-100254d0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100254d0"
+    }
+  }
+]

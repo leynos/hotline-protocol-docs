@@ -1,0 +1,2 @@
+/data/leynos/Projects/mothra/state/delegation/c48-eventlab/event_probe.py:63: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  return sum(r > 200 and g > 130 and b < 80 for r, g, b in region.getdata())

@@ -1,0 +1,31 @@
+# A98: batch account-reader disassembly tail
+
+One bounded read-only headless session used the saved independent
+`independent-endpoint-01` server project with `--no-analyze --discard`.
+The canonical oracle lock was acquired nonblockingly and released after the
+run. From 2026-11-14 10:12:02 to 10:12:11 UTC, one content call fetched
+`disassemble_function(10015500, offset=500, limit=100)`. The raw reply
+contains exactly 55 instructions, `total=555`, `has_more=false`, from
+`10015d78` through `10015e6c`. The prior A96 page retained instructions
+0..499. Before/after program identities compare exactly: DATA SHA-256
+`ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`,
+PowerPC BE32, 1,840 functions. The pinned JAR SHA-256 is
+`201d18ffde71a83a678eae607de265861f37e5a00b989d91958c1197664d2b43`.
+All three tool replies succeeded; the report status is `complete`.
+
+The fetched tail handles a logging/error path, response construction and
+function return. It does not contain a direct load/addi of the A96 batch
+record's calculated `+0xa94/+0xa96` stack offsets (record base
+`r31+0x840` plus field slot `+0x254/+0x256`), nor an evident
+field-111-derived argument to a newly identified callee. Combined with
+A96's first 500 instructions, the **direct-displacement test for this one
+function** is now complete. It is not a no-use-anywhere proof: other base
+registers, indexed aliases, whole-record copies and indirect callees remain
+possible. No positive field-specific value-dependent consumer was found,
+so the conditional second content call was unused.
+
+Exact wrapper, source script, as-run command, stderr and identity replies
+are retained. No native VM, client/mxd, GUI project, annotations, saved
+analysis or tracked file was touched. GAP-071's meaning/use question stays
+open. Further source exploration needs a new bounded hypothesis; this
+pagination result does not justify an invented account-attribute label.

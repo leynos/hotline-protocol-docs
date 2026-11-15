@@ -1,0 +1,31 @@
+[
+  {
+    "id": "LX-D-10004530",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10004530"
+    }
+  },
+  {
+    "id": "LX-D-10006590",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10006590"
+    }
+  },
+  {
+    "id": "LX-D-1002e120",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002e120"
+    }
+  },
+  {
+    "id": "LX-M-config-name",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "100902d9",
+      "length": 32
+    }
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "source_register_commit": "929e4faeec0c98cf259c97f13e4c5664fd2a1a04",
+  "entries": [
+    {
+      "gap_id": "GAP-006",
+      "unchanged_closure_criteria": "Publish an operation-by-direction/state table distinguishing direct success replies, error replies, emitted notifications and acceptance/completion semantics.",
+      "prior_status": "Investigating",
+      "review": "All45 native request rows now distinguish direct success, explicit error paths, notifications and acceptance/completion. Direction/state eligibility remains in the adjacent dispatcher catalogue. GAP-003 retains exhaustive exception translation and GAP-084 retains runtime fixtures; remove GAP-003 as a dependency of this static table deliverable."
+    }
+  ]
+}

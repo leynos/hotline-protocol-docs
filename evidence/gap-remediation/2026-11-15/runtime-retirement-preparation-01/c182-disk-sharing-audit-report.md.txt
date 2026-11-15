@@ -1,0 +1,73 @@
+# C182 stopped Mac disk extent audit
+
+Read-only XFS metadata audit, 2026-11-14 UTC. No image contents, ROM bytes,
+live working image, service, or mxd validation were accessed. A192 supplied
+the stopped `base.dsk` candidate list; the protected donor is
+`state/mac-runtime/native-board-02/base.dsk`. The three live working-image
+owners (primary, client, client candidate) and the rate304-03 bridge directory
+remain outside this extent sample.
+
+## Local interfaces and guarantees
+
+- `findmnt` identifies `/data` as XFS on `/dev/sdd1` (4,096-byte blocks).
+  `/usr/sbin/filefrag -v` uses FIEMAP to report physical extents and `shared`
+  flags. Linux `/usr/include/linux/fiemap.h` defines
+  `FIEMAP_EXTENT_SHARED=0x2000` as space shared with other files.
+- Local `man 8 xfs_io` and `xfs_io -c 'help dedupe'` say `dedupe` uses
+  `FIDEDUPERANGE`: the kernel remaps the destination range to source blocks
+  only if contents match. The ioctl result has distinct SAME/DIFFERS/error
+  statuses (`/usr/include/linux/fs.h`). `reflink` maps blocks without checking
+  equality. Later writes to shared ranges use copy on write.
+- `scripts/mac_runtime.py` normally copies source bytes to a new base with
+  `shutil.copyfile`, then calls `cp --reflink=auto --sparse=always` for working.
+  The reviewed R04 preparation explicitly required `--reflink=always` for
+  both clones. Neither interface gives a deduplication guarantee for old
+  bases merely from path naming.
+
+## Extent measurement
+
+The 16 stopped experiment bases identified by A192 and the protected donor
+are 17 distinct, UID1000, mode0444, link-count-one files on device 2097.
+The audit ran `/usr/sbin/filefrag -v <base.dsk>` once per path, saved each
+raw mapping in `*.fiemap.txt`, and checked identity before/after the ioctl.
+`extent-summary.json` contains every path, inode, block count and shared count.
+
+| Measure for those 17 bases | Amount |
+| --- | ---: |
+| Sum of per-file mapped extents | 119.3986 GiB |
+| Sum of `st_blocks`, the `du` style count | 119.3988 GiB |
+| Union of physical block intervals | 7.8125 GiB |
+| Physical intervals counted repeatedly | 111.5861 GiB |
+| Donor's physical extent union alone | 7.8125 GiB |
+
+All mapped extents in all 17 files carry the FIEMAP `shared` flag. The
+physical union of the entire sample equals that of the protected donor.
+Three older alias bases each map only 3.3412 GiB of allocated extents; the
+rest map 7.8125 GiB each. The 8.0-ish GiB logical file length is not the
+same as allocated or uniquely occupied space.
+
+Thus `du` double-counts about **111.586 GiB** of these bases' data blocks.
+Deleting only the 16 sampled stopped bases cannot release those shared data
+blocks while the authoritative donor remains. It could release each inode's
+metadata, but that is far below the current multi-GiB capacity shortfall.
+This is a bounded sample: it does not count all working images, other bases,
+XFS metadata overhead, or future copy-on-write changes. FIEMAP is a snapshot,
+not a reservation or a complete global refcount census.
+
+## Action recommendation
+
+No extent dedupe or base deletion is useful for this measured set. Dedupe
+would have to compare bytes in the kernel and remap destination extents,
+but there are **zero unique mapped data blocks** among these base paths
+relative to the protected donor. It would add inode/extent mutation without
+meaningful reclaim. A future different stopped file with unique matching
+extents would need its own FD-free and full-content identity proof, aligned
+range plan, FIDEDUPERANGE status and before/after inode, mode, timestamps,
+hash and FIEMAP receipts. The local manual describes CoW data preservation;
+it does not promise mode or timestamp invariance, so those require checking.
+No such operation is proposed here. Retaining or removing a base must also
+follow its evidence and restart provenance policy, independent of block usage.
+
+Audit source: `extent_audit.py` (metadata ioctl only); raw `*.fiemap.txt`;
+`extent-summary.json`. Protected donor and live working disks were not
+modified. No cleanup authority was exercised.

@@ -1,0 +1,127 @@
+#!/usr/bin/env python3
+"""Read only the retired R04 image, owned host files, and packet captures."""
+import datetime as dt
+import hashlib
+import json
+import os
+import stat
+import subprocess
+from pathlib import Path
+
+ROOT = Path('/data/leynos/Projects/mothra')
+R = ROOT / 'state/mac-runtime/native-alias-live-04'
+O = ROOT / 'state/native-sessions/native-alias-live-04'
+S = O / 'stopped-forensics'
+TSK = ROOT / 'tools/sleuthkit/usr/bin'
+ENV = {**os.environ, 'LD_LIBRARY_PATH': str(ROOT / 'tools/sleuthkit/usr/lib64')}
+FORKS = {'admin': '11193', 'fixture-low': '11201', 'Prefs': '11202',
+         'server-data': '11183-4352-0', 'server-rsrc': '11183-4353-1'}
+rows = []
+
+def save(label, data):
+    path = S / label
+    if path.exists():
+        raise FileExistsError(path)
+    path.write_bytes(data)
+
+def command(label, argv, expected=0, env=None, retain=True):
+    result = subprocess.run(argv, capture_output=True, env=env, check=False)
+    row = {'label': label, 'argv': list(map(str, argv)), 'exit': result.returncode,
+           'stdout_size': len(result.stdout), 'stdout_sha256': hashlib.sha256(result.stdout).hexdigest(),
+           'stderr_size': len(result.stderr), 'stderr_sha256': hashlib.sha256(result.stderr).hexdigest()}
+    rows.append(row)
+    save('commands.json', json.dumps(rows, indent=2).encode() + b'\n') if not (S / 'commands.json').exists() else (S / 'commands.json').write_text(json.dumps(rows, indent=2) + '\n')
+    if retain:
+        save(label + '.stdout', result.stdout)
+    save(label + '.stderr', result.stderr)
+    if result.returncode != expected:
+        raise RuntimeError(f'{label}: exit {result.returncode}, expected {expected}')
+    return result.stdout
+
+def free(path):
+    out = command('fuser-' + str(len(rows)).zfill(3), ['sudo', '-n', 'fuser', str(path)], 1)
+    if out or rows[-1]['stderr_size']:
+        raise RuntimeError(f'holders or fuser error: {path}')
+
+def image_command(label, image, argv, retain=True):
+    free(image)
+    return command(label, argv, env=ENV, retain=retain)
+
+def image_hash(label, image):
+    free(image)
+    with image.open('rb') as stream:
+        digest = hashlib.file_digest(stream, 'sha256').hexdigest()
+    info = image.stat()
+    return {'sha256': digest, 'size': info.st_size, 'dev': info.st_dev, 'inode': info.st_ino,
+            'mode': oct(stat.S_IMODE(info.st_mode)), 'uid': info.st_uid, 'gid': info.st_gid,
+            'nlink': info.st_nlink, 'mtime_ns': info.st_mtime_ns, 'ctime_ns': info.st_ctime_ns}
+
+def host_file(path):
+    if path.is_symlink():
+        raise ValueError(f'symlink: {path}')
+    info = path.stat()
+    if not stat.S_ISREG(info.st_mode) or info.st_nlink != 1:
+        raise ValueError(f'not sole regular: {path}')
+    data = path.read_bytes()
+    return {'path': str(path), 'size': len(data), 'sha256': hashlib.sha256(data).hexdigest(),
+            'hex': data.hex(), 'dev': info.st_dev, 'inode': info.st_ino,
+            'uid': info.st_uid, 'gid': info.st_gid, 'mode': oct(stat.S_IMODE(info.st_mode)),
+            'nlink': info.st_nlink, 'mtime_ns': info.st_mtime_ns}
+
+def main():
+    if S.joinpath('result.json').exists():
+        raise FileExistsError('forensic result already exists')
+    if Path('/proc/2807669').exists():
+        raise RuntimeError('original emulator PID still exists')
+    base, working = R / 'base.dsk', R / 'working.dsk'
+    baseline = json.loads((ROOT / 'state/native-sessions/native-alias-live-preparation-04/stopped-preparation/preflight.json').read_text())['prepared']
+    for label, path in [('base.dsk', base), ('working.dsk', working)]:
+        if path.is_symlink():
+            raise ValueError(f'image symlink: {path}')
+        info = path.stat()
+        expected = baseline[label]
+        if (info.st_dev, info.st_ino, info.st_size, info.st_uid, info.st_gid, info.st_nlink, oct(stat.S_IMODE(info.st_mode))) != (
+            expected['dev'], expected['inode'], expected['size'], expected['uid'], expected['gid'], expected['nlink'], expected['mode']
+        ):
+            raise ValueError(f'image identity drift: {path}')
+    result = {'utc': dt.datetime.now(dt.timezone.utc).isoformat(),
+              'emulator_pid_absent': True, 'images': {}, 'forks': {}, 'host_files': {}}
+    result['images']['base'] = image_hash('base', base)
+    result['images']['working'] = image_hash('working', working)
+    full = image_command('catalog-full', working,
+                         [str(TSK / 'fls'), '-r', '-p', '-f', 'hfs', str(working)])
+    allocated = image_command('catalog-allocated', working,
+                              [str(TSK / 'fls'), '-u', '-r', '-p', '-f', 'hfs', str(working)])
+    for label, catalog in FORKS.items():
+        data = image_command('icat-' + label, working,
+                             [str(TSK / 'icat'), '-f', 'hfs', str(working), catalog], retain=False)
+        result['forks'][label] = {'catalog': catalog, 'size': len(data),
+                                   'sha256': hashlib.sha256(data).hexdigest()}
+    board = image_command('icat-board', working,
+                          [str(TSK / 'icat'), '-f', 'hfs', str(working), '11191'], retain=False)
+    result['board'] = {'catalog': '11191', 'size': len(board),
+                       'sha256': hashlib.sha256(board).hexdigest(), 'hex': board.hex() if len(board) <= 128 else None}
+    image_command('istat-board', working,
+                  [str(TSK / 'istat'), '-f', 'hfs', str(working), '11191'])
+    text = allocated.decode(errors='replace')
+    result['catalog'] = {'full_lines': len(full.splitlines()), 'allocated_lines': len(allocated.splitlines()),
+                         'users': [x for x in text.splitlines() if '\tHotline19/Users/' in x and x.endswith('/UserData')],
+                         'files_news': [x for x in text.splitlines() if x.endswith(('Hotline19/Files', 'Hotline19/News'))],
+                         'aliases_full': [x for x in full.decode(errors='replace').splitlines() if 'm-alias54-' in x],
+                         'aliases_allocated': [x for x in text.splitlines() if 'm-alias54-' in x],
+                         'banned': [x for x in text.splitlines() if x.endswith('/Banned')]}
+    for label, path in [('target', R / 'shared/m-alias54-target'),
+                        ('finf', R / 'shared/.finf/m-alias54-target')]:
+        result['host_files'][label] = host_file(path)
+    for label, path in [('host', O / 'primary-syn.pcap'), ('guest', O / 'lab-guest.pcap')]:
+        result[label + '_pcap'] = {'path': str(path), 'size': path.stat().st_size,
+                                  'sha256': hashlib.sha256(path.read_bytes()).hexdigest()}
+        command('tcpdump-' + label, ['tcpdump', '-nn', '-r', str(path), 'tcp'])
+    for name, pid in [('primary', 1099659), ('client', 1012834)]:
+        process = Path(f'/proc/{pid}/stat')
+        result[name] = {'pid': pid, 'start_ticks': int(process.read_text().split()[21]) if process.exists() else None}
+    save('result.json', json.dumps(result, indent=2).encode() + b'\n')
+    print(json.dumps({'status': 'complete', 'catalog': result['catalog'], 'board': result['board']}))
+
+if __name__ == '__main__':
+    main()

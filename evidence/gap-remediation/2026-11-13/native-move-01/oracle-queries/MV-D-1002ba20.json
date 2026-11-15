@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-13T06:28:16.240733+00:00",
+  "query": {
+    "id": "MV-D-1002ba20",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002ba20"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_1002ba20\",\n    \"address\": \"1002ba20\"\n  },\n  \"code\": \"\\nvoid FUN_1002ba20(short *param_1)\\n\\n{\\n  undefined4 uVar1;\\n  int local_cc;\\n  short local_a0 [2];\\n  undefined4 local_9c;\\n  undefined1 auStack_98 [64];\\n  undefined1 auStack_58 [2];\\n  undefined4 local_56;\\n  undefined1 auStack_52 [78];\\n  \\n  if (param_1 == (short *)0x0) {\\n    FUN_10027c30(1,2);\\n  }\\n  FUN_1002e120(param_1);\\n  uVar1 = .glue::FindFolder((int)*param_1,0x74727368,1,local_a0,&local_9c);\\n  if ((short)uVar1 != 0) {\\n    FUN_10028190(uVar1,0,0);\\n  }\\n  uVar1 = .glue::FSMakeFSSpec((int)local_a0[0],local_9c,0,auStack_58);\\n  if ((short)uVar1 != 0) {\\n    FUN_10028190(uVar1,0,0);\\n  }\\n  uVar1 = .glue::FSpCatMove(param_1,auStack_58);\\n  if ((short)uVar1 != 0) {\\n    if ((short)uVar1 == -0x30) {\\n      if (*(char *)(param_1 + 3) == '\\\\0') {\\n        uVar1 = FUN_1007f230((int)*param_1,*(undefined4 *)(param_1 + 1),auStack_98);\\n        if ((short)uVar1 != 0) {\\n          FUN_10028190(uVar1,0,0);\\n        }\\n      }\\n      else {\\n        .glue::BlockMoveData(param_1 + 3,auStack_98,*(byte *)(param_1 + 3) + 1);\\n      }\\n      FUN_1002bf70(auStack_58,1,auStack_98,0);\\n      uVar1 = FUN_10080140(param_1,auStack_58,auStack_98);\\n      if ((short)uVar1 == -0x516) {\\n        local_9c = FUN_1002e1b0((int)*param_1,*(undefined4 *)(param_1 + 1),param_1 + 3,0);\\n        uVar1 = .glue::FSpRename(param_1,auStack_98);\\n        if ((short)uVar1 != 0) {\\n          FUN_10028190(uVar1,0,0);\\n        }\\n        uVar1 = .glue::CatMove((int)*param_1,local_9c,local_cc + 0x3535,local_56,auStack_52);\\n        if ((short)uVar1 != 0) {\\n          FUN_10028190(uVar1,0,0);\\n        }\\n      }\\n      else if ((short)uVar1 != 0) {\\n        FUN_10028190(uVar1,0,0);\\n      }\\n    }\\n    else {\\n      FUN_10028190(uVar1,0,0);\\n    }\\n  }\\n  return;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_1002ba20",
+        "address": "1002ba20"
+      },
+      "code": "\nvoid FUN_1002ba20(short *param_1)\n\n{\n  undefined4 uVar1;\n  int local_cc;\n  short local_a0 [2];\n  undefined4 local_9c;\n  undefined1 auStack_98 [64];\n  undefined1 auStack_58 [2];\n  undefined4 local_56;\n  undefined1 auStack_52 [78];\n  \n  if (param_1 == (short *)0x0) {\n    FUN_10027c30(1,2);\n  }\n  FUN_1002e120(param_1);\n  uVar1 = .glue::FindFolder((int)*param_1,0x74727368,1,local_a0,&local_9c);\n  if ((short)uVar1 != 0) {\n    FUN_10028190(uVar1,0,0);\n  }\n  uVar1 = .glue::FSMakeFSSpec((int)local_a0[0],local_9c,0,auStack_58);\n  if ((short)uVar1 != 0) {\n    FUN_10028190(uVar1,0,0);\n  }\n  uVar1 = .glue::FSpCatMove(param_1,auStack_58);\n  if ((short)uVar1 != 0) {\n    if ((short)uVar1 == -0x30) {\n      if (*(char *)(param_1 + 3) == '\\0') {\n        uVar1 = FUN_1007f230((int)*param_1,*(undefined4 *)(param_1 + 1),auStack_98);\n        if ((short)uVar1 != 0) {\n          FUN_10028190(uVar1,0,0);\n        }\n      }\n      else {\n        .glue::BlockMoveData(param_1 + 3,auStack_98,*(byte *)(param_1 + 3) + 1);\n      }\n      FUN_1002bf70(auStack_58,1,auStack_98,0);\n      uVar1 = FUN_10080140(param_1,auStack_58,auStack_98);\n      if ((short)uVar1 == -0x516) {\n        local_9c = FUN_1002e1b0((int)*param_1,*(undefined4 *)(param_1 + 1),param_1 + 3,0);\n        uVar1 = .glue::FSpRename(param_1,auStack_98);\n        if ((short)uVar1 != 0) {\n          FUN_10028190(uVar1,0,0);\n        }\n        uVar1 = .glue::CatMove((int)*param_1,local_9c,local_cc + 0x3535,local_56,auStack_52);\n        if ((short)uVar1 != 0) {\n          FUN_10028190(uVar1,0,0);\n        }\n      }\n      else if ((short)uVar1 != 0) {\n        FUN_10028190(uVar1,0,0);\n      }\n    }\n    else {\n      FUN_10028190(uVar1,0,0);\n    }\n  }\n  return;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

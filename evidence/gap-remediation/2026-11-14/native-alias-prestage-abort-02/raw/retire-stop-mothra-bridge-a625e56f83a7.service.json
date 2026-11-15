@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "systemctl",
+    "--user",
+    "stop",
+    "mothra-bridge-a625e56f83a7.service"
+  ],
+  "exit": 0,
+  "stdout": "",
+  "stderr": "",
+  "before_utc": "2026-11-14T22:03:36.594007+00:00",
+  "after_utc": "2026-11-14T22:03:36.806002+00:00"
+}

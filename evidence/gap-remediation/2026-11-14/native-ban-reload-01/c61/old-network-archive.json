@@ -1,0 +1,14 @@
+{
+  "utc": "2026-11-14T03:55:40.827147+00:00",
+  "from": "state/mac-runtime/native-eventlab-one-01/isolated-network",
+  "to": "state/mac-runtime/native-eventlab-one-01/isolated-network-c56-retired-20261114",
+  "files_sha256": {
+    "bridge-service.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bridge-service.json": "618984e562d6d20e96a965cfd5a8b905adc93f327460dfca1088f5c7d5374c45",
+    "bridge-ready.json": "37a8fba399b3aec8b1ad6b9563aeef344c8a9e710b0e4ac14d3b373a9832af12",
+    "xbridge-service.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "xbridge-service.json": "0350c6e0184e4401db0e4be2ded14a495f5731e20dd27266928c73a0b345b70f",
+    "x-bridge-ready.json": "065396440bc7dfb9ba34b70027185bb751b60cdbf7a6818e4e7ce2e4b793d26a"
+  },
+  "old_units": "inactive/MainPID0"
+}

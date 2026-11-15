@@ -1,0 +1,102 @@
+{
+  "generated_utc": "2026-11-14T01:40:11.529407+00:00",
+  "source_report_sha256": "b1f229b95105fbc107e251ae02919f9bc60b3fdccfc2b70d56dd79e9e31c7dba",
+  "native_ack_hex": "0001000000000001000000000000000e0000000e000200a0000200be00a100020000",
+  "native_ack_sha256": "814b733a82d15dd7250cb0e8b7ed0c6c09a7a02d7169ab70ebaa359fb18eb6d0",
+  "native_source_fields": [
+    [
+      160,
+      "00be"
+    ],
+    [
+      161,
+      "0000"
+    ]
+  ],
+  "variants": {
+    "baseline": {
+      "forwarded_hex": "0001000000000001000000000000000e0000000e000200a0000200be00a100020000",
+      "forwarded_sha256": "814b733a82d15dd7250cb0e8b7ed0c6c09a7a02d7169ab70ebaa359fb18eb6d0",
+      "bytes": 34,
+      "field_count": 2,
+      "fields": [
+        [
+          160,
+          "00be"
+        ],
+        [
+          161,
+          "0000"
+        ]
+      ],
+      "flags": 0,
+      "is_reply": 1,
+      "kind": 0,
+      "id": 1,
+      "status": 0,
+      "payload_bytes": 14
+    },
+    "omit-161": {
+      "forwarded_hex": "0001000000000001000000000000000800000008000100a0000200be",
+      "forwarded_sha256": "4b6b35015db432791da28371985d8733859a78ffec32be679b9d7b073ec4b7a3",
+      "bytes": 28,
+      "field_count": 1,
+      "fields": [
+        [
+          160,
+          "00be"
+        ]
+      ],
+      "flags": 0,
+      "is_reply": 1,
+      "kind": 0,
+      "id": 1,
+      "status": 0,
+      "payload_bytes": 8
+    },
+    "one-byte-161": {
+      "forwarded_hex": "0001000000000001000000000000000d0000000d000200a0000200be00a1000100",
+      "forwarded_sha256": "904b105c30b784c1b2146cf4c86c04f3ce4f4651905822d76400ffd4d82dc1df",
+      "bytes": 33,
+      "field_count": 2,
+      "fields": [
+        [
+          160,
+          "00be"
+        ],
+        [
+          161,
+          "00"
+        ]
+      ],
+      "flags": 0,
+      "is_reply": 1,
+      "kind": 0,
+      "id": 1,
+      "status": 0,
+      "payload_bytes": 13
+    },
+    "four-byte-161": {
+      "forwarded_hex": "0001000000000001000000000000001000000010000200a0000200be00a1000400000000",
+      "forwarded_sha256": "32ce979fc0b1b2b23d13761324f09a2c0267d2f7e2898d9c4dc475fdcfeb5827",
+      "bytes": 36,
+      "field_count": 2,
+      "fields": [
+        [
+          160,
+          "00be"
+        ],
+        [
+          161,
+          "00000000"
+        ]
+      ],
+      "flags": 0,
+      "is_reply": 1,
+      "kind": 0,
+      "id": 1,
+      "status": 0,
+      "payload_bytes": 16
+    }
+  }
+}

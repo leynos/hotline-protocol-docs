@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "native_cases": [
+    "ascii",
+    "macroman",
+    "restored"
+  ],
+  "receiver_cases": [
+    "control",
+    "banner",
+    "subject",
+    "banner-subject"
+  ],
+  "peer_binary_sha256": "8fbbe56cef439d4c1732e8d9fbe2c676b9d45fbd273a42b22f8034e3b3914fa0",
+  "packet_window_seconds": [
+    1794543608.763465,
+    1794543746.34931
+  ],
+  "scope": "Three actual native configured-name full-peer sessions; four explicitly controlled receiver-fixture sessions. Fixture listener is not native/SynHX execution. Same unmodified compiled peer profile. No omission/fallback policy inferred from a single peer.",
+  "final_runtime_check": {
+    "recorded_at_utc": "2026-11-13T04:24:03.577272+00:00",
+    "emulator_pid": 774378,
+    "running_executable_sha256": "b109f5c470fca6a1a5e0e0eaec4b5f5658d0e45ddafabf6b59bb7c4b35340146"
+  },
+  "restoration": "Native175-byte empty-name Prefs matches frozen native-login-extras-01/native-restored. Native application/configuration changes use GUI and independent native file-finalization volume flush. No restart or account change.",
+  "host_capture_packets": 230,
+  "host_kernel_drops": 0
+}

@@ -1,0 +1,32 @@
+{
+  "reviews": [
+    {
+      "gap_id": "GAP-069",
+      "status": "Resolved",
+      "unchanged_closure_criterion": "Trace deletion/index helpers and document nonrecursive/recursive outcomes with parent, leaf and failure fixtures.",
+      "requirements": [
+        {
+          "requirement": "Trace deletion and index helpers",
+          "evidence": "Fifteen fresh identity-checked oracle queries include 100108a0, 10023830, 100249f0, 10025060, 10024620, 10025120 and the cached serializer. Native HLNZ header counts and exact cached lists independently match the observed resulting trees."
+        },
+        {
+          "requirement": "Nonrecursive and recursive parent outcomes",
+          "evidence": "Independent A parent and B internal-parent cases verify promotion/reparenting versus descendant removal, all surviving sibling/parent/first-child body links, original dates and bodies. Fourteen field 337 controls establish absent/empty/zero/nonzero and unsupported three-byte/leading-four-of-five-byte outcomes."
+        },
+        {
+          "requirement": "Leaf and endpoint fixtures",
+          "evidence": "D leaf deletion in both modes repairs B first-child and E previous-sibling links. L root-head and R root-tail deletion repair root endpoints and preserve A subtree. Full body graph and stored cardinalities checked."
+        },
+        {
+          "requirement": "Failure fixtures",
+          "evidence": "Missing ID, omitted ID field, missing category, zero-privilege account and repeated deletion retain exact status/text and unchanged lists. Low privilege can list metadata but cannot read bodies or delete; an independent admin reads its original eight bodies."
+        },
+        {
+          "requirement": "Evidence provenance and reproducibility",
+          "evidence": "58 reports, including two retained failures, reconcile against 60 host/guest connections. Old and recovered runtimes/PIDs stay distinct; application forks positively identified. Prefix-only recovery, three-second pacing/quiet windows, 27 original catalogue objects/forks/caches positively published in Trash, and 17 regression tests retained."
+        }
+      ]
+    }
+  ],
+  "scope": "Close only the original GAP-069 deletion/index, nonrecursive/recursive parent/leaf/failure-fixture criterion. Forced storage interruption and restart durability are not proved. Keep cross-cutting GAP-021, news GAP-067/068/070, flood GAP-045, broader native/peer GAP-080/084 and every other original requirement active. No natural ban-expiry or native-server-crash claim."
+}

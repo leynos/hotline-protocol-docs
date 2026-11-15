@@ -1,0 +1,51 @@
+[
+  {
+    "id": "LX-D-10000160",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10000160"
+    }
+  },
+  {
+    "id": "LX-D-10008fd0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10008fd0"
+    }
+  },
+  {
+    "id": "LX-D-10011960",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10011960"
+    }
+  },
+  {
+    "id": "LX-D-10011ee0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10011ee0"
+    }
+  },
+  {
+    "id": "LX-D-1001e170",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1001e170"
+    }
+  },
+  {
+    "id": "LX-D-1001ddb0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1001ddb0"
+    }
+  },
+  {
+    "id": "LX-D-10008af0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10008af0"
+    }
+  }
+]

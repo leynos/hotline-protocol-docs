@@ -1,0 +1,1169 @@
+{
+  "cases": [
+    {
+      "case": "changed-buffer",
+      "kind": "changed",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 47896,
+          "sent_bytes": 173,
+          "received_bytes": 517,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "banner": {
+          "client_port": 45440,
+          "sent_bytes": 16,
+          "received_bytes": 58,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "advertised_bytes": 43,
+      "delivered_bytes": 58
+    },
+    {
+      "case": "expired-reference",
+      "kind": "expired",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 51208,
+          "sent_bytes": 372,
+          "received_bytes": 2549,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "banner": {
+          "client_port": 52818,
+          "sent_bytes": 16,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "advertised_bytes": 58,
+      "delivered_bytes": 0
+    },
+    {
+      "case": "local-a-cancel214",
+      "kind": "cancel-does-not-close",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 53392,
+          "sent_bytes": 168,
+          "received_bytes": 424,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "banner": {
+          "client_port": 39134,
+          "sent_bytes": 16,
+          "received_bytes": 43,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "advertised_bytes": 43,
+      "delivered_bytes": 43
+    },
+    {
+      "case": "local-a-early",
+      "kind": "early",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 40460,
+          "sent_bytes": 108,
+          "received_bytes": 366,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "local-a-metadata-150",
+      "kind": "metadata",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 40474,
+          "sent_bytes": 129,
+          "received_bytes": 388,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "banner_notifications": 0
+    },
+    {
+      "case": "local-a-metadata-151",
+      "kind": "metadata",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 40488,
+          "sent_bytes": 129,
+          "received_bytes": 459,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "banner_notifications": 1
+    },
+    {
+      "case": "local-a-metadata-190",
+      "kind": "metadata",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 40490,
+          "sent_bytes": 129,
+          "received_bytes": 459,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "banner_notifications": 1
+    },
+    {
+      "case": "local-a-raw",
+      "kind": "raw",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 50534,
+          "sent_bytes": 130,
+          "received_bytes": 402,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "banner": {
+          "client_port": 37082,
+          "sent_bytes": 16,
+          "received_bytes": 43,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "advertised_bytes": 43,
+      "delivered_bytes": 43
+    },
+    {
+      "case": "local-a-selector0",
+      "kind": "reject",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 50250,
+          "sent_bytes": 130,
+          "received_bytes": 402,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "banner": {
+          "client_port": 33496,
+          "sent_bytes": 16,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "advertised_bytes": 58,
+      "delivered_bytes": 0
+    },
+    {
+      "case": "local-a-selector1",
+      "kind": "reject",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 50252,
+          "sent_bytes": 130,
+          "received_bytes": 402,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "banner": {
+          "client_port": 33498,
+          "sent_bytes": 16,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "advertised_bytes": 58,
+      "delivered_bytes": 0
+    },
+    {
+      "case": "local-a-selector7",
+      "kind": "reject",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 57524,
+          "sent_bytes": 130,
+          "received_bytes": 402,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "banner": {
+          "client_port": 39928,
+          "sent_bytes": 16,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "advertised_bytes": 58,
+      "delivered_bytes": 0
+    },
+    {
+      "case": "local-a-unknown",
+      "kind": "reject",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 57540,
+          "sent_bytes": 130,
+          "received_bytes": 402,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "banner": {
+          "client_port": 39936,
+          "sent_bytes": 16,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "advertised_bytes": 58,
+      "delivered_bytes": 0
+    },
+    {
+      "case": "local-a-zero",
+      "kind": "reject",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 57552,
+          "sent_bytes": 130,
+          "received_bytes": 402,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "banner": {
+          "client_port": 39946,
+          "sent_bytes": 16,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "advertised_bytes": 58,
+      "delivered_bytes": 0
+    },
+    {
+      "case": "missing-metadata-190",
+      "kind": "metadata",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 35850,
+          "sent_bytes": 129,
+          "received_bytes": 388,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "banner_notifications": 0
+    },
+    {
+      "case": "none-early",
+      "kind": "early",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 55232,
+          "sent_bytes": 108,
+          "received_bytes": 366,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "none-metadata-150",
+      "kind": "metadata",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 55244,
+          "sent_bytes": 129,
+          "received_bytes": 388,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "banner_notifications": 0
+    },
+    {
+      "case": "none-metadata-151",
+      "kind": "metadata",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 55256,
+          "sent_bytes": 129,
+          "received_bytes": 388,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "banner_notifications": 0
+    },
+    {
+      "case": "none-metadata-190",
+      "kind": "metadata",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 55262,
+          "sent_bytes": 129,
+          "received_bytes": 388,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "banner_notifications": 0
+    },
+    {
+      "case": "none-request212",
+      "kind": "no-reply-212",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 60224,
+          "sent_bytes": 130,
+          "received_bytes": 366,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "url-early",
+      "kind": "early",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 47188,
+          "sent_bytes": 108,
+          "received_bytes": 366,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "url-metadata-150",
+      "kind": "metadata",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 47190,
+          "sent_bytes": 129,
+          "received_bytes": 388,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "banner_notifications": 0
+    },
+    {
+      "case": "url-metadata-151",
+      "kind": "metadata",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 47204,
+          "sent_bytes": 129,
+          "received_bytes": 459,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "banner_notifications": 1
+    },
+    {
+      "case": "url-metadata-190",
+      "kind": "metadata",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 47216,
+          "sent_bytes": 129,
+          "received_bytes": 459,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "banner_notifications": 1
+    },
+    {
+      "case": "url-request212",
+      "kind": "no-reply-212",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 47222,
+          "sent_bytes": 130,
+          "received_bytes": 366,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    }
+  ],
+  "initial": [
+    {
+      "case": "captures--local-a-metadata-190",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 41550,
+          "sent_bytes": 129,
+          "received_bytes": 388,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "captures--local-a-raw",
+      "status": "failed",
+      "error": "TimeoutError: timed out",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 41566,
+          "sent_bytes": 108,
+          "received_bytes": 344,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "captures--none-metadata",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 59336,
+          "sent_bytes": 129,
+          "received_bytes": 388,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "captures--none-transfer",
+      "status": "failed",
+      "error": "TimeoutError: timed out",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 42470,
+          "sent_bytes": 108,
+          "received_bytes": 344,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "captures--seed-banner-a",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 43564,
+          "sent_bytes": 184,
+          "received_bytes": 492,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "upload": {
+          "client_port": 43042,
+          "sent_bytes": 238,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      }
+    },
+    {
+      "case": "captures--seed-banner-b",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 59172,
+          "sent_bytes": 184,
+          "received_bytes": 492,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "upload": {
+          "client_port": 43726,
+          "sent_bytes": 253,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      }
+    },
+    {
+      "case": "captures--url-early",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 51590,
+          "sent_bytes": 108,
+          "received_bytes": 366,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "captures--url-metadata",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 51588,
+          "sent_bytes": 129,
+          "received_bytes": 459,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "captures--url-transfer",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 46934,
+          "sent_bytes": 130,
+          "received_bytes": 366,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "corrected--local-a-metadata-190",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 45740,
+          "sent_bytes": 129,
+          "received_bytes": 388,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "corrected--local-a-raw",
+      "status": "failed",
+      "error": "TimeoutError: timed out",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 45742,
+          "sent_bytes": 108,
+          "received_bytes": 344,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "final--local-a-metadata-190",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 35626,
+          "sent_bytes": 129,
+          "received_bytes": 388,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "final--local-a-raw",
+      "status": "failed",
+      "error": "TimeoutError: timed out",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 35630,
+          "sent_bytes": 108,
+          "received_bytes": 344,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "final-cases--local-a-cancel214",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 38952,
+          "sent_bytes": 168,
+          "received_bytes": 424,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "banner": {
+          "client_port": 41748,
+          "sent_bytes": 16,
+          "received_bytes": 58,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "final-cases--local-a-raw",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 40506,
+          "sent_bytes": 130,
+          "received_bytes": 402,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "banner": {
+          "client_port": 54310,
+          "sent_bytes": 16,
+          "received_bytes": 58,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "final-cases--none-early",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 50740,
+          "sent_bytes": 108,
+          "received_bytes": 366,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "final-cases--none-metadata-150",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 50754,
+          "sent_bytes": 129,
+          "received_bytes": 388,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "final-cases--none-metadata-151",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 50770,
+          "sent_bytes": 129,
+          "received_bytes": 459,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "final-cases--none-metadata-190",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 53438,
+          "sent_bytes": 129,
+          "received_bytes": 459,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "final-cases--none-request212",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 53446,
+          "sent_bytes": 130,
+          "received_bytes": 366,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "final-relative--local-a-metadata-190",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 39424,
+          "sent_bytes": 129,
+          "received_bytes": 388,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "final-relative--local-a-raw",
+      "status": "failed",
+      "error": "TimeoutError: timed out",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 39432,
+          "sent_bytes": 108,
+          "received_bytes": 344,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "full-volume--local-a-metadata-190",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 52984,
+          "sent_bytes": 129,
+          "received_bytes": 388,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "full-volume--local-a-raw",
+      "status": "failed",
+      "error": "TimeoutError: timed out",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 52988,
+          "sent_bytes": 108,
+          "received_bytes": 344,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "leaf--local-a-early",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 52026,
+          "sent_bytes": 108,
+          "received_bytes": 366,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "leaf--local-a-metadata-150",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 52006,
+          "sent_bytes": 129,
+          "received_bytes": 388,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "leaf--local-a-metadata-151",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 52022,
+          "sent_bytes": 129,
+          "received_bytes": 459,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "leaf--local-a-metadata-190",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 50524,
+          "sent_bytes": 129,
+          "received_bytes": 459,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "leaf--local-a-selector0",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 52028,
+          "sent_bytes": 130,
+          "received_bytes": 402,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "banner": {
+          "client_port": 44630,
+          "sent_bytes": 16,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      }
+    },
+    {
+      "case": "leaf--local-a-selector1",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 37992,
+          "sent_bytes": 130,
+          "received_bytes": 402,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "banner": {
+          "client_port": 44644,
+          "sent_bytes": 16,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      }
+    },
+    {
+      "case": "leaf--local-a-selector7",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 37996,
+          "sent_bytes": 130,
+          "received_bytes": 402,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "banner": {
+          "client_port": 44658,
+          "sent_bytes": 16,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      }
+    },
+    {
+      "case": "leaf--local-a-unknown",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 46796,
+          "sent_bytes": 130,
+          "received_bytes": 402,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "banner": {
+          "client_port": 56964,
+          "sent_bytes": 16,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      }
+    },
+    {
+      "case": "leaf--local-a-zero",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 53376,
+          "sent_bytes": 130,
+          "received_bytes": 402,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "banner": {
+          "client_port": 39130,
+          "sent_bytes": 16,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      }
+    },
+    {
+      "case": "repeat--absent-restored",
+      "status": "failed",
+      "error": "ValueError: Expected bounded silence, received bytes or EOF",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 39306,
+          "sent_bytes": 108,
+          "received_bytes": 380,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "banner": {
+          "client_port": 57006,
+          "sent_bytes": 16,
+          "received_bytes": 1,
+          "unread_output_hex": "494638396101000100800000000000ffffff21fe04420a00fe002c00000000010001000002024401003b6e61746976652d62616e6e65722d62",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "RST"
+        }
+      }
+    },
+    {
+      "case": "reviewed--changed-buffer",
+      "status": "failed",
+      "error": "TimeoutError: timed out",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 34072,
+          "sent_bytes": 151,
+          "received_bytes": 495,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "banner": {
+          "client_port": 52446,
+          "sent_bytes": 16,
+          "received_bytes": 43,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "RST"
+        }
+      }
+    },
+    {
+      "case": "reviewed--local-a-metadata-150",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 34052,
+          "sent_bytes": 129,
+          "received_bytes": 388,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "reviewed--local-a-metadata-151",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 34066,
+          "sent_bytes": 129,
+          "received_bytes": 459,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "reviewed--local-a-metadata-190",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 34048,
+          "sent_bytes": 129,
+          "received_bytes": 459,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "verified--absent-restored",
+      "status": "failed",
+      "error": "TimeoutError: timed out",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 54034,
+          "sent_bytes": 108,
+          "received_bytes": 380,
+          "unread_output_hex": "0000012d0000000300000000000000260000002600040067000200d30068000200010070000200120066000e62616e6e65722d666978747572650000012e0000000400000000000000080000000800010067000200d3",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "banner": {
+          "client_port": 46308,
+          "sent_bytes": 16,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "RST"
+        }
+      }
+    },
+    {
+      "case": "verified--local-a-metadata-150",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 57092,
+          "sent_bytes": 129,
+          "received_bytes": 388,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "verified--local-a-metadata-151",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 47886,
+          "sent_bytes": 129,
+          "received_bytes": 459,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "verified--local-a-metadata-190",
+      "status": "completed",
+      "error": "",
+      "packet_reconciliation": {
+        "main": {
+          "client_port": 57086,
+          "sent_bytes": 129,
+          "received_bytes": 459,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    }
+  ],
+  "scope": "Bounded GIF/URL/absent banner observations, not all formats, arbitrary reference lifetimes or historical client acceptance"
+}

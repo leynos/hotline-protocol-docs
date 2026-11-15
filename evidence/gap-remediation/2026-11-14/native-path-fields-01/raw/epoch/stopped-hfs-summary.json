@@ -1,0 +1,173 @@
+{
+  "utc": "2026-11-14T14:04:10.686479+00:00",
+  "pid_gone": true,
+  "working_inode": 5999397982,
+  "root_fuser_exit": 1,
+  "original_ticks": {
+    "1099659": "767842",
+    "1012834": "2357813"
+  },
+  "results": {
+    "fls-full": {
+      "argv": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/fls",
+        "-r",
+        "-p",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-path-fields-01/working.dsk"
+      ],
+      "exit": 0,
+      "size": 426845,
+      "sha256": "179fa21e2ed1507ca1b2110fdb5aec28f25aa8ed243a5d5d6b02ecb08d36b9b3"
+    },
+    "fls-allocated": {
+      "argv": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/fls",
+        "-u",
+        "-r",
+        "-p",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-path-fields-01/working.dsk"
+      ],
+      "exit": 0,
+      "size": 426845,
+      "sha256": "179fa21e2ed1507ca1b2110fdb5aec28f25aa8ed243a5d5d6b02ecb08d36b9b3"
+    },
+    "icat-admin": {
+      "argv": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/icat",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-path-fields-01/working.dsk",
+        "11193"
+      ],
+      "exit": 0,
+      "size": 734,
+      "sha256": "26612ad46cd91b90050feacf517d32a9e56d4a4aa92fbe6618eaf6e9e5ac60a3"
+    },
+    "icat-fixture-low": {
+      "argv": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/icat",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-path-fields-01/working.dsk",
+        "11201"
+      ],
+      "exit": 0,
+      "size": 734,
+      "sha256": "fce81359d0efcfc6c2dbf42852db66b0fb7a404b2889162b8f8fad81361ce2d5"
+    },
+    "icat-Prefs": {
+      "argv": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/icat",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-path-fields-01/working.dsk",
+        "11202"
+      ],
+      "exit": 0,
+      "size": 175,
+      "sha256": "4ed2b3e14e6e8a6cf246d16f7d1b98f0b91d1b09f6ab5497de1056a6f617d196"
+    },
+    "icat-server-data": {
+      "argv": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/icat",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-path-fields-01/working.dsk",
+        "11183-4352-0"
+      ],
+      "exit": 0,
+      "size": 616821,
+      "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+    },
+    "icat-server-rsrc": {
+      "argv": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/icat",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-path-fields-01/working.dsk",
+        "11183-4353-1"
+      ],
+      "exit": 0,
+      "size": 38460,
+      "sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12"
+    },
+    "istat-board": {
+      "argv": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/istat",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-path-fields-01/working.dsk",
+        "11191"
+      ],
+      "exit": 0,
+      "size": 615,
+      "sha256": "a920fecd49fdd10ea6b3d01d6786edd743e62a1b7d92d7d96d25952780efbdf2"
+    }
+  },
+  "active_users": [
+    "-/r 11193:\tHotline19/Users/admin/UserData",
+    "-/r 11201:\tHotline19/Users/fixture-low/UserData"
+  ],
+  "files_news": [
+    "d/d 11189:\tHotline19/Files",
+    "d/d 11328:\tHotline19/Files/m-agr-binary",
+    "d/d 11336:\tHotline19/Files/m-agr-binary-field-over-limit",
+    "-/r 11337:\tHotline19/Files/m-agr-binary-field-over-limit/Agreement.txt",
+    "d/d 11334:\tHotline19/Files/m-agr-binary-over-limit",
+    "-/r 11335:\tHotline19/Files/m-agr-binary-over-limit/Agreement.txt",
+    "d/d 11340:\tHotline19/Files/m-agr-directory",
+    "d/d 11326:\tHotline19/Files/m-agr-empty",
+    "d/d 11343:\tHotline19/Files/m-agr-nontext",
+    "d/d 11347:\tHotline19/Files/m-agr-nontext-field-over-limit",
+    "d/d 11345:\tHotline19/Files/m-agr-nontext-over-limit",
+    "d/d 11338:\tHotline19/Files/m-agr-restored",
+    "d/d 11323:\tHotline19/Files/m-agr-text",
+    "d/d 11330:\tHotline19/Files/m-agr-text-limit",
+    "d/d 11332:\tHotline19/Files/m-agr-text-over-limit",
+    "-/r 11303:\tHotline19/Files/m-agree-b-field",
+    "-/r 11302:\tHotline19/Files/m-agree-b-over",
+    "-/r 11299:\tHotline19/Files/m-agree-binary",
+    "-/r 11325:\tHotline19/Files/m-agree-flush-01",
+    "-/r 11300:\tHotline19/Files/m-agree-t-limit",
+    "-/r 11301:\tHotline19/Files/m-agree-t-over",
+    "-/r 11362:\tHotline19/Files/m-extra-flush-none",
+    "-/r 11367:\tHotline19/Files/m-extra-flush-peer-ascii",
+    "-/r 11368:\tHotline19/Files/m-extra-flush-peer-macroman",
+    "-/r 11369:\tHotline19/Files/m-extra-flush-peer-restored",
+    "-/r 11365:\tHotline19/Files/m-extra-flush-restored",
+    "-/r 11363:\tHotline19/Files/m-extra-flush-url",
+    "-/r 11282:\tHotline19/Files/m-htxf-u0",
+    "-/r 11280:\tHotline19/Files/m-htxf-u2",
+    "-/r 11281:\tHotline19/Files/m-htxf-u65535",
+    "-/r 11219:\tHotline19/Files/mothra-214-upload",
+    "d/d 11250:\tHotline19/Files/mothra-banner-formats",
+    "-/r 11211:\tHotline19/Files/mothra-empty-fixture",
+    "d/d 11235:\tHotline19/Files/mothra-folder-descriptor-delay",
+    "d/d 11237:\tHotline19/Files/mothra-folder-descriptor-delay/wait",
+    "d/d 11227:\tHotline19/Files/mothra-folder-dirlast",
+    "d/d 11228:\tHotline19/Files/mothra-folder-dirlast/only",
+    "d/d 11226:\tHotline19/Files/mothra-folder-empty",
+    "-/r 11232:\tHotline19/Files/mothra-folder-flush",
+    "d/d 11236:\tHotline19/Files/mothra-folder-late",
+    "d/d 11229:\tHotline19/Files/mothra-folder-partial",
+    "-/r 11230:\tHotline19/Files/mothra-folder-partial/alpha",
+    "d/d 11233:\tHotline19/Files/mothra-folder-partial/finish",
+    "-/r 11231:\tHotline19/Files/mothra-folder-partial/part",
+    "d/d 11220:\tHotline19/Files/mothra-folder-source",
+    "-/r 11223:\tHotline19/Files/mothra-folder-source/alpha",
+    "d/d 11221:\tHotline19/Files/mothra-folder-source/empty",
+    "d/d 11222:\tHotline19/Files/mothra-folder-source/inner",
+    "-/r 11225:\tHotline19/Files/mothra-folder-source/inner/leaf",
+    "-/r 11224:\tHotline19/Files/mothra-folder-source/zero",
+    "-/r 11210:\tHotline19/Files/mothra-fork-fixture",
+    "-/r 11218:\tHotline19/Files/mothra-race-fixture",
+    "-/r 11215:\tHotline19/Files/mothra-resume-inconsistent",
+    "-/r 11214:\tHotline19/Files/mothra-resume-partial",
+    "d/d 11190:\tHotline19/News"
+  ],
+  "banned_lines": []
+}

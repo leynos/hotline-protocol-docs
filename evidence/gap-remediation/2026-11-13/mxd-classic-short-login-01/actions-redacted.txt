@@ -1,0 +1,7 @@
+2026-11-13 21:09:17 UTC: launch known Classic client on isolated display :107; dismiss routine Sound Manager alert.
+Open Hotline > Connect; exact server 10.0.2.2:15650, owned login mxd-peer-short, masked password read internally from owned mode-0600 seed TOML by private XTest helper. No secret in argv/log.
+2026-11-13 21:10:12 UTC: one Connect click. UI says Connected to mxd, task Loading Agreement, zero users online.
+No agreement dialog or assent; no Save, chat, file/account/settings action or retry.
+2026-11-13 21:11:45 UTC: Hotline > Disconnect; 21:11:57 File > Quit returns Finder.
+Connect-to-Disconnect was 93 seconds, EXCEEDING authorized 30-second settle. No extra numbered request in that interval. This is not a compliant timed trial.
+Stop only own namespace capture (14 packets, zero kernel drops); root separately stops C21 unit. Raw credential-bearing PCAPs remain ignored.

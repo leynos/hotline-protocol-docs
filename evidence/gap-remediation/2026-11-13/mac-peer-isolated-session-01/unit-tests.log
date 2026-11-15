@@ -1,0 +1,12 @@
+test_changed_dns_error_rejected_from_packet_bytes (test_mac_peer_isolated_session.IsolatedMacSessionTests.test_changed_dns_error_rejected_from_packet_bytes) ... ok
+test_complete_bounded_session (test_mac_peer_isolated_session.IsolatedMacSessionTests.test_complete_bounded_session) ... ok
+test_dynamic_ref_must_match_data_header (test_mac_peer_isolated_session.IsolatedMacSessionTests.test_dynamic_ref_must_match_data_header) ... ok
+test_guest_control_byte_mismatch_rejected_after_rehash (test_mac_peer_isolated_session.IsolatedMacSessionTests.test_guest_control_byte_mismatch_rejected_after_rehash) ... ok
+test_shortened_observation_rejected (test_mac_peer_isolated_session.IsolatedMacSessionTests.test_shortened_observation_rejected) ... ok
+test_unexpected_host_observer_record_rejected (test_mac_peer_isolated_session.IsolatedMacSessionTests.test_unexpected_host_observer_record_rejected) ... ok
+test_wrong_161_rejected (test_mac_peer_isolated_session.IsolatedMacSessionTests.test_wrong_161_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.281s
+
+OK

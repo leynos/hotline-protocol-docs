@@ -1,0 +1,102 @@
+#!/usr/bin/env python3
+"""Bounded, independent Classic client PEF import and read-only probe."""
+import asyncio
+import hashlib
+import json
+import os
+import time
+import traceback
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+
+from mcp import ClientSession, StdioServerParameters
+from mcp.client.stdio import stdio_client
+
+ROOT = Path('/data/leynos/Projects/mothra')
+BASE = ROOT / 'state/client-account-pef-01'
+BINARY = ROOT / 'state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic'
+RSRC = BINARY.parent / '.rsrc' / BINARY.name
+JAR = ROOT / 'tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar'
+SHA = {'data':'7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315','resource':'f762cfdedcc39758f841f720a4586dbbb88a7b74ec9e83db1793791b7c3f318b','jar':'201d18ffde71a83a678eae607de265861f37e5a00b989d91958c1197664d2b43'}
+
+def digest(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+def now():
+    return datetime.now(timezone.utc).isoformat()
+
+async def main():
+    started=time.monotonic()
+    assert digest(BINARY)==SHA['data'] and digest(RSRC)==SHA['resource'] and digest(JAR)==SHA['jar']
+    project=BASE/'project'
+    if project.exists():
+        raise RuntimeError('Independent destination already exists')
+    for name in ('project','config','cache','data','tmp','home'):
+        (BASE/name).mkdir(exist_ok=False)
+    env=dict(os.environ)
+    env.update(JAVA_HOME=str(ROOT/'tools/jdk-25.0.5+8'),GHIDRA_INSTALL_DIR=str(ROOT/'tools/ghidra_12.2_PUBLIC'),XDG_CONFIG_HOME=str(BASE/'config'),XDG_CACHE_HOME=str(BASE/'cache'),XDG_DATA_HOME=str(BASE/'data'),TMPDIR=str(BASE/'tmp'),JAVA_TOOL_OPTIONS=f'-Duser.home={BASE / "home"} -Djava.io.tmpdir={BASE / "tmp"}')
+    env['PATH']=str(ROOT/'tools/jdk-25.0.5+8/bin')+os.pathsep+env['PATH']
+    args=['--headless','--binary',str(BINARY),'--project',str(project),'--project-name','hotline-client-classic-01','--language','PowerPC:BE:32:default','--compiler','default','--extension-jar',str(JAR),'--ready-timeout','540','--save']
+    params=StdioServerParameters(command=str(ROOT/'tools/ghidramcp/.venv/bin/ghidra-mcp'),args=args,env=env,cwd=str(ROOT))
+    report={'status':'running','started_at_utc':now(),'command':params.command,'args':args,'binary_sha256':SHA['data'],'resource_sha256':SHA['resource'],'jar_sha256':SHA['jar'],'ghidra_install':str(ROOT/'tools/ghidra_12.2_PUBLIC'),'environment_paths':{k:env[k] for k in ('JAVA_HOME','GHIDRA_INSTALL_DIR','XDG_CONFIG_HOME','XDG_CACHE_HOME','XDG_DATA_HOME','TMPDIR','JAVA_TOOL_OPTIONS')},'content_calls':0,'records':[]}
+    path=BASE/'report.json'
+    def flush():path.write_text(json.dumps(report,indent=2)+'\n')
+    flush()
+    async def query(session,label,tool,arguments,content=False):
+        remain=580-(time.monotonic()-started)
+        if remain<15:raise TimeoutError('Global analysis/probe deadline reached')
+        if content and report['content_calls']>=12:raise RuntimeError('Content query cap reached')
+        item={'label':label,'tool':tool,'arguments':arguments,'at_utc':now()}
+        report['records'].append(item)
+        if content:report['content_calls']+=1
+        flush()
+        result=await session.call_tool(tool,arguments,read_timeout_seconds=timedelta(seconds=min(remain,540)))
+        item['result']=result.model_dump(mode='json')
+        item['finished_at_utc']=now()
+        flush()
+        if result.isError or result.structuredContent is None:raise RuntimeError(f'{label} failed: {str(result.content)[:250]}')
+        return result.structuredContent
+    try:
+        with (BASE/'server.stderr.log').open('w') as err:
+            async with (stdio_client(params,errlog=err) as (reader,writer),ClientSession(reader,writer,read_timeout_seconds=timedelta(seconds=560)) as session):
+                await session.initialize()
+                info=await query(session,'identity-before','get_program_info',{})
+                seg=await query(session,'segments','list_segments',{'offset':0,'limit':20})
+                if info['sha256']!=SHA['data'] or info['language_id']!='PowerPC:BE:32:default' or info['executable_format']!='Preferred Executable Format (PEF)':raise RuntimeError('Program identity/loader mismatch')
+                report['segments']=seg
+                # Confirm the section-0 offset-to-loaded-address mapping with exact bytes.
+                # The usual PEF base is 0x10000000, but trust the returned segments.
+                blocks=seg.get('items',[]) if isinstance(seg,dict) else []
+                candidates=[]
+                for block in blocks:
+                    try:
+                        addr=int(str(block.get('start',block.get('start_address',''))),16)
+                        if int(str(block.get('length',block.get('size',0))),0)>=0x135810:candidates.append(addr)
+                    except (ValueError,TypeError):pass
+                report['candidate_code_bases']=[hex(x) for x in candidates]
+                if len(candidates)!=1:raise RuntimeError('Code section mapping ambiguous')
+                base=candidates[0]
+                witness=await query(session,'code-mapping-witness','read_memory',{'address':f'{base+0xb2294:x}','length':4})
+                if witness['hex'].replace(' ','').lower()!='3880006f':raise RuntimeError('Code section mapping byte mismatch')
+                report['code_base']=f'{base:x}'
+                for name,offset in [('field111-a',0xb2294),('field111-b',0xb28a0),('field111-c',0xcf2bc),('field111-d',0xefa10),('request349',0xc068),('request350',0xc3cc),('request353',0xc9d4)]:
+                    addr=f'{base+offset:x}'
+                    await query(session,name+'-function','get_function_by_address',{'address':addr},content=True)
+                # Four bounded function decompilations only after identity and all mappings agree.
+                for name,offset in [('field111-a',0xb2294),('field111-b',0xb28a0),('field111-c',0xcf2bc),('field111-d',0xefa10)]:
+                    await query(session,name+'-decompile','decompile_function_by_address',{'address':f'{base+offset:x}'},content=True)
+                after=await query(session,'identity-after','get_program_info',{})
+                if info!=after:raise RuntimeError('Program identity changed during queries')
+                report['status']='completed-bounded-query-set'
+    except Exception as exc:
+        report['status']='stopped-preserved'
+        report['error']=f'{type(exc).__name__}: {exc}'
+        report['traceback']=traceback.format_exc()
+        raise
+    finally:
+        report['finished_at_utc']=now()
+        report['elapsed_seconds']=time.monotonic()-started
+        flush()
+    print(report['status'])
+
+if __name__=='__main__':asyncio.run(main())

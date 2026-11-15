@@ -1,0 +1,31 @@
+[
+  {
+    "id": "B11-D-10027a20",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10027a20"
+    }
+  },
+  {
+    "id": "B11-D-10027ea0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10027ea0"
+    }
+  },
+  {
+    "id": "B11-D-100280b0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100280b0"
+    }
+  },
+  {
+    "id": "B11-M-unknown-operation-text",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "1009176a",
+      "length": 96
+    }
+  }
+]

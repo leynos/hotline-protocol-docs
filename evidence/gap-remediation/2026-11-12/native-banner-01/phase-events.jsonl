@@ -1,0 +1,20 @@
+{"utc": "2026-11-12T21:17:54.223717+00:00", "phase": "changed-buffer", "action": "begin GUI switch from barefilename A to B"}
+{"utc": "2026-11-12T21:18:08.277767+00:00", "phase": "changed-buffer", "action": "saved B configuration"}
+{"utc": "2026-11-12T21:19:50.291763+00:00", "phase": "changed-buffer-repeat", "action": "begin foreground and banner filename edit"}
+{"utc": "2026-11-12T21:20:05.775942+00:00", "phase": "changed-buffer-repeat", "action": "Save click completed; screenshot and subsequent packets determine actual configuration"}
+{"utc": "2026-11-12T21:20:52.434955+00:00", "phase": "absent-restored-missing", "action": "begin foreground and banner filename edit"}
+{"utc": "2026-11-12T21:21:08.710606+00:00", "phase": "absent-restored-missing", "action": "Save click completed; screenshot and subsequent packets determine actual configuration"}
+{"utc": "2026-11-12T21:21:50.001938+00:00", "phase": "absent-restored-back", "action": "begin foreground and banner filename edit"}
+{"utc": "2026-11-12T21:22:05.499944+00:00", "phase": "absent-restored-back", "action": "Save click completed; screenshot and subsequent packets determine actual configuration"}
+{"utc": "2026-11-12T21:25:34.137081+00:00", "phase": "final-url", "action": "begin foreground and banner filename edit"}
+{"utc": "2026-11-12T21:25:56.965480+00:00", "phase": "final-url", "action": "Save click completed; screenshot and subsequent packets determine actual configuration"}
+{"utc": "2026-11-12T21:26:22.267679+00:00", "phase": "final-empty", "action": "begin foreground and banner filename edit"}
+{"utc": "2026-11-12T21:26:40.738149+00:00", "phase": "final-empty", "action": "Save click completed; screenshot and subsequent packets determine actual configuration"}
+{"utc": "2026-11-12T21:27:06.543891+00:00", "phase": "before-absence-repeat", "action": "begin foreground and banner filename edit"}
+{"utc": "2026-11-12T21:27:27.107018+00:00", "phase": "before-absence-repeat", "action": "Save click completed; screenshot and subsequent packets determine actual configuration"}
+{"utc": "2026-11-12T21:27:51.239880+00:00", "phase": "repeat-missing", "action": "begin foreground and banner filename edit"}
+{"utc": "2026-11-12T21:28:12.664901+00:00", "phase": "repeat-missing", "action": "Save click completed; screenshot and subsequent packets determine actual configuration"}
+{"utc": "2026-11-12T21:29:16.983590+00:00", "phase": "repeat-restored", "action": "begin foreground and banner filename edit"}
+{"utc": "2026-11-12T21:29:37.548018+00:00", "phase": "repeat-restored", "action": "Save click completed; screenshot and subsequent packets determine actual configuration"}
+{"utc": "2026-11-12T21:29:38.024972+00:00", "phase": "final-a", "action": "begin foreground and banner filename edit"}
+{"utc": "2026-11-12T21:29:58.636978+00:00", "phase": "final-a", "action": "Save click completed; screenshot and subsequent packets determine actual configuration"}

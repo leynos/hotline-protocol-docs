@@ -1,0 +1,20 @@
+{
+  "unit": "mothra-mxd-peer-short-01.service",
+  "main_pid": 2512715,
+  "starttime_ticks": 2862858,
+  "invocation_id": "cef5bfe9da754c5fbc6fa5a3efa33b1b",
+  "active_enter_timestamp": "Fri 2026-11-13 21:05:23 GMT",
+  "runtime_max": "20min",
+  "binary_sha256": "3da44eac362e1a5433eee4cace8f030e383a9c4a8ea8f587055610299c879375",
+  "source_head": "cb907885cc2a61df2d708f38a3cf42da85c2a016",
+  "namespace": "net:[4026532479]",
+  "unit_cgroup": "/system.slice/mothra-mxd-peer-short-01.service",
+  "uid_gid_1000": true,
+  "cap_eff_zero": true,
+  "namespace_only_mxd_15650": true,
+  "host_15650_15651_absent": true,
+  "native_15500_15501_unchanged": true,
+  "routes_empty": true,
+  "sqlite_one_mxd_peer_short": true,
+  "client_connected": false
+}

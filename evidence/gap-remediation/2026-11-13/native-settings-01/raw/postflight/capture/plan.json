@@ -1,0 +1,346 @@
+{
+  "schema_version": 1,
+  "profile": "native-mac-oracle",
+  "operator": "C26 delegated native settings operator",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "gap_ids": [
+    "GAP-037"
+  ],
+  "environment": {
+    "profile": "native-mac-oracle",
+    "phase": "C26 native settings scalar, original server; immutable A7 baseline before and after",
+    "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+    "emulator_pid": 1099659,
+    "emulator_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+    "runtime_assets": {
+      "rom_sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+      "base_disk_sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910",
+      "source_rom": "/data/leynos/Projects/mothra/state/mac-runtime/hotline21/rom",
+      "source_disk": "/data/leynos/Projects/mothra/state/mac-runtime/hotline21/working.dsk",
+      "archive_member": null
+    },
+    "runtime_launch": {
+      "command": [
+        "sudo",
+        "-n",
+        "setpriv",
+        "--reuid=1000",
+        "--regid=1000",
+        "--init-groups",
+        "--inh-caps=+sys_rawio",
+        "--ambient-caps=+sys_rawio",
+        "env",
+        "DISPLAY=:99",
+        "SDL_VIDEODRIVER=x11",
+        "SDL_AUDIODRIVER=dummy",
+        "MOTHRA_ETHERNET_PCAP=/data/leynos/Projects/mothra/state/native-sessions/recovery-20261113-01/guest.pcap",
+        "XDG_CACHE_HOME=/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/cache",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/SheepShaver-9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/machine.sheepvm"
+      ],
+      "emulator_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "host_ports": [
+        15500,
+        15501,
+        15502,
+        15503
+      ],
+      "tcp_bind": "127.0.0.1",
+      "guest_address": "10.0.2.15",
+      "guest_pcap": "/data/leynos/Projects/mothra/state/native-sessions/recovery-20261113-01/guest.pcap",
+      "guest_pcap_scope": "SLiRP Ethernet boundary; host wall-clock timestamps"
+    },
+    "emulator_service": {
+      "unit": "mothra-sheep-bf808bd28e0d",
+      "command": [
+        "systemd-run",
+        "--user",
+        "--unit=mothra-sheep-bf808bd28e0d",
+        "--collect",
+        "--service-type=exec",
+        "--property=WorkingDirectory=/data/leynos/Projects/mothra",
+        "--property=StandardOutput=append:/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/sheep-service.log",
+        "--property=StandardError=append:/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/sheep-service.log",
+        "--property=Restart=no",
+        "--",
+        "/usr/sbin/python3",
+        "/data/leynos/Projects/mothra/scripts/mac_runtime.py",
+        "sheep",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery",
+        "--display",
+        ":99",
+        "--port",
+        "15500",
+        "--guest-pcap",
+        "/data/leynos/Projects/mothra/state/native-sessions/recovery-20261113-01/guest.pcap"
+      ],
+      "readiness": "Check systemctl --user show and the actual display/listener; no automatic restart"
+    },
+    "display_service": {
+      "unit": "mothra-display-f08732514eab",
+      "command": [
+        "systemd-run",
+        "--user",
+        "--unit=mothra-display-f08732514eab",
+        "--collect",
+        "--service-type=exec",
+        "--property=WorkingDirectory=/data/leynos/Projects/mothra",
+        "--property=StandardOutput=append:/data/leynos/Projects/mothra/state/mac-displays/recovery22/display-service.log",
+        "--property=StandardError=append:/data/leynos/Projects/mothra/state/mac-displays/recovery22/display-service.log",
+        "--property=Restart=no",
+        "--",
+        "/usr/sbin/Xvfb",
+        ":99",
+        "-screen",
+        "0",
+        "1024x768x24",
+        "-nolisten",
+        "tcp",
+        "-ac",
+        "-noreset"
+      ],
+      "readiness": "Check systemctl --user show and the actual display/listener; no automatic restart"
+    },
+    "guest_pcap": "/data/leynos/Projects/mothra/state/native-sessions/recovery-20261113-01/guest.pcap",
+    "original_options": {
+      "server_port": 5500,
+      "global_max_downloads": 100,
+      "per_client_max_downloads": 10,
+      "max_connections_per_ip": 5,
+      "screenshot": "/data/leynos/Projects/mothra/state/native-sessions/diagnostic-load-20261113-01/options-original.png"
+    },
+    "captured_options": false,
+    "source_note": "Recovered guest had automatic Disk First Aid on disposable working disk before this packet; no new disk repair authorised.",
+    "c26_runtime_identity": {
+      "emulator_pid": 1099659,
+      "emulator_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+      "emulator_unit": "mothra-sheep-bf808bd28e0d",
+      "working_disk_fd": 6,
+      "guest_pcap_fd": 16,
+      "host_recorder_pid": 2865250
+    },
+    "a7_phase": "postflight"
+  },
+  "endpoints": {
+    "control": {
+      "host": "127.0.0.1",
+      "port": 15500
+    },
+    "data": {
+      "host": "127.0.0.1",
+      "port": 15501
+    }
+  },
+  "expectation": {
+    "case": "existing-fixture-full-readback",
+    "name_hex": "6d6f746872612d726163652d66697874757265",
+    "expected_stream_bytes": 1049073,
+    "expected_data_sha256": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+    "expected_rsrc_sha256": "40a42dbcf2d879e22d9a5a9acf46bf15fa9fe3a77837f757a990e514436801e5"
+  },
+  "steps": [
+    {
+      "op": "connect",
+      "connection": "a",
+      "endpoint": "control",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "a",
+      "hex": "54525450484f544c00010002",
+      "timeout": 30
+    },
+    {
+      "op": "read",
+      "connection": "a",
+      "size": 8,
+      "expect_hex": "5452545000000000",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "a",
+      "hex": "0000006b000000010000000000000036000000360005006900059e9b929691006a000892908b978d9ecec600a0000200be0066000f6672616d696e672d66697874757265006800020001",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "a",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "a",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "a",
+      "timeout": 30
+    },
+    {
+      "op": "send",
+      "connection": "a",
+      "hex": "0000015c0000000a0000000000000002000000020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "a",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 10
+      }
+    },
+    {
+      "op": "send",
+      "connection": "a",
+      "hex": "000000c80000000b000000000000000800000008000100ca00020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "a",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 11
+      }
+    },
+    {
+      "op": "send",
+      "connection": "a",
+      "hex": "000000ce0000000c000000000000001900000019000100c900136d6f746872612d726163652d66697874757265",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "a",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 12
+      }
+    },
+    {
+      "op": "send",
+      "connection": "a",
+      "hex": "0000012c0000000d0000000000000002000000020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "a",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 13
+      },
+      "save": {
+        "name": "admin_uid",
+        "offset": 26,
+        "size": 2
+      }
+    },
+    {
+      "op": "send",
+      "connection": "a",
+      "hex": "0000012f0000000e000000000000000800000008000100670002{admin_uid}",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "a",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 14
+      }
+    },
+    {
+      "op": "send",
+      "connection": "a",
+      "hex": "000000ca0000000f000000000000001900000019000100c900136d6f746872612d726163652d66697874757265",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "a",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 15
+      },
+      "save_fields": {
+        "download_ref": 107,
+        "download_size": 108,
+        "fork_size": 207
+      }
+    },
+    {
+      "op": "connect",
+      "connection": "download",
+      "endpoint": "data",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "download",
+      "hex": "48545846{download_ref}0000000000000000",
+      "timeout": 30
+    },
+    {
+      "op": "read",
+      "connection": "download",
+      "size": 1049073,
+      "timeout": 60
+    },
+    {
+      "op": "send",
+      "connection": "a",
+      "hex": "000000d600000010000000000000000a0000000a0001006b0004{download_ref}",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "a",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 16
+      }
+    },
+    {
+      "op": "read_eof",
+      "connection": "download",
+      "timeout": 30,
+      "expect_hex": ""
+    },
+    {
+      "op": "close",
+      "connection": "download"
+    },
+    {
+      "op": "send",
+      "connection": "a",
+      "hex": "0000012f00000011000000000000000800000008000100670002{admin_uid}",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "a",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 17
+      }
+    },
+    {
+      "op": "close",
+      "connection": "a"
+    }
+  ]
+}

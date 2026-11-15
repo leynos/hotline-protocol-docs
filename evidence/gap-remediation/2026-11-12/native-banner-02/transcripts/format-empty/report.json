@@ -1,0 +1,680 @@
+{
+  "schema_version": 1,
+  "profile": "native-mac-oracle",
+  "status": "completed",
+  "native_conformance": false,
+  "identity_scope": "Local binary hash verified; remote process identity is operator-reported",
+  "operator": "native fixture operator",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "plan_sha256": "708eb79eeef6462d60c5ce4e3d75d3cf2cdb7a7c6173692cb2bdab5e0beebc21",
+  "driver_sha256": "2fba0972f4d9a8e3845c4204dce150dd7c90da0e19a9e5720d5289e2c94faf01",
+  "recorded_at_utc": "2026-11-12T22:02:47.056859+00:00",
+  "started_at_utc": "2026-11-12T22:02:26.040597+00:00",
+  "gap_ids": [
+    "GAP-055",
+    "GAP-063",
+    "GAP-084"
+  ],
+  "completed_actions": 35,
+  "error": "",
+  "events": [
+    {
+      "action": 0,
+      "connection": "main",
+      "event": "connect",
+      "elapsed_ns": 1864578,
+      "hex": "",
+      "local_address": [
+        "127.0.0.1",
+        33264
+      ],
+      "peer_address": [
+        "127.0.0.1",
+        15500
+      ]
+    },
+    {
+      "action": 1,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 1914691,
+      "hex": "54525450484f544c00010002"
+    },
+    {
+      "action": 2,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 2586204379,
+      "hex": "5452545000000000"
+    },
+    {
+      "action": 3,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 2586333940,
+      "hex": "0000006b00000001000000000000001d0000001d0003006900059e9b929691006a000892908b978d9ecec600a0000200be"
+    },
+    {
+      "action": 4,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 2602093165,
+      "hex": "0001000000000001000000000000000e0000000e"
+    },
+    {
+      "action": 4,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 2602144290,
+      "hex": "000200a0000200be00a100020000"
+    },
+    {
+      "action": 5,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 2607533246,
+      "hex": "0000006d0000000100000000000000f8000000f8"
+    },
+    {
+      "action": 5,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 2607602646,
+      "hex": "0001006500f25468697320697320746865207365727665722061677265656d656e742e20200d54686520736572766572206f776e6572207075747320616e79206b696e64206f6620636f6e646974696f6e73206f7220636f6e646974696f6e7320746865792077616e7420796f7520746f20616772656520746f206265666f726520656e746572696e672e20200d546865792063616e206368616e676520746869732061677265656d656e74206279206d6f64696679696e67207468652061677265656d656e742e7478742066696c6520696e2074686520736572766572206469726563746f72792e0d53617920796f7520616772656521"
+    },
+    {
+      "action": 6,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 2607713302,
+      "hex": "0000007900000002000000000000001a0000001a00020066000e62616e6e65722d66697874757265006800020001"
+    },
+    {
+      "action": 7,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 6937272644,
+      "hex": "0001000000000002000000000000000200000002"
+    },
+    {
+      "action": 7,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 6937376057,
+      "hex": "0000"
+    },
+    {
+      "action": 8,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 6942570382,
+      "hex": "0000016200000002000000000000000e0000000e"
+    },
+    {
+      "action": 8,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 6942594867,
+      "hex": "0001006e0008fff3cfefff800000"
+    },
+    {
+      "action": 9,
+      "connection": "",
+      "event": "pause",
+      "elapsed_ns": 6942726242,
+      "hex": ""
+    },
+    {
+      "action": 10,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 6942821970,
+      "hex": "000001f4000000090000000000000002000000020000"
+    },
+    {
+      "action": 11,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 6942835074,
+      "hex": "0000007a00000003000000000000003300000033"
+    },
+    {
+      "action": 11,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 6942845955,
+      "hex": "000200980004474946660099002568747470733a2f2f6578616d706c652e696e76616c69642f6d6f746872612d62616e6e6572"
+    },
+    {
+      "action": 11,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 12565074952,
+      "hex": "0001000000000009000000000000000200000002"
+    },
+    {
+      "action": 11,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 12565130786,
+      "hex": "0000"
+    },
+    {
+      "action": 12,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 12565321251,
+      "hex": "000000d40000000a0000000000000002000000020000"
+    },
+    {
+      "action": 13,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 12579955159,
+      "hex": "000100000000000a000000000000001000000010"
+    },
+    {
+      "action": 13,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 12580006886,
+      "hex": "0002006c00020000006b00040002eba3"
+    },
+    {
+      "action": 14,
+      "connection": "observer",
+      "event": "connect",
+      "elapsed_ns": 12580342240,
+      "hex": "",
+      "local_address": [
+        "127.0.0.1",
+        55104
+      ],
+      "peer_address": [
+        "127.0.0.1",
+        15500
+      ]
+    },
+    {
+      "action": 15,
+      "connection": "observer",
+      "event": "send",
+      "elapsed_ns": 12580393967,
+      "hex": "54525450484f544c00010002"
+    },
+    {
+      "action": 16,
+      "connection": "observer",
+      "event": "receive",
+      "elapsed_ns": 12600589523,
+      "hex": "5452545000000000"
+    },
+    {
+      "action": 17,
+      "connection": "observer",
+      "event": "send",
+      "elapsed_ns": 12600736888,
+      "hex": "0000006b000000010000000000000036000000360005006900059e9b929691006a000892908b978d9ecec600a0000200be0066000f6672616d696e672d66697874757265006800020001"
+    },
+    {
+      "action": 18,
+      "connection": "observer",
+      "event": "receive",
+      "elapsed_ns": 12610363684,
+      "hex": "0001000000000001000000000000000e0000000e"
+    },
+    {
+      "action": 18,
+      "connection": "observer",
+      "event": "receive",
+      "elapsed_ns": 12610436940,
+      "hex": "000200a0000200be00a100020000"
+    },
+    {
+      "action": 19,
+      "connection": "observer",
+      "event": "receive",
+      "elapsed_ns": 12616094964,
+      "hex": "0000016200000001000000000000000e0000000e"
+    },
+    {
+      "action": 19,
+      "connection": "observer",
+      "event": "receive",
+      "elapsed_ns": 12616140609,
+      "hex": "0001006e0008fff3cfefff800000"
+    },
+    {
+      "action": 20,
+      "connection": "observer",
+      "event": "receive",
+      "elapsed_ns": 12616185983,
+      "hex": "0000006d0000000200000000000000f8000000f8"
+    },
+    {
+      "action": 20,
+      "connection": "observer",
+      "event": "receive",
+      "elapsed_ns": 12616263898,
+      "hex": "0001006500f25468697320697320746865207365727665722061677265656d656e742e20200d54686520736572766572206f776e6572207075747320616e79206b696e64206f6620636f6e646974696f6e73206f7220636f6e646974696f6e7320746865792077616e7420796f7520746f20616772656520746f206265666f726520656e746572696e672e20200d546865792063616e206368616e676520746869732061677265656d656e74206279206d6f64696679696e67207468652061677265656d656e742e7478742066696c6520696e2074686520736572766572206469726563746f72792e0d53617920796f7520616772656521"
+    },
+    {
+      "action": 21,
+      "connection": "",
+      "event": "pause",
+      "elapsed_ns": 12616412731,
+      "hex": ""
+    },
+    {
+      "action": 22,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 12616538385,
+      "hex": "000001f4000000500000000000000002000000020000"
+    },
+    {
+      "action": 23,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 12616559755,
+      "hex": "0000012d00000004000000000000002700000027"
+    },
+    {
+      "action": 23,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 12616573350,
+      "hex": "00040067000201010068000200010070000200120066000f6672616d696e672d66697874757265"
+    },
+    {
+      "action": 23,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 20752517105,
+      "hex": "0001000000000050000000000000000200000002"
+    },
+    {
+      "action": 23,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 20752567048,
+      "hex": "0000"
+    },
+    {
+      "action": 24,
+      "connection": "",
+      "event": "pause",
+      "elapsed_ns": 20752710696,
+      "hex": ""
+    },
+    {
+      "action": 25,
+      "connection": "observer",
+      "event": "send",
+      "elapsed_ns": 20752802607,
+      "hex": "000001f4000000510000000000000002000000020000"
+    },
+    {
+      "action": 26,
+      "connection": "observer",
+      "event": "receive",
+      "elapsed_ns": 20758126018,
+      "hex": "0001000000000051000000000000000200000002"
+    },
+    {
+      "action": 26,
+      "connection": "observer",
+      "event": "receive",
+      "elapsed_ns": 20758170551,
+      "hex": "0000"
+    },
+    {
+      "action": 27,
+      "connection": "banner",
+      "event": "connect",
+      "elapsed_ns": 20758378278,
+      "hex": "",
+      "local_address": [
+        "127.0.0.1",
+        51148
+      ],
+      "peer_address": [
+        "127.0.0.1",
+        15501
+      ]
+    },
+    {
+      "action": 28,
+      "connection": "banner",
+      "event": "send",
+      "elapsed_ns": 20758428361,
+      "hex": "485458460002eba30000000000020000"
+    },
+    {
+      "action": 29,
+      "connection": "banner",
+      "event": "eof",
+      "elapsed_ns": 21015910759,
+      "hex": ""
+    },
+    {
+      "action": 30,
+      "connection": "banner",
+      "event": "close",
+      "elapsed_ns": 21016009282,
+      "hex": ""
+    },
+    {
+      "action": 31,
+      "connection": "main",
+      "event": "eof",
+      "elapsed_ns": 21016026815,
+      "hex": ""
+    },
+    {
+      "action": 32,
+      "connection": "observer",
+      "event": "eof",
+      "elapsed_ns": 21016034439,
+      "hex": ""
+    },
+    {
+      "action": 33,
+      "connection": "observer",
+      "event": "close",
+      "elapsed_ns": 21016065537,
+      "hex": ""
+    },
+    {
+      "action": 34,
+      "connection": "main",
+      "event": "close",
+      "elapsed_ns": 21016092968,
+      "hex": ""
+    }
+  ],
+  "frames": [
+    {
+      "action": 4,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 1,
+      "error": 0,
+      "total_size": 14,
+      "data_size": 14,
+      "payload_hex": "000200a0000200be00a100020000",
+      "fields": [
+        {
+          "id": 160,
+          "hex": "00be"
+        },
+        {
+          "id": 161,
+          "hex": "0000"
+        }
+      ],
+      "declared_field_count": 2,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 5,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 0,
+      "type": 109,
+      "id": 1,
+      "error": 0,
+      "total_size": 248,
+      "data_size": 248,
+      "payload_hex": "0001006500f25468697320697320746865207365727665722061677265656d656e742e20200d54686520736572766572206f776e6572207075747320616e79206b696e64206f6620636f6e646974696f6e73206f7220636f6e646974696f6e7320746865792077616e7420796f7520746f20616772656520746f206265666f726520656e746572696e672e20200d546865792063616e206368616e676520746869732061677265656d656e74206279206d6f64696679696e67207468652061677265656d656e742e7478742066696c6520696e2074686520736572766572206469726563746f72792e0d53617920796f7520616772656521",
+      "fields": [
+        {
+          "id": 101,
+          "hex": "5468697320697320746865207365727665722061677265656d656e742e20200d54686520736572766572206f776e6572207075747320616e79206b696e64206f6620636f6e646974696f6e73206f7220636f6e646974696f6e7320746865792077616e7420796f7520746f20616772656520746f206265666f726520656e746572696e672e20200d546865792063616e206368616e676520746869732061677265656d656e74206279206d6f64696679696e67207468652061677265656d656e742e7478742066696c6520696e2074686520736572766572206469726563746f72792e0d53617920796f7520616772656521"
+        }
+      ],
+      "declared_field_count": 1,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 7,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 2,
+      "error": 0,
+      "total_size": 2,
+      "data_size": 2,
+      "payload_hex": "0000",
+      "fields": [],
+      "declared_field_count": 0,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 8,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 0,
+      "type": 354,
+      "id": 2,
+      "error": 0,
+      "total_size": 14,
+      "data_size": 14,
+      "payload_hex": "0001006e0008fff3cfefff800000",
+      "fields": [
+        {
+          "id": 110,
+          "hex": "fff3cfefff800000"
+        }
+      ],
+      "declared_field_count": 1,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 11,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 0,
+      "type": 122,
+      "id": 3,
+      "error": 0,
+      "total_size": 51,
+      "data_size": 51,
+      "payload_hex": "000200980004474946660099002568747470733a2f2f6578616d706c652e696e76616c69642f6d6f746872612d62616e6e6572",
+      "fields": [
+        {
+          "id": 152,
+          "hex": "47494666"
+        },
+        {
+          "id": 153,
+          "hex": "68747470733a2f2f6578616d706c652e696e76616c69642f6d6f746872612d62616e6e6572"
+        }
+      ],
+      "declared_field_count": 2,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 11,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 9,
+      "error": 0,
+      "total_size": 2,
+      "data_size": 2,
+      "payload_hex": "0000",
+      "fields": [],
+      "declared_field_count": 0,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 13,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 10,
+      "error": 0,
+      "total_size": 16,
+      "data_size": 16,
+      "payload_hex": "0002006c00020000006b00040002eba3",
+      "fields": [
+        {
+          "id": 108,
+          "hex": "0000"
+        },
+        {
+          "id": 107,
+          "hex": "0002eba3"
+        }
+      ],
+      "declared_field_count": 2,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 18,
+      "connection": "observer",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 1,
+      "error": 0,
+      "total_size": 14,
+      "data_size": 14,
+      "payload_hex": "000200a0000200be00a100020000",
+      "fields": [
+        {
+          "id": 160,
+          "hex": "00be"
+        },
+        {
+          "id": 161,
+          "hex": "0000"
+        }
+      ],
+      "declared_field_count": 2,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 19,
+      "connection": "observer",
+      "flags": 0,
+      "is_reply": 0,
+      "type": 354,
+      "id": 1,
+      "error": 0,
+      "total_size": 14,
+      "data_size": 14,
+      "payload_hex": "0001006e0008fff3cfefff800000",
+      "fields": [
+        {
+          "id": 110,
+          "hex": "fff3cfefff800000"
+        }
+      ],
+      "declared_field_count": 1,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 20,
+      "connection": "observer",
+      "flags": 0,
+      "is_reply": 0,
+      "type": 109,
+      "id": 2,
+      "error": 0,
+      "total_size": 248,
+      "data_size": 248,
+      "payload_hex": "0001006500f25468697320697320746865207365727665722061677265656d656e742e20200d54686520736572766572206f776e6572207075747320616e79206b696e64206f6620636f6e646974696f6e73206f7220636f6e646974696f6e7320746865792077616e7420796f7520746f20616772656520746f206265666f726520656e746572696e672e20200d546865792063616e206368616e676520746869732061677265656d656e74206279206d6f64696679696e67207468652061677265656d656e742e7478742066696c6520696e2074686520736572766572206469726563746f72792e0d53617920796f7520616772656521",
+      "fields": [
+        {
+          "id": 101,
+          "hex": "5468697320697320746865207365727665722061677265656d656e742e20200d54686520736572766572206f776e6572207075747320616e79206b696e64206f6620636f6e646974696f6e73206f7220636f6e646974696f6e7320746865792077616e7420796f7520746f20616772656520746f206265666f726520656e746572696e672e20200d546865792063616e206368616e676520746869732061677265656d656e74206279206d6f64696679696e67207468652061677265656d656e742e7478742066696c6520696e2074686520736572766572206469726563746f72792e0d53617920796f7520616772656521"
+        }
+      ],
+      "declared_field_count": 1,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 23,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 0,
+      "type": 301,
+      "id": 4,
+      "error": 0,
+      "total_size": 39,
+      "data_size": 39,
+      "payload_hex": "00040067000201010068000200010070000200120066000f6672616d696e672d66697874757265",
+      "fields": [
+        {
+          "id": 103,
+          "hex": "0101"
+        },
+        {
+          "id": 104,
+          "hex": "0001"
+        },
+        {
+          "id": 112,
+          "hex": "0012"
+        },
+        {
+          "id": 102,
+          "hex": "6672616d696e672d66697874757265"
+        }
+      ],
+      "declared_field_count": 4,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 23,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 80,
+      "error": 0,
+      "total_size": 2,
+      "data_size": 2,
+      "payload_hex": "0000",
+      "fields": [],
+      "declared_field_count": 0,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 26,
+      "connection": "observer",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 81,
+      "error": 0,
+      "total_size": 2,
+      "data_size": 2,
+      "payload_hex": "0000",
+      "fields": [],
+      "declared_field_count": 0,
+      "unconsumed_hex": ""
+    }
+  ],
+  "streams": {
+    "main": {
+      "sent_hex": "54525450484f544c000100020000006b00000001000000000000001d0000001d0003006900059e9b929691006a000892908b978d9ecec600a0000200be0000007900000002000000000000001a0000001a00020066000e62616e6e65722d66697874757265006800020001000001f4000000090000000000000002000000020000000000d40000000a0000000000000002000000020000000001f4000000500000000000000002000000020000",
+      "received_hex": "54525450000000000001000000000001000000000000000e0000000e000200a0000200be00a1000200000000006d0000000100000000000000f8000000f80001006500f25468697320697320746865207365727665722061677265656d656e742e20200d54686520736572766572206f776e6572207075747320616e79206b696e64206f6620636f6e646974696f6e73206f7220636f6e646974696f6e7320746865792077616e7420796f7520746f20616772656520746f206265666f726520656e746572696e672e20200d546865792063616e206368616e676520746869732061677265656d656e74206279206d6f64696679696e67207468652061677265656d656e742e7478742066696c6520696e2074686520736572766572206469726563746f72792e0d53617920796f7520616772656521000100000000000200000000000000020000000200000000016200000002000000000000000e0000000e0001006e0008fff3cfefff8000000000007a00000003000000000000003300000033000200980004474946660099002568747470733a2f2f6578616d706c652e696e76616c69642f6d6f746872612d62616e6e657200010000000000090000000000000002000000020000000100000000000a0000000000000010000000100002006c00020000006b00040002eba30000012d0000000400000000000000270000002700040067000201010068000200010070000200120066000f6672616d696e672d6669787475726500010000000000500000000000000002000000020000"
+    },
+    "observer": {
+      "sent_hex": "54525450484f544c000100020000006b000000010000000000000036000000360005006900059e9b929691006a000892908b978d9ecec600a0000200be0066000f6672616d696e672d66697874757265006800020001000001f4000000510000000000000002000000020000",
+      "received_hex": "54525450000000000001000000000001000000000000000e0000000e000200a0000200be00a1000200000000016200000001000000000000000e0000000e0001006e0008fff3cfefff8000000000006d0000000200000000000000f8000000f80001006500f25468697320697320746865207365727665722061677265656d656e742e20200d54686520736572766572206f776e6572207075747320616e79206b696e64206f6620636f6e646974696f6e73206f7220636f6e646974696f6e7320746865792077616e7420796f7520746f20616772656520746f206265666f726520656e746572696e672e20200d546865792063616e206368616e676520746869732061677265656d656e74206279206d6f64696679696e67207468652061677265656d656e742e7478742066696c6520696e2074686520736572766572206469726563746f72792e0d53617920796f752061677265652100010000000000510000000000000002000000020000"
+    },
+    "banner": {
+      "sent_hex": "485458460002eba30000000000020000",
+      "received_hex": ""
+    }
+  }
+}

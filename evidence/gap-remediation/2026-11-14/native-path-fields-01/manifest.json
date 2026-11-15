@@ -1,0 +1,594 @@
+{
+  "status": "recorded_native_witness",
+  "recorded_at_utc": "2026-11-14T14:09:16.682173+00:00",
+  "source_origin": {
+    "epoch": "state/native-sessions/native-path-fields-epoch-01",
+    "preparation": "state/native-sessions/native-path-fields-preparation-01"
+  },
+  "case_status": "completed",
+  "readiness_status": "completed",
+  "readiness_actions": 18,
+  "case_request_count": 82,
+  "mutation_count": 20,
+  "case_frames": 84,
+  "case_events": 173,
+  "case_views": 31,
+  "twelve_tested_values_and_observations": [
+    {
+      "index": 0,
+      "field": 212,
+      "value_hex": "00020000086d2d706174683437000003482d9a",
+      "request_id": 120,
+      "status": 0,
+      "error_fields": [],
+      "before_parent": "S",
+      "before_views": [
+        "7030",
+        "7031",
+        "7032",
+        "7033",
+        "7034",
+        "7035"
+      ],
+      "selected_parent": "H",
+      "after_views": {
+        "S": [
+          "7031",
+          "7032",
+          "7033",
+          "7034",
+          "7035"
+        ],
+        "wrapper": [
+          "482d9a",
+          "53"
+        ],
+        "H": [
+          "7030"
+        ]
+      },
+      "after_info_parent_hex": "00020000086d2d706174683437000003482d9a"
+    },
+    {
+      "index": 1,
+      "field": 212,
+      "value_hex": "00030000086d2d706174683437000003482d9a000000",
+      "request_id": 127,
+      "status": 0,
+      "error_fields": [],
+      "before_parent": "S",
+      "before_views": [
+        "7031",
+        "7032",
+        "7033",
+        "7034",
+        "7035"
+      ],
+      "selected_parent": "H",
+      "after_views": {
+        "S": [
+          "7032",
+          "7033",
+          "7034",
+          "7035"
+        ],
+        "wrapper": [
+          "482d9a",
+          "53"
+        ],
+        "H": [
+          "7030",
+          "7031"
+        ]
+      },
+      "after_info_parent_hex": "00020000086d2d706174683437000003482d9a"
+    },
+    {
+      "index": 2,
+      "field": 212,
+      "value_hex": "00030000086d2d706174683437000003482d9a",
+      "request_id": 134,
+      "status": 0,
+      "error_fields": [],
+      "before_parent": "S",
+      "before_views": [
+        "7032",
+        "7033",
+        "7034",
+        "7035"
+      ],
+      "selected_parent": "H",
+      "after_views": {
+        "S": [
+          "7033",
+          "7034",
+          "7035"
+        ],
+        "wrapper": [
+          "482d9a",
+          "53"
+        ],
+        "H": [
+          "7030",
+          "7031",
+          "7032"
+        ]
+      },
+      "after_info_parent_hex": "00020000086d2d706174683437000003482d9a"
+    },
+    {
+      "index": 3,
+      "field": 212,
+      "value_hex": "00020000086d2d706174683437ffff03482d9a",
+      "request_id": 141,
+      "status": 0,
+      "error_fields": [],
+      "before_parent": "S",
+      "before_views": [
+        "7033",
+        "7034",
+        "7035"
+      ],
+      "selected_parent": "H",
+      "after_views": {
+        "S": [
+          "7034",
+          "7035"
+        ],
+        "wrapper": [
+          "482d9a",
+          "53"
+        ],
+        "H": [
+          "7030",
+          "7031",
+          "7032",
+          "7033"
+        ]
+      },
+      "after_info_parent_hex": "00020000086d2d706174683437000003482d9a"
+    },
+    {
+      "index": 4,
+      "field": 212,
+      "value_hex": "00020000086d2d706174683437000003482d9aeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "request_id": 148,
+      "status": 0,
+      "error_fields": [],
+      "before_parent": "S",
+      "before_views": [
+        "7034",
+        "7035"
+      ],
+      "selected_parent": "H",
+      "after_views": {
+        "S": [
+          "7035"
+        ],
+        "wrapper": [
+          "482d9a",
+          "53"
+        ],
+        "H": [
+          "7030",
+          "7031",
+          "7032",
+          "7033",
+          "7034"
+        ]
+      },
+      "after_info_parent_hex": "00020000086d2d706174683437000003482d9a"
+    },
+    {
+      "index": 5,
+      "field": 212,
+      "value_hex": "00020000086d2d706174683437000003482d9aeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "request_id": 155,
+      "status": 0,
+      "error_fields": [],
+      "before_parent": "S",
+      "before_views": [
+        "7035"
+      ],
+      "selected_parent": "H",
+      "after_views": {
+        "S": [],
+        "wrapper": [
+          "482d9a",
+          "53"
+        ],
+        "H": [
+          "7030",
+          "7031",
+          "7032",
+          "7033",
+          "7034",
+          "7035"
+        ]
+      },
+      "after_info_parent_hex": "00020000086d2d706174683437000003482d9a"
+    },
+    {
+      "index": 6,
+      "field": 325,
+      "value_hex": "00010000076d2d6e34372d9a",
+      "request_id": 161,
+      "status": 0,
+      "error_fields": [],
+      "selected_parent": "news-high",
+      "names": [
+        {
+          "field": 323,
+          "kind": 3,
+          "name_hex": "6d2d6361743437"
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "field": 325,
+      "value_hex": "00020000076d2d6e34372d9a000000",
+      "request_id": 163,
+      "status": 0,
+      "error_fields": [],
+      "selected_parent": "news-high",
+      "names": [
+        {
+          "field": 323,
+          "kind": 3,
+          "name_hex": "6d2d6361743437"
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "field": 325,
+      "value_hex": "00020000076d2d6e34372d9a",
+      "request_id": 165,
+      "status": 0,
+      "error_fields": [],
+      "selected_parent": "news-high",
+      "names": [
+        {
+          "field": 323,
+          "kind": 3,
+          "name_hex": "6d2d6361743437"
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "field": 325,
+      "value_hex": "0001ffff076d2d6e34372d9a",
+      "request_id": 167,
+      "status": 0,
+      "error_fields": [],
+      "selected_parent": "news-high",
+      "names": [
+        {
+          "field": 323,
+          "kind": 3,
+          "name_hex": "6d2d6361743437"
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "field": 325,
+      "value_hex": "00010000076d2d6e34372d9aeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "request_id": 169,
+      "status": 0,
+      "error_fields": [],
+      "selected_parent": "news-high",
+      "names": [
+        {
+          "field": 323,
+          "kind": 3,
+          "name_hex": "6d2d6361743437"
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "field": 325,
+      "value_hex": "00010000076d2d6e34372d9aeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "request_id": 171,
+      "status": 0,
+      "error_fields": [],
+      "selected_parent": "news-high",
+      "names": [
+        {
+          "field": 323,
+          "kind": 3,
+          "name_hex": "6d2d6361743437"
+        }
+      ]
+    }
+  ],
+  "source_closure": {
+    "protocol_modules": 37,
+    "mothra_helpers": 3,
+    "snapshot": "raw/epoch/source-freeze.json",
+    "approved_pins": [
+      "raw/preparation/approved-source-closure.sha256",
+      "raw/preparation/approved-helpers.sha256",
+      "raw/preparation/approved-path-fields-sources.sha256"
+    ],
+    "proposed_snapshots": "raw/preparation/proposed-sources"
+  },
+  "network": {
+    "raw_pcaps": [
+      "raw/epoch/primary-syn.pcap",
+      "raw/epoch/lab-namespace.pcap",
+      "raw/epoch/lab-guest.pcap"
+    ],
+    "paired_flows": "derived/flows.json",
+    "flow_count": 2,
+    "primary_syn_pcap_bytes": 24,
+    "capture_journal": "raw/epoch/capture-journal-terminal.txt"
+  },
+  "retirement": {
+    "emulator": "raw/epoch/emulator-retire.json",
+    "forced_term_after_app_quit": true,
+    "orderly_guest_shutdown_established": false,
+    "stopped_hfs": "raw/epoch/stopped-hfs-summary.json",
+    "stopped_assets": "raw/epoch/stopped-assets.sha256",
+    "asset_sha256_lines": [
+      "01f8a9bb9d55f79c12b09a8312b6f4477b0ce32218824811953da766b09af4d4  state/mac-runtime/native-path-fields-01/working.dsk",
+      "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910  state/mac-runtime/native-path-fields-01/base.dsk",
+      "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd  state/mac-runtime/native-path-fields-01/rom"
+    ]
+  },
+  "stopped_marker_audit": {
+    "path": "derived/stopped-marker-catalogue.json",
+    "entries": 11,
+    "caution": "Trash marker locations are post-cleanup stopped catalogue only; pre-move location comes from live request readbacks and earlier information replies.",
+    "fork_proof": "raw/epoch/stopped-marker-forks",
+    "fork_limit": "Post-cleanup stopped-file bytes and attributes only; no pre-move fork comparison or durability proof."
+  },
+  "exclusions": [
+    "No ROM or 8GB disk bytes",
+    "No raw stopped account UserData forks or server DATA/RSRC fork bytes; stopped size/hash/TSK command receipts retained",
+    "No pyc/cache files"
+  ],
+  "files": {
+    "derived/flows.json": "a12e7608a0f7e554546323937afe3a8364f521d0bc6916a64a3179ff6bdb9f13",
+    "derived/stopped-marker-catalogue.json": "46fc19f2dfff9eb6a891f3320855289aac0d97d936335948f2a2f7fe8c4d06cf",
+    "derived/streams/case-guest-received.bin": "8ce26fc9c5586a6fdaf0df4dce0f8ef535bb44dcc0a80dbf1da30d0f06001e97",
+    "derived/streams/case-guest-sent.bin": "d0674b1e5872f1a0a1b080f18fa36d318f838ea8b4e0f9fef3df6dfe53f8a076",
+    "derived/streams/case-namespace-received.bin": "8ce26fc9c5586a6fdaf0df4dce0f8ef535bb44dcc0a80dbf1da30d0f06001e97",
+    "derived/streams/case-namespace-sent.bin": "d0674b1e5872f1a0a1b080f18fa36d318f838ea8b4e0f9fef3df6dfe53f8a076",
+    "derived/streams/readiness-guest-received.bin": "7f5cad68aaca975d221a5216ac98a6d4241c3557a543afb83e66799a1da23dc2",
+    "derived/streams/readiness-guest-sent.bin": "5eecc6b4d737fcadbb8356aa0839119da65a3d2e77dca799bc23d39e6f4487b2",
+    "derived/streams/readiness-namespace-received.bin": "7f5cad68aaca975d221a5216ac98a6d4241c3557a543afb83e66799a1da23dc2",
+    "derived/streams/readiness-namespace-sent.bin": "5eecc6b4d737fcadbb8356aa0839119da65a3d2e77dca799bc23d39e6f4487b2",
+    "raw/epoch/actual-emulator-proof.json": "7dac346c4c68445adee82a24f9965c15736baa4836484282d2593abd25aae85d",
+    "raw/epoch/app-quit-click.utc": "5a816de35d675df148c2abbfee1d1f695c268f1a388eec3772d867446c06e344",
+    "raw/epoch/app-quit-screen.png": "b885cd6a1dc705a4473828f5bb1119624d4ee1d6900326e09c37b0baa3687e42",
+    "raw/epoch/boot-screen-1.png": "cae2038b375185cd37e143150dc4bcfe9c9e6e145133c2b326ecff780961ee97",
+    "raw/epoch/boot-screen-2.png": "78edb5c72bacd8209138ecda816fc5c4fc80f2687ecb3582ef0b192721d2bd7a",
+    "raw/epoch/boot-screen-3.png": "add534614217ffa8097a1ca859d9e9303d0d0e8c9bdbaf9b2cc7740ad565cace",
+    "raw/epoch/boot-screen-4.png": "d6150c1da0fabe0960e10f6eee21f38e4f0608df2f96be728997a08f20aa70c2",
+    "raw/epoch/build-runtime.stdout": "29ca7640bca07e855769b75cce1816a2a9a27fd9eb30c7192f9825073009f813",
+    "raw/epoch/capture-journal-terminal.txt": "7a043bf36cd3fa48ad277f169648a27ef8c8d19086b607ef1c33454486a84529",
+    "raw/epoch/capture-ready.json": "a8a875a92174beaa1356957dd2b9bcc608fbe5fa549b2a98188423a0b2ecc90f",
+    "raw/epoch/case-deadline.utc": "a23ae6cdc3882833fdcb6dab8bd9e23ba2964456c56bae69b7b44c5c38050dfb",
+    "raw/epoch/case-launch.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/epoch/control-plans/ban.json": "a84295f9d49731dca9b70dfbde61eb278779a1a386e2a2f704667a50d0fa7ba6",
+    "raw/epoch/control-plans/guard.json": "d5642ea540ed108211ab3f10f7d09085174828265e6ae47bdba0d7320799a32c",
+    "raw/epoch/control-plans/probe.json": "2fdd04cd42077d9d3669ee5afdcf67ebf19e5e48c26c3a6ab76a11f6911cc251",
+    "raw/epoch/control-plans/readiness.json": "7fbd7f74c1b3ddfdfabb0960ef9cf3dc6dadeb82a1cfe571b93e19547ea616c7",
+    "raw/epoch/control-plans/seed.json": "0ebacc251681e0630be9fc1c0be81867dabc024aece75afdbd6919f594c94d3b",
+    "raw/epoch/coordinator/plan.json": "dac0a99b766855d07005195c279f34396ea6c966308ba0bb7ee00fb725c0f947",
+    "raw/epoch/coordinator/report.json": "fb3aebe6a6ae0db814d1078944285e5689c1586e8c9105f59b0345688813875b",
+    "raw/epoch/coordinator.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "raw/epoch/desktop-1.png": "be646366cd0db5934d9979511b163213435558c63de4995815c8cd20c6b3cc4d",
+    "raw/epoch/disk-ready.json": "845b124404ebc9170422703d6b984e8b6632552b3ccb79931889fcac32d1dfda",
+    "raw/epoch/disk-ready.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/epoch/display-launch.stdout": "707ed0da402bb4589f1432ec0ba58a24e644b6dff8492bc0e3ba2aecb59a1ddd",
+    "raw/epoch/emulator-retire.json": "57837b037e781f06d8d241a8e0dd8710fc2c68cc2a9f6eb71a656cd2b977e5d2",
+    "raw/epoch/epoch-start.utc": "c9aedf0c9b43168fc8f63af85707987ed9ac85f1d058884cbce807220cd05ec3",
+    "raw/epoch/guest-capture-ready.json": "e58387b17667a1428bbd6bec901338d8b358cda9f384132cb496ee1944a94263",
+    "raw/epoch/guest-capture-ready.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/epoch/helper-sources/capture_readiness.py": "7a75f4b78f1255f4486ced44fc5fb8882d6008c7de6844a82f4c107e7299d678",
+    "raw/epoch/helper-sources/native_capture_receipt.py": "e3faecd2445195cbce776c67ad387727b53efffbe92d88214fbbfb0e1f7e8363",
+    "raw/epoch/helper-sources/native_emulator_readiness.py": "56200bfe9dcf779bb72e2a711a0ce98bb9351f5f42dc57245a40d1dd603cca7e",
+    "raw/epoch/host-initial-wait.json": "38552a58d4bc73b60886fc44863fb92b71d89354b7224099ff5a0bbe970bf7d9",
+    "raw/epoch/host-initial-wait.stdout": "056a2461ec048edba7ff327cc982a17be82ab976556cfe48b9b0a4b853c33896",
+    "raw/epoch/host-launch.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/epoch/host-ready.json": "28bfe36c86b77ecf021e0545e8c0061830f2f8327a4904d06390da81c9f5f8ce",
+    "raw/epoch/input.py": "b7e44a65439284ec7bb14572c98174756a87ef311eebc01cba5303966433d51d",
+    "raw/epoch/lab-guest.pcap": "04dda54e34f58c90778f636b18f07d60d971fbc57485dafa4f6c7c4761ed63e9",
+    "raw/epoch/lab-namespace.pcap": "14104775e5b15f0179eef5127e98c2455f4a58c158d52e31dcd37cd5466b7f52",
+    "raw/epoch/lease-initial-show.txt": "dc9e153a393ffa6f5339ef471f6e25a618ced7c2f59e45dff6b2fb9ba676cb0a",
+    "raw/epoch/lease-initial-wait.json": "d53093d91fdfc726e990959e8bfdad08bfaaaaa17ddd8d0fbd17fbe84217ad2a",
+    "raw/epoch/lease-initial-wait.stdout": "90724f0fa48d2b8e59782036fa25c57b95e6b1edf1c8ddd4b6bbf29e12e8508a",
+    "raw/epoch/lease-launch.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/epoch/namespace-initial-wait.json": "f35e77cb2d7c77b1d4670eeca0b498f9386d09443cd3cf251996811b4c1675c9",
+    "raw/epoch/namespace-initial-wait.stdout": "f189c908a88eec0bf289f431e4fee94cae5fdcaf35dd05fedeefa3e153cc044a",
+    "raw/epoch/namespace-launch.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/epoch/namespace-ready.json": "c049e4740751d30cfc1af35bd5eab406ec49c885e915c5a139be332c04ba9015",
+    "raw/epoch/parent-readiness-review.json": "3f491a8e0c0a11c98f59ced64b79df5bee11ec0756fb75e4133176c5d72b99eb",
+    "raw/epoch/parent-regenerated-plan/plan.json": "dac0a99b766855d07005195c279f34396ea6c966308ba0bb7ee00fb725c0f947",
+    "raw/epoch/parent-regenerated-plan/source-hashes.json": "a9f7dfba0459b2b563e54fa63eb257dc75f282f5f898fb4a5b797b9b393502e5",
+    "raw/epoch/path-fields-plan/plan.json": "dac0a99b766855d07005195c279f34396ea6c966308ba0bb7ee00fb725c0f947",
+    "raw/epoch/path-fields-plan/source-hashes.json": "a9f7dfba0459b2b563e54fa63eb257dc75f282f5f898fb4a5b797b9b393502e5",
+    "raw/epoch/plan-hashes.stdout": "461f2d09ab0da6761f2c64f6c1350aa73abb21db6ed3b722b844dd05fad088d0",
+    "raw/epoch/ports-after.txt": "cd3de20d9b2b540509c5472957e6ab48cec5145438823bdda559e33f71f8c543",
+    "raw/epoch/postcase-screen.png": "669a3779d219e779afb5bedd97bff0b74f2ebcf44e211462b87dd98661c5c970",
+    "raw/epoch/pre-fuser.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/epoch/pre-fuser.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/epoch/pre-ports.txt": "f7ec558319b75cf8b1b9a614ce6df1c6dae892620ff3338a4125577c6499163c",
+    "raw/epoch/precase-screen.png": "3a52d4dd9a363622cb951678cdd5390deaee572b0efb05ef25db731edbe38596",
+    "raw/epoch/primary-syn.pcap": "704e5e5b3234433c01fcfd1b20a306e77e985038120492dc53965c3edd38a4ea",
+    "raw/epoch/readiness/checksums.sha256": "c5a8abd2fa035985d8878d911817797989e1c570bf83f0cb7441b986979abc32",
+    "raw/epoch/readiness/plan.json": "7fbd7f74c1b3ddfdfabb0960ef9cf3dc6dadeb82a1cfe571b93e19547ea616c7",
+    "raw/epoch/readiness/report.json": "970ad03362af7940eee91059a8d30aeee8507fd88ac49a9964d6d817d0d3f140",
+    "raw/epoch/readiness-launch.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/epoch/readiness-unit-final.txt": "7df5bbc8e47f63ae4510918afed9ba5feecec451c29c4325fa01d3e72e622383",
+    "raw/epoch/readiness.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "raw/epoch/receipt-helper.stdout": "4fa2aa2a65d3ac0b220a4ed11a9b60efe4e787514c42c69428644d21070909a3",
+    "raw/epoch/runtime.json": "ec2cfed93f2ba3c04a26422a90d82e1a4ecaae6b41fa0a4b1f22644d01fb7194",
+    "raw/epoch/server-launch-1.png": "b05b569ae158f9382871cd830fc9f31e5919c70611733e9d609b1b8105acb84e",
+    "raw/epoch/server-ready.png": "7a6f59b72cad21aef701f95d7146ddc5faced46d6b2c693991dece7815785aa8",
+    "raw/epoch/sheep-launch.stdout": "f82c69ffd4b51019c6dc455e851b68c2d7662c145e3cd00891c3d684664641cd",
+    "raw/epoch/source-freeze.json": "e1fa961f3771cce4522c69265ad35a8bba0452530c5f6af6dbb45e95f15177da",
+    "raw/epoch/source-prerun-check.json": "d03287de5e42d166801ca79a71a2cf6c3cddea5ea100ff5255f35cb293e9c59f",
+    "raw/epoch/sources/native_account_update_cases.py": "52e22dd5615b881901bdeb7c78da47c8b85e7a3fa973bded77230ef40d7da52a",
+    "raw/epoch/sources/native_alias_cases.py": "4fc894876d775359131b86c2d4662d77dc86787d62fe7952e8027cf5669f9c62",
+    "raw/epoch/sources/native_auth_cases.py": "adb3eaf2d949aafd6c5605c80fa01ae882e2b2f603dc280ad8ae2c71d22179a7",
+    "raw/epoch/sources/native_ban_control_cases.py": "3df9ba8f86f9701842da820f6c2cdbc3d2e935a4392090c6b6c01a799ab3c144",
+    "raw/epoch/sources/native_ban_expiry_cases.py": "b55180ed77b4eb780e2a28decbb113db3442f939410a0c78e1ce9567296e3bc2",
+    "raw/epoch/sources/native_ban_expiry_control.py": "7f58d3c6cf105bcd591910828000c24fca3110d90b9a0b08ba277b1d369b112d",
+    "raw/epoch/sources/native_banner_cases.py": "5899e0a33af267c110f2ef7faa376c2790f16c2adfd081390879d0ad5ffc39a5",
+    "raw/epoch/sources/native_board_cases.py": "19e699317afd769c4a4b483e6094337fe92a5baaed279ae6ab98c18b7b554344",
+    "raw/epoch/sources/native_board_control.py": "da343b8d39f35c18bc267f301fdac316c720c0d5d4334eaec1d389ef381d1f6c",
+    "raw/epoch/sources/native_control_readiness.py": "afb2dcbabae9765b9708efa21e4e3d7ff74ad33e90bee0f03d953cfa95d1c1da",
+    "raw/epoch/sources/native_filp.py": "4712f522af6f378d1fc07c5db3128767734cb727b8509b5fddcad1b3a079c0f1",
+    "raw/epoch/sources/native_folder_cases.py": "c26ddc3a4d83ca7c764ec1746d1acb3841cb51b775d835c80f6132ab859733c8",
+    "raw/epoch/sources/native_framing_cases.py": "fbb2d023be35f90a3f5c09b17d28295be27f451a4031efb365553cda3038c845",
+    "raw/epoch/sources/native_metadata_cases.py": "a24b43e544fce546cf53efa4c678bfc766fea3533d5ba452ebd5813a403dba03",
+    "raw/epoch/sources/native_mkdir_cases.py": "2d4cf707f0fcf7b12e0fe8c57c3502e8a2f5bb619288a5a3d57828d8280db0cd",
+    "raw/epoch/sources/native_news_decode.py": "e38355d9395255db391b2c8b57d972ad828915906bcb1b42da8226f36268cd56",
+    "raw/epoch/sources/native_news_delete_cases.py": "c664b292c5fb4021e3a1d8b41a58682afe0738ac40cfc0e534869b66e3d00956",
+    "raw/epoch/sources/native_packet_evidence.py": "db12bb46aa662af4cd7d5b009b74081c67215b05c4cc481ef84a38b314086412",
+    "raw/epoch/sources/native_path_fields_cases.py": "eeca1a3b9c150c25de4c6e3e0d1cef9ff2f187c3dc112f6b1d4025bc5ce4f5b3",
+    "raw/epoch/sources/native_path_fields_control.py": "6d7dbe35c919b648b8e0ae6370c3414ab577b949e38a3fd8224e1cb4f60b1371",
+    "raw/epoch/sources/native_plan.py": "770ec5eedb850add8ecbccecf0c84a763d316883a33e71be224fa55ca1627895",
+    "raw/epoch/sources/native_queue_cases.py": "7061adbeb93f6b1ee986f045fe95e12a896c43dad53c5c70f5bcd4935d438064",
+    "raw/epoch/sources/native_rate304_cases.py": "f404d9757c7d45275037f03a181d12af35d0ad51762404c361b9accf1f998ea7",
+    "raw/epoch/sources/native_rate304_control.py": "07a1ce2f75202093b7d7a4f4fd2e31bff0496a38c18e63542418ac25147382dd",
+    "raw/epoch/sources/native_resume_cases.py": "68d1a71b01f266640f0019d31726d806e81ef6320d7dd11239db310288b406d7",
+    "raw/epoch/sources/native_transfer_cases.py": "2b685a4b2889c0ed57e16a493888f290d1054785e7cbe713110f1ce4b52fa0dc",
+    "raw/epoch/sources/pcap_tcp.py": "04c4fda2e62ccab35ed306c036dac6b1878af58adbfaccc6312a2805dd6897d7",
+    "raw/epoch/sources/protocol_capture.py": "2fba0972f4d9a8e3845c4204dce150dd7c90da0e19a9e5720d5289e2c94faf01",
+    "raw/epoch/sources/shx_syscalls.py": "6ba453fdaf8db468eab77990d3cb42171ed5df5679a92bd868724558f25d73c5",
+    "raw/epoch/sources/verify_native_account_updates.py": "3b5d42e9861c495241de7dc2457e787cbc840441fe4f935564a9324f584a8ef6",
+    "raw/epoch/sources/verify_native_article_deletion.py": "9cd2cf9cfee53c3e8fbd9dd01fdae0bc2b48c6f9d91ed3e5a7ffdfde981472c6",
+    "raw/epoch/sources/verify_native_auth.py": "a16bb58857623d2c4260fe00202b9f633983d8dd069c87e99912a6f00e5134c5",
+    "raw/epoch/sources/verify_native_banners.py": "362999691a1d158ea5a5ea6a0e72e56511de3f92e6784dd7a24978bdd8c4c1cf",
+    "raw/epoch/sources/verify_native_core.py": "17f37563f924ec577db800999f2d0ca8d96c7aaf9fc1fe2b7a52e79b7aaf2283",
+    "raw/epoch/sources/verify_native_framing.py": "0a46468846243b8232420b0f45fceb238de73d8a1904f4a4241b9d2ae3397855",
+    "raw/epoch/sources/verify_native_mkdir.py": "d9d7d6622d0fdcf387a9fe59c563d5432477032682953a41b16577ca18425e51",
+    "raw/epoch/sources/verify_native_shx.py": "32d2f6fa2a4b03bb8be9f80400c3d678f05741a6ffc772d9b5d8d79333bc61ef",
+    "raw/epoch/special-menu.png": "5b92d197b903d6e487275e15d1d26b2791436e7029793155b78d737a33baf4e6",
+    "raw/epoch/stopped-assets.sha256": "7d30cce181af516224aa8f0bf7db84a202d9ee4ae19c87533addc419e1c6ef59",
+    "raw/epoch/stopped-fls-allocated.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "raw/epoch/stopped-fls-allocated.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/epoch/stopped-fls-allocated.stdout": "179fa21e2ed1507ca1b2110fdb5aec28f25aa8ed243a5d5d6b02ecb08d36b9b3",
+    "raw/epoch/stopped-fls-full.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "raw/epoch/stopped-fls-full.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/epoch/stopped-fls-full.stdout": "179fa21e2ed1507ca1b2110fdb5aec28f25aa8ed243a5d5d6b02ecb08d36b9b3",
+    "raw/epoch/stopped-hfs-summary.json": "297cb077fb8cc5a451c93c27a63a6a0e33a20e629ffd5a442c5b122dc7463ce2",
+    "raw/epoch/stopped-icat-Prefs.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "raw/epoch/stopped-icat-Prefs.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/epoch/stopped-icat-admin.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "raw/epoch/stopped-icat-admin.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/epoch/stopped-icat-fixture-low.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "raw/epoch/stopped-icat-fixture-low.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/epoch/stopped-icat-server-data.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "raw/epoch/stopped-icat-server-data.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/epoch/stopped-icat-server-rsrc.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "raw/epoch/stopped-icat-server-rsrc.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/epoch/stopped-istat-board.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "raw/epoch/stopped-istat-board.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/epoch/stopped-istat-board.stdout": "a920fecd49fdd10ea6b3d01d6786edd743e62a1b7d92d7d96d25952780efbdf2",
+    "raw/epoch/stopped-marker-forks/category-data.bin": "7d82b5826175ca1971249907692fa51823998e11d77dbd577226ee2bde97cd1a",
+    "raw/epoch/stopped-marker-forks/category-data.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/epoch/stopped-marker-forks/commands.json": "bbb1e7a3bc7c42ef6ed6319e2b17668a8f54a01a3b6bf6f516681ccd07edf338",
+    "raw/epoch/stopped-marker-forks/fd-free-before-read.json": "217b17cf6d2ce83504c28663ae9d2b95ef57d77d79118eee9806f191a786a6f3",
+    "raw/epoch/stopped-marker-forks/istat-11747.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/epoch/stopped-marker-forks/istat-11747.stdout": "ab22b2752049a916d37b3c8e5426ccecfb444cfa8e732e2f9b382955742d9716",
+    "raw/epoch/stopped-marker-forks/istat-11749.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/epoch/stopped-marker-forks/istat-11749.stdout": "83981d8150a3d1831050ec27bb5a3a9408ff65cfd322311658d1489f20f843e3",
+    "raw/epoch/stopped-marker-forks/istat-11750.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/epoch/stopped-marker-forks/istat-11750.stdout": "f331d1c25f627cdf4995f0297cf7f981820d00bd05a8c1a495aab8068a8f769a",
+    "raw/epoch/stopped-marker-forks/istat-11751.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/epoch/stopped-marker-forks/istat-11751.stdout": "e3b6f7d8142a678e6d3d177b0d0d4c0403c20df1fbedaf07b69358b1eec5b569",
+    "raw/epoch/stopped-marker-forks/istat-11752.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/epoch/stopped-marker-forks/istat-11752.stdout": "01966803e2d94895d6b32e0729cadd4466b049e5630b7158b68f3606d9ee1139",
+    "raw/epoch/stopped-marker-forks/istat-11753.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/epoch/stopped-marker-forks/istat-11753.stdout": "1887b1d411f258fd23b7bf9febf0e0661170b3008885bf98a7ed5959f98506e5",
+    "raw/epoch/stopped-marker-forks/istat-11754.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/epoch/stopped-marker-forks/istat-11754.stdout": "a97e542917e7115bd175adddd6f5499124d6d1465c7677376aadbad3108668ad",
+    "raw/epoch/stopped-marker-forks/istat-11755.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/epoch/stopped-marker-forks/istat-11755.stdout": "a22ef9b24a074fb64b9a9c7c80cb91f80749b5dc1b76625078ce738ce08ff6c8",
+    "raw/epoch/stopped-marker-forks/istat-11756.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/epoch/stopped-marker-forks/istat-11756.stdout": "6e719468438b9d95c28303206e59ad1f1b6e13751fb8c0c9dd9c49027aec3c9f",
+    "raw/epoch/stopped-marker-forks/istat-11757.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/epoch/stopped-marker-forks/istat-11757.stdout": "fc6f46104159cd82458437e2498fcd403764d8e34388517fb42b3d831ce803d1",
+    "raw/epoch/stopped-marker-forks/istat-11758.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/epoch/stopped-marker-forks/istat-11758.stdout": "60c1ee015a79426b5296404c367e8034117b57ca65fe5793fc18dc47c4174ade",
+    "raw/epoch/units-after-stop.txt": "cd06933fee1f620d49e1fbee25aa6e3d4a0fea4186a4be137d63927a5d0d5521",
+    "raw/epoch/units-before-stop.txt": "6a42953734b537cd2543905b46b150c99e68d97fa356c4b20f1d862a68a534b2",
+    "raw/epoch/units-stopped.utc": "cd8519f1e7ad0c6ffb1c366b1d2fb3cae671a0f4f94d1f8bb1e3fa1e00bd4466",
+    "raw/epoch/user-units-after-stop.txt": "73333dbb20f033df86565b2efdb31b5ff7ab9e62c14c2cbcf8e8684e22a11f3b",
+    "raw/epoch/working-fuser-after.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "raw/epoch/working-fuser-after.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/epoch/working-fuser-after.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw/preparation/approved-helpers.sha256": "65b56c87f306dd31521056eca22085e711071d6698b52fd9bba3d17f3431dd45",
+    "raw/preparation/approved-path-fields-sources.sha256": "c95710451a448fa9afe6cd938ba07e8a29e1ade1a752aa992ff8758b00bc1e47",
+    "raw/preparation/approved-source-closure.sha256": "f59977429992350607fa9ddcc7a56774577030a2f0f706624cdc8350a7e02760",
+    "raw/preparation/boot-closure-validator-tests.json": "dac52cd4c8c75d46f4834672787be1c3e55544b0bd7073cfc065140cee9ce87c",
+    "raw/preparation/c124-finalization.json": "bd3e299e2de24690b12b5dcba5b761999182257c188c8f85aefc5c32ac3c2eff",
+    "raw/preparation/files-news-catalog.json": "39125a90c29e4c7909151ab32cefda799cc6e0cd6c885aa7af58f7b2cb0883c5",
+    "raw/preparation/preflight-initial-path-error.json": "3ae2824114abefb462b62c1810387777563b0a87cd13aee124ed043a10e2a461",
+    "raw/preparation/preflight.json": "d5553b9ac4f88dc502d511746875caafbbb7fcdf4d1b1469cb08017634577539",
+    "raw/preparation/proposed-source-closure.json": "34911bae9f68b382f27604d4d746983534caa52d7684d27396e10aeb02bf92b1",
+    "raw/preparation/proposed-sources/capture_readiness.py": "7a75f4b78f1255f4486ced44fc5fb8882d6008c7de6844a82f4c107e7299d678",
+    "raw/preparation/proposed-sources/native_account_update_cases.py": "52e22dd5615b881901bdeb7c78da47c8b85e7a3fa973bded77230ef40d7da52a",
+    "raw/preparation/proposed-sources/native_alias_cases.py": "4fc894876d775359131b86c2d4662d77dc86787d62fe7952e8027cf5669f9c62",
+    "raw/preparation/proposed-sources/native_auth_cases.py": "adb3eaf2d949aafd6c5605c80fa01ae882e2b2f603dc280ad8ae2c71d22179a7",
+    "raw/preparation/proposed-sources/native_ban_control_cases.py": "3df9ba8f86f9701842da820f6c2cdbc3d2e935a4392090c6b6c01a799ab3c144",
+    "raw/preparation/proposed-sources/native_ban_expiry_cases.py": "b55180ed77b4eb780e2a28decbb113db3442f939410a0c78e1ce9567296e3bc2",
+    "raw/preparation/proposed-sources/native_ban_expiry_control.py": "7f58d3c6cf105bcd591910828000c24fca3110d90b9a0b08ba277b1d369b112d",
+    "raw/preparation/proposed-sources/native_banner_cases.py": "5899e0a33af267c110f2ef7faa376c2790f16c2adfd081390879d0ad5ffc39a5",
+    "raw/preparation/proposed-sources/native_board_cases.py": "19e699317afd769c4a4b483e6094337fe92a5baaed279ae6ab98c18b7b554344",
+    "raw/preparation/proposed-sources/native_board_control.py": "da343b8d39f35c18bc267f301fdac316c720c0d5d4334eaec1d389ef381d1f6c",
+    "raw/preparation/proposed-sources/native_capture_receipt.py": "e3faecd2445195cbce776c67ad387727b53efffbe92d88214fbbfb0e1f7e8363",
+    "raw/preparation/proposed-sources/native_control_readiness.py": "afb2dcbabae9765b9708efa21e4e3d7ff74ad33e90bee0f03d953cfa95d1c1da",
+    "raw/preparation/proposed-sources/native_emulator_readiness.py": "56200bfe9dcf779bb72e2a711a0ce98bb9351f5f42dc57245a40d1dd603cca7e",
+    "raw/preparation/proposed-sources/native_filp.py": "4712f522af6f378d1fc07c5db3128767734cb727b8509b5fddcad1b3a079c0f1",
+    "raw/preparation/proposed-sources/native_folder_cases.py": "c26ddc3a4d83ca7c764ec1746d1acb3841cb51b775d835c80f6132ab859733c8",
+    "raw/preparation/proposed-sources/native_framing_cases.py": "fbb2d023be35f90a3f5c09b17d28295be27f451a4031efb365553cda3038c845",
+    "raw/preparation/proposed-sources/native_metadata_cases.py": "a24b43e544fce546cf53efa4c678bfc766fea3533d5ba452ebd5813a403dba03",
+    "raw/preparation/proposed-sources/native_mkdir_cases.py": "2d4cf707f0fcf7b12e0fe8c57c3502e8a2f5bb619288a5a3d57828d8280db0cd",
+    "raw/preparation/proposed-sources/native_news_decode.py": "e38355d9395255db391b2c8b57d972ad828915906bcb1b42da8226f36268cd56",
+    "raw/preparation/proposed-sources/native_news_delete_cases.py": "c664b292c5fb4021e3a1d8b41a58682afe0738ac40cfc0e534869b66e3d00956",
+    "raw/preparation/proposed-sources/native_packet_evidence.py": "db12bb46aa662af4cd7d5b009b74081c67215b05c4cc481ef84a38b314086412",
+    "raw/preparation/proposed-sources/native_path_fields_cases.py": "eeca1a3b9c150c25de4c6e3e0d1cef9ff2f187c3dc112f6b1d4025bc5ce4f5b3",
+    "raw/preparation/proposed-sources/native_path_fields_control.py": "6d7dbe35c919b648b8e0ae6370c3414ab577b949e38a3fd8224e1cb4f60b1371",
+    "raw/preparation/proposed-sources/native_plan.py": "770ec5eedb850add8ecbccecf0c84a763d316883a33e71be224fa55ca1627895",
+    "raw/preparation/proposed-sources/native_queue_cases.py": "7061adbeb93f6b1ee986f045fe95e12a896c43dad53c5c70f5bcd4935d438064",
+    "raw/preparation/proposed-sources/native_rate304_cases.py": "f404d9757c7d45275037f03a181d12af35d0ad51762404c361b9accf1f998ea7",
+    "raw/preparation/proposed-sources/native_rate304_control.py": "07a1ce2f75202093b7d7a4f4fd2e31bff0496a38c18e63542418ac25147382dd",
+    "raw/preparation/proposed-sources/native_resume_cases.py": "68d1a71b01f266640f0019d31726d806e81ef6320d7dd11239db310288b406d7",
+    "raw/preparation/proposed-sources/native_transfer_cases.py": "2b685a4b2889c0ed57e16a493888f290d1054785e7cbe713110f1ce4b52fa0dc",
+    "raw/preparation/proposed-sources/pcap_tcp.py": "04c4fda2e62ccab35ed306c036dac6b1878af58adbfaccc6312a2805dd6897d7",
+    "raw/preparation/proposed-sources/protocol_capture.py": "2fba0972f4d9a8e3845c4204dce150dd7c90da0e19a9e5720d5289e2c94faf01",
+    "raw/preparation/proposed-sources/shx_syscalls.py": "6ba453fdaf8db468eab77990d3cb42171ed5df5679a92bd868724558f25d73c5",
+    "raw/preparation/proposed-sources/verify_native_account_updates.py": "3b5d42e9861c495241de7dc2457e787cbc840441fe4f935564a9324f584a8ef6",
+    "raw/preparation/proposed-sources/verify_native_article_deletion.py": "9cd2cf9cfee53c3e8fbd9dd01fdae0bc2b48c6f9d91ed3e5a7ffdfde981472c6",
+    "raw/preparation/proposed-sources/verify_native_auth.py": "a16bb58857623d2c4260fe00202b9f633983d8dd069c87e99912a6f00e5134c5",
+    "raw/preparation/proposed-sources/verify_native_banners.py": "362999691a1d158ea5a5ea6a0e72e56511de3f92e6784dd7a24978bdd8c4c1cf",
+    "raw/preparation/proposed-sources/verify_native_core.py": "17f37563f924ec577db800999f2d0ca8d96c7aaf9fc1fe2b7a52e79b7aaf2283",
+    "raw/preparation/proposed-sources/verify_native_framing.py": "0a46468846243b8232420b0f45fceb238de73d8a1904f4a4241b9d2ae3397855",
+    "raw/preparation/proposed-sources/verify_native_mkdir.py": "d9d7d6622d0fdcf387a9fe59c563d5432477032682953a41b16577ca18425e51",
+    "raw/preparation/proposed-sources/verify_native_shx.py": "32d2f6fa2a4b03bb8be9f80400c3d678f05741a6ffc772d9b5d8d79333bc61ef",
+    "raw/preparation/script-SHA256SUMS": "6803df2bd621585675b5f0b3b84fdbba44e6fe61ea3b3189d1e1818dd953dd2d",
+    "raw/preparation/scripts/boot-path-fields-01.sh": "f0ca7d5f2732f847bd36fe792d5e76045399b036044299d752dafde13d5f3c21",
+    "raw/preparation/scripts/build-runtime-path-fields-01.py": "0e94391f34ec8c8bc3034945aa6ffaf5f1548b9070c025711dfd783c5299c332",
+    "raw/preparation/scripts/complete-readiness-path-fields-01.sh": "4a6b0c993545f4332e58eedbe259a3e87630a01a3d3f474d8afec106354ad832",
+    "raw/preparation/scripts/freeze-proposed-sources.py": "d12aaa7c7da4d5c3d1dc4ec9bbaa15488ce195806a27aa53d00b709d0ea88a6c",
+    "raw/preparation/scripts/launch-case-path-fields-01.sh": "e49e37c4c29083c3fec7a76f5de6ce29e3b60a61693f012344ad6c9ecff8225a",
+    "raw/preparation/scripts/prepare.py": "690e99ba6cc110aee5c2a65c8b506f6e75eb506e287853bd3b1c6b5dc6eab34b",
+    "raw/preparation/scripts/run-case-path-fields-01.sh": "62d967635eef1a42dcf5ab0fcf8201356f2460476b98678c215757bcb54c424b",
+    "raw/preparation/scripts/run18-path-fields-01.sh": "aa31382ffd8b7c4ba2f0610a503cf61fc783f8a87aaa2f2617ef57820167a487",
+    "raw/preparation/scripts/wait-managed-path-fields-01.py": "54292438ee498b109efe5b97d59fceae9552913e9949ee8c9c28b0cba2e60308",
+    "raw/preparation/supplement.json": "f0850297a4d74fc9381a20856cbad8a9104e0022bc09e26ed831bbaafcb1c5ba",
+    "reviews/a126-provenance.md": "728f2c275064f812091fb05002e67c735dfe91a38c715ba7761e7cfbe9358ce7",
+    "reviews/a129-semantic-and-criterion.md": "4469d3eced68feefaddca0c2806404a39e886e65660bd78802b96801a9e240e7"
+  },
+  "provenance_review": "reviews/a126-provenance.md",
+  "semantic_and_criterion_review": "reviews/a129-semantic-and-criterion.md"
+}

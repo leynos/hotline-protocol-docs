@@ -1,0 +1,7 @@
+Historical as-run commands in private mxd; not a request to replay.
+
+Focused: CARGO_NET_OFFLINE=true CARGO_BUILD_JOBS=1 CARGO_TARGET_DIR=/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target RUSTFLAGS="-D warnings -Zthreads=8 -Clink-arg=-fuse-ld=mold" cargo test --offline --locked --no-default-features --features "postgres test-support legacy-networking" --lib db::migrations::tests -- --nocapture
+
+Format/lint: CARGO_NET_OFFLINE=true CARGO_BUILD_JOBS=1 CARGO_TARGET_DIR=/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target make check-fmt lint
+
+Full gate: as-run-full-gate.sh.txt, launched through systemd-run --user --no-block with Type=oneshot, TimeoutStartSec=2400, TimeoutStopSec=30, RemainAfterExit=yes.

@@ -1,0 +1,6 @@
+{
+  "fixed_start_utc": "2026-11-14T04:36:03.945364+00:00",
+  "fixed_deadline_utc": "2026-11-14T04:48:03.945364+00:00",
+  "capture_runtime_max_seconds": 900,
+  "scope": "C65+C66 same deadline, no extension"
+}

@@ -1,0 +1,50 @@
+{
+  "at_utc": "2026-11-13T22:18:35.643183+00:00",
+  "source_after": {
+    "path": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/base.dsk",
+    "size": 8388608000,
+    "inode": 6189872880,
+    "mode": "0o444",
+    "mtime_ns": 1794582239465616991,
+    "sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910"
+  },
+  "rom_after": {
+    "path": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/rom",
+    "size": 1945746,
+    "inode": 6177692692,
+    "mode": "0o644",
+    "mtime_ns": 1794582239141617023,
+    "sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd"
+  },
+  "target_base": {
+    "path": "/data/leynos/Projects/mothra/state/mac-runtime/native-banlab-one-01/base.dsk",
+    "size": 8388608000,
+    "inode": 17014247,
+    "mode": "0o444",
+    "mtime_ns": 1794608135842822578,
+    "sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910"
+  },
+  "target_working": {
+    "path": "/data/leynos/Projects/mothra/state/mac-runtime/native-banlab-one-01/working.dsk",
+    "size": 8388608000,
+    "inode": 17014250,
+    "mode": "0o644",
+    "mtime_ns": 1794608135846822579,
+    "sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910"
+  },
+  "target_rom": {
+    "path": "/data/leynos/Projects/mothra/state/mac-runtime/native-banlab-one-01/rom",
+    "size": 1945746,
+    "inode": 17014245,
+    "mode": "0o644",
+    "mtime_ns": 1794608135778822586,
+    "sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd"
+  },
+  "assets": {
+    "rom_sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+    "base_disk_sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910",
+    "source_rom": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/rom",
+    "source_disk": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/base.dsk",
+    "archive_member": null
+  }
+}

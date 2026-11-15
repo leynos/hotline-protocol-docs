@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "systemctl",
+    "--user",
+    "stop",
+    "mothra-display-7b94b474df70.service"
+  ],
+  "exit": 0,
+  "stdout": "",
+  "stderr": "",
+  "before_utc": "2026-11-14T22:03:37.027234+00:00",
+  "after_utc": "2026-11-14T22:03:37.064298+00:00"
+}

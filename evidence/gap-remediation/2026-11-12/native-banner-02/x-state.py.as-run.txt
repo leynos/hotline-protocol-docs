@@ -1,0 +1,11 @@
+import ctypes
+x=ctypes.CDLL('libX11.so.6');P=ctypes.c_void_p;U=ctypes.c_ulong;I=ctypes.c_int
+x.XOpenDisplay.argtypes=[ctypes.c_char_p];x.XOpenDisplay.restype=P;d=x.XOpenDisplay(b':97');x.XDefaultRootWindow.argtypes=[P];x.XDefaultRootWindow.restype=U;r=x.XDefaultRootWindow(d)
+x.XGetInputFocus.argtypes=[P,ctypes.POINTER(U),ctypes.POINTER(I)];f=U();re=I();x.XGetInputFocus(d,ctypes.byref(f),ctypes.byref(re));print('focus',hex(f.value))
+x.XQueryPointer.argtypes=[P,U,ctypes.POINTER(U),ctypes.POINTER(U),ctypes.POINTER(I),ctypes.POINTER(I),ctypes.POINTER(I),ctypes.POINTER(I),ctypes.POINTER(ctypes.c_uint)]
+rr=U();child=U();rx=I();ry=I();wx=I();wy=I();mask=ctypes.c_uint();x.XQueryPointer(d,r,ctypes.byref(rr),ctypes.byref(child),ctypes.byref(rx),ctypes.byref(ry),ctypes.byref(wx),ctypes.byref(wy),ctypes.byref(mask));print('pointer',rx.value,ry.value,'child',hex(child.value),'mask',mask.value)
+x.XQueryTree.argtypes=[P,U,ctypes.POINTER(U),ctypes.POINTER(U),ctypes.POINTER(ctypes.POINTER(U)),ctypes.POINTER(ctypes.c_uint)];parent=U();kids=ctypes.POINTER(U)();n=ctypes.c_uint();x.XQueryTree(d,r,ctypes.byref(rr),ctypes.byref(parent),ctypes.byref(kids),ctypes.byref(n));x.XFetchName.argtypes=[P,U,ctypes.POINTER(ctypes.c_char_p)]
+for i in range(n.value):
+ name=ctypes.c_char_p();x.XFetchName(d,kids[i],ctypes.byref(name));print('window',hex(kids[i]),name.value)
+x.XGetGeometry.argtypes=[P,U,ctypes.POINTER(U),ctypes.POINTER(I),ctypes.POINTER(I),ctypes.POINTER(ctypes.c_uint),ctypes.POINTER(ctypes.c_uint),ctypes.POINTER(ctypes.c_uint),ctypes.POINTER(ctypes.c_uint)]
+gw=ctypes.c_uint();gh=ctypes.c_uint();bw=ctypes.c_uint();depth=ctypes.c_uint();gx=I();gy=I();x.XGetGeometry(d,child,ctypes.byref(rr),ctypes.byref(gx),ctypes.byref(gy),ctypes.byref(gw),ctypes.byref(gh),ctypes.byref(bw),ctypes.byref(depth));print('geometry',gx.value,gy.value,gw.value,gh.value)

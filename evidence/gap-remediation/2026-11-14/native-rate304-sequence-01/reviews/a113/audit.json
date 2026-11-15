@@ -1,0 +1,71 @@
+{
+  "preflight_client_port": 36960,
+  "connect_us": 1794656558061544,
+  "host_tcp_packets": 30,
+  "guest_tcp_packets": 31,
+  "snapshot_sha256": {
+    "report.json": "9c82a554d1c2a78df33874a2581b5d40d438551ccbecaff74f9778422b107cf9",
+    "plan.json": "1de1ba838538a2764ed0bc59520e3d6920588140ecbd036ea78833674ca73e1f",
+    "primary-syn.pcap": "704e5e5b3234433c01fcfd1b20a306e77e985038120492dc53965c3edd38a4ea",
+    "lab-namespace.pcap": "592d1a0192706e6ae4baa337289a4adfcd13418afa23ea5dcb2ec28e7b680c5b",
+    "lab-guest.pcap": "a3f675e2df73f8fcb44e59ceb6d637d964c65ff9959cc8b57ad77025f69e8d62"
+  },
+  "directions": {
+    "client_to_server": {
+      "recorder_bytes": 231,
+      "namespace_stream_bytes": 231,
+      "guest_stream_bytes": 231,
+      "recorder_is_namespace_prefix": true,
+      "namespace_equals_guest": true,
+      "namespace_tail_bytes": 0,
+      "guest_tail_bytes": 0,
+      "recorder_sha256": "5eecc6b4d737fcadbb8356aa0839119da65a3d2e77dca799bc23d39e6f4487b2",
+      "namespace_sha256": "5eecc6b4d737fcadbb8356aa0839119da65a3d2e77dca799bc23d39e6f4487b2",
+      "guest_sha256": "5eecc6b4d737fcadbb8356aa0839119da65a3d2e77dca799bc23d39e6f4487b2"
+    },
+    "server_to_client": {
+      "recorder_bytes": 2759,
+      "namespace_stream_bytes": 2759,
+      "guest_stream_bytes": 2759,
+      "recorder_is_namespace_prefix": true,
+      "namespace_equals_guest": true,
+      "namespace_tail_bytes": 0,
+      "guest_tail_bytes": 0,
+      "recorder_sha256": "7f5cad68aaca975d221a5216ac98a6d4241c3557a543afb83e66799a1da23dc2",
+      "namespace_sha256": "7f5cad68aaca975d221a5216ac98a6d4241c3557a543afb83e66799a1da23dc2",
+      "guest_sha256": "7f5cad68aaca975d221a5216ac98a6d4241c3557a543afb83e66799a1da23dc2"
+    }
+  },
+  "terminal_flags": {
+    "namespace": [
+      {
+        "flags": 17,
+        "direction": "client_to_server",
+        "payload_bytes": 0
+      },
+      {
+        "flags": 17,
+        "direction": "server_to_client",
+        "payload_bytes": 0
+      }
+    ],
+    "guest": [
+      {
+        "flags": 17,
+        "direction": "client_to_server",
+        "payload_bytes": 0
+      },
+      {
+        "flags": 17,
+        "direction": "client_to_server",
+        "payload_bytes": 0
+      },
+      {
+        "flags": 17,
+        "direction": "server_to_client",
+        "payload_bytes": 0
+      }
+    ]
+  },
+  "primary_syn_tcp_packets": 0
+}

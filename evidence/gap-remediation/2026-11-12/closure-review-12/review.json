@@ -1,0 +1,50 @@
+{
+  "gap_id": "GAP-055",
+  "status": "Resolved",
+  "unchanged_closure_criterion": "Publish the complete header plus upload/download/banner matching and failure rules with valid/invalid reference and type fixtures.",
+  "requirements": [
+    {
+      "requirement": "Complete 16-byte header, offsets, widths and types",
+      "evidence": [
+        "protocol.md Transfer Connection and Reference Cleanup",
+        "transfer-contracts.md HTXF connection header and dispatch",
+        "baseline queries/D-1000bd20.c; full magic/ref/size/selector/trailing-word table",
+        "native-htxf-01: split15+1, HTXG rejection, sizeFFFFFFFF/1 and trailingFFFF/1234/ABCD accepted"
+      ]
+    },
+    {
+      "requirement": "Upload/download/banner matching and failure rules",
+      "evidence": [
+        "batch04 lookups1000ec40/1000ec80/1000e600/1000e690/1000e720 compare full reference in parity/selector-selected collection",
+        "native-forks-01: ordinary valid raw/v3handover, selector7 fallback, wrong1/2 rejection",
+        "native-folder-01: valid folder selector1 streams",
+        "native-banner-01: selector2 raw, wrong0/1/7, unknown/zero, bounded aged pending-reference rejection",
+        "native-htxf-01: folder references reject selector0/2/FFFF; ordinary upload0/2/FFFF and downloadFFFF; ordinary-upload HTXF size replaces request203 count in controlled +37 case"
+      ]
+    },
+    {
+      "requirement": "Other-session, duplicate and reused reference evidence",
+      "evidence": [
+        "native-htxf-01: banner and ordinary download with concurrent identified all-zero-privilege observer; no control identity in data header, same NAT source only",
+        "native-htxf-01: owner disconnect then rejected banner/download attachment; first banner transport closed then rejected reuse",
+        "native-htxf-01: duplicate banner second has no bytes, owner cleanup closes second, first quiet another3seconds; acceptor pointer replacement without sent-count reset",
+        "native-cleanup-01 and queue corpus: nonowner214 ownership check distinct from data bearer lookup"
+      ]
+    },
+    {
+      "requirement": "Reviewable valid/invalid fixtures with independent provenance",
+      "evidence": [
+        "18 retained reports, verified plan/report hashes, exact independent host/guest streams, zero unread output",
+        "Positive exact-path native uploadDATA and TEXT/MOTH; resource size0 with separately retained failed attribute reads",
+        "prepare_native_cases.py htxf, verify_native_htxf.py, seven semantic/mutation tests, native-capture-workflow reproduction instructions"
+      ]
+    }
+  ],
+  "not_claimed": [
+    "GAP-010 alternate-listener arithmetic/wrapping",
+    "GAP-033 universal identifier lifetime, collision/wrap or permanent orphan lifetime",
+    "Arbitrary source-IP admission or historical-client interoperability",
+    "Universal cleanup timers, all upload failure/persistence outcomes or restart durability"
+  ],
+  "review_conclusion": "The unchanged header/matching criterion is satisfied by the published full dispatch rules and combined native valid/invalid corpora. Separate endpoint, general identifier and operation-level requirements remain open."
+}

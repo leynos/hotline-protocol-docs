@@ -1,0 +1,376 @@
+{
+  "case_status": "failed",
+  "flows": {
+    "preflight-main": {
+      "port": 36960,
+      "host_packets": 30,
+      "guest_packets": 31,
+      "directions": {
+        "sent": {
+          "report": 231,
+          "host": 231,
+          "guest": 231,
+          "report_host_prefix": true,
+          "host_guest_equal": true,
+          "host_tail": 0,
+          "guest_tail": 0,
+          "report_sha256": "5eecc6b4d737fcadbb8356aa0839119da65a3d2e77dca799bc23d39e6f4487b2",
+          "host_sha256": "5eecc6b4d737fcadbb8356aa0839119da65a3d2e77dca799bc23d39e6f4487b2",
+          "guest_sha256": "5eecc6b4d737fcadbb8356aa0839119da65a3d2e77dca799bc23d39e6f4487b2"
+        },
+        "received": {
+          "report": 2759,
+          "host": 2759,
+          "guest": 2759,
+          "report_host_prefix": true,
+          "host_guest_equal": true,
+          "host_tail": 0,
+          "guest_tail": 0,
+          "report_sha256": "7f5cad68aaca975d221a5216ac98a6d4241c3557a543afb83e66799a1da23dc2",
+          "host_sha256": "7f5cad68aaca975d221a5216ac98a6d4241c3557a543afb83e66799a1da23dc2",
+          "guest_sha256": "7f5cad68aaca975d221a5216ac98a6d4241c3557a543afb83e66799a1da23dc2"
+        }
+      },
+      "terminals": {
+        "host": [
+          {
+            "direction": "sent",
+            "flags": 17,
+            "payload_len": 0,
+            "payload_sha256": null
+          },
+          {
+            "direction": "received",
+            "flags": 17,
+            "payload_len": 0,
+            "payload_sha256": null
+          }
+        ],
+        "guest": [
+          {
+            "direction": "sent",
+            "flags": 17,
+            "payload_len": 0,
+            "payload_sha256": null
+          },
+          {
+            "direction": "sent",
+            "flags": 17,
+            "payload_len": 0,
+            "payload_sha256": null
+          },
+          {
+            "direction": "received",
+            "flags": 17,
+            "payload_len": 0,
+            "payload_sha256": null
+          }
+        ]
+      }
+    },
+    "case-observer": {
+      "port": 59848,
+      "host_packets": 100,
+      "guest_packets": 114,
+      "directions": {
+        "sent": {
+          "report": 526,
+          "host": 526,
+          "guest": 526,
+          "report_host_prefix": true,
+          "host_guest_equal": true,
+          "host_tail": 0,
+          "guest_tail": 0,
+          "report_sha256": "e6aaec4e2366029830964b980745ffaed2ccd11b52171a7f0d8e3d491bc683bf",
+          "host_sha256": "e6aaec4e2366029830964b980745ffaed2ccd11b52171a7f0d8e3d491bc683bf",
+          "guest_sha256": "e6aaec4e2366029830964b980745ffaed2ccd11b52171a7f0d8e3d491bc683bf"
+        },
+        "received": {
+          "report": 5897,
+          "host": 5897,
+          "guest": 5897,
+          "report_host_prefix": true,
+          "host_guest_equal": true,
+          "host_tail": 0,
+          "guest_tail": 0,
+          "report_sha256": "c0e6f3ff909da353eac2fa21cb675f4a76b4671b614b2169e8f7e64762251ad1",
+          "host_sha256": "c0e6f3ff909da353eac2fa21cb675f4a76b4671b614b2169e8f7e64762251ad1",
+          "guest_sha256": "c0e6f3ff909da353eac2fa21cb675f4a76b4671b614b2169e8f7e64762251ad1"
+        }
+      },
+      "terminals": {
+        "host": [
+          {
+            "direction": "sent",
+            "flags": 17,
+            "payload_len": 0,
+            "payload_sha256": null
+          },
+          {
+            "direction": "received",
+            "flags": 17,
+            "payload_len": 0,
+            "payload_sha256": null
+          }
+        ],
+        "guest": [
+          {
+            "direction": "sent",
+            "flags": 17,
+            "payload_len": 0,
+            "payload_sha256": null
+          },
+          {
+            "direction": "received",
+            "flags": 17,
+            "payload_len": 0,
+            "payload_sha256": null
+          }
+        ]
+      }
+    },
+    "case-paced": {
+      "port": 34152,
+      "host_packets": 33,
+      "guest_packets": 38,
+      "directions": {
+        "sent": {
+          "report": 1459,
+          "host": 1459,
+          "guest": 1459,
+          "report_host_prefix": true,
+          "host_guest_equal": true,
+          "host_tail": 0,
+          "guest_tail": 0,
+          "report_sha256": "74e46193da10a468b834c876c55cea0e42bc0982380edb71f5c23e51437bf15b",
+          "host_sha256": "74e46193da10a468b834c876c55cea0e42bc0982380edb71f5c23e51437bf15b",
+          "guest_sha256": "74e46193da10a468b834c876c55cea0e42bc0982380edb71f5c23e51437bf15b"
+        },
+        "received": {
+          "report": 2495,
+          "host": 2495,
+          "guest": 2495,
+          "report_host_prefix": true,
+          "host_guest_equal": true,
+          "host_tail": 0,
+          "guest_tail": 0,
+          "report_sha256": "882fb7293b2f0a3257a00a812cd881dd819ea0df45e78f8947276d01003301eb",
+          "host_sha256": "882fb7293b2f0a3257a00a812cd881dd819ea0df45e78f8947276d01003301eb",
+          "guest_sha256": "882fb7293b2f0a3257a00a812cd881dd819ea0df45e78f8947276d01003301eb"
+        }
+      },
+      "terminals": {
+        "host": [
+          {
+            "direction": "sent",
+            "flags": 17,
+            "payload_len": 0,
+            "payload_sha256": null
+          },
+          {
+            "direction": "received",
+            "flags": 17,
+            "payload_len": 0,
+            "payload_sha256": null
+          }
+        ],
+        "guest": [
+          {
+            "direction": "sent",
+            "flags": 17,
+            "payload_len": 0,
+            "payload_sha256": null
+          },
+          {
+            "direction": "received",
+            "flags": 17,
+            "payload_len": 0,
+            "payload_sha256": null
+          }
+        ]
+      }
+    },
+    "case-burst": {
+      "port": 38334,
+      "host_packets": 29,
+      "guest_packets": 28,
+      "directions": {
+        "sent": {
+          "report": 1437,
+          "host": 1437,
+          "guest": 1437,
+          "report_host_prefix": true,
+          "host_guest_equal": true,
+          "host_tail": 0,
+          "guest_tail": 0,
+          "report_sha256": "f2763e3f17354f8680588ec4cee61a9a5f171a9dafd44456fbfee54d08bdf20f",
+          "host_sha256": "f2763e3f17354f8680588ec4cee61a9a5f171a9dafd44456fbfee54d08bdf20f",
+          "guest_sha256": "f2763e3f17354f8680588ec4cee61a9a5f171a9dafd44456fbfee54d08bdf20f"
+        },
+        "received": {
+          "report": 2418,
+          "host": 2418,
+          "guest": 2418,
+          "report_host_prefix": true,
+          "host_guest_equal": true,
+          "host_tail": 0,
+          "guest_tail": 0,
+          "report_sha256": "c1bed8f31f09861a536fb52056af4fe5c69b7c17c5b56c80b8e8a0b7da627b88",
+          "host_sha256": "c1bed8f31f09861a536fb52056af4fe5c69b7c17c5b56c80b8e8a0b7da627b88",
+          "guest_sha256": "c1bed8f31f09861a536fb52056af4fe5c69b7c17c5b56c80b8e8a0b7da627b88"
+        }
+      },
+      "terminals": {
+        "host": [
+          {
+            "direction": "received",
+            "flags": 17,
+            "payload_len": 0,
+            "payload_sha256": null
+          },
+          {
+            "direction": "sent",
+            "flags": 17,
+            "payload_len": 0,
+            "payload_sha256": null
+          }
+        ],
+        "guest": [
+          {
+            "direction": "received",
+            "flags": 4,
+            "payload_len": 14,
+            "payload_sha256": "9e9e27cf54ffdadfbbe1b971e8ec2a01a3f87bb2fe75564aa21eb2abd5d537ee"
+          }
+        ]
+      }
+    },
+    "case-probe": {
+      "port": 38344,
+      "host_packets": 14,
+      "guest_packets": 16,
+      "directions": {
+        "sent": {
+          "report": 91,
+          "host": 91,
+          "guest": 91,
+          "report_host_prefix": true,
+          "host_guest_equal": true,
+          "host_tail": 0,
+          "guest_tail": 0,
+          "report_sha256": "0e558d5e8e6f6d44c4ff1bb972fbca90bd61118ec45234724c05bc4c38ea6ecf",
+          "host_sha256": "0e558d5e8e6f6d44c4ff1bb972fbca90bd61118ec45234724c05bc4c38ea6ecf",
+          "guest_sha256": "0e558d5e8e6f6d44c4ff1bb972fbca90bd61118ec45234724c05bc4c38ea6ecf"
+        },
+        "received": {
+          "report": 76,
+          "host": 76,
+          "guest": 76,
+          "report_host_prefix": true,
+          "host_guest_equal": true,
+          "host_tail": 0,
+          "guest_tail": 0,
+          "report_sha256": "8921a5080aed91e0353f7ab1ff36bc721852273f237d1817bef9660dc5c96930",
+          "host_sha256": "8921a5080aed91e0353f7ab1ff36bc721852273f237d1817bef9660dc5c96930",
+          "guest_sha256": "8921a5080aed91e0353f7ab1ff36bc721852273f237d1817bef9660dc5c96930"
+        }
+      },
+      "terminals": {
+        "host": [
+          {
+            "direction": "sent",
+            "flags": 17,
+            "payload_len": 0,
+            "payload_sha256": null
+          },
+          {
+            "direction": "received",
+            "flags": 17,
+            "payload_len": 0,
+            "payload_sha256": null
+          }
+        ],
+        "guest": [
+          {
+            "direction": "sent",
+            "flags": 17,
+            "payload_len": 0,
+            "payload_sha256": null
+          },
+          {
+            "direction": "received",
+            "flags": 17,
+            "payload_len": 0,
+            "payload_sha256": null
+          }
+        ]
+      }
+    }
+  },
+  "syns": {
+    "host": [
+      {
+        "src_port": 36960,
+        "dst_port": 15880,
+        "count": 1
+      },
+      {
+        "src_port": 59848,
+        "dst_port": 15880,
+        "count": 1
+      },
+      {
+        "src_port": 34152,
+        "dst_port": 15880,
+        "count": 1
+      },
+      {
+        "src_port": 38334,
+        "dst_port": 15880,
+        "count": 1
+      },
+      {
+        "src_port": 38344,
+        "dst_port": 15880,
+        "count": 1
+      }
+    ],
+    "guest": [
+      {
+        "src_port": 36960,
+        "dst_port": 5500,
+        "count": 1
+      },
+      {
+        "src_port": 59848,
+        "dst_port": 5500,
+        "count": 1
+      },
+      {
+        "src_port": 34152,
+        "dst_port": 5500,
+        "count": 1
+      },
+      {
+        "src_port": 38334,
+        "dst_port": 5500,
+        "count": 1
+      },
+      {
+        "src_port": 38344,
+        "dst_port": 5500,
+        "count": 1
+      }
+    ]
+  },
+  "primary_tcp_packets": 0,
+  "snapshot_sha256": {
+    "lab-namespace.pcap": "1545c2e4cabec2a28fa05b6395260c88a7aae6a72201d04c5843992a8b8aebac",
+    "lab-guest.pcap": "9e99a7606e1fceede10483057fdd01bb3d1b6e2ad4583c8d13da860d766f4085",
+    "primary-syn.pcap": "704e5e5b3234433c01fcfd1b20a306e77e985038120492dc53965c3edd38a4ea",
+    "case-report.json": "7f967d51e7077e55d788e3517669803a3b0d1603a0d1b91dda2c80f8c30352d6",
+    "case-plan.json": "6c0089f101ab4b99c41a6a548866d14e1460d6beaadb5f4c95ea91a5098c0d49",
+    "preflight-report.json": "9c82a554d1c2a78df33874a2581b5d40d438551ccbecaff74f9778422b107cf9",
+    "preflight-plan.json": "1de1ba838538a2764ed0bc59520e3d6920588140ecbd036ea78833674ca73e1f"
+  }
+}

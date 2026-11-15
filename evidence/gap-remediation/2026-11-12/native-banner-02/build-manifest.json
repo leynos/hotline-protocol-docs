@@ -1,0 +1,13 @@
+{
+  "mothra_head": "011fe69d17d81e23f3479765c6a05813f657c395",
+  "docs_head": "075f31fa6d203a6b26c83bf0390ed0e5f4d5a6e0",
+  "source_files": {
+    "native_banner_formats.py": "8aae0196ad205ed4d4bb9831957bfd6d11e03167ee79d2b2474c2a5375e044dc",
+    "native_banner_oracle.py": "d71cc44920ec86bb853ffd9d51353808e54ca0cb0ccabef72970326c844b0005",
+    "prepare_native_cases.py": "4b736a2c584ca73b3c9ee6490e2e24add5cb97a7584815e38f4c1708de3eddbe",
+    "verify_native_banner_formats.py": "1129a3afdc8879aaa6fbccdce296ec35700f02f1321e6c70ddf73ea4b9da7e81",
+    "test_native_banner_formats.py": "f2a251b6a9fb1259ba1b84b72b3e3bde57a6ee6d49e160351a83f304ea26739b",
+    "protocol_capture.py": "2fba0972f4d9a8e3845c4204dce150dd7c90da0e19a9e5720d5289e2c94faf01"
+  },
+  "method": "Plan/report hashes and exact final paired streams; positive native data/type snapshots; explicit exploratory non-consumed host suffix; native allocation ABI and exception traces. No historical-peer or mxd conformance claim."
+}

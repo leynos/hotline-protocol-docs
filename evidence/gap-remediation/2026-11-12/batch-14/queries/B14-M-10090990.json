@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T15:15:39.738836+00:00",
+  "query": {
+    "id": "B14-M-10090990",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "10090990",
+      "length": 740
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"address\": \"10090990\",\n  \"length\": 740,\n  \"hex\": \"36 43 61 6e 6e 6f 74 20 64 65 6c 65 74 65 20 6e 65 77 73 20 69 74 65 6d 20 62 65 63 61 75 73 65 20 69 74 20 63 6f 75 6c 64 20 6e 6f 74 20 62 65 20 66 6f 75 6e 64 2e 2b 59 6f 75 20 61 72 65 20 6e 6f 74 20 61 6c 6c 6f 77 65 64 20 74 6f 20 64 65 6c 65 74 65 20 6e 65 77 73 20 62 75 6e 64 6c 65 73 2e 2e 59 6f 75 20 61 72 65 20 6e 6f 74 20 61 6c 6c 6f 77 65 64 20 74 6f 20 64 65 6c 65 74 65 20 6e 65 77 73 20 63 61 74 65 67 6f 72 69 65 73 2e 1f 4e 65 77 73 20 69 74 65 6d 20 63 6f 75 6c 64 20 6e 6f 74 20 62 65 20 64 65 6c 65 74 65 64 2e 2b 59 6f 75 20 61 72 65 20 6e 6f 74 20 61 6c 6c 6f 77 65 64 20 74 6f 20 63 72 65 61 74 65 20 6e 65 77 73 20 62 75 6e 64 6c 65 73 2e 43 61 6e 6e 6f 74 20 63 72 65 61 74 65 20 6e 65 77 73 20 62 75 6e 64 6c 65 20 d2 25 23 73 d3 20 62 65 63 61 75 73 65 20 74 68 65 20 65 6e 63 6c 6f 73 69 6e 67 20 62 75 6e 64 6c 65 20 63 6f 75 6c 64 20 6e 6f 74 20 62 65 20 66 6f 75 6e 64 2e 00 43 61 6e 6e 6f 74 20 63 72 65 61 74 65 20 6e 65 77 73 20 62 75 6e 64 6c 65 20 d2 25 23 73 d3 20 62 65 63 61 75 73 65 20 74 68 65 72 65 20 69 73 20 61 6c 72 65 61 64 79 20 61 6e 20 69 74 65 6d 20 6f 72 20 62 75 6e 64 6c 65 20 77 69 74 68 20 74 68 61 74 20 6e 61 6d 65 2e 00 43 61 6e 6e 6f 74 20 63 72 65 61 74 65 20 62 75 6e 64 6c 65 20 d2 25 23 73 d3 3a 00 43 72 65 61 74 65 20 6e 65 77 73 20 66 6f 6c 64 65 72 20 d2 25 23 73 d3 00 2e 59 6f 75 20 61 72 65 20 6e 6f 74 20 61 6c 6c 6f 77 65 64 20 74 6f 20 63 72 65 61 74 65 20 6e 65 77 73 20 63 61 74 65 67 6f 72 69 65 73 2e 43 61 6e 6e 6f 74 20 63 72 65 61 74 65 20 6e 65 77 73 20 63 61 74 65 67 6f 72 79 20 d2 25 23 73 d3 20 62 65 63 61 75 73 65 20 74 68 65 20 65 6e 63 6c 6f 73 69 6e 67 20 62 75 6e 64 6c 65 20 63 6f 75 6c 64 20 6e 6f 74 20 62 65 20 66 6f 75 6e 64 2e 00 43 61 6e 6e 6f 74 20 63 72 65 61 74 65 20 6e 65 77 73 20 63 61 74 65 67 6f 72 79 20 d2 25 23 73 d3 20 62 65 63 61 75 73 65 20 74 68 65 72 65 20 69 73 20 61 6c 72 65 61 64 79 20 61 6e 20 69 74 65 6d 20 6f 72 20 62 75 6e 64 6c 65 20 77 69 74 68 20 74 68 61 74 20 6e 61 6d 65 2e 00 00 43 61 6e 6e 6f 74 20 63 72 65 61 74 65 20 6e 65 77 73 20 63 61 74 65 67 6f 72 79 20 d2 25 23 73 d3 3a 00 43 72 65 61 74 65 20 6e 65 77 73 20 63 61 74 65 67 6f 72 79 20 d2 25 23 73 d3 00 4a 43 61 6e 6e 6f 74\",\n  \"ascii\": \"6Cannot delete news item because it could not be found.+You are not allowed to delete news bundles..You are not allowed to delete news categories..News item could not be deleted.+You are not allowed to create news bundles.Cannot create news bundle .%#s. because the enclosing bundle could not be found..Cannot create news bundle .%#s. because there is already an item or bundle with that name..Cannot create bundle .%#s.:.Create news folder .%#s...You are not allowed to create news categories.Cannot create news category .%#s. because the enclosing bundle could not be found..Cannot create news category .%#s. because there is already an item or bundle with that name...Cannot create news category .%#s.:.Create news category .%#s..JCannot\",\n  \"gaps\": []\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "address": "10090990",
+      "length": 740,
+      "hex": "36 43 61 6e 6e 6f 74 20 64 65 6c 65 74 65 20 6e 65 77 73 20 69 74 65 6d 20 62 65 63 61 75 73 65 20 69 74 20 63 6f 75 6c 64 20 6e 6f 74 20 62 65 20 66 6f 75 6e 64 2e 2b 59 6f 75 20 61 72 65 20 6e 6f 74 20 61 6c 6c 6f 77 65 64 20 74 6f 20 64 65 6c 65 74 65 20 6e 65 77 73 20 62 75 6e 64 6c 65 73 2e 2e 59 6f 75 20 61 72 65 20 6e 6f 74 20 61 6c 6c 6f 77 65 64 20 74 6f 20 64 65 6c 65 74 65 20 6e 65 77 73 20 63 61 74 65 67 6f 72 69 65 73 2e 1f 4e 65 77 73 20 69 74 65 6d 20 63 6f 75 6c 64 20 6e 6f 74 20 62 65 20 64 65 6c 65 74 65 64 2e 2b 59 6f 75 20 61 72 65 20 6e 6f 74 20 61 6c 6c 6f 77 65 64 20 74 6f 20 63 72 65 61 74 65 20 6e 65 77 73 20 62 75 6e 64 6c 65 73 2e 43 61 6e 6e 6f 74 20 63 72 65 61 74 65 20 6e 65 77 73 20 62 75 6e 64 6c 65 20 d2 25 23 73 d3 20 62 65 63 61 75 73 65 20 74 68 65 20 65 6e 63 6c 6f 73 69 6e 67 20 62 75 6e 64 6c 65 20 63 6f 75 6c 64 20 6e 6f 74 20 62 65 20 66 6f 75 6e 64 2e 00 43 61 6e 6e 6f 74 20 63 72 65 61 74 65 20 6e 65 77 73 20 62 75 6e 64 6c 65 20 d2 25 23 73 d3 20 62 65 63 61 75 73 65 20 74 68 65 72 65 20 69 73 20 61 6c 72 65 61 64 79 20 61 6e 20 69 74 65 6d 20 6f 72 20 62 75 6e 64 6c 65 20 77 69 74 68 20 74 68 61 74 20 6e 61 6d 65 2e 00 43 61 6e 6e 6f 74 20 63 72 65 61 74 65 20 62 75 6e 64 6c 65 20 d2 25 23 73 d3 3a 00 43 72 65 61 74 65 20 6e 65 77 73 20 66 6f 6c 64 65 72 20 d2 25 23 73 d3 00 2e 59 6f 75 20 61 72 65 20 6e 6f 74 20 61 6c 6c 6f 77 65 64 20 74 6f 20 63 72 65 61 74 65 20 6e 65 77 73 20 63 61 74 65 67 6f 72 69 65 73 2e 43 61 6e 6e 6f 74 20 63 72 65 61 74 65 20 6e 65 77 73 20 63 61 74 65 67 6f 72 79 20 d2 25 23 73 d3 20 62 65 63 61 75 73 65 20 74 68 65 20 65 6e 63 6c 6f 73 69 6e 67 20 62 75 6e 64 6c 65 20 63 6f 75 6c 64 20 6e 6f 74 20 62 65 20 66 6f 75 6e 64 2e 00 43 61 6e 6e 6f 74 20 63 72 65 61 74 65 20 6e 65 77 73 20 63 61 74 65 67 6f 72 79 20 d2 25 23 73 d3 20 62 65 63 61 75 73 65 20 74 68 65 72 65 20 69 73 20 61 6c 72 65 61 64 79 20 61 6e 20 69 74 65 6d 20 6f 72 20 62 75 6e 64 6c 65 20 77 69 74 68 20 74 68 61 74 20 6e 61 6d 65 2e 00 00 43 61 6e 6e 6f 74 20 63 72 65 61 74 65 20 6e 65 77 73 20 63 61 74 65 67 6f 72 79 20 d2 25 23 73 d3 3a 00 43 72 65 61 74 65 20 6e 65 77 73 20 63 61 74 65 67 6f 72 79 20 d2 25 23 73 d3 00 4a 43 61 6e 6e 6f 74",
+      "ascii": "6Cannot delete news item because it could not be found.+You are not allowed to delete news bundles..You are not allowed to delete news categories..News item could not be deleted.+You are not allowed to create news bundles.Cannot create news bundle .%#s. because the enclosing bundle could not be found..Cannot create news bundle .%#s. because there is already an item or bundle with that name..Cannot create bundle .%#s.:.Create news folder .%#s...You are not allowed to create news categories.Cannot create news category .%#s. because the enclosing bundle could not be found..Cannot create news category .%#s. because there is already an item or bundle with that name...Cannot create news category .%#s.:.Create news category .%#s..JCannot",
+      "gaps": []
+    },
+    "isError": false
+  }
+}

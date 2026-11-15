@@ -1,0 +1,13 @@
+{
+  "source_commit": "adb1bf8c8cb12f7eb2fa2c01673295a6312f262b",
+  "source_git_directory": "../synhxd/output/client-20250605-214353/client.git",
+  "source_git_head": "adb1bf8c8cb12f7eb2fa2c01673295a6312f262b",
+  "source_tree": "9acdb78da772857c5f45b25b00f77f14b0c355b5",
+  "inputs": {
+    "config.guess": "84339878730349f6ae49d0e10af84d6a52f937dffb652032584376d76822a002",
+    "config.sub": "d047a2613db0e587c9a9ab64f4ba0eb304421a6501ea8653a06c179eb57952be",
+    "source.tar.gz": "27c65c6670affcbefe13a06596fb2d11a3e3ae4ebf43a57abefbd3a6484be7ae"
+  },
+  "host_detection_origin": "Installed GNU automake1.18 config.guess/config.sub, preserved with their license notices",
+  "identity": "Modern Linux host build of identified shx0.1.48 source. No claim of identity with an original distributed binary."
+}

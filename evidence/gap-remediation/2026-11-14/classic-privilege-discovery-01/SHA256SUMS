@@ -1,0 +1,13 @@
+35ba3d01bafedd7dcc7b7246fcc5ca4bcb1142332a66474fb345f3af5ac94104  evidence/gap-remediation/2026-11-14/classic-privilege-discovery-01/a68-classic-privilege-ui-audit.md.txt
+b4520fb1515ce5405d470bab2286aad23b3d42b3c03369d5ce6b1e13c5708208  evidence/gap-remediation/2026-11-14/classic-privilege-discovery-01/a70-classic-privilege-query-preparation.md.txt
+f94441652f3fe57e9a3c26e04806bc06b7a5bf0c0ff7b4dae902046c21a5f19d  evidence/gap-remediation/2026-11-14/classic-privilege-discovery-01/capture.py.txt
+c8e810315276bf1229676105b4d702fec49b16add5461a1a8032a123c2244d75  evidence/gap-remediation/2026-11-14/classic-privilege-discovery-01/manifest.json
+e0f722de7546c9ad10e84183ef30c05a39e78f6ed2827693f56ebdbe4c9c8551  evidence/gap-remediation/2026-11-14/classic-privilege-discovery-01/outcome.md.txt
+bb1f6015731940f778a7a356ae7b8e41d8a911b5978d765b9cc068a36a643078  evidence/gap-remediation/2026-11-14/classic-privilege-discovery-01/raw/identity-after.json
+dd9f2fa86f75d4a2350036dd1dbafd96d00b0cf513b0db407bea76dfcc063488  evidence/gap-remediation/2026-11-14/classic-privilege-discovery-01/raw/identity-before.json
+1c8866eae241be8f17108a91389fb9d68173bfde9ab815274602aecb6364a805  evidence/gap-remediation/2026-11-14/classic-privilege-discovery-01/raw/segments.json
+ec13386b14b7f60d4d3a9b4b8bcfeb6c85a0d2df23555eb761d8fa64b3699cd4  evidence/gap-remediation/2026-11-14/classic-privilege-discovery-01/raw/strings-Can-Disconnect-Users.json
+240b9102a7ace930a65dfce84f4a70f4adacb80530c552918a86e91ba9cfa3fb  evidence/gap-remediation/2026-11-14/classic-privilege-discovery-01/raw/strings-Can-Send-Messages.json
+3c144dc89f45f2a4593f54a4e959e7c4c3400a3af40b257fe847dda8ad8426ea  evidence/gap-remediation/2026-11-14/classic-privilege-discovery-01/raw/strings-MyAdminEditUserWin.json
+02cbb7fac8615552a8e367b69c9328bcf1a3dcba30b6edee909fdd800cea4a09  evidence/gap-remediation/2026-11-14/classic-privilege-discovery-01/report.json
+f3e0d56e3b3658706eceab93971f64aa65f96114d490c8df649219ad65d37b80  evidence/gap-remediation/2026-11-14/classic-privilege-discovery-01/server.stderr.log

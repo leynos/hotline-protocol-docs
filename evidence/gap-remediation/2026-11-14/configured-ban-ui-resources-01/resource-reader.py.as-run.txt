@@ -1,0 +1,51 @@
+#!/usr/bin/env python3
+"""Bounded, read-only classic Mac resource-fork catalogue."""
+import hashlib
+import json
+import re
+import struct
+import sys
+from pathlib import Path
+
+source = Path(sys.argv[1])
+data = source.read_bytes()
+assert len(data) <= 2_000_000
+assert hashlib.sha256(data).hexdigest() == 'fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12'
+def u16(at): return struct.unpack_from('>H', data, at)[0]
+def u32(at): return struct.unpack_from('>I', data, at)[0]
+def bounds(at, n):
+    if at < 0 or n < 0 or at+n > len(data): raise ValueError((at,n))
+    return data[at:at+n]
+do, mo, dl, ml = struct.unpack_from('>4I', data, 0)
+assert do+dl <= len(data) and mo+ml <= len(data)
+type_list = mo + u16(mo+24)
+name_list = mo + u16(mo+26)
+assert type_list < mo+ml and name_list <= mo+ml
+n_types = u16(type_list)+1
+catalog = []
+chosen = []
+selected_types = {b'DLOG',b'DITL',b'STR#',b'STR ',b'PPob',b'PPOb',b'WIND',b'CNTL',b'HTLS',b'plst',b'MENU'}
+for ti in range(n_types):
+    ent = type_list+2+ti*8
+    typ = bounds(ent,4)
+    count = u16(ent+4)+1
+    ref_start = type_list+u16(ent+6)
+    catalog.append({'type':typ.decode('mac_roman'),'count':count})
+    for ri in range(count):
+        ref=ref_start+ri*12
+        rid=struct.unpack_from('>h',data,ref)[0]
+        no=struct.unpack_from('>h',data,ref+2)[0]
+        off=int.from_bytes(bounds(ref+5,3),'big')
+        rs=do+off
+        size=u32(rs)
+        payload=bounds(rs+4,size)
+        if typ not in selected_types: continue
+        name=None
+        if no >= 0:
+            np=name_list+no; name=bounds(np+1,data[np]).decode('mac_roman',errors='replace')
+        strings=[]
+        for m in re.finditer(rb'[\x20-\x7e]{4,}',payload):
+            strings.append({'offset':m.start(),'text':m.group().decode('ascii')})
+        chosen.append({'type':typ.decode('mac_roman'),'id':rid,'name':name,'length':size,'sha256':hashlib.sha256(payload).hexdigest(),'hex':payload.hex(),'ascii_runs':strings})
+assert len(chosen)<=40 and sum(x['length'] for x in chosen)<=250_000
+print(json.dumps({'source':str(source),'source_bytes':len(data),'source_sha256':hashlib.sha256(data).hexdigest(),'data_offset':do,'map_offset':mo,'data_length':dl,'map_length':ml,'types':catalog,'selected':chosen},indent=2))

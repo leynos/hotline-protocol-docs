@@ -1,0 +1,11 @@
+{
+  "source_register_commit": "22f2e8fcb070e703d03ca9fd6c1ed38840e02f57",
+  "entries": [
+    {
+      "gap_id": "GAP-008",
+      "unchanged_closure_criteria": "Record positive and negative handshake exchanges with exact byte consumption, response status, pipelining behaviour and closure order.",
+      "prior_status": "Investigating",
+      "review": "Ordinary primary-control boundaries are exercised with exact host/guest TCP bytes, five3-second split windows, short half-close, pipelined/frame-prefix preservation and explicit guest reset/FIN ordering. Alternate-wrapper negotiations, matched-reference transfer streams, timers and historical peers remain separately tracked."
+    }
+  ]
+}

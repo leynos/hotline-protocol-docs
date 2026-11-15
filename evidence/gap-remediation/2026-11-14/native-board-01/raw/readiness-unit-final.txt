@@ -1,0 +1,4 @@
+Id=mothra-native-board02-c100-readiness.service
+ActiveState=active
+Result=success
+ExecMainStatus=0

@@ -1,0 +1,25 @@
+{
+  "expected": {
+    "pid": 415512,
+    "starttime": "5324681",
+    "netns": "net:[4026533397]"
+  },
+  "observed": {
+    "pid": 415512,
+    "starttime": "5324681",
+    "exe": "/data/leynos/Projects/mothra/state/mac-runtime/native-eventlab-one-01/SheepShaver-9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+    "fd6": "/data/leynos/Projects/mothra/state/mac-runtime/native-eventlab-one-01/working.dsk",
+    "netns": "net:[4026533397]"
+  },
+  "events": [
+    {
+      "action": "TERM",
+      "utc": "2026-11-14T04:01:52.247025+00:00",
+      "exit": 0,
+      "stderr": ""
+    }
+  ],
+  "pid_gone": true,
+  "server_quit_normal": true,
+  "guest_emulator_forced_term": true
+}

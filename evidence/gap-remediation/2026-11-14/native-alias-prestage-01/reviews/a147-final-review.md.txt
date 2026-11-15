@@ -1,0 +1,15 @@
+# A147 final P02 offline review
+
+Scope: read-only review of `native-alias-live-preparation-02`; no approval pins, VM, service, socket, X input, or protocol request was created. The proposed packet remains unstarted.
+
+## Result
+
+The A146 blockers are discharged in the current 1,291-line, ten-script candidate. The approved source closure is still a proposal, so this is a scoped preboot acceptance, not live readiness or a native result.
+
+- `ui-input-alias-live-02.py` SHA256 `9ea17a562d5248de35d5db14d7cd1eb092e972244d4db703c9903f5d1d2c45f9` records the actual managed Xvfb PID/start/executable hash/UID/argv into exclusive root-0600 `display-identity.json` before the VM launch. Every subsequent input compares the current display identity to that record before opening X. The exact `/usr/sbin/Xvfb` path matches this host's `command -v Xvfb`.
+- The UI gate rechecks emulator PID/start/UID/network namespace, executable SHA and FD6. Once `guest-capture-ready.json` exists it also requires same disk/capture identity and FD16 path, device and inode, including later `startup` actions. Before lazy capture opens, startup may proceed without FD16; this is intentional. The no-X model rejected an FD16 replacement during both startup-after-capture and retire.
+- Retirement counts attempted and completed clicks separately and requires equal counts before another click. An attempted Quit without completion blocks replay and Quit Now. The no-X model induced an X-loading failure after the attempted log entry and rejected the second click.
+- `build-runtime-alias-live-02.py` and the root read-only readiness reviewer both require `hfs_files_parent_visible` in the mode-0600 prestage receipt, plus the three fresh screenshots and disk/capture receipt hashes. The stopped B119 receipts retain `prepared_stopped` working inode 203082518, `stopped_finf_staged` 20-byte target and 32-byte sidecar with first eight bytes `U54TM54X`; these are preparation facts, not live HFS proof.
+- All 35 proposed protocol modules, three helpers and two launchers match both canonical bytes and the frozen proposed snapshots. The proposal SHA is `56435a37f449eb4a7317b56e5fc639e793446b0ebae3873bffe2fd2e0f29ce10`. The ten current scripts match every row of `proposed-script-SHA256SUMS` (file SHA `66638d386198deeffe4b2f50d4a20ae2b4ec6c71d89aea706bcb663faa50f105`) and `script-inventory.json`: 1,291 physical lines, within the 1,300 cap. Approval pin files remain absent.
+
+Validation: root-run offline `models/offline_no_x.py` passed with display replacement, executable replacement, FD16 replacement and attempted Quit replay rejected without X. `bash -n` and ShellCheck passed for all five shell scripts; Python AST passed for the five operational Python scripts and model. Current proposed source closure and ten script SHA/line inventory matched byte-for-byte. No-X mocks process facts and does not prove an actual VM or Xvfb run; root still needs to review/create exact approval pins and grant a separate live START.

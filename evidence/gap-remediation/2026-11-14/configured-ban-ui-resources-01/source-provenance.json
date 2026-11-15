@@ -1,0 +1,14 @@
+{
+  "source_base": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/base.dsk",
+  "source_base_sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910",
+  "source_resource": "/data/leynos/Projects/mothra/evidence/gap-remediation/2026-11-13/native-ban-one-01/preparation/preboot-app/catalog-11183.rsrc",
+  "resource_sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12",
+  "resource_size": 38460,
+  "hfs_catalog": 11183,
+  "hfs_path": "/Hotline19/HLserver19",
+  "selected_count": 8,
+  "selected_bytes": 1636,
+  "ui_mapping": "MENU 131 has Options...; no ban-list editor control or address representation in selected resources",
+  "read_only": true,
+  "full_resource_fork_committed": false
+}

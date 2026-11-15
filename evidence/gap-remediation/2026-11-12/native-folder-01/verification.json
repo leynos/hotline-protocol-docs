@@ -1,0 +1,860 @@
+{
+  "cases": [
+    {
+      "case": "folder-upload-fresh",
+      "connections": {
+        "a": {
+          "client_port": 42642,
+          "sent_bytes": 146,
+          "received_bytes": 374,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "folder": {
+          "client_port": 45318,
+          "sent_bytes": 1293,
+          "received_bytes": 16,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "items": [
+        {
+          "path": "empty",
+          "directory": true,
+          "action": "directory-or-conflict",
+          "stream_size": null,
+          "received_body_bytes": 0,
+          "complete": true,
+          "next_ready": null
+        },
+        {
+          "path": "inner",
+          "directory": true,
+          "action": "directory-or-conflict",
+          "stream_size": null,
+          "received_body_bytes": 0,
+          "complete": true,
+          "next_ready": null
+        },
+        {
+          "path": "alpha",
+          "directory": false,
+          "action": "fresh",
+          "stream_size": 509,
+          "received_body_bytes": 509,
+          "complete": true,
+          "next_ready": true
+        },
+        {
+          "path": "zero",
+          "directory": false,
+          "action": "fresh",
+          "stream_size": 179,
+          "received_body_bytes": 179,
+          "complete": true,
+          "next_ready": true
+        },
+        {
+          "path": "inner/leaf",
+          "directory": false,
+          "action": "fresh",
+          "stream_size": 501,
+          "received_body_bytes": 501,
+          "complete": true,
+          "next_ready": false
+        }
+      ],
+      "completed_items": 5,
+      "final_item_kind": "file"
+    },
+    {
+      "case": "folder-download-skip-all",
+      "connections": {
+        "a": {
+          "client_port": 40170,
+          "sent_bytes": 132,
+          "received_bytes": 386,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "folder": {
+          "client_port": 59096,
+          "sent_bytes": 28,
+          "received_bytes": 76,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "items": [
+        {
+          "path": "alpha",
+          "directory": false,
+          "action": "skip",
+          "stream_size": null,
+          "received_body_bytes": 0,
+          "complete": true,
+          "next_ready": null
+        },
+        {
+          "path": "empty",
+          "directory": true,
+          "action": "directory",
+          "stream_size": null,
+          "received_body_bytes": 0,
+          "complete": true,
+          "next_ready": null
+        },
+        {
+          "path": "inner",
+          "directory": true,
+          "action": "directory",
+          "stream_size": null,
+          "received_body_bytes": 0,
+          "complete": true,
+          "next_ready": null
+        },
+        {
+          "path": "inner/leaf",
+          "directory": false,
+          "action": "skip",
+          "stream_size": null,
+          "received_body_bytes": 0,
+          "complete": true,
+          "next_ready": null
+        },
+        {
+          "path": "zero",
+          "directory": false,
+          "action": "skip",
+          "stream_size": null,
+          "received_body_bytes": 0,
+          "complete": true,
+          "next_ready": null
+        }
+      ],
+      "aggregate_bytes": 652,
+      "item_count": 5,
+      "file_stream_bytes": 0,
+      "ignored": []
+    },
+    {
+      "case": "folder-upload-zero-items",
+      "connections": {
+        "a": {
+          "client_port": 57170,
+          "sent_bytes": 145,
+          "received_bytes": 366,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "items": [],
+      "completed_items": 0
+    },
+    {
+      "case": "folder-upload-directory-last",
+      "connections": {
+        "a": {
+          "client_port": 57174,
+          "sent_bytes": 147,
+          "received_bytes": 374,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "folder": {
+          "client_port": 57610,
+          "sent_bytes": 29,
+          "received_bytes": 4,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "items": [
+        {
+          "path": "only",
+          "directory": true,
+          "action": "directory-or-conflict",
+          "stream_size": null,
+          "received_body_bytes": 0,
+          "complete": true,
+          "next_ready": null
+        }
+      ],
+      "completed_items": 1,
+      "final_item_kind": "directory-or-skip"
+    },
+    {
+      "case": "folder-upload-partial-seed",
+      "connections": {
+        "a": {
+          "client_port": 57176,
+          "sent_bytes": 268,
+          "received_bytes": 581,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "folder": {
+          "client_port": 57614,
+          "sent_bytes": 757,
+          "received_bytes": 8,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "items": [
+        {
+          "path": "alpha",
+          "directory": false,
+          "action": "fresh",
+          "stream_size": 509,
+          "received_body_bytes": 509,
+          "complete": true,
+          "next_ready": true
+        },
+        {
+          "path": "part",
+          "directory": false,
+          "action": "fresh",
+          "stream_size": 509,
+          "received_body_bytes": 197,
+          "complete": false,
+          "next_ready": null
+        }
+      ],
+      "completed_items": 1,
+      "final_item_kind": "file"
+    },
+    {
+      "case": "folder-download-full",
+      "connections": {
+        "a": {
+          "client_port": 36348,
+          "sent_bytes": 132,
+          "received_bytes": 386,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "folder": {
+          "client_port": 60662,
+          "sent_bytes": 34,
+          "received_bytes": 1236,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "items": [
+        {
+          "path": "alpha",
+          "directory": false,
+          "action": "fresh",
+          "stream_size": 496,
+          "received_body_bytes": 496,
+          "complete": true,
+          "next_ready": null
+        },
+        {
+          "path": "empty",
+          "directory": true,
+          "action": "directory",
+          "stream_size": null,
+          "received_body_bytes": 0,
+          "complete": true,
+          "next_ready": null
+        },
+        {
+          "path": "inner",
+          "directory": true,
+          "action": "directory",
+          "stream_size": null,
+          "received_body_bytes": 0,
+          "complete": true,
+          "next_ready": null
+        },
+        {
+          "path": "inner/leaf",
+          "directory": false,
+          "action": "fresh",
+          "stream_size": 487,
+          "received_body_bytes": 487,
+          "complete": true,
+          "next_ready": null
+        },
+        {
+          "path": "zero",
+          "directory": false,
+          "action": "fresh",
+          "stream_size": 165,
+          "received_body_bytes": 165,
+          "complete": true,
+          "next_ready": null
+        }
+      ],
+      "aggregate_bytes": 652,
+      "item_count": 5,
+      "file_stream_bytes": 1148,
+      "ignored": []
+    },
+    {
+      "case": "folder-download-resume",
+      "connections": {
+        "a": {
+          "client_port": 36350,
+          "sent_bytes": 132,
+          "received_bytes": 386,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "folder": {
+          "client_port": 60674,
+          "sent_bytes": 262,
+          "received_bytes": 1222,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "items": [
+        {
+          "path": "alpha",
+          "directory": false,
+          "action": "resume",
+          "stream_size": 489,
+          "received_body_bytes": 489,
+          "complete": true,
+          "next_ready": null
+        },
+        {
+          "path": "empty",
+          "directory": true,
+          "action": "directory",
+          "stream_size": null,
+          "received_body_bytes": 0,
+          "complete": true,
+          "next_ready": null
+        },
+        {
+          "path": "inner",
+          "directory": true,
+          "action": "directory",
+          "stream_size": null,
+          "received_body_bytes": 0,
+          "complete": true,
+          "next_ready": null
+        },
+        {
+          "path": "inner/leaf",
+          "directory": false,
+          "action": "resume",
+          "stream_size": 480,
+          "received_body_bytes": 480,
+          "complete": true,
+          "next_ready": null
+        },
+        {
+          "path": "zero",
+          "directory": false,
+          "action": "resume",
+          "stream_size": 165,
+          "received_body_bytes": 165,
+          "complete": true,
+          "next_ready": null
+        }
+      ],
+      "aggregate_bytes": 652,
+      "item_count": 5,
+      "file_stream_bytes": 1134,
+      "ignored": []
+    },
+    {
+      "case": "folder-download-mixed",
+      "connections": {
+        "a": {
+          "client_port": 40174,
+          "sent_bytes": 132,
+          "received_bytes": 386,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "folder": {
+          "client_port": 41436,
+          "sent_bytes": 108,
+          "received_bytes": 729,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "items": [
+        {
+          "path": "alpha",
+          "directory": false,
+          "action": "skip",
+          "stream_size": null,
+          "received_body_bytes": 0,
+          "complete": true,
+          "next_ready": null
+        },
+        {
+          "path": "empty",
+          "directory": true,
+          "action": "directory",
+          "stream_size": null,
+          "received_body_bytes": 0,
+          "complete": true,
+          "next_ready": null
+        },
+        {
+          "path": "inner",
+          "directory": true,
+          "action": "directory",
+          "stream_size": null,
+          "received_body_bytes": 0,
+          "complete": true,
+          "next_ready": null
+        },
+        {
+          "path": "inner/leaf",
+          "directory": false,
+          "action": "resume",
+          "stream_size": 480,
+          "received_body_bytes": 480,
+          "complete": true,
+          "next_ready": null
+        },
+        {
+          "path": "zero",
+          "directory": false,
+          "action": "fresh",
+          "stream_size": 165,
+          "received_body_bytes": 165,
+          "complete": true,
+          "next_ready": null
+        }
+      ],
+      "aggregate_bytes": 652,
+      "item_count": 5,
+      "file_stream_bytes": 645,
+      "ignored": []
+    },
+    {
+      "case": "folder-download-unknown-control",
+      "connections": {
+        "a": {
+          "client_port": 41608,
+          "sent_bytes": 132,
+          "received_bytes": 386,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "folder": {
+          "client_port": 49124,
+          "sent_bytes": 38,
+          "received_bytes": 1236,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "items": [
+        {
+          "path": "alpha",
+          "directory": false,
+          "action": "fresh",
+          "stream_size": 496,
+          "received_body_bytes": 496,
+          "complete": true,
+          "next_ready": null
+        },
+        {
+          "path": "empty",
+          "directory": true,
+          "action": "directory",
+          "stream_size": null,
+          "received_body_bytes": 0,
+          "complete": true,
+          "next_ready": null
+        },
+        {
+          "path": "inner",
+          "directory": true,
+          "action": "directory",
+          "stream_size": null,
+          "received_body_bytes": 0,
+          "complete": true,
+          "next_ready": null
+        },
+        {
+          "path": "inner/leaf",
+          "directory": false,
+          "action": "fresh",
+          "stream_size": 487,
+          "received_body_bytes": 487,
+          "complete": true,
+          "next_ready": null
+        },
+        {
+          "path": "zero",
+          "directory": false,
+          "action": "fresh",
+          "stream_size": 165,
+          "received_body_bytes": 165,
+          "complete": true,
+          "next_ready": null
+        }
+      ],
+      "aggregate_bytes": 652,
+      "item_count": 5,
+      "file_stream_bytes": 1148,
+      "ignored": [
+        {
+          "state": 0,
+          "control": 0
+        },
+        {
+          "state": 1,
+          "control": 0
+        }
+      ]
+    },
+    {
+      "case": "folder-download-delayed-choice",
+      "connections": {
+        "a": {
+          "client_port": 40572,
+          "sent_bytes": 220,
+          "received_bytes": 474,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "folder": {
+          "client_port": 43712,
+          "sent_bytes": 34,
+          "received_bytes": 1236,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "items": [
+        {
+          "path": "alpha",
+          "directory": false,
+          "action": "fresh",
+          "stream_size": 496,
+          "received_body_bytes": 496,
+          "complete": true,
+          "next_ready": null
+        },
+        {
+          "path": "empty",
+          "directory": true,
+          "action": "directory",
+          "stream_size": null,
+          "received_body_bytes": 0,
+          "complete": true,
+          "next_ready": null
+        },
+        {
+          "path": "inner",
+          "directory": true,
+          "action": "directory",
+          "stream_size": null,
+          "received_body_bytes": 0,
+          "complete": true,
+          "next_ready": null
+        },
+        {
+          "path": "inner/leaf",
+          "directory": false,
+          "action": "fresh",
+          "stream_size": 487,
+          "received_body_bytes": 487,
+          "complete": true,
+          "next_ready": null
+        },
+        {
+          "path": "zero",
+          "directory": false,
+          "action": "fresh",
+          "stream_size": 165,
+          "received_body_bytes": 165,
+          "complete": true,
+          "next_ready": null
+        }
+      ],
+      "aggregate_bytes": 652,
+      "item_count": 5,
+      "file_stream_bytes": 1148,
+      "ignored": [],
+      "first_file_length_after_descriptor_host_seconds": 130.427736,
+      "measured_pause_seconds": 130
+    },
+    {
+      "case": "folder-download-empty",
+      "connections": {
+        "a": {
+          "client_port": 58590,
+          "sent_bytes": 131,
+          "received_bytes": 378,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "items": [],
+      "aggregate_bytes": 0,
+      "item_count": 0
+    },
+    {
+      "case": "folder-download-dir-only",
+      "connections": {
+        "a": {
+          "client_port": 58596,
+          "sent_bytes": 133,
+          "received_bytes": 386,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "folder": {
+          "client_port": 36236,
+          "sent_bytes": 20,
+          "received_bytes": 13,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "items": [
+        {
+          "path": "only",
+          "directory": true,
+          "action": "directory",
+          "stream_size": null,
+          "received_body_bytes": 0,
+          "complete": true,
+          "next_ready": null
+        }
+      ],
+      "aggregate_bytes": 0,
+      "item_count": 1,
+      "file_stream_bytes": 0,
+      "ignored": []
+    },
+    {
+      "case": "folder-upload-resume",
+      "connections": {
+        "a": {
+          "client_port": 58600,
+          "sent_bytes": 153,
+          "received_bytes": 374,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "folder": {
+          "client_port": 36250,
+          "sent_bytes": 553,
+          "received_bytes": 86,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "items": [
+        {
+          "path": "alpha",
+          "directory": false,
+          "action": "skip",
+          "stream_size": null,
+          "received_body_bytes": 0,
+          "complete": true,
+          "next_ready": null
+        },
+        {
+          "path": "part",
+          "directory": false,
+          "action": "resume",
+          "stream_size": 491,
+          "received_body_bytes": 491,
+          "complete": true,
+          "next_ready": true
+        },
+        {
+          "path": "finish",
+          "directory": true,
+          "action": "directory-or-conflict",
+          "stream_size": null,
+          "received_body_bytes": 0,
+          "complete": true,
+          "next_ready": null
+        }
+      ],
+      "completed_items": 3,
+      "final_item_kind": "directory-or-skip"
+    },
+    {
+      "case": "folder-upload-completed-skip",
+      "connections": {
+        "a": {
+          "client_port": 58336,
+          "sent_bytes": 153,
+          "received_bytes": 374,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "folder": {
+          "client_port": 58978,
+          "sent_bytes": 30,
+          "received_bytes": 4,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "items": [
+        {
+          "path": "alpha",
+          "directory": false,
+          "action": "skip",
+          "stream_size": null,
+          "received_body_bytes": 0,
+          "complete": true,
+          "next_ready": null
+        }
+      ],
+      "completed_items": 1,
+      "final_item_kind": "directory-or-skip"
+    },
+    {
+      "case": "folder-upload-directory-conflict",
+      "connections": {
+        "a": {
+          "client_port": 51572,
+          "sent_bytes": 153,
+          "received_bytes": 374,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "folder": {
+          "client_port": 50390,
+          "sent_bytes": 30,
+          "received_bytes": 4,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "items": [
+        {
+          "path": "alpha",
+          "directory": true,
+          "action": "directory-or-conflict",
+          "stream_size": null,
+          "received_body_bytes": 0,
+          "complete": true,
+          "next_ready": null
+        }
+      ],
+      "completed_items": 1,
+      "final_item_kind": "directory-or-skip"
+    },
+    {
+      "case": "folder-upload-late-attachment",
+      "connections": {
+        "a": {
+          "client_port": 50192,
+          "sent_bytes": 210,
+          "received_bytes": 440,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "folder": {
+          "client_port": 59100,
+          "sent_bytes": 16,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "close_after_request_ack_host_seconds": 126.838249,
+      "measured_pause_seconds": 125
+    },
+    {
+      "case": "folder-upload-descriptor-delay",
+      "connections": {
+        "a": {
+          "client_port": 50176,
+          "sent_bytes": 244,
+          "received_bytes": 549,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "folder": {
+          "client_port": 60722,
+          "sent_bytes": 29,
+          "received_bytes": 4,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "close_after_request_ack_host_seconds": 127.964718,
+      "measured_pause_seconds": 130,
+      "close_after_directory_reply_host_seconds": 35.018523
+    }
+  ],
+  "native_files": {
+    "before": {
+      "positive_records": 12,
+      "partial_resource_bytes": 5
+    },
+    "after": {
+      "positive_records": 13,
+      "partial_resource_bytes": 317
+    },
+    "timing": {
+      "positive_records": 3
+    }
+  },
+  "initial_probes": [
+    {
+      "case": "initial-probes/final-repeats/folder-upload-directory-conflict",
+      "status": "failed",
+      "error": "TimeoutError: timed out"
+    },
+    {
+      "case": "initial-probes/transcripts/folder-download-unknown-control",
+      "status": "completed",
+      "error": ""
+    },
+    {
+      "case": "initial-probes/transcripts/folder-upload-completed-skip",
+      "status": "failed",
+      "error": "ConnectionResetError: [Errno 104] Connection reset by peer"
+    }
+  ],
+  "auxiliary_captures": 1,
+  "scope": "Fourteen final direction-specific folder cases; positive direct catalogue states, not exhaustive listing or restart-durability proof; admission failures excluded from folder semantics"
+}

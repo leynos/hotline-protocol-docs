@@ -1,0 +1,20 @@
+{
+  "utc": "2026-11-14T00:58:25.462583+00:00",
+  "argv": [
+    "/usr/sbin/python3",
+    "/data/leynos/Projects/mothra/scripts/mac_runtime.py",
+    "sheep",
+    "/data/leynos/Projects/mothra/state/mac-runtime/native-eventlab-one-01",
+    "--display",
+    ":112",
+    "--port",
+    "15750",
+    "--guest-pcap",
+    "/data/leynos/Projects/mothra/state/native-sessions/native-eventlab-c49/lab-guest.pcap",
+    "--service",
+    "--isolate-network"
+  ],
+  "exit": 0,
+  "stdout": "mothra-bridge-f8eb71efdf91\nmothra-xbridge-f8eb71efdf91\nmothra-sheep-bc2add75bbfa\n",
+  "stderr": "Running as unit: mothra-bridge-f8eb71efdf91.service; invocation ID: f9d54f4cbe764cb18d508a00d245df71\nRunning as unit: mothra-xbridge-f8eb71efdf91.service; invocation ID: c5f7344f59394a5d9ac7dc762406b5ec\nRunning as unit: mothra-sheep-bc2add75bbfa.service; invocation ID: 0ec8a236d4ba4e7896a455318e31b9e3\n"
+}

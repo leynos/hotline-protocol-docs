@@ -1,0 +1,36 @@
+File Path: /Trash/mothra-fs22/S/m-mv22-f02
+Catalog Record: 11515
+Allocated
+Type:	File
+Mode:	r---------
+Size:	15
+uid / gid: 99 / 99
+Link count:	1
+
+File Name: m-mv22-f02
+Admin flags: 0
+Owner flags: 0
+File type:	54455854  TEXT
+File creator:	4d4f5448  MOTH
+Text encoding:	0 = MacRoman
+Resource fork size:	317
+
+Times:
+Created:	2026-11-13 14:27:59 (GMT)
+Content Modified:	2026-11-13 14:28:01 (GMT)
+Attributes Modified:	0000-00-00 00:00:00 (UTC)
+Accessed:	0000-00-00 00:00:00 (UTC)
+Backed Up:	0000-00-00 00:00:00 (UTC)
+
+Data Fork Blocks:
+890693  
+
+Resource Fork Blocks:
+890709  
+
+Attributes: 
+Type: DATA (4352-0)   Name: N/A   Non-Resident   size: 15  init_size: 15
+Type: RSRC (4353-1)   Name: RSRC   Non-Resident   size: 317  init_size: 317
+
+Resources:
+  Type: TEST 	ID: 128   	Offset: 260   	Size: 7     	Name: <none>

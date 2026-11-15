@@ -1,0 +1,14 @@
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`
+   Compiling mxd v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd)
+    Finished `test` profile [optimized] target(s) in 1m 09s
+     Running unittests src/lib.rs (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/build/mxd/9c1d1da2c9e25daf/out/mxd-9c1d1da2c9e25daf)
+
+running 5 tests
+test db::migrations::tests::migration_timeout_maps_configuration_to_duration::case_1 ... ok
+test db::migrations::tests::migration_timeout_maps_configuration_to_duration::case_2 ... ok
+test db::migrations::tests::migration_timeout_maps_configuration_to_duration::case_3 ... ok
+test db::migrations::tests::migration_watchdog_cancels_work_and_reports_the_applied_timeout ... ok
+test db::migrations::tests::migration_watchdog_allows_work_that_finishes_in_time ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 392 filtered out; finished in 0.05s
+

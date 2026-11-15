@@ -1,0 +1,43 @@
+#!/usr/bin/env python3
+"""B39 read-only same-project bounded nested account trace."""
+import asyncio,hashlib,json,os,sys,time
+from datetime import datetime,timedelta,timezone
+from pathlib import Path
+from mcp import ClientSession,StdioServerParameters
+from mcp.client.stdio import stdio_client
+R=Path('/data/leynos/Projects/mothra');B=R/'state/client-account-pef-01';O=B/'b39';P=B/'project'
+D=R/'state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic';J=R/'tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar'
+SHA='7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315';assert hashlib.sha256(D.read_bytes()).hexdigest()==SHA and P.exists()
+addresses=sys.argv[1:];assert 1<=len(addresses)<=6
+async def main():
+ t=time.monotonic();env=dict(os.environ);env.update(JAVA_HOME=str(R/'tools/jdk-25.0.5+8'),GHIDRA_INSTALL_DIR=str(R/'tools/ghidra_12.2_PUBLIC'),XDG_CONFIG_HOME=str(B/'config'),XDG_CACHE_HOME=str(B/'cache'),XDG_DATA_HOME=str(B/'data'),TMPDIR=str(B/'tmp'),JAVA_TOOL_OPTIONS=f'-Duser.home={B / "home"} -Djava.io.tmpdir={B / "tmp"}')
+ env['PATH']=str(R/'tools/jdk-25.0.5+8/bin')+os.pathsep+env['PATH']
+ args=['--headless','--binary',str(D),'--project',str(P),'--project-name','hotline-client-classic-01','--no-analyze','--discard','--language','PowerPC:BE:32:default','--compiler','default','--extension-jar',str(J),'--ready-timeout','120']
+ params=StdioServerParameters(command=str(R/'tools/ghidramcp/.venv/bin/ghidra-mcp'),args=args,env=env,cwd=str(R))
+ path=O/'report.json';report=json.loads(path.read_text()) if path.exists() else {'schema_version':1,'binary_sha256':SHA,'jar_sha256':hashlib.sha256(J.read_bytes()).hexdigest(),'runs':[]}
+ n=sum(1 for run in report['runs'] for q in run['queries'] if q['tool'] not in ('get_program_info',))
+ assert n+len(addresses)<=8
+ run={'started_at_utc':datetime.now(timezone.utc).isoformat(),'argv':args,'addresses':addresses,'source_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'queries':[],'status':'running'};report['runs'].append(run);path.write_text(json.dumps(report,indent=2)+'\n')
+ async def query(s,tool,arguments):
+  result=await s.call_tool(tool,arguments,read_timeout_seconds=timedelta(seconds=180))
+  q={'tool':tool,'arguments':arguments,'result':result.model_dump(mode='json')};run['queries'].append(q);path.write_text(json.dumps(report,indent=2)+'\n')
+  if result.isError or result.structuredContent is None:raise RuntimeError(f'{tool} error')
+  return result.structuredContent
+ try:
+  with (O/'stderr.log').open('a') as err:
+   err.write(f'\n--- B39 run {len(report["runs"])} ---\n')
+   async with (stdio_client(params,errlog=err) as (reader,writer),ClientSession(reader,writer,read_timeout_seconds=timedelta(seconds=180)) as s):
+    await s.initialize();before=await query(s,'get_program_info',{})
+    assert before['sha256']==SHA and before['language_id']=='PowerPC:BE:32:default' and before['function_count']==3564
+    for a in addresses:
+     if a.startswith('callers:'):
+      await query(s,'get_function_calls',{'address':a.split(':',1)[1],'direction':'callers','offset':0,'limit':100})
+     else:await query(s,'decompile_function_by_address',{'address':a})
+    after=await query(s,'get_program_info',{});assert before==after
+  run['status']='complete'
+ except Exception as e:
+  run['status']='stopped-preserved';run['error']=f'{type(e).__name__}: {e}';raise
+ finally:
+  run['finished_at_utc']=datetime.now(timezone.utc).isoformat();run['elapsed_seconds']=time.monotonic()-t;path.write_text(json.dumps(report,indent=2)+'\n')
+ print('complete',len(addresses))
+asyncio.run(main())

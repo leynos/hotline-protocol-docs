@@ -1,0 +1,25 @@
+[
+  {
+    "id": "LX-A-10000160",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "10000160",
+      "limit": 400
+    }
+  },
+  {
+    "id": "LX-A-10011960",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "10011960",
+      "limit": 400
+    }
+  },
+  {
+    "id": "LX-F-store-0",
+    "tool": "get_function_by_address",
+    "arguments": {
+      "address": "1000035c"
+    }
+  }
+]

@@ -1,0 +1,64 @@
+[
+  {
+    "id": "B11-D-100014c0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100014c0"
+    }
+  },
+  {
+    "id": "B11-D-100018b0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100018b0"
+    }
+  },
+  {
+    "id": "B11-D-10028190",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10028190"
+    }
+  },
+  {
+    "id": "B11-D-10079b20",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10079b20"
+    }
+  },
+  {
+    "id": "B11-D-10007fa0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10007fa0"
+    }
+  },
+  {
+    "id": "B11-C-10027d40",
+    "tool": "get_function_calls",
+    "arguments": {
+      "address": "10027d40",
+      "direction": "callers",
+      "limit": 1000
+    }
+  },
+  {
+    "id": "B11-C-10027c80",
+    "tool": "get_function_calls",
+    "arguments": {
+      "address": "10027c80",
+      "direction": "callers",
+      "limit": 1000
+    }
+  },
+  {
+    "id": "B11-C-10058a10",
+    "tool": "get_function_calls",
+    "arguments": {
+      "address": "10058a10",
+      "direction": "callers",
+      "limit": 1000
+    }
+  }
+]

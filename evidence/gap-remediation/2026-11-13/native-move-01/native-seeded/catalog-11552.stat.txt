@@ -1,0 +1,36 @@
+File Path: /Hotline19/Files/mothra-fs22/S/m-mv22-d08/child/leaf
+Catalog Record: 11552
+Allocated
+Type:	File
+Mode:	r---------
+Size:	10
+uid / gid: 99 / 99
+Link count:	1
+
+File Name: leaf
+Admin flags: 0
+Owner flags: 0
+File type:	54455854  TEXT
+File creator:	4d4f5448  MOTH
+Text encoding:	0 = MacRoman
+Resource fork size:	317
+
+Times:
+Created:	2026-11-13 14:28:14 (GMT)
+Content Modified:	2026-11-13 14:28:16 (GMT)
+Attributes Modified:	0000-00-00 00:00:00 (UTC)
+Accessed:	0000-00-00 00:00:00 (UTC)
+Backed Up:	0000-00-00 00:00:00 (UTC)
+
+Data Fork Blocks:
+891000  
+
+Resource Fork Blocks:
+891016  
+
+Attributes: 
+Type: DATA (4352-0)   Name: N/A   Non-Resident   size: 10  init_size: 10
+Type: RSRC (4353-1)   Name: RSRC   Non-Resident   size: 317  init_size: 317
+
+Resources:
+  Type: TEST 	ID: 128   	Offset: 260   	Size: 7     	Name: <none>

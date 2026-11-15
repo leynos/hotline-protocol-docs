@@ -1,0 +1,96 @@
+{
+  "captured_at_utc": "2026-11-12T12:23:42.697202+00:00",
+  "query": {
+    "id": "A-10058070",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "10058070",
+      "limit": 2000
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"items\": [\n    {\n      \"address\": \"10058070\",\n      \"bytes\": \"38000770\",\n      \"instruction\": \"li r0,0x770\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10058074\",\n      \"bytes\": \"b0040000\",\n      \"instruction\": \"sth r0,0x0(r4)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10058078\",\n      \"bytes\": \"38000000\",\n      \"instruction\": \"li r0,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1005807c\",\n      \"bytes\": \"b0040002\",\n      \"instruction\": \"sth r0,0x2(r4)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10058080\",\n      \"bytes\": \"90640004\",\n      \"instruction\": \"stw r3,0x4(r4)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10058084\",\n      \"bytes\": \"4e800020\",\n      \"instruction\": \"blr\",\n      \"comment\": null\n    }\n  ],\n  \"offset\": 0,\n  \"limit\": 2000,\n  \"total\": 6,\n  \"has_more\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "items": [
+        {
+          "address": "10058070",
+          "bytes": "38000770",
+          "instruction": "li r0,0x770",
+          "comment": null
+        },
+        {
+          "address": "10058074",
+          "bytes": "b0040000",
+          "instruction": "sth r0,0x0(r4)",
+          "comment": null
+        },
+        {
+          "address": "10058078",
+          "bytes": "38000000",
+          "instruction": "li r0,0x0",
+          "comment": null
+        },
+        {
+          "address": "1005807c",
+          "bytes": "b0040002",
+          "instruction": "sth r0,0x2(r4)",
+          "comment": null
+        },
+        {
+          "address": "10058080",
+          "bytes": "90640004",
+          "instruction": "stw r3,0x4(r4)",
+          "comment": null
+        },
+        {
+          "address": "10058084",
+          "bytes": "4e800020",
+          "instruction": "blr",
+          "comment": null
+        }
+      ],
+      "offset": 0,
+      "limit": 2000,
+      "total": 6,
+      "has_more": false
+    },
+    "isError": false
+  }
+}

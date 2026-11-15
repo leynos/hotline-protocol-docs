@@ -1,0 +1,29 @@
+{
+  "scope": "A7 one-capture read-only existing-file preflight before any GAP-037 load stage",
+  "date_utc": "2026-11-13",
+  "private_mothra_base": "479ffae8bee3ca4dc3b5ab879794560d1b782439",
+  "private_protocol_base": "965b21b7f46615eaeae7d0b83abfadcfaedea189",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "emulator_pid": 1099659,
+  "emulator_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "display": ":99",
+  "service": "mothra-sheep-bf808bd28e0d",
+  "capture_count": 1,
+  "capture": "capture/",
+  "host_pcap": "host.pcap",
+  "guest_pcap": "guest-cumulative.pcap",
+  "verification": "verification.json",
+  "status": "read-only full-fork preflight verified; no load stage authorised by this batch",
+  "conclusions": [
+    "348 and full 41-entry root Files 200 match A4 preflight byte-for-byte",
+    "206 complete TEXT/MOTH metadata and 202 advertised 1049073-byte stream match retained fixture",
+    "full DATA and MACR forks match retained native extraction byte-for-byte and by SHA-256",
+    "same-connection one-row admin UID 0006 and idle 303 before/after download match",
+    "host and guest client/server TCP streams exactly match recorder for both sockets; guest data-close tcp_disconnect is a terminal diagnostic after full delivery"
+  ],
+  "limits": [
+    "This is one live readback and does not prove disk restart durability",
+    "No active or queued 303 state, 1024-byte boundary or exact-text release decision is established",
+    "The guest PCAP is a snapshot of a cumulative live capture; selected lifetimes are keyed to this report's local ports"
+  ]
+}

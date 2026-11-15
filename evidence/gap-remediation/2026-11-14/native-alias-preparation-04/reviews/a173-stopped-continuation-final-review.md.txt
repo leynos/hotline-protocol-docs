@@ -1,0 +1,37 @@
+# A173 stopped R04 continuation final offline review
+
+Scoped **PASS** for the corrected continuation wrapper
+`continue-stopped-reflink-04.py` SHA
+`227f761ab22b64a850b3ec743085bd8e38b56f2a303691d644c68a9d2d8674ea`
+(110/110 lines). The corrected preparation module remains SHA
+`210ff9725513bce3d4f8391f8fbf8912dc26e4b29b21e898e4f0322d63e5dd23`.
+No wrapper/main execution, image/ROM byte read/copy, VM, service or protocol
+contact occurred in this review. The continuation output is still absent;
+A172's rejection of the earlier wrapper remains unchanged.
+
+The A172 blocker is fixed. `checked_corpus()` now calls `git show HEAD:<path>`
+for both failed-corpus manifest and receipt, rejects absent HEAD blobs,
+requires their exact bytes to equal the worktree files and rejects symlinks.
+The committed failed corpus entered at `b582fd4b`; its original receipt SHA
+`df48030fca202d4a2c4b12632909664cde86ecf7d53e22159df55c5e8a30b9ae`
+matches the wrapper's fixed pin. I independently reran C's isolated real-Git
+model: staged-only rejected, committed accepted, modified worktree rejected,
+exit 0 and printed wrapper SHA equal to the frozen SHA. This tests the actual
+AST-extracted `sha()` and `checked_corpus()` functions, not a copied condition.
+
+Other A172 boundaries remain: wrapper imports the corrected module without
+calling its `main()`, redirects all command outputs to new
+`stopped-preparation-continuation-01`, requires the original failed receipt
+and old as-run source hashes, validates original process ticks, source and
+existing clone identities/hashes via FD-gated functions, checks capacity,
+replays the corrected exact-active-user HFS/five-fork/board checks, requires
+no staged host target/sidecar or assets, and only then stages DATA20/.finf.
+It invokes no `clone()` or `cp`, never resets R04, and marks its separate
+receipt failed on an exception. The original failed files remain untouched.
+
+**External integration remains mandatory:** the successful continuation
+receipt is under a new directory, while frozen boot/build-runtime still
+consume the original failed `stopped-preparation/preflight.json`. Root owns
+a separately reviewed operational receipt promotion/rebind before any boot,
+and the amended immediate-preboot capacity gate. This PASS permits only
+root's separately granted stopped continuation, not boot or native traffic.

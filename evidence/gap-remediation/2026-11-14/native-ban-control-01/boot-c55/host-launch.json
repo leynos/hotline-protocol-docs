@@ -1,0 +1,26 @@
+{
+  "utc": "2026-11-14T03:05:44.075396+00:00",
+  "argv": [
+    "sudo",
+    "-n",
+    "systemd-run",
+    "--unit=mothra-native-control-c55-host.service",
+    "--property=Type=exec",
+    "--property=RuntimeMaxSec=900",
+    "--property=KillMode=control-group",
+    "--property=Restart=no",
+    "--property=StandardOutput=append:/data/leynos/Projects/mothra/state/native-sessions/native-ban-control-c55/host-recorder.log",
+    "--property=StandardError=append:/data/leynos/Projects/mothra/state/native-sessions/native-ban-control-c55/host-recorder.log",
+    "--no-block",
+    "/usr/sbin/tcpdump",
+    "-i",
+    "lo",
+    "-U",
+    "-n",
+    "-s",
+    "0",
+    "-w",
+    "/data/leynos/Projects/mothra/state/native-sessions/native-ban-control-c55/primary-syn.pcap",
+    "(tcp port 15500 or tcp port 15501) and (tcp[tcpflags] & tcp-syn != 0)"
+  ]
+}

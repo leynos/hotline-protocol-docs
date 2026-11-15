@@ -1,0 +1,1782 @@
+{
+  "recorded_at_utc": "2026-11-13T10:15:05.234970+00:00",
+  "image": "state/mac-runtime/hotline21/working.dsk",
+  "tool_sha256": {
+    "istat": "f87c0cee5e263c55440c19fb3e478b80e33dcbae223388b5f83913ceb5fc4499",
+    "icat": "ab73038eda8ed52697c5d94874bbc0a19285184253e68a78f6e4ab347a042bba"
+  },
+  "catalog_range": [
+    11660,
+    11840
+  ],
+  "roots": [
+    "/Hotline19/Users/m-b28-actor-create",
+    "/Hotline19/Users/m-b28-actor-delete",
+    "/Hotline19/Users/m-b28-actor-update",
+    "/Hotline19/Users/m-b28-actor-none",
+    "/Hotline19/Users/m-b28-collision",
+    "/Hotline19/Users/m-b28-create-u",
+    "/Hotline19/Users/m-b28-delete-a",
+    "/Hotline19/Users/m-b28-delete-b",
+    "/Hotline19/Users/m-b28-update-a",
+    "/Hotline19/Users/m-b28-update-b",
+    "/Hotline19/Users/m-b28-rename-old",
+    "/Hotline19/Users/m-b28-clash-old",
+    "/Hotline19/Users/m-b28-clash-new",
+    "/Hotline19/Users/m-b28-defaults",
+    "/Hotline19/Users/m-b28-order-a",
+    "/Hotline19/Users/m-b28-order-b",
+    "/Hotline19/Users/m-b28-after-collision",
+    "/Hotline19/Users/m-b28-after-empty-copy",
+    "/Hotline19/Users/m-b28-after-empty-tlv",
+    "/Hotline19/Users/m-b28-created-before-deny",
+    "/Hotline19/Users/m-b28-skipped-create",
+    "/Hotline19/Users/m-b28-denied-create",
+    "/Hotline19/Users/m-b28-grant-denied",
+    "/Hotline19/Users/m-b28-grant-skipped",
+    "/Hotline19/Users/m-b28-grant-exempt",
+    "/Hotline19/Users/m-b28-none-denied",
+    "/Hotline19/Users/m-b28-rename-new",
+    "/Hotline19/Users/m-b28-nul-new",
+    "/Hotline19/Users/m-b28-pad512",
+    "/Hotline19/Users/m-b28-pad513",
+    "/Hotline19/Users/m-b28-late",
+    "/Hotline19/Users/m-b28-after-late",
+    "/Hotline19/Users/m-b28-clash-first",
+    "/Hotline19/Users/m-b28-clash-skipped",
+    "/Hotline19/Users/m-b28-clash2-old",
+    "/Hotline19/Users/m-b28-clash2-new",
+    "/Hotline19/Users/m-b28-clash2-first",
+    "/Hotline19/Users/m-b28-clash2-last",
+    "/Hotline19/Files/m-b28-seed-flush",
+    "/Hotline19/Files/m-b28-final-flush",
+    "/Hotline19/Files/m-b28-supp-seed-flush",
+    "/Trash/m-b28-delete-a"
+  ],
+  "method": "Read-only direct catalogue observations. Positive paths verified by istat before fork reads. Not an exhaustive directory listing, path-absence proof, protocol certification or restart-durability result.",
+  "probes": [
+    {
+      "catalog": 11660,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11661,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11662,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11663,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11664,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11665,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11666,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11667,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11668,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11669,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11670,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11671,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11672,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11673,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11674,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11675,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11676,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11677,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11678,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11679,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11680,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11681,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11682,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11683,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11684,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11685,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11686,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11687,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11688,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11689,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11690,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11691,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11692,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11693,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11694,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11695,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11696,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11697,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11698,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11699,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11700,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11701,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11702,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11703,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11704,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11705,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11706,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11707,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11708,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11709,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11710,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11711,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11712,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11713,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11714,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11715,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11716,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11717,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11718,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11719,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11720,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11721,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11722,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11723,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11724,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11725,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11726,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11727,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11728,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11729,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11730,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11731,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11732,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11733,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11734,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11735,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11736,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11737,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11738,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11739,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11740,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11741,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11742,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11743,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11744,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11745,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11746,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11747,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11748,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11749,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11750,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11751,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11752,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11753,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11754,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11755,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11756,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11757,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11758,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11759,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11760,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11761,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11762,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11763,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11764,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11765,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11766,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11767,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11768,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11769,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11770,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11771,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11772,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11773,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11774,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11775,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11776,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11777,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11778,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11779,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11780,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11781,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11782,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11783,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11784,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11785,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11786,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11787,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11788,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11789,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11790,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11791,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11792,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11793,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11794,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11795,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11796,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11797,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11798,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11799,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11800,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11801,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11802,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11803,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11804,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11805,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11806,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11807,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11808,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11809,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11810,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11811,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11812,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11813,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11814,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11815,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11816,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11817,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11818,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11819,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11820,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11821,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11822,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11823,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11824,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11825,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11826,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11827,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11828,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11829,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11830,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11831,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11832,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11833,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11834,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11835,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11836,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11837,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11838,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11839,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    },
+    {
+      "catalog": 11840,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11721)\n"
+    }
+  ],
+  "records": [
+    {
+      "path": "/Hotline19/Users/m-b28-actor-create",
+      "key": "catalog-11663",
+      "catalog": 11663,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-actor-create/UserData",
+      "key": "catalog-11664",
+      "catalog": 11664,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-actor-delete",
+      "key": "catalog-11665",
+      "catalog": 11665,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-actor-delete/UserData",
+      "key": "catalog-11666",
+      "catalog": 11666,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-actor-update",
+      "key": "catalog-11667",
+      "catalog": 11667,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-actor-update/UserData",
+      "key": "catalog-11668",
+      "catalog": 11668,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-actor-none",
+      "key": "catalog-11669",
+      "catalog": 11669,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-actor-none/UserData",
+      "key": "catalog-11670",
+      "catalog": 11670,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-collision",
+      "key": "catalog-11671",
+      "catalog": 11671,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-collision/UserData",
+      "key": "catalog-11672",
+      "catalog": 11672,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-create-u",
+      "key": "catalog-11673",
+      "catalog": 11673,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-create-u/UserData",
+      "key": "catalog-11674",
+      "catalog": 11674,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Trash/m-b28-delete-a",
+      "key": "catalog-11675",
+      "catalog": 11675,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Trash/m-b28-delete-a/UserData",
+      "key": "catalog-11676",
+      "catalog": 11676,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-delete-b",
+      "key": "catalog-11677",
+      "catalog": 11677,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-delete-b/UserData",
+      "key": "catalog-11678",
+      "catalog": 11678,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-update-a",
+      "key": "catalog-11679",
+      "catalog": 11679,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-update-a/UserData",
+      "key": "catalog-11680",
+      "catalog": 11680,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-update-b",
+      "key": "catalog-11681",
+      "catalog": 11681,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-update-b/UserData",
+      "key": "catalog-11682",
+      "catalog": 11682,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-rename-new",
+      "key": "catalog-11683",
+      "catalog": 11683,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-rename-new/UserData",
+      "key": "catalog-11684",
+      "catalog": 11684,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-clash-old",
+      "key": "catalog-11685",
+      "catalog": 11685,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-clash-old/UserData",
+      "key": "catalog-11686",
+      "catalog": 11686,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-clash-new",
+      "key": "catalog-11687",
+      "catalog": 11687,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-clash-new/UserData",
+      "key": "catalog-11688",
+      "catalog": 11688,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-defaults",
+      "key": "catalog-11689",
+      "catalog": 11689,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-defaults/UserData",
+      "key": "catalog-11690",
+      "catalog": 11690,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/m-b28-seed-flush",
+      "key": "catalog-11691",
+      "catalog": 11691,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 13,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-order-b",
+      "key": "catalog-11692",
+      "catalog": 11692,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-order-b/UserData",
+      "key": "catalog-11693",
+      "catalog": 11693,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-after-collision",
+      "key": "catalog-11694",
+      "catalog": 11694,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-after-collision/UserData",
+      "key": "catalog-11695",
+      "catalog": 11695,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-after-empty-copy",
+      "key": "catalog-11696",
+      "catalog": 11696,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-after-empty-copy/UserData",
+      "key": "catalog-11697",
+      "catalog": 11697,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-after-empty-tlv",
+      "key": "catalog-11698",
+      "catalog": 11698,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-after-empty-tlv/UserData",
+      "key": "catalog-11699",
+      "catalog": 11699,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-created-before-deny",
+      "key": "catalog-11700",
+      "catalog": 11700,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-created-before-deny/UserData",
+      "key": "catalog-11701",
+      "catalog": 11701,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-grant-exempt",
+      "key": "catalog-11702",
+      "catalog": 11702,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-grant-exempt/UserData",
+      "key": "catalog-11703",
+      "catalog": 11703,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-nul-new",
+      "key": "catalog-11704",
+      "catalog": 11704,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-nul-new/UserData",
+      "key": "catalog-11705",
+      "catalog": 11705,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-pad512",
+      "key": "catalog-11706",
+      "catalog": 11706,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-pad512/UserData",
+      "key": "catalog-11707",
+      "catalog": 11707,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-pad513",
+      "key": "catalog-11708",
+      "catalog": 11708,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-pad513/UserData",
+      "key": "catalog-11709",
+      "catalog": 11709,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-after-late",
+      "key": "catalog-11710",
+      "catalog": 11710,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-after-late/UserData",
+      "key": "catalog-11711",
+      "catalog": 11711,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-clash-first",
+      "key": "catalog-11712",
+      "catalog": 11712,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-clash-first/UserData",
+      "key": "catalog-11713",
+      "catalog": 11713,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-clash-skipped",
+      "key": "catalog-11714",
+      "catalog": 11714,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-clash-skipped/UserData",
+      "key": "catalog-11715",
+      "catalog": 11715,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/m-b28-final-flush",
+      "key": "catalog-11716",
+      "catalog": 11716,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 13,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-clash2-old",
+      "key": "catalog-11717",
+      "catalog": 11717,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-clash2-old/UserData",
+      "key": "catalog-11718",
+      "catalog": 11718,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-clash2-new",
+      "key": "catalog-11719",
+      "catalog": 11719,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-b28-clash2-new/UserData",
+      "key": "catalog-11720",
+      "catalog": 11720,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/m-b28-supp-seed-flush",
+      "key": "catalog-11721",
+      "catalog": 11721,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 13,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    }
+  ]
+}

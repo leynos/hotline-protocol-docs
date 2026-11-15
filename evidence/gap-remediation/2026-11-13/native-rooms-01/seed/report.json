@@ -1,0 +1,295 @@
+{
+  "schema_version": 1,
+  "profile": "native-mac-oracle",
+  "status": "completed",
+  "native_conformance": false,
+  "identity_scope": "Local binary hash verified; remote process identity is operator-reported",
+  "operator": "native fixture operator",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "plan_sha256": "bfafca54ff8c4815d0892307a813972f9df92ec5af82210af1d64a613c74e5c9",
+  "driver_sha256": "2fba0972f4d9a8e3845c4204dce150dd7c90da0e19a9e5720d5289e2c94faf01",
+  "recorded_at_utc": "2026-11-13T10:55:34.529281+00:00",
+  "started_at_utc": "2026-11-13T10:55:31.427738+00:00",
+  "gap_ids": [
+    "GAP-003",
+    "GAP-018",
+    "GAP-019",
+    "GAP-031",
+    "GAP-033",
+    "GAP-038",
+    "GAP-039",
+    "GAP-040",
+    "GAP-041",
+    "GAP-042",
+    "GAP-084"
+  ],
+  "completed_actions": 14,
+  "error": "",
+  "events": [
+    {
+      "action": 0,
+      "connection": "main",
+      "event": "connect",
+      "elapsed_ns": 1736695,
+      "hex": "",
+      "local_address": [
+        "127.0.0.1",
+        48458
+      ],
+      "peer_address": [
+        "127.0.0.1",
+        15500
+      ]
+    },
+    {
+      "action": 1,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 1820821,
+      "hex": "54525450484f544c00010002"
+    },
+    {
+      "action": 2,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 1714486287,
+      "hex": "5452545000000000"
+    },
+    {
+      "action": 3,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 1714608094,
+      "hex": "0000006b000000010000000000000036000000360005006900059e9b929691006a000892908b978d9ecec600a0000200be0066000f6672616d696e672d66697874757265006800020001"
+    },
+    {
+      "action": 4,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 1736289340,
+      "hex": "0001000000000001000000000000000e0000000e"
+    },
+    {
+      "action": 4,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 1736342910,
+      "hex": "000200a0000200be00a100020000"
+    },
+    {
+      "action": 5,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 1743195946,
+      "hex": "0000016200000001000000000000000e0000000e"
+    },
+    {
+      "action": 5,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 1743246089,
+      "hex": "0001006e0008fff3cfefff800000"
+    },
+    {
+      "action": 6,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 1743305870,
+      "hex": "0000006d0000000200000000000000f8000000f8"
+    },
+    {
+      "action": 6,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 1743405546,
+      "hex": "0001006500f25468697320697320746865207365727665722061677265656d656e742e20200d54686520736572766572206f776e6572207075747320616e79206b696e64206f6620636f6e646974696f6e73206f7220636f6e646974696f6e7320746865792077616e7420796f7520746f20616772656520746f206265666f726520656e746572696e672e20200d546865792063616e206368616e676520746869732061677265656d656e74206279206d6f64696679696e67207468652061677265656d656e742e7478742066696c6520696e2074686520736572766572206469726563746f72792e0d53617920796f7520616772656521"
+    },
+    {
+      "action": 7,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 1743492909,
+      "hex": "0000015e0000000a00000000000000470000004700050069000d92d28d909092cccfd2859a8d90006a000b8d909092d28f9e8c8ccccf0066000b526f6f6d33302d7a65726f006e00080000000000000000006f0006726f6f6d3330"
+    },
+    {
+      "action": 8,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 1852509306,
+      "hex": "000100000000000a000000000000000200000002"
+    },
+    {
+      "action": 8,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 1852582963,
+      "hex": "0000"
+    },
+    {
+      "action": 9,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 1853406157,
+      "hex": "0000015e0000000b000000000000004b0000004b00050069000f92d28d909092cccfd28d9a9e9b9a8d006a000b8d909092d28f9e8c8ccccf0066000d526f6f6d33302d726561646572006e00080040000000000000006f0006726f6f6d3330"
+    },
+    {
+      "action": 10,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 3060055843,
+      "hex": "000100000000000b000000000000000200000002"
+    },
+    {
+      "action": 10,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 3060109843,
+      "hex": "0000"
+    },
+    {
+      "action": 11,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 3060562366,
+      "hex": "0000015e0000000c000000000000004d0000004d00050069001092d28d909092cccfd28c8f9a9e949a8d006a000b8d909092d28f9e8c8ccccf0066000e526f6f6d33302d737065616b6572006e00080060000000000000006f0006726f6f6d3330"
+    },
+    {
+      "action": 12,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 3101163963,
+      "hex": "000100000000000c000000000000000200000002"
+    },
+    {
+      "action": 12,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 3101212233,
+      "hex": "0000"
+    },
+    {
+      "action": 13,
+      "connection": "main",
+      "event": "close",
+      "elapsed_ns": 3101372392,
+      "hex": ""
+    }
+  ],
+  "frames": [
+    {
+      "action": 4,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 1,
+      "error": 0,
+      "total_size": 14,
+      "data_size": 14,
+      "payload_hex": "000200a0000200be00a100020000",
+      "fields": [
+        {
+          "id": 160,
+          "hex": "00be"
+        },
+        {
+          "id": 161,
+          "hex": "0000"
+        }
+      ],
+      "declared_field_count": 2,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 5,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 0,
+      "type": 354,
+      "id": 1,
+      "error": 0,
+      "total_size": 14,
+      "data_size": 14,
+      "payload_hex": "0001006e0008fff3cfefff800000",
+      "fields": [
+        {
+          "id": 110,
+          "hex": "fff3cfefff800000"
+        }
+      ],
+      "declared_field_count": 1,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 6,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 0,
+      "type": 109,
+      "id": 2,
+      "error": 0,
+      "total_size": 248,
+      "data_size": 248,
+      "payload_hex": "0001006500f25468697320697320746865207365727665722061677265656d656e742e20200d54686520736572766572206f776e6572207075747320616e79206b696e64206f6620636f6e646974696f6e73206f7220636f6e646974696f6e7320746865792077616e7420796f7520746f20616772656520746f206265666f726520656e746572696e672e20200d546865792063616e206368616e676520746869732061677265656d656e74206279206d6f64696679696e67207468652061677265656d656e742e7478742066696c6520696e2074686520736572766572206469726563746f72792e0d53617920796f7520616772656521",
+      "fields": [
+        {
+          "id": 101,
+          "hex": "5468697320697320746865207365727665722061677265656d656e742e20200d54686520736572766572206f776e6572207075747320616e79206b696e64206f6620636f6e646974696f6e73206f7220636f6e646974696f6e7320746865792077616e7420796f7520746f20616772656520746f206265666f726520656e746572696e672e20200d546865792063616e206368616e676520746869732061677265656d656e74206279206d6f64696679696e67207468652061677265656d656e742e7478742066696c6520696e2074686520736572766572206469726563746f72792e0d53617920796f7520616772656521"
+        }
+      ],
+      "declared_field_count": 1,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 8,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 10,
+      "error": 0,
+      "total_size": 2,
+      "data_size": 2,
+      "payload_hex": "0000",
+      "fields": [],
+      "declared_field_count": 0,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 10,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 11,
+      "error": 0,
+      "total_size": 2,
+      "data_size": 2,
+      "payload_hex": "0000",
+      "fields": [],
+      "declared_field_count": 0,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 12,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 12,
+      "error": 0,
+      "total_size": 2,
+      "data_size": 2,
+      "payload_hex": "0000",
+      "fields": [],
+      "declared_field_count": 0,
+      "unconsumed_hex": ""
+    }
+  ],
+  "streams": {
+    "main": {
+      "sent_hex": "54525450484f544c000100020000006b000000010000000000000036000000360005006900059e9b929691006a000892908b978d9ecec600a0000200be0066000f6672616d696e672d666978747572650068000200010000015e0000000a00000000000000470000004700050069000d92d28d909092cccfd2859a8d90006a000b8d909092d28f9e8c8ccccf0066000b526f6f6d33302d7a65726f006e00080000000000000000006f0006726f6f6d33300000015e0000000b000000000000004b0000004b00050069000f92d28d909092cccfd28d9a9e9b9a8d006a000b8d909092d28f9e8c8ccccf0066000d526f6f6d33302d726561646572006e00080040000000000000006f0006726f6f6d33300000015e0000000c000000000000004d0000004d00050069001092d28d909092cccfd28c8f9a9e949a8d006a000b8d909092d28f9e8c8ccccf0066000e526f6f6d33302d737065616b6572006e00080060000000000000006f0006726f6f6d3330",
+      "received_hex": "54525450000000000001000000000001000000000000000e0000000e000200a0000200be00a1000200000000016200000001000000000000000e0000000e0001006e0008fff3cfefff8000000000006d0000000200000000000000f8000000f80001006500f25468697320697320746865207365727665722061677265656d656e742e20200d54686520736572766572206f776e6572207075747320616e79206b696e64206f6620636f6e646974696f6e73206f7220636f6e646974696f6e7320746865792077616e7420796f7520746f20616772656520746f206265666f726520656e746572696e672e20200d546865792063616e206368616e676520746869732061677265656d656e74206279206d6f64696679696e67207468652061677265656d656e742e7478742066696c6520696e2074686520736572766572206469726563746f72792e0d53617920796f7520616772656521000100000000000a0000000000000002000000020000000100000000000b0000000000000002000000020000000100000000000c0000000000000002000000020000"
+    }
+  }
+}

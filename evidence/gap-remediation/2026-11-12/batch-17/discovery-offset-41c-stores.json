@@ -1,0 +1,15 @@
+{
+  "method": "Discovery only: scan4-byte words in uncompressed PEF section0 (header offset40, container offset9680) for PPC stw immediate0x41c. Excludes indexed writes/aliases/other widths; register bases may be stack/unrelated objects. Function candidates require Ghidra confirmation.",
+  "input_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "section0_file_offset": 9680,
+  "section0_size": 558872,
+  "candidate_stores": [
+    {
+      "address": "1000035c",
+      "instruction_hex": "901e041c",
+      "source_register": 0,
+      "base_register": 30,
+      "nearest_preceding_function": "10000160"
+    }
+  ]
+}

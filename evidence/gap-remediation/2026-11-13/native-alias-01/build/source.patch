@@ -1,0 +1,299 @@
+diff --git a/BasiliskII/src/Unix/ether_unix.cpp b/BasiliskII/src/Unix/ether_unix.cpp
+index 87a9f2c..5e846d0 100644
+--- a/BasiliskII/src/Unix/ether_unix.cpp
++++ b/BasiliskII/src/Unix/ether_unix.cpp
+@@ -94,6 +94,64 @@ using std::map;
+ #define MONITOR 0
+ 
+ 
++/* MOTHRA_ETHERNET_CAPTURE_BEGIN */
++// Optional observation at the guest/SLiRP Ethernet boundary. Captured output
++// precedes socket-pair injection; it is not proof of guest receipt.
++#include <cstdint>
++#include <cstdlib>
++#include <mutex>
++#include <sys/time.h>
++#include <fcntl.h>
++#include <unistd.h>
++
++static void capture_ethernet(const unsigned char *packet, int length)
++{
++    static std::mutex mutex;
++    static bool initialized = false;
++    static FILE *output = NULL;
++    std::lock_guard<std::mutex> lock(mutex);
++    if (!initialized) {
++        initialized = true;
++        const char *path = getenv("MOTHRA_ETHERNET_PCAP");
++        if (path && *path) {
++            int capture_fd = open(path, O_WRONLY | O_CREAT | O_EXCL, 0600);
++            if (capture_fd < 0 || !(output = fdopen(capture_fd, "wb"))) {
++                perror("Cannot create guest Ethernet capture");
++                _Exit(1);
++            }
++            struct Header {
++                uint32_t magic;
++                uint16_t major, minor;
++                uint32_t zone, accuracy, snaplen, linktype;
++            } header = {0xa1b2c3d4, 2, 4, 0, 0, 65535, 1};
++            static_assert(sizeof(header) == 24, "Unexpected PCAP header layout");
++            if (fwrite(&header, sizeof(header), 1, output) != 1) {
++                perror("Cannot write guest Ethernet header");
++                _Exit(1);
++            }
++        }
++    }
++    if (!output)
++        return;
++    if (length <= 0 || length > 65535) {
++        fprintf(stderr, "Invalid guest Ethernet capture length\n");
++        _Exit(1);
++    }
++    struct timeval now;
++    if (gettimeofday(&now, NULL) != 0) {
++        perror("Cannot timestamp guest Ethernet capture");
++        _Exit(1);
++    }
++    uint32_t record[4] = {uint32_t(now.tv_sec), uint32_t(now.tv_usec),
++        uint32_t(length), uint32_t(length)};
++    if (fwrite(record, sizeof(record), 1, output) != 1 ||
++        fwrite(packet, length, 1, output) != 1 || fflush(output) != 0) {
++        perror("Cannot write guest Ethernet packet");
++        _Exit(1);
++    }
++}
++/* MOTHRA_ETHERNET_CAPTURE_END */
++
+ // Ethernet device types
+ enum {
+ 	NET_IF_SHEEPNET,
+@@ -811,6 +869,7 @@ static int16 ether_do_write(uint32 arg)
+ 	// Transmit packet
+ #ifdef HAVE_SLIRP
+ 	if (net_if_type == NET_IF_SLIRP) {
++		capture_ethernet(packet, len);
+ 		const int slirp_input_fd = slirp_input_fds[1];
+ 		write(slirp_input_fd, &len, sizeof(len));
+ 		write(slirp_input_fd, packet, len);
+@@ -879,6 +938,7 @@ int slirp_can_output(void)
+ 
+ void slirp_output(const uint8 *packet, int len)
+ {
++	capture_ethernet(packet, len);
+ 	write(slirp_output_fd, packet, len);
+ }
+ 
+diff --git a/BasiliskII/src/slirp/mbuf.c b/BasiliskII/src/slirp/mbuf.c
+index 5a16fab..6fd83b8 100644
+--- a/BasiliskII/src/slirp/mbuf.c
++++ b/BasiliskII/src/slirp/mbuf.c
+@@ -59,7 +59,7 @@ struct mbuf *m_get()
+ 	DEBUG_CALL("m_get");
+ 	
+ 	if (m_freelist.m_next == &m_freelist) {
+-		m = (struct mbuf *)malloc(msize);
++		m = (struct mbuf *)slirp_low_alloc(msize);
+ 		if (m == NULL) goto end_error;
+ 		mbuf_alloced++;
+ 		if (mbuf_alloced > mbuf_thresh)
+@@ -99,13 +99,13 @@ void m_free(struct mbuf *m)
+ 	
+ 	/* If it's M_EXT, free() it */
+ 	if (m->m_flags & M_EXT)
+-	   free(m->m_ext);
++	   slirp_low_free(m->m_ext);
+ 
+ 	/*
+ 	 * Either free() it or put it on the free list
+ 	 */
+ 	if (m->m_flags & M_DOFREE) {
+-		free(m);
++		slirp_low_free(m);
+ 		mbuf_alloced--;
+ 	} else if ((m->m_flags & M_FREELIST) == 0) {
+ 		insque(m,&m_freelist);
+@@ -144,7 +144,7 @@ void m_inc(struct mbuf *m, u_int size)
+ 
+         if (m->m_flags & M_EXT) {
+          datasize = m->m_data - m->m_ext;
+-	  m->m_ext = (char *)realloc(m->m_ext,size);
++	  m->m_ext = (char *)slirp_low_realloc(m->m_ext,size);
+ /*		if (m->m_ext == NULL)
+  *			return (struct mbuf *)NULL;
+  */		
+@@ -152,7 +152,7 @@ void m_inc(struct mbuf *m, u_int size)
+         } else {
+ 	  char *dat;
+ 	  datasize = m->m_data - m->m_dat;
+-	  dat = (char *)malloc(size);
++	  dat = (char *)slirp_low_alloc(size);
+ /*		if (dat == NULL)
+  *			return (struct mbuf *)NULL;
+  */
+@@ -228,3 +228,66 @@ struct mbuf *dtom(void *dat)
+ 	return (struct mbuf *)0;
+ }
+ 
++
++/* MOTHRA_LOW_MEMORY_BEGIN */
++/* TCP/IP overlays keep 32-bit queue links, including the control-block
++ * sentinel and packet/mbuf pointers. Linux thread arenas need not be below
++ * 4 GiB. Keep only these linked allocations in a representable mapping. */
++#if defined(__linux__) && defined(__x86_64__)
++#include <sys/mman.h>
++#include <stdint.h>
++#include <errno.h>
++
++union slirp_low_header {
++    size_t size;
++    long double alignment;
++    void *pointer_alignment;
++};
++
++void *slirp_low_alloc(size_t size)
++{
++    union slirp_low_header *header;
++    if (size > UINT32_MAX - sizeof(*header)) {
++        errno = ENOMEM;
++        return NULL;
++    }
++    header = (union slirp_low_header *)mmap(NULL, sizeof(*header) + size,
++        PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS | MAP_32BIT, -1, 0);
++    if (header == MAP_FAILED)
++        return NULL;
++    header->size = size;
++    return header + 1;
++}
++
++void slirp_low_free(void *pointer)
++{
++    if (pointer) {
++        union slirp_low_header *header = (union slirp_low_header *)pointer - 1;
++        munmap(header, sizeof(*header) + header->size);
++    }
++}
++
++void *slirp_low_realloc(void *pointer, size_t size)
++{
++    void *replacement;
++    size_t previous;
++    if (!pointer)
++        return slirp_low_alloc(size);
++    if (!size) {
++        slirp_low_free(pointer);
++        return NULL;
++    }
++    previous = ((union slirp_low_header *)pointer - 1)->size;
++    replacement = slirp_low_alloc(size);
++    if (!replacement)
++        return NULL;
++    memcpy(replacement, pointer, previous < size ? previous : size);
++    slirp_low_free(pointer);
++    return replacement;
++}
++#else
++void *slirp_low_alloc(size_t size) { return malloc(size); }
++void slirp_low_free(void *pointer) { free(pointer); }
++void *slirp_low_realloc(void *pointer, size_t size) { return realloc(pointer, size); }
++#endif
++/* MOTHRA_LOW_MEMORY_END */
+diff --git a/BasiliskII/src/slirp/slirp.h b/BasiliskII/src/slirp/slirp.h
+index b845caa..fe5475e 100644
+--- a/BasiliskII/src/slirp/slirp.h
++++ b/BasiliskII/src/slirp/slirp.h
+@@ -355,4 +355,9 @@ struct tcpcb *tcp_drop(struct tcpcb *tp, int err);
+ #define max(x,y) ((x) > (y) ? (x) : (y))
+ #endif
+ 
++/* Allocations linked through the legacy 32-bit TCP/IP overlays. */
++void *slirp_low_alloc(size_t);
++void slirp_low_free(void *);
++void *slirp_low_realloc(void *, size_t);
++
+ #endif
+diff --git a/BasiliskII/src/slirp/socket.c b/BasiliskII/src/slirp/socket.c
+index 42ba31b..eff6037 100644
+--- a/BasiliskII/src/slirp/socket.c
++++ b/BasiliskII/src/slirp/socket.c
+@@ -592,7 +592,7 @@ solisten(port, laddr, lport, flags)
+ 	
+ 	memset(&addr, 0, sizeof(struct sockaddr_in));
+ 	addr.sin_family = AF_INET;
+-	addr.sin_addr.s_addr = INADDR_ANY;
++	addr.sin_addr = loopback_addr;
+ 	addr.sin_port = port;
+ 	
+ 	if (((s = socket(AF_INET,SOCK_STREAM,0)) < 0) ||
+diff --git a/BasiliskII/src/slirp/tcp_subr.c b/BasiliskII/src/slirp/tcp_subr.c
+index 0bbe58b..0203231 100644
+--- a/BasiliskII/src/slirp/tcp_subr.c
++++ b/BasiliskII/src/slirp/tcp_subr.c
+@@ -189,7 +189,7 @@ struct tcpcb *tcp_newtcpcb(struct socket *so)
+ {
+ 	register struct tcpcb *tp;
+ 	
+-	tp = (struct tcpcb *)malloc(sizeof(*tp));
++	tp = (struct tcpcb *)slirp_low_alloc(sizeof(*tp));
+ 	if (tp == NULL)
+ 		return ((struct tcpcb *)0);
+ 	
+@@ -280,7 +280,7 @@ struct tcpcb *tcp_close(register struct tcpcb *tp)
+  *		(void) m_free(dtom(tp->t_template));
+  */
+ /*	free(tp, M_PCB);  */
+-	free(tp);
++	slirp_low_free(tp);
+ 	so->so_tcpcb = 0;
+ 	soisfdisconnected(so);
+ 	/* clobber input socket cache if we're closing the cached connection */
+diff --git a/SheepShaver/src/Unix/prefs_unix.cpp b/SheepShaver/src/Unix/prefs_unix.cpp
+index 7f89a10..848bbef 100644
+--- a/SheepShaver/src/Unix/prefs_unix.cpp
++++ b/SheepShaver/src/Unix/prefs_unix.cpp
+@@ -29,6 +29,7 @@
+ 
+ // Platform-specific preferences items
+ prefs_desc platform_prefs_items[] = {
++	{"redir", TYPE_STRING, true,           "SLiRP port forwarding rule"},
+ 	{"ether", TYPE_STRING, false,          "device name of Mac ethernet adapter"},
+ 	{"etherconfig", TYPE_STRING, false,    "path of network config script"},
+ 	{"keycodes", TYPE_BOOLEAN, false,      "use keycodes rather than keysyms to decode keyboard"},
+diff --git a/SheepShaver/src/timer.cpp b/SheepShaver/src/timer.cpp
+index 3edd6ca..b981a6c 100644
+--- a/SheepShaver/src/timer.cpp
++++ b/SheepShaver/src/timer.cpp
+@@ -578,6 +578,23 @@ static void *timer_func(void *arg)
+ #endif
+ 
+ #ifdef PRECISE_TIMING_POSIX
++/* MOTHRA_TIMER_CRITICAL_BEGIN */
++// The emulation thread suspends us before acquiring wakeup_time_lock.
++// Do not acknowledge that suspension while owning the same mutex: it would
++// park the owner and leave the emulation thread waiting forever.
++static void timer_set_wakeup_max(void)
++{
++	sigset_t suspend_mask, saved_mask;
++	sigemptyset(&suspend_mask);
++	sigaddset(&suspend_mask, SIGSUSPEND);
++	pthread_sigmask(SIG_BLOCK, &suspend_mask, &saved_mask);
++	pthread_mutex_lock(&wakeup_time_lock);
++	wakeup_time = wakeup_time_max;
++	pthread_mutex_unlock(&wakeup_time_lock);
++	pthread_sigmask(SIG_SETMASK, &saved_mask, NULL);
++}
++/* MOTHRA_TIMER_CRITICAL_END */
++
+ static void *timer_func(void *arg)
+ {
+ 	while (!timer_thread_cancel) {
+@@ -589,9 +606,7 @@ static void *timer_func(void *arg)
+ 		if (timer_cmp_time(wakeup_time, system_time) < 0) {
+ 
+ 			// Timer expired, trigger interrupt
+-			pthread_mutex_lock(&wakeup_time_lock);
+-			wakeup_time = wakeup_time_max;
+-			pthread_mutex_unlock(&wakeup_time_lock);
++			timer_set_wakeup_max();
+ 			SetInterruptFlag(INTFLAG_TIMER);
+ 			TriggerInterrupt();
+ 		}

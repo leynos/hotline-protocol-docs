@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T15:38:55.874773+00:00",
+  "query": {
+    "id": "B17-M-banner-suffixes",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "1008fc1f",
+      "length": 32
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"address\": \"1008fc1f\",\n  \"length\": 32,\n  \"hex\": \"2e 6a 70 67 00 2e 67 69 66 00 2e 70 63 74 00 2e 62 6d 70 00 2e 64 69 62 00 43 6f 75 6c 64 20 6e\",\n  \"ascii\": \".jpg..gif..pct..bmp..dib.Could n\",\n  \"gaps\": []\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "address": "1008fc1f",
+      "length": 32,
+      "hex": "2e 6a 70 67 00 2e 67 69 66 00 2e 70 63 74 00 2e 62 6d 70 00 2e 64 69 62 00 43 6f 75 6c 64 20 6e",
+      "ascii": ".jpg..gif..pct..bmp..dib.Could n",
+      "gaps": []
+    },
+    "isError": false
+  }
+}

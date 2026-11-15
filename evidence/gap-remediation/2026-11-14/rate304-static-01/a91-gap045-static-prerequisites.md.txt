@@ -1,0 +1,80 @@
+# A91: GAP-045 finite limiter prerequisites
+
+Read-only inspection of B85's plan and retained PowerPC decompilations; no
+oracle query, VM, mxd action, tracked edit or new status. All necessary bodies
+were already frozen: `evidence/hotline-server-1.9/queries/D-1000acf0.c`,
+`D-10016ad0.c`, `D-10004d50.c`, `D-10004f30.c`, `D-1000f260.c`,
+`D-1000fc20.c`, `D-1000f4e0.c`, `D-1000f990.c`,
+`batch-14/queries/B14-D-100068e0.c`, `native-ban-oracle-01/queries/BN-D-100063c0.c`,
+and `batch-08/queries/B08-D-10004110.c`. Those paths are relative to
+`evidence/gap-remediation/2026-11-12` or `2026-11-13` as their prefixes show.
+No independent saved-project call was needed.
+
+## Exact 304 path and ordering
+
+Dispatcher `1000acf0` takes a complete online request through its per-session
+request counter at `+0x52` **before** type dispatch. With elapsed native time
+`>60`, it resets the counter; it closes/bans when the **existing** value is
+`>120`, else increments, then reaches type `0x130` (304) at `10016ad0`.
+Consequently login and any 500/barrier requests on that same session consume
+dispatcher allowance; a claimed 304-only boundary must count them.
+
+`10016ad0` checks its separate `+0x146` counter: if native age from `+0xa8`
+is `>60`, reset to zero; if existing count `<26`, increment and call
+`10004d50`. If existing count is `26` or more, call socket close
+`100583b0`, timed-address ban insert `100063c0`, then logging
+`100068e0`. Thus, from a verified zero counter in one native minute, 26
+settings requests enter the helper and the 27th takes this close path. This
+is a **source prediction**, not a measured threshold. The helper copies
+name/icon/options/default response and calls `10004f30`, which constructs
+and broadcasts type301 (`0x12d`) via `10005510`. It does not construct a
+normal direct 304 ACK; A33's measured transition report observes 301, not
+one. A finite fixture should measure same-session 304 count, each 301, and
+terminal TCP/next valid login rather than demand a nonexistent direct ACK.
+
+## Ban and privilege boundary
+
+`100063c0` inserts an address-ban entry with native time +`0x708` (1,800 s).
+`100068e0` formats/emits a log message; it does not by itself prove a wire
+notice. The traced 304, chat, PM, broadcast and board limiter branches all
+call close, ban insert, then logger, with source-specific cleanup around
+them. The direct automatic ban helper has **no bit-23 account test**; 304
+has no privilege guard before its own limiter. Chat/PM/broadcast/board do
+check their operation privileges in their ordinary branches, at different
+points, so a protected-vs-unprotected fixture must hold operation permission
+constant. Bit23's measured protection against explicit request110 does not
+establish automatic-limiter exemption. This is local traced-path evidence,
+not exhaustive absence of all possible exemptions or observed wire close
+ordering under a fault.
+
+## Repeat-hash and fixture conditions
+
+`1000f260` calls `10004110` to append and format a board segment, prepares
+the empty 103 reply, then hashes the **formatted segment**. At previous
+matching-hash count 4 it closes/bans and returns before 102 fanout. The
+formatter obtains native date/time for the header, so five equal input
+field101 bodies are not guaranteed to yield equal hashes if header bytes
+change at a minute boundary. A board repeat fixture must retain each
+actual formatted 102/101 segment where available, constrain or measure
+native header bytes, and read back/stopped-fork compare after the terminal
+case; merely repeating text or seeing a constructed ACK cannot prove a
+wire-delivered fifth ACK. The C101 unique-post case supplies ordinary format,
+ordering and storage controls, not the repeat threshold.
+
+`1000fc20` weights ordinary chat and hashes capped body bytes; `1000f4e0`
+and `1000f990` maintain their own `<21` message counters but share the
+session repeat-hash fields `+0x13c/+0x140`. Their previous-count-4 branch
+precedes normal recipient fanout. Permission checks occur after or before
+different counters: e.g. PM hashes before the bit40 check, broadcast checks
+bit32 before its rate path, board checks bit21 before append/hash. Keep
+these controls in separate fresh disposable sessions/processes with exact
+privilege and UID proof; otherwise a permission failure or one operation's
+hash state can be falsely labelled a limiter boundary.
+
+Smallest justified next fixture is one owned isolated 304-only counter case:
+fresh verified login, track all numbered requests and native time, send
+exactly 26 complete 304s within one `<=60` native-second window, observe
+each 301, then the 27th with all host/guest TCP tails and a separate valid
+fresh-login ban probe. Any timeout/missing 301, window rollover, or competing
+request invalidates the boundary claim; stop without retries. This packet
+does not authorise that runtime work or set mxd parity policy.

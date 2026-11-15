@@ -1,0 +1,131 @@
+{
+  "method": "Review saved RCS administrative headers and vendor revision text. An empty vendor delta means no content edit between imported trunk 1.1 and vendor 1.1.1.1 in that archive. No configured build/client identity inferred.",
+  "archives": [
+    {
+      "archive": "evidence/hotline-server-1.9/synhxd-source/accounts.c.rcs",
+      "sha256": "1a25812fa89eb566dc841113135d8eedacec59893262570a22e4d566a3281335",
+      "head": "1.1",
+      "default_branch": "1.1.1",
+      "vendor_revision": "1.1.1.1",
+      "vendor_delta_bytes": 0,
+      "vendor_delta_is_empty": true
+    },
+    {
+      "archive": "evidence/hotline-server-1.9/synhxd-source/chat.c.rcs",
+      "sha256": "ff64a336bc71dafcfca25b605b9ca91db174c6b588ba39be60083378283eef71",
+      "head": "1.1",
+      "default_branch": "1.1.1",
+      "vendor_revision": "1.1.1.1",
+      "vendor_delta_bytes": 0,
+      "vendor_delta_is_empty": true
+    },
+    {
+      "archive": "evidence/hotline-server-1.9/synhxd-source/decode.c.rcs",
+      "sha256": "e1ebeb85cbc0aa2d2e60f82c60ab61c589adaf78ef91e0f4974d3b090c4426f0",
+      "head": "1.1",
+      "default_branch": "1.1.1",
+      "vendor_revision": "1.1.1.1",
+      "vendor_delta_bytes": 0,
+      "vendor_delta_is_empty": true
+    },
+    {
+      "archive": "evidence/hotline-server-1.9/synhxd-source/files.c.rcs",
+      "sha256": "cbd28bf78a8496d1b9693bbd647abe4389e81c2d5f1b09967e25600fd075a583",
+      "head": "1.1",
+      "default_branch": "1.1.1",
+      "vendor_revision": "1.1.1.1",
+      "vendor_delta_bytes": 0,
+      "vendor_delta_is_empty": true
+    },
+    {
+      "archive": "evidence/hotline-server-1.9/synhxd-source/hlserver.c.rcs",
+      "sha256": "6c2970122dc91af1bd261e30574884619b59fcb82b980471be38fb1c241d02d3",
+      "head": "1.1",
+      "default_branch": "1.1.1",
+      "vendor_revision": "1.1.1.1",
+      "vendor_delta_bytes": 0,
+      "vendor_delta_is_empty": true
+    },
+    {
+      "archive": "evidence/hotline-server-1.9/synhxd-source/hlwrite.c.rcs",
+      "sha256": "80b35d9799716db0d1d34ce41ed57575275a3d3951ac9b910ff6d8ae485ddb72",
+      "head": "1.1",
+      "default_branch": "1.1.1",
+      "vendor_revision": "1.1.1.1",
+      "vendor_delta_bytes": 0,
+      "vendor_delta_is_empty": true
+    },
+    {
+      "archive": "evidence/hotline-server-1.9/synhxd-source/hotline.h.rcs",
+      "sha256": "de39fca2906cab5dc497463691de36fd9d7d2373fd4b630d65bc22e87ec6889f",
+      "head": "1.1",
+      "default_branch": "1.1.1",
+      "vendor_revision": "1.1.1.1",
+      "vendor_delta_bytes": 0,
+      "vendor_delta_is_empty": true
+    },
+    {
+      "archive": "evidence/hotline-server-1.9/synhxd-source/htxf.c.rcs",
+      "sha256": "bab9fd17036ab0cdda023565ab4cb1e16e705ce6e7c525299fbd68767e0343db",
+      "head": "1.1",
+      "default_branch": "1.1.1",
+      "vendor_revision": "1.1.1.1",
+      "vendor_delta_bytes": 0,
+      "vendor_delta_is_empty": true
+    },
+    {
+      "archive": "evidence/hotline-server-1.9/synhxd-source/htxf.h.rcs",
+      "sha256": "4bb23009e9a443491fb407698f4fe3855b5b1dac2ee4cdcbe5a854e2a40b1a86",
+      "head": "1.1",
+      "default_branch": "1.1.1",
+      "vendor_revision": "1.1.1.1",
+      "vendor_delta_bytes": 0,
+      "vendor_delta_is_empty": true
+    },
+    {
+      "archive": "evidence/hotline-server-1.9/synhxd-source/hxd.h.rcs",
+      "sha256": "cdc90109c48bfddaf37e9abc88e8cf7b0979fb6b2735c52c2af542daed0d3c34",
+      "head": "1.1",
+      "default_branch": "1.1.1",
+      "vendor_revision": "1.1.1.1",
+      "vendor_delta_bytes": 0,
+      "vendor_delta_is_empty": true
+    },
+    {
+      "archive": "evidence/hotline-server-1.9/synhxd-source/news.c.rcs",
+      "sha256": "65999c3542d3442bd771f0d5f98a148178a947632ec8e217abedc6744cedeb3a",
+      "head": "1.1",
+      "default_branch": "1.1.1",
+      "vendor_revision": "1.1.1.1",
+      "vendor_delta_bytes": 0,
+      "vendor_delta_is_empty": true
+    },
+    {
+      "archive": "evidence/hotline-server-1.9/synhxd-source/rcv.c.rcs",
+      "sha256": "f9a9c4c9963d414303e5bdbe25eaddc715113904f685570d053dfff33cbc177e",
+      "head": "1.1",
+      "default_branch": "1.1.1",
+      "vendor_revision": "1.1.1.1",
+      "vendor_delta_bytes": 0,
+      "vendor_delta_is_empty": true
+    },
+    {
+      "archive": "evidence/hotline-server-1.9/synhxd-source/rcv.h.rcs",
+      "sha256": "886b2290d992b8b7f08715613184aaa4496d1df155c8fee39380dfbe193a23af",
+      "head": "1.1",
+      "default_branch": "1.1.1",
+      "vendor_revision": "1.1.1.1",
+      "vendor_delta_bytes": 0,
+      "vendor_delta_is_empty": true
+    },
+    {
+      "archive": "evidence/hotline-server-1.9/synhxd-source/trx.h.rcs",
+      "sha256": "bf974e68993308a39a2c722fa01505201399ec634f8b836c743880821a883408",
+      "head": "1.1",
+      "default_branch": "1.1.1",
+      "vendor_revision": "1.1.1.1",
+      "vendor_delta_bytes": 0,
+      "vendor_delta_is_empty": true
+    }
+  ]
+}

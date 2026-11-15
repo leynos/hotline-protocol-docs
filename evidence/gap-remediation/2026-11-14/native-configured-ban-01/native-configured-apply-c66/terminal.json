@@ -1,0 +1,21 @@
+{
+  "actual_lab_pid_gone": true,
+  "host_primary_syn_pcap_bytes": 24,
+  "host_drop_count": 0,
+  "namespace_drop_count": 0,
+  "display114_absent": true,
+  "owned_ports_absent": true,
+  "oracle_lease_released": true,
+  "originals": {
+    "primary": {
+      "pid": 1099659,
+      "starttime": "767842",
+      "fd6": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/working.dsk"
+    },
+    "client": {
+      "pid": 1012834,
+      "starttime": "2357813",
+      "fd6": "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/working.dsk"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "utc": "2026-11-13T22:35:52.876103+00:00",
+  "argv": [
+    "sudo",
+    "-n",
+    "systemd-run",
+    "--unit=mothra-native-banlab-c32-ban-opt1.service",
+    "--property=Type=oneshot",
+    "--property=User=1000",
+    "--property=Group=1000",
+    "--property=NetworkNamespacePath=/proc/3953986/ns/net",
+    "--property=WorkingDirectory=/data/leynos/Projects/mothra",
+    "--property=RuntimeMaxSec=4min",
+    "--property=TimeoutStartSec=4min",
+    "--property=RemainAfterExit=yes",
+    "--property=Restart=no",
+    "--property=StandardOutput=append:/data/leynos/Projects/mothra/state/native-sessions/native-banlab-c32/ban-opt1.log",
+    "--property=StandardError=append:/data/leynos/Projects/mothra/state/native-sessions/native-banlab-c32/ban-opt1.log",
+    "--no-block",
+    "/usr/sbin/python3",
+    "/data/leynos/Projects/mothra/../hotline-protocol-docs/scripts/protocol_capture.py",
+    "capture",
+    "/data/leynos/Projects/mothra/state/native-sessions/native-banlab-c32/ban-opt1.json",
+    "--oracle-binary",
+    "/data/leynos/Projects/mothra/evidence/hotline-server-1.9/inputs/HLserver19.pef",
+    "--output",
+    "/data/leynos/Projects/mothra/state/native-sessions/native-banlab-c32/ban-opt1-capture"
+  ],
+  "exit": 0,
+  "stdout": "",
+  "stderr": "Running as unit: mothra-native-banlab-c32-ban-opt1.service\n"
+}

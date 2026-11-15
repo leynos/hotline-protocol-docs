@@ -1,0 +1,602 @@
+{
+  "captured_at_utc": "2026-11-14T16:04:21.197582+00:00",
+  "source_git_head": "7751bd0a9d3eb314f98c47308d0b8103e135e827",
+  "source_worktree_status": "M filesystem-and-board-contracts.md\n M protocol.md",
+  "inputs": [
+    {
+      "path": "protocol.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-81/inputs/protocol.md.txt",
+      "sha256": "2692224b5f17bfffcd534338ac4a9e8985b5f66f7d4bfb1dc665a9dd15410248",
+      "lines": 1350
+    },
+    {
+      "path": "internal-compatibility-matrix.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/internal-compatibility-matrix.md.txt",
+      "sha256": "dd8ec84cbc83bb8e6f94e157d8fea0bec3410e3196beff18ec37de110a5800d4",
+      "lines": 360
+    },
+    {
+      "path": "baseline-correction-map.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/baseline-correction-map.md.txt",
+      "sha256": "08b3687d975dbd9ae9050d5d0b333d2c106b884f1d3d87a3a966cbbc604d7385",
+      "lines": 112
+    },
+    {
+      "path": "native-wire-details.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-wire-details.md.txt",
+      "sha256": "99d02a83598144d63a69104fcc45354cf8c3b2654297dcd61d3de4c2501650ae",
+      "lines": 783
+    },
+    {
+      "path": "operation-contracts.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/operation-contracts.md.txt",
+      "sha256": "7428f156f0924d9be1b36adfe013429041718a93ed22dea80c92e008af73adcb",
+      "lines": 358
+    },
+    {
+      "path": "transfer-contracts.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/transfer-contracts.md.txt",
+      "sha256": "6d2d069880c6b567caef5b46fac8ab8563b5f3e1d8273d5cec4221179aac8612",
+      "lines": 988
+    },
+    {
+      "path": "news-contracts.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/news-contracts.md.txt",
+      "sha256": "e1d8465e7084f31e23e8a7d7ed8f42c8e683df2e2c164f0ec0e52e8825f85cc6",
+      "lines": 558
+    },
+    {
+      "path": "presence-messaging-contracts.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/presence-messaging-contracts.md.txt",
+      "sha256": "23ee60d033c350837dde53239e5c2099119760ec852317f20a21453f02dc61b9",
+      "lines": 693
+    },
+    {
+      "path": "core-field-schemas.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/core-field-schemas.md.txt",
+      "sha256": "00b7af54c4ef8c153fcc495927e131dad2753b89cbe10b80a37d233f454f791c",
+      "lines": 158
+    },
+    {
+      "path": "session-transport-contracts.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/session-transport-contracts.md.txt",
+      "sha256": "69c8ce987cad076344efe86d04391072f4c652e20becb7fe236c385dbde5cb1a",
+      "lines": 399
+    },
+    {
+      "path": "filesystem-and-board-contracts.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-81/inputs/filesystem-and-board-contracts.md.txt",
+      "sha256": "a63fcdc076ab3c581df355a879e2133afb644c156134d35af1a70b4d8591dda5",
+      "lines": 542
+    },
+    {
+      "path": "evidence-portability.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/evidence-portability.md.txt",
+      "sha256": "571225c97f9a1a3cae23363fb4d215886c77746d5df9ebc266eae56cd0221c14",
+      "lines": 83
+    },
+    {
+      "path": "error-outcomes.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/error-outcomes.md.txt",
+      "sha256": "7c0ede126803b9c15c6c6dfa3017d8c3e885d326c653e6cae57f104445e9bb35",
+      "lines": 169
+    },
+    {
+      "path": "identified-client-source.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/identified-client-source.md.txt",
+      "sha256": "ea5097f26bad3bc396ca543a88d2cd644950e1a15cb539e9bb46208ec4a5128a",
+      "lines": 326
+    },
+    {
+      "path": "privilege-contracts.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/privilege-contracts.md.txt",
+      "sha256": "18cd1ad6f83920ea7cdd69c10888151335da2edcb4df7a36f9ee5f651fb860e0",
+      "lines": 149
+    },
+    {
+      "path": "native-capture-workflow.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-capture-workflow.md.txt",
+      "sha256": "81a53d842c35b6aeefe44bee88ee2e9f8fb941c12c294703e8361c27c9fea835",
+      "lines": 1777
+    },
+    {
+      "path": "diagnostic-replies.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/diagnostic-replies.md.txt",
+      "sha256": "4e1b8ed87288de3b4570df24d1f40fa47b8825ebfe8664e085cd8934f2f70b06",
+      "lines": 128
+    },
+    {
+      "path": "peer-tolerance-matrix.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/peer-tolerance-matrix.md.txt",
+      "sha256": "989c948279211ce001071d0048e1d7a2fbed9a5c68c0d2a1558377b1c68535dc",
+      "lines": 124
+    },
+    {
+      "path": "mxd-reconciliation.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/mxd-reconciliation.md.txt",
+      "sha256": "b101c9f12721b5ed16ba40ac7f63ec3515fbf80f0205fe58594f6807ebd295c9",
+      "lines": 131
+    },
+    {
+      "path": "bitmap-boundaries.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/bitmap-boundaries.md.txt",
+      "sha256": "e2fa41eab31ec8b6e1aed0a26f41adb015c9c0ea7db1fd9b84fffc4d29c4ec98",
+      "lines": 130
+    },
+    {
+      "path": "account-attribute-trace.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/account-attribute-trace.md.txt",
+      "sha256": "3b7120128e08bfddb81c2de46fa4e230712accc5e451a001ed00b1d30ddb9c80",
+      "lines": 167
+    },
+    {
+      "path": "mxd-limit-contracts.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/mxd-limit-contracts.md.txt",
+      "sha256": "50fd48d0503f8d0a15e18ef268421d3b034288257911d020e7c8fae1c68731be",
+      "lines": 124
+    },
+    {
+      "path": "failure-representatives.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/failure-representatives.md.txt",
+      "sha256": "27dea3d30c579e4638c5aa54191d3c46f29977957fa445fa5c91e5ddaa100c56",
+      "lines": 116
+    },
+    {
+      "path": "runtime-recovery-20261113.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/runtime-recovery-20261113.md.txt",
+      "sha256": "3a0f4ede01062a0a3cfc147ad508ab991ffc0c65ba1746f8939cf142a9c7cbb7",
+      "lines": 120
+    },
+    {
+      "path": "receive-limit-origin.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/receive-limit-origin.md.txt",
+      "sha256": "9b61b70f8929f55b4279e8ea5b01871302739e263d450d84d3b07bd0ccbb0347",
+      "lines": 96
+    },
+    {
+      "path": "diagnostic-transfer-boundaries.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/diagnostic-transfer-boundaries.md.txt",
+      "sha256": "fad0fb66796ef317e9a9a8f9b1b05addcd200ddb3c914860de0b8db47fdf95f0",
+      "lines": 77
+    },
+    {
+      "path": "mac-peer-first-session.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/mac-peer-first-session.md.txt",
+      "sha256": "bf97eb61d36d39108e76df85dceaea03769d793c2d0f63204a8467da6b09af9a",
+      "lines": 68
+    },
+    {
+      "path": "native-diagnostic-existing-preparation.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-diagnostic-existing-preparation.md.txt",
+      "sha256": "ad15c2ed5ff4fa2eaba8df9e2fc22f8972ed66e30cbaadd8ae2119f660379ba6",
+      "lines": 112
+    },
+    {
+      "path": "native-diagnostic-existing-witness.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-diagnostic-existing-witness.md.txt",
+      "sha256": "ffa30a1b5c624715b3c59f36284c5b701f4759409fe40e3b21d1cab90aec8ec9",
+      "lines": 110
+    },
+    {
+      "path": "native-diagnostic-density-witness.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-diagnostic-density-witness.md.txt",
+      "sha256": "bd59a4c90a51c163eebea280acc3c4efb1a9c129daa0c57d84a2583d4f3b4b8f",
+      "lines": 81
+    },
+    {
+      "path": "mxd-direct-ack-correction.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/mxd-direct-ack-correction.md.txt",
+      "sha256": "72bda2e0d279b44976f480ba7651f0f6f8f19e4bd285e74f8a392043d5a41ffc",
+      "lines": 69
+    },
+    {
+      "path": "mxd-login-extras-correction.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/mxd-login-extras-correction.md.txt",
+      "sha256": "ff0cd8772ee38802350954c5322c490052217cdb07fe25439ca2407168a1e827",
+      "lines": 83
+    },
+    {
+      "path": "native-diagnostic-near-preparation.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-diagnostic-near-preparation.md.txt",
+      "sha256": "4cb5e050b99b5ef2d2a806578fdfb4361eaca0ff8531de84864a36c8bb4b12bc",
+      "lines": 69
+    },
+    {
+      "path": "native-diagnostic-near-witness.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-diagnostic-near-witness.md.txt",
+      "sha256": "98e3f2742654ac1f4b75d6c52c0c354a5be207227c5f6fe2684b3f1b26e22f01",
+      "lines": 73
+    },
+    {
+      "path": "mac-peer-isolated-session.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/mac-peer-isolated-session.md.txt",
+      "sha256": "33086d1bf8a631f2bf047b5ac388aa4aff4def53ec2a0dd0d847b43ddb06f12b",
+      "lines": 59
+    },
+    {
+      "path": "request-500-contract.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/request-500-contract.md.txt",
+      "sha256": "8362b1780d50b6042f91d044b9f9c8c0c25ce4f7646dc251002e2e9ee138cbb8",
+      "lines": 46
+    },
+    {
+      "path": "native-console-broadcast.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-console-broadcast.md.txt",
+      "sha256": "01693a42d90d00042d5c8a7f1603046c244313bb1256073b755928fbd695fece",
+      "lines": 63
+    },
+    {
+      "path": "mxd-peer-capture-workflow.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/mxd-peer-capture-workflow.md.txt",
+      "sha256": "abd18f4d3202faf4de1e87c0f77b67ab01c59adce93da8135ef7e3c11698e277",
+      "lines": 127
+    },
+    {
+      "path": "mxd-classic-login.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/mxd-classic-login.md.txt",
+      "sha256": "1bebe6593339823f012eede3816ecc99501e3ed45254af010ef947f0bbec5ec8",
+      "lines": 35
+    },
+    {
+      "path": "classic-login-proxy.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/classic-login-proxy.md.txt",
+      "sha256": "f46a333447d02ee66bbd2e2d835e0bdb93c258fd3aafd2bb0baa22f11f062a66",
+      "lines": 215
+    },
+    {
+      "path": "mxd-validation.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/mxd-validation.md.txt",
+      "sha256": "fc5179617167558a7958534ae4496f1892852718cdfef0844b70734a1b7a9330",
+      "lines": 131
+    },
+    {
+      "path": "native-pm-preparation.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-pm-preparation.md.txt",
+      "sha256": "28df4cdaa33bf02240e4e614b8e508d7de78018a2b7536c800723803648d2714",
+      "lines": 71
+    },
+    {
+      "path": "native-pm-witness.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-pm-witness.md.txt",
+      "sha256": "94b2af274067b60eaec0f75b243911b61962783f55d92b7f76874b4d3fc71934",
+      "lines": 72
+    },
+    {
+      "path": "native-104-variants.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-104-variants.md.txt",
+      "sha256": "51426947f3f49c2fcdd2e875bed0d0e3e1ae32e6387e310d877582a288347457",
+      "lines": 63
+    },
+    {
+      "path": "native-settings-preparation.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-settings-preparation.md.txt",
+      "sha256": "f91d179af7f6468122a04058d36c5f2d84db231a858294c0e3613d6268a4cb1e",
+      "lines": 69
+    },
+    {
+      "path": "native-settings-witness.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-settings-witness.md.txt",
+      "sha256": "e6e81bdf254f973837cd2e2f672a16ead054a19f234893b365849d452bc3da5a",
+      "lines": 69
+    },
+    {
+      "path": "native-ban-notices.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-ban-notices.md.txt",
+      "sha256": "7879f06d73ffd49fec2087f70a5ce80234e8273699497ca1d90be046ccd1b30c",
+      "lines": 92
+    },
+    {
+      "path": "parameter-multiplicity.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/parameter-multiplicity.md.txt",
+      "sha256": "bd7cbdc8be0561ec1b22f74e4e6413775f38516138b17d2460c06efe3b8ffea3",
+      "lines": 55
+    },
+    {
+      "path": "native-transfer-stall.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-transfer-stall.md.txt",
+      "sha256": "caaff7459dcdeafc055be01ead0b617c14da30f56d801cf3d19d588858075339",
+      "lines": 120
+    },
+    {
+      "path": "native-settings-transition-prep.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-settings-transition-prep.md.txt",
+      "sha256": "1e5b739bb537635c2f6e742a4629c54271045574eb9423d9d88bcfc4279dfaad",
+      "lines": 64
+    },
+    {
+      "path": "native-settings-transition-witness.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-settings-transition-witness.md.txt",
+      "sha256": "7748151b8471180c8844609231395a4c7b9b8456426f2d290d660eafe2cfa202",
+      "lines": 77
+    },
+    {
+      "path": "native-download-send-path.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-download-send-path.md.txt",
+      "sha256": "b85e5c92b96a7f09b9cbdb504f6ec0300913c49c3f813f81ab0890991a97bc4a",
+      "lines": 86
+    },
+    {
+      "path": "classic-account-constructors.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/classic-account-constructors.md.txt",
+      "sha256": "7e292d53804e7fdf274f9b5aa65f6fde8311be62a9d1db6854ec1452e5958152",
+      "lines": 76
+    },
+    {
+      "path": "native-121-default-preparation.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-121-default-preparation.md.txt",
+      "sha256": "ddf4534145c9785ba6f8d1c95953504ad05435eeb5b92bdd1c04d77524bc8c9b",
+      "lines": 84
+    },
+    {
+      "path": "native-121-default-witness.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-121-default-witness.md.txt",
+      "sha256": "2caf385aa9417859fea49b52c7910744c3357620a141928be8ace483d15dbfd8",
+      "lines": 74
+    },
+    {
+      "path": "classic-native-baseline.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/classic-native-baseline.md.txt",
+      "sha256": "36b560f7b864691377c75d500262ae8a7e973350db050d102ececd0b265fde88",
+      "lines": 85
+    },
+    {
+      "path": "native-ui-focus-witness.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-ui-focus-witness.md.txt",
+      "sha256": "1199f5e79a3535ee554713c0fbd0f54de953bf6a8b8741598cb1f83697e14e1e",
+      "lines": 68
+    },
+    {
+      "path": "native-control-readiness.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-control-readiness.md.txt",
+      "sha256": "e6245be4429cea9a571102b28612acf87002cf0178de452c284025f55b6e792f",
+      "lines": 82
+    },
+    {
+      "path": "classic-field161-matrix.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/classic-field161-matrix.md.txt",
+      "sha256": "4b3853cc15d8271826833c2029e21bd80989e48b2502c2eab6ee661f74400357",
+      "lines": 78
+    },
+    {
+      "path": "native-ban-control-preparation.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-ban-control-preparation.md.txt",
+      "sha256": "4b42ca3e3e86dd9d395f06c82810d809324bd28972b65316308b5daddf2ef2ca",
+      "lines": 87
+    },
+    {
+      "path": "notification-104-variants.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/notification-104-variants.md.txt",
+      "sha256": "1f56ba0d55ab9dbfb848276742f562f534963af70ee4910b051805cfa9e3affe",
+      "lines": 76
+    },
+    {
+      "path": "peer-profile-rules.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/peer-profile-rules.md.txt",
+      "sha256": "e4cf33c959a103ed5fe5ee5ec3687186470781c0ae27ac524602a1eeb14c9e98",
+      "lines": 76
+    },
+    {
+      "path": "native-settings-persistence-preparation.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-settings-persistence-preparation.md.txt",
+      "sha256": "50b1a08dd784fade9d608b9abb19884bf812ec7a105ea746c4fdfb5e0192ef7a",
+      "lines": 121
+    },
+    {
+      "path": "native-ban-control-witness.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-ban-control-witness.md.txt",
+      "sha256": "15847edc9474e8b9f72c3fcf1a9a365c28b49cef6a0d43764787b424a7517579",
+      "lines": 75
+    },
+    {
+      "path": "classic-server-name-162.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/classic-server-name-162.md.txt",
+      "sha256": "bf52554c2cc4e49d5c4db13ad8374d11ef401c6303f6b4f33641d204a95e52bf",
+      "lines": 63
+    },
+    {
+      "path": "native-configured-ban-static.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-configured-ban-static.md.txt",
+      "sha256": "2c5f5ae4ebb55ce3633f1ddba4c9f119f38662fbff16a66d4a4119695f143989",
+      "lines": 52
+    },
+    {
+      "path": "native-configured-ban-ui-resources.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-configured-ban-ui-resources.md.txt",
+      "sha256": "2617da153c6c1717dc813e4e741f8e4390b055ea0e70649e68f0360a346783a2",
+      "lines": 31
+    },
+    {
+      "path": "native-ban-reload-witness.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-ban-reload-witness.md.txt",
+      "sha256": "11e7574f03852b952b552315ff99d720f4dc40546b50651e07069a3af4866515",
+      "lines": 79
+    },
+    {
+      "path": "native-settings-persistence-witness.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-settings-persistence-witness.md.txt",
+      "sha256": "ffb816b323a38c1be5986605a5a289ddac6dfa078011463ec7be166b08643edc",
+      "lines": 109
+    },
+    {
+      "path": "classic-roster-subject-115.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/classic-roster-subject-115.md.txt",
+      "sha256": "19393fc904c23bdb3e00aea53b037443c81ce4667cf5355d0ff1b936ad3a8f11",
+      "lines": 72
+    },
+    {
+      "path": "native-configured-ban-preparation.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-configured-ban-preparation.md.txt",
+      "sha256": "5e99de6f51fb35a35038a905c489896acfe50a95d150310b588d69aa74662b26",
+      "lines": 86
+    },
+    {
+      "path": "native-configured-ban-witness.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-configured-ban-witness.md.txt",
+      "sha256": "de2cde35bdebec4ba18610e53aca9a19744f8de1b7f15dfd317888e9677369b9",
+      "lines": 78
+    },
+    {
+      "path": "diagnostic-formatting-trace.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/diagnostic-formatting-trace.md.txt",
+      "sha256": "76c8e6f9e50e3f41addf1d3a1519900f9d3608b36ca1da7b50b8821629a8ac38",
+      "lines": 77
+    },
+    {
+      "path": "native-ban-file-format.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-ban-file-format.md.txt",
+      "sha256": "2a5e22954333d3ff78744a9a2064a947966efe070340a3c30a362ca1cfb35bd2",
+      "lines": 106
+    },
+    {
+      "path": "native-ban-expiry-preparation.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-ban-expiry-preparation.md.txt",
+      "sha256": "d1c989f27077774557bf1e30c7cb7aa0487715a22d0f551a4ae80676cc9060f0",
+      "lines": 180
+    },
+    {
+      "path": "native-roster-overlap-preparation.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-roster-overlap-preparation.md.txt",
+      "sha256": "cabdf6ad27993279488f3b56ccdf891731e0dc56db16c57e52a179af1f2e2a38",
+      "lines": 129
+    },
+    {
+      "path": "native-ban-expiry-cleanup.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-ban-expiry-cleanup.md.txt",
+      "sha256": "d413ab7e657bb35512e51b0e373e83f15c2a05f9bb28dd9cfdf08fd75265f4f0",
+      "lines": 69
+    },
+    {
+      "path": "native-ban-expiry-first-witness.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-ban-expiry-first-witness.md.txt",
+      "sha256": "12fe3131bdf1f774966ee4a395d9f9b812f09802b439ca6e45f59550a0688679",
+      "lines": 73
+    },
+    {
+      "path": "native-ban-expiry-later-witness.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-ban-expiry-later-witness.md.txt",
+      "sha256": "980314e97529c167ca856dfd553fac264e15c306eb121285e6362a611b49a6dc",
+      "lines": 100
+    },
+    {
+      "path": "native-roster-overlap-witness.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-roster-overlap-witness.md.txt",
+      "sha256": "6d6ec0cf7a2797dc5f54720850634c3ba53636869a00b3b5b5572feba4c70da3",
+      "lines": 81
+    },
+    {
+      "path": "account-write-ordering.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/account-write-ordering.md.txt",
+      "sha256": "3d9694b8c6b5406dace8846ff55d697c45a231cca28bed37a0f5bb97ad03d840",
+      "lines": 68
+    },
+    {
+      "path": "native-liveness-preparation.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-liveness-preparation.md.txt",
+      "sha256": "c15735a056eae8ea8c8f0c99837168a4b573bd4ae6b67bf6391db245f7a4d390",
+      "lines": 114
+    },
+    {
+      "path": "classic-privilege-discovery.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/classic-privilege-discovery.md.txt",
+      "sha256": "a5c23043126879fc21f8b30a7761237ad23ecfac3873308c5efd909cd1d1d028",
+      "lines": 87
+    },
+    {
+      "path": "native-liveness-witness.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-liveness-witness.md.txt",
+      "sha256": "3bf97b206773e6edb187dbdc33d82cdcd8df632b31a2cb55600bfe03e28e527e",
+      "lines": 97
+    },
+    {
+      "path": "legacy-board-format.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/legacy-board-format.md.txt",
+      "sha256": "79d090b20e1491f141539392f3329b3ff73c2488c71c989fd096418527004fb4",
+      "lines": 46
+    },
+    {
+      "path": "native-board-preparation.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-board-preparation.md.txt",
+      "sha256": "4d432db9af6cf240145e2df3806b35497ed243015f4f28763f9385772ef0302e",
+      "lines": 131
+    },
+    {
+      "path": "native-board-readiness-failure.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-board-readiness-failure.md.txt",
+      "sha256": "9e1187db75a645e12e88c9fd4a7b6022dc562566076f5405f96cb32d778d4134",
+      "lines": 73
+    },
+    {
+      "path": "native-board-witness.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-board-witness.md.txt",
+      "sha256": "5944de8de92cb9d6bc8cf237c6d74ceb970301aa44abea51b3d4740c74f479d5",
+      "lines": 82
+    },
+    {
+      "path": "rate304-contract.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/rate304-contract.md.txt",
+      "sha256": "384c68b7d4b10e770b24fcac725f66291370553547cfccd064e03325d737320a",
+      "lines": 83
+    },
+    {
+      "path": "native-rate304-preparation.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-rate304-preparation.md.txt",
+      "sha256": "b89b426e25d2f66496ed08bb8569740ba8d76b1d538387b8738f6d334058e24a",
+      "lines": 159
+    },
+    {
+      "path": "native-rate304-first-pair.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-rate304-first-pair.md.txt",
+      "sha256": "91e82c8d3bd7841b05f9b0bad7f6ac0c1d8643fa4db334099c7fd4214a561fba",
+      "lines": 78
+    },
+    {
+      "path": "rate304-recipient-predicate.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/rate304-recipient-predicate.md.txt",
+      "sha256": "c1fd11e03dc0b876b5669d354b5cda5ef396208e38af99ccaff83f5514751af2",
+      "lines": 75
+    },
+    {
+      "path": "native-rate304-startup-gate.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-rate304-startup-gate.md.txt",
+      "sha256": "2803862e6308cc1164af4df7e28f884930efbf87098e69fb3fc875df82816cc9",
+      "lines": 81
+    },
+    {
+      "path": "native-rate304-sequence.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-rate304-sequence.md.txt",
+      "sha256": "7120e40472092ead4c598cfcac715a2f641a55783125ec2c3d628f7afa96bcb6",
+      "lines": 124
+    },
+    {
+      "path": "native-path-fields-preparation.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-path-fields-preparation.md.txt",
+      "sha256": "a77086be2bdfc0a4df77b26c29f18c76e86dc14b8bc9ea058a8e63d814c22e77",
+      "lines": 85
+    },
+    {
+      "path": "native-path-fields.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-path-fields.md.txt",
+      "sha256": "819816d15b58543f4ab9cea4af9d3f033f43ab942bec5fb70cbcaa9c9c75f4f6",
+      "lines": 67
+    },
+    {
+      "path": "native-missing-alias-preparation.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-81/inputs/native-missing-alias-preparation-with-binding.md.txt",
+      "sha256": "a6026d0f269c5072124684bd742d91add266140c03120bbeca03076edfbe4d60",
+      "lines": 108
+    }
+  ],
+  "method": "Preserve all 87 original criteria and 61 Resolved, 25 Investigating, 1 Open. Clarify resolved-target aggregate size and older catalogue provenance. Record the positive-only alias fixture as preparation, not native acceptance. Reuse byte-identical immutable prior snapshots; capture changed/new documents and refresh all section locations. Further mxd validation stays on hold.",
+  "snapshot_policy": "Reuse immutable prior snapshots only when their bytes exactly match current input; preserve all original criteria. New SHA inventory covers this revision files; existing inventories and renderer verify referenced snapshots.",
+  "reused_prior_snapshots": 94,
+  "superseded_draft_inputs": [
+    {
+      "path": "native-missing-alias-preparation.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-81/inputs/native-missing-alias-preparation.md.txt",
+      "sha256": "1f81404029cce2552693fc39b55f4ec9040fd2e5683386982d160cd1dfe41703",
+      "lines": 102,
+      "reason": "Preserved before final publication; add bounded read-only original-target observation after B115 parser-boundary review."
+    }
+  ],
+  "updated_at_utc": "2026-11-14T16:10:58.740798+00:00"
+}

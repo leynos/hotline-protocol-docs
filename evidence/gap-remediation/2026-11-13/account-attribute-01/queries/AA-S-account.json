@@ -1,0 +1,145 @@
+{
+  "captured_at_utc": "2026-11-13T12:02:54.059071+00:00",
+  "query": {
+    "id": "AA-S-account",
+    "tool": "list_strings",
+    "arguments": {
+      "filter": "Account",
+      "offset": 0,
+      "limit": 100
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"items\": [\n    {\n      \"address\": \"1008eef0\",\n      \"value\": \"CMyNewAdminAccountWin\",\n      \"type\": \"string\",\n      \"length\": 22\n    },\n    {\n      \"address\": \"1008fafc\",\n      \"value\": \"The Admin account \\\"%#s\\\" does not exist. Would you like to create it?\",\n      \"type\": \"string\",\n      \"length\": 69\n    },\n    {\n      \"address\": \"1008fb5e\",\n      \"value\": \"CancelThe account \\\"%#s\\\" already exists. Would you like to set this account as the head Admin account?\",\n      \"type\": \"string\",\n      \"length\": 102\n    },\n    {\n      \"address\": \"1008fe27\",\n      \"value\": \")Date/time\\tAddress\\tAccount\\tName\\tFile Name\\r%#s\\t%#s\\t%#s\\t%#s\\r\",\n      \"type\": \"string\",\n      \"length\": 59\n    },\n    {\n      \"address\": \"1008fe63\",\n      \"value\": \"Date/time\\tAddress\\tAccount\\tName\\r%#s\\t%#s\\t%#s\\t%#s\\t%#s\\t%#s\\r\",\n      \"type\": \"string\",\n      \"length\": 56\n    },\n    {\n      \"address\": \"1008feea\",\n      \"value\": \"The Admin account \\\"%#s\\\" does not have a password assigned. This account has full access to all controls of the Server and you should not reveal this password to anyone to whom you do not want to give control of the Server. Please enter a new password for this account. If you do not set a password, your Server will not be secure.\",\n      \"type\": \"string\",\n      \"length\": 331\n    },\n    {\n      \"address\": \"10090036\",\n      \"value\": \"Set Admin PasswordThe Admin account \\\"%#s\\\" does not exist. Please enter a password for this account so that it can be created. This account has full access to all controls of the Server and you should not reveal this password to anyone to whom you do not want to give control of the Server. Please enter a new password for this account. If you do not set a password, your Server will not be secure.\",\n      \"type\": \"string\",\n      \"length\": 398\n    },\n    {\n      \"address\": \"100901c4\",\n      \"value\": \"Resetting the Admin account will enable all access privileges for the Admin account and set a new password. Please enter a new password below.\",\n      \"type\": \"string\",\n      \"length\": 143\n    },\n    {\n      \"address\": \"10091824\",\n      \"value\": \" because there is already an account with that login.\",\n      \"type\": \"string\",\n      \"length\": 54\n    },\n    {\n      \"address\": \"10091a3a\",\n      \"value\": \"RenameRename account %#s\",\n      \"type\": \"string\",\n      \"length\": 25\n    },\n    {\n      \"address\": \"10091bc1\",\n      \"value\": \"Nickname:   %#s\\rName:       %#s\\rAccount:    %#s\\rAddress:    %#s\\r\\r-------- File Downloads ---------\\r\\r%s\\r------- Folder Downloads --------\\r\\r%s\\r--------- File Uploads ----------\\r\\r%s\\r-------- Folder Uploads ---------\\r\\r%s\\r------- Waiting Downloads -------\\r\\r%s\",\n      \"type\": \"string\",\n      \"length\": 255\n    },\n    {\n      \"address\": \"100922a5\",\n      \"value\": \"\\t\\\"xCMyAccountListView\",\n      \"type\": \"string\",\n      \"length\": 23\n    },\n    {\n      \"address\": \"10092f6c\",\n      \"value\": \"PasswordThe Admin Account is the the account which is treated as the administrator of the Server. Any user logged into this account has full access to the Server and you should not reveal this account's password to others. You should generally leave the account as \\\"admin\\\". Note that if you change this value, the old Admin Account is still active until you delete it.\",\n      \"type\": \"string\",\n      \"length\": 369\n    },\n    {\n      \"address\": \"10093474\",\n      \"value\": \"Update PrivilegesThe account you have selected as your head administrator account does not currently have full admin privileges. Would you like to enable all of this account's privileges so that it can be used as the head admin account?\\r\\rSelecting Cancel will return you to the Select Head Admin Account window. In order to select an account as a head administrator account, you must enable all of the privileges.\\r\\rAccount Login: %#s\",\n      \"type\": \"string\",\n      \"length\": 434\n    }\n  ],\n  \"offset\": 0,\n  \"limit\": 100,\n  \"total\": 14,\n  \"has_more\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "items": [
+        {
+          "address": "1008eef0",
+          "value": "CMyNewAdminAccountWin",
+          "type": "string",
+          "length": 22
+        },
+        {
+          "address": "1008fafc",
+          "value": "The Admin account \"%#s\" does not exist. Would you like to create it?",
+          "type": "string",
+          "length": 69
+        },
+        {
+          "address": "1008fb5e",
+          "value": "CancelThe account \"%#s\" already exists. Would you like to set this account as the head Admin account?",
+          "type": "string",
+          "length": 102
+        },
+        {
+          "address": "1008fe27",
+          "value": ")Date/time\tAddress\tAccount\tName\tFile Name\r%#s\t%#s\t%#s\t%#s\r",
+          "type": "string",
+          "length": 59
+        },
+        {
+          "address": "1008fe63",
+          "value": "Date/time\tAddress\tAccount\tName\r%#s\t%#s\t%#s\t%#s\t%#s\t%#s\r",
+          "type": "string",
+          "length": 56
+        },
+        {
+          "address": "1008feea",
+          "value": "The Admin account \"%#s\" does not have a password assigned. This account has full access to all controls of the Server and you should not reveal this password to anyone to whom you do not want to give control of the Server. Please enter a new password for this account. If you do not set a password, your Server will not be secure.",
+          "type": "string",
+          "length": 331
+        },
+        {
+          "address": "10090036",
+          "value": "Set Admin PasswordThe Admin account \"%#s\" does not exist. Please enter a password for this account so that it can be created. This account has full access to all controls of the Server and you should not reveal this password to anyone to whom you do not want to give control of the Server. Please enter a new password for this account. If you do not set a password, your Server will not be secure.",
+          "type": "string",
+          "length": 398
+        },
+        {
+          "address": "100901c4",
+          "value": "Resetting the Admin account will enable all access privileges for the Admin account and set a new password. Please enter a new password below.",
+          "type": "string",
+          "length": 143
+        },
+        {
+          "address": "10091824",
+          "value": " because there is already an account with that login.",
+          "type": "string",
+          "length": 54
+        },
+        {
+          "address": "10091a3a",
+          "value": "RenameRename account %#s",
+          "type": "string",
+          "length": 25
+        },
+        {
+          "address": "10091bc1",
+          "value": "Nickname:   %#s\rName:       %#s\rAccount:    %#s\rAddress:    %#s\r\r-------- File Downloads ---------\r\r%s\r------- Folder Downloads --------\r\r%s\r--------- File Uploads ----------\r\r%s\r-------- Folder Uploads ---------\r\r%s\r------- Waiting Downloads -------\r\r%s",
+          "type": "string",
+          "length": 255
+        },
+        {
+          "address": "100922a5",
+          "value": "\t\"xCMyAccountListView",
+          "type": "string",
+          "length": 23
+        },
+        {
+          "address": "10092f6c",
+          "value": "PasswordThe Admin Account is the the account which is treated as the administrator of the Server. Any user logged into this account has full access to the Server and you should not reveal this account's password to others. You should generally leave the account as \"admin\". Note that if you change this value, the old Admin Account is still active until you delete it.",
+          "type": "string",
+          "length": 369
+        },
+        {
+          "address": "10093474",
+          "value": "Update PrivilegesThe account you have selected as your head administrator account does not currently have full admin privileges. Would you like to enable all of this account's privileges so that it can be used as the head admin account?\r\rSelecting Cancel will return you to the Select Head Admin Account window. In order to select an account as a head administrator account, you must enable all of the privileges.\r\rAccount Login: %#s",
+          "type": "string",
+          "length": 434
+        }
+      ],
+      "offset": 0,
+      "limit": 100,
+      "total": 14,
+      "has_more": false
+    },
+    "isError": false
+  }
+}

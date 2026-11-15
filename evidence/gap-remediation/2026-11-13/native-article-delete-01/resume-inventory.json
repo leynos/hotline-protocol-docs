@@ -1,0 +1,102 @@
+{
+  "parent-absent": {
+    "completed": 8,
+    "exists": true
+  },
+  "parent-empty": {
+    "completed": 8,
+    "exists": true
+  },
+  "parent-one-zero": {
+    "completed": 8,
+    "exists": true
+  },
+  "parent-two-zero": {
+    "completed": 8,
+    "exists": true
+  },
+  "parent-four-zero": {
+    "completed": 8,
+    "exists": true
+  },
+  "parent-one-one": {
+    "completed": 8,
+    "exists": true
+  },
+  "parent-one-two": {
+    "completed": 8,
+    "exists": true
+  },
+  "parent-one-ff": {
+    "completed": 8,
+    "exists": true
+  },
+  "parent-two-one": {
+    "completed": 8,
+    "exists": true
+  },
+  "parent-two-high": {
+    "completed": 8,
+    "exists": true
+  },
+  "parent-four-high": {
+    "completed": 8,
+    "exists": true
+  },
+  "parent-three-one": {
+    "completed": 8,
+    "exists": true
+  },
+  "parent-five-one": {
+    "completed": 8,
+    "exists": true
+  },
+  "parent-five-zero": {
+    "completed": 1,
+    "exists": true
+  },
+  "leaf-zero": {
+    "completed": 0,
+    "exists": false
+  },
+  "leaf-one": {
+    "completed": 0,
+    "exists": false
+  },
+  "middle-zero": {
+    "completed": 0,
+    "exists": false
+  },
+  "middle-one": {
+    "completed": 0,
+    "exists": false
+  },
+  "root-head": {
+    "completed": 0,
+    "exists": false
+  },
+  "root-tail": {
+    "completed": 0,
+    "exists": false
+  },
+  "missing-id": {
+    "completed": 0,
+    "exists": false
+  },
+  "denied": {
+    "completed": 0,
+    "exists": false
+  },
+  "missing-category": {
+    "completed": 0,
+    "exists": false
+  },
+  "missing-id-field": {
+    "completed": 0,
+    "exists": false
+  },
+  "repeat-delete": {
+    "completed": 0,
+    "exists": false
+  }
+}

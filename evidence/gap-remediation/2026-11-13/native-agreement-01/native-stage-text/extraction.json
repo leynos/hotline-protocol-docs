@@ -1,0 +1,104 @@
+{
+  "recorded_at_utc": "2026-11-13T01:34:39.965144+00:00",
+  "image": "state/mac-runtime/hotline19/working.dsk",
+  "tool_sha256": {
+    "istat": "f87c0cee5e263c55440c19fb3e478b80e33dcbae223388b5f83913ceb5fc4499",
+    "icat": "ab73038eda8ed52697c5d94874bbc0a19285184253e68a78f6e4ab347a042bba"
+  },
+  "catalog_range": [
+    11304,
+    11320
+  ],
+  "roots": [
+    "/Hotline19/Files/m-agr-text"
+  ],
+  "method": "Read-only direct catalogue observations. Positive paths verified by istat before fork reads. Not an exhaustive directory listing, path-absence proof, protocol certification or restart-durability result.",
+  "probes": [
+    {
+      "catalog": 11304,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11304)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11305,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11305)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11306,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11306)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11307,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11307)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11308,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11308)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11309,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11309)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11310,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11310)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11311,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11311)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11312,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11312)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11313,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11313)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11314,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11314)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11315,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11315)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11316,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11316)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11317,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11317)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11318,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11318)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11319,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11319)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11320,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11320)) (hfs_istat: getting metadata for the file)\n"
+    }
+  ],
+  "records": []
+}

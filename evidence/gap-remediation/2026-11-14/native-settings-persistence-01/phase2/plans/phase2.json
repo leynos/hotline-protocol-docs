@@ -1,0 +1,213 @@
+{
+  "schema_version": 1,
+  "profile": "native-mac-oracle",
+  "operator": "A42 preparation; separate root START required",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "gap_ids": [
+    "GAP-029"
+  ],
+  "environment": {
+    "emulator_pid": 464176,
+    "source_a7_sha256": "5d0aa3dccf65fc6523678aa729c9ace72cd6caffbef768b7f5bf949e6568b43e",
+    "fixture_profile": "control-only",
+    "full_file_baseline": "not_exercised"
+  },
+  "endpoints": {
+    "control": {
+      "host": "127.0.0.1",
+      "port": 15760
+    }
+  },
+  "steps": [
+    {
+      "op": "connect",
+      "connection": "main",
+      "endpoint": "control",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "54525450484f544c00010002",
+      "timeout": 30
+    },
+    {
+      "op": "read",
+      "connection": "main",
+      "size": 8,
+      "expect_hex": "5452545000000000",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "0000006b000000010000000000000036000000360005006900059e9b929691006a000892908b978d9ecec600a0000200be0066000f6672616d696e672d66697874757265006800020001",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "0000012c0000000a0000000000000002000000020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 10
+      }
+    },
+    {
+      "op": "connect",
+      "connection": "subject",
+      "endpoint": "control",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "subject",
+      "hex": "54525450484f544c00010002",
+      "timeout": 30
+    },
+    {
+      "op": "read",
+      "connection": "subject",
+      "size": 8,
+      "expect_hex": "5452545000000000",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "subject",
+      "hex": "0000006b000000010000000000000033000000330005006a000892908b978d9ecec600a0000200be006900059e9b9296910066000c4134312d426173656c696e65006800020003",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "type": 301
+      },
+      "save_fields": {
+        "peer_uid": 103
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "0000006c0000003c000000000000002300000023000300670002{peer_uid}007100020001006500116134312d61667465722d72657374617274",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 60
+      }
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject",
+      "timeout": 30,
+      "match_frame": {
+        "type": 104
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000001f4000000a00000000000000002000000020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 160
+      }
+    },
+    {
+      "op": "expect_quiet",
+      "connection": "main",
+      "timeout": 2
+    },
+    {
+      "op": "send",
+      "connection": "subject",
+      "hex": "000001f4000000a00000000000000002000000020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 160
+      }
+    },
+    {
+      "op": "expect_quiet",
+      "connection": "subject",
+      "timeout": 2
+    },
+    {
+      "op": "read_eof",
+      "connection": "subject",
+      "timeout": 720
+    },
+    {
+      "op": "read_eof",
+      "connection": "main",
+      "timeout": 720
+    }
+  ],
+  "expectation": {
+    "case": "settings-persistence-phase2",
+    "identity_action": 16,
+    "baseline_pm_action": 17,
+    "fixed_login_hex": "0000006b000000010000000000000033000000330005006a000892908b978d9ecec600a0000200be006900059e9b9296910066000c4134312d426173656c696e65006800020003",
+    "baseline_name_hex": "4134312d426173656c696e65",
+    "marker_name_hex": "4134312d506572736973742d4f6e",
+    "marker_text_hex": "6134312d6578706c696369742d6175746f",
+    "sockets_held_for_app_quit": true,
+    "observation_actions": 26
+  }
+}

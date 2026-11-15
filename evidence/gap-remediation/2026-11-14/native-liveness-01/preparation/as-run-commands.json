@@ -1,0 +1,136 @@
+{
+  "recorded_at_utc": "2026-11-14T07:51:39.465927+00:00",
+  "cwd": "/data/leynos/Projects/mothra",
+  "prepare_argv": [
+    "python3",
+    "scripts/mac_runtime.py",
+    "prepare",
+    "state/mac-runtime/native-liveness-01",
+    "--rom",
+    "state/mac-runtime/hotline22-recovery/rom",
+    "--disk",
+    "state/mac-runtime/hotline22-recovery/base.dsk"
+  ],
+  "prepare_exit": 0,
+  "fd_gate": [
+    "fuser",
+    "state/mac-runtime/native-liveness-01/working.dsk"
+  ],
+  "fls_argvs": [
+    [
+      "tools/sleuthkit/usr/bin/fls",
+      "-r",
+      "-p",
+      "-f",
+      "hfs",
+      "state/mac-runtime/native-liveness-01/working.dsk"
+    ],
+    [
+      "tools/sleuthkit/usr/bin/fls",
+      "-u",
+      "-r",
+      "-p",
+      "-f",
+      "hfs",
+      "state/mac-runtime/native-liveness-01/working.dsk"
+    ]
+  ],
+  "icat_commands": {
+    "admin": {
+      "command": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/icat",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-liveness-01/working.dsk",
+        "11193"
+      ],
+      "env": {
+        "LD_LIBRARY_PATH": "/data/leynos/Projects/mothra/tools/sleuthkit/usr/lib64"
+      },
+      "exit": 0,
+      "size": 734,
+      "sha256": "26612ad46cd91b90050feacf517d32a9e56d4a4aa92fbe6618eaf6e9e5ac60a3",
+      "expected_sha256": "26612ad46cd91b90050feacf517d32a9e56d4a4aa92fbe6618eaf6e9e5ac60a3",
+      "matches": true,
+      "stderr": ""
+    },
+    "fixture-low": {
+      "command": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/icat",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-liveness-01/working.dsk",
+        "11201"
+      ],
+      "env": {
+        "LD_LIBRARY_PATH": "/data/leynos/Projects/mothra/tools/sleuthkit/usr/lib64"
+      },
+      "exit": 0,
+      "size": 734,
+      "sha256": "fce81359d0efcfc6c2dbf42852db66b0fb7a404b2889162b8f8fad81361ce2d5",
+      "expected_sha256": "fce81359d0efcfc6c2dbf42852db66b0fb7a404b2889162b8f8fad81361ce2d5",
+      "matches": true,
+      "stderr": ""
+    },
+    "Prefs": {
+      "command": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/icat",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-liveness-01/working.dsk",
+        "11202"
+      ],
+      "env": {
+        "LD_LIBRARY_PATH": "/data/leynos/Projects/mothra/tools/sleuthkit/usr/lib64"
+      },
+      "exit": 0,
+      "size": 175,
+      "sha256": "4ed2b3e14e6e8a6cf246d16f7d1b98f0b91d1b09f6ab5497de1056a6f617d196",
+      "expected_sha256": "4ed2b3e14e6e8a6cf246d16f7d1b98f0b91d1b09f6ab5497de1056a6f617d196",
+      "matches": true,
+      "stderr": ""
+    },
+    "server-data": {
+      "command": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/icat",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-liveness-01/working.dsk",
+        "11183-4352-0"
+      ],
+      "env": {
+        "LD_LIBRARY_PATH": "/data/leynos/Projects/mothra/tools/sleuthkit/usr/lib64"
+      },
+      "exit": 0,
+      "size": 616821,
+      "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+      "expected_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+      "matches": true,
+      "stderr": ""
+    },
+    "server-rsrc": {
+      "command": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/icat",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-liveness-01/working.dsk",
+        "11183-4353-1"
+      ],
+      "env": {
+        "LD_LIBRARY_PATH": "/data/leynos/Projects/mothra/tools/sleuthkit/usr/lib64"
+      },
+      "exit": 0,
+      "size": 38460,
+      "sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12",
+      "expected_sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12",
+      "matches": true,
+      "stderr": ""
+    }
+  },
+  "tsk_env": {
+    "LD_LIBRARY_PATH": "/data/leynos/Projects/mothra/tools/sleuthkit/usr/lib64"
+  },
+  "display117_socket_absent": true,
+  "ports_ss": "State Recv-Q Send-Q Local Address:Port Peer Address:Port\n",
+  "no_boot_or_protocol_contact": true
+}

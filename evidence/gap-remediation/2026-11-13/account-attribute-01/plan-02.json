@@ -1,0 +1,79 @@
+[
+  {
+    "id": "AA-D-10003170",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10003170"
+    }
+  },
+  {
+    "id": "AA-D-10015160",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10015160"
+    }
+  },
+  {
+    "id": "AA-D-10008040",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10008040"
+    }
+  },
+  {
+    "id": "AA-D-100197e0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100197e0"
+    }
+  },
+  {
+    "id": "AA-D-10007780",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10007780"
+    }
+  },
+  {
+    "id": "AA-D-10011ee0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10011ee0"
+    }
+  },
+  {
+    "id": "AA-D-10007fa0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10007fa0"
+    }
+  },
+  {
+    "id": "AA-C-100197e0",
+    "tool": "get_function_calls",
+    "arguments": {
+      "address": "100197e0",
+      "direction": "callers",
+      "offset": 0,
+      "limit": 100
+    }
+  },
+  {
+    "id": "AA-S-comment",
+    "tool": "list_strings",
+    "arguments": {
+      "filter": "Comment",
+      "offset": 0,
+      "limit": 100
+    }
+  },
+  {
+    "id": "AA-S-note",
+    "tool": "list_strings",
+    "arguments": {
+      "filter": "Note",
+      "offset": 0,
+      "limit": 100
+    }
+  }
+]

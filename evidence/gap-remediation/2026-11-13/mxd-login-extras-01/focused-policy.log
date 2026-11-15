@@ -1,0 +1,26 @@
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`
+    Finished `test` profile [optimized] target(s) in 0.31s
+     Running unittests src/lib.rs (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/build/mxd/29c43d9412d22c7d/out/mxd-29c43d9412d22c7d)
+
+running 18 tests
+test wireframe::compat_policy::tests::augments_every_successful_login::case_2 ... ok
+test wireframe::compat_policy::tests::augment_login_reply_is_idempotent_when_extras_exist ... ok
+test wireframe::compat_policy::tests::augments_every_successful_login::case_1 ... ok
+test wireframe::compat_policy::tests::augments_every_successful_login::case_4 ... ok
+test wireframe::compat_policy::tests::augments_every_successful_login::case_5 ... ok
+test wireframe::compat_policy::tests::augments_every_successful_login::case_7 ... ok
+test wireframe::compat_policy::tests::augments_every_successful_login::case_3 ... ok
+test wireframe::compat_policy::tests::augments_every_successful_login::case_6 ... ok
+test wireframe::compat_policy::tests::does_not_augment_failed_login_reply_for_hotline_clients ... ok
+test wireframe::compat_policy::tests::does_not_augment_login_request_for_hotline_clients ... ok
+test wireframe::compat_policy::tests::does_not_augment_successful_nonlogin_direct_reply ... ok
+test wireframe::compat_policy::tests::empty_name_omits_field_162 ... ok
+test wireframe::compat_policy::tests::preserves_handshake_sub_version_without_identity::case_1 ... ok
+test wireframe::compat_policy::tests::preserves_handshake_sub_version_without_identity::case_2 ... ok
+test wireframe::compat_policy::tests::record_login_payload_ignores_unparsable_version_lengths ... ok
+test wireframe::compat_policy::tests::records_login_version_from_u16_payload ... ok
+test wireframe::compat_policy::tests::records_login_version_from_u32_payload ... ok
+test wireframe::compat_policy::tests::records_u16_max_version_without_sentinel_collision ... ok
+
+test result: ok. 18 passed; 0 failed; 0 ignored; 0 measured; 401 filtered out; finished in 0.00s
+

@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T14:14:41.954332+00:00",
+  "query": {
+    "id": "B06-D-1000ecc0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1000ecc0"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_1000ecc0\",\n    \"address\": \"1000ecc0\"\n  },\n  \"code\": \"\\nundefined4 FUN_1000ecc0(undefined4 param_1,undefined4 param_2)\\n\\n{\\n  int iVar1;\\n  char cVar2;\\n  undefined4 uVar3;\\n  int local_11c;\\n  int local_118 [2];\\n  undefined1 auStack_110 [264];\\n  \\n  iVar1 = FUN_1002b250(param_2);\\n  FUN_1002bce0(iVar1,auStack_110,0);\\n  cVar2 = FUN_1002b750(iVar1,0);\\n  if (cVar2 == '\\\\0') {\\n    if (iVar1 != 0) {\\n      FUN_1002b2f0(iVar1);\\n    }\\n    uVar3 = 0;\\n  }\\n  else {\\n    FUN_1002c800(param_2,&local_11c,local_118);\\n    uVar3 = 0;\\n    if ((local_118[0] == 0x48544c43) && (local_11c == 0x48546674)) {\\n      uVar3 = 1;\\n    }\\n    if (iVar1 != 0) {\\n      FUN_1002b2f0(iVar1);\\n    }\\n  }\\n  return uVar3;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_1000ecc0",
+        "address": "1000ecc0"
+      },
+      "code": "\nundefined4 FUN_1000ecc0(undefined4 param_1,undefined4 param_2)\n\n{\n  int iVar1;\n  char cVar2;\n  undefined4 uVar3;\n  int local_11c;\n  int local_118 [2];\n  undefined1 auStack_110 [264];\n  \n  iVar1 = FUN_1002b250(param_2);\n  FUN_1002bce0(iVar1,auStack_110,0);\n  cVar2 = FUN_1002b750(iVar1,0);\n  if (cVar2 == '\\0') {\n    if (iVar1 != 0) {\n      FUN_1002b2f0(iVar1);\n    }\n    uVar3 = 0;\n  }\n  else {\n    FUN_1002c800(param_2,&local_11c,local_118);\n    uVar3 = 0;\n    if ((local_118[0] == 0x48544c43) && (local_11c == 0x48546674)) {\n      uVar3 = 1;\n    }\n    if (iVar1 != 0) {\n      FUN_1002b2f0(iVar1);\n    }\n  }\n  return uVar3;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "utc": "2026-11-14T00:41:40.499844+00:00",
+  "source_after": {
+    "base.dsk": {
+      "path": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/base.dsk",
+      "inode": 6189872880,
+      "device": 2097,
+      "mode": "0o444",
+      "mtime_ns": 1794582239465616991,
+      "size": 8388608000,
+      "sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910"
+    },
+    "rom": {
+      "path": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/rom",
+      "inode": 6177692692,
+      "device": 2097,
+      "mode": "0o644",
+      "mtime_ns": 1794582239141617023,
+      "size": 1945746,
+      "sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd"
+    }
+  },
+  "source_unchanged": true,
+  "assets": {
+    "rom_sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+    "base_disk_sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910",
+    "source_rom": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/rom",
+    "source_disk": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/base.dsk",
+    "archive_member": null
+  },
+  "target": {
+    "base.dsk": {
+      "path": "/data/leynos/Projects/mothra/state/mac-runtime/native-eventlab-one-01/base.dsk",
+      "inode": 1632539948,
+      "device": 2097,
+      "mode": "0o444",
+      "mtime_ns": 1794616527289916514,
+      "size": 8388608000,
+      "sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910"
+    },
+    "rom": {
+      "path": "/data/leynos/Projects/mothra/state/mac-runtime/native-eventlab-one-01/rom",
+      "inode": 1632539928,
+      "device": 2097,
+      "mode": "0o644",
+      "mtime_ns": 1794616527121916532,
+      "size": 1945746,
+      "sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd"
+    },
+    "working.dsk": {
+      "path": "/data/leynos/Projects/mothra/state/mac-runtime/native-eventlab-one-01/working.dsk",
+      "inode": 1638714938,
+      "device": 2097,
+      "mode": "0o644",
+      "mtime_ns": 1794616527293916515,
+      "size": 8388608000,
+      "sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910"
+    }
+  },
+  "target_uid": 1000
+}

@@ -1,0 +1,28 @@
+{
+  "at_utc": "2026-11-14T03:24:03.056959+00:00",
+  "display": ":107",
+  "root": "0x21f",
+  "focus": "0x200033",
+  "focus_revert": 0,
+  "pressed_keycodes": [],
+  "keymap_hex": "0000000000000000000000000000000000000000000000000000000000000000",
+  "pointer_query_ok": true,
+  "pointer_root": "0x21f",
+  "pointer_child": "0x200033",
+  "pointer_root_xy": [
+    150,
+    30
+  ],
+  "pointer_mask": 0,
+  "tree_query_ok": true,
+  "top_level_windows": [
+    {
+      "window": "0x20002d",
+      "name": null
+    },
+    {
+      "window": "0x200033",
+      "name": "SheepShaver"
+    }
+  ]
+}

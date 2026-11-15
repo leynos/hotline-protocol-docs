@@ -1,0 +1,30 @@
+{
+  "captured_at_utc": "2026-11-14T08:16:42.354409+00:00",
+  "query": {
+    "id": "LB04-1008ee20-path-pointer",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "1008ee20",
+      "length": 4
+    }
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"address\": \"1008ee20\",\n  \"length\": 4,\n  \"hex\": \"10 08 f8 7e\",\n  \"ascii\": \"...~\",\n  \"gaps\": []\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "address": "1008ee20",
+      "length": 4,
+      "hex": "10 08 f8 7e",
+      "ascii": "...~",
+      "gaps": []
+    },
+    "isError": false
+  }
+}

@@ -1,0 +1,7 @@
+2026-11-13 20:57:56 UTC: launch known HFS Classic client on isolated display :107.
+Dismiss routine Sound Manager alert; open Hotline > Connect (empty fields).
+Enter exact server 10.0.2.2:15650 and owned login mxd-peer-c14.
+Read owned mode-0600 seed TOML internally in private XTest helper; enter masked password. No credential appears in argv or this log.
+2026-11-13 20:59:18 UTC: click Connect once. GUI reports Connection Closed after status-1 empty login reply. No retry.
+Dismiss alert; choose File > Quit.
+2026-11-13 20:59:57 UTC: Finder visible. Stop only owned namespace capture; root separately stops C19 daemon.

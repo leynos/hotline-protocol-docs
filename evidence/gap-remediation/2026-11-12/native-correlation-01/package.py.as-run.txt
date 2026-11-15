@@ -1,0 +1,53 @@
+import hashlib,json,shutil,struct,sys
+from pathlib import Path
+from datetime import datetime
+sys.path.insert(0,'../hotline-protocol-docs/scripts')
+from pcap_tcp import read_packets,lifetime,stream
+from native_packet_evidence import reconcile
+from protocol_capture import decode_frame
+r=Path('state/native-sessions/runtime-13');d=Path('evidence/gap-remediation/2026-11-12/native-correlation-01');d.mkdir()
+shutil.copytree(r/'captures',d/'transcripts')
+shutil.copytree(r/'oracle-queries',d/'oracle-queries')
+for q in r.glob('oracle-*.json'):shutil.copy2(q,d/q.name)
+shutil.copy2(r/'running-executable.txt',d/'running-executable.txt')
+shutil.copy2(r/'native_correlation_cases.initial.py.txt',d/'native_correlation_cases.initial.py.txt')
+shutil.copy2(r/'native_correlation_cases.before-eof.py.txt',d/'native_correlation_cases.before-eof.py.txt')
+shutil.copy2(r/'runtime.json',d/'runtime.json')
+for name in ['native_correlation_cases.py','prepare_native_cases.py','protocol_capture.py']:
+ shutil.copy2(Path('../hotline-protocol-docs/scripts')/name,d/(name+'.as-run.txt'))
+reports=[json.loads(p.read_text()) for p in d.glob('transcripts/*/report.json')]
+lo=min(datetime.fromisoformat(x['started_at_utc']).timestamp() for x in reports)-1
+hi=max(datetime.fromisoformat(x['started_at_utc']).timestamp()+max(e['elapsed_ns'] for e in x['events'])/1e9 for x in reports)+1
+for source,target in [(r/'host-combined.pcap',d/'host.pcap'),(Path('state/native-sessions/runtime-04/guest.pcap'),d/'guest.pcap')]:
+ raw=source.read_bytes();out=bytearray(raw[:24]);order='<' if raw[:4]==b'\xd4\xc3\xb2\xa1' else '>';pos=24
+ while pos<len(raw):
+  assert pos+16<=len(raw);s,u,n,orig=struct.unpack_from(order+'IIII',raw,pos);end=pos+16+n;assert end<=len(raw)
+  if lo<=s+u/1e6<=hi:out.extend(raw[pos:end])
+  pos=end
+ target.write_bytes(out)
+host=read_packets(d/'host.pcap');guest=read_packets(d/'guest.pcap');tails={};observations={};notes=[]
+for p in sorted((d/'transcripts').iterdir()):
+ report=json.loads((p/'report.json').read_text());start=datetime.fromisoformat(report['started_at_utc']).timestamp()*1e6;extra={}
+ for e in report['events']:
+  if e['event']!='connect':continue
+  client=tuple(e['local_address']);server=tuple(e['peer_address']);when=int(start+e['elapsed_ns']/1000);outputs=[]
+  for packets,c,s in [(host,client,server),(guest,('10.0.2.2',client[1]),('10.0.2.15',5500+server[1]-15500))]:
+   life=lifetime(packets,c,s,when)
+   assert stream(life,c,s).hex()==report['streams'][e['connection']]['sent_hex'],(p,e,'input')
+   outputs.append(stream(life,s,c))
+  assert outputs[0]==outputs[1],(p,e,'boundary')
+  received=bytes.fromhex(report['streams'][e['connection']]['received_hex']);assert outputs[0].startswith(received)
+  tail=outputs[0][len(received):]
+  if tail:
+   extra[e['connection']]=tail.hex();raw=tail;frames=[]
+   while raw:
+    assert len(raw)>=20;n=20+int.from_bytes(raw[16:20],'big');assert n<=len(raw)
+    f=decode_frame(raw[:n]);assert f['type'] in {301,302} and not f['is_reply'];frames.append(f);raw=raw[n:]
+   notes.append({'case':p.name,'connection':e['connection'],'unread_hex':tail.hex(),'notifications':frames})
+ if extra:tails[p.name]=extra
+ observations[p.name]=reconcile(report,host,guest,{k:bytes.fromhex(v) for k,v in extra.items()})
+m={'schema_version':1,'oracle_sha256':reports[0]['oracle_sha256'],'cases':sorted(p.name for p in (d/'transcripts').iterdir()),'packet_window_seconds':[lo,hi],'host_capture_packets':416,'host_kernel_drops':0,'unread_output':tails,'scope':'Native transaction-ID and reply-envelope cases. Collisions depend on dispatch lifetime; quiet observations are bounded. Server counter wrap is static machine-code evidence, not a live 2^32-cycle test. No identified-client receiver tolerance or mxd release policy claim.'}
+for name,obj in [('manifest.json',m),('unread-output.json',notes),('packet-reconciliation.json',observations)]:
+ (d/name).write_text(json.dumps(obj,indent=2)+'\n')
+shutil.copy2(__file__,d/'package.py.as-run.txt')
+print('Retained',len(m['cases']),'transcripts;',len(notes),'unread notification tails')

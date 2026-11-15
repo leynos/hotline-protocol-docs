@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "import",
+    "-display",
+    ":125",
+    "-window",
+    "root",
+    "state/native-sessions/native-alias-live-04/bootstrap2-activated.png"
+  ],
+  "exit": 0,
+  "before_utc": "2026-11-14T21:43:29.880227+00:00",
+  "after_utc": "2026-11-14T21:43:30.032339+00:00",
+  "sha256": "d27bff937214f4f26278c61d0bb69a2f72315002dc6558b1b609c295f14d5800"
+}

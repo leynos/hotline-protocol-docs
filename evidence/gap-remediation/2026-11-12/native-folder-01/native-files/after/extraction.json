@@ -1,0 +1,284 @@
+{
+  "recorded_at_utc": "2026-11-12T20:33:13.141372+00:00",
+  "image": "state/mac-runtime/hotline19/working.dsk",
+  "tool_sha256": {
+    "istat": "f87c0cee5e263c55440c19fb3e478b80e33dcbae223388b5f83913ceb5fc4499",
+    "icat": "ab73038eda8ed52697c5d94874bbc0a19285184253e68a78f6e4ab347a042bba"
+  },
+  "catalog_range": [
+    11220,
+    11240
+  ],
+  "roots": [
+    "/Hotline19/Files/mothra-folder-source",
+    "/Hotline19/Files/mothra-folder-empty",
+    "/Hotline19/Files/mothra-folder-dirlast",
+    "/Hotline19/Files/mothra-folder-partial"
+  ],
+  "method": "Read-only direct catalogue observations. Positive paths verified by istat before fork reads. Not an exhaustive directory listing, path-absence proof, protocol certification or restart-durability result.",
+  "probes": [
+    {
+      "catalog": 11220,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11221,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11222,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11223,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11224,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11225,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11226,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11227,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11228,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11229,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11230,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11231,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11232,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11233,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11234,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11235,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11234)\n"
+    },
+    {
+      "catalog": 11236,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11234)\n"
+    },
+    {
+      "catalog": 11237,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11234)\n"
+    },
+    {
+      "catalog": 11238,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11234)\n"
+    },
+    {
+      "catalog": 11239,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11234)\n"
+    },
+    {
+      "catalog": 11240,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11234)\n"
+    }
+  ],
+  "records": [
+    {
+      "path": "/Hotline19/Files/mothra-folder-source",
+      "key": "catalog-11220",
+      "catalog": 11220,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-folder-source/empty",
+      "key": "catalog-11221",
+      "catalog": 11221,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-folder-source/inner",
+      "key": "catalog-11222",
+      "catalog": 11222,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-folder-source/alpha",
+      "key": "catalog-11223",
+      "catalog": 11223,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 13,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-folder-source/zero",
+      "key": "catalog-11224",
+      "catalog": 11224,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 0,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-folder-source/inner/leaf",
+      "key": "catalog-11225",
+      "catalog": 11225,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 5,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-folder-empty",
+      "key": "catalog-11226",
+      "catalog": 11226,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-folder-dirlast",
+      "key": "catalog-11227",
+      "catalog": 11227,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-folder-dirlast/only",
+      "key": "catalog-11228",
+      "catalog": 11228,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-folder-partial",
+      "key": "catalog-11229",
+      "catalog": 11229,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-folder-partial/alpha",
+      "key": "catalog-11230",
+      "catalog": 11230,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 13,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-folder-partial/part",
+      "key": "catalog-11231",
+      "catalog": 11231,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 13,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-folder-partial/finish",
+      "key": "catalog-11233",
+      "catalog": 11233,
+      "directory": true,
+      "attributes": {}
+    }
+  ]
+}

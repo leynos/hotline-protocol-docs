@@ -1,0 +1,65 @@
+[
+  {
+    "case": "initial/repeat--absent-restored",
+    "connection": "banner",
+    "tail_hex": "494638396101000100800000000000ffffff21fe04420a00fe002c00000000010001000002024401003b6e61746976652d62616e6e65722d62",
+    "decoded_notifications": [],
+    "scope": "Exact unread native bytes pinned in both packet views; a raw binary suffix is not reclassified as a control notification"
+  },
+  {
+    "case": "initial/verified--absent-restored",
+    "connection": "main",
+    "tail_hex": "0000012d0000000300000000000000260000002600040067000200d30068000200010070000200120066000e62616e6e65722d666978747572650000012e0000000400000000000000080000000800010067000200d3",
+    "decoded_notifications": [
+      {
+        "flags": 0,
+        "is_reply": 0,
+        "type": 301,
+        "id": 3,
+        "error": 0,
+        "total_size": 38,
+        "data_size": 38,
+        "payload_hex": "00040067000200d30068000200010070000200120066000e62616e6e65722d66697874757265",
+        "fields": [
+          {
+            "id": 103,
+            "hex": "00d3"
+          },
+          {
+            "id": 104,
+            "hex": "0001"
+          },
+          {
+            "id": 112,
+            "hex": "0012"
+          },
+          {
+            "id": 102,
+            "hex": "62616e6e65722d66697874757265"
+          }
+        ],
+        "declared_field_count": 4,
+        "unconsumed_hex": ""
+      },
+      {
+        "flags": 0,
+        "is_reply": 0,
+        "type": 302,
+        "id": 4,
+        "error": 0,
+        "total_size": 8,
+        "data_size": 8,
+        "payload_hex": "00010067000200d3",
+        "fields": [
+          {
+            "id": 103,
+            "hex": "00d3"
+          }
+        ],
+        "declared_field_count": 1,
+        "unconsumed_hex": ""
+      }
+    ],
+    "scope": "Exact unread native bytes pinned in both packet views; a raw binary suffix is not reclassified as a control notification"
+  }
+]

@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "profile": "native-mac-oracle",
+  "operator": "native fixture operator",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "environment": {
+    "emulator_pid": 881007,
+    "running_executable_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+    "rom_and_base": {
+      "rom_sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+      "base_disk_sha256": "0ba5f8cf3b1faac0bd29d3e75f3df60f311c87022e37022e13e5093836da6e6a",
+      "source_rom": "/data/leynos/Projects/mothra/state/mac-runtime/hotline19/rom",
+      "source_disk": "/data/leynos/Projects/mothra/state/mac-runtime/hotline19/working.dsk",
+      "archive_member": null
+    },
+    "launch": {
+      "command": [
+        "sudo",
+        "-n",
+        "setpriv",
+        "--reuid=1000",
+        "--regid=1000",
+        "--init-groups",
+        "--inh-caps=+sys_rawio",
+        "--ambient-caps=+sys_rawio",
+        "env",
+        "DISPLAY=:98",
+        "SDL_VIDEODRIVER=x11",
+        "SDL_AUDIODRIVER=dummy",
+        "MOTHRA_ETHERNET_PCAP=/data/leynos/Projects/mothra/state/native-sessions/runtime-20/guest.pcap",
+        "XDG_CACHE_HOME=/data/leynos/Projects/mothra/state/mac-runtime/hotline20/cache",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline20/SheepShaver-9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline20/machine.sheepvm"
+      ],
+      "emulator_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "host_ports": [
+        15500,
+        15501,
+        15502,
+        15503
+      ],
+      "tcp_bind": "127.0.0.1",
+      "guest_address": "10.0.2.15",
+      "guest_pcap": "/data/leynos/Projects/mothra/state/native-sessions/runtime-20/guest.pcap",
+      "guest_pcap_scope": "SLiRP Ethernet boundary; host wall-clock timestamps"
+    },
+    "source_application": {
+      "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+      "appledouble_sha256": "9ab8b9ec708ccdb8a4fed99b00162fd087c108b6039c7acc5943145bad419c2f",
+      "finder_info_sha256": "2bad82ff67c5c28b30be6d8b1f69f2a5e316b06b83d7c9a9c81c4968761e9bab",
+      "resource_fork_sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12",
+      "method": "AppleDouble entries9/2 copied to .finf/.rsrc; data fork unchanged"
+    },
+    "guest_os": "Mac OS9.0.4, PowerPC Enabler9.0.4,512MiB,virtual memory off; observed About This Computer",
+    "guest_components": "Base HFS+ catalog inventory has CarbonLib Preferences (US), but no named CarbonLib file located. No assertion about loaded/imported CarbonLib version.",
+    "server_path": "System 9:Hotline19:HLserver19",
+    "configuration": "NativePrefs version5 positivefork; General100/10/IP5 andport5500 verified bybytes. Emptyname; serverlogLoadedAgreement.txt andmothra-banner-b.gif, nativeSoundsDisabled acknowledged. Original245-byte agreement remainscheckedbywirecomparison.",
+    "scope": "Nativealias/fileinfo fixtures after separately recorded restart on timer-patched emulator",
+    "guest_native_file_verification": {
+      "method": "Read-onlySleuthKit catalogue11183 aftercopiedguestboot began, beforeapplicationlaunch",
+      "data_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+      "resource_sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12",
+      "resource_bytes": 38460
+    },
+    "prelaunch_disk_sha256": "0ba5f8cf3b1faac0bd29d3e75f3df60f311c87022e37022e13e5093836da6e6a",
+    "continuation_from": "OldPID774378 absent, oldXvfb gone andportsclosed. Preserveoldruntime; cloneitsstoppeduncleanworking image tohotline20. NativeDiskFirstAidreportedcompletion onnewcopy; causeofoldexitunknown.",
+    "download_limits": {
+      "global": 100,
+      "per_session": 10,
+      "evidence": "native-queue-01/configuration/options-restored.png"
+    },
+    "banner_fixture_setup": "Uploaded GIFf/MOTH fixtures through203 into Files, then Finder-moved into application directory. Options Banner uses barefilename; fullpaths/relativepaths were failed setup probes."
+  },
+  "gap_ids": [
+    "GAP-003",
+    "GAP-047",
+    "GAP-050",
+    "GAP-053",
+    "GAP-054",
+    "GAP-084"
+  ],
+  "endpoints": {
+    "control": {
+      "host": "127.0.0.1",
+      "port": 15500
+    },
+    "data": {
+      "host": "127.0.0.1",
+      "port": 15501
+    }
+  },
+  "expectation": {
+    "kind": "delete-case",
+    "case": "missing-source",
+    "name_hex": "6e6f2d737563682d64656c657465",
+    "parent_hex": "000100000b6d6f746872612d66733232",
+    "role": "admin"
+  },
+  "steps": [
+    {
+      "op": "connect",
+      "connection": "main",
+      "endpoint": "control",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "54525450484f544c00010002",
+      "timeout": 30
+    },
+    {
+      "op": "read",
+      "connection": "main",
+      "size": 8,
+      "expect_hex": "5452545000000000",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "0000006b000000010000000000000036000000360005006900059e9b929691006a000892908b978d9ecec600a0000200be0066000f6672616d696e672d66697874757265006800020001",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000c80000000a000000000000001600000016000100ca0010000100000b6d6f746872612d66733232",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 10
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000ce0000000b000000000000002800000028000200c9000e6e6f2d737563682d64656c65746500ca0010000100000b6d6f746872612d66733232",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 11
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cc0000000c000000000000002800000028000200c9000e6e6f2d737563682d64656c65746500ca0010000100000b6d6f746872612d66733232",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 12
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000c800000014000000000000001600000016000100ca0010000100000b6d6f746872612d66733232",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 20
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000ce00000015000000000000002800000028000200c9000e6e6f2d737563682d64656c65746500ca0010000100000b6d6f746872612d66733232",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 21
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000001f40000005a0000000000000002000000020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 90
+      }
+    },
+    {
+      "op": "expect_quiet",
+      "connection": "main",
+      "timeout": 1
+    },
+    {
+      "op": "close",
+      "connection": "main"
+    }
+  ]
+}

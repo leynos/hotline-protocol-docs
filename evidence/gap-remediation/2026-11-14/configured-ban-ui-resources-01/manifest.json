@@ -1,0 +1,13 @@
+{
+  "schema": "configured-ban-ui-resources-01",
+  "source_sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12",
+  "resource_types": 24,
+  "selected_resources": 8,
+  "files": {
+    "catalog-11183.stat.txt": "7d13346ec480c156b04ff90ef807e961882ce6d383c75970fa84198668dffaa5",
+    "preboot-extraction.json": "28990a8dfee41fba6b0eb99857f3e7c83f366fea71f011bb3796bed91229ed7c",
+    "resource-reader.py.as-run.txt": "1eb4e90bfee1116aee05fb024ea74893738bd17ff4e196f2d50b814c6a113f75",
+    "selected-resources.json": "93a3ce76548d67827b8f5e10bb5c23a38c687a89fc8f208b353370e3236fa8a4",
+    "source-provenance.json": "ec736fcda385005310dbb5f4c4bb7612b0e08dcf2c5c21855d84025dad6b58a3"
+  }
+}

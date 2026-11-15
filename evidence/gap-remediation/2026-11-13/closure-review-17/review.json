@@ -1,0 +1,32 @@
+{
+  "reviews": [
+    {
+      "gap_id": "GAP-051",
+      "status": "Resolved",
+      "unchanged_closure_criterion": "Document input conditions, conflicts, permission and success/error responses for 205 with exact fixtures.",
+      "requirements": [
+        {
+          "requirement": "Document input conditions",
+          "evidence": "Native47case matrix plus six supplementary absence/empty-name/root combinations includesroot/nested/nonASCII/NUL/controlbytes, path-derivedleaf, malformedprefixes and31/32/255/256/65535-byte inputs. Tenidentitychecked decompilations cover205handler, OSversion/name normalization, resolver/classifier andFSpDirCreate. UnexecutedOSX branch remains explicit."
+        },
+        {
+          "requirement": "Document conflicts",
+          "evidence": "Existingdirectory, ordinaryfile andASCIIcase collision yield exactstatus1/text100 existing-object explanation, unchangedlisting andlive500. Missing/non-directory parents yield exactenclosing-folder explanation. ExistingFilesroot withsix absent/empty combinations failsratherthan idempotently succeeding."
+        },
+        {
+          "requirement": "Document permission",
+          "evidence": "Static205handler checksbit5 beforetargetresolution. Actualadminbitmapfff3cfefff800000 creates; existingzero-privilege accountgets exactpermissionerror fornew andexistingname targets. Noaccountchanges oruniversaladmin-bypass claim."
+        },
+        {
+          "requirement": "Success/error responses with exact fixtures",
+          "evidence": "All51reports and53socketlifetimes matchbothpacketboundaries; directACKids, empty successes andexpectedfailuremessages arechecked. Before/afterlisting provesexactoneentry orunchangedview,500provesliveness andone measuredsecond boundsquietclaim. Capturescope doesnotpromise allfutureeventdelivery."
+        },
+        {
+          "requirement": "Repeatable evidence and owned cleanup",
+          "evidence": "Committedsuitegenerators andofflineverifier include12regressions. Finalnativeuploadflush precedespositivecatalogueinspection.204moves44ownedobjects toTrash, preserving36subtreeidentities andchildDATA. Fileslistingrestored byte-for-byte; noROM/diskexport/account/config/restart/debugger modification."
+        }
+      ]
+    }
+  ],
+  "scope": "Close only original205 input/conflict/permission/reply criterion. Retain047 separategrammars/aliascontainment,048alias/order/filter,049metadatavariants,050failurematrix andothercrosscuttingrequirements. All87originalcriteria remain unchanged."
+}

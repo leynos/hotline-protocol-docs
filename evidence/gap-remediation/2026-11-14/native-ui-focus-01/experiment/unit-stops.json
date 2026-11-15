@@ -1,0 +1,47 @@
+{
+  "utc": "2026-11-14T01:09:14.782340+00:00",
+  "results": [
+    {
+      "unit": "mothra-sheep-bc2add75bbfa.service",
+      "exit": 5,
+      "stderr": "Failed to stop mothra-sheep-bc2add75bbfa.service: Unit mothra-sheep-bc2add75bbfa.service not loaded.\n",
+      "stdout": ""
+    },
+    {
+      "unit": "mothra-bridge-f8eb71efdf91.service",
+      "exit": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "unit": "mothra-xbridge-f8eb71efdf91.service",
+      "exit": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "unit": "mothra-display-37408b9876e3.service",
+      "exit": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "unit": "mothra-native-event-c50-observer.service",
+      "exit": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "unit": "mothra-native-event-c49-ns-capture.service",
+      "exit": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "unit": "mothra-native-event-c49-host-capture.service",
+      "exit": 0,
+      "stderr": "",
+      "stdout": ""
+    }
+  ]
+}

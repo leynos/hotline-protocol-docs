@@ -1,0 +1,4 @@
+Preflight: 30 packets captured, 60 packets received by filter, 0 packets dropped by kernel.
+Seed: 48 packets captured, 96 packets received by filter, 0 packets dropped by kernel.
+Cleanup: 37 packets captured, 74 packets received by filter, 0 packets dropped by kernel.
+All host recorders were stopped after their corresponding capture.

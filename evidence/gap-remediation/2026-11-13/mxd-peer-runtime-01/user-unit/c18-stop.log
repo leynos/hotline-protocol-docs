@@ -1,0 +1,3 @@
+2026-11-13 20:51:58 UTC
+systemctl --user stop --no-block mothra-mxd-peer-c17.service
+stop request exit=0

@@ -1,0 +1,680 @@
+{
+  "captured_at_utc": "2026-11-12T14:51:33.076549+00:00",
+  "query": {
+    "id": "B11-C-10058a10",
+    "tool": "get_function_calls",
+    "arguments": {
+      "address": "10058a10",
+      "direction": "callers",
+      "limit": 1000
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_10058a10\",\n    \"address\": \"10058a10\"\n  },\n  \"callers\": {\n    \"items\": [\n      {\n        \"call_site\": \"1000f9f4\",\n        \"caller\": {\n          \"name\": \"FUN_1000f990\",\n          \"address\": \"1000f990\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"1001092c\",\n        \"caller\": {\n          \"name\": \"FUN_100108a0\",\n          \"address\": \"100108a0\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"100109bc\",\n        \"caller\": {\n          \"name\": \"FUN_100108a0\",\n          \"address\": \"100108a0\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10011e64\",\n        \"caller\": {\n          \"name\": \"FUN_10011960\",\n          \"address\": \"10011960\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"1001222c\",\n        \"caller\": {\n          \"name\": \"FUN_100121a0\",\n          \"address\": \"100121a0\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"100123b8\",\n        \"caller\": {\n          \"name\": \"FUN_100121a0\",\n          \"address\": \"100121a0\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"100124e4\",\n        \"caller\": {\n          \"name\": \"FUN_100121a0\",\n          \"address\": \"100121a0\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10013180\",\n        \"caller\": {\n          \"name\": \"FUN_100130f0\",\n          \"address\": \"100130f0\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"100138bc\",\n        \"caller\": {\n          \"name\": \"FUN_100130f0\",\n          \"address\": \"100130f0\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"1000efac\",\n        \"caller\": {\n          \"name\": \"FUN_1000ef30\",\n          \"address\": \"1000ef30\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"100139bc\",\n        \"caller\": {\n          \"name\": \"FUN_10013930\",\n          \"address\": \"10013930\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"1001406c\",\n        \"caller\": {\n          \"name\": \"FUN_10013930\",\n          \"address\": \"10013930\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"1001421c\",\n        \"caller\": {\n          \"name\": \"FUN_100140e0\",\n          \"address\": \"100140e0\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"100142b0\",\n        \"caller\": {\n          \"name\": \"FUN_100140e0\",\n          \"address\": \"100140e0\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10014750\",\n        \"caller\": {\n          \"name\": \"FUN_100146f0\",\n          \"address\": \"100146f0\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10014888\",\n        \"caller\": {\n          \"name\": \"FUN_100146f0\",\n          \"address\": \"100146f0\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10014c34\",\n        \"caller\": {\n          \"name\": \"FUN_10014bc0\",\n          \"address\": \"10014bc0\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10015ed4\",\n        \"caller\": {\n          \"name\": \"FUN_10015e70\",\n          \"address\": \"10015e70\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"100161d0\",\n        \"caller\": {\n          \"name\": \"FUN_10016150\",\n          \"address\": \"10016150\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"1001625c\",\n        \"caller\": {\n          \"name\": \"FUN_10016150\",\n          \"address\": \"10016150\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"100185dc\",\n        \"caller\": {\n          \"name\": \"FUN_100183c0\",\n          \"address\": \"100183c0\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"1000f190\",\n        \"caller\": {\n          \"name\": \"FUN_1000f130\",\n          \"address\": \"1000f130\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"1000f2c4\",\n        \"caller\": {\n          \"name\": \"FUN_1000f260\",\n          \"address\": \"1000f260\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"1000f334\",\n        \"caller\": {\n          \"name\": \"FUN_1000f260\",\n          \"address\": \"1000f260\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"1000f6a8\",\n        \"caller\": {\n          \"name\": \"FUN_1000f4e0\",\n          \"address\": \"1000f4e0\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"1000f728\",\n        \"caller\": {\n          \"name\": \"FUN_1000f4e0\",\n          \"address\": \"1000f4e0\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10010184\",\n        \"caller\": {\n          \"name\": \"FUN_100100a0\",\n          \"address\": \"100100a0\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"100103a4\",\n        \"caller\": {\n          \"name\": \"FUN_100102c0\",\n          \"address\": \"100102c0\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"100104f8\",\n        \"caller\": {\n          \"name\": \"FUN_10010470\",\n          \"address\": \"10010470\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10010588\",\n        \"caller\": {\n          \"name\": \"FUN_10010470\",\n          \"address\": \"10010470\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10010668\",\n        \"caller\": {\n          \"name\": \"FUN_10010470\",\n          \"address\": \"10010470\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10010710\",\n        \"caller\": {\n          \"name\": \"FUN_10010470\",\n          \"address\": \"10010470\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"100107d4\",\n        \"caller\": {\n          \"name\": \"FUN_10010470\",\n          \"address\": \"10010470\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10010c34\",\n        \"caller\": {\n          \"name\": \"FUN_10010b70\",\n          \"address\": \"10010b70\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10010cd4\",\n        \"caller\": {\n          \"name\": \"FUN_10010b70\",\n          \"address\": \"10010b70\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10010d7c\",\n        \"caller\": {\n          \"name\": \"FUN_10010b70\",\n          \"address\": \"10010b70\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10010f84\",\n        \"caller\": {\n          \"name\": \"FUN_10010ee0\",\n          \"address\": \"10010ee0\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"100111b4\",\n        \"caller\": {\n          \"name\": \"FUN_10011110\",\n          \"address\": \"10011110\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10011430\",\n        \"caller\": {\n          \"name\": \"FUN_10011370\",\n          \"address\": \"10011370\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"100114d0\",\n        \"caller\": {\n          \"name\": \"FUN_10011370\",\n          \"address\": \"10011370\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10011620\",\n        \"caller\": {\n          \"name\": \"FUN_10011580\",\n          \"address\": \"10011580\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"100116bc\",\n        \"caller\": {\n          \"name\": \"FUN_10011580\",\n          \"address\": \"10011580\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"100128dc\",\n        \"caller\": {\n          \"name\": \"FUN_10012850\",\n          \"address\": \"10012850\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10012a60\",\n        \"caller\": {\n          \"name\": \"FUN_10012850\",\n          \"address\": \"10012850\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10012b7c\",\n        \"caller\": {\n          \"name\": \"FUN_10012850\",\n          \"address\": \"10012850\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10014494\",\n        \"caller\": {\n          \"name\": \"FUN_100143f0\",\n          \"address\": \"100143f0\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10014698\",\n        \"caller\": {\n          \"name\": \"FUN_10014640\",\n          \"address\": \"10014640\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10014a3c\",\n        \"caller\": {\n          \"name\": \"FUN_100149e0\",\n          \"address\": \"100149e0\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10014e50\",\n        \"caller\": {\n          \"name\": \"FUN_10014df0\",\n          \"address\": \"10014df0\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"100151d0\",\n        \"caller\": {\n          \"name\": \"FUN_10015160\",\n          \"address\": \"10015160\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10015244\",\n        \"caller\": {\n          \"name\": \"FUN_10015160\",\n          \"address\": \"10015160\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10015578\",\n        \"caller\": {\n          \"name\": \"FUN_10015500\",\n          \"address\": \"10015500\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"100155e4\",\n        \"caller\": {\n          \"name\": \"FUN_10015500\",\n          \"address\": \"10015500\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"100157fc\",\n        \"caller\": {\n          \"name\": \"FUN_10015500\",\n          \"address\": \"10015500\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10015a10\",\n        \"caller\": {\n          \"name\": \"FUN_10015500\",\n          \"address\": \"10015500\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10015b28\",\n        \"caller\": {\n          \"name\": \"FUN_10015500\",\n          \"address\": \"10015500\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10015c88\",\n        \"caller\": {\n          \"name\": \"FUN_10015500\",\n          \"address\": \"10015500\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10015d1c\",\n        \"caller\": {\n          \"name\": \"FUN_10015500\",\n          \"address\": \"10015500\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10015e04\",\n        \"caller\": {\n          \"name\": \"FUN_10015500\",\n          \"address\": \"10015500\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10017284\",\n        \"caller\": {\n          \"name\": \"FUN_100170c0\",\n          \"address\": \"100170c0\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10017330\",\n        \"caller\": {\n          \"name\": \"FUN_100170c0\",\n          \"address\": \"100170c0\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"100174a4\",\n        \"caller\": {\n          \"name\": \"FUN_100170c0\",\n          \"address\": \"100170c0\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10017550\",\n        \"caller\": {\n          \"name\": \"FUN_100170c0\",\n          \"address\": \"100170c0\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10017648\",\n        \"caller\": {\n          \"name\": \"FUN_100170c0\",\n          \"address\": \"100170c0\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10017910\",\n        \"caller\": {\n          \"name\": \"FUN_100177d0\",\n          \"address\": \"100177d0\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"100179a4\",\n        \"caller\": {\n          \"name\": \"FUN_100177d0\",\n          \"address\": \"100177d0\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10017cb4\",\n        \"caller\": {\n          \"name\": \"FUN_10017c10\",\n          \"address\": \"10017c10\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"1001800c\",\n        \"caller\": {\n          \"name\": \"FUN_10017f30\",\n          \"address\": \"10017f30\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      }\n    ],\n    \"offset\": 0,\n    \"limit\": 1000,\n    \"total\": 68,\n    \"has_more\": false\n  },\n  \"callees\": null\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_10058a10",
+        "address": "10058a10"
+      },
+      "callers": {
+        "items": [
+          {
+            "call_site": "1000f9f4",
+            "caller": {
+              "name": "FUN_1000f990",
+              "address": "1000f990"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "1001092c",
+            "caller": {
+              "name": "FUN_100108a0",
+              "address": "100108a0"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "100109bc",
+            "caller": {
+              "name": "FUN_100108a0",
+              "address": "100108a0"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10011e64",
+            "caller": {
+              "name": "FUN_10011960",
+              "address": "10011960"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "1001222c",
+            "caller": {
+              "name": "FUN_100121a0",
+              "address": "100121a0"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "100123b8",
+            "caller": {
+              "name": "FUN_100121a0",
+              "address": "100121a0"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "100124e4",
+            "caller": {
+              "name": "FUN_100121a0",
+              "address": "100121a0"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10013180",
+            "caller": {
+              "name": "FUN_100130f0",
+              "address": "100130f0"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "100138bc",
+            "caller": {
+              "name": "FUN_100130f0",
+              "address": "100130f0"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "1000efac",
+            "caller": {
+              "name": "FUN_1000ef30",
+              "address": "1000ef30"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "100139bc",
+            "caller": {
+              "name": "FUN_10013930",
+              "address": "10013930"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "1001406c",
+            "caller": {
+              "name": "FUN_10013930",
+              "address": "10013930"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "1001421c",
+            "caller": {
+              "name": "FUN_100140e0",
+              "address": "100140e0"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "100142b0",
+            "caller": {
+              "name": "FUN_100140e0",
+              "address": "100140e0"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10014750",
+            "caller": {
+              "name": "FUN_100146f0",
+              "address": "100146f0"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10014888",
+            "caller": {
+              "name": "FUN_100146f0",
+              "address": "100146f0"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10014c34",
+            "caller": {
+              "name": "FUN_10014bc0",
+              "address": "10014bc0"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10015ed4",
+            "caller": {
+              "name": "FUN_10015e70",
+              "address": "10015e70"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "100161d0",
+            "caller": {
+              "name": "FUN_10016150",
+              "address": "10016150"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "1001625c",
+            "caller": {
+              "name": "FUN_10016150",
+              "address": "10016150"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "100185dc",
+            "caller": {
+              "name": "FUN_100183c0",
+              "address": "100183c0"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "1000f190",
+            "caller": {
+              "name": "FUN_1000f130",
+              "address": "1000f130"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "1000f2c4",
+            "caller": {
+              "name": "FUN_1000f260",
+              "address": "1000f260"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "1000f334",
+            "caller": {
+              "name": "FUN_1000f260",
+              "address": "1000f260"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "1000f6a8",
+            "caller": {
+              "name": "FUN_1000f4e0",
+              "address": "1000f4e0"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "1000f728",
+            "caller": {
+              "name": "FUN_1000f4e0",
+              "address": "1000f4e0"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10010184",
+            "caller": {
+              "name": "FUN_100100a0",
+              "address": "100100a0"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "100103a4",
+            "caller": {
+              "name": "FUN_100102c0",
+              "address": "100102c0"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "100104f8",
+            "caller": {
+              "name": "FUN_10010470",
+              "address": "10010470"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10010588",
+            "caller": {
+              "name": "FUN_10010470",
+              "address": "10010470"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10010668",
+            "caller": {
+              "name": "FUN_10010470",
+              "address": "10010470"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10010710",
+            "caller": {
+              "name": "FUN_10010470",
+              "address": "10010470"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "100107d4",
+            "caller": {
+              "name": "FUN_10010470",
+              "address": "10010470"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10010c34",
+            "caller": {
+              "name": "FUN_10010b70",
+              "address": "10010b70"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10010cd4",
+            "caller": {
+              "name": "FUN_10010b70",
+              "address": "10010b70"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10010d7c",
+            "caller": {
+              "name": "FUN_10010b70",
+              "address": "10010b70"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10010f84",
+            "caller": {
+              "name": "FUN_10010ee0",
+              "address": "10010ee0"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "100111b4",
+            "caller": {
+              "name": "FUN_10011110",
+              "address": "10011110"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10011430",
+            "caller": {
+              "name": "FUN_10011370",
+              "address": "10011370"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "100114d0",
+            "caller": {
+              "name": "FUN_10011370",
+              "address": "10011370"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10011620",
+            "caller": {
+              "name": "FUN_10011580",
+              "address": "10011580"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "100116bc",
+            "caller": {
+              "name": "FUN_10011580",
+              "address": "10011580"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "100128dc",
+            "caller": {
+              "name": "FUN_10012850",
+              "address": "10012850"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10012a60",
+            "caller": {
+              "name": "FUN_10012850",
+              "address": "10012850"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10012b7c",
+            "caller": {
+              "name": "FUN_10012850",
+              "address": "10012850"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10014494",
+            "caller": {
+              "name": "FUN_100143f0",
+              "address": "100143f0"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10014698",
+            "caller": {
+              "name": "FUN_10014640",
+              "address": "10014640"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10014a3c",
+            "caller": {
+              "name": "FUN_100149e0",
+              "address": "100149e0"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10014e50",
+            "caller": {
+              "name": "FUN_10014df0",
+              "address": "10014df0"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "100151d0",
+            "caller": {
+              "name": "FUN_10015160",
+              "address": "10015160"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10015244",
+            "caller": {
+              "name": "FUN_10015160",
+              "address": "10015160"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10015578",
+            "caller": {
+              "name": "FUN_10015500",
+              "address": "10015500"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "100155e4",
+            "caller": {
+              "name": "FUN_10015500",
+              "address": "10015500"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "100157fc",
+            "caller": {
+              "name": "FUN_10015500",
+              "address": "10015500"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10015a10",
+            "caller": {
+              "name": "FUN_10015500",
+              "address": "10015500"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10015b28",
+            "caller": {
+              "name": "FUN_10015500",
+              "address": "10015500"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10015c88",
+            "caller": {
+              "name": "FUN_10015500",
+              "address": "10015500"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10015d1c",
+            "caller": {
+              "name": "FUN_10015500",
+              "address": "10015500"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10015e04",
+            "caller": {
+              "name": "FUN_10015500",
+              "address": "10015500"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10017284",
+            "caller": {
+              "name": "FUN_100170c0",
+              "address": "100170c0"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10017330",
+            "caller": {
+              "name": "FUN_100170c0",
+              "address": "100170c0"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "100174a4",
+            "caller": {
+              "name": "FUN_100170c0",
+              "address": "100170c0"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10017550",
+            "caller": {
+              "name": "FUN_100170c0",
+              "address": "100170c0"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10017648",
+            "caller": {
+              "name": "FUN_100170c0",
+              "address": "100170c0"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10017910",
+            "caller": {
+              "name": "FUN_100177d0",
+              "address": "100177d0"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "100179a4",
+            "caller": {
+              "name": "FUN_100177d0",
+              "address": "100177d0"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "10017cb4",
+            "caller": {
+              "name": "FUN_10017c10",
+              "address": "10017c10"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          },
+          {
+            "call_site": "1001800c",
+            "caller": {
+              "name": "FUN_10017f30",
+              "address": "10017f30"
+            },
+            "ref_type": "UNCONDITIONAL_CALL",
+            "direct": true
+          }
+        ],
+        "offset": 0,
+        "limit": 1000,
+        "total": 68,
+        "has_more": false
+      },
+      "callees": null
+    },
+    "isError": false
+  }
+}

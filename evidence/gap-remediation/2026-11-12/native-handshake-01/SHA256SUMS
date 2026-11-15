@@ -1,0 +1,9 @@
+6ac92d3d7be23a849984f89448b5091dc33b5035afd247cfe7d0602d190dc0e4  evidence/gap-remediation/2026-11-12/native-handshake-01/build-manifest.json
+b49f87b8c653ff5d7204823f2edf578b65c7ab2edf513d31c05f23bc9de7dc93  evidence/gap-remediation/2026-11-12/native-handshake-01/manifest.json
+3adc56c9375fc322303085dd554a035bc3d255108c4412f8bc8418780bcce8ea  evidence/gap-remediation/2026-11-12/native-handshake-01/prefs.txt
+1f76e8099c930fa2c23a9efb163c9b0178f4aacfe7d11bb48d977ae336d8f27e  evidence/gap-remediation/2026-11-12/native-handshake-01/prepare_hotline_server.py.txt
+1ede38c640d4ff69c9a0978ba9903ba61402ddaf204b58705c607cbf8e38b8ab  evidence/gap-remediation/2026-11-12/native-handshake-01/protocol_capture.py.txt
+963b21df1c8eae72883dc1807d95a1c399972cc117d3ba657dba39399c7c0556  evidence/gap-remediation/2026-11-12/native-handshake-01/source.patch.txt
+1151e970995cd0ad08a3aef0080f78ef178716e76a2f134f06a1246976edb730  evidence/gap-remediation/2026-11-12/native-handshake-01/transcript/checksums.sha256
+ffe9ab9fe8836270046ab4fd82724370a48b27044d421e5728871bd3111e882f  evidence/gap-remediation/2026-11-12/native-handshake-01/transcript/plan.json
+756fca48a6f5975243f8920d90054443e5e4e4b70563610b61340bb7056c87d1  evidence/gap-remediation/2026-11-12/native-handshake-01/transcript/report.json

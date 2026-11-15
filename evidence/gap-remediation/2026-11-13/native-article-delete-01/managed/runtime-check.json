@@ -1,0 +1,7 @@
+{
+  "recorded_at_utc": "2026-11-13T08:29:44.240211+00:00",
+  "emulator_pid": 1259319,
+  "running_executable_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "service_observation": "Id=mothra-display-1e7981d40a41.service\nActiveState=active\nMainPID=1258259\nExecMainStatus=0\n\nId=mothra-sheep-e7ca6ca3a198.service\nActiveState=active\nMainPID=1259226\nExecMainStatus=0\n",
+  "scope": "Actual service/PID observation after recovery; no indefinite uptime or original display-cause proof."
+}

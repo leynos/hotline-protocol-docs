@@ -1,0 +1,18 @@
+import json,subprocess,sys,time
+from pathlib import Path
+r=Path('state/native-sessions/runtime-18');(r/'receiver-plans').mkdir();(r/'fixture-servers').mkdir()
+for mode in ['control','banner','subject','banner-subject']:
+ p=json.load(open(r/'basic-plan.json'));p['environment']['controlled_receiver_fixture']={'profile':'controlled-receiver-fixture','mode':mode,'scope':'Local fixture, not native/SynHX execution; unmodified full peer consumes retained native bootstrap/banner and optionally source-derived subject field.'}
+ p['steps'][1]['command']=p['steps'][1]['command'].replace(':15500',':15510')
+ p['steps'][2]={'command':'/who -r','expect':'chat 0x0 subject: mothra-roster-subject' if 'subject' in mode else 'shx-peer-a','timeout':15,'settle_seconds':2}
+ plan=r/'receiver-plans'/(mode+'.json');plan.write_text(json.dumps(p,indent=2)+'\n')
+ with (r/('fixture-'+mode+'.log')).open('w') as log:
+  server=subprocess.Popen([sys.executable,'../hotline-protocol-docs/scripts/serve_shx_fixture.py','--evidence','evidence/gap-remediation/2026-11-13','--mode',mode,'--output',str(r/'fixture-servers'/mode)],stdout=log,stderr=subprocess.STDOUT)
+  deadline=time.monotonic()+10
+  while not (r/'fixture-servers'/mode/'ready.json').is_file():
+   if server.poll() is not None or time.monotonic()>deadline:raise RuntimeError('Fixture listener failed: '+mode)
+   time.sleep(.1)
+  result=subprocess.run([sys.executable,'../hotline-protocol-docs/scripts/capture_shx_session.py',str(plan),'--binary','tools/shx-peer/source/hx','--peer-profile',str(r/'peer-profile.json'),'--oracle-binary','evidence/hotline-server-1.9/inputs/HLserver19.pef','--output',str(r/'receivers'/mode)],check=False)
+  code=server.wait(timeout=35)
+  if result.returncode or code:raise RuntimeError('Receiver case failed: '+mode)
+ print('Completed receiver mode:',mode,flush=True)

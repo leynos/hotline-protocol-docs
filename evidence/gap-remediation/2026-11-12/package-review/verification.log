@@ -1,0 +1,61 @@
+$ sha256sum --quiet -c SHA256SUMS
+
+$ sha256sum --quiet -c evidence/gap-remediation/2026-11-12/batch-01/SHA256SUMS
+
+$ sha256sum --quiet -c evidence/gap-remediation/2026-11-12/batch-02/SHA256SUMS
+
+$ sha256sum --quiet -c evidence/gap-remediation/2026-11-12/batch-03/SHA256SUMS
+
+$ sha256sum --quiet -c evidence/gap-remediation/2026-11-12/batch-04/SHA256SUMS
+
+$ sha256sum --quiet -c evidence/gap-remediation/2026-11-12/batch-05/SHA256SUMS
+
+$ sha256sum --quiet -c evidence/gap-remediation/2026-11-12/batch-06/SHA256SUMS
+
+$ sha256sum --quiet -c evidence/gap-remediation/2026-11-12/batch-07/SHA256SUMS
+
+$ sha256sum --quiet -c evidence/gap-remediation/2026-11-12/batch-08/SHA256SUMS
+
+$ sha256sum --quiet -c evidence/gap-remediation/2026-11-12/mxd-review/SHA256SUMS
+
+$ sha256sum --quiet -c evidence/hotline-server-1.9/SHA256SUMS
+
+$ sha256sum --quiet -c evidence/protocol-gap-analysis/2026-11-12/SHA256SUMS
+
+$ sha256sum --quiet -c evidence/protocol-gap-analysis/2026-11-12/revision-01/SHA256SUMS
+
+$ sha256sum --quiet -c evidence/protocol-gap-analysis/2026-11-12/revision-02/SHA256SUMS
+
+$ sha256sum --quiet -c evidence/protocol-gap-analysis/2026-11-12/revision-03/SHA256SUMS
+
+$ sha256sum --quiet -c evidence/protocol-gap-analysis/2026-11-12/revision-04/SHA256SUMS
+
+$ sha256sum --quiet -c evidence/protocol-gap-analysis/2026-11-12/revision-05/SHA256SUMS
+
+$ sha256sum --quiet -c evidence/protocol-gap-analysis/2026-11-12/revision-06/SHA256SUMS
+
+$ sha256sum --quiet -c evidence/protocol-gap-analysis/2026-11-12/revision-07/SHA256SUMS
+
+$ python3 scripts/extract-synhxd-evidence.py
+decode.c 1.1 verified
+rcv.c 1.1 verified
+rcv.h 1.1 verified
+hlserver.c 1.1 verified
+hlwrite.c 1.1 verified
+trx.h 1.1 verified
+hxd.h 1.1 verified
+chat.c 1.1 verified
+news.c 1.1 verified
+accounts.c 1.1 verified
+files.c 1.1 verified
+htxf.c 1.1 verified
+htxf.h 1.1 verified
+hotline.h 1.1 verified
+
+$ python3 scripts/verify-baseline-evidence.py
+Verified 154 MCP queries and 83 ledger entries
+Complete data inventory: 4553 items
+{'Doc defect': 8, 'Supported': 16, 'Contradicted': 26, 'Partial': 18, 'Unverified': 15}
+
+$ python3 scripts/render-protocol-gap-analysis.py --check
+Validated 87 gaps and 140 reviewed sections; checked 1510 local link references

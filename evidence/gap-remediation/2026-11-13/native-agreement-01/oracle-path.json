@@ -1,0 +1,24 @@
+[
+  {
+    "id": "AG-D-1002af80",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002af80"
+    }
+  },
+  {
+    "id": "AG-D-10003f30",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10003f30"
+    }
+  },
+  {
+    "id": "AG-M-agreement-name-pointer",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "1008ee24",
+      "length": 16
+    }
+  }
+]

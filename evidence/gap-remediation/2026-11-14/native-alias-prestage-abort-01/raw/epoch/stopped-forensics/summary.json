@@ -1,0 +1,192 @@
+{
+  "recorded_utc": "2026-11-14T18:19:36.176778+00:00",
+  "status": "stopped_read_only_after_fd_free",
+  "working_image": "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-03/working.dsk",
+  "image_inode": 2302714962,
+  "fuser_exit": 1,
+  "catalog": {
+    "full_lines": 5504,
+    "full_sha256": "8687a48fa5399eda218f3ef739b43edd53424dc8ac133fa0cb85b6f123b829c5",
+    "allocated_lines": 5504,
+    "allocated_sha256": "8687a48fa5399eda218f3ef739b43edd53424dc8ac133fa0cb85b6f123b829c5",
+    "active_users": [
+      "admin",
+      "fixture-low"
+    ],
+    "banned_absent": true,
+    "alias_wrapper_absent": true
+  },
+  "board": {
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "baseline_zero": true
+  },
+  "forks": {
+    "admin": {
+      "catalog": "11193",
+      "size": 734,
+      "sha256": "26612ad46cd91b90050feacf517d32a9e56d4a4aa92fbe6618eaf6e9e5ac60a3",
+      "baseline_sha256": "26612ad46cd91b90050feacf517d32a9e56d4a4aa92fbe6618eaf6e9e5ac60a3",
+      "matches_baseline": true
+    },
+    "fixture-low": {
+      "catalog": "11201",
+      "size": 734,
+      "sha256": "fce81359d0efcfc6c2dbf42852db66b0fb7a404b2889162b8f8fad81361ce2d5",
+      "baseline_sha256": "fce81359d0efcfc6c2dbf42852db66b0fb7a404b2889162b8f8fad81361ce2d5",
+      "matches_baseline": true
+    },
+    "Prefs": {
+      "catalog": "11202",
+      "size": 175,
+      "sha256": "4ed2b3e14e6e8a6cf246d16f7d1b98f0b91d1b09f6ab5497de1056a6f617d196",
+      "baseline_sha256": "4ed2b3e14e6e8a6cf246d16f7d1b98f0b91d1b09f6ab5497de1056a6f617d196",
+      "matches_baseline": true
+    },
+    "server-data": {
+      "catalog": "11183-4352-0",
+      "size": 616821,
+      "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+      "baseline_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+      "matches_baseline": true
+    },
+    "server-rsrc": {
+      "catalog": "11183-4353-1",
+      "size": 38460,
+      "sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12",
+      "baseline_sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12",
+      "matches_baseline": true
+    }
+  },
+  "commands": [
+    {
+      "label": "catalog-full",
+      "argv": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/fls",
+        "-r",
+        "-p",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-03/working.dsk"
+      ],
+      "exit": 0,
+      "env_extra": {
+        "LD_LIBRARY_PATH": "/data/leynos/Projects/mothra/tools/sleuthkit/usr/lib64"
+      }
+    },
+    {
+      "label": "catalog-allocated",
+      "argv": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/fls",
+        "-u",
+        "-r",
+        "-p",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-03/working.dsk"
+      ],
+      "exit": 0,
+      "env_extra": {
+        "LD_LIBRARY_PATH": "/data/leynos/Projects/mothra/tools/sleuthkit/usr/lib64"
+      }
+    },
+    {
+      "label": "icat-admin",
+      "argv": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/icat",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-03/working.dsk",
+        "11193"
+      ],
+      "exit": 0,
+      "env_extra": {
+        "LD_LIBRARY_PATH": "/data/leynos/Projects/mothra/tools/sleuthkit/usr/lib64"
+      }
+    },
+    {
+      "label": "icat-fixture-low",
+      "argv": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/icat",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-03/working.dsk",
+        "11201"
+      ],
+      "exit": 0,
+      "env_extra": {
+        "LD_LIBRARY_PATH": "/data/leynos/Projects/mothra/tools/sleuthkit/usr/lib64"
+      }
+    },
+    {
+      "label": "icat-Prefs",
+      "argv": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/icat",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-03/working.dsk",
+        "11202"
+      ],
+      "exit": 0,
+      "env_extra": {
+        "LD_LIBRARY_PATH": "/data/leynos/Projects/mothra/tools/sleuthkit/usr/lib64"
+      }
+    },
+    {
+      "label": "icat-server-data",
+      "argv": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/icat",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-03/working.dsk",
+        "11183-4352-0"
+      ],
+      "exit": 0,
+      "env_extra": {
+        "LD_LIBRARY_PATH": "/data/leynos/Projects/mothra/tools/sleuthkit/usr/lib64"
+      }
+    },
+    {
+      "label": "icat-server-rsrc",
+      "argv": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/icat",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-03/working.dsk",
+        "11183-4353-1"
+      ],
+      "exit": 0,
+      "env_extra": {
+        "LD_LIBRARY_PATH": "/data/leynos/Projects/mothra/tools/sleuthkit/usr/lib64"
+      }
+    },
+    {
+      "label": "icat-board",
+      "argv": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/icat",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-03/working.dsk",
+        "11191"
+      ],
+      "exit": 0,
+      "env_extra": {
+        "LD_LIBRARY_PATH": "/data/leynos/Projects/mothra/tools/sleuthkit/usr/lib64"
+      }
+    },
+    {
+      "label": "istat-board",
+      "argv": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/istat",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-03/working.dsk",
+        "11191"
+      ],
+      "exit": 0,
+      "env_extra": {
+        "LD_LIBRARY_PATH": "/data/leynos/Projects/mothra/tools/sleuthkit/usr/lib64"
+      }
+    }
+  ]
+}

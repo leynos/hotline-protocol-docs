@@ -1,0 +1,12 @@
+{
+  "observed_tool_exit_code": 143,
+  "stage": "run-live.py after",
+  "complete_reports": [
+    "after-inspect",
+    "after-login-old",
+    "after-login-intermediate",
+    "after-login-final",
+    "after-login-deleted"
+  ],
+  "scope": "Host command exit143 was returned by the execution tool after all five complete transcripts were present. Cause is not inferred. This is not recorded as a native-server crash; independent confirmation is captured before cleanup."
+}

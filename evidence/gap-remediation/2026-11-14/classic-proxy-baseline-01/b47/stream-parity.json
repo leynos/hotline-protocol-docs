@@ -1,0 +1,82 @@
+{
+  "guest-control": {
+    "client_bytes": 150,
+    "client_sha256": "32b21aa2db39b65895ef77ca50d75bda7b117be2082ab1681075ce054dd38995",
+    "server_bytes": 514,
+    "server_sha256": "721d314d049c5244e913e27290d5165945ffc8154a207635318074c0ad40529f",
+    "client_head": "54525450484f544c000100020000006b00000001",
+    "server_head": "5452545000000000000100000000000100000000"
+  },
+  "ns-control-client": {
+    "client_bytes": 150,
+    "client_sha256": "32b21aa2db39b65895ef77ca50d75bda7b117be2082ab1681075ce054dd38995",
+    "server_bytes": 514,
+    "server_sha256": "721d314d049c5244e913e27290d5165945ffc8154a207635318074c0ad40529f",
+    "client_head": "54525450484f544c000100020000006b00000001",
+    "server_head": "5452545000000000000100000000000100000000"
+  },
+  "ns-control-upstream": {
+    "client_bytes": 150,
+    "client_sha256": "32b21aa2db39b65895ef77ca50d75bda7b117be2082ab1681075ce054dd38995",
+    "server_bytes": 514,
+    "server_sha256": "721d314d049c5244e913e27290d5165945ffc8154a207635318074c0ad40529f",
+    "client_head": "54525450484f544c000100020000006b00000001",
+    "server_head": "5452545000000000000100000000000100000000"
+  },
+  "host-control": {
+    "client_bytes": 150,
+    "client_sha256": "32b21aa2db39b65895ef77ca50d75bda7b117be2082ab1681075ce054dd38995",
+    "server_bytes": 514,
+    "server_sha256": "721d314d049c5244e913e27290d5165945ffc8154a207635318074c0ad40529f",
+    "client_head": "54525450484f544c000100020000006b00000001",
+    "server_head": "5452545000000000000100000000000100000000"
+  },
+  "server-control": {
+    "client_bytes": 150,
+    "client_sha256": "32b21aa2db39b65895ef77ca50d75bda7b117be2082ab1681075ce054dd38995",
+    "server_bytes": 514,
+    "server_sha256": "721d314d049c5244e913e27290d5165945ffc8154a207635318074c0ad40529f",
+    "client_head": "54525450484f544c000100020000006b00000001",
+    "server_head": "5452545000000000000100000000000100000000"
+  },
+  "guest-data": {
+    "client_bytes": 16,
+    "client_sha256": "158ea35f92d31e94187bc345781df13162a5bdba2e75833f4cc790f079a20a83",
+    "server_bytes": 58,
+    "server_sha256": "77762dd10d7336ea93a61bedc230b2b5f1514449fb3bd7cb331af70fe79d0381",
+    "client_head": "48545846003f77290000000000020000",
+    "server_head": "47494638396101000100800000000000ffffff21"
+  },
+  "ns-data-client": {
+    "client_bytes": 16,
+    "client_sha256": "158ea35f92d31e94187bc345781df13162a5bdba2e75833f4cc790f079a20a83",
+    "server_bytes": 58,
+    "server_sha256": "77762dd10d7336ea93a61bedc230b2b5f1514449fb3bd7cb331af70fe79d0381",
+    "client_head": "48545846003f77290000000000020000",
+    "server_head": "47494638396101000100800000000000ffffff21"
+  },
+  "ns-data-upstream": {
+    "client_bytes": 16,
+    "client_sha256": "158ea35f92d31e94187bc345781df13162a5bdba2e75833f4cc790f079a20a83",
+    "server_bytes": 58,
+    "server_sha256": "77762dd10d7336ea93a61bedc230b2b5f1514449fb3bd7cb331af70fe79d0381",
+    "client_head": "48545846003f77290000000000020000",
+    "server_head": "47494638396101000100800000000000ffffff21"
+  },
+  "host-data": {
+    "client_bytes": 16,
+    "client_sha256": "158ea35f92d31e94187bc345781df13162a5bdba2e75833f4cc790f079a20a83",
+    "server_bytes": 58,
+    "server_sha256": "77762dd10d7336ea93a61bedc230b2b5f1514449fb3bd7cb331af70fe79d0381",
+    "client_head": "48545846003f77290000000000020000",
+    "server_head": "47494638396101000100800000000000ffffff21"
+  },
+  "server-data": {
+    "client_bytes": 16,
+    "client_sha256": "158ea35f92d31e94187bc345781df13162a5bdba2e75833f4cc790f079a20a83",
+    "server_bytes": 58,
+    "server_sha256": "77762dd10d7336ea93a61bedc230b2b5f1514449fb3bd7cb331af70fe79d0381",
+    "client_head": "48545846003f77290000000000020000",
+    "server_head": "47494638396101000100800000000000ffffff21"
+  }
+}

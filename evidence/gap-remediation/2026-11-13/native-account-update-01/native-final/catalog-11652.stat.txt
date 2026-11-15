@@ -1,0 +1,29 @@
+File Path: /Hotline19/Files/m-au26-seed-flush
+Catalog Record: 11652
+Allocated
+Type:	File
+Mode:	r---------
+Size:	13
+uid / gid: 99 / 99
+Link count:	1
+
+File Name: m-au26-seed-flush
+Admin flags: 0
+Owner flags: 0
+File type:	54455854  TEXT
+File creator:	4d4f5448  MOTH
+Text encoding:	0 = MacRoman
+Resource fork size:	0
+
+Times:
+Created:	2026-11-13 17:10:41 (GMT)
+Content Modified:	2026-11-13 17:10:43 (GMT)
+Attributes Modified:	0000-00-00 00:00:00 (UTC)
+Accessed:	0000-00-00 00:00:00 (UTC)
+Backed Up:	0000-00-00 00:00:00 (UTC)
+
+Data Fork Blocks:
+891332  
+
+Attributes: 
+Type: DATA (4352-0)   Name: N/A   Non-Resident   size: 13  init_size: 13

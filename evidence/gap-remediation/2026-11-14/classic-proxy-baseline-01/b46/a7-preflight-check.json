@@ -1,0 +1,21 @@
+{
+  "utc": "2026-11-14T00:32:30.916090+00:00",
+  "status": "completed",
+  "actions": 29,
+  "accounts": 2,
+  "files": 41,
+  "filp_bytes": 1049073,
+  "filp_sha256": "7d1f5bf5e2b69b8a18906633ce2ef550876b78252c0639e7d36eb61142787ab8",
+  "filp_equal_prior": true,
+  "static_frames_equal": [
+    4,
+    5,
+    6,
+    8,
+    10,
+    12,
+    16,
+    23,
+    27
+  ]
+}

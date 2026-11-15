@@ -1,0 +1,10 @@
+{
+  "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "query_count": 17,
+  "plans": [
+    "plans/attachment-timestamp-check.json",
+    "plans/pending-and-partial-input.json",
+    "plans/selection-and-transport-state.json"
+  ],
+  "method": "Read-only handshake/partial-frame/complete-request paths and transport wrappers; upload reference lookup and HTXF attachment assembly checked for timestamp writes. Boundaries and late-attachment examples are code-derived, not native timing fixtures. Original dispatcher and batch04/05 worker captures supply counter/timer context."
+}

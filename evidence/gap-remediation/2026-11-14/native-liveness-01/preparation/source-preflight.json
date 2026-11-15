@@ -1,0 +1,31 @@
+{
+  "utc": "2026-11-14T07:49:32.614966+00:00",
+  "source_base": {
+    "path": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/base.dsk",
+    "sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910",
+    "inode": 6189872880,
+    "size": 8388608000,
+    "mode": "0o444"
+  },
+  "source_rom": {
+    "path": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/rom",
+    "sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+    "inode": 6177692692,
+    "size": 1945746,
+    "mode": "0o644"
+  },
+  "target_absent": true,
+  "display117_socket_absent": true,
+  "ports_ss": "State Recv-Q Send-Q Local Address:Port Peer Address:Port\n",
+  "disk_free_bytes": 192402944000,
+  "proposed_command": [
+    "python3",
+    "scripts/mac_runtime.py",
+    "prepare",
+    "/data/leynos/Projects/mothra/state/mac-runtime/native-liveness-01",
+    "--rom",
+    "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/rom",
+    "--disk",
+    "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/base.dsk"
+  ]
+}

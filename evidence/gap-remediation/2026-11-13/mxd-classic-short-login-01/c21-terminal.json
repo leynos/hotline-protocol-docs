@@ -1,0 +1,7 @@
+{
+  "owned_pid": 2512715,
+  "pid_absent": true,
+  "properties": "ActiveState=inactive\nMainPID=0\nResult=success\nExecMainStatus=0\nControlGroup=\n",
+  "namespace_15650": "State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+  "scope": "Root stop after A24 client quit; no retry. A24 observation exceeded approved30s and remains a recorded deviation."
+}

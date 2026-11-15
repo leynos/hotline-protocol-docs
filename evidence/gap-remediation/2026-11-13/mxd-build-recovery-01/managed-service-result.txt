@@ -1,0 +1,27 @@
+User service launch (retained transient unit; no --collect):
+Running as unit: mxd-c2-gate-20261113-1540.service; invocation ID: 053b7e05a71541a6a9822312d4d8eddf
+
+Final unit properties:
+Id=mxd-c2-gate-20261113-1540.service
+ActiveState=failed
+SubState=failed
+InvocationID=053b7e05a71541a6a9822312d4d8eddf
+RuntimeMaxUSec=40min
+MainPID=0
+Result=exit-code
+ExecMainCode=1
+ExecMainStatus=2
+
+Focused unit journal:
+Nov 13 15:39:34 ibara systemd[447]: Started mxd-c2-gate-20261113-1540.service - [systemd-run] /usr/bin/bash /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/diagnostics/mxd-ui-target-02/run-full-gate.sh.
+Nov 13 15:39:47 ibara systemd[447]: mxd-c2-gate-20261113-1540.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+Nov 13 15:39:47 ibara systemd[447]: mxd-c2-gate-20261113-1540.service: Failed with result 'exit-code'.
+Nov 13 15:39:47 ibara systemd[447]: mxd-c2-gate-20261113-1540.service: Consumed 53.160s CPU time, 2.1G memory peak.
+
+First PostgreSQL phase result and failure (source log SHA256 ca4e23ed03cac10519e200496b0867bc2c913147d84ed14dc34fac73f51cd018):
+333:         FAIL [   3.136s] (110/544) mxd db::migrations::tests::migration_watchdog_cancels_work_and_reports_the_applied_timeout
+349:     cancelled work should time out: Ok(())
+385:      Summary [   5.967s] 141/544 tests run: 140 passed, 1 failed, 0 skipped
+386:         FAIL [   3.136s] (110/544) mxd db::migrations::tests::migration_watchdog_cancels_work_and_reports_the_applied_timeout
+387: warning: 403/544 tests were not run due to test failure (run with --no-fail-fast to run all tests, or run with --max-fail)
+389: make: *** [Makefile:322: test-postgres] Error 100

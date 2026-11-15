@@ -1,0 +1,1006 @@
+{
+  "protocol.md": [
+    {
+      "heading": "Hotline Server Protocol 1.9: Transactions and Functionality Guide",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 29,
+      "anchor": "hotline-server-protocol-19-transactions-and-functionality-guide"
+    },
+    {
+      "heading": "Binary Message Formats (Hotline Protocol 1.9)",
+      "level": 2,
+      "line_start": 30,
+      "line_end": 37,
+      "anchor": "binary-message-formats-hotline-protocol-19"
+    },
+    {
+      "heading": "1 Session-initialization handshake",
+      "level": 3,
+      "line_start": 38,
+      "line_end": 72,
+      "anchor": "1-session-initialization-handshake"
+    },
+    {
+      "heading": "2 General transaction frame",
+      "level": 3,
+      "line_start": 73,
+      "line_end": 97,
+      "anchor": "2-general-transaction-frame"
+    },
+    {
+      "heading": "2.1 Parameter list (payload block)",
+      "level": 4,
+      "line_start": 98,
+      "line_end": 141,
+      "anchor": "21-parameter-list-payload-block"
+    },
+    {
+      "heading": "2.2 Date parameters",
+      "level": 4,
+      "line_start": 142,
+      "line_end": 164,
+      "anchor": "22-date-parameters"
+    },
+    {
+      "heading": "3 Fragmentation rules",
+      "level": 3,
+      "line_start": 165,
+      "line_end": 192,
+      "anchor": "3-fragmentation-rules"
+    },
+    {
+      "heading": "4 Reply semantics",
+      "level": 3,
+      "line_start": 193,
+      "line_end": 214,
+      "anchor": "4-reply-semantics"
+    },
+    {
+      "heading": "5 Worked example (Login)",
+      "level": 3,
+      "line_start": 215,
+      "line_end": 249,
+      "anchor": "5-worked-example-login"
+    },
+    {
+      "heading": "6 Implementation checklist",
+      "level": 3,
+      "line_start": 250,
+      "line_end": 264,
+      "anchor": "6-implementation-checklist"
+    },
+    {
+      "heading": "User Login and Presence",
+      "level": 2,
+      "line_start": 265,
+      "line_end": 266,
+      "anchor": "user-login-and-presence"
+    },
+    {
+      "heading": "Session Handshake (Before Transactions Begin)",
+      "level": 3,
+      "line_start": 267,
+      "line_end": 274,
+      "anchor": "session-handshake-before-transactions-begin"
+    },
+    {
+      "heading": "Login (Transaction 107) \u2013 Client Initiates",
+      "level": 3,
+      "line_start": 275,
+      "line_end": 300,
+      "anchor": "login-transaction-107--client-initiates"
+    },
+    {
+      "heading": "Server Agreement (Transaction 109) \u2013 Server Initiates",
+      "level": 3,
+      "line_start": 301,
+      "line_end": 314,
+      "anchor": "server-agreement-transaction-109--server-initiates"
+    },
+    {
+      "heading": "Agreement Acceptance (Transaction 121) \u2013 Client Initiates",
+      "level": 3,
+      "line_start": 315,
+      "line_end": 337,
+      "anchor": "agreement-acceptance-transaction-121--client-initiates"
+    },
+    {
+      "heading": "Banner Metadata (Transaction 122) \u2013 Server Initiates",
+      "level": 3,
+      "line_start": 338,
+      "line_end": 352,
+      "anchor": "banner-metadata-transaction-122--server-initiates"
+    },
+    {
+      "heading": "User Access Privileges (Transaction 354) \u2013 Server Initiates",
+      "level": 3,
+      "line_start": 353,
+      "line_end": 361,
+      "anchor": "user-access-privileges-transaction-354--server-initiates"
+    },
+    {
+      "heading": "Access Privilege Bits (Field 110)",
+      "level": 4,
+      "line_start": 362,
+      "line_end": 400,
+      "anchor": "access-privilege-bits-field-110"
+    },
+    {
+      "heading": "Retrieving the User List (Transaction 300) \u2013 Client Initiates",
+      "level": 3,
+      "line_start": 401,
+      "line_end": 426,
+      "anchor": "retrieving-the-user-list-transaction-300--client-initiates"
+    },
+    {
+      "heading": "User Appearance and Updates (Transaction 301 & 302) \u2013 Server Initiates",
+      "level": 3,
+      "line_start": 427,
+      "line_end": 445,
+      "anchor": "user-appearance-and-updates-transaction-301--302--server-initiates"
+    },
+    {
+      "heading": "Viewing User Info (Transaction 303) \u2013 Client Initiates",
+      "level": 3,
+      "line_start": 446,
+      "line_end": 456,
+      "anchor": "viewing-user-info-transaction-303--client-initiates"
+    },
+    {
+      "heading": "Changing User Settings (Transaction 304) \u2013 Client Initiates",
+      "level": 3,
+      "line_start": 457,
+      "line_end": 470,
+      "anchor": "changing-user-settings-transaction-304--client-initiates"
+    },
+    {
+      "heading": "Chat (Public and Private Chat Rooms)",
+      "level": 2,
+      "line_start": 471,
+      "line_end": 472,
+      "anchor": "chat-public-and-private-chat-rooms"
+    },
+    {
+      "heading": "Sending a Chat Message (Transaction 105) \u2013 Client Initiates",
+      "level": 3,
+      "line_start": 473,
+      "line_end": 484,
+      "anchor": "sending-a-chat-message-transaction-105--client-initiates"
+    },
+    {
+      "heading": "Receiving a Chat Message (Transaction 106) \u2013 Server Initiates",
+      "level": 3,
+      "line_start": 485,
+      "line_end": 493,
+      "anchor": "receiving-a-chat-message-transaction-106--server-initiates"
+    },
+    {
+      "heading": "Joining a Chat Room (Transaction 115) \u2013 Client Initiates",
+      "level": 3,
+      "line_start": 494,
+      "line_end": 505,
+      "anchor": "joining-a-chat-room-transaction-115--client-initiates"
+    },
+    {
+      "heading": "Leaving a Chat Room (Transaction 116) \u2013 Client Initiates",
+      "level": 3,
+      "line_start": 506,
+      "line_end": 515,
+      "anchor": "leaving-a-chat-room-transaction-116--client-initiates"
+    },
+    {
+      "heading": "Chat Room Notifications (Transactions 117 & 118) \u2013 Server Initiates",
+      "level": 3,
+      "line_start": 516,
+      "line_end": 527,
+      "anchor": "chat-room-notifications-transactions-117--118--server-initiates"
+    },
+    {
+      "heading": "Chat Invitations (Transactions 112, 113, 114) \u2013 Private Chats",
+      "level": 3,
+      "line_start": 528,
+      "line_end": 547,
+      "anchor": "chat-invitations-transactions-112-113-114--private-chats"
+    },
+    {
+      "heading": "Chat Subject Management (Transactions 119 & 120)",
+      "level": 3,
+      "line_start": 548,
+      "line_end": 556,
+      "anchor": "chat-subject-management-transactions-119--120"
+    },
+    {
+      "heading": "Private Messaging (Instant Messages)",
+      "level": 2,
+      "line_start": 557,
+      "line_end": 558,
+      "anchor": "private-messaging-instant-messages"
+    },
+    {
+      "heading": "Sending an Instant Message (Transaction 108) \u2013 Client Initiates",
+      "level": 3,
+      "line_start": 559,
+      "line_end": 585,
+      "anchor": "sending-an-instant-message-transaction-108--client-initiates"
+    },
+    {
+      "heading": "Receiving a Private Message (Transaction 104) \u2013 Server Initiates",
+      "level": 3,
+      "line_start": 586,
+      "line_end": 598,
+      "anchor": "receiving-a-private-message-transaction-104--server-initiates"
+    },
+    {
+      "heading": "Legacy Message Board (Transactions 101, 102, 103)",
+      "level": 3,
+      "line_start": 599,
+      "line_end": 613,
+      "anchor": "legacy-message-board-transactions-101-102-103"
+    },
+    {
+      "heading": "File Services (Files and Folders)",
+      "level": 2,
+      "line_start": 614,
+      "line_end": 624,
+      "anchor": "file-services-files-and-folders"
+    },
+    {
+      "heading": "Listing Files in a Folder (Transaction 200) \u2013 Client Initiates",
+      "level": 3,
+      "line_start": 625,
+      "line_end": 637,
+      "anchor": "listing-files-in-a-folder-transaction-200--client-initiates"
+    },
+    {
+      "heading": "Downloading a File (Transaction 202) \u2013 Client Initiates",
+      "level": 3,
+      "line_start": 638,
+      "line_end": 655,
+      "anchor": "downloading-a-file-transaction-202--client-initiates"
+    },
+    {
+      "heading": "Uploading a File (Transaction 203) \u2013 Client Initiates",
+      "level": 3,
+      "line_start": 656,
+      "line_end": 668,
+      "anchor": "uploading-a-file-transaction-203--client-initiates"
+    },
+    {
+      "heading": "Deleting a File (Transaction 204) \u2013 Client Initiates",
+      "level": 3,
+      "line_start": 669,
+      "line_end": 679,
+      "anchor": "deleting-a-file-transaction-204--client-initiates"
+    },
+    {
+      "heading": "Creating a New Folder (Transaction 205) \u2013 Client Initiates",
+      "level": 3,
+      "line_start": 680,
+      "line_end": 690,
+      "anchor": "creating-a-new-folder-transaction-205--client-initiates"
+    },
+    {
+      "heading": "Getting File/Folder Info (Transaction 206) \u2013 Client Initiates",
+      "level": 3,
+      "line_start": 691,
+      "line_end": 705,
+      "anchor": "getting-filefolder-info-transaction-206--client-initiates"
+    },
+    {
+      "heading": "Setting File/Folder Info (Transaction 207) \u2013 Client Initiates",
+      "level": 3,
+      "line_start": 706,
+      "line_end": 718,
+      "anchor": "setting-filefolder-info-transaction-207--client-initiates"
+    },
+    {
+      "heading": "Moving Files/Folders (Transaction 208) \u2013 Client Initiates",
+      "level": 3,
+      "line_start": 719,
+      "line_end": 728,
+      "anchor": "moving-filesfolders-transaction-208--client-initiates"
+    },
+    {
+      "heading": "Creating an Alias (Shortcut) (Transaction 209) \u2013 Client Initiates",
+      "level": 3,
+      "line_start": 729,
+      "line_end": 738,
+      "anchor": "creating-an-alias-shortcut-transaction-209--client-initiates"
+    },
+    {
+      "heading": "Downloading an Entire Folder (Transaction 210) \u2013 Client Initiates",
+      "level": 3,
+      "line_start": 739,
+      "line_end": 754,
+      "anchor": "downloading-an-entire-folder-transaction-210--client-initiates"
+    },
+    {
+      "heading": "Uploading an Entire Folder (Transaction 213) \u2013 Client Initiates",
+      "level": 3,
+      "line_start": 755,
+      "line_end": 769,
+      "anchor": "uploading-an-entire-folder-transaction-213--client-initiates"
+    },
+    {
+      "heading": "Banner Download (Transaction 212) \u2013 Client Initiates",
+      "level": 3,
+      "line_start": 770,
+      "line_end": 782,
+      "anchor": "banner-download-transaction-212--client-initiates"
+    },
+    {
+      "heading": "Transfer Connection and Reference Cleanup",
+      "level": 3,
+      "line_start": 783,
+      "line_end": 800,
+      "anchor": "transfer-connection-and-reference-cleanup"
+    },
+    {
+      "heading": "News (Bulletin Board System)",
+      "level": 2,
+      "line_start": 801,
+      "line_end": 802,
+      "anchor": "news-bulletin-board-system"
+    },
+    {
+      "heading": "News Hierarchy",
+      "level": 3,
+      "line_start": 803,
+      "line_end": 811,
+      "anchor": "news-hierarchy"
+    },
+    {
+      "heading": "Listing News Categories (Transaction 370) \u2013 Client Initiates",
+      "level": 3,
+      "line_start": 812,
+      "line_end": 824,
+      "anchor": "listing-news-categories-transaction-370--client-initiates"
+    },
+    {
+      "heading": "Listing News Articles (Transaction 371) \u2013 Client Initiates",
+      "level": 3,
+      "line_start": 825,
+      "line_end": 835,
+      "anchor": "listing-news-articles-transaction-371--client-initiates"
+    },
+    {
+      "heading": "Reading a News Article (Transaction 400) \u2013 Client Initiates",
+      "level": 3,
+      "line_start": 836,
+      "line_end": 857,
+      "anchor": "reading-a-news-article-transaction-400--client-initiates"
+    },
+    {
+      "heading": "Posting a News Article (Transaction 410) \u2013 Client Initiates",
+      "level": 3,
+      "line_start": 858,
+      "line_end": 869,
+      "anchor": "posting-a-news-article-transaction-410--client-initiates"
+    },
+    {
+      "heading": "Deleting a News Article (Transaction 411) \u2013 Client Initiates",
+      "level": 3,
+      "line_start": 870,
+      "line_end": 880,
+      "anchor": "deleting-a-news-article-transaction-411--client-initiates"
+    },
+    {
+      "heading": "Managing News Structure (Transactions 380, 381, 382) \u2013 Client Initiates (Admin/Mods)",
+      "level": 3,
+      "line_start": 881,
+      "line_end": 895,
+      "anchor": "managing-news-structure-transactions-380-381-382--client-initiates-adminmods"
+    },
+    {
+      "heading": "Administrative Functions",
+      "level": 2,
+      "line_start": 896,
+      "line_end": 897,
+      "anchor": "administrative-functions"
+    },
+    {
+      "heading": "User Account Management \u2013 Client Initiates (Admin) (Tx 350\u2013353)",
+      "level": 3,
+      "line_start": 898,
+      "line_end": 931,
+      "anchor": "user-account-management--client-initiates-admin-tx-350353"
+    },
+    {
+      "heading": "Disconnecting a User (Transaction 110 & 111) \u2013 Admin/Server Use",
+      "level": 3,
+      "line_start": 932,
+      "line_end": 953,
+      "anchor": "disconnecting-a-user-transaction-110--111--adminserver-use"
+    },
+    {
+      "heading": "Broadcasting a Message (Transaction 355) \u2013 Admin/Server Initiated",
+      "level": 3,
+      "line_start": 954,
+      "line_end": 968,
+      "anchor": "broadcasting-a-message-transaction-355--adminserver-initiated"
+    },
+    {
+      "heading": "Additional Admin Privileges Note",
+      "level": 3,
+      "line_start": 969,
+      "line_end": 977,
+      "anchor": "additional-admin-privileges-note"
+    },
+    {
+      "heading": "Additional Observed Requests and Scope Gaps",
+      "level": 2,
+      "line_start": 978,
+      "line_end": 1015,
+      "anchor": "additional-observed-requests-and-scope-gaps"
+    },
+    {
+      "heading": "References and Correction Traceability",
+      "level": 2,
+      "line_start": 1016,
+      "line_end": 1051,
+      "anchor": "references-and-correction-traceability"
+    }
+  ],
+  "internal-compatibility-matrix.md": [
+    {
+      "heading": "Internal compatibility matrix (Hotline and SynHX)",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 14,
+      "anchor": "internal-compatibility-matrix-hotline-and-synhx"
+    },
+    {
+      "heading": "Scope and status labels",
+      "level": 2,
+      "line_start": 15,
+      "line_end": 33,
+      "anchor": "scope-and-status-labels"
+    },
+    {
+      "heading": "Compatibility matrix",
+      "level": 2,
+      "line_start": 34,
+      "line_end": 54,
+      "anchor": "compatibility-matrix"
+    },
+    {
+      "heading": "Login reply and banner policy",
+      "level": 2,
+      "line_start": 55,
+      "line_end": 78,
+      "anchor": "login-reply-and-banner-policy"
+    },
+    {
+      "heading": "Credential obfuscation and text compatibility",
+      "level": 2,
+      "line_start": 79,
+      "line_end": 101,
+      "anchor": "credential-obfuscation-and-text-compatibility"
+    },
+    {
+      "heading": "Repeated fields and presence records",
+      "level": 2,
+      "line_start": 102,
+      "line_end": 133,
+      "anchor": "repeated-fields-and-presence-records"
+    },
+    {
+      "heading": "Historical reported mxd test coverage",
+      "level": 2,
+      "line_start": 134,
+      "line_end": 161,
+      "anchor": "historical-reported-mxd-test-coverage"
+    },
+    {
+      "heading": "mxd review at 2e4c9c1",
+      "level": 2,
+      "line_start": 162,
+      "line_end": 184,
+      "anchor": "mxd-review-at-2e4c9c1"
+    },
+    {
+      "heading": "Assertions requiring protocol reconciliation",
+      "level": 3,
+      "line_start": 185,
+      "line_end": 200,
+      "anchor": "assertions-requiring-protocol-reconciliation"
+    },
+    {
+      "heading": "Exact current text heuristic",
+      "level": 3,
+      "line_start": 201,
+      "line_end": 221,
+      "anchor": "exact-current-text-heuristic"
+    },
+    {
+      "heading": "Proof and QA limits",
+      "level": 3,
+      "line_start": 222,
+      "line_end": 236,
+      "anchor": "proof-and-qa-limits"
+    },
+    {
+      "heading": "Historical source lineage and build limits",
+      "level": 2,
+      "line_start": 237,
+      "line_end": 254,
+      "anchor": "historical-source-lineage-and-build-limits"
+    },
+    {
+      "heading": "Open compatibility gaps and QA requirements",
+      "level": 2,
+      "line_start": 255,
+      "line_end": 287,
+      "anchor": "open-compatibility-gaps-and-qa-requirements"
+    }
+  ],
+  "baseline-correction-map.md": [
+    {
+      "heading": "Baseline correction map",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 112,
+      "anchor": "baseline-correction-map"
+    }
+  ],
+  "native-wire-details.md": [
+    {
+      "heading": "Hotline 1.9 native wire details",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 8,
+      "anchor": "hotline-19-native-wire-details"
+    },
+    {
+      "heading": "Parameter parsing and scalar access",
+      "level": 2,
+      "line_start": 9,
+      "line_end": 35,
+      "anchor": "parameter-parsing-and-scalar-access"
+    },
+    {
+      "heading": "Credential bytes, lookup and account updates",
+      "level": 2,
+      "line_start": 36,
+      "line_end": 55,
+      "anchor": "credential-bytes-lookup-and-account-updates"
+    },
+    {
+      "heading": "Account record and field schema",
+      "level": 3,
+      "line_start": 56,
+      "line_end": 93,
+      "anchor": "account-record-and-field-schema"
+    },
+    {
+      "heading": "Login lookup transformations",
+      "level": 3,
+      "line_start": 94,
+      "line_end": 108,
+      "anchor": "login-lookup-transformations"
+    },
+    {
+      "heading": "Changes to connected accounts",
+      "level": 3,
+      "line_start": 109,
+      "line_end": 118,
+      "anchor": "changes-to-connected-accounts"
+    },
+    {
+      "heading": "Structured file paths and file-list entries",
+      "level": 2,
+      "line_start": 119,
+      "line_end": 160,
+      "anchor": "structured-file-paths-and-file-list-entries"
+    },
+    {
+      "heading": "Privilege access and connection timers",
+      "level": 2,
+      "line_start": 161,
+      "line_end": 206,
+      "anchor": "privilege-access-and-connection-timers"
+    }
+  ],
+  "operation-contracts.md": [
+    {
+      "heading": "Native operation and session dispatch contracts",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 8,
+      "anchor": "native-operation-and-session-dispatch-contracts"
+    },
+    {
+      "heading": "Session eligibility and invalid transitions",
+      "level": 2,
+      "line_start": 9,
+      "line_end": 29,
+      "anchor": "session-eligibility-and-invalid-transitions"
+    },
+    {
+      "heading": "Request catalogue",
+      "level": 2,
+      "line_start": 30,
+      "line_end": 86,
+      "anchor": "request-catalogue"
+    },
+    {
+      "heading": "Server notification catalogue",
+      "level": 2,
+      "line_start": 87,
+      "line_end": 111,
+      "anchor": "server-notification-catalogue"
+    },
+    {
+      "heading": "Frame acceptance and reassembly boundaries",
+      "level": 2,
+      "line_start": 112,
+      "line_end": 134,
+      "anchor": "frame-acceptance-and-reassembly-boundaries"
+    },
+    {
+      "heading": "Administrative account list and batch mutation",
+      "level": 2,
+      "line_start": 135,
+      "line_end": 165,
+      "anchor": "administrative-account-list-and-batch-mutation"
+    }
+  ],
+  "transfer-contracts.md": [
+    {
+      "heading": "Native transfer contracts",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 8,
+      "anchor": "native-transfer-contracts"
+    },
+    {
+      "heading": "HTXF connection header and dispatch",
+      "level": 2,
+      "line_start": 9,
+      "line_end": 47,
+      "anchor": "htxf-connection-header-and-dispatch"
+    },
+    {
+      "heading": "Reference allocation and request 214",
+      "level": 2,
+      "line_start": 48,
+      "line_end": 76,
+      "anchor": "reference-allocation-and-request-214"
+    },
+    {
+      "heading": "Resume data: RFLT",
+      "level": 2,
+      "line_start": 77,
+      "line_end": 111,
+      "anchor": "resume-data-rflt"
+    },
+    {
+      "heading": "Flattened ordinary-file stream",
+      "level": 2,
+      "line_start": 112,
+      "line_end": 141,
+      "anchor": "flattened-ordinary-file-stream"
+    },
+    {
+      "heading": "INFO metadata value",
+      "level": 3,
+      "line_start": 142,
+      "line_end": 164,
+      "anchor": "info-metadata-value"
+    },
+    {
+      "heading": "Upload consumption and completion",
+      "level": 3,
+      "line_start": 165,
+      "line_end": 181,
+      "anchor": "upload-consumption-and-completion"
+    },
+    {
+      "heading": "Queue notification 211",
+      "level": 2,
+      "line_start": 182,
+      "line_end": 197,
+      "anchor": "queue-notification-211"
+    },
+    {
+      "heading": "Banner bytes and worker timers",
+      "level": 2,
+      "line_start": 198,
+      "line_end": 219,
+      "anchor": "banner-bytes-and-worker-timers"
+    },
+    {
+      "heading": "Folder-download control states",
+      "level": 2,
+      "line_start": 220,
+      "line_end": 248,
+      "anchor": "folder-download-control-states"
+    },
+    {
+      "heading": "Folder-upload control states",
+      "level": 2,
+      "line_start": 249,
+      "line_end": 285,
+      "anchor": "folder-upload-control-states"
+    }
+  ],
+  "news-contracts.md": [
+    {
+      "heading": "Native nested news contracts",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 7,
+      "anchor": "native-nested-news-contracts"
+    },
+    {
+      "heading": "Category-list variants",
+      "level": 2,
+      "line_start": 8,
+      "line_end": 55,
+      "anchor": "category-list-variants"
+    },
+    {
+      "heading": "Article-list field 321",
+      "level": 2,
+      "line_start": 56,
+      "line_end": 102,
+      "anchor": "article-list-field-321"
+    },
+    {
+      "heading": "Reading bodies and navigation",
+      "level": 2,
+      "line_start": 103,
+      "line_end": 120,
+      "anchor": "reading-bodies-and-navigation"
+    },
+    {
+      "heading": "News dates",
+      "level": 2,
+      "line_start": 121,
+      "line_end": 128,
+      "anchor": "news-dates"
+    },
+    {
+      "heading": "Posting, partial effects and deletion",
+      "level": 2,
+      "line_start": 129,
+      "line_end": 159,
+      "anchor": "posting-partial-effects-and-deletion"
+    },
+    {
+      "heading": "Scope of hierarchy evidence",
+      "level": 2,
+      "line_start": 160,
+      "line_end": 171,
+      "anchor": "scope-of-hierarchy-evidence"
+    }
+  ],
+  "presence-messaging-contracts.md": [
+    {
+      "heading": "Native presence, messaging and administration contracts",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 7,
+      "anchor": "native-presence-messaging-and-administration-contracts"
+    },
+    {
+      "heading": "Settings and login visibility",
+      "level": 2,
+      "line_start": 8,
+      "line_end": 44,
+      "anchor": "settings-and-login-visibility"
+    },
+    {
+      "heading": "Agreement and banner condition tables",
+      "level": 2,
+      "line_start": 45,
+      "line_end": 66,
+      "anchor": "agreement-and-banner-condition-tables"
+    },
+    {
+      "heading": "Status word, separate from the privilege bitmap",
+      "level": 2,
+      "line_start": 67,
+      "line_end": 88,
+      "anchor": "status-word-separate-from-the-privilege-bitmap"
+    },
+    {
+      "heading": "Disconnect teardown and notification 302",
+      "level": 2,
+      "line_start": 89,
+      "line_end": 105,
+      "anchor": "disconnect-teardown-and-notification-302"
+    },
+    {
+      "heading": "Private-message routing",
+      "level": 2,
+      "line_start": 106,
+      "line_end": 146,
+      "anchor": "private-message-routing"
+    },
+    {
+      "heading": "Rooms, invitations and subjects",
+      "level": 2,
+      "line_start": 147,
+      "line_end": 182,
+      "anchor": "rooms-invitations-and-subjects"
+    },
+    {
+      "heading": "Kick options and native console messages",
+      "level": 2,
+      "line_start": 183,
+      "line_end": 214,
+      "anchor": "kick-options-and-native-console-messages"
+    }
+  ],
+  "core-field-schemas.md": [
+    {
+      "heading": "Core transaction field schemas",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 8,
+      "anchor": "core-transaction-field-schemas"
+    },
+    {
+      "heading": "Types, occurrence and direction conventions",
+      "level": 2,
+      "line_start": 9,
+      "line_end": 33,
+      "anchor": "types-occurrence-and-direction-conventions"
+    },
+    {
+      "heading": "Login and settings requests",
+      "level": 2,
+      "line_start": 34,
+      "line_end": 55,
+      "anchor": "login-and-settings-requests"
+    },
+    {
+      "heading": "Login and presence outputs",
+      "level": 2,
+      "line_start": 56,
+      "line_end": 68,
+      "anchor": "login-and-presence-outputs"
+    },
+    {
+      "heading": "Chat, PM and room requests",
+      "level": 2,
+      "line_start": 69,
+      "line_end": 86,
+      "anchor": "chat-pm-and-room-requests"
+    },
+    {
+      "heading": "Room and message outputs",
+      "level": 2,
+      "line_start": 87,
+      "line_end": 105,
+      "anchor": "room-and-message-outputs"
+    }
+  ],
+  "session-transport-contracts.md": [
+    {
+      "heading": "Native session and transport contracts",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 7,
+      "anchor": "native-session-and-transport-contracts"
+    },
+    {
+      "heading": "Configured endpoints",
+      "level": 2,
+      "line_start": 8,
+      "line_end": 33,
+      "anchor": "configured-endpoints"
+    },
+    {
+      "heading": "Handshake consumption and failures",
+      "level": 2,
+      "line_start": 34,
+      "line_end": 53,
+      "anchor": "handshake-consumption-and-failures"
+    },
+    {
+      "heading": "Sub-version 3 versus the data endpoint",
+      "level": 3,
+      "line_start": 54,
+      "line_end": 74,
+      "anchor": "sub-version-3-versus-the-data-endpoint"
+    },
+    {
+      "heading": "Receive-limit assignment at startup",
+      "level": 2,
+      "line_start": 75,
+      "line_end": 89,
+      "anchor": "receive-limit-assignment-at-startup"
+    },
+    {
+      "heading": "Identifier domains",
+      "level": 2,
+      "line_start": 90,
+      "line_end": 106,
+      "anchor": "identifier-domains"
+    }
+  ],
+  "filesystem-and-board-contracts.md": [
+    {
+      "heading": "Native filesystem, diagnostics and legacy-board contracts",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 7,
+      "anchor": "native-filesystem-diagnostics-and-legacy-board-contracts"
+    },
+    {
+      "heading": "File-info target kinds and field presence",
+      "level": 2,
+      "line_start": 8,
+      "line_end": 28,
+      "anchor": "file-info-target-kinds-and-field-presence"
+    },
+    {
+      "heading": "Delete, create, rename, comment, move and alias",
+      "level": 2,
+      "line_start": 29,
+      "line_end": 58,
+      "anchor": "delete-create-rename-comment-move-and-alias"
+    },
+    {
+      "heading": "Request 207 presence and mutation order",
+      "level": 3,
+      "line_start": 59,
+      "line_end": 83,
+      "anchor": "request-207-presence-and-mutation-order"
+    },
+    {
+      "heading": "Move and alias distinctions",
+      "level": 3,
+      "line_start": 84,
+      "line_end": 102,
+      "anchor": "move-and-alias-distinctions"
+    },
+    {
+      "heading": "Legacy board 101/102/103",
+      "level": 2,
+      "line_start": 103,
+      "line_end": 127,
+      "anchor": "legacy-board-101102103"
+    },
+    {
+      "heading": "Diagnostic text 303",
+      "level": 2,
+      "line_start": 128,
+      "line_end": 142,
+      "anchor": "diagnostic-text-303"
+    }
+  ],
+  "evidence-portability.md": [
+    {
+      "heading": "Reproducing the protocol evidence baseline",
+      "level": 1,
+      "line_start": 1,
+      "line_end": 8,
+      "anchor": "reproducing-the-protocol-evidence-baseline"
+    },
+    {
+      "heading": "Build a revision-pinned package",
+      "level": 2,
+      "line_start": 9,
+      "line_end": 29,
+      "anchor": "build-a-revision-pinned-package"
+    },
+    {
+      "heading": "Verify and extract elsewhere",
+      "level": 2,
+      "line_start": 30,
+      "line_end": 55,
+      "anchor": "verify-and-extract-elsewhere"
+    },
+    {
+      "heading": "Updating evidence without rewriting history",
+      "level": 2,
+      "line_start": 56,
+      "line_end": 69,
+      "anchor": "updating-evidence-without-rewriting-history"
+    }
+  ]
+}

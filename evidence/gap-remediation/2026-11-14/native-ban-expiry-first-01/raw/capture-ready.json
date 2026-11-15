@@ -1,0 +1,96 @@
+{
+  "source_a7_sha256": "5d0aa3dccf65fc6523678aa729c9ace72cd6caffbef768b7f5bf949e6568b43e",
+  "fixture_profile": "control-only",
+  "full_file_baseline": "not_exercised",
+  "emulator_pid": 774195,
+  "emulator_starttime": "5983214",
+  "emulator_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "emulator_netns": "net:[4026533397]",
+  "emulator_netns_inode": 4026533397,
+  "owned_working_image": "/data/leynos/Projects/mothra/state/mac-runtime/native-ban-expiry-01/working.dsk",
+  "owned_working_image_inode": 3290756512,
+  "owned_runtime": "/data/leynos/Projects/mothra/state/mac-runtime/native-ban-expiry-01",
+  "source_base_sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910",
+  "rom_sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+  "native_data_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "utc": "2026-11-14T05:48:27.560949+00:00",
+  "epoch_started_utc": "2026-11-14T05:44:51+00:00",
+  "deadline_utc": "2026-11-14T05:56:51+00:00",
+  "oracle_lock": "/data/leynos/Projects/mothra/state/delegation/oracle.lock",
+  "managed_lock": {
+    "unit": "mothra-native-expiry-c75-lease.service",
+    "pid": 772927,
+    "start": "5979645",
+    "fd": 3,
+    "lock_inode": 3512552451,
+    "busy_exit": 1,
+    "uid": "Uid:\t1000\t1000\t1000\t1000",
+    "unit_properties": {
+      "ActiveState": "active",
+      "SubState": "running",
+      "ActiveEnterTimestampMonotonic": "59796458980",
+      "RuntimeMaxUSec": "15min",
+      "MainPID": "772927",
+      "KillMode": "control-group"
+    }
+  },
+  "managed_capture": {
+    "host": {
+      "utc": "2026-11-14T05:49:54.331927+00:00",
+      "unit": "mothra-native-expiry-c75-host.service",
+      "pid": 773908,
+      "start_ticks": 5982614,
+      "netns_inode": 4026531840,
+      "fd": 5,
+      "capture": "/data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-first-01/primary-syn.pcap",
+      "dev": 2097,
+      "inode": 5973038333,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-14T05:56:51+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "59826146988",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "773908",
+        "KillMode": "control-group"
+      }
+    },
+    "namespace": {
+      "utc": "2026-11-14T05:49:54.495916+00:00",
+      "unit": "mothra-native-expiry-c75-namespace.service",
+      "pid": 775272,
+      "start_ticks": 5985558,
+      "netns_inode": 4026533397,
+      "fd": 5,
+      "capture": "/data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-first-01/lab-namespace.pcap",
+      "dev": 2097,
+      "inode": 5973039106,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-14T05:56:51+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "59855605912",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "775272",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "host_pcap": "/data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-first-01/primary-syn.pcap",
+  "namespace_pcap": "/data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-first-01/lab-namespace.pcap",
+  "guest_pcap": "/data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-first-01/lab-guest.pcap",
+  "host_recorder_pid": 773908,
+  "host_recorder_starttime": 5982614,
+  "namespace_recorder_pid": 775272,
+  "namespace_recorder_starttime": 5985558,
+  "primary_syn_count": 0,
+  "ns_routes": [],
+  "source_failures": [
+    "C35",
+    "C45",
+    "C50"
+  ],
+  "runtime_mode": "first epoch read-only readiness"
+}

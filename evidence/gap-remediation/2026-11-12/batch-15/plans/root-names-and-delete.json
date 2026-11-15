@@ -1,0 +1,18 @@
+[
+  {
+    "id": "B15-M-account-roots",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "1008f900",
+      "length": 20
+    }
+  },
+  {
+    "id": "B15-A-10007340",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "10007340",
+      "limit": 160
+    }
+  }
+]

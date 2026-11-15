@@ -1,0 +1,21 @@
+{
+  "command": [
+    "python3",
+    "/data/leynos/Projects/hotline-protocol-docs/scripts/verify_native_configured_ban.py",
+    "/data/leynos/Projects/mothra/evidence/gap-remediation/2026-11-14/native-configured-ban-01"
+  ],
+  "exit_code": 0,
+  "stdout": {
+    "status": "verified_control_only_connected_configured_ban_notice",
+    "full_file_baseline": "not_exercised",
+    "primary_syn": 0,
+    "lab_retired": true,
+    "connections": 5,
+    "namespace_packets": 105,
+    "guest_packets": 128,
+    "ban_bytes": 49,
+    "ban_sha256": "671c8164c116d26cf5bb863ba87b93174f81b1a59abb208491b57f9d41a87aa1",
+    "stopped_image_sha256": "bd8ddf219f75118eda91cbfd0e2dd5dc133534840bd587a58b483e4e6410f499"
+  },
+  "stderr": ""
+}

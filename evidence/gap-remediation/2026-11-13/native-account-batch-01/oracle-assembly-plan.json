@@ -1,0 +1,10 @@
+[
+  {
+    "id": "BA-A-10015500",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "10015500",
+      "limit": 2000
+    }
+  }
+]

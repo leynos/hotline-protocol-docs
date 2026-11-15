@@ -1,0 +1,142 @@
+{
+  "absent": {
+    "status": "paired-with-retained-tails",
+    "connections": 2,
+    "tails": {
+      "main": {
+        "host_hex": "0000012e000000060000000000000008000000080001006700020016",
+        "guest_hex": "0000012e000000060000000000000008000000080001006700020016"
+      },
+      "subject": {
+        "host_hex": "",
+        "guest_hex": ""
+      }
+    }
+  },
+  "duplicate-auto-refuse": {
+    "status": "paired-with-retained-tails",
+    "connections": 2,
+    "tails": {
+      "main": {
+        "host_hex": "0000012e000000070000000000000008000000080001006700020028",
+        "guest_hex": "0000012e000000070000000000000008000000080001006700020028"
+      },
+      "subject": {
+        "host_hex": "",
+        "guest_hex": ""
+      }
+    }
+  },
+  "duplicate-refuse-auto": {
+    "status": "paired-with-retained-tails",
+    "connections": 2,
+    "tails": {
+      "main": {
+        "host_hex": "0000012e000000070000000000000008000000080001006700020026",
+        "guest_hex": "0000012e000000070000000000000008000000080001006700020026"
+      },
+      "subject": {
+        "host_hex": "",
+        "guest_hex": ""
+      }
+    }
+  },
+  "empty": {
+    "status": "paired-with-retained-tails",
+    "connections": 2,
+    "tails": {
+      "main": {
+        "host_hex": "0000012e000000060000000000000008000000080001006700020018",
+        "guest_hex": "0000012e000000060000000000000008000000080001006700020018"
+      },
+      "subject": {
+        "host_hex": "",
+        "guest_hex": ""
+      }
+    }
+  },
+  "five-byte-prefix": {
+    "status": "paired-with-retained-tails",
+    "connections": 2,
+    "tails": {
+      "main": {
+        "host_hex": "0000012e000000070000000000000008000000080001006700020024",
+        "guest_hex": "0000012e000000070000000000000008000000080001006700020024"
+      },
+      "subject": {
+        "host_hex": "",
+        "guest_hex": ""
+      }
+    }
+  },
+  "four-byte-both": {
+    "status": "paired-with-retained-tails",
+    "connections": 2,
+    "tails": {
+      "main": {
+        "host_hex": "0000012e000000070000000000000008000000080001006700020022",
+        "guest_hex": "0000012e000000070000000000000008000000080001006700020022"
+      },
+      "subject": {
+        "host_hex": "",
+        "guest_hex": ""
+      }
+    }
+  },
+  "one-byte-refuse": {
+    "status": "paired-with-retained-tails",
+    "connections": 2,
+    "tails": {
+      "main": {
+        "host_hex": "0000012e00000007000000000000000800000008000100670002001c",
+        "guest_hex": "0000012e00000007000000000000000800000008000100670002001c"
+      },
+      "subject": {
+        "host_hex": "",
+        "guest_hex": ""
+      }
+    }
+  },
+  "three-byte-default": {
+    "status": "paired-with-retained-tails",
+    "connections": 2,
+    "tails": {
+      "main": {
+        "host_hex": "",
+        "guest_hex": ""
+      },
+      "subject": {
+        "host_hex": "",
+        "guest_hex": ""
+      }
+    }
+  },
+  "two-byte-auto": {
+    "status": "paired-with-retained-tails",
+    "connections": 2,
+    "tails": {
+      "main": {
+        "host_hex": "0000012e00000007000000000000000800000008000100670002001e",
+        "guest_hex": "0000012e00000007000000000000000800000008000100670002001e"
+      },
+      "subject": {
+        "host_hex": "",
+        "guest_hex": ""
+      }
+    }
+  },
+  "zero-two": {
+    "status": "paired-with-retained-tails",
+    "connections": 2,
+    "tails": {
+      "main": {
+        "host_hex": "0000012e00000006000000000000000800000008000100670002001a",
+        "guest_hex": "0000012e00000006000000000000000800000008000100670002001a"
+      },
+      "subject": {
+        "host_hex": "",
+        "guest_hex": ""
+      }
+    }
+  }
+}

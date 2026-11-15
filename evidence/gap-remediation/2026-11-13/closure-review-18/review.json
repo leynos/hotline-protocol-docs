@@ -1,0 +1,51 @@
+{
+  "reviews": [
+    {
+      "gap_id": "GAP-048",
+      "status": "Resolved",
+      "unchanged_closure_criterion": "Specify the nested record grammar and listing order with file/folder/alias/non-ASCII/empty/multiple-entry fixtures.",
+      "requirements": [
+        {
+          "requirement": "Nested record grammar",
+          "evidence": "Native200 emitter100055a0 writes type4/creator4/value4/zero4/zero2/name_length2/namebytes, exact20+n; cache padding is not copied. All captured listing records and paired streams are checked."
+        },
+        {
+          "requirement": "Metadata/tag meanings, size widths and entry kinds",
+          "evidence": "Ordinary16DATA+317MACR emits333 asBE32; directories emitfldr/zero creator/immediatevalence; livefile/folder aliases expose resolvedmetadata; unattachedself emitsalis/zero/zero despitephysicalDATA/resource. Zero/unknown tags remainbinaryvalues."
+        },
+        {
+          "requirement": "Listing order",
+          "evidence": "Fresh1002cb20 query showsPBGetCatInfoSync positiveindex enumeration;1002ce00 walksappendcache and100055a0 emitswithoutsort. Exactroot15entry order,A/Bdir,file andDderived/highbyte sequences are checked. Noportablecomparator is inferred."
+        },
+        {
+          "requirement": "File/folder/alias/nonASCII/empty/multiple fixtures",
+          "evidence": "Nativealias01 hasemptyA beforefirstalias, ordinaryrootentries,livefile/folderaliases,chains,cyclicunattachedself,highbyte9a,zero/unknowntags andmulti-entryviews. Native-mkdir01 addsNUL/controlnames. Bothpacketboundaries matchallrecordbytes."
+        }
+      ]
+    },
+    {
+      "gap_id": "GAP-049",
+      "status": "Resolved",
+      "unchanged_closure_criterion": "Publish a target-kind/field-presence/type matrix with representative metadata and empty/unknown-value cases.",
+      "requirements": [
+        {
+          "requirement": "Target-kind/field-presence/type matrix",
+          "evidence": "Filesystem supplement maps classifierkinds2/3/4/5/6 toexact205/206/213,201,207,date208/209 andcomment210 presence. Eleven captured206cases plusdirectorycommentset/clear exerciseordinaryfile/folder,file/folderalias,chains,derivedname andunattachedself."
+        },
+        {
+          "requirement": "Representative metadata and widths",
+          "evidence": "TEXT/MOTH ordinary16+317fixture hasTextFile and207014d; filealiases exposeTEXT(alias),resolvedsize/dates/comment;folderaliases exposeFolderAlias/fldr/n/a,no207. Datesareeightbytes;sharedintegerwriterlargerwidthbranches remainseparately documented."
+        },
+        {
+          "requirement": "Empty/unknown values and special items",
+          "evidence": "Emptyfile includes2070000 butomits210;zero-tagfile preservesfourzerobytes in205/206/213;unknownXxYz/ZzQq retainsrawtags andcomment. Unattachedself includesonly201/205/206/213,omitting207/208/209/210 despitephysicaldata. Thisdoesnotclaimactualdeletedtarget."
+        },
+        {
+          "requirement": "Independent evidence",
+          "evidence": "45rawreportsretain44completedandonefailedEOF;66socketlifetimesmatchhost/guestpackets. Positivephysicalaliasflags,alisID0resources,preservedcollisionDATAandordinarychildrenarechecked.14oraclequeriesidentitychecked;14newregressionsrejectplausiblemisinterpretations."
+        }
+      ]
+    }
+  ],
+  "scope": "Close original048recordgrammar/order/fixture and049kind/presence/metadata criteria only. Preserve054genuinedeletedtarget,047othergrammars/containment,052partialupdates,050deletefailures,064completion andallotheroriginalcriteria. PartialTrashsnapshot is notcompletepersistenceproof."
+}

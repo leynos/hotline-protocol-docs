@@ -1,0 +1,31 @@
+B46/B47 controlled baseline commands, 2026-11-14 UTC.
+These are operator-transcribed commands; exact raw output is in retained reports/PCAPs.
+The systemd service used the tracked proxy with SHA-256
+44bb68fe0bc464874aa455e823ca08b00704b88f5064d776119fcaf0682a5c7e.
+
+For each run, before A7 and before launching Classic:
+  timeout --signal=INT --kill-after=5s 900s sudo -n tcpdump -i lo -s 0 -U -w RUN/host.pcap '(tcp port 15500 or tcp port 15501)'
+  timeout --signal=INT --kill-after=5s 900s sudo -n nsenter -t 1012834 -n tcpdump -i lo -s 0 -U -w RUN/namespace.pcap '(tcp port 15652 or tcp port 15653 or tcp port 15500 or tcp port 15501)'
+  cp state/native-sessions/mac-peer-isolated-01/client-guest.pcap RUN/client-guest-pre.pcap
+  cp state/native-sessions/recovery-20261113-01/guest.pcap RUN/server-guest-pre.pcap
+  flock -n state/delegation/oracle.lock timeout --signal=TERM --kill-after=5s 180s python3 ../hotline-protocol-docs/scripts/protocol_capture.py capture state/native-sessions/native-proxy-baseline-b42/a7-preflight-plan.json --oracle-binary evidence/hotline-server-1.9/inputs/HLserver19.pef --output RUN/a7-preflight
+
+Once the UI had exact 10.0.2.2:15652, admin, masked eight-character fixture password:
+  sudo -n systemd-run --unit=mothra-classic-proxy-RUN --property=Type=exec --property=User=1000 --property=Group=1000 --property=NetworkNamespacePath=/proc/1012834/ns/net --property=RuntimeMaxSec=180s --property=RemainAfterExit=yes --property=Restart=no --no-block /usr/bin/python3 /data/leynos/Projects/hotline-protocol-docs/scripts/classic_login_proxy.py --variant baseline --output RUN/proxy --expected-netns-inode 4026532479 --host-netns-inode 4026531840
+  python3 state/native-sessions/native-proxy-baseline-b31/x11_input.as-run.py.txt key Return
+
+B46 Return 00:34:36 UTC. Known agreement was visible, but attempted Agree
+00:35:19 UTC followed the independent ACK+28-second cutoff and did not
+produce a client 121. App quit and proxy/recorders stopped.
+B47 Return 00:43:20 UTC; one known agreement Agree 00:43:31 UTC. App
+reached one-user roster. Independent ACK+28-second cutoff followed.
+App quit and proxy stopped. Exact A7 postflight ran while both recorders
+were still active; then recorders stopped and guest post snapshots taken.
+
+For each run after closing the owned client connection:
+  flock -n state/delegation/oracle.lock timeout --signal=TERM --kill-after=5s 180s python3 ../hotline-protocol-docs/scripts/protocol_capture.py capture state/native-sessions/native-proxy-baseline-b42/a7-preflight-plan.json --oracle-binary evidence/hotline-server-1.9/inputs/HLserver19.pef --output RUN/a7-postflight
+
+RUN denotes ignored canonical state/native-sessions/native-proxy-baseline-b46
+or -b47; it is a placeholder in this transcription, not an executable
+variable. Capture files here are full copies, including setup/postflight
+traffic and terminal packets. Manifest source paths and hashes pin code.

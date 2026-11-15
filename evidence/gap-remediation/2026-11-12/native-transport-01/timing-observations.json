@@ -1,0 +1,18 @@
+{
+  "baseline65": {
+    "capture_status": "failed",
+    "client_port": 58680,
+    "port_identification": "Derived unique guest SYN within250ms of report UTC end minus monotonic duration; old recorder lacked socket address metadata",
+    "guest_silence_after_reply_seconds": 65.060281,
+    "guest_close_before_client_cleanup": false
+  },
+  "isolated35_then_connection": {
+    "capture_status": "completed",
+    "main_client_port": 55176,
+    "tick_client_port": 56790,
+    "quiet_event_elapsed_seconds": 35.296851875,
+    "guest_reset_after_tick_syn_ms": 92.254,
+    "reset_payload_hex": "7463705f646973636f6e6e656374"
+  },
+  "interpretation": "No guest FIN/RST before client cleanup during the65-second baseline. In a separate run with no other scripted guest connections,35 seconds of bounded silence preceded a new control SYN and then a reset of the failed session. This is a scheduling-dependent observation, not an unconditional30-second close guarantee or proof of its unique cause. The earlier overlapping network-tick trial is retained separately and is not used as an isolated timing experiment."
+}

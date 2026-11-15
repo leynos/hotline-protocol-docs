@@ -1,0 +1,7 @@
+Nov 14 05:51:42 ibara systemd[1]: mothra-native-expiry-c76-first.service: RuntimeMaxSec= has no effect in combination with Type=oneshot. Ignoring.
+Nov 14 05:51:42 ibara systemd[1]: Starting mothra-native-expiry-c76-first.service - [systemd-run] /usr/bin/bash /data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-first-01/run-first.sh...
+Nov 14 05:52:17 ibara systemd[1]: mothra-native-expiry-c76-first.service: Main process exited, code=exited, status=1/FAILURE
+Nov 14 05:52:17 ibara systemd[1]: mothra-native-expiry-c76-first.service: Failed with result 'exit-code'.
+Nov 14 05:52:17 ibara systemd[1]: Failed to start mothra-native-expiry-c76-first.service - [systemd-run] /usr/bin/bash /data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-first-01/run-first.sh.
+Nov 14 05:54:19 ibara systemd[1]: Starting mothra-native-expiry-c77-first.service - [systemd-run] /usr/bin/bash /data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-first-01/run-first-c77.sh...
+Nov 14 05:54:19 ibara systemd[1]: Started mothra-native-expiry-c77-first.service - [systemd-run] /usr/bin/bash /data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-first-01/run-first-c77.sh.

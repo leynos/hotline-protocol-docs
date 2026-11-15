@@ -1,0 +1,83 @@
+{
+  "utc": "2026-11-14T00:36:48.917256+00:00",
+  "outcome": "real-control-connect-ack-and-agreement-before-intentional-cutoff; activation-after-cutoff",
+  "return_utc": "2026-11-14T00:34:36Z",
+  "proxy_status": "intentional-observation-cutoff",
+  "proxy_observation": {
+    "state": "fired",
+    "ack_sent_monotonic_ns": 41184420810668,
+    "cutoff_due_ns": 41212420810668,
+    "cutoff_actual_ns": 41212427080557,
+    "last_owned_socket_close_ns": 41212427119810,
+    "relay_teardown_ns": 41212517960588,
+    "valid_30_seconds": true,
+    "raw_ack_sha256": "814b733a82d15dd7250cb0e8b7ed0c6c09a7a02d7169ab70ebaa359fb18eb6d0",
+    "forwarded_ack_sha256": "814b733a82d15dd7250cb0e8b7ed0c6c09a7a02d7169ab70ebaa359fb18eb6d0",
+    "error": null
+  },
+  "proxy_entry_events": {
+    "client-handshake": 1,
+    "server-handshake": 1,
+    "login-request": 1,
+    "server": 2
+  },
+  "postflight": {
+    "utc": "2026-11-14T00:36:48.917256+00:00",
+    "status": "completed",
+    "actions": 29,
+    "accounts": 2,
+    "files": 41,
+    "filp_bytes": 1049073,
+    "filp_sha256": "7d1f5bf5e2b69b8a18906633ce2ef550876b78252c0639e7d36eb61142787ab8",
+    "filp_equal_preflight": true,
+    "static_frames_equal": [
+      4,
+      5,
+      6,
+      8,
+      10,
+      12,
+      16,
+      23,
+      27
+    ]
+  },
+  "files": {
+    "host.pcap": {
+      "bytes": 1184077,
+      "sha256": "cce56085254aebde38a160ff84dffb6311909381d17434999cf5ee3b1432a461",
+      "records": 1598,
+      "complete_parse": true
+    },
+    "namespace.pcap": {
+      "bytes": 3422,
+      "sha256": "54e2bb4acf0657ed8cc20f6cc257f3d07f4a9fd706b2d2b0af9ab48a9e29610e",
+      "records": 32,
+      "complete_parse": true
+    },
+    "client-guest-pre.pcap": {
+      "bytes": 10754,
+      "sha256": "724bbb1d4f776ad7ea4d04b76f527e805def3b2b666438b8205fcc24da9d8252",
+      "records": 100,
+      "complete_parse": true
+    },
+    "client-guest-post.pcap": {
+      "bytes": 15381,
+      "sha256": "81708cb68be0f3b71eadfd7dc08c10f6c39962d6213353f8758a74a276df6087",
+      "records": 141,
+      "complete_parse": true
+    },
+    "server-guest-pre.pcap": {
+      "bytes": 22166281,
+      "sha256": "d899041545b83af9935f3f02202d26d2ff85dd52cb29d13eec50c058d6413f13",
+      "records": 31930,
+      "complete_parse": true
+    },
+    "server-guest-post.pcap": {
+      "bytes": 24496112,
+      "sha256": "09e631d3eeab1e6563b7089208d6bc0c2fdbf330830921da2377e2d6b8b4873a",
+      "records": 35129,
+      "complete_parse": true
+    }
+  }
+}

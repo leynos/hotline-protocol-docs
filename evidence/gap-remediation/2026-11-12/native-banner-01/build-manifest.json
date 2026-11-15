@@ -1,0 +1,20 @@
+{
+  "mothra_head": "be180153275e55e4428168c9c43b1f0f0be1d84d",
+  "docs_head": "cc2013e210b3b5158450ed3a612c97a37db8335c",
+  "source_files": {
+    "native_banner_cases.py": "5899e0a33af267c110f2ef7faa376c2790f16c2adfd081390879d0ad5ffc39a5",
+    "prepare_native_cases.py": "02ea478946af989de48b8bb0912badb93741def9471fc945922de30ccc89bc38",
+    "verify_native_banners.py": "362999691a1d158ea5a5ea6a0e72e56511de3f92e6784dd7a24978bdd8c4c1cf",
+    "test_native_banners.py": "a4b2c6a773f0261f9b2fa897c0ce737c0c2364be158595cf3cd2c3af6376d1f1",
+    "protocol_capture.py": "2fba0972f4d9a8e3845c4204dce150dd7c90da0e19a9e5720d5289e2c94faf01"
+  },
+  "host_capture_counts": [
+    1558,
+    103
+  ],
+  "host_kernel_drops": [
+    0,
+    0
+  ],
+  "final_configuration": "Remote selected with empty URL, positively checked with final none metadata/control cases; General100/10/5 settings unchanged. Guest remains live."
+}

@@ -1,0 +1,25 @@
+{
+  "phase": "post",
+  "status": "completed",
+  "full_file_baseline": "not_exercised",
+  "capture_receipt_sha256": "f5c8750a94f76f68a36e17827a9b04c4b97034c7f89df140ac9414bf0049f4f5",
+  "readiness_report_sha256": null,
+  "preprobe_baseline": "not_exercised_preserve_first_lookup",
+  "cases": {
+    "post-probe": {
+      "status": "completed",
+      "error": "",
+      "plan_sha256": "1869b2b1c6343a19aa9ff4ec7a2add04e39784c01342ea77bedabf8c81a6c67a"
+    }
+  },
+  "timing_gate": {
+    "phase": "post",
+    "host_elapsed_seconds": 2032.227663,
+    "host_window": [
+      1900,
+      2400
+    ],
+    "native_getdatetime_seconds_proven": false,
+    "interpretation": "host-relative bracket only; guest clock progression requires separately retained read-only witness"
+  }
+}

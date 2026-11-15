@@ -1,0 +1,13 @@
+{
+  "criterion": "Document a failure table and representative bytes for authentication, permission, missing-object, malformed-request and unsupported-operation cases.",
+  "decision": "Five-class failure table and representative capture criterion met; parent status change occurs in next source snapshot.",
+  "reviewed_pages": [
+    "error-outcomes.md",
+    "failure-representatives.md"
+  ],
+  "replay": "python3 evidence/gap-remediation/2026-11-13/failure-criterion-review-01/verify.py.txt",
+  "limits": [
+    "Internal exception catch-to-wire translation not exhaustive",
+    "Malformed zero-size witness establishes host proxy EOF, not guest FIN/RST"
+  ]
+}

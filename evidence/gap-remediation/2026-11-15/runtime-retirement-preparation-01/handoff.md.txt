@@ -1,0 +1,57 @@
+# B154 old-runtime retirement preparation
+
+Read-only source inspection and small-artifact preservation, 2026-11-15.
+No candidate, donor, ROM, or disk file was modified or deleted. The collector
+at `collect.py` is 140 physical lines; its output is `recovery/inventory.json`.
+
+## Exact candidate and donor scope
+
+Candidate roots: `state/mac-runtime/{install9,hotline19,hotline20,hotline21}`.
+Donors retained: `state/mac-runtime/{hotline22-recovery,native-board-02}`
+`base.dsk` and `rom`. Their live `working.dsk` files were never read.
+Inventory covers 262 entries: 114 directories, 8 candidate disks, 4
+candidate ROMs, 35 copied small files and 101 excluded-but-hashed files.
+Every entry has dev/inode/size/mode/mtime and a file SHA-256. The candidate
+deletion set is exactly the four old roots; all other paths survive. There is
+no authorized deletion in this packet.
+
+For all 12 candidate disk/ROM files and four donor files, the collector ran
+`sudo -n fuser -v PATH` immediately before hashing and required exit 1 with
+empty output. It checked inode, link count and metadata before/after reading.
+The initial aggregate `fuser -v` returned exit 1, empty output. A separate
+`sudo -n lsof +D` on the four old roots returned 1/no open files, with only
+FUSE portal `can't stat` warnings; this is not a global process absence proof.
+Parent A192 owns broader FD/cwd/image-owner census. No `oracle.lock` was held.
+
+## Hash chain and retention
+
+| Actual full-image relation | SHA-256 |
+| --- | --- |
+| `install9/base.dsk` = `install9/working.dsk` | `4a173a80ea8b95e5ef06a6561df5da627d33d58a2c221c6f6e52b50f55d4f7da` |
+| `hotline19/base.dsk` | `c36b7bc9c513b2b576d5e7bdd2d51c54a4d0af01a863e5154ce71274272a3ffe` |
+| `hotline19/working.dsk` = `hotline20/base.dsk` | `0ba5f8cf3b1faac0bd29d3e75f3df60f311c87022e37022e13e5093836da6e6a` |
+| `hotline20/working.dsk` = `hotline21/base.dsk` | `1a248a62ad545223d948fd5a9f606541cbd0685db7be39e4e6081cdf73169ac7` |
+| `hotline21/working.dsk` = both retained donor bases | `e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910` |
+| Both retained donor ROMs | `18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd` |
+
+The exact `hotline21` rebuild source is the stopped donor
+`state/mac-runtime/hotline22-recovery/base.dsk` after current no-owner and
+source-hash gates. Earlier `hotline19` and `hotline20` states remain documented
+by this full chain and their native capture/extraction corpus. The original
+OS/ROM/archive media outside candidate roots are not in this decision.
+
+## Preserved artefacts and remaining gate
+
+`recovery/small/` contains exact copied `assets.json`, launch JSON,
+`machine.sheepvm/{prefs,nvram}`, server service JSON/logs, `source-manifest`
+and `.finf` Finder sidecars where present. Total: 35 files, 32,900 bytes.
+The collector verified each copied SHA against source. It deliberately
+excluded raw OS/ROM/application/resource/account bytes, binary executables,
+shader cache and mutable guest filesystem data; those excluded files are
+catalogued with hashes in `inventory.json`.
+
+Parent review must bind this inventory and small-artifact SHA list to a
+committed recovery packet, resolve obsolete historical runbook commands that
+name `hotline19`/`hotline21` disks, and reconcile A192 owner/cwd census plus
+C183 physical exclusive-byte measurements before retirement. No claim that
+deleting 8 GB logical images reclaims 8 GB physical space is made.

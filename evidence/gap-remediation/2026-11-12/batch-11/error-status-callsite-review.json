@@ -1,0 +1,322 @@
+{
+  "method": "Enumerate all direct Ghidra callers of reply error setter10058a10; compare captured decompilation calls/counts per function. Not a search for every indirect write to envelope error state.",
+  "direct_call_sites": 68,
+  "unique_functions": 35,
+  "functions": [
+    {
+      "function": "1000ef30",
+      "call_count": 1,
+      "decompilation": "evidence/gap-remediation/2026-11-12/batch-01/queries/B01-D-1000ef30.c",
+      "sha256": "3714cd2d360fa7c55c70be453a5994047ca89e63804affc58cb64bf12c8c4e3e",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "1000f130",
+      "call_count": 1,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-1000f130.c",
+      "sha256": "34b80c3a22ac3b170a845d6b2988bb4cfe51c4fffde242e2a6a8f34edcc109f9",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "1000f260",
+      "call_count": 2,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-1000f260.c",
+      "sha256": "87866c9ce34b7ebf3fee0c81cab2bdf3c7be4f810098883d8581ea9eccbc75bf",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "1000f4e0",
+      "call_count": 2,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-1000f4e0.c",
+      "sha256": "e9623794782c8cc757c7d2155ea2fd48af230027932e05cd9957dfbad2a87266",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "1000f990",
+      "call_count": 1,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-1000f990.c",
+      "sha256": "3412524ce32a522a13cd175e194ef62ea361a0500dd9942588c5da8c2b03deee",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "100100a0",
+      "call_count": 1,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-100100a0.c",
+      "sha256": "976a2529686f5a8ebe1d6330e2e0fb4694b23b501202013cf293152da3adba66",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "100102c0",
+      "call_count": 1,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-100102c0.c",
+      "sha256": "0f29618635bda4b266f8a6d536384726849ae85f792ed770a92bdf024b6a1269",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "10010470",
+      "call_count": 5,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-10010470.c",
+      "sha256": "9d0e0c3ca60b3528c50e88c69c94577a1674fd7e546887182f3aff21acc7f7fc",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "100108a0",
+      "call_count": 2,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-100108a0.c",
+      "sha256": "2c692e512f343e67a40a7c3573cccf0253b71ab3611d2e8d9eaae9ce9e1af1dc",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "10010b70",
+      "call_count": 3,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-10010b70.c",
+      "sha256": "fedf2244a143205c4d5c6df6d391e6ce838380d003f54613a22b57cf634fef2f",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "10010ee0",
+      "call_count": 1,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-10010ee0.c",
+      "sha256": "298cb75c5dac312397b3e402fc34549e9c323ffa7b242114a69a28d7d1b88025",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "10011110",
+      "call_count": 1,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-10011110.c",
+      "sha256": "fec14227574076ef3a54f4d6907df1022d01e45b1d6be2ca563176ebee3e8c40",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "10011370",
+      "call_count": 2,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-10011370.c",
+      "sha256": "a44e2782d98010eb23b99d51dda89f3cad9473d909e67167324b6993bd883f7d",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "10011580",
+      "call_count": 2,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-10011580.c",
+      "sha256": "f8862b3c6967cedbee3c83a75d20dd8faa68f71f38c2c5ed33f6f8b16c96a8f4",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "10011960",
+      "call_count": 1,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-10011960.c",
+      "sha256": "4ef9eec97063998f400498592fd3f6fb5588c589d6bea98865bfc3b2943d2442",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "100121a0",
+      "call_count": 3,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-100121a0.c",
+      "sha256": "061f73d6427fce1dfc5a972113a95f944f9cabccc90a76b4f25c4d200c5275e9",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "10012850",
+      "call_count": 3,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-10012850.c",
+      "sha256": "9b941526c4e261b821cc0d0ae9268bd620427dde29251cac09b5dbe089b54d66",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "100130f0",
+      "call_count": 2,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-100130f0.c",
+      "sha256": "686b1c647d05b7a8d9c664be2788d84278df9f969c7e232a9b0d5a824af62532",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "10013930",
+      "call_count": 2,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-10013930.c",
+      "sha256": "f3fd2b3625705d3e8f1298d0a5ac53a1a87bbaf40eb922e7179aed0a0c276b61",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "100140e0",
+      "call_count": 2,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-100140e0.c",
+      "sha256": "1bfb68b4991292e594178322b8e8b9888f6578c57a4c93e4fdab109b26f88f72",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "100143f0",
+      "call_count": 1,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-100143f0.c",
+      "sha256": "54aa96455b2aac670441aed33a3105c0b167ecf653699914306997a7c7ab255c",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "10014640",
+      "call_count": 1,
+      "decompilation": "evidence/gap-remediation/2026-11-12/batch-03/queries/B03-D-10014640.c",
+      "sha256": "11bca0d595d7c481ae6e4aad0a73ea6b9ddcda5594ab155046b6611f38938bc5",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "100146f0",
+      "call_count": 2,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-100146f0.c",
+      "sha256": "32f82d6083bc83e6adbb81c2f5e656c50c3ef3ad19d790f9eff4b4835054566c",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "100149e0",
+      "call_count": 1,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-100149e0.c",
+      "sha256": "f191af45019748f97ffed3b99df5dee574bbf28023f44e49096a712b1dbc190f",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "10014bc0",
+      "call_count": 1,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-10014bc0.c",
+      "sha256": "722995417982565fb5926938a108e6e2bcf781beb7110bad8f80e7449c305933",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "10014df0",
+      "call_count": 1,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-10014df0.c",
+      "sha256": "211550e97f51d1c947eef44ea2a41665fd8d26e8c4dcfd0fce556f8670314266",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "10015160",
+      "call_count": 2,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-10015160.c",
+      "sha256": "eae675f7d263f1b059b60e1dcd1e17b4578f0e53b47e1eb0da7104f98720d8ad",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "10015500",
+      "call_count": 8,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-10015500.c",
+      "sha256": "e641660f5e57d070d1dda507834eaf9d2d07b20c7831a8635e44d34f1047f66a",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "10015e70",
+      "call_count": 1,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-10015e70.c",
+      "sha256": "3e5e9ae6ba794c922e522197bdf30c9e7e42c18c1772d8da8e8ca01be2445e1b",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "10016150",
+      "call_count": 2,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-10016150.c",
+      "sha256": "b6395e0da9ee5a1c14ccf320ef87bad9ef09be3a9870da19c3d39728de412f0d",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "100170c0",
+      "call_count": 5,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-100170c0.c",
+      "sha256": "68667e0e1db587892c35e96bfbd6ec299a9f9e6f514b2f4fe8398dcefb6fb3c8",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "100177d0",
+      "call_count": 2,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-100177d0.c",
+      "sha256": "74c628a4f36c1c152649d85bb49d6c3c932b0a6b3cece2672b97355c89417de8",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "10017c10",
+      "call_count": 1,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-10017c10.c",
+      "sha256": "3a5de7b6c9a6633b32294865bc8496716c24ef7a7da354fcd0a84b2fc934b321",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "10017f30",
+      "call_count": 1,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-10017f30.c",
+      "sha256": "358f8fabad73114bef5d055c9b6018dfb9427525d8258fe4197231436331bdea",
+      "observed_status_arguments": [
+        "1"
+      ]
+    },
+    {
+      "function": "100183c0",
+      "call_count": 1,
+      "decompilation": "evidence/hotline-server-1.9/queries/D-100183c0.c",
+      "sha256": "1d44f6e31dd9a2597be0ff32c7ee8a131690a844431b46fa606a8b0f696fc5d0",
+      "observed_status_arguments": [
+        "1"
+      ]
+    }
+  ]
+}

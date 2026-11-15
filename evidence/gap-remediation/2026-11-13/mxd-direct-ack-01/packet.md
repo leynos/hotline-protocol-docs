@@ -1,0 +1,18 @@
+C7 direct ACK correction
+Start UTC: 2026-11-13 17:46:06
+Base mxd: 481294915b48f4db06943c8af86cf31b7e47597a
+Stage: test-first red, then producer/request-context implementation, focused green, full gates, source commit only on all gates success.
+Scope: private mxd only; five production files plus affected tests/API callers/header_util Kani, private evidence; canonical repositories untouched.
+Budget: 60 active minutes, 800 production lines, 650 test lines, 200 prose lines, 22 non-evidence files, 150 evidence files.
+Risks: DB fixture may skip, public augmentation signature changes, full Make test requires retained managed oneshot and UI target override; preserve exact logs and statuses.
+Red: cargo test --offline --locked --features 'sqlite test-support' --lib direct_ack_; 4 executed, all failed on old wire type; exit 101; red-router.log.
+Green: same filter 4 passed; broader wireframe library 187 passed; focused TransactionWriter 1, login BDD 9, routing BDD 8; logs/exits retained.
+First make check-fmt lint exit2: three Clippy panic_in_result_fn warnings on new test assertions. Added existing-pattern test-specific expect and retried; no production change.
+Second lint exit2: Whitaker module-max-lines after adding three router tests to routing_cases.rs (405 lines). Moved those identical tests to new direct_ack_cases.rs (89 lines), source routing_cases.rs back to 323 lines. Also updated stale type-echo assertion in wireframe_memory_budgets.rs. Final lint and focused rerun pending.
+Architecture: 14 production reply_header call sites across six modules now emit type 0. HotlineTransaction::reply_from_params also emits type 0. Generic FrameHeader/Transaction/HotlineCodec encoders remain faithful to explicit header. Original request kind from finalize_reply header feeds on_reply -> LoginReplyAugmenter -> ClientCompatibility; only successful Login107 direct reply type0 receives existing extras. Presence notifications construct marker0/type301 or302 separately.
+Conformance caveat: old peer classifier/version/default 161/162 name policy deliberately unchanged. No native peer test in C7. GAP085 remains open for that reconciliation and original release decisions.
+Kani availability: cargo-kani 0.66.0 installed; cbmc not on PATH. Harness source assertion updated; no proof run yet.
+Final make check-fmt lint exit0 (all three profiles); focused final wireframe 187/187 and memory budget 1/1 exit0. Full make test launched 2026-11-13 18:00:48 UTC as retained user unit mxd-c7-full-20261113-1801.service, InvocationID a36fb607d2454ed1a7842afda53f94ea, Type=oneshot, TimeoutStart=40min, TimeoutStop=30s, RemainAfterExit=yes; still active at last observation.
+C7 extension approved: src/transaction/params.rs plus up to two focused test files; 25 additional active minutes from resumed UTC. First full unit failed 551: 550 passed, one presence BDD duplicate300; no later profiles. Source commit forbidden until corrected full gate succeeds.
+Extension red: new direct_reply_validation integration test 6 executed, 4 failed on DuplicateField(300) at parse, legacy writer/reader, Tokio reply_from_params and TryFrom; 2 negative-control tests passed; exit101. Approved one-production-file correction in src/transaction/params.rs: exact marker1 allows repeated field300 regardless wiretype; no typed-reply echo fallback. Green six passed. Previous full gate remains failed and preserved.
+Scope clarification 2026-11-13: marker0/type300 opaque-request bypass predates C7; root explicitly keeps it unchanged. Negative controls are validated marker0 Login107 and notification301, marker2 type0, and unrelated duplicate102 reply. No universal request rejection claim.

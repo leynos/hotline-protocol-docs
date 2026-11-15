@@ -1,0 +1,304 @@
+{
+  "status": "failed",
+  "started_utc": "2026-11-14T20:48:18.495024+00:00",
+  "method": "required_reflink_both_disks",
+  "commands": [
+    {
+      "label": "fuser-000",
+      "argv": [
+        "sudo",
+        "-n",
+        "fuser",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-board-02/base.dsk"
+      ],
+      "exit": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_size": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_size": 0
+    },
+    {
+      "label": "fuser-001",
+      "argv": [
+        "sudo",
+        "-n",
+        "fuser",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-board-02/rom"
+      ],
+      "exit": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_size": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_size": 0
+    },
+    {
+      "label": "fuser-002",
+      "argv": [
+        "sudo",
+        "-n",
+        "fuser",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-board-02/base.dsk"
+      ],
+      "exit": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_size": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_size": 0
+    },
+    {
+      "label": "clone-base",
+      "argv": [
+        "cp",
+        "--reflink=always",
+        "--",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-board-02/base.dsk",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/base.dsk"
+      ],
+      "exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_size": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_size": 0
+    },
+    {
+      "label": "fuser-004",
+      "argv": [
+        "sudo",
+        "-n",
+        "fuser",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-board-02/base.dsk"
+      ],
+      "exit": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_size": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_size": 0
+    },
+    {
+      "label": "clone-working",
+      "argv": [
+        "cp",
+        "--reflink=always",
+        "--",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-board-02/base.dsk",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/working.dsk"
+      ],
+      "exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_size": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_size": 0
+    },
+    {
+      "label": "fuser-006",
+      "argv": [
+        "sudo",
+        "-n",
+        "fuser",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-board-02/rom"
+      ],
+      "exit": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_size": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_size": 0
+    },
+    {
+      "label": "copy-rom",
+      "argv": [
+        "cp",
+        "--",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-board-02/rom",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/rom"
+      ],
+      "exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_size": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_size": 0
+    },
+    {
+      "label": "fuser-008",
+      "argv": [
+        "sudo",
+        "-n",
+        "fuser",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/base.dsk"
+      ],
+      "exit": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_size": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_size": 0
+    },
+    {
+      "label": "fuser-009",
+      "argv": [
+        "sudo",
+        "-n",
+        "fuser",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/working.dsk"
+      ],
+      "exit": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_size": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_size": 0
+    },
+    {
+      "label": "fuser-010",
+      "argv": [
+        "sudo",
+        "-n",
+        "fuser",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/rom"
+      ],
+      "exit": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_size": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_size": 0
+    },
+    {
+      "label": "fuser-011",
+      "argv": [
+        "sudo",
+        "-n",
+        "fuser",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/working.dsk"
+      ],
+      "exit": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_size": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_size": 0
+    },
+    {
+      "label": "catalog-full",
+      "argv": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/fls",
+        "-r",
+        "-p",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/working.dsk"
+      ],
+      "exit": 0,
+      "stdout_sha256": "1e6b2c52a5327f0a59fe8e463aaf212b4c62f96d70c6602b97010a0540333e33",
+      "stdout_size": 426497,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_size": 0
+    },
+    {
+      "label": "fuser-013",
+      "argv": [
+        "sudo",
+        "-n",
+        "fuser",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/working.dsk"
+      ],
+      "exit": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_size": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_size": 0
+    },
+    {
+      "label": "catalog-allocated",
+      "argv": [
+        "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/fls",
+        "-u",
+        "-r",
+        "-p",
+        "-f",
+        "hfs",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/working.dsk"
+      ],
+      "exit": 0,
+      "stdout_sha256": "1e6b2c52a5327f0a59fe8e463aaf212b4c62f96d70c6602b97010a0540333e33",
+      "stdout_size": 426497,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_size": 0
+    }
+  ],
+  "original_ticks_before": {
+    "1099659": "767842",
+    "1012834": "2357813"
+  },
+  "source_before": {
+    "/data/leynos/Projects/mothra/state/mac-runtime/native-board-02/base.dsk": {
+      "path": "/data/leynos/Projects/mothra/state/mac-runtime/native-board-02/base.dsk",
+      "dev": 2097,
+      "inode": 1678261666,
+      "size": 8388608000,
+      "mode": "0o444",
+      "mtime_ns": 1794646407250694828,
+      "ctime_ns": 1794646407250694828,
+      "atime_ns": 1794646407286694824,
+      "nlink": 1,
+      "uid": 1000,
+      "gid": 1000,
+      "sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910"
+    },
+    "/data/leynos/Projects/mothra/state/mac-runtime/native-board-02/rom": {
+      "path": "/data/leynos/Projects/mothra/state/mac-runtime/native-board-02/rom",
+      "dev": 2097,
+      "inode": 1678261665,
+      "size": 1945746,
+      "mode": "0o644",
+      "mtime_ns": 1794646407222694832,
+      "ctime_ns": 1794646407222694832,
+      "atime_ns": 1794646407282694827,
+      "nlink": 1,
+      "uid": 1000,
+      "gid": 1000,
+      "sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd"
+    }
+  },
+  "free_bytes_before": 11462115328,
+  "prepared": {
+    "base.dsk": {
+      "path": "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/base.dsk",
+      "dev": 2097,
+      "inode": 2702544438,
+      "size": 8388608000,
+      "mode": "0o444",
+      "mtime_ns": 1794689321910064941,
+      "ctime_ns": 1794689322502064872,
+      "atime_ns": 1794689321910064941,
+      "nlink": 1,
+      "uid": 1000,
+      "gid": 1000,
+      "sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910"
+    },
+    "working.dsk": {
+      "path": "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/working.dsk",
+      "dev": 2097,
+      "inode": 2702544443,
+      "size": 8388608000,
+      "mode": "0o644",
+      "mtime_ns": 1794689322210064905,
+      "ctime_ns": 1794689322502064872,
+      "atime_ns": 1794689322210064905,
+      "nlink": 1,
+      "uid": 1000,
+      "gid": 1000,
+      "sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910"
+    },
+    "rom": {
+      "path": "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/rom",
+      "dev": 2097,
+      "inode": 2847491433,
+      "size": 1945746,
+      "mode": "0o644",
+      "mtime_ns": 1794689322502064872,
+      "ctime_ns": 1794689322502064872,
+      "atime_ns": 1794689322502064872,
+      "nlink": 1,
+      "uid": 1000,
+      "gid": 1000,
+      "sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd"
+    }
+  },
+  "error": "ValueError: original two-user HFS baseline failed"
+}

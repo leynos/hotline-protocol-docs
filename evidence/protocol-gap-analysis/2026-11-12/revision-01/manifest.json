@@ -1,0 +1,33 @@
+{
+  "captured_at_utc": "2026-11-12T13:40:30.501502+00:00",
+  "source_git_head": "224c278bc45201d8333c14e701655b5a86d40d09",
+  "source_worktree_status": "M protocol.md\n?? native-wire-details.md",
+  "inputs": [
+    {
+      "path": "protocol.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-01/inputs/protocol.md.txt",
+      "sha256": "5e7fd460468b9181b1dfc139b4a072ad34a0d8493db6b618a51c19ed0bb4dc3a",
+      "lines": 1006
+    },
+    {
+      "path": "internal-compatibility-matrix.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-01/inputs/internal-compatibility-matrix.md.txt",
+      "sha256": "7ae646afca7184580ffaa49755ca3ff040fadebde37b55cbd89022e0f966d8ae",
+      "lines": 180
+    },
+    {
+      "path": "baseline-correction-map.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-01/inputs/baseline-correction-map.md.txt",
+      "sha256": "3b45cc8101e8a471df2551d8f90789bca5b3eb82ce63150f98a9dc6dc8d2049d",
+      "lines": 106
+    },
+    {
+      "path": "native-wire-details.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-01/inputs/native-wire-details.md.txt",
+      "sha256": "e80a9b0d883f04eec35f1188d7ec433265d6145fe554a061dc38f8a144698dbb",
+      "lines": 206
+    }
+  ],
+  "method": "Documentation review plus read-only Ghidra MCP follow-up against the recorded Hotline 1.9 data fork. The original audit and validity ledger remain immutable; the current sources have been reviewed and re-snapshotted. No native runtime/client captures are claimed. Entries remain Investigating while their fixture or other closure criteria are unmet.",
+  "previous_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-12/manifest.json"
+}

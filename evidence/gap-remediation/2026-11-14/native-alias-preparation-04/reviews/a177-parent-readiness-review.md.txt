@@ -1,0 +1,27 @@
+# A177: R04 parent readiness gate review
+
+Read-only review of `state/delegation/review-alias-live-ready-04.py`, SHA-256
+`3e9d57025fff0e961541af2a8a6dde3563a0dedd85a94360f276278162422fda`.
+No script was executed and no VM, service, image or protocol socket was touched.
+
+`diff -u` against accepted `review-alias-live-ready-03.py` shows only the
+session/runtime path `04`, port `16000`, two explicit profile/purpose assertions,
+and the named `runtime_gate(..., capture_window_profile=...)` argument.
+The other identity, receipt-hash, source-plan byte-regeneration, 5+6=11
+numbered-request, one-mutation, zero-500, three-screenshot, pre-stage and
+`remaining>=390` checks are unchanged.
+
+Current `native_missing_alias_cases.source_plan` accepts port 16000 only for
+`control-only`, and recognises exactly
+`native-missing-alias-ui-30m-v1`/`native-missing-alias-positive` as the named
+profile/purpose pair. Current `native_ban_expiry_control.runtime_gate` has the
+keyword argument; `capture_window_bounds` requires receipt, plan environment
+and selected profile equality, plus purpose equality and exact recognised
+names. The named bounds are 1800-second epoch/2100-second service. The gate
+still requires root in the actual emulator network namespace and validates
+PID/start/exe/image/FD/capture state; the parent script does not bypass it.
+
+Scoped result: **PASS for static literal adaptation and interface fit**.
+This is a prerequisite review only. The R04 receipt, plan, UI evidence and
+390-second reserve remain to be validated by executing the pinned parent gate
+at the authorised live checkpoint; no such readiness is inferred here.

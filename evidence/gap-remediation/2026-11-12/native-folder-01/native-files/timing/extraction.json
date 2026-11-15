@@ -1,0 +1,247 @@
+{
+  "recorded_at_utc": "2026-11-12T20:49:38.800173+00:00",
+  "image": "state/mac-runtime/hotline19/working.dsk",
+  "tool_sha256": {
+    "istat": "f87c0cee5e263c55440c19fb3e478b80e33dcbae223388b5f83913ceb5fc4499",
+    "icat": "ab73038eda8ed52697c5d94874bbc0a19285184253e68a78f6e4ab347a042bba"
+  },
+  "catalog_range": [
+    11220,
+    11260
+  ],
+  "roots": [
+    "/Hotline19/Files/mothra-folder-late",
+    "/Hotline19/Files/mothra-folder-descriptor-delay"
+  ],
+  "method": "Read-only direct catalogue observations. Positive paths verified by istat before fork reads. Not an exhaustive directory listing, path-absence proof, protocol certification or restart-durability result.",
+  "probes": [
+    {
+      "catalog": 11220,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11221,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11222,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11223,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11224,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11225,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11226,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11227,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11228,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11229,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11230,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11231,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11232,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11233,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11234,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11235,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11236,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11237,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11238,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11237)\n"
+    },
+    {
+      "catalog": 11239,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11237)\n"
+    },
+    {
+      "catalog": 11240,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11237)\n"
+    },
+    {
+      "catalog": 11241,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11237)\n"
+    },
+    {
+      "catalog": 11242,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11237)\n"
+    },
+    {
+      "catalog": 11243,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11237)\n"
+    },
+    {
+      "catalog": 11244,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11237)\n"
+    },
+    {
+      "catalog": 11245,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11237)\n"
+    },
+    {
+      "catalog": 11246,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11237)\n"
+    },
+    {
+      "catalog": 11247,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11237)\n"
+    },
+    {
+      "catalog": 11248,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11237)\n"
+    },
+    {
+      "catalog": 11249,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11237)\n"
+    },
+    {
+      "catalog": 11250,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11237)\n"
+    },
+    {
+      "catalog": 11251,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11237)\n"
+    },
+    {
+      "catalog": 11252,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11237)\n"
+    },
+    {
+      "catalog": 11253,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11237)\n"
+    },
+    {
+      "catalog": 11254,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11237)\n"
+    },
+    {
+      "catalog": 11255,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11237)\n"
+    },
+    {
+      "catalog": 11256,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11237)\n"
+    },
+    {
+      "catalog": 11257,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11237)\n"
+    },
+    {
+      "catalog": 11258,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11237)\n"
+    },
+    {
+      "catalog": 11259,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11237)\n"
+    },
+    {
+      "catalog": 11260,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11237)\n"
+    }
+  ],
+  "records": [
+    {
+      "path": "/Hotline19/Files/mothra-folder-descriptor-delay",
+      "key": "catalog-11235",
+      "catalog": 11235,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-folder-late",
+      "key": "catalog-11236",
+      "catalog": 11236,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-folder-descriptor-delay/wait",
+      "key": "catalog-11237",
+      "catalog": 11237,
+      "directory": true,
+      "attributes": {}
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+# A108: native clock to GUI/file log source path
+
+Read-only review of B93 and frozen server functions, then three approved
+content queries on the independent saved `independent-endpoint-01` project.
+No VM, native request, service, mxd, GUI project, annotation or tracked edit.
+Raw requests/replies, wrapper, stderr, command, report and hashes are at
+`state/delegation/native-clock-log-oracle-01/`. Canonical oracle lock was
+acquired nonblockingly and released after terminal status `complete`.
+DATA SHA `ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`,
+JAR SHA `201d18ffde71a83a678eae607de265861f37e5a00b989d91958c1197664d2b43`,
+PowerPC BE32, 1,840 functions and identical before/after program identities
+are checked in the report. `--no-analyze --discard` was used. The optional
+fourth content query was unnecessary.
+
+## Exact linked functions
+
+1. Limiter `D-10016ad0.c` calls `10057d00` for its 304 time test. Frozen
+   ban-oracle `BN-D-10057d00.c` directly calls Mac `GetDateTime` and returns
+   the first 32-bit word. It compares that value with session `+0xa8` using
+   unsigned `>0x3c` and resets counter `+0x146` on that branch. This is
+   source time, not an observed guest-clock progression.
+2. The untruncated query for GUI logger `10006a70` shows an unconditional
+   `10057e30(buffer,0x7f,0x22)` call before formatting an event, then GUI
+   text operations `10054180`, `10069210`, `1005a4b0` and `10060cc0`.
+   Frozen `B14-D-100068e0.c` calls this logger with message/account data;
+   the terminal 304 branch reaches `100068e0` with its flooding message.
+   Thus a visible logged event on that path obtains a timestamp through
+   `10057e30`; a screenshot has not yet paired one event with a specific
+   time word or 304 counter update.
+3. Frozen `B06-D-10057e30.c` calls Mac `GetDateTime`, then passes that word
+   to `10057e90`. The latter's untruncated body, at option `0x22`, takes
+   its bit1 date branch through `SecondsToDate` and a local formatter; its
+   bit5 time branch calls Mac `TimeString(word,1,...)`. It copies produced
+   date/time strings and inserts a space if both are present. The direct
+   body has no explicit seconds digit writer. Exact displayed precision,
+   locale, zone and rollover require observing formatted output or
+   additional API semantics; the source alone does not make minute text
+   a calibrated 60-second measurement. GUI and limiter call the **same
+   GetDateTime API in separate calls**, not the same captured word.
+4. `D-10006e80.c` is a separate TEXT-file login-log path. It runs only if
+   server option bit8 at `server+0xac` is set, calls
+   `10057e30(...,0x22)`, composes date/address/account/name text and
+   appends through file helper `1002c440`. Its pointer
+   `PTR_DAT_1008ee34` is frozen in `S006-data.json` as `1008f8bf`.
+   Read-only memory at that initialized PackedData address begins the
+   Pascal string `0b 43 6f 6e 6e 65 63 74 20 4c 6f 67`, or
+   **`Connect Log`**; following adjacent Pascal strings include
+   `Account Log` and `Hotline Server Log`. The pointer selects the first
+   string, not the neighbouring names. The prepared rate plan has not
+   established server option bit8 or a stopped Connect Log with matched
+   paced/burst rows. This file path is distinct from GUI logger `10006a70`.
+
+## Consequence for a future rate observation
+
+The known first-pair C107 failure supplies no 70-second quiet interval,
+burst login, or calibrated guest time. Even if later paced/burst GUI rows
+are visible, their formatted date/time values must be retained and decoded
+before claiming the native limiter's `>60` predicate was satisfied. If
+only a minute-granularity label is present, a one-minute label change
+can occur across a much shorter interval near a boundary; it is not proof
+of more than 60 guest seconds. A two-minute-or-greater label difference
+may bound progress if the display format, same guest clock, and absence
+of clock changes are independently established, but this source packet
+does not assert those conditions. No new protocol action, server-option
+change or live retry is authorised here.

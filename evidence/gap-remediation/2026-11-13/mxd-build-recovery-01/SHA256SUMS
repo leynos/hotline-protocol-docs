@@ -1,0 +1,11 @@
+11d6705f2b85c1c51053bbfb479819f6cfe7423fa1d8f2d0f7e177bdff6ad10f  evidence/gap-remediation/2026-11-13/mxd-build-recovery-01/archive-boundaries.json
+38bb1ad2b6313d8176d7cce7f1247ef1e1f498804e3d299f101ed4f7e64f7fff  evidence/gap-remediation/2026-11-13/mxd-build-recovery-01/command-record.txt
+2a17c36c494eee1d2e0bafe63eeb2eca0e21e33299b519cbe644bc90a7aaa4bf  evidence/gap-remediation/2026-11-13/mxd-build-recovery-01/interrupted-run.txt
+135e6f8e0f64c2765e3cb1edfe018f7734e9439e20bc8c645e94601f1fec4c7d  evidence/gap-remediation/2026-11-13/mxd-build-recovery-01/layout-failure.txt
+958878d18b57562428f550e35029e888ffde9fa160f39d966255822a79547dfc  evidence/gap-remediation/2026-11-13/mxd-build-recovery-01/linker-failure.txt
+77648f3bff25ccefdac67d2d25014d60d82d2f413d70f4b624c11121d386c2b6  evidence/gap-remediation/2026-11-13/mxd-build-recovery-01/managed-run-script.txt
+ebf4cf4952115b8ee31b5416d99266cf7db9329dc1026d65ff8ef709d3ad0be7  evidence/gap-remediation/2026-11-13/mxd-build-recovery-01/managed-service-result.txt
+cf128b8d7c70cebfab75c6cf17e3a77f74499cbc17265f9782880cab04d2887d  evidence/gap-remediation/2026-11-13/mxd-build-recovery-01/manifest.json
+d68d1b7bb6e943b8ca43b3bcc0cbc092de0bafe0c384a1fbbb6865ea615bf620  evidence/gap-remediation/2026-11-13/mxd-build-recovery-01/single-target-rebuild.txt
+05a6075563f2be37afac915c28b5539bf14f6440b568abf0be5450fe44a17938  evidence/gap-remediation/2026-11-13/mxd-build-recovery-01/source-status.txt
+a3f77a0e2a9580351c60ae8b8a5d8cf641c2be65f926cb206374ad20bf01ba10  evidence/gap-remediation/2026-11-13/mxd-build-recovery-01/ui-override-proof.txt

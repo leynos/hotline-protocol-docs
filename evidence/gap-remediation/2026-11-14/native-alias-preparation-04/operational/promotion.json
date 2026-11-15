@@ -1,0 +1,8 @@
+{
+  "status": "promoted_stopped_receipts_only",
+  "preflight_sha256": "ff29875a5256bdc7cd962e573dff4bbef81151f1f8629a113e620cf82782ab62",
+  "finf_sha256": "ab64121a1eec6ea94f3e53aeb36c7a602bdbd6fec068ced4797267f508afa7a4",
+  "failed_preflight_copy_sha256": "df48030fca202d4a2c4b12632909664cde86ecf7d53e22159df55c5e8a30b9ae",
+  "current_free_bytes": 12197629952,
+  "no_vm_start": true
+}

@@ -1,0 +1,151 @@
+//! Behavioural tests for XOR compatibility in wireframe routing.
+
+use mxd::{
+    field_id::FieldId,
+    transaction::Transaction,
+    transaction_type::TransactionType,
+    wireframe::test_helpers::xor_bytes,
+};
+use rstest::fixture;
+use rstest_bdd_macros::{given, scenarios, then, when};
+use test_util::{
+    AnyError,
+    SetupFn,
+    WireframeBddWorld,
+    build_frame,
+    ensure_server_binary_env,
+    setup_files_db,
+    setup_news_db,
+};
+
+struct XorWorld {
+    base: WireframeBddWorld,
+}
+
+/// Deliberately uses a non-routed transaction id so routing returns `UnknownType`.
+const UNKNOWN_MESSAGE_TRANSACTION_TYPE: TransactionType = TransactionType::Other(900);
+
+impl XorWorld {
+    const fn new() -> Self {
+        Self {
+            base: WireframeBddWorld::new(),
+        }
+    }
+
+    fn setup_db(&self, setup: SetupFn) -> Result<(), AnyError> { self.base.setup_db(setup) }
+
+    fn authenticate(&self) { self.base.authenticate_default_user(1); }
+
+    fn send(&self, ty: TransactionType, id: u32, params: &[(FieldId, &[u8])]) {
+        let frame = match build_frame(ty, id, params) {
+            Ok(frame) => frame,
+            Err(err) => {
+                self.base.set_reply_error(err.to_string());
+                return;
+            }
+        };
+        self.base.send_raw(&frame);
+    }
+
+    fn with_reply<T>(&self, f: impl FnOnce(&Transaction) -> T) -> T { self.base.with_reply(f) }
+
+    fn is_xor_enabled(&self) -> bool { self.base.is_xor_enabled() }
+}
+
+#[fixture]
+fn world() -> XorWorld {
+    if let Err(error) = ensure_server_binary_env(env!("CARGO_BIN_EXE_mxd-wireframe-server")) {
+        panic!("failed to configure wireframe test binary path: {error}");
+    }
+    XorWorld::new()
+}
+
+#[given("a routing context with user accounts")]
+fn given_users(world: &XorWorld) -> Result<(), AnyError> { world.setup_db(setup_files_db) }
+
+#[given("a routing context with news articles")]
+fn given_news(world: &XorWorld) -> Result<(), AnyError> {
+    world.setup_db(setup_news_db)?;
+    world.authenticate();
+    Ok(())
+}
+
+#[when("I send a login with XOR-encoded credentials")]
+fn when_login_xor(world: &XorWorld) {
+    let encoded_login = xor_bytes(b"alice");
+    let encoded_password = xor_bytes(b"secret");
+    world.send(
+        TransactionType::Login,
+        1,
+        &[
+            (FieldId::Login, encoded_login.as_slice()),
+            (FieldId::Password, encoded_password.as_slice()),
+        ],
+    );
+}
+
+#[when("I send an unknown transaction with XOR-encoded message \"{message}\"")]
+fn when_message_xor(world: &XorWorld, message: String) {
+    let encoded_message = xor_bytes(message.as_bytes());
+    world.send(
+        UNKNOWN_MESSAGE_TRANSACTION_TYPE,
+        2,
+        &[(FieldId::Data, encoded_message.as_slice())],
+    );
+}
+
+#[when("I send an unknown transaction with plaintext message \"{message}\"")]
+fn when_message_plaintext(world: &XorWorld, message: String) {
+    world.send(
+        UNKNOWN_MESSAGE_TRANSACTION_TYPE,
+        2,
+        &[(FieldId::Data, message.as_bytes())],
+    );
+}
+
+#[expect(
+    clippy::big_endian_bytes,
+    reason = "wire protocol uses big-endian bytes"
+)]
+#[when("I post a news article with XOR-encoded fields")]
+fn when_post_news_xor(world: &XorWorld) {
+    let encoded_path = xor_bytes(b"General");
+    let encoded_title = xor_bytes(b"XorTitle");
+    let encoded_flavour = xor_bytes(b"text/plain");
+    let encoded_body = xor_bytes(b"xor body");
+    let flags = 0i32.to_be_bytes();
+
+    world.send(
+        TransactionType::PostNewsArticle,
+        3,
+        &[
+            (FieldId::NewsPath, encoded_path.as_slice()),
+            (FieldId::NewsTitle, encoded_title.as_slice()),
+            (FieldId::NewsArticleFlags, flags.as_ref()),
+            (FieldId::NewsDataFlavor, encoded_flavour.as_slice()),
+            (FieldId::NewsArticleData, encoded_body.as_slice()),
+        ],
+    );
+}
+
+#[then("the reply error code is {code}")]
+fn then_error_code(world: &XorWorld, code: u32) {
+    world.with_reply(|tx| {
+        assert_eq!(tx.header.error, code, "unexpected reply error");
+    });
+}
+
+#[then("XOR compatibility is enabled")]
+fn then_xor_enabled(world: &XorWorld) {
+    assert!(world.is_xor_enabled());
+}
+
+#[then("XOR compatibility is disabled")]
+fn then_xor_disabled(world: &XorWorld) {
+    assert!(!world.is_xor_enabled());
+}
+
+scenarios!(
+    "tests/features/wireframe_xor_compat.feature",
+    fixtures = [world: XorWorld]
+);

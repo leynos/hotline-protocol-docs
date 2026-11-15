@@ -1,0 +1,7 @@
+import sys,json
+from pathlib import Path
+sys.path.insert(0,'../hotline-protocol-docs/scripts')
+from native_plan import *
+from native_transfer_cases import file_stream
+from native_banner_cases import GIF_A
+r=Path('state/native-sessions/runtime-11');base=json.load(open(r/'recovery-plans/phase-checked-recovery.json'));body=file_stream(b'',b'').replace(b'AMACTEXTMOTH',b'AMACGIFfMOTH',1);steps=login()+[send(packet(203,10,payload([(201,b'm-img-e.gif'),(108,len(body).to_bytes(4,'big'))]))),read(save_field={'name':'ref','id':107}),connect('upload','data'),send('48545846{ref}'+len(body).to_bytes(4,'big').hex()+'00000000'+body.hex(),'upload'),eof('upload'),close('upload'),close()];base.update(steps=steps,expectation={'kind':'seed-empty','finder_hex':b'GIFf'.hex(),'filename_hex':b'm-img-e.gif'.hex(),'data_hex':''});(r/'seed-empty-plan.json').write_text(json.dumps(base,indent=2)+'\n')

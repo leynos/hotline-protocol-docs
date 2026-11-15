@@ -1,0 +1,26 @@
+{
+  "guest-cumulative-prefix.pcap": {
+    "source": "state/native-sessions/native-ban-expiry-epoch-first-01/lab-guest.pcap",
+    "source_size_before": 32382,
+    "copied_size": 32382,
+    "source_size_after": 32382,
+    "sha256": "588840566ed7832609c93857d368670e14f55783d9d1c8d0a5070dd7635cf1aa",
+    "stable": true
+  },
+  "namespace-current-prefix.pcap": {
+    "source": "state/native-sessions/native-ban-expiry-epoch-post-01/lab-namespace.pcap",
+    "source_size_before": 1943,
+    "copied_size": 1943,
+    "source_size_after": 1943,
+    "sha256": "d72f68a20c00e0227b1c3f7c455df008c1425fa96d5b630f672cdf234f170fbf",
+    "stable": true
+  },
+  "primary-current-prefix.pcap": {
+    "source": "state/native-sessions/native-ban-expiry-epoch-post-01/primary-syn.pcap",
+    "source_size_before": 24,
+    "copied_size": 24,
+    "source_size_after": 24,
+    "sha256": "704e5e5b3234433c01fcfd1b20a306e77e985038120492dc53965c3edd38a4ea",
+    "stable": true
+  }
+}

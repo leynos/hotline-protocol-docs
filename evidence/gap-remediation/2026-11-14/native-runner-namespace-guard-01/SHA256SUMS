@@ -1,0 +1,7 @@
+03d75abbe1572384d0d88f2132c9b11f1df385d5a02f9812d54b3f633ab90d82  evidence/gap-remediation/2026-11-14/native-runner-namespace-guard-01/actual-host-negative.json
+b1c4dfd74c87fc54dbb359959d720aa308ea046403a3b0002373ff529e0af1a6  evidence/gap-remediation/2026-11-14/native-runner-namespace-guard-01/change.patch.txt
+5094074af71723620a21920ac2e5aeae5783f91a3761a33afcad9b3d78768625  evidence/gap-remediation/2026-11-14/native-runner-namespace-guard-01/manifest.json
+6275f634be00487b7ba08415dea15b85aee0ed7218bc4f5ef99f3962971421b7  evidence/gap-remediation/2026-11-14/native-runner-namespace-guard-01/sources/native_ban_expiry_control.py
+6ce665f801dfbccff7b0f4864b29f749a7d66fbc538a9e16c73fc851ec2cd913  evidence/gap-remediation/2026-11-14/native-runner-namespace-guard-01/sources/test_native_ban_expiry.py
+ac8b06dea51b5113d82503d86fca79b85930a43fe6e2f945b781c6dd1f26fe08  evidence/gap-remediation/2026-11-14/native-runner-namespace-guard-01/tests.stderr.log
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  evidence/gap-remediation/2026-11-14/native-runner-namespace-guard-01/tests.stdout.log

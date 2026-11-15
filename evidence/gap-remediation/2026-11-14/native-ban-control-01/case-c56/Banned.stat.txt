@@ -1,0 +1,29 @@
+File Path: /Hotline19/Banned
+Catalog Record: 11771
+Allocated
+Type:	File
+Mode:	r---------
+Size:	49
+uid / gid: 99 / 99
+Link count:	1
+
+File Name: Banned
+Admin flags: 0
+Owner flags: 0
+File type:	62616e6e  bann
+File creator:	48544c53  HTLS
+Text encoding:	0 = MacRoman
+Resource fork size:	0
+
+Times:
+Created:	2026-11-14 11:10:23 (GMT)
+Content Modified:	2026-11-14 11:10:23 (GMT)
+Attributes Modified:	0000-00-00 00:00:00 (UTC)
+Accessed:	0000-00-00 00:00:00 (UTC)
+Backed Up:	0000-00-00 00:00:00 (UTC)
+
+Data Fork Blocks:
+891394  
+
+Attributes: 
+Type: DATA (4352-0)   Name: N/A   Non-Resident   size: 49  init_size: 49

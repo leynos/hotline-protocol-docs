@@ -1,0 +1,108 @@
+{
+  "captured_at_utc": "2026-11-12T12:14:53.342858+00:00",
+  "query": {
+    "id": "A-10008a90",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "10008a90",
+      "limit": 2000
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"items\": [\n    {\n      \"address\": \"10008a90\",\n      \"bytes\": \"54a0e8fe\",\n      \"instruction\": \"rlwinm r0,r5,0x1d,0x3,0x1f\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10008a94\",\n      \"bytes\": \"7c640214\",\n      \"instruction\": \"add r3,r4,r0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10008a98\",\n      \"bytes\": \"88630008\",\n      \"instruction\": \"lbz r3,0x8(r3)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10008a9c\",\n      \"bytes\": \"54a0077e\",\n      \"instruction\": \"rlwinm r0,r5,0x0,0x1d,0x1f\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10008aa0\",\n      \"bytes\": \"20000007\",\n      \"instruction\": \"subfic r0,r0,0x7\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10008aa4\",\n      \"bytes\": \"7c600630\",\n      \"instruction\": \"sraw r0,r3,r0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10008aa8\",\n      \"bytes\": \"540307fe\",\n      \"instruction\": \"rlwinm r3,r0,0x0,0x1f,0x1f\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10008aac\",\n      \"bytes\": \"4e800020\",\n      \"instruction\": \"blr\",\n      \"comment\": null\n    }\n  ],\n  \"offset\": 0,\n  \"limit\": 2000,\n  \"total\": 8,\n  \"has_more\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "items": [
+        {
+          "address": "10008a90",
+          "bytes": "54a0e8fe",
+          "instruction": "rlwinm r0,r5,0x1d,0x3,0x1f",
+          "comment": null
+        },
+        {
+          "address": "10008a94",
+          "bytes": "7c640214",
+          "instruction": "add r3,r4,r0",
+          "comment": null
+        },
+        {
+          "address": "10008a98",
+          "bytes": "88630008",
+          "instruction": "lbz r3,0x8(r3)",
+          "comment": null
+        },
+        {
+          "address": "10008a9c",
+          "bytes": "54a0077e",
+          "instruction": "rlwinm r0,r5,0x0,0x1d,0x1f",
+          "comment": null
+        },
+        {
+          "address": "10008aa0",
+          "bytes": "20000007",
+          "instruction": "subfic r0,r0,0x7",
+          "comment": null
+        },
+        {
+          "address": "10008aa4",
+          "bytes": "7c600630",
+          "instruction": "sraw r0,r3,r0",
+          "comment": null
+        },
+        {
+          "address": "10008aa8",
+          "bytes": "540307fe",
+          "instruction": "rlwinm r3,r0,0x0,0x1f,0x1f",
+          "comment": null
+        },
+        {
+          "address": "10008aac",
+          "bytes": "4e800020",
+          "instruction": "blr",
+          "comment": null
+        }
+      ],
+      "offset": 0,
+      "limit": 2000,
+      "total": 8,
+      "has_more": false
+    },
+    "isError": false
+  }
+}

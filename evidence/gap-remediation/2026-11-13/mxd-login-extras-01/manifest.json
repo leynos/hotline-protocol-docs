@@ -1,0 +1,124 @@
+{
+  "controlled_test_threads": 2,
+  "full_unit": "mxd-c11-full-20261113-1922.service",
+  "invocation_id": "892ffaf601ef444c9d0e421f760e795b",
+  "mxd_base": "20e891a059de7dd9dec5a657d7099570987d860d",
+  "mxd_commit": "cb907885cc2a61df2d708f38a3cf42da85c2a016",
+  "native_parity_complete": false,
+  "schema": 1,
+  "source_only_kani": true,
+  "source_snapshots": [
+    {
+      "path": "cli-defs/src/lib.rs",
+      "sha256": "18fe8f8cb89e2649cfcaf1f62e2e89ddc8eec23be14918bcff943916ec526ea8"
+    },
+    {
+      "path": "docs/design.md",
+      "sha256": "dcfd207ccfbedbcd11ea9e0c443bc5127af74c70c04b9a706134d7f9582a43c5"
+    },
+    {
+      "path": "docs/internal-compatibility-matrix.md",
+      "sha256": "8c7d48bff904ebf1face2c9dbca41aee60fd14e9a77a2bc33a5644d8d9173ac4"
+    },
+    {
+      "path": "docs/protocol.md",
+      "sha256": "c467d1ddb7e81d35c17b62ba457a67dbbf7a4b3598a97a768608b0cf438c12de"
+    },
+    {
+      "path": "docs/users-guide.md",
+      "sha256": "90c098ee1dfbd6bac4fa89977f049ea4ba09c0e71c6a7ef2460b222b2921535b"
+    },
+    {
+      "path": "src/server/cli_tests/precedence.rs",
+      "sha256": "c7a1494a480106fa4bf6413cf9e7bb9a14777971b426d821c2b9d00172549ead"
+    },
+    {
+      "path": "src/server/wireframe/mod.rs",
+      "sha256": "ddc1f758983cfed72e7e3e0be73d28a3b1de04015953340d24e153e7c8fbb741"
+    },
+    {
+      "path": "src/server/wireframe/tests.rs",
+      "sha256": "2c6c1ec568bd18ff64c24627a8ff385d85ef728103734e13fffffbecf08f03de"
+    },
+    {
+      "path": "src/wireframe/auth_strategy.rs",
+      "sha256": "4f3fe460bc76936c959e53a3993f4db5bb37d976e31ac0218929efac0fb95f4e"
+    },
+    {
+      "path": "src/wireframe/compat_layer.rs",
+      "sha256": "d240a983253127de620a487c03b7e63580c91a9387f35475e71b0a70facfa33a"
+    },
+    {
+      "path": "src/wireframe/compat_policy/kani.rs",
+      "sha256": "523c12e8db6b52f2155395a13623c3c999dcfc5a30472dd1d00ae522d6f3d206"
+    },
+    {
+      "path": "src/wireframe/compat_policy/mod.rs",
+      "sha256": "67b60a112d113ca91bfa7904d7abf5a3c7f8af5d24ba7827cd58e37af4cada76"
+    },
+    {
+      "path": "src/wireframe/compat_policy_tests.rs",
+      "sha256": "435d29452703c6f05ae3b03bbe17782198abb90dbdc6c5b0aaaee185bdd136f7"
+    },
+    {
+      "path": "src/wireframe/login_reply_augmenter.rs",
+      "sha256": "63186c52aa918801bc6c58fc20dd596ca9aea6233dd2060b8d1bb188e00d169b"
+    },
+    {
+      "path": "src/wireframe/router.rs",
+      "sha256": "8c2ff4a09b5127def69d1df612d9408cab80c78b20846c07bc03b60e979aa61a"
+    },
+    {
+      "path": "src/wireframe/router_tests.rs",
+      "sha256": "936aa324c886688d3b4140635137017d5aa2b3c2cddf3c457763ca14dcb19cf5"
+    },
+    {
+      "path": "src/wireframe/routes/tests/direct_ack_cases.rs",
+      "sha256": "19fca141d88fd3b093efe139a5150d1050ae14e47dc8d91ca31d07f96a813eb5"
+    },
+    {
+      "path": "src/wireframe/routes/tests/error_cases.rs",
+      "sha256": "97b5b233c694edd1667fdd472d851423c259f83a27880eab62ce8ac53f0b67e3"
+    },
+    {
+      "path": "src/wireframe/routes/tests/helpers.rs",
+      "sha256": "aad16a7cbdef8d2e29e4fda954fa231e01516876dd7da8f6f79bb6874de5c925"
+    },
+    {
+      "path": "src/wireframe/routes/tests/middleware_cases.rs",
+      "sha256": "e182343886d63e3874d50b51849a0e9d45a1c47b91eb425e732f0a09144f30d6"
+    },
+    {
+      "path": "src/wireframe/routes/tests/routing_cases.rs",
+      "sha256": "c55974866a242f489845f64f7e7e8753cf885ff4c66fd9c3624b2cd9b3c30b5c"
+    },
+    {
+      "path": "tests/create_user_bdd.rs",
+      "sha256": "fd211fc9112f84da56b8d762e02c2d05df33a306c15276409e87f7f568ad38d0"
+    },
+    {
+      "path": "tests/features/wireframe_compat_guardrails.feature",
+      "sha256": "70b7b5ae5d3de2e7b341d87ab8153ecef3e73c86cfaa9bb2083477859d0af3b3"
+    },
+    {
+      "path": "tests/features/wireframe_login_compat.feature",
+      "sha256": "32854b60647fdc84b65e4d7d6ef1b9e96d01a5bcb36da67669574e680f356963"
+    },
+    {
+      "path": "tests/session_privileges_bdd.rs",
+      "sha256": "274e4267da5e44c9d0ae6099d3883977ae5bcdced7ae6c02a49e01d33bcdbfcd"
+    },
+    {
+      "path": "tests/wireframe_compat_guardrails_bdd.rs",
+      "sha256": "b12c84eccc408e917d89317329052e3409d741402cca7f54712f363688d7c3ff"
+    },
+    {
+      "path": "tests/wireframe_login_compat.rs",
+      "sha256": "bdf1e325fd2504f4934437b899b9e94c1732e9a44a7900559d6db064016ef083"
+    },
+    {
+      "path": "tests/wireframe_presence_bdd/wireframe_presence_support.rs",
+      "sha256": "0324359ed58e4d1957e69c32c54ba3f161b7fa8c15ed827aa5c9d25619a790b5"
+    }
+  ]
+}

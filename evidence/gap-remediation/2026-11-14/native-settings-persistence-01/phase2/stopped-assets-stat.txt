@@ -1,0 +1,3 @@
+state/mac-runtime/native-settings-persistence-01/base.dsk 2097 2214366959 8388608000 444 1 1794621614
+state/mac-runtime/native-settings-persistence-01/working.dsk 2097 2214366960 8388608000 644 1 1794629310
+state/mac-runtime/native-settings-persistence-01/rom 2097 2214366958 1945746 644 1 1794621614

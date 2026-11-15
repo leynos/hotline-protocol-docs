@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-13T05:38:51.855021+00:00",
+  "query": {
+    "id": "AL-D-1002f310",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002f310"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_1002f310\",\n    \"address\": \"1002f310\"\n  },\n  \"code\": \"\\nundefined4\\nFUN_1002f310(undefined2 *param_1,char param_2,undefined1 *param_3,char *param_4,undefined4 param_5)\\n\\n{\\n  undefined2 uVar1;\\n  bool bVar2;\\n  bool bVar3;\\n  undefined4 uVar4;\\n  undefined4 uVar5;\\n  int iVar6;\\n  short sVar7;\\n  undefined4 uVar8;\\n  char local_90;\\n  char local_8f [9];\\n  undefined8 local_86;\\n  undefined8 local_7e;\\n  undefined8 local_76;\\n  undefined8 local_6e;\\n  undefined8 local_66;\\n  undefined8 local_5e;\\n  undefined8 local_56;\\n  undefined8 local_4e;\\n  \\n  if (((param_1 == (undefined2 *)0x0) || (param_3 == (undefined1 *)0x0)) || (param_4 == (char *)0x0)\\n     ) {\\n    uVar4 = 0xffffffce;\\n  }\\n  else {\\n    uVar1 = *param_1;\\n    uVar8 = *(undefined4 *)(param_1 + 1);\\n    local_86 = *(undefined8 *)(param_1 + 3);\\n    local_7e = *(undefined8 *)(param_1 + 7);\\n    local_76 = *(undefined8 *)(param_1 + 0xb);\\n    local_6e = *(undefined8 *)(param_1 + 0xf);\\n    local_66 = *(undefined8 *)(param_1 + 0x13);\\n    local_5e = *(undefined8 *)(param_1 + 0x17);\\n    local_56 = *(undefined8 *)(param_1 + 0x1b);\\n    local_4e = *(undefined8 *)(param_1 + 0x1f);\\n    sVar7 = 10;\\n    bVar2 = false;\\n    bVar3 = false;\\n    *param_3 = 0;\\n    while( true ) {\\n      uVar5 = 0xffffffff;\\n      sVar7 = sVar7 + -1;\\n      uVar4 = FUN_1002f210(param_1,param_4,param_3);\\n      if (((short)uVar4 != 0) || (*param_4 == '\\\\0')) break;\\n      uVar5 = .glue::FSpOpenResFile(param_1,0);\\n      uVar4 = .glue::ResError();\\n      if ((short)uVar5 == -1) break;\\n      iVar6 = .glue::Get1IndResource(0x616c6973,1);\\n      uVar4 = .glue::ResError();\\n      if (iVar6 == 0) break;\\n      .glue::LoadResource(iVar6);\\n      uVar4 = .glue::ResError();\\n      if ((short)uVar4 != 0) break;\\n      uVar4 = .glue::FollowFinderAlias(param_1,iVar6,param_5,param_1,&local_90);\\n      if ((short)uVar4 == 0) {\\n        if (local_90 != '\\\\0') {\\n          .glue::ChangedResource(iVar6);\\n          .glue::WriteResource(iVar6);\\n        }\\n        bVar2 = true;\\n        uVar4 = FUN_1002f210(param_1,local_8f,param_3);\\n        if (((short)uVar4 == 0) && ((bVar3 = false, local_8f[0] == '\\\\0' || (param_2 == '\\\\0')))) {\\n          bVar3 = true;\\n        }\\n      }\\n      .glue::CloseResFile(uVar5);\\n      uVar5 = 0xffffffff;\\n      if ((((short)uVar4 != 0) || (sVar7 < 1)) || (bVar3)) break;\\n    }\\n    if ((sVar7 == 0) && (!bVar3)) {\\n      uVar4 = 0xffffffd5;\\n    }\\n    if ((short)uVar5 != -1) {\\n      .glue::CloseResFile(uVar5);\\n    }\\n    if (((short)uVar4 != 0) && (bVar2)) {\\n      *param_1 = uVar1;\\n      *(undefined4 *)(param_1 + 1) = uVar8;\\n      *(undefined8 *)(param_1 + 3) = local_86;\\n      *(undefined8 *)(param_1 + 7) = local_7e;\\n      *(undefined8 *)(param_1 + 0xb) = local_76;\\n      *(undefined8 *)(param_1 + 0xf) = local_6e;\\n      *(undefined8 *)(param_1 + 0x13) = local_66;\\n      *(undefined8 *)(param_1 + 0x17) = local_5e;\\n      *(undefined8 *)(param_1 + 0x1b) = local_56;\\n      *(undefined8 *)(param_1 + 0x1f) = local_4e;\\n    }\\n  }\\n  return uVar4;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_1002f310",
+        "address": "1002f310"
+      },
+      "code": "\nundefined4\nFUN_1002f310(undefined2 *param_1,char param_2,undefined1 *param_3,char *param_4,undefined4 param_5)\n\n{\n  undefined2 uVar1;\n  bool bVar2;\n  bool bVar3;\n  undefined4 uVar4;\n  undefined4 uVar5;\n  int iVar6;\n  short sVar7;\n  undefined4 uVar8;\n  char local_90;\n  char local_8f [9];\n  undefined8 local_86;\n  undefined8 local_7e;\n  undefined8 local_76;\n  undefined8 local_6e;\n  undefined8 local_66;\n  undefined8 local_5e;\n  undefined8 local_56;\n  undefined8 local_4e;\n  \n  if (((param_1 == (undefined2 *)0x0) || (param_3 == (undefined1 *)0x0)) || (param_4 == (char *)0x0)\n     ) {\n    uVar4 = 0xffffffce;\n  }\n  else {\n    uVar1 = *param_1;\n    uVar8 = *(undefined4 *)(param_1 + 1);\n    local_86 = *(undefined8 *)(param_1 + 3);\n    local_7e = *(undefined8 *)(param_1 + 7);\n    local_76 = *(undefined8 *)(param_1 + 0xb);\n    local_6e = *(undefined8 *)(param_1 + 0xf);\n    local_66 = *(undefined8 *)(param_1 + 0x13);\n    local_5e = *(undefined8 *)(param_1 + 0x17);\n    local_56 = *(undefined8 *)(param_1 + 0x1b);\n    local_4e = *(undefined8 *)(param_1 + 0x1f);\n    sVar7 = 10;\n    bVar2 = false;\n    bVar3 = false;\n    *param_3 = 0;\n    while( true ) {\n      uVar5 = 0xffffffff;\n      sVar7 = sVar7 + -1;\n      uVar4 = FUN_1002f210(param_1,param_4,param_3);\n      if (((short)uVar4 != 0) || (*param_4 == '\\0')) break;\n      uVar5 = .glue::FSpOpenResFile(param_1,0);\n      uVar4 = .glue::ResError();\n      if ((short)uVar5 == -1) break;\n      iVar6 = .glue::Get1IndResource(0x616c6973,1);\n      uVar4 = .glue::ResError();\n      if (iVar6 == 0) break;\n      .glue::LoadResource(iVar6);\n      uVar4 = .glue::ResError();\n      if ((short)uVar4 != 0) break;\n      uVar4 = .glue::FollowFinderAlias(param_1,iVar6,param_5,param_1,&local_90);\n      if ((short)uVar4 == 0) {\n        if (local_90 != '\\0') {\n          .glue::ChangedResource(iVar6);\n          .glue::WriteResource(iVar6);\n        }\n        bVar2 = true;\n        uVar4 = FUN_1002f210(param_1,local_8f,param_3);\n        if (((short)uVar4 == 0) && ((bVar3 = false, local_8f[0] == '\\0' || (param_2 == '\\0')))) {\n          bVar3 = true;\n        }\n      }\n      .glue::CloseResFile(uVar5);\n      uVar5 = 0xffffffff;\n      if ((((short)uVar4 != 0) || (sVar7 < 1)) || (bVar3)) break;\n    }\n    if ((sVar7 == 0) && (!bVar3)) {\n      uVar4 = 0xffffffd5;\n    }\n    if ((short)uVar5 != -1) {\n      .glue::CloseResFile(uVar5);\n    }\n    if (((short)uVar4 != 0) && (bVar2)) {\n      *param_1 = uVar1;\n      *(undefined4 *)(param_1 + 1) = uVar8;\n      *(undefined8 *)(param_1 + 3) = local_86;\n      *(undefined8 *)(param_1 + 7) = local_7e;\n      *(undefined8 *)(param_1 + 0xb) = local_76;\n      *(undefined8 *)(param_1 + 0xf) = local_6e;\n      *(undefined8 *)(param_1 + 0x13) = local_66;\n      *(undefined8 *)(param_1 + 0x17) = local_5e;\n      *(undefined8 *)(param_1 + 0x1b) = local_56;\n      *(undefined8 *)(param_1 + 0x1f) = local_4e;\n    }\n  }\n  return uVar4;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

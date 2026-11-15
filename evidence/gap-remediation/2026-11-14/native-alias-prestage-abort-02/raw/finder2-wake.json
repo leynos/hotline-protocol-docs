@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "sudo",
+    "-n",
+    "python3",
+    "state/native-sessions/native-alias-live-preparation-04/ui-input-alias-live-04.py",
+    "startup",
+    "click",
+    "500",
+    "500"
+  ],
+  "exit": 0,
+  "stdout": "",
+  "stderr": "",
+  "before_utc": "2026-11-14T21:54:26.673957+00:00",
+  "after_utc": "2026-11-14T21:54:27.312669+00:00"
+}

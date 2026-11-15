@@ -1,0 +1,6 @@
+{
+  "command": "ifind -f hfs -n /Hotline19/Files/mothra-folder-source state/mac-runtime/hotline19/working.dsk",
+  "exit_code": 1,
+  "stderr": "General file system error (hfs_dir_open_meta: nodesize value out of bounds) (hfs_cat_traverse: Callback returned error)",
+  "scope": "Two live-image attempts failed before resumed upload; not fork/absence evidence. Capture runner PID1855645 paused while independent finalization is used to request native FlushVol."
+}

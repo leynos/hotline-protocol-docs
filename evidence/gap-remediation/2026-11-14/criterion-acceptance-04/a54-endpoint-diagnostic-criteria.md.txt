@@ -1,0 +1,75 @@
+# A54: frozen GAP-010 and GAP-037 criterion audit (read only)
+
+No new native/Ghidra traffic or tracked changes. Frozen criteria are in
+`evidence/protocol-gap-analysis/2026-11-12/initial-gap-register.json`.
+The observations below apply to hashed native Server 1.9, not to mxd release
+selection while its validation is on hold.
+
+## GAP-010: listening endpoints and data-port arithmetic
+
+Original question: “How are control/data listeners selected and configured,
+and is the data port always the base port plus one in this build?” Criterion:
+“Trace listener creation and configuration; document endpoint mapping,
+exceptions and verified client connection examples.”
+
+| Clause | Retained proof and limit |
+| --- | --- |
+| Configuration/default | `batch-07/queries/B07-D-10008fd0.c:238,284-285` defaults an absent/zero base to 5500 (`0x157c`). `session-transport-contracts.md:9-24` records it. Other malformed or high-bound inputs are not runtime tested. |
+| Listener creation/mapping | `batch-07/queries/B07-D-100007b0.c:214-243` builds four 12-byte addresses: base/`+0x18` ordinary control mode 1, base+1/`+0x20` raw HTXF mode 1, base+2/`+0x1c` alternative control mode 0, base+3/`+0x24` alternative data mode 0. The additions assign to 16-bit port fields. Both control listeners feed the session dispatcher; both raw data listeners feed the HTXF acceptor, per the same contract. |
+| Verified examples and exception | `native-transport-01` paired captures include primary 5500 handshake and 5501 unmatched-reference HTXF rejection. Matched 5501 transfers and sub-version-3 handoff are in `transfer-contracts.md`; these are client-initiated data sockets. The alternate 5502/5503 listeners accepted TCP but did not return plain application bytes in the ten-second ordinary-input window. They are mode-0 wrapped listeners, not demonstrated interchangeable plaintext endpoints. |
+
+**Literal criterion assessment:** The default and configured-field mapping,
+known alternate-mode exception, and positive ordinary client examples meet
+its stated trace/map/example burden at the tested/default-port scope. Full
+alternate wrapper negotiation is a separate interoperability question, not a
+condition to name the four listeners. A high-base-port overflow/runtime bind
+fixture is not expressly demanded by the frozen criterion, but the current
+source supports only a halfword assignment, not “base+1 always yields a
+usable listening TCP port” for arbitrary 16-bit values. Preserve that limit
+instead of claiming universal arithmetic or documented runtime error codes.
+If root interprets “always” to require pathological configurations, the
+smallest missing edge is one **disposable** high-base configuration and
+read-only bind/port outcome; no primary runtime configuration should change.
+
+**Documentation discrepancy:** `protocol.md:724-726` still says listener
+setup and base+1 “need tracing”, while `session-transport-contracts.md:9-37`
+already supplies it. Before a resolved disposition, revise that sentence to
+point to the traced ordinary/alternate map and its high-port/alternate
+negotiation limits. Do not erase the alternate negative observation.
+
+## GAP-037: transaction-303 diagnostic text
+
+Original question: “Are the 303 text labels, line endings, address
+representation and transfer summaries stable protocol content or
+build/configuration-dependent presentation?” Criterion: “Define mandatory
+versus descriptive content, encoding/limits and representative replies;
+explicitly state whether exact textual parity is required.”
+
+| Clause | Retained proof and limit |
+| --- | --- |
+| Mandatory native wire shape | `D-10016150.c` reads target 103, checks privilege bit 24, returns status-0 101 generated text plus 102 target name, or status-1 error 100 for denied/missing target. `diagnostic-replies.md:18-57` has same-session UID controls, raw 299/303-byte successes and 46/67-byte failures. This is the measured native envelope, not a mandate to parse 101 lines. |
+| Descriptive presentation | Native `D-10016150.c:223-226` formats nickname/name/account/address and transfer sections into a 0x400 destination before adding 101; fixed labels, spacing and address text are produced by this build. `diagnostic-replies.md:39-72` retains CR (`0d`) and raw high byte `8e`, with guest address 10.0.2.2. Neither a charset nor address spelling across hosts/locales is established. |
+| Active/queued representatives | `native-diagnostic-existing-witness.md` has 350-byte 1 active/1 waiting plus idle303; `native-diagnostic-density-witness.md` has 417/647/763-byte 4+0/8+4/8+8. `native-diagnostic-near-witness.md` retains a **failed overall capture** with two successful 303 replies, including complete 8+16 rows at 995 bytes, followed by incomplete cancellation. Its independent postflight is sound but does not complete that failed plan. These provide representative transfer summaries, not all percentages, names, or text states. |
+| Encoding/limit boundary | The formatter's argument is 0x400 bytes; 995 is 29 below it. The `10054180` frozen wrapper delegates to `10054310`; the exact clipping/NUL/returned-length behavior at or beyond 1024 is not proved by the below-boundary samples. Treat 101 as captured single-byte data with CR examples and no general codec promise. |
+
+**Text parity disposition:** Native 1.9 *does* emit exact bytes in a given
+configuration, and the captures preserve them. The baseline wire contract
+requires the 101/102 envelopes and raw-value handling, but the labels,
+section prose, CR formatting and guest address are generated descriptive
+output; available evidence does not make exact prose a stable cross-build
+parser contract. Honest documentation can say: “Exact native 1.9 diagnostic
+text is recorded for the cited fixtures. Its generated wording is descriptive
+and is not required for baseline protocol compatibility; any mxd release
+promise of byte-for-byte parity requires a separate explicit decision.” This
+answers the criterion's parity question **for the protocol baseline**, without
+selecting an mxd release target. The current `diagnostic-replies.md:70-79`
+leaves that baseline classification entangled with an unchosen release
+policy, and its “still lacks active/queue and near-boundary” wording is stale.
+
+If “encoding/limits” is read to require an exact maximum transmitted field-101
+length and clipping behavior, one narrow edge remains: inspect retained
+`10054310`/`100568b0` formatter-to-TLV length path or run one separately
+approved disposable at/over-boundary 303 fixture with retained raw bytes.
+The 995-byte case cannot settle it. The exact-text mxd release choice is not
+an oracle fact and should not hold the descriptive baseline answer hostage.
+Root owns wording and status; no gap is closed by this audit.

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "C-10058650",
+    "tool": "get_function_calls",
+    "arguments": {
+      "address": "10058650",
+      "direction": "callers",
+      "limit": 100
+    }
+  },
+  {
+    "id": "C-10058770",
+    "tool": "get_function_calls",
+    "arguments": {
+      "address": "10058770",
+      "direction": "callers",
+      "limit": 100
+    }
+  },
+  {
+    "id": "C-1000bd20",
+    "tool": "get_function_calls",
+    "arguments": {
+      "address": "1000bd20",
+      "direction": "callers",
+      "limit": 100
+    }
+  }
+]

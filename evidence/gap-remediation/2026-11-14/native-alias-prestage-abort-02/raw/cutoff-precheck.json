@@ -1,0 +1,44 @@
+{
+  "unit": "mothra-sheep-9865cb3ba7cd",
+  "service_command_unit": "mothra-sheep-9865cb3ba7cd",
+  "pid_proof": {
+    "disk_ready": {
+      "checked_utc": "2026-11-14T21:37:26.107234+00:00",
+      "deadline_utc": "2026-11-14T22:07:20.932693+00:00",
+      "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "netns_inode": 4026533891,
+      "phase": "disk",
+      "pid": 2807669,
+      "start_ticks": 11694814,
+      "uid": 1000,
+      "working_dev": 2097,
+      "working_image": "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/working.dsk",
+      "working_inode": 2702544443
+    },
+    "actual_ticks": 11694814,
+    "fd6": "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/working.dsk",
+    "netns": 4026533891,
+    "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4"
+  },
+  "root_probe_argv": [
+    "sudo",
+    "-n",
+    "python3",
+    "-c",
+    "<recorded in cutoff-precheck-root-code.txt>"
+  ],
+  "unit_show_argv": [
+    "systemctl",
+    "--user",
+    "show",
+    "mothra-sheep-9865cb3ba7cd.service",
+    "-p",
+    "ActiveState",
+    "-p",
+    "MainPID",
+    "-p",
+    "ControlGroup",
+    "--no-pager"
+  ],
+  "unit_show_stdout": "ActiveState=active\nMainPID=2807633\nControlGroup=/user.slice/user-1000.slice/user@1000.service/app.slice/mothra-sheep-9865cb3ba7cd.service\n"
+}

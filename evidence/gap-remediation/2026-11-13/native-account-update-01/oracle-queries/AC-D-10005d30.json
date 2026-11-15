@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-13T09:10:40.947942+00:00",
+  "query": {
+    "id": "AC-D-10005d30",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10005d30"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_10005d30\",\n    \"address\": \"10005d30\"\n  },\n  \"code\": \"\\nvoid FUN_10005d30(int param_1,char *param_2,int param_3)\\n\\n{\\n  bool bVar1;\\n  short sVar3;\\n  undefined4 uVar2;\\n  undefined1 uVar4;\\n  ushort uVar5;\\n  undefined4 *puVar6;\\n  \\n  if ((param_2 != (char *)0x0) && (*param_2 != '\\\\0')) {\\n    for (puVar6 = *(undefined4 **)(param_1 + 0x34); puVar6 != (undefined4 *)0x0;\\n        puVar6 = (undefined4 *)*puVar6) {\\n      sVar3 = FUN_1006d180((int)puVar6 + 0x79,*(undefined1 *)(puVar6 + 0x1e),param_2 + 1,*param_2);\\n      if (sVar3 == 0) {\\n        bVar1 = false;\\n        if ((puVar6[2] != *(int *)(param_3 + 4)) || (puVar6[3] != *(int *)(param_3 + 8))) {\\n          bVar1 = true;\\n        }\\n        if (bVar1) {\\n          *(undefined8 *)(puVar6 + 2) = *(undefined8 *)(param_3 + 4);\\n          uVar2 = FUN_10056380(0,0);\\n          FUN_100568b0(uVar2,0x6e,puVar6 + 2,8);\\n          FUN_10058ca0(puVar6[1],0x162,uVar2);\\n          FUN_100563d0(uVar2);\\n        }\\n        uVar5 = *(ushort *)(param_3 + 0x210);\\n        if (0x1f < uVar5) {\\n          uVar5 = 0x1f;\\n        }\\n        sVar3 = FUN_1006d180((int)puVar6 + 0x59,*(undefined1 *)(puVar6 + 0x16),param_3 + 0x212,uVar5\\n                            );\\n        if (sVar3 != 0) {\\n          uVar4 = FUN_100539c0((int)puVar6 + 0x59,param_3 + 0x212,uVar5);\\n          *(undefined1 *)(puVar6 + 0x16) = uVar4;\\n        }\\n        uVar5 = *(ushort *)(param_3 + 0x298);\\n        if (0x1f < uVar5) {\\n          uVar5 = 0x1f;\\n        }\\n        sVar3 = FUN_1006d180((int)puVar6 + 0x79,*(undefined1 *)(puVar6 + 0x1e),param_3 + 0x29a,uVar5\\n                            );\\n        if (sVar3 != 0) {\\n          uVar4 = FUN_100539c0((int)puVar6 + 0x79,param_3 + 0x29a,uVar5);\\n          *(undefined1 *)(puVar6 + 0x1e) = uVar4;\\n        }\\n        if ((*(byte *)((int)puVar6 + 0xb) >> 5 & 1) == 0) {\\n          uVar5 = *(ushort *)(param_3 + 0x210);\\n          if (0x1f < uVar5) {\\n            uVar5 = 0x1f;\\n          }\\n          sVar3 = FUN_1006d180((int)puVar6 + 0x39,*(undefined1 *)(puVar6 + 0xe),param_3 + 0x212,\\n                               uVar5);\\n          if (sVar3 != 0) {\\n            bVar1 = true;\\n            uVar4 = FUN_100539c0((int)puVar6 + 0x39,param_3 + 0x212,uVar5);\\n            *(undefined1 *)(puVar6 + 0xe) = uVar4;\\n          }\\n        }\\n        else {\\n          sVar3 = FUN_1006d180((int)puVar6 + 0x39,*(undefined1 *)(puVar6 + 0xe),(int)puVar6 + 0x19,\\n                               *(undefined1 *)(puVar6 + 6));\\n          if (sVar3 != 0) {\\n            bVar1 = true;\\n            FUN_100539c0(puVar6 + 0xe,puVar6 + 6,*(byte *)(puVar6 + 6) + 1);\\n          }\\n        }\\n        if (bVar1) {\\n          FUN_10004f30(param_1,puVar6);\\n        }\\n      }\\n    }\\n  }\\n  return;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_10005d30",
+        "address": "10005d30"
+      },
+      "code": "\nvoid FUN_10005d30(int param_1,char *param_2,int param_3)\n\n{\n  bool bVar1;\n  short sVar3;\n  undefined4 uVar2;\n  undefined1 uVar4;\n  ushort uVar5;\n  undefined4 *puVar6;\n  \n  if ((param_2 != (char *)0x0) && (*param_2 != '\\0')) {\n    for (puVar6 = *(undefined4 **)(param_1 + 0x34); puVar6 != (undefined4 *)0x0;\n        puVar6 = (undefined4 *)*puVar6) {\n      sVar3 = FUN_1006d180((int)puVar6 + 0x79,*(undefined1 *)(puVar6 + 0x1e),param_2 + 1,*param_2);\n      if (sVar3 == 0) {\n        bVar1 = false;\n        if ((puVar6[2] != *(int *)(param_3 + 4)) || (puVar6[3] != *(int *)(param_3 + 8))) {\n          bVar1 = true;\n        }\n        if (bVar1) {\n          *(undefined8 *)(puVar6 + 2) = *(undefined8 *)(param_3 + 4);\n          uVar2 = FUN_10056380(0,0);\n          FUN_100568b0(uVar2,0x6e,puVar6 + 2,8);\n          FUN_10058ca0(puVar6[1],0x162,uVar2);\n          FUN_100563d0(uVar2);\n        }\n        uVar5 = *(ushort *)(param_3 + 0x210);\n        if (0x1f < uVar5) {\n          uVar5 = 0x1f;\n        }\n        sVar3 = FUN_1006d180((int)puVar6 + 0x59,*(undefined1 *)(puVar6 + 0x16),param_3 + 0x212,uVar5\n                            );\n        if (sVar3 != 0) {\n          uVar4 = FUN_100539c0((int)puVar6 + 0x59,param_3 + 0x212,uVar5);\n          *(undefined1 *)(puVar6 + 0x16) = uVar4;\n        }\n        uVar5 = *(ushort *)(param_3 + 0x298);\n        if (0x1f < uVar5) {\n          uVar5 = 0x1f;\n        }\n        sVar3 = FUN_1006d180((int)puVar6 + 0x79,*(undefined1 *)(puVar6 + 0x1e),param_3 + 0x29a,uVar5\n                            );\n        if (sVar3 != 0) {\n          uVar4 = FUN_100539c0((int)puVar6 + 0x79,param_3 + 0x29a,uVar5);\n          *(undefined1 *)(puVar6 + 0x1e) = uVar4;\n        }\n        if ((*(byte *)((int)puVar6 + 0xb) >> 5 & 1) == 0) {\n          uVar5 = *(ushort *)(param_3 + 0x210);\n          if (0x1f < uVar5) {\n            uVar5 = 0x1f;\n          }\n          sVar3 = FUN_1006d180((int)puVar6 + 0x39,*(undefined1 *)(puVar6 + 0xe),param_3 + 0x212,\n                               uVar5);\n          if (sVar3 != 0) {\n            bVar1 = true;\n            uVar4 = FUN_100539c0((int)puVar6 + 0x39,param_3 + 0x212,uVar5);\n            *(undefined1 *)(puVar6 + 0xe) = uVar4;\n          }\n        }\n        else {\n          sVar3 = FUN_1006d180((int)puVar6 + 0x39,*(undefined1 *)(puVar6 + 0xe),(int)puVar6 + 0x19,\n                               *(undefined1 *)(puVar6 + 6));\n          if (sVar3 != 0) {\n            bVar1 = true;\n            FUN_100539c0(puVar6 + 0xe,puVar6 + 6,*(byte *)(puVar6 + 6) + 1);\n          }\n        }\n        if (bVar1) {\n          FUN_10004f30(param_1,puVar6);\n        }\n      }\n    }\n  }\n  return;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

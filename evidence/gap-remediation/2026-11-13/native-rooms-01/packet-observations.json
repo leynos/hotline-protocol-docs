@@ -1,0 +1,437 @@
+{
+  "basics": {
+    "main": {
+      "client_port": 52612,
+      "sent_bytes": 306,
+      "received_bytes": 1142,
+      "unread_output_hex": "000000760000000c0000000000000010000000100002007200043e4ca402006700020068",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": "000000760000000c0000000000000010000000100002007200043e4ca4020067000200680000012e0000000d0000000000000008000000080001006700020068"
+    },
+    "zero": {
+      "client_port": 52620,
+      "sent_bytes": 499,
+      "received_bytes": 1088,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": ""
+    },
+    "reader": {
+      "client_port": 52636,
+      "sent_bytes": 361,
+      "received_bytes": 995,
+      "unread_output_hex": "00000076000000090000000000000010000000100002007200043e4ca402006700020068",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": "00000076000000090000000000000010000000100002007200043e4ca4020067000200680000012e0000000a0000000000000008000000080001006700020068"
+    },
+    "speaker": {
+      "client_port": 52638,
+      "sent_bytes": 374,
+      "received_bytes": 588,
+      "unread_output_hex": "0000012e000000050000000000000008000000080001006700020068",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": "0000012e000000050000000000000008000000080001006700020068"
+    }
+  },
+  "basics-width-failure": {
+    "main": {
+      "client_port": 44774,
+      "sent_bytes": 108,
+      "received_bytes": 581,
+      "unread_output_hex": "0000012e000000060000000000000008000000080001006700020063",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": "0000012e000000060000000000000008000000080001006700020063"
+    },
+    "zero": {
+      "client_port": 44790,
+      "sent_bytes": 190,
+      "received_bytes": 526,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": true,
+      "guest_server_close_kind": "RST",
+      "guest_unread_output_hex": ""
+    },
+    "reader": {
+      "client_port": 44798,
+      "sent_bytes": 100,
+      "received_bytes": 344,
+      "unread_output_hex": "0000012d0000000300000000000000260000002600040067000200650068000200200070000200000066000e526f6f6d33302d737065616b6572",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": "0000012d0000000300000000000000260000002600040067000200650068000200200070000200000066000e526f6f6d33302d737065616b65720000012e000000040000000000000008000000080001006700020063"
+    },
+    "speaker": {
+      "client_port": 44814,
+      "sent_bytes": 102,
+      "received_bytes": 344,
+      "unread_output_hex": "0000012e000000030000000000000008000000080001006700020063",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": "0000012e000000030000000000000008000000080001006700020063"
+    }
+  },
+  "cleanup": {
+    "main": {
+      "client_port": 53846,
+      "sent_bytes": 258,
+      "received_bytes": 2303,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": ""
+    }
+  },
+  "concurrent": {
+    "main": {
+      "client_port": 60702,
+      "sent_bytes": 226,
+      "received_bytes": 869,
+      "unread_output_hex": "0000012e0000000a0000000000000008000000080001006700020074",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": "0000012e0000000a0000000000000008000000080001006700020074"
+    },
+    "zero": {
+      "client_port": 60712,
+      "sent_bytes": 274,
+      "received_bytes": 766,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": ""
+    },
+    "reader": {
+      "client_port": 60714,
+      "sent_bytes": 248,
+      "received_bytes": 627,
+      "unread_output_hex": "0000012e000000050000000000000008000000080001006700020074",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": "0000012e0000000500000000000000080000000800010067000200740000012e000000060000000000000008000000080001006700020076"
+    },
+    "speaker": {
+      "client_port": 60726,
+      "sent_bytes": 190,
+      "received_bytes": 432,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": ""
+    }
+  },
+  "create_invites": {
+    "main": {
+      "client_port": 60482,
+      "sent_bytes": 226,
+      "received_bytes": 906,
+      "unread_output_hex": "0000012e000000090000000000000008000000080001006700020078",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": "0000012e000000090000000000000008000000080001006700020078"
+    },
+    "zero": {
+      "client_port": 60496,
+      "sent_bytes": 184,
+      "received_bytes": 602,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": ""
+    },
+    "reader": {
+      "client_port": 40050,
+      "sent_bytes": 278,
+      "received_bytes": 674,
+      "unread_output_hex": "0000012e000000060000000000000008000000080001006700020078",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": "0000012e000000060000000000000008000000080001006700020078"
+    },
+    "speaker": {
+      "client_port": 40052,
+      "sent_bytes": 190,
+      "received_bytes": 487,
+      "unread_output_hex": "0000012e000000040000000000000008000000080001006700020078",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": "0000012e0000000400000000000000080000000800010067000200780000012e000000050000000000000008000000080001006700020077"
+    }
+  },
+  "final": {
+    "main": {
+      "client_port": 49586,
+      "sent_bytes": 258,
+      "received_bytes": 2434,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": ""
+    }
+  },
+  "formatting": {
+    "main": {
+      "client_port": 53246,
+      "sent_bytes": 558,
+      "received_bytes": 1807,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": ""
+    },
+    "zero": {
+      "client_port": 53254,
+      "sent_bytes": 390,
+      "received_bytes": 928,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": ""
+    },
+    "reader": {
+      "client_port": 40458,
+      "sent_bytes": 394,
+      "received_bytes": 1593,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": ""
+    },
+    "speaker": {
+      "client_port": 40460,
+      "sent_bytes": 844,
+      "received_bytes": 716,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": ""
+    }
+  },
+  "invites": {
+    "main": {
+      "client_port": 45796,
+      "sent_bytes": 196,
+      "received_bytes": 825,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": ""
+    },
+    "zero": {
+      "client_port": 45800,
+      "sent_bytes": 398,
+      "received_bytes": 672,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": ""
+    },
+    "reader": {
+      "client_port": 45804,
+      "sent_bytes": 218,
+      "received_bytes": 808,
+      "unread_output_hex": "00000076000000090000000000000010000000100002007200043ca5200700670002007b",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": "00000076000000090000000000000010000000100002007200043ca5200700670002007b0000012e0000000a000000000000000800000008000100670002007b000000760000000b0000000000000010000000100002007200043ca5200700670002007c0000012e0000000c000000000000000800000008000100670002007c"
+    },
+    "speaker": {
+      "client_port": 45812,
+      "sent_bytes": 124,
+      "received_bytes": 417,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": ""
+    }
+  },
+  "lifecycle": {
+    "main": {
+      "client_port": 40184,
+      "sent_bytes": 336,
+      "received_bytes": 943,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": ""
+    },
+    "zero": {
+      "client_port": 40198,
+      "sent_bytes": 457,
+      "received_bytes": 840,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": ""
+    },
+    "reader": {
+      "client_port": 40200,
+      "sent_bytes": 388,
+      "received_bytes": 883,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": ""
+    },
+    "speaker": {
+      "client_port": 40202,
+      "sent_bytes": 300,
+      "received_bytes": 542,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": ""
+    }
+  },
+  "preflight": {
+    "main": {
+      "client_port": 48454,
+      "sent_bytes": 258,
+      "received_bytes": 2434,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": ""
+    }
+  },
+  "recovery-inspect": {
+    "main": {
+      "client_port": 49116,
+      "sent_bytes": 258,
+      "received_bytes": 2635,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": ""
+    }
+  },
+  "refusals": {
+    "main": {
+      "client_port": 48730,
+      "sent_bytes": 262,
+      "received_bytes": 969,
+      "unread_output_hex": "0000012e0000000a0000000000000008000000080001006700020084",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": "0000012e0000000a0000000000000008000000080001006700020084000000760000000b000000000000001000000010000200720004468c2d090067000200850000012e0000000c0000000000000008000000080001006700020085"
+    },
+    "zero": {
+      "client_port": 48734,
+      "sent_bytes": 410,
+      "received_bytes": 947,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": ""
+    },
+    "reader": {
+      "client_port": 48750,
+      "sent_bytes": 367,
+      "received_bytes": 799,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": ""
+    },
+    "speaker": {
+      "client_port": 48758,
+      "sent_bytes": 256,
+      "received_bytes": 820,
+      "unread_output_hex": "0000012e000000090000000000000008000000080001006700020084",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": "0000012e0000000900000000000000080000000800010067000200840000012e0000000a0000000000000008000000080001006700020085"
+    }
+  },
+  "refusals-ack-timeout": {
+    "main": {
+      "client_port": 54478,
+      "sent_bytes": 108,
+      "received_bytes": 581,
+      "unread_output_hex": "0000012d00000006000000000000002500000025000400670002008100680002001f0070000200080066000d526f6f6d33302d726561646572",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": "0000012d00000006000000000000002500000025000400670002008100680002001f0070000200080066000d526f6f6d33302d726561646572"
+    },
+    "zero": {
+      "client_port": 54488,
+      "sent_bytes": 96,
+      "received_bytes": 344,
+      "unread_output_hex": "0000012d00000003000000000000002500000025000400670002008100680002001f0070000200000066000d526f6f6d33302d7265616465720000012d0000000400000000000000260000002600040067000200820068000200200070000200000066000e526f6f6d33302d737065616b65720000012d00000005000000000000002500000025000400670002008100680002001f0070000200080066000d526f6f6d33302d726561646572",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": "0000012d00000003000000000000002500000025000400670002008100680002001f0070000200000066000d526f6f6d33302d7265616465720000012d0000000400000000000000260000002600040067000200820068000200200070000200000066000e526f6f6d33302d737065616b65720000012d00000005000000000000002500000025000400670002008100680002001f0070000200080066000d526f6f6d33302d7265616465720000012e00000006000000000000000800000008000100670002007f"
+    },
+    "reader": {
+      "client_port": 54498,
+      "sent_bytes": 134,
+      "received_bytes": 459,
+      "unread_output_hex": "0000012e00000005000000000000000800000008000100670002007f",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": "0000012e00000005000000000000000800000008000100670002007f0000012e0000000600000000000000080000000800010067000200800000012e000000070000000000000008000000080001006700020082"
+    },
+    "speaker": {
+      "client_port": 36230,
+      "sent_bytes": 102,
+      "received_bytes": 344,
+      "unread_output_hex": "0000012d00000003000000000000002500000025000400670002008100680002001f0070000200080066000d526f6f6d33302d726561646572",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": "0000012d00000003000000000000002500000025000400670002008100680002001f0070000200080066000d526f6f6d33302d7265616465720000012e00000004000000000000000800000008000100670002007f"
+    }
+  },
+  "seed": {
+    "main": {
+      "client_port": 48458,
+      "sent_bytes": 369,
+      "received_bytes": 410,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": ""
+    }
+  },
+  "topics": {
+    "main": {
+      "client_port": 51938,
+      "sent_bytes": 350,
+      "received_bytes": 1929,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": ""
+    },
+    "zero": {
+      "client_port": 51942,
+      "sent_bytes": 66705,
+      "received_bytes": 701,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": ""
+    },
+    "reader": {
+      "client_port": 51950,
+      "sent_bytes": 612,
+      "received_bytes": 3152,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": ""
+    },
+    "speaker": {
+      "client_port": 51960,
+      "sent_bytes": 344,
+      "received_bytes": 586,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "guest_unread_output_hex": ""
+    }
+  }
+}

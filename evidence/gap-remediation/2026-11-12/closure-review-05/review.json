@@ -1,0 +1,11 @@
+{
+  "source_register_commit": "336c13c8ad0be69cbde4559d0d71cfb0770f73a8",
+  "entries": [
+    {
+      "gap_id": "GAP-014",
+      "unchanged_closure_criteria": "Define exact consumption, bounds, unknown-field and trailing-data rules; add byte fixtures at every boundary and mismatch class.",
+      "prior_status": "Investigating",
+      "review": "Retained index/copy/lookup source defines bounded valid-prefix consumption, count/trailing and unknown-field rules. Native settings304 cases expose handler defaults and retained complete values for short counts, truncated headers0..3bytes, truncated values, countlow/high, trailing garbage, empty/unknown/zero fields, maximumBE16count and maximumBE16value. Paired packet reconciliation independently verifies wire bytes. These structural rules are not universal operation-success policy; other field/handler acceptance remains separately tracked."
+    }
+  ]
+}

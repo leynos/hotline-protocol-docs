@@ -1,0 +1,11 @@
+{
+  "completed_reports": 20,
+  "paired_connections": 22,
+  "posted_articles": 103,
+  "stored_indexed_articles": 103,
+  "reachable_list_articles": 102,
+  "bypassed_but_readable_id": 102,
+  "replacement_next_sibling": 103,
+  "oracle_queries": 10,
+  "scope": "Native child append boundary only; no all-category ceiling, root-sibling boundary, restart durability, interruption atomicity or historical-client claim"
+}

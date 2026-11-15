@@ -1,0 +1,20 @@
+Nov 14 13:57:46 ibara systemd[1]: Starting mothra-native-path-fields-01-host.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-path-fields-epoch-01/primary-syn.pcap "(tcp port 15500 or tcp port 15501) and (tcp[tcpflags] & tcp-syn != 0)"...
+Nov 14 13:57:46 ibara systemd[1]: Started mothra-native-path-fields-01-host.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-path-fields-epoch-01/primary-syn.pcap "(tcp port 15500 or tcp port 15501) and (tcp[tcpflags] & tcp-syn != 0)".
+Nov 14 13:57:46 ibara tcpdump[1058517]: dropped privs to tcpdump
+Nov 14 13:57:46 ibara tcpdump[1058517]: tcpdump: listening on lo, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+Nov 14 13:59:51 ibara systemd[1]: Starting mothra-native-path-fields-01-namespace.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-path-fields-epoch-01/lab-namespace.pcap "(tcp port 15500 or tcp port 15501 or tcp port 15900 or tcp port 15901)"...
+Nov 14 13:59:52 ibara systemd[1]: Started mothra-native-path-fields-01-namespace.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-path-fields-epoch-01/lab-namespace.pcap "(tcp port 15500 or tcp port 15501 or tcp port 15900 or tcp port 15901)".
+Nov 14 13:59:52 ibara tcpdump[1080863]: dropped privs to tcpdump
+Nov 14 13:59:52 ibara tcpdump[1080863]: tcpdump: listening on lo, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+Nov 14 14:03:14 ibara tcpdump[1058517]: 0 packets captured
+Nov 14 14:03:14 ibara tcpdump[1058517]: 0 packets received by filter
+Nov 14 14:03:14 ibara tcpdump[1058517]: 0 packets dropped by kernel
+Nov 14 14:03:14 ibara systemd[1]: Stopping mothra-native-path-fields-01-host.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-path-fields-epoch-01/primary-syn.pcap "(tcp port 15500 or tcp port 15501) and (tcp[tcpflags] & tcp-syn != 0)"...
+Nov 14 14:03:14 ibara tcpdump[1080863]: 252 packets captured
+Nov 14 14:03:14 ibara tcpdump[1080863]: 504 packets received by filter
+Nov 14 14:03:14 ibara tcpdump[1080863]: 0 packets dropped by kernel
+Nov 14 14:03:14 ibara systemd[1]: Stopping mothra-native-path-fields-01-namespace.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-path-fields-epoch-01/lab-namespace.pcap "(tcp port 15500 or tcp port 15501 or tcp port 15900 or tcp port 15901)"...
+Nov 14 14:03:14 ibara systemd[1]: mothra-native-path-fields-01-host.service: Deactivated successfully.
+Nov 14 14:03:14 ibara systemd[1]: Stopped mothra-native-path-fields-01-host.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-path-fields-epoch-01/primary-syn.pcap "(tcp port 15500 or tcp port 15501) and (tcp[tcpflags] & tcp-syn != 0)".
+Nov 14 14:03:14 ibara systemd[1]: mothra-native-path-fields-01-namespace.service: Deactivated successfully.
+Nov 14 14:03:14 ibara systemd[1]: Stopped mothra-native-path-fields-01-namespace.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-path-fields-epoch-01/lab-namespace.pcap "(tcp port 15500 or tcp port 15501 or tcp port 15900 or tcp port 15901)".

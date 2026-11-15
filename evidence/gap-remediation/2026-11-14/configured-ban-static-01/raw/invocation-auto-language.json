@@ -1,0 +1,15 @@
+{
+  "binary": "/data/leynos/Projects/mothra/evidence/hotline-server-1.9/inputs/HLserver19.pef",
+  "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "project": "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/configured-ban-static-01/project",
+  "project_name": "configured-ban-static-c59",
+  "args": [
+    "--headless",
+    "--no-analyze",
+    "--discard",
+    "--ready-timeout",
+    "120"
+  ],
+  "queries": 1,
+  "raw_query_bytes": 160
+}

@@ -1,0 +1,68 @@
+{
+  "at_utc": "2026-11-14T00:29:20.036218+00:00",
+  "outcome": "zero-contact-no-activation-saver-obscured-dialog",
+  "proxy_started_once": true,
+  "proxy_stopped_utc": "2026-11-14T00:28:00Z",
+  "return_sent": false,
+  "app_quit": true,
+  "recorders_stopped": true,
+  "a7_postflight": {
+    "utc": "2026-11-14T00:29:20.036218+00:00",
+    "status": "completed",
+    "actions": 29,
+    "accounts": 2,
+    "files": 41,
+    "filp_bytes": 1049073,
+    "filp_sha256": "7d1f5bf5e2b69b8a18906633ce2ef550876b78252c0639e7d36eb61142787ab8",
+    "filp_equal_preflight": true,
+    "static_frames_equal": [
+      4,
+      5,
+      6,
+      8,
+      10,
+      12,
+      16,
+      23,
+      27
+    ]
+  },
+  "files": {
+    "host.pcap": {
+      "bytes": 1182788,
+      "sha256": "f666f9ea94814396ac433378948718a14c2f8313f6f454df68ede42b77294e65",
+      "records": 1587,
+      "complete_parse": true
+    },
+    "namespace.pcap": {
+      "bytes": 24,
+      "sha256": "704e5e5b3234433c01fcfd1b20a306e77e985038120492dc53965c3edd38a4ea",
+      "records": 0,
+      "complete_parse": true
+    },
+    "client-guest-pre.pcap": {
+      "bytes": 10754,
+      "sha256": "724bbb1d4f776ad7ea4d04b76f527e805def3b2b666438b8205fcc24da9d8252",
+      "records": 100,
+      "complete_parse": true
+    },
+    "client-guest-post.pcap": {
+      "bytes": 10754,
+      "sha256": "724bbb1d4f776ad7ea4d04b76f527e805def3b2b666438b8205fcc24da9d8252",
+      "records": 100,
+      "complete_parse": true
+    },
+    "server-guest-pre.pcap": {
+      "bytes": 19837848,
+      "sha256": "868db7780b1c691a3042b09625810870d744f78abc7ce801e52347d11ae48547",
+      "records": 28746,
+      "complete_parse": true
+    },
+    "server-guest-post.pcap": {
+      "bytes": 22166281,
+      "sha256": "d899041545b83af9935f3f02202d26d2ff85dd52cb29d13eec50c058d6413f13",
+      "records": 31930,
+      "complete_parse": true
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "recorded_at_utc": "2026-11-13T00:25:59.099297+00:00",
+  "image": "state/mac-runtime/hotline19/working.dsk",
+  "tool_sha256": {
+    "istat": "f87c0cee5e263c55440c19fb3e478b80e33dcbae223388b5f83913ceb5fc4499",
+    "icat": "ab73038eda8ed52697c5d94874bbc0a19285184253e68a78f6e4ab347a042bba"
+  },
+  "catalog_range": [
+    11184,
+    11184
+  ],
+  "roots": [
+    "/Hotline19/Agreement.saved"
+  ],
+  "method": "Read-only direct catalogue observations. Positive paths verified by istat before fork reads. Not an exhaustive directory listing, path-absence proof, protocol certification or restart-durability result.",
+  "probes": [
+    {
+      "catalog": 11184,
+      "exit_code": 0,
+      "stderr": ""
+    }
+  ],
+  "records": [
+    {
+      "path": "/Hotline19/Agreement.saved",
+      "key": "catalog-11184",
+      "catalog": 11184,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 245,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    }
+  ]
+}

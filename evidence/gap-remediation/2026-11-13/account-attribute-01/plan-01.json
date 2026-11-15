@@ -1,0 +1,131 @@
+[
+  {
+    "id": "AA-C-100073c0",
+    "tool": "get_function_calls",
+    "arguments": {
+      "address": "100073c0",
+      "direction": "callers",
+      "offset": 0,
+      "limit": 100
+    }
+  },
+  {
+    "id": "AA-C-100075e0",
+    "tool": "get_function_calls",
+    "arguments": {
+      "address": "100075e0",
+      "direction": "callers",
+      "offset": 0,
+      "limit": 100
+    }
+  },
+  {
+    "id": "AA-C-10005d30",
+    "tool": "get_function_calls",
+    "arguments": {
+      "address": "10005d30",
+      "direction": "callers",
+      "offset": 0,
+      "limit": 100
+    }
+  },
+  {
+    "id": "AA-C-100146f0",
+    "tool": "get_function_calls",
+    "arguments": {
+      "address": "100146f0",
+      "direction": "callers",
+      "offset": 0,
+      "limit": 100
+    }
+  },
+  {
+    "id": "AA-C-10014df0",
+    "tool": "get_function_calls",
+    "arguments": {
+      "address": "10014df0",
+      "direction": "callers",
+      "offset": 0,
+      "limit": 100
+    }
+  },
+  {
+    "id": "AA-C-10015500",
+    "tool": "get_function_calls",
+    "arguments": {
+      "address": "10015500",
+      "direction": "callers",
+      "offset": 0,
+      "limit": 100
+    }
+  },
+  {
+    "id": "AA-C-10014bc0",
+    "tool": "get_function_calls",
+    "arguments": {
+      "address": "10014bc0",
+      "direction": "callers",
+      "offset": 0,
+      "limit": 100
+    }
+  },
+  {
+    "id": "AA-A-100146f0",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "100146f0",
+      "offset": 0,
+      "limit": 500
+    }
+  },
+  {
+    "id": "AA-A-10014df0",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "10014df0",
+      "offset": 0,
+      "limit": 500
+    }
+  },
+  {
+    "id": "AA-D-10007510",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10007510"
+    }
+  },
+  {
+    "id": "AA-D-10005f90",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10005f90"
+    }
+  },
+  {
+    "id": "AA-S-account",
+    "tool": "list_strings",
+    "arguments": {
+      "filter": "Account",
+      "offset": 0,
+      "limit": 100
+    }
+  },
+  {
+    "id": "AA-S-user",
+    "tool": "list_strings",
+    "arguments": {
+      "filter": "User",
+      "offset": 0,
+      "limit": 100
+    }
+  },
+  {
+    "id": "AA-S-attribute",
+    "tool": "list_strings",
+    "arguments": {
+      "filter": "attribute",
+      "offset": 0,
+      "limit": 100
+    }
+  }
+]

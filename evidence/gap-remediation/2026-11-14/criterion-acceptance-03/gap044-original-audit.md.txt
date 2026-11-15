@@ -1,0 +1,55 @@
+# A51: GAP-044 original-criterion audit (read only)
+
+Frozen register `evidence/protocol-gap-analysis/2026-11-12/initial-gap-register.json`
+GAP-044 asks which fields identify user messages, server/admin notices,
+refusals and kick notices, and whether UID/name/options are mandatory by
+variant. Closure: “Define discriminators and per-variant required/optional
+fields, with fixtures for each known producer.” This is a **known-producer**
+inventory, not proof that no further producer exists.
+
+`notification-104-variants.md` already distinguishes the three observed wire
+shapes: identity-bearing 103/102/113/101 with optional quote 214 on routed
+108; 109=`0001` plus 101 for chat denial and 349 collision; and 101-only
+for deletion/kick/console/configured-ban notices. Sender identity is not
+universal: original PM identifies sender, generated feedback identifies the
+responding recipient/invitee. Option 113 is branch-specific, not mandatory.
+The same 109 shape cannot distinguish denial from collision; 101-only cannot
+distinguish deletion, kick, console or configured application. Text is not a
+universal discriminator, since an operator may send generated notice wording.
+Request context, target/administrator socket and teardown can identify a
+*frozen capture* but are not additional 104 fields. Notification type 104 is
+sent by e.g. `FUN_10058ca0(target,0x68,buffer)`; this is unrelated to TLV
+field 104, the icon in 107/121/304 and roster/presence records. Console
+fanout (`10005510`) may distribute the prepared 104; that alias is not a
+new unique schema.
+
+| Known producer/branch | Existing finite fixture or exact residual |
+| --- | --- |
+| 108 ordinary/quoted/refusal/auto and sender-refusal suppression, `1000f4e0` | A29 `native-pm-01`, `native-pm-witness.md`: six delivered 104s and quiet controls; quote 214 optional on the original branch. |
+| 112/113 invitation feedback, `10017f30`/`100188e0` | `native-rooms-01/refusals/report.json` actions 44/62, option 3/4 with invitee identity. |
+| 105 denial, `1000fc20` | `native-rooms-01/basics/report.json` actions 67/76, 109/101. |
+| 349 existing-login collision, `10015500` | `native-account-batch-01/batch-collision-continues/report.json` action 8, 109/101. Direct 350 duplicate's status-1/field-100 reply is a negative no-104 control. |
+| 351/live-account delete or replacement via `10005f90` | `native-live-accounts-01/delete/report.json` actions 29/30 and `native-account-identity-01/self/report.json` action 21 capture 101-only notice/closure. The inventory should name the helper's **replacement of live sessions** as the same known branch, not imply a new schema or that every edit emits it. Whether every replacement trigger has its own fixture should be explicitly scoped; the captured 351/delete branch is positive. |
+| 110 option 1/2, `10015e70` | `native-ban-notices.md` and `native-ban-control-witness.md`: respective 101-only notices with target closure. Absent/other option is no-notice branch; request 113 does not appear as 104 field. |
+| Console `10002dd0` through fanout `10005510` | `native-console-broadcast-01` positive 101-only recipients and state eligibility; sender host first-flow prefix limit retained. |
+| Configured address-ban application `10006590`, caller `100023a0` | C68 raw `state/native-sessions/native-configured-apply-c66/captures/held-apply/report.json`: one Options Save produced two type-104 notifications, each flags/header zero and sole 101 length 42, followed by EOF; 23/23 actions PASS. Both texts equal the permanent-ban wording. This is **pending C69 paired publication**; do not treat the raw Recorder report alone as accepted packet-proven fixture. |
+
+Source `native-login-extras-01/oracle-queries/LX-D-10006590.c` builds field
+101 via `FUN_10056ae0(...,0x65,...)` and sends transaction type 104 via
+`FUN_10058ca0(...,0x68,...)` to each matched session, then requests close.
+`batch-17/queries/B17-D-100023a0.c` supplies the configured-list apply
+context. `D-10015e70.c` independently uses the same `0x68` send function for
+kick options. The matching 42-byte text and 101-only shape do **not** let a
+receiver distinguish configured apply from an option-2 kick on wire alone.
+Expiry, protection and restart behavior belong to GAP-074, not this schema
+criterion.
+
+**Disposition:** If C69 publishes and verifies a paired configured-apply
+capture with the reported two 101-only pushes, the already-known producer
+inventory has a positive fixture for every listed send branch and explicit
+non-discriminability where schemas overlap. The frozen criterion then appears
+met at known-producer/branch scope. Before closure, update the inventory's
+configured row and stale “fixture outstanding” paragraph, and qualify the
+`10005f90` live-replacement branch rather than silently dropping it. Do not
+claim all text/field origins are uniquely decidable or that no other producer
+can exist. Parent owns paired review, inventory integration and status.

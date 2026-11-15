@@ -1,0 +1,1982 @@
+{
+  "schema_version": 1,
+  "profile": "native-mac-oracle",
+  "status": "completed",
+  "native_conformance": false,
+  "identity_scope": "Local binary hash verified; remote process identity is operator-reported",
+  "operator": "native fixture operator",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "plan_sha256": "a85832689babc05cd247d289234831db9394fc744eb830775afb88db1a688c60",
+  "driver_sha256": "2fba0972f4d9a8e3845c4204dce150dd7c90da0e19a9e5720d5289e2c94faf01",
+  "recorded_at_utc": "2026-11-13T11:00:35.969400+00:00",
+  "started_at_utc": "2026-11-13T11:00:25.455453+00:00",
+  "gap_ids": [
+    "GAP-003",
+    "GAP-018",
+    "GAP-019",
+    "GAP-031",
+    "GAP-033",
+    "GAP-038",
+    "GAP-039",
+    "GAP-040",
+    "GAP-041",
+    "GAP-042",
+    "GAP-084"
+  ],
+  "completed_actions": 79,
+  "error": "",
+  "events": [
+    {
+      "action": 0,
+      "connection": "main",
+      "event": "connect",
+      "elapsed_ns": 2159637,
+      "hex": "",
+      "local_address": [
+        "127.0.0.1",
+        60702
+      ],
+      "peer_address": [
+        "127.0.0.1",
+        15500
+      ]
+    },
+    {
+      "action": 1,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 2220581,
+      "hex": "54525450484f544c00010002"
+    },
+    {
+      "action": 2,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 100172635,
+      "hex": "5452545000000000"
+    },
+    {
+      "action": 3,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 100329668,
+      "hex": "0000006b000000010000000000000036000000360005006900059e9b929691006a000892908b978d9ecec600a0000200be0066000f6672616d696e672d66697874757265006800020001"
+    },
+    {
+      "action": 4,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 110037930,
+      "hex": "0001000000000001000000000000000e0000000e"
+    },
+    {
+      "action": 4,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 110096289,
+      "hex": "000200a0000200be00a100020000"
+    },
+    {
+      "action": 5,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 114483572,
+      "hex": "0000016200000001000000000000000e0000000e"
+    },
+    {
+      "action": 5,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 114536621,
+      "hex": "0001006e0008fff3cfefff800000"
+    },
+    {
+      "action": 6,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 114587916,
+      "hex": "0000006d0000000200000000000000f8000000f8"
+    },
+    {
+      "action": 6,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 114637348,
+      "hex": "0001006500f25468697320697320746865207365727665722061677265656d656e742e20200d54686520736572766572206f776e6572207075747320616e79206b696e64206f6620636f6e646974696f6e73206f7220636f6e646974696f6e7320746865792077616e7420796f7520746f20616772656520746f206265666f726520656e746572696e672e20200d546865792063616e206368616e676520746869732061677265656d656e74206279206d6f64696679696e67207468652061677265656d656e742e7478742066696c6520696e2074686520736572766572206469726563746f72792e0d53617920796f7520616772656521"
+    },
+    {
+      "action": 7,
+      "connection": "zero",
+      "event": "connect",
+      "elapsed_ns": 115077578,
+      "hex": "",
+      "local_address": [
+        "127.0.0.1",
+        60712
+      ],
+      "peer_address": [
+        "127.0.0.1",
+        15500
+      ]
+    },
+    {
+      "action": 8,
+      "connection": "zero",
+      "event": "send",
+      "elapsed_ns": 115141066,
+      "hex": "54525450484f544c00010002"
+    },
+    {
+      "action": 9,
+      "connection": "zero",
+      "event": "receive",
+      "elapsed_ns": 155582410,
+      "hex": "5452545000000000"
+    },
+    {
+      "action": 10,
+      "connection": "zero",
+      "event": "send",
+      "elapsed_ns": 155752056,
+      "hex": "0000006b000000010000000000000040000000400005006a000b8d909092d28f9e8c8ccccf00a0000200be0069000d92d28d909092cccfd2859a8d900066000e7265717565737465642d7a65726f00680002001e"
+    },
+    {
+      "action": 11,
+      "connection": "zero",
+      "event": "receive",
+      "elapsed_ns": 171506511,
+      "hex": "0001000000000001000000000000000e0000000e"
+    },
+    {
+      "action": 11,
+      "connection": "zero",
+      "event": "receive",
+      "elapsed_ns": 171552817,
+      "hex": "000200a0000200be00a100020000"
+    },
+    {
+      "action": 12,
+      "connection": "zero",
+      "event": "receive",
+      "elapsed_ns": 176960700,
+      "hex": "0000016200000001000000000000000e0000000e"
+    },
+    {
+      "action": 12,
+      "connection": "zero",
+      "event": "receive",
+      "elapsed_ns": 177005473,
+      "hex": "0001006e00080000000000000000"
+    },
+    {
+      "action": 13,
+      "connection": "zero",
+      "event": "receive",
+      "elapsed_ns": 177047592,
+      "hex": "0000006d0000000200000000000000f8000000f8"
+    },
+    {
+      "action": 13,
+      "connection": "zero",
+      "event": "receive",
+      "elapsed_ns": 177073460,
+      "hex": "0001006500f25468697320697320746865207365727665722061677265656d656e742e20200d54686520736572766572206f776e6572207075747320616e79206b696e64206f6620636f6e646974696f6e73206f7220636f6e646974696f6e7320746865792077616e7420796f7520746f20616772656520746f206265666f726520656e746572696e672e20200d546865792063616e206368616e676520746869732061677265656d656e74206279206d6f64696679696e67207468652061677265656d656e742e7478742066696c6520696e2074686520736572766572206469726563746f72792e0d53617920796f7520616772656521"
+    },
+    {
+      "action": 14,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 177090582,
+      "hex": "0000012d00000003000000000000002300000023"
+    },
+    {
+      "action": 14,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 177096433,
+      "hex": "000400670002007400680002001e0070000200200066000b526f6f6d33302d7a65726f"
+    },
+    {
+      "action": 15,
+      "connection": "reader",
+      "event": "connect",
+      "elapsed_ns": 177284974,
+      "hex": "",
+      "local_address": [
+        "127.0.0.1",
+        60714
+      ],
+      "peer_address": [
+        "127.0.0.1",
+        15500
+      ]
+    },
+    {
+      "action": 16,
+      "connection": "reader",
+      "event": "send",
+      "elapsed_ns": 177325479,
+      "hex": "54525450484f544c00010002"
+    },
+    {
+      "action": 17,
+      "connection": "reader",
+      "event": "receive",
+      "elapsed_ns": 454728152,
+      "hex": "5452545000000000"
+    },
+    {
+      "action": 18,
+      "connection": "reader",
+      "event": "send",
+      "elapsed_ns": 454884623,
+      "hex": "0000006b000000010000000000000044000000440005006a000b8d909092d28f9e8c8ccccf00a0000200be0069000f92d28d909092cccfd28d9a9e9b9a8d006600107265717565737465642d72656164657200680002001f"
+    },
+    {
+      "action": 19,
+      "connection": "reader",
+      "event": "receive",
+      "elapsed_ns": 485016804,
+      "hex": "0001000000000001000000000000000e0000000e"
+    },
+    {
+      "action": 19,
+      "connection": "reader",
+      "event": "receive",
+      "elapsed_ns": 485065996,
+      "hex": "000200a0000200be00a100020000"
+    },
+    {
+      "action": 20,
+      "connection": "reader",
+      "event": "receive",
+      "elapsed_ns": 494804486,
+      "hex": "0000016200000001000000000000000e0000000e"
+    },
+    {
+      "action": 20,
+      "connection": "reader",
+      "event": "receive",
+      "elapsed_ns": 494847987,
+      "hex": "0001006e00080040000000000000"
+    },
+    {
+      "action": 21,
+      "connection": "reader",
+      "event": "receive",
+      "elapsed_ns": 494890656,
+      "hex": "0000006d0000000200000000000000f8000000f8"
+    },
+    {
+      "action": 21,
+      "connection": "reader",
+      "event": "receive",
+      "elapsed_ns": 494916595,
+      "hex": "0001006500f25468697320697320746865207365727665722061677265656d656e742e20200d54686520736572766572206f776e6572207075747320616e79206b696e64206f6620636f6e646974696f6e73206f7220636f6e646974696f6e7320746865792077616e7420796f7520746f20616772656520746f206265666f726520656e746572696e672e20200d546865792063616e206368616e676520746869732061677265656d656e74206279206d6f64696679696e67207468652061677265656d656e742e7478742066696c6520696e2074686520736572766572206469726563746f72792e0d53617920796f7520616772656521"
+    },
+    {
+      "action": 22,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 494933726,
+      "hex": "0000012d00000004000000000000002500000025"
+    },
+    {
+      "action": 22,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 494939758,
+      "hex": "000400670002007500680002001f0070000200000066000d526f6f6d33302d726561646572"
+    },
+    {
+      "action": 23,
+      "connection": "speaker",
+      "event": "connect",
+      "elapsed_ns": 495118340,
+      "hex": "",
+      "local_address": [
+        "127.0.0.1",
+        60726
+      ],
+      "peer_address": [
+        "127.0.0.1",
+        15500
+      ]
+    },
+    {
+      "action": 24,
+      "connection": "speaker",
+      "event": "send",
+      "elapsed_ns": 495159747,
+      "hex": "54525450484f544c00010002"
+    },
+    {
+      "action": 25,
+      "connection": "speaker",
+      "event": "receive",
+      "elapsed_ns": 905451417,
+      "hex": "5452545000000000"
+    },
+    {
+      "action": 26,
+      "connection": "speaker",
+      "event": "send",
+      "elapsed_ns": 905575678,
+      "hex": "0000006b000000010000000000000046000000460005006a000b8d909092d28f9e8c8ccccf00a0000200be0069001092d28d909092cccfd28c8f9a9e949a8d006600117265717565737465642d737065616b6572006800020020"
+    },
+    {
+      "action": 27,
+      "connection": "speaker",
+      "event": "receive",
+      "elapsed_ns": 916022778,
+      "hex": "0001000000000001000000000000000e0000000e"
+    },
+    {
+      "action": 27,
+      "connection": "speaker",
+      "event": "receive",
+      "elapsed_ns": 916072060,
+      "hex": "000200a0000200be00a100020000"
+    },
+    {
+      "action": 28,
+      "connection": "speaker",
+      "event": "receive",
+      "elapsed_ns": 931038351,
+      "hex": "0000016200000001000000000000000e0000000e"
+    },
+    {
+      "action": 28,
+      "connection": "speaker",
+      "event": "receive",
+      "elapsed_ns": 931090488,
+      "hex": "0001006e00080060000000000000"
+    },
+    {
+      "action": 29,
+      "connection": "speaker",
+      "event": "receive",
+      "elapsed_ns": 931154537,
+      "hex": "0000006d0000000200000000000000f8000000f8"
+    },
+    {
+      "action": 29,
+      "connection": "speaker",
+      "event": "receive",
+      "elapsed_ns": 931213407,
+      "hex": "0001006500f25468697320697320746865207365727665722061677265656d656e742e20200d54686520736572766572206f776e6572207075747320616e79206b696e64206f6620636f6e646974696f6e73206f7220636f6e646974696f6e7320746865792077616e7420796f7520746f20616772656520746f206265666f726520656e746572696e672e20200d546865792063616e206368616e676520746869732061677265656d656e74206279206d6f64696679696e67207468652061677265656d656e742e7478742066696c6520696e2074686520736572766572206469726563746f72792e0d53617920796f7520616772656521"
+    },
+    {
+      "action": 30,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 931243493,
+      "hex": "0000012d00000005000000000000002600000026"
+    },
+    {
+      "action": 30,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 931252219,
+      "hex": "00040067000200760068000200200070000200000066000e526f6f6d33302d737065616b6572"
+    },
+    {
+      "action": 31,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 931357015,
+      "hex": "000000700000000a0000000000000002000000020000"
+    },
+    {
+      "action": 32,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 2712730310,
+      "hex": "000100000000000a000000000000002f0000002f"
+    },
+    {
+      "action": 32,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 2712775164,
+      "hex": "000500720004ee6f60050067000200730068000200010070000200120066000f6672616d696e672d66697874757265"
+    },
+    {
+      "action": 33,
+      "connection": "reader",
+      "event": "send",
+      "elapsed_ns": 2712939550,
+      "hex": "000000730000000b000000000000000a0000000a000100720004ee6f6005"
+    },
+    {
+      "action": 34,
+      "connection": "zero",
+      "event": "send",
+      "elapsed_ns": 2712988812,
+      "hex": "000000730000000c000000000000000a0000000a000100720004ee6f6005"
+    },
+    {
+      "action": 35,
+      "connection": "reader",
+      "event": "receive",
+      "elapsed_ns": 2713002037,
+      "hex": "0000012d00000003000000000000002600000026"
+    },
+    {
+      "action": 35,
+      "connection": "reader",
+      "event": "receive",
+      "elapsed_ns": 2713012035,
+      "hex": "00040067000200760068000200200070000200000066000e526f6f6d33302d737065616b6572"
+    },
+    {
+      "action": 35,
+      "connection": "reader",
+      "event": "receive",
+      "elapsed_ns": 2733827567,
+      "hex": "000100000000000b000000000000003600000036"
+    },
+    {
+      "action": 35,
+      "connection": "reader",
+      "event": "receive",
+      "elapsed_ns": 2733876839,
+      "hex": "0002012c0017007300010012000f6672616d696e672d66697874757265012c00150075001f0000000d526f6f6d33302d726561646572"
+    },
+    {
+      "action": 36,
+      "connection": "zero",
+      "event": "receive",
+      "elapsed_ns": 2733948071,
+      "hex": "0000012d00000003000000000000002500000025"
+    },
+    {
+      "action": 36,
+      "connection": "zero",
+      "event": "receive",
+      "elapsed_ns": 2733955365,
+      "hex": "000400670002007500680002001f0070000200000066000d526f6f6d33302d726561646572"
+    },
+    {
+      "action": 36,
+      "connection": "zero",
+      "event": "receive",
+      "elapsed_ns": 2733971846,
+      "hex": "0000012d00000004000000000000002600000026"
+    },
+    {
+      "action": 36,
+      "connection": "zero",
+      "event": "receive",
+      "elapsed_ns": 2733978157,
+      "hex": "00040067000200760068000200200070000200000066000e526f6f6d33302d737065616b6572"
+    },
+    {
+      "action": 36,
+      "connection": "zero",
+      "event": "receive",
+      "elapsed_ns": 2760307470,
+      "hex": "000100000000000c000000000000004d0000004d"
+    },
+    {
+      "action": 36,
+      "connection": "zero",
+      "event": "receive",
+      "elapsed_ns": 2760362943,
+      "hex": "0003012c0017007300010012000f6672616d696e672d66697874757265012c00150075001f0000000d526f6f6d33302d726561646572012c00130074001e0020000b526f6f6d33302d7a65726f"
+    },
+    {
+      "action": 37,
+      "connection": "reader",
+      "event": "send",
+      "elapsed_ns": 2760485111,
+      "hex": "000001f4000000640000000000000002000000020000"
+    },
+    {
+      "action": 38,
+      "connection": "reader",
+      "event": "receive",
+      "elapsed_ns": 2760501040,
+      "hex": "0000007500000004000000000000002b0000002b"
+    },
+    {
+      "action": 38,
+      "connection": "reader",
+      "event": "receive",
+      "elapsed_ns": 2760509667,
+      "hex": "000500720004ee6f600500670002007400680002001e0070000200200066000b526f6f6d33302d7a65726f"
+    },
+    {
+      "action": 38,
+      "connection": "reader",
+      "event": "receive",
+      "elapsed_ns": 2762937668,
+      "hex": "0001000000000064000000000000000200000002"
+    },
+    {
+      "action": 38,
+      "connection": "reader",
+      "event": "receive",
+      "elapsed_ns": 2762983724,
+      "hex": "0000"
+    },
+    {
+      "action": 39,
+      "connection": "zero",
+      "event": "send",
+      "elapsed_ns": 2763108867,
+      "hex": "000001f4000000640000000000000002000000020000"
+    },
+    {
+      "action": 40,
+      "connection": "zero",
+      "event": "receive",
+      "elapsed_ns": 2765699949,
+      "hex": "0001000000000064000000000000000200000002"
+    },
+    {
+      "action": 40,
+      "connection": "zero",
+      "event": "receive",
+      "elapsed_ns": 2765763186,
+      "hex": "0000"
+    },
+    {
+      "action": 41,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 2765929757,
+      "hex": "000001f4000000640000000000000002000000020000"
+    },
+    {
+      "action": 42,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 2765943162,
+      "hex": "0000007500000006000000000000002d0000002d"
+    },
+    {
+      "action": 42,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 2765961626,
+      "hex": "000500720004ee6f600500670002007500680002001f0070000200000066000d526f6f6d33302d726561646572"
+    },
+    {
+      "action": 42,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 2765978778,
+      "hex": "0000007500000007000000000000002b0000002b"
+    },
+    {
+      "action": 42,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 2765985310,
+      "hex": "000500720004ee6f600500670002007400680002001e0070000200200066000b526f6f6d33302d7a65726f"
+    },
+    {
+      "action": 42,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 2775655077,
+      "hex": "0001000000000064000000000000000200000002"
+    },
+    {
+      "action": 42,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 2775705931,
+      "hex": "0000"
+    },
+    {
+      "action": 43,
+      "connection": "speaker",
+      "event": "send",
+      "elapsed_ns": 2775838639,
+      "hex": "000001f4000000640000000000000002000000020000"
+    },
+    {
+      "action": 44,
+      "connection": "speaker",
+      "event": "receive",
+      "elapsed_ns": 2778294574,
+      "hex": "0001000000000064000000000000000200000002"
+    },
+    {
+      "action": 44,
+      "connection": "speaker",
+      "event": "receive",
+      "elapsed_ns": 2778343956,
+      "hex": "0000"
+    },
+    {
+      "action": 45,
+      "connection": "reader",
+      "event": "send",
+      "elapsed_ns": 2778504114,
+      "hex": "000000740000000d000000000000000a0000000a000100720004ee6f6005"
+    },
+    {
+      "action": 46,
+      "connection": "zero",
+      "event": "send",
+      "elapsed_ns": 2778535994,
+      "hex": "000000740000000e000000000000000a0000000a000100720004ee6f6005"
+    },
+    {
+      "action": 47,
+      "connection": "reader",
+      "event": "send",
+      "elapsed_ns": 2778544109,
+      "hex": "000001f4000000650000000000000002000000020000"
+    },
+    {
+      "action": 48,
+      "connection": "reader",
+      "event": "receive",
+      "elapsed_ns": 5030915553,
+      "hex": "0001000000000065000000000000000200000002"
+    },
+    {
+      "action": 48,
+      "connection": "reader",
+      "event": "receive",
+      "elapsed_ns": 5030970796,
+      "hex": "0000"
+    },
+    {
+      "action": 49,
+      "connection": "zero",
+      "event": "send",
+      "elapsed_ns": 5031094656,
+      "hex": "000001f4000000650000000000000002000000020000"
+    },
+    {
+      "action": 50,
+      "connection": "zero",
+      "event": "receive",
+      "elapsed_ns": 5031107711,
+      "hex": "0000007600000005000000000000001000000010"
+    },
+    {
+      "action": 50,
+      "connection": "zero",
+      "event": "receive",
+      "elapsed_ns": 5031114644,
+      "hex": "000200720004ee6f6005006700020075"
+    },
+    {
+      "action": 50,
+      "connection": "zero",
+      "event": "receive",
+      "elapsed_ns": 6820691575,
+      "hex": "0001000000000065000000000000000200000002"
+    },
+    {
+      "action": 50,
+      "connection": "zero",
+      "event": "receive",
+      "elapsed_ns": 6820737801,
+      "hex": "0000"
+    },
+    {
+      "action": 51,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 6820871751,
+      "hex": "000001f4000000650000000000000002000000020000"
+    },
+    {
+      "action": 52,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 6820884565,
+      "hex": "0000007600000008000000000000001000000010"
+    },
+    {
+      "action": 52,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 6820891017,
+      "hex": "000200720004ee6f6005006700020075"
+    },
+    {
+      "action": 52,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 6820906305,
+      "hex": "0000007600000009000000000000001000000010"
+    },
+    {
+      "action": 52,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 6820913168,
+      "hex": "000200720004ee6f6005006700020074"
+    },
+    {
+      "action": 52,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 6826283210,
+      "hex": "0001000000000065000000000000000200000002"
+    },
+    {
+      "action": 52,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 6826338964,
+      "hex": "0000"
+    },
+    {
+      "action": 53,
+      "connection": "speaker",
+      "event": "send",
+      "elapsed_ns": 6826490416,
+      "hex": "000001f4000000650000000000000002000000020000"
+    },
+    {
+      "action": 54,
+      "connection": "speaker",
+      "event": "receive",
+      "elapsed_ns": 6832176633,
+      "hex": "0001000000000065000000000000000200000002"
+    },
+    {
+      "action": 54,
+      "connection": "speaker",
+      "event": "receive",
+      "elapsed_ns": 6832229772,
+      "hex": "0000"
+    },
+    {
+      "action": 55,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 6832396282,
+      "hex": "000000740000000f000000000000000a0000000a000100720004ee6f6005"
+    },
+    {
+      "action": 56,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 6832414856,
+      "hex": "000001f4000000660000000000000002000000020000"
+    },
+    {
+      "action": 57,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 6879115733,
+      "hex": "0001000000000066000000000000000200000002"
+    },
+    {
+      "action": 57,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 6879165806,
+      "hex": "0000"
+    },
+    {
+      "action": 58,
+      "connection": "zero",
+      "event": "send",
+      "elapsed_ns": 6879321416,
+      "hex": "000001f4000000660000000000000002000000020000"
+    },
+    {
+      "action": 59,
+      "connection": "zero",
+      "event": "receive",
+      "elapsed_ns": 6883952046,
+      "hex": "0001000000000066000000000000000200000002"
+    },
+    {
+      "action": 59,
+      "connection": "zero",
+      "event": "receive",
+      "elapsed_ns": 6884007289,
+      "hex": "0000"
+    },
+    {
+      "action": 60,
+      "connection": "reader",
+      "event": "send",
+      "elapsed_ns": 6884108568,
+      "hex": "000001f4000000660000000000000002000000020000"
+    },
+    {
+      "action": 61,
+      "connection": "reader",
+      "event": "receive",
+      "elapsed_ns": 6888721131,
+      "hex": "0001000000000066000000000000000200000002"
+    },
+    {
+      "action": 61,
+      "connection": "reader",
+      "event": "receive",
+      "elapsed_ns": 6888769060,
+      "hex": "0000"
+    },
+    {
+      "action": 62,
+      "connection": "speaker",
+      "event": "send",
+      "elapsed_ns": 6888939488,
+      "hex": "000001f4000000660000000000000002000000020000"
+    },
+    {
+      "action": 63,
+      "connection": "speaker",
+      "event": "receive",
+      "elapsed_ns": 6891498728,
+      "hex": "0001000000000066000000000000000200000002"
+    },
+    {
+      "action": 63,
+      "connection": "speaker",
+      "event": "receive",
+      "elapsed_ns": 6891565573,
+      "hex": "0000"
+    },
+    {
+      "action": 64,
+      "connection": "zero",
+      "event": "send",
+      "elapsed_ns": 6891741861,
+      "hex": "0000007300000010000000000000000a0000000a000100720004ee6f6005"
+    },
+    {
+      "action": 65,
+      "connection": "zero",
+      "event": "receive",
+      "elapsed_ns": 6894276918,
+      "hex": "0001000000000010000000010000004200000042"
+    },
+    {
+      "action": 65,
+      "connection": "zero",
+      "event": "receive",
+      "elapsed_ns": 6894332682,
+      "hex": "00010064003c43616e6e6f74206a6f696e20707269766174652063686174206265636175736520697420686173206265656e20636c6f73656420616c72656164792e"
+    },
+    {
+      "action": 66,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 6894484375,
+      "hex": "000001f4000003e70000000000000002000000020000"
+    },
+    {
+      "action": 67,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 6904246379,
+      "hex": "00010000000003e7000000000000000200000002"
+    },
+    {
+      "action": 67,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 6904300350,
+      "hex": "0000"
+    },
+    {
+      "action": 68,
+      "connection": "zero",
+      "event": "send",
+      "elapsed_ns": 6904438768,
+      "hex": "000001f4000003e70000000000000002000000020000"
+    },
+    {
+      "action": 69,
+      "connection": "zero",
+      "event": "receive",
+      "elapsed_ns": 7501581274,
+      "hex": "00010000000003e7000000000000000200000002"
+    },
+    {
+      "action": 69,
+      "connection": "zero",
+      "event": "receive",
+      "elapsed_ns": 7501635204,
+      "hex": "0000"
+    },
+    {
+      "action": 70,
+      "connection": "reader",
+      "event": "send",
+      "elapsed_ns": 7501809609,
+      "hex": "000001f4000003e70000000000000002000000020000"
+    },
+    {
+      "action": 71,
+      "connection": "reader",
+      "event": "receive",
+      "elapsed_ns": 7507177723,
+      "hex": "00010000000003e7000000000000000200000002"
+    },
+    {
+      "action": 71,
+      "connection": "reader",
+      "event": "receive",
+      "elapsed_ns": 7507230110,
+      "hex": "0000"
+    },
+    {
+      "action": 72,
+      "connection": "speaker",
+      "event": "send",
+      "elapsed_ns": 7507405096,
+      "hex": "000001f4000003e70000000000000002000000020000"
+    },
+    {
+      "action": 73,
+      "connection": "speaker",
+      "event": "receive",
+      "elapsed_ns": 7512045665,
+      "hex": "00010000000003e7000000000000000200000002"
+    },
+    {
+      "action": 73,
+      "connection": "speaker",
+      "event": "receive",
+      "elapsed_ns": 7512095759,
+      "hex": "0000"
+    },
+    {
+      "action": 74,
+      "connection": "main",
+      "event": "quiet",
+      "elapsed_ns": 10513524651,
+      "hex": ""
+    },
+    {
+      "action": 75,
+      "connection": "zero",
+      "event": "close",
+      "elapsed_ns": 10513658511,
+      "hex": ""
+    },
+    {
+      "action": 76,
+      "connection": "reader",
+      "event": "close",
+      "elapsed_ns": 10513691853,
+      "hex": ""
+    },
+    {
+      "action": 77,
+      "connection": "speaker",
+      "event": "close",
+      "elapsed_ns": 10513715397,
+      "hex": ""
+    },
+    {
+      "action": 78,
+      "connection": "main",
+      "event": "close",
+      "elapsed_ns": 10513733861,
+      "hex": ""
+    }
+  ],
+  "frames": [
+    {
+      "action": 4,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 1,
+      "error": 0,
+      "total_size": 14,
+      "data_size": 14,
+      "payload_hex": "000200a0000200be00a100020000",
+      "fields": [
+        {
+          "id": 160,
+          "hex": "00be"
+        },
+        {
+          "id": 161,
+          "hex": "0000"
+        }
+      ],
+      "declared_field_count": 2,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 5,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 0,
+      "type": 354,
+      "id": 1,
+      "error": 0,
+      "total_size": 14,
+      "data_size": 14,
+      "payload_hex": "0001006e0008fff3cfefff800000",
+      "fields": [
+        {
+          "id": 110,
+          "hex": "fff3cfefff800000"
+        }
+      ],
+      "declared_field_count": 1,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 6,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 0,
+      "type": 109,
+      "id": 2,
+      "error": 0,
+      "total_size": 248,
+      "data_size": 248,
+      "payload_hex": "0001006500f25468697320697320746865207365727665722061677265656d656e742e20200d54686520736572766572206f776e6572207075747320616e79206b696e64206f6620636f6e646974696f6e73206f7220636f6e646974696f6e7320746865792077616e7420796f7520746f20616772656520746f206265666f726520656e746572696e672e20200d546865792063616e206368616e676520746869732061677265656d656e74206279206d6f64696679696e67207468652061677265656d656e742e7478742066696c6520696e2074686520736572766572206469726563746f72792e0d53617920796f7520616772656521",
+      "fields": [
+        {
+          "id": 101,
+          "hex": "5468697320697320746865207365727665722061677265656d656e742e20200d54686520736572766572206f776e6572207075747320616e79206b696e64206f6620636f6e646974696f6e73206f7220636f6e646974696f6e7320746865792077616e7420796f7520746f20616772656520746f206265666f726520656e746572696e672e20200d546865792063616e206368616e676520746869732061677265656d656e74206279206d6f64696679696e67207468652061677265656d656e742e7478742066696c6520696e2074686520736572766572206469726563746f72792e0d53617920796f7520616772656521"
+        }
+      ],
+      "declared_field_count": 1,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 11,
+      "connection": "zero",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 1,
+      "error": 0,
+      "total_size": 14,
+      "data_size": 14,
+      "payload_hex": "000200a0000200be00a100020000",
+      "fields": [
+        {
+          "id": 160,
+          "hex": "00be"
+        },
+        {
+          "id": 161,
+          "hex": "0000"
+        }
+      ],
+      "declared_field_count": 2,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 12,
+      "connection": "zero",
+      "flags": 0,
+      "is_reply": 0,
+      "type": 354,
+      "id": 1,
+      "error": 0,
+      "total_size": 14,
+      "data_size": 14,
+      "payload_hex": "0001006e00080000000000000000",
+      "fields": [
+        {
+          "id": 110,
+          "hex": "0000000000000000"
+        }
+      ],
+      "declared_field_count": 1,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 13,
+      "connection": "zero",
+      "flags": 0,
+      "is_reply": 0,
+      "type": 109,
+      "id": 2,
+      "error": 0,
+      "total_size": 248,
+      "data_size": 248,
+      "payload_hex": "0001006500f25468697320697320746865207365727665722061677265656d656e742e20200d54686520736572766572206f776e6572207075747320616e79206b696e64206f6620636f6e646974696f6e73206f7220636f6e646974696f6e7320746865792077616e7420796f7520746f20616772656520746f206265666f726520656e746572696e672e20200d546865792063616e206368616e676520746869732061677265656d656e74206279206d6f64696679696e67207468652061677265656d656e742e7478742066696c6520696e2074686520736572766572206469726563746f72792e0d53617920796f7520616772656521",
+      "fields": [
+        {
+          "id": 101,
+          "hex": "5468697320697320746865207365727665722061677265656d656e742e20200d54686520736572766572206f776e6572207075747320616e79206b696e64206f6620636f6e646974696f6e73206f7220636f6e646974696f6e7320746865792077616e7420796f7520746f20616772656520746f206265666f726520656e746572696e672e20200d546865792063616e206368616e676520746869732061677265656d656e74206279206d6f64696679696e67207468652061677265656d656e742e7478742066696c6520696e2074686520736572766572206469726563746f72792e0d53617920796f7520616772656521"
+        }
+      ],
+      "declared_field_count": 1,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 14,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 0,
+      "type": 301,
+      "id": 3,
+      "error": 0,
+      "total_size": 35,
+      "data_size": 35,
+      "payload_hex": "000400670002007400680002001e0070000200200066000b526f6f6d33302d7a65726f",
+      "fields": [
+        {
+          "id": 103,
+          "hex": "0074"
+        },
+        {
+          "id": 104,
+          "hex": "001e"
+        },
+        {
+          "id": 112,
+          "hex": "0020"
+        },
+        {
+          "id": 102,
+          "hex": "526f6f6d33302d7a65726f"
+        }
+      ],
+      "declared_field_count": 4,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 19,
+      "connection": "reader",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 1,
+      "error": 0,
+      "total_size": 14,
+      "data_size": 14,
+      "payload_hex": "000200a0000200be00a100020000",
+      "fields": [
+        {
+          "id": 160,
+          "hex": "00be"
+        },
+        {
+          "id": 161,
+          "hex": "0000"
+        }
+      ],
+      "declared_field_count": 2,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 20,
+      "connection": "reader",
+      "flags": 0,
+      "is_reply": 0,
+      "type": 354,
+      "id": 1,
+      "error": 0,
+      "total_size": 14,
+      "data_size": 14,
+      "payload_hex": "0001006e00080040000000000000",
+      "fields": [
+        {
+          "id": 110,
+          "hex": "0040000000000000"
+        }
+      ],
+      "declared_field_count": 1,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 21,
+      "connection": "reader",
+      "flags": 0,
+      "is_reply": 0,
+      "type": 109,
+      "id": 2,
+      "error": 0,
+      "total_size": 248,
+      "data_size": 248,
+      "payload_hex": "0001006500f25468697320697320746865207365727665722061677265656d656e742e20200d54686520736572766572206f776e6572207075747320616e79206b696e64206f6620636f6e646974696f6e73206f7220636f6e646974696f6e7320746865792077616e7420796f7520746f20616772656520746f206265666f726520656e746572696e672e20200d546865792063616e206368616e676520746869732061677265656d656e74206279206d6f64696679696e67207468652061677265656d656e742e7478742066696c6520696e2074686520736572766572206469726563746f72792e0d53617920796f7520616772656521",
+      "fields": [
+        {
+          "id": 101,
+          "hex": "5468697320697320746865207365727665722061677265656d656e742e20200d54686520736572766572206f776e6572207075747320616e79206b696e64206f6620636f6e646974696f6e73206f7220636f6e646974696f6e7320746865792077616e7420796f7520746f20616772656520746f206265666f726520656e746572696e672e20200d546865792063616e206368616e676520746869732061677265656d656e74206279206d6f64696679696e67207468652061677265656d656e742e7478742066696c6520696e2074686520736572766572206469726563746f72792e0d53617920796f7520616772656521"
+        }
+      ],
+      "declared_field_count": 1,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 22,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 0,
+      "type": 301,
+      "id": 4,
+      "error": 0,
+      "total_size": 37,
+      "data_size": 37,
+      "payload_hex": "000400670002007500680002001f0070000200000066000d526f6f6d33302d726561646572",
+      "fields": [
+        {
+          "id": 103,
+          "hex": "0075"
+        },
+        {
+          "id": 104,
+          "hex": "001f"
+        },
+        {
+          "id": 112,
+          "hex": "0000"
+        },
+        {
+          "id": 102,
+          "hex": "526f6f6d33302d726561646572"
+        }
+      ],
+      "declared_field_count": 4,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 27,
+      "connection": "speaker",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 1,
+      "error": 0,
+      "total_size": 14,
+      "data_size": 14,
+      "payload_hex": "000200a0000200be00a100020000",
+      "fields": [
+        {
+          "id": 160,
+          "hex": "00be"
+        },
+        {
+          "id": 161,
+          "hex": "0000"
+        }
+      ],
+      "declared_field_count": 2,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 28,
+      "connection": "speaker",
+      "flags": 0,
+      "is_reply": 0,
+      "type": 354,
+      "id": 1,
+      "error": 0,
+      "total_size": 14,
+      "data_size": 14,
+      "payload_hex": "0001006e00080060000000000000",
+      "fields": [
+        {
+          "id": 110,
+          "hex": "0060000000000000"
+        }
+      ],
+      "declared_field_count": 1,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 29,
+      "connection": "speaker",
+      "flags": 0,
+      "is_reply": 0,
+      "type": 109,
+      "id": 2,
+      "error": 0,
+      "total_size": 248,
+      "data_size": 248,
+      "payload_hex": "0001006500f25468697320697320746865207365727665722061677265656d656e742e20200d54686520736572766572206f776e6572207075747320616e79206b696e64206f6620636f6e646974696f6e73206f7220636f6e646974696f6e7320746865792077616e7420796f7520746f20616772656520746f206265666f726520656e746572696e672e20200d546865792063616e206368616e676520746869732061677265656d656e74206279206d6f64696679696e67207468652061677265656d656e742e7478742066696c6520696e2074686520736572766572206469726563746f72792e0d53617920796f7520616772656521",
+      "fields": [
+        {
+          "id": 101,
+          "hex": "5468697320697320746865207365727665722061677265656d656e742e20200d54686520736572766572206f776e6572207075747320616e79206b696e64206f6620636f6e646974696f6e73206f7220636f6e646974696f6e7320746865792077616e7420796f7520746f20616772656520746f206265666f726520656e746572696e672e20200d546865792063616e206368616e676520746869732061677265656d656e74206279206d6f64696679696e67207468652061677265656d656e742e7478742066696c6520696e2074686520736572766572206469726563746f72792e0d53617920796f7520616772656521"
+        }
+      ],
+      "declared_field_count": 1,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 30,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 0,
+      "type": 301,
+      "id": 5,
+      "error": 0,
+      "total_size": 38,
+      "data_size": 38,
+      "payload_hex": "00040067000200760068000200200070000200000066000e526f6f6d33302d737065616b6572",
+      "fields": [
+        {
+          "id": 103,
+          "hex": "0076"
+        },
+        {
+          "id": 104,
+          "hex": "0020"
+        },
+        {
+          "id": 112,
+          "hex": "0000"
+        },
+        {
+          "id": 102,
+          "hex": "526f6f6d33302d737065616b6572"
+        }
+      ],
+      "declared_field_count": 4,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 32,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 10,
+      "error": 0,
+      "total_size": 47,
+      "data_size": 47,
+      "payload_hex": "000500720004ee6f60050067000200730068000200010070000200120066000f6672616d696e672d66697874757265",
+      "fields": [
+        {
+          "id": 114,
+          "hex": "ee6f6005"
+        },
+        {
+          "id": 103,
+          "hex": "0073"
+        },
+        {
+          "id": 104,
+          "hex": "0001"
+        },
+        {
+          "id": 112,
+          "hex": "0012"
+        },
+        {
+          "id": 102,
+          "hex": "6672616d696e672d66697874757265"
+        }
+      ],
+      "declared_field_count": 5,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 35,
+      "connection": "reader",
+      "flags": 0,
+      "is_reply": 0,
+      "type": 301,
+      "id": 3,
+      "error": 0,
+      "total_size": 38,
+      "data_size": 38,
+      "payload_hex": "00040067000200760068000200200070000200000066000e526f6f6d33302d737065616b6572",
+      "fields": [
+        {
+          "id": 103,
+          "hex": "0076"
+        },
+        {
+          "id": 104,
+          "hex": "0020"
+        },
+        {
+          "id": 112,
+          "hex": "0000"
+        },
+        {
+          "id": 102,
+          "hex": "526f6f6d33302d737065616b6572"
+        }
+      ],
+      "declared_field_count": 4,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 35,
+      "connection": "reader",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 11,
+      "error": 0,
+      "total_size": 54,
+      "data_size": 54,
+      "payload_hex": "0002012c0017007300010012000f6672616d696e672d66697874757265012c00150075001f0000000d526f6f6d33302d726561646572",
+      "fields": [
+        {
+          "id": 300,
+          "hex": "007300010012000f6672616d696e672d66697874757265"
+        },
+        {
+          "id": 300,
+          "hex": "0075001f0000000d526f6f6d33302d726561646572"
+        }
+      ],
+      "declared_field_count": 2,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 36,
+      "connection": "zero",
+      "flags": 0,
+      "is_reply": 0,
+      "type": 301,
+      "id": 3,
+      "error": 0,
+      "total_size": 37,
+      "data_size": 37,
+      "payload_hex": "000400670002007500680002001f0070000200000066000d526f6f6d33302d726561646572",
+      "fields": [
+        {
+          "id": 103,
+          "hex": "0075"
+        },
+        {
+          "id": 104,
+          "hex": "001f"
+        },
+        {
+          "id": 112,
+          "hex": "0000"
+        },
+        {
+          "id": 102,
+          "hex": "526f6f6d33302d726561646572"
+        }
+      ],
+      "declared_field_count": 4,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 36,
+      "connection": "zero",
+      "flags": 0,
+      "is_reply": 0,
+      "type": 301,
+      "id": 4,
+      "error": 0,
+      "total_size": 38,
+      "data_size": 38,
+      "payload_hex": "00040067000200760068000200200070000200000066000e526f6f6d33302d737065616b6572",
+      "fields": [
+        {
+          "id": 103,
+          "hex": "0076"
+        },
+        {
+          "id": 104,
+          "hex": "0020"
+        },
+        {
+          "id": 112,
+          "hex": "0000"
+        },
+        {
+          "id": 102,
+          "hex": "526f6f6d33302d737065616b6572"
+        }
+      ],
+      "declared_field_count": 4,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 36,
+      "connection": "zero",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 12,
+      "error": 0,
+      "total_size": 77,
+      "data_size": 77,
+      "payload_hex": "0003012c0017007300010012000f6672616d696e672d66697874757265012c00150075001f0000000d526f6f6d33302d726561646572012c00130074001e0020000b526f6f6d33302d7a65726f",
+      "fields": [
+        {
+          "id": 300,
+          "hex": "007300010012000f6672616d696e672d66697874757265"
+        },
+        {
+          "id": 300,
+          "hex": "0075001f0000000d526f6f6d33302d726561646572"
+        },
+        {
+          "id": 300,
+          "hex": "0074001e0020000b526f6f6d33302d7a65726f"
+        }
+      ],
+      "declared_field_count": 3,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 38,
+      "connection": "reader",
+      "flags": 0,
+      "is_reply": 0,
+      "type": 117,
+      "id": 4,
+      "error": 0,
+      "total_size": 43,
+      "data_size": 43,
+      "payload_hex": "000500720004ee6f600500670002007400680002001e0070000200200066000b526f6f6d33302d7a65726f",
+      "fields": [
+        {
+          "id": 114,
+          "hex": "ee6f6005"
+        },
+        {
+          "id": 103,
+          "hex": "0074"
+        },
+        {
+          "id": 104,
+          "hex": "001e"
+        },
+        {
+          "id": 112,
+          "hex": "0020"
+        },
+        {
+          "id": 102,
+          "hex": "526f6f6d33302d7a65726f"
+        }
+      ],
+      "declared_field_count": 5,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 38,
+      "connection": "reader",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 100,
+      "error": 0,
+      "total_size": 2,
+      "data_size": 2,
+      "payload_hex": "0000",
+      "fields": [],
+      "declared_field_count": 0,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 40,
+      "connection": "zero",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 100,
+      "error": 0,
+      "total_size": 2,
+      "data_size": 2,
+      "payload_hex": "0000",
+      "fields": [],
+      "declared_field_count": 0,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 42,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 0,
+      "type": 117,
+      "id": 6,
+      "error": 0,
+      "total_size": 45,
+      "data_size": 45,
+      "payload_hex": "000500720004ee6f600500670002007500680002001f0070000200000066000d526f6f6d33302d726561646572",
+      "fields": [
+        {
+          "id": 114,
+          "hex": "ee6f6005"
+        },
+        {
+          "id": 103,
+          "hex": "0075"
+        },
+        {
+          "id": 104,
+          "hex": "001f"
+        },
+        {
+          "id": 112,
+          "hex": "0000"
+        },
+        {
+          "id": 102,
+          "hex": "526f6f6d33302d726561646572"
+        }
+      ],
+      "declared_field_count": 5,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 42,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 0,
+      "type": 117,
+      "id": 7,
+      "error": 0,
+      "total_size": 43,
+      "data_size": 43,
+      "payload_hex": "000500720004ee6f600500670002007400680002001e0070000200200066000b526f6f6d33302d7a65726f",
+      "fields": [
+        {
+          "id": 114,
+          "hex": "ee6f6005"
+        },
+        {
+          "id": 103,
+          "hex": "0074"
+        },
+        {
+          "id": 104,
+          "hex": "001e"
+        },
+        {
+          "id": 112,
+          "hex": "0020"
+        },
+        {
+          "id": 102,
+          "hex": "526f6f6d33302d7a65726f"
+        }
+      ],
+      "declared_field_count": 5,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 42,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 100,
+      "error": 0,
+      "total_size": 2,
+      "data_size": 2,
+      "payload_hex": "0000",
+      "fields": [],
+      "declared_field_count": 0,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 44,
+      "connection": "speaker",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 100,
+      "error": 0,
+      "total_size": 2,
+      "data_size": 2,
+      "payload_hex": "0000",
+      "fields": [],
+      "declared_field_count": 0,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 48,
+      "connection": "reader",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 101,
+      "error": 0,
+      "total_size": 2,
+      "data_size": 2,
+      "payload_hex": "0000",
+      "fields": [],
+      "declared_field_count": 0,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 50,
+      "connection": "zero",
+      "flags": 0,
+      "is_reply": 0,
+      "type": 118,
+      "id": 5,
+      "error": 0,
+      "total_size": 16,
+      "data_size": 16,
+      "payload_hex": "000200720004ee6f6005006700020075",
+      "fields": [
+        {
+          "id": 114,
+          "hex": "ee6f6005"
+        },
+        {
+          "id": 103,
+          "hex": "0075"
+        }
+      ],
+      "declared_field_count": 2,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 50,
+      "connection": "zero",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 101,
+      "error": 0,
+      "total_size": 2,
+      "data_size": 2,
+      "payload_hex": "0000",
+      "fields": [],
+      "declared_field_count": 0,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 52,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 0,
+      "type": 118,
+      "id": 8,
+      "error": 0,
+      "total_size": 16,
+      "data_size": 16,
+      "payload_hex": "000200720004ee6f6005006700020075",
+      "fields": [
+        {
+          "id": 114,
+          "hex": "ee6f6005"
+        },
+        {
+          "id": 103,
+          "hex": "0075"
+        }
+      ],
+      "declared_field_count": 2,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 52,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 0,
+      "type": 118,
+      "id": 9,
+      "error": 0,
+      "total_size": 16,
+      "data_size": 16,
+      "payload_hex": "000200720004ee6f6005006700020074",
+      "fields": [
+        {
+          "id": 114,
+          "hex": "ee6f6005"
+        },
+        {
+          "id": 103,
+          "hex": "0074"
+        }
+      ],
+      "declared_field_count": 2,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 52,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 101,
+      "error": 0,
+      "total_size": 2,
+      "data_size": 2,
+      "payload_hex": "0000",
+      "fields": [],
+      "declared_field_count": 0,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 54,
+      "connection": "speaker",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 101,
+      "error": 0,
+      "total_size": 2,
+      "data_size": 2,
+      "payload_hex": "0000",
+      "fields": [],
+      "declared_field_count": 0,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 57,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 102,
+      "error": 0,
+      "total_size": 2,
+      "data_size": 2,
+      "payload_hex": "0000",
+      "fields": [],
+      "declared_field_count": 0,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 59,
+      "connection": "zero",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 102,
+      "error": 0,
+      "total_size": 2,
+      "data_size": 2,
+      "payload_hex": "0000",
+      "fields": [],
+      "declared_field_count": 0,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 61,
+      "connection": "reader",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 102,
+      "error": 0,
+      "total_size": 2,
+      "data_size": 2,
+      "payload_hex": "0000",
+      "fields": [],
+      "declared_field_count": 0,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 63,
+      "connection": "speaker",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 102,
+      "error": 0,
+      "total_size": 2,
+      "data_size": 2,
+      "payload_hex": "0000",
+      "fields": [],
+      "declared_field_count": 0,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 65,
+      "connection": "zero",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 16,
+      "error": 1,
+      "total_size": 66,
+      "data_size": 66,
+      "payload_hex": "00010064003c43616e6e6f74206a6f696e20707269766174652063686174206265636175736520697420686173206265656e20636c6f73656420616c72656164792e",
+      "fields": [
+        {
+          "id": 100,
+          "hex": "43616e6e6f74206a6f696e20707269766174652063686174206265636175736520697420686173206265656e20636c6f73656420616c72656164792e"
+        }
+      ],
+      "declared_field_count": 1,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 67,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 999,
+      "error": 0,
+      "total_size": 2,
+      "data_size": 2,
+      "payload_hex": "0000",
+      "fields": [],
+      "declared_field_count": 0,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 69,
+      "connection": "zero",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 999,
+      "error": 0,
+      "total_size": 2,
+      "data_size": 2,
+      "payload_hex": "0000",
+      "fields": [],
+      "declared_field_count": 0,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 71,
+      "connection": "reader",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 999,
+      "error": 0,
+      "total_size": 2,
+      "data_size": 2,
+      "payload_hex": "0000",
+      "fields": [],
+      "declared_field_count": 0,
+      "unconsumed_hex": ""
+    },
+    {
+      "action": 73,
+      "connection": "speaker",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 999,
+      "error": 0,
+      "total_size": 2,
+      "data_size": 2,
+      "payload_hex": "0000",
+      "fields": [],
+      "declared_field_count": 0,
+      "unconsumed_hex": ""
+    }
+  ],
+  "streams": {
+    "main": {
+      "sent_hex": "54525450484f544c000100020000006b000000010000000000000036000000360005006900059e9b929691006a000892908b978d9ecec600a0000200be0066000f6672616d696e672d66697874757265006800020001000000700000000a0000000000000002000000020000000001f4000000640000000000000002000000020000000001f4000000650000000000000002000000020000000000740000000f000000000000000a0000000a000100720004ee6f6005000001f4000000660000000000000002000000020000000001f4000003e70000000000000002000000020000",
+      "received_hex": "54525450000000000001000000000001000000000000000e0000000e000200a0000200be00a1000200000000016200000001000000000000000e0000000e0001006e0008fff3cfefff8000000000006d0000000200000000000000f8000000f80001006500f25468697320697320746865207365727665722061677265656d656e742e20200d54686520736572766572206f776e6572207075747320616e79206b696e64206f6620636f6e646974696f6e73206f7220636f6e646974696f6e7320746865792077616e7420796f7520746f20616772656520746f206265666f726520656e746572696e672e20200d546865792063616e206368616e676520746869732061677265656d656e74206279206d6f64696679696e67207468652061677265656d656e742e7478742066696c6520696e2074686520736572766572206469726563746f72792e0d53617920796f75206167726565210000012d00000003000000000000002300000023000400670002007400680002001e0070000200200066000b526f6f6d33302d7a65726f0000012d00000004000000000000002500000025000400670002007500680002001f0070000200000066000d526f6f6d33302d7265616465720000012d0000000500000000000000260000002600040067000200760068000200200070000200000066000e526f6f6d33302d737065616b6572000100000000000a000000000000002f0000002f000500720004ee6f60050067000200730068000200010070000200120066000f6672616d696e672d666978747572650000007500000006000000000000002d0000002d000500720004ee6f600500670002007500680002001f0070000200000066000d526f6f6d33302d7265616465720000007500000007000000000000002b0000002b000500720004ee6f600500670002007400680002001e0070000200200066000b526f6f6d33302d7a65726f000100000000006400000000000000020000000200000000007600000008000000000000001000000010000200720004ee6f60050067000200750000007600000009000000000000001000000010000200720004ee6f6005006700020074000100000000006500000000000000020000000200000001000000000066000000000000000200000002000000010000000003e70000000000000002000000020000"
+    },
+    "zero": {
+      "sent_hex": "54525450484f544c000100020000006b000000010000000000000040000000400005006a000b8d909092d28f9e8c8ccccf00a0000200be0069000d92d28d909092cccfd2859a8d900066000e7265717565737465642d7a65726f00680002001e000000730000000c000000000000000a0000000a000100720004ee6f6005000001f4000000640000000000000002000000020000000000740000000e000000000000000a0000000a000100720004ee6f6005000001f4000000650000000000000002000000020000000001f40000006600000000000000020000000200000000007300000010000000000000000a0000000a000100720004ee6f6005000001f4000003e70000000000000002000000020000",
+      "received_hex": "54525450000000000001000000000001000000000000000e0000000e000200a0000200be00a1000200000000016200000001000000000000000e0000000e0001006e000800000000000000000000006d0000000200000000000000f8000000f80001006500f25468697320697320746865207365727665722061677265656d656e742e20200d54686520736572766572206f776e6572207075747320616e79206b696e64206f6620636f6e646974696f6e73206f7220636f6e646974696f6e7320746865792077616e7420796f7520746f20616772656520746f206265666f726520656e746572696e672e20200d546865792063616e206368616e676520746869732061677265656d656e74206279206d6f64696679696e67207468652061677265656d656e742e7478742066696c6520696e2074686520736572766572206469726563746f72792e0d53617920796f75206167726565210000012d00000003000000000000002500000025000400670002007500680002001f0070000200000066000d526f6f6d33302d7265616465720000012d0000000400000000000000260000002600040067000200760068000200200070000200000066000e526f6f6d33302d737065616b6572000100000000000c000000000000004d0000004d0003012c0017007300010012000f6672616d696e672d66697874757265012c00150075001f0000000d526f6f6d33302d726561646572012c00130074001e0020000b526f6f6d33302d7a65726f000100000000006400000000000000020000000200000000007600000005000000000000001000000010000200720004ee6f60050067000200750001000000000065000000000000000200000002000000010000000000660000000000000002000000020000000100000000001000000001000000420000004200010064003c43616e6e6f74206a6f696e20707269766174652063686174206265636175736520697420686173206265656e20636c6f73656420616c72656164792e00010000000003e70000000000000002000000020000"
+    },
+    "reader": {
+      "sent_hex": "54525450484f544c000100020000006b000000010000000000000044000000440005006a000b8d909092d28f9e8c8ccccf00a0000200be0069000f92d28d909092cccfd28d9a9e9b9a8d006600107265717565737465642d72656164657200680002001f000000730000000b000000000000000a0000000a000100720004ee6f6005000001f4000000640000000000000002000000020000000000740000000d000000000000000a0000000a000100720004ee6f6005000001f4000000650000000000000002000000020000000001f4000000660000000000000002000000020000000001f4000003e70000000000000002000000020000",
+      "received_hex": "54525450000000000001000000000001000000000000000e0000000e000200a0000200be00a1000200000000016200000001000000000000000e0000000e0001006e000800400000000000000000006d0000000200000000000000f8000000f80001006500f25468697320697320746865207365727665722061677265656d656e742e20200d54686520736572766572206f776e6572207075747320616e79206b696e64206f6620636f6e646974696f6e73206f7220636f6e646974696f6e7320746865792077616e7420796f7520746f20616772656520746f206265666f726520656e746572696e672e20200d546865792063616e206368616e676520746869732061677265656d656e74206279206d6f64696679696e67207468652061677265656d656e742e7478742066696c6520696e2074686520736572766572206469726563746f72792e0d53617920796f75206167726565210000012d0000000300000000000000260000002600040067000200760068000200200070000200000066000e526f6f6d33302d737065616b6572000100000000000b0000000000000036000000360002012c0017007300010012000f6672616d696e672d66697874757265012c00150075001f0000000d526f6f6d33302d7265616465720000007500000004000000000000002b0000002b000500720004ee6f600500670002007400680002001e0070000200200066000b526f6f6d33302d7a65726f00010000000000640000000000000002000000020000000100000000006500000000000000020000000200000001000000000066000000000000000200000002000000010000000003e70000000000000002000000020000"
+    },
+    "speaker": {
+      "sent_hex": "54525450484f544c000100020000006b000000010000000000000046000000460005006a000b8d909092d28f9e8c8ccccf00a0000200be0069001092d28d909092cccfd28c8f9a9e949a8d006600117265717565737465642d737065616b6572006800020020000001f4000000640000000000000002000000020000000001f4000000650000000000000002000000020000000001f4000000660000000000000002000000020000000001f4000003e70000000000000002000000020000",
+      "received_hex": "54525450000000000001000000000001000000000000000e0000000e000200a0000200be00a1000200000000016200000001000000000000000e0000000e0001006e000800600000000000000000006d0000000200000000000000f8000000f80001006500f25468697320697320746865207365727665722061677265656d656e742e20200d54686520736572766572206f776e6572207075747320616e79206b696e64206f6620636f6e646974696f6e73206f7220636f6e646974696f6e7320746865792077616e7420796f7520746f20616772656520746f206265666f726520656e746572696e672e20200d546865792063616e206368616e676520746869732061677265656d656e74206279206d6f64696679696e67207468652061677265656d656e742e7478742066696c6520696e2074686520736572766572206469726563746f72792e0d53617920796f752061677265652100010000000000640000000000000002000000020000000100000000006500000000000000020000000200000001000000000066000000000000000200000002000000010000000003e70000000000000002000000020000"
+    }
+  }
+}

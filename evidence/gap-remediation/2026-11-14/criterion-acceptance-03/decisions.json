@@ -1,0 +1,51 @@
+{
+  "accepted_at_utc": "2026-11-14T05:15:52.449842+00:00",
+  "oracle_data_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "all_87_original_closure_criteria_preserved": true,
+  "accepted_questions_unchanged": true,
+  "preexisting_question_wording_change": {
+    "GAP-026": "identifier semantics became value semantics before revision67; unchanged here"
+  },
+  "mxd_validation": "on hold",
+  "decisions": [
+    {
+      "id": "GAP-029",
+      "previous_status": "Investigating",
+      "status": "Resolved",
+      "question": "Which omitted/empty 102/104/113/215 values reset, preserve or derive state, and what changes are session-only or durable?",
+      "original_closure_criteria": "Document field-by-field update/default/persistence rules and before/after state plus emitted-301 fixtures.",
+      "progress": "Revision67: field-by-field 102/104/113/215 update/default/persistence rules now consolidate native 304 transitions, delayed 121 defaults, emitted 301 and PM fixtures, and the same-image A46/A48 restart witness. Complete named UserData and Prefs forks remain unchanged. The 121 session-state rule is inferred from its shared helper and account-read path; a separate 121 restart experiment was not performed.",
+      "closure": "Met for the documented native session-settings paths. Fresh 107 alone does not prove persistence; static session writes and unchanged named forks provide the additional basis. Retain the legacy 64+2 capture mismatch, operator-observed lifecycle/FD evidence limits and A48 missing oracle.lock as explicit deviations. No power-loss or all-storage guarantee follows.",
+      "evidence": [
+        "[Settings persistence boundary](presence-messaging-contracts.md#settings-persistence-boundary)",
+        "[Two-phase settings witness](native-settings-persistence-witness.md)"
+      ]
+    },
+    {
+      "id": "GAP-044",
+      "previous_status": "Investigating",
+      "status": "Resolved",
+      "question": "Which fields identify user messages, server/admin notices, refusals and kick notices; are sender UID/name/options mandatory in each variant?",
+      "original_closure_criteria": "Define discriminators and per-variant required/optional fields, with fixtures for each known producer.",
+      "progress": "Revision67: the notification inventory specifies identity-bearing, denial/collision and data-only variants with required/optional fields and positive fixtures for every listed known producer. Configured address-ban application now has a paired native one-Save fixture: both held clients receive sole field 101 with the exact permanent-ban text and EOF; no request 110 was sent. The deletion helper is reached from 351 and qualifying nested 349 deletion; 353 and 349 live updates use a different helper.",
+      "closure": "Met at known-producer scope. UID/name/113 are not universal. Shared 109 and data-only shapes cannot uniquely identify their producer, and operator text can equal generated text. No exhaustive absence of further producers, universal origin discriminator, expiry/protection or general codec guarantee is claimed.",
+      "evidence": [
+        "[Type-104 variants and ambiguity](notification-104-variants.md)",
+        "[Configured-ban native witness](native-configured-ban-witness.md)"
+      ]
+    },
+    {
+      "id": "GAP-081",
+      "previous_status": "Investigating",
+      "status": "Resolved",
+      "question": "Which identified clients accept 161/162, 122, native roster output and the SynHX subject addition, and when is an omission policy necessary?",
+      "original_closure_criteria": "Run a peer-by-field acceptance matrix and record actual failures/tolerance before selecting omission/default policies.",
+      "progress": "Revision67: the consolidated peer-by-field matrix covers native roster, 161 variation/omission, nonempty 162, 122, and the SynHX-shaped 115 addition for the two exact identified builds. The new Classic first-roster subject capture has paired native/modified streams and a subsequent displayed Online Users row. The shx 122 unknown-header diagnostic with continued operation is recorded as partial support.",
+      "closure": "Met for the two pinned builds and finite recorded bytes. No measured rejection requires a family-wide omission rule. Unknown builds and values remain unknown; Classic subject/banner rendering and general malformed-TLV tolerance are unproved. Screenshot mtime is a receipt bound and earlier request 212 is not proof of roster processing. Native producer/default rules are separate from mxd release policy; mxd validation remains on hold.",
+      "evidence": [
+        "[Cross-peer acceptance and omission rules](peer-tolerance-matrix.md#cross-peer-acceptance-and-omission-rules)",
+        "[Classic subject-field witness](classic-roster-subject-115.md)"
+      ]
+    }
+  ]
+}

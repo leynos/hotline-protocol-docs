@@ -1,0 +1,24 @@
+[
+  {
+    "id": "B16-D-1000ec40",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1000ec40"
+    }
+  },
+  {
+    "id": "B16-D-1000ec80",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1000ec80"
+    }
+  },
+  {
+    "id": "B16-A-1000bd20",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "1000bd20",
+      "limit": 1200
+    }
+  }
+]

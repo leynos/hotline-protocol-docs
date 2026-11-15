@@ -1,0 +1,41 @@
+Running as unit: mothra-a37-host-capture.service; invocation ID: f2b88896ad1f451390d04550eee612f0
+A37 first native connection 2026-11-14T00:51:34Z
+native-mac-oracle: completed; 29 actions
+A37 full A7 preflight+agreement passed 1049073
+A37 observation start 2026-11-14T00:51:40Z
+{
+  "status": "verified",
+  "gates": [
+    "observer-identity",
+    "absent-4",
+    "absent-5",
+    "absent-7",
+    "absent-9",
+    "absent-10",
+    "absent-11",
+    "absent-13",
+    "absent-15",
+    "absent-17",
+    "absent-18",
+    "absent-19",
+    "absent-27",
+    "absent-29",
+    "empty-4",
+    "empty-5",
+    "empty-7",
+    "empty-9",
+    "empty-10",
+    "empty-11",
+    "empty-13",
+    "empty-15",
+    "empty-17",
+    "empty-18",
+    "empty-19",
+    "empty-27",
+    "empty-29"
+  ]
+}
+A37 observation rc=0 postflight start 2026-11-14T00:52:02Z
+native-mac-oracle: completed; 29 actions
+A37 full A7 postflight passed 1049073
+A37 traffic end 2026-11-14T00:52:11Z

@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "profile": "native-mac-oracle",
+  "status": "completed",
+  "native_conformance": false,
+  "identity_scope": "Local binary hash verified; remote process identity is operator-reported",
+  "operator": "native fixture operator",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "plan_sha256": "84423003581c3499b2ca9d06c03fdff5c1e6fd5ca47bd951fbee8eb40531101a",
+  "driver_sha256": "2fba0972f4d9a8e3845c4204dce150dd7c90da0e19a9e5720d5289e2c94faf01",
+  "recorded_at_utc": "2026-11-13T10:42:41.153528+00:00",
+  "started_at_utc": "2026-11-13T10:42:35.944294+00:00",
+  "gap_ids": [
+    "GAP-003",
+    "GAP-021",
+    "GAP-031",
+    "GAP-036",
+    "GAP-072",
+    "GAP-074",
+    "GAP-084"
+  ],
+  "completed_actions": 7,
+  "error": "",
+  "events": [
+    {
+      "action": 0,
+      "connection": "main",
+      "event": "connect",
+      "elapsed_ns": 129421,
+      "hex": "",
+      "local_address": [
+        "127.0.0.1",
+        51420
+      ],
+      "peer_address": [
+        "127.0.0.1",
+        15500
+      ]
+    },
+    {
+      "action": 1,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 160259,
+      "hex": "54525450484f544c00010002"
+    },
+    {
+      "action": 2,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 2191154115,
+      "hex": "5452545000000000"
+    },
+    {
+      "action": 3,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 2191309754,
+      "hex": "0000006b000000010000000000000040000000400005006a000f969b9a918b968b86d28f9e8c8ccdc600a0000200be0069000b92d2969bcdc6d28c9a93990066000c617574682d66697874757265006800020001"
+    },
+    {
+      "action": 4,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 2205828598,
+      "hex": "0001000000000001000000010000001600000016"
+    },
+    {
+      "action": 4,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 2205866819,
+      "hex": "000100640010496e636f7272656374206c6f67696e2e"
+    },
+    {
+      "action": 5,
+      "connection": "main",
+      "event": "quiet",
+      "elapsed_ns": 5208992899,
+      "hex": ""
+    },
+    {
+      "action": 6,
+      "connection": "main",
+      "event": "close",
+      "elapsed_ns": 5209089770,
+      "hex": ""
+    }
+  ],
+  "frames": [
+    {
+      "action": 4,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 1,
+      "error": 1,
+      "total_size": 22,
+      "data_size": 22,
+      "payload_hex": "000100640010496e636f7272656374206c6f67696e2e",
+      "fields": [
+        {
+          "id": 100,
+          "hex": "496e636f7272656374206c6f67696e2e"
+        }
+      ],
+      "declared_field_count": 1,
+      "unconsumed_hex": ""
+    }
+  ],
+  "streams": {
+    "main": {
+      "sent_hex": "54525450484f544c000100020000006b000000010000000000000040000000400005006a000f969b9a918b968b86d28f9e8c8ccdc600a0000200be0069000b92d2969bcdc6d28c9a93990066000c617574682d66697874757265006800020001",
+      "received_hex": "54525450000000000001000000000001000000010000001600000016000100640010496e636f7272656374206c6f67696e2e"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "scope": "A8 phase 1 only: one active and one queued 303 using the A7-verified existing file, then exact baseline restoration",
+  "date_utc": "2026-11-13",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "emulator_pid": 1099659,
+  "emulator_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "display": ":99",
+  "service": "mothra-sheep-bf808bd28e0d",
+  "fixture": "mothra-race-fixture",
+  "preflight": "../native-diagnostic-existing-preflight-01/manifest.json",
+  "capture_count": 2,
+  "captures": ["one-active-one-queued/", "postflight/"],
+  "host_pcaps": ["host-one-active-one-queued.pcap", "host-postflight.pcap"],
+  "guest_snapshots": ["guest-after-one-active-one-queued.pcap", "guest-after-postflight.pcap"],
+  "host_recorder_drop_counts": [0, 0],
+  "settings": {
+    "initial": "screenshots/options-original-open-3.png",
+    "saved_2_1_5": "screenshots/options-2-1-reopened.png",
+    "restored_100_10_5": "screenshots/options-100-10-reopened.png"
+  },
+  "witness": {
+    "status": "native one-active-one-queued verified; no density or boundary claim",
+    "current_uid": "same-connection one-row roster",
+    "active_202_reference": "00044cfb",
+    "queued_202_reference": "000522ab",
+    "queued_initial_116": 1,
+    "active_303_field_101_bytes": 350,
+    "active_row": "mothra-race-fixture   5%   1M\\r",
+    "waiting_row": "mothra-race-fixture   (File)\\r",
+    "post_cancel_idle_303_field_101_bytes": 303,
+    "active_data_received_bytes": 65536,
+    "active_data_unread_pcap_tail_bytes": 0
+  },
+  "verification": [
+    "verification-one-active-one-queued.json (preserved first incomplete-witness result)",
+    "verification-one-active-one-queued-corrected.json (native row grammar corrected)",
+    "verification-postflight.json",
+    "verification-packets.json"
+  ],
+  "limitations": [
+    "First verifier result was incomplete because it applied active percent/size grammar to a queued (File) row; preserved unchanged",
+    "No 8/8 density, near-1024-byte 303, or exact-mxd-text policy evidence",
+    "Guest PCAP snapshots are cumulative; each reported stream was isolated by this report's SYN lifetime",
+    "No copy of live ROM, disk, or emulator state is in this corpus"
+  ]
+}

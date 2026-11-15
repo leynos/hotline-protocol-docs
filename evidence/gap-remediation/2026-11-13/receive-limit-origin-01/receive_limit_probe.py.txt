@@ -1,0 +1,352 @@
+#!/usr/bin/env python3
+"""Bounded read-only receive-limit source trace in the original private project."""
+
+import asyncio
+import hashlib
+import json
+import os
+import traceback
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+
+from mcp import ClientSession, StdioServerParameters
+from mcp.client.stdio import stdio_client
+
+ROOT = Path("/data/leynos/Projects/mothra")
+BATCH = ROOT / "state/delegation/workspaces/batch-02-account"
+PRIVATE = BATCH / "mothra"
+BASE = PRIVATE / "state/oracle-headless-01"
+OUTPUT = BATCH / "receive-limit-01"
+BINARY = ROOT / "evidence/hotline-server-1.9/inputs/HLserver19.pef"
+JAR = ROOT / "tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar"
+ORACLE_SHA = "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+JAR_SHA = "201d18ffde71a83a678eae607de265861f37e5a00b989d91958c1197664d2b43"
+GUI_RECEIVER_DECOMP = (
+    PRIVATE / "evidence/gap-remediation/2026-11-12/batch-16/queries/B16-D-100590e0.json"
+)
+GUI_RECEIVER_ASM = PRIVATE / "evidence/hotline-server-1.9/queries/A-100590e0.json"
+GUI_STARTUP_DECOMP = (
+    PRIVATE / "evidence/gap-remediation/2026-11-12/batch-07/queries/B07-D-100007b0.json"
+)
+FIXED = [
+    ("before", "get_program_info", {}),
+    ("receiver-decomp", "decompile_function_by_address", {"address": "100590e0"}),
+    ("receiver-disasm", "disassemble_function", {"address": "100590e0", "limit": 2000}),
+    ("startup-decomp", "decompile_function_by_address", {"address": "100007b0"}),
+    ("startup-disasm", "disassemble_function", {"address": "100007b0", "limit": 2000}),
+    ("global-xrefs", "get_xrefs_to", {"address": "10094a50", "limit": 1000}),
+    ("toc-xrefs", "get_xrefs_to", {"address": "10088d90", "limit": 1000}),
+    ("toc-outgoing", "get_xrefs_from", {"address": "10088d90", "limit": 100}),
+    ("global-image", "read_memory", {"address": "10094a50", "length": 4}),
+    ("toc-pointer", "read_memory", {"address": "10088d90", "length": 4}),
+]
+
+
+def sha(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def project_files(path):
+    return {
+        p.relative_to(path).as_posix(): sha(p)
+        for p in sorted(path.rglob("*"))
+        if p.is_file()
+    }
+
+
+def save(report):
+    (OUTPUT / "report.json").write_text(json.dumps(report, indent=2) + "\n")
+
+
+def info_differences(info):
+    expected = {
+        "sha256": ORACLE_SHA,
+        "executable_format": "Preferred Executable Format (PEF)",
+        "language_id": "PowerPC:BE:32:default",
+        "endian": "big",
+        "pointer_size": 4,
+        "min_address": "10000000",
+        "max_address": "1009734f",
+        "function_count": 1840,
+    }
+    return {
+        k: {"expected": v, "actual": info.get(k)}
+        for k, v in expected.items()
+        if info.get(k) != v
+    }
+
+
+def check_decomp(content, path):
+    old = json.loads(path.read_text())["result"]["structuredContent"]
+    return {
+        "same_function": old["function"] == content["function"],
+        "exact_code_equal": old["code"] == content["code"],
+        "old_truncated": old["truncated"],
+        "new_truncated": content["truncated"],
+        "old_code_sha256": hashlib.sha256(old["code"].encode()).hexdigest(),
+        "new_code_sha256": hashlib.sha256(content["code"].encode()).hexdigest(),
+    }
+
+
+def check_disasm(content, path):
+    old = json.loads(path.read_text())["result"]["structuredContent"]
+    old_words = [(x["address"], x["bytes"]) for x in old["items"]]
+    new_words = [(x["address"], x["bytes"]) for x in content["items"]]
+    return {
+        "exact_address_bytes_equal": old_words == new_words,
+        "old_total": old["total"],
+        "new_total": content["total"],
+        "old_has_more": old["has_more"],
+        "new_has_more": content["has_more"],
+        "old_last": old_words[-1],
+        "new_last": new_words[-1],
+    }
+
+
+async def run():
+    if OUTPUT.exists():
+        raise ValueError(f"Output exists: {OUTPUT}")
+    if (
+        not (BASE / "project/hotline19-headless-01.gpr").is_file()
+        or not (BASE / "project/hotline19-headless-01.rep").is_dir()
+    ):
+        raise ValueError("Original independent project missing")
+    if sha(BINARY) != ORACLE_SHA or sha(JAR) != JAR_SHA:
+        raise ValueError("Input/JAR hash mismatch")
+    OUTPUT.mkdir()
+    env = dict(os.environ)
+    env.update(
+        JAVA_HOME=str(ROOT / "tools/jdk-25.0.5+8"),
+        GHIDRA_INSTALL_DIR=str(ROOT / "tools/ghidra_12.2_PUBLIC"),
+        XDG_CONFIG_HOME=str(BASE / "config"),
+        XDG_CACHE_HOME=str(BASE / "cache"),
+        XDG_DATA_HOME=str(BASE / "data"),
+        TMPDIR=str(BASE / "tmp"),
+        JAVA_TOOL_OPTIONS=f"-Duser.home={BASE / 'home'} -Djava.io.tmpdir={BASE / 'tmp'}",
+    )
+    env["PATH"] = str(ROOT / "tools/jdk-25.0.5+8/bin") + os.pathsep + env["PATH"]
+    args = [
+        "--headless",
+        "--binary",
+        str(BINARY),
+        "--project",
+        str(BASE / "project"),
+        "--project-name",
+        "hotline19-headless-01",
+        "--language",
+        "PowerPC:BE:32:default",
+        "--compiler",
+        "default",
+        "--extension-jar",
+        str(JAR),
+        "--ready-timeout",
+        "900",
+        "--no-analyze",
+        "--discard",
+    ]
+    params = StdioServerParameters(
+        command=str(ROOT / "tools/ghidramcp/.venv/bin/ghidra-mcp"),
+        args=args,
+        env=env,
+        cwd=str(PRIVATE),
+    )
+    report = {
+        "schema_version": 1,
+        "started_at_utc": datetime.now(timezone.utc).isoformat(),
+        "status": "running",
+        "project": str(BASE / "project/hotline19-headless-01"),
+        "binary_sha256": sha(BINARY),
+        "jar_sha256": sha(JAR),
+        "command": params.command,
+        "args": args,
+        "source_gui_query_sha256": {
+            x.name: sha(x)
+            for x in (GUI_RECEIVER_DECOMP, GUI_RECEIVER_ASM, GUI_STARTUP_DECOMP)
+        },
+        "queries": [],
+        "project_before": project_files(BASE / "project"),
+    }
+    save(report)
+    try:
+        with (OUTPUT / "server.stderr.log").open("w") as errlog:
+            async with (
+                stdio_client(params, errlog=errlog) as (reader, writer),
+                ClientSession(
+                    reader, writer, read_timeout_seconds=timedelta(seconds=1050)
+                ) as session,
+            ):
+                await session.initialize()
+                child_file = Path(f"/proc/{os.getpid()}/task/{os.getpid()}/children")
+                report["process_handle"] = {
+                    "parent_pid": os.getpid(),
+                    "observed_child_pids": child_file.read_text().split()
+                    if child_file.exists()
+                    else [],
+                    "at_utc": datetime.now(timezone.utc).isoformat(),
+                }
+                save(report)
+                before = None
+                queries = list(FIXED)
+                for position in range(1, 13):
+                    if position == 11:
+                        xrefs = report.get("toc_xrefs_data", {}).get("items", [])
+                        candidates = sorted(
+                            (
+                                x
+                                for x in xrefs
+                                if isinstance(x.get("from_function"), dict)
+                                and (
+                                    x["from_function"].get("address")
+                                    not in {"100007b0", "100590e0"}
+                                )
+                            ),
+                            key=lambda x: int(x["from"], 16),
+                        )
+                        address = candidates[0]["from"] if candidates else "10008fd0"
+                        report["query_11_selection"] = {
+                            "address": address,
+                            "reason": "lowest newly returned recognised code xref from TOC slot"
+                            if candidates
+                            else "pinned configuration-loader fallback",
+                            "candidate_count": len(candidates),
+                        }
+                        queries.append(
+                            (
+                                "selected-consumer",
+                                "decompile_function_by_address",
+                                {"address": address},
+                            )
+                        )
+                    elif position == 12:
+                        queries.append(("after", "get_program_info", {}))
+                    label, tool, arguments = queries[position - 1]
+                    result = await session.call_tool(
+                        tool, arguments, read_timeout_seconds=timedelta(seconds=1050)
+                    )
+                    payload = result.model_dump(mode="json")
+                    filename = f"{position:02d}-{label}.json"
+                    (OUTPUT / filename).write_text(
+                        json.dumps(
+                            {
+                                "index": position,
+                                "label": label,
+                                "tool": tool,
+                                "arguments": arguments,
+                                "result": payload,
+                            },
+                            indent=2,
+                        )
+                        + "\n"
+                    )
+                    report["queries"].append(
+                        {
+                            "index": position,
+                            "label": label,
+                            "tool": tool,
+                            "arguments": arguments,
+                            "file": filename,
+                            "sha256": sha(OUTPUT / filename),
+                            "is_error": result.isError,
+                        }
+                    )
+                    save(report)
+                    if result.isError or result.structuredContent is None:
+                        raise ValueError(f"{label}: error or absent structured result")
+                    content = result.structuredContent
+                    if label == "before":
+                        report["before_differences"] = info_differences(content)
+                        if report["before_differences"]:
+                            raise ValueError("Initial program identity mismatch")
+                        before = content
+                    elif label in {"receiver-decomp", "startup-decomp"}:
+                        old = (
+                            GUI_RECEIVER_DECOMP
+                            if label == "receiver-decomp"
+                            else GUI_STARTUP_DECOMP
+                        )
+                        report[label + "_parity"] = check_decomp(content, old)
+                        p = report[label + "_parity"]
+                        if (
+                            not p["same_function"]
+                            or not p["exact_code_equal"]
+                            or p["old_truncated"]
+                            or p["new_truncated"]
+                        ):
+                            raise ValueError(label + " parity failure")
+                    elif label == "receiver-disasm":
+                        report["receiver_disasm_parity"] = check_disasm(
+                            content, GUI_RECEIVER_ASM
+                        )
+                        p = report["receiver_disasm_parity"]
+                        if (
+                            not p["exact_address_bytes_equal"]
+                            or p["old_has_more"]
+                            or p["new_has_more"]
+                        ):
+                            raise ValueError("Receiver disassembly parity failure")
+                    elif label == "startup-disasm":
+                        report["startup_disasm"] = {
+                            "total": content.get("total"),
+                            "item_count": len(content.get("items", [])),
+                            "has_more": content.get("has_more"),
+                        }
+                        if content.get("has_more") or content.get("total") != len(
+                            content.get("items", [])
+                        ):
+                            raise ValueError("Startup disassembly truncated")
+                    elif label in {"global-xrefs", "toc-xrefs", "toc-outgoing"}:
+                        report[label.replace("-", "_") + "_data"] = {
+                            k: content.get(k)
+                            for k in ["items", "offset", "limit", "total", "has_more"]
+                        }
+                        if content.get("has_more") or content.get("total") != len(
+                            content.get("items", [])
+                        ):
+                            raise ValueError(label + " result truncated")
+                    elif label == "global-image":
+                        report["global_image_hex"] = content.get("hex")
+                        if (
+                            content.get("hex", "").replace(" ", "").lower()
+                            != "00200000"
+                        ):
+                            raise ValueError("Image initializer differs")
+                    elif label == "toc-pointer":
+                        report["toc_pointer_hex"] = content.get("hex")
+                        if (
+                            content.get("hex", "").replace(" ", "").lower()
+                            != "10094a50"
+                        ):
+                            raise ValueError("TOC pointer differs")
+                    elif label == "selected-consumer":
+                        report["selected_consumer"] = {
+                            "address": arguments["address"],
+                            "function": content.get("function"),
+                            "truncated": content.get("truncated"),
+                        }
+                        if content.get("truncated"):
+                            raise ValueError(
+                                "Selected consumer decompilation truncated"
+                            )
+                    elif label == "after":
+                        report["after_equal_before"] = content == before
+                        if not report["after_equal_before"]:
+                            raise ValueError("Program identity changed")
+                    save(report)
+        report["status"] = "completed-12-read-only-calls"
+    except Exception as exc:
+        report["status"] = "stopped-preserved"
+        report["error"] = f"{type(exc).__name__}: {exc}"
+        report["traceback"] = traceback.format_exc()
+        raise
+    finally:
+        report["project_after"] = project_files(BASE / "project")
+        report["project_files_equal"] = (
+            report["project_before"] == report["project_after"]
+        )
+        report["finished_at_utc"] = datetime.now(timezone.utc).isoformat()
+        save(report)
+    return report
+
+
+if __name__ == "__main__":
+    print(asyncio.run(run())["status"])

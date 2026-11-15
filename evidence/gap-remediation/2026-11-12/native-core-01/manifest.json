@@ -1,0 +1,46 @@
+{
+  "scope": "16 native TCP-stream fixtures with host-loopback packet capture, known test account records, and executable/base/ROM/application-fork identities",
+  "runtime": "runtime.json",
+  "capture_order": [
+    "early-login-and-errors",
+    "delayed-login",
+    "wrong-password",
+    "wrong-password-drain",
+    "create-fixture-account",
+    "created-password-success",
+    "change-fixture-password",
+    "low-privilege-and-missing-room",
+    "old-password-rejected",
+    "plaintext-password-rejected",
+    "missing-file-info",
+    "malformed-zero-size",
+    "plain-account-read-and-enumerate",
+    "account111-absent",
+    "account111-empty",
+    "account111-value"
+  ],
+  "passed": 14,
+  "retained_failed_observations": {
+    "wrong-password": "No proxy EOF observed within15 seconds after Incorrect login reply",
+    "wrong-password-drain": "No proxy EOF observed within45 seconds after Incorrect login reply"
+  },
+  "observations": [
+    "Early login ACK,354,109; delayed login ACK,109 then121 ACK,354",
+    "Known nonempty account password created and accepted, changed and accepted; old and plaintext replacement rejected",
+    "352 request uses uncomplemented login, unlike350/351/353 inputs; response complements105",
+    "348 success repeats outer101 count/TLV account lists; low-privilege348 returns status1",
+    "Missing room, missing file and unsupported/replayed online requests return status1 and field100; invalid zero frame sizes close with no numbered reply",
+    "Field111 absent/empty writes zero length; representative value persists at0x256 in734-byte UserData; no111 in352 output"
+  ],
+  "limitations": [
+    "Host-loopback packet capture is toSLiRP proxy, not guest Ethernet; no inferred native FIN or drain timing from it",
+    "No general encoding classifier, full error namespace, exception catch completeness, stability guarantee or all-operation conformance claim",
+    "Field111 human meaning and later uses remain unresolved",
+    "CarbonLib version not separately identified; full supplied base disk identity is retained",
+    "Test credentials in fixtures are disposable and deliberately public"
+  ],
+  "closure_candidates": [
+    "GAP-022",
+    "GAP-077"
+  ]
+}

@@ -1,0 +1,79 @@
+diff --git a/native-ban-expiry-preparation.md b/native-ban-expiry-preparation.md
+index 67ade7c..6ef828a 100644
+--- a/native-ban-expiry-preparation.md
++++ b/native-ban-expiry-preparation.md
+@@ -93,14 +93,24 @@ The runner checks live values again and refuses a stale receipt. Root
+ must review and grant the actual unit, launch, capture and cleanup commands
+ before use.
+ 
++The runner must itself share the verified emulator network namespace. Set
++`NetworkNamespacePath=/proc/<actual-emulator-pid>/ns/net` on its finite managed
++unit. The runner rejects a different namespace before opening any socket.
++The equivalent payload context for the command templates is:
++
+ ```sh
+-sudo python3 scripts/native_ban_expiry_control.py --run --phase first \
++expiry_emulator_pid="$(python3 -c \
++  'import json,sys; print(json.load(open(sys.argv[1]))["emulator_pid"])' \
++  state/native-ban-expiry-01/runtime.json)"
++sudo nsenter --target "$expiry_emulator_pid" --net -- \
++  python3 scripts/native_ban_expiry_control.py --run --phase first \
+   --plans state/native-ban-expiry-01/plans \
+   --readiness-dir state/native-ban-expiry-01/epoch-first/readiness \
+   --capture-receipt state/native-ban-expiry-01/epoch-first/receipt.json \
+   --binary /absolute/owned/native-server-data-fork \
+   --output state/native-ban-expiry-01/epoch-first/results
+-sudo python3 scripts/native_ban_expiry_control.py --run --phase pre \
++sudo nsenter --target "$expiry_emulator_pid" --net -- \
++  python3 scripts/native_ban_expiry_control.py --run --phase pre \
+   --plans state/native-ban-expiry-01/plans \
+   --capture-receipt state/native-ban-expiry-01/epoch-pre/receipt.json \
+   --binary /absolute/owned/native-server-data-fork \
+diff --git a/scripts/native_ban_expiry_control.py b/scripts/native_ban_expiry_control.py
+index 522330e..819e286 100644
+--- a/scripts/native_ban_expiry_control.py
++++ b/scripts/native_ban_expiry_control.py
+@@ -486,6 +486,10 @@ def runtime_gate(receipt: dict, env: dict, deadline_utc: datetime) -> None:
+         ),
+         "Runtime receipt differs from plan",
+     )
++    require(
++        os.stat("/proc/self/ns/net").st_ino == receipt["emulator_netns_inode"],
++        "Runner is not in the emulator network namespace",
++    )
+     capture_gate(receipt)
+     namespace_gate(receipt)
+     require(
+diff --git a/scripts/test_native_ban_expiry.py b/scripts/test_native_ban_expiry.py
+index 520d72e..8c419dc 100644
+--- a/scripts/test_native_ban_expiry.py
++++ b/scripts/test_native_ban_expiry.py
+@@ -360,6 +360,28 @@ class BanExpiryTests(unittest.TestCase):
+                     self.assertEqual(run.call_count, 1)
+                     self.assertEqual(run.call_args.args[1], f"{phase}-probe")
+ 
++    def test_wrong_runner_namespace_stops_before_capture_or_socket_work(self) -> None:
++        original = environment()
++        deadline = datetime.now(timezone.utc) + timedelta(minutes=2)
++        with (
++            patch.object(control.os, "geteuid", return_value=0),
++            patch.object(control.os, "stat") as stat,
++            patch.object(
++                control, "capture_gate", side_effect=AssertionError("capture")
++            ) as capture,
++        ):
++            stat.return_value = SimpleNamespace(
++                st_ino=original["emulator_netns_inode"] + 1
++            )
++            with self.assertRaisesRegex(ValueError, "Runner.*namespace"):
++                control.runtime_gate(original, original, deadline)
++            capture.assert_not_called()
++            stat.assert_called_with("/proc/self/ns/net")
++            stat.return_value = SimpleNamespace(st_ino=original["emulator_netns_inode"])
++            with self.assertRaisesRegex(AssertionError, "capture"):
++                control.runtime_gate(original, original, deadline)
++            capture.assert_called_once_with(original)
++
+     def test_live_runtime_binding_and_namespace_routes(self) -> None:
+         original = environment()
+         with (

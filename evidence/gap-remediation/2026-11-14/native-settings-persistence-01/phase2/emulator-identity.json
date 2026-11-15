@@ -1,0 +1,9 @@
+{
+  "pid": 464176,
+  "start_ticks": 5380630,
+  "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "working_image_fd6": "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-native/mothra/state/mac-runtime/native-settings-persistence-01/working.dsk",
+  "guest_pcap_fd16": "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-native/mothra/state/native-sessions/native-settings-persistence-a48/guest.pcap",
+  "netns": "net:[4026533401]",
+  "uid": 1000
+}

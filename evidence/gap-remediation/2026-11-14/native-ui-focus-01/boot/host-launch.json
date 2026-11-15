@@ -1,0 +1,29 @@
+{
+  "utc": "2026-11-14T00:58:15.509058+00:00",
+  "argv": [
+    "sudo",
+    "-n",
+    "systemd-run",
+    "--unit=mothra-native-event-c49-host-capture.service",
+    "--property=Type=exec",
+    "--property=RuntimeMaxSec=20min",
+    "--property=RemainAfterExit=yes",
+    "--property=Restart=no",
+    "--property=StandardOutput=append:/data/leynos/Projects/mothra/state/native-sessions/native-eventlab-c49/host-recorder.log",
+    "--property=StandardError=append:/data/leynos/Projects/mothra/state/native-sessions/native-eventlab-c49/host-recorder.log",
+    "--no-block",
+    "/usr/sbin/tcpdump",
+    "-i",
+    "lo",
+    "-U",
+    "-n",
+    "-s",
+    "0",
+    "-w",
+    "/data/leynos/Projects/mothra/state/native-sessions/native-eventlab-c49/primary-host.pcap",
+    "(tcp port 15500 or tcp port 15501)"
+  ],
+  "exit": 0,
+  "stdout": "",
+  "stderr": "Running as unit: mothra-native-event-c49-host-capture.service\n"
+}

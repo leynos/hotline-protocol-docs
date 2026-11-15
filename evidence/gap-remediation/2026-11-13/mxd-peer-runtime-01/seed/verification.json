@@ -1,0 +1,22 @@
+{
+  "source_head": "cb907885cc2a61df2d708f38a3cf42da85c2a016",
+  "source_tracked_clean": true,
+  "cargo_lock_sha256": "a75916c2eba9add420b656323df9717c91c052417f2ffcdcf1c95c2787372192",
+  "binary_sha256": "3da44eac362e1a5433eee4cace8f030e383a9c4a8ea8f587055610299c879375",
+  "binary_path": "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/mxd-wireframe-server",
+  "build_exit": 0,
+  "first_seed_exit": 1,
+  "first_seed_error": "missing password",
+  "second_seed_exit": 0,
+  "config_sha256_match": true,
+  "config_mode": "0600",
+  "database_mode": "0600",
+  "database_sha256": "9cc5b9447c661c0d5f11eb2f4b05d71f7b24e3da2e6324e880345c7fb015dbe0",
+  "sqlite_integrity_check": "ok",
+  "user_count": 1,
+  "usernames": [
+    "mxd-peer-c14"
+  ],
+  "daemon_started": false,
+  "client_connected": false
+}

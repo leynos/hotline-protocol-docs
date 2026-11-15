@@ -1,0 +1,27 @@
+[
+  {
+    "case": "repeated-login-before-acceptance",
+    "connection": "observer",
+    "unread_hex": "0000012e000000040000000000000008000000080001006700020175",
+    "notifications": [
+      {
+        "flags": 0,
+        "is_reply": 0,
+        "type": 302,
+        "id": 4,
+        "error": 0,
+        "total_size": 8,
+        "data_size": 8,
+        "payload_hex": "0001006700020175",
+        "fields": [
+          {
+            "id": 103,
+            "hex": "0175"
+          }
+        ],
+        "declared_field_count": 1,
+        "unconsumed_hex": ""
+      }
+    ]
+  }
+]

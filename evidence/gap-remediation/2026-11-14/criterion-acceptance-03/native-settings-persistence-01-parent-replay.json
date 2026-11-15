@@ -1,0 +1,50 @@
+{
+  "command": [
+    "python3",
+    "/data/leynos/Projects/hotline-protocol-docs/scripts/verify_native_settings_persistence.py",
+    "/data/leynos/Projects/mothra/evidence/gap-remediation/2026-11-14/native-settings-persistence-01"
+  ],
+  "exit_code": 0,
+  "stdout": {
+    "status": "verified_control_only",
+    "legacy_phase1": "verified_original_64_plus_2_not_generic_capture",
+    "planned_phase2": "generic_and_semantic_verified_28",
+    "gates": {
+      "phase1": [
+        "identity",
+        "baseline-delivery",
+        "baseline-pm",
+        "enable-301-1",
+        "enable-301-2",
+        "enable-delivery",
+        "enable-barrier",
+        "disable-301-1",
+        "disable-301-2",
+        "disable-delivery",
+        "disable-barrier",
+        "reenable-301-1",
+        "reenable-301-2",
+        "reenable-delivery",
+        "reenable-barrier"
+      ],
+      "phase2": [
+        "identity",
+        "baseline-delivery",
+        "baseline-pm"
+      ]
+    },
+    "paired_flows": {
+      "phase1": 3,
+      "phase2": 3
+    },
+    "stored": {
+      "same_working_inode": 2214366960,
+      "phase1_image_sha256": "e7ff40564780c0eb4b3e5bfdb24f8c4d37c3d1dbb7b4a77216d71c7be616aafa",
+      "phase2_image_sha256": "be0b2c95c1ddd06e678bc31941bb01fb744d70fee50e28c82f2a71910c8f7d0a",
+      "forks_unchanged": true
+    },
+    "operational_deviation": "A48 oracle.lock was not held; exclusive lease and zero primary SYN independently retained",
+    "persistence_scope": "same-image operator-observed orderly shutdown and fresh-login control; no power-loss or all-storage claim"
+  },
+  "stderr": ""
+}

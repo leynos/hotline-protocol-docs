@@ -1,0 +1,9 @@
+[
+  {
+    "id": "ND-D-1000acf0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1000acf0"
+    }
+  }
+]

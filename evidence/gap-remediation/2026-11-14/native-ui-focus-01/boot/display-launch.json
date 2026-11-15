@@ -1,0 +1,14 @@
+{
+  "utc": "2026-11-14T00:58:25.032978+00:00",
+  "argv": [
+    "/usr/sbin/python3",
+    "/data/leynos/Projects/mothra/scripts/mac_runtime.py",
+    "display",
+    "/data/leynos/Projects/mothra/state/mac-displays/native-eventlab-one-01",
+    "--display",
+    ":112"
+  ],
+  "exit": 0,
+  "stdout": "mothra-display-37408b9876e3\n",
+  "stderr": "Running as unit: mothra-display-37408b9876e3.service; invocation ID: 15382a40816045f09c0d3ec673df8af7\n"
+}

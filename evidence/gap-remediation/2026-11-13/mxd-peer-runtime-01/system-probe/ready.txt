@@ -1,0 +1,7 @@
+ActiveState=active
+RuntimeMaxUSec=20s
+MainPID=2323898
+ControlGroup=/system.slice/mothra-mxd-netns-probe.service
+User=1000
+Group=1000
+NetworkNamespacePath=/proc/1012834/ns/net

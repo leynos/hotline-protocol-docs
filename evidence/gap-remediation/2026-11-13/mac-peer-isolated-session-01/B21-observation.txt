@@ -1,0 +1,98 @@
+# B21: one isolated Classic client session
+
+Observed 2026-11-13 19:51–20:00 UTC. This is a local runtime record. The
+native server protocol lease was returned to the supervisor after client
+shutdown. It does not establish a universal client profile or timer schedule.
+
+## Preflight and recorders
+
+- B20's new disposable client guest remained on display :107, actual
+  SheepShaver PID 1012834 with `/proc/PID/exe` SHA-256
+  `9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4`.
+  Its FD 6 owned `hotline-client-isolated-01/working.dsk` and FD 16 owned
+  `mac-peer-isolated-01/client-guest.pcap`. The original server PID 1099659
+  had the same emulator hash, FD 6 on its separate `hotline22-recovery/working.dsk`
+  and FD 16 on `recovery-20261113-01/guest.pcap`.
+- The new emulator namespace `net:[4026532479]` differed from host
+  `net:[4026531840]`; it had only `lo` and empty IPv4/IPv6 main routes.
+  Three active host bridge receipts fixed the control target
+  127.0.0.1:15500, data target 127.0.0.1:15501 and X display :107. The
+  original server loopback listeners existed. The HFS installed app had
+  previously passed the Finder round trip with data/resource hashes
+  `7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315`
+  and `f762cfdedcc39758f841f720a4586dbbb88a7b74ec9e83db1793791b7c3f318b`.
+- The host loopback recorder filtered TCP ports 15500 and 15501. A separate
+  host observer filtered only previously seen external IP 207.148.248.143 and
+  diagnostic IPs 192.0.2.1/2001:db8::1. Both recorders had 24-byte PCAP
+  headers before app launch. Both guest PCAPs were snapshotted before launch.
+  No TCP health probe was sent to the native server.
+
+## One connection and observed wire
+
+- Launched **only** the HFS `System 9:clientiso20/Hotline Client 1.9.2 Classic`
+  app once. Cancelled the first-run wizard before its external auto-connect
+  Finish. Dismissed the routine sound-manager error. Options displayed the
+  default name `unnamed`; no account, registration, or paid step was used.
+- Entered `10.0.2.2:15500`, `admin`, and the existing controlled fixture
+  password. One manual Connect click at 19:55:33 UTC started one local control
+  connection. Login request kind 107 id 1 carried fields 105, 106, 160;
+  server type 0 reply id 1 had status 0, field 160 `00be`, field 161 `0000`.
+- Server kind 109 id 1 field 101 was 242 bytes. Its SHA-256
+  `5288d060a4270cf6ae899302c52b2ac784b30dea99f01d2d4cd1c1037c4bd1c7`
+  matched the retained B13 controlled agreement byte-for-byte. Accepted
+  this agreement once at 19:56:38 UTC. Client kind 121 id 2 named
+  `unnamed`; server success followed. Client kind 300 id 3 received the one
+  `unnamed` roster record; UI showed Connected and one online user.
+- Server also sent kinds 354 and 122. Client kind 212 id 4 received status 0,
+  field 108 `003a`, field 107 `002e037f`. The automatic data flow used host
+  `127.0.0.1:42690` to fixed port 15501: client 16-byte header
+  `48545846002e037f0000000000020000`, server 58-byte response beginning
+  `474946383961` (GIF89a). Host TCP capture shows orderly FIN at
+  19:56:38.599–.608; guest capture shows the 58 bytes then a client R packet.
+  The UI continued to display **Loading banner image**. Receiving 58 bytes
+  does not establish image-decoder completion or banner display.
+
+## Bounded automatic activity and shutdown
+
+- The guest emitted 15 DNS A requests for `www.developingnetwork.com` to
+  10.0.2.3 across three five-request groups. Each received an ICMP network
+  unreachable indication from 10.0.2.2; the final pre-disconnect one was at
+  19:56:45.930 UTC. The last group began **after** disconnect. There was no
+  public-IP TCP exchange in the captured guest view. The final host known-IP
+  observer is a 24-byte header with zero matching packets; tcpdump reported
+  zero captured, two received by filter, zero kernel drops. These finite
+  observations do not prove all possible egress paths safe.
+- No manual chat, transfer, setting, or admin action followed agreement.
+  The last data-flow packet (client ACK) was at 19:56:38.608807. The quiet-end snapshot
+  was at 19:59:05.838027, **147.229 seconds** later and about 139.908 seconds
+  after the final pre-disconnect DNS error. Host control/data PCAP size was
+  unchanged at 3,418 bytes throughout this fixed observation window. The
+  control stream has no kind 500 or other numbered request after kind 212.
+  This is a finite no-500 result, not a scheduling or purpose proof. The UI
+  still showed Connected, `unnamed`, and Loading banner image.
+- Clicked Disconnect at 19:59:32; UI briefly showed Not Connected and zero
+  tasks. The host control flow then exchanged FIN at 19:59:32.784–.797.
+  Subsequent automatic DNS retries occurred while the app was still open.
+  Chose File > Quit at 19:59:59; Finder returned. No retry or VM restart.
+  Post-run host and namespace socket listings had no 15500/15501 established
+  connection. Both original server and isolated client guests remained live.
+
+## Retained immutable evidence and limits
+
+The final host control/data PCAP is 3,664 bytes (SHA-256
+`733f950867b605a3334fb2ebf2c8e7da6980e88b08c17c502d408a73e71f5134`),
+35 packets and zero reported kernel drops. The final client-guest snapshot is
+8,606 bytes (`866f677607dfcae730501e181691dff270abc8a87bb925d60fed8815b7136a11`),
+and server-guest snapshot is 6,921,546 bytes
+(`3a5e24d3966801c74028a57da0d264c8be0f33ede0a55a14d9924d5d09cc6bf8`).
+The host known-IP observer is the 24-byte header
+`e3f42e2687636327d7f18c9635173252505b4a838fa6829a755bab06c9c69749`.
+Prelaunch and quiet-end snapshots, recorder logs, action timestamps,
+frame summary, 16/58-byte data hex, and screenshots are beside this report.
+The live guest PCAPs are not immutable; these copies are.
+
+The archive label says 1.9.2 while embedded `vers` says 1.9.1.0; the
+candidate's vendor identity remains unresolved. The unresolved banner UI and
+finite no-500 interval must not be turned into universal peer tolerance or
+protocol timing claims. This run did not modify native server files, account
+records, routing, or emulator configuration.

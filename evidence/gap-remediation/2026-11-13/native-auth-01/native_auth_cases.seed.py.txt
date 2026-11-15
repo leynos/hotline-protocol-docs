@@ -1,0 +1,91 @@
+"""Prepare native account lookup and login/agreement transition observations."""
+
+from native_plan import close, connect, login, packet, payload, quiet, read, send
+
+PASSWORD = b"auth-pass"
+KEY31 = b"m-auth-" + b"a" * 24
+KEY32 = b"m-auth-" + b"b" * 25
+ACCOUNTS = [
+    (b"m-auth-cr", b"Auth CR", bytes(8)),
+    (b"m-auth-\x8a", b"Auth high byte", bytes(8)),
+    (KEY31, b"Auth length31", bytes(8)),
+    (KEY32, b"Auth length32", bytes(8)),
+    (b"m-auth-bypass", b"Auth bypass", bytes.fromhex("0000003000000000")),
+]
+
+
+def complement(value: bytes) -> bytes:
+    return bytes(b ^ 255 for b in value)
+
+
+def seed() -> dict:
+    steps = login()
+    steps += [send(packet(352, 9, payload([(105, b"guest")]))), read()]
+    for identifier, (key, name, privileges) in enumerate(ACCOUNTS, 10):
+        steps += [
+            send(
+                packet(
+                    350,
+                    identifier,
+                    payload(
+                        [
+                            (105, complement(key)),
+                            (106, complement(PASSWORD)),
+                            (102, name),
+                            (110, privileges),
+                        ]
+                    ),
+                )
+            ),
+            read(match_frame={"is_reply": 1, "id": identifier}),
+            send(packet(352, identifier + 10, payload([(105, key)]))),
+            read(match_frame={"is_reply": 1, "id": identifier + 10}),
+        ]
+    steps += [{"op": "pause", "seconds": 3}, close()]
+    return {"seed-owned-auth-accounts": (steps, {"kind": "account-seed"})}
+
+
+def authentication(
+    key: bytes | None,
+    password: bytes,
+    *,
+    name: bytes | None = b"auth-fixture",
+    icon: bytes | None = b"\0\1",
+    connection: str = "main",
+    identifier: int = 1,
+) -> dict:
+    values = [(106, complement(password)), (160, b"\0\xbe")]
+    if key is not None:
+        values.append((105, complement(key)))
+    if name is not None:
+        values.append((102, name))
+    if icon is not None:
+        values.append((104, icon))
+    return send(packet(107, identifier, payload(values)), connection)
+
+
+def lookup() -> dict:
+    cases = {}
+    for name, key, password in [
+        ("admin-mixed-case", b"AdMiN", b"mothra19"),
+        ("admin-upper-case", b"ADMIN", b"mothra19"),
+        ("guest-absent", None, b""),
+        ("guest-empty", b"", b""),
+        ("guest-explicit", b"guest", b""),
+        ("unknown-nonempty", b"m-auth-no-such-account", b""),
+        ("carriage-return-maps-to-hyphen", b"m-auth\rcr", PASSWORD),
+        ("high-byte-80-maps-to-8a", b"m-auth-\x80", PASSWORD),
+        ("nul-leading", b"\0admin", b"mothra19"),
+        ("nul-trailing", b"admin\0", b"mothra19"),
+        ("nul-interior", b"ad\0min", b"mothra19"),
+        ("nul-only", b"\0", b""),
+        ("name-length31", KEY31, PASSWORD),
+        ("name-length32", KEY32, PASSWORD),
+        ("name-over32-clipped", KEY32 + b"-ignored", PASSWORD),
+    ]:
+        steps = login()[:3] + [authentication(key, password), read(), quiet(), close()]
+        cases[name] = (
+            steps,
+            {"kind": "lookup", "key_hex": None if key is None else key.hex()},
+        )
+    return cases

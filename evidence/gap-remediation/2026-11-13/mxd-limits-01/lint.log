@@ -1,0 +1,1659 @@
+= Coverage for /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/ =
+------------------------------ Detailed Coverage -------------------------------
+| Name                                                                                   |  Status |
+|----------------------------------------------------------------------------------------|---------|
+| scripts/run_loom_models.py (module)                                                    | COVERED |
+| passed_tests (L50)                                                                     | COVERED |
+| read_expected (L68)                                                                    | COVERED |
+| problems (L80)                                                                         | COVERED |
+| summary (L107)                                                                         | COVERED |
+| main (L130)                                                                            | COVERED |
+| run_cli (L167)                                                                         | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/codescene_boundary/codescene_environment_rules.py (module)                       | COVERED |
+| DuplicateKeyError (L48)                                                                | COVERED |
+| _StrictLoader (L52)                                                                    | COVERED |
+| _construct_mapping (L56)                                                               | COVERED |
+| _load (L83)                                                                            | COVERED |
+| read_workflows (L99)                                                                   | COVERED |
+| jobs (L128)                                                                            | COVERED |
+| _as_mapping (L146)                                                                     | COVERED |
+| environment_name (L158)                                                                | COVERED |
+| uploads (L185)                                                                         | COVERED |
+| _triggers (L202)                                                                       | COVERED |
+| _push_is_trunk_only (L223)                                                             | COVERED |
+| starts_on_pull_request (L241)                                                          | COVERED |
+| _local_callees (L256)                                                                  | COVERED |
+| pull_request_closure (L272)                                                            | COVERED |
+| _placed (L298)                                                                         | COVERED |
+| environment_violations (L316)                                                          | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/codescene_boundary/shell_commands.py (module)                                    | COVERED |
+| _is_operator (L34)                                                                     | COVERED |
+| _line_tokens (L39)                                                                     | COVERED |
+| command_segments (L59)                                                                 | COVERED |
+| runs_command (L77)                                                                     | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/codescene_boundary/test_codescene_boundary.py (module)                           | COVERED |
+| _sources (L83)                                                                         | COVERED |
+| _documents (L94)                                                                       | COVERED |
+| _values (L99)                                                                          | COVERED |
+| test_some_workflow_runs_on_pull_requests (L109)                                        | COVERED |
+| test_the_surface_follows_a_local_reusable_call (L119)                                  | COVERED |
+| test_no_pull_request_step_runs_a_codescene_action (L136)                               | COVERED |
+| test_no_pull_request_step_runs_the_coverage_command (L150)                             | COVERED |
+| test_no_pull_request_workflow_reaches_the_token_or_the_host (L160)                     | COVERED |
+| test_the_coverage_job_takes_a_shallow_checkout (L173)                                  | COVERED |
+| test_the_publisher_runs_on_a_push_to_main_and_nothing_else (L199)                      | COVERED |
+| test_the_publisher_never_overlaps_and_never_cancels (L212)                             | COVERED |
+| test_exactly_one_workflow_uploads (L232)                                               | COVERED |
+| _is_upload_step (L249)                                                                 | COVERED |
+| _publisher_steps (L255)                                                                | COVERED |
+| test_the_publisher_uploads_with_the_token_given_directly (L260)                        | COVERED |
+| _upload_job_steps (L280)                                                               | COVERED |
+| test_the_token_check_runs_its_one_command_unconditionally (L295)                       | COVERED |
+| test_no_env_on_the_publisher_holds_the_token (L318)                                    | COVERED |
+| test_the_boundary_lane_runs_this_contract (L339)                                       | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/codescene_boundary/test_codescene_environment_contract.py (module)               | COVERED |
+| workflows (L36)                                                                        | COVERED |
+| _first_job (L48)                                                                       | COVERED |
+| _reports (L60)                                                                         | COVERED |
+| test_repository_places_the_environment (L68)                                           | COVERED |
+| test_the_pull_request_lane_is_read (L74)                                               | COVERED |
+| test_publisher_cannot_drop_the_environment (L80)                                       | COVERED |
+| test_publisher_cannot_name_another_environment (L86)                                   | COVERED |
+| test_mapping_form_is_accepted (L94)                                                    | COVERED |
+| test_no_other_job_may_declare_it (L101)                                                | COVERED |
+| test_no_pull_request_job_may_declare_it (L112)                                         | COVERED |
+| test_a_called_workflow_is_read_too (L118)                                              | COVERED |
+| test_an_empty_reading_is_refused (L129)                                                | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/codescene_boundary/test_workflow_surface.py (module)                             | COVERED |
+| test_every_trigger_form_is_read_as_its_events (L53)                                    | COVERED |
+| test_both_workflow_extensions_are_read (L75)                                           | COVERED |
+| test_both_spellings_of_the_trigger_key_are_refused (L80)                               | COVERED |
+| test_an_unsupported_trigger_shape_is_refused (L86)                                     | COVERED |
+| test_a_duplicate_key_is_refused_rather_than_resolved (L92)                             | COVERED |
+| test_a_local_call_is_recognized_by_shape (L126)                                        | COVERED |
+| test_the_measured_probe_is_reached_and_refused (L137)                                  | COVERED |
+| test_the_surface_is_narrow (L153)                                                      | COVERED |
+| test_the_token_sweep_reads_every_route (L211)                                          | COVERED |
+| test_a_required_command_is_read_from_the_command_line (L234)                           | COVERED |
+| _surface (L245)                                                                        | COVERED |
+| test_a_breach_two_calls_deep_is_reached_and_refused (L253)                             | COVERED |
+| test_a_call_cycle_terminates (L267)                                                    | COVERED |
+| test_a_workflow_run_chain_joins_only_when_it_follows_the_surface (L276)                | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/codescene_boundary/workflow_surface.py (module)                                  | COVERED |
+| _StrictLoader (L46)                                                                    | COVERED |
+| _StrictLoader.construct_mapping (L49)                                                  | COVERED |
+| is_workflow_file (L75)                                                                 | COVERED |
+| load (L87)                                                                             | COVERED |
+| triggers (L103)                                                                        | COVERED |
+| jobs (L141)                                                                            | COVERED |
+| steps (L149)                                                                           | COVERED |
+| local_call (L166)                                                                      | COVERED |
+| called_locally (L184)                                                                  | COVERED |
+| _closure (L193)                                                                        | COVERED |
+| _workflow_run_sources (L211)                                                           | COVERED |
+| _chained_after (L224)                                                                  | COVERED |
+| pull_request_surface (L241)                                                            | COVERED |
+| _scalars (L265)                                                                        | COVERED |
+| _forwards_every_secret (L279)                                                          | COVERED |
+| secret_breaches (L284)                                                                 | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/dependabot_policy/test_dependabot_policy.py (module)                             | COVERED |
+| _StrictLoader (L41)                                                                    | COVERED |
+| _StrictLoader.construct_mapping (L44)                                                  | COVERED |
+| ConfigurationError (L68)                                                               | COVERED |
+| _load (L72)                                                                            | COVERED |
+| read_text (L83)                                                                        | COVERED |
+| read_configuration (L98)                                                               | COVERED |
+| configuration (L119)                                                                   | COVERED |
+| _updates (L124)                                                                        | COVERED |
+| _entry (L133)                                                                          | COVERED |
+| test_an_unreadable_configuration_is_a_named_error (L148)                               | COVERED |
+| test_a_duplicate_key_is_refused (L170)                                                 | COVERED |
+| test_a_cargo_versioning_strategy_is_one_dependabot_accepts (L180)                      | COVERED |
+| test_the_cargo_entry_ignores_serial_test_4 (L195)                                      | COVERED |
+| test_the_cargo_entry_ignores_bincode_3 (L216)                                          | COVERED |
+| test_the_serial_test_ignore_still_has_its_reason (L232)                                | COVERED |
+| _groups (L262)                                                                         | COVERED |
+| _is_catch_all (L272)                                                                   | COVERED |
+| directory_glob_matches (L282)                                                          | COVERED |
+| composite_action_directories (L311)                                                    | COVERED |
+| uncovered_actions (L332)                                                               | COVERED |
+| test_every_ecosystem_is_under_the_policy (L354)                                        | COVERED |
+| test_every_entry_runs_daily (L365)                                                     | COVERED |
+| test_each_entry_batches_minor_and_patch_and_leaves_majors_alone (L376)                 | COVERED |
+| test_github_actions_reaches_every_composite_action (L411)                              | COVERED |
+| test_a_nested_action_is_found_and_needs_a_reaching_glob (L427)                         | COVERED |
+| test_directory_globs_match_like_dependabot (L460)                                      | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/loom_runner/test_run_loom_models.py (module)                                     | COVERED |
+| libtest_output (L30)                                                                   | COVERED |
+| expected (L45)                                                                         | COVERED |
+| run_with_cargo (L52)                                                                   | COVERED |
+| test_every_listed_model_passing_succeeds (L73)                                         | COVERED |
+| test_a_report_that_does_not_prove_every_model_fails (L100)                             | COVERED |
+| test_an_empty_model_list_is_refused (L115)                                             | COVERED |
+| test_no_command_is_a_usage_error (L128)                                                | COVERED |
+| test_only_ok_lines_count_as_passed (L136)                                              | COVERED |
+| test_the_cli_prints_a_passing_summary (L154)                                           | COVERED |
+| test_the_cli_names_each_problem_in_a_failing_summary (L171)                            | COVERED |
+| test_an_unreadable_model_list_is_a_usage_error (L192)                                  | COVERED |
+| test_an_unstartable_command_is_a_usage_error (L210)                                    | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/spelling_gate/test_spelling_gate.py (module)                                     | COVERED |
+| _run_gate (L50)                                                                        | COVERED |
+| _write (L61)                                                                           | COVERED |
+| tracked_tree (L70)                                                                     | COVERED |
+| tracked_tree._build (L95)                                                              | COVERED |
+| test_a_prohibited_phrase_fails_the_gate (L114)                                         | COVERED |
+| test_the_same_tree_without_the_phrase_passes (L131)                                    | COVERED |
+| test_a_prohibited_phrase_in_tracked_code_fails_the_gate (L147)                         | COVERED |
+| test_an_untracked_file_is_not_read (L161)                                              | COVERED |
+| test_an_inline_code_exception_covers_only_its_pattern (L210)                           | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/workflow_contracts/ci_backend_runs.py (module)                                   | COVERED |
+| Suite (L30)                                                                            | COVERED |
+| Suite.key (L39)                                                                        | COVERED |
+| mapping (L44)                                                                          | COVERED |
+| steps (L49)                                                                            | COVERED |
+| _is_blocking (L64)                                                                     | COVERED |
+| may_be_skipped (L79)                                                                   | COVERED |
+| _features (L90)                                                                        | COVERED |
+| _leg_flags (L95)                                                                       | COVERED |
+| leg_runs_step (L101)                                                                   | COVERED |
+| _build_suite_runs (L116)                                                               | COVERED |
+| _coverage_runs (L138)                                                                  | COVERED |
+| suite_runs (L163)                                                                      | COVERED |
+| _leg_problems (L179)                                                                   | COVERED |
+| _step_problems (L193)                                                                  | COVERED |
+| lint_problems (L209)                                                                   | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/workflow_contracts/ci_workflow_jobs.py (module)                                  | COVERED |
+| _run_defaults (L42)                                                                    | COVERED |
+| _step_record (L64)                                                                     | COVERED |
+| _job_record (L98)                                                                      | COVERED |
+| _call_record (L148)                                                                    | COVERED |
+| _job_mapping (L186)                                                                    | COVERED |
+| job_records (L215)                                                                     | COVERED |
+| call_records (L255)                                                                    | COVERED |
+| job_by_coordinate (L287)                                                               | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/workflow_contracts/ci_workflow_placement.py (module)                             | COVERED |
+| RunnerPlacement (L53)                                                                  | COVERED |
+| _expression_placement (L88)                                                            | COVERED |
+| _list_placement (L127)                                                                 | COVERED |
+| runner_placement (L167)                                                                | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/workflow_contracts/ci_workflow_reader.py (module)                                | COVERED |
+| WorkflowReaderError (L49)                                                              | COVERED |
+| WorkflowLoadError (L58)                                                                | COVERED |
+| _StrictLoader (L69)                                                                    | COVERED |
+| _StrictLoader.construct_mapping (L72)                                                  | COVERED |
+| WorkflowShapeError (L97)                                                               | COVERED |
+| workflow_paths (L106)                                                                  | COVERED |
+| load_workflow (L147)                                                                   | COVERED |
+| workflow_documents (L183)                                                              | COVERED |
+| repository_documents (L209)                                                            | COVERED |
+| triggers (L232)                                                                        | COVERED |
+| _narrowed (L282)                                                                       | COVERED |
+| optional_text (L323)                                                                   | COVERED |
+| sub_mapping (L346)                                                                     | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/workflow_contracts/ci_workflow_records.py (module)                               | COVERED |
+| StepRecord (L33)                                                                       | COVERED |
+| JobRecord (L82)                                                                        | COVERED |
+| JobRecord.coordinate (L120)                                                            | COVERED |
+| JobRecord.runner_labels (L125)                                                         | COVERED |
+| CallRecord (L139)                                                                      | COVERED |
+| CallRecord.coordinate (L172)                                                           | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/workflow_contracts/interrogate_gate_test.py (module)                             | COVERED |
+| _makefile_text (L34)                                                                   | COVERED |
+| _variable (L39)                                                                        | COVERED |
+| _prerequisites (L47)                                                                   | COVERED |
+| _tracked (L55)                                                                         | COVERED |
+| _python_directories (L71)                                                              | COVERED |
+| test_lint_depends_on_interrogate (L76)                                                 | COVERED |
+| test_interrogate_is_declared_phony (L81)                                               | COVERED |
+| test_the_tool_is_pinned_and_run_through_uv (L88)                                       | COVERED |
+| test_the_flags_demand_a_full_exact_report (L101)                                       | COVERED |
+| test_every_python_directory_is_a_target (L117)                                         | COVERED |
+| test_ci_installs_uv_before_it_runs_the_docstring_gate (L128)                           | COVERED |
+| _run_target (L152)                                                                     | COVERED |
+| test_the_target_passes_when_the_tool_reports_no_gap (L177)                             | COVERED |
+| test_the_target_passes_the_configured_flags_and_targets (L184)                         | COVERED |
+| test_the_target_fails_when_the_tool_fails (L196)                                       | COVERED |
+| test_the_target_fails_on_a_missed_row_the_percentage_hid (L207)                        | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/workflow_contracts/rstest_bdd_ui_timeout_fixture.py (module)                     | COVERED |
+| Shape (L99)                                                                            | COVERED |
+| member (L120)                                                                          | COVERED |
+| config (L153)                                                                          | COVERED |
+| workspace (L193)                                                                       | COVERED |
+| end_to_end_workspace (L217)                                                            | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/workflow_contracts/rstest_bdd_ui_timeout_runner.py (module)                      | COVERED |
+| Outcome (L47)                                                                          | COVERED |
+| Run (L55)                                                                              | COVERED |
+| nextest_is_available (L62)                                                             | COVERED |
+| end_to_end_env (L95)                                                                   | COVERED |
+| fixture_env (L116)                                                                     | COVERED |
+| write_lockfile (L149)                                                                  | COVERED |
+| make_target (L176)                                                                     | COVERED |
+| run (L210)                                                                             | COVERED |
+| resolved_profile (L254)                                                                | COVERED |
+| read_outcomes (L268)                                                                   | COVERED |
+| kinds (L285)                                                                           | COVERED |
+| last_kind (L290)                                                                       | COVERED |
+| first_time (L296)                                                                      | COVERED |
+| production_config (L303)                                                               | COVERED |
+| production_overrides (L310)                                                            | COVERED |
+| production_profile_name (L318)                                                         | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/workflow_contracts/test_backend_runs_once.py (module)                            | COVERED |
+| ci (L41)                                                                               | COVERED |
+| _sqlite_runs (L46)                                                                     | COVERED |
+| _postgres_runs (L51)                                                                   | COVERED |
+| test_the_sqlite_suite_runs_exactly_once (L60)                                          | COVERED |
+| test_the_postgres_suite_runs_once_with_legacy_networking (L68)                         | COVERED |
+| test_the_main_branch_run_builds_the_same_postgres_suite (L85)                          | COVERED |
+| test_no_suite_runs_twice (L95)                                                         | COVERED |
+| test_every_run_fails_the_job_that_holds_it (L102)                                      | COVERED |
+| test_the_sqlite_leg_still_lints_the_default_features (L108)                            | COVERED |
+| _mutated (L114)                                                                        | COVERED |
+| _test_step (L123)                                                                      | COVERED |
+| test_removing_the_guard_makes_the_suite_run_twice (L129)                               | COVERED |
+| test_dropping_the_coverage_step_leaves_no_sqlite_run (L139)                            | COVERED |
+| test_dropping_the_coverage_step_leaves_no_sqlite_run.drop (L142)                       | COVERED |
+| test_dropping_the_postgres_runs_leaves_none (L152)                                     | COVERED |
+| test_dropping_the_postgres_runs_leaves_none.drop (L155)                                | COVERED |
+| test_an_unrecognized_condition_fails_rather_than_passing (L165)                        | COVERED |
+| test_a_tolerated_coverage_step_is_not_blocking (L171)                                  | COVERED |
+| test_a_tolerated_coverage_step_is_not_blocking.tolerate (L174)                         | COVERED |
+| test_a_second_run_of_a_feature_set_is_seen (L188)                                      | COVERED |
+| test_a_constant_false_condition_removes_the_sqlite_run (L196)                          | COVERED |
+| test_a_constant_false_condition_removes_the_sqlite_run.skip (L199)                     | COVERED |
+| test_a_conditional_coverage_job_removes_its_runs (L208)                                | COVERED |
+| test_a_masked_test_command_is_not_blocking (L214)                                      | COVERED |
+| test_a_masked_test_command_is_not_blocking.mask (L217)                                 | COVERED |
+| _leg (L226)                                                                            | COVERED |
+| _lint_step (L232)                                                                      | COVERED |
+| _narrow_sqlite (L238)                                                                  | COVERED |
+| _narrow_postgres (L243)                                                                | COVERED |
+| _skip_clippy (L249)                                                                    | COVERED |
+| _unflag_whitaker (L254)                                                                | COVERED |
+| _drop_sqlite_leg (L260)                                                                | COVERED |
+| test_lint_problems_are_seen (L276)                                                     | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/workflow_contracts/test_binstall_token.py (module)                               | COVERED |
+| _mapping (L45)                                                                         | COVERED |
+| _effective_token (L50)                                                                 | COVERED |
+| unauthenticated_binstalls (L63)                                                        | COVERED |
+| _binstall_steps (L90)                                                                  | COVERED |
+| unrestricted_binstall_jobs (L100)                                                      | COVERED |
+| documents (L128)                                                                       | COVERED |
+| test_every_binstall_step_sends_the_token (L133)                                        | COVERED |
+| test_the_query_sees_the_binstall_steps (L145)                                          | COVERED |
+| _document (L157)                                                                       | COVERED |
+| test_the_query_judges_constructed_steps (L273)                                         | COVERED |
+| test_every_binstall_job_holds_a_read_only_token (L282)                                 | COVERED |
+| test_the_permission_query_judges_constructed_jobs (L337)                               | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/workflow_contracts/test_binstall_token_execution.py (module)                     | COVERED |
+| _env (L55)                                                                             | COVERED |
+| _scope (L60)                                                                           | COVERED |
+| _oracle (L66)                                                                          | COVERED |
+| test_effective_token_follows_scope_and_variable_precedence (L87)                       | COVERED |
+| _merged_env (L107)                                                                     | COVERED |
+| _jobs (L117)                                                                           | COVERED |
+| _binstall_steps (L123)                                                                 | COVERED |
+| _tokens_received (L145)                                                                | COVERED |
+| test_each_real_binstall_step_hands_binstall_the_workflow_token (L174)                  | COVERED |
+| test_the_execution_check_notices_a_step_without_the_token (L187)                       | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/workflow_contracts/test_build_test_result.py (module)                            | COVERED |
+| _job_defects (L44)                                                                     | COVERED |
+| _run_defaults_defects (L62)                                                            | COVERED |
+| _step_defects (L75)                                                                    | COVERED |
+| result_job_defects (L87)                                                               | COVERED |
+| documents (L120)                                                                       | COVERED |
+| test_the_result_job_gates_on_the_matrix (L125)                                         | COVERED |
+| test_a_job_that_would_pass_a_failed_matrix_is_refused (L173)                           | COVERED |
+| test_a_workflow_shell_override_is_refused (L188)                                       | COVERED |
+| test_the_gating_shape_is_accepted (L197)                                               | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/workflow_contracts/test_embedded_postgres.py (module)                            | COVERED |
+| PostgresTestStep (L44)                                                                 | COVERED |
+| documents (L77)                                                                        | COVERED |
+| _jobs (L82)                                                                            | COVERED |
+| _steps (L90)                                                                           | COVERED |
+| _text (L98)                                                                            | COVERED |
+| test_no_job_declares_a_service_container (L103)                                        | COVERED |
+| test_no_workflow_mentions_the_external_url (L116)                                      | COVERED |
+| test_no_rust_source_reads_the_external_url (L128)                                      | COVERED |
+| test_the_postgres_tests_run_serialized_after_the_download (L145)                       | COVERED |
+| test_the_warm_up_is_authenticated (L179)                                               | COVERED |
+| _nextest_config (L198)                                                                 | COVERED |
+| test_the_postgres_profile_does_not_serialize_the_tests (L205)                          | COVERED |
+| test_the_postgres_profile_keeps_its_time_budget (L222)                                 | COVERED |
+| test_no_postgres_job_pins_the_bundle (L235)                                            | COVERED |
+| _assert_helper_install (L260)                                                          | COVERED |
+| test_helper_install_contract_rejects_missing_or_wrong_versions (L295)                  | COVERED |
+| test_the_installed_helper_matches_the_locked_version (L307)                            | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/workflow_contracts/test_fuzz_lane.py (module)                                    | COVERED |
+| fuzz_steps (L62)                                                                       | COVERED |
+| dockerfile (L69)                                                                       | COVERED |
+| _run (L74)                                                                             | COVERED |
+| _job (L80)                                                                             | COVERED |
+| test_the_run_is_interrupted_for_the_duration_the_job_env_names (L85)                   | COVERED |
+| test_the_nightly_duration_is_shorter_than_the_job_ceiling (L93)                        | COVERED |
+| test_a_pull_request_runs_the_lane_for_a_bounded_interval (L102)                        | COVERED |
+| test_a_run_that_never_started_fails_the_lane (L117)                                    | COVERED |
+| test_a_run_whose_harness_never_reached_the_parser_fails_the_lane (L128)                | COVERED |
+| test_the_built_harness_replays_controlled_inputs_before_the_crash_gate (L136)          | COVERED |
+| test_a_saved_crash_fails_the_lane_but_not_the_uploads (L149)                           | COVERED |
+| test_the_uploads_run_after_a_failed_check (L165)                                       | COVERED |
+| test_the_run_and_the_triage_do_not_leave_root_owned_output (L178)                      | COVERED |
+| test_the_run_treats_the_interrupt_as_its_expected_end (L186)                           | COVERED |
+| test_the_run_sets_the_afl_variables_a_hosted_runner_needs (L193)                       | COVERED |
+| test_the_run_uses_the_corpus_baked_into_the_image (L202)                               | COVERED |
+| test_the_triage_step_overrides_the_afl_entrypoint (L211)                               | COVERED |
+| test_the_harness_path_the_workflow_triages_is_the_one_the_image_installs (L224)        | COVERED |
+| test_both_stages_are_pinned_to_the_same_digest (L233)                                  | COVERED |
+| test_the_builder_installs_what_the_base_image_lacks (L241)                             | COVERED |
+| test_cargo_afl_matches_the_afl_crate_the_harness_depends_on (L247)                     | COVERED |
+| test_the_afl_runtime_is_built_before_the_harness (L259)                                | COVERED |
+| test_the_final_image_carries_the_binary_and_the_seed_corpus (L267)                     | COVERED |
+| triage (L277)                                                                          | COVERED |
+| triage.run (L288)                                                                      | COVERED |
+| _crashes (L315)                                                                        | COVERED |
+| test_triage_keeps_crashing_inputs_and_minimizes_each (L324)                            | COVERED |
+| test_triage_of_a_run_with_no_crashes_succeeds_without_calling_afl (L337)               | COVERED |
+| test_the_artefacts_are_uploaded_as_archives_because_afl_names_hold_colons (L348)       | COVERED |
+| test_triage_refuses_a_missing_crash_directory (L363)                                   | COVERED |
+| test_triage_refuses_a_harness_that_is_not_executable (L372)                            | COVERED |
+| test_triage_fails_when_an_afl_tool_fails (L382)                                        | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/workflow_contracts/test_fuzz_lane_scripts.py (module)                            | COVERED |
+| _step_script (L40)                                                                     | COVERED |
+| _run_step (L46)                                                                        | COVERED |
+| _afl_output (L60)                                                                      | COVERED |
+| test_the_check_passes_a_run_that_executed_cases_and_found_paths (L72)                  | COVERED |
+| test_the_check_fails_a_run_that_did_nothing_useful (L90)                               | COVERED |
+| test_the_check_fails_when_afl_wrote_no_stats (L98)                                     | COVERED |
+| test_the_crash_gate_fails_on_a_saved_crash_and_passes_without (L104)                   | COVERED |
+| test_the_archive_step_packs_the_output_and_the_unique_crashes (L118)                   | COVERED |
+| test_the_archive_step_packs_an_empty_crash_set (L133)                                  | COVERED |
+| _replay (L141)                                                                         | COVERED |
+| test_replay_passes_a_harness_that_classifies_each_input (L160)                         | COVERED |
+| test_replay_fails_a_harness_that_does_nothing_with_its_input (L166)                    | COVERED |
+| test_replay_fails_a_harness_that_misclassifies (L175)                                  | COVERED |
+| test_replay_refuses_a_missing_harness (L183)                                           | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/workflow_contracts/test_gate_steps.py (module)                                   | COVERED |
+| documents (L58)                                                                        | COVERED |
+| _gating_steps (L63)                                                                    | COVERED |
+| test_a_gate_runs_and_its_verdict_is_kept (L100)                                        | COVERED |
+| test_the_lockfile_gate_precedes_every_command_that_could_rewrite_it (L130)             | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/workflow_contracts/test_lane_placement_record.py (module)                        | COVERED |
+| documents (L62)                                                                        | COVERED |
+| _steps (L67)                                                                           | COVERED |
+| _last_step (L91)                                                                       | COVERED |
+| test_a_moved_lane_ends_by_recording_its_placement (L112)                               | COVERED |
+| _expected_env (L136)                                                                   | COVERED |
+| test_each_input_binds_its_exact_expression (L159)                                      | COVERED |
+| RenderCase (L195)                                                                      | COVERED |
+| test_the_record_renders_every_field_into_the_summary (L215)                            | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/workflow_contracts/test_loom_lane.py (module)                                    | COVERED |
+| dry_run (L41)                                                                          | COVERED |
+| split_environment (L59)                                                                | COVERED |
+| model_command (L77)                                                                    | COVERED |
+| model_targets (L88)                                                                    | COVERED |
+| test_the_models_run_under_the_loom_configuration (L99)                                 | COVERED |
+| test_the_runner_checks_the_model_list (L112)                                           | COVERED |
+| test_the_model_list_names_exactly_the_model_tests (L122)                               | COVERED |
+| test_the_smoke_check_compiles_without_exploring (L143)                                 | COVERED |
+| test_exploration_runs_daily_and_on_demand_only (L157)                                  | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/workflow_contracts/test_postgres_make_targets.py (module)                        | COVERED |
+| _make (L37)                                                                            | COVERED |
+| _dry_run (L58)                                                                         | COVERED |
+| _recipe_environment (L65)                                                              | COVERED |
+| test_makefile_exports_no_bundle_requirement (L82)                                      | COVERED |
+| test_a_caller_supplied_bundle_requirement_is_not_rewritten (L87)                       | COVERED |
+| test_test_postgres_selects_the_serializing_profile (L94)                               | COVERED |
+| test_test_postgres_pins_a_password_by_default (L99)                                    | COVERED |
+| test_test_postgres_password_can_be_overridden (L104)                                   | COVERED |
+| test_postgres_recipes_do_not_pin_the_bundle (L111)                                     | COVERED |
+| test_warm_postgres_uses_throwaway_directories (L119)                                   | COVERED |
+| Host (L126)                                                                            | COVERED |
+| CacheLayout (L134)                                                                     | COVERED |
+| _host (L152)                                                                           | COVERED |
+| test_warm_postgres_succeeds_when_the_cache_is_filled (L181)                            | COVERED |
+| test_warm_postgres_replaces_a_dangling_utc_alias (L200)                                | COVERED |
+| test_warm_postgres_follows_a_symlinked_cache_root (L215)                               | COVERED |
+| test_warm_postgres_fails_when_an_alias_root_is_missing (L230)                          | COVERED |
+| test_warm_postgres_fails_when_nothing_was_downloaded (L241)                            | COVERED |
+| test_warm_postgres_requires_a_cache_directory (L248)                                   | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/workflow_contracts/test_pull_request_concurrency.py (module)                     | COVERED |
+| pull_request_workflows (L66)                                                           | COVERED |
+| concurrency_defects (L90)                                                              | COVERED |
+| documents (L121)                                                                       | COVERED |
+| test_discovery_still_finds_the_known_pull_request_workflows (L126)                     | COVERED |
+| test_every_pull_request_workflow_cancels_its_superseded_runs (L140)                    | COVERED |
+| test_a_departing_block_is_refused (L189)                                               | COVERED |
+| test_the_contracted_block_is_accepted (L196)                                           | COVERED |
+| test_a_pull_request_target_workflow_is_out_of_scope (L207)                             | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/workflow_contracts/test_reusable_permissions.py (module)                         | COVERED |
+| _scopes (L33)                                                                          | COVERED |
+| _granted (L51)                                                                         | COVERED |
+| _job_scopes (L56)                                                                      | COVERED |
+| _jobs (L64)                                                                            | COVERED |
+| _local_name (L72)                                                                      | COVERED |
+| permission_shortfalls (L82)                                                            | COVERED |
+| _local_calls (L110)                                                                    | COVERED |
+| _is_judgeable (L126)                                                                   | COVERED |
+| _shortfalls (L137)                                                                     | COVERED |
+| _name (L153)                                                                           | COVERED |
+| _pair (L158)                                                                           | COVERED |
+| test_a_callee_job_requesting_more_than_the_caller_grants_is_refused (L200)             | COVERED |
+| test_a_callee_within_the_callers_grant_is_accepted (L233)                              | COVERED |
+| test_a_job_level_grant_on_the_caller_overrides_the_workflow_cap (L240)                 | COVERED |
+| test_every_local_call_in_this_repository_is_within_its_grant (L249)                    | COVERED |
+| dry_run_write_defects (L259)                                                           | COVERED |
+| _chain_from (L277)                                                                     | COVERED |
+| _local_callees (L292)                                                                  | COVERED |
+| _holds_write (L298)                                                                    | COVERED |
+| _is_skipped_in_a_dry_run (L303)                                                        | COVERED |
+| _needs_no_write_check (L308)                                                           | COVERED |
+| _job_defects (L315)                                                                    | COVERED |
+| _chain (L329)                                                                          | COVERED |
+| test_a_callee_job_without_its_own_permissions_is_refused (L349)                        | COVERED |
+| test_a_write_job_not_skipped_in_a_dry_run_is_refused (L357)                            | COVERED |
+| test_read_jobs_and_a_skipped_write_job_are_accepted (L365)                             | COVERED |
+| test_only_a_skipped_job_holds_write_in_this_repository_dry_run (L371)                  | COVERED |
+| _expected_shortfall (L382)                                                             | COVERED |
+| _every_grant (L387)                                                                    | COVERED |
+| _as_permissions (L392)                                                                 | COVERED |
+| test_the_shortfall_matches_a_direct_model_for_every_pair_of_grants (L397)              | COVERED |
+| test_wildcard_grants_cover_or_fall_short_as_the_levels_say (L419)                      | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/workflow_contracts/test_rstest_bdd_ui_gate.py (module)                           | COVERED |
+| Invocation (L77)                                                                       | COVERED |
+| _nextest_config (L84)                                                                  | COVERED |
+| _package_overrides (L91)                                                               | COVERED |
+| _parse_recorded (L101)                                                                 | COVERED |
+| _invoke_target (L114)                                                                  | COVERED |
+| _option_value (L143)                                                                   | COVERED |
+| _seconds (L153)                                                                        | COVERED |
+| _terminate_after (L171)                                                                | COVERED |
+| _kill_point (L181)                                                                     | COVERED |
+| _ui_routes (L191)                                                                      | COVERED |
+| test_the_make_target_passes_the_profile_to_nextest (L203)                              | COVERED |
+| test_the_ui_profile_raises_the_run_wide_timeout (L220)                                 | COVERED |
+| test_the_package_override_matches_the_profile (L232)                                   | COVERED |
+| test_the_profile_and_override_share_one_budget (L244)                                  | COVERED |
+| test_the_run_ceiling_covers_the_slow_timeout (L258)                                    | COVERED |
+| test_an_unsupported_duration_names_the_value_it_rejected (L283)                        | COVERED |
+| test_a_multi_character_unit_is_split_off_whole (L295)                                  | COVERED |
+| test_the_ui_routes_terminate_a_test_that_overruns (L309)                               | COVERED |
+| test_the_default_route_terminates_a_test_that_overruns (L326)                          | COVERED |
+| _workflow_steps (L338)                                                                 | COVERED |
+| _steps_running (L348)                                                                  | COVERED |
+| test_the_behavioural_contracts_run_where_nextest_is_installed (L361)                   | COVERED |
+| test_the_fast_target_does_not_run_the_behavioural_contracts (L387)                     | COVERED |
+| test_the_dedicated_target_runs_every_behavioural_module (L406)                         | COVERED |
+| test_the_behavioural_target_refuses_to_skip_without_nextest (L435)                     | COVERED |
+| test_the_docs_tooling_lane_stays_free_of_a_rust_build (L453)                           | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/workflow_contracts/test_rstest_bdd_ui_timeout_profile.py (module)                | COVERED |
+| test_the_profile_name_is_the_one_the_make_target_selects (L69)                         | COVERED |
+| test_the_named_profile_selects_and_enforces_its_own_period (L82)                       | COVERED |
+| test_the_named_profile_ceiling_stops_the_run_when_it_comes_first (L103)                | COVERED |
+| test_the_default_route_is_what_the_fixture_selects_when_asked (L126)                   | COVERED |
+| end_to_end_root (L143)                                                                 | COVERED |
+| test_the_harness_supplies_the_lockfile_the_recipe_fetch_needs (L162)                   | COVERED |
+| test_the_make_target_selects_the_profile_and_terminates_per_test (L190)                | COVERED |
+| test_the_make_target_enforces_the_profile_ceiling (L217)                               | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/workflow_contracts/test_rstest_bdd_ui_timeout_routes.py (module)                 | COVERED |
+| test_an_overrunning_test_is_terminated_by_the_package_override (L76)                   | COVERED |
+| test_the_override_lets_a_test_survive_a_budget_that_would_kill_it (L91)                | COVERED |
+| test_the_termination_this_repository_configures_is_load_bearing (L116)                 | COVERED |
+| test_a_non_matching_package_is_held_to_the_default_route (L151)                        | COVERED |
+| test_the_override_extends_the_kill_point_without_reaching_the_ceiling (L166)           | COVERED |
+| test_the_fixture_ignores_the_lane_build_flags (L183)                                   | COVERED |
+| test_the_fixture_matches_the_shape_production_uses (L203)                              | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/workflow_contracts/test_runner_fallback.py (module)                              | COVERED |
+| test_an_ubicloud_lane_falls_back_to_hosted_for_a_fork (L34)                            | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/workflow_contracts/test_runner_placement.py (module)                             | COVERED |
+| is_external_call (L94)                                                                 | COVERED |
+| documents (L151)                                                                       | COVERED |
+| test_every_pinned_job_exists (L156)                                                    | COVERED |
+| test_every_job_is_pinned (L171)                                                        | COVERED |
+| test_a_job_runs_where_it_is_pinned (L183)                                              | COVERED |
+| test_a_called_lane_takes_its_label_from_its_input (L204)                               | COVERED |
+| test_the_caller_sends_the_package_build_to_a_pinned_runner (L220)                      | COVERED |
+| cross_built_targets (L250)                                                             | COVERED |
+| test_a_native_label_of_either_architecture_is_accepted (L285)                          | COVERED |
+| test_a_cross_or_unlisted_label_is_refused (L304)                                       | COVERED |
+| test_each_linux_target_builds_natively (L312)                                          | COVERED |
+| test_every_call_is_pinned_and_every_pin_is_a_call (L323)                               | COVERED |
+| test_every_call_outside_this_repository_names_a_commit (L341)                          | COVERED |
+| test_every_job_has_a_pinned_ceiling (L364)                                             | COVERED |
+| test_a_job_declares_the_ceiling_it_is_pinned_to (L381)                                 | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/workflow_contracts/test_workflow_placement_unit.py (module)                      | COVERED |
+| TestAcceptedShapes (L27)                                                               | COVERED |
+| TestAcceptedShapes.test_a_bare_label_is_read_as_one_unconditional_label (L30)          | COVERED |
+| TestAcceptedShapes.test_a_list_of_literal_labels_keeps_declaration_order (L38)         | COVERED |
+| TestAcceptedShapes.test_a_conditional_placement_keeps_its_guard_and_both_arms (L47)    | COVERED |
+| TestAcceptedShapes.test_a_wrapped_expression_reads_the_same_as_a_single_line_one (L63) | COVERED |
+| TestAcceptedShapes.test_a_placement_from_an_input_names_the_input_and_no_label (L83)   | COVERED |
+| TestRefusedShapes (L95)                                                                | COVERED |
+| TestRefusedShapes.test_an_expression_among_list_entries_is_refused (L98)               | COVERED |
+| TestRefusedShapes.test_an_empty_label_list_is_refused (L112)                           | COVERED |
+| TestRefusedShapes.test_an_unmodelled_expression_is_refused (L117)                      | COVERED |
+| TestRefusedShapes.test_a_runner_group_is_refused (L127)                                | COVERED |
+| TestRefusedShapes.test_a_list_holding_a_non_string_is_refused (L132)                   | COVERED |
+| TestRefusedShapes.test_a_missing_runs_on_is_refused (L137)                             | COVERED |
+| TestRefusedShapes.test_every_refusal_names_the_job_it_refused (L152)                   | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+| tests/workflow_contracts/test_workflow_reader_unit.py (module)                         | COVERED |
+| _records (L31)                                                                         | COVERED |
+| test_a_duplicate_key_fails_the_load (L38)                                              | COVERED |
+| test_both_suffixes_are_read_in_any_case (L48)                                          | COVERED |
+| test_a_step_override_is_recorded_and_stops_it_gating (L74)                             | COVERED |
+| test_run_defaults_are_recorded_from_both_scopes (L98)                                  | COVERED |
+| test_both_local_spellings_are_this_repository (L124)                                   | COVERED |
+| test_each_repository_read_is_a_fresh_snapshot (L129)                                   | COVERED |
+| test_every_trigger_form_names_its_events (L147)                                        | COVERED |
+| test_a_trigger_block_it_cannot_read_whole_is_refused (L173)                            | COVERED |
+|----------------------------------------------------------------------------------------|---------|
+
+----------------------------------- Summary ------------------------------------
+| Name                                                            | Total | Miss | Cover | Cover% |
+|-----------------------------------------------------------------|-------|------|-------|--------|
+| scripts/run_loom_models.py                                      |     7 |    0 |     7 |   100% |
+| tests/codescene_boundary/codescene_environment_rules.py         |    17 |    0 |    17 |   100% |
+| tests/codescene_boundary/shell_commands.py                      |     5 |    0 |     5 |   100% |
+| tests/codescene_boundary/test_codescene_boundary.py             |    20 |    0 |    20 |   100% |
+| tests/codescene_boundary/test_codescene_environment_contract.py |    13 |    0 |    13 |   100% |
+| tests/codescene_boundary/test_workflow_surface.py               |    15 |    0 |    15 |   100% |
+| tests/codescene_boundary/workflow_surface.py                    |    17 |    0 |    17 |   100% |
+| tests/dependabot_policy/test_dependabot_policy.py               |    27 |    0 |    27 |   100% |
+| tests/loom_runner/test_run_loom_models.py                       |    13 |    0 |    13 |   100% |
+| tests/spelling_gate/test_spelling_gate.py                       |    10 |    0 |    10 |   100% |
+| tests/workflow_contracts/ci_backend_runs.py                     |    16 |    0 |    16 |   100% |
+| tests/workflow_contracts/ci_workflow_jobs.py                    |     9 |    0 |     9 |   100% |
+| tests/workflow_contracts/ci_workflow_placement.py               |     5 |    0 |     5 |   100% |
+| tests/workflow_contracts/ci_workflow_reader.py                  |    14 |    0 |    14 |   100% |
+| tests/workflow_contracts/ci_workflow_records.py                 |     7 |    0 |     7 |   100% |
+| tests/workflow_contracts/interrogate_gate_test.py               |    17 |    0 |    17 |   100% |
+| tests/workflow_contracts/rstest_bdd_ui_timeout_fixture.py       |     6 |    0 |     6 |   100% |
+| tests/workflow_contracts/rstest_bdd_ui_timeout_runner.py        |    17 |    0 |    17 |   100% |
+| tests/workflow_contracts/test_backend_runs_once.py              |    34 |    0 |    34 |   100% |
+| tests/workflow_contracts/test_binstall_token.py                 |    13 |    0 |    13 |   100% |
+| tests/workflow_contracts/test_binstall_token_execution.py       |    11 |    0 |    11 |   100% |
+| tests/workflow_contracts/test_build_test_result.py              |    10 |    0 |    10 |   100% |
+| tests/workflow_contracts/test_embedded_postgres.py              |    18 |    0 |    18 |   100% |
+| tests/workflow_contracts/test_fuzz_lane.py                      |    33 |    0 |    33 |   100% |
+| tests/workflow_contracts/test_fuzz_lane_scripts.py              |    15 |    0 |    15 |   100% |
+| tests/workflow_contracts/test_gate_steps.py                     |     5 |    0 |     5 |   100% |
+| tests/workflow_contracts/test_lane_placement_record.py          |     9 |    0 |     9 |   100% |
+| tests/workflow_contracts/test_loom_lane.py                      |    10 |    0 |    10 |   100% |
+| tests/workflow_contracts/test_postgres_make_targets.py          |    20 |    0 |    20 |   100% |
+| tests/workflow_contracts/test_pull_request_concurrency.py       |     9 |    0 |     9 |   100% |
+| tests/workflow_contracts/test_reusable_permissions.py           |    33 |    0 |    33 |   100% |
+| tests/workflow_contracts/test_rstest_bdd_ui_gate.py             |    27 |    0 |    27 |   100% |
+| tests/workflow_contracts/test_rstest_bdd_ui_timeout_profile.py  |     9 |    0 |     9 |   100% |
+| tests/workflow_contracts/test_rstest_bdd_ui_timeout_routes.py   |     8 |    0 |     8 |   100% |
+| tests/workflow_contracts/test_runner_fallback.py                |     2 |    0 |     2 |   100% |
+| tests/workflow_contracts/test_runner_placement.py               |    16 |    0 |    16 |   100% |
+| tests/workflow_contracts/test_workflow_placement_unit.py        |    15 |    0 |    15 |   100% |
+| tests/workflow_contracts/test_workflow_reader_unit.py           |    10 |    0 |    10 |   100% |
+|-----------------------------------------------------------------|-------|------|-------|--------|
+| TOTAL                                                           |   542 |    0 |   542 | 100.0% |
+--------------- RESULT: PASSED (minimum: 100.0%, actual: 100.0%) ---------------
+cargo clippy --no-default-features --features "postgres test-support legacy-networking" --workspace --all-targets -- -D warnings
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`
+    Checking cfg-if v1.0.5
+    Checking memchr v2.7.6
+    Checking smallvec v1.15.1
+    Checking pin-project-lite v0.2.17
+   Compiling stable_deref_trait v1.2.1
+   Compiling serde_core v1.0.229
+    Checking once_cell v1.21.3
+    Checking scopeguard v1.2.0
+    Checking log v0.4.28
+    Checking futures-core v0.3.34
+   Compiling serde v1.0.229
+    Checking bytes v1.12.1
+    Checking itoa v1.0.15
+    Checking futures-sink v0.3.34
+    Checking bitflags v2.13.2
+    Checking futures-task v0.3.34
+    Checking futures-io v0.3.34
+    Checking slab v0.4.11
+    Checking libc v0.2.186
+    Checking typenum v1.20.1
+    Checking allocator-api2 v0.2.21
+    Checking foldhash v0.2.0
+    Checking equivalent v1.0.2
+   Compiling synstructure v0.13.2
+   Compiling zerovec-derive v0.11.2
+   Compiling icu_normalizer_data v2.1.1
+    Checking thiserror v2.0.21
+   Compiling icu_properties_data v2.1.1
+   Compiling tracing v0.1.44
+    Checking zmij v1.0.21
+    Checking subtle v2.6.1
+    Checking rand_core v0.10.1
+   Compiling openssl-sys v0.9.117
+    Checking lock_api v0.4.14
+    Checking futures-channel v0.3.34
+    Checking percent-encoding v2.3.2
+    Checking base64 v0.22.1
+    Checking crossbeam-utils v0.8.21
+    Checking httpdate v1.0.3
+    Checking linux-raw-sys v0.12.1
+    Checking fnv v1.0.7
+   Compiling openssl v0.10.81
+    Checking rustc-hash v2.1.1
+    Checking tracing-core v0.1.36
+    Checking writeable v0.6.2
+    Checking cpufeatures v0.2.17
+    Checking ipnet v2.11.0
+   Compiling parking_lot_core v0.9.12
+    Checking litemap v0.8.1
+   Compiling openssl-macros v0.1.1
+    Checking type-map v0.5.1
+    Checking cmov v0.5.4
+    Checking zeroize v1.8.2
+   Compiling native-tls v0.2.18
+    Checking zerocopy v0.8.27
+    Checking cpufeatures v0.3.0
+    Checking self_cell v1.2.1
+    Checking hashbrown v0.16.0
+    Checking const-oid v0.10.2
+    Checking pin-utils v0.1.0
+   Compiling num-traits v0.2.19
+   Compiling getrandom v0.4.3
+    Checking chacha20 v0.10.1
+    Checking atomic-waker v1.1.2
+    Checking tower-service v0.3.3
+   Compiling parking_lot v0.12.5
+    Checking rustls-pki-types v1.13.0
+    Checking ctutils v0.4.7
+    Checking try-lock v0.2.5
+    Checking httparse v1.10.1
+    Checking form_urlencoded v1.2.2
+   Compiling ahash v0.8.12
+    Checking rustix v1.1.4
+    Checking utf8_iter v1.0.4
+    Checking want v0.3.1
+    Checking tinyvec_macros v0.1.1
+    Checking fastrand v2.3.0
+    Checking winnow v0.7.13
+   Compiling zerofrom-derive v0.1.6
+   Compiling yoke-derive v0.8.1
+    Checking http v1.3.1
+    Checking tinyvec v1.10.0
+    Checking winnow v1.0.4
+    Checking futures-util v0.3.34
+    Checking fluent-syntax v0.12.0
+    Checking byteorder v1.5.0
+    Checking unicode-properties v0.1.4
+    Checking unicode-bidi v0.3.18
+   Compiling tempfile v3.27.0
+   Compiling signal-hook-registry v1.4.6
+   Compiling mio v1.2.4
+   Compiling socket2 v0.6.5
+    Checking hashbrown v0.14.5
+    Checking toml_write v0.1.2
+    Checking utf8parse v0.2.2
+    Checking indexmap v2.12.0
+    Checking option-ext v0.2.0
+    Checking foldhash v0.1.5
+    Checking io-lifetimes v2.0.4
+    Checking anstyle-parse v1.0.0
+    Checking io-lifetimes v3.0.1
+    Checking derive_more v2.1.1
+    Checking anstyle v1.0.14
+    Checking inlinable_string v0.1.15
+    Checking is_terminal_polyfill v1.70.2
+    Checking hashbrown v0.15.5
+    Checking yansi v1.0.1
+    Checking toml_parser v1.1.5+spec-1.1.0
+    Checking whoami v2.1.0
+    Checking colorchoice v1.0.4
+    Checking toml_writer v1.1.3+spec-1.1.0
+    Checking anstyle-query v1.1.4
+    Checking unicode-normalization v0.1.25
+   Compiling tokio v1.54.1
+    Checking io-extras v0.19.0
+    Checking uncased v0.9.10
+    Checking anstream v1.0.0
+    Checking aws-lc-sys v0.45.0
+    Checking clap_lex v1.1.0
+    Checking http-body v1.0.1
+    Checking foreign-types-shared v0.1.1
+    Checking generic-array v0.14.9
+    Checking hybrid-array v0.4.13
+    Checking fallible-iterator v0.2.0
+    Checking ambient-authority v0.0.2
+    Checking siphasher v1.0.1
+    Checking strsim v0.11.1
+    Checking http-body-util v0.1.3
+    Checking pear v0.2.9
+    Checking lazy_static v1.5.0
+    Checking maybe-owned v0.3.4
+    Checking foreign-types v0.3.2
+    Checking anyhow v1.0.104
+    Checking sharded-slab v0.1.7
+    Checking tracing-log v0.2.0
+    Checking thread_local v1.1.9
+    Checking phf_shared v0.13.1
+    Checking getrandom v0.3.4
+    Checking stringprep v0.1.5
+   Compiling pq-sys v0.7.5
+    Checking xdg v3.0.0
+    Checking untrusted v0.9.0
+    Checking clap_builder v4.6.7
+    Checking rand v0.10.3
+    Checking nu-ansi-term v0.50.3
+    Checking rand_core v0.9.3
+    Checking dashmap v6.1.0
+    Checking dirs-sys v0.5.0
+    Checking phf v0.13.1
+    Checking futures-timer v3.0.3
+    Checking crypto-common v0.1.6
+    Checking block-buffer v0.10.4
+    Checking openssl-probe v0.2.1
+    Checking iana-time-zone v0.1.64
+    Checking dirs v7.0.0
+    Checking aws-lc-rs v1.18.1
+    Checking digest v0.10.7
+    Checking ppv-lite86 v0.2.21
+   Compiling figment v0.10.19
+    Checking libsqlite3-sys v0.35.0
+    Checking getrandom v0.2.16
+    Checking raw-cpuid v11.6.0
+    Checking openssl-probe v0.1.6
+    Checking tracing-subscriber v0.3.20
+    Checking crypto-common v0.2.2
+    Checking block-buffer v0.12.1
+   Compiling zerofrom v0.1.6
+    Checking sha2 v0.10.9
+    Checking downcast-rs v2.0.2
+   Compiling crc32fast v1.5.0
+   Compiling target-tuple v1.0.2
+    Checking metrics v0.24.2
+    Checking rand_core v0.6.4
+    Checking rustls-native-certs v0.8.2
+    Checking crossbeam-epoch v0.9.20
+   Compiling yoke v0.8.1
+    Checking rand_xoshiro v0.7.0
+   Compiling sync_wrapper v1.0.2
+    Checking rand_chacha v0.9.0
+    Checking regex-syntax v0.8.8
+    Checking sketches-ddsketch v0.3.0
+   Compiling tower-layer v0.3.3
+    Checking base64ct v1.8.0
+    Checking blake2 v0.10.6
+    Checking unty v0.0.4
+   Compiling zerovec v0.11.5
+   Compiling zerotrie v0.2.3
+    Checking mxd-concurrency v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/crates/mxd-concurrency)
+    Checking rand v0.9.5
+    Checking ryu v1.0.20
+    Checking nohash-hasher v0.2.0
+    Checking aho-corasick v1.1.4
+    Checking static_assertions v1.1.0
+   Compiling serde_urlencoded v0.7.1
+   Compiling base64 v0.23.1
+    Checking password-hash v0.5.0
+    Checking adler2 v2.0.1
+   Compiling ucd-trie v0.1.7
+    Checking digest v0.11.3
+   Compiling simd-adler32 v0.3.10
+    Checking serde_json v1.0.154
+    Checking serde_spanned v1.1.2
+    Checking camino v1.2.6
+    Checking toml_datetime v1.1.2+spec-1.1.0
+    Checking hmac v0.13.0
+    Checking sha2 v0.11.1
+    Checking md-5 v0.11.0
+    Checking semver v1.0.28
+    Checking rustix-linux-procfs v0.1.1
+    Checking fs-set-times v0.20.3
+    Checking toml_datetime v0.7.3
+    Checking argon2 v0.5.3
+    Checking toml v1.1.0+spec-1.1.0
+    Checking rustls-webpki v0.103.16
+   Compiling pest v2.8.3
+   Compiling miniz_oxide v0.9.1
+    Checking cap-primitives v4.0.3
+    Checking concurrent-queue v2.5.0
+   Compiling xattr v1.6.1
+    Checking toml v0.9.8
+    Checking toml_datetime v0.6.11
+    Checking serde_spanned v0.6.9
+    Checking chrono v0.4.45
+    Checking bincode v2.0.1
+   Compiling filetime v0.2.27
+    Checking parking v2.2.1
+    Checking crc-catalog v2.4.0
+    Checking futures-executor v0.3.31
+    Checking rstest v0.27.0
+    Checking toml_edit v0.22.27
+   Compiling matchit v0.8.6
+   Compiling tar v0.4.46
+    Checking crc v3.3.0
+   Compiling tinystr v0.8.2
+   Compiling potential_utf v0.1.4
+    Checking futures v0.3.31
+    Checking clap v4.6.7
+    Checking quanta v0.12.6
+   Compiling icu_collections v2.1.1
+   Compiling flate2 v1.1.10
+    Checking rustls v0.23.46
+    Checking postgres-protocol v0.6.12
+   Compiling unic-langid-impl v0.9.6
+   Compiling icu_locale_core v2.1.1
+   Compiling retry-policies v0.5.2
+    Checking event-listener v5.4.1
+    Checking metrics-util v0.20.0
+    Checking cap-std v4.0.3
+    Checking futures-intrusive v0.5.0
+    Checking migrations_internals v2.3.0
+    Checking hashlink v0.11.1
+    Checking crossbeam-queue v0.3.12
+   Compiling darling_core v0.23.0
+    Checking regex-automata v0.4.13
+   Compiling regex-lite v0.1.9
+    Checking either v1.15.0
+   Compiling unic-langid-macros-impl v0.9.6
+   Compiling object v0.37.3
+    Checking postgres-types v0.2.14
+   Compiling owo-colors v4.2.3
+    Checking hex v0.4.3
+    Checking hkdf v0.13.0
+    Checking atoi v2.0.0
+    Checking hashlink v0.10.0
+   Compiling rstest_macros v0.28.0
+   Compiling eyre v0.6.14
+   Compiling color-spantrace v0.3.0
+    Checking gimli v0.32.3
+    Checking dotenvy v0.15.7
+   Compiling smallvec-macro v0.0.0
+    Checking arraydeque v0.5.1
+    Checking same-file v1.0.6
+   Compiling rust-embed-utils v8.9.0
+    Checking diesel v2.3.14
+    Checking icu_provider v2.1.1
+   Compiling pest_meta v2.8.3
+    Checking walkdir v2.5.0
+   Compiling nix v0.31.3
+    Checking tracing-error v0.2.1
+    Checking saphyr-parser v0.0.6
+   Compiling unic-langid-macros v0.9.6
+    Checking smallvec v2.0.0-beta.4
+    Checking unic-langid v0.9.6
+    Checking miniz_oxide v0.8.9
+    Checking icu_properties v2.1.1
+    Checking intl_pluralrules v7.0.2
+    Checking intl-memoizer v0.5.3
+    Checking fluent-langneg v0.13.1
+    Checking icu_normalizer v2.1.1
+    Checking dirs-sys v0.4.1
+    Checking wait-timeout v0.2.1
+    Checking smawk v0.3.2
+    Checking unicode-linebreak v0.1.5
+    Checking toml v0.8.23
+    Checking rustc-demangle v0.1.26
+    Checking indenter v0.3.4
+    Checking unicode-width v0.2.2
+    Checking peg-runtime v0.6.3
+    Checking dirs v5.0.1
+   Compiling i18n-config v0.4.8
+    Checking serde-saphyr v0.0.6
+   Compiling rust-embed-impl v8.9.0
+    Checking fluent-bundle v0.16.0
+    Checking typed-builder v0.23.2
+   Compiling ortho_config_macros v0.9.0
+    Checking peg v0.6.3
+   Compiling pg-embed-setup-unpriv v0.7.0
+    Checking thiserror v1.0.69
+    Checking secrecy v0.10.3
+    Checking fs4 v1.1.0
+    Checking textwrap v0.16.2
+    Checking link-section v0.19.3
+    Checking sys-locale v0.3.2
+    Checking arc-swap v1.7.1
+   Compiling rstest-bdd-harness v0.6.0
+   Compiling pest_generator v2.8.3
+    Checking uuid v1.27.0
+    Checking hashbrown v0.17.1
+    Checking gherkin v0.16.0
+    Checking rstest-bdd-policy v0.6.0
+    Checking inventory v0.3.21
+    Checking ortho_l10n v0.10.0
+    Checking fluent v0.17.0
+    Checking ctor v1.0.13
+    Checking cargo-platform v0.3.3
+    Checking quick-error v1.2.3
+    Checking bit-vec v0.8.0
+    Checking rand_xorshift v0.4.0
+    Checking regex v1.12.2
+    Checking unarray v0.1.4
+    Checking rusty-fork v0.3.1
+    Checking fslock v0.2.1
+    Checking kani v0.0.1
+    Checking idna_adapter v1.2.1
+   Compiling memoffset v0.7.1
+    Checking bitflags v1.3.2
+    Checking cargo_metadata v0.23.1
+    Checking ascii v1.1.0
+    Checking chunked_transfer v1.5.0
+    Checking bit-set v0.8.0
+    Checking id-set v0.2.2
+    Checking idna v1.1.0
+    Checking serial_test v3.5.0
+   Compiling i18n-embed-impl v0.8.4
+   Compiling rstest-bdd-macros v0.6.0
+    Checking choice v0.0.2
+    Checking rust-embed v8.9.0
+    Checking proptest v1.11.0
+   Compiling home v0.5.12
+    Checking rustc_version v0.4.1
+    Checking which v8.0.6
+    Checking termcolor v1.4.1
+   Compiling pest_derive v2.8.3
+    Checking glob v0.3.3
+    Checking tiny_http v0.12.0
+   Compiling afl v0.18.2
+    Checking url v2.5.8
+    Checking rstest-bdd-patterns v0.6.0
+    Checking trybuild v1.0.122
+    Checking addr2line v0.25.1
+   Compiling ortho_config_macros v0.10.0
+   Compiling darling_macro v0.23.0
+    Checking tokio-util v0.7.19
+    Checking tokio-stream v0.1.17
+    Checking tokio-rustls v0.26.4
+    Checking bb8 v0.9.0
+    Checking leaky-bucket v1.1.2
+    Checking tower v0.5.2
+    Checking postgresql_commands v0.22.0
+    Checking json5 v0.4.1
+    Checking i18n-embed v0.16.0
+    Checking rstest-bdd-harness-tokio v0.6.0
+    Checking tokio-native-tls v0.3.1
+    Checking stateright v0.31.0
+    Checking rstest-bdd v0.6.0
+    Checking tower-http v0.6.11
+    Checking figment-json5 v0.1.1
+   Compiling h2 v0.4.16
+    Checking backtrace v0.3.76
+   Compiling darling v0.23.0
+    Checking nix v0.26.4
+    Checking ortho_config v0.9.0
+   Compiling serde_with_macros v3.21.0
+    Checking color-eyre v0.6.5
+    Checking tokio-postgres v0.7.18
+    Checking sqlx-core v0.9.0
+    Checking mxd-verification v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/crates/mxd-verification)
+    Checking rstest v0.28.0
+    Checking serde_with v3.21.0
+    Checking postgres v0.19.14
+    Checking ptyprocess v0.5.0
+    Checking expectrl v0.9.0
+    Checking rstest-bdd-ui-tests v0.0.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/tests/rstest-bdd-ui)
+    Checking sqlx-postgres v0.9.0
+    Checking hyper v1.8.0
+   Compiling ortho_config v0.10.0
+   Compiling hyper-util v0.1.17
+    Checking cli-defs v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/cli-defs)
+   Compiling hyper-tls v0.6.0
+    Checking hyper-rustls v0.27.7
+   Compiling reqwest v0.13.5
+    Checking metrics-exporter-prometheus v0.17.2
+    Checking wireframe v0.3.0
+   Compiling mxd v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd)
+    Checking reqwest-middleware v0.5.2
+    Checking sqlx v0.9.0
+    Checking reqwest-retry v0.9.1
+    Checking reqwest-tracing v0.7.1
+    Checking postgresql_archive v0.22.0
+    Checking diesel-async v0.9.2
+    Checking diesel_migrations v2.3.2
+    Checking diesel-cte-ext v0.1.0 (https://github.com/leynos/diesel-cte-ext?rev=1457bb199adefd0ed368dfa9458fd4f07ae81679#1457bb19)
+   Compiling postgresql_embedded v0.22.0
+    Checking fuzz v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/fuzz)
+    Checking test-util v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/test-util)
+    Checking validator v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/validator)
+    Finished `dev` profile [optimized] target(s) in 43.97s
+env -u CARGO_ENCODED_RUSTFLAGS RUSTFLAGS="-D warnings" CARGO_UNSTABLE_CODEGEN_BACKEND=true CARGO_PROFILE_DEV_CODEGEN_BACKEND=llvm whitaker --all -- --no-default-features --features "postgres test-support legacy-networking" --all-targets
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`
+Checking with toolchain `nightly-2026-05-28`
+   Compiling proc-macro2 v1.0.106
+   Compiling unicode-ident v1.0.22
+   Compiling quote v1.0.46
+   Compiling serde_core v1.0.229
+   Compiling libc v0.2.186
+    Checking cfg-if v1.0.5
+   Compiling parking_lot_core v0.9.12
+   Compiling serde v1.0.229
+    Checking memchr v2.7.6
+   Compiling version_check v0.9.5
+   Compiling pkg-config v0.3.32
+    Checking smallvec v1.15.1
+   Compiling stable_deref_trait v1.2.1
+    Checking pin-project-lite v0.2.17
+    Checking once_cell v1.21.3
+   Compiling thiserror v2.0.21
+   Compiling find-msvc-tools v0.1.4
+   Compiling shlex v1.3.0
+    Checking scopeguard v1.2.0
+   Compiling zmij v1.0.21
+   Compiling serde_json v1.0.154
+   Compiling vcpkg v0.2.15
+    Checking bitflags v2.13.2
+    Checking log v0.4.28
+   Compiling getrandom v0.4.3
+    Checking bytes v1.12.1
+   Compiling rustix v1.1.4
+   Compiling itoa v1.0.15
+    Checking futures-core v0.3.34
+    Checking lock_api v0.4.14
+    Checking futures-sink v0.3.34
+   Compiling proc-macro-hack v0.5.20+deprecated
+    Checking typenum v1.20.1
+    Checking futures-io v0.3.34
+    Checking futures-task v0.3.34
+    Checking futures-channel v0.3.34
+   Compiling icu_normalizer_data v2.1.1
+    Checking tracing-core v0.1.36
+   Compiling icu_properties_data v2.1.1
+    Checking slab v0.4.11
+   Compiling heck v0.5.0
+    Checking allocator-api2 v0.2.21
+    Checking foldhash v0.2.0
+    Checking equivalent v1.0.2
+   Compiling hashbrown v0.16.0
+   Compiling httparse v1.10.1
+   Compiling fnv v1.0.7
+    Checking rand_core v0.10.1
+   Compiling openssl v0.10.81
+    Checking percent-encoding v2.3.2
+    Checking base64 v0.22.1
+   Compiling strsim v0.11.1
+   Compiling native-tls v0.2.18
+   Compiling camino v1.2.6
+   Compiling autocfg v1.5.0
+    Checking linux-raw-sys v0.12.1
+   Compiling winnow v0.7.13
+   Compiling generic-array v0.14.9
+   Compiling indexmap v2.12.0
+   Compiling io-lifetimes v3.0.1
+   Compiling io-lifetimes v2.0.4
+    Checking subtle v2.6.1
+    Checking hybrid-array v0.4.13
+    Checking litemap v0.8.1
+   Compiling winnow v1.0.4
+   Compiling ipnet v2.11.0
+    Checking writeable v0.6.2
+    Checking http v1.3.1
+   Compiling io-extras v0.19.0
+   Compiling toml_parser v1.1.5+spec-1.1.0
+    Checking zeroize v1.8.2
+    Checking cmov v0.5.4
+    Checking crypto-common v0.2.2
+    Checking block-buffer v0.12.1
+   Compiling proc-macro2-diagnostics v0.10.1
+    Checking ctutils v0.4.7
+    Checking const-oid v0.10.2
+   Compiling crossbeam-utils v0.8.21
+   Compiling anyhow v1.0.104
+    Checking cpufeatures v0.3.0
+    Checking digest v0.11.3
+    Checking http-body v1.0.1
+   Compiling num-traits v0.2.19
+   Compiling uncased v0.9.10
+   Compiling ident_case v1.0.1
+   Compiling cap-primitives v4.0.3
+   Compiling yansi v1.0.1
+    Checking chacha20 v0.10.1
+    Checking rustls-pki-types v1.13.0
+    Checking try-lock v0.2.5
+    Checking atomic-waker v1.1.2
+    Checking tower-service v0.3.3
+    Checking want v0.3.1
+   Compiling figment v0.10.19
+    Checking form_urlencoded v1.2.2
+    Checking utf8_iter v1.0.4
+    Checking pin-utils v0.1.0
+   Compiling cap-std v4.0.3
+    Checking tinyvec_macros v0.1.1
+    Checking httpdate v1.0.3
+    Checking byteorder v1.5.0
+    Checking tinyvec v1.10.0
+   Compiling dunce v1.0.5
+   Compiling fs_extra v1.3.0
+    Checking sha2 v0.11.1
+    Checking hmac v0.13.0
+    Checking rustc-hash v2.1.1
+   Compiling fastrand v2.3.0
+    Checking unicode-properties v0.1.4
+   Compiling getrandom v0.3.4
+    Checking foreign-types-shared v0.1.1
+    Checking unicode-normalization v0.1.25
+    Checking cpufeatures v0.2.17
+    Checking unicode-bidi v0.3.18
+   Compiling zerocopy v0.8.27
+    Checking foreign-types v0.3.2
+   Compiling type-map v0.5.1
+    Checking md-5 v0.11.0
+    Checking http-body-util v0.1.3
+    Checking openssl-probe v0.2.1
+   Compiling self_cell v1.2.1
+   Compiling utf8parse v0.2.2
+    Checking foldhash v0.1.5
+   Compiling aws-lc-rs v1.18.1
+   Compiling anstyle-parse v1.0.0
+    Checking hashbrown v0.15.5
+   Compiling is_terminal_polyfill v1.70.2
+   Compiling anstyle-query v1.1.4
+   Compiling colorchoice v1.0.4
+    Checking toml_write v0.1.2
+   Compiling anstyle v1.0.14
+   Compiling crc32fast v1.5.0
+    Checking whoami v2.1.0
+    Checking option-ext v0.2.0
+    Checking block-buffer v0.10.4
+    Checking crypto-common v0.1.6
+    Checking stringprep v0.1.5
+   Compiling anstream v1.0.0
+   Compiling sync_wrapper v1.0.2
+    Checking siphasher v1.0.1
+    Checking inlinable_string v0.1.15
+    Checking digest v0.10.7
+   Compiling clap_lex v1.1.0
+    Checking fallible-iterator v0.2.0
+   Compiling tower-layer v0.3.3
+   Compiling maybe-owned v0.3.4
+   Compiling ambient-authority v0.0.2
+   Compiling unicode-segmentation v1.12.0
+    Checking lazy_static v1.5.0
+    Checking phf_shared v0.13.1
+    Checking sharded-slab v0.1.7
+   Compiling clap_builder v4.6.7
+   Compiling libsqlite3-sys v0.35.0
+   Compiling pq-sys v0.7.5
+   Compiling ahash v0.8.12
+    Checking tracing-log v0.2.0
+    Checking thread_local v1.1.9
+    Checking ryu v1.0.20
+   Compiling target-tuple v1.0.2
+   Compiling rustls v0.23.46
+   Compiling either v1.15.0
+    Checking untrusted v0.9.0
+   Compiling diesel_derives v2.3.4
+    Checking nu-ansi-term v0.50.3
+    Checking phf v0.13.1
+    Checking sha2 v0.10.9
+   Compiling aho-corasick v1.1.4
+   Compiling regex-syntax v0.8.8
+    Checking toml_writer v1.1.3+spec-1.1.0
+   Compiling crossbeam-epoch v0.9.20
+   Compiling base64 v0.23.1
+    Checking iana-time-zone v0.1.64
+    Checking tracing-subscriber v0.3.20
+   Compiling syn v2.0.119
+   Compiling syn v3.0.3
+   Compiling convert_case v0.10.0
+    Checking raw-cpuid v11.6.0
+   Compiling xdg v3.0.0
+   Compiling ucd-trie v0.1.7
+    Checking downcast-rs v2.0.2
+   Compiling peg-runtime v0.6.3
+    Checking adler2 v2.0.1
+   Compiling unicode-xid v0.2.6
+    Checking openssl-probe v0.1.6
+    Checking rustls-native-certs v0.8.2
+   Compiling pest v2.8.3
+   Compiling virtue v0.0.18
+    Checking sketches-ddsketch v0.3.0
+   Compiling thiserror v1.0.69
+   Compiling simd-adler32 v0.3.10
+   Compiling roff v1.1.1
+    Checking hashbrown v0.14.5
+   Compiling miniz_oxide v0.9.1
+    Checking concurrent-queue v2.5.0
+    Checking serde_spanned v1.1.2
+    Checking toml_datetime v1.1.2+spec-1.1.0
+    Checking toml_datetime v0.7.3
+    Checking semver v1.0.28
+    Checking toml v0.9.8
+   Compiling same-file v1.0.6
+    Checking base64ct v1.8.0
+    Checking parking v2.2.1
+   Compiling matchit v0.8.6
+    Checking crc-catalog v2.4.0
+    Checking unty v0.0.4
+    Checking crc v3.3.0
+    Checking event-listener v5.4.1
+    Checking toml v1.1.0+spec-1.1.0
+   Compiling walkdir v2.5.0
+   Compiling jobserver v0.1.34
+   Compiling signal-hook-registry v1.4.6
+   Compiling socket2 v0.6.5
+   Compiling mio v1.2.4
+   Compiling cc v1.2.45
+   Compiling dirs-sys v0.5.0
+   Compiling parking_lot v0.12.5
+   Compiling dirs v7.0.0
+   Compiling rand v0.10.3
+   Compiling peg-macros v0.6.3
+   Compiling filetime v0.2.27
+   Compiling flate2 v1.1.10
+    Checking blake2 v0.10.6
+    Checking crossbeam-queue v0.3.12
+    Checking hashlink v0.11.1
+    Checking hex v0.4.3
+   Compiling glob v0.3.3
+   Compiling object v0.37.3
+   Compiling owo-colors v4.2.3
+   Compiling relative-path v1.9.3
+   Compiling regex-lite v0.1.9
+   Compiling cmake v0.1.54
+    Checking static_assertions v1.1.0
+   Compiling bincode_derive v2.0.1
+    Checking atoi v2.0.0
+    Checking hashlink v0.10.0
+    Checking hkdf v0.13.0
+   Compiling eyre v0.6.14
+    Checking dotenvy v0.15.7
+   Compiling smallvec-macro v0.0.0
+    Checking mxd-concurrency v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/crates/mxd-concurrency)
+    Checking arraydeque v0.5.1
+   Compiling cfg_aliases v0.2.1
+    Checking gimli v0.32.3
+    Checking rand_core v0.9.3
+    Checking rand_xoshiro v0.7.0
+    Checking getrandom v0.2.16
+    Checking rand_core v0.6.4
+   Compiling retry-policies v0.5.2
+    Checking dashmap v6.1.0
+    Checking futures-intrusive v0.5.0
+    Checking password-hash v0.5.0
+   Compiling color-spantrace v0.3.0
+   Compiling rust-embed-utils v8.9.0
+   Compiling rustc_version v0.4.1
+    Checking ppv-lite86 v0.2.21
+   Compiling toml_edit v0.23.7
+    Checking metrics v0.24.2
+    Checking postgres-protocol v0.6.12
+    Checking quanta v0.12.6
+    Checking argon2 v0.5.3
+    Checking saphyr-parser v0.0.6
+   Compiling nix v0.31.3
+   Compiling rstest_macros v0.28.0
+   Compiling rstest_macros v0.27.0
+    Checking postgres-types v0.2.14
+    Checking wait-timeout v0.2.1
+    Checking dirs-sys v0.4.1
+    Checking miniz_oxide v0.8.9
+    Checking unicode-linebreak v0.1.5
+    Checking indenter v0.3.4
+    Checking smawk v0.3.2
+   Compiling unicode-width v0.2.2
+    Checking rand_chacha v0.9.0
+   Compiling proc-macro-crate v3.4.0
+    Checking nohash-hasher v0.2.0
+    Checking rand v0.9.5
+    Checking futures-timer v3.0.3
+    Checking rustc-demangle v0.1.26
+    Checking smallvec v2.0.0-beta.4
+   Compiling regex-automata v0.4.13
+   Compiling peg v0.6.3
+    Checking dirs v5.0.1
+   Compiling cargo-platform v0.3.3
+   Compiling pg-embed-setup-unpriv v0.7.0
+    Checking tempfile v3.27.0
+    Checking rustix-linux-procfs v0.1.1
+    Checking fs-set-times v0.20.3
+    Checking metrics-util v0.20.0
+    Checking xattr v1.6.1
+   Compiling textwrap v0.16.2
+    Checking fs4 v1.1.0
+   Compiling rstest-bdd-macros v0.6.0
+    Checking tar v0.4.46
+   Compiling proc-macro-error-attr3 v3.1.1
+   Compiling openssl-sys v0.9.117
+   Compiling aws-lc-sys v0.45.0
+   Compiling linktime-proc-macro v0.2.3
+    Checking quick-error v1.2.3
+    Checking link-section v0.19.3
+   Compiling paste v1.0.15
+    Checking arc-swap v1.7.1
+   Compiling pest_meta v2.8.3
+   Compiling synstructure v0.13.2
+   Compiling darling_core v0.21.3
+   Compiling diesel_table_macro_syntax v0.3.0
+   Compiling darling_core v0.23.0
+    Checking sys-locale v0.3.2
+    Checking addr2line v0.25.1
+    Checking bit-vec v0.8.0
+    Checking rusty-fork v0.3.1
+    Checking bit-set v0.8.0
+    Checking uuid v1.27.0
+    Checking rand_xorshift v0.4.0
+    Checking fslock v0.2.1
+   Compiling pest_generator v2.8.3
+   Compiling convert_case v0.12.0
+    Checking hashbrown v0.17.1
+   Compiling rstest-bdd-policy v0.6.0
+    Checking inventory v0.3.21
+    Checking unarray v0.1.4
+   Compiling newt-hype v0.2.0
+    Checking kani v0.0.1
+   Compiling proc-macro-error3 v3.1.1
+    Checking proptest v1.11.0
+    Checking ctor v1.0.13
+   Compiling regex v1.12.2
+    Checking backtrace v0.3.76
+   Compiling serde_derive v1.0.229
+   Compiling tokio-macros v2.7.2
+   Compiling thiserror-impl v2.0.21
+   Compiling futures-macro v0.3.34
+   Compiling async-trait v0.1.92
+   Compiling clap_derive v4.6.7
+   Compiling zerofrom-derive v0.1.6
+   Compiling yoke-derive v0.8.1
+   Compiling zerovec-derive v0.11.2
+   Compiling displaydoc v0.2.5
+   Compiling tracing-attributes v0.1.31
+   Compiling openssl-macros v0.1.1
+   Compiling pear_codegen v0.2.9
+   Compiling clap-dispatch v0.1.1
+   Compiling darling_macro v0.21.3
+   Compiling typed-builder-macro v0.23.2
+   Compiling derive_more-impl v2.1.1
+   Compiling thiserror-impl v1.0.69
+   Compiling darling_macro v0.23.0
+   Compiling pest_derive v2.8.3
+   Compiling ortho_config_macros v0.9.0
+   Compiling rust-embed-impl v8.9.0
+   Compiling serial_test_derive v3.5.0
+   Compiling darling v0.21.3
+   Compiling darling v0.23.0
+    Checking tokio v1.54.1
+   Compiling serde_with_macros v3.21.0
+    Checking pear v0.2.9
+    Checking futures-util v0.3.34
+   Compiling dsl_auto_type v0.2.0
+    Checking rust-embed v8.9.0
+   Compiling zerofrom v0.1.6
+   Compiling yoke v0.8.1
+   Compiling fluent-syntax v0.12.0
+   Compiling clap v4.6.7
+    Checking tracing v0.1.44
+   Compiling clap_mangen v0.3.3
+    Checking typed-builder v0.23.2
+   Compiling zerovec v0.11.5
+   Compiling zerotrie v0.2.3
+    Checking tracing-error v0.2.1
+    Checking color-eyre v0.6.5
+    Checking serde_spanned v0.6.9
+    Checking toml_datetime v0.6.11
+   Compiling serde_urlencoded v0.7.1
+    Checking chrono v0.4.45
+   Compiling gherkin v0.16.0
+   Compiling migrations_internals v2.3.0
+    Checking bincode v2.0.1
+    Checking json5 v0.4.1
+   Compiling basic-toml v0.1.10
+   Compiling toml v0.5.11
+    Checking serde-saphyr v0.0.6
+    Checking cargo_metadata v0.23.1
+    Checking secrecy v0.10.3
+    Checking toml_edit v0.22.27
+   Compiling tinystr v0.8.2
+    Checking potential_utf v0.1.4
+    Checking serde_with v3.21.0
+   Compiling icu_collections v2.1.1
+   Compiling migrations_macros v2.3.0
+    Checking icu_locale_core v2.1.1
+    Checking unic-langid-impl v0.9.6
+    Checking derive_more v2.1.1
+    Checking futures-executor v0.3.31
+   Compiling find-crate v0.6.3
+   Compiling unic-langid-macros-impl v0.9.6
+    Checking futures v0.3.31
+    Checking serial_test v3.5.0
+    Checking rstest-bdd-harness v0.6.0
+   Compiling icu_provider v2.1.1
+   Compiling icu_properties v2.1.1
+   Compiling icu_normalizer v2.1.1
+    Checking toml v0.8.23
+    Checking rstest-bdd-patterns v0.6.0
+    Checking rstest v0.27.0
+    Checking figment-json5 v0.1.1
+    Checking rstest v0.28.0
+   Compiling unic-langid-macros v0.9.6
+   Compiling unic-langid v0.9.6
+   Compiling intl_pluralrules v7.0.2
+   Compiling fluent-langneg v0.13.1
+   Compiling intl-memoizer v0.5.3
+   Compiling i18n-config v0.4.8
+    Checking fluent-bundle v0.16.0
+    Checking ortho_l10n v0.10.0
+    Checking ortho_config v0.9.0
+    Checking fluent v0.17.0
+    Checking idna_adapter v1.2.1
+    Checking idna v1.1.0
+    Checking url v2.5.8
+    Checking diesel v2.3.14
+   Compiling ortho_config_macros v0.10.0
+   Compiling i18n-embed-impl v0.8.4
+    Checking tokio-util v0.7.19
+    Checking tokio-stream v0.1.17
+    Checking tower v0.5.2
+    Checking tokio-native-tls v0.3.1
+    Checking bb8 v0.9.0
+    Checking leaky-bucket v1.1.2
+    Checking postgresql_commands v0.22.0
+    Checking rstest-bdd-harness-tokio v0.6.0
+    Checking sqlx-core v0.9.0
+    Checking i18n-embed v0.16.0
+    Checking rstest-bdd v0.6.0
+   Compiling h2 v0.4.16
+    Checking tower-http v0.6.11
+    Checking tokio-postgres v0.7.18
+   Compiling ortho_config v0.10.0
+    Checking sqlx-postgres v0.9.0
+    Checking postgres v0.19.14
+    Checking cli-defs v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/cli-defs)
+   Compiling mxd v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd)
+    Checking hyper v1.8.0
+    Checking sqlx v0.9.0
+    Checking hyper-util v0.1.17
+    Checking rustls-webpki v0.103.16
+    Checking hyper-tls v0.6.0
+    Checking reqwest v0.13.5
+    Checking reqwest-middleware v0.5.2
+    Checking reqwest-tracing v0.7.1
+    Checking reqwest-retry v0.9.1
+    Checking postgresql_archive v0.22.0
+    Checking tokio-rustls v0.26.4
+    Checking hyper-rustls v0.27.7
+    Checking metrics-exporter-prometheus v0.17.2
+    Checking wireframe v0.3.0
+   Compiling postgresql_embedded v0.22.0
+    Checking diesel-async v0.9.2
+    Checking diesel_migrations v2.3.2
+    Checking diesel-cte-ext v0.1.0 (https://github.com/leynos/diesel-cte-ext?rev=1457bb199adefd0ed368dfa9458fd4f07ae81679#1457bb19)
+    Checking test-util v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/test-util)
+    Finished `dev` profile [optimized] target(s) in 1m 46s
+cargo clippy --features "sqlite test-support" --workspace --all-targets -- -D warnings
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`
+    Checking futures-io v0.3.34
+    Checking hashbrown v0.16.0
+    Checking tinystr v0.8.2
+    Checking num-traits v0.2.19
+    Checking hashbrown v0.15.5
+    Checking http-body-util v0.1.3
+    Checking tokio-stream v0.1.17
+   Compiling cli-defs v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/cli-defs)
+   Compiling digest v0.10.7
+    Checking futures-util v0.3.34
+    Checking unic-langid-impl v0.9.6
+   Compiling sha2 v0.10.9
+    Checking unic-langid-macros v0.9.6
+    Checking unic-langid v0.9.6
+    Checking intl_pluralrules v7.0.2
+    Checking intl-memoizer v0.5.3
+    Checking fluent-langneg v0.13.1
+    Checking indexmap v2.12.0
+   Compiling rust-embed-utils v8.9.0
+    Checking metrics-util v0.20.0
+    Checking chrono v0.4.45
+    Checking proptest v1.11.0
+   Compiling mxd v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd)
+   Compiling rust-embed-impl v8.9.0
+    Checking fluent-bundle v0.16.0
+    Checking toml_edit v0.22.27
+    Checking ortho_l10n v0.10.0
+    Checking fluent v0.17.0
+    Checking diesel v2.3.14
+    Checking tokio-util v0.7.19
+    Checking futures-executor v0.3.31
+    Checking rstest v0.27.0
+    Checking bb8 v0.9.0
+    Checking toml v0.8.23
+    Checking rust-embed v8.9.0
+    Checking futures v0.3.31
+    Checking serial_test v3.5.0
+    Checking mxd-concurrency v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/crates/mxd-concurrency)
+    Checking i18n-embed v0.16.0
+    Checking figment v0.10.19
+    Checking h2 v0.4.16
+    Checking tokio-postgres v0.7.18
+    Checking ortho_config v0.10.0
+    Checking rstest-bdd v0.6.0
+    Checking hyper v1.8.0
+    Checking mxd-verification v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/crates/mxd-verification)
+    Checking rstest-bdd-ui-tests v0.0.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/tests/rstest-bdd-ui)
+    Checking hyper-util v0.1.17
+    Checking hyper-rustls v0.27.7
+    Checking metrics-exporter-prometheus v0.17.2
+    Checking wireframe v0.3.0
+    Checking diesel-async v0.9.2
+    Checking diesel_migrations v2.3.2
+    Checking diesel-cte-ext v0.1.0 (https://github.com/leynos/diesel-cte-ext?rev=1457bb199adefd0ed368dfa9458fd4f07ae81679#1457bb19)
+    Checking test-util v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/test-util)
+    Checking fuzz v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/fuzz)
+    Checking validator v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/validator)
+    Finished `dev` profile [optimized] target(s) in 18.66s
+env -u CARGO_ENCODED_RUSTFLAGS RUSTFLAGS="-D warnings" CARGO_UNSTABLE_CODEGEN_BACKEND=true CARGO_PROFILE_DEV_CODEGEN_BACKEND=llvm whitaker --all -- --features "sqlite test-support" --all-targets
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`
+Checking with toolchain `nightly-2026-05-28`
+    Checking futures-io v0.3.34
+   Compiling smallvec v1.15.1
+    Checking hashbrown v0.16.0
+   Compiling tinystr v0.8.2
+   Compiling tracing v0.1.44
+   Compiling num-traits v0.2.19
+   Compiling getrandom v0.4.3
+   Compiling typenum v1.20.1
+    Checking futures-util v0.3.34
+    Checking hashbrown v0.15.5
+    Checking http-body-util v0.1.3
+    Checking tokio-stream v0.1.17
+   Compiling unic-langid-impl v0.9.6
+   Compiling parking_lot_core v0.9.12
+   Compiling rstest-bdd-harness v0.6.0
+   Compiling parking_lot v0.12.5
+   Compiling unic-langid-macros-impl v0.9.6
+    Checking indexmap v2.12.0
+   Compiling tempfile v3.27.0
+   Compiling rstest-bdd-macros v0.6.0
+    Checking metrics-util v0.20.0
+   Compiling generic-array v0.14.9
+   Compiling figment v0.10.19
+   Compiling unic-langid-macros v0.9.6
+   Compiling unic-langid v0.9.6
+   Compiling intl-memoizer v0.5.3
+   Compiling intl_pluralrules v7.0.2
+   Compiling fluent-langneg v0.13.1
+   Compiling i18n-config v0.4.8
+    Checking toml_edit v0.22.27
+   Compiling crypto-common v0.1.6
+   Compiling fluent-bundle v0.16.0
+   Compiling block-buffer v0.10.4
+    Checking toml v0.8.23
+    Checking tokio-util v0.7.19
+    Checking futures-executor v0.3.31
+    Checking bb8 v0.9.0
+    Checking rstest v0.27.0
+   Compiling digest v0.10.7
+    Checking futures v0.3.31
+    Checking serial_test v3.5.0
+   Compiling i18n-embed-impl v0.8.4
+    Checking ortho_l10n v0.10.0
+    Checking fluent v0.17.0
+   Compiling sha2 v0.10.9
+   Compiling rust-embed-utils v8.9.0
+    Checking h2 v0.4.16
+    Checking tokio-postgres v0.7.18
+   Compiling ortho_config_macros v0.10.0
+   Compiling rust-embed-impl v8.9.0
+    Checking chrono v0.4.45
+    Checking proptest v1.11.0
+    Checking rust-embed v8.9.0
+    Checking i18n-embed v0.16.0
+    Checking rstest-bdd v0.6.0
+    Checking diesel v2.3.14
+   Compiling ortho_config v0.10.0
+    Checking hyper v1.8.0
+    Checking cli-defs v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/cli-defs)
+    Checking hyper-util v0.1.17
+   Compiling mxd v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd)
+    Checking hyper-rustls v0.27.7
+    Checking metrics-exporter-prometheus v0.17.2
+    Checking wireframe v0.3.0
+    Checking diesel-async v0.9.2
+    Checking diesel_migrations v2.3.2
+    Checking diesel-cte-ext v0.1.0 (https://github.com/leynos/diesel-cte-ext?rev=1457bb199adefd0ed368dfa9458fd4f07ae81679#1457bb19)
+    Checking test-util v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/test-util)
+    Finished `dev` profile [optimized] target(s) in 38.45s
+cargo clippy --no-default-features --features "sqlite toml test-support" --workspace --all-targets -- -D warnings
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`
+   Compiling mxd v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd)
+    Checking test-util v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/test-util)
+    Checking fuzz v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/fuzz)
+    Checking validator v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/validator)
+    Finished `dev` profile [optimized] target(s) in 11.67s
+env -u CARGO_ENCODED_RUSTFLAGS RUSTFLAGS="-D warnings" CARGO_UNSTABLE_CODEGEN_BACKEND=true CARGO_PROFILE_DEV_CODEGEN_BACKEND=llvm whitaker --all -- --no-default-features --features "sqlite toml test-support" --all-targets
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`
+Checking with toolchain `nightly-2026-05-28`
+   Compiling mxd v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd)
+    Checking test-util v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/test-util)
+    Finished `dev` profile [optimized] target(s) in 21.68s

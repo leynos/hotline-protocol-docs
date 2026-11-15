@@ -1,0 +1,9 @@
+{
+  "method": "manual visual transcription of saved passive screenshot",
+  "screenshot": "clock-pre.png",
+  "sha256": "07d6b8e20ed559489d2d0bec9d7e2acbf06e2414ae2327ea2268f3812c219604",
+  "host_before_utc": "2026-11-14T06:20:05.794011567Z",
+  "host_after_utc": "2026-11-14T06:20:05.939144781Z",
+  "visible_guest_menubar_clock": "Sat 6:20:05 AM",
+  "ui_action": "none"
+}

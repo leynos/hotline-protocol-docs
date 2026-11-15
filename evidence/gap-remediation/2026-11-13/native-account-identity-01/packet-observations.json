@@ -1,0 +1,158 @@
+{
+  "after-protected": {
+    "main": {
+      "client_port": 44092,
+      "sent_bytes": 257,
+      "received_bytes": 2584,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "after-self": {
+    "main": {
+      "client_port": 41622,
+      "sent_bytes": 257,
+      "received_bytes": 2516,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "cleanup": {
+    "main": {
+      "client_port": 41632,
+      "sent_bytes": 178,
+      "received_bytes": 2259,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "duplicate-changed-login": {
+    "main": {
+      "client_port": 44074,
+      "sent_bytes": 104,
+      "received_bytes": 50,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "duplicate-exact": {
+    "main": {
+      "client_port": 45230,
+      "sent_bytes": 327,
+      "received_bytes": 966,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "duplicate-original-login": {
+    "main": {
+      "client_port": 44058,
+      "sent_bytes": 123,
+      "received_bytes": 366,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "duplicate-uppercase": {
+    "main": {
+      "client_port": 45234,
+      "sent_bytes": 327,
+      "received_bytes": 966,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "final": {
+    "main": {
+      "client_port": 41640,
+      "sent_bytes": 257,
+      "received_bytes": 2433,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "preflight": {
+    "main": {
+      "client_port": 40902,
+      "sent_bytes": 257,
+      "received_bytes": 2433,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "protected": {
+    "main": {
+      "client_port": 44078,
+      "sent_bytes": 242,
+      "received_bytes": 736,
+      "unread_output_hex": "0000012e000000050000000000000008000000080001006700020057",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    "target": {
+      "client_port": 44088,
+      "sent_bytes": 127,
+      "received_bytes": 444,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": true,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "protected-login": {
+    "main": {
+      "client_port": 44082,
+      "sent_bytes": 101,
+      "received_bytes": 50,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "seed": {
+    "main": {
+      "client_port": 40910,
+      "sent_bytes": 530,
+      "received_bytes": 649,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "self": {
+    "main": {
+      "client_port": 51398,
+      "sent_bytes": 195,
+      "received_bytes": 666,
+      "unread_output_hex": "0000012e00000004000000000000000800000008000100670002005b",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    "target": {
+      "client_port": 51414,
+      "sent_bytes": 159,
+      "received_bytes": 466,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": true,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "self-login": {
+    "main": {
+      "client_port": 51420,
+      "sent_bytes": 96,
+      "received_bytes": 50,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  }
+}

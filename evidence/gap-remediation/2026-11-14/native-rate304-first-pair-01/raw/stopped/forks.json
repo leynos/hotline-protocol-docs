@@ -1,0 +1,32 @@
+{
+  "admin": {
+    "inode": "11193",
+    "size": 734,
+    "sha256": "26612ad46cd91b90050feacf517d32a9e56d4a4aa92fbe6618eaf6e9e5ac60a3"
+  },
+  "fixture-low": {
+    "inode": "11201",
+    "size": 734,
+    "sha256": "fce81359d0efcfc6c2dbf42852db66b0fb7a404b2889162b8f8fad81361ce2d5"
+  },
+  "Prefs": {
+    "inode": "11202",
+    "size": 175,
+    "sha256": "4ed2b3e14e6e8a6cf246d16f7d1b98f0b91d1b09f6ab5497de1056a6f617d196"
+  },
+  "server-data": {
+    "inode": "11183-4352-0",
+    "size": 616821,
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "server-rsrc": {
+    "inode": "11183-4353-1",
+    "size": 38460,
+    "sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12"
+  },
+  "board": {
+    "inode": "11191",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

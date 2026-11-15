@@ -1,0 +1,77 @@
+# A106: B91 native 304 pipeline review
+
+Read-only review of private protocol commit
+`dd8426448e9243810421177b7e60b424d5ead22d` against its parent, the
+C107 failed first-pair capture, and the frozen A103–A105 source trace. No
+tracked edit, VM, oracle, mxd, or protocol contact. A fresh adjacent export
+of current canonical Mothra and protocol commits received only the four
+B91 owned files (`native_rate304_cases.py`, `native_rate304_control.py`,
+`test_native_rate304.py`, and `native-rate304-preparation.md`).
+
+## Result
+
+No new pre-live blocker found in the scoped B91 changes. This is acceptance
+of an offline prepared runner, not a native result or GAP-045 resolution.
+
+- Source plan advances schedule schema to 2 and declares the 26-pair phase
+  mode. `run_update_phase` sends each 304 before its same-subject numbered
+  500, for IDs1000–1025/2000–2025 and 3000–3025/4000–4025. It sends all
+  52 ordered requests, then drains both owned sockets with the existing
+  select collector until each icon2..27 appears exactly once on subject
+  and observer and each matching 500 ACK is present. It checks effective
+  name, UID and icon after the readiness predicate. The pair loop retains
+  the first send, last send, and required-arrival timestamps. It makes no
+  total order claim between sockets.
+- The 26-pair phase is bounded by <=20 **host** seconds including sends and
+  required receptions; a send-window or completion overrun fails. The
+  paced >=70-second subject quiet interval still has observer 500 cadence,
+  followed by 304 icon28 plus 500 with an explicit <=5-second wait for
+  both 301 views and ACK. The burst 27th 304 has no 500 and still requires
+  finite EOF/RST plus one fresh valid107 temporary-ban error. The reporter
+  preserves `native_clock_calibrated=false` and does not infer native
+  60-second progression from host time.
+- The observer remains open while each 26-pair phase drains, unlike C107's
+  failed 0.55-second first-pair deadline followed by cleanup. Failure still
+  closes only owned sockets in `run()`'s `finally`; late frames during
+  cleanup may contribute to `phase_progress`, which the guide correctly
+  labels observed partial bytes, not completed phase proof.
+- `wire.identities` records a dynamic UID immediately after each verified
+  subject roster, so a later failure can report reached identity stages.
+  The successful report pins source/cases/plan/oracle hashes, exact actions,
+  events, full streams, parsed and unparsed frames, terminals, 26/26 progress,
+  phase mode and timing receipts. The verifier reconstructs sent/received
+  bytes and checks phase timestamps/ACKs. It does not claim host/guest
+  packet parity or stopped-fork proof; those remain parent capture gates.
+- Request bounds are unchanged by pipelining: paced Login107+300+
+  26*(304+500)+304+500 = 56 complete requests, burst 107+300+
+  26*(304+500)+terminal304 = 55, observer Login107+300+13–15 idle500+
+  five controls = 20–22, probe one107. Each is below the dispatcher
+  >120 per-session threshold, subject to packet verification of no
+  unplanned requests. At most three case sockets are simultaneous, plus
+  a separately completed preflight lifetime. No account/file/option
+  mutation or new dependency is introduced.
+
+## Independent focused validation and residual limits
+
+From the fresh export's protocol checkout:
+
+```sh
+PYTHONPATH=scripts:/data/leynos/Projects/mothra/state/delegation/a106-export/mothra/scripts \
+  python3 -m unittest discover -s scripts -p test_native_rate304.py -v
+```
+
+All **8 tests passed** in 6.074 s. The real `socketpair` rehearsal receives
+all 52 sent frames and delays dual-socket 301/ACK replies by 0.75 seconds;
+both observer-first and subject-first orders pass without observer closure.
+Missing, duplicate, foreign update and sub-delay timeout variants fail;
+the old 0.55-second pair wait fails before the late synthetic ACK. Fake
+complete reports also exercise byte/timing/source/terminal faults. The
+rehearsal models delayed responses; it cannot establish the server's
+actual latency, recipient bit continuity, native clock, or ban outcome.
+
+The guide's A103 sentence that the connection predicate was outside that
+review is historically accurate but now superseded by A104/A105: the
+recipient helper reads the handshake-set connection bit7 at +0x4c plus
+session online. Parent documentation should link that newer bounded trace
+when publishing, without inferring that C107's missing observer update
+was caused solely by timeout.

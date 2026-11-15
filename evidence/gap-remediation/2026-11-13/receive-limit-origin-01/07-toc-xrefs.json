@@ -1,0 +1,28 @@
+{
+  "index": 7,
+  "label": "toc-xrefs",
+  "tool": "get_xrefs_to",
+  "arguments": {
+    "address": "10088d90",
+    "limit": 1000
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"items\": [],\n  \"offset\": 0,\n  \"limit\": 1000,\n  \"total\": 0,\n  \"has_more\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "items": [],
+      "offset": 0,
+      "limit": 1000,
+      "total": 0,
+      "has_more": false
+    },
+    "isError": false
+  }
+}

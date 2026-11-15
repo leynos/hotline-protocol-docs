@@ -1,0 +1,14 @@
+{
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "appledouble_sha256": "9ab8b9ec708ccdb8a4fed99b00162fd087c108b6039c7acc5943145bad419c2f",
+  "resource_sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12",
+  "resources": 58,
+  "content_keyword_hits": 17,
+  "content_keyword_resource": "EMSG4 filesystem error text only",
+  "resource_name_note": "HTLS0 is named Owner resource; no association with account field111 established",
+  "scope": "Read-only supplied application resource-fork inventory and case-insensitive ASCII substring search. No native application/Ghidra/mxd mutation or semantic label. Whole resource fork not redistributed; full replay requires the supplied extracted sidecar.",
+  "full_replay": [
+    "mkdir -p state/account-resource-trace-01",
+    "python3 evidence/gap-remediation/2026-11-13/account-resource-01/inspect.py.as-run.txt"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "utc": "2026-11-14T17:48:57.360552+00:00",
+  "command": [
+    "sudo",
+    "-n",
+    "fuser",
+    "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-02/working.dsk"
+  ],
+  "exit": 1,
+  "stdout_empty": true,
+  "stderr_empty": true,
+  "pid_3737215_absent": true,
+  "image_inode": 203082518
+}

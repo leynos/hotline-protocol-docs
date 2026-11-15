@@ -1,0 +1,70 @@
+{
+  "utc": "2026-11-14T01:09:49.134000+00:00",
+  "actual_pid": 2055952,
+  "actual_pid_gone": true,
+  "unit_stops": "unit-stops.json",
+  "units": {
+    "mothra-native-event-c49-host-capture.service": "ActiveState=inactive\nMainPID=0\nResult=success\nExecMainStatus=0",
+    "mothra-native-event-c49-ns-capture.service": "ActiveState=inactive\nMainPID=0\nResult=success\nExecMainStatus=0",
+    "mothra-native-event-c50-a7.service": "ActiveState=failed\nMainPID=0\nResult=exit-code\nExecMainStatus=1",
+    "mothra-display-37408b9876e3.service": "LoadState=not-found\nActiveState=inactive\nMainPID=0",
+    "mothra-bridge-f8eb71efdf91.service": "LoadState=not-found\nActiveState=inactive\nMainPID=0",
+    "mothra-xbridge-f8eb71efdf91.service": "LoadState=not-found\nActiveState=inactive\nMainPID=0",
+    "mothra-sheep-bc2add75bbfa.service": "LoadState=not-found\nActiveState=inactive\nMainPID=0"
+  },
+  "views": {
+    "namespace": {
+      "pcap": "/data/leynos/Projects/mothra/state/native-sessions/native-eventlab-c49/lab-namespace.pcap",
+      "bytes": 98304,
+      "sha256": "b4c6dc15be0d82de42d3aa7102c1feca67397b978591ac8be2d2c846d6a62e7c",
+      "pcap_sha256": "418d4fe265a233c92633f08e51be84a51545eb6a0e8eeb94cb8cf17b87192386",
+      "pcap_bytes": 116545,
+      "flow_packets": 152
+    },
+    "guest": {
+      "pcap": "/data/leynos/Projects/mothra/state/native-sessions/native-eventlab-c49/lab-guest.pcap",
+      "bytes": 98304,
+      "sha256": "b4c6dc15be0d82de42d3aa7102c1feca67397b978591ac8be2d2c846d6a62e7c",
+      "pcap_sha256": "89c23d53957aa3659f41f2680b43cf18c06a065974153c798f813bfbb0eb18d8",
+      "pcap_bytes": 115959,
+      "flow_packets": 154
+    }
+  },
+  "primary_host_pcap_bytes": 24,
+  "primary_bridge_used": false,
+  "recorder_logs": {
+    "host-recorder.log": [
+      "dropped privs to tcpdump",
+      "tcpdump: listening on lo, link-type EN10MB (Ethernet), snapshot length 262144 bytes",
+      "0 packets captured",
+      "0 packets received by filter",
+      "0 packets dropped by kernel"
+    ],
+    "ns-recorder.log": [
+      "dropped privs to tcpdump",
+      "tcpdump: listening on lo, link-type EN10MB (Ethernet), snapshot length 262144 bytes",
+      "184 packets captured",
+      "368 packets received by filter",
+      "0 packets dropped by kernel"
+    ]
+  },
+  "peers": {
+    "primary": {
+      "pid": 1099659,
+      "netns": "net:[4026531840]",
+      "fd6": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/working.dsk",
+      "fd16": "/data/leynos/Projects/mothra/state/native-sessions/recovery-20261113-01/guest.pcap"
+    },
+    "client": {
+      "pid": 1012834,
+      "netns": "net:[4026532479]",
+      "fd6": "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/working.dsk",
+      "fd16": "/data/leynos/Projects/mothra/state/native-sessions/mac-peer-isolated-01/client-guest.pcap"
+    }
+  },
+  "source_base_stat_unchanged": true,
+  "a7_status": "failed",
+  "a7_completed_actions": 21,
+  "option_two_executed": false,
+  "cleanup_note": "Sheep user unit auto-collected before stop (stop exit5); exact actual PID TERM exit0 and gone."
+}

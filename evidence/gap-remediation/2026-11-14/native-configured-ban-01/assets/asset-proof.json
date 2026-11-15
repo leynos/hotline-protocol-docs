@@ -1,0 +1,49 @@
+{
+  "source_base": {
+    "path": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/base.dsk",
+    "sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910",
+    "size": 8388608000,
+    "inode": 6189872880,
+    "mode": "0o444",
+    "mtime_ns": 1794582239465616991
+  },
+  "prepared_base": {
+    "path": "/data/leynos/Projects/mothra/state/mac-runtime/native-configured-apply-01/base.dsk",
+    "sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910",
+    "size": 8388608000,
+    "inode": 1677307072,
+    "mode": "0o444",
+    "mtime_ns": 1794629779216487611
+  },
+  "prepared_working": {
+    "path": "/data/leynos/Projects/mothra/state/mac-runtime/native-configured-apply-01/working.dsk",
+    "sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910",
+    "size": 8388608000,
+    "inode": 1677307073,
+    "mode": "0o644",
+    "mtime_ns": 1794629779220487611
+  },
+  "source_rom": {
+    "path": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/rom",
+    "sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+    "size": 1945746,
+    "inode": 6177692692,
+    "mode": "0o644",
+    "mtime_ns": 1794582239141617023
+  },
+  "prepared_rom": {
+    "path": "/data/leynos/Projects/mothra/state/mac-runtime/native-configured-apply-01/rom",
+    "sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+    "size": 1945746,
+    "inode": 1677307007,
+    "mode": "0o644",
+    "mtime_ns": 1794629779164487617
+  },
+  "ports": {
+    "15770": "free-at-preparation",
+    "15771": "free-at-preparation",
+    "15772": "free-at-preparation",
+    "15773": "free-at-preparation"
+  },
+  "display114_socket_absent": true
+}

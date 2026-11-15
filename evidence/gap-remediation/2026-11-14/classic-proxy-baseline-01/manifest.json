@@ -1,0 +1,197 @@
+{
+  "schema_version": 1,
+  "scope": "Two controlled Classic to native baseline proxy attempts; no modified 161 case",
+  "source": {
+    "proxy_path": "../hotline-protocol-docs/scripts/classic_login_proxy.py",
+    "proxy_sha256": "44bb68fe0bc464874aa455e823ca08b00704b88f5064d776119fcaf0682a5c7e",
+    "parser_path": "../hotline-protocol-docs/scripts/pcap_tcp.py",
+    "parser_sha256": "04c4fda2e62ccab35ed306c036dac6b1878af58adbfaccc6312a2805dd6897d7",
+    "native_oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+    "emulator_executable_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+    "client_data_sha256": "7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315",
+    "client_resource_sha256": "f762cfdedcc39758f841f720a4586dbbb88a7b74ec9e83db1793791b7c3f318b",
+    "client_archive_label": "Hotline Client 1.9.2 Classic",
+    "client_vers_short": "1.9.1.0",
+    "vendor_authenticity": "unproved",
+    "proxy_revision": "79d867dc80c0aea50ad77569aae89e1d0bf37915",
+    "proxy_snapshot_path": "as-run/classic_login_proxy.py.txt",
+    "parser_revision": "79d867dc80c0aea50ad77569aae89e1d0bf37915",
+    "parser_snapshot_path": "as-run/pcap_tcp.py.txt"
+  },
+  "runtime": {
+    "client_pid": 1012834,
+    "server_pid": 1099659,
+    "client_netns_inode": 4026532479,
+    "host_netns_inode": 4026531840,
+    "fixed_listeners": [
+      15652,
+      15653
+    ],
+    "fixed_upstreams": [
+      15500,
+      15501
+    ],
+    "system_service_user": 1000,
+    "runtime_max_seconds": 180
+  },
+  "runs": {
+    "b46": {
+      "routes": {
+        "control": [
+          [
+            "client-guest-post.pcap",
+            "10.0.2.15",
+            49159,
+            "10.0.2.2",
+            15652
+          ],
+          [
+            "namespace.pcap",
+            "127.0.0.1",
+            56174,
+            "127.0.0.1",
+            15652
+          ],
+          [
+            "namespace.pcap",
+            "127.0.0.1",
+            40956,
+            "127.0.0.1",
+            15500
+          ],
+          [
+            "host.pcap",
+            "127.0.0.1",
+            40958,
+            "127.0.0.1",
+            15500
+          ],
+          [
+            "server-guest-post.pcap",
+            "10.0.2.2",
+            40958,
+            "10.0.2.15",
+            5500
+          ]
+        ]
+      },
+      "control_lengths": [
+        61,
+        310
+      ],
+      "data_lengths": null,
+      "expected_request_types": [
+        107
+      ],
+      "expected_reply_types": [
+        0,
+        109
+      ],
+      "preflight": "a7-preflight/report.json",
+      "postflight": "a7-postflight/report.json"
+    },
+    "b47": {
+      "routes": {
+        "control": [
+          [
+            "client-guest-post.pcap",
+            "10.0.2.15",
+            49162,
+            "10.0.2.2",
+            15652
+          ],
+          [
+            "namespace.pcap",
+            "127.0.0.1",
+            56794,
+            "127.0.0.1",
+            15652
+          ],
+          [
+            "namespace.pcap",
+            "127.0.0.1",
+            59946,
+            "127.0.0.1",
+            15500
+          ],
+          [
+            "host.pcap",
+            "127.0.0.1",
+            59952,
+            "127.0.0.1",
+            15500
+          ],
+          [
+            "server-guest-post.pcap",
+            "10.0.2.2",
+            59952,
+            "10.0.2.15",
+            5500
+          ]
+        ],
+        "data": [
+          [
+            "client-guest-post.pcap",
+            "10.0.2.15",
+            49164,
+            "10.0.2.2",
+            15653
+          ],
+          [
+            "namespace.pcap",
+            "127.0.0.1",
+            47008,
+            "127.0.0.1",
+            15653
+          ],
+          [
+            "namespace.pcap",
+            "127.0.0.1",
+            55096,
+            "127.0.0.1",
+            15501
+          ],
+          [
+            "host.pcap",
+            "127.0.0.1",
+            55108,
+            "127.0.0.1",
+            15501
+          ],
+          [
+            "server-guest-post.pcap",
+            "10.0.2.2",
+            55108,
+            "10.0.2.15",
+            5501
+          ]
+        ]
+      },
+      "control_lengths": [
+        150,
+        514
+      ],
+      "data_lengths": [
+        16,
+        58
+      ],
+      "expected_request_types": [
+        107,
+        121,
+        300,
+        212
+      ],
+      "expected_reply_types": [
+        0,
+        109,
+        0,
+        354,
+        122,
+        0,
+        0
+      ],
+      "preflight": "a7-preflight/report.json",
+      "postflight": "a7-postflight/report.json"
+    }
+  }
+}

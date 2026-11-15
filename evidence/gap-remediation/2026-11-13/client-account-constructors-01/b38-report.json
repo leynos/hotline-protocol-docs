@@ -1,0 +1,779 @@
+{
+  "schema_version": 1,
+  "binary_sha256": "7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315",
+  "jar_sha256": "201d18ffde71a83a678eae607de265861f37e5a00b989d91958c1197664d2b43",
+  "runs": [
+    {
+      "started_at_utc": "2026-11-13T23:32:20.516104+00:00",
+      "argv": [
+        "--headless",
+        "--binary",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+        "--project",
+        "/data/leynos/Projects/mothra/state/client-account-pef-01/project",
+        "--project-name",
+        "hotline-client-classic-01",
+        "--no-analyze",
+        "--discard",
+        "--language",
+        "PowerPC:BE:32:default",
+        "--compiler",
+        "default",
+        "--extension-jar",
+        "/data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar",
+        "--ready-timeout",
+        "120"
+      ],
+      "addresses": [
+        "1000bfa0",
+        "1000c800"
+      ],
+      "queries": [
+        {
+          "tool": "get_program_info",
+          "arguments": {},
+          "result": {
+            "meta": null,
+            "content": [
+              {
+                "type": "text",
+                "text": "{\n  \"name\": \"Hotline Client 1.9.2 Classic\",\n  \"project_path\": \"/Hotline Client 1.9.2 Classic\",\n  \"executable_path\": \"/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic\",\n  \"executable_format\": \"Preferred Executable Format (PEF)\",\n  \"language_id\": \"PowerPC:BE:32:default\",\n  \"compiler_spec\": \"default\",\n  \"processor\": \"PowerPC\",\n  \"endian\": \"big\",\n  \"pointer_size\": 4,\n  \"image_base\": \"00000000\",\n  \"min_address\": \"10000000\",\n  \"max_address\": \"10163333\",\n  \"memory_size\": 1454890,\n  \"function_count\": 3564,\n  \"external_function_count\": 4,\n  \"entry_points\": [\n    \"101255e0\"\n  ],\n  \"md5\": \"794944a7ca16e70cc9b9624e8b58c6fc\",\n  \"sha256\": \"7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315\"\n}",
+                "annotations": null,
+                "meta": null
+              }
+            ],
+            "structuredContent": {
+              "name": "Hotline Client 1.9.2 Classic",
+              "project_path": "/Hotline Client 1.9.2 Classic",
+              "executable_path": "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+              "executable_format": "Preferred Executable Format (PEF)",
+              "language_id": "PowerPC:BE:32:default",
+              "compiler_spec": "default",
+              "processor": "PowerPC",
+              "endian": "big",
+              "pointer_size": 4,
+              "image_base": "00000000",
+              "min_address": "10000000",
+              "max_address": "10163333",
+              "memory_size": 1454890,
+              "function_count": 3564,
+              "external_function_count": 4,
+              "entry_points": [
+                "101255e0"
+              ],
+              "md5": "794944a7ca16e70cc9b9624e8b58c6fc",
+              "sha256": "7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315"
+            },
+            "isError": false
+          }
+        },
+        {
+          "tool": "decompile_function_by_address",
+          "arguments": {
+            "address": "1000bfa0"
+          },
+          "result": {
+            "meta": null,
+            "content": [
+              {
+                "type": "text",
+                "text": "{\n  \"function\": {\n    \"name\": \"FUN_1000bfa0\",\n    \"address\": \"1000bfa0\"\n  },\n  \"code\": \"\\n/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */\\n\\nundefined4 * FUN_1000bfa0(undefined4 *param_1,undefined4 param_2)\\n\\n{\\n  int *piVar1;\\n  undefined4 uVar2;\\n  \\n  piVar1 = _DAT_10136064;\\n  *param_1 = _DAT_10136068;\\n  *(undefined2 *)(param_1 + 1) = 1;\\n  *(byte *)((int)param_1 + 6) = *(byte *)((int)param_1 + 6) & 0x3f;\\n  FUN_100786a0(*piVar1,param_1,_DAT_10136978 + 0x8f0);\\n  *param_1 = _DAT_10136060;\\n  uVar2 = FUN_100b0090(0,0);\\n  param_1[2] = uVar2;\\n  param_1[3] = 0;\\n  *param_1 = _DAT_10135fb8;\\n  uVar2 = FUN_100b0a20(param_2);\\n  FUN_100b0ad0(param_1[2],uVar2,0);\\n  FUN_100b00e0(param_2);\\n  uVar2 = FUN_100b2410(*(undefined4 *)(*piVar1 + 0x4f4),0x15d);\\n  param_1[3] = uVar2;\\n  FUN_100b2710(uVar2,param_1[2]);\\n  return param_1;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+                "annotations": null,
+                "meta": null
+              }
+            ],
+            "structuredContent": {
+              "function": {
+                "name": "FUN_1000bfa0",
+                "address": "1000bfa0"
+              },
+              "code": "\n/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */\n\nundefined4 * FUN_1000bfa0(undefined4 *param_1,undefined4 param_2)\n\n{\n  int *piVar1;\n  undefined4 uVar2;\n  \n  piVar1 = _DAT_10136064;\n  *param_1 = _DAT_10136068;\n  *(undefined2 *)(param_1 + 1) = 1;\n  *(byte *)((int)param_1 + 6) = *(byte *)((int)param_1 + 6) & 0x3f;\n  FUN_100786a0(*piVar1,param_1,_DAT_10136978 + 0x8f0);\n  *param_1 = _DAT_10136060;\n  uVar2 = FUN_100b0090(0,0);\n  param_1[2] = uVar2;\n  param_1[3] = 0;\n  *param_1 = _DAT_10135fb8;\n  uVar2 = FUN_100b0a20(param_2);\n  FUN_100b0ad0(param_1[2],uVar2,0);\n  FUN_100b00e0(param_2);\n  uVar2 = FUN_100b2410(*(undefined4 *)(*piVar1 + 0x4f4),0x15d);\n  param_1[3] = uVar2;\n  FUN_100b2710(uVar2,param_1[2]);\n  return param_1;\n}\n\n",
+              "truncated": false
+            },
+            "isError": false
+          }
+        },
+        {
+          "tool": "decompile_function_by_address",
+          "arguments": {
+            "address": "1000c800"
+          },
+          "result": {
+            "meta": null,
+            "content": [
+              {
+                "type": "text",
+                "text": "{\n  \"function\": {\n    \"name\": \"FUN_1000c800\",\n    \"address\": \"1000c800\"\n  },\n  \"code\": \"\\n/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */\\n\\nundefined4 *\\nFUN_1000c800(undefined4 *param_1,undefined4 param_2,byte *param_3,byte *param_4,undefined4 param_5)\\n\\n{\\n  bool bVar1;\\n  int *piVar2;\\n  int iVar3;\\n  undefined4 uVar4;\\n  uint uVar5;\\n  byte *pbVar6;\\n  byte local_120;\\n  byte local_11f [259];\\n  \\n  iVar3 = _DAT_10136978;\\n  piVar2 = _DAT_10136064;\\n  *param_1 = _DAT_10136068;\\n  *(undefined2 *)(param_1 + 1) = 1;\\n  *(byte *)((int)param_1 + 6) = *(byte *)((int)param_1 + 6) & 0x3f;\\n  FUN_100786a0(*piVar2,param_1,iVar3 + 0x51);\\n  *param_1 = _DAT_10136060;\\n  uVar4 = FUN_100b0090(0,0);\\n  param_1[2] = uVar4;\\n  param_1[3] = 0;\\n  *param_1 = PTR_PTR_10135fac;\\n  FUN_100ff150(param_1 + 4,param_3);\\n  local_120 = FUN_100adb40(local_11f,0xff,iVar3 + 0x993,param_3);\\n  FUN_100797d0(*piVar2,param_1,1,2,&local_120);\\n  FUN_100ad220(&local_120,param_3,*param_3 + 1);\\n  uVar5 = (uint)local_120;\\n  pbVar6 = local_11f;\\n  while (bVar1 = uVar5 != 0, uVar5 = uVar5 - 1, bVar1) {\\n    *pbVar6 = ~*pbVar6;\\n    pbVar6 = pbVar6 + 1;\\n  }\\n  FUN_100b0800(param_1[2],0x69,&local_120);\\n  FUN_100ad220(&local_120,param_4,*param_4 + 1);\\n  if ((local_120 != 1) || (local_11f[0] != 0)) {\\n    uVar5 = (uint)local_120;\\n    pbVar6 = local_11f;\\n    while (bVar1 = uVar5 != 0, uVar5 = uVar5 - 1, bVar1) {\\n      *pbVar6 = ~*pbVar6;\\n      pbVar6 = pbVar6 + 1;\\n    }\\n  }\\n  FUN_100b0800(param_1[2],0x6a,&local_120);\\n  FUN_100b0800(param_1[2],0x66,param_2);\\n  FUN_100b05d0(param_1[2],0x6e,param_5,8);\\n  uVar4 = FUN_100b2410(*(undefined4 *)(*piVar2 + 0x4f4),0x161);\\n  param_1[3] = uVar4;\\n  FUN_100b2710(uVar4,param_1[2]);\\n  return param_1;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+                "annotations": null,
+                "meta": null
+              }
+            ],
+            "structuredContent": {
+              "function": {
+                "name": "FUN_1000c800",
+                "address": "1000c800"
+              },
+              "code": "\n/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */\n\nundefined4 *\nFUN_1000c800(undefined4 *param_1,undefined4 param_2,byte *param_3,byte *param_4,undefined4 param_5)\n\n{\n  bool bVar1;\n  int *piVar2;\n  int iVar3;\n  undefined4 uVar4;\n  uint uVar5;\n  byte *pbVar6;\n  byte local_120;\n  byte local_11f [259];\n  \n  iVar3 = _DAT_10136978;\n  piVar2 = _DAT_10136064;\n  *param_1 = _DAT_10136068;\n  *(undefined2 *)(param_1 + 1) = 1;\n  *(byte *)((int)param_1 + 6) = *(byte *)((int)param_1 + 6) & 0x3f;\n  FUN_100786a0(*piVar2,param_1,iVar3 + 0x51);\n  *param_1 = _DAT_10136060;\n  uVar4 = FUN_100b0090(0,0);\n  param_1[2] = uVar4;\n  param_1[3] = 0;\n  *param_1 = PTR_PTR_10135fac;\n  FUN_100ff150(param_1 + 4,param_3);\n  local_120 = FUN_100adb40(local_11f,0xff,iVar3 + 0x993,param_3);\n  FUN_100797d0(*piVar2,param_1,1,2,&local_120);\n  FUN_100ad220(&local_120,param_3,*param_3 + 1);\n  uVar5 = (uint)local_120;\n  pbVar6 = local_11f;\n  while (bVar1 = uVar5 != 0, uVar5 = uVar5 - 1, bVar1) {\n    *pbVar6 = ~*pbVar6;\n    pbVar6 = pbVar6 + 1;\n  }\n  FUN_100b0800(param_1[2],0x69,&local_120);\n  FUN_100ad220(&local_120,param_4,*param_4 + 1);\n  if ((local_120 != 1) || (local_11f[0] != 0)) {\n    uVar5 = (uint)local_120;\n    pbVar6 = local_11f;\n    while (bVar1 = uVar5 != 0, uVar5 = uVar5 - 1, bVar1) {\n      *pbVar6 = ~*pbVar6;\n      pbVar6 = pbVar6 + 1;\n    }\n  }\n  FUN_100b0800(param_1[2],0x6a,&local_120);\n  FUN_100b0800(param_1[2],0x66,param_2);\n  FUN_100b05d0(param_1[2],0x6e,param_5,8);\n  uVar4 = FUN_100b2410(*(undefined4 *)(*piVar2 + 0x4f4),0x161);\n  param_1[3] = uVar4;\n  FUN_100b2710(uVar4,param_1[2]);\n  return param_1;\n}\n\n",
+              "truncated": false
+            },
+            "isError": false
+          }
+        },
+        {
+          "tool": "get_program_info",
+          "arguments": {},
+          "result": {
+            "meta": null,
+            "content": [
+              {
+                "type": "text",
+                "text": "{\n  \"name\": \"Hotline Client 1.9.2 Classic\",\n  \"project_path\": \"/Hotline Client 1.9.2 Classic\",\n  \"executable_path\": \"/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic\",\n  \"executable_format\": \"Preferred Executable Format (PEF)\",\n  \"language_id\": \"PowerPC:BE:32:default\",\n  \"compiler_spec\": \"default\",\n  \"processor\": \"PowerPC\",\n  \"endian\": \"big\",\n  \"pointer_size\": 4,\n  \"image_base\": \"00000000\",\n  \"min_address\": \"10000000\",\n  \"max_address\": \"10163333\",\n  \"memory_size\": 1454890,\n  \"function_count\": 3564,\n  \"external_function_count\": 4,\n  \"entry_points\": [\n    \"101255e0\"\n  ],\n  \"md5\": \"794944a7ca16e70cc9b9624e8b58c6fc\",\n  \"sha256\": \"7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315\"\n}",
+                "annotations": null,
+                "meta": null
+              }
+            ],
+            "structuredContent": {
+              "name": "Hotline Client 1.9.2 Classic",
+              "project_path": "/Hotline Client 1.9.2 Classic",
+              "executable_path": "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+              "executable_format": "Preferred Executable Format (PEF)",
+              "language_id": "PowerPC:BE:32:default",
+              "compiler_spec": "default",
+              "processor": "PowerPC",
+              "endian": "big",
+              "pointer_size": 4,
+              "image_base": "00000000",
+              "min_address": "10000000",
+              "max_address": "10163333",
+              "memory_size": 1454890,
+              "function_count": 3564,
+              "external_function_count": 4,
+              "entry_points": [
+                "101255e0"
+              ],
+              "md5": "794944a7ca16e70cc9b9624e8b58c6fc",
+              "sha256": "7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315"
+            },
+            "isError": false
+          }
+        }
+      ],
+      "status": "complete",
+      "finished_at_utc": "2026-11-13T23:32:28.412768+00:00",
+      "elapsed_seconds": 7.89695290599775
+    },
+    {
+      "started_at_utc": "2026-11-13T23:32:43.040503+00:00",
+      "argv": [
+        "--headless",
+        "--binary",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+        "--project",
+        "/data/leynos/Projects/mothra/state/client-account-pef-01/project",
+        "--project-name",
+        "hotline-client-classic-01",
+        "--no-analyze",
+        "--discard",
+        "--language",
+        "PowerPC:BE:32:default",
+        "--compiler",
+        "default",
+        "--extension-jar",
+        "/data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar",
+        "--ready-timeout",
+        "120"
+      ],
+      "addresses": [
+        "100b0a20",
+        "100b0ad0"
+      ],
+      "queries": [
+        {
+          "tool": "get_program_info",
+          "arguments": {},
+          "result": {
+            "meta": null,
+            "content": [
+              {
+                "type": "text",
+                "text": "{\n  \"name\": \"Hotline Client 1.9.2 Classic\",\n  \"project_path\": \"/Hotline Client 1.9.2 Classic\",\n  \"executable_path\": \"/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic\",\n  \"executable_format\": \"Preferred Executable Format (PEF)\",\n  \"language_id\": \"PowerPC:BE:32:default\",\n  \"compiler_spec\": \"default\",\n  \"processor\": \"PowerPC\",\n  \"endian\": \"big\",\n  \"pointer_size\": 4,\n  \"image_base\": \"00000000\",\n  \"min_address\": \"10000000\",\n  \"max_address\": \"10163333\",\n  \"memory_size\": 1454890,\n  \"function_count\": 3564,\n  \"external_function_count\": 4,\n  \"entry_points\": [\n    \"101255e0\"\n  ],\n  \"md5\": \"794944a7ca16e70cc9b9624e8b58c6fc\",\n  \"sha256\": \"7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315\"\n}",
+                "annotations": null,
+                "meta": null
+              }
+            ],
+            "structuredContent": {
+              "name": "Hotline Client 1.9.2 Classic",
+              "project_path": "/Hotline Client 1.9.2 Classic",
+              "executable_path": "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+              "executable_format": "Preferred Executable Format (PEF)",
+              "language_id": "PowerPC:BE:32:default",
+              "compiler_spec": "default",
+              "processor": "PowerPC",
+              "endian": "big",
+              "pointer_size": 4,
+              "image_base": "00000000",
+              "min_address": "10000000",
+              "max_address": "10163333",
+              "memory_size": 1454890,
+              "function_count": 3564,
+              "external_function_count": 4,
+              "entry_points": [
+                "101255e0"
+              ],
+              "md5": "794944a7ca16e70cc9b9624e8b58c6fc",
+              "sha256": "7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315"
+            },
+            "isError": false
+          }
+        },
+        {
+          "tool": "decompile_function_by_address",
+          "arguments": {
+            "address": "100b0a20"
+          },
+          "result": {
+            "meta": null,
+            "content": [
+              {
+                "type": "text",
+                "text": "{\n  \"function\": {\n    \"name\": \"FUN_100b0a20\",\n    \"address\": \"100b0a20\"\n  },\n  \"code\": \"\\nint FUN_100b0a20(int *param_1)\\n\\n{\\n  int iVar1;\\n  \\n  if (param_1 == (int *)0x0) {\\n    FUN_1007d7e0(1,2);\\n  }\\n  iVar1 = *param_1;\\n  if (iVar1 == 0) {\\n    iVar1 = FUN_100ac590(param_1[1] + 2,0);\\n  }\\n  else {\\n    FUN_100ac3f0(param_1[2]);\\n    FUN_100ac3f0(param_1[3]);\\n    param_1[2] = 0;\\n    param_1[3] = 0;\\n    param_1[4] = 0;\\n    *(undefined2 *)(param_1 + 6) = 0;\\n    *param_1 = 0;\\n  }\\n  return iVar1;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+                "annotations": null,
+                "meta": null
+              }
+            ],
+            "structuredContent": {
+              "function": {
+                "name": "FUN_100b0a20",
+                "address": "100b0a20"
+              },
+              "code": "\nint FUN_100b0a20(int *param_1)\n\n{\n  int iVar1;\n  \n  if (param_1 == (int *)0x0) {\n    FUN_1007d7e0(1,2);\n  }\n  iVar1 = *param_1;\n  if (iVar1 == 0) {\n    iVar1 = FUN_100ac590(param_1[1] + 2,0);\n  }\n  else {\n    FUN_100ac3f0(param_1[2]);\n    FUN_100ac3f0(param_1[3]);\n    param_1[2] = 0;\n    param_1[3] = 0;\n    param_1[4] = 0;\n    *(undefined2 *)(param_1 + 6) = 0;\n    *param_1 = 0;\n  }\n  return iVar1;\n}\n\n",
+              "truncated": false
+            },
+            "isError": false
+          }
+        },
+        {
+          "tool": "decompile_function_by_address",
+          "arguments": {
+            "address": "100b0ad0"
+          },
+          "result": {
+            "meta": null,
+            "content": [
+              {
+                "type": "text",
+                "text": "{\n  \"function\": {\n    \"name\": \"FUN_100b0ad0\",\n    \"address\": \"100b0ad0\"\n  },\n  \"code\": \"\\nvoid FUN_100b0ad0(int *param_1,int param_2,int param_3)\\n\\n{\\n  if ((param_1 == (int *)0x0) || (param_2 == 0)) {\\n    FUN_1007d7e0(1,2);\\n  }\\n  FUN_100ac6f0(*param_1);\\n  FUN_100ac3f0(param_1[2]);\\n  FUN_100ac3f0(param_1[3]);\\n  param_1[2] = 0;\\n  param_1[3] = 0;\\n  param_1[4] = 0;\\n  *(undefined2 *)(param_1 + 6) = 0;\\n  *param_1 = param_2;\\n  param_1[1] = param_3;\\n  return;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+                "annotations": null,
+                "meta": null
+              }
+            ],
+            "structuredContent": {
+              "function": {
+                "name": "FUN_100b0ad0",
+                "address": "100b0ad0"
+              },
+              "code": "\nvoid FUN_100b0ad0(int *param_1,int param_2,int param_3)\n\n{\n  if ((param_1 == (int *)0x0) || (param_2 == 0)) {\n    FUN_1007d7e0(1,2);\n  }\n  FUN_100ac6f0(*param_1);\n  FUN_100ac3f0(param_1[2]);\n  FUN_100ac3f0(param_1[3]);\n  param_1[2] = 0;\n  param_1[3] = 0;\n  param_1[4] = 0;\n  *(undefined2 *)(param_1 + 6) = 0;\n  *param_1 = param_2;\n  param_1[1] = param_3;\n  return;\n}\n\n",
+              "truncated": false
+            },
+            "isError": false
+          }
+        },
+        {
+          "tool": "get_program_info",
+          "arguments": {},
+          "result": {
+            "meta": null,
+            "content": [
+              {
+                "type": "text",
+                "text": "{\n  \"name\": \"Hotline Client 1.9.2 Classic\",\n  \"project_path\": \"/Hotline Client 1.9.2 Classic\",\n  \"executable_path\": \"/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic\",\n  \"executable_format\": \"Preferred Executable Format (PEF)\",\n  \"language_id\": \"PowerPC:BE:32:default\",\n  \"compiler_spec\": \"default\",\n  \"processor\": \"PowerPC\",\n  \"endian\": \"big\",\n  \"pointer_size\": 4,\n  \"image_base\": \"00000000\",\n  \"min_address\": \"10000000\",\n  \"max_address\": \"10163333\",\n  \"memory_size\": 1454890,\n  \"function_count\": 3564,\n  \"external_function_count\": 4,\n  \"entry_points\": [\n    \"101255e0\"\n  ],\n  \"md5\": \"794944a7ca16e70cc9b9624e8b58c6fc\",\n  \"sha256\": \"7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315\"\n}",
+                "annotations": null,
+                "meta": null
+              }
+            ],
+            "structuredContent": {
+              "name": "Hotline Client 1.9.2 Classic",
+              "project_path": "/Hotline Client 1.9.2 Classic",
+              "executable_path": "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+              "executable_format": "Preferred Executable Format (PEF)",
+              "language_id": "PowerPC:BE:32:default",
+              "compiler_spec": "default",
+              "processor": "PowerPC",
+              "endian": "big",
+              "pointer_size": 4,
+              "image_base": "00000000",
+              "min_address": "10000000",
+              "max_address": "10163333",
+              "memory_size": 1454890,
+              "function_count": 3564,
+              "external_function_count": 4,
+              "entry_points": [
+                "101255e0"
+              ],
+              "md5": "794944a7ca16e70cc9b9624e8b58c6fc",
+              "sha256": "7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315"
+            },
+            "isError": false
+          }
+        }
+      ],
+      "status": "complete",
+      "finished_at_utc": "2026-11-13T23:32:50.990435+00:00",
+      "elapsed_seconds": 7.9502134430003935
+    },
+    {
+      "started_at_utc": "2026-11-13T23:33:27.483992+00:00",
+      "argv": [
+        "--headless",
+        "--binary",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+        "--project",
+        "/data/leynos/Projects/mothra/state/client-account-pef-01/project",
+        "--project-name",
+        "hotline-client-classic-01",
+        "--no-analyze",
+        "--discard",
+        "--language",
+        "PowerPC:BE:32:default",
+        "--compiler",
+        "default",
+        "--extension-jar",
+        "/data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar",
+        "--ready-timeout",
+        "120"
+      ],
+      "addresses": [
+        "callers:1000bfa0"
+      ],
+      "source_sha256": "9165acd3fb7a855e7e4efd93f5e83587cad22cd5d2386418a62582a79b52560f",
+      "queries": [
+        {
+          "tool": "get_program_info",
+          "arguments": {},
+          "result": {
+            "meta": null,
+            "content": [
+              {
+                "type": "text",
+                "text": "{\n  \"name\": \"Hotline Client 1.9.2 Classic\",\n  \"project_path\": \"/Hotline Client 1.9.2 Classic\",\n  \"executable_path\": \"/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic\",\n  \"executable_format\": \"Preferred Executable Format (PEF)\",\n  \"language_id\": \"PowerPC:BE:32:default\",\n  \"compiler_spec\": \"default\",\n  \"processor\": \"PowerPC\",\n  \"endian\": \"big\",\n  \"pointer_size\": 4,\n  \"image_base\": \"00000000\",\n  \"min_address\": \"10000000\",\n  \"max_address\": \"10163333\",\n  \"memory_size\": 1454890,\n  \"function_count\": 3564,\n  \"external_function_count\": 4,\n  \"entry_points\": [\n    \"101255e0\"\n  ],\n  \"md5\": \"794944a7ca16e70cc9b9624e8b58c6fc\",\n  \"sha256\": \"7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315\"\n}",
+                "annotations": null,
+                "meta": null
+              }
+            ],
+            "structuredContent": {
+              "name": "Hotline Client 1.9.2 Classic",
+              "project_path": "/Hotline Client 1.9.2 Classic",
+              "executable_path": "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+              "executable_format": "Preferred Executable Format (PEF)",
+              "language_id": "PowerPC:BE:32:default",
+              "compiler_spec": "default",
+              "processor": "PowerPC",
+              "endian": "big",
+              "pointer_size": 4,
+              "image_base": "00000000",
+              "min_address": "10000000",
+              "max_address": "10163333",
+              "memory_size": 1454890,
+              "function_count": 3564,
+              "external_function_count": 4,
+              "entry_points": [
+                "101255e0"
+              ],
+              "md5": "794944a7ca16e70cc9b9624e8b58c6fc",
+              "sha256": "7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315"
+            },
+            "isError": false
+          }
+        },
+        {
+          "tool": "get_function_calls",
+          "arguments": {
+            "address": "1000bfa0",
+            "direction": "callers",
+            "offset": 0,
+            "limit": 100
+          },
+          "result": {
+            "meta": null,
+            "content": [
+              {
+                "type": "text",
+                "text": "{\n  \"function\": {\n    \"name\": \"FUN_1000bfa0\",\n    \"address\": \"1000bfa0\"\n  },\n  \"callers\": {\n    \"items\": [\n      {\n        \"call_site\": \"10072280\",\n        \"caller\": {\n          \"name\": \"FUN_10072130\",\n          \"address\": \"10072130\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      },\n      {\n        \"call_site\": \"10071fc0\",\n        \"caller\": {\n          \"name\": \"FUN_10071ea0\",\n          \"address\": \"10071ea0\"\n        },\n        \"ref_type\": \"UNCONDITIONAL_CALL\",\n        \"direct\": true\n      }\n    ],\n    \"offset\": 0,\n    \"limit\": 100,\n    \"total\": 2,\n    \"has_more\": false\n  },\n  \"callees\": null\n}",
+                "annotations": null,
+                "meta": null
+              }
+            ],
+            "structuredContent": {
+              "function": {
+                "name": "FUN_1000bfa0",
+                "address": "1000bfa0"
+              },
+              "callers": {
+                "items": [
+                  {
+                    "call_site": "10072280",
+                    "caller": {
+                      "name": "FUN_10072130",
+                      "address": "10072130"
+                    },
+                    "ref_type": "UNCONDITIONAL_CALL",
+                    "direct": true
+                  },
+                  {
+                    "call_site": "10071fc0",
+                    "caller": {
+                      "name": "FUN_10071ea0",
+                      "address": "10071ea0"
+                    },
+                    "ref_type": "UNCONDITIONAL_CALL",
+                    "direct": true
+                  }
+                ],
+                "offset": 0,
+                "limit": 100,
+                "total": 2,
+                "has_more": false
+              },
+              "callees": null
+            },
+            "isError": false
+          }
+        },
+        {
+          "tool": "get_program_info",
+          "arguments": {},
+          "result": {
+            "meta": null,
+            "content": [
+              {
+                "type": "text",
+                "text": "{\n  \"name\": \"Hotline Client 1.9.2 Classic\",\n  \"project_path\": \"/Hotline Client 1.9.2 Classic\",\n  \"executable_path\": \"/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic\",\n  \"executable_format\": \"Preferred Executable Format (PEF)\",\n  \"language_id\": \"PowerPC:BE:32:default\",\n  \"compiler_spec\": \"default\",\n  \"processor\": \"PowerPC\",\n  \"endian\": \"big\",\n  \"pointer_size\": 4,\n  \"image_base\": \"00000000\",\n  \"min_address\": \"10000000\",\n  \"max_address\": \"10163333\",\n  \"memory_size\": 1454890,\n  \"function_count\": 3564,\n  \"external_function_count\": 4,\n  \"entry_points\": [\n    \"101255e0\"\n  ],\n  \"md5\": \"794944a7ca16e70cc9b9624e8b58c6fc\",\n  \"sha256\": \"7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315\"\n}",
+                "annotations": null,
+                "meta": null
+              }
+            ],
+            "structuredContent": {
+              "name": "Hotline Client 1.9.2 Classic",
+              "project_path": "/Hotline Client 1.9.2 Classic",
+              "executable_path": "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+              "executable_format": "Preferred Executable Format (PEF)",
+              "language_id": "PowerPC:BE:32:default",
+              "compiler_spec": "default",
+              "processor": "PowerPC",
+              "endian": "big",
+              "pointer_size": 4,
+              "image_base": "00000000",
+              "min_address": "10000000",
+              "max_address": "10163333",
+              "memory_size": 1454890,
+              "function_count": 3564,
+              "external_function_count": 4,
+              "entry_points": [
+                "101255e0"
+              ],
+              "md5": "794944a7ca16e70cc9b9624e8b58c6fc",
+              "sha256": "7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315"
+            },
+            "isError": false
+          }
+        }
+      ],
+      "status": "complete",
+      "finished_at_utc": "2026-11-13T23:33:34.887126+00:00",
+      "elapsed_seconds": 7.403502604000096
+    },
+    {
+      "started_at_utc": "2026-11-13T23:33:43.025576+00:00",
+      "argv": [
+        "--headless",
+        "--binary",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+        "--project",
+        "/data/leynos/Projects/mothra/state/client-account-pef-01/project",
+        "--project-name",
+        "hotline-client-classic-01",
+        "--no-analyze",
+        "--discard",
+        "--language",
+        "PowerPC:BE:32:default",
+        "--compiler",
+        "default",
+        "--extension-jar",
+        "/data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar",
+        "--ready-timeout",
+        "120"
+      ],
+      "addresses": [
+        "10072130",
+        "10071ea0"
+      ],
+      "source_sha256": "9165acd3fb7a855e7e4efd93f5e83587cad22cd5d2386418a62582a79b52560f",
+      "queries": [
+        {
+          "tool": "get_program_info",
+          "arguments": {},
+          "result": {
+            "meta": null,
+            "content": [
+              {
+                "type": "text",
+                "text": "{\n  \"name\": \"Hotline Client 1.9.2 Classic\",\n  \"project_path\": \"/Hotline Client 1.9.2 Classic\",\n  \"executable_path\": \"/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic\",\n  \"executable_format\": \"Preferred Executable Format (PEF)\",\n  \"language_id\": \"PowerPC:BE:32:default\",\n  \"compiler_spec\": \"default\",\n  \"processor\": \"PowerPC\",\n  \"endian\": \"big\",\n  \"pointer_size\": 4,\n  \"image_base\": \"00000000\",\n  \"min_address\": \"10000000\",\n  \"max_address\": \"10163333\",\n  \"memory_size\": 1454890,\n  \"function_count\": 3564,\n  \"external_function_count\": 4,\n  \"entry_points\": [\n    \"101255e0\"\n  ],\n  \"md5\": \"794944a7ca16e70cc9b9624e8b58c6fc\",\n  \"sha256\": \"7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315\"\n}",
+                "annotations": null,
+                "meta": null
+              }
+            ],
+            "structuredContent": {
+              "name": "Hotline Client 1.9.2 Classic",
+              "project_path": "/Hotline Client 1.9.2 Classic",
+              "executable_path": "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+              "executable_format": "Preferred Executable Format (PEF)",
+              "language_id": "PowerPC:BE:32:default",
+              "compiler_spec": "default",
+              "processor": "PowerPC",
+              "endian": "big",
+              "pointer_size": 4,
+              "image_base": "00000000",
+              "min_address": "10000000",
+              "max_address": "10163333",
+              "memory_size": 1454890,
+              "function_count": 3564,
+              "external_function_count": 4,
+              "entry_points": [
+                "101255e0"
+              ],
+              "md5": "794944a7ca16e70cc9b9624e8b58c6fc",
+              "sha256": "7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315"
+            },
+            "isError": false
+          }
+        },
+        {
+          "tool": "decompile_function_by_address",
+          "arguments": {
+            "address": "10072130"
+          },
+          "result": {
+            "meta": null,
+            "content": [
+              {
+                "type": "text",
+                "text": "{\n  \"function\": {\n    \"name\": \"FUN_10072130\",\n    \"address\": \"10072130\"\n  },\n  \"code\": \"\\n/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */\\n\\nvoid FUN_10072130(int param_1)\\n\\n{\\n  bool bVar1;\\n  char cVar5;\\n  short sVar4;\\n  int iVar2;\\n  undefined4 uVar3;\\n  undefined4 local_50;\\n  undefined4 local_4c;\\n  undefined4 local_48;\\n  undefined4 local_44;\\n  undefined1 local_40;\\n  undefined1 local_3f;\\n  undefined1 local_3e;\\n  undefined2 local_3c [2];\\n  undefined2 local_38;\\n  int local_30;\\n  int local_2c;\\n  ushort local_28;\\n  int local_21;\\n  int local_1d;\\n  int local_19;\\n  \\n  iVar2 = _DAT_10136a34;\\n  if (*(int *)(param_1 + 0x9f0) == 0) {\\n    return;\\n  }\\n  bVar1 = false;\\n  if ((*(char *)(param_1 + 0x744) < '\\\\0') && ((*(byte *)(param_1 + 0x744) >> 6 & 1) != 0)) {\\n    bVar1 = true;\\n  }\\n  if ((bVar1) && (cVar5 = FUN_10062f00(*(undefined4 *)(param_1 + 0x9f0)), cVar5 != '\\\\0')) {\\n    FUN_100c8540(local_3c,0x27);\\n    local_3c[0] = 0x3ea;\\n    local_38 = 1;\\n    local_30 = iVar2 + 0xf68;\\n    local_28 = (ushort)*(byte *)(iVar2 + 0xeee);\\n    local_2c = iVar2 + 0xeef;\\n    local_21 = iVar2 + 0xf0a;\\n    local_1d = iVar2 + 0xf6e;\\n    local_19 = iVar2 + 0x2af;\\n    sVar4 = FUN_100a9bb0(local_3c);\\n    if (sVar4 == 3) {\\n      return;\\n    }\\n    if (sVar4 == 1) {\\n      if ((((*(byte *)(param_1 + 0x96d) >> 1 & 1) == 0) &&\\n          ((*(byte *)(param_1 + 0x96e) >> 6 & 1) == 0)) && ((*(byte *)(param_1 + 0x96d) & 1) == 0))\\n      {\\n        FUN_1007ec10();\\n        FUN_100aa6f0(iVar2 + 0x250,iVar2 + 0xebb,0x3ea,1,0);\\n      }\\n      else {\\n        iVar2 = FUN_100c8a50(0x10);\\n        if (iVar2 != 0) {\\n          uVar3 = FUN_10062e70(*(undefined4 *)(param_1 + 0x9f0));\\n          FUN_1000bfa0(iVar2,uVar3);\\n        }\\n      }\\n    }\\n  }\\n  FUN_10062db0(*(undefined4 *)(param_1 + 0x9f0),&local_50);\\n  *(undefined4 *)(param_1 + 0x8f8) = local_50;\\n  *(undefined4 *)(param_1 + 0x8fc) = local_4c;\\n  *(undefined4 *)(param_1 + 0x900) = local_48;\\n  *(undefined4 *)(param_1 + 0x904) = local_44;\\n  *(undefined1 *)(param_1 + 0x958) = local_40;\\n  *(undefined1 *)(param_1 + 0x95c) = local_3f;\\n  *(undefined1 *)(param_1 + 0x95d) = local_3e;\\n  if (*(int *)(param_1 + 0x9f0) != 0) {\\n    FUN_10128290(*(int *)(param_1 + 0x9f0),1);\\n  }\\n  *(undefined4 *)(param_1 + 0x9f0) = 0;\\n  return;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+                "annotations": null,
+                "meta": null
+              }
+            ],
+            "structuredContent": {
+              "function": {
+                "name": "FUN_10072130",
+                "address": "10072130"
+              },
+              "code": "\n/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */\n\nvoid FUN_10072130(int param_1)\n\n{\n  bool bVar1;\n  char cVar5;\n  short sVar4;\n  int iVar2;\n  undefined4 uVar3;\n  undefined4 local_50;\n  undefined4 local_4c;\n  undefined4 local_48;\n  undefined4 local_44;\n  undefined1 local_40;\n  undefined1 local_3f;\n  undefined1 local_3e;\n  undefined2 local_3c [2];\n  undefined2 local_38;\n  int local_30;\n  int local_2c;\n  ushort local_28;\n  int local_21;\n  int local_1d;\n  int local_19;\n  \n  iVar2 = _DAT_10136a34;\n  if (*(int *)(param_1 + 0x9f0) == 0) {\n    return;\n  }\n  bVar1 = false;\n  if ((*(char *)(param_1 + 0x744) < '\\0') && ((*(byte *)(param_1 + 0x744) >> 6 & 1) != 0)) {\n    bVar1 = true;\n  }\n  if ((bVar1) && (cVar5 = FUN_10062f00(*(undefined4 *)(param_1 + 0x9f0)), cVar5 != '\\0')) {\n    FUN_100c8540(local_3c,0x27);\n    local_3c[0] = 0x3ea;\n    local_38 = 1;\n    local_30 = iVar2 + 0xf68;\n    local_28 = (ushort)*(byte *)(iVar2 + 0xeee);\n    local_2c = iVar2 + 0xeef;\n    local_21 = iVar2 + 0xf0a;\n    local_1d = iVar2 + 0xf6e;\n    local_19 = iVar2 + 0x2af;\n    sVar4 = FUN_100a9bb0(local_3c);\n    if (sVar4 == 3) {\n      return;\n    }\n    if (sVar4 == 1) {\n      if ((((*(byte *)(param_1 + 0x96d) >> 1 & 1) == 0) &&\n          ((*(byte *)(param_1 + 0x96e) >> 6 & 1) == 0)) && ((*(byte *)(param_1 + 0x96d) & 1) == 0))\n      {\n        FUN_1007ec10();\n        FUN_100aa6f0(iVar2 + 0x250,iVar2 + 0xebb,0x3ea,1,0);\n      }\n      else {\n        iVar2 = FUN_100c8a50(0x10);\n        if (iVar2 != 0) {\n          uVar3 = FUN_10062e70(*(undefined4 *)(param_1 + 0x9f0));\n          FUN_1000bfa0(iVar2,uVar3);\n        }\n      }\n    }\n  }\n  FUN_10062db0(*(undefined4 *)(param_1 + 0x9f0),&local_50);\n  *(undefined4 *)(param_1 + 0x8f8) = local_50;\n  *(undefined4 *)(param_1 + 0x8fc) = local_4c;\n  *(undefined4 *)(param_1 + 0x900) = local_48;\n  *(undefined4 *)(param_1 + 0x904) = local_44;\n  *(undefined1 *)(param_1 + 0x958) = local_40;\n  *(undefined1 *)(param_1 + 0x95c) = local_3f;\n  *(undefined1 *)(param_1 + 0x95d) = local_3e;\n  if (*(int *)(param_1 + 0x9f0) != 0) {\n    FUN_10128290(*(int *)(param_1 + 0x9f0),1);\n  }\n  *(undefined4 *)(param_1 + 0x9f0) = 0;\n  return;\n}\n\n",
+              "truncated": false
+            },
+            "isError": false
+          }
+        },
+        {
+          "tool": "decompile_function_by_address",
+          "arguments": {
+            "address": "10071ea0"
+          },
+          "result": {
+            "meta": null,
+            "content": [
+              {
+                "type": "text",
+                "text": "{\n  \"function\": {\n    \"name\": \"FUN_10071ea0\",\n    \"address\": \"10071ea0\"\n  },\n  \"code\": \"\\n/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */\\n\\nvoid FUN_10071ea0(int param_1)\\n\\n{\\n  char cVar4;\\n  short sVar3;\\n  int iVar1;\\n  undefined4 uVar2;\\n  undefined2 local_40 [2];\\n  undefined2 local_3c;\\n  int local_34;\\n  int local_30;\\n  ushort local_2c;\\n  int local_25;\\n  int local_21;\\n  \\n  iVar1 = _DAT_10136a34;\\n  if (*(int *)(param_1 + 0x9f0) != 0) {\\n    if ((((*(byte *)(param_1 + 0x96d) >> 1 & 1) == 0) &&\\n        ((*(byte *)(param_1 + 0x96e) >> 6 & 1) == 0)) && ((*(byte *)(param_1 + 0x96d) & 1) == 0)) {\\n      FUN_1007ec10();\\n      FUN_100aa6f0(iVar1 + 0x250,iVar1 + 0xebb,0x3ea,1,0);\\n      return;\\n    }\\n    cVar4 = FUN_10062f00(*(undefined4 *)(param_1 + 0x9f0));\\n    if (cVar4 == '\\\\0') {\\n      FUN_1007ec10();\\n      FUN_100aa6f0(iVar1 + 0xf0a,iVar1 + 0xf0f,1000,1,0);\\n    }\\n    else {\\n      FUN_100c8540(local_40,0x27);\\n      local_40[0] = 0x3ea;\\n      local_3c = 1;\\n      local_34 = iVar1 + 0xf0a;\\n      local_2c = (ushort)*(byte *)(iVar1 + 0xeee);\\n      local_30 = iVar1 + 0xeef;\\n      local_25 = iVar1 + 0xf0a;\\n      local_21 = iVar1 + 0x2af;\\n      sVar3 = FUN_100a9bb0(local_40);\\n      if ((sVar3 != 2) && (sVar3 == 1)) {\\n        iVar1 = FUN_100c8a50(0x10);\\n        if (iVar1 != 0) {\\n          uVar2 = FUN_10062e70(*(undefined4 *)(param_1 + 0x9f0));\\n          FUN_1000bfa0(iVar1,uVar2);\\n        }\\n        if (-1 < *(char *)(param_1 + 0x96e)) {\\n          FUN_10062e20(*(undefined4 *)(param_1 + 0x9f0),0);\\n        }\\n      }\\n    }\\n  }\\n  return;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+                "annotations": null,
+                "meta": null
+              }
+            ],
+            "structuredContent": {
+              "function": {
+                "name": "FUN_10071ea0",
+                "address": "10071ea0"
+              },
+              "code": "\n/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */\n\nvoid FUN_10071ea0(int param_1)\n\n{\n  char cVar4;\n  short sVar3;\n  int iVar1;\n  undefined4 uVar2;\n  undefined2 local_40 [2];\n  undefined2 local_3c;\n  int local_34;\n  int local_30;\n  ushort local_2c;\n  int local_25;\n  int local_21;\n  \n  iVar1 = _DAT_10136a34;\n  if (*(int *)(param_1 + 0x9f0) != 0) {\n    if ((((*(byte *)(param_1 + 0x96d) >> 1 & 1) == 0) &&\n        ((*(byte *)(param_1 + 0x96e) >> 6 & 1) == 0)) && ((*(byte *)(param_1 + 0x96d) & 1) == 0)) {\n      FUN_1007ec10();\n      FUN_100aa6f0(iVar1 + 0x250,iVar1 + 0xebb,0x3ea,1,0);\n      return;\n    }\n    cVar4 = FUN_10062f00(*(undefined4 *)(param_1 + 0x9f0));\n    if (cVar4 == '\\0') {\n      FUN_1007ec10();\n      FUN_100aa6f0(iVar1 + 0xf0a,iVar1 + 0xf0f,1000,1,0);\n    }\n    else {\n      FUN_100c8540(local_40,0x27);\n      local_40[0] = 0x3ea;\n      local_3c = 1;\n      local_34 = iVar1 + 0xf0a;\n      local_2c = (ushort)*(byte *)(iVar1 + 0xeee);\n      local_30 = iVar1 + 0xeef;\n      local_25 = iVar1 + 0xf0a;\n      local_21 = iVar1 + 0x2af;\n      sVar3 = FUN_100a9bb0(local_40);\n      if ((sVar3 != 2) && (sVar3 == 1)) {\n        iVar1 = FUN_100c8a50(0x10);\n        if (iVar1 != 0) {\n          uVar2 = FUN_10062e70(*(undefined4 *)(param_1 + 0x9f0));\n          FUN_1000bfa0(iVar1,uVar2);\n        }\n        if (-1 < *(char *)(param_1 + 0x96e)) {\n          FUN_10062e20(*(undefined4 *)(param_1 + 0x9f0),0);\n        }\n      }\n    }\n  }\n  return;\n}\n\n",
+              "truncated": false
+            },
+            "isError": false
+          }
+        },
+        {
+          "tool": "get_program_info",
+          "arguments": {},
+          "result": {
+            "meta": null,
+            "content": [
+              {
+                "type": "text",
+                "text": "{\n  \"name\": \"Hotline Client 1.9.2 Classic\",\n  \"project_path\": \"/Hotline Client 1.9.2 Classic\",\n  \"executable_path\": \"/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic\",\n  \"executable_format\": \"Preferred Executable Format (PEF)\",\n  \"language_id\": \"PowerPC:BE:32:default\",\n  \"compiler_spec\": \"default\",\n  \"processor\": \"PowerPC\",\n  \"endian\": \"big\",\n  \"pointer_size\": 4,\n  \"image_base\": \"00000000\",\n  \"min_address\": \"10000000\",\n  \"max_address\": \"10163333\",\n  \"memory_size\": 1454890,\n  \"function_count\": 3564,\n  \"external_function_count\": 4,\n  \"entry_points\": [\n    \"101255e0\"\n  ],\n  \"md5\": \"794944a7ca16e70cc9b9624e8b58c6fc\",\n  \"sha256\": \"7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315\"\n}",
+                "annotations": null,
+                "meta": null
+              }
+            ],
+            "structuredContent": {
+              "name": "Hotline Client 1.9.2 Classic",
+              "project_path": "/Hotline Client 1.9.2 Classic",
+              "executable_path": "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+              "executable_format": "Preferred Executable Format (PEF)",
+              "language_id": "PowerPC:BE:32:default",
+              "compiler_spec": "default",
+              "processor": "PowerPC",
+              "endian": "big",
+              "pointer_size": 4,
+              "image_base": "00000000",
+              "min_address": "10000000",
+              "max_address": "10163333",
+              "memory_size": 1454890,
+              "function_count": 3564,
+              "external_function_count": 4,
+              "entry_points": [
+                "101255e0"
+              ],
+              "md5": "794944a7ca16e70cc9b9624e8b58c6fc",
+              "sha256": "7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315"
+            },
+            "isError": false
+          }
+        }
+      ],
+      "status": "complete",
+      "finished_at_utc": "2026-11-13T23:33:52.811639+00:00",
+      "elapsed_seconds": 9.786647027998697
+    },
+    {
+      "started_at_utc": "2026-11-13T23:34:04.808424+00:00",
+      "argv": [
+        "--headless",
+        "--binary",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+        "--project",
+        "/data/leynos/Projects/mothra/state/client-account-pef-01/project",
+        "--project-name",
+        "hotline-client-classic-01",
+        "--no-analyze",
+        "--discard",
+        "--language",
+        "PowerPC:BE:32:default",
+        "--compiler",
+        "default",
+        "--extension-jar",
+        "/data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar",
+        "--ready-timeout",
+        "120"
+      ],
+      "addresses": [
+        "10062e70"
+      ],
+      "source_sha256": "9165acd3fb7a855e7e4efd93f5e83587cad22cd5d2386418a62582a79b52560f",
+      "queries": [
+        {
+          "tool": "get_program_info",
+          "arguments": {},
+          "result": {
+            "meta": null,
+            "content": [
+              {
+                "type": "text",
+                "text": "{\n  \"name\": \"Hotline Client 1.9.2 Classic\",\n  \"project_path\": \"/Hotline Client 1.9.2 Classic\",\n  \"executable_path\": \"/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic\",\n  \"executable_format\": \"Preferred Executable Format (PEF)\",\n  \"language_id\": \"PowerPC:BE:32:default\",\n  \"compiler_spec\": \"default\",\n  \"processor\": \"PowerPC\",\n  \"endian\": \"big\",\n  \"pointer_size\": 4,\n  \"image_base\": \"00000000\",\n  \"min_address\": \"10000000\",\n  \"max_address\": \"10163333\",\n  \"memory_size\": 1454890,\n  \"function_count\": 3564,\n  \"external_function_count\": 4,\n  \"entry_points\": [\n    \"101255e0\"\n  ],\n  \"md5\": \"794944a7ca16e70cc9b9624e8b58c6fc\",\n  \"sha256\": \"7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315\"\n}",
+                "annotations": null,
+                "meta": null
+              }
+            ],
+            "structuredContent": {
+              "name": "Hotline Client 1.9.2 Classic",
+              "project_path": "/Hotline Client 1.9.2 Classic",
+              "executable_path": "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+              "executable_format": "Preferred Executable Format (PEF)",
+              "language_id": "PowerPC:BE:32:default",
+              "compiler_spec": "default",
+              "processor": "PowerPC",
+              "endian": "big",
+              "pointer_size": 4,
+              "image_base": "00000000",
+              "min_address": "10000000",
+              "max_address": "10163333",
+              "memory_size": 1454890,
+              "function_count": 3564,
+              "external_function_count": 4,
+              "entry_points": [
+                "101255e0"
+              ],
+              "md5": "794944a7ca16e70cc9b9624e8b58c6fc",
+              "sha256": "7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315"
+            },
+            "isError": false
+          }
+        },
+        {
+          "tool": "decompile_function_by_address",
+          "arguments": {
+            "address": "10062e70"
+          },
+          "result": {
+            "meta": null,
+            "content": [
+              {
+                "type": "text",
+                "text": "{\n  \"function\": {\n    \"name\": \"FUN_10062e70\",\n    \"address\": \"10062e70\"\n  },\n  \"code\": \"\\nundefined4 FUN_10062e70(int param_1)\\n\\n{\\n  undefined4 uVar1;\\n  \\n  uVar1 = FUN_1005b5b0(*(undefined4 *)(param_1 + 0x30));\\n  FUN_100632a0(param_1);\\n  return uVar1;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+                "annotations": null,
+                "meta": null
+              }
+            ],
+            "structuredContent": {
+              "function": {
+                "name": "FUN_10062e70",
+                "address": "10062e70"
+              },
+              "code": "\nundefined4 FUN_10062e70(int param_1)\n\n{\n  undefined4 uVar1;\n  \n  uVar1 = FUN_1005b5b0(*(undefined4 *)(param_1 + 0x30));\n  FUN_100632a0(param_1);\n  return uVar1;\n}\n\n",
+              "truncated": false
+            },
+            "isError": false
+          }
+        },
+        {
+          "tool": "get_program_info",
+          "arguments": {},
+          "result": {
+            "meta": null,
+            "content": [
+              {
+                "type": "text",
+                "text": "{\n  \"name\": \"Hotline Client 1.9.2 Classic\",\n  \"project_path\": \"/Hotline Client 1.9.2 Classic\",\n  \"executable_path\": \"/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic\",\n  \"executable_format\": \"Preferred Executable Format (PEF)\",\n  \"language_id\": \"PowerPC:BE:32:default\",\n  \"compiler_spec\": \"default\",\n  \"processor\": \"PowerPC\",\n  \"endian\": \"big\",\n  \"pointer_size\": 4,\n  \"image_base\": \"00000000\",\n  \"min_address\": \"10000000\",\n  \"max_address\": \"10163333\",\n  \"memory_size\": 1454890,\n  \"function_count\": 3564,\n  \"external_function_count\": 4,\n  \"entry_points\": [\n    \"101255e0\"\n  ],\n  \"md5\": \"794944a7ca16e70cc9b9624e8b58c6fc\",\n  \"sha256\": \"7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315\"\n}",
+                "annotations": null,
+                "meta": null
+              }
+            ],
+            "structuredContent": {
+              "name": "Hotline Client 1.9.2 Classic",
+              "project_path": "/Hotline Client 1.9.2 Classic",
+              "executable_path": "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+              "executable_format": "Preferred Executable Format (PEF)",
+              "language_id": "PowerPC:BE:32:default",
+              "compiler_spec": "default",
+              "processor": "PowerPC",
+              "endian": "big",
+              "pointer_size": 4,
+              "image_base": "00000000",
+              "min_address": "10000000",
+              "max_address": "10163333",
+              "memory_size": 1454890,
+              "function_count": 3564,
+              "external_function_count": 4,
+              "entry_points": [
+                "101255e0"
+              ],
+              "md5": "794944a7ca16e70cc9b9624e8b58c6fc",
+              "sha256": "7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315"
+            },
+            "isError": false
+          }
+        }
+      ],
+      "status": "complete",
+      "finished_at_utc": "2026-11-13T23:34:12.781515+00:00",
+      "elapsed_seconds": 7.973522975000378
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "mothra-native-liveness-c92-lease.service": {
+    "properties": {
+      "ActiveState": "active",
+      "ActiveEnterTimestamp": "Sat 2026-11-14 08:05:17 GMT",
+      "RuntimeMaxUSec": "15min",
+      "RemainAfterExit": "yes",
+      "MainPID": "1219462"
+    },
+    "earliest_runtime_end_utc": "2026-11-14T08:20:17+00:00",
+    "coverage_utc": "2026-11-14T08:17:16.974963+00:00",
+    "covers_plus5": true
+  },
+  "mothra-native-liveness-c92-host.service": {
+    "properties": {
+      "ActiveState": "active",
+      "ActiveEnterTimestamp": "Sat 2026-11-14 08:05:33 GMT",
+      "RuntimeMaxUSec": "15min",
+      "RemainAfterExit": "yes",
+      "MainPID": "1220710"
+    },
+    "earliest_runtime_end_utc": "2026-11-14T08:20:33+00:00",
+    "coverage_utc": "2026-11-14T08:17:16.974963+00:00",
+    "covers_plus5": true
+  },
+  "mothra-native-liveness-c92-namespace.service": {
+    "properties": {
+      "ActiveState": "active",
+      "ActiveEnterTimestamp": "Sat 2026-11-14 08:06:43 GMT",
+      "RuntimeMaxUSec": "15min",
+      "RemainAfterExit": "yes",
+      "MainPID": "1227790"
+    },
+    "earliest_runtime_end_utc": "2026-11-14T08:21:43+00:00",
+    "coverage_utc": "2026-11-14T08:17:16.974963+00:00",
+    "covers_plus5": true
+  }
+}

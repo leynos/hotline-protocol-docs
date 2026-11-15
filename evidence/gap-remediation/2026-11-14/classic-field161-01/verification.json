@@ -1,0 +1,74 @@
+{
+  "a7": {
+    "actions_each": 29,
+    "accounts": 2,
+    "files": 41,
+    "filp_sha256": "7d1f5bf5e2b69b8a18906633ce2ef550876b78252c0639e7d36eb61142787ab8"
+  },
+  "capture": {
+    "readiness_checks": 10,
+    "recorder_pids": [
+      3394965,
+      3394975
+    ],
+    "journals_zero_drops": true
+  },
+  "cases": {
+    "omit-161": {
+      "streams": {
+        "control": {
+          "client_bytes": 150,
+          "raw_server_bytes": 514,
+          "forwarded_server_bytes": 508
+        },
+        "data": {
+          "client_bytes": 16,
+          "raw_server_bytes": 58,
+          "forwarded_server_bytes": 58
+        }
+      },
+      "ack_fields": {
+        "160": "00be"
+      },
+      "teardown_seconds": 28.281546
+    },
+    "one-byte-161": {
+      "streams": {
+        "control": {
+          "client_bytes": 150,
+          "raw_server_bytes": 514,
+          "forwarded_server_bytes": 513
+        },
+        "data": {
+          "client_bytes": 16,
+          "raw_server_bytes": 58,
+          "forwarded_server_bytes": 58
+        }
+      },
+      "ack_fields": {
+        "160": "00be",
+        "161": "00"
+      },
+      "teardown_seconds": 28.089096
+    },
+    "four-byte-161": {
+      "streams": {
+        "control": {
+          "client_bytes": 150,
+          "raw_server_bytes": 514,
+          "forwarded_server_bytes": 516
+        },
+        "data": {
+          "client_bytes": 16,
+          "raw_server_bytes": 58,
+          "forwarded_server_bytes": 58
+        }
+      },
+      "ack_fields": {
+        "160": "00be",
+        "161": "00000000"
+      },
+      "teardown_seconds": 28.247957
+    }
+  }
+}

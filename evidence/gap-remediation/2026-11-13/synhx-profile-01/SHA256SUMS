@@ -1,0 +1,16 @@
+e9f2c03a162be579ca739e64a8e9156f0e2377cb314e48acf561bc4671ab5eb1  evidence/gap-remediation/2026-11-13/synhx-profile-01/archives/README.rcs
+b49334ba6c6dbccf085dee776316f94fdbb6f88f8350be30ac5a7762bbb74a96  evidence/gap-remediation/2026-11-13/synhx-profile-01/archives/acconfig.h.rcs
+b0df3984d4ed08ffdd4f674b27e90f6d2d0fe1c35b2b79b26c400b33289b4037  evidence/gap-remediation/2026-11-13/synhx-profile-01/archives/config.h.in.rcs
+4c2aa721c99b6aa41dbdd6eab2a996e18ed37f13d3d271ad4d6eb06390f79ecc  evidence/gap-remediation/2026-11-13/synhx-profile-01/archives/configure.in.rcs
+09cf807bb13d920ee84d30d8223563e83da175d389657b9b70d92e270aa8b3f3  evidence/gap-remediation/2026-11-13/synhx-profile-01/archives/hxd_config.c.rcs
+aa10c9678e0a43bebdd7a8154f27dde7094081102a84d62ccac6012881454c84  evidence/gap-remediation/2026-11-13/synhx-profile-01/archives/version.c.rcs
+cc632cddb392ee6b71d0fe7329f0d297a75203e437e127d4a987e451b0e4d011  evidence/gap-remediation/2026-11-13/synhx-profile-01/manifest.json
+6741ed6182db7c191128763ffce322d7355d6d1bb0657edb9fef8807267884f0  evidence/gap-remediation/2026-11-13/synhx-profile-01/selected/README.txt
+732d833e3bad03823b75be7dc4584172c1b71232b408e55fe534ec5532d413a0  evidence/gap-remediation/2026-11-13/synhx-profile-01/selected/acconfig.h.txt
+be454f87cbdf2dca9bec343ebfb7b058aa70c04a2df34db4134711b8f85f7842  evidence/gap-remediation/2026-11-13/synhx-profile-01/selected/config.h.in.txt
+0ad146458015f167d44f1614c37f343f3ab84912ce396aa749b58e926f379db3  evidence/gap-remediation/2026-11-13/synhx-profile-01/selected/configure.in.txt
+e8b4603d90c85c12a2f750203960f1185a41052b4614af5f8ac274d786ce2ebf  evidence/gap-remediation/2026-11-13/synhx-profile-01/selected/hxd_config.c.txt
+d7b43a0fac74c159fb1e7c5dee01d85ebb8b921ecc79ef540f7ba3652ccbd959  evidence/gap-remediation/2026-11-13/synhx-profile-01/selected/version.c.txt
+d36c2e8e36fd4bf47806285983fb3fb1c98f8d2e903b282b0e41b3d65532a778  evidence/gap-remediation/2026-11-13/synhx-profile-01/sources/test_synhx_profiles.py.as-run.txt
+409414a58daefb568970f8d4ca6c4dc781ec246d78a292f96cf488ec2c4899e1  evidence/gap-remediation/2026-11-13/synhx-profile-01/sources/verify-synhx-profiles.py.as-run.txt
+11e2921f501f436401a3b30b0ee1d62f72f335a58750bc3bc31190d14f5dd901  evidence/gap-remediation/2026-11-13/synhx-profile-01/verification.json

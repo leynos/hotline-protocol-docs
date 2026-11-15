@@ -1,0 +1,28 @@
+{
+  "index": 9,
+  "label": "global-image",
+  "tool": "read_memory",
+  "arguments": {
+    "address": "10094a50",
+    "length": 4
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"address\": \"10094a50\",\n  \"length\": 4,\n  \"hex\": \"00 20 00 00\",\n  \"ascii\": \". ..\",\n  \"gaps\": []\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "address": "10094a50",
+      "length": 4,
+      "hex": "00 20 00 00",
+      "ascii": ". ..",
+      "gaps": []
+    },
+    "isError": false
+  }
+}

@@ -1,0 +1,6 @@
+Running as unit: mothra-native-alias-live-02-lease.service
+Running as unit: mothra-native-alias-live-02-host.service
+Running as unit: mothra-display-3e7df46d01c6.service; invocation ID: b24b340412494f439fe684ff88b92165
+Running as unit: mothra-bridge-77c93d1506ca.service; invocation ID: 5c03a8c0036c420dbe03d8cf33c17ed4
+Running as unit: mothra-xbridge-77c93d1506ca.service; invocation ID: 38cf02f32aeb44cd88a660020d13bac1
+Running as unit: mothra-sheep-44f0b1e89a64.service; invocation ID: adb36e55ec1147f28796d8fc78018412

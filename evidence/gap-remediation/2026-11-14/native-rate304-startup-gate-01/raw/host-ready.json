@@ -1,0 +1,21 @@
+{
+  "utc": "2026-11-14T11:09:11.516188+00:00",
+  "unit": "mothra-native-rate304-r02-host.service",
+  "pid": 2626419,
+  "start_ticks": 7925650,
+  "netns_inode": 4026531840,
+  "fd": 5,
+  "capture": "/data/leynos/Projects/mothra/state/native-sessions/native-rate304-epoch-02/primary-syn.pcap",
+  "dev": 2097,
+  "inode": 82874056,
+  "header24": "d4c3b2a10200040000000000000000000000040001000000",
+  "deadline_utc": "2026-11-14T11:21:10.863154+00:00",
+  "unit_properties": {
+    "ActiveState": "active",
+    "SubState": "running",
+    "ActiveEnterTimestampMonotonic": "79256516674",
+    "RuntimeMaxUSec": "15min",
+    "MainPID": "2626419",
+    "KillMode": "control-group"
+  }
+}

@@ -1,0 +1,16 @@
+{"utc": "2026-11-12T21:53:03.306353+00:00", "format": "bmp", "action": "begin foreground and Options sequence"}
+{"utc": "2026-11-12T21:53:37.357343+00:00", "format": "bmp", "action": "Save clicked; following protocol observation is phase authority"}
+{"utc": "2026-11-12T21:53:44.223384+00:00", "format": "pict", "action": "begin foreground and Options sequence"}
+{"utc": "2026-11-12T21:54:18.257193+00:00", "format": "pict", "action": "Save clicked; following protocol observation is phase authority"}
+{"utc": "2026-11-12T21:54:25.144149+00:00", "format": "fallback", "action": "begin foreground and Options sequence"}
+{"utc": "2026-11-12T21:54:59.209050+00:00", "format": "fallback", "action": "Save clicked; following protocol observation is phase authority"}
+{"utc": "2026-11-12T21:55:05.905316+00:00", "format": "zero-type", "action": "begin foreground and Options sequence"}
+{"utc": "2026-11-12T21:55:39.939240+00:00", "format": "zero-type", "action": "Save clicked; following protocol observation is phase authority"}
+{"utc": "2026-11-12T21:55:49.909354+00:00", "format": "suffix-before-finder", "action": "begin foreground and Options sequence"}
+{"utc": "2026-11-12T21:56:23.944581+00:00", "format": "suffix-before-finder", "action": "Save clicked; following protocol observation is phase authority"}
+{"utc": "2026-11-12T21:56:30.572983+00:00", "format": "text-conversion", "action": "begin foreground and Options sequence"}
+{"utc": "2026-11-12T21:57:04.114905+00:00", "format": "text-conversion", "action": "Save clicked; following protocol observation is phase authority"}
+{"utc": "2026-11-12T21:59:39.179713+00:00", "format": "empty", "action": "begin foreground and Options sequence"}
+{"utc": "2026-11-12T22:00:13.227555+00:00", "format": "empty", "action": "Save clicked; following protocol observation is phase authority"}
+{"utc": "2026-11-12T22:33:17.771608+00:00", "phase": "delayed-missing", "action": "begin long-held click sequence", "filename": "mothra-missing-banner.gif"}
+{"utc": "2026-11-12T22:34:30.561118+00:00", "phase": "delayed-missing", "action": "Save sequence finished; protocol phase check is authority", "filename": "mothra-missing-banner.gif"}

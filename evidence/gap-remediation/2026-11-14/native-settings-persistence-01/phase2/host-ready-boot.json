@@ -1,0 +1,21 @@
+{
+  "utc": "2026-11-14T04:04:46.184143+00:00",
+  "unit": "mothra-a48-primary.service",
+  "pid": 463009,
+  "start_ticks": 5379132,
+  "netns_inode": 4026531840,
+  "fd": 5,
+  "capture": "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-native/mothra/state/native-sessions/native-settings-persistence-a48/primary-syn.pcap",
+  "dev": 2097,
+  "inode": 648809545,
+  "header24": "d4c3b2a10200040000000000000000000000040001000000",
+  "deadline_utc": "2026-11-14T04:16:45+00:00",
+  "unit_properties": {
+    "ActiveState": "active",
+    "SubState": "running",
+    "ActiveEnterTimestampMonotonic": "53791331966",
+    "RuntimeMaxUSec": "15min",
+    "MainPID": "463009",
+    "KillMode": "control-group"
+  }
+}

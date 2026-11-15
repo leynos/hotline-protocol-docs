@@ -1,0 +1,13 @@
+{
+  "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "query_count": 12,
+  "plans": [
+    "plans/account-enforcement.json",
+    "plans/privilege-callers.json",
+    "plans/root-names-and-delete.json"
+  ],
+  "derived_reviews": [
+    "privilege-callsite-review.json"
+  ],
+  "method": "Read-only direct privilege caller inventories, account guard assembly, root selection and account mutation helpers. Reconciled40 direct accessor calls against retained source; inline bitmap uses reviewed separately. No native permission/account runtime fixtures."
+}

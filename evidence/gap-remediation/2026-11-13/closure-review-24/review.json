@@ -1,0 +1,91 @@
+{
+  "captured_at_utc": "2026-11-13T11:12:48.050489+00:00",
+  "reviews": [
+    {
+      "gap_id": "GAP-038",
+      "status": "Resolved",
+      "unchanged_closure_criterion": "Publish room-state and permission tables with member/non-member, owner/admin, missing-room and main-chat cases.",
+      "requirements": [
+        {
+          "requirement": "Published contract and native evidence",
+          "evidence": "Published state/permission table covers creator/admin, zero-privilege non-member/member, receive-only member, outsider sender, missing room and absent/zero main-chat routing."
+        },
+        {
+          "requirement": "Published contract and native evidence",
+          "evidence": "basics proves create denial, uninvited join, outsider topic update/send, receive/send bit separation, join roster inclusion and main-chat recipient rules. invites proves zero-privilege non-member invitation delivery."
+        }
+      ],
+      "evidence": "../native-rooms-01/manifest.json",
+      "contract": "../../../../../hotline-protocol-docs/presence-messaging-contracts.md#captured-private-rooms-invitations-and-chat-bytes"
+    },
+    {
+      "gap_id": "GAP-039",
+      "status": "Resolved",
+      "unchanged_closure_criterion": "Document 112/113/114 lifecycle, recipient outcomes, atomicity and retries; include mixed-target and disconnect/reject fixtures.",
+      "requirements": [
+        {
+          "requirement": "Published contract and native evidence",
+          "evidence": "create_invites and invites preserve valid notifications across mixed missing/disconnected targets and repeated UIDs; existing members/self are filtered and retries can duplicate delivery."
+        },
+        {
+          "requirement": "Published contract and native evidence",
+          "evidence": "Repeated reject emits exact room-system 106, followed by successful join. Refusal and automatic feedback codes 3/4, sender feedback suppression and continued other-target delivery are captured. The full handlers create no join capability/expiry state; uninvited, rejecting and refusing subjects join."
+        }
+      ],
+      "evidence": "../native-rooms-01/manifest.json",
+      "contract": "../../../../../hotline-protocol-docs/presence-messaging-contracts.md#captured-private-rooms-invitations-and-chat-bytes"
+    },
+    {
+      "gap_id": "GAP-040",
+      "status": "Resolved",
+      "unchanged_closure_criterion": "Specify subject presence, roster inclusion and event ordering, including repeated join, last-member leave and concurrent membership changes.",
+      "requirements": [
+        {
+          "requirement": "Published contract and native evidence",
+          "evidence": "topics verifies omitted/empty subject omission and current subject on repeated join; lifecycle verifies post-add self-including roster, no repeated-join push, non-member leave, remaining-member 118 and last-member room deletion."
+        },
+        {
+          "requirement": "Published contract and native evidence",
+          "evidence": "concurrent sends two joins before either reply, then two leaves before liveness drains. Snapshots of cardinality 2/3 contain own caller, notifications preserve membership cuts, and missing-room reply follows last leave. Handler trace establishes local enqueue order; no universal cross-socket receipt order is invented."
+        }
+      ],
+      "evidence": "../native-rooms-01/manifest.json",
+      "contract": "../../../../../hotline-protocol-docs/presence-messaging-contracts.md#captured-private-rooms-invitations-and-chat-bytes"
+    },
+    {
+      "gap_id": "GAP-041",
+      "status": "Resolved",
+      "unchanged_closure_criterion": "Document topic permissions and input/default rules with denied, empty, omitted, boundary-length and successful notifications.",
+      "requirements": [
+        {
+          "requirement": "Published contract and native evidence",
+          "evidence": "topics records zero-privilege non-member updates, missing-room silence, absent and empty clearing, exact binary/NUL/CR/LF preservation, 255-byte boundary and 256/65535 truncation; 119 and join subject presence are checked."
+        },
+        {
+          "requirement": "Published contract and native evidence",
+          "evidence": "No membership/privilege-denied topic branch exists in the traced handler. A guessed denial is contradicted by the positive zero-role outsider case; denied creation and missing-room outcomes are distinct negative controls."
+        }
+      ],
+      "evidence": "../native-rooms-01/manifest.json",
+      "contract": "../../../../../hotline-protocol-docs/presence-messaging-contracts.md#captured-private-rooms-invitations-and-chat-bytes"
+    },
+    {
+      "gap_id": "GAP-042",
+      "status": "Resolved",
+      "unchanged_closure_criterion": "Trace formatting and fan-out helpers and record ordinary/action/system, multiline and permission-denied examples with byte-level text rules.",
+      "requirements": [
+        {
+          "requirement": "Published contract and native evidence",
+          "evidence": "Fresh formatting/fanout traces and format bytes accompany ordinary/action/system and denied-chat captures. Non-1 option values use ordinary format; short names right-justify and long ordinary names clip to 13 bytes."
+        },
+        {
+          "requirement": "Published contract and native evidence",
+          "evidence": "formatting verifies CR prefix substitution, LF/CRLF, embedded NUL and non-ASCII bytes, empty/absent text, and exact member/receive-gate recipients. create_invites captures repeated system rejection text; basics captures main/private and permission-denied examples. Cross-client decoding remains separate GAP-018/082."
+        }
+      ],
+      "evidence": "../native-rooms-01/manifest.json",
+      "contract": "../../../../../hotline-protocol-docs/presence-messaging-contracts.md#captured-private-rooms-invitations-and-chat-bytes"
+    }
+  ],
+  "scope": "Close only GAP-038/039/040/041/042 against unchanged original criteria. Retain two failed recorder expectations, full per-view late tails and local rather than universal cross-socket ordering. Full encoding policy, general teardown/flood/ID lifetime, actual client and mxd requirements remain active."
+}

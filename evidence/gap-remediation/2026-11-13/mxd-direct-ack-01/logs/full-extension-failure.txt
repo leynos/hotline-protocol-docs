@@ -1,0 +1,36 @@
+        FAIL [   6.548s] (551/557) mxd::wireframe_compat_guardrails_bdd wireframe_compat_guardrails_feature_scenarios::wireframe_compat_guardrails_login_failure_does_not_include_banner_fields
+  stdout ───
+
+    running 1 test
+    test wireframe_compat_guardrails_feature_scenarios::wireframe_compat_guardrails_login_failure_does_not_include_banner_fields ... FAILED
+
+    failures:
+
+    failures:
+        wireframe_compat_guardrails_feature_scenarios::wireframe_compat_guardrails_login_failure_does_not_include_banner_fields
+
+    test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 5 filtered out; finished in 6.36s
+
+  stderr ───
+    The application panicked (crashed).
+    Message:  failed to set up database: embedded PostgreSQL bootstrap failed: bootstrapping embedded PostgreSQL: postgresql_embedded::start() failed: postgresql_embedded::start() failed: Command error: stdout=waiting for server to start.... stopped waiting
+    ; stderr=pg_ctl: could not start server
+    Examine the log output.
+
+    Location: tests/wireframe_compat_guardrails_bdd.rs:91
+
+    Backtrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.
+    Run with RUST_BACKTRACE=full to include source snippets.
+
+  Cancelling due to test failure: 6 tests still running
+        PASS [   7.228s] (552/557) mxd::wireframe_memory_budgets stalled_fragmented_request_is_disconnected_when_continuation_resumes
+        PASS [   9.552s] (553/557) mxd::wireframe_compat_guardrails_bdd wireframe_compat_guardrails_feature_scenarios::wireframe_compat_guardrails_login_with_hotline_1_9_version_includes_banner_fields
+        PASS [   9.461s] (554/557) mxd::wireframe_compat_guardrails_bdd wireframe_compat_guardrails_feature_scenarios::wireframe_compat_guardrails_login_with_synhx_client_omits_banner_fields
+        PASS [   9.337s] (555/557) mxd::wireframe_compat_guardrails_bdd wireframe_compat_guardrails_feature_scenarios::wireframe_compat_guardrails_xor_encoded_login_succeeds_through_the_router
+        PASS [   9.593s] (556/557) mxd::wireframe_compat_guardrails_bdd wireframe_compat_guardrails_feature_scenarios::wireframe_compat_guardrails_file_list_request_succeeds_after_login_through_the_router
+        PASS [   9.375s] (557/557) mxd::wireframe_compat_guardrails_bdd wireframe_compat_guardrails_feature_scenarios::wireframe_compat_guardrails_synhx_handshake_takes_precedence_over_hotline_1_9_version
+────────────
+     Summary [  19.507s] 557 tests run: 556 passed, 1 failed, 0 skipped
+        FAIL [   6.548s] (551/557) mxd::wireframe_compat_guardrails_bdd wireframe_compat_guardrails_feature_scenarios::wireframe_compat_guardrails_login_failure_does_not_include_banner_fields
+error: test run failed
+make: *** [Makefile:322: test-postgres] Error 100

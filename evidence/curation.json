@@ -1,0 +1,4338 @@
+{
+  "schema_version": 1,
+  "source": {
+    "repository": "leynos/mothra",
+    "commit": "f9b4108ec33e59956c9f2bfbd391dc3a8a279299"
+  },
+  "rule": "A corpus is a dated directory kept whole. It is included when a protocol document, the gap register, the validity ledger, a capture or verifier script, or a retained check recipe cites a path equal to or inside it, or when the manifest, plan, verification, review, README, index or sums file (at most 3 MB) of an included corpus cites a path inside it. A citation of evidence/ or of a bare date directory selects nothing. Every other corpus is excluded. Withheld files are listed in withheld.json and counted apart.",
+  "corpora": [
+    {
+      "path": "evidence/gap-remediation/2026-11-12/batch-01",
+      "disposition": "included",
+      "files": 76,
+      "bytes": 313335,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-12/batch-11",
+        "evidence/gap-remediation/2026-11-12/package-review",
+        "evidence/gap-remediation/2026-11-14/scalar-width-contract-01"
+      ],
+      "reason": "cited by document; required by 3 corpora"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/batch-02",
+      "disposition": "included",
+      "files": 37,
+      "bytes": 101563,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-12/package-review",
+        "evidence/gap-remediation/2026-11-14/scalar-width-contract-01"
+      ],
+      "reason": "cited by document; required by 2 corpora"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/batch-03",
+      "disposition": "included",
+      "files": 11,
+      "bytes": 15992,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "register"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-12/batch-11",
+        "evidence/gap-remediation/2026-11-12/package-review"
+      ],
+      "reason": "cited by document, register; required by 2 corpora"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/batch-04",
+      "disposition": "included",
+      "files": 45,
+      "bytes": 178885,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-12/package-review"
+      ],
+      "reason": "cited by document; required by 1 corpora"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/batch-05",
+      "disposition": "included",
+      "files": 58,
+      "bytes": 286130,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-12/package-review"
+      ],
+      "reason": "cited by document; required by 1 corpora"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/batch-06",
+      "disposition": "included",
+      "files": 51,
+      "bytes": 217914,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "register"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-12/batch-15",
+        "evidence/gap-remediation/2026-11-12/package-review",
+        "evidence/gap-remediation/2026-11-14/native-clock-log-source-01",
+        "evidence/gap-remediation/2026-11-14/rate304-recipient-predicate-01"
+      ],
+      "reason": "cited by document, register; required by 4 corpora"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/batch-07",
+      "disposition": "included",
+      "files": 39,
+      "bytes": 116680,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "register"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-12/package-review",
+        "evidence/gap-remediation/2026-11-14/scalar-width-contract-01"
+      ],
+      "reason": "cited by document, register; required by 2 corpora"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/batch-08",
+      "disposition": "included",
+      "files": 28,
+      "bytes": 73624,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "register",
+        "script"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-12/package-review",
+        "evidence/gap-remediation/2026-11-14/legacy-board-static-01",
+        "evidence/gap-remediation/2026-11-14/rate304-static-01"
+      ],
+      "reason": "cited by document, register, script; required by 3 corpora"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/batch-09",
+      "disposition": "included",
+      "files": 3,
+      "bytes": 12722,
+      "withheld": 1,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/batch-10",
+      "disposition": "included",
+      "files": 31,
+      "bytes": 216224,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/batch-11",
+      "disposition": "included",
+      "files": 26,
+      "bytes": 102758,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-14/account-write-ordering-01"
+      ],
+      "reason": "cited by document; required by 1 corpora"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/batch-12",
+      "disposition": "included",
+      "files": 19,
+      "bytes": 270533,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/batch-13",
+      "disposition": "included",
+      "files": 15,
+      "bytes": 224159,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/batch-14",
+      "disposition": "included",
+      "files": 30,
+      "bytes": 132487,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-14/rate304-static-01"
+      ],
+      "reason": "cited by document; required by 1 corpora"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/batch-15",
+      "disposition": "included",
+      "files": 22,
+      "bytes": 225162,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by document, register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/batch-16",
+      "disposition": "included",
+      "files": 38,
+      "bytes": 157473,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/batch-17",
+      "disposition": "included",
+      "files": 38,
+      "bytes": 141905,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by document, register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/capture-tooling-01",
+      "disposition": "included",
+      "files": 8,
+      "bytes": 29917,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/closure-review-01",
+      "disposition": "included",
+      "files": 2,
+      "bytes": 2413,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/closure-review-02",
+      "disposition": "included",
+      "files": 2,
+      "bytes": 868,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/closure-review-03",
+      "disposition": "included",
+      "files": 3,
+      "bytes": 6382,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/closure-review-04",
+      "disposition": "included",
+      "files": 3,
+      "bytes": 11247,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/closure-review-05",
+      "disposition": "included",
+      "files": 2,
+      "bytes": 1038,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/closure-review-06",
+      "disposition": "included",
+      "files": 2,
+      "bytes": 1738,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/closure-review-07",
+      "disposition": "included",
+      "files": 2,
+      "bytes": 1168,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/closure-review-08",
+      "disposition": "included",
+      "files": 2,
+      "bytes": 2020,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/closure-review-09",
+      "disposition": "included",
+      "files": 2,
+      "bytes": 1293,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/closure-review-10",
+      "disposition": "included",
+      "files": 2,
+      "bytes": 2285,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/closure-review-11",
+      "disposition": "included",
+      "files": 2,
+      "bytes": 2495,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/closure-review-12",
+      "disposition": "included",
+      "files": 2,
+      "bytes": 3326,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/closure-review-13",
+      "disposition": "included",
+      "files": 2,
+      "bytes": 6805,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/export-review-02",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 14681,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/export-review-03",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 17215,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/export-review-04",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 21474,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/export-review-05",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 31419,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/export-review-06",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 61981,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/export-review-07",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 79733,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/export-review-08",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 87988,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/export-review-09",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 100445,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/export-review-10",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 125186,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/export-review-11",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 158754,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/export-review-12",
+      "disposition": "excluded",
+      "files": 11,
+      "bytes": 179185,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/export-review-13",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 177921,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/export-review-14",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 180290,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/mxd-review",
+      "disposition": "included",
+      "files": 35,
+      "bytes": 326875,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-12/package-review"
+      ],
+      "reason": "cited by document; required by 1 corpora"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/native-banner-01",
+      "disposition": "included",
+      "files": 279,
+      "bytes": 20742757,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, register, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/native-banner-02",
+      "disposition": "included",
+      "files": 229,
+      "bytes": 19068018,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, register, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/native-cleanup-01",
+      "disposition": "included",
+      "files": 55,
+      "bytes": 27882525,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, register, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/native-core-01",
+      "disposition": "included",
+      "files": 82,
+      "bytes": 767093,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-13/account-attribute-01",
+        "evidence/gap-remediation/2026-11-13/failure-representatives-01",
+        "evidence/gap-remediation/2026-11-14/scalar-width-contract-01"
+      ],
+      "reason": "cited by document, recipe, register, script; required by 3 corpora"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/native-correlation-01",
+      "disposition": "included",
+      "files": 136,
+      "bytes": 709914,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, register, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/native-folder-01",
+      "disposition": "included",
+      "files": 176,
+      "bytes": 13904624,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, register, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/native-forks-01",
+      "disposition": "included",
+      "files": 82,
+      "bytes": 5053781,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, register, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/native-framing-01",
+      "disposition": "included",
+      "files": 205,
+      "bytes": 17001238,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-13/multiplicity-criterion-01"
+      ],
+      "reason": "cited by document, recipe, register, script; required by 1 corpora"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/native-handshake-01",
+      "disposition": "included",
+      "files": 10,
+      "bytes": 26286,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/native-htxf-01",
+      "disposition": "included",
+      "files": 81,
+      "bytes": 577119,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, register, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/native-queue-01",
+      "disposition": "included",
+      "files": 31,
+      "bytes": 4549796,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, register, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/native-resume-01",
+      "disposition": "included",
+      "files": 120,
+      "bytes": 3288257,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, register, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/native-transport-01",
+      "disposition": "included",
+      "files": 147,
+      "bytes": 485972,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, register, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/package-review",
+      "disposition": "included",
+      "files": 5,
+      "bytes": 10281,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by document, register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-12/slirp-lowmem-01",
+      "disposition": "excluded",
+      "files": 20,
+      "bytes": 66643,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/account-attribute-01",
+      "disposition": "included",
+      "files": 45,
+      "bytes": 237849,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-13/failure-representatives-01"
+      ],
+      "reason": "cited by document, recipe, script; required by 1 corpora"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/account-resource-01",
+      "disposition": "included",
+      "files": 6,
+      "bytes": 19398,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/classic-proxy-rehearsal-01",
+      "disposition": "included",
+      "files": 33,
+      "bytes": 1651759,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "linked-document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, linked-document, recipe, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/client-account-constructors-01",
+      "disposition": "included",
+      "files": 17,
+      "bytes": 182547,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/closure-54",
+      "disposition": "excluded",
+      "files": 3,
+      "bytes": 16407,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/closure-review-14",
+      "disposition": "included",
+      "files": 2,
+      "bytes": 2417,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/closure-review-15",
+      "disposition": "included",
+      "files": 2,
+      "bytes": 4611,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/closure-review-16",
+      "disposition": "included",
+      "files": 2,
+      "bytes": 2844,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/closure-review-17",
+      "disposition": "included",
+      "files": 2,
+      "bytes": 2655,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/closure-review-18",
+      "disposition": "included",
+      "files": 2,
+      "bytes": 3744,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/closure-review-19",
+      "disposition": "included",
+      "files": 2,
+      "bytes": 2652,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/closure-review-20",
+      "disposition": "included",
+      "files": 2,
+      "bytes": 3852,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/closure-review-21",
+      "disposition": "included",
+      "files": 2,
+      "bytes": 2685,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/closure-review-22",
+      "disposition": "included",
+      "files": 2,
+      "bytes": 3520,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/closure-review-23",
+      "disposition": "included",
+      "files": 2,
+      "bytes": 3437,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/closure-review-24",
+      "disposition": "included",
+      "files": 2,
+      "bytes": 6367,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/criterion-audit-01",
+      "disposition": "excluded",
+      "files": 3,
+      "bytes": 13714,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/delegated-integration-02",
+      "disposition": "excluded",
+      "files": 4,
+      "bytes": 241685,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/delegated-integration-03",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 256866,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/delegated-integration-04",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 253109,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/delegated-integration-05",
+      "disposition": "excluded",
+      "files": 6,
+      "bytes": 507243,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/delegated-integration-06",
+      "disposition": "excluded",
+      "files": 13,
+      "bytes": 314007,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/delegated-mxd-01",
+      "disposition": "included",
+      "files": 27,
+      "bytes": 247832,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, register, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/delegated-peer-01",
+      "disposition": "included",
+      "files": 75,
+      "bytes": 579563,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, register, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/delegation-workspaces-01",
+      "disposition": "excluded",
+      "files": 10,
+      "bytes": 10041,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/exception-boundary-parity-01",
+      "disposition": "excluded",
+      "files": 16,
+      "bytes": 622306,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/exception-function-01",
+      "disposition": "excluded",
+      "files": 18,
+      "bytes": 56265,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/export-review-15",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 182293,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/export-review-16",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 185087,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/export-review-17",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 186740,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/export-review-18",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 193630,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/export-review-19",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 201033,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/export-review-20",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 272760,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/export-review-21",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 275192,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/export-review-22",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 284139,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/export-review-23",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 289664,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/export-review-24",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 292620,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/export-review-25",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 295782,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/export-review-26",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 297804,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/export-review-27",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 299842,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/export-review-28",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 302352,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/export-review-29",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 304878,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/export-review-30",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 306886,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/export-review-31",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 309219,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/export-review-32",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 315352,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/export-review-33",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 321559,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/export-review-34",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 326329,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/export-review-35",
+      "disposition": "excluded",
+      "files": 9,
+      "bytes": 339959,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/failure-criterion-review-01",
+      "disposition": "included",
+      "files": 4,
+      "bytes": 4541,
+      "withheld": 0,
+      "cited_by": [
+        "recipe"
+      ],
+      "required_by": [],
+      "reason": "cited by recipe"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/failure-representatives-01",
+      "disposition": "included",
+      "files": 3,
+      "bytes": 21961,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/git-metadata-recovery-01",
+      "disposition": "excluded",
+      "files": 8,
+      "bytes": 7937,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/headless-oracle-recovery-01",
+      "disposition": "excluded",
+      "files": 11,
+      "bytes": 32799,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/mac-peer-candidate-01",
+      "disposition": "included",
+      "files": 10,
+      "bytes": 24379,
+      "withheld": 0,
+      "cited_by": [
+        "linked-document"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-13/client-account-constructors-01"
+      ],
+      "reason": "cited by linked-document; required by 1 corpora"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/mac-peer-first-session-01",
+      "disposition": "included",
+      "files": 9,
+      "bytes": 1339735,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/mac-peer-isolated-session-01",
+      "disposition": "included",
+      "files": 42,
+      "bytes": 8252304,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-14/alias-ui-basis-01"
+      ],
+      "reason": "cited by document, recipe, script; required by 1 corpora"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/mac-peer-preboot-01",
+      "disposition": "excluded",
+      "files": 7,
+      "bytes": 15831,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/multiplicity-acceptance-01",
+      "disposition": "included",
+      "files": 3,
+      "bytes": 9356,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/multiplicity-criterion-01",
+      "disposition": "included",
+      "files": 3,
+      "bytes": 20906,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/mxd-build-recovery-01",
+      "disposition": "included",
+      "files": 12,
+      "bytes": 13744,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/mxd-classic-login-01",
+      "disposition": "included",
+      "files": 9,
+      "bytes": 1785095,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/mxd-classic-short-login-01",
+      "disposition": "included",
+      "files": 10,
+      "bytes": 2325858,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/mxd-correction-01",
+      "disposition": "included",
+      "files": 26,
+      "bytes": 89307,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, register, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/mxd-direct-ack-01",
+      "disposition": "included",
+      "files": 79,
+      "bytes": 482325,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-13/mxd-direct-ack-02"
+      ],
+      "reason": "cited by document, recipe, script; required by 1 corpora"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/mxd-direct-ack-02",
+      "disposition": "included",
+      "files": 39,
+      "bytes": 1330071,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/mxd-direct-ack-import-01",
+      "disposition": "included",
+      "files": 7,
+      "bytes": 5279,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/mxd-limits-01",
+      "disposition": "included",
+      "files": 49,
+      "bytes": 2112452,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-13/mxd-build-recovery-01"
+      ],
+      "reason": "cited by document, recipe, script; required by 1 corpora"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/mxd-login-extras-01",
+      "disposition": "included",
+      "files": 62,
+      "bytes": 1293355,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/mxd-login-extras-import-01",
+      "disposition": "included",
+      "files": 7,
+      "bytes": 6880,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/mxd-peer-runtime-01",
+      "disposition": "included",
+      "files": 34,
+      "bytes": 31312,
+      "withheld": 0,
+      "cited_by": [
+        "linked-document"
+      ],
+      "required_by": [],
+      "reason": "cited by linked-document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/mxd-source-import-01",
+      "disposition": "included",
+      "files": 2,
+      "bytes": 1142,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/mxd-validation-hold-01",
+      "disposition": "included",
+      "files": 3,
+      "bytes": 7178,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/mxd-watchdog-h1-01",
+      "disposition": "included",
+      "files": 20,
+      "bytes": 23066,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-account-batch-01",
+      "disposition": "included",
+      "files": 1132,
+      "bytes": 4580354,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-13/multiplicity-criterion-01"
+      ],
+      "reason": "cited by document, recipe, register, script; required by 1 corpora"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-account-identity-01",
+      "disposition": "included",
+      "files": 97,
+      "bytes": 1818082,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-14/scalar-width-contract-01"
+      ],
+      "reason": "cited by document, recipe, register, script; required by 1 corpora"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-account-update-01",
+      "disposition": "included",
+      "files": 365,
+      "bytes": 1877615,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-13/account-attribute-01",
+        "evidence/gap-remediation/2026-11-14/account-write-ordering-01",
+        "evidence/gap-remediation/2026-11-14/scalar-width-contract-01"
+      ],
+      "reason": "cited by document, recipe, register, script; required by 3 corpora"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-agreement-01",
+      "disposition": "included",
+      "files": 577,
+      "bytes": 59455117,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-14/account-write-ordering-01",
+        "evidence/gap-remediation/2026-11-14/alias-positive-basis-01"
+      ],
+      "reason": "cited by document, recipe, register, script; required by 2 corpora"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-alias-01",
+      "disposition": "included",
+      "files": 405,
+      "bytes": 5400400,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-14/alias-positive-basis-01"
+      ],
+      "reason": "cited by document, recipe, register, script; required by 1 corpora"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-article-delete-01",
+      "disposition": "included",
+      "files": 468,
+      "bytes": 12007231,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, register, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-auth-01",
+      "disposition": "included",
+      "files": 181,
+      "bytes": 1233411,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-14/scalar-width-contract-01"
+      ],
+      "reason": "cited by document, recipe, register, script; required by 1 corpora"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-ban-one-01",
+      "disposition": "included",
+      "files": 68,
+      "bytes": 15582789,
+      "withheld": 2,
+      "cited_by": [
+        "document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-ban-oracle-01",
+      "disposition": "included",
+      "files": 31,
+      "bytes": 66396,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-14/native-clock-log-source-01",
+        "evidence/gap-remediation/2026-11-14/rate304-static-01"
+      ],
+      "reason": "cited by document; required by 2 corpora"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-bitmaps-01",
+      "disposition": "included",
+      "files": 63,
+      "bytes": 2268312,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-console-broadcast-01",
+      "disposition": "included",
+      "files": 26,
+      "bytes": 32008939,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-diagnostic-density-01",
+      "disposition": "included",
+      "files": 25,
+      "bytes": 12867547,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-diagnostic-existing-01",
+      "disposition": "included",
+      "files": 31,
+      "bytes": 9651442,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01",
+      "disposition": "included",
+      "files": 10,
+      "bytes": 6858504,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-diagnostic-load-01",
+      "disposition": "included",
+      "files": 25,
+      "bytes": 9115843,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-diagnostic-near-01",
+      "disposition": "included",
+      "files": 25,
+      "bytes": 19024126,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-diagnostics-01",
+      "disposition": "included",
+      "files": 39,
+      "bytes": 1731393,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, register, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-download-send-path-01",
+      "disposition": "included",
+      "files": 21,
+      "bytes": 112984,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-integration-07",
+      "disposition": "excluded",
+      "files": 4,
+      "bytes": 14931,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-integration-08",
+      "disposition": "excluded",
+      "files": 4,
+      "bytes": 15509,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-integration-09",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 17941,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-live-accounts-01",
+      "disposition": "included",
+      "files": 206,
+      "bytes": 6679815,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-14/scalar-width-contract-01"
+      ],
+      "reason": "cited by document, recipe, register, script; required by 1 corpora"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-login-extras-01",
+      "disposition": "included",
+      "files": 293,
+      "bytes": 15405105,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-14/scalar-width-contract-01"
+      ],
+      "reason": "cited by document, recipe, register, script; required by 1 corpora"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-metadata-01",
+      "disposition": "included",
+      "files": 198,
+      "bytes": 5390024,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, register, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-mkdir-01",
+      "disposition": "included",
+      "files": 291,
+      "bytes": 3377954,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, register, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-move-01",
+      "disposition": "included",
+      "files": 600,
+      "bytes": 3895145,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, register, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-news-01",
+      "disposition": "included",
+      "files": 263,
+      "bytes": 4037267,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, register, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-news-boundary-01",
+      "disposition": "included",
+      "files": 175,
+      "bytes": 3253850,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, register, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-pm-01",
+      "disposition": "included",
+      "files": 37,
+      "bytes": 56585080,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-rooms-01",
+      "disposition": "included",
+      "files": 123,
+      "bytes": 3879487,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-13/multiplicity-criterion-01"
+      ],
+      "reason": "cited by document, recipe, register, script; required by 1 corpora"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-runtime-recovery-01",
+      "disposition": "included",
+      "files": 34,
+      "bytes": 2872793,
+      "withheld": 2,
+      "cited_by": [
+        "document",
+        "recipe"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-settings-01",
+      "disposition": "included",
+      "files": 76,
+      "bytes": 35038896,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-13/multiplicity-criterion-01"
+      ],
+      "reason": "cited by document, recipe, script; required by 1 corpora"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-settings-transitions-01",
+      "disposition": "included",
+      "files": 33,
+      "bytes": 13597051,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-shx-01",
+      "disposition": "included",
+      "files": 77,
+      "bytes": 923879,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, register, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-shx-02",
+      "disposition": "included",
+      "files": 122,
+      "bytes": 4269922,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, register, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-transfer-stall-01",
+      "disposition": "included",
+      "files": 23,
+      "bytes": 745312,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/receive-limit-origin-01",
+      "disposition": "included",
+      "files": 17,
+      "bytes": 336518,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/request500-client-source-01",
+      "disposition": "included",
+      "files": 2,
+      "bytes": 1543,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/shx-build-01",
+      "disposition": "included",
+      "files": 21,
+      "bytes": 653909,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "linked-document",
+        "register",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, linked-document, register, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/synhx-profile-01",
+      "disposition": "included",
+      "files": 17,
+      "bytes": 98383,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "register",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, register, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/timer-suspension-01",
+      "disposition": "included",
+      "files": 13,
+      "bytes": 55354,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/watchdog-context-01",
+      "disposition": "excluded",
+      "files": 6,
+      "bytes": 166518,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/account-write-ordering-01",
+      "disposition": "included",
+      "files": 42,
+      "bytes": 124117,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/account111-alias-trace-01",
+      "disposition": "included",
+      "files": 27,
+      "bytes": 531936,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by document, register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/alias-positive-basis-01",
+      "disposition": "included",
+      "files": 8,
+      "bytes": 45999,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by document, register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/alias-prestage-review-command-01",
+      "disposition": "excluded",
+      "files": 6,
+      "bytes": 15677,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/alias-ui-basis-01",
+      "disposition": "included",
+      "files": 6,
+      "bytes": 2565358,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/alias-window-profile-01",
+      "disposition": "excluded",
+      "files": 88,
+      "bytes": 87261,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/ban-file-format-01",
+      "disposition": "included",
+      "files": 15,
+      "bytes": 37625,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/classic-field161-01",
+      "disposition": "included",
+      "files": 60,
+      "bytes": 14549271,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/classic-privilege-discovery-01",
+      "disposition": "included",
+      "files": 14,
+      "bytes": 42155,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/classic-privilege-followups-01",
+      "disposition": "included",
+      "files": 38,
+      "bytes": 94411,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by document, register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/classic-proxy-baseline-01",
+      "disposition": "included",
+      "files": 49,
+      "bytes": 122795489,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/classic-roster-subject-115-01",
+      "disposition": "included",
+      "files": 45,
+      "bytes": 11480944,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/classic-server-name-162-01",
+      "disposition": "included",
+      "files": 66,
+      "bytes": 21709975,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/configured-ban-static-01",
+      "disposition": "included",
+      "files": 18,
+      "bytes": 114728,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/configured-ban-ui-resources-01",
+      "disposition": "included",
+      "files": 7,
+      "bytes": 21451,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/criterion-acceptance-03",
+      "disposition": "included",
+      "files": 10,
+      "bytes": 27512,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/criterion-acceptance-04",
+      "disposition": "included",
+      "files": 5,
+      "bytes": 20456,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/criterion-acceptance-05",
+      "disposition": "included",
+      "files": 3,
+      "bytes": 7412,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/criterion-acceptance-06",
+      "disposition": "included",
+      "files": 3,
+      "bytes": 6066,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/criterion-acceptance-07",
+      "disposition": "included",
+      "files": 3,
+      "bytes": 8904,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by document, register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/emulator-readiness-review-01",
+      "disposition": "included",
+      "files": 9,
+      "bytes": 33838,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/export-cache-cleanup-01",
+      "disposition": "excluded",
+      "files": 42,
+      "bytes": 3317001,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/export-cache-cleanup-02",
+      "disposition": "excluded",
+      "files": 34,
+      "bytes": 26394698,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/export-cache-cleanup-03",
+      "disposition": "excluded",
+      "files": 26,
+      "bytes": 24467611,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/export-cache-recovery-01",
+      "disposition": "excluded",
+      "files": 4,
+      "bytes": 2010,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/export-cache-recovery-02",
+      "disposition": "excluded",
+      "files": 8,
+      "bytes": 13894500,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/export-cache-recovery-03",
+      "disposition": "excluded",
+      "files": 132,
+      "bytes": 218576,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/guest-capture-startup-01",
+      "disposition": "excluded",
+      "files": 12,
+      "bytes": 62749,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/legacy-board-static-01",
+      "disposition": "included",
+      "files": 16,
+      "bytes": 31529,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-121-defaults-01",
+      "disposition": "included",
+      "files": 33,
+      "bytes": 13543943,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01",
+      "disposition": "excluded",
+      "files": 275,
+      "bytes": 10976948,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-preparation-04",
+      "disposition": "included",
+      "files": 106,
+      "bytes": 1066041,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-preparation-04-failure-01",
+      "disposition": "excluded",
+      "files": 47,
+      "bytes": 923051,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01",
+      "disposition": "included",
+      "files": 298,
+      "bytes": 20490506,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01",
+      "disposition": "included",
+      "files": 240,
+      "bytes": 24006965,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-02",
+      "disposition": "included",
+      "files": 178,
+      "bytes": 21742482,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by document, register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-control-01",
+      "disposition": "included",
+      "files": 86,
+      "bytes": 3111453,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01",
+      "disposition": "included",
+      "files": 126,
+      "bytes": 5349584,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, register, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01",
+      "disposition": "included",
+      "files": 153,
+      "bytes": 6780797,
+      "withheld": 2,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-preparation-01",
+      "disposition": "included",
+      "files": 19,
+      "bytes": 502336,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-reason-static-01",
+      "disposition": "included",
+      "files": 18,
+      "bytes": 88515,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-reload-01",
+      "disposition": "included",
+      "files": 51,
+      "bytes": 4049205,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01",
+      "disposition": "included",
+      "files": 186,
+      "bytes": 14709761,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, register, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-readiness-failure-01",
+      "disposition": "included",
+      "files": 146,
+      "bytes": 7590830,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-clock-log-source-01",
+      "disposition": "included",
+      "files": 23,
+      "bytes": 790821,
+      "withheld": 0,
+      "cited_by": [
+        "linked-document"
+      ],
+      "required_by": [],
+      "reason": "cited by linked-document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-configured-ban-01",
+      "disposition": "included",
+      "files": 143,
+      "bytes": 12944738,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-format-endpoint-oracle-01",
+      "disposition": "included",
+      "files": 63,
+      "bytes": 586823,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-integration-10",
+      "disposition": "excluded",
+      "files": 4,
+      "bytes": 16693,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-integration-11",
+      "disposition": "excluded",
+      "files": 4,
+      "bytes": 17331,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-integration-12",
+      "disposition": "excluded",
+      "files": 10,
+      "bytes": 22608,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-integration-13",
+      "disposition": "excluded",
+      "files": 5,
+      "bytes": 18863,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-integration-14",
+      "disposition": "excluded",
+      "files": 6,
+      "bytes": 20542,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-integration-15",
+      "disposition": "excluded",
+      "files": 3,
+      "bytes": 19051,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-integration-16",
+      "disposition": "excluded",
+      "files": 3,
+      "bytes": 19185,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-integration-17",
+      "disposition": "excluded",
+      "files": 4,
+      "bytes": 19968,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-integration-18",
+      "disposition": "excluded",
+      "files": 4,
+      "bytes": 20422,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-integration-19",
+      "disposition": "excluded",
+      "files": 4,
+      "bytes": 20488,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-integration-20",
+      "disposition": "excluded",
+      "files": 4,
+      "bytes": 21600,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01",
+      "disposition": "included",
+      "files": 135,
+      "bytes": 8622551,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, register, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01",
+      "disposition": "included",
+      "files": 238,
+      "bytes": 9904036,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, register, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01",
+      "disposition": "included",
+      "files": 172,
+      "bytes": 11247708,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01",
+      "disposition": "included",
+      "files": 311,
+      "bytes": 13754217,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, register, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01",
+      "disposition": "included",
+      "files": 132,
+      "bytes": 1388881,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01",
+      "disposition": "included",
+      "files": 99,
+      "bytes": 5942217,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, register, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-runner-namespace-guard-01",
+      "disposition": "included",
+      "files": 8,
+      "bytes": 55147,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-settings-persistence-01",
+      "disposition": "included",
+      "files": 113,
+      "bytes": 10240294,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-starttick-normalization-01",
+      "disposition": "excluded",
+      "files": 14,
+      "bytes": 81315,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-transfer-repeat-01",
+      "disposition": "included",
+      "files": 62,
+      "bytes": 10144395,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ui-focus-01",
+      "disposition": "included",
+      "files": 49,
+      "bytes": 3592514,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "recipe",
+        "script"
+      ],
+      "required_by": [],
+      "reason": "cited by document, recipe, script"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/peer-profile-acceptance-01",
+      "disposition": "included",
+      "files": 4,
+      "bytes": 14588,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/rate304-recipient-predicate-01",
+      "disposition": "included",
+      "files": 25,
+      "bytes": 119317,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/rate304-sequence-review-01",
+      "disposition": "excluded",
+      "files": 12,
+      "bytes": 19604,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/rate304-static-01",
+      "disposition": "included",
+      "files": 36,
+      "bytes": 198425,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-14/native-clock-log-source-01"
+      ],
+      "reason": "cited by document; required by 1 corpora"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/receipt-builder-rehearsal-01",
+      "disposition": "excluded",
+      "files": 12,
+      "bytes": 47585,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/remaining-leaf-audits-01",
+      "disposition": "included",
+      "files": 6,
+      "bytes": 23891,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/scalar-width-contract-01",
+      "disposition": "included",
+      "files": 11,
+      "bytes": 212445,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/settings-default-acceptance-01",
+      "disposition": "included",
+      "files": 4,
+      "bytes": 8898,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by document, register"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/wire355-execution-proposal-01",
+      "disposition": "excluded",
+      "files": 23,
+      "bytes": 80349,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/wire355-proposal-01",
+      "disposition": "excluded",
+      "files": 14,
+      "bytes": 79316,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-15/native-wire-stopped-preparation-01",
+      "disposition": "excluded",
+      "files": 69,
+      "bytes": 932177,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-15/runtime-retirement-01",
+      "disposition": "excluded",
+      "files": 9,
+      "bytes": 16912,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01",
+      "disposition": "included",
+      "files": 48,
+      "bytes": 1101833,
+      "withheld": 0,
+      "cited_by": [
+        "document"
+      ],
+      "required_by": [],
+      "reason": "cited by document"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-15/runtime-storage-audit-01",
+      "disposition": "excluded",
+      "files": 70,
+      "bytes": 2714890,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-15/wind-down-01",
+      "disposition": "excluded",
+      "files": 71,
+      "bytes": 2055998,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/hotline-server-1.9/(root)",
+      "disposition": "included",
+      "files": 4,
+      "bytes": 75232,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "ledger",
+        "recipe",
+        "register",
+        "script"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-12/package-review"
+      ],
+      "reason": "cited by document, ledger, recipe, register, script; required by 1 corpora"
+    },
+    {
+      "path": "evidence/hotline-server-1.9/inputs",
+      "disposition": "included",
+      "files": 2,
+      "bytes": 134814,
+      "withheld": 1,
+      "cited_by": [
+        "document",
+        "ledger",
+        "linked-document",
+        "script"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-13/native-ban-oracle-01",
+        "evidence/gap-remediation/2026-11-14/configured-ban-static-01",
+        "evidence/gap-remediation/2026-11-14/native-clock-log-source-01",
+        "evidence/hotline-server-1.9/(root)"
+      ],
+      "reason": "cited by document, ledger, linked-document, script; required by 4 corpora"
+    },
+    {
+      "path": "evidence/hotline-server-1.9/plans",
+      "disposition": "included",
+      "files": 10,
+      "bytes": 20556,
+      "withheld": 0,
+      "cited_by": [
+        "ledger"
+      ],
+      "required_by": [
+        "evidence/hotline-server-1.9/(root)"
+      ],
+      "reason": "cited by ledger; required by 1 corpora"
+    },
+    {
+      "path": "evidence/hotline-server-1.9/queries",
+      "disposition": "included",
+      "files": 258,
+      "bytes": 3981867,
+      "withheld": 0,
+      "cited_by": [
+        "document",
+        "ledger",
+        "register",
+        "script"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-12/batch-11",
+        "evidence/gap-remediation/2026-11-12/batch-15",
+        "evidence/gap-remediation/2026-11-13/client-account-constructors-01",
+        "evidence/gap-remediation/2026-11-13/multiplicity-acceptance-01",
+        "evidence/gap-remediation/2026-11-14/account-write-ordering-01",
+        "evidence/gap-remediation/2026-11-14/legacy-board-static-01",
+        "evidence/gap-remediation/2026-11-14/rate304-recipient-predicate-01",
+        "evidence/gap-remediation/2026-11-14/rate304-static-01",
+        "evidence/gap-remediation/2026-11-14/scalar-width-contract-01",
+        "evidence/hotline-server-1.9/(root)"
+      ],
+      "reason": "cited by document, ledger, register, script; required by 10 corpora"
+    },
+    {
+      "path": "evidence/hotline-server-1.9/synhxd-source",
+      "disposition": "included",
+      "files": 29,
+      "bytes": 407328,
+      "withheld": 0,
+      "cited_by": [
+        "ledger",
+        "script"
+      ],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-12/batch-08",
+        "evidence/hotline-server-1.9/(root)"
+      ],
+      "reason": "cited by ledger, script; required by 2 corpora"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/SHA256SUMS",
+      "disposition": "included",
+      "files": 1,
+      "bytes": 939,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-12/package-review"
+      ],
+      "reason": "required by 1 corpora"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/initial-gap-register.json",
+      "disposition": "included",
+      "files": 1,
+      "bytes": 169915,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-13/failure-representatives-01",
+        "evidence/gap-remediation/2026-11-13/multiplicity-criterion-01",
+        "evidence/protocol-gap-analysis/2026-11-12/SHA256SUMS",
+        "evidence/protocol-gap-analysis/2026-11-12/manifest.json"
+      ],
+      "reason": "required by 4 corpora"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/initial-renderer.py.txt",
+      "disposition": "included",
+      "files": 1,
+      "bytes": 19994,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [
+        "evidence/protocol-gap-analysis/2026-11-12/SHA256SUMS",
+        "evidence/protocol-gap-analysis/2026-11-12/manifest.json"
+      ],
+      "reason": "required by 2 corpora"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/inputs",
+      "disposition": "included",
+      "files": 3,
+      "bytes": 68133,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [
+        "evidence/protocol-gap-analysis/2026-11-12/SHA256SUMS",
+        "evidence/protocol-gap-analysis/2026-11-12/manifest.json"
+      ],
+      "reason": "required by 2 corpora"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/manifest.json",
+      "disposition": "included",
+      "files": 1,
+      "bytes": 1673,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [
+        "evidence/protocol-gap-analysis/2026-11-12/SHA256SUMS",
+        "evidence/protocol-gap-analysis/2026-11-12/revision-01"
+      ],
+      "reason": "required by 2 corpora"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/revision-01",
+      "disposition": "included",
+      "files": 7,
+      "bytes": 100470,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-12/package-review",
+        "evidence/protocol-gap-analysis/2026-11-12/revision-02"
+      ],
+      "reason": "required by 2 corpora"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/revision-02",
+      "disposition": "included",
+      "files": 8,
+      "bytes": 122548,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-12/package-review",
+        "evidence/protocol-gap-analysis/2026-11-12/revision-03"
+      ],
+      "reason": "required by 2 corpora"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/revision-03",
+      "disposition": "included",
+      "files": 9,
+      "bytes": 136693,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-12/package-review",
+        "evidence/protocol-gap-analysis/2026-11-12/revision-04"
+      ],
+      "reason": "required by 2 corpora"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/revision-04",
+      "disposition": "included",
+      "files": 10,
+      "bytes": 152549,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-12/package-review",
+        "evidence/protocol-gap-analysis/2026-11-12/revision-05"
+      ],
+      "reason": "required by 2 corpora"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/revision-05",
+      "disposition": "included",
+      "files": 11,
+      "bytes": 169419,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-12/package-review",
+        "evidence/protocol-gap-analysis/2026-11-12/revision-06"
+      ],
+      "reason": "required by 2 corpora"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/revision-06",
+      "disposition": "included",
+      "files": 13,
+      "bytes": 187916,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-12/package-review",
+        "evidence/protocol-gap-analysis/2026-11-12/revision-07"
+      ],
+      "reason": "required by 2 corpora"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/revision-07",
+      "disposition": "included",
+      "files": 15,
+      "bytes": 204494,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [
+        "evidence/gap-remediation/2026-11-12/package-review"
+      ],
+      "reason": "required by 1 corpora"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/revision-08",
+      "disposition": "excluded",
+      "files": 15,
+      "bytes": 205841,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/revision-09",
+      "disposition": "excluded",
+      "files": 17,
+      "bytes": 223533,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/revision-10",
+      "disposition": "excluded",
+      "files": 17,
+      "bytes": 227812,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/revision-11",
+      "disposition": "excluded",
+      "files": 17,
+      "bytes": 233553,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/revision-12",
+      "disposition": "excluded",
+      "files": 18,
+      "bytes": 243469,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/revision-13",
+      "disposition": "excluded",
+      "files": 18,
+      "bytes": 251234,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/revision-14",
+      "disposition": "excluded",
+      "files": 18,
+      "bytes": 257385,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/revision-15",
+      "disposition": "excluded",
+      "files": 18,
+      "bytes": 262397,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/revision-16",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 279517,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/revision-17",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 287638,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/revision-18",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 295901,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/revision-19",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 304280,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/revision-20",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 312743,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/revision-21",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 320918,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/revision-22",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 330487,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/revision-23",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 337386,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/revision-24",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 349799,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/revision-25",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 355930,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/revision-26",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 366443,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/revision-27",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 373949,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/revision-28",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 374136,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/revision-29",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 386117,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-12/sections.json",
+      "disposition": "included",
+      "files": 1,
+      "bytes": 15406,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [
+        "evidence/protocol-gap-analysis/2026-11-12/SHA256SUMS"
+      ],
+      "reason": "required by 1 corpora"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-30",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 397558,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-31",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 410225,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-32",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 422923,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-33",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 432186,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-34",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 441970,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-35",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 454406,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-36",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 466378,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-37",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 474434,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-38",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 483331,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-39",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 497245,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-40",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 505889,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-41",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 513378,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-42",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 521853,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-43",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 532837,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-44",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 545075,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-45",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 552204,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-46",
+      "disposition": "excluded",
+      "files": 19,
+      "bytes": 563016,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-47",
+      "disposition": "excluded",
+      "files": 22,
+      "bytes": 586191,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-48",
+      "disposition": "excluded",
+      "files": 25,
+      "bytes": 611007,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-49",
+      "disposition": "excluded",
+      "files": 26,
+      "bytes": 619815,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-50",
+      "disposition": "excluded",
+      "files": 27,
+      "bytes": 628129,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-51",
+      "disposition": "excluded",
+      "files": 29,
+      "bytes": 642570,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-52",
+      "disposition": "excluded",
+      "files": 30,
+      "bytes": 646692,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-53",
+      "disposition": "excluded",
+      "files": 32,
+      "bytes": 660533,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-54",
+      "disposition": "excluded",
+      "files": 39,
+      "bytes": 694973,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-55",
+      "disposition": "excluded",
+      "files": 39,
+      "bytes": 695211,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-56",
+      "disposition": "excluded",
+      "files": 44,
+      "bytes": 728880,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-57",
+      "disposition": "excluded",
+      "files": 44,
+      "bytes": 730659,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-58",
+      "disposition": "excluded",
+      "files": 51,
+      "bytes": 781018,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-59",
+      "disposition": "excluded",
+      "files": 51,
+      "bytes": 780949,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-60",
+      "disposition": "excluded",
+      "files": 52,
+      "bytes": 785249,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-13/revision-61",
+      "disposition": "excluded",
+      "files": 56,
+      "bytes": 810363,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-14/revision-62",
+      "disposition": "excluded",
+      "files": 57,
+      "bytes": 818705,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-14/revision-63",
+      "disposition": "excluded",
+      "files": 61,
+      "bytes": 843495,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-14/revision-64",
+      "disposition": "excluded",
+      "files": 64,
+      "bytes": 863488,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-14/revision-65",
+      "disposition": "excluded",
+      "files": 67,
+      "bytes": 883093,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-14/revision-66",
+      "disposition": "excluded",
+      "files": 70,
+      "bytes": 894500,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-14/revision-67",
+      "disposition": "excluded",
+      "files": 75,
+      "bytes": 936576,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-14/revision-68",
+      "disposition": "excluded",
+      "files": 77,
+      "bytes": 950694,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-14/revision-69",
+      "disposition": "excluded",
+      "files": 78,
+      "bytes": 962986,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-14/revision-70",
+      "disposition": "excluded",
+      "files": 81,
+      "bytes": 982031,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-14/revision-71",
+      "disposition": "excluded",
+      "files": 82,
+      "bytes": 992482,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-14/revision-72",
+      "disposition": "excluded",
+      "files": 84,
+      "bytes": 1006569,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-14/revision-73",
+      "disposition": "excluded",
+      "files": 86,
+      "bytes": 1018873,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-14/revision-74",
+      "disposition": "excluded",
+      "files": 88,
+      "bytes": 1032414,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-14/revision-75",
+      "disposition": "excluded",
+      "files": 90,
+      "bytes": 1045714,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-14/revision-76",
+      "disposition": "excluded",
+      "files": 91,
+      "bytes": 1057519,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-14/revision-77",
+      "disposition": "excluded",
+      "files": 95,
+      "bytes": 1085378,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-14/revision-78",
+      "disposition": "excluded",
+      "files": 96,
+      "bytes": 1092809,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-14/revision-79",
+      "disposition": "excluded",
+      "files": 97,
+      "bytes": 1102553,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-14/revision-80",
+      "disposition": "included",
+      "files": 99,
+      "bytes": 1120289,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [
+        "evidence/protocol-gap-analysis/2026-11-14/revision-81",
+        "evidence/protocol-gap-analysis/2026-11-14/revision-85",
+        "evidence/protocol-gap-analysis/2026-11-14/revision-86",
+        "evidence/protocol-gap-analysis/2026-11-14/revision-87",
+        "evidence/protocol-gap-analysis/2026-11-14/revision-88",
+        "evidence/protocol-gap-analysis/2026-11-15/revision-89"
+      ],
+      "reason": "required by 6 corpora"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-14/revision-81",
+      "disposition": "included",
+      "files": 7,
+      "bytes": 247808,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [
+        "evidence/protocol-gap-analysis/2026-11-14/revision-85",
+        "evidence/protocol-gap-analysis/2026-11-14/revision-86",
+        "evidence/protocol-gap-analysis/2026-11-14/revision-87",
+        "evidence/protocol-gap-analysis/2026-11-14/revision-88",
+        "evidence/protocol-gap-analysis/2026-11-15/revision-89"
+      ],
+      "reason": "required by 5 corpora"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-14/revision-82",
+      "disposition": "excluded",
+      "files": 4,
+      "bytes": 138446,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-14/revision-83",
+      "disposition": "excluded",
+      "files": 4,
+      "bytes": 140612,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-14/revision-84",
+      "disposition": "excluded",
+      "files": 4,
+      "bytes": 142600,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [],
+      "reason": "not cited by any citing file or relevant manifest"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-14/revision-85",
+      "disposition": "included",
+      "files": 12,
+      "bytes": 373223,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [
+        "evidence/protocol-gap-analysis/2026-11-14/revision-86",
+        "evidence/protocol-gap-analysis/2026-11-14/revision-87",
+        "evidence/protocol-gap-analysis/2026-11-14/revision-88",
+        "evidence/protocol-gap-analysis/2026-11-15/revision-89"
+      ],
+      "reason": "required by 4 corpora"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-14/revision-86",
+      "disposition": "included",
+      "files": 10,
+      "bytes": 298627,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [
+        "evidence/protocol-gap-analysis/2026-11-14/revision-87",
+        "evidence/protocol-gap-analysis/2026-11-14/revision-88",
+        "evidence/protocol-gap-analysis/2026-11-15/revision-89"
+      ],
+      "reason": "required by 3 corpora"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-14/revision-87",
+      "disposition": "included",
+      "files": 8,
+      "bytes": 235076,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [
+        "evidence/protocol-gap-analysis/2026-11-14/revision-88",
+        "evidence/protocol-gap-analysis/2026-11-15/revision-89"
+      ],
+      "reason": "required by 2 corpora"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-14/revision-88",
+      "disposition": "included",
+      "files": 4,
+      "bytes": 150535,
+      "withheld": 0,
+      "cited_by": [],
+      "required_by": [
+        "evidence/protocol-gap-analysis/2026-11-15/revision-89"
+      ],
+      "reason": "required by 1 corpora"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-15/revision-89",
+      "disposition": "included",
+      "files": 5,
+      "bytes": 247849,
+      "withheld": 0,
+      "cited_by": [
+        "register"
+      ],
+      "required_by": [],
+      "reason": "cited by register"
+    }
+  ]
+}

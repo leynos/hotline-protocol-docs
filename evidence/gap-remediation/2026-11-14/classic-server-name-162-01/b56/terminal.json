@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "case": "B56",
+  "outcome": "infrastructure-stop-before-connect",
+  "reason": "proxy output leaf pre-created; sole proxy invocation exited FileExistsError",
+  "proxy_unit": "mothra-classic-proxy-b56.service",
+  "proxy_ready": false,
+  "client_connect_activated": false,
+  "namespace_pcap_bytes": 24,
+  "client_guest_pre_sha256": "bfc0915d5cd70240ca87e7581da64525c823f1606d8834ff45a82d977123a3e5",
+  "client_guest_post_sha256": "bfc0915d5cd70240ca87e7581da64525c823f1606d8834ff45a82d977123a3e5",
+  "a7_preflight": "state/native-sessions/native-proxy-162-b56/a7-preflight/report.json",
+  "a7_postflight": "state/native-sessions/native-proxy-162-b56/a7-postflight/report.json",
+  "host_capture": "state/native-sessions/native-proxy-162-b56/host.pcap",
+  "namespace_capture": "state/native-sessions/native-proxy-162-b56/namespace.pcap",
+  "journals": [
+    "state/native-sessions/native-proxy-162-b56/proxy-journal.txt",
+    "state/native-sessions/native-proxy-162-b56/host-recorder-journal.txt",
+    "state/native-sessions/native-proxy-162-b56/ns-recorder-journal.txt"
+  ],
+  "terminal_units": "Id=mothra-b56-host-capture.service\nActiveState=inactive\nMainPID=0\nResult=success\n\nId=mothra-b56-ns-capture.service\nActiveState=inactive\nMainPID=0\nResult=success\n\nId=mothra-classic-proxy-b56.service\nActiveState=failed\nMainPID=0\nResult=exit-code\n"
+}

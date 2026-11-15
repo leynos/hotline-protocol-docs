@@ -1,0 +1,28 @@
+{
+  "plan_sha256": "b196ed191fdc61cea65d4c600e97fb332f74e23f7a8e2029bcb0d49a51270ca5",
+  "operation_count": 47,
+  "checkpoints": [
+    30,
+    35,
+    45,
+    46,
+    50,
+    60,
+    61,
+    75,
+    90,
+    106,
+    120,
+    135
+  ],
+  "duration_seconds": 135,
+  "max_simultaneous": 5,
+  "max_coordinator_flows": 7,
+  "operation_counts": {
+    "admit": 3,
+    "checkpoint": 12,
+    "send": 29,
+    "stimulus": 3
+  },
+  "control_only": true
+}

@@ -1,0 +1,13 @@
+Running as unit: mothra-native-rate304-r02-lease.service
+Running as unit: mothra-native-rate304-r02-host.service
+Running as unit: mothra-display-e5b990ea3178.service; invocation ID: 151806ca536b4aee904988a2596f39c0
+Running as unit: mothra-bridge-7ddf3defbd99.service; invocation ID: a3cc8e4fbd7b438ca8af3e6299ecd9ba
+Running as unit: mothra-xbridge-7ddf3defbd99.service; invocation ID: 9584bc2e16af4cbda5c52b4317bcf682
+Running as unit: mothra-sheep-0f79f2a08b7b.service; invocation ID: 5ebeeb3b4e06457d94a42b67af00296e
+Traceback (most recent call last):
+  File "/data/leynos/Projects/mothra/state/native-sessions/native-rate304-preparation-02/wait-emulator-r02.py", line 87, in <module>
+    main()
+    ~~~~^^
+  File "/data/leynos/Projects/mothra/state/native-sessions/native-rate304-preparation-02/wait-emulator-r02.py", line 83, in main
+    raise TimeoutError('Owned emulator FD6/FD16/header not ready within five seconds')
+TimeoutError: Owned emulator FD6/FD16/header not ready within five seconds

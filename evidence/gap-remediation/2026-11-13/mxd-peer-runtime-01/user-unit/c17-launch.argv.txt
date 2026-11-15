@@ -1,0 +1,1 @@
+systemd-run --user --unit=mothra-mxd-peer-c17.service --property=Type=exec --property=RemainAfterExit=yes --property=RuntimeMaxSec=1200 --property=Restart=no --no-block /usr/bin/bash /data/leynos/Projects/mothra/state/native-sessions/mxd-peer-c14/c17-launch.sh

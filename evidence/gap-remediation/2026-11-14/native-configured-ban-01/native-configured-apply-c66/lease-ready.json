@@ -1,0 +1,8 @@
+{
+  "unit": "mothra-configured-apply-c66-lease.service",
+  "main_pid": 599355,
+  "starttime": "5593795",
+  "lock_inode": 3512552451,
+  "busy_flock_exit": 1,
+  "uid": "Uid:\t1000\t1000\t1000\t1000"
+}

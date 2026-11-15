@@ -1,0 +1,17 @@
+{
+  "status": "verified",
+  "capture": "preflight",
+  "actions": 29,
+  "stream_bytes": 1049073,
+  "data_sha256": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+  "rsrc_sha256": "40a42dbcf2d879e22d9a5a9acf46bf15fa9fe3a77837f757a990e514436801e5",
+  "matching_replies": [
+    10,
+    11,
+    12
+  ],
+  "accounts": 2,
+  "files_rows": 41,
+  "current_uid_hex": "002a",
+  "idle_before_after_equal": true
+}

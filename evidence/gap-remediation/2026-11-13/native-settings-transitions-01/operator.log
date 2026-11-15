@@ -1,0 +1,54 @@
+Running as unit: mothra-a33-host-capture.service; invocation ID: b31e4f1192d1432e94ac6355ed121480
+A33 first native connection 2026-11-13T23:41:22Z
+native-mac-oracle: completed; 29 actions
+A33 full A7 preflight passed 1049073
+A33 observation start 2026-11-13T23:41:27Z
+{
+  "verified_stages": [
+    {
+      "label": "explicit",
+      "uid_hex": "0032",
+      "auto_hex": "6133322d6578706c69636974"
+    },
+    {
+      "label": "omitted",
+      "uid_hex": "0032",
+      "auto_hex": "49276d206e6f742061626c6520746f20726573706f6e64207269676874206e6f772e20506c6561736520747279206c6174657221"
+    },
+    {
+      "label": "empty",
+      "uid_hex": "0032",
+      "auto_hex": "49276d206e6f742061626c6520746f20726573706f6e64207269676874206e6f772e20506c6561736520747279206c6174657221"
+    },
+    {
+      "label": "unknown-only",
+      "uid_hex": "0032",
+      "auto_hex": null
+    },
+    {
+      "label": "mixed-unknown",
+      "uid_hex": "0032",
+      "auto_hex": "49276d206e6f742061626c6520746f20726573706f6e64207269676874206e6f772e20506c6561736520747279206c6174657221"
+    },
+    {
+      "label": "disable-absent",
+      "uid_hex": "0032",
+      "auto_hex": null
+    },
+    {
+      "label": "disable-zero",
+      "uid_hex": "0032",
+      "auto_hex": null
+    },
+    {
+      "label": "reenable",
+      "uid_hex": "0032",
+      "auto_hex": "49276d206e6f742061626c6520746f20726573706f6e64207269676874206e6f772e20506c6561736520747279206c6174657221"
+    }
+  ],
+  "subject_uid_hex": "0032"
+}
+A33 observation rc=0 postflight start 2026-11-13T23:42:19Z
+native-mac-oracle: completed; 29 actions
+A33 full A7 postflight passed 1049073
+A33 traffic end 2026-11-13T23:42:24Z

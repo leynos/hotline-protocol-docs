@@ -1,0 +1,53 @@
+[
+  {
+    "id": "D-10058070",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10058070"
+    }
+  },
+  {
+    "id": "D-100572d0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100572d0"
+    }
+  },
+  {
+    "id": "D-10079e30",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10079e30"
+    }
+  },
+  {
+    "id": "D-10052db0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10052db0"
+    }
+  },
+  {
+    "id": "D-10005300",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10005300"
+    }
+  },
+  {
+    "id": "M-frame-limit",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "10094a50",
+      "length": 8
+    }
+  },
+  {
+    "id": "A-10058d90",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "10058d90",
+      "limit": 200
+    }
+  }
+]

@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "scope": "Read-only original independent 1840-function project, no analysis mutation/native/GUI traffic",
+  "started_at_utc": "2026-11-13T15:37:35.392500+00:00",
+  "finished_at_utc": "2026-11-13T15:38:49.259520+00:00",
+  "query_count": 12,
+  "identity_before_after_equal": true,
+  "project_file_hash_map_equal": true,
+  "receiver_gui_decomp_exact": true,
+  "receiver_gui_disasm_exact": true,
+  "startup_gui_decomp_exact": true,
+  "startup_disasm_total": 592,
+  "positive_startup_store_sequence": [
+    {
+      "address": "10000b84",
+      "bytes": "3c000008",
+      "instruction": "lis r0,0x8",
+      "comment": null
+    },
+    {
+      "address": "10000b88",
+      "bytes": "38624330",
+      "instruction": "addi r3,r2,0x4330",
+      "comment": null
+    },
+    {
+      "address": "10000b8c",
+      "bytes": "90030000",
+      "instruction": "stw r0,0x0(r3)",
+      "comment": null
+    }
+  ],
+  "startup_store_interpretation": "The retained and headless-identical startup decompilation maps this store sequence to _DAT_10094a50 = 0x80000 immediately before call 10008fd0.",
+  "global_image_hex": "00 20 00 00",
+  "toc_pointer_hex": "10 09 4a 50",
+  "global_direct_xrefs": {
+    "items": [
+      {
+        "from": "10088d90",
+        "type": "DATA",
+        "from_function": null
+      }
+    ],
+    "offset": 0,
+    "limit": 1000,
+    "total": 1,
+    "has_more": false
+  },
+  "toc_slot_direct_xrefs": {
+    "items": [],
+    "offset": 0,
+    "limit": 1000,
+    "total": 0,
+    "has_more": false
+  },
+  "toc_slot_outgoing_xrefs": {
+    "items": [
+      {
+        "to": "10094a50",
+        "type": "DATA",
+        "to_function": null,
+        "to_label": "DAT_10094a50"
+      }
+    ],
+    "offset": 0,
+    "limit": 100,
+    "total": 1,
+    "has_more": false
+  },
+  "selected_consumer": {
+    "address": "10008fd0",
+    "function": {
+      "name": "FUN_10008fd0",
+      "address": "10008fd0"
+    },
+    "truncated": false
+  },
+  "selected_consumer_global_name_present": false,
+  "limitations": [
+    "Image bytes 00200000 are not runtime RAM.",
+    "No indexed code xref to the TOC slot does not exclude TOC-relative or indirect reads/writes.",
+    "One config-loader decompilation without the global name does not prove no later write.",
+    "No native runtime memory measurement, configurable-limit proof or aggregate buffer cap is supplied."
+  ]
+}

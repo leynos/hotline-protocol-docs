@@ -1,0 +1,13 @@
+{
+  "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "query_count": 12,
+  "plans": [
+    "plans/exception-and-account-consumers.json",
+    "plans/exception-displays-and-text.json"
+  ],
+  "method": "Read-only native account/ban UI, folder-descriptor assembly and internal-error paths. No native network execution.",
+  "derived_reviews": [
+    "error-status-callsite-review.json",
+    "internal-error-resource-catalogue.json"
+  ]
+}

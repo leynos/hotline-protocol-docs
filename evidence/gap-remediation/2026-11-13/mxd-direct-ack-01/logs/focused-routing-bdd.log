@@ -1,0 +1,17 @@
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`
+   Compiling mxd v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd)
+    Finished `test` profile [optimized] target(s) in 2.41s
+     Running tests/wireframe_routing_bdd.rs (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/build/mxd/9877e15394628352/out/wireframe_routing_bdd-9877e15394628352)
+
+running 8 tests
+test wireframe_routing_feature_scenarios::wireframe_routing_routes_unknown_transaction_type_to_error_handler ... ok
+test wireframe_routing_feature_scenarios::wireframe_routing_preserves_transaction_id_in_error_replies ... ok
+test wireframe_routing_feature_scenarios::wireframe_routing_uses_direct_reply_type_zero_for_errors ... ok
+test wireframe_routing_feature_scenarios::wireframe_routing_login_succeeds ... ok
+test wireframe_routing_feature_scenarios::wireframe_routing_news_categories_are_listed_at_the_root ... ok
+test wireframe_routing_feature_scenarios::wireframe_routing_news_articles_are_listed_for_a_category ... ok
+test wireframe_routing_feature_scenarios::wireframe_routing_news_categories_are_listed_within_a_nested_bundle ... ok
+test wireframe_routing_feature_scenarios::wireframe_routing_file_listing_returns_permitted_files ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.09s
+

@@ -1,0 +1,16 @@
+source_sha256=de6e406a158409d337b63f5ad4fd0d59dc1705e3bff4e55d68eff5992ee150eb
+exit=0
+
+1: cargo fmt --all -- --check
+634: cargo clippy --no-default-features --features "postgres test-support legacy-networking" --workspace --all-targets -- -D warnings
+648:     Finished `dev` profile [optimized] target(s) in 1m 43s
+651: Checking with toolchain `nightly-2026-05-28`
+656:     Finished `dev` profile [optimized] target(s) in 45.66s
+657: cargo clippy --features "sqlite test-support" --workspace --all-targets -- -D warnings
+670:     Finished `dev` profile [optimized] target(s) in 1m 01s
+673: Checking with toolchain `nightly-2026-05-28`
+677:     Finished `dev` profile [optimized] target(s) in 37.64s
+678: cargo clippy --no-default-features --features "sqlite toml test-support" --workspace --all-targets -- -D warnings
+688:     Finished `dev` profile [optimized] target(s) in 50.18s
+691: Checking with toolchain `nightly-2026-05-28`
+693:     Finished `dev` profile [optimized] target(s) in 32.93s

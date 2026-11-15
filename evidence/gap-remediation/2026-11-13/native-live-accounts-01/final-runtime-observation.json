@@ -1,0 +1,7 @@
+{
+  "recorded_at_utc": "2026-11-13T09:43:38.956984+00:00",
+  "emulator_pid": 1259319,
+  "running_executable_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "service_state": "ActiveState=active\nMainPID=1259226\nExecMainStatus=0\n",
+  "scope": "Server application restarted normally in the same running emulator; no OS restart or crash-durability claim."
+}

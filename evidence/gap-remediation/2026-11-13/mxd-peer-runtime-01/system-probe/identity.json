@@ -1,0 +1,7 @@
+{
+  "pid": 2323898,
+  "cgroup": "0::/system.slice/mothra-mxd-netns-probe.service\n",
+  "netns": "net:[4026532479]",
+  "expected_netns": "net:[4026532479]",
+  "uid_gid": "\t1000\t1000\t1000\t1000\nGid:\t1000\t1000\t1000\t1000\nFDSize:\t256\n"
+}

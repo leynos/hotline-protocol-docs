@@ -1,0 +1,28 @@
+import json,sys
+from pathlib import Path
+sys.path.insert(0,'../hotline-protocol-docs/scripts')
+from native_plan import *
+from native_transfer_cases import file_stream
+from protocol_capture import ORACLE_SHA256,validate_plan
+root=Path('state/native-sessions/runtime-10')
+(root/'plans').mkdir(exist_ok=True)
+def plan(name,steps,expectation):
+ p=dict(schema_version=1,profile='native-mac-oracle',operator='native fixture operator',oracle_sha256=ORACLE_SHA256,environment=json.loads((root/'runtime.json').read_text()),gap_ids=['GAP-055','GAP-063','GAP-084'],endpoints={'control':{'host':'127.0.0.1','port':15500},'data':{'host':'127.0.0.1','port':15501}},expectation=expectation,steps=steps)
+ validate_plan(p); (root/'plans'/f'{name}.json').write_text(json.dumps(p,indent=2)+'\n')
+def delayed():
+ steps=login()[:3]
+ fields=[(105,bytes(x^255 for x in b'admin')),(106,bytes(x^255 for x in b'mothra19')),(160,b'\0\xbe')]
+ return steps+[send(packet(107,1,payload(fields))),read(),read(),send(packet(121,2,payload([(102,b'banner-fixture'),(104,b'\0\1')]))),read(),read()]
+def pump(): return [send(packet(500,90)),read(match_frame={'is_reply':1,'id':90})]
+def request(): return [send(packet(212,10)),read(save_fields={'ref':107,'size':108},match_frame={'is_reply':1,'id':10})]
+plan('none-metadata',delayed()+pump()+[close()],{'phase':'remote-empty','kind':'metadata'})
+plan('none-transfer',login()+request()+[connect('banner','data'),send('48545846{ref}0000000000020000','banner'),{'op':'expect_quiet','connection':'banner','timeout':3}]+pump()+[close('banner'),close()],{'phase':'remote-empty','kind':'absent'})
+# Valid one-pixel GIF, with an opaque comment containing CRLF/NUL/high byte.
+gif=bytes.fromhex('47494638396101000100800000000000ffffff21fe040d0a00ff002c00000000010001000002024401003b')
+(root/'banner-a.gif').write_bytes(gif)
+gifb=gif.replace(b'\x0d\x0a\x00\xff',b'B\x0a\x00\xfe')+b'native-banner-b'
+(root/'banner-b.gif').write_bytes(gifb)
+for name,raw in [('banner-a.gif',gif),('banner-b.gif',gifb)]:
+ body=file_stream(raw,b'').replace(b'AMACTEXTMOTH',b'AMACGIFfMOTH',1)
+ steps=login()+[send(packet(203,10,payload([(201,('mothra-'+name).encode()),(108,len(body).to_bytes(4,'big'))]))),read(save_field={'name':'ref','id':107}),connect('upload','data'),send('48545846{ref}'+len(body).to_bytes(4,'big').hex()+'00000000'+body.hex(),'upload'),eof('upload'),close('upload'),send(packet(206,11,payload([(201,('mothra-'+name).encode())]))),read(),close()]
+ plan('seed-'+name,steps,{'kind':'seed','data_hex':raw.hex()})

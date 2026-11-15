@@ -1,0 +1,4 @@
+Starting isolated mxd Wireframe control listener on 127.0.0.1:15650
+mxd-wireframe-server using database /data/leynos/Projects/mothra/state/native-sessions/mxd-peer-c14/fixture.sqlite
+mxd-wireframe-server binding to 127.0.0.1:15650
+mxd-wireframe-server listening on 127.0.0.1:15650

@@ -1,0 +1,18 @@
+{
+  "utc": "2026-11-14T08:08:03.553566+00:00",
+  "pid": 1221811,
+  "starttime": "6825819",
+  "uid_line": "Uid:\t1000\t1000\t1000\t1000",
+  "cap_eff": "CapEff:\t0000000000020000",
+  "exe": "/data/leynos/Projects/mothra/state/mac-runtime/native-liveness-01/SheepShaver-9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "fd6": "/data/leynos/Projects/mothra/state/mac-runtime/native-liveness-01/working.dsk",
+  "fd16": "/data/leynos/Projects/mothra/state/native-sessions/native-liveness-epoch-01/lab-guest.pcap",
+  "netns": "net:[4026533605]",
+  "working_image_inode": 71221932,
+  "guest_pcap_header24": "d4c3b2a1020004000000000000000000ffff000001000000",
+  "original_startticks": {
+    "1099659": "767842",
+    "1012834": "2357813"
+  }
+}

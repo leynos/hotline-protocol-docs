@@ -1,0 +1,10 @@
+{
+  "old_pid": 774378,
+  "old_pid_present": false,
+  "old_display97_process_present": false,
+  "old_forwarding_ports_listening": false,
+  "observation_utc": "2026-11-13T05:09:27Z",
+  "cause": "Unknown; process absence and closed ports verified before a new launch. No claim of native server crash or clean guest shutdown.",
+  "source_working_disk": "state/mac-runtime/hotline19/working.dsk",
+  "preservation": "Old runtime is preserved; prepare creates a new hashed read-only base and writable copy in hotline20."
+}

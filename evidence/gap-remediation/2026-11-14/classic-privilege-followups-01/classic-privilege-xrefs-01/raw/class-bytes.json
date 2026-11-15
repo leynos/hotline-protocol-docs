@@ -1,0 +1,30 @@
+{
+  "captured_at_utc": "2026-11-14T08:27:40.259548+00:00",
+  "query": {
+    "id": "class-bytes",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "1014fef8",
+      "length": 32
+    }
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"address\": \"1014fef8\",\n  \"length\": 32,\n  \"hex\": \"43 4d 79 41 64 6d 69 6e 45 64 69 74 55 73 65 72 57 69 6e 00 10 14 58 90 00 00 00 00 10 14 58 b8\",\n  \"ascii\": \"CMyAdminEditUserWin...X.......X.\",\n  \"gaps\": []\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "address": "1014fef8",
+      "length": 32,
+      "hex": "43 4d 79 41 64 6d 69 6e 45 64 69 74 55 73 65 72 57 69 6e 00 10 14 58 90 00 00 00 00 10 14 58 b8",
+      "ascii": "CMyAdminEditUserWin...X.......X.",
+      "gaps": []
+    },
+    "isError": false
+  }
+}

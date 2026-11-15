@@ -1,0 +1,30 @@
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`
+   Compiling mxd v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd)
+    Finished `test` profile [optimized] target(s) in 5.93s
+     Running tests/wireframe_compat_guardrails_bdd.rs (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/build/mxd/2c447c91efc4d869/out/wireframe_compat_guardrails_bdd-2c447c91efc4d869)
+
+running 6 tests
+test wireframe_compat_guardrails_feature_scenarios::wireframe_compat_guardrails_xor_encoded_login_succeeds_through_the_router ... ok
+test wireframe_compat_guardrails_feature_scenarios::wireframe_compat_guardrails_login_with_sub_version_2_includes_fields ... ok
+test wireframe_compat_guardrails_feature_scenarios::wireframe_compat_guardrails_login_failure_does_not_include_banner_fields ... ok
+test wireframe_compat_guardrails_feature_scenarios::wireframe_compat_guardrails_sub_version_2_with_reported_version_190_includes_fields ... ok
+test wireframe_compat_guardrails_feature_scenarios::wireframe_compat_guardrails_login_with_hotline_1_9_version_includes_banner_fields ... ok
+test wireframe_compat_guardrails_feature_scenarios::wireframe_compat_guardrails_file_list_request_succeeds_after_login_through_the_router ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.98s
+
+     Running tests/wireframe_login_compat.rs (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/build/mxd/6779f03dec2d6145/out/wireframe_login_compat-6779f03dec2d6145)
+
+running 9 tests
+test wireframe_login_compat_feature_scenarios::wireframe_login_compat_login_failure_does_not_add_banner_fields ... ok
+test wireframe_login_compat_feature_scenarios::wireframe_login_compat_sub_version_2_with_max_reported_version_includes_fields ... ok
+test wireframe_login_compat_feature_scenarios::wireframe_login_compat_maximum_login_version_includes_banner_fields_for_hotline_clients ... ok
+test wireframe_login_compat_feature_scenarios::wireframe_login_compat_reported_version_100_still_includes_fields ... ok
+test wireframe_login_compat_feature_scenarios::wireframe_login_compat_reported_version_150_still_includes_fields ... ok
+test wireframe_login_compat_feature_scenarios::wireframe_login_compat_hotline_1_9_login_reply_includes_banner_fields ... ok
+test wireframe_login_compat_feature_scenarios::wireframe_login_compat_sub_version_2_login_reply_includes_fields ... ok
+test wireframe_login_compat_feature_scenarios::wireframe_login_compat_hotline_1_8_5_login_reply_includes_banner_fields ... ok
+test wireframe_login_compat_feature_scenarios::wireframe_login_compat_sub_version_2_with_reported_version_151_includes_fields ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.15s
+

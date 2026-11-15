@@ -1,0 +1,99 @@
+{
+  "source_a7_sha256": "5d0aa3dccf65fc6523678aa729c9ace72cd6caffbef768b7f5bf949e6568b43e",
+  "fixture_profile": "control-only",
+  "full_file_baseline": "not_exercised",
+  "emulator_pid": 1956254,
+  "emulator_starttime": "7658344",
+  "emulator_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "emulator_netns": "net:[4026533669]",
+  "emulator_netns_inode": 4026533669,
+  "owned_working_image": "/data/leynos/Projects/mothra/state/mac-runtime/native-rate304-01/working.dsk",
+  "owned_working_image_inode": 2226400708,
+  "owned_runtime": "/data/leynos/Projects/mothra/state/mac-runtime/native-rate304-01",
+  "source_base_sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910",
+  "rom_sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+  "native_data_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "stopped_board_baseline": {
+    "path": "Hotline19/MessageBoard.txt",
+    "catalog_id": 11191,
+    "data_size": 0,
+    "resource_size": 0,
+    "finder_type": "TEXT",
+    "finder_creator": "ttxt"
+  },
+  "utc": "2026-11-14T10:26:32.604700+00:00",
+  "epoch_started_utc": "2026-11-14T10:24:36.309570+00:00",
+  "deadline_utc": "2026-11-14T10:36:36.309570+00:00",
+  "oracle_lock": "/data/leynos/Projects/mothra/state/delegation/oracle.lock",
+  "managed_lock": {
+    "unit": "mothra-native-rate304-c106-lease.service",
+    "pid": 1954977,
+    "start": 7658165,
+    "fd": 3,
+    "lock_inode": 3512552451,
+    "busy_exit": 1,
+    "uid": "Uid:\t1000\t1000\t1000\t1000",
+    "unit_properties": {
+      "ActiveState": "active",
+      "SubState": "running",
+      "ActiveEnterTimestampMonotonic": "76581662312",
+      "RuntimeMaxUSec": "15min",
+      "MainPID": "1954977",
+      "KillMode": "control-group"
+    }
+  },
+  "managed_capture": {
+    "host": {
+      "utc": "2026-11-14T10:24:37.071430+00:00",
+      "unit": "mothra-native-rate304-c106-host.service",
+      "pid": 1955131,
+      "start_ticks": 7658201,
+      "netns_inode": 4026531840,
+      "fd": 5,
+      "capture": "/data/leynos/Projects/mothra/state/native-sessions/native-rate304-epoch-01/primary-syn.pcap",
+      "dev": 2097,
+      "inode": 3822562627,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-14T10:36:36.309570+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "76582019792",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1955131",
+        "KillMode": "control-group"
+      }
+    },
+    "namespace": {
+      "utc": "2026-11-14T10:26:32.346121+00:00",
+      "unit": "mothra-native-rate304-c106-namespace.service",
+      "pid": 1999518,
+      "start_ticks": 7669730,
+      "netns_inode": 4026533669,
+      "fd": 5,
+      "capture": "/data/leynos/Projects/mothra/state/native-sessions/native-rate304-epoch-01/lab-namespace.pcap",
+      "dev": 2097,
+      "inode": 3822464962,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-14T10:36:36.309570+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "76697326328",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1999518",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "host_pcap": "/data/leynos/Projects/mothra/state/native-sessions/native-rate304-epoch-01/primary-syn.pcap",
+  "namespace_pcap": "/data/leynos/Projects/mothra/state/native-sessions/native-rate304-epoch-01/lab-namespace.pcap",
+  "guest_pcap": "/data/leynos/Projects/mothra/state/native-sessions/native-rate304-epoch-01/lab-guest.pcap",
+  "host_recorder_pid": 1955131,
+  "host_recorder_starttime": 7658201,
+  "namespace_recorder_pid": 1999518,
+  "namespace_recorder_starttime": 7669730,
+  "primary_syn_count": 0,
+  "ns_routes": [],
+  "runtime_mode": "control-only capture receipt"
+}

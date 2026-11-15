@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "mxd_base": "2e4c9c1df20b37a6f98a1369e0a8f09f9ee2a131",
+  "hypothesis": "H1 delayed polling can make completed work win a ready timer tie",
+  "classification": "mechanism witnessed",
+  "historical_cause_established": false,
+  "tie_contract_decided": false,
+  "named_library_tests_passed": 1,
+  "named_library_tests_failed": 0,
+  "source_restored": true,
+  "codec_candidate_unchanged": true,
+  "full_gate_run": false,
+  "service_invocation_id": "439db79c68714c3da5974c4d4b520602",
+  "service_unit": "mxd-watchdog-h1-20261113-1602.service",
+  "unit_post_exit_caveat": "The transient unit unloaded after exit; post-exit properties are not durable exit evidence. The test log reports one passed test."
+}

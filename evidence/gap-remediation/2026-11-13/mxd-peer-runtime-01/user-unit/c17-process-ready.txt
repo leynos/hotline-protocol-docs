@@ -1,0 +1,15 @@
+2026-11-13 20:50:44 UTC
+    PID    PPID   UID   GID COMMAND         COMMAND
+2274636     447     0     0 sudo            /usr/sbin/sudo -n /usr/sbin/nsenter -t 1012834 -n -- /usr/sbin/setpriv --reuid=1000 --regid=1000 --init-groups -- /usr/bin/env -i HOME=/data/leynos/Projects/mothra/state/native-sessions/mxd-peer-c14/home XDG_CONFIG_HOME=/data/leynos/Projects/mothra/state/native-sessions/mxd-peer-c14/xdg-home XDG_CONFIG_DIRS=/data/leynos/Projects/mothra/state/native-sessions/mxd-peer-c14/xdg-dirs XDG_DATA_HOME=/data/leynos/Projects/mothra/state/native-sessions/mxd-peer-c14/xdg-data XDG_CACHE_HOME=/data/leynos/Projects/mothra/state/native-sessions/mxd-peer-c14/xdg-cache MXD_CONFIG_PATH=/data/leynos/Projects/mothra/state/native-sessions/mxd-peer-c14/daemon.toml PATH=/usr/bin:/bin /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/mxd-wireframe-server --database /data/leynos/Projects/mothra/state/native-sessions/mxd-peer-c14/fixture.sqlite --bind 127.0.0.1:15650 --server-name mxd
+2275040 2274636  1000  1000 mxd-wireframe-s /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/mxd-wireframe-server --database /data/leynos/Projects/mothra/state/native-sessions/mxd-peer-c14/fixture.sqlite --bind 127.0.0.1:15650 --server-name mxd
+/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/mxd-wireframe-server
+3da44eac362e1a5433eee4cace8f030e383a9c4a8ea8f587055610299c879375  /proc/2275040/exe
+net:[4026532479]
+net:[4026532479]
+Uid:	1000	1000	1000	1000
+Gid:	1000	1000	1000	1000
+CapEff:	0000000000000000
+mxd cgroup:
+0::/user.slice/user-0.slice/session-c155.scope
+unit MainPID cgroup:
+0::/user.slice/user-0.slice/session-c155.scope

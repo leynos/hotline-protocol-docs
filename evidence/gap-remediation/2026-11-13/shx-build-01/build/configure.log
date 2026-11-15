@@ -1,0 +1,53 @@
+loading cache /dev/null
+checking for gcc... gcc
+checking whether the C compiler (gcc -O0 -g -std=gnu89 -fcommon -I/data/leynos/Projects/mothra/tools/shx-deps/usr/include -I/data/leynos/Projects/mothra/tools/shx-deps/usr/include -L/data/leynos/Projects/mothra/tools/shx-deps/usr/lib64 -Wl,-rpath,/data/leynos/Projects/mothra/tools/shx-deps/usr/lib64) works... yes
+checking whether the C compiler (gcc -O0 -g -std=gnu89 -fcommon -I/data/leynos/Projects/mothra/tools/shx-deps/usr/include -I/data/leynos/Projects/mothra/tools/shx-deps/usr/include -L/data/leynos/Projects/mothra/tools/shx-deps/usr/lib64 -Wl,-rpath,/data/leynos/Projects/mothra/tools/shx-deps/usr/lib64) is a cross-compiler... no
+checking whether we are using GNU C... yes
+checking whether gcc accepts -g... yes
+checking host system type... x86_64-pc-linux-gnu
+checking for POSIXized ISC... no
+checking for working const... yes
+checking for inline... inline
+checking whether byte ordering is bigendian... no
+checking for Mac OS X... no
+checking for tr... /usr/sbin/tr
+checking return type of signal handlers... void
+checking how to run the C preprocessor... gcc -E
+checking for ANSI C header files... yes
+checking for size_t... yes
+checking for ssize_t... yes
+checking for u_int8_t... yes
+checking for u_int16_t... yes
+checking for u_int32_t... yes
+checking for int8_t... yes
+checking for int16_t... yes
+checking for int32_t... yes
+checking for sys/select.h... yes
+checking for stdarg.h... yes
+checking for snprintf... yes
+checking for vsnprintf... yes
+checking for broken snprintf... yes
+checking for localtime_r... yes
+checking for inet_aton... yes
+checking for getrlimit... yes
+checking for getdtablesize... yes
+checking for gethostbyname... yes
+checking for socket... yes
+checking for initscr in -lncurses... yes
+checking for termcap.h... yes
+checking for strcasestr... yes
+checking for basename... yes
+checking for hstrerror... yes
+checking for gethostname... yes
+checking for putenv... yes
+checking for tcgetattr... yes
+checking for tcsetattr... yes
+checking for getopt_long_r... no
+checking for tgetent in -ltermcap... yes
+checking for rl_callback_handler_install in -lreadline... yes
+checking for using_history in -lhistory... yes
+checking for inet_ntoa_r... no
+updating cache /dev/null
+creating ./config.status
+creating Makefile
+creating config.h

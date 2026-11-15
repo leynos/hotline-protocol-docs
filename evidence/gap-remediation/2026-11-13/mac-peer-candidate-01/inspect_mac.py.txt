@@ -1,0 +1,63 @@
+from __future__ import annotations
+
+import hashlib
+import json
+from pathlib import Path
+
+root = Path(__file__).parent / "extracted" / "Hotline Client 1.9.2"
+result = {}
+for label in ("Hotline Client 1.9.2 Classic", "Hotline Client 1.9.2 OS X"):
+    data = (root / label).read_bytes()
+    sidecar = (root / ("._" + label)).read_bytes()
+    entries = {}
+    assert int.from_bytes(sidecar[:4], "big") == 0x00051607
+    count = int.from_bytes(sidecar[24:26], "big")
+    for i in range(count):
+        at = 26 + i * 12
+        entry_id = int.from_bytes(sidecar[at:at + 4], "big")
+        offset = int.from_bytes(sidecar[at + 4:at + 8], "big")
+        length = int.from_bytes(sidecar[at + 8:at + 12], "big")
+        assert offset + length <= len(sidecar)
+        entries[entry_id] = sidecar[offset:offset + length]
+    fork = entries.get(2, b"")
+    finder = entries.get(9, b"")
+    item = {
+        "data_bytes": len(data),
+        "data_sha256": hashlib.sha256(data).hexdigest(),
+        "sidecar_sha256": hashlib.sha256(sidecar).hexdigest(),
+        "resource_bytes": len(fork),
+        "resource_sha256": hashlib.sha256(fork).hexdigest(),
+        "finder_type_ascii": finder[:4].decode("mac_roman", errors="replace"),
+        "finder_creator_ascii": finder[4:8].decode("mac_roman", errors="replace"),
+        "appledouble_entry_ids": sorted(entries),
+        "vers_resources": [],
+    }
+    if fork:
+        doff, moff, dlen, mlen = (int.from_bytes(fork[n:n+4], "big") for n in (0, 4, 8, 12))
+        assert doff + dlen <= len(fork) and moff + mlen <= len(fork)
+        type_list = moff + int.from_bytes(fork[moff+24:moff+26], "big")
+        type_count = int.from_bytes(fork[type_list:type_list+2], "big") + 1
+        for i in range(type_count):
+            at = type_list + 2 + i * 8
+            kind = fork[at:at+4]
+            nrefs = int.from_bytes(fork[at+4:at+6], "big") + 1
+            ref_at = type_list + int.from_bytes(fork[at+6:at+8], "big")
+            if kind != b"vers":
+                continue
+            for j in range(nrefs):
+                ref = ref_at + j * 12
+                rid = int.from_bytes(fork[ref:ref+2], "big", signed=True)
+                resource_rel = int.from_bytes(fork[ref+5:ref+8], "big")
+                payload_at = doff + resource_rel
+                size = int.from_bytes(fork[payload_at:payload_at+4], "big")
+                payload = fork[payload_at+4:payload_at+4+size]
+                assert len(payload) == size
+                short_len = payload[6] if len(payload) > 6 else 0
+                short = payload[7:7+short_len].decode("mac_roman", errors="replace")
+                long_start = 7 + short_len
+                long_len = payload[long_start] if len(payload) > long_start else 0
+                long = payload[long_start+1:long_start+1+long_len].decode("mac_roman", errors="replace")
+                item["vers_resources"].append({"id": rid, "raw_hex": payload.hex(), "version_bytes_hex": payload[:4].hex(), "short": short, "long": long})
+    result[label] = item
+(Path(__file__).parent / "mac-identity.json").write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
+print(json.dumps(result, indent=2, sort_keys=True))

@@ -1,0 +1,65 @@
+{
+  "cases": [
+    {
+      "case": "absent",
+      "observed_flags": 0,
+      "subject_uid_hex": "0016",
+      "feedback_option": 0
+    },
+    {
+      "case": "empty",
+      "observed_flags": 0,
+      "subject_uid_hex": "0018",
+      "feedback_option": 0
+    },
+    {
+      "case": "zero-two",
+      "observed_flags": 0,
+      "subject_uid_hex": "001a",
+      "feedback_option": 0
+    },
+    {
+      "case": "one-byte-refuse",
+      "observed_flags": 1,
+      "subject_uid_hex": "001c",
+      "feedback_option": 2
+    },
+    {
+      "case": "two-byte-auto",
+      "observed_flags": 4,
+      "subject_uid_hex": "001e",
+      "feedback_option": 4
+    },
+    {
+      "case": "three-byte-default",
+      "observed_flags": 0,
+      "subject_uid_hex": "0020",
+      "feedback_option": 0
+    },
+    {
+      "case": "four-byte-both",
+      "observed_flags": 5,
+      "subject_uid_hex": "0022",
+      "feedback_option": 4
+    },
+    {
+      "case": "five-byte-prefix",
+      "observed_flags": 1,
+      "subject_uid_hex": "0024",
+      "feedback_option": 2
+    },
+    {
+      "case": "duplicate-refuse-auto",
+      "observed_flags": 1,
+      "subject_uid_hex": "0026",
+      "feedback_option": 2
+    },
+    {
+      "case": "duplicate-auto-refuse",
+      "observed_flags": 1,
+      "subject_uid_hex": "0028",
+      "feedback_option": 2
+    }
+  ],
+  "scope": "304 field 113 only; duplicate selections measured per case"
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "cases": [
+    "client-id-boundaries-and-reuse",
+    "duplicate-id-after-dispatch-pause",
+    "incomplete-request-id-reused-with-smaller-total",
+    "interleaved-underfilled-transactions-eof",
+    "late-reply-1-completed-client-id",
+    "late-reply-2-completed-client-id",
+    "late-reply-255-completed-client-id",
+    "notification-and-direct-reply-id-spaces",
+    "partial-frame-body-eof",
+    "partial-header-eof",
+    "partial-request-and-wide-reply-same-id",
+    "pipelined-distinct-ids",
+    "pipelined-duplicate-id",
+    "pipelined-id-collision-last-type",
+    "reply-1-server-notification-id",
+    "reply-1-zero-size-rejection",
+    "reply-2-server-notification-id",
+    "reply-255-server-notification-id",
+    "reply-255-zero-size-rejection",
+    "request-flags-1-error-ffffffff",
+    "request-flags-128-error-ffffffff",
+    "underfilled-transaction-eof",
+    "unsupported-request-type-0",
+    "unsupported-request-type-65535"
+  ],
+  "packet_window_seconds": [
+    1794526831.955103,
+    1794527173.4270647
+  ],
+  "host_capture_packets": [
+    416,
+    68
+  ],
+  "host_kernel_drops": 0,
+  "unread_output": {},
+  "scope": "Native transaction-ID and reply-envelope cases. Collisions depend on dispatch lifetime; quiet observations are bounded. Server counter wrap is static machine-code evidence, not a live 2^32-cycle test. No identified-client receiver tolerance or mxd release policy claim. Four partial header/body/transaction EOF controls distinguish native FIN responses from native-initiated malformed-reply rejection.",
+  "preparation": "Initial19 plans, one mixed-type collision extension and four partial-input EOF additions are retained exactly. Current24-case generator preserves their wire steps. All24 native captures completed; one exploratory oracle query at interior address10058960 failed and is retained alongside corrected lifecycle functions."
+}

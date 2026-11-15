@@ -1,0 +1,20 @@
+{
+  "pid": 1364862,
+  "start": "7054838",
+  "ns": 4026532471,
+  "deadline": "2026-11-14T08:56:02.051250+00:00",
+  "lease_pid": 1364777,
+  "source_hashes": {
+    "native_board_cases.py": "19e699317afd769c4a4b483e6094337fe92a5baaed279ae6ab98c18b7b554344",
+    "native_board_control.py": "da343b8d39f35c18bc267f301fdac316c720c0d5d4334eaec1d389ef381d1f6c",
+    "native_ban_control_cases.py": "3df9ba8f86f9701842da820f6c2cdbc3d2e935a4392090c6b6c01a799ab3c144",
+    "native_control_readiness.py": "afb2dcbabae9765b9708efa21e4e3d7ff74ad33e90bee0f03d953cfa95d1c1da",
+    "native_ban_expiry_control.py": "7f58d3c6cf105bcd591910828000c24fca3110d90b9a0b08ba277b1d369b112d",
+    "native_plan.py": "770ec5eedb850add8ecbccecf0c84a763d316883a33e71be224fa55ca1627895",
+    "native_auth_cases.py": "adb3eaf2d949aafd6c5605c80fa01ae882e2b2f603dc280ad8ae2c71d22179a7",
+    "protocol_capture.py": "2fba0972f4d9a8e3845c4204dce150dd7c90da0e19a9e5720d5289e2c94faf01",
+    "verify_native_auth.py": "a16bb58857623d2c4260fe00202b9f633983d8dd069c87e99912a6f00e5134c5",
+    "verify_native_shx.py": "32d2f6fa2a4b03bb8be9f80400c3d678f05741a6ffc772d9b5d8d79333bc61ef",
+    "pcap_tcp.py": "04c4fda2e62ccab35ed306c036dac6b1878af58adbfaccc6312a2805dd6897d7"
+  }
+}

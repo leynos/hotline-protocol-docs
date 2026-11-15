@@ -1,0 +1,5 @@
+Private mxd HEAD: 2e4c9c1df20b37a6f98a1369e0a8f09f9ee2a131
+Private mxd status after service failure (uncommitted candidate only):
+ M src/wireframe/codec/framed_tests.rs
+ M src/wireframe/codec/mod.rs
+No staged changes; diff check passed. Candidate patch and snapshots are in prior mxd-limits-01 evidence.

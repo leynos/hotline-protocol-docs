@@ -1,0 +1,11 @@
+{
+  "source_register_commit": "fbd20067bedce086acaf69a992f0f92500016bb4",
+  "entries": [
+    {
+      "gap_id": "GAP-062",
+      "unchanged_closure_criteria": "Trace the cleanup helper and publish reference-state/outcome tables and cancellation/completion race fixtures.",
+      "prior_status": "Investigating",
+      "review": "Retained handler 10013040 and cleanup-helper 1000e760 code, a reference-state/outcome table, the earlier queued/pending/absent/zero/unknown/nonowner cases and ten new native cases satisfy the unchanged criterion. A complete multi-chunk baseline, three immediate and three partial-read cancellations establish exact delivered prefixes and observed incoming-request/data overlap. Packet timing is separated from buffered application reads after ACK. Nonowner cleanup allows continued full delivery; owner/duplicate cleanup ACKs and removed-reference rejection are verified. A pending upload survives 214, consistent with the helper collection search. Native HFS+ DATA/MACR bytes match seeds after all cases. Finite races do not establish universal delivery counts, deadlines, rollback or folder/banner stream conformance."
+    }
+  ]
+}

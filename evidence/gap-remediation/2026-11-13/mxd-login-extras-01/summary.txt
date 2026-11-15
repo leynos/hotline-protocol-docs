@@ -1,0 +1,12 @@
+C11 native 1.9 successful-login extras correction
+mxd base 20e891a059de7dd9dec5a657d7099570987d860d
+mxd accepted private commit cb907885cc2a61df2d708f38a3cf42da85c2a016
+Tracked mxd worktree clean after commit; snapshots and source-sha256 match the tested bytes.
+Two real router red cases before production: field161 four bytes, sub-version2 omitted extras.
+Final focused: router12, policy18, config5, CLI4, login BDD9, guardrails BDD6 passed.
+make check-fmt, make lint, make markdownlint nixie: exit0.
+Controlled full make test: unit mxd-c11-full-20261113-1922.service, invocation 892ffaf601ef444c9d0e421f760e795b, retained oneshot Type=oneshot, TimeoutStart=40min, TimeoutStop=30s, RemainAfterExit=yes, Result=success, ExecMainStatus=0. Script recorded full.exit=0.
+PostgreSQL 565/565; SQLite 569/569; wireframe-only 551/551; UI 3/3; verification 69/69 with 1 skip; fuzz 8/8; concurrency 7/7. Doctests: concurrency7/7; mxd5 passed/4 ignored.
+Execution: offline, one Cargo build job, NEXTEST_TEST_THREADS=2, fresh owned PG_EMBED_ROOT, existing PG_RUNTIME_DIR 18.6.0, PG_DATA_DIR unset, UI-only target override to private mxd/target. This proves the controlled configuration, not default parallelism stability.
+Kani harness source updated but not run; no Kani proof claimed.
+Field162 ASCII <=31 is an explicit mxd configuration limitation; native raw9a and setter clipping remain unresolved. Field161 is opaque; release subset/owner and other gap criteria remain open.

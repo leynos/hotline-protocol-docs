@@ -1,0 +1,25 @@
+{
+  "unit": "mothra-display-1e7981d40a41",
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=mothra-display-1e7981d40a41",
+    "--collect",
+    "--service-type=exec",
+    "--property=WorkingDirectory=/data/leynos/Projects/mothra",
+    "--property=StandardOutput=append:/data/leynos/Projects/mothra/state/mac-displays/recovery21/display-service.log",
+    "--property=StandardError=append:/data/leynos/Projects/mothra/state/mac-displays/recovery21/display-service.log",
+    "--property=Restart=no",
+    "--",
+    "/usr/sbin/Xvfb",
+    ":99",
+    "-screen",
+    "0",
+    "1024x768x24",
+    "-nolisten",
+    "tcp",
+    "-ac",
+    "-noreset"
+  ],
+  "readiness": "Check systemctl --user show and the actual display/listener; no automatic restart"
+}

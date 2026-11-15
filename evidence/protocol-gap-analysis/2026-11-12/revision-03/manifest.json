@@ -1,0 +1,45 @@
+{
+  "captured_at_utc": "2026-11-12T13:56:31.065650+00:00",
+  "source_git_head": "9a730152e842ae1ac074106e5d8bcc66c4aae261",
+  "source_worktree_status": "M operation-contracts.md\n M protocol.md\n?? transfer-contracts.md",
+  "inputs": [
+    {
+      "path": "protocol.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-03/inputs/protocol.md.txt",
+      "sha256": "55ad0eb241f929f46f84faeb1a3e85fa9d3f76e86e470630cededaccd99e1239",
+      "lines": 1025
+    },
+    {
+      "path": "internal-compatibility-matrix.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-03/inputs/internal-compatibility-matrix.md.txt",
+      "sha256": "e301db771babc2de1912a55e535da89cdb356e6c48451738de138c6a47f5926c",
+      "lines": 267
+    },
+    {
+      "path": "baseline-correction-map.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-03/inputs/baseline-correction-map.md.txt",
+      "sha256": "a92254a423773367c1b1e35421bf4718c165f957031f371e55b486cdcb648c30",
+      "lines": 106
+    },
+    {
+      "path": "native-wire-details.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-03/inputs/native-wire-details.md.txt",
+      "sha256": "e80a9b0d883f04eec35f1188d7ec433265d6145fe554a061dc38f8a144698dbb",
+      "lines": 206
+    },
+    {
+      "path": "operation-contracts.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-03/inputs/operation-contracts.md.txt",
+      "sha256": "caf1933374c4fecd05e9cb0684b8d1eec8b06fcd9811e322260b599dbfc9797f",
+      "lines": 163
+    },
+    {
+      "path": "transfer-contracts.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-03/inputs/transfer-contracts.md.txt",
+      "sha256": "be5838aeac894b916b0cde3bbf11e744151cb0e57d8deedfd6e7443c5a78eddc",
+      "lines": 220
+    }
+  ],
+  "method": "Documentation review plus read-only Ghidra MCP follow-up against the recorded Hotline 1.9 data fork, and revision-specific mxd source/test review (55 focused tests passed). The original audit and validity ledger remain immutable; current sources have been reviewed and re-snapshotted. No native runtime/client captures or Kani proof results are claimed. Entries remain Investigating while their acceptance criteria are unmet.",
+  "previous_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-02/manifest.json"
+}

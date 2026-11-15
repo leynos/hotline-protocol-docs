@@ -1,0 +1,91 @@
+{
+  "status": "verified",
+  "baseline_accounts_exact": true,
+  "baseline_files_exact_41": true,
+  "fixture_metadata_exact": true,
+  "same_connection_uid_hex": "0029",
+  "download_reference_hex": "0031a15f",
+  "download_stream_bytes": 1049073,
+  "info_bytes": 108,
+  "data_bytes": 1048576,
+  "data_sha256": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+  "resource_bytes": 317,
+  "resource_sha256": "40a42dbcf2d879e22d9a5a9acf46bf15fa9fe3a77837f757a990e514436801e5",
+  "idle_303_before_after_exact": true,
+  "packet_views": {
+    "host.pcap": {
+      "a": {
+        "packets": 36,
+        "sent_bytes": 334,
+        "received_bytes": 3175,
+        "terminal_packets": [
+          {
+            "packet": 3752,
+            "from_server": false,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 3753,
+            "from_server": true,
+            "flags": 17,
+            "payload_hex": ""
+          }
+        ]
+      },
+      "download": {
+        "packets": 1546,
+        "sent_bytes": 16,
+        "received_bytes": 1049073,
+        "terminal_packets": [
+          {
+            "packet": 3745,
+            "from_server": true,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 3748,
+            "from_server": false,
+            "flags": 17,
+            "payload_hex": ""
+          }
+        ]
+      }
+    },
+    "guest-cumulative.pcap": {
+      "a": {
+        "packets": 35,
+        "sent_bytes": 334,
+        "received_bytes": 3175,
+        "terminal_packets": [
+          {
+            "packet": 15616,
+            "from_server": false,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 15618,
+            "from_server": true,
+            "flags": 17,
+            "payload_hex": ""
+          }
+        ]
+      },
+      "download": {
+        "packets": 1544,
+        "sent_bytes": 16,
+        "received_bytes": 1049073,
+        "terminal_packets": [
+          {
+            "packet": 15612,
+            "from_server": true,
+            "flags": 4,
+            "payload_hex": "7463705f646973636f6e6e656374"
+          }
+        ]
+      }
+    }
+  }
+}

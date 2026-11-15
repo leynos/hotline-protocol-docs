@@ -1,0 +1,3 @@
+Prior C4 H1 evidence: evidence/gap-remediation/2026-11-13/mxd-watchdog-h1-01/manifest.json
+Classification: sufficient delayed-poll mechanism witnessed; historical failure cause unknown; work-vs-expired-timer tie contract undecided.
+The old finite-work watchdog test failed in retained managed service evidence/gap-remediation/2026-11-13/mxd-build-recovery-01/manifest.json. The corrected cancellation-only test retains exact 1ms variant/message checks.

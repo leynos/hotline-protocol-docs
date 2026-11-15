@@ -1,0 +1,1 @@
+Synthetic loopback TCP peer for capture tooling; not Hotline or a native Mac.

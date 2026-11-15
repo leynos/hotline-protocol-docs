@@ -1,0 +1,3 @@
+state/mac-runtime/hotline-client-isolated-01/base.dsk inode=3247836351 size=8388608000 blocks=16384016 mode=444 mtime_ns=1794598783
+state/mac-runtime/hotline-client-isolated-01/working.dsk inode=3247985745 size=8388608000 blocks=16384016 mode=644 mtime_ns=1794598783
+state/mac-runtime/hotline-client-isolated-01/rom inode=3247836347 size=1945746 blocks=3808 mode=644 mtime_ns=1794598783

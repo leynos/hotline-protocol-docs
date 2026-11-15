@@ -1,0 +1,37 @@
+[
+  {
+    "id": "B17-D-10000000",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10000000"
+    }
+  },
+  {
+    "id": "B17-D-10000050",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10000050"
+    }
+  },
+  {
+    "id": "B17-D-10000160",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10000160"
+    }
+  },
+  {
+    "id": "B17-D-100006c0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100006c0"
+    }
+  },
+  {
+    "id": "B17-D-10003f30",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10003f30"
+    }
+  }
+]

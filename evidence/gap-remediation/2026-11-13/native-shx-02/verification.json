@@ -1,0 +1,98 @@
+{
+  "native_sessions": 3,
+  "controlled_receiver_sessions": 4,
+  "native_names": [
+    {
+      "case": "ascii",
+      "name_hex": "6d6f746872612d706565722d6e616d65",
+      "request_types": [
+        107,
+        300,
+        105
+      ],
+      "received_types": [
+        0,
+        354,
+        109,
+        0,
+        106
+      ],
+      "roster_names_hex": [
+        "7368782d706565722d61"
+      ]
+    },
+    {
+      "case": "macroman",
+      "name_hex": "6d6f746872612d706565722d9a",
+      "request_types": [
+        107,
+        300,
+        105
+      ],
+      "received_types": [
+        0,
+        354,
+        109,
+        0,
+        106
+      ],
+      "roster_names_hex": [
+        "7368782d706565722d61"
+      ]
+    },
+    {
+      "case": "restored",
+      "name_hex": "",
+      "request_types": [
+        107,
+        300,
+        105
+      ],
+      "received_types": [
+        0,
+        354,
+        109,
+        0,
+        106
+      ],
+      "roster_names_hex": [
+        "7368782d706565722d61"
+      ]
+    }
+  ],
+  "receiver_matrix": [
+    {
+      "mode": "banner",
+      "client_port": 44196,
+      "sent_bytes": 166,
+      "received_bytes": 567,
+      "banner": "unknown header, dumped, continued",
+      "subject": "absent"
+    },
+    {
+      "mode": "banner-subject",
+      "client_port": 48228,
+      "sent_bytes": 166,
+      "received_bytes": 617,
+      "banner": "unknown header, dumped, continued",
+      "subject": "displayed twice"
+    },
+    {
+      "mode": "control",
+      "client_port": 41540,
+      "sent_bytes": 166,
+      "received_bytes": 496,
+      "banner": "not delivered",
+      "subject": "absent"
+    },
+    {
+      "mode": "subject",
+      "client_port": 45606,
+      "sent_bytes": 166,
+      "received_bytes": 546,
+      "banner": "not delivered",
+      "subject": "displayed twice"
+    }
+  ],
+  "scope": "Native162 tolerance; controlled full-process delivery of native122 and source-derived115. One modern historical-source build; no original distributed binary, live SynHX server, banner UI or universal fallback claim."
+}

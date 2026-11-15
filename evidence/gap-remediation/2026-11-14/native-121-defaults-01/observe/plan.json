@@ -1,0 +1,654 @@
+{
+  "schema_version": 1,
+  "profile": "native-mac-oracle",
+  "operator": "A35 offline 121 preparation; separate live START required",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "gap_ids": [
+    "GAP-029",
+    "GAP-030"
+  ],
+  "environment": {
+    "profile": "native-mac-oracle",
+    "phase": "GAP-037 diagnostic load follow-up",
+    "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+    "emulator_pid": 1099659,
+    "emulator_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+    "runtime_assets": {
+      "rom_sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+      "base_disk_sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910",
+      "source_rom": "/data/leynos/Projects/mothra/state/mac-runtime/hotline21/rom",
+      "source_disk": "/data/leynos/Projects/mothra/state/mac-runtime/hotline21/working.dsk",
+      "archive_member": null
+    },
+    "runtime_launch": {
+      "command": [
+        "sudo",
+        "-n",
+        "setpriv",
+        "--reuid=1000",
+        "--regid=1000",
+        "--init-groups",
+        "--inh-caps=+sys_rawio",
+        "--ambient-caps=+sys_rawio",
+        "env",
+        "DISPLAY=:99",
+        "SDL_VIDEODRIVER=x11",
+        "SDL_AUDIODRIVER=dummy",
+        "MOTHRA_ETHERNET_PCAP=/data/leynos/Projects/mothra/state/native-sessions/recovery-20261113-01/guest.pcap",
+        "XDG_CACHE_HOME=/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/cache",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/SheepShaver-9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/machine.sheepvm"
+      ],
+      "emulator_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "host_ports": [
+        15500,
+        15501,
+        15502,
+        15503
+      ],
+      "tcp_bind": "127.0.0.1",
+      "guest_address": "10.0.2.15",
+      "guest_pcap": "/data/leynos/Projects/mothra/state/native-sessions/recovery-20261113-01/guest.pcap",
+      "guest_pcap_scope": "SLiRP Ethernet boundary; host wall-clock timestamps"
+    },
+    "emulator_service": {
+      "unit": "mothra-sheep-bf808bd28e0d",
+      "command": [
+        "systemd-run",
+        "--user",
+        "--unit=mothra-sheep-bf808bd28e0d",
+        "--collect",
+        "--service-type=exec",
+        "--property=WorkingDirectory=/data/leynos/Projects/mothra",
+        "--property=StandardOutput=append:/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/sheep-service.log",
+        "--property=StandardError=append:/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/sheep-service.log",
+        "--property=Restart=no",
+        "--",
+        "/usr/sbin/python3",
+        "/data/leynos/Projects/mothra/scripts/mac_runtime.py",
+        "sheep",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery",
+        "--display",
+        ":99",
+        "--port",
+        "15500",
+        "--guest-pcap",
+        "/data/leynos/Projects/mothra/state/native-sessions/recovery-20261113-01/guest.pcap"
+      ],
+      "readiness": "Check systemctl --user show and the actual display/listener; no automatic restart"
+    },
+    "display_service": {
+      "unit": "mothra-display-f08732514eab",
+      "command": [
+        "systemd-run",
+        "--user",
+        "--unit=mothra-display-f08732514eab",
+        "--collect",
+        "--service-type=exec",
+        "--property=WorkingDirectory=/data/leynos/Projects/mothra",
+        "--property=StandardOutput=append:/data/leynos/Projects/mothra/state/mac-displays/recovery22/display-service.log",
+        "--property=StandardError=append:/data/leynos/Projects/mothra/state/mac-displays/recovery22/display-service.log",
+        "--property=Restart=no",
+        "--",
+        "/usr/sbin/Xvfb",
+        ":99",
+        "-screen",
+        "0",
+        "1024x768x24",
+        "-nolisten",
+        "tcp",
+        "-ac",
+        "-noreset"
+      ],
+      "readiness": "Check systemctl --user show and the actual display/listener; no automatic restart"
+    },
+    "guest_pcap": "/data/leynos/Projects/mothra/state/native-sessions/recovery-20261113-01/guest.pcap",
+    "original_options": {
+      "server_port": 5500,
+      "global_max_downloads": 100,
+      "per_client_max_downloads": 10,
+      "max_connections_per_ip": 5,
+      "screenshot": "/data/leynos/Projects/mothra/state/native-sessions/diagnostic-load-20261113-01/options-original.png"
+    },
+    "captured_options": false,
+    "source_note": "Recovered guest had automatic Disk First Aid on disposable working disk before this packet; no new disk repair authorised."
+  },
+  "endpoints": {
+    "control": {
+      "host": "127.0.0.1",
+      "port": 15500
+    }
+  },
+  "steps": [
+    {
+      "op": "connect",
+      "connection": "main",
+      "endpoint": "control",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "54525450484f544c00010002",
+      "timeout": 30
+    },
+    {
+      "op": "read",
+      "connection": "main",
+      "size": 8,
+      "expect_hex": "5452545000000000",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "0000006b000000010000000000000036000000360005006900059e9b929691006a000892908b978d9ecec600a0000200be0066000f6672616d696e672d66697874757265006800020001",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "0000012c0000000a0000000000000002000000020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 10
+      }
+    },
+    {
+      "op": "connect",
+      "connection": "subject_absent",
+      "endpoint": "control",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "subject_absent",
+      "hex": "54525450484f544c00010002",
+      "timeout": 30
+    },
+    {
+      "op": "read",
+      "connection": "subject_absent",
+      "size": 8,
+      "expect_hex": "5452545000000000",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "subject_absent",
+      "hex": "0000006b00000002000000000000001d0000001d0003006a000892908b978d9ecec600a0000200be006900059e9b929691",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject_absent",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 2
+      }
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject_absent",
+      "timeout": 30,
+      "match_frame": {
+        "type": 109
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "0000012c0000000b0000000000000002000000020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 11
+      }
+    },
+    {
+      "op": "send",
+      "connection": "subject_absent",
+      "hex": "000000790000001400000000000000200000002000030066000e4133352d616273656e742d323135006800020007007100020004",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject_absent",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 20
+      }
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "type": 301
+      },
+      "save_fields": {
+        "peer_uid": 103
+      }
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject_absent",
+      "timeout": 30,
+      "match_frame": {
+        "type": 354
+      }
+    },
+    {
+      "op": "send",
+      "connection": "subject_absent",
+      "hex": "000001f4000000150000000000000002000000020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject_absent",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 21
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "0000012c000000160000000000000002000000020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 22
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "0000006c0000001e000000000000001f0000001f000300670002{peer_uid}0071000200010065000d6133352d616273656e742d706d",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 30
+      }
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "type": 104
+      }
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject_absent",
+      "timeout": 30,
+      "match_frame": {
+        "type": 104
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000001f40000001f0000000000000002000000020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 31
+      }
+    },
+    {
+      "op": "expect_quiet",
+      "connection": "main",
+      "timeout": 2
+    },
+    {
+      "op": "send",
+      "connection": "subject_absent",
+      "hex": "000001f40000001f0000000000000002000000020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject_absent",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 31
+      }
+    },
+    {
+      "op": "expect_quiet",
+      "connection": "subject_absent",
+      "timeout": 2
+    },
+    {
+      "op": "close",
+      "connection": "subject_absent"
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "type": 302
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "0000012c000000200000000000000002000000020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 32
+      }
+    },
+    {
+      "op": "connect",
+      "connection": "subject_empty",
+      "endpoint": "control",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "subject_empty",
+      "hex": "54525450484f544c00010002",
+      "timeout": 30
+    },
+    {
+      "op": "read",
+      "connection": "subject_empty",
+      "size": 8,
+      "expect_hex": "5452545000000000",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "subject_empty",
+      "hex": "0000006b00000003000000000000001d0000001d0003006a000892908b978d9ecec600a0000200be006900059e9b929691",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject_empty",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 3
+      }
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject_empty",
+      "timeout": 30,
+      "match_frame": {
+        "type": 109
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "0000012c0000000c0000000000000002000000020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 12
+      }
+    },
+    {
+      "op": "send",
+      "connection": "subject_empty",
+      "hex": "000000790000002800000000000000230000002300040066000d4133352d656d7074792d32313500680002000800710002000400d70000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject_empty",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 40
+      }
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "type": 301
+      },
+      "save_fields": {
+        "peer_uid": 103
+      }
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject_empty",
+      "timeout": 30,
+      "match_frame": {
+        "type": 354
+      }
+    },
+    {
+      "op": "send",
+      "connection": "subject_empty",
+      "hex": "000001f4000000290000000000000002000000020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject_empty",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 41
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "0000012c0000002a0000000000000002000000020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 42
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "0000006c00000032000000000000001e0000001e000300670002{peer_uid}0071000200010065000c6133352d656d7074792d706d",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 50
+      }
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "type": 104
+      }
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject_empty",
+      "timeout": 30,
+      "match_frame": {
+        "type": 104
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000001f4000000330000000000000002000000020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 51
+      }
+    },
+    {
+      "op": "expect_quiet",
+      "connection": "main",
+      "timeout": 2
+    },
+    {
+      "op": "send",
+      "connection": "subject_empty",
+      "hex": "000001f4000000330000000000000002000000020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "subject_empty",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 51
+      }
+    },
+    {
+      "op": "expect_quiet",
+      "connection": "subject_empty",
+      "timeout": 2
+    },
+    {
+      "op": "close",
+      "connection": "subject_empty"
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "type": 302
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "0000012c000000340000000000000002000000020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 52
+      }
+    },
+    {
+      "op": "close",
+      "connection": "main"
+    }
+  ],
+  "expectation": {
+    "case": "delayed-121-default-215",
+    "cases": [
+      {
+        "label": "absent",
+        "subject_connection": "subject_absent",
+        "name_hex": "4133352d616273656e742d323135",
+        "icon_hex": "0007",
+        "login_id": 2,
+        "agreement_id": 20,
+        "pm_id": 30,
+        "pm_text_hex": "6133352d616273656e742d706d",
+        "default_text_hex": "49276d206e6f742061626c6520746f20726573706f6e64207269676874206e6f772e20506c6561736520747279206c6174657221",
+        "first": 9,
+        "last": 38
+      },
+      {
+        "label": "empty",
+        "subject_connection": "subject_empty",
+        "name_hex": "4133352d656d7074792d323135",
+        "icon_hex": "0008",
+        "login_id": 3,
+        "agreement_id": 40,
+        "pm_id": 50,
+        "pm_text_hex": "6133352d656d7074792d706d",
+        "default_text_hex": "49276d206e6f742061626c6520746f20726573706f6e64207269676874206e6f772e20506c6561736520747279206c6174657221",
+        "first": 39,
+        "last": 68
+      }
+    ],
+    "baseline_plan_sha256": "5d0aa3dccf65fc6523678aa729c9ace72cd6caffbef768b7f5bf949e6568b43e",
+    "pm_request_count": 2
+  }
+}

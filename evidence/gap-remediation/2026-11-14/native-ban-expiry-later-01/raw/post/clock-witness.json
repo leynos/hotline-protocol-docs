@@ -1,0 +1,18 @@
+{
+  "method": "manual visual transcription of passive saved screenshot",
+  "screenshot": "clock-post-ready.png",
+  "sha256": "f9fe3c312956a9f29a89375ea913795b002f487efe04eeb88c6daf54e18e626e",
+  "host_before_utc": "2026-11-14T06:27:49.209829878Z",
+  "host_after_utc": "2026-11-14T06:27:49.352156587Z",
+  "visible_guest_menubar_clock": "Sat 6:27:48 AM",
+  "ui_action": "none",
+  "post_probe": {
+    "screenshot": "clock-after-probe.png",
+    "sha256": "d60382c431bd6d6caa9216b2b9d17ad70cbbf720073c76df843cfd1e156f37dd",
+    "host_before_utc": "2026-11-14T06:29:36.616049318Z",
+    "host_after_utc": "2026-11-14T06:29:36.759467749Z",
+    "visible_guest_menubar_clock": "Sat 6:29:36 AM",
+    "server_log_observation": "06:28:53 AM Expiry Zero Login successful; following connection closed",
+    "ui_action": "none"
+  }
+}

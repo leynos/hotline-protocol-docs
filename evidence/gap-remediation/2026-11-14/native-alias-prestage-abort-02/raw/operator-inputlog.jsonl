@@ -1,0 +1,42 @@
+{"action": "click", "before_utc": "2026-11-14T21:43:23.175439+00:00", "phase": "startup", "status": "attempted", "x": 545, "y": 75}
+{"action": "click", "after_utc": "2026-11-14T21:43:23.543261+00:00", "before_utc": "2026-11-14T21:43:23.175439+00:00", "phase": "startup", "status": "completed", "x": 545, "y": 75}
+{"action": "double-click", "before_utc": "2026-11-14T21:43:41.681402+00:00", "phase": "startup", "status": "attempted", "x": 355, "y": 234}
+{"action": "double-click", "after_utc": "2026-11-14T21:43:42.307733+00:00", "before_utc": "2026-11-14T21:43:41.681402+00:00", "phase": "startup", "status": "completed", "x": 355, "y": 234}
+{"action": "click", "before_utc": "2026-11-14T21:47:08.928144+00:00", "phase": "startup", "status": "attempted", "x": 500, "y": 500}
+{"action": "click", "after_utc": "2026-11-14T21:47:09.357290+00:00", "before_utc": "2026-11-14T21:47:08.928144+00:00", "phase": "startup", "status": "completed", "x": 500, "y": 500}
+{"action": "click", "before_utc": "2026-11-14T21:47:55.666370+00:00", "phase": "startup", "status": "attempted", "x": 628, "y": 310}
+{"action": "click", "after_utc": "2026-11-14T21:47:56.071172+00:00", "before_utc": "2026-11-14T21:47:55.666370+00:00", "phase": "startup", "status": "completed", "x": 628, "y": 310}
+{"action": "click", "before_utc": "2026-11-14T21:49:47.258910+00:00", "phase": "startup", "status": "attempted", "x": 500, "y": 500}
+{"action": "click", "after_utc": "2026-11-14T21:49:47.624266+00:00", "before_utc": "2026-11-14T21:49:47.258910+00:00", "phase": "startup", "status": "completed", "x": 500, "y": 500}
+{"action": "click", "before_utc": "2026-11-14T21:50:05.288777+00:00", "phase": "startup", "status": "attempted", "x": 766, "y": 39}
+{"action": "click", "after_utc": "2026-11-14T21:50:05.660379+00:00", "before_utc": "2026-11-14T21:50:05.288777+00:00", "phase": "startup", "status": "completed", "x": 766, "y": 39}
+{"action": "click", "before_utc": "2026-11-14T21:50:26.296977+00:00", "phase": "startup", "status": "attempted", "x": 520, "y": 39}
+{"action": "click", "after_utc": "2026-11-14T21:50:26.676037+00:00", "before_utc": "2026-11-14T21:50:26.296977+00:00", "phase": "startup", "status": "completed", "x": 520, "y": 39}
+{"action": "down", "before_utc": "2026-11-14T21:50:43.957359+00:00", "phase": "startup", "status": "attempted", "x": 970, "y": 10}
+{"action": "down", "after_utc": "2026-11-14T21:50:44.065602+00:00", "before_utc": "2026-11-14T21:50:43.957359+00:00", "phase": "startup", "status": "completed", "x": 970, "y": 10}
+{"action": "move", "before_utc": "2026-11-14T21:50:58.994993+00:00", "phase": "startup", "status": "attempted", "x": 940, "y": 50}
+{"action": "move", "after_utc": "2026-11-14T21:50:59.103467+00:00", "before_utc": "2026-11-14T21:50:58.994993+00:00", "phase": "startup", "status": "completed", "x": 940, "y": 50}
+{"action": "up", "before_utc": "2026-11-14T21:51:20.481537+00:00", "phase": "startup", "status": "attempted", "x": null, "y": null}
+{"action": "up", "after_utc": "2026-11-14T21:51:20.506733+00:00", "before_utc": "2026-11-14T21:51:20.481537+00:00", "phase": "startup", "status": "completed", "x": null, "y": null}
+{"action": "click", "before_utc": "2026-11-14T21:54:26.909028+00:00", "phase": "startup", "status": "attempted", "x": 500, "y": 500}
+{"action": "click", "after_utc": "2026-11-14T21:54:27.277145+00:00", "before_utc": "2026-11-14T21:54:26.909028+00:00", "phase": "startup", "status": "completed", "x": 500, "y": 500}
+{"action": "double-click", "before_utc": "2026-11-14T21:54:44.288873+00:00", "phase": "startup", "status": "attempted", "x": 382, "y": 210}
+{"action": "double-click", "after_utc": "2026-11-14T21:54:44.914965+00:00", "before_utc": "2026-11-14T21:54:44.288873+00:00", "phase": "startup", "status": "completed", "x": 382, "y": 210}
+{"action": "down", "before_utc": "2026-11-14T21:55:06.138220+00:00", "phase": "startup", "status": "attempted", "x": 402, "y": 258}
+{"action": "down", "after_utc": "2026-11-14T21:55:06.251925+00:00", "before_utc": "2026-11-14T21:55:06.138220+00:00", "phase": "startup", "status": "completed", "x": 402, "y": 258}
+{"action": "move", "before_utc": "2026-11-14T21:55:06.490949+00:00", "phase": "startup", "status": "attempted", "x": 755, "y": 540}
+{"action": "move", "after_utc": "2026-11-14T21:55:06.596215+00:00", "before_utc": "2026-11-14T21:55:06.490949+00:00", "phase": "startup", "status": "completed", "x": 755, "y": 540}
+{"action": "up", "before_utc": "2026-11-14T21:55:06.835526+00:00", "phase": "startup", "status": "attempted", "x": null, "y": null}
+{"action": "up", "after_utc": "2026-11-14T21:55:06.845013+00:00", "before_utc": "2026-11-14T21:55:06.835526+00:00", "phase": "startup", "status": "completed", "x": null, "y": null}
+{"action": "double-click", "before_utc": "2026-11-14T21:55:22.858059+00:00", "phase": "startup", "status": "attempted", "x": 957, "y": 119}
+{"action": "double-click", "after_utc": "2026-11-14T21:55:23.488350+00:00", "before_utc": "2026-11-14T21:55:22.858059+00:00", "phase": "startup", "status": "completed", "x": 957, "y": 119}
+{"action": "down", "before_utc": "2026-11-14T21:55:41.457766+00:00", "phase": "startup", "status": "attempted", "x": 198, "y": 39}
+{"action": "down", "after_utc": "2026-11-14T21:55:41.591584+00:00", "before_utc": "2026-11-14T21:55:41.457766+00:00", "phase": "startup", "status": "completed", "x": 198, "y": 39}
+{"action": "move", "before_utc": "2026-11-14T21:55:41.798988+00:00", "phase": "startup", "status": "attempted", "x": 770, "y": 90}
+{"action": "move", "after_utc": "2026-11-14T21:55:41.921469+00:00", "before_utc": "2026-11-14T21:55:41.798988+00:00", "phase": "startup", "status": "completed", "x": 770, "y": 90}
+{"action": "up", "before_utc": "2026-11-14T21:55:42.149296+00:00", "phase": "startup", "status": "attempted", "x": null, "y": null}
+{"action": "up", "after_utc": "2026-11-14T21:55:42.172316+00:00", "before_utc": "2026-11-14T21:55:42.149296+00:00", "phase": "startup", "status": "completed", "x": null, "y": null}
+{"action": "click", "before_utc": "2026-11-14T21:56:00.884393+00:00", "phase": "startup", "status": "attempted", "x": 660, "y": 143}
+{"action": "click", "after_utc": "2026-11-14T21:56:01.251691+00:00", "before_utc": "2026-11-14T21:56:00.884393+00:00", "phase": "startup", "status": "completed", "x": 660, "y": 143}
+{"action": "click", "before_utc": "2026-11-14T22:02:15.809888+00:00", "phase": "startup", "status": "attempted", "x": 500, "y": 500}
+{"action": "click", "after_utc": "2026-11-14T22:02:16.187068+00:00", "before_utc": "2026-11-14T22:02:15.809888+00:00", "phase": "startup", "status": "completed", "x": 500, "y": 500}

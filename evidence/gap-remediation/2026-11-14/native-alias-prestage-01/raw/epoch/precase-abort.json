@@ -1,0 +1,7 @@
+{
+  "status": "precase_abort",
+  "emulator_pid": 3737215,
+  "emulator_starttime": 10252051,
+  "reason": "closed readiness passed, but remaining367.6 seconds below required390; no case grant",
+  "utc": "2026-11-14T17:43:46.464395+00:00"
+}

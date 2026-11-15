@@ -1,0 +1,9 @@
+[
+  {
+    "id": "MT-D-1007ea90",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1007ea90"
+    }
+  }
+]

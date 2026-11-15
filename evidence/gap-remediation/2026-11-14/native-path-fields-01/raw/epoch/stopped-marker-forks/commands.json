@@ -1,0 +1,182 @@
+[
+  {
+    "argv": [
+      "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/istat",
+      "-f",
+      "hfs",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-path-fields-01/working.dsk",
+      "11747"
+    ],
+    "started_at_utc": "2026-11-14T14:14:22.903944+00:00",
+    "finished_at_utc": "2026-11-14T14:14:22.918132+00:00",
+    "exit": 0,
+    "stdout_file": "istat-11747.stdout",
+    "size": 430,
+    "sha256": "ab22b2752049a916d37b3c8e5426ccecfb444cfa8e732e2f9b382955742d9716"
+  },
+  {
+    "argv": [
+      "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/istat",
+      "-f",
+      "hfs",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-path-fields-01/working.dsk",
+      "11749"
+    ],
+    "started_at_utc": "2026-11-14T14:14:22.939112+00:00",
+    "finished_at_utc": "2026-11-14T14:14:22.951600+00:00",
+    "exit": 0,
+    "stdout_file": "istat-11749.stdout",
+    "size": 425,
+    "sha256": "83981d8150a3d1831050ec27bb5a3a9408ff65cfd322311658d1489f20f843e3"
+  },
+  {
+    "argv": [
+      "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/istat",
+      "-f",
+      "hfs",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-path-fields-01/working.dsk",
+      "11750"
+    ],
+    "started_at_utc": "2026-11-14T14:14:22.968051+00:00",
+    "finished_at_utc": "2026-11-14T14:14:22.982997+00:00",
+    "exit": 0,
+    "stdout_file": "istat-11750.stdout",
+    "size": 433,
+    "sha256": "f331d1c25f627cdf4995f0297cf7f981820d00bd05a8c1a495aab8068a8f769a"
+  },
+  {
+    "argv": [
+      "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/istat",
+      "-f",
+      "hfs",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-path-fields-01/working.dsk",
+      "11751"
+    ],
+    "started_at_utc": "2026-11-14T14:14:23.003682+00:00",
+    "finished_at_utc": "2026-11-14T14:14:23.015889+00:00",
+    "exit": 0,
+    "stdout_file": "istat-11751.stdout",
+    "size": 433,
+    "sha256": "e3b6f7d8142a678e6d3d177b0d0d4c0403c20df1fbedaf07b69358b1eec5b569"
+  },
+  {
+    "argv": [
+      "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/istat",
+      "-f",
+      "hfs",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-path-fields-01/working.dsk",
+      "11752"
+    ],
+    "started_at_utc": "2026-11-14T14:14:23.032181+00:00",
+    "finished_at_utc": "2026-11-14T14:14:23.045886+00:00",
+    "exit": 0,
+    "stdout_file": "istat-11752.stdout",
+    "size": 433,
+    "sha256": "01966803e2d94895d6b32e0729cadd4466b049e5630b7158b68f3606d9ee1139"
+  },
+  {
+    "argv": [
+      "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/istat",
+      "-f",
+      "hfs",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-path-fields-01/working.dsk",
+      "11753"
+    ],
+    "started_at_utc": "2026-11-14T14:14:23.095407+00:00",
+    "finished_at_utc": "2026-11-14T14:14:23.107479+00:00",
+    "exit": 0,
+    "stdout_file": "istat-11753.stdout",
+    "size": 433,
+    "sha256": "1887b1d411f258fd23b7bf9febf0e0661170b3008885bf98a7ed5959f98506e5"
+  },
+  {
+    "argv": [
+      "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/istat",
+      "-f",
+      "hfs",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-path-fields-01/working.dsk",
+      "11754"
+    ],
+    "started_at_utc": "2026-11-14T14:14:23.123757+00:00",
+    "finished_at_utc": "2026-11-14T14:14:23.135957+00:00",
+    "exit": 0,
+    "stdout_file": "istat-11754.stdout",
+    "size": 433,
+    "sha256": "a97e542917e7115bd175adddd6f5499124d6d1465c7677376aadbad3108668ad"
+  },
+  {
+    "argv": [
+      "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/istat",
+      "-f",
+      "hfs",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-path-fields-01/working.dsk",
+      "11755"
+    ],
+    "started_at_utc": "2026-11-14T14:14:23.166944+00:00",
+    "finished_at_utc": "2026-11-14T14:14:23.178918+00:00",
+    "exit": 0,
+    "stdout_file": "istat-11755.stdout",
+    "size": 433,
+    "sha256": "a22ef9b24a074fb64b9a9c7c80cb91f80749b5dc1b76625078ce738ce08ff6c8"
+  },
+  {
+    "argv": [
+      "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/istat",
+      "-f",
+      "hfs",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-path-fields-01/working.dsk",
+      "11756"
+    ],
+    "started_at_utc": "2026-11-14T14:14:23.187837+00:00",
+    "finished_at_utc": "2026-11-14T14:14:23.199643+00:00",
+    "exit": 0,
+    "stdout_file": "istat-11756.stdout",
+    "size": 433,
+    "sha256": "6e719468438b9d95c28303206e59ad1f1b6e13751fb8c0c9dd9c49027aec3c9f"
+  },
+  {
+    "argv": [
+      "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/istat",
+      "-f",
+      "hfs",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-path-fields-01/working.dsk",
+      "11757"
+    ],
+    "started_at_utc": "2026-11-14T14:14:23.240372+00:00",
+    "finished_at_utc": "2026-11-14T14:14:23.253763+00:00",
+    "exit": 0,
+    "stdout_file": "istat-11757.stdout",
+    "size": 432,
+    "sha256": "fc6f46104159cd82458437e2498fcd403764d8e34388517fb42b3d831ce803d1"
+  },
+  {
+    "argv": [
+      "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/istat",
+      "-f",
+      "hfs",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-path-fields-01/working.dsk",
+      "11758"
+    ],
+    "started_at_utc": "2026-11-14T14:14:23.308406+00:00",
+    "finished_at_utc": "2026-11-14T14:14:23.321084+00:00",
+    "exit": 0,
+    "stdout_file": "istat-11758.stdout",
+    "size": 611,
+    "sha256": "60c1ee015a79426b5296404c367e8034117b57ca65fe5793fc18dc47c4174ade"
+  },
+  {
+    "argv": [
+      "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/icat",
+      "-f",
+      "hfs",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-path-fields-01/working.dsk",
+      "11758-4352-0"
+    ],
+    "started_at_utc": "2026-11-14T14:14:23.340793+00:00",
+    "finished_at_utc": "2026-11-14T14:14:23.353279+00:00",
+    "exit": 0,
+    "stdout_file": "category-data.bin",
+    "size": 1024,
+    "sha256": "7d82b5826175ca1971249907692fa51823998e11d77dbd577226ee2bde97cd1a"
+  }
+]

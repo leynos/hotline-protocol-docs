@@ -1,0 +1,1 @@
+{"utc": "2026-11-14T11:46:42.206795+00:00", "pid": 3125063, "start_tick": "8100939", "fd6_inode": 1687370702, "fd16_inode": 4040176425, "netns": 4026533665, "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4", "action": "SIGTERM after native app Quit; not orderly OS shutdown"}

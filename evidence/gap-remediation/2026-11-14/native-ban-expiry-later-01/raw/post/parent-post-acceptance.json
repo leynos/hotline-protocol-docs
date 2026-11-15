@@ -1,0 +1,25 @@
+{
+  "recorded_at_utc": "2026-11-14T06:30:38.675203+00:00",
+  "status": "parent_post_probe_semantics_and_paired_bytes_accepted",
+  "source_plan_equal": true,
+  "connections": 1,
+  "views": [
+    {
+      "view": "namespace",
+      "packets": 17,
+      "sent_bytes": 120,
+      "received_bytes": 389,
+      "recorder_streams_equal": true
+    },
+    {
+      "view": "guest",
+      "packets": 17,
+      "sent_bytes": 120,
+      "received_bytes": 389,
+      "recorder_streams_equal": true
+    }
+  ],
+  "missed_pre_window": true,
+  "exact_native1800_boundary_measured": false,
+  "cleanup_not_started": true
+}

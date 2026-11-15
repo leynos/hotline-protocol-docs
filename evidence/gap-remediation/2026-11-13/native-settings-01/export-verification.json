@@ -1,0 +1,30 @@
+{
+  "mode": "fresh adjacent export of frozen bundle and protocol scripts only; no mxd/ROM/guest",
+  "results": [
+    {
+      "command": [
+        "python3",
+        "../hotline-protocol-docs/scripts/verify_native_settings_corpus.py",
+        "evidence/gap-remediation/2026-11-13/native-settings-01"
+      ],
+      "exit": 0,
+      "stdout_tail": "observed_flags\": 1,\n      \"subject_uid_hex\": \"0026\",\n      \"feedback_option\": 2\n    },\n    {\n      \"case\": \"duplicate-auto-refuse\",\n      \"observed_flags\": 1,\n      \"subject_uid_hex\": \"0028\",\n      \"feedback_option\": 2\n    }\n  ],\n  \"a7\": {\n    \"preflight\": {\n      \"uid\": \"0014\",\n      \"accounts\": 2,\n      \"files\": 41,\n      \"filp_bytes\": 1049073\n    },\n    \"postflight\": {\n      \"uid\": \"0029\",\n      \"accounts\": 2,\n      \"files\": 41,\n      \"filp_bytes\": 1049073\n    }\n  },\n  \"paired_sockets\": 24\n}\n",
+      "stderr_tail": ""
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "../hotline-protocol-docs/scripts",
+        "-p",
+        "test_native_settings_corpus.py"
+      ],
+      "exit": 0,
+      "stdout_tail": "",
+      "stderr_tail": "......\n----------------------------------------------------------------------\nRan 6 tests in 2.452s\n\nOK\n"
+    }
+  ]
+}

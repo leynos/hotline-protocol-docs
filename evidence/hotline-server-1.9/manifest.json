@@ -1,0 +1,74 @@
+{
+  "created_at_utc": "2026-11-12T12:17:52.663030+00:00",
+  "scope": "Intended Hotline 1.9 specification, Mac PPC server static oracle; SynHX supplied RCS snapshots are comparison evidence",
+  "host": "ibara",
+  "mothra_git_head": "4ef7b8dfe478bf0cbe0430431e18a75a6dc77884",
+  "ghidra_version": "12.2 PUBLIC",
+  "jdk_version": "Temurin 25.0.5+8",
+  "ghidramcp_git_head": "1e980252087b2479a21b9ca6d82d5829538651a7",
+  "ghidramcp_worktree_status": "",
+  "ghidramcp_uv_lock_sha256": "f80ffe8df8167535f253976a1dfb702a9a7f8836d884084017dd7c04e1444837",
+  "installed_extension_jar_sha256": "201d18ffde71a83a678eae607de265861f37e5a00b989d91958c1197664d2b43",
+  "document_git_head": "6ebdec87c04abee9b822b22b169898404dab969b",
+  "document_worktree_status": "?? internal-compatibility-matrix.md",
+  "inputs": [
+    {
+      "original_path": "/data/leynos/Projects/hotline-protocol-docs/protocol.md",
+      "snapshot": "inputs/protocol.md.txt",
+      "sha256": "7a5a4dd969f0c0d98e8021eec664275203b8edb19a2aa18160732862391114b2",
+      "size": 127948
+    },
+    {
+      "original_path": "/data/leynos/Projects/hotline-protocol-docs/internal-compatibility-matrix.md",
+      "snapshot": "inputs/internal-compatibility-matrix.md.txt",
+      "sha256": "12041e2cf2d84d8cac709476fd670e8c80942d5c9806909733d555f19c8526aa",
+      "size": 6866
+    },
+    {
+      "original_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+      "snapshot": "inputs/HLserver19.pef",
+      "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+      "size": 616821
+    }
+  ],
+  "method": "Read-only MCP static analysis. No server packets exercised, no Ghidra symbols or database annotations modified.",
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "capture_count": 154,
+  "handler_count": 45,
+  "ledger_claim_count": 83,
+  "helper_scripts": [
+    {
+      "path": "scripts/capture-ghidra-evidence.py",
+      "sha256": "47097d4995d2d2595c07ee25648bfef9096342055972a41fdaa94efc35015a05"
+    },
+    {
+      "path": "scripts/extract-synhxd-evidence.py",
+      "sha256": "45e969623d033d47301fae2b91c34a1241078d9e7c642eec318377a15288d1e2"
+    },
+    {
+      "path": "scripts/verify-baseline-evidence.py",
+      "sha256": "8ce47fe23e379fe649b620f44261079b016cf3fe9855e0f8f9e49e4822a25c31"
+    }
+  ]
+}

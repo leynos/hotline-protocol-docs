@@ -1,0 +1,36 @@
+{
+  "source_register_commit": "38c0dc5d5d8b87236141b1507d970603b67a1250",
+  "source_register_sha256": "7273c6b024f563cd4d5e487e6a7f3f905e7299c2561d6a6263c3e2bfdee47781",
+  "entries": [
+    {
+      "gap_id": "GAP-024",
+      "unchanged_closure_criteria": "Supply a login input-condition table covering presence, widths, zero, version boundaries and each dependent feature without using version as conclusive client identity.",
+      "prior_status": "Investigating",
+      "review": "Close only the static documentation deliverable; native runtime and peer criteria remain separately tracked. Do not substitute derived examples for captures."
+    },
+    {
+      "gap_id": "GAP-028",
+      "unchanged_closure_criteria": "Enumerate supported type/field combinations, conditions and ordering, including no-banner, URL, image and metadata changes.",
+      "prior_status": "Investigating",
+      "review": "Close only the static documentation deliverable; native runtime and peer criteria remain separately tracked. Do not substitute derived examples for captures."
+    },
+    {
+      "gap_id": "GAP-032",
+      "unchanged_closure_criteria": "Document decision tables for the three helper domains, including inherited/overridden rights and forbidden operations.",
+      "prior_status": "Investigating",
+      "review": "Close only the static documentation deliverable; native runtime and peer criteria remain separately tracked. Do not substitute derived examples for captures."
+    },
+    {
+      "gap_id": "GAP-034",
+      "unchanged_closure_criteria": "Trace status construction and publish a separate status-bit registry plus state-transition examples.",
+      "prior_status": "Investigating",
+      "review": "Close only the static documentation deliverable; native runtime and peer criteria remain separately tracked. Do not substitute derived examples for captures."
+    },
+    {
+      "gap_id": "GAP-043",
+      "unchanged_closure_criteria": "Publish a sender/recipient/options decision table with ACKs and emitted 104 fields for each supported case.",
+      "prior_status": "Investigating",
+      "review": "Close only the static documentation deliverable; native runtime and peer criteria remain separately tracked. Do not substitute derived examples for captures."
+    }
+  ]
+}

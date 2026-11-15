@@ -1,0 +1,39 @@
+[
+  {
+    "id": "RM-D-10054180",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10054180"
+    }
+  },
+  {
+    "id": "RM-D-1006cf70",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1006cf70"
+    }
+  },
+  {
+    "id": "RM-D-10054210",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10054210"
+    }
+  },
+  {
+    "id": "RM-M-100906fd",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "100906fd",
+      "length": 160
+    }
+  },
+  {
+    "id": "RM-M-100921bf",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "100921bf",
+      "length": 200
+    }
+  }
+]

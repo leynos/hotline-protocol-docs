@@ -1,0 +1,11 @@
+{
+  "owner": "root",
+  "lease": "native runtime exclusively root; client namespace fixture worker build-only",
+  "maximum_connections": 4,
+  "maximum_console_sends": 1,
+  "maximum_client_broadcasts": 2,
+  "mutations": "session-only; no account/file/config changes",
+  "abort": "Any unexpected state or failed capture; no retry. Close owned sockets and dialog, retain evidence, verify original baseline.",
+  "baseline": "Native PID1099659 matching managed unit and FD6/16, no connections/transfers; immutable image never copied",
+  "oracle_bytes_scope": "Known preboot DATA hash; no postboot in-memory byte proof"
+}

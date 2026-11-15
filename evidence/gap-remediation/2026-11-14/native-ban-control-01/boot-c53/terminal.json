@@ -1,0 +1,61 @@
+{
+  "utc": "2026-11-14T03:03:47.654211+00:00",
+  "actual_emulator_pid": 3901660,
+  "actual_pid_gone": true,
+  "units": {
+    "mothra-sheep-bc2add75bbfa": {
+      "exit": 0,
+      "stdout": "ActiveState=inactive\nMainPID=0\nResult=success\n",
+      "stderr": ""
+    },
+    "mothra-bridge-f8eb71efdf91": {
+      "exit": 0,
+      "stdout": "ActiveState=inactive\nMainPID=0\nResult=success\n",
+      "stderr": ""
+    },
+    "mothra-xbridge-f8eb71efdf91": {
+      "exit": 0,
+      "stdout": "ActiveState=inactive\nMainPID=0\nResult=success\n",
+      "stderr": ""
+    },
+    "mothra-display-5dfb7285891e": {
+      "exit": 0,
+      "stdout": "ActiveState=inactive\nMainPID=0\nResult=success\n",
+      "stderr": ""
+    },
+    "mothra-native-control-c53-namespace": {
+      "exit": 0,
+      "stdout": "ActiveState=inactive\nMainPID=0\nResult=success\nExecMainStatus=0\n",
+      "stderr": ""
+    },
+    "mothra-native-control-c53-host": {
+      "exit": 0,
+      "stdout": "ActiveState=inactive\nMainPID=0\nResult=success\nExecMainStatus=0\n",
+      "stderr": ""
+    }
+  },
+  "primary": {
+    "exit": 0,
+    "stdout": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/working.dsk\n",
+    "stderr": ""
+  },
+  "client": {
+    "exit": 0,
+    "stdout": "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/working.dsk\n",
+    "stderr": ""
+  },
+  "primary_syn_pcap_bytes": 24,
+  "namespace_pcap_bytes": 24,
+  "guest_pcap_bytes": 1262,
+  "host_listener_query": {
+    "exit": 0,
+    "stdout": "State Recv-Q Send-Q Local Address:Port Peer Address:Port\n",
+    "stderr": ""
+  },
+  "owned_process_suspects": [],
+  "source_base_stat": {
+    "inode": 6189872880,
+    "size": 8388608000,
+    "mtime": 1794582239
+  }
+}

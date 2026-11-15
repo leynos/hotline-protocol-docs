@@ -1,0 +1,12 @@
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+   Compiling mxd v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd)
+    Finished `test` profile [optimized] target(s) in 1.27s
+     Running tests/wireframe_memory_budgets.rs (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/build/mxd/eefc8350dd591640/out/wireframe_memory_budgets-eefc8350dd591640)
+
+running 1 test
+test fragmented_request_within_explicit_budget_still_routes ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.13s
+

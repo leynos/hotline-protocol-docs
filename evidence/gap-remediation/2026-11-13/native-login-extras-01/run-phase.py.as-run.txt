@@ -1,0 +1,9 @@
+import subprocess,sys
+from pathlib import Path
+r=Path('state/native-sessions/runtime-16');phase=sys.argv[1];suffix=sys.argv[2] if len(sys.argv)>2 else 'paced'
+plans=r/('plans-'+phase+'-'+suffix)
+subprocess.run([sys.executable,'../hotline-protocol-docs/scripts/prepare_native_cases.py','login-extras-'+phase,'--runtime-record',str(r/'runtime.json'),'--output',str(plans)],check=True)
+for p in sorted(plans.glob('*.json')):
+ x=subprocess.run([sys.executable,'../hotline-protocol-docs/scripts/protocol_capture.py','capture',str(p),'--oracle-binary','evidence/hotline-server-1.9/inputs/HLserver19.pef','--output',str(r/'captures'/p.stem)],capture_output=True,text=True)
+ print(p.stem,x.returncode,x.stdout,x.stderr,flush=True)
+ if x.returncode:sys.exit(x.returncode)

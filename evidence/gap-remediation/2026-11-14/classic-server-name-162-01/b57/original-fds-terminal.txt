@@ -1,0 +1,4 @@
+l-wx------ 1 leynos leynos 64 Nov 14 00:31 /proc/1012834/fd/16 -> /data/leynos/Projects/mothra/state/native-sessions/mac-peer-isolated-01/client-guest.pcap
+lrwx------ 1 leynos leynos 64 Nov 14 00:31 /proc/1012834/fd/6 -> /data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/working.dsk
+l-wx------ 1 leynos leynos 64 Nov 14 00:31 /proc/1099659/fd/16 -> /data/leynos/Projects/mothra/state/native-sessions/recovery-20261113-01/guest.pcap
+lrwx------ 1 leynos leynos 64 Nov 14 00:31 /proc/1099659/fd/6 -> /data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/working.dsk

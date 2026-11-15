@@ -1,0 +1,553 @@
+{
+  "cases": [
+    {
+      "case": "resume-download-zero-entries",
+      "connections": {
+        "main": {
+          "client_port": 50660,
+          "sent_bytes": 177,
+          "received_bytes": 386,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "download": {
+          "client_port": 37170,
+          "sent_bytes": 16,
+          "received_bytes": 510,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "advertised_bytes": 510,
+      "data_bytes": 13,
+      "resource_bytes": 317
+    },
+    {
+      "case": "resume-download-data-zero",
+      "connections": {
+        "main": {
+          "client_port": 43982,
+          "sent_bytes": 193,
+          "received_bytes": 386,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "download": {
+          "client_port": 58384,
+          "sent_bytes": 16,
+          "received_bytes": 510,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "advertised_bytes": 510,
+      "data_bytes": 13,
+      "resource_bytes": 317
+    },
+    {
+      "case": "resume-download-data-inside",
+      "connections": {
+        "main": {
+          "client_port": 55328,
+          "sent_bytes": 193,
+          "received_bytes": 386,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "download": {
+          "client_port": 55918,
+          "sent_bytes": 16,
+          "received_bytes": 507,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "advertised_bytes": 507,
+      "data_bytes": 10,
+      "resource_bytes": 317
+    },
+    {
+      "case": "resume-download-resource-inside",
+      "connections": {
+        "main": {
+          "client_port": 59528,
+          "sent_bytes": 193,
+          "received_bytes": 386,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "download": {
+          "client_port": 45528,
+          "sent_bytes": 16,
+          "received_bytes": 506,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "advertised_bytes": 506,
+      "data_bytes": 13,
+      "resource_bytes": 313
+    },
+    {
+      "case": "resume-download-both-inside",
+      "connections": {
+        "main": {
+          "client_port": 42320,
+          "sent_bytes": 209,
+          "received_bytes": 386,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "download": {
+          "client_port": 52210,
+          "sent_bytes": 16,
+          "received_bytes": 503,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "advertised_bytes": 503,
+      "data_bytes": 10,
+      "resource_bytes": 313
+    },
+    {
+      "case": "resume-download-both-eof",
+      "connections": {
+        "main": {
+          "client_port": 42312,
+          "sent_bytes": 209,
+          "received_bytes": 386,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "download": {
+          "client_port": 52204,
+          "sent_bytes": 16,
+          "received_bytes": 180,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "advertised_bytes": 180,
+      "data_bytes": 0,
+      "resource_bytes": 0
+    },
+    {
+      "case": "resume-download-both-beyond",
+      "connections": {
+        "main": {
+          "client_port": 57780,
+          "sent_bytes": 209,
+          "received_bytes": 386,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "download": {
+          "client_port": 52192,
+          "sent_bytes": 16,
+          "received_bytes": 180,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "advertised_bytes": 180,
+      "data_bytes": 0,
+      "resource_bytes": 0
+    },
+    {
+      "case": "resume-download-both-uint32-max",
+      "connections": {
+        "main": {
+          "client_port": 55320,
+          "sent_bytes": 209,
+          "received_bytes": 386,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "download": {
+          "client_port": 55914,
+          "sent_bytes": 16,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "advertised_bytes": 180,
+      "delivered_bytes": 0,
+      "outcome": "Data connection closed without advertised stream"
+    },
+    {
+      "case": "resume-download-unknown-tag",
+      "connections": {
+        "main": {
+          "client_port": 40338,
+          "sent_bytes": 193,
+          "received_bytes": 386,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "download": {
+          "client_port": 58278,
+          "sent_bytes": 16,
+          "received_bytes": 510,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "advertised_bytes": 510,
+      "data_bytes": 13,
+      "resource_bytes": 317
+    },
+    {
+      "case": "resume-download-duplicate-data-3-4",
+      "connections": {
+        "main": {
+          "client_port": 43990,
+          "sent_bytes": 209,
+          "received_bytes": 386,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "download": {
+          "client_port": 58398,
+          "sent_bytes": 16,
+          "received_bytes": 503,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "advertised_bytes": 503,
+      "data_bytes": 6,
+      "resource_bytes": 317
+    },
+    {
+      "case": "resume-download-duplicate-data-4-3",
+      "connections": {
+        "main": {
+          "client_port": 43996,
+          "sent_bytes": 209,
+          "received_bytes": 386,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "download": {
+          "client_port": 58414,
+          "sent_bytes": 16,
+          "received_bytes": 503,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "advertised_bytes": 503,
+      "data_bytes": 6,
+      "resource_bytes": 317
+    },
+    {
+      "case": "resume-download-duplicate-data-beyond-inside",
+      "connections": {
+        "main": {
+          "client_port": 44236,
+          "sent_bytes": 209,
+          "received_bytes": 386,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "download": {
+          "client_port": 49464,
+          "sent_bytes": 16,
+          "received_bytes": 497,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "advertised_bytes": 497,
+      "data_bytes": 0,
+      "resource_bytes": 317
+    },
+    {
+      "case": "resume-download-duplicate-resource-3-4",
+      "connections": {
+        "main": {
+          "client_port": 44246,
+          "sent_bytes": 209,
+          "received_bytes": 386,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "download": {
+          "client_port": 49478,
+          "sent_bytes": 16,
+          "received_bytes": 503,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "advertised_bytes": 503,
+      "data_bytes": 13,
+      "resource_bytes": 310
+    },
+    {
+      "case": "resume-download-short-41",
+      "connections": {
+        "main": {
+          "client_port": 40328,
+          "sent_bytes": 198,
+          "received_bytes": 366,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "outcome": "No reply10 observed before three-second pause and subsequent500 ACK"
+    },
+    {
+      "case": "resume-download-wrong-magic",
+      "connections": {
+        "main": {
+          "client_port": 40352,
+          "sent_bytes": 199,
+          "received_bytes": 366,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "outcome": "No reply10 observed before three-second pause and subsequent500 ACK"
+    },
+    {
+      "case": "resume-download-wrong-version",
+      "connections": {
+        "main": {
+          "client_port": 40362,
+          "sent_bytes": 199,
+          "received_bytes": 366,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "outcome": "No reply10 observed before three-second pause and subsequent500 ACK"
+    },
+    {
+      "case": "resume-upload-seed",
+      "connections": {
+        "main": {
+          "client_port": 39186,
+          "sent_bytes": 188,
+          "received_bytes": 489,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "upload": {
+          "client_port": 55592,
+          "sent_bytes": 213,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "advertised_bytes": 509,
+      "sent_body_bytes": 197,
+      "retained_data_bytes": 13,
+      "retained_resource_bytes": 5
+    },
+    {
+      "case": "resume-upload-probe-partial",
+      "connections": {
+        "main": {
+          "client_port": 42684,
+          "sent_bytes": 147,
+          "received_bytes": 452,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "negotiated_data_offset": 13,
+      "negotiated_resource_offset": 5
+    },
+    {
+      "case": "resume-upload-probe-missing",
+      "connections": {
+        "main": {
+          "client_port": 52508,
+          "sent_bytes": 148,
+          "received_bytes": 454,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "outcome": "does not exist"
+    },
+    {
+      "case": "resume-upload-probe-completed",
+      "connections": {
+        "main": {
+          "client_port": 52516,
+          "sent_bytes": 145,
+          "received_bytes": 464,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "outcome": "already fully transfered"
+    },
+    {
+      "case": "resume-upload-complete",
+      "connections": {
+        "main": {
+          "client_port": 60860,
+          "sent_bytes": 241,
+          "received_bytes": 619,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "upload": {
+          "client_port": 58028,
+          "sent_bytes": 507,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        },
+        "download": {
+          "client_port": 58032,
+          "sent_bytes": 16,
+          "received_bytes": 512,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "data_bytes": 13,
+      "resource_bytes": 317,
+      "inconsistent_client": false
+    },
+    {
+      "case": "resume-upload-inconsistent-seed",
+      "connections": {
+        "main": {
+          "client_port": 60876,
+          "sent_bytes": 198,
+          "received_bytes": 494,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "upload": {
+          "client_port": 58038,
+          "sent_bytes": 213,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "advertised_bytes": 509,
+      "sent_body_bytes": 197,
+      "retained_data_bytes": 13,
+      "retained_resource_bytes": 5
+    },
+    {
+      "case": "resume-upload-inconsistent-complete",
+      "connections": {
+        "main": {
+          "client_port": 36120,
+          "sent_bytes": 334,
+          "received_bytes": 624,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "upload": {
+          "client_port": 55200,
+          "sent_bytes": 525,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        },
+        "download": {
+          "client_port": 55216,
+          "sent_bytes": 16,
+          "received_bytes": 535,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "data_bytes": 26,
+      "resource_bytes": 322,
+      "inconsistent_client": true
+    }
+  ],
+  "initial_probes": [
+    {
+      "case": "initial-probes/downloads/resume-download-both-beyond",
+      "status": "completed",
+      "error": ""
+    },
+    {
+      "case": "initial-probes/downloads/resume-download-both-eof",
+      "status": "failed",
+      "error": "ValueError: Saved field is missing, ambiguous or incomplete"
+    },
+    {
+      "case": "initial-probes/final-downloads/resume-download-short-41",
+      "status": "failed",
+      "error": "TimeoutError: timed out"
+    },
+    {
+      "case": "initial-probes/reviewed-downloads/resume-download-both-beyond",
+      "status": "completed",
+      "error": ""
+    },
+    {
+      "case": "initial-probes/reviewed-downloads/resume-download-both-eof",
+      "status": "completed",
+      "error": ""
+    },
+    {
+      "case": "initial-probes/reviewed-downloads/resume-download-both-inside",
+      "status": "completed",
+      "error": ""
+    },
+    {
+      "case": "initial-probes/reviewed-downloads/resume-download-both-uint32-max",
+      "status": "failed",
+      "error": "EOFError: EOF before 180 requested bytes"
+    }
+  ],
+  "scope": "23 final bounded observations plus7 initial attempts; native tolerance, not a safe malformed-input policy or restart-durability proof"
+}

@@ -1,0 +1,30 @@
+{
+  "captured_at_utc": "2026-11-14T08:33:03.618060+00:00",
+  "query": {
+    "id": "pointer-target-bytes",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "101390d4",
+      "length": 16
+    }
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"address\": \"101390d4\",\n  \"length\": 16,\n  \"hex\": \"10 09 02 10 10 13 d8 10 10 09 01 90 10 13 d8 10\",\n  \"ascii\": \"................\",\n  \"gaps\": []\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "address": "101390d4",
+      "length": 16,
+      "hex": "10 09 02 10 10 13 d8 10 10 09 01 90 10 13 d8 10",
+      "ascii": "................",
+      "gaps": []
+    },
+    "isError": false
+  }
+}

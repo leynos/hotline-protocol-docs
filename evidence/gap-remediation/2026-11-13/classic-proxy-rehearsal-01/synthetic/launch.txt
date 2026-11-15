@@ -1,0 +1,1 @@
+sudo -n systemd-run --unit=mothra-classic-proxy-b29 --property=Type=exec --property=User=1000 --property=Group=1000 --property=PrivateNetwork=yes --property=RuntimeMaxSec=60s --property=RemainAfterExit=yes --property=Restart=no --no-block /usr/bin/python3 /data/leynos/Projects/mothra/state/proxy-synthetic-b29/rehearse.py

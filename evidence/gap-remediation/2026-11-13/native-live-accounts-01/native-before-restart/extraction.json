@@ -1,0 +1,376 @@
+{
+  "recorded_at_utc": "2026-11-13T09:33:11.174039+00:00",
+  "image": "state/mac-runtime/hotline21/working.dsk",
+  "tool_sha256": {
+    "istat": "f87c0cee5e263c55440c19fb3e478b80e33dcbae223388b5f83913ceb5fc4499",
+    "icat": "ab73038eda8ed52697c5d94874bbc0a19285184253e68a78f6e4ab347a042bba"
+  },
+  "catalog_range": [
+    11645,
+    11700
+  ],
+  "roots": [
+    "/Hotline19/Users/m-live27",
+    "/Trash/m-delete27",
+    "/Hotline19/Files/m-live27-flush"
+  ],
+  "method": "Read-only direct catalogue observations. Positive paths verified by istat before fork reads. Not an exhaustive directory listing, path-absence proof, protocol certification or restart-durability result.",
+  "probes": [
+    {
+      "catalog": 11645,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11646,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11647,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11648,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11649,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11650,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11651,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11652,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11653,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11654,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11655,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11656,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11657,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11658,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11659,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11660,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11661,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11662,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11663,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11664,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11665,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11666,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11667,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11668,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11669,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11670,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11671,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11672,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11673,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11674,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11675,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11676,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11677,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11678,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11679,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11680,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11681,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11682,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11683,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11684,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11685,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11686,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11687,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11688,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11689,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11690,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11691,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11692,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11693,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11694,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11695,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11696,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11697,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11698,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11699,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    },
+    {
+      "catalog": 11700,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11659)\n"
+    }
+  ],
+  "records": [
+    {
+      "path": "/Hotline19/Users/m-live27",
+      "key": "catalog-11655",
+      "catalog": 11655,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-live27/UserData",
+      "key": "catalog-11656",
+      "catalog": 11656,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Trash/m-delete27",
+      "key": "catalog-11657",
+      "catalog": 11657,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Trash/m-delete27/UserData",
+      "key": "catalog-11658",
+      "catalog": 11658,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/m-live27-flush",
+      "key": "catalog-11659",
+      "catalog": 11659,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 13,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,353 @@
+{
+  "declared_total_uncompressed_bytes": 4379181,
+  "entries": [
+    {
+      "compressed_size": 0,
+      "crc32": "00000000",
+      "is_dir": true,
+      "mode": "0o40755",
+      "name": "Hotline Client 1.9.2/",
+      "uncompressed_size": 0
+    },
+    {
+      "compressed_size": 329,
+      "crc32": "f58a8a3a",
+      "is_dir": false,
+      "mode": "0o100755",
+      "name": "Hotline Client 1.9.2/-DS_Store",
+      "uncompressed_size": 6148
+    },
+    {
+      "compressed_size": 0,
+      "crc32": "00000000",
+      "is_dir": true,
+      "mode": "0o40775",
+      "name": "__MACOSX/",
+      "uncompressed_size": 0
+    },
+    {
+      "compressed_size": 0,
+      "crc32": "00000000",
+      "is_dir": true,
+      "mode": "0o40775",
+      "name": "__MACOSX/Hotline Client 1.9.2/",
+      "uncompressed_size": 0
+    },
+    {
+      "compressed_size": 144,
+      "crc32": "3a7836c3",
+      "is_dir": false,
+      "mode": "0o100644",
+      "name": "__MACOSX/Hotline Client 1.9.2/._-DS_Store",
+      "uncompressed_size": 229
+    },
+    {
+      "compressed_size": 597,
+      "crc32": "0ceac666",
+      "is_dir": false,
+      "mode": "0o100755",
+      "name": "Hotline Client 1.9.2/.DS_Store",
+      "uncompressed_size": 12292
+    },
+    {
+      "compressed_size": 144,
+      "crc32": "da1d3004",
+      "is_dir": false,
+      "mode": "0o100644",
+      "name": "__MACOSX/Hotline Client 1.9.2/._.DS_Store",
+      "uncompressed_size": 229
+    },
+    {
+      "compressed_size": 339,
+      "crc32": "db2f62cd",
+      "is_dir": false,
+      "mode": "0o100755",
+      "name": "Hotline Client 1.9.2/_DS_Store",
+      "uncompressed_size": 6148
+    },
+    {
+      "compressed_size": 144,
+      "crc32": "21c33d0c",
+      "is_dir": false,
+      "mode": "0o100644",
+      "name": "__MACOSX/Hotline Client 1.9.2/.__DS_Store",
+      "uncompressed_size": 229
+    },
+    {
+      "compressed_size": 0,
+      "crc32": "00000000",
+      "is_dir": true,
+      "mode": "0o40755",
+      "name": "Hotline Client 1.9.2/Bookmarks/",
+      "uncompressed_size": 0
+    },
+    {
+      "compressed_size": 254,
+      "crc32": "9a19a62b",
+      "is_dir": false,
+      "mode": "0o100644",
+      "name": "Hotline Client 1.9.2/Bookmarks/.DS_Store",
+      "uncompressed_size": 6148
+    },
+    {
+      "compressed_size": 0,
+      "crc32": "00000000",
+      "is_dir": true,
+      "mode": "0o40775",
+      "name": "__MACOSX/Hotline Client 1.9.2/Bookmarks/",
+      "uncompressed_size": 0
+    },
+    {
+      "compressed_size": 144,
+      "crc32": "0d0e215d",
+      "is_dir": false,
+      "mode": "0o100644",
+      "name": "__MACOSX/Hotline Client 1.9.2/Bookmarks/._.DS_Store",
+      "uncompressed_size": 229
+    },
+    {
+      "compressed_size": 36,
+      "crc32": "5f282513",
+      "is_dir": false,
+      "mode": "0o100644",
+      "name": "Hotline Client 1.9.2/Bookmarks/Test Pattern 6",
+      "uncompressed_size": 460
+    },
+    {
+      "compressed_size": 49,
+      "crc32": "f23d5605",
+      "is_dir": false,
+      "mode": "0o100644",
+      "name": "__MACOSX/Hotline Client 1.9.2/Bookmarks/._Test Pattern 6",
+      "uncompressed_size": 82
+    },
+    {
+      "compressed_size": 36,
+      "crc32": "77b540e2",
+      "is_dir": false,
+      "mode": "0o100644",
+      "name": "Hotline Client 1.9.2/Bookmarks/The Agency",
+      "uncompressed_size": 460
+    },
+    {
+      "compressed_size": 49,
+      "crc32": "f23d5605",
+      "is_dir": false,
+      "mode": "0o100644",
+      "name": "__MACOSX/Hotline Client 1.9.2/Bookmarks/._The Agency",
+      "uncompressed_size": 82
+    },
+    {
+      "compressed_size": 154,
+      "crc32": "41cf1ab5",
+      "is_dir": false,
+      "mode": "0o100644",
+      "name": "__MACOSX/Hotline Client 1.9.2/._Bookmarks",
+      "uncompressed_size": 229
+    },
+    {
+      "compressed_size": 0,
+      "crc32": "00000000",
+      "is_dir": true,
+      "mode": "0o40755",
+      "name": "Hotline Client 1.9.2/Data/",
+      "uncompressed_size": 0
+    },
+    {
+      "compressed_size": 256,
+      "crc32": "255c70eb",
+      "is_dir": false,
+      "mode": "0o100755",
+      "name": "Hotline Client 1.9.2/Data/.DS_Store",
+      "uncompressed_size": 6148
+    },
+    {
+      "compressed_size": 0,
+      "crc32": "00000000",
+      "is_dir": true,
+      "mode": "0o40775",
+      "name": "__MACOSX/Hotline Client 1.9.2/Data/",
+      "uncompressed_size": 0
+    },
+    {
+      "compressed_size": 144,
+      "crc32": "f236f6f9",
+      "is_dir": false,
+      "mode": "0o100644",
+      "name": "__MACOSX/Hotline Client 1.9.2/Data/._.DS_Store",
+      "uncompressed_size": 229
+    },
+    {
+      "compressed_size": 365,
+      "crc32": "34cdbb6d",
+      "is_dir": false,
+      "mode": "0o100755",
+      "name": "Hotline Client 1.9.2/Data/Hotline Prefs",
+      "uncompressed_size": 921
+    },
+    {
+      "compressed_size": 160,
+      "crc32": "d5bcf93a",
+      "is_dir": false,
+      "mode": "0o100644",
+      "name": "__MACOSX/Hotline Client 1.9.2/Data/._Hotline Prefs",
+      "uncompressed_size": 229
+    },
+    {
+      "compressed_size": 515,
+      "crc32": "a982e349",
+      "is_dir": false,
+      "mode": "0o100755",
+      "name": "Hotline Client 1.9.2/Data/News History",
+      "uncompressed_size": 14664
+    },
+    {
+      "compressed_size": 154,
+      "crc32": "3a37c4ec",
+      "is_dir": false,
+      "mode": "0o100644",
+      "name": "__MACOSX/Hotline Client 1.9.2/Data/._News History",
+      "uncompressed_size": 229
+    },
+    {
+      "compressed_size": 164,
+      "crc32": "820b98b1",
+      "is_dir": false,
+      "mode": "0o100644",
+      "name": "__MACOSX/Hotline Client 1.9.2/._Data",
+      "uncompressed_size": 229
+    },
+    {
+      "compressed_size": 0,
+      "crc32": "00000000",
+      "is_dir": true,
+      "mode": "0o40755",
+      "name": "Hotline Client 1.9.2/Downloads/",
+      "uncompressed_size": 0
+    },
+    {
+      "compressed_size": 616,
+      "crc32": "f37bcafa",
+      "is_dir": false,
+      "mode": "0o100644",
+      "name": "Hotline Client 1.9.2/Downloads/.DS_Store",
+      "uncompressed_size": 21508
+    },
+    {
+      "compressed_size": 0,
+      "crc32": "00000000",
+      "is_dir": true,
+      "mode": "0o40775",
+      "name": "__MACOSX/Hotline Client 1.9.2/Downloads/",
+      "uncompressed_size": 0
+    },
+    {
+      "compressed_size": 40,
+      "crc32": "b88f91dc",
+      "is_dir": false,
+      "mode": "0o100644",
+      "name": "__MACOSX/Hotline Client 1.9.2/Downloads/._.DS_Store",
+      "uncompressed_size": 82
+    },
+    {
+      "compressed_size": 155,
+      "crc32": "95c493ea",
+      "is_dir": false,
+      "mode": "0o100644",
+      "name": "__MACOSX/Hotline Client 1.9.2/._Downloads",
+      "uncompressed_size": 229
+    },
+    {
+      "compressed_size": 5960,
+      "crc32": "a361a6d5",
+      "is_dir": false,
+      "mode": "0o100755",
+      "name": "Hotline Client 1.9.2/EULA.rtf",
+      "uncompressed_size": 15259
+    },
+    {
+      "compressed_size": 143,
+      "crc32": "a96a3808",
+      "is_dir": false,
+      "mode": "0o100644",
+      "name": "__MACOSX/Hotline Client 1.9.2/._EULA.rtf",
+      "uncompressed_size": 229
+    },
+    {
+      "compressed_size": 509770,
+      "crc32": "1672fee0",
+      "is_dir": false,
+      "mode": "0o100755",
+      "name": "Hotline Client 1.9.2/Hotline Client 1.9.2 Classic",
+      "uncompressed_size": 1410822
+    },
+    {
+      "compressed_size": 384205,
+      "crc32": "057c51e2",
+      "is_dir": false,
+      "mode": "0o100644",
+      "name": "__MACOSX/Hotline Client 1.9.2/._Hotline Client 1.9.2 Classic",
+      "uncompressed_size": 729326
+    },
+    {
+      "compressed_size": 504124,
+      "crc32": "36e7c1cc",
+      "is_dir": false,
+      "mode": "0o100755",
+      "name": "Hotline Client 1.9.2/Hotline Client 1.9.2 OS X",
+      "uncompressed_size": 1400450
+    },
+    {
+      "compressed_size": 384500,
+      "crc32": "9dce43dd",
+      "is_dir": false,
+      "mode": "0o100644",
+      "name": "__MACOSX/Hotline Client 1.9.2/._Hotline Client 1.9.2 OS X",
+      "uncompressed_size": 730234
+    },
+    {
+      "compressed_size": 2254,
+      "crc32": "1f341fa0",
+      "is_dir": false,
+      "mode": "0o100755",
+      "name": "Hotline Client 1.9.2/Readme.rtf",
+      "uncompressed_size": 8933
+    },
+    {
+      "compressed_size": 143,
+      "crc32": "1095066d",
+      "is_dir": false,
+      "mode": "0o100644",
+      "name": "__MACOSX/Hotline Client 1.9.2/._Readme.rtf",
+      "uncompressed_size": 229
+    },
+    {
+      "compressed_size": 2199,
+      "crc32": "c0b406a1",
+      "is_dir": false,
+      "mode": "0o100755",
+      "name": "Hotline Client 1.9.2/WhatsNew19.rtf",
+      "uncompressed_size": 5808
+    },
+    {
+      "compressed_size": 143,
+      "crc32": "f0f000aa",
+      "is_dir": false,
+      "mode": "0o100644",
+      "name": "__MACOSX/Hotline Client 1.9.2/._WhatsNew19.rtf",
+      "uncompressed_size": 229
+    },
+    {
+      "compressed_size": 170,
+      "crc32": "0267ed42",
+      "is_dir": false,
+      "mode": "0o100644",
+      "name": "__MACOSX/._Hotline Client 1.9.2",
+      "uncompressed_size": 229
+    }
+  ],
+  "issues": [],
+  "max_total_uncompressed_bytes": 20971520,
+  "safe_for_bounded_extraction": true,
+  "source": "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-account/peer-acquisition-01/original.zip"
+}

@@ -1,0 +1,337 @@
+{
+  "recorded_at_utc": "2026-11-12T23:28:25.804145+00:00",
+  "image": "state/mac-runtime/hotline19/working.dsk",
+  "tool_sha256": {
+    "istat": "f87c0cee5e263c55440c19fb3e478b80e33dcbae223388b5f83913ceb5fc4499",
+    "icat": "ab73038eda8ed52697c5d94874bbc0a19285184253e68a78f6e4ab347a042bba"
+  },
+  "catalog_range": [
+    11260,
+    11310
+  ],
+  "roots": [
+    "/Hotline19/Files/m-htxf-u0",
+    "/Hotline19/Files/m-htxf-u2",
+    "/Hotline19/Files/m-htxf-u65535"
+  ],
+  "method": "Read-only direct catalogue observations. Positive paths verified by istat before fork reads. Not an exhaustive directory listing, path-absence proof, protocol certification or restart-durability result.",
+  "probes": [
+    {
+      "catalog": 11260,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11261,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11261)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11262,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11262)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11263,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11263)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11264,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11264)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11265,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11265)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11266,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11266)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11267,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11267)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11268,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11268)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11269,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11269)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11270,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11270)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11271,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11271)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11272,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11272)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11273,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11273)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11274,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11274)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11275,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11275)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11276,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11276)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11277,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11277)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11278,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11278)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11279,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11280,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11281,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11282,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11283,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11282)\n"
+    },
+    {
+      "catalog": 11284,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11282)\n"
+    },
+    {
+      "catalog": 11285,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11282)\n"
+    },
+    {
+      "catalog": 11286,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11282)\n"
+    },
+    {
+      "catalog": 11287,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11282)\n"
+    },
+    {
+      "catalog": 11288,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11282)\n"
+    },
+    {
+      "catalog": 11289,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11282)\n"
+    },
+    {
+      "catalog": 11290,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11282)\n"
+    },
+    {
+      "catalog": 11291,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11282)\n"
+    },
+    {
+      "catalog": 11292,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11282)\n"
+    },
+    {
+      "catalog": 11293,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11282)\n"
+    },
+    {
+      "catalog": 11294,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11282)\n"
+    },
+    {
+      "catalog": 11295,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11282)\n"
+    },
+    {
+      "catalog": 11296,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11282)\n"
+    },
+    {
+      "catalog": 11297,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11282)\n"
+    },
+    {
+      "catalog": 11298,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11282)\n"
+    },
+    {
+      "catalog": 11299,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11282)\n"
+    },
+    {
+      "catalog": 11300,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11282)\n"
+    },
+    {
+      "catalog": 11301,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11282)\n"
+    },
+    {
+      "catalog": 11302,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11282)\n"
+    },
+    {
+      "catalog": 11303,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11282)\n"
+    },
+    {
+      "catalog": 11304,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11282)\n"
+    },
+    {
+      "catalog": 11305,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11282)\n"
+    },
+    {
+      "catalog": 11306,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11282)\n"
+    },
+    {
+      "catalog": 11307,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11282)\n"
+    },
+    {
+      "catalog": 11308,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11282)\n"
+    },
+    {
+      "catalog": 11309,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11282)\n"
+    },
+    {
+      "catalog": 11310,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11282)\n"
+    }
+  ],
+  "records": [
+    {
+      "path": "/Hotline19/Files/m-htxf-u2",
+      "key": "catalog-11280",
+      "catalog": 11280,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 16,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/m-htxf-u65535",
+      "key": "catalog-11281",
+      "catalog": 11281,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 20,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/m-htxf-u0",
+      "key": "catalog-11282",
+      "catalog": 11282,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 16,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    }
+  ]
+}

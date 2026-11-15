@@ -1,0 +1,9 @@
+Id=mothra-native-board-c97-readiness.service
+ActiveState=failed
+Result=exit-code
+ExecMainStatus=1
+
+Id=mothra-native-board-c97-readiness-corrected.service
+ActiveState=failed
+Result=exit-code
+ExecMainStatus=127

@@ -1,0 +1,68 @@
+import asyncio
+import hashlib
+import json
+import os
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+
+from mcp import ClientSession, StdioServerParameters
+from mcp.client.stdio import stdio_client
+
+ROOT = Path('/data/leynos/Projects/mothra')
+BASE = ROOT / 'state/delegation/workspaces/batch-02-account/mothra/state/oracle-headless-01'
+OUT = ROOT / 'state/delegation/c41-oracle'
+BINARY = ROOT / 'evidence/hotline-server-1.9/inputs/HLserver19.pef'
+JAR = ROOT / 'tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar'
+SHA = 'ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b'
+JAR_SHA = '201d18ffde71a83a678eae607de265861f37e5a00b989d91958c1197664d2b43'
+ADDRESSES = ['10074930','10071650','10074b10','10071950','100742a0','10070d20','100749b0','10071770']
+
+def digest(p):
+    return hashlib.sha256(p.read_bytes()).hexdigest()
+
+def project_map():
+    return {str(p.relative_to(BASE/'project')): digest(p) for p in sorted((BASE/'project').rglob('*')) if p.is_file()}
+
+def write(report):
+    (OUT/'report.json').write_text(json.dumps(report, indent=2)+'\n')
+
+async def main():
+    assert digest(BINARY)==SHA and digest(JAR)==JAR_SHA
+    assert (BASE/'project/hotline19-headless-01.gpr').is_file()
+    env=dict(os.environ)
+    env.update(JAVA_HOME=str(ROOT/'tools/jdk-25.0.5+8'),GHIDRA_INSTALL_DIR=str(ROOT/'tools/ghidra_12.2_PUBLIC'),XDG_CONFIG_HOME=str(BASE/'config'),XDG_CACHE_HOME=str(BASE/'cache'),XDG_DATA_HOME=str(BASE/'data'),TMPDIR=str(BASE/'tmp'),JAVA_TOOL_OPTIONS=f'-Duser.home={BASE/"home"} -Djava.io.tmpdir={BASE/"tmp"}')
+    env['PATH']=str(ROOT/'tools/jdk-25.0.5+8/bin')+os.pathsep+env['PATH']
+    args=['--headless','--binary',str(BINARY),'--project',str(BASE/'project'),'--project-name','hotline19-headless-01','--language','PowerPC:BE:32:default','--compiler','default','--extension-jar',str(JAR),'--ready-timeout','900','--no-analyze','--discard']
+    params=StdioServerParameters(command=str(ROOT/'tools/ghidramcp/.venv/bin/ghidra-mcp'),args=args,env=env,cwd=str(ROOT))
+    report={'started':datetime.now(timezone.utc).isoformat(),'command':params.command,'args':args,'binary_sha256':digest(BINARY),'jar_sha256':digest(JAR),'project_before':project_map(),'queries':[],'status':'running'}
+    write(report)
+    try:
+        with (OUT/'server.stderr.log').open('w') as errlog:
+            async with stdio_client(params,errlog=errlog) as (reader,writer),ClientSession(reader,writer,read_timeout_seconds=timedelta(seconds=1050)) as session:
+                await session.initialize()
+                for label,tool,arguments in [('identity-before','get_program_info',{})]+[(a,'decompile_function_by_address',{'address':a}) for a in ADDRESSES]+[]:
+                    result=await session.call_tool(tool,arguments,read_timeout_seconds=timedelta(seconds=300))
+                    payload=result.model_dump(mode='json')
+                    report['queries'].append({'label':label,'tool':tool,'arguments':arguments,'result':payload})
+                    write(report)
+                    if result.isError or result.structuredContent is None: raise RuntimeError(f'{label}: tool error or no content')
+                    if label=='identity-before':
+                        info=result.structuredContent
+                        if (info.get('sha256'),info.get('function_count'),info.get('language_id'),info.get('min_address'))!=(SHA,1840,'PowerPC:BE:32:default','10000000'): raise RuntimeError('program identity mismatch')
+                result=await session.call_tool('get_program_info',{},read_timeout_seconds=timedelta(seconds=300))
+                payload=result.model_dump(mode='json')
+                report['identity_after']=payload
+                if result.isError or result.structuredContent != report['queries'][0]['result']['structuredContent']: raise RuntimeError('identity changed')
+        report['status']='complete'
+    except Exception as exc:
+        report['status']='failed-preserved'
+        report['error']=f'{type(exc).__name__}: {exc}'
+        raise
+    finally:
+        report['finished']=datetime.now(timezone.utc).isoformat()
+        report['project_after']=project_map()
+        report['project_unchanged']=report['project_before']==report['project_after']
+        write(report)
+    if not report['project_unchanged']: raise RuntimeError('project bytes changed')
+
+asyncio.run(main())

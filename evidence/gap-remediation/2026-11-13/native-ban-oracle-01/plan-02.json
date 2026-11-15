@@ -1,0 +1,16 @@
+[
+  {
+    "id": "BN2-D-100064d0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100064d0"
+    }
+  },
+  {
+    "id": "BN2-D-10009960",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10009960"
+    }
+  }
+]

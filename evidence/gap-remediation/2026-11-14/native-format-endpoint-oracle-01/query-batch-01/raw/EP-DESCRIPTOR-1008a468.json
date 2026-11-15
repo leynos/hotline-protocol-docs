@@ -1,0 +1,30 @@
+{
+  "captured_at_utc": "2026-11-14T05:23:15.309396+00:00",
+  "query": {
+    "id": "EP-DESCRIPTOR-1008a468",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "1008a468",
+      "length": 8
+    }
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"address\": \"1008a468\",\n  \"length\": 8,\n  \"hex\": \"10 07 50 50 10 09 07 20\",\n  \"ascii\": \"..PP... \",\n  \"gaps\": []\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "address": "1008a468",
+      "length": 8,
+      "hex": "10 07 50 50 10 09 07 20",
+      "ascii": "..PP... ",
+      "gaps": []
+    },
+    "isError": false
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-14T08:05:28.823731+00:00",
+  "pid": 1219462,
+  "starttime": "6822313",
+  "uid": "1000\t1000\t1000\t1000",
+  "lock_inode": 3512552451,
+  "fds": {
+    "0": "/dev/null",
+    "1": "socket:[22992240]",
+    "2": "socket:[22992240]",
+    "3": "/data/leynos/Projects/mothra/state/delegation/oracle.lock"
+  },
+  "busy_exit": 1,
+  "unit": "mothra-native-liveness-c92-lease.service"
+}

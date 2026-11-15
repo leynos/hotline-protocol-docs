@@ -1,0 +1,11 @@
+{
+  "pid": 589059,
+  "starttime": "5566927",
+  "exe": "/usr/bin/flock",
+  "uid": "Uid:\t1000\t1000\t1000\t1000",
+  "fd": [
+    "3"
+  ],
+  "lock_inode": 3512552451,
+  "independent_flock_exit": 1
+}

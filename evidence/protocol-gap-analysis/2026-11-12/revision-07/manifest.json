@@ -1,0 +1,81 @@
+{
+  "captured_at_utc": "2026-11-12T14:36:05.814777+00:00",
+  "source_git_head": "470205ff13afab9241dde071989f10bfd536ba6d",
+  "source_worktree_status": "M baseline-correction-map.md\n M internal-compatibility-matrix.md\n M protocol.md\n?? evidence-portability.md\n?? filesystem-and-board-contracts.md",
+  "inputs": [
+    {
+      "path": "protocol.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-07/inputs/protocol.md.txt",
+      "sha256": "0e25ec534b39cf5f1fbddc82d5824f7d1ee5b42ea3d79d63243307d1d8d44694",
+      "lines": 1051
+    },
+    {
+      "path": "internal-compatibility-matrix.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-07/inputs/internal-compatibility-matrix.md.txt",
+      "sha256": "f3636688a20b796d5828f2dde113523572cd276336cf270e457d737f76859845",
+      "lines": 287
+    },
+    {
+      "path": "baseline-correction-map.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-07/inputs/baseline-correction-map.md.txt",
+      "sha256": "08b3687d975dbd9ae9050d5d0b333d2c106b884f1d3d87a3a966cbbc604d7385",
+      "lines": 112
+    },
+    {
+      "path": "native-wire-details.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-07/inputs/native-wire-details.md.txt",
+      "sha256": "e80a9b0d883f04eec35f1188d7ec433265d6145fe554a061dc38f8a144698dbb",
+      "lines": 206
+    },
+    {
+      "path": "operation-contracts.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-07/inputs/operation-contracts.md.txt",
+      "sha256": "4f17fb5d19261c6dfcf69dc972fc1ed4bc25fd395c2a3f101b0ee202d445b3e6",
+      "lines": 165
+    },
+    {
+      "path": "transfer-contracts.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-07/inputs/transfer-contracts.md.txt",
+      "sha256": "04345646656b104dcee0bbbd693e5fbac8a8ee388613a631eb28f88b4a0f8ab0",
+      "lines": 285
+    },
+    {
+      "path": "news-contracts.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-07/inputs/news-contracts.md.txt",
+      "sha256": "2fee4f5073a0c7892df9f898c0a9f68210e79b9e3093342fbb7c04f17dfb485f",
+      "lines": 171
+    },
+    {
+      "path": "presence-messaging-contracts.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-07/inputs/presence-messaging-contracts.md.txt",
+      "sha256": "774e1ffa4f0da764d99fbc1c256b34623d88c2b68aee65f7bb7d6275f3a857be",
+      "lines": 214
+    },
+    {
+      "path": "core-field-schemas.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-07/inputs/core-field-schemas.md.txt",
+      "sha256": "222dd10892ba1578054a53af5d86fe922a2681b0a81861804248045797154121",
+      "lines": 105
+    },
+    {
+      "path": "session-transport-contracts.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-07/inputs/session-transport-contracts.md.txt",
+      "sha256": "31921752d68f0b1aebb0425752c1b456ec32ac7cf4c6ad49078f5ff52009c0a0",
+      "lines": 106
+    },
+    {
+      "path": "filesystem-and-board-contracts.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-07/inputs/filesystem-and-board-contracts.md.txt",
+      "sha256": "b41bdec440d3c039dfb55ddde942002a21117969894ca079bc47d89ec65d667d",
+      "lines": 142
+    },
+    {
+      "path": "evidence-portability.md",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-07/inputs/evidence-portability.md.txt",
+      "sha256": "200e58e62e531bfab8ba02c2036c7869c3417a5ff86b70c3d27c3743a54d65d3",
+      "lines": 69
+    }
+  ],
+  "method": "Documentation review plus read-only Ghidra MCP follow-up against the recorded Hotline 1.9 data fork, and revision-specific mxd source/test review (55 focused tests passed). The original audit and validity ledger remain immutable; current sources have been reviewed and re-snapshotted. No native runtime/client captures or Kani proof results are claimed. Entries remain Investigating while their acceptance criteria are unmet.",
+  "previous_manifest": "../mothra/evidence/protocol-gap-analysis/2026-11-12/revision-06/manifest.json"
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "scope": "C26 original Hotline Server 1.9 field-113 settings matrix, ten complete cases with exact A7 before/after",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "emulator_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "source_protocol_head": "642834a061b49c8e07643930a999a09d72ed1c14",
+  "raw_sha256sums_sha256": "f953f1146d5f89da3d33d1310c2364a56847514b23a9751daf0ceb2d2faa9b58",
+  "raw_file_count": 73,
+  "case_count": 10,
+  "preflight_actions": 29,
+  "postflight_actions": 29,
+  "host_recorder": {
+    "unit": "mothra-native-settings-c26-recorder.service",
+    "pid": 2865250,
+    "packets_captured": 3754,
+    "kernel_drops": 0,
+    "terminal_result": "success",
+    "terminal_exit": 0
+  },
+  "limitations": [
+    "Case-local duplicate observations are not a universal last-wins rule",
+    "Preflight as-run environment a7_phase label says postflight due preparation dictionary reuse; original immutable A7 steps/source and independent readback verification remained intact",
+    "Initial generator canonical-path error occurred before settings plans/native sockets and was corrected to the private source",
+    "Account, file, server options and original emulator disk were not mutated by this packet",
+    "No all-core GAP-015/016/017 closure"
+  ]
+}

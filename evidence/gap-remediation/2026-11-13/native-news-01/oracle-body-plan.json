@@ -1,0 +1,30 @@
+[
+  {
+    "id": "NW-D-10011580",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10011580"
+    }
+  },
+  {
+    "id": "NW-D-10005ac0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10005ac0"
+    }
+  },
+  {
+    "id": "NW-D-100233e0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100233e0"
+    }
+  },
+  {
+    "id": "NW-D-10057de0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10057de0"
+    }
+  }
+]

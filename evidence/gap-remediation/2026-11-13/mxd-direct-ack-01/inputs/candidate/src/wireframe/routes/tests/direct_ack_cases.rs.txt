@@ -1,0 +1,89 @@
+//! Router-boundary direct reply contract tests.
+
+use rstest::rstest;
+use test_util::{AnyError, build_test_db, setup_files_db};
+
+use super::helpers::{RouteTestContext, decode_reply_params, find_i32, find_string, runtime};
+use crate::{field_id::FieldId, transaction_type::TransactionType};
+
+#[expect(clippy::panic_in_result_fn, reason = "test assertions")]
+#[rstest]
+fn direct_ack_login_success_uses_type_zero_and_correlation() -> Result<(), AnyError> {
+    let rt = runtime()?;
+    let test_db = build_test_db(&rt, setup_files_db)?
+        .expect("the selected test profile must supply a database backend");
+    let mut ctx = RouteTestContext::new(test_db.pool())?;
+    let version = 190u16.to_be_bytes();
+    let id = 0x1234_5678;
+
+    let reply = rt.block_on(ctx.send(
+        TransactionType::Login,
+        id,
+        &[
+            (FieldId::Login, b"alice"),
+            (FieldId::Password, b"secret"),
+            (FieldId::Version, &version),
+        ],
+    ))?;
+    assert_eq!(reply.header.is_reply, 1);
+    assert_eq!(reply.header.ty, 0);
+    assert_eq!(reply.header.id, id);
+    assert_eq!(reply.header.error, 0);
+    let params = decode_reply_params(&reply)?;
+    assert_eq!(find_i32(&params, FieldId::BannerId)?, 0);
+    assert_eq!(find_string(&params, FieldId::ServerName)?, "mxd");
+    Ok(())
+}
+
+#[expect(clippy::panic_in_result_fn, reason = "test assertions")]
+#[rstest]
+fn direct_ack_login_failure_uses_type_zero_without_extras() -> Result<(), AnyError> {
+    let rt = runtime()?;
+    let test_db = build_test_db(&rt, setup_files_db)?
+        .expect("the selected test profile must supply a database backend");
+    let mut ctx = RouteTestContext::new(test_db.pool())?;
+    let version = 190u16.to_be_bytes();
+    let id = 0x1234_5679;
+
+    let reply = rt.block_on(ctx.send(
+        TransactionType::Login,
+        id,
+        &[
+            (FieldId::Login, b"alice"),
+            (FieldId::Password, b"wrong-password"),
+            (FieldId::Version, &version),
+        ],
+    ))?;
+    assert_eq!(reply.header.is_reply, 1);
+    assert_eq!(reply.header.ty, 0);
+    assert_eq!(reply.header.id, id);
+    assert_ne!(reply.header.error, 0);
+    assert!(
+        reply.payload.is_empty(),
+        "failed login must have no success extras"
+    );
+    Ok(())
+}
+
+#[expect(clippy::panic_in_result_fn, reason = "test assertions")]
+#[rstest]
+fn direct_ack_nonlogin_uses_type_zero_and_correlation() -> Result<(), AnyError> {
+    let rt = runtime()?;
+    let test_db = build_test_db(&rt, setup_files_db)?
+        .expect("the selected test profile must supply a database backend");
+    let mut ctx = RouteTestContext::new(test_db.pool())?;
+    let login = rt.block_on(ctx.send(
+        TransactionType::Login,
+        0x1234_5680,
+        &[(FieldId::Login, b"alice"), (FieldId::Password, b"secret")],
+    ))?;
+    assert_eq!(login.header.error, 0);
+    let id = 0x1234_5681;
+
+    let reply = rt.block_on(ctx.send(TransactionType::GetFileNameList, id, &[]))?;
+    assert_eq!(reply.header.is_reply, 1);
+    assert_eq!(reply.header.ty, 0);
+    assert_eq!(reply.header.id, id);
+    assert_eq!(reply.header.error, 0);
+    Ok(())
+}

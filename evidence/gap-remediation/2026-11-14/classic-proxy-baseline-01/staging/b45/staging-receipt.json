@@ -1,0 +1,20 @@
+{
+  "at_utc": "2026-11-14T00:24:25.264451+00:00",
+  "ready_dialog": "ready-dialog.png",
+  "endpoint_visual": "10.0.2.2:15652",
+  "login_visual": "admin",
+  "password_mask_bullets_visual": 8,
+  "x_focus": "0x200033",
+  "pressed_keycodes": [],
+  "pointer_mask": 0,
+  "host_recorder_pid": 1227148,
+  "namespace_recorder_pid": 1228633,
+  "recorder_start_utc_approx": "2026-11-14T00:19:15Z",
+  "recorder_auto_deadline_utc_approx": "2026-11-14T00:31:15Z",
+  "host_pcap_bytes": 24,
+  "namespace_pcap_bytes": 24,
+  "client_guest_bytes_current": 10754,
+  "client_guest_equal_pre": true,
+  "proxy_started": false,
+  "connect_activated": false
+}

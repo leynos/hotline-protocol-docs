@@ -1,0 +1,78 @@
+{
+  "schema": "native-banned-v2-samples-01",
+  "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "records": {
+    "C56": {
+      "canonical_source": "evidence/gap-remediation/2026-11-14/native-ban-control-01/case-c56/Banned.data.bin",
+      "sha256": "53bec37683dc9bab6cc812f38fa465724085e9c35fc5b7bdf72e25dd09b727d4",
+      "length": 49,
+      "file_version_be16": 2,
+      "record_count_be32": 1,
+      "record": {
+        "flag": 1,
+        "start_ipv4_hex": "0a000202",
+        "end_ipv4_hex": "0a000202",
+        "display_length": 21,
+        "display_text_hex": "31312f31342f3230323620333a31303a323320414d",
+        "display_text_ascii": "11/14/2026 3:10:23 AM",
+        "display_remainder_hex": "6e201dd2ed30220000481d",
+        "reason_length": 0,
+        "reason_hex": ""
+      }
+    },
+    "C62": {
+      "canonical_source": "evidence/gap-remediation/2026-11-14/native-ban-reload-01/c56-reference/Banned.data.bin",
+      "sha256": "53bec37683dc9bab6cc812f38fa465724085e9c35fc5b7bdf72e25dd09b727d4",
+      "length": 49,
+      "file_version_be16": 2,
+      "record_count_be32": 1,
+      "record": {
+        "flag": 1,
+        "start_ipv4_hex": "0a000202",
+        "end_ipv4_hex": "0a000202",
+        "display_length": 21,
+        "display_text_hex": "31312f31342f3230323620333a31303a323320414d",
+        "display_text_ascii": "11/14/2026 3:10:23 AM",
+        "display_remainder_hex": "6e201dd2ed30220000481d",
+        "reason_length": 0,
+        "reason_hex": ""
+      }
+    },
+    "C68": {
+      "canonical_source": "evidence/gap-remediation/2026-11-14/native-configured-ban-01/native-configured-apply-c66/stopped-files/Banned.bin",
+      "sha256": "671c8164c116d26cf5bb863ba87b93174f81b1a59abb208491b57f9d41a87aa1",
+      "length": 49,
+      "file_version_be16": 2,
+      "record_count_be32": 1,
+      "record": {
+        "flag": 1,
+        "start_ipv4_hex": "0a000202",
+        "end_ipv4_hex": "0a000202",
+        "display_length": 21,
+        "display_text_hex": "31312f31342f3230323620343a35303a303220414d",
+        "display_text_ascii": "11/14/2026 4:50:02 AM",
+        "display_remainder_hex": "000000000001000000a000",
+        "reason_length": 0,
+        "reason_hex": ""
+      }
+    }
+  },
+  "different_offsets": {
+    "C56-C62": [],
+    "C56-C68": [
+      27,
+      29,
+      32,
+      33,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      46,
+      47
+    ]
+  }
+}

@@ -1,0 +1,199 @@
+#!/usr/bin/env python3
+# fmt: off
+"""One future GUI focus event after a verified dual-PCAP A7 plateau.
+
+Preparation only: this script must not run without a separate live grant.
+"""
+
+import argparse
+import ctypes
+import datetime as dt
+import hashlib
+import json
+import subprocess
+import sys
+import time
+from pathlib import Path
+
+from PIL import Image
+
+ROOT = Path('/data/leynos/Projects/mothra')
+sys.path.insert(0, str(ROOT.parent / 'hotline-protocol-docs/scripts'))
+from pcap_tcp import lifetime, read_packets, stream
+
+PREFIX_SHA = 'b4c6dc15be0d82de42d3aa7102c1feca67397b978591ac8be2d2c846d6a62e7c'
+FULL_BYTES = 1049073
+
+
+def utc():
+    return dt.datetime.now(dt.timezone.utc).isoformat()
+
+
+def capture(path, client, server, port):
+    try:
+        packets = read_packets(path)
+    except (FileNotFoundError, ValueError):
+        return None  # tcpdump may have an incomplete final record while writing
+    syns = [p for p in packets if p['src_ip'] == client and p['dst_ip'] == server
+            and p['dst_port'] == port and p['flags'] & 2 and not p['flags'] & 16]
+    if not syns:
+        return None
+    if len(syns) != 1:
+        raise ValueError('More than one candidate data SYN; no GUI event')
+    syn = syns[0]
+    local = syn['src_port']
+    flow = lifetime(packets, (client, local), (server, port), syn['timestamp_us'])
+    body = stream(flow, (server, port), (client, local))
+    return {'bytes': len(body), 'sha256': hashlib.sha256(body).hexdigest(),
+            'local_port': local, 'first_syn_us': syn['timestamp_us'],
+            'last_packet_us': flow[-1]['timestamp_us']}
+
+
+def screenshot(path):
+    subprocess.run(['/usr/sbin/import', '-display', ':112', '-window', 'root', str(path)],
+                   check=True, capture_output=True)
+    image = Image.open(path).convert('RGB')
+    if image.size != (1024, 768):
+        raise ValueError('GUI layout differs; no GUI event')
+    return image
+
+
+def gold_count(image):
+    region = image.crop((220, 35, 300, 46))
+    return sum(r > 200 and g > 130 and b < 80 for r, g, b in region.getdata())
+
+
+def click_blank_log():
+    x11 = ctypes.CDLL('libX11.so.6')
+    xtst = ctypes.CDLL('libXtst.so.6')
+    x11.XOpenDisplay.argtypes = [ctypes.c_char_p]
+    x11.XOpenDisplay.restype = ctypes.c_void_p
+    x11.XCloseDisplay.argtypes = [ctypes.c_void_p]
+    x11.XFlush.argtypes = [ctypes.c_void_p]
+    xtst.XTestFakeMotionEvent.argtypes = [ctypes.c_void_p, ctypes.c_int, ctypes.c_int,
+                                          ctypes.c_int, ctypes.c_ulong]
+    xtst.XTestFakeButtonEvent.argtypes = [ctypes.c_void_p, ctypes.c_uint, ctypes.c_int,
+                                          ctypes.c_ulong]
+    display = x11.XOpenDisplay(b':112')
+    if not display:
+        raise ValueError('Display :112 absent; no GUI event')
+    try:
+        xtst.XTestFakeMotionEvent(display, -1, 450, 180, 0)
+        x11.XFlush(display)
+        time.sleep(0.1)
+        for pressed in (1, 0):
+            if not xtst.XTestFakeButtonEvent(display, 1, pressed, 0):
+                raise ValueError('XTest input not delivered')
+            x11.XFlush(display)
+            time.sleep(0.1)
+    finally:
+        x11.XCloseDisplay(display)
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--guest-pcap', type=Path, required=True)
+    parser.add_argument('--namespace-pcap', type=Path, required=True)
+    parser.add_argument('--a7-pid', type=int, required=True)
+    parser.add_argument('--a7-capture-dir', type=Path, required=True)
+    parser.add_argument('--out', type=Path, required=True)
+    args = parser.parse_args()
+    if args.out.exists():
+        raise FileExistsError(args.out)
+    args.out.mkdir(parents=True)
+    result = {'started_utc': utc(), 'status': 'inconclusive', 'event_count': 0,
+              'precondition': 'dual SYN-scoped 98304-byte prefix unchanged >=5 s; runner live'}
+
+    def observe():
+        guest = capture(args.guest_pcap, '10.0.2.2', '10.0.2.15', 5501)
+        namespace = capture(args.namespace_pcap, '127.0.0.1', '127.0.0.1', 15751)
+        if guest and namespace and guest['local_port'] == namespace['local_port']:
+            return {'guest': guest, 'namespace': namespace}
+        return None
+
+    def runner_live():
+        if (args.a7_capture_dir / 'report.json').exists():
+            return False
+        try:
+            cmd = (Path('/proc') / str(args.a7_pid) / 'cmdline').read_bytes()
+        except FileNotFoundError:
+            return False
+        return b'protocol_capture.py' in cmd and b'a7-as-run-plan.json' in cmd
+
+    plateau_since = None
+    deadline = time.monotonic() + 70
+    try:
+        while time.monotonic() < deadline and runner_live():
+            views = observe()
+            if views:
+                lengths = [v['bytes'] for v in views.values()]
+                if any(length > 98304 for length in lengths):
+                    result['status'] = 'healthy_progress_before_event'
+                    result['before'] = views
+                    return
+                at_prefix = all(v['bytes'] == 98304 and v['sha256'] == PREFIX_SHA
+                                for v in views.values())
+                if at_prefix:
+                    plateau_since = plateau_since or time.monotonic()
+                    if time.monotonic() - plateau_since >= 5:
+                        result['before'] = views
+                        break
+                else:
+                    plateau_since = None
+            time.sleep(0.25)
+        else:
+            result['status'] = 'no_verified_plateau_or_runner_ended'
+            return
+        second = observe()
+        if (not runner_live() or not second or
+                any(second[view]['bytes'] != result['before'][view]['bytes'] or
+                    second[view]['sha256'] != result['before'][view]['sha256']
+                    for view in ('guest', 'namespace'))):
+            result['status'] = 'changed_before_input'
+            return
+        before = screenshot(args.out / 'before.png')
+        result['title_gold_before'] = gold_count(before)
+        if result['title_gold_before'] > 10 or before.getpixel((450, 180)) != (255, 255, 255):
+            result['status'] = 'log_not_in_expected_inactive_layout'
+            return
+        third = observe()
+        if not runner_live() or not third or any(
+                third[view]['bytes'] != 98304 or third[view]['sha256'] != PREFIX_SHA
+                for view in ('guest', 'namespace')):
+            result['status'] = 'changed_before_input'
+            return
+        result['event_utc'] = utc()
+        click_blank_log()
+        result['event_count'] = 1
+        result['event_return_utc'] = utc()
+        after = screenshot(args.out / 'after.png')
+        result['title_gold_after'] = gold_count(after)
+        if result['title_gold_after'] <= 100:
+            result['status'] = 'focus_change_unverified'
+            return
+        end = time.monotonic() + 10
+        while time.monotonic() < end:
+            views = observe()
+            if views and all(v['bytes'] > 98304 for v in views.values()):
+                result['status'] = ('full_file_after_focus' if all(v['bytes'] == FULL_BYTES
+                                    for v in views.values()) else 'progress_after_focus')
+                result['after'] = views
+                return
+            time.sleep(0.25)
+        result['after'] = observe()
+        if not result['after']:
+            result['status'] = 'capture_unavailable_inconclusive'
+        elif any(v['bytes'] > 98304 for v in result['after'].values()):
+            result['status'] = 'single_view_progress_inconclusive'
+        elif any(v['bytes'] != 98304 or v['sha256'] != PREFIX_SHA for v in result['after'].values()):
+            result['status'] = 'changed_or_invalid_capture_inconclusive'
+        else:
+            result['status'] = 'no_progress_after_verified_focus'
+    finally:
+        result['ended_utc'] = utc()
+        (args.out / 'result.json').write_text(json.dumps(result, indent=2) + '\n')
+
+
+if __name__ == '__main__':
+    main()
+# fmt: on

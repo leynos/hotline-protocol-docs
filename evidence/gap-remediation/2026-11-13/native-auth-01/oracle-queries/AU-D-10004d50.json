@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T23:58:12.052525+00:00",
+  "query": {
+    "id": "AU-D-10004d50",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10004d50"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_10004d50\",\n    \"address\": \"10004d50\"\n  },\n  \"code\": \"\\nvoid FUN_10004d50(undefined4 param_1,int param_2,undefined4 param_3,int param_4)\\n\\n{\\n  undefined1 uVar4;\\n  undefined2 uVar3;\\n  uint uVar1;\\n  int iVar2;\\n  ushort uVar5;\\n  \\n  if (param_2 != 0) {\\n    if (param_4 != 0) {\\n      *(undefined8 *)(param_2 + 8) = *(undefined8 *)(param_4 + 4);\\n    }\\n    FUN_10056c70(param_3,0x66,param_2 + 0x18,0x20);\\n    if (*(char *)(param_2 + 0x18) == '\\\\0') {\\n      uVar4 = FUN_100539c0(param_2 + 0x19,0x1008fd2d,3);\\n      *(undefined1 *)(param_2 + 0x18) = uVar4;\\n    }\\n    else {\\n      FUN_10054210(param_2 + 0x19,*(undefined1 *)(param_2 + 0x18),0,0x2a,1);\\n    }\\n    if ((*(byte *)(param_2 + 0xb) >> 5 & 1) == 0) {\\n      if (param_4 != 0) {\\n        uVar5 = *(ushort *)(param_4 + 0x210);\\n        if (0x1f < uVar5) {\\n          uVar5 = 0x1f;\\n        }\\n        if (uVar5 == 0) {\\n          uVar4 = FUN_100539c0(param_2 + 0x39,0x1008fd2d,3);\\n          *(undefined1 *)(param_2 + 0x38) = uVar4;\\n        }\\n        else {\\n          uVar4 = FUN_100539c0(param_2 + 0x39,param_4 + 0x212,uVar5);\\n          *(undefined1 *)(param_2 + 0x38) = uVar4;\\n        }\\n      }\\n    }\\n    else {\\n      FUN_100539c0(param_2 + 0x38,param_2 + 0x18,*(byte *)(param_2 + 0x18) + 1);\\n    }\\n    uVar3 = FUN_10056b90(param_3,0x68);\\n    *(undefined2 *)(param_2 + 0x16) = uVar3;\\n    uVar1 = FUN_10056b90(param_3,0x71);\\n    *(byte *)(param_2 + 0xb0) = (byte)uVar1 & 1;\\n    *(byte *)(param_2 + 0xb1) = (byte)(uVar1 >> 1) & 1;\\n    uVar1 = uVar1 >> 2 & 1;\\n    *(char *)(param_2 + 0xb2) = (char)uVar1;\\n    *(undefined1 *)(param_2 + 0xb3) = 0;\\n    if (uVar1 != 0) {\\n      iVar2 = FUN_100567c0(param_3,0xd7);\\n      if (iVar2 == 0) {\\n        uVar4 = FUN_10054180(param_2 + 0xb4,0x7f,s_I_m_not_able_to_respond_right_no_1008fd31);\\n        *(undefined1 *)(param_2 + 0xb3) = uVar4;\\n      }\\n      else {\\n        FUN_10056c70(param_3,0xd7,param_2 + 0xb3,0x80);\\n      }\\n    }\\n    FUN_10004f30(param_1,param_2);\\n  }\\n  return;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_10004d50",
+        "address": "10004d50"
+      },
+      "code": "\nvoid FUN_10004d50(undefined4 param_1,int param_2,undefined4 param_3,int param_4)\n\n{\n  undefined1 uVar4;\n  undefined2 uVar3;\n  uint uVar1;\n  int iVar2;\n  ushort uVar5;\n  \n  if (param_2 != 0) {\n    if (param_4 != 0) {\n      *(undefined8 *)(param_2 + 8) = *(undefined8 *)(param_4 + 4);\n    }\n    FUN_10056c70(param_3,0x66,param_2 + 0x18,0x20);\n    if (*(char *)(param_2 + 0x18) == '\\0') {\n      uVar4 = FUN_100539c0(param_2 + 0x19,0x1008fd2d,3);\n      *(undefined1 *)(param_2 + 0x18) = uVar4;\n    }\n    else {\n      FUN_10054210(param_2 + 0x19,*(undefined1 *)(param_2 + 0x18),0,0x2a,1);\n    }\n    if ((*(byte *)(param_2 + 0xb) >> 5 & 1) == 0) {\n      if (param_4 != 0) {\n        uVar5 = *(ushort *)(param_4 + 0x210);\n        if (0x1f < uVar5) {\n          uVar5 = 0x1f;\n        }\n        if (uVar5 == 0) {\n          uVar4 = FUN_100539c0(param_2 + 0x39,0x1008fd2d,3);\n          *(undefined1 *)(param_2 + 0x38) = uVar4;\n        }\n        else {\n          uVar4 = FUN_100539c0(param_2 + 0x39,param_4 + 0x212,uVar5);\n          *(undefined1 *)(param_2 + 0x38) = uVar4;\n        }\n      }\n    }\n    else {\n      FUN_100539c0(param_2 + 0x38,param_2 + 0x18,*(byte *)(param_2 + 0x18) + 1);\n    }\n    uVar3 = FUN_10056b90(param_3,0x68);\n    *(undefined2 *)(param_2 + 0x16) = uVar3;\n    uVar1 = FUN_10056b90(param_3,0x71);\n    *(byte *)(param_2 + 0xb0) = (byte)uVar1 & 1;\n    *(byte *)(param_2 + 0xb1) = (byte)(uVar1 >> 1) & 1;\n    uVar1 = uVar1 >> 2 & 1;\n    *(char *)(param_2 + 0xb2) = (char)uVar1;\n    *(undefined1 *)(param_2 + 0xb3) = 0;\n    if (uVar1 != 0) {\n      iVar2 = FUN_100567c0(param_3,0xd7);\n      if (iVar2 == 0) {\n        uVar4 = FUN_10054180(param_2 + 0xb4,0x7f,s_I_m_not_able_to_respond_right_no_1008fd31);\n        *(undefined1 *)(param_2 + 0xb3) = uVar4;\n      }\n      else {\n        FUN_10056c70(param_3,0xd7,param_2 + 0xb3,0x80);\n      }\n    }\n    FUN_10004f30(param_1,param_2);\n  }\n  return;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

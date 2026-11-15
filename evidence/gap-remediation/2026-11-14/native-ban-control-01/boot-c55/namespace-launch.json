@@ -1,0 +1,28 @@
+{
+  "utc": "2026-11-14T03:06:19.530555+00:00",
+  "argv": [
+    "sudo",
+    "-n",
+    "systemd-run",
+    "--unit=mothra-native-control-c55-namespace.service",
+    "--property=Type=exec",
+    "--property=NetworkNamespacePath=/proc/4127848/ns/net",
+    "--property=RuntimeMaxSec=900",
+    "--property=KillMode=control-group",
+    "--property=Restart=no",
+    "--property=StandardOutput=append:/data/leynos/Projects/mothra/state/native-sessions/native-ban-control-c55/namespace-recorder.log",
+    "--property=StandardError=append:/data/leynos/Projects/mothra/state/native-sessions/native-ban-control-c55/namespace-recorder.log",
+    "--no-block",
+    "/usr/sbin/tcpdump",
+    "-i",
+    "lo",
+    "-U",
+    "-n",
+    "-s",
+    "0",
+    "-w",
+    "/data/leynos/Projects/mothra/state/native-sessions/native-ban-control-c55/lab-namespace.pcap",
+    "(tcp port 15500 or tcp port 15501 or tcp port 15750 or tcp port 15751)"
+  ],
+  "emulator_pid": 4127848
+}

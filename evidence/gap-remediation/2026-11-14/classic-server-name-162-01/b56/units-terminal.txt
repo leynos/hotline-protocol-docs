@@ -1,0 +1,14 @@
+Id=mothra-b56-host-capture.service
+ActiveState=inactive
+MainPID=0
+Result=success
+
+Id=mothra-b56-ns-capture.service
+ActiveState=inactive
+MainPID=0
+Result=success
+
+Id=mothra-classic-proxy-b56.service
+ActiveState=failed
+MainPID=0
+Result=exit-code

@@ -1,0 +1,81 @@
+#!/bin/sh
+# Replays only immutable capture and packet evidence; does not contact the guest.
+set -eu
+MOTHRA_REPLAY_ROOT=${1:?pass mothra checkout path}
+MOTHRA_REPLAY_EVIDENCE=$MOTHRA_REPLAY_ROOT/evidence/gap-remediation/2026-11-13/native-runtime-recovery-01
+cd "$MOTHRA_REPLAY_ROOT"
+sha256sum -c "$MOTHRA_REPLAY_EVIDENCE/SHA256SUMS"
+python3 ../hotline-protocol-docs/scripts/protocol_capture.py verify "$MOTHRA_REPLAY_EVIDENCE/smoke-001"
+python3 ../hotline-protocol-docs/scripts/protocol_capture.py verify "$MOTHRA_REPLAY_EVIDENCE/smoke-002"
+python3 - "$MOTHRA_REPLAY_EVIDENCE" <<'PY'
+import json
+import sys
+from pathlib import Path
+
+base = Path(sys.argv[1])
+sys.path.insert(0, str(base.parents[3] / ".." / "hotline-protocol-docs" / "scripts"))
+from pcap_tcp import read_packets, stream
+
+
+def nested_fields(blob: bytes) -> list[tuple[int, bytes]]:
+    count = int.from_bytes(blob[:2], "big")
+    position = 2
+    fields = []
+    for _ in range(count):
+        kind = int.from_bytes(blob[position : position + 2], "big")
+        size = int.from_bytes(blob[position + 2 : position + 4], "big")
+        position += 4
+        fields.append((kind, blob[position : position + size]))
+        position += size
+    if position != len(blob):
+        raise ValueError("Trailing account bytes")
+    return fields
+
+
+for name in ("smoke-001", "smoke-002"):
+    report = json.loads((base / name / "report.json").read_text())
+    assert report["status"] == "completed" and report["completed_actions"] == 10
+    frames = report["frames"]
+    assert [(f["type"], f["is_reply"], f["error"], f["id"]) for f in frames] == [
+        (0, 1, 0, 1), (354, 0, 0, 1), (109, 0, 0, 2), (0, 1, 0, 10)
+    ]
+    assert report["streams"]["main"]["received_hex"].startswith("5452545000000000")
+    accounts = frames[-1]["fields"]
+    assert len(accounts) == 2 and all(f["id"] == 101 for f in accounts)
+    names = [dict(nested_fields(bytes.fromhex(f["hex"])))[102] for f in accounts]
+    assert names == [b"administrator", b"fixture-low"], names
+
+report = json.loads((base / "smoke-002" / "report.json").read_text())
+connects = [e for e in report["events"] if e["event"] == "connect"]
+assert len(connects) == 1
+client_port = connects[0]["local_address"][1]
+assert connects[0]["peer_address"] == ["127.0.0.1", 15500]
+host = read_packets(base / "host-smoke-002.pcap")
+guest = read_packets(base / "guest-after-smoke-002.pcap")
+assert len(host) == 20 and len(guest) == 40
+host_client = ("127.0.0.1", client_port)
+host_server = ("127.0.0.1", 15500)
+guest_client = ("10.0.2.2", client_port)
+guest_server = ("10.0.2.15", 5500)
+
+def syn_time(packets: list[dict], client: tuple[str, int], server: tuple[str, int]) -> int:
+    syns = [p["timestamp_us"] for p in packets if
+            (p["src_ip"], p["src_port"]) == client and
+            (p["dst_ip"], p["dst_port"]) == server and
+            p["flags"] & 2 and not p["flags"] & 16]
+    assert len(syns) == 1, syns
+    return syns[0]
+
+assert abs(syn_time(host, host_client, host_server) -
+           syn_time(guest, guest_client, guest_server)) <= 2_000_000
+for packets, client, server in (
+    (host, host_client, host_server), (guest, guest_client, guest_server)
+):
+    for label, source, destination in (
+        ("sent", client, server), ("received", server, client)
+    ):
+        actual = stream(packets, source, destination)
+        expected = bytes.fromhex(report["streams"]["main"][label + "_hex"])
+        assert actual == expected, (label, len(actual), len(expected))
+print("Both smokes semantic; smoke-002 paired host/guest SYN and streams verified")
+PY

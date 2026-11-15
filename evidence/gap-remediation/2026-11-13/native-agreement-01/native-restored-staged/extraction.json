@@ -1,0 +1,1237 @@
+{
+  "recorded_at_utc": "2026-11-13T01:57:27.138110+00:00",
+  "image": "state/mac-runtime/hotline19/working.dsk",
+  "tool_sha256": {
+    "istat": "f87c0cee5e263c55440c19fb3e478b80e33dcbae223388b5f83913ceb5fc4499",
+    "icat": "ab73038eda8ed52697c5d94874bbc0a19285184253e68a78f6e4ab347a042bba"
+  },
+  "catalog_range": [
+    11180,
+    11410
+  ],
+  "roots": [
+    "/Hotline19/Agreement.txt",
+    "/Hotline19/Agreement.saved",
+    "/Hotline19/m-img-b.bmp"
+  ],
+  "method": "Read-only direct catalogue observations. Positive paths verified by istat before fork reads. Not an exhaustive directory listing, path-absence proof, protocol certification or restart-durability result.",
+  "probes": [
+    {
+      "catalog": 11180,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11180)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11181,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11181)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11182,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11183,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11184,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11185,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11186,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11186)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11187,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11187)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11188,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11189,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11190,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11191,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11192,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11193,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11194,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11194)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11195,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11195)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11196,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11197,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11198,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11198)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11199,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11199)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11200,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11201,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11202,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11203,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11203)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11204,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11205,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11205)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11206,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11207,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11208,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11209,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11209)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11210,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11211,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11212,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11213,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11213)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11214,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11215,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11216,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11216)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11217,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11217)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11218,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11219,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11220,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11221,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11222,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11223,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11224,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11225,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11226,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11227,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11228,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11229,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11230,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11231,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11232,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11233,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11234,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11234)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11235,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11236,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11237,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11238,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11238)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11239,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11239)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11240,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11241,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11242,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11242)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11243,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11243)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11244,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11244)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11245,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11245)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11246,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11246)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11247,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11247)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11248,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11248)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11249,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11249)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11250,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11251,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11252,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11253,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11254,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11255,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11256,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11257,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11258,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11258)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11259,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11260,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11261,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11261)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11262,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11262)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11263,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11263)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11264,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11264)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11265,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11265)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11266,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11266)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11267,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11267)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11268,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11268)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11269,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11269)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11270,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11270)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11271,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11271)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11272,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11272)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11273,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11273)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11274,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11274)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11275,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11275)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11276,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11276)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11277,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11277)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11278,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11278)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11279,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11279)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11280,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11281,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11282,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11283,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11284,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11285,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11286,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11287,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11288,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11289,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11290,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11291,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11292,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11293,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11294,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11294)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11295,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11296,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11297,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11298,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11298)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11299,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11300,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11301,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11302,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11303,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11304,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11304)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11305,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11305)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11306,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11306)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11307,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11307)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11308,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11308)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11309,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11309)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11310,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11310)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11311,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11311)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11312,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11312)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11313,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11313)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11314,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11314)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11315,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11315)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11316,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11316)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11317,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11317)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11318,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11318)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11319,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11319)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11320,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11320)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11321,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11321)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11322,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11322)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11323,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11324,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11324)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11325,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11326,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11327,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11328,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11329,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11330,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11331,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11332,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11333,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11334,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11335,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11336,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11337,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11338,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11339,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11340,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11341,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11342,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11342)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11343,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11344,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11345,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11346,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11347,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11348,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11349,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11349)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11350,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11351,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11352,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11353,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11354,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11355,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11356,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11357,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11358,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11359,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11360,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11361,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11362,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11363,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11364,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11365,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11366,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11367,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11368,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11369,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11370,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11371,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11372,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11373,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11374,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11375,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11376,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11377,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11378,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11379,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11380,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11381,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11382,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11383,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11384,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11385,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11386,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11387,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11388,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11389,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11390,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11391,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11392,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11393,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11394,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11395,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11396,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11397,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11398,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11399,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11400,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11401,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11402,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11403,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11404,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11405,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11406,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11407,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11408,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11409,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    },
+    {
+      "catalog": 11410,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11350)\n"
+    }
+  ],
+  "records": [
+    {
+      "path": "/Hotline19/Agreement.saved",
+      "key": "catalog-11184",
+      "catalog": 11184,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 245,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/m-img-b.bmp",
+      "key": "catalog-11252",
+      "catalog": 11252,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 58,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Agreement.txt",
+      "key": "catalog-11339",
+      "catalog": 11339,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 245,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    }
+  ]
+}

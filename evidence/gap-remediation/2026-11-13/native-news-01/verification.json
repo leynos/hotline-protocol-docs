@@ -1,0 +1,52 @@
+{
+  "completed_reports": 43,
+  "paired_connections": 45,
+  "controlled_versions": [
+    0,
+    1,
+    14,
+    15,
+    16,
+    149,
+    150,
+    190,
+    65535
+  ],
+  "threaded_public_id_order": [
+    1,
+    4,
+    6,
+    5,
+    2,
+    3
+  ],
+  "structure_errors": 14,
+  "body_successes": 5,
+  "body_errors": 4,
+  "opaque_tail_hex": [
+    "10",
+    "29",
+    "3b",
+    "5186a0",
+    "61",
+    "618fd0",
+    "618ff0",
+    "79",
+    "b4",
+    "b5f000",
+    "b5f028",
+    "b60000",
+    "d01d51",
+    "ea",
+    "f01d51"
+  ],
+  "oracle_queries": 29,
+  "catalogue": {
+    "positive_before": 10,
+    "initial_positive_cleanup": 0,
+    "positive_original_objects_after_upload_flush": 10,
+    "separate_publisher": 1,
+    "scope": "Publisher removed by wire ACK/listing; no post-removal disk/restart durability claim"
+  },
+  "scope": "Native category/list fixtures, not identified modern peer coverage; broader navigation/date/flavour/sibling limits, posting/deletion/partial storage failures and restart durability remain open"
+}

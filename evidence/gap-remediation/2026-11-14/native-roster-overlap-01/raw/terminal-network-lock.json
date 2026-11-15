@@ -1,0 +1,14 @@
+{
+  "observed_at_utc": "2026-11-14T07:18:31.251883+00:00",
+  "emulator_953125_absent": true,
+  "original_start_ticks": {
+    "1099659": "767842",
+    "1012834": "2357813"
+  },
+  "listeners_ss": "State Recv-Q Send-Q Local Address:Port Peer Address:Port\n",
+  "ss_exit": 0,
+  "image_fuser_stdout": "",
+  "image_fuser_exit": 1,
+  "lock_exit": 0,
+  "primary_syn_pcap_bytes": 24
+}

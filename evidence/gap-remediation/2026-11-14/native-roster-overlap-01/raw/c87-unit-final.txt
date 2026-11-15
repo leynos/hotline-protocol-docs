@@ -1,0 +1,10 @@
+Id=mothra-native-roster-c87-case.service
+ActiveState=active
+SubState=exited
+InvocationID=ed89f96e1dda40c7878857dd5d90eae5
+RuntimeMaxUSec=2min
+MainPID=0
+Result=success
+ExecMainStatus=0
+ExecStart={ path=/bin/bash ; argv[]=/bin/bash /data/leynos/Projects/mothra/state/native-sessions/native-roster-overlap-01/run-c87.sh ; ignore_errors=no ; start_time=[Sat 2026-11-14 07:05:39 GMT] ; stop_time=[Sat 2026-11-14 07:05:41 GMT] ; pid=971458 ; code=exited ; status=0 }
+NetworkNamespacePath=/proc/953125/ns/net

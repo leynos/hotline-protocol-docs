@@ -1,0 +1,22 @@
+"""As-run GUI helper: foreground statistics, open Banner, edit one field."""
+import subprocess,sys,time,json
+from datetime import datetime,timezone
+from pathlib import Path
+root=Path('state/native-sessions/runtime-10')
+def note(action):
+ with (root/'phase-events.jsonl').open('a') as f:f.write(json.dumps({'utc':datetime.now(timezone.utc).isoformat(),'phase':sys.argv[1],'action':action})+'\n')
+def inp(*args): subprocess.run([sys.executable,'state/native-mac/input.py',*map(str,args)],check=True)
+note('begin foreground and banner filename edit')
+inp('click',500,350);time.sleep(1);inp('click',910,560);time.sleep(1);inp('click',933,88);time.sleep(2);inp('click',433,248)
+field=(492,332)
+if sys.argv[2] in {'remote-url','remote-empty'}:
+ inp('click',323,409);field=(492,437)
+ value='https://example.invalid/mothra-banner' if sys.argv[2]=='remote-url' else ''
+else:
+ inp('click',323,305);value=sys.argv[2]
+inp('click',*field);inp('key','Alt_L+a')
+if value:inp('type',value)
+else:inp('key','BackSpace')
+subprocess.run(['import','-display',':97','-window','root',str(root/(sys.argv[1]+'.png'))],check=True)
+inp('click',678,540);time.sleep(2)
+note('Save click completed; screenshot and subsequent packets determine actual configuration')

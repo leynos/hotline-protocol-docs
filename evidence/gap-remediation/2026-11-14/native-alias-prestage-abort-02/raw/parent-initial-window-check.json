@@ -1,0 +1,25 @@
+{
+  "utc": "2026-11-14T21:51:23.263168+00:00",
+  "status": "live_disk_capture_and_named_window_metadata_valid",
+  "emulator_pid": 2807669,
+  "start_ticks": 11694814,
+  "netns_inode": 4026533891,
+  "guest_fd": 16,
+  "deadline": "2026-11-14T22:07:20.932693+00:00",
+  "remaining_seconds": 957.669508,
+  "managed_units": {
+    "lease": {
+      "ActiveState": "active",
+      "RuntimeMaxUSec": "35min",
+      "MainPID": "2807290"
+    },
+    "host": {
+      "ActiveState": "active",
+      "RuntimeMaxUSec": "35min",
+      "MainPID": "2807325"
+    }
+  },
+  "primary_syn_pcap_size": 24,
+  "protocol_actions_so_far": 0,
+  "no_working_image_bytes_read": true
+}

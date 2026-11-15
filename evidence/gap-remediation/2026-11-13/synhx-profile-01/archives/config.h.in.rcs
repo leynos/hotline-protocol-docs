@@ -1,0 +1,184 @@
+head     1.1;
+branch   1.1.1;
+access   ;
+symbols  start:1.1.1.1 vendor:1.1.1;
+locks    ; strict;
+comment  @# @;
+
+
+1.1
+date     2001.09.03.18.49.48;  author devinteske;  state Exp;
+branches 1.1.1.1;
+next     ;
+
+1.1.1.1
+date     2001.09.03.18.49.48;  author devinteske;  state Exp;
+branches ;
+next     ;
+
+
+desc
+@@
+
+
+
+1.1
+log
+@Initial revision
+@
+text
+@/* config.h.in.  Generated automatically from configure.in by autoheader.  */
+
+/* Define to empty if the keyword does not work.  */
+#undef const
+
+/* Define as __inline if that's what the C compiler calls it.  */
+#undef inline
+
+/* Define if you need to in order for stat and other things to work.  */
+#undef _POSIX_SOURCE
+
+/* Define as the return type of signal handlers (int or void).  */
+#undef RETSIGTYPE
+
+/* Define to `unsigned' if <sys/types.h> doesn't define.  */
+#undef size_t
+
+/* Define if you have the ANSI C header files.  */
+#undef STDC_HEADERS
+
+/* Define if your processor stores words with the most significant
+   byte first (like Motorola and SPARC, unlike Intel and VAX).  */
+#undef WORDS_BIGENDIAN
+
+/* Define to `long int' if not defined by system */
+#undef ssize_t
+
+/* Define if not defined by system
+   u_int*_t is an integer type of exactly * bits */
+#undef u_int8_t
+#undef u_int16_t
+#undef u_int32_t
+#undef int8_t
+#undef int16_t
+#undef int32_t
+
+/* Define if snprintf is broken */
+#undef BROKEN_SNPRINTF
+
+/* Define to compile hotline server */
+#undef CONFIG_HOTLINE_SERVER
+
+/* Define to compile tracker registration code for server */
+#undef CONFIG_TRACKER_REGISTER
+
+/* Define to compile tracker server */
+#undef CONFIG_TRACKER_SERVER
+
+/* Define to allow remote execution of programs in _EXEC_DIR */
+#undef CONFIG_EXEC
+
+/* Define to to use pthreads instead of fork or clone for htxf */
+#undef CONFIG_HTXF_PTHREAD
+
+/* Define to to use clone instead of fork for htxf */
+#undef CONFIG_HTXF_CLONE
+
+/* Define to use fork instead of clone for htxf */
+#undef CONFIG_HTXF_FORK
+
+/* Define to compile image preview code */
+#undef CONFIG_HTXF_PREVIEW
+
+/* Define to enable HFS */
+#undef CONFIG_HFS
+
+/* Define to compile HOPE */
+#undef CONFIG_HOPE
+
+/* Define to compile cipher */
+#undef CONFIG_CIPHER
+
+/* Define to compile compress */
+#undef CONFIG_COMPRESS
+
+/* Define to compile network */
+#undef CONFIG_NETWORK
+
+/* Define if you want to make broken windos clients not display error messages when transfering files */
+#undef CONFIG_WINDOS_CLIENT_FIX
+
+/* Define if you want spam protection */
+#undef CONFIG_NOSPAM
+
+/* Define if you want sql logging */
+#undef CONFIG_SQL
+
+/* Define if you have the strcasestr function */
+#undef HAVE_STRCASESTR
+
+/* Define if you have the realpath function */
+#undef HAVE_REALPATH
+
+/* Define if you have the strptime function */
+#undef HAVE_STRPTIME
+
+/* Path to tr */
+#undef PATH_TR
+
+/* Enable IPv6 Support */
+#undef CONFIG_IPV6
+
+/* Define to detect DARWIN users */
+#undef DARWIN
+
+/* Define to detect CARBON API on host */
+#undef CARBON
+
+/* Define if you have the getdtablesize function.  */
+#undef HAVE_GETDTABLESIZE
+
+/* Define if you have the getrlimit function.  */
+#undef HAVE_GETRLIMIT
+
+/* Define if you have the inet_aton function.  */
+#undef HAVE_INET_ATON
+
+/* Define if you have the inet_ntoa_r function.  */
+#undef HAVE_INET_NTOA_R
+
+/* Define if you have the localtime_r function.  */
+#undef HAVE_LOCALTIME_R
+
+/* Define if you have the snprintf function.  */
+#undef HAVE_SNPRINTF
+
+/* Define if you have the vsnprintf function.  */
+#undef HAVE_VSNPRINTF
+
+/* Define if you have the <stdarg.h> header file.  */
+#undef HAVE_STDARG_H
+
+/* Define if you have the <strings.h> header file.  */
+#undef HAVE_STRINGS_H
+
+/* Define if you have the <sys/select.h> header file.  */
+#undef HAVE_SYS_SELECT_H
+
+/* Define if you have the nsl library (-lnsl).  */
+#undef HAVE_LIBNSL
+
+/* Define if you have the socket library (-lsocket).  */
+#undef HAVE_LIBSOCKET
+
+/* Define if you have the socks5 library (-lsocks5).  */
+#undef HAVE_LIBSOCKS5
+@
+
+
+1.1.1.1
+log
+@added module (god sf cvs sucks)
+@
+text
+@@

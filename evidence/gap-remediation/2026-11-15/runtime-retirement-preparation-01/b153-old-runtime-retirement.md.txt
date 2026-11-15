@@ -1,0 +1,53 @@
+# B153: retirement decision for install9 and hotline19–21
+
+Read-only metadata/document review, 2026-11-14. No disk/ROM bytes read and no
+runtime file changed. Retirement remains conditional on A192's current FD/free
+process census and C183's XFS exclusive-byte measurement; logical 8 GB size is
+not physical reclaim.
+
+## Decision
+
+| Runtime | Recorded role and retained replacement | Decision for its base/working images |
+| --- | --- | --- |
+| `install9` | `assets.json` identifies supplied `state/native-mac/install9/SheepShaver.zip` as source SHA `4a173a80…`. The [capture runbook](../../../hotline-protocol-docs/native-capture-workflow.md#prepare-the-emulator-and-application) distinguishes an empty Windows `.hfv` installation target from bootable OS media. No retained protocol fixture identifies `install9/working.dsk` as its acceptance input. | Retire both runtime disks after source archive/ROM and small receipt preservation; no concrete unique working-state dependency found. |
+| `hotline19` | `base.dsk` records `state/native-mac/base-os9.dsk` SHA `c36b7bc9…`. Its working image hosted the first server/account/file fixtures, but their transcripts, extracted UserData and fork records are retained in the [native core/transfer runbook](../../../hotline-protocol-docs/native-capture-workflow.md#recorded-native-core-fixtures). The original OS9 disk and staged server source remain outside this runtime. | Retire runtime disks once the referenced fixture artefacts are checked present. Current protocol criteria do not require rerunning against this historical mutable guest; a fresh donor must preserve the oracle DATA/RSRC and fixture profile. This removes the old disk as an ad hoc readback source, so link the runbook to retained extracted records rather than implying old `ifind` examples remain executable. |
+| `hotline20` | `assets.json` records `hotline19/working.dsk` as source SHA `0ba5f8cf…`; its working disk was then the source of `hotline21/base.dsk`. The [alias size scope note](../../evidence/gap-remediation/2026-11-14/alias-positive-basis-01/a131-size-scope.md) says one historical read lacked PID-gone/FD-free proof; that is a limit on the old observation, not a reason to keep an 8 GB state. | Retire disks after preserving that limitation and receipts. No remaining criterion was found that requires this exact intermediate working image. |
+| `hotline21` | `assets.json` records `hotline20/working.dsk` as source SHA `1a248a62…`; `hotline21/working.dsk` supplied the recovery image SHA `e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910` ([recovery runbook](../../../hotline-protocol-docs/runtime-recovery-20261113.md#recovery-boundary), [receipt](../../docs/delegation/runtime-recovery-20261113.md)). `hotline22-recovery/base.dsk` was copied and independently hashed equal before boot. `native-board-02/base.dsk` and later lab bases record the same source hash. | Retire the old runtime disks **only after** a current independent equality/no-owner check keeps `hotline22-recovery/base.dsk` as the canonical stopped source. Historical recovery commands must be updated to point at the retained source for future preparation. No requirement depends on `hotline21/working.dsk` as a separate inode after equality and source preservation. |
+
+The legacy chain explains how the fixture image was built; it is not itself
+four independent acceptance environments. The [recovery batch manifest](../../evidence/gap-remediation/2026-11-13/native-runtime-recovery-01/manifest.json)
+and runbook retain the predecessor identity, original inode/size/mtime and
+preboot hashes. The later [delegated plan](../../docs/execplans/delegated-gap-investigations-batch-02.md)
+identifies `hotline22-recovery` as the current primary and `native-board-02`
+as a stopped donor for further disposable labs. Neither older chain nor
+failed early startup state is needed to resolve an outstanding native wire
+criterion after those identities and portable captures are preserved.
+
+## Small artefacts to preserve outside retired directories
+
+Before removing any directory, inventory and copy with path/size/SHA into a
+small provenance bundle (do not silently discard a unique receipt):
+
+- All four `assets.json` files, plus existing `last-launch.json`,
+  `machine.sheepvm/prefs` and `machine.sheepvm/nvram` where present. The NVRAM
+  is a historical boot/config artefact, not a replacement for a disk.
+- `hotline19/shared/Hotline19/source-manifest.json` and the small Finder/
+  AppleDouble staging metadata or its already pinned source under
+  `state/native-mac/shared`/`../hotline-bench`; preserve exact DATA/RSRC
+  identities in the manifest. Do not treat shader caches as provenance.
+- `hotline21/sheep-service.json` and `sheep-service.log`, plus all existing
+  `last-launch.json`/prefs from `hotline19`/`20`/`21`. Preserve first-run
+  failure/launch records already held in `state/native-mac` and committed
+  evidence. Runtime-embedded emulator executables are pinned by build hashes
+  and reproducible under `tools`, not unique guest state.
+- Retain the original `state/native-mac/base-os9.dsk`, install archive and
+  source ROM outside these runtime directories, subject to their own
+  independent retention policy. Keep `hotline22-recovery/base.dsk` and its
+  current working image; this decision does not affect other runtimes.
+
+After copying, verify each small artefact's SHA against its source and record
+the exact retired root/inode set, current FD-free/no-owner condition and XFS
+exclusive blocks. If any acceptance script still opens an old `working.dsk`,
+preserve its extracted output or update that script to portable evidence
+before retirement. Do not claim a mutable old disk was byte-identical to the
+new canonical base merely from its historical `assets.json`.

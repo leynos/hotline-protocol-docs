@@ -1,0 +1,825 @@
+{
+  "recorded_at_utc": "2026-11-13T08:50:44.353291+00:00",
+  "image": "state/mac-runtime/hotline21/working.dsk",
+  "tool_sha256": {
+    "istat": "f87c0cee5e263c55440c19fb3e478b80e33dcbae223388b5f83913ceb5fc4499",
+    "icat": "ab73038eda8ed52697c5d94874bbc0a19285184253e68a78f6e4ab347a042bba"
+  },
+  "catalog_range": [
+    11640,
+    11800
+  ],
+  "roots": [
+    "/Hotline19/News/mothra-news25",
+    "/Hotline19/Files/m-nb25-flush"
+  ],
+  "method": "Read-only direct catalogue observations. Positive paths verified by istat before fork reads. Not an exhaustive directory listing, path-absence proof, protocol certification or restart-durability result.",
+  "probes": [
+    {
+      "catalog": 11640,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11641,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11642,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11643,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11644,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11645,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11646,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11647,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11648,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11649,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11650,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11651,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11652,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11653,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11654,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11655,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11656,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11657,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11658,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11659,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11660,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11661,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11662,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11663,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11664,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11665,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11666,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11667,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11668,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11669,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11670,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11671,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11672,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11673,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11674,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11675,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11676,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11677,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11678,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11679,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11680,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11681,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11682,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11683,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11684,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11685,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11686,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11687,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11688,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11689,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11690,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11691,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11692,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11693,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11694,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11695,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11696,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11697,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11698,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11699,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11700,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11701,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11702,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11703,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11704,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11705,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11706,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11707,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11708,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11709,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11710,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11711,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11712,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11713,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11714,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11715,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11716,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11717,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11718,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11719,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11720,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11721,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11722,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11723,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11724,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11725,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11726,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11727,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11728,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11729,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11730,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11731,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11732,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11733,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11734,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11735,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11736,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11737,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11738,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11739,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11740,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11741,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11742,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11743,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11744,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11745,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11746,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11747,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11748,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11749,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11750,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11751,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11752,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11753,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11754,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11755,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11756,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11757,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11758,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11759,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11760,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11761,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11762,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11763,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11764,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11765,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11766,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11767,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11768,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11769,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11770,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11771,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11772,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11773,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11774,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11775,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11776,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11777,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11778,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11779,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11780,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11781,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11782,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11783,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11784,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11785,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11786,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11787,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11788,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11789,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11790,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11791,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11792,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11793,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11794,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11795,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11796,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11797,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11798,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11799,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    },
+    {
+      "catalog": 11800,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11633)\n"
+    }
+  ],
+  "records": []
+}

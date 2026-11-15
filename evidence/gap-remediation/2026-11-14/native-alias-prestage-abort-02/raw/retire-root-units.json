@@ -1,0 +1,25 @@
+{
+  "argv": [
+    "sudo",
+    "-n",
+    "systemctl",
+    "show",
+    "mothra-native-alias-live-04-host.service",
+    "mothra-native-alias-live-04-lease.service",
+    "-p",
+    "Id",
+    "-p",
+    "ActiveState",
+    "-p",
+    "SubState",
+    "-p",
+    "MainPID",
+    "-p",
+    "Result",
+    "--no-pager"
+  ],
+  "exit": 0,
+  "stdout": "Id=mothra-native-alias-live-04-host.service\nActiveState=inactive\nSubState=dead\nMainPID=0\nResult=success\n\nId=mothra-native-alias-live-04-lease.service\nActiveState=inactive\nSubState=dead\nMainPID=0\nResult=success\n",
+  "stderr": "",
+  "utc": "2026-11-14T22:04:34.140185+00:00"
+}

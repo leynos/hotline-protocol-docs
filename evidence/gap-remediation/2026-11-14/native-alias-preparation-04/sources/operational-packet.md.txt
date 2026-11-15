@@ -1,0 +1,105 @@
+# C161 R04 offline operational packet
+
+Status: prewritten only. This packet grants no service, VM, Finder input,
+protocol or host unlink. R04 stopped preparation is blocked on a separately
+reviewed required-reflink method; it has not been executed. P is
+`state/native-sessions/native-alias-live-preparation-04`; D is the new
+`state/mac-displays/native-alias-live-04` at `:125`; O is the new
+`state/native-sessions/native-alias-live-04`; frontend 16000–16003.
+R01–R03 and their evidence remain unchanged. R04/D04/O04 are not claimed
+ready by this operational author.
+
+## Exact sources and approval boundary
+
+The ten P04 scripts are adapted from accepted P03 operations. Proposal
+bytes for the three literal fixture files are currently uncommitted in the
+canonical protocol checkout at head `89f0c1ed496feebfea91690ade3621b49836807f`.
+`native_missing_alias_cases.py` SHA is `d68c075d...` and controller SHA is
+`e47b1afc...`; root must review and pin exact bytes after source integration.
+`candidate-source-closure.json` and `proposed-source-closure.json` are
+review inputs. The latter freezes 35 canonical protocol modules, three
+capture helpers and two launchers. All actual P04 script, helper,
+launcher and protocol bytes must match root-created exact public pins
+**before the first managed service**. Those five approval pin files are
+absent at this plateau. A changed byte after root pinning stops work.
+
+The future separately approved stopped-preparation packet must create
+P/stopped-preparation/preflight.json and finf-supplement.json after root
+FD-free, required reflinks, immutable source hashes, target
+DATA20 and `U54TM54X` sidecar checks. Boot derives R04 base/working/ROM
+inodes from that reviewed receipt; it does not reuse R02 inode numbers.
+Current generic readiness checks disk FD6 and lazy guest capture FD16.
+They are reviewed helper requirements, not a general claim that all
+emulator runs use those FD numbers. A changed actual FD must stop for
+separate helper review, with no observer bypass.
+
+## Future ordered live grants
+
+1. A separate root BOOT START may run `boot-alias-live-04.sh` once as
+   UID1000. It checks all pins, R04 stopped receipts and root fuser
+   before image hashes, primary/client PID ticks, lock/display/ports;
+   fixes one 1800-second deadline just before the finite 2100-second
+   lease and host-primary recorder; starts display then VM and passes
+   the disk-only actual-PID gate. No guest PCAP is precreated. The
+   root-only no-X display identity capture binds actual Xvfb PID/start/
+   exe/UID/argv before later X input.
+2. Root supervises normal guest server startup. Once guest Ethernet
+   opens, the existing generic CAPTURE phase runs on the HOST as root,
+   binding the same disk-receipt PID/start/image/ns and writable guest
+   PCAP. This is separate from `complete-readiness-alias-live-04.sh`.
+3. **Operator checkpoint:** aim for review by `epoch-start.utc + 600`
+   seconds and stop preparation no later than `epoch-start.utc + 1200`
+   seconds. The
+   sole owned Unix target must be visibly selected in Finder; Unix and
+   the owned HFS Files parent must be visible; root must review and
+   fsync mode-0600 `O/prestage/reviewed.json`, matching screenshot/
+   disk/capture hashes, PID/start/ns/display and no alias/prompt. If
+   hard checkpoint is missed, stop before new Hotline readiness and
+   retire within the original 1800 seconds. The checkpoint adds no
+   machine guard and never lowers the separate >=390-second case gate.
+4. Only then may root grant complete-readiness: namespace recorder and
+   host-root capture receipt first, current full `.finf` SHA pinned
+   **once** in runtime JSON after Finder selection, exact source
+   closure frozen, closed18 control captured once in actual namespace.
+   Root independently checks semantic readiness and the unchanged
+   >=390-second margin before a distinct case START. Closed readiness
+   includes its own 206; it does not exercise alias resolution.
+5. A distinct case START may launch the finite 240-second system root
+   namespace unit and M1b 210-second controller. A valid READY binds
+   plan SHA, PID/ns and three pre-Finder numbered requests. Every case
+   X action requires the current active unit, no terminal report and
+   `case-begun.utc <= now < case-begun.utc + 110 seconds`; controller
+   Finder wait remains 120 seconds. The sole positive M2b case allows
+   one Make Alias, one Copy/Paste and a reviewed read-only Original
+   observation, never host unlink or M3. Failed UI gates end input,
+   preserve raw report/tails and never fabricate a Finder receipt.
+6. On terminal case or explicit pre-case abort, root may separately
+   approve the helper's narrow retirement phase. Each fresh screenshot
+   binds one named Quit control and optionally one subsequent Quit Now.
+   An attempted click consumes that control even if X errors. If there
+   is no recognized control or time remains insufficient, stop the
+   owned VM and label forced retirement truthfully. Only after actual
+   PID gone and root FD-free proof may stopped HFS bytes be read.
+
+## Offline validation and limits
+
+Use Bash syntax/ShellCheck for five shell scripts, Ruff/AST for five
+Python scripts and embedded Python blocks, exact source/snapshot/script
+SHA checks, and no-X models for display replacement, live executable/
+FD16 replacement and attempted Quit replay. Test full 2/35/3/2/10
+pin sets and one-short failures in temporary files, not real approvals.
+The named `native-missing-alias-ui-30m-v1` profile and
+`native-missing-alias-positive` purpose are in runtime JSON. Host and
+namespace capture readiness, receipt construction and closed18 runtime
+gate explicitly select that profile; root's separate parent-review gate
+must also pass it to `runtime_gate` after adapting its R03-only review
+script. The controller selects it from the plan itself. No default-cap
+substitution is acceptable. Lease, host and namespace recorder use 2100
+seconds; one epoch deadline is 1800 seconds. All later live commands must
+retain argv, stdout, stderr and actual exit separately. Check in after
+each live stage and at most 60 seconds apart.
+
+Scripts cap 1,440 physical lines; this packet plus the separate operator
+checklist cap 180 prose lines; no new dependencies, generic API or
+tracked code changes. Revalidate all source hashes if canonical code
+changes before root pinning. No START is implied by this packet.

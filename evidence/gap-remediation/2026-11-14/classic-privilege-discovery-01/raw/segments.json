@@ -1,0 +1,63 @@
+{
+  "captured_at_utc": "2026-11-14T08:04:12.144193+00:00",
+  "query": {
+    "id": "segments",
+    "tool": "list_segments",
+    "arguments": {
+      "offset": 0,
+      "limit": 20
+    }
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"items\": [\n    {\n      \"name\": \"Code\",\n      \"start\": \"10000000\",\n      \"end\": \"1013580f\",\n      \"size\": 1267728,\n      \"permissions\": \"r-x\",\n      \"initialized\": true\n    },\n    {\n      \"name\": \"PackedData\",\n      \"start\": \"10135810\",\n      \"end\": \"10159ef8\",\n      \"size\": 149225,\n      \"permissions\": \"rw-\",\n      \"initialized\": true\n    },\n    {\n      \"name\": \"PackedData\",\n      \"start\": \"10159ef9\",\n      \"end\": \"10162bd5\",\n      \"size\": 36061,\n      \"permissions\": \"rw-\",\n      \"initialized\": false\n    },\n    {\n      \"name\": \"IMPORTS\",\n      \"start\": \"10162be0\",\n      \"end\": \"10163333\",\n      \"size\": 1876,\n      \"permissions\": \"r--\",\n      \"initialized\": true\n    }\n  ],\n  \"offset\": 0,\n  \"limit\": 20,\n  \"total\": 4,\n  \"has_more\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "items": [
+        {
+          "name": "Code",
+          "start": "10000000",
+          "end": "1013580f",
+          "size": 1267728,
+          "permissions": "r-x",
+          "initialized": true
+        },
+        {
+          "name": "PackedData",
+          "start": "10135810",
+          "end": "10159ef8",
+          "size": 149225,
+          "permissions": "rw-",
+          "initialized": true
+        },
+        {
+          "name": "PackedData",
+          "start": "10159ef9",
+          "end": "10162bd5",
+          "size": 36061,
+          "permissions": "rw-",
+          "initialized": false
+        },
+        {
+          "name": "IMPORTS",
+          "start": "10162be0",
+          "end": "10163333",
+          "size": 1876,
+          "permissions": "r--",
+          "initialized": true
+        }
+      ],
+      "offset": 0,
+      "limit": 20,
+      "total": 4,
+      "has_more": false
+    },
+    "isError": false
+  }
+}

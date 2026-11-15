@@ -1,0 +1,76 @@
+"""Package B62 selected complete SYN lifetimes and offline receipts."""
+import datetime as dt
+import hashlib
+import json
+import pathlib
+import shutil
+import struct
+import subprocess
+import sys
+
+sys.path.insert(0, "/data/leynos/Projects/hotline-protocol-docs/scripts")
+from pcap_tcp import read_packets
+
+root = pathlib.Path('/data/leynos/Projects/mothra')
+private = root / 'state/delegation/workspaces/batch-02-account/mothra'
+source = root / 'state/native-sessions/native-proxy-roster-115-01'
+dest = private / 'evidence/gap-remediation/2026-11-14/classic-roster-subject-115-01'
+dest.mkdir(parents=True, exist_ok=False)
+sha = lambda data: hashlib.sha256(data).hexdigest()
+
+def copy(name, target=None):
+    path = dest / (target or name)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(source / name, path)
+
+for name in ('terminal.json','offline-parity.json','a7-plan.json','ready-final.png','after-agree-1s.png','after-cutoff.png','after-quit.png','agree-action-time.txt','return-action-time.txt','host-capture-journal.txt','ns-capture-journal.txt','oracle-lease-journal.txt','proxy-journal.txt','units-terminal.txt','listeners-terminal.txt','original-fds-terminal.txt','emulators-terminal.txt','ns-addresses-terminal.txt','ns-v4-routes-terminal.txt','ns-v6-routes-terminal.txt','host-ready-launch.json','ns-ready-launch.json','host-ready-before-a7.json','ns-ready-before-a7.json','host-ready-before-connect.json','ns-ready-before-connect.json'):
+    copy(name, 'run/' + name)
+copy('proxy/ready.json','run/proxy/ready.json')
+copy('proxy/report.json','run/proxy/report.json')
+for phase in ('a7-preflight','a7-postflight'):
+    for name in ('report.json','plan.json','checksums.sha256'):
+        copy(f'{phase}/{name}',f'run/{phase}/{name}')
+copy('package_portable.py','as-run/package_portable.py.txt')
+parity = json.loads((source/'offline-parity.json').read_text())
+selection={}
+for name in ('client-guest-post.pcap','namespace.pcap','host.pcap','server-guest-post.pcap'):
+    routes = [(kind,r) for kind,rs in parity.items() for r in rs['routes'] if r[0]==name]
+    packets=read_packets(source/name)
+    indexes=set(); observations=[]
+    for kind,(_,sip,sp,dip,dp) in routes:
+        selected=[p for p in packets if (p['src_ip'],p['src_port'],p['dst_ip'],p['dst_port']) in ((sip,sp,dip,dp),(dip,dp,sip,sp))]
+        syns=[p for p in selected if (p['src_ip'],p['src_port'])==(sip,sp) and p['flags']&2 and not p['flags']&16]
+        assert len(syns)==1 and selected and all(p['timestamp_us']>=syns[0]['timestamp_us'] for p in selected)
+        assert any(p['flags']&5 for p in selected), (name,kind,'missing tail')
+        indexes.update(p['index'] for p in selected)
+        observations.append({'kind':kind,'route':[sip,sp,dip,dp],'syn_index':syns[0]['index'],'syn_timestamp_us':syns[0]['timestamp_us'],'packet_count':len(selected),'terminal_flags':[p['flags'] for p in selected if p['flags']&5]})
+    raw=(source/name).read_bytes();assert raw[:4]==bytes.fromhex('d4c3b2a1')
+    output=bytearray(raw[:24]);offset=24;index=0
+    while offset<len(raw):
+        index+=1;assert offset+16<=len(raw)
+        _,_,size,original=struct.unpack_from('<IIII',raw,offset)
+        assert size==original and offset+16+size<=len(raw)
+        if index in indexes: output+=raw[offset:offset+16+size]
+        offset+=16+size
+    assert offset==len(raw)
+    path=dest/'pcaps'/name;path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(output)
+    assert len(read_packets(path))==len(indexes)
+    selection[name]={'original_path':str((source/name).relative_to(root)),'original_bytes':len(raw),'original_sha256':sha(raw),'selected_bytes':len(output),'selected_sha256':sha(output),'selected_record_indexes':sorted(indexes),'routes':observations}
+for name,revision in (('classic_login_proxy.py','73681b1b06d58ede021a7440c1173595e8e78a0d'),('pcap_tcp.py','31fd33efaa778eabcaed4195cccad4e2d7e89094')):
+    data=subprocess.check_output(['git','-C',str(root.parent/'hotline-protocol-docs'),'show',f'{revision}:scripts/{name}'])
+    path=dest/'as-run'/(name+'.txt');path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(data)
+old=json.loads((root/'evidence/gap-remediation/2026-11-14/classic-server-name-162-01/manifest.json').read_text())
+identity=old['source'];identity.update(proxy_sha256=sha((dest/'as-run/classic_login_proxy.py.txt').read_bytes()),proxy_revision='73681b1b06d58ede021a7440c1173595e8e78a0d',proxy_snapshot_path='as-run/classic_login_proxy.py.txt',parser_revision='31fd33efaa778eabcaed4195cccad4e2d7e89094',parser_snapshot_path='as-run/pcap_tcp.py.txt')
+report=json.loads((source/'proxy/report.json').read_text())
+roster=next(e for e in report['entries'] if e['raw_hex']!=e['forwarded_hex'])
+screenshot=source/'after-agree-1s.png'
+arrival=next(p for p in read_packets(source/'client-guest-post.pcap') if b'fixture-subject' in bytes.fromhex(p['payload_hex']))
+ui={'screenshot':'run/after-agree-1s.png','screenshot_sha256':sha(screenshot.read_bytes()),'source_file_mtime_ns':screenshot.stat().st_mtime_ns,'source_file_mtime_utc':dt.datetime.fromtimestamp(screenshot.stat().st_mtime,dt.timezone.utc).isoformat(),'guest_delivery_packet_timestamp_us':arrival['timestamp_us'],'guest_delivery_packet_index':arrival['index'],'proxy_audit_timestamp_us':roster['timestamp_us'],'observation':'Connected with Online Users row unnamed visible; screenshot collected by as-run import command; mtime is source-host metadata, not an embedded screenshot timestamp'}
+(dest/'ui-timing.json').write_text(json.dumps(ui,indent=2)+'\n')
+lock={'unit':'mothra-b62-oracle-lease.service','pid':492350,'command':['/usr/bin/flock','--exclusive','--nonblock',str(root/'state/delegation/oracle.lock'),'/usr/bin/sleep','900'],'lock_dev':2097,'lock_inode':3512552451,'active_state_before':'active','proc_fd3_before':str(root/'state/delegation/oracle.lock'),'independent_flock_n_before_exit':1,'after_stop_state':'inactive','after_stop_main_pid':0,'independent_flock_n_after_exit':0,'evidence_status':'operator tool-output transcription of before PID/FD/busy and after free, plus retained systemd journal and terminal unit properties; no saved raw before-ls or flock transcript'}
+(dest/'lock-receipt.json').write_text(json.dumps(lock,indent=2)+'\n')
+manifest={'schema_version':1,'recorded_utc':dt.datetime.now(dt.timezone.utc).isoformat(),'scope':'B62 one first roster 115 append and bounded client row evidence, complete selected SYN lifetimes','source':identity,'runtime':old['runtime'],'capture_gate_sha256':sha((root/'scripts/capture_readiness.py').read_bytes()),'group_deadline_utc':'2026-11-14T04:25:15+00:00','source_a7_prepost':'run/a7-preflight and run/a7-postflight','routes':{k:[['pcaps/'+r[0],*r[1:]] for r in v['routes']] for k,v in parity.items()},'selection':selection,'ui_timing':'ui-timing.json','lock_receipt':'lock-receipt.json','raw_ack_sha256':'814b733a82d15dd7250cb0e8b7ed0c6c09a7a02d7169ab70ebaa359fb18eb6d0','raw_roster_sha256':sha(bytes.fromhex(roster['raw_hex'])),'forwarded_roster_sha256':sha(bytes.fromhex(roster['forwarded_hex']))}
+(dest/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
+files=[p for p in dest.rglob('*') if p.is_file() and p.name!='SHA256SUMS']
+(dest/'SHA256SUMS').write_text(''.join(f'{sha(p.read_bytes())}  {p.relative_to(private)}\n' for p in sorted(files)))
+print('files',len(files),'non-pcap',sum(p.stat().st_size for p in files if p.suffix!='.pcap'),'selected-pcap',sum(p.stat().st_size for p in files if p.suffix=='.pcap'))

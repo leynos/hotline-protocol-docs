@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-11-13T14:25:39.052847+00:00",
+  "mxd_base": "2e4c9c1df20b37a6f98a1369e0a8f09f9ee2a131",
+  "mxd_head": "2e4c9c1df20b37a6f98a1369e0a8f09f9ee2a131",
+  "mxd_checkout": "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd",
+  "cargo_target_dir": "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target",
+  "source_status_precommit": " M src/wireframe/codec/framed_tests.rs\n M src/wireframe/codec/mod.rs",
+  "sources": [
+    {
+      "phase": "base",
+      "path": "src/wireframe/codec/framed_tests.rs",
+      "snapshot": "inputs/base/src/wireframe/codec/framed_tests.rs.txt",
+      "sha256": "9e38a1a1853e43b7a87633c8d36c03cd70c4dde8a1d68fcb0d5168383449e692"
+    },
+    {
+      "phase": "base",
+      "path": "src/wireframe/codec/mod.rs",
+      "snapshot": "inputs/base/src/wireframe/codec/mod.rs.txt",
+      "sha256": "d63df0aa06e64ea7cf4d57396e7c8f0f44037640da6f60464a02e5a937fe53fe"
+    },
+    {
+      "phase": "final",
+      "path": "Cargo.toml",
+      "snapshot": "inputs/final/Cargo.toml.txt",
+      "sha256": "ad430def9c0bf33f57f3d19f2f2c6a78336f2320fca5c7fc4a59cda475dc0fc9"
+    },
+    {
+      "phase": "final",
+      "path": "rust-toolchain.toml",
+      "snapshot": "inputs/final/rust-toolchain.toml.txt",
+      "sha256": "599e6ee97d76cb445fb1470a46d45a79354b2767da6bdfc677db4acd3b7766a9"
+    },
+    {
+      "phase": "final",
+      "path": "src/server/wireframe/budgets.rs",
+      "snapshot": "inputs/final/src/server/wireframe/budgets.rs.txt",
+      "sha256": "835fc39457bf19a133096df4a7e37e38de9b40d3898a590b221b1ad922270b58"
+    },
+    {
+      "phase": "final",
+      "path": "src/transaction/frame.rs",
+      "snapshot": "inputs/final/src/transaction/frame.rs.txt",
+      "sha256": "4d38284971bbe37a59ace2b3331d9ed6264989eb154dee8164b7b471a9c62a2a"
+    },
+    {
+      "phase": "final",
+      "path": "src/transaction/reader/mod.rs",
+      "snapshot": "inputs/final/src/transaction/reader/mod.rs.txt",
+      "sha256": "31b189492b2505c7b134226648e55f96790b91e0bcb1f9628f31374afc806b2b"
+    },
+    {
+      "phase": "final",
+      "path": "src/wireframe/codec/framed_tests.rs",
+      "snapshot": "inputs/final/src/wireframe/codec/framed_tests.rs.txt",
+      "sha256": "baeda0e0889489d9d80c7d1334d785634614a29c40bc3d7b439fe7f78776e79d"
+    },
+    {
+      "phase": "final",
+      "path": "src/wireframe/codec/mod.rs",
+      "snapshot": "inputs/final/src/wireframe/codec/mod.rs.txt",
+      "sha256": "27bbaed8cdb079897dea1df2ec9a404982a3f50ec698c8e5cfaa394d29830f6d"
+    },
+    {
+      "phase": "final",
+      "path": "src/wireframe/codec/physical_frame.rs",
+      "snapshot": "inputs/final/src/wireframe/codec/physical_frame.rs.txt",
+      "sha256": "8bd88bee787cc4b3778f7ba79c1c2788d395b0cbd47bfda0701dbe17c08cda45"
+    }
+  ],
+  "commands": [
+    {
+      "command": "cargo test --offline --locked --lib wireframe::codec::framed::tests::decodes_logical_payload_across_physical_fragments -- --nocapture",
+      "log": "red-framed.log",
+      "exit_file": "red-framed.exit",
+      "exit_code": 101
+    },
+    {
+      "command": "cargo test --offline --locked --lib wireframe::codec::framed::tests",
+      "log": "green-framed-final.log",
+      "exit_file": "green-framed-final.exit",
+      "exit_code": 0
+    },
+    {
+      "command": "cargo test --offline --locked --lib wireframe::codec::tests",
+      "log": "codec-tests.log",
+      "exit_file": "codec-tests.exit",
+      "exit_code": 0
+    },
+    {
+      "command": "cargo test --offline --locked --lib transaction::reader::tests",
+      "log": "reader-tests.log",
+      "exit_file": "reader-tests.exit",
+      "exit_code": 0
+    },
+    {
+      "command": "cargo test --offline --locked --features test-support --test wireframe_memory_budgets",
+      "log": "memory-tests.log",
+      "exit_file": "memory-tests.exit",
+      "exit_code": 0
+    },
+    {
+      "command": "make check-fmt",
+      "log": "check-fmt-resumed.log",
+      "exit_file": "check-fmt-resumed.exit",
+      "exit_code": 0
+    },
+    {
+      "command": "make lint",
+      "log": "lint-green.log",
+      "exit_file": "lint-green.exit",
+      "exit_code": 0
+    },
+    {
+      "command": "CARGO_NET_OFFLINE=true make test",
+      "log": "make-test-resumed.log",
+      "exit_file": "make-test-resumed.exit",
+      "exit_code": 2
+    },
+    {
+      "command": "CARGO_NET_OFFLINE=true CARGO_BUILD_JOBS=1 make test",
+      "log": "make-test-serialized.log",
+      "exit_file": "make-test-serialized.exit",
+      "exit_code": 2
+    }
+  ],
+  "focused_passed": 44,
+  "interrupted_run": {
+    "log": "make-test.log",
+    "exit_record": "absent",
+    "disposition": "unknown after host restart"
+  },
+  "limits": {
+    "physical_frame_data_bytes": 32768,
+    "logical_payload_bytes": 1048576,
+    "configured_message_connection_flight_bytes": 1048596
+  },
+  "limitations": [
+    "Full make test failed twice during linker execution, including a serialized retry; no test assertion result from that gate.",
+    "Aggregate concurrent-connection memory was not measured.",
+    "Kani was not run.",
+    "The two-file Rust correction is an uncommitted private candidate, not merged."
+  ],
+  "full_gate_status": "environment-blocked: linker signal 11 during two make test runs with -fuse-ld=mold; no assertion result",
+  "candidate_committed": false,
+  "candidate_git_status": " M src/wireframe/codec/framed_tests.rs\n M src/wireframe/codec/mod.rs",
+  "candidate_patch": "inputs/private-change.patch",
+  "candidate_patch_sha256": "02f5a9871199a5859eaebe90f8c10707e12e11c0dd5a2f509374699a38aac46a"
+}

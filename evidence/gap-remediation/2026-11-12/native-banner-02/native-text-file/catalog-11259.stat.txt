@@ -1,0 +1,29 @@
+File Path: /Hotline19/m-img-t
+Catalog Record: 11259
+Allocated
+Type:	File
+Mode:	r---------
+Size:	43
+uid / gid: 99 / 99
+Link count:	1
+
+File Name: m-img-t
+Admin flags: 0
+Owner flags: 0
+File type:	54455854  TEXT
+File creator:	4d4f5448  MOTH
+Text encoding:	0 = MacRoman
+Resource fork size:	0
+
+Times:
+Created:	2026-11-13 05:49:21 (GMT)
+Content Modified:	2026-11-13 05:49:21 (GMT)
+Attributes Modified:	0000-00-00 00:00:00 (UTC)
+Accessed:	0000-00-00 00:00:00 (UTC)
+Backed Up:	0000-00-00 00:00:00 (UTC)
+
+Data Fork Blocks:
+890226  
+
+Attributes: 
+Type: DATA (4352-0)   Name: N/A   Non-Resident   size: 43  init_size: 43

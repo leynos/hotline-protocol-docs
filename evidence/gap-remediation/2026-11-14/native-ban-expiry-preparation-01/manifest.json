@@ -1,0 +1,35 @@
+{
+  "recorded_at_utc": "2026-11-14T05:46:25.218462+00:00",
+  "phase": "stopped offline preparation and pre-live review; no kick/ban acceptance",
+  "runtime_directory": "state/mac-runtime/native-ban-expiry-01",
+  "working_image_inode": 3290756512,
+  "base_sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910",
+  "rom_sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+  "profile": "control-only",
+  "full_file_baseline": "not_exercised",
+  "source_commits": [
+    "6d72536",
+    "c6be35b",
+    "146b365"
+  ],
+  "offline_tests": {
+    "focused": 8,
+    "native_total": 438,
+    "fresh_adjacent_export_passed": true
+  },
+  "bounds": {
+    "production_lines": 1022,
+    "production_cap": 1120,
+    "test_lines": 490,
+    "test_cap": 490,
+    "guide_lines": 160,
+    "guide_cap": 160
+  },
+  "corrections": "Preserve B66 original and B67/B68 followups: later-epoch first lookup, prepared/live identity binding, actual namespace/route proof, protected quiet,35-second first-epoch connection-burst settling. Host settling alone does not establish guest clock rate.",
+  "not_complete": [
+    "three captured live epochs",
+    "read-only guest clock witness",
+    "native kick0/protection/expiry outcomes",
+    "postflight and owned cleanup"
+  ]
+}

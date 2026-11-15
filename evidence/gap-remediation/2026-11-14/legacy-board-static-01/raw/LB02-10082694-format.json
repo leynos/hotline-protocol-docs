@@ -1,0 +1,30 @@
+{
+  "captured_at_utc": "2026-11-14T08:16:42.337615+00:00",
+  "query": {
+    "id": "LB02-10082694-format",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "10082694",
+      "length": 64
+    }
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"address\": \"10082694\",\n  \"length\": 64,\n  \"hex\": \"46 72 6f 6d 20 25 23 73 20 28 25 73 25 32 2e 32 68 75 20 25 32 2e 32 68 75 3a 25 32 2e 32 68 75 29 3a 0d 0d 00 00 00 00 3c 0d 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f\",\n  \"ascii\": \"From %#s (%s%2.2hu %2.2hu:%2.2hu):......<.______________________\",\n  \"gaps\": []\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "address": "10082694",
+      "length": 64,
+      "hex": "46 72 6f 6d 20 25 23 73 20 28 25 73 25 32 2e 32 68 75 20 25 32 2e 32 68 75 3a 25 32 2e 32 68 75 29 3a 0d 0d 00 00 00 00 3c 0d 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f",
+      "ascii": "From %#s (%s%2.2hu %2.2hu:%2.2hu):......<.______________________",
+      "gaps": []
+    },
+    "isError": false
+  }
+}

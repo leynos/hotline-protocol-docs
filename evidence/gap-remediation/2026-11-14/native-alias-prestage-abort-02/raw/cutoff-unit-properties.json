@@ -1,0 +1,40 @@
+[
+  {
+    "argv": [
+      "systemctl",
+      "--user",
+      "show",
+      "mothra-native-alias-live-04-cutoff.timer",
+      "-p",
+      "ActiveState",
+      "-p",
+      "Unit",
+      "-p",
+      "NextElapseUSecRealtime",
+      "-p",
+      "AccuracyUSec",
+      "-p",
+      "TimersCalendar",
+      "--no-pager"
+    ],
+    "exit": 0,
+    "stdout": "ActiveState=active\nUnit=mothra-native-alias-live-04-cutoff.service\nTimersCalendar={ OnCalendar=2026-11-14 22:07:20.932693 UTC ; next_elapse=Sat 2026-11-14 22:07:20 GMT }\nNextElapseUSecRealtime=Sat 2026-11-14 22:07:20 GMT\nAccuracyUSec=1ms\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "systemctl",
+      "--user",
+      "show",
+      "mothra-native-alias-live-04-cutoff.service",
+      "-p",
+      "ExecStart",
+      "-p",
+      "ActiveState",
+      "--no-pager"
+    ],
+    "exit": 0,
+    "stdout": "ActiveState=inactive\nExecStart={ path=/usr/bin/systemctl ; argv[]=/usr/bin/systemctl --user stop mothra-sheep-9865cb3ba7cd.service ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }\n",
+    "stderr": ""
+  }
+]

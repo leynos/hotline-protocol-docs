@@ -1,0 +1,28 @@
+{
+  "cwd": "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd",
+  "argv": [
+    "cargo",
+    "nextest",
+    "run",
+    "--locked",
+    "--no-default-features",
+    "--features",
+    "postgres test-support legacy-networking",
+    "--test",
+    "wireframe_compat_guardrails_bdd",
+    "--test-threads",
+    "1",
+    "-E",
+    "test(wireframe_compat_guardrails_login_failure_does_not_include_banner_fields)"
+  ],
+  "env_overrides": {
+    "CARGO_TARGET_DIR": "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target",
+    "CARGO_NET_OFFLINE": "true",
+    "CARGO_BUILD_JOBS": "1",
+    "PG_EMBED_ROOT": "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/c8-postgres/root",
+    "PG_RUNTIME_DIR": "/var/tmp/pg-embed-1000/install",
+    "NEXTEST_PROFILE": "postgres",
+    "RUSTFLAGS": "-D warnings -Zthreads=8 -Clink-arg=-fuse-ld=mold"
+  },
+  "pg_password": "test fixture value from Makefile"
+}

@@ -1,0 +1,44 @@
+# C72: read-only TLV reason path and recorded TSK setup
+
+Frozen `evidence/hotline-server-1.9/queries/D-100566e0.c` first locates
+field 101 and reads its 16-bit available length. With offset zero it copies
+`min(available,max)` bytes from the field **payload** through `100539c0`
+into the caller's buffer and returns the copied count. The retained
+`D-10056b60.c` wrapper calls it with offset zero and forwards destination
+and max; its return is decompiled `void`, but `endpoint-oracle-05/raw/EP5-A-10056b60.json`
+shows r5/r6 shifted to offset-0 helper args and r3 untouched after the call.
+The helper count therefore returns in r3.
+
+For request 110 option 2, `ID-D-10015e70.c:44-53` passes field 101 to
+`10056b60` with destination `auStack_15f` (63 bytes), assigns apparent
+return to adjacent `local_160`, then passes `&local_160` to `10006230`.
+`EP2-A-10006230.json:1000635c-68` and `EP2-A-100539c0.json:100539d0-e0`
+show the constructor copies `record[0x31]` bytes starting **at** that length
+byte, not the payload buffer's first byte. `EP5-A-10015e70.json:10016010-40` confirms destination stack+0x51, cap63,
+returned r3 stored at stack+0x50, then stack+0x50 passed to constructor.
+Thus for a present field 101 of length L in 1..63, this static path stores
+`[L] + first (L-1) payload bytes`, omitting the final payload byte. This is
+a **static path inference**, not an observed nonempty record, a test of
+truncation boundaries, or an Options Save finding.
+The C56/C62/C68 reasons all have length zero. Options Save uses list/UI
+helpers, with no direct `10006230` call in retained `B17-D-100023a0.c`; no
+prediction transfers to that path.
+
+The previously recorded local SleuthKit setup is in
+`../hotline-protocol-docs/native-capture-workflow.md:334-343` and the C45
+`state/native-sessions/native-banlab-c45/hfs-readonly.json` receipt:
+from canonical Mothra, set
+`LD_LIBRARY_PATH="$PWD/tools/sleuthkit/usr/lib64"` and run
+`tools/sleuthkit/usr/bin/fls -f hfs -r <STOPPED-IMAGE>` to catalogue.
+The C64 preflight `state/mac-runtime/native-configured-apply-01/preflight.json`
+records catalog IDs `11193` admin UserData, `11201` fixture-low UserData,
+`11202` Prefs, `11183-4352-0` application DATA and `11183-4353-1` RSRC.
+For a stopped image, `tools/sleuthkit/usr/bin/icat -f hfs
+<STOPPED-IMAGE> <catalog-ID>` reads the data fork, while `-4352-0` and
+`-4353-1` select the application forks, as shown by the guide. C68's
+stopped catalog gives Banned ID `11750`; **this is not a reusable ID** for
+a new image. The C64 raw exact argv was not retained, so these are the
+recorded environment and documented equivalent commands, not an attestation
+of every C64 shell invocation. Verify any new image is stopped and FD-free,
+then re-run `fls` to obtain its own catalog ID before `icat`; this note does
+not inspect `native-ban-expiry-01` or any image.

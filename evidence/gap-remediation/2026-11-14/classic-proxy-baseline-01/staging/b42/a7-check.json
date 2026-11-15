@@ -1,0 +1,23 @@
+{
+  "at": "2026-11-14T00:12:56.207909+00:00",
+  "status": "completed",
+  "completed_actions": 29,
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "plan_sha256": "5d0aa3dccf65fc6523678aa729c9ace72cd6caffbef768b7f5bf949e6568b43e",
+  "static_frame_actions_equal": [
+    4,
+    5,
+    6,
+    8,
+    10,
+    12,
+    16,
+    23,
+    27
+  ],
+  "account_count": 2,
+  "files_count": 41,
+  "full_filp_bytes": 1049073,
+  "full_filp_sha256": "7d1f5bf5e2b69b8a18906633ce2ef550876b78252c0639e7d36eb61142787ab8",
+  "full_filp_equal_prior": true
+}

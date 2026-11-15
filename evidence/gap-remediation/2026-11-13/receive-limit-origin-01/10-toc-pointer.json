@@ -1,0 +1,28 @@
+{
+  "index": 10,
+  "label": "toc-pointer",
+  "tool": "read_memory",
+  "arguments": {
+    "address": "10088d90",
+    "length": 4
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"address\": \"10088d90\",\n  \"length\": 4,\n  \"hex\": \"10 09 4a 50\",\n  \"ascii\": \"..JP\",\n  \"gaps\": []\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "address": "10088d90",
+      "length": 4,
+      "hex": "10 09 4a 50",
+      "ascii": "..JP",
+      "gaps": []
+    },
+    "isError": false
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "host_pcap": "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-native/mothra/state/native-sessions/native-settings-persistence-a48/primary-syn.pcap",
+  "namespace_pcap": "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-native/mothra/state/native-sessions/native-settings-persistence-a48/namespace.pcap",
+  "guest_pcap": "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-native/mothra/state/native-sessions/native-settings-persistence-a48/guest.pcap",
+  "host_recorder_pid": 463009,
+  "host_recorder_starttime": 5379132,
+  "namespace_recorder_pid": 469005,
+  "namespace_recorder_starttime": 5389055,
+  "emulator_pid": 464176,
+  "emulator_starttime": "5380630",
+  "emulator_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "owned_working_image": "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-native/mothra/state/mac-runtime/native-settings-persistence-01/working.dsk",
+  "emulator_netns": "net:[4026533401]",
+  "ns_routes": [],
+  "primary_syn_count": 0,
+  "fixture_profile": "control-only",
+  "full_file_baseline": "not_exercised",
+  "host_readiness_sha256": "f8d09f18d30de2c3b9fa61313b55aaa8a2c89b4c15c1ba84fda00ac7161d9487",
+  "namespace_readiness_sha256": "0bb7795046b02a14239197615b08ea8d0a2b08207ea2588253a97d963d97c0be"
+}

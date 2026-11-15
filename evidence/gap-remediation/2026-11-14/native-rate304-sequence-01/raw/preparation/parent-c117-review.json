@@ -1,0 +1,18 @@
+{
+  "status": "accepted_prewrite_only",
+  "boot_sha256": "bab4b31b80d760c4ac1c8ee309207803da1861e65f5bdbee2b3470d90866703b",
+  "closure_pin_cases": {
+    "positive": "pass",
+    "truncated": "reject",
+    "duplicate": "reject",
+    "wrong_digest": "reject",
+    "unknown_path": "reject",
+    "empty": "reject"
+  },
+  "initial_independent_reviews": [
+    "B97",
+    "B98"
+  ],
+  "parent_disposition": "Exact-set validation now precedes first service; source snapshots and all current origin hashes match approved35.",
+  "no_services_started": true
+}

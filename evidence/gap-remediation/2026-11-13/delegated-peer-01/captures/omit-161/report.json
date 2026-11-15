@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "profile": "compiled-historical-peer",
+  "native_conformance": false,
+  "identity_scope": "Local hashes checked; remote native process identity remains operator-reported",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "peer_binary_sha256": "8fbbe56cef439d4c1732e8d9fbe2c676b9d45fbd273a42b22f8034e3b3914fa0",
+  "plan_sha256": "f1b6bf3a85ac8a2e4ed1e65d8d0ea8514da96d5a06905f96f961a5ebffb33eba",
+  "peer_profile_sha256": "ecd4760708c05703c38aa11771e1b7fe0a0570345128b934dd2ed9c666c79b91",
+  "driver_sha256": "878e583b829e657f71f7867ac6ccf47cc5bd189d74aa67f633b5b2df3058672d",
+  "started_at_utc": "2026-11-13T11:24:40.659648+00:00",
+  "environment": {
+    "controlled_receiver_fixture": {
+      "profile": "controlled-receiver-fixture",
+      "case": "omit-161",
+      "source_peer": "shx 0.1.48 modern terminal build"
+    }
+  },
+  "terminal_environment": {
+    "LANG": "C.UTF-8",
+    "LC_ALL": null,
+    "LC_CTYPE": "C.UTF-8",
+    "TERM": "dumb"
+  },
+  "command": [
+    "/usr/sbin/bwrap",
+    "--unshare-user",
+    "--die-with-parent",
+    "--ro-bind",
+    "/",
+    "/",
+    "--bind",
+    "/data/leynos/Projects/mothra",
+    "/data/leynos/Projects/mothra",
+    "--bind",
+    "/data/leynos/Projects/mothra/state/delegation/peer/run-01/captures/omit-161/home",
+    "/home/leynos",
+    "--bind",
+    "/data/leynos/Projects/mothra/state/delegation/peer/run-01/captures/omit-161/tmp",
+    "/tmp",
+    "--proc",
+    "/proc",
+    "--dev",
+    "/dev",
+    "--chdir",
+    "/data/leynos/Projects/mothra/state/delegation/peer/run-01/captures/omit-161/work",
+    "--",
+    "/usr/sbin/strace",
+    "-f",
+    "-ttt",
+    "-xx",
+    "-yy",
+    "-s",
+    "131072",
+    "-e",
+    "trace=network,read,write,close,execve,exit_group",
+    "-o",
+    "/data/leynos/Projects/mothra/state/delegation/peer/run-01/captures/omit-161/syscalls.log",
+    "/data/leynos/Projects/mothra/tools/shx-peer/source/hx",
+    "-q",
+    "-d"
+  ],
+  "events": [
+    {
+      "event": "output",
+      "step": -1,
+      "elapsed_ns": 39227831,
+      "hex": "0d0a"
+    },
+    {
+      "event": "output",
+      "step": -1,
+      "elapsed_ns": 39511740,
+      "hex": "31313a32343a34302031312f31332f32303236092f646174612f6c65796e6f732f50726f6a656374732f6d6f746872612f746f6f6c732f7368782d706565722f736f757263652f68783a20696e76616c6964206f7074696f6e202d2d20640d0a"
+    },
+    {
+      "event": "output",
+      "step": -1,
+      "elapsed_ns": 55548531,
+      "hex": "0d0a"
+    },
+    {
+      "event": "output",
+      "step": -1,
+      "elapsed_ns": 55795943,
+      "hex": "201b5b33366d5b1b5b306d1b5b33326d68781b5b306d1b5b33366d5d1b5b306d2031313a32343a34302031312f31332f32303236092f646174612f6c65796e6f732f50726f6a656374732f6d6f746872612f746f6f6c732f7368782d706565722f736f757263652f68783a20696e76616c6964206f7074696f6e202d2d20710d0a"
+    },
+    {
+      "event": "output",
+      "step": -1,
+      "elapsed_ns": 56242508,
+      "hex": "72756e6e696e6720696e2064756d62207465726d696e616c206d6f64650d0a00"
+    },
+    {
+      "event": "input",
+      "step": 0,
+      "elapsed_ns": 1058849926,
+      "hex": "2f76657273696f6e0a"
+    },
+    {
+      "event": "output",
+      "step": 0,
+      "elapsed_ns": 1067014905,
+      "hex": "2f76657273696f6e"
+    },
+    {
+      "event": "output",
+      "step": 0,
+      "elapsed_ns": 1067391927,
+      "hex": "0d0a"
+    },
+    {
+      "event": "output",
+      "step": 0,
+      "elapsed_ns": 1068993119,
+      "hex": "201b5b33366d5b1b5b306d1b5b33326d68781b5b306d1b5b33366d5d1b5b306d2068782076657273696f6e20302e312e34380d0a"
+    },
+    {
+      "event": "input",
+      "step": 1,
+      "elapsed_ns": 1269597783,
+      "hex": "2f736572766572202d6f202d6c2061646d696e202d70206d6f746872613139202d6e207368782d706565722d61202d6920353030203132372e302e302e313a31353630310a"
+    },
+    {
+      "event": "output",
+      "step": 1,
+      "elapsed_ns": 1312072896,
+      "hex": "2f736572766572202d6f202d6c2061646d696e202d70206d6f746872613139202d6e207368782d706565722d61202d6920353030203132372e302e302e313a3135363031"
+    },
+    {
+      "event": "output",
+      "step": 1,
+      "elapsed_ns": 1312242622,
+      "hex": "0d0a"
+    },
+    {
+      "event": "output",
+      "step": 1,
+      "elapsed_ns": 1327485062,
+      "hex": "201b5b33366d5b1b5b306d1b5b33326d68781b5b306d1b5b33366d5d1b5b306d20636f6e6e656374656420746f203132372e302e302e313a31353630310d0a"
+    },
+    {
+      "event": "output",
+      "step": 1,
+      "elapsed_ns": 1335685973,
+      "hex": "201b5b33366d5b1b5b306d1b5b33326d68781b5b306d1b5b33366d5d1b5b306d203132372e302e302e313a31353630313a206c6f67696e207375636365737366756c0d0a"
+    },
+    {
+      "event": "output",
+      "step": 1,
+      "elapsed_ns": 1336028235,
+      "hex": "201b5b33366d5b1b5b306d1b5b33326d68781b5b306d1b5b33366d5d1b5b306d2041677265656d656e743a0d0a5468697320697320746865207365727665722061677265656d656e742e20200d0a54686520736572766572206f776e6572207075747320616e79206b696e64206f6620636f6e646974696f6e73206f7220636f6e646974696f6e7320746865792077616e7420796f7520746f20616772656520746f206265666f726520656e746572696e672e20200d0a546865792063616e206368616e676520746869732061677265656d656e74206279206d6f64696679696e67207468652061677265656d656e742e7478742066696c6520696e2074686520736572766572206469726563746f72792e0d0a53617920796f75206167726565210d0a"
+    },
+    {
+      "event": "output",
+      "step": 1,
+      "elapsed_ns": 1337229242,
+      "hex": "201b5b33366d5b1b5b306d1b5b33326d68781b5b306d1b5b33366d5d1b5b306d20286368617420307830293a20312075736572733a0d0a"
+    },
+    {
+      "event": "output",
+      "step": 1,
+      "elapsed_ns": 1337570254,
+      "hex": "202020756964207c206e69636b6e616d652020202020202020202020202020202020202020202020207c202069636f6e207c206c6576656c207c2073746174207c0d0a"
+    },
+    {
+      "event": "output",
+      "step": 1,
+      "elapsed_ns": 1337755402,
+      "hex": "202020353633207c201b5b313b33316d7368782d706565722d612020202020202020202020202020202020202020201b5b306d207c202020353030207c2041444d494e207c2020202020207c0d0a"
+    },
+    {
+      "event": "input",
+      "step": 2,
+      "elapsed_ns": 3343540678,
+      "hex": "2f77686f202d720a"
+    },
+    {
+      "event": "output",
+      "step": 2,
+      "elapsed_ns": 3345712083,
+      "hex": "2f77686f202d720d0a"
+    },
+    {
+      "event": "output",
+      "step": 2,
+      "elapsed_ns": 3351208941,
+      "hex": "201b5b33366d5b1b5b306d1b5b33326d68781b5b306d1b5b33366d5d1b5b306d20286368617420307830293a20312075736572733a0d0a202020756964207c206e69636b6e616d652020202020202020202020202020202020202020202020207c202069636f6e207c206c6576656c207c2073746174207c0d0a202020353633207c201b5b313b33316d7368782d706565722d612020202020202020202020202020202020202020201b5b306d207c202020353030207c2041444d494e207c2020202020207c0d0a"
+    },
+    {
+      "event": "input",
+      "step": 3,
+      "elapsed_ns": 5356639801,
+      "hex": "6d6f746872612d7368782d62617369632d636861740a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5370946079,
+      "hex": "6d6f746872612d7368782d62617369632d63686174"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5371114643,
+      "hex": "0d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5374606632,
+      "hex": "1b5b303b33346d3c1b5b313b33376d7368782d706565722d611b5b303b33346d3e1b5b306d206d6f746872612d7368782d62617369632d636861740d0a"
+    },
+    {
+      "event": "input",
+      "step": 4,
+      "elapsed_ns": 7379646091,
+      "hex": "2f717569740a"
+    },
+    {
+      "event": "output",
+      "step": 4,
+      "elapsed_ns": 7386286480,
+      "hex": "2f71756974"
+    },
+    {
+      "event": "output",
+      "step": 4,
+      "elapsed_ns": 7386539170,
+      "hex": "0d0a"
+    },
+    {
+      "event": "process-exit",
+      "step": 4,
+      "elapsed_ns": 7391483360,
+      "hex": "30"
+    }
+  ],
+  "completed_steps": 5,
+  "status": "completed",
+  "error": "",
+  "host_home_file_before": {
+    "exists": true,
+    "size": 0,
+    "mtime_ns": 1794540213655000242,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "controller_child_pid": 3006705,
+  "host_home_file_after": {
+    "exists": true,
+    "size": 0,
+    "mtime_ns": 1794540213655000242,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "peer_exit_code": 0,
+  "finished_at_utc": "2026-11-13T11:24:48.051479+00:00"
+}

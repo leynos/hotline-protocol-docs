@@ -1,0 +1,1 @@
+{"command": ["/usr/sbin/Xvfb", ":124", "-screen", "0", "1024x768x24", "-nolisten", "tcp", "-ac", "-noreset"], "display": ":124", "exe": "/usr/bin/Xvfb", "exe_sha256": "9a52e6010a28dd8404d07ef930bff185d5ec58824df29cde119294763e6201e5", "pid": 4193291, "start_ticks": 10442700, "uid": 1000, "unit": "mothra-display-4ed2278d6163"}

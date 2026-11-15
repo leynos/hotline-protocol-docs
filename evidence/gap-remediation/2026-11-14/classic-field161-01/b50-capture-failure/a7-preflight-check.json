@@ -1,0 +1,23 @@
+{
+  "utc": "2026-11-14T01:49:05.633210+00:00",
+  "status": "completed",
+  "completed_actions": 29,
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "frames_equal_prior": [
+    4,
+    5,
+    6,
+    8,
+    10,
+    12,
+    16,
+    23,
+    27
+  ],
+  "filp_bytes": 1049073,
+  "filp_sha256": "7d1f5bf5e2b69b8a18906633ce2ef550876b78252c0639e7d36eb61142787ab8",
+  "action8_field_count": 2,
+  "action10_field_count": 41,
+  "agreement_bytes": 242,
+  "agreement_sha256": "5288d060a4270cf6ae899302c52b2ac784b30dea99f01d2d4cd1c1037c4bd1c7"
+}

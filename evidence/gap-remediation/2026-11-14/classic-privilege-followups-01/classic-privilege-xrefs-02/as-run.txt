@@ -1,0 +1,4 @@
+A80 START authorized by /root; no fallback/retry.
+Working directory: /data/leynos/Projects/mothra
+Command: flock -n state/delegation/oracle.lock timeout --signal=INT --kill-after=15s 600s tools/ghidramcp/.venv/bin/python state/delegation/classic-privilege-xrefs-02/capture.py
+Script SHA256: d18f1ecb84a4b2c2e53a5d4e3187dc543c61f451c8f7b6e70a8e8f13e505b056

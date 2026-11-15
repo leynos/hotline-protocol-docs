@@ -1,0 +1,20 @@
+Nov 14 03:38:04 ibara systemd[1]: Starting mothra-a45-primary.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-native/mothra/state/native-sessions/native-settings-persistence-a45/primary-syn.pcap "(tcp port 15500 or tcp port 15501)"...
+Nov 14 03:38:04 ibara systemd[1]: Started mothra-a45-primary.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-native/mothra/state/native-sessions/native-settings-persistence-a45/primary-syn.pcap "(tcp port 15500 or tcp port 15501)".
+Nov 14 03:38:04 ibara tcpdump[354914]: dropped privs to tcpdump
+Nov 14 03:38:04 ibara tcpdump[354914]: tcpdump: listening on lo, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+Nov 14 03:42:36 ibara systemd[1]: Starting mothra-a45-namespace.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-native/mothra/state/native-sessions/native-settings-persistence-a45/namespace.pcap "(tcp port 15500 or tcp port 15501 or tcp portrange 15760-15763)"...
+Nov 14 03:42:36 ibara systemd[1]: Started mothra-a45-namespace.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-native/mothra/state/native-sessions/native-settings-persistence-a45/namespace.pcap "(tcp port 15500 or tcp port 15501 or tcp portrange 15760-15763)".
+Nov 14 03:42:36 ibara tcpdump[372238]: dropped privs to tcpdump
+Nov 14 03:42:36 ibara tcpdump[372238]: tcpdump: listening on lo, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+Nov 14 03:46:11 ibara tcpdump[372238]: 134 packets captured
+Nov 14 03:46:11 ibara tcpdump[372238]: 268 packets received by filter
+Nov 14 03:46:11 ibara tcpdump[372238]: 0 packets dropped by kernel
+Nov 14 03:46:11 ibara systemd[1]: Stopping mothra-a45-namespace.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-native/mothra/state/native-sessions/native-settings-persistence-a45/namespace.pcap "(tcp port 15500 or tcp port 15501 or tcp portrange 15760-15763)"...
+Nov 14 03:46:11 ibara tcpdump[354914]: 0 packets captured
+Nov 14 03:46:11 ibara tcpdump[354914]: 0 packets received by filter
+Nov 14 03:46:11 ibara tcpdump[354914]: 0 packets dropped by kernel
+Nov 14 03:46:11 ibara systemd[1]: Stopping mothra-a45-primary.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-native/mothra/state/native-sessions/native-settings-persistence-a45/primary-syn.pcap "(tcp port 15500 or tcp port 15501)"...
+Nov 14 03:46:11 ibara systemd[1]: mothra-a45-primary.service: Deactivated successfully.
+Nov 14 03:46:11 ibara systemd[1]: Stopped mothra-a45-primary.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-native/mothra/state/native-sessions/native-settings-persistence-a45/primary-syn.pcap "(tcp port 15500 or tcp port 15501)".
+Nov 14 03:46:11 ibara systemd[1]: mothra-a45-namespace.service: Deactivated successfully.
+Nov 14 03:46:11 ibara systemd[1]: Stopped mothra-a45-namespace.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-native/mothra/state/native-sessions/native-settings-persistence-a45/namespace.pcap "(tcp port 15500 or tcp port 15501 or tcp portrange 15760-15763)".

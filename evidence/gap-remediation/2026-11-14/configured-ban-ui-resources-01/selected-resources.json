@@ -1,0 +1,412 @@
+{
+  "source": "evidence/gap-remediation/2026-11-13/native-ban-one-01/preparation/preboot-app/catalog-11183.rsrc",
+  "source_bytes": 38460,
+  "source_sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12",
+  "data_offset": 256,
+  "map_offset": 37359,
+  "data_length": 37103,
+  "map_length": 1101,
+  "types": [
+    {
+      "type": "BNDL",
+      "count": 1
+    },
+    {
+      "type": "FREF",
+      "count": 2
+    },
+    {
+      "type": "HTLS",
+      "count": 1
+    },
+    {
+      "type": "ICN#",
+      "count": 3
+    },
+    {
+      "type": "MSGB",
+      "count": 2
+    },
+    {
+      "type": "cicn",
+      "count": 15
+    },
+    {
+      "type": "icl4",
+      "count": 1
+    },
+    {
+      "type": "icl8",
+      "count": 3
+    },
+    {
+      "type": "ics#",
+      "count": 3
+    },
+    {
+      "type": "ics4",
+      "count": 1
+    },
+    {
+      "type": "ics8",
+      "count": 3
+    },
+    {
+      "type": "snd ",
+      "count": 3
+    },
+    {
+      "type": "vers",
+      "count": 2
+    },
+    {
+      "type": "DITL",
+      "count": 1
+    },
+    {
+      "type": "DLOG",
+      "count": 1
+    },
+    {
+      "type": "EMSG",
+      "count": 4
+    },
+    {
+      "type": "dctb",
+      "count": 1
+    },
+    {
+      "type": "MBAR",
+      "count": 2
+    },
+    {
+      "type": "MENU",
+      "count": 4
+    },
+    {
+      "type": "carb",
+      "count": 1
+    },
+    {
+      "type": "mctb",
+      "count": 1
+    },
+    {
+      "type": "plst",
+      "count": 1
+    },
+    {
+      "type": "cfrg",
+      "count": 1
+    },
+    {
+      "type": "SIZE",
+      "count": 1
+    }
+  ],
+  "selected": [
+    {
+      "type": "HTLS",
+      "id": 0,
+      "name": "Owner resource",
+      "length": 256,
+      "sha256": "15878c7686ca7e36da74bcb061862d2120fb23793b4fe8c8665a2a4be9cc8ecb",
+      "hex": "00f6486eff2c486efff62f2e071c6dd03f3c0038a9e74267486eff2c3f2efff6487afea6486efffc2f0c3f3c0054a9e7101f672e3d7c0064fff6486eff2c486efff62f2efffc2f0c3f3c0038a9e7486eff2c3f2efff62f2efff82f0b3f3c0058a9e742671f3c00011f3c0001486efff82f0b3f3c0048a9e7101f6602600c52476908be6eff286f00ff6e20542f280050205fa0232f0c205fa0234cdf18804e5e205fdefc000a4ed04e56fff070002d40000c70002d40fffc42672f2efffc206e0008205048680048a8ad101f675c3d7c0003fff4486efff6486efff42f2efffc2f2e00083f3c0038a9e77002b06efff46c382d6e0008fff04267486efff04ead",
+      "ascii_runs": [
+        {
+          "offset": 22,
+          "text": "BgHn"
+        },
+        {
+          "offset": 50,
+          "text": "g.=|"
+        },
+        {
+          "offset": 137,
+          "text": "n T/("
+        },
+        {
+          "offset": 158,
+          "text": "N^ _"
+        },
+        {
+          "offset": 184,
+          "text": "Bg/."
+        },
+        {
+          "offset": 194,
+          "text": " PHh"
+        },
+        {
+          "offset": 204,
+          "text": "g\\=|"
+        },
+        {
+          "offset": 240,
+          "text": "l8-n"
+        },
+        {
+          "offset": 248,
+          "text": "BgHn"
+        }
+      ]
+    },
+    {
+      "type": "DITL",
+      "id": 9437,
+      "name": null,
+      "length": 68,
+      "sha256": "9f8877f47964adc8c1246eb9ee662a93961987de2d57ff7bba3741db35157cdc",
+      "hex": "000300000000006e010e0082014e04024f4b00000000000a0038005c014e88025e3000000000000a000a002a002aa00200020000000000820002009201618804285e3129",
+      "ascii_runs": [
+        {
+          "offset": 64,
+          "text": "(^1)"
+        }
+      ]
+    },
+    {
+      "type": "DLOG",
+      "id": 9437,
+      "name": "Error",
+      "length": 24,
+      "sha256": "13c4edfaf187f02e506f3dd5e7535c6b636a91a850fbcb1f9a8f313af8e990d9",
+      "hex": "005c004e00ef01ad0001000000000000000024dd0000300a",
+      "ascii_runs": []
+    },
+    {
+      "type": "MENU",
+      "id": 128,
+      "name": null,
+      "length": 50,
+      "sha256": "8baea544bc62d13bc3e8ca281b2fd4090de26c3488c5621a73db2fef7fbd8445",
+      "hex": "00800000000000000000fffffffb01141641626f7574205468697320436f6d70757465722e2e2e00000000012d0000000000",
+      "ascii_runs": [
+        {
+          "offset": 17,
+          "text": "About This Computer..."
+        }
+      ]
+    },
+    {
+      "type": "MENU",
+      "id": 129,
+      "name": null,
+      "length": 29,
+      "sha256": "e9adca9b96b67781bccaae58c829d690b83f79305073dcfbe80d15e1dec059f1",
+      "hex": "00810000000000000000ffffffff0446696c6504517569740051000000",
+      "ascii_runs": [
+        {
+          "offset": 15,
+          "text": "File"
+        },
+        {
+          "offset": 20,
+          "text": "Quit"
+        }
+      ]
+    },
+    {
+      "type": "MENU",
+      "id": 130,
+      "name": null,
+      "length": 93,
+      "sha256": "53ffa76e0ba86a39a4360b08fbab08c1c6a9c9bdf2c2e0740c65296298a8aa78",
+      "hex": "00820000000000000000ffffff7b044564697404556e646f005a0000012d00000000034375740058000004436f7079004300000550617374650056000005436c65617200000000012d000000000a53656c65637420416c6c0041000000",
+      "ascii_runs": [
+        {
+          "offset": 15,
+          "text": "Edit"
+        },
+        {
+          "offset": 20,
+          "text": "Undo"
+        },
+        {
+          "offset": 43,
+          "text": "Copy"
+        },
+        {
+          "offset": 52,
+          "text": "Paste"
+        },
+        {
+          "offset": 62,
+          "text": "Clear"
+        },
+        {
+          "offset": 78,
+          "text": "Select All"
+        }
+      ]
+    },
+    {
+      "type": "MENU",
+      "id": 131,
+      "name": null,
+      "length": 132,
+      "sha256": "ee0456a673b09f368558f15f6b24d604d843660da8ea90140f0bff5d6162e561",
+      "hex": "00830000000000000000ffffff6f07486f746c696e650c42726f6164636173742e2e2e0042000010436f6e6e6563742061732041646d696e004b00000652656c6f616400520000012d000000000853686f77204c6f67004c00000f53686f77205374617469737469637300530000012d000000000a4f7074696f6e732e2e2e0000000000",
+      "ascii_runs": [
+        {
+          "offset": 15,
+          "text": "Hotline"
+        },
+        {
+          "offset": 23,
+          "text": "Broadcast..."
+        },
+        {
+          "offset": 40,
+          "text": "Connect as Admin"
+        },
+        {
+          "offset": 61,
+          "text": "Reload"
+        },
+        {
+          "offset": 78,
+          "text": "Show Log"
+        },
+        {
+          "offset": 91,
+          "text": "Show Statistics"
+        },
+        {
+          "offset": 117,
+          "text": "Options..."
+        }
+      ]
+    },
+    {
+      "type": "plst",
+      "id": 128,
+      "name": null,
+      "length": 984,
+      "sha256": "be6ad3bf51eb10af526e51894e2ed5b91fc56798dcb1e307e8527bd38e9c23dc",
+      "hex": "3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d225554462d38223f3e0d3c21444f435459504520706c6973742053595354454d202266696c653a2f2f6c6f63616c686f73742f53797374656d2f4c6962726172792f445444732f50726f70657274794c6973742e647464223e0d3c706c6973742076657273696f6e3d22302e39223e0d3c646963743e0d2020203c6b65793e434642756e646c65496e666f44696374696f6e61727956657273696f6e3c2f6b65793e0d2020203c737472696e673e362e303c2f737472696e673e0d2020203c6b65793e434642756e646c654964656e7469666965723c2f6b65793e0d2020203c737472696e673e636f6d2e426967526564482e484c5365727665723c2f737472696e673e0d2020203c6b65793e434642756e646c654e616d653c2f6b65793e0d2020203c737472696e673e486f746c696e65205365727665723c2f737472696e673e0d2020203c6b65793e434642756e646c655061636b616765547970653c2f6b65793e0d2020203c737472696e673e4150504c3c2f737472696e673e0d2020203c6b65793e434642756e646c655369676e61747572653c2f6b65793e0d2020203c737472696e673e48544c533c2f737472696e673e0d2020203c6b65793e434642756e646c65446576656c6f706d656e74526567696f6e3c2f6b65793e0d2020203c737472696e673e456e676c6973683c2f737472696e673e0d2020203c6b65793e4c5350726566657273436172626f6e3c2f6b65793e0d2020203c747275652f3e0d2020203c6b65793e434642756e646c6553686f727456657273696f6e537472696e673c2f6b65793e0d2020203c737472696e673e312e382e353c2f737472696e673e0d2020203c6b65793e434642756e646c654c6f6e6756657273696f6e537472696e673c2f6b65793e0d2020203c737472696e673e312e382e352c20436f7079726967687420313939362d3230303120486f746c696e6520436f6d6d756e69636174696f6e733c2f737472696e673e0d2020203c6b65793e434642756e646c6549636f6e46696c653c2f6b65793e0d2020203c737472696e673e3132383c2f737472696e673e0d2020203c6b65793e4e534170706c65736372697074456e61626c65643c2f6b65793e0d2020203c737472696e673e5965733c2f737472696e673e0d20203c6b65793e4e5348756d616e5265616461626c65436f707972696768743c2f6b65793e0d20203c737472696e673e436f7079726967687420313939362d3230303120486f746c696e6520436f6d6d756e69636174696f6e733c2f737472696e673e0d3c2f646963743e0d3c2f706c6973743e",
+      "ascii_runs": [
+        {
+          "offset": 0,
+          "text": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+        },
+        {
+          "offset": 39,
+          "text": "<!DOCTYPE plist SYSTEM \"file://localhost/System/Library/DTDs/PropertyList.dtd\">"
+        },
+        {
+          "offset": 119,
+          "text": "<plist version=\"0.9\">"
+        },
+        {
+          "offset": 141,
+          "text": "<dict>"
+        },
+        {
+          "offset": 148,
+          "text": "   <key>CFBundleInfoDictionaryVersion</key>"
+        },
+        {
+          "offset": 192,
+          "text": "   <string>6.0</string>"
+        },
+        {
+          "offset": 216,
+          "text": "   <key>CFBundleIdentifier</key>"
+        },
+        {
+          "offset": 249,
+          "text": "   <string>com.BigRedH.HLServer</string>"
+        },
+        {
+          "offset": 290,
+          "text": "   <key>CFBundleName</key>"
+        },
+        {
+          "offset": 317,
+          "text": "   <string>Hotline Server</string>"
+        },
+        {
+          "offset": 352,
+          "text": "   <key>CFBundlePackageType</key>"
+        },
+        {
+          "offset": 386,
+          "text": "   <string>APPL</string>"
+        },
+        {
+          "offset": 411,
+          "text": "   <key>CFBundleSignature</key>"
+        },
+        {
+          "offset": 443,
+          "text": "   <string>HTLS</string>"
+        },
+        {
+          "offset": 468,
+          "text": "   <key>CFBundleDevelopmentRegion</key>"
+        },
+        {
+          "offset": 508,
+          "text": "   <string>English</string>"
+        },
+        {
+          "offset": 536,
+          "text": "   <key>LSPrefersCarbon</key>"
+        },
+        {
+          "offset": 566,
+          "text": "   <true/>"
+        },
+        {
+          "offset": 577,
+          "text": "   <key>CFBundleShortVersionString</key>"
+        },
+        {
+          "offset": 618,
+          "text": "   <string>1.8.5</string>"
+        },
+        {
+          "offset": 644,
+          "text": "   <key>CFBundleLongVersionString</key>"
+        },
+        {
+          "offset": 684,
+          "text": "   <string>1.8.5, Copyright 1996-2001 Hotline Communications</string>"
+        },
+        {
+          "offset": 754,
+          "text": "   <key>CFBundleIconFile</key>"
+        },
+        {
+          "offset": 785,
+          "text": "   <string>128</string>"
+        },
+        {
+          "offset": 809,
+          "text": "   <key>NSApplescriptEnabled</key>"
+        },
+        {
+          "offset": 844,
+          "text": "   <string>Yes</string>"
+        },
+        {
+          "offset": 868,
+          "text": "  <key>NSHumanReadableCopyright</key>"
+        },
+        {
+          "offset": 906,
+          "text": "  <string>Copyright 1996-2001 Hotline Communications</string>"
+        },
+        {
+          "offset": 968,
+          "text": "</dict>"
+        },
+        {
+          "offset": 976,
+          "text": "</plist>"
+        }
+      ]
+    }
+  ]
+}

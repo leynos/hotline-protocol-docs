@@ -1,0 +1,155 @@
+#!/bin/bash
+# shellcheck disable=SC2024
+# Prepared operator command; output belongs to the owned lab epoch.
+set -euo pipefail
+# PREPARED ONLY. Requires a separate M2 START and all root-approved pins.
+BOARD_ROOT=/data/leynos/Projects/mothra
+BOARD_PREP=$BOARD_ROOT/state/native-sessions/native-alias-live-preparation-03
+BOARD_R=$BOARD_ROOT/state/mac-runtime/native-alias-live-03
+BOARD_D=$BOARD_ROOT/state/mac-displays/native-alias-live-03
+BOARD_O=$BOARD_ROOT/state/native-sessions/native-alias-live-03
+BOARD_LOCK=$BOARD_ROOT/state/delegation/oracle.lock
+cd "$BOARD_ROOT"
+test -s "$BOARD_PREP/approved-helpers.sha256"
+# Approval pins remain absent until root reviews imported M1 and this packet.
+test -s "$BOARD_PREP/approved-alias-live-sources.sha256"
+test -s "$BOARD_PREP/approved-source-closure.sha256"
+test -s "$BOARD_PREP/approved-runtime-launchers.sha256"
+test -s "$BOARD_PREP/script-SHA256SUMS"
+(cd "$BOARD_ROOT" && sha256sum --quiet -c "$BOARD_PREP/approved-helpers.sha256")
+(cd "$BOARD_ROOT" && sha256sum --quiet -c "$BOARD_PREP/approved-runtime-launchers.sha256")
+(cd "$BOARD_ROOT" && sha256sum --quiet -c "$BOARD_PREP/script-SHA256SUMS")
+(cd /data/leynos/Projects/hotline-protocol-docs && sha256sum --quiet -c "$BOARD_PREP/approved-alias-live-sources.sha256")
+(cd /data/leynos/Projects/hotline-protocol-docs && sha256sum --quiet -c "$BOARD_PREP/approved-source-closure.sha256")
+python3 - "$BOARD_PREP/approved-alias-live-sources.sha256" "$BOARD_PREP/approved-source-closure.sha256" "$BOARD_PREP/approved-helpers.sha256" "$BOARD_PREP/approved-runtime-launchers.sha256" "$BOARD_PREP/script-SHA256SUMS" "$BOARD_PREP/proposed-source-closure.json" /data/leynos/Projects/hotline-protocol-docs "$BOARD_ROOT" "$BOARD_PREP" <<'PY'
+import hashlib
+import json
+import pathlib
+import sys
+
+m1pin, closurepin, helperpin, launcherpin, scriptpin, proposal, docs, root, prep = map(pathlib.Path, sys.argv[1:])
+sha = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
+record = json.loads(proposal.read_text())
+assert record['status'] == 'proposed_canonical_snapshot_not_root_approved'
+assert len(record['modules']) == len(record['hashes']) >= 2
+assert set(record['hashes']) == {f'{name}.py' for name in record['modules']}
+base = 'state/native-sessions/native-alias-live-preparation-03/'
+scripts = ('boot-alias-live-03.sh', 'complete-readiness-alias-live-03.sh', 'run18-alias-live-03.sh',
+           'build-runtime-alias-live-03.py', 'wait-managed-alias-live-03.py', 'launch-case-alias-live-03.sh',
+           'run-case-alias-live-03.sh', 'candidate-closure-03.py', 'freeze-after-import-03.py',
+           'ui-input-alias-live-03.py')
+expected = (
+    (m1pin, docs, {f'scripts/{name}.py': record['hashes'][f'{name}.py']
+                   for name in ('native_missing_alias_cases', 'native_missing_alias_control')}),
+    (closurepin, docs, {f'scripts/{name}': digest for name, digest in record['hashes'].items()}),
+    (helperpin, root, {f'scripts/{name}': digest for name, digest in record['helpers'].items()}),
+    (launcherpin, root, {f'scripts/{name}': digest for name, digest in record['launchers'].items()}),
+    (scriptpin, root, {base + name: sha(prep / name) for name in scripts}),
+)
+assert set(record['helpers']) == {'native_emulator_readiness.py', 'capture_readiness.py', 'native_capture_receipt.py'}
+assert set(record['launchers']) == {'mac_runtime.py', 'mac_network_isolation.py'}
+for pin, origin, required in expected:
+    rows = [line.split() for line in pin.read_text().splitlines()]
+    assert len(rows) == len(required) and all(len(row) == 2 for row in rows)
+    actual = {path: digest for digest, path in rows}
+    assert len(actual) == len(required) and actual == required
+    assert all(len(digest) == 64 and all(c in '0123456789abcdef' for c in digest) for digest in actual.values())
+    assert all(sha(origin / name) == digest for name, digest in actual.items())
+for name, digest in {**record['hashes'], **record['helpers']}.items():
+    assert sha(prep / 'proposed-sources' / name) == digest
+for name, digest in record['launchers'].items():
+    assert sha(prep / 'proposed-runtime-launchers' / name) == digest
+PY
+test ! -e "$BOARD_D" && test ! -e "$BOARD_O" && test ! -e /tmp/.X11-unix/X124
+# Root holder proof must precede every owned disk/ROM byte read. Keep the
+# stopped preparation separate from the future epoch directory.
+for name in base.dsk working.dsk rom; do
+    if sudo -n fuser "$BOARD_R/$name" > "$BOARD_PREP/boot-prehash-$name.stdout" 2> "$BOARD_PREP/boot-prehash-$name.stderr"; then
+        code=0
+    else
+        code=$?
+    fi
+    printf '%s\n' "$code" > "$BOARD_PREP/boot-prehash-$name.exit"
+    test "$code" = 1 && test ! -s "$BOARD_PREP/boot-prehash-$name.stdout" && test ! -s "$BOARD_PREP/boot-prehash-$name.stderr"
+done
+python3 - "$BOARD_R" "$BOARD_PREP/stopped-preparation/preflight.json" <<'PY'
+import json,pathlib,sys
+runtime,receipt=map(pathlib.Path,sys.argv[1:])
+record=json.loads(receipt.read_text())
+assert record['status']=='prepared_stopped'
+for name in ('base.dsk','working.dsk','rom'):
+    assert (runtime/name).stat().st_ino==record['prepared'][name]['inode']
+PY
+BOARD_WORKING_INODE=$(python3 - "$BOARD_PREP/stopped-preparation/preflight.json" <<'PY'
+import json,sys
+print(json.load(open(sys.argv[1]))['prepared']['working.dsk']['inode'])
+PY
+)
+test "$(sha256sum "$BOARD_R/base.dsk" | cut -d' ' -f1)" = e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910
+test "$(sha256sum "$BOARD_R/working.dsk" | cut -d' ' -f1)" = e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910
+test "$(sha256sum "$BOARD_R/rom" | cut -d' ' -f1)" = 18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd
+test "$(sha256sum tools/macemu/SheepShaver/src/Unix/SheepShaver | cut -d' ' -f1)" = 9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4
+python3 - "$BOARD_R/shared" "$BOARD_PREP" <<'PY'
+import hashlib, json, os, pathlib, stat, sys
+shared, prep = map(pathlib.Path, sys.argv[1:])
+base=json.loads((prep/'stopped-preparation/preflight.json').read_text())
+finf=json.loads((prep/'stopped-preparation/finf-supplement.json').read_text())
+assert base['status']=='prepared_stopped' and finf['status']=='stopped_finf_staged'
+assert shared.stat().st_ino==base['shared_parent']['inode']
+assert not (shared/'.rsrc').exists()
+for path,record in ((shared/'m-alias54-target',finf['target_after']),
+                    (shared/'.finf/m-alias54-target',finf['sidecar'])):
+    s=path.lstat()
+    assert stat.S_ISREG(s.st_mode) and not stat.S_ISLNK(s.st_mode)
+    assert (s.st_dev,s.st_ino,s.st_uid,s.st_nlink,s.st_size)==(
+        record['device'],record['inode'],1000,1,record['size'])
+    assert stat.S_IMODE(s.st_mode)==0o600
+    assert hashlib.sha256(path.read_bytes()).hexdigest()==record['sha256']
+assert stat.S_IMODE((shared/'.finf').lstat().st_mode)==0o700
+PY
+flock --exclusive --nonblock "$BOARD_LOCK" true
+mkdir -m 700 "$BOARD_O"
+if sudo -n fuser "$BOARD_R/working.dsk" > "$BOARD_O/pre-fuser.stdout" 2> "$BOARD_O/pre-fuser.stderr"; then
+    printf 'Working image unexpectedly held\n' >&2; exit 1
+else
+    code=$?; test "$code" = 1
+fi
+ss -ltn > "$BOARD_O/pre-ports.txt"
+if rg -q ':(15980|15981|15982|15983)\b' "$BOARD_O/pre-ports.txt"; then
+    printf 'Alias lab frontend port occupied\n' >&2; exit 1
+fi
+python3 - <<'PY'
+from pathlib import Path
+expected={1099659:'767842',1012834:'2357813'}
+for pid,tick in expected.items():
+    raw=Path(f'/proc/{pid}/stat').read_text()
+    assert raw[raw.rfind(')')+2:].split()[19]==tick
+PY
+# Fix the sole epoch window immediately before the first managed service.
+python3 - <<'PY'
+import datetime as dt
+from pathlib import Path
+p=Path('/data/leynos/Projects/mothra/state/native-sessions/native-alias-live-03')
+start=dt.datetime.now(dt.UTC)
+(p/'epoch-start.utc').write_text(start.isoformat()+'\n')
+(p/'case-deadline.utc').write_text((start+dt.timedelta(minutes=12)).isoformat()+'\n')
+PY
+sudo -n systemd-run --unit=mothra-native-alias-live-03-lease --property=Type=exec --property=User=1000 --property=Group=1000 --property=RuntimeMaxSec=900 --property=KillMode=control-group --property=Restart=no --property=RemainAfterExit=yes --no-block /usr/bin/flock --exclusive --nonblock "$BOARD_LOCK" /usr/bin/sleep 900 > "$BOARD_O/lease-launch.stdout"
+# Wait at most five seconds for the actual lease PID and lock FD.
+sudo -n python3 "$BOARD_PREP/wait-managed-alias-live-03.py" --unit mothra-native-alias-live-03-lease.service --lock "$BOARD_LOCK" --deadline "$(cat "$BOARD_O/case-deadline.utc")" --output "$BOARD_O/lease-initial-wait.json" > "$BOARD_O/lease-initial-wait.stdout"
+# Fail closed if the lease did not become active and exclusive.
+sudo -n systemctl show mothra-native-alias-live-03-lease.service -p MainPID -p ActiveState > "$BOARD_O/lease-initial-show.txt"
+rg -q '^ActiveState=active$' "$BOARD_O/lease-initial-show.txt"
+if flock --exclusive --nonblock "$BOARD_LOCK" true; then
+    printf 'Oracle lease did not hold lock\n' >&2; exit 1
+fi
+sudo -n systemd-run --unit=mothra-native-alias-live-03-host --property=Type=exec --property=RuntimeMaxSec=900 --property=KillMode=control-group --property=Restart=no --property=RemainAfterExit=yes --no-block /usr/sbin/tcpdump -i lo -U -n -s 0 -w "$BOARD_O/primary-syn.pcap" '(tcp port 15500 or tcp port 15501) and (tcp[tcpflags] & tcp-syn != 0)' > "$BOARD_O/host-launch.stdout"
+sudo -n python3 "$BOARD_PREP/wait-managed-alias-live-03.py" --unit mothra-native-alias-live-03-host.service --pcap "$BOARD_O/primary-syn.pcap" --deadline "$(cat "$BOARD_O/case-deadline.utc")" --output "$BOARD_O/host-initial-wait.json" > "$BOARD_O/host-initial-wait.stdout"
+sudo -n python3 scripts/capture_readiness.py --unit mothra-native-alias-live-03-host.service --pcap "$BOARD_O/primary-syn.pcap" --netns-inode "$(stat -Lc %i /proc/self/ns/net)" --deadline-utc "$(cat "$BOARD_O/case-deadline.utc")" --filter '(tcp port 15500 or tcp port 15501) and (tcp[tcpflags] & tcp-syn != 0)' > "$BOARD_O/host-ready.json"
+python3 scripts/mac_runtime.py display "$BOARD_D" --display :124 > "$BOARD_O/display-launch.stdout"
+xdpyinfo -display :124 >/dev/null
+sudo -n python3 "$BOARD_PREP/ui-input-alias-live-03.py" identity capture > "$BOARD_O/display-identity.stdout"
+python3 scripts/mac_runtime.py sheep "$BOARD_R" --display :124 --port 15980 --guest-pcap "$BOARD_O/lab-guest.pcap" --service --isolate-network > "$BOARD_O/sheep-launch.stdout"
+# Disk phase only: guest capture opens lazily on first Ethernet activity.
+# No guest PCAP is created or inspected in this boot script.
+sudo -n python3 scripts/native_emulator_readiness.py --phase disk --working-image "$BOARD_R/working.dsk" --working-inode "$BOARD_WORKING_INODE" --exe-sha256 9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4 --uid 1000 --deadline-utc "$(cat "$BOARD_O/case-deadline.utc")" --output "$BOARD_O/disk-ready.json" > "$BOARD_O/disk-ready.stdout"

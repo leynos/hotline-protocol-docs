@@ -1,0 +1,89 @@
+2026-11-13 UTC. Operator transcript; commands use canonical absolute runtime/tool paths.
+This file is for replay review, not an executable launch script. Never rerun into occupied destinations.
+
+14:56 first phase-1 gate (inline Python in recovery-proposal.md):
+  result: refused "Proposed fresh target/display/capture already exists".
+  occupied path: state/native-sessions/runtime-25. No side effect. Root authorised
+  fresh recovery-20261113-01. See first-gate-failure.json.
+
+14:57-15:03 second phase-1 gate (same inline Python with corrected fresh path):
+  source hotline21/working.dsk inode 1797741458, size 8388608000,
+  mtime_ns 1794571576963572241, SHA256
+  e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910.
+  sudo fuser and lsof found no source owner; no emulator/display process or
+  15500-15503 listener; source/ROM/binary hashes and free-space guard passed.
+  See preboot-gate.json. Immediate owner/stat/process/destination recheck passed.
+
+15:03-15:08:
+  python3 /data/leynos/Projects/mothra/scripts/mac_runtime.py prepare \
+    /data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery \
+    --rom /data/leynos/Projects/mothra/state/mac-runtime/hotline21/rom \
+    --disk /data/leynos/Projects/mothra/state/mac-runtime/hotline21/working.dsk
+  result: exit 0; base mode 444, working mode 644, distinct inodes.
+  sha256sum hotline22-recovery/base.dsk hotline22-recovery/working.dsk \
+    hotline22-recovery/rom
+  result: both disks e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910;
+  ROM 18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd.
+
+15:14:
+  python3 /data/leynos/Projects/hotline-protocol-docs/scripts/snapshot_native_hfs.py \
+    --image /data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/base.dsk \
+    --tsk-bin /data/leynos/Projects/mothra/tools/sleuthkit/usr/bin \
+    --catalog-range 11183 11183 --root /Hotline19/HLserver19 \
+    --output /data/leynos/Projects/mothra/state/native-sessions/recovery-20261113-01/preboot-app
+  result: one positive catalogue 11183, exact path /Hotline19/HLserver19;
+  both data/resource fork reads exit 0 and match expected SHA256. See extraction.json.
+
+15:16 after START-BOOT and renewed no-owner/port/display preflight:
+  python3 /data/leynos/Projects/mothra/scripts/mac_runtime.py display \
+    /data/leynos/Projects/mothra/state/mac-displays/recovery22 --display :99
+  result: mothra-display-f08732514eab, PID 1097275; xdpyinfo :99 passed.
+  python3 /data/leynos/Projects/mothra/scripts/mac_runtime.py sheep \
+    /data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery \
+    --display :99 --port 15500 --service \
+    --guest-pcap /data/leynos/Projects/mothra/state/native-sessions/recovery-20261113-01/guest.pcap
+  result: mothra-sheep-bf808bd28e0d wrapper PID 1099211;
+  actual SheepShaver PID 1099659, /proc/PID/exe SHA256 9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4;
+  127.0.0.1:15500-15503 listening. Service acceptance alone was not treated as app readiness.
+
+15:17-15:19 guest screenshots via DISPLAY=:99 import -window root:
+  boot-observation-02.png: improper shutdown; automatic Disk First Aid checking copied working disk.
+  Work stopped; root expressly authorised allowing the already-running automatic check/repair
+  on the disposable working image only. No manual repair initiated.
+  boot-observation-03.png: "Verification and repairs completed successfully".
+  Return dismissed Done; boot-observation-07.png: normal Mac OS 9 Finder desktop,
+  /Hotline19/HLserver19 visible. Exact icon double-clicked.
+  app-observation-01.png: Hotline Server 1.9 log reports 10.0.2.15 "Hotline Server started";
+  Sound Manager disabled warning appeared (runtime preference nosound true) and was dismissed.
+  app-observation-02.png: server running, zero connections, no alert.
+
+15:21 smoke-001, one original authorised read-only run:
+  python3 /data/leynos/Projects/hotline-protocol-docs/scripts/protocol_capture.py capture \
+    state/native-sessions/recovery-20261113-01/smoke-plan.json \
+    --oracle-binary evidence/hotline-server-1.9/inputs/HLserver19.pef \
+    --output state/native-sessions/recovery-20261113-01/smoke-001
+  protocol_capture.py verify smoke-001: completed 10 actions.
+  Semantic result: handshake, login ACK0, 354, 109, 348 ACK0; two account-101 values.
+  An independent host tcpdump was NOT running. Report host bytes and guest cumulative pcap
+  were retained. Root approved one corrected identical run with independent host recording.
+
+15:24 smoke-002, the single root-authorised provenance correction:
+  sudo -n tcpdump -i lo -s 0 -U -w \
+    state/native-sessions/recovery-20261113-01/host-smoke-002.pcap \
+    'tcp and port 15500'
+  Recorder printed "listening on lo" and fresh 24-byte pcap header existed before connect.
+  python3 /data/leynos/Projects/hotline-protocol-docs/scripts/protocol_capture.py capture \
+    state/native-sessions/recovery-20261113-01/smoke-002-plan.json \
+    --oracle-binary evidence/hotline-server-1.9/inputs/HLserver19.pef \
+    --output state/native-sessions/recovery-20261113-01/smoke-002
+  result: completed 10 actions. sudo kill -INT targeted tcpdump PID 1267529 after close.
+  Recorder: 20 packets captured, 40 received by filter, 0 dropped by kernel.
+  protocol_capture.py verify smoke-002: completed 10 actions.
+  Host pcap and immutable postrun guest cumulative snapshot have one same-port SYN pair,
+  199 microseconds apart. Reassembled sent 108 bytes and received 468 bytes are
+  exactly equal between host, guest and report; see verify-smoke.txt.
+
+After both captures, the original hotline21 source inode/size/mtime still matches
+preboot-gate.json. The disposable guest remains live; no shutdown/restart, account,
+settings or Files mutation was performed. No post-repair working-disk hash or live
+application-fork extraction was attempted while the disk is mounted.

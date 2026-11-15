@@ -1,0 +1,8 @@
+{
+  "pid": 2807669,
+  "start_ticks": 11694814,
+  "exe": "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/SheepShaver-9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "cmdline": "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/SheepShaver-9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4 /data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/machine.sheepvm ",
+  "netns": 4026533891,
+  "at_utc": "2026-11-14T22:02:55.534771+00:00"
+}

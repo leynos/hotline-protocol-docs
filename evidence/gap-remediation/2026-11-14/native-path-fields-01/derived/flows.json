@@ -1,0 +1,181 @@
+{
+  "method": "SYN-scoped pcap_tcp lifetime and stream; RST payload excluded from application stream but retained in terminal_flags",
+  "flows": [
+    {
+      "label": "readiness",
+      "client_port": 52304,
+      "views": {
+        "namespace": {
+          "client": [
+            "127.0.0.1",
+            52304
+          ],
+          "server": [
+            "127.0.0.1",
+            15900
+          ],
+          "syn_sequence": 2461110612,
+          "syn_timestamp_us": 1794664793556704,
+          "packet_count": 30,
+          "first_timestamp_us": 1794664793556704,
+          "last_timestamp_us": 1794664793993160,
+          "terminal_flags": [
+            {
+              "index": 28,
+              "flags": 17,
+              "timestamp_us": 1794664793988726,
+              "payload_hex": ""
+            },
+            {
+              "index": 29,
+              "flags": 17,
+              "timestamp_us": 1794664793993129,
+              "payload_hex": ""
+            }
+          ],
+          "sent": {
+            "file": "derived/streams/readiness-namespace-sent.bin",
+            "bytes": 231,
+            "sha256": "5eecc6b4d737fcadbb8356aa0839119da65a3d2e77dca799bc23d39e6f4487b2",
+            "equals_report_stream": true
+          },
+          "received": {
+            "file": "derived/streams/readiness-namespace-received.bin",
+            "bytes": 2759,
+            "sha256": "7f5cad68aaca975d221a5216ac98a6d4241c3557a543afb83e66799a1da23dc2",
+            "equals_report_stream": true
+          }
+        },
+        "guest": {
+          "client": [
+            "10.0.2.2",
+            52304
+          ],
+          "server": [
+            "10.0.2.15",
+            5500
+          ],
+          "syn_sequence": 1534528001,
+          "syn_timestamp_us": 1794664793556885,
+          "packet_count": 34,
+          "first_timestamp_us": 1794664793556885,
+          "last_timestamp_us": 1794664793993169,
+          "terminal_flags": [
+            {
+              "index": 42,
+              "flags": 17,
+              "timestamp_us": 1794664793988787,
+              "payload_hex": ""
+            },
+            {
+              "index": 44,
+              "flags": 17,
+              "timestamp_us": 1794664793989326,
+              "payload_hex": ""
+            }
+          ],
+          "sent": {
+            "file": "derived/streams/readiness-guest-sent.bin",
+            "bytes": 231,
+            "sha256": "5eecc6b4d737fcadbb8356aa0839119da65a3d2e77dca799bc23d39e6f4487b2",
+            "equals_report_stream": true
+          },
+          "received": {
+            "file": "derived/streams/readiness-guest-received.bin",
+            "bytes": 2759,
+            "sha256": "7f5cad68aaca975d221a5216ac98a6d4241c3557a543afb83e66799a1da23dc2",
+            "equals_report_stream": true
+          }
+        }
+      }
+    },
+    {
+      "label": "case",
+      "client_port": 39238,
+      "views": {
+        "namespace": {
+          "client": [
+            "127.0.0.1",
+            39238
+          ],
+          "server": [
+            "127.0.0.1",
+            15900
+          ],
+          "syn_sequence": 174682622,
+          "syn_timestamp_us": 1794664868383742,
+          "packet_count": 222,
+          "first_timestamp_us": 1794664868383742,
+          "last_timestamp_us": 1794664888177668,
+          "terminal_flags": [
+            {
+              "index": 250,
+              "flags": 17,
+              "timestamp_us": 1794664888164074,
+              "payload_hex": ""
+            },
+            {
+              "index": 251,
+              "flags": 17,
+              "timestamp_us": 1794664888177613,
+              "payload_hex": ""
+            }
+          ],
+          "sent": {
+            "file": "derived/streams/case-namespace-sent.bin",
+            "bytes": 11529,
+            "sha256": "d0674b1e5872f1a0a1b080f18fa36d318f838ea8b4e0f9fef3df6dfe53f8a076",
+            "equals_report_stream": true
+          },
+          "received": {
+            "file": "derived/streams/case-namespace-received.bin",
+            "bytes": 8295,
+            "sha256": "8ce26fc9c5586a6fdaf0df4dce0f8ef535bb44dcc0a80dbf1da30d0f06001e97",
+            "equals_report_stream": true
+          }
+        },
+        "guest": {
+          "client": [
+            "10.0.2.2",
+            39238
+          ],
+          "server": [
+            "10.0.2.15",
+            5500
+          ],
+          "syn_sequence": 2470080001,
+          "syn_timestamp_us": 1794664868384011,
+          "packet_count": 293,
+          "first_timestamp_us": 1794664868384011,
+          "last_timestamp_us": 1794664888177679,
+          "terminal_flags": [
+            {
+              "index": 335,
+              "flags": 17,
+              "timestamp_us": 1794664888164165,
+              "payload_hex": ""
+            },
+            {
+              "index": 337,
+              "flags": 17,
+              "timestamp_us": 1794664888169129,
+              "payload_hex": ""
+            }
+          ],
+          "sent": {
+            "file": "derived/streams/case-guest-sent.bin",
+            "bytes": 11529,
+            "sha256": "d0674b1e5872f1a0a1b080f18fa36d318f838ea8b4e0f9fef3df6dfe53f8a076",
+            "equals_report_stream": true
+          },
+          "received": {
+            "file": "derived/streams/case-guest-received.bin",
+            "bytes": 8295,
+            "sha256": "8ce26fc9c5586a6fdaf0df4dce0f8ef535bb44dcc0a80dbf1da30d0f06001e97",
+            "equals_report_stream": true
+          }
+        }
+      }
+    }
+  ]
+}

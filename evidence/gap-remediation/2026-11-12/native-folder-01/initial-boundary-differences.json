@@ -1,0 +1,10 @@
+[
+  {
+    "case": "initial-probes/transcripts/folder-upload-completed-skip",
+    "connection": "a",
+    "host_sent_hex": "54525450484f544c00010002",
+    "guest_input_hex": "",
+    "host_received_hex": "",
+    "guest_output_hex": ""
+  }
+]

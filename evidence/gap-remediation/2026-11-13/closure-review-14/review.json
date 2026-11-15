@@ -1,0 +1,30 @@
+{
+  "gap_id": "GAP-023",
+  "status": "Resolved",
+  "unchanged_closure_criterion": "Document transformation order, canonicalization and absent/empty/unknown account outcomes using lookup-helper evidence and fixtures.",
+  "requirements": [
+    {
+      "requirement": "Transformation order and canonicalization",
+      "evidence": "AU-D-10011960/100541e0 and AU-M-login-normalization identify32-byte copy, complement, native256-byte table, thenCR->hyphen. Positive mixed/upperASCII, CR and80->8a fixtures correlate with independently read stored keys. DecodedNUL remains length-bearing; leading/interior/trailing/onlyNUL cases fail even with validguest."
+    },
+    {
+      "requirement": "Absent, empty and unknown account outcomes",
+      "evidence": "Initialadmin352guest fails; absent105/empty105/explicitguest login allfail. Temporaryguest creation/readback and native734-byte record establish empty password andzero privileges; same3inputs succeed with354zero. Unknownnonempty+emptypassword stillfails; no guest fallback on arbitrary lookup failure."
+    },
+    {
+      "requirement": "Lookup-helper/filesystem evidence and native boundaries",
+      "evidence": "AU-D-100073c0/100071a0/100146f0/10014bc0 plus positive UserData records.31-byte create/read/login succeeds;32-byte creation/read and32/over32 login fail withstatus1 andnativebadfilename diagnostic. Lookupcap32 andsessionstoredcap31 are distinct; no valid32-byte account or backend-universal filesystem cap claimed."
+    },
+    {
+      "requirement": "Captured provenance and restored fixture state",
+      "evidence": "33 accepted reports+2 exploratory reports, exacthost/guest streams withliteral28-byte unread302tail pinned.14read-only identity-checked queries,5positive accountrecords, nativeagreementfork.351cleanup then5missing352readbacks restores originally absentguest; no existingaccountrecord edited. Verifier, seven tests and repeatable workflow retained."
+    }
+  ],
+  "not_claimed": [
+    "UniversalUnicode/wiretext encoding or arbitrary accountbackendfilenamecaps",
+    "Complete absent/empty/unreadableagreement state matrix",
+    "Login161meaning orservername refresh",
+    "Universalpost-error recovery orcleanup deadlines",
+    "Restartdurability or identifiedhistoricalclient interoperability"
+  ]
+}

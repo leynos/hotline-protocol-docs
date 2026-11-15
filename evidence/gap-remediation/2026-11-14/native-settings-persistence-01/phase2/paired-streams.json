@@ -1,0 +1,92 @@
+{
+  "utc": "2026-11-14T04:09:46.155943+00:00",
+  "paired_complete": true,
+  "lifetime_count": 3,
+  "flows": [
+    {
+      "port": 56970,
+      "case": "readiness",
+      "namespace_sent_bytes": 231,
+      "namespace_sent_sha256": "5eecc6b4d737fcadbb8356aa0839119da65a3d2e77dca799bc23d39e6f4487b2",
+      "namespace_received_bytes": 2759,
+      "namespace_received_sha256": "7f5cad68aaca975d221a5216ac98a6d4241c3557a543afb83e66799a1da23dc2",
+      "namespace_terminal_flags": [
+        17,
+        17
+      ],
+      "guest_sent_bytes": 231,
+      "guest_sent_sha256": "5eecc6b4d737fcadbb8356aa0839119da65a3d2e77dca799bc23d39e6f4487b2",
+      "guest_received_bytes": 2759,
+      "guest_received_sha256": "7f5cad68aaca975d221a5216ac98a6d4241c3557a543afb83e66799a1da23dc2",
+      "guest_terminal_flags": [
+        17,
+        17
+      ],
+      "recorder_sent_bytes": 231,
+      "recorder_sent_sha256": "5eecc6b4d737fcadbb8356aa0839119da65a3d2e77dca799bc23d39e6f4487b2",
+      "recorder_received_bytes": 2759,
+      "recorder_received_sha256": "7f5cad68aaca975d221a5216ac98a6d4241c3557a543afb83e66799a1da23dc2"
+    },
+    {
+      "port": 36006,
+      "case": "main",
+      "namespace_sent_bytes": 185,
+      "namespace_sent_sha256": "addad6bbf3f5a83618f95b84f0a22cbc87a41ce266381cc9c3ef9b80240a9643",
+      "namespace_received_bytes": 493,
+      "namespace_received_sha256": "a2528ff378768b0a9ed3f9b392c25d647b2d6ec1135364a4a7bc5aab8ef50942",
+      "namespace_terminal_flags": [
+        17,
+        17
+      ],
+      "guest_sent_bytes": 185,
+      "guest_sent_sha256": "addad6bbf3f5a83618f95b84f0a22cbc87a41ce266381cc9c3ef9b80240a9643",
+      "guest_received_bytes": 493,
+      "guest_received_sha256": "a2528ff378768b0a9ed3f9b392c25d647b2d6ec1135364a4a7bc5aab8ef50942",
+      "guest_terminal_flags": [
+        4
+      ],
+      "recorder_sent_bytes": 185,
+      "recorder_sent_sha256": "addad6bbf3f5a83618f95b84f0a22cbc87a41ce266381cc9c3ef9b80240a9643",
+      "recorder_received_bytes": 493,
+      "recorder_received_sha256": "a2528ff378768b0a9ed3f9b392c25d647b2d6ec1135364a4a7bc5aab8ef50942"
+    },
+    {
+      "port": 36020,
+      "case": "subject",
+      "namespace_sent_bytes": 105,
+      "namespace_sent_sha256": "84770f990a82f85cbbc7ed2ac4db358b9236b61b600c5c8845029ccf8e0dafd6",
+      "namespace_received_bytes": 440,
+      "namespace_received_sha256": "d9e41cee02aa9e1914bd28af7c3f652536bbc6288c81f922df8ca0fd5582b1cf",
+      "namespace_terminal_flags": [
+        17,
+        17
+      ],
+      "guest_sent_bytes": 105,
+      "guest_sent_sha256": "84770f990a82f85cbbc7ed2ac4db358b9236b61b600c5c8845029ccf8e0dafd6",
+      "guest_received_bytes": 440,
+      "guest_received_sha256": "d9e41cee02aa9e1914bd28af7c3f652536bbc6288c81f922df8ca0fd5582b1cf",
+      "guest_terminal_flags": [
+        4
+      ],
+      "recorder_sent_bytes": 105,
+      "recorder_sent_sha256": "84770f990a82f85cbbc7ed2ac4db358b9236b61b600c5c8845029ccf8e0dafd6",
+      "recorder_received_bytes": 440,
+      "recorder_received_sha256": "d9e41cee02aa9e1914bd28af7c3f652536bbc6288c81f922df8ca0fd5582b1cf"
+    }
+  ],
+  "primary_pcap_header_only": true,
+  "pcaps": {
+    "primary-syn.pcap": {
+      "bytes": 24,
+      "sha256": "704e5e5b3234433c01fcfd1b20a306e77e985038120492dc53965c3edd38a4ea"
+    },
+    "namespace.pcap": {
+      "bytes": 10271,
+      "sha256": "feed7bab4ecef2ff451d80683577f935bce9f8ec2935f2adcc15d24a6a5263b3"
+    },
+    "guest.pcap": {
+      "bytes": 11215,
+      "sha256": "f54d73c4be4f7ccd53526a395d0f753a1315920cc1c6e061e5afda0fc32cf03f"
+    }
+  }
+}

@@ -1,0 +1,340 @@
+{
+  "data_path": "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+  "data_sha256": "7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315",
+  "resource_path": "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/.rsrc/Hotline Client 1.9.2 Classic",
+  "resource_sha256": "f762cfdedcc39758f841f720a4586dbbb88a7b74ec9e83db1793791b7c3f318b",
+  "length": 1410822,
+  "container": {
+    "tag": "Joy!",
+    "format": "peff",
+    "arch": "pwpc",
+    "format_version": 1,
+    "timestamp_raw": 3128173263,
+    "section_count": 3,
+    "instantiated_sections": 2,
+    "sections": [
+      {
+        "index": 0,
+        "header_file_offset": "0x28",
+        "name_offset": "0xffffffff",
+        "default_address": "0x0",
+        "total_size": "0x135810",
+        "unpacked_size": "0x135810",
+        "packed_size": "0x135810",
+        "container_file_offset": "0x41c0",
+        "kind": 0,
+        "share_kind": 4,
+        "alignment": 4
+      },
+      {
+        "index": 1,
+        "header_file_offset": "0x44",
+        "name_offset": "0xffffffff",
+        "default_address": "0x0",
+        "total_size": "0x2d3c6",
+        "unpacked_size": "0x246e9",
+        "packed_size": "0x1ed36",
+        "container_file_offset": "0x1399d0",
+        "kind": 2,
+        "share_kind": 1,
+        "alignment": 4
+      },
+      {
+        "index": 2,
+        "header_file_offset": "0x60",
+        "name_offset": "0xffffffff",
+        "default_address": "0x0",
+        "total_size": "0x0",
+        "unpacked_size": "0x0",
+        "packed_size": "0x4140",
+        "container_file_offset": "0x80",
+        "kind": 4,
+        "share_kind": 4,
+        "alignment": 4
+      }
+    ],
+    "loader": {
+      "main_section": 1,
+      "main_offset": "0x52e0",
+      "init_section": -1,
+      "init_offset": "0x0",
+      "term_section": -1,
+      "term_offset": "0x0"
+    }
+  },
+  "immediate_scan": {
+    "111": [
+      {
+        "file_offset": "0x26d78",
+        "section0_offset": "0x22bb8",
+        "word": "0x3800006f",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x48a84",
+        "section0_offset": "0x448c4",
+        "word": "0x3863006f",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x49608",
+        "section0_offset": "0x45448",
+        "word": "0x3863006f",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x7d690",
+        "section0_offset": "0x794d0",
+        "word": "0x2c00006f",
+        "opcode": 11
+      },
+      {
+        "file_offset": "0xb6454",
+        "section0_offset": "0xb2294",
+        "word": "0x3880006f",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0xb6a60",
+        "section0_offset": "0xb28a0",
+        "word": "0x3880006f",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0xd347c",
+        "section0_offset": "0xcf2bc",
+        "word": "0x3880006f",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0xda1f4",
+        "section0_offset": "0xd6034",
+        "word": "0x3800006f",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0xe056c",
+        "section0_offset": "0xdc3ac",
+        "word": "0x2800006f",
+        "opcode": 10
+      },
+      {
+        "file_offset": "0xeaeb0",
+        "section0_offset": "0xe6cf0",
+        "word": "0x3899006f",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0xf3bd0",
+        "section0_offset": "0xefa10",
+        "word": "0x3880006f",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0xf7e00",
+        "section0_offset": "0xf3c40",
+        "word": "0x38bd006f",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0xf8774",
+        "section0_offset": "0xf45b4",
+        "word": "0x387d006f",
+        "opcode": 14
+      }
+    ],
+    "349": [
+      {
+        "file_offset": "0x10228",
+        "section0_offset": "0xc068",
+        "word": "0x3880015d",
+        "opcode": 14
+      }
+    ],
+    "350": [
+      {
+        "file_offset": "0x1058c",
+        "section0_offset": "0xc3cc",
+        "word": "0x3880015e",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x23694",
+        "section0_offset": "0x1f4d4",
+        "word": "0x3800015e",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x23744",
+        "section0_offset": "0x1f584",
+        "word": "0x3800015e",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x237fc",
+        "section0_offset": "0x1f63c",
+        "word": "0x3800015e",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x2a3fc",
+        "section0_offset": "0x2623c",
+        "word": "0x3880015e",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x316fc",
+        "section0_offset": "0x2d53c",
+        "word": "0x3800015e",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x363c8",
+        "section0_offset": "0x32208",
+        "word": "0x3800015e",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x39940",
+        "section0_offset": "0x35780",
+        "word": "0x3800015e",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x399bc",
+        "section0_offset": "0x357fc",
+        "word": "0x3800015e",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x39de4",
+        "section0_offset": "0x35c24",
+        "word": "0x3800015e",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x39e60",
+        "section0_offset": "0x35ca0",
+        "word": "0x3800015e",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x3a2d4",
+        "section0_offset": "0x36114",
+        "word": "0x3800015e",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x3a350",
+        "section0_offset": "0x36190",
+        "word": "0x3800015e",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x66854",
+        "section0_offset": "0x62694",
+        "word": "0x3800015e",
+        "opcode": 14
+      }
+    ],
+    "353": [
+      {
+        "file_offset": "0x10b94",
+        "section0_offset": "0xc9d4",
+        "word": "0x38800161",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x12714",
+        "section0_offset": "0xe554",
+        "word": "0x387f0161",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x12730",
+        "section0_offset": "0xe570",
+        "word": "0x38bf0161",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x12750",
+        "section0_offset": "0xe590",
+        "word": "0x38bf0161",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x12774",
+        "section0_offset": "0xe5b4",
+        "word": "0x387f0161",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x127a8",
+        "section0_offset": "0xe5e8",
+        "word": "0x387f0161",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x286d0",
+        "section0_offset": "0x24510",
+        "word": "0x38800161",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x295cc",
+        "section0_offset": "0x2540c",
+        "word": "0x38800161",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x2a5e4",
+        "section0_offset": "0x26424",
+        "word": "0x38800161",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x2a780",
+        "section0_offset": "0x265c0",
+        "word": "0x38800161",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x2bff8",
+        "section0_offset": "0x27e38",
+        "word": "0x38800161",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x32090",
+        "section0_offset": "0x2ded0",
+        "word": "0x38800161",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x36470",
+        "section0_offset": "0x322b0",
+        "word": "0x38000161",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x36500",
+        "section0_offset": "0x32340",
+        "word": "0x38000161",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x40924",
+        "section0_offset": "0x3c764",
+        "word": "0x38610161",
+        "opcode": 14
+      },
+      {
+        "file_offset": "0x40b24",
+        "section0_offset": "0x3c964",
+        "word": "0x38610161",
+        "opcode": 14
+      }
+    ]
+  },
+  "scan_limit": "Only aligned section-0 words with low 16 bits equal to target and selected immediate opcodes; hits are candidate instruction bytes, not calls or data flow"
+}

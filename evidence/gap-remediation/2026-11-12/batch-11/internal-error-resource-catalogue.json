@@ -1,0 +1,266 @@
+{
+  "method": "Decode the saved IVA1 EMSG resource lookup table following native helper10079b20. Internal class/code messages are not general transaction status values.",
+  "resource_inventory": "../batch-09/resource-inventory.json",
+  "domains": [
+    {
+      "internal_domain": 1,
+      "resource_sha256": "65d7564b0b2123a12d2b467c8f368a25d94ab6390a8d527ec1e91d8ccbe4e2ab",
+      "entries": [
+        {
+          "internal_code": 1,
+          "text": "An unknown error has occured."
+        },
+        {
+          "internal_code": 2,
+          "text": "An unknown error has occured (invalid value)."
+        },
+        {
+          "internal_code": 3,
+          "text": "An unknown error has occured (protocol breach)."
+        },
+        {
+          "internal_code": 4,
+          "text": "Operation is unimplemented."
+        },
+        {
+          "internal_code": 5,
+          "text": "Operation timed out."
+        },
+        {
+          "internal_code": 6,
+          "text": "Operation was aborted."
+        },
+        {
+          "internal_code": 7,
+          "text": "Data version is not compatible."
+        },
+        {
+          "internal_code": 8,
+          "text": "Data format is not compatible."
+        },
+        {
+          "internal_code": 9,
+          "text": "Data is corrupt."
+        },
+        {
+          "internal_code": 10,
+          "text": "Internal limit cannot be exceeded."
+        },
+        {
+          "internal_code": 11,
+          "text": "Value is out of range."
+        },
+        {
+          "internal_code": 12,
+          "text": "Specified item does not exist."
+        },
+        {
+          "internal_code": 13,
+          "text": "An item with the same identifier already exists."
+        }
+      ]
+    },
+    {
+      "internal_domain": 4,
+      "resource_sha256": "92b00256ec7ec2b5e5e2386e9dd0533da40de640702deebeb2a2df457ffda36f",
+      "entries": [
+        {
+          "internal_code": 100,
+          "text": "An unknown file system error has occured."
+        },
+        {
+          "internal_code": 101,
+          "text": "Not enough disk space.  Try deleting unwanted files to free up more space."
+        },
+        {
+          "internal_code": 102,
+          "text": "Specified file or folder does not exist."
+        },
+        {
+          "internal_code": 103,
+          "text": "Specified file does not exist."
+        },
+        {
+          "internal_code": 104,
+          "text": "Specified folder does not exist."
+        },
+        {
+          "internal_code": 105,
+          "text": "Specified disk does not exist."
+        },
+        {
+          "internal_code": 106,
+          "text": "Disk is damaged."
+        },
+        {
+          "internal_code": 107,
+          "text": "Disk software is damaged."
+        },
+        {
+          "internal_code": 108,
+          "text": "Disk hardware is damaged."
+        },
+        {
+          "internal_code": 109,
+          "text": "Disk is of unknown format."
+        },
+        {
+          "internal_code": 110,
+          "text": "Disk does not support operation."
+        },
+        {
+          "internal_code": 111,
+          "text": "File system item is locked and can't be changed."
+        },
+        {
+          "internal_code": 112,
+          "text": "Disk is locked or read-only and can't be changed."
+        },
+        {
+          "internal_code": 113,
+          "text": "File is locked and can't be changed.  Unlock the file and try again."
+        },
+        {
+          "internal_code": 114,
+          "text": "Folder is locked and can't be changed.  Unlock the folder and try again."
+        },
+        {
+          "internal_code": 115,
+          "text": "A file or folder with the specified name already exists."
+        },
+        {
+          "internal_code": 116,
+          "text": "Cannot open or delete file because it is in use (busy)."
+        },
+        {
+          "internal_code": 117,
+          "text": "User does not have access to the specified file or folder."
+        },
+        {
+          "internal_code": 118,
+          "text": "User does not have permission to change the specified file or folder."
+        },
+        {
+          "internal_code": 119,
+          "text": "A bad file or folder name was specified."
+        },
+        {
+          "internal_code": 120,
+          "text": "The end of a file was encountered unexpectedly."
+        },
+        {
+          "internal_code": 121,
+          "text": "Disk is offline and can't be accessed.  If ejected, reinsert the disk and try again."
+        },
+        {
+          "internal_code": 122,
+          "text": "Cannot move folder into itself."
+        },
+        {
+          "internal_code": 123,
+          "text": "Disk unexpectedly vanished! (disconnected)"
+        },
+        {
+          "internal_code": 124,
+          "text": "Expected file, but got folder."
+        },
+        {
+          "internal_code": 125,
+          "text": "Expected folder, but got file."
+        },
+        {
+          "internal_code": 126,
+          "text": "Expected different file/folder, but same file/folder was specified."
+        },
+        {
+          "internal_code": 127,
+          "text": "User is not authorized to perform operation."
+        },
+        {
+          "internal_code": 128,
+          "text": "Cannot resolve alias because the original item cannot be found."
+        },
+        {
+          "internal_code": 129,
+          "text": "Expected files/folders to be on the same disk (but they're not)."
+        }
+      ]
+    },
+    {
+      "internal_domain": 3,
+      "resource_sha256": "bef73443cb2c3a305f012413bccf80df23baf46cacbf0d457ee8ae9eb3684255",
+      "entries": [
+        {
+          "internal_code": 100,
+          "text": "An unknown memory related error has occured."
+        },
+        {
+          "internal_code": 101,
+          "text": "Not enough memory.  Try closing windows and saving documents."
+        },
+        {
+          "internal_code": 102,
+          "text": "Memory block is not valid."
+        }
+      ]
+    },
+    {
+      "internal_domain": 8,
+      "resource_sha256": "45756cd159fb0833973ffc235521c76b8a2c447ff850bca06d4b0e48757e0aff",
+      "entries": [
+        {
+          "internal_code": 100,
+          "text": "An unknown transport related error has occurred."
+        },
+        {
+          "internal_code": 101,
+          "text": "Network address is not valid."
+        },
+        {
+          "internal_code": 102,
+          "text": "Connection unexpectedly closed."
+        },
+        {
+          "internal_code": 103,
+          "text": "Connection timed out waiting for remote host."
+        },
+        {
+          "internal_code": 104,
+          "text": "Remote host refused connection."
+        },
+        {
+          "internal_code": 105,
+          "text": "Remote host is not responding."
+        },
+        {
+          "internal_code": 106,
+          "text": "Remote host is unreachable (no route to host)."
+        },
+        {
+          "internal_code": 107,
+          "text": "Transport error:  invalid configuration."
+        },
+        {
+          "internal_code": 108,
+          "text": "Transport error:  pending action incompatible with requested action."
+        },
+        {
+          "internal_code": 109,
+          "text": "TCP/IP ability is required but not available.  Please install the necessary software."
+        },
+        {
+          "internal_code": 110,
+          "text": "Transport support is required but not available.  Please install the necessary software."
+        },
+        {
+          "internal_code": 111,
+          "text": "Transport error:  timed out waiting for data from remote host."
+        },
+        {
+          "internal_code": 112,
+          "text": "Cannot bind to the specified address because it is already in use."
+        }
+      ]
+    }
+  ]
+}

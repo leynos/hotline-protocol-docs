@@ -1,0 +1,8 @@
+{
+  "proxy_pid_gone": true,
+  "control_and_data_relayed": true,
+  "ack_to_teardown_seconds": 28.097680969,
+  "status": "intentional-observation-cutoff",
+  "errors": [],
+  "runner_failures": []
+}

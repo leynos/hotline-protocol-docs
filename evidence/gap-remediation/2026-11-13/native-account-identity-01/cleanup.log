@@ -1,0 +1,2 @@
+cleanup completed  [('main', 0, 1, 0), ('main', 354, 1, 0), ('main', 109, 2, 0), ('main', 0, 10, 0), ('main', 0, 20, 0), ('main', 0, 21, 0)]
+final completed  [('main', 0, 1, 0), ('main', 354, 1, 0), ('main', 109, 2, 0), ('main', 0, 10, 0), ('main', 0, 11, 0), ('main', 0, 20, 1), ('main', 0, 21, 1), ('main', 0, 22, 1)]

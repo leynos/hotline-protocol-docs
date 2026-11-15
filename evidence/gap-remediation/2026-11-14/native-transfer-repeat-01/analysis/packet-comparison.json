@@ -1,0 +1,198 @@
+{
+  "utc": "2026-11-14T00:11:25.663985+00:00",
+  "runs": {
+    "c32": {
+      "status": "completed",
+      "completed_actions": 29,
+      "error": "",
+      "driver_sha256": "2fba0972f4d9a8e3845c4204dce150dd7c90da0e19a9e5720d5289e2c94faf01",
+      "report_plan_sha256": "36f8fb8910ace24b441d5aa01766c86a87131c84b3e2bdabd577a7940caf8dd1",
+      "source_steps_sha256": "424b82b2899463ce998c7f9df831ded38903052061b809e69b3fbc57c5e0dfca",
+      "asrun_steps_same": true,
+      "data_endpoint": {
+        "host": "127.0.0.1",
+        "port": 15721
+      },
+      "local_port": 42934,
+      "recorder_bytes": 1049073,
+      "recorder_sha256": "7d1f5bf5e2b69b8a18906633ce2ef550876b78252c0639e7d36eb61142787ab8",
+      "htxf_hex": "485458460001f8050000000000000000",
+      "started_at_utc": "2026-11-13T22:33:20.669527+00:00",
+      "transfer_event_elapsed_ns": 494235144,
+      "views": {
+        "namespace": {
+          "pcap_path": "state/native-sessions/native-banlab-boot-c31/lab-namespace.pcap",
+          "pcap_sha256": "a86e13cc783efdbb474e137361b9e5e5392d752a6916d3269cf522db1700f8a2",
+          "all_tcp_packets": 1669,
+          "flow_packets": 1546,
+          "server_payload_packets": 769,
+          "server_bytes": 1049073,
+          "server_sha256": "7d1f5bf5e2b69b8a18906633ce2ef550876b78252c0639e7d36eb61142787ab8",
+          "client_htxf_bytes": 16,
+          "first_server_packet_index": 35,
+          "last_server_packet_index": 1571,
+          "first_payload_us": 1794609201204705,
+          "last_payload_us": 1794609205317586,
+          "payload_span_us": 4112881,
+          "payload_sizes": {
+            "213": 1,
+            "892": 127,
+            "1176": 1,
+            "1460": 640
+          },
+          "fin_count": 2,
+          "rst_count": 0
+        },
+        "guest": {
+          "pcap_path": "state/native-sessions/native-banlab-boot-c31/lab-guest.pcap",
+          "pcap_sha256": "4b6896006be90149bd7f6e783c3f01eb9364bc6efedae5a5730405f05c3b0069",
+          "all_tcp_packets": 1684,
+          "flow_packets": 1544,
+          "server_payload_packets": 769,
+          "server_bytes": 1049073,
+          "server_sha256": "7d1f5bf5e2b69b8a18906633ce2ef550876b78252c0639e7d36eb61142787ab8",
+          "client_htxf_bytes": 16,
+          "first_server_packet_index": 48,
+          "last_server_packet_index": 1578,
+          "first_payload_us": 1794609201202838,
+          "last_payload_us": 1794609205281304,
+          "payload_span_us": 4078466,
+          "payload_sizes": {
+            "213": 1,
+            "892": 127,
+            "1176": 1,
+            "1460": 640
+          },
+          "fin_count": 0,
+          "rst_count": 1
+        }
+      }
+    },
+    "c35": {
+      "status": "failed",
+      "completed_actions": 21,
+      "error": "TimeoutError: timed out",
+      "driver_sha256": "2fba0972f4d9a8e3845c4204dce150dd7c90da0e19a9e5720d5289e2c94faf01",
+      "report_plan_sha256": "7a3f6ab1d878181c8805026ef9d79cd278ace9e4a2352978e42647fc9ad300bf",
+      "source_steps_sha256": "424b82b2899463ce998c7f9df831ded38903052061b809e69b3fbc57c5e0dfca",
+      "asrun_steps_same": true,
+      "data_endpoint": {
+        "host": "127.0.0.1",
+        "port": 15731
+      },
+      "local_port": 60206,
+      "recorder_bytes": 98304,
+      "recorder_sha256": "b4c6dc15be0d82de42d3aa7102c1feca67397b978591ac8be2d2c846d6a62e7c",
+      "htxf_hex": "48545846000100970000000000000000",
+      "started_at_utc": "2026-11-13T23:06:28.802206+00:00",
+      "transfer_event_elapsed_ns": 3653082432,
+      "views": {
+        "namespace": {
+          "pcap_path": "state/native-sessions/native-banlab-boot-c34/lab-namespace.pcap",
+          "pcap_sha256": "837f3b1a37164acf5d7df4223b46f59cdbc2387539ff1b79235a5c0deb17578c",
+          "all_tcp_packets": 184,
+          "flow_packets": 152,
+          "server_payload_packets": 72,
+          "server_bytes": 98304,
+          "server_sha256": "b4c6dc15be0d82de42d3aa7102c1feca67397b978591ac8be2d2c846d6a62e7c",
+          "client_htxf_bytes": 16,
+          "first_server_packet_index": 34,
+          "last_server_packet_index": 177,
+          "first_payload_us": 1794611192480223,
+          "last_payload_us": 1794611192848662,
+          "payload_span_us": 368439,
+          "payload_sizes": {
+            "892": 12,
+            "1460": 60
+          },
+          "fin_count": 2,
+          "rst_count": 0
+        },
+        "guest": {
+          "pcap_path": "state/native-sessions/native-banlab-boot-c34/lab-guest.pcap",
+          "pcap_sha256": "e7b156e0955300f915e9315af1fbc1c6575e4e57f845203c2c0de8506030eff7",
+          "all_tcp_packets": 187,
+          "flow_packets": 151,
+          "server_payload_packets": 72,
+          "server_bytes": 98304,
+          "server_sha256": "b4c6dc15be0d82de42d3aa7102c1feca67397b978591ac8be2d2c846d6a62e7c",
+          "client_htxf_bytes": 16,
+          "first_server_packet_index": 47,
+          "last_server_packet_index": 184,
+          "first_payload_us": 1794611192477509,
+          "last_payload_us": 1794611192817578,
+          "payload_span_us": 340069,
+          "payload_sizes": {
+            "892": 12,
+            "1460": 60
+          },
+          "fin_count": 1,
+          "rst_count": 1
+        }
+      }
+    },
+    "c45": {
+      "status": "failed",
+      "completed_actions": 21,
+      "error": "TimeoutError: timed out",
+      "driver_sha256": "2fba0972f4d9a8e3845c4204dce150dd7c90da0e19a9e5720d5289e2c94faf01",
+      "report_plan_sha256": "f2f8544213ade9483584cd61142515c270c3d08fd87b1fec36dfb9c10156cc72",
+      "source_steps_sha256": "424b82b2899463ce998c7f9df831ded38903052061b809e69b3fbc57c5e0dfca",
+      "asrun_steps_same": true,
+      "data_endpoint": {
+        "host": "127.0.0.1",
+        "port": 15741
+      },
+      "local_port": 42946,
+      "recorder_bytes": 98304,
+      "recorder_sha256": "b4c6dc15be0d82de42d3aa7102c1feca67397b978591ac8be2d2c846d6a62e7c",
+      "htxf_hex": "4854584600019dd10000000000000000",
+      "started_at_utc": "2026-11-14T00:00:05.529906+00:00",
+      "transfer_event_elapsed_ns": 213096089,
+      "views": {
+        "namespace": {
+          "pcap_path": "state/native-sessions/native-banlab-boot-c44/lab-namespace.pcap",
+          "pcap_sha256": "d09faa91a5349318e7dca7f8fb31cd9f9d531184be9e6f302faae7c1003e0da5",
+          "all_tcp_packets": 184,
+          "flow_packets": 152,
+          "server_payload_packets": 72,
+          "server_bytes": 98304,
+          "server_sha256": "b4c6dc15be0d82de42d3aa7102c1feca67397b978591ac8be2d2c846d6a62e7c",
+          "client_htxf_bytes": 16,
+          "first_server_packet_index": 34,
+          "last_server_packet_index": 177,
+          "first_payload_us": 1794614405773999,
+          "last_payload_us": 1794614406139112,
+          "payload_span_us": 365113,
+          "payload_sizes": {
+            "892": 12,
+            "1460": 60
+          },
+          "fin_count": 2,
+          "rst_count": 0
+        },
+        "guest": {
+          "pcap_path": "state/native-sessions/native-banlab-boot-c44/lab-guest.pcap",
+          "pcap_sha256": "5b1b73d7dfae1731a36d305fca1633f3146c50e40569f4e21370c7d6a7d1cf2e",
+          "all_tcp_packets": 186,
+          "flow_packets": 154,
+          "server_payload_packets": 72,
+          "server_bytes": 98304,
+          "server_sha256": "b4c6dc15be0d82de42d3aa7102c1feca67397b978591ac8be2d2c846d6a62e7c",
+          "client_htxf_bytes": 16,
+          "first_server_packet_index": 43,
+          "last_server_packet_index": 180,
+          "first_payload_us": 1794614405772895,
+          "last_payload_us": 1794614406108293,
+          "payload_span_us": 335398,
+          "payload_sizes": {
+            "892": 12,
+            "1460": 60
+          },
+          "fin_count": 3,
+          "rst_count": 0
+        }
+      }
+    }
+  }
+}

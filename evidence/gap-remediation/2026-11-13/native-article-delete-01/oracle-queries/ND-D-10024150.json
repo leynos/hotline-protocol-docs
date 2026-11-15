@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-13T07:43:12.638620+00:00",
+  "query": {
+    "id": "ND-D-10024150",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10024150"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_10024150\",\n    \"address\": \"10024150\"\n  },\n  \"code\": \"\\nvoid FUN_10024150(undefined4 param_1,int param_2,int *param_3,uint param_4,int param_5)\\n\\n{\\n  bool bVar1;\\n  int iVar2;\\n  uint uVar3;\\n  uint uVar4;\\n  int iVar5;\\n  byte abStack_420 [1032];\\n  \\n  iVar2 = param_2 * (*param_3 + -1) + 0x200;\\n  iVar5 = (param_4 - 1 >> 3) + iVar2;\\n  uVar4 = (iVar2 + (param_4 + param_5 + 7 >> 3)) - iVar5;\\n  if (0x400 < uVar4) {\\n    FUN_10027c30(1,0xb);\\n  }\\n  FUN_1002c3b0(param_1,iVar5,abStack_420,uVar4,0);\\n  uVar3 = param_4 - 1 & 7;\\n  while (bVar1 = param_5 != 0, param_5 = param_5 + -1, bVar1) {\\n    abStack_420[uVar3 >> 3] = abStack_420[uVar3 >> 3] & ~(byte)(1 << (7 - (uVar3 & 7) & 0x3f));\\n    uVar3 = uVar3 + 1;\\n  }\\n  FUN_1002c440(param_1,iVar5,abStack_420,uVar4,0);\\n  if (param_4 < (uint)param_3[2]) {\\n    param_3[2] = param_4;\\n    FUN_1002c440(param_1,0x3c,param_3,0xc,0);\\n  }\\n  return;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_10024150",
+        "address": "10024150"
+      },
+      "code": "\nvoid FUN_10024150(undefined4 param_1,int param_2,int *param_3,uint param_4,int param_5)\n\n{\n  bool bVar1;\n  int iVar2;\n  uint uVar3;\n  uint uVar4;\n  int iVar5;\n  byte abStack_420 [1032];\n  \n  iVar2 = param_2 * (*param_3 + -1) + 0x200;\n  iVar5 = (param_4 - 1 >> 3) + iVar2;\n  uVar4 = (iVar2 + (param_4 + param_5 + 7 >> 3)) - iVar5;\n  if (0x400 < uVar4) {\n    FUN_10027c30(1,0xb);\n  }\n  FUN_1002c3b0(param_1,iVar5,abStack_420,uVar4,0);\n  uVar3 = param_4 - 1 & 7;\n  while (bVar1 = param_5 != 0, param_5 = param_5 + -1, bVar1) {\n    abStack_420[uVar3 >> 3] = abStack_420[uVar3 >> 3] & ~(byte)(1 << (7 - (uVar3 & 7) & 0x3f));\n    uVar3 = uVar3 + 1;\n  }\n  FUN_1002c440(param_1,iVar5,abStack_420,uVar4,0);\n  if (param_4 < (uint)param_3[2]) {\n    param_3[2] = param_4;\n    FUN_1002c440(param_1,0x3c,param_3,0xc,0);\n  }\n  return;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

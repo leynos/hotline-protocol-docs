@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T12:12:29.158575+00:00",
+  "query": {
+    "id": "D-10010470",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10010470"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_10010470\",\n    \"address\": \"10010470\"\n  },\n  \"code\": \"\\nvoid FUN_10010470(undefined4 param_1,int param_2,undefined4 param_3,undefined4 param_4)\\n\\n{\\n  undefined4 uVar1;\\n  char cVar7;\\n  int iVar2;\\n  int iVar3;\\n  undefined4 uVar4;\\n  int iVar5;\\n  int iVar6;\\n  undefined1 auStack_828 [2064];\\n  \\n  uVar1 = FUN_10056b60(param_4,0x145,auStack_828,0x800);\\n  cVar7 = FUN_10008ad0(param_1,param_2,0x15);\\n  if (cVar7 == '\\\\0') {\\n    uVar1 = FUN_10056380(0,0);\\n    FUN_10056ae0(uVar1,100,0x100907f1);\\n    FUN_10058a10(param_3,1);\\n    FUN_10058a70(param_3,uVar1);\\n    FUN_100563d0(uVar1);\\n  }\\n  else {\\n    iVar2 = FUN_10007f40(param_1,param_2);\\n    iVar3 = FUN_1002b0e0(iVar2,auStack_828,uVar1,0,0x20a,0);\\n    if (iVar3 == 0) {\\n      uVar1 = FUN_10056380(0,0);\\n      FUN_10056ae0(uVar1,100,0x10090817);\\n      FUN_10058a10(param_3,1);\\n      FUN_10058a70(param_3,uVar1);\\n      FUN_100563d0(uVar1);\\n      FUN_1002b2f0(0);\\n      if (iVar2 != 0) {\\n        FUN_1002b2f0(iVar2);\\n      }\\n    }\\n    else {\\n      uVar1 = FUN_10056b90(param_4,0x146);\\n      FUN_10056c70(param_4,0x148,auStack_828,0x20);\\n      uVar4 = FUN_10056b90(param_4,0x14e);\\n      iVar5 = FUN_100229b0(iVar3,uVar1,auStack_828,param_2 + 0x38,uVar4,0,0);\\n      if (iVar5 == 0) {\\n        uVar1 = FUN_10056380(0,0);\\n        FUN_10056ae0(uVar1,100,0x1009085e);\\n        FUN_10058a10(param_3,1);\\n        FUN_10058a70(param_3,uVar1);\\n        FUN_100563d0(uVar1);\\n        FUN_1002b2f0(iVar3);\\n        if (iVar2 != 0) {\\n          FUN_1002b2f0(iVar2);\\n        }\\n      }\\n      else {\\n        FUN_10056cb0(param_4,0x147,auStack_828,0x20);\\n        iVar6 = FUN_100567c0(param_4,0x14d);\\n        if (iVar6 == 0) {\\n          uVar1 = FUN_10056380(0,0);\\n          FUN_10056ae0(uVar1,100,0x1009085e);\\n          FUN_10058a10(param_3,1);\\n          FUN_10058a70(param_3,uVar1);\\n          FUN_100563d0(uVar1);\\n          FUN_1002b2f0(iVar3);\\n          if (iVar2 != 0) {\\n            FUN_1002b2f0(iVar2);\\n          }\\n        }\\n        else {\\n          uVar1 = FUN_10052a10(iVar6);\\n          FUN_10056b60(param_4,0x14d,uVar1,iVar6);\\n          cVar7 = FUN_10022ea0(iVar3,iVar5,auStack_828,uVar1,iVar6);\\n          if (cVar7 == '\\\\0') {\\n            uVar4 = FUN_10056380(0,0);\\n            FUN_10056ae0(uVar4,100,0x10090896);\\n            FUN_10058a10(param_3,1);\\n            FUN_10058a70(param_3,uVar4);\\n            FUN_100563d0(uVar4);\\n            FUN_10052c10(uVar1);\\n            FUN_1002b2f0(iVar3);\\n            if (iVar2 != 0) {\\n              FUN_1002b2f0(iVar2);\\n            }\\n          }\\n          else {\\n            uVar4 = FUN_10056380(0,0);\\n            FUN_10058a70(param_3,uVar4);\\n            FUN_100563d0(uVar4);\\n            FUN_10052c10(uVar1);\\n            FUN_1002b2f0(iVar3);\\n            if (iVar2 != 0) {\\n              FUN_1002b2f0(iVar2);\\n            }\\n          }\\n        }\\n      }\\n    }\\n  }\\n  return;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_10010470",
+        "address": "10010470"
+      },
+      "code": "\nvoid FUN_10010470(undefined4 param_1,int param_2,undefined4 param_3,undefined4 param_4)\n\n{\n  undefined4 uVar1;\n  char cVar7;\n  int iVar2;\n  int iVar3;\n  undefined4 uVar4;\n  int iVar5;\n  int iVar6;\n  undefined1 auStack_828 [2064];\n  \n  uVar1 = FUN_10056b60(param_4,0x145,auStack_828,0x800);\n  cVar7 = FUN_10008ad0(param_1,param_2,0x15);\n  if (cVar7 == '\\0') {\n    uVar1 = FUN_10056380(0,0);\n    FUN_10056ae0(uVar1,100,0x100907f1);\n    FUN_10058a10(param_3,1);\n    FUN_10058a70(param_3,uVar1);\n    FUN_100563d0(uVar1);\n  }\n  else {\n    iVar2 = FUN_10007f40(param_1,param_2);\n    iVar3 = FUN_1002b0e0(iVar2,auStack_828,uVar1,0,0x20a,0);\n    if (iVar3 == 0) {\n      uVar1 = FUN_10056380(0,0);\n      FUN_10056ae0(uVar1,100,0x10090817);\n      FUN_10058a10(param_3,1);\n      FUN_10058a70(param_3,uVar1);\n      FUN_100563d0(uVar1);\n      FUN_1002b2f0(0);\n      if (iVar2 != 0) {\n        FUN_1002b2f0(iVar2);\n      }\n    }\n    else {\n      uVar1 = FUN_10056b90(param_4,0x146);\n      FUN_10056c70(param_4,0x148,auStack_828,0x20);\n      uVar4 = FUN_10056b90(param_4,0x14e);\n      iVar5 = FUN_100229b0(iVar3,uVar1,auStack_828,param_2 + 0x38,uVar4,0,0);\n      if (iVar5 == 0) {\n        uVar1 = FUN_10056380(0,0);\n        FUN_10056ae0(uVar1,100,0x1009085e);\n        FUN_10058a10(param_3,1);\n        FUN_10058a70(param_3,uVar1);\n        FUN_100563d0(uVar1);\n        FUN_1002b2f0(iVar3);\n        if (iVar2 != 0) {\n          FUN_1002b2f0(iVar2);\n        }\n      }\n      else {\n        FUN_10056cb0(param_4,0x147,auStack_828,0x20);\n        iVar6 = FUN_100567c0(param_4,0x14d);\n        if (iVar6 == 0) {\n          uVar1 = FUN_10056380(0,0);\n          FUN_10056ae0(uVar1,100,0x1009085e);\n          FUN_10058a10(param_3,1);\n          FUN_10058a70(param_3,uVar1);\n          FUN_100563d0(uVar1);\n          FUN_1002b2f0(iVar3);\n          if (iVar2 != 0) {\n            FUN_1002b2f0(iVar2);\n          }\n        }\n        else {\n          uVar1 = FUN_10052a10(iVar6);\n          FUN_10056b60(param_4,0x14d,uVar1,iVar6);\n          cVar7 = FUN_10022ea0(iVar3,iVar5,auStack_828,uVar1,iVar6);\n          if (cVar7 == '\\0') {\n            uVar4 = FUN_10056380(0,0);\n            FUN_10056ae0(uVar4,100,0x10090896);\n            FUN_10058a10(param_3,1);\n            FUN_10058a70(param_3,uVar4);\n            FUN_100563d0(uVar4);\n            FUN_10052c10(uVar1);\n            FUN_1002b2f0(iVar3);\n            if (iVar2 != 0) {\n              FUN_1002b2f0(iVar2);\n            }\n          }\n          else {\n            uVar4 = FUN_10056380(0,0);\n            FUN_10058a70(param_3,uVar4);\n            FUN_100563d0(uVar4);\n            FUN_10052c10(uVar1);\n            FUN_1002b2f0(iVar3);\n            if (iVar2 != 0) {\n              FUN_1002b2f0(iVar2);\n            }\n          }\n        }\n      }\n    }\n  }\n  return;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

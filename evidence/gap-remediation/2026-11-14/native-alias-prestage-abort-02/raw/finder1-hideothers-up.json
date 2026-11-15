@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "sudo",
+    "-n",
+    "python3",
+    "state/native-sessions/native-alias-live-preparation-04/ui-input-alias-live-04.py",
+    "startup",
+    "up",
+    "940",
+    "50"
+  ],
+  "exit": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/data/leynos/Projects/mothra/state/native-sessions/native-alias-live-preparation-04/ui-input-alias-live-04.py\", line 357, in <module>\n    main()\n    ~~~~^^\n  File \"/data/leynos/Projects/mothra/state/native-sessions/native-alias-live-preparation-04/ui-input-alias-live-04.py\", line 218, in main\n    assert args.x is args.y is None\n           ^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "before_utc": "2026-11-14T21:51:13.683770+00:00",
+  "after_utc": "2026-11-14T21:51:13.832114+00:00"
+}

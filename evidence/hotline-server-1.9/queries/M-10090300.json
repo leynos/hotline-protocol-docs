@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T12:10:41.876495+00:00",
+  "query": {
+    "id": "M-10090300",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "10090300",
+      "length": 512
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"address\": \"10090300\",\n  \"length\": 512,\n  \"hex\": \"6f 6f 20 6d 61 6e 79 20 72 65 73 65 74 73 21 20 54 65 72 6d 69 6e 61 74 69 6e 67 2e 2e 2e 00 53 45 52 56 45 52 20 52 45 53 45 54 20 2d 20 74 6f 6f 20 6d 61 6e 79 20 65 72 72 6f 72 73 00 41 75 74 6f 62 61 6e 6e 65 64 20 66 6f 72 20 66 6c 6f 6f 64 69 6e 67 00 43 6f 6e 6e 65 63 74 69 6f 6e 20 65 73 74 61 62 6c 69 73 68 65 64 00 49 6e 63 6f 6d 70 61 74 69 62 6c 65 20 76 65 72 73 69 6f 6e 20 28 25 34 2e 34 73 25 68 75 29 00 4b 69 6c 6c 65 64 20 75 6e 6b 6e 6f 77 6e 20 70 72 6f 74 6f 63 6f 6c 21 00 43 6f 6e 6e 65 63 74 69 6f 6e 20 63 6c 6f 73 65 64 00 44 6f 77 6e 6c 6f 61 64 20 63 6f 6e 6e 65 63 74 69 6f 6e 20 65 73 74 61 62 6c 69 73 68 65 64 00 55 70 6c 6f 61 64 20 63 6f 6e 6e 65 63 74 69 6f 6e 20 65 73 74 61 62 6c 69 73 68 65 64 00 54 72 61 6e 73 66 65 72 20 63 6f 6e 6e 65 63 74 69 6f 6e 20 65 73 74 61 62 6c 69 73 68 20 66 61 69 6c 65 64 21 00 44 6f 77 6e 6c 6f 61 64 20 61 62 6f 72 74 65 64 20 28 6e 6f 20 72 65 73 70 6f 6e 73 65 29 00 44 6f 77 6e 6c 6f 61 64 20 63 6f 6e 6e 65 63 74 69 6f 6e 20 63 6c 6f 73 65 64 00 44 6f 77 6e 6c 6f 61 64 20 63 6f 6d 70 6c 65 74 65 00 44 6f 77 6e 6c 6f 61 64 20 62 61 6e 6e 65 72 20 61 62 6f 72 74 65 64 20 28 6e 6f 20 72 65 73 70 6f 6e 73 65 29 00 44 6f 77 6e 6c 6f 61 64 20 62 61 6e 6e 65 72 20 63 6f 6d 70 6c 65 74 65 00 55 70 6c 6f 61 64 20 61 62 6f 72 74 65 64 20 28 6e 6f 20 72 65 73 70 6f 6e 73 65 29 00 55 70 6c 6f 61 64 20 61 62 6f 72 74 65 64 00 55 70 6c 6f 61 64 20 63 6f 6d 70 6c 65 74 65 00 55 70 6c 6f 61 64 20 66 6f 6c 64 65 72 20 69 74 65 6d 20 66 61 69 6c 65 64 00 55 70 6c\",\n  \"ascii\": \"oo many resets! Terminating....SERVER RESET - too many errors.Autobanned for flooding.Connection established.Incompatible version (%4.4s%hu).Killed unknown protocol!.Connection closed.Download connection established.Upload connection established.Transfer connection establish failed!.Download aborted (no response).Download connection closed.Download complete.Download banner aborted (no response).Download banner complete.Upload aborted (no response).Upload aborted.Upload complete.Upload folder item failed.Upl\",\n  \"gaps\": []\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "address": "10090300",
+      "length": 512,
+      "hex": "6f 6f 20 6d 61 6e 79 20 72 65 73 65 74 73 21 20 54 65 72 6d 69 6e 61 74 69 6e 67 2e 2e 2e 00 53 45 52 56 45 52 20 52 45 53 45 54 20 2d 20 74 6f 6f 20 6d 61 6e 79 20 65 72 72 6f 72 73 00 41 75 74 6f 62 61 6e 6e 65 64 20 66 6f 72 20 66 6c 6f 6f 64 69 6e 67 00 43 6f 6e 6e 65 63 74 69 6f 6e 20 65 73 74 61 62 6c 69 73 68 65 64 00 49 6e 63 6f 6d 70 61 74 69 62 6c 65 20 76 65 72 73 69 6f 6e 20 28 25 34 2e 34 73 25 68 75 29 00 4b 69 6c 6c 65 64 20 75 6e 6b 6e 6f 77 6e 20 70 72 6f 74 6f 63 6f 6c 21 00 43 6f 6e 6e 65 63 74 69 6f 6e 20 63 6c 6f 73 65 64 00 44 6f 77 6e 6c 6f 61 64 20 63 6f 6e 6e 65 63 74 69 6f 6e 20 65 73 74 61 62 6c 69 73 68 65 64 00 55 70 6c 6f 61 64 20 63 6f 6e 6e 65 63 74 69 6f 6e 20 65 73 74 61 62 6c 69 73 68 65 64 00 54 72 61 6e 73 66 65 72 20 63 6f 6e 6e 65 63 74 69 6f 6e 20 65 73 74 61 62 6c 69 73 68 20 66 61 69 6c 65 64 21 00 44 6f 77 6e 6c 6f 61 64 20 61 62 6f 72 74 65 64 20 28 6e 6f 20 72 65 73 70 6f 6e 73 65 29 00 44 6f 77 6e 6c 6f 61 64 20 63 6f 6e 6e 65 63 74 69 6f 6e 20 63 6c 6f 73 65 64 00 44 6f 77 6e 6c 6f 61 64 20 63 6f 6d 70 6c 65 74 65 00 44 6f 77 6e 6c 6f 61 64 20 62 61 6e 6e 65 72 20 61 62 6f 72 74 65 64 20 28 6e 6f 20 72 65 73 70 6f 6e 73 65 29 00 44 6f 77 6e 6c 6f 61 64 20 62 61 6e 6e 65 72 20 63 6f 6d 70 6c 65 74 65 00 55 70 6c 6f 61 64 20 61 62 6f 72 74 65 64 20 28 6e 6f 20 72 65 73 70 6f 6e 73 65 29 00 55 70 6c 6f 61 64 20 61 62 6f 72 74 65 64 00 55 70 6c 6f 61 64 20 63 6f 6d 70 6c 65 74 65 00 55 70 6c 6f 61 64 20 66 6f 6c 64 65 72 20 69 74 65 6d 20 66 61 69 6c 65 64 00 55 70 6c",
+      "ascii": "oo many resets! Terminating....SERVER RESET - too many errors.Autobanned for flooding.Connection established.Incompatible version (%4.4s%hu).Killed unknown protocol!.Connection closed.Download connection established.Upload connection established.Transfer connection establish failed!.Download aborted (no response).Download connection closed.Download complete.Download banner aborted (no response).Download banner complete.Upload aborted (no response).Upload aborted.Upload complete.Upload folder item failed.Upl",
+      "gaps": []
+    },
+    "isError": false
+  }
+}

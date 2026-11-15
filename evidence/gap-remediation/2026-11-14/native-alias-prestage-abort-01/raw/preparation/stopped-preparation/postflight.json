@@ -1,0 +1,35 @@
+{
+  "status": "prepared_stopped_postflight",
+  "utc": "2026-11-14T18:02:49.462681+00:00",
+  "preflight_sha256": "6b027fcff9227d2c19d3a937b75d9bde8f686ab5f66fae2bc13667d8f7fb6a2d",
+  "finf_supplement_sha256": "bbaf34a79522c21414e0cac77cb23669c0110124464751ec39aea92069cb3116",
+  "assets": [
+    {
+      "name": "base.dsk",
+      "inode": 2302714961,
+      "size": 8388608000,
+      "owner_free": true
+    },
+    {
+      "name": "working.dsk",
+      "inode": 2302714962,
+      "size": 8388608000,
+      "owner_free": true
+    },
+    {
+      "name": "rom",
+      "inode": 2302714960,
+      "size": 1945746,
+      "owner_free": true
+    }
+  ],
+  "free_bytes_after": 37773787136,
+  "original_ticks": {
+    "1099659": "767842",
+    "1012834": "2357813"
+  },
+  "services_started": false,
+  "vm_started": false,
+  "protocol_sockets_opened": false,
+  "raw_fork_bytes_retained": false
+}

@@ -1,0 +1,21 @@
+{
+  "utc": "2026-11-14T04:14:16.123922+00:00",
+  "unit": "mothra-b62-ns-capture.service",
+  "pid": 493745,
+  "start_ticks": 5435367,
+  "netns_inode": 4026532479,
+  "fd": 5,
+  "capture": "/data/leynos/Projects/mothra/state/native-sessions/native-proxy-roster-115-01/namespace.pcap",
+  "dev": 2097,
+  "inode": 66474032,
+  "header24": "d4c3b2a10200040000000000000000000000040001000000",
+  "deadline_utc": "2026-11-14T04:25:15+00:00",
+  "unit_properties": {
+    "ActiveState": "active",
+    "SubState": "running",
+    "ActiveEnterTimestampMonotonic": "54353690916",
+    "RuntimeMaxUSec": "15min",
+    "MainPID": "493745",
+    "KillMode": "control-group"
+  }
+}

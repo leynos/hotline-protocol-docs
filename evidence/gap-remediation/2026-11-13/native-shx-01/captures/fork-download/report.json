@@ -1,0 +1,596 @@
+{
+  "schema_version": 1,
+  "profile": "compiled-historical-peer",
+  "native_conformance": false,
+  "identity_scope": "Local hashes checked; remote native process identity remains operator-reported",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "peer_binary_sha256": "8fbbe56cef439d4c1732e8d9fbe2c676b9d45fbd273a42b22f8034e3b3914fa0",
+  "plan_sha256": "cedf1231a0db4303a9bea0cc8fa10e6afaa580c87eee1c23c83963ac0a244f6e",
+  "peer_profile_sha256": "ecd4760708c05703c38aa11771e1b7fe0a0570345128b934dd2ed9c666c79b91",
+  "driver_sha256": "f3e9bef66a4fe1171e391ad2570897848f2604e4859c6e5aacf7f0236ed182c8",
+  "started_at_utc": "2026-11-13T03:54:39.823651+00:00",
+  "environment": {
+    "emulator_pid": 774378,
+    "running_executable_sha256": "b109f5c470fca6a1a5e0e0eaec4b5f5658d0e45ddafabf6b59bb7c4b35340146",
+    "rom_and_base": {
+      "rom_sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+      "base_disk_sha256": "c36b7bc9c513b2b576d5e7bdd2d51c54a4d0af01a863e5154ce71274272a3ffe",
+      "source_rom": "/data/leynos/Projects/mothra/state/native-mac/Mac OS ROM",
+      "source_disk": "/data/leynos/Projects/mothra/state/native-mac/base-os9.dsk",
+      "archive_member": null
+    },
+    "launch": {
+      "command": [
+        "sudo",
+        "-n",
+        "setpriv",
+        "--reuid=1000",
+        "--regid=1000",
+        "--init-groups",
+        "--inh-caps=+sys_rawio",
+        "--ambient-caps=+sys_rawio",
+        "env",
+        "DISPLAY=:97",
+        "SDL_VIDEODRIVER=x11",
+        "SDL_AUDIODRIVER=dummy",
+        "MOTHRA_ETHERNET_PCAP=/data/leynos/Projects/mothra/state/native-sessions/runtime-04/guest.pcap",
+        "XDG_CACHE_HOME=/data/leynos/Projects/mothra/state/mac-runtime/hotline19/cache",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline19/SheepShaver-b109f5c470fca6a1a5e0e0eaec4b5f5658d0e45ddafabf6b59bb7c4b35340146",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline19/machine.sheepvm"
+      ],
+      "emulator_sha256": "b109f5c470fca6a1a5e0e0eaec4b5f5658d0e45ddafabf6b59bb7c4b35340146",
+      "host_ports": [
+        15500,
+        15501,
+        15502,
+        15503
+      ],
+      "tcp_bind": "127.0.0.1",
+      "guest_address": "10.0.2.15",
+      "guest_pcap": "/data/leynos/Projects/mothra/state/native-sessions/runtime-04/guest.pcap",
+      "guest_pcap_scope": "SLiRP Ethernet boundary; host wall-clock timestamps"
+    },
+    "source_application": {
+      "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+      "appledouble_sha256": "9ab8b9ec708ccdb8a4fed99b00162fd087c108b6039c7acc5943145bad419c2f",
+      "finder_info_sha256": "2bad82ff67c5c28b30be6d8b1f69f2a5e316b06b83d7c9a9c81c4968761e9bab",
+      "resource_fork_sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12",
+      "method": "AppleDouble entries9/2 copied to .finf/.rsrc; data fork unchanged"
+    },
+    "guest_os": "Mac OS9.0.4, PowerPC Enabler9.0.4,512MiB,virtual memory off; observed About This Computer",
+    "guest_components": "Base HFS+ catalog inventory has CarbonLib Preferences (US), but no named CarbonLib file located. No assertion about loaded/imported CarbonLib version.",
+    "server_path": "System 9:Hotline19:HLserver19",
+    "configuration": "Server quit and Mac OS shutdown completed cleanly before immutable prelaunch copy; full image hash retained; existing admin/mothra19 and fixture-low/next-pass accounts from prior core corpus; Sounds Disabled dialog acknowledged.",
+    "scope": "Full compiled historical peer sessions with repository-backed private home, read-only system namespace and syscall/paired TCP evidence",
+    "guest_native_file_verification": {
+      "method": "Read-only SleuthKit4.15.0 HFS+ inspection while application stopped; catalog11183",
+      "data_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+      "resource_sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12",
+      "finder_type": "APPL",
+      "finder_creator": "HTLS",
+      "resource_bytes": 38460
+    },
+    "prelaunch_disk_sha256": "3e9aed57f94982ab17f4c19ea6a416410d7b08c461ce7eb624c9fd4d7617e7ab",
+    "continuation_from": "native-login-extras-01: same live PID/executable, empty-name175-byte recordedPrefs restored, original245/242 agreement, LocalGIF58 and General100/10/5; no new accounts.",
+    "download_limits": {
+      "global": 100,
+      "per_session": 10,
+      "evidence": "native-queue-01/configuration/options-restored.png"
+    },
+    "banner_fixture_setup": "Uploaded GIFf/MOTH fixtures through203 into Files, then Finder-moved into application directory. Options Banner uses barefilename; fullpaths/relativepaths were failed setup probes."
+  },
+  "command": [
+    "/usr/sbin/bwrap",
+    "--unshare-user",
+    "--die-with-parent",
+    "--ro-bind",
+    "/",
+    "/",
+    "--bind",
+    "/data/leynos/Projects/mothra",
+    "/data/leynos/Projects/mothra",
+    "--bind",
+    "/data/leynos/Projects/mothra/state/native-sessions/runtime-17/captures/fork-download/home",
+    "/home/leynos",
+    "--bind",
+    "/data/leynos/Projects/mothra/state/native-sessions/runtime-17/captures/fork-download/tmp",
+    "/tmp",
+    "--proc",
+    "/proc",
+    "--dev",
+    "/dev",
+    "--chdir",
+    "/data/leynos/Projects/mothra/state/native-sessions/runtime-17/captures/fork-download/work",
+    "--",
+    "/usr/sbin/strace",
+    "-f",
+    "-ttt",
+    "-xx",
+    "-yy",
+    "-s",
+    "131072",
+    "-e",
+    "trace=network,read,write,close,execve,exit_group",
+    "-o",
+    "/data/leynos/Projects/mothra/state/native-sessions/runtime-17/captures/fork-download/syscalls.log",
+    "/data/leynos/Projects/mothra/tools/shx-peer/source/hx",
+    "-q",
+    "-d"
+  ],
+  "events": [
+    {
+      "event": "output",
+      "step": -1,
+      "elapsed_ns": 34364098,
+      "hex": "0d0a"
+    },
+    {
+      "event": "output",
+      "step": -1,
+      "elapsed_ns": 34495312,
+      "hex": "30333a35343a33392031312f31332f32303236092f646174612f6c65796e6f732f50726f6a656374732f6d6f746872612f746f6f6c732f7368782d706565722f736f757263652f68783a20696e76616c6964206f7074696f6e202d2d20640d0a"
+    },
+    {
+      "event": "output",
+      "step": -1,
+      "elapsed_ns": 47718932,
+      "hex": "0d0a"
+    },
+    {
+      "event": "output",
+      "step": -1,
+      "elapsed_ns": 47967451,
+      "hex": "201b5b33366d5b1b5b306d1b5b33326d68781b5b306d1b5b33366d5d1b5b306d2030333a35343a33392031312f31332f32303236092f646174612f6c65796e6f732f50726f6a656374732f6d6f746872612f746f6f6c732f7368782d706565722f736f757263652f68783a20696e76616c6964206f7074696f6e202d2d20710d0a"
+    },
+    {
+      "event": "output",
+      "step": -1,
+      "elapsed_ns": 48337320,
+      "hex": "72756e6e696e6720696e2064756d62207465726d696e616c206d6f64650d0a00"
+    },
+    {
+      "event": "input",
+      "step": 0,
+      "elapsed_ns": 1050361422,
+      "hex": "2f76657273696f6e0a"
+    },
+    {
+      "event": "output",
+      "step": 0,
+      "elapsed_ns": 1057405137,
+      "hex": "2f76657273696f6e"
+    },
+    {
+      "event": "output",
+      "step": 0,
+      "elapsed_ns": 1057784213,
+      "hex": "0d0a"
+    },
+    {
+      "event": "output",
+      "step": 0,
+      "elapsed_ns": 1059243912,
+      "hex": "201b5b33366d5b1b5b306d1b5b33326d68781b5b306d1b5b33366d5d1b5b306d2068782076657273696f6e20302e312e34380d0a"
+    },
+    {
+      "event": "input",
+      "step": 1,
+      "elapsed_ns": 1259804040,
+      "hex": "2f736572766572202d6f202d6c2061646d696e202d70206d6f746872613139202d6e207368782d706565722d61202d6920353030203132372e302e302e313a31353530300a"
+    },
+    {
+      "event": "output",
+      "step": 1,
+      "elapsed_ns": 1299259631,
+      "hex": "2f736572766572202d6f202d6c2061646d696e202d70206d6f746872613139202d6e207368782d706565722d61202d6920353030203132372e302e302e313a3135353030"
+    },
+    {
+      "event": "output",
+      "step": 1,
+      "elapsed_ns": 1299432513,
+      "hex": "0d0a"
+    },
+    {
+      "event": "output",
+      "step": 1,
+      "elapsed_ns": 1313185740,
+      "hex": "201b5b33366d5b1b5b306d1b5b33326d68781b5b306d1b5b33366d5d1b5b306d20636f6e6e656374656420746f203132372e302e302e313a31353530300d0a"
+    },
+    {
+      "event": "output",
+      "step": 1,
+      "elapsed_ns": 1791880038,
+      "hex": "201b5b33366d5b1b5b306d1b5b33326d68781b5b306d1b5b33366d5d1b5b306d203132372e302e302e313a31353530303a206c6f67696e207375636365737366756c0d0a"
+    },
+    {
+      "event": "output",
+      "step": 1,
+      "elapsed_ns": 1792125692,
+      "hex": "201b5b33366d5b1b5b306d1b5b33326d68781b5b306d1b5b33366d5d1b5b306d2041677265656d656e743a0d0a5468697320697320746865207365727665722061677265656d656e742e20200d0a54686520736572766572206f776e6572207075747320616e79206b696e64206f6620636f6e646974696f6e73206f7220636f6e646974696f6e7320746865792077616e7420796f7520746f20616772656520746f206265666f726520656e746572696e672e20200d0a546865792063616e206368616e676520746869732061677265656d656e74206279206d6f64696679696e67207468652061677265656d656e742e7478742066696c6520696e2074686520736572766572206469726563746f72792e0d0a53617920796f75206167726565210d0a"
+    },
+    {
+      "event": "output",
+      "step": 1,
+      "elapsed_ns": 1797441693,
+      "hex": "201b5b33366d5b1b5b306d1b5b33326d68781b5b306d1b5b33366d5d1b5b306d20286368617420307830293a20312075736572733a0d0a"
+    },
+    {
+      "event": "output",
+      "step": 1,
+      "elapsed_ns": 1797756395,
+      "hex": "202020756964207c206e69636b6e616d652020202020202020202020202020202020202020202020207c202069636f6e207c206c6576656c207c2073746174207c0d0a"
+    },
+    {
+      "event": "output",
+      "step": 1,
+      "elapsed_ns": 1797948958,
+      "hex": "202020353635207c201b5b313b33316d7368782d706565722d612020202020202020202020202020202020202020201b5b306d207c202020353030207c2041444d494e207c2020202020207c0d0a"
+    },
+    {
+      "event": "input",
+      "step": 2,
+      "elapsed_ns": 3803139586,
+      "hex": "2f77686f0a"
+    },
+    {
+      "event": "output",
+      "step": 2,
+      "elapsed_ns": 3808350396,
+      "hex": "2f77686f"
+    },
+    {
+      "event": "output",
+      "step": 2,
+      "elapsed_ns": 3808684935,
+      "hex": "0d0a"
+    },
+    {
+      "event": "output",
+      "step": 2,
+      "elapsed_ns": 3810426289,
+      "hex": "201b5b33366d5b1b5b306d1b5b33326d68781b5b306d1b5b33366d5d1b5b306d20286368617420307830293a20312075736572733a0d0a"
+    },
+    {
+      "event": "output",
+      "step": 2,
+      "elapsed_ns": 3810682717,
+      "hex": "202020756964207c206e69636b6e616d652020202020202020202020202020202020202020202020207c202069636f6e207c206c6576656c207c2073746174207c0d0a"
+    },
+    {
+      "event": "output",
+      "step": 2,
+      "elapsed_ns": 3811023907,
+      "hex": "202020353635207c201b5b313b33316d7368782d706565722d612020202020202020202020202020202020202020201b5b306d207c202020353030207c2041444d494e207c2020202020207c0d0a"
+    },
+    {
+      "event": "input",
+      "step": 3,
+      "elapsed_ns": 5815825775,
+      "hex": "2f6c730a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5819751082,
+      "hex": "2f6c73"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5820018249,
+      "hex": "0d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5963861083,
+      "hex": "201b5b33366d5b1b5b306d1b5b33326d68781b5b306d1b5b33366d5d1b5b306d202f3a0d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5964155135,
+      "hex": "202020202f666c64722020202020202020202030206d2d6167722d62696e6172790d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5964376343,
+      "hex": "202020202f666c64722020202020202020202031206d2d6167722d62696e6172792d6669656c642d6f7665722d6c696d69740d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5964633493,
+      "hex": "202020202f666c64722020202020202020202031206d2d6167722d62696e6172792d6f7665722d6c696d69740d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5964851668,
+      "hex": "202020202f666c64722020202020202020202030206d2d6167722d6469726563746f72790d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5965112454,
+      "hex": "202020202f666c64722020202020202020202030206d2d6167722d656d7074790d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5965476352,
+      "hex": "202020202f666c64722020202020202020202030206d2d6167722d6e6f6e746578740d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5965696051,
+      "hex": "202020202f666c64722020202020202020202030206d2d6167722d6e6f6e746578742d6669656c642d6f7665722d6c696d69740d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5965923685,
+      "hex": "202020202f666c64722020202020202020202030206d2d6167722d6e6f6e746578742d6f7665722d6c696d69740d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5966177132,
+      "hex": "202020202f666c64722020202020202020202030206d2d6167722d726573746f7265640d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5966376599,
+      "hex": "202020202f666c64722020202020202020202030206d2d6167722d746578740d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5966638346,
+      "hex": "202020202f666c64722020202020202020202030206d2d6167722d746578742d6c696d69740d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5966888392,
+      "hex": "202020202f666c64722020202020202020202030206d2d6167722d746578742d6f7665722d6c696d69740d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5967140501,
+      "hex": "4d4f54482f42494e412020202020203635353336206d2d61677265652d622d6669656c640d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5967334318,
+      "hex": "4d4f54482f42494e412020202020323632313431206d2d61677265652d622d6f7665720d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5967583952,
+      "hex": "4d4f54482f42494e412020202020202020203334206d2d61677265652d62696e6172790d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5967853830,
+      "hex": "4d4f54482f544558542020202020202020202030206d2d61677265652d666c7573682d30310d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5968069161,
+      "hex": "4d4f54482f544558542020202020203635353335206d2d61677265652d742d6c696d69740d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5968338298,
+      "hex": "4d4f54482f544558542020202020203635353336206d2d61677265652d742d6f7665720d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5968548444,
+      "hex": "4d4f54482f544558542020202020202020202030206d2d65787472612d666c7573682d6e6f6e650d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5968781679,
+      "hex": "4d4f54482f544558542020202020202020202030206d2d65787472612d666c7573682d726573746f7265640d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5969029881,
+      "hex": "4d4f54482f544558542020202020202020202030206d2d65787472612d666c7573682d75726c0d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5969318278,
+      "hex": "4d4f54482f544558542020202020202020203136206d2d687478662d75300d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5969590229,
+      "hex": "4d4f54482f544558542020202020202020203136206d2d687478662d75320d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5969848866,
+      "hex": "4d4f54482f544558542020202020202020203230206d2d687478662d7536353533350d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5970087602,
+      "hex": "4d4f54482f544558542020202020202020333330206d6f746872612d3231342d75706c6f61640d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5970343247,
+      "hex": "202020202f666c64722020202020202020202030206d6f746872612d62616e6e65722d666f726d6174730d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5970609433,
+      "hex": "4d4f54482f544558542020202020202020202030206d6f746872612d656d7074792d666978747572650d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5970844420,
+      "hex": "202020202f666c64722020202020202020202031206d6f746872612d666f6c6465722d64657363726970746f722d64656c61790d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5971086938,
+      "hex": "202020202f666c64722020202020202020202031206d6f746872612d666f6c6465722d6469726c6173740d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5971350974,
+      "hex": "202020202f666c64722020202020202020202030206d6f746872612d666f6c6465722d656d7074790d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5971569521,
+      "hex": "4d4f54482f544558542020202020202020202030206d6f746872612d666f6c6465722d666c7573680d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5971823956,
+      "hex": "202020202f666c64722020202020202020202030206d6f746872612d666f6c6465722d6c6174650d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5972059714,
+      "hex": "202020202f666c64722020202020202020202033206d6f746872612d666f6c6465722d7061727469616c0d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5972305366,
+      "hex": "202020202f666c64722020202020202020202034206d6f746872612d666f6c6465722d736f757263650d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5972553013,
+      "hex": "4d4f54482f544558542020202020202020333330206d6f746872612d666f726b2d666978747572650d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5972785366,
+      "hex": "4d4f54482f544558542020202031303438383933206d6f746872612d726163652d666978747572650d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5973022317,
+      "hex": "4d4f54482f544558542020202020202020333438206d6f746872612d726573756d652d696e636f6e73697374656e740d0a"
+    },
+    {
+      "event": "output",
+      "step": 3,
+      "elapsed_ns": 5973422829,
+      "hex": "4d4f54482f544558542020202020202020333330206d6f746872612d726573756d652d7061727469616c0d0a"
+    },
+    {
+      "event": "input",
+      "step": 4,
+      "elapsed_ns": 7978287439,
+      "hex": "2f676574206d6f746872612d666f726b2d666978747572650a"
+    },
+    {
+      "event": "output",
+      "step": 4,
+      "elapsed_ns": 7993042256,
+      "hex": "2f676574206d6f746872612d666f726b2d66697874757265"
+    },
+    {
+      "event": "output",
+      "step": 4,
+      "elapsed_ns": 7993302741,
+      "hex": "0d0a"
+    },
+    {
+      "event": "output",
+      "step": 4,
+      "elapsed_ns": 9690083017,
+      "hex": "201b5b33366d5b1b5b306d1b5b33326d68781b5b306d1b5b33366d5d1b5b306d206765743a206d6f746872612d666f726b2d666978747572653b203531302062797465730d0a"
+    },
+    {
+      "event": "output",
+      "step": 4,
+      "elapsed_ns": 9690401606,
+      "hex": "201b5b33366d5b1b5b306d1b5b33326d68781b5b306d1b5b33366d5d1b5b306d20276d6f746872612d666f726b2d66697874757265272063616e20626567696e20696d6d6564696174656c790d0a"
+    },
+    {
+      "event": "output",
+      "step": 4,
+      "elapsed_ns": 9746642511,
+      "hex": "201b5b33366d5b1b5b306d1b5b33326d68781b5b306d1b5b33366d5d1b5b306d206d6f746872612d666f726b2d666978747572653a2031207365636f6e642c203531302062797465732c203531302f730d0a"
+    },
+    {
+      "event": "input",
+      "step": 5,
+      "elapsed_ns": 11751424563,
+      "hex": "2f717569740a"
+    },
+    {
+      "event": "output",
+      "step": 5,
+      "elapsed_ns": 11756823519,
+      "hex": "2f71756974"
+    },
+    {
+      "event": "output",
+      "step": 5,
+      "elapsed_ns": 11757056693,
+      "hex": "0d0a"
+    },
+    {
+      "event": "process-exit",
+      "step": 5,
+      "elapsed_ns": 11761535742,
+      "hex": "30"
+    }
+  ],
+  "completed_steps": 6,
+  "status": "completed",
+  "error": "",
+  "host_home_file_before": {
+    "exists": true,
+    "size": 0,
+    "mtime_ns": 1794540213655000242,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "controller_child_pid": 3685039,
+  "host_home_file_after": {
+    "exists": true,
+    "size": 0,
+    "mtime_ns": 1794540213655000242,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "peer_exit_code": 0,
+  "finished_at_utc": "2026-11-13T03:54:51.585427+00:00"
+}

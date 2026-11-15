@@ -1,0 +1,53 @@
+[
+  {
+    "id": "ID-F-10058",
+    "tool": "list_functions",
+    "arguments": {
+      "filter": "10058",
+      "limit": 100
+    }
+  },
+  {
+    "id": "ID-X-10058d90",
+    "tool": "get_function_xrefs",
+    "arguments": {
+      "address": "10058d90",
+      "limit": 100
+    }
+  },
+  {
+    "id": "ID-D-1000acf0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1000acf0"
+    }
+  },
+  {
+    "id": "ID-D-10058a70",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10058a70"
+    }
+  },
+  {
+    "id": "ID-D-10058880",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10058880"
+    }
+  },
+  {
+    "id": "ID-D-10058ca0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10058ca0"
+    }
+  },
+  {
+    "id": "ID-D-10058d70",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10058d70"
+    }
+  }
+]

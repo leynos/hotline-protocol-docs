@@ -1,0 +1,183 @@
+{
+  "preflight": {
+    "status": "completed",
+    "connections": {
+      "a": {
+        "local_port": 57416,
+        "target_port": 15500,
+        "views": {
+          "host": {
+            "packets": 37,
+            "sent_bytes": 334,
+            "received_bytes": 3175,
+            "recorded_received_bytes": 3175,
+            "unread_tail_bytes": 0,
+            "unread_tail_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "terminal_flags": [
+              17
+            ]
+          },
+          "guest": {
+            "packets": 41,
+            "sent_bytes": 334,
+            "received_bytes": 3175,
+            "recorded_received_bytes": 3175,
+            "unread_tail_bytes": 0,
+            "unread_tail_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "terminal_flags": [
+              17
+            ]
+          }
+        }
+      },
+      "download": {
+        "local_port": 47748,
+        "target_port": 15501,
+        "views": {
+          "host": {
+            "packets": 1543,
+            "sent_bytes": 16,
+            "received_bytes": 1049073,
+            "recorded_received_bytes": 1049073,
+            "unread_tail_bytes": 0,
+            "unread_tail_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "terminal_flags": [
+              17
+            ]
+          },
+          "guest": {
+            "packets": 1544,
+            "sent_bytes": 16,
+            "received_bytes": 1049073,
+            "recorded_received_bytes": 1049073,
+            "unread_tail_bytes": 0,
+            "unread_tail_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "terminal_flags": [
+              4
+            ]
+          }
+        }
+      }
+    }
+  },
+  "observe": {
+    "status": "completed",
+    "connections": {
+      "main": {
+        "local_port": 54546,
+        "target_port": 15500,
+        "views": {
+          "host": {
+            "packets": 118,
+            "sent_bytes": 1000,
+            "received_bytes": 1789,
+            "recorded_received_bytes": 1761,
+            "unread_tail_bytes": 28,
+            "unread_tail_sha256": "728ea2312701cf90f0622fbea8dc606f093f0a8b2a4716dac07ea075fa102e5d",
+            "terminal_flags": []
+          },
+          "guest": {
+            "packets": 139,
+            "sent_bytes": 1000,
+            "received_bytes": 1789,
+            "recorded_received_bytes": 1761,
+            "unread_tail_bytes": 28,
+            "unread_tail_sha256": "728ea2312701cf90f0622fbea8dc606f093f0a8b2a4716dac07ea075fa102e5d",
+            "terminal_flags": [
+              17
+            ]
+          }
+        }
+      },
+      "peer": {
+        "local_port": 54548,
+        "target_port": 15500,
+        "views": {
+          "host": {
+            "packets": 100,
+            "sent_bytes": 822,
+            "received_bytes": 1536,
+            "recorded_received_bytes": 1536,
+            "unread_tail_bytes": 0,
+            "unread_tail_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "terminal_flags": [
+              17
+            ]
+          },
+          "guest": {
+            "packets": 105,
+            "sent_bytes": 822,
+            "received_bytes": 1536,
+            "recorded_received_bytes": 1536,
+            "unread_tail_bytes": 0,
+            "unread_tail_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "terminal_flags": [
+              17
+            ]
+          }
+        }
+      }
+    }
+  },
+  "postflight": {
+    "status": "completed",
+    "connections": {
+      "a": {
+        "local_port": 52972,
+        "target_port": 15500,
+        "views": {
+          "host": {
+            "packets": 38,
+            "sent_bytes": 334,
+            "received_bytes": 3175,
+            "recorded_received_bytes": 3175,
+            "unread_tail_bytes": 0,
+            "unread_tail_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "terminal_flags": [
+              17
+            ]
+          },
+          "guest": {
+            "packets": 36,
+            "sent_bytes": 334,
+            "received_bytes": 3175,
+            "recorded_received_bytes": 3175,
+            "unread_tail_bytes": 0,
+            "unread_tail_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "terminal_flags": [
+              17
+            ]
+          }
+        }
+      },
+      "download": {
+        "local_port": 51192,
+        "target_port": 15501,
+        "views": {
+          "host": {
+            "packets": 1546,
+            "sent_bytes": 16,
+            "received_bytes": 1049073,
+            "recorded_received_bytes": 1049073,
+            "unread_tail_bytes": 0,
+            "unread_tail_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "terminal_flags": [
+              17
+            ]
+          },
+          "guest": {
+            "packets": 1544,
+            "sent_bytes": 16,
+            "received_bytes": 1049073,
+            "recorded_received_bytes": 1049073,
+            "unread_tail_bytes": 0,
+            "unread_tail_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "terminal_flags": [
+              4
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+GNU Make dry run (exit 0):
+cargo fetch --locked
+# The `rstest-bdd-ui` profile raises the run-wide timeout, which an
+# override cannot do. See "Compile-time scenario contracts" in the
+# developers' guide.
+NEXTEST_PROFILE=rstest-bdd-ui env -u CARGO_ENCODED_RUSTFLAGS RUSTFLAGS="${RUSTFLAGS:+$RUSTFLAGS }-D warnings -Zthreads=8 -Clink-arg=-fuse-ld=mold" cargo nextest run -p rstest-bdd-ui-tests
+
+Target-specific exported environment probe (exit 0):
+/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/diagnostics/mxd-ui-target-01/env-probe.mk:2: warning: overriding recipe for target 'test-rstest-bdd-ui'
+Makefile:349: warning: ignoring old recipe for target 'test-rstest-bdd-ui'
+cargo fetch --locked
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`
+CARGO_TARGET_DIR=/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/target
+CARGO_NET_OFFLINE=true
+CARGO_BUILD_JOBS=1
+
+The probe replaced only the UI recipe in a temporary second makefile; the real gate used the original recipe.

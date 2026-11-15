@@ -1,0 +1,9 @@
+{
+  "utc": "2026-11-14T01:06:03.326463+00:00",
+  "emulator_pid": 2055952,
+  "starttime": "4261101",
+  "netns": "net:[4026532615]",
+  "base_c49_readiness": "../native-eventlab-c49/readiness.json",
+  "zero_primary_host_and_ns_pcap_bytes": 24,
+  "observer_sha256": "4a39d24fbc68f492558deacb4794829d145e7cc100bab0acb8945f5497d4b3d4"
+}

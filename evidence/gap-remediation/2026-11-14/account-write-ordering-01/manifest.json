@@ -1,0 +1,62 @@
+{
+  "a63_content_queries": 8,
+  "a64_content_queries": 2,
+  "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "extension_jar_sha256": "201d18ffde71a83a678eae607de265861f37e5a00b989d91958c1197664d2b43",
+  "frozen_source_origins": {
+    "frozen-source/AC-D-100071a0.c": {
+      "sha256": "0157512331807cfd95756d61daa50e0903fbb2a0b34dccac663cfa63e9c7bb13",
+      "source": "evidence/gap-remediation/2026-11-13/native-account-update-01/oracle-queries/AC-D-100071a0.c"
+    },
+    "frozen-source/AC-D-100071a0.json": {
+      "sha256": "fe08a6206626909787652d90ab616b94545fd535f572587755977bda4fbb42e7",
+      "source": "evidence/gap-remediation/2026-11-13/native-account-update-01/oracle-queries/AC-D-100071a0.json"
+    },
+    "frozen-source/AC-D-100075e0.c": {
+      "sha256": "a7f1941e0115b929f5556a1a9e66974219a4771178f37b2c17e907ad5c904468",
+      "source": "evidence/gap-remediation/2026-11-13/native-account-update-01/oracle-queries/AC-D-100075e0.c"
+    },
+    "frozen-source/AC-D-100075e0.json": {
+      "sha256": "0c5611485797b16ecb967dfa9cb51b2eea007b469d4a84e3ec27c17c579f8008",
+      "source": "evidence/gap-remediation/2026-11-13/native-account-update-01/oracle-queries/AC-D-100075e0.json"
+    },
+    "frozen-source/AG-D-1002af80.c": {
+      "sha256": "a21b778a7a75515dc186e399dcc88936bea595aa8cbe2ece214f8d0409513fa9",
+      "source": "evidence/gap-remediation/2026-11-13/native-agreement-01/oracle-queries/AG-D-1002af80.c"
+    },
+    "frozen-source/AG-D-1002af80.json": {
+      "sha256": "03de2633c411230b7956c1855435bc6f2f67b07711cde80b3e90c1fbac81c280",
+      "source": "evidence/gap-remediation/2026-11-13/native-agreement-01/oracle-queries/AG-D-1002af80.json"
+    },
+    "frozen-source/AG-D-1002c220.c": {
+      "sha256": "21d8d65f4dc72f747f69126ad18b448ea2f0c6591a8462fd30881c400cb35f06",
+      "source": "evidence/gap-remediation/2026-11-13/native-agreement-01/oracle-queries/AG-D-1002c220.c"
+    },
+    "frozen-source/AG-D-1002c220.json": {
+      "sha256": "630f358a1dbac7df6cff235ec65b5b47a6a411c470249bbf865db606436cec54",
+      "source": "evidence/gap-remediation/2026-11-13/native-agreement-01/oracle-queries/AG-D-1002c220.json"
+    },
+    "frozen-source/B11-D-10028190.c": {
+      "sha256": "309accecc338f2fdde16ebf7e35ba7731c2bba026944723aa47b46fff9562561",
+      "source": "evidence/gap-remediation/2026-11-12/batch-11/queries/B11-D-10028190.c"
+    },
+    "frozen-source/B11-D-10028190.json": {
+      "sha256": "3384d8675e3e796a81b51a8d926c9151db0547cb43851621b56ea0d001a2f3be",
+      "source": "evidence/gap-remediation/2026-11-12/batch-11/queries/B11-D-10028190.json"
+    },
+    "frozen-source/D-10014df0.c": {
+      "sha256": "211550e97f51d1c947eef44ea2a41665fd8d26e8c4dcfd0fce556f8670314266",
+      "source": "evidence/hotline-server-1.9/queries/D-10014df0.c"
+    },
+    "frozen-source/D-10014df0.json": {
+      "sha256": "e100827f4ca8dbe6329e2460843405b9b166eb4ae1270d42a35351ed3be9c690",
+      "source": "evidence/hotline-server-1.9/queries/D-10014df0.json"
+    }
+  },
+  "function_count_before_after": 1840,
+  "language": "PowerPC:BE:32:default",
+  "limits": "Source ordering and local checks only; no failed-write runtime fixture or atomicity/durability proof.",
+  "project": "state/delegation/endpoint-oracle-01/project/independent-endpoint-01.gpr",
+  "project_mode": "--no-analyze --discard; independent project, not GUI-owned",
+  "title": "Account writer ordering, read-only Ghidra A63/A64"
+}

@@ -1,0 +1,170 @@
+{
+  "cases": [
+    {
+      "case": "normal-alternate-control",
+      "host_client_port": 40218,
+      "guest_server_port": 5502,
+      "sent_bytes": 12,
+      "received_bytes": 0,
+      "guest_first_close": "client",
+      "guest_server_close_kind": "FIN",
+      "reset_diagnostics_hex": [],
+      "capture_status": "failed"
+    },
+    {
+      "case": "normal-control",
+      "host_client_port": 56336,
+      "guest_server_port": 5500,
+      "sent_bytes": 12,
+      "received_bytes": 8,
+      "guest_first_close": "client",
+      "guest_server_close_kind": "FIN",
+      "reset_diagnostics_hex": [],
+      "capture_status": "completed"
+    },
+    {
+      "case": "pipelined-login",
+      "host_client_port": 34642,
+      "guest_server_port": 5500,
+      "sent_bytes": 84,
+      "received_bytes": 344,
+      "guest_first_close": "client",
+      "guest_server_close_kind": "FIN",
+      "reset_diagnostics_hex": [],
+      "capture_status": "completed"
+    },
+    {
+      "case": "segmented-1",
+      "host_client_port": 40158,
+      "guest_server_port": 5500,
+      "sent_bytes": 12,
+      "received_bytes": 8,
+      "guest_first_close": "client",
+      "guest_server_close_kind": "FIN",
+      "reset_diagnostics_hex": [],
+      "capture_status": "completed"
+    },
+    {
+      "case": "segmented-10",
+      "host_client_port": 57180,
+      "guest_server_port": 5500,
+      "sent_bytes": 12,
+      "received_bytes": 8,
+      "guest_first_close": "client",
+      "guest_server_close_kind": "FIN",
+      "reset_diagnostics_hex": [],
+      "capture_status": "completed"
+    },
+    {
+      "case": "segmented-11",
+      "host_client_port": 57182,
+      "guest_server_port": 5500,
+      "sent_bytes": 12,
+      "received_bytes": 8,
+      "guest_first_close": "client",
+      "guest_server_close_kind": "FIN",
+      "reset_diagnostics_hex": [],
+      "capture_status": "completed"
+    },
+    {
+      "case": "segmented-4",
+      "host_client_port": 40162,
+      "guest_server_port": 5500,
+      "sent_bytes": 12,
+      "received_bytes": 8,
+      "guest_first_close": "client",
+      "guest_server_close_kind": "FIN",
+      "reset_diagnostics_hex": [],
+      "capture_status": "completed"
+    },
+    {
+      "case": "segmented-8",
+      "host_client_port": 40168,
+      "guest_server_port": 5500,
+      "sent_bytes": 12,
+      "received_bytes": 8,
+      "guest_first_close": "client",
+      "guest_server_close_kind": "FIN",
+      "reset_diagnostics_hex": [],
+      "capture_status": "completed"
+    },
+    {
+      "case": "short-eof",
+      "host_client_port": 34640,
+      "guest_server_port": 5500,
+      "sent_bytes": 11,
+      "received_bytes": 0,
+      "guest_first_close": "client",
+      "guest_server_close_kind": "FIN",
+      "reset_diagnostics_hex": [],
+      "capture_status": "completed"
+    },
+    {
+      "case": "thirteenth-byte-is-frame-prefix",
+      "host_client_port": 34658,
+      "guest_server_port": 5500,
+      "sent_bytes": 84,
+      "received_bytes": 344,
+      "guest_first_close": "client",
+      "guest_server_close_kind": "FIN",
+      "reset_diagnostics_hex": [],
+      "capture_status": "completed"
+    },
+    {
+      "case": "wrong-magic",
+      "host_client_port": 34554,
+      "guest_server_port": 5500,
+      "sent_bytes": 12,
+      "received_bytes": 0,
+      "guest_first_close": "server",
+      "guest_server_close_kind": "RST",
+      "reset_diagnostics_hex": [
+        "7463705f646973636f6e6e656374"
+      ],
+      "capture_status": "completed"
+    },
+    {
+      "case": "wrong-subprotocol",
+      "host_client_port": 34572,
+      "guest_server_port": 5500,
+      "sent_bytes": 12,
+      "received_bytes": 8,
+      "guest_first_close": "server",
+      "guest_server_close_kind": "FIN",
+      "reset_diagnostics_hex": [],
+      "capture_status": "completed"
+    },
+    {
+      "case": "wrong-subversion",
+      "host_client_port": 34586,
+      "guest_server_port": 5500,
+      "sent_bytes": 12,
+      "received_bytes": 8,
+      "guest_first_close": "server",
+      "guest_server_close_kind": "FIN",
+      "reset_diagnostics_hex": [],
+      "capture_status": "completed"
+    },
+    {
+      "case": "wrong-version",
+      "host_client_port": 34568,
+      "guest_server_port": 5500,
+      "sent_bytes": 12,
+      "received_bytes": 8,
+      "guest_first_close": "server",
+      "guest_server_close_kind": "RST",
+      "reset_diagnostics_hex": [
+        "7463705f646973636f6e6e656374",
+        "4e6f20544350"
+      ],
+      "capture_status": "completed"
+    }
+  ],
+  "timing": {
+    "baseline_guest_silence_seconds": 65.060281,
+    "baseline_port_identification": "Unique SYN within250ms of UTC end minus monotonic duration; old recorder had no socket address metadata",
+    "isolated_reset_after_new_syn_ms": 92.254,
+    "scope": "Bounded observations; dispatcher scheduling and unique causal mechanism remain open"
+  },
+  "scope": "Recorded boundary exchanges and guest FIN/RST ordering only; no timer or alternate-wrapper negotiation completion"
+}

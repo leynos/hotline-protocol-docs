@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-13T10:56:19.195646+00:00",
+  "query": {
+    "id": "RM-D-10017f30",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10017f30"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_10017f30\",\n    \"address\": \"10017f30\"\n  },\n  \"code\": \"\\nvoid FUN_10017f30(int param_1,int param_2,undefined4 param_3,undefined4 param_4)\\n\\n{\\n  int iVar1;\\n  char cVar8;\\n  undefined4 uVar2;\\n  uint uVar3;\\n  short sVar6;\\n  int iVar4;\\n  undefined4 uVar5;\\n  undefined2 uVar7;\\n  int iVar9;\\n  uint uVar10;\\n  undefined1 auStack_b0 [140];\\n  \\n  iVar1 = FUN_10057d00();\\n  if (0x3c < (uint)(iVar1 - *(int *)(param_2 + 0xa0))) {\\n    *(int *)(param_2 + 0xa0) = iVar1;\\n    *(undefined2 *)(param_2 + 0x142) = 0;\\n  }\\n  if (*(ushort *)(param_2 + 0x142) < 0x15) {\\n    *(short *)(param_2 + 0x142) = *(short *)(param_2 + 0x142) + 1;\\n    cVar8 = FUN_10008a90(param_1,param_2,0xb);\\n    if (cVar8 == '\\\\0') {\\n      uVar2 = FUN_10056380(0,0);\\n      FUN_10056ae0(uVar2,100,s__You_are_not_allowed_to_create_a_100921bf);\\n      FUN_10058a10(param_3,1);\\n      FUN_10058a70(param_3,uVar2);\\n      FUN_100563d0(uVar2);\\n    }\\n    else {\\n      iVar1 = FUN_10052b70(0x18);\\n      uVar2 = FUN_100067d0(param_1);\\n      *(undefined4 *)(iVar1 + 0x10) = uVar2;\\n      FUN_10055a60(param_1 + 0x420,iVar1);\\n      FUN_100554e0(iVar1 + 4,param_2);\\n      uVar2 = FUN_10056380(0,0);\\n      FUN_10056a90(uVar2,0x72,*(undefined4 *)(iVar1 + 0x10));\\n      FUN_10056a90(uVar2,0x67,*(undefined2 *)(param_2 + 0x14));\\n      FUN_10056ae0(uVar2,0x66,param_2 + 0x38);\\n      uVar3 = FUN_10056550(param_4);\\n      for (uVar10 = 1; (uVar10 & 0xffff) <= (uVar3 & 0xffff); uVar10 = uVar10 + 1) {\\n        sVar6 = FUN_10056430(param_4,uVar10);\\n        if (sVar6 == 0x67) {\\n          uVar7 = FUN_10056c00(param_4,uVar10);\\n          iVar4 = FUN_10004730(param_1,uVar7);\\n          if (((iVar4 != 0) && (cVar8 = FUN_10058600(*(undefined4 *)(iVar4 + 4)), cVar8 != '\\\\0')) &&\\n             (iVar4 != param_2)) {\\n            if ((*(char *)(param_2 + 0xb0) == '\\\\0') &&\\n               ((*(char *)(iVar4 + 0xb2) != '\\\\0' || (*(char *)(iVar4 + 0xb1) != '\\\\0')))) {\\n              uVar5 = FUN_10056380(0,0);\\n              FUN_10056a90(uVar5,0x67,*(undefined2 *)(iVar4 + 0x14));\\n              FUN_10056ae0(uVar5,0x66,iVar4 + 0x38);\\n              iVar9 = 0;\\n              if (*(char *)(iVar4 + 0xb2) == '\\\\0') {\\n                if (*(char *)(iVar4 + 0xb1) != '\\\\0') {\\n                  FUN_10056a90(uVar5,0x71,3);\\n                  iVar9 = FUN_10054180(auStack_b0,0x80,s___s_does_not_accept_private_chat_100906b8,\\n                                       iVar4 + 0x38);\\n                }\\n              }\\n              else {\\n                FUN_10056a90(uVar5,0x71,4);\\n                iVar9 = FUN_100539c0(auStack_b0,iVar4 + 0xb4,*(undefined1 *)(iVar4 + 0xb3));\\n              }\\n              if (iVar9 != 0) {\\n                FUN_100568b0(uVar5,0x65,auStack_b0);\\n                FUN_10058ca0(*(undefined4 *)(param_2 + 4),0x68,uVar5);\\n              }\\n              FUN_100563d0(uVar5);\\n            }\\n            if (*(char *)(iVar4 + 0xb1) == '\\\\0') {\\n              FUN_10058ca0(*(undefined4 *)(iVar4 + 4),0x71,uVar2);\\n            }\\n          }\\n        }\\n      }\\n      FUN_10056820(uVar2);\\n      FUN_10056a90(uVar2,0x72,*(undefined4 *)(iVar1 + 0x10));\\n      FUN_10056a90(uVar2,0x67,*(undefined2 *)(param_2 + 0x14));\\n      FUN_10056a90(uVar2,0x68,(int)*(short *)(param_2 + 0x16));\\n      uVar7 = FUN_10005000(param_1,param_2);\\n      FUN_10056a90(uVar2,0x70,uVar7);\\n      FUN_10056ae0(uVar2,0x66,param_2 + 0x38);\\n      FUN_10058a70(param_3,uVar2);\\n      FUN_100563d0(uVar2);\\n    }\\n  }\\n  else {\\n    FUN_100583b0(*(undefined4 *)(param_2 + 4));\\n    FUN_100063c0(param_1,*(undefined4 *)(param_2 + 0x10));\\n    FUN_100068e0(param_1,param_2,s_Autobanned_for_flooding_100905fd);\\n  }\\n  return;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_10017f30",
+        "address": "10017f30"
+      },
+      "code": "\nvoid FUN_10017f30(int param_1,int param_2,undefined4 param_3,undefined4 param_4)\n\n{\n  int iVar1;\n  char cVar8;\n  undefined4 uVar2;\n  uint uVar3;\n  short sVar6;\n  int iVar4;\n  undefined4 uVar5;\n  undefined2 uVar7;\n  int iVar9;\n  uint uVar10;\n  undefined1 auStack_b0 [140];\n  \n  iVar1 = FUN_10057d00();\n  if (0x3c < (uint)(iVar1 - *(int *)(param_2 + 0xa0))) {\n    *(int *)(param_2 + 0xa0) = iVar1;\n    *(undefined2 *)(param_2 + 0x142) = 0;\n  }\n  if (*(ushort *)(param_2 + 0x142) < 0x15) {\n    *(short *)(param_2 + 0x142) = *(short *)(param_2 + 0x142) + 1;\n    cVar8 = FUN_10008a90(param_1,param_2,0xb);\n    if (cVar8 == '\\0') {\n      uVar2 = FUN_10056380(0,0);\n      FUN_10056ae0(uVar2,100,s__You_are_not_allowed_to_create_a_100921bf);\n      FUN_10058a10(param_3,1);\n      FUN_10058a70(param_3,uVar2);\n      FUN_100563d0(uVar2);\n    }\n    else {\n      iVar1 = FUN_10052b70(0x18);\n      uVar2 = FUN_100067d0(param_1);\n      *(undefined4 *)(iVar1 + 0x10) = uVar2;\n      FUN_10055a60(param_1 + 0x420,iVar1);\n      FUN_100554e0(iVar1 + 4,param_2);\n      uVar2 = FUN_10056380(0,0);\n      FUN_10056a90(uVar2,0x72,*(undefined4 *)(iVar1 + 0x10));\n      FUN_10056a90(uVar2,0x67,*(undefined2 *)(param_2 + 0x14));\n      FUN_10056ae0(uVar2,0x66,param_2 + 0x38);\n      uVar3 = FUN_10056550(param_4);\n      for (uVar10 = 1; (uVar10 & 0xffff) <= (uVar3 & 0xffff); uVar10 = uVar10 + 1) {\n        sVar6 = FUN_10056430(param_4,uVar10);\n        if (sVar6 == 0x67) {\n          uVar7 = FUN_10056c00(param_4,uVar10);\n          iVar4 = FUN_10004730(param_1,uVar7);\n          if (((iVar4 != 0) && (cVar8 = FUN_10058600(*(undefined4 *)(iVar4 + 4)), cVar8 != '\\0')) &&\n             (iVar4 != param_2)) {\n            if ((*(char *)(param_2 + 0xb0) == '\\0') &&\n               ((*(char *)(iVar4 + 0xb2) != '\\0' || (*(char *)(iVar4 + 0xb1) != '\\0')))) {\n              uVar5 = FUN_10056380(0,0);\n              FUN_10056a90(uVar5,0x67,*(undefined2 *)(iVar4 + 0x14));\n              FUN_10056ae0(uVar5,0x66,iVar4 + 0x38);\n              iVar9 = 0;\n              if (*(char *)(iVar4 + 0xb2) == '\\0') {\n                if (*(char *)(iVar4 + 0xb1) != '\\0') {\n                  FUN_10056a90(uVar5,0x71,3);\n                  iVar9 = FUN_10054180(auStack_b0,0x80,s___s_does_not_accept_private_chat_100906b8,\n                                       iVar4 + 0x38);\n                }\n              }\n              else {\n                FUN_10056a90(uVar5,0x71,4);\n                iVar9 = FUN_100539c0(auStack_b0,iVar4 + 0xb4,*(undefined1 *)(iVar4 + 0xb3));\n              }\n              if (iVar9 != 0) {\n                FUN_100568b0(uVar5,0x65,auStack_b0);\n                FUN_10058ca0(*(undefined4 *)(param_2 + 4),0x68,uVar5);\n              }\n              FUN_100563d0(uVar5);\n            }\n            if (*(char *)(iVar4 + 0xb1) == '\\0') {\n              FUN_10058ca0(*(undefined4 *)(iVar4 + 4),0x71,uVar2);\n            }\n          }\n        }\n      }\n      FUN_10056820(uVar2);\n      FUN_10056a90(uVar2,0x72,*(undefined4 *)(iVar1 + 0x10));\n      FUN_10056a90(uVar2,0x67,*(undefined2 *)(param_2 + 0x14));\n      FUN_10056a90(uVar2,0x68,(int)*(short *)(param_2 + 0x16));\n      uVar7 = FUN_10005000(param_1,param_2);\n      FUN_10056a90(uVar2,0x70,uVar7);\n      FUN_10056ae0(uVar2,0x66,param_2 + 0x38);\n      FUN_10058a70(param_3,uVar2);\n      FUN_100563d0(uVar2);\n    }\n  }\n  else {\n    FUN_100583b0(*(undefined4 *)(param_2 + 4));\n    FUN_100063c0(param_1,*(undefined4 *)(param_2 + 0x10));\n    FUN_100068e0(param_1,param_2,s_Autobanned_for_flooding_100905fd);\n  }\n  return;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

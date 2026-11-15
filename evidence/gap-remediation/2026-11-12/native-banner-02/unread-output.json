@@ -1,0 +1,117 @@
+[
+  {
+    "case": "setup/absence-unapplied-first",
+    "connection": "main",
+    "tail_hex": "0000012d00000004000000000000002600000026000400670002010a0068000200010070000200120066000e62616e6e65722d66697874757265",
+    "decoded_notifications": [
+      {
+        "flags": 0,
+        "is_reply": 0,
+        "type": 301,
+        "id": 4,
+        "error": 0,
+        "total_size": 38,
+        "data_size": 38,
+        "payload_hex": "000400670002010a0068000200010070000200120066000e62616e6e65722d66697874757265",
+        "fields": [
+          {
+            "id": 103,
+            "hex": "010a"
+          },
+          {
+            "id": 104,
+            "hex": "0001"
+          },
+          {
+            "id": 112,
+            "hex": "0012"
+          },
+          {
+            "id": 102,
+            "hex": "62616e6e65722d66697874757265"
+          }
+        ],
+        "declared_field_count": 4,
+        "unconsumed_hex": ""
+      }
+    ],
+    "scope": "Exact unread native bytes pinned in both packet views; a raw binary suffix is not reclassified as a control notification"
+  },
+  {
+    "case": "setup/absence-unapplied-first",
+    "connection": "absent",
+    "tail_hex": "0000012e000000040000000000000008000000080001006700020109",
+    "decoded_notifications": [],
+    "scope": "Exact unread native bytes pinned in both packet views; a raw binary suffix is not reclassified as a control notification"
+  },
+  {
+    "case": "setup/absence-unapplied-first",
+    "connection": "banner",
+    "tail_hex": "494638396101000100800000000000ffffff21fe04420a00fe002c00000000010001000002024401003b6e61746976652d62616e6e65722d62",
+    "decoded_notifications": [],
+    "scope": "Exact unread native bytes pinned in both packet views; a raw binary suffix is not reclassified as a control notification"
+  },
+  {
+    "case": "setup/absence-unapplied-second",
+    "connection": "main",
+    "tail_hex": "0000012d00000006000000000000002600000026000400670002010d0068000200010070000200120066000e62616e6e65722d666978747572650000012e00000007000000000000000800000008000100670002010d",
+    "decoded_notifications": [
+      {
+        "flags": 0,
+        "is_reply": 0,
+        "type": 301,
+        "id": 6,
+        "error": 0,
+        "total_size": 38,
+        "data_size": 38,
+        "payload_hex": "000400670002010d0068000200010070000200120066000e62616e6e65722d66697874757265",
+        "fields": [
+          {
+            "id": 103,
+            "hex": "010d"
+          },
+          {
+            "id": 104,
+            "hex": "0001"
+          },
+          {
+            "id": 112,
+            "hex": "0012"
+          },
+          {
+            "id": 102,
+            "hex": "62616e6e65722d66697874757265"
+          }
+        ],
+        "declared_field_count": 4,
+        "unconsumed_hex": ""
+      },
+      {
+        "flags": 0,
+        "is_reply": 0,
+        "type": 302,
+        "id": 7,
+        "error": 0,
+        "total_size": 8,
+        "data_size": 8,
+        "payload_hex": "000100670002010d",
+        "fields": [
+          {
+            "id": 103,
+            "hex": "010d"
+          }
+        ],
+        "declared_field_count": 1,
+        "unconsumed_hex": ""
+      }
+    ],
+    "scope": "Exact unread native bytes pinned in both packet views; a raw binary suffix is not reclassified as a control notification"
+  },
+  {
+    "case": "setup/absence-unapplied-second",
+    "connection": "banner",
+    "tail_hex": "494638396101000100800000000000ffffff21fe04420a00fe002c00000000010001000002024401003b6e61746976652d62616e6e65722d62",
+    "decoded_notifications": [],
+    "scope": "Exact unread native bytes pinned in both packet views; a raw binary suffix is not reclassified as a control notification"
+  }
+]

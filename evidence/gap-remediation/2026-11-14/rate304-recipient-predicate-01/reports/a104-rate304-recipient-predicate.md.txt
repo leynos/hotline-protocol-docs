@@ -1,0 +1,50 @@
+# A104: native 301 recipient connection predicate
+
+Read-only completion of A103's missing `10058600` body. A search of the
+retained tracked frozen `.c`/query corpus found calls to this function but
+no saved body. One approved `decompile_function_by_address(10058600)` content
+query ran on the **independent** `independent-endpoint-01` saved server
+project under the canonical nonblocking oracle lock. It used
+`--no-analyze --discard`; pinned DATA SHA
+`ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`,
+JAR SHA `201d18ffde71a83a678eae607de265861f37e5a00b989d91958c1197664d2b43`,
+PowerPC BE32, 1,840 functions, exact equal before/after identities. The
+result is untruncated and the run status is `complete`; the lock is released.
+Exact request/reply, wrapper, log, report, command and SHA inventory are in
+`state/delegation/rate304-recipient-oracle-01/`. No VM, GUI project, mxd,
+annotation or tracked file was touched. The second allowed content query
+was unnecessary.
+
+The returned body has one nonzero-connection read and one null guard:
+
+```c
+if (param_1 == 0) FUN_10027c30(1, 2);
+return -(uint)(*(byte *)(param_1 + 0x4c) >> 7) >> 0x1f;
+```
+
+For a nonnull connection, the result is the high bit of the byte at
+`connection+0x4c`, normalised to 0 or 1. The null path calls `10027c30`
+before dereferencing; this trace does not establish whether that call
+returns, raises or terminates. It does not identify who writes the bit or
+its platform-facing name. Calling it “transport ready” is an interpretation
+from callers, not a semantic label proved by this body.
+
+Frozen `10005510` selects each **recipient** only if `10058600` on that
+recipient's connection is nonzero **and** the sign bit of recipient
+`session+0x14a` is set. It does not test the sender's temporary name,
+effective name, icon, option flags or 301 status word. A 104-only 304
+passes `param4=0` into `10004d50`; in the known zero-ACL case, omission of
+102 changes requested name `+0x18` but does not overwrite effective name
+`+0x38`, recipient `connection+0x4c`, or online `session+0x14a` in the
+inspected direct chain. The `10004f30` builder still calls `10005510`.
+
+This supports A103's **bounded** source conclusion: absent 102 does not
+itself make the already-online observer or subject ineligible for 301 under
+the direct predicate. It does not prove the high bit stayed set after C107
+started closing the observer, nor that every 301 enqueue reached every
+socket. C107's paced icon2 301 and 500 ACK arrived after the 0.55-second
+wait; its observer flow was closed during that interval. The exact 300
+roster predicate remains a separate source boundary, though C107's
+successful two-row subject roster before 304 is direct wire evidence.
+
+No 304 stimulus change or live retry follows from this static query.

@@ -1,0 +1,7 @@
+{
+  "recorded_at_utc": "2026-11-13T07:11:52.290684+00:00",
+  "emulator_pid": 881007,
+  "running_executable_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "method": "sudo -n sha256sum /proc/881007/exe",
+  "scope": "Same live timer-patched guest; no restart."
+}

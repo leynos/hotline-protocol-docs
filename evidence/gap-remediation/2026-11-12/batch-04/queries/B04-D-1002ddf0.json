@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T13:53:22.525750+00:00",
+  "query": {
+    "id": "B04-D-1002ddf0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002ddf0"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_1002ddf0\",\n    \"address\": \"1002ddf0\"\n  },\n  \"code\": \"\\nundefined4 FUN_1002ddf0(int param_1,int param_2,uint param_3)\\n\\n{\\n  short sVar1;\\n  int iVar2;\\n  undefined **ppuVar3;\\n  int *piVar4;\\n  uint uVar5;\\n  uint uVar6;\\n  int *piVar7;\\n  undefined **local_4c;\\n  \\n  ppuVar3 = &_toc;\\n  if (param_1 == 0) {\\n    FUN_10027c30(1,2);\\n  }\\n  if (*(int *)(param_1 + 0x4c) == 0) {\\n    FUN_10027c30(1,3);\\n  }\\n  piVar7 = *(int **)(param_1 + 0x4c);\\n  if (param_3 == 0) {\\n    if (*(char *)(piVar7 + 0xa4) != '\\\\0') {\\n      FUN_1002e120(param_1);\\n      FUN_1002d2c0(param_1,piVar7 + 0x10,piVar7[5]);\\n    }\\n  }\\n  else {\\nLAB_1002de74:\\n    while( true ) {\\n      iVar2 = *piVar7;\\n      if (iVar2 != 3) break;\\n      if (piVar7[0xd] != 0) {\\n        FUN_10001bd0((int)ppuVar3 + 0x354f);\\n        FUN_10027c30(1,8);\\n      }\\nLAB_1002e0d8:\\n      uVar6 = 0;\\n      *piVar7 = *piVar7 + 1;\\n      piVar7[1] = 0;\\nLAB_1002e0f0:\\n      if (param_3 <= uVar6) {\\n        return 1;\\n      }\\n      param_2 = param_2 + uVar6;\\n      param_3 = param_3 - uVar6;\\n    }\\n    if (iVar2 < 3) {\\n      if (iVar2 == 1) {\\n        if (piVar7[6] != 0x46494c50) {\\n          FUN_10027c30(1,8);\\n        }\\n        if (*(short *)(piVar7 + 7) != 1) {\\n          FUN_10027c30(1,7);\\n        }\\n        goto LAB_1002e0d8;\\n      }\\n      if (iVar2 < 1) {\\n        if (iVar2 < 0) goto LAB_1002dfc0;\\n        piVar4 = piVar7 + 6;\\n        uVar5 = 0x18;\\n      }\\n      else {\\n        piVar4 = piVar7 + 0xc;\\n        uVar5 = 0x10;\\n      }\\nLAB_1002dfec:\\n      uVar6 = uVar5 - piVar7[1];\\n      if (param_3 < uVar5 - piVar7[1]) {\\n        uVar6 = param_3;\\n      }\\n      .glue::BlockMoveData(param_2,(int)piVar4 + piVar7[1],uVar6);\\n      iVar2 = piVar7[1];\\n      piVar7[1] = iVar2 + uVar6;\\n      ppuVar3 = local_4c;\\n      if (uVar5 <= iVar2 + uVar6) {\\n        *piVar7 = *piVar7 + 1;\\n        piVar7[1] = 0;\\n      }\\n      goto LAB_1002e0f0;\\n    }\\n    if (iVar2 == 5) {\\n      if (param_3 == 0) goto LAB_1002dfc0;\\n      *piVar7 = 2;\\n      goto LAB_1002de74;\\n    }\\n    if (iVar2 < 5) {\\n      uVar5 = piVar7[0xf];\\n      iVar2 = piVar7[0xc];\\n      if (iVar2 == 0x494e464f) {\\n        if (0x250 < uVar5) {\\n          uVar5 = 0x250;\\n        }\\n        *(undefined1 *)(piVar7 + 0xa4) = 1;\\n        piVar7[5] = uVar5;\\n        piVar4 = piVar7 + 0x10;\\n        goto LAB_1002dfec;\\n      }\\n      if (iVar2 < 0x494e464f) {\\n        if (iVar2 == 0x44415441) {\\n          sVar1 = *(short *)(param_1 + 0x50);\\n          iVar2 = piVar7[2];\\nLAB_1002e044:\\n          uVar6 = uVar5 - piVar7[1];\\n          if (param_3 < uVar5 - piVar7[1]) {\\n            uVar6 = param_3;\\n          }\\n          FUN_1002e370((int)sVar1,iVar2 + piVar7[1],param_2,uVar6);\\n          iVar2 = piVar7[1];\\n          piVar7[1] = iVar2 + uVar6;\\n          if (uVar5 <= iVar2 + uVar6) {\\n            *piVar7 = *piVar7 + 1;\\n            piVar7[1] = 0;\\n          }\\n          goto LAB_1002e0f0;\\n        }\\n      }\\n      else if (iVar2 == 0x4d414352) {\\n        sVar1 = *(short *)(param_1 + 0x52);\\n        iVar2 = piVar7[3];\\n        goto LAB_1002e044;\\n      }\\n      uVar6 = uVar5 - piVar7[1];\\n      if (param_3 < uVar5 - piVar7[1]) {\\n        uVar6 = param_3;\\n      }\\n      iVar2 = piVar7[1];\\n      piVar7[1] = iVar2 + uVar6;\\n      if (uVar5 <= iVar2 + uVar6) {\\n        *piVar7 = *piVar7 + 1;\\n        piVar7[1] = 0;\\n      }\\n      goto LAB_1002e0f0;\\n    }\\nLAB_1002dfc0:\\n    if (*(char *)(piVar7 + 0xa4) != '\\\\0') {\\n      FUN_1002e120(param_1);\\n      FUN_1002d2c0(param_1,piVar7 + 0x10,piVar7[5]);\\n    }\\n  }\\n  return 0;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_1002ddf0",
+        "address": "1002ddf0"
+      },
+      "code": "\nundefined4 FUN_1002ddf0(int param_1,int param_2,uint param_3)\n\n{\n  short sVar1;\n  int iVar2;\n  undefined **ppuVar3;\n  int *piVar4;\n  uint uVar5;\n  uint uVar6;\n  int *piVar7;\n  undefined **local_4c;\n  \n  ppuVar3 = &_toc;\n  if (param_1 == 0) {\n    FUN_10027c30(1,2);\n  }\n  if (*(int *)(param_1 + 0x4c) == 0) {\n    FUN_10027c30(1,3);\n  }\n  piVar7 = *(int **)(param_1 + 0x4c);\n  if (param_3 == 0) {\n    if (*(char *)(piVar7 + 0xa4) != '\\0') {\n      FUN_1002e120(param_1);\n      FUN_1002d2c0(param_1,piVar7 + 0x10,piVar7[5]);\n    }\n  }\n  else {\nLAB_1002de74:\n    while( true ) {\n      iVar2 = *piVar7;\n      if (iVar2 != 3) break;\n      if (piVar7[0xd] != 0) {\n        FUN_10001bd0((int)ppuVar3 + 0x354f);\n        FUN_10027c30(1,8);\n      }\nLAB_1002e0d8:\n      uVar6 = 0;\n      *piVar7 = *piVar7 + 1;\n      piVar7[1] = 0;\nLAB_1002e0f0:\n      if (param_3 <= uVar6) {\n        return 1;\n      }\n      param_2 = param_2 + uVar6;\n      param_3 = param_3 - uVar6;\n    }\n    if (iVar2 < 3) {\n      if (iVar2 == 1) {\n        if (piVar7[6] != 0x46494c50) {\n          FUN_10027c30(1,8);\n        }\n        if (*(short *)(piVar7 + 7) != 1) {\n          FUN_10027c30(1,7);\n        }\n        goto LAB_1002e0d8;\n      }\n      if (iVar2 < 1) {\n        if (iVar2 < 0) goto LAB_1002dfc0;\n        piVar4 = piVar7 + 6;\n        uVar5 = 0x18;\n      }\n      else {\n        piVar4 = piVar7 + 0xc;\n        uVar5 = 0x10;\n      }\nLAB_1002dfec:\n      uVar6 = uVar5 - piVar7[1];\n      if (param_3 < uVar5 - piVar7[1]) {\n        uVar6 = param_3;\n      }\n      .glue::BlockMoveData(param_2,(int)piVar4 + piVar7[1],uVar6);\n      iVar2 = piVar7[1];\n      piVar7[1] = iVar2 + uVar6;\n      ppuVar3 = local_4c;\n      if (uVar5 <= iVar2 + uVar6) {\n        *piVar7 = *piVar7 + 1;\n        piVar7[1] = 0;\n      }\n      goto LAB_1002e0f0;\n    }\n    if (iVar2 == 5) {\n      if (param_3 == 0) goto LAB_1002dfc0;\n      *piVar7 = 2;\n      goto LAB_1002de74;\n    }\n    if (iVar2 < 5) {\n      uVar5 = piVar7[0xf];\n      iVar2 = piVar7[0xc];\n      if (iVar2 == 0x494e464f) {\n        if (0x250 < uVar5) {\n          uVar5 = 0x250;\n        }\n        *(undefined1 *)(piVar7 + 0xa4) = 1;\n        piVar7[5] = uVar5;\n        piVar4 = piVar7 + 0x10;\n        goto LAB_1002dfec;\n      }\n      if (iVar2 < 0x494e464f) {\n        if (iVar2 == 0x44415441) {\n          sVar1 = *(short *)(param_1 + 0x50);\n          iVar2 = piVar7[2];\nLAB_1002e044:\n          uVar6 = uVar5 - piVar7[1];\n          if (param_3 < uVar5 - piVar7[1]) {\n            uVar6 = param_3;\n          }\n          FUN_1002e370((int)sVar1,iVar2 + piVar7[1],param_2,uVar6);\n          iVar2 = piVar7[1];\n          piVar7[1] = iVar2 + uVar6;\n          if (uVar5 <= iVar2 + uVar6) {\n            *piVar7 = *piVar7 + 1;\n            piVar7[1] = 0;\n          }\n          goto LAB_1002e0f0;\n        }\n      }\n      else if (iVar2 == 0x4d414352) {\n        sVar1 = *(short *)(param_1 + 0x52);\n        iVar2 = piVar7[3];\n        goto LAB_1002e044;\n      }\n      uVar6 = uVar5 - piVar7[1];\n      if (param_3 < uVar5 - piVar7[1]) {\n        uVar6 = param_3;\n      }\n      iVar2 = piVar7[1];\n      piVar7[1] = iVar2 + uVar6;\n      if (uVar5 <= iVar2 + uVar6) {\n        *piVar7 = *piVar7 + 1;\n        piVar7[1] = 0;\n      }\n      goto LAB_1002e0f0;\n    }\nLAB_1002dfc0:\n    if (*(char *)(piVar7 + 0xa4) != '\\0') {\n      FUN_1002e120(param_1);\n      FUN_1002d2c0(param_1,piVar7 + 0x10,piVar7[5]);\n    }\n  }\n  return 0;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

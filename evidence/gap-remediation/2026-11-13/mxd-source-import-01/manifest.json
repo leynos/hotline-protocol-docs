@@ -1,0 +1,25 @@
+{
+  "method": "Guard original canonical HEAD/status, fetch exact private source commits and fast-forward without rewriting IDs. Verify tested/private/canonical source bytes, origin and existing untracked status. No push.",
+  "before": "2e4c9c1df20b37a6f98a1369e0a8f09f9ee2a131",
+  "after": "481294915b48f4db06943c8af86cf31b7e47597a",
+  "commits": [
+    "50360bebff2c79a54272453ce734251be619c274",
+    "481294915b48f4db06943c8af86cf31b7e47597a"
+  ],
+  "origin_unchanged": true,
+  "status_before_and_after": "?? mxd.worktrees/",
+  "sources": [
+    {
+      "path": "src/db/migrations_tests.rs",
+      "sha256": "047a5672988d447763b7bc1f496816a38496b629ff970b69bf6301122ed05121"
+    },
+    {
+      "path": "src/wireframe/codec/mod.rs",
+      "sha256": "27bbaed8cdb079897dea1df2ec9a404982a3f50ec698c8e5cfaa394d29830f6d"
+    },
+    {
+      "path": "src/wireframe/codec/framed_tests.rs",
+      "sha256": "baeda0e0889489d9d80c7d1334d785634614a29c40bc3d7b439fe7f78776e79d"
+    }
+  ]
+}

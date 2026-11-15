@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "cases": [
+    "banner-bad-magic",
+    "banner-duplicate-after-send",
+    "banner-owner-gone",
+    "banner-reuse-after-close",
+    "banner-separate-low-privilege-session",
+    "banner-size-ffffffff-reserved-ffff",
+    "banner-size-one-reserved-1234",
+    "banner-split-15-plus-1",
+    "download-owner-gone",
+    "download-separate-low-privilege-session",
+    "download-size-reserved-selector-ffff",
+    "folder-download-wrong-selector-0",
+    "folder-download-wrong-selector-2",
+    "folder-download-wrong-selector-65535",
+    "preflight",
+    "upload-nonfolder-selector-0",
+    "upload-nonfolder-selector-2",
+    "upload-nonfolder-selector-65535"
+  ],
+  "packet_window_seconds": [
+    1794525692.760307,
+    1794526098.2840345
+  ],
+  "host_capture_packets": 654,
+  "host_kernel_drops": 0,
+  "unread_output": {},
+  "scope": "HTXF header/routing, owner cleanup, bounded duplicate/reference reuse and ordinary-upload size replacement. Data transports carry a reference with no control identity; concurrent low-privilege sessions do not authenticate data connections as that account. Same host/NAT address only; no cross-IP, identifier wrap, universal timeout or restart durability claim.",
+  "preparation": "Initial14 plans are retained exactly in transcripts. The extended generator snapshot prepared the additional upload-selector0 and two download-owner controls; it also adds request_size expectation metadata to selector2/FFFF without changing their wire actions. No original report/plan is rewritten."
+}

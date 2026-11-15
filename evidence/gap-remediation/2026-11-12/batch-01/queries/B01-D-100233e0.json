@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T13:31:05.943459+00:00",
+  "query": {
+    "id": "B01-D-100233e0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100233e0"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_100233e0\",\n    \"address\": \"100233e0\"\n  },\n  \"code\": \"\\nint FUN_100233e0(undefined4 param_1,uint param_2,undefined4 param_3,int *param_4,undefined4 *param_5\\n                )\\n\\n{\\n  bool bVar1;\\n  int iVar2;\\n  int iVar3;\\n  uint uVar4;\\n  uint uVar5;\\n  uint uVar6;\\n  char cVar9;\\n  int iVar7;\\n  undefined4 uVar8;\\n  undefined1 uVar10;\\n  byte bVar11;\\n  int iVar12;\\n  undefined1 auStack_410 [128];\\n  undefined1 auStack_348 [28];\\n  undefined1 *local_32c;\\n  int local_328 [9];\\n  undefined4 local_304;\\n  undefined4 local_300;\\n  undefined4 local_2fc;\\n  undefined4 local_2f8;\\n  undefined4 local_2f4;\\n  undefined1 auStack_2f0 [8];\\n  undefined4 local_2e8;\\n  byte local_2e4;\\n  undefined1 auStack_2e3 [63];\\n  byte local_2a4;\\n  undefined1 auStack_2a3 [31];\\n  byte local_284;\\n  undefined1 auStack_283 [67];\\n  int local_240;\\n  int local_23c;\\n  byte local_238;\\n  undefined1 auStack_237 [23];\\n  uint local_220;\\n  int local_1f8;\\n  uint local_1f4;\\n  \\n  FUN_1002c220(param_1,0x21);\\n  iVar3 = FUN_1002c3b0(param_1,0,&local_240,0x17c,0);\\n  if (iVar3 != 0x17c) {\\n    FUN_10027c30(1,9);\\n  }\\n  if (local_240 != 0x484c4e5a) {\\n    FUN_10027c30(1,8);\\n  }\\n  if (local_23c != 2) {\\n    FUN_10027c30(1,7);\\n  }\\n  iVar3 = FUN_1002c3b0(param_1,local_220 * (local_1f8 + -1) + (param_2 & local_1f4) * 8 + 0x200,\\n                       auStack_348,8,0);\\n  if (iVar3 != 8) {\\n    FUN_10027c30(1,9);\\n  }\\n  iVar3 = FUN_10024280(param_1,local_220,param_2,auStack_348);\\n  if (iVar3 == 0) {\\n    FUN_10027c30(1,0xc);\\n  }\\n  iVar3 = FUN_1002c3b0(param_1,(iVar3 + -1) * local_220 + 0x200,local_328,0xe4,0);\\n  if (iVar3 != 0xe4) {\\n    FUN_10027c30(1,9);\\n  }\\n  iVar3 = 0x1e;\\n  uVar4 = FUN_1007c210(param_3);\\n  uVar5 = 0x200;\\n  if (local_220 < 0x201) {\\n    uVar5 = local_220;\\n  }\\n  if (uVar4 + 9 < uVar5) {\\n    uVar5 = uVar4 + 9;\\n  }\\n  local_240 = local_328[0];\\n  while ((bVar1 = iVar3 != 0, iVar3 = iVar3 + -1, bVar1 && (local_240 != 0))) {\\n    iVar12 = local_220 * (local_240 + -1) + 0x200;\\n    uVar6 = FUN_1002c3b0(param_1,iVar12,&local_240,uVar5,0);\\n    if (uVar5 != uVar6) {\\n      FUN_10027c30(1,9);\\n    }\\n    if ((local_238 == uVar4) &&\\n       (cVar9 = FUN_1006cd80(auStack_237,param_3,uVar4), iVar2 = local_23c, cVar9 != '\\\\0')) {\\n      local_32c = auStack_410 + 0x80;\\n      iVar7 = FUN_10052a10(local_23c);\\n      if (iVar7 != 0) {\\n        iVar3 = FUN_1002c3b0(param_1,iVar12 + (uVar4 + 4 & 0xfffffffc) + 8,iVar7,iVar2,0);\\n        if (iVar2 != iVar3) {\\n          FUN_10027c30(1,9);\\n        }\\n        if (param_5 != (undefined4 *)0x0) {\\n          *param_5 = local_304;\\n          uVar8 = FUN_100243a0(param_1,local_220,local_300);\\n          param_5[1] = uVar8;\\n          uVar8 = FUN_100243a0(param_1,local_220,local_2fc);\\n          param_5[2] = uVar8;\\n          uVar8 = FUN_100243a0(param_1,local_220,local_2f8);\\n          param_5[3] = uVar8;\\n          uVar8 = FUN_100243a0(param_1,local_220,local_2f4);\\n          param_5[4] = uVar8;\\n          param_5[5] = local_2e8;\\n          FUN_10057ce0(param_5 + 6,auStack_2f0);\\n          bVar11 = 0x3f;\\n          if (local_2e4 < 0x40) {\\n            bVar11 = local_2e4;\\n          }\\n          uVar10 = FUN_100539c0((int)param_5 + 0x21,auStack_2e3,bVar11);\\n          *(undefined1 *)(param_5 + 8) = uVar10;\\n          bVar11 = 0x1f;\\n          if (local_2a4 < 0x20) {\\n            bVar11 = local_2a4;\\n          }\\n          uVar10 = FUN_100539c0((int)param_5 + 0x61,auStack_2a3,bVar11);\\n          *(undefined1 *)(param_5 + 0x18) = uVar10;\\n          bVar11 = 0x3f;\\n          if (local_284 < 0x40) {\\n            bVar11 = local_284;\\n          }\\n          uVar10 = FUN_100539c0((int)param_5 + 0x81,auStack_283,bVar11);\\n          *(undefined1 *)(param_5 + 0x20) = uVar10;\\n        }\\n        *param_4 = iVar2;\\n        FUN_1002c2c0(param_1);\\n        return iVar7;\\n      }\\n      FUN_10027c30(3,0x65);\\n    }\\n  }\\n  FUN_10027c30(1,0xc);\\n  FUN_1002c2c0(param_1);\\n  return 0;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_100233e0",
+        "address": "100233e0"
+      },
+      "code": "\nint FUN_100233e0(undefined4 param_1,uint param_2,undefined4 param_3,int *param_4,undefined4 *param_5\n                )\n\n{\n  bool bVar1;\n  int iVar2;\n  int iVar3;\n  uint uVar4;\n  uint uVar5;\n  uint uVar6;\n  char cVar9;\n  int iVar7;\n  undefined4 uVar8;\n  undefined1 uVar10;\n  byte bVar11;\n  int iVar12;\n  undefined1 auStack_410 [128];\n  undefined1 auStack_348 [28];\n  undefined1 *local_32c;\n  int local_328 [9];\n  undefined4 local_304;\n  undefined4 local_300;\n  undefined4 local_2fc;\n  undefined4 local_2f8;\n  undefined4 local_2f4;\n  undefined1 auStack_2f0 [8];\n  undefined4 local_2e8;\n  byte local_2e4;\n  undefined1 auStack_2e3 [63];\n  byte local_2a4;\n  undefined1 auStack_2a3 [31];\n  byte local_284;\n  undefined1 auStack_283 [67];\n  int local_240;\n  int local_23c;\n  byte local_238;\n  undefined1 auStack_237 [23];\n  uint local_220;\n  int local_1f8;\n  uint local_1f4;\n  \n  FUN_1002c220(param_1,0x21);\n  iVar3 = FUN_1002c3b0(param_1,0,&local_240,0x17c,0);\n  if (iVar3 != 0x17c) {\n    FUN_10027c30(1,9);\n  }\n  if (local_240 != 0x484c4e5a) {\n    FUN_10027c30(1,8);\n  }\n  if (local_23c != 2) {\n    FUN_10027c30(1,7);\n  }\n  iVar3 = FUN_1002c3b0(param_1,local_220 * (local_1f8 + -1) + (param_2 & local_1f4) * 8 + 0x200,\n                       auStack_348,8,0);\n  if (iVar3 != 8) {\n    FUN_10027c30(1,9);\n  }\n  iVar3 = FUN_10024280(param_1,local_220,param_2,auStack_348);\n  if (iVar3 == 0) {\n    FUN_10027c30(1,0xc);\n  }\n  iVar3 = FUN_1002c3b0(param_1,(iVar3 + -1) * local_220 + 0x200,local_328,0xe4,0);\n  if (iVar3 != 0xe4) {\n    FUN_10027c30(1,9);\n  }\n  iVar3 = 0x1e;\n  uVar4 = FUN_1007c210(param_3);\n  uVar5 = 0x200;\n  if (local_220 < 0x201) {\n    uVar5 = local_220;\n  }\n  if (uVar4 + 9 < uVar5) {\n    uVar5 = uVar4 + 9;\n  }\n  local_240 = local_328[0];\n  while ((bVar1 = iVar3 != 0, iVar3 = iVar3 + -1, bVar1 && (local_240 != 0))) {\n    iVar12 = local_220 * (local_240 + -1) + 0x200;\n    uVar6 = FUN_1002c3b0(param_1,iVar12,&local_240,uVar5,0);\n    if (uVar5 != uVar6) {\n      FUN_10027c30(1,9);\n    }\n    if ((local_238 == uVar4) &&\n       (cVar9 = FUN_1006cd80(auStack_237,param_3,uVar4), iVar2 = local_23c, cVar9 != '\\0')) {\n      local_32c = auStack_410 + 0x80;\n      iVar7 = FUN_10052a10(local_23c);\n      if (iVar7 != 0) {\n        iVar3 = FUN_1002c3b0(param_1,iVar12 + (uVar4 + 4 & 0xfffffffc) + 8,iVar7,iVar2,0);\n        if (iVar2 != iVar3) {\n          FUN_10027c30(1,9);\n        }\n        if (param_5 != (undefined4 *)0x0) {\n          *param_5 = local_304;\n          uVar8 = FUN_100243a0(param_1,local_220,local_300);\n          param_5[1] = uVar8;\n          uVar8 = FUN_100243a0(param_1,local_220,local_2fc);\n          param_5[2] = uVar8;\n          uVar8 = FUN_100243a0(param_1,local_220,local_2f8);\n          param_5[3] = uVar8;\n          uVar8 = FUN_100243a0(param_1,local_220,local_2f4);\n          param_5[4] = uVar8;\n          param_5[5] = local_2e8;\n          FUN_10057ce0(param_5 + 6,auStack_2f0);\n          bVar11 = 0x3f;\n          if (local_2e4 < 0x40) {\n            bVar11 = local_2e4;\n          }\n          uVar10 = FUN_100539c0((int)param_5 + 0x21,auStack_2e3,bVar11);\n          *(undefined1 *)(param_5 + 8) = uVar10;\n          bVar11 = 0x1f;\n          if (local_2a4 < 0x20) {\n            bVar11 = local_2a4;\n          }\n          uVar10 = FUN_100539c0((int)param_5 + 0x61,auStack_2a3,bVar11);\n          *(undefined1 *)(param_5 + 0x18) = uVar10;\n          bVar11 = 0x3f;\n          if (local_284 < 0x40) {\n            bVar11 = local_284;\n          }\n          uVar10 = FUN_100539c0((int)param_5 + 0x81,auStack_283,bVar11);\n          *(undefined1 *)(param_5 + 0x20) = uVar10;\n        }\n        *param_4 = iVar2;\n        FUN_1002c2c0(param_1);\n        return iVar7;\n      }\n      FUN_10027c30(3,0x65);\n    }\n  }\n  FUN_10027c30(1,0xc);\n  FUN_1002c2c0(param_1);\n  return 0;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

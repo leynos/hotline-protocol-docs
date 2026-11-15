@@ -1,0 +1,115 @@
+{
+  "c8_copied_raw_file_count": 18,
+  "candidate_source_hashes": {
+    "src/header_util.rs": "dd005cbd436c70499265cc851a276b3c0ef897f3f181a76e04b4e8f13ab7d203",
+    "src/header_util/kani.rs": "5a014dbacca4dabeeaf14f19f13117e04a491fc033797c81e0bddaaf884737d7",
+    "src/transaction/params.rs": "fbebbe8bd6739a265c5aa38b6958ac1cf74b75bf32585eba66ac94b4c69817fb",
+    "src/wireframe/codec/framed_tests.rs": "f0528246dc888728ed823908e62d2daaec9c99a8d20f397c7507f43612412780",
+    "src/wireframe/codec/mod.rs": "f43a3a7e64a0852f306eeb193ed94c1288dbb49780a70b62bdaf4e24a839eb13",
+    "src/wireframe/compat_layer.rs": "83d50d300510ec34db8995f4523c0582418e5848705ace71f94b9a3b0217c15b",
+    "src/wireframe/compat_policy/mod.rs": "3486286ede79455d9f7392b312fb3c1be9b8ba69205663039489611e9e3418e1",
+    "src/wireframe/compat_policy_tests.rs": "d0bd5e4a208f699371df7acffd2930dd1e6050ce74e016bf0bbe8acecc353cba",
+    "src/wireframe/login_reply_augmenter.rs": "20e7ffd92055f935ec4411f9edfb98d5243201560e82536f45c13f8988286461",
+    "src/wireframe/outbound_tests.rs": "ec493c0acd1437d43c82b4e30bb504fe36e6def12dfde48876205ec70352d830",
+    "src/wireframe/routes/tests/direct_ack_cases.rs": "55a1fce0419344ee4fbd49db2e2a7e9eecf49752755c84afba831682c1874910",
+    "src/wireframe/routes/tests/error_cases.rs": "0b886a359855599537ec6e5e5bd674c2daab1cd3d955e5be3cd4be66e6491c39",
+    "src/wireframe/routes/tests/middleware_cases.rs": "9cf41ea2235ae8426234cf6d8dcf4af5d0701b05e7e04e6a04c4018cdb285da7",
+    "src/wireframe/routes/tests/mod.rs": "468ceca8b5cace2f597637d5c91ea7c5974cceaef0f9f9f76e15d019cd27c7a3",
+    "tests/direct_reply_validation.rs": "4c33392dab9cae79f3fbeb5587532a2f57207018ddf7c6cc5b1aa40f2fcaad27",
+    "tests/features/wireframe_routing.feature": "908475cc71306b39afe3984190a5786be9604a0659a74b301112e1643ece351d",
+    "tests/transaction.rs": "8f011daa967e92c01f865885b74e585ee21cc7d81af45fe3c21d8c8cd756c9ed",
+    "tests/wireframe_login_compat.rs": "ab048a01e6f1aa8901bb6b04575613511bf9f4b420085907ae76a0b863ad7d2f",
+    "tests/wireframe_memory_budgets.rs": "9ac0b5ceaed3130640f4fa5bc368658024dcef198b5610a5b0b43b6e7ca9eb9d"
+  },
+  "created_at_utc": "2026-11-13 18:43:19 UTC",
+  "execution": {
+    "cargo_build_jobs": 1,
+    "cargo_net_offline": true,
+    "doctest_counts": [
+      [
+        7,
+        0
+      ],
+      [
+        5,
+        4
+      ]
+    ],
+    "full_log_sha256": "599586d84abc4c8fcd881b8eee1508cabb81f792626b76ffe696eab0bed1d6e1",
+    "invocation_id": "cb3d33916da34bcb863e8185b15cd417",
+    "nextest_counts": [
+      [
+        557,
+        557,
+        0
+      ],
+      [
+        561,
+        561,
+        0
+      ],
+      [
+        543,
+        543,
+        0
+      ],
+      [
+        3,
+        3,
+        0
+      ],
+      [
+        69,
+        69,
+        1
+      ],
+      [
+        8,
+        8,
+        0
+      ],
+      [
+        7,
+        7,
+        0
+      ]
+    ],
+    "nextest_test_threads": 2,
+    "nextest_version": "0.9.116",
+    "pg_data_dir": "unset",
+    "pg_embed_root": "private mothra state/delegation/c9-full/root",
+    "pg_runtime_dir": "/var/tmp/pg-embed-1000/install",
+    "profiles": [
+      "postgres",
+      "sqlite",
+      "wireframe-only",
+      "rstest-bdd-ui",
+      "verification",
+      "fuzz",
+      "concurrency"
+    ],
+    "unit": "mxd-c9-full-20261113-1835.service",
+    "unit_derived_exit": 0,
+    "watch_capture_sha256": "a93c3dc0222529c9585861f20c7bed87ad98436f029c2fdb45595d9e86eb747f"
+  },
+  "limitations": [
+    "Historical bootstrap cause unknown",
+    "Default test parallelism not validated by C9",
+    "C8 initial cgroup baseline missing",
+    "No Kani/native peer run",
+    "Source commit is private and not imported into canonical mxd"
+  ],
+  "mxd_base": "481294915b48f4db06943c8af86cf31b7e47597a",
+  "mxd_final_head": "20e891a059de7dd9dec5a657d7099570987d860d",
+  "prior_failed_evidence": {
+    "first_full_raw_log_sha256": "847bf3517d9caf888a478a7524c91c5fdb46c558d1e421c1e25f59cf430d097c",
+    "manifest": "evidence/gap-remediation/2026-11-13/mxd-direct-ack-01/manifest.json",
+    "manifest_sha256": "31f2ddc096b45a8dd221bd036014afacc6f96d22f52e8055789d25c914eb14ee",
+    "second_full_raw_log_sha256": "bceab3a0a72ce86973a16f0aa47cf20fcfd4f28c5925a8a6a53c153a42e986bb"
+  },
+  "schema_version": 1,
+  "source_commit": "20e891a059de7dd9dec5a657d7099570987d860d",
+  "source_commit_object_sha256": "cec0d50c25c6dc223e3b9de74d8a8068b111e042294a8f8f30786af82fb6377b",
+  "source_patch_sha256": "b754c9199f00e395369c877da2433649c33a9b483bad7b2c342515bfd695ccba",
+  "source_tree_sha256": "f75a0b4065be9bc361d16a4321661e6f482393aaae644f45c66fe6f989524a19"
+}

@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T14:30:09.921953+00:00",
+  "query": {
+    "id": "B08-M-file-info-strings",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "10091cfd",
+      "length": 180
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"address\": \"10091cfd\",\n  \"length\": 180,\n  \"hex\": \"06 46 6f 6c 64 65 72 0c 46 6f 6c 64 65 72 20 41 6c 69 61 73 03 6e 2f 61 04 66 6c 64 72 10 55 6e 61 74 74 61 63 68 65 64 20 41 6c 69 61 73 04 61 6c 69 73 13 41 70 70 6c 69 63 61 74 69 6f 6e 20 50 72 6f 67 72 61 6d 0f 53 74 75 66 66 49 74 20 41 72 63 68 69 76 65 09 54 65 78 74 20 46 69 6c 65 0f 49 6e 63 6f 6d 70 6c 65 74 65 20 46 69 6c 65 10 48 6f 74 6c 69 6e 65 20 42 6f 6f 6b 6d 61 72 6b 07 48 6f 74 6c 69 6e 65 07 53 74 75 66 66 49 74 0a 53 69 6d 70 6c 65 54 65 78 74 43 61 6e 6e 6f 74 20 73 65 74 20 69 6e 66 6f 20 62 65 63 61 75 73 65\",\n  \"ascii\": \".Folder.Folder Alias.n/a.fldr.Unattached Alias.alis.Application Program.StuffIt Archive.Text File.Incomplete File.Hotline Bookmark.Hotline.StuffIt.SimpleTextCannot set info because\",\n  \"gaps\": []\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "address": "10091cfd",
+      "length": 180,
+      "hex": "06 46 6f 6c 64 65 72 0c 46 6f 6c 64 65 72 20 41 6c 69 61 73 03 6e 2f 61 04 66 6c 64 72 10 55 6e 61 74 74 61 63 68 65 64 20 41 6c 69 61 73 04 61 6c 69 73 13 41 70 70 6c 69 63 61 74 69 6f 6e 20 50 72 6f 67 72 61 6d 0f 53 74 75 66 66 49 74 20 41 72 63 68 69 76 65 09 54 65 78 74 20 46 69 6c 65 0f 49 6e 63 6f 6d 70 6c 65 74 65 20 46 69 6c 65 10 48 6f 74 6c 69 6e 65 20 42 6f 6f 6b 6d 61 72 6b 07 48 6f 74 6c 69 6e 65 07 53 74 75 66 66 49 74 0a 53 69 6d 70 6c 65 54 65 78 74 43 61 6e 6e 6f 74 20 73 65 74 20 69 6e 66 6f 20 62 65 63 61 75 73 65",
+      "ascii": ".Folder.Folder Alias.n/a.fldr.Unattached Alias.alis.Application Program.StuffIt Archive.Text File.Incomplete File.Hotline Bookmark.Hotline.StuffIt.SimpleTextCannot set info because",
+      "gaps": []
+    },
+    "isError": false
+  }
+}

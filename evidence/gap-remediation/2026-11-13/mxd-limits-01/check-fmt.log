@@ -1,0 +1,36 @@
+cargo fmt --all -- --check
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`
+Diff in /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/src/wireframe/codec/framed_tests.rs:234:
+     let mut decoded = None;
+     for fragment in fragments {
+         let mut input = BytesMut::from(fragment.as_slice());
+-        decoded = codec.decode(&mut input).expect("valid logical payload decodes");
++        decoded = codec
++            .decode(&mut input)
++            .expect("valid logical payload decodes");
+         assert!(input.is_empty(), "complete physical frame is consumed");
+     }
+     let transaction = decoded.expect("last fragment completes transaction");
+Diff in /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/src/wireframe/codec/framed_tests.rs:257:
+     };
+     let mut codec = HotlineCodec::new();
+     let mut input = BytesMut::from(transaction_bytes(&header, &[]).as_slice());
+-    let error = codec.decode(&mut input).expect_err("oversized total is rejected");
++    let error = codec
++        .decode(&mut input)
++        .expect_err("oversized total is rejected");
+     assert_eq!(error.kind(), std::io::ErrorKind::InvalidData);
+     assert!(error.to_string().contains("total size exceeds maximum"));
+ }
+Diff in /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/src/wireframe/codec/framed_tests.rs:276:
+     };
+     let mut codec = HotlineCodec::new();
+     let mut input = BytesMut::from(transaction_bytes(&header, &[]).as_slice());
+-    let error = codec.decode(&mut input).expect_err("oversized frame is rejected");
++    let error = codec
++        .decode(&mut input)
++        .expect_err("oversized frame is rejected");
+     assert_eq!(error.kind(), std::io::ErrorKind::InvalidData);
+     assert!(error.to_string().contains("data size exceeds maximum"));
+ }
+make: *** [Makefile:137: check-fmt] Error 1

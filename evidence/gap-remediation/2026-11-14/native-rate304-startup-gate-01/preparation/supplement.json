@@ -1,0 +1,24 @@
+{
+  "R_exists": true,
+  "D_absent": true,
+  "O_absent": true,
+  "display_socket_absent": true,
+  "base.dsk_fuser": {
+    "exit": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  "working.dsk_fuser": {
+    "exit": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  "rom_fuser": {
+    "exit": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  "ports_free": true,
+  "1099659_tick": "767842",
+  "1012834_tick": "2357813"
+}

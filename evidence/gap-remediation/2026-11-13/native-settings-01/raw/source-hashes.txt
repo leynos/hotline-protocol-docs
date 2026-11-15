@@ -1,0 +1,5 @@
+private protocol HEAD: 642834a061b49c8e07643930a999a09d72ed1c14
+19f42b355002c78780bd18046cb5a175d9979148f6eda786d5a205531c28d536  state/delegation/workspaces/batch-02-mxd/hotline-protocol-docs/scripts/native_settings_cases.py
+f908ad925f0534f55f8aa9b5b21a652081f04fd60558d9c2cc480fa5202712fc  state/delegation/workspaces/batch-02-mxd/hotline-protocol-docs/scripts/verify_native_settings.py
+4559b5b394d6a21d2a37bf05a54e1c17ce692b7b38bb4b5e9e12c267f919d494  state/delegation/workspaces/batch-02-mxd/hotline-protocol-docs/scripts/test_native_settings.py
+2fba0972f4d9a8e3845c4204dce150dd7c90da0e19a9e5720d5289e2c94faf01  ../hotline-protocol-docs/scripts/protocol_capture.py

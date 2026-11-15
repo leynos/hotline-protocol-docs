@@ -1,0 +1,95 @@
+{
+  "schema": "native-download-send-path-source-provenance-01",
+  "sources": {
+    "notes/c39-native-transfer-producer.md.txt": {
+      "source": "state/delegation/c39-native-transfer-producer.md",
+      "sha256": "f58e9fe3077404353b43d1d1f85e37690011aec3522fd15d822ebc081d51554a",
+      "bytes": 3970
+    },
+    "oracle/c40-query.py.txt": {
+      "source": "state/delegation/c40-oracle/query.py",
+      "sha256": "264fb0e362d4cc195bd8698f2870191f328fbe71a31e6808227c76f9105ac64e",
+      "bytes": 4673
+    },
+    "oracle/c40-report.json": {
+      "source": "state/delegation/c40-oracle/report.json",
+      "sha256": "7b4b416265f6ac85541a363daf7879bbca4b9efc48c17a7681f44d9c71933299",
+      "bytes": 18036
+    },
+    "oracle/c40-server.stderr.log": {
+      "source": "state/delegation/c40-oracle/server.stderr.log",
+      "sha256": "fcddc19f789ea2cd0de75bac4723d1460499dee6dc977972271af94814347807",
+      "bytes": 1721
+    },
+    "oracle/c40-caller.py.txt": {
+      "source": "state/delegation/c40-oracle/caller.py",
+      "sha256": "2e2de48912515df142aad1fcf606e4d36245f708369f2d2778c37bb5abe20e71",
+      "bytes": 1705
+    },
+    "oracle/c40-caller.json": {
+      "source": "state/delegation/c40-oracle/caller.json",
+      "sha256": "02199efe2903ffb74a5a14562868c902d53363d0b3ef7afe89240df5677d5783",
+      "bytes": 432
+    },
+    "oracle/c40-caller.stderr.log": {
+      "source": "state/delegation/c40-oracle/caller.stderr.log",
+      "sha256": "214d2f95e73fb969a5e609e74e92d7df4a110d86f07641957636785ff602523b",
+      "bytes": 1045
+    },
+    "oracle/c41-query.py.txt": {
+      "source": "state/delegation/c41-oracle/query.py",
+      "sha256": "adf91a8127665d8ff1f8f9fcb824b01d3e7f5679df595530666863384cf19eca",
+      "bytes": 4377
+    },
+    "oracle/c41-report.json": {
+      "source": "state/delegation/c41-oracle/report.json",
+      "sha256": "31abd6e1cd9b47875ecba86377ef7493dd605b7f83f484d0f10261dcb48bfb32",
+      "bytes": 22884
+    },
+    "oracle/c41-server.stderr.log": {
+      "source": "state/delegation/c41-oracle/server.stderr.log",
+      "sha256": "8d796137e7182522d5e5d048c9f432535ab6e0f8aff6fdaf98779a7826fbfd26",
+      "bytes": 1796
+    },
+    "oracle/c41-trace.md.txt": {
+      "source": "state/delegation/c41-oracle/trace.md",
+      "sha256": "b770c261db9e5616c6dcec7a45352f31775b616ebaa29ead5e38649cc3feee21",
+      "bytes": 3408
+    },
+    "sources/D-1000acf0.c": {
+      "source": "evidence/hotline-server-1.9/queries/D-1000acf0.c",
+      "sha256": "507eb359ba4198151f5d875e58a89354c6fdcd70910aebe8bd4e64b3970b8fb2",
+      "bytes": 18131
+    },
+    "sources/D-100121a0.c": {
+      "source": "evidence/hotline-server-1.9/queries/D-100121a0.c",
+      "sha256": "061f73d6427fce1dfc5a972113a95f944f9cabccc90a76b4f25c4d200c5275e9",
+      "bytes": 5412
+    },
+    "sources/D-1000bd20.c": {
+      "source": "evidence/hotline-server-1.9/queries/D-1000bd20.c",
+      "sha256": "829df302b4b18a4f102695a5bd6f73c3f8c454c61c70726eeaed6890c03a4e6f",
+      "bytes": 4693
+    },
+    "sources/B04-D-1000e600.c": {
+      "source": "evidence/gap-remediation/2026-11-12/batch-04/queries/B04-D-1000e600.c",
+      "sha256": "ebff55046f625d570d6717ac30f550789df7bece2da663747c81d62683fe1126",
+      "bytes": 842
+    },
+    "sources/B04-D-1000cfa0.c": {
+      "source": "evidence/gap-remediation/2026-11-12/batch-04/queries/B04-D-1000cfa0.c",
+      "sha256": "4995cef50ba03453da9f6a0ceb4f4ce659d1b5ef63f3d5810a9cb1056842a33d",
+      "bytes": 6151
+    },
+    "sources/B04-D-1000c200.c": {
+      "source": "evidence/gap-remediation/2026-11-12/batch-04/queries/B04-D-1000c200.c",
+      "sha256": "c76fac21c7f8d3597feeb4bccde104500d5e43e9737f727bce22fea6e7acbee4",
+      "bytes": 3686
+    },
+    "sources/B04-D-1002d830.c": {
+      "source": "evidence/gap-remediation/2026-11-12/batch-04/queries/B04-D-1002d830.c",
+      "sha256": "f49979b479c797061fa75db7e634e5f78a8dc89cbca16b9c44387cafc127a6c8",
+      "bytes": 2150
+    }
+  }
+}

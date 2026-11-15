@@ -1,0 +1,17 @@
+{
+  "utc": "2026-11-14T01:08:47.676682+00:00",
+  "a7_status": "failed",
+  "completed_actions": 21,
+  "error": "TimeoutError: timed out",
+  "download_bytes": 98304,
+  "download_sha256": "b4c6dc15be0d82de42d3aa7102c1feca67397b978591ac8be2d2c846d6a62e7c",
+  "observer_status": "no_progress_after_verified_focus",
+  "event_count": 1,
+  "event_utc": "2026-11-14T01:07:20.661146+00:00",
+  "focus_title_before_after": [
+    0,
+    278
+  ],
+  "a7_unit_properties": "ActiveState=failed\nResult=exit-code\nExecMainStatus=1\n",
+  "option_two_executed": false
+}

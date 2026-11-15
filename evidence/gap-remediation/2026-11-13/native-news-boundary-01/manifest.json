@@ -1,0 +1,29 @@
+{
+  "reports": {
+    "append-001-010": "completed",
+    "append-011-020": "completed",
+    "append-021-030": "completed",
+    "append-031-040": "completed",
+    "append-041-050": "completed",
+    "append-051-060": "completed",
+    "append-061-070": "completed",
+    "append-071-080": "completed",
+    "append-081-090": "completed",
+    "append-091-099": "completed",
+    "append-100-100": "completed",
+    "append-101-101": "completed",
+    "append-102-102": "completed",
+    "cleanup": "completed",
+    "final": "completed",
+    "observe": "completed",
+    "preflight": "completed",
+    "publish": "completed",
+    "remove-publisher": "completed",
+    "seed": "completed"
+  },
+  "completed_reports": 20,
+  "paired_connections": 22,
+  "host_packets": 927,
+  "host_kernel_drops": 0,
+  "scope": "Native child-append boundary in one owned category. Separate 99/100/101/102-child observations, direct lookup of bypassed article, positive native header/index/cache and cleanup publication. Two out-of-range final probes have no positive records; first cleanup probe has only six unrelated prior Trash records. Neither is an absence proof. No restart, forced I/O interruption or historical-client claim."
+}

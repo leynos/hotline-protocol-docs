@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "reports": [
+    "basics",
+    "basics-width-failure",
+    "cleanup",
+    "concurrent",
+    "create_invites",
+    "final",
+    "formatting",
+    "invites",
+    "lifecycle",
+    "preflight",
+    "recovery-inspect",
+    "refusals",
+    "refusals-ack-timeout",
+    "seed",
+    "topics"
+  ],
+  "as_run_sources": {
+    "sources/native_room_cases.width-failure.py.txt": "2b294e352b91adc62492238f41ef1923dd8d3d23f49077d535011deef98de7aa",
+    "sources/native_room_cases.ack-timeout.py.txt": "1a4fad202adc0140f2658d9fe26a5c9d42ac48046086d28952c7f5e3e16c3fd3",
+    "sources/native_room_cases.py.final.txt": "0fa39012402ee6645c4d4cbbd8238e62a944f70ae1717ed4fbc678fd5963dada",
+    "sources/native_packet_evidence.py.final.txt": "76d2529f2fdce5c0afb71ac02a938a5b8b89da07538632fab655ff7f1b9e8a0a",
+    "sources/protocol_capture.py.final.txt": "2fba0972f4d9a8e3845c4204dce150dd7c90da0e19a9e5720d5289e2c94faf01",
+    "sources/pcap_tcp.py.final.txt": "04c4fda2e62ccab35ed306c036dac6b1878af58adbfaccc6312a2805dd6897d7"
+  },
+  "frozen_failed_plans": {
+    "basics-width-failure": "b450c4c8351d6f96414789929990f30fba321461bfd271b4047e1a746062f7fe",
+    "refusals-ack-timeout": "3fa5d8ff4834c19984082c611efc0d21446896e401a9f01ea54729287835a2fd"
+  },
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "method": "13 complete observations and two explicit failed recorder expectations, 45 paired TCP lifetimes. Preserve both view-specific unread tails, including extra native sends at guest boundary after host closure. Original two account enumeration and 41-entry Files listing restored. No emulator/application restart, original-account mutation, universal packet-receipt order or historical-client claim.",
+  "failed_observations": {
+    "basics-width-failure": "Fixture declared two-byte room while substituting native four-byte room ID; EOF after malformed framing. Corrected generator and same-session recovery retained.",
+    "refusals-ack-timeout": "Recorder waited for nonexistent 304 direct ACK and timed out. Corrected fixture uses 500 barriers. No server restart or native-crash claim."
+  }
+}

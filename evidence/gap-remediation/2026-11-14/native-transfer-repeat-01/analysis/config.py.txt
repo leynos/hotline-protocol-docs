@@ -1,0 +1,13 @@
+from pathlib import Path
+import hashlib,json,subprocess
+R=Path('/data/leynos/Projects/mothra');O=R/'state/delegation/c46-offline';result={}
+for run,boot,which in [('c32','c31','one'),('c35','c34','two'),('c45','c44','three')]:
+ b=R/f'state/native-sessions/native-banlab-boot-{boot}';c=R/f'state/native-sessions/native-banlab-{run}';r=R/f'state/mac-runtime/native-banlab-{which}-01';plan=json.load(open(c/'a7-as-run-plan.json'));ready=json.load(open(b/'readiness.json'));assets=json.load(open(r/'assets.json'));prefs=(r/'machine.sheepvm/prefs').read_text();normal=prefs.replace(f'native-banlab-{which}-01','native-banlab-N-01').replace(f'157{20 if which=="one" else 30 if which=="two" else 40}','157NN').replace(f'157{21 if which=="one" else 31 if which=="two" else 41}','157NN').replace(f'157{22 if which=="one" else 32 if which=="two" else 42}','157NN').replace(f'157{23 if which=="one" else 33 if which=="two" else 43}','157NN')
+ icat=subprocess.run([str(R/'tools/sleuthkit/usr/bin/icat'),'-f','hfs',str(r/'working.dsk'),'11202'],capture_output=True,check=True,env={'LD_LIBRARY_PATH':str(R/'tools/sleuthkit/usr/lib64')})
+ launch=json.load(open(b/'lab-launch.json'));display=json.load(open(b/'display-launch.json'));term=json.load(open(c/'terminal.json'))
+ item={'source_assets':assets,'emulator_exe_sha256':ready.get('exe_sha256',ready.get('emulator_sha256')),'native_oracle_sha256':plan['oracle_sha256'],'guest_prefs_sha256':hashlib.sha256(icat.stdout).hexdigest(),'guest_prefs_bytes':len(icat.stdout),'sheep_prefs_sha256':hashlib.sha256(prefs.encode()).hexdigest(),'sheep_prefs_normalized_sha256':hashlib.sha256(normal.encode()).hexdigest(),'sheep_prefs_normalized':normal,'original_options_in_plan':plan['environment'].get('original_options'),'captured_live_options':plan['environment'].get('captured_options'),'display':display['argv'],'launch':launch['argv'],'namespace':ready.get('netns',ready.get('actual_emulator',{}).get('netns')),'readiness_ui':ready.get('ui'),'boot_disk_repair_ack':(b/'disk-repair-ack.json').exists(),'boot_sound_ack':(b/'sound-dialog-ack.json').exists(),'host_recorder_log_tail':(b/'host-recorder.log').read_text().splitlines()[-4:],'ns_recorder_log_tail':(b/'ns-recorder.log').read_text().splitlines()[-4:],'terminal_keys':list(term)}
+ result[run]=item
+assert len({v['guest_prefs_sha256'] for v in result.values()})==1
+assert len({v['sheep_prefs_normalized_sha256'] for v in result.values()})==1
+assert len({v['emulator_exe_sha256'] for v in result.values()})==1
+(O/'config-comparison.json').write_text(json.dumps(result,indent=2)+'\n');print('normalized config and guest Prefs identical')

@@ -1,0 +1,1 @@
+{"status": "ready", "variant": "baseline", "netns_inode": 4026532479, "expected_netns_inode": 4026532479, "host_netns_inode": 4026531840, "routes": {"control": 15500, "data": 15501}, "listeners": {"control": 15652, "data": 15653}, "deadline_seconds": 180}

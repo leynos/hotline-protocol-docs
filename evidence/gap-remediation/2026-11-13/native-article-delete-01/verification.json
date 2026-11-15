@@ -1,0 +1,10 @@
+{
+  "reports": 58,
+  "completed": 56,
+  "retained_failures": 2,
+  "paired_connections": 60,
+  "deletion_cases": 25,
+  "positive_categories": 25,
+  "oracle_queries": 15,
+  "scope": "These native fixtures; no natural ban expiry, interrupted-storage atomicity, restart durability or historical-client claim"
+}

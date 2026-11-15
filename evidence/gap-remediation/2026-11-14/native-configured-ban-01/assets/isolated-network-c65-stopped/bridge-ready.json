@@ -1,0 +1,14 @@
+{
+  "pid": 590744,
+  "socket": "/data/leynos/Projects/mothra/state/mac-runtime/native-configured-apply-01/isolated-network/bridge.sock",
+  "socket_inode": 5971888903,
+  "fixed_target": {
+    "kind": "tcp",
+    "address": [
+      "127.0.0.1",
+      15500
+    ],
+    "synthetic": false
+  },
+  "netns": "net:[4026531840]"
+}

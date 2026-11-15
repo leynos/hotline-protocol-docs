@@ -1,0 +1,9 @@
+{
+  "unit": "mothra-native-rate304-r03-lease.service",
+  "pid": 3124093,
+  "fd": 3,
+  "inode": 3512552451,
+  "header24": null,
+  "wait_seconds": 0.023221088995342143,
+  "deadline_utc": "2026-11-14T11:50:21.652926+00:00"
+}

@@ -1,0 +1,13 @@
+Full gate after archive repair, external Cargo target
+source log SHA256 801466e02e2be89f55bdaa3b95b59b34fa2f36661b7f555425522c95e03b7046
+exit 2
+
+1173:      Summary [  20.896s] 544 tests run: 544 passed, 0 skipped
+2419:      Summary [   8.287s] 548 tests run: 548 passed, 0 skipped
+3559:      Summary [   8.742s] 530 tests run: 530 passed, 0 skipped
+3812:     error: feature file not found: /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/tests/trybuild/rstest-bdd-ui-tests/../../../../tests/rstest-bdd-ui/tests/ui/feature.feature
+3827:     error: feature file not found: /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/tests/trybuild/rstest-bdd-ui-tests/../../../../tests/rstest-bdd-ui/tests/ui/mutable_world.feature
+3865:     error: feature file not found: /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/tests/trybuild/rstest-bdd-ui-tests/../../../../tests/rstest-bdd-ui/tests/ui/feature.feature
+3884:     3 of 3 tests failed
+3889:      Summary [ 232.010s] 3 tests run: 2 passed, 1 failed, 0 skipped
+3892: make: *** [Makefile:352: test-rstest-bdd-ui] Error 100

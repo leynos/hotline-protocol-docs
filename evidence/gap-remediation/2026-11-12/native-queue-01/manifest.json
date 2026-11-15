@@ -1,0 +1,44 @@
+{
+  "scope": "Four controlled native queue cases with exact paired packet streams, initial and changed positions, mode bytes, ownership, bounded ordering and pending-reference timeout",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "runtime": "runtime.json",
+  "verification": "verification.json",
+  "catalogue": "transcripts/; all four captures completed",
+  "configuration": {
+    "before": {
+      "global_max_downloads": 100,
+      "per_client_max_downloads": 10
+    },
+    "during": {
+      "global_max_downloads": 2,
+      "per_client_max_downloads": 1
+    },
+    "restored": {
+      "global_max_downloads": 100,
+      "per_client_max_downloads": 10
+    },
+    "max_connections_per_ip": 5,
+    "method": "General Options edited, saved and reopened. Screenshots retain test and restored values; dialog closed before captures and after restoration. Values are fixture settings, not protocol defaults."
+  },
+  "packet_provenance": "Fresh host runtime07 capture stopped with SIGINT; complete snapshot of continuing guest runtime04 observer. Same live emulator PID774378/executable identity as prior corpus. Both views reconcile all four socket recordings; one pinned unread28-byte departure302 is retained separately.",
+  "observations": [
+    "Mode values0/1/3/65535 use ordinary FILP,2 uses raw DATA preview; queued replies retain ref/size and add position. Empty preview allocates no ref or queue entry.",
+    "Owner cancellation of attached middle waiter closes its data connection without file bytes and advances later positions.",
+    "Later eligible ownerB waiter bypasses earlier ownerA waiters blocked by per-session cap; no universal FIFO inferred.",
+    "Early attached waiter delivers on same data connection after admission; nonowner214 ACK does not free owner slot.",
+    "Absent/zero/unknown/duplicate214 requests ACK without proving removal.",
+    "Twelve measured45-second pauses keep control exchanges active; old pending reference later rejects with reset/no application bytes and waiting reference delivers full file.",
+    "211zero complete-frame observation is542.973851 hostseconds after initial downloadACK; internal expiry/admission instant is not instrumented."
+  ],
+  "restoration": "configuration/options-restored.png verifies saved100/10 values after all capture sockets closed; guest remains running",
+  "limitations": [
+    "Finite ordinary-file queues at recorded2/1 settings; no mixed-folder or universal starvation guarantee",
+    "Host PCAP timestamps are not Mac timer instrumentation; no exact500-second network deadline claimed",
+    "Periodic500 requests are operator-chosen ACK probes, not evidence of historical-client purpose/scheduling",
+    "In-progress cancellation/completion races remain GAP-062; reset diagnostic payloads are not application bytes"
+  ],
+  "closure_candidates": [
+    "GAP-057",
+    "GAP-061"
+  ]
+}

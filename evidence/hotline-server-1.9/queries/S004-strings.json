@@ -1,0 +1,1487 @@
+{
+  "captured_at_utc": "2026-11-12T12:09:49.697297+00:00",
+  "query": {
+    "id": "S004-strings",
+    "tool": "list_strings",
+    "arguments": {
+      "limit": 2000
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"items\": [\n    {\n      \"address\": \"10082694\",\n      \"value\": \"From %#s (%s%2.2hu %2.2hu:%2.2hu):\\r\\r\",\n      \"type\": \"string\",\n      \"length\": 37\n    },\n    {\n      \"address\": \"100826bc\",\n      \"value\": \"<\\r__________________________________________________________\\r\",\n      \"type\": \"string\",\n      \"length\": 62\n    },\n    {\n      \"address\": \"10082729\",\n      \"value\": \"application/x-hlnewsitem\",\n      \"type\": \"string\",\n      \"length\": 27\n    },\n    {\n      \"address\": \"100829ff\",\n      \"value\": \"@Memory is running low.  Please close windows and save documents.\",\n      \"type\": \"string\",\n      \"length\": 69\n    },\n    {\n      \"address\": \"10083710\",\n      \"value\": \"ASDFHGZXCV\",\n      \"type\": \"string\",\n      \"length\": 11\n    },\n    {\n      \"address\": \"10083c9c\",\n      \"value\": \"std::bad_exception\",\n      \"type\": \"string\",\n      \"length\": 19\n    },\n    {\n      \"address\": \"10083cb0\",\n      \"value\": \"std::exception\",\n      \"type\": \"string\",\n      \"length\": 15\n    },\n    {\n      \"address\": \"10083cc0\",\n      \"value\": \"!bad_exception!!\",\n      \"type\": \"string\",\n      \"length\": 17\n    },\n    {\n      \"address\": \"10083cd1\",\n      \"value\": \"!std::exception!!std::bad_exception!!\",\n      \"type\": \"string\",\n      \"length\": 38\n    },\n    {\n      \"address\": \"10083cf7\",\n      \"value\": \"!std::bad_exception!!\",\n      \"type\": \"string\",\n      \"length\": 25\n    },\n    {\n      \"address\": \"10083d10\",\n      \"value\": \"std::bad_cast\",\n      \"type\": \"string\",\n      \"length\": 14\n    },\n    {\n      \"address\": \"10083d24\",\n      \"value\": \"!std::exception!!std::bad_typeid!!\",\n      \"type\": \"string\",\n      \"length\": 35\n    },\n    {\n      \"address\": \"10083d47\",\n      \"value\": \"!std::exception!!std::bad_cast!!\",\n      \"type\": \"string\",\n      \"length\": 33\n    },\n    {\n      \"address\": \"1008ee3c\",\n      \"value\": \"!SError!\",\n      \"type\": \"string\",\n      \"length\": 12\n    },\n    {\n      \"address\": \"1008eef0\",\n      \"value\": \"CMyNewAdminAccountWin\",\n      \"type\": \"string\",\n      \"length\": 22\n    },\n    {\n      \"address\": \"1008ef08\",\n      \"value\": \"CViewHandler\",\n      \"type\": \"string\",\n      \"length\": 13\n    },\n    {\n      \"address\": \"1008ef20\",\n      \"value\": \"CViewContainer\",\n      \"type\": \"string\",\n      \"length\": 15\n    },\n    {\n      \"address\": \"1008ef47\",\n      \"value\": \"0CSingleViewContainer\",\n      \"type\": \"string\",\n      \"length\": 25\n    },\n    {\n      \"address\": \"1008ef7f\",\n      \"value\": \"`CWindow\",\n      \"type\": \"string\",\n      \"length\": 9\n    },\n    {\n      \"address\": \"1008f08c\",\n      \"value\": \"CMySelectAdminWin\",\n      \"type\": \"string\",\n      \"length\": 18\n    },\n    {\n      \"address\": \"1008f17c\",\n      \"value\": \"CMySetAdminPassWin\",\n      \"type\": \"string\",\n      \"length\": 19\n    },\n    {\n      \"address\": \"1008f26c\",\n      \"value\": \"CMyQuittingWin\",\n      \"type\": \"string\",\n      \"length\": 15\n    },\n    {\n      \"address\": \"1008f358\",\n      \"value\": \"CMyBroadcastWin\",\n      \"type\": \"string\",\n      \"length\": 16\n    },\n    {\n      \"address\": \"1008f444\",\n      \"value\": \"CMyOptionsWin\",\n      \"type\": \"string\",\n      \"length\": 14\n    },\n    {\n      \"address\": \"1008f52c\",\n      \"value\": \"CMyDownloadClientWin\",\n      \"type\": \"string\",\n      \"length\": 21\n    },\n    {\n      \"address\": \"1008f61c\",\n      \"value\": \"CMySetAdminPrivsWin\",\n      \"type\": \"string\",\n      \"length\": 20\n    },\n    {\n      \"address\": \"1008f70c\",\n      \"value\": \"CMyQuitWin\",\n      \"type\": \"string\",\n      \"length\": 11\n    },\n    {\n      \"address\": \"1008f7f4\",\n      \"value\": \"CMyApplication\",\n      \"type\": \"string\",\n      \"length\": 15\n    },\n    {\n      \"address\": \"1008f804\",\n      \"value\": \"CApplication\",\n      \"type\": \"string\",\n      \"length\": 13\n    },\n    {\n      \"address\": \"1008fa52\",\n      \"value\": \"Restart the server\\\\Changes of the Server IP or Port Number will only take effect after the server is restarted.Too many errors! Resetting...\",\n      \"type\": \"string\",\n      \"length\": 141\n    },\n    {\n      \"address\": \"1008fadf\",\n      \"value\": \"Reset failed! Terminating...\",\n      \"type\": \"string\",\n      \"length\": 29\n    },\n    {\n      \"address\": \"1008fafc\",\n      \"value\": \"The Admin account \\\"%#s\\\" does not exist. Would you like to create it?\",\n      \"type\": \"string\",\n      \"length\": 69\n    },\n    {\n      \"address\": \"1008fb5e\",\n      \"value\": \"CancelThe account \\\"%#s\\\" already exists. Would you like to set this account as the head Admin account?\",\n      \"type\": \"string\",\n      \"length\": 102\n    },\n    {\n      \"address\": \"1008fbdf\",\n      \"value\": \"hotline http://www.BigRedH.com/download/:\",\n      \"type\": \"string\",\n      \"length\": 42\n    },\n    {\n      \"address\": \"1008fc09\",\n      \"value\": \"hotline://%#s@%#s:%lu\",\n      \"type\": \"string\",\n      \"length\": 22\n    },\n    {\n      \"address\": \"1008fc57\",\n      \"value\": \"<%#s> is larger that %lu bytes and cannot be used as agreement.\",\n      \"type\": \"string\",\n      \"length\": 64\n    },\n    {\n      \"address\": \"1008fce1\",\n      \"value\": \"Loaded MessageBoard.txt\",\n      \"type\": \"string\",\n      \"length\": 24\n    },\n    {\n      \"address\": \"1008fd31\",\n      \"value\": \"I'm not able to respond right now. Please try later!\",\n      \"type\": \"string\",\n      \"length\": 53\n    },\n    {\n      \"address\": \"1008fe27\",\n      \"value\": \")Date/time\\tAddress\\tAccount\\tName\\tFile Name\\r%#s\\t%#s\\t%#s\\t%#s\\r\",\n      \"type\": \"string\",\n      \"length\": 59\n    },\n    {\n      \"address\": \"1008fe63\",\n      \"value\": \"Date/time\\tAddress\\tAccount\\tName\\r%#s\\t%#s\\t%#s\\t%#s\\t%#s\\t%#s\\r\",\n      \"type\": \"string\",\n      \"length\": 56\n    },\n    {\n      \"address\": \"1008fed4\",\n      \"value\": \"UserDataadministrator\",\n      \"type\": \"string\",\n      \"length\": 22\n    },\n    {\n      \"address\": \"1008feea\",\n      \"value\": \"The Admin account \\\"%#s\\\" does not have a password assigned. This account has full access to all controls of the Server and you should not reveal this password to anyone to whom you do not want to give control of the Server. Please enter a new password for this account. If you do not set a password, your Server will not be secure.\",\n      \"type\": \"string\",\n      \"length\": 331\n    },\n    {\n      \"address\": \"10090036\",\n      \"value\": \"Set Admin PasswordThe Admin account \\\"%#s\\\" does not exist. Please enter a password for this account so that it can be created. This account has full access to all controls of the Server and you should not reveal this password to anyone to whom you do not want to give control of the Server. Please enter a new password for this account. If you do not set a password, your Server will not be secure.\",\n      \"type\": \"string\",\n      \"length\": 398\n    },\n    {\n      \"address\": \"100901c4\",\n      \"value\": \"Resetting the Admin account will enable all access privileges for the Admin account and set a new password. Please enter a new password below.\",\n      \"type\": \"string\",\n      \"length\": 143\n    },\n    {\n      \"address\": \"100902e0\",\n      \"value\": \"admin/%d\",\n      \"type\": \"string\",\n      \"length\": 9\n    },\n    {\n      \"address\": \"100902ee\",\n      \"value\": \"Banned\\nBanned.bakToo many resets! Terminating...\",\n      \"type\": \"string\",\n      \"length\": 49\n    },\n    {\n      \"address\": \"1009031f\",\n      \"value\": \"SERVER RESET - too many errors\",\n      \"type\": \"string\",\n      \"length\": 31\n    },\n    {\n      \"address\": \"1009033e\",\n      \"value\": \"Autobanned for flooding\",\n      \"type\": \"string\",\n      \"length\": 24\n    },\n    {\n      \"address\": \"10090356\",\n      \"value\": \"Connection established\",\n      \"type\": \"string\",\n      \"length\": 23\n    },\n    {\n      \"address\": \"1009036d\",\n      \"value\": \"Incompatible version (%4.4s%hu)\",\n      \"type\": \"string\",\n      \"length\": 32\n    },\n    {\n      \"address\": \"1009038d\",\n      \"value\": \"Killed unknown protocol!\",\n      \"type\": \"string\",\n      \"length\": 25\n    },\n    {\n      \"address\": \"100903a6\",\n      \"value\": \"Connection closed\",\n      \"type\": \"string\",\n      \"length\": 18\n    },\n    {\n      \"address\": \"100903b8\",\n      \"value\": \"Download connection established\",\n      \"type\": \"string\",\n      \"length\": 32\n    },\n    {\n      \"address\": \"100903d8\",\n      \"value\": \"Upload connection established\",\n      \"type\": \"string\",\n      \"length\": 30\n    },\n    {\n      \"address\": \"100903f6\",\n      \"value\": \"Transfer connection establish failed!\",\n      \"type\": \"string\",\n      \"length\": 38\n    },\n    {\n      \"address\": \"1009041c\",\n      \"value\": \"Download aborted (no response)\",\n      \"type\": \"string\",\n      \"length\": 31\n    },\n    {\n      \"address\": \"1009043b\",\n      \"value\": \"Download connection closed\",\n      \"type\": \"string\",\n      \"length\": 27\n    },\n    {\n      \"address\": \"10090456\",\n      \"value\": \"Download complete\",\n      \"type\": \"string\",\n      \"length\": 18\n    },\n    {\n      \"address\": \"10090468\",\n      \"value\": \"Download banner aborted (no response)\",\n      \"type\": \"string\",\n      \"length\": 38\n    },\n    {\n      \"address\": \"1009048e\",\n      \"value\": \"Download banner complete\",\n      \"type\": \"string\",\n      \"length\": 25\n    },\n    {\n      \"address\": \"100904a7\",\n      \"value\": \"Upload aborted (no response)\",\n      \"type\": \"string\",\n      \"length\": 29\n    },\n    {\n      \"address\": \"100904c4\",\n      \"value\": \"Upload aborted\",\n      \"type\": \"string\",\n      \"length\": 15\n    },\n    {\n      \"address\": \"100904d3\",\n      \"value\": \"Upload complete\",\n      \"type\": \"string\",\n      \"length\": 16\n    },\n    {\n      \"address\": \"100904e3\",\n      \"value\": \"Upload folder item failed\",\n      \"type\": \"string\",\n      \"length\": 26\n    },\n    {\n      \"address\": \"100904fd\",\n      \"value\": \"Upload folder complete\",\n      \"type\": \"string\",\n      \"length\": 23\n    },\n    {\n      \"address\": \"10090514\",\n      \"value\": \"!SError!\",\n      \"type\": \"string\",\n      \"length\": 12\n    },\n    {\n      \"address\": \"10090520\",\n      \"value\": \"8You are not allowed to read news from the message board.6You are not allowed to post news to the message board.7Your news post was not accepted because it was too big.Autobanned for News Spam\",\n      \"type\": \"string\",\n      \"length\": 193\n    },\n    {\n      \"address\": \"100905e1\",\n      \"value\": \"Autobanned for Message Spam\",\n      \"type\": \"string\",\n      \"length\": 28\n    },\n    {\n      \"address\": \"100905fd\",\n      \"value\": \"Autobanned for flooding\",\n      \"type\": \"string\",\n      \"length\": 24\n    },\n    {\n      \"address\": \"10090615\",\n      \"value\": \"-You are not allowed to send private messages.NCouldn't send your message because the client is not connected to this server.%#s does not accept private messages.\",\n      \"type\": \"string\",\n      \"length\": 163\n    },\n    {\n      \"address\": \"100906b8\",\n      \"value\": \"%#s does not accept private chats.\",\n      \"type\": \"string\",\n      \"length\": 35\n    },\n    {\n      \"address\": \"10090741\",\n      \"value\": \"Autobanned for Chat Spam\",\n      \"type\": \"string\",\n      \"length\": 25\n    },\n    {\n      \"address\": \"1009075c\",\n      \"value\": \"ECannot get file list because the specified folder could not be found.drop box\",\n      \"type\": \"string\",\n      \"length\": 79\n    },\n    {\n      \"address\": \"10090a8d\",\n      \"value\": \" because the enclosing bundle could not be found.\",\n      \"type\": \"string\",\n      \"length\": 50\n    },\n    {\n      \"address\": \"10090ade\",\n      \"value\": \" because there is already an item or bundle with that name.\",\n      \"type\": \"string\",\n      \"length\": 60\n    },\n    {\n      \"address\": \"10090b9f\",\n      \"value\": \" because the enclosing bundle could not be found.\",\n      \"type\": \"string\",\n      \"length\": 50\n    },\n    {\n      \"address\": \"10090bf2\",\n      \"value\": \" because there is already an item or bundle with that name.\",\n      \"type\": \"string\",\n      \"length\": 60\n    },\n    {\n      \"address\": \"10090dcf\",\n      \"value\": \"Login successful\",\n      \"type\": \"string\",\n      \"length\": 17\n    },\n    {\n      \"address\": \"10090e37\",\n      \"value\": \"Incorrect login.Login failed\",\n      \"type\": \"string\",\n      \"length\": 29\n    },\n    {\n      \"address\": \"10090ee1\",\n      \"value\": \" because it is in a drop box.\",\n      \"type\": \"string\",\n      \"length\": 30\n    },\n    {\n      \"address\": \"10090f8f\",\n      \"value\": \" because you are not permitted to access drop boxes.\",\n      \"type\": \"string\",\n      \"length\": 53\n    },\n    {\n      \"address\": \"10090fc4\",\n      \"value\": \"corrupt folder hierarchy!\",\n      \"type\": \"string\",\n      \"length\": 26\n    },\n    {\n      \"address\": \"10091029\",\n      \"value\": \" because the specified folder could not be found.\",\n      \"type\": \"string\",\n      \"length\": 50\n    },\n    {\n      \"address\": \"1009105b\",\n      \"value\": \"upload\",\n      \"type\": \"string\",\n      \"length\": 7\n    },\n    {\n      \"address\": \"100910c0\",\n      \"value\": \" folder.\",\n      \"type\": \"string\",\n      \"length\": 9\n    },\n    {\n      \"address\": \"100910ef\",\n      \"value\": \" because the destination volume is read-only or locked.\",\n      \"type\": \"string\",\n      \"length\": 56\n    },\n    {\n      \"address\": \"1009114d\",\n      \"value\": \" because it does not exist.\",\n      \"type\": \"string\",\n      \"length\": 28\n    },\n    {\n      \"address\": \"1009118f\",\n      \"value\": \" because it is already fully transfered.\",\n      \"type\": \"string\",\n      \"length\": 41\n    },\n    {\n      \"address\": \"100911f8\",\n      \"value\": \". Try choosing a different name.\",\n      \"type\": \"string\",\n      \"length\": 33\n    },\n    {\n      \"address\": \"10091219\",\n      \"value\": \"Not enough free disk space for upload\",\n      \"type\": \"string\",\n      \"length\": 38\n    },\n    {\n      \"address\": \"10091265\",\n      \"value\": \" because there is not enough free disk space.\",\n      \"type\": \"string\",\n      \"length\": 46\n    },\n    {\n      \"address\": \"100912b9\",\n      \"value\": \" because it is already in use.\",\n      \"type\": \"string\",\n      \"length\": 31\n    },\n    {\n      \"address\": \"1009135b\",\n      \"value\": \" because the specified folder could not be found.\",\n      \"type\": \"string\",\n      \"length\": 50\n    },\n    {\n      \"address\": \"100913ed\",\n      \"value\": \" folder.\",\n      \"type\": \"string\",\n      \"length\": 9\n    },\n    {\n      \"address\": \"1009141e\",\n      \"value\": \" because the destination volume is read-only or locked.\",\n      \"type\": \"string\",\n      \"length\": 56\n    },\n    {\n      \"address\": \"1009147e\",\n      \"value\": \" because it does not exist.\",\n      \"type\": \"string\",\n      \"length\": 28\n    },\n    {\n      \"address\": \"100914bc\",\n      \"value\": \" is a file.\",\n      \"type\": \"string\",\n      \"length\": 12\n    },\n    {\n      \"address\": \"1009150a\",\n      \"value\": \". Try choosing a different name.\",\n      \"type\": \"string\",\n      \"length\": 33\n    },\n    {\n      \"address\": \"1009152b\",\n      \"value\": \"Not enough free disk space for folder upload\",\n      \"type\": \"string\",\n      \"length\": 45\n    },\n    {\n      \"address\": \"10091580\",\n      \"value\": \" because there is not enough free disk space.\",\n      \"type\": \"string\",\n      \"length\": 46\n    },\n    {\n      \"address\": \"100915d5\",\n      \"value\": \" because it does not exist or cannot be found.\",\n      \"type\": \"string\",\n      \"length\": 47\n    },\n    {\n      \"address\": \"100916b3\",\n      \"value\": \" because the enclosing folder could not be found.\",\n      \"type\": \"string\",\n      \"length\": 50\n    },\n    {\n      \"address\": \"100916ff\",\n      \"value\": \" because there is already a file or folder with that name.\",\n      \"type\": \"string\",\n      \"length\": 59\n    },\n    {\n      \"address\": \"1009176b\",\n      \"value\": \"Unknown transaction type!Received unknown transaction type!\",\n      \"type\": \"string\",\n      \"length\": 60\n    },\n    {\n      \"address\": \"10091824\",\n      \"value\": \" because there is already an account with that login.\",\n      \"type\": \"string\",\n      \"length\": 54\n    },\n    {\n      \"address\": \"10091a3a\",\n      \"value\": \"RenameRename account %#s\",\n      \"type\": \"string\",\n      \"length\": 25\n    },\n    {\n      \"address\": \"10091aa8\",\n      \"value\": \" (user is protected).\",\n      \"type\": \"string\",\n      \"length\": 22\n    },\n    {\n      \"address\": \"10091b11\",\n      \"value\": \".You are not allowed to get client information.CCannot get info for the specified client because it does not exist.%#-21.21s %#-4.4s %#s\\r\",\n      \"type\": \"string\",\n      \"length\": 138\n    },\n    {\n      \"address\": \"10091b9b\",\n      \"value\": \"%#-21.21s (File)\\r\",\n      \"type\": \"string\",\n      \"length\": 18\n    },\n    {\n      \"address\": \"10091bad\",\n      \"value\": \"%#-21.21s (Folder)\\r\",\n      \"type\": \"string\",\n      \"length\": 20\n    },\n    {\n      \"address\": \"10091bc1\",\n      \"value\": \"Nickname:   %#s\\rName:       %#s\\rAccount:    %#s\\rAddress:    %#s\\r\\r-------- File Downloads ---------\\r\\r%s\\r------- Folder Downloads --------\\r\\r%s\\r--------- File Uploads ----------\\r\\r%s\\r-------- Folder Uploads ---------\\r\\r%s\\r------- Waiting Downloads -------\\r\\r%s\",\n      \"type\": \"string\",\n      \"length\": 255\n    },\n    {\n      \"address\": \"10091f54\",\n      \"value\": \" because the destination folder could not be found.\",\n      \"type\": \"string\",\n      \"length\": 52\n    },\n    {\n      \"address\": \"10091f99\",\n      \"value\": \" because there is already a file/folder in the destination folder with the same name.\",\n      \"type\": \"string\",\n      \"length\": 86\n    },\n    {\n      \"address\": \"10092000\",\n      \"value\": \" between different disks.\",\n      \"type\": \"string\",\n      \"length\": 26\n    },\n    {\n      \"address\": \"1009202b\",\n      \"value\": \" into itself or into a subfolder of itself.\",\n      \"type\": \"string\",\n      \"length\": 44\n    },\n    {\n      \"address\": \"100920f3\",\n      \"value\": \" because the destination folder could not be found.\",\n      \"type\": \"string\",\n      \"length\": 52\n    },\n    {\n      \"address\": \"10092141\",\n      \"value\": \" because there is already a file/folder in the destination folder with the same name.\",\n      \"type\": \"string\",\n      \"length\": 86\n    },\n    {\n      \"address\": \"100921bf\",\n      \"value\": \")You are not allowed to create a new chat.\\r<<< \\\"%#s\\\" declined invitation to chat >>>\",\n      \"type\": \"string\",\n      \"length\": 85\n    },\n    {\n      \"address\": \"10092214\",\n      \"value\": \"<Cannot join private chat because it has been closed already.\",\n      \"type\": \"string\",\n      \"length\": 64\n    },\n    {\n      \"address\": \"10092254\",\n      \"value\": \"CScrollerView\",\n      \"type\": \"string\",\n      \"length\": 14\n    },\n    {\n      \"address\": \"10092264\",\n      \"value\": \"CView\",\n      \"type\": \"string\",\n      \"length\": 6\n    },\n    {\n      \"address\": \"100922a5\",\n      \"value\": \"\\t\\\"xCMyAccountListView\",\n      \"type\": \"string\",\n      \"length\": 23\n    },\n    {\n      \"address\": \"100922bc\",\n      \"value\": \"CDragAndDroppable\",\n      \"type\": \"string\",\n      \"length\": 18\n    },\n    {\n      \"address\": \"100922d8\",\n      \"value\": \"CItemsView\",\n      \"type\": \"string\",\n      \"length\": 11\n    },\n    {\n      \"address\": \"100922f8\",\n      \"value\": \"CSelectableItemsView\",\n      \"type\": \"string\",\n      \"length\": 21\n    },\n    {\n      \"address\": \"10092338\",\n      \"value\": \"CListView\",\n      \"type\": \"string\",\n      \"length\": 10\n    },\n    {\n      \"address\": \"100924b8\",\n      \"value\": \"CMyPermBanListView\",\n      \"type\": \"string\",\n      \"length\": 19\n    },\n    {\n      \"address\": \"100924cc\",\n      \"value\": \"CGeneralListView<BanRecord>\",\n      \"type\": \"string\",\n      \"length\": 28\n    },\n    {\n      \"address\": \"10092520\",\n      \"value\": \"CGeneralCheckListView<BanRecord>\",\n      \"type\": \"string\",\n      \"length\": 33\n    },\n    {\n      \"address\": \"100927f8\",\n      \"value\": \"CMyClickLabelView\",\n      \"type\": \"string\",\n      \"length\": 18\n    },\n    {\n      \"address\": \"1009280c\",\n      \"value\": \"CLabelView\",\n      \"type\": \"string\",\n      \"length\": 11\n    },\n    {\n      \"address\": \"10092adc\",\n      \"value\": \"CMyStatsWin\",\n      \"type\": \"string\",\n      \"length\": 12\n    },\n    {\n      \"address\": \"10092bc4\",\n      \"value\": \"CMyTextWin\",\n      \"type\": \"string\",\n      \"length\": 11\n    },\n    {\n      \"address\": \"10092cac\",\n      \"value\": \"CMyToolbarWin\",\n      \"type\": \"string\",\n      \"length\": 14\n    },\n    {\n      \"address\": \"10092f6c\",\n      \"value\": \"PasswordThe Admin Account is the the account which is treated as the administrator of the Server. Any user logged into this account has full access to the Server and you should not reveal this account's password to others. You should generally leave the account as \\\"admin\\\". Note that if you change this value, the old Admin Account is still active until you delete it.\",\n      \"type\": \"string\",\n      \"length\": 369\n    },\n    {\n      \"address\": \"100931ce\",\n      \"value\": \"If you have multihoming/IP-aliasing configured on your computer, you can specify which address to bind to here.\\r\\rIf you have only set up a single IP address, or if you wish to use your default address, leave the IP set to 0.0.0.0.admin\",\n      \"type\": \"string\",\n      \"length\": 236\n    },\n    {\n      \"address\": \"10093474\",\n      \"value\": \"Update PrivilegesThe account you have selected as your head administrator account does not currently have full admin privileges. Would you like to enable all of this account's privileges so that it can be used as the head admin account?\\r\\rSelecting Cancel will return you to the Select Head Admin Account window. In order to select an account as a head administrator account, you must enable all of the privileges.\\r\\rAccount Login: %#s\",\n      \"type\": \"string\",\n      \"length\": 434\n    },\n    {\n      \"address\": \"10093876\",\n      \"value\": \"Polite Quit\",\n      \"type\": \"string\",\n      \"length\": 14\n    },\n    {\n      \"address\": \"10093884\",\n      \"value\": \"CNZArticleList\",\n      \"type\": \"string\",\n      \"length\": 15\n    },\n    {\n      \"address\": \"100938ac\",\n      \"value\": \"%#s@bigredh.com\",\n      \"type\": \"string\",\n      \"length\": 16\n    },\n    {\n      \"address\": \"100938bc\",\n      \"value\": \"ptr advanced too far!\",\n      \"type\": \"string\",\n      \"length\": 24\n    },\n    {\n      \"address\": \"100938d4\",\n      \"value\": \"drop box\",\n      \"type\": \"string\",\n      \"length\": 9\n    },\n    {\n      \"address\": \"100938e0\",\n      \"value\": \"ID %hi/%hi\",\n      \"type\": \"string\",\n      \"length\": 11\n    },\n    {\n      \"address\": \"100938fc\",\n      \"value\": \"ID %hi/%hi @ %s #%lu\",\n      \"type\": \"string\",\n      \"length\": 21\n    },\n    {\n      \"address\": \"10093911\",\n      \"value\": \"ID %hi/%hi [%li] @ %s #%lu\",\n      \"type\": \"string\",\n      \"length\": 27\n    },\n    {\n      \"address\": \"10093941\",\n      \"value\": \"!SError!!\",\n      \"type\": \"string\",\n      \"length\": 11\n    },\n    {\n      \"address\": \"1009394c\",\n      \"value\": \"UError - couldn't create error dialog (fatal)\",\n      \"type\": \"string\",\n      \"length\": 46\n    },\n    {\n      \"address\": \"1009397b\",\n      \"value\": \"An unknown error has occured.(Not enough memory.  Try closing windows.UError - not enough memory to display error alert\",\n      \"type\": \"string\",\n      \"length\": 120\n    },\n    {\n      \"address\": \"100939f3\",\n      \"value\": \"UError - an error occured while attempting to display an error alert (!)\",\n      \"type\": \"string\",\n      \"length\": 73\n    },\n    {\n      \"address\": \"10093a3c\",\n      \"value\": \"!SError!!\",\n      \"type\": \"string\",\n      \"length\": 12\n    },\n    {\n      \"address\": \"10093a88\",\n      \"value\": \"!SError!\",\n      \"type\": \"string\",\n      \"length\": 12\n    },\n    {\n      \"address\": \"10093af8\",\n      \"value\": \"!SError!!\",\n      \"type\": \"string\",\n      \"length\": 10\n    },\n    {\n      \"address\": \"10093b03\",\n      \"value\": \"UApplication - not enough memory to display low memory alert\",\n      \"type\": \"string\",\n      \"length\": 61\n    },\n    {\n      \"address\": \"10093b40\",\n      \"value\": \"UDebug::LogToDebugFile unimplemented\",\n      \"type\": \"string\",\n      \"length\": 37\n    },\n    {\n      \"address\": \"10093b6c\",\n      \"value\": \"UOperatingSystem - not enough memory to initialize (fatal)\",\n      \"type\": \"string\",\n      \"length\": 59\n    },\n    {\n      \"address\": \"10093ba7\",\n      \"value\": \"UOperatingSystem - failed to initialize (fatal)\",\n      \"type\": \"string\",\n      \"length\": 48\n    },\n    {\n      \"address\": \"10093c48\",\n      \"value\": \"%#s-temp-%hu\",\n      \"type\": \"string\",\n      \"length\": 13\n    },\n    {\n      \"address\": \"10093c5e\",\n      \"value\": \"Untitledfile:///\",\n      \"type\": \"string\",\n      \"length\": 17\n    },\n    {\n      \"address\": \"10093c6f\",\n      \"value\": \"UFileSys::ProcessUnflatten - unknown compression type\",\n      \"type\": \"string\",\n      \"length\": 54\n    },\n    {\n      \"address\": \"10093cab\",\n      \"value\": \"image/gif\",\n      \"type\": \"string\",\n      \"length\": 10\n    },\n    {\n      \"address\": \"10093cb5\",\n      \"value\": \"audio/wav\",\n      \"type\": \"string\",\n      \"length\": 10\n    },\n    {\n      \"address\": \"10093cbf\",\n      \"value\": \"text/plain\",\n      \"type\": \"string\",\n      \"length\": 11\n    },\n    {\n      \"address\": \"10093cca\",\n      \"value\": \"image/pict\",\n      \"type\": \"string\",\n      \"length\": 11\n    },\n    {\n      \"address\": \"10093cd5\",\n      \"value\": \"image/jpeg\",\n      \"type\": \"string\",\n      \"length\": 11\n    },\n    {\n      \"address\": \"10093ce0\",\n      \"value\": \"image/tiff\",\n      \"type\": \"string\",\n      \"length\": 11\n    },\n    {\n      \"address\": \"10093ceb\",\n      \"value\": \"audio/aiff\",\n      \"type\": \"string\",\n      \"length\": 11\n    },\n    {\n      \"address\": \"10093cf6\",\n      \"value\": \"video/mpeg\",\n      \"type\": \"string\",\n      \"length\": 11\n    },\n    {\n      \"address\": \"10093d01\",\n      \"value\": \"video/quicktime\",\n      \"type\": \"string\",\n      \"length\": 16\n    },\n    {\n      \"address\": \"10093d11\",\n      \"value\": \"mactypecode/\",\n      \"type\": \"string\",\n      \"length\": 13\n    },\n    {\n      \"address\": \"10093d1e\",\n      \"value\": \"application/x-stuffit\",\n      \"type\": \"string\",\n      \"length\": 22\n    },\n    {\n      \"address\": \"10093d34\",\n      \"value\": \"application/x-macbinary\",\n      \"type\": \"string\",\n      \"length\": 24\n    },\n    {\n      \"address\": \"10093d4c\",\n      \"value\": \"application/mac-binhex40\",\n      \"type\": \"string\",\n      \"length\": 25\n    },\n    {\n      \"address\": \"10093d65\",\n      \"value\": \"application/octet-stream\",\n      \"type\": \"string\",\n      \"length\": 27\n    },\n    {\n      \"address\": \"10093dc8\",\n      \"value\": \"UGraphics - failed to initialize\",\n      \"type\": \"string\",\n      \"length\": 33\n    },\n    {\n      \"address\": \"10093de9\",\n      \"value\": \"UGraphics - TImage(%X) locked\",\n      \"type\": \"string\",\n      \"length\": 30\n    },\n    {\n      \"address\": \"10093e07\",\n      \"value\": \"UGraphics::StretchPixels - inSourceRect is not completely within the source image\",\n      \"type\": \"string\",\n      \"length\": 82\n    },\n    {\n      \"address\": \"10093e5a\",\n      \"value\": \"Choose a color:UGraphics::CopyPixels - invalid dest pixmap\",\n      \"type\": \"string\",\n      \"length\": 59\n    },\n    {\n      \"address\": \"10093e95\",\n      \"value\": \"UGraphics::CopyPixels - invalid source pixmap\",\n      \"type\": \"string\",\n      \"length\": 46\n    },\n    {\n      \"address\": \"10093ece\",\n      \"value\": \"Times\",\n      \"type\": \"string\",\n      \"length\": 6\n    },\n    {\n      \"address\": \"10093ed4\",\n      \"value\": \"UIcon - attempt to release already released icon!\",\n      \"type\": \"string\",\n      \"length\": 50\n    },\n    {\n      \"address\": \"10093f06\",\n      \"value\": \"UIcon - icon already registered!\",\n      \"type\": \"string\",\n      \"length\": 34\n    },\n    {\n      \"address\": \"10093f28\",\n      \"value\": \"CQuickTimeView\",\n      \"type\": \"string\",\n      \"length\": 15\n    },\n    {\n      \"address\": \"10093f38\",\n      \"value\": \"CLaunchUrlView\",\n      \"type\": \"string\",\n      \"length\": 15\n    },\n    {\n      \"address\": \"10094091\",\n      \"value\": \"UWindow - SetLayer() is not yet implemented\",\n      \"type\": \"string\",\n      \"length\": 44\n    },\n    {\n      \"address\": \"100940bd\",\n      \"value\": \"UWindow - InsertAfter() is not yet implemented\",\n      \"type\": \"string\",\n      \"length\": 47\n    },\n    {\n      \"address\": \"100940ec\",\n      \"value\": \"UWindow - unable to refresh\",\n      \"type\": \"string\",\n      \"length\": 28\n    },\n    {\n      \"address\": \"10094108\",\n      \"value\": \"UWindow - BeginDraw() has already been called without matching EndDraw()\",\n      \"type\": \"string\",\n      \"length\": 73\n    },\n    {\n      \"address\": \"10094177\",\n      \"value\": \"Edit2Undo/Z;-;Cut/X;Copy/C;Paste/V;Clear;-;Select All/ACould not load MBAR resource!\",\n      \"type\": \"string\",\n      \"length\": 85\n    },\n    {\n      \"address\": \"100941d4\",\n      \"value\": \"!SError!\",\n      \"type\": \"string\",\n      \"length\": 12\n    },\n    {\n      \"address\": \"100941e0\",\n      \"value\": \"UDragAndDrop() - cannot track multiple drags!\",\n      \"type\": \"string\",\n      \"length\": 46\n    },\n    {\n      \"address\": \"1009420e\",\n      \"value\": \"badDragRefErr\",\n      \"type\": \"string\",\n      \"length\": 14\n    },\n    {\n      \"address\": \"10094228\",\n      \"value\": \"text/plain\",\n      \"type\": \"string\",\n      \"length\": 11\n    },\n    {\n      \"address\": \"10094233\",\n      \"value\": \"LowInsert - line count exceeds allocated count\",\n      \"type\": \"string\",\n      \"length\": 47\n    },\n    {\n      \"address\": \"10094262\",\n      \"value\": \"LowDelete - line count exceeds allocated count\",\n      \"type\": \"string\",\n      \"length\": 47\n    },\n    {\n      \"address\": \"10094291\",\n      \"value\": \"LowReplace - line count exceeds allocated count\",\n      \"type\": \"string\",\n      \"length\": 51\n    },\n    {\n      \"address\": \"10094548\",\n      \"value\": \"UMemory - cannot dispose locked handle!\",\n      \"type\": \"string\",\n      \"length\": 40\n    },\n    {\n      \"address\": \"10094570\",\n      \"value\": \"UMemory - attempt to unlock discarded handle\",\n      \"type\": \"string\",\n      \"length\": 45\n    },\n    {\n      \"address\": \"1009459d\",\n      \"value\": \"UMemory - Unlock() called too many times!\",\n      \"type\": \"string\",\n      \"length\": 43\n    },\n    {\n      \"address\": \"10094918\",\n      \"value\": \"%lu:%.2lu:%.2lu:%.2lu\",\n      \"type\": \"string\",\n      \"length\": 22\n    },\n    {\n      \"address\": \"10094948\",\n      \"value\": \"0123456789ABCDEF\",\n      \"type\": \"string\",\n      \"length\": 17\n    },\n    {\n      \"address\": \"10094959\",\n      \"value\": \"0123456789abcdef\",\n      \"type\": \"string\",\n      \"length\": 19\n    },\n    {\n      \"address\": \"1009496c\",\n      \"value\": \"!SError!\",\n      \"type\": \"string\",\n      \"length\": 12\n    },\n    {\n      \"address\": \"10094978\",\n      \"value\": \"Unknown exception caught\",\n      \"type\": \"string\",\n      \"length\": 25\n    },\n    {\n      \"address\": \"10094994\",\n      \"value\": \"CBoolArray - MoveItems() can not yet move multiple items\",\n      \"type\": \"string\",\n      \"length\": 57\n    },\n    {\n      \"address\": \"100949cd\",\n      \"value\": \"CBoolArray - SwapItems() can not yet swap multiple items\",\n      \"type\": \"string\",\n      \"length\": 59\n    },\n    {\n      \"address\": \"10094a08\",\n      \"value\": \"UFieldData::AddField() - maximum field size is 65535 bytes\",\n      \"type\": \"string\",\n      \"length\": 59\n    },\n    {\n      \"address\": \"10094a44\",\n      \"value\": \"%hu/%hu/%hu\",\n      \"type\": \"string\",\n      \"length\": 12\n    },\n    {\n      \"address\": \"10094b28\",\n      \"value\": \"CView - hit data cannot exceed 256 bytes\",\n      \"type\": \"string\",\n      \"length\": 41\n    },\n    {\n      \"address\": \"10094b54\",\n      \"value\": \"CMultiViewContainer\",\n      \"type\": \"string\",\n      \"length\": 20\n    },\n    {\n      \"address\": \"10094c64\",\n      \"value\": \"CContainerView\",\n      \"type\": \"string\",\n      \"length\": 15\n    },\n    {\n      \"address\": \"10094db0\",\n      \"value\": \"CButtonView\",\n      \"type\": \"string\",\n      \"length\": 12\n    },\n    {\n      \"address\": \"10094e70\",\n      \"value\": \"CCheckBoxView\",\n      \"type\": \"string\",\n      \"length\": 14\n    },\n    {\n      \"address\": \"10094f40\",\n      \"value\": \"CIconButtonView\",\n      \"type\": \"string\",\n      \"length\": 16\n    },\n    {\n      \"address\": \"100950a0\",\n      \"value\": \"CIconView\",\n      \"type\": \"string\",\n      \"length\": 10\n    },\n    {\n      \"address\": \"10095154\",\n      \"value\": \"CPictureView\",\n      \"type\": \"string\",\n      \"length\": 13\n    },\n    {\n      \"address\": \"1009520c\",\n      \"value\": \"CBoxView\",\n      \"type\": \"string\",\n      \"length\": 9\n    },\n    {\n      \"address\": \"100953f8\",\n      \"value\": \"CTabbedView\",\n      \"type\": \"string\",\n      \"length\": 12\n    },\n    {\n      \"address\": \"10095550\",\n      \"value\": \"CTextView\",\n      \"type\": \"string\",\n      \"length\": 10\n    },\n    {\n      \"address\": \"100957e8\",\n      \"value\": \"CSelectableItemsView - itemBehav_DragArrange is not yet implemented\",\n      \"type\": \"string\",\n      \"length\": 68\n    },\n    {\n      \"address\": \"1009582c\",\n      \"value\": \"CPasswordTextView\",\n      \"type\": \"string\",\n      \"length\": 18\n    },\n    {\n      \"address\": \"100958e8\",\n      \"value\": \"text/plain\",\n      \"type\": \"string\",\n      \"length\": 11\n    },\n    {\n      \"address\": \"100958f4\",\n      \"value\": \"%d.%d.%d.%d\",\n      \"type\": \"string\",\n      \"length\": 12\n    },\n    {\n      \"address\": \"10095904\",\n      \"value\": \"_TTCToolTipWin\",\n      \"type\": \"string\",\n      \"length\": 15\n    },\n    {\n      \"address\": \"100959f0\",\n      \"value\": \"_TTCToolTipView\",\n      \"type\": \"string\",\n      \"length\": 16\n    },\n    {\n      \"address\": \"10095aac\",\n      \"value\": \"%d.%d.%d.%d\",\n      \"type\": \"string\",\n      \"length\": 12\n    },\n    {\n      \"address\": \"10095ab8\",\n      \"value\": \"URegularTransport - already getting local address!\",\n      \"type\": \"string\",\n      \"length\": 51\n    },\n    {\n      \"address\": \"10095b4e\",\n      \"value\": \"NoProxyDomainsURegularTransport - a TRegularTransport can only be connected once\",\n      \"type\": \"string\",\n      \"length\": 81\n    },\n    {\n      \"address\": \"10095b9f\",\n      \"value\": \"URegularTransport - cannot send more data after StartDisconnect()\",\n      \"type\": \"string\",\n      \"length\": 66\n    },\n    {\n      \"address\": \"10095bea\",\n      \"value\": \"tilisten,tcp\",\n      \"type\": \"string\",\n      \"length\": 13\n    },\n    {\n      \"address\": \"10095bff\",\n      \"value\": \"URegularTransport - transporter is already being bound!\",\n      \"type\": \"string\",\n      \"length\": 56\n    },\n    {\n      \"address\": \"10095c37\",\n      \"value\": \"!SError!!\",\n      \"type\": \"string\",\n      \"length\": 13\n    },\n    {\n      \"address\": \"10095c44\",\n      \"value\": \"127.0.0.1\",\n      \"type\": \"string\",\n      \"length\": 10\n    },\n    {\n      \"address\": \"10095c4e\",\n      \"value\": \"%d.%d.%d.%d:%hu\",\n      \"type\": \"string\",\n      \"length\": 16\n    },\n    {\n      \"address\": \"10095c5e\",\n      \"value\": \"%d.%d.%d.%d\",\n      \"type\": \"string\",\n      \"length\": 12\n    },\n    {\n      \"address\": \"10095dcc\",\n      \"value\": \"hotline://\",\n      \"type\": \"string\",\n      \"length\": 11\n    },\n    {\n      \"address\": \"10096027\",\n      \"value\": \"Hbad_exception\",\n      \"type\": \"string\",\n      \"length\": 17\n    },\n    {\n      \"address\": \"10096038\",\n      \"value\": \"exception\",\n      \"type\": \"string\",\n      \"length\": 10\n    },\n    {\n      \"address\": \"10096067\",\n      \"value\": \"xbad_cast\",\n      \"type\": \"string\",\n      \"length\": 10\n    }\n  ],\n  \"offset\": 0,\n  \"limit\": 2000,\n  \"total\": 238,\n  \"has_more\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "items": [
+        {
+          "address": "10082694",
+          "value": "From %#s (%s%2.2hu %2.2hu:%2.2hu):\r\r",
+          "type": "string",
+          "length": 37
+        },
+        {
+          "address": "100826bc",
+          "value": "<\r__________________________________________________________\r",
+          "type": "string",
+          "length": 62
+        },
+        {
+          "address": "10082729",
+          "value": "application/x-hlnewsitem",
+          "type": "string",
+          "length": 27
+        },
+        {
+          "address": "100829ff",
+          "value": "@Memory is running low.  Please close windows and save documents.",
+          "type": "string",
+          "length": 69
+        },
+        {
+          "address": "10083710",
+          "value": "ASDFHGZXCV",
+          "type": "string",
+          "length": 11
+        },
+        {
+          "address": "10083c9c",
+          "value": "std::bad_exception",
+          "type": "string",
+          "length": 19
+        },
+        {
+          "address": "10083cb0",
+          "value": "std::exception",
+          "type": "string",
+          "length": 15
+        },
+        {
+          "address": "10083cc0",
+          "value": "!bad_exception!!",
+          "type": "string",
+          "length": 17
+        },
+        {
+          "address": "10083cd1",
+          "value": "!std::exception!!std::bad_exception!!",
+          "type": "string",
+          "length": 38
+        },
+        {
+          "address": "10083cf7",
+          "value": "!std::bad_exception!!",
+          "type": "string",
+          "length": 25
+        },
+        {
+          "address": "10083d10",
+          "value": "std::bad_cast",
+          "type": "string",
+          "length": 14
+        },
+        {
+          "address": "10083d24",
+          "value": "!std::exception!!std::bad_typeid!!",
+          "type": "string",
+          "length": 35
+        },
+        {
+          "address": "10083d47",
+          "value": "!std::exception!!std::bad_cast!!",
+          "type": "string",
+          "length": 33
+        },
+        {
+          "address": "1008ee3c",
+          "value": "!SError!",
+          "type": "string",
+          "length": 12
+        },
+        {
+          "address": "1008eef0",
+          "value": "CMyNewAdminAccountWin",
+          "type": "string",
+          "length": 22
+        },
+        {
+          "address": "1008ef08",
+          "value": "CViewHandler",
+          "type": "string",
+          "length": 13
+        },
+        {
+          "address": "1008ef20",
+          "value": "CViewContainer",
+          "type": "string",
+          "length": 15
+        },
+        {
+          "address": "1008ef47",
+          "value": "0CSingleViewContainer",
+          "type": "string",
+          "length": 25
+        },
+        {
+          "address": "1008ef7f",
+          "value": "`CWindow",
+          "type": "string",
+          "length": 9
+        },
+        {
+          "address": "1008f08c",
+          "value": "CMySelectAdminWin",
+          "type": "string",
+          "length": 18
+        },
+        {
+          "address": "1008f17c",
+          "value": "CMySetAdminPassWin",
+          "type": "string",
+          "length": 19
+        },
+        {
+          "address": "1008f26c",
+          "value": "CMyQuittingWin",
+          "type": "string",
+          "length": 15
+        },
+        {
+          "address": "1008f358",
+          "value": "CMyBroadcastWin",
+          "type": "string",
+          "length": 16
+        },
+        {
+          "address": "1008f444",
+          "value": "CMyOptionsWin",
+          "type": "string",
+          "length": 14
+        },
+        {
+          "address": "1008f52c",
+          "value": "CMyDownloadClientWin",
+          "type": "string",
+          "length": 21
+        },
+        {
+          "address": "1008f61c",
+          "value": "CMySetAdminPrivsWin",
+          "type": "string",
+          "length": 20
+        },
+        {
+          "address": "1008f70c",
+          "value": "CMyQuitWin",
+          "type": "string",
+          "length": 11
+        },
+        {
+          "address": "1008f7f4",
+          "value": "CMyApplication",
+          "type": "string",
+          "length": 15
+        },
+        {
+          "address": "1008f804",
+          "value": "CApplication",
+          "type": "string",
+          "length": 13
+        },
+        {
+          "address": "1008fa52",
+          "value": "Restart the server\\Changes of the Server IP or Port Number will only take effect after the server is restarted.Too many errors! Resetting...",
+          "type": "string",
+          "length": 141
+        },
+        {
+          "address": "1008fadf",
+          "value": "Reset failed! Terminating...",
+          "type": "string",
+          "length": 29
+        },
+        {
+          "address": "1008fafc",
+          "value": "The Admin account \"%#s\" does not exist. Would you like to create it?",
+          "type": "string",
+          "length": 69
+        },
+        {
+          "address": "1008fb5e",
+          "value": "CancelThe account \"%#s\" already exists. Would you like to set this account as the head Admin account?",
+          "type": "string",
+          "length": 102
+        },
+        {
+          "address": "1008fbdf",
+          "value": "hotline http://www.BigRedH.com/download/:",
+          "type": "string",
+          "length": 42
+        },
+        {
+          "address": "1008fc09",
+          "value": "hotline://%#s@%#s:%lu",
+          "type": "string",
+          "length": 22
+        },
+        {
+          "address": "1008fc57",
+          "value": "<%#s> is larger that %lu bytes and cannot be used as agreement.",
+          "type": "string",
+          "length": 64
+        },
+        {
+          "address": "1008fce1",
+          "value": "Loaded MessageBoard.txt",
+          "type": "string",
+          "length": 24
+        },
+        {
+          "address": "1008fd31",
+          "value": "I'm not able to respond right now. Please try later!",
+          "type": "string",
+          "length": 53
+        },
+        {
+          "address": "1008fe27",
+          "value": ")Date/time\tAddress\tAccount\tName\tFile Name\r%#s\t%#s\t%#s\t%#s\r",
+          "type": "string",
+          "length": 59
+        },
+        {
+          "address": "1008fe63",
+          "value": "Date/time\tAddress\tAccount\tName\r%#s\t%#s\t%#s\t%#s\t%#s\t%#s\r",
+          "type": "string",
+          "length": 56
+        },
+        {
+          "address": "1008fed4",
+          "value": "UserDataadministrator",
+          "type": "string",
+          "length": 22
+        },
+        {
+          "address": "1008feea",
+          "value": "The Admin account \"%#s\" does not have a password assigned. This account has full access to all controls of the Server and you should not reveal this password to anyone to whom you do not want to give control of the Server. Please enter a new password for this account. If you do not set a password, your Server will not be secure.",
+          "type": "string",
+          "length": 331
+        },
+        {
+          "address": "10090036",
+          "value": "Set Admin PasswordThe Admin account \"%#s\" does not exist. Please enter a password for this account so that it can be created. This account has full access to all controls of the Server and you should not reveal this password to anyone to whom you do not want to give control of the Server. Please enter a new password for this account. If you do not set a password, your Server will not be secure.",
+          "type": "string",
+          "length": 398
+        },
+        {
+          "address": "100901c4",
+          "value": "Resetting the Admin account will enable all access privileges for the Admin account and set a new password. Please enter a new password below.",
+          "type": "string",
+          "length": 143
+        },
+        {
+          "address": "100902e0",
+          "value": "admin/%d",
+          "type": "string",
+          "length": 9
+        },
+        {
+          "address": "100902ee",
+          "value": "Banned\nBanned.bakToo many resets! Terminating...",
+          "type": "string",
+          "length": 49
+        },
+        {
+          "address": "1009031f",
+          "value": "SERVER RESET - too many errors",
+          "type": "string",
+          "length": 31
+        },
+        {
+          "address": "1009033e",
+          "value": "Autobanned for flooding",
+          "type": "string",
+          "length": 24
+        },
+        {
+          "address": "10090356",
+          "value": "Connection established",
+          "type": "string",
+          "length": 23
+        },
+        {
+          "address": "1009036d",
+          "value": "Incompatible version (%4.4s%hu)",
+          "type": "string",
+          "length": 32
+        },
+        {
+          "address": "1009038d",
+          "value": "Killed unknown protocol!",
+          "type": "string",
+          "length": 25
+        },
+        {
+          "address": "100903a6",
+          "value": "Connection closed",
+          "type": "string",
+          "length": 18
+        },
+        {
+          "address": "100903b8",
+          "value": "Download connection established",
+          "type": "string",
+          "length": 32
+        },
+        {
+          "address": "100903d8",
+          "value": "Upload connection established",
+          "type": "string",
+          "length": 30
+        },
+        {
+          "address": "100903f6",
+          "value": "Transfer connection establish failed!",
+          "type": "string",
+          "length": 38
+        },
+        {
+          "address": "1009041c",
+          "value": "Download aborted (no response)",
+          "type": "string",
+          "length": 31
+        },
+        {
+          "address": "1009043b",
+          "value": "Download connection closed",
+          "type": "string",
+          "length": 27
+        },
+        {
+          "address": "10090456",
+          "value": "Download complete",
+          "type": "string",
+          "length": 18
+        },
+        {
+          "address": "10090468",
+          "value": "Download banner aborted (no response)",
+          "type": "string",
+          "length": 38
+        },
+        {
+          "address": "1009048e",
+          "value": "Download banner complete",
+          "type": "string",
+          "length": 25
+        },
+        {
+          "address": "100904a7",
+          "value": "Upload aborted (no response)",
+          "type": "string",
+          "length": 29
+        },
+        {
+          "address": "100904c4",
+          "value": "Upload aborted",
+          "type": "string",
+          "length": 15
+        },
+        {
+          "address": "100904d3",
+          "value": "Upload complete",
+          "type": "string",
+          "length": 16
+        },
+        {
+          "address": "100904e3",
+          "value": "Upload folder item failed",
+          "type": "string",
+          "length": 26
+        },
+        {
+          "address": "100904fd",
+          "value": "Upload folder complete",
+          "type": "string",
+          "length": 23
+        },
+        {
+          "address": "10090514",
+          "value": "!SError!",
+          "type": "string",
+          "length": 12
+        },
+        {
+          "address": "10090520",
+          "value": "8You are not allowed to read news from the message board.6You are not allowed to post news to the message board.7Your news post was not accepted because it was too big.Autobanned for News Spam",
+          "type": "string",
+          "length": 193
+        },
+        {
+          "address": "100905e1",
+          "value": "Autobanned for Message Spam",
+          "type": "string",
+          "length": 28
+        },
+        {
+          "address": "100905fd",
+          "value": "Autobanned for flooding",
+          "type": "string",
+          "length": 24
+        },
+        {
+          "address": "10090615",
+          "value": "-You are not allowed to send private messages.NCouldn't send your message because the client is not connected to this server.%#s does not accept private messages.",
+          "type": "string",
+          "length": 163
+        },
+        {
+          "address": "100906b8",
+          "value": "%#s does not accept private chats.",
+          "type": "string",
+          "length": 35
+        },
+        {
+          "address": "10090741",
+          "value": "Autobanned for Chat Spam",
+          "type": "string",
+          "length": 25
+        },
+        {
+          "address": "1009075c",
+          "value": "ECannot get file list because the specified folder could not be found.drop box",
+          "type": "string",
+          "length": 79
+        },
+        {
+          "address": "10090a8d",
+          "value": " because the enclosing bundle could not be found.",
+          "type": "string",
+          "length": 50
+        },
+        {
+          "address": "10090ade",
+          "value": " because there is already an item or bundle with that name.",
+          "type": "string",
+          "length": 60
+        },
+        {
+          "address": "10090b9f",
+          "value": " because the enclosing bundle could not be found.",
+          "type": "string",
+          "length": 50
+        },
+        {
+          "address": "10090bf2",
+          "value": " because there is already an item or bundle with that name.",
+          "type": "string",
+          "length": 60
+        },
+        {
+          "address": "10090dcf",
+          "value": "Login successful",
+          "type": "string",
+          "length": 17
+        },
+        {
+          "address": "10090e37",
+          "value": "Incorrect login.Login failed",
+          "type": "string",
+          "length": 29
+        },
+        {
+          "address": "10090ee1",
+          "value": " because it is in a drop box.",
+          "type": "string",
+          "length": 30
+        },
+        {
+          "address": "10090f8f",
+          "value": " because you are not permitted to access drop boxes.",
+          "type": "string",
+          "length": 53
+        },
+        {
+          "address": "10090fc4",
+          "value": "corrupt folder hierarchy!",
+          "type": "string",
+          "length": 26
+        },
+        {
+          "address": "10091029",
+          "value": " because the specified folder could not be found.",
+          "type": "string",
+          "length": 50
+        },
+        {
+          "address": "1009105b",
+          "value": "upload",
+          "type": "string",
+          "length": 7
+        },
+        {
+          "address": "100910c0",
+          "value": " folder.",
+          "type": "string",
+          "length": 9
+        },
+        {
+          "address": "100910ef",
+          "value": " because the destination volume is read-only or locked.",
+          "type": "string",
+          "length": 56
+        },
+        {
+          "address": "1009114d",
+          "value": " because it does not exist.",
+          "type": "string",
+          "length": 28
+        },
+        {
+          "address": "1009118f",
+          "value": " because it is already fully transfered.",
+          "type": "string",
+          "length": 41
+        },
+        {
+          "address": "100911f8",
+          "value": ". Try choosing a different name.",
+          "type": "string",
+          "length": 33
+        },
+        {
+          "address": "10091219",
+          "value": "Not enough free disk space for upload",
+          "type": "string",
+          "length": 38
+        },
+        {
+          "address": "10091265",
+          "value": " because there is not enough free disk space.",
+          "type": "string",
+          "length": 46
+        },
+        {
+          "address": "100912b9",
+          "value": " because it is already in use.",
+          "type": "string",
+          "length": 31
+        },
+        {
+          "address": "1009135b",
+          "value": " because the specified folder could not be found.",
+          "type": "string",
+          "length": 50
+        },
+        {
+          "address": "100913ed",
+          "value": " folder.",
+          "type": "string",
+          "length": 9
+        },
+        {
+          "address": "1009141e",
+          "value": " because the destination volume is read-only or locked.",
+          "type": "string",
+          "length": 56
+        },
+        {
+          "address": "1009147e",
+          "value": " because it does not exist.",
+          "type": "string",
+          "length": 28
+        },
+        {
+          "address": "100914bc",
+          "value": " is a file.",
+          "type": "string",
+          "length": 12
+        },
+        {
+          "address": "1009150a",
+          "value": ". Try choosing a different name.",
+          "type": "string",
+          "length": 33
+        },
+        {
+          "address": "1009152b",
+          "value": "Not enough free disk space for folder upload",
+          "type": "string",
+          "length": 45
+        },
+        {
+          "address": "10091580",
+          "value": " because there is not enough free disk space.",
+          "type": "string",
+          "length": 46
+        },
+        {
+          "address": "100915d5",
+          "value": " because it does not exist or cannot be found.",
+          "type": "string",
+          "length": 47
+        },
+        {
+          "address": "100916b3",
+          "value": " because the enclosing folder could not be found.",
+          "type": "string",
+          "length": 50
+        },
+        {
+          "address": "100916ff",
+          "value": " because there is already a file or folder with that name.",
+          "type": "string",
+          "length": 59
+        },
+        {
+          "address": "1009176b",
+          "value": "Unknown transaction type!Received unknown transaction type!",
+          "type": "string",
+          "length": 60
+        },
+        {
+          "address": "10091824",
+          "value": " because there is already an account with that login.",
+          "type": "string",
+          "length": 54
+        },
+        {
+          "address": "10091a3a",
+          "value": "RenameRename account %#s",
+          "type": "string",
+          "length": 25
+        },
+        {
+          "address": "10091aa8",
+          "value": " (user is protected).",
+          "type": "string",
+          "length": 22
+        },
+        {
+          "address": "10091b11",
+          "value": ".You are not allowed to get client information.CCannot get info for the specified client because it does not exist.%#-21.21s %#-4.4s %#s\r",
+          "type": "string",
+          "length": 138
+        },
+        {
+          "address": "10091b9b",
+          "value": "%#-21.21s (File)\r",
+          "type": "string",
+          "length": 18
+        },
+        {
+          "address": "10091bad",
+          "value": "%#-21.21s (Folder)\r",
+          "type": "string",
+          "length": 20
+        },
+        {
+          "address": "10091bc1",
+          "value": "Nickname:   %#s\rName:       %#s\rAccount:    %#s\rAddress:    %#s\r\r-------- File Downloads ---------\r\r%s\r------- Folder Downloads --------\r\r%s\r--------- File Uploads ----------\r\r%s\r-------- Folder Uploads ---------\r\r%s\r------- Waiting Downloads -------\r\r%s",
+          "type": "string",
+          "length": 255
+        },
+        {
+          "address": "10091f54",
+          "value": " because the destination folder could not be found.",
+          "type": "string",
+          "length": 52
+        },
+        {
+          "address": "10091f99",
+          "value": " because there is already a file/folder in the destination folder with the same name.",
+          "type": "string",
+          "length": 86
+        },
+        {
+          "address": "10092000",
+          "value": " between different disks.",
+          "type": "string",
+          "length": 26
+        },
+        {
+          "address": "1009202b",
+          "value": " into itself or into a subfolder of itself.",
+          "type": "string",
+          "length": 44
+        },
+        {
+          "address": "100920f3",
+          "value": " because the destination folder could not be found.",
+          "type": "string",
+          "length": 52
+        },
+        {
+          "address": "10092141",
+          "value": " because there is already a file/folder in the destination folder with the same name.",
+          "type": "string",
+          "length": 86
+        },
+        {
+          "address": "100921bf",
+          "value": ")You are not allowed to create a new chat.\r<<< \"%#s\" declined invitation to chat >>>",
+          "type": "string",
+          "length": 85
+        },
+        {
+          "address": "10092214",
+          "value": "<Cannot join private chat because it has been closed already.",
+          "type": "string",
+          "length": 64
+        },
+        {
+          "address": "10092254",
+          "value": "CScrollerView",
+          "type": "string",
+          "length": 14
+        },
+        {
+          "address": "10092264",
+          "value": "CView",
+          "type": "string",
+          "length": 6
+        },
+        {
+          "address": "100922a5",
+          "value": "\t\"xCMyAccountListView",
+          "type": "string",
+          "length": 23
+        },
+        {
+          "address": "100922bc",
+          "value": "CDragAndDroppable",
+          "type": "string",
+          "length": 18
+        },
+        {
+          "address": "100922d8",
+          "value": "CItemsView",
+          "type": "string",
+          "length": 11
+        },
+        {
+          "address": "100922f8",
+          "value": "CSelectableItemsView",
+          "type": "string",
+          "length": 21
+        },
+        {
+          "address": "10092338",
+          "value": "CListView",
+          "type": "string",
+          "length": 10
+        },
+        {
+          "address": "100924b8",
+          "value": "CMyPermBanListView",
+          "type": "string",
+          "length": 19
+        },
+        {
+          "address": "100924cc",
+          "value": "CGeneralListView<BanRecord>",
+          "type": "string",
+          "length": 28
+        },
+        {
+          "address": "10092520",
+          "value": "CGeneralCheckListView<BanRecord>",
+          "type": "string",
+          "length": 33
+        },
+        {
+          "address": "100927f8",
+          "value": "CMyClickLabelView",
+          "type": "string",
+          "length": 18
+        },
+        {
+          "address": "1009280c",
+          "value": "CLabelView",
+          "type": "string",
+          "length": 11
+        },
+        {
+          "address": "10092adc",
+          "value": "CMyStatsWin",
+          "type": "string",
+          "length": 12
+        },
+        {
+          "address": "10092bc4",
+          "value": "CMyTextWin",
+          "type": "string",
+          "length": 11
+        },
+        {
+          "address": "10092cac",
+          "value": "CMyToolbarWin",
+          "type": "string",
+          "length": 14
+        },
+        {
+          "address": "10092f6c",
+          "value": "PasswordThe Admin Account is the the account which is treated as the administrator of the Server. Any user logged into this account has full access to the Server and you should not reveal this account's password to others. You should generally leave the account as \"admin\". Note that if you change this value, the old Admin Account is still active until you delete it.",
+          "type": "string",
+          "length": 369
+        },
+        {
+          "address": "100931ce",
+          "value": "If you have multihoming/IP-aliasing configured on your computer, you can specify which address to bind to here.\r\rIf you have only set up a single IP address, or if you wish to use your default address, leave the IP set to 0.0.0.0.admin",
+          "type": "string",
+          "length": 236
+        },
+        {
+          "address": "10093474",
+          "value": "Update PrivilegesThe account you have selected as your head administrator account does not currently have full admin privileges. Would you like to enable all of this account's privileges so that it can be used as the head admin account?\r\rSelecting Cancel will return you to the Select Head Admin Account window. In order to select an account as a head administrator account, you must enable all of the privileges.\r\rAccount Login: %#s",
+          "type": "string",
+          "length": 434
+        },
+        {
+          "address": "10093876",
+          "value": "Polite Quit",
+          "type": "string",
+          "length": 14
+        },
+        {
+          "address": "10093884",
+          "value": "CNZArticleList",
+          "type": "string",
+          "length": 15
+        },
+        {
+          "address": "100938ac",
+          "value": "%#s@bigredh.com",
+          "type": "string",
+          "length": 16
+        },
+        {
+          "address": "100938bc",
+          "value": "ptr advanced too far!",
+          "type": "string",
+          "length": 24
+        },
+        {
+          "address": "100938d4",
+          "value": "drop box",
+          "type": "string",
+          "length": 9
+        },
+        {
+          "address": "100938e0",
+          "value": "ID %hi/%hi",
+          "type": "string",
+          "length": 11
+        },
+        {
+          "address": "100938fc",
+          "value": "ID %hi/%hi @ %s #%lu",
+          "type": "string",
+          "length": 21
+        },
+        {
+          "address": "10093911",
+          "value": "ID %hi/%hi [%li] @ %s #%lu",
+          "type": "string",
+          "length": 27
+        },
+        {
+          "address": "10093941",
+          "value": "!SError!!",
+          "type": "string",
+          "length": 11
+        },
+        {
+          "address": "1009394c",
+          "value": "UError - couldn't create error dialog (fatal)",
+          "type": "string",
+          "length": 46
+        },
+        {
+          "address": "1009397b",
+          "value": "An unknown error has occured.(Not enough memory.  Try closing windows.UError - not enough memory to display error alert",
+          "type": "string",
+          "length": 120
+        },
+        {
+          "address": "100939f3",
+          "value": "UError - an error occured while attempting to display an error alert (!)",
+          "type": "string",
+          "length": 73
+        },
+        {
+          "address": "10093a3c",
+          "value": "!SError!!",
+          "type": "string",
+          "length": 12
+        },
+        {
+          "address": "10093a88",
+          "value": "!SError!",
+          "type": "string",
+          "length": 12
+        },
+        {
+          "address": "10093af8",
+          "value": "!SError!!",
+          "type": "string",
+          "length": 10
+        },
+        {
+          "address": "10093b03",
+          "value": "UApplication - not enough memory to display low memory alert",
+          "type": "string",
+          "length": 61
+        },
+        {
+          "address": "10093b40",
+          "value": "UDebug::LogToDebugFile unimplemented",
+          "type": "string",
+          "length": 37
+        },
+        {
+          "address": "10093b6c",
+          "value": "UOperatingSystem - not enough memory to initialize (fatal)",
+          "type": "string",
+          "length": 59
+        },
+        {
+          "address": "10093ba7",
+          "value": "UOperatingSystem - failed to initialize (fatal)",
+          "type": "string",
+          "length": 48
+        },
+        {
+          "address": "10093c48",
+          "value": "%#s-temp-%hu",
+          "type": "string",
+          "length": 13
+        },
+        {
+          "address": "10093c5e",
+          "value": "Untitledfile:///",
+          "type": "string",
+          "length": 17
+        },
+        {
+          "address": "10093c6f",
+          "value": "UFileSys::ProcessUnflatten - unknown compression type",
+          "type": "string",
+          "length": 54
+        },
+        {
+          "address": "10093cab",
+          "value": "image/gif",
+          "type": "string",
+          "length": 10
+        },
+        {
+          "address": "10093cb5",
+          "value": "audio/wav",
+          "type": "string",
+          "length": 10
+        },
+        {
+          "address": "10093cbf",
+          "value": "text/plain",
+          "type": "string",
+          "length": 11
+        },
+        {
+          "address": "10093cca",
+          "value": "image/pict",
+          "type": "string",
+          "length": 11
+        },
+        {
+          "address": "10093cd5",
+          "value": "image/jpeg",
+          "type": "string",
+          "length": 11
+        },
+        {
+          "address": "10093ce0",
+          "value": "image/tiff",
+          "type": "string",
+          "length": 11
+        },
+        {
+          "address": "10093ceb",
+          "value": "audio/aiff",
+          "type": "string",
+          "length": 11
+        },
+        {
+          "address": "10093cf6",
+          "value": "video/mpeg",
+          "type": "string",
+          "length": 11
+        },
+        {
+          "address": "10093d01",
+          "value": "video/quicktime",
+          "type": "string",
+          "length": 16
+        },
+        {
+          "address": "10093d11",
+          "value": "mactypecode/",
+          "type": "string",
+          "length": 13
+        },
+        {
+          "address": "10093d1e",
+          "value": "application/x-stuffit",
+          "type": "string",
+          "length": 22
+        },
+        {
+          "address": "10093d34",
+          "value": "application/x-macbinary",
+          "type": "string",
+          "length": 24
+        },
+        {
+          "address": "10093d4c",
+          "value": "application/mac-binhex40",
+          "type": "string",
+          "length": 25
+        },
+        {
+          "address": "10093d65",
+          "value": "application/octet-stream",
+          "type": "string",
+          "length": 27
+        },
+        {
+          "address": "10093dc8",
+          "value": "UGraphics - failed to initialize",
+          "type": "string",
+          "length": 33
+        },
+        {
+          "address": "10093de9",
+          "value": "UGraphics - TImage(%X) locked",
+          "type": "string",
+          "length": 30
+        },
+        {
+          "address": "10093e07",
+          "value": "UGraphics::StretchPixels - inSourceRect is not completely within the source image",
+          "type": "string",
+          "length": 82
+        },
+        {
+          "address": "10093e5a",
+          "value": "Choose a color:UGraphics::CopyPixels - invalid dest pixmap",
+          "type": "string",
+          "length": 59
+        },
+        {
+          "address": "10093e95",
+          "value": "UGraphics::CopyPixels - invalid source pixmap",
+          "type": "string",
+          "length": 46
+        },
+        {
+          "address": "10093ece",
+          "value": "Times",
+          "type": "string",
+          "length": 6
+        },
+        {
+          "address": "10093ed4",
+          "value": "UIcon - attempt to release already released icon!",
+          "type": "string",
+          "length": 50
+        },
+        {
+          "address": "10093f06",
+          "value": "UIcon - icon already registered!",
+          "type": "string",
+          "length": 34
+        },
+        {
+          "address": "10093f28",
+          "value": "CQuickTimeView",
+          "type": "string",
+          "length": 15
+        },
+        {
+          "address": "10093f38",
+          "value": "CLaunchUrlView",
+          "type": "string",
+          "length": 15
+        },
+        {
+          "address": "10094091",
+          "value": "UWindow - SetLayer() is not yet implemented",
+          "type": "string",
+          "length": 44
+        },
+        {
+          "address": "100940bd",
+          "value": "UWindow - InsertAfter() is not yet implemented",
+          "type": "string",
+          "length": 47
+        },
+        {
+          "address": "100940ec",
+          "value": "UWindow - unable to refresh",
+          "type": "string",
+          "length": 28
+        },
+        {
+          "address": "10094108",
+          "value": "UWindow - BeginDraw() has already been called without matching EndDraw()",
+          "type": "string",
+          "length": 73
+        },
+        {
+          "address": "10094177",
+          "value": "Edit2Undo/Z;-;Cut/X;Copy/C;Paste/V;Clear;-;Select All/ACould not load MBAR resource!",
+          "type": "string",
+          "length": 85
+        },
+        {
+          "address": "100941d4",
+          "value": "!SError!",
+          "type": "string",
+          "length": 12
+        },
+        {
+          "address": "100941e0",
+          "value": "UDragAndDrop() - cannot track multiple drags!",
+          "type": "string",
+          "length": 46
+        },
+        {
+          "address": "1009420e",
+          "value": "badDragRefErr",
+          "type": "string",
+          "length": 14
+        },
+        {
+          "address": "10094228",
+          "value": "text/plain",
+          "type": "string",
+          "length": 11
+        },
+        {
+          "address": "10094233",
+          "value": "LowInsert - line count exceeds allocated count",
+          "type": "string",
+          "length": 47
+        },
+        {
+          "address": "10094262",
+          "value": "LowDelete - line count exceeds allocated count",
+          "type": "string",
+          "length": 47
+        },
+        {
+          "address": "10094291",
+          "value": "LowReplace - line count exceeds allocated count",
+          "type": "string",
+          "length": 51
+        },
+        {
+          "address": "10094548",
+          "value": "UMemory - cannot dispose locked handle!",
+          "type": "string",
+          "length": 40
+        },
+        {
+          "address": "10094570",
+          "value": "UMemory - attempt to unlock discarded handle",
+          "type": "string",
+          "length": 45
+        },
+        {
+          "address": "1009459d",
+          "value": "UMemory - Unlock() called too many times!",
+          "type": "string",
+          "length": 43
+        },
+        {
+          "address": "10094918",
+          "value": "%lu:%.2lu:%.2lu:%.2lu",
+          "type": "string",
+          "length": 22
+        },
+        {
+          "address": "10094948",
+          "value": "0123456789ABCDEF",
+          "type": "string",
+          "length": 17
+        },
+        {
+          "address": "10094959",
+          "value": "0123456789abcdef",
+          "type": "string",
+          "length": 19
+        },
+        {
+          "address": "1009496c",
+          "value": "!SError!",
+          "type": "string",
+          "length": 12
+        },
+        {
+          "address": "10094978",
+          "value": "Unknown exception caught",
+          "type": "string",
+          "length": 25
+        },
+        {
+          "address": "10094994",
+          "value": "CBoolArray - MoveItems() can not yet move multiple items",
+          "type": "string",
+          "length": 57
+        },
+        {
+          "address": "100949cd",
+          "value": "CBoolArray - SwapItems() can not yet swap multiple items",
+          "type": "string",
+          "length": 59
+        },
+        {
+          "address": "10094a08",
+          "value": "UFieldData::AddField() - maximum field size is 65535 bytes",
+          "type": "string",
+          "length": 59
+        },
+        {
+          "address": "10094a44",
+          "value": "%hu/%hu/%hu",
+          "type": "string",
+          "length": 12
+        },
+        {
+          "address": "10094b28",
+          "value": "CView - hit data cannot exceed 256 bytes",
+          "type": "string",
+          "length": 41
+        },
+        {
+          "address": "10094b54",
+          "value": "CMultiViewContainer",
+          "type": "string",
+          "length": 20
+        },
+        {
+          "address": "10094c64",
+          "value": "CContainerView",
+          "type": "string",
+          "length": 15
+        },
+        {
+          "address": "10094db0",
+          "value": "CButtonView",
+          "type": "string",
+          "length": 12
+        },
+        {
+          "address": "10094e70",
+          "value": "CCheckBoxView",
+          "type": "string",
+          "length": 14
+        },
+        {
+          "address": "10094f40",
+          "value": "CIconButtonView",
+          "type": "string",
+          "length": 16
+        },
+        {
+          "address": "100950a0",
+          "value": "CIconView",
+          "type": "string",
+          "length": 10
+        },
+        {
+          "address": "10095154",
+          "value": "CPictureView",
+          "type": "string",
+          "length": 13
+        },
+        {
+          "address": "1009520c",
+          "value": "CBoxView",
+          "type": "string",
+          "length": 9
+        },
+        {
+          "address": "100953f8",
+          "value": "CTabbedView",
+          "type": "string",
+          "length": 12
+        },
+        {
+          "address": "10095550",
+          "value": "CTextView",
+          "type": "string",
+          "length": 10
+        },
+        {
+          "address": "100957e8",
+          "value": "CSelectableItemsView - itemBehav_DragArrange is not yet implemented",
+          "type": "string",
+          "length": 68
+        },
+        {
+          "address": "1009582c",
+          "value": "CPasswordTextView",
+          "type": "string",
+          "length": 18
+        },
+        {
+          "address": "100958e8",
+          "value": "text/plain",
+          "type": "string",
+          "length": 11
+        },
+        {
+          "address": "100958f4",
+          "value": "%d.%d.%d.%d",
+          "type": "string",
+          "length": 12
+        },
+        {
+          "address": "10095904",
+          "value": "_TTCToolTipWin",
+          "type": "string",
+          "length": 15
+        },
+        {
+          "address": "100959f0",
+          "value": "_TTCToolTipView",
+          "type": "string",
+          "length": 16
+        },
+        {
+          "address": "10095aac",
+          "value": "%d.%d.%d.%d",
+          "type": "string",
+          "length": 12
+        },
+        {
+          "address": "10095ab8",
+          "value": "URegularTransport - already getting local address!",
+          "type": "string",
+          "length": 51
+        },
+        {
+          "address": "10095b4e",
+          "value": "NoProxyDomainsURegularTransport - a TRegularTransport can only be connected once",
+          "type": "string",
+          "length": 81
+        },
+        {
+          "address": "10095b9f",
+          "value": "URegularTransport - cannot send more data after StartDisconnect()",
+          "type": "string",
+          "length": 66
+        },
+        {
+          "address": "10095bea",
+          "value": "tilisten,tcp",
+          "type": "string",
+          "length": 13
+        },
+        {
+          "address": "10095bff",
+          "value": "URegularTransport - transporter is already being bound!",
+          "type": "string",
+          "length": 56
+        },
+        {
+          "address": "10095c37",
+          "value": "!SError!!",
+          "type": "string",
+          "length": 13
+        },
+        {
+          "address": "10095c44",
+          "value": "127.0.0.1",
+          "type": "string",
+          "length": 10
+        },
+        {
+          "address": "10095c4e",
+          "value": "%d.%d.%d.%d:%hu",
+          "type": "string",
+          "length": 16
+        },
+        {
+          "address": "10095c5e",
+          "value": "%d.%d.%d.%d",
+          "type": "string",
+          "length": 12
+        },
+        {
+          "address": "10095dcc",
+          "value": "hotline://",
+          "type": "string",
+          "length": 11
+        },
+        {
+          "address": "10096027",
+          "value": "Hbad_exception",
+          "type": "string",
+          "length": 17
+        },
+        {
+          "address": "10096038",
+          "value": "exception",
+          "type": "string",
+          "length": 10
+        },
+        {
+          "address": "10096067",
+          "value": "xbad_cast",
+          "type": "string",
+          "length": 10
+        }
+      ],
+      "offset": 0,
+      "limit": 2000,
+      "total": 238,
+      "has_more": false
+    },
+    "isError": false
+  }
+}

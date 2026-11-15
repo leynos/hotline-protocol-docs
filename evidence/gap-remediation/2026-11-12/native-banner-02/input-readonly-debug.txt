@@ -1,0 +1,184 @@
+[New LWP 774463 (id 2)]
+[New LWP 774462 (id 3)]
+[New LWP 774461 (id 4)]
+[New LWP 774460 (id 5)]
+[New LWP 774459 (id 6)]
+[New LWP 774458 (id 7)]
+[New LWP 774457 (id 8)]
+[New LWP 774456 (id 9)]
+[New LWP 774455 (id 10)]
+[New LWP 774454 (id 11)]
+[New LWP 774453 (id 12)]
+[New LWP 774452 (id 13)]
+[New LWP 774451 (id 14)]
+[New LWP 774450 (id 15)]
+[New LWP 774449 (id 16)]
+[New LWP 774448 (id 17)]
+[New LWP 774447 (id 18)]
+[New LWP 774446 (id 19)]
+[New LWP 774445 (id 20)]
+[New LWP 774444 (id 21)]
+[New LWP 774443 (id 22)]
+[New LWP 774442 (id 23)]
+[New LWP 774441 (id 24)]
+[New LWP 774440 (id 25)]
+[New LWP 774439 (id 26)]
+[New LWP 774438 (id 27)]
+[New LWP 774437 (id 28)]
+[New LWP 774436 (id 29)]
+[New LWP 774435 (id 30)]
+[New LWP 774434 (id 31)]
+[New LWP 774433 (id 32)]
+[New LWP 774432 (id 33)]
+[New LWP 774431 (id 34)]
+[New LWP 774430 (id 35)]
+[New LWP 774429 (id 36)]
+[New LWP 774428 (id 37)]
+[New LWP 774427 (id 38)]
+[New LWP 774426 (id 39)]
+[New LWP 774425 (id 40)]
+[New LWP 774424 (id 41)]
+[New LWP 774423 (id 42)]
+[New LWP 774422 (id 43)]
+[New LWP 774421 (id 44)]
+[New LWP 774420 (id 45)]
+[New LWP 774419 (id 46)]
+[New LWP 774418 (id 47)]
+[New LWP 774417 (id 48)]
+[New LWP 774416 (id 49)]
+[New LWP 774415 (id 50)]
+[New LWP 774414 (id 51)]
+[New LWP 774413 (id 52)]
+[New LWP 774412 (id 53)]
+[New LWP 774411 (id 54)]
+[New LWP 774410 (id 55)]
+[New LWP 774409 (id 56)]
+[New LWP 774408 (id 57)]
+[New LWP 774407 (id 58)]
+[New LWP 774406 (id 59)]
+[New LWP 774405 (id 60)]
+[New LWP 774404 (id 61)]
+[New LWP 774403 (id 62)]
+[New LWP 774402 (id 63)]
+[New LWP 774401 (id 64)]
+[New LWP 774400 (id 65)]
+[New LWP 774399 (id 66)]
+[New LWP 774398 (id 67)]
+[New LWP 774397 (id 68)]
+[New LWP 774396 (id 69)]
+[New LWP 774395 (id 70)]
+[New LWP 774394 (id 71)]
+[New LWP 774393 (id 72)]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+
+Thread 1 "SheepShaver-b10" received signal SIGSEGV, Segmentation fault.
+[Switching to thread 1 (Thread 0x7a69fc0b4780 (LWP 774378))]
+0x0000000078089051 in void powerpc_cpu::execute_loadstore<op_template_nop<unsigned int>, input_gpr_except<bit_field<11, 15>, 0>, immediate_operand<bit_field<16, 31>, op_sign_extend_16_32>, false, 4, false, false>(unsigned int) ()
+  Id   Target Id                                            Frame 
+* 1    Thread 0x7a69fc0b4780 (LWP 774378) "SheepShaver-b10" 0x0000000078089051 in void powerpc_cpu::execute_loadstore<op_template_nop<unsigned int>, input_gpr_except<bit_field<11, 15>, 0>, immediate_operand<bit_field<16, 31>, op_sign_extend_16_32>, false, 4, false, false>(unsigned int) ()
+  2    Thread 0x7a69cbcf86c0 (LWP 774463) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  3    Thread 0x7a69cc4f96c0 (LWP 774462) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  4    Thread 0x7a69cccfa6c0 (LWP 774461) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  5    Thread 0x7a69cd7fb6c0 (LWP 774460) "SheepSh:disk$0"  0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  6    Thread 0x7a69ce13d6c0 (LWP 774459) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  7    Thread 0x7a69ce93e6c0 (LWP 774458) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  8    Thread 0x7a69cf13f6c0 (LWP 774457) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  9    Thread 0x7a69cf9406c0 (LWP 774456) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  10   Thread 0x7a69d01416c0 (LWP 774455) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  11   Thread 0x7a69d09426c0 (LWP 774454) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  12   Thread 0x7a69d11436c0 (LWP 774453) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  13   Thread 0x7a69d19446c0 (LWP 774452) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  14   Thread 0x7a69d21456c0 (LWP 774451) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  15   Thread 0x7a69d29466c0 (LWP 774450) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  16   Thread 0x7a69d31476c0 (LWP 774449) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  17   Thread 0x7a69d39486c0 (LWP 774448) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  18   Thread 0x7a69d41496c0 (LWP 774447) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  19   Thread 0x7a69d494a6c0 (LWP 774446) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  20   Thread 0x7a69d514b6c0 (LWP 774445) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  21   Thread 0x7a69d594c6c0 (LWP 774444) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  22   Thread 0x7a69d614d6c0 (LWP 774443) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  23   Thread 0x7a69d694e6c0 (LWP 774442) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  24   Thread 0x7a69d714f6c0 (LWP 774441) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  25   Thread 0x7a69d79506c0 (LWP 774440) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  26   Thread 0x7a69d81516c0 (LWP 774439) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  27   Thread 0x7a69d89526c0 (LWP 774438) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  28   Thread 0x7a69d91536c0 (LWP 774437) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  29   Thread 0x7a69d99546c0 (LWP 774436) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  30   Thread 0x7a69da1556c0 (LWP 774435) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  31   Thread 0x7a69da9566c0 (LWP 774434) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  32   Thread 0x7a69db1576c0 (LWP 774433) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  33   Thread 0x7a69db9586c0 (LWP 774432) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  34   Thread 0x7a69dc1596c0 (LWP 774431) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  35   Thread 0x7a69dc95a6c0 (LWP 774430) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  36   Thread 0x7a69dd15b6c0 (LWP 774429) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  37   Thread 0x7a69dd95c6c0 (LWP 774428) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  38   Thread 0x7a69de15d6c0 (LWP 774427) "llvmpipe-31"     0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  39   Thread 0x7a69de95e6c0 (LWP 774426) "llvmpipe-30"     0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  40   Thread 0x7a69df15f6c0 (LWP 774425) "llvmpipe-29"     0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  41   Thread 0x7a69df9606c0 (LWP 774424) "llvmpipe-28"     0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  42   Thread 0x7a69e01616c0 (LWP 774423) "llvmpipe-27"     0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  43   Thread 0x7a69e09626c0 (LWP 774422) "llvmpipe-26"     0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  44   Thread 0x7a69e11636c0 (LWP 774421) "llvmpipe-25"     0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  45   Thread 0x7a69e19646c0 (LWP 774420) "llvmpipe-24"     0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  46   Thread 0x7a69e21656c0 (LWP 774419) "llvmpipe-23"     0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  47   Thread 0x7a69e29666c0 (LWP 774418) "llvmpipe-22"     0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  48   Thread 0x7a69e31676c0 (LWP 774417) "llvmpipe-21"     0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  49   Thread 0x7a69e39686c0 (LWP 774416) "llvmpipe-20"     0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  50   Thread 0x7a69e41696c0 (LWP 774415) "llvmpipe-19"     0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  51   Thread 0x7a69e496a6c0 (LWP 774414) "llvmpipe-18"     0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  52   Thread 0x7a69e516b6c0 (LWP 774413) "llvmpipe-17"     0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  53   Thread 0x7a69e596c6c0 (LWP 774412) "llvmpipe-16"     0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  54   Thread 0x7a69e616d6c0 (LWP 774411) "llvmpipe-15"     0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  55   Thread 0x7a69e696e6c0 (LWP 774410) "llvmpipe-14"     0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  56   Thread 0x7a69e716f6c0 (LWP 774409) "llvmpipe-13"     0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  57   Thread 0x7a69e79706c0 (LWP 774408) "llvmpipe-12"     0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  58   Thread 0x7a69e81716c0 (LWP 774407) "llvmpipe-11"     0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  59   Thread 0x7a69e89726c0 (LWP 774406) "llvmpipe-10"     0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  60   Thread 0x7a69e91736c0 (LWP 774405) "llvmpipe-9"      0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  61   Thread 0x7a69e99746c0 (LWP 774404) "llvmpipe-8"      0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  62   Thread 0x7a69ea1756c0 (LWP 774403) "llvmpipe-7"      0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  63   Thread 0x7a69ea9766c0 (LWP 774402) "llvmpipe-6"      0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  64   Thread 0x7a69eb1776c0 (LWP 774401) "llvmpipe-5"      0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  65   Thread 0x7a69eb9786c0 (LWP 774400) "llvmpipe-4"      0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  66   Thread 0x7a69ec1796c0 (LWP 774399) "llvmpipe-3"      0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  67   Thread 0x7a69ec97a6c0 (LWP 774398) "llvmpipe-2"      0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  68   Thread 0x7a69ed17b6c0 (LWP 774397) "llvmpipe-1"      0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  69   Thread 0x7a69ed97c6c0 (LWP 774396) "llvmpipe-0"      0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  70   Thread 0x7a69fa3726c0 (LWP 774395) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  71   Thread 0x7a69fab736c0 (LWP 774394) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+  72   Thread 0x7a69fb3746c0 (LWP 774393) "SheepShaver-b10" 0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+
+Thread 1 (Thread 0x7a69fc0b4780 (LWP 774378) "SheepShaver-b10"):
+#0  0x0000000078089051 in void powerpc_cpu::execute_loadstore<op_template_nop<unsigned int>, input_gpr_except<bit_field<11, 15>, 0>, immediate_operand<bit_field<16, 31>, op_sign_extend_16_32>, false, 4, false, false>(unsigned int) ()
+#1  0x000000007807f129 in powerpc_cpu::execute(unsigned int) ()
+#2  0x000000007804e8ce in main ()
+
+Thread 2 (Thread 0x7a69cbcf86c0 (LWP 774463) "SheepShaver-b10"):
+#0  0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+#1  0x00007a69fbb8723c in __internal_syscall_cancel () from /lib64/libc.so.6
+#2  0x00007a69fbb87284 in __syscall_cancel () from /lib64/libc.so.6
+#3  0x00007a69fbc0aec1 in select () from /lib64/libc.so.6
+#4  0x000000007805a9db in Delay_usec(unsigned int) ()
+#5  0x000000007804d8ba in nvram_func(void*) ()
+
+Thread 3 (Thread 0x7a69cc4f96c0 (LWP 774462) "SheepShaver-b10"):
+#0  0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+#1  0x00007a69fbb8723c in __internal_syscall_cancel () from /lib64/libc.so.6
+#2  0x00007a69fbb87284 in __syscall_cancel () from /lib64/libc.so.6
+#3  0x00007a69fbc0aec1 in select () from /lib64/libc.so.6
+#4  0x000000007805a9db in Delay_usec(unsigned int) ()
+#5  0x000000007804d993 in tick_func(void*) ()
+
+Thread 4 (Thread 0x7a69cccfa6c0 (LWP 774461) "SheepShaver-b10"):
+#0  0x00007a69fbb92f82 in __syscall_cancel_arch () from /lib64/libc.so.6
+#1  0x00007a69fbb8723c in __internal_syscall_cancel () from /lib64/libc.so.6
+#2  0x00007a69fbb878ac in __futex_abstimed_wait_common () from /lib64/libc.so.6
+#3  0x00007a69fbb89f7e in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libc.so.6
+#4  0x00007a69f6dc46ed in cnd_wait () from /lib64/libgallium-25.3.6.so
+#5  0x00007a69f7097a4b in lp_fence_wait () from /lib64/libgallium-25.3.6.so
+A syntax error in expression, near `relative_mouse'.
+$1 = "\000\000"
+$2 = 690
+$3 = 545
+[Inferior 1 (process 774378) detached]

@@ -1,0 +1,96 @@
+cwd=/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/hotline-protocol-docs
+argv=['ruff', 'format', '--check', 'scripts/test_mxd_direct_ack.py']
+exit=0
+stdout=1 file already formatted
+
+stderr=
+
+cwd=/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/hotline-protocol-docs
+argv=['ruff', 'check', 'scripts/test_mxd_direct_ack.py']
+exit=0
+stdout=All checks passed!
+
+stderr=
+
+cwd=/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/hotline-protocol-docs
+argv=['ty', 'check', '--extra-search-path', 'scripts', '--python', '/usr/bin/python3', 'scripts/test_mxd_direct_ack.py']
+exit=0
+stdout=All checks passed!
+
+stderr=
+
+cwd=/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/hotline-protocol-docs
+argv=['python3', '-m', 'unittest', 'discover', '-s', 'scripts', '-p', 'test_mxd_direct_ack.py', '-v']
+exit=0
+stdout=
+stderr=test_corpus_passes_offline (test_mxd_direct_ack.FaultControls.test_corpus_passes_offline)
+Verify the unchanged exported corpus. ... ok
+test_forged_unit_exit_is_rejected (test_mxd_direct_ack.FaultControls.test_forged_unit_exit_is_rejected)
+Reject a falsely reported successful managed unit. ... ok
+test_missing_suite_is_rejected (test_mxd_direct_ack.FaultControls.test_missing_suite_is_rejected)
+Reject a manifest with an omitted nextest profile. ... ok
+test_source_hash_mismatch_is_rejected (test_mxd_direct_ack.FaultControls.test_source_hash_mismatch_is_rejected)
+Reject a candidate hash that differs from the frozen source. ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.156s
+
+OK
+
+
+cwd=/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/hotline-protocol-docs
+argv=['python3', 'scripts/test_mxd_direct_ack.py', '--mxd', '../mxd']
+exit=0
+stdout=verified seven profiles and two doctest groups at 20e891a059de7dd9dec5a657d7099570987d860d
+
+stderr=
+
+cwd=/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/hotline-protocol-docs
+argv=['markdownlint-cli2', 'mxd-direct-ack-correction.md']
+exit=0
+stdout=markdownlint-cli2 v0.20.0 (markdownlint v0.40.0)
+Finding: mxd-direct-ack-correction.md
+Linting: 1 file(s)
+Summary: 0 error(s)
+
+stderr=
+
+cwd=/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/hotline-protocol-docs
+argv=['nixie', 'mxd-direct-ack-correction.md']
+exit=0
+stdout===> mxd-direct-ack-correction.md
+<== mxd-direct-ack-correction.md
+🧜‍♀️✨ All diagrams validated successfully!
+
+stderr=
+
+cwd=/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra
+argv=['markdownlint-cli2', 'docs/delegation/mxd-direct-ack-correction.md']
+exit=0
+stdout=markdownlint-cli2 v0.20.0 (markdownlint v0.40.0)
+Finding: docs/delegation/mxd-direct-ack-correction.md
+Linting: 1 file(s)
+Summary: 0 error(s)
+
+stderr=
+
+cwd=/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra
+argv=['nixie', 'docs/delegation/mxd-direct-ack-correction.md']
+exit=0
+stdout===> docs/delegation/mxd-direct-ack-correction.md
+<== docs/delegation/mxd-direct-ack-correction.md
+🧜‍♀️✨ All diagrams validated successfully!
+
+stderr=
+
+cwd=/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra
+argv=['sha256sum', '--quiet', '-c', 'evidence/gap-remediation/2026-11-13/mxd-direct-ack-01/SHA256SUMS']
+exit=0
+stdout=
+stderr=
+
+cwd=/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra
+argv=['sha256sum', '--quiet', '-c', 'evidence/gap-remediation/2026-11-13/mxd-direct-ack-02/SHA256SUMS']
+exit=0
+stdout=
+stderr=

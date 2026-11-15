@@ -1,0 +1,105 @@
+{
+  "status": "PASS",
+  "flows": [
+    {
+      "report": "readiness",
+      "connection": "main",
+      "port": 58728,
+      "sent": 231,
+      "received": 2759,
+      "report_received": 2759,
+      "retained_tail": "",
+      "namespace_packets": 29,
+      "guest_packets": 33
+    },
+    {
+      "report": "coordinator",
+      "connection": "o",
+      "port": 50122,
+      "sent": 678,
+      "received": 1131,
+      "report_received": 1131,
+      "retained_tail": "",
+      "namespace_packets": 134,
+      "guest_packets": 130
+    },
+    {
+      "report": "coordinator",
+      "connection": "a",
+      "port": 50132,
+      "sent": 21,
+      "received": 8,
+      "report_received": 8,
+      "retained_tail": "",
+      "namespace_packets": 13,
+      "guest_packets": 10
+    },
+    {
+      "report": "coordinator",
+      "connection": "b",
+      "port": 50144,
+      "sent": 92,
+      "received": 310,
+      "report_received": 310,
+      "retained_tail": "",
+      "namespace_packets": 19,
+      "guest_packets": 18
+    },
+    {
+      "report": "coordinator",
+      "connection": "f",
+      "port": 50148,
+      "sent": 77,
+      "received": 50,
+      "report_received": 50,
+      "retained_tail": "",
+      "namespace_packets": 15,
+      "guest_packets": 10
+    },
+    {
+      "report": "coordinator",
+      "connection": "s35",
+      "port": 36346,
+      "sent": 12,
+      "received": 8,
+      "report_received": 8,
+      "retained_tail": "",
+      "namespace_packets": 10,
+      "guest_packets": 12
+    },
+    {
+      "report": "coordinator",
+      "connection": "s75",
+      "port": 39636,
+      "sent": 12,
+      "received": 8,
+      "report_received": 8,
+      "retained_tail": "",
+      "namespace_packets": 10,
+      "guest_packets": 12
+    },
+    {
+      "report": "coordinator",
+      "connection": "s120",
+      "port": 45508,
+      "sent": 12,
+      "received": 8,
+      "report_received": 8,
+      "retained_tail": "",
+      "namespace_packets": 10,
+      "guest_packets": 13
+    },
+    {
+      "report": "postflight",
+      "connection": "main",
+      "port": 49674,
+      "sent": 231,
+      "received": 2759,
+      "report_received": 2759,
+      "retained_tail": "",
+      "namespace_packets": 29,
+      "guest_packets": 32
+    }
+  ],
+  "limits": "Packet capture may still be recording; retirement/drop/STOP proofs separate."
+}

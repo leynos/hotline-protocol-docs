@@ -1,0 +1,23 @@
+{
+  "recorded_at_utc": "2026-11-13T00:44:58.933340+00:00",
+  "confirmed_stall": {
+    "emulator_pid": 774378,
+    "timer_tid_and_mutex_owner": 774395,
+    "suspend_count": 1,
+    "emulation_stack": "TimerInterrupt -> pthread_mutex_lock -> futex",
+    "timer_stack": "sigsuspend; owner of wakeup_time_lock",
+    "evidence": "stall-timer-readonly.txt"
+  },
+  "first_resume": {
+    "method": "Installed SIGRESUME handler via tgkill(SIGRTMIN+7) to identified timer thread. No guest memory/register writes or process restart.",
+    "time_scope": "Exact first-signal timestamp was not retained; it preceded recovered-liveness started_at_utc. The later timer-resume.json is the second signal record.",
+    "before_liveness_started_at_utc": "2026-11-13T00:31:51.680574+00:00"
+  },
+  "second_signal": {
+    "record": "timer-resume.json",
+    "preceding_observation": "input-mode-and-timer.txt shows owner0/suspend_count0; this was not a confirmed second deadlock and is not used as recovery evidence."
+  },
+  "source_fix": "Mask SIGSUSPEND around timer worker wakeup-time mutex ownership, restore prior mask after unlock. Pending suspend cannot acknowledge while holding the mutex.",
+  "regression": "200 forced suspension handoffs and signal-mask restoration; unmasked control deadlocks under the same schedule.",
+  "live_scope": "Recovery capture still uses old executable b109f5c470fca6a1a5e0e0eaec4b5f5658d0e45ddafabf6b59bb7c4b35340146. Patched build manifest identifies a new binary; it has not replaced the running emulator."
+}

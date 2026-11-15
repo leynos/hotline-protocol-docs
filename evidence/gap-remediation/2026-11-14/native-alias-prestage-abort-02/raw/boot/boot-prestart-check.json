@@ -1,0 +1,24 @@
+{
+  "utc": "2026-11-14T21:36:38.047252+00:00",
+  "uid": 1000,
+  "gid": 1000,
+  "available_bytes": 12185784320,
+  "threshold": 10536091648,
+  "paths_absent": [
+    "/data/leynos/Projects/mothra/state/mac-displays/native-alias-live-04",
+    "/data/leynos/Projects/mothra/state/native-sessions/native-alias-live-04",
+    "/tmp/.X11-unix/X125"
+  ],
+  "all_paths_absent": true,
+  "listening_ports": [],
+  "hashes": {
+    "stopped-preparation/preflight.json": "ff29875a5256bdc7cd962e573dff4bbef81151f1f8629a113e620cf82782ab62",
+    "stopped-preparation/finf-supplement.json": "ab64121a1eec6ea94f3e53aeb36c7a602bdbd6fec068ced4797267f508afa7a4",
+    "boot-alias-live-04.sh": "bb56161e8adb1bf65c8fac417184dd1f4d27c59fdc4bffb233488ca54f0165ae"
+  },
+  "ss_argv": [
+    "ss",
+    "-ltn"
+  ],
+  "ss_exit": 0
+}

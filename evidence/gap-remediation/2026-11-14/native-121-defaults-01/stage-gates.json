@@ -1,0 +1,33 @@
+{
+  "passed": [
+    "observer-identity",
+    "absent-4",
+    "absent-5",
+    "absent-7",
+    "absent-9",
+    "absent-10",
+    "absent-11",
+    "absent-13",
+    "absent-15",
+    "absent-17",
+    "absent-18",
+    "absent-19",
+    "absent-27",
+    "absent-29",
+    "empty-4",
+    "empty-5",
+    "empty-7",
+    "empty-9",
+    "empty-10",
+    "empty-11",
+    "empty-13",
+    "empty-15",
+    "empty-17",
+    "empty-18",
+    "empty-19",
+    "empty-27",
+    "empty-29"
+  ],
+  "status": "completed",
+  "error": ""
+}

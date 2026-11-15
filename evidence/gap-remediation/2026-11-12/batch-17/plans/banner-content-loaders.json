@@ -1,0 +1,41 @@
+[
+  {
+    "id": "B17-D-10003bd0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10003bd0"
+    }
+  },
+  {
+    "id": "B17-D-10003e80",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10003e80"
+    }
+  },
+  {
+    "id": "B17-M-banner-suffixes",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "1008fc1f",
+      "length": 32
+    }
+  },
+  {
+    "id": "B17-M-content-path-pointer",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "1008ee24",
+      "length": 4
+    }
+  },
+  {
+    "id": "B17-C-10003940",
+    "tool": "get_function_calls",
+    "arguments": {
+      "address": "10003940",
+      "direction": "callers",
+      "limit": 1000
+    }
+  }
+]

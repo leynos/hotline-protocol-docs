@@ -1,0 +1,14 @@
+{
+  "readiness": "d964f64d1b1bd1ec2518f0edf2c8939add17c7cbbff31275636a19391a9aa6f7",
+  "guard-zero": "6c2352c28bdf1f19b7c6f345d20f0c3cbe5d630962f8681dad5a8865fc0b6bf9",
+  "guard-protected": "84bb5f09c3720dddc67f5e7b4c975fa3b0753fb2f7538f5f1e8904be17abce8e",
+  "seed-zero": "b48ba06d2baa9a850f27b46173854b677c8f1c71e5e10fae77ed90aa1a11513b",
+  "seed-protected": "a374dba9713c231fcecaea99437acf8c9bea4f4cfab283e9bfe8f1688d0d3fae",
+  "kick0": "f839b8906969303c0725eb35897dbc1688336cfde702dffaa8d9a48f0b23d6b9",
+  "kick0-probe": "1dd1d2a9f346bbb62a321961773793489dd5770542d52f9186f11d85e0f68434",
+  "protected": "929b52ef2f44d10cdad4760f59c9e16be6aa6aee2244cd2b1975def7f4666dff",
+  "tempban": "998ee4ca4a569cc47fce747f0125a1fd2553ae04f40d05df11a51951fba38c9d",
+  "immediate-probe": "b1bd2f8cc0b3f04197eff77e18ce28de0a0b20c75dbc52c9915d71c22daf8104",
+  "pre-probe": "0289a23d7c11517fd314f56d935cfa9587535d4245dab371a768dd7c72e147df",
+  "post-probe": "1869b2b1c6343a19aa9ff4ec7a2add04e39784c01342ea77bedabf8c81a6c67a"
+}

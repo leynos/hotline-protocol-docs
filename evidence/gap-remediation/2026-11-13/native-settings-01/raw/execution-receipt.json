@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "scope": "C26 native original-server settings113, ten cases once each",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "emulator_pid": 1099659,
+  "emulator_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "host_recorder_unit": "mothra-native-settings-c26-recorder.service",
+  "host_recorder_pid": 2865250,
+  "host_recorder_packets_captured": 3754,
+  "host_recorder_kernel_drops": 0,
+  "a7_preflight": "completed 29 actions; original verify.py passed",
+  "a7_postflight": "completed 29 actions; original verify.py passed",
+  "generator_note": "First generator command used canonical protocol path without new private script and failed before writing any settings plan or native socket; corrected to private script before ten cases.",
+  "a7_phase_note": "Preflight as-run plan environment a7_phase says postflight due shared preparation dictionary; its steps and complete report are the exact immutable A7 29-action baseline. Preserve this metadata defect; do not relabel as-run evidence.",
+  "cases": {
+    "absent": {
+      "capture_stdout_stderr": "native-mac-oracle: completed; 33 actions\n",
+      "semantic_stdout_stderr": "{\"case\": \"absent\", \"feedback_option\": 0, \"observed_flags\": 0, \"subject_uid_hex\": \"0016\"}\n",
+      "exit_record": "capture=0 semantic=0\n",
+      "plan_sha256": "66b8e3337b66893bf09f02ecdc6c319389b7a142d9691cb377d42f97b7f14113",
+      "report_sha256": "ce311410f280ed6a8b7e96a0ebaa2064d9e0bad10606c8224ccb27ae3848b16e"
+    },
+    "duplicate-auto-refuse": {
+      "capture_stdout_stderr": "native-mac-oracle: completed; 33 actions\n",
+      "semantic_stdout_stderr": "{\"case\": \"duplicate-auto-refuse\", \"feedback_option\": 2, \"observed_flags\": 1, \"subject_uid_hex\": \"0028\"}\n",
+      "exit_record": "capture=0\nsemantic=0\n",
+      "plan_sha256": "13e109ee14c22afe84c2bfd32ddc6a46d868dc0b74730f9bc4ed03f0a42b0eaa",
+      "report_sha256": "a8d61d1c3f310c0aed7527b50b48b37dd00e6c7382eaae9b267b03d50f52b5bb"
+    },
+    "duplicate-refuse-auto": {
+      "capture_stdout_stderr": "native-mac-oracle: completed; 33 actions\n",
+      "semantic_stdout_stderr": "{\"case\": \"duplicate-refuse-auto\", \"feedback_option\": 2, \"observed_flags\": 1, \"subject_uid_hex\": \"0026\"}\n",
+      "exit_record": "capture=0\nsemantic=0\n",
+      "plan_sha256": "84a53e0c13c91ad78e5149b227dd69e19461aece14212c58f5d228b24b038788",
+      "report_sha256": "38e220316d6191bb2b0a95d5f00e99f0ed4db3d59ce7dd912834e9bbf84316b9"
+    },
+    "empty": {
+      "capture_stdout_stderr": "native-mac-oracle: completed; 33 actions\n",
+      "semantic_stdout_stderr": "{\"case\": \"empty\", \"feedback_option\": 0, \"observed_flags\": 0, \"subject_uid_hex\": \"0018\"}\n",
+      "exit_record": "capture=0\nsemantic=0\n",
+      "plan_sha256": "36513423b83a9cbee4ebfc900fefd22edeb92b32ffdc3c7c673f2aa8f821ac63",
+      "report_sha256": "509418a0542b2d31684f6548d7680e51ee113804562bad03ef159e75d776b44c"
+    },
+    "five-byte-prefix": {
+      "capture_stdout_stderr": "native-mac-oracle: completed; 33 actions\n",
+      "semantic_stdout_stderr": "{\"case\": \"five-byte-prefix\", \"feedback_option\": 2, \"observed_flags\": 1, \"subject_uid_hex\": \"0024\"}\n",
+      "exit_record": "capture=0\nsemantic=0\n",
+      "plan_sha256": "8eca67fdfa05389f4a173463dc372f755aeb4a1de3429b5e409774b26e64f4a7",
+      "report_sha256": "9e48e77e3c6716dd9a2f66a1e72c648ca5761a4b0e55b17f14b31b9676172d8c"
+    },
+    "four-byte-both": {
+      "capture_stdout_stderr": "native-mac-oracle: completed; 33 actions\n",
+      "semantic_stdout_stderr": "{\"case\": \"four-byte-both\", \"feedback_option\": 4, \"observed_flags\": 5, \"subject_uid_hex\": \"0022\"}\n",
+      "exit_record": "capture=0\nsemantic=0\n",
+      "plan_sha256": "29ce71b8689279cd89060d19c4c438de6c7482e99d5c8a443ca391e5154cea82",
+      "report_sha256": "2543f4cfa75a108f52d26be1ea1b25f1fbee2b9fd68b22a6f0b495d3eb28dfd3"
+    },
+    "one-byte-refuse": {
+      "capture_stdout_stderr": "native-mac-oracle: completed; 33 actions\n",
+      "semantic_stdout_stderr": "{\"case\": \"one-byte-refuse\", \"feedback_option\": 2, \"observed_flags\": 1, \"subject_uid_hex\": \"001c\"}\n",
+      "exit_record": "capture=0\nsemantic=0\n",
+      "plan_sha256": "782ed1d567fe25cba2dbef1a885846fe05f46319d2047d70bd3d0d78f375eee1",
+      "report_sha256": "8fc7714251f7a2d1b7840ec33efb1fdf6d24550de9501d0948e327a880ebacf9"
+    },
+    "three-byte-default": {
+      "capture_stdout_stderr": "native-mac-oracle: completed; 33 actions\n",
+      "semantic_stdout_stderr": "{\"case\": \"three-byte-default\", \"feedback_option\": 0, \"observed_flags\": 0, \"subject_uid_hex\": \"0020\"}\n",
+      "exit_record": "capture=0\nsemantic=0\n",
+      "plan_sha256": "961944f7d39bd937b70ec0e1bf081b960b725e3888ac6eedcec2d552e8a9dc53",
+      "report_sha256": "a5c8ec8cf66bb6b736703670bbc813cdb212fb56e7ae37699787849520ada167"
+    },
+    "two-byte-auto": {
+      "capture_stdout_stderr": "native-mac-oracle: completed; 33 actions\n",
+      "semantic_stdout_stderr": "{\"case\": \"two-byte-auto\", \"feedback_option\": 4, \"observed_flags\": 4, \"subject_uid_hex\": \"001e\"}\n",
+      "exit_record": "capture=0\nsemantic=0\n",
+      "plan_sha256": "b11a31e921c1c22ec25cca9faaa41393c87b60e11d0adddca17b4e947aec424b",
+      "report_sha256": "d412c2693a06dae1367d673d94f116c0368874aeff2801d0547586456cc4d474"
+    },
+    "zero-two": {
+      "capture_stdout_stderr": "native-mac-oracle: completed; 33 actions\n",
+      "semantic_stdout_stderr": "{\"case\": \"zero-two\", \"feedback_option\": 0, \"observed_flags\": 0, \"subject_uid_hex\": \"001a\"}\n",
+      "exit_record": "capture=0\nsemantic=0\n",
+      "plan_sha256": "779a1418010864a81668eead3b44d9e597bac9096822f77de91981e6dfb88a68",
+      "report_sha256": "9941b89e2854d672dbdd58ffb87f055519b6fca7e5b551eb1faac963deb11cca"
+    }
+  }
+}

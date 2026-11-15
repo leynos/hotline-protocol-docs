@@ -1,0 +1,32 @@
+{
+  "reviews": [
+    {
+      "gap_id": "GAP-052",
+      "status": "Resolved",
+      "unchanged_closure_criterion": "Publish the field-presence/permission/conflict matrix and before/after outcomes for rename-only, comment-only and combined requests.",
+      "requirements": [
+        {
+          "requirement": "Field-presence matrix",
+          "evidence": "Filesandfolders haveallnine absent/empty/changed-name versusabsent/empty/nonempty-comment combinations. SingleNULclear,same-name-no-op,interiorNULpreservation and199readbackboundaryarealsoobserved. Exactplansandbefore/after206/listingbytesarechecked."
+        },
+        {
+          "requirement": "Permission matrix",
+          "evidence": "Threeownedtemporaryaccountswithcomment-only,rename-onlyandzerobitmapshave354and352positivecontrols. Combinedcomment-permitted/rename-denied producespartialcomment;comment-denied/rename-permitted leavesbothunchanged. Name-onlyallowed/deniedandzero-privilegeno-op/emptycommentdenialarecapturedforfiles/folders."
+        },
+        {
+          "requirement": "Conflict and before/after outcomes",
+          "evidence": "Admincommentthenrenamecollision yieldsstatus1/native-48textaftercommentpersists. Originalnameanddestinationremain;independentadmin206confirmsall36finalobjects. Successfulrenamesmakeoldnamefail,newnamework andpreservedata/type/size inlisting."
+        },
+        {
+          "requirement": "Exact fixtures and limits",
+          "evidence": "49reports/72socketsmatchhostandgueststreams;13freshidentitycheckedoraclequeriescoverhandler/presence/accessors/permissions/nativecomment/renamecalls. 22boundarywritesseparateobserved199readbackfromsetter255/200inputcaps. Onequietsecondboundsnotifications;noatomicity,restartdurabilityoruniversalstoragecapacityclaim."
+        },
+        {
+          "requirement": "Owned cleanup and repeatability",
+          "evidence": "Initialwrong351encodingretainedwith3failureACKsandaccount-presencecontrols. Correctcomplemented351requestsdeleteall3accounts;raw352provesabsence. OwnedtreeandsixsupplementaryentriesmovedtoTrash;41entryFileswirelistingrestored. Currentgeneratorcleanupcorrected;13newregressionscheckpartial-effects/ordering/clears/widths."
+        }
+      ]
+    }
+  ],
+  "scope": "Close only original207field-presence/permission/conflict/before-after criterion. Keep019broaderlengths,003broaderrors,050deletionfailures,053moves,054missingtarget,084broaderoperationsandallotheroriginalrequirements active. Noallnotifications/allOS/restartpersistenceclaim."
+}

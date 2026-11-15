@@ -1,0 +1,14 @@
+{
+  "pid": 1012806,
+  "socket": "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/isolated-network/data-bridge.sock",
+  "socket_inode": 595404078,
+  "fixed_target": {
+    "kind": "tcp",
+    "address": [
+      "127.0.0.1",
+      15501
+    ],
+    "synthetic": false
+  },
+  "netns": "net:[4026531840]"
+}

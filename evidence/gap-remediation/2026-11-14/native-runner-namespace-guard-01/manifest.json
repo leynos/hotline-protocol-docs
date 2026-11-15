@@ -1,0 +1,27 @@
+{
+  "recorded_at_utc": "2026-11-14T06:07:13.353826+00:00",
+  "trigger": "C76 action0 ConnectionRefused in wrong host network namespace; C77 separately corrected launch and passed.",
+  "change": "Require runner /proc/self/ns/net inode equal prepared actual emulator namespace before capture gate or protocol socket work. Document correct managed namespace context.",
+  "prior_first_epoch_source": "Frozen B68 f5e46930 controller preserved in native-ban-expiry-first-01 publication; firstC77 not retroactively claimed to use this guard.",
+  "test_command": [
+    "python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "/data/leynos/Projects/hotline-protocol-docs/scripts",
+    "-p",
+    "test_native_ban_expiry.py"
+  ],
+  "exit_code": 0,
+  "focused_tests": 9,
+  "bounds": {
+    "production_lines": 1026,
+    "production_cap": 1120,
+    "test_lines": 512,
+    "test_cap": 520,
+    "guide_lines": 170,
+    "guide_cap": 190
+  },
+  "new_live_protocol_traffic": false
+}

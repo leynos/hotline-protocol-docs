@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T14:11:29.289318+00:00",
+  "query": {
+    "id": "B05-D-10022ea0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10022ea0"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_10022ea0\",\n    \"address\": \"10022ea0\"\n  },\n  \"code\": \"\\nundefined4 FUN_10022ea0(int param_1,uint param_2,undefined4 param_3,undefined4 param_4,int param_5)\\n\\n{\\n  int iVar1;\\n  int iVar2;\\n  uint uVar3;\\n  int iVar4;\\n  int iVar5;\\n  uint uVar6;\\n  int iVar7;\\n  int local_338 [2];\\n  undefined4 local_330;\\n  int local_32c;\\n  undefined1 local_328;\\n  undefined1 auStack_327 [247];\\n  int local_230;\\n  int local_22c;\\n  uint local_210;\\n  undefined1 auStack_1f4 [12];\\n  int local_1e8;\\n  uint local_1e4;\\n  \\n  if (param_1 == 0) {\\n    FUN_10027c30(1,2);\\n  }\\n  FUN_1002c220(param_1,0x23);\\n  iVar1 = FUN_1002c3b0(param_1,0,&local_230,0x17c,0);\\n  if (iVar1 != 0x17c) {\\n    FUN_10027c30(1,9);\\n  }\\n  if (local_230 != 0x484c4e5a) {\\n    FUN_10027c30(1,8);\\n  }\\n  if (local_22c != 2) {\\n    FUN_10027c30(1,7);\\n  }\\n  iVar1 = (local_1e4 + 1) * 8;\\n  iVar2 = FUN_10052a10(iVar1);\\n  FUN_1002c3b0(param_1,local_210 * (local_1e8 + -1) + 0x200,iVar2,iVar1,0);\\n  iVar1 = FUN_10024280(param_1,local_210,param_2,iVar2 + (param_2 & local_1e4) * 8);\\n  if (iVar1 == 0) {\\n    FUN_10027c30(1,0xc);\\n  }\\n  uVar3 = FUN_1007c210(param_3);\\n  uVar6 = 0x1f;\\n  if (uVar3 < 0x20) {\\n    uVar6 = uVar3;\\n  }\\n  uVar3 = uVar6 + 4 & 0xfffffffc;\\n  iVar7 = uVar3 + 8;\\n  iVar1 = FUN_100247f0(param_1,local_210,iVar1,0);\\n  if (iVar1 == 0) {\\n    FUN_10027c30(1,9);\\n  }\\n  iVar4 = FUN_10023de0(param_1,local_210,auStack_1f4,(local_210 + iVar7 + param_5 + -1) / local_210)\\n  ;\\n  *(undefined4 *)((int)local_338 + uVar3 + 0xc) = 0;\\n  local_330 = 0;\\n  local_32c = param_5;\\n  local_328 = FUN_100539c0(auStack_327,param_3,uVar6);\\n  iVar5 = (iVar4 + -1) * local_210 + 0x200;\\n  iVar7 = FUN_1002c440(param_1,iVar5,&local_330,iVar7,0);\\n  iVar5 = iVar5 + iVar7;\\n  iVar7 = FUN_1002c440(param_1,iVar5,param_4,param_5,0);\\n  uVar6 = iVar5 + iVar7;\\n  iVar7 = local_210 - (uVar6 - (uVar6 / local_210) * local_210);\\n  if (iVar7 != 0) {\\n    FUN_1002c440(param_1,uVar6,&DAT_10096078,iVar7,0);\\n  }\\n  local_338[0] = iVar4;\\n  FUN_1002c440(param_1,(iVar1 + -1) * local_210 + 0x200,local_338,4,0);\\n  FUN_10052c10(iVar2);\\n  FUN_1002c2c0(param_1);\\n  return 1;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_10022ea0",
+        "address": "10022ea0"
+      },
+      "code": "\nundefined4 FUN_10022ea0(int param_1,uint param_2,undefined4 param_3,undefined4 param_4,int param_5)\n\n{\n  int iVar1;\n  int iVar2;\n  uint uVar3;\n  int iVar4;\n  int iVar5;\n  uint uVar6;\n  int iVar7;\n  int local_338 [2];\n  undefined4 local_330;\n  int local_32c;\n  undefined1 local_328;\n  undefined1 auStack_327 [247];\n  int local_230;\n  int local_22c;\n  uint local_210;\n  undefined1 auStack_1f4 [12];\n  int local_1e8;\n  uint local_1e4;\n  \n  if (param_1 == 0) {\n    FUN_10027c30(1,2);\n  }\n  FUN_1002c220(param_1,0x23);\n  iVar1 = FUN_1002c3b0(param_1,0,&local_230,0x17c,0);\n  if (iVar1 != 0x17c) {\n    FUN_10027c30(1,9);\n  }\n  if (local_230 != 0x484c4e5a) {\n    FUN_10027c30(1,8);\n  }\n  if (local_22c != 2) {\n    FUN_10027c30(1,7);\n  }\n  iVar1 = (local_1e4 + 1) * 8;\n  iVar2 = FUN_10052a10(iVar1);\n  FUN_1002c3b0(param_1,local_210 * (local_1e8 + -1) + 0x200,iVar2,iVar1,0);\n  iVar1 = FUN_10024280(param_1,local_210,param_2,iVar2 + (param_2 & local_1e4) * 8);\n  if (iVar1 == 0) {\n    FUN_10027c30(1,0xc);\n  }\n  uVar3 = FUN_1007c210(param_3);\n  uVar6 = 0x1f;\n  if (uVar3 < 0x20) {\n    uVar6 = uVar3;\n  }\n  uVar3 = uVar6 + 4 & 0xfffffffc;\n  iVar7 = uVar3 + 8;\n  iVar1 = FUN_100247f0(param_1,local_210,iVar1,0);\n  if (iVar1 == 0) {\n    FUN_10027c30(1,9);\n  }\n  iVar4 = FUN_10023de0(param_1,local_210,auStack_1f4,(local_210 + iVar7 + param_5 + -1) / local_210)\n  ;\n  *(undefined4 *)((int)local_338 + uVar3 + 0xc) = 0;\n  local_330 = 0;\n  local_32c = param_5;\n  local_328 = FUN_100539c0(auStack_327,param_3,uVar6);\n  iVar5 = (iVar4 + -1) * local_210 + 0x200;\n  iVar7 = FUN_1002c440(param_1,iVar5,&local_330,iVar7,0);\n  iVar5 = iVar5 + iVar7;\n  iVar7 = FUN_1002c440(param_1,iVar5,param_4,param_5,0);\n  uVar6 = iVar5 + iVar7;\n  iVar7 = local_210 - (uVar6 - (uVar6 / local_210) * local_210);\n  if (iVar7 != 0) {\n    FUN_1002c440(param_1,uVar6,&DAT_10096078,iVar7,0);\n  }\n  local_338[0] = iVar4;\n  FUN_1002c440(param_1,(iVar1 + -1) * local_210 + 0x200,local_338,4,0);\n  FUN_10052c10(iVar2);\n  FUN_1002c2c0(param_1);\n  return 1;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

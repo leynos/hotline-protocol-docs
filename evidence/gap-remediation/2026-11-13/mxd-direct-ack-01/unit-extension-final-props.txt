@@ -1,0 +1,12 @@
+Id=mxd-c7-full-20261113-1815.service
+ActiveState=failed
+SubState=failed
+InvocationID=d228fc5d55dd456d9021aa7ed49ce31d
+Type=oneshot
+TimeoutStartUSec=40min
+TimeoutStopUSec=30s
+RemainAfterExit=yes
+MainPID=0
+Result=exit-code
+ExecMainCode=1
+ExecMainStatus=2

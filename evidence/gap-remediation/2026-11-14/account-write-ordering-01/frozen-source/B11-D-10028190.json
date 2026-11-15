@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T14:51:32.483272+00:00",
+  "query": {
+    "id": "B11-D-10028190",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10028190"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_10028190\",\n    \"address\": \"10028190\"\n  },\n  \"code\": \"\\nvoid FUN_10028190(undefined4 param_1,undefined4 param_2,undefined4 param_3)\\n\\n{\\n  undefined2 local_30;\\n  undefined2 local_2e;\\n  undefined4 local_2c;\\n  undefined4 local_28;\\n  int local_24;\\n  ushort local_20;\\n  undefined2 local_1c;\\n  undefined2 local_1a;\\n  undefined4 local_18;\\n  undefined4 local_14;\\n  int local_10;\\n  ushort local_c;\\n  \\n  local_20 = local_20 & 0x3fff;\\n  local_24 = (int)(short)param_1;\\n  local_2c = param_2;\\n  local_28 = param_3;\\n  FUN_100280b0(param_1,&local_30,&local_2e);\\n  local_1c = local_30;\\n  local_1a = local_2e;\\n  local_18 = local_2c;\\n  local_14 = local_28;\\n  local_10 = local_24;\\n  local_c = local_20;\\n  FUN_1007e050(s__SError___10093a3c,&local_1c,0);\\n  return;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_10028190",
+        "address": "10028190"
+      },
+      "code": "\nvoid FUN_10028190(undefined4 param_1,undefined4 param_2,undefined4 param_3)\n\n{\n  undefined2 local_30;\n  undefined2 local_2e;\n  undefined4 local_2c;\n  undefined4 local_28;\n  int local_24;\n  ushort local_20;\n  undefined2 local_1c;\n  undefined2 local_1a;\n  undefined4 local_18;\n  undefined4 local_14;\n  int local_10;\n  ushort local_c;\n  \n  local_20 = local_20 & 0x3fff;\n  local_24 = (int)(short)param_1;\n  local_2c = param_2;\n  local_28 = param_3;\n  FUN_100280b0(param_1,&local_30,&local_2e);\n  local_1c = local_30;\n  local_1a = local_2e;\n  local_18 = local_2c;\n  local_14 = local_28;\n  local_10 = local_24;\n  local_c = local_20;\n  FUN_1007e050(s__SError___10093a3c,&local_1c,0);\n  return;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

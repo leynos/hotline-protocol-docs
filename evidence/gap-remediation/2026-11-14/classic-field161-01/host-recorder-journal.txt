@@ -1,0 +1,10 @@
+2026-11-14T02:11:18+00:00 ibara systemd[1]: Starting mothra-b52-host-capture.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-proxy-width-b52/host.pcap "(tcp port 15500 or tcp port 15501)"...
+2026-11-14T02:11:18+00:00 ibara systemd[1]: Started mothra-b52-host-capture.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-proxy-width-b52/host.pcap "(tcp port 15500 or tcp port 15501)".
+2026-11-14T02:11:18+00:00 ibara tcpdump[3394965]: dropped privs to tcpdump
+2026-11-14T02:11:18+00:00 ibara tcpdump[3394965]: tcpdump: listening on lo, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+2026-11-14T02:21:23+00:00 ibara tcpdump[3394965]: 3286 packets captured
+2026-11-14T02:21:23+00:00 ibara tcpdump[3394965]: 6572 packets received by filter
+2026-11-14T02:21:23+00:00 ibara tcpdump[3394965]: 0 packets dropped by kernel
+2026-11-14T02:21:23+00:00 ibara systemd[1]: Stopping mothra-b52-host-capture.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-proxy-width-b52/host.pcap "(tcp port 15500 or tcp port 15501)"...
+2026-11-14T02:21:23+00:00 ibara systemd[1]: mothra-b52-host-capture.service: Deactivated successfully.
+2026-11-14T02:21:23+00:00 ibara systemd[1]: Stopped mothra-b52-host-capture.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-proxy-width-b52/host.pcap "(tcp port 15500 or tcp port 15501)".

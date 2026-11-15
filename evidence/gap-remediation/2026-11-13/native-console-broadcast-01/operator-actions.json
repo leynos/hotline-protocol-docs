@@ -1,0 +1,23 @@
+{
+  "preflight_ui": "state/console-preflight-20261113.png",
+  "observed_preflight": "Server live, zero connections/transfers, no modal dialog",
+  "ui_helper": "state/native-sessions/runtime-24/mac-input-99.py",
+  "actions": [
+    [
+      "click",
+      "927",
+      "113"
+    ],
+    [
+      "type",
+      "D1-console-message"
+    ],
+    [
+      "click",
+      "656",
+      "480"
+    ]
+  ],
+  "ui_timing": "Actions issued during 20-second recorder pause; tool transcript has order, screenshots and packet timestamps provide bounds. No separate timestamped input-event log was retained.",
+  "result": "Exactly one console send. Dialog dismissed. No account/file/server-options changes. Recorder completed50actions."
+}

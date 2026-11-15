@@ -1,0 +1,18 @@
+{
+  "command": "tools/ghidramcp/.venv/bin/python",
+  "wrapper": "/data/leynos/Projects/mothra/state/ban-oracle-root-01/capture.py",
+  "server_args": [
+    "--headless",
+    "--binary",
+    "/data/leynos/Projects/mothra/evidence/hotline-server-1.9/inputs/HLserver19.pef",
+    "--project",
+    "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-account/mothra/state/oracle-headless-01/project",
+    "--project-name",
+    "hotline19-headless-01",
+    "--no-analyze",
+    "--discard",
+    "--ready-timeout",
+    "120"
+  ],
+  "policy": "Read-only tools only, saved independent project, no analysis, discard, identity1840/ad704 before and after; no GUI project open or mutation"
+}

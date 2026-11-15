@@ -1,0 +1,7 @@
+import json,os,hashlib
+from pathlib import Path
+o=Path("/data/leynos/Projects/mothra/state/native-sessions/native-alias-live-04")
+d=json.loads((o/"disk-ready.json").read_text());p=Path(f"/proc/{d['pid']}")
+t=int((p/"stat").read_text().split(") ")[1].split()[19]);x=Path(os.readlink(p/"exe"));f=Path(os.readlink(p/"fd/6"));n=int(os.readlink(p/"ns/net").split("[")[1][:-1]);h=hashlib.sha256(x.read_bytes()).hexdigest()
+assert(t,f.stat().st_ino,n,h)==(d['start_ticks'],d['working_inode'],d['netns_inode'],d['exe_sha256'])
+print(json.dumps({"disk_ready":d,"actual_ticks":t,"fd6":str(f),"netns":n,"exe_sha256":h}))

@@ -1,0 +1,47 @@
+63665a28b41cc81b132c147fea9af476750c021fd133355295a70ed415bed4ec  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/a192-runtime-audit-report.md.txt
+f18d50c28db79967a295b5159e6077b30b0e3bb78d348b36212e7025a6e7acdb  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/b152-runtime-retention.md.txt
+f34bda671dcb12c0adac1fba934d110cef9f8007976be2886a4c59f1583f6d50  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/b153-old-runtime-retirement.md.txt
+311acf0b2d8f25189288e79c0d073f2dbbd09e2079f09c8bcc817631770a1483  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/c182-disk-sharing-audit-c183-report.md.txt
+309256ff5be4ba9fd87d206f18fcef4a9a1e670645dcbee813d21f5ef12747b8  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/c182-disk-sharing-audit-report.md.txt
+06620e524e452b312701e285cd401d911976137be3cd60260cffd4b6376498ee  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/collect.py.txt
+6542e76efac04be86da147401abe2ca7787a2e4a3aa0a122eb4800c3e2dd5ca4  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/extent-summary.json
+52c32d00258e748c35eeabe762f01c7fecb36bc5842ea04488278223d664d4ef  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/handoff.md.txt
+05d1cacef05bc90ae09be433332904d6b3b9e92464391a7eb827dc5866f219fe  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/manifest.json
+7fb502abd53783d5530705f772dde8910f9985b01b0ee16cb337d3819522bbee  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/checksums-as-collected.txt
+b6a6de9d8cb0976675cdd4d8f3df7de6345ec77141125c1e642ca12fb2c1d1b7  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/inventory.json
+ba93fb696dbfe35dadff5188275b4c16c57e25d5ce9c11610f4c0f0d5f55fcab  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline19/.finf/shared
+6adfe44407c751c2e9a03e609f10f9be5ccb3ee4dfbd70fec9de0ce7b5b9d245  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline19/assets.json
+f9beb69630d2b59478ff32e41d98ef39c80fdb4f881293853cefa248ba3700fd  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline19/last-launch.json
+64c8e584997099e8202a9247fcfea20dab0cfd93be46606c1df6658b5fe7189b  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline19/machine.sheepvm/nvram
+a4209d6de6a71e49c053cc7899d8494a36c8fbcbd8e81bd066f6a55afafc2f77  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline19/machine.sheepvm/prefs
+\38db5faa09976102b755dd87cf8c56772af4e34a74457b636cb2b752ffee9b04  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline19/shared/.finf/File Transfer Folder\r
+b7510209f2d53c22e3f69416d3d2abb66816a9096ab77a187dec1e8a83dca0df  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline19/shared/.finf/Hotline19
+99cc8e0811f28fc775b7244bed44d66dc9d7fea1d471dcc0a8aca7b1c1211466  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline19/shared/.finf/TheFindByContentFolder
+99cc8e0811f28fc775b7244bed44d66dc9d7fea1d471dcc0a8aca7b1c1211466  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline19/shared/.finf/TheVolumeSettingsFolder
+38db5faa09976102b755dd87cf8c56772af4e34a74457b636cb2b752ffee9b04  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline19/shared/.finf/Trash
+2bad82ff67c5c28b30be6d8b1f69f2a5e316b06b83d7c9a9c81c4968761e9bab  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline19/shared/Hotline19/.finf/HLserver19
+6ec9e22502e3b9dc847f74924ece145aab3f0be7e2dcecbfc240d9918622ed6d  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline19/shared/Hotline19/source-manifest.json
+de3f8acdbabdf2eb5cc8b3b90a774506be447ed8aeebe0e1460d26a6983d06d1  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline19/shared/TheVolumeSettingsFolder/.finf/DesktopPrinters DB
+\bb6489fe757853c2bc2161b90fcdb5ce0cec660aebc6a3a8ce1e5d89670f0724  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline19/shared/TheVolumeSettingsFolder/.finf/OpenFolderListDF\r
+5f6ccaf4816eb82086c6e7b4a6021ffbd54041a0b2ba7de3391ccae93768c627  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline20/.finf/shared
+49a26d326f95afd8bb542e1b0da7309814c4beb97022826db33d59caf427ed84  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline20/assets.json
+c82f22080b81f416bac294267bfd6e1bdc9f66f76dc8d0d15f7586c7943de5bb  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline20/last-launch.json
+64c8e584997099e8202a9247fcfea20dab0cfd93be46606c1df6658b5fe7189b  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline20/machine.sheepvm/nvram
+249ad8dd24bdc3700e3c055b6754cd3d8786467311f2317d3e1b3cc9dff7668f  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline20/machine.sheepvm/prefs
+\38db5faa09976102b755dd87cf8c56772af4e34a74457b636cb2b752ffee9b04  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline20/shared/.finf/File Transfer Folder\r
+99cc8e0811f28fc775b7244bed44d66dc9d7fea1d471dcc0a8aca7b1c1211466  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline20/shared/.finf/TheVolumeSettingsFolder
+38db5faa09976102b755dd87cf8c56772af4e34a74457b636cb2b752ffee9b04  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline20/shared/.finf/Trash
+de3f8acdbabdf2eb5cc8b3b90a774506be447ed8aeebe0e1460d26a6983d06d1  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline20/shared/TheVolumeSettingsFolder/.finf/DesktopPrinters DB
+5f6ccaf4816eb82086c6e7b4a6021ffbd54041a0b2ba7de3391ccae93768c627  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline21/.finf/shared
+696511a4584b5bd562fd2c9afe403b2fc49e615679b7d2dfdb146542c4e70640  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline21/assets.json
+b55ad039cd1a8303341be0e29b5296a5d1c42a8482e44bcdff93b30d050a0fd7  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline21/last-launch.json
+64c8e584997099e8202a9247fcfea20dab0cfd93be46606c1df6658b5fe7189b  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline21/machine.sheepvm/nvram
+f89c8c68e6b94e5a12bba39acc1752e6d102e0f197e3ef136f8374d99b731934  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline21/machine.sheepvm/prefs
+\38db5faa09976102b755dd87cf8c56772af4e34a74457b636cb2b752ffee9b04  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline21/shared/.finf/File Transfer Folder\r
+99cc8e0811f28fc775b7244bed44d66dc9d7fea1d471dcc0a8aca7b1c1211466  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline21/shared/.finf/TheVolumeSettingsFolder
+38db5faa09976102b755dd87cf8c56772af4e34a74457b636cb2b752ffee9b04  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline21/shared/.finf/Trash
+de3f8acdbabdf2eb5cc8b3b90a774506be447ed8aeebe0e1460d26a6983d06d1  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline21/shared/TheVolumeSettingsFolder/.finf/DesktopPrinters DB
+b3983cd1e5e1db734da1355f303a63d3697d940400230c4fb40d16fc4aa2e891  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline21/sheep-service.json
+33e25e90b9c87911231aaf9b4862cbe0c393cdd5cd39116c82c7ee51e2c03725  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/hotline21/sheep-service.log
+2a0497a19f06a08ffe58105ceeb296e7f8c0b4e9b38c1b8017215bd95e95151b  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/recovery/small/install9/assets.json
+718f69fca03bdcc89666f202f112d824c069feb5c6d7139e10c5fc333604e538  evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/runtime-metadata.json

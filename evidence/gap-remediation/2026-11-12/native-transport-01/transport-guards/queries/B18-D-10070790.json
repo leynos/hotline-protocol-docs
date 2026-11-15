@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T17:51:38.910342+00:00",
+  "query": {
+    "id": "B18-D-10070790",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10070790"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_10070790\",\n    \"address\": \"10070790\"\n  },\n  \"code\": \"\\nundefined4 FUN_10070790(int param_1)\\n\\n{\\n  char cVar2;\\n  int iVar1;\\n  undefined4 uVar3;\\n  \\n  if (param_1 == 0) {\\n    FUN_10027c30(1,2);\\n  }\\n  uVar3 = 0;\\n  cVar2 = .glue::OTAtomicTestBit(param_1 + 0x5e,1);\\n  if ((cVar2 != '\\\\0') ||\\n     (iVar1 = .glue::OTGetEndpointState(*(undefined4 *)(param_1 + 4)), iVar1 == 6)) {\\n    uVar3 = 1;\\n  }\\n  return uVar3;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_10070790",
+        "address": "10070790"
+      },
+      "code": "\nundefined4 FUN_10070790(int param_1)\n\n{\n  char cVar2;\n  int iVar1;\n  undefined4 uVar3;\n  \n  if (param_1 == 0) {\n    FUN_10027c30(1,2);\n  }\n  uVar3 = 0;\n  cVar2 = .glue::OTAtomicTestBit(param_1 + 0x5e,1);\n  if ((cVar2 != '\\0') ||\n     (iVar1 = .glue::OTGetEndpointState(*(undefined4 *)(param_1 + 4)), iVar1 == 6)) {\n    uVar3 = 1;\n  }\n  return uVar3;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

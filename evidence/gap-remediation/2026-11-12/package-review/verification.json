@@ -1,0 +1,235 @@
+{
+  "package_identifier": "eab01fd827cc-d4df9a787f43",
+  "source_repositories": [
+    {
+      "repository": "mothra",
+      "commit": "eab01fd827cc6fd1c6309a081e3dde92b7460a75",
+      "archive": "mothra.tar.gz",
+      "sha256": "1f2326354fcc8208b8f1d02832737315131d2e386c1762ec392bc521421e79b9"
+    },
+    {
+      "repository": "hotline-protocol-docs",
+      "commit": "d4df9a787f433b4ba4202a0944b3bb521e270b52",
+      "archive": "hotline-protocol-docs.tar.gz",
+      "sha256": "13b5657b665fde89d8f1382d708ea2e3c4e42f41ca7f9212dd5c43fb5bdc163e"
+    }
+  ],
+  "method": "Verify outer archive hashes, extract adjacent repositories with tar data filter, verify all nested evidence checksum inventories, run baseline extraction/claims and current gap/link renderer from the extracted copy. No Ghidra or native runtime execution.",
+  "results": [
+    {
+      "command": [
+        "sha256sum",
+        "--quiet",
+        "-c",
+        "SHA256SUMS"
+      ],
+      "directory": "state/protocol-exports/eab01fd827cc-d4df9a787f43",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "sha256sum",
+        "--quiet",
+        "-c",
+        "evidence/gap-remediation/2026-11-12/batch-01/SHA256SUMS"
+      ],
+      "directory": "state/protocol-export-verification/eab01fd827cc-d4df9a787f43/mothra",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "sha256sum",
+        "--quiet",
+        "-c",
+        "evidence/gap-remediation/2026-11-12/batch-02/SHA256SUMS"
+      ],
+      "directory": "state/protocol-export-verification/eab01fd827cc-d4df9a787f43/mothra",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "sha256sum",
+        "--quiet",
+        "-c",
+        "evidence/gap-remediation/2026-11-12/batch-03/SHA256SUMS"
+      ],
+      "directory": "state/protocol-export-verification/eab01fd827cc-d4df9a787f43/mothra",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "sha256sum",
+        "--quiet",
+        "-c",
+        "evidence/gap-remediation/2026-11-12/batch-04/SHA256SUMS"
+      ],
+      "directory": "state/protocol-export-verification/eab01fd827cc-d4df9a787f43/mothra",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "sha256sum",
+        "--quiet",
+        "-c",
+        "evidence/gap-remediation/2026-11-12/batch-05/SHA256SUMS"
+      ],
+      "directory": "state/protocol-export-verification/eab01fd827cc-d4df9a787f43/mothra",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "sha256sum",
+        "--quiet",
+        "-c",
+        "evidence/gap-remediation/2026-11-12/batch-06/SHA256SUMS"
+      ],
+      "directory": "state/protocol-export-verification/eab01fd827cc-d4df9a787f43/mothra",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "sha256sum",
+        "--quiet",
+        "-c",
+        "evidence/gap-remediation/2026-11-12/batch-07/SHA256SUMS"
+      ],
+      "directory": "state/protocol-export-verification/eab01fd827cc-d4df9a787f43/mothra",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "sha256sum",
+        "--quiet",
+        "-c",
+        "evidence/gap-remediation/2026-11-12/batch-08/SHA256SUMS"
+      ],
+      "directory": "state/protocol-export-verification/eab01fd827cc-d4df9a787f43/mothra",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "sha256sum",
+        "--quiet",
+        "-c",
+        "evidence/gap-remediation/2026-11-12/mxd-review/SHA256SUMS"
+      ],
+      "directory": "state/protocol-export-verification/eab01fd827cc-d4df9a787f43/mothra",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "sha256sum",
+        "--quiet",
+        "-c",
+        "evidence/hotline-server-1.9/SHA256SUMS"
+      ],
+      "directory": "state/protocol-export-verification/eab01fd827cc-d4df9a787f43/mothra",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "sha256sum",
+        "--quiet",
+        "-c",
+        "evidence/protocol-gap-analysis/2026-11-12/SHA256SUMS"
+      ],
+      "directory": "state/protocol-export-verification/eab01fd827cc-d4df9a787f43/mothra",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "sha256sum",
+        "--quiet",
+        "-c",
+        "evidence/protocol-gap-analysis/2026-11-12/revision-01/SHA256SUMS"
+      ],
+      "directory": "state/protocol-export-verification/eab01fd827cc-d4df9a787f43/mothra",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "sha256sum",
+        "--quiet",
+        "-c",
+        "evidence/protocol-gap-analysis/2026-11-12/revision-02/SHA256SUMS"
+      ],
+      "directory": "state/protocol-export-verification/eab01fd827cc-d4df9a787f43/mothra",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "sha256sum",
+        "--quiet",
+        "-c",
+        "evidence/protocol-gap-analysis/2026-11-12/revision-03/SHA256SUMS"
+      ],
+      "directory": "state/protocol-export-verification/eab01fd827cc-d4df9a787f43/mothra",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "sha256sum",
+        "--quiet",
+        "-c",
+        "evidence/protocol-gap-analysis/2026-11-12/revision-04/SHA256SUMS"
+      ],
+      "directory": "state/protocol-export-verification/eab01fd827cc-d4df9a787f43/mothra",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "sha256sum",
+        "--quiet",
+        "-c",
+        "evidence/protocol-gap-analysis/2026-11-12/revision-05/SHA256SUMS"
+      ],
+      "directory": "state/protocol-export-verification/eab01fd827cc-d4df9a787f43/mothra",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "sha256sum",
+        "--quiet",
+        "-c",
+        "evidence/protocol-gap-analysis/2026-11-12/revision-06/SHA256SUMS"
+      ],
+      "directory": "state/protocol-export-verification/eab01fd827cc-d4df9a787f43/mothra",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "sha256sum",
+        "--quiet",
+        "-c",
+        "evidence/protocol-gap-analysis/2026-11-12/revision-07/SHA256SUMS"
+      ],
+      "directory": "state/protocol-export-verification/eab01fd827cc-d4df9a787f43/mothra",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/extract-synhxd-evidence.py"
+      ],
+      "directory": "state/protocol-export-verification/eab01fd827cc-d4df9a787f43/mothra",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/verify-baseline-evidence.py"
+      ],
+      "directory": "state/protocol-export-verification/eab01fd827cc-d4df9a787f43/mothra",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/render-protocol-gap-analysis.py",
+        "--check"
+      ],
+      "directory": "state/protocol-export-verification/eab01fd827cc-d4df9a787f43/mothra",
+      "exit_code": 0
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "Hotline19/Banned": {
+    "catalog": "11750",
+    "size": 49,
+    "sha256": "671c8164c116d26cf5bb863ba87b93174f81b1a59abb208491b57f9d41a87aa1",
+    "file": "Banned.bin"
+  },
+  "Hotline19/Prefs": {
+    "catalog": "11202",
+    "size": 175,
+    "sha256": "4ed2b3e14e6e8a6cf246d16f7d1b98f0b91d1b09f6ab5497de1056a6f617d196",
+    "file": "Prefs.bin"
+  },
+  "Hotline19/Users/admin/UserData": {
+    "catalog": "11193",
+    "size": 734,
+    "sha256": "26612ad46cd91b90050feacf517d32a9e56d4a4aa92fbe6618eaf6e9e5ac60a3",
+    "file": "Users-admin-UserData.bin"
+  },
+  "Hotline19/Users/fixture-low/UserData": {
+    "catalog": "11201",
+    "size": 734,
+    "sha256": "fce81359d0efcfc6c2dbf42852db66b0fb7a404b2889162b8f8fad81361ce2d5",
+    "file": "Users-fixture-low-UserData.bin"
+  },
+  "Hotline19/Users/m-ban-apply-only/UserData": {
+    "catalog": "11749",
+    "size": 734,
+    "sha256": "386ee5efcb6001069fdc0bdf1502cad877682c087d45f08fc227ca94700adfa0",
+    "file": "Users-m-ban-apply-only-UserData.bin"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T14:56:00.013517+00:00",
+  "query": {
+    "id": "B11-D-10027a20",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10027a20"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_10027a20\",\n    \"address\": \"10027a20\"\n  },\n  \"code\": \"\\nvoid FUN_10027a20(undefined4 param_1,short *param_2)\\n\\n{\\n  char cVar2;\\n  undefined4 uVar1;\\n  undefined1 local_310;\\n  undefined1 auStack_30f [127];\\n  undefined1 local_290;\\n  undefined1 auStack_28f [127];\\n  undefined1 local_210;\\n  undefined1 auStack_20f [255];\\n  undefined1 local_110;\\n  undefined1 auStack_10f [255];\\n  \\n  local_290 = FUN_10057e30(auStack_28f,0x7f,0x21);\\n  local_210 = FUN_10027d40(param_2,auStack_20f,0xff);\\n  if ((*(int *)(param_2 + 2) == 0) || (**(char **)(param_2 + 2) == '\\\\0')) {\\n    if (*(int *)(param_2 + 6) == 0) {\\n      local_310 = FUN_10054180(auStack_30f,0x7f,s_ID__hi__hi_100938e0,(int)*param_2,(int)param_2[1])\\n      ;\\n    }\\n    else {\\n      local_310 = FUN_10054180(auStack_30f,0x7f,0x100938eb,(int)*param_2,(int)param_2[1],\\n                               *(undefined4 *)(param_2 + 6));\\n    }\\n  }\\n  else if (*(int *)(param_2 + 6) == 0) {\\n    local_310 = FUN_10054180(auStack_30f,0x7f,s_ID__hi__hi____s___lu_100938fc,(int)*param_2,\\n                             (int)param_2[1],*(undefined4 *)(param_2 + 2),\\n                             *(undefined4 *)(param_2 + 4));\\n  }\\n  else {\\n    local_310 = FUN_10054180(auStack_30f,0x7f,s_ID__hi__hi___li_____s___lu_10093911,(int)*param_2,\\n                             (int)param_2[1],*(undefined4 *)(param_2 + 6),\\n                             *(undefined4 *)(param_2 + 2),*(undefined4 *)(param_2 + 4));\\n  }\\n  local_110 = FUN_10054180(auStack_10f,0xff,0x1009392c,&local_290,&local_210,&local_310);\\n  cVar2 = FUN_1002b750(param_1,0);\\n  if (cVar2 == '\\\\0') {\\n    FUN_1002b370(param_1,0x54455854,0x74747874);\\n  }\\n  FUN_1002c220(param_1,0x23);\\n  uVar1 = FUN_1002c4d0(param_1,0);\\n  FUN_1002c440(param_1,uVar1,auStack_10f,local_110,0);\\n  FUN_1002c2c0(param_1);\\n  return;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_10027a20",
+        "address": "10027a20"
+      },
+      "code": "\nvoid FUN_10027a20(undefined4 param_1,short *param_2)\n\n{\n  char cVar2;\n  undefined4 uVar1;\n  undefined1 local_310;\n  undefined1 auStack_30f [127];\n  undefined1 local_290;\n  undefined1 auStack_28f [127];\n  undefined1 local_210;\n  undefined1 auStack_20f [255];\n  undefined1 local_110;\n  undefined1 auStack_10f [255];\n  \n  local_290 = FUN_10057e30(auStack_28f,0x7f,0x21);\n  local_210 = FUN_10027d40(param_2,auStack_20f,0xff);\n  if ((*(int *)(param_2 + 2) == 0) || (**(char **)(param_2 + 2) == '\\0')) {\n    if (*(int *)(param_2 + 6) == 0) {\n      local_310 = FUN_10054180(auStack_30f,0x7f,s_ID__hi__hi_100938e0,(int)*param_2,(int)param_2[1])\n      ;\n    }\n    else {\n      local_310 = FUN_10054180(auStack_30f,0x7f,0x100938eb,(int)*param_2,(int)param_2[1],\n                               *(undefined4 *)(param_2 + 6));\n    }\n  }\n  else if (*(int *)(param_2 + 6) == 0) {\n    local_310 = FUN_10054180(auStack_30f,0x7f,s_ID__hi__hi____s___lu_100938fc,(int)*param_2,\n                             (int)param_2[1],*(undefined4 *)(param_2 + 2),\n                             *(undefined4 *)(param_2 + 4));\n  }\n  else {\n    local_310 = FUN_10054180(auStack_30f,0x7f,s_ID__hi__hi___li_____s___lu_10093911,(int)*param_2,\n                             (int)param_2[1],*(undefined4 *)(param_2 + 6),\n                             *(undefined4 *)(param_2 + 2),*(undefined4 *)(param_2 + 4));\n  }\n  local_110 = FUN_10054180(auStack_10f,0xff,0x1009392c,&local_290,&local_210,&local_310);\n  cVar2 = FUN_1002b750(param_1,0);\n  if (cVar2 == '\\0') {\n    FUN_1002b370(param_1,0x54455854,0x74747874);\n  }\n  FUN_1002c220(param_1,0x23);\n  uVar1 = FUN_1002c4d0(param_1,0);\n  FUN_1002c440(param_1,uVar1,auStack_10f,local_110,0);\n  FUN_1002c2c0(param_1);\n  return;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

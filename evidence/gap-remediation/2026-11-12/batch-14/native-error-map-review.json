@@ -1,0 +1,552 @@
+{
+  "method": "Decode108 big-endian signed-short triples from captured read_memory, following global pointer100891a8 and binary-search helper100280b0. Strict ascending result keys checked. Not wire status mapping.",
+  "pointer_query": "queries/B14-M-100891a8.json",
+  "table_query": "queries/B14-M-native-error-map.json",
+  "lookup_query": "queries/B14-D-100280b0.c",
+  "unmapped_fallback": {
+    "internal_domain": 1,
+    "internal_code": 1
+  },
+  "entries": [
+    {
+      "native_result": -5039,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -5038,
+      "internal_domain": 4,
+      "internal_code": 126
+    },
+    {
+      "native_result": -5037,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -5036,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -5035,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -5034,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -5033,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -5032,
+      "internal_domain": 4,
+      "internal_code": 111
+    },
+    {
+      "native_result": -5031,
+      "internal_domain": 4,
+      "internal_code": 112
+    },
+    {
+      "native_result": -5030,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -5029,
+      "internal_domain": 4,
+      "internal_code": 104
+    },
+    {
+      "native_result": -5028,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -5027,
+      "internal_domain": 4,
+      "internal_code": 123
+    },
+    {
+      "native_result": -5026,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -5025,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -5024,
+      "internal_domain": 4,
+      "internal_code": 110
+    },
+    {
+      "native_result": -5023,
+      "internal_domain": 4,
+      "internal_code": 127
+    },
+    {
+      "native_result": -5022,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -5021,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -5020,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -5019,
+      "internal_domain": 1,
+      "internal_code": 2
+    },
+    {
+      "native_result": -5018,
+      "internal_domain": 4,
+      "internal_code": 102
+    },
+    {
+      "native_result": -5017,
+      "internal_domain": 4,
+      "internal_code": 115
+    },
+    {
+      "native_result": -5016,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -5015,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -5014,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -5013,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -5012,
+      "internal_domain": 4,
+      "internal_code": 102
+    },
+    {
+      "native_result": -5011,
+      "internal_domain": 4,
+      "internal_code": 110
+    },
+    {
+      "native_result": -5010,
+      "internal_domain": 4,
+      "internal_code": 116
+    },
+    {
+      "native_result": -5009,
+      "internal_domain": 4,
+      "internal_code": 120
+    },
+    {
+      "native_result": -5008,
+      "internal_domain": 4,
+      "internal_code": 101
+    },
+    {
+      "native_result": -5007,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -5006,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -5005,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -5004,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -5003,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -5002,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -5001,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -5000,
+      "internal_domain": 4,
+      "internal_code": 117
+    },
+    {
+      "native_result": -1310,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -1309,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -1308,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -1307,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -1306,
+      "internal_domain": 4,
+      "internal_code": 126
+    },
+    {
+      "native_result": -1305,
+      "internal_domain": 4,
+      "internal_code": 107
+    },
+    {
+      "native_result": -1304,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -1303,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -1302,
+      "internal_domain": 4,
+      "internal_code": 124
+    },
+    {
+      "native_result": -1301,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -1300,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -619,
+      "internal_domain": 1,
+      "internal_code": 3
+    },
+    {
+      "native_result": -199,
+      "internal_domain": 5,
+      "internal_code": 101
+    },
+    {
+      "native_result": -198,
+      "internal_domain": 1,
+      "internal_code": 3
+    },
+    {
+      "native_result": -197,
+      "internal_domain": 5,
+      "internal_code": 104
+    },
+    {
+      "native_result": -196,
+      "internal_domain": 5,
+      "internal_code": 104
+    },
+    {
+      "native_result": -195,
+      "internal_domain": 5,
+      "internal_code": 103
+    },
+    {
+      "native_result": -194,
+      "internal_domain": 5,
+      "internal_code": 103
+    },
+    {
+      "native_result": -193,
+      "internal_domain": 4,
+      "internal_code": 103
+    },
+    {
+      "native_result": -192,
+      "internal_domain": 5,
+      "internal_code": 102
+    },
+    {
+      "native_result": -186,
+      "internal_domain": 5,
+      "internal_code": 100
+    },
+    {
+      "native_result": -185,
+      "internal_domain": 5,
+      "internal_code": 100
+    },
+    {
+      "native_result": -151,
+      "internal_domain": 3,
+      "internal_code": 101
+    },
+    {
+      "native_result": -124,
+      "internal_domain": 4,
+      "internal_code": 123
+    },
+    {
+      "native_result": -123,
+      "internal_domain": 4,
+      "internal_code": 110
+    },
+    {
+      "native_result": -122,
+      "internal_domain": 4,
+      "internal_code": 122
+    },
+    {
+      "native_result": -121,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -120,
+      "internal_domain": 4,
+      "internal_code": 104
+    },
+    {
+      "native_result": -117,
+      "internal_domain": 3,
+      "internal_code": 100
+    },
+    {
+      "native_result": -116,
+      "internal_domain": 3,
+      "internal_code": 102
+    },
+    {
+      "native_result": -115,
+      "internal_domain": 3,
+      "internal_code": 102
+    },
+    {
+      "native_result": -114,
+      "internal_domain": 3,
+      "internal_code": 102
+    },
+    {
+      "native_result": -113,
+      "internal_domain": 3,
+      "internal_code": 102
+    },
+    {
+      "native_result": -112,
+      "internal_domain": 1,
+      "internal_code": 2
+    },
+    {
+      "native_result": -111,
+      "internal_domain": 3,
+      "internal_code": 102
+    },
+    {
+      "native_result": -110,
+      "internal_domain": 3,
+      "internal_code": 102
+    },
+    {
+      "native_result": -109,
+      "internal_domain": 3,
+      "internal_code": 102
+    },
+    {
+      "native_result": -108,
+      "internal_domain": 3,
+      "internal_code": 101
+    },
+    {
+      "native_result": -99,
+      "internal_domain": 3,
+      "internal_code": 100
+    },
+    {
+      "native_result": -61,
+      "internal_domain": 4,
+      "internal_code": 118
+    },
+    {
+      "native_result": -60,
+      "internal_domain": 4,
+      "internal_code": 107
+    },
+    {
+      "native_result": -59,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -58,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -57,
+      "internal_domain": 4,
+      "internal_code": 109
+    },
+    {
+      "native_result": -56,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -55,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -54,
+      "internal_domain": 4,
+      "internal_code": 116
+    },
+    {
+      "native_result": -53,
+      "internal_domain": 4,
+      "internal_code": 121
+    },
+    {
+      "native_result": -52,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -51,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -50,
+      "internal_domain": 1,
+      "internal_code": 2
+    },
+    {
+      "native_result": -49,
+      "internal_domain": 4,
+      "internal_code": 116
+    },
+    {
+      "native_result": -48,
+      "internal_domain": 4,
+      "internal_code": 115
+    },
+    {
+      "native_result": -47,
+      "internal_domain": 4,
+      "internal_code": 116
+    },
+    {
+      "native_result": -46,
+      "internal_domain": 4,
+      "internal_code": 112
+    },
+    {
+      "native_result": -45,
+      "internal_domain": 4,
+      "internal_code": 113
+    },
+    {
+      "native_result": -44,
+      "internal_domain": 4,
+      "internal_code": 112
+    },
+    {
+      "native_result": -43,
+      "internal_domain": 4,
+      "internal_code": 103
+    },
+    {
+      "native_result": -42,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -41,
+      "internal_domain": 3,
+      "internal_code": 101
+    },
+    {
+      "native_result": -40,
+      "internal_domain": 1,
+      "internal_code": 2
+    },
+    {
+      "native_result": -39,
+      "internal_domain": 4,
+      "internal_code": 120
+    },
+    {
+      "native_result": -38,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -37,
+      "internal_domain": 4,
+      "internal_code": 119
+    },
+    {
+      "native_result": -36,
+      "internal_domain": 4,
+      "internal_code": 100
+    },
+    {
+      "native_result": -35,
+      "internal_domain": 4,
+      "internal_code": 105
+    },
+    {
+      "native_result": -34,
+      "internal_domain": 4,
+      "internal_code": 101
+    },
+    {
+      "native_result": -33,
+      "internal_domain": 4,
+      "internal_code": 100
+    }
+  ]
+}

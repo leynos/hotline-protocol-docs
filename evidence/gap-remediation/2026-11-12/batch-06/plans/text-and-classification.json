@@ -1,0 +1,26 @@
+[
+  {
+    "id": "B06-M-100906fd",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "100906fd",
+      "length": 160
+    }
+  },
+  {
+    "id": "B06-M-1008fd2d",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "1008fd2d",
+      "length": 160
+    }
+  },
+  {
+    "id": "B06-M-100945c8",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "100945c8",
+      "length": 256
+    }
+  }
+]

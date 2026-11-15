@@ -1,0 +1,37 @@
+{
+  "accepted_at_utc": "2026-11-14T05:32:20.828421+00:00",
+  "all_87_original_closure_criteria_preserved": true,
+  "accepted_questions_unchanged": true,
+  "mxd_validation": "on hold",
+  "decisions": [
+    {
+      "id": "GAP-010",
+      "previous_status": "Investigating",
+      "status": "Resolved",
+      "question": "How are control/data listeners selected and configured, and is the data port always the base port plus one in this build?",
+      "original_closure_criteria": "Trace listener creation and configuration; document endpoint mapping, exceptions and verified client connection examples.",
+      "progress": "Revision68: reconcile the baseline with the traced default/configured four-listener map and complete ordinary control/data examples. Both alternate ports have bounded TCP/no-ordinary-response observations. Halfword narrowing and sub-version3 control-to-HTXF handover are explicit exceptions to a universal usable-base-plus-one rule. Independent headless callback descriptor reads are retained, including FUNCTION_NOT_FOUND for their unanalysed entries; no alternate-wrapper protocol is invented.",
+      "closure": "Met for listener creation/configuration, endpoint mapping, documented exceptions and verified connection examples. Ordinary base/base+1 and alternate-wrapper base+2/base+3 are traced; arbitrary high-base bind success and complete mode0 wire negotiation remain unverified. Do not infer TLS/HTTP or guarantee four usable adjacent ports.",
+      "evidence": [
+        "[Configured endpoints and exceptions](session-transport-contracts.md#configured-endpoints)"
+      ]
+    },
+    {
+      "id": "GAP-037",
+      "previous_status": "Investigating",
+      "status": "Resolved",
+      "question": "Are the 303 text labels, line endings, address representation and transfer summaries stable protocol content or build/configuration-dependent presentation?",
+      "original_closure_criteria": "Define mandatory versus descriptive content, encoding/limits and representative replies; explicitly state whether exact textual parity is required.",
+      "progress": "Revision68: consolidate the mandatory 303 request/privilege/reply envelope and descriptive text boundary with idle, active/queued, density and 995-byte positive partial observations. Independent Ghidra formatter/wrapper/handler/field-writer traces show a final cap of1024 bytes, no reserved or appended NUL, and the returned byte count as TLV101 length. The old void decompiler wrapper signature is corrected by instruction evidence. For the baseline, generated labels/prose are descriptive and exact wording is not required; any mxd byte-for-byte presentation release promise remains separate and on hold.",
+      "closure": "Met for mandatory versus descriptive content, raw-byte encoding observations, source-derived limits and representative replies. The995-byte reply is inside an overall failed capture; no at-cap native clipping fixture, general codec, every intermediate buffer safety or all-client parsing claim is made.",
+      "evidence": [
+        "[Diagnostic contract](diagnostic-replies.md)",
+        "[Formatter-to-field trace](diagnostic-formatting-trace.md)"
+      ]
+    }
+  ],
+  "not_closed": {
+    "GAP-071": "No field-specific stored meaning established.",
+    "GAP-074": "Observed disk layout is not expiry/kick0/protection acceptance."
+  }
+}

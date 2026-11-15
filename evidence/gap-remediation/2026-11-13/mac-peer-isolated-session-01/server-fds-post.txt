@@ -1,0 +1,2 @@
+l-wx------ 1 leynos leynos 64 Nov 13 17:39 16 -> /data/leynos/Projects/mothra/state/native-sessions/recovery-20261113-01/guest.pcap
+lrwx------ 1 leynos leynos 64 Nov 13 17:39 6 -> /data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/working.dsk

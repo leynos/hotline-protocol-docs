@@ -1,0 +1,8 @@
+INFO:ghidra_mcp:Connected to Ghidra 12.2 (gui mode): HLserver19
+INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest
+BA-D-1002bc30 OK
+INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest
+BA-D-100565b0 OK
+INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest

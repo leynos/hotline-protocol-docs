@@ -1,0 +1,69 @@
+A8 phase1, 2026-11-13 UTC. Private mothra base66b406a, protocol base
+25bb6d4 + offline verifier correction dd0a7be. Root leased sole native
+server access for at most the 2/1 observation and mandatory restoration.
+B13 client display :101 was quit; no other 15500/15501 session was established.
+
+18:00Z preflight: SheepShaver PID1099659 /proc exe SHA256
+9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4;
+managed service mothra-sheep-bf808bd28e0d active, display :99 accessible,
+15500/15501 listening, no established connection. Guest cumulative PCAP
+size1313182 bytes. The A7 readback had already matched current DATA/MACR
+forks byte-for-byte. Server Statistics window showed zero current connections,
+active downloads, uploads and waiting downloads.
+
+General Options original opening showed serverport5500/global100/client10/IP5;
+screenshot options-original-open-3.png. The first two open screenshots retain
+failed short XTest clicks that made no settings change. Native XTest input was bound in
+as-run-x11_input.py.txt to display :99. Only global/client download limits
+were edited to2/1, saved, reopened, and photographed in
+options-2-1-reopened.png; IP5 and other controls stayed unchanged. The
+Options dialog was closed with Cancel before native traffic.
+
+Host recorder began first:
+  sudo -n tcpdump -i lo -s 0 -U -w
+    state/native-sessions/diagnostic-existing-a8-phase1-20261113-01/host-one-active-one-queued.pcap
+    'tcp and (port 15500 or port 15501)'
+It printed listening on lo and the fresh PCAP header was24 bytes before
+protocol_capture connected. The exact offline-generated plan is in
+one-active-one-queued/plan.json. Capture command:
+  python3 ../hotline-protocol-docs/scripts/protocol_capture.py capture
+    state/native-sessions/diagnostic-existing-a8-prep-20261113-01/plans/one-active-one-queued.json
+    --oracle-binary evidence/hotline-server-1.9/inputs/HLserver19.pef
+    --output state/native-sessions/diagnostic-existing-a8-phase1-20261113-01/one-active-one-queued
+Result completed28/28 actions. Host recorder stopped with SIGINT:134 packets
+captured,268 received by filter,0 kernel drops. Continuing guest PCAP was
+copied to immutable guest-after-one-active-one-queued.pcap. Both references
+were cancelled by214 with exact saved four-byte targets and status0 ACKs.
+
+The first verifier result, verification-one-active-one-queued.json, was
+incomplete-witness: its assumed generic percent/size row grammar rejected
+the exact native waiting row. It remains unchanged. The raw 303 field101
+was350 bytes: active row `mothra-race-fixture   5%   1M\r`, waiting row
+`mothra-race-fixture   (File)\r`; folder download/upload and file upload
+sections were `None.`. The oracle source string at10091b9b explicitly has
+`%#-21.21s (File)\r`; the active format is at10091b11+0x73. The corrected
+verifier produced a separate verified result, with native row counts1/1 and
+post-cancel0/0. No retry was made.
+
+Host and guest lifetimes for the load control both have342 client and1371
+server application bytes; active data both have16 client HTXF bytes and65536
+server file bytes, matching Recorder exactly. This one capture has zero
+unread application payload tail. Host data terminal has server FIN+ACK then
+client FIN+ACK (plus a repeated server FIN+ACK); guest data terminal has a
+server RST with raw five-byte `No TCP` diagnostic, followed by client RST+ACK
+repetitions. The diagnostic is outside the application stream. Exact counts
+and packet indices are in verification-packets.json.
+
+Immediately after the load, General Options was restored to100/10/IP5,
+saved, reopened and photographed (options-100-10-reopened.png), then closed.
+A fresh host recorder was ready before postflight connection. Postflight
+plan/result are in postflight/; all18 actions completed. Host recorder stopped
+with SIGINT:29 packets captured,58 received by filter,0 kernel drops. Guest
+snapshot guest-after-postflight.pcap was copied. Postflight 348 exact two
+accounts, full root Files200 exact41 entries, complete fixture206 and idle
+same-connection303 match A7. Host/guest control each have231 client and2759
+server bytes, exactly Recorder's stream. No session, host recorder or transfer
+reference remains live. Server PID/hash/service/listeners remained unchanged.
+
+No density stage, upload, file/account mutation, server restart, repair or
+non-download setting edit occurred. The released native lease is held by root.

@@ -1,0 +1,7 @@
+{
+  "path": "/home/leynos/.hxvars",
+  "current_size": 0,
+  "current_mtime_ns": 1794540213655000242,
+  "incident": "Initial uncontained hx -q -d startup/command probe then /quit invokes hx_exit->hx_savevars, truncating an existing file. No verified pre-change contents found; source-tree hxvars is not accepted as user backup. No guessed restoration performed.",
+  "subsequent_containment": "Read-only root namespace with repository-backed private home and temp; HOME variable remains unchanged."
+}

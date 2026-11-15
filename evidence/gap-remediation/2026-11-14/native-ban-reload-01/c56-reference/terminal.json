@@ -1,0 +1,131 @@
+{
+  "utc": "2026-11-14T03:13:26.901760+00:00",
+  "profile": "control-only",
+  "full_file_baseline": "not_exercised",
+  "C53_no_contact_terminal": "state/native-sessions/native-ban-control-c53/terminal.json",
+  "C55_boot_readiness": "state/native-sessions/native-ban-control-c55/readiness.json",
+  "C56_case_unit": "controller-unit-terminal.txt",
+  "actual_emulator_pid": 4127848,
+  "actual_pid_gone": true,
+  "cleanup_signals": "cleanup-signals.json",
+  "units": {
+    "mothra-sheep-bc2add75bbfa": {
+      "exit": 0,
+      "stdout": "ActiveState=inactive\nMainPID=0\nResult=success\n",
+      "stderr": ""
+    },
+    "mothra-bridge-f8eb71efdf91": {
+      "exit": 0,
+      "stdout": "ActiveState=inactive\nMainPID=0\nResult=success\n",
+      "stderr": ""
+    },
+    "mothra-xbridge-f8eb71efdf91": {
+      "exit": 0,
+      "stdout": "ActiveState=inactive\nMainPID=0\nResult=success\n",
+      "stderr": ""
+    },
+    "mothra-display-dbb4227eac76": {
+      "exit": 0,
+      "stdout": "ActiveState=inactive\nMainPID=0\nResult=success\n",
+      "stderr": ""
+    },
+    "mothra-native-control-c56-case": {
+      "exit": 0,
+      "stdout": "ActiveState=inactive\nMainPID=0\nResult=success\nExecMainStatus=0\n",
+      "stderr": ""
+    },
+    "mothra-native-control-c55-namespace": {
+      "exit": 0,
+      "stdout": "ActiveState=inactive\nMainPID=0\nResult=success\nExecMainStatus=0\n",
+      "stderr": ""
+    },
+    "mothra-native-control-c55-host": {
+      "exit": 0,
+      "stdout": "ActiveState=inactive\nMainPID=0\nResult=success\nExecMainStatus=0\n",
+      "stderr": ""
+    }
+  },
+  "original": {
+    "primary_fd6": {
+      "exit": 0,
+      "stdout": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/working.dsk\n",
+      "stderr": ""
+    },
+    "client_fd6": {
+      "exit": 0,
+      "stdout": "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/working.dsk\n",
+      "stderr": ""
+    }
+  },
+  "owned_listener_query": {
+    "exit": 0,
+    "stdout": "State Recv-Q Send-Q Local Address:Port Peer Address:Port\n",
+    "stderr": ""
+  },
+  "pcap": {
+    "primary_syn_bytes": 24,
+    "namespace_bytes": 18928,
+    "guest_bytes": 20125,
+    "host_terminal_log_tail": [
+      "dropped privs to tcpdump",
+      "tcpdump: listening on lo, link-type EN10MB (Ethernet), snapshot length 262144 bytes",
+      "0 packets captured",
+      "0 packets received by filter",
+      "0 packets dropped by kernel"
+    ],
+    "namespace_terminal_log_tail": [
+      "dropped privs to tcpdump",
+      "tcpdump: listening on lo, link-type EN10MB (Ethernet), snapshot length 262144 bytes",
+      "135 packets captured",
+      "270 packets received by filter",
+      "0 packets dropped by kernel"
+    ]
+  },
+  "stopped_image_sha256": "3717cd5e044bf63eb1e68d131290172a30777743ea073d12ab5b880a0ec4a6b9",
+  "image_fd_free_before_hash": true,
+  "ban_file": {
+    "catalog": 11771,
+    "path": "/Hotline19/Banned",
+    "data_bytes": 49,
+    "data_sha256": "53bec37683dc9bab6cc812f38fa465724085e9c35fc5b7bdf72e25dd09b727d4",
+    "resource_bytes": 0,
+    "stat": "Banned.stat.txt",
+    "raw_data": "Banned.data.bin",
+    "bak_absent": true
+  },
+  "captures": {
+    "readiness": {
+      "status": "completed",
+      "completed_actions": 18,
+      "plan_sha256": "6402b545c6875fd95d0d7faca490e9d3ff84639e982426e6dd8e9b01c8e44f56",
+      "controller_uid": null
+    },
+    "guard": {
+      "status": "completed",
+      "completed_actions": 10,
+      "plan_sha256": "71030205c998c7ce2819b8f5e21f85961be1591dcdf7eccc0fdb66541297d44d",
+      "controller_uid": null
+    },
+    "seed": {
+      "status": "completed",
+      "completed_actions": 12,
+      "plan_sha256": "ab43bb37c9cda04b5692e6b5649790236da6921edee14995a05609cf8c456fa0",
+      "controller_uid": null
+    },
+    "ban": {
+      "status": "completed",
+      "completed_actions": 32,
+      "plan_sha256": "122f36f3a7a5b50d71f77343978dc21ad19149185e4d7813e06de7711c6f667f",
+      "controller_uid": 0
+    },
+    "probe": {
+      "status": "completed",
+      "completed_actions": 6,
+      "plan_sha256": "626e478b19b758f712510eee36f10323f3515529a6d3ee489b09ab1496684f3a",
+      "controller_uid": null
+    }
+  },
+  "semantic_replay": "semantic-replay.json",
+  "no_case_retry": true,
+  "no_restart_unban_or_full_A7": true
+}

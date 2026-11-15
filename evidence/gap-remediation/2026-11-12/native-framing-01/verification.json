@@ -1,0 +1,576 @@
+{
+  "cases": [
+    {
+      "case": "complete-payload-1",
+      "client_port": 51888,
+      "sent_bytes": 107,
+      "received_bytes": 366,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    {
+      "case": "complete-payload-2",
+      "client_port": 51902,
+      "sent_bytes": 108,
+      "received_bytes": 366,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    {
+      "case": "complete-payload-524287",
+      "client_port": 51904,
+      "sent_bytes": 524393,
+      "received_bytes": 366,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    {
+      "case": "complete-payload-524288",
+      "client_port": 46082,
+      "sent_bytes": 524394,
+      "received_bytes": 366,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    {
+      "case": "data-above-limit",
+      "client_port": 46074,
+      "sent_bytes": 106,
+      "received_bytes": 344,
+      "guest_server_initiated_close": true,
+      "guest_server_close_kind": "RST"
+    },
+    {
+      "case": "data-uint32-max",
+      "client_port": 41468,
+      "sent_bytes": 106,
+      "received_bytes": 344,
+      "guest_server_initiated_close": true,
+      "guest_server_close_kind": "RST"
+    },
+    {
+      "case": "data-zero",
+      "client_port": 46056,
+      "sent_bytes": 106,
+      "received_bytes": 344,
+      "guest_server_initiated_close": true,
+      "guest_server_close_kind": "RST"
+    },
+    {
+      "case": "duplicate-icon-1-2",
+      "client_port": 41494,
+      "sent_bytes": 127,
+      "received_bytes": 391,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "616263",
+      "emitted_icon_hex": "0002"
+    },
+    {
+      "case": "duplicate-icon-1-2-3",
+      "client_port": 41480,
+      "sent_bytes": 133,
+      "received_bytes": 391,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "616263",
+      "emitted_icon_hex": "0003"
+    },
+    {
+      "case": "duplicate-icon-2-1",
+      "client_port": 41502,
+      "sent_bytes": 127,
+      "received_bytes": 391,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "616263",
+      "emitted_icon_hex": "0001"
+    },
+    {
+      "case": "duplicate-icon-3-2-1",
+      "client_port": 41508,
+      "sent_bytes": 133,
+      "received_bytes": 391,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "616263",
+      "emitted_icon_hex": "0001"
+    },
+    {
+      "case": "error-word-ffffffff",
+      "client_port": 41524,
+      "sent_bytes": 108,
+      "received_bytes": 366,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    {
+      "case": "flags-ff",
+      "client_port": 46050,
+      "sent_bytes": 108,
+      "received_bytes": 366,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    {
+      "case": "fragment-abandoned-other-completes",
+      "client_port": 41532,
+      "sent_bytes": 130,
+      "received_bytes": 366,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    {
+      "case": "fragment-basic",
+      "client_port": 35916,
+      "sent_bytes": 130,
+      "received_bytes": 366,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    {
+      "case": "fragment-interleaved-ids",
+      "client_port": 35928,
+      "sent_bytes": 174,
+      "received_bytes": 388,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    {
+      "case": "fragment-limit-overshoot",
+      "client_port": 35944,
+      "sent_bytes": 524416,
+      "received_bytes": 366,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    {
+      "case": "fragment-request-reply-separate",
+      "client_port": 52440,
+      "sent_bytes": 152,
+      "received_bytes": 366,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    {
+      "case": "fragment-small-overshoot",
+      "client_port": 52450,
+      "sent_bytes": 130,
+      "received_bytes": 366,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    {
+      "case": "fragment-total-overwrite",
+      "client_port": 52452,
+      "sent_bytes": 130,
+      "received_bytes": 366,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    {
+      "case": "fragment-type-overwrite",
+      "client_port": 33028,
+      "sent_bytes": 141,
+      "received_bytes": 391,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "616263",
+      "emitted_icon_hex": "1234"
+    },
+    {
+      "case": "id-zero",
+      "client_port": 33032,
+      "sent_bytes": 108,
+      "received_bytes": 366,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    {
+      "case": "partial-tcp-header-and-body",
+      "client_port": 33044,
+      "sent_bytes": 108,
+      "received_bytes": 366,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    {
+      "case": "sequential-id-reuse",
+      "client_port": 57970,
+      "sent_bytes": 130,
+      "received_bytes": 388,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    {
+      "case": "tlv-count-one-no-record",
+      "client_port": 57982,
+      "sent_bytes": 108,
+      "received_bytes": 391,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "2a2a2a",
+      "emitted_icon_hex": "0000"
+    },
+    {
+      "case": "tlv-count-too-high",
+      "client_port": 57992,
+      "sent_bytes": 121,
+      "received_bytes": 391,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "616263",
+      "emitted_icon_hex": "1234"
+    },
+    {
+      "case": "tlv-count-too-low",
+      "client_port": 57994,
+      "sent_bytes": 121,
+      "received_bytes": 391,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "616263",
+      "emitted_icon_hex": "0000"
+    },
+    {
+      "case": "tlv-count-zero-trailing-record",
+      "client_port": 58006,
+      "sent_bytes": 121,
+      "received_bytes": 391,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "2a2a2a",
+      "emitted_icon_hex": "0000"
+    },
+    {
+      "case": "tlv-empty-count",
+      "client_port": 58014,
+      "sent_bytes": 108,
+      "received_bytes": 391,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "2a2a2a",
+      "emitted_icon_hex": "0000"
+    },
+    {
+      "case": "tlv-field-zero",
+      "client_port": 58028,
+      "sent_bytes": 122,
+      "received_bytes": 391,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "616263",
+      "emitted_icon_hex": "0000"
+    },
+    {
+      "case": "tlv-icon-00001234",
+      "client_port": 58040,
+      "sent_bytes": 123,
+      "received_bytes": 391,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "616263",
+      "emitted_icon_hex": "1234"
+    },
+    {
+      "case": "tlv-icon-00001234ff",
+      "client_port": 58056,
+      "sent_bytes": 124,
+      "received_bytes": 391,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "616263",
+      "emitted_icon_hex": "1234"
+    },
+    {
+      "case": "tlv-icon-0000ffff",
+      "client_port": 36726,
+      "sent_bytes": 123,
+      "received_bytes": 393,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "616263",
+      "emitted_icon_hex": "ffffffff"
+    },
+    {
+      "case": "tlv-icon-00010000",
+      "client_port": 58060,
+      "sent_bytes": 123,
+      "received_bytes": 391,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "616263",
+      "emitted_icon_hex": "0000"
+    },
+    {
+      "case": "tlv-icon-00018000",
+      "client_port": 36730,
+      "sent_bytes": 123,
+      "received_bytes": 393,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "616263",
+      "emitted_icon_hex": "ffff8000"
+    },
+    {
+      "case": "tlv-icon-001234",
+      "client_port": 58076,
+      "sent_bytes": 122,
+      "received_bytes": 391,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "616263",
+      "emitted_icon_hex": "0000"
+    },
+    {
+      "case": "tlv-icon-12",
+      "client_port": 58080,
+      "sent_bytes": 120,
+      "received_bytes": 391,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "616263",
+      "emitted_icon_hex": "0012"
+    },
+    {
+      "case": "tlv-icon-1234",
+      "client_port": 58090,
+      "sent_bytes": 121,
+      "received_bytes": 391,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "616263",
+      "emitted_icon_hex": "1234"
+    },
+    {
+      "case": "tlv-icon-7fff",
+      "client_port": 36688,
+      "sent_bytes": 121,
+      "received_bytes": 391,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "616263",
+      "emitted_icon_hex": "7fff"
+    },
+    {
+      "case": "tlv-icon-8000",
+      "client_port": 36700,
+      "sent_bytes": 121,
+      "received_bytes": 393,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "616263",
+      "emitted_icon_hex": "ffff8000"
+    },
+    {
+      "case": "tlv-icon-8001",
+      "client_port": 36704,
+      "sent_bytes": 121,
+      "received_bytes": 393,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "616263",
+      "emitted_icon_hex": "ffff8001"
+    },
+    {
+      "case": "tlv-icon-empty",
+      "client_port": 52346,
+      "sent_bytes": 119,
+      "received_bytes": 391,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "616263",
+      "emitted_icon_hex": "0000"
+    },
+    {
+      "case": "tlv-icon-ffff",
+      "client_port": 36718,
+      "sent_bytes": 121,
+      "received_bytes": 393,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "616263",
+      "emitted_icon_hex": "ffffffff"
+    },
+    {
+      "case": "tlv-icon-ffffffff",
+      "client_port": 36732,
+      "sent_bytes": 123,
+      "received_bytes": 393,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "616263",
+      "emitted_icon_hex": "ffffffff"
+    },
+    {
+      "case": "tlv-maximum-count",
+      "client_port": 36682,
+      "sent_bytes": 262260,
+      "received_bytes": 400,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "66696e616c2d7265636f7264",
+      "emitted_icon_hex": "0000"
+    },
+    {
+      "case": "tlv-maximum-name",
+      "client_port": 56460,
+      "sent_bytes": 65647,
+      "received_bytes": 419,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "78787878787878787878787878787878787878787878787878787878787878",
+      "emitted_icon_hex": "0000"
+    },
+    {
+      "case": "tlv-one-byte-count",
+      "client_port": 52358,
+      "sent_bytes": 107,
+      "received_bytes": 391,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "2a2a2a",
+      "emitted_icon_hex": "0000"
+    },
+    {
+      "case": "tlv-truncated-header-0",
+      "client_port": 52374,
+      "sent_bytes": 108,
+      "received_bytes": 391,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "2a2a2a",
+      "emitted_icon_hex": "0000"
+    },
+    {
+      "case": "tlv-truncated-header-1",
+      "client_port": 52390,
+      "sent_bytes": 109,
+      "received_bytes": 391,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "2a2a2a",
+      "emitted_icon_hex": "0000"
+    },
+    {
+      "case": "tlv-truncated-header-2",
+      "client_port": 52402,
+      "sent_bytes": 110,
+      "received_bytes": 391,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "2a2a2a",
+      "emitted_icon_hex": "0000"
+    },
+    {
+      "case": "tlv-truncated-header-3",
+      "client_port": 52412,
+      "sent_bytes": 111,
+      "received_bytes": 391,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "2a2a2a",
+      "emitted_icon_hex": "0000"
+    },
+    {
+      "case": "tlv-truncated-value",
+      "client_port": 52420,
+      "sent_bytes": 114,
+      "received_bytes": 391,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "2a2a2a",
+      "emitted_icon_hex": "0000"
+    },
+    {
+      "case": "tlv-unknown-field",
+      "client_port": 52422,
+      "sent_bytes": 122,
+      "received_bytes": 391,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "616263",
+      "emitted_icon_hex": "0000"
+    },
+    {
+      "case": "tlv-valid-prefix-truncated-header",
+      "client_port": 56446,
+      "sent_bytes": 117,
+      "received_bytes": 391,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "616263",
+      "emitted_icon_hex": "0000"
+    },
+    {
+      "case": "tlv-valid-trailing-garbage",
+      "client_port": 52426,
+      "sent_bytes": 126,
+      "received_bytes": 391,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "616263",
+      "emitted_icon_hex": "1234"
+    },
+    {
+      "case": "tlv-zero-length-unknown-prefix",
+      "client_port": 36674,
+      "sent_bytes": 125,
+      "received_bytes": 391,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN",
+      "effective_name_hex": "616263",
+      "emitted_icon_hex": "1234"
+    },
+    {
+      "case": "total-above-limit",
+      "client_port": 46066,
+      "sent_bytes": 106,
+      "received_bytes": 344,
+      "guest_server_initiated_close": true,
+      "guest_server_close_kind": "RST"
+    },
+    {
+      "case": "total-uint32-max",
+      "client_port": 52432,
+      "sent_bytes": 106,
+      "received_bytes": 344,
+      "guest_server_initiated_close": true,
+      "guest_server_close_kind": "RST"
+    },
+    {
+      "case": "total-zero",
+      "client_port": 46052,
+      "sent_bytes": 106,
+      "received_bytes": 344,
+      "guest_server_initiated_close": true,
+      "guest_server_close_kind": "RST"
+    },
+    {
+      "case": "unmatched-reply-1",
+      "client_port": 52434,
+      "sent_bytes": 130,
+      "received_bytes": 366,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    {
+      "case": "unmatched-reply-2",
+      "client_port": 52444,
+      "sent_bytes": 130,
+      "received_bytes": 366,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    {
+      "case": "unmatched-reply-255",
+      "client_port": 39824,
+      "sent_bytes": 130,
+      "received_bytes": 366,
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  ],
+  "initial_hypotheses": 1,
+  "scope": "62 native cases; duplicate choices are observations, not a universal last-wins rule; silence is bounded to plan windows"
+}

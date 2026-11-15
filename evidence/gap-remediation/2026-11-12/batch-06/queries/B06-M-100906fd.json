@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T14:18:55.384742+00:00",
+  "query": {
+    "id": "B06-M-100906fd",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "100906fd",
+      "length": 160
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"address\": \"100906fd\",\n  \"length\": 160,\n  \"hex\": \"2b 59 6f 75 20 61 72 65 20 6e 6f 74 20 61 6c 6c 6f 77 65 64 20 74 6f 20 70 61 72 74 69 63 69 70 61 74 65 20 69 6e 20 63 68 61 74 2e 0d 20 2a 2a 2a 20 25 23 73 20 00 0d 25 23 31 33 2e 31 33 73 3a 20 20 00 41 75 74 6f 62 61 6e 6e 65 64 20 66 6f 72 20 43 68 61 74 20 53 70 61 6d 00 0d 00 45 43 61 6e 6e 6f 74 20 67 65 74 20 66 69 6c 65 20 6c 69 73 74 20 62 65 63 61 75 73 65 20 74 68 65 20 73 70 65 63 69 66 69 65 64 20 66 6f 6c 64 65 72 20 63 6f 75 6c 64 20 6e 6f 74 20 62 65 20 66\",\n  \"ascii\": \"+You are not allowed to participate in chat.. *** %#s ..%#13.13s:  .Autobanned for Chat Spam...ECannot get file list because the specified folder could not be f\",\n  \"gaps\": []\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "address": "100906fd",
+      "length": 160,
+      "hex": "2b 59 6f 75 20 61 72 65 20 6e 6f 74 20 61 6c 6c 6f 77 65 64 20 74 6f 20 70 61 72 74 69 63 69 70 61 74 65 20 69 6e 20 63 68 61 74 2e 0d 20 2a 2a 2a 20 25 23 73 20 00 0d 25 23 31 33 2e 31 33 73 3a 20 20 00 41 75 74 6f 62 61 6e 6e 65 64 20 66 6f 72 20 43 68 61 74 20 53 70 61 6d 00 0d 00 45 43 61 6e 6e 6f 74 20 67 65 74 20 66 69 6c 65 20 6c 69 73 74 20 62 65 63 61 75 73 65 20 74 68 65 20 73 70 65 63 69 66 69 65 64 20 66 6f 6c 64 65 72 20 63 6f 75 6c 64 20 6e 6f 74 20 62 65 20 66",
+      "ascii": "+You are not allowed to participate in chat.. *** %#s ..%#13.13s:  .Autobanned for Chat Spam...ECannot get file list because the specified folder could not be f",
+      "gaps": []
+    },
+    "isError": false
+  }
+}

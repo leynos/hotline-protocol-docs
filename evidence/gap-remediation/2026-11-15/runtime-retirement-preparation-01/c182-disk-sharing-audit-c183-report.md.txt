@@ -1,0 +1,71 @@
+# C183 stopped runtime disk FIEMAP census
+
+Read-only XFS metadata snapshot, 2026-11-14 UTC. This extends C182 to the
+`base.dsk` and `working.dsk` in every A192 FD-free directory: 20 stopped
+candidate directories plus protected `native-board-02` as a reference.
+It includes historical `hotline19`, `hotline20`, `hotline21`, and `install9`.
+It excludes the three actual live-image directories and the directory
+`native-rate304-03`, which still has active bridge/log holders. No disk/ROM
+contents were read; no dedupe, copy, unlink, service, or VM action occurred.
+
+## Method and scope
+
+`extent_census.py` (143 lines) pins A192's exact 25-directory inventory,
+checks every sampled file's device/inode/size/UID against A192, requires a
+current root `fuser -a` no-holder result for each file, then saves the
+`/usr/sbin/filefrag -v` FIEMAP extent map. It checks identity again after
+the ioctl. Its `fiemap-all/` text files and `c183-summary.json` retain all
+42 maps, per-file `st_blocks`, `shared` and unshared extents, directory
+physical unions, and overlaps. This is a point-in-time holder/extent check.
+
+| Extent view over 42 sampled disks | Amount |
+| --- | ---: |
+| Sum of per-file `st_blocks`, as `du` would count | 314.711 GiB |
+| Sum of mapped extents | 314.711 GiB |
+| Physical interval union within the sample | 15.655 GiB |
+| Repeated per-file counting within the sample | 299.056 GiB |
+| All FIEMAP-unshared intervals, including protected reference | 8.066 MiB |
+| Unshared intervals in 20 candidate directories | 7.750 MiB |
+
+The sampled native experiments' physical maps largely overlap the
+authoritative board02 donor. Every candidate base has zero unshared blocks.
+All 7.750 MiB of FIEMAP-unshared candidate data are in stopped working
+images. Most have 40–328 KiB; `native-banlab-three-01/working.dsk` has
+4.012 MiB. These are currently exclusive data extents and a plausible
+data-block reclaim floor if those particular files were removed, subject
+to a fresh identity/holder check and retention approval. They may be
+important guest changes; uniqueness is a preservation warning, not a
+deletion recommendation.
+
+Historical `install9` has 7.812 GiB of physical intervals not overlapping
+the other sampled disks, and `hotline19` has about 20 MiB of sample-only
+intervals. **All of those intervals are FIEMAP-shared**, so there are other
+references outside this 42-file sample. The historical installation/source
+chain is protected independently of block sharing. The protected board02
+working image itself has about 0.316 MiB of unshared data; it is not a
+cleanup candidate.
+
+## Reclaim and deduplication decision
+
+The 314.711 GiB `du` total is not a physical reclaim forecast. For these
+42 disk files, repeated/shared mappings account for about 299.056 GiB of
+the per-file count. Removing sampled native base copies would free no
+mapped data blocks while their protected donor remains. Removing all
+stopped experiment working images would release at least their 7.750 MiB
+of currently unshared data blocks, plus inode/extent metadata; the census
+does not establish a larger reclaim amount. Shared extents could become
+reclaimable only if every other reference were removed, including references
+outside this sample, which is neither measured nor authorised.
+
+`xfs_io dedupe` compares source and destination bytes in the kernel before
+remapping. At most the observed unshared working extents offer immediate
+data-block dedupe potential here, and their content may intentionally differ.
+There is no evidence of a multi-GiB dedupe opportunity in the stopped
+experiments. Dedupe would mutate extent mappings and require separate
+full-content, inode, timestamp, mode, provenance and FD-free gates; none is
+proposed. The audit does not measure ROMs, PCAPs, logs, other runtime files,
+or system-wide XFS reference counts. Future host writes can change sharing.
+
+The bounded raw evidence is `c183-summary.json` and `fiemap-all/`; the
+earlier `report.md` describes the XFS/FIEMAP/FIDEDUPERANGE local interfaces.
+No runtime directory is authorised for cleanup by this report.

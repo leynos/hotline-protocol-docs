@@ -1,0 +1,55 @@
+# B64 independent GAP-029 criterion audit (read-only)
+
+Prepared 2026-11-14 UTC. No status change, native traffic, Ghidra query, or
+canonical edit. Reviewed private A49 heads: protocol `167fc4521579cf1eb4e4997a7156a48d966f4e5b`,
+Mothra `3574859ef4bc047923cb7d96c7ab27a9584b95f2`. A49's offline verifier
+returned `verified_control_only`, 15 phase-one and three phase-two gates, three
+paired flows per phase, identical stopped UserData/Prefs forks, and the stated
+operational deviation.
+
+## Frozen requirement
+
+`evidence/protocol-gap-analysis/2026-11-12/initial-gap-register.json`, GAP-029:
+question: “Which omitted/empty 102/104/113/215 values reset, preserve or derive
+state, and what changes are session-only or durable?” Criterion: “Document
+field-by-field update/default/persistence rules and before/after state plus
+emitted-301 fixtures.” This does not specify a power-loss experiment, proof
+of every storage path, every Cartesian input combination, or an independent
+machine-watcher record; those would be additional aims.
+
+## Clause map
+
+| Frozen clause | Current bounded evidence | Audit |
+| --- | --- | --- |
+| 102 absent/empty | `presence-messaging-contracts.md`, Settings and login visibility: helper `10004d50` assigns requested `***`; account naming privilege controls effective name. A33 `native-settings-transition-witness.md` Omitted/Empty rows measure `***` in 301 after explicit name. The helper decompilation is `mothra/evidence/gap-remediation/2026-11-12/batch-02/queries/B02-D-10004d50.c`. | Met for helper path; account-name fallback remains conditional. |
+| 104 absent/empty | `core-field-schemas.md`, Login and settings requests, and same helper: generic numeric zero overwrites icon; A33 omitted/empty 304 rows show icon 0 after explicit 7. | Met; numeric width/narrowing is a separate documented rule. |
+| 113 absent/empty/zero | Same tables: generic numeric absent/empty zero clears three option bits. A33 Disable absent/Disable zero stages show no automatic 104 after prior enable; unknown-only 8 and mixed 12 separate higher bits from the low-three-bit assignments. | Met for low bits; no blanket unsupported-bit rule. |
+| 215 absent/empty | Helper clears saved text length when auto response is off; with 113 bit 2 on, absence/empty derives the exact 52-byte ASCII default. A33 304 Omitted/Empty and Re-enable rows measure default PM 104; A37 `native-121-default-witness.md` has two delayed-121 absent/empty cases with 301 name/icon and matching default PM feedback. | Met for conditional default; arbitrary supplied text encoding remains GAP-018/030. |
+| Before/after state plus emitted 301 | A33 eight-stage explicit→omitted→empty→unknown→disable→re-enable 304 sequence: each observed 301 name/icon and same-session PM delivery/feedback/quiet barrier (`native-settings-transitions-01`). A37 two 121 cases observe 301 after agreement acceptance (`native-121-defaults-01`). A49 phase one A46 records Baseline→On→Off→On, 301 on two sockets and PM gates (`native-settings-persistence-01/phase1/phase1/report.json`). | Met as representative native fixtures, not exhaustive combinations or cross-socket total ordering. |
+| Session-only versus durable | Helper `10004d50` writes to session offsets then emits 301; `10011ee0` calls it on 121, and 304 handler `10016ad0` calls it with zero account argument. The account-file writer is a separate path. A46 On state and A48 fresh identical 107 on the **same** working-image inode bracket operator-observed orderly quits and restart. Baseline, phase-one and phase-two complete admin UserData, fixture-low UserData and Prefs data-fork hashes are identical (`native-settings-persistence-01/baseline/a41-assets.json`, `phase{1,2}/stopped-fork-*.bin`, verifier `stored.forks_unchanged=true`). Fresh 107 returns baseline state. | Supports “121/304 helper assignments are session state; controlled 304 values were not durable account/Prefs edits”. 121 restart persistence is inferred from shared helper/handler, not separately exercised. |
+
+## Evidence limits and disposition
+
+A49's `native-settings-persistence-witness.md` correctly states that fresh
+107 reruns the helper: baseline output alone cannot exclude other stored state.
+Unchanged complete named UserData/Prefs forks plus static 304 call path make
+the *controlled 304 session-only* inference stronger. The same-image phase
+has changed whole-image hashes, so image equality is not claimed. A46 and A48
+File > Quit, Quit Now, Finder Shut Down selections, PID absence, and FD-free
+pre-extraction gate are operator observations with byte-identified screenshots
+and timeline; the journal records starts but no exit status, the original
+FD-free stdout was not retained, and the later receipt is retrospective.
+A48 omitted `oracle.lock`, though the supervisor held the exclusive lease,
+paired three flows and zero primary traffic. This is a procedure deviation,
+not a contradictory protocol observation. No hard-crash, power-loss, all-storage,
+121 durability experiment, or universal writer/consumer absence is proved.
+
+**Disposition proposal to root:** the literal original criterion is defensibly
+met for a scoped native 1.9 session-settings contract when it states the above
+bounds and source/fixture basis. The remaining lifecycle attestation and
+all-storage aspirations are not in the original criterion and should stay
+explicit limits. If root requires direct post-restart 121 behaviour before
+accepting “session-only” for 121, the smallest missing fixture is one delayed
+121 settings update followed by the same-image orderly restart and fixed fresh
+107, with retained PID/FD exit receipts. That is stronger evidence, not a
+silent expansion of the frozen criterion. Root alone adjudicates closure.

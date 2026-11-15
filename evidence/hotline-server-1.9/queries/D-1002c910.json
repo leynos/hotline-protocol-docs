@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T12:14:50.988638+00:00",
+  "query": {
+    "id": "D-1002c910",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002c910"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_1002c910\",\n    \"address\": \"1002c910\"\n  },\n  \"code\": \"\\nvoid FUN_1002c910(undefined2 *param_1,int param_2,int param_3)\\n\\n{\\n  undefined4 uVar1;\\n  char local_c0 [64];\\n  undefined1 auStack_80 [18];\\n  char *local_6e;\\n  undefined2 local_6a;\\n  short local_64;\\n  undefined4 local_50;\\n  undefined4 local_38;\\n  undefined4 local_34;\\n  \\n  if (param_1 == (undefined2 *)0x0) {\\n    FUN_10027c30(1,2);\\n  }\\n  FUN_1002e120(param_1);\\n  .glue::BlockMoveData(param_1 + 3,local_c0,*(byte *)(param_1 + 3) + 1);\\n  local_64 = -(ushort)(local_c0[0] == '\\\\0');\\n  local_6e = local_c0;\\n  local_6a = *param_1;\\n  local_50 = *(undefined4 *)(param_1 + 1);\\n  uVar1 = .glue::PBGetCatInfoSync(auStack_80);\\n  if ((short)uVar1 != 0) {\\n    FUN_10028190(uVar1,0,0);\\n  }\\n  if (param_2 != 0) {\\n    FUN_10058070(local_34,param_2);\\n  }\\n  if (param_3 != 0) {\\n    FUN_10058070(local_38,param_3);\\n  }\\n  return;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_1002c910",
+        "address": "1002c910"
+      },
+      "code": "\nvoid FUN_1002c910(undefined2 *param_1,int param_2,int param_3)\n\n{\n  undefined4 uVar1;\n  char local_c0 [64];\n  undefined1 auStack_80 [18];\n  char *local_6e;\n  undefined2 local_6a;\n  short local_64;\n  undefined4 local_50;\n  undefined4 local_38;\n  undefined4 local_34;\n  \n  if (param_1 == (undefined2 *)0x0) {\n    FUN_10027c30(1,2);\n  }\n  FUN_1002e120(param_1);\n  .glue::BlockMoveData(param_1 + 3,local_c0,*(byte *)(param_1 + 3) + 1);\n  local_64 = -(ushort)(local_c0[0] == '\\0');\n  local_6e = local_c0;\n  local_6a = *param_1;\n  local_50 = *(undefined4 *)(param_1 + 1);\n  uVar1 = .glue::PBGetCatInfoSync(auStack_80);\n  if ((short)uVar1 != 0) {\n    FUN_10028190(uVar1,0,0);\n  }\n  if (param_2 != 0) {\n    FUN_10058070(local_34,param_2);\n  }\n  if (param_3 != 0) {\n    FUN_10058070(local_38,param_3);\n  }\n  return;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

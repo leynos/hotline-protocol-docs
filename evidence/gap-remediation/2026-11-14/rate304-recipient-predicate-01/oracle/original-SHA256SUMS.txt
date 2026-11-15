@@ -1,0 +1,7 @@
+8af569f6ca7785effdbbc95dcc534c3bcefe09059f45aee7f7316a289e3ad8b7  state/delegation/rate304-recipient-oracle-01/capture.py
+adefb0adfe6620c61d2f0206d3e9dc6cffd76afe29c536e99b63d4c0b0dc486c  state/delegation/rate304-recipient-oracle-01/as-run.txt
+861153dcf47f1c5b8f7d754f0d5e7121e21ba0ab55d366d326d3b64a37c3c3e3  state/delegation/rate304-recipient-oracle-01/report.json
+cf90fb9ee39b362fe60995990424e807643ae429587933c5803bf6ada2f6e582  state/delegation/rate304-recipient-oracle-01/raw/decompile-10058600.json
+c623c5c0dbd1db9fbe0176e7d7ee0075de23597f031415f479863822e08ba9ca  state/delegation/rate304-recipient-oracle-01/raw/identity-after.json
+305c6d7f6940f83b16aabe3e656fdaf52441dc6fdad4d89743553af3b4c688ef  state/delegation/rate304-recipient-oracle-01/raw/identity-before.json
+953a1fb37dc282b9fa9b22ca5a0a7db3b641424714534a4fa6cb1014645d21d6  state/delegation/rate304-recipient-oracle-01/server.stderr.log

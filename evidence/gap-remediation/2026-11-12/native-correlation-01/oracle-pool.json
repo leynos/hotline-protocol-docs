@@ -1,0 +1,9 @@
+[
+  {
+    "id": "ID-D-10079e30",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10079e30"
+    }
+  }
+]

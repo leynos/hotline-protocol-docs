@@ -1,0 +1,183 @@
+[
+  {
+    "id": "D-10056380",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10056380"
+    }
+  },
+  {
+    "id": "D-10056820",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10056820"
+    }
+  },
+  {
+    "id": "D-100568b0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100568b0"
+    }
+  },
+  {
+    "id": "D-10056a90",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10056a90"
+    }
+  },
+  {
+    "id": "D-10056b90",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10056b90"
+    }
+  },
+  {
+    "id": "D-10056b60",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10056b60"
+    }
+  },
+  {
+    "id": "D-100567c0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100567c0"
+    }
+  },
+  {
+    "id": "D-10056c70",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10056c70"
+    }
+  },
+  {
+    "id": "D-10056cb0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10056cb0"
+    }
+  },
+  {
+    "id": "D-10058a10",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10058a10"
+    }
+  },
+  {
+    "id": "D-10058c00",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10058c00"
+    }
+  },
+  {
+    "id": "D-10058d90",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10058d90"
+    }
+  },
+  {
+    "id": "D-10004d50",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10004d50"
+    }
+  },
+  {
+    "id": "D-10004bf0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10004bf0"
+    }
+  },
+  {
+    "id": "D-10005000",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10005000"
+    }
+  },
+  {
+    "id": "D-10006e80",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10006e80"
+    }
+  },
+  {
+    "id": "D-10008a90",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10008a90"
+    }
+  },
+  {
+    "id": "D-10008ab0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10008ab0"
+    }
+  },
+  {
+    "id": "D-10008ad0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10008ad0"
+    }
+  },
+  {
+    "id": "A-10058650",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "10058650",
+      "limit": 1000
+    }
+  },
+  {
+    "id": "A-10058fd0",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "10058fd0",
+      "limit": 1000
+    }
+  },
+  {
+    "id": "A-100568b0",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "100568b0",
+      "limit": 1000
+    }
+  },
+  {
+    "id": "A-10056a90",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "10056a90",
+      "limit": 1000
+    }
+  },
+  {
+    "id": "A-10011960",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "10011960",
+      "limit": 1000
+    }
+  },
+  {
+    "id": "A-10011870",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "10011870",
+      "limit": 1000
+    }
+  }
+]

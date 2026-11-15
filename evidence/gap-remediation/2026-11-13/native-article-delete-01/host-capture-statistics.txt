@@ -1,0 +1,3 @@
+Initial:321 packets captured;642 received by filter;0 kernel drops.
+Recovery:2198 captured;4396 received by filter;0 kernel drops.
+Separate phase files retained; guest restart is not hidden by merging captures.

@@ -1,0 +1,21 @@
+# A80 Classic class metadata: bounded read-only stop
+
+One nonblocking oracle-lock execution ran from 08:29:43 to 08:29:50 UTC on
+2026-11-14. The saved independent Classic project reported pinned DATA fork
+SHA-256 `7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315`,
+PowerPC BE32 PEF format and 3,564 functions before and after; full identity
+objects compare equal. RSRC and JAR matched the hashes in `report.json`.
+The run used `--no-analyze --discard`; the lock was available after exit.
+
+- `read_memory(1014ff10,96)` returned no gaps. The raw window contains
+  big-endian values `1014fef8`, `1014ff0c` and `1014ff30` at offsets shown
+  in `raw/metadata-window.json`. Their role beyond these data bytes is not
+  established.
+- `get_xrefs_to(1014ff30,limit=100)` returned exactly one `DATA` xref from
+  `1014ff38`, with `from_function:null`, total 1 and `has_more:false`.
+
+The two required content calls completed. No uniquely identified Code
+function or constructor edge was returned, so the six remaining permitted
+content calls, including all decompiles, were left unused. A data-only xref
+and adjacent pointer values do not establish a privilege control, bit index,
+or server enforcement rule. No VM, GUI/server project or mxd was contacted.

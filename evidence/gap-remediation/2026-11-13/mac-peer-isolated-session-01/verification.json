@@ -1,0 +1,68 @@
+{
+  "status": "verified-isolated-finite-session",
+  "control_bytes": {
+    "client": 150,
+    "server": 514
+  },
+  "data_bytes": {
+    "client": 16,
+    "server": 58
+  },
+  "control": {
+    "uid": 14,
+    "data_reference_hex": "002e037f",
+    "client_types": [
+      107,
+      121,
+      300,
+      212
+    ],
+    "server_types": [
+      0,
+      109,
+      0,
+      354,
+      122,
+      0,
+      0
+    ]
+  },
+  "dns": {
+    "queries": 15,
+    "matched_unreachable": 15,
+    "last_predisconnect_error_us": 1794599805930272,
+    "query_ids": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      5,
+      5,
+      5,
+      5,
+      5
+    ]
+  },
+  "data_last_to_quiet_end_us": 147229219,
+  "dns_last_to_quiet_end_us": 139907754,
+  "host_ports": {
+    "control": 42688,
+    "data": 42690
+  },
+  "guest_ports": {
+    "control": 49152,
+    "data": 49155
+  },
+  "server_nat_ports": {
+    "control": 42688,
+    "data": 42690
+  },
+  "banner_ui_complete": false,
+  "universal_500_schedule": false
+}

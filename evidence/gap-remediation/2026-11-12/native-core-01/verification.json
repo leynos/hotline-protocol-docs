@@ -1,0 +1,13 @@
+{
+  "transcripts": 16,
+  "checks": [
+    "nonempty-password-create-change-login",
+    "complement-vs-plaintext-negative",
+    "early-and-delayed-login",
+    "representative-errors-and-invalid-size-close",
+    "plain352-lookup",
+    "348-nested-success-and-permission-denial",
+    "opaque111-absent-empty-value-storage"
+  ],
+  "scope": "These fixtures only; no universal interoperability or timing certificate"
+}

@@ -1,0 +1,20 @@
+# A81 Classic editor data-xref hop: bounded stop
+
+One nonblocking oracle-lock execution ran from 08:32:56 to 08:33:03 UTC on
+2026-11-14 against the saved independent Classic project with `--no-analyze
+--discard`. Pinned DATA/RSRC/JAR hashes matched `report.json`; PowerPC BE32
+PEF and 3,564-function identities matched before and after. The lock was
+available after terminal exit. No VM, GUI/server project, mxd or tracked file
+was touched.
+
+- `get_xrefs_to(1014ff38,limit=100)` returned zero items, total zero,
+  `has_more:false`. This followed the exact data-xref source found in A80.
+- `read_memory(101390d4,16)` returned no gaps and bytes
+  `10 09 02 10 10 13 d8 10 10 09 01 90 10 13 d8 10`. This followed
+  pointer values visible in the A80 96-byte data window.
+
+No enclosing Code function or uniquely identified constructor appeared.
+The third permitted content call, a conditional decompile, was not used.
+The bytes alone do not prove a CFM/vtable role, control widget, privilege
+bit index or server enforcement rule. All requests and replies are retained
+under `raw/`; no broader search or guessed base was attempted.

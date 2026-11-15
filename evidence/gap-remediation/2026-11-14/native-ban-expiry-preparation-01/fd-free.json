@@ -1,0 +1,7 @@
+{
+  "working_image": "/data/leynos/Projects/mothra/state/mac-runtime/native-ban-expiry-01/working.dsk",
+  "inode": 3290756512,
+  "open_fds": [],
+  "unreadable_pid_fd_directories": [],
+  "scope": "new prepared stopped image; immediately before first HFS extraction"
+}

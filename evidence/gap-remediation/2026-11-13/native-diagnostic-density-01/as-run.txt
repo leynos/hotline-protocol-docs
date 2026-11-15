@@ -1,0 +1,75 @@
+A9 fixed native diagnostic density packet, 2026-11-13 UTC. Private
+mothra base c96b2655191edbf8c818a2e38154966682b89e76;
+private protocol base a5ebbbe757122a2edc15e45b07d15ba7ae035605.
+Root granted sole native server lease for one fixed density capture and
+mandatory restoration/postflight. B16 used synthetic only; no peer client
+connected to ports15500/15501. No upload, account, Files or non-download
+setting mutation, no restart or repair was authorised or performed.
+
+18:26Z preflight: SheepShaver PID1099659 /proc executable SHA256
+9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4,
+managed service mothra-sheep-bf808bd28e0d active, display :99 accessible,
+ports15500/15501 listening, no established session, 17 emulator FDs.
+Guest cumulative PCAP source size1397408 bytes. Original General Options
+screenshot options-original-open.png showed serverport5500, download limits
+100 global/10 client, five connections per IP; Statistics zero connections,
+active downloads, uploads and waiting downloads.
+
+Only download limits were edited to8/8, saved, reopened and photographed in
+options-8-8-reopened.png with IP5 unchanged. Options was closed with Cancel.
+Host recorder was started first:
+  sudo -n tcpdump -i lo -s 0 -U -w
+    state/native-sessions/diagnostic-existing-a9-20261113-01/host-density.pcap
+    'tcp and (port 15500 or port 15501)'
+It reported listening on lo and a fresh24-byte PCAP header before traffic.
+The exact saved plan is density/plan.json, generated offline from the A4
+verified runtime record by native_diagnostic_existing_cases.py. Capture:
+  python3 ../hotline-protocol-docs/scripts/protocol_capture.py capture
+    state/native-sessions/diagnostic-existing-a8-prep-20261113-01/plans/density.json
+    --oracle-binary evidence/hotline-server-1.9/inputs/HLserver19.pef
+    --output state/native-sessions/diagnostic-existing-a9-20261113-01/density
+Result: all106 actions completed. Host recorder stopped with SIGINT:1334
+packets captured,2668 received by filter,0 kernel drops. Continuing guest
+PCAP copied to immutable guest-after-density.pcap. No capture retry.
+
+Semantic verifier density: verified. Sixteen distinct four-byte 202 refs;
+first eight admitted, next eight initially queued with positive positions
+1..8. Same-session current roster UID targets 303. Raw field101 lengths were
+417 at4active/0waiting,647 at8/4,763 at8/8,303 after all owned 214 cancels.
+All native sections have the exact planned number of complete fixture rows;
+folder and upload sections remained None. Every214 request had the saved107
+reference and successful matching ACK. No 303 output reached the source's
+1024-byte destination bound: max763 leaves261 bytes. This finite negative
+reach observation supplies no truncation or exact-text policy.
+
+Eight data sockets were left unread by Recorder, then cancelled and closed.
+Recorder received zero bytes on each; that is an observer choice, not an
+assertion of zero native output. Host data payload lengths were120220,116660,
+119452,119964,81920,119964,117864,116224 bytes. Guest payload lengths were
+491520,291100,294912,279988,81920,285828,188416,215912 bytes. For every
+socket, host is an exact prefix of guest, and guest an exact prefix of A7's
+verified full1049073-byte ordinary FILP stream. Each host/guest unread tail
+length and SHA256 is recorded in verification-packets.json. These are
+incomplete file-transfer prefixes, not full transfers or DATA-fork byte
+counts. Recorder and both packet views have the exact16-byte HTXF request
+with the saved reference. Control streams are exact in all three views.
+RST payloads `tcp_disconnect` and `No TCP` were retained as terminal
+SLiRP diagnostics, outside the reassembled application data streams.
+
+Immediately after density, Statistics showed zero current connections,
+downloads/uploads in progress and waiting downloads. General Options was
+restored to100global/10client/IP5, saved, reopened and photographed in
+options-100-10-reopened.png, then closed with Cancel. A new host recorder was
+ready before postflight:
+  python3 ../hotline-protocol-docs/scripts/protocol_capture.py capture
+    state/native-sessions/diagnostic-existing-a8-prep-20261113-01/plans/postflight.json
+    --oracle-binary evidence/hotline-server-1.9/inputs/HLserver19.pef
+    --output state/native-sessions/diagnostic-existing-a9-20261113-01/postflight
+Result: all18 actions completed. Host recorder stopped with SIGINT:30
+packets captured,60 received by filter,0 kernel drops. Cumulative guest
+PCAP copied to immutable guest-after-postflight.pcap. Exact A7 two accounts,
+full41 root Files entries, complete-file206 metadata and idle same-session
+303 verified. Host and guest postflight control streams each match Recorder
+at231 client/2759 server bytes. Server PID/hash/unit/listeners remained
+unchanged, no established session or host recorder remained. The native
+lease was returned to root before offline publication.

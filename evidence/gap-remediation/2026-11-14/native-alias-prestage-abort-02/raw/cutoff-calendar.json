@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "systemd-analyze",
+    "calendar",
+    "2026-11-14 22:07:20.932693 UTC"
+  ],
+  "exit": 0,
+  "stdout": "Normalized form: 2026-11-14 22:07:20.932693 UTC\n    Next elapse: Sat 2026-11-14 22:07:20 GMT\n       (in UTC): Sat 2026-11-14 22:07:20 UTC\n       From now: 28min left\n",
+  "stderr": ""
+}

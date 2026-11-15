@@ -1,0 +1,21 @@
+# A57: B68 pre-live ban-expiry re-review
+
+Read-only source review of private account protocol HEAD `93c974d7076319f27fe97d487a4787ef32e8f7fa` (`b48182a` + `93c974d` over `a5f6cce`). No VM, socket, oracle, Git, or tracked-file mutation. Root owns live authorization and operator receipts.
+
+## A56 blockers
+
+1. **Later first lookup:** `native_ban_expiry_control.py:698-717,720-724,740-750` validates the 18-action login baseline only in `first`; `pre`/`post` reject a readiness directory and run exactly their one probe after capture/identity/timing gates. `native_ban_expiry_cases.py:124-150` constructs each fresh TRTP + Login107 as the only case. `native-ban-expiry-preparation.md:25-30,117-123` forbids an earlier Login107 and defers postflight baseline until after successful intended post 107. No positive or negative login probe was added ahead of pre/post first lookup.
+2. **Runtime binding:** `native_ban_expiry_control.py:473-499` equates receipt with prepared plan PID, start ticks, exe SHA, namespace inode, working-image path/inode, then invokes the existing `capture_gate` (`native_control_readiness.py:251-289`) for live PID/start/exe/FD6/netns and checks FD16 plus live image inode. `TimingBounds.gate:94-111` preserves same PID/start/exe/image/netns across pre/post. This discharges A56's receipt-to-plan gap.
+3. **Recorder namespace:** `native_ban_expiry_control.py:415-446` reads actual recorder and emulator `/proc` namespace inodes, IPv4/IPv6 main routes via `nsenter`, and live interface list; only the same inode, empty main routes, and `lo` pass. `:509-563` rechecks managed recorder/lock PID, service lifetime, capture FD inode/write mode and lock contention. `/usr/sbin/nsenter` and `/usr/sbin/ip` exist on this host. This discharges the recorder-placement gap.
+4. **Identity/quiet:** `:197-215` requires exactly two roster rows, unique same-session target UID/name and admin identity before 110. `native_ban_expiry_cases.py:104-120` adds target 500 ACK + one-second quiet, checked at `native_ban_expiry_control.py:315-329`. Rejected 107 now claims only its correlated reply (`:272-280`); raw tails must still be retained. Kick/tempban EOF and option-specific 104 checks remain (`:331-358`).
+
+## Sequencing and limits
+
+- `run_epoch:689-724` gates runtime/source/baseline or ban-clock before output or sockets; `:740-756` gates each case and stops after first failed report. `run_case:566-632` clamps every action to both epoch and case deadlines and closes all owned sockets on failure. Planned later probes have one connect and one Login107; no hidden readiness exchange.
+- `settle_first_epoch:449-470` requires at least 45 seconds remaining, sleeps a measured monotonic 35 seconds before the first account case, then requires over 10 seconds remaining. It records `runner_socket_actions_during_wait=0`; that proves only runner sequencing. It does not independently prove globally zero sockets during the interval. Interpret the complete namespace PCAP and any other operator activity before describing this as a globally quiet period.
+- `live_service:381-412` requires a 900-second managed unit to outlast the <=720-second epoch deadline by five seconds. `TimingBounds:63-129` brackets host UTC at 1600-1700 seconds after request and 1900-2400 seconds after ACK, with a <=20-second request/ACK bracket and explicit unproved guest clock rate. No expiry-boundary or background-purge inference follows solely from this code.
+- `native-ban-expiry-preparation.md:117-142` accurately labels pre/post full baseline as not exercised, postflight as separate, and the idle interval unobserved by stopped recorders. Root must preserve receipts for no unrelated lab use, guest-clock witness, postflight and cleanup before any GAP-074 disposition.
+
+## Focused verification and disposition
+
+`PYTHONPATH=scripts:/data/leynos/Projects/hotline-protocol-docs/scripts python3 -m unittest discover -s scripts -p test_native_ban_expiry.py -q` in the private account protocol clone: 8 tests, PASS. They cover plan/identity/notice faults, runtime and namespace faults, later no-readiness ordering, and first 35-second order. The private clone lacks two canonical dependencies; root must import them before fresh adjacent export. No new source-level blocker found within A56 scope. This is a pre-live review, not approval or a result from a running guest.

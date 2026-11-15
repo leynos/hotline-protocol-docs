@@ -1,0 +1,24 @@
+[
+  {
+    "id": "B08-D-1002f600",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002f600"
+    }
+  },
+  {
+    "id": "B08-D-1002fb00",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002fb00"
+    }
+  },
+  {
+    "id": "B08-M-file-info-strings",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "10091cfd",
+      "length": 180
+    }
+  }
+]

@@ -1,0 +1,9 @@
+[
+  {
+    "id": "LA-D-1006db60",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1006db60"
+    }
+  }
+]

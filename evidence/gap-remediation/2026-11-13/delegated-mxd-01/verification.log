@@ -1,0 +1,15 @@
+cwd=/data/leynos/Projects/hotline-protocol-docs
+command=python3 -m unittest discover -s scripts -p test_mxd_reconciliation.py -v
+test_mutated_source_snapshot_is_rejected (test_mxd_reconciliation.MxdReconciliationTests.test_mutated_source_snapshot_is_rejected)
+Reject a changed frozen source without an mxd checkout present. ... ok
+test_verified_run_and_mutated_log (test_mxd_reconciliation.MxdReconciliationTests.test_verified_run_and_mutated_log)
+Accept 55 recorded passes and reject a forged pass count. ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.011s
+
+OK
+command=python3 scripts/verify_mxd_reconciliation.py ../mothra/evidence/gap-remediation/2026-11-13/delegated-mxd-01
+verified 55 mxd tests at 2e4c9c1df20b37a6f98a1369e0a8f09f9ee2a131
+command=python3 scripts/verify_mxd_reconciliation.py ../mothra/evidence/gap-remediation/2026-11-13/delegated-mxd-01 --mxd ../mxd
+verified 55 mxd tests at 2e4c9c1df20b37a6f98a1369e0a8f09f9ee2a131

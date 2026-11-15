@@ -1,0 +1,108 @@
+{
+  "started_at_utc": "2026-11-14T08:52:43.899396+00:00",
+  "script_sha256": "b52157a894f80c0a63f8daa75880953a51c4031d1c6614d2946e309a91c8b73d",
+  "input_sha256": {
+    "data": "7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315",
+    "resource": "f762cfdedcc39758f841f720a4586dbbb88a7b74ec9e83db1793791b7c3f318b",
+    "jar": "201d18ffde71a83a678eae607de265861f37e5a00b989d91958c1197664d2b43"
+  },
+  "command": "/data/leynos/Projects/mothra/tools/ghidramcp/.venv/bin/ghidra-mcp",
+  "args": [
+    "--headless",
+    "--binary",
+    "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+    "--project",
+    "/data/leynos/Projects/mothra/state/delegation/a70-client-privilege-oracle/project",
+    "--project-name",
+    "classic-privilege-01",
+    "--no-analyze",
+    "--discard",
+    "--language",
+    "PowerPC:BE:32:default",
+    "--compiler",
+    "default",
+    "--extension-jar",
+    "/data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar",
+    "--ready-timeout",
+    "540"
+  ],
+  "project": "/data/leynos/Projects/mothra/state/delegation/a70-client-privilege-oracle/project/classic-privilege-01.gpr",
+  "status": "bounded-stop",
+  "queries": [
+    {
+      "id": "identity-before",
+      "tool": "get_program_info",
+      "arguments": {},
+      "is_error": false
+    },
+    {
+      "id": "decompile-10090210",
+      "tool": "decompile_function_by_address",
+      "arguments": {
+        "address": "10090210"
+      },
+      "is_error": false
+    },
+    {
+      "id": "decompile-10090190",
+      "tool": "decompile_function_by_address",
+      "arguments": {
+        "address": "10090190"
+      },
+      "is_error": true
+    },
+    {
+      "id": "identity-after",
+      "tool": "get_program_info",
+      "arguments": {},
+      "is_error": false
+    }
+  ],
+  "content_calls": 2,
+  "identity_before": {
+    "name": "Hotline Client 1.9.2 Classic",
+    "project_path": "/Hotline Client 1.9.2 Classic",
+    "executable_path": "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "10163333",
+    "memory_size": 1454890,
+    "function_count": 3564,
+    "external_function_count": 4,
+    "entry_points": [
+      "101255e0"
+    ],
+    "md5": "794944a7ca16e70cc9b9624e8b58c6fc",
+    "sha256": "7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315"
+  },
+  "bounded_stop": "Exact two Code-entry probes only; any further xrefs require a positively identified class/editor edge in these replies",
+  "identity_after": {
+    "name": "Hotline Client 1.9.2 Classic",
+    "project_path": "/Hotline Client 1.9.2 Classic",
+    "executable_path": "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "10163333",
+    "memory_size": 1454890,
+    "function_count": 3564,
+    "external_function_count": 4,
+    "entry_points": [
+      "101255e0"
+    ],
+    "md5": "794944a7ca16e70cc9b9624e8b58c6fc",
+    "sha256": "7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315"
+  },
+  "finished_at_utc": "2026-11-14T08:52:51.439975+00:00"
+}

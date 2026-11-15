@@ -1,0 +1,15 @@
+{
+  "unit": "mothra-mxd-peer-c19.service",
+  "pid": 2349333,
+  "starttime_ticks": 2795470,
+  "invocation_id": "392dbcb6ecda46ed9bc83ef1a0b059bb",
+  "source_head": "cb907885cc2a61df2d708f38a3cf42da85c2a016",
+  "binary_sha256": "3da44eac362e1a5433eee4cace8f030e383a9c4a8ea8f587055610299c879375",
+  "namespace": "net:[4026532479]",
+  "cgroup_matches_unit": true,
+  "host_port_15650_absent": true,
+  "namespace_only_15650": true,
+  "routes_empty": true,
+  "database_user_count": 1,
+  "client_connected": false
+}

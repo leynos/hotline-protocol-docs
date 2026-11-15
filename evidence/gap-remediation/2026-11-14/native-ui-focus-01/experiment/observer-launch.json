@@ -1,0 +1,30 @@
+{
+  "utc": "2026-11-14T01:07:15.256548+00:00",
+  "argv": [
+    "systemd-run",
+    "--user",
+    "--unit=mothra-native-event-c50-observer.service",
+    "--property=Type=exec",
+    "--property=RuntimeMaxSec=4min",
+    "--property=RemainAfterExit=yes",
+    "--property=Restart=no",
+    "--property=StandardOutput=append:/data/leynos/Projects/mothra/state/native-sessions/native-eventlab-c50/observer.log",
+    "--property=StandardError=append:/data/leynos/Projects/mothra/state/native-sessions/native-eventlab-c50/observer.log",
+    "--no-block",
+    "/usr/sbin/python3",
+    "/data/leynos/Projects/mothra/state/delegation/c48-eventlab/event_probe.py",
+    "--guest-pcap",
+    "/data/leynos/Projects/mothra/state/native-sessions/native-eventlab-c49/lab-guest.pcap",
+    "--namespace-pcap",
+    "/data/leynos/Projects/mothra/state/native-sessions/native-eventlab-c49/lab-namespace.pcap",
+    "--a7-pid",
+    "2159178",
+    "--a7-capture-dir",
+    "/data/leynos/Projects/mothra/state/native-sessions/native-eventlab-c50/a7-capture",
+    "--out",
+    "/data/leynos/Projects/mothra/state/native-sessions/native-eventlab-c50/focus-event"
+  ],
+  "exit": 0,
+  "stdout": "",
+  "stderr": "Running as unit: mothra-native-event-c50-observer.service\n"
+}

@@ -1,0 +1,36 @@
+{
+  "scope": "Native primary handshake boundary corpus with paired host and guest Ethernet captures; alternate-listener and timer observations remain bounded",
+  "primary_catalogue": "transcripts/;14 addressed cases,13 completed and one retained alternate-control timeout",
+  "all_retained_transcript_statuses": {
+    "completed": 35,
+    "failed": 4
+  },
+  "runtime": "runtime.json",
+  "source_versions": [
+    "protocol_capture.py.txt",
+    "initial-protocol_capture.py.txt"
+  ],
+  "prelaunch_image_sha256": "3e9aed57f94982ab17f4c19ea6a416410d7b08c461ce7eb624c9fd4d7617e7ab",
+  "prelaunch_image_retained_locally_only": true,
+  "observations": [
+    "Primary positive handshake, wrong magic/version/subprotocol/subversion, five3-second split windows, truncated half-close, pipelined login and preservation of byte13 as frame prefix",
+    "Guest wrong-magic reset contains diagnostic data but no application handshake; wrong-version failure bytes precede reset; wrong-subprotocol/subversion failure bytes precede FIN",
+    "Raw data unmatched HTXF reference and control subversion3 handover reject without numbered transfer error; matching-reference positive transfers remain open",
+    "Alternate control/data accepted TCP but did not answer ordinary unwrapped input within10 seconds; full wrapper negotiation remains unresolved",
+    "Guest emitted no FIN/RST during65-second failed-login baseline before client cleanup; separate isolated35-second quiet interval ended with new connection followed by reset of failed session"
+  ],
+  "limitations": [
+    "Guest-side observer is before Ethernet socket-pair injection and uses host wall-clock timestamps; not physical-network timing",
+    "Initial explorations include a timing trial overlapped with data probes; isolated timing case is retained separately",
+    "TCP reset diagnostic payloads are retained as packets, not merged into Hotline stream bytes",
+    "No claim of complete timers, matched-reference transfers, alternate-wrapper protocol, peer interoperability or full native conformance"
+  ],
+  "closure_candidates": [
+    "GAP-008"
+  ],
+  "reference": {
+    "url": "https://www.rfc-editor.org/rfc/rfc9293.html#section-3.5.3",
+    "retrieved_at_utc": "2026-11-12T18:12:30.859660+00:00",
+    "use": "TCP reset segments may carry diagnostic data; no standardized diagnostic format is inferred"
+  }
+}

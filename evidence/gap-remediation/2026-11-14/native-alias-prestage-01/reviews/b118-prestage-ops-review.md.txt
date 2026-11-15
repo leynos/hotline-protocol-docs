@@ -1,0 +1,68 @@
+# B118: M2b pre-stage operational review
+
+Read-only review, 2026-11-14. Sources: `state/delegation/c143-alias-prestage-ops.md`,
+`c144-prestage-script-packet.md`, `docs/execplans/missing-target-alias.md`
+M2b section, and the live-01 UI/runtime-builder templates. The live-02 scripts
+are still being edited; observations below are freeze checks, not a live test.
+
+## Consequential freeze checks
+
+1. **Pre-stage review receipt must be an operator gate.** Require a *new*,
+   root-owned mode 0600 `O/prestage/reviewed.json` beneath a root-controlled
+   parent. Bind actual screenshot paths and SHA-256, the named Finder window,
+   Unix volume, selected `m-alias54-target`, separately visible owned HFS
+   Files parent, actual emulator PID/start/exe/namespace/working-image inode,
+   display `:123`, and fixed epoch deadline. Reject missing, stale, reused or
+   self-written case receipts. The builder checks the receipt and separately
+   opens the target and sidecar with no-follow; the receipt is not proof of
+   their bytes. The current draft builder has no `prestage/reviewed.json`
+   check and still copies the original zero-suffix sidecar hash.
+
+2. **Keep one identity chain across GUI and sockets.** Disk and capture
+   receipts, pre-stage review, runtime, closed18, case READY and retirement
+   must name the same actual PID *and start ticks*, executable hash, UID 1000,
+   namespace inode, working-image inode/path and `:123` Xvfb service identity.
+   Check the live `/proc` values at every action, including observed disk and
+   capture FD inodes/paths; FD6/FD16 are helper constraints, not historical
+   evidence for the new VM. Check the display unit's actual MainPID/start/exe,
+   not just its saved command and active state. The draft UI gate currently
+   checks emulator ticks and disk FD but not live executable/UID/namespace,
+   capture FD or display MainPID identity.
+
+3. **Pin sidecar once, after pre-stage.** Builder must demand the reviewed
+   receipt *before* creating runtime or plans. Read the owned DATA20 and
+   32-byte `.finf` through no-follow descriptors, verify dev/inode/UID/mode/
+   nlink/size, DATA hash and first eight `U54TM54X` bytes, then store the
+   actual full sidecar SHA as `initial_finf_sha256` in a new exclusive runtime
+   file. Recheck that exact pin before closed18 and case; any drift stops.
+   Do not regenerate runtime, accept a new review receipt, or reset Finder
+   flag/position after readiness. The current draft writes runtime before its
+   source-freeze step and still derives `owned_finf_sha256` from the stopped
+   pre-stage receipt. Freeze the source closure and builder before first
+   service as C144 requires.
+
+4. **Keep the fixed resource and time boundary.** Verify the fresh live-02
+   runtime, display, epoch and preparation paths, port block 15960–15963 and
+   absence of old live-01 reuse before first service. Carry one 720-second
+   deadline through boot, capture, review, readiness, case and retirement;
+   900-second lease/capture lifetimes must cover deadline plus five seconds,
+   and case starts only with at least 390 seconds left. No new epoch or
+   sidecar re-pin after a failed gate. Current draft scripts still refer to
+   unsuffixed live-01 script names and an inherited 35-module count; require
+   the final approved live-02 script list and actual transitive closure.
+
+5. **Retirement is a separate narrow input authority.** Permit it only after
+   a terminal case report/exit or explicit pre-case abort, under the same
+   PID/start/exe/namespace/display/deadline chain. Root's fresh mode 0600
+   approval must bind before-image hashes, the *named* Quit control and at
+   most one Quit Now control, their reviewed click coordinates, and a bounded
+   single-use action sequence. Recheck a fresh screen and log each attempted
+   and completed input; disallow case aliases, menu traversal, Escape, a
+   third click and post-deadline input. If no identified control/time remains,
+   stop only the owned VM and label it forced; app Quit alone is not an
+   orderly OS shutdown. The current draft UI helper exposes startup/case
+   only, so retirement must be added before its final hash is approved.
+
+The proposals correctly keep Finder pre-stage before any alias operation,
+preserve the failed live-01 corpus, and require an independently granted
+live START. No service, UI input, VM, or protocol request was made here.

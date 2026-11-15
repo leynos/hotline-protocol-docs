@@ -1,0 +1,121 @@
+[
+  {
+    "type": "EMSG",
+    "id": 4,
+    "offset": 397,
+    "keyword": "folder",
+    "text": "up more space.Specified file or folder does not exist.Specified file does not exist.Specified folder d"
+  },
+  {
+    "type": "EMSG",
+    "id": 4,
+    "offset": 459,
+    "keyword": "folder",
+    "text": "d file does not exist.Specified folder does not exist.Specified disk does not exist.Disk is damaged.Di"
+  },
+  {
+    "type": "EMSG",
+    "id": 4,
+    "offset": 800,
+    "keyword": "Folder",
+    "text": "  Unlock the file and try again.Folder is locked and can't be changed.  Unlock the folder and try agai"
+  },
+  {
+    "type": "EMSG",
+    "id": 4,
+    "offset": 851,
+    "keyword": "folder",
+    "text": "d can't be changed.  Unlock the folder and try again.A file or folder with the specified name already "
+  },
+  {
+    "type": "EMSG",
+    "id": 4,
+    "offset": 882,
+    "keyword": "folder",
+    "text": " folder and try again.A file or folder with the specified name already exists.Cannot open or delete fi"
+  },
+  {
+    "type": "EMSG",
+    "id": 4,
+    "offset": 983,
+    "keyword": "User",
+    "text": "ile because it is in use (busy).User does not have access to the specified file or folder.User does "
+  },
+  {
+    "type": "EMSG",
+    "id": 4,
+    "offset": 1034,
+    "keyword": "folder",
+    "text": "access to the specified file or folder.User does not have permission to change the specified file or f"
+  },
+  {
+    "type": "EMSG",
+    "id": 4,
+    "offset": 1041,
+    "keyword": "User",
+    "text": "to the specified file or folder.User does not have permission to change the specified file or folder"
+  },
+  {
+    "type": "EMSG",
+    "id": 4,
+    "offset": 1103,
+    "keyword": "folder",
+    "text": "to change the specified file or folder.A bad file or folder name was specified.The end of a file was e"
+  },
+  {
+    "type": "EMSG",
+    "id": 4,
+    "offset": 1124,
+    "keyword": "folder",
+    "text": "ed file or folder.A bad file or folder name was specified.The end of a file was encountered unexpected"
+  },
+  {
+    "type": "EMSG",
+    "id": 4,
+    "offset": 1293,
+    "keyword": "folder",
+    "text": " disk and try again.Cannot move folder into itself.Disk unexpectedly vanished! (disconnected)Expected "
+  },
+  {
+    "type": "EMSG",
+    "id": 4,
+    "offset": 1377,
+    "keyword": "folder",
+    "text": "onnected)Expected file, but got folder.Expected folder, but got file.Expected different file/folder, b"
+  },
+  {
+    "type": "EMSG",
+    "id": 4,
+    "offset": 1393,
+    "keyword": "folder",
+    "text": "d file, but got folder.Expected folder, but got file.Expected different file/folder, but same file/fol"
+  },
+  {
+    "type": "EMSG",
+    "id": 4,
+    "offset": 1438,
+    "keyword": "folder",
+    "text": "ot file.Expected different file/folder, but same file/folder was specified.User is not authorized to p"
+  },
+  {
+    "type": "EMSG",
+    "id": 4,
+    "offset": 1460,
+    "keyword": "folder",
+    "text": "rent file/folder, but same file/folder was specified.User is not authorized to perform operation.Canno"
+  },
+  {
+    "type": "EMSG",
+    "id": 4,
+    "offset": 1481,
+    "keyword": "User",
+    "text": " same file/folder was specified.User is not authorized to perform operation.Cannot resolve alias bec"
+  },
+  {
+    "type": "EMSG",
+    "id": 4,
+    "offset": 1603,
+    "keyword": "folder",
+    "text": " cannot be found.Expected files/folders to be on the same disk (but they're not)."
+  }
+]

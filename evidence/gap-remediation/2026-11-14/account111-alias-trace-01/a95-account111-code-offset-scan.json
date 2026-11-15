@@ -1,0 +1,125 @@
+{
+  "scope": "Raw aligned 32-bit words of PEF section0 Code only; not whole binary or all address-computation forms",
+  "source_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "pef_header": {
+    "magic": "Joy!peff",
+    "section_count": 3,
+    "section0_header_file_offset": 40,
+    "section0_default_address": 0,
+    "section0_kind": 0,
+    "section0_file_offset": 9680,
+    "section0_packed_bytes": 558872,
+    "section0_unpacked_bytes": 558872,
+    "section0_loaded_code_start": "10000000",
+    "section0_loaded_code_end": "10088717"
+  },
+  "mapping_anchor": {
+    "loaded_address": "10014df0",
+    "frozen_query": "evidence/gap-remediation/2026-11-13/account-attribute-01/queries/AA-A-10014df0.json",
+    "bytes": "7c0802a6bf41ffe8900100089421f960",
+    "file_offset": 95168
+  },
+  "aligned_word_count": 139718,
+  "filter_primary_opcodes": {
+    "addi": 14,
+    "lwz": 32,
+    "lbz": 34,
+    "lhz": 40,
+    "lha": 42
+  },
+  "low16_matches": {
+    "0254": [
+      {
+        "address": "10010c6c",
+        "file_offset": 78396,
+        "word": "41820254",
+        "primary_opcode": 16,
+        "direct_D_form_load_or_addi_candidate": false
+      },
+      {
+        "address": "10014774",
+        "file_offset": 93508,
+        "word": "48000254",
+        "primary_opcode": 18,
+        "direct_D_form_load_or_addi_candidate": false
+      },
+      {
+        "address": "10037228",
+        "file_offset": 235512,
+        "word": "40800254",
+        "primary_opcode": 16,
+        "direct_D_form_load_or_addi_candidate": false
+      },
+      {
+        "address": "1003aaf0",
+        "file_offset": 250048,
+        "word": "41810254",
+        "primary_opcode": 16,
+        "direct_D_form_load_or_addi_candidate": false
+      },
+      {
+        "address": "1004bdac",
+        "file_offset": 320380,
+        "word": "48000254",
+        "primary_opcode": 18,
+        "direct_D_form_load_or_addi_candidate": false
+      },
+      {
+        "address": "10072818",
+        "file_offset": 478696,
+        "word": "48000254",
+        "primary_opcode": 18,
+        "direct_D_form_load_or_addi_candidate": false
+      },
+      {
+        "address": "10074dd8",
+        "file_offset": 488360,
+        "word": "48000254",
+        "primary_opcode": 18,
+        "direct_D_form_load_or_addi_candidate": false
+      },
+      {
+        "address": "10076d98",
+        "file_offset": 496488,
+        "word": "48000254",
+        "primary_opcode": 18,
+        "direct_D_form_load_or_addi_candidate": false
+      },
+      {
+        "address": "10077e10",
+        "file_offset": 500704,
+        "word": "48000254",
+        "primary_opcode": 18,
+        "direct_D_form_load_or_addi_candidate": false
+      },
+      {
+        "address": "10083d78",
+        "file_offset": 549704,
+        "word": "00000254",
+        "primary_opcode": 0,
+        "direct_D_form_load_or_addi_candidate": false
+      },
+      {
+        "address": "100840d8",
+        "file_offset": 550568,
+        "word": "00000254",
+        "primary_opcode": 0,
+        "direct_D_form_load_or_addi_candidate": false
+      },
+      {
+        "address": "100845c4",
+        "file_offset": 551828,
+        "word": "00000254",
+        "primary_opcode": 0,
+        "direct_D_form_load_or_addi_candidate": false
+      }
+    ],
+    "0256": []
+  },
+  "direct_candidates": 0,
+  "limits": [
+    "Stack-relative or indexed aliases may use different displacements",
+    "D-form stores, split address arithmetic, non-D-form instructions and PackedData not scanned",
+    "Raw words are not function membership or a proof of absence"
+  ]
+}

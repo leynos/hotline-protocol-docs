@@ -1,0 +1,527 @@
+{
+  "schema_version": 1,
+  "description": "Exact retained tool-call inventory extracted from raw reports; no new calls",
+  "phases": [
+    {
+      "phase": "B37-import",
+      "run": 1,
+      "started_at_utc": "2026-11-13T23:28:18.392808+00:00",
+      "finished_at_utc": "2026-11-13T23:29:30.711050+00:00",
+      "command": "/data/leynos/Projects/mothra/tools/ghidramcp/.venv/bin/ghidra-mcp",
+      "args": [
+        "--headless",
+        "--binary",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+        "--project",
+        "/data/leynos/Projects/mothra/state/client-account-pef-01/project",
+        "--project-name",
+        "hotline-client-classic-01",
+        "--language",
+        "PowerPC:BE:32:default",
+        "--compiler",
+        "default",
+        "--extension-jar",
+        "/data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar",
+        "--ready-timeout",
+        "540",
+        "--save"
+      ],
+      "queries": [
+        {
+          "tool": "get_program_info",
+          "arguments": {},
+          "label": "identity-before"
+        },
+        {
+          "tool": "list_segments",
+          "arguments": {
+            "offset": 0,
+            "limit": 20
+          },
+          "label": "segments"
+        },
+        {
+          "tool": "read_memory",
+          "arguments": {
+            "address": "100b2294",
+            "length": 4
+          },
+          "label": "code-mapping-witness"
+        },
+        {
+          "tool": "get_function_by_address",
+          "arguments": {
+            "address": "100b2294"
+          },
+          "label": "field111-a-function"
+        },
+        {
+          "tool": "get_function_by_address",
+          "arguments": {
+            "address": "100b28a0"
+          },
+          "label": "field111-b-function"
+        },
+        {
+          "tool": "get_function_by_address",
+          "arguments": {
+            "address": "100cf2bc"
+          },
+          "label": "field111-c-function"
+        },
+        {
+          "tool": "get_function_by_address",
+          "arguments": {
+            "address": "100efa10"
+          },
+          "label": "field111-d-function"
+        },
+        {
+          "tool": "get_function_by_address",
+          "arguments": {
+            "address": "1000c068"
+          },
+          "label": "request349-function"
+        },
+        {
+          "tool": "get_function_by_address",
+          "arguments": {
+            "address": "1000c3cc"
+          },
+          "label": "request350-function"
+        },
+        {
+          "tool": "get_function_by_address",
+          "arguments": {
+            "address": "1000c9d4"
+          },
+          "label": "request353-function"
+        },
+        {
+          "tool": "decompile_function_by_address",
+          "arguments": {
+            "address": "100b2294"
+          },
+          "label": "field111-a-decompile"
+        },
+        {
+          "tool": "decompile_function_by_address",
+          "arguments": {
+            "address": "100b28a0"
+          },
+          "label": "field111-b-decompile"
+        },
+        {
+          "tool": "decompile_function_by_address",
+          "arguments": {
+            "address": "100cf2bc"
+          },
+          "label": "field111-c-decompile"
+        },
+        {
+          "tool": "decompile_function_by_address",
+          "arguments": {
+            "address": "100efa10"
+          },
+          "label": "field111-d-decompile"
+        },
+        {
+          "tool": "get_program_info",
+          "arguments": {},
+          "label": "identity-after"
+        }
+      ]
+    },
+    {
+      "phase": "B37-followup",
+      "run": 1,
+      "started_at_utc": "2026-11-13T23:30:24.027846+00:00",
+      "finished_at_utc": "2026-11-13T23:30:32.116065+00:00",
+      "command": "/data/leynos/Projects/mothra/tools/ghidramcp/.venv/bin/ghidra-mcp",
+      "args": [
+        "--headless",
+        "--binary",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+        "--project",
+        "/data/leynos/Projects/mothra/state/client-account-pef-01/project",
+        "--project-name",
+        "hotline-client-classic-01",
+        "--no-analyze",
+        "--discard",
+        "--language",
+        "PowerPC:BE:32:default",
+        "--compiler",
+        "default",
+        "--extension-jar",
+        "/data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar",
+        "--ready-timeout",
+        "120"
+      ],
+      "queries": [
+        {
+          "tool": "get_program_info",
+          "arguments": {},
+          "label": null
+        },
+        {
+          "tool": "decompile_function_by_address",
+          "arguments": {
+            "address": "1000c210"
+          },
+          "label": null
+        },
+        {
+          "tool": "get_program_info",
+          "arguments": {},
+          "label": null
+        }
+      ]
+    },
+    {
+      "phase": "B38",
+      "run": 1,
+      "started_at_utc": "2026-11-13T23:32:20.516104+00:00",
+      "finished_at_utc": "2026-11-13T23:32:28.412768+00:00",
+      "command": "/data/leynos/Projects/mothra/tools/ghidramcp/.venv/bin/ghidra-mcp",
+      "args": [
+        "--headless",
+        "--binary",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+        "--project",
+        "/data/leynos/Projects/mothra/state/client-account-pef-01/project",
+        "--project-name",
+        "hotline-client-classic-01",
+        "--no-analyze",
+        "--discard",
+        "--language",
+        "PowerPC:BE:32:default",
+        "--compiler",
+        "default",
+        "--extension-jar",
+        "/data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar",
+        "--ready-timeout",
+        "120"
+      ],
+      "queries": [
+        {
+          "tool": "get_program_info",
+          "arguments": {},
+          "label": null
+        },
+        {
+          "tool": "decompile_function_by_address",
+          "arguments": {
+            "address": "1000bfa0"
+          },
+          "label": null
+        },
+        {
+          "tool": "decompile_function_by_address",
+          "arguments": {
+            "address": "1000c800"
+          },
+          "label": null
+        },
+        {
+          "tool": "get_program_info",
+          "arguments": {},
+          "label": null
+        }
+      ]
+    },
+    {
+      "phase": "B38",
+      "run": 2,
+      "started_at_utc": "2026-11-13T23:32:43.040503+00:00",
+      "finished_at_utc": "2026-11-13T23:32:50.990435+00:00",
+      "command": "/data/leynos/Projects/mothra/tools/ghidramcp/.venv/bin/ghidra-mcp",
+      "args": [
+        "--headless",
+        "--binary",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+        "--project",
+        "/data/leynos/Projects/mothra/state/client-account-pef-01/project",
+        "--project-name",
+        "hotline-client-classic-01",
+        "--no-analyze",
+        "--discard",
+        "--language",
+        "PowerPC:BE:32:default",
+        "--compiler",
+        "default",
+        "--extension-jar",
+        "/data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar",
+        "--ready-timeout",
+        "120"
+      ],
+      "queries": [
+        {
+          "tool": "get_program_info",
+          "arguments": {},
+          "label": null
+        },
+        {
+          "tool": "decompile_function_by_address",
+          "arguments": {
+            "address": "100b0a20"
+          },
+          "label": null
+        },
+        {
+          "tool": "decompile_function_by_address",
+          "arguments": {
+            "address": "100b0ad0"
+          },
+          "label": null
+        },
+        {
+          "tool": "get_program_info",
+          "arguments": {},
+          "label": null
+        }
+      ]
+    },
+    {
+      "phase": "B38",
+      "run": 3,
+      "started_at_utc": "2026-11-13T23:33:27.483992+00:00",
+      "finished_at_utc": "2026-11-13T23:33:34.887126+00:00",
+      "command": "/data/leynos/Projects/mothra/tools/ghidramcp/.venv/bin/ghidra-mcp",
+      "args": [
+        "--headless",
+        "--binary",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+        "--project",
+        "/data/leynos/Projects/mothra/state/client-account-pef-01/project",
+        "--project-name",
+        "hotline-client-classic-01",
+        "--no-analyze",
+        "--discard",
+        "--language",
+        "PowerPC:BE:32:default",
+        "--compiler",
+        "default",
+        "--extension-jar",
+        "/data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar",
+        "--ready-timeout",
+        "120"
+      ],
+      "queries": [
+        {
+          "tool": "get_program_info",
+          "arguments": {},
+          "label": null
+        },
+        {
+          "tool": "get_function_calls",
+          "arguments": {
+            "address": "1000bfa0",
+            "direction": "callers",
+            "offset": 0,
+            "limit": 100
+          },
+          "label": null
+        },
+        {
+          "tool": "get_program_info",
+          "arguments": {},
+          "label": null
+        }
+      ]
+    },
+    {
+      "phase": "B38",
+      "run": 4,
+      "started_at_utc": "2026-11-13T23:33:43.025576+00:00",
+      "finished_at_utc": "2026-11-13T23:33:52.811639+00:00",
+      "command": "/data/leynos/Projects/mothra/tools/ghidramcp/.venv/bin/ghidra-mcp",
+      "args": [
+        "--headless",
+        "--binary",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+        "--project",
+        "/data/leynos/Projects/mothra/state/client-account-pef-01/project",
+        "--project-name",
+        "hotline-client-classic-01",
+        "--no-analyze",
+        "--discard",
+        "--language",
+        "PowerPC:BE:32:default",
+        "--compiler",
+        "default",
+        "--extension-jar",
+        "/data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar",
+        "--ready-timeout",
+        "120"
+      ],
+      "queries": [
+        {
+          "tool": "get_program_info",
+          "arguments": {},
+          "label": null
+        },
+        {
+          "tool": "decompile_function_by_address",
+          "arguments": {
+            "address": "10072130"
+          },
+          "label": null
+        },
+        {
+          "tool": "decompile_function_by_address",
+          "arguments": {
+            "address": "10071ea0"
+          },
+          "label": null
+        },
+        {
+          "tool": "get_program_info",
+          "arguments": {},
+          "label": null
+        }
+      ]
+    },
+    {
+      "phase": "B38",
+      "run": 5,
+      "started_at_utc": "2026-11-13T23:34:04.808424+00:00",
+      "finished_at_utc": "2026-11-13T23:34:12.781515+00:00",
+      "command": "/data/leynos/Projects/mothra/tools/ghidramcp/.venv/bin/ghidra-mcp",
+      "args": [
+        "--headless",
+        "--binary",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+        "--project",
+        "/data/leynos/Projects/mothra/state/client-account-pef-01/project",
+        "--project-name",
+        "hotline-client-classic-01",
+        "--no-analyze",
+        "--discard",
+        "--language",
+        "PowerPC:BE:32:default",
+        "--compiler",
+        "default",
+        "--extension-jar",
+        "/data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar",
+        "--ready-timeout",
+        "120"
+      ],
+      "queries": [
+        {
+          "tool": "get_program_info",
+          "arguments": {},
+          "label": null
+        },
+        {
+          "tool": "decompile_function_by_address",
+          "arguments": {
+            "address": "10062e70"
+          },
+          "label": null
+        },
+        {
+          "tool": "get_program_info",
+          "arguments": {},
+          "label": null
+        }
+      ]
+    },
+    {
+      "phase": "B39",
+      "run": 1,
+      "started_at_utc": "2026-11-13T23:35:41.823894+00:00",
+      "finished_at_utc": "2026-11-13T23:35:49.756733+00:00",
+      "command": "/data/leynos/Projects/mothra/tools/ghidramcp/.venv/bin/ghidra-mcp",
+      "args": [
+        "--headless",
+        "--binary",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+        "--project",
+        "/data/leynos/Projects/mothra/state/client-account-pef-01/project",
+        "--project-name",
+        "hotline-client-classic-01",
+        "--no-analyze",
+        "--discard",
+        "--language",
+        "PowerPC:BE:32:default",
+        "--compiler",
+        "default",
+        "--extension-jar",
+        "/data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar",
+        "--ready-timeout",
+        "120"
+      ],
+      "queries": [
+        {
+          "tool": "get_program_info",
+          "arguments": {},
+          "label": null
+        },
+        {
+          "tool": "decompile_function_by_address",
+          "arguments": {
+            "address": "1005b5b0"
+          },
+          "label": null
+        },
+        {
+          "tool": "get_program_info",
+          "arguments": {},
+          "label": null
+        }
+      ]
+    },
+    {
+      "phase": "B39",
+      "run": 2,
+      "started_at_utc": "2026-11-13T23:36:10.227558+00:00",
+      "finished_at_utc": "2026-11-13T23:36:18.749851+00:00",
+      "command": "/data/leynos/Projects/mothra/tools/ghidramcp/.venv/bin/ghidra-mcp",
+      "args": [
+        "--headless",
+        "--binary",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic",
+        "--project",
+        "/data/leynos/Projects/mothra/state/client-account-pef-01/project",
+        "--project-name",
+        "hotline-client-classic-01",
+        "--no-analyze",
+        "--discard",
+        "--language",
+        "PowerPC:BE:32:default",
+        "--compiler",
+        "default",
+        "--extension-jar",
+        "/data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar",
+        "--ready-timeout",
+        "120"
+      ],
+      "queries": [
+        {
+          "tool": "get_program_info",
+          "arguments": {},
+          "label": null
+        },
+        {
+          "tool": "decompile_function_by_address",
+          "arguments": {
+            "address": "100b05d0"
+          },
+          "label": null
+        },
+        {
+          "tool": "decompile_function_by_address",
+          "arguments": {
+            "address": "1005ce30"
+          },
+          "label": null
+        },
+        {
+          "tool": "get_program_info",
+          "arguments": {},
+          "label": null
+        }
+      ]
+    }
+  ]
+}

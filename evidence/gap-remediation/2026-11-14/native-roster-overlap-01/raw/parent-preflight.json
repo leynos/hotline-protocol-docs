@@ -1,0 +1,10 @@
+{
+  "observed_at_utc": "2026-11-14T07:04:40.790392+00:00",
+  "status": "parent_runtime_source_and18_readiness_pass",
+  "pid": 953125,
+  "image_inode": 5973041789,
+  "namespace": 4026532547,
+  "deadline_utc": "2026-11-14T07:09:57.615913+00:00",
+  "overlap_socket_actions": 0,
+  "initial_parent_replay_path_error": "parent first used nonexistent captures/readiness; actual readiness/ verified, no native contact by either check"
+}

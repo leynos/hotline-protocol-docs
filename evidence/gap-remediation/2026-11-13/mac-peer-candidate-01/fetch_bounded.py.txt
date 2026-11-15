@@ -1,0 +1,46 @@
+from __future__ import annotations
+
+import hashlib
+import json
+import pathlib
+import time
+import urllib.request
+
+URL = "https://preterhuman.net/download/Hotline_Client_1.9.2_for_OSX_and_OS9.zip"
+ROOT = pathlib.Path(__file__).parent
+OUT = ROOT / "original.zip"
+META = ROOT / "retrieval.json"
+CAP = 5 * 1024 * 1024
+
+record: dict[str, object] = {"requested_url": URL, "cap_bytes": CAP, "started_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())}
+sha = hashlib.sha256()
+written = 0
+try:
+    with OUT.open("xb") as dst, urllib.request.urlopen(urllib.request.Request(URL, headers={"User-Agent": "mothra-corpus-acquisition/1.0"}), timeout=30) as response:
+        record["final_url"] = response.geturl()
+        record["status"] = response.status
+        record["headers"] = {k: v for k, v in response.headers.items() if k.lower() in {"content-type", "content-length", "last-modified", "etag", "content-disposition"}}
+        while True:
+            chunk = response.read(min(65536, CAP - written + 1))
+            if not chunk:
+                break
+            if written + len(chunk) > CAP:
+                allowed = CAP - written
+                if allowed:
+                    dst.write(chunk[:allowed])
+                    sha.update(chunk[:allowed])
+                    written += allowed
+                raise ValueError("streaming cap exceeded; partial retained")
+            dst.write(chunk)
+            sha.update(chunk)
+            written += len(chunk)
+    record["complete"] = True
+except Exception as exc:
+    record["complete"] = False
+    record["error"] = f"{type(exc).__name__}: {exc}"
+finally:
+    record["finished_utc"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+    record["written_bytes"] = written
+    record["sha256_of_written_bytes"] = sha.hexdigest()
+    META.write_text(json.dumps(record, indent=2, sort_keys=True) + "\n")
+print(json.dumps(record, indent=2, sort_keys=True))

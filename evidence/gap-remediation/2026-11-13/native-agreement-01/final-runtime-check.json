@@ -1,0 +1,8 @@
+{
+  "recorded_at_utc": "2026-11-13T02:07:05.688719+00:00",
+  "emulator_pid": 774378,
+  "running_executable_sha256": "b109f5c470fca6a1a5e0e0eaec4b5f5658d0e45ddafabf6b59bb7c4b35340146",
+  "process": "    PID STAT COMMAND\n 774378 SNl  /data/leynos/Projects/mothra/state/mac-runtime/hotline19/SheepShaver-b109f5c470fca6a1a5e0e0eaec4b5f5658d0e45ddafabf6b59bb7c4b35340146 /data/leynos/Projects/mothra/state/mac-runtime/hotline19/machine.sheepvm\n",
+  "restoration": "Positive snapshot native-restored-staged, four restored cases and351success/352failure in cleanup report. Agreement.saved remains preserved; original BMP fixture58bytes remains at m-img-b.bmp. Owned uploaded controls remain in Files/Trash.",
+  "scope": "Read-only process check. Patched timer build is not running."
+}

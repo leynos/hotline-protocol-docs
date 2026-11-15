@@ -1,0 +1,40 @@
+{
+  "scope": "C64 offline preboot; new immutable-base copy; no runtime contact",
+  "app": {
+    "admin": {
+      "catalog": "11193",
+      "size": 734,
+      "sha256": "26612ad46cd91b90050feacf517d32a9e56d4a4aa92fbe6618eaf6e9e5ac60a3"
+    },
+    "fixture_low": {
+      "catalog": "11201",
+      "size": 734,
+      "sha256": "fce81359d0efcfc6c2dbf42852db66b0fb7a404b2889162b8f8fad81361ce2d5"
+    },
+    "prefs": {
+      "catalog": "11202",
+      "size": 175,
+      "sha256": "4ed2b3e14e6e8a6cf246d16f7d1b98f0b91d1b09f6ab5497de1056a6f617d196"
+    },
+    "app_data": {
+      "catalog": "11183-4352-0",
+      "size": 616821,
+      "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+    },
+    "app_rsrc": {
+      "catalog": "11183-4353-1",
+      "size": 38460,
+      "sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12"
+    }
+  },
+  "catalog_entries": [
+    "-/r 11202:\tHotline19/Prefs",
+    "-/r 11193:\tHotline19/Users/admin/UserData",
+    "-/r 11201:\tHotline19/Users/fixture-low/UserData"
+  ],
+  "banned_absent": true,
+  "owned_account_absent": true,
+  "original_user_count": 2,
+  "source_base_sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910",
+  "rom_sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd"
+}

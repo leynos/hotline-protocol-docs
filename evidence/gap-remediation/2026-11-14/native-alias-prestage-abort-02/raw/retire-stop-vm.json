@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "systemctl",
+    "--user",
+    "stop",
+    "mothra-sheep-9865cb3ba7cd.service"
+  ],
+  "exit": 0,
+  "stdout": "",
+  "stderr": "",
+  "before_utc": "2026-11-14T22:03:01.966583+00:00",
+  "after_utc": "2026-11-14T22:03:01.999778+00:00"
+}

@@ -1,0 +1,11 @@
+C7 private direct-reply correction, base 481294915b48f4db06943c8af86cf31b7e47597a.
+Initial red: direct_ack_ router 4 failed on echoed type 107/200 (exit 101).
+Initial green: direct_ack_ router 4 passed (exit 0); focused wireframe 187 passed; writer, login/routing BDD and budget controls passed.
+First retained full gate: mxd-c7-full-20261113-1801.service, 551 PostgreSQL tests, 550 passed, one failed on duplicate field 300. Later profiles/doctests unrun.
+Extension red: direct_reply_validation 6 run, 4 failed on DuplicateField(300), 2 negative controls passed (exit 101).
+Extension green: six validator tests, one previously failing presence BDD, four direct-ACK router cases passed (exit 0).
+Final make check-fmt lint after extension: exit 0 across required profiles.
+Second retained full gate: mxd-c7-full-20261113-1815.service, InvocationID d228fc5d55dd456d9021aa7ed49ce31d. Unit Result=exit-code, ExecMainCode=1, ExecMainStatus=2. PostgreSQL: 557 run, 556 passed, 1 failed on embedded PostgreSQL startup at tests/wireframe_compat_guardrails_bdd.rs:91. Later profiles/doctests unrun. This is not full-gate success.
+Pre-existing marker-0/type-300 opaque request bypass remains unchanged. Negative duplicate-300 controls cover validated marker-0 Login107/notification301 and marker-2 type0; duplicate-102 direct reply remains rejected.
+Candidate source is uncommitted in the private mxd checkout; canonical mxd is unchanged. No Kani run/native traffic. Root cause of PostgreSQL bootstrap failure is unknown. No source commit or GAP closure.
+Raw full logs stay in ignored private state. Their SHA256 hashes are recorded in manifest; selected failure excerpts and retained unit properties are portable here.

@@ -1,0 +1,26 @@
+{
+  "status": "aborted_before_readiness_parent_checkpoint",
+  "captured_at_utc": "2026-11-14T22:20:14.538774+00:00",
+  "preparation_corpus": "../native-alias-preparation-04/manifest.json",
+  "original_epoch_start": "2026-11-14T21:37:20.932693+00:00",
+  "fixed_deadline": "2026-11-14T22:07:20.932693+00:00",
+  "emulator": {
+    "pid": 2807669,
+    "start_ticks": 11694814,
+    "netns_inode": 4026533891,
+    "working_inode": 2702544443
+  },
+  "operator_selected_target_before_checkpoint": true,
+  "parent_protected_receipt_checkpoint_failed": true,
+  "protected_prestage_receipt_created": false,
+  "protocol_readiness_or_case_started": false,
+  "tcp_packets_in_host_and_guest": 0,
+  "numbered_requests": 0,
+  "alias_created": false,
+  "app_quit_observed": false,
+  "os_shutdown_observed": false,
+  "retirement": "forced stop of exact owned unit; original protected processes unchanged",
+  "forensic_result": "raw/stopped-forensics/result.json",
+  "no_rom_os_image_raw_account_or_application_fork_included": true,
+  "next_requirement": "consolidated routine actions and pre-authored parent receipt; same hard bounds"
+}

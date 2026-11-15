@@ -1,0 +1,4 @@
+Id=mothra-native-rate304-c106-readiness.service
+ActiveState=active
+Result=success
+ExecMainStatus=0

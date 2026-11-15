@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T12:11:44.558857+00:00",
+  "query": {
+    "id": "D-10059670",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10059670"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_10059670\",\n    \"address\": \"10059670\"\n  },\n  \"code\": \"\\nundefined4 * FUN_10059670(undefined4 *param_1,short param_2)\\n\\n{\\n  if (param_1 != (undefined4 *)0x0) {\\n    *param_1 = &PTR_PTR_10094a98;\\n    FUN_10028ea0(PTR_PTR_1008906c,param_1,0);\\n    if (param_1[1] != 0) {\\n      if ((*(byte *)((int)param_1 + 0x2b) >> 5 & 1) != 0) {\\n        FUN_10082630(param_1[1],param_1);\\n      }\\n      FUN_10082630(param_1[1],param_1);\\n    }\\n    if (param_1[8] != 0) {\\n      FUN_10052c10(param_1[8]);\\n    }\\n    if (param_1[9] != 0) {\\n      FUN_10052c10(param_1[9]);\\n    }\\n    if (0 < param_2) {\\n      FUN_1006d290(param_1);\\n    }\\n  }\\n  return param_1;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_10059670",
+        "address": "10059670"
+      },
+      "code": "\nundefined4 * FUN_10059670(undefined4 *param_1,short param_2)\n\n{\n  if (param_1 != (undefined4 *)0x0) {\n    *param_1 = &PTR_PTR_10094a98;\n    FUN_10028ea0(PTR_PTR_1008906c,param_1,0);\n    if (param_1[1] != 0) {\n      if ((*(byte *)((int)param_1 + 0x2b) >> 5 & 1) != 0) {\n        FUN_10082630(param_1[1],param_1);\n      }\n      FUN_10082630(param_1[1],param_1);\n    }\n    if (param_1[8] != 0) {\n      FUN_10052c10(param_1[8]);\n    }\n    if (param_1[9] != 0) {\n      FUN_10052c10(param_1[9]);\n    }\n    if (0 < param_2) {\n      FUN_1006d290(param_1);\n    }\n  }\n  return param_1;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

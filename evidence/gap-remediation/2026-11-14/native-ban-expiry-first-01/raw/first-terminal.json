@@ -1,0 +1,18 @@
+{
+  "utc": "2026-11-14T05:55:45.910639+00:00",
+  "first_unit": "mothra-native-expiry-c77-first.service",
+  "first_exit": 0,
+  "request_utc": "2026-11-14T05:55:01.616113+00:00",
+  "ack_utc": "2026-11-14T05:55:01.632067+00:00",
+  "actual_emulator_pid": 774195,
+  "emulator_starttime": "5983214",
+  "image_inode": 3290756512,
+  "namespace": "net:[4026533397]",
+  "guest_pcap_fd16": "/data/leynos/Projects/mothra/state/native-sessions/native-ban-expiry-epoch-first-01/lab-guest.pcap",
+  "primary_syn_count": 0,
+  "managed_host_namespace_lease_stopped": true,
+  "oracle_mutex_free": true,
+  "application_sockets_established": false,
+  "original_pids_stable": true,
+  "vm_retained_for_idle": true
+}

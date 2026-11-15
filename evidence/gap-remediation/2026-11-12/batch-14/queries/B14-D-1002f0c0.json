@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T15:16:46.407144+00:00",
+  "query": {
+    "id": "B14-D-1002f0c0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002f0c0"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_1002f0c0\",\n    \"address\": \"1002f0c0\"\n  },\n  \"code\": \"\\nvoid FUN_1002f0c0(byte *param_1,int param_2)\\n\\n{\\n  bool bVar1;\\n  byte bVar2;\\n  short sVar3;\\n  \\n  if (param_1 == (byte *)0x0) {\\n    return;\\n  }\\n  if (param_2 == 0) {\\n    return;\\n  }\\n  sVar3 = FUN_1002a9f0();\\n  if (sVar3 < 0xa00) {\\n    while (bVar1 = param_2 != 0, param_2 = param_2 + -1, bVar1) {\\n      if (*param_1 == 0x3a) {\\n        *param_1 = 0x2d;\\n      }\\n      param_1 = param_1 + 1;\\n    }\\n    return;\\n  }\\n  if (*param_1 == 0x2e) {\\n    *param_1 = 0x2d;\\n  }\\n  if (param_2 == 1) {\\n    bVar2 = *param_1;\\n    if (bVar2 != 0x5c) {\\n      if (bVar2 < 0x5c) {\\n        if (bVar2 != 0x3f) {\\n          if (bVar2 < 0x3f) {\\n            if ((0x29 < bVar2) || (bVar2 < 0x28)) goto LAB_1002f1b8;\\n          }\\n          else if (bVar2 < 0x5b) goto LAB_1002f1b8;\\n        }\\n      }\\n      else {\\n        if (bVar2 == 0x7c) goto LAB_1002f1b8;\\n        if (bVar2 < 0x7c) {\\n          if ((bVar2 < 0x7b) && (0x5d < bVar2)) goto LAB_1002f1b8;\\n        }\\n        else if (0x7e < bVar2) goto LAB_1002f1b8;\\n      }\\n      *param_1 = 0x2d;\\n    }\\n  }\\nLAB_1002f1b8:\\n  while (bVar1 = param_2 != 0, param_2 = param_2 + -1, bVar1) {\\n    bVar2 = *param_1;\\n    if ((bVar2 == 0x3a) || ((bVar2 < 0x3a && (bVar2 == 0x2f)))) {\\n      *param_1 = 0x2d;\\n    }\\n    param_1 = param_1 + 1;\\n  }\\n  return;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_1002f0c0",
+        "address": "1002f0c0"
+      },
+      "code": "\nvoid FUN_1002f0c0(byte *param_1,int param_2)\n\n{\n  bool bVar1;\n  byte bVar2;\n  short sVar3;\n  \n  if (param_1 == (byte *)0x0) {\n    return;\n  }\n  if (param_2 == 0) {\n    return;\n  }\n  sVar3 = FUN_1002a9f0();\n  if (sVar3 < 0xa00) {\n    while (bVar1 = param_2 != 0, param_2 = param_2 + -1, bVar1) {\n      if (*param_1 == 0x3a) {\n        *param_1 = 0x2d;\n      }\n      param_1 = param_1 + 1;\n    }\n    return;\n  }\n  if (*param_1 == 0x2e) {\n    *param_1 = 0x2d;\n  }\n  if (param_2 == 1) {\n    bVar2 = *param_1;\n    if (bVar2 != 0x5c) {\n      if (bVar2 < 0x5c) {\n        if (bVar2 != 0x3f) {\n          if (bVar2 < 0x3f) {\n            if ((0x29 < bVar2) || (bVar2 < 0x28)) goto LAB_1002f1b8;\n          }\n          else if (bVar2 < 0x5b) goto LAB_1002f1b8;\n        }\n      }\n      else {\n        if (bVar2 == 0x7c) goto LAB_1002f1b8;\n        if (bVar2 < 0x7c) {\n          if ((bVar2 < 0x7b) && (0x5d < bVar2)) goto LAB_1002f1b8;\n        }\n        else if (0x7e < bVar2) goto LAB_1002f1b8;\n      }\n      *param_1 = 0x2d;\n    }\n  }\nLAB_1002f1b8:\n  while (bVar1 = param_2 != 0, param_2 = param_2 + -1, bVar1) {\n    bVar2 = *param_1;\n    if ((bVar2 == 0x3a) || ((bVar2 < 0x3a && (bVar2 == 0x2f)))) {\n      *param_1 = 0x2d;\n    }\n    param_1 = param_1 + 1;\n  }\n  return;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

@@ -1,0 +1,141 @@
+"""A85: two exact Classic Code-entry decompilation probes."""
+
+import asyncio
+import hashlib
+import json
+import os
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+
+from mcp import ClientSession, StdioServerParameters
+from mcp.client.stdio import stdio_client
+
+
+ROOT = Path("/data/leynos/Projects/mothra")
+BASE = ROOT / "state/delegation/classic-privilege-code-01"
+BINARY = ROOT / "state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic"
+RSRC = BINARY.parent / ".rsrc" / BINARY.name
+JAR = ROOT / "tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar"
+PROJECT = ROOT / "state/delegation/a70-client-privilege-oracle/project"
+SHA = {
+    "data": "7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315",
+    "resource": "f762cfdedcc39758f841f720a4586dbbb88a7b74ec9e83db1793791b7c3f318b",
+    "jar": "201d18ffde71a83a678eae607de265861f37e5a00b989d91958c1197664d2b43",
+}
+
+
+def digest(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def now() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+async def main() -> None:
+    hashes = {"data": digest(BINARY), "resource": digest(RSRC), "jar": digest(JAR)}
+    if hashes != SHA or not (PROJECT / "classic-privilege-01.gpr").is_file():
+        raise RuntimeError("Pinned Classic forks, JAR, or saved project differ")
+    for name in ("config", "cache", "data", "tmp", "home", "raw"):
+        (BASE / name).mkdir(exist_ok=True)
+    env = dict(os.environ)
+    env.update(
+        JAVA_HOME=str(ROOT / "tools/jdk-25.0.5+8"),
+        GHIDRA_INSTALL_DIR=str(ROOT / "tools/ghidra_12.2_PUBLIC"),
+        XDG_CONFIG_HOME=str(BASE / "config"),
+        XDG_CACHE_HOME=str(BASE / "cache"),
+        XDG_DATA_HOME=str(BASE / "data"),
+        TMPDIR=str(BASE / "tmp"),
+        JAVA_TOOL_OPTIONS=f"-Duser.home={BASE / 'home'} -Djava.io.tmpdir={BASE / 'tmp'}",
+    )
+    env["PATH"] = str(ROOT / "tools/jdk-25.0.5+8/bin") + os.pathsep + env["PATH"]
+    command = str(ROOT / "tools/ghidramcp/.venv/bin/ghidra-mcp")
+    args = [
+        "--headless", "--binary", str(BINARY), "--project", str(PROJECT),
+        "--project-name", "classic-privilege-01", "--no-analyze", "--discard",
+        "--language", "PowerPC:BE:32:default", "--compiler", "default",
+        "--extension-jar", str(JAR), "--ready-timeout", "540",
+    ]
+    report = {
+        "started_at_utc": now(), "script_sha256": digest(Path(__file__)),
+        "input_sha256": hashes, "command": command, "args": args,
+        "project": str(PROJECT / "classic-privilege-01.gpr"),
+        "status": "starting", "queries": [], "content_calls": 0,
+    }
+
+    def save() -> None:
+        (BASE / "report.json").write_text(json.dumps(report, indent=2) + "\n")
+
+    save()
+    params = StdioServerParameters(command=command, args=args, env=env, cwd=str(ROOT))
+    try:
+        with (BASE / "server.stderr.log").open("w") as err:
+            async with (
+                stdio_client(params, errlog=err) as (reader, writer),
+                ClientSession(reader, writer, read_timeout_seconds=timedelta(seconds=570)) as session,
+            ):
+                await session.initialize()
+
+                async def query(label: str, tool: str, arguments: dict, content=False) -> dict:
+                    if content and report["content_calls"] >= 4:
+                        raise RuntimeError("Four content calls already used")
+                    result = await session.call_tool(
+                        tool, arguments, read_timeout_seconds=timedelta(seconds=500)
+                    )
+                    payload = {
+                        "captured_at_utc": now(),
+                        "query": {"id": label, "tool": tool, "arguments": arguments},
+                        "result": result.model_dump(mode="json"),
+                    }
+                    (BASE / "raw" / f"{label}.json").write_text(
+                        json.dumps(payload, indent=2) + "\n"
+                    )
+                    report["queries"].append(
+                        {"id": label, "tool": tool, "arguments": arguments,
+                         "is_error": bool(result.isError)}
+                    )
+                    if content:
+                        report["content_calls"] += 1
+                    save()
+                    if (result.isError or result.structuredContent is None) and not (
+                        content and tool == "decompile_function_by_address"
+                    ):
+                        raise RuntimeError(f"{label} failed; raw response preserved")
+                    return result.structuredContent or {}
+
+                before = await query("identity-before", "get_program_info", {})
+                if not (
+                    before.get("sha256") == SHA["data"]
+                    and before.get("language_id") == "PowerPC:BE:32:default"
+                    and before.get("function_count") == 3564
+                    and before.get("executable_format") == "Preferred Executable Format (PEF)"
+                ):
+                    raise RuntimeError("Saved Classic project identity mismatch")
+                report["identity_before"] = before
+                report["status"] = "querying"
+                save()
+                for address in ("10090210", "10090190"):
+                    await query(
+                        f"decompile-{address}", "decompile_function_by_address",
+                        {"address": address}, content=True,
+                    )
+                report["bounded_stop"] = (
+                    "Exact two Code-entry probes only; any further xrefs require "
+                    "a positively identified class/editor edge in these replies"
+                )
+                after = await query("identity-after", "get_program_info", {})
+                if after != before:
+                    raise RuntimeError("Classic project identity changed")
+                report["identity_after"] = after
+                report["status"] = "bounded-stop" if "bounded_stop" in report else "complete"
+    except Exception as exc:
+        report["status"] = "failed-preserved"
+        report["error"] = f"{type(exc).__name__}: {exc}"
+        raise
+    finally:
+        report["finished_at_utc"] = now()
+        save()
+
+
+if __name__ == "__main__":
+    asyncio.run(main())

@@ -1,0 +1,36 @@
+{
+  "captured_at_utc": "2026-11-14T08:27:40.281529+00:00",
+  "query": {
+    "id": "class-xrefs",
+    "tool": "get_xrefs_to",
+    "arguments": {
+      "address": "1014fef8",
+      "limit": 100
+    }
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"items\": [\n    {\n      \"from\": \"1014ff30\",\n      \"type\": \"DATA\",\n      \"from_function\": null\n    }\n  ],\n  \"offset\": 0,\n  \"limit\": 100,\n  \"total\": 1,\n  \"has_more\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "items": [
+        {
+          "from": "1014ff30",
+          "type": "DATA",
+          "from_function": null
+        }
+      ],
+      "offset": 0,
+      "limit": 100,
+      "total": 1,
+      "has_more": false
+    },
+    "isError": false
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "utc": "2026-11-14T02:21:45.665561+00:00",
+  "files": {
+    "host.pcap": {
+      "bytes": 2377046,
+      "sha256": "28ed4bd8351197270399796554f7836471c20fd805c5ff3bd7a2707f2ffcb597"
+    },
+    "namespace.pcap": {
+      "bytes": 24811,
+      "sha256": "344c4e4ad024a56038654a402eed9190ecb2923d8961aa76e513c0c54dd10723"
+    },
+    "client-guest-pre.pcap": {
+      "bytes": 21534,
+      "sha256": "d2d3d6b977d035ad2b5258ed1f14ec845acc1147ecbbb6168c6fa12c63909574"
+    },
+    "server-guest-pre.pcap": {
+      "bytes": 30333680,
+      "sha256": "dbc78bc0de6f2d21cf6e3ee5655c5ef5d2c5b8734851de30a548fdd1ced0895f"
+    },
+    "client-guest-after-omit.pcap": {
+      "bytes": 27758,
+      "sha256": "9727a32cc34197dca142a0f7819c84ea455be4a85b4a669bf2ad4d910e2f84ac"
+    },
+    "server-guest-after-omit.pcap": {
+      "bytes": 31523067,
+      "sha256": "755aee30b79b52dd5da26ffc5f5830d8aca69a5b9cfae33e5ba0125f2fb66d64"
+    },
+    "client-guest-after-one.pcap": {
+      "bytes": 33574,
+      "sha256": "7fa51fa1593d33f383a4a65695399176c1b4cb8e871fd374471b32545ac2d9fb"
+    },
+    "server-guest-after-one.pcap": {
+      "bytes": 31526823,
+      "sha256": "1a46c3202051781888aad4741479b3cee68acc9b6b0e798fbfee8efc087d5d73"
+    },
+    "client-guest-after-four.pcap": {
+      "bytes": 40024,
+      "sha256": "bfc0915d5cd70240ca87e7581da64525c823f1606d8834ff45a82d977123a3e5"
+    },
+    "server-guest-after-four.pcap": {
+      "bytes": 31530789,
+      "sha256": "dcf638b1c6f4e4d7f6bf4c8cd9fa525ec24a959e8bef0ce76a0934c80a84c2ea"
+    },
+    "client-guest-post.pcap": {
+      "bytes": 40024,
+      "sha256": "bfc0915d5cd70240ca87e7581da64525c823f1606d8834ff45a82d977123a3e5"
+    },
+    "server-guest-post.pcap": {
+      "bytes": 32705334,
+      "sha256": "6b457ac510bf5cf145a6d66758fda311a9dbe75c34e3af7ff41d0450395c806f"
+    }
+  }
+}

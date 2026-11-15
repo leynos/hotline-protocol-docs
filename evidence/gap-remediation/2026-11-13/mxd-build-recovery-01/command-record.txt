@@ -1,0 +1,16 @@
+Historical private commands and outcomes. These are a record, not an instruction to replay the quarantine.
+
+# Exact damaged archive, after hash/stat/boundary capture and supervisor approval:
+mv -n /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/build/mxd/03fe09b6103be42f/out/libmxd-03fe09b6103be42f.rlib /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/diagnostics/mxd-linker-01/quarantine/libmxd-03fe09b6103be42f.rlib
+
+# Single-target rebuild in private mxd, exit 0:
+env -u CARGO_ENCODED_RUSTFLAGS CARGO_NET_OFFLINE=true CARGO_BUILD_JOBS=1 CARGO_TARGET_DIR=/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target RUSTFLAGS='-D warnings -Zthreads=8 -Clink-arg=-fuse-ld=mold' cargo test --offline --locked --no-default-features --features 'postgres test-support legacy-networking' --test wireframe_routing_bdd --no-run -vv
+
+# First post-repair full attempt in private mxd, exit 2 at UI path layout:
+CARGO_NET_OFFLINE=true CARGO_BUILD_JOBS=1 CARGO_TARGET_DIR=/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target make test
+
+# UI-only target-specific override, second attempt tool-reported exit 143 with no shell exit file:
+CARGO_TARGET_DIR=/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target CARGO_NET_OFFLINE=true CARGO_BUILD_JOBS=1 make --eval 'test-rstest-bdd-ui: export CARGO_TARGET_DIR := /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/target' test
+
+# Third attempt used the exact managed-run-script.txt under systemd-run --user,
+# RuntimeMaxSec=2400. The retained unit result was ExecMainStatus=2.

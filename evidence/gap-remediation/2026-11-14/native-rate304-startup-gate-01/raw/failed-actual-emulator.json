@@ -1,0 +1,12 @@
+{
+  "utc": "2026-11-14T11:10:06.055421+00:00",
+  "pid": 2626535,
+  "starttime": "7925773",
+  "exe": "/data/leynos/Projects/mothra/state/mac-runtime/native-rate304-02/SheepShaver-9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "uid": 1000,
+  "fd6": "/data/leynos/Projects/mothra/state/mac-runtime/native-rate304-02/working.dsk",
+  "fd6_inode": 65602436,
+  "fd16_exists": false,
+  "netns_inode": 4026533665,
+  "guest_pcap_exists": false
+}

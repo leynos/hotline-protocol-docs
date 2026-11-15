@@ -1,0 +1,10 @@
+{
+  "recorded_at_utc": "2026-11-14T08:07:51.237267+00:00",
+  "operator_command_scope": "capture_readiness.py host and namespace, executed as UID1000 instead of root",
+  "failure": "PermissionError: [Errno 13] Permission denied reading /proc/1220710/ns/net and /proc/1227790/ns/net",
+  "exit": "tool command exit1; stdout files host-ready.json and namespace-ready.json empty",
+  "source": "interactive tool output; no stderr file captured on first invocation",
+  "native_socket_actions": 0,
+  "case_deadline_utc": "2026-11-14T08:17:11.974963+00:00",
+  "corrective_gate": "requires root authorization; no rerun performed"
+}

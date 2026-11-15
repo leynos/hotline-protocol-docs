@@ -1,0 +1,9 @@
+{
+  "pid": 600782,
+  "starttime": "5595993",
+  "exe": "/data/leynos/Projects/mothra/state/mac-runtime/native-configured-apply-01/SheepShaver-9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "fd6": "/data/leynos/Projects/mothra/state/mac-runtime/native-configured-apply-01/working.dsk",
+  "netns": "net:[4026533397]",
+  "uid": "Uid:\t1000\t1000\t1000\t1000",
+  "cap_eff": "CapEff:\t0000000000020000"
+}

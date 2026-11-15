@@ -1,0 +1,11 @@
+Id=mothra-configured-apply-c65-host.service
+ActiveState=inactive
+SubState=dead
+MainPID=0
+Result=success
+
+Id=mothra-configured-apply-c65-lease.service
+ActiveState=inactive
+SubState=dead
+MainPID=0
+Result=success

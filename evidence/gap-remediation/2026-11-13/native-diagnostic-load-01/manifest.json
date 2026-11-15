@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "at_utc": "2026-11-13T15:56:24.778855+00:00",
+  "status": "failed owned-file seed, guarded cleanup complete; GAP-037 follow-up not achieved",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "emulator_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "runtime": "hotline22-recovery, managed service mothra-sheep-bf808bd28e0d, actual emulator PID1099659",
+  "owned_name_hex": "6d2d6469616733372d78787878787878787878787878787878787878787878",
+  "captures": [
+    {
+      "name": "preflight",
+      "status": "completed",
+      "actions": 18,
+      "host_packets": 30,
+      "kernel_drops": 0
+    },
+    {
+      "name": "seed",
+      "status": "failed",
+      "actions": 11,
+      "host_packets": 48,
+      "kernel_drops": 0
+    },
+    {
+      "name": "cleanup",
+      "status": "completed",
+      "actions": 24,
+      "host_packets": 37,
+      "kernel_drops": 0,
+      "branch": "present"
+    }
+  ],
+  "capture_limit": 8,
+  "captures_used": 3,
+  "original_options": {
+    "server_port": 5500,
+    "global_max_downloads": 100,
+    "per_client_max_downloads": 10,
+    "max_connections_per_ip": 5
+  },
+  "temporary_option_changes": 0,
+  "cleanup_driver_sha256": "8ef4dbfe44f89546a3165808f7946a88bc28415b556fcf372d8287747ac9ca2e",
+  "source_scope": "as-run-native_diagnostic_load_cases.py is exact captured cleanup coordinator source; current protocol module has since removed an unsafe static cleanup CLI branch",
+  "guest_capture": "guest-after-cleanup.pcap is cumulative from recovered runtime; guest-after-seed-failure.pcap is earlier snapshot",
+  "seed_failure": "203 accepted one reference; recorder sent 1,049,088 HTXF bytes, but host pcap retained 193,913 and guest 74,295 incoming bytes; server-side RST and guest Upload aborted. Why it aborted is unknown. No 206 success was recorded in seed.",
+  "partial_file": "Guarded cleanup 206 and full200 both positively identified exact preflight-absent owned name; 206 field205 bytes spell Incomplete File. One 204 deleted exactly that name, final206 missing and full200/348 baselines restored.",
+  "remaining": "No active-transfer/queued-transfer 303 witness, no near-1024-byte 303 example, no exact-text release policy decision. Do not claim GAP-037 closure.",
+  "lease": "Emulator/display left live to supervisor; host recorders stopped and capture sockets closed."
+}

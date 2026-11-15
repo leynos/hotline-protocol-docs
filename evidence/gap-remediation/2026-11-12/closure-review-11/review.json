@@ -1,0 +1,30 @@
+{
+  "gap_id": "GAP-063",
+  "status": "Resolved",
+  "unchanged_closure_criterion": "Specify the banner stream, reference/size lifetime and missing/changed-banner errors for supported metadata types.",
+  "requirements": [
+    {
+      "requirement": "Specify banner stream for supported metadata types",
+      "evidence": "Native JPEG634, BMP58, PICT642 including512-byte prefix, GIF43/58, PNGf fallback69, zero-type69 with no122, TEXT43 stored/42 loaded and URL controls; exact paired streams and positive native catalogue/fork observations."
+    },
+    {
+      "requirement": "Specify size/reference lifetime",
+      "evidence": "Earlier43-byte advertisement delivers58 replacement bytes; same original reference and connection survives failed loading and restores58 bytes with periodic owner activity. Prior valid/invalid selectors,214 noncancellation and bounded aged-reference rejection retained. The delayed owner receives122 before212 and subsequent image removal by Remote-empty; the independent early-control case removes the buffer through failed loading."
+    },
+    {
+      "requirement": "Specify missing/changed content errors",
+      "evidence": "Null size helper throws internal1/2 before212 ACK; bounded silence plus control liveness retained. Worker skips null buffer; protocol-confirmed recovery succeeds. Present empty buffer still advertisesGIFf and size0, then zero allocator throws1/2 and native data/owner/observer RST with GUI repeated-error reset. Fresh login succeeds without operator restart."
+    },
+    {
+      "requirement": "Provide documentation and repeatable evidence",
+      "evidence": "Published transfer/presence/error contracts and workflow; fixed one-pixel assets with provenance, generator, recorder, semantic verifier and mutation controls; all final paired streams plus explicit exploratory boundary difference."
+    }
+  ],
+  "not_claimed": [
+    "Historical client rendering or identified-peer interoperability",
+    "General exception translation, reset thresholds or universal timing guarantees",
+    "Other-owner, duplicate/reused reference matching or arbitrary HTXF header words",
+    "Restart durability or mxd release policy/sign-off"
+  ],
+  "scope_policy": "Keep all87 original IDs and criteria unchanged. Other outstanding requirements remain in scope; this closure is the native banner-stream question only."
+}

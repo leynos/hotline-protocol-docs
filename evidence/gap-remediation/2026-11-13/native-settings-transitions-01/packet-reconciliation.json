@@ -1,0 +1,152 @@
+{
+  "preflight": {
+    "a": {
+      "local_port": 48000,
+      "target_port": 15500,
+      "views": {
+        "host": {
+          "packets": 39,
+          "sent_bytes": 334,
+          "received_bytes": 3175,
+          "recorder_prefix_bytes": 3175,
+          "unread_tail_bytes": 0,
+          "unread_tail_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "unread_tail_hex": ""
+        },
+        "guest": {
+          "packets": 36,
+          "sent_bytes": 334,
+          "received_bytes": 3175,
+          "recorder_prefix_bytes": 3175,
+          "unread_tail_bytes": 0,
+          "unread_tail_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "unread_tail_hex": ""
+        }
+      }
+    },
+    "download": {
+      "local_port": 57166,
+      "target_port": 15501,
+      "views": {
+        "host": {
+          "packets": 1546,
+          "sent_bytes": 16,
+          "received_bytes": 1049073,
+          "recorder_prefix_bytes": 1049073,
+          "unread_tail_bytes": 0,
+          "unread_tail_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "unread_tail_hex": ""
+        },
+        "guest": {
+          "packets": 1544,
+          "sent_bytes": 16,
+          "received_bytes": 1049073,
+          "recorder_prefix_bytes": 1049073,
+          "unread_tail_bytes": 0,
+          "unread_tail_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "unread_tail_hex": ""
+        }
+      }
+    }
+  },
+  "observe": {
+    "main": {
+      "local_port": 60646,
+      "target_port": 15500,
+      "views": {
+        "host": {
+          "packets": 101,
+          "sent_bytes": 761,
+          "received_bytes": 1794,
+          "recorder_prefix_bytes": 1766,
+          "unread_tail_bytes": 28,
+          "unread_tail_sha256": "966dbf18a163ae2355137e799eaaa87819bb1ca63a5d22c34ed8c50cdb419709",
+          "unread_tail_hex": "0000012e000000120000000000000008000000080001006700020032"
+        },
+        "guest": {
+          "packets": 112,
+          "sent_bytes": 761,
+          "received_bytes": 1794,
+          "recorder_prefix_bytes": 1766,
+          "unread_tail_bytes": 28,
+          "unread_tail_sha256": "966dbf18a163ae2355137e799eaaa87819bb1ca63a5d22c34ed8c50cdb419709",
+          "unread_tail_hex": "0000012e000000120000000000000008000000080001006700020032"
+        }
+      }
+    },
+    "subject": {
+      "local_port": 60654,
+      "target_port": 15500,
+      "views": {
+        "host": {
+          "packets": 86,
+          "sent_bytes": 697,
+          "received_bytes": 1624,
+          "recorder_prefix_bytes": 1624,
+          "unread_tail_bytes": 0,
+          "unread_tail_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "unread_tail_hex": ""
+        },
+        "guest": {
+          "packets": 95,
+          "sent_bytes": 697,
+          "received_bytes": 1624,
+          "recorder_prefix_bytes": 1624,
+          "unread_tail_bytes": 0,
+          "unread_tail_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "unread_tail_hex": ""
+        }
+      }
+    }
+  },
+  "postflight": {
+    "a": {
+      "local_port": 51846,
+      "target_port": 15500,
+      "views": {
+        "host": {
+          "packets": 35,
+          "sent_bytes": 334,
+          "received_bytes": 3175,
+          "recorder_prefix_bytes": 3175,
+          "unread_tail_bytes": 0,
+          "unread_tail_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "unread_tail_hex": ""
+        },
+        "guest": {
+          "packets": 35,
+          "sent_bytes": 334,
+          "received_bytes": 3175,
+          "recorder_prefix_bytes": 3175,
+          "unread_tail_bytes": 0,
+          "unread_tail_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "unread_tail_hex": ""
+        }
+      }
+    },
+    "download": {
+      "local_port": 37366,
+      "target_port": 15501,
+      "views": {
+        "host": {
+          "packets": 1546,
+          "sent_bytes": 16,
+          "received_bytes": 1049073,
+          "recorder_prefix_bytes": 1049073,
+          "unread_tail_bytes": 0,
+          "unread_tail_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "unread_tail_hex": ""
+        },
+        "guest": {
+          "packets": 1544,
+          "sent_bytes": 16,
+          "received_bytes": 1049073,
+          "recorder_prefix_bytes": 1049073,
+          "unread_tail_bytes": 0,
+          "unread_tail_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "unread_tail_hex": ""
+        }
+      }
+    }
+  }
+}

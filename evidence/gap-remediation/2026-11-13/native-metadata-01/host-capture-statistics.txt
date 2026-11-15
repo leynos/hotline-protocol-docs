@@ -1,0 +1,4 @@
+Initial: 1818 packets captured; 3636 received by filter; 0 kernel drops.
+Corrected account cleanup: 33 captured; 68 received by filter; 0 kernel drops.
+Merged host capture concatenates literal records chronologically, retaining one global header.
+Combined-empty matrix: 310 captured; 620 received by filter; 0 kernel drops.

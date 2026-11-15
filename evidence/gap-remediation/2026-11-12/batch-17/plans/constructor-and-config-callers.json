@@ -1,0 +1,19 @@
+[
+  {
+    "id": "B17-A-10000160",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "10000160",
+      "limit": 400
+    }
+  },
+  {
+    "id": "B17-C-10008fd0",
+    "tool": "get_function_calls",
+    "arguments": {
+      "address": "10008fd0",
+      "direction": "callers",
+      "limit": 1000
+    }
+  }
+]

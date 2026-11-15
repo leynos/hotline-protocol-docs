@@ -1,0 +1,7 @@
+Id=mothra-native-liveness-c93-case.service
+ActiveState=active
+SubState=exited
+InvocationID=80957d9cdd8d4d3ab6d86304b9c30015
+Result=success
+ExecMainStatus=0
+NetworkNamespacePath=/proc/1221811/ns/net

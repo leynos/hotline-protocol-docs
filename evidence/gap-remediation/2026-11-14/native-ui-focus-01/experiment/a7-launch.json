@@ -1,0 +1,33 @@
+{
+  "utc": "2026-11-14T01:07:05.842753+00:00",
+  "argv": [
+    "sudo",
+    "-n",
+    "systemd-run",
+    "--unit=mothra-native-event-c50-a7.service",
+    "--property=Type=oneshot",
+    "--property=User=1000",
+    "--property=Group=1000",
+    "--property=NetworkNamespacePath=/proc/2055952/ns/net",
+    "--property=WorkingDirectory=/data/leynos/Projects/mothra",
+    "--property=RuntimeMaxSec=4min",
+    "--property=TimeoutStartSec=4min",
+    "--property=TimeoutStopSec=30s",
+    "--property=RemainAfterExit=yes",
+    "--property=Restart=no",
+    "--property=StandardOutput=append:/data/leynos/Projects/mothra/state/native-sessions/native-eventlab-c50/a7.log",
+    "--property=StandardError=append:/data/leynos/Projects/mothra/state/native-sessions/native-eventlab-c50/a7.log",
+    "--no-block",
+    "/usr/sbin/python3",
+    "/data/leynos/Projects/hotline-protocol-docs/scripts/protocol_capture.py",
+    "capture",
+    "/data/leynos/Projects/mothra/state/native-sessions/native-eventlab-c50/a7-as-run-plan.json",
+    "--oracle-binary",
+    "/data/leynos/Projects/mothra/evidence/hotline-server-1.9/inputs/HLserver19.pef",
+    "--output",
+    "/data/leynos/Projects/mothra/state/native-sessions/native-eventlab-c50/a7-capture"
+  ],
+  "exit": 0,
+  "stdout": "",
+  "stderr": "Running as unit: mothra-native-event-c50-a7.service\n"
+}

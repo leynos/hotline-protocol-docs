@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-13T06:50:17.272683+00:00",
+  "query": {
+    "id": "NW-D-100059e0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100059e0"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_100059e0\",\n    \"address\": \"100059e0\"\n  },\n  \"code\": \"\\nundefined4 FUN_100059e0(undefined4 param_1,undefined4 param_2,undefined4 param_3)\\n\\n{\\n  undefined4 uVar1;\\n  undefined1 auStack_f0 [128];\\n  undefined4 local_30;\\n  int local_2c;\\n  undefined1 *local_14;\\n  \\n  local_2c = FUN_10023180(param_2,&local_30,0);\\n  if (local_2c == 0) {\\n    uVar1 = 0;\\n  }\\n  else {\\n    local_14 = auStack_f0 + 0x80;\\n    FUN_100568b0(param_3,0x141,local_2c,local_30);\\n    if (local_2c != 0) {\\n      FUN_10052c10(local_2c);\\n    }\\n    uVar1 = 1;\\n  }\\n  return uVar1;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_100059e0",
+        "address": "100059e0"
+      },
+      "code": "\nundefined4 FUN_100059e0(undefined4 param_1,undefined4 param_2,undefined4 param_3)\n\n{\n  undefined4 uVar1;\n  undefined1 auStack_f0 [128];\n  undefined4 local_30;\n  int local_2c;\n  undefined1 *local_14;\n  \n  local_2c = FUN_10023180(param_2,&local_30,0);\n  if (local_2c == 0) {\n    uVar1 = 0;\n  }\n  else {\n    local_14 = auStack_f0 + 0x80;\n    FUN_100568b0(param_3,0x141,local_2c,local_30);\n    if (local_2c != 0) {\n      FUN_10052c10(local_2c);\n    }\n    uVar1 = 1;\n  }\n  return uVar1;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

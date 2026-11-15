@@ -1,0 +1,108 @@
+{
+  "schema": "alias-positive-basis-01",
+  "recorded_at_utc": "2026-11-14T15:09:28.629447+00:00",
+  "scope": "Read-only source and retained-fixture review; no new native alias or date result. Supports corrected M1 proof rule.",
+  "copies": [
+    {
+      "source": "state/delegation/a130-alias-positive-proof.md",
+      "retained": "a130-positive-proof.md",
+      "sha256": "2276141cc1bad4a06e3c33f165a8b993e297a0a81fb256f569025ba7abee4e88"
+    },
+    {
+      "source": "state/delegation/a131-alias-size-scope.md",
+      "retained": "a131-size-scope.md",
+      "sha256": "8af73819873a4391a984fc0d503fda3569e52e8ee984b818bfa5cac86a45f82d"
+    },
+    {
+      "source": "state/delegation/a132-extfs-date-witness-plan.md",
+      "retained": "a132-date-opportunity.md",
+      "sha256": "002922bb221bebe2e0a83384750336c0a0e5e0f9079ef9ac6f69e1e2f9243e7b"
+    },
+    {
+      "source": "tools/macemu/SheepShaver/src/Unix/extfs_unix.cpp",
+      "retained": "source/extfs_unix.cpp.txt",
+      "sha256": "3121708131dd9398a22d1ae3f1035b4e1d99613a13cbbb1b27d9b874a024b292"
+    },
+    {
+      "source": "tools/macemu/BasiliskII/src/include/extfs_defs.h",
+      "retained": "source/extfs_defs.h.txt",
+      "sha256": "be937e813c4a3907a6889a886146ce16d3fcf56d6f59ff2e5d838852e8c7808a"
+    },
+    {
+      "source": "state/delegation/b115-alis-poststop-binding.md",
+      "retained": "b115-resource-binding-boundary.md",
+      "sha256": "d7acecfece0e4332c546c4c9279a9efdabd86bbb59d3327f3f35889132d1987c"
+    }
+  ],
+  "referenced_tracked_files": {
+    "evidence/gap-remediation/2026-11-13/native-alias-01/oracle-queries/AL-D-10016ba0.c": "dc26e24b22c87291a02aa7712a11b57dd3444cf329b8d744c92bd525755c766e",
+    "evidence/gap-remediation/2026-11-13/native-alias-01/oracle-queries/AL-D-1002cf90.c": "b80c36aa7243e08506cd0277fceaa25379376189ad5ee9e49a9a10f1c4cdd672",
+    "evidence/gap-remediation/2026-11-13/native-alias-01/oracle-queries/AL-D-1002f600.c": "7b3d6f56b9d2d3faad2ac33aa68afa3b5cb6f3926c60663affedba92e043c627",
+    "evidence/gap-remediation/2026-11-13/native-alias-01/info/ordinary-file/report.json": "d535c418a45bd586c0b96ffc85595adc812b7e221755e753bd1e18849f45edf0",
+    "evidence/gap-remediation/2026-11-13/native-alias-01/info/file-alias/report.json": "515bcca1654360ccdab75ce27338e3cbb237d3a183975dff379a4a0d7d1e8a73",
+    "evidence/gap-remediation/2026-11-13/native-alias-01/info/file-chain/report.json": "ca6e2d83f1c19a484276c2f79990e217a375a08363497c803051e9579ed790b0",
+    "evidence/gap-remediation/2026-11-13/native-alias-01/native-live/extraction.json": "c89fc770a7c0188d796126db89598d0bce9ec0460422accfd50293638ea392c5",
+    "evidence/gap-remediation/2026-11-13/native-alias-01/native-live/catalog-11431.stat.txt": "a7a30fb9f7c9b49320bbfbcd2a9536ca04d06c795f9ce8f8acbb0e7bfb86fd08",
+    "evidence/gap-remediation/2026-11-13/native-alias-01/native-live/catalog-11444.stat.txt": "339d53f8ead75433c3bb839b33f4424333e061721af8055bcb7333e634a017a6",
+    "evidence/gap-remediation/2026-11-13/native-alias-01/native-live/catalog-11446.stat.txt": "1b04bae06fd472c9c1e7b97f88630a2d589e843ad965b1a16fdaff5859a1c515",
+    "evidence/gap-remediation/2026-11-13/native-alias-01/native-live/catalog-11431.data": "6a528a007473219c630eb33912684ba9b001572a0be084617af634e1bfa98f48",
+    "evidence/gap-remediation/2026-11-13/native-alias-01/native-live/catalog-11431.rsrc": "40a42dbcf2d879e22d9a5a9acf46bf15fa9fe3a77837f757a990e514436801e5",
+    "evidence/gap-remediation/2026-11-13/native-alias-01/native-live/catalog-11444.data": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence/gap-remediation/2026-11-13/native-alias-01/native-live/catalog-11444.rsrc": "52ec71de9969cd4e7fdf7d505d9e7ec203dc85faaf95b2b49aa065a97fdae62d",
+    "evidence/gap-remediation/2026-11-13/native-alias-01/native-live/catalog-11446.data": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence/gap-remediation/2026-11-13/native-alias-01/native-live/catalog-11446.rsrc": "f08e4c9e1b6129b835278211fc656d28fd6c483bb7065bd95ccc12747855e94c",
+    "evidence/gap-remediation/2026-11-13/native-agreement-01/oracle-queries/AG-D-1002c4d0.c": "708d92f440255ba83a22b16a2294d263aecd6f91800bd62ccb93061eb27d41b1",
+    "evidence/gap-remediation/2026-11-13/native-alias-01/oracle-queries/AL-D-10016ba0.json": "bb4dda959b50774e5fc343d2dd790a5d923c1e864bbad0ee42a09d1e079d7a56",
+    "evidence/gap-remediation/2026-11-13/native-alias-01/oracle-queries/AL-D-1002cf90.json": "30ad32b77bc45a07df50f1dd3e748c02f2725ec91334ce52b83a3ea2baf850a3",
+    "evidence/gap-remediation/2026-11-13/native-alias-01/oracle-queries/AL-D-1002f600.json": "a3931ec49570a967fe8f3bcca024678a4a83488cb7438b1acdcfd13f8aed9522",
+    "evidence/gap-remediation/2026-11-13/native-agreement-01/oracle-queries/AG-D-1002c4d0.json": "2cc0f54819a278fb79ee96a7e17b61c7c2131a61ebc19173c4bedf3ea1690daa"
+  },
+  "field207_contrast": {
+    "wire_target_and_aliases_hex": "014d",
+    "wire_decimal": 333,
+    "older_read_only_forks": [
+      {
+        "object": "target",
+        "catalog": 11431,
+        "data_bytes": 16,
+        "resource_bytes": 317,
+        "sum": 333
+      },
+      {
+        "object": "alias",
+        "catalog": 11444,
+        "data_bytes": 0,
+        "resource_bytes": 546,
+        "sum": 546
+      },
+      {
+        "object": "chain",
+        "catalog": 11446,
+        "data_bytes": 0,
+        "resource_bytes": 540,
+        "sum": 540
+      }
+    ],
+    "meaning": "Resolved target DATA plus resource aggregate in these successful file-alias paths; not alias own forks or DATA-only length."
+  },
+  "proposed_positive206": {
+    "201": "copied alias name from bounded reviewed UI receipt",
+    "205": "553534542028616c69617329",
+    "206": "4d353458",
+    "213": "55353454",
+    "207": "observe; no DATA20 equality assertion"
+  },
+  "proposed_finf_hex": "553534544d353458000000000000000000000000000000000000000000000000",
+  "limits": [
+    "Older native-live catalogue reads have no PID-gone/FD-free stopped-image proof and are not a consistent/durable snapshot. No image is read again.",
+    "Exact future type/creator tuple and later stopped alias binding are required together. New extfs alias creation/copy and post-unlink behaviour remain unobserved.",
+    "The date comparison is conditional on actual emulator process timezone and stable host mtime; it does not equate Unix ctime to creation or close GAP020.",
+    "Local resource-map extraction proves alis ID0 but no primary AliasRecord target-field parser was found. A separately authorised read-only Finder Original observation may supply the missing Unix/leaf binding; no native result is claimed."
+  ],
+  "oracle_query_provenance": [
+    "evidence/gap-remediation/2026-11-13/native-alias-01/oracle-queries/AL-D-10016ba0.json",
+    "evidence/gap-remediation/2026-11-13/native-alias-01/oracle-queries/AL-D-1002cf90.json",
+    "evidence/gap-remediation/2026-11-13/native-alias-01/oracle-queries/AL-D-1002f600.json",
+    "evidence/gap-remediation/2026-11-13/native-agreement-01/oracle-queries/AG-D-1002c4d0.json"
+  ]
+}

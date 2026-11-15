@@ -1,0 +1,51 @@
+{
+  "reviews": [
+    {
+      "gap_id": "GAP-025",
+      "status": "Resolved",
+      "unchanged_closure_criterion": "Provide state/sequence tables and captured fixtures for each configured path, including duplicate/out-of-state requests and visibility timing.",
+      "requirements": [
+        {
+          "requirement": "State/sequence tables for each configured path",
+          "evidence": "42 accepted cases in native-agreement-01: early/delayed ordinary and bit27-bypass accounts across original/restored TEXT, missing, empty, unreadable-directory, typed content and loader-limit configurations. ACK/354/109 versus ACK/109 then121 ACK/354/122 sequences are exact; 65536-byte non-TEXT partial failures are separately captured and described."
+        },
+        {
+          "requirement": "Duplicate and out-of-state requests",
+          "evidence": "40 ordinary matrix cases include online121/107 status1 Unknown transaction type and successful500. Prior native-auth-01 retains premature121, incorrect-password then121, waiting-state repeated107 and naming/icon branch controls. No universal recovery timeout is inferred from retained failed hypotheses."
+        },
+        {
+          "requirement": "Visibility timing",
+          "evidence": "Every matrix case uses an independent observer with baseline/before-completion/after-completion/post-close300 rosters and301/302 notifications. Delayed three-second wait distinguishes authentication from readiness; bypass does not auto-complete it. Cross-connection total delivery order and atomic roster subscription are explicitly not claimed."
+        },
+        {
+          "requirement": "Provenance, partial failure and restored state",
+          "evidence": "Paired exact TCP streams, positive native path/type/forks,16 identity-checked read-only Ghidra queries, original245-byte TEXT restored and242-byte109 rechecked.351 removes the owned bypass account;352 fails afterward. Host timer stall/recovery and failed BINA/EOF hypotheses remain separately retained, never accepted as native successes."
+        }
+      ]
+    },
+    {
+      "gap_id": "GAP-027",
+      "status": "Resolved",
+      "unchanged_closure_criterion": "Document the configuration/account condition matrix and its wire/state outcomes; include absent, empty and configured agreement fixtures.",
+      "requirements": [
+        {
+          "requirement": "Configuration/account condition matrix and wire/state outcomes",
+          "evidence": "40 cases cover both readiness paths for ordinary and bit27 accounts across10 configurations. Bit27 emits154=0001 independently of text and does not replace delayed121. Missing/empty/unreadable emit zero fields, not empty101 or154; early readiness still needs no121. Original and restored245-byte TEXT yields242 bytes."
+        },
+        {
+          "requirement": "Absent, empty and configured agreement fixtures",
+          "evidence": "Missing-file reload diagnostic plus original backup establish the absent setup; positive native zero-byte TEXT and directory at the exact application-relative path establish empty and unreadable setups. Nonempty TEXT34->32 and recognized BMP34->34 retain LF/high byte/NUL controls. TEXT65535 serializes; TEXT65536 and BMP262141 warn at their distinct loader caps then omit fields."
+        },
+        {
+          "requirement": "Replacement and oversized partial failures",
+          "evidence": "Loader03940/03bd0 releases old content before replacement; nonempty-to-empty wire sequence omits old text. Field writer568b0 omits zero-length fields and rejects65536 with internalSError1/10. Final BMP65536 probes retain early online/354/500 without109 versus delayed unlisted/no109 then500-triggered close; initial30second immediate-EOF and pipelined hypotheses remain unchanged."
+        },
+        {
+          "requirement": "Repeatable evidence and cleanup",
+          "evidence": "Dedicated generators stage exact-name children and hash-guard original restoration. Semantic verifier checks42cases plus28setup/11non-stalled exploratory paired streams; host-stall report has a distinct bounded diagnostic. Five new regression tests reject reduced inventory, Finder-type and content substitutions. No ROM/disk, historical-peer or restart-durability claim."
+        }
+      ]
+    }
+  ],
+  "scope": "Original criteria and all87IDs preserved. No global timing, general-operation, historical-peer, mxd acceptance or restart-durability requirement is closed by these fixtures."
+}

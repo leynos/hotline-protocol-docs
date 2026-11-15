@@ -1,0 +1,39 @@
+Updating and loading repositories:
+ opentofu-source                        100% | 825.0   B/s |   2.5 KiB |  00m03s
+>>> repomd.xml GPG signature verification error: Signing key not found          
+ opentofu                               100% | 864.0   B/s |   2.7 KiB |  00m03s
+>>> repomd.xml GPG signature verification error: Signing key not found          
+ https://get.opentofu.org/opentofu.asc  100% |  29.3 KiB/s |   3.1 KiB |  00m00s
+ https://get.opentofu.org/opentofu.asc  100% |  28.0 KiB/s |   3.1 KiB |  00m00s
+ https://packages.opentofu.org/opentofu 100% |   6.8 KiB/s |   3.9 KiB |  00m01s
+ https://packages.opentofu.org/opentofu 100% |   7.5 KiB/s |   3.9 KiB |  00m01s
+Importing OpenPGP key 0xE5FD9F80:
+ UserID     : "OpenTofu (This key is used to sign opentofu providers) <core@opentofu.org>"
+ Fingerprint: E3E6E43D84CB852EADB0051D0C0AF313E5FD9F80
+ From       : https://get.opentofu.org/opentofu.asc
+Is this ok [y/N]: Importing OpenPGP key 0x4C61499F:
+ UserID     : "https://packagecloud.io/opentofu/tofu (https://packagecloud.io/docs#gpg_signing) <support@packagecloud.io>"
+ Fingerprint: F4AF70F66EAC4337EEECC97407D3DFCD4C61499F
+ From       : https://packages.opentofu.org/opentofu/tofu/gpgkey
+Is this ok [y/N]: Importing OpenPGP key 0xE5FD9F80:
+ UserID     : "OpenTofu (This key is used to sign opentofu providers) <core@opentofu.org>"
+ Fingerprint: E3E6E43D84CB852EADB0051D0C0AF313E5FD9F80
+ From       : https://get.opentofu.org/opentofu.asc
+Is this ok [y/N]: Importing OpenPGP key 0x4C61499F:
+ UserID     : "https://packagecloud.io/opentofu/tofu (https://packagecloud.io/docs#gpg_signing) <support@packagecloud.io>"
+ Fingerprint: F4AF70F66EAC4337EEECC97407D3DFCD4C61499F
+ From       : https://packages.opentofu.org/opentofu/tofu/gpgkey
+Is this ok [y/N]:  opentofu-source                        100% | 837.0   B/s |   2.5 KiB |  00m03s
+>>> repomd.xml GPG signature verification error: Signing key not found          
+ opentofu                               100% | 876.0   B/s |   2.7 KiB |  00m03s
+>>> repomd.xml GPG signature verification error: Signing key not found          
+Repositories loaded.
+Downloading Packages:
+ ncurses-libs-0:6.5-7.20250614.fc43.i68 100% |   1.6 MiB/s | 353.1 KiB |  00m00s
+ ncurses-devel-0:6.5-7.20250614.fc43.x8 100% |   2.5 MiB/s | 590.2 KiB |  00m00s
+ ncurses-devel-0:6.5-7.20250614.fc43.i6 100% |   2.4 MiB/s | 590.0 KiB |  00m00s
+ ncurses-libs-0:6.5-7.20250614.fc43.x86 100% |   7.4 MiB/s | 332.7 KiB |  00m00s
+ readline-0:8.3-2.fc43.i686             100% |   6.4 MiB/s | 230.1 KiB |  00m00s
+ readline-0:8.3-2.fc43.x86_64           100% |   6.3 MiB/s | 224.6 KiB |  00m00s
+ readline-devel-0:8.3-2.fc43.x86_64     100% |   7.1 MiB/s | 219.1 KiB |  00m00s
+ readline-devel-0:8.3-2.fc43.i686       100% |   5.9 MiB/s | 219.1 KiB |  00m00s

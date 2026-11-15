@@ -1,0 +1,32 @@
+[
+  {
+    "id": "B17-M-agreement-filename",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "1008f88f",
+      "length": 32
+    }
+  },
+  {
+    "id": "B17-M-text-newlines",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "1008fc50",
+      "length": 8
+    }
+  },
+  {
+    "id": "B17-D-1006cf70",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1006cf70"
+    }
+  },
+  {
+    "id": "B17-D-100023a0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100023a0"
+    }
+  }
+]

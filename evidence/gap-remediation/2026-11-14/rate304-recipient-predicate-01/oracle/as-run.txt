@@ -1,0 +1,1 @@
+flock -n state/delegation/oracle.lock timeout --signal=INT --kill-after=15s 600s tools/ghidramcp/.venv/bin/python state/delegation/rate304-recipient-oracle-01/capture.py

@@ -1,0 +1,48 @@
+# B96 independent A112 remediation review
+
+Reviewed exact canonical Mothra commit
+`fdd73dddf4c2af95ede9119d2a6f64a88397ab85` on 14 November 2026.
+No tracked edit, emulator, service, native request, oracle or mxd action.
+The original B95 counterexample report remains unchanged. Root's accepted
+disposition is that disk phase establishes process/image identity; guest
+Ethernet may already have started. The required capture boundary is before
+the first Hotline protocol request, not before the first Ethernet packet.
+
+## Fresh committed export
+
+An exact four-file archive (helper, test, capture-readiness dependency and
+guide) under private ignored `state/delegation/b96-minimal-export` passed
+all **nine** unittest cases, Ruff format/check, ty, Markdownlint and Nixie.
+The real child still has synthetic FD6/FD16; only its non-host namespace is
+mocked. This is not an actual isolated SheepShaver integration test.
+
+## Accepted fixes
+
+- At the end of `check`, the helper now calls `disk_snapshot` a second time
+  and compares every recorded key, after rechecking unique FD6 owner. That
+  repeats executable SHA-256, UID, netns, image inode and start tick before
+  writing a receipt. A direct replay of B95's changed-executable probe now
+  calls `exe_hash` twice and rejects the second changed hash. The new test
+  also perturbs UID and namespace at the final read and requires failure.
+- The capture parser now unpacks the 24-byte header according to its magic
+  and requires version 2.4, zone/accuracy zero, snaplen 65535 and Ethernet
+  link type 1. It rejects nanosecond magic. A direct replay of B95's
+  same-inode invalid minor/snaplen/DLT counterexample now fails on version;
+  new tests reject each malformed field in both byte orders and accept a
+  complete big-endian sample. These are the known recorder's PCAP-header
+  properties, not a claim that packet records are valid or complete.
+- The guide now explicitly says the disk receipt does not establish that
+  the first Ethernet packet is still pending. The B95 real-child probe with
+  FD16/header already open still returns a disk identity receipt, as it
+  should under root's accepted phase contract. Capture phase then checks
+  current FD16/path/inode/header before protocol traffic.
+
+## Remaining boundary
+
+This review finds no blocker within the corrected helper's stated scope.
+It does not prove that the capture phase ran before the first Hotline
+request; the future orchestrator must order and attest that boundary. The
+helper cannot atomically lock a process against mutation after its final
+snapshot, so the existing live runtime identity and capture gates must be
+rechecked immediately before protocol contact. Neither test suite nor this
+review proves actual namespace/emulator integration or packet drop counts.

@@ -1,0 +1,17 @@
+{
+  "gap": "GAP-017",
+  "criterion_unchanged": "Define multiplicity and ordering by transaction/field and test repeated scalars, interleaved repeated records and reordered inputs.",
+  "decision": "Resolved against original criterion",
+  "basis": [
+    "Per-transaction scalar/repeated and packed-inner-record cardinality/ordering consolidated in parameter-multiplicity.md and linked core schemas",
+    "45 frozen catalogue handler source hashes independently checked",
+    "Native icon/113 repeated scalars and reversed orders; interleaved113 with104/102; sequential349 outerIDs0,65000,0; repeated room103 targets all retained",
+    "Matched host/guest replay and fullA7 controls for new113cases passed; no universal first/last policy inferred"
+  ],
+  "source_manifest_sha256": "ea907d6a6ff7eb690fc35595a712bcbc554c10f766f5af5a098d7559b77f5cef",
+  "limits": [
+    "No exhaustive malformed permutation or per-field duplicate selection guarantee",
+    "Direct-call survey does not rule out all alias/indirect accesses",
+    "Unknown native scalar duplicate selection remains explicitly unspecified, not rejected or forcedlast-wins"
+  ]
+}

@@ -1,0 +1,22 @@
+"""As-run operator helper for this1024x768 native Options dialog."""
+import sys,subprocess,time,json
+from datetime import datetime,timezone
+from pathlib import Path
+sys.path.insert(0,'../hotline-protocol-docs/scripts')
+from native_banner_formats import FORMATS
+from verify_native_banner_formats import check_format
+r=Path('state/native-sessions/runtime-11')
+def inp(*args):subprocess.run([sys.executable,'state/native-mac/input.py',*map(str,args)],check=True)
+def note(name,action):
+ with (r/'phase-events.jsonl').open('a') as f:f.write(json.dumps({'utc':datetime.now(timezone.utc).isoformat(),'format':name,'action':action})+'\n')
+for name in sys.argv[1:]:
+ print('Configure',name,flush=True);note(name,'begin foreground and Options sequence')
+ inp('click',500,350);time.sleep(1);inp('click',910,560);time.sleep(2)
+ inp('click',933,88);time.sleep(4);inp('click',933,88);time.sleep(4)
+ inp('click',433,248);time.sleep(3);inp('click',323,305);inp('click',492,332);inp('key','Alt_L+a');inp('type',FORMATS[name][0].decode());time.sleep(2)
+ subprocess.run(['import','-display',':97','-window','root',str(r/(name+'-before-save.png'))],check=True)
+ inp('click',678,540);time.sleep(3);note(name,'Save clicked; following protocol observation is phase authority')
+ p=r/(name+'-plans')/('format-'+name+'.json');out=r/'captures'/('format-'+name)
+ result=subprocess.run([sys.executable,'../hotline-protocol-docs/scripts/protocol_capture.py','capture',str(p),'--oracle-binary','evidence/hotline-server-1.9/inputs/HLserver19.pef','--output',str(out)])
+ if result.returncode:raise SystemExit(result.returncode)
+ report=json.load(open(out/'report.json'));print(json.dumps(check_format(name,report)),flush=True)

@@ -1,0 +1,62 @@
+{
+  "utc": "2026-11-14T08:52:22.613787+00:00",
+  "emulator_pid_gone": true,
+  "working_inode": 3290903959,
+  "fd_free": true,
+  "files": {
+    "admin": {
+      "catalog": "11193",
+      "exit": 0,
+      "size": 734,
+      "sha256": "26612ad46cd91b90050feacf517d32a9e56d4a4aa92fbe6618eaf6e9e5ac60a3",
+      "matches_preflight": true
+    },
+    "fixture-low": {
+      "catalog": "11201",
+      "exit": 0,
+      "size": 734,
+      "sha256": "fce81359d0efcfc6c2dbf42852db66b0fb7a404b2889162b8f8fad81361ce2d5",
+      "matches_preflight": true
+    },
+    "Prefs": {
+      "catalog": "11202",
+      "exit": 0,
+      "size": 175,
+      "sha256": "4ed2b3e14e6e8a6cf246d16f7d1b98f0b91d1b09f6ab5497de1056a6f617d196",
+      "matches_preflight": true
+    },
+    "server-data": {
+      "catalog": "11183-4352-0",
+      "exit": 0,
+      "size": 616821,
+      "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+      "matches_preflight": true
+    },
+    "server-rsrc": {
+      "catalog": "11183-4353-1",
+      "exit": 0,
+      "size": 38460,
+      "sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12",
+      "matches_preflight": true
+    }
+  },
+  "board": {
+    "catalog_id": 11191,
+    "path": "/Hotline19/MessageBoard.txt",
+    "istat_exit": 0,
+    "istat_sha256": "a920fecd49fdd10ea6b3d01d6786edd743e62a1b7d92d7d96d25952780efbdf2",
+    "finder_type": "TEXT",
+    "finder_creator": "ttxt",
+    "data": {
+      "exit": 0,
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "rsrc": {
+      "exit": 1,
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "absent_attribute; istat resource fork size 0"
+    }
+  }
+}

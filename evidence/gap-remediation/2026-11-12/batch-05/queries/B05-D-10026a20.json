@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T14:10:23.038760+00:00",
+  "query": {
+    "id": "B05-D-10026a20",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10026a20"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_10026a20\",\n    \"address\": \"10026a20\"\n  },\n  \"code\": \"\\nint FUN_10026a20(int param_1)\\n\\n{\\n  uint *puVar1;\\n  int iVar2;\\n  char cVar3;\\n  int iVar4;\\n  uint uVar5;\\n  uint uVar6;\\n  uint uVar7;\\n  uint uVar8;\\n  uint uVar9;\\n  uint uVar10;\\n  uint uVar11;\\n  uint uVar12;\\n  uint uVar13;\\n  uint uVar14;\\n  uint uVar15;\\n  uint uVar16;\\n  undefined4 local_50;\\n  undefined4 local_4c [5];\\n  \\n  iVar4 = 1;\\n  uVar5 = 0;\\n  while (uVar5 = uVar5 + 1, uVar5 <= *(uint *)(param_1 + 0x10)) {\\n    puVar1 = *(uint **)(*(int *)(param_1 + 0xc) + uVar5 * 4 + -4);\\n    if (puVar1[1] == 0) {\\n      uVar6 = (-*puVar1 | *puVar1) >> 0x1f;\\n    }\\n    else {\\n      uVar8 = puVar1[1];\\n      uVar6 = 1;\\n      uVar11 = 0;\\n      while (uVar11 = uVar11 + 1, uVar11 <= *(uint *)(uVar8 + 0x10)) {\\n        puVar1 = *(uint **)(*(int *)(uVar8 + 0xc) + uVar11 * 4 + -4);\\n        if (puVar1[1] == 0) {\\n          uVar14 = (-*puVar1 | *puVar1) >> 0x1f;\\n        }\\n        else {\\n          uVar15 = puVar1[1];\\n          uVar14 = 1;\\n          uVar16 = 0;\\n          while (uVar16 = uVar16 + 1, uVar16 <= *(uint *)(uVar15 + 0x10)) {\\n            puVar1 = *(uint **)(*(int *)(uVar15 + 0xc) + uVar16 * 4 + -4);\\n            if (puVar1[1] == 0) {\\n              uVar10 = (-*puVar1 | *puVar1) >> 0x1f;\\n            }\\n            else {\\n              uVar12 = puVar1[1];\\n              uVar10 = 1;\\n              uVar13 = 0;\\n              while (uVar13 = uVar13 + 1, uVar13 <= *(uint *)(uVar12 + 0x10)) {\\n                puVar1 = *(uint **)(*(int *)(uVar12 + 0xc) + uVar13 * 4 + -4);\\n                if (puVar1[1] == 0) {\\n                  uVar7 = (-*puVar1 | *puVar1) >> 0x1f;\\n                }\\n                else {\\n                  uVar9 = puVar1[1];\\n                  uVar7 = 1;\\n                  local_4c[0] = 0;\\n                  while (cVar3 = FUN_100269d0(uVar9 + 0xc,&local_50,local_4c), cVar3 != '\\\\0') {\\n                    iVar2 = FUN_10026c50(local_50);\\n                    uVar7 = uVar7 + iVar2;\\n                  }\\n                }\\n                uVar10 = uVar10 + uVar7;\\n              }\\n            }\\n            uVar14 = uVar14 + uVar10;\\n          }\\n        }\\n        uVar6 = uVar6 + uVar14;\\n      }\\n    }\\n    iVar4 = iVar4 + uVar6;\\n  }\\n  return iVar4;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_10026a20",
+        "address": "10026a20"
+      },
+      "code": "\nint FUN_10026a20(int param_1)\n\n{\n  uint *puVar1;\n  int iVar2;\n  char cVar3;\n  int iVar4;\n  uint uVar5;\n  uint uVar6;\n  uint uVar7;\n  uint uVar8;\n  uint uVar9;\n  uint uVar10;\n  uint uVar11;\n  uint uVar12;\n  uint uVar13;\n  uint uVar14;\n  uint uVar15;\n  uint uVar16;\n  undefined4 local_50;\n  undefined4 local_4c [5];\n  \n  iVar4 = 1;\n  uVar5 = 0;\n  while (uVar5 = uVar5 + 1, uVar5 <= *(uint *)(param_1 + 0x10)) {\n    puVar1 = *(uint **)(*(int *)(param_1 + 0xc) + uVar5 * 4 + -4);\n    if (puVar1[1] == 0) {\n      uVar6 = (-*puVar1 | *puVar1) >> 0x1f;\n    }\n    else {\n      uVar8 = puVar1[1];\n      uVar6 = 1;\n      uVar11 = 0;\n      while (uVar11 = uVar11 + 1, uVar11 <= *(uint *)(uVar8 + 0x10)) {\n        puVar1 = *(uint **)(*(int *)(uVar8 + 0xc) + uVar11 * 4 + -4);\n        if (puVar1[1] == 0) {\n          uVar14 = (-*puVar1 | *puVar1) >> 0x1f;\n        }\n        else {\n          uVar15 = puVar1[1];\n          uVar14 = 1;\n          uVar16 = 0;\n          while (uVar16 = uVar16 + 1, uVar16 <= *(uint *)(uVar15 + 0x10)) {\n            puVar1 = *(uint **)(*(int *)(uVar15 + 0xc) + uVar16 * 4 + -4);\n            if (puVar1[1] == 0) {\n              uVar10 = (-*puVar1 | *puVar1) >> 0x1f;\n            }\n            else {\n              uVar12 = puVar1[1];\n              uVar10 = 1;\n              uVar13 = 0;\n              while (uVar13 = uVar13 + 1, uVar13 <= *(uint *)(uVar12 + 0x10)) {\n                puVar1 = *(uint **)(*(int *)(uVar12 + 0xc) + uVar13 * 4 + -4);\n                if (puVar1[1] == 0) {\n                  uVar7 = (-*puVar1 | *puVar1) >> 0x1f;\n                }\n                else {\n                  uVar9 = puVar1[1];\n                  uVar7 = 1;\n                  local_4c[0] = 0;\n                  while (cVar3 = FUN_100269d0(uVar9 + 0xc,&local_50,local_4c), cVar3 != '\\0') {\n                    iVar2 = FUN_10026c50(local_50);\n                    uVar7 = uVar7 + iVar2;\n                  }\n                }\n                uVar10 = uVar10 + uVar7;\n              }\n            }\n            uVar14 = uVar14 + uVar10;\n          }\n        }\n        uVar6 = uVar6 + uVar14;\n      }\n    }\n    iVar4 = iVar4 + uVar6;\n  }\n  return iVar4;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

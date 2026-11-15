@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "no_service_or_x": true,
+  "case_cutoffs": {
+    "0": true,
+    "109": true,
+    "110": false,
+    "future_start": false
+  },
+  "approval_model": "2/35/3/2/10 complete passed; five shortened sets rejected",
+  "no_x_model": "display MainPID replacement, live display executable hash change, startup before capture allowed, startup after capture FD16 replacement rejected, retire attempted Quit replay rejected"
+}

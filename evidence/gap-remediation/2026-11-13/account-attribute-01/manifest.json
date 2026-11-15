@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "oracle_identity_scope": "read-only Ghidra PEF; no native runtime",
+  "query_count": 28,
+  "capture_exit_codes": [
+    0,
+    0,
+    0
+  ],
+  "capture_script_source": "/data/leynos/Projects/mothra/scripts/capture-ghidra-evidence.py",
+  "capture_script_sha256": "47097d4995d2d2595c07ee25648bfef9096342055972a41fdaa94efc35015a05",
+  "capture_command": "flock -x /data/leynos/Projects/mothra/state/delegation/oracle.lock /data/leynos/Projects/mothra/tools/ghidramcp/.venv/bin/python /data/leynos/Projects/mothra/scripts/capture-ghidra-evidence.py PLAN OUTPUT",
+  "scope": "Static account-attribute 111 trace. Ghidra direct callers and decompilation are bounded; whole-record copies and derived/indexed accesses prevent a global no-consumer conclusion. No human meaning inferred.",
+  "original_record_sources": [
+    "evidence/gap-remediation/2026-11-12/native-core-01",
+    "evidence/gap-remediation/2026-11-13/native-account-update-01"
+  ]
+}

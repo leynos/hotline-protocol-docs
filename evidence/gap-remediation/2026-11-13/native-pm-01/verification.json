@@ -1,0 +1,46 @@
+{
+  "status": "verified-bounded-native-pm",
+  "preflight": {
+    "uid_hex": "002a",
+    "accounts": 2,
+    "files": 41,
+    "filp_bytes": 1049073,
+    "data_sha256": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+    "macr_sha256": "40a42dbcf2d879e22d9a5a9acf46bf15fa9fe3a77837f757a990e514436801e5"
+  },
+  "postflight": {
+    "uid_hex": "002d",
+    "accounts": 2,
+    "files": 41,
+    "filp_bytes": 1049073,
+    "data_sha256": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+    "macr_sha256": "40a42dbcf2d879e22d9a5a9acf46bf15fa9fe3a77837f757a990e514436801e5"
+  },
+  "pm": {
+    "main_uid_hex": "002b",
+    "peer_uid_hex": "002c",
+    "verified_cases": [
+      "direct-quoted",
+      "recipient-refuses",
+      "auto-and-original",
+      "sender-refuses",
+      "option-two",
+      "option-three",
+      "empty"
+    ]
+  },
+  "packet_connections": {
+    "preflight": [
+      "a",
+      "download"
+    ],
+    "observe": [
+      "main",
+      "peer"
+    ],
+    "postflight": [
+      "a",
+      "download"
+    ]
+  }
+}

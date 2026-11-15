@@ -1,0 +1,65 @@
+{
+  "recorded_at_utc": "2026-11-14T07:51:28.219226+00:00",
+  "prepared": {
+    "base.dsk": {
+      "path": "/data/leynos/Projects/mothra/state/mac-runtime/native-liveness-01/base.dsk",
+      "sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910",
+      "inode": 71221931,
+      "size": 8388608000,
+      "mode": "0o444",
+      "mtime_ns": 1794642578895107728
+    },
+    "working.dsk": {
+      "path": "/data/leynos/Projects/mothra/state/mac-runtime/native-liveness-01/working.dsk",
+      "sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910",
+      "inode": 71221932,
+      "size": 8388608000,
+      "mode": "0o644",
+      "mtime_ns": 1794642578899107728
+    },
+    "rom": {
+      "path": "/data/leynos/Projects/mothra/state/mac-runtime/native-liveness-01/rom",
+      "sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+      "inode": 71221930,
+      "size": 1945746,
+      "mode": "0o644",
+      "mtime_ns": 1794642578863107731
+    }
+  },
+  "source_after": {
+    "base": {
+      "path": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/base.dsk",
+      "sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910",
+      "inode": 6189872880,
+      "size": 8388608000,
+      "mode": "0o444",
+      "mtime_ns": 1794582239465616991
+    },
+    "rom": {
+      "path": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/rom",
+      "sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+      "inode": 6177692692,
+      "size": 1945746,
+      "mode": "0o644",
+      "mtime_ns": 1794582239141617023
+    }
+  },
+  "source_hashes_unchanged": true,
+  "working_fd_free_after_tsk": true,
+  "fuser_exit": 1,
+  "fuser_stdout": "",
+  "disk_free_bytes_after": 192396939264,
+  "assets_json": {
+    "rom_sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+    "base_disk_sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910",
+    "source_rom": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/rom",
+    "source_disk": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/base.dsk",
+    "archive_member": null
+  },
+  "prepare_exit": "0",
+  "catalog_exits": [
+    "0",
+    "0"
+  ],
+  "display117_socket_absent": true
+}

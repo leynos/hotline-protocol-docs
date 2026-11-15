@@ -1,0 +1,7 @@
+# Evidence is preserved byte for byte, including original whitespace.
+evidence/** -whitespace -text
+# Large binary evidence is stored through Git LFS; everything else, JSON of any
+# size included, is ordinary Git.
+evidence/**/*.png filter=lfs diff=lfs merge=lfs -text
+evidence/**/*.pcap filter=lfs diff=lfs merge=lfs -text
+evidence/**/*.gz filter=lfs diff=lfs merge=lfs -text

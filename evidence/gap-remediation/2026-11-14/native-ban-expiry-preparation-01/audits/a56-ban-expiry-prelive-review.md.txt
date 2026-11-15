@@ -1,0 +1,94 @@
+# A56: B66 temporary-ban expiry pre-live safety review (read only)
+
+Source examined: private account protocol clone HEAD
+`a5f6cce2347aa6e535a715048c49861292160538`, only
+`scripts/native_ban_expiry_cases.py`, `scripts/native_ban_expiry_control.py`,
+`scripts/test_native_ban_expiry.py`, and `native-ban-expiry-preparation.md`.
+No runtime/oracle action or tracked edit. Local tests cannot run in this
+private clone as-is: it lacks `native_ban_control_cases.py` and
+`native_control_readiness.py`; the first `unittest` import failed with
+`ModuleNotFoundError`. Those modules exist in canonical protocol docs and
+must be integrated before any native START.
+
+## Blocking findings before START
+
+1. **Baseline contradiction already assigned to B67.** Preparation
+   `native-ban-expiry-preparation.md:27-32,46-47` requires the exact 18-action
+   admin-login readiness in every epoch. The temporary ban matches the same
+   source address, so pre-epoch readiness cannot log in; post-epoch readiness
+   would itself trigger lookup-time purge before the intended first post
+   probe. Root identified this independently and assigned B67: first epoch
+   full readiness only; later epochs capture/identity gates, intended 107 as
+   first lookup, post-success baseline after it. Do not run B66 unchanged.
+2. **Receipt is not fully bound to prepared runtime identity.**
+   `native_ban_expiry_control.py:408-415` compares receipt with plan only for
+   emulator PID and working-image path. `capture_gate` validates actual PID
+   start, exe, FD6 and emulator netns against *receipt* values, but the
+   planned `emulator_starttime`, `emulator_sha256`, `emulator_netns_inode`,
+   and `owned_working_image_inode` from the generated environment
+   (`native_ban_expiry_cases.py:153-185`) are never compared at the first
+   runtime gate. `TimingBounds.gate:94-111` checks across later receipts but
+   cannot repair a first-epoch mismatch to the pinned plan. Require exact
+   receipt-to-plan equality for these fields before first socket.
+3. **Namespace recorder placement is trusted from receipt, not rechecked.**
+   `native_ban_expiry_control.py:434-467` checks managed PID, systemd state,
+   start/deadline and writable PCAP FD, while shared `capture_gate` checks
+   emulator netns and the receipt's `ns_routes=[]`. Neither compares
+   `/proc/<namespace_recorder_pid>/ns/net` to the actual emulator namespace,
+   nor performs a fresh route read in that namespace. A recorder in the wrong
+   netns can produce a valid header/FD and misleading zero packets. Require
+   live netns inode equality and a read-only route check at each epoch gate,
+   or an independently captured, freshness-bounded equivalent.
+
+## Bounded semantics and remaining assumptions
+
+- **UID and privileges:** `native_ban_expiry_cases.py:20` sets `0000010000000000`,
+  which is MSB-first bit 23. `native_ban_expiry_control.py:168-214` checks
+  admin bit 22, target exact 354 bitmap, one same-connection 301 UID/name
+  and one matching roster row *before* each 110. No hardcoded kick UID. The
+  roster gate should additionally require the expected exact two rows;
+  currently an extra foreign row is tolerated (`:195-214`) despite the
+  controlled two-session fixture. This is a bounded baseline safety check,
+  not an identified wrong-target kick.
+- **Notice/EOF and quiet:** kick0/tempban plans include target `read_eof`;
+  the Recorder requires empty bytes before EOF, so an unplanned 104 would
+  fail instead of being silently skipped. Protected case checks no parsed
+  104/EOF and a target 500 ACK, but has no explicit quiet barrier after that
+  ACK. Rejected probe reads only one status-1 Login107 reply and closes;
+  `probe_gate:271-280`'s “no 354” assertion sees only parsed frames, not any
+  unread tail. Add a bounded EOF/quiet barrier if absence of later push is
+  part of the intended claim; otherwise state that only the first correlated
+  reply was checked. Preserve all raw packet tails.
+- **Traffic and failure stop:** each probe sends fresh TRTP and complete 107
+  (`native_ban_expiry_cases.py:123-131`, `probe_gate:281-290`). The coordinator
+  stops after a failed case and preserves its partial report; the runtime
+  deadline clamps per-step reads. Bounded 12-minute epochs and independent
+  900-second managed recorder/lock leases are checked at
+  `native_ban_expiry_control.py:374-405,425-488,491-557`. A flow failure may
+  still be caused by native request limits or competing activity; the receipt
+  should record zero unexpected connections/packets and case-local pacing,
+  not interpret any rejection solely as expiry.
+- **Passwords:** the zero/protected passwords are disposable source literals
+  (`native_ban_expiry_cases.py:13-16`) and send events retain complemented
+  107 bytes, which are reversible. They must never be described as secret
+  after publishing raw plans/PCAPs. No newly entered original-account secret
+  appears in these four files; `native_plan.login()` carries pre-existing
+  fixture admin credentials. Keep the owned-lab restriction and do not copy
+  unrelated private credentials into the evidence.
+- **Interepoch inference:** `TimingBounds:63-130` pins same PID/start/exe,
+  image inode and namespace across pre/post, with host windows 1600-1700 s
+  after request and 1900-2400 s after ACK; request-to-ACK <=20 s. The code
+  explicitly marks native `GetDateTime` progression unproved. A valid guest
+  clock witness is required before claiming the actual 1800-second threshold.
+  Lazy purge on the 107 lookup means later success does not prove background
+  expiry. Epochs do not observe the idle interval, so no-client/no-mutation
+  provenance must come from the operator boundary, not these plans alone.
+- **Negative tests:** five tests include malformed plan/hash, wrong UID,
+  access and notice, timing/identity, and a mocked producer-to-consumer
+  failed post-probe. They are useful but do not test the missing receipt-plan
+  or namespace-placement gates; add fault controls for those fixes before
+  live use. No source dependency or test pass is claimed in this clone.
+
+**Decision:** B66 is not ready for live START. B67 must correct later-epoch
+readiness, and the first-epoch identity/namespace gate gaps need resolution
+or a retained independent equivalent. No native action was taken.

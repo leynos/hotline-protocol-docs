@@ -1,0 +1,110 @@
+[
+  {
+    "id": "B10-D-10018c60",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10018c60"
+    }
+  },
+  {
+    "id": "B10-D-10018d20",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10018d20"
+    }
+  },
+  {
+    "id": "B10-D-10018e10",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10018e10"
+    }
+  },
+  {
+    "id": "B10-D-10018fd0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10018fd0"
+    }
+  },
+  {
+    "id": "B10-D-10019110",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10019110"
+    }
+  },
+  {
+    "id": "B10-D-10019180",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10019180"
+    }
+  },
+  {
+    "id": "B10-D-100194f0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100194f0"
+    }
+  },
+  {
+    "id": "B10-D-100195e0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100195e0"
+    }
+  },
+  {
+    "id": "B10-D-10019690",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10019690"
+    }
+  },
+  {
+    "id": "B10-D-10027c30",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10027c30"
+    }
+  },
+  {
+    "id": "B10-D-10027c80",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10027c80"
+    }
+  },
+  {
+    "id": "B10-D-10027cd0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10027cd0"
+    }
+  },
+  {
+    "id": "B10-D-10027d40",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10027d40"
+    }
+  },
+  {
+    "id": "B10-A-1000c6a0",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "1000c6a0",
+      "limit": 2000
+    }
+  },
+  {
+    "id": "B10-C-1000acf0",
+    "tool": "get_function_calls",
+    "arguments": {
+      "address": "1000acf0",
+      "direction": "callers",
+      "limit": 1000
+    }
+  }
+]

@@ -1,0 +1,29 @@
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`
+    Finished `test` profile [optimized] target(s) in 0.32s
+     Running unittests src/lib.rs (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/build/mxd/29c43d9412d22c7d/out/mxd-29c43d9412d22c7d)
+
+running 21 tests
+test wireframe::codec::tests::decodes_valid_single_frame::case_1 ... ok
+test wireframe::codec::tests::decodes_opaque_file_list_payload::case_2 ... ok
+test wireframe::codec::tests::decodes_opaque_file_list_payload::case_1 ... ok
+test wireframe::codec::tests::decodes_valid_single_frame::case_2 ... ok
+test wireframe::codec::tests::encodes_payloads_with_legacy_framing::case_1 ... ok
+test wireframe::codec::tests::encodes_payloads_with_legacy_framing::case_2 ... ok
+test wireframe::codec::tests::encoding_rejects_invalid_transactions::case_1_size_mismatch ... ok
+test wireframe::codec::tests::encoding_rejects_invalid_transactions::case_2_invalid_flags ... ok
+test wireframe::codec::tests::encodes_payloads_with_legacy_framing::case_4 ... ok
+test wireframe::codec::tests::encodes_payloads_with_legacy_framing::case_3 ... ok
+test wireframe::codec::tests::encoding_rejects_invalid_transactions::case_3_oversized_payload ... ok
+test wireframe::codec::tests::fragment_ranges_cover_payload::case_1 ... ok
+test wireframe::codec::tests::fragment_ranges_cover_payload::case_2 ... ok
+test wireframe::codec::tests::fragment_ranges_cover_payload::case_3 ... ok
+test wireframe::codec::tests::fragment_ranges_cover_payload::case_5 ... ok
+test wireframe::codec::tests::fragment_ranges_cover_payload::case_4 ... ok
+test wireframe::codec::tests::rejects_invalid_headers::case_1_invalid_flags ... ok
+test wireframe::codec::tests::rejects_invalid_headers::case_2_oversized_total ... ok
+test wireframe::codec::tests::rejects_invalid_headers::case_3_oversized_data ... ok
+test wireframe::codec::tests::rejects_invalid_length_combinations::case_2 ... ok
+test wireframe::codec::tests::rejects_invalid_length_combinations::case_1 ... ok
+
+test result: ok. 21 passed; 0 failed; 0 ignored; 0 measured; 383 filtered out; finished in 0.00s
+

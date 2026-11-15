@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "cases": [
+    "ambiguous-text",
+    "basic-empty-name",
+    "fork-download",
+    "root-listing",
+    "wrong-password"
+  ],
+  "peer_binary_sha256": "8fbbe56cef439d4c1732e8d9fbe2c676b9d45fbd273a42b22f8034e3b3914fa0",
+  "build_evidence": "../shx-build-01",
+  "packet_window_seconds": [
+    1794540854.787134,
+    1794542820.1775727
+  ],
+  "host_capture_packets": 170,
+  "host_kernel_drops": 0,
+  "final_runtime_check": {
+    "recorded_at_utc": "2026-11-13T04:08:38.955121+00:00",
+    "emulator_pid": 774378,
+    "running_executable_sha256": "b109f5c470fca6a1a5e0e0eaec4b5f5658d0e45ddafabf6b59bb7c4b35340146"
+  },
+  "scope": "Five full-process terminal peer sessions; witness is controlled script, not historical client. Empty server name; login160/161 present,162 omitted. No122, subject-addition, HOPE/cipher/compression or alternate UI acceptance claim. No guest configuration change/restart in this corpus. Initial basic session uses a separate exploratory build; smoke has no network.",
+  "home_file_incident": "Initial uncontained probe truncated real ~/.hxvars; no verified before-image recovered. Accepted captures use private repository-backed home and before/after guard."
+}

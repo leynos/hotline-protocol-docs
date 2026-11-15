@@ -1,0 +1,51 @@
+#!/usr/bin/env python3
+"""Bounded XTest input to the leased native server display :99 only."""
+import ctypes
+import sys
+import time
+
+x11 = ctypes.CDLL("libX11.so.6")
+xtst = ctypes.CDLL("libXtst.so.6")
+x11.XOpenDisplay.argtypes = [ctypes.c_char_p]
+x11.XOpenDisplay.restype = ctypes.c_void_p
+x11.XFlush.argtypes = [ctypes.c_void_p]
+x11.XStringToKeysym.argtypes = [ctypes.c_char_p]
+x11.XStringToKeysym.restype = ctypes.c_ulong
+x11.XKeysymToKeycode.argtypes = [ctypes.c_void_p, ctypes.c_ulong]
+x11.XKeysymToKeycode.restype = ctypes.c_uint
+xtst.XTestFakeMotionEvent.argtypes = [ctypes.c_void_p, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_ulong]
+xtst.XTestFakeButtonEvent.argtypes = [ctypes.c_void_p, ctypes.c_uint, ctypes.c_int, ctypes.c_ulong]
+xtst.XTestFakeKeyEvent.argtypes = [ctypes.c_void_p, ctypes.c_uint, ctypes.c_int, ctypes.c_ulong]
+display = x11.XOpenDisplay(b":99")
+if not display:
+    raise SystemExit("Cannot open leased display :99")
+
+def key(name: str) -> None:
+    symbol = x11.XStringToKeysym(name.encode())
+    code = x11.XKeysymToKeycode(display, symbol)
+    if not code:
+        raise ValueError(name)
+    xtst.XTestFakeKeyEvent(display, code, 1, 0)
+    x11.XFlush(display)
+    time.sleep(0.08)
+    xtst.XTestFakeKeyEvent(display, code, 0, 0)
+    x11.XFlush(display)
+    time.sleep(0.08)
+
+def click(x: int, y: int) -> None:
+    xtst.XTestFakeMotionEvent(display, -1, x, y, 0)
+    x11.XFlush(display)
+    time.sleep(0.08)
+    xtst.XTestFakeButtonEvent(display, 1, 1, 0)
+    x11.XFlush(display)
+    time.sleep(0.15)
+    xtst.XTestFakeButtonEvent(display, 1, 0, 0)
+    x11.XFlush(display)
+    time.sleep(0.15)
+
+if sys.argv[1] == "click" and len(sys.argv) == 4:
+    click(int(sys.argv[2]), int(sys.argv[3]))
+elif sys.argv[1] == "key" and len(sys.argv) == 3:
+    key(sys.argv[2])
+else:
+    raise SystemExit("usage: x11_input.py click X Y | key KEYSYM")

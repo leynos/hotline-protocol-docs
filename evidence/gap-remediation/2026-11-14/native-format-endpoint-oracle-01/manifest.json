@@ -1,0 +1,44 @@
+{
+  "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "language": "PowerPC:BE:32:default",
+  "independent_project": "fresh import of pinned PEF; original GUI project never accessed",
+  "first_import": "automatic analysis;1840 functions; saved only in new ignored owned project",
+  "later_batches": "same independent project; no analysis; discard changes",
+  "batches": [
+    {
+      "batch": 1,
+      "query_count": 10,
+      "identity_stable": true,
+      "function_count": 1840,
+      "tool_errors": []
+    },
+    {
+      "batch": 2,
+      "query_count": 9,
+      "identity_stable": true,
+      "function_count": 1840,
+      "tool_errors": [
+        "EP2-D-10075050",
+        "EP2-D-10074ce0"
+      ]
+    },
+    {
+      "batch": 3,
+      "query_count": 5,
+      "identity_stable": true,
+      "function_count": 1840,
+      "tool_errors": []
+    },
+    {
+      "batch": 4,
+      "query_count": 3,
+      "identity_stable": true,
+      "function_count": 1840,
+      "tool_errors": []
+    }
+  ],
+  "callback_limit": "Mode0 callback descriptors resolve to10075050/10074ce0, but neither is an existing function in this analysis. Both FUNCTION_NOT_FOUND results retained; no alternate-wrapper negotiation inferred.",
+  "handler_disassembly_pagination": "batch03 first500/606 instructions plus batch04 offset500 remainder; no missing tail",
+  "peer_source": "Inspected tools/shx-peer/source and tools/shx-adb1bf8c8cb1 copies match byte-for-byte; historical source/build identity retained separately in native-shx-02/peer-profile.json, not inferred from parent Git HEAD",
+  "claims_scope": "static formatter,copy helper and listener traces; no new live protocol session"
+}

@@ -1,0 +1,358 @@
+{
+  "utc": "2026-11-14T02:23:49.012038+00:00",
+  "cases": {
+    "omit-161": {
+      "status": "intentional-observation-cutoff",
+      "routes": {
+        "control": [
+          [
+            "client-guest-post.pcap",
+            "10.0.2.15",
+            49166,
+            "10.0.2.2",
+            15652
+          ],
+          [
+            "namespace.pcap",
+            "127.0.0.1",
+            38424,
+            "127.0.0.1",
+            15652
+          ],
+          [
+            "namespace.pcap",
+            "127.0.0.1",
+            59216,
+            "127.0.0.1",
+            15500
+          ],
+          [
+            "host.pcap",
+            "127.0.0.1",
+            59224,
+            "127.0.0.1",
+            15500
+          ],
+          [
+            "server-guest-post.pcap",
+            "10.0.2.2",
+            59224,
+            "10.0.2.15",
+            5500
+          ]
+        ],
+        "data": [
+          [
+            "client-guest-post.pcap",
+            "10.0.2.15",
+            49168,
+            "10.0.2.2",
+            15653
+          ],
+          [
+            "namespace.pcap",
+            "127.0.0.1",
+            40568,
+            "127.0.0.1",
+            15653
+          ],
+          [
+            "namespace.pcap",
+            "127.0.0.1",
+            52984,
+            "127.0.0.1",
+            15501
+          ],
+          [
+            "host.pcap",
+            "127.0.0.1",
+            52986,
+            "127.0.0.1",
+            15501
+          ],
+          [
+            "server-guest-post.pcap",
+            "10.0.2.2",
+            52986,
+            "10.0.2.15",
+            5501
+          ]
+        ]
+      },
+      "streams": {
+        "control": {
+          "client_bytes": 150,
+          "client_sha256": "32b21aa2db39b65895ef77ca50d75bda7b117be2082ab1681075ce054dd38995",
+          "downstream_server_bytes": 508,
+          "downstream_server_sha256": "c220c09938350dc3550d69c7feb5ec0b8dbecfd9f9cdc72818a2a32b23140112",
+          "raw_server_bytes": 514,
+          "raw_server_sha256": "711eec0a9f76b65968b28619a23d291aa008ab2a70cdbf44891868d2be31765b"
+        },
+        "data": {
+          "client_bytes": 16,
+          "client_sha256": "1c2797775e738512c09ca6aa8de7eb39e15b9437c322d1e4ce7af69d77d8251a",
+          "downstream_server_bytes": 58,
+          "downstream_server_sha256": "77762dd10d7336ea93a61bedc230b2b5f1514449fb3bd7cb331af70fe79d0381",
+          "raw_server_bytes": 58,
+          "raw_server_sha256": "77762dd10d7336ea93a61bedc230b2b5f1514449fb3bd7cb331af70fe79d0381"
+        }
+      },
+      "request_types": [
+        107,
+        121,
+        300,
+        212
+      ],
+      "reply_types": [
+        0,
+        109,
+        0,
+        354,
+        122,
+        0,
+        0
+      ],
+      "forwarded_ack_fields": {
+        "160": "00be"
+      },
+      "banner_reference_hex": "0045f26b",
+      "teardown_seconds": 28.281546
+    },
+    "one-byte-161": {
+      "status": "intentional-observation-cutoff",
+      "routes": {
+        "control": [
+          [
+            "client-guest-post.pcap",
+            "10.0.2.15",
+            49170,
+            "10.0.2.2",
+            15652
+          ],
+          [
+            "namespace.pcap",
+            "127.0.0.1",
+            56150,
+            "127.0.0.1",
+            15652
+          ],
+          [
+            "namespace.pcap",
+            "127.0.0.1",
+            42298,
+            "127.0.0.1",
+            15500
+          ],
+          [
+            "host.pcap",
+            "127.0.0.1",
+            42304,
+            "127.0.0.1",
+            15500
+          ],
+          [
+            "server-guest-post.pcap",
+            "10.0.2.2",
+            42304,
+            "10.0.2.15",
+            5500
+          ]
+        ],
+        "data": [
+          [
+            "client-guest-post.pcap",
+            "10.0.2.15",
+            49172,
+            "10.0.2.2",
+            15653
+          ],
+          [
+            "namespace.pcap",
+            "127.0.0.1",
+            35992,
+            "127.0.0.1",
+            15653
+          ],
+          [
+            "namespace.pcap",
+            "127.0.0.1",
+            59022,
+            "127.0.0.1",
+            15501
+          ],
+          [
+            "host.pcap",
+            "127.0.0.1",
+            59030,
+            "127.0.0.1",
+            15501
+          ],
+          [
+            "server-guest-post.pcap",
+            "10.0.2.2",
+            59030,
+            "10.0.2.15",
+            5501
+          ]
+        ]
+      },
+      "streams": {
+        "control": {
+          "client_bytes": 150,
+          "client_sha256": "32b21aa2db39b65895ef77ca50d75bda7b117be2082ab1681075ce054dd38995",
+          "downstream_server_bytes": 513,
+          "downstream_server_sha256": "41ec6a7d690a32d10260a897fafb9f60c0ee2fcb66b52db8deed6e2879272207",
+          "raw_server_bytes": 514,
+          "raw_server_sha256": "16dadf683d7c0f51d9c4b1ec030703785f5f01112763c39f60f2da58e7fb973d"
+        },
+        "data": {
+          "client_bytes": 16,
+          "client_sha256": "4d64b27eeb1d34bc1ed3525f65aacd014b386d085b672a3159c9efef524afb93",
+          "downstream_server_bytes": 58,
+          "downstream_server_sha256": "77762dd10d7336ea93a61bedc230b2b5f1514449fb3bd7cb331af70fe79d0381",
+          "raw_server_bytes": 58,
+          "raw_server_sha256": "77762dd10d7336ea93a61bedc230b2b5f1514449fb3bd7cb331af70fe79d0381"
+        }
+      },
+      "request_types": [
+        107,
+        121,
+        300,
+        212
+      ],
+      "reply_types": [
+        0,
+        109,
+        0,
+        354,
+        122,
+        0,
+        0
+      ],
+      "forwarded_ack_fields": {
+        "160": "00be",
+        "161": "00"
+      },
+      "banner_reference_hex": "004601c7",
+      "teardown_seconds": 28.089096
+    },
+    "four-byte-161": {
+      "status": "intentional-observation-cutoff",
+      "routes": {
+        "control": [
+          [
+            "client-guest-post.pcap",
+            "10.0.2.15",
+            49174,
+            "10.0.2.2",
+            15652
+          ],
+          [
+            "namespace.pcap",
+            "127.0.0.1",
+            44340,
+            "127.0.0.1",
+            15652
+          ],
+          [
+            "namespace.pcap",
+            "127.0.0.1",
+            39600,
+            "127.0.0.1",
+            15500
+          ],
+          [
+            "host.pcap",
+            "127.0.0.1",
+            39612,
+            "127.0.0.1",
+            15500
+          ],
+          [
+            "server-guest-post.pcap",
+            "10.0.2.2",
+            39612,
+            "10.0.2.15",
+            5500
+          ]
+        ],
+        "data": [
+          [
+            "client-guest-post.pcap",
+            "10.0.2.15",
+            49176,
+            "10.0.2.2",
+            15653
+          ],
+          [
+            "namespace.pcap",
+            "127.0.0.1",
+            40010,
+            "127.0.0.1",
+            15653
+          ],
+          [
+            "namespace.pcap",
+            "127.0.0.1",
+            45422,
+            "127.0.0.1",
+            15501
+          ],
+          [
+            "host.pcap",
+            "127.0.0.1",
+            45428,
+            "127.0.0.1",
+            15501
+          ],
+          [
+            "server-guest-post.pcap",
+            "10.0.2.2",
+            45428,
+            "10.0.2.15",
+            5501
+          ]
+        ]
+      },
+      "streams": {
+        "control": {
+          "client_bytes": 150,
+          "client_sha256": "32b21aa2db39b65895ef77ca50d75bda7b117be2082ab1681075ce054dd38995",
+          "downstream_server_bytes": 516,
+          "downstream_server_sha256": "f1b4395604894ff79756e971b2d700d40f5054c13889dd97d9caa54b5007b263",
+          "raw_server_bytes": 514,
+          "raw_server_sha256": "2ec60a658ab748c6d7e8905a7a6e674a7056937b0ded6ec381e3dfd8add50024"
+        },
+        "data": {
+          "client_bytes": 16,
+          "client_sha256": "1e775d233abc598e6ce9fb5dc966c298e762204e8081078ab7a8726d336dfa94",
+          "downstream_server_bytes": 58,
+          "downstream_server_sha256": "77762dd10d7336ea93a61bedc230b2b5f1514449fb3bd7cb331af70fe79d0381",
+          "raw_server_bytes": 58,
+          "raw_server_sha256": "77762dd10d7336ea93a61bedc230b2b5f1514449fb3bd7cb331af70fe79d0381"
+        }
+      },
+      "request_types": [
+        107,
+        121,
+        300,
+        212
+      ],
+      "reply_types": [
+        0,
+        109,
+        0,
+        354,
+        122,
+        0,
+        0
+      ],
+      "forwarded_ack_fields": {
+        "160": "00be",
+        "161": "00000000"
+      },
+      "banner_reference_hex": "0047e261",
+      "teardown_seconds": 28.247957
+    }
+  }
+}

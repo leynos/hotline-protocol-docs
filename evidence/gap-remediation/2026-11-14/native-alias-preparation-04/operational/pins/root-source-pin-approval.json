@@ -1,0 +1,16 @@
+{
+  "status": "exact_reviewed_sources_pinned_no_start_granted",
+  "utc": "2026-11-14T21:25:23.469938+00:00",
+  "protocol_head": "cb7a12b1fb15f78098c7df37c96c258cf79be4a9",
+  "mothra_head": "934b687d905a64a871f865ce9af2dd7caa9a4d61",
+  "review": "state/delegation/a167-r04-packet-review.md",
+  "pins": {
+    "approved-alias-live-sources.sha256": "7588f25f3addd5e79facfac4b137121e7119317b723d40b3b123e956956d6330",
+    "approved-source-closure.sha256": "6c8aba775bf5812ee0453081d7e2c874ad626873498216b21af394956609df46",
+    "approved-helpers.sha256": "5972823208a68b55876a450558b7b77068677b3b1df47af9d2e935f085b44f53",
+    "approved-runtime-launchers.sha256": "c5528ba0ad635b40ef1752fc9ebc04738a0dec633c168dc96f016ecd7efdb838",
+    "script-SHA256SUMS": "8a24a530d168ffdd81db6fea9a34417db483fb3d4bf0c31c81e2c219530425f8"
+  },
+  "scope": "pins only; no BOOT or protocol action",
+  "operational_preflight_sha256": "ff29875a5256bdc7cd962e573dff4bbef81151f1f8629a113e620cf82782ab62"
+}

@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "profile": "native-mac-oracle",
+  "operator": "Codex local native fixture operator",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "gap_ids": [
+    "GAP-008",
+    "GAP-010",
+    "GAP-084"
+  ],
+  "environment": {
+    "emulator_pid": 774378,
+    "running_executable_sha256": "b109f5c470fca6a1a5e0e0eaec4b5f5658d0e45ddafabf6b59bb7c4b35340146",
+    "rom_and_base": {
+      "rom_sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+      "base_disk_sha256": "c36b7bc9c513b2b576d5e7bdd2d51c54a4d0af01a863e5154ce71274272a3ffe",
+      "source_rom": "/data/leynos/Projects/mothra/state/native-mac/Mac OS ROM",
+      "source_disk": "/data/leynos/Projects/mothra/state/native-mac/base-os9.dsk",
+      "archive_member": null
+    },
+    "launch": {
+      "command": [
+        "sudo",
+        "-n",
+        "setpriv",
+        "--reuid=1000",
+        "--regid=1000",
+        "--init-groups",
+        "--inh-caps=+sys_rawio",
+        "--ambient-caps=+sys_rawio",
+        "env",
+        "DISPLAY=:97",
+        "SDL_VIDEODRIVER=x11",
+        "SDL_AUDIODRIVER=dummy",
+        "MOTHRA_ETHERNET_PCAP=/data/leynos/Projects/mothra/state/native-sessions/runtime-04/guest.pcap",
+        "XDG_CACHE_HOME=/data/leynos/Projects/mothra/state/mac-runtime/hotline19/cache",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline19/SheepShaver-b109f5c470fca6a1a5e0e0eaec4b5f5658d0e45ddafabf6b59bb7c4b35340146",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline19/machine.sheepvm"
+      ],
+      "emulator_sha256": "b109f5c470fca6a1a5e0e0eaec4b5f5658d0e45ddafabf6b59bb7c4b35340146",
+      "host_ports": [
+        15500,
+        15501,
+        15502,
+        15503
+      ],
+      "tcp_bind": "127.0.0.1",
+      "guest_address": "10.0.2.15",
+      "guest_pcap": "/data/leynos/Projects/mothra/state/native-sessions/runtime-04/guest.pcap",
+      "guest_pcap_scope": "SLiRP Ethernet boundary; host wall-clock timestamps"
+    },
+    "source_application": {
+      "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+      "appledouble_sha256": "9ab8b9ec708ccdb8a4fed99b00162fd087c108b6039c7acc5943145bad419c2f",
+      "finder_info_sha256": "2bad82ff67c5c28b30be6d8b1f69f2a5e316b06b83d7c9a9c81c4968761e9bab",
+      "resource_fork_sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12",
+      "method": "AppleDouble entries9/2 copied to .finf/.rsrc; data fork unchanged"
+    },
+    "guest_os": "Mac OS9.0.4, PowerPC Enabler9.0.4,512MiB,virtual memory off; observed About This Computer",
+    "guest_components": "Base HFS+ catalog inventory has CarbonLib Preferences (US), but no named CarbonLib file located. No assertion about loaded/imported CarbonLib version.",
+    "server_path": "System9:Hotline19:HLserver19",
+    "configuration": "Server quit and Mac OS shutdown completed cleanly before immutable prelaunch copy; full image hash retained; existing admin/mothra19 and fixture-low/next-pass accounts from prior core corpus; Sounds Disabled dialog acknowledged.",
+    "scope": "Guest Ethernet boundary capture plus host loopback TCP; host wall-clock packet timestamps; no proof of physical network timing.",
+    "guest_native_file_verification": {
+      "method": "Read-only SleuthKit4.15.0 HFS+ inspection while application stopped; catalog11183",
+      "data_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+      "resource_sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12",
+      "finder_type": "APPL",
+      "finder_creator": "HTLS",
+      "resource_bytes": 38460
+    },
+    "prelaunch_disk_sha256": "3e9aed57f94982ab17f4c19ea6a416410d7b08c461ce7eb624c9fd4d7617e7ab"
+  },
+  "endpoints": {
+    "control": {
+      "host": "127.0.0.1",
+      "port": 15500
+    },
+    "alternate-control": {
+      "host": "127.0.0.1",
+      "port": 15502
+    },
+    "data": {
+      "host": "127.0.0.1",
+      "port": 15501
+    },
+    "alternate-data": {
+      "host": "127.0.0.1",
+      "port": 15503
+    }
+  },
+  "steps": [
+    {
+      "op": "connect",
+      "connection": "main",
+      "endpoint": "control",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "54525450484f544c00020002"
+    },
+    {
+      "op": "read",
+      "connection": "main",
+      "size": 8,
+      "expect_hex": "5452545000000001",
+      "timeout": 10
+    },
+    {
+      "op": "read_eof",
+      "connection": "main",
+      "expect_hex": "",
+      "timeout": 10
+    }
+  ]
+}

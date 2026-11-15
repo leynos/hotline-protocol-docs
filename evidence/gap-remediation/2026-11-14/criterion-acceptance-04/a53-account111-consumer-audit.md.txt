@@ -1,0 +1,76 @@
+# A53: GAP-071 field-111 consumer boundary (frozen evidence only)
+
+Scope: read-only retained native decompilations and account fixtures, no live
+Ghidra/native query. Oracle DATA SHA-256 `ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`.
+The original register at
+`evidence/protocol-gap-analysis/2026-11-12/initial-gap-register.json`
+GAP-071 asks for field 111's wire type, presence/default, stored meaning and
+effect on 350/353. Closure says “Trace reads/storage/use of 111 and add an
+account field schema with absent, empty and representative-value fixtures.”
+B60's prior audit correctly separates the fixture/schema clause from a
+positive field-specific semantic consumer; this check follows one concrete
+stored-record path rather than repeating an absence search.
+
+## One positive *byte-preservation* consumer, not a semantic reader
+
+1. Wire producer: frozen `evidence/hotline-server-1.9/queries/D-100146f0.c:33-50`
+   clears a 734-byte record, sets version 1, invokes `FUN_10056b60` for TLV
+   `0x6f` with 64-byte cap into `local_b4`/`auStack_b2`, then calls
+   `FUN_100071a0`. Frozen `D-10014df0.c:33-39,59` uses the same field/cap
+   in a *newly cleared* replacement record and calls `FUN_100075e0`.
+   `D-100566e0.c:12-24` locates the TLV, reads its 16-bit wire length and
+   copies bounded bytes through `FUN_100539c0`; this is **length-delimited
+   byte copying**, not C-string parsing or a guessed textual value.
+2. Storage: `native-account-update-01/oracle-queries/AC-D-100071a0.c:10-20`
+   and `AC-D-100075e0.c:10-16` each write all `0x2de` bytes. The internal
+   slot is length at `+0x254` (big-endian 16-bit), bytes at `+0x256` with
+   64-byte capacity; see `native-wire-details.md:95-111` and
+   `scripts/verify_account_attribute.py:35-39`. These are record offsets,
+   not wire offsets. The file path is built from **login** length/bytes at
+   `+0x298/+0x29a`; that path construction does not interpret field 111.
+3. Candidate consumer: frozen
+   `native-account-update-01/oracle-queries/AC-D-100073c0.c:10-25`
+   opens an account record by an account-key argument, reads exactly `0x2de`
+   bytes and requires record version 1. It does not dereference `+0x254`.
+   The argument is checked for a nonzero first byte before opening; this
+   check concerns the account key, **not** a C-string interpretation of 111.
+   `account-attribute-01/queries/AA-D-10007780.c:24-29,85-93` calls that
+   reader, alters password and optionally the bitmap, then writes the entire
+   loaded `local_300` buffer back with `FUN_1002c440(...,0x2de,...)`.
+   Thus stored 111 bytes are **consumed as part of a whole-record read and
+   rewritten/preserved** in this local-admin path. No direct field-111
+   dereference or meaning is visible in that function. The writer's file
+   primitive `FUN_1002c440` need not be assigned a higher semantic label
+   for this byte-preservation conclusion.
+
+The record read/write chain is concrete, but the retained fixtures do not
+run the local-admin updater on a nonempty 111 record. The source-level
+preservation inference is bounded by the full-buffer read/write and by any
+untraced side effect of the file primitive. It is not a proof that 111 affects
+password handling, privileges, login, UI presentation or account identity.
+`account-attribute-trace.md:44-76` lists ten direct `100073c0` callers and
+their inspected other-offset reads; `100197e0` account-list UI accesses
+login/bitmap-derived values, not a visible 111 slot. Indirect aliases,
+indexed reads and other whole-record consumers remain outside that bounded
+call graph. A source scan for literal `0x254/0x256` in retained `.c` yielded
+no extra candidate, but this is **not** exhaustive no-consumer evidence.
+
+## Original criterion map
+
+| Clause | Result |
+| --- | --- |
+| Wire type/presence/default and absent/empty/value fixtures | Met at bounded native 350/353 scope: byte-valued TLV; absent and empty yield zero length; `opaque-c` stores eight bytes. `native-core-01/account111-{absent,empty,value}` and `account-attribute-trace.md:13-30`. |
+| Stored record and update effects | Met for observed storage behavior: 64-byte cap (65-byte 353 input clipped), sparse 353 clears 111, whole-record local-admin path can preserve it; `account-attribute-01`, `native-account-update-01`. |
+| Reads/use and stored **meaning** | A concrete whole-record preservation consumer is traced above; **no positive field-specific reader or semantic use** is identified. The original question still asks for meaning/effect beyond byte storage, so full GAP-071 closure is not justified by these facts alone. |
+
+Smallest next decisive evidence, if root requires semantic closure: obtain a
+**targeted** retained-data-flow/xref query from the internal slot `+0x254`
+(length) and `+0x256` (bytes) after `100073c0`, including aliases/indexed
+access, then inspect one positive dereference caller and its reachable effect.
+If that query has no positive edge, run a separately authorized disposable
+native 111 marker through one explicitly chosen candidate consumer (for
+example local-admin `10007780`), comparing stopped 734-byte UserData and
+bounded observable output before/after. That test would establish preservation
+or change only; it would still not by itself name the field. An explicitly
+opaque contract could be accepted only by a root decision against the
+original question, not by relabelling a no-hit search as “unused.”

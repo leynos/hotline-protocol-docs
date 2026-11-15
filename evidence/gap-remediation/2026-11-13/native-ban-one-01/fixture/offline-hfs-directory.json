@@ -1,0 +1,60 @@
+{
+  "base": {
+    "exit": 0,
+    "sha256": "ed569bada6d3d67d794dc0a4ff9e7df8379a79c788230224465c319189d65ee3",
+    "entries": [
+      "-/r 11184:\tAgreement.saved",
+      "-/r 11339:\tAgreement.txt",
+      "-/r 11212:\tError Log",
+      "d/d 11189:\tFiles",
+      "-/r 11183:\tHLserver19",
+      "-/r 11297:\tm-agree-empty",
+      "-/r 11252:\tm-img-b.bmp",
+      "-/r 11260:\tm-img-e.gif",
+      "-/r 11254:\tm-img-f.dat",
+      "-/r 11251:\tm-img-j.jpg",
+      "-/r 11253:\tm-img-p.pct",
+      "-/r 11259:\tm-img-t",
+      "-/r 11257:\tm-img-t.gif",
+      "-/r 11256:\tm-img-x.jpg",
+      "-/r 11255:\tm-img-z.dat",
+      "-/r 11191:\tMessageBoard.txt",
+      "-/r 11240:\tmothra-banner-a.gif",
+      "-/r 11241:\tmothra-banner-b.gif",
+      "d/d 11190:\tNews",
+      "-/r 11202:\tPrefs",
+      "-/r 11185:\tsource-manifest.json",
+      "d/d 11188:\tUsers"
+    ],
+    "stderr": ""
+  },
+  "post": {
+    "exit": 0,
+    "sha256": "ed569bada6d3d67d794dc0a4ff9e7df8379a79c788230224465c319189d65ee3",
+    "entries": [
+      "-/r 11184:\tAgreement.saved",
+      "-/r 11339:\tAgreement.txt",
+      "-/r 11212:\tError Log",
+      "d/d 11189:\tFiles",
+      "-/r 11183:\tHLserver19",
+      "-/r 11297:\tm-agree-empty",
+      "-/r 11252:\tm-img-b.bmp",
+      "-/r 11260:\tm-img-e.gif",
+      "-/r 11254:\tm-img-f.dat",
+      "-/r 11251:\tm-img-j.jpg",
+      "-/r 11253:\tm-img-p.pct",
+      "-/r 11259:\tm-img-t",
+      "-/r 11257:\tm-img-t.gif",
+      "-/r 11256:\tm-img-x.jpg",
+      "-/r 11255:\tm-img-z.dat",
+      "-/r 11191:\tMessageBoard.txt",
+      "-/r 11240:\tmothra-banner-a.gif",
+      "-/r 11241:\tmothra-banner-b.gif",
+      "d/d 11190:\tNews",
+      "-/r 11202:\tPrefs",
+      "-/r 11185:\tsource-manifest.json",
+      "d/d 11188:\tUsers"
+    ],
+    "stderr": ""
+  }
+}

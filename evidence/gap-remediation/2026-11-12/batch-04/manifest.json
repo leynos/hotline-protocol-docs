@@ -1,0 +1,10 @@
+{
+  "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "query_count": 20,
+  "plans": [
+    "plans/fork-stream.json",
+    "plans/transfer-dispatch.json",
+    "plans/transfer-workers.json"
+  ],
+  "method": "Read-only Ghidra MCP transfer helpers and workers; no native network execution."
+}

@@ -1,0 +1,9 @@
+{
+  "unit": "mothra-native-board02-c100-namespace.service",
+  "pid": 1447883,
+  "fd": 5,
+  "inode": 4951756500,
+  "header24": "d4c3b2a10200040000000000000000000000040001000000",
+  "wait_seconds": 0.0123270870099077,
+  "deadline_utc": "2026-11-14T09:22:28.893022+00:00"
+}

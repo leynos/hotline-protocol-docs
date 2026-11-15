@@ -1,0 +1,30 @@
+{
+  "captured_at_utc": "2026-11-14T08:52:51.288734+00:00",
+  "query": {
+    "id": "decompile-10090210",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10090210"
+    }
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_10090210\",\n    \"address\": \"10090210\"\n  },\n  \"code\": \"\\nvoid FUN_10090210(int param_1,int param_2)\\n\\n{\\n  int *piVar1;\\n  \\n  if (*(int *)(param_1 + 4) == param_2) {\\n    FUN_100b4be0(param_1);\\n    piVar1 = *(int **)(param_1 + 8);\\n    while (piVar1 != (int *)0x0) {\\n      piVar1 = (int *)*piVar1;\\n      FUN_100ac3f0();\\n    }\\n    *(byte *)(param_1 + 0x12) = *(byte *)(param_1 + 0x12) & 0xbf;\\n    FUN_100942d0(*(undefined4 *)(param_1 + 0xc));\\n  }\\n  return;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_10090210",
+        "address": "10090210"
+      },
+      "code": "\nvoid FUN_10090210(int param_1,int param_2)\n\n{\n  int *piVar1;\n  \n  if (*(int *)(param_1 + 4) == param_2) {\n    FUN_100b4be0(param_1);\n    piVar1 = *(int **)(param_1 + 8);\n    while (piVar1 != (int *)0x0) {\n      piVar1 = (int *)*piVar1;\n      FUN_100ac3f0();\n    }\n    *(byte *)(param_1 + 0x12) = *(byte *)(param_1 + 0x12) & 0xbf;\n    FUN_100942d0(*(undefined4 *)(param_1 + 0xc));\n  }\n  return;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

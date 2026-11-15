@@ -1,0 +1,7 @@
+creating cache ./config.cache
+checking for gcc... gcc
+checking whether the C compiler (gcc -O0 -g -std=gnu89 -fcommon  ) works... yes
+checking whether the C compiler (gcc -O0 -g -std=gnu89 -fcommon  ) is a cross-compiler... no
+checking whether we are using GNU C... yes
+checking whether gcc accepts -g... yes
+checking host system type... configure: error: can not guess host type; you must specify one

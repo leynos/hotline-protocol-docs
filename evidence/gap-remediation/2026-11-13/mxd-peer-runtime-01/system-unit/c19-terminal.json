@@ -1,0 +1,7 @@
+{
+  "owned_pid": 2349333,
+  "pid_absent": true,
+  "properties": "ActiveState=inactive\nMainPID=0\nResult=success\nExecMainStatus=0\nControlGroup=\n",
+  "namespace_15650": "State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+  "scope": "Root stop after A22 client quit; no retry; root observed no remaining listener"
+}

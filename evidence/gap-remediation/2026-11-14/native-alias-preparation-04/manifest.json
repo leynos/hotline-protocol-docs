@@ -1,0 +1,32 @@
+{
+  "status": "prepared_stopped_not_booted",
+  "captured_at_utc": "2026-11-14T21:23:37.133201+00:00",
+  "initial_failure_corpus": "../native-alias-preparation-04-failure-01/manifest.json",
+  "capacity_failure": "RuntimeError: free 8822157312 < required 10536091648",
+  "successful_raw_receipt_sha256": "9e816b486fd9f9627af70b37f36fc53551d40366dd380099e5131daf29c30235",
+  "operational_receipt_sha256": "ff29875a5256bdc7cd962e573dff4bbef81151f1f8629a113e620cf82782ab62",
+  "operational_finf_sha256": "ab64121a1eec6ea94f3e53aeb36c7a602bdbd6fec068ced4797267f508afa7a4",
+  "prepared_inodes": {
+    "base.dsk": 2702544438,
+    "working.dsk": 2702544443,
+    "rom": 2847491433
+  },
+  "source_hashes_unchanged": true,
+  "original_ticks_before": {
+    "1099659": "767842",
+    "1012834": "2357813"
+  },
+  "original_ticks_after": {
+    "1099659": "767842",
+    "1012834": "2357813"
+  },
+  "available_at_prep_end": 12198088704,
+  "no_rom_os_image_application_or_raw_account_fork_included": true,
+  "native_or_vm_started": false,
+  "alias_protocol_case_proven": false,
+  "next_gate": "fresh capacity and parent source pins before separate boot grant",
+  "exact_code_pins_created_no_start": true,
+  "root_source_pin_approval_sha256": "cf3180f28a657951f44dc7ad2df8b124a7651fcdca06b328b2c9e0e752cdcb96",
+  "parent_readiness_gate_sha256": "3e9d57025fff0e961541af2a8a6dde3563a0dedd85a94360f276278162422fda",
+  "parent_live_gate_not_executed": true
+}

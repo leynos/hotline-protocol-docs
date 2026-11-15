@@ -1,0 +1,63 @@
+# B152: runtime disk retention boundary
+
+Read-only metadata/document review, 2026-11-14. No ROM or disk image bytes were
+read; no file was changed or removed. All 25 runtime `base.dsk` files and 25
+`working.dsk` files are distinct inodes (`find state/mac-runtime -maxdepth 2`
+metadata). The apparent 8,388,608,000-byte size is logical, not measured XFS
+exclusive allocation; reflink sharing may make deletion reclaim little space.
+
+## Source classes
+
+| Class | Paths | Recorded source and implication |
+| --- | --- | --- |
+| Canonical native source | `hotline22-recovery/base.dsk` | SHA-256 `e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910`, from stopped `hotline21/working.dsk`; recovery runbook and [mothra receipt](../../docs/delegation/runtime-recovery-20261113.md) record the original copy and two native smokes. Retain this one source, pending current no-owner/byte identity gate; the name/mode alone is not immutable proof. |
+| Duplicated native bases | `hotline-client-{candidate,isolated}-01`, `native-{alias-live-01..04,ban-expiry-01,banlab-one-01,banlab-two-01,banlab-three-01,board-01,board-02,configured-apply-01,eventlab-one-01,liveness-01,path-fields-01,rate304-01..03,roster-overlap-01}/base.dsk` | Every `assets.json` records source SHA `e5cbbaaf…` and ROM SHA `18da89e4…`. Sources point to `hotline22-recovery/base.dsk`, `native-liveness-01/base.dsk` or `native-board-02/base.dsk`, all with that recorded hash. These are preparation copies, **candidate** duplicate bases once a fresh independent hash and no-owner check confirms equality and references are rebound to the canonical base. No working-image evidence is inferred from them. |
+| Earlier installation chain | `install9`, `hotline19`, `hotline20`, `hotline21` bases | Different `assets.json` source hashes (`4a173a80…`, `c36b7bc9…`, `0ba5f8cf…`, `1a248a62…` respectively). They form the historical OS/server setup path and are not duplicates of the native source by recorded hash. `hotline21/working.dsk` is the original stopped recovery input explicitly preserved in the [protocol runbook](../../../hotline-protocol-docs/runtime-recovery-20261113.md). Do not classify any of these as disposable from this review. |
+
+`scripts/mac_runtime.py:211-252` copies supplied disk to a new base, then a
+separate working copy; `assets.json` records source path and base hash. It
+does not prove current bytes have remained unchanged. Removing a duplicate
+base inside a retained runtime would also break the current `prepare`/asset
+identity layout or future replay path; any reclamation needs an explicit
+path/manifest migration, not blind unlink.
+
+## Working images and acceptance dependencies
+
+- Preserve the live original `hotline22-recovery/working.dsk` and isolated
+  client `hotline-client-isolated-01/working.dsk`; the [delegated plan](../../docs/execplans/delegated-gap-investigations-batch-02.md)
+  identifies both as active instances and forbids reading live working bytes.
+  Verify current liveness separately before any operation.
+- Keep stopped `native-board-02/working.dsk`: its [board witness](../../../hotline-protocol-docs/native-board-witness.md)
+  ties the 65,629-byte stopped board to twelve captured changes. Keep
+  `native-path-fields-01/working.dsk`: the [structured path plan](../../docs/execplans/structured-path-fields.md)
+  and portable corpus bind stopped HFS catalogue/fork checks to the 12-cell
+  result. Retain the specific working images behind stopped ban and settings
+  witnesses until their runtime path/inode is independently mapped; the
+  [expiry witness](../../../hotline-protocol-docs/native-ban-expiry-later-witness.md)
+  and [settings witness](../../../hotline-protocol-docs/native-settings-persistence-witness.md)
+  give fork and image hashes, but these pages do not bind those hashes to the
+  `native-ban-expiry-01` or `native-configured-apply-01` path names.
+- Preserve `native-alias-live-01..04/working.dsk` as quarantined failed or
+  partial UI/alias states; the [alias plan](../../docs/execplans/missing-target-alias.md)
+  explicitly retains the first three stopped working copies and records the
+  fourth's abort. No later positive alias binding or missing-target result
+  makes them interchangeable. The protocol acceptance still needs a future
+  *new* image; no earlier stopped copy supplies that result.
+- Other stopped `working.dsk` files (rate304, roster, liveness, board01,
+  banlab, eventlab, client candidate, hotline19–21, install9) have distinct
+  inodes and potentially distinct guest writes even if a preboot hash equalled
+  the base. Some have retained stopped-fork or failure evidence. No complete
+  poststop byte-equality inventory was found in this bounded review. Treat
+  them as recovery evidence pending a per-runtime corpus/dependency audit;
+  **none is certified reclaimable here**.
+
+## Reclamation decision
+
+Prioritize the 20 recorded-`e5cbbaaf…` duplicate **base** candidates, not
+working images, but only after C182 measures physical exclusivity/reflink
+sharing and an independent no-owner/current-hash/reference review. Retain
+`hotline22-recovery/base.dsk` as the canonical source. The immediate
+acceptance gaps that depend on exact stopped bytes are board postconditions,
+path-field stopped HFS identities, ban/settings restart state, and alias
+failure/partial-state forensics. Portable fork/capture evidence does not
+recreate an entire historical working image.

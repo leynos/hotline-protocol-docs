@@ -1,0 +1,155 @@
+diff --git a/src/wireframe/codec/framed_tests.rs b/src/wireframe/codec/framed_tests.rs
+index d933936..f619664 100644
+--- a/src/wireframe/codec/framed_tests.rs
++++ b/src/wireframe/codec/framed_tests.rs
+@@ -5,6 +5,7 @@ use rstest::rstest;
+ use super::*;
+ use crate::{
+     field_id::FieldId,
++    transaction::encode_params,
+     wireframe::test_helpers::{fragmented_transaction_bytes, transaction_bytes},
+ };
+ fn prepare_reassembly_buffer(
+@@ -198,6 +199,124 @@ fn reassembles_two_fragments() {
+     assert_eq!(decoded.payload(), payload.as_slice());
+ }
+ 
++fn file_list_payload_with_length(target_len: usize) -> Vec<u8> {
++    let mut remaining = target_len - 2;
++    let mut fields = Vec::new();
++    while remaining > 0 {
++        let value_len = (remaining - 4).min(usize::from(u16::MAX));
++        fields.push((FieldId::FileName, vec![b'a'; value_len]));
++        remaining -= 4 + value_len;
++    }
++    let payload = encode_params(&fields).expect("repeated file-name fields encode");
++    assert_eq!(payload.len(), target_len);
++    payload
++}
++
++#[rstest]
++#[case::physical_ceiling(MAX_FRAME_DATA)]
++#[case::first_logical_byte(MAX_FRAME_DATA + 1)]
++#[case::logical_ceiling(MAX_PAYLOAD_SIZE)]
++fn decodes_logical_payload_across_physical_fragments(#[case] target_len: usize) {
++    let payload = file_list_payload_with_length(target_len);
++    let total_size = u32::try_from(payload.len()).expect("bounded payload fits u32");
++    let header = FrameHeader {
++        flags: 0,
++        is_reply: 1,
++        ty: 200,
++        id: 321,
++        error: 0,
++        total_size,
++        data_size: total_size,
++    };
++    let fragments = fragmented_transaction_bytes(&header, &payload, MAX_FRAME_DATA)
++        .expect("bounded physical fragments");
++    let mut codec = HotlineCodec::new();
++    let mut decoded = None;
++    for fragment in fragments {
++        let mut input = BytesMut::from(fragment.as_slice());
++        decoded = codec
++            .decode(&mut input)
++            .expect("valid logical payload decodes");
++        assert!(input.is_empty(), "complete physical frame is consumed");
++    }
++    let transaction = decoded.expect("last fragment completes transaction");
++    assert_eq!(transaction.payload(), payload);
++    assert_eq!(transaction.header().data_size, total_size);
++}
++
++#[rstest]
++#[case::over_logical_limit(u32::try_from(MAX_PAYLOAD_SIZE + 1).expect("limit fits u32"))]
++#[case::overflow_word(u32::MAX)]
++fn rejects_oversized_total_before_buffering(#[case] total_size: u32) {
++    let header = FrameHeader {
++        flags: 0,
++        is_reply: 0,
++        ty: 200,
++        id: 322,
++        error: 0,
++        total_size,
++        data_size: 1,
++    };
++    let mut codec = HotlineCodec::new();
++    let mut input = BytesMut::from(transaction_bytes(&header, &[]).as_slice());
++    let error = codec
++        .decode(&mut input)
++        .expect_err("oversized total is rejected");
++    assert_eq!(error.kind(), std::io::ErrorKind::InvalidData);
++    assert!(error.to_string().contains("total size exceeds maximum"));
++}
++
++#[test]
++fn rejects_oversized_physical_fragment_before_buffering() {
++    let data_size = u32::try_from(MAX_FRAME_DATA + 1).expect("frame length fits u32");
++    let header = FrameHeader {
++        flags: 0,
++        is_reply: 0,
++        ty: 200,
++        id: 323,
++        error: 0,
++        total_size: data_size,
++        data_size,
++    };
++    let mut codec = HotlineCodec::new();
++    let mut input = BytesMut::from(transaction_bytes(&header, &[]).as_slice());
++    let error = codec
++        .decode(&mut input)
++        .expect_err("oversized frame is rejected");
++    assert_eq!(error.kind(), std::io::ErrorKind::InvalidData);
++    assert!(error.to_string().contains("data size exceeds maximum"));
++}
++
++#[test]
++fn preassembled_constructor_keeps_logical_limit_and_length_checks() {
++    let oversized_total = u32::try_from(MAX_PAYLOAD_SIZE + 1).expect("limit fits u32");
++    let oversized = FrameHeader {
++        flags: 0,
++        is_reply: 1,
++        ty: 200,
++        id: 324,
++        error: 0,
++        total_size: oversized_total,
++        data_size: oversized_total,
++    };
++    let oversized_error = HotlineTransaction::from_parts(oversized, Vec::new())
++        .expect_err("preassembled total must still obey the logical limit");
++    assert!(matches!(oversized_error, TransactionError::PayloadTooLarge));
++
++    let mismatched = FrameHeader {
++        flags: 0,
++        is_reply: 1,
++        ty: 200,
++        id: 325,
++        error: 0,
++        total_size: 3,
++        data_size: 3,
++    };
++    let mismatch_error = HotlineTransaction::from_parts(mismatched, vec![0, 0])
++        .expect_err("preassembled bytes must match the declared total");
++    assert!(matches!(mismatch_error, TransactionError::SizeMismatch));
++}
++
+ #[rstest]
+ fn rejects_fragment_exceeding_remaining() {
+     let mut codec = HotlineCodec::new();
+diff --git a/src/wireframe/codec/mod.rs b/src/wireframe/codec/mod.rs
+index 8236f2f..aa8a4d6 100644
+--- a/src/wireframe/codec/mod.rs
++++ b/src/wireframe/codec/mod.rs
+@@ -153,9 +153,10 @@ impl HotlineTransaction {
+         if header.flags != 0 {
+             return Err(TransactionError::InvalidFlags);
+         }
+-        if header.total_size as usize > MAX_PAYLOAD_SIZE
+-            || header.data_size as usize > MAX_FRAME_DATA
+-        {
++        // This constructor accepts an assembled logical transaction. Physical
++        // fragments are checked separately by `take_hotline_frame` before they
++        // reach the Tokio codec's reassembly path.
++        if header.total_size as usize > MAX_PAYLOAD_SIZE {
+             return Err(TransactionError::PayloadTooLarge);
+         }
+         let has_data_size_overflow = header.data_size > header.total_size;

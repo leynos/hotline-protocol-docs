@@ -1,0 +1,11 @@
+{
+  "observed_at_utc": "2026-11-14T07:50:19.833802+00:00",
+  "command": [
+    "fuser",
+    "state/mac-runtime/native-liveness-01/working.dsk"
+  ],
+  "exit": 1,
+  "stdout": "",
+  "stderr": "",
+  "fd_free": true
+}

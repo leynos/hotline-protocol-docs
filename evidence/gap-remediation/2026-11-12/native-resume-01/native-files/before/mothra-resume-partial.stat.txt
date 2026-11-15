@@ -1,0 +1,33 @@
+File Path: /Hotline19/Files/mothra-resume-partial
+Catalog Record: 11214
+Allocated
+Type:	File
+Mode:	r---------
+Size:	13
+uid / gid: 99 / 99
+Link count:	1
+
+File Name: mothra-resume-partial
+Admin flags: 0
+Owner flags: 0
+File type:	48546674  HTft
+File creator:	48544c43  HTLC
+Text encoding:	0 = MacRoman
+Resource fork size:	5
+
+Times:
+Created:	2026-11-13 03:25:29 (GMT)
+Content Modified:	2026-11-13 03:25:33 (GMT)
+Attributes Modified:	0000-00-00 00:00:00 (UTC)
+Accessed:	0000-00-00 00:00:00 (UTC)
+Backed Up:	0000-00-00 00:00:00 (UTC)
+
+Data Fork Blocks:
+889826  
+
+Resource Fork Blocks:
+889842  
+
+Attributes: 
+Type: DATA (4352-0)   Name: N/A   Non-Resident   size: 13  init_size: 13
+Type: RSRC (4353-1)   Name: RSRC   Non-Resident   size: 5  init_size: 5

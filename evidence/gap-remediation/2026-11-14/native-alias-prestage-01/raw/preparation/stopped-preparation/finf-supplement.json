@@ -1,0 +1,74 @@
+{
+  "scope": "B119 stopped sidecar identity confirmation",
+  "utc": "2026-11-14T17:25:14.560876+00:00",
+  "status": "stopped_finf_staged",
+  "baseline_receipt": "state/native-sessions/native-alias-live-preparation-02/stopped-preparation/preflight.json",
+  "baseline_receipt_sha256": "d5eb5b3b71af6adf198dd0aa9e2153558a137198463880c56255a1262baf1b1b",
+  "asset_fuser": [
+    {
+      "path": "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-02/base.dsk",
+      "exit": 1,
+      "stdout_hex": "",
+      "stderr_hex": ""
+    },
+    {
+      "path": "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-02/working.dsk",
+      "exit": 1,
+      "stdout_hex": "",
+      "stderr_hex": ""
+    },
+    {
+      "path": "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-02/rom",
+      "exit": 1,
+      "stdout_hex": "",
+      "stderr_hex": ""
+    }
+  ],
+  "target_before": {
+    "path": "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-02/shared/m-alias54-target",
+    "device": 2097,
+    "inode": 1289656387,
+    "size": 20,
+    "mode": "0o600",
+    "uid": 1000,
+    "gid": 1000,
+    "nlink": 1,
+    "mtime_ns": 1794677047503388292,
+    "sha256": "8d1841a0106a3d6e9a4e4cee76eecd48912545fcc73d87446b05ada0800ae5a8"
+  },
+  "target_after": {
+    "path": "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-02/shared/m-alias54-target",
+    "device": 2097,
+    "inode": 1289656387,
+    "size": 20,
+    "mode": "0o600",
+    "uid": 1000,
+    "gid": 1000,
+    "nlink": 1,
+    "mtime_ns": 1794677047503388292,
+    "sha256": "8d1841a0106a3d6e9a4e4cee76eecd48912545fcc73d87446b05ada0800ae5a8"
+  },
+  "finf_dir": {
+    "path": "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-02/shared/.finf",
+    "device": 2097,
+    "inode": 3790795059,
+    "mode": "0o700",
+    "uid": 1000
+  },
+  "sidecar": {
+    "path": "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-02/shared/.finf/m-alias54-target",
+    "device": 2097,
+    "inode": 3790795060,
+    "size": 32,
+    "mode": "0o600",
+    "uid": 1000,
+    "gid": 1000,
+    "nlink": 1,
+    "mtime_ns": 1794677047611388279,
+    "sha256": "1d0021b686112365330a5e1ba1214b05c8bfe6ed7f715dc8d139a883f1830e4d",
+    "first_eight_hex": "553534544d353458",
+    "trailing_24_zero": true,
+    "full_hex": "553534544d353458000000000000000000000000000000000000000000000000"
+  },
+  "rsrc_absent": true
+}

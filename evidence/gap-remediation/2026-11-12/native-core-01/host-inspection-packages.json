@@ -1,0 +1,22 @@
+[
+  {
+    "filename": "afflib-3.7.20-15.fc43.x86_64.rpm",
+    "sha256": "238f6347e380babd8b0054886c4c98b62f0d66c40cf468ac7ab38e7b25edcf4a"
+  },
+  {
+    "filename": "libewf-20140608-32.fc43.x86_64.rpm",
+    "sha256": "3bcb6bd4f1c33ef1c6c2ec4964049257f0077581f84b79ee60170a2f40e7af12"
+  },
+  {
+    "filename": "mac-robber-1.02-31.fc43.x86_64.rpm",
+    "sha256": "5751c479fbd1c35e7009ff99b52a66e2f3dba4946b76330423dbfd16035174c0"
+  },
+  {
+    "filename": "sleuthkit-4.15.0-2.fc43.x86_64.rpm",
+    "sha256": "5d9a1723b5537798ffcace11b5386bd572c595ba3668838adf7128e6aba2b553"
+  },
+  {
+    "filename": "sleuthkit-libs-4.15.0-2.fc43.x86_64.rpm",
+    "sha256": "08311cb1fc29cae4fbe931606a80acd8249ec9bb6f87747c5bfefd52f72742ab"
+  }
+]

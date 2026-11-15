@@ -1,0 +1,60 @@
+head     1.1;
+branch   1.1.1;
+access   ;
+symbols  start:1.1.1.1 vendor:1.1.1;
+locks    ; strict;
+comment  @ * @;
+
+
+1.1
+date     2001.09.03.18.50.08;  author devinteske;  state Exp;
+branches 1.1.1.1;
+next     ;
+
+1.1.1.1
+date     2001.09.03.18.50.08;  author devinteske;  state Exp;
+branches ;
+next     ;
+
+
+desc
+@@
+
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#ifndef __htxf_h
+#define __htxf_h
+
+#include "hxd.h"
+
+extern void htxf_init (struct SOCKADDR_IN *saddr);
+
+#if defined(CONFIG_HTXF_PTHREAD)
+typedef void * thread_return_type;
+#else
+typedef int thread_return_type;
+#endif
+
+extern thread_return_type get_thread (void *__arg);
+extern thread_return_type put_thread (void *__arg);
+
+extern int htxf_thread_create (thread_return_type (*fn)(void *), struct htxf_conn *htxf);
+extern void mask_signal (int how, int sig);
+
+extern void htxf_close (int fd);
+
+#endif
+@
+
+
+1.1.1.1
+log
+@added module (god sf cvs sucks)
+@
+text
+@@

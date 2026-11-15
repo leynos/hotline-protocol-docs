@@ -1,0 +1,9 @@
+UI-target full-gate run started 2026-11-13 15:13:28 UTC
+tool session 32685 reported exit143; shell wrote NO full-test.exit and NO full-test.finished; make process tree gone. Cause unknown.
+source log SHA256 a8b78fb3190474b703cab4f2310ebf46f7644e91252662398629305bcef31dc6
+1172:      Summary [  17.425s] 544 tests run: 544 passed, 0 skipped
+2350:      Summary [   8.185s] 548 tests run: 548 passed, 0 skipped
+3488:      Summary [   8.949s] 530 tests run: 530 passed, 0 skipped
+3650:      Summary [ 495.650s] 3 tests run: 3 passed, 0 skipped
+3746:      Summary [   0.225s] 69 tests run: 69 passed, 1 skipped
+3803:    Compiling diesel v2.3.14

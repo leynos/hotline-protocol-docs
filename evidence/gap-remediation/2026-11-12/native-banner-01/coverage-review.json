@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status_changes": false,
+  "gaps": [
+    {
+      "id": "GAP-055",
+      "closed": false,
+      "remaining": "Other-session ownership and duplicate/reused reference lifecycles, arbitrary HTXF size/reserved words and complete failure matching remain required."
+    },
+    {
+      "id": "GAP-063",
+      "closed": false,
+      "remaining": "JPEG/PICT/BMP/native fallback payload fixtures and a controlled explanation of absent-to-restored stream lifetime remain required."
+    },
+    {
+      "id": "GAP-084",
+      "closed": false,
+      "remaining": "Full native operation and identified historical peer fixtures remain required."
+    }
+  ],
+  "criterion_policy": "Original87 gap IDs and acceptance criteria retained unchanged; no closure inferred from a successful runner or a narrow GIF fixture."
+}

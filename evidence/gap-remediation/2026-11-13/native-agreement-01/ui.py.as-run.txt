@@ -1,0 +1,7 @@
+import fcntl,json,subprocess,sys
+from pathlib import Path
+from datetime import datetime,timezone
+r=Path('state/native-sessions/runtime-15')
+lock=(r/'ui.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX)
+with (r/'phase-events.jsonl').open('a') as f:f.write(json.dumps({'utc':datetime.now(timezone.utc).isoformat(),'arguments':sys.argv[1:]})+'\n')
+subprocess.run([sys.executable,'state/native-sessions/runtime-15/mac-input-short.py',*sys.argv[1:]],check=True)

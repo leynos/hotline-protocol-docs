@@ -1,0 +1,29 @@
+File Path: /Hotline19/News/mothra-news24/missing-id
+Catalog Record: 11624
+Allocated
+Type:	File
+Mode:	r---------
+Size:	7602
+uid / gid: 99 / 99
+Link count:	1
+
+File Name: missing-id
+Admin flags: 0
+Owner flags: 0
+File type:	484c4e5a  HLNZ
+File creator:	48544c53  HTLS
+Text encoding:	0 = MacRoman
+Resource fork size:	0
+
+Times:
+Created:	2026-11-13 16:14:28 (GMT)
+Content Modified:	2026-11-13 16:14:29 (GMT)
+Attributes Modified:	0000-00-00 00:00:00 (UTC)
+Accessed:	0000-00-00 00:00:00 (UTC)
+Backed Up:	0000-00-00 00:00:00 (UTC)
+
+Data Fork Blocks:
+891291-891292  
+
+Attributes: 
+Type: DATA (4352-0)   Name: N/A   Non-Resident   size: 7602  init_size: 7602

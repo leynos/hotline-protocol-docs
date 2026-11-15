@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T14:49:28.358778+00:00",
+  "query": {
+    "id": "B10-D-10027d40",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10027d40"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_10027d40\",\n    \"address\": \"10027d40\"\n  },\n  \"code\": \"\\nuint FUN_10027d40(short *param_1,undefined4 param_2,uint param_3)\\n\\n{\\n  undefined4 uVar1;\\n  undefined4 *puVar2;\\n  char cVar4;\\n  byte *pbVar3;\\n  uint uVar5;\\n  \\n  uVar5 = 0;\\n  uVar1 = .glue::LMGetResLoad();\\n  .glue::SetResLoad(1);\\n  puVar2 = (undefined4 *).glue::GetResource(0x454d5347,(int)*param_1);\\n  .glue::LMSetResLoad(uVar1);\\n  if (puVar2 != (undefined4 *)0x0) {\\n    cVar4 = .glue::HGetState(puVar2);\\n    .glue::HLock(puVar2);\\n    uVar1 = .glue::GetHandleSize(puVar2);\\n    uVar5 = FUN_10079b20(*puVar2,uVar1,(int)param_1[1],param_2,param_3);\\n    .glue::HSetState(puVar2,(int)cVar4);\\n  }\\n  if (uVar5 == 0) {\\n    if ((*param_1 == 3) && (param_1[1] == 0x65)) {\\n      pbVar3 = (byte *)(s_An_unknown_error_has_occured__No_1009397b + 0x1d);\\n    }\\n    else {\\n      pbVar3 = (byte *)0x1009397a;\\n    }\\n    uVar5 = (uint)*pbVar3;\\n    if (param_3 < *pbVar3) {\\n      uVar5 = param_3;\\n    }\\n    .glue::BlockMoveData(pbVar3 + 1,param_2,uVar5);\\n  }\\n  return uVar5;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_10027d40",
+        "address": "10027d40"
+      },
+      "code": "\nuint FUN_10027d40(short *param_1,undefined4 param_2,uint param_3)\n\n{\n  undefined4 uVar1;\n  undefined4 *puVar2;\n  char cVar4;\n  byte *pbVar3;\n  uint uVar5;\n  \n  uVar5 = 0;\n  uVar1 = .glue::LMGetResLoad();\n  .glue::SetResLoad(1);\n  puVar2 = (undefined4 *).glue::GetResource(0x454d5347,(int)*param_1);\n  .glue::LMSetResLoad(uVar1);\n  if (puVar2 != (undefined4 *)0x0) {\n    cVar4 = .glue::HGetState(puVar2);\n    .glue::HLock(puVar2);\n    uVar1 = .glue::GetHandleSize(puVar2);\n    uVar5 = FUN_10079b20(*puVar2,uVar1,(int)param_1[1],param_2,param_3);\n    .glue::HSetState(puVar2,(int)cVar4);\n  }\n  if (uVar5 == 0) {\n    if ((*param_1 == 3) && (param_1[1] == 0x65)) {\n      pbVar3 = (byte *)(s_An_unknown_error_has_occured__No_1009397b + 0x1d);\n    }\n    else {\n      pbVar3 = (byte *)0x1009397a;\n    }\n    uVar5 = (uint)*pbVar3;\n    if (param_3 < *pbVar3) {\n      uVar5 = param_3;\n    }\n    .glue::BlockMoveData(pbVar3 + 1,param_2,uVar5);\n  }\n  return uVar5;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

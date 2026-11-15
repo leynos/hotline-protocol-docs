@@ -1,0 +1,528 @@
+{
+  "recorded_at_utc": "2026-11-13T00:25:29.856989+00:00",
+  "image": "state/mac-runtime/hotline19/working.dsk",
+  "tool_sha256": {
+    "istat": "f87c0cee5e263c55440c19fb3e478b80e33dcbae223388b5f83913ceb5fc4499",
+    "icat": "ab73038eda8ed52697c5d94874bbc0a19285184253e68a78f6e4ab347a042bba"
+  },
+  "catalog_range": [
+    11293,
+    11360
+  ],
+  "roots": [
+    "/Hotline19/Files",
+    "/Hotline19/Users/m-auth-bypass"
+  ],
+  "method": "Read-only direct catalogue observations. Positive paths verified by istat before fork reads. Not an exhaustive directory listing, path-absence proof, protocol certification or restart-durability result.",
+  "probes": [
+    {
+      "catalog": 11293,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11294,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11295,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11296,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11297,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11298,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11299,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11300,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11301,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11302,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11303,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11304,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11305,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11306,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11307,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11308,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11309,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11310,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11311,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11312,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11313,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11314,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11315,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11316,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11317,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11318,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11319,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11320,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11321,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11322,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11323,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11324,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11325,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11326,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11327,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11328,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11329,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11330,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11331,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11332,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11333,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11334,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11335,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11336,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11337,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11338,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11339,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11340,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11341,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11342,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11343,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11344,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11345,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11346,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11347,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11348,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11349,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11350,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11351,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11352,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11353,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11354,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11355,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11356,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11357,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11358,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11359,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    },
+    {
+      "catalog": 11360,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11303)\n"
+    }
+  ],
+  "records": [
+    {
+      "path": "/Hotline19/Users/m-auth-bypass",
+      "key": "catalog-11295",
+      "catalog": 11295,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-auth-bypass/UserData",
+      "key": "catalog-11296",
+      "catalog": 11296,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/m-agree-empty",
+      "key": "catalog-11297",
+      "catalog": 11297,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 0,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/m-agree-text",
+      "key": "catalog-11298",
+      "catalog": 11298,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 34,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/m-agree-binary",
+      "key": "catalog-11299",
+      "catalog": 11299,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 34,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/m-agree-t-limit",
+      "key": "catalog-11300",
+      "catalog": 11300,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 65535,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/m-agree-t-over",
+      "key": "catalog-11301",
+      "catalog": 11301,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 65536,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/m-agree-b-over",
+      "key": "catalog-11302",
+      "catalog": 11302,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 262141,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/m-agree-b-field",
+      "key": "catalog-11303",
+      "catalog": 11303,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 65536,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    }
+  ]
+}

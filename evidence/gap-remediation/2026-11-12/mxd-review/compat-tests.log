@@ -1,0 +1,39 @@
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mxd/.cargo/config.toml`
+    Finished `test` profile [optimized] target(s) in 0.33s
+     Running unittests src/lib.rs (/data/leynos/Projects/mothra/state/mxd-target/debug/build/mxd/29c43d9412d22c7d/out/mxd-29c43d9412d22c7d)
+
+running 31 tests
+test wireframe::compat::tests::decode_payload_keeps_plaintext_when_valid ... ok
+test wireframe::compat::tests::decode_payload_enables_xor_on_invalid_utf8 ... ok
+test wireframe::compat::tests::decode_payload_does_not_enable_xor_for_non_text_fields ... ok
+test wireframe::compat::tests::decode_payload_returns_error_for_invalid_parameter_bytes ... ok
+test wireframe::compat::tests::encode_payload_noop_when_disabled ... ok
+test wireframe::compat::tests::encode_payload_xors_text_fields_when_enabled ... ok
+test wireframe::compat::tests::encode_then_decode_round_trip_when_enabled ... ok
+test wireframe::compat::tests::xor_bytes_round_trip ... ok
+test wireframe::compat_layer::tests::file_list_payload_bypasses_param_decode ... ok
+test wireframe::compat_layer::tests::on_reply_calls_login_reply_augmenter ... ok
+test wireframe::compat_policy::tests::augment_login_reply_is_idempotent_when_extras_exist ... ok
+test wireframe::compat_layer::tests::login_commands_use_auth_strategy ... ok
+test wireframe::compat_layer::tests::non_login_commands_bypass_auth_strategy ... ok
+test wireframe::compat_policy::tests::augments_login_reply_when_required ... ok
+test wireframe::compat_policy::tests::classifies_hotline_85_from_login_version ... ok
+test wireframe::compat_policy::tests::classifies_hotline_19_from_login_version ... ok
+test wireframe::compat_policy::tests::classifies_synhx_from_handshake ... ok
+test wireframe::compat_policy::tests::classifies_unknown_for_older_login_versions ... ok
+test wireframe::compat_policy::tests::does_not_augment_failed_login_reply_for_hotline_clients ... ok
+test wireframe::compat_policy::tests::does_not_augment_login_reply_for_unknown_client_kind ... ok
+test wireframe::compat_policy::tests::does_not_augment_login_reply_for_synhx ... ok
+test wireframe::compat_policy::tests::does_not_augment_login_request_for_hotline_clients ... ok
+test wireframe::compat_policy::tests::login_extras_gate_matches_version_boundaries::case_1 ... ok
+test wireframe::compat_policy::tests::login_extras_gate_matches_version_boundaries::case_2 ... ok
+test wireframe::compat_policy::tests::login_extras_gate_matches_version_boundaries::case_3 ... ok
+test wireframe::compat_policy::tests::login_extras_gate_matches_version_boundaries::case_4 ... ok
+test wireframe::compat_policy::tests::record_login_payload_ignores_unparsable_version_lengths ... ok
+test wireframe::compat_policy::tests::records_login_version_from_u16_payload ... ok
+test wireframe::compat_policy::tests::records_login_version_from_u32_payload ... ok
+test wireframe::compat_policy::tests::records_u16_max_version_without_sentinel_collision ... ok
+test wireframe::compat_policy::tests::synhx_classification_takes_precedence_over_login_version ... ok
+
+test result: ok. 31 passed; 0 failed; 0 ignored; 0 measured; 367 filtered out; finished in 0.01s
+

@@ -1,0 +1,16 @@
+[
+  {
+    "id": "BF-D-1006ddb0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1006ddb0"
+    }
+  },
+  {
+    "id": "BF-D-10052c50",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10052c50"
+    }
+  }
+]

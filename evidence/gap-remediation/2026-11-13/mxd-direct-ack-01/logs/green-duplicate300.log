@@ -1,0 +1,16 @@
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`
+   Compiling mxd v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd)
+   Compiling test-util v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/test-util)
+    Finished `test` profile [optimized] target(s) in 18.04s
+     Running tests/direct_reply_validation.rs (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/build/mxd/4c88507ce5258da6/out/direct_reply_validation-4c88507ce5258da6)
+
+running 6 tests
+test parses_type_zero_roster_direct_reply ... ok
+test repeated_roster_field_requires_exact_reply_marker ... ok
+test legacy_writer_and_reader_accept_type_zero_roster ... ok
+test tokio_reply_constructor_accepts_repeated_roster_records ... ok
+test tokio_conversion_accepts_type_zero_roster ... ok
+test unrelated_duplicate_stays_invalid_in_direct_reply ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

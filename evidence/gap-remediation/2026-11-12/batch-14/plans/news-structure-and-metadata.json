@@ -1,0 +1,53 @@
+[
+  {
+    "id": "B14-D-1002cac0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002cac0"
+    }
+  },
+  {
+    "id": "B14-D-10022670",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10022670"
+    }
+  },
+  {
+    "id": "B14-D-1002f800",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002f800"
+    }
+  },
+  {
+    "id": "B14-D-1002e8b0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002e8b0"
+    }
+  },
+  {
+    "id": "B14-D-100280b0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100280b0"
+    }
+  },
+  {
+    "id": "B14-M-10090990",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "10090990",
+      "length": 740
+    }
+  },
+  {
+    "id": "B14-A-1002d2c0",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "1002d2c0",
+      "limit": 600
+    }
+  }
+]

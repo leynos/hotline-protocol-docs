@@ -1,0 +1,10 @@
+{
+  "pid": 1364862,
+  "starttime": "7054838",
+  "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "netns_inode": 4026532471,
+  "working_inode": 3290903959,
+  "guest_pcap_fd": 16,
+  "original_ticks_unchanged": true,
+  "scope": "No working-image bytes read"
+}

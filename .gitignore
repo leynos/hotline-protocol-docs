@@ -9,3 +9,15 @@ __pycache__/
 .typos-oxendict-base.json
 .typos-oxendict-base.toml
 nohup.out
+
+# Forks of the Hotline Server binary are withheld: they are not this
+# project's to publish. evidence/withheld.json records their hashes. A local
+# copy may sit at each path.
+/evidence/hotline-server-1.9/inputs/HLserver19.pef
+/evidence/gap-remediation/2026-11-13/native-ban-one-01/preparation/preboot-app/catalog-11183.data
+/evidence/gap-remediation/2026-11-13/native-ban-one-01/preparation/preboot-app/catalog-11183.rsrc
+/evidence/gap-remediation/2026-11-13/native-runtime-recovery-01/preboot-app/catalog-11183.data
+/evidence/gap-remediation/2026-11-13/native-runtime-recovery-01/preboot-app/catalog-11183.rsrc
+/evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/stopped-hfs/server-data.bin
+/evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/stopped-hfs/server-rsrc.bin
+/evidence/gap-remediation/2026-11-12/batch-09/inputs/HLserver19.appledouble

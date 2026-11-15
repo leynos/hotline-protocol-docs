@@ -1,0 +1,63 @@
+{
+  "source_commit": "adb1bf8c8cb12f7eb2fa2c01673295a6312f262b",
+  "scope": "Host-built isolated basic-login callback; not a full client/server run",
+  "compiler": "cc (GCC) 15.3.1 20260722 (Red Hat 15.3.1-1)\nCopyright (C) 2025 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "command": [
+    "/usr/sbin/cc",
+    "-std=gnu11",
+    "-Wall",
+    "-Wextra",
+    "/data/leynos/Projects/mothra/state/shx-login-fragment/login-fragment.c",
+    "-o",
+    "/data/leynos/Projects/mothra/state/shx-login-fragment/login-fragment"
+  ],
+  "preprocessor_profile": "No CONFIG_HOPE, CONFIG_CIPHER or CONFIG_COMPRESS",
+  "generated_sha256": "d4c97e503c78cdb493e378277d4ef76c52f0be5e376bb0cb28c015529a836817",
+  "callback_sha256": "d3fa6071fae0137b6c6ff35a537464beedd595329e54bca9fa73164e27bcad31",
+  "macros_sha256": "0c07f769f3d7585d19b230c57032107c501a0fef60bf6e21df7efea2a5f50b0e",
+  "compiler_output": "",
+  "cases": [
+    {
+      "case": "empty_success",
+      "uid": 7,
+      "connect_calls": 1,
+      "passed": true
+    },
+    {
+      "case": "native_extras",
+      "uid": 7,
+      "connect_calls": 1,
+      "passed": true
+    },
+    {
+      "case": "uid_and_extras",
+      "uid": 42,
+      "connect_calls": 1,
+      "passed": true
+    },
+    {
+      "case": "unknown_field",
+      "uid": 7,
+      "connect_calls": 1,
+      "passed": true
+    },
+    {
+      "case": "status_one",
+      "uid": 7,
+      "connect_calls": 0,
+      "passed": true
+    },
+    {
+      "case": "status_two_low_bit_clear",
+      "uid": 7,
+      "connect_calls": 1,
+      "passed": true
+    },
+    {
+      "case": "repeated_uid",
+      "uid": 43,
+      "connect_calls": 1,
+      "passed": true
+    }
+  ]
+}

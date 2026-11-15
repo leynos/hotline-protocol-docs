@@ -1,0 +1,31 @@
+{
+  "utc": "2026-11-14T17:49:29.981075+00:00",
+  "runtime_initial_finf_sha256": "8f0333df339d2a73158152e7fbf3ba832b560f6f24bc2694b103af7d8c222f32",
+  "items": {
+    "target": {
+      "path": "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-02/shared/m-alias54-target",
+      "dev": 2097,
+      "inode": 1289656387,
+      "uid": 1000,
+      "mode": "0o600",
+      "nlink": 1,
+      "size": 20,
+      "sha256": "8d1841a0106a3d6e9a4e4cee76eecd48912545fcc73d87446b05ada0800ae5a8",
+      "baseline_sha256": "8d1841a0106a3d6e9a4e4cee76eecd48912545fcc73d87446b05ada0800ae5a8",
+      "matches_baseline": true
+    },
+    "finf": {
+      "path": "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-02/shared/.finf/m-alias54-target",
+      "dev": 2097,
+      "inode": 3790795060,
+      "uid": 1000,
+      "mode": "0o600",
+      "nlink": 1,
+      "size": 32,
+      "sha256": "8f0333df339d2a73158152e7fbf3ba832b560f6f24bc2694b103af7d8c222f32",
+      "baseline_sha256": "1d0021b686112365330a5e1ba1214b05c8bfe6ed7f715dc8d139a883f1830e4d",
+      "matches_baseline": false,
+      "first8_hex": "553534544d353458"
+    }
+  }
+}

@@ -1,0 +1,105 @@
+# C22: successful Login107 is not full Classic startup
+
+Read-only source reconciliation, 2026-11-13. Private mxd was clean at
+`cb907885cc2a61df2d708f38a3cf42da85c2a016`. Leta definition lookup
+was attempted first and timed out at 15 seconds; the anchors below are
+targeted file reads. No source, test, build, database, daemon, client, or
+native-oracle operation was performed in C22.
+
+## Observed boundary and limits
+
+The supervisor's A24 report says the actual Classic client with the new
+24-character fixture completed handshake and received a correlated
+Login107 ACK with wire type 0, marker 1, ID 1, status 0 and fields
+160/161/162. The UI said `Connected to: mxd`, then `Loading Agreement`
+with `0 users`. The allowed settle window recorded no 109, 121, 300 or
+212. This is a reported capture observation, not a new C22 capture.
+It proves this login path and absence within that window, not a universal
+absence or a client-side causal mechanism. The client may be waiting for
+109 before asking for 300; that is an inference, not established by this
+source trace alone. No 300 request means the roster reply writer was not
+exercised by A24.
+
+The native 1.9 baseline says the normal `NO_AGREEMENT` branch still sends
+server-initiated 109 with field 154=`0001` after Login, with separate
+early/delayed completion paths (`hotline-protocol-docs/protocol.md:317-365`).
+The broad native exception for an oversized agreement payload is a
+different configured failure case; it is not evidence that a normal mxd
+bypass account may omit 109. Native notifications normally use the server
+notification-ID generator, which skips zero (`protocol.md:95-104`).
+
+## Pinned mxd source trace
+
+1. `src/login.rs:43-77`: successful DB authentication grants every account
+   `Privileges::default_user() | NO_AGREEMENT`, calls `apply_login`, and
+   constructs the direct ACK. There is no persisted account privilege
+   distinction in this handler.
+2. `src/handler.rs:151-175,182-199`: that privilege puts the session directly
+   `Online`, and a visible online session can yield a presence snapshot.
+   `PendingAgreement` is modelled but not reachable from the current login
+   policy for a successfully authenticated DB account.
+3. `src/wireframe/router.rs:57-67,96-135` sends parsed requests through
+   `Command::from_transaction` and the common command dispatcher.
+   `src/commands/handlers.rs:83-116` sends the Login ACK, upserts the online
+   snapshot and pushes 301 only to existing *other* peers. It has no 109
+   builder/send, self-roster push or post-login agreement handoff.
+4. `src/commands/handlers.rs:119-138` builds a packed roster direct reply
+   only for an explicit Get User Name List 300 request.
+   `src/presence.rs:164-201,203-214` builds that reply and 301/302 pushes;
+   its generic notification helper uses ID 0 (`:237-250`), so copying it
+   blindly for native-like 109 would also need an ID decision.
+5. `src/transaction_type.rs:27-35,95-103` names 109 and 121, and
+   `src/wireframe/route_ids.rs:9-20` registers incoming 121. Those IDs do
+   not imply implementation: `src/commands/parsing.rs:48-76` has no 121
+   match and falls through to `Command::Unknown`, whose handler returns an
+   error (`src/commands/handlers.rs:241-251`). `rg` found no outbound 109
+   builder or field-154 definition under `src/`.
+
+## Assertions and documentation that need reconciliation
+
+- `src/wireframe/routes/tests/presence_routing_cases.rs:20-46` logs in a
+  fixture user and **then explicitly sends 300**; it validates the roster
+  on that path. It does not assert an initial 109 or that Classic requests
+  300 while its agreement screen is loading. The other route/BDD presence
+  tests cover 301/302 peer pushes, not the 109/121 handoff.
+- `docs/users-guide.md:65-74` says “Presence parity is now available” and
+  describes agreement-gated users becoming online after 121. The latter
+  path is not implemented or reachable under the current login grant.
+  `docs/developers-guide.md:676-685` similarly describes a completed 121
+  transition; `src/commands/support.rs:49` labels UserInfoUpdate as accepted
+  by 121 and 304 although the parser handles only 304. These are stale
+  implementation claims. `docs/design.md:2161-2164` is narrower and
+  accurately notes that current login grants `NO_AGREEMENT`.
+- `docs/roadmap.md:324-333` checks 300–304 but explicitly leaves the
+  agree/disagree flow pending in 2.1.1b. The source corroborates that
+  deferral. It does not justify a full Classic startup claim.
+
+## Disposition and next bounded action
+
+This is an **unimplemented 109 handoff** plus overstated current docs,
+not a proven roster-encoding regression. Retire or qualify the quoted
+presence/121 claims in the current mxd guides and source comment in a
+separate documentation packet. State that the current server supports
+online 300 replies and 301/302 peer notifications after its bypass login,
+but does not yet implement server Agreement109 or incoming Agreed121.
+
+For a separate approved implementation plan, first define the outbound
+109 marker/type/notification-ID, ordering after the direct ACK, current
+connection target, field-154 exact two-byte value and failure behaviour
+against the native corpus. Then test the actual Wireframe actor boundary:
+successful bypass Login emits one 109 after its correlated ACK, failed
+Login emits none, existing 301 to other peers remains, and explicit 300
+still returns the correct roster. Include a real Classic-client replay.
+Adding a 121 path or account-specific agreement policy is a separate
+design decision; do not introduce it as a side effect of the bypass case.
+No source edit is proposed under C22. The current zero-ID notification
+helper and route/actor output ordering need review before scoping Rust
+files or a time budget.
+
+GAP-085 asks whether named tests exist/pass at a recorded mxd revision,
+their assertions match the corrected protocol, and stale expectations
+are fixed or retired and mapped to requirements. C7/C11 and A24 support
+the direct-ACK/login-extras slice at this revision; 109/121 and the
+overstated startup claims remain unmapped or wrong. C22 therefore supplies
+a precise follow-up, **not GAP-085 closure**. GAP-001 release subset and
+GAP-086 sign-off/proof choices remain separate.

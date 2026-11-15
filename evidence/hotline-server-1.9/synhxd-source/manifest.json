@@ -1,0 +1,128 @@
+[
+  {
+    "archive": "/data/leynos/Projects/synhxd/server/decode.c,v",
+    "archive_sha256": "e1ebeb85cbc0aa2d2e60f82c60ab61c589adaf78ef91e0f4974d3b090c4426f0",
+    "selected_revision": "1.1",
+    "default_branch": "1.1.1",
+    "snapshot": "decode.c",
+    "snapshot_sha256": "fff8fa683e45e4f53a1dcfa4e1cc826e534d0420c3da46a7d6805845ba68d88a",
+    "saved_archive": "decode.c.rcs"
+  },
+  {
+    "archive": "/data/leynos/Projects/synhxd/server/rcv.c,v",
+    "archive_sha256": "f9a9c4c9963d414303e5bdbe25eaddc715113904f685570d053dfff33cbc177e",
+    "selected_revision": "1.1",
+    "default_branch": "1.1.1",
+    "snapshot": "rcv.c",
+    "snapshot_sha256": "a1e902f2c4e7676a39c5875b7b374d02aef810952ea17461c0e56dd8566c32d4",
+    "saved_archive": "rcv.c.rcs"
+  },
+  {
+    "archive": "/data/leynos/Projects/synhxd/server/rcv.h,v",
+    "archive_sha256": "886b2290d992b8b7f08715613184aaa4496d1df155c8fee39380dfbe193a23af",
+    "selected_revision": "1.1",
+    "default_branch": "1.1.1",
+    "snapshot": "rcv.h",
+    "snapshot_sha256": "ae7e6db8682115677f92a318576cd004d86c9769b2eafb09af2c40f638100e06",
+    "saved_archive": "rcv.h.rcs"
+  },
+  {
+    "archive": "/data/leynos/Projects/synhxd/server/hlserver.c,v",
+    "archive_sha256": "6c2970122dc91af1bd261e30574884619b59fcb82b980471be38fb1c241d02d3",
+    "selected_revision": "1.1",
+    "default_branch": "1.1.1",
+    "snapshot": "hlserver.c",
+    "snapshot_sha256": "bde99542f7d726da2ace5b09d62b661f721326f74434d5b7abb81b1d9f5f3474",
+    "saved_archive": "hlserver.c.rcs"
+  },
+  {
+    "archive": "/data/leynos/Projects/synhxd/server/hlwrite.c,v",
+    "archive_sha256": "80b35d9799716db0d1d34ce41ed57575275a3d3951ac9b910ff6d8ae485ddb72",
+    "selected_revision": "1.1",
+    "default_branch": "1.1.1",
+    "snapshot": "hlwrite.c",
+    "snapshot_sha256": "3739614a4ab39157411bf45e591be6ffcdedb0370561a53cb73644c1f17c0459",
+    "saved_archive": "hlwrite.c.rcs"
+  },
+  {
+    "archive": "/data/leynos/Projects/synhxd/server/trx.h,v",
+    "archive_sha256": "bf974e68993308a39a2c722fa01505201399ec634f8b836c743880821a883408",
+    "selected_revision": "1.1",
+    "default_branch": "1.1.1",
+    "snapshot": "trx.h",
+    "snapshot_sha256": "f083a57ff38fbcb1fcda139fb731de27fb6c766d1d0ba38886be3ef4d5ec8724",
+    "saved_archive": "trx.h.rcs"
+  },
+  {
+    "archive": "/data/leynos/Projects/synhxd/server/hxd.h,v",
+    "archive_sha256": "cdc90109c48bfddaf37e9abc88e8cf7b0979fb6b2735c52c2af542daed0d3c34",
+    "selected_revision": "1.1",
+    "default_branch": "1.1.1",
+    "snapshot": "hxd.h",
+    "snapshot_sha256": "a58b513fdd1179df4bc6e25dd44a17888b9d802974c72f1ebf4bcb6859a08aee",
+    "saved_archive": "hxd.h.rcs"
+  },
+  {
+    "archive": "/data/leynos/Projects/synhxd/server/chat.c,v",
+    "archive_sha256": "ff64a336bc71dafcfca25b605b9ca91db174c6b588ba39be60083378283eef71",
+    "selected_revision": "1.1",
+    "default_branch": "1.1.1",
+    "snapshot": "chat.c",
+    "snapshot_sha256": "eb4b5ac88e74ef7447f6f5aaf6f620ef85be915de571c3df5786fbc8dc012819",
+    "saved_archive": "chat.c.rcs"
+  },
+  {
+    "archive": "/data/leynos/Projects/synhxd/server/news.c,v",
+    "archive_sha256": "65999c3542d3442bd771f0d5f98a148178a947632ec8e217abedc6744cedeb3a",
+    "selected_revision": "1.1",
+    "default_branch": "1.1.1",
+    "snapshot": "news.c",
+    "snapshot_sha256": "b34011fe696a30d53c2c2a3276a26a31d7343e32efe40be476ace1d69ed49aa4",
+    "saved_archive": "news.c.rcs"
+  },
+  {
+    "archive": "/data/leynos/Projects/synhxd/server/accounts.c,v",
+    "archive_sha256": "1a25812fa89eb566dc841113135d8eedacec59893262570a22e4d566a3281335",
+    "selected_revision": "1.1",
+    "default_branch": "1.1.1",
+    "snapshot": "accounts.c",
+    "snapshot_sha256": "759d82b9ee8ed1797818b3d2f308d31c96dff211bd56b5a6ebe207eca0d1ff0e",
+    "saved_archive": "accounts.c.rcs"
+  },
+  {
+    "archive": "/data/leynos/Projects/synhxd/server/files.c,v",
+    "archive_sha256": "cbd28bf78a8496d1b9693bbd647abe4389e81c2d5f1b09967e25600fd075a583",
+    "selected_revision": "1.1",
+    "default_branch": "1.1.1",
+    "snapshot": "files.c",
+    "snapshot_sha256": "679fd2d802bf70c634af8833e24b6964b1b87e063671369abaf446b677624dd6",
+    "saved_archive": "files.c.rcs"
+  },
+  {
+    "archive": "/data/leynos/Projects/synhxd/server/htxf.c,v",
+    "archive_sha256": "bab9fd17036ab0cdda023565ab4cb1e16e705ce6e7c525299fbd68767e0343db",
+    "selected_revision": "1.1",
+    "default_branch": "1.1.1",
+    "snapshot": "htxf.c",
+    "snapshot_sha256": "e7d86b89851aacc8fb6314eac6605cd600b5197a4eba2c292a2bfd212b21df8e",
+    "saved_archive": "htxf.c.rcs"
+  },
+  {
+    "archive": "/data/leynos/Projects/synhxd/server/htxf.h,v",
+    "archive_sha256": "4bb23009e9a443491fb407698f4fe3855b5b1dac2ee4cdcbe5a854e2a40b1a86",
+    "selected_revision": "1.1",
+    "default_branch": "1.1.1",
+    "snapshot": "htxf.h",
+    "snapshot_sha256": "74af045d989f43991908caf5f4a2ccb3c356d35c085eebd01d84a089a9bcda7d",
+    "saved_archive": "htxf.h.rcs"
+  },
+  {
+    "archive": "/data/leynos/Projects/synhxd/server/hotline.h,v",
+    "archive_sha256": "de39fca2906cab5dc497463691de36fd9d7d2373fd4b630d65bc22e87ec6889f",
+    "selected_revision": "1.1",
+    "default_branch": "1.1.1",
+    "snapshot": "hotline.h",
+    "snapshot_sha256": "8115a38631a8736f3be919d6559d0edbf0bb83f4688a1f0661e6cbc10e2ac0b9",
+    "saved_archive": "hotline.h.rcs"
+  }
+]

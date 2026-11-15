@@ -1,0 +1,3 @@
+protected completed  [('main', 0, 1, 0), ('main', 354, 1, 0), ('main', 109, 2, 0), ('target', 0, 1, 0), ('target', 354, 1, 0), ('target', 109, 2, 0), ('main', 301, 3, 0), ('main', 0, 11, 1), ('target', 0, 80, 0), ('main', 0, 12, 0), ('target', 104, 3, 0), ('main', 302, 4, 0), ('main', 0, 20, 1), ('main', 0, 30, 0), ('main', 0, 90, 0)]
+protected-login completed  [('main', 0, 1, 1)]
+after-protected completed  [('main', 0, 1, 0), ('main', 354, 1, 0), ('main', 109, 2, 0), ('main', 0, 10, 0), ('main', 0, 11, 0), ('main', 0, 20, 1), ('main', 0, 21, 0), ('main', 0, 22, 0)]

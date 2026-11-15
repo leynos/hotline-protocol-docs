@@ -1,0 +1,6 @@
+Id=mothra-configured-apply-c67-case.service
+ActiveState=inactive
+SubState=dead
+MainPID=0
+Result=success
+ExecMainStatus=0

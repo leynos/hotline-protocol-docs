@@ -1,0 +1,50 @@
+{
+  "utc": "2026-11-13T23:56:57.833738+00:00",
+  "actual_emulator": {
+    "pid": 850120,
+    "starttime": 3876715,
+    "exe": "/data/leynos/Projects/mothra/state/mac-runtime/native-banlab-three-01/SheepShaver-9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+    "netns": "net:[4026532615]",
+    "uid": "Uid:\t1000\t1000\t1000\t1000",
+    "gid": "Gid:\t1000\t1000\t1000\t1000",
+    "cap_eff": "CapEff:\t0000000000020000",
+    "cgroup": "0::/user.slice/user-0.slice/session-c625.scope"
+  },
+  "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "fds": {
+    "6": "/data/leynos/Projects/mothra/state/mac-runtime/native-banlab-three-01/working.dsk",
+    "16": "/data/leynos/Projects/mothra/state/native-sessions/native-banlab-boot-c44/lab-guest.pcap"
+  },
+  "namespace": {
+    "addr": "lo               UNKNOWN        127.0.0.1/8 ::1/128",
+    "ipv4_routes": "",
+    "ipv6_routes": "",
+    "listeners": "State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess                                      \nLISTEN 0      32         127.0.0.1:15500      0.0.0.0:*    users:((\"python3\",pid=850064,fd=5))         \nLISTEN 0      1          127.0.0.1:15742      0.0.0.0:*    users:((\"SheepShaver-9c9\",pid=850120,fd=13))\nLISTEN 0      1          127.0.0.1:15743      0.0.0.0:*    users:((\"SheepShaver-9c9\",pid=850120,fd=14))\nLISTEN 0      1          127.0.0.1:15740      0.0.0.0:*    users:((\"SheepShaver-9c9\",pid=850120,fd=11))\nLISTEN 0      1          127.0.0.1:15741      0.0.0.0:*    users:((\"SheepShaver-9c9\",pid=850120,fd=12))"
+  },
+  "primary_client_unchanged": true,
+  "recorders": {
+    "primary-host.pcap": {
+      "size": 24,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "primary_syn_count": 0,
+      "tcpdump_stderr": "reading from file /data/leynos/Projects/mothra/state/native-sessions/native-banlab-boot-c44/primary-host.pcap, link-type EN10MB (Ethernet), snapshot length 262144\ndropped privs to tcpdump\n"
+    },
+    "lab-namespace.pcap": {
+      "size": 24,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "primary_syn_count": 0,
+      "tcpdump_stderr": "reading from file /data/leynos/Projects/mothra/state/native-sessions/native-banlab-boot-c44/lab-namespace.pcap, link-type EN10MB (Ethernet), snapshot length 262144\ndropped privs to tcpdump\n"
+    }
+  },
+  "units": {
+    "mothra-native-banlab-c44-host-capture.service": "ActiveState=active\nRuntimeMaxUSec=20min\nMainPID=849130\nResult=success",
+    "mothra-native-banlab-c44-ns-capture.service": "ActiveState=active\nRuntimeMaxUSec=20min\nMainPID=851124\nResult=success",
+    "mothra-display-823b4a3ac99f.service": "ActiveState=active\nMainPID=850047\nResult=success\nControlGroup=/user.slice/user-1000.slice/user@1000.service/app.slice/mothra-display-823b4a3ac99f.service",
+    "mothra-bridge-30a756604a1c.service": "ActiveState=active\nMainPID=850052\nResult=success\nControlGroup=/user.slice/user-1000.slice/user@1000.service/app.slice/mothra-bridge-30a756604a1c.service",
+    "mothra-xbridge-30a756604a1c.service": "ActiveState=active\nMainPID=850057\nResult=success\nControlGroup=/user.slice/user-1000.slice/user@1000.service/app.slice/mothra-xbridge-30a756604a1c.service",
+    "mothra-sheep-2c2841ad725f.service": "ActiveState=active\nMainPID=850062\nResult=success\nControlGroup=/user.slice/user-1000.slice/user@1000.service/app.slice/mothra-sheep-2c2841ad725f.service"
+  },
+  "ui": "server-ready.png: Hotline Server started at 10.0.2.15; Statistics currently connected=0",
+  "cgroup_caveat": "Actual emulator in sudo session scope outside user sheep unit; explicit PID cleanup required",
+  "no_frontend_contact": true
+}

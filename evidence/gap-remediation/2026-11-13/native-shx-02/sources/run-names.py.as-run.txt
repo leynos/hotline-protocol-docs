@@ -1,0 +1,10 @@
+import json,subprocess,sys
+from pathlib import Path
+r=Path('state/native-sessions/runtime-18')
+def run(*args):subprocess.run([str(a) for a in args],check=True)
+for phase,value,script in [('ascii','mothra-peer-name','set-name.py'),('macroman','mothra-peer-','set-macroman-name.py'),('restored','','set-name.py')]:
+ run(sys.executable,r/script,value,phase)
+ run(sys.executable,r/'flush-preferences.py','peer-'+phase)
+ run(sys.executable,'../hotline-protocol-docs/scripts/snapshot_native_hfs.py','--image','state/mac-runtime/hotline19/working.dsk','--tsk-bin','tools/sleuthkit/usr/bin','--catalog-range','11202','11202','--root','/Hotline19/Prefs','--output',r/('native-'+phase))
+ run(sys.executable,'../hotline-protocol-docs/scripts/capture_shx_session.py',r/'basic-plan.json','--binary','tools/shx-peer/source/hx','--peer-profile',r/'peer-profile.json','--oracle-binary','evidence/hotline-server-1.9/inputs/HLserver19.pef','--output',r/'captures'/phase)
+ print('Finished configuration:',phase,flush=True)

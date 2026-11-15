@@ -1,0 +1,8 @@
+{
+  "server_protocol_archives": 14,
+  "server_metadata_archives": 6,
+  "declared_server_source_version": "0.1.48.1",
+  "client_source_version": "0.1.48",
+  "tested_peer_sha256": "8fbbe56cef439d4c1732e8d9fbe2c676b9d45fbd273a42b22f8034e3b3914fa0",
+  "scope": "Selected static server source and conditional branches; separately identified client source and one modern configured executable. No released-tarball or deployed historical server identity inferred."
+}

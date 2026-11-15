@@ -1,0 +1,9 @@
+{
+  "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "query_count": 15,
+  "plans": [
+    "plans/accounts-errors-and-folder-descriptors.json"
+  ],
+  "method": "Read-only native account/ban UI, folder-descriptor assembly and internal-error paths. No native network execution.",
+  "derived_reviews": []
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "reports": [
+    "preflight",
+    "seed",
+    "duplicate-exact",
+    "duplicate-uppercase",
+    "duplicate-original-login",
+    "duplicate-changed-login",
+    "protected",
+    "protected-login",
+    "after-protected",
+    "self",
+    "self-login",
+    "after-self",
+    "cleanup",
+    "final"
+  ],
+  "as_run_sources": {
+    "sources/native_account_identity_cases.py.as-run.txt": "85b8d593c3873d27ac7c6263268b0c205547b1715e00bb02d17620cf518796f5",
+    "sources/protocol_capture.py.as-run.txt": "2fba0972f4d9a8e3845c4204dce150dd7c90da0e19a9e5720d5289e2c94faf01",
+    "sources/native_packet_evidence.py.as-run.txt": "028c61dda76b2cc3f3b9fd49d9b1f4ae8411414ecf0f356d681226ed2eead398",
+    "sources/pcap_tcp.py.as-run.txt": "04c4fda2e62ccab35ed306c036dac6b1878af58adbfaccc6312a2805dd6897d7"
+  },
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "method": "Fourteen complete reports and sixteen host/guest connections. Only three preflight-absent owned accounts are created. Verify exact and ASCII-case duplicate create errors with unchanged readbacks and positive/negative logins; bit-23 kick protection versus administrative and self deletion; server-first FIN, bounded stale roster and two exact unread 302 tails. Compare full original account enumeration and Files listing after cleanup. No forced I/O, built-in account mutation, native disk/Trash evidence or restart claim.",
+  "runtime_note": "As-run environment text refers to original administrator/guest; actual preflight inventory identifies admin and fixture-low. No guest account is present or mutated. Runtime remains PID1259319 in the same post-restart application epoch."
+}

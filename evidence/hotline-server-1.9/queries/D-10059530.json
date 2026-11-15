@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T12:11:44.291904+00:00",
+  "query": {
+    "id": "D-10059530",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10059530"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_10059530\",\n    \"address\": \"10059530\"\n  },\n  \"code\": \"\\nundefined4 * FUN_10059530(undefined4 *param_1,int param_2,undefined4 *param_3)\\n\\n{\\n  *param_1 = &PTR_PTR_10094a98;\\n  param_1[2] = *param_3;\\n  param_1[3] = param_3[1];\\n  param_1[4] = param_3[2];\\n  param_1[5] = param_3[3];\\n  param_1[7] = 0;\\n  param_1[6] = 0;\\n  *(undefined1 *)(param_1 + 10) = 0;\\n  *(undefined1 *)((int)param_1 + 0x29) = 1;\\n  *(byte *)((int)param_1 + 0x2b) = *(byte *)((int)param_1 + 0x2b) & 0x1f;\\n  *(undefined1 *)((int)param_1 + 0x2a) = 1;\\n  param_1[1] = 0;\\n  if (param_2 != 0) {\\n    FUN_10082630(param_2,param_1);\\n    param_1[1] = param_2;\\n  }\\n  param_1[8] = 0;\\n  param_1[9] = 0;\\n  return param_1;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_10059530",
+        "address": "10059530"
+      },
+      "code": "\nundefined4 * FUN_10059530(undefined4 *param_1,int param_2,undefined4 *param_3)\n\n{\n  *param_1 = &PTR_PTR_10094a98;\n  param_1[2] = *param_3;\n  param_1[3] = param_3[1];\n  param_1[4] = param_3[2];\n  param_1[5] = param_3[3];\n  param_1[7] = 0;\n  param_1[6] = 0;\n  *(undefined1 *)(param_1 + 10) = 0;\n  *(undefined1 *)((int)param_1 + 0x29) = 1;\n  *(byte *)((int)param_1 + 0x2b) = *(byte *)((int)param_1 + 0x2b) & 0x1f;\n  *(undefined1 *)((int)param_1 + 0x2a) = 1;\n  param_1[1] = 0;\n  if (param_2 != 0) {\n    FUN_10082630(param_2,param_1);\n    param_1[1] = param_2;\n  }\n  param_1[8] = 0;\n  param_1[9] = 0;\n  return param_1;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

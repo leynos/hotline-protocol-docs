@@ -1,0 +1,30 @@
+# A51 addendum: correct the `10005f90` producer label
+
+This addendum supersedes **only** the live-replacement suggestion in
+`a51-gap044-audit.md`; the original audit is retained as written. The earlier
+phrase “live-account delete or replacement” inferred an extra caller/branch
+without a frozen source edge. Do not copy it into the producer inventory.
+
+Frozen native source `evidence/hotline-server-1.9/queries/D-100149e0.c:32`
+shows the standalone request-351 delete handler call `FUN_10005f90(...)`.
+`D-10015500.c:90-115` calls it only when parsed nested field 102/new name
+and field 105/new login are both absent/zero, while an old login field 101 is
+present. That is the **batch delete** branch, not an account replacement.
+The later batch live-update branch at `D-10015500.c:201-205` instead calls
+`FUN_10005d30(...)`. Standalone 353 update at `D-10014df0.c:59-65` also
+calls `FUN_10005d30(...)`, not `FUN_10005f90(...)`. A bounded `rg` across
+retained `.c` snapshots located no other positive `FUN_10005f90` caller.
+
+Correct known-producer label for the 101-only notification is therefore:
+**`10005f90`, account deletion of connected sessions, reached from standalone
+351 and the qualifying nested 349 delete branch.** `native-live-accounts-01`
+and `native-account-identity-01` provide positive delete notices; no separate
+replacement 104 fixture is required by this identified producer. The 353 and
+349 update paths have their own behavior and should not inherit a deletion
+notice claim. This corrects the source-based inventory without asserting that
+an exhaustive whole-program call graph has been proved.
+
+The A51 provisional criterion disposition is otherwise unchanged: C69's
+paired configured-apply publication and root review remain prerequisites
+before counting that final known positive fixture. Root owns central wording
+and status; this addendum makes no live or tracked change.

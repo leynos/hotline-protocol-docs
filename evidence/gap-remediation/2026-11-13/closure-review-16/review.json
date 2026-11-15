@@ -1,0 +1,32 @@
+{
+  "reviews": [
+    {
+      "gap_id": "GAP-083",
+      "status": "Resolved",
+      "unchanged_closure_criterion": "Record archive lineage, selected/default revision relationship, relevant build flags and the exact peers to which each source observation applies.",
+      "requirements": [
+        {
+          "requirement": "Record archive lineage",
+          "evidence": "Original14protocol RCS files plus six supplementary metadata/configuration archives are retained and hash checked. Serverversion.c declares0.1.48.1; README identifies server package and its hxd0.1.41 modification baseline without asserting released-tarball identity. Separate clientGit sourceadb1bf8 declares shx0.1.48."
+        },
+        {
+          "requirement": "Record selected/default revision relationship",
+          "evidence": "Verifier re-extracts trunk1.1 in all20archives, checks head1.1/defaultbranch1.1.1 and empty vendor1.1.1.1 delta. No general RCS delta application or release chronology is invented."
+        },
+        {
+          "requirement": "Record relevant build flags",
+          "evidence": "Six supplemental server files retain18configure declarations, effective Hotline-server/fork fallbacks, macro template and CAP runtime default; conditionalserver paths are scoped, no deployedserverconfiguration inferred. Exactclientflags/config.h/Makefile/compiler/libs/patch in shx-build-01 identifyterminal IPv4 HFS/CAP fork build8fbbe56; HOPE/cipher/compression/IPv6 disabled."
+        },
+        {
+          "requirement": "Record exact observation applicability",
+          "evidence": "Documentation/table and manifest distinguishselectedserver staticcomparisons, selectedclient basic/optional sourcebranches andone modernconfiguredclientexecutable. Eight actualnative fullpeer sessions andfour controlledreceiverfixtures are attributedonly tobuild8fbbe56. No originaldistributedbinary/deployedhistoricalserver/allSynHXclient runtime result claimed. Broader acceptance targets/fallback/peerfield work remainsGAP080/081."
+        },
+        {
+          "requirement": "Reproducible evidence and negative controls",
+          "evidence": "verify-synhx-profiles.py checks archives/declarations/macros/peerassignment; six regressions reject changedvendorcontent, branches, snapshots, versionconflation andcollapsedscope. Nativepeer semanticchecks independently reconcileactual streams; controlled122unknown-dump and115display outcomes remain explicitly labelled."
+        }
+      ]
+    }
+  ],
+  "scope": "Close only original source identity and applicability criterion. Do not close acceptance-target/fallback policy, all-peer tolerance, optional-feature interoperability or native1.9/mxd acceptance requirements."
+}

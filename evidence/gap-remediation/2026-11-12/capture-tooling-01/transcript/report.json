@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "profile": "synthetic-tool-test",
+  "status": "completed",
+  "native_conformance": false,
+  "identity_scope": "Local binary hash verified; remote process identity is operator-reported",
+  "operator": "Mothra capture-tool integration check",
+  "oracle_sha256": "6fb2083ab25529694ce909e7a07f24786e2e93de35660d854e0568c6121cf9cb",
+  "plan_sha256": "c05f201425276b3b331c3b21d1ed2ea97b955337fd0a607ccdf75a0a3ac0562c",
+  "driver_sha256": "1ede38c640d4ff69c9a0978ba9903ba61402ddaf204b58705c607cbf8e38b8ab",
+  "recorded_at_utc": "2026-11-12T16:20:24.862014+00:00",
+  "gap_ids": [
+    "GAP-084"
+  ],
+  "completed_actions": 4,
+  "error": "",
+  "events": [
+    {
+      "action": 0,
+      "connection": "main",
+      "event": "connect",
+      "elapsed_ns": 1708382,
+      "hex": ""
+    },
+    {
+      "action": 1,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 1844316,
+      "hex": "0001000000000007000000000000000a0000000a"
+    },
+    {
+      "action": 1,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 1859834,
+      "hex": "0001006b000412345678"
+    },
+    {
+      "action": 2,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 1934093,
+      "hex": "12345678"
+    },
+    {
+      "action": 3,
+      "connection": "main",
+      "event": "eof",
+      "elapsed_ns": 2094612,
+      "hex": ""
+    },
+    {
+      "action": 4,
+      "connection": "main",
+      "event": "close",
+      "elapsed_ns": 2132021,
+      "hex": ""
+    }
+  ],
+  "frames": [
+    {
+      "action": 1,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 7,
+      "error": 0,
+      "total_size": 10,
+      "data_size": 10,
+      "payload_hex": "0001006b000412345678",
+      "fields": [
+        {
+          "id": 107,
+          "hex": "12345678"
+        }
+      ],
+      "declared_field_count": 1,
+      "unconsumed_hex": ""
+    }
+  ],
+  "streams": {
+    "main": {
+      "sent_hex": "12345678",
+      "received_hex": "0001000000000007000000000000000a0000000a0001006b000412345678"
+    }
+  }
+}

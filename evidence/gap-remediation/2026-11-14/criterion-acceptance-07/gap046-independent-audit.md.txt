@@ -1,0 +1,35 @@
+# A89: actual GAP-046 acceptance audit
+
+Read-only audit of the frozen GAP-046 question and closure criterion in
+`../hotline-protocol-docs/gap-register.json:2759-2801` against C101's
+`state/native-sessions/native-board-epoch-02` raw report, plan, paired-stream
+review, and **already extracted stopped** `MessageBoard.data`. Applied the
+earlier `state/delegation/a84-gap046-acceptance-map.md`. No working-image read,
+VM/oracle/mxd contact, tracked edit, or status change.
+
+| Original clause | C101 evidence and bounded conclusion |
+| --- | --- |
+| Empty 101 | Base/stopped-before catalog11191 DATA0/RSRC0 was positively established by A76/C100. C101 initial `reads.initial` is empty and first authorised 101 succeeds without field101, before the first post. |
+| Multi-post; append versus replace | `coordinator/report.json` completed, 12 accepted unique 103 posts. Its measured segments have lengths 93, 100, 100, 8284, six 8285, 7248, 94. Every selected 101 read (`0,1,2,9,10,11,12`) equals `concat(reverse(segments[:n+1]))[:65535]`, independently recomputed here. P0 empty-body still yields a nonempty formatted segment; new segments prepend rather than replace. |
+| Segment serialization and mutation | Measured 102 field101 segments include `From BoardSender (Nov 14 09:14)`, CR-delimited body and CR + 58 underscores + CR. This is actual rendering for the captured ASCII/name/time, with static A75 formatter and separator evidence; it is not general locale/codec proof. Each 102 carries that segment, whereas 101 carries the aggregate prefix. |
+| Post size boundary | Raw post inputs contain zero, 8,191, six 8,192, and 8,193-byte bodies. The accepted 12 yield success ACKs/segments. The 8,193 case yields status1/field100 and no new segment; subsequent 101 equals the previous 65,535-byte prefix. Source `1000f260` explains inclusive 8,192 acceptance; failure text is case-specific. |
+| Aggregate retrieval boundary | P10 uses calculated 7,155-byte filler; `reads.10` is exactly 65,535 bytes, and P11 one byte extends the full board beyond that while `reads.11/12` remain 65,535-byte newest prefixes. Static `1000f130` caps field101 at 0xffff. No inference about another byte encoding or higher cap. |
+| 102 recipients and ordering | Sender and eligible admin each receive 12 segment updates; denied fixture-low receives zero despite first-three 500 barriers. In the **sender's own flow**, all 12 success ACK frame indices precede corresponding 102 frame indices (e.g. P0 16<18, P11 63<65). This does not establish cross-socket total order. Optional waiting admin received zero while not online; retain as observed state only, not universal eligibility. Static permission/readiness gates define the branch. |
+| Persistence/whole-file mutation | Extracted stopped `MessageBoard.data` is 65,629 bytes and byte-for-byte equals all 12 segments newest-first. Both SHA-256 values are `a676c6349bb500411c0e0d73f29763a092cc1d9471809636c93433c5b430c4e0`. The last 94 bytes lie beyond retrieved 65,535 prefix, proving full named DATA fork was written in this orderly stopped case. `stopped/fork-sha256.txt` retains named-fork identities. Source `10004110` puts whole-buffer write before ACK; this case does not prove crash durability. |
+
+`parent-paired-stream-review.json` says PASS for readiness, four coordinator
+flows and postflight, with complete report-received byte counts and empty
+retained tails; captures and stopped-image proof are still being packaged by
+C102. Both 18-action control reports say completed. The raw result supports
+every literal closure fixture class and the question's ordinary-path board
+serialization, mutation, post limits, stopped-file persistence, and recipient
+rules. Recommend GAP-046 **criterion met only after** C102 publishes portable
+paired capture, source hashes, stopped-fork bytes and verifier, and root
+independently checks them. The current register remains Investigating.
+
+Limits to preserve in the final contract: waiting zero is not a universal
+preonline no-fanout rule; ACK and update order is per sender flow; the repeated
+post spam branch is static here and GAP-045 covers its runtime rate behaviour.
+Timezone/locale, arbitrary text encoding, every transport state, concurrent
+interleavings, mxd and crash/power-loss durability are outside this original
+GAP-046 fixture criterion. Do not imply they were tested by C101.

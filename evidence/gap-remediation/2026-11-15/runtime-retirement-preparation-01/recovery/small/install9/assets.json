@@ -1,0 +1,7 @@
+{
+  "rom_sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+  "base_disk_sha256": "4a173a80ea8b95e5ef06a6561df5da627d33d58a2c221c6f6e52b50f55d4f7da",
+  "source_rom": "/data/leynos/Projects/mothra/state/native-mac/install9/MAC OS ROM",
+  "source_disk": "/data/leynos/Projects/mothra/state/native-mac/install9/SheepShaver.zip",
+  "archive_member": "SheepShaver/20220218_classic.dsk"
+}

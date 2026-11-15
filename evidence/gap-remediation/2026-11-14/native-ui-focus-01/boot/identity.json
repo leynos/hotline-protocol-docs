@@ -1,0 +1,18 @@
+{
+  "utc": "2026-11-14T01:00:11.994633+00:00",
+  "pid": 2055952,
+  "exe": "/data/leynos/Projects/mothra/state/mac-runtime/native-eventlab-one-01/SheepShaver-9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "fd6": "/data/leynos/Projects/mothra/state/mac-runtime/native-eventlab-one-01/working.dsk",
+  "netns": "net:[4026532615]",
+  "status": [
+    "Uid:\t1000\t1000\t1000\t1000",
+    "Gid:\t1000\t1000\t1000\t1000",
+    "CapEff:\t0000000000020000"
+  ],
+  "fd16": "/data/leynos/Projects/mothra/state/native-sessions/native-eventlab-c49/lab-guest.pcap",
+  "starttime": "4261101",
+  "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "addr": "1: lo    inet 127.0.0.1/8 scope host lo\\       valid_lft forever preferred_lft forever",
+  "routes": "",
+  "listeners": "State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess                                       \nLISTEN 0      1          127.0.0.1:15752      0.0.0.0:*    users:((\"SheepShaver-9c9\",pid=2055952,fd=13))\nLISTEN 0      1          127.0.0.1:15753      0.0.0.0:*    users:((\"SheepShaver-9c9\",pid=2055952,fd=14))\nLISTEN 0      1          127.0.0.1:15750      0.0.0.0:*    users:((\"SheepShaver-9c9\",pid=2055952,fd=11))\nLISTEN 0      1          127.0.0.1:15751      0.0.0.0:*    users:((\"SheepShaver-9c9\",pid=2055952,fd=12))\nLISTEN 0      32         127.0.0.1:15500      0.0.0.0:*    users:((\"python3\",pid=2055923,fd=5))"
+}

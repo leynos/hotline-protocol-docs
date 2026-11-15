@@ -1,0 +1,23 @@
+{
+  "phase": "first",
+  "status": "failed",
+  "full_file_baseline": "not_exercised",
+  "capture_receipt_sha256": "6d013ca1efcb3e8630aabdd4bea9ca51a39505334505d24e142637978744eb66",
+  "readiness_report_sha256": "236cf4f8e357dc7f221cd2f8db7ef13387bf2a0ec886857c79fba451590dea1c",
+  "preprobe_baseline": "full18_control_only",
+  "cases": {
+    "guard-zero": {
+      "status": "failed",
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "plan_sha256": "6c2352c28bdf1f19b7c6f345d20f0c3cbe5d630962f8681dad5a8865fc0b6bf9"
+    }
+  },
+  "timing_gate": null,
+  "post_readiness_settle": {
+    "started_utc": "2026-11-14T05:51:42.282921+00:00",
+    "completed_utc": "2026-11-14T05:52:17.283070+00:00",
+    "elapsed_seconds": 35.000126526,
+    "runner_socket_actions_during_wait": 0
+  },
+  "error": "ValueError: guard-zero: ConnectionRefusedError: [Errno 111] Connection refused"
+}

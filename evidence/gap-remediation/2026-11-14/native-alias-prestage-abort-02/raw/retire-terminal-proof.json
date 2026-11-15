@@ -1,0 +1,59 @@
+{
+  "working_fuser": {
+    "argv": [
+      "fuser",
+      "-v",
+      "state/mac-runtime/native-alias-live-04/working.dsk"
+    ],
+    "exit": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  "display_socket": {
+    "argv": [
+      "test",
+      "-e",
+      "/tmp/.X11-unix/X125"
+    ],
+    "exit": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  "host_ports": {
+    "argv": [
+      "ss",
+      "-ltn",
+      "( sport = :16000 or sport = :16001 or sport = :16002 or sport = :16003 )"
+    ],
+    "exit": 0,
+    "stdout": "State Recv-Q Send-Q Local Address:Port Peer Address:Port\n",
+    "stderr": ""
+  },
+  "lock_free": {
+    "argv": [
+      "flock",
+      "--exclusive",
+      "--nonblock",
+      "state/delegation/oracle.lock",
+      "true"
+    ],
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "primary": {
+    "pid": 1099659,
+    "exists": true,
+    "start_ticks": 767842
+  },
+  "client": {
+    "pid": 1012834,
+    "exists": true,
+    "start_ticks": 2357813
+  },
+  "actual_pid": {
+    "pid": 2807669,
+    "exists": false
+  },
+  "utc": "2026-11-14T22:04:22.947757+00:00"
+}

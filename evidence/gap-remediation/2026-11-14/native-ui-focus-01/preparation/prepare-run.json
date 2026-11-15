@@ -1,0 +1,16 @@
+{
+  "utc": "2026-11-14T00:37:07.838925+00:00",
+  "argv": [
+    "/usr/sbin/python3",
+    "/data/leynos/Projects/mothra/scripts/mac_runtime.py",
+    "prepare",
+    "/data/leynos/Projects/mothra/state/mac-runtime/native-eventlab-one-01",
+    "--rom",
+    "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/rom",
+    "--disk",
+    "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/base.dsk"
+  ],
+  "exit": 0,
+  "stdout": "/data/leynos/Projects/mothra/state/mac-runtime/native-eventlab-one-01\n",
+  "stderr": ""
+}

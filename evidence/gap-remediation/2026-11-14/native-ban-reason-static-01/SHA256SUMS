@@ -1,0 +1,17 @@
+094e9adb68790bb88899d06308e6fdfa16071808749ef6e272b66a698a4092e6  evidence/gap-remediation/2026-11-14/native-ban-reason-static-01/c71-reason-copy-callsite.md.txt
+cfdff10e6aead8a54cd1bda310c22d9c46c1bfd4140e2a2a513189066ee5dd3f  evidence/gap-remediation/2026-11-14/native-ban-reason-static-01/c72-reason-tlv-and-tsk.md.txt
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  evidence/gap-remediation/2026-11-14/native-ban-reason-static-01/caller.stderr.log
+12c29fcd43ac84574c59e18c44e32fff7d120d6b8d2568daa5d8a98a3d7fee53  evidence/gap-remediation/2026-11-14/native-ban-reason-static-01/caller.stdout.log
+29d4f23767701806fee4aef62191bc95f75faf97f91e2a935a8c42964f55de3c  evidence/gap-remediation/2026-11-14/native-ban-reason-static-01/capture.py.as-run.txt
+3e5e9ae6ba794c922e522197bdf30c9e7e42c18c1772d8da8e8ca01be2445e1b  evidence/gap-remediation/2026-11-14/native-ban-reason-static-01/frozen/D-10015e70.c
+1eaf67165a27e3ecda8186486f9d3e613b8279d2d904dc90edd383d1b27b670d  evidence/gap-remediation/2026-11-14/native-ban-reason-static-01/frozen/D-100566e0.c
+4e067e967122bccf8531a9dc4717cbd51a52a138d49f653dcd9155c7c62bc409  evidence/gap-remediation/2026-11-14/native-ban-reason-static-01/frozen/D-10056b60.c
+70da5dd9598dfaba74f005cebaca2158f37ab2ad7b2ffdbf6edc23408a1735d8  evidence/gap-remediation/2026-11-14/native-ban-reason-static-01/manifest.json
+24e5d2f347c451f184e31f9619fe0a45df55a8d40e9536c8f2d88cc5989efa17  evidence/gap-remediation/2026-11-14/native-ban-reason-static-01/raw/EP5-A-10015e70.json
+a7d0ae81db72ca9b93903c863a0ec734ada2d98ec7280cf6022c14d6a4962432  evidence/gap-remediation/2026-11-14/native-ban-reason-static-01/raw/EP5-A-10056b60.json
+1eaf67165a27e3ecda8186486f9d3e613b8279d2d904dc90edd383d1b27b670d  evidence/gap-remediation/2026-11-14/native-ban-reason-static-01/raw/EP5-D-100566e0.c
+758f34a99a6213bdb7eda02b5ec4d75fa6f387ce622591a737df509009d05a3d  evidence/gap-remediation/2026-11-14/native-ban-reason-static-01/raw/EP5-D-100566e0.json
+ccbd93ec2688ae434e523b6cc4a05419d3e6938e70d767b0c0c43ed456be769e  evidence/gap-remediation/2026-11-14/native-ban-reason-static-01/raw/identity-after.json
+5f4eef1ca3ec5004261f7b82c69b596fd141b42b037e32a0110c2491d55ede27  evidence/gap-remediation/2026-11-14/native-ban-reason-static-01/raw/identity-before.json
+04921d146d1f0a1957a5240ebd098ad9c76efbe12286c684f1bea18575edffa8  evidence/gap-remediation/2026-11-14/native-ban-reason-static-01/report.json
+ae61e93dad1ddfc90239cf6b12d9d191b98db7f481094a2af7154e9668d61c5f  evidence/gap-remediation/2026-11-14/native-ban-reason-static-01/server.stderr.log

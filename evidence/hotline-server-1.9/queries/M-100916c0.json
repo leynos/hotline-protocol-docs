@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T12:10:41.889311+00:00",
+  "query": {
+    "id": "M-100916c0",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "100916c0",
+      "length": 512
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"address\": \"100916c0\",\n  \"length\": 512,\n  \"hex\": \"65 6e 63 6c 6f 73 69 6e 67 20 66 6f 6c 64 65 72 20 63 6f 75 6c 64 20 6e 6f 74 20 62 65 20 66 6f 75 6e 64 2e 00 43 61 6e 6e 6f 74 20 63 72 65 61 74 65 20 66 6f 6c 64 65 72 20 d2 25 23 73 d3 20 62 65 63 61 75 73 65 20 74 68 65 72 65 20 69 73 20 61 6c 72 65 61 64 79 20 61 20 66 69 6c 65 20 6f 72 20 66 6f 6c 64 65 72 20 77 69 74 68 20 74 68 61 74 20 6e 61 6d 65 2e 00 43 61 6e 6e 6f 74 20 63 72 65 61 74 65 20 66 6f 6c 64 65 72 20 d2 25 23 73 d3 3a 00 43 72 65 61 74 65 20 66 6f 6c 64 65 72 20 d2 25 23 73 d3 00 19 55 6e 6b 6e 6f 77 6e 20 74 72 61 6e 73 61 63 74 69 6f 6e 20 74 79 70 65 21 52 65 63 65 69 76 65 64 20 75 6e 6b 6e 6f 77 6e 20 74 72 61 6e 73 61 63 74 69 6f 6e 20 74 79 70 65 21 00 2b 59 6f 75 20 61 72 65 20 6e 6f 74 20 61 6c 6c 6f 77 65 64 20 74 6f 20 63 72 65 61 74 65 20 6e 65 77 20 61 63 63 6f 75 6e 74 73 2e 35 43 61 6e 6e 6f 74 20 63 72 65 61 74 65 20 61 63 63 6f 75 6e 74 20 77 69 74 68 20 6d 6f 72 65 20 61 63 63 65 73 73 20 74 68 61 6e 20 79 6f 75 72 73 65 6c 66 2e 43 61 6e 6e 6f 74 20 63 72 65 61 74 65 20 61 63 63 6f 75 6e 74 20 d2 25 23 73 d3 20 62 65 63 61 75 73 65 20 74 68 65 72 65 20 69 73 20 61 6c 72 65 61 64 79 20 61 6e 20 61 63 63 6f 75 6e 74 20 77 69 74 68 20 74 68 61 74 20 6c 6f 67 69 6e 2e 00 43 61 6e 6e 6f 74 20 63 72 65 61 74 65 20 61 63 63 6f 75 6e 74 20 d2 25 23 73 d3 3a 00 06 43 72 65 61 74 65 43 72 65 61 74 65 20 61 63 63 6f 75 6e 74 20 d2 25 23 73 d3 00 27 59 6f 75 20 61 72 65 20 6e 6f 74 20 61 6c 6c 6f 77 65 64 20 74 6f 20 64 65 6c 65 74 65 20 61 63 63 6f 75 6e 74 73 2e 4e 6f 20 61 63\",\n  \"ascii\": \"enclosing folder could not be found..Cannot create folder .%#s. because there is already a file or folder with that name..Cannot create folder .%#s.:.Create folder .%#s...Unknown transaction type!Received unknown transaction type!.+You are not allowed to create new accounts.5Cannot create account with more access than yourself.Cannot create account .%#s. because there is already an account with that login..Cannot create account .%#s.:..CreateCreate account .%#s..'You are not allowed to delete accounts.No ac\",\n  \"gaps\": []\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "address": "100916c0",
+      "length": 512,
+      "hex": "65 6e 63 6c 6f 73 69 6e 67 20 66 6f 6c 64 65 72 20 63 6f 75 6c 64 20 6e 6f 74 20 62 65 20 66 6f 75 6e 64 2e 00 43 61 6e 6e 6f 74 20 63 72 65 61 74 65 20 66 6f 6c 64 65 72 20 d2 25 23 73 d3 20 62 65 63 61 75 73 65 20 74 68 65 72 65 20 69 73 20 61 6c 72 65 61 64 79 20 61 20 66 69 6c 65 20 6f 72 20 66 6f 6c 64 65 72 20 77 69 74 68 20 74 68 61 74 20 6e 61 6d 65 2e 00 43 61 6e 6e 6f 74 20 63 72 65 61 74 65 20 66 6f 6c 64 65 72 20 d2 25 23 73 d3 3a 00 43 72 65 61 74 65 20 66 6f 6c 64 65 72 20 d2 25 23 73 d3 00 19 55 6e 6b 6e 6f 77 6e 20 74 72 61 6e 73 61 63 74 69 6f 6e 20 74 79 70 65 21 52 65 63 65 69 76 65 64 20 75 6e 6b 6e 6f 77 6e 20 74 72 61 6e 73 61 63 74 69 6f 6e 20 74 79 70 65 21 00 2b 59 6f 75 20 61 72 65 20 6e 6f 74 20 61 6c 6c 6f 77 65 64 20 74 6f 20 63 72 65 61 74 65 20 6e 65 77 20 61 63 63 6f 75 6e 74 73 2e 35 43 61 6e 6e 6f 74 20 63 72 65 61 74 65 20 61 63 63 6f 75 6e 74 20 77 69 74 68 20 6d 6f 72 65 20 61 63 63 65 73 73 20 74 68 61 6e 20 79 6f 75 72 73 65 6c 66 2e 43 61 6e 6e 6f 74 20 63 72 65 61 74 65 20 61 63 63 6f 75 6e 74 20 d2 25 23 73 d3 20 62 65 63 61 75 73 65 20 74 68 65 72 65 20 69 73 20 61 6c 72 65 61 64 79 20 61 6e 20 61 63 63 6f 75 6e 74 20 77 69 74 68 20 74 68 61 74 20 6c 6f 67 69 6e 2e 00 43 61 6e 6e 6f 74 20 63 72 65 61 74 65 20 61 63 63 6f 75 6e 74 20 d2 25 23 73 d3 3a 00 06 43 72 65 61 74 65 43 72 65 61 74 65 20 61 63 63 6f 75 6e 74 20 d2 25 23 73 d3 00 27 59 6f 75 20 61 72 65 20 6e 6f 74 20 61 6c 6c 6f 77 65 64 20 74 6f 20 64 65 6c 65 74 65 20 61 63 63 6f 75 6e 74 73 2e 4e 6f 20 61 63",
+      "ascii": "enclosing folder could not be found..Cannot create folder .%#s. because there is already a file or folder with that name..Cannot create folder .%#s.:.Create folder .%#s...Unknown transaction type!Received unknown transaction type!.+You are not allowed to create new accounts.5Cannot create account with more access than yourself.Cannot create account .%#s. because there is already an account with that login..Cannot create account .%#s.:..CreateCreate account .%#s..'You are not allowed to delete accounts.No ac",
+      "gaps": []
+    },
+    "isError": false
+  }
+}

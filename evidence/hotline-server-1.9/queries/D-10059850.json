@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T12:11:44.826122+00:00",
+  "query": {
+    "id": "D-10059850",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10059850"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_10059850\",\n    \"address\": \"10059850\"\n  },\n  \"code\": \"\\nundefined4 FUN_10059850(int param_1,int *param_2)\\n\\n{\\n  bool bVar1;\\n  undefined4 uVar2;\\n  undefined1 auStack_110 [128];\\n  undefined4 local_50;\\n  undefined4 local_4c;\\n  undefined4 local_48;\\n  undefined4 local_44;\\n  undefined1 *local_2c;\\n  \\n  local_2c = auStack_110 + 0x80;\\n  bVar1 = false;\\n  if (*(int *)(param_1 + 8) == *param_2) {\\n    if (*(int *)(param_1 + 0xc) == param_2[1]) {\\n      if (*(int *)(param_1 + 0x10) == param_2[2]) {\\n        if (*(int *)(param_1 + 0x14) == param_2[3]) goto LAB_100598b4;\\n      }\\n    }\\n  }\\n  bVar1 = true;\\nLAB_100598b4:\\n  if (bVar1) {\\n    local_50 = *(undefined4 *)(param_1 + 8);\\n    local_4c = *(undefined4 *)(param_1 + 0xc);\\n    local_48 = *(undefined4 *)(param_1 + 0x10);\\n    local_44 = *(undefined4 *)(param_1 + 0x14);\\n    FUN_100345f0(&local_50,param_2);\\n    *(int *)(param_1 + 8) = *param_2;\\n    *(int *)(param_1 + 0xc) = param_2[1];\\n    *(int *)(param_1 + 0x10) = param_2[2];\\n    *(int *)(param_1 + 0x14) = param_2[3];\\n    FUN_10082630(param_1,&local_50);\\n    if (*(int *)(param_1 + 4) != 0) {\\n      FUN_10082630(*(undefined4 *)(param_1 + 4),param_1,param_2);\\n    }\\n    uVar2 = 1;\\n  }\\n  else {\\n    uVar2 = 0;\\n  }\\n  return uVar2;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_10059850",
+        "address": "10059850"
+      },
+      "code": "\nundefined4 FUN_10059850(int param_1,int *param_2)\n\n{\n  bool bVar1;\n  undefined4 uVar2;\n  undefined1 auStack_110 [128];\n  undefined4 local_50;\n  undefined4 local_4c;\n  undefined4 local_48;\n  undefined4 local_44;\n  undefined1 *local_2c;\n  \n  local_2c = auStack_110 + 0x80;\n  bVar1 = false;\n  if (*(int *)(param_1 + 8) == *param_2) {\n    if (*(int *)(param_1 + 0xc) == param_2[1]) {\n      if (*(int *)(param_1 + 0x10) == param_2[2]) {\n        if (*(int *)(param_1 + 0x14) == param_2[3]) goto LAB_100598b4;\n      }\n    }\n  }\n  bVar1 = true;\nLAB_100598b4:\n  if (bVar1) {\n    local_50 = *(undefined4 *)(param_1 + 8);\n    local_4c = *(undefined4 *)(param_1 + 0xc);\n    local_48 = *(undefined4 *)(param_1 + 0x10);\n    local_44 = *(undefined4 *)(param_1 + 0x14);\n    FUN_100345f0(&local_50,param_2);\n    *(int *)(param_1 + 8) = *param_2;\n    *(int *)(param_1 + 0xc) = param_2[1];\n    *(int *)(param_1 + 0x10) = param_2[2];\n    *(int *)(param_1 + 0x14) = param_2[3];\n    FUN_10082630(param_1,&local_50);\n    if (*(int *)(param_1 + 4) != 0) {\n      FUN_10082630(*(undefined4 *)(param_1 + 4),param_1,param_2);\n    }\n    uVar2 = 1;\n  }\n  else {\n    uVar2 = 0;\n  }\n  return uVar2;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

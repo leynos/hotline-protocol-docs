@@ -1,0 +1,18 @@
+58 resources; 17 keyword candidates
+EMSG 4 397 up more space.Specified file or folder does not exist.Specified file does not exist.Specified folder d
+EMSG 4 459 d file does not exist.Specified folder does not exist.Specified disk does not exist.Disk is damaged.Di
+EMSG 4 800   Unlock the file and try again.Folder is locked and can't be changed.  Unlock the folder and try agai
+EMSG 4 851 d can't be changed.  Unlock the folder and try again.A file or folder with the specified name already 
+EMSG 4 882  folder and try again.A file or folder with the specified name already exists.Cannot open or delete fi
+EMSG 4 983 ile because it is in use (busy).User does not have access to the specified file or folder.User does 
+EMSG 4 1034 access to the specified file or folder.User does not have permission to change the specified file or f
+EMSG 4 1041 to the specified file or folder.User does not have permission to change the specified file or folder
+EMSG 4 1103 to change the specified file or folder.A bad file or folder name was specified.The end of a file was e
+EMSG 4 1124 ed file or folder.A bad file or folder name was specified.The end of a file was encountered unexpected
+EMSG 4 1293  disk and try again.Cannot move folder into itself.Disk unexpectedly vanished! (disconnected)Expected 
+EMSG 4 1377 onnected)Expected file, but got folder.Expected folder, but got file.Expected different file/folder, b
+EMSG 4 1393 d file, but got folder.Expected folder, but got file.Expected different file/folder, but same file/fol
+EMSG 4 1438 ot file.Expected different file/folder, but same file/folder was specified.User is not authorized to p
+EMSG 4 1460 rent file/folder, but same file/folder was specified.User is not authorized to perform operation.Canno
+EMSG 4 1481  same file/folder was specified.User is not authorized to perform operation.Cannot resolve alias bec
+EMSG 4 1603  cannot be found.Expected files/folders to be on the same disk (but they're not).

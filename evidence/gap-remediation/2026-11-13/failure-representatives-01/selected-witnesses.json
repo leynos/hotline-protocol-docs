@@ -1,0 +1,346 @@
+{
+  "schema_version": 1,
+  "title": "Five captured GAP-003 representative native request outcomes",
+  "source_corpus": "evidence/gap-remediation/2026-11-12/native-core-01",
+  "source_manifest_sha256": "974519ce0626f2df4d4fe9982094a036cd750ab23b245d83e32b4f49face52ce",
+  "source_runtime_sha256": "935641ee2502a2101d693c57fed00f95252533c6397797cdd3a7fb8c9b35ec2b",
+  "source_loopback_pcap_sha256": "117f28daef36dbf1ff7af6716e2e3aa18ad4dcec4e5cf48b6419d8076afbdc58",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "provenance_scope": "Recorded Mac OS 9.0.4/SheepShaver native application via host-loopback SLiRP proxy; reports are TCP-stream, not guest Ethernet. Runtime and source manifest remain in source corpus.",
+  "cases": [
+    {
+      "class": "authentication",
+      "source": {
+        "plan": "evidence/gap-remediation/2026-11-12/native-core-01/old-password-rejected/plan.json",
+        "plan_sha256": "90ef8d28fa03a7e2c99a904d348a396b09cb2f86f66db25360417d33a89f981c",
+        "report": "evidence/gap-remediation/2026-11-12/native-core-01/old-password-rejected/report.json",
+        "report_sha256": "f75ca7eab43a88ac2c6db33c339b79db6d3938d04cb22c808bc5c2ce4c3a7f1a"
+      },
+      "request": {
+        "action": 3,
+        "event": {
+          "action": 3,
+          "connection": "main",
+          "event": "send",
+          "elapsed_ns": 333688690,
+          "hex": "0000006b00000001000000000000003e0000003e00050069000b9996878b8a8d9ad2939088006a000a99968d8c8bd28f9e8c8c00a0000200be0066000f666978747572652d73657373696f6e006800020001"
+        }
+      },
+      "request_header": {
+        "type": 107,
+        "id": 1,
+        "error": 0,
+        "total_size": 62,
+        "data_size": 62
+      },
+      "outcome": {
+        "action": 4,
+        "events": [
+          {
+            "action": 4,
+            "connection": "main",
+            "event": "receive",
+            "elapsed_ns": 339210826,
+            "hex": "0001000000000001000000010000001600000016"
+          },
+          {
+            "action": 4,
+            "connection": "main",
+            "event": "receive",
+            "elapsed_ns": 339291767,
+            "hex": "000100640010496e636f7272656374206c6f67696e2e"
+          }
+        ],
+        "frames": [
+          {
+            "action": 4,
+            "connection": "main",
+            "flags": 0,
+            "is_reply": 1,
+            "type": 0,
+            "id": 1,
+            "error": 1,
+            "total_size": 22,
+            "data_size": 22,
+            "payload_hex": "000100640010496e636f7272656374206c6f67696e2e",
+            "fields": [
+              {
+                "id": 100,
+                "hex": "496e636f7272656374206c6f67696e2e"
+              }
+            ],
+            "declared_field_count": 1,
+            "unconsumed_hex": ""
+          }
+        ],
+        "field_100": {
+          "length": 16,
+          "hex": "496e636f7272656374206c6f67696e2e",
+          "ascii_if_ascii": "Incorrect login."
+        }
+      }
+    },
+    {
+      "class": "permission",
+      "source": {
+        "plan": "evidence/gap-remediation/2026-11-12/native-core-01/low-privilege-and-missing-room/plan.json",
+        "plan_sha256": "33c83c9f43ec59c9efebea0744bf1737a1a5a649724b18a7532f4e5ebef21bf3",
+        "report": "evidence/gap-remediation/2026-11-12/native-core-01/low-privilege-and-missing-room/report.json",
+        "report_sha256": "fd6eb7fb846926e5dd488e2a4f0fe145c74488a83638378b682748fe1eb9c701"
+      },
+      "request": {
+        "action": 7,
+        "event": {
+          "action": 7,
+          "connection": "main",
+          "event": "send",
+          "elapsed_ns": 189580069,
+          "hex": "0000015c0000000a0000000000000002000000020000"
+        }
+      },
+      "request_header": {
+        "type": 348,
+        "id": 10,
+        "error": 0,
+        "total_size": 2,
+        "data_size": 2
+      },
+      "outcome": {
+        "action": 8,
+        "events": [
+          {
+            "action": 8,
+            "connection": "main",
+            "event": "receive",
+            "elapsed_ns": 193970752,
+            "hex": "000100000000000a000000010000003100000031"
+          },
+          {
+            "action": 8,
+            "connection": "main",
+            "event": "receive",
+            "elapsed_ns": 194025955,
+            "hex": "00010064002b596f7520617265206e6f7420616c6c6f77656420746f2061646d696e6973746572206163636f756e74732e"
+          }
+        ],
+        "frames": [
+          {
+            "action": 8,
+            "connection": "main",
+            "flags": 0,
+            "is_reply": 1,
+            "type": 0,
+            "id": 10,
+            "error": 1,
+            "total_size": 49,
+            "data_size": 49,
+            "payload_hex": "00010064002b596f7520617265206e6f7420616c6c6f77656420746f2061646d696e6973746572206163636f756e74732e",
+            "fields": [
+              {
+                "id": 100,
+                "hex": "596f7520617265206e6f7420616c6c6f77656420746f2061646d696e6973746572206163636f756e74732e"
+              }
+            ],
+            "declared_field_count": 1,
+            "unconsumed_hex": ""
+          }
+        ],
+        "field_100": {
+          "length": 43,
+          "hex": "596f7520617265206e6f7420616c6c6f77656420746f2061646d696e6973746572206163636f756e74732e",
+          "ascii_if_ascii": "You are not allowed to administer accounts."
+        }
+      }
+    },
+    {
+      "class": "missing-object",
+      "source": {
+        "plan": "evidence/gap-remediation/2026-11-12/native-core-01/missing-file-info/plan.json",
+        "plan_sha256": "c13a7e0e9b11632c91f51a59e6f293056fdb10d34663a02485f86a3fa4eae1fb",
+        "report": "evidence/gap-remediation/2026-11-12/native-core-01/missing-file-info/report.json",
+        "report_sha256": "470a716ae221be9df692f46c43a655c604953d6dd773786c37adb9308ba91d24"
+      },
+      "request": {
+        "action": 7,
+        "event": {
+          "action": 7,
+          "connection": "main",
+          "event": "send",
+          "elapsed_ns": 386967457,
+          "hex": "000000ce0000000a000000000000001e0000001e000200c900126d6f746872612d616273656e742d66696c6500ca00020000"
+        }
+      },
+      "request_header": {
+        "type": 206,
+        "id": 10,
+        "error": 0,
+        "total_size": 30,
+        "data_size": 30
+      },
+      "outcome": {
+        "action": 8,
+        "events": [
+          {
+            "action": 8,
+            "connection": "main",
+            "event": "receive",
+            "elapsed_ns": 2089176743,
+            "hex": "000100000000000a000000010000005100000051"
+          },
+          {
+            "action": 8,
+            "connection": "main",
+            "event": "receive",
+            "elapsed_ns": 2089223901,
+            "hex": "00010064004b43616e6e6f742067657420696e666f2062656361757365207468657265206973206e6f2066696c652f666f6c646572206e616d656420d26d6f746872612d616273656e742d66696c65d32e"
+          }
+        ],
+        "frames": [
+          {
+            "action": 8,
+            "connection": "main",
+            "flags": 0,
+            "is_reply": 1,
+            "type": 0,
+            "id": 10,
+            "error": 1,
+            "total_size": 81,
+            "data_size": 81,
+            "payload_hex": "00010064004b43616e6e6f742067657420696e666f2062656361757365207468657265206973206e6f2066696c652f666f6c646572206e616d656420d26d6f746872612d616273656e742d66696c65d32e",
+            "fields": [
+              {
+                "id": 100,
+                "hex": "43616e6e6f742067657420696e666f2062656361757365207468657265206973206e6f2066696c652f666f6c646572206e616d656420d26d6f746872612d616273656e742d66696c65d32e"
+              }
+            ],
+            "declared_field_count": 1,
+            "unconsumed_hex": ""
+          }
+        ],
+        "field_100": {
+          "length": 75,
+          "hex": "43616e6e6f742067657420696e666f2062656361757365207468657265206973206e6f2066696c652f666f6c646572206e616d656420d26d6f746872612d616273656e742d66696c65d32e",
+          "ascii_if_ascii": null
+        }
+      }
+    },
+    {
+      "class": "malformed-request",
+      "source": {
+        "plan": "evidence/gap-remediation/2026-11-12/native-core-01/malformed-zero-size/plan.json",
+        "plan_sha256": "918ac847177ecad848bfa4f3094378ad0eb85ce05a86472d4579fa39b4c98eb9",
+        "report": "evidence/gap-remediation/2026-11-12/native-core-01/malformed-zero-size/report.json",
+        "report_sha256": "dc0114faa62ca28dbe30af4fd38d46bcf6fd00dea0c660f56ae9b954bc8054c0"
+      },
+      "request": {
+        "action": 7,
+        "event": {
+          "action": 7,
+          "connection": "main",
+          "event": "send",
+          "elapsed_ns": 469515562,
+          "hex": "0000012c0000000a000000000000000000000000"
+        }
+      },
+      "request_header": {
+        "type": 300,
+        "id": 10,
+        "error": 0,
+        "total_size": 0,
+        "data_size": 0
+      },
+      "outcome": {
+        "action": 8,
+        "events": [
+          {
+            "action": 8,
+            "connection": "main",
+            "event": "eof",
+            "elapsed_ns": 473937017,
+            "hex": ""
+          }
+        ],
+        "frames": [],
+        "transport_scope": "Host loopback/proxy EOF only; no guest FIN/RST conclusion from this report."
+      }
+    },
+    {
+      "class": "unsupported-operation",
+      "source": {
+        "plan": "evidence/gap-remediation/2026-11-12/native-core-01/early-login-and-errors/plan.json",
+        "plan_sha256": "ce02459cd58dd8301618c5fe8ad9f32217ad9e9b55b40fdfe907af092bfa7291",
+        "report": "evidence/gap-remediation/2026-11-12/native-core-01/early-login-and-errors/report.json",
+        "report_sha256": "d886f955ed6aa47166dbc1cdbdc101d96fac39f5c2b37407d72d7ae6a05d0e86"
+      },
+      "request": {
+        "action": 11,
+        "event": {
+          "action": 11,
+          "connection": "main",
+          "event": "send",
+          "elapsed_ns": 113770960,
+          "hex": "000003e7000000040000000000000002000000020000"
+        }
+      },
+      "request_header": {
+        "type": 999,
+        "id": 4,
+        "error": 0,
+        "total_size": 2,
+        "data_size": 2
+      },
+      "outcome": {
+        "action": 12,
+        "events": [
+          {
+            "action": 12,
+            "connection": "main",
+            "event": "receive",
+            "elapsed_ns": 115977340,
+            "hex": "0001000000000004000000010000001f0000001f"
+          },
+          {
+            "action": 12,
+            "connection": "main",
+            "event": "receive",
+            "elapsed_ns": 115994051,
+            "hex": "000100640019556e6b6e6f776e207472616e73616374696f6e207479706521"
+          }
+        ],
+        "frames": [
+          {
+            "action": 12,
+            "connection": "main",
+            "flags": 0,
+            "is_reply": 1,
+            "type": 0,
+            "id": 4,
+            "error": 1,
+            "total_size": 31,
+            "data_size": 31,
+            "payload_hex": "000100640019556e6b6e6f776e207472616e73616374696f6e207479706521",
+            "fields": [
+              {
+                "id": 100,
+                "hex": "556e6b6e6f776e207472616e73616374696f6e207479706521"
+              }
+            ],
+            "declared_field_count": 1,
+            "unconsumed_hex": ""
+          }
+        ],
+        "field_100": {
+          "length": 25,
+          "hex": "556e6b6e6f776e207472616e73616374696f6e207479706521",
+          "ascii_if_ascii": "Unknown transaction type!"
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "One captured instance per category; not a universal taxonomy.",
+    "Source corpus host-loopback capture cannot identify guest FIN/RST from proxy EOF.",
+    "Malformed case has no reply frame; EOF follows send by 4.421455 ms on host report clock.",
+    "The older calculated unknown-operation example in protocol docs is not this captured request."
+  ]
+}

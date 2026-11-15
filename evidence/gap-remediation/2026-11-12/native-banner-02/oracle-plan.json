@@ -1,0 +1,37 @@
+[
+  {
+    "id": "BF-D-10052f80",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10052f80"
+    }
+  },
+  {
+    "id": "BF-D-10012f40",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10012f40"
+    }
+  },
+  {
+    "id": "BF-D-1000d5e0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1000d5e0"
+    }
+  },
+  {
+    "id": "BF-D-1000bd20",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1000bd20"
+    }
+  },
+  {
+    "id": "BF-D-10052b70",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10052b70"
+    }
+  }
+]

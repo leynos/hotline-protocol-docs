@@ -1,0 +1,8 @@
+{
+  "owned_pid": 2323898,
+  "absent": true,
+  "automatic_runtime_cap": "20s",
+  "observed_result": "timeout",
+  "exec_main_status": 15,
+  "scope": "Sleep sentinel only; no mxd listener or guest connection"
+}

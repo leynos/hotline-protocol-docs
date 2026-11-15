@@ -1,0 +1,13 @@
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`
+    Finished `test` profile [optimized] target(s) in 0.51s
+warning: could not find build script output file at /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/build/mxd/05600306cc430927/output
+warning: could not find build script output file at /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/build/mxd/05600306cc430927/output
+────────────
+ Nextest run ID fb39b6ee-53ee-40be-a3bc-0e0537c89f49 with nextest profile: postgres
+    Starting 1 test across 1 binary (5 tests skipped)
+warning: could not find build script output file at /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/build/mxd/05600306cc430927/output
+        PASS [   2.218s] (1/1) mxd::wireframe_compat_guardrails_bdd wireframe_compat_guardrails_feature_scenarios::wireframe_compat_guardrails_login_failure_does_not_include_banner_fields
+────────────
+     Summary [   2.219s] 1 test run: 1 passed, 5 skipped

@@ -1,0 +1,11 @@
+import json,sys
+from pathlib import Path
+sys.path.insert(0,'../hotline-protocol-docs/scripts')
+from native_mkdir_cases import specs
+from protocol_capture import run_plan
+r=Path('state/native-sessions/runtime-19')
+for expected in specs():
+ name=expected['case'];report=run_plan(r/'plans-create'/(name+'.json'),Path('evidence/hotline-server-1.9/inputs/HLserver19.pef'),r/'captures'/name)
+ replies=[f for f in report['frames'] if f['is_reply'] and f['id']==11]
+ print(name,report['status'],[(f['error'],f.get('fields',[])) for f in replies],flush=True)
+ if report['status']!='completed':raise RuntimeError('Capture incomplete: '+name)

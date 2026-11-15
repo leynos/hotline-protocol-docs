@@ -1,0 +1,85 @@
+# A95: bounded field-111 dataflow preparation
+
+Read-only preparation, no oracle/project/VM/mxd contact or tracked edit.
+Input is the pinned native DATA fork
+`evidence/hotline-server-1.9/inputs/HLserver19.pef`, SHA-256
+`ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`.
+The [A94 audit](a94-gap071-criterion-audit.md) and published
+`account-attribute-trace.md` establish the 734-byte record, field-111
+length at `+0x254`, data at `+0x256`, the ten direct `100073c0` callers,
+and no positively identified value-dependent reader. Whole-record read/write
+at `10007780` preserves bytes without interpreting them.
+
+## Exact safe Code-byte mapping and negative filter
+
+The [offline scan receipt](a95-account111-code-offset-scan.json) records the
+PEF section header, input hash and every matching aligned word. PEF magic is
+`Joy!peff`, section count 3. Section 0 has kind 0 (Code), default address 0,
+file offset `0x25d0`, packed = unpacked = total size `0x88718` (558,872
+bytes). The frozen `S005-segments.json` identifies the loaded initialized
+Code span `10000000..10088717` of exactly that size. Thus **for this
+uncompressed section only**, aligned section offset `i` maps to loaded
+`10000000+i` and file offset `0x25d0+i`. The mapping is independently
+checked at `10014df0`: frozen
+`account-attribute-01/queries/AA-A-10014df0.json` reports the first four
+PPC words `7c0802a6 bf41ffe8 90010008 9421f960`, which exactly match file
+offset `0x173c0`. This does not map PackedData or another PEF section.
+
+Scanning 139,718 aligned Code words, low16=`0254` occurs 12 times: nine
+branches (`primary opcode 16/18`) and three zero/data words;
+low16=`0256` occurs zero times. **No**
+`addi/lwz/lbz/lhz/lha` word has either direct positive displacement. The
+receipt retains exact words/loaded addresses/opcodes rather than declaring
+them functions. This filter is a bounded negative only: a record on a stack
+can make the slot's displacement negative, or pointer arithmetic/indexed
+access can use another immediate. A whole-record copy needs no literal
+field offset. The `0x254` branch immediate is not a field reference.
+
+## Highest-value alias path
+
+The positive trace starts at `100073c0`: it writes `0x2de` bytes to a
+caller-supplied buffer and checks version 1. Frozen
+`AA-C-100073c0.json` lists ten direct callers and exact call sites.
+`100197e0` reads a record into stack `auStack_300`, uses its login/bitmap
+fields to build a derived UI list, and passes that **derived entry** to
+`10019e90`; it does not visibly forward the whole record. `10011960`
+normal login and `10011ee0` delayed login pass a loaded record or derived
+fields into authentication/settings helpers; existing decompilation shows
+bitmap/name/password use, not a direct 111 read. `10007780` passes the whole
+buffer to writer `1002c440`; that is the established preservation path.
+These call sites are concrete and avoid guessing a nearby constructor.
+
+Proposed future **at most eight content calls** on the owned saved
+`independent-endpoint-01` server project, after renewed exact DATA/JAR
+hash, PPC BE32 and 1,840-function identity gates, under nonblocking canonical
+`oracle.lock`, `--no-analyze --discard` and before/after identity snapshots:
+
+1. `disassemble_function(100197e0,offset=0,limit=500)` to map the record
+   buffer address and any load/derived-entry alias beyond decompiler labels.
+2. `disassemble_function(10015160,offset=0,limit=500)` for account enumeration's
+   record-to-output dataflow (its decompile is already retained).
+3. `disassemble_function(10015500,offset=0,limit=500)` for batch record
+   replacement/preservation, separating old-record reads from new writes.
+4. `disassemble_function(10003170,offset=0,limit=500)` for startup account
+   use, specifically whether an offset in the loaded record affects state.
+5. `disassemble_function(1001f140,offset=0,limit=500)` only if query 1 confirms
+   a derived-entry callback edge that actually carries a relevant value;
+   otherwise leave this call unused.
+6. `disassemble_function(10007fa0,offset=0,limit=500)` for the existing
+   password/setup caller if no earlier positive slot read emerges.
+7. `disassemble_function(10007780,offset=0,limit=500)` to bound the known
+   whole-record rewrite's actual reads without assigning field semantics.
+8. **Conditional only:** follow one actual callee/branch address returned by
+   the preceding disassembly with `get_function_calls` or decompile at that
+   exact returned function entry, if and only if the loaded-record pointer
+   or a `+0x254/+0x256` derived value is demonstrably passed there.
+
+Existing frozen assembly for `10011960`, `10011ee0`, `10014bc0` and
+`10014df0` must be read first; do not spend new calls repeating them.
+Stop early on a verified positive field-specific read and capture its
+guard/reachable effect. If a disassembly page is incomplete, record that
+limit; do not call the absence exhaustive. If no positive edge appears
+within the eight calls, retain the bounded negative and keep GAP-071 open.
+The target is functional use of the stored bytes, not an invented UI label.
+No native contrast follows without a separately approved consumer and
+fixture plan.

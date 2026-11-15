@@ -1,0 +1,23 @@
+{
+  "captured_at_utc": "2026-11-14T08:52:51.298004+00:00",
+  "query": {
+    "id": "decompile-10090190",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10090190"
+    }
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "Error executing tool decompile_function_by_address: [FUNCTION_NOT_FOUND] No function found at or containing 10090190",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": null,
+    "isError": true
+  }
+}

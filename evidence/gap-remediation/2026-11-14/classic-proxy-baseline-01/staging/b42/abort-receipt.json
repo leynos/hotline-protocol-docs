@@ -1,0 +1,57 @@
+{
+  "at_utc": "2026-11-14T00:14:47.880773+00:00",
+  "phase": "stopped-on-indexing-confirmation",
+  "app_launched": false,
+  "proxy_started": false,
+  "connect_activated": false,
+  "files": {
+    "host.pcap": {
+      "bytes": 1182624,
+      "sha256": "95552d2ac2c6b36111ff6f9f96196cdc8a72d116b82c6a61c41af06a8c940ad9",
+      "records": 1585,
+      "complete_parse": true
+    },
+    "namespace.pcap": {
+      "bytes": 24,
+      "sha256": "704e5e5b3234433c01fcfd1b20a306e77e985038120492dc53965c3edd38a4ea",
+      "records": 0,
+      "complete_parse": true
+    },
+    "client-guest-pre.pcap": {
+      "bytes": 10754,
+      "sha256": "724bbb1d4f776ad7ea4d04b76f527e805def3b2b666438b8205fcc24da9d8252",
+      "records": 100,
+      "complete_parse": true
+    },
+    "server-guest-pre.pcap": {
+      "bytes": 17509641,
+      "sha256": "4d7cb1505066b35067673d95cc2f41cfb74fda307db61e1a6b007c9fe23ec8ba",
+      "records": 25564,
+      "complete_parse": true
+    },
+    "client-guest-post.pcap": {
+      "bytes": 10754,
+      "sha256": "724bbb1d4f776ad7ea4d04b76f527e805def3b2b666438b8205fcc24da9d8252",
+      "records": 100,
+      "complete_parse": true
+    },
+    "server-guest-post.pcap": {
+      "bytes": 18673714,
+      "sha256": "b3681c0ea528bb72b01aaa4db99792647417cfc487b0c66e74482beea1edf605",
+      "records": 27155,
+      "complete_parse": true
+    },
+    "desktop-before.png": {
+      "bytes": 787104,
+      "sha256": "bbd3ab0c7ed9b43866ced987f8febffef7e51afff9a10c3359eb93b83ee94f10"
+    },
+    "after-index-cancel.png": {
+      "bytes": 786664,
+      "sha256": "cf8f91a369e74811ac6117000bb5a3270596d9464c4385f607dd7abfa413a6aa"
+    },
+    "after-index-cancel-settled.png": {
+      "bytes": 723896,
+      "sha256": "8ec215d7c5b01a0ea4719b232bfb0e6de2c0e70a6ff7e89944b6d463c3cd592c"
+    }
+  }
+}

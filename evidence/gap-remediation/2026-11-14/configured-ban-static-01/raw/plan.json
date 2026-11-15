@@ -1,0 +1,10 @@
+[
+  {
+    "id": "C59-M-1008fd80",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "1008fd80",
+      "length": 160
+    }
+  }
+]

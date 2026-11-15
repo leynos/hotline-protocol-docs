@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-13T11:00:45.059283+00:00",
+  "query": {
+    "id": "RM-M-100921bf",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "100921bf",
+      "length": 200
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"address\": \"100921bf\",\n  \"length\": 200,\n  \"hex\": \"29 59 6f 75 20 61 72 65 20 6e 6f 74 20 61 6c 6c 6f 77 65 64 20 74 6f 20 63 72 65 61 74 65 20 61 20 6e 65 77 20 63 68 61 74 2e 0d 3c 3c 3c 20 22 25 23 73 22 20 64 65 63 6c 69 6e 65 64 20 69 6e 76 69 74 61 74 69 6f 6e 20 74 6f 20 63 68 61 74 20 3e 3e 3e 00 3c 43 61 6e 6e 6f 74 20 6a 6f 69 6e 20 70 72 69 76 61 74 65 20 63 68 61 74 20 62 65 63 61 75 73 65 20 69 74 20 68 61 73 20 62 65 65 6e 20 63 6c 6f 73 65 64 20 61 6c 72 65 61 64 79 2e 00 00 00 43 53 63 72 6f 6c 6c 65 72 56 69 65 77 00 00 00 43 56 69 65 77 00 00 00 00 00 00 00 10 09 22 64 00 00 00 00 10 08 ef 18 00 00 00 2c 10 08 ef 40 00 00 00\",\n  \"ascii\": \")You are not allowed to create a new chat..<<< \\\"%#s\\\" declined invitation to chat >>>.<Cannot join private chat because it has been closed already....CScrollerView...CView.........\\\"d...........,...@...\",\n  \"gaps\": []\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "address": "100921bf",
+      "length": 200,
+      "hex": "29 59 6f 75 20 61 72 65 20 6e 6f 74 20 61 6c 6c 6f 77 65 64 20 74 6f 20 63 72 65 61 74 65 20 61 20 6e 65 77 20 63 68 61 74 2e 0d 3c 3c 3c 20 22 25 23 73 22 20 64 65 63 6c 69 6e 65 64 20 69 6e 76 69 74 61 74 69 6f 6e 20 74 6f 20 63 68 61 74 20 3e 3e 3e 00 3c 43 61 6e 6e 6f 74 20 6a 6f 69 6e 20 70 72 69 76 61 74 65 20 63 68 61 74 20 62 65 63 61 75 73 65 20 69 74 20 68 61 73 20 62 65 65 6e 20 63 6c 6f 73 65 64 20 61 6c 72 65 61 64 79 2e 00 00 00 43 53 63 72 6f 6c 6c 65 72 56 69 65 77 00 00 00 43 56 69 65 77 00 00 00 00 00 00 00 10 09 22 64 00 00 00 00 10 08 ef 18 00 00 00 2c 10 08 ef 40 00 00 00",
+      "ascii": ")You are not allowed to create a new chat..<<< \"%#s\" declined invitation to chat >>>.<Cannot join private chat because it has been closed already....CScrollerView...CView.........\"d...........,...@...",
+      "gaps": []
+    },
+    "isError": false
+  }
+}

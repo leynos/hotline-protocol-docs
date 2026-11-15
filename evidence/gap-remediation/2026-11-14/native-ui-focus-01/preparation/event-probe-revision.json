@@ -1,0 +1,11 @@
+{
+  "utc": "2026-11-14T00:54:47.138482+00:00",
+  "original_file": "event_probe.py.as-prepared.txt",
+  "original_sha256": "deec49121248489d2eed9a2a2c63cdbc2422d3026147bb3cbce74b6fbe76018a",
+  "corrected_file": "event_probe.py",
+  "corrected_sha256": "4a39d24fbc68f492558deacb4794829d145e7cc100bab0acb8945f5497d4b3d4",
+  "exact_change": "Remove one superfluous zero argument from XTestFakeMotionEvent; argtypes has five C arguments.",
+  "ast_call_arg_count": 5,
+  "live_invocation": false,
+  "a7_plan_unchanged": true
+}

@@ -1,0 +1,54 @@
+{
+  "semantic": {
+    "preflight_uid": "0003",
+    "cleanup_uid": "0005",
+    "baseline_file_entries": 41,
+    "partial_info_fields": {
+      "213": "48546674",
+      "205": "496e636f6d706c6574652046696c65",
+      "206": "486f746c696e65",
+      "207": "ff4c",
+      "201": "6d2d6469616733372d78787878787878787878787878787878787878787878",
+      "208": "07700000e71ce0e4",
+      "209": "07700000e71ce0ef"
+    },
+    "seed_error": "ConnectionResetError: [Errno 104] Connection reset by peer"
+  },
+  "packets": {
+    "preflight": {
+      "a": {
+        "client_port": 46888,
+        "sent_bytes": 243,
+        "received_bytes": 2748,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      }
+    },
+    "cleanup": {
+      "a": {
+        "client_port": 52632,
+        "sent_bytes": 385,
+        "received_bytes": 4719,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      }
+    },
+    "seed_control": {
+      "a": {
+        "client_port": 34304,
+        "sent_bytes": 151,
+        "received_bytes": 374,
+        "unread_output_hex": "",
+        "guest_server_initiated_close": false,
+        "guest_server_close_kind": "FIN"
+      }
+    },
+    "seed_upload": {
+      "recorder_sent_bytes": 1049088,
+      "host_delivered_bytes": 193913,
+      "guest_delivered_bytes": 74295
+    }
+  }
+}

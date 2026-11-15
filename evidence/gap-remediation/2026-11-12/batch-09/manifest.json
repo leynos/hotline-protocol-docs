@@ -1,0 +1,10 @@
+{
+  "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "method": "Read-only AppleDouble resource-map inspection, including bounds checks and both vers resources. No Ghidra mutation or native execution.",
+  "input": "inputs/HLserver19.appledouble",
+  "inventory": "resource-inventory.json",
+  "limitations": [
+    "The only DITL/DLOG resources do not identify account field111; no human label is inferred.",
+    "Paired resource fork advertises version1.9.1.0; wire login still emits numeric190."
+  ]
+}

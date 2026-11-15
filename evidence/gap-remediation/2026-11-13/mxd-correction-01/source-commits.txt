@@ -1,0 +1,8 @@
+481294915b48f4db06943c8af86cf31b7e47597a 50360bebff2c79a54272453ce734251be619c274 Accept reassembled logical Hotline payloads
+50360bebff2c79a54272453ce734251be619c274 2e4c9c1df20b37a6f98a1369e0a8f09f9ee2a131 Make migration watchdog test await cancellation
+
+First commit paths:
+src/db/migrations_tests.rs
+Second commit paths:
+src/wireframe/codec/framed_tests.rs
+src/wireframe/codec/mod.rs

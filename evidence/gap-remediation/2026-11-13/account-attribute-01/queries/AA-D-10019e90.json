@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-13T12:04:24.126668+00:00",
+  "query": {
+    "id": "AA-D-10019e90",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10019e90"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_10019e90\",\n    \"address\": \"10019e90\"\n  },\n  \"code\": \"\\nvoid FUN_10019e90(int param_1)\\n\\n{\\n  uint uVar1;\\n  \\n  uVar1 = 0;\\n  do {\\n    uVar1 = uVar1 + 1;\\n    if (*(uint *)(param_1 + 0x74) < uVar1) {\\n      return;\\n    }\\n  } while (**(char **)(*(int *)(param_1 + 0x70) + uVar1 * 4 + -4) != '\\\\x01');\\n  FUN_10082630(param_1,uVar1,1);\\n  FUN_10069fd0(param_1,uVar1,0x180);\\n  return;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_10019e90",
+        "address": "10019e90"
+      },
+      "code": "\nvoid FUN_10019e90(int param_1)\n\n{\n  uint uVar1;\n  \n  uVar1 = 0;\n  do {\n    uVar1 = uVar1 + 1;\n    if (*(uint *)(param_1 + 0x74) < uVar1) {\n      return;\n    }\n  } while (**(char **)(*(int *)(param_1 + 0x70) + uVar1 * 4 + -4) != '\\x01');\n  FUN_10082630(param_1,uVar1,1);\n  FUN_10069fd0(param_1,uVar1,0x180);\n  return;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "kind": "DERIVED_REDACTED_WITNESS_NOT_A_PCAP",
+  "scope": "one Classic 1.9.2-labelled isolated client attempt to mxd C19; failed login; no retry",
+  "source_heads": {
+    "mxd": "cb907885cc2a61df2d708f38a3cf42da85c2a016",
+    "mxd_from_c19_readiness": "cb907885cc2a61df2d708f38a3cf42da85c2a016"
+  },
+  "runtime": {
+    "client_sheepshaver_pid": 1012834,
+    "client_executable_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+    "daemon_pid": 2349333,
+    "daemon_binary_sha256": "3da44eac362e1a5433eee4cace8f030e383a9c4a8ea8f587055610299c879375",
+    "network_namespace": "net:[4026532479]",
+    "namespace_capture_pid": 2417023,
+    "namespace_capture_packets": 14,
+    "namespace_capture_kernel_drops": 0
+  },
+  "times_utc": {
+    "app_launch": "2026-11-13 20:57:56",
+    "single_connect": "2026-11-13 20:59:18",
+    "app_quit": "2026-11-13 20:59:57"
+  },
+  "raw_ignored_captures": {
+    "namespace-15650.pcap": {
+      "bytes": 1307,
+      "sha256": "fbabd23259cf0916c15d583d55671779724a1baadec7a9d52d040b649b7ad47b"
+    },
+    "client-guest-pre.pcap": {
+      "bytes": 8606,
+      "sha256": "866f677607dfcae730501e181691dff270abc8a87bb925d60fed8815b7136a11"
+    },
+    "client-guest-post.pcap": {
+      "bytes": 9637,
+      "sha256": "26261cea2edfc7d3db207137e6d3b05106874ff6a9478a84e24a689eddf2a486"
+    }
+  },
+  "private_replay": {
+    "client_guest_pre_is_post_prefix": true,
+    "guest_delta_tcp_packets": 11,
+    "guest_delta_native_15500_15501_SYN": 0,
+    "host_guest_application_streams_equal": true,
+    "secret_length": 48,
+    "wire_field106_length": 31,
+    "field106_matches_complemented_secret_prefix": true,
+    "field106_sha256": "7cb57afb2ab88175ad729cac8eaecf4656b669fc4a3e1140d4e4f36de700b2f4",
+    "credential_bytes_omitted": true
+  },
+  "decoded_public": {
+    "client_handshake_hex": "54525450484f544c00010002",
+    "server_handshake_hex": "5452545000000000",
+    "request_type": 107,
+    "request_id": 1,
+    "request_total_size": 59,
+    "request_data_size": 59,
+    "request_field_id_lengths": [
+      [
+        105,
+        12
+      ],
+      [
+        106,
+        31
+      ],
+      [
+        160,
+        2
+      ]
+    ],
+    "reply_header_hex": "0001000000000001000000010000000000000000",
+    "reply_type": 0,
+    "reply_marker": 1,
+    "reply_id": 1,
+    "reply_status": 1,
+    "reply_payload_length": 0,
+    "client_stream_length": 91,
+    "server_stream_length": 28,
+    "client_stream_sha256": "5adaa20581c1b088fc53ca5a88aa36e3376bf06dbb3e8ba0ced06369d0bffba4",
+    "server_stream_sha256": "f8043d07c5866697f0e7a42200f1687125469750e2b86c73297d5aef14ec8a03"
+  },
+  "limitations": [
+    "raw credential-bearing PCAPs and seed are not published",
+    "public metadata cannot independently replay payload-prefix equality",
+    "no field161/162, roster300 or banner212 reached",
+    "31-byte sample does not prove a universal password limit or source of truncation"
+  ]
+}

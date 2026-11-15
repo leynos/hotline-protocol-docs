@@ -1,0 +1,22 @@
+{
+  "utc": "2026-11-14T04:20:52.782223+00:00",
+  "case": "B62",
+  "status": "intentional-observation-cutoff",
+  "source_sha256": "cbea168a5b77fdf7ab1c7cacf5119b36149723d0725748b592f2768e22664379",
+  "changes": [
+    {
+      "event": "server",
+      "raw_bytes": 41,
+      "forwarded_bytes": 60,
+      "raw_sha256": "9652ca8dee63462016f49e25c4e8cfe80900ed665e0b93d3386fd9d3016a4f90",
+      "forwarded_sha256": "6a094bcad87575dfd2df90589b6a5165ab5a7cdd3bed7ee2f07869f3b3d1c549"
+    }
+  ],
+  "ack_to_relay_teardown_seconds": 28.129110855,
+  "valid_30_seconds": true,
+  "ui": "after-agree-1s.png shows connected Online Users unnamed row; after-cutoff.png shows Connection Closed after intentional watchdog",
+  "a7": "verify_a7 passed 29 actions each, accounts2, Files41, full FILP both forks and known agreement",
+  "pcap_parity": "offline-parity.json complete SYN-scoped five-view control and data parity",
+  "recorders": "host 3209 captured/0 kernel drops; namespace 82 captured/0 kernel drops; units stopped",
+  "lease": "managed flock unit stopped and nonblocking flock returned success 04:19:31Z"
+}

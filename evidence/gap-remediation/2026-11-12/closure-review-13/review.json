@@ -1,0 +1,76 @@
+{
+  "status": "Resolved",
+  "gaps": [
+    {
+      "gap_id": "GAP-004",
+      "unchanged_closure_criterion": "Specify ID allocation, lifetime, wrap/reuse and notification correlation rules; exercise zero, collision and late-reply cases.",
+      "requirements": [
+        {
+          "requirement": "ID allocation, lifetime and wrap/reuse rules",
+          "evidence": "ID-D-10058090/10052b70/10079e30 zeroed per-connection state;10058ca0 notification allocation;10058d70 and exact eight PowerPC instructions increment32bits and skipzero.10058880/100589b0/10058df0 distinguish request/reply object removal;10058160 frees residual connection assemblies. client-id-boundaries-and-reuse accepts0/high-bit/wrapped-looking client values; wrap of the server allocator is static, not a live cycle."
+        },
+        {
+          "requirement": "Notification correlation and separate ID spaces",
+          "evidence": "Login ACK1 and notification354/ID1 coexist; agreement109/ID2. Client500/ID1 ACKs do not consume server IDs;304 yields301/ID3. Native one-way notification sender does not create a waiting-reply entry."
+        },
+        {
+          "requirement": "Zero, collision and late-reply cases",
+          "evidence": "Native24-case corpus: zero and high-bit IDs; same-ID pipelining collapses to one assembly, distinct IDs separate,3second-separated reuse yields twoACKs, mixed-type collision preserves first payload prefix, late reply1/2/255 discarded with subsequent request liveness. All streams reconcile in both packet boundaries."
+        }
+      ],
+      "conclusion": "Resolved against the unchanged criterion: allocation/lifetime/wrap/reuse and notification rules are published and zero/collision/late-reply fixtures retained. Other identifier domains, universal timers, retry/durability and peer compatibility remain separate requirements."
+    },
+    {
+      "gap_id": "GAP-012",
+      "unchanged_closure_criterion": "Publish reassembly invariants and a test matrix covering keys, length consistency, overshoot, underflow, abandonment and partial TCP delivery.",
+      "requirements": [
+        {
+          "requirement": "Publish reassembly keys and length/type consistency rules",
+          "evidence": "Receiver100590e0 and selector10058e80 use fullID+request/reply class, append payload, update type/total from later frames and select accumulated>=total. Destructor100589b0/10058df0 removes selected request/reply after handler; connection destructor frees residual state."
+        },
+        {
+          "requirement": "Matrix for consistency, overshoot, interleaving and abandonment",
+          "evidence": "Prior62-case native-framing-01 tests changed total/type, aggregateovershoot524290, basicovershoot, interleaved IDs and completion order, abandonedpartial coexisting with completed unrelatedID, reply/request sameID namespaces. New native-correlation-01 adds complete same-ID collisions, total100->2 with three accumulated bytes and completed reuse."
+        },
+        {
+          "requirement": "Underflow, partial TCP delivery and partial EOF",
+          "evidence": "Prior framing corpus checks partial TCPheader/body with quiet windows before completion. Four new cases check9-byte header, framebody missing1byte, one underfilled transaction and two interleaved underfilled transactions: quiet3seconds, client write-half-close, then nativeFIN with no numbered response. Native FIN follows clientFIN, not a server timeout."
+        },
+        {
+          "requirement": "Preserve evidence limits without inventing protocol guarantees",
+          "evidence": "No assembly-age check in reviewedreceiver/selector paths; platform/connection timers remainGAP005. Global buffer/resource limits remainGAP011. This is the unchanged reassembly matrix criterion, not a promise of unlimited lifetime, exactly-once dispatch or mxd resource policy."
+        }
+      ],
+      "conclusion": "Resolved against the unchanged reassembly-invariant/test-matrix criterion. All named matrix classes have native fixtures and receiver/selector evidence; no universal assembly deadline, global allocation cap, retry policy or historical-peer tolerance is claimed."
+    },
+    {
+      "gap_id": "GAP-013",
+      "unchanged_closure_criterion": "Specify accepted and rejected header values for each direction and their failure outcomes, supported by receiver checks and negative fixtures.",
+      "requirements": [
+        {
+          "requirement": "Specify request/reply input acceptance and server output conventions",
+          "evidence": "Published native envelope table for all20headerbytes. Receiver100590e0 has noflags whitelist, classifies zero/nonzero replymarker, matchesfullID+class and validates bothsizewords before matching. Writer10058fd0 emitsflags0 and boolean0/1; reply construction uses type0 and echoedID; notification types/counter remain distinct."
+        },
+        {
+          "requirement": "Nonzero flags/error words and unsupported request types",
+          "evidence": "Priorframing flagsFF/errorFFFFFFFF; newrequestflags1/80+errorFFFFFFFF succeed through500 with emptyACK. Online requesttypes0/FFFF withflagsFF/errorFFFFFFFF produce type0/reply1/status1/field100 Unknown transaction type!, then following request ACKs."
+        },
+        {
+          "requirement": "Noncanonical reply markers/types and failure outcomes",
+          "evidence": "Native markers1/2/255, nonzeroreplytypeFFFF,flagsFF,errorFFFFFFFF with completedclientID or servernotificationID are consumed silently for3seconds, followed by livenessACK. Partialrequest+sameIDwidereply doesnotcomplete request. Zero-size replymarkers1/255 close natively without numbered response before correlation. Earlier sizeboundary fixtures establish limit handling."
+        },
+        {
+          "requirement": "Separate native server contract from identified-peer tolerance",
+          "evidence": "Both received request/reply classes and native emitted frames are specified and fixture-checked. No historical client receiver is certified; client tolerance remainsGAP081 and mxd resource/release policies remain separate."
+        }
+      ],
+      "conclusion": "Resolved against the unchanged native envelope criterion, including receiver checks and negative request/reply fixtures. This specifies the native server input/output contract; historical clients accepting extra/noncanonical output and mxd policy remain separate requirements."
+    }
+  ],
+  "not_claimed": [
+    "Live2^32 server-ID cycle",
+    "Global buffering/assembly-timeout guarantees",
+    "Historical-client receiver tolerance",
+    "Exactly-once operation effects, durability, mxd limits or release subset"
+  ]
+}

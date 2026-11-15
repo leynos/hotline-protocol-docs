@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/usr/sbin/python3",
+    "/data/leynos/Projects/mothra/scripts/mac_runtime.py",
+    "prepare",
+    "/data/leynos/Projects/mothra/state/mac-runtime/native-banlab-one-01",
+    "--rom",
+    "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/rom",
+    "--disk",
+    "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/base.dsk"
+  ],
+  "exit": 0,
+  "stdout": "/data/leynos/Projects/mothra/state/mac-runtime/native-banlab-one-01\n",
+  "stderr": "",
+  "at_utc": "2026-11-13T22:18:35.642766+00:00"
+}

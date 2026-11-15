@@ -1,0 +1,63 @@
+# A102: C107 first-pair timing boundary
+
+Read-only audit of stopped `state/native-sessions/native-rate304-epoch-01`.
+No VM, oracle, mxd, protocol request, or tracked edit. `coordinator/report.json`
+and three PCAP lifetimes are authoritative; the initial C-worker statement
+of zero 304/500 requests is contradicted by those bytes.
+
+## What ran
+
+The separate C106 control-only preflight completed all 18 plan actions,
+including six numbered requests: 107, 348, 200, 206, 300, 303. The C107
+case sent another six numbered requests: observer 107/300, paced subject
+107/300, then exactly one 304 ID1000 icon2 and one 500 ID2000. No second
+304, paced 26-pair trial, 70-second reset wait, burst subject, fresh ban
+probe or retained observer controls ran. Case report status is `failed` with
+`ValueError: Missing paced subject/observer301 and500 ACK icon2`.
+
+The case recorder's action offsets from its start are 304 at 0.837840043 s
+and 500 at 0.837876862 s. Its configured pair wait is **0.55 s** from
+`update_and_barrier`; the failed wait triggered cleanup at about 1.388 s.
+Observer `shutdown_write` occurred at 1.388185168 s and observer EOF at
+1.395744858 s. The paced flow then received 302 UID2 (the observer's
+departure) at 1.580642751 s, its own 301 UID3/name `fixture-low`/icon2 at
+1.585970516 s, and its 500 ID2000 success ACK at 1.585992998 s. These
+late frames are retained in the failed report, not evidence that the pair
+passed before the wait expired. Paced EOF followed its own cleanup close.
+The observer flow did not receive an icon2 301 before its FIN. No packet
+shows a server RST. The observer departure and missing observer 301 cannot
+be interpreted independently of the already-started client cleanup.
+
+## Independent packets and limits
+
+Namespace PCAP has three SYN lifetimes at source ports 53738 (preflight),
+44482 (observer), 44496 (paced), all to 127.0.0.1:15880. The guest PCAP has
+the corresponding same-source-port flows to 10.0.2.15:5500. Reassembly of
+each direction is byte-equal between namespace and guest: lengths C→S/S→C
+are 231/2759, 108/448 and 159/521 bytes respectively. Case recorder sent
+and received streams equal the full reassembled 44482 and 44496 streams;
+there are zero unread application bytes, no RST packets and FINs on both
+case lifetimes. The namespace capture journal reports 75 packets, zero
+kernel drops; the host primary SYN capture reports zero packets/drops.
+These are packet observations, not a claim of full semantic case completion.
+
+PCAP timing for the paced flow puts the 304 payload at +0.476745 s and 500
+payload at +0.517769 s after its SYN. The 301 and ACK share a server packet
+at +1.224748 s: about 0.748 s after 304 and 0.707 s after 500 reached the
+namespace capture. This exceeds the runner's 0.55-second acceptance window.
+The bytes alone do not identify why the server delayed or what would have
+arrived on observer had the client not closed it.
+
+The case unit exited 1 and is stopped; owned host/namespace capture and
+lock units are inactive, as are the disposable bridge and emulator units.
+Stopped admin and fixture-low UserData, Prefs, DATA/RSRC and board fork
+hashes are retained in `stopped/forks.json`; no Banned file is reported.
+This checks a clean failed-epoch boundary, not a 304 limiter outcome.
+
+Smallest falsifiable timing hypothesis for later source review: first-pair
+301/500 processing can take longer than the configured 0.55-second wait in
+this isolated runtime. Its prediction is a late same-pair response without
+a limiter error, as observed on the still-open paced flow. An independent
+future supervised timing case with a declared longer wait would be needed
+to distinguish recurring first-pair delay from a one-off scheduler/network
+effect; this audit authorises no retune or live retry.

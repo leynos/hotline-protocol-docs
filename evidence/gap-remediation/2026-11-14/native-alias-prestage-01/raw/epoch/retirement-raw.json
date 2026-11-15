@@ -1,0 +1,119 @@
+{
+  "utc": "2026-11-14T17:47:31.743028+00:00",
+  "actual_emulator_pid": 3737215,
+  "actual_emulator_start_ticks": 10252051,
+  "actual_emulator_absent": true,
+  "working_fuser_exit": 1,
+  "working_fuser_empty": true,
+  "originals": {
+    "1099659": {
+      "expected": "767842",
+      "actual": "767842",
+      "matches": true
+    },
+    "1012834": {
+      "expected": "2357813",
+      "actual": "2357813",
+      "matches": true
+    }
+  },
+  "ports_15960_15963_absent": true,
+  "oracle_lock_free": true,
+  "stop_classification": "forced_vm_stop_after_observed_native_app_quit; not orderly OS shutdown",
+  "commands": {
+    "system-units": [
+      "sudo",
+      "-n",
+      "systemctl",
+      "show",
+      "mothra-native-alias-live-02-host.service",
+      "mothra-native-alias-live-02-namespace.service",
+      "mothra-native-alias-live-02-readiness.service",
+      "mothra-native-alias-live-02-lease.service",
+      "-p",
+      "Id",
+      "-p",
+      "ActiveState",
+      "-p",
+      "SubState",
+      "-p",
+      "Result",
+      "-p",
+      "ExecMainStatus",
+      "-p",
+      "MainPID"
+    ],
+    "user-units": [
+      "systemctl",
+      "--user",
+      "show",
+      "mothra-sheep-44f0b1e89a64.service",
+      "mothra-bridge-77c93d1506ca.service",
+      "mothra-xbridge-77c93d1506ca.service",
+      "mothra-display-3e7df46d01c6.service",
+      "-p",
+      "Id",
+      "-p",
+      "ActiveState",
+      "-p",
+      "SubState",
+      "-p",
+      "Result",
+      "-p",
+      "MainPID"
+    ],
+    "system-journal": [
+      "sudo",
+      "-n",
+      "journalctl",
+      "--no-pager",
+      "-u",
+      "mothra-native-alias-live-02-host.service",
+      "-u",
+      "mothra-native-alias-live-02-namespace.service",
+      "-u",
+      "mothra-native-alias-live-02-readiness.service",
+      "-u",
+      "mothra-native-alias-live-02-lease.service"
+    ],
+    "user-journal": [
+      "journalctl",
+      "--user",
+      "--no-pager",
+      "-u",
+      "mothra-sheep-44f0b1e89a64.service",
+      "-u",
+      "mothra-bridge-77c93d1506ca.service",
+      "-u",
+      "mothra-xbridge-77c93d1506ca.service",
+      "-u",
+      "mothra-display-3e7df46d01c6.service"
+    ],
+    "working-fuser": [
+      "sudo",
+      "-n",
+      "fuser",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-02/working.dsk"
+    ],
+    "ports": [
+      "ss",
+      "-ltn"
+    ],
+    "lock": [
+      "flock",
+      "--exclusive",
+      "--nonblock",
+      "/data/leynos/Projects/mothra/state/delegation/oracle.lock",
+      "true"
+    ]
+  },
+  "exits": {
+    "system-units": 0,
+    "user-units": 0,
+    "system-journal": 0,
+    "user-journal": 0,
+    "working-fuser": 1,
+    "ports": 0,
+    "lock": 0
+  }
+}

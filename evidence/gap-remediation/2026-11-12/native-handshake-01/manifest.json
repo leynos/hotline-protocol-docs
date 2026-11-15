@@ -1,0 +1,27 @@
+{
+  "scope": "First positive native control handshake only; native corpus remains open",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "resource_fork_sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12",
+  "finder_info_sha256": "2bad82ff67c5c28b30be6d8b1f69f2a5e316b06b83d7c9a9c81c4968761e9bab",
+  "rom_sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+  "base_disk_sha256": "c36b7bc9c513b2b576d5e7bdd2d51c54a4d0af01a863e5154ce71274272a3ffe",
+  "emulator_source_commit": "8e6793d83bdc36349500a1bc356a10aeccad83f1",
+  "running_emulator_sha256": null,
+  "emulator_identity_limit": "Running executable hash was not retained before exit. Attached manifest identifies the subsequent completed build using the same source/patch/configuration, not an attestation of the running executable.",
+  "launch": "sudo -n setpriv --reuid=1000 --regid=1000 --init-groups --inh-caps=+sys_rawio --ambient-caps=+sys_rawio env DISPLAY=:97 SDL_VIDEODRIVER=x11 XDG_RUNTIME_DIR=/run/user/1000 XDG_CACHE_HOME=/data/leynos/Projects/mothra/state/native-mac/cache /data/leynos/Projects/mothra/tools/macemu/SheepShaver/src/Unix/SheepShaver /data/leynos/Projects/mothra/state/native-mac/hotline.sheepvm",
+  "launcher_scope": "Manual launch; not a test of the generic launcher",
+  "guest_application": "System9:Hotline19:HLserver19 copied from Unix share via Finder; Classic variant not used",
+  "server_log": "Hotline Server 1.9; loaded MessageBoard.txt and Agreement.txt",
+  "account": "Dedicated admin / mothra19 fixture credentials",
+  "guest_os": "System9 supplied disk; desktop observed, exact OS/CarbonLib versions not yet read",
+  "guest_volume": "Native System9 disk; HFS+ wrapped in HFS base",
+  "network": "Patched SLiRP loopback15500 to10.0.2.15:5500; positive TCP-stream exchange",
+  "result": "12-byte TRTP request,8-byte TRTP00000000 response; transcript verified",
+  "subsequent_failure": "Guest process exited134 with SIGSEGV diagnostics and double free or corruption after subsequent GUI interaction. Cause not established. No stability claim.",
+  "limitations": [
+    "Operator-reported remote application identity",
+    "No packet-level timing capture",
+    "Only one positive handshake; negative/login/data/identified-peer suite remains",
+    "No ROM, disk or server binary added by this batch"
+  ]
+}

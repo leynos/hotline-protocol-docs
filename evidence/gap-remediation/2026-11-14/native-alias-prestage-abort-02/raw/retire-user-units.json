@@ -1,0 +1,25 @@
+{
+  "argv": [
+    "systemctl",
+    "--user",
+    "show",
+    "mothra-sheep-9865cb3ba7cd.service",
+    "mothra-bridge-a625e56f83a7.service",
+    "mothra-xbridge-a625e56f83a7.service",
+    "mothra-display-7b94b474df70.service",
+    "mothra-native-alias-live-04-cutoff.timer",
+    "-p",
+    "Id",
+    "-p",
+    "ActiveState",
+    "-p",
+    "SubState",
+    "-p",
+    "MainPID",
+    "--no-pager"
+  ],
+  "exit": 0,
+  "stdout": "Id=mothra-sheep-9865cb3ba7cd.service\nActiveState=inactive\nSubState=dead\nMainPID=0\n\nId=mothra-bridge-a625e56f83a7.service\nActiveState=inactive\nSubState=dead\nMainPID=0\n\nId=mothra-xbridge-a625e56f83a7.service\nActiveState=inactive\nSubState=dead\nMainPID=0\n\nId=mothra-display-7b94b474df70.service\nActiveState=inactive\nSubState=dead\nMainPID=0\n\nId=mothra-native-alias-live-04-cutoff.timer\nActiveState=inactive\nSubState=dead\n",
+  "stderr": "",
+  "utc": "2026-11-14T22:04:34.047927+00:00"
+}

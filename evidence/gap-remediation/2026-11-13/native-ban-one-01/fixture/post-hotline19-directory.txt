@@ -1,0 +1,22 @@
+-/r 11184:	Agreement.saved
+-/r 11339:	Agreement.txt
+-/r 11212:	Error Log
+d/d 11189:	Files
+-/r 11183:	HLserver19
+-/r 11297:	m-agree-empty
+-/r 11252:	m-img-b.bmp
+-/r 11260:	m-img-e.gif
+-/r 11254:	m-img-f.dat
+-/r 11251:	m-img-j.jpg
+-/r 11253:	m-img-p.pct
+-/r 11259:	m-img-t
+-/r 11257:	m-img-t.gif
+-/r 11256:	m-img-x.jpg
+-/r 11255:	m-img-z.dat
+-/r 11191:	MessageBoard.txt
+-/r 11240:	mothra-banner-a.gif
+-/r 11241:	mothra-banner-b.gif
+d/d 11190:	News
+-/r 11202:	Prefs
+-/r 11185:	source-manifest.json
+d/d 11188:	Users

@@ -1,0 +1,110 @@
+#!/usr/bin/env python3
+"""Finish the failed, never-booted R04 copies without copying again."""
+import hashlib
+import importlib.util
+import json
+import os
+import subprocess
+import sys
+from pathlib import Path
+
+ROOT = Path("/data/leynos/Projects/mothra")
+P = ROOT / "state/native-sessions/native-alias-live-preparation-04"
+OLD = P / "stopped-preparation/preflight.json"
+NEW = P / "stopped-preparation-continuation-02"
+SOURCE = P / "prepare-required-reflink-04.py"
+AS_RUN = P / "prepare-required-reflink-04.as-run.txt"
+FAILED_SHA = "df48030fca202d4a2c4b12632909664cde86ecf7d53e22159df55c5e8a30b9ae"
+AS_RUN_SHA = "6ee80ec47e35bac59097c8440b3ec33d4bdde472ad521952626dd38c1ec5ccce"
+CORRECTED_SHA = "210ff9725513bce3d4f8391f8fbf8912dc26e4b29b21e898e4f0322d63e5dd23"
+def sha(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+def checked_corpus(path, receipt):
+    evidence = (ROOT / "evidence/gap-remediation").resolve()
+    if not path.resolve().is_relative_to(evidence) or not receipt.resolve().is_relative_to(path.resolve()):
+        raise ValueError("failed corpus paths outside evidence")
+    for item in (path / "manifest.json", receipt):
+        rel = item.resolve().relative_to(ROOT)
+        result = subprocess.run(["git", "-C", str(ROOT), "show", f"HEAD:{rel}"],
+                                capture_output=True, check=False)
+        if result.returncode or result.stdout != item.read_bytes() or item.is_symlink():
+            raise ValueError(f"failed corpus artifact not committed byte-for-byte: {item}")
+    if sha(receipt) != FAILED_SHA:
+        raise ValueError("committed failed receipt differs")
+    return {"manifest": str(path / "manifest.json"), "manifest_sha256": sha(path / "manifest.json"),
+            "failed_receipt_copy": str(receipt), "failed_receipt_sha256": FAILED_SHA}
+def stable(actual, expected):
+    for key in ("dev", "inode", "size", "mode", "mtime_ns", "ctime_ns", "nlink", "uid", "gid", "sha256"):
+        if actual[key] != expected[key]:
+            raise ValueError(f"changed {expected['path']}: {key}")
+def ticks():
+    return {str(pid): Path(f"/proc/{pid}/stat").read_text().split(") ")[1].split()[19]
+            for pid in (1099659, 1012834)}
+
+
+def main(corpus, receipt):
+    if (os.geteuid(), os.getegid()) != (1000, 1000) or NEW.exists():
+        raise ValueError("requires UID/GID1000 and absent continuation output")
+    if sha(OLD) != FAILED_SHA or sha(AS_RUN) != AS_RUN_SHA or sha(SOURCE) != CORRECTED_SHA:
+        raise ValueError("failed or corrected source identity changed")
+    old = json.loads(OLD.read_text())
+    if old.get("status") != "failed" or old.get("error") != "ValueError: original two-user HFS baseline failed":
+        raise ValueError("different original failure")
+    corpus_proof = checked_corpus(corpus, receipt)
+    spec = importlib.util.spec_from_file_location("r04_stopped_prep", SOURCE)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    NEW.mkdir(mode=0o700)
+    module.S, module.commands = NEW, []
+    result = {"status": "started", "failed_original": corpus_proof, "corrected_source_sha256": CORRECTED_SHA,
+              "original_ticks_before": ticks()}
+    try:
+        if result["original_ticks_before"] != old["original_ticks_before"]:
+            raise ValueError("original process identity changed")
+        if module.capacity() < module.THRESHOLD:
+            raise ValueError("capacity below required threshold")
+        for path in (module.BASE, module.ROM):
+            stable(module.identity(path), old["source_before"][str(path)])
+        for name in ("base.dsk", "working.dsk", "rom"):
+            stable(module.identity(module.R / name), old["prepared"][name])
+        shared = module.identity_dir(module.R / "shared")
+        if (shared["uid"], shared["gid"], shared["mode"]) != (1000, 1000, "0o755"):
+            raise ValueError("shared parent changed")
+        for path in (module.R / "assets.json", module.R / "shared/m-alias54-target",
+                     module.R / "shared/.finf", module.R / "shared/.rsrc"):
+            if path.exists() or path.is_symlink():
+                raise FileExistsError(path)
+        result["catalog"], result["forks"], result["board"] = module.inspect_hfs(module.R / "working.dsk")
+        if result["catalog"]["allocated_sha256"] != "1e6b2c52a5327f0a59fe8e463aaf212b4c62f96d70c6602b97010a0540333e33":
+            raise ValueError("allocated catalogue changed")
+        staged = module.stage_target()
+        result["prepared"] = old["prepared"]
+        result["shared_parent"], result["target_leaf"] = staged["shared_parent"], staged["target_leaf"]
+        result["source_before"] = old["source_before"]
+        (NEW / "finf-supplement.json").write_text(json.dumps(staged["finf"], indent=2) + "\n")
+        result["source_after"] = {str(path): module.identity(path) for path in (module.BASE, module.ROM)}
+        for path in (module.BASE, module.ROM):
+            stable(result["source_after"][str(path)], old["source_before"][str(path)])
+        result["original_ticks_after"] = ticks()
+        if result["original_ticks_after"] != result["original_ticks_before"]:
+            raise ValueError("original process changed")
+        result["free_bytes_at_prep_end"] = module.capacity()
+        assets = {"rom_sha256": old["prepared"]["rom"]["sha256"],
+                  "base_disk_sha256": old["prepared"]["base.dsk"]["sha256"],
+                  "source_rom": str(module.ROM), "source_disk": str(module.BASE), "archive_member": None}
+        with (module.R / "assets.json").open("x") as stream:
+            json.dump(assets, stream, indent=2)
+            stream.write("\n")
+        result["commands"] = module.commands
+        result["status"] = "prepared_stopped"
+    except BaseException as error:
+        result["status"], result["error"] = "failed", f"{type(error).__name__}: {error}"
+        raise
+    finally:
+        (NEW / "preflight.json").write_text(json.dumps(result, indent=2) + "\n")
+
+
+if __name__ == "__main__":
+    if len(sys.argv) != 3:
+        raise SystemExit("usage: continue-stopped-reflink-04.py COMMITTED_CORPUS COMMITTED_FAILED_RECEIPT")
+    main(Path(sys.argv[1]), Path(sys.argv[2]))

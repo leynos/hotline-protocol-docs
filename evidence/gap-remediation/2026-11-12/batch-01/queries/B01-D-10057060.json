@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T13:32:52.668663+00:00",
+  "query": {
+    "id": "B01-D-10057060",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10057060"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_10057060\",\n    \"address\": \"10057060\"\n  },\n  \"code\": \"\\nvoid FUN_10057060(int param_1)\\n\\n{\\n  undefined2 uVar1;\\n  undefined2 uVar2;\\n  ushort uVar3;\\n  ushort uVar4;\\n  int iVar5;\\n  uint uVar6;\\n  uint uVar7;\\n  ushort *puVar8;\\n  ushort *puVar9;\\n  undefined2 *puVar10;\\n  undefined2 *puVar11;\\n  uint uVar12;\\n  \\n  if (*(int *)(param_1 + 0xc) == 0) {\\n    return;\\n  }\\n  uVar6 = *(uint *)(param_1 + 0x10);\\n  iVar5 = *(int *)(param_1 + 0xc);\\n  if (uVar6 < 2) {\\n    return;\\n  }\\n  uVar7 = (uVar6 >> 1) + 1;\\n  puVar11 = (undefined2 *)(iVar5 + (uVar6 >> 1) * 4);\\n  puVar10 = (undefined2 *)(iVar5 + (uVar6 - 1) * 4);\\n  do {\\n    if (uVar7 < 2) {\\n      uVar1 = *puVar11;\\n      uVar2 = puVar11[1];\\n      *puVar11 = *puVar10;\\n      puVar11[1] = puVar10[1];\\n      *puVar10 = uVar1;\\n      puVar10[1] = uVar2;\\n      uVar6 = uVar6 - 1;\\n      if (uVar6 == 1) {\\n        return;\\n      }\\n      puVar10 = puVar10 + -2;\\n    }\\n    else {\\n      uVar7 = uVar7 - 1;\\n      puVar11 = puVar11 + -2;\\n    }\\n    puVar9 = (ushort *)(iVar5 + (uVar7 - 1) * 4);\\n    uVar12 = uVar7;\\n    while (uVar12 << 1 <= uVar6) {\\n      uVar12 = uVar12 * 2;\\n      puVar8 = (ushort *)(iVar5 + (uVar12 - 1) * 4);\\n      if ((uVar12 < uVar6) && (*puVar8 < puVar8[2])) {\\n        uVar12 = uVar12 + 1;\\n        puVar8 = puVar8 + 2;\\n      }\\n      if (*puVar8 <= *puVar9) break;\\n      uVar3 = *puVar9;\\n      uVar4 = puVar9[1];\\n      *puVar9 = *puVar8;\\n      puVar9[1] = puVar8[1];\\n      *puVar8 = uVar3;\\n      puVar8[1] = uVar4;\\n      puVar9 = puVar8;\\n    }\\n  } while( true );\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_10057060",
+        "address": "10057060"
+      },
+      "code": "\nvoid FUN_10057060(int param_1)\n\n{\n  undefined2 uVar1;\n  undefined2 uVar2;\n  ushort uVar3;\n  ushort uVar4;\n  int iVar5;\n  uint uVar6;\n  uint uVar7;\n  ushort *puVar8;\n  ushort *puVar9;\n  undefined2 *puVar10;\n  undefined2 *puVar11;\n  uint uVar12;\n  \n  if (*(int *)(param_1 + 0xc) == 0) {\n    return;\n  }\n  uVar6 = *(uint *)(param_1 + 0x10);\n  iVar5 = *(int *)(param_1 + 0xc);\n  if (uVar6 < 2) {\n    return;\n  }\n  uVar7 = (uVar6 >> 1) + 1;\n  puVar11 = (undefined2 *)(iVar5 + (uVar6 >> 1) * 4);\n  puVar10 = (undefined2 *)(iVar5 + (uVar6 - 1) * 4);\n  do {\n    if (uVar7 < 2) {\n      uVar1 = *puVar11;\n      uVar2 = puVar11[1];\n      *puVar11 = *puVar10;\n      puVar11[1] = puVar10[1];\n      *puVar10 = uVar1;\n      puVar10[1] = uVar2;\n      uVar6 = uVar6 - 1;\n      if (uVar6 == 1) {\n        return;\n      }\n      puVar10 = puVar10 + -2;\n    }\n    else {\n      uVar7 = uVar7 - 1;\n      puVar11 = puVar11 + -2;\n    }\n    puVar9 = (ushort *)(iVar5 + (uVar7 - 1) * 4);\n    uVar12 = uVar7;\n    while (uVar12 << 1 <= uVar6) {\n      uVar12 = uVar12 * 2;\n      puVar8 = (ushort *)(iVar5 + (uVar12 - 1) * 4);\n      if ((uVar12 < uVar6) && (*puVar8 < puVar8[2])) {\n        uVar12 = uVar12 + 1;\n        puVar8 = puVar8 + 2;\n      }\n      if (*puVar8 <= *puVar9) break;\n      uVar3 = *puVar9;\n      uVar4 = puVar9[1];\n      *puVar9 = *puVar8;\n      puVar9[1] = puVar8[1];\n      *puVar8 = uVar3;\n      puVar8[1] = uVar4;\n      puVar9 = puVar8;\n    }\n  } while( true );\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

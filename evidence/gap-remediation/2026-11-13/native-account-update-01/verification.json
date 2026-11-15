@@ -1,0 +1,11 @@
+{
+  "completed_reports": 31,
+  "paired_connections": 34,
+  "owned_accounts": 8,
+  "positive_logins": 9,
+  "negative_logins": 8,
+  "native_record_bytes": 734,
+  "positive_original_trash_objects": 18,
+  "oracle_queries": 11,
+  "scope": "Sentinel/replacement/default/width fixtures only; opaque111 meaning, live-edit propagation, conflicts/protected deletion, forced write failures and restart persistence remain open"
+}

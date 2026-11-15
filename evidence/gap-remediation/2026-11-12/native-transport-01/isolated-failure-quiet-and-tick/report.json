@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "profile": "native-mac-oracle",
+  "status": "completed",
+  "native_conformance": false,
+  "identity_scope": "Local binary hash verified; remote process identity is operator-reported",
+  "operator": "Codex local native fixture operator",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "plan_sha256": "bc5cd4ef2b4277a8399bf1fe344f9f308ce9d343e79b121c428a6cc3ba18f785",
+  "driver_sha256": "3b31241249647abac95d8f6f11a1b9102745e11910b78bfed9e3eaa5e36ec507",
+  "recorded_at_utc": "2026-11-12T18:05:55.057558+00:00",
+  "gap_ids": [
+    "GAP-005",
+    "GAP-084"
+  ],
+  "completed_actions": 11,
+  "error": "",
+  "events": [
+    {
+      "action": 0,
+      "connection": "main",
+      "event": "connect",
+      "elapsed_ns": 2797721,
+      "hex": "",
+      "local_address": [
+        "127.0.0.1",
+        55176
+      ],
+      "peer_address": [
+        "127.0.0.1",
+        15500
+      ]
+    },
+    {
+      "action": 1,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 2884082,
+      "hex": "54525450484f544c00010002"
+    },
+    {
+      "action": 2,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 251625562,
+      "hex": "5452545000000000"
+    },
+    {
+      "action": 3,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 252712807,
+      "hex": "0000006b00000001000000000000003a0000003a0005006900059e9b929691006a000e888d909198d28f9e8c8c88908d9b00a0000200be0066000d666978747572652d61646d696e006800020001"
+    },
+    {
+      "action": 4,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 261665491,
+      "hex": "0001000000000001000000010000001600000016"
+    },
+    {
+      "action": 4,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 261716557,
+      "hex": "000100640010496e636f7272656374206c6f67696e2e"
+    },
+    {
+      "action": 5,
+      "connection": "main",
+      "event": "quiet",
+      "elapsed_ns": 35296851875,
+      "hex": ""
+    },
+    {
+      "action": 6,
+      "connection": "tick",
+      "event": "connect",
+      "elapsed_ns": 35297081152,
+      "hex": "",
+      "local_address": [
+        "127.0.0.1",
+        56790
+      ],
+      "peer_address": [
+        "127.0.0.1",
+        15500
+      ]
+    },
+    {
+      "action": 7,
+      "connection": "tick",
+      "event": "send",
+      "elapsed_ns": 35297132097,
+      "hex": "54525450484f544c00010002"
+    },
+    {
+      "action": 8,
+      "connection": "tick",
+      "event": "receive",
+      "elapsed_ns": 35394706822,
+      "hex": "5452545000000000"
+    },
+    {
+      "action": 9,
+      "connection": "main",
+      "event": "eof",
+      "elapsed_ns": 35396951902,
+      "hex": ""
+    },
+    {
+      "action": 10,
+      "connection": "tick",
+      "event": "close",
+      "elapsed_ns": 35397039665,
+      "hex": ""
+    },
+    {
+      "action": 11,
+      "connection": "main",
+      "event": "close",
+      "elapsed_ns": 35397088406,
+      "hex": ""
+    }
+  ],
+  "frames": [
+    {
+      "action": 4,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 1,
+      "error": 1,
+      "total_size": 22,
+      "data_size": 22,
+      "payload_hex": "000100640010496e636f7272656374206c6f67696e2e",
+      "fields": [
+        {
+          "id": 100,
+          "hex": "496e636f7272656374206c6f67696e2e"
+        }
+      ],
+      "declared_field_count": 1,
+      "unconsumed_hex": ""
+    }
+  ],
+  "streams": {
+    "main": {
+      "sent_hex": "54525450484f544c000100020000006b00000001000000000000003a0000003a0005006900059e9b929691006a000e888d909198d28f9e8c8c88908d9b00a0000200be0066000d666978747572652d61646d696e006800020001",
+      "received_hex": "54525450000000000001000000000001000000010000001600000016000100640010496e636f7272656374206c6f67696e2e"
+    },
+    "tick": {
+      "sent_hex": "54525450484f544c00010002",
+      "received_hex": "5452545000000000"
+    }
+  }
+}

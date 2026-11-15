@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-13T12:03:50.229566+00:00",
+  "query": {
+    "id": "AA-D-10007780",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10007780"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_10007780\",\n    \"address\": \"10007780\"\n  },\n  \"code\": \"\\n/* WARNING: Removing unreachable block (ram,0x1000789c) */\\n\\nundefined4 FUN_10007780(int param_1,char *param_2,byte *param_3,char param_4)\\n\\n{\\n  bool bVar1;\\n  undefined4 uVar2;\\n  byte bVar4;\\n  byte *pbVar3;\\n  uint uVar5;\\n  undefined1 auStack_530 [128];\\n  byte local_44f [75];\\n  undefined1 *local_404;\\n  undefined1 local_400;\\n  undefined1 auStack_3ff [255];\\n  undefined2 local_300 [2];\\n  undefined1 auStack_2fc [660];\\n  ushort local_68;\\n  undefined1 auStack_66 [34];\\n  undefined2 local_44;\\n  undefined1 auStack_42 [38];\\n  \\n  if ((param_2 == (char *)0x0) || (*param_2 == '\\\\0')) {\\n    uVar2 = 0;\\n  }\\n  else {\\n    FUN_100073c0(param_1,param_2,local_300);\\n    local_300[0] = 1;\\n    if ((param_3 != (byte *)0x0) && (*param_3 != 0)) {\\n      if (*param_3 < 0x20) {\\n        bVar4 = *param_3;\\n      }\\n      else {\\n        bVar4 = 0x1f;\\n      }\\n      bVar4 = FUN_100539c0(local_44f,param_3 + 1,bVar4);\\n      uVar5 = (uint)bVar4;\\n      pbVar3 = local_44f;\\n      while (bVar1 = uVar5 != 0, uVar5 = uVar5 - 1, bVar1) {\\n        *pbVar3 = ~*pbVar3;\\n        pbVar3 = pbVar3 + 1;\\n      }\\n      local_44 = FUN_100539c0(auStack_42,local_44f,bVar4);\\n    }\\n    if (param_4 != '\\\\0') {\\n      FUN_10007ed0(auStack_2fc);\\n      FUN_10007e80(auStack_2fc,2,1);\\n      FUN_10007e80(auStack_2fc,0x27,1);\\n      FUN_10007e80(auStack_2fc,1,1);\\n      FUN_10007e80(auStack_2fc,0x26,1);\\n      FUN_10007e80(auStack_2fc,0x19,1);\\n      FUN_10007e80(auStack_2fc,0,1);\\n      FUN_10007e80(auStack_2fc,3,1);\\n      FUN_10007e80(auStack_2fc,4,1);\\n      FUN_10007e80(auStack_2fc,0x1c,1);\\n      FUN_10007e80(auStack_2fc,5,1);\\n      FUN_10007e80(auStack_2fc,6,1);\\n      FUN_10007e80(auStack_2fc,7,1);\\n      FUN_10007e80(auStack_2fc,8,1);\\n      FUN_10007e80(auStack_2fc,0x1d,1);\\n      FUN_10007e80(auStack_2fc,0x1e,1);\\n      FUN_10007e80(auStack_2fc,0x1f,1);\\n      FUN_10007e80(auStack_2fc,0xe,1);\\n      FUN_10007e80(auStack_2fc,0xf,1);\\n      FUN_10007e80(auStack_2fc,0x10,1);\\n      FUN_10007e80(auStack_2fc,0x11,1);\\n      FUN_10007e80(auStack_2fc,0x18,1);\\n      FUN_10007e80(auStack_2fc,0x16,1);\\n      FUN_10007e80(auStack_2fc,0x17,1);\\n      FUN_10007e80(auStack_2fc,0x28,1);\\n      FUN_10007e80(auStack_2fc,0x20,1);\\n      FUN_10007e80(auStack_2fc,0x14,1);\\n      FUN_10007e80(auStack_2fc,0x15,1);\\n      FUN_10007e80(auStack_2fc,0x21,1);\\n      FUN_10007e80(auStack_2fc,0x22,1);\\n      FUN_10007e80(auStack_2fc,0x23,1);\\n      FUN_10007e80(auStack_2fc,0x24,1);\\n      FUN_10007e80(auStack_2fc,0x25,1);\\n      FUN_10007e80(auStack_2fc,0xb,1);\\n      FUN_10007e80(auStack_2fc,9,1);\\n      FUN_10007e80(auStack_2fc,10,1);\\n      FUN_10007e80(auStack_2fc,0x1a,1);\\n    }\\n    if (*(int *)(param_1 + 0xb0) != 0) {\\n      local_400 = (undefined1)local_68;\\n      local_404 = auStack_530 + 0x80;\\n      FUN_100539c0(auStack_3ff,auStack_66,local_68 & 0xff);\\n      uVar2 = FUN_1002af80(*(undefined4 *)(param_1 + 0xb0),&local_400,0x1008fed3,0x2a0,0);\\n      FUN_1002c220(uVar2,0x23);\\n      FUN_1002c5a0(uVar2,0x2de);\\n      FUN_1002c440(uVar2,0,local_300,0x2de,0);\\n      FUN_1002b2f0(uVar2);\\n    }\\n    uVar2 = 1;\\n  }\\n  return uVar2;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_10007780",
+        "address": "10007780"
+      },
+      "code": "\n/* WARNING: Removing unreachable block (ram,0x1000789c) */\n\nundefined4 FUN_10007780(int param_1,char *param_2,byte *param_3,char param_4)\n\n{\n  bool bVar1;\n  undefined4 uVar2;\n  byte bVar4;\n  byte *pbVar3;\n  uint uVar5;\n  undefined1 auStack_530 [128];\n  byte local_44f [75];\n  undefined1 *local_404;\n  undefined1 local_400;\n  undefined1 auStack_3ff [255];\n  undefined2 local_300 [2];\n  undefined1 auStack_2fc [660];\n  ushort local_68;\n  undefined1 auStack_66 [34];\n  undefined2 local_44;\n  undefined1 auStack_42 [38];\n  \n  if ((param_2 == (char *)0x0) || (*param_2 == '\\0')) {\n    uVar2 = 0;\n  }\n  else {\n    FUN_100073c0(param_1,param_2,local_300);\n    local_300[0] = 1;\n    if ((param_3 != (byte *)0x0) && (*param_3 != 0)) {\n      if (*param_3 < 0x20) {\n        bVar4 = *param_3;\n      }\n      else {\n        bVar4 = 0x1f;\n      }\n      bVar4 = FUN_100539c0(local_44f,param_3 + 1,bVar4);\n      uVar5 = (uint)bVar4;\n      pbVar3 = local_44f;\n      while (bVar1 = uVar5 != 0, uVar5 = uVar5 - 1, bVar1) {\n        *pbVar3 = ~*pbVar3;\n        pbVar3 = pbVar3 + 1;\n      }\n      local_44 = FUN_100539c0(auStack_42,local_44f,bVar4);\n    }\n    if (param_4 != '\\0') {\n      FUN_10007ed0(auStack_2fc);\n      FUN_10007e80(auStack_2fc,2,1);\n      FUN_10007e80(auStack_2fc,0x27,1);\n      FUN_10007e80(auStack_2fc,1,1);\n      FUN_10007e80(auStack_2fc,0x26,1);\n      FUN_10007e80(auStack_2fc,0x19,1);\n      FUN_10007e80(auStack_2fc,0,1);\n      FUN_10007e80(auStack_2fc,3,1);\n      FUN_10007e80(auStack_2fc,4,1);\n      FUN_10007e80(auStack_2fc,0x1c,1);\n      FUN_10007e80(auStack_2fc,5,1);\n      FUN_10007e80(auStack_2fc,6,1);\n      FUN_10007e80(auStack_2fc,7,1);\n      FUN_10007e80(auStack_2fc,8,1);\n      FUN_10007e80(auStack_2fc,0x1d,1);\n      FUN_10007e80(auStack_2fc,0x1e,1);\n      FUN_10007e80(auStack_2fc,0x1f,1);\n      FUN_10007e80(auStack_2fc,0xe,1);\n      FUN_10007e80(auStack_2fc,0xf,1);\n      FUN_10007e80(auStack_2fc,0x10,1);\n      FUN_10007e80(auStack_2fc,0x11,1);\n      FUN_10007e80(auStack_2fc,0x18,1);\n      FUN_10007e80(auStack_2fc,0x16,1);\n      FUN_10007e80(auStack_2fc,0x17,1);\n      FUN_10007e80(auStack_2fc,0x28,1);\n      FUN_10007e80(auStack_2fc,0x20,1);\n      FUN_10007e80(auStack_2fc,0x14,1);\n      FUN_10007e80(auStack_2fc,0x15,1);\n      FUN_10007e80(auStack_2fc,0x21,1);\n      FUN_10007e80(auStack_2fc,0x22,1);\n      FUN_10007e80(auStack_2fc,0x23,1);\n      FUN_10007e80(auStack_2fc,0x24,1);\n      FUN_10007e80(auStack_2fc,0x25,1);\n      FUN_10007e80(auStack_2fc,0xb,1);\n      FUN_10007e80(auStack_2fc,9,1);\n      FUN_10007e80(auStack_2fc,10,1);\n      FUN_10007e80(auStack_2fc,0x1a,1);\n    }\n    if (*(int *)(param_1 + 0xb0) != 0) {\n      local_400 = (undefined1)local_68;\n      local_404 = auStack_530 + 0x80;\n      FUN_100539c0(auStack_3ff,auStack_66,local_68 & 0xff);\n      uVar2 = FUN_1002af80(*(undefined4 *)(param_1 + 0xb0),&local_400,0x1008fed3,0x2a0,0);\n      FUN_1002c220(uVar2,0x23);\n      FUN_1002c5a0(uVar2,0x2de);\n      FUN_1002c440(uVar2,0,local_300,0x2de,0);\n      FUN_1002b2f0(uVar2);\n    }\n    uVar2 = 1;\n  }\n  return uVar2;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

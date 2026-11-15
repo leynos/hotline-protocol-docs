@@ -1,0 +1,4 @@
+duplicate-exact completed  [('main', 0, 1, 0), ('main', 354, 1, 0), ('main', 109, 2, 0), ('main', 0, 10, 1), ('main', 0, 20, 0), ('main', 0, 21, 0), ('main', 0, 30, 0), ('main', 0, 90, 0)]
+duplicate-uppercase completed  [('main', 0, 1, 0), ('main', 354, 1, 0), ('main', 109, 2, 0), ('main', 0, 10, 1), ('main', 0, 20, 0), ('main', 0, 21, 0), ('main', 0, 30, 0), ('main', 0, 90, 0)]
+duplicate-original-login completed  [('main', 0, 1, 0), ('main', 354, 1, 0), ('main', 109, 2, 0), ('main', 0, 90, 0)]
+duplicate-changed-login completed  [('main', 0, 1, 1)]

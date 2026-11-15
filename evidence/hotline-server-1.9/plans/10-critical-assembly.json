@@ -1,0 +1,90 @@
+[
+  {
+    "id": "A-1000f4e0",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "1000f4e0",
+      "limit": 2000
+    }
+  },
+  {
+    "id": "A-10014bc0",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "10014bc0",
+      "limit": 2000
+    }
+  },
+  {
+    "id": "A-10079e30",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "10079e30",
+      "limit": 2000
+    }
+  },
+  {
+    "id": "A-10058070",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "10058070",
+      "limit": 2000
+    }
+  },
+  {
+    "id": "A-10017f30",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "10017f30",
+      "limit": 2000
+    }
+  },
+  {
+    "id": "A-100059e0",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "100059e0",
+      "limit": 2000
+    }
+  },
+  {
+    "id": "A-10005710",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "10005710",
+      "limit": 2000
+    }
+  },
+  {
+    "id": "A-1000f990",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "1000f990",
+      "limit": 2000
+    }
+  },
+  {
+    "id": "A-10015e70",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "10015e70",
+      "limit": 2000
+    }
+  },
+  {
+    "id": "A-10012850",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "10012850",
+      "limit": 2000
+    }
+  },
+  {
+    "id": "A-10013930",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "10013930",
+      "limit": 2000
+    }
+  }
+]

@@ -1,0 +1,47 @@
+# A70: Classic privilege editor query preparation (read-only)
+
+No Ghidra backend, project import, VM or socket was started for this preparation. Future use requires separate root approval and the canonical `state/delegation/oracle.lock`.
+
+## Exact input and existing precedent
+
+- Original archive: the locally retained Higher Intellect ZIP identified in `docs/delegation/mac-peer-candidate.md`, ZIP SHA-256 `21bd2df35eb06b9e9310f1fffd7deb2d23efd62a638e09c7bc394778b8a0b679`. Do not use the OS X fork for this query. Its Classic application DATA and RSRC were extracted with preserved sidecar/fork metadata.
+- Read-only local DATA path: `/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic`, 1,410,822 bytes, SHA-256 `7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315`. Adjacent `.rsrc/Hotline Client 1.9.2 Classic`, 729,097 bytes, SHA-256 `f762cfdedcc39758f841f720a4586dbbb88a7b74ec9e83db1793791b7c3f318b`. These were rehashed in A68. The archive says **1.9.2 Classic**, while both `vers` resources say **1.9.1.0**; identify by hashes, not a chosen version label.
+- `evidence/gap-remediation/2026-11-13/client-account-constructors-01/b37-probe.py.txt` proves the exact DATA fork imports with Ghidra 12.2 as PowerPC BE32 PEF via `ghidra-mcp` and the pinned JAR. Its fresh saved independent project reported SHA above, language `PowerPC:BE:32:default`, format `Preferred Executable Format (PEF)`, 3,564 functions, program `/Hotline Client 1.9.2 Classic`; before/after identity matched. It did not import RSRC into that code project. Tool and JAR hashes are in its manifest; JAR SHA-256 `201d18ffde71a83a678eae607de265861f37e5a00b989d91958c1197664d2b43`.
+
+## Mapping: do not turn packed file offsets into loaded addresses
+
+`b36-preparation.json` gives PEF section 0, uncompressed code at file `0x41c0`, unpacked size `0x135810`; B37 `list_segments` confirms Code `10000000..1013580f`. Thus a **section-0** offset, for example `0xb2294`, maps to loaded `100b2294`, verified there by bytes `38 80 00 6f` in B37.
+
+Section 1 is **compressed** PackedData: packed file start `0x1399d0`, packed length `0x1ed36`, unpacked length `0x246e9`, total memory length `0x2d3c6`. B37's initialized loaded span is `10135810..10159ef8`; `10159ef9..10162bd5` is uninitialized. A68's raw DATA occurrences (`Can Send Messages` at file `0x14d33c/0x14f9b4`; `MyAdminEditUserWin` at `0x14faf4`) lie inside the compressed section's **file** bytes. Subtracting `0x1399d0` or adding `0x10000000` does not produce a valid loaded string address. Resolve any loaded address by Ghidra's defined-string listing and verify exact bytes in the initialized PackedData span; if no string is defined, stop this eight-query route and plan a separately reviewed PEF decompression/search. No guessed XREF target or code address.
+
+The exact A68 label evidence is in `state/delegation/a68-classic-privilege-ui-audit.md`: two Pascal-string runs in DATA, 40 strings in the first, with `MyAdminEditUserWin` after the second. RSRC MENU 131 has account actions but no proved privilege-label/bit map. Existing constructors `1000c210` (350), `1000c800` (353), and `1005b5b0` (349) already prove eight bitmap bytes from account object `+4..+11` to wire field 110. The missing edge is editor label/control → exact bitmap bit write; string proximity is not that edge.
+
+## Safe future import and first query cap
+
+Use a **new absent** ignored output base such as canonical `state/delegation/a70-client-privilege-oracle/`, not the existing `state/client-account-pef-01` and never the GUI/server project. Hash DATA, RSRC and JAR before any import. Under nonblocking canonical `oracle.lock`, run a bounded Python MCP client copied from `b37-probe.py.txt`, amended to refuse an existing destination, create only its own `project/config/cache/data/tmp/home/raw`, and record all command arguments, raw replies, stderr, timestamps and identity. The client's initial tool command is:
+
+```text
+/data/leynos/Projects/mothra/tools/ghidramcp/.venv/bin/ghidra-mcp
+  --headless
+  --binary "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic"
+  --project /data/leynos/Projects/mothra/state/delegation/a70-client-privilege-oracle/project
+  --project-name classic-privilege-01
+  --language PowerPC:BE:32:default --compiler default
+  --extension-jar /data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar
+  --ready-timeout 540 --save
+```
+
+Supply `JAVA_HOME=/data/leynos/Projects/mothra/tools/jdk-25.0.5+8`, `GHIDRA_INSTALL_DIR=/data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC`, a PATH prefixed with that JDK's `bin`, and **private** `XDG_CONFIG_HOME`, `XDG_CACHE_HOME`, `XDG_DATA_HOME`, `TMPDIR`, `JAVA_TOOL_OPTIONS=-Duser.home=<private/home> -Djava.io.tmpdir=<private/tmp>` as in B37. The outer future command is `flock -n /data/leynos/Projects/mothra/state/delegation/oracle.lock timeout --signal=INT --kill-after=15s 600s <pinned-python> <new-probe.py>`; the MCP client must keep the lock through identity-after. On later opens of that **same owned** saved project use `--no-analyze --discard`, not another import or the GUI project. A fresh import may differ from B37; stop on SHA/language/segment/function-count mismatch rather than silently normalize it.
+
+After before-identity and segment checks, at most **eight content calls**, all read-only, in this dependency order:
+
+1. `list_strings({"filter":"MyAdminEditUserWin","limit":20})` in initialized PackedData.
+2. `list_strings({"filter":"Can Send Messages","limit":20})` there.
+3. `list_strings({"filter":"Can Disconnect Users","limit":20})` as a known-bit control label.
+4. `read_memory({"address":<returned class address>,"length":20})` to verify exact class bytes and no gap.
+5. `read_memory({"address":<returned message-label address>,"length":17})` to verify exact label bytes.
+6. `get_xrefs_to({"address":<verified class address>,"limit":100})`.
+7. `get_xrefs_to({"address":<verified message-label address>,"limit":100})`.
+8. `decompile_function_by_address({"address":<single justified editor/label reference>})` **only if** a specific xref uniquely identifies it; otherwise stop at the positive bounded result. Before/after `get_program_info` and `list_segments` are identity/mapping gates, not substitutes for content calls. Do not spend unused calls on unrelated candidates.
+
+If Pascal labels are not defined strings, if xrefs are absent/ambiguous, or if the call graph stops before a control writes an exact bit mask into account `+4..+11`, report that boundary. A named client checkbox would at most establish this **specific candidate client's intended UI policy**. It would not establish Hotline Server 1.9 enforcement, turn bits 18/19 or 41–63 into known permissions, resolve field 111, or settle the archive/`vers` discrepancy.

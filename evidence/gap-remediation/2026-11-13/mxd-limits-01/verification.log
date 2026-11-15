@@ -1,0 +1,23 @@
+cwd=private hotline-protocol-docs
+python3 scripts/verify_mxd_limits.py <evidence>
+verified 44 focused mxd limit tests
+python3 scripts/verify_mxd_limits.py <evidence> --mxd ../mxd
+verified 44 focused mxd limit tests
+python3 -m unittest discover -s scripts -p test_mxd_limits.py -v
+test_frozen_source_mutation (test_mxd_limits.MxdLimitEvidenceTests.test_frozen_source_mutation)
+Reject altered production bytes without an adjacent mxd checkout. ... ok
+test_linker_failure_cannot_be_labelled_green (test_mxd_limits.MxdLimitEvidenceTests.test_linker_failure_cannot_be_labelled_green)
+Reject a changed full-gate exit without rerun evidence. ... ok
+test_red_and_green_results (test_mxd_limits.MxdLimitEvidenceTests.test_red_and_green_results)
+Retain the red failure and reject a changed green boundary count. ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.040s
+
+OK
+ruff format --check scripts/verify_mxd_limits.py scripts/test_mxd_limits.py
+2 files already formatted
+ruff check scripts/verify_mxd_limits.py scripts/test_mxd_limits.py
+All checks passed!
+ty check --python /usr/bin/python3 scripts/verify_mxd_limits.py scripts/test_mxd_limits.py
+All checks passed!

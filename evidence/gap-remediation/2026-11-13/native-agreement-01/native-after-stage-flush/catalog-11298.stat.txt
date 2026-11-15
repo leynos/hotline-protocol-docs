@@ -1,0 +1,29 @@
+File Path: /Hotline19/Agreement.txt
+Catalog Record: 11298
+Allocated
+Type:	File
+Mode:	r---------
+Size:	34
+uid / gid: 99 / 99
+Link count:	1
+
+File Name: Agreement.txt
+Admin flags: 0
+Owner flags: 0
+File type:	424d5066  BMPf
+File creator:	6f676c65  ogle
+Text encoding:	0 = MacRoman
+Resource fork size:	0
+
+Times:
+Created:	2026-11-13 08:24:26 (GMT)
+Content Modified:	2026-11-13 08:24:29 (GMT)
+Attributes Modified:	0000-00-00 00:00:00 (UTC)
+Accessed:	0000-00-00 00:00:00 (UTC)
+Backed Up:	0000-00-00 00:00:00 (UTC)
+
+Data Fork Blocks:
+890239  
+
+Attributes: 
+Type: DATA (4352-0)   Name: N/A   Non-Resident   size: 34  init_size: 34

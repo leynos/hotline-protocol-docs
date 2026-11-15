@@ -1,0 +1,333 @@
+{
+  "cases": [
+    {
+      "case": "cleanup-seed",
+      "connections": {
+        "a": {
+          "client_port": 36672,
+          "sent_bytes": 184,
+          "received_bytes": 499,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "upload": {
+          "client_port": 48646,
+          "sent_bytes": 1049088,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "uploaded_data_bytes": 1048576,
+      "pending_upload_survived214": false
+    },
+    {
+      "case": "cleanup-baseline",
+      "connections": {
+        "a": {
+          "client_port": 55974,
+          "sent_bytes": 191,
+          "received_bytes": 434,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "reference": {
+          "client_port": 40550,
+          "sent_bytes": 16,
+          "received_bytes": 1049073,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        },
+        "stale": {
+          "client_port": 33136,
+          "sent_bytes": 16,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "received_stream_bytes": 1049073,
+      "application_bytes_read_after_owner_ack": 0,
+      "guest_bytes_first_observed_after_owner_request": 0,
+      "guest_bytes_first_observed_after_owner_ack": 0,
+      "guest_close_minus_owner_ack_us": -889
+    },
+    {
+      "case": "cleanup-nonowner",
+      "connections": {
+        "a": {
+          "client_port": 57176,
+          "sent_bytes": 191,
+          "received_bytes": 493,
+          "unread_output_hex": "0000012e000000040000000000000008000000080001006700020095",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "b": {
+          "client_port": 57186,
+          "sent_bytes": 116,
+          "received_bytes": 366,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "reference": {
+          "client_port": 59556,
+          "sent_bytes": 16,
+          "received_bytes": 1049073,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        },
+        "stale": {
+          "client_port": 36392,
+          "sent_bytes": 16,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "received_stream_bytes": 1049073,
+      "application_bytes_read_after_owner_ack": 0,
+      "guest_bytes_first_observed_after_owner_request": 0,
+      "guest_bytes_first_observed_after_owner_ack": 0,
+      "guest_close_minus_owner_ack_us": -1045,
+      "guest_bytes_first_observed_after_nonowner_ack": 1037961
+    },
+    {
+      "case": "cleanup-immediate-1",
+      "connections": {
+        "a": {
+          "client_port": 41890,
+          "sent_bytes": 191,
+          "received_bytes": 434,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "reference": {
+          "client_port": 33138,
+          "sent_bytes": 16,
+          "received_bytes": 17844,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        },
+        "stale": {
+          "client_port": 33142,
+          "sent_bytes": 16,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "received_stream_bytes": 17844,
+      "application_bytes_read_after_owner_ack": 17844,
+      "guest_bytes_first_observed_after_owner_request": 17844,
+      "guest_bytes_first_observed_after_owner_ack": 0,
+      "guest_close_minus_owner_ack_us": -1869
+    },
+    {
+      "case": "cleanup-immediate-2",
+      "connections": {
+        "a": {
+          "client_port": 41904,
+          "sent_bytes": 191,
+          "received_bytes": 434,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "reference": {
+          "client_port": 33146,
+          "sent_bytes": 16,
+          "received_bytes": 11112,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        },
+        "stale": {
+          "client_port": 33156,
+          "sent_bytes": 16,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "received_stream_bytes": 11112,
+      "application_bytes_read_after_owner_ack": 11112,
+      "guest_bytes_first_observed_after_owner_request": 11112,
+      "guest_bytes_first_observed_after_owner_ack": 0,
+      "guest_close_minus_owner_ack_us": -1504
+    },
+    {
+      "case": "cleanup-immediate-3",
+      "connections": {
+        "a": {
+          "client_port": 41916,
+          "sent_bytes": 191,
+          "received_bytes": 434,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "reference": {
+          "client_port": 59538,
+          "sent_bytes": 16,
+          "received_bytes": 28956,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        },
+        "stale": {
+          "client_port": 59542,
+          "sent_bytes": 16,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "received_stream_bytes": 28956,
+      "application_bytes_read_after_owner_ack": 28956,
+      "guest_bytes_first_observed_after_owner_request": 28956,
+      "guest_bytes_first_observed_after_owner_ack": 0,
+      "guest_close_minus_owner_ack_us": -2572
+    },
+    {
+      "case": "cleanup-partial-1",
+      "connections": {
+        "a": {
+          "client_port": 41930,
+          "sent_bytes": 191,
+          "received_bytes": 434,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "reference": {
+          "client_port": 36404,
+          "sent_bytes": 16,
+          "received_bytes": 261252,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        },
+        "stale": {
+          "client_port": 36420,
+          "sent_bytes": 16,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "received_stream_bytes": 261252,
+      "application_bytes_read_after_owner_ack": 260228,
+      "guest_bytes_first_observed_after_owner_request": 258332,
+      "guest_bytes_first_observed_after_owner_ack": 0,
+      "guest_close_minus_owner_ack_us": -1678
+    },
+    {
+      "case": "cleanup-partial-2",
+      "connections": {
+        "a": {
+          "client_port": 41932,
+          "sent_bytes": 191,
+          "received_bytes": 434,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "reference": {
+          "client_port": 36430,
+          "sent_bytes": 16,
+          "received_bytes": 2920,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        },
+        "stale": {
+          "client_port": 36440,
+          "sent_bytes": 16,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "received_stream_bytes": 2920,
+      "application_bytes_read_after_owner_ack": 1896,
+      "guest_bytes_first_observed_after_owner_request": 0,
+      "guest_bytes_first_observed_after_owner_ack": 0,
+      "guest_close_minus_owner_ack_us": -2016
+    },
+    {
+      "case": "cleanup-partial-3",
+      "connections": {
+        "a": {
+          "client_port": 41946,
+          "sent_bytes": 191,
+          "received_bytes": 434,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "reference": {
+          "client_port": 36454,
+          "sent_bytes": 16,
+          "received_bytes": 2920,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        },
+        "stale": {
+          "client_port": 36468,
+          "sent_bytes": 16,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "received_stream_bytes": 2920,
+      "application_bytes_read_after_owner_ack": 1896,
+      "guest_bytes_first_observed_after_owner_request": 0,
+      "guest_bytes_first_observed_after_owner_ack": 0,
+      "guest_close_minus_owner_ack_us": -1578
+    },
+    {
+      "case": "cleanup-pending-upload",
+      "connections": {
+        "a": {
+          "client_port": 58278,
+          "sent_bytes": 240,
+          "received_bytes": 539,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "upload": {
+          "client_port": 53774,
+          "sent_bytes": 525,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "uploaded_data_bytes": 13,
+      "pending_upload_survived214": true
+    }
+  ],
+  "baseline_stream_bytes": 1049073,
+  "scope": "Ten finite ordinary-file cases; buffered-prefix and observed packet ordering, not a universal race byte count or cancellation deadline"
+}

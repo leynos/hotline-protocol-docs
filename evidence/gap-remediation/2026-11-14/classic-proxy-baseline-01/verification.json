@@ -1,0 +1,57 @@
+{
+  "b46": {
+    "control": {
+      "request_types": [
+        107
+      ],
+      "reply_types": [
+        0,
+        109
+      ]
+    },
+    "data_bytes": null,
+    "watchdog": {
+      "teardown_seconds": 28.09714992,
+      "status": "intentional-observation-cutoff"
+    },
+    "a7": {
+      "actions_each": 29,
+      "accounts": 2,
+      "files": 41,
+      "filp_sha256": "7d1f5bf5e2b69b8a18906633ce2ef550876b78252c0639e7d36eb61142787ab8"
+    }
+  },
+  "b47": {
+    "control": {
+      "request_types": [
+        107,
+        121,
+        300,
+        212
+      ],
+      "reply_types": [
+        0,
+        109,
+        0,
+        354,
+        122,
+        0,
+        0
+      ]
+    },
+    "data_bytes": [
+      16,
+      58
+    ],
+    "watchdog": {
+      "teardown_seconds": 28.131849768,
+      "status": "intentional-observation-cutoff"
+    },
+    "a7": {
+      "actions_each": 29,
+      "accounts": 2,
+      "files": 41,
+      "filp_sha256": "7d1f5bf5e2b69b8a18906633ce2ef550876b78252c0639e7d36eb61142787ab8"
+    }
+  }
+}

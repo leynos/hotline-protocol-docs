@@ -1,0 +1,275 @@
+{
+  "hypothesis": "H2: zero receiver window or unacknowledged server tail blocked transmission",
+  "input_sha256": {
+    "report": "4864d9a0d2d76869455f1a98eaa16bc5232d163c5bbcef60650c312301bc575b",
+    "namespace_pcap": "837f3b1a37164acf5d7df4223b46f59cdbc2387539ff1b79235a5c0deb17578c",
+    "guest_pcap": "e7b156e0955300f915e9315af1fbc1c6575e4e57f845203c2c0de8506030eff7"
+  },
+  "views": {
+    "namespace": {
+      "flow": {
+        "client": [
+          "127.0.0.1",
+          60206
+        ],
+        "server": [
+          "127.0.0.1",
+          15731
+        ]
+      },
+      "client_syn": {
+        "index": 29,
+        "options": [
+          [
+            2,
+            "ffd7"
+          ],
+          [
+            4,
+            ""
+          ],
+          [
+            8,
+            "5724c12100000000"
+          ],
+          [
+            3,
+            "07"
+          ]
+        ],
+        "window_raw": 65495,
+        "scale": 7
+      },
+      "server_synack": {
+        "index": 30,
+        "options": [
+          [
+            2,
+            "ffd7"
+          ],
+          [
+            4,
+            ""
+          ],
+          [
+            8,
+            "5724c1215724c121"
+          ],
+          [
+            3,
+            "07"
+          ]
+        ],
+        "window_raw": 65483,
+        "scale": 7
+      },
+      "scale_negotiated": true,
+      "server_base_sequence": 2246358643,
+      "server_application_bytes": 98304,
+      "last_server_payload": {
+        "index": 177,
+        "timestamp_us": 1794611192848662,
+        "relative_end": 98304
+      },
+      "max_client_ack_relative": 98305,
+      "last_payload_fully_acked": true,
+      "first_full_ack": {
+        "index": 178,
+        "timestamp_us": 1794611192848734,
+        "relative_ack": 98304,
+        "window_raw": 624,
+        "window_effective": 79872
+      },
+      "last_non_fin_ack": {
+        "index": 184,
+        "timestamp_us": 1794611252527499,
+        "relative_ack": 98305,
+        "window_raw": 624,
+        "window_effective": 79872
+      },
+      "last_advertised_window": {
+        "index": 184,
+        "timestamp_us": 1794611252527499,
+        "relative_ack": 98305,
+        "window_raw": 624,
+        "window_effective": 79872
+      },
+      "idle_ack_rows": [
+        {
+          "index": 178,
+          "timestamp_us": 1794611192848734,
+          "relative_ack": 98304,
+          "window_raw": 624,
+          "window_effective": 79872
+        },
+        {
+          "index": 184,
+          "timestamp_us": 1794611252527499,
+          "relative_ack": 98305,
+          "window_raw": 624,
+          "window_effective": 79872
+        }
+      ],
+      "late_window_updates": [
+        {
+          "index": 184,
+          "timestamp_us": 1794611252527499,
+          "relative_ack": 98305,
+          "window_raw": 624,
+          "window_effective": 79872
+        }
+      ],
+      "zero_window_ack_count": 0,
+      "server_payload_packets": 72,
+      "server_payload_raw_bytes": 98304,
+      "server_payload_overlap_bytes": 0,
+      "terminal_packets": [
+        {
+          "index": 180,
+          "timestamp_us": 1794611252512838,
+          "flags": 17,
+          "from_server": false,
+          "rst_diagnostic_hex": ""
+        },
+        {
+          "index": 183,
+          "timestamp_us": 1794611252527464,
+          "flags": 17,
+          "from_server": true,
+          "rst_diagnostic_hex": ""
+        }
+      ]
+    },
+    "guest": {
+      "flow": {
+        "client": [
+          "10.0.2.2",
+          60206
+        ],
+        "server": [
+          "10.0.2.15",
+          5501
+        ]
+      },
+      "client_syn": {
+        "index": 41,
+        "options": [
+          [
+            2,
+            "05b4"
+          ]
+        ],
+        "window_raw": 8760,
+        "scale": null
+      },
+      "server_synack": {
+        "index": 42,
+        "options": [
+          [
+            2,
+            "05b4"
+          ]
+        ],
+        "window_raw": 65535,
+        "scale": null
+      },
+      "scale_negotiated": false,
+      "server_base_sequence": 832006527,
+      "server_application_bytes": 98304,
+      "last_server_payload": {
+        "index": 184,
+        "timestamp_us": 1794611192817578,
+        "relative_end": 98304
+      },
+      "max_client_ack_relative": 98304,
+      "last_payload_fully_acked": true,
+      "first_full_ack": {
+        "index": 190,
+        "timestamp_us": 1794611192848696,
+        "relative_ack": 98304,
+        "window_raw": 8760,
+        "window_effective": 8760
+      },
+      "last_non_fin_ack": {
+        "index": 190,
+        "timestamp_us": 1794611192848696,
+        "relative_ack": 98304,
+        "window_raw": 8760,
+        "window_effective": 8760
+      },
+      "last_advertised_window": {
+        "index": 192,
+        "timestamp_us": 1794611252512912,
+        "relative_ack": 98304,
+        "window_raw": 8760,
+        "window_effective": 8760
+      },
+      "idle_ack_rows": [
+        {
+          "index": 185,
+          "timestamp_us": 1794611192822399,
+          "relative_ack": 91572,
+          "window_raw": 8760,
+          "window_effective": 8760
+        },
+        {
+          "index": 186,
+          "timestamp_us": 1794611192827662,
+          "relative_ack": 93032,
+          "window_raw": 8760,
+          "window_effective": 8760
+        },
+        {
+          "index": 187,
+          "timestamp_us": 1794611192832947,
+          "relative_ack": 94492,
+          "window_raw": 8760,
+          "window_effective": 8760
+        },
+        {
+          "index": 188,
+          "timestamp_us": 1794611192838195,
+          "relative_ack": 95952,
+          "window_raw": 8760,
+          "window_effective": 8760
+        },
+        {
+          "index": 189,
+          "timestamp_us": 1794611192843442,
+          "relative_ack": 97412,
+          "window_raw": 8760,
+          "window_effective": 8760
+        },
+        {
+          "index": 190,
+          "timestamp_us": 1794611192848696,
+          "relative_ack": 98304,
+          "window_raw": 8760,
+          "window_effective": 8760
+        }
+      ],
+      "late_window_updates": [],
+      "zero_window_ack_count": 0,
+      "server_payload_packets": 72,
+      "server_payload_raw_bytes": 98304,
+      "server_payload_overlap_bytes": 0,
+      "terminal_packets": [
+        {
+          "index": 192,
+          "timestamp_us": 1794611252512912,
+          "flags": 17,
+          "from_server": false,
+          "rst_diagnostic_hex": ""
+        },
+        {
+          "index": 195,
+          "timestamp_us": 1794611252518937,
+          "flags": 4,
+          "from_server": true,
+          "rst_diagnostic_hex": "7463705f646973636f6e6e656374"
+        }
+      ]
+    }
+  },
+  "verdict": "H2 falsified: final server payload fully acknowledged with positive receiver window in both views"
+}

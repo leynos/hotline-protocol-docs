@@ -1,0 +1,10 @@
+Approved one-target offline rebuild after exact archive quarantine
+source log SHA256 98d01b5a062322e8a1a29b4ad88a8b884c8b803eb13e2fdb1e4197340099c4ae
+start 2026-11-13 14:50:52 UTC
+finish 2026-11-13 14:51:42 UTC
+exit 0
+
+374:        Dirty mxd v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd): couldn't read metadata for file `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/build/mxd/03fe09b6103be42f/out/libmxd-03fe09b6103be42f.rlib`
+375:    Compiling mxd v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd)
+482:     Finished `test` profile [optimized] target(s) in 49.73s
+483:   Executable `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/build/mxd/e723394620ab1f50/out/wireframe_routing_bdd-e723394620ab1f50`

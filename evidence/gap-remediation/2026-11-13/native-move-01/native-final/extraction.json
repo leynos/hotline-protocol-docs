@@ -1,0 +1,1635 @@
+{
+  "recorded_at_utc": "2026-11-13T06:31:17.357898+00:00",
+  "image": "state/mac-runtime/hotline20/working.dsk",
+  "tool_sha256": {
+    "istat": "f87c0cee5e263c55440c19fb3e478b80e33dcbae223388b5f83913ceb5fc4499",
+    "icat": "ab73038eda8ed52697c5d94874bbc0a19285184253e68a78f6e4ab347a042bba"
+  },
+  "catalog_range": [
+    11508,
+    11625
+  ],
+  "roots": [
+    "/Hotline19/Files/mothra-fs22",
+    "/Hotline19/Files/m-mv22-f08",
+    "/Hotline19/Files/m-mv22-f09",
+    "/Hotline19/Files/m-mv22-f10",
+    "/Hotline19/Files/m-mv22-d08",
+    "/Hotline19/Files/m-mv22-d09",
+    "/Hotline19/Files/m-mv22-d10",
+    "/Trash"
+  ],
+  "method": "Read-only direct catalogue observations. Positive paths verified by istat before fork reads. Not an exhaustive directory listing, path-absence proof, protocol certification or restart-durability result.",
+  "probes": [
+    {
+      "catalog": 11508,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11509,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11510,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11511,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11512,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11513,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11514,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11515,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11516,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11517,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11518,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11519,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11520,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11521,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11522,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11523,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11524,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11525,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11526,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11527,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11528,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11529,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11530,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11531,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11532,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11533,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11534,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11535,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11536,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11537,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11538,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11539,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11540,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11541,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11542,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11543,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11544,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11545,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11546,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11547,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11548,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11549,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11550,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11551,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11552,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11553,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11554,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11555,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11556,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11557,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11558,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11559,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11560,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11561,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11562,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11563,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11564,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11565,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11566,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11567,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11568,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11569,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11570,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11571,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11572,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11573,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11574,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11575,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11576,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11577,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11578,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11579,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11580,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11580)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11581,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11582,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11583,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11584,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11585,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11586,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11587,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11588,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11589,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11590,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11591,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11592,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11593,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11594,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11595,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11596,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11597,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11598,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11599,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11600,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11601,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11602,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11603,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11604,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11605,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11606,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11607,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11608,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11609,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11610,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11611,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11612,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11613,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11614,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11615,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11616,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11617,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11618,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11619,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11620,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11621,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11622,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11623,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11624,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    },
+    {
+      "catalog": 11625,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11581)\n"
+    }
+  ],
+  "records": [
+    {
+      "path": "/Hotline19/Files/mothra-fs22",
+      "key": "catalog-11508",
+      "catalog": 11508,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S",
+      "key": "catalog-11509",
+      "catalog": 11509,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/D",
+      "key": "catalog-11510",
+      "catalog": 11510,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/destination-file",
+      "key": "catalog-11511",
+      "catalog": 11511,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 16,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/alias-target",
+      "key": "catalog-11512",
+      "catalog": 11512,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 15,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/D/m-mv22-f00",
+      "key": "catalog-11513",
+      "catalog": 11513,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 15,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/m-mv22-f01",
+      "key": "catalog-11514",
+      "catalog": 11514,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 15,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/m-mv22-f02",
+      "key": "catalog-11515",
+      "catalog": 11515,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 15,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/D/m-mv22-f02",
+      "key": "catalog-11516",
+      "catalog": 11516,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 21,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/m-mv22-f03",
+      "key": "catalog-11517",
+      "catalog": 11517,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 15,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/D/m-mv22-f03",
+      "key": "catalog-11518",
+      "catalog": 11518,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/m-mv22-f05",
+      "key": "catalog-11519",
+      "catalog": 11519,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 15,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/m-mv22-f06",
+      "key": "catalog-11520",
+      "catalog": 11520,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 15,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/m-mv22-f07",
+      "key": "catalog-11521",
+      "catalog": 11521,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 15,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/m-mv22-f08",
+      "key": "catalog-11522",
+      "catalog": 11522,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 15,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/m-mv22-f09",
+      "key": "catalog-11523",
+      "catalog": 11523,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 15,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/m-mv22-f10",
+      "key": "catalog-11524",
+      "catalog": 11524,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 15,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/D/m-mv22-f11",
+      "key": "catalog-11525",
+      "catalog": 11525,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 0,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 546,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/D/m-mv22-f12",
+      "key": "catalog-11526",
+      "catalog": 11526,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 15,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/D/m-mv22-d00",
+      "key": "catalog-11527",
+      "catalog": 11527,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/D/m-mv22-d00/child",
+      "key": "catalog-11528",
+      "catalog": 11528,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/D/m-mv22-d00/child/leaf",
+      "key": "catalog-11529",
+      "catalog": 11529,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 10,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/m-mv22-d01",
+      "key": "catalog-11530",
+      "catalog": 11530,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/m-mv22-d01/child",
+      "key": "catalog-11531",
+      "catalog": 11531,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/m-mv22-d01/child/leaf",
+      "key": "catalog-11532",
+      "catalog": 11532,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 10,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/m-mv22-d02",
+      "key": "catalog-11533",
+      "catalog": 11533,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/m-mv22-d02/child",
+      "key": "catalog-11534",
+      "catalog": 11534,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/m-mv22-d02/child/leaf",
+      "key": "catalog-11535",
+      "catalog": 11535,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 10,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/D/m-mv22-d02",
+      "key": "catalog-11536",
+      "catalog": 11536,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 21,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/m-mv22-d03",
+      "key": "catalog-11537",
+      "catalog": 11537,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/m-mv22-d03/child",
+      "key": "catalog-11538",
+      "catalog": 11538,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/m-mv22-d03/child/leaf",
+      "key": "catalog-11539",
+      "catalog": 11539,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 10,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/D/m-mv22-d03",
+      "key": "catalog-11540",
+      "catalog": 11540,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/m-mv22-d05",
+      "key": "catalog-11541",
+      "catalog": 11541,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/m-mv22-d05/child",
+      "key": "catalog-11542",
+      "catalog": 11542,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/m-mv22-d05/child/leaf",
+      "key": "catalog-11543",
+      "catalog": 11543,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 10,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/m-mv22-d06",
+      "key": "catalog-11544",
+      "catalog": 11544,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/m-mv22-d06/child",
+      "key": "catalog-11545",
+      "catalog": 11545,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/m-mv22-d06/child/leaf",
+      "key": "catalog-11546",
+      "catalog": 11546,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 10,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/m-mv22-d07",
+      "key": "catalog-11547",
+      "catalog": 11547,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/m-mv22-d07/child",
+      "key": "catalog-11548",
+      "catalog": 11548,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/m-mv22-d07/child/leaf",
+      "key": "catalog-11549",
+      "catalog": 11549,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 10,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/m-mv22-d08",
+      "key": "catalog-11550",
+      "catalog": 11550,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/m-mv22-d08/child",
+      "key": "catalog-11551",
+      "catalog": 11551,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/m-mv22-d08/child/leaf",
+      "key": "catalog-11552",
+      "catalog": 11552,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 10,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/m-mv22-d09",
+      "key": "catalog-11553",
+      "catalog": 11553,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/m-mv22-d09/child",
+      "key": "catalog-11554",
+      "catalog": 11554,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/m-mv22-d09/child/leaf",
+      "key": "catalog-11555",
+      "catalog": 11555,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 10,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/m-mv22-d10",
+      "key": "catalog-11556",
+      "catalog": 11556,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/m-mv22-d10/child",
+      "key": "catalog-11557",
+      "catalog": 11557,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/m-mv22-d10/child/leaf",
+      "key": "catalog-11558",
+      "catalog": 11558,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 10,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/m-mv22-d11",
+      "key": "catalog-11559",
+      "catalog": 11559,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/m-mv22-d11/child",
+      "key": "catalog-11560",
+      "catalog": 11560,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/m-mv22-d11/child/leaf",
+      "key": "catalog-11561",
+      "catalog": 11561,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 10,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/m-mv22-d12",
+      "key": "catalog-11562",
+      "catalog": 11562,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/m-mv22-d12/child",
+      "key": "catalog-11563",
+      "catalog": 11563,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/S/m-mv22-d12/child/leaf",
+      "key": "catalog-11564",
+      "catalog": 11564,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 10,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/D-alias",
+      "key": "catalog-11565",
+      "catalog": 11565,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 0,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 538,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Trash/del-nonempty",
+      "key": "catalog-11566",
+      "catalog": 11566,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Trash/del-nonempty/leaf",
+      "key": "catalog-11567",
+      "catalog": 11567,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 25,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/del-denied-dir",
+      "key": "catalog-11568",
+      "catalog": 11568,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/del-denied-dir/leaf",
+      "key": "catalog-11569",
+      "catalog": 11569,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 27,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Trash/del-path-only",
+      "key": "catalog-11570",
+      "catalog": 11570,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Trash/del-path-only/leaf",
+      "key": "catalog-11571",
+      "catalog": 11571,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 26,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/del-c1",
+      "key": "catalog-11572",
+      "catalog": 11572,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Trash/m-del22-dupe",
+      "key": "catalog-11573",
+      "catalog": 11573,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 19,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/del-c2",
+      "key": "catalog-11574",
+      "catalog": 11574,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Trash/m-del22-dupe1",
+      "key": "catalog-11575",
+      "catalog": 11575,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 19,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Trash/del-file",
+      "key": "catalog-11576",
+      "catalog": 11576,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 15,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/del-denied-file",
+      "key": "catalog-11577",
+      "catalog": 11577,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 15,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Trash/del-alias-target",
+      "key": "catalog-11578",
+      "catalog": 11578,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 15,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/del-alias",
+      "key": "catalog-11579",
+      "catalog": 11579,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 0,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 554,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-fs22/flush",
+      "key": "catalog-11581",
+      "catalog": 11581,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 13,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    }
+  ]
+}

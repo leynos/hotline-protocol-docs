@@ -1,0 +1,73 @@
+GAP-037 native diagnostic load packet, 2026-11-13 UTC.
+Private mothra base ffe38e67df640f82f805c889bf96537061c0e3db;
+private protocol base 4b5bcce4ef04c3af4acca5c6262fdbb9fab58f20.
+Canonical runtime only: state/mac-runtime/hotline22-recovery, SheepShaver PID1099659.
+No canonical Git ref/index edit. Exclusive native lease from root at 15:39:51Z.
+
+15:40 options-original.png: Server Port5500, max downloads100 global/10 client,
+max connections/IP5. Options closed with Cancel. No setting was changed.
+Owned file NAME: 31 ASCII bytes m-diag37- + 22 x; preflight absent.
+
+Every host tcpdump was started first as:
+  sudo -n tcpdump -i lo -s 0 -U -w state/native-sessions/diagnostic-load-20261113-01/host-CASE.pcap \
+    'tcp and (port 15500 or port 15501)'
+The recorder printed "listening on lo" and each fresh PCAP header was 24 bytes
+before protocol_capture connected. Every recorder was stopped with SIGINT only
+after capture completion/failure. Packet counts preflight30, seed48,
+cleanup37; each reported zero kernel drops. No host recorder remains live.
+
+Preflight (one native capture):
+  python3 ../hotline-protocol-docs/scripts/native_diagnostic_load_cases.py preflight \
+    --runtime-record state/native-sessions/diagnostic-load-20261113-01/runtime.json \
+    --output state/native-sessions/diagnostic-load-20261113-01/plans/preflight.json
+  python3 ../hotline-protocol-docs/scripts/protocol_capture.py capture \
+    state/native-sessions/diagnostic-load-20261113-01/plans/preflight.json \
+    --oracle-binary evidence/hotline-server-1.9/inputs/HLserver19.pef \
+    --output state/native-sessions/diagnostic-load-20261113-01/preflight
+  Result: completed18 actions. 348 two baseline accounts; full root Files200
+  contained41 entries; 206 owned name absent; unique same-session admin roster;
+  idle self303 field101303 bytes/field102 framing-fixture.
+
+Seed (second native capture):
+  python3 ../hotline-protocol-docs/scripts/native_diagnostic_load_cases.py seed \
+    --runtime-record state/native-sessions/diagnostic-load-20261113-01/runtime.json \
+    --output state/native-sessions/diagnostic-load-20261113-01/plans/seed.json
+  python3 ../hotline-protocol-docs/scripts/protocol_capture.py capture \
+    state/native-sessions/diagnostic-load-20261113-01/plans/seed.json \
+    --oracle-binary evidence/hotline-server-1.9/inputs/HLserver19.pef \
+    --output state/native-sessions/diagnostic-load-20261113-01/seed
+  Result: FAILED after11 actions, ConnectionResetError [Errno104] on upload read_eof.
+  203 returned status0 and ref00014c8e. Recorder queued 1,049,088 HTXF bytes;
+  host TCP reassembly retained only193,913, guest74,295. Server-side host RST.
+  Guest log screenshot says "Upload aborted". 206 confirmation was not reached.
+  No retry or change to guest settings was made. Guest PCAP snapshotted after
+  this failure, before cleanup. Cause of the aborted transfer is unknown.
+
+Root approved ONE dynamic guarded cleanup capture. Five decision tests passed
+before traffic; its exact coordinator source is
+as-run-native_diagnostic_load_cases.py (SHA256 8ef4dbfe44f89546a3165808f7946a88bc28415b556fcf372d8287747ac9ca2e).
+The coordinator used protocol_capture.Recorder and selected a single final
+plan after the first 206 and full Files200. It did not synthesize a static
+plan identity before the decision.
+
+Cleanup (third and final native capture):
+  python3 ../hotline-protocol-docs/scripts/native_diagnostic_load_cases.py cleanup \
+    --runtime-record state/native-sessions/diagnostic-load-20261113-01/runtime.json \
+    --output state/native-sessions/diagnostic-load-20261113-01/cleanup \
+    --conditional-cleanup \
+    --oracle-binary evidence/hotline-server-1.9/inputs/HLserver19.pef \
+    --baseline state/native-sessions/diagnostic-load-20261113-01/preflight
+  Result: completed24 actions, selected PRESENT branch. 206 had exact owned
+  field201 and raw field205 "Incomplete File"; full200 contained the exact
+  preflight-absent name. Only then 204 deleted that name with status0.
+  Final206 status1; full200 byte-for-byte baseline and 348 exact baseline;
+  unique current roster and idle303 restored. The selected plan/report/checksums
+  pass protocol_capture.py verify. A cumulative guest PCAP was snapshotted.
+  options-after-cleanup.png shows original100/10/5, and Cancel closed it.
+
+No active/queued-transfer or near-0x400 303 was attempted after the seed failed.
+No new account, disk repair, emulator restart, server option change or other
+Files mutation occurred. Original hotline21 source inode1797741458, size
+8388608000 and mtime 2026-11-13 12:06:16.963572241Z remained unchanged.
+Disposable runtime and display remain live for the supervisor; all capture
+connections and host recorders are closed.

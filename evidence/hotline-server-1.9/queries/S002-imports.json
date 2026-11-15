@@ -1,0 +1,2019 @@
+{
+  "captured_at_utc": "2026-11-12T12:09:49.611361+00:00",
+  "query": {
+    "id": "S002-imports",
+    "tool": "list_imports",
+    "arguments": {
+      "limit": 1000
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"items\": [\n    {\n      \"name\": \"GetPort\",\n      \"address\": \"EXTERNAL:00000001\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PenNormal\",\n      \"address\": \"EXTERNAL:00000002\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"FSClose\",\n      \"address\": \"EXTERNAL:00000003\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetFlavorFlags\",\n      \"address\": \"EXTERNAL:00000004\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"TextFace\",\n      \"address\": \"EXTERNAL:00000005\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SizeWindow\",\n      \"address\": \"EXTERNAL:00000006\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetDragModifiers\",\n      \"address\": \"EXTERNAL:00000007\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetWindowFromPort\",\n      \"address\": \"EXTERNAL:00000008\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"NMRemove\",\n      \"address\": \"EXTERNAL:00000009\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"MoveWindow\",\n      \"address\": \"EXTERNAL:0000000a\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SetPortWindowPort\",\n      \"address\": \"EXTERNAL:0000000b\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SetWindowContentColor\",\n      \"address\": \"EXTERNAL:0000000c\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SetResLoad\",\n      \"address\": \"EXTERNAL:0000000d\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"OpColor\",\n      \"address\": \"EXTERNAL:0000000e\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SndDoCommand\",\n      \"address\": \"EXTERNAL:0000000f\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"FindFolder\",\n      \"address\": \"EXTERNAL:00000010\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PBHOpenRFSync\",\n      \"address\": \"EXTERNAL:00000011\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"HidePen\",\n      \"address\": \"EXTERNAL:00000012\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"DisposeHandle\",\n      \"address\": \"EXTERNAL:00000013\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"InsetRect\",\n      \"address\": \"EXTERNAL:00000014\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"TestDeviceAttribute\",\n      \"address\": \"EXTERNAL:00000015\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"LoadResource\",\n      \"address\": \"EXTERNAL:00000016\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"LineTo\",\n      \"address\": \"EXTERNAL:00000017\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"TextFont\",\n      \"address\": \"EXTERNAL:00000018\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"EndUpdate\",\n      \"address\": \"EXTERNAL:00000019\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SendBehind\",\n      \"address\": \"EXTERNAL:0000001a\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"ShowHide\",\n      \"address\": \"EXTERNAL:0000001b\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"ModalDialog\",\n      \"address\": \"EXTERNAL:0000001c\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"OpenPoly\",\n      \"address\": \"EXTERNAL:0000001d\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"HiliteWindow\",\n      \"address\": \"EXTERNAL:0000001e\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetFlavorData\",\n      \"address\": \"EXTERNAL:0000001f\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"Long2Fix\",\n      \"address\": \"EXTERNAL:00000020\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"BeginUpdate\",\n      \"address\": \"EXTERNAL:00000021\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SectRect\",\n      \"address\": \"EXTERNAL:00000022\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"DrawMenuBar\",\n      \"address\": \"EXTERNAL:00000023\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"DisposeCTable\",\n      \"address\": \"EXTERNAL:00000024\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"HOpenResFile\",\n      \"address\": \"EXTERNAL:00000025\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"UnionRgn\",\n      \"address\": \"EXTERNAL:00000026\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"LMGetTheMenu\",\n      \"address\": \"EXTERNAL:00000027\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"Debugger\",\n      \"address\": \"EXTERNAL:00000028\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"FindWindow\",\n      \"address\": \"EXTERNAL:00000029\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"VisibleLength\",\n      \"address\": \"EXTERNAL:0000002a\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"MenuSelect\",\n      \"address\": \"EXTERNAL:0000002b\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"MovePortTo\",\n      \"address\": \"EXTERNAL:0000002c\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"FSpCreate\",\n      \"address\": \"EXTERNAL:0000002d\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"StyledLineBreak\",\n      \"address\": \"EXTERNAL:0000002e\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetDblTime\",\n      \"address\": \"EXTERNAL:0000002f\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SysBeep\",\n      \"address\": \"EXTERNAL:00000030\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PenSize\",\n      \"address\": \"EXTERNAL:00000031\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"TrackDrag\",\n      \"address\": \"EXTERNAL:00000032\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"TextMode\",\n      \"address\": \"EXTERNAL:00000033\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"DisposeMenu\",\n      \"address\": \"EXTERNAL:00000034\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"AECoerceDesc\",\n      \"address\": \"EXTERNAL:00000035\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"UnlockPixels\",\n      \"address\": \"EXTERNAL:00000036\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"NewGWorld\",\n      \"address\": \"EXTERNAL:00000037\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"NewEmptyHandle\",\n      \"address\": \"EXTERNAL:00000038\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"LMGetHiliteRGB\",\n      \"address\": \"EXTERNAL:00000039\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"DisposeDrag\",\n      \"address\": \"EXTERNAL:0000003a\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"EventAvail\",\n      \"address\": \"EXTERNAL:0000003b\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"RmvTime\",\n      \"address\": \"EXTERNAL:0000003c\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"atan\",\n      \"address\": \"EXTERNAL:0000003d\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"RemoveTrackingHandler\",\n      \"address\": \"EXTERNAL:0000003e\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"WaitNextEvent\",\n      \"address\": \"EXTERNAL:0000003f\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"IsWindowCollapsed\",\n      \"address\": \"EXTERNAL:00000040\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"TrackBox\",\n      \"address\": \"EXTERNAL:00000041\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"DrawText\",\n      \"address\": \"EXTERNAL:00000042\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PBDTGetPath\",\n      \"address\": \"EXTERNAL:00000043\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"FSpCatMove\",\n      \"address\": \"EXTERNAL:00000044\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"FlushEvents\",\n      \"address\": \"EXTERNAL:00000045\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetDialogItem\",\n      \"address\": \"EXTERNAL:00000046\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"NewMenu\",\n      \"address\": \"EXTERNAL:00000047\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"DrawJustified\",\n      \"address\": \"EXTERNAL:00000048\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"FSpSetFInfo\",\n      \"address\": \"EXTERNAL:00000049\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"LMGetSysMap\",\n      \"address\": \"EXTERNAL:0000004a\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"FSpGetFInfo\",\n      \"address\": \"EXTERNAL:0000004b\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetWindowPort\",\n      \"address\": \"EXTERNAL:0000004c\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PBReadSync\",\n      \"address\": \"EXTERNAL:0000004d\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PBWriteSync\",\n      \"address\": \"EXTERNAL:0000004e\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SetOrigin\",\n      \"address\": \"EXTERNAL:0000004f\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"NewDrag\",\n      \"address\": \"EXTERNAL:00000050\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"DisposePort\",\n      \"address\": \"EXTERNAL:00000051\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetNextWindow\",\n      \"address\": \"EXTERNAL:00000052\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetPixPat\",\n      \"address\": \"EXTERNAL:00000053\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"NewHandleClear\",\n      \"address\": \"EXTERNAL:00000054\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"CalcVisBehind\",\n      \"address\": \"EXTERNAL:00000055\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"ResError\",\n      \"address\": \"EXTERNAL:00000056\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetPortPenSize\",\n      \"address\": \"EXTERNAL:00000057\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"cos\",\n      \"address\": \"EXTERNAL:00000058\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"DeleteMenu\",\n      \"address\": \"EXTERNAL:00000059\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetMouse\",\n      \"address\": \"EXTERNAL:0000005a\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetClip\",\n      \"address\": \"EXTERNAL:0000005b\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"CopyMask\",\n      \"address\": \"EXTERNAL:0000005c\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"NumToString\",\n      \"address\": \"EXTERNAL:0000005d\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"TextSize\",\n      \"address\": \"EXTERNAL:0000005e\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"HLockHi\",\n      \"address\": \"EXTERNAL:0000005f\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"IsWindowVisible\",\n      \"address\": \"EXTERNAL:00000060\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"MoveTo\",\n      \"address\": \"EXTERNAL:00000061\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"BitShift\",\n      \"address\": \"EXTERNAL:00000062\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PenMode\",\n      \"address\": \"EXTERNAL:00000063\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PBSetCatInfoSync\",\n      \"address\": \"EXTERNAL:00000064\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"TempNewHandle\",\n      \"address\": \"EXTERNAL:00000065\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"ReleaseResource\",\n      \"address\": \"EXTERNAL:00000066\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"MenuKey\",\n      \"address\": \"EXTERNAL:00000067\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"NewHandle\",\n      \"address\": \"EXTERNAL:00000068\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"TruncText\",\n      \"address\": \"EXTERNAL:00000069\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"DrawPicture\",\n      \"address\": \"EXTERNAL:0000006a\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"DisposeCIcon\",\n      \"address\": \"EXTERNAL:0000006b\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"CountDragItems\",\n      \"address\": \"EXTERNAL:0000006c\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetPortBitMapForCopyBits\",\n      \"address\": \"EXTERNAL:0000006d\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"UseResFile\",\n      \"address\": \"EXTERNAL:0000006e\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"AESend\",\n      \"address\": \"EXTERNAL:0000006f\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PtrAndHand\",\n      \"address\": \"EXTERNAL:00000070\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"NewRgn\",\n      \"address\": \"EXTERNAL:00000071\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"TrackGoAway\",\n      \"address\": \"EXTERNAL:00000072\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetNextEvent\",\n      \"address\": \"EXTERNAL:00000073\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetMainDevice\",\n      \"address\": \"EXTERNAL:00000074\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetNextDevice\",\n      \"address\": \"EXTERNAL:00000075\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"sqrt\",\n      \"address\": \"EXTERNAL:00000076\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PBGetFCBInfoSync\",\n      \"address\": \"EXTERNAL:00000077\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"FSpCreateResFile\",\n      \"address\": \"EXTERNAL:00000078\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetQDGlobalsThePort\",\n      \"address\": \"EXTERNAL:00000079\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SameProcess\",\n      \"address\": \"EXTERNAL:0000007a\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"FollowFinderAlias\",\n      \"address\": \"EXTERNAL:0000007b\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"DisposeGWorld\",\n      \"address\": \"EXTERNAL:0000007c\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"Button\",\n      \"address\": \"EXTERNAL:0000007d\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PBHOpenDFSync\",\n      \"address\": \"EXTERNAL:0000007e\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetFontInfo\",\n      \"address\": \"EXTERNAL:0000007f\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"ResolveAliasFile\",\n      \"address\": \"EXTERNAL:00000080\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"CFUUIDGetUUIDBytes\",\n      \"address\": \"EXTERNAL:00000081\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"MemError\",\n      \"address\": \"EXTERNAL:00000082\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"NewAlias\",\n      \"address\": \"EXTERNAL:00000083\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"RemoveReceiveHandler\",\n      \"address\": \"EXTERNAL:00000084\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"MapRgn\",\n      \"address\": \"EXTERNAL:00000085\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetKeys\",\n      \"address\": \"EXTERNAL:00000086\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"AEGetParamDesc\",\n      \"address\": \"EXTERNAL:00000087\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"FrontWindow\",\n      \"address\": \"EXTERNAL:00000088\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"AECountItems\",\n      \"address\": \"EXTERNAL:00000089\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetDateTime\",\n      \"address\": \"EXTERNAL:0000008a\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"AEGetDescData\",\n      \"address\": \"EXTERNAL:0000008b\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"CopyBits\",\n      \"address\": \"EXTERNAL:0000008c\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetQDGlobalsArrow\",\n      \"address\": \"EXTERNAL:0000008d\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"sin\",\n      \"address\": \"EXTERNAL:0000008e\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"NewPtr\",\n      \"address\": \"EXTERNAL:0000008f\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"AppendMenu\",\n      \"address\": \"EXTERNAL:00000090\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"OffsetRect\",\n      \"address\": \"EXTERNAL:00000091\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PBGetCatInfoSync\",\n      \"address\": \"EXTERNAL:00000092\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SetPort\",\n      \"address\": \"EXTERNAL:00000093\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PtInRgn\",\n      \"address\": \"EXTERNAL:00000094\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"KillPoly\",\n      \"address\": \"EXTERNAL:00000095\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"IsPortOffscreen\",\n      \"address\": \"EXTERNAL:00000096\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetDragItemReferenceNumber\",\n      \"address\": \"EXTERNAL:00000097\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SndDisposeChannel\",\n      \"address\": \"EXTERNAL:00000098\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"ShowWindow\",\n      \"address\": \"EXTERNAL:00000099\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"DiffRgn\",\n      \"address\": \"EXTERNAL:0000009a\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GrowWindow\",\n      \"address\": \"EXTERNAL:0000009b\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"AEDisposeDesc\",\n      \"address\": \"EXTERNAL:0000009c\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"HideWindow\",\n      \"address\": \"EXTERNAL:0000009d\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"NewCWindow\",\n      \"address\": \"EXTERNAL:0000009e\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SecondsToDate\",\n      \"address\": \"EXTERNAL:0000009f\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SetRect\",\n      \"address\": \"EXTERNAL:000000a0\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"IsWindowHilited\",\n      \"address\": \"EXTERNAL:000000a1\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"FSpDirCreate\",\n      \"address\": \"EXTERNAL:000000a2\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"WakeUpProcess\",\n      \"address\": \"EXTERNAL:000000a3\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetCIcon\",\n      \"address\": \"EXTERNAL:000000a4\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PixelToChar\",\n      \"address\": \"EXTERNAL:000000a5\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"FlushVol\",\n      \"address\": \"EXTERNAL:000000a6\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"HDelete\",\n      \"address\": \"EXTERNAL:000000a7\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"LMGetResLoad\",\n      \"address\": \"EXTERNAL:000000a8\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetCurrentProcess\",\n      \"address\": \"EXTERNAL:000000a9\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"InitCursor\",\n      \"address\": \"EXTERNAL:000000aa\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"AECreateAppleEvent\",\n      \"address\": \"EXTERNAL:000000ab\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetCTable\",\n      \"address\": \"EXTERNAL:000000ac\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PBDTGetCommentSync\",\n      \"address\": \"EXTERNAL:000000ad\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"InstallTrackingHandler\",\n      \"address\": \"EXTERNAL:000000ae\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SetDragImage\",\n      \"address\": \"EXTERNAL:000000af\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"LMSetResLoad\",\n      \"address\": \"EXTERNAL:000000b0\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"Get1Resource\",\n      \"address\": \"EXTERNAL:000000b1\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"FillCRect\",\n      \"address\": \"EXTERNAL:000000b2\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"FindWordBreaks\",\n      \"address\": \"EXTERNAL:000000b3\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetWRefCon\",\n      \"address\": \"EXTERNAL:000000b4\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"RGBBackColor\",\n      \"address\": \"EXTERNAL:000000b5\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SetEmptyRgn\",\n      \"address\": \"EXTERNAL:000000b6\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetQDGlobalsScreenBits\",\n      \"address\": \"EXTERNAL:000000b7\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"BlockMoveData\",\n      \"address\": \"EXTERNAL:000000b8\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"AECreateDesc\",\n      \"address\": \"EXTERNAL:000000b9\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetNewDialog\",\n      \"address\": \"EXTERNAL:000000ba\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SndPlay\",\n      \"address\": \"EXTERNAL:000000bb\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"LockPixels\",\n      \"address\": \"EXTERNAL:000000bc\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"ForeColor\",\n      \"address\": \"EXTERNAL:000000bd\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetCaretTime\",\n      \"address\": \"EXTERNAL:000000be\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetDragMouse\",\n      \"address\": \"EXTERNAL:000000bf\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"DisposeWindow\",\n      \"address\": \"EXTERNAL:000000c0\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"OffsetRgn\",\n      \"address\": \"EXTERNAL:000000c1\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PopUpMenuSelect\",\n      \"address\": \"EXTERNAL:000000c2\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PaintRect\",\n      \"address\": \"EXTERNAL:000000c3\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PBHGetVInfoSync\",\n      \"address\": \"EXTERNAL:000000c4\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"CurResFile\",\n      \"address\": \"EXTERNAL:000000c5\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"Gestalt\",\n      \"address\": \"EXTERNAL:000000c6\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SetCPixel\",\n      \"address\": \"EXTERNAL:000000c7\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PBHGetFInfoSync\",\n      \"address\": \"EXTERNAL:000000c8\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetDropLocation\",\n      \"address\": \"EXTERNAL:000000c9\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SetEOF\",\n      \"address\": \"EXTERNAL:000000ca\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SetMenuBar\",\n      \"address\": \"EXTERNAL:000000cb\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"HSetState\",\n      \"address\": \"EXTERNAL:000000cc\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"InsetRgn\",\n      \"address\": \"EXTERNAL:000000cd\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"kCFAllocatorDefault\",\n      \"address\": \"EXTERNAL:000000ce\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PaintPoly\",\n      \"address\": \"EXTERNAL:000000cf\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"HGetState\",\n      \"address\": \"EXTERNAL:000000d0\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"FSpRename\",\n      \"address\": \"EXTERNAL:000000d1\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"ExitToShell\",\n      \"address\": \"EXTERNAL:000000d2\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetCCursor\",\n      \"address\": \"EXTERNAL:000000d3\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetBackColor\",\n      \"address\": \"EXTERNAL:000000d4\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PBDTSetCommentSync\",\n      \"address\": \"EXTERNAL:000000d5\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"ReallocateHandle\",\n      \"address\": \"EXTERNAL:000000d6\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"AEGetNthPtr\",\n      \"address\": \"EXTERNAL:000000d7\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"LocalToGlobal\",\n      \"address\": \"EXTERNAL:000000d8\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PortSize\",\n      \"address\": \"EXTERNAL:000000d9\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"CatMove\",\n      \"address\": \"EXTERNAL:000000da\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"EraseRect\",\n      \"address\": \"EXTERNAL:000000db\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"HLock\",\n      \"address\": \"EXTERNAL:000000dc\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SetCCursor\",\n      \"address\": \"EXTERNAL:000000dd\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"AddDragItemFlavor\",\n      \"address\": \"EXTERNAL:000000de\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetScriptManagerVariable\",\n      \"address\": \"EXTERNAL:000000df\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"FSpOpenResFile\",\n      \"address\": \"EXTERNAL:000000e0\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetFrontProcess\",\n      \"address\": \"EXTERNAL:000000e1\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SetFrontProcess\",\n      \"address\": \"EXTERNAL:000000e2\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PBHRstFLockSync\",\n      \"address\": \"EXTERNAL:000000e3\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"FrameRoundRect\",\n      \"address\": \"EXTERNAL:000000e4\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetDeviceList\",\n      \"address\": \"EXTERNAL:000000e5\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetMBarHeight\",\n      \"address\": \"EXTERNAL:000000e6\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PBDTOpenInform\",\n      \"address\": \"EXTERNAL:000000e7\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"CFUUIDCreate\",\n      \"address\": \"EXTERNAL:000000e8\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"pi\",\n      \"address\": \"EXTERNAL:000000e9\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"Microseconds\",\n      \"address\": \"EXTERNAL:000000ea\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"CopyRgn\",\n      \"address\": \"EXTERNAL:000000eb\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"TextWidth\",\n      \"address\": \"EXTERNAL:000000ec\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetPortBounds\",\n      \"address\": \"EXTERNAL:000000ed\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"FSMakeFSSpec\",\n      \"address\": \"EXTERNAL:000000ee\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"EmptyRect\",\n      \"address\": \"EXTERNAL:000000ef\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SectRgn\",\n      \"address\": \"EXTERNAL:000000f0\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"FSpDelete\",\n      \"address\": \"EXTERNAL:000000f1\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"StillDown\",\n      \"address\": \"EXTERNAL:000000f2\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"Munger\",\n      \"address\": \"EXTERNAL:000000f3\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SetClip\",\n      \"address\": \"EXTERNAL:000000f4\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SetGWorld\",\n      \"address\": \"EXTERNAL:000000f5\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"CloseResFile\",\n      \"address\": \"EXTERNAL:000000f6\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PBHDeleteSync\",\n      \"address\": \"EXTERNAL:000000f7\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"HiliteMenu\",\n      \"address\": \"EXTERNAL:000000f8\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"FrameRgn\",\n      \"address\": \"EXTERNAL:000000f9\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"CreateNewPort\",\n      \"address\": \"EXTERNAL:000000fa\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"TickCount\",\n      \"address\": \"EXTERNAL:000000fb\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetGWorld\",\n      \"address\": \"EXTERNAL:000000fc\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetMenuID\",\n      \"address\": \"EXTERNAL:000000fd\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"FrameRect\",\n      \"address\": \"EXTERNAL:000000fe\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"Get1IndResource\",\n      \"address\": \"EXTERNAL:000000ff\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"AEProcessAppleEvent\",\n      \"address\": \"EXTERNAL:00000100\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"HNoPurge\",\n      \"address\": \"EXTERNAL:00000101\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetProcessInformation\",\n      \"address\": \"EXTERNAL:00000102\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PrimeTime\",\n      \"address\": \"EXTERNAL:00000103\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SndNewChannel\",\n      \"address\": \"EXTERNAL:00000104\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PaintOne\",\n      \"address\": \"EXTERNAL:00000105\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"BringToFront\",\n      \"address\": \"EXTERNAL:00000106\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SetWTitle\",\n      \"address\": \"EXTERNAL:00000107\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"HUnlock\",\n      \"address\": \"EXTERNAL:00000108\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetGWorldPixMap\",\n      \"address\": \"EXTERNAL:00000109\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PBXGetVolInfoSync\",\n      \"address\": \"EXTERNAL:0000010a\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PBHGetVolParmsSync\",\n      \"address\": \"EXTERNAL:0000010b\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"RGBForeColor\",\n      \"address\": \"EXTERNAL:0000010c\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"DisposePtr\",\n      \"address\": \"EXTERNAL:0000010d\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetRegionBounds\",\n      \"address\": \"EXTERNAL:0000010e\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"DisposePixPat\",\n      \"address\": \"EXTERNAL:0000010f\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetFlavorDataSize\",\n      \"address\": \"EXTERNAL:00000110\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PaintRoundRect\",\n      \"address\": \"EXTERNAL:00000111\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"HPurge\",\n      \"address\": \"EXTERNAL:00000112\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetPortVisibleRegion\",\n      \"address\": \"EXTERNAL:00000113\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetPortClipRegion\",\n      \"address\": \"EXTERNAL:00000114\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"DrawGrowIcon\",\n      \"address\": \"EXTERNAL:00000115\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"DirCreate\",\n      \"address\": \"EXTERNAL:00000116\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PenPat\",\n      \"address\": \"EXTERNAL:00000117\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PBHOpenRFDenySync\",\n      \"address\": \"EXTERNAL:00000118\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PaintRgn\",\n      \"address\": \"EXTERNAL:00000119\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"HRename\",\n      \"address\": \"EXTERNAL:0000011a\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"DisposeCCursor\",\n      \"address\": \"EXTERNAL:0000011b\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetGrayRgn\",\n      \"address\": \"EXTERNAL:0000011c\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"RectRgn\",\n      \"address\": \"EXTERNAL:0000011d\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PlotCIconHandle\",\n      \"address\": \"EXTERNAL:0000011e\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetHandleSize\",\n      \"address\": \"EXTERNAL:0000011f\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"InstallReceiveHandler\",\n      \"address\": \"EXTERNAL:00000120\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetEOF\",\n      \"address\": \"EXTERNAL:00000121\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"AddResource\",\n      \"address\": \"EXTERNAL:00000122\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PBHOpenSync\",\n      \"address\": \"EXTERNAL:00000123\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetResource\",\n      \"address\": \"EXTERNAL:00000124\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"ClosePoly\",\n      \"address\": \"EXTERNAL:00000125\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"ChangedResource\",\n      \"address\": \"EXTERNAL:00000126\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetNewMBar\",\n      \"address\": \"EXTERNAL:00000127\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetNextProcess\",\n      \"address\": \"EXTERNAL:00000128\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"NewDialog\",\n      \"address\": \"EXTERNAL:00000129\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"NewPtrClear\",\n      \"address\": \"EXTERNAL:0000012a\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"QDError\",\n      \"address\": \"EXTERNAL:0000012b\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"AEInstallEventHandler\",\n      \"address\": \"EXTERNAL:0000012c\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PBHMoveRenameSync\",\n      \"address\": \"EXTERNAL:0000012d\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SelectWindow\",\n      \"address\": \"EXTERNAL:0000012e\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SetDialogItemText\",\n      \"address\": \"EXTERNAL:0000012f\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetCursor\",\n      \"address\": \"EXTERNAL:00000130\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetMaxDevice\",\n      \"address\": \"EXTERNAL:00000131\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PBHOpenDenySync\",\n      \"address\": \"EXTERNAL:00000132\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SetHandleSize\",\n      \"address\": \"EXTERNAL:00000133\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"DisposeRgn\",\n      \"address\": \"EXTERNAL:00000134\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GlobalToLocal\",\n      \"address\": \"EXTERNAL:00000135\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SetCursor\",\n      \"address\": \"EXTERNAL:00000136\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetWindowRegion\",\n      \"address\": \"EXTERNAL:00000137\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetDialogWindow\",\n      \"address\": \"EXTERNAL:00000138\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"KeyTranslate\",\n      \"address\": \"EXTERNAL:00000139\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetSysDirection\",\n      \"address\": \"EXTERNAL:0000013a\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"WriteResource\",\n      \"address\": \"EXTERNAL:0000013b\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"InsertMenu\",\n      \"address\": \"EXTERNAL:0000013c\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetWindowEventTarget\",\n      \"address\": \"EXTERNAL:0000013d\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"TimeString\",\n      \"address\": \"EXTERNAL:0000013e\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"ClearCurrentScrap\",\n      \"address\": \"EXTERNAL:0000013f\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"NewAEEventHandlerUPP\",\n      \"address\": \"EXTERNAL:00000140\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"ICStart\",\n      \"address\": \"EXTERNAL:00000141\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"NewDragSendDataUPP\",\n      \"address\": \"EXTERNAL:00000142\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"DateString\",\n      \"address\": \"EXTERNAL:00000143\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"NewSndCallBackUPP\",\n      \"address\": \"EXTERNAL:00000144\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetScrapFlavorData\",\n      \"address\": \"EXTERNAL:00000145\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"NewDragTrackingHandlerUPP\",\n      \"address\": \"EXTERNAL:00000146\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"InstallXTimeTask\",\n      \"address\": \"EXTERNAL:00000147\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetEventKind\",\n      \"address\": \"EXTERNAL:00000148\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"NewEventHandlerUPP\",\n      \"address\": \"EXTERNAL:00000149\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"FMGetFontFamilyFromName\",\n      \"address\": \"EXTERNAL:0000014a\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"ICLaunchURL\",\n      \"address\": \"EXTERNAL:0000014b\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetCurrentScrap\",\n      \"address\": \"EXTERNAL:0000014c\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"NewTimerUPP\",\n      \"address\": \"EXTERNAL:0000014d\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetEventClass\",\n      \"address\": \"EXTERNAL:0000014e\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"MoreMasterPointers\",\n      \"address\": \"EXTERNAL:0000014f\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetScrapFlavorSize\",\n      \"address\": \"EXTERNAL:00000150\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"ICBegin\",\n      \"address\": \"EXTERNAL:00000151\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"InstallEventHandler\",\n      \"address\": \"EXTERNAL:00000152\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"EnableMenuCommand\",\n      \"address\": \"EXTERNAL:00000153\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"ICEnd\",\n      \"address\": \"EXTERNAL:00000154\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"SetWindowClass\",\n      \"address\": \"EXTERNAL:00000155\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"PutScrapFlavor\",\n      \"address\": \"EXTERNAL:00000156\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"ICStop\",\n      \"address\": \"EXTERNAL:00000157\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"NewDragReceiveHandlerUPP\",\n      \"address\": \"EXTERNAL:00000158\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"ICGetPref\",\n      \"address\": \"EXTERNAL:00000159\",\n      \"namespace\": \"CarbonLib\"\n    },\n    {\n      \"name\": \"GetMovieBox\",\n      \"address\": \"EXTERNAL:0000015a\",\n      \"namespace\": \"Apple;Carbon;Multimedia\"\n    },\n    {\n      \"name\": \"MCSetControllerAttached\",\n      \"address\": \"EXTERNAL:0000015b\",\n      \"namespace\": \"Apple;Carbon;Multimedia\"\n    },\n    {\n      \"name\": \"NewMCActionFilterWithRefConUPP\",\n      \"address\": \"EXTERNAL:0000015c\",\n      \"namespace\": \"Apple;Carbon;Multimedia\"\n    },\n    {\n      \"name\": \"MCIsControllerAttached\",\n      \"address\": \"EXTERNAL:0000015d\",\n      \"namespace\": \"Apple;Carbon;Multimedia\"\n    },\n    {\n      \"name\": \"MoviesTask\",\n      \"address\": \"EXTERNAL:0000015e\",\n      \"namespace\": \"Apple;Carbon;Multimedia\"\n    },\n    {\n      \"name\": \"MCGetControllerBoundsRect\",\n      \"address\": \"EXTERNAL:0000015f\",\n      \"namespace\": \"Apple;Carbon;Multimedia\"\n    },\n    {\n      \"name\": \"OTSetAsynchronous\",\n      \"address\": \"EXTERNAL:00000160\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTCloseProvider\",\n      \"address\": \"EXTERNAL:00000161\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTRcvOrderlyDisconnect\",\n      \"address\": \"EXTERNAL:00000162\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTScheduleTimerTask\",\n      \"address\": \"EXTERNAL:00000163\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTListen\",\n      \"address\": \"EXTERNAL:00000164\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"CloseOpenTransportInContext\",\n      \"address\": \"EXTERNAL:00000165\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTCreateConfiguration\",\n      \"address\": \"EXTERNAL:00000166\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTLIFOEnqueue\",\n      \"address\": \"EXTERNAL:00000167\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTInstallNotifier\",\n      \"address\": \"EXTERNAL:00000168\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTSndUData\",\n      \"address\": \"EXTERNAL:00000169\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTUnbind\",\n      \"address\": \"EXTERNAL:0000016a\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTGetEndpointState\",\n      \"address\": \"EXTERNAL:0000016b\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTCreateTimerTaskInContext\",\n      \"address\": \"EXTERNAL:0000016c\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"InitOpenTransportInContext\",\n      \"address\": \"EXTERNAL:0000016d\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTOpenEndpointInContext\",\n      \"address\": \"EXTERNAL:0000016e\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTRcvUDErr\",\n      \"address\": \"EXTERNAL:0000016f\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTRcvDisconnect\",\n      \"address\": \"EXTERNAL:00000170\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTSndDisconnect\",\n      \"address\": \"EXTERNAL:00000171\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTSndOrderlyDisconnect\",\n      \"address\": \"EXTERNAL:00000172\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTLeaveNotifier\",\n      \"address\": \"EXTERNAL:00000173\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTInetHostToString\",\n      \"address\": \"EXTERNAL:00000174\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTOptionManagement\",\n      \"address\": \"EXTERNAL:00000175\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTBind\",\n      \"address\": \"EXTERNAL:00000176\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTConnect\",\n      \"address\": \"EXTERNAL:00000177\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTDestroyTimerTask\",\n      \"address\": \"EXTERNAL:00000178\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"NewOTNotifyUPP\",\n      \"address\": \"EXTERNAL:00000179\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTCountDataBytes\",\n      \"address\": \"EXTERNAL:0000017a\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTRcv\",\n      \"address\": \"EXTERNAL:0000017b\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTAtomicSetBit\",\n      \"address\": \"EXTERNAL:0000017c\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTLook\",\n      \"address\": \"EXTERNAL:0000017d\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTGetProtAddress\",\n      \"address\": \"EXTERNAL:0000017e\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTEnterNotifier\",\n      \"address\": \"EXTERNAL:0000017f\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTSnd\",\n      \"address\": \"EXTERNAL:00000180\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTInetGetInterfaceInfo\",\n      \"address\": \"EXTERNAL:00000181\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTRcvConnect\",\n      \"address\": \"EXTERNAL:00000182\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"NewOTProcessUPP\",\n      \"address\": \"EXTERNAL:00000183\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTLIFOStealList\",\n      \"address\": \"EXTERNAL:00000184\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTAtomicClearBit\",\n      \"address\": \"EXTERNAL:00000185\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTAccept\",\n      \"address\": \"EXTERNAL:00000186\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTIoctl\",\n      \"address\": \"EXTERNAL:00000187\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    },\n    {\n      \"name\": \"OTAtomicTestBit\",\n      \"address\": \"EXTERNAL:00000188\",\n      \"namespace\": \"Apple;Carbon;Networking\"\n    }\n  ],\n  \"offset\": 0,\n  \"limit\": 1000,\n  \"total\": 392,\n  \"has_more\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "items": [
+        {
+          "name": "GetPort",
+          "address": "EXTERNAL:00000001",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PenNormal",
+          "address": "EXTERNAL:00000002",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "FSClose",
+          "address": "EXTERNAL:00000003",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetFlavorFlags",
+          "address": "EXTERNAL:00000004",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "TextFace",
+          "address": "EXTERNAL:00000005",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SizeWindow",
+          "address": "EXTERNAL:00000006",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetDragModifiers",
+          "address": "EXTERNAL:00000007",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetWindowFromPort",
+          "address": "EXTERNAL:00000008",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "NMRemove",
+          "address": "EXTERNAL:00000009",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "MoveWindow",
+          "address": "EXTERNAL:0000000a",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SetPortWindowPort",
+          "address": "EXTERNAL:0000000b",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SetWindowContentColor",
+          "address": "EXTERNAL:0000000c",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SetResLoad",
+          "address": "EXTERNAL:0000000d",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "OpColor",
+          "address": "EXTERNAL:0000000e",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SndDoCommand",
+          "address": "EXTERNAL:0000000f",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "FindFolder",
+          "address": "EXTERNAL:00000010",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PBHOpenRFSync",
+          "address": "EXTERNAL:00000011",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "HidePen",
+          "address": "EXTERNAL:00000012",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "DisposeHandle",
+          "address": "EXTERNAL:00000013",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "InsetRect",
+          "address": "EXTERNAL:00000014",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "TestDeviceAttribute",
+          "address": "EXTERNAL:00000015",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "LoadResource",
+          "address": "EXTERNAL:00000016",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "LineTo",
+          "address": "EXTERNAL:00000017",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "TextFont",
+          "address": "EXTERNAL:00000018",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "EndUpdate",
+          "address": "EXTERNAL:00000019",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SendBehind",
+          "address": "EXTERNAL:0000001a",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "ShowHide",
+          "address": "EXTERNAL:0000001b",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "ModalDialog",
+          "address": "EXTERNAL:0000001c",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "OpenPoly",
+          "address": "EXTERNAL:0000001d",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "HiliteWindow",
+          "address": "EXTERNAL:0000001e",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetFlavorData",
+          "address": "EXTERNAL:0000001f",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "Long2Fix",
+          "address": "EXTERNAL:00000020",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "BeginUpdate",
+          "address": "EXTERNAL:00000021",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SectRect",
+          "address": "EXTERNAL:00000022",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "DrawMenuBar",
+          "address": "EXTERNAL:00000023",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "DisposeCTable",
+          "address": "EXTERNAL:00000024",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "HOpenResFile",
+          "address": "EXTERNAL:00000025",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "UnionRgn",
+          "address": "EXTERNAL:00000026",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "LMGetTheMenu",
+          "address": "EXTERNAL:00000027",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "Debugger",
+          "address": "EXTERNAL:00000028",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "FindWindow",
+          "address": "EXTERNAL:00000029",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "VisibleLength",
+          "address": "EXTERNAL:0000002a",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "MenuSelect",
+          "address": "EXTERNAL:0000002b",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "MovePortTo",
+          "address": "EXTERNAL:0000002c",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "FSpCreate",
+          "address": "EXTERNAL:0000002d",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "StyledLineBreak",
+          "address": "EXTERNAL:0000002e",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetDblTime",
+          "address": "EXTERNAL:0000002f",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SysBeep",
+          "address": "EXTERNAL:00000030",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PenSize",
+          "address": "EXTERNAL:00000031",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "TrackDrag",
+          "address": "EXTERNAL:00000032",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "TextMode",
+          "address": "EXTERNAL:00000033",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "DisposeMenu",
+          "address": "EXTERNAL:00000034",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "AECoerceDesc",
+          "address": "EXTERNAL:00000035",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "UnlockPixels",
+          "address": "EXTERNAL:00000036",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "NewGWorld",
+          "address": "EXTERNAL:00000037",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "NewEmptyHandle",
+          "address": "EXTERNAL:00000038",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "LMGetHiliteRGB",
+          "address": "EXTERNAL:00000039",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "DisposeDrag",
+          "address": "EXTERNAL:0000003a",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "EventAvail",
+          "address": "EXTERNAL:0000003b",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "RmvTime",
+          "address": "EXTERNAL:0000003c",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "atan",
+          "address": "EXTERNAL:0000003d",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "RemoveTrackingHandler",
+          "address": "EXTERNAL:0000003e",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "WaitNextEvent",
+          "address": "EXTERNAL:0000003f",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "IsWindowCollapsed",
+          "address": "EXTERNAL:00000040",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "TrackBox",
+          "address": "EXTERNAL:00000041",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "DrawText",
+          "address": "EXTERNAL:00000042",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PBDTGetPath",
+          "address": "EXTERNAL:00000043",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "FSpCatMove",
+          "address": "EXTERNAL:00000044",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "FlushEvents",
+          "address": "EXTERNAL:00000045",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetDialogItem",
+          "address": "EXTERNAL:00000046",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "NewMenu",
+          "address": "EXTERNAL:00000047",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "DrawJustified",
+          "address": "EXTERNAL:00000048",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "FSpSetFInfo",
+          "address": "EXTERNAL:00000049",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "LMGetSysMap",
+          "address": "EXTERNAL:0000004a",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "FSpGetFInfo",
+          "address": "EXTERNAL:0000004b",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetWindowPort",
+          "address": "EXTERNAL:0000004c",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PBReadSync",
+          "address": "EXTERNAL:0000004d",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PBWriteSync",
+          "address": "EXTERNAL:0000004e",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SetOrigin",
+          "address": "EXTERNAL:0000004f",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "NewDrag",
+          "address": "EXTERNAL:00000050",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "DisposePort",
+          "address": "EXTERNAL:00000051",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetNextWindow",
+          "address": "EXTERNAL:00000052",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetPixPat",
+          "address": "EXTERNAL:00000053",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "NewHandleClear",
+          "address": "EXTERNAL:00000054",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "CalcVisBehind",
+          "address": "EXTERNAL:00000055",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "ResError",
+          "address": "EXTERNAL:00000056",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetPortPenSize",
+          "address": "EXTERNAL:00000057",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "cos",
+          "address": "EXTERNAL:00000058",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "DeleteMenu",
+          "address": "EXTERNAL:00000059",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetMouse",
+          "address": "EXTERNAL:0000005a",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetClip",
+          "address": "EXTERNAL:0000005b",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "CopyMask",
+          "address": "EXTERNAL:0000005c",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "NumToString",
+          "address": "EXTERNAL:0000005d",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "TextSize",
+          "address": "EXTERNAL:0000005e",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "HLockHi",
+          "address": "EXTERNAL:0000005f",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "IsWindowVisible",
+          "address": "EXTERNAL:00000060",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "MoveTo",
+          "address": "EXTERNAL:00000061",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "BitShift",
+          "address": "EXTERNAL:00000062",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PenMode",
+          "address": "EXTERNAL:00000063",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PBSetCatInfoSync",
+          "address": "EXTERNAL:00000064",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "TempNewHandle",
+          "address": "EXTERNAL:00000065",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "ReleaseResource",
+          "address": "EXTERNAL:00000066",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "MenuKey",
+          "address": "EXTERNAL:00000067",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "NewHandle",
+          "address": "EXTERNAL:00000068",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "TruncText",
+          "address": "EXTERNAL:00000069",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "DrawPicture",
+          "address": "EXTERNAL:0000006a",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "DisposeCIcon",
+          "address": "EXTERNAL:0000006b",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "CountDragItems",
+          "address": "EXTERNAL:0000006c",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetPortBitMapForCopyBits",
+          "address": "EXTERNAL:0000006d",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "UseResFile",
+          "address": "EXTERNAL:0000006e",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "AESend",
+          "address": "EXTERNAL:0000006f",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PtrAndHand",
+          "address": "EXTERNAL:00000070",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "NewRgn",
+          "address": "EXTERNAL:00000071",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "TrackGoAway",
+          "address": "EXTERNAL:00000072",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetNextEvent",
+          "address": "EXTERNAL:00000073",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetMainDevice",
+          "address": "EXTERNAL:00000074",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetNextDevice",
+          "address": "EXTERNAL:00000075",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "sqrt",
+          "address": "EXTERNAL:00000076",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PBGetFCBInfoSync",
+          "address": "EXTERNAL:00000077",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "FSpCreateResFile",
+          "address": "EXTERNAL:00000078",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetQDGlobalsThePort",
+          "address": "EXTERNAL:00000079",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SameProcess",
+          "address": "EXTERNAL:0000007a",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "FollowFinderAlias",
+          "address": "EXTERNAL:0000007b",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "DisposeGWorld",
+          "address": "EXTERNAL:0000007c",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "Button",
+          "address": "EXTERNAL:0000007d",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PBHOpenDFSync",
+          "address": "EXTERNAL:0000007e",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetFontInfo",
+          "address": "EXTERNAL:0000007f",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "ResolveAliasFile",
+          "address": "EXTERNAL:00000080",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "CFUUIDGetUUIDBytes",
+          "address": "EXTERNAL:00000081",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "MemError",
+          "address": "EXTERNAL:00000082",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "NewAlias",
+          "address": "EXTERNAL:00000083",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "RemoveReceiveHandler",
+          "address": "EXTERNAL:00000084",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "MapRgn",
+          "address": "EXTERNAL:00000085",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetKeys",
+          "address": "EXTERNAL:00000086",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "AEGetParamDesc",
+          "address": "EXTERNAL:00000087",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "FrontWindow",
+          "address": "EXTERNAL:00000088",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "AECountItems",
+          "address": "EXTERNAL:00000089",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetDateTime",
+          "address": "EXTERNAL:0000008a",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "AEGetDescData",
+          "address": "EXTERNAL:0000008b",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "CopyBits",
+          "address": "EXTERNAL:0000008c",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetQDGlobalsArrow",
+          "address": "EXTERNAL:0000008d",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "sin",
+          "address": "EXTERNAL:0000008e",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "NewPtr",
+          "address": "EXTERNAL:0000008f",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "AppendMenu",
+          "address": "EXTERNAL:00000090",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "OffsetRect",
+          "address": "EXTERNAL:00000091",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PBGetCatInfoSync",
+          "address": "EXTERNAL:00000092",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SetPort",
+          "address": "EXTERNAL:00000093",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PtInRgn",
+          "address": "EXTERNAL:00000094",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "KillPoly",
+          "address": "EXTERNAL:00000095",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "IsPortOffscreen",
+          "address": "EXTERNAL:00000096",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetDragItemReferenceNumber",
+          "address": "EXTERNAL:00000097",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SndDisposeChannel",
+          "address": "EXTERNAL:00000098",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "ShowWindow",
+          "address": "EXTERNAL:00000099",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "DiffRgn",
+          "address": "EXTERNAL:0000009a",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GrowWindow",
+          "address": "EXTERNAL:0000009b",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "AEDisposeDesc",
+          "address": "EXTERNAL:0000009c",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "HideWindow",
+          "address": "EXTERNAL:0000009d",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "NewCWindow",
+          "address": "EXTERNAL:0000009e",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SecondsToDate",
+          "address": "EXTERNAL:0000009f",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SetRect",
+          "address": "EXTERNAL:000000a0",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "IsWindowHilited",
+          "address": "EXTERNAL:000000a1",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "FSpDirCreate",
+          "address": "EXTERNAL:000000a2",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "WakeUpProcess",
+          "address": "EXTERNAL:000000a3",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetCIcon",
+          "address": "EXTERNAL:000000a4",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PixelToChar",
+          "address": "EXTERNAL:000000a5",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "FlushVol",
+          "address": "EXTERNAL:000000a6",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "HDelete",
+          "address": "EXTERNAL:000000a7",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "LMGetResLoad",
+          "address": "EXTERNAL:000000a8",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetCurrentProcess",
+          "address": "EXTERNAL:000000a9",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "InitCursor",
+          "address": "EXTERNAL:000000aa",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "AECreateAppleEvent",
+          "address": "EXTERNAL:000000ab",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetCTable",
+          "address": "EXTERNAL:000000ac",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PBDTGetCommentSync",
+          "address": "EXTERNAL:000000ad",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "InstallTrackingHandler",
+          "address": "EXTERNAL:000000ae",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SetDragImage",
+          "address": "EXTERNAL:000000af",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "LMSetResLoad",
+          "address": "EXTERNAL:000000b0",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "Get1Resource",
+          "address": "EXTERNAL:000000b1",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "FillCRect",
+          "address": "EXTERNAL:000000b2",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "FindWordBreaks",
+          "address": "EXTERNAL:000000b3",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetWRefCon",
+          "address": "EXTERNAL:000000b4",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "RGBBackColor",
+          "address": "EXTERNAL:000000b5",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SetEmptyRgn",
+          "address": "EXTERNAL:000000b6",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetQDGlobalsScreenBits",
+          "address": "EXTERNAL:000000b7",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "BlockMoveData",
+          "address": "EXTERNAL:000000b8",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "AECreateDesc",
+          "address": "EXTERNAL:000000b9",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetNewDialog",
+          "address": "EXTERNAL:000000ba",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SndPlay",
+          "address": "EXTERNAL:000000bb",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "LockPixels",
+          "address": "EXTERNAL:000000bc",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "ForeColor",
+          "address": "EXTERNAL:000000bd",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetCaretTime",
+          "address": "EXTERNAL:000000be",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetDragMouse",
+          "address": "EXTERNAL:000000bf",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "DisposeWindow",
+          "address": "EXTERNAL:000000c0",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "OffsetRgn",
+          "address": "EXTERNAL:000000c1",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PopUpMenuSelect",
+          "address": "EXTERNAL:000000c2",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PaintRect",
+          "address": "EXTERNAL:000000c3",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PBHGetVInfoSync",
+          "address": "EXTERNAL:000000c4",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "CurResFile",
+          "address": "EXTERNAL:000000c5",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "Gestalt",
+          "address": "EXTERNAL:000000c6",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SetCPixel",
+          "address": "EXTERNAL:000000c7",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PBHGetFInfoSync",
+          "address": "EXTERNAL:000000c8",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetDropLocation",
+          "address": "EXTERNAL:000000c9",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SetEOF",
+          "address": "EXTERNAL:000000ca",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SetMenuBar",
+          "address": "EXTERNAL:000000cb",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "HSetState",
+          "address": "EXTERNAL:000000cc",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "InsetRgn",
+          "address": "EXTERNAL:000000cd",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "kCFAllocatorDefault",
+          "address": "EXTERNAL:000000ce",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PaintPoly",
+          "address": "EXTERNAL:000000cf",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "HGetState",
+          "address": "EXTERNAL:000000d0",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "FSpRename",
+          "address": "EXTERNAL:000000d1",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "ExitToShell",
+          "address": "EXTERNAL:000000d2",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetCCursor",
+          "address": "EXTERNAL:000000d3",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetBackColor",
+          "address": "EXTERNAL:000000d4",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PBDTSetCommentSync",
+          "address": "EXTERNAL:000000d5",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "ReallocateHandle",
+          "address": "EXTERNAL:000000d6",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "AEGetNthPtr",
+          "address": "EXTERNAL:000000d7",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "LocalToGlobal",
+          "address": "EXTERNAL:000000d8",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PortSize",
+          "address": "EXTERNAL:000000d9",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "CatMove",
+          "address": "EXTERNAL:000000da",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "EraseRect",
+          "address": "EXTERNAL:000000db",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "HLock",
+          "address": "EXTERNAL:000000dc",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SetCCursor",
+          "address": "EXTERNAL:000000dd",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "AddDragItemFlavor",
+          "address": "EXTERNAL:000000de",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetScriptManagerVariable",
+          "address": "EXTERNAL:000000df",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "FSpOpenResFile",
+          "address": "EXTERNAL:000000e0",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetFrontProcess",
+          "address": "EXTERNAL:000000e1",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SetFrontProcess",
+          "address": "EXTERNAL:000000e2",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PBHRstFLockSync",
+          "address": "EXTERNAL:000000e3",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "FrameRoundRect",
+          "address": "EXTERNAL:000000e4",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetDeviceList",
+          "address": "EXTERNAL:000000e5",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetMBarHeight",
+          "address": "EXTERNAL:000000e6",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PBDTOpenInform",
+          "address": "EXTERNAL:000000e7",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "CFUUIDCreate",
+          "address": "EXTERNAL:000000e8",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "pi",
+          "address": "EXTERNAL:000000e9",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "Microseconds",
+          "address": "EXTERNAL:000000ea",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "CopyRgn",
+          "address": "EXTERNAL:000000eb",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "TextWidth",
+          "address": "EXTERNAL:000000ec",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetPortBounds",
+          "address": "EXTERNAL:000000ed",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "FSMakeFSSpec",
+          "address": "EXTERNAL:000000ee",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "EmptyRect",
+          "address": "EXTERNAL:000000ef",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SectRgn",
+          "address": "EXTERNAL:000000f0",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "FSpDelete",
+          "address": "EXTERNAL:000000f1",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "StillDown",
+          "address": "EXTERNAL:000000f2",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "Munger",
+          "address": "EXTERNAL:000000f3",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SetClip",
+          "address": "EXTERNAL:000000f4",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SetGWorld",
+          "address": "EXTERNAL:000000f5",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "CloseResFile",
+          "address": "EXTERNAL:000000f6",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PBHDeleteSync",
+          "address": "EXTERNAL:000000f7",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "HiliteMenu",
+          "address": "EXTERNAL:000000f8",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "FrameRgn",
+          "address": "EXTERNAL:000000f9",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "CreateNewPort",
+          "address": "EXTERNAL:000000fa",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "TickCount",
+          "address": "EXTERNAL:000000fb",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetGWorld",
+          "address": "EXTERNAL:000000fc",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetMenuID",
+          "address": "EXTERNAL:000000fd",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "FrameRect",
+          "address": "EXTERNAL:000000fe",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "Get1IndResource",
+          "address": "EXTERNAL:000000ff",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "AEProcessAppleEvent",
+          "address": "EXTERNAL:00000100",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "HNoPurge",
+          "address": "EXTERNAL:00000101",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetProcessInformation",
+          "address": "EXTERNAL:00000102",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PrimeTime",
+          "address": "EXTERNAL:00000103",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SndNewChannel",
+          "address": "EXTERNAL:00000104",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PaintOne",
+          "address": "EXTERNAL:00000105",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "BringToFront",
+          "address": "EXTERNAL:00000106",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SetWTitle",
+          "address": "EXTERNAL:00000107",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "HUnlock",
+          "address": "EXTERNAL:00000108",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetGWorldPixMap",
+          "address": "EXTERNAL:00000109",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PBXGetVolInfoSync",
+          "address": "EXTERNAL:0000010a",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PBHGetVolParmsSync",
+          "address": "EXTERNAL:0000010b",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "RGBForeColor",
+          "address": "EXTERNAL:0000010c",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "DisposePtr",
+          "address": "EXTERNAL:0000010d",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetRegionBounds",
+          "address": "EXTERNAL:0000010e",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "DisposePixPat",
+          "address": "EXTERNAL:0000010f",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetFlavorDataSize",
+          "address": "EXTERNAL:00000110",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PaintRoundRect",
+          "address": "EXTERNAL:00000111",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "HPurge",
+          "address": "EXTERNAL:00000112",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetPortVisibleRegion",
+          "address": "EXTERNAL:00000113",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetPortClipRegion",
+          "address": "EXTERNAL:00000114",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "DrawGrowIcon",
+          "address": "EXTERNAL:00000115",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "DirCreate",
+          "address": "EXTERNAL:00000116",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PenPat",
+          "address": "EXTERNAL:00000117",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PBHOpenRFDenySync",
+          "address": "EXTERNAL:00000118",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PaintRgn",
+          "address": "EXTERNAL:00000119",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "HRename",
+          "address": "EXTERNAL:0000011a",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "DisposeCCursor",
+          "address": "EXTERNAL:0000011b",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetGrayRgn",
+          "address": "EXTERNAL:0000011c",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "RectRgn",
+          "address": "EXTERNAL:0000011d",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PlotCIconHandle",
+          "address": "EXTERNAL:0000011e",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetHandleSize",
+          "address": "EXTERNAL:0000011f",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "InstallReceiveHandler",
+          "address": "EXTERNAL:00000120",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetEOF",
+          "address": "EXTERNAL:00000121",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "AddResource",
+          "address": "EXTERNAL:00000122",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PBHOpenSync",
+          "address": "EXTERNAL:00000123",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetResource",
+          "address": "EXTERNAL:00000124",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "ClosePoly",
+          "address": "EXTERNAL:00000125",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "ChangedResource",
+          "address": "EXTERNAL:00000126",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetNewMBar",
+          "address": "EXTERNAL:00000127",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetNextProcess",
+          "address": "EXTERNAL:00000128",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "NewDialog",
+          "address": "EXTERNAL:00000129",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "NewPtrClear",
+          "address": "EXTERNAL:0000012a",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "QDError",
+          "address": "EXTERNAL:0000012b",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "AEInstallEventHandler",
+          "address": "EXTERNAL:0000012c",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PBHMoveRenameSync",
+          "address": "EXTERNAL:0000012d",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SelectWindow",
+          "address": "EXTERNAL:0000012e",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SetDialogItemText",
+          "address": "EXTERNAL:0000012f",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetCursor",
+          "address": "EXTERNAL:00000130",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetMaxDevice",
+          "address": "EXTERNAL:00000131",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PBHOpenDenySync",
+          "address": "EXTERNAL:00000132",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SetHandleSize",
+          "address": "EXTERNAL:00000133",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "DisposeRgn",
+          "address": "EXTERNAL:00000134",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GlobalToLocal",
+          "address": "EXTERNAL:00000135",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SetCursor",
+          "address": "EXTERNAL:00000136",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetWindowRegion",
+          "address": "EXTERNAL:00000137",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetDialogWindow",
+          "address": "EXTERNAL:00000138",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "KeyTranslate",
+          "address": "EXTERNAL:00000139",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetSysDirection",
+          "address": "EXTERNAL:0000013a",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "WriteResource",
+          "address": "EXTERNAL:0000013b",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "InsertMenu",
+          "address": "EXTERNAL:0000013c",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetWindowEventTarget",
+          "address": "EXTERNAL:0000013d",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "TimeString",
+          "address": "EXTERNAL:0000013e",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "ClearCurrentScrap",
+          "address": "EXTERNAL:0000013f",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "NewAEEventHandlerUPP",
+          "address": "EXTERNAL:00000140",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "ICStart",
+          "address": "EXTERNAL:00000141",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "NewDragSendDataUPP",
+          "address": "EXTERNAL:00000142",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "DateString",
+          "address": "EXTERNAL:00000143",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "NewSndCallBackUPP",
+          "address": "EXTERNAL:00000144",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetScrapFlavorData",
+          "address": "EXTERNAL:00000145",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "NewDragTrackingHandlerUPP",
+          "address": "EXTERNAL:00000146",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "InstallXTimeTask",
+          "address": "EXTERNAL:00000147",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetEventKind",
+          "address": "EXTERNAL:00000148",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "NewEventHandlerUPP",
+          "address": "EXTERNAL:00000149",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "FMGetFontFamilyFromName",
+          "address": "EXTERNAL:0000014a",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "ICLaunchURL",
+          "address": "EXTERNAL:0000014b",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetCurrentScrap",
+          "address": "EXTERNAL:0000014c",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "NewTimerUPP",
+          "address": "EXTERNAL:0000014d",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetEventClass",
+          "address": "EXTERNAL:0000014e",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "MoreMasterPointers",
+          "address": "EXTERNAL:0000014f",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetScrapFlavorSize",
+          "address": "EXTERNAL:00000150",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "ICBegin",
+          "address": "EXTERNAL:00000151",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "InstallEventHandler",
+          "address": "EXTERNAL:00000152",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "EnableMenuCommand",
+          "address": "EXTERNAL:00000153",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "ICEnd",
+          "address": "EXTERNAL:00000154",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "SetWindowClass",
+          "address": "EXTERNAL:00000155",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "PutScrapFlavor",
+          "address": "EXTERNAL:00000156",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "ICStop",
+          "address": "EXTERNAL:00000157",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "NewDragReceiveHandlerUPP",
+          "address": "EXTERNAL:00000158",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "ICGetPref",
+          "address": "EXTERNAL:00000159",
+          "namespace": "CarbonLib"
+        },
+        {
+          "name": "GetMovieBox",
+          "address": "EXTERNAL:0000015a",
+          "namespace": "Apple;Carbon;Multimedia"
+        },
+        {
+          "name": "MCSetControllerAttached",
+          "address": "EXTERNAL:0000015b",
+          "namespace": "Apple;Carbon;Multimedia"
+        },
+        {
+          "name": "NewMCActionFilterWithRefConUPP",
+          "address": "EXTERNAL:0000015c",
+          "namespace": "Apple;Carbon;Multimedia"
+        },
+        {
+          "name": "MCIsControllerAttached",
+          "address": "EXTERNAL:0000015d",
+          "namespace": "Apple;Carbon;Multimedia"
+        },
+        {
+          "name": "MoviesTask",
+          "address": "EXTERNAL:0000015e",
+          "namespace": "Apple;Carbon;Multimedia"
+        },
+        {
+          "name": "MCGetControllerBoundsRect",
+          "address": "EXTERNAL:0000015f",
+          "namespace": "Apple;Carbon;Multimedia"
+        },
+        {
+          "name": "OTSetAsynchronous",
+          "address": "EXTERNAL:00000160",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTCloseProvider",
+          "address": "EXTERNAL:00000161",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTRcvOrderlyDisconnect",
+          "address": "EXTERNAL:00000162",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTScheduleTimerTask",
+          "address": "EXTERNAL:00000163",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTListen",
+          "address": "EXTERNAL:00000164",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "CloseOpenTransportInContext",
+          "address": "EXTERNAL:00000165",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTCreateConfiguration",
+          "address": "EXTERNAL:00000166",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTLIFOEnqueue",
+          "address": "EXTERNAL:00000167",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTInstallNotifier",
+          "address": "EXTERNAL:00000168",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTSndUData",
+          "address": "EXTERNAL:00000169",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTUnbind",
+          "address": "EXTERNAL:0000016a",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTGetEndpointState",
+          "address": "EXTERNAL:0000016b",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTCreateTimerTaskInContext",
+          "address": "EXTERNAL:0000016c",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "InitOpenTransportInContext",
+          "address": "EXTERNAL:0000016d",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTOpenEndpointInContext",
+          "address": "EXTERNAL:0000016e",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTRcvUDErr",
+          "address": "EXTERNAL:0000016f",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTRcvDisconnect",
+          "address": "EXTERNAL:00000170",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTSndDisconnect",
+          "address": "EXTERNAL:00000171",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTSndOrderlyDisconnect",
+          "address": "EXTERNAL:00000172",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTLeaveNotifier",
+          "address": "EXTERNAL:00000173",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTInetHostToString",
+          "address": "EXTERNAL:00000174",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTOptionManagement",
+          "address": "EXTERNAL:00000175",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTBind",
+          "address": "EXTERNAL:00000176",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTConnect",
+          "address": "EXTERNAL:00000177",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTDestroyTimerTask",
+          "address": "EXTERNAL:00000178",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "NewOTNotifyUPP",
+          "address": "EXTERNAL:00000179",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTCountDataBytes",
+          "address": "EXTERNAL:0000017a",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTRcv",
+          "address": "EXTERNAL:0000017b",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTAtomicSetBit",
+          "address": "EXTERNAL:0000017c",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTLook",
+          "address": "EXTERNAL:0000017d",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTGetProtAddress",
+          "address": "EXTERNAL:0000017e",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTEnterNotifier",
+          "address": "EXTERNAL:0000017f",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTSnd",
+          "address": "EXTERNAL:00000180",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTInetGetInterfaceInfo",
+          "address": "EXTERNAL:00000181",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTRcvConnect",
+          "address": "EXTERNAL:00000182",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "NewOTProcessUPP",
+          "address": "EXTERNAL:00000183",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTLIFOStealList",
+          "address": "EXTERNAL:00000184",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTAtomicClearBit",
+          "address": "EXTERNAL:00000185",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTAccept",
+          "address": "EXTERNAL:00000186",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTIoctl",
+          "address": "EXTERNAL:00000187",
+          "namespace": "Apple;Carbon;Networking"
+        },
+        {
+          "name": "OTAtomicTestBit",
+          "address": "EXTERNAL:00000188",
+          "namespace": "Apple;Carbon;Networking"
+        }
+      ],
+      "offset": 0,
+      "limit": 1000,
+      "total": 392,
+      "has_more": false
+    },
+    "isError": false
+  }
+}

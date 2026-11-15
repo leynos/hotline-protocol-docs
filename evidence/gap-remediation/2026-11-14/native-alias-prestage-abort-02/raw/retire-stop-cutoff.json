@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "systemctl",
+    "--user",
+    "stop",
+    "mothra-native-alias-live-04-cutoff.timer"
+  ],
+  "exit": 0,
+  "stdout": "",
+  "stderr": "",
+  "before_utc": "2026-11-14T22:03:58.841600+00:00",
+  "after_utc": "2026-11-14T22:03:58.875803+00:00"
+}

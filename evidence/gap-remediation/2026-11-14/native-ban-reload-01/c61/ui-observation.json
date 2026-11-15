@@ -1,0 +1,45 @@
+{
+  "utc": "2026-11-14T03:59:26.697008+00:00",
+  "scope": "read-only UI inspection of previously persisted C56 ban on owned stopped image after restart; no frontend contact",
+  "options_tabs": [
+    "General",
+    "Info",
+    "Banner",
+    "Ban",
+    "Trackers",
+    "Admin",
+    "IP"
+  ],
+  "ban_tab": {
+    "checked_row": "10.0.2.2",
+    "row_time_visible": "11/14/2026 3:10:23 AM",
+    "ip_field": "10.0.2.2",
+    "info_field": "",
+    "buttons": [
+      "Add",
+      "Delete",
+      "Cancel",
+      "Save"
+    ],
+    "actions_taken": [
+      "open Options",
+      "select Ban tab",
+      "Cancel"
+    ],
+    "edited": false,
+    "saved": false
+  },
+  "resource_mapping": {
+    "menu_id": 131,
+    "options_menu_item": "Options...",
+    "ban_control_ids": "unresolved PowerPlant/custom UI"
+  },
+  "screenshots_sha256": {
+    "server-ready.png": "48981c67adb12dfb0e17f940ee51c5d26a0d2e4cd8f0fe5fcd220685b034df7e",
+    "options-open.png": "dd8018e947d9ac08851aaf2dcf84482aae74e6a19124d80568b267f2667e9f89",
+    "options-ban.png": "10bce764a04be6479dd17a9409d544d5f0107ba8781cf26386be4887c6322c3d",
+    "options-cancelled.png": "720456c1652fe6ca308d920f507573c0f19e209ce37367c266cabc7b4a30b4ca"
+  },
+  "probe_executed": false,
+  "no_primary_contact_before_probe": true
+}

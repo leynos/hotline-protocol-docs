@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T12:12:23.471198+00:00",
+  "query": {
+    "id": "D-10012f40",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10012f40"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_10012f40\",\n    \"address\": \"10012f40\"\n  },\n  \"code\": \"\\nvoid FUN_10012f40(int param_1,int param_2,undefined4 param_3)\\n\\n{\\n  undefined4 uVar1;\\n  int iVar2;\\n  uint uVar3;\\n  undefined4 uVar4;\\n  \\n  uVar1 = FUN_10056380(0,0);\\n  iVar2 = FUN_10052b70(0x18);\\n  uVar3 = FUN_100046c0(param_1);\\n  *(uint *)(iVar2 + 4) = uVar3 | 1;\\n  uVar4 = FUN_10057d00();\\n  *(undefined4 *)(iVar2 + 8) = uVar4;\\n  *(int *)(iVar2 + 0x10) = param_2;\\n  *(undefined2 *)(iVar2 + 0x14) = *(undefined2 *)(param_2 + 0x14);\\n  FUN_100554e0(param_1 + 0x5c,iVar2);\\n  uVar4 = FUN_10052f80(*(undefined4 *)(param_1 + 0xc));\\n  FUN_10056a90(uVar1,0x6c,uVar4);\\n  FUN_100568b0(uVar1,0x6b,iVar2 + 4,4);\\n  FUN_10058a70(param_3,uVar1);\\n  FUN_100563d0(uVar1);\\n  return;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_10012f40",
+        "address": "10012f40"
+      },
+      "code": "\nvoid FUN_10012f40(int param_1,int param_2,undefined4 param_3)\n\n{\n  undefined4 uVar1;\n  int iVar2;\n  uint uVar3;\n  undefined4 uVar4;\n  \n  uVar1 = FUN_10056380(0,0);\n  iVar2 = FUN_10052b70(0x18);\n  uVar3 = FUN_100046c0(param_1);\n  *(uint *)(iVar2 + 4) = uVar3 | 1;\n  uVar4 = FUN_10057d00();\n  *(undefined4 *)(iVar2 + 8) = uVar4;\n  *(int *)(iVar2 + 0x10) = param_2;\n  *(undefined2 *)(iVar2 + 0x14) = *(undefined2 *)(param_2 + 0x14);\n  FUN_100554e0(param_1 + 0x5c,iVar2);\n  uVar4 = FUN_10052f80(*(undefined4 *)(param_1 + 0xc));\n  FUN_10056a90(uVar1,0x6c,uVar4);\n  FUN_100568b0(uVar1,0x6b,iVar2 + 4,4);\n  FUN_10058a70(param_3,uVar1);\n  FUN_100563d0(uVar1);\n  return;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

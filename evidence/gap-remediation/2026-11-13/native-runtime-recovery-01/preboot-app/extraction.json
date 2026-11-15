@@ -1,0 +1,45 @@
+{
+  "recorded_at_utc": "2026-11-13T15:14:09.265844+00:00",
+  "image": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/base.dsk",
+  "tool_sha256": {
+    "istat": "f87c0cee5e263c55440c19fb3e478b80e33dcbae223388b5f83913ceb5fc4499",
+    "icat": "ab73038eda8ed52697c5d94874bbc0a19285184253e68a78f6e4ab347a042bba"
+  },
+  "catalog_range": [
+    11183,
+    11183
+  ],
+  "roots": [
+    "/Hotline19/HLserver19"
+  ],
+  "method": "Read-only direct catalogue observations. Positive paths verified by istat before fork reads. Not an exhaustive directory listing, path-absence proof, protocol certification or restart-durability result.",
+  "probes": [
+    {
+      "catalog": 11183,
+      "exit_code": 0,
+      "stderr": ""
+    }
+  ],
+  "records": [
+    {
+      "path": "/Hotline19/HLserver19",
+      "key": "catalog-11183",
+      "catalog": 11183,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 616821,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 38460,
+          "stderr": ""
+        }
+      }
+    }
+  ]
+}

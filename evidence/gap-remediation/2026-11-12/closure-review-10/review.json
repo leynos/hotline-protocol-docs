@@ -1,0 +1,17 @@
+{
+  "source_register_commit": "d6644313a1a3f37b31c12a2ab7b6fb10ef0e2844",
+  "entries": [
+    {
+      "gap_id": "GAP-059",
+      "unchanged_closure_criteria": "Provide a direction-specific state machine and complete small nested-folder stream fixtures, including empty, skipped and resumed entries.",
+      "prior_status": "Investigating",
+      "review": "Retained traversal/worker code and direction-specific native streams establish five root-excluded descendants, HFS+ fixture order, aggregate 652 versus 1,148 fresh FILP bytes, empty/directory-only outcomes and exact full/skip/resume/mixed transitions. Control 0 preserves the recorded states through three-second windows. A delayed file choice remains usable after 130 seconds of measured pauses and completes the full stream. Exact host/guest reconciliation and positive native catalogue/fork observations support the fixtures. The unchanged criterion is met; arbitrary path/descriptor validation, mixed-folder queues and broader timing/failure guarantees remain unclaimed."
+    },
+    {
+      "gap_id": "GAP-060",
+      "unchanged_closure_criteria": "Provide the upload-specific state machine with nested, empty, partial and resumed transfer fixtures, including metadata and conflict handling.",
+      "prior_status": "Investigating",
+      "review": "Retained request-213/upload-worker code and native nested, zero-item, directory-final, interrupted, resumed, completed-skip and directory/file conflict cases establish the upload state machine, item counting and selected metadata effects. Before/after direct HFS+ forks show completed alpha retained, partial DATA 13 / MACR 5 under HTft/HTLC, then correct 13/317 under TEXT/MOTH after RFLT continuation. Final directory/skip sends control 3 before EOF; final file does not. Late attachment after 125 seconds closes without readiness; descriptor-only progress does not reset a full interval, with close 35.018523 host seconds after the directory reply. These meet the unchanged criterion. Malformed-path/descriptor, overshoot, large-size and durable failure requirements remain GAP-047/064; no safe-parser or exact-deadline claim."
+    }
+  ]
+}

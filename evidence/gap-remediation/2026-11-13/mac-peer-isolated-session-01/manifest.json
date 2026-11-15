@@ -1,0 +1,45 @@
+{
+  "status": "one-isolated-session-offline-witness",
+  "captured_utc_date": "2026-11-13",
+  "source": "byte-identical copies of canonical ignored B21 final snapshots",
+  "helper_sha256": "2c9eecb35d2c11f8f2e9878f9938c0e0a24129a45ee6b546da87cdd46a666bbb",
+  "capture": {
+    "host-final.pcap": {
+      "size": 3664,
+      "sha256": "733f950867b605a3334fb2ebf2c8e7da6980e88b08c17c502d408a73e71f5134"
+    },
+    "client-guest-final.pcap": {
+      "size": 8606,
+      "sha256": "866f677607dfcae730501e181691dff270abc8a87bb925d60fed8815b7136a11"
+    },
+    "server-guest-final.pcap": {
+      "size": 6921546,
+      "sha256": "3a5e24d3966801c74028a57da0d264c8be0f33ede0a55a14d9924d5d09cc6bf8"
+    },
+    "nonlocal-known-ip.pcap": {
+      "size": 24,
+      "sha256": "e3f42e2687636327d7f18c9635173252505b4a838fa6829a755bab06c9c69749"
+    }
+  },
+  "identity": {
+    "client_guest_emulator_pid": 1012834,
+    "server_guest_emulator_pid": 1099659,
+    "emulator_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+    "archive_label": "Hotline Client 1.9.2 for OSX and OS9",
+    "embedded_vers": "1.9.1.0",
+    "vendor_authenticity": "unverified"
+  },
+  "provenance": {
+    "recorder_logs": "saved original stdout/stderr",
+    "B20-observation.txt": "copied operator report; not raw VM state",
+    "B21-observation.txt": "copied operator report; not a packet source",
+    "guest_pcap": "SLiRP Ethernet boundary with host wall-clock timestamps",
+    "host_control_data": "loopback ports15500+15501 only",
+    "known_ip_observer": "specific external/diagnostic IPs only; not all host egress"
+  },
+  "limits": [
+    "No client image-decoder completion despite 58 response bytes",
+    "No universal kind500 schedule",
+    "No generic peer-tolerance policy"
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "status": "proposed_not_root_approved",
+  "canonical_protocol_head": "beaf0b598081990be63e59403b9c90b85b3eaa3b",
+  "scripts": [
+    {
+      "path": "state/native-sessions/native-alias-live-preparation-03/boot-alias-live-03.sh",
+      "sha256": "e1946718f194f9eefd812a87f9d5005d600837834ae0b08e70d7d9d7568107df",
+      "lines": 155
+    },
+    {
+      "path": "state/native-sessions/native-alias-live-preparation-03/build-runtime-alias-live-03.py",
+      "sha256": "affb2c0f6e72cb41fadefdac5206d7a0b44aa95eef8c2b45ce0680733f71ac09",
+      "lines": 321
+    },
+    {
+      "path": "state/native-sessions/native-alias-live-preparation-03/candidate-closure-03.py",
+      "sha256": "08011f70ac1ad250e2f0c710317705f9b511399ceec41f67e952dea1ac99289b",
+      "lines": 71
+    },
+    {
+      "path": "state/native-sessions/native-alias-live-preparation-03/complete-readiness-alias-live-03.sh",
+      "sha256": "e5e828d4fe030fdeebf8719d43ed76b99f5dca6effb8125b9d98f24b5b699bae",
+      "lines": 83
+    },
+    {
+      "path": "state/native-sessions/native-alias-live-preparation-03/freeze-after-import-03.py",
+      "sha256": "ffdf0e05e4cb6ee5bc36f45e86c42f8008d78b6aa4eb4c1114ea4b16ad1964ca",
+      "lines": 96
+    },
+    {
+      "path": "state/native-sessions/native-alias-live-preparation-03/launch-case-alias-live-03.sh",
+      "sha256": "a63b1e5b0c3e0a6aa79d25251676c1c325fc1d5d087f770ed87e39057d70321c",
+      "lines": 36
+    },
+    {
+      "path": "state/native-sessions/native-alias-live-preparation-03/run-case-alias-live-03.sh",
+      "sha256": "a9651c5c605895caf14e6ed6b77099bc7ffa188d7a82d2a5bdca0e9ae3f11715",
+      "lines": 37
+    },
+    {
+      "path": "state/native-sessions/native-alias-live-preparation-03/run18-alias-live-03.sh",
+      "sha256": "4fcf7a0ed44dba2e258187d812dd5ed7b0083ae935fcbf133fff289658485d61",
+      "lines": 32
+    },
+    {
+      "path": "state/native-sessions/native-alias-live-preparation-03/ui-input-alias-live-03.py",
+      "sha256": "65b2fc6190ba383e0c9d423965735ff99591adbcc0596403eb1f54d508efa0e6",
+      "lines": 357
+    },
+    {
+      "path": "state/native-sessions/native-alias-live-preparation-03/wait-managed-alias-live-03.py",
+      "sha256": "54292438ee498b109efe5b97d59fceae9552913e9949ee8c9c28b0cba2e60308",
+      "lines": 103
+    }
+  ],
+  "physical_lines": 1291
+}

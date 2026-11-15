@@ -1,0 +1,204 @@
+{
+  "recorded_at_utc": "2026-11-13T00:48:14.328211+00:00",
+  "image": "state/mac-runtime/hotline19/working.dsk",
+  "tool_sha256": {
+    "istat": "f87c0cee5e263c55440c19fb3e478b80e33dcbae223388b5f83913ceb5fc4499",
+    "icat": "ab73038eda8ed52697c5d94874bbc0a19285184253e68a78f6e4ab347a042bba"
+  },
+  "catalog_range": [
+    11304,
+    11340
+  ],
+  "roots": [
+    "/Hotline19/m-agree-empty"
+  ],
+  "method": "Read-only direct catalogue observations. Positive paths verified by istat before fork reads. Not an exhaustive directory listing, path-absence proof, protocol certification or restart-durability result.",
+  "probes": [
+    {
+      "catalog": 11304,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11304)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11305,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11305)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11306,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11306)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11307,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11307)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11308,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11308)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11309,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11309)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11310,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11311,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11310)\n"
+    },
+    {
+      "catalog": 11312,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11310)\n"
+    },
+    {
+      "catalog": 11313,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11310)\n"
+    },
+    {
+      "catalog": 11314,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11310)\n"
+    },
+    {
+      "catalog": 11315,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11310)\n"
+    },
+    {
+      "catalog": 11316,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11310)\n"
+    },
+    {
+      "catalog": 11317,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11310)\n"
+    },
+    {
+      "catalog": 11318,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11310)\n"
+    },
+    {
+      "catalog": 11319,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11310)\n"
+    },
+    {
+      "catalog": 11320,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11310)\n"
+    },
+    {
+      "catalog": 11321,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11310)\n"
+    },
+    {
+      "catalog": 11322,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11310)\n"
+    },
+    {
+      "catalog": 11323,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11310)\n"
+    },
+    {
+      "catalog": 11324,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11310)\n"
+    },
+    {
+      "catalog": 11325,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11310)\n"
+    },
+    {
+      "catalog": 11326,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11310)\n"
+    },
+    {
+      "catalog": 11327,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11310)\n"
+    },
+    {
+      "catalog": 11328,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11310)\n"
+    },
+    {
+      "catalog": 11329,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11310)\n"
+    },
+    {
+      "catalog": 11330,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11310)\n"
+    },
+    {
+      "catalog": 11331,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11310)\n"
+    },
+    {
+      "catalog": 11332,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11310)\n"
+    },
+    {
+      "catalog": 11333,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11310)\n"
+    },
+    {
+      "catalog": 11334,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11310)\n"
+    },
+    {
+      "catalog": 11335,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11310)\n"
+    },
+    {
+      "catalog": 11336,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11310)\n"
+    },
+    {
+      "catalog": 11337,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11310)\n"
+    },
+    {
+      "catalog": 11338,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11310)\n"
+    },
+    {
+      "catalog": 11339,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11310)\n"
+    },
+    {
+      "catalog": 11340,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11310)\n"
+    }
+  ],
+  "records": []
+}

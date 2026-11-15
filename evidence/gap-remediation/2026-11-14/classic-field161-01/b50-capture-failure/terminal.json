@@ -1,0 +1,34 @@
+{
+  "utc": "2026-11-14T01:48:16.029753+00:00",
+  "phase": "stopped-before-client-or-proxy",
+  "reason": "namespace-recorder-exited-before-A7; all-view requirement failed",
+  "a7": {
+    "status": "completed",
+    "completed_actions": 29,
+    "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+    "frames": 11,
+    "streams": 2
+  },
+  "captured": {
+    "host.pcap": {
+      "bytes": 1182706,
+      "sha256": "a3eb2b3fb3b5b898751fbabac04501257c11c5bdc49580e257bcbe591c8d6e8f"
+    },
+    "namespace.pcap": {
+      "bytes": 24,
+      "sha256": "704e5e5b3234433c01fcfd1b20a306e77e985038120492dc53965c3edd38a4ea"
+    },
+    "client-guest-pre.pcap": {
+      "bytes": 21534,
+      "sha256": "d2d3d6b977d035ad2b5258ed1f14ec845acc1147ecbbb6168c6fa12c63909574"
+    },
+    "server-guest-pre.pcap": {
+      "bytes": 29169135,
+      "sha256": "700d2311985ee2134f08692b81d34bed3ab98ce654cc28553dcf1d0c167839e3"
+    },
+    "a7-preflight/report.json": {
+      "bytes": 4341959,
+      "sha256": "159a7b7e15d6273782e90ce1d195961ed5ce053567c7d61400758195a197037f"
+    }
+  }
+}

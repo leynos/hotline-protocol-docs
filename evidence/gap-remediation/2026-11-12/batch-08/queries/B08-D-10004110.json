@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T14:28:44.713247+00:00",
+  "query": {
+    "id": "B08-D-10004110",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10004110"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_10004110\",\n    \"address\": \"10004110\"\n  },\n  \"code\": \"\\nint FUN_10004110(int param_1,undefined4 param_2,undefined4 param_3)\\n\\n{\\n  uint uVar1;\\n  int iVar2;\\n  int iVar3;\\n  int iVar4;\\n  int iVar5;\\n  undefined4 uVar6;\\n  undefined1 auStack_280 [128];\\n  short local_1c0 [2];\\n  undefined4 local_1bc;\\n  int local_1b8;\\n  undefined1 auStack_1b0 [2];\\n  undefined2 local_1ae;\\n  undefined2 local_1ac;\\n  undefined2 local_1aa;\\n  undefined2 local_1a8;\\n  undefined1 *local_18c;\\n  undefined4 local_188;\\n  undefined4 local_184;\\n  undefined4 local_180;\\n  undefined4 local_17c;\\n  undefined4 local_178;\\n  undefined4 local_174;\\n  undefined4 local_170;\\n  undefined4 local_16c;\\n  undefined4 local_168;\\n  undefined1 local_164;\\n  undefined4 local_160;\\n  undefined4 local_15c;\\n  undefined4 local_158;\\n  undefined4 local_154;\\n  undefined4 local_150;\\n  undefined4 local_14c;\\n  undefined4 local_148;\\n  undefined4 local_144;\\n  undefined4 local_140;\\n  undefined4 local_13c;\\n  undefined4 local_138;\\n  undefined4 local_134;\\n  undefined4 local_130;\\n  undefined4 local_12c;\\n  undefined4 local_128;\\n  undefined1 local_124;\\n  undefined1 auStack_120 [260];\\n  \\n  if (*(int *)(param_1 + 4) == 0) {\\n    FUN_10027c30(1,2);\\n  }\\n  local_188 = *(undefined4 *)PTR_s_From___s___s_2_2hu__2_2hu__2_2hu_10089148;\\n  local_184 = *(undefined4 *)(PTR_s_From___s___s_2_2hu__2_2hu__2_2hu_10089148 + 4);\\n  local_180 = *(undefined4 *)(PTR_s_From___s___s_2_2hu__2_2hu__2_2hu_10089148 + 8);\\n  local_17c = *(undefined4 *)(PTR_s_From___s___s_2_2hu__2_2hu__2_2hu_10089148 + 0xc);\\n  local_178 = *(undefined4 *)(PTR_s_From___s___s_2_2hu__2_2hu__2_2hu_10089148 + 0x10);\\n  local_174 = *(undefined4 *)(PTR_s_From___s___s_2_2hu__2_2hu__2_2hu_10089148 + 0x14);\\n  local_170 = *(undefined4 *)(PTR_s_From___s___s_2_2hu__2_2hu__2_2hu_10089148 + 0x18);\\n  local_16c = *(undefined4 *)(PTR_s_From___s___s_2_2hu__2_2hu__2_2hu_10089148 + 0x1c);\\n  local_168 = *(undefined4 *)(PTR_s_From___s___s_2_2hu__2_2hu__2_2hu_10089148 + 0x20);\\n  local_164 = PTR_s_From___s___s_2_2hu__2_2hu__2_2hu_10089148[0x24];\\n  local_160 = *(uint *)PTR_s_<________________________________10089144;\\n  local_15c = *(undefined4 *)(PTR_s_<________________________________10089144 + 4);\\n  local_158 = *(undefined4 *)(PTR_s_<________________________________10089144 + 8);\\n  local_154 = *(undefined4 *)(PTR_s_<________________________________10089144 + 0xc);\\n  local_150 = *(undefined4 *)(PTR_s_<________________________________10089144 + 0x10);\\n  local_14c = *(undefined4 *)(PTR_s_<________________________________10089144 + 0x14);\\n  local_148 = *(undefined4 *)(PTR_s_<________________________________10089144 + 0x18);\\n  local_144 = *(undefined4 *)(PTR_s_<________________________________10089144 + 0x1c);\\n  local_140 = *(undefined4 *)(PTR_s_<________________________________10089144 + 0x20);\\n  local_13c = *(undefined4 *)(PTR_s_<________________________________10089144 + 0x24);\\n  local_138 = *(undefined4 *)(PTR_s_<________________________________10089144 + 0x28);\\n  local_134 = *(undefined4 *)(PTR_s_<________________________________10089144 + 0x2c);\\n  local_130 = *(undefined4 *)(PTR_s_<________________________________10089144 + 0x30);\\n  local_12c = *(undefined4 *)(PTR_s_<________________________________10089144 + 0x34);\\n  local_128 = *(undefined4 *)(PTR_s_<________________________________10089144 + 0x38);\\n  local_124 = PTR_s_<________________________________10089144[0x3c];\\n  iVar2 = FUN_100567c0(param_2,0x65);\\n  FUN_10057d70(1,auStack_1b0);\\n  switch(local_1ae) {\\n  default:\\n    uVar6 = 0x1008fd29;\\n    break;\\n  case 1:\\n    uVar6 = 0x1008fcf9;\\n    break;\\n  case 2:\\n    uVar6 = 0x1008fcfd;\\n    break;\\n  case 3:\\n    uVar6 = 0x1008fd01;\\n    break;\\n  case 4:\\n    uVar6 = 0x1008fd05;\\n    break;\\n  case 5:\\n    uVar6 = 0x1008fd09;\\n    break;\\n  case 6:\\n    uVar6 = 0x1008fd0d;\\n    break;\\n  case 7:\\n    uVar6 = 0x1008fd11;\\n    break;\\n  case 8:\\n    uVar6 = 0x1008fd15;\\n    break;\\n  case 9:\\n    uVar6 = 0x1008fd19;\\n    break;\\n  case 10:\\n    uVar6 = 0x1008fd1d;\\n    break;\\n  case 0xb:\\n    uVar6 = 0x1008fd21;\\n    break;\\n  case 0xc:\\n    uVar6 = 0x1008fd25;\\n  }\\n  iVar3 = FUN_10054180(auStack_120,0x100,&local_188,param_3,uVar6,local_1ac,local_1aa,local_1a8);\\n  FUN_100534d0(*(undefined4 *)(param_1 + 4),0,0,(local_160 >> 0x18) + iVar3 + iVar2);\\n  local_1bc = *(undefined4 *)(param_1 + 4);\\n  iVar4 = FUN_10053290();\\n  FUN_100539c0(iVar4,auStack_120,iVar3);\\n  FUN_10056b60(param_2,0x65,iVar4 + iVar3,iVar2);\\n  FUN_100539c0(iVar2 + iVar4 + iVar3,(int)&local_160 + 1,local_160._0_1_);\\n  iVar5 = FUN_1002af80(0xfffffffe,0,PTR_DAT_1008ee20,0x280,local_1c0);\\n  local_18c = auStack_280 + 0x80;\\n  if (local_1c0[0] == 1) {\\n    FUN_1002b370(iVar5,0x54455854,0x74747874);\\n  }\\n  local_1b8 = iVar5;\\n  FUN_1002c220(iVar5,0x23);\\n  uVar6 = FUN_10052f80(*(undefined4 *)(param_1 + 4));\\n  FUN_1002c5a0(iVar5,uVar6);\\n  FUN_1002c440(iVar5,0,iVar4,uVar6,0);\\n  uVar1 = local_160 >> 0x18;\\n  if (local_1b8 != 0) {\\n    FUN_1002b2f0(local_1b8);\\n  }\\n  FUN_10053310(local_1bc);\\n  return uVar1 + iVar3 + iVar2;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_10004110",
+        "address": "10004110"
+      },
+      "code": "\nint FUN_10004110(int param_1,undefined4 param_2,undefined4 param_3)\n\n{\n  uint uVar1;\n  int iVar2;\n  int iVar3;\n  int iVar4;\n  int iVar5;\n  undefined4 uVar6;\n  undefined1 auStack_280 [128];\n  short local_1c0 [2];\n  undefined4 local_1bc;\n  int local_1b8;\n  undefined1 auStack_1b0 [2];\n  undefined2 local_1ae;\n  undefined2 local_1ac;\n  undefined2 local_1aa;\n  undefined2 local_1a8;\n  undefined1 *local_18c;\n  undefined4 local_188;\n  undefined4 local_184;\n  undefined4 local_180;\n  undefined4 local_17c;\n  undefined4 local_178;\n  undefined4 local_174;\n  undefined4 local_170;\n  undefined4 local_16c;\n  undefined4 local_168;\n  undefined1 local_164;\n  undefined4 local_160;\n  undefined4 local_15c;\n  undefined4 local_158;\n  undefined4 local_154;\n  undefined4 local_150;\n  undefined4 local_14c;\n  undefined4 local_148;\n  undefined4 local_144;\n  undefined4 local_140;\n  undefined4 local_13c;\n  undefined4 local_138;\n  undefined4 local_134;\n  undefined4 local_130;\n  undefined4 local_12c;\n  undefined4 local_128;\n  undefined1 local_124;\n  undefined1 auStack_120 [260];\n  \n  if (*(int *)(param_1 + 4) == 0) {\n    FUN_10027c30(1,2);\n  }\n  local_188 = *(undefined4 *)PTR_s_From___s___s_2_2hu__2_2hu__2_2hu_10089148;\n  local_184 = *(undefined4 *)(PTR_s_From___s___s_2_2hu__2_2hu__2_2hu_10089148 + 4);\n  local_180 = *(undefined4 *)(PTR_s_From___s___s_2_2hu__2_2hu__2_2hu_10089148 + 8);\n  local_17c = *(undefined4 *)(PTR_s_From___s___s_2_2hu__2_2hu__2_2hu_10089148 + 0xc);\n  local_178 = *(undefined4 *)(PTR_s_From___s___s_2_2hu__2_2hu__2_2hu_10089148 + 0x10);\n  local_174 = *(undefined4 *)(PTR_s_From___s___s_2_2hu__2_2hu__2_2hu_10089148 + 0x14);\n  local_170 = *(undefined4 *)(PTR_s_From___s___s_2_2hu__2_2hu__2_2hu_10089148 + 0x18);\n  local_16c = *(undefined4 *)(PTR_s_From___s___s_2_2hu__2_2hu__2_2hu_10089148 + 0x1c);\n  local_168 = *(undefined4 *)(PTR_s_From___s___s_2_2hu__2_2hu__2_2hu_10089148 + 0x20);\n  local_164 = PTR_s_From___s___s_2_2hu__2_2hu__2_2hu_10089148[0x24];\n  local_160 = *(uint *)PTR_s_<________________________________10089144;\n  local_15c = *(undefined4 *)(PTR_s_<________________________________10089144 + 4);\n  local_158 = *(undefined4 *)(PTR_s_<________________________________10089144 + 8);\n  local_154 = *(undefined4 *)(PTR_s_<________________________________10089144 + 0xc);\n  local_150 = *(undefined4 *)(PTR_s_<________________________________10089144 + 0x10);\n  local_14c = *(undefined4 *)(PTR_s_<________________________________10089144 + 0x14);\n  local_148 = *(undefined4 *)(PTR_s_<________________________________10089144 + 0x18);\n  local_144 = *(undefined4 *)(PTR_s_<________________________________10089144 + 0x1c);\n  local_140 = *(undefined4 *)(PTR_s_<________________________________10089144 + 0x20);\n  local_13c = *(undefined4 *)(PTR_s_<________________________________10089144 + 0x24);\n  local_138 = *(undefined4 *)(PTR_s_<________________________________10089144 + 0x28);\n  local_134 = *(undefined4 *)(PTR_s_<________________________________10089144 + 0x2c);\n  local_130 = *(undefined4 *)(PTR_s_<________________________________10089144 + 0x30);\n  local_12c = *(undefined4 *)(PTR_s_<________________________________10089144 + 0x34);\n  local_128 = *(undefined4 *)(PTR_s_<________________________________10089144 + 0x38);\n  local_124 = PTR_s_<________________________________10089144[0x3c];\n  iVar2 = FUN_100567c0(param_2,0x65);\n  FUN_10057d70(1,auStack_1b0);\n  switch(local_1ae) {\n  default:\n    uVar6 = 0x1008fd29;\n    break;\n  case 1:\n    uVar6 = 0x1008fcf9;\n    break;\n  case 2:\n    uVar6 = 0x1008fcfd;\n    break;\n  case 3:\n    uVar6 = 0x1008fd01;\n    break;\n  case 4:\n    uVar6 = 0x1008fd05;\n    break;\n  case 5:\n    uVar6 = 0x1008fd09;\n    break;\n  case 6:\n    uVar6 = 0x1008fd0d;\n    break;\n  case 7:\n    uVar6 = 0x1008fd11;\n    break;\n  case 8:\n    uVar6 = 0x1008fd15;\n    break;\n  case 9:\n    uVar6 = 0x1008fd19;\n    break;\n  case 10:\n    uVar6 = 0x1008fd1d;\n    break;\n  case 0xb:\n    uVar6 = 0x1008fd21;\n    break;\n  case 0xc:\n    uVar6 = 0x1008fd25;\n  }\n  iVar3 = FUN_10054180(auStack_120,0x100,&local_188,param_3,uVar6,local_1ac,local_1aa,local_1a8);\n  FUN_100534d0(*(undefined4 *)(param_1 + 4),0,0,(local_160 >> 0x18) + iVar3 + iVar2);\n  local_1bc = *(undefined4 *)(param_1 + 4);\n  iVar4 = FUN_10053290();\n  FUN_100539c0(iVar4,auStack_120,iVar3);\n  FUN_10056b60(param_2,0x65,iVar4 + iVar3,iVar2);\n  FUN_100539c0(iVar2 + iVar4 + iVar3,(int)&local_160 + 1,local_160._0_1_);\n  iVar5 = FUN_1002af80(0xfffffffe,0,PTR_DAT_1008ee20,0x280,local_1c0);\n  local_18c = auStack_280 + 0x80;\n  if (local_1c0[0] == 1) {\n    FUN_1002b370(iVar5,0x54455854,0x74747874);\n  }\n  local_1b8 = iVar5;\n  FUN_1002c220(iVar5,0x23);\n  uVar6 = FUN_10052f80(*(undefined4 *)(param_1 + 4));\n  FUN_1002c5a0(iVar5,uVar6);\n  FUN_1002c440(iVar5,0,iVar4,uVar6,0);\n  uVar1 = local_160 >> 0x18;\n  if (local_1b8 != 0) {\n    FUN_1002b2f0(local_1b8);\n  }\n  FUN_10053310(local_1bc);\n  return uVar1 + iVar3 + iVar2;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "utc": "2026-11-14T01:46:09.370245+00:00",
+  "files": {
+    "host.pcap": {
+      "bytes": 24,
+      "sha256": "704e5e5b3234433c01fcfd1b20a306e77e985038120492dc53965c3edd38a4ea",
+      "header": "d4c3b2a10200040000000000000000000000040001000000"
+    },
+    "namespace.pcap": {
+      "bytes": 24,
+      "sha256": "704e5e5b3234433c01fcfd1b20a306e77e985038120492dc53965c3edd38a4ea",
+      "header": "d4c3b2a10200040000000000000000000000040001000000"
+    },
+    "client-guest-pre.pcap": {
+      "bytes": 21534,
+      "sha256": "d2d3d6b977d035ad2b5258ed1f14ec845acc1147ecbbb6168c6fa12c63909574",
+      "header": "d4c3b2a1020004000000000000000000ffff000001000000"
+    },
+    "server-guest-pre.pcap": {
+      "bytes": 29169135,
+      "sha256": "700d2311985ee2134f08692b81d34bed3ab98ce654cc28553dcf1d0c167839e3",
+      "header": "d4c3b2a1020004000000000000000000ffff000001000000"
+    }
+  }
+}

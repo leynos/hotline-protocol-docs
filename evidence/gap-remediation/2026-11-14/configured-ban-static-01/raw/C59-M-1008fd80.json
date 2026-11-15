@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-14T03:33:59.369376+00:00",
+  "query": {
+    "id": "C59-M-1008fd80",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "1008fd80",
+      "length": 160
+    }
+  },
+  "program": {
+    "name": "HLserver19.pef",
+    "project_path": "/HLserver19.pef",
+    "executable_path": "/data/leynos/Projects/mothra/evidence/hotline-server-1.9/inputs/HLserver19.pef",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 0,
+    "external_function_count": 0,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"address\": \"1008fd80\",\n  \"length\": 160,\n  \"hex\": \"20 61 63 63 6f 75 6e 74 20 77 68 69 63 68 20 77 61 73 20 64 65 6c 65 74 65 64 2e 44 69 73 63 6f 6e 6e 65 63 74 20 d2 25 23 73 d3 00 2a 59 6f 75 20 61 72 65 20 70 65 72 6d 61 6e 65 6e 74 6c 79 20 62 61 6e 6e 65 64 20 6f 6e 20 74 68 69 73 20 73 65 72 76 65 72 2e 44 69 73 63 6f 6e 6e 65 63 74 20 26 20 70 65 72 6d 61 6e 65 6e 74 20 62 61 6e 20 d2 25 23 73 d3 00 00 0d 25 23 2d 32 32 2e 32 32 73 20 25 23 2d 32 30 2e 32 30 73 20 25 23 73 00 25 23 73 09 25 23 73 09 25 23 73 09 25 23\",\n  \"ascii\": \" account which was deleted.Disconnect .%#s..*You are permanently banned on this server.Disconnect & permanent ban .%#s....%#-22.22s %#-20.20s %#s.%#s.%#s.%#s.%#\",\n  \"gaps\": []\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "address": "1008fd80",
+      "length": 160,
+      "hex": "20 61 63 63 6f 75 6e 74 20 77 68 69 63 68 20 77 61 73 20 64 65 6c 65 74 65 64 2e 44 69 73 63 6f 6e 6e 65 63 74 20 d2 25 23 73 d3 00 2a 59 6f 75 20 61 72 65 20 70 65 72 6d 61 6e 65 6e 74 6c 79 20 62 61 6e 6e 65 64 20 6f 6e 20 74 68 69 73 20 73 65 72 76 65 72 2e 44 69 73 63 6f 6e 6e 65 63 74 20 26 20 70 65 72 6d 61 6e 65 6e 74 20 62 61 6e 20 d2 25 23 73 d3 00 00 0d 25 23 2d 32 32 2e 32 32 73 20 25 23 2d 32 30 2e 32 30 73 20 25 23 73 00 25 23 73 09 25 23 73 09 25 23 73 09 25 23",
+      "ascii": " account which was deleted.Disconnect .%#s..*You are permanently banned on this server.Disconnect & permanent ban .%#s....%#-22.22s %#-20.20s %#s.%#s.%#s.%#s.%#",
+      "gaps": []
+    },
+    "isError": false
+  }
+}

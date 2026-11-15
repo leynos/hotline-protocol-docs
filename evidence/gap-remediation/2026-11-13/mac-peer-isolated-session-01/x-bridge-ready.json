@@ -1,0 +1,10 @@
+{
+  "pid": 1012804,
+  "socket": "/data/leynos/Projects/mothra/state/mac-runtime/hotline-client-isolated-01/isolated-network/x-bridge.sock",
+  "socket_inode": 593025390,
+  "fixed_target": {
+    "kind": "x-abstract",
+    "display": ":107"
+  },
+  "netns": "net:[4026531840]"
+}

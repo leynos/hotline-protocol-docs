@@ -1,0 +1,13 @@
+{
+  "main_uid_hex": "002b",
+  "peer_uid_hex": "002c",
+  "verified_cases": [
+    "direct-quoted",
+    "recipient-refuses",
+    "auto-and-original",
+    "sender-refuses",
+    "option-two",
+    "option-three",
+    "empty"
+  ]
+}

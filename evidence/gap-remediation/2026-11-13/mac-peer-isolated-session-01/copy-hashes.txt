@@ -1,0 +1,3 @@
+e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910  state/mac-runtime/hotline-client-isolated-01/base.dsk
+e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910  state/mac-runtime/hotline-client-isolated-01/working.dsk
+18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd  state/mac-runtime/hotline-client-isolated-01/rom

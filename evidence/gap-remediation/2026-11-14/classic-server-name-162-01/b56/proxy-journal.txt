@@ -1,0 +1,19 @@
+2026-11-14T03:19:51+00:00 ibara systemd[1]: Starting mothra-classic-proxy-b56.service - [systemd-run] /usr/bin/python3 /data/leynos/Projects/hotline-protocol-docs/scripts/classic_login_proxy.py --variant server-name-162 --output /data/leynos/Projects/mothra/state/native-sessions/native-proxy-162-b56/proxy --expected-netns-inode 4026532479 --host-netns-inode 4026531840...
+2026-11-14T03:19:51+00:00 ibara systemd[1]: Started mothra-classic-proxy-b56.service - [systemd-run] /usr/bin/python3 /data/leynos/Projects/hotline-protocol-docs/scripts/classic_login_proxy.py --variant server-name-162 --output /data/leynos/Projects/mothra/state/native-sessions/native-proxy-162-b56/proxy --expected-netns-inode 4026532479 --host-netns-inode 4026531840.
+2026-11-14T03:19:51+00:00 ibara python3[163127]: Traceback (most recent call last):
+2026-11-14T03:19:51+00:00 ibara python3[163127]:   File "/data/leynos/Projects/hotline-protocol-docs/scripts/classic_login_proxy.py", line 538, in <module>
+2026-11-14T03:19:51+00:00 ibara python3[163127]:     main()
+2026-11-14T03:19:51+00:00 ibara python3[163127]:     ~~~~^^
+2026-11-14T03:19:51+00:00 ibara python3[163127]:   File "/data/leynos/Projects/hotline-protocol-docs/scripts/classic_login_proxy.py", line 528, in main
+2026-11-14T03:19:51+00:00 ibara python3[163127]:     result = serve(
+2026-11-14T03:19:51+00:00 ibara python3[163127]:         args.variant, args.output, args.expected_netns_inode, args.host_netns_inode
+2026-11-14T03:19:51+00:00 ibara python3[163127]:     )
+2026-11-14T03:19:51+00:00 ibara python3[163127]:   File "/data/leynos/Projects/hotline-protocol-docs/scripts/classic_login_proxy.py", line 337, in serve
+2026-11-14T03:19:51+00:00 ibara python3[163127]:     output.mkdir(parents=True, exist_ok=False)
+2026-11-14T03:19:51+00:00 ibara python3[163127]:     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-14T03:19:51+00:00 ibara python3[163127]:   File "/usr/lib64/python3.14/pathlib/__init__.py", line 1011, in mkdir
+2026-11-14T03:19:51+00:00 ibara python3[163127]:     os.mkdir(self, mode)
+2026-11-14T03:19:51+00:00 ibara python3[163127]:     ~~~~~~~~^^^^^^^^^^^^
+2026-11-14T03:19:51+00:00 ibara python3[163127]: FileExistsError: [Errno 17] File exists: '/data/leynos/Projects/mothra/state/native-sessions/native-proxy-162-b56/proxy'
+2026-11-14T03:19:51+00:00 ibara systemd[1]: mothra-classic-proxy-b56.service: Main process exited, code=exited, status=1/FAILURE
+2026-11-14T03:19:51+00:00 ibara systemd[1]: mothra-classic-proxy-b56.service: Failed with result 'exit-code'.

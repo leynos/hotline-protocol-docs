@@ -1,0 +1,9 @@
+{
+  "completed_reports": 14,
+  "paired_connections": 16,
+  "protected_delete_variants": 2,
+  "duplicate_create_variants": 2,
+  "unread_removal_tails": 2,
+  "oracle_queries": 10,
+  "scope": "Owned bit-23 protection and self-delete, exact/ASCII-case collisions and wire cleanup. No built-in-account deletion, native Trash fork, forced I/O, restart or universal name-folding claim."
+}

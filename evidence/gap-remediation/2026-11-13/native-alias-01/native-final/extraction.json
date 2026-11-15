@@ -1,0 +1,947 @@
+{
+  "recorded_at_utc": "2026-11-13T05:46:41.125002+00:00",
+  "image": "state/mac-runtime/hotline20/working.dsk",
+  "tool_sha256": {
+    "istat": "f87c0cee5e263c55440c19fb3e478b80e33dcbae223388b5f83913ceb5fc4499",
+    "icat": "ab73038eda8ed52697c5d94874bbc0a19285184253e68a78f6e4ab347a042bba"
+  },
+  "catalog_range": [
+    11415,
+    11485
+  ],
+  "roots": [
+    "/Hotline19/Files/mothra-alias20",
+    "/Hotline19/Files/m-al20-absent",
+    "/Hotline19/Files/m-al20-empty",
+    "/Hotline19/Files/m-al20-zero"
+  ],
+  "method": "Read-only direct catalogue observations. Positive paths verified by istat before fork reads. Not an exhaustive directory listing, path-absence proof, protocol certification or restart-durability result.",
+  "probes": [
+    {
+      "catalog": 11415,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11415)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11416,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11417,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11417)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11418,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11418)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11419,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11419)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11420,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11421,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11421)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11422,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11422)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11423,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11424,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11425,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11426,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11427,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11428,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11429,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11430,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11431,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11432,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11433,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11434,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11435,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11436,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11437,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11438,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11439,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11440,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11441,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11442,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11443,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11444,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11445,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11446,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11447,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11448,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11449,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11450,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11451,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11452,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11453,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11454,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11455,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11456,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11457,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11456)\n"
+    },
+    {
+      "catalog": 11458,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11456)\n"
+    },
+    {
+      "catalog": 11459,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11456)\n"
+    },
+    {
+      "catalog": 11460,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11456)\n"
+    },
+    {
+      "catalog": 11461,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11456)\n"
+    },
+    {
+      "catalog": 11462,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11456)\n"
+    },
+    {
+      "catalog": 11463,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11456)\n"
+    },
+    {
+      "catalog": 11464,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11456)\n"
+    },
+    {
+      "catalog": 11465,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11456)\n"
+    },
+    {
+      "catalog": 11466,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11456)\n"
+    },
+    {
+      "catalog": 11467,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11456)\n"
+    },
+    {
+      "catalog": 11468,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11456)\n"
+    },
+    {
+      "catalog": 11469,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11456)\n"
+    },
+    {
+      "catalog": 11470,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11456)\n"
+    },
+    {
+      "catalog": 11471,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11456)\n"
+    },
+    {
+      "catalog": 11472,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11456)\n"
+    },
+    {
+      "catalog": 11473,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11456)\n"
+    },
+    {
+      "catalog": 11474,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11456)\n"
+    },
+    {
+      "catalog": 11475,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11456)\n"
+    },
+    {
+      "catalog": 11476,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11456)\n"
+    },
+    {
+      "catalog": 11477,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11456)\n"
+    },
+    {
+      "catalog": 11478,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11456)\n"
+    },
+    {
+      "catalog": 11479,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11456)\n"
+    },
+    {
+      "catalog": 11480,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11456)\n"
+    },
+    {
+      "catalog": 11481,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11456)\n"
+    },
+    {
+      "catalog": 11482,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11456)\n"
+    },
+    {
+      "catalog": 11483,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11456)\n"
+    },
+    {
+      "catalog": 11484,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11456)\n"
+    },
+    {
+      "catalog": 11485,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11456)\n"
+    }
+  ],
+  "records": [
+    {
+      "path": "/Hotline19/Files/mothra-alias20",
+      "key": "catalog-11424",
+      "catalog": 11424,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-alias20/A",
+      "key": "catalog-11425",
+      "catalog": 11425,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-alias20/B",
+      "key": "catalog-11426",
+      "catalog": 11426,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-alias20/C",
+      "key": "catalog-11427",
+      "catalog": 11427,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-alias20/D",
+      "key": "catalog-11428",
+      "catalog": 11428,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-alias20/dir",
+      "key": "catalog-11429",
+      "catalog": 11429,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-alias20/C/dir",
+      "key": "catalog-11430",
+      "catalog": 11430,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Files/mothra-alias20/file",
+      "key": "catalog-11431",
+      "catalog": 11431,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 16,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-alias20/empty",
+      "key": "catalog-11432",
+      "catalog": 11432,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 0,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-alias20/zero-tags",
+      "key": "catalog-11433",
+      "catalog": 11433,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 9,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-alias20/unknown-tags",
+      "key": "catalog-11434",
+      "catalog": 11434,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 12,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-alias20/same",
+      "key": "catalog-11435",
+      "catalog": 11435,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 11,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-alias20/self",
+      "key": "catalog-11436",
+      "catalog": 11436,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 11,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 546,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-alias20/hi-o\u0308",
+      "key": "catalog-11437",
+      "catalog": 11437,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 4,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-alias20/m-al20-absent",
+      "key": "catalog-11438",
+      "catalog": 11438,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 14,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-alias20/m-al20-empty",
+      "key": "catalog-11439",
+      "catalog": 11439,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 14,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-alias20/m-al20-zero",
+      "key": "catalog-11440",
+      "catalog": 11440,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 14,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-alias20/dir/leaf",
+      "key": "catalog-11441",
+      "catalog": 11441,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 8,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-alias20/C/same",
+      "key": "catalog-11442",
+      "catalog": 11442,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 21,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 546,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-alias20/C/dir/keep",
+      "key": "catalog-11443",
+      "catalog": 11443,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 4,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-alias20/A/file",
+      "key": "catalog-11444",
+      "catalog": 11444,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 0,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 546,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-alias20/A/dir",
+      "key": "catalog-11445",
+      "catalog": 11445,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 0,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 546,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-alias20/B/file",
+      "key": "catalog-11446",
+      "catalog": 11446,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 0,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 540,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-alias20/B/dir",
+      "key": "catalog-11447",
+      "catalog": 11447,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 0,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 540,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-alias20/D/hi-o\u0308",
+      "key": "catalog-11448",
+      "catalog": 11448,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 0,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 546,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/m-al20-absent",
+      "key": "catalog-11449",
+      "catalog": 11449,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 0,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 556,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/m-al20-empty",
+      "key": "catalog-11450",
+      "catalog": 11450,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 0,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 554,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/m-al20-zero",
+      "key": "catalog-11451",
+      "catalog": 11451,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 0,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 554,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-alias20/D/derived-link",
+      "key": "catalog-11452",
+      "catalog": 11452,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 0,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 546,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-alias20/D/derived-empty",
+      "key": "catalog-11453",
+      "catalog": 11453,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 0,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 546,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-alias20/D/derived-dir",
+      "key": "catalog-11454",
+      "catalog": 11454,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 0,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 546,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-alias20/D/file",
+      "key": "catalog-11455",
+      "catalog": 11455,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 0,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 540,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Files/mothra-alias20/flush",
+      "key": "catalog-11456",
+      "catalog": 11456,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 0,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    }
+  ]
+}

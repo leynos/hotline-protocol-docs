@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "profile": "native-mac-oracle",
+  "status": "completed",
+  "native_conformance": false,
+  "identity_scope": "Local binary hash verified; remote process identity is operator-reported",
+  "operator": "C52 isolated ban-control operator",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "plan_sha256": "626e478b19b758f712510eee36f10323f3515529a6d3ee489b09ab1496684f3a",
+  "driver_sha256": "2fba0972f4d9a8e3845c4204dce150dd7c90da0e19a9e5720d5289e2c94faf01",
+  "recorded_at_utc": "2026-11-14T03:10:24.647691+00:00",
+  "started_at_utc": "2026-11-14T03:10:24.598259+00:00",
+  "gap_ids": [
+    "GAP-044"
+  ],
+  "completed_actions": 6,
+  "error": "",
+  "events": [
+    {
+      "action": 0,
+      "connection": "main",
+      "event": "connect",
+      "elapsed_ns": 174004,
+      "hex": "",
+      "local_address": [
+        "127.0.0.1",
+        58544
+      ],
+      "peer_address": [
+        "127.0.0.1",
+        15750
+      ]
+    },
+    {
+      "action": 1,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 213518,
+      "hex": "54525450484f544c00010002"
+    },
+    {
+      "action": 2,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 38580363,
+      "hex": "5452545000000000"
+    },
+    {
+      "action": 3,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 38717118,
+      "hex": "0000006b00000001000000000000003c0000003c0005006a000a9d9e91cacdd28f9e8c8c00a0000200be0069000c92d29d9e91cacdd2909193860066000c42616e353220546172676574006800020001"
+    },
+    {
+      "action": 4,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 49184984,
+      "hex": "0001000000000001000000010000003000000030"
+    },
+    {
+      "action": 4,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 49203969,
+      "hex": "00010064002a596f7520617265207065726d616e656e746c792062616e6e6564206f6e2074686973207365727665722e"
+    },
+    {
+      "action": 5,
+      "connection": "main",
+      "event": "close",
+      "elapsed_ns": 49296622,
+      "hex": ""
+    }
+  ],
+  "frames": [
+    {
+      "action": 4,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 1,
+      "error": 1,
+      "total_size": 48,
+      "data_size": 48,
+      "payload_hex": "00010064002a596f7520617265207065726d616e656e746c792062616e6e6564206f6e2074686973207365727665722e",
+      "fields": [
+        {
+          "id": 100,
+          "hex": "596f7520617265207065726d616e656e746c792062616e6e6564206f6e2074686973207365727665722e"
+        }
+      ],
+      "declared_field_count": 1,
+      "unconsumed_hex": ""
+    }
+  ],
+  "streams": {
+    "main": {
+      "sent_hex": "54525450484f544c000100020000006b00000001000000000000003c0000003c0005006a000a9d9e91cacdd28f9e8c8c00a0000200be0069000c92d29d9e91cacdd2909193860066000c42616e353220546172676574006800020001",
+      "received_hex": "5452545000000000000100000000000100000001000000300000003000010064002a596f7520617265207065726d616e656e746c792062616e6e6564206f6e2074686973207365727665722e"
+    }
+  }
+}

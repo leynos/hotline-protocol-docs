@@ -1,0 +1,14 @@
+{
+  "utc": "2026-11-14T14:14:22.895232+00:00",
+  "pid": 1058709,
+  "pid_gone": true,
+  "working_inode": 5999397982,
+  "root_fuser_argv": [
+    "fuser",
+    "/data/leynos/Projects/mothra/state/mac-runtime/native-path-fields-01/working.dsk"
+  ],
+  "root_fuser_exit": 1,
+  "root_fuser_stdout": "",
+  "root_fuser_stderr": "",
+  "purpose": "Read-only stopped post-cleanup marker metadata; no temporal pre-cleanup or crash-durability claim"
+}

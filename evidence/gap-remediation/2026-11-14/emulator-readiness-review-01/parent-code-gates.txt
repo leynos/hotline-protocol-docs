@@ -1,0 +1,7 @@
+ruff format --check scripts ../hotline-protocol-docs/scripts
+258 files already formatted
+ruff check scripts ../hotline-protocol-docs/scripts
+All checks passed!
+shellcheck ghidra ghidra-mcp scripts/build-sheepshaver
+ty check --extra-search-path ../hotline-protocol-docs/scripts --python tools/ghidramcp/.venv/bin/python scripts ../hotline-protocol-docs/scripts
+All checks passed!

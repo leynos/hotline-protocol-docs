@@ -1,0 +1,22 @@
+{
+  "tool": "SleuthKit4.15.0",
+  "image": "state/mac-runtime/hotline19/working.dsk",
+  "mode": "Read-only inspection of live HFS+ image after successful transfer; no restart/durability claim",
+  "files": [
+    {
+      "name": "mothra-fork-fixture",
+      "catalog": 11210,
+      "data_attribute": "4352-0",
+      "resource_attribute": "4353-1",
+      "resource_exit_code": 0
+    },
+    {
+      "name": "mothra-empty-fixture",
+      "catalog": 11211,
+      "data_attribute": "4352-0",
+      "resource_attribute": "4353-1",
+      "resource_exit_code": 1,
+      "resource_interpretation": "Attribute absent, not a successful resource-fork extraction; catalogue reports zero resource bytes and subsequent native download has zeroMACR"
+    }
+  ]
+}

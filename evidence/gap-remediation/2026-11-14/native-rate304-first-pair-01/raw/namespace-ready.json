@@ -1,0 +1,21 @@
+{
+  "utc": "2026-11-14T10:26:32.346121+00:00",
+  "unit": "mothra-native-rate304-c106-namespace.service",
+  "pid": 1999518,
+  "start_ticks": 7669730,
+  "netns_inode": 4026533669,
+  "fd": 5,
+  "capture": "/data/leynos/Projects/mothra/state/native-sessions/native-rate304-epoch-01/lab-namespace.pcap",
+  "dev": 2097,
+  "inode": 3822464962,
+  "header24": "d4c3b2a10200040000000000000000000000040001000000",
+  "deadline_utc": "2026-11-14T10:36:36.309570+00:00",
+  "unit_properties": {
+    "ActiveState": "active",
+    "SubState": "running",
+    "ActiveEnterTimestampMonotonic": "76697326328",
+    "RuntimeMaxUSec": "15min",
+    "MainPID": "1999518",
+    "KillMode": "control-group"
+  }
+}

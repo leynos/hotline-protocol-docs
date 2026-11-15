@@ -1,0 +1,73 @@
+# A146: C145 P02 operational plateau review
+
+Read-only, no-service/no-X review of the ten scripts and operational packet
+under `state/native-sessions/native-alias-live-preparation-02/`, plus the
+corrected parent `review-alias-live-ready-02.py`. No approval pin, VM, UI,
+socket, source or mxd action was made.
+
+## Positive checks
+
+- Ten scripts total **1,232** physical lines; the packet now records the
+  approved **1,250** cap (its earlier 1,150 text was corrected during this
+  review). The operational packet is 110 lines. Python AST passed five
+  Python files and all embedded shell heredoc Python blocks; `bash -n`
+  and ShellCheck passed all five shell files. The pure case-window model
+  allows age 109 seconds, rejects 110/future/naive.
+- Proposed closure has 35 protocol modules, three helpers and two launchers.
+  Every current canonical and proposed snapshot byte hash matches. The
+  proposed ten-script SHA inventory matches the current ten script bytes.
+  I ran the actual boot script's first inline Python validator in an
+  isolated temporary pin model: full 2/35/3/2/10 sets passed, and deleting
+  one entry from each set failed. All five **real** approval pins remain
+  absent; no D/O runtime was created by this review.
+- B119 stopped preflight and finf supplement now exist with
+  `prepared_stopped`/`stopped_finf_staged`, working inode 203082518 and
+  32-byte `U54TM54X` sidecar. P02's referenced field names match these
+  receipt schemas. Boot pins sources before the first service, checks
+  stopped FDs/image hashes, starts host SYN recorder before display/VM,
+  then uses disk-only readiness. Complete-readiness requires capture-phase
+  receipt and reviewed pre-stage before runtime/plan, creates namespace
+  capture before the closed 18-action flow, and retains the >=390-second
+  case margin. M2b uses fresh live-02/:123/15960, one 205, case count five,
+  readiness count six, zero 500 and no host unlink.
+- The root parent readiness reviewer remains at SHA
+  `6c3f977c52e43fa1e0e67b349f8387aedceb50f863835f30b73ae7af38ca40f4`.
+  It binds disk/capture/pre-stage starts and hashes, all three screenshot
+  hashes, current full finf pin and plan counts before PASS. It was not run.
+
+## Consequential pre-pin corrections
+
+1. **Per-action identity is still weaker than B118 item 2.** In
+   `ui-input-alias-live-02.py` lines 58–104, the gate checks the saved
+   display command and active unit, disk receipt, current emulator UID/
+   start/netns and FD6 inode. It does **not** compare the display service's
+   actual MainPID/start/executable to a bound receipt; it compares only the
+   *saved* emulator executable SHA, without hashing current `/proc/PID/exe`,
+   and does not check current FD16 path/inode after capture phase. A process
+   with matching PID/start/UID/netns/FD6 but a different executable or lost
+   capture FD passes the UI gate. Likewise an active replacement display
+   unit can pass if its saved command is unchanged. B118 explicitly requires
+   the live process/display/FD chain at every action. Recheck those facts
+   before X opens, using existing receipts/current `/proc`; record any
+   display start identity in the reviewed pre-stage receipt if necessary.
+2. **Retirement is not single-use after an uncertain click.** Lines
+   199–214 choose Quit or Quit Now by counting only `status=completed`
+   retirement log rows. A prior `status=attempted` row with no completion
+   selects Quit again. Because the attempted row is fsynced before X opens
+   and an exception can occur after the button event but before the
+   completed row, a second invocation could send a duplicate Quit. The
+   no-X sequence model confirmed `[] -> Quit`, `[attempted] -> Quit`,
+   `[attempted,completed] -> Quit Now`. Treat any unresolved attempt as a
+   stop requiring supervisor review, not as an unused click. Keep the
+   existing narrow root-0600 approval, fresh image and 60-second gate.
+
+The pre-stage receipt has the B118 PID/start/ns, display, target, source
+receipt SHA and three screenshot hashes; builder independently opens and
+hashes DATA and finf before sockets. The packet also requires an owned HFS
+Files parent to be visible, but current receipt schema does not encode that
+separate positive check. This is an operational evidence limitation; the
+case still stops at READY/receipt if the destination cannot be identified.
+
+Do not create approval pins from these bytes until the two numbered UI
+guards are resolved and re-reviewed. The offline checks show syntax and
+source consistency, not a native alias result or a live START.

@@ -1,0 +1,1 @@
+{"case_started": false, "closed18_started": false, "deadline_utc": "2026-11-14T18:20:40.727465+00:00", "emulator_netns_inode": 4026532317, "emulator_pid": 503, "emulator_starttime": 10443140, "reason": "finder_target_review_not_completed_by_epoch_plus_270_seconds", "status": "precase_abort", "utc": "2026-11-14T18:14:34.609012+00:00"}

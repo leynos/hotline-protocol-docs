@@ -1,0 +1,10 @@
+{
+  "screenshot": "run/after-agree-1s.png",
+  "screenshot_sha256": "d2b9c17e3176044ab981f4c1bee036bfc8eb38dfafd4180f46e1422f500751bc",
+  "source_file_mtime_ns": 1794629906672474509,
+  "source_file_mtime_utc": "2026-11-14T04:18:26.672475+00:00",
+  "guest_delivery_packet_timestamp_us": 1794629905744557,
+  "guest_delivery_packet_index": 478,
+  "proxy_audit_timestamp_us": 1794629905744400,
+  "observation": "Connected with Online Users row unnamed visible; screenshot collected by as-run import command; mtime is source-host metadata, not an embedded screenshot timestamp"
+}

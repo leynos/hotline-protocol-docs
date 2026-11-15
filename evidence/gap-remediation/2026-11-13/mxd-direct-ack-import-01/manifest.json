@@ -1,0 +1,30 @@
+{
+  "date_utc": "2026-11-13",
+  "before": "481294915b48f4db06943c8af86cf31b7e47597a",
+  "after": "20e891a059de7dd9dec5a657d7099570987d860d",
+  "method": "Exact fast-forward; all19 changed committed blobs matched frozen tested hashes before mutation, then live verifier checked final source and controlled full-gate provenance.",
+  "tracked_tree_clean": true,
+  "origin_and_untracked_status_preserved": true,
+  "source_hashes": {
+    "src/header_util.rs": "dd005cbd436c70499265cc851a276b3c0ef897f3f181a76e04b4e8f13ab7d203",
+    "src/header_util/kani.rs": "5a014dbacca4dabeeaf14f19f13117e04a491fc033797c81e0bddaaf884737d7",
+    "src/transaction/params.rs": "fbebbe8bd6739a265c5aa38b6958ac1cf74b75bf32585eba66ac94b4c69817fb",
+    "src/wireframe/codec/framed_tests.rs": "f0528246dc888728ed823908e62d2daaec9c99a8d20f397c7507f43612412780",
+    "src/wireframe/codec/mod.rs": "f43a3a7e64a0852f306eeb193ed94c1288dbb49780a70b62bdaf4e24a839eb13",
+    "src/wireframe/compat_layer.rs": "83d50d300510ec34db8995f4523c0582418e5848705ace71f94b9a3b0217c15b",
+    "src/wireframe/compat_policy/mod.rs": "3486286ede79455d9f7392b312fb3c1be9b8ba69205663039489611e9e3418e1",
+    "src/wireframe/compat_policy_tests.rs": "d0bd5e4a208f699371df7acffd2930dd1e6050ce74e016bf0bbe8acecc353cba",
+    "src/wireframe/login_reply_augmenter.rs": "20e7ffd92055f935ec4411f9edfb98d5243201560e82536f45c13f8988286461",
+    "src/wireframe/outbound_tests.rs": "ec493c0acd1437d43c82b4e30bb504fe36e6def12dfde48876205ec70352d830",
+    "src/wireframe/routes/tests/direct_ack_cases.rs": "55a1fce0419344ee4fbd49db2e2a7e9eecf49752755c84afba831682c1874910",
+    "src/wireframe/routes/tests/error_cases.rs": "0b886a359855599537ec6e5e5bd674c2daab1cd3d955e5be3cd4be66e6491c39",
+    "src/wireframe/routes/tests/middleware_cases.rs": "9cf41ea2235ae8426234cf6d8dcf4af5d0701b05e7e04e6a04c4018cdb285da7",
+    "src/wireframe/routes/tests/mod.rs": "468ceca8b5cace2f597637d5c91ea7c5974cceaef0f9f9f76e15d019cd27c7a3",
+    "tests/direct_reply_validation.rs": "4c33392dab9cae79f3fbeb5587532a2f57207018ddf7c6cc5b1aa40f2fcaad27",
+    "tests/features/wireframe_routing.feature": "908475cc71306b39afe3984190a5786be9604a0659a74b301112e1643ece351d",
+    "tests/transaction.rs": "8f011daa967e92c01f865885b74e585ee21cc7d81af45fe3c21d8c8cd756c9ed",
+    "tests/wireframe_login_compat.rs": "ab048a01e6f1aa8901bb6b04575613511bf9f4b420085907ae76a0b863ad7d2f",
+    "tests/wireframe_memory_budgets.rs": "9ac0b5ceaed3130640f4fa5bc368658024dcef198b5610a5b0b43b6e7ca9eb9d"
+  },
+  "gate_scope": "Seven profiles and both doctest groups passed with two test processes and owned PostgreSQL root. Historical default-parallelism startup cause remains unknown; no Kani proof or new native-peer result."
+}

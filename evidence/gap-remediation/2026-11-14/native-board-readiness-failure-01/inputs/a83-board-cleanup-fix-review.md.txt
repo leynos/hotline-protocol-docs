@@ -1,0 +1,47 @@
+# A83: B80 board teardown fix review
+
+Read-only review of private protocol successor
+`cbbd2bea4ead800fe2322b14be72ef16d6ac0bac` against predecessor
+`8b40ce6a7f25fd7aa79216a2066acedb545d18be`. No live run, oracle,
+mxd validation or tracked edit.
+
+## A82 blocker
+
+**Resolved for the identified failure path.** In
+`scripts/native_board_control.py:183-209`, `Wire.close` now encloses
+shutdown, EOF poll and residual-buffer validation in a `try` with a `finally`
+that closes the exact owned socket, emits `close` (or `close_error`) and removes
+the socket from `Recorder.sockets`. An exception from the parser during
+`poll()` passes through this `finally`; the original `ValueError` is not
+converted to success. Raw `receive` events are recorded by `poll()` before
+decode and remain available to `run()`'s failure report.
+
+`run():788-827` still catches a `Wire.close` `ValueError` during the final
+owned-socket sweep, appends the tail error and sets `status="failed"` before
+writing the report. A prior observation failure likewise remains failed;
+the new `finally` does not turn missing ACKs or malformed frames into a quiet
+success. The source diff changes only `Wire.close`, one test, and the guide.
+
+The new `test_real_wire_tail_failures_close_owned_fd_and_preserve_bytes`
+uses actual nonblocking `socket.socketpair()` sockets and the real
+`Wire.close`, not `FakeWire.close`. Its two inputs exercise (1) a short
+truncated frame at EOF and (2) an invalid declared size during parsing.
+Both must raise `ValueError`, leave `client.fileno() == -1`, remove `sender`
+from `Recorder.sockets`, retain the exact received bytes, and end with a
+`close` event. Root reports the full focused 11-test suite passed; this
+review inspected the test and the fixed code directly.
+
+## Remaining limits
+
+The test does not drive the full root-only `run()` with a live capture receipt,
+managed recorders, or a native server. That boundary remains a live readiness
+gate, not a defect introduced by B80. The fixture still requires actual
+working-image empty-board proof, successful logins/ACLs, paired packet tails,
+stopped board-fork comparison and the original 12-minute epoch deadline.
+Waiting-session delivery is finite/optional and lacks an independent UID/roster
+witness; no universal preonline fanout claim is justified.
+
+Disposition: A82's explicit-close blocker is discharged by B80. No new
+pre-live correctness blocker was found in this narrow successor diff. Root
+may proceed to its separate boot/readiness review; this is not a GAP-046
+closure or approval of an unobserved native post result.

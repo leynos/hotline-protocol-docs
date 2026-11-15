@@ -1,0 +1,10 @@
+Id=mxd-c9-watch-20261113-1835.service
+ActiveState=active
+SubState=running
+InvocationID=884c02c8301641fc903b878ef31c274c
+Type=simple
+RuntimeMaxUSec=41min 40s
+MainPID=650878
+Result=success
+ExecMainCode=0
+ExecMainStatus=0

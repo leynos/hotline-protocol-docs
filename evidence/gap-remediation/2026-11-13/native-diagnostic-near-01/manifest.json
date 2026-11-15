@@ -1,0 +1,98 @@
+{
+  "scope": "A12 native transaction 303 near-boundary positive partial observation; near capture failed",
+  "date_utc": "2026-11-13",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "emulator_pid": 1099659,
+  "emulator_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "display": ":99",
+  "service": "mothra-sheep-bf808bd28e0d",
+  "prepared_plan_sha256": "a2b61a9ef45213b6ed1f0fd36bd3b502337a6abb4f49c54759d5ee959fec4bb2",
+  "execution_plan_sha256": "3898db346aa8f7e1f0aacd89d5f210a749ff03a206b805d55088c2382449be57",
+  "plan_difference": "operator metadata only; all steps identical",
+  "captures": [
+    {
+      "name": "near",
+      "status": "failed",
+      "completed_actions": 94,
+      "error": "EOFError: EOF before 20 requested bytes"
+    },
+    {
+      "name": "postflight",
+      "status": "completed",
+      "actions": 18
+    }
+  ],
+  "host_pcaps": [
+    "host-near.pcap",
+    "host-postflight.pcap"
+  ],
+  "guest_snapshots": [
+    "guest-after-near-failure.pcap",
+    "guest-after-postflight.pcap"
+  ],
+  "host_capture_packets": [
+    1348,
+    29
+  ],
+  "host_capture_kernel_drops": [
+    0,
+    0
+  ],
+  "settings": {
+    "initial": "options-original-open.png",
+    "temporary_8_8_5": "options-8-8-reopened.png",
+    "restored_100_10_5": "options-100-10-reopened.png"
+  },
+  "witness": {
+    "status": "positive partial 303 observation only",
+    "field101_bytes": {
+      "8_active_8_waiting": 763,
+      "8_active_16_waiting": 995
+    },
+    "distinct_references": 24,
+    "queue_positions": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "recorder_confirmed_cancel_ack_ids": [
+      215,
+      214,
+      213,
+      212,
+      211,
+      210,
+      209,
+      208
+    ],
+    "guest_only_cancel_ack_id": 207,
+    "idle_in_near_capture": false,
+    "postflight_exact_a7_baseline": true
+  },
+  "verification": [
+    "verify_partial.py",
+    "verification-partial.json",
+    "SHA256SUMS"
+  ],
+  "limits": [
+    "Near capture failed and later cancellations/idle were not reached",
+    "Guest-only ACK 207 was not host-confirmed; cause unknown",
+    "No at-or-above-1024 text or truncation claim",
+    "No exact-text release policy choice",
+    "Unread data sockets show transfer-stream prefixes, not complete file transfers",
+    "No restart or durability claim"
+  ]
+}

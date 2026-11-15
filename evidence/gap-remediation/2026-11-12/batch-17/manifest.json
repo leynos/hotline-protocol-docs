@@ -1,0 +1,15 @@
+{
+  "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "query_count": 18,
+  "plans": [
+    "plans/agreement-bytes-and-reload.json",
+    "plans/banner-content-loaders.json",
+    "plans/constructor-and-config-callers.json",
+    "plans/content-configuration.json",
+    "plans/server-construction.json"
+  ],
+  "derived_reviews": [
+    "discovery-offset-41c-stores.json"
+  ],
+  "method": "Read-only construction/configuration/content-loader queries and literal memory, with bounded uncompressed PEF stw-displacement scan used only for candidate discovery. Native runtime configuration, image decoding and wire content fixtures not exercised."
+}

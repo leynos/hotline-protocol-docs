@@ -1,0 +1,10 @@
+{
+  "observed_at_utc": "2026-11-14T06:20:49.469641+00:00",
+  "status": "parent_current_runtime_capture_gates_pass",
+  "source_namespace_guard": true,
+  "namespace": 4026533397,
+  "working_inode": 3290756512,
+  "deadline_utc": "2026-11-14T06:24:00+00:00",
+  "protocol_socket_actions": 0,
+  "timed_probe_not_started": true
+}

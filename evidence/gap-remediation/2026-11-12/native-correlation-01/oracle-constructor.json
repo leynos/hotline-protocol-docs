@@ -1,0 +1,17 @@
+[
+  {
+    "id": "ID-D-10058090",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10058090"
+    }
+  },
+  {
+    "id": "ID-A-10058df0",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "10058df0",
+      "limit": 150
+    }
+  }
+]

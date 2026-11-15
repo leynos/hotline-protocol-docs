@@ -1,0 +1,36 @@
+File Path: /Hotline19/Files/m-al20-empty
+Catalog Record: 11450
+Allocated
+Type:	File
+Mode:	r---------
+Size:	0
+uid / gid: 99 / 99
+Link count:	1
+
+File Name: m-al20-empty
+Admin flags: 0
+Owner flags: 0
+File type:	54455854  TEXT
+File creator:	4d4f5448  MOTH
+Is alias
+Text encoding:	0 = MacRoman
+Resource fork size:	554
+
+Times:
+Created:	2026-11-13 13:26:24 (GMT)
+Content Modified:	2026-11-13 13:26:24 (GMT)
+Attributes Modified:	0000-00-00 00:00:00 (UTC)
+Accessed:	0000-00-00 00:00:00 (UTC)
+Backed Up:	0000-00-00 00:00:00 (UTC)
+
+Data Fork Blocks:
+
+Resource Fork Blocks:
+890593  
+
+Attributes: 
+Type: DATA (4352-0)   Name: N/A   Non-Resident   size: 0  init_size: 0
+Type: RSRC (4353-1)   Name: RSRC   Non-Resident   size: 554  init_size: 554
+
+Resources:
+  Type: alis 	ID: 0     	Offset: 260   	Size: 244   	Name: <none>

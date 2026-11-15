@@ -1,0 +1,35 @@
+{
+  "index": 8,
+  "label": "toc-outgoing",
+  "tool": "get_xrefs_from",
+  "arguments": {
+    "address": "10088d90",
+    "limit": 100
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"items\": [\n    {\n      \"to\": \"10094a50\",\n      \"type\": \"DATA\",\n      \"to_function\": null,\n      \"to_label\": \"DAT_10094a50\"\n    }\n  ],\n  \"offset\": 0,\n  \"limit\": 100,\n  \"total\": 1,\n  \"has_more\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "items": [
+        {
+          "to": "10094a50",
+          "type": "DATA",
+          "to_function": null,
+          "to_label": "DAT_10094a50"
+        }
+      ],
+      "offset": 0,
+      "limit": 100,
+      "total": 1,
+      "has_more": false
+    },
+    "isError": false
+  }
+}

@@ -1,0 +1,15 @@
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`
+   Compiling mxd v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd)
+    Finished `test` profile [optimized] target(s) in 2m 08s
+     Running unittests src/lib.rs (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/build/mxd/9c1d1da2c9e25daf/out/mxd-9c1d1da2c9e25daf)
+
+running 1 test
+H1 first_pending_us=94
+H1 after_pause_us=100585
+H1 probe_at_us=103957 one_ready=true fifty_ready=true
+H1 result_at_us=104061 work_ready_us=104041 work_won=true result=Ok(Ok(()))
+H1 cancellation_control_timed_out=true token_cancelled=true result=Err(SerializationError(MigrationTimeoutError(1ms)))
+test db::migrations::tests::diagnostic_delayed_watchdog_poll_order ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 397 filtered out; finished in 0.21s
+

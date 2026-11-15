@@ -1,0 +1,43 @@
+# A109: `TimeString` seconds argument
+
+Read-only clarification, 2026-11-14. No oracle, VM, service, protocol, mxd or
+tracked-file change. Local `tools/macemu`, adjacent protocol tools and
+`/usr/include` contained no `TimeString`/`wantSeconds` declaration in the
+bounded search.
+
+## Primary API source
+
+Apple Computer, *Date, Time, and Measurement Utilities Reference*, 2006-09-29,
+`TimeString`, mirrored Apple-authored archive:
+https://leopard-adc.pepas.com/documentation/Carbon/Reference/Date_Time_an_nt_Utilities/DeprecationAppendix/AppendixADeprecatedAPI.html#TimeString
+
+The declaration is `void TimeString(SInt32 dateTime, Boolean wantSeconds,
+Str255 result, Handle intlHandle)`. Apple's parameter text says:
+“A flag that indicates whether the seconds are to be included in the
+resulting string.” The date-time word is in the representation returned by
+`GetDateTime`; a null international-resource handle uses the current script's
+format. The Apple-hosted archive URL was inaccessible to the browser; the
+linked mirror reproduces Apple-authored material and carries its copyright.
+Apple's older *Inside Macintosh Volume II* describes the predecessor
+`IUTimeString` identically, but the above reference addresses this exact
+`TimeString` symbol.
+
+## Pinned native application and observation
+
+`state/delegation/a108-native-clock-log-source.md` traces native
+`10057e30` → `GetDateTime` → `10057e90` → `TimeString(word,1,...)` for
+options `0x22`, and GUI logger `10006a70` → `10057e30(...,0x22)`.
+Therefore argument `1` is Boolean true and requests seconds in this
+application's formatted time. The limiter `10057d00` calls `GetDateTime`
+separately; the formatter and limiter do not share a captured time word.
+
+Finite guest evidence: `state/native-sessions/native-rate304-epoch-01/
+awake-before-retirement.png` SHA-256
+`bb1c16c592048fa40d118cd881835d2001437810a849fb2ae81e75ee3dcf6f1e`
+shows server Log rows with visible seconds, including login at
+`11/14/2026 10:29:50 AM` and close at `10:29:53 AM`. Thus the observed
+guest format **does** display seconds for these logged events. This does
+not establish that every 304 produces a row, that a GUI row is synchronous
+with the counter update, or that the guest clock progressed by a particular
+interval during the aborted rate trial. A future trial must pair retained
+event rows with its actual actions and keep host/guest clock bounds separate.

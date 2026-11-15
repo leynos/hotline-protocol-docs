@@ -1,0 +1,26 @@
+import hashlib,json,sys
+from pathlib import Path
+root=Path.cwd();sys.path.insert(0,str(root.parent/'hotline-protocol-docs/scripts'))
+from protocol_capture import verify_capture
+selection=root/'evidence/gap-remediation/2026-11-13/failure-representatives-01/selected-witnesses.json';data=json.loads(selection.read_text());results=[]
+expected={'authentication':107,'permission':348,'missing-object':206,'malformed-request':300,'unsupported-operation':999}
+assert {c['class'] for c in data['cases']}==set(expected)
+for c in data['cases']:
+ source=c['source']
+ for key in ('plan','report'):
+  assert hashlib.sha256((root/source[key]).read_bytes()).hexdigest()==source[key+'_sha256']
+ report=verify_capture((root/source['report']).parent)
+ assert report['status']=='completed' and report['profile']=='native-mac-oracle'
+ assert c['request']['event'] in report['events']
+ request=bytes.fromhex(c['request']['event']['hex']);assert int.from_bytes(request[2:4],'big')==expected[c['class']]
+ outcome=c['outcome'];action=outcome['action']
+ assert outcome['events']==[e for e in report['events'] if e['action']==action]
+ assert outcome['frames']==[f for f in report['frames'] if f['action']==action]
+ if c['class']=='malformed-request':
+  assert not outcome['frames'] and len(outcome['events'])==1 and outcome['events'][0]['event']=='eof'
+ else:
+  frame=outcome['frames'][0];assert (frame['is_reply'],frame['type'],frame['error'])==(1,0,1)
+  assert frame['id']==int.from_bytes(request[4:8],'big')
+  assert frame['fields']==[{'id':100,'hex':outcome['field_100']['hex']}]
+ results.append({'class':c['class'],'source_report':source['report'],'request_type':expected[c['class']],'outcome':'host EOF, no numbered reply' if not outcome['frames'] else 'matched direct status1 field100'})
+print(json.dumps({'selection_sha256':hashlib.sha256(selection.read_bytes()).hexdigest(),'verified_classes':results,'scope':'Original five-class representative criterion; not exhaustive internal exception translation or guest FIN/RST proof'},indent=2))

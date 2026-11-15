@@ -1,0 +1,47 @@
+{
+  "reviews": [
+    {
+      "gap_id": "GAP-065",
+      "status": "Resolved",
+      "unchanged_closure_criterion": "Provide both record grammars with boundary-version and mixed folder/category fixtures; identify peer evidence separately.",
+      "requirements": [
+        {
+          "requirement": "Both category record grammars",
+          "evidence": "Freshnativebuilder/enumerator/header/copyqueries andraw370repliesverify320kind1/10+exactname and323foldern+6/categoryn+32layouts. Auxiliaryfoldervalence2/1/0andcategoryarticlecounts0/1/2/3/6matchownedhierarchyandpositiveHLNZheader44. Nonzerovaryingtailsremainopaque;nozero-paddingcontract."
+        },
+        {
+          "requirement": "Boundary-version and mixed fixtures",
+          "evidence": "Nine107advertisements0/1/14/15/16/149/150/190/ffff driverealnative370formatselection. Below15emits320;15andtestedhigherrawvaluesemit323. Mixedrootandnestedfolders/categories,highbyte9a,emptyfolderandmultipleentryviewsarepairedverified."
+        },
+        {
+          "requirement": "Peer evidence identified separately",
+          "evidence": "Thecontrolleddriverisexplicitlynotahistoricalpeer. Separatelyidentifiedandcapturedshx0.1.48omits160inbasiclogin,asdocumentedbyitsalreadyhashedsource/nativepeerprofile. No14/15/16advertisement isattributedtothatpeer,andnomappingfrom15toahumanreleaseisinvented. Wideridentified-modern-peercorpusrequirementsremainunchanged."
+        }
+      ]
+    },
+    {
+      "gap_id": "GAP-066",
+      "status": "Resolved",
+      "unchanged_closure_criterion": "Trace the serializer and document nested offsets, cardinalities and empty/multiple/threaded article-list fixtures.",
+      "requirements": [
+        {
+          "requirement": "Serializer trace and nested grammar",
+          "evidence": "Fresh100059e0/10023180/10025900/100248a0/10025a60/10025c60/10025d80queriesidentify10bytelistheader,u32count,ID/date/parent/rawword/flavourcountandPascalstring/flavourentries. Exactrecordconsumptionrequiresnooptional-extraPascalstringinnetworkmodezero."
+        },
+        {
+          "requirement": "Empty/multiple/threaded cardinalities and order",
+          "evidence": "Initialempty321is10zeros. Twoordinaryroots,missing-bodyzero-flavourrecord,twochildrenandgrandchildproduceIDs1,4,6,5,2,3depth-first. IndependentnestedcategoryusespublicID1andemptycategoryremains0records;allnineversionsreturnidentical321bytes."
+        },
+        {
+          "requirement": "Flags, dates and size limits",
+          "evidence": "Raw11223344flagsarepreserved;parentIDsagreewithbodygraph;date8bytescopyunchangedbetween321/400. Submitted64-bytetitleclips31atproducer,whiletracedserializercaps63/31/63remainexplicit. Bodylength65535emitsunsignedffff;zeroflavoursremainpresentcount0. Nouniversaltimezone,largeimportedbodyorallflavour/siblingboundaryclaim."
+        },
+        {
+          "requirement": "Independent native cache and cleanup evidence",
+          "evidence": "Rebuiltpost-listbytesmatchsubsequentversion/cachedresponsesandnativeHLNZcachesatblocksize/index/lengthoffsets32/36/40. 43reports/45pairedsocketsand29queriesplus20regressionsretained. Initial0positivecleanupviewisinconclusive;independentuploadthenpositivelypublishesall10originalcatalogueobjects/forks/cachesinTrash. Publisherremovedbywirechecks;norestartdurabilityclaim."
+        }
+      ]
+    }
+  ],
+  "scope": "Close only original065categorygrammar/version/mixedfixtures/separatepeer-evidence and066serializer/empty-multiple-threadedcriteria. Keep067broadernavigation/date/flavours/siblingboundaries,068flags/discovery/postfailures,069recursivearticleremoval,070alias/interruptedcategorywrites,080wideractualpeers,084broaderoperationsandallotheroriginalrequirementsactive."
+}

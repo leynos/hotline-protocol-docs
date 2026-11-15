@@ -1,0 +1,14 @@
+{
+  "utc": "2026-11-13T23:54:21.111115+00:00",
+  "argv": [
+    "/usr/sbin/python3",
+    "/data/leynos/Projects/mothra/scripts/mac_runtime.py",
+    "display",
+    "/data/leynos/Projects/mothra/state/mac-displays/native-banlab-three-01",
+    "--display",
+    ":111"
+  ],
+  "exit": 0,
+  "stdout": "mothra-display-823b4a3ac99f\n",
+  "stderr": "Running as unit: mothra-display-823b4a3ac99f.service; invocation ID: 746fda8e6f09435e8e61d0c2c3af9034\n"
+}

@@ -1,0 +1,17 @@
+{
+  "unit": "mothra-native-expiry-c75-lease.service",
+  "pid": 772927,
+  "start": "5979645",
+  "fd": 3,
+  "lock_inode": 3512552451,
+  "busy_exit": 1,
+  "uid": "Uid:\t1000\t1000\t1000\t1000",
+  "unit_properties": {
+    "ActiveState": "active",
+    "SubState": "running",
+    "ActiveEnterTimestampMonotonic": "59796458980",
+    "RuntimeMaxUSec": "15min",
+    "MainPID": "772927",
+    "KillMode": "control-group"
+  }
+}

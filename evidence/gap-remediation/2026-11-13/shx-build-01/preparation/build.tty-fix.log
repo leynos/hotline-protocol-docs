@@ -1,0 +1,162 @@
+make: Entering directory '/data/leynos/Projects/mothra/tools/shx-adb1bf8c8cb1'
+gcc -O0 -g -std=gnu89 -fcommon -I/data/leynos/Projects/mothra/tools/shx-deps/usr/include -Wall -W -DHAVE_CONFIG_H -D_REENTRANT -D_GNU_SOURCE  -I. -c hx_tty.c
+gcc -O0 -g -std=gnu89 -fcommon -I/data/leynos/Projects/mothra/tools/shx-deps/usr/include  -Wall -W -DHAVE_CONFIG_H -D_REENTRANT -D_GNU_SOURCE  -I. -DONLY_CLIENT -c hxd.c -o hx_hxd.o
+hxd.c: In function ‘main’:
+hxd.c:485:26: warning: cast between incompatible function types from ‘void (*)(int,  int)’ to ‘void (*)(int)’ [-Wcast-function-type]
+  485 |         act.sa_handler = (RETSIGTYPE (*)(int))sig_fpe;
+      |                          ^
+hx_tty.c: In function ‘term_reset’:
+hx_tty.c:96:9: warning: implicit declaration of function ‘tputs’; did you mean ‘puts’? [-Wimplicit-function-declaration]
+   96 |         tputs(tgoto(TCS, -1, 0), 0, term_putc);
+      |         ^~~~~
+      |         puts
+hx_tty.c:96:15: warning: implicit declaration of function ‘tgoto’ [-Wimplicit-function-declaration]
+   96 |         tputs(tgoto(TCS, -1, 0), 0, term_putc);
+      |               ^~~~~
+hx_tty.c: In function ‘term_status’:
+hx_tty.c:167:15: warning: variable ‘col’ set but not used [-Wunused-but-set-variable]
+  167 |         char *col;
+      |               ^~~
+hx_tty.c: In function ‘term_init’:
+hx_tty.c:295:13: warning: implicit declaration of function ‘tgetent’; did you mean ‘getenv’? [-Wimplicit-function-declaration]
+  295 |         i = tgetent(termcap, term_name);
+      |             ^~~~~~~
+      |             getenv
+hx_tty.c:309:27: warning: implicit declaration of function ‘tgetnum’ [-Wimplicit-function-declaration]
+  309 |                 if ((CO = tgetnum("co")) == -1)
+      |                           ^~~~~~~
+hx_tty.c:320:14: warning: implicit declaration of function ‘tgetstr’ [-Wimplicit-function-declaration]
+  320 |         HO = tgetstr("ho", &bp);
+      |              ^~~~~~~
+hx_tty.c:320:12: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  320 |         HO = tgetstr("ho", &bp);
+      |            ^
+hx_tty.c:321:12: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  321 |         ME = tgetstr("me", &bp);
+      |            ^
+hx_tty.c:322:12: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  322 |         MR = tgetstr("mr", &bp);
+      |            ^
+hx_tty.c:323:12: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  323 |         US = tgetstr("us", &bp);
+      |            ^
+hx_tty.c:324:12: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  324 |         CL = tgetstr("cl", &bp);
+      |            ^
+hx_tty.c:325:12: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  325 |         CM = tgetstr("cm", &bp);
+      |            ^
+hx_tty.c:326:12: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  326 |         CE = tgetstr("ce", &bp);
+      |            ^
+hx_tty.c:327:13: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  327 |         TCS = tgetstr("cs", &bp);
+      |             ^
+hx_tty.c:328:12: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  328 |         DC = tgetstr("dc", &bp);
+      |            ^
+hx_tty.c:329:12: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  329 |         IC = tgetstr("ic", &bp);
+      |            ^
+hx_tty.c:330:12: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  330 |         SF = tgetstr("sf", &bp);
+      |            ^
+hx_tty.c:331:12: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  331 |         SR = tgetstr("sr", &bp);
+      |            ^
+hx_tty.c: In function ‘init’:
+hx_tty.c:793:27: warning: passing argument 2 of ‘rl_bind_key’ from incompatible pointer type [-Wincompatible-pointer-types]
+  793 |         rl_bind_key('\t', tab);
+      |                           ^~~
+      |                           |
+      |                           int (*)(void)
+In file included from hx_tty.c:27:
+/data/leynos/Projects/mothra/tools/shx-deps/usr/include/readline/readline.h:312:30: note: expected ‘int (*)(int,  int)’ but argument is of type ‘int (*)(void)’
+  312 | extern int rl_bind_key (int, rl_command_func_t *);
+      |                              ^~~~~~~~~~~~~~~~~~~
+hx_tty.c:750:1: note: ‘tab’ declared here
+  750 | tab (void)
+      | ^~~
+hx_tty.c:796:41: warning: passing argument 2 of ‘rl_callback_handler_install’ from incompatible pointer type [-Wincompatible-pointer-types]
+  796 |         rl_callback_handler_install("", term_rl_input);
+      |                                         ^~~~~~~~~~~~~
+      |                                         |
+      |                                         void (*)(void)
+/data/leynos/Projects/mothra/tools/shx-deps/usr/include/readline/readline.h:229:56: note: expected ‘void (*)(char *)’ but argument is of type ‘void (*)(void)’
+  229 | extern void rl_callback_handler_install (const char *, rl_vcpfunc_t *);
+      |                                                        ^~~~~~~~~~~~~~
+hx_tty.c:721:1: note: ‘term_rl_input’ declared here
+  721 | term_rl_input (void)
+      | ^~~~~~~~~~~~~
+gcc -O0 -g -std=gnu89 -fcommon -I/data/leynos/Projects/mothra/tools/shx-deps/usr/include -Wall -W -DHAVE_CONFIG_H -D_REENTRANT -D_GNU_SOURCE  -I. -c hlclient.c
+hlclient.c: In function ‘nick_complete’:
+hlclient.c:177:36: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+  177 |                 nlen = strlen(userp->name);
+      |                               ~~~~~^~~~~~
+      |                                    |
+      |                                    u_int8_t * {aka unsigned char *}
+In file included from hlclient.c:4:
+/usr/include/string.h:407:35: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  407 | extern size_t strlen (const char *__s)
+      |                       ~~~~~~~~~~~~^~~
+hlclient.c:182:51: warning: pointer targets in passing argument 3 of ‘similar’ differ in signedness [-Wpointer-sign]
+  182 |                 cur = similar(buffer, rllen, userp->name, nlen);
+      |                                              ~~~~~^~~~~~
+      |                                                   |
+      |                                                   u_int8_t * {aka unsigned char *}
+hlclient.c:138:50: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  138 | similar (const char *txt1, int len1, const char *txt2, int len2)
+      |                                      ~~~~~~~~~~~~^~~~
+hlclient.c:188:50: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+  188 |                         maxlen = strlen(best_user->name);
+      |                                         ~~~~~~~~~^~~~~~
+      |                                                  |
+      |                                                  u_int8_t * {aka unsigned char *}
+/usr/include/string.h:407:35: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  407 | extern size_t strlen (const char *__s)
+      |                       ~~~~~~~~~~~~^~~
+hlclient.c:190:28: warning: pointer targets in assignment from ‘u_int8_t *’ {aka ‘unsigned char *’} to ‘char *’ differ in signedness [-Wpointer-sign]
+  190 |                         bp = best_user->name;
+      |                            ^
+hlclient.c:191:28: warning: pointer targets in assignment from ‘u_int8_t *’ {aka ‘unsigned char *’} to ‘char *’ differ in signedness [-Wpointer-sign]
+  191 |                         cp = userp->name;
+      |                            ^
+hlclient.c:205:41: warning: pointer targets in passing argument 2 of ‘strncpy’ differ in signedness [-Wpointer-sign]
+  205 |         strncpy(matching_nick, best_user->name, maxlen);
+      |                                ~~~~~~~~~^~~~~~
+      |                                         |
+      |                                         u_int8_t * {aka unsigned char *}
+/usr/include/string.h:145:46: note: expected ‘const char * __restrict__’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  145 |                       const char *__restrict __src, size_t __n)
+      |                       ~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+hlclient.c: In function ‘expand_user_name’:
+hlclient.c:338:35: warning: pointer targets in passing argument 1 of ‘strncmp’ differ in signedness [-Wpointer-sign]
+  338 |                 if (!strncmp(userp->name, name, nlen)) {
+      |                              ~~~~~^~~~~~
+      |                                   |
+      |                                   u_int8_t * {aka unsigned char *}
+/usr/include/string.h:159:33: note: expected ‘const char *’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  159 | extern int strncmp (const char *__s1, const char *__s2, size_t __n)
+      |                     ~~~~~~~~~~~~^~~~
+hlclient.c:345:34: warning: pointer targets in returning ‘u_int8_t *’ {aka ‘unsigned char *’} from a function with return type ‘char *’ differ in signedness [-Wpointer-sign]
+  345 |         return user ? user->name : 0;
+      |                ~~~~~~~~~~~~~~~~~~^~~
+hlclient.c: In function ‘hotline_client_init’:
+hlclient.c:910:32: warning: pointer targets in passing argument 1 of ‘strncpy’ differ in signedness [-Wpointer-sign]
+  910 |                 strncpy(hx_htlc.name, user, 31);
+      |                         ~~~~~~~^~~~~
+      |                                |
+      |                                u_int8_t * {aka unsigned char *}
+/usr/include/string.h:144:40: note: expected ‘char * __restrict__’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  144 | extern char *strncpy (char *__restrict __dest,
+      |                       ~~~~~~~~~~~~~~~~~^~~~~~
+hlclient.c:912:31: warning: pointer targets in passing argument 1 of ‘strcpy’ differ in signedness [-Wpointer-sign]
+  912 |                 strcpy(hx_htlc.name, "Evaluation 0wn3r");
+      |                        ~~~~~~~^~~~~
+      |                               |
+      |                               u_int8_t * {aka unsigned char *}
+/usr/include/string.h:141:39: note: expected ‘char * __restrict__’ but argument is of type ‘u_int8_t *’ {aka ‘unsigned char *’}
+  141 | extern char *strcpy (char *__restrict __dest, const char *__restrict __src)
+      |                      ~~~~~~~~~~~~~~~~~^~~~~~
+gcc -L/data/leynos/Projects/mothra/tools/shx-deps/usr/lib64 -Wl,-rpath,/data/leynos/Projects/mothra/tools/shx-deps/usr/lib64 -o hx fd.o version.o xmalloc.o  snprintf.o inet_ntoa_r.o hx_chat.o hx_users.o hx_commands.o macres.o  hx_hlwrite.o decode.o  hfs.o getopt_r.o getopt1_r.o hx_tty.o hx_hxd.o hlclient.o  -lreadline -lhistory -ltermcap  
+make: Leaving directory '/data/leynos/Projects/mothra/tools/shx-adb1bf8c8cb1'

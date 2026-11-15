@@ -1,0 +1,29 @@
+{
+  "gap": "GAP-030",
+  "criterion_unchanged": "Specify bit acceptance and transition tables, default text/encoding, and enable/disable/update fixtures without conflating PM enumerants.",
+  "question_unchanged": "How are unknown 113 bits, auto-response enable/disable transitions, missing 215 and default-response text handled across 121 and 304?",
+  "decision": "Resolved against original criterion",
+  "basis": [
+    "Shared native121/304 helper extracts bits0,1,2 for the three setting flags; representative unknown8/mixed12 runtime controls agree",
+    "Ten113 cases, eight same-session304 transitions, two delayed121 absent/empty215 cases and separate PM enumerant fixtures provide the required transition/default evidence",
+    "Both entrypoints emit the exact52-byte ASCII default, SHA256 fc1c491daeb3942d1df958851ed8c0fa4359fcefab44c0cccbe7581d7e352b62",
+    "Independent audit reviewed; parent121 portable replay and four fault controls passed"
+  ],
+  "reviewed_source_hashes": {
+    "evidence/hotline-server-1.9/queries/D-10004d50.c": "483defcbc24ac6c98b97a52f2ec8721360427f4ea8c9e73f4c4fc7fcc0f48437",
+    "evidence/gap-remediation/2026-11-13/native-settings-01/manifest.json": "476087bf1bcc3a9e762982956a66f4820a9cc852e892b1bbcacaf6e426da60b8",
+    "evidence/gap-remediation/2026-11-13/native-pm-01/manifest.json": "b5959494310adc5db8b0a9d7b3af45b0b2cb148ea01d1fba5b581eb44290f46e",
+    "evidence/gap-remediation/2026-11-13/native-settings-transitions-01/manifest.json": "db21514d79b6c295c9067fea4fb37cdc8597f8e3c83f03b8110d6aeb4769b9aa",
+    "evidence/gap-remediation/2026-11-14/native-121-defaults-01/manifest.json": "ab07bbca8c18dea53c38e6e8f170becef8688d9974920e64a126718f403b64d2"
+  },
+  "clarification": "The supplied audit phrase setting bit4 denotes bitmap VALUE4 (bit2), distinct from PM enumerant4. Public tables use bit2.",
+  "separate_open_requirements": {
+    "GAP-029": "Session versus durable persistence and broader field-specific rules",
+    "GAP-018": "General supplied-text codecs, nonASCII, normalization, NUL and CRLF"
+  },
+  "limits": [
+    "No universal interpretation of higher bits outside the three helper assignments",
+    "No exhaustive input-width or per-bit matrix for every caller",
+    "No cross-socket total arrival order or whole-server conformance claim"
+  ]
+}

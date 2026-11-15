@@ -1,0 +1,31 @@
+        FAIL [   3.868s] (547/551) mxd::wireframe_presence_bdd wireframe_presence_feature_scenarios::wireframe_presence_login_update_and_disconnect_notifications_reach_peers
+  stdout ───
+
+    running 1 test
+    test wireframe_presence_feature_scenarios::wireframe_presence_login_update_and_disconnect_notifications_reach_peers ... FAILED
+
+    failures:
+
+    failures:
+        wireframe_presence_feature_scenarios::wireframe_presence_login_update_and_disconnect_notifications_reach_peers
+
+    test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.82s
+
+  stderr ───
+    The application panicked (crashed).
+    Message:  Step failed at index ⁨5⁩: ⁨Then⁩ ⁨the reply lists online users "bob" and "alice"⁩ - ⁨Error executing step '⁨the reply lists online users "{first}" and "{second}"⁩' via function '⁨then_reply_lists_online_users⁩': ⁨transaction failed: Err("duplicate field id 300")⁩⁩ (feature: ⁨tests/features/wireframe_presence.feature⁩, scenario: ⁨Login, update, and disconnect notifications reach peers⁩)
+    Location: tests/wireframe_presence_bdd.rs:277
+
+    Backtrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.
+    Run with RUST_BACKTRACE=full to include source snippets.
+
+  Cancelling due to test failure: 4 tests still running
+        PASS [   2.691s] (548/551) mxd::wireframe_xor_compat wireframe_xor_compat_feature_scenarios::wireframe_xor_compat_xor_encoded_login_succeeds
+        PASS [   2.713s] (549/551) mxd::wireframe_xor_compat wireframe_xor_compat_feature_scenarios::wireframe_xor_compat_plaintext_message_keeps_xor_compatibility_disabled
+        PASS [   2.696s] (550/551) mxd::wireframe_xor_compat wireframe_xor_compat_feature_scenarios::wireframe_xor_compat_xor_encoded_news_article_body_is_accepted
+        PASS [   7.030s] (551/551) mxd::wireframe_memory_budgets stalled_fragmented_request_is_disconnected_when_continuation_resumes
+────────────
+     Summary [  15.562s] 551 tests run: 550 passed, 1 failed, 0 skipped
+        FAIL [   3.868s] (547/551) mxd::wireframe_presence_bdd wireframe_presence_feature_scenarios::wireframe_presence_login_update_and_disconnect_notifications_reach_peers
+error: test run failed
+make: *** [Makefile:322: test-postgres] Error 100

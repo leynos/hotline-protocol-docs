@@ -1,0 +1,31 @@
+{
+  "utc": "2026-11-14T00:59:18.519019+00:00",
+  "argv": [
+    "sudo",
+    "-n",
+    "systemd-run",
+    "--unit=mothra-native-event-c49-ns-capture.service",
+    "--property=Type=exec",
+    "--property=NetworkNamespacePath=/proc/2055952/ns/net",
+    "--property=RuntimeMaxSec=20min",
+    "--property=RemainAfterExit=yes",
+    "--property=Restart=no",
+    "--property=StandardOutput=append:/data/leynos/Projects/mothra/state/native-sessions/native-eventlab-c49/ns-recorder.log",
+    "--property=StandardError=append:/data/leynos/Projects/mothra/state/native-sessions/native-eventlab-c49/ns-recorder.log",
+    "--no-block",
+    "/usr/sbin/tcpdump",
+    "-i",
+    "lo",
+    "-U",
+    "-n",
+    "-s",
+    "0",
+    "-w",
+    "/data/leynos/Projects/mothra/state/native-sessions/native-eventlab-c49/lab-namespace.pcap",
+    "(tcp port 15500 or tcp port 15501 or tcp port 15750 or tcp port 15751)"
+  ],
+  "exit": 0,
+  "stdout": "",
+  "stderr": "Running as unit: mothra-native-event-c49-ns-capture.service\n",
+  "emulator_pid": 2055952
+}

@@ -1,0 +1,66 @@
+{
+  "utc": "2026-11-14T03:48:42.191593+00:00",
+  "paired_complete": true,
+  "lifetime_count": 3,
+  "flows": [
+    {
+      "port": 45942,
+      "case": "readiness",
+      "namespace_sent_bytes": 231,
+      "namespace_sent_sha256": "5eecc6b4d737fcadbb8356aa0839119da65a3d2e77dca799bc23d39e6f4487b2",
+      "namespace_received_bytes": 2759,
+      "namespace_received_sha256": "7f5cad68aaca975d221a5216ac98a6d4241c3557a543afb83e66799a1da23dc2",
+      "guest_sent_bytes": 231,
+      "guest_sent_sha256": "5eecc6b4d737fcadbb8356aa0839119da65a3d2e77dca799bc23d39e6f4487b2",
+      "guest_received_bytes": 2759,
+      "guest_received_sha256": "7f5cad68aaca975d221a5216ac98a6d4241c3557a543afb83e66799a1da23dc2"
+    },
+    {
+      "port": 33706,
+      "case": "main",
+      "namespace_sent_bytes": 390,
+      "namespace_sent_sha256": "14ede113e5ce07655aaef7521cb6a54bea5437311249d8ec2f202a29b52ce648",
+      "namespace_received_bytes": 946,
+      "namespace_received_sha256": "a5ea32f7c3467f0f9461b698c5ddd33427acb32437bd7a10b840232754eae357",
+      "guest_sent_bytes": 390,
+      "guest_sent_sha256": "14ede113e5ce07655aaef7521cb6a54bea5437311249d8ec2f202a29b52ce648",
+      "guest_received_bytes": 946,
+      "guest_received_sha256": "a5ea32f7c3467f0f9461b698c5ddd33427acb32437bd7a10b840232754eae357",
+      "recorder_sent_bytes": 390,
+      "recorder_sent_sha256": "14ede113e5ce07655aaef7521cb6a54bea5437311249d8ec2f202a29b52ce648",
+      "recorder_received_bytes": 946,
+      "recorder_received_sha256": "a5ea32f7c3467f0f9461b698c5ddd33427acb32437bd7a10b840232754eae357"
+    },
+    {
+      "port": 51566,
+      "case": "subject",
+      "namespace_sent_bytes": 364,
+      "namespace_sent_sha256": "728a8d98e76096c5fac9b7905dcfdff985eec376008b6fb234079e92236d79af",
+      "namespace_received_bytes": 877,
+      "namespace_received_sha256": "959de26e087b1655c0f9099a86d63d770675f4a8ed0dbc94d5c2e8f65f67f89b",
+      "guest_sent_bytes": 364,
+      "guest_sent_sha256": "728a8d98e76096c5fac9b7905dcfdff985eec376008b6fb234079e92236d79af",
+      "guest_received_bytes": 877,
+      "guest_received_sha256": "959de26e087b1655c0f9099a86d63d770675f4a8ed0dbc94d5c2e8f65f67f89b",
+      "recorder_sent_bytes": 364,
+      "recorder_sent_sha256": "728a8d98e76096c5fac9b7905dcfdff985eec376008b6fb234079e92236d79af",
+      "recorder_received_bytes": 877,
+      "recorder_received_sha256": "959de26e087b1655c0f9099a86d63d770675f4a8ed0dbc94d5c2e8f65f67f89b"
+    }
+  ],
+  "primary_pcap_header_only": true,
+  "pcaps": {
+    "primary-syn.pcap": {
+      "bytes": 24,
+      "sha256": "704e5e5b3234433c01fcfd1b20a306e77e985038120492dc53965c3edd38a4ea"
+    },
+    "namespace.pcap": {
+      "bytes": 16627,
+      "sha256": "43a6d1ea52d99048b4bc35ca220ca3a563d4525e6ff104ca664a12c434a11fb8"
+    },
+    "guest.pcap": {
+      "bytes": 17416,
+      "sha256": "0c6f17b5287d4b6f739162d482cea4c55e6b9b84bfc325184bb835a7cb4d77c0"
+    }
+  }
+}

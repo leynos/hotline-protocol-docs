@@ -1,0 +1,14 @@
+{
+  "status": "retired_before_deadline",
+  "utc": "2026-11-14T18:17:12.042661+00:00",
+  "actual_emulator_pid": 503,
+  "actual_start_ticks": 10443140,
+  "pid_gone": true,
+  "working_inode": 2302714962,
+  "root_fuser_exit": 1,
+  "root_fuser_stdout": "",
+  "root_fuser_stderr": "",
+  "native_app_quit_observed_by_parent": false,
+  "retirement_mode": "awaiting_C151_raw_GUI_and_unit_report",
+  "orderly_os_shutdown_observed": false
+}

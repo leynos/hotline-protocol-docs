@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T13:52:43.434988+00:00",
+  "query": {
+    "id": "B04-D-1000c200",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1000c200"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_1000c200\",\n    \"address\": \"1000c200\"\n  },\n  \"code\": \"\\nvoid FUN_1000c200(int param_1)\\n\\n{\\n  int *piVar1;\\n  int iVar2;\\n  char cVar6;\\n  uint uVar3;\\n  undefined4 uVar4;\\n  uint uVar5;\\n  uint uVar7;\\n  int iVar8;\\n  \\n  iVar2 = FUN_10057d00();\\n  uVar7 = 0;\\n  do {\\n    while( true ) {\\n      uVar3 = uVar7;\\n      uVar7 = uVar3 + 1;\\n      if (*(uint *)(param_1 + 0x3c) < uVar7) {\\n        return;\\n      }\\n      piVar1 = *(int **)(*(int *)(param_1 + 0x38) + uVar7 * 4 + -4);\\n      iVar8 = *piVar1;\\n      cVar6 = FUN_10055af0(param_1 + 0x34,piVar1[9]);\\n      if (cVar6 != '\\\\0') break;\\nLAB_1000c338:\\n      FUN_100069b0(param_1,iVar8,s_Download_connection_closed_1009043b);\\n      FUN_10055630(param_1 + 0x38,piVar1);\\n      FUN_1002b2f0(piVar1[1]);\\n      FUN_1006d3e0(iVar8);\\n      FUN_1006d290(piVar1);\\n      if (*(uint *)(param_1 + 0x42c) < *(uint *)(param_1 + 0x428)) {\\n        *(undefined4 *)(param_1 + 0x42c) = *(undefined4 *)(param_1 + 0x428);\\n      }\\n      uVar7 = uVar3;\\n      if (*(int *)(param_1 + 0x8c) != 0) {\\n        FUN_10021940(*(undefined4 *)(param_1 + 0x8c),*(undefined4 *)(param_1 + 0x428),\\n                     *(int *)(param_1 + 0x3c) + *(int *)(param_1 + 0x48),\\n                     *(int *)(param_1 + 0x6c) + *(int *)(param_1 + 0x78),\\n                     *(undefined4 *)(param_1 + 0x54),*(undefined4 *)(param_1 + 0x42c),\\n                     *(undefined4 *)(param_1 + 0x430),*(undefined4 *)(param_1 + 0x434));\\n      }\\n    }\\n    if (iVar8 == 0) {\\n      iVar8 = FUN_10057d00();\\n      if (500 < (uint)(iVar8 - piVar1[3])) {\\n        FUN_10055630(param_1 + 0x38,piVar1);\\n        FUN_1002b2f0(piVar1[1]);\\n        FUN_1006d290(piVar1);\\n        FUN_10006860(param_1,s_Download_aborted__no_response__1009041c);\\n        if (*(uint *)(param_1 + 0x42c) < *(uint *)(param_1 + 0x428)) {\\n          *(undefined4 *)(param_1 + 0x42c) = *(undefined4 *)(param_1 + 0x428);\\n        }\\n        uVar7 = uVar3;\\n        if (*(int *)(param_1 + 0x8c) != 0) {\\n          FUN_10021940(*(undefined4 *)(param_1 + 0x8c),*(undefined4 *)(param_1 + 0x428),\\n                       *(int *)(param_1 + 0x3c) + *(int *)(param_1 + 0x48),\\n                       *(int *)(param_1 + 0x6c) + *(int *)(param_1 + 0x78),\\n                       *(undefined4 *)(param_1 + 0x54),*(undefined4 *)(param_1 + 0x42c),\\n                       *(undefined4 *)(param_1 + 0x430),*(undefined4 *)(param_1 + 0x434));\\n        }\\n      }\\n    }\\n    else {\\n      cVar6 = FUN_1006da10(iVar8);\\n      if (cVar6 == '\\\\0') goto LAB_1000c338;\\n      if ((piVar1[1] != 0) &&\\n         ((uVar3 = FUN_1006e040(iVar8), uVar3 <= (uint)piVar1[7] ||\\n          (cVar6 = FUN_1006e1a0(iVar8), cVar6 != '\\\\0')))) {\\n        if (uVar3 == 0) {\\n          piVar1[7] = piVar1[7] + 0x19000;\\n        }\\n        if ((uint)(iVar2 - piVar1[8]) < 10) {\\n          piVar1[7] = piVar1[7] + 0x19000;\\n        }\\n        piVar1[8] = iVar2;\\n        if (0x200000 < (uint)piVar1[7]) {\\n          piVar1[7] = 0x200000;\\n        }\\n        uVar3 = piVar1[7];\\n        if ((uint)(piVar1[5] - piVar1[6]) < (uint)piVar1[7]) {\\n          uVar3 = piVar1[5] - piVar1[6];\\n        }\\n        uVar4 = FUN_1006ddb0(uVar3);\\n        if (*(char *)((int)piVar1 + 0x2a) == '\\\\0') {\\n          FUN_1002d830(piVar1[1],uVar4,uVar3);\\n        }\\n        else {\\n          uVar5 = FUN_1002c3b0(piVar1[1],piVar1[4],uVar4,uVar3,0);\\n          if (uVar3 != uVar5) {\\n            FUN_10027c30(1,1);\\n          }\\n          piVar1[4] = piVar1[4] + uVar3;\\n        }\\n        FUN_1006de10(iVar8,uVar4);\\n        piVar1[6] = piVar1[6] + uVar3;\\n        FUN_1006e0b0(iVar8);\\n        if ((uint)piVar1[5] <= (uint)piVar1[6]) {\\n          FUN_1002b2f0(piVar1[1]);\\n          piVar1[1] = 0;\\n          FUN_100069b0(param_1,iVar8,s_Download_complete_10090456);\\n        }\\n      }\\n    }\\n  } while( true );\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_1000c200",
+        "address": "1000c200"
+      },
+      "code": "\nvoid FUN_1000c200(int param_1)\n\n{\n  int *piVar1;\n  int iVar2;\n  char cVar6;\n  uint uVar3;\n  undefined4 uVar4;\n  uint uVar5;\n  uint uVar7;\n  int iVar8;\n  \n  iVar2 = FUN_10057d00();\n  uVar7 = 0;\n  do {\n    while( true ) {\n      uVar3 = uVar7;\n      uVar7 = uVar3 + 1;\n      if (*(uint *)(param_1 + 0x3c) < uVar7) {\n        return;\n      }\n      piVar1 = *(int **)(*(int *)(param_1 + 0x38) + uVar7 * 4 + -4);\n      iVar8 = *piVar1;\n      cVar6 = FUN_10055af0(param_1 + 0x34,piVar1[9]);\n      if (cVar6 != '\\0') break;\nLAB_1000c338:\n      FUN_100069b0(param_1,iVar8,s_Download_connection_closed_1009043b);\n      FUN_10055630(param_1 + 0x38,piVar1);\n      FUN_1002b2f0(piVar1[1]);\n      FUN_1006d3e0(iVar8);\n      FUN_1006d290(piVar1);\n      if (*(uint *)(param_1 + 0x42c) < *(uint *)(param_1 + 0x428)) {\n        *(undefined4 *)(param_1 + 0x42c) = *(undefined4 *)(param_1 + 0x428);\n      }\n      uVar7 = uVar3;\n      if (*(int *)(param_1 + 0x8c) != 0) {\n        FUN_10021940(*(undefined4 *)(param_1 + 0x8c),*(undefined4 *)(param_1 + 0x428),\n                     *(int *)(param_1 + 0x3c) + *(int *)(param_1 + 0x48),\n                     *(int *)(param_1 + 0x6c) + *(int *)(param_1 + 0x78),\n                     *(undefined4 *)(param_1 + 0x54),*(undefined4 *)(param_1 + 0x42c),\n                     *(undefined4 *)(param_1 + 0x430),*(undefined4 *)(param_1 + 0x434));\n      }\n    }\n    if (iVar8 == 0) {\n      iVar8 = FUN_10057d00();\n      if (500 < (uint)(iVar8 - piVar1[3])) {\n        FUN_10055630(param_1 + 0x38,piVar1);\n        FUN_1002b2f0(piVar1[1]);\n        FUN_1006d290(piVar1);\n        FUN_10006860(param_1,s_Download_aborted__no_response__1009041c);\n        if (*(uint *)(param_1 + 0x42c) < *(uint *)(param_1 + 0x428)) {\n          *(undefined4 *)(param_1 + 0x42c) = *(undefined4 *)(param_1 + 0x428);\n        }\n        uVar7 = uVar3;\n        if (*(int *)(param_1 + 0x8c) != 0) {\n          FUN_10021940(*(undefined4 *)(param_1 + 0x8c),*(undefined4 *)(param_1 + 0x428),\n                       *(int *)(param_1 + 0x3c) + *(int *)(param_1 + 0x48),\n                       *(int *)(param_1 + 0x6c) + *(int *)(param_1 + 0x78),\n                       *(undefined4 *)(param_1 + 0x54),*(undefined4 *)(param_1 + 0x42c),\n                       *(undefined4 *)(param_1 + 0x430),*(undefined4 *)(param_1 + 0x434));\n        }\n      }\n    }\n    else {\n      cVar6 = FUN_1006da10(iVar8);\n      if (cVar6 == '\\0') goto LAB_1000c338;\n      if ((piVar1[1] != 0) &&\n         ((uVar3 = FUN_1006e040(iVar8), uVar3 <= (uint)piVar1[7] ||\n          (cVar6 = FUN_1006e1a0(iVar8), cVar6 != '\\0')))) {\n        if (uVar3 == 0) {\n          piVar1[7] = piVar1[7] + 0x19000;\n        }\n        if ((uint)(iVar2 - piVar1[8]) < 10) {\n          piVar1[7] = piVar1[7] + 0x19000;\n        }\n        piVar1[8] = iVar2;\n        if (0x200000 < (uint)piVar1[7]) {\n          piVar1[7] = 0x200000;\n        }\n        uVar3 = piVar1[7];\n        if ((uint)(piVar1[5] - piVar1[6]) < (uint)piVar1[7]) {\n          uVar3 = piVar1[5] - piVar1[6];\n        }\n        uVar4 = FUN_1006ddb0(uVar3);\n        if (*(char *)((int)piVar1 + 0x2a) == '\\0') {\n          FUN_1002d830(piVar1[1],uVar4,uVar3);\n        }\n        else {\n          uVar5 = FUN_1002c3b0(piVar1[1],piVar1[4],uVar4,uVar3,0);\n          if (uVar3 != uVar5) {\n            FUN_10027c30(1,1);\n          }\n          piVar1[4] = piVar1[4] + uVar3;\n        }\n        FUN_1006de10(iVar8,uVar4);\n        piVar1[6] = piVar1[6] + uVar3;\n        FUN_1006e0b0(iVar8);\n        if ((uint)piVar1[5] <= (uint)piVar1[6]) {\n          FUN_1002b2f0(piVar1[1]);\n          piVar1[1] = 0;\n          FUN_100069b0(param_1,iVar8,s_Download_complete_10090456);\n        }\n      }\n    }\n  } while( true );\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

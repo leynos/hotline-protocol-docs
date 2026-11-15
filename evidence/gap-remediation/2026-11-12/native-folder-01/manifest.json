@@ -1,0 +1,41 @@
+{
+  "scope": "Seventeen final native folder cases, three initial probes and one auxiliary finalization, with direction-specific raw stream decoding, paired packets and positive direct HFS+ catalogue/fork observations",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "runtime": "runtime.json",
+  "verification": "verification.json",
+  "catalogue": "transcripts/; all17 final plans completed",
+  "packet_phases": {
+    "core": [
+      "host.pcap",
+      "guest.pcap"
+    ],
+    "timed": [
+      "timers-host.pcap",
+      "timers-guest.pcap"
+    ]
+  },
+  "provenance": "Same live guest PID774378 and verified executable; restored100/10 limits. Core host recorder stopped before timed phase. Guest observer snapshots are complete prefixes of the continuous runtime04 capture. ROMs and working disks remain local only.",
+  "timing_scope": "Two upload timing cases ran concurrently with distinct roots/control sessions, followed by the delayed-download case. Intentional overlap is recorded; no isolated scheduler-causality or exact deadline claim. No guest restart.",
+  "filesystem": "native-files/before andafter retain positive direct catalogue paths/forks. ifind path enumeration failed before andafter auxiliary FlushVol path; failed attempts retained and not used as absence/byte evidence. Direct istat/icat succeeds; original bounded prototype and reviewed repeatable snapshot CLI retained. Snapshot range is not an exhaustive directory listing or restart-durability proof.",
+  "initial_probes": "One completed unknown-control case was paused while before-state extraction was recovered; excluded from final timing inference. Completed-skip reset and directory-conflict timeout both failed before login/folder requests. A later isolated retry completed.",
+  "boundary_difference": "initial-boundary-differences.json pins one failed probe hostwrite of12bytes with zero guest input. It is not certified as guest-consumed application data. All17 final cases reconcile exactly in both views.",
+  "unread_output": "One initial paused probe has87 unread control301/302bytes during auxiliary finalization; exact suffix pinned separately, original transcript unchanged. Final cases have no unexplained unread bytes.",
+  "observations": [
+    "Five descendants, rootexcluded, logical aggregate652; full file FILP bodies total1148, perfile length words and descriptors separate",
+    "Fresh/resumed/mixed/skipped download choices, empty and directory-only cases; unknown0 controls leave recorded state usable",
+    "Fresh nested upload, zeroitems ACK withoutreference and precreated root, partial processed count with retained first/partial files, resumed RFLT13/5, completed-file skip and directory/file conflict",
+    "Finaldirectory orskip sends3 beforeclose; finalfile closes without extra3",
+    "Lateattached upload closes withoutreadiness after125seconds ofplanned pauses; descriptor-only exchange does not buy another full connected interval",
+    "Delayed download file choice remainsusable after130seconds ofpauses and completes fullstream"
+  ],
+  "limitations": [
+    "Finite HFS+ fixture traversal order, not universal sorting",
+    "No unsafe tiny/truncated-descriptor or invalid-path runtime certification; broader validation/failure/durability requirements remain open",
+    "Hostwallclock packet observations do not instrument Mac timer checks or internal handler instants",
+    "No peer/mxd/folderqueue conformance beyond named fixtures"
+  ],
+  "closure_candidates": [
+    "GAP-059",
+    "GAP-060"
+  ]
+}

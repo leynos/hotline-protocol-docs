@@ -1,0 +1,7 @@
+{
+  "rom_sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+  "base_disk_sha256": "c36b7bc9c513b2b576d5e7bdd2d51c54a4d0af01a863e5154ce71274272a3ffe",
+  "source_rom": "/data/leynos/Projects/mothra/state/native-mac/Mac OS ROM",
+  "source_disk": "/data/leynos/Projects/mothra/state/native-mac/base-os9.dsk",
+  "archive_member": null
+}

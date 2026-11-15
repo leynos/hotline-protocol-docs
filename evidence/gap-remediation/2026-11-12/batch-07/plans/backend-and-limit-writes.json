@@ -1,0 +1,45 @@
+[
+  {
+    "id": "B07-D-10008fd0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10008fd0"
+    }
+  },
+  {
+    "id": "B07-D-10070810",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10070810"
+    }
+  },
+  {
+    "id": "B07-D-100740b0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100740b0"
+    }
+  },
+  {
+    "id": "B07-D-1006f720",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1006f720"
+    }
+  },
+  {
+    "id": "B07-D-100738b0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100738b0"
+    }
+  },
+  {
+    "id": "B07-X-10094a50",
+    "tool": "get_xrefs_to",
+    "arguments": {
+      "address": "10094a50",
+      "limit": 1000
+    }
+  }
+]

@@ -1,0 +1,886 @@
+{
+  "plan_identity": {
+    "prepared_sha256": "a2b61a9ef45213b6ed1f0fd36bd3b502337a6abb4f49c54759d5ee959fec4bb2",
+    "execution_sha256": "3898db346aa8f7e1f0aacd89d5f210a749ff03a206b805d55088c2382449be57",
+    "only_changed_key": "operator"
+  },
+  "near": {
+    "status": "positive-partial-observation; capture-failed",
+    "failed_action": 94,
+    "error": "EOFError: EOF before 20 requested bytes",
+    "references": [
+      "0016c837",
+      "00178011",
+      "0018e577",
+      "0019d777",
+      "001a2fe3",
+      "001b0c4d",
+      "001ce301",
+      "001d7413",
+      "001e6651",
+      "001f2049",
+      "00202d4f",
+      "00213e6f",
+      "0022977b",
+      "00237805",
+      "0024d05b",
+      "0025528b",
+      "0026af67",
+      "00278f81",
+      "00289825",
+      "00298c67",
+      "002a5a15",
+      "002ba2bd",
+      "002c10b3",
+      "002d8803"
+    ],
+    "queued_positions": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "field101_bytes": {
+      "140": 763,
+      "141": 995
+    },
+    "witnesses": {
+      "140": {
+        "expected_active": 8,
+        "expected_waiting": 8,
+        "field101_bytes": 763,
+        "status": "complete",
+        "observed_counts": {
+          "active": 8,
+          "waiting": 8
+        }
+      },
+      "141": {
+        "expected_active": 8,
+        "expected_waiting": 16,
+        "field101_bytes": 995,
+        "status": "complete",
+        "observed_counts": {
+          "active": 8,
+          "waiting": 16
+        }
+      }
+    },
+    "recorder_confirmed_cancel_ack_ids": [
+      215,
+      214,
+      213,
+      212,
+      211,
+      210,
+      209,
+      208
+    ],
+    "guest_only_cancel_ack_207": {
+      "bytes": 22,
+      "sha256": "65570c644638ca1b58800cdcb3eadb6da51509777c04d25b5fe02ba795e81cb1",
+      "frame": {
+        "flags": 0,
+        "is_reply": 1,
+        "type": 0,
+        "id": 207,
+        "error": 0,
+        "total_size": 2,
+        "data_size": 2,
+        "payload_hex": "0000",
+        "fields": [],
+        "declared_field_count": 0,
+        "unconsumed_hex": ""
+      }
+    },
+    "missing_later_cancel_and_idle": true
+  },
+  "postflight": {
+    "case": "postflight",
+    "status": "verified",
+    "diagnostics": {
+      "14": {
+        "field101_bytes": 303,
+        "field101_hex": "4e69636b6e616d653a2020206672616d696e672d666978747572650d4e616d653a2020202020202061646d696e6973747261746f720d4163636f756e743a2020202061646d696e0d416464726573733a2020202031302e302e322e320d0d2d2d2d2d2d2d2d2d2046696c6520446f776e6c6f616473202d2d2d2d2d2d2d2d2d0d0d4e6f6e652e0d0d2d2d2d2d2d2d2d20466f6c64657220446f776e6c6f616473202d2d2d2d2d2d2d2d0d0d4e6f6e652e0d0d2d2d2d2d2d2d2d2d2d2046696c652055706c6f616473202d2d2d2d2d2d2d2d2d2d0d0d4e6f6e652e0d0d2d2d2d2d2d2d2d2d20466f6c6465722055706c6f616473202d2d2d2d2d2d2d2d2d0d0d4e6f6e652e0d0d2d2d2d2d2d2d2d2057616974696e6720446f776e6c6f616473202d2d2d2d2d2d2d0d0d4e6f6e652e0d",
+        "field102_hex": "6672616d696e672d66697874757265"
+      }
+    },
+    "witnesses": {
+      "14": {
+        "expected_active": 0,
+        "expected_waiting": 0,
+        "field101_bytes": 303,
+        "status": "complete",
+        "observed_counts": {
+          "active": 0,
+          "waiting": 0
+        }
+      }
+    }
+  },
+  "packet_views": {
+    "host_near": {
+      "a": {
+        "local_port": 54970,
+        "packet_count": 120,
+        "sent_bytes": 1514,
+        "received_bytes": 3617,
+        "recorder_received_bytes": 3617,
+        "unread_tail_bytes": 0,
+        "unread_tail_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "terminal_packets": [
+          {
+            "packet": 1338,
+            "from_server": true,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 1339,
+            "from_server": false,
+            "flags": 17,
+            "payload_hex": ""
+          }
+        ]
+      },
+      "active0": {
+        "local_port": 57016,
+        "packet_count": 153,
+        "sent_bytes": 16,
+        "received_bytes": 115584,
+        "recorder_received_bytes": 0,
+        "unread_tail_bytes": 115584,
+        "unread_tail_sha256": "b3a3e44f4348b8b6fe9779a61ab59ffc8177266c81e9fa406b8cc32f7e968ab3",
+        "terminal_packets": [
+          {
+            "packet": 1341,
+            "from_server": false,
+            "flags": 20,
+            "payload_hex": ""
+          }
+        ]
+      },
+      "active1": {
+        "local_port": 57028,
+        "packet_count": 169,
+        "sent_bytes": 16,
+        "received_bytes": 120784,
+        "recorder_received_bytes": 0,
+        "unread_tail_bytes": 120784,
+        "unread_tail_sha256": "a78623259f4a36171e8c5cbce4d89d0269c5001210cd88cfe7b4da0b22e8c852",
+        "terminal_packets": [
+          {
+            "packet": 1342,
+            "from_server": false,
+            "flags": 20,
+            "payload_hex": ""
+          }
+        ]
+      },
+      "active2": {
+        "local_port": 57034,
+        "packet_count": 158,
+        "sent_bytes": 16,
+        "received_bytes": 119452,
+        "recorder_received_bytes": 0,
+        "unread_tail_bytes": 119452,
+        "unread_tail_sha256": "033516e5405217fc2f2103593232877d3ff32ea8b3099affdddf9ed2b298af8d",
+        "terminal_packets": [
+          {
+            "packet": 1343,
+            "from_server": false,
+            "flags": 20,
+            "payload_hex": ""
+          }
+        ]
+      },
+      "active3": {
+        "local_port": 33296,
+        "packet_count": 153,
+        "sent_bytes": 16,
+        "received_bytes": 115584,
+        "recorder_received_bytes": 0,
+        "unread_tail_bytes": 115584,
+        "unread_tail_sha256": "b3a3e44f4348b8b6fe9779a61ab59ffc8177266c81e9fa406b8cc32f7e968ab3",
+        "terminal_packets": [
+          {
+            "packet": 1344,
+            "from_server": false,
+            "flags": 20,
+            "payload_hex": ""
+          }
+        ]
+      },
+      "active4": {
+        "local_port": 33298,
+        "packet_count": 156,
+        "sent_bytes": 16,
+        "received_bytes": 116276,
+        "recorder_received_bytes": 0,
+        "unread_tail_bytes": 116276,
+        "unread_tail_sha256": "1c48bbb0580e504c0ec3c1c9ae0e4f1c6f2f0f95465276092c7266b83b2b7644",
+        "terminal_packets": [
+          {
+            "packet": 1345,
+            "from_server": false,
+            "flags": 20,
+            "payload_hex": ""
+          }
+        ]
+      },
+      "active5": {
+        "local_port": 33304,
+        "packet_count": 156,
+        "sent_bytes": 16,
+        "received_bytes": 119452,
+        "recorder_received_bytes": 0,
+        "unread_tail_bytes": 119452,
+        "unread_tail_sha256": "033516e5405217fc2f2103593232877d3ff32ea8b3099affdddf9ed2b298af8d",
+        "terminal_packets": [
+          {
+            "packet": 1346,
+            "from_server": false,
+            "flags": 20,
+            "payload_hex": ""
+          }
+        ]
+      },
+      "active6": {
+        "local_port": 33312,
+        "packet_count": 132,
+        "sent_bytes": 16,
+        "received_bytes": 115456,
+        "recorder_received_bytes": 0,
+        "unread_tail_bytes": 115456,
+        "unread_tail_sha256": "f17d18fdb6f9d33d85c5786ed344b6f40da37b9b491a6cf816c2d7154fe05afe",
+        "terminal_packets": [
+          {
+            "packet": 1347,
+            "from_server": false,
+            "flags": 20,
+            "payload_hex": ""
+          }
+        ]
+      },
+      "active7": {
+        "local_port": 33322,
+        "packet_count": 151,
+        "sent_bytes": 16,
+        "received_bytes": 116224,
+        "recorder_received_bytes": 0,
+        "unread_tail_bytes": 116224,
+        "unread_tail_sha256": "4ce5aec84ade03200d7f27461cf8f30ca7a64be45c9cb1e58e952cfa3a1c4310",
+        "terminal_packets": [
+          {
+            "packet": 1348,
+            "from_server": false,
+            "flags": 20,
+            "payload_hex": ""
+          }
+        ]
+      }
+    },
+    "guest_near": {
+      "a": {
+        "local_port": 54970,
+        "packet_count": 197,
+        "sent_bytes": 1514,
+        "received_bytes": 3639,
+        "recorder_received_bytes": 3617,
+        "unread_tail_bytes": 22,
+        "unread_tail_sha256": "65570c644638ca1b58800cdcb3eadb6da51509777c04d25b5fe02ba795e81cb1",
+        "terminal_packets": [
+          {
+            "packet": 9944,
+            "from_server": false,
+            "flags": 20,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9977,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          }
+        ]
+      },
+      "active0": {
+        "local_port": 57016,
+        "packet_count": 684,
+        "sent_bytes": 16,
+        "received_bytes": 428904,
+        "recorder_received_bytes": 0,
+        "unread_tail_bytes": 428904,
+        "unread_tail_sha256": "a755eeaa58275511823371abb227c51b0058a695c05cd2e06be9b7157346c181",
+        "terminal_packets": [
+          {
+            "packet": 9946,
+            "from_server": false,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9954,
+            "from_server": false,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9956,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9958,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9960,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9963,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9964,
+            "from_server": true,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9966,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          },
+          {
+            "packet": 10005,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          },
+          {
+            "packet": 10007,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          },
+          {
+            "packet": 10023,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          }
+        ]
+      },
+      "active1": {
+        "local_port": 57028,
+        "packet_count": 556,
+        "sent_bytes": 16,
+        "received_bytes": 348444,
+        "recorder_received_bytes": 0,
+        "unread_tail_bytes": 348444,
+        "unread_tail_sha256": "0d1039541d3a48244f706ec4e5c677387150114a22c92b26a8da80400c358ef5",
+        "terminal_packets": [
+          {
+            "packet": 9949,
+            "from_server": false,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9965,
+            "from_server": true,
+            "flags": 4,
+            "payload_hex": "7463705f646973636f6e6e656374"
+          },
+          {
+            "packet": 9984,
+            "from_server": false,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9985,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9987,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9988,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9989,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9990,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          },
+          {
+            "packet": 10008,
+            "from_server": false,
+            "flags": 20,
+            "payload_hex": ""
+          },
+          {
+            "packet": 10017,
+            "from_server": true,
+            "flags": 4,
+            "payload_hex": "4e6f20544350"
+          },
+          {
+            "packet": 10022,
+            "from_server": false,
+            "flags": 20,
+            "payload_hex": ""
+          }
+        ]
+      },
+      "active2": {
+        "local_port": 57034,
+        "packet_count": 556,
+        "sent_bytes": 16,
+        "received_bytes": 348444,
+        "recorder_received_bytes": 0,
+        "unread_tail_bytes": 348444,
+        "unread_tail_sha256": "0d1039541d3a48244f706ec4e5c677387150114a22c92b26a8da80400c358ef5",
+        "terminal_packets": [
+          {
+            "packet": 9948,
+            "from_server": false,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9967,
+            "from_server": true,
+            "flags": 4,
+            "payload_hex": "7463705f646973636f6e6e656374"
+          },
+          {
+            "packet": 9981,
+            "from_server": false,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9982,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9983,
+            "from_server": true,
+            "flags": 4,
+            "payload_hex": "4e6f20544350"
+          },
+          {
+            "packet": 10009,
+            "from_server": false,
+            "flags": 20,
+            "payload_hex": ""
+          },
+          {
+            "packet": 10015,
+            "from_server": false,
+            "flags": 20,
+            "payload_hex": ""
+          }
+        ]
+      },
+      "active3": {
+        "local_port": 33296,
+        "packet_count": 524,
+        "sent_bytes": 16,
+        "received_bytes": 319488,
+        "recorder_received_bytes": 0,
+        "unread_tail_bytes": 319488,
+        "unread_tail_sha256": "31efbc2fcbe7dffccee2beb24e52f43ca0b025331b61e82597ab6133a4e7de6d",
+        "terminal_packets": [
+          {
+            "packet": 9951,
+            "from_server": false,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9968,
+            "from_server": true,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9996,
+            "from_server": false,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9997,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9998,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9999,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          },
+          {
+            "packet": 10000,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          },
+          {
+            "packet": 10001,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          },
+          {
+            "packet": 10006,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          },
+          {
+            "packet": 10010,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          }
+        ]
+      },
+      "active4": {
+        "local_port": 33298,
+        "packet_count": 440,
+        "sent_bytes": 16,
+        "received_bytes": 267984,
+        "recorder_received_bytes": 0,
+        "unread_tail_bytes": 267984,
+        "unread_tail_sha256": "32a60f21332248cbbb3273d9f3d7531ef2a1ee4a4d4606769ae57a8337d46884",
+        "terminal_packets": [
+          {
+            "packet": 9953,
+            "from_server": false,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9972,
+            "from_server": true,
+            "flags": 4,
+            "payload_hex": "7463705f646973636f6e6e656374"
+          },
+          {
+            "packet": 10003,
+            "from_server": false,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 10004,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          },
+          {
+            "packet": 10012,
+            "from_server": false,
+            "flags": 20,
+            "payload_hex": ""
+          }
+        ]
+      },
+      "active5": {
+        "local_port": 33304,
+        "packet_count": 456,
+        "sent_bytes": 16,
+        "received_bytes": 266524,
+        "recorder_received_bytes": 0,
+        "unread_tail_bytes": 266524,
+        "unread_tail_sha256": "e208bee01504b1e09c6631d334b87e8167b7903025b5df9c506ac9b7485596cf",
+        "terminal_packets": [
+          {
+            "packet": 9955,
+            "from_server": false,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9973,
+            "from_server": true,
+            "flags": 4,
+            "payload_hex": "7463705f646973636f6e6e656374"
+          },
+          {
+            "packet": 9991,
+            "from_server": false,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9992,
+            "from_server": false,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9993,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9994,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9995,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          },
+          {
+            "packet": 10013,
+            "from_server": false,
+            "flags": 20,
+            "payload_hex": ""
+          },
+          {
+            "packet": 10019,
+            "from_server": true,
+            "flags": 4,
+            "payload_hex": "4e6f20544350"
+          },
+          {
+            "packet": 10020,
+            "from_server": true,
+            "flags": 4,
+            "payload_hex": "4e6f20544350"
+          },
+          {
+            "packet": 10024,
+            "from_server": false,
+            "flags": 20,
+            "payload_hex": ""
+          },
+          {
+            "packet": 10025,
+            "from_server": false,
+            "flags": 20,
+            "payload_hex": ""
+          }
+        ]
+      },
+      "active6": {
+        "local_port": 33312,
+        "packet_count": 475,
+        "sent_bytes": 16,
+        "received_bytes": 294912,
+        "recorder_received_bytes": 0,
+        "unread_tail_bytes": 294912,
+        "unread_tail_sha256": "e3d6e1f0644d42be15c9ad7d1e44bf56cede4e2152762fd91d47ae41899677ab",
+        "terminal_packets": [
+          {
+            "packet": 9957,
+            "from_server": false,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9969,
+            "from_server": false,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9970,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9974,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9975,
+            "from_server": true,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9978,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9979,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9980,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          },
+          {
+            "packet": 10011,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          },
+          {
+            "packet": 10014,
+            "from_server": false,
+            "flags": 4,
+            "payload_hex": ""
+          }
+        ]
+      },
+      "active7": {
+        "local_port": 33322,
+        "packet_count": 406,
+        "sent_bytes": 16,
+        "received_bytes": 253952,
+        "recorder_received_bytes": 0,
+        "unread_tail_bytes": 253952,
+        "unread_tail_sha256": "ae1f2703fc49dceb928c7aca67c2a23e8056a4bc6a07beb1ad357ca0e6f53414",
+        "terminal_packets": [
+          {
+            "packet": 9959,
+            "from_server": false,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 9976,
+            "from_server": true,
+            "flags": 4,
+            "payload_hex": "7463705f646973636f6e6e656374"
+          },
+          {
+            "packet": 10002,
+            "from_server": false,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 10021,
+            "from_server": true,
+            "flags": 4,
+            "payload_hex": "4e6f20544350"
+          },
+          {
+            "packet": 10026,
+            "from_server": false,
+            "flags": 20,
+            "payload_hex": ""
+          }
+        ]
+      }
+    },
+    "host_postflight": {
+      "a": {
+        "local_port": 34026,
+        "packet_count": 29,
+        "sent_bytes": 231,
+        "received_bytes": 2759,
+        "recorder_received_bytes": 2759,
+        "unread_tail_bytes": 0,
+        "unread_tail_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "terminal_packets": [
+          {
+            "packet": 27,
+            "from_server": false,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 28,
+            "from_server": true,
+            "flags": 17,
+            "payload_hex": ""
+          }
+        ]
+      }
+    },
+    "guest_postflight": {
+      "a": {
+        "local_port": 34026,
+        "packet_count": 31,
+        "sent_bytes": 231,
+        "received_bytes": 2759,
+        "recorder_received_bytes": 2759,
+        "unread_tail_bytes": 0,
+        "unread_tail_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "terminal_packets": [
+          {
+            "packet": 10054,
+            "from_server": false,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 10056,
+            "from_server": true,
+            "flags": 17,
+            "payload_hex": ""
+          }
+        ]
+      }
+    }
+  },
+  "scope": "Failed capture with positive pre-failure 303 reply; transport cause unknown"
+}

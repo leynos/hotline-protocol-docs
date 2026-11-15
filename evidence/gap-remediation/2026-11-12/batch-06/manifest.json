@@ -1,0 +1,11 @@
+{
+  "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "query_count": 26,
+  "plans": [
+    "plans/ban-persistence-and-status.json",
+    "plans/console-and-notification-wrappers.json",
+    "plans/presence-and-send-paths.json",
+    "plans/text-and-classification.json"
+  ],
+  "method": "Read-only Ghidra teardown, console, ban and status analysis; status assembly and exact text/classification bytes retained. No native network execution."
+}

@@ -1,0 +1,36 @@
+diff --git a/src/db/migrations_tests.rs b/src/db/migrations_tests.rs
+index 681c0ab..952a4cd 100644
+--- a/src/db/migrations_tests.rs
++++ b/src/db/migrations_tests.rs
+@@ -34,17 +34,25 @@ async fn migration_watchdog_allows_work_that_finishes_in_time() {
+ 
+ #[tokio::test]
+ async fn migration_watchdog_cancels_work_and_reports_the_applied_timeout() {
+-    let err =
+-        run_with_migration_timeout(Duration::from_millis(1), CancellationToken::new(), async {
+-            tokio::time::sleep(Duration::from_millis(50)).await;
++    let token = CancellationToken::new();
++    let observed_cancellation = token.clone();
++    let waiting_for_cancellation = token.clone();
++    // Work cannot finish before the watchdog unless the helper cancels it.
++    let err = tokio::time::timeout(
++        Duration::from_secs(5),
++        run_with_migration_timeout(Duration::from_millis(1), token, async move {
++            waiting_for_cancellation.cancelled().await;
+             Ok::<(), DieselError>(())
+-        })
+-        .await
+-        .expect_err("cancelled work should time out");
++        }),
++    )
++    .await
++    .expect("watchdog test must finish even if cancellation breaks")
++    .expect_err("cancelled work should time out");
+ 
+     let DieselError::SerializationError(inner) = err else {
+         panic!("timeout should be wrapped as a serialization error");
+     };
+ 
+     assert_eq!(inner.to_string(), "migration execution exceeded 1ms");
++    assert!(observed_cancellation.is_cancelled());
+ }

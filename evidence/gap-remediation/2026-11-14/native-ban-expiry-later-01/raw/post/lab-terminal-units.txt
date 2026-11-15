@@ -1,0 +1,11 @@
+Id=mothra-sheep-27ac481d86f1.service
+ActiveState=inactive
+SubState=dead
+MainPID=0
+Result=success
+
+Id=mothra-display-2dbe41f84309.service
+ActiveState=inactive
+SubState=dead
+MainPID=0
+Result=success

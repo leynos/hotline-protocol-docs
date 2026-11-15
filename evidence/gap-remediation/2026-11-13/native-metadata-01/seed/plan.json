@@ -1,0 +1,1578 @@
+{
+  "schema_version": 1,
+  "profile": "native-mac-oracle",
+  "operator": "native fixture operator",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "environment": {
+    "emulator_pid": 881007,
+    "running_executable_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+    "rom_and_base": {
+      "rom_sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+      "base_disk_sha256": "0ba5f8cf3b1faac0bd29d3e75f3df60f311c87022e37022e13e5093836da6e6a",
+      "source_rom": "/data/leynos/Projects/mothra/state/mac-runtime/hotline19/rom",
+      "source_disk": "/data/leynos/Projects/mothra/state/mac-runtime/hotline19/working.dsk",
+      "archive_member": null
+    },
+    "launch": {
+      "command": [
+        "sudo",
+        "-n",
+        "setpriv",
+        "--reuid=1000",
+        "--regid=1000",
+        "--init-groups",
+        "--inh-caps=+sys_rawio",
+        "--ambient-caps=+sys_rawio",
+        "env",
+        "DISPLAY=:98",
+        "SDL_VIDEODRIVER=x11",
+        "SDL_AUDIODRIVER=dummy",
+        "MOTHRA_ETHERNET_PCAP=/data/leynos/Projects/mothra/state/native-sessions/runtime-20/guest.pcap",
+        "XDG_CACHE_HOME=/data/leynos/Projects/mothra/state/mac-runtime/hotline20/cache",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline20/SheepShaver-9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline20/machine.sheepvm"
+      ],
+      "emulator_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "host_ports": [
+        15500,
+        15501,
+        15502,
+        15503
+      ],
+      "tcp_bind": "127.0.0.1",
+      "guest_address": "10.0.2.15",
+      "guest_pcap": "/data/leynos/Projects/mothra/state/native-sessions/runtime-20/guest.pcap",
+      "guest_pcap_scope": "SLiRP Ethernet boundary; host wall-clock timestamps"
+    },
+    "source_application": {
+      "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+      "appledouble_sha256": "9ab8b9ec708ccdb8a4fed99b00162fd087c108b6039c7acc5943145bad419c2f",
+      "finder_info_sha256": "2bad82ff67c5c28b30be6d8b1f69f2a5e316b06b83d7c9a9c81c4968761e9bab",
+      "resource_fork_sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12",
+      "method": "AppleDouble entries9/2 copied to .finf/.rsrc; data fork unchanged"
+    },
+    "guest_os": "Mac OS9.0.4, PowerPC Enabler9.0.4,512MiB,virtual memory off; observed About This Computer",
+    "guest_components": "Base HFS+ catalog inventory has CarbonLib Preferences (US), but no named CarbonLib file located. No assertion about loaded/imported CarbonLib version.",
+    "server_path": "System 9:Hotline19:HLserver19",
+    "configuration": "NativePrefs version5 positivefork; General100/10/IP5 andport5500 verified bybytes. Emptyname; serverlogLoadedAgreement.txt andmothra-banner-b.gif, nativeSoundsDisabled acknowledged. Original245-byte agreement remainscheckedbywirecomparison.",
+    "scope": "Nativealias/fileinfo fixtures after separately recorded restart on timer-patched emulator",
+    "guest_native_file_verification": {
+      "method": "Read-onlySleuthKit catalogue11183 aftercopiedguestboot began, beforeapplicationlaunch",
+      "data_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+      "resource_sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12",
+      "resource_bytes": 38460
+    },
+    "prelaunch_disk_sha256": "0ba5f8cf3b1faac0bd29d3e75f3df60f311c87022e37022e13e5093836da6e6a",
+    "continuation_from": "OldPID774378 absent, oldXvfb gone andportsclosed. Preserveoldruntime; cloneitsstoppeduncleanworking image tohotline20. NativeDiskFirstAidreportedcompletion onnewcopy; causeofoldexitunknown.",
+    "download_limits": {
+      "global": 100,
+      "per_session": 10,
+      "evidence": "native-queue-01/configuration/options-restored.png"
+    },
+    "banner_fixture_setup": "Uploaded GIFf/MOTH fixtures through203 into Files, then Finder-moved into application directory. Options Banner uses barefilename; fullpaths/relativepaths were failed setup probes."
+  },
+  "gap_ids": [
+    "GAP-016",
+    "GAP-019",
+    "GAP-052",
+    "GAP-084"
+  ],
+  "endpoints": {
+    "control": {
+      "host": "127.0.0.1",
+      "port": 15500
+    },
+    "data": {
+      "host": "127.0.0.1",
+      "port": 15501
+    }
+  },
+  "expectation": {
+    "kind": "metadata-seed"
+  },
+  "steps": [
+    {
+      "op": "connect",
+      "connection": "main",
+      "endpoint": "control",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "54525450484f544c00010002",
+      "timeout": 30
+    },
+    {
+      "op": "read",
+      "connection": "main",
+      "size": 8,
+      "expect_hex": "5452545000000000",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "0000006b000000010000000000000036000000360005006900059e9b929691006a000892908b978d9ecec600a0000200be0066000f6672616d696e672d66697874757265006800020001",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "0000015e0000001400000000000000430000004300040069001092d2929a8b9ecdced29c9092929a918b006a0009929a8b9ed28f9e8c8c006600106d2d6d65746132312d636f6d6d656e74006e00080000000c00000000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 20
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000001600000001e0000000000000016000000160001006900106d2d6d65746132312d636f6d6d656e74",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 30
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "0000015e0000001500000000000000410000004100040069000f92d2929a8b9ecdced28d9a919e929a006a0009929a8b9ed28f9e8c8c0066000f6d2d6d65746132312d72656e616d65006e00081100000000000000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 21
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000001600000001f00000000000000150000001500010069000f6d2d6d65746132312d72656e616d65",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 31
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "0000015e0000001600000000000000430000004300040069001092d2929a8b9ecdced2919a968b979a8d006a0009929a8b9ed28f9e8c8c006600106d2d6d65746132312d6e656974686572006e00080000000000000000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 22
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "00000160000000200000000000000016000000160001006900106d2d6d65746132312d6e656974686572",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 32
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cd00000032000000000000001300000013000100c9000d6d6f746872612d6d6574613231",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 50
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cb0000003c000000000000002c0000002c000300c900086f6363757069656400ca0012000100000d6d6f746872612d6d6574613231006c0004000000bd",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 60
+      },
+      "save_field": {
+        "name": "ref60",
+        "id": 107
+      }
+    },
+    {
+      "op": "connect",
+      "connection": "up60",
+      "endpoint": "data",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "up60",
+      "hex": "48545846{ref60}000000bd0000000046494c500001000000000000000000000000000000000003494e464f000000000000000000000068414d4143544558544d4f54480000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000126d657461646174612d6f6e6c792d6e616d65000c626173652d636f6d6d656e744441544100000000000000000000000d6d657461646174612d646174614d414352000000000000000000000000",
+      "timeout": 30
+    },
+    {
+      "op": "read_eof",
+      "connection": "up60",
+      "timeout": 30,
+      "expect_hex": ""
+    },
+    {
+      "op": "close",
+      "connection": "up60"
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cb00000064000000000000002700000027000300c9000366303000ca0012000100000d6d6f746872612d6d6574613231006c0004000000bd",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 100
+      },
+      "save_field": {
+        "name": "ref100",
+        "id": 107
+      }
+    },
+    {
+      "op": "connect",
+      "connection": "up100",
+      "endpoint": "data",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "up100",
+      "hex": "48545846{ref100}000000bd0000000046494c500001000000000000000000000000000000000003494e464f000000000000000000000068414d4143544558544d4f54480000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000126d657461646174612d6f6e6c792d6e616d65000c626173652d636f6d6d656e744441544100000000000000000000000d6d657461646174612d646174614d414352000000000000000000000000",
+      "timeout": 30
+    },
+    {
+      "op": "read_eof",
+      "connection": "up100",
+      "timeout": 30,
+      "expect_hex": ""
+    },
+    {
+      "op": "close",
+      "connection": "up100"
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cb00000065000000000000002700000027000300c9000366303100ca0012000100000d6d6f746872612d6d6574613231006c0004000000bd",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 101
+      },
+      "save_field": {
+        "name": "ref101",
+        "id": 107
+      }
+    },
+    {
+      "op": "connect",
+      "connection": "up101",
+      "endpoint": "data",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "up101",
+      "hex": "48545846{ref101}000000bd0000000046494c500001000000000000000000000000000000000003494e464f000000000000000000000068414d4143544558544d4f54480000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000126d657461646174612d6f6e6c792d6e616d65000c626173652d636f6d6d656e744441544100000000000000000000000d6d657461646174612d646174614d414352000000000000000000000000",
+      "timeout": 30
+    },
+    {
+      "op": "read_eof",
+      "connection": "up101",
+      "timeout": 30,
+      "expect_hex": ""
+    },
+    {
+      "op": "close",
+      "connection": "up101"
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cb00000066000000000000002700000027000300c9000366303200ca0012000100000d6d6f746872612d6d6574613231006c0004000000bd",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 102
+      },
+      "save_field": {
+        "name": "ref102",
+        "id": 107
+      }
+    },
+    {
+      "op": "connect",
+      "connection": "up102",
+      "endpoint": "data",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "up102",
+      "hex": "48545846{ref102}000000bd0000000046494c500001000000000000000000000000000000000003494e464f000000000000000000000068414d4143544558544d4f54480000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000126d657461646174612d6f6e6c792d6e616d65000c626173652d636f6d6d656e744441544100000000000000000000000d6d657461646174612d646174614d414352000000000000000000000000",
+      "timeout": 30
+    },
+    {
+      "op": "read_eof",
+      "connection": "up102",
+      "timeout": 30,
+      "expect_hex": ""
+    },
+    {
+      "op": "close",
+      "connection": "up102"
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cb00000067000000000000002700000027000300c9000366303300ca0012000100000d6d6f746872612d6d6574613231006c0004000000bd",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 103
+      },
+      "save_field": {
+        "name": "ref103",
+        "id": 107
+      }
+    },
+    {
+      "op": "connect",
+      "connection": "up103",
+      "endpoint": "data",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "up103",
+      "hex": "48545846{ref103}000000bd0000000046494c500001000000000000000000000000000000000003494e464f000000000000000000000068414d4143544558544d4f54480000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000126d657461646174612d6f6e6c792d6e616d65000c626173652d636f6d6d656e744441544100000000000000000000000d6d657461646174612d646174614d414352000000000000000000000000",
+      "timeout": 30
+    },
+    {
+      "op": "read_eof",
+      "connection": "up103",
+      "timeout": 30,
+      "expect_hex": ""
+    },
+    {
+      "op": "close",
+      "connection": "up103"
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cb00000068000000000000002700000027000300c9000366303400ca0012000100000d6d6f746872612d6d6574613231006c0004000000bd",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 104
+      },
+      "save_field": {
+        "name": "ref104",
+        "id": 107
+      }
+    },
+    {
+      "op": "connect",
+      "connection": "up104",
+      "endpoint": "data",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "up104",
+      "hex": "48545846{ref104}000000bd0000000046494c500001000000000000000000000000000000000003494e464f000000000000000000000068414d4143544558544d4f54480000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000126d657461646174612d6f6e6c792d6e616d65000c626173652d636f6d6d656e744441544100000000000000000000000d6d657461646174612d646174614d414352000000000000000000000000",
+      "timeout": 30
+    },
+    {
+      "op": "read_eof",
+      "connection": "up104",
+      "timeout": 30,
+      "expect_hex": ""
+    },
+    {
+      "op": "close",
+      "connection": "up104"
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cb00000069000000000000002700000027000300c9000366303500ca0012000100000d6d6f746872612d6d6574613231006c0004000000bd",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 105
+      },
+      "save_field": {
+        "name": "ref105",
+        "id": 107
+      }
+    },
+    {
+      "op": "connect",
+      "connection": "up105",
+      "endpoint": "data",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "up105",
+      "hex": "48545846{ref105}000000bd0000000046494c500001000000000000000000000000000000000003494e464f000000000000000000000068414d4143544558544d4f54480000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000126d657461646174612d6f6e6c792d6e616d65000c626173652d636f6d6d656e744441544100000000000000000000000d6d657461646174612d646174614d414352000000000000000000000000",
+      "timeout": 30
+    },
+    {
+      "op": "read_eof",
+      "connection": "up105",
+      "timeout": 30,
+      "expect_hex": ""
+    },
+    {
+      "op": "close",
+      "connection": "up105"
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cb0000006a000000000000002700000027000300c9000366303600ca0012000100000d6d6f746872612d6d6574613231006c0004000000bd",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 106
+      },
+      "save_field": {
+        "name": "ref106",
+        "id": 107
+      }
+    },
+    {
+      "op": "connect",
+      "connection": "up106",
+      "endpoint": "data",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "up106",
+      "hex": "48545846{ref106}000000bd0000000046494c500001000000000000000000000000000000000003494e464f000000000000000000000068414d4143544558544d4f54480000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000126d657461646174612d6f6e6c792d6e616d65000c626173652d636f6d6d656e744441544100000000000000000000000d6d657461646174612d646174614d414352000000000000000000000000",
+      "timeout": 30
+    },
+    {
+      "op": "read_eof",
+      "connection": "up106",
+      "timeout": 30,
+      "expect_hex": ""
+    },
+    {
+      "op": "close",
+      "connection": "up106"
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cb0000006b000000000000002700000027000300c9000366303700ca0012000100000d6d6f746872612d6d6574613231006c0004000000bd",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 107
+      },
+      "save_field": {
+        "name": "ref107",
+        "id": 107
+      }
+    },
+    {
+      "op": "connect",
+      "connection": "up107",
+      "endpoint": "data",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "up107",
+      "hex": "48545846{ref107}000000bd0000000046494c500001000000000000000000000000000000000003494e464f000000000000000000000068414d4143544558544d4f54480000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000126d657461646174612d6f6e6c792d6e616d65000c626173652d636f6d6d656e744441544100000000000000000000000d6d657461646174612d646174614d414352000000000000000000000000",
+      "timeout": 30
+    },
+    {
+      "op": "read_eof",
+      "connection": "up107",
+      "timeout": 30,
+      "expect_hex": ""
+    },
+    {
+      "op": "close",
+      "connection": "up107"
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cb0000006c000000000000002700000027000300c9000366303800ca0012000100000d6d6f746872612d6d6574613231006c0004000000bd",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 108
+      },
+      "save_field": {
+        "name": "ref108",
+        "id": 107
+      }
+    },
+    {
+      "op": "connect",
+      "connection": "up108",
+      "endpoint": "data",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "up108",
+      "hex": "48545846{ref108}000000bd0000000046494c500001000000000000000000000000000000000003494e464f000000000000000000000068414d4143544558544d4f54480000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000126d657461646174612d6f6e6c792d6e616d65000c626173652d636f6d6d656e744441544100000000000000000000000d6d657461646174612d646174614d414352000000000000000000000000",
+      "timeout": 30
+    },
+    {
+      "op": "read_eof",
+      "connection": "up108",
+      "timeout": 30,
+      "expect_hex": ""
+    },
+    {
+      "op": "close",
+      "connection": "up108"
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cb0000006d000000000000002700000027000300c9000366303900ca0012000100000d6d6f746872612d6d6574613231006c0004000000bd",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 109
+      },
+      "save_field": {
+        "name": "ref109",
+        "id": 107
+      }
+    },
+    {
+      "op": "connect",
+      "connection": "up109",
+      "endpoint": "data",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "up109",
+      "hex": "48545846{ref109}000000bd0000000046494c500001000000000000000000000000000000000003494e464f000000000000000000000068414d4143544558544d4f54480000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000126d657461646174612d6f6e6c792d6e616d65000c626173652d636f6d6d656e744441544100000000000000000000000d6d657461646174612d646174614d414352000000000000000000000000",
+      "timeout": 30
+    },
+    {
+      "op": "read_eof",
+      "connection": "up109",
+      "timeout": 30,
+      "expect_hex": ""
+    },
+    {
+      "op": "close",
+      "connection": "up109"
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cb0000006e000000000000002700000027000300c9000366313000ca0012000100000d6d6f746872612d6d6574613231006c0004000000bd",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 110
+      },
+      "save_field": {
+        "name": "ref110",
+        "id": 107
+      }
+    },
+    {
+      "op": "connect",
+      "connection": "up110",
+      "endpoint": "data",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "up110",
+      "hex": "48545846{ref110}000000bd0000000046494c500001000000000000000000000000000000000003494e464f000000000000000000000068414d4143544558544d4f54480000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000126d657461646174612d6f6e6c792d6e616d65000c626173652d636f6d6d656e744441544100000000000000000000000d6d657461646174612d646174614d414352000000000000000000000000",
+      "timeout": 30
+    },
+    {
+      "op": "read_eof",
+      "connection": "up110",
+      "timeout": 30,
+      "expect_hex": ""
+    },
+    {
+      "op": "close",
+      "connection": "up110"
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cb0000006f000000000000002700000027000300c9000366313100ca0012000100000d6d6f746872612d6d6574613231006c0004000000bd",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 111
+      },
+      "save_field": {
+        "name": "ref111",
+        "id": 107
+      }
+    },
+    {
+      "op": "connect",
+      "connection": "up111",
+      "endpoint": "data",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "up111",
+      "hex": "48545846{ref111}000000bd0000000046494c500001000000000000000000000000000000000003494e464f000000000000000000000068414d4143544558544d4f54480000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000126d657461646174612d6f6e6c792d6e616d65000c626173652d636f6d6d656e744441544100000000000000000000000d6d657461646174612d646174614d414352000000000000000000000000",
+      "timeout": 30
+    },
+    {
+      "op": "read_eof",
+      "connection": "up111",
+      "timeout": 30,
+      "expect_hex": ""
+    },
+    {
+      "op": "close",
+      "connection": "up111"
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cb00000070000000000000002700000027000300c9000366313200ca0012000100000d6d6f746872612d6d6574613231006c0004000000bd",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 112
+      },
+      "save_field": {
+        "name": "ref112",
+        "id": 107
+      }
+    },
+    {
+      "op": "connect",
+      "connection": "up112",
+      "endpoint": "data",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "up112",
+      "hex": "48545846{ref112}000000bd0000000046494c500001000000000000000000000000000000000003494e464f000000000000000000000068414d4143544558544d4f54480000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000126d657461646174612d6f6e6c792d6e616d65000c626173652d636f6d6d656e744441544100000000000000000000000d6d657461646174612d646174614d414352000000000000000000000000",
+      "timeout": 30
+    },
+    {
+      "op": "read_eof",
+      "connection": "up112",
+      "timeout": 30,
+      "expect_hex": ""
+    },
+    {
+      "op": "close",
+      "connection": "up112"
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cb00000071000000000000002700000027000300c9000366313300ca0012000100000d6d6f746872612d6d6574613231006c0004000000bd",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 113
+      },
+      "save_field": {
+        "name": "ref113",
+        "id": 107
+      }
+    },
+    {
+      "op": "connect",
+      "connection": "up113",
+      "endpoint": "data",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "up113",
+      "hex": "48545846{ref113}000000bd0000000046494c500001000000000000000000000000000000000003494e464f000000000000000000000068414d4143544558544d4f54480000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000126d657461646174612d6f6e6c792d6e616d65000c626173652d636f6d6d656e744441544100000000000000000000000d6d657461646174612d646174614d414352000000000000000000000000",
+      "timeout": 30
+    },
+    {
+      "op": "read_eof",
+      "connection": "up113",
+      "timeout": 30,
+      "expect_hex": ""
+    },
+    {
+      "op": "close",
+      "connection": "up113"
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cb00000072000000000000002700000027000300c9000366313400ca0012000100000d6d6f746872612d6d6574613231006c0004000000bd",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 114
+      },
+      "save_field": {
+        "name": "ref114",
+        "id": 107
+      }
+    },
+    {
+      "op": "connect",
+      "connection": "up114",
+      "endpoint": "data",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "up114",
+      "hex": "48545846{ref114}000000bd0000000046494c500001000000000000000000000000000000000003494e464f000000000000000000000068414d4143544558544d4f54480000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000126d657461646174612d6f6e6c792d6e616d65000c626173652d636f6d6d656e744441544100000000000000000000000d6d657461646174612d646174614d414352000000000000000000000000",
+      "timeout": 30
+    },
+    {
+      "op": "read_eof",
+      "connection": "up114",
+      "timeout": 30,
+      "expect_hex": ""
+    },
+    {
+      "op": "close",
+      "connection": "up114"
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cb00000073000000000000002700000027000300c9000366313500ca0012000100000d6d6f746872612d6d6574613231006c0004000000bd",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 115
+      },
+      "save_field": {
+        "name": "ref115",
+        "id": 107
+      }
+    },
+    {
+      "op": "connect",
+      "connection": "up115",
+      "endpoint": "data",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "up115",
+      "hex": "48545846{ref115}000000bd0000000046494c500001000000000000000000000000000000000003494e464f000000000000000000000068414d4143544558544d4f54480000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000126d657461646174612d6f6e6c792d6e616d65000c626173652d636f6d6d656e744441544100000000000000000000000d6d657461646174612d646174614d414352000000000000000000000000",
+      "timeout": 30
+    },
+    {
+      "op": "read_eof",
+      "connection": "up115",
+      "timeout": 30,
+      "expect_hex": ""
+    },
+    {
+      "op": "close",
+      "connection": "up115"
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cb00000074000000000000002700000027000300c9000366313600ca0012000100000d6d6f746872612d6d6574613231006c0004000000bd",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 116
+      },
+      "save_field": {
+        "name": "ref116",
+        "id": 107
+      }
+    },
+    {
+      "op": "connect",
+      "connection": "up116",
+      "endpoint": "data",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "up116",
+      "hex": "48545846{ref116}000000bd0000000046494c500001000000000000000000000000000000000003494e464f000000000000000000000068414d4143544558544d4f54480000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000126d657461646174612d6f6e6c792d6e616d65000c626173652d636f6d6d656e744441544100000000000000000000000d6d657461646174612d646174614d414352000000000000000000000000",
+      "timeout": 30
+    },
+    {
+      "op": "read_eof",
+      "connection": "up116",
+      "timeout": 30,
+      "expect_hex": ""
+    },
+    {
+      "op": "close",
+      "connection": "up116"
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cb00000075000000000000002700000027000300c9000366313700ca0012000100000d6d6f746872612d6d6574613231006c0004000000bd",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 117
+      },
+      "save_field": {
+        "name": "ref117",
+        "id": 107
+      }
+    },
+    {
+      "op": "connect",
+      "connection": "up117",
+      "endpoint": "data",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "up117",
+      "hex": "48545846{ref117}000000bd0000000046494c500001000000000000000000000000000000000003494e464f000000000000000000000068414d4143544558544d4f54480000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000126d657461646174612d6f6e6c792d6e616d65000c626173652d636f6d6d656e744441544100000000000000000000000d6d657461646174612d646174614d414352000000000000000000000000",
+      "timeout": 30
+    },
+    {
+      "op": "read_eof",
+      "connection": "up117",
+      "timeout": 30,
+      "expect_hex": ""
+    },
+    {
+      "op": "close",
+      "connection": "up117"
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cd00000076000000000000001f0000001f000200c9000364303000ca0012000100000d6d6f746872612d6d6574613231",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 118
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cf000000da000000000000002f0000002f000300c9000364303000ca0012000100000d6d6f746872612d6d657461323100d2000c626173652d636f6d6d656e74",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 218
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cd00000077000000000000001f0000001f000200c9000364303100ca0012000100000d6d6f746872612d6d6574613231",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 119
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cf000000db000000000000002f0000002f000300c9000364303100ca0012000100000d6d6f746872612d6d657461323100d2000c626173652d636f6d6d656e74",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 219
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cd00000078000000000000001f0000001f000200c9000364303200ca0012000100000d6d6f746872612d6d6574613231",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 120
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cf000000dc000000000000002f0000002f000300c9000364303200ca0012000100000d6d6f746872612d6d657461323100d2000c626173652d636f6d6d656e74",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 220
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cd00000079000000000000001f0000001f000200c9000364303300ca0012000100000d6d6f746872612d6d6574613231",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 121
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cf000000dd000000000000002f0000002f000300c9000364303300ca0012000100000d6d6f746872612d6d657461323100d2000c626173652d636f6d6d656e74",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 221
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cd0000007a000000000000001f0000001f000200c9000364303400ca0012000100000d6d6f746872612d6d6574613231",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 122
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cf000000de000000000000002f0000002f000300c9000364303400ca0012000100000d6d6f746872612d6d657461323100d2000c626173652d636f6d6d656e74",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 222
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cd0000007b000000000000001f0000001f000200c9000364303500ca0012000100000d6d6f746872612d6d6574613231",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 123
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cf000000df000000000000002f0000002f000300c9000364303500ca0012000100000d6d6f746872612d6d657461323100d2000c626173652d636f6d6d656e74",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 223
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cd0000007c000000000000001f0000001f000200c9000364303600ca0012000100000d6d6f746872612d6d6574613231",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 124
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cf000000e0000000000000002f0000002f000300c9000364303600ca0012000100000d6d6f746872612d6d657461323100d2000c626173652d636f6d6d656e74",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 224
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cd0000007d000000000000001f0000001f000200c9000364303700ca0012000100000d6d6f746872612d6d6574613231",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 125
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cf000000e1000000000000002f0000002f000300c9000364303700ca0012000100000d6d6f746872612d6d657461323100d2000c626173652d636f6d6d656e74",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 225
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cd0000007e000000000000001f0000001f000200c9000364303800ca0012000100000d6d6f746872612d6d6574613231",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 126
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cf000000e2000000000000002f0000002f000300c9000364303800ca0012000100000d6d6f746872612d6d657461323100d2000c626173652d636f6d6d656e74",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 226
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cd0000007f000000000000001f0000001f000200c9000364303900ca0012000100000d6d6f746872612d6d6574613231",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 127
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cf000000e3000000000000002f0000002f000300c9000364303900ca0012000100000d6d6f746872612d6d657461323100d2000c626173652d636f6d6d656e74",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 227
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cd00000080000000000000001f0000001f000200c9000364313000ca0012000100000d6d6f746872612d6d6574613231",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 128
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cf000000e4000000000000002f0000002f000300c9000364313000ca0012000100000d6d6f746872612d6d657461323100d2000c626173652d636f6d6d656e74",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 228
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cd00000081000000000000001f0000001f000200c9000364313100ca0012000100000d6d6f746872612d6d6574613231",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 129
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cf000000e5000000000000002f0000002f000300c9000364313100ca0012000100000d6d6f746872612d6d657461323100d2000c626173652d636f6d6d656e74",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 229
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cd00000082000000000000001f0000001f000200c9000364313200ca0012000100000d6d6f746872612d6d6574613231",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 130
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cf000000e6000000000000002f0000002f000300c9000364313200ca0012000100000d6d6f746872612d6d657461323100d2000c626173652d636f6d6d656e74",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 230
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cd00000083000000000000001f0000001f000200c9000364313300ca0012000100000d6d6f746872612d6d6574613231",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 131
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cf000000e7000000000000002f0000002f000300c9000364313300ca0012000100000d6d6f746872612d6d657461323100d2000c626173652d636f6d6d656e74",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 231
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cd00000084000000000000001f0000001f000200c9000364313400ca0012000100000d6d6f746872612d6d6574613231",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 132
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cf000000e8000000000000002f0000002f000300c9000364313400ca0012000100000d6d6f746872612d6d657461323100d2000c626173652d636f6d6d656e74",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 232
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cd00000085000000000000001f0000001f000200c9000364313500ca0012000100000d6d6f746872612d6d6574613231",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 133
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cf000000e9000000000000002f0000002f000300c9000364313500ca0012000100000d6d6f746872612d6d657461323100d2000c626173652d636f6d6d656e74",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 233
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cd00000086000000000000001f0000001f000200c9000364313600ca0012000100000d6d6f746872612d6d6574613231",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 134
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cf000000ea000000000000002f0000002f000300c9000364313600ca0012000100000d6d6f746872612d6d657461323100d2000c626173652d636f6d6d656e74",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 234
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cd00000087000000000000001f0000001f000200c9000364313700ca0012000100000d6d6f746872612d6d6574613231",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 135
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000cf000000eb000000000000002f0000002f000300c9000364313700ca0012000100000d6d6f746872612d6d657461323100d2000c626173652d636f6d6d656e74",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 235
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000000c8000001f4000000000000001800000018000100ca0012000100000d6d6f746872612d6d6574613231",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 500
+      }
+    },
+    {
+      "op": "close",
+      "connection": "main"
+    }
+  ]
+}

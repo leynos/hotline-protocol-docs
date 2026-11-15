@@ -1,0 +1,4 @@
+Nov 13 20:44:43 ibara systemd[447]: Starting mothra-console-d1-capture.service - [systemd-run] /usr/sbin/sudo -n tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-console-d1/host.pcap "tcp port 15500"...
+Nov 13 20:44:43 ibara systemd[447]: Started mothra-console-d1-capture.service - [systemd-run] /usr/sbin/sudo -n tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-console-d1/host.pcap "tcp port 15500".
+Nov 13 20:44:43 ibara sudo[2197951]:   leynos : PWD=/home/leynos ; USER=root ; COMMAND=/usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-console-d1/host.pcap 'tcp port 15500'
+Nov 13 20:45:33 ibara systemd[447]: mothra-console-d1-capture.service: Sent signal SIGINT to main process 2197951 (sudo) on client request.

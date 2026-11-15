@@ -1,0 +1,19 @@
+import hashlib,json,re,struct
+from pathlib import Path
+src=Path('../hotline-bench/extracted/HotlineConnectServer-Mac/._HLserver19');a=src.read_bytes();assert a[:4]==bytes.fromhex('00051607');entries={}
+for i in range(struct.unpack_from('>H',a,24)[0]):
+ key,offset,size=struct.unpack_from('>III',a,26+12*i);assert offset+size<=len(a);entries[key]=a[offset:offset+size]
+b=entries[2];assert hashlib.sha256(b).hexdigest()=='fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12'
+do,mo,ds,ms=struct.unpack_from('>IIII',b);assert do+ds<=len(b) and mo+ms<=len(b)
+tl=mo+struct.unpack_from('>H',b,mo+24)[0];nl=mo+struct.unpack_from('>H',b,mo+26)[0];items=[];candidates=[]
+for i in range(struct.unpack_from('>H',b,tl)[0]+1):
+ pos=tl+2+8*i;kind=b[pos:pos+4].decode('mac_roman');count,ro=struct.unpack_from('>HH',b,pos+4)
+ for j in range(count+1):
+  ref=tl+ro+j*12;rid,nameoff=struct.unpack_from('>hH',b,ref);dat=do+int.from_bytes(b[ref+5:ref+8],'big');size=struct.unpack_from('>I',b,dat)[0];data=b[dat+4:dat+4+size];assert len(data)==size
+  name='' if nameoff==65535 else b[nl+nameoff+1:nl+nameoff+1+b[nl+nameoff]].decode('mac_roman')
+  item={'type':kind,'id':rid,'name':name,'bytes':size,'sha256':hashlib.sha256(data).hexdigest()};items.append(item)
+  for m in re.finditer(rb'account|user|comment|description|directory|folder|note|email|owner|creator',data,re.I):
+   context=data[max(0,m.start()-32):min(len(data),m.end()+64)].decode('mac_roman')
+   candidates.append({'type':kind,'id':rid,'offset':m.start(),'keyword':m.group().decode('ascii'),'text':context})
+r=Path('state/account-resource-trace-01');(r/'resource-inventory.json').write_text(json.dumps({'source':str(src),'resource_sha256':hashlib.sha256(b).hexdigest(),'resources':items},indent=2)+'\n');(r/'text-candidates.json').write_text(json.dumps(candidates,indent=2)+'\n');print(len(items),'resources;',len(candidates),'keyword candidates')
+for c in candidates:print(c['type'],c['id'],c['offset'],c['text'])

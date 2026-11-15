@@ -1,0 +1,19 @@
+disk /data/leynos/Projects/mothra/state/native-mac/sheep-os9.dsk
+rom /data/leynos/Projects/mothra/state/native-mac/Mac OS ROM
+extfs /data/leynos/Projects/mothra/state/native-mac/shared
+screen win/1024/768
+ramsize 536870912
+frameskip 0
+gfxaccel true
+nocdrom true
+nonet false
+nosound true
+nogui true
+jit false
+jit68k false
+idlewait true
+ether slirp
+redir tcp:15500:10.0.2.15:5500
+redir tcp:15501:10.0.2.15:5501
+redir tcp:15502:10.0.2.15:5502
+redir tcp:15503:10.0.2.15:5503

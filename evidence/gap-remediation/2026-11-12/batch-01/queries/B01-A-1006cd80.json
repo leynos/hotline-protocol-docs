@@ -1,0 +1,144 @@
+{
+  "captured_at_utc": "2026-11-12T13:32:53.296251+00:00",
+  "query": {
+    "id": "B01-A-1006cd80",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "1006cd80",
+      "limit": 2000
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"items\": [\n    {\n      \"address\": \"1006cd80\",\n      \"bytes\": \"3863ffff\",\n      \"instruction\": \"subi r3,r3,0x1\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1006cd84\",\n      \"bytes\": \"3884ffff\",\n      \"instruction\": \"subi r4,r4,0x1\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1006cd88\",\n      \"bytes\": \"4800001c\",\n      \"instruction\": \"b 0x1006cda4\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1006cd8c\",\n      \"bytes\": \"8cc30001\",\n      \"instruction\": \"lbzu r6,0x1(r3)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1006cd90\",\n      \"bytes\": \"8c040001\",\n      \"instruction\": \"lbzu r0,0x1(r4)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1006cd94\",\n      \"bytes\": \"7c060040\",\n      \"instruction\": \"cmplw r6,r0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1006cd98\",\n      \"bytes\": \"4182000c\",\n      \"instruction\": \"beq 0x1006cda4\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1006cd9c\",\n      \"bytes\": \"38600000\",\n      \"instruction\": \"li r3,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1006cda0\",\n      \"bytes\": \"4e800020\",\n      \"instruction\": \"blr\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1006cda4\",\n      \"bytes\": \"28050000\",\n      \"instruction\": \"cmplwi r5,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1006cda8\",\n      \"bytes\": \"38a5ffff\",\n      \"instruction\": \"subi r5,r5,0x1\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1006cdac\",\n      \"bytes\": \"4082ffe0\",\n      \"instruction\": \"bne 0x1006cd8c\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1006cdb0\",\n      \"bytes\": \"38600001\",\n      \"instruction\": \"li r3,0x1\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"1006cdb4\",\n      \"bytes\": \"4e800020\",\n      \"instruction\": \"blr\",\n      \"comment\": null\n    }\n  ],\n  \"offset\": 0,\n  \"limit\": 2000,\n  \"total\": 14,\n  \"has_more\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "items": [
+        {
+          "address": "1006cd80",
+          "bytes": "3863ffff",
+          "instruction": "subi r3,r3,0x1",
+          "comment": null
+        },
+        {
+          "address": "1006cd84",
+          "bytes": "3884ffff",
+          "instruction": "subi r4,r4,0x1",
+          "comment": null
+        },
+        {
+          "address": "1006cd88",
+          "bytes": "4800001c",
+          "instruction": "b 0x1006cda4",
+          "comment": null
+        },
+        {
+          "address": "1006cd8c",
+          "bytes": "8cc30001",
+          "instruction": "lbzu r6,0x1(r3)",
+          "comment": null
+        },
+        {
+          "address": "1006cd90",
+          "bytes": "8c040001",
+          "instruction": "lbzu r0,0x1(r4)",
+          "comment": null
+        },
+        {
+          "address": "1006cd94",
+          "bytes": "7c060040",
+          "instruction": "cmplw r6,r0",
+          "comment": null
+        },
+        {
+          "address": "1006cd98",
+          "bytes": "4182000c",
+          "instruction": "beq 0x1006cda4",
+          "comment": null
+        },
+        {
+          "address": "1006cd9c",
+          "bytes": "38600000",
+          "instruction": "li r3,0x0",
+          "comment": null
+        },
+        {
+          "address": "1006cda0",
+          "bytes": "4e800020",
+          "instruction": "blr",
+          "comment": null
+        },
+        {
+          "address": "1006cda4",
+          "bytes": "28050000",
+          "instruction": "cmplwi r5,0x0",
+          "comment": null
+        },
+        {
+          "address": "1006cda8",
+          "bytes": "38a5ffff",
+          "instruction": "subi r5,r5,0x1",
+          "comment": null
+        },
+        {
+          "address": "1006cdac",
+          "bytes": "4082ffe0",
+          "instruction": "bne 0x1006cd8c",
+          "comment": null
+        },
+        {
+          "address": "1006cdb0",
+          "bytes": "38600001",
+          "instruction": "li r3,0x1",
+          "comment": null
+        },
+        {
+          "address": "1006cdb4",
+          "bytes": "4e800020",
+          "instruction": "blr",
+          "comment": null
+        }
+      ],
+      "offset": 0,
+      "limit": 2000,
+      "total": 14,
+      "has_more": false
+    },
+    "isError": false
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "status": "verified",
+  "method": "SYN-lifetime TCP reassembly; RST diagnostic payload excluded from application streams",
+  "one-active-one-queued": {
+    "host-one-active-one-queued.pcap": {
+      "a": {
+        "packets": 37,
+        "local_port": 52604,
+        "client_to_server_bytes": 342,
+        "server_to_client_bytes": 1371,
+        "unread_payload_tail_bytes": 0,
+        "terminal_packets": [
+          {
+            "packet": 132,
+            "from_server": false,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 133,
+            "from_server": true,
+            "flags": 17,
+            "payload_hex": ""
+          }
+        ]
+      },
+      "active": {
+        "packets": 97,
+        "local_port": 37014,
+        "client_to_server_bytes": 16,
+        "server_to_client_bytes": 65536,
+        "unread_payload_tail_bytes": 0,
+        "terminal_packets": [
+          {
+            "packet": 122,
+            "from_server": true,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 123,
+            "from_server": true,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 127,
+            "from_server": false,
+            "flags": 17,
+            "payload_hex": ""
+          }
+        ]
+      }
+    },
+    "guest-after-one-active-one-queued.pcap": {
+      "a": {
+        "packets": 45,
+        "local_port": 52604,
+        "client_to_server_bytes": 342,
+        "server_to_client_bytes": 1371,
+        "unread_payload_tail_bytes": 0,
+        "terminal_packets": [
+          {
+            "packet": 2119,
+            "from_server": false,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 2121,
+            "from_server": true,
+            "flags": 17,
+            "payload_hex": ""
+          }
+        ]
+      },
+      "active": {
+        "packets": 110,
+        "local_port": 37014,
+        "client_to_server_bytes": 16,
+        "server_to_client_bytes": 65536,
+        "unread_payload_tail_bytes": 0,
+        "terminal_packets": [
+          {
+            "packet": 2089,
+            "from_server": true,
+            "flags": 4,
+            "payload_hex": "7463705f646973636f6e6e656374"
+          },
+          {
+            "packet": 2091,
+            "from_server": true,
+            "flags": 4,
+            "payload_hex": "4e6f20544350"
+          },
+          {
+            "packet": 2095,
+            "from_server": false,
+            "flags": 20,
+            "payload_hex": ""
+          },
+          {
+            "packet": 2107,
+            "from_server": true,
+            "flags": 4,
+            "payload_hex": "4e6f20544350"
+          },
+          {
+            "packet": 2109,
+            "from_server": true,
+            "flags": 4,
+            "payload_hex": "4e6f20544350"
+          },
+          {
+            "packet": 2110,
+            "from_server": true,
+            "flags": 4,
+            "payload_hex": "4e6f20544350"
+          },
+          {
+            "packet": 2112,
+            "from_server": false,
+            "flags": 20,
+            "payload_hex": ""
+          },
+          {
+            "packet": 2114,
+            "from_server": false,
+            "flags": 20,
+            "payload_hex": ""
+          },
+          {
+            "packet": 2115,
+            "from_server": false,
+            "flags": 20,
+            "payload_hex": ""
+          }
+        ]
+      }
+    }
+  },
+  "postflight": {
+    "host-postflight.pcap": {
+      "a": {
+        "packets": 29,
+        "local_port": 38826,
+        "client_to_server_bytes": 231,
+        "server_to_client_bytes": 2759,
+        "unread_payload_tail_bytes": 0,
+        "terminal_packets": [
+          {
+            "packet": 27,
+            "from_server": false,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 28,
+            "from_server": true,
+            "flags": 17,
+            "payload_hex": ""
+          }
+        ]
+      }
+    },
+    "guest-after-postflight.pcap": {
+      "a": {
+        "packets": 32,
+        "local_port": 38826,
+        "client_to_server_bytes": 231,
+        "server_to_client_bytes": 2759,
+        "unread_payload_tail_bytes": 0,
+        "terminal_packets": [
+          {
+            "packet": 2151,
+            "from_server": false,
+            "flags": 17,
+            "payload_hex": ""
+          },
+          {
+            "packet": 2153,
+            "from_server": true,
+            "flags": 17,
+            "payload_hex": ""
+          }
+        ]
+      }
+    }
+  }
+}

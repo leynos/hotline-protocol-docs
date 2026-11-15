@@ -1,0 +1,61 @@
+{
+  "status": "verified",
+  "gates": [
+    "observer-identity",
+    "absent-4",
+    "absent-5",
+    "absent-7",
+    "absent-9",
+    "absent-10",
+    "absent-11",
+    "absent-13",
+    "absent-15",
+    "absent-17",
+    "absent-18",
+    "absent-19",
+    "absent-27",
+    "absent-29",
+    "empty-4",
+    "empty-5",
+    "empty-7",
+    "empty-9",
+    "empty-10",
+    "empty-11",
+    "empty-13",
+    "empty-15",
+    "empty-17",
+    "empty-18",
+    "empty-19",
+    "empty-27",
+    "empty-29"
+  ],
+  "subjects": {
+    "absent": {
+      "uid_hex": "0040",
+      "banner_122_count": 1
+    },
+    "empty": {
+      "uid_hex": "0041",
+      "banner_122_count": 1
+    }
+  },
+  "before": {
+    "uid_hex": "003e",
+    "accounts": 2,
+    "files": 41,
+    "filp_bytes": 1049073,
+    "data_sha256": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+    "macr_sha256": "40a42dbcf2d879e22d9a5a9acf46bf15fa9fe3a77837f757a990e514436801e5"
+  },
+  "after": {
+    "uid_hex": "0042",
+    "accounts": 2,
+    "files": 41,
+    "filp_bytes": 1049073,
+    "data_sha256": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+    "macr_sha256": "40a42dbcf2d879e22d9a5a9acf46bf15fa9fe3a77837f757a990e514436801e5"
+  },
+  "tcp_connections": 7,
+  "raw_snapshots_replayed": false,
+  "raw_snapshot_prefix_asserted": true
+}

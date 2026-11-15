@@ -1,0 +1,30 @@
+{
+  "captured_at_utc": "2026-11-14T05:23:14.228017+00:00",
+  "query": {
+    "id": "EP-D-100539c0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100539c0"
+    }
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_100539c0\",\n    \"address\": \"100539c0\"\n  },\n  \"code\": \"\\nundefined4 FUN_100539c0(undefined4 param_1,undefined4 param_2,undefined4 param_3)\\n\\n{\\n  .glue::BlockMoveData(param_2,param_1);\\n  return param_3;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_100539c0",
+        "address": "100539c0"
+      },
+      "code": "\nundefined4 FUN_100539c0(undefined4 param_1,undefined4 param_2,undefined4 param_3)\n\n{\n  .glue::BlockMoveData(param_2,param_1);\n  return param_3;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

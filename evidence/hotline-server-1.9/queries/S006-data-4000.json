@@ -1,0 +1,3378 @@
+{
+  "captured_at_utc": "2026-11-12T12:14:53.259965+00:00",
+  "query": {
+    "id": "S006-data-4000",
+    "tool": "list_data_items",
+    "arguments": {
+      "offset": 4000,
+      "limit": 2000
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"items\": [\n    {\n      \"address\": \"10095a70\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089988\"\n    },\n    {\n      \"address\": \"10095a74\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089980\"\n    },\n    {\n      \"address\": \"10095a78\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089978\"\n    },\n    {\n      \"address\": \"10095a7c\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089970\"\n    },\n    {\n      \"address\": \"10095a80\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089968\"\n    },\n    {\n      \"address\": \"10095a84\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089960\"\n    },\n    {\n      \"address\": \"10095a88\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089958\"\n    },\n    {\n      \"address\": \"10095a8c\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089a10\"\n    },\n    {\n      \"address\": \"10095a90\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089a08\"\n    },\n    {\n      \"address\": \"10095a94\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089a00\"\n    },\n    {\n      \"address\": \"10095a98\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089940\"\n    },\n    {\n      \"address\": \"10095a9c\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089948\"\n    },\n    {\n      \"address\": \"10095aa0\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089a38\"\n    },\n    {\n      \"address\": \"10095aa4\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089950\"\n    },\n    {\n      \"address\": \"10095aac\",\n      \"label\": null,\n      \"type\": \"string\",\n      \"value\": \"\\\"%d.%d.%d.%d\\\"\"\n    },\n    {\n      \"address\": \"10095ab8\",\n      \"label\": null,\n      \"type\": \"string\",\n      \"value\": \"\\\"URegularTransport - already getting local address!\\\"\"\n    },\n    {\n      \"address\": \"10095b4e\",\n      \"label\": null,\n      \"type\": \"string\",\n      \"value\": \"\\\"NoProxyDomainsURegularTransport - a TRegularTransport can only be connected once\\\"\"\n    },\n    {\n      \"address\": \"10095b9f\",\n      \"label\": null,\n      \"type\": \"string\",\n      \"value\": \"\\\"URegularTransport - cannot send more data after StartDisconnect()\\\"\"\n    },\n    {\n      \"address\": \"10095bea\",\n      \"label\": null,\n      \"type\": \"string\",\n      \"value\": \"\\\"tilisten,tcp\\\"\"\n    },\n    {\n      \"address\": \"10095bff\",\n      \"label\": null,\n      \"type\": \"string\",\n      \"value\": \"\\\"URegularTransport - transporter is already being bound!\\\"\"\n    },\n    {\n      \"address\": \"10095c37\",\n      \"label\": null,\n      \"type\": \"string\",\n      \"value\": \"\\\"!SError!!\\\"\"\n    },\n    {\n      \"address\": \"10095c44\",\n      \"label\": \"s_127.0.0.1_10095c44\",\n      \"type\": \"string\",\n      \"value\": \"\\\"127.0.0.1\\\"\"\n    },\n    {\n      \"address\": \"10095c4e\",\n      \"label\": null,\n      \"type\": \"string\",\n      \"value\": \"\\\"%d.%d.%d.%d:%hu\\\"\"\n    },\n    {\n      \"address\": \"10095c5e\",\n      \"label\": null,\n      \"type\": \"string\",\n      \"value\": \"\\\"%d.%d.%d.%d\\\"\"\n    },\n    {\n      \"address\": \"10095dcc\",\n      \"label\": \"s_hotline://_10095dcc\",\n      \"type\": \"string\",\n      \"value\": \"\\\"hotline://\\\"\"\n    },\n    {\n      \"address\": \"10095de8\",\n      \"label\": \"PTR_PTR_10095de8\",\n      \"type\": \"pointer\",\n      \"value\": \"10092368\"\n    },\n    {\n      \"address\": \"10095df0\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089630\"\n    },\n    {\n      \"address\": \"10095df4\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089a40\"\n    },\n    {\n      \"address\": \"10095df8\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089a30\"\n    },\n    {\n      \"address\": \"10095dfc\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089a28\"\n    },\n    {\n      \"address\": \"10095e00\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089a20\"\n    },\n    {\n      \"address\": \"10095e04\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089a18\"\n    },\n    {\n      \"address\": \"10095e08\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a4d0\"\n    },\n    {\n      \"address\": \"10095e0c\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a340\"\n    },\n    {\n      \"address\": \"10095e10\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a338\"\n    },\n    {\n      \"address\": \"10095e14\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a330\"\n    },\n    {\n      \"address\": \"10095e18\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a328\"\n    },\n    {\n      \"address\": \"10095e1c\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a320\"\n    },\n    {\n      \"address\": \"10095e20\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"100899c8\"\n    },\n    {\n      \"address\": \"10095e24\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a280\"\n    },\n    {\n      \"address\": \"10095e28\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a278\"\n    },\n    {\n      \"address\": \"10095e2c\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a270\"\n    },\n    {\n      \"address\": \"10095e30\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"100899a8\"\n    },\n    {\n      \"address\": \"10095e34\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a4c8\"\n    },\n    {\n      \"address\": \"10095e38\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089998\"\n    },\n    {\n      \"address\": \"10095e3c\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a4c0\"\n    },\n    {\n      \"address\": \"10095e40\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a268\"\n    },\n    {\n      \"address\": \"10095e44\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089980\"\n    },\n    {\n      \"address\": \"10095e48\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089978\"\n    },\n    {\n      \"address\": \"10095e4c\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089970\"\n    },\n    {\n      \"address\": \"10095e50\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a4e8\"\n    },\n    {\n      \"address\": \"10095e54\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a4e0\"\n    },\n    {\n      \"address\": \"10095e58\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a4d8\"\n    },\n    {\n      \"address\": \"10095e5c\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a260\"\n    },\n    {\n      \"address\": \"10095e60\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089a08\"\n    },\n    {\n      \"address\": \"10095e64\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089a00\"\n    },\n    {\n      \"address\": \"10095e68\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089940\"\n    },\n    {\n      \"address\": \"10095e6c\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089948\"\n    },\n    {\n      \"address\": \"10095e70\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089a38\"\n    },\n    {\n      \"address\": \"10095e74\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089950\"\n    },\n    {\n      \"address\": \"10095e78\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a540\"\n    },\n    {\n      \"address\": \"10095e7c\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a538\"\n    },\n    {\n      \"address\": \"10095e80\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a530\"\n    },\n    {\n      \"address\": \"10095e88\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a500\"\n    },\n    {\n      \"address\": \"10095e8c\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a370\"\n    },\n    {\n      \"address\": \"10095e90\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a4f0\"\n    },\n    {\n      \"address\": \"10095e94\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a318\"\n    },\n    {\n      \"address\": \"10095e98\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a258\"\n    },\n    {\n      \"address\": \"10095e9c\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a250\"\n    },\n    {\n      \"address\": \"10095ea0\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a248\"\n    },\n    {\n      \"address\": \"10095ea4\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a240\"\n    },\n    {\n      \"address\": \"10095ea8\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a238\"\n    },\n    {\n      \"address\": \"10095eac\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a4b8\"\n    },\n    {\n      \"address\": \"10095eb0\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a4b0\"\n    },\n    {\n      \"address\": \"10095eb4\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a4a8\"\n    },\n    {\n      \"address\": \"10095eb8\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a4a0\"\n    },\n    {\n      \"address\": \"10095ebc\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"100895f8\"\n    },\n    {\n      \"address\": \"10095ec0\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10092368\"\n    },\n    {\n      \"address\": \"10095ec8\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10089890\"\n    },\n    {\n      \"address\": \"10095ecc\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a528\"\n    },\n    {\n      \"address\": \"10095ed0\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a520\"\n    },\n    {\n      \"address\": \"10095ed4\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a518\"\n    },\n    {\n      \"address\": \"10095ed8\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a510\"\n    },\n    {\n      \"address\": \"10095edc\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a508\"\n    },\n    {\n      \"address\": \"10095ee0\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a2a8\"\n    },\n    {\n      \"address\": \"10095ee4\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a288\"\n    },\n    {\n      \"address\": \"10095ee8\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a2a0\"\n    },\n    {\n      \"address\": \"10095eec\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a4f8\"\n    },\n    {\n      \"address\": \"10095ef0\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a290\"\n    },\n    {\n      \"address\": \"10095ef4\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1008a230\"\n    },\n    {\n      \"address\": \"10095ef8\",\n      \"label\": \"PTR_LAB_10095ef8\",\n      \"type\": \"undefined *\",\n      \"value\": \"1007cd68\"\n    },\n    {\n      \"address\": \"10095efc\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007cd68\"\n    },\n    {\n      \"address\": \"10095f00\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007ccc8\"\n    },\n    {\n      \"address\": \"10095f04\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007ccd4\"\n    },\n    {\n      \"address\": \"10095f08\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007cce0\"\n    },\n    {\n      \"address\": \"10095f0c\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007ccec\"\n    },\n    {\n      \"address\": \"10095f10\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007ccf8\"\n    },\n    {\n      \"address\": \"10095f14\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007ccf8\"\n    },\n    {\n      \"address\": \"10095f18\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007cd08\"\n    },\n    {\n      \"address\": \"10095f1c\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007cd14\"\n    },\n    {\n      \"address\": \"10095f20\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007cd20\"\n    },\n    {\n      \"address\": \"10095f24\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007cd2c\"\n    },\n    {\n      \"address\": \"10095f28\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007cd38\"\n    },\n    {\n      \"address\": \"10095f2c\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007cd44\"\n    },\n    {\n      \"address\": \"10095f30\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007cd68\"\n    },\n    {\n      \"address\": \"10095f34\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007cd50\"\n    },\n    {\n      \"address\": \"10095f38\",\n      \"label\": \"PTR_LAB_10095f38\",\n      \"type\": \"undefined *\",\n      \"value\": \"1007d958\"\n    },\n    {\n      \"address\": \"10095f3c\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007d118\"\n    },\n    {\n      \"address\": \"10095f40\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007d12c\"\n    },\n    {\n      \"address\": \"10095f44\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007d184\"\n    },\n    {\n      \"address\": \"10095f48\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007d24c\"\n    },\n    {\n      \"address\": \"10095f4c\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007d2e4\"\n    },\n    {\n      \"address\": \"10095f50\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007d394\"\n    },\n    {\n      \"address\": \"10095f54\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007d43c\"\n    },\n    {\n      \"address\": \"10095f58\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007d4e4\"\n    },\n    {\n      \"address\": \"10095f5c\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007d5fc\"\n    },\n    {\n      \"address\": \"10095f60\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007d6fc\"\n    },\n    {\n      \"address\": \"10095f64\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007d78c\"\n    },\n    {\n      \"address\": \"10095f68\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007d88c\"\n    },\n    {\n      \"address\": \"10095f6c\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007d8a0\"\n    },\n    {\n      \"address\": \"10095f70\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007d958\"\n    },\n    {\n      \"address\": \"10095f74\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007d938\"\n    },\n    {\n      \"address\": \"10095f78\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007d958\"\n    },\n    {\n      \"address\": \"10095f7c\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007d158\"\n    },\n    {\n      \"address\": \"10095f80\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007d1e8\"\n    },\n    {\n      \"address\": \"10095f84\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007d298\"\n    },\n    {\n      \"address\": \"10095f88\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007d33c\"\n    },\n    {\n      \"address\": \"10095f8c\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007d3e8\"\n    },\n    {\n      \"address\": \"10095f90\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007d490\"\n    },\n    {\n      \"address\": \"10095f94\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007d570\"\n    },\n    {\n      \"address\": \"10095f98\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007d67c\"\n    },\n    {\n      \"address\": \"10095f9c\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007d744\"\n    },\n    {\n      \"address\": \"10095fa0\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007d80c\"\n    },\n    {\n      \"address\": \"10095fa4\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007d8ec\"\n    },\n    {\n      \"address\": \"10095fa8\",\n      \"label\": \"PTR_LAB_10095fa8\",\n      \"type\": \"pointer\",\n      \"value\": \"1007df90\"\n    },\n    {\n      \"address\": \"10095fac\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007df80\"\n    },\n    {\n      \"address\": \"10095fb0\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007df90\"\n    },\n    {\n      \"address\": \"10095fb4\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007df90\"\n    },\n    {\n      \"address\": \"10095fb8\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007df90\"\n    },\n    {\n      \"address\": \"10095fbc\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007df90\"\n    },\n    {\n      \"address\": \"10095fc0\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007df90\"\n    },\n    {\n      \"address\": \"10095fc4\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007df90\"\n    },\n    {\n      \"address\": \"10095fc8\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007df90\"\n    },\n    {\n      \"address\": \"10095fcc\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007df90\"\n    },\n    {\n      \"address\": \"10095fd0\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007df90\"\n    },\n    {\n      \"address\": \"10095fd4\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007df90\"\n    },\n    {\n      \"address\": \"10095fd8\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007df30\"\n    },\n    {\n      \"address\": \"10095fdc\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007df90\"\n    },\n    {\n      \"address\": \"10095fe0\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007df80\"\n    },\n    {\n      \"address\": \"10095fe4\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"1007df58\"\n    },\n    {\n      \"address\": \"10095fe8\",\n      \"label\": \"PTR_s_std_exception_10095fe8\",\n      \"type\": \"pointer\",\n      \"value\": \"10083cb0\"\n    },\n    {\n      \"address\": \"10096000\",\n      \"label\": \"PTR_s_std_bad_exception_10096000\",\n      \"type\": \"pointer\",\n      \"value\": \"10083c9c\"\n    },\n    {\n      \"address\": \"10096008\",\n      \"label\": \"PTR_PTR_10096008\",\n      \"type\": \"pointer\",\n      \"value\": \"10096000\"\n    },\n    {\n      \"address\": \"10096018\",\n      \"label\": \"PTR_PTR_10096018\",\n      \"type\": \"pointer\",\n      \"value\": \"10095fe8\"\n    },\n    {\n      \"address\": \"10096027\",\n      \"label\": null,\n      \"type\": \"string\",\n      \"value\": \"\\\"Hbad_exception\\\"\"\n    },\n    {\n      \"address\": \"10096038\",\n      \"label\": \"s_exception_10096038\",\n      \"type\": \"string\",\n      \"value\": \"\\\"exception\\\"\"\n    },\n    {\n      \"address\": \"10096044\",\n      \"label\": \"PTR_PTR_10096044\",\n      \"type\": \"pointer\",\n      \"value\": \"10095fe8\"\n    },\n    {\n      \"address\": \"10096050\",\n      \"label\": \"PTR_s_std_bad_cast_10096050\",\n      \"type\": \"undefined *\",\n      \"value\": \"10083d10\"\n    },\n    {\n      \"address\": \"10096054\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10096044\"\n    },\n    {\n      \"address\": \"10096058\",\n      \"label\": null,\n      \"type\": \"undefined *\",\n      \"value\": \"10096050\"\n    },\n    {\n      \"address\": \"10096067\",\n      \"label\": null,\n      \"type\": \"string\",\n      \"value\": \"\\\"xbad_cast\\\"\"\n    },\n    {\n      \"address\": \"10096d30\",\n      \"label\": \"GetPort\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096d34\",\n      \"label\": \"PenNormal\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096d38\",\n      \"label\": \"FSClose\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096d3c\",\n      \"label\": \"GetFlavorFlags\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096d40\",\n      \"label\": \"TextFace\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096d44\",\n      \"label\": \"SizeWindow\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096d48\",\n      \"label\": \"GetDragModifiers\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096d4c\",\n      \"label\": \"GetWindowFromPort\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096d50\",\n      \"label\": \"NMRemove\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096d54\",\n      \"label\": \"MoveWindow\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096d58\",\n      \"label\": \"SetPortWindowPort\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096d5c\",\n      \"label\": \"SetWindowContentColor\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096d60\",\n      \"label\": \"SetResLoad\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096d64\",\n      \"label\": \"OpColor\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096d68\",\n      \"label\": \"SndDoCommand\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096d6c\",\n      \"label\": \"FindFolder\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096d70\",\n      \"label\": \"PBHOpenRFSync\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096d74\",\n      \"label\": \"HidePen\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096d78\",\n      \"label\": \"DisposeHandle\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096d7c\",\n      \"label\": \"InsetRect\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096d80\",\n      \"label\": \"TestDeviceAttribute\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096d84\",\n      \"label\": \"LoadResource\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096d88\",\n      \"label\": \"LineTo\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096d8c\",\n      \"label\": \"TextFont\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096d90\",\n      \"label\": \"EndUpdate\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096d94\",\n      \"label\": \"SendBehind\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096d98\",\n      \"label\": \"ShowHide\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096d9c\",\n      \"label\": \"ModalDialog\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096da0\",\n      \"label\": \"OpenPoly\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096da4\",\n      \"label\": \"HiliteWindow\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096da8\",\n      \"label\": \"GetFlavorData\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096dac\",\n      \"label\": \"Long2Fix\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096db0\",\n      \"label\": \"BeginUpdate\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096db4\",\n      \"label\": \"SectRect\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096db8\",\n      \"label\": \"DrawMenuBar\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096dbc\",\n      \"label\": \"DisposeCTable\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096dc0\",\n      \"label\": \"HOpenResFile\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096dc4\",\n      \"label\": \"UnionRgn\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096dc8\",\n      \"label\": \"LMGetTheMenu\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096dcc\",\n      \"label\": \"Debugger\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096dd0\",\n      \"label\": \"FindWindow\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096dd4\",\n      \"label\": \"VisibleLength\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096dd8\",\n      \"label\": \"MenuSelect\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096ddc\",\n      \"label\": \"MovePortTo\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096de0\",\n      \"label\": \"FSpCreate\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096de4\",\n      \"label\": \"StyledLineBreak\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096de8\",\n      \"label\": \"GetDblTime\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096dec\",\n      \"label\": \"SysBeep\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096df0\",\n      \"label\": \"PenSize\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096df4\",\n      \"label\": \"TrackDrag\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096df8\",\n      \"label\": \"TextMode\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096dfc\",\n      \"label\": \"DisposeMenu\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e00\",\n      \"label\": \"AECoerceDesc\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e04\",\n      \"label\": \"UnlockPixels\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e08\",\n      \"label\": \"NewGWorld\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e0c\",\n      \"label\": \"NewEmptyHandle\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e10\",\n      \"label\": \"LMGetHiliteRGB\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e14\",\n      \"label\": \"DisposeDrag\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e18\",\n      \"label\": \"EventAvail\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e1c\",\n      \"label\": \"RmvTime\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e20\",\n      \"label\": \"atan\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e24\",\n      \"label\": \"RemoveTrackingHandler\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e28\",\n      \"label\": \"WaitNextEvent\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e2c\",\n      \"label\": \"IsWindowCollapsed\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e30\",\n      \"label\": \"TrackBox\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e34\",\n      \"label\": \"DrawText\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e38\",\n      \"label\": \"PBDTGetPath\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e3c\",\n      \"label\": \"FSpCatMove\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e40\",\n      \"label\": \"FlushEvents\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e44\",\n      \"label\": \"GetDialogItem\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e48\",\n      \"label\": \"NewMenu\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e4c\",\n      \"label\": \"DrawJustified\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e50\",\n      \"label\": \"FSpSetFInfo\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e54\",\n      \"label\": \"LMGetSysMap\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e58\",\n      \"label\": \"FSpGetFInfo\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e5c\",\n      \"label\": \"GetWindowPort\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e60\",\n      \"label\": \"PBReadSync\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e64\",\n      \"label\": \"PBWriteSync\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e68\",\n      \"label\": \"SetOrigin\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e6c\",\n      \"label\": \"NewDrag\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e70\",\n      \"label\": \"DisposePort\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e74\",\n      \"label\": \"GetNextWindow\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e78\",\n      \"label\": \"GetPixPat\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e7c\",\n      \"label\": \"NewHandleClear\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e80\",\n      \"label\": \"CalcVisBehind\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e84\",\n      \"label\": \"ResError\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e88\",\n      \"label\": \"GetPortPenSize\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e8c\",\n      \"label\": \"cos\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e90\",\n      \"label\": \"DeleteMenu\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e94\",\n      \"label\": \"GetMouse\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e98\",\n      \"label\": \"GetClip\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096e9c\",\n      \"label\": \"CopyMask\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096ea0\",\n      \"label\": \"NumToString\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096ea4\",\n      \"label\": \"TextSize\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096ea8\",\n      \"label\": \"HLockHi\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096eac\",\n      \"label\": \"IsWindowVisible\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096eb0\",\n      \"label\": \"MoveTo\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096eb4\",\n      \"label\": \"BitShift\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096eb8\",\n      \"label\": \"PenMode\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096ebc\",\n      \"label\": \"PBSetCatInfoSync\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096ec0\",\n      \"label\": \"TempNewHandle\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096ec4\",\n      \"label\": \"ReleaseResource\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096ec8\",\n      \"label\": \"MenuKey\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096ecc\",\n      \"label\": \"NewHandle\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096ed0\",\n      \"label\": \"TruncText\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096ed4\",\n      \"label\": \"DrawPicture\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096ed8\",\n      \"label\": \"DisposeCIcon\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096edc\",\n      \"label\": \"CountDragItems\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096ee0\",\n      \"label\": \"GetPortBitMapForCopyBits\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096ee4\",\n      \"label\": \"UseResFile\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096ee8\",\n      \"label\": \"AESend\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096eec\",\n      \"label\": \"PtrAndHand\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096ef0\",\n      \"label\": \"NewRgn\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096ef4\",\n      \"label\": \"TrackGoAway\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096ef8\",\n      \"label\": \"GetNextEvent\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096efc\",\n      \"label\": \"GetMainDevice\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f00\",\n      \"label\": \"GetNextDevice\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f04\",\n      \"label\": \"sqrt\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f08\",\n      \"label\": \"PBGetFCBInfoSync\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f0c\",\n      \"label\": \"FSpCreateResFile\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f10\",\n      \"label\": \"GetQDGlobalsThePort\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f14\",\n      \"label\": \"SameProcess\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f18\",\n      \"label\": \"FollowFinderAlias\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f1c\",\n      \"label\": \"DisposeGWorld\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f20\",\n      \"label\": \"Button\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f24\",\n      \"label\": \"PBHOpenDFSync\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f28\",\n      \"label\": \"GetFontInfo\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f2c\",\n      \"label\": \"ResolveAliasFile\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f30\",\n      \"label\": \"CFUUIDGetUUIDBytes\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f34\",\n      \"label\": \"MemError\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f38\",\n      \"label\": \"NewAlias\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f3c\",\n      \"label\": \"RemoveReceiveHandler\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f40\",\n      \"label\": \"MapRgn\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f44\",\n      \"label\": \"GetKeys\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f48\",\n      \"label\": \"AEGetParamDesc\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f4c\",\n      \"label\": \"FrontWindow\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f50\",\n      \"label\": \"AECountItems\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f54\",\n      \"label\": \"GetDateTime\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f58\",\n      \"label\": \"AEGetDescData\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f5c\",\n      \"label\": \"CopyBits\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f60\",\n      \"label\": \"GetQDGlobalsArrow\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f64\",\n      \"label\": \"sin\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f68\",\n      \"label\": \"NewPtr\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f6c\",\n      \"label\": \"AppendMenu\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f70\",\n      \"label\": \"OffsetRect\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f74\",\n      \"label\": \"PBGetCatInfoSync\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f78\",\n      \"label\": \"SetPort\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f7c\",\n      \"label\": \"PtInRgn\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f80\",\n      \"label\": \"KillPoly\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f84\",\n      \"label\": \"IsPortOffscreen\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f88\",\n      \"label\": \"GetDragItemReferenceNumber\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f8c\",\n      \"label\": \"SndDisposeChannel\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f90\",\n      \"label\": \"ShowWindow\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f94\",\n      \"label\": \"DiffRgn\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f98\",\n      \"label\": \"GrowWindow\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096f9c\",\n      \"label\": \"AEDisposeDesc\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096fa0\",\n      \"label\": \"HideWindow\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096fa4\",\n      \"label\": \"NewCWindow\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096fa8\",\n      \"label\": \"SecondsToDate\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096fac\",\n      \"label\": \"SetRect\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096fb0\",\n      \"label\": \"IsWindowHilited\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096fb4\",\n      \"label\": \"FSpDirCreate\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096fb8\",\n      \"label\": \"WakeUpProcess\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096fbc\",\n      \"label\": \"GetCIcon\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096fc0\",\n      \"label\": \"PixelToChar\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096fc4\",\n      \"label\": \"FlushVol\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096fc8\",\n      \"label\": \"HDelete\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096fcc\",\n      \"label\": \"LMGetResLoad\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096fd0\",\n      \"label\": \"GetCurrentProcess\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096fd4\",\n      \"label\": \"InitCursor\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096fd8\",\n      \"label\": \"AECreateAppleEvent\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096fdc\",\n      \"label\": \"GetCTable\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096fe0\",\n      \"label\": \"PBDTGetCommentSync\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096fe4\",\n      \"label\": \"InstallTrackingHandler\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096fe8\",\n      \"label\": \"SetDragImage\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096fec\",\n      \"label\": \"LMSetResLoad\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096ff0\",\n      \"label\": \"Get1Resource\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096ff4\",\n      \"label\": \"FillCRect\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096ff8\",\n      \"label\": \"FindWordBreaks\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10096ffc\",\n      \"label\": \"GetWRefCon\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097000\",\n      \"label\": \"RGBBackColor\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097004\",\n      \"label\": \"SetEmptyRgn\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097008\",\n      \"label\": \"GetQDGlobalsScreenBits\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009700c\",\n      \"label\": \"BlockMoveData\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097010\",\n      \"label\": \"AECreateDesc\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097014\",\n      \"label\": \"GetNewDialog\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097018\",\n      \"label\": \"SndPlay\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009701c\",\n      \"label\": \"LockPixels\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097020\",\n      \"label\": \"ForeColor\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097024\",\n      \"label\": \"GetCaretTime\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097028\",\n      \"label\": \"GetDragMouse\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009702c\",\n      \"label\": \"DisposeWindow\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097030\",\n      \"label\": \"OffsetRgn\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097034\",\n      \"label\": \"PopUpMenuSelect\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097038\",\n      \"label\": \"PaintRect\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009703c\",\n      \"label\": \"PBHGetVInfoSync\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097040\",\n      \"label\": \"CurResFile\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097044\",\n      \"label\": \"Gestalt\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097048\",\n      \"label\": \"SetCPixel\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009704c\",\n      \"label\": \"PBHGetFInfoSync\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097050\",\n      \"label\": \"GetDropLocation\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097054\",\n      \"label\": \"SetEOF\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097058\",\n      \"label\": \"SetMenuBar\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009705c\",\n      \"label\": \"HSetState\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097060\",\n      \"label\": \"InsetRgn\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097064\",\n      \"label\": \"kCFAllocatorDefault\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097068\",\n      \"label\": \"PaintPoly\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009706c\",\n      \"label\": \"HGetState\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097070\",\n      \"label\": \"FSpRename\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097074\",\n      \"label\": \"ExitToShell\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097078\",\n      \"label\": \"GetCCursor\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009707c\",\n      \"label\": \"GetBackColor\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097080\",\n      \"label\": \"PBDTSetCommentSync\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097084\",\n      \"label\": \"ReallocateHandle\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097088\",\n      \"label\": \"AEGetNthPtr\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009708c\",\n      \"label\": \"LocalToGlobal\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097090\",\n      \"label\": \"PortSize\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097094\",\n      \"label\": \"CatMove\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097098\",\n      \"label\": \"EraseRect\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009709c\",\n      \"label\": \"HLock\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100970a0\",\n      \"label\": \"SetCCursor\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100970a4\",\n      \"label\": \"AddDragItemFlavor\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100970a8\",\n      \"label\": \"GetScriptManagerVariable\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100970ac\",\n      \"label\": \"FSpOpenResFile\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100970b0\",\n      \"label\": \"GetFrontProcess\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100970b4\",\n      \"label\": \"SetFrontProcess\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100970b8\",\n      \"label\": \"PBHRstFLockSync\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100970bc\",\n      \"label\": \"FrameRoundRect\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100970c0\",\n      \"label\": \"GetDeviceList\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100970c4\",\n      \"label\": \"GetMBarHeight\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100970c8\",\n      \"label\": \"PBDTOpenInform\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100970cc\",\n      \"label\": \"CFUUIDCreate\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100970d0\",\n      \"label\": \"pi\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100970d4\",\n      \"label\": \"Microseconds\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100970d8\",\n      \"label\": \"CopyRgn\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100970dc\",\n      \"label\": \"TextWidth\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100970e0\",\n      \"label\": \"GetPortBounds\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100970e4\",\n      \"label\": \"FSMakeFSSpec\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100970e8\",\n      \"label\": \"EmptyRect\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100970ec\",\n      \"label\": \"SectRgn\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100970f0\",\n      \"label\": \"FSpDelete\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100970f4\",\n      \"label\": \"StillDown\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100970f8\",\n      \"label\": \"Munger\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100970fc\",\n      \"label\": \"SetClip\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097100\",\n      \"label\": \"SetGWorld\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097104\",\n      \"label\": \"CloseResFile\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097108\",\n      \"label\": \"PBHDeleteSync\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009710c\",\n      \"label\": \"HiliteMenu\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097110\",\n      \"label\": \"FrameRgn\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097114\",\n      \"label\": \"CreateNewPort\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097118\",\n      \"label\": \"TickCount\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009711c\",\n      \"label\": \"GetGWorld\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097120\",\n      \"label\": \"GetMenuID\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097124\",\n      \"label\": \"FrameRect\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097128\",\n      \"label\": \"Get1IndResource\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009712c\",\n      \"label\": \"AEProcessAppleEvent\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097130\",\n      \"label\": \"HNoPurge\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097134\",\n      \"label\": \"GetProcessInformation\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097138\",\n      \"label\": \"PrimeTime\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009713c\",\n      \"label\": \"SndNewChannel\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097140\",\n      \"label\": \"PaintOne\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097144\",\n      \"label\": \"BringToFront\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097148\",\n      \"label\": \"SetWTitle\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009714c\",\n      \"label\": \"HUnlock\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097150\",\n      \"label\": \"GetGWorldPixMap\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097154\",\n      \"label\": \"PBXGetVolInfoSync\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097158\",\n      \"label\": \"PBHGetVolParmsSync\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009715c\",\n      \"label\": \"RGBForeColor\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097160\",\n      \"label\": \"DisposePtr\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097164\",\n      \"label\": \"GetRegionBounds\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097168\",\n      \"label\": \"DisposePixPat\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009716c\",\n      \"label\": \"GetFlavorDataSize\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097170\",\n      \"label\": \"PaintRoundRect\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097174\",\n      \"label\": \"HPurge\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097178\",\n      \"label\": \"GetPortVisibleRegion\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009717c\",\n      \"label\": \"GetPortClipRegion\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097180\",\n      \"label\": \"DrawGrowIcon\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097184\",\n      \"label\": \"DirCreate\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097188\",\n      \"label\": \"PenPat\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009718c\",\n      \"label\": \"PBHOpenRFDenySync\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097190\",\n      \"label\": \"PaintRgn\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097194\",\n      \"label\": \"HRename\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097198\",\n      \"label\": \"DisposeCCursor\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009719c\",\n      \"label\": \"GetGrayRgn\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100971a0\",\n      \"label\": \"RectRgn\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100971a4\",\n      \"label\": \"PlotCIconHandle\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100971a8\",\n      \"label\": \"GetHandleSize\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100971ac\",\n      \"label\": \"InstallReceiveHandler\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100971b0\",\n      \"label\": \"GetEOF\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100971b4\",\n      \"label\": \"AddResource\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100971b8\",\n      \"label\": \"PBHOpenSync\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100971bc\",\n      \"label\": \"GetResource\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100971c0\",\n      \"label\": \"ClosePoly\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100971c4\",\n      \"label\": \"ChangedResource\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100971c8\",\n      \"label\": \"GetNewMBar\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100971cc\",\n      \"label\": \"GetNextProcess\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100971d0\",\n      \"label\": \"NewDialog\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100971d4\",\n      \"label\": \"NewPtrClear\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100971d8\",\n      \"label\": \"QDError\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100971dc\",\n      \"label\": \"AEInstallEventHandler\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100971e0\",\n      \"label\": \"PBHMoveRenameSync\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100971e4\",\n      \"label\": \"SelectWindow\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100971e8\",\n      \"label\": \"SetDialogItemText\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100971ec\",\n      \"label\": \"GetCursor\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100971f0\",\n      \"label\": \"GetMaxDevice\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100971f4\",\n      \"label\": \"PBHOpenDenySync\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100971f8\",\n      \"label\": \"SetHandleSize\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100971fc\",\n      \"label\": \"DisposeRgn\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097200\",\n      \"label\": \"GlobalToLocal\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097204\",\n      \"label\": \"SetCursor\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097208\",\n      \"label\": \"GetWindowRegion\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009720c\",\n      \"label\": \"GetDialogWindow\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097210\",\n      \"label\": \"KeyTranslate\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097214\",\n      \"label\": \"GetSysDirection\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097218\",\n      \"label\": \"WriteResource\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009721c\",\n      \"label\": \"InsertMenu\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097220\",\n      \"label\": \"GetWindowEventTarget\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097224\",\n      \"label\": \"TimeString\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097228\",\n      \"label\": \"ClearCurrentScrap\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009722c\",\n      \"label\": \"NewAEEventHandlerUPP\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097230\",\n      \"label\": \"ICStart\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097234\",\n      \"label\": \"NewDragSendDataUPP\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097238\",\n      \"label\": \"DateString\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009723c\",\n      \"label\": \"NewSndCallBackUPP\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097240\",\n      \"label\": \"GetScrapFlavorData\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097244\",\n      \"label\": \"NewDragTrackingHandlerUPP\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097248\",\n      \"label\": \"InstallXTimeTask\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009724c\",\n      \"label\": \"GetEventKind\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097250\",\n      \"label\": \"NewEventHandlerUPP\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097254\",\n      \"label\": \"FMGetFontFamilyFromName\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097258\",\n      \"label\": \"ICLaunchURL\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009725c\",\n      \"label\": \"GetCurrentScrap\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097260\",\n      \"label\": \"NewTimerUPP\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097264\",\n      \"label\": \"GetEventClass\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097268\",\n      \"label\": \"MoreMasterPointers\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009726c\",\n      \"label\": \"GetScrapFlavorSize\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097270\",\n      \"label\": \"ICBegin\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097274\",\n      \"label\": \"InstallEventHandler\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097278\",\n      \"label\": \"EnableMenuCommand\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009727c\",\n      \"label\": \"ICEnd\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097280\",\n      \"label\": \"SetWindowClass\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097284\",\n      \"label\": \"PutScrapFlavor\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097288\",\n      \"label\": \"ICStop\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009728c\",\n      \"label\": \"NewDragReceiveHandlerUPP\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097290\",\n      \"label\": \"ICGetPref\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097294\",\n      \"label\": \"GetMovieBox\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097298\",\n      \"label\": \"MCSetControllerAttached\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009729c\",\n      \"label\": \"NewMCActionFilterWithRefConUPP\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100972a0\",\n      \"label\": \"MCIsControllerAttached\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100972a4\",\n      \"label\": \"MoviesTask\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100972a8\",\n      \"label\": \"MCGetControllerBoundsRect\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100972ac\",\n      \"label\": \"OTSetAsynchronous\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100972b0\",\n      \"label\": \"OTCloseProvider\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100972b4\",\n      \"label\": \"OTRcvOrderlyDisconnect\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100972b8\",\n      \"label\": \"OTScheduleTimerTask\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100972bc\",\n      \"label\": \"OTListen\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100972c0\",\n      \"label\": \"CloseOpenTransportInContext\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100972c4\",\n      \"label\": \"OTCreateConfiguration\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100972c8\",\n      \"label\": \"OTLIFOEnqueue\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100972cc\",\n      \"label\": \"OTInstallNotifier\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100972d0\",\n      \"label\": \"OTSndUData\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100972d4\",\n      \"label\": \"OTUnbind\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100972d8\",\n      \"label\": \"OTGetEndpointState\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100972dc\",\n      \"label\": \"OTCreateTimerTaskInContext\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100972e0\",\n      \"label\": \"InitOpenTransportInContext\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100972e4\",\n      \"label\": \"OTOpenEndpointInContext\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100972e8\",\n      \"label\": \"OTRcvUDErr\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100972ec\",\n      \"label\": \"OTRcvDisconnect\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100972f0\",\n      \"label\": \"OTSndDisconnect\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100972f4\",\n      \"label\": \"OTSndOrderlyDisconnect\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100972f8\",\n      \"label\": \"OTLeaveNotifier\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"100972fc\",\n      \"label\": \"OTInetHostToString\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097300\",\n      \"label\": \"OTOptionManagement\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097304\",\n      \"label\": \"OTBind\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097308\",\n      \"label\": \"OTConnect\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009730c\",\n      \"label\": \"OTDestroyTimerTask\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097310\",\n      \"label\": \"NewOTNotifyUPP\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097314\",\n      \"label\": \"OTCountDataBytes\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097318\",\n      \"label\": \"OTRcv\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009731c\",\n      \"label\": \"OTAtomicSetBit\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097320\",\n      \"label\": \"OTLook\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097324\",\n      \"label\": \"OTGetProtAddress\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097328\",\n      \"label\": \"OTEnterNotifier\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009732c\",\n      \"label\": \"OTSnd\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097330\",\n      \"label\": \"OTInetGetInterfaceInfo\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097334\",\n      \"label\": \"OTRcvConnect\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097338\",\n      \"label\": \"NewOTProcessUPP\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009733c\",\n      \"label\": \"OTLIFOStealList\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097340\",\n      \"label\": \"OTAtomicClearBit\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097344\",\n      \"label\": \"OTAccept\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"10097348\",\n      \"label\": \"OTIoctl\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    },\n    {\n      \"address\": \"1009734c\",\n      \"label\": \"OTAtomicTestBit\",\n      \"type\": \"pointer\",\n      \"value\": \"00000000\"\n    }\n  ],\n  \"offset\": 4000,\n  \"limit\": 2000,\n  \"total\": 4553,\n  \"has_more\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "items": [
+        {
+          "address": "10095a70",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089988"
+        },
+        {
+          "address": "10095a74",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089980"
+        },
+        {
+          "address": "10095a78",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089978"
+        },
+        {
+          "address": "10095a7c",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089970"
+        },
+        {
+          "address": "10095a80",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089968"
+        },
+        {
+          "address": "10095a84",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089960"
+        },
+        {
+          "address": "10095a88",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089958"
+        },
+        {
+          "address": "10095a8c",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089a10"
+        },
+        {
+          "address": "10095a90",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089a08"
+        },
+        {
+          "address": "10095a94",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089a00"
+        },
+        {
+          "address": "10095a98",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089940"
+        },
+        {
+          "address": "10095a9c",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089948"
+        },
+        {
+          "address": "10095aa0",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089a38"
+        },
+        {
+          "address": "10095aa4",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089950"
+        },
+        {
+          "address": "10095aac",
+          "label": null,
+          "type": "string",
+          "value": "\"%d.%d.%d.%d\""
+        },
+        {
+          "address": "10095ab8",
+          "label": null,
+          "type": "string",
+          "value": "\"URegularTransport - already getting local address!\""
+        },
+        {
+          "address": "10095b4e",
+          "label": null,
+          "type": "string",
+          "value": "\"NoProxyDomainsURegularTransport - a TRegularTransport can only be connected once\""
+        },
+        {
+          "address": "10095b9f",
+          "label": null,
+          "type": "string",
+          "value": "\"URegularTransport - cannot send more data after StartDisconnect()\""
+        },
+        {
+          "address": "10095bea",
+          "label": null,
+          "type": "string",
+          "value": "\"tilisten,tcp\""
+        },
+        {
+          "address": "10095bff",
+          "label": null,
+          "type": "string",
+          "value": "\"URegularTransport - transporter is already being bound!\""
+        },
+        {
+          "address": "10095c37",
+          "label": null,
+          "type": "string",
+          "value": "\"!SError!!\""
+        },
+        {
+          "address": "10095c44",
+          "label": "s_127.0.0.1_10095c44",
+          "type": "string",
+          "value": "\"127.0.0.1\""
+        },
+        {
+          "address": "10095c4e",
+          "label": null,
+          "type": "string",
+          "value": "\"%d.%d.%d.%d:%hu\""
+        },
+        {
+          "address": "10095c5e",
+          "label": null,
+          "type": "string",
+          "value": "\"%d.%d.%d.%d\""
+        },
+        {
+          "address": "10095dcc",
+          "label": "s_hotline://_10095dcc",
+          "type": "string",
+          "value": "\"hotline://\""
+        },
+        {
+          "address": "10095de8",
+          "label": "PTR_PTR_10095de8",
+          "type": "pointer",
+          "value": "10092368"
+        },
+        {
+          "address": "10095df0",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089630"
+        },
+        {
+          "address": "10095df4",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089a40"
+        },
+        {
+          "address": "10095df8",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089a30"
+        },
+        {
+          "address": "10095dfc",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089a28"
+        },
+        {
+          "address": "10095e00",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089a20"
+        },
+        {
+          "address": "10095e04",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089a18"
+        },
+        {
+          "address": "10095e08",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a4d0"
+        },
+        {
+          "address": "10095e0c",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a340"
+        },
+        {
+          "address": "10095e10",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a338"
+        },
+        {
+          "address": "10095e14",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a330"
+        },
+        {
+          "address": "10095e18",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a328"
+        },
+        {
+          "address": "10095e1c",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a320"
+        },
+        {
+          "address": "10095e20",
+          "label": null,
+          "type": "undefined *",
+          "value": "100899c8"
+        },
+        {
+          "address": "10095e24",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a280"
+        },
+        {
+          "address": "10095e28",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a278"
+        },
+        {
+          "address": "10095e2c",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a270"
+        },
+        {
+          "address": "10095e30",
+          "label": null,
+          "type": "undefined *",
+          "value": "100899a8"
+        },
+        {
+          "address": "10095e34",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a4c8"
+        },
+        {
+          "address": "10095e38",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089998"
+        },
+        {
+          "address": "10095e3c",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a4c0"
+        },
+        {
+          "address": "10095e40",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a268"
+        },
+        {
+          "address": "10095e44",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089980"
+        },
+        {
+          "address": "10095e48",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089978"
+        },
+        {
+          "address": "10095e4c",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089970"
+        },
+        {
+          "address": "10095e50",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a4e8"
+        },
+        {
+          "address": "10095e54",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a4e0"
+        },
+        {
+          "address": "10095e58",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a4d8"
+        },
+        {
+          "address": "10095e5c",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a260"
+        },
+        {
+          "address": "10095e60",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089a08"
+        },
+        {
+          "address": "10095e64",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089a00"
+        },
+        {
+          "address": "10095e68",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089940"
+        },
+        {
+          "address": "10095e6c",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089948"
+        },
+        {
+          "address": "10095e70",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089a38"
+        },
+        {
+          "address": "10095e74",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089950"
+        },
+        {
+          "address": "10095e78",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a540"
+        },
+        {
+          "address": "10095e7c",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a538"
+        },
+        {
+          "address": "10095e80",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a530"
+        },
+        {
+          "address": "10095e88",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a500"
+        },
+        {
+          "address": "10095e8c",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a370"
+        },
+        {
+          "address": "10095e90",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a4f0"
+        },
+        {
+          "address": "10095e94",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a318"
+        },
+        {
+          "address": "10095e98",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a258"
+        },
+        {
+          "address": "10095e9c",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a250"
+        },
+        {
+          "address": "10095ea0",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a248"
+        },
+        {
+          "address": "10095ea4",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a240"
+        },
+        {
+          "address": "10095ea8",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a238"
+        },
+        {
+          "address": "10095eac",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a4b8"
+        },
+        {
+          "address": "10095eb0",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a4b0"
+        },
+        {
+          "address": "10095eb4",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a4a8"
+        },
+        {
+          "address": "10095eb8",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a4a0"
+        },
+        {
+          "address": "10095ebc",
+          "label": null,
+          "type": "undefined *",
+          "value": "100895f8"
+        },
+        {
+          "address": "10095ec0",
+          "label": null,
+          "type": "undefined *",
+          "value": "10092368"
+        },
+        {
+          "address": "10095ec8",
+          "label": null,
+          "type": "undefined *",
+          "value": "10089890"
+        },
+        {
+          "address": "10095ecc",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a528"
+        },
+        {
+          "address": "10095ed0",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a520"
+        },
+        {
+          "address": "10095ed4",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a518"
+        },
+        {
+          "address": "10095ed8",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a510"
+        },
+        {
+          "address": "10095edc",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a508"
+        },
+        {
+          "address": "10095ee0",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a2a8"
+        },
+        {
+          "address": "10095ee4",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a288"
+        },
+        {
+          "address": "10095ee8",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a2a0"
+        },
+        {
+          "address": "10095eec",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a4f8"
+        },
+        {
+          "address": "10095ef0",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a290"
+        },
+        {
+          "address": "10095ef4",
+          "label": null,
+          "type": "undefined *",
+          "value": "1008a230"
+        },
+        {
+          "address": "10095ef8",
+          "label": "PTR_LAB_10095ef8",
+          "type": "undefined *",
+          "value": "1007cd68"
+        },
+        {
+          "address": "10095efc",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007cd68"
+        },
+        {
+          "address": "10095f00",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007ccc8"
+        },
+        {
+          "address": "10095f04",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007ccd4"
+        },
+        {
+          "address": "10095f08",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007cce0"
+        },
+        {
+          "address": "10095f0c",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007ccec"
+        },
+        {
+          "address": "10095f10",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007ccf8"
+        },
+        {
+          "address": "10095f14",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007ccf8"
+        },
+        {
+          "address": "10095f18",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007cd08"
+        },
+        {
+          "address": "10095f1c",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007cd14"
+        },
+        {
+          "address": "10095f20",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007cd20"
+        },
+        {
+          "address": "10095f24",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007cd2c"
+        },
+        {
+          "address": "10095f28",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007cd38"
+        },
+        {
+          "address": "10095f2c",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007cd44"
+        },
+        {
+          "address": "10095f30",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007cd68"
+        },
+        {
+          "address": "10095f34",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007cd50"
+        },
+        {
+          "address": "10095f38",
+          "label": "PTR_LAB_10095f38",
+          "type": "undefined *",
+          "value": "1007d958"
+        },
+        {
+          "address": "10095f3c",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007d118"
+        },
+        {
+          "address": "10095f40",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007d12c"
+        },
+        {
+          "address": "10095f44",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007d184"
+        },
+        {
+          "address": "10095f48",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007d24c"
+        },
+        {
+          "address": "10095f4c",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007d2e4"
+        },
+        {
+          "address": "10095f50",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007d394"
+        },
+        {
+          "address": "10095f54",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007d43c"
+        },
+        {
+          "address": "10095f58",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007d4e4"
+        },
+        {
+          "address": "10095f5c",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007d5fc"
+        },
+        {
+          "address": "10095f60",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007d6fc"
+        },
+        {
+          "address": "10095f64",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007d78c"
+        },
+        {
+          "address": "10095f68",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007d88c"
+        },
+        {
+          "address": "10095f6c",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007d8a0"
+        },
+        {
+          "address": "10095f70",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007d958"
+        },
+        {
+          "address": "10095f74",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007d938"
+        },
+        {
+          "address": "10095f78",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007d958"
+        },
+        {
+          "address": "10095f7c",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007d158"
+        },
+        {
+          "address": "10095f80",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007d1e8"
+        },
+        {
+          "address": "10095f84",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007d298"
+        },
+        {
+          "address": "10095f88",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007d33c"
+        },
+        {
+          "address": "10095f8c",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007d3e8"
+        },
+        {
+          "address": "10095f90",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007d490"
+        },
+        {
+          "address": "10095f94",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007d570"
+        },
+        {
+          "address": "10095f98",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007d67c"
+        },
+        {
+          "address": "10095f9c",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007d744"
+        },
+        {
+          "address": "10095fa0",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007d80c"
+        },
+        {
+          "address": "10095fa4",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007d8ec"
+        },
+        {
+          "address": "10095fa8",
+          "label": "PTR_LAB_10095fa8",
+          "type": "pointer",
+          "value": "1007df90"
+        },
+        {
+          "address": "10095fac",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007df80"
+        },
+        {
+          "address": "10095fb0",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007df90"
+        },
+        {
+          "address": "10095fb4",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007df90"
+        },
+        {
+          "address": "10095fb8",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007df90"
+        },
+        {
+          "address": "10095fbc",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007df90"
+        },
+        {
+          "address": "10095fc0",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007df90"
+        },
+        {
+          "address": "10095fc4",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007df90"
+        },
+        {
+          "address": "10095fc8",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007df90"
+        },
+        {
+          "address": "10095fcc",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007df90"
+        },
+        {
+          "address": "10095fd0",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007df90"
+        },
+        {
+          "address": "10095fd4",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007df90"
+        },
+        {
+          "address": "10095fd8",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007df30"
+        },
+        {
+          "address": "10095fdc",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007df90"
+        },
+        {
+          "address": "10095fe0",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007df80"
+        },
+        {
+          "address": "10095fe4",
+          "label": null,
+          "type": "undefined *",
+          "value": "1007df58"
+        },
+        {
+          "address": "10095fe8",
+          "label": "PTR_s_std_exception_10095fe8",
+          "type": "pointer",
+          "value": "10083cb0"
+        },
+        {
+          "address": "10096000",
+          "label": "PTR_s_std_bad_exception_10096000",
+          "type": "pointer",
+          "value": "10083c9c"
+        },
+        {
+          "address": "10096008",
+          "label": "PTR_PTR_10096008",
+          "type": "pointer",
+          "value": "10096000"
+        },
+        {
+          "address": "10096018",
+          "label": "PTR_PTR_10096018",
+          "type": "pointer",
+          "value": "10095fe8"
+        },
+        {
+          "address": "10096027",
+          "label": null,
+          "type": "string",
+          "value": "\"Hbad_exception\""
+        },
+        {
+          "address": "10096038",
+          "label": "s_exception_10096038",
+          "type": "string",
+          "value": "\"exception\""
+        },
+        {
+          "address": "10096044",
+          "label": "PTR_PTR_10096044",
+          "type": "pointer",
+          "value": "10095fe8"
+        },
+        {
+          "address": "10096050",
+          "label": "PTR_s_std_bad_cast_10096050",
+          "type": "undefined *",
+          "value": "10083d10"
+        },
+        {
+          "address": "10096054",
+          "label": null,
+          "type": "undefined *",
+          "value": "10096044"
+        },
+        {
+          "address": "10096058",
+          "label": null,
+          "type": "undefined *",
+          "value": "10096050"
+        },
+        {
+          "address": "10096067",
+          "label": null,
+          "type": "string",
+          "value": "\"xbad_cast\""
+        },
+        {
+          "address": "10096d30",
+          "label": "GetPort",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096d34",
+          "label": "PenNormal",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096d38",
+          "label": "FSClose",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096d3c",
+          "label": "GetFlavorFlags",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096d40",
+          "label": "TextFace",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096d44",
+          "label": "SizeWindow",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096d48",
+          "label": "GetDragModifiers",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096d4c",
+          "label": "GetWindowFromPort",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096d50",
+          "label": "NMRemove",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096d54",
+          "label": "MoveWindow",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096d58",
+          "label": "SetPortWindowPort",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096d5c",
+          "label": "SetWindowContentColor",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096d60",
+          "label": "SetResLoad",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096d64",
+          "label": "OpColor",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096d68",
+          "label": "SndDoCommand",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096d6c",
+          "label": "FindFolder",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096d70",
+          "label": "PBHOpenRFSync",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096d74",
+          "label": "HidePen",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096d78",
+          "label": "DisposeHandle",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096d7c",
+          "label": "InsetRect",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096d80",
+          "label": "TestDeviceAttribute",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096d84",
+          "label": "LoadResource",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096d88",
+          "label": "LineTo",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096d8c",
+          "label": "TextFont",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096d90",
+          "label": "EndUpdate",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096d94",
+          "label": "SendBehind",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096d98",
+          "label": "ShowHide",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096d9c",
+          "label": "ModalDialog",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096da0",
+          "label": "OpenPoly",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096da4",
+          "label": "HiliteWindow",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096da8",
+          "label": "GetFlavorData",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096dac",
+          "label": "Long2Fix",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096db0",
+          "label": "BeginUpdate",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096db4",
+          "label": "SectRect",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096db8",
+          "label": "DrawMenuBar",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096dbc",
+          "label": "DisposeCTable",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096dc0",
+          "label": "HOpenResFile",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096dc4",
+          "label": "UnionRgn",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096dc8",
+          "label": "LMGetTheMenu",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096dcc",
+          "label": "Debugger",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096dd0",
+          "label": "FindWindow",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096dd4",
+          "label": "VisibleLength",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096dd8",
+          "label": "MenuSelect",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096ddc",
+          "label": "MovePortTo",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096de0",
+          "label": "FSpCreate",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096de4",
+          "label": "StyledLineBreak",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096de8",
+          "label": "GetDblTime",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096dec",
+          "label": "SysBeep",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096df0",
+          "label": "PenSize",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096df4",
+          "label": "TrackDrag",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096df8",
+          "label": "TextMode",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096dfc",
+          "label": "DisposeMenu",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e00",
+          "label": "AECoerceDesc",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e04",
+          "label": "UnlockPixels",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e08",
+          "label": "NewGWorld",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e0c",
+          "label": "NewEmptyHandle",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e10",
+          "label": "LMGetHiliteRGB",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e14",
+          "label": "DisposeDrag",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e18",
+          "label": "EventAvail",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e1c",
+          "label": "RmvTime",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e20",
+          "label": "atan",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e24",
+          "label": "RemoveTrackingHandler",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e28",
+          "label": "WaitNextEvent",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e2c",
+          "label": "IsWindowCollapsed",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e30",
+          "label": "TrackBox",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e34",
+          "label": "DrawText",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e38",
+          "label": "PBDTGetPath",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e3c",
+          "label": "FSpCatMove",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e40",
+          "label": "FlushEvents",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e44",
+          "label": "GetDialogItem",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e48",
+          "label": "NewMenu",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e4c",
+          "label": "DrawJustified",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e50",
+          "label": "FSpSetFInfo",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e54",
+          "label": "LMGetSysMap",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e58",
+          "label": "FSpGetFInfo",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e5c",
+          "label": "GetWindowPort",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e60",
+          "label": "PBReadSync",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e64",
+          "label": "PBWriteSync",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e68",
+          "label": "SetOrigin",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e6c",
+          "label": "NewDrag",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e70",
+          "label": "DisposePort",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e74",
+          "label": "GetNextWindow",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e78",
+          "label": "GetPixPat",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e7c",
+          "label": "NewHandleClear",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e80",
+          "label": "CalcVisBehind",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e84",
+          "label": "ResError",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e88",
+          "label": "GetPortPenSize",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e8c",
+          "label": "cos",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e90",
+          "label": "DeleteMenu",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e94",
+          "label": "GetMouse",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e98",
+          "label": "GetClip",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096e9c",
+          "label": "CopyMask",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096ea0",
+          "label": "NumToString",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096ea4",
+          "label": "TextSize",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096ea8",
+          "label": "HLockHi",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096eac",
+          "label": "IsWindowVisible",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096eb0",
+          "label": "MoveTo",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096eb4",
+          "label": "BitShift",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096eb8",
+          "label": "PenMode",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096ebc",
+          "label": "PBSetCatInfoSync",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096ec0",
+          "label": "TempNewHandle",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096ec4",
+          "label": "ReleaseResource",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096ec8",
+          "label": "MenuKey",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096ecc",
+          "label": "NewHandle",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096ed0",
+          "label": "TruncText",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096ed4",
+          "label": "DrawPicture",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096ed8",
+          "label": "DisposeCIcon",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096edc",
+          "label": "CountDragItems",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096ee0",
+          "label": "GetPortBitMapForCopyBits",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096ee4",
+          "label": "UseResFile",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096ee8",
+          "label": "AESend",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096eec",
+          "label": "PtrAndHand",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096ef0",
+          "label": "NewRgn",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096ef4",
+          "label": "TrackGoAway",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096ef8",
+          "label": "GetNextEvent",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096efc",
+          "label": "GetMainDevice",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f00",
+          "label": "GetNextDevice",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f04",
+          "label": "sqrt",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f08",
+          "label": "PBGetFCBInfoSync",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f0c",
+          "label": "FSpCreateResFile",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f10",
+          "label": "GetQDGlobalsThePort",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f14",
+          "label": "SameProcess",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f18",
+          "label": "FollowFinderAlias",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f1c",
+          "label": "DisposeGWorld",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f20",
+          "label": "Button",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f24",
+          "label": "PBHOpenDFSync",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f28",
+          "label": "GetFontInfo",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f2c",
+          "label": "ResolveAliasFile",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f30",
+          "label": "CFUUIDGetUUIDBytes",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f34",
+          "label": "MemError",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f38",
+          "label": "NewAlias",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f3c",
+          "label": "RemoveReceiveHandler",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f40",
+          "label": "MapRgn",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f44",
+          "label": "GetKeys",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f48",
+          "label": "AEGetParamDesc",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f4c",
+          "label": "FrontWindow",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f50",
+          "label": "AECountItems",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f54",
+          "label": "GetDateTime",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f58",
+          "label": "AEGetDescData",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f5c",
+          "label": "CopyBits",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f60",
+          "label": "GetQDGlobalsArrow",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f64",
+          "label": "sin",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f68",
+          "label": "NewPtr",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f6c",
+          "label": "AppendMenu",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f70",
+          "label": "OffsetRect",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f74",
+          "label": "PBGetCatInfoSync",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f78",
+          "label": "SetPort",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f7c",
+          "label": "PtInRgn",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f80",
+          "label": "KillPoly",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f84",
+          "label": "IsPortOffscreen",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f88",
+          "label": "GetDragItemReferenceNumber",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f8c",
+          "label": "SndDisposeChannel",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f90",
+          "label": "ShowWindow",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f94",
+          "label": "DiffRgn",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f98",
+          "label": "GrowWindow",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096f9c",
+          "label": "AEDisposeDesc",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096fa0",
+          "label": "HideWindow",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096fa4",
+          "label": "NewCWindow",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096fa8",
+          "label": "SecondsToDate",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096fac",
+          "label": "SetRect",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096fb0",
+          "label": "IsWindowHilited",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096fb4",
+          "label": "FSpDirCreate",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096fb8",
+          "label": "WakeUpProcess",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096fbc",
+          "label": "GetCIcon",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096fc0",
+          "label": "PixelToChar",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096fc4",
+          "label": "FlushVol",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096fc8",
+          "label": "HDelete",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096fcc",
+          "label": "LMGetResLoad",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096fd0",
+          "label": "GetCurrentProcess",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096fd4",
+          "label": "InitCursor",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096fd8",
+          "label": "AECreateAppleEvent",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096fdc",
+          "label": "GetCTable",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096fe0",
+          "label": "PBDTGetCommentSync",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096fe4",
+          "label": "InstallTrackingHandler",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096fe8",
+          "label": "SetDragImage",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096fec",
+          "label": "LMSetResLoad",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096ff0",
+          "label": "Get1Resource",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096ff4",
+          "label": "FillCRect",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096ff8",
+          "label": "FindWordBreaks",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10096ffc",
+          "label": "GetWRefCon",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097000",
+          "label": "RGBBackColor",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097004",
+          "label": "SetEmptyRgn",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097008",
+          "label": "GetQDGlobalsScreenBits",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009700c",
+          "label": "BlockMoveData",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097010",
+          "label": "AECreateDesc",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097014",
+          "label": "GetNewDialog",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097018",
+          "label": "SndPlay",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009701c",
+          "label": "LockPixels",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097020",
+          "label": "ForeColor",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097024",
+          "label": "GetCaretTime",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097028",
+          "label": "GetDragMouse",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009702c",
+          "label": "DisposeWindow",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097030",
+          "label": "OffsetRgn",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097034",
+          "label": "PopUpMenuSelect",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097038",
+          "label": "PaintRect",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009703c",
+          "label": "PBHGetVInfoSync",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097040",
+          "label": "CurResFile",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097044",
+          "label": "Gestalt",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097048",
+          "label": "SetCPixel",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009704c",
+          "label": "PBHGetFInfoSync",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097050",
+          "label": "GetDropLocation",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097054",
+          "label": "SetEOF",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097058",
+          "label": "SetMenuBar",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009705c",
+          "label": "HSetState",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097060",
+          "label": "InsetRgn",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097064",
+          "label": "kCFAllocatorDefault",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097068",
+          "label": "PaintPoly",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009706c",
+          "label": "HGetState",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097070",
+          "label": "FSpRename",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097074",
+          "label": "ExitToShell",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097078",
+          "label": "GetCCursor",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009707c",
+          "label": "GetBackColor",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097080",
+          "label": "PBDTSetCommentSync",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097084",
+          "label": "ReallocateHandle",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097088",
+          "label": "AEGetNthPtr",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009708c",
+          "label": "LocalToGlobal",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097090",
+          "label": "PortSize",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097094",
+          "label": "CatMove",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097098",
+          "label": "EraseRect",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009709c",
+          "label": "HLock",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100970a0",
+          "label": "SetCCursor",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100970a4",
+          "label": "AddDragItemFlavor",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100970a8",
+          "label": "GetScriptManagerVariable",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100970ac",
+          "label": "FSpOpenResFile",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100970b0",
+          "label": "GetFrontProcess",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100970b4",
+          "label": "SetFrontProcess",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100970b8",
+          "label": "PBHRstFLockSync",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100970bc",
+          "label": "FrameRoundRect",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100970c0",
+          "label": "GetDeviceList",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100970c4",
+          "label": "GetMBarHeight",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100970c8",
+          "label": "PBDTOpenInform",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100970cc",
+          "label": "CFUUIDCreate",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100970d0",
+          "label": "pi",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100970d4",
+          "label": "Microseconds",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100970d8",
+          "label": "CopyRgn",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100970dc",
+          "label": "TextWidth",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100970e0",
+          "label": "GetPortBounds",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100970e4",
+          "label": "FSMakeFSSpec",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100970e8",
+          "label": "EmptyRect",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100970ec",
+          "label": "SectRgn",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100970f0",
+          "label": "FSpDelete",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100970f4",
+          "label": "StillDown",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100970f8",
+          "label": "Munger",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100970fc",
+          "label": "SetClip",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097100",
+          "label": "SetGWorld",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097104",
+          "label": "CloseResFile",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097108",
+          "label": "PBHDeleteSync",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009710c",
+          "label": "HiliteMenu",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097110",
+          "label": "FrameRgn",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097114",
+          "label": "CreateNewPort",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097118",
+          "label": "TickCount",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009711c",
+          "label": "GetGWorld",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097120",
+          "label": "GetMenuID",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097124",
+          "label": "FrameRect",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097128",
+          "label": "Get1IndResource",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009712c",
+          "label": "AEProcessAppleEvent",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097130",
+          "label": "HNoPurge",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097134",
+          "label": "GetProcessInformation",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097138",
+          "label": "PrimeTime",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009713c",
+          "label": "SndNewChannel",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097140",
+          "label": "PaintOne",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097144",
+          "label": "BringToFront",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097148",
+          "label": "SetWTitle",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009714c",
+          "label": "HUnlock",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097150",
+          "label": "GetGWorldPixMap",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097154",
+          "label": "PBXGetVolInfoSync",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097158",
+          "label": "PBHGetVolParmsSync",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009715c",
+          "label": "RGBForeColor",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097160",
+          "label": "DisposePtr",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097164",
+          "label": "GetRegionBounds",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097168",
+          "label": "DisposePixPat",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009716c",
+          "label": "GetFlavorDataSize",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097170",
+          "label": "PaintRoundRect",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097174",
+          "label": "HPurge",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097178",
+          "label": "GetPortVisibleRegion",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009717c",
+          "label": "GetPortClipRegion",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097180",
+          "label": "DrawGrowIcon",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097184",
+          "label": "DirCreate",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097188",
+          "label": "PenPat",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009718c",
+          "label": "PBHOpenRFDenySync",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097190",
+          "label": "PaintRgn",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097194",
+          "label": "HRename",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097198",
+          "label": "DisposeCCursor",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009719c",
+          "label": "GetGrayRgn",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100971a0",
+          "label": "RectRgn",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100971a4",
+          "label": "PlotCIconHandle",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100971a8",
+          "label": "GetHandleSize",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100971ac",
+          "label": "InstallReceiveHandler",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100971b0",
+          "label": "GetEOF",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100971b4",
+          "label": "AddResource",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100971b8",
+          "label": "PBHOpenSync",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100971bc",
+          "label": "GetResource",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100971c0",
+          "label": "ClosePoly",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100971c4",
+          "label": "ChangedResource",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100971c8",
+          "label": "GetNewMBar",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100971cc",
+          "label": "GetNextProcess",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100971d0",
+          "label": "NewDialog",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100971d4",
+          "label": "NewPtrClear",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100971d8",
+          "label": "QDError",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100971dc",
+          "label": "AEInstallEventHandler",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100971e0",
+          "label": "PBHMoveRenameSync",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100971e4",
+          "label": "SelectWindow",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100971e8",
+          "label": "SetDialogItemText",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100971ec",
+          "label": "GetCursor",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100971f0",
+          "label": "GetMaxDevice",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100971f4",
+          "label": "PBHOpenDenySync",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100971f8",
+          "label": "SetHandleSize",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100971fc",
+          "label": "DisposeRgn",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097200",
+          "label": "GlobalToLocal",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097204",
+          "label": "SetCursor",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097208",
+          "label": "GetWindowRegion",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009720c",
+          "label": "GetDialogWindow",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097210",
+          "label": "KeyTranslate",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097214",
+          "label": "GetSysDirection",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097218",
+          "label": "WriteResource",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009721c",
+          "label": "InsertMenu",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097220",
+          "label": "GetWindowEventTarget",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097224",
+          "label": "TimeString",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097228",
+          "label": "ClearCurrentScrap",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009722c",
+          "label": "NewAEEventHandlerUPP",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097230",
+          "label": "ICStart",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097234",
+          "label": "NewDragSendDataUPP",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097238",
+          "label": "DateString",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009723c",
+          "label": "NewSndCallBackUPP",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097240",
+          "label": "GetScrapFlavorData",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097244",
+          "label": "NewDragTrackingHandlerUPP",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097248",
+          "label": "InstallXTimeTask",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009724c",
+          "label": "GetEventKind",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097250",
+          "label": "NewEventHandlerUPP",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097254",
+          "label": "FMGetFontFamilyFromName",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097258",
+          "label": "ICLaunchURL",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009725c",
+          "label": "GetCurrentScrap",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097260",
+          "label": "NewTimerUPP",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097264",
+          "label": "GetEventClass",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097268",
+          "label": "MoreMasterPointers",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009726c",
+          "label": "GetScrapFlavorSize",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097270",
+          "label": "ICBegin",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097274",
+          "label": "InstallEventHandler",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097278",
+          "label": "EnableMenuCommand",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009727c",
+          "label": "ICEnd",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097280",
+          "label": "SetWindowClass",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097284",
+          "label": "PutScrapFlavor",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097288",
+          "label": "ICStop",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009728c",
+          "label": "NewDragReceiveHandlerUPP",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097290",
+          "label": "ICGetPref",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097294",
+          "label": "GetMovieBox",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097298",
+          "label": "MCSetControllerAttached",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009729c",
+          "label": "NewMCActionFilterWithRefConUPP",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100972a0",
+          "label": "MCIsControllerAttached",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100972a4",
+          "label": "MoviesTask",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100972a8",
+          "label": "MCGetControllerBoundsRect",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100972ac",
+          "label": "OTSetAsynchronous",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100972b0",
+          "label": "OTCloseProvider",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100972b4",
+          "label": "OTRcvOrderlyDisconnect",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100972b8",
+          "label": "OTScheduleTimerTask",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100972bc",
+          "label": "OTListen",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100972c0",
+          "label": "CloseOpenTransportInContext",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100972c4",
+          "label": "OTCreateConfiguration",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100972c8",
+          "label": "OTLIFOEnqueue",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100972cc",
+          "label": "OTInstallNotifier",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100972d0",
+          "label": "OTSndUData",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100972d4",
+          "label": "OTUnbind",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100972d8",
+          "label": "OTGetEndpointState",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100972dc",
+          "label": "OTCreateTimerTaskInContext",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100972e0",
+          "label": "InitOpenTransportInContext",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100972e4",
+          "label": "OTOpenEndpointInContext",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100972e8",
+          "label": "OTRcvUDErr",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100972ec",
+          "label": "OTRcvDisconnect",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100972f0",
+          "label": "OTSndDisconnect",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100972f4",
+          "label": "OTSndOrderlyDisconnect",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100972f8",
+          "label": "OTLeaveNotifier",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "100972fc",
+          "label": "OTInetHostToString",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097300",
+          "label": "OTOptionManagement",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097304",
+          "label": "OTBind",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097308",
+          "label": "OTConnect",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009730c",
+          "label": "OTDestroyTimerTask",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097310",
+          "label": "NewOTNotifyUPP",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097314",
+          "label": "OTCountDataBytes",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097318",
+          "label": "OTRcv",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009731c",
+          "label": "OTAtomicSetBit",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097320",
+          "label": "OTLook",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097324",
+          "label": "OTGetProtAddress",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097328",
+          "label": "OTEnterNotifier",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009732c",
+          "label": "OTSnd",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097330",
+          "label": "OTInetGetInterfaceInfo",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097334",
+          "label": "OTRcvConnect",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097338",
+          "label": "NewOTProcessUPP",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009733c",
+          "label": "OTLIFOStealList",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097340",
+          "label": "OTAtomicClearBit",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097344",
+          "label": "OTAccept",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "10097348",
+          "label": "OTIoctl",
+          "type": "pointer",
+          "value": "00000000"
+        },
+        {
+          "address": "1009734c",
+          "label": "OTAtomicTestBit",
+          "type": "pointer",
+          "value": "00000000"
+        }
+      ],
+      "offset": 4000,
+      "limit": 2000,
+      "total": 4553,
+      "has_more": false
+    },
+    "isError": false
+  }
+}

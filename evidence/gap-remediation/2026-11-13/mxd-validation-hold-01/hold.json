@@ -1,0 +1,12 @@
+{
+  "instruction": "Put a hold on further validation of mxd; document findings and leave remaining validation for later",
+  "canonical_mxd_head": "cb907885cc2a61df2d708f38a3cf42da85c2a016",
+  "live_trial_daemons": "C19 and C21 stopped; recorded PIDs gone and15650 listeners absent",
+  "private_uncommitted_mxd_changes_preserved": [
+    "docs/users-guide.md",
+    "docs/developers-guide.md",
+    "src/commands/support.rs"
+  ],
+  "positive_witness_private_source_commit": "5168b93; only immutable redacted evidence copied, no new validators imported",
+  "deferred": "Further mxd tests, fixes, builds and client trials"
+}

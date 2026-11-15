@@ -1,0 +1,24 @@
+{
+  "relative_target_artifact": "debug/build/mxd/03fe09b6103be42f/out/libmxd-03fe09b6103be42f.rlib",
+  "original": {
+    "sha256": "1ae956b70615865ccc9125c1bad5feb4bba093bf615fef15fd5b490945e1984a",
+    "size_bytes": 20971520,
+    "member_header_offset": 20027004,
+    "member_name": "/684",
+    "member_declared_size": 1127640,
+    "member_end_offset": 21154704,
+    "bytes_past_eof": 183184,
+    "mtime_utc": "2026-11-13 12:16:21 UTC"
+  },
+  "regenerated": {
+    "sha256": "b1ebb8f2ef10ac5fd8cf45de9cd9a077652c16ba24bd37ab17baef73c8039adf",
+    "size_bytes": 25246276,
+    "member_count": 20,
+    "all_member_bounds_valid": true,
+    "readelf_stderr_bytes": 0,
+    "mtime_utc": "2026-11-13 14:51:27 UTC"
+  },
+  "current_rlimit_fsize": "unlimited",
+  "target_filesystem": "xfs",
+  "free_space_at_diagnosis": "114 GiB; historical free space unknown"
+}

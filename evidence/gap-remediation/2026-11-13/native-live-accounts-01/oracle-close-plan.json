@@ -1,0 +1,16 @@
+[
+  {
+    "id": "LA-D-10073f70",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10073f70"
+    }
+  },
+  {
+    "id": "LA-D-10070700",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10070700"
+    }
+  }
+]

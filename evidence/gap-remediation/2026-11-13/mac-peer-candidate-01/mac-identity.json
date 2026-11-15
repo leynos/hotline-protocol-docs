@@ -1,0 +1,60 @@
+{
+  "Hotline Client 1.9.2 Classic": {
+    "appledouble_entry_ids": [
+      2,
+      9
+    ],
+    "data_bytes": 1410822,
+    "data_sha256": "7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315",
+    "finder_creator_ascii": "HTLC",
+    "finder_type_ascii": "APPL",
+    "resource_bytes": 729097,
+    "resource_sha256": "f762cfdedcc39758f841f720a4586dbbb88a7b74ec9e83db1793791b7c3f318b",
+    "sidecar_sha256": "655df272d898b87cd3cf193323f7f68a3e796386b4016f7f44cb71adefff9378",
+    "vers_resources": [
+      {
+        "id": 1,
+        "long": "Hotline Connect Client 1.9.1.0\r\u00a91996-2003 Hotsprings Inc",
+        "raw_hex": "01918000000007312e392e312e3038486f746c696e6520436f6e6e65637420436c69656e7420312e392e312e300da9313939362d3230303320486f74737072696e677320496e63",
+        "short": "1.9.1.0",
+        "version_bytes_hex": "01918000"
+      },
+      {
+        "id": 2,
+        "long": "Hotline Connect Client1.9.1.0",
+        "raw_hex": "01918000000007312e392e312e301d486f746c696e6520436f6e6e65637420436c69656e74312e392e312e30",
+        "short": "1.9.1.0",
+        "version_bytes_hex": "01918000"
+      }
+    ]
+  },
+  "Hotline Client 1.9.2 OS X": {
+    "appledouble_entry_ids": [
+      2,
+      9
+    ],
+    "data_bytes": 1400450,
+    "data_sha256": "492baea53ff8afee9839f1c90eccdd9099c1ce5c989cf997db766129d4bae4aa",
+    "finder_creator_ascii": "HTLC",
+    "finder_type_ascii": "APPL",
+    "resource_bytes": 730152,
+    "resource_sha256": "2f10e56bec80a81bd194e2371b8cddfcc3f2e5fe304f9d338528d4382f4a50c2",
+    "sidecar_sha256": "946ecd2e7d2abd9aa1f3813fd9828336b90d8eea6b14b307d6acdbb38d8722d2",
+    "vers_resources": [
+      {
+        "id": 1,
+        "long": "Hotline Connect Client 1.9.1.0\r\u00a91996-2003 Hotsprings Inc",
+        "raw_hex": "01918000000007312e392e312e3038486f746c696e6520436f6e6e65637420436c69656e7420312e392e312e300da9313939362d3230303320486f74737072696e677320496e63",
+        "short": "1.9.1.0",
+        "version_bytes_hex": "01918000"
+      },
+      {
+        "id": 2,
+        "long": "Hotline Connect Client1.9.1.0",
+        "raw_hex": "01918000000007312e392e312e301d486f746c696e6520436f6e6e65637420436c69656e74312e392e312e30",
+        "short": "1.9.1.0",
+        "version_bytes_hex": "01918000"
+      }
+    ]
+  }
+}

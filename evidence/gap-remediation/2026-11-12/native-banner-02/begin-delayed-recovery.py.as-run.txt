@@ -1,0 +1,13 @@
+import json,sys,subprocess
+from pathlib import Path
+sys.path.insert(0,'../hotline-protocol-docs/scripts')
+from native_banner_cases import delayed,request,GIF_B
+from native_plan import close
+from native_queue_cases import pump
+from verify_native_banners import fields
+r=Path('state/native-sessions/runtime-11');base=json.load(open(r/'recovery-plans/phase-checked-recovery.json'));base.update(steps=delayed()+pump('main',9,0)+request()+[close()],expectation={'kind':'before-delayed-recovery','tag_hex':b'GIFf'.hex(),'size':len(GIF_B)});(r/'before-delayed-plan.json').write_text(json.dumps(base,indent=2)+'\n')
+def capture(plan,out):subprocess.run([sys.executable,'../hotline-protocol-docs/scripts/protocol_capture.py','capture',str(plan),'--oracle-binary','evidence/hotline-server-1.9/inputs/HLserver19.pef','--output',str(out)],check=True)
+capture(r/'before-delayed-plan.json',r/'delayed/before-delayed-recovery')
+d=json.load(open(r/'delayed/before-delayed-recovery/report.json'));n=[f for f in d['frames'] if f['type']==122];assert len(n)==1 and fields(n[0])[152]==b'GIFf';ack=next(f for f in d['frames'] if f['is_reply'] and f['id']==10);assert int.from_bytes(fields(ack)[108],'big')==len(GIF_B);print('Verified GIFf advertisement and58-byte212 baseline',flush=True)
+subprocess.run([sys.executable,'../hotline-protocol-docs/scripts/prepare_native_cases.py','banner-recovery','--runtime-record',str(r/'runtime.json'),'--output',str(r/'delayed-recovery-plans')],check=True)
+capture(r/'delayed-recovery-plans/phase-checked-recovery.json',r/'delayed/phase-checked-recovery')

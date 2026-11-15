@@ -1,0 +1,36 @@
+{
+  "captured_at_utc": "2026-11-12T12:55:29.155796+00:00",
+  "source_git_head": "6ebdec87c04abee9b822b22b169898404dab969b",
+  "source_worktree_status": "M protocol.md\n?? baseline-correction-map.md\n?? internal-compatibility-matrix.md",
+  "inputs": [
+    {
+      "path": "protocol.md",
+      "sha256": "e7b6276d588f7d4b74ad9c63971ddd9a458e500a7d85f78f1bcdc4456970b0d9",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-12/inputs/protocol.md.txt",
+      "lines": 986
+    },
+    {
+      "path": "internal-compatibility-matrix.md",
+      "sha256": "7ae646afca7184580ffaa49755ca3ff040fadebde37b55cbd89022e0f966d8ae",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-12/inputs/internal-compatibility-matrix.md.txt",
+      "lines": 180
+    },
+    {
+      "path": "baseline-correction-map.md",
+      "sha256": "3b45cc8101e8a471df2551d8f90789bca5b3eb82ce63150f98a9dc6dc8d2049d",
+      "snapshot": "../mothra/evidence/protocol-gap-analysis/2026-11-12/inputs/baseline-correction-map.md.txt",
+      "lines": 106
+    }
+  ],
+  "method": "Documentation gap audit of corrected sources and prior static validity ledger; no new Ghidra queries, packet captures, mxd tests or client execution in this audit.",
+  "initial_gap_count": 87,
+  "reviewed_section_count": 72,
+  "initial_register": {
+    "snapshot": "evidence/protocol-gap-analysis/2026-11-12/initial-gap-register.json",
+    "sha256": "82cced6b3a8eb563f47ef9b7f80ebd5bacbbf04bb5a8e81f78fd70e882a9c1e6"
+  },
+  "renderer": {
+    "snapshot": "evidence/protocol-gap-analysis/2026-11-12/initial-renderer.py.txt",
+    "sha256": "194b8dae22fb1833b4a0e0f3154da12086b6caaa5661100a86115784450917a6"
+  }
+}

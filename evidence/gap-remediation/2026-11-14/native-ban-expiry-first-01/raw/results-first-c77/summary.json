@@ -1,0 +1,62 @@
+{
+  "phase": "first",
+  "status": "completed",
+  "full_file_baseline": "not_exercised",
+  "capture_receipt_sha256": "6d013ca1efcb3e8630aabdd4bea9ca51a39505334505d24e142637978744eb66",
+  "readiness_report_sha256": "236cf4f8e357dc7f221cd2f8db7ef13387bf2a0ec886857c79fba451590dea1c",
+  "preprobe_baseline": "full18_control_only",
+  "cases": {
+    "guard-zero": {
+      "status": "completed",
+      "error": "",
+      "plan_sha256": "6c2352c28bdf1f19b7c6f345d20f0c3cbe5d630962f8681dad5a8865fc0b6bf9"
+    },
+    "guard-protected": {
+      "status": "completed",
+      "error": "",
+      "plan_sha256": "84bb5f09c3720dddc67f5e7b4c975fa3b0753fb2f7538f5f1e8904be17abce8e"
+    },
+    "seed-zero": {
+      "status": "completed",
+      "error": "",
+      "plan_sha256": "b48ba06d2baa9a850f27b46173854b677c8f1c71e5e10fae77ed90aa1a11513b"
+    },
+    "seed-protected": {
+      "status": "completed",
+      "error": "",
+      "plan_sha256": "a374dba9713c231fcecaea99437acf8c9bea4f4cfab283e9bfe8f1688d0d3fae"
+    },
+    "kick0": {
+      "status": "completed",
+      "error": "",
+      "plan_sha256": "f839b8906969303c0725eb35897dbc1688336cfde702dffaa8d9a48f0b23d6b9"
+    },
+    "kick0-probe": {
+      "status": "completed",
+      "error": "",
+      "plan_sha256": "1dd1d2a9f346bbb62a321961773793489dd5770542d52f9186f11d85e0f68434"
+    },
+    "protected": {
+      "status": "completed",
+      "error": "",
+      "plan_sha256": "929b52ef2f44d10cdad4760f59c9e16be6aa6aee2244cd2b1975def7f4666dff"
+    },
+    "tempban": {
+      "status": "completed",
+      "error": "",
+      "plan_sha256": "998ee4ca4a569cc47fce747f0125a1fd2553ae04f40d05df11a51951fba38c9d"
+    },
+    "immediate-probe": {
+      "status": "completed",
+      "error": "",
+      "plan_sha256": "b1bd2f8cc0b3f04197eff77e18ce28de0a0b20c75dbc52c9915d71c22daf8104"
+    }
+  },
+  "timing_gate": null,
+  "post_readiness_settle": {
+    "started_utc": "2026-11-14T05:54:19.960132+00:00",
+    "completed_utc": "2026-11-14T05:54:54.960281+00:00",
+    "elapsed_seconds": 35.000123614,
+    "runner_socket_actions_during_wait": 0
+  }
+}

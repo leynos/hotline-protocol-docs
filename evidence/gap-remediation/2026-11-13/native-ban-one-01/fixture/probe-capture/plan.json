@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "profile": "native-mac-oracle",
+  "operator": "C32 disposable lab option-1 operator",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "gap_ids": [
+    "GAP-044"
+  ],
+  "environment": {
+    "profile": "native-mac-oracle",
+    "phase": "C32 disposable ban lab preflight",
+    "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+    "emulator_pid": 3953986,
+    "emulator_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+    "runtime_assets": {
+      "rom_sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+      "base_disk_sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910",
+      "source_rom": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/rom",
+      "source_disk": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/base.dsk",
+      "archive_member": null
+    },
+    "runtime_launch": {
+      "command": [
+        "sudo",
+        "-n",
+        "setpriv",
+        "--reuid=1000",
+        "--regid=1000",
+        "--init-groups",
+        "--inh-caps=+sys_rawio",
+        "--ambient-caps=+sys_rawio",
+        "env",
+        "DISPLAY=:109",
+        "SDL_VIDEODRIVER=x11",
+        "SDL_AUDIODRIVER=dummy",
+        "MOTHRA_ETHERNET_PCAP=/data/leynos/Projects/mothra/state/native-sessions/native-banlab-boot-c31/lab-guest.pcap",
+        "XDG_CACHE_HOME=/data/leynos/Projects/mothra/state/mac-runtime/native-banlab-one-01/cache",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-banlab-one-01/SheepShaver-9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-banlab-one-01/machine.sheepvm"
+      ],
+      "emulator_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "host_ports": [
+        15720,
+        15721,
+        15722,
+        15723
+      ],
+      "tcp_bind": "127.0.0.1",
+      "guest_address": "10.0.2.15",
+      "guest_pcap": "/data/leynos/Projects/mothra/state/native-sessions/native-banlab-boot-c31/lab-guest.pcap",
+      "guest_pcap_scope": "SLiRP Ethernet boundary; host wall-clock timestamps"
+    },
+    "emulator_service": {
+      "unit": "mothra-sheep-af139612cba9",
+      "command": [
+        "systemd-run",
+        "--user",
+        "--unit=mothra-sheep-af139612cba9",
+        "--collect",
+        "--service-type=exec",
+        "--property=WorkingDirectory=/data/leynos/Projects/mothra",
+        "--property=StandardOutput=append:/data/leynos/Projects/mothra/state/mac-runtime/native-banlab-one-01/sheep-service.log",
+        "--property=StandardError=append:/data/leynos/Projects/mothra/state/mac-runtime/native-banlab-one-01/sheep-service.log",
+        "--property=Restart=no",
+        "--",
+        "sudo",
+        "-n",
+        "unshare",
+        "--net",
+        "--",
+        "/usr/sbin/python3",
+        "/data/leynos/Projects/mothra/scripts/mac_network_isolation.py",
+        "bootstrap",
+        "--socket",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-banlab-one-01/isolated-network/bridge.sock",
+        "--listen-port",
+        "15500",
+        "--display",
+        ":109",
+        "--uid",
+        "1000",
+        "--gid",
+        "1000",
+        "--",
+        "/usr/sbin/python3",
+        "/data/leynos/Projects/mothra/scripts/mac_runtime.py",
+        "sheep",
+        "/data/leynos/Projects/mothra/state/mac-runtime/native-banlab-one-01",
+        "--display",
+        ":109",
+        "--port",
+        "15720",
+        "--guest-pcap",
+        "/data/leynos/Projects/mothra/state/native-sessions/native-banlab-boot-c31/lab-guest.pcap"
+      ],
+      "readiness": "Check systemctl --user show and the actual display/listener; no automatic restart"
+    },
+    "display_service": {
+      "unit": "mothra-display-12ac2aac1017",
+      "command": [
+        "systemd-run",
+        "--user",
+        "--unit=mothra-display-12ac2aac1017",
+        "--collect",
+        "--service-type=exec",
+        "--property=WorkingDirectory=/data/leynos/Projects/mothra",
+        "--property=StandardOutput=append:/data/leynos/Projects/mothra/state/mac-displays/native-banlab-one-01/display-service.log",
+        "--property=StandardError=append:/data/leynos/Projects/mothra/state/mac-displays/native-banlab-one-01/display-service.log",
+        "--property=Restart=no",
+        "--",
+        "/usr/sbin/Xvfb",
+        ":109",
+        "-screen",
+        "0",
+        "1024x768x24",
+        "-nolisten",
+        "tcp",
+        "-ac",
+        "-noreset"
+      ],
+      "readiness": "Check systemctl --user show and the actual display/listener; no automatic restart"
+    },
+    "guest_pcap": "/data/leynos/Projects/mothra/state/native-sessions/native-banlab-boot-c31/lab-guest.pcap",
+    "original_options": {
+      "server_port": 5500,
+      "global_max_downloads": 100,
+      "per_client_max_downloads": 10,
+      "max_connections_per_ip": 5,
+      "screenshot": "/data/leynos/Projects/mothra/state/native-sessions/diagnostic-load-20261113-01/options-original.png"
+    },
+    "captured_options": false,
+    "source_note": "C32 fresh disposable lab only; C31 owned Disk First Aid completed on lab working copy."
+  },
+  "endpoints": {
+    "control": {
+      "host": "127.0.0.1",
+      "port": 15720
+    },
+    "data": {
+      "host": "127.0.0.1",
+      "port": 15721
+    }
+  },
+  "expectation": {
+    "case": "one-fresh-connection-after-option1-ban",
+    "target": "m-ban32-only"
+  },
+  "steps": [
+    {
+      "op": "connect",
+      "connection": "probe",
+      "endpoint": "control",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "probe",
+      "hex": "54525450484f544c00010002",
+      "timeout": 10
+    },
+    {
+      "op": "read_eof",
+      "connection": "probe",
+      "timeout": 10,
+      "expect_hex": ""
+    },
+    {
+      "op": "close",
+      "connection": "probe"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "NW-D-10010470",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10010470"
+    }
+  },
+  {
+    "id": "NW-D-100229b0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100229b0"
+    }
+  },
+  {
+    "id": "NW-D-10022ea0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10022ea0"
+    }
+  },
+  {
+    "id": "NW-D-10023180",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10023180"
+    }
+  },
+  {
+    "id": "NW-D-10025900",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10025900"
+    }
+  },
+  {
+    "id": "NW-D-10025a60",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10025a60"
+    }
+  },
+  {
+    "id": "NW-D-10025c60",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10025c60"
+    }
+  },
+  {
+    "id": "NW-D-10025d80",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10025d80"
+    }
+  },
+  {
+    "id": "NW-D-100248a0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100248a0"
+    }
+  },
+  {
+    "id": "NW-D-1006f2e0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1006f2e0"
+    }
+  }
+]

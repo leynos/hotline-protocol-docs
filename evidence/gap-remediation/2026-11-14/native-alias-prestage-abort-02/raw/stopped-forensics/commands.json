@@ -1,0 +1,324 @@
+[
+  {
+    "label": "fuser-000",
+    "argv": [
+      "sudo",
+      "-n",
+      "fuser",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/base.dsk"
+    ],
+    "exit": 1,
+    "stdout_size": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_size": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "fuser-001",
+    "argv": [
+      "sudo",
+      "-n",
+      "fuser",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/working.dsk"
+    ],
+    "exit": 1,
+    "stdout_size": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_size": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "fuser-002",
+    "argv": [
+      "sudo",
+      "-n",
+      "fuser",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/working.dsk"
+    ],
+    "exit": 1,
+    "stdout_size": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_size": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "catalog-full",
+    "argv": [
+      "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/fls",
+      "-r",
+      "-p",
+      "-f",
+      "hfs",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/working.dsk"
+    ],
+    "exit": 0,
+    "stdout_size": 426497,
+    "stdout_sha256": "6f06537c18cd1c2c1ae57d6bf7c7e7a229b5385f843adf779a6fb9dd486a4fc5",
+    "stderr_size": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "fuser-004",
+    "argv": [
+      "sudo",
+      "-n",
+      "fuser",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/working.dsk"
+    ],
+    "exit": 1,
+    "stdout_size": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_size": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "catalog-allocated",
+    "argv": [
+      "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/fls",
+      "-u",
+      "-r",
+      "-p",
+      "-f",
+      "hfs",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/working.dsk"
+    ],
+    "exit": 0,
+    "stdout_size": 426497,
+    "stdout_sha256": "6f06537c18cd1c2c1ae57d6bf7c7e7a229b5385f843adf779a6fb9dd486a4fc5",
+    "stderr_size": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "fuser-006",
+    "argv": [
+      "sudo",
+      "-n",
+      "fuser",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/working.dsk"
+    ],
+    "exit": 1,
+    "stdout_size": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_size": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "icat-admin",
+    "argv": [
+      "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/icat",
+      "-f",
+      "hfs",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/working.dsk",
+      "11193"
+    ],
+    "exit": 0,
+    "stdout_size": 734,
+    "stdout_sha256": "26612ad46cd91b90050feacf517d32a9e56d4a4aa92fbe6618eaf6e9e5ac60a3",
+    "stderr_size": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "fuser-008",
+    "argv": [
+      "sudo",
+      "-n",
+      "fuser",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/working.dsk"
+    ],
+    "exit": 1,
+    "stdout_size": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_size": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "icat-fixture-low",
+    "argv": [
+      "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/icat",
+      "-f",
+      "hfs",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/working.dsk",
+      "11201"
+    ],
+    "exit": 0,
+    "stdout_size": 734,
+    "stdout_sha256": "fce81359d0efcfc6c2dbf42852db66b0fb7a404b2889162b8f8fad81361ce2d5",
+    "stderr_size": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "fuser-010",
+    "argv": [
+      "sudo",
+      "-n",
+      "fuser",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/working.dsk"
+    ],
+    "exit": 1,
+    "stdout_size": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_size": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "icat-Prefs",
+    "argv": [
+      "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/icat",
+      "-f",
+      "hfs",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/working.dsk",
+      "11202"
+    ],
+    "exit": 0,
+    "stdout_size": 175,
+    "stdout_sha256": "4ed2b3e14e6e8a6cf246d16f7d1b98f0b91d1b09f6ab5497de1056a6f617d196",
+    "stderr_size": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "fuser-012",
+    "argv": [
+      "sudo",
+      "-n",
+      "fuser",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/working.dsk"
+    ],
+    "exit": 1,
+    "stdout_size": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_size": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "icat-server-data",
+    "argv": [
+      "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/icat",
+      "-f",
+      "hfs",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/working.dsk",
+      "11183-4352-0"
+    ],
+    "exit": 0,
+    "stdout_size": 616821,
+    "stdout_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+    "stderr_size": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "fuser-014",
+    "argv": [
+      "sudo",
+      "-n",
+      "fuser",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/working.dsk"
+    ],
+    "exit": 1,
+    "stdout_size": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_size": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "icat-server-rsrc",
+    "argv": [
+      "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/icat",
+      "-f",
+      "hfs",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/working.dsk",
+      "11183-4353-1"
+    ],
+    "exit": 0,
+    "stdout_size": 38460,
+    "stdout_sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12",
+    "stderr_size": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "fuser-016",
+    "argv": [
+      "sudo",
+      "-n",
+      "fuser",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/working.dsk"
+    ],
+    "exit": 1,
+    "stdout_size": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_size": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "icat-board",
+    "argv": [
+      "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/icat",
+      "-f",
+      "hfs",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/working.dsk",
+      "11191"
+    ],
+    "exit": 0,
+    "stdout_size": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_size": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "fuser-018",
+    "argv": [
+      "sudo",
+      "-n",
+      "fuser",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/working.dsk"
+    ],
+    "exit": 1,
+    "stdout_size": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_size": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "istat-board",
+    "argv": [
+      "/data/leynos/Projects/mothra/tools/sleuthkit/usr/bin/istat",
+      "-f",
+      "hfs",
+      "/data/leynos/Projects/mothra/state/mac-runtime/native-alias-live-04/working.dsk",
+      "11191"
+    ],
+    "exit": 0,
+    "stdout_size": 615,
+    "stdout_sha256": "a920fecd49fdd10ea6b3d01d6786edd743e62a1b7d92d7d96d25952780efbdf2",
+    "stderr_size": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "tcpdump-host",
+    "argv": [
+      "tcpdump",
+      "-nn",
+      "-r",
+      "/data/leynos/Projects/mothra/state/native-sessions/native-alias-live-04/primary-syn.pcap",
+      "tcp"
+    ],
+    "exit": 0,
+    "stdout_size": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_size": 160,
+    "stderr_sha256": "d8cd33d1b0089ba5a781e2ed5560174633a76b9504f18625d291f71fa7e4eb2a"
+  },
+  {
+    "label": "tcpdump-guest",
+    "argv": [
+      "tcpdump",
+      "-nn",
+      "-r",
+      "/data/leynos/Projects/mothra/state/native-sessions/native-alias-live-04/lab-guest.pcap",
+      "tcp"
+    ],
+    "exit": 0,
+    "stdout_size": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_size": 157,
+    "stderr_sha256": "8668c93f87dae4b53693696ffaa0c9898a4e6b2ae6c6f872a1a5662ed641a266"
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "import",
+    "-display",
+    ":125",
+    "-window",
+    "root",
+    "state/native-sessions/native-alias-live-04/bootstrap4-after-wake.png"
+  ],
+  "exit": 0,
+  "stdout": "",
+  "stderr": "",
+  "before_utc": "2026-11-14T21:47:45.993126+00:00",
+  "after_utc": "2026-11-14T21:47:46.133637+00:00",
+  "sha256": "4d75c71a459ebbadabab963050e3a6295d98af36da342b21e8a2692fb41e9ec1"
+}

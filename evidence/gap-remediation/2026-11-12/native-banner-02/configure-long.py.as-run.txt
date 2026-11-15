@@ -1,0 +1,11 @@
+import subprocess,sys,time,json
+from datetime import datetime,timezone
+from pathlib import Path
+r=Path('state/native-sessions/runtime-11')
+def inp(*args):subprocess.run([sys.executable,'state/native-mac/input.py',*map(str,args)],check=True)
+def note(action):
+ with (r/'phase-events.jsonl').open('a') as f:f.write(json.dumps({'utc':datetime.now(timezone.utc).isoformat(),'phase':sys.argv[1],'action':action,'filename':sys.argv[2]})+'\n')
+note('begin long-held click sequence')
+inp('click',500,350);time.sleep(1);inp('click',910,560);time.sleep(2);inp('click',933,88);time.sleep(4);inp('click',433,248);time.sleep(3);inp('click',323,305);inp('click',492,332);inp('key','Alt_L+a');inp('type',sys.argv[2]);time.sleep(1)
+subprocess.run(['import','-display',':97','-window','root',str(r/(sys.argv[1]+'-before-save.png'))],check=True)
+inp('click',500,600);time.sleep(2);inp('click',678,540);time.sleep(3);note('Save sequence finished; protocol phase check is authority')

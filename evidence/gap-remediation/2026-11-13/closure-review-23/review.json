@@ -1,0 +1,36 @@
+{
+  "reviews": [
+    {
+      "gap_id": "GAP-078",
+      "status": "Resolved",
+      "unchanged_closure_criterion": "Trace the handler and publish batch framing, permission/default/partial-error rules and mixed-success fixtures.",
+      "requirements": [
+        {
+          "requirement": "Handler trace and framing",
+          "evidence": "Twelve identity-checked queries retain handler10015500, complete555-instruction assembly, indexed-copy/nested parser, account read/write/existence/rename helpers and FSpRename error wrapper. Ordered outer IDs0/65000/0 create A, rename to B and update B; final B carries last name. Nested512/513 known-prefix cases and identity after truncated first unknown field establish the512-byte per-entry cap."
+        },
+        {
+          "requirement": "Admission and per-item permissions",
+          "evidence": "Four owned roles carry only create14/delete15/update17/no mutation rights. Admission and immediate per-item denial families are captured with first effects retained and subsequent items skipped. Create subset denial and bit27 exemption are verified in wire and full native records."
+        },
+        {
+          "requirement": "Defaults and password preservation",
+          "evidence": "Old/new login with omitted name/attribute/bitmap clears fields and preserves password through NUL sentinel. No-old-name NUL creation stores encoded00 and accepts plaintextff. Successful rename retains original directory/UserData IDs under new path."
+        },
+        {
+          "requirement": "Mixed partial-error rules",
+          "evidence": "No-old existing-account collision emits104 with101 text/109 marker then continues to final success. Empty value/empty nested TLV/identity beyond copied prefix retain later creation but return saving-list error. Permission failures stop immediately. Rename collisions instead replace existing destination and process following creation before final error."
+        },
+        {
+          "requirement": "Distinct credential collision and native effects",
+          "evidence": "A separate supplementary case uses different source/destination passwords. After rename error, source remains unchanged, destination accepts source password and rejects its old password, and following account is created. Complete native records and original identities are verified across29/54/59/64-object snapshots."
+        },
+        {
+          "requirement": "Reproducibility and cleanup",
+          "evidence": "70 completed reports and75 paired connections retain eighteen primary and one contrast batch, all before/after enumerations,12queries,source plans,packet views and cleanup inventory. All29 present owned accounts and four helpers are removed; original two-account/41-entry Files baselines restored. All64 original objects/forks are positively in Trash; separate publisher removed by wire controls."
+        }
+      ]
+    }
+  ],
+  "scope": "Close only original GAP-078 batch framing/permission/default/partial-error/mixed-success criterion. Opaque111 meaning remains GAP-071, protected/self-delete and remaining identity/storage failures remain GAP-072, general exception translation remains GAP-003. No arbitrary I/O, power-loss, historical-peer or mxd defect-parity claim. All other original criteria remain unchanged."
+}

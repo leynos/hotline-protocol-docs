@@ -1,0 +1,59 @@
+# A171 date and presence contract review
+
+Read-only review on 2026-11-14. Frozen inputs:
+`../hotline-protocol-docs/date-contracts.md` SHA
+`95996f4c4a2becd1da1e82db72ff72fc7f29aef6e67721ec8527938aebe81a83`
+(the bytes of B135 commit `58e391b`), and corrected
+`../hotline-protocol-docs/presence-defaults.md` SHA
+`7637601f86bd6f8e2cc19acb74750a88e286ca8cb41cd754be634afb7f8753f3`
+(B136 uncommitted freeze). No canonical edit, status change, native/oracle
+query, image or service action. Scoped result: **no consequential factual
+blocker found**; both documents explicitly retain the original open
+criteria and distinguish source from measured fixtures.
+
+## GAP-020: date-contracts.md
+
+The original question asks epoch/units of the filesystem word, nonzero
+milliseconds/other years and 330 equivalence; closure also requires producer/
+consumer, timezone, range, conversion and rollover fixtures. The document
+pins `10058070`'s exact `0770 0000` + copied 32-bit word and labels the
+year/millisecond slots as fixed output, not calendar conversion. Retained
+`1002c910`/`10016ba0` produce 206 dates, `10057de0` calls `GetDateTime`,
+`100229b0` uses it for new articles and `10005ac0` emits eight stored bytes
+as 330. The INFO upload restorer's ignored date inputs are separated from
+the download producer. News 321/330 same-record equality is scoped to the
+captured articles, not all date sources.
+
+The primary [Apple HFS Plus format note](https://developer.apple.com/library/archive/technotes/tn/tn1150.html)
+confirms 1904-second HFS+ storage and explicitly notes File Manager local
+time conversion. The document appropriately avoids calling native 206,
+INFO, 321 or 330 raw values verified UTC/local without a controlled guest
+timezone comparison. Its unsigned range/wrap statement is marked
+mathematical, not an observed 2040/rollover result. It leaves native
+timezone, alternate year/millisecond interpretation and rollover fixture
+cells open, as the original criterion requires. No date-policy conclusion
+for mxd is made.
+
+## GAP-016: presence-defaults.md
+
+The original criterion requires per-field tables and absent, zero-length,
+empty-string and numeric-zero fixtures, especially credentials, settings
+and partial account updates. The table correctly says empty B has the same
+wire encoding as zero-length TLV, while `00` one-byte NUL and numeric BE16
+zero are different present values. For Login 105/106 it now distinguishes
+raw `00` (decoded `ff`) from raw `ff` (decoded NUL); the 353 password
+preservation sentinel is not imported into Login. The 353/352 row states
+that 352 omits empty 102 and never emits 111 in inspected replies, without
+claiming a conditional 111-output rule. Room 112's no-target-TLV creator
+case is separately named from an empty/zero target element. These three
+previous ambiguities are discharged in the frozen text.
+
+Native-supported 304 transitions, two delayed 121 defaults, 353/349 account
+replacements and bitmap controls are distinguished from source-only rows.
+The final five finite groups identify remaining one-NUL, empty and zero
+request/reply cells across credentials, settings, account keys, messaging,
+rooms, transfers and news. The document states GAP-016 remains open and
+does not use the generic accessor to assert universal handler outcomes.
+The original four-case fixture obligation is therefore **not yet met**;
+this review accepts the document as an honest partial contract, not a
+closure certificate.

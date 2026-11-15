@@ -1,0 +1,10 @@
+ruff format --check scripts ../hotline-protocol-docs/scripts
+65 files already formatted
+ruff check scripts ../hotline-protocol-docs/scripts
+All checks passed!
+shellcheck ghidra ghidra-mcp scripts/build-sheepshaver
+ty check --extra-search-path ../hotline-protocol-docs/scripts --python tools/ghidramcp/.venv/bin/python scripts ../hotline-protocol-docs/scripts
+All checks passed!
+python3 scripts/verify-sheep-timer.py
+200 forced timer suspensions and saved signal-mask restorations passed
+Unmasked control reproduced the deadlock; patched worker completed

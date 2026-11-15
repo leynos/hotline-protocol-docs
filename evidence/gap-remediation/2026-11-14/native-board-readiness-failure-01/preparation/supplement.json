@@ -1,0 +1,43 @@
+{
+  "recorded_at_utc": "2026-11-14T08:33:32.890274+00:00",
+  "accepted_exception": "Parent accepted the literal source path hotline22-recovery/base.dsk after verifying its pinned immutable e5cb bytes equal retired native-liveness-01/base.dsk; no recopy or reset.",
+  "literal_source_disk": {
+    "path": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/base.dsk",
+    "inode": 6189872880,
+    "dev": 2097,
+    "size": 8388608000,
+    "mode": "0o444",
+    "mtime_ns": 1794582239465616991,
+    "sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910"
+  },
+  "retired_liveness_base": {
+    "path": "/data/leynos/Projects/mothra/state/mac-runtime/native-liveness-01/base.dsk",
+    "sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910",
+    "inode": 71221931,
+    "mode": "0o444"
+  },
+  "binary": {
+    "path": "/data/leynos/Projects/mothra/tools/macemu/SheepShaver/src/Unix/SheepShaver",
+    "sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+    "build_manifest_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+    "inode": 1144984067
+  },
+  "new_working_inode": 3290903959,
+  "new_working_fd_hits": [],
+  "new_working_fd_scan_argv": [
+    "sudo",
+    "-n",
+    "python3",
+    "-c",
+    "see working-proc-fd-scan.stdout and this supplement; script in C95 transcript"
+  ],
+  "display118_absent": true,
+  "ports_15860_15863_absent": true,
+  "free_bytes": 192318300160,
+  "source_before_after_equal": true,
+  "original_ticks": {
+    "1099659": "767842",
+    "1012834": "2357813"
+  },
+  "no_vm_or_protocol_contact": true
+}

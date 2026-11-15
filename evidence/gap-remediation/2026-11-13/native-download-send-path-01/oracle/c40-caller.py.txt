@@ -1,0 +1,16 @@
+import asyncio,json,os
+from datetime import timedelta
+from pathlib import Path
+from mcp import ClientSession,StdioServerParameters
+from mcp.client.stdio import stdio_client
+R=Path('/data/leynos/Projects/mothra');B=R/'state/delegation/workspaces/batch-02-account/mothra/state/oracle-headless-01';O=R/'state/delegation/c40-oracle'
+e=dict(os.environ);e.update(JAVA_HOME=str(R/'tools/jdk-25.0.5+8'),GHIDRA_INSTALL_DIR=str(R/'tools/ghidra_12.2_PUBLIC'),XDG_CONFIG_HOME=str(B/'config'),XDG_CACHE_HOME=str(B/'cache'),XDG_DATA_HOME=str(B/'data'),TMPDIR=str(B/'tmp'),JAVA_TOOL_OPTIONS=f'-Duser.home={B/"home"} -Djava.io.tmpdir={B/"tmp"}')
+e['PATH']=str(R/'tools/jdk-25.0.5+8/bin')+os.pathsep+e['PATH']
+a=['--headless','--binary',str(R/'evidence/hotline-server-1.9/inputs/HLserver19.pef'),'--project',str(B/'project'),'--project-name','hotline19-headless-01','--language','PowerPC:BE:32:default','--compiler','default','--extension-jar',str(R/'tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar'),'--ready-timeout','900','--no-analyze','--discard']
+async def main():
+ p=StdioServerParameters(command=str(R/'tools/ghidramcp/.venv/bin/ghidra-mcp'),args=a,env=e,cwd=str(R))
+ with (O/'caller.stderr.log').open('w') as log:
+  async with stdio_client(p,errlog=log) as (reader,writer),ClientSession(reader,writer,read_timeout_seconds=timedelta(seconds=300)) as s:
+   await s.initialize();res=await s.call_tool('decompile_function_by_address',{'address':'100017e0'},read_timeout_seconds=timedelta(seconds=300))
+   (O/'caller.json').write_text(json.dumps({'tool':'decompile_function_by_address','arguments':{'address':'100017e0'},'result':res.model_dump(mode='json')},indent=2)+'\n')
+asyncio.run(main())

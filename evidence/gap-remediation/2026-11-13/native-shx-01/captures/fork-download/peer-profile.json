@@ -1,0 +1,62 @@
+{
+  "source_commit": "adb1bf8c8cb12f7eb2fa2c01673295a6312f262b",
+  "source_archive_sha256": "27c65c6670affcbefe13a06596fb2d11a3e3ae4ebf43a57abefbd3a6484be7ae",
+  "binary_sha256": "8fbbe56cef439d4c1732e8d9fbe2c676b9d45fbd273a42b22f8034e3b3914fa0",
+  "binary": "tools/shx-peer/source/hx",
+  "patch_sha256": "cababc2c7cb12722c7e7e32c7099827dd3f5c49d314174171cace003794fb71f",
+  "config_h_sha256": "ddf9b4b6b75d8ba98326a43daa487991f489473fb17b6ff75fff6f3963dee543",
+  "configuration_flags": [
+    "--enable-tty",
+    "--enable-hfs",
+    "--enable-htxf-fork",
+    "--disable-gtk",
+    "--disable-hope",
+    "--disable-cipher",
+    "--disable-compress",
+    "--disable-ipv6"
+  ],
+  "compiler": "gcc (GCC) 15.3.1 20260722 (Red Hat 15.3.1-1)",
+  "environment": {
+    "CC": "gcc",
+    "CFLAGS": "-O0 -g -std=gnu89 -fcommon -I/data/leynos/Projects/mothra/tools/shx-deps/usr/include",
+    "CPPFLAGS": "-I/data/leynos/Projects/mothra/tools/shx-deps/usr/include",
+    "LDFLAGS": "-L/data/leynos/Projects/mothra/tools/shx-deps/usr/lib64 -Wl,-rpath,/data/leynos/Projects/mothra/tools/shx-deps/usr/lib64"
+  },
+  "commands": [
+    [
+      "bash",
+      "configure",
+      "--cache-file=/dev/null",
+      "--prefix=/data/leynos/Projects/mothra/tools/shx-peer/install",
+      "--enable-tty",
+      "--enable-hfs",
+      "--enable-htxf-fork",
+      "--disable-gtk",
+      "--disable-hope",
+      "--disable-cipher",
+      "--disable-compress",
+      "--disable-ipv6"
+    ],
+    [
+      "make",
+      "-j2",
+      "hx"
+    ]
+  ],
+  "libraries": {
+    "usr/lib64/libform.so.6.5": "6e509b7eef4b459f1b0a75d57264a9a4dd2960595876199d049ff4b73c12effc",
+    "usr/lib64/libformw.so.6.5": "ca609aef38348267b4c013117d803a71523273396d3458c23735c0030b43b986",
+    "usr/lib64/libhistory.so.8.3": "20ee14db9ec19d387bc95afd5fbed5cf729a92b02b8c2a270808c50995ebe684",
+    "usr/lib64/libmenu.so.6.5": "3806adc469fbab202f96dc13701e4c867f9bccf4c96ef8f4ebbcebca2418262a",
+    "usr/lib64/libmenuw.so.6.5": "d377f684387edc5bf7c8c41ebc31822351efab1d8b8034373098d95ca1d7aaae",
+    "usr/lib64/libncurses.so.6.5": "0afd2d64147925f0465f550ecedae5c3b896b292004e9c30de514958d38b596b",
+    "usr/lib64/libncursesw.so.6.5": "d0a7e4ee25a0b91df08fae9304a76e2d69337336de09af0132de915b5d855aac",
+    "usr/lib64/libpanel.so.6.5": "aadff7e4533059aa52138d279942d92c6df1205fbbe4b9679d42fdf89469da08",
+    "usr/lib64/libpanelw.so.6.5": "43c4ba3679851f041a556fa2d108bd26decd0afeba2d8ea4545cb63eab0b17bf",
+    "usr/lib64/libreadline.so.8.3": "33810e3bfbf09ce066c3ada427cf9148ff235982fa99d07c9c6b04ff66124f33",
+    "usr/lib64/libtic.so.6.5": "5e9a857b451a23a05dc8aa52784756099b4a189bf8965c9fe1036accefd4b5c2",
+    "usr/lib64/libtinfo.so.6.5": "a108c8fbcdc06607b74228c5e73435ac9485af289b06ca564047ecbbc08737c5"
+  },
+  "ldd": "\tlinux-vdso.so.1 (0x00007ffe87283000)\n\tlibreadline.so.8 => /data/leynos/Projects/mothra/tools/shx-deps/usr/lib64/libreadline.so.8 (0x00007bf541631000)\n\tlibhistory.so.8 => /data/leynos/Projects/mothra/tools/shx-deps/usr/lib64/libhistory.so.8 (0x00007bf541622000)\n\tlibtinfo.so.6 => /data/leynos/Projects/mothra/tools/shx-deps/usr/lib64/libtinfo.so.6 (0x00007bf5415f5000)\n\tlibc.so.6 => /lib64/libc.so.6 (0x00007bf5413ef000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007bf541690000)\n",
+  "identity": "Modern Linux build of shx0.1.48 historical source; four cast-lvalue syntax substitutions and modern host detection, no claim of original distributed binary identity."
+}

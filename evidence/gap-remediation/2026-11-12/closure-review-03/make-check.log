@@ -1,0 +1,113 @@
+ruff format --check scripts ../hotline-protocol-docs/scripts
+13 files already formatted
+ruff check scripts ../hotline-protocol-docs/scripts
+All checks passed!
+shellcheck ghidra ghidra-mcp scripts/build-sheepshaver
+ty check --extra-search-path ../hotline-protocol-docs/scripts --python tools/ghidramcp/.venv/bin/python scripts ../hotline-protocol-docs/scripts
+All checks passed!
+sha256sum --quiet -c evidence/hotline-server-1.9/SHA256SUMS
+python3 scripts/extract-synhxd-evidence.py
+decode.c 1.1 verified
+rcv.c 1.1 verified
+rcv.h 1.1 verified
+hlserver.c 1.1 verified
+hlwrite.c 1.1 verified
+trx.h 1.1 verified
+hxd.h 1.1 verified
+chat.c 1.1 verified
+news.c 1.1 verified
+accounts.c 1.1 verified
+files.c 1.1 verified
+htxf.c 1.1 verified
+htxf.h 1.1 verified
+hotline.h 1.1 verified
+python3 scripts/verify-baseline-evidence.py
+Verified 154 MCP queries and 83 ledger entries
+Complete data inventory: 4553 items
+{'Doc defect': 8, 'Supported': 16, 'Contradicted': 26, 'Partial': 18, 'Unverified': 15}
+python3 scripts/render-protocol-gap-analysis.py --check
+Validated 87 gaps and 176 reviewed sections; checked 1727 local link references
+markdownlint-cli2 --config .markdownlint.json "../hotline-protocol-docs/*.md"
+markdownlint-cli2 v0.20.0 (markdownlint v0.40.0)
+Finding: ../hotline-protocol-docs/*.md
+Linting: 17 file(s)
+Summary: 0 error(s)
+nixie ../hotline-protocol-docs
+==> ../hotline-protocol-docs/baseline-correction-map.md
+<== ../hotline-protocol-docs/baseline-correction-map.md
+==> ../hotline-protocol-docs/core-field-schemas.md
+<== ../hotline-protocol-docs/core-field-schemas.md
+==> ../hotline-protocol-docs/error-outcomes.md
+<== ../hotline-protocol-docs/error-outcomes.md
+==> ../hotline-protocol-docs/evidence-portability.md
+<== ../hotline-protocol-docs/evidence-portability.md
+==> ../hotline-protocol-docs/filesystem-and-board-contracts.md
+<== ../hotline-protocol-docs/filesystem-and-board-contracts.md
+==> ../hotline-protocol-docs/gap-analysis.md
+<== ../hotline-protocol-docs/gap-analysis.md
+==> ../hotline-protocol-docs/identified-client-source.md
+<== ../hotline-protocol-docs/identified-client-source.md
+==> ../hotline-protocol-docs/internal-compatibility-matrix.md
+<== ../hotline-protocol-docs/internal-compatibility-matrix.md
+==> ../hotline-protocol-docs/native-capture-workflow.md
+<== ../hotline-protocol-docs/native-capture-workflow.md
+==> ../hotline-protocol-docs/native-wire-details.md
+<== ../hotline-protocol-docs/native-wire-details.md
+==> ../hotline-protocol-docs/news-contracts.md
+<== ../hotline-protocol-docs/news-contracts.md
+==> ../hotline-protocol-docs/operation-contracts.md
+<== ../hotline-protocol-docs/operation-contracts.md
+==> ../hotline-protocol-docs/presence-messaging-contracts.md
+<== ../hotline-protocol-docs/presence-messaging-contracts.md
+==> ../hotline-protocol-docs/privilege-contracts.md
+<== ../hotline-protocol-docs/privilege-contracts.md
+==> ../hotline-protocol-docs/protocol.md
+<== ../hotline-protocol-docs/protocol.md
+==> ../hotline-protocol-docs/session-transport-contracts.md
+<== ../hotline-protocol-docs/session-transport-contracts.md
+==> ../hotline-protocol-docs/transfer-contracts.md
+<== ../hotline-protocol-docs/transfer-contracts.md
+🧜‍♀️✨ All diagrams validated successfully!
+python3 scripts/verify-shx-login-fragment.py
+Verified 7 isolated shx callback cases at adb1bf8c8cb12f7eb2fa2c01673295a6312f262b
+python3 -m unittest discover -s ../hotline-protocol-docs/scripts -p 'test_*.py'
+.................
+----------------------------------------------------------------------
+Ran 17 tests in 0.116s
+
+OK
+python3 ../hotline-protocol-docs/scripts/protocol_capture.py verify evidence/gap-remediation/2026-11-12/capture-tooling-01/transcript
+synthetic-tool-test: completed; 4 actions
+python3 ../hotline-protocol-docs/scripts/protocol_capture.py verify evidence/gap-remediation/2026-11-12/native-handshake-01/transcript
+native-mac-oracle: completed; 4 actions
+python3 ../hotline-protocol-docs/scripts/verify_native_core.py evidence/gap-remediation/2026-11-12/native-core-01
+{
+  "transcripts": 16,
+  "checks": [
+    "nonempty-password-create-change-login",
+    "complement-vs-plaintext-negative",
+    "early-and-delayed-login",
+    "representative-errors-and-invalid-size-close",
+    "plain352-lookup",
+    "348-nested-success-and-permission-denial",
+    "opaque111-absent-empty-value-storage"
+  ],
+  "scope": "These fixtures only; no universal interoperability or timing certificate"
+}
+python3 scripts/verify-sheep-slirp-lowmem.py
+4000 threaded allocation/grow/shrink/32-bit-link checks passed
+markdownlint-cli2 "**/*.md" "#downloads/**" "#tools/**" "#state/**" "#projects/**"
+markdownlint-cli2 v0.20.0 (markdownlint v0.40.0)
+Finding: **/*.md !downloads/** !tools/** !state/** !projects/**
+Linting: 4 file(s)
+Summary: 0 error(s)
+nixie .
+==> README.md
+<== README.md
+==> docs/baseline-validity-ledger.md
+<== docs/baseline-validity-ledger.md
+==> docs/gap-remediation-worklog.md
+<== docs/gap-remediation-worklog.md
+==> sheepshaver.md
+<== sheepshaver.md
+🧜‍♀️✨ All diagrams validated successfully!

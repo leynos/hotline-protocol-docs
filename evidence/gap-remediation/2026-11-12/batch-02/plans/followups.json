@@ -1,0 +1,121 @@
+[
+  {
+    "id": "B02-D-10025a60",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10025a60"
+    }
+  },
+  {
+    "id": "B02-D-10025c60",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10025c60"
+    }
+  },
+  {
+    "id": "B02-D-10025900",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10025900"
+    }
+  },
+  {
+    "id": "B02-D-1002f080",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002f080"
+    }
+  },
+  {
+    "id": "B02-D-10005d30",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10005d30"
+    }
+  },
+  {
+    "id": "B02-D-10005f90",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10005f90"
+    }
+  },
+  {
+    "id": "B02-D-10007510",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10007510"
+    }
+  },
+  {
+    "id": "B02-D-100076b0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100076b0"
+    }
+  },
+  {
+    "id": "B02-D-10008a90",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10008a90"
+    }
+  },
+  {
+    "id": "B02-D-10008ab0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10008ab0"
+    }
+  },
+  {
+    "id": "B02-D-10008ad0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10008ad0"
+    }
+  },
+  {
+    "id": "B02-D-10005400",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10005400"
+    }
+  },
+  {
+    "id": "B02-D-10004f30",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10004f30"
+    }
+  },
+  {
+    "id": "B02-D-10005000",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10005000"
+    }
+  },
+  {
+    "id": "B02-D-10004d50",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10004d50"
+    }
+  },
+  {
+    "id": "B02-D-10058d70",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10058d70"
+    }
+  },
+  {
+    "id": "B02-D-1006e6d0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1006e6d0"
+    }
+  }
+]

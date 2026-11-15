@@ -1,0 +1,266 @@
+{
+  "recorded_at_utc": "2026-11-12T21:47:24.245250+00:00",
+  "image": "state/mac-runtime/hotline19/working.dsk",
+  "tool_sha256": {
+    "istat": "f87c0cee5e263c55440c19fb3e478b80e33dcbae223388b5f83913ceb5fc4499",
+    "icat": "ab73038eda8ed52697c5d94874bbc0a19285184253e68a78f6e4ab347a042bba"
+  },
+  "catalog_range": [
+    11243,
+    11262
+  ],
+  "roots": [
+    "/Hotline19/m-img-b.bmp",
+    "/Hotline19/m-img-f.dat",
+    "/Hotline19/m-img-j.jpg",
+    "/Hotline19/m-img-p.pct",
+    "/Hotline19/m-img-t.gif",
+    "/Hotline19/m-img-x.jpg",
+    "/Hotline19/m-img-z.dat"
+  ],
+  "method": "Read-only direct catalogue observations. Positive paths verified by istat before fork reads. Not an exhaustive directory listing, path-absence proof, protocol certification or restart-durability result.",
+  "probes": [
+    {
+      "catalog": 11243,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11243)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11244,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11244)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11245,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11245)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11246,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11246)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11247,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11247)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11248,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11248)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11249,
+      "exit_code": 1,
+      "stderr": "Invalid metadata address (hfs_cat_file_lookup: Error finding thread node for file (11249)) (hfs_istat: getting metadata for the file)\n"
+    },
+    {
+      "catalog": 11250,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11251,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11252,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11253,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11254,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11255,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11256,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11257,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11258,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11259,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11258)\n"
+    },
+    {
+      "catalog": 11260,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11258)\n"
+    },
+    {
+      "catalog": 11261,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11258)\n"
+    },
+    {
+      "catalog": 11262,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11258)\n"
+    }
+  ],
+  "records": [
+    {
+      "path": "/Hotline19/m-img-j.jpg",
+      "key": "catalog-11251",
+      "catalog": 11251,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 634,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/m-img-b.bmp",
+      "key": "catalog-11252",
+      "catalog": 11252,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 58,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/m-img-p.pct",
+      "key": "catalog-11253",
+      "catalog": 11253,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 642,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/m-img-f.dat",
+      "key": "catalog-11254",
+      "catalog": 11254,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 69,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/m-img-z.dat",
+      "key": "catalog-11255",
+      "catalog": 11255,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 69,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/m-img-x.jpg",
+      "key": "catalog-11256",
+      "catalog": 11256,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 43,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/m-img-t.gif",
+      "key": "catalog-11257",
+      "catalog": 11257,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 43,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    }
+  ]
+}

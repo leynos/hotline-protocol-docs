@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-11-13 16:27:25 UTC",
+  "mxd_base": "2e4c9c1df20b37a6f98a1369e0a8f09f9ee2a131",
+  "watchdog_test_commit": "50360bebff2c79a54272453ce734251be619c274",
+  "codec_commit": "481294915b48f4db06943c8af86cf31b7e47597a",
+  "mxd_final_head": "481294915b48f4db06943c8af86cf31b7e47597a",
+  "candidate_source_hashes": {
+    "src/db/migrations_tests.rs": "047a5672988d447763b7bc1f496816a38496b629ff970b69bf6301122ed05121",
+    "src/wireframe/codec/mod.rs": "27bbaed8cdb079897dea1df2ec9a404982a3f50ec698c8e5cfaa394d29830f6d",
+    "src/wireframe/codec/framed_tests.rs": "baeda0e0889489d9d80c7d1334d785634614a29c40bc3d7b439fe7f78776e79d"
+  },
+  "source_snapshots": {
+    "inputs/base/src/db/migrations_tests.rs.txt": "9a13502f8447ce560366fcd406a3fb4f149b9a3a103e982666b79e641be958d5",
+    "inputs/base/src/wireframe/codec/mod.rs.txt": "d63df0aa06e64ea7cf4d57396e7c8f0f44037640da6f60464a02e5a937fe53fe",
+    "inputs/base/src/wireframe/codec/framed_tests.rs.txt": "9e38a1a1853e43b7a87633c8d36c03cd70c4dde8a1d68fcb0d5168383449e692",
+    "inputs/final/src/db/migrations_tests.rs.txt": "047a5672988d447763b7bc1f496816a38496b629ff970b69bf6301122ed05121",
+    "inputs/final/src/wireframe/codec/mod.rs.txt": "27bbaed8cdb079897dea1df2ec9a404982a3f50ec698c8e5cfaa394d29830f6d",
+    "inputs/final/src/wireframe/codec/framed_tests.rs.txt": "baeda0e0889489d9d80c7d1334d785634614a29c40bc3d7b439fe7f78776e79d",
+    "inputs/final/src/wireframe/codec/framed.rs.txt": "7c42a4424538d7ddfb4c3238d4b678bedcfa0653d7be7d41428eed82723a1af9",
+    "inputs/final/src/wireframe/codec/physical_frame.rs.txt": "8bd88bee787cc4b3778f7ba79c1c2788d395b0cbd47bfda0701dbe17c08cda45",
+    "inputs/final/src/transaction/frame.rs.txt": "4d38284971bbe37a59ace2b3331d9ed6264989eb154dee8164b7b471a9c62a2a",
+    "inputs/final/src/transaction/mod.rs.txt": "24e3de8e8fe770962a7880f7d3782993aa8d257756126773858d7f55378c6439"
+  },
+  "source_patches": {
+    "watchdog_test": "patches/watchdog-test.patch",
+    "codec": "patches/codec.patch"
+  },
+  "commands": {
+    "focused": "commands.txt",
+    "fmt_lint": "commands.txt",
+    "full": "as-run-full-gate.sh.txt"
+  },
+  "results": {
+    "focused_tests": {
+      "exit": 0,
+      "passed": 5
+    },
+    "format_lint": {
+      "exit": 0
+    },
+    "full_gate": {
+      "unit": "mxd-c5-full-20261113-1619.service",
+      "invocation_id": "9fa39dd46475409997f67334987f67a6",
+      "unit_result": "success",
+      "unit_derived_exit": 0,
+      "nextest_passed_by_profile": [
+        544,
+        548,
+        530,
+        3,
+        69,
+        8,
+        7
+      ],
+      "nextest_verification_skipped": 1,
+      "doctests": {
+        "mxd_concurrency_passed": 7,
+        "mxd_passed": 5,
+        "mxd_ignored": 4
+      }
+    }
+  },
+  "raw_local_log_sha256": {
+    "focused": "2a01fea11fc8d23b892651d6275049c0dac36bec68ea07eae45f36d05932df6f",
+    "fmt_lint": "de6e406a158409d337b63f5ad4fd0d59dc1705e3bff4e55d68eff5992ee150eb",
+    "full": "470f994bbd9caaa1e160800d99398386cd40dc92c855b440cd5423c6a963b4c0"
+  },
+  "limitations": [
+    "No Kani run in C5",
+    "C4 mechanism witness does not prove historical watchdog failure cause",
+    "Work-versus-expired-timer tie policy remains a separate decision",
+    "Private commits are not yet imported into canonical mxd"
+  ]
+}

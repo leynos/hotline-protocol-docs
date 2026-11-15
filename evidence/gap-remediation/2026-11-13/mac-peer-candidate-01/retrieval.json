@@ -1,0 +1,16 @@
+{
+  "cap_bytes": 5242880,
+  "complete": true,
+  "final_url": "https://preterhuman.net/download/Hotline_Client_1.9.2_for_OSX_and_OS9.zip",
+  "finished_utc": "2026-11-13T16:16:07Z",
+  "headers": {
+    "Content-Type": "application/zip",
+    "ETag": "W/\"587549d0-1b92af-gzip\"",
+    "Last-Modified": "Tue, 10 Jan 2017 20:53:36 GMT"
+  },
+  "requested_url": "https://preterhuman.net/download/Hotline_Client_1.9.2_for_OSX_and_OS9.zip",
+  "sha256_of_written_bytes": "21bd2df35eb06b9e9310f1fffd7deb2d23efd62a638e09c7bc394778b8a0b679",
+  "started_utc": "2026-11-13T16:16:05Z",
+  "status": 200,
+  "written_bytes": 1807023
+}

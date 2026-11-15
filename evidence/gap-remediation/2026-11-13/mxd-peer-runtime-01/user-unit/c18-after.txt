@@ -1,0 +1,22 @@
+2026-11-13 20:52:27 UTC
+Id=mothra-mxd-peer-c17.service
+ActiveState=inactive
+SubState=dead
+MainPID=0
+Result=success
+ExecMainStatus=0
+PID 2274636 absent
+PID 2275040 absent
+State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess                              
+LISTEN 0      32         127.0.0.1:15501      0.0.0.0:*    users:(("python3",pid=1012812,fd=8))
+LISTEN 0      32         127.0.0.1:15500      0.0.0.0:*    users:(("python3",pid=1012812,fd=6))
+Iface	Destination	Gateway 	Flags	RefCnt	Use	Metric	Mask		MTU	Window	IRTT                                                       
+State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+Id=mothra-bridge-0b32e28265c8.service
+ActiveState=active
+SubState=running
+
+Id=mothra-dbridge-0b32e28265c8.service
+ActiveState=active
+SubState=running
+9cc5b9447c661c0d5f11eb2f4b05d71f7b24e3da2e6324e880345c7fb015dbe0  /data/leynos/Projects/mothra/state/native-sessions/mxd-peer-c14/fixture.sqlite

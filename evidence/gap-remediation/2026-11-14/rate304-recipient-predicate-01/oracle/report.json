@@ -1,0 +1,102 @@
+{
+  "started_at_utc": "2026-11-14T10:44:35.253772+00:00",
+  "status": "complete",
+  "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "jar_sha256": "201d18ffde71a83a678eae607de265861f37e5a00b989d91958c1197664d2b43",
+  "script_sha256": "8af569f6ca7785effdbbc95dcc534c3bcefe09059f45aee7f7316a289e3ad8b7",
+  "command": "/data/leynos/Projects/mothra/tools/ghidramcp/.venv/bin/ghidra-mcp",
+  "args": [
+    "--headless",
+    "--binary",
+    "/data/leynos/Projects/mothra/evidence/hotline-server-1.9/inputs/HLserver19.pef",
+    "--project",
+    "/data/leynos/Projects/mothra/state/delegation/endpoint-oracle-01/project",
+    "--project-name",
+    "independent-endpoint-01",
+    "--no-analyze",
+    "--discard",
+    "--language",
+    "PowerPC:BE:32:default",
+    "--compiler",
+    "default",
+    "--extension-jar",
+    "/data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar",
+    "--ready-timeout",
+    "540"
+  ],
+  "project_scope": "saved independent server project, --no-analyze --discard",
+  "queries": [
+    {
+      "id": "identity-before",
+      "tool": "get_program_info",
+      "arguments": {},
+      "is_error": false
+    },
+    {
+      "id": "decompile-10058600",
+      "tool": "decompile_function_by_address",
+      "arguments": {
+        "address": "10058600"
+      },
+      "is_error": false
+    },
+    {
+      "id": "identity-after",
+      "tool": "get_program_info",
+      "arguments": {},
+      "is_error": false
+    }
+  ],
+  "identity_before": {
+    "name": "HLserver19.pef",
+    "project_path": "/HLserver19.pef",
+    "executable_path": "/data/leynos/Projects/mothra/evidence/hotline-server-1.9/inputs/HLserver19.pef",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "identity_after": {
+    "name": "HLserver19.pef",
+    "project_path": "/HLserver19.pef",
+    "executable_path": "/data/leynos/Projects/mothra/evidence/hotline-server-1.9/inputs/HLserver19.pef",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "finished_at_utc": "2026-11-14T10:44:43.842738+00:00"
+}

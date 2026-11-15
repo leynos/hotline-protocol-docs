@@ -1,0 +1,12 @@
+import asyncio,json
+from pathlib import Path
+from mcp import ClientSession,StdioServerParameters
+from mcp.client.stdio import stdio_client
+async def main():
+ async with stdio_client(StdioServerParameters(command=str(Path('ghidra-mcp').resolve()))) as (r,w):
+  async with ClientSession(r,w) as s:
+   await s.initialize();v=await s.list_tools()
+   Path('state/native-sessions/runtime-16/mcp-tools.json').write_text(v.model_dump_json(indent=2))
+   for t in v.tools:
+    if any(q in t.name for q in ['search','disassemble','memory','function']):print(t.name, json.dumps(t.inputSchema))
+asyncio.run(main())

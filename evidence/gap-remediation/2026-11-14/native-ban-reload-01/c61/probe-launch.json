@@ -1,0 +1,33 @@
+{
+  "utc": "2026-11-14T04:00:46.022687+00:00",
+  "unit": "mothra-config-ban-c62-probe.service",
+  "prepared_sha256": "3d1c69bb2c03625df891c44370ad3f8dd90c2d907d4808a6469b644f2e0ef0dc",
+  "asrun_sha256": "d2ff7a75e7df9534e2c44f27f77fb6f3f797c4d5ee2f4823d46043f7e3da69c8",
+  "steps_unchanged": true,
+  "argv": [
+    "sudo",
+    "-n",
+    "systemd-run",
+    "--unit=mothra-config-ban-c62-probe.service",
+    "--property=Type=oneshot",
+    "--property=User=0",
+    "--property=Group=0",
+    "--property=NetworkNamespacePath=/proc/415512/ns/net",
+    "--property=RuntimeMaxSec=60",
+    "--property=TimeoutStartSec=70",
+    "--property=TimeoutStopSec=10",
+    "--property=RemainAfterExit=yes",
+    "--property=Restart=no",
+    "--property=StandardOutput=append:/data/leynos/Projects/mothra/state/native-sessions/native-configured-ban-ui-c61/probe-unit.log",
+    "--property=StandardError=append:/data/leynos/Projects/mothra/state/native-sessions/native-configured-ban-ui-c61/probe-unit.log",
+    "--no-block",
+    "/usr/bin/python3",
+    "/data/leynos/Projects/hotline-protocol-docs/scripts/protocol_capture.py",
+    "capture",
+    "/data/leynos/Projects/mothra/state/native-sessions/native-configured-ban-ui-c61/probe-asrun.json",
+    "--oracle-binary",
+    "/data/leynos/Projects/mothra/evidence/hotline-server-1.9/inputs/HLserver19.pef",
+    "--output",
+    "/data/leynos/Projects/mothra/state/native-sessions/native-configured-ban-ui-c61/probe-capture"
+  ]
+}

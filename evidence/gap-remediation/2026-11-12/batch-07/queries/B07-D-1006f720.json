@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T14:22:44.458395+00:00",
+  "query": {
+    "id": "B07-D-1006f720",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1006f720"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_1006f720\",\n    \"address\": \"1006f720\"\n  },\n  \"code\": \"\\nundefined4 * FUN_1006f720(undefined4 param_1,undefined4 param_2)\\n\\n{\\n  bool bVar1;\\n  short sVar4;\\n  undefined4 *puVar2;\\n  undefined4 uVar3;\\n  int local_7c;\\n  \\n  if (-1 < (char)bRam10096bd8) {\\n    if ((bRam10096bd8 >> 6 & 1) == 0) {\\n      .glue::Gestalt(0x6f74616e,0x10096bcc);\\n      .glue::Gestalt(0x6f747672,0x10096bd0);\\n      bRam10096bd8 = bRam10096bd8 & 0xbf | 0x40;\\n    }\\n    bVar1 = false;\\n    if ((uRam10096bcc & 1) != 0) {\\n      if (0x110ffff < iRam10096bd0) {\\n        bVar1 = true;\\n      }\\n    }\\n    if (!bVar1) {\\n      FUN_10027c30(8,0x6e);\\n    }\\n    sVar4 = .glue::InitOpenTransportInContext(1,0);\\n    FUN_10073730((int)sVar4);\\n    FUN_1002ab10(*(undefined4 *)(local_7c + -0x7398));\\n    *(undefined4 *)(local_7c + 0x5e6c) = *(undefined4 *)(local_7c + -0x739c);\\n    bRam10096bd8 = bRam10096bd8 & 0x7f | 0x80;\\n  }\\n  puVar2 = (undefined4 *)FUN_10052b70(0x60);\\n  puVar2[3] = param_1;\\n  puVar2[4] = param_2;\\n  uVar3 = FUN_10071d50(puVar2,0);\\n  puVar2[1] = uVar3;\\n  *puVar2 = puRam10096bd4;\\n  puRam10096bd4 = puVar2;\\n  return puVar2;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_1006f720",
+        "address": "1006f720"
+      },
+      "code": "\nundefined4 * FUN_1006f720(undefined4 param_1,undefined4 param_2)\n\n{\n  bool bVar1;\n  short sVar4;\n  undefined4 *puVar2;\n  undefined4 uVar3;\n  int local_7c;\n  \n  if (-1 < (char)bRam10096bd8) {\n    if ((bRam10096bd8 >> 6 & 1) == 0) {\n      .glue::Gestalt(0x6f74616e,0x10096bcc);\n      .glue::Gestalt(0x6f747672,0x10096bd0);\n      bRam10096bd8 = bRam10096bd8 & 0xbf | 0x40;\n    }\n    bVar1 = false;\n    if ((uRam10096bcc & 1) != 0) {\n      if (0x110ffff < iRam10096bd0) {\n        bVar1 = true;\n      }\n    }\n    if (!bVar1) {\n      FUN_10027c30(8,0x6e);\n    }\n    sVar4 = .glue::InitOpenTransportInContext(1,0);\n    FUN_10073730((int)sVar4);\n    FUN_1002ab10(*(undefined4 *)(local_7c + -0x7398));\n    *(undefined4 *)(local_7c + 0x5e6c) = *(undefined4 *)(local_7c + -0x739c);\n    bRam10096bd8 = bRam10096bd8 & 0x7f | 0x80;\n  }\n  puVar2 = (undefined4 *)FUN_10052b70(0x60);\n  puVar2[3] = param_1;\n  puVar2[4] = param_2;\n  uVar3 = FUN_10071d50(puVar2,0);\n  puVar2[1] = uVar3;\n  *puVar2 = puRam10096bd4;\n  puRam10096bd4 = puVar2;\n  return puVar2;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

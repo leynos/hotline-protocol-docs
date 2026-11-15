@@ -1,0 +1,54 @@
+# Phased native emulator readiness
+
+`scripts/native_emulator_readiness.py` checks the actual SheepShaver process in
+two phases. It does not launch the emulator, open a protocol connection, or
+create a guest capture. Run the CLI as root so `/proc` inspection covers all
+candidate owners. Keep the host recorder running before boot and use one
+fixed UTC deadline for both phases.
+
+```bash
+sudo -n python scripts/native_emulator_readiness.py \
+  --phase disk --working-image /absolute/owned/working.dsk \
+  --working-inode 123456 --exe-sha256 SHA256_OF_EMULATOR --uid 1000 \
+  --deadline-utc 2026-11-14T12:00:00Z \
+  --output /absolute/owned/disk-ready.json
+```
+
+The disk phase discovers a unique actual process by its **FD6 path and
+device/inode**. It records PID, start tick, executable hash, UID and network
+namespace, requiring a namespace different from the host. It never reads the
+working image's bytes or expects a guest PCAP. A missing owner is a bounded
+observation, not a terminal failure. A second owner or wrong identity fails.
+The disk receipt proves process and image identity at its check time; it does
+not prove that the first Ethernet packet has yet to occur.
+
+After recognized guest network startup and before any Hotline protocol
+request, run the capture phase with the same fixed deadline:
+
+```bash
+sudo -n python scripts/native_emulator_readiness.py \
+  --phase capture --working-image /absolute/owned/working.dsk \
+  --working-inode 123456 --exe-sha256 SHA256_OF_EMULATOR --uid 1000 \
+  --deadline-utc 2026-11-14T12:00:00Z \
+  --disk-receipt /absolute/owned/disk-ready.json \
+  --guest-pcap /absolute/owned/guest.pcap \
+  --output /absolute/owned/capture-ready.json
+```
+
+The capture phase requires the same PID, start tick, executable, image inode,
+UID and network namespace as the disk receipt. It checks FD16 against the
+exact guest capture path/device/inode, writable flags and a flushed 24-byte
+PCAP header with version 2.4, snaplen 65535 and Ethernet link type 1. If the
+first Ethernet packet has not yet caused SheepShaver to
+create the file, the bounded wait ends without a success receipt. The
+operator then stops before protocol traffic and retains process, screen and
+capture state for diagnosis. A packet-triggered opening is documented in
+`tools/macemu/SheepShaver/src/Unix/ether_unix.cpp`.
+
+Both phases wait at most 30 monotonic seconds and never past the supplied UTC
+deadline. A validated receipt is written exclusively to a new path. Neither
+phase validates the managed host recorder, guest application readiness, account
+baseline, or complete network traffic; those remain separate gates. The
+test's real child holds synthetic FD6 and FD16 in the host namespace, so only
+the namespace distinction is mocked there. No SheepShaver run is implied by
+those tests.

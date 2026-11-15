@@ -1,0 +1,312 @@
+{
+  "cases": [
+    {
+      "case": "upload-mothra-fork-fixture",
+      "connections": {
+        "main": {
+          "client_port": 59948,
+          "sent_bytes": 184,
+          "received_bytes": 497,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "upload": {
+          "client_port": 53406,
+          "sent_bytes": 525,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "file_info": {
+        "213": "54455854",
+        "205": "546578742046696c65",
+        "206": "4d4f5448",
+        "207": "014a",
+        "201": "6d6f746872612d666f726b2d66697874757265",
+        "208": "07700000e71bb732",
+        "209": "07700000e71bb732",
+        "210": "666978747572652d636f6d6d656e74"
+      }
+    },
+    {
+      "case": "upload-empty-handover",
+      "connections": {
+        "main": {
+          "client_port": 58094,
+          "sent_bytes": 186,
+          "received_bytes": 498,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "upload": {
+          "client_port": 35236,
+          "sent_bytes": 207,
+          "received_bytes": 8,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "file_info": {
+        "213": "54455854",
+        "205": "546578742046696c65",
+        "206": "4d4f5448",
+        "207": "0000",
+        "201": "6d6f746872612d656d7074792d66697874757265",
+        "208": "07700000e71bb8eb",
+        "209": "07700000e71bb8ec",
+        "210": "666978747572652d636f6d6d656e74"
+      }
+    },
+    {
+      "case": "download-raw",
+      "connections": {
+        "main": {
+          "client_port": 41468,
+          "sent_bytes": 161,
+          "received_bytes": 408,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "download": {
+          "client_port": 54396,
+          "sent_bytes": 16,
+          "received_bytes": 510,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "metadata": {
+        "type": "54455854",
+        "creator": "4d4f5448",
+        "flags": "00000000",
+        "created": "07700000e71bb732",
+        "modified": "07700000e71bb732",
+        "name": "6d6f746872612d666f726b2d66697874757265",
+        "comment": "666978747572652d636f6d6d656e74"
+      },
+      "advertised_bytes": 510
+    },
+    {
+      "case": "download-handover",
+      "connections": {
+        "main": {
+          "client_port": 41474,
+          "sent_bytes": 131,
+          "received_bytes": 386,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "download": {
+          "client_port": 41486,
+          "sent_bytes": 28,
+          "received_bytes": 518,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "metadata": {
+        "type": "54455854",
+        "creator": "4d4f5448",
+        "flags": "00000000",
+        "created": "07700000e71bb732",
+        "modified": "07700000e71bb732",
+        "name": "6d6f746872612d666f726b2d66697874757265",
+        "comment": "666978747572652d636f6d6d656e74"
+      },
+      "advertised_bytes": 510
+    },
+    {
+      "case": "download-selector7",
+      "connections": {
+        "main": {
+          "client_port": 33216,
+          "sent_bytes": 131,
+          "received_bytes": 386,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "download": {
+          "client_port": 60086,
+          "sent_bytes": 16,
+          "received_bytes": 510,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "metadata": {
+        "type": "54455854",
+        "creator": "4d4f5448",
+        "flags": "00000000",
+        "created": "07700000e71bb732",
+        "modified": "07700000e71bb732",
+        "name": "6d6f746872612d666f726b2d66697874757265",
+        "comment": "666978747572652d636f6d6d656e74"
+      },
+      "advertised_bytes": 510
+    },
+    {
+      "case": "download-preview",
+      "connections": {
+        "main": {
+          "client_port": 33220,
+          "sent_bytes": 137,
+          "received_bytes": 386,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "download": {
+          "client_port": 60090,
+          "sent_bytes": 16,
+          "received_bytes": 13,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "advertised_bytes": 13
+    },
+    {
+      "case": "download-empty",
+      "connections": {
+        "main": {
+          "client_port": 47746,
+          "sent_bytes": 132,
+          "received_bytes": 386,
+          "unread_output_hex": "0000012d0000000300000000000000270000002700040067000200600068000200010070000200120066000f6672616d696e672d66697874757265",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "download": {
+          "client_port": 42890,
+          "sent_bytes": 16,
+          "received_bytes": 181,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      },
+      "metadata": {
+        "type": "54455854",
+        "creator": "4d4f5448",
+        "flags": "00000000",
+        "created": "07700000e71bb8eb",
+        "modified": "07700000e71bb8ec",
+        "name": "6d6f746872612d656d7074792d66697874757265",
+        "comment": "666978747572652d636f6d6d656e74"
+      },
+      "advertised_bytes": 181
+    },
+    {
+      "case": "download-empty-preview",
+      "connections": {
+        "main": {
+          "client_port": 47762,
+          "sent_bytes": 138,
+          "received_bytes": 372,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        }
+      }
+    },
+    {
+      "case": "download-wrong-folder-selector",
+      "connections": {
+        "main": {
+          "client_port": 36656,
+          "sent_bytes": 131,
+          "received_bytes": 386,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "download": {
+          "client_port": 45210,
+          "sent_bytes": 16,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "advertised_bytes": 510
+    },
+    {
+      "case": "download-wrong-banner-selector",
+      "connections": {
+        "main": {
+          "client_port": 36666,
+          "sent_bytes": 131,
+          "received_bytes": 386,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": false,
+          "guest_server_close_kind": "FIN"
+        },
+        "download": {
+          "client_port": 45214,
+          "sent_bytes": 16,
+          "received_bytes": 0,
+          "unread_output_hex": "",
+          "guest_server_initiated_close": true,
+          "guest_server_close_kind": "RST"
+        }
+      },
+      "advertised_bytes": 510
+    }
+  ],
+  "initial_eof_hypotheses": [
+    {
+      "case": "download-empty",
+      "status": "failed",
+      "error": "TimeoutError: timed out"
+    },
+    {
+      "case": "download-empty-preview",
+      "status": "completed",
+      "error": ""
+    },
+    {
+      "case": "download-handover",
+      "status": "failed",
+      "error": "TimeoutError: timed out"
+    },
+    {
+      "case": "download-preview",
+      "status": "failed",
+      "error": "TimeoutError: timed out"
+    },
+    {
+      "case": "download-raw",
+      "status": "failed",
+      "error": "TimeoutError: timed out"
+    },
+    {
+      "case": "download-selector7",
+      "status": "failed",
+      "error": "TimeoutError: timed out"
+    },
+    {
+      "case": "download-wrong-banner-selector",
+      "status": "completed",
+      "error": ""
+    },
+    {
+      "case": "download-wrong-folder-selector",
+      "status": "completed",
+      "error": ""
+    }
+  ],
+  "scope": "Two successful uploads, eight download modes; completion bytes and observed cleanup, not restart durability or full transfer conformance"
+}

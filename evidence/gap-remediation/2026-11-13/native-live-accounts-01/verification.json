@@ -1,0 +1,12 @@
+{
+  "completed_reports": 18,
+  "expected_stopped_report_failure": 1,
+  "host_socket_lifetimes": 25,
+  "established_guest_connections": 24,
+  "matching_live_sessions": 2,
+  "deleted_live_sessions": 2,
+  "late_unread_removals": 2,
+  "persisted_original_objects": 5,
+  "oracle_queries": 16,
+  "scope": "Normal native server application restart in the same emulator; no OS/power-loss restart, all-disconnect deadline, forced-write atomicity or historical-client claim. Host stage exit143 retained with independent confirmation."
+}

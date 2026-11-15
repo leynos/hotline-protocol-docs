@@ -1,0 +1,22 @@
+[
+  {
+    "file": "ncurses-devel-6.5-7.20250614.fc43.x86_64.rpm",
+    "sha256": "ba7cbede4049d8875dce16e215c6c5216eae5c988102ff5ee4dfdab7d42ee561",
+    "identity": "ncurses-devel 6.5-7.20250614.fc43 x86_64"
+  },
+  {
+    "file": "ncurses-libs-6.5-7.20250614.fc43.x86_64.rpm",
+    "sha256": "744ca03cba966b11fa6b2b42563216c4509f63c2266a4c8756cbacbdf6f9c104",
+    "identity": "ncurses-libs 6.5-7.20250614.fc43 x86_64"
+  },
+  {
+    "file": "readline-8.3-2.fc43.x86_64.rpm",
+    "sha256": "b9a1ce9bde9e00dff41b1c3c9d8d0bb9c97b9e900d1efb3ecd0fc742cbf85929",
+    "identity": "readline 8.3-2.fc43 x86_64"
+  },
+  {
+    "file": "readline-devel-8.3-2.fc43.x86_64.rpm",
+    "sha256": "a1cf508e9343b4fe47c39810367bcdbb86fd708ecae42ed81b72729a117569c5",
+    "identity": "readline-devel 8.3-2.fc43 x86_64"
+  }
+]

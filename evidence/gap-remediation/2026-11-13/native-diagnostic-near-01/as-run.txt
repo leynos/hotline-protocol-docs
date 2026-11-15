@@ -1,0 +1,52 @@
+A12 native diagnostic near-boundary capture, 2026-11-13 UTC.
+Root explicitly approved a single fixed 24-reference/8-data-socket attempt and
+mandatory restoration. No native retry or other packet followed the failure.
+
+Preflight: actual SheepShaver PID1099659, /proc executable SHA256
+9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4,
+managed unit mothra-sheep-bf808bd28e0d active, display :99, ports15500/15501
+listening, zero established sessions, cumulative guest PCAP source3876868 bytes.
+The oracle binary SHA256 was
+ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b.
+Original General Options and Statistics screenshot showed100global/10client/IP5
+and zero connections, active downloads and waiting downloads. The prepared
+plan a2b61a9ef45213b6ed1f0fd36bd3b502337a6abb4f49c54759d5ee959fec4bb2
+was copied to execution plan with operator metadata only changed; execution
+SHA256 3898db346aa8f7e1f0aacd89d5f210a749ff03a206b805d55088c2382449be57.
+The original prepared plan and both hashes are retained.
+
+General Options were changed only to8global/8client/IP5, saved, reopened,
+photographed and closed. Independent host tcpdump was started before connect;
+it reported listening and fresh24-byte PCAP header. The exact capture used
+near-execution-plan.json with protocol_capture.py capture, output near/.
+It failed after94 actions at EOF before a20-byte ACK. Host tcpdump was stopped
+with SIGINT:1348 packets captured,2696 received by filter,0 kernel drops.
+Cumulative guest PCAP copied to guest-after-near-failure.pcap. No retry.
+
+Before failure, same-session current-UID303 IDs140 and141 were successful:
+field101 lengths763 for8active/8waiting and995 for8active/16waiting; all
+native fixture rows complete, unrelated sections empty. Twenty-four unique
+references and positive initial queue positions1..16 were observed. Recorder
+saw successful 214 ACKs215..208. It sent207 but did not receive its ACK;
+later cancellations and idle303 ID240 were not reached. Host control stream
+matched Recorder at1514 client/3617 server bytes. Guest control stream had
+1514 client/3639 server bytes, the extra22 bytes decoding as successful
+214 ACK207. The guest had client-side RSTs; host had FINs. Cause unknown.
+All eight owned data sockets closed when the recorder failed. Statistics
+then showed zero current connections, downloads/uploads and waiting downloads.
+No user account, Files entry or non-download setting was edited.
+
+Original General Options100global/10client/IP5 were restored, saved,
+reopened, photographed and closed. A new host tcpdump was ready with24-byte
+header before independent postflight capture. Existing A9 postflight plan
+completed18 actions. Host recorder stopped:29 packets captured,58 received by
+filter,0 dropped. Guest snapshot saved. Semantic checker matched exact A7
+2-account,41-root-Files,complete206 and idle303 baseline. Host and guest
+postflight control matched Recorder at231 client/2759 server bytes. Server
+PID/unit/listeners unchanged, no established sessions. Native lease returned
+to root before offline publication.
+
+A12 verify_partial.py reports a positive partial 303 observation while
+retaining failed near capture status. Its packet result keeps separate host
+and guest unread data tails and all terminal packets; it never calls the
+failed capture fully verified or treats the guest-only207 ACK as host confirmed.

@@ -1,0 +1,30 @@
+# A120: GAP-047 structured-path criterion audit
+
+Read-only, 2026-11-14. No tracked edit, native connection, oracle query, service action or mxd work. Frozen criterion: `../hotline-protocol-docs/gap-register.json` GAP-047 asks for counts, component records, reserved bytes, roots, limits and normalization for **202/212/325**, including whether grammar is shared. Close rule: trace encoders/resolvers; give **separate field grammars** and root/nested/non-ASCII/invalid-component fixtures; prove any claimed equivalence.
+
+## Existing clause evidence
+
+| Clause | Positive retained evidence | Limit |
+| --- | --- | --- |
+| Shared structural frame | `native-wire-details.md` lines 225-255 gives BE16 count, each BE16 opaque word + Pascal length/name; `1002e3d0` traversal skips word, bounds name within supplied path length; `1002b0e0` wraps common resolver. `native_folder_cases.path` emits this form. | This proves common record framing through the shared resolver, **not** identical roots, acceptance, alias handling or permissions. The word's meaning remains unsupported. |
+| Field 202 | Native-mkdir-01 has 47 creation/path cases: Files root and nested, high-byte `9a`, NUL, colon normalization, literal dot/dotdot, short/zero count, truncated or zero-length component, `ffff` word, trailing data and declared count beyond complete components. Before/after listings prove actual target. | Measured for 205 and selected 200/206 paths, not every operation, full-length path, other OS branch or universal encoding. |
+| Field 212 | Native-move-01 uses root and nested destination paths in 208, with 26 move cases; native-alias-01 also uses 212 for destination path/leaf in 209. Normal same-parent/root/nested and alias routing are measured. `100177d0` resolves destination through shared helper. | No dedicated 212 high-byte/non-ASCII component, invalid-component/count/word or near-reader-limit fixture. Distinguish 208 existing directory from 209 possible new alias leaf. |
+| Field 325 | Native-news-01 covers News root and nested 325 paths in 370/371/380-382, with 380 root protection and missing/existing object controls. `100102c0` reads max `0x800` bytes and sends `<6`-byte 325 to top-level listing; otherwise invokes `1002b0e0` with news root/mode arguments. | No dedicated high-byte/non-ASCII traversal or malformed component/count/word controls. News path root and type checks differ from Files. |
+| Limits / normalization | Field readers in `100100a0` (202) and `100102c0` (325) cap copied path to `0x800`; 202 tests show prefix acceptance and sanitization on OS 9. `1002e8b0` and `1002f080` perform path/name preparation. | A cap is not proof of every boundary outcome. 212 reader limit and operation-specific normalization at boundary require a pinned handler/call-site citation and finite fixture. No full charset equivalence claim. |
+
+Conclusion: literal criterion is **not met**. The current canonical 202 grammar is strong, but a separate acceptance table for 212 and 325 with non-ASCII and invalid-component evidence is still missing. State shared framing and separate measured rules; do not claim wholesale field equivalence. Extra whole-codec, alias containment and arbitrary-volume behavior belongs to adjacent gaps unless a path rule explicitly depends on it.
+
+## Smallest next disposable fixture, eight cases maximum
+
+Use a fresh disposable OS 9 fork with exact baseline account/Files/News inventory. Create one owned directory with a high-byte `9a` component under each root and uniquely named owned marker files/categories for destination resolution. Preserve setup/cleanup separately and reject unexpected non-owned path effects. No Files-root delete, Trash emptying or guessed fault trigger.
+
+1. **212 non-ASCII:** 208 an owned ordinary marker from a distinct parent to an existing high-byte destination directory. Before/after 200/206 and stopped catalogue prove which parent was selected; status/error is observed, not presumed.
+2. **212 zero-length component:** same 208 with a valid parent followed by a zero-length component; detect prefix acceptance versus error using unique marker and both parent listings.
+3. **212 inconsistent count:** declare two components but provide one complete; distinguish prefix selection from reject with independent directory names.
+4. **212 nonzero opaque word / near-boundary:** choose a tested complete path with a nonzero word in its component, and a second case only if budget permits near `0x800` reader size; record raw bytes, selected destination and exact reply. Do not label word reserved or ignored globally from one result.
+5. **325 non-ASCII:** read-only 370/371 for an owned high-byte News folder/category and compare contents to direct known path.
+6. **325 zero-length component:** read-only 370 with valid prefix plus empty component; compare exact list/status to valid-prefix and nonexistent controls.
+7. **325 inconsistent count:** read-only 370 declaring two components with only one complete; prove selected News directory or error.
+8. **325 nonzero word / near-boundary:** 370 using complete nonzero-word component; use remaining slot for near `0x800` only if first seven are complete and same root remains safe. Record exact message and byte length rather than assuming 202 behavior.
+
+The matrix uses at most four 208 mutations and four read-only news requests; a case with a second boundary variant replaces, rather than adds to, a slot. For each 208 case, snapshot both candidate destination listings and exact owned catalogue IDs/forks before/after; after all cases, clean only positively identified owned objects and verify full baseline. For 325, retain paired PCAP streams and list/status fields, plus stopped News readback. Any resolver selection outside preflight-owned roots, unexpected root object, or ambiguous partial record stops the matrix before another mutation. Compare per-field accepted canonical bytes, malformed-prefix outcome, native name bytes and error class; no claim of equivalence beyond the specific cells that match. A remaining `0x800` boundary or 212 reader-callsite ambiguity must be documented as open rather than silently inferred.

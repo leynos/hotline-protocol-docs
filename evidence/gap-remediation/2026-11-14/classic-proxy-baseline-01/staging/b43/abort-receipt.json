@@ -1,0 +1,42 @@
+{
+  "at_utc": "2026-11-14T00:17:40.329185+00:00",
+  "phase": "stopped-before-cancel-all-target-absent",
+  "input_actions": [],
+  "app_launched": false,
+  "proxy_started": false,
+  "connection_attempted": false,
+  "files": {
+    "host.pcap": {
+      "bytes": 24,
+      "sha256": "704e5e5b3234433c01fcfd1b20a306e77e985038120492dc53965c3edd38a4ea"
+    },
+    "namespace.pcap": {
+      "bytes": 24,
+      "sha256": "704e5e5b3234433c01fcfd1b20a306e77e985038120492dc53965c3edd38a4ea"
+    },
+    "client-guest-pre.pcap": {
+      "bytes": 10754,
+      "sha256": "724bbb1d4f776ad7ea4d04b76f527e805def3b2b666438b8205fcc24da9d8252"
+    },
+    "client-guest-post.pcap": {
+      "bytes": 10754,
+      "sha256": "724bbb1d4f776ad7ea4d04b76f527e805def3b2b666438b8205fcc24da9d8252"
+    },
+    "server-guest-pre.pcap": {
+      "bytes": 19837848,
+      "sha256": "868db7780b1c691a3042b09625810870d744f78abc7ce801e52347d11ae48547"
+    },
+    "server-guest-post.pcap": {
+      "bytes": 19837848,
+      "sha256": "868db7780b1c691a3042b09625810870d744f78abc7ce801e52347d11ae48547"
+    },
+    "index-confirm-before.png": {
+      "bytes": 439442,
+      "sha256": "f3187581bb9a464ecc6d634834668f6191096ab69b59fdd72c90eed4981a8603"
+    },
+    "after-stop.png": {
+      "bytes": 439442,
+      "sha256": "f3187581bb9a464ecc6d634834668f6191096ab69b59fdd72c90eed4981a8603"
+    }
+  }
+}

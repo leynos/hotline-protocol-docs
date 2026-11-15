@@ -1,0 +1,391 @@
+{
+  "schema_version": 1,
+  "profile": "native-mac-oracle",
+  "operator": "Root D1 bounded console and client broadcast; single UI message during pause",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "gap_ids": [
+    "GAP-044",
+    "GAP-076"
+  ],
+  "environment": {
+    "profile": "native-mac-oracle",
+    "phase": "GAP-037 diagnostic load follow-up",
+    "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+    "emulator_pid": 1099659,
+    "emulator_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+    "runtime_assets": {
+      "rom_sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+      "base_disk_sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910",
+      "source_rom": "/data/leynos/Projects/mothra/state/mac-runtime/hotline21/rom",
+      "source_disk": "/data/leynos/Projects/mothra/state/mac-runtime/hotline21/working.dsk",
+      "archive_member": null
+    },
+    "runtime_launch": {
+      "command": [
+        "sudo",
+        "-n",
+        "setpriv",
+        "--reuid=1000",
+        "--regid=1000",
+        "--init-groups",
+        "--inh-caps=+sys_rawio",
+        "--ambient-caps=+sys_rawio",
+        "env",
+        "DISPLAY=:99",
+        "SDL_VIDEODRIVER=x11",
+        "SDL_AUDIODRIVER=dummy",
+        "MOTHRA_ETHERNET_PCAP=/data/leynos/Projects/mothra/state/native-sessions/recovery-20261113-01/guest.pcap",
+        "XDG_CACHE_HOME=/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/cache",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/SheepShaver-9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/machine.sheepvm"
+      ],
+      "emulator_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "host_ports": [
+        15500,
+        15501,
+        15502,
+        15503
+      ],
+      "tcp_bind": "127.0.0.1",
+      "guest_address": "10.0.2.15",
+      "guest_pcap": "/data/leynos/Projects/mothra/state/native-sessions/recovery-20261113-01/guest.pcap",
+      "guest_pcap_scope": "SLiRP Ethernet boundary; host wall-clock timestamps"
+    },
+    "emulator_service": {
+      "unit": "mothra-sheep-bf808bd28e0d",
+      "command": [
+        "systemd-run",
+        "--user",
+        "--unit=mothra-sheep-bf808bd28e0d",
+        "--collect",
+        "--service-type=exec",
+        "--property=WorkingDirectory=/data/leynos/Projects/mothra",
+        "--property=StandardOutput=append:/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/sheep-service.log",
+        "--property=StandardError=append:/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/sheep-service.log",
+        "--property=Restart=no",
+        "--",
+        "/usr/sbin/python3",
+        "/data/leynos/Projects/mothra/scripts/mac_runtime.py",
+        "sheep",
+        "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery",
+        "--display",
+        ":99",
+        "--port",
+        "15500",
+        "--guest-pcap",
+        "/data/leynos/Projects/mothra/state/native-sessions/recovery-20261113-01/guest.pcap"
+      ],
+      "readiness": "Check systemctl --user show and the actual display/listener; no automatic restart"
+    },
+    "display_service": {
+      "unit": "mothra-display-f08732514eab",
+      "command": [
+        "systemd-run",
+        "--user",
+        "--unit=mothra-display-f08732514eab",
+        "--collect",
+        "--service-type=exec",
+        "--property=WorkingDirectory=/data/leynos/Projects/mothra",
+        "--property=StandardOutput=append:/data/leynos/Projects/mothra/state/mac-displays/recovery22/display-service.log",
+        "--property=StandardError=append:/data/leynos/Projects/mothra/state/mac-displays/recovery22/display-service.log",
+        "--property=Restart=no",
+        "--",
+        "/usr/sbin/Xvfb",
+        ":99",
+        "-screen",
+        "0",
+        "1024x768x24",
+        "-nolisten",
+        "tcp",
+        "-ac",
+        "-noreset"
+      ],
+      "readiness": "Check systemctl --user show and the actual display/listener; no automatic restart"
+    },
+    "guest_pcap": "/data/leynos/Projects/mothra/state/native-sessions/recovery-20261113-01/guest.pcap",
+    "original_options": {
+      "server_port": 5500,
+      "global_max_downloads": 100,
+      "per_client_max_downloads": 10,
+      "max_connections_per_ip": 5,
+      "screenshot": "/data/leynos/Projects/mothra/state/native-sessions/diagnostic-load-20261113-01/options-original.png"
+    },
+    "captured_options": false,
+    "source_note": "Recovered guest had automatic Disk First Aid on disposable working disk before this packet; no new disk repair authorised."
+  },
+  "endpoints": {
+    "control": {
+      "host": "127.0.0.1",
+      "port": 15500
+    }
+  },
+  "steps": [
+    {
+      "op": "connect",
+      "connection": "ConsoleSender",
+      "endpoint": "control",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "ConsoleSender",
+      "hex": "54525450484f544c00010002",
+      "timeout": 30
+    },
+    {
+      "op": "read",
+      "connection": "ConsoleSender",
+      "size": 8,
+      "expect_hex": "5452545000000000",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "ConsoleSender",
+      "hex": "0000006b00000001000000000000003a0000003a0006006900059e9b929691006a000892908b978d9ecec600a0000200be0066000d436f6e736f6c6553656e646572006800020001007100020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "ConsoleSender",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "ConsoleSender",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "ConsoleSender",
+      "timeout": 30
+    },
+    {
+      "op": "connect",
+      "connection": "ConsoleRefuse",
+      "endpoint": "control",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "ConsoleRefuse",
+      "hex": "54525450484f544c00010002",
+      "timeout": 30
+    },
+    {
+      "op": "read",
+      "connection": "ConsoleRefuse",
+      "size": 8,
+      "expect_hex": "5452545000000000",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "ConsoleRefuse",
+      "hex": "0000006b00000001000000000000003a0000003a0006006900059e9b929691006a000892908b978d9ecec600a0000200be0066000d436f6e736f6c65526566757365006800020001007100020003",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "ConsoleRefuse",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "ConsoleRefuse",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "ConsoleRefuse",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "ConsoleSender",
+      "timeout": 30
+    },
+    {
+      "op": "connect",
+      "connection": "ConsoleWaiting",
+      "endpoint": "control",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "ConsoleWaiting",
+      "hex": "54525450484f544c00010002",
+      "timeout": 30
+    },
+    {
+      "op": "read",
+      "connection": "ConsoleWaiting",
+      "size": 8,
+      "expect_hex": "5452545000000000",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "ConsoleWaiting",
+      "hex": "0000006b00000001000000000000001d0000001d0003006900059e9b929691006a000892908b978d9ecec600a0000200be",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "ConsoleWaiting",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "ConsoleWaiting",
+      "timeout": 30
+    },
+    {
+      "op": "connect",
+      "connection": "ConsoleUnauth",
+      "endpoint": "control",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "ConsoleUnauth",
+      "hex": "54525450484f544c00010002",
+      "timeout": 30
+    },
+    {
+      "op": "read",
+      "connection": "ConsoleUnauth",
+      "size": 8,
+      "expect_hex": "5452545000000000",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "ConsoleSender",
+      "hex": "000001630000000200000000000000160000001600010065001044312d636c69656e742d6265666f7265",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "ConsoleSender",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "ConsoleRefuse",
+      "timeout": 30
+    },
+    {
+      "op": "expect_quiet",
+      "connection": "ConsoleSender",
+      "timeout": 1
+    },
+    {
+      "op": "expect_quiet",
+      "connection": "ConsoleWaiting",
+      "timeout": 1
+    },
+    {
+      "op": "expect_quiet",
+      "connection": "ConsoleUnauth",
+      "timeout": 1
+    },
+    {
+      "op": "pause",
+      "seconds": 20
+    },
+    {
+      "op": "read_frame",
+      "connection": "ConsoleSender",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "ConsoleRefuse",
+      "timeout": 30
+    },
+    {
+      "op": "expect_quiet",
+      "connection": "ConsoleWaiting",
+      "timeout": 1
+    },
+    {
+      "op": "expect_quiet",
+      "connection": "ConsoleUnauth",
+      "timeout": 1
+    },
+    {
+      "op": "send",
+      "connection": "ConsoleWaiting",
+      "hex": "0000007900000002000000000000001a0000001a00020066000e436f6e736f6c6557616974696e67006800020001",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "ConsoleWaiting",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "ConsoleWaiting",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "ConsoleWaiting",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "ConsoleSender",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "ConsoleRefuse",
+      "timeout": 30
+    },
+    {
+      "op": "send",
+      "connection": "ConsoleSender",
+      "hex": "000001630000000300000000000000150000001500010065000f44312d636c69656e742d6166746572",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "ConsoleSender",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "ConsoleRefuse",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "ConsoleWaiting",
+      "timeout": 30
+    },
+    {
+      "op": "expect_quiet",
+      "connection": "ConsoleSender",
+      "timeout": 1
+    },
+    {
+      "op": "close",
+      "connection": "ConsoleUnauth"
+    },
+    {
+      "op": "close",
+      "connection": "ConsoleWaiting"
+    },
+    {
+      "op": "close",
+      "connection": "ConsoleRefuse"
+    },
+    {
+      "op": "close",
+      "connection": "ConsoleSender"
+    }
+  ]
+}

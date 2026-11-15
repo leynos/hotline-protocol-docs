@@ -1,0 +1,72 @@
+{
+  "status": "PASS",
+  "flows": [
+    {
+      "report": "readiness",
+      "connection": "main",
+      "port": 44446,
+      "sent": 231,
+      "received": 2759,
+      "report_received": 2759,
+      "retained_tail": "",
+      "namespace_packets": 27,
+      "guest_packets": 28
+    },
+    {
+      "report": "coordinator",
+      "connection": "sender",
+      "port": 52838,
+      "sent": 73302,
+      "received": 322443,
+      "report_received": 322443,
+      "retained_tail": "",
+      "namespace_packets": 576,
+      "guest_packets": 644
+    },
+    {
+      "report": "coordinator",
+      "connection": "eligible",
+      "port": 52852,
+      "sent": 148,
+      "received": 66434,
+      "report_received": 66434,
+      "retained_tail": "",
+      "namespace_packets": 147,
+      "guest_packets": 151
+    },
+    {
+      "report": "coordinator",
+      "connection": "denied",
+      "port": 52854,
+      "sent": 177,
+      "received": 576,
+      "report_received": 576,
+      "retained_tail": "",
+      "namespace_packets": 36,
+      "guest_packets": 41
+    },
+    {
+      "report": "coordinator",
+      "connection": "waiting",
+      "port": 46468,
+      "sent": 77,
+      "received": 310,
+      "report_received": 310,
+      "retained_tail": "",
+      "namespace_packets": 15,
+      "guest_packets": 16
+    },
+    {
+      "report": "postflight",
+      "connection": "main",
+      "port": 47550,
+      "sent": 231,
+      "received": 2759,
+      "report_received": 2759,
+      "retained_tail": "",
+      "namespace_packets": 29,
+      "guest_packets": 35
+    }
+  ],
+  "limits": "Recorder stop/drop/VM retirement proof separate."
+}

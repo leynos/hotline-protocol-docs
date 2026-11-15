@@ -1,0 +1,16 @@
+[
+  {
+    "id": "B17-D-10003940",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10003940"
+    }
+  },
+  {
+    "id": "B17-D-1007c270",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1007c270"
+    }
+  }
+]

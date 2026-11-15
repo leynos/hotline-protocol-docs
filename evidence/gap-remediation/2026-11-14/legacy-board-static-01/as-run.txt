@@ -1,0 +1,4 @@
+A75 START authorized by /root after C93 retirement; one execution only.
+Working directory: /data/leynos/Projects/mothra
+Command: flock -n state/delegation/oracle.lock timeout --signal=INT --kill-after=15s 600s tools/ghidramcp/.venv/bin/python state/delegation/legacy-board-oracle-01/capture.py
+Script SHA256: 5e9c8aa3f45b629035f36ddc5b4e8821de7e19e2d25fa239229f15148191f905

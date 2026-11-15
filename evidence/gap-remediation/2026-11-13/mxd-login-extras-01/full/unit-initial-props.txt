@@ -1,0 +1,11 @@
+Id=mxd-c11-full-20261113-1922.service
+ActiveState=activating
+SubState=start
+InvocationID=892ffaf601ef444c9d0e421f760e795b
+Type=oneshot
+TimeoutStartUSec=40min
+TimeoutStopUSec=30s
+RemainAfterExit=yes
+Result=success
+ExecMainCode=0
+ExecMainStatus=0

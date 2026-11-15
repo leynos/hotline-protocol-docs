@@ -1,0 +1,22 @@
+File Path: /Hotline19/Files/mothra-fs22/S/m-mv22-d05/child
+Catalog Record: 11542
+Allocated
+Type:	Folder
+Mode:	d---------
+Size:	0
+uid / gid: 99 / 99
+Link count:	1
+
+File Name: child
+Admin flags: 0
+Owner flags: 0
+Text encoding:	0 = MacRoman
+
+Times:
+Created:	2026-11-13 14:28:10 (GMT)
+Content Modified:	2026-11-13 14:28:10 (GMT)
+Attributes Modified:	0000-00-00 00:00:00 (UTC)
+Accessed:	0000-00-00 00:00:00 (UTC)
+Backed Up:	0000-00-00 00:00:00 (UTC)
+
+Attributes: 

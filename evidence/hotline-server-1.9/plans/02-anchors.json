@@ -1,0 +1,122 @@
+[
+  {
+    "id": "X-unknown-protocol-1",
+    "tool": "get_xrefs_to",
+    "arguments": {
+      "address": "1009038d",
+      "limit": 100
+    }
+  },
+  {
+    "id": "X-unknown-protocol-0",
+    "tool": "get_xrefs_to",
+    "arguments": {
+      "address": "1009038c",
+      "limit": 100
+    }
+  },
+  {
+    "id": "X-version-error-1",
+    "tool": "get_xrefs_to",
+    "arguments": {
+      "address": "1009036d",
+      "limit": 100
+    }
+  },
+  {
+    "id": "X-version-error-0",
+    "tool": "get_xrefs_to",
+    "arguments": {
+      "address": "1009036c",
+      "limit": 100
+    }
+  },
+  {
+    "id": "X-unknown-transaction-1",
+    "tool": "get_xrefs_to",
+    "arguments": {
+      "address": "1009176b",
+      "limit": 100
+    }
+  },
+  {
+    "id": "X-unknown-transaction-0",
+    "tool": "get_xrefs_to",
+    "arguments": {
+      "address": "1009176a",
+      "limit": 100
+    }
+  },
+  {
+    "id": "X-login-ok-1",
+    "tool": "get_xrefs_to",
+    "arguments": {
+      "address": "10090dcf",
+      "limit": 100
+    }
+  },
+  {
+    "id": "X-login-ok-0",
+    "tool": "get_xrefs_to",
+    "arguments": {
+      "address": "10090dce",
+      "limit": 100
+    }
+  },
+  {
+    "id": "X-login-error-1",
+    "tool": "get_xrefs_to",
+    "arguments": {
+      "address": "10090e37",
+      "limit": 100
+    }
+  },
+  {
+    "id": "X-login-error-0",
+    "tool": "get_xrefs_to",
+    "arguments": {
+      "address": "10090e36",
+      "limit": 100
+    }
+  },
+  {
+    "id": "X-pm-error-1",
+    "tool": "get_xrefs_to",
+    "arguments": {
+      "address": "10090615",
+      "limit": 100
+    }
+  },
+  {
+    "id": "X-pm-error-0",
+    "tool": "get_xrefs_to",
+    "arguments": {
+      "address": "10090614",
+      "limit": 100
+    }
+  },
+  {
+    "id": "M-10090300",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "10090300",
+      "length": 512
+    }
+  },
+  {
+    "id": "M-10090c00",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "10090c00",
+      "length": 512
+    }
+  },
+  {
+    "id": "M-100916c0",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "100916c0",
+      "length": 512
+    }
+  }
+]

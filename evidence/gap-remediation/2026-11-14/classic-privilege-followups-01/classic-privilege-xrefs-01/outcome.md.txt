@@ -1,0 +1,21 @@
+# A79 Classic editor class xref: bounded read-only result
+
+One nonblocking oracle-lock execution ran from 08:27:33 to 08:27:40 UTC on
+2026-11-14 and completed exactly two content calls. The saved independent
+Classic client project, `classic-privilege-01`, reported the pinned DATA fork
+SHA-256 `7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315`,
+PowerPC BE32 PEF format and 3,564 functions before and after; full identity
+objects compare equal. The resource fork and extension JAR also matched the
+hashes in `report.json`. It used `--no-analyze --discard`; no GUI/server
+project or VM was contacted. The lock was available after exit.
+
+- `read_memory(1014fef8, 32)` returned no gaps and began exact bytes
+  `43 4d 79 41 64 6d 69 6e 45 64 69 74 55 73 65 72 57 69 6e 00`,
+  namely `CMyAdminEditUserWin` followed by NUL.
+- `get_xrefs_to(1014fef8, limit=100)` returned one `DATA` xref from loaded
+  address `1014ff30`, `from_function: null`, total 1 and `has_more: false`.
+
+The class clue is positive, but this xref is a data edge rather than a proven
+code or privilege-control mapping. No function, UI label, bit index or server
+enforcement semantics follows from it. The raw replies and full tool metadata
+are retained under `raw/`; no fallback decompile or further xref was run.

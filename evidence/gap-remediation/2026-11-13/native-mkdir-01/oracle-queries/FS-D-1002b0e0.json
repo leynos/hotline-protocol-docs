@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-13T04:39:02.908115+00:00",
+  "query": {
+    "id": "FS-D-1002b0e0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002b0e0"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_1002b0e0\",\n    \"address\": \"1002b0e0\"\n  },\n  \"code\": \"\\nundefined2 *\\nFUN_1002b0e0(int param_1,undefined4 param_2,uint param_3,undefined4 param_4,undefined4 param_5,\\n            undefined4 param_6)\\n\\n{\\n  char cVar2;\\n  undefined2 *puVar1;\\n  undefined2 local_68;\\n  undefined4 local_66;\\n  undefined8 local_62;\\n  undefined8 local_5a;\\n  undefined8 local_52;\\n  undefined8 local_4a;\\n  undefined8 local_42;\\n  undefined8 local_3a;\\n  undefined8 local_32;\\n  undefined8 local_2a;\\n  \\n  if (param_1 == 0) {\\n    FUN_10027c30(1,2);\\n  }\\n  if (param_3 < 6) {\\n    param_2 = 0;\\n  }\\n  FUN_1002e8b0(param_1,0,param_2,param_3,param_4,&local_68);\\n  cVar2 = FUN_1002f800(&local_68,param_5,param_6);\\n  if (cVar2 == '\\\\0') {\\n    puVar1 = (undefined2 *)FUN_10052b70(0x54);\\n    *puVar1 = local_68;\\n    *(undefined4 *)(puVar1 + 1) = local_66;\\n    *(undefined8 *)(puVar1 + 3) = local_62;\\n    *(undefined8 *)(puVar1 + 7) = local_5a;\\n    *(undefined8 *)(puVar1 + 0xb) = local_52;\\n    *(undefined8 *)(puVar1 + 0xf) = local_4a;\\n    *(undefined8 *)(puVar1 + 0x13) = local_42;\\n    *(undefined8 *)(puVar1 + 0x17) = local_3a;\\n    *(undefined8 *)(puVar1 + 0x1b) = local_32;\\n    *(undefined8 *)(puVar1 + 0x1f) = local_2a;\\n  }\\n  else {\\n    puVar1 = (undefined2 *)0x0;\\n  }\\n  return puVar1;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_1002b0e0",
+        "address": "1002b0e0"
+      },
+      "code": "\nundefined2 *\nFUN_1002b0e0(int param_1,undefined4 param_2,uint param_3,undefined4 param_4,undefined4 param_5,\n            undefined4 param_6)\n\n{\n  char cVar2;\n  undefined2 *puVar1;\n  undefined2 local_68;\n  undefined4 local_66;\n  undefined8 local_62;\n  undefined8 local_5a;\n  undefined8 local_52;\n  undefined8 local_4a;\n  undefined8 local_42;\n  undefined8 local_3a;\n  undefined8 local_32;\n  undefined8 local_2a;\n  \n  if (param_1 == 0) {\n    FUN_10027c30(1,2);\n  }\n  if (param_3 < 6) {\n    param_2 = 0;\n  }\n  FUN_1002e8b0(param_1,0,param_2,param_3,param_4,&local_68);\n  cVar2 = FUN_1002f800(&local_68,param_5,param_6);\n  if (cVar2 == '\\0') {\n    puVar1 = (undefined2 *)FUN_10052b70(0x54);\n    *puVar1 = local_68;\n    *(undefined4 *)(puVar1 + 1) = local_66;\n    *(undefined8 *)(puVar1 + 3) = local_62;\n    *(undefined8 *)(puVar1 + 7) = local_5a;\n    *(undefined8 *)(puVar1 + 0xb) = local_52;\n    *(undefined8 *)(puVar1 + 0xf) = local_4a;\n    *(undefined8 *)(puVar1 + 0x13) = local_42;\n    *(undefined8 *)(puVar1 + 0x17) = local_3a;\n    *(undefined8 *)(puVar1 + 0x1b) = local_32;\n    *(undefined8 *)(puVar1 + 0x1f) = local_2a;\n  }\n  else {\n    puVar1 = (undefined2 *)0x0;\n  }\n  return puVar1;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

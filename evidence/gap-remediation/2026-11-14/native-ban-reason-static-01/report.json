@@ -1,0 +1,97 @@
+{
+  "started_at_utc": "2026-11-14T05:38:27.215675+00:00",
+  "command": "/data/leynos/Projects/mothra/tools/ghidramcp/.venv/bin/ghidra-mcp",
+  "args": [
+    "--headless",
+    "--binary",
+    "/data/leynos/Projects/mothra/evidence/hotline-server-1.9/inputs/HLserver19.pef",
+    "--project",
+    "/data/leynos/Projects/mothra/state/delegation/endpoint-oracle-01/project",
+    "--project-name",
+    "independent-endpoint-01",
+    "--no-analyze",
+    "--discard",
+    "--language",
+    "PowerPC:BE:32:default",
+    "--compiler",
+    "default",
+    "--extension-jar",
+    "/data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar",
+    "--ready-timeout",
+    "900"
+  ],
+  "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "jar_sha256": "201d18ffde71a83a678eae607de265861f37e5a00b989d91958c1197664d2b43",
+  "project_scope": "read-only saved independent import from endpoint-oracle-01; no GUI-owned project accessed",
+  "queries": [
+    {
+      "label": "identity-before",
+      "tool": "get_program_info",
+      "arguments": {},
+      "is_error": false
+    },
+    {
+      "label": "EP5-A-10056b60",
+      "tool": "disassemble_function",
+      "arguments": {
+        "address": "10056b60",
+        "limit": 100
+      },
+      "is_error": false
+    },
+    {
+      "label": "EP5-D-100566e0",
+      "tool": "decompile_function_by_address",
+      "arguments": {
+        "address": "100566e0"
+      },
+      "is_error": false
+    },
+    {
+      "label": "EP5-A-10015e70",
+      "tool": "disassemble_function",
+      "arguments": {
+        "address": "10015e70",
+        "limit": 300
+      },
+      "is_error": false
+    },
+    {
+      "label": "identity-after",
+      "tool": "get_program_info",
+      "arguments": {},
+      "is_error": false
+    }
+  ],
+  "status": "complete",
+  "identity": {
+    "name": "HLserver19.pef",
+    "project_path": "/HLserver19.pef",
+    "executable_path": "/data/leynos/Projects/mothra/evidence/hotline-server-1.9/inputs/HLserver19.pef",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "finished_at_utc": "2026-11-14T05:38:35.355442+00:00"
+}

@@ -1,0 +1,32 @@
+{
+  "reports": {
+    "after-inspect": "completed",
+    "after-inspect-confirmation": "completed",
+    "after-login-deleted": "completed",
+    "after-login-final": "completed",
+    "after-login-intermediate": "completed",
+    "after-login-old": "completed",
+    "before-final": "completed",
+    "before-login-deleted": "completed",
+    "before-login-final": "completed",
+    "before-login-intermediate": "completed",
+    "before-login-old": "completed",
+    "cleanup": "completed",
+    "delete": "completed",
+    "edit": "completed",
+    "preflight": "completed",
+    "publish": "completed",
+    "remove-publisher": "completed",
+    "seed": "completed",
+    "stopped": "failed"
+  },
+  "completed_reports": 18,
+  "expected_failed_reports": 1,
+  "host_socket_lifetimes": 25,
+  "established_guest_connections": 24,
+  "stopped_guest_attempts": 1,
+  "scope": "Two matching live sessions updated and two matching sessions deleted; observer stale rosters and unread302 tails retained. Native application normalquit/stopped-listener/relaunch in the same emulator, with unchanged app-fork/Prefs identities and reconnect persistence. Host after-stage exit143 is retained separately with an independent complete confirmation. No VM/OS restart, forced-I/O, all-close-timing or historical-client claim.",
+  "host_packets": 551,
+  "host_kernel_drops": 0,
+  "server_restart_scope": "Normal native server application restart in the same emulator"
+}

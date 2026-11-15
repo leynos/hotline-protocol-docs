@@ -1,0 +1,23 @@
+{
+  "captured_at_utc": "2026-11-14T05:24:17.694127+00:00",
+  "query": {
+    "id": "EP2-D-10075050",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10075050"
+    }
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "Error executing tool decompile_function_by_address: [FUNCTION_NOT_FOUND] No function found at or containing 10075050",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": null,
+    "isError": true
+  }
+}

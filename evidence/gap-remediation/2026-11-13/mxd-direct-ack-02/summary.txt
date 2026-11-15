@@ -1,0 +1,53 @@
+C9 controlled full-gate plateau for the uncommitted C7 mxd candidate
+Base: 481294915b48f4db06943c8af86cf31b7e47597a.
+No Rust source changes during C8 or C9; all 19 C7 candidate source hashes
+match the pre-run manifest after the controlled full gate.
+
+Execution control: fresh owned repository-local PG_EMBED_ROOT under private
+mothra state; PG_RUNTIME_DIR=/var/tmp/pg-embed-1000/install (installed
+PostgreSQL 18.6.0); PG_DATA_DIR unset, retaining per-cluster slots.
+NEXTEST_TEST_THREADS=2 is recognised by installed nextest 0.9.116 help.
+CARGO_NET_OFFLINE=true, CARGO_BUILD_JOBS=1, original external target cache,
+same Make test targets and UI target-specific CARGO_TARGET_DIR override.
+No test filter, skip addition, source edit, dependency change, or native
+traffic. Original format/lint result and unchanged bytes stand.
+
+Full unit: mxd-c9-full-20261113-1835.service, invocation
+cb3d33916da34bcb863e8185b15cd417. Retained oneshot properties:
+Type=oneshot, TimeoutStart=40min, TimeoutStop=30s, RemainAfterExit=yes;
+final ActiveState=active/SubState=exited, Result=success,
+ExecMainCode=1, ExecMainStatus=0. Exit 0 is UNIT-DERIVED.
+Seven nextest profiles in Make order: PostgreSQL 557/557 0 skipped;
+SQLite 561/561 0 skipped; wireframe-only 543/543 0 skipped;
+rstest-bdd-ui 3/3 0 skipped; verification 69/69 with 1 skipped;
+fuzz 8/8 0 skipped; concurrency 7/7 0 skipped.
+Doctests: mxd-concurrency 7 pass, 0 ignored; mxd 5 pass,
+4 ignored. Raw full.log and watcher capture are retained here.
+
+The independent bounded watcher was ready before the full gate and
+stopped on request after the unit completed. It recorded pg_ctl argv,
+per-cluster paths, and startup log deltas under one 643276-byte file
+(<8 MiB cap); no owned PostgreSQL process survived. Its inactive unit
+does not retain an invocation ID, so the capture's terminal
+stop_requested marker is the primary watcher exit evidence.
+
+C8's 18 raw diagnostic files are copied under c8/ and its SHA256SUMS
+verifies. C8 had three passing focused test processes, including a
+genuine overlap of two different PostgreSQL listeners. Its initial
+cgroup snapshot targeted the wrong cgroup path and lacks a baseline;
+the later all-zero init.scope counters do not rule out transient
+resource exhaustion. The historical bootstrap cause remains unknown.
+The two prior full-gate failures remain pinned in the C7 evidence
+package: first a real duplicate-field-300 semantic regression that
+the candidate corrected, then a separate embedded PostgreSQL
+startup failure (556/557) under default parallelism. C9 success is
+acceptance evidence only for this controlled owned-root/two-thread
+configuration, not proof that default parallelism or historical
+/var/tmp behaviour is stable. No native peer or Kani run occurred.
+
+All 19 mxd source files were committed as private mxd 20e891a059de7dd9dec5a657d7099570987d860d
+after gate success and byte-for-byte frozen-hash parity. The commit has
+parent 481294915b48f4db06943c8af86cf31b7e47597a. Source patch,
+commit object, tree entries, and tracked-clean status are preserved here.
+Canonical mxd is unchanged. GAP-085 and related
+policy decisions remain open.

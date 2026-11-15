@@ -1,0 +1,15 @@
+{
+  "recorded_at_utc": "2026-11-14T08:15:30.278037+00:00",
+  "actual_emulator_gone": true,
+  "original_ticks": {
+    "1099659": "767842",
+    "1012834": "2357813"
+  },
+  "ports_ss": "State Recv-Q Send-Q Local Address:Port Peer Address:Port\n",
+  "port_exit": 0,
+  "lock_exit": 0,
+  "fuser_exit": 1,
+  "fuser_stdout": "",
+  "primary_pcap_size": 24,
+  "retirement_kind": "native app Quit, then user Sheep unit stop; actual PID gone after short race; explicit TERM attempt returned ESRCH; Mac OS not shut down orderly"
+}

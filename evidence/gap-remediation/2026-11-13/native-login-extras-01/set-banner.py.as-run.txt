@@ -1,0 +1,14 @@
+import subprocess,sys
+from pathlib import Path
+r=Path('state/native-sessions/runtime-16');phase=sys.argv[1]
+assert phase in ['url','none','restored']
+def ui(*args):subprocess.run([sys.executable,str(r/'ui.py'),*map(str,args)],check=True)
+ui('click',910,560,2);ui('click',933,86);ui('click',434,248)
+ui('click',323,409);ui('click',550,437);ui('key','Alt_L+a')
+if phase=='url':ui('type','https://example.invalid/extras-url')
+else:ui('key','BackSpace')
+if phase=='restored':
+ ui('click',323,305);ui('click',375,248);ui('click',555,323);ui('key','Alt_L+a');ui('key','BackSpace')
+subprocess.run(['import','-display',':97','-window','root',str(r/(phase+'-before-save.png'))],check=True)
+ui('click',678,539)
+subprocess.run(['import','-display',':97','-window','root',str(r/(phase+'-saved.png'))],check=True)

@@ -1,0 +1,212 @@
+UV_CACHE_DIR=.uv-cache UV_TOOL_DIR=.uv-tools uv tool run --python 3.14 --from "git+https://github.com/leynos/typos-config-builder.git@v0.1.3" typos-config-builder gate --repository . --scope all
+   Updating https://github.com/leynos/typos-config-builder.git (v0.1.3)
+Downloading pygments (1.2MiB)
+Downloading typos (7.5MiB)
+ Downloaded pygments
+ Downloaded typos
+    Updated https://github.com/leynos/typos-config-builder.git (c8a4f95d7cf7f6a1b7517f2775d122d47d5721eb)
+   Building typos-config-builder @ git+https://github.com/leynos/typos-config-builder.git@c8a4f95d7cf7f6a1b7517f2775d122d47d5721eb
+      Built typos-config-builder @ git+https://github.com/leynos/typos-config-builder.git@c8a4f95d7cf7f6a1b7517f2775d122d47d5721eb
+Installed 11 packages in 285ms
+refreshed: typos.toml
+markdownlint-cli2 "**/*.md" "#.uv-cache" "#.uv-tools"
+markdownlint-cli2 v0.20.0 (markdownlint v0.40.0)
+Finding: **/*.md !.uv-cache !.uv-tools !**/.git/** !**/.venv/** !.node_modules/** !**/node_modules/** !**/target/** !vendor/wireframe/** !.vtcode/** !.terraform/** !.uv-cache/** !memories/** !CRUSH.md !docs/rstest-bdd-users-guide.md !docs/rstest-bdd-v0-6-0-migration-guide.md
+Linting: 73 file(s)
+Summary: 0 error(s)
+nixie --no-sandbox
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/AGENTS.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/AGENTS.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/README.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/README.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/CONTENTS.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/CONTENTS.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/adopting-hexagonal-architecture-in-the-mxd-wireframe-migration.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/adopting-hexagonal-architecture-in-the-mxd-wireframe-migration.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/adrs/adr-0001-separate-login-authentication-and-reply-augmentation.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/adrs/adr-0001-separate-login-authentication-and-reply-augmentation.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/adrs/adr-0002-compatibility-guardrails-and-augmentation.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/adrs/adr-0002-compatibility-guardrails-and-augmentation.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/adrs/adr-0003-split-login-authentication-and-reply-augmentation.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/adrs/adr-0003-split-login-authentication-and-reply-augmentation.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/adrs/adr-0004-amend-adr-0002-status-summary.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/adrs/adr-0004-amend-adr-0002-status-summary.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/chat-schema.md
+--> line 10: erDiagram
+<-- line 55: erDiagram
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/chat-schema.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/codescene-cli.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/codescene-cli.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/complexity-antipatterns-and-refactoring-strategies.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/complexity-antipatterns-and-refactoring-strategies.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/cte-extension-design.md
+--> line 14: classDiagram
+<-- line 53: classDiagram
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/cte-extension-design.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/design.md
+--> line 129: classDiagram
+<-- line 172: classDiagram
+--> line 358: sequenceDiagram
+<-- line 380: sequenceDiagram
+--> line 492: classDiagram
+<-- line 528: classDiagram
+--> line 662: classDiagram
+<-- line 708: classDiagram
+--> line 2550: erDiagram
+<-- line 2623: erDiagram
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/design.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/developers-guide.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/developers-guide.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/documentation-style-guide.md
+--> line 762: flowchart
+<-- line 766: flowchart
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/documentation-style-guide.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/1-2-4-model-handshake-readiness.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/1-2-4-model-handshake-readiness.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/1-3-4-kani-harnesses-for-transaction-framing-invariants.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/1-3-4-kani-harnesses-for-transaction-framing-invariants.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/1-4-2-route-transactions-through-wireframe.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/1-4-2-route-transactions-through-wireframe.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/1-4-3-introduce-a-shared-session-context.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/1-4-3-introduce-a-shared-session-context.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/1-4-4-outbound-transport-and-messaging-traits.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/1-4-4-outbound-transport-and-messaging-traits.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/1-4-5-reply-builder.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/1-4-5-reply-builder.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/1-4-6-model-routed-transactions-and-session-gating.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/1-4-6-model-routed-transactions-and-session-gating.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/1-5-1-detect-clients-that-xor-encode-text-fields.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/1-5-1-detect-clients-that-xor-encode-text-fields.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/1-5-2-gate-protocol-quirks-on-the-handshake-sub-version.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/1-5-2-gate-protocol-quirks-on-the-handshake-sub-version.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/1-5-3-internal-compatibility-matrix.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/1-5-3-internal-compatibility-matrix.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/1-5-4-verify-xor-and-sub-version-compatibility.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/1-5-4-verify-xor-and-sub-version-compatibility.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/1-5-6-split-login-authentication-strategies-from-reply-augmentation.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/1-5-6-split-login-authentication-strategies-from-reply-augmentation.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/1-6-1-port-unit-and-integration-tests.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/1-6-1-port-unit-and-integration-tests.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/1-6-2-target-wireframe-server-with-hx-based-validator-harness.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/1-6-2-target-wireframe-server-with-hx-based-validator-harness.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/1-7-1-configure-explicit-memory-budgets-for-the-wireframe-app.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/1-7-1-configure-explicit-memory-budgets-for-the-wireframe-app.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/2-1-1-implement-user-transactions.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/2-1-1-implement-user-transactions.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/3-1-1-file-node-schema-and-permission-model.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/3-1-1-file-node-schema-and-permission-model.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/4-1-1-align-news-schema-and-migrations.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/4-1-1-align-news-schema-and-migrations.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/adopt-pg-embed-setup-v0-5-0.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/adopt-pg-embed-setup-v0-5-0.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/adopt-rstest-bdd-v0-4-0.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/adopt-rstest-bdd-v0-4-0.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/adopt-rstest-bdd-v0-5-0.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/adopt-rstest-bdd-v0-5-0.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/adopt-rstest-bdd-v0-6-0.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/adopt-rstest-bdd-v0-6-0.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/afl-circular-dependency-issue.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/afl-circular-dependency-issue.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/issue-235-simplify-bdd-handshakeworld-implementation-in-handshake-tests.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/issue-235-simplify-bdd-handshakeworld-implementation-in-handshake-tests.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/issue-667-migrate-the-embedded-postgresql-harness-to-the-latest-pg-embed-setup-unpriv.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/issue-667-migrate-the-embedded-postgresql-harness-to-the-latest-pg-embed-setup-unpriv.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/issue-669-migrate-from-ortho-config-v0-3-0-to-v0-10-0.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/issue-669-migrate-from-ortho-config-v0-3-0-to-v0-10-0.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/wireframe-v0-3-0-migration.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/execplans/wireframe-v0-3-0-migration.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/file-sharing-design.md
+--> line 111: erDiagram
+<-- line 175: erDiagram
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/file-sharing-design.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/fuzzing.md
+--> line 75: flowchart
+<-- line 85: flowchart
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/fuzzing.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/internal-compatibility-matrix.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/internal-compatibility-matrix.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/mermaid-validation.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/mermaid-validation.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/migration-plan-moving-mxd-protocol-implementation-to-wireframe.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/migration-plan-moving-mxd-protocol-implementation-to-wireframe.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/mxd-v0-2-0-change-guide.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/mxd-v0-2-0-change-guide.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/news-schema.md
+--> line 10: erDiagram
+<-- line 69: erDiagram
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/news-schema.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/ortho-config-users-guide.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/ortho-config-users-guide.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/ortho-config-v0-10-0-migration-guide.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/ortho-config-v0-10-0-migration-guide.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/ortho-config-v0-10-0-provenance.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/ortho-config-v0-10-0-provenance.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/ortho-config-v0-6-0-migration-guide.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/ortho-config-v0-6-0-migration-guide.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/ortho-config-v0-7-0-migration-guide.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/ortho-config-v0-7-0-migration-guide.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/ortho-config-v0-9-0-migration-guide.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/ortho-config-v0-9-0-migration-guide.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/pg-embed-setup-unpriv-users-guide.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/pg-embed-setup-unpriv-users-guide.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/pg-embed-setup-unpriv-v0-5-0-migration-guide.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/pg-embed-setup-unpriv-v0-5-0-migration-guide.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/pg-embed-setup-unpriv-v0-6-0-migration-guide.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/pg-embed-setup-unpriv-v0-6-0-migration-guide.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/protocol.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/protocol.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/release-notes-qa-sign-off.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/release-notes-qa-sign-off.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/reliable-testing-in-rust-via-dependency-injection.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/reliable-testing-in-rust-via-dependency-injection.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/repository-layout.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/repository-layout.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/roadmap.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/roadmap.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/rstest-bdd-users-guide.md
+--> line 2220: sequenceDiagram
+<-- line 2243: sequenceDiagram
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/rstest-bdd-users-guide.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/rstest-bdd-v0-5-0-migration-guide.md
+--> line 110: flowchart
+<-- line 145: flowchart
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/rstest-bdd-v0-5-0-migration-guide.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/rstest-bdd-v0-6-0-migration-guide.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/rstest-bdd-v0-6-0-migration-guide.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/rstest-bdd-v0-6-0-provenance.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/rstest-bdd-v0-6-0-provenance.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/rust-doctest-dry-guide.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/rust-doctest-dry-guide.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/rust-testing-with-rstest-fixtures.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/rust-testing-with-rstest-fixtures.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/supporting-both-sqlite3-and-postgresql-in-diesel.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/supporting-both-sqlite3-and-postgresql-in-diesel.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/users-guide.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/users-guide.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/verification-strategy.md
+--> line 189: <unknown>
+<-- line 209: <unknown>
+--> line 246: graph
+<-- line 268: graph
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/verification-strategy.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/whitaker-users-guide.md
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/whitaker-users-guide.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/wireframe-users-guide.md
+--> line 1629: sequenceDiagram
+<-- line 1645: sequenceDiagram
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/wireframe-users-guide.md
+==> /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/wireframe-v0-2-0-to-v0-3-0-migration-guide.md
+--> line 34: classDiagram
+<-- line 159: classDiagram
+--> line 492: classDiagram
+<-- line 607: classDiagram
+--> line 761: classDiagram
+<-- line 865: classDiagram
+--> line 927: sequenceDiagram
+<-- line 949: sequenceDiagram
+--> line 1035: classDiagram
+<-- line 1091: classDiagram
+--> line 1104: sequenceDiagram
+<-- line 1134: sequenceDiagram
+<== /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/docs/wireframe-v0-2-0-to-v0-3-0-migration-guide.md
+🧜‍♀️✨ All diagrams validated successfully!

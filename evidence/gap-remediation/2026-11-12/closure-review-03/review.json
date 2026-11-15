@@ -1,0 +1,17 @@
+{
+  "source_register_commit": "09ef7fb2dac16ac5a363cf16ec4a7d14b519cd0c",
+  "entries": [
+    {
+      "gap_id": "GAP-022",
+      "unchanged_closure_criteria": "Trace account storage and comparisons, then capture successful and failed logins plus account changes using known nonempty credentials.",
+      "prior_status": "Investigating",
+      "review": "Match the unchanged criterion to the native-core-01 transcripts, known fixture account records and semantic verifier. Broader timing, peer, classifier, persistence and all-operation criteria remain independently tracked."
+    },
+    {
+      "gap_id": "GAP-077",
+      "unchanged_closure_criteria": "Trace handler/helper paths and provide operation semantics, request/reply grammar and representative success/error fixtures.",
+      "prior_status": "Investigating",
+      "review": "Match the unchanged criterion to the native-core-01 transcripts, known fixture account records and semantic verifier. Broader timing, peer, classifier, persistence and all-operation criteria remain independently tracked."
+    }
+  ]
+}

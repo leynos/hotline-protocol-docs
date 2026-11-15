@@ -1,0 +1,10 @@
+tree e03c4ed41c3de3fae2aa79f432e2378a2ffbfd8b
+parent 481294915b48f4db06943c8af86cf31b7e47597a
+author Payton McIntosh <pmcintosh@df12.net> 1794595439 +0000
+committer Payton McIntosh <pmcintosh@df12.net> 1794595439 +0000
+
+Correct direct replies and roster validation
+
+Emit native type-zero correlated ACKs across constructors and keep
+login augmentation keyed to the original request. Accept repeated
+roster records in direct replies and cover router and codec paths.

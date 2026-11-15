@@ -1,0 +1,374 @@
+{
+  "banner-bad-magic": {
+    "a": {
+      "client_port": 55100,
+      "sent_bytes": 130,
+      "received_bytes": 402,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    "data": {
+      "client_port": 40976,
+      "sent_bytes": 16,
+      "received_bytes": 0,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": true,
+      "guest_server_close_kind": "RST"
+    }
+  },
+  "banner-duplicate-after-send": {
+    "a": {
+      "client_port": 35890,
+      "sent_bytes": 108,
+      "received_bytes": 435,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    "b": {
+      "client_port": 35898,
+      "sent_bytes": 108,
+      "received_bytes": 394,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    "first": {
+      "client_port": 58704,
+      "sent_bytes": 16,
+      "received_bytes": 58,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    "second": {
+      "client_port": 58706,
+      "sent_bytes": 16,
+      "received_bytes": 0,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": true,
+      "guest_server_close_kind": "RST"
+    }
+  },
+  "banner-owner-gone": {
+    "a": {
+      "client_port": 60748,
+      "sent_bytes": 108,
+      "received_bytes": 435,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    "b": {
+      "client_port": 60762,
+      "sent_bytes": 108,
+      "received_bytes": 394,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    "stale": {
+      "client_port": 53762,
+      "sent_bytes": 16,
+      "received_bytes": 0,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": true,
+      "guest_server_close_kind": "RST"
+    }
+  },
+  "banner-reuse-after-close": {
+    "a": {
+      "client_port": 60102,
+      "sent_bytes": 130,
+      "received_bytes": 402,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    "first": {
+      "client_port": 53772,
+      "sent_bytes": 16,
+      "received_bytes": 58,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    "stale": {
+      "client_port": 53782,
+      "sent_bytes": 16,
+      "received_bytes": 0,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": true,
+      "guest_server_close_kind": "RST"
+    }
+  },
+  "banner-separate-low-privilege-session": {
+    "a": {
+      "client_port": 60110,
+      "sent_bytes": 130,
+      "received_bytes": 457,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    "b": {
+      "client_port": 60124,
+      "sent_bytes": 130,
+      "received_bytes": 416,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    "foreign": {
+      "client_port": 53794,
+      "sent_bytes": 16,
+      "received_bytes": 58,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "banner-size-ffffffff-reserved-ffff": {
+    "a": {
+      "client_port": 54856,
+      "sent_bytes": 130,
+      "received_bytes": 402,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    "data": {
+      "client_port": 55346,
+      "sent_bytes": 16,
+      "received_bytes": 58,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "banner-size-one-reserved-1234": {
+    "a": {
+      "client_port": 39964,
+      "sent_bytes": 130,
+      "received_bytes": 402,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    "data": {
+      "client_port": 41598,
+      "sent_bytes": 16,
+      "received_bytes": 58,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "banner-split-15-plus-1": {
+    "a": {
+      "client_port": 51078,
+      "sent_bytes": 130,
+      "received_bytes": 402,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    "data": {
+      "client_port": 37170,
+      "sent_bytes": 16,
+      "received_bytes": 58,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "download-owner-gone": {
+    "a": {
+      "client_port": 38336,
+      "sent_bytes": 131,
+      "received_bytes": 441,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    "b": {
+      "client_port": 38346,
+      "sent_bytes": 108,
+      "received_bytes": 394,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    "download": {
+      "client_port": 53028,
+      "sent_bytes": 16,
+      "received_bytes": 0,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": true,
+      "guest_server_close_kind": "RST"
+    }
+  },
+  "download-separate-low-privilege-session": {
+    "a": {
+      "client_port": 40592,
+      "sent_bytes": 161,
+      "received_bytes": 463,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    "b": {
+      "client_port": 40608,
+      "sent_bytes": 108,
+      "received_bytes": 394,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    "download": {
+      "client_port": 48130,
+      "sent_bytes": 16,
+      "received_bytes": 510,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": true,
+      "guest_server_close_kind": "RST"
+    }
+  },
+  "download-size-reserved-selector-ffff": {
+    "a": {
+      "client_port": 43132,
+      "sent_bytes": 161,
+      "received_bytes": 408,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    "download": {
+      "client_port": 40924,
+      "sent_bytes": 16,
+      "received_bytes": 510,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": true,
+      "guest_server_close_kind": "RST"
+    }
+  },
+  "folder-download-wrong-selector-0": {
+    "a": {
+      "client_port": 43144,
+      "sent_bytes": 132,
+      "received_bytes": 386,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    "wrong": {
+      "client_port": 40928,
+      "sent_bytes": 16,
+      "received_bytes": 0,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": true,
+      "guest_server_close_kind": "RST"
+    }
+  },
+  "folder-download-wrong-selector-2": {
+    "a": {
+      "client_port": 43146,
+      "sent_bytes": 132,
+      "received_bytes": 386,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    "wrong": {
+      "client_port": 40942,
+      "sent_bytes": 16,
+      "received_bytes": 0,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": true,
+      "guest_server_close_kind": "RST"
+    }
+  },
+  "folder-download-wrong-selector-65535": {
+    "a": {
+      "client_port": 43156,
+      "sent_bytes": 132,
+      "received_bytes": 386,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    "wrong": {
+      "client_port": 40950,
+      "sent_bytes": 16,
+      "received_bytes": 0,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": true,
+      "guest_server_close_kind": "RST"
+    }
+  },
+  "preflight": {
+    "main": {
+      "client_port": 56550,
+      "sent_bytes": 108,
+      "received_bytes": 380,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    }
+  },
+  "upload-nonfolder-selector-0": {
+    "a": {
+      "client_port": 40576,
+      "sent_bytes": 164,
+      "received_bytes": 487,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    "upload": {
+      "client_port": 48120,
+      "sent_bytes": 211,
+      "received_bytes": 0,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": true,
+      "guest_server_close_kind": "RST"
+    }
+  },
+  "upload-nonfolder-selector-2": {
+    "a": {
+      "client_port": 38504,
+      "sent_bytes": 164,
+      "received_bytes": 487,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    "upload": {
+      "client_port": 48218,
+      "sent_bytes": 211,
+      "received_bytes": 0,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": true,
+      "guest_server_close_kind": "RST"
+    }
+  },
+  "upload-nonfolder-selector-65535": {
+    "a": {
+      "client_port": 38512,
+      "sent_bytes": 172,
+      "received_bytes": 491,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": false,
+      "guest_server_close_kind": "FIN"
+    },
+    "upload": {
+      "client_port": 48222,
+      "sent_bytes": 215,
+      "received_bytes": 0,
+      "unread_output_hex": "",
+      "guest_server_initiated_close": true,
+      "guest_server_close_kind": "RST"
+    }
+  }
+}

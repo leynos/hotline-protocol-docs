@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "classification": "synthetic-proxy-rehearsal-plus-zero-contact-live-failures",
+  "synthetic_rehearsal_only": true,
+  "native_peer_evidence": false,
+  "classic_baseline_connected": false,
+  "classic_field_tolerance_proved": false,
+  "source_private_commit": "8d444233ce9ce71d40058a781377680be5bd3975",
+  "source_sha256": "44bb68fe0bc464874aa455e823ca08b00704b88f5064d776119fcaf0682a5c7e",
+  "b29": {
+    "fresh_netns_inode": 4026532547,
+    "host_netns_inode": 4026531840,
+    "actual_client_netns_inode": 4026532479,
+    "upstreams": "fake in-namespace 127.0.0.1:15500/15501",
+    "guest_emulator_contact": false,
+    "native_server_contact": false
+  },
+  "b30": {
+    "connect_clicks": 0,
+    "native_or_classic_proxy_connection": false,
+    "failure": "proxy service timed out before UI Connect"
+  },
+  "b31": {
+    "connect_clicks": 1,
+    "native_or_classic_proxy_connection": false,
+    "failure": "UI Connect click did not activate; no SYN"
+  },
+  "ignored_originals_metadata_only": [
+    {
+      "canonical_root_relative_path": "state/native-sessions/native-proxy-baseline-b30/client-guest-pre.pcap",
+      "bytes": 10754,
+      "sha256": "724bbb1d4f776ad7ea4d04b76f527e805def3b2b666438b8205fcc24da9d8252"
+    },
+    {
+      "canonical_root_relative_path": "state/native-sessions/native-proxy-baseline-b30/client-guest-post.pcap",
+      "bytes": 10754,
+      "sha256": "724bbb1d4f776ad7ea4d04b76f527e805def3b2b666438b8205fcc24da9d8252"
+    },
+    {
+      "canonical_root_relative_path": "state/native-sessions/native-proxy-baseline-b30/server-guest-pre.pcap",
+      "bytes": 12836064,
+      "sha256": "60199b6b0dcd85454efaf2b4a2a11b8d05c3e35f05e74b4f34c50e3e94fcee82"
+    },
+    {
+      "canonical_root_relative_path": "state/native-sessions/native-proxy-baseline-b30/server-guest-post.pcap",
+      "bytes": 12836064,
+      "sha256": "60199b6b0dcd85454efaf2b4a2a11b8d05c3e35f05e74b4f34c50e3e94fcee82"
+    },
+    {
+      "canonical_root_relative_path": "state/native-sessions/native-proxy-baseline-b30/a7-postflight/report.json",
+      "bytes": 4342057,
+      "sha256": "0151b11a2c927f4164874ec0b8cedaca386ede2c498fd5a77e3a60059291219c"
+    },
+    {
+      "canonical_root_relative_path": "state/native-sessions/native-proxy-baseline-b31/client-guest-pre.pcap",
+      "bytes": 10754,
+      "sha256": "724bbb1d4f776ad7ea4d04b76f527e805def3b2b666438b8205fcc24da9d8252"
+    },
+    {
+      "canonical_root_relative_path": "state/native-sessions/native-proxy-baseline-b31/client-guest-post.pcap",
+      "bytes": 10754,
+      "sha256": "724bbb1d4f776ad7ea4d04b76f527e805def3b2b666438b8205fcc24da9d8252"
+    },
+    {
+      "canonical_root_relative_path": "state/native-sessions/native-proxy-baseline-b31/server-guest-pre.pcap",
+      "bytes": 13999598,
+      "sha256": "2ef2548f2d7818b6737520462f8c5898f5de94e750bafb8d62c67fcf5ea3293f"
+    },
+    {
+      "canonical_root_relative_path": "state/native-sessions/native-proxy-baseline-b31/server-guest-post.pcap",
+      "bytes": 13999598,
+      "sha256": "2ef2548f2d7818b6737520462f8c5898f5de94e750bafb8d62c67fcf5ea3293f"
+    },
+    {
+      "canonical_root_relative_path": "state/native-sessions/native-proxy-baseline-b31/a7-postflight/report.json",
+      "bytes": 4341957,
+      "sha256": "85281202fc40a62c722a4272db7cd85ceb279afe5d5fef74f39947afe181f9d1"
+    }
+  ],
+  "limits": [
+    "B30/B31 full guest and A7 raw files are not portable in this corpus; their hashes describe ignored local originals only.",
+    "Recorder stop counts are labelled operator transcriptions, not raw retained logs.",
+    "B29 is synthetic only; no peer acceptance or rejection inference."
+  ]
+}

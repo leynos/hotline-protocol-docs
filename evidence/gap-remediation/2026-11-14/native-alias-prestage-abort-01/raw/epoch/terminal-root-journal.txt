@@ -1,0 +1,15 @@
+Nov 14 18:08:40 ibara systemd[1]: Starting mothra-native-alias-live-03-lease.service - [systemd-run] /usr/bin/flock --exclusive --nonblock /data/leynos/Projects/mothra/state/delegation/oracle.lock /usr/bin/sleep 900...
+Nov 14 18:08:40 ibara systemd[1]: Started mothra-native-alias-live-03-lease.service - [systemd-run] /usr/bin/flock --exclusive --nonblock /data/leynos/Projects/mothra/state/delegation/oracle.lock /usr/bin/sleep 900.
+Nov 14 18:08:41 ibara systemd[1]: Starting mothra-native-alias-live-03-host.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-alias-live-03/primary-syn.pcap "(tcp port 15500 or tcp port 15501) and (tcp[tcpflags] & tcp-syn != 0)"...
+Nov 14 18:08:41 ibara systemd[1]: Started mothra-native-alias-live-03-host.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-alias-live-03/primary-syn.pcap "(tcp port 15500 or tcp port 15501) and (tcp[tcpflags] & tcp-syn != 0)".
+Nov 14 18:08:41 ibara tcpdump[4192832]: dropped privs to tcpdump
+Nov 14 18:08:41 ibara tcpdump[4192832]: tcpdump: listening on lo, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+Nov 14 18:16:35 ibara tcpdump[4192832]: 0 packets captured
+Nov 14 18:16:35 ibara tcpdump[4192832]: 0 packets received by filter
+Nov 14 18:16:35 ibara tcpdump[4192832]: 0 packets dropped by kernel
+Nov 14 18:16:35 ibara systemd[1]: Stopping mothra-native-alias-live-03-host.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-alias-live-03/primary-syn.pcap "(tcp port 15500 or tcp port 15501) and (tcp[tcpflags] & tcp-syn != 0)"...
+Nov 14 18:16:35 ibara systemd[1]: Stopping mothra-native-alias-live-03-lease.service - [systemd-run] /usr/bin/flock --exclusive --nonblock /data/leynos/Projects/mothra/state/delegation/oracle.lock /usr/bin/sleep 900...
+Nov 14 18:16:35 ibara systemd[1]: mothra-native-alias-live-03-lease.service: Deactivated successfully.
+Nov 14 18:16:35 ibara systemd[1]: Stopped mothra-native-alias-live-03-lease.service - [systemd-run] /usr/bin/flock --exclusive --nonblock /data/leynos/Projects/mothra/state/delegation/oracle.lock /usr/bin/sleep 900.
+Nov 14 18:16:35 ibara systemd[1]: mothra-native-alias-live-03-host.service: Deactivated successfully.
+Nov 14 18:16:35 ibara systemd[1]: Stopped mothra-native-alias-live-03-host.service - [systemd-run] /usr/sbin/tcpdump -i lo -U -n -s 0 -w /data/leynos/Projects/mothra/state/native-sessions/native-alias-live-03/primary-syn.pcap "(tcp port 15500 or tcp port 15501) and (tcp[tcpflags] & tcp-syn != 0)".

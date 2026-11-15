@@ -1,0 +1,21 @@
+{
+  "scope": "62 reviewed native framing/TLV/settings cases with exact host and guest application-stream reconciliation; one retained disproven initial icon-width expectation",
+  "runtime": "runtime.json",
+  "primary_catalogue": "transcripts/",
+  "initial_hypotheses": "initial-hypotheses/tlv-icon-ffffffff; capture completed but initial semantic expectation65535 was disproven by four-byteffffffff output",
+  "verification": "verification.json",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "continued_emulator_pid": 774378,
+  "provenance": "Same guest and prelaunch checkpoint as native-transport-01. Host capture stopped with SIGINT; complete guest observer snapshot taken while emulator continues. Guest capture includes earlier sessions; verifier scopes UTC/SYN lifetimes and recorded endpoints. One real host port reuse is separated.",
+  "limitations": [
+    "Host wall-clock timing, not physical-network or Mac tick measurement",
+    "Three-second silence is bounded observation only",
+    "Request500 does not exercise TLV parsing; settings304 exposes indexed values through301",
+    "Four duplicate choices do not establish universal first/last policy",
+    "No assembly-age, global buffering, all-operation, alternate-wrapper or historical-peer conformance claim"
+  ],
+  "closure_candidates": [
+    "GAP-014"
+  ],
+  "source_versions": "sources/; driver hashes in each report identify the retained exact capture source"
+}

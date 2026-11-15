@@ -1,0 +1,9 @@
+9f7b1c94c65513afac1275aa835f5b693eeb70454473010675f39e0eedb8b7c8  state/delegation/native-clock-log-oracle-01/capture.py
+f0f48e8890b62a931bf6ce26390d1a12564c5eb0a26607751cf53f16d1e6fceb  state/delegation/native-clock-log-oracle-01/as-run.txt
+f554618b93cdfd465a679620b3f60382da487a8a11b6469bd126cdd877b03a12  state/delegation/native-clock-log-oracle-01/report.json
+377d765d89a3f4182e5987a855bb7e6ef8480eb1dedde2bba74c70aad0789450  state/delegation/native-clock-log-oracle-01/raw/decompile-10006a70.json
+4c2f5738f148a039e930dd27fb18b9af26dfbe06e165d0005d330f06c69bf170  state/delegation/native-clock-log-oracle-01/raw/decompile-10057e90.json
+a6f3dfbea548651ddc7490077df9b94eab57b11b3a919b465215c837438c92db  state/delegation/native-clock-log-oracle-01/raw/identity-after.json
+aa541e3d2a918f68c738c23c5fc53b8177fa65dbfa57895314b060e7d0130706  state/delegation/native-clock-log-oracle-01/raw/identity-before.json
+3c173fcb852fbe3197cda21bbeea915d3a27506a74d9ea8117e56937d741b8c9  state/delegation/native-clock-log-oracle-01/raw/read-1008f8bf.json
+78a5f8e76b409645fcf8fc90370bcccea880bbdcd59997b0c979d08e1f577939  state/delegation/native-clock-log-oracle-01/server.stderr.log

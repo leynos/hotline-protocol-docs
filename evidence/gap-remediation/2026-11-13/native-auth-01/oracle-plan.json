@@ -1,0 +1,101 @@
+[
+  {
+    "id": "AU-D-10011960",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10011960"
+    }
+  },
+  {
+    "id": "AU-D-10011ee0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10011ee0"
+    }
+  },
+  {
+    "id": "AU-D-10004d50",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10004d50"
+    }
+  },
+  {
+    "id": "AU-D-10004bf0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10004bf0"
+    }
+  },
+  {
+    "id": "AU-D-10005510",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10005510"
+    }
+  },
+  {
+    "id": "AU-D-10004f30",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10004f30"
+    }
+  },
+  {
+    "id": "AU-D-100073c0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100073c0"
+    }
+  },
+  {
+    "id": "AU-D-100071a0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100071a0"
+    }
+  },
+  {
+    "id": "AU-D-100541e0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100541e0"
+    }
+  },
+  {
+    "id": "AU-D-100146f0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100146f0"
+    }
+  },
+  {
+    "id": "AU-D-100149e0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100149e0"
+    }
+  },
+  {
+    "id": "AU-D-10014bc0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10014bc0"
+    }
+  },
+  {
+    "id": "AU-D-1000acf0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1000acf0"
+    }
+  },
+  {
+    "id": "AU-M-login-normalization",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "100946c8",
+      "length": 256
+    }
+  }
+]

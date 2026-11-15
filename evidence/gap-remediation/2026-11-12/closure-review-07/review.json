@@ -1,0 +1,11 @@
+{
+  "source_register_commit": "ab5cca94ebd8735f5ddb10406dd46e948f1703dc",
+  "entries": [
+    {
+      "gap_id": "GAP-058",
+      "unchanged_closure_criteria": "Trace both directions and publish offset/fork validation and continuation fixtures, including fresh/resumed/completed and inconsistent state.",
+      "prior_status": "Investigating",
+      "review": "Retained RFLT consumer/builder and upload handler/parser code, explicit byte grammar and validation limits, and 23 final native cases establish fresh, zero, inside, EOF, beyond-EOF and all-ones offsets; unknown/repeated fork entries; malformed magic/version/minimum-length no-reply windows; interrupted 13/5 partial state; negotiated offsets; exact continuation; missing/completed-file errors; and inconsistent-client appends. Paired host/guest packets and before/after HFS+ forks independently agree. Unchecked entry-count bounds are documented, not certified safe. Folder resume, disk-full, large-file and restart-durability requirements remain GAP-059/060/064."
+    }
+  ]
+}

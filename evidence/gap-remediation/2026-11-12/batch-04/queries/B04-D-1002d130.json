@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-12T13:52:44.965741+00:00",
+  "query": {
+    "id": "B04-D-1002d130",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002d130"
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_1002d130\",\n    \"address\": \"1002d130\"\n  },\n  \"code\": \"\\nint FUN_1002d130(undefined2 *param_1,undefined4 *param_2,undefined4 *param_3,undefined4 *param_4)\\n\\n{\\n  undefined4 uVar1;\\n  short sVar2;\\n  ushort *puVar3;\\n  undefined1 auStack_180 [18];\\n  byte *local_16e;\\n  undefined2 local_16a;\\n  undefined2 local_164;\\n  undefined4 local_160;\\n  undefined4 local_15c;\\n  ushort local_158;\\n  undefined4 local_150;\\n  undefined4 local_14a;\\n  undefined4 local_140;\\n  undefined4 local_138;\\n  undefined4 local_134;\\n  byte local_110;\\n  undefined1 auStack_10f [255];\\n  \\n  .glue::BlockMoveData(param_1 + 3,&local_110,*(byte *)(param_1 + 3) + 1);\\n  local_164 = 0;\\n  local_16e = &local_110;\\n  local_16a = *param_1;\\n  local_150 = *(undefined4 *)(param_1 + 1);\\n  uVar1 = .glue::PBGetCatInfoSync(auStack_180);\\n  if ((short)uVar1 != 0) {\\n    FUN_10028190(uVar1,0,0);\\n  }\\n  FUN_1006cd50(param_2,0x48);\\n  *param_2 = 0x414d4143;\\n  param_2[1] = local_160;\\n  param_2[2] = local_15c;\\n  param_2[4] = (uint)local_158;\\n  FUN_10058070(local_138,param_2 + 0xd);\\n  FUN_10058070(local_134,param_2 + 0xf);\\n  *(ushort *)((int)param_2 + 0x46) = (ushort)local_110;\\n  .glue::BlockMoveData(auStack_10f,param_2 + 0x12,local_110);\\n  sVar2 = FUN_1007ee40(param_1,&local_110);\\n  if (sVar2 != 0) {\\n    local_110 = 0;\\n  }\\n  puVar3 = (ushort *)((int)param_2 + *(ushort *)((int)param_2 + 0x46) + 0x48);\\n  *puVar3 = (ushort)local_110;\\n  .glue::BlockMoveData(auStack_10f,puVar3 + 1,local_110);\\n  if (param_3 != (undefined4 *)0x0) {\\n    *param_3 = local_14a;\\n  }\\n  if (param_4 != (undefined4 *)0x0) {\\n    *param_4 = local_140;\\n  }\\n  return (uint)*(ushort *)((int)param_2 + 0x46) + (uint)local_110 + 0x4a;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_1002d130",
+        "address": "1002d130"
+      },
+      "code": "\nint FUN_1002d130(undefined2 *param_1,undefined4 *param_2,undefined4 *param_3,undefined4 *param_4)\n\n{\n  undefined4 uVar1;\n  short sVar2;\n  ushort *puVar3;\n  undefined1 auStack_180 [18];\n  byte *local_16e;\n  undefined2 local_16a;\n  undefined2 local_164;\n  undefined4 local_160;\n  undefined4 local_15c;\n  ushort local_158;\n  undefined4 local_150;\n  undefined4 local_14a;\n  undefined4 local_140;\n  undefined4 local_138;\n  undefined4 local_134;\n  byte local_110;\n  undefined1 auStack_10f [255];\n  \n  .glue::BlockMoveData(param_1 + 3,&local_110,*(byte *)(param_1 + 3) + 1);\n  local_164 = 0;\n  local_16e = &local_110;\n  local_16a = *param_1;\n  local_150 = *(undefined4 *)(param_1 + 1);\n  uVar1 = .glue::PBGetCatInfoSync(auStack_180);\n  if ((short)uVar1 != 0) {\n    FUN_10028190(uVar1,0,0);\n  }\n  FUN_1006cd50(param_2,0x48);\n  *param_2 = 0x414d4143;\n  param_2[1] = local_160;\n  param_2[2] = local_15c;\n  param_2[4] = (uint)local_158;\n  FUN_10058070(local_138,param_2 + 0xd);\n  FUN_10058070(local_134,param_2 + 0xf);\n  *(ushort *)((int)param_2 + 0x46) = (ushort)local_110;\n  .glue::BlockMoveData(auStack_10f,param_2 + 0x12,local_110);\n  sVar2 = FUN_1007ee40(param_1,&local_110);\n  if (sVar2 != 0) {\n    local_110 = 0;\n  }\n  puVar3 = (ushort *)((int)param_2 + *(ushort *)((int)param_2 + 0x46) + 0x48);\n  *puVar3 = (ushort)local_110;\n  .glue::BlockMoveData(auStack_10f,puVar3 + 1,local_110);\n  if (param_3 != (undefined4 *)0x0) {\n    *param_3 = local_14a;\n  }\n  if (param_4 != (undefined4 *)0x0) {\n    *param_4 = local_140;\n  }\n  return (uint)*(ushort *)((int)param_2 + 0x46) + (uint)local_110 + 0x4a;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

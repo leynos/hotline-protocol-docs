@@ -1,0 +1,22 @@
+{
+  "status": "PASS_stopped_receipts_and_current_fd_freedom",
+  "utc": "2026-11-14T18:04:38.462625+00:00",
+  "preflight_sha256": "6b027fcff9227d2c19d3a937b75d9bde8f686ab5f66fae2bc13667d8f7fb6a2d",
+  "finf_sha256": "bbaf34a79522c21414e0cac77cb23669c0110124464751ec39aea92069cb3116",
+  "asset_checks": {
+    "base.dsk": {
+      "inode": 2302714961,
+      "root_fuser_exit": 1
+    },
+    "working.dsk": {
+      "inode": 2302714962,
+      "root_fuser_exit": 1
+    },
+    "rom": {
+      "inode": 2302714960,
+      "root_fuser_exit": 1
+    }
+  },
+  "original_ticks_unchanged": true,
+  "image_bytes_read_by_parent": false
+}

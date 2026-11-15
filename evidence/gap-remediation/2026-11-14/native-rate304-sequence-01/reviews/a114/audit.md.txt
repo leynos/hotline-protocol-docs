@@ -1,0 +1,106 @@
+# A114: C119 failed run, measured prefix only
+
+Read-only offline audit, 2026-11-14, of stopped
+`state/native-sessions/native-rate304-epoch-03`. No VM, socket, service,
+signal, oracle, mxd, tracked edit or disk-image read. Immutable copies of
+the two reports/plans and three PCAPs are in the ignored
+`state/delegation/a114-rate-prefix-audit/` directory. `flows.json` records
+exact snapshot hashes, each SYN lifetime, byte lengths, terminal flags and
+direction SHA-256. Parsing used the run's frozen `sources/pcap_tcp.py`.
+
+## Status and source consistency
+
+The original coordinator report remains `status=failed`, error
+`ValueError: Reply is not direct success`, `phase_receipts={}` and
+`timing={}`. It completed no successful run-level semantic verification.
+Do not add a reconstructed timing receipt or call its completion verifier
+on a modified report. The report's 133 action triples match the frozen
+`expected_actions(plan, 14)` exactly. For each of four case connections,
+event send/receive concatenation matches the report streams, and the
+received stream equals TRTP reply plus all decoded frame raw bytes with
+zero unparsed bytes. The preflight's separate 18-action completed report
+is retained as a distinct fifth connection.
+
+## Five complete TCP lifetimes
+
+The namespace and guest PCAPs contain exactly five initial SYNs each:
+preflight client port 36960, then observer 59848, paced 34152, burst
+38334 and probe 38344. All map namespace 127.0.0.1:15880 to guest
+10.0.2.15:5500 with 10.0.2.2 as guest-visible client. Each lifetime was
+selected by its report connect timestamp, not merged across ports. In
+the table, `sent/received` is recorder bytes; namespace and guest
+application streams equal those recorder bytes **exactly** in every cell.
+All 206 namespace TCP packets belong to these five lifetimes; the guest
+view contains 227 TCP packets in the same five lifetimes.
+
+| Flow | Sent bytes | Received bytes | Namespace / guest packets | App tails |
+| --- | ---: | ---: | ---: | ---: |
+| Preflight | 231 | 2,759 | 30 / 31 | 0 |
+| Observer | 526 | 5,897 | 100 / 114 | 0 |
+| Paced | 1,459 | 2,495 | 33 / 38 | 0 |
+| Burst | 1,437 | 2,418 | 29 / 28 | 0 |
+| Probe | 91 | 76 | 14 / 16 | 0 |
+
+`primary-syn.pcap` is 24 bytes and parses as zero TCP packets. The
+preflight/observer/paced/probe lifetimes end in observed FIN/ACKs.
+The namespace burst lifetime likewise shows FIN/ACKs; the guest burst
+view instead has a server-to-client RST with 14 payload bytes spelling
+`tcp_disconnect`. That RST payload is a terminal diagnostic, omitted by
+the TCP application-stream reassembler. It is **not** a Hotline frame or
+an additional recorder tail. Host/guest packet counts differ through
+capture/retransmission details; their reassembled app streams agree.
+
+## Positive prefix and precise failure
+
+Dynamic roster identities are paced UID3 and burst UID4. The paced
+subject sent exactly 26 `304` icon values 2–27, each followed by a
+numbered `500` (IDs 2000–2025). Its own and observer connections each
+received exactly one `301` for each UID3/icon2–27 with status `0x0020`
+and name `fixture-low`; all 26 numbered ACKs have error0. From first
+304 send to last required 301/ACK arrival was 1.238364 host seconds.
+After the last required arrival at elapsed 4.654960s, no paced subject
+request appears until the icon28 `304` at 74.758146s, a 70.103186s
+observed host bracket. Fourteen observer idle `500` requests and ACKs
+occurred about five seconds apart during that interval. Both paced and
+observer received UID3/icon28 `301`, and paced received ACK2026 error0.
+
+The burst subject then sent exactly 26 `304` icon values 2–27, each
+followed by numbered `500` IDs4000–4025. Both burst and observer each
+received one UID4/icon2–27 `301`, same status/name, and all 26 ACKs
+have error0. First burst 304 to last required arrival was 0.231387
+host seconds. The 27th burst `304` requested icon28 with **no following
+500**. No UID4/icon28 `301` or ACK4026 is in the report; the burst
+socket terminated as described above. One fresh probe login107 got
+error1 and field100 `You are temporarily banned on this server.`
+
+The retained observer controls 348/200/206/300 (IDs6000–6003) each
+have error0; 348 has two account records, 200 has 41 Files records.
+The final observer request303 ID6004 has a two-byte zero field count,
+no target UID, and reply error1 with field100 stating that the specified
+client does not exist. This is the exact point at which the runner
+raised its error. A fieldless303 failure does not negate earlier
+positive 304/500/301/ban observations, but it leaves the planned final
+idle diagnostic unproved.
+
+## Limits
+
+`native_clock_calibrated=false`; host monotonic brackets do not prove
+the native `>60` predicate's clock interval. The retained
+`postcase-screen.png` visibly prints seconds in Hotline Server Log rows,
+including paced login/close and later connection/login-failed rows; it
+contains no one-to-one 304 timestamp or counter-origin witness. The
+screenshot SHA-256 is
+`87ba75b3c8184f96df69590964d32ce7d7fa63e698598217ee7fb166fba50d31`.
+No expiry, ban residency, crash, storage durability or later successful
+303 is established. The
+saved terminal identity says the owned emulator PID was gone at
+11:47:20Z, image/ROM paths had no open owner, original primary/client
+ticks were unchanged, and ports absent. The later retained
+`capture-journal-terminal.txt` (SHA-256
+`5b613b03670851cc901bbf31691d6c26641dd242efe606acc86d77daaebc4265`)
+has exit0, namespace tcpdump **206 captured / 412 filter-seen / zero kernel
+drops**, host primary tcpdump **zero captured / 12 filter-seen / zero kernel
+drops**. Filter-seen is not captured. Guest emulator capture has no separate
+drop counter. The five-stream equality, zero primary captured SYNs and
+tcpdump counters are evidence for this bounded capture, not for crash or
+durability behaviour.

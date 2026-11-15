@@ -1,0 +1,3 @@
+Initial recorder:1374packets captured,2748received by filter,0kernel drops.
+Post-cleanup root-input recorder:43packets captured,86received by filter,0kernel drops.
+Merged1417records retain identicalglobalheader and concatenate both literal recorder record streams chronologically.

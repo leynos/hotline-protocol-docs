@@ -1,0 +1,149 @@
+{
+  "started_at_utc": "2026-11-14T08:16:35.248496+00:00",
+  "script_sha256": "5e9c8aa3f45b629035f36ddc5b4e8821de7e19e2d25fa239229f15148191f905",
+  "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "jar_sha256": "201d18ffde71a83a678eae607de265861f37e5a00b989d91958c1197664d2b43",
+  "project": "/data/leynos/Projects/mothra/state/delegation/endpoint-oracle-01/project/independent-endpoint-01.gpr",
+  "command": "/data/leynos/Projects/mothra/tools/ghidramcp/.venv/bin/ghidra-mcp",
+  "args": [
+    "--headless",
+    "--binary",
+    "/data/leynos/Projects/mothra/evidence/hotline-server-1.9/inputs/HLserver19.pef",
+    "--project",
+    "/data/leynos/Projects/mothra/state/delegation/endpoint-oracle-01/project",
+    "--project-name",
+    "independent-endpoint-01",
+    "--no-analyze",
+    "--discard",
+    "--language",
+    "PowerPC:BE:32:default",
+    "--compiler",
+    "default",
+    "--extension-jar",
+    "/data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar",
+    "--ready-timeout",
+    "900"
+  ],
+  "queries": [
+    {
+      "id": "identity-before",
+      "tool": "get_program_info",
+      "arguments": {},
+      "is_error": false
+    },
+    {
+      "id": "LB01-10089144-pointers",
+      "tool": "read_memory",
+      "arguments": {
+        "address": "10089144",
+        "length": 8
+      },
+      "is_error": false
+    },
+    {
+      "id": "LB02-10082694-format",
+      "tool": "read_memory",
+      "arguments": {
+        "address": "10082694",
+        "length": 64
+      },
+      "is_error": false
+    },
+    {
+      "id": "LB03-100826bc-candidate",
+      "tool": "read_memory",
+      "arguments": {
+        "address": "100826bc",
+        "length": 64
+      },
+      "is_error": false
+    },
+    {
+      "id": "LB04-1008ee20-path-pointer",
+      "tool": "read_memory",
+      "arguments": {
+        "address": "1008ee20",
+        "length": 4
+      },
+      "is_error": false
+    },
+    {
+      "id": "LB05-1008f87e-path-candidate",
+      "tool": "read_memory",
+      "arguments": {
+        "address": "1008f87e",
+        "length": 260
+      },
+      "is_error": false
+    },
+    {
+      "id": "LB06-1008fcf9-month-candidate",
+      "tool": "read_memory",
+      "arguments": {
+        "address": "1008fcf9",
+        "length": 64
+      },
+      "is_error": false
+    },
+    {
+      "id": "identity-after",
+      "tool": "get_program_info",
+      "arguments": {},
+      "is_error": false
+    }
+  ],
+  "status": "complete",
+  "interpretation": "Raw memory only; first byte at pointer from 10089144 is a length, not a literal separator.",
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "identity_before": {
+    "name": "HLserver19.pef",
+    "project_path": "/HLserver19.pef",
+    "executable_path": "/data/leynos/Projects/mothra/evidence/hotline-server-1.9/inputs/HLserver19.pef",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "identity_after": {
+    "name": "HLserver19.pef",
+    "project_path": "/HLserver19.pef",
+    "executable_path": "/data/leynos/Projects/mothra/evidence/hotline-server-1.9/inputs/HLserver19.pef",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "finished_at_utc": "2026-11-14T08:16:42.494362+00:00"
+}

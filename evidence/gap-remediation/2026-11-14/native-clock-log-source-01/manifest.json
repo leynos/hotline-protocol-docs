@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "scope": "Frozen server source and finite GUI log seconds observation; no runtime clock calibration",
+  "original_repository": "/data/leynos/Projects/mothra",
+  "capture_started_at_utc": "2026-11-14T11:05:01.558040+00:00",
+  "capture_finished_at_utc": "2026-11-14T11:05:12.830290+00:00",
+  "program_identity": {
+    "name": "HLserver19.pef",
+    "project_path": "/HLserver19.pef",
+    "executable_path": "/data/leynos/Projects/mothra/evidence/hotline-server-1.9/inputs/HLserver19.pef",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "program_identity_unchanged": true,
+  "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "jar_sha256": "201d18ffde71a83a678eae607de265861f37e5a00b989d91958c1197664d2b43",
+  "capture_script_sha256": "9f7b1c94c65513afac1275aa835f5b693eeb70454473010675f39e0eedb8b7c8",
+  "query_count": 5,
+  "content_query_count": 3,
+  "apple_reference": {
+    "title": "Apple Computer, Date, Time, and Measurement Utilities Reference: TimeString",
+    "url": "https://leopard-adc.pepas.com/documentation/Carbon/Reference/Date_Time_an_nt_Utilities/DeprecationAppendix/AppendixADeprecatedAPI.html#TimeString",
+    "note": "Mirror of Apple-authored reference; no page copy retained"
+  },
+  "entries": [
+    {
+      "path": "audits/a108-native-clock-log-source.md.txt",
+      "source_origin": "state/delegation/a108-native-clock-log-source.md",
+      "sha256": "321eefb2435528bea86dedec1433ed09b7273f494a3b3f552e312996829aa32a",
+      "size": 4101
+    },
+    {
+      "path": "audits/a109-timestring-api.md.txt",
+      "source_origin": "state/delegation/a109-timestring-api.md",
+      "sha256": "7ca7a15ab6899668fec4ec4fbd87f8c55b1aeedd5302d493d7f8338b25901121",
+      "size": 2410
+    },
+    {
+      "path": "oracle/as-run.txt",
+      "source_origin": "state/delegation/native-clock-log-oracle-01/as-run.txt",
+      "sha256": "f0f48e8890b62a931bf6ce26390d1a12564c5eb0a26607751cf53f16d1e6fceb",
+      "size": 169
+    },
+    {
+      "path": "oracle/capture.py.txt",
+      "source_origin": "state/delegation/native-clock-log-oracle-01/capture.py",
+      "sha256": "9f7b1c94c65513afac1275aa835f5b693eeb70454473010675f39e0eedb8b7c8",
+      "size": 5058
+    },
+    {
+      "path": "oracle/raw/decompile-10006a70.json",
+      "source_origin": "state/delegation/native-clock-log-oracle-01/raw/decompile-10006a70.json",
+      "sha256": "377d765d89a3f4182e5987a855bb7e6ef8480eb1dedde2bba74c70aad0789450",
+      "size": 2692
+    },
+    {
+      "path": "oracle/raw/decompile-10057e90.json",
+      "source_origin": "state/delegation/native-clock-log-oracle-01/raw/decompile-10057e90.json",
+      "sha256": "4c2f5738f148a039e930dd27fb18b9af26dfbe06e165d0005d330f06c69bf170",
+      "size": 4228
+    },
+    {
+      "path": "oracle/raw/identity-after.json",
+      "source_origin": "state/delegation/native-clock-log-oracle-01/raw/identity-after.json",
+      "sha256": "a6f3dfbea548651ddc7490077df9b94eab57b11b3a919b465215c837438c92db",
+      "size": 1950
+    },
+    {
+      "path": "oracle/raw/identity-before.json",
+      "source_origin": "state/delegation/native-clock-log-oracle-01/raw/identity-before.json",
+      "sha256": "aa541e3d2a918f68c738c23c5fc53b8177fa65dbfa57895314b060e7d0130706",
+      "size": 1951
+    },
+    {
+      "path": "oracle/raw/read-1008f8bf.json",
+      "source_origin": "state/delegation/native-clock-log-oracle-01/raw/read-1008f8bf.json",
+      "sha256": "3c173fcb852fbe3197cda21bbeea915d3a27506a74d9ea8117e56937d741b8c9",
+      "size": 1406
+    },
+    {
+      "path": "oracle/report.json",
+      "source_origin": "state/delegation/native-clock-log-oracle-01/report.json",
+      "sha256": "f554618b93cdfd465a679620b3f60382da487a8a11b6469bd126cdd877b03a12",
+      "size": 3595
+    },
+    {
+      "path": "oracle/server.stderr.log",
+      "source_origin": "state/delegation/native-clock-log-oracle-01/server.stderr.log",
+      "sha256": "78a5f8e76b409645fcf8fc90370bcccea880bbdcd59997b0c979d08e1f577939",
+      "size": 1289
+    },
+    {
+      "path": "oracle/source-SHA256SUMS.txt",
+      "source_origin": "state/delegation/native-clock-log-oracle-01/SHA256SUMS",
+      "sha256": "e6b421a385acace2878f64c1fa97d223b97a1f9a3ce60b07adc8b52a80ec2b8c",
+      "size": 1170
+    },
+    {
+      "path": "sources/B14-D-100068e0.c",
+      "source_origin": "evidence/gap-remediation/2026-11-14/rate304-static-01/frozen-source/B14-D-100068e0.c",
+      "sha256": "2ec9321d97f60c70edd9b6b9dc93a9a33935f307b13ecd4b26ba52db3f9b8a55",
+      "size": 1136
+    },
+    {
+      "path": "sources/D-10006e80.c",
+      "source_origin": "evidence/gap-remediation/2026-11-12/batch-06/queries/B06-D-10006e80.c",
+      "sha256": "944b9d68c92c597d7bf79cc07ed70a1ebea418117a3ef11f2d42f6190291f38c",
+      "size": 1182
+    },
+    {
+      "path": "sources/D-10006e80.json",
+      "source_origin": "evidence/gap-remediation/2026-11-12/batch-06/queries/B06-D-10006e80.json",
+      "sha256": "63a0597d887eb10f043d74dd26bea5c648aaeeef7f50da0ad5578391841b7ebf",
+      "size": 4064
+    },
+    {
+      "path": "sources/D-10016ad0.c",
+      "source_origin": "evidence/gap-remediation/2026-11-14/rate304-static-01/frozen-source/D-10016ad0.c",
+      "sha256": "eb5fb60dd5ff8dfc164e3a907afa1a59fc095aee44da5eb062eb0429584cc527",
+      "size": 639
+    },
+    {
+      "path": "sources/D-10057d00.c",
+      "source_origin": "evidence/gap-remediation/2026-11-13/native-ban-oracle-01/queries/BN-D-10057d00.c",
+      "sha256": "a7cb003248477aceab829fc3e024ba7460b174e281ca915ed1d292bfb77014ab",
+      "size": 121
+    },
+    {
+      "path": "sources/D-10057d00.json",
+      "source_origin": "evidence/gap-remediation/2026-11-13/native-ban-oracle-01/queries/BN-D-10057d00.json",
+      "sha256": "9f9ac5c5df74be1069267bf2ca35c8e9df662a290dee38b07dd82b86402bc078",
+      "size": 1865
+    },
+    {
+      "path": "sources/D-10057e30.c",
+      "source_origin": "evidence/gap-remediation/2026-11-12/batch-06/queries/B06-D-10057e30.c",
+      "sha256": "61a917acdcdc5f56c18292f9cae07b6aff46bd40c1920a9d9c2695c82f459056",
+      "size": 208
+    },
+    {
+      "path": "sources/D-10057e30.json",
+      "source_origin": "evidence/gap-remediation/2026-11-12/batch-06/queries/B06-D-10057e30.json",
+      "sha256": "d3933fff5f6efb88bf0e75d66574d2702f5a1ee244175a5a286052293840b3f0",
+      "size": 2038
+    },
+    {
+      "path": "ui/awake-before-retirement.png",
+      "source_origin": "state/native-sessions/native-rate304-epoch-01/awake-before-retirement.png",
+      "sha256": "bb1c16c592048fa40d118cd881835d2001437810a849fb2ae81e75ee3dcf6f1e",
+      "size": 738869
+    }
+  ],
+  "excluded": [
+    "Ghidra project/database",
+    "cache",
+    "home",
+    "config",
+    "tmp",
+    "original PEF/JAR",
+    "guest disk"
+  ]
+}

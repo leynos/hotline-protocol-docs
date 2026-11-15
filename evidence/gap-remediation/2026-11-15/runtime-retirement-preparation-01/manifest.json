@@ -1,0 +1,21 @@
+{
+  "status": "retirement-preparation-only",
+  "candidate_roots": [
+    "install9",
+    "hotline19",
+    "hotline20",
+    "hotline21"
+  ],
+  "inventory_sha256": "b6a6de9d8cb0976675cdd4d8f3df7de6345ec77141125c1e642ca12fb2c1d1b7",
+  "retained_donors": [
+    "hotline22-recovery/base.dsk",
+    "native-board-02/base.dsk"
+  ],
+  "source_sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910",
+  "rom_sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+  "preserved_small_files": 35,
+  "no_raw_disk_rom_application_or_account_copies": true,
+  "disk_files_removed": false,
+  "savings_limit": "Most per-file space is shared XFS extents; do not infer physical savings from8GiB disk sizes.",
+  "next_gate": "Root source/doc review, fresh complete tree/owner/mount checks and explicit exact-four GNU rm invocation."
+}

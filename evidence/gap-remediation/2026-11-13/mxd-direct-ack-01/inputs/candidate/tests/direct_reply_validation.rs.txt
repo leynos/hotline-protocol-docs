@@ -1,0 +1,126 @@
+//! Direct-reply validation across the parser, legacy writer, and Tokio codec.
+
+#![expect(clippy::panic_in_result_fn, reason = "test assertions")]
+
+use mxd::{
+    field_id::FieldId,
+    transaction::{
+        FrameHeader,
+        Transaction,
+        TransactionError,
+        TransactionReader,
+        TransactionWriter,
+        decode_params,
+        encode_params,
+        parse_transaction,
+    },
+    wireframe::codec::HotlineTransaction,
+};
+use tokio::io::duplex;
+
+const CORRELATION_ID: u32 = 0x1234_5685;
+
+fn repeated_field_transaction(
+    field: FieldId,
+    marker: u8,
+    ty: u16,
+) -> Result<Transaction, TransactionError> {
+    let payload = encode_params(&[(field, b"alice".as_slice()), (field, b"bob".as_slice())])?;
+    let size = u32::try_from(payload.len()).map_err(|_| TransactionError::PayloadTooLarge)?;
+    Ok(Transaction {
+        header: FrameHeader {
+            flags: 0,
+            is_reply: marker,
+            ty,
+            id: CORRELATION_ID,
+            error: 0,
+            total_size: size,
+            data_size: size,
+        },
+        payload,
+    })
+}
+
+fn assert_two_user_records(tx: &Transaction) -> Result<(), TransactionError> {
+    assert_eq!(tx.header.is_reply, 1);
+    assert_eq!(tx.header.ty, 0);
+    assert_eq!(tx.header.id, CORRELATION_ID);
+    let records = decode_params(&tx.payload)?;
+    assert_eq!(
+        records,
+        vec![
+            (FieldId::UserNameWithInfo, b"alice".to_vec()),
+            (FieldId::UserNameWithInfo, b"bob".to_vec()),
+        ]
+    );
+    Ok(())
+}
+
+#[test]
+fn parses_type_zero_roster_direct_reply() -> Result<(), TransactionError> {
+    let tx = repeated_field_transaction(FieldId::UserNameWithInfo, 1, 0)?;
+    let parsed = parse_transaction(&tx.to_bytes())?;
+    assert_two_user_records(&parsed)
+}
+
+#[tokio::test]
+async fn legacy_writer_and_reader_accept_type_zero_roster() -> Result<(), TransactionError> {
+    let tx = repeated_field_transaction(FieldId::UserNameWithInfo, 1, 0)?;
+    let (mut output, mut input) = duplex(1024);
+    TransactionWriter::new(&mut output)
+        .write_transaction(&tx)
+        .await?;
+    let parsed = TransactionReader::new(&mut input)
+        .read_transaction()
+        .await?;
+    assert_two_user_records(&parsed)
+}
+
+#[test]
+fn tokio_reply_constructor_accepts_repeated_roster_records() -> Result<(), TransactionError> {
+    let request = FrameHeader {
+        flags: 0,
+        is_reply: 0,
+        ty: 300,
+        id: CORRELATION_ID,
+        error: 0,
+        total_size: 0,
+        data_size: 0,
+    };
+    let reply = HotlineTransaction::reply_from_params(
+        &request,
+        0,
+        &[
+            (FieldId::UserNameWithInfo, b"alice".as_slice()),
+            (FieldId::UserNameWithInfo, b"bob".as_slice()),
+        ],
+    )?;
+    let tx: Transaction = reply.into();
+    assert_two_user_records(&tx)
+}
+
+#[test]
+fn tokio_conversion_accepts_type_zero_roster() -> Result<(), TransactionError> {
+    let tx = repeated_field_transaction(FieldId::UserNameWithInfo, 1, 0)?;
+    let converted = HotlineTransaction::try_from(tx)?;
+    let parsed: Transaction = converted.into();
+    assert_two_user_records(&parsed)
+}
+
+#[test]
+fn repeated_roster_field_requires_exact_reply_marker() -> Result<(), TransactionError> {
+    for (marker, ty) in [(0, 107), (0, 301), (2, 0)] {
+        let tx = repeated_field_transaction(FieldId::UserNameWithInfo, marker, ty)?;
+        let result = parse_transaction(&tx.to_bytes());
+        assert!(matches!(result, Err(TransactionError::DuplicateField(300))));
+    }
+    Ok(())
+}
+
+#[test]
+fn unrelated_duplicate_stays_invalid_in_direct_reply() -> Result<(), TransactionError> {
+    let tx = repeated_field_transaction(FieldId::Name, 1, 0)?;
+    let result = parse_transaction(&tx.to_bytes());
+    assert!(matches!(result, Err(TransactionError::DuplicateField(102))));
+    Ok(())
+}

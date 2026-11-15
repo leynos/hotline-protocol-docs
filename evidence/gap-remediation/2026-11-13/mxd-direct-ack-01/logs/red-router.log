@@ -1,0 +1,43 @@
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`
+   Compiling mxd v0.1.0 (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd)
+    Finished `test` profile [optimized] target(s) in 50.60s
+     Running unittests src/lib.rs (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/build/mxd/578a1f88c48617fa/out/mxd-578a1f88c48617fa)
+
+running 4 tests
+
+thread 'wireframe::routes::tests::error_cases::direct_ack_parse_error_uses_type_zero_and_correlation' (4055020) panicked at src/wireframe/routes/tests/error_cases.rs:49:5:
+assertion `left == right` failed
+  left: 200
+ right: 0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test wireframe::routes::tests::error_cases::direct_ack_parse_error_uses_type_zero_and_correlation ... FAILED
+
+thread 'wireframe::routes::tests::routing_cases::direct_ack_login_success_uses_type_zero_and_correlation' (4055022) panicked at src/wireframe/routes/tests/routing_cases.rs:46:5:
+assertion `left == right` failed
+  left: 107
+ right: 0
+test wireframe::routes::tests::routing_cases::direct_ack_login_success_uses_type_zero_and_correlation ... FAILED
+
+thread 'wireframe::routes::tests::routing_cases::direct_ack_nonlogin_uses_type_zero_and_correlation' (4055023) panicked at src/wireframe/routes/tests/routing_cases.rs:97:5:
+assertion `left == right` failed
+  left: 200
+ right: 0
+test wireframe::routes::tests::routing_cases::direct_ack_nonlogin_uses_type_zero_and_correlation ... FAILED
+
+thread 'wireframe::routes::tests::routing_cases::direct_ack_login_failure_uses_type_zero_without_extras' (4055021) panicked at src/wireframe/routes/tests/routing_cases.rs:74:5:
+assertion `left == right` failed
+  left: 107
+ right: 0
+test wireframe::routes::tests::routing_cases::direct_ack_login_failure_uses_type_zero_without_extras ... FAILED
+
+failures:
+
+failures:
+    wireframe::routes::tests::error_cases::direct_ack_parse_error_uses_type_zero_and_correlation
+    wireframe::routes::tests::routing_cases::direct_ack_login_failure_uses_type_zero_without_extras
+    wireframe::routes::tests::routing_cases::direct_ack_login_success_uses_type_zero_and_correlation
+    wireframe::routes::tests::routing_cases::direct_ack_nonlogin_uses_type_zero_and_correlation
+
+test result: FAILED. 0 passed; 4 failed; 0 ignored; 0 measured; 405 filtered out; finished in 0.94s
+
+error: test failed, to rerun pass `--lib`

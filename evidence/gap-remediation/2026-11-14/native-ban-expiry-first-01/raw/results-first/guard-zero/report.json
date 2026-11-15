@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "status": "failed",
+  "case": "guard-zero",
+  "profile": "control-only",
+  "full_file_baseline": "not_exercised",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "started_at_utc": "2026-11-14T05:52:17.336569+00:00",
+  "recorded_at_utc": "2026-11-14T05:52:17.338090+00:00",
+  "completed_actions": 0,
+  "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+  "variables": {},
+  "events": [],
+  "frames": [],
+  "streams": {}
+}

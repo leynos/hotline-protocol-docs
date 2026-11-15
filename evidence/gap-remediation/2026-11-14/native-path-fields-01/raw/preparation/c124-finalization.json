@@ -1,0 +1,63 @@
+{
+  "status": "proposed_source_closure_only_no_live_authority",
+  "recorded_at_utc": "2026-11-14T13:44:08.779635+00:00",
+  "protocol_module_count": 37,
+  "protocol_source_hashes": {
+    "cases": "eeca1a3b9c150c25de4c6e3e0d1cef9ff2f187c3dc112f6b1d4025bc5ce4f5b3",
+    "control": "6d7dbe35c919b648b8e0ae6370c3414ab577b949e38a3fd8224e1cb4f60b1371"
+  },
+  "helper_hashes": {
+    "native_emulator_readiness.py": "56200bfe9dcf779bb72e2a711a0ce98bb9351f5f42dc57245a40d1dd603cca7e",
+    "native_capture_receipt.py": "e3faecd2445195cbce776c67ad387727b53efffbe92d88214fbbfb0e1f7e8363",
+    "capture_readiness.py": "7a75f4b78f1255f4486ced44fc5fb8882d6008c7de6844a82f4c107e7299d678"
+  },
+  "proposed_closure_path": "/data/leynos/Projects/mothra/state/native-sessions/native-path-fields-preparation-01/proposed-source-closure.json",
+  "proposed_sources_path": "/data/leynos/Projects/mothra/state/native-sessions/native-path-fields-preparation-01/proposed-sources",
+  "script_sha256sums": {
+    "state/native-sessions/native-path-fields-preparation-01/boot-path-fields-01.sh": "f0ca7d5f2732f847bd36fe792d5e76045399b036044299d752dafde13d5f3c21",
+    "state/native-sessions/native-path-fields-preparation-01/complete-readiness-path-fields-01.sh": "4a6b0c993545f4332e58eedbe259a3e87630a01a3d3f474d8afec106354ad832",
+    "state/native-sessions/native-path-fields-preparation-01/launch-case-path-fields-01.sh": "e49e37c4c29083c3fec7a76f5de6ce29e3b60a61693f012344ad6c9ecff8225a",
+    "state/native-sessions/native-path-fields-preparation-01/run-case-path-fields-01.sh": "62d967635eef1a42dcf5ab0fcf8201356f2460476b98678c215757bcb54c424b",
+    "state/native-sessions/native-path-fields-preparation-01/run18-path-fields-01.sh": "aa31382ffd8b7c4ba2f0610a503cf61fc783f8a87aaa2f2617ef57820167a487",
+    "state/native-sessions/native-path-fields-preparation-01/build-runtime-path-fields-01.py": "0e94391f34ec8c8bc3034945aa6ffaf5f1548b9070c025711dfd783c5299c332",
+    "state/native-sessions/native-path-fields-preparation-01/wait-managed-path-fields-01.py": "54292438ee498b109efe5b97d59fceae9552913e9949ee8c9c28b0cba2e60308",
+    "state/native-sessions/native-path-fields-preparation-01/freeze-proposed-sources.py": "d12aaa7c7da4d5c3d1dc4ec9bbaa15488ce195806a27aa53d00b709d0ea88a6c"
+  },
+  "source_pin_format": "<64 lowercase SHA256><two spaces>scripts/<module>.py; exactly the proposed 37 paths",
+  "approval_pins_absent": [
+    "approved-helpers.sha256",
+    "approved-path-fields-sources.sha256",
+    "approved-source-closure.sha256"
+  ],
+  "synthetic_producer": {
+    "runtime_path": "/data/leynos/Projects/mothra/state/native-sessions/native-path-fields-preparation-01/synthetic-runtime.json",
+    "plan_path": "/data/leynos/Projects/mothra/state/native-sessions/native-path-fields-preparation-01/synthetic-plan/plan.json",
+    "requests_excluding_login": 81,
+    "endpoint": {
+      "host": "127.0.0.1",
+      "port": 15900
+    },
+    "plan_sha256": "a33695446eb81b91e75d45adf4b2b5e4b017f8f15aee99c2d4c708d83907cbb9",
+    "source_hashes": {
+      "plan.json": "a33695446eb81b91e75d45adf4b2b5e4b017f8f15aee99c2d4c708d83907cbb9",
+      "native_path_fields_cases.py": "eeca1a3b9c150c25de4c6e3e0d1cef9ff2f187c3dc112f6b1d4025bc5ce4f5b3",
+      "native_path_fields_control.py": "6d7dbe35c919b648b8e0ae6370c3414ab577b949e38a3fd8224e1cb4f60b1371"
+    },
+    "network_or_image_access": "none"
+  },
+  "api": {
+    "producer": "python3 scripts/native_path_fields_cases.py --runtime SYNTHETIC.json --output ABSENT_PLAN_DIR --port 15900",
+    "runner": "python3 scripts/native_path_fields_control.py --plan-dir PLAN_DIR --capture-receipt ROOT_RECEIPT --binary ORIGINAL_DATA --output ABSENT_RESULT_DIR",
+    "runtime_fixture_profile": "control-only"
+  },
+  "static_checks": [
+    "bash -n five scripts PASS",
+    "ShellCheck five scripts PASS",
+    "AST three Python scripts PASS",
+    "all proposed source/helper copies match current bytes PASS",
+    "script-SHA256SUMS PASS",
+    "standalone closure validator positive and four malformed pins PASS"
+  ],
+  "disk_observation_timeout": "An absent/lazy guest PCAP or bounded observation timeout does not establish emulator termination; inspect and preserve the same actual PID within the fixed epoch; no restart is authorized by this prewrite.",
+  "future_display_and_epoch_absent": true
+}

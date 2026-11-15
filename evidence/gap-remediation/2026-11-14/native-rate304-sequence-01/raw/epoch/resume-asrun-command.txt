@@ -1,0 +1,1 @@
+sudo -n bash state/native-sessions/native-rate304-preparation-03/resume-complete-root.sh 3125063

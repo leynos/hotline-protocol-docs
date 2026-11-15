@@ -1,0 +1,30 @@
+{
+  "utc": "2026-11-13T22:27:56.491460+00:00",
+  "argv": [
+    "sudo",
+    "-n",
+    "systemd-run",
+    "--unit=mothra-native-banlab-c31-ns-capture.service",
+    "--property=Type=exec",
+    "--property=NetworkNamespacePath=/proc/3953986/ns/net",
+    "--property=RuntimeMaxSec=20min",
+    "--property=RemainAfterExit=yes",
+    "--property=Restart=no",
+    "--property=StandardOutput=append:/data/leynos/Projects/mothra/state/native-sessions/native-banlab-boot-c31/ns-recorder.log",
+    "--property=StandardError=append:/data/leynos/Projects/mothra/state/native-sessions/native-banlab-boot-c31/ns-recorder.log",
+    "--no-block",
+    "/usr/sbin/tcpdump",
+    "-i",
+    "lo",
+    "-U",
+    "-n",
+    "-s",
+    "0",
+    "-w",
+    "/data/leynos/Projects/mothra/state/native-sessions/native-banlab-boot-c31/lab-namespace.pcap",
+    "(tcp port 15500 or tcp port 15501 or tcp port 15720 or tcp port 15721)"
+  ],
+  "exit": 0,
+  "stdout": "",
+  "stderr": "Running as unit: mothra-native-banlab-c31-ns-capture.service\n"
+}

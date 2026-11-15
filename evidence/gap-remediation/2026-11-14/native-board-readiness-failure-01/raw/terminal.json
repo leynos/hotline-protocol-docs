@@ -1,0 +1,17 @@
+{
+  "utc": "2026-11-14T08:50:49.721785+00:00",
+  "emulator_pid_gone": true,
+  "original_ticks": {
+    "1099659": "767842",
+    "1012834": "2357813"
+  },
+  "working_fuser_exit": 1,
+  "working_fuser_stdout": "",
+  "lock_exit": 0,
+  "primary_pcap_size": 24,
+  "namespace_pcap_size": 24,
+  "owned_ports_absent": true,
+  "deadline_utc": "2026-11-14T08:56:02.051250+00:00",
+  "retirement_kind": "Native application Quit succeeded; SheepShaver user unit stopped; Mac OS not shut down orderly",
+  "readiness": "first runtime gate metadata failure before socket; corrected unit missing script failure before socket; no third unit due cutoff"
+}

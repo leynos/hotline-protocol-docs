@@ -1,0 +1,90 @@
+{
+  "scope": "A9 native 303 density fixed at 4 active/0 queued, 8/4, 8/8; exact postflight restoration",
+  "date_utc": "2026-11-13",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "emulator_pid": 1099659,
+  "emulator_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "display": ":99",
+  "service": "mothra-sheep-bf808bd28e0d",
+  "fixture": "mothra-race-fixture",
+  "preflight": "../native-diagnostic-existing-preflight-01/manifest.json",
+  "phase1": "../native-diagnostic-existing-01/manifest.json",
+  "capture_count": 2,
+  "captures": [
+    "density/",
+    "postflight/"
+  ],
+  "host_pcaps": [
+    "host-density.pcap",
+    "host-postflight.pcap"
+  ],
+  "guest_snapshots": [
+    "guest-after-density.pcap",
+    "guest-after-postflight.pcap"
+  ],
+  "host_recorder_drop_counts": [
+    0,
+    0
+  ],
+  "settings": {
+    "initial": "screenshots/options-original-open.png",
+    "saved_8_8_5": "screenshots/options-8-8-reopened.png",
+    "restored_100_10_5": "screenshots/options-100-10-reopened.png"
+  },
+  "witness": {
+    "status": "verified fixed density only",
+    "transfer_references": [
+      "00060d09",
+      "00072ca1",
+      "00083ec7",
+      "00093e87",
+      "000af1b3",
+      "000bf1dd",
+      "000c8151",
+      "000d3c23",
+      "000e751f",
+      "000fced9",
+      "0010609f",
+      "0011777f",
+      "0012c34b",
+      "00137f95",
+      "0014e8ab",
+      "00150c9b"
+    ],
+    "queued_initial_116": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "field101_bytes_at_fixed_points": [
+      417,
+      647,
+      763,
+      303
+    ],
+    "maximum_field101_bytes": 763,
+    "below_1024_source_destination_by_bytes": 261,
+    "boundary_reached": false,
+    "post_cancel_active_waiting_rows": [
+      0,
+      0
+    ]
+  },
+  "verification": [
+    "verification-density.json",
+    "verification-postflight.json",
+    "verification-packets.json",
+    "verify_density.py"
+  ],
+  "limits": [
+    "No near-1024-byte native text witness: 8/8 measured only 763 bytes",
+    "No exact-text release policy choice",
+    "No full-transfer delivery or restart-durability claim from these unread data sockets",
+    "Host/guest data payload tails differ; each is separately retained and hashed"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "argv": [
+    "cargo",
+    "nextest",
+    "run",
+    "--locked",
+    "--no-default-features",
+    "--features",
+    "postgres test-support legacy-networking",
+    "--test",
+    "wireframe_compat_guardrails_bdd",
+    "--test-threads",
+    "1",
+    "-E",
+    "test(wireframe_compat_guardrails_login_failure_does_not_include_banner_fields)"
+  ],
+  "env_overrides": {
+    "CARGO_TARGET_DIR": "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target",
+    "CARGO_NET_OFFLINE": "true",
+    "CARGO_BUILD_JOBS": "1",
+    "PG_EMBED_ROOT": "/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/c8-postgres/root-pair",
+    "PG_RUNTIME_DIR": "/var/tmp/pg-embed-1000/install",
+    "NEXTEST_PROFILE": "postgres",
+    "RUSTFLAGS": "-D warnings -Zthreads=8 -Clink-arg=-fuse-ld=mold"
+  },
+  "test_start_ns": [
+    1794594592335158276,
+    1794594592335930997
+  ],
+  "test_exit_codes": [
+    0,
+    0
+  ],
+  "watcher_exit_code": 0,
+  "test_logs": [
+    "warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`\nwarning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`\n    Blocking waiting for file lock on package cache\n    Blocking waiting for file lock on package cache\n    Blocking waiting for file lock on package cache\nwarning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`\n    Blocking waiting for file lock on package cache\n    Blocking waiting for file lock on package cache\n    Blocking waiting for file lock on build directory\n    Finished `test` profile [optimized] target(s) in 0.86s\nwarning: could not find build script output file at /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/build/mxd/05600306cc430927/output\nwarning: could not find build script output file at /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/build/mxd/05600306cc430927/output\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n Nextest run ID fa8bc28a-0d0d-41da-b2c5-3cd2a042a204 with nextest profile: postgres\n    Starting 1 test across 1 binary (5 tests skipped)\nwarning: could not find build script output file at /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/build/mxd/05600306cc430927/output\n        PASS [   2.571s] (1/1) mxd::wireframe_compat_guardrails_bdd wireframe_compat_guardrails_feature_scenarios::wireframe_compat_guardrails_login_failure_does_not_include_banner_fields\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n     Summary [   2.572s] 1 test run: 1 passed, 5 skipped\n",
+    "warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`\nwarning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`\n    Blocking waiting for file lock on package cache\n    Blocking waiting for file lock on package cache\nwarning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`\n    Blocking waiting for file lock on package cache\n    Blocking waiting for file lock on package cache\n    Finished `test` profile [optimized] target(s) in 0.67s\nwarning: could not find build script output file at /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/build/mxd/05600306cc430927/output\nwarning: could not find build script output file at /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/build/mxd/05600306cc430927/output\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n Nextest run ID 9b3d60b0-ca48-4576-beae-38e25ad1f6fc with nextest profile: postgres\n    Starting 1 test across 1 binary (5 tests skipped)\nwarning: could not find build script output file at /data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/build/mxd/05600306cc430927/output\n        PASS [   2.578s] (1/1) mxd::wireframe_compat_guardrails_bdd wireframe_compat_guardrails_feature_scenarios::wireframe_compat_guardrails_login_failure_does_not_include_banner_fields\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n     Summary [   2.581s] 1 test run: 1 passed, 5 skipped\n"
+  ]
+}

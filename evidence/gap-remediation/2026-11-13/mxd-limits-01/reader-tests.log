@@ -1,0 +1,11 @@
+warning: unused config key `unstable.no-embed-metadata` in `/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mxd/.cargo/config.toml`
+    Finished `test` profile [optimized] target(s) in 0.35s
+     Running unittests src/lib.rs (/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-mxd/mothra/state/delegation/mxd-target/debug/build/mxd/29c43d9412d22c7d/out/mxd-29c43d9412d22c7d)
+
+running 3 tests
+test transaction::reader::tests::rejects_total_exceeding_stream_limit ... ok
+test transaction::reader::tests::rejects_mismatched_continuation_headers ... ok
+test transaction::reader::tests::streams_large_fragmented_payload ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 401 filtered out; finished in 0.04s
+

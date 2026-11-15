@@ -1,0 +1,15 @@
+{
+  "status": "failed",
+  "failed_original": {
+    "manifest": "/data/leynos/Projects/mothra/evidence/gap-remediation/2026-11-14/native-alias-preparation-04-failure-01/manifest.json",
+    "manifest_sha256": "a88bd24e000ca0dfd470456a814f66f7eed3eda0a407b7bd2d9c42b8f1a89512",
+    "failed_receipt_copy": "/data/leynos/Projects/mothra/evidence/gap-remediation/2026-11-14/native-alias-preparation-04-failure-01/raw/stopped-preparation/preflight.json",
+    "failed_receipt_sha256": "df48030fca202d4a2c4b12632909664cde86ecf7d53e22159df55c5e8a30b9ae"
+  },
+  "corrected_source_sha256": "210ff9725513bce3d4f8391f8fbf8912dc26e4b29b21e898e4f0322d63e5dd23",
+  "original_ticks_before": {
+    "1099659": "767842",
+    "1012834": "2357813"
+  },
+  "error": "RuntimeError: free 8822157312 < required 10536091648"
+}

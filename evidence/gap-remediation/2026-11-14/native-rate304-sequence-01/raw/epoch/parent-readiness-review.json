@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "remaining_seconds": 423.544648,
+  "emulator_pid": 3125063,
+  "deadline": "2026-11-14T11:50:21.652926+00:00",
+  "plan_version": 1,
+  "schedule": {
+    "schema_version": 2,
+    "flows": [
+      "observer",
+      "paced",
+      "burst",
+      "probe"
+    ],
+    "preflight": "separate unchanged 18-action control before runner contact",
+    "max_connections_including_preflight": 5,
+    "max_simultaneous": 3,
+    "accepted_per_subject": 26,
+    "minimum_subject_quiet_seconds": 70,
+    "maximum_26_trial_seconds": 20,
+    "hard_case_seconds": 210,
+    "minimum_epoch_remaining_seconds": 390,
+    "max_frames": 256,
+    "max_bytes": 262144,
+    "max_tail_bytes_per_flow": 65536,
+    "observer_500_interval_seconds": 5,
+    "barrier": "same-subject numbered 500 ACK after each accepted 304",
+    "phase_mode": "send 26 ordered 304+500 pairs, then concurrently drain both sockets",
+    "phase_completion": "26 subject301, 26 observer301 and 26 numbered500 ACKs within 20 host seconds",
+    "read_mode": "bounded select drain of every open socket, no global frame order",
+    "terminal_mode": "bounded EOF/RST/quiet with all observed raw tails",
+    "postflight": "retained observer controls 348/200/206/300/303 only"
+  }
+}

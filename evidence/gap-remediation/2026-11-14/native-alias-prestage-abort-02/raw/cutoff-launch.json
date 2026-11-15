@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "systemd-run",
+    "--user",
+    "--unit=mothra-native-alias-live-04-cutoff",
+    "--on-calendar=2026-11-14 22:07:20.932693 UTC",
+    "--timer-property=AccuracySec=1ms",
+    "/usr/bin/systemctl",
+    "--user",
+    "stop",
+    "mothra-sheep-9865cb3ba7cd.service"
+  ],
+  "started_utc": "2026-11-14T21:39:14.750718+00:00",
+  "target_unit": "mothra-sheep-9865cb3ba7cd.service"
+}

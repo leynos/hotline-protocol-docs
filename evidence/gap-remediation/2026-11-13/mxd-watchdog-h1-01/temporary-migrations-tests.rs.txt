@@ -1,0 +1,161 @@
+//! Tests for migration timeout configuration and watchdog cancellation.
+
+use std::time::Duration;
+
+use diesel::result::Error as DieselError;
+use rstest::rstest;
+use tokio_util::sync::CancellationToken;
+
+use super::{DEFAULT_MIGRATION_TIMEOUT, migration_timeout, run_with_migration_timeout};
+
+#[rstest]
+#[case(None, DEFAULT_MIGRATION_TIMEOUT)]
+#[case(Some(0), DEFAULT_MIGRATION_TIMEOUT)]
+#[case(Some(7), Duration::from_secs(7))]
+fn migration_timeout_maps_configuration_to_duration(
+    #[case] input: Option<u64>,
+    #[case] expected: Duration,
+) {
+    assert_eq!(migration_timeout(input), expected);
+}
+
+#[tokio::test]
+async fn migration_watchdog_allows_work_that_finishes_in_time() {
+    let result =
+        run_with_migration_timeout(Duration::from_secs(1), CancellationToken::new(), async {
+            tokio::time::sleep(Duration::from_millis(50)).await;
+            Ok::<(), DieselError>(())
+        })
+        .await;
+
+    let inner = result.expect("watchdog should not trip for completed work");
+    assert_eq!(inner.expect("inner migration work should succeed"), ());
+}
+
+#[tokio::test]
+async fn migration_watchdog_cancels_work_and_reports_the_applied_timeout() {
+    let err =
+        run_with_migration_timeout(Duration::from_millis(1), CancellationToken::new(), async {
+            tokio::time::sleep(Duration::from_millis(50)).await;
+            Ok::<(), DieselError>(())
+        })
+        .await
+        .expect_err("cancelled work should time out");
+
+    let DieselError::SerializationError(inner) = err else {
+        panic!("timeout should be wrapped as a serialization error");
+    };
+
+    assert_eq!(inner.to_string(), "migration execution exceeded 1ms");
+}
+
+#[tokio::test(flavor = "current_thread")]
+async fn diagnostic_delayed_watchdog_poll_order() {
+    use std::{
+        future::{Future, poll_fn},
+        sync::{
+            Arc,
+            atomic::{AtomicU64, Ordering},
+        },
+        task::Poll,
+        time::Instant,
+    };
+
+    let immediate = tokio::time::timeout(
+        Duration::from_secs(1),
+        run_with_migration_timeout(Duration::from_secs(1), CancellationToken::new(), async {
+            Ok::<(), DieselError>(())
+        }),
+    )
+    .await
+    .expect("immediate control must finish")
+    .expect("watchdog must not fire")
+    .expect("immediate work must succeed");
+    assert_eq!(immediate, ());
+
+    let start = Instant::now();
+    let work_ready_us = Arc::new(AtomicU64::new(0));
+    let recorded_ready = Arc::clone(&work_ready_us);
+    let mut guarded = Box::pin(run_with_migration_timeout(
+        Duration::from_millis(1),
+        CancellationToken::new(),
+        async move {
+            tokio::time::sleep(Duration::from_millis(50)).await;
+            recorded_ready.store(start.elapsed().as_micros() as u64, Ordering::SeqCst);
+            Ok::<(), DieselError>(())
+        },
+    ));
+    let mut one_ms_probe = Box::pin(tokio::time::sleep(Duration::from_millis(1)));
+    let mut fifty_ms_probe = Box::pin(tokio::time::sleep(Duration::from_millis(50)));
+    poll_fn(|cx| {
+        assert!(guarded.as_mut().poll(cx).is_pending());
+        assert!(one_ms_probe.as_mut().poll(cx).is_pending());
+        assert!(fifty_ms_probe.as_mut().poll(cx).is_pending());
+        Poll::Ready(())
+    })
+    .await;
+    println!("H1 first_pending_us={}", start.elapsed().as_micros());
+
+    std::thread::sleep(Duration::from_millis(100));
+    println!("H1 after_pause_us={}", start.elapsed().as_micros());
+    tokio::time::timeout(
+        Duration::from_secs(1),
+        tokio::time::sleep(Duration::from_millis(2)),
+    )
+    .await
+    .expect("timer driver must advance");
+    let (one_ready, fifty_ready) = poll_fn(|cx| {
+        Poll::Ready((
+            one_ms_probe.as_mut().poll(cx).is_ready(),
+            fifty_ms_probe.as_mut().poll(cx).is_ready(),
+        ))
+    })
+    .await;
+    println!(
+        "H1 probe_at_us={} one_ready={} fifty_ready={}",
+        start.elapsed().as_micros(),
+        one_ready,
+        fifty_ready
+    );
+    let result = tokio::time::timeout(Duration::from_secs(1), guarded)
+        .await
+        .expect("guarded work must finish");
+    let work_won = matches!(result, Ok(Ok(())));
+    println!(
+        "H1 result_at_us={} work_ready_us={} work_won={} result={result:?}",
+        start.elapsed().as_micros(),
+        work_ready_us.load(Ordering::SeqCst),
+        work_won
+    );
+
+    let cancel = CancellationToken::new();
+    let wait_for_cancel = cancel.clone();
+    let mut waiting = Box::pin(run_with_migration_timeout(
+        Duration::from_millis(1),
+        cancel.clone(),
+        async move {
+            wait_for_cancel.cancelled().await;
+            Ok::<(), DieselError>(())
+        },
+    ));
+    poll_fn(|cx| {
+        assert!(waiting.as_mut().poll(cx).is_pending());
+        Poll::Ready(())
+    })
+    .await;
+    std::thread::sleep(Duration::from_millis(100));
+    tokio::time::sleep(Duration::from_millis(2)).await;
+    let cancel_result = tokio::time::timeout(Duration::from_secs(1), waiting)
+        .await
+        .expect("cancellation control must finish");
+    let cancel_timed_out = matches!(cancel_result, Err(DieselError::SerializationError(_)));
+    println!(
+        "H1 cancellation_control_timed_out={} token_cancelled={} result={cancel_result:?}",
+        cancel_timed_out,
+        cancel.is_cancelled()
+    );
+
+    assert!(one_ready && fifty_ready, "both timer probes must be ready");
+    assert!(cancel_timed_out && cancel.is_cancelled());
+    assert!(work_won, "delayed work must win the current select tie");
+}

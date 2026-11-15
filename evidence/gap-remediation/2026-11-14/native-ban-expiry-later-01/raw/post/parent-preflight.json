@@ -1,0 +1,16 @@
+{
+  "observed_at_utc": "2026-11-14T06:28:12.913437+00:00",
+  "status": "parent_actual_runtime_capture_and_timing_gates_pass",
+  "deadline_utc": "2026-11-14T06:38:00+00:00",
+  "protocol_socket_actions": 0,
+  "timing": {
+    "phase": "post",
+    "host_elapsed_seconds": 1991.28137,
+    "host_window": [
+      1900,
+      2400
+    ],
+    "native_getdatetime_seconds_proven": false,
+    "interpretation": "host-relative bracket only; guest clock progression requires separately retained read-only witness"
+  }
+}

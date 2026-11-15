@@ -1,0 +1,26 @@
+{
+  "base.dsk": {
+    "exit": 1,
+    "stdout": "",
+    "stderr": "",
+    "inode": 1687368834
+  },
+  "working.dsk": {
+    "exit": 1,
+    "stdout": "",
+    "stderr": "",
+    "inode": 1687370702
+  },
+  "rom": {
+    "exit": 1,
+    "stdout": "",
+    "stderr": "",
+    "inode": 1687341713
+  },
+  "pid_1099659_tick": "767842",
+  "pid_1012834_tick": "2357813",
+  "future_display_absent": true,
+  "future_epoch_absent": true,
+  "ports_free": true,
+  "recorded_at_utc": "2026-11-14T11:21:14.396843+00:00"
+}

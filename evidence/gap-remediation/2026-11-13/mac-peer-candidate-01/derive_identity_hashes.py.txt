@@ -1,0 +1,26 @@
+from __future__ import annotations
+
+import hashlib
+import json
+from pathlib import Path
+
+root = Path(__file__).parent
+identity = json.loads((root / "mac-identity.json").read_text())
+output = {}
+for name, item in identity.items():
+    sidecar = (root / "extracted" / "Hotline Client 1.9.2" / ("._" + name)).read_bytes()
+    count = int.from_bytes(sidecar[24:26], "big")
+    finder = None
+    for i in range(count):
+        at = 26 + i * 12
+        entry_id = int.from_bytes(sidecar[at:at + 4], "big")
+        offset = int.from_bytes(sidecar[at + 4:at + 8], "big")
+        length = int.from_bytes(sidecar[at + 8:at + 12], "big")
+        if entry_id == 9:
+            finder = sidecar[offset:offset + length]
+    if finder is None or len(finder) < 32:
+        raise ValueError(f"missing Finder info: {name}")
+    vers = {str(v["id"]): hashlib.sha256(bytes.fromhex(v["raw_hex"])).hexdigest() for v in item["vers_resources"]}
+    output[name] = {"appledouble_entry9_bytes": len(finder), "appledouble_entry9_sha256": hashlib.sha256(finder).hexdigest(), "finder_first32_sha256": hashlib.sha256(finder[:32]).hexdigest(), "vers_payload_sha256_by_id": vers}
+(root / "finder-vers-hashes.json").write_text(json.dumps(output, indent=2, sort_keys=True) + "\n")
+print(json.dumps(output, indent=2, sort_keys=True))

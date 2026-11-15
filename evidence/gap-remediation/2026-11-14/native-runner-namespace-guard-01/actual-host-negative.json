@@ -1,0 +1,8 @@
+{
+  "recorded_at_utc": "2026-11-14T06:03:49.146392+00:00",
+  "status": "rejected_before_capture_gate_and_protocol_socket_work",
+  "actual_runner_namespace": 4026531840,
+  "expected_namespace": 4026533397,
+  "error": "Runner is not in the emulator network namespace",
+  "note": "Deliberate negative check after first epoch; stopped capture/lock receipts are not represented as live."
+}

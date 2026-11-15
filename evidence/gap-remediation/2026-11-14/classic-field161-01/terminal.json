@@ -1,0 +1,179 @@
+{
+  "recorded_utc": "2026-11-14T02:24:33.656406+00:00",
+  "live_start_utc": "2026-11-14T02:11:00Z",
+  "live_end_utc": "2026-11-14T02:22:15Z",
+  "fixed_group_deadline_utc": "2026-11-14T02:23:00Z",
+  "originals": {
+    "client_emulator_pid": 1012834,
+    "server_emulator_pid": 1099659,
+    "emulator_exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+    "client_netns_inode": 4026532479,
+    "host_netns_inode": 4026531840,
+    "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "sources": {
+    "proxy_sha256": "44bb68fe0bc464874aa455e823ca08b00704b88f5064d776119fcaf0682a5c7e",
+    "capture_gate_sha256": "7a75f4b78f1255f4486ced44fc5fb8882d6008c7de6844a82f4c107e7299d678",
+    "x11_input_sha256": "55a866a8a2d91aa4947078d938eeaecb14df9b622e75c515e313c6804250897a"
+  },
+  "captures": {
+    "host_unit": "mothra-b52-host-capture.service",
+    "host_pid": 3394965,
+    "namespace_unit": "mothra-b52-ns-capture.service",
+    "namespace_pid": 3394975,
+    "end_states": "inactive MainPID=0, PIDs absent",
+    "readiness_receipts": [
+      "host-ready-launch.json",
+      "ns-ready-launch.json",
+      "host-ready-before-a7.json",
+      "ns-ready-before-a7.json",
+      "omit-161/host-ready-before-connect.json",
+      "omit-161/ns-ready-before-connect.json",
+      "one-byte-161/host-ready-before-connect.json",
+      "one-byte-161/ns-ready-before-connect.json",
+      "four-byte-161/host-ready-before-connect.json",
+      "four-byte-161/ns-ready-before-connect.json"
+    ]
+  },
+  "a7": {
+    "preflight": {
+      "utc": "2026-11-14T02:12:09.385825+00:00",
+      "status": "completed",
+      "actions": 29,
+      "oracle": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+      "agreement_bytes": 242,
+      "agreement_sha256": "5288d060a4270cf6ae899302c52b2ac784b30dea99f01d2d4cd1c1037c4bd1c7",
+      "accounts": 2,
+      "files": 41,
+      "filp_bytes": 1049073,
+      "filp_sha256": "7d1f5bf5e2b69b8a18906633ce2ef550876b78252c0639e7d36eb61142787ab8",
+      "full_filp_equal_b47": true,
+      "static_frames_equal_b47": [
+        4,
+        5,
+        6,
+        8,
+        10,
+        12,
+        16,
+        23,
+        27
+      ]
+    },
+    "postflight": {
+      "utc": "2026-11-14T02:21:23.838319+00:00",
+      "status": "completed",
+      "actions": 29,
+      "oracle": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+      "agreement_bytes": 242,
+      "agreement_sha256": "5288d060a4270cf6ae899302c52b2ac784b30dea99f01d2d4cd1c1037c4bd1c7",
+      "accounts": 2,
+      "files": 41,
+      "filp_bytes": 1049073,
+      "filp_sha256": "7d1f5bf5e2b69b8a18906633ce2ef550876b78252c0639e7d36eb61142787ab8",
+      "full_filp_equal_preflight": true,
+      "static_frames_equal_preflight": [
+        4,
+        5,
+        6,
+        8,
+        10,
+        12,
+        16,
+        23,
+        27
+      ]
+    }
+  },
+  "case_results": {
+    "omit-161": {
+      "ack_fields": {
+        "160": "00be"
+      },
+      "request_types": [
+        107,
+        121,
+        300,
+        212
+      ],
+      "reply_types": [
+        0,
+        109,
+        0,
+        354,
+        122,
+        0,
+        0
+      ],
+      "data_bytes": [
+        16,
+        58
+      ],
+      "cutoff_teardown_seconds": 28.281546,
+      "ui": "Agreement accepted once; Connected and roster transfer observed; banner Loading; Connection Closed after intentional cutoff"
+    },
+    "one-byte-161": {
+      "ack_fields": {
+        "160": "00be",
+        "161": "00"
+      },
+      "request_types": [
+        107,
+        121,
+        300,
+        212
+      ],
+      "reply_types": [
+        0,
+        109,
+        0,
+        354,
+        122,
+        0,
+        0
+      ],
+      "data_bytes": [
+        16,
+        58
+      ],
+      "cutoff_teardown_seconds": 28.089096,
+      "ui": "Agreement accepted once; Connected and roster transfer observed; banner Loading; Connection Closed after intentional cutoff"
+    },
+    "four-byte-161": {
+      "ack_fields": {
+        "160": "00be",
+        "161": "00000000"
+      },
+      "request_types": [
+        107,
+        121,
+        300,
+        212
+      ],
+      "reply_types": [
+        0,
+        109,
+        0,
+        354,
+        122,
+        0,
+        0
+      ],
+      "data_bytes": [
+        16,
+        58
+      ],
+      "cutoff_teardown_seconds": 28.247957,
+      "ui": "Agreement accepted once; Connected and roster transfer observed; banner Loading; Connection Closed after intentional cutoff"
+    }
+  },
+  "pcap_inventory": "pcap-inventory.json",
+  "offline_parity": "offline-parity.json",
+  "limitations": [
+    "Finite three-case Classic client observation only",
+    "ACK+28s proxy cutoff is not client rejection",
+    "Banner image UI decode completion not proved",
+    "No field162 or ambiguous text mutation",
+    "No claim of full interoperability profile"
+  ]
+}

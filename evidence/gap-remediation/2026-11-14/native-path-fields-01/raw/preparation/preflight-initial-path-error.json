@@ -1,0 +1,8 @@
+{
+  "started_at_utc": "2026-11-14T12:58:50.557300+00:00",
+  "scope": "C122 stopped path-fields-01 preparation only",
+  "status": "failed",
+  "error": "RuntimeError: Owned runtime/display or X socket already exists",
+  "recorded_at_utc": "2026-11-14T12:58:50.557377+00:00",
+  "commands": []
+}

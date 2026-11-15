@@ -1,0 +1,21 @@
+{
+  "utc": "2026-11-14T03:09:48.148001+00:00",
+  "unit": "mothra-native-control-c55-host.service",
+  "pid": 4123885,
+  "start_ticks": 5024943,
+  "netns_inode": 4026531840,
+  "fd": 5,
+  "capture": "/data/leynos/Projects/mothra/state/native-sessions/native-ban-control-c55/primary-syn.pcap",
+  "dev": 2097,
+  "inode": 5435301468,
+  "header24": "d4c3b2a10200040000000000000000000000040001000000",
+  "deadline_utc": "2026-11-14T03:12:48.001842+00:00",
+  "unit_properties": {
+    "ActiveState": "active",
+    "SubState": "running",
+    "ActiveEnterTimestampMonotonic": "50249445334",
+    "RuntimeMaxUSec": "15min",
+    "MainPID": "4123885",
+    "KillMode": "control-group"
+  }
+}

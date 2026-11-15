@@ -1,0 +1,16 @@
+[
+  {
+    "id": "B04-D-1002d830",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002d830"
+    }
+  },
+  {
+    "id": "B04-D-1002ddf0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002ddf0"
+    }
+  }
+]

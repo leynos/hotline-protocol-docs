@@ -1,0 +1,30 @@
+{
+  "captured_at_utc": "2026-11-14T05:23:13.946117+00:00",
+  "query": {
+    "id": "EP-M-100893ac",
+    "tool": "read_memory",
+    "arguments": {
+      "address": "100893ac",
+      "length": 16
+    }
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"address\": \"100893ac\",\n  \"length\": 16,\n  \"hex\": \"10 08 a4 68 10 08 a4 70 10 08 a4 78 10 08 a4 80\",\n  \"ascii\": \"...h...p...x....\",\n  \"gaps\": []\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "address": "100893ac",
+      "length": 16,
+      "hex": "10 08 a4 68 10 08 a4 70 10 08 a4 78 10 08 a4 80",
+      "ascii": "...h...p...x....",
+      "gaps": []
+    },
+    "isError": false
+  }
+}

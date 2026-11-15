@@ -1,0 +1,6 @@
+2026-11-13 20:50:44 UTC
+State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess                                      
+LISTEN 0      32         127.0.0.1:15501      0.0.0.0:*    users:(("python3",pid=1012812,fd=8))        
+LISTEN 0      32         127.0.0.1:15500      0.0.0.0:*    users:(("python3",pid=1012812,fd=6))        
+LISTEN 0      128        127.0.0.1:15650      0.0.0.0:*    users:(("mxd-wireframe-s",pid=2275040,fd=9))
+Iface	Destination	Gateway 	Flags	RefCnt	Use	Metric	Mask		MTU	Window	IRTT                                                       

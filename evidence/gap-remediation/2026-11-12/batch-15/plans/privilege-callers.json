@@ -1,0 +1,29 @@
+[
+  {
+    "id": "B15-C-10008a90",
+    "tool": "get_function_calls",
+    "arguments": {
+      "address": "10008a90",
+      "direction": "callers",
+      "limit": 1000
+    }
+  },
+  {
+    "id": "B15-C-10008ab0",
+    "tool": "get_function_calls",
+    "arguments": {
+      "address": "10008ab0",
+      "direction": "callers",
+      "limit": 1000
+    }
+  },
+  {
+    "id": "B15-C-10008ad0",
+    "tool": "get_function_calls",
+    "arguments": {
+      "address": "10008ad0",
+      "direction": "callers",
+      "limit": 1000
+    }
+  }
+]

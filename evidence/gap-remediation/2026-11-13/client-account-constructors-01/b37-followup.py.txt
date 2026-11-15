@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+"""One remaining read-only B37 content query against the private client project."""
+import asyncio,hashlib,json,os,time
+from datetime import datetime,timedelta,timezone
+from pathlib import Path
+from mcp import ClientSession,StdioServerParameters
+from mcp.client.stdio import stdio_client
+R=Path('/data/leynos/Projects/mothra');B=R/'state/client-account-pef-01';p=B/'project'
+binary=R/'state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic';jar=R/'tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar'
+assert hashlib.sha256(binary.read_bytes()).hexdigest()=='7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315'
+assert p.exists()
+async def main():
+ started=time.monotonic();env=dict(os.environ)
+ env.update(JAVA_HOME=str(R/'tools/jdk-25.0.5+8'),GHIDRA_INSTALL_DIR=str(R/'tools/ghidra_12.2_PUBLIC'),XDG_CONFIG_HOME=str(B/'config'),XDG_CACHE_HOME=str(B/'cache'),XDG_DATA_HOME=str(B/'data'),TMPDIR=str(B/'tmp'),JAVA_TOOL_OPTIONS=f'-Duser.home={B / "home"} -Djava.io.tmpdir={B / "tmp"}')
+ env['PATH']=str(R/'tools/jdk-25.0.5+8/bin')+os.pathsep+env['PATH']
+ args=['--headless','--binary',str(binary),'--project',str(p),'--project-name','hotline-client-classic-01','--no-analyze','--discard','--language','PowerPC:BE:32:default','--compiler','default','--extension-jar',str(jar),'--ready-timeout','120']
+ params=StdioServerParameters(command=str(R/'tools/ghidramcp/.venv/bin/ghidra-mcp'),args=args,env=env,cwd=str(R))
+ report={'started_at_utc':datetime.now(timezone.utc).isoformat(),'command':params.command,'args':args,'queries':[]};out=B/'followup.json';out.write_text(json.dumps(report,indent=2)+'\n')
+ async def query(s,name,arguments):
+  result=await s.call_tool(name,arguments,read_timeout_seconds=timedelta(seconds=150));record={'tool':name,'arguments':arguments,'result':result.model_dump(mode='json')};report['queries'].append(record);out.write_text(json.dumps(report,indent=2)+'\n');assert not result.isError and result.structuredContent is not None;return result.structuredContent
+ with (B/'followup.stderr.log').open('w') as err:
+  async with (stdio_client(params,errlog=err) as (reader,writer),ClientSession(reader,writer,read_timeout_seconds=timedelta(seconds=150)) as s):
+   await s.initialize();before=await query(s,'get_program_info',{});assert before['sha256']=='7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315'
+   await query(s,'decompile_function_by_address',{'address':'1000c210'})
+   after=await query(s,'get_program_info',{});assert before==after
+ report['finished_at_utc']=datetime.now(timezone.utc).isoformat();report['elapsed_seconds']=time.monotonic()-started;out.write_text(json.dumps(report,indent=2)+'\n')
+ print('one bounded followup complete')
+asyncio.run(main())

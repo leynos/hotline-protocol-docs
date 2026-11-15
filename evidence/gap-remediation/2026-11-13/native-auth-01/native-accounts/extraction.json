@@ -1,0 +1,209 @@
+{
+  "recorded_at_utc": "2026-11-13T00:01:31.319017+00:00",
+  "image": "state/mac-runtime/hotline19/working.dsk",
+  "tool_sha256": {
+    "istat": "f87c0cee5e263c55440c19fb3e478b80e33dcbae223388b5f83913ceb5fc4499",
+    "icat": "ab73038eda8ed52697c5d94874bbc0a19285184253e68a78f6e4ab347a042bba"
+  },
+  "catalog_range": [
+    11283,
+    11292
+  ],
+  "roots": [
+    "/Hotline19/Users/m-auth-cr",
+    "/Hotline19/Users/m-auth-a\u0308",
+    "/Hotline19/Users/m-auth-aaaaaaaaaaaaaaaaaaaaaaaa",
+    "/Hotline19/Users/m-auth-bypass",
+    "/Hotline19/Users/guest"
+  ],
+  "method": "Read-only direct catalogue observations. Positive paths verified by istat before fork reads. Not an exhaustive directory listing, path-absence proof, protocol certification or restart-durability result.",
+  "probes": [
+    {
+      "catalog": 11283,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11284,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11285,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11286,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11287,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11288,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11289,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11290,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11291,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11292,
+      "exit_code": 0,
+      "stderr": ""
+    }
+  ],
+  "records": [
+    {
+      "path": "/Hotline19/Users/m-auth-cr",
+      "key": "catalog-11283",
+      "catalog": 11283,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-auth-cr/UserData",
+      "key": "catalog-11284",
+      "catalog": 11284,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Users/m-auth-a\u0308",
+      "key": "catalog-11285",
+      "catalog": 11285,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-auth-a\u0308/UserData",
+      "key": "catalog-11286",
+      "catalog": 11286,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Users/m-auth-aaaaaaaaaaaaaaaaaaaaaaaa",
+      "key": "catalog-11287",
+      "catalog": 11287,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-auth-aaaaaaaaaaaaaaaaaaaaaaaa/UserData",
+      "key": "catalog-11288",
+      "catalog": 11288,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Users/m-auth-bypass",
+      "key": "catalog-11289",
+      "catalog": 11289,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/m-auth-bypass/UserData",
+      "key": "catalog-11290",
+      "catalog": 11290,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "/Hotline19/Users/guest",
+      "key": "catalog-11291",
+      "catalog": 11291,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "/Hotline19/Users/guest/UserData",
+      "key": "catalog-11292",
+      "catalog": 11292,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 734,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    }
+  ]
+}

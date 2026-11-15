@@ -1,0 +1,7 @@
+INFO:ghidra_mcp.headless:Starting Ghidra from /data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC
+Picked up JAVA_TOOL_OPTIONS: -Duser.home=/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-account/mothra/state/oracle-headless-01/home -Djava.io.tmpdir=/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-account/mothra/state/oracle-headless-01/tmp
+Picked up JAVA_TOOL_OPTIONS: -Duser.home=/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-account/mothra/state/oracle-headless-01/home -Djava.io.tmpdir=/data/leynos/Projects/mothra/state/delegation/workspaces/batch-02-account/mothra/state/oracle-headless-01/tmp
+INFO:ghidra_mcp.headless:Using GhidraMCP classes from /data/leynos/Projects/mothra/tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar
+INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest
+INFO:ghidra_mcp.headless:Opening existing program /HLserver19.pef from the project
+INFO:ghidra_mcp.headless:Serving HLserver19.pef on http://127.0.0.1:44647/

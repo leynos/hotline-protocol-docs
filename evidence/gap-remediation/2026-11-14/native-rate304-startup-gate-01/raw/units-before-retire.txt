@@ -1,0 +1,9 @@
+Id=mothra-native-rate304-r02-lease.service
+ActiveState=active
+MainPID=2626380
+Result=success
+
+Id=mothra-native-rate304-r02-host.service
+ActiveState=active
+MainPID=2626419
+Result=success

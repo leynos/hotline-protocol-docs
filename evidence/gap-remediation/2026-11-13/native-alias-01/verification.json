@@ -1,0 +1,15 @@
+{
+  "completed_reports": 44,
+  "failed_reports": 1,
+  "paired_connections": 66,
+  "metadata_kinds": 11,
+  "creation_successes": 13,
+  "creation_failures": 6,
+  "oracle_queries": 14,
+  "catalogue": {
+    "positive_before": 33,
+    "positive_after": 3,
+    "cleanup_disk_coverage": "Partial; not a persistence or exhaustive Trash proof"
+  },
+  "scope": "Native alias observations; no genuine deleted-target fixture, exhaustive filter/order policy, restart durability or mxd conformance proof"
+}

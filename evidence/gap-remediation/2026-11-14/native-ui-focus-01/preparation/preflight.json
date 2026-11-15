@@ -1,0 +1,32 @@
+{
+  "utc": "2026-11-14T00:35:27.005558+00:00",
+  "source": {
+    "base.dsk": {
+      "path": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/base.dsk",
+      "inode": 6189872880,
+      "device": 2097,
+      "mode": "0o444",
+      "mtime_ns": 1794582239465616991,
+      "size": 8388608000,
+      "sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910"
+    },
+    "rom": {
+      "path": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery/rom",
+      "inode": 6177692692,
+      "device": 2097,
+      "mode": "0o644",
+      "mtime_ns": 1794582239141617023,
+      "size": 1945746,
+      "sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd"
+    }
+  },
+  "free_bytes": 303650320384,
+  "display": 112,
+  "frontend_ports": [
+    15750,
+    15751,
+    15752,
+    15753
+  ],
+  "source_helper_sha256": "c507d264cc0bcebdb1a8a456d6076294f805ef91f03e53fd5a8478507421d88b"
+}

@@ -1,0 +1,52 @@
+{
+  "at_utc": "2026-11-13T15:15:02.365734+00:00",
+  "phase": "preboot only; no display/boot/native traffic",
+  "first_gate_failure": "/data/leynos/Projects/mothra/state/native-sessions/recovery-20261113-01/first-gate-failure.json",
+  "gate": "/data/leynos/Projects/mothra/state/native-sessions/recovery-20261113-01/preboot-gate.json",
+  "runtime": "/data/leynos/Projects/mothra/state/mac-runtime/hotline22-recovery",
+  "assets": {
+    "rom_sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+    "base_disk_sha256": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910",
+    "source_rom": "/data/leynos/Projects/mothra/state/mac-runtime/hotline21/rom",
+    "source_disk": "/data/leynos/Projects/mothra/state/mac-runtime/hotline21/working.dsk",
+    "archive_member": null
+  },
+  "sha256sum_command": "sha256sum hotline22-recovery/base.dsk hotline22-recovery/working.dsk hotline22-recovery/rom",
+  "sha256sum_exit_code": 0,
+  "sha256sum_results": {
+    "base.dsk": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910",
+    "working.dsk": "e5cbbaaf28481bafbfa6dfe87dd1cac20d71624fe2fbd79c15373a365bde9910",
+    "rom": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd"
+  },
+  "snapshot": "/data/leynos/Projects/mothra/state/native-sessions/recovery-20261113-01/preboot-app/extraction.json",
+  "snapshot_record_count": 1,
+  "snapshot_record": {
+    "path": "/Hotline19/HLserver19",
+    "key": "catalog-11183",
+    "catalog": 11183,
+    "directory": false,
+    "attributes": {
+      "data": {
+        "attribute": "4352-0",
+        "exit_code": 0,
+        "bytes": 616821,
+        "stderr": ""
+      },
+      "rsrc": {
+        "attribute": "4353-1",
+        "exit_code": 0,
+        "bytes": 38460,
+        "stderr": ""
+      }
+    }
+  },
+  "fork_sha256": {
+    "data": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+    "rsrc": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12"
+  },
+  "fork_verifier": "positive exact path, catalog, fork exit codes, and bytes hashed successfully",
+  "post_state": "source inode/size/mtime and no owner unchanged; no emulator/display process or 15500-15503 listener",
+  "phase1_started_utc_approx": "2026-11-13T14:57:27+00:00",
+  "phase1_completed_utc_approx": "2026-11-13T15:14:10+00:00",
+  "extension_used": false
+}

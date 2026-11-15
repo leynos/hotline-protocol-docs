@@ -1,0 +1,9 @@
+test_guest_message_byte_changed_after_manifest_rehash (test_native_console_broadcast.NativeConsoleBroadcastTests.test_guest_message_byte_changed_after_manifest_rehash) ... ok
+test_host_recipient_syn_missing_after_manifest_rehash (test_native_console_broadcast.NativeConsoleBroadcastTests.test_host_recipient_syn_missing_after_manifest_rehash) ... ok
+test_operator_two_sends_rejected_after_manifest_rehash (test_native_console_broadcast.NativeConsoleBroadcastTests.test_operator_two_sends_rejected_after_manifest_rehash) ... ok
+test_original (test_native_console_broadcast.NativeConsoleBroadcastTests.test_original) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.294s
+
+OK

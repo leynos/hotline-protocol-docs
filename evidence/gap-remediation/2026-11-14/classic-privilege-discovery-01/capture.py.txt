@@ -1,0 +1,194 @@
+#!/usr/bin/env python3
+"""A71: one bounded fresh Classic client import and read-only label trace."""
+
+import asyncio
+import hashlib
+import json
+import os
+import time
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+
+from mcp import ClientSession, StdioServerParameters
+from mcp.client.stdio import stdio_client
+
+ROOT = Path("/data/leynos/Projects/mothra")
+BASE = ROOT / "state/delegation/a70-client-privilege-oracle"
+BINARY = ROOT / "state/mac-runtime/hotline-client-isolated-01/shared/HotlineClientCandidate/Hotline Client 1.9.2 Classic"
+RSRC = BINARY.parent / ".rsrc" / BINARY.name
+JAR = ROOT / "tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar"
+SHA = {
+    "data": "7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315",
+    "resource": "f762cfdedcc39758f841f720a4586dbbb88a7b74ec9e83db1793791b7c3f318b",
+    "jar": "201d18ffde71a83a678eae607de265861f37e5a00b989d91958c1197664d2b43",
+}
+
+
+def digest(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def now() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+async def main() -> None:
+    start = time.monotonic()
+    report = {
+        "status": "preflight",
+        "started_at_utc": now(),
+        "binary_sha256": digest(BINARY),
+        "resource_sha256": digest(RSRC),
+        "jar_sha256": digest(JAR),
+        "queries": [],
+        "content_calls": 0,
+    }
+    assert report["binary_sha256"] == SHA["data"]
+    assert report["resource_sha256"] == SHA["resource"]
+    assert report["jar_sha256"] == SHA["jar"]
+    project = BASE / "project"
+    if project.exists():
+        raise FileExistsError("Fresh independent project already exists")
+    for name in ("project", "config", "cache", "data", "tmp", "home", "raw"):
+        (BASE / name).mkdir(exist_ok=False)
+    env = dict(os.environ)
+    env.update(
+        JAVA_HOME=str(ROOT / "tools/jdk-25.0.5+8"),
+        GHIDRA_INSTALL_DIR=str(ROOT / "tools/ghidra_12.2_PUBLIC"),
+        XDG_CONFIG_HOME=str(BASE / "config"),
+        XDG_CACHE_HOME=str(BASE / "cache"),
+        XDG_DATA_HOME=str(BASE / "data"),
+        TMPDIR=str(BASE / "tmp"),
+        JAVA_TOOL_OPTIONS=f"-Duser.home={BASE / 'home'} -Djava.io.tmpdir={BASE / 'tmp'}",
+    )
+    env["PATH"] = str(ROOT / "tools/jdk-25.0.5+8/bin") + os.pathsep + env["PATH"]
+    args = [
+        "--headless", "--binary", str(BINARY), "--project", str(project),
+        "--project-name", "classic-privilege-01", "--language",
+        "PowerPC:BE:32:default", "--compiler", "default",
+        "--extension-jar", str(JAR), "--ready-timeout", "540", "--save",
+    ]
+    command = str(ROOT / "tools/ghidramcp/.venv/bin/ghidra-mcp")
+    report.update(command=command, args=args, status="importing")
+
+    def save() -> None:
+        (BASE / "report.json").write_text(json.dumps(report, indent=2) + "\n")
+
+    save()
+    params = StdioServerParameters(command=command, args=args, env=env, cwd=str(ROOT))
+    try:
+        with (BASE / "server.stderr.log").open("w") as err:
+            async with (
+                stdio_client(params, errlog=err) as (reader, writer),
+                ClientSession(reader, writer, read_timeout_seconds=timedelta(seconds=560)) as session,
+            ):
+                await session.initialize()
+
+                async def query(label: str, tool: str, arguments: dict, *, content: bool = False) -> dict:
+                    if content and report["content_calls"] >= 8:
+                        raise RuntimeError("Eight-content-query cap reached")
+                    if time.monotonic() - start >= 570:
+                        raise TimeoutError("A71 local time cap reached")
+                    result = await session.call_tool(tool, arguments, read_timeout_seconds=timedelta(seconds=500))
+                    payload = {
+                        "captured_at_utc": now(),
+                        "query": {"id": label, "tool": tool, "arguments": arguments},
+                        "result": result.model_dump(mode="json"),
+                    }
+                    (BASE / "raw" / f"{label}.json").write_text(json.dumps(payload, indent=2) + "\n")
+                    report["queries"].append({"label": label, "tool": tool, "arguments": arguments, "is_error": bool(result.isError)})
+                    if content:
+                        report["content_calls"] += 1
+                    save()
+                    if result.isError or result.structuredContent is None:
+                        raise RuntimeError(f"{label} query failed")
+                    return result.structuredContent
+
+                info = await query("identity-before", "get_program_info", {})
+                expected = (
+                    info["sha256"] == SHA["data"]
+                    and info["language_id"] == "PowerPC:BE:32:default"
+                    and info["executable_format"] == "Preferred Executable Format (PEF)"
+                    and info["function_count"] == 3564
+                )
+                if not expected:
+                    raise RuntimeError("Imported program identity differs from pinned Classic PEF")
+                segments = await query("segments", "list_segments", {"offset": 0, "limit": 20})
+                rows = segments["items"]
+                required = {
+                    ("Code", "10000000", "1013580f", True),
+                    ("PackedData", "10135810", "10159ef8", True),
+                    ("PackedData", "10159ef9", "10162bd5", False),
+                }
+                found = {(row["name"], row["start"], row["end"], row["initialized"]) for row in rows}
+                if not required <= found:
+                    raise RuntimeError("Compressed PEF segment mapping differs")
+                report["identity"] = info
+                report["segments"] = segments
+                report["status"] = "querying"
+                save()
+
+                needles = ("MyAdminEditUserWin", "Can Send Messages", "Can Disconnect Users")
+                strings = {}
+                for label in needles:
+                    strings[label] = await query(
+                        f"strings-{label.replace(' ', '-')}", "list_strings",
+                        {"filter": label, "limit": 20}, content=True,
+                    )
+                matches = {}
+                for label, result in strings.items():
+                    exact = [item for item in result["items"] if item["value"] == label]
+                    if len(exact) != 1:
+                        report["bounded_stop"] = f"{label}: {len(exact)} exact defined-string candidates"
+                        break
+                    address = int(exact[0]["address"], 16)
+                    if not 0x10135810 <= address <= 0x10159EF8:
+                        report["bounded_stop"] = f"{label}: candidate outside initialized PackedData"
+                        break
+                    matches[label] = exact[0]
+                if len(matches) == len(needles):
+                    for label in needles[:2]:
+                        address = matches[label]["address"]
+                        memory = await query(
+                            f"bytes-{label.replace(' ', '-')}", "read_memory",
+                            {"address": address, "length": len(label) + 2}, content=True,
+                        )
+                        raw = bytes.fromhex(memory["hex"].replace(" ", ""))
+                        if memory["gaps"] or label.encode("ascii") not in raw:
+                            report["bounded_stop"] = f"{label}: loaded bytes differ"
+                            break
+                if len(matches) == len(needles) and "bounded_stop" not in report:
+                    refs = {}
+                    for label in needles[:2]:
+                        refs[label] = await query(
+                            f"xrefs-{label.replace(' ', '-')}", "get_xrefs_to",
+                            {"address": matches[label]["address"], "limit": 100}, content=True,
+                        )
+                    sets = [
+                        {row["fromFunction"]["address"] for row in refs[label]["items"] if row["fromFunction"]}
+                        for label in needles[:2]
+                    ]
+                    common = sets[0] & sets[1]
+                    if len(common) == 1:
+                        target = next(iter(common))
+                        report["candidate_function"] = target
+                        await query("shared-editor-decompile", "decompile_function_by_address", {"address": target}, content=True)
+                    else:
+                        report["bounded_stop"] = f"class/label shared referencing functions: {len(common)}"
+                after = await query("identity-after", "get_program_info", {})
+                if after != info:
+                    raise RuntimeError("Program identity changed during A71")
+                report["status"] = "bounded-stop" if "bounded_stop" in report else "complete-bounded-query-set"
+    except Exception as exc:
+        report["status"] = "failed-preserved"
+        report["error"] = f"{type(exc).__name__}: {exc}"
+        raise
+    finally:
+        report["finished_at_utc"] = now()
+        report["elapsed_seconds"] = time.monotonic() - start
+        save()
+    print(json.dumps({"status": report["status"], "content_calls": report["content_calls"], "bounded_stop": report.get("bounded_stop", "")}), flush=True)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())

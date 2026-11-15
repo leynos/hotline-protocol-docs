@@ -1,0 +1,176 @@
+{
+  "captured_at_utc": "2026-11-12T23:39:01.820743+00:00",
+  "query": {
+    "id": "ID-F-10058",
+    "tool": "list_functions",
+    "arguments": {
+      "filter": "10058",
+      "limit": 100
+    }
+  },
+  "program": {
+    "name": "HLserver19",
+    "project_path": "/HLserver19",
+    "executable_path": "/data/leynos/Projects/hotline-bench/extracted/HotlineConnectServer-Mac/HLserver19",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"items\": [\n    {\n      \"name\": \"FUN_10058070\",\n      \"address\": \"10058070\"\n    },\n    {\n      \"name\": \"FUN_10058090\",\n      \"address\": \"10058090\"\n    },\n    {\n      \"name\": \"FUN_10058160\",\n      \"address\": \"10058160\"\n    },\n    {\n      \"name\": \"FUN_10058220\",\n      \"address\": \"10058220\"\n    },\n    {\n      \"name\": \"FUN_10058270\",\n      \"address\": \"10058270\"\n    },\n    {\n      \"name\": \"FUN_100582b0\",\n      \"address\": \"100582b0\"\n    },\n    {\n      \"name\": \"FUN_10058310\",\n      \"address\": \"10058310\"\n    },\n    {\n      \"name\": \"FUN_10058360\",\n      \"address\": \"10058360\"\n    },\n    {\n      \"name\": \"FUN_100583b0\",\n      \"address\": \"100583b0\"\n    },\n    {\n      \"name\": \"FUN_10058400\",\n      \"address\": \"10058400\"\n    },\n    {\n      \"name\": \"FUN_10058450\",\n      \"address\": \"10058450\"\n    },\n    {\n      \"name\": \"FUN_100584a0\",\n      \"address\": \"100584a0\"\n    },\n    {\n      \"name\": \"FUN_10058510\",\n      \"address\": \"10058510\"\n    },\n    {\n      \"name\": \"FUN_10058600\",\n      \"address\": \"10058600\"\n    },\n    {\n      \"name\": \"FUN_10058650\",\n      \"address\": \"10058650\"\n    },\n    {\n      \"name\": \"FUN_10058770\",\n      \"address\": \"10058770\"\n    },\n    {\n      \"name\": \"FUN_100587f0\",\n      \"address\": \"100587f0\"\n    },\n    {\n      \"name\": \"FUN_10058880\",\n      \"address\": \"10058880\"\n    },\n    {\n      \"name\": \"FUN_100589b0\",\n      \"address\": \"100589b0\"\n    },\n    {\n      \"name\": \"FUN_10058a10\",\n      \"address\": \"10058a10\"\n    },\n    {\n      \"name\": \"FUN_10058a70\",\n      \"address\": \"10058a70\"\n    },\n    {\n      \"name\": \"FUN_10058ba0\",\n      \"address\": \"10058ba0\"\n    },\n    {\n      \"name\": \"FUN_10058c00\",\n      \"address\": \"10058c00\"\n    },\n    {\n      \"name\": \"FUN_10058ca0\",\n      \"address\": \"10058ca0\"\n    },\n    {\n      \"name\": \"FUN_10058d70\",\n      \"address\": \"10058d70\"\n    },\n    {\n      \"name\": \"FUN_10058d90\",\n      \"address\": \"10058d90\"\n    },\n    {\n      \"name\": \"FUN_10058df0\",\n      \"address\": \"10058df0\"\n    },\n    {\n      \"name\": \"FUN_10058e80\",\n      \"address\": \"10058e80\"\n    },\n    {\n      \"name\": \"FUN_10058fd0\",\n      \"address\": \"10058fd0\"\n    }\n  ],\n  \"offset\": 0,\n  \"limit\": 100,\n  \"total\": 29,\n  \"has_more\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "items": [
+        {
+          "name": "FUN_10058070",
+          "address": "10058070"
+        },
+        {
+          "name": "FUN_10058090",
+          "address": "10058090"
+        },
+        {
+          "name": "FUN_10058160",
+          "address": "10058160"
+        },
+        {
+          "name": "FUN_10058220",
+          "address": "10058220"
+        },
+        {
+          "name": "FUN_10058270",
+          "address": "10058270"
+        },
+        {
+          "name": "FUN_100582b0",
+          "address": "100582b0"
+        },
+        {
+          "name": "FUN_10058310",
+          "address": "10058310"
+        },
+        {
+          "name": "FUN_10058360",
+          "address": "10058360"
+        },
+        {
+          "name": "FUN_100583b0",
+          "address": "100583b0"
+        },
+        {
+          "name": "FUN_10058400",
+          "address": "10058400"
+        },
+        {
+          "name": "FUN_10058450",
+          "address": "10058450"
+        },
+        {
+          "name": "FUN_100584a0",
+          "address": "100584a0"
+        },
+        {
+          "name": "FUN_10058510",
+          "address": "10058510"
+        },
+        {
+          "name": "FUN_10058600",
+          "address": "10058600"
+        },
+        {
+          "name": "FUN_10058650",
+          "address": "10058650"
+        },
+        {
+          "name": "FUN_10058770",
+          "address": "10058770"
+        },
+        {
+          "name": "FUN_100587f0",
+          "address": "100587f0"
+        },
+        {
+          "name": "FUN_10058880",
+          "address": "10058880"
+        },
+        {
+          "name": "FUN_100589b0",
+          "address": "100589b0"
+        },
+        {
+          "name": "FUN_10058a10",
+          "address": "10058a10"
+        },
+        {
+          "name": "FUN_10058a70",
+          "address": "10058a70"
+        },
+        {
+          "name": "FUN_10058ba0",
+          "address": "10058ba0"
+        },
+        {
+          "name": "FUN_10058c00",
+          "address": "10058c00"
+        },
+        {
+          "name": "FUN_10058ca0",
+          "address": "10058ca0"
+        },
+        {
+          "name": "FUN_10058d70",
+          "address": "10058d70"
+        },
+        {
+          "name": "FUN_10058d90",
+          "address": "10058d90"
+        },
+        {
+          "name": "FUN_10058df0",
+          "address": "10058df0"
+        },
+        {
+          "name": "FUN_10058e80",
+          "address": "10058e80"
+        },
+        {
+          "name": "FUN_10058fd0",
+          "address": "10058fd0"
+        }
+      ],
+      "offset": 0,
+      "limit": 100,
+      "total": 29,
+      "has_more": false
+    },
+    "isError": false
+  }
+}

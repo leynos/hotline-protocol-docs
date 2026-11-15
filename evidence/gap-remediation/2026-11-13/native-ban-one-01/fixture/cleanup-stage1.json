@@ -1,0 +1,74 @@
+{
+  "at_utc": "2026-11-13T22:37:07.826966+00:00",
+  "original_pid": 3953986,
+  "expected_starttime": 3334180,
+  "actions": [
+    {
+      "cmd": [
+        "sudo",
+        "-n",
+        "readlink",
+        "/proc/3953986/exe"
+      ],
+      "exit": 0,
+      "stdout": "/data/leynos/Projects/mothra/state/mac-runtime/native-banlab-one-01/SheepShaver-9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4\n",
+      "stderr": ""
+    },
+    {
+      "cmd": [
+        "sudo",
+        "-n",
+        "readlink",
+        "/proc/3953986/ns/net"
+      ],
+      "exit": 0,
+      "stdout": "net:[4026532475]\n",
+      "stderr": ""
+    },
+    {
+      "cmd": [
+        "systemctl",
+        "--user",
+        "stop",
+        "mothra-sheep-af139612cba9.service"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "cmd": [
+        "systemctl",
+        "--user",
+        "stop",
+        "mothra-bridge-38acda05bd0c.service"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "cmd": [
+        "systemctl",
+        "--user",
+        "stop",
+        "mothra-xbridge-38acda05bd0c.service"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "cmd": [
+        "systemctl",
+        "--user",
+        "stop",
+        "mothra-display-12ac2aac1017.service"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "lab_emulator_gone": true
+}

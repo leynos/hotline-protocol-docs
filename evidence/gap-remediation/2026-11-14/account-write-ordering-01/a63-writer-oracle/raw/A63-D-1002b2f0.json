@@ -1,0 +1,30 @@
+{
+  "captured_at_utc": "2026-11-14T07:10:06.973195+00:00",
+  "query": {
+    "id": "A63-D-1002b2f0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1002b2f0"
+    }
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_1002b2f0\",\n    \"address\": \"1002b2f0\"\n  },\n  \"code\": \"\\nvoid FUN_1002b2f0(int param_1)\\n\\n{\\n  if (param_1 != 0) {\\n    if (*(short *)(param_1 + 0x50) != 0) {\\n      .glue::FSClose((int)*(short *)(param_1 + 0x50));\\n    }\\n    if (*(short *)(param_1 + 0x52) != 0) {\\n      .glue::FSClose((int)*(short *)(param_1 + 0x52));\\n    }\\n    FUN_10052c10(*(undefined4 *)(param_1 + 0x48));\\n    FUN_10052c10(*(undefined4 *)(param_1 + 0x4c));\\n    FUN_10052c10(param_1);\\n  }\\n  return;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_1002b2f0",
+        "address": "1002b2f0"
+      },
+      "code": "\nvoid FUN_1002b2f0(int param_1)\n\n{\n  if (param_1 != 0) {\n    if (*(short *)(param_1 + 0x50) != 0) {\n      .glue::FSClose((int)*(short *)(param_1 + 0x50));\n    }\n    if (*(short *)(param_1 + 0x52) != 0) {\n      .glue::FSClose((int)*(short *)(param_1 + 0x52));\n    }\n    FUN_10052c10(*(undefined4 *)(param_1 + 0x48));\n    FUN_10052c10(*(undefined4 *)(param_1 + 0x4c));\n    FUN_10052c10(param_1);\n  }\n  return;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

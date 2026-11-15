@@ -1,0 +1,264 @@
+{
+  "tool": "SleuthKit4.15.0",
+  "method": "Read-only direct catalogue scan11220..11240; positive paths verified in istat output before fork reads. This is not an exhaustive directory listing or restart-durability proof. Path-based ifind/fls failed and is retained separately.",
+  "image": "state/mac-runtime/hotline19/working.dsk",
+  "stage": "before",
+  "probes": [
+    {
+      "catalog": 11220,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11221,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11222,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11223,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11224,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11225,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11226,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11227,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11228,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11229,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11230,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11231,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11232,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "catalog": 11233,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11232)\n"
+    },
+    {
+      "catalog": 11234,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11232)\n"
+    },
+    {
+      "catalog": 11235,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11232)\n"
+    },
+    {
+      "catalog": 11236,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11232)\n"
+    },
+    {
+      "catalog": 11237,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11232)\n"
+    },
+    {
+      "catalog": 11238,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11232)\n"
+    },
+    {
+      "catalog": 11239,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11232)\n"
+    },
+    {
+      "catalog": 11240,
+      "exit_code": 1,
+      "stderr": "Metadata address is too large for image (11232)\n"
+    }
+  ],
+  "records": [
+    {
+      "path": "mothra-folder-source",
+      "key": "mothra-folder-source",
+      "catalog": 11220,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "mothra-folder-source/empty",
+      "key": "mothra-folder-source__empty",
+      "catalog": 11221,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "mothra-folder-source/inner",
+      "key": "mothra-folder-source__inner",
+      "catalog": 11222,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "mothra-folder-source/alpha",
+      "key": "mothra-folder-source__alpha",
+      "catalog": 11223,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 13,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "mothra-folder-source/zero",
+      "key": "mothra-folder-source__zero",
+      "catalog": 11224,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 0,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 1,
+          "bytes": 0,
+          "stderr": "Attribute not found in file (tsk_fs_attrlist_get_id: Attribute 4353-1 not found)\n"
+        }
+      }
+    },
+    {
+      "path": "mothra-folder-source/inner/leaf",
+      "key": "mothra-folder-source__inner__leaf",
+      "catalog": 11225,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 5,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "mothra-folder-empty",
+      "key": "mothra-folder-empty",
+      "catalog": 11226,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "mothra-folder-dirlast",
+      "key": "mothra-folder-dirlast",
+      "catalog": 11227,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "mothra-folder-dirlast/only",
+      "key": "mothra-folder-dirlast__only",
+      "catalog": 11228,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "mothra-folder-partial",
+      "key": "mothra-folder-partial",
+      "catalog": 11229,
+      "directory": true,
+      "attributes": {}
+    },
+    {
+      "path": "mothra-folder-partial/alpha",
+      "key": "mothra-folder-partial__alpha",
+      "catalog": 11230,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 13,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 317,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "path": "mothra-folder-partial/part",
+      "key": "mothra-folder-partial__part",
+      "catalog": 11231,
+      "directory": false,
+      "attributes": {
+        "data": {
+          "attribute": "4352-0",
+          "exit_code": 0,
+          "bytes": 13,
+          "stderr": ""
+        },
+        "rsrc": {
+          "attribute": "4353-1",
+          "exit_code": 0,
+          "bytes": 5,
+          "stderr": ""
+        }
+      }
+    }
+  ]
+}

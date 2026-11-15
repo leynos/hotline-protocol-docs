@@ -1,0 +1,135 @@
+"""Bounded, read-only legacy-board constant capture. Run only after START."""
+
+import asyncio
+import hashlib
+import json
+import os
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+
+from mcp import ClientSession, StdioServerParameters
+from mcp.client.stdio import stdio_client
+
+
+ROOT = Path("/data/leynos/Projects/mothra")
+BASE = ROOT / "state/delegation/legacy-board-oracle-01"
+BINARY = ROOT / "evidence/hotline-server-1.9/inputs/HLserver19.pef"
+JAR = ROOT / "tools/ghidra_12.2_PUBLIC/Ghidra/Extensions/GhidraMCP/lib/GhidraMCP.jar"
+PROJECT = ROOT / "state/delegation/endpoint-oracle-01/project"
+BINARY_SHA = "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+JAR_SHA = "201d18ffde71a83a678eae607de265861f37e5a00b989d91958c1197664d2b43"
+QUERIES = (
+    ("LB01-10089144-pointers", "10089144", 8),
+    ("LB02-10082694-format", "10082694", 64),
+    ("LB03-100826bc-candidate", "100826bc", 64),
+    ("LB04-1008ee20-path-pointer", "1008ee20", 4),
+    ("LB05-1008f87e-path-candidate", "1008f87e", 260),
+    ("LB06-1008fcf9-month-candidate", "1008fcf9", 64),
+)
+
+
+def sha(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def now() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+async def main() -> None:
+    if sha(BINARY) != BINARY_SHA or sha(JAR) != JAR_SHA:
+        raise RuntimeError("Pinned binary or extension JAR hash changed")
+    if not (PROJECT / "independent-endpoint-01.gpr").is_file():
+        raise RuntimeError("Saved independent project is absent")
+    for name in ("config", "cache", "data", "tmp", "home", "raw"):
+        (BASE / name).mkdir(exist_ok=True)
+    env = dict(os.environ)
+    env.update(
+        JAVA_HOME=str(ROOT / "tools/jdk-25.0.5+8"),
+        GHIDRA_INSTALL_DIR=str(ROOT / "tools/ghidra_12.2_PUBLIC"),
+        XDG_CONFIG_HOME=str(BASE / "config"),
+        XDG_CACHE_HOME=str(BASE / "cache"),
+        XDG_DATA_HOME=str(BASE / "data"),
+        TMPDIR=str(BASE / "tmp"),
+        JAVA_TOOL_OPTIONS=f"-Duser.home={BASE / 'home'} -Djava.io.tmpdir={BASE / 'tmp'}",
+    )
+    env["PATH"] = str(ROOT / "tools/jdk-25.0.5+8/bin") + os.pathsep + env["PATH"]
+    command = str(ROOT / "tools/ghidramcp/.venv/bin/ghidra-mcp")
+    args = [
+        "--headless", "--binary", str(BINARY), "--project", str(PROJECT),
+        "--project-name", "independent-endpoint-01", "--no-analyze", "--discard",
+        "--language", "PowerPC:BE:32:default", "--compiler", "default",
+        "--extension-jar", str(JAR), "--ready-timeout", "900",
+    ]
+    report = {
+        "started_at_utc": now(), "script_sha256": sha(Path(__file__)),
+        "binary_sha256": BINARY_SHA, "jar_sha256": JAR_SHA,
+        "project": str(PROJECT / "independent-endpoint-01.gpr"),
+        "command": command, "args": args, "queries": [], "status": "starting",
+        "interpretation": "Raw memory only; first byte at pointer from 10089144 is a length, not a literal separator.",
+    }
+
+    def save() -> None:
+        (BASE / "report.json").write_text(json.dumps(report, indent=2) + "\n")
+
+    save()
+    params = StdioServerParameters(command=command, args=args, env=env, cwd=str(ROOT))
+    try:
+        with (BASE / "server.stderr.log").open("w") as err:
+            async with (
+                stdio_client(params, errlog=err) as (reader, writer),
+                ClientSession(reader, writer, read_timeout_seconds=timedelta(seconds=1050)) as session,
+            ):
+                init = await session.initialize()
+                report["mcp_server"] = init.serverInfo.model_dump(mode="json")
+
+                async def query(label: str, tool: str, arguments: dict) -> dict:
+                    result = await session.call_tool(
+                        tool, arguments, read_timeout_seconds=timedelta(seconds=300)
+                    )
+                    payload = {
+                        "captured_at_utc": now(),
+                        "query": {"id": label, "tool": tool, "arguments": arguments},
+                        "result": result.model_dump(mode="json"),
+                    }
+                    (BASE / "raw" / f"{label}.json").write_text(
+                        json.dumps(payload, indent=2) + "\n"
+                    )
+                    report["queries"].append(
+                        {"id": label, "tool": tool, "arguments": arguments,
+                         "is_error": bool(result.isError)}
+                    )
+                    save()
+                    if result.isError or result.structuredContent is None:
+                        raise RuntimeError(f"{label} failed; raw response preserved")
+                    return result.structuredContent
+
+                before = await query("identity-before", "get_program_info", {})
+                if not (
+                    before.get("sha256") == BINARY_SHA
+                    and before.get("language_id") == "PowerPC:BE:32:default"
+                    and before.get("min_address") == "10000000"
+                    and before.get("function_count") == 1840
+                ):
+                    raise RuntimeError("Independent saved-project identity mismatch")
+                report["identity_before"] = before
+                report["status"] = "querying"
+                save()
+                for label, address, length in QUERIES:
+                    await query(label, "read_memory", {"address": address, "length": length})
+                after = await query("identity-after", "get_program_info", {})
+                if after != before:
+                    raise RuntimeError("Project identity changed during capture")
+                report["identity_after"] = after
+                report["status"] = "complete"
+    except Exception as exc:
+        report["status"] = "failed-preserved"
+        report["error"] = f"{type(exc).__name__}: {exc}"
+        raise
+    finally:
+        report["finished_at_utc"] = now()
+        save()
+
+
+if __name__ == "__main__":
+    asyncio.run(main())

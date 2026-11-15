@@ -1,0 +1,30 @@
+{
+  "utc": "2026-11-14T11:47:20.897064+00:00",
+  "actual_pid_gone": true,
+  "original_ticks": {
+    "1099659": "767842",
+    "1012834": "2357813"
+  },
+  "fuser": {
+    "base.dsk": {
+      "exit": 1,
+      "stdout": "",
+      "stderr": "",
+      "inode": 1687368834
+    },
+    "working.dsk": {
+      "exit": 1,
+      "stdout": "",
+      "stderr": "",
+      "inode": 1687370702
+    },
+    "rom": {
+      "exit": 1,
+      "stdout": "",
+      "stderr": "",
+      "inode": 1687341713
+    }
+  },
+  "oracle_lock_free": true,
+  "ports_absent": true
+}

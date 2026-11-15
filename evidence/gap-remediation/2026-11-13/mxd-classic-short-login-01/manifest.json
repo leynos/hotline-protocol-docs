@@ -1,0 +1,13 @@
+{
+  "packet": "A24 second owned Classic to mxd fixture: partial successful login",
+  "captured_at_utc": "2026-11-13",
+  "classification": "DERIVED_REDACTED_WITNESS_NOT_A_PCAP",
+  "source_runtime": "ignored canonical mothra/state/native-sessions/mxd-peer-a24/",
+  "raw_source_status": "three credential-bearing PCAPs and owned mode-0600 seed/DB remain ignored and are not redistributed",
+  "published": ["redacted-witness.json", "actions-redacted.txt", "connect-ready-masked.png", "connected-loading-agreement.png", "settle-end-loading-agreement.png", "client-quit.png", "c21-readiness.json", "c21-terminal.json"],
+  "review_limit": "public metadata does not replay credential or packet parity; private raw replay requires explicit --raw-session and --seed",
+  "attempts": 1,
+  "login_result": "107 success ACK field161=0000 field162=mxd; Classic remains Loading Agreement; no 121/300/212",
+  "timing_deviation": "93-second connect-to-disconnect exceeded authorised 30-second settle; do not treat as a compliant timed trial",
+  "cleanup": "Classic disconnected/quit, own capture stopped zero drops, root stopped C21 daemon and proved listener absent"
+}

@@ -1,0 +1,30 @@
+{
+  "status": "read-only-clause-audits-and-proposals",
+  "native_experiments": 0,
+  "gap_status_changes": 0,
+  "original_criteria_unchanged": true,
+  "notes": {
+    "GAP-050": {
+      "snapshot": "a119-gap050-delete-audit.md.txt",
+      "origin": "state/delegation/a119-gap050-delete-audit.md",
+      "sha256": "fbfebb305b0652aedce2c41bc38f099ee73de5e8918d8389449f9ad46b55396a"
+    },
+    "GAP-047": {
+      "snapshot": "a120-gap047-path-audit.md.txt",
+      "origin": "state/delegation/a120-gap047-path-audit.md",
+      "sha256": "a9d94667986651409d634d5585e16096bfbf20646d5ba140105ffbc856ce4ff6"
+    },
+    "GAP-054": {
+      "snapshot": "b101-gap054-alias-audit.md.txt",
+      "origin": "state/delegation/b101-gap054-alias-audit.md",
+      "sha256": "f204243e93e7c54a1f4858b8d1caf2e833ed8cc4c5749b24af531af58416efce"
+    },
+    "GAP-054-extfs-proposal": {
+      "snapshot": "b102-gap054-extfs-feasibility.md.txt",
+      "origin": "state/delegation/b102-gap054-extfs-feasibility.md",
+      "sha256": "460661d0677605d4424b7a53a485beb8229f90725a950d05390a64c880dab711"
+    }
+  },
+  "scope_limits": "No missing clause is closed by a proposed stimulus. Extfs alias route requires positive live resolution before any guarded host unlink; this has not been performed.",
+  "mxd_validation": "on hold"
+}

@@ -1,0 +1,29 @@
+{
+  "schema": "alias-ui-basis-01",
+  "captured_at_utc": "2026-11-14T14:45:31.668633+00:00",
+  "method": "Byte-exact copies of previously retained screenshots and read-only C132 assessment; no new guest interaction. Parent inspected Finder File menu screenshot.",
+  "inputs": [
+    {
+      "source": "state/native-sessions/mac-peer-first-01/file-menu-hold-02.png",
+      "retained": "finder-file-menu.png",
+      "sha256": "fd7f8473cc128c9d73fed31731912599dd18926a9ad99d4512dc30335f8d149d"
+    },
+    {
+      "source": "state/native-sessions/mac-peer-first-01/edit-menu.png",
+      "retained": "finder-edit-menu.png",
+      "sha256": "4ac923abc9925137033ef25f69a4ea7ea411580e3ce102316465c44e2d2fb089"
+    },
+    {
+      "source": "state/native-sessions/mac-peer-first-01/unix-open.png",
+      "retained": "unix-volume.png",
+      "sha256": "46c84318b01c67c61d774800ee4dcada5e9464f0c370f75dbd1cd0e42f9f0dc6"
+    },
+    {
+      "source": "state/delegation/c132-finder-alias-ui-basis.md",
+      "retained": "c132-ui-basis.md",
+      "sha256": "4a0e1ea2ffc5cd53ee29c0306ad35852704f25db59002b18c02a76bf264de4c5"
+    }
+  ],
+  "limits": "Named Finder Make Alias, Copy/Paste menu entries and Unix volume are observed. Active-selection enablement, extfs alias creation and alias-specific HFS copying remain unproved and must be gated in the future single rehearsal. Prior application copy is not alias acceptance.",
+  "prior_application_copy": "evidence/gap-remediation/2026-11-13/mac-peer-isolated-session-01/B20-observation.txt"
+}

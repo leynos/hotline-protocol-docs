@@ -1,0 +1,19 @@
+{
+  "recorded_utc": "2026-11-14T09:54:53.131330+00:00",
+  "new_working_fd_hits": [],
+  "emulator_binary": {
+    "path": "/data/leynos/Projects/mothra/tools/macemu/SheepShaver/src/Unix/SheepShaver",
+    "inode": 1144984067,
+    "sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4"
+  },
+  "working_inode": 2226400708,
+  "working_mode": "0o644",
+  "original_ticks": {
+    "1099659": "767842",
+    "1012834": "2357813"
+  },
+  "display120_absent": true,
+  "future_epoch_absent": true,
+  "disk_free_bytes": 189421477888,
+  "ports_15880_15883_absent": true
+}

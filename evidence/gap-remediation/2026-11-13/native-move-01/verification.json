@@ -1,0 +1,186 @@
+{
+  "completed_reports": 39,
+  "paired_connections": 75,
+  "move_successes": 12,
+  "move_errors": 14,
+  "delete_successes": 6,
+  "delete_errors": 3,
+  "moves": [
+    {
+      "case": "file-ordinary",
+      "error": false,
+      "changed_location": true
+    },
+    {
+      "case": "file-same-parent",
+      "error": false,
+      "changed_location": false
+    },
+    {
+      "case": "file-file-collision",
+      "error": true,
+      "changed_location": false
+    },
+    {
+      "case": "file-folder-collision",
+      "error": true,
+      "changed_location": false
+    },
+    {
+      "case": "file-missing-source",
+      "error": true,
+      "changed_location": false
+    },
+    {
+      "case": "file-missing-destination",
+      "error": true,
+      "changed_location": false
+    },
+    {
+      "case": "file-destination-file",
+      "error": true,
+      "changed_location": false
+    },
+    {
+      "case": "file-low-permission",
+      "error": true,
+      "changed_location": false
+    },
+    {
+      "case": "file-destination-absent",
+      "error": false,
+      "changed_location": true
+    },
+    {
+      "case": "file-destination-empty",
+      "error": false,
+      "changed_location": true
+    },
+    {
+      "case": "file-destination-root",
+      "error": false,
+      "changed_location": true
+    },
+    {
+      "case": "file-alias-source",
+      "error": false,
+      "changed_location": true
+    },
+    {
+      "case": "file-alias-destination",
+      "error": false,
+      "changed_location": true
+    },
+    {
+      "case": "dir-ordinary",
+      "error": false,
+      "changed_location": true
+    },
+    {
+      "case": "dir-same-parent",
+      "error": false,
+      "changed_location": false
+    },
+    {
+      "case": "dir-file-collision",
+      "error": true,
+      "changed_location": false
+    },
+    {
+      "case": "dir-folder-collision",
+      "error": true,
+      "changed_location": false
+    },
+    {
+      "case": "dir-missing-source",
+      "error": true,
+      "changed_location": false
+    },
+    {
+      "case": "dir-missing-destination",
+      "error": true,
+      "changed_location": false
+    },
+    {
+      "case": "dir-destination-file",
+      "error": true,
+      "changed_location": false
+    },
+    {
+      "case": "dir-low-permission",
+      "error": true,
+      "changed_location": false
+    },
+    {
+      "case": "dir-destination-absent",
+      "error": false,
+      "changed_location": true
+    },
+    {
+      "case": "dir-destination-empty",
+      "error": false,
+      "changed_location": true
+    },
+    {
+      "case": "dir-destination-root",
+      "error": false,
+      "changed_location": true
+    },
+    {
+      "case": "dir-own-child",
+      "error": true,
+      "changed_location": false
+    },
+    {
+      "case": "dir-own-self",
+      "error": true,
+      "changed_location": false
+    }
+  ],
+  "deletions": [
+    {
+      "case": "ordinary-file",
+      "error": false
+    },
+    {
+      "case": "nonempty-directory",
+      "error": false
+    },
+    {
+      "case": "missing-source",
+      "error": true
+    },
+    {
+      "case": "denied-file",
+      "error": true
+    },
+    {
+      "case": "denied-directory",
+      "error": true
+    },
+    {
+      "case": "path-only-directory",
+      "error": false
+    },
+    {
+      "case": "trash-name-first",
+      "error": false
+    },
+    {
+      "case": "trash-name-conflict",
+      "error": false
+    },
+    {
+      "case": "alias-target-to-trash",
+      "error": false
+    }
+  ],
+  "catalogue": {
+    "positive_seeded": 72,
+    "positive_final": 73,
+    "positive_cleanup": 70,
+    "all_seeded_identities_retained_before_cleanup": true,
+    "cleanup_disk_coverage": "Partial: three root file markers lack positive post-move probes"
+  },
+  "scope": "Same-volume OS9 fixtures; cross-volume, locked/protected targets, interrupted I/O, root deletion, every refresh and restart durability remain unproven. Trash-target alias remains live, not a missing-target fixture."
+}

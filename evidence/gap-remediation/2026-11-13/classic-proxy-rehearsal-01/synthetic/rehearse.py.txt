@@ -1,0 +1,168 @@
+#!/usr/bin/env python3
+"""One-shot fake-upstream rehearsal of the private Classic proxy."""
+
+import json
+import os
+import socket
+import subprocess
+import sys
+import threading
+import time
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+SCRIPTS = Path(
+    "/data/leynos/Projects/mothra/state/delegation/workspaces/"
+    "batch-02-account/hotline-protocol-docs/scripts"
+)
+sys.path.insert(0, str(SCRIPTS))
+from classic_login_proxy import CLIENT_HELLO, SERVER_HELLO, parse_frame  # noqa: E402
+from native_plan import packet, payload  # noqa: E402
+
+HOST_NS = 4026531840
+CLIENT_NS = 4026532479
+LOGIN_ID = 123
+REQUEST = bytes.fromhex(packet(107, LOGIN_ID, payload([])))
+ACK = bytes.fromhex(packet(0, LOGIN_ID, payload([(161, b"\0\0")]), reply=1))
+NOTICE = bytes.fromhex(packet(109, 124, payload([(160, b"synthetic")])))
+
+
+def read_exact(peer: socket.socket, size: int) -> bytes:
+    out = bytearray()
+    while len(out) < size:
+        chunk = peer.recv(size - len(out))
+        if not chunk:
+            raise EOFError(f"expected {size} bytes, got {len(out)}")
+        out.extend(chunk)
+    return bytes(out)
+
+
+def read_frame(peer: socket.socket) -> bytes:
+    header = read_exact(peer, 20)
+    raw = header + read_exact(peer, int.from_bytes(header[16:20], "big"))
+    parse_frame(raw)
+    return raw
+
+
+def listener(port: int) -> socket.socket:
+    peer = socket.socket()
+    peer.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    peer.bind(("127.0.0.1", port))
+    peer.listen(1)
+    peer.settimeout(35)
+    return peer
+
+
+def main() -> None:
+    events: list[dict] = []
+    failures: list[str] = []
+    keep_open = threading.Event()
+    upstreams = [listener(15500), listener(15501)]
+    actual_ns = os.stat("/proc/self/ns/net").st_ino
+    assert actual_ns not in (HOST_NS, CLIENT_NS)
+    assert {name for _, name in socket.if_nameindex()} == {"lo"}
+    for family in ([], ["-6"]):
+        routes = subprocess.check_output(
+            ["/usr/sbin/ip", "-j", *family, "route", "show", "table", "main"]
+        )
+        assert json.loads(routes) == []
+    events.append({"namespace_inode": actual_ns, "interfaces": ["lo"]})
+
+    def fake_control() -> None:
+        try:
+            peer, _ = upstreams[0].accept()
+            with peer:
+                peer.settimeout(35)
+                assert read_exact(peer, 12) == CLIENT_HELLO
+                peer.sendall(SERVER_HELLO)
+                assert read_frame(peer) == REQUEST
+                peer.sendall(ACK)
+                peer.sendall(NOTICE)
+                assert peer.recv(1) == b""  # client half-close reaches upstream
+                events.append({"upstream_control_halfclose": time.monotonic_ns()})
+                keep_open.wait(35)  # deliberately retain server write side
+        except Exception as exc:
+            failures.append(f"control: {type(exc).__name__}: {exc}")
+
+    def fake_data() -> None:
+        try:
+            peer, _ = upstreams[1].accept()
+            with peer:
+                peer.settimeout(35)
+                assert read_exact(peer, 4) == b"PING"
+                peer.sendall(b"PONG")
+                events.append({"upstream_data_exchange": time.monotonic_ns()})
+                keep_open.wait(35)
+        except Exception as exc:
+            failures.append(f"data: {type(exc).__name__}: {exc}")
+
+    threads = [threading.Thread(target=fake_control), threading.Thread(target=fake_data)]
+    for thread in threads:
+        thread.start()
+    proxy = subprocess.Popen(
+        [
+            sys.executable, str(SCRIPTS / "classic_login_proxy.py"),
+            "--variant", "baseline", "--output", str(ROOT / "proxy"),
+            "--expected-netns-inode", str(actual_ns),
+            "--host-netns-inode", str(HOST_NS),
+        ], stdout=(ROOT / "proxy.stdout").open("wb"),
+        stderr=(ROOT / "proxy.stderr").open("wb"),
+    )
+    events.append({"proxy_pid": proxy.pid, "proxy_argv": proxy.args})
+    try:
+        limit = time.monotonic() + 5
+        while not (ROOT / "proxy/ready.json").exists():
+            if proxy.poll() is not None or time.monotonic() >= limit:
+                raise RuntimeError("proxy never became ready")
+            time.sleep(0.02)
+        with socket.create_connection(("127.0.0.1", 15652), 2) as client:
+            client.settimeout(35)
+            client.sendall(CLIENT_HELLO)
+            assert read_exact(client, 8) == SERVER_HELLO
+            client.sendall(REQUEST)
+            assert read_frame(client) == ACK
+            assert read_frame(client) == NOTICE
+            with socket.create_connection(("127.0.0.1", 15653), 2) as data:
+                data.settimeout(35)
+                data.sendall(b"PING")
+                assert read_exact(data, 4) == b"PONG"
+                events.append({"client_data_exchange": time.monotonic_ns()})
+                client.shutdown(socket.SHUT_WR)
+                events.append({"client_control_halfclose": time.monotonic_ns()})
+                assert client.recv(1) == b""
+                events.append({"client_control_eof": time.monotonic_ns()})
+        exit_code = proxy.wait(timeout=3)
+        report = json.loads((ROOT / "proxy/report.json").read_text())
+        receipt = report["observation"]
+        assert exit_code == 0
+        assert report["status"] == "intentional-observation-cutoff"
+        assert receipt["valid_30_seconds"] is True
+        assert receipt["relay_teardown_ns"] - receipt["ack_sent_monotonic_ns"] <= 30_000_000_000
+        assert any(item["event"] == "server" and item["raw_hex"] == ACK.hex() for item in report["entries"])
+        assert any(item["event"] == "server" and item["raw_hex"] == NOTICE.hex() for item in report["entries"])
+        assert any(item["event"] == "data-client" and item["raw_hex"] == b"PING".hex() for item in report["entries"])
+        assert any(item["event"] == "data-server" and item["raw_hex"] == b"PONG".hex() for item in report["entries"])
+        events.append({"proxy_exit_code": exit_code, "status": report["status"]})
+    except Exception as exc:
+        failures.append(f"runner: {type(exc).__name__}: {exc}")
+    finally:
+        keep_open.set()
+        for peer in upstreams:
+            peer.close()
+        for thread in threads:
+            thread.join(1)
+        if proxy.poll() is None:
+            proxy.terminate()
+            try:
+                proxy.wait(2)
+            except subprocess.TimeoutExpired:
+                proxy.kill()
+                proxy.wait(2)
+        events.append({"final_proxy_pid": proxy.pid, "final_exit": proxy.returncode})
+        (ROOT / "runner.json").write_text(json.dumps({"events": events, "failures": failures}, indent=2) + "\n")
+    if failures:
+        raise RuntimeError(failures)
+
+
+if __name__ == "__main__":
+    main()

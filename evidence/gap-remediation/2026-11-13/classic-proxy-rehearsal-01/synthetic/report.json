@@ -1,0 +1,74 @@
+{
+  "status": "intentional-observation-cutoff",
+  "variant": "baseline",
+  "netns_inode": 4026532547,
+  "expected_netns_inode": 4026532547,
+  "host_netns_inode": 4026531840,
+  "routes": {
+    "control": 15500,
+    "data": 15501
+  },
+  "listeners": {
+    "control": 15652,
+    "data": 15653
+  },
+  "deadline_seconds": 180,
+  "errors": [],
+  "observation": {
+    "state": "fired",
+    "ack_sent_monotonic_ns": 31588865378607,
+    "cutoff_due_ns": 31616865378607,
+    "cutoff_actual_ns": 31616903913657,
+    "last_owned_socket_close_ns": 31616904095947,
+    "relay_teardown_ns": 31616963059576,
+    "valid_30_seconds": true,
+    "raw_ack_sha256": "2b0975e53f8151d3b0cbfec379c5d08196a30da8348d88c2a9f517c2336d1946",
+    "forwarded_ack_sha256": "2b0975e53f8151d3b0cbfec379c5d08196a30da8348d88c2a9f517c2336d1946",
+    "error": null
+  },
+  "pid": 3284142,
+  "entries": [
+    {
+      "event": "client-handshake",
+      "timestamp_us": 1794606883616494,
+      "raw_hex": "54525450484f544c00010002",
+      "forwarded_hex": "54525450484f544c00010002"
+    },
+    {
+      "event": "server-handshake",
+      "timestamp_us": 1794606883616780,
+      "raw_hex": "5452545000000000",
+      "forwarded_hex": "5452545000000000"
+    },
+    {
+      "event": "login-request",
+      "timestamp_us": 1794606883617048,
+      "raw_hex": "0000006b0000007b0000000000000002000000020000",
+      "forwarded_hex": "0000006b0000007b0000000000000002000000020000"
+    },
+    {
+      "event": "server",
+      "timestamp_us": 1794606883617878,
+      "raw_hex": "000100000000007b000000000000000800000008000100a100020000",
+      "forwarded_hex": "000100000000007b000000000000000800000008000100a100020000"
+    },
+    {
+      "event": "server",
+      "timestamp_us": 1794606883660881,
+      "raw_hex": "0000006d0000007c000000000000000f0000000f000100a0000973796e746865746963",
+      "forwarded_hex": "0000006d0000007c000000000000000f0000000f000100a0000973796e746865746963"
+    },
+    {
+      "event": "data-client",
+      "timestamp_us": 1794606883661994,
+      "raw_hex": "50494e47",
+      "forwarded_hex": "50494e47"
+    },
+    {
+      "event": "data-server",
+      "timestamp_us": 1794606883662416,
+      "raw_hex": "504f4e47",
+      "forwarded_hex": "504f4e47"
+    }
+  ]
+}

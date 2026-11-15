@@ -1,0 +1,44 @@
+{
+  "status": "stopped-before-connect",
+  "reason": "proxy system service RuntimeMaxSec=180s expired during GUI address correction",
+  "client_connect_clicks": 0,
+  "host_pcap_bytes": 24,
+  "namespace_pcap_bytes": 24,
+  "proxy_unit_result": "timeout",
+  "proxy_retries": 0,
+  "app_quit": "Finder screenshot confirmed",
+  "postflight_actions": 29,
+  "postflight_report_status": "completed",
+  "postflight_verify": "passed",
+  "postflight_check": {
+    "status": "verified-bounded-postflight",
+    "completed_actions": 29,
+    "static_reply_ids_equal": [
+      1,
+      10,
+      11,
+      12,
+      14,
+      16,
+      17
+    ],
+    "accounts_reply_fields_equal": true,
+    "root_files_count": 41,
+    "fixture_metadata_equal": true,
+    "dynamic_roster_uid": "002e",
+    "dynamic_download_ref": "0034040b",
+    "full_filp_bytes": 1049073,
+    "full_filp_sha256": "7d1f5bf5e2b69b8a18906633ce2ef550876b78252c0639e7d36eb61142787ab8",
+    "full_filp_equal_prior_baseline": true,
+    "data_sha256": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+    "resource_sha256": "40a42dbcf2d879e22d9a5a9acf46bf15fa9fe3a77837f757a990e514436801e5",
+    "limit": "No dedicated postflight host packet capture; A7 protocol_capture verified its own exact 29-action trace."
+  },
+  "limitations": [
+    "No native or Classic protocol session through proxy",
+    "Recorder zero-drop observations are transcript, not raw logfile",
+    "A7 postflight has no dedicated host packet capture"
+  ],
+  "file_count_before_manifest": 52,
+  "non_pcap_bytes_before_manifest": 15744811
+}

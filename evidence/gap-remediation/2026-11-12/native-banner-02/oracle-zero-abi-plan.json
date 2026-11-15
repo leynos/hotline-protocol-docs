@@ -1,0 +1,26 @@
+[
+  {
+    "id": "BF-A-1000d5e0",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "1000d5e0",
+      "limit": 160
+    }
+  },
+  {
+    "id": "BF-A-1006ddb0",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "1006ddb0",
+      "limit": 16
+    }
+  },
+  {
+    "id": "BF-A-10070c30",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "10070c30",
+      "limit": 80
+    }
+  }
+]

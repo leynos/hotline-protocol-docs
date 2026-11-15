@@ -1,0 +1,9 @@
+{
+  "unit": "mothra-native-alias-live-03-host.service",
+  "pid": 4192832,
+  "fd": 5,
+  "inode": 597225182,
+  "header24": "d4c3b2a10200040000000000000000000000040001000000",
+  "wait_seconds": 0.016971370991086587,
+  "deadline_utc": "2026-11-14T18:20:40.727465+00:00"
+}

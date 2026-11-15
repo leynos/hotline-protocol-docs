@@ -1,0 +1,6 @@
+2026-11-14T00:51:34Z first native connection; 2026-11-14T00:52:11Z traffic end.
+Private operator command:
+timeout --signal=INT 270s flock -n /data/leynos/Projects/mothra/state/delegation/oracle.lock bash state/delegation/a37-run.sh
+Canonical protocol HEAD: fb38a27b12983d62b120b44b4c779858e690d2ac.
+Direct SYSTEM tcpdump unit: mothra-a37-host-capture.service, actual MainPID 1975057.
+Source script and untrimmed terminal log are retained in this corpus.

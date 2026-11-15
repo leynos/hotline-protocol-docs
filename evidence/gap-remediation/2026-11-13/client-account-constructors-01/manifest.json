@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "scope": "B36-B39 read-only Classic client constructor trace; no runtime or server-project mutation",
+  "input": {
+    "data_sha256": "7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315",
+    "resource_sha256": "f762cfdedcc39758f841f720a4586dbbb88a7b74ec9e83db1793791b7c3f318b",
+    "archive_label": "Hotline Client 1.9.2 Classic",
+    "resource_vers_label": "1.9.1.0",
+    "version_discrepancy_reference": "evidence/gap-remediation/2026-11-13/mac-peer-candidate-01/finder-vers-hashes.json"
+  },
+  "analysis": {
+    "tool": "Ghidra 12.2 PUBLIC with GhidraMCP",
+    "jar_sha256": "201d18ffde71a83a678eae607de265861f37e5a00b989d91958c1197664d2b43",
+    "project": "ignored state/client-account-pef-01/project/hotline-client-classic-01.gpr",
+    "first_import_status": "completed-bounded-query-set",
+    "first_import_elapsed_seconds": 72.3229549059979,
+    "content_queries": {
+      "B37": 12,
+      "B38": 8,
+      "B39": 3
+    },
+    "raw_query_reports": [
+      "b37-report.json",
+      "b37-followup.json",
+      "b38-report.json",
+      "b39-report.json"
+    ],
+    "as_run_source_caveat": "B38 probe.py was extended between its second and third invocations; the final copied source is not an exact snapshot for the first two invocations. Raw report arguments, tool responses, and separate stderr segments are retained."
+  },
+  "server_349_decomp": {
+    "path": "evidence/hotline-server-1.9/queries/D-10015500.c",
+    "sha256": "e641660f5e57d070d1dda507834eaf9d2d07b20c7831a8635e44d34f1047f66a"
+  },
+  "conclusion": "bounded constructor field inventory, no positive field-111 client consumer/meaning; GAP-071 remains open",
+  "excluded": [
+    "client DATA/RSRC forks",
+    "Ghidra project database"
+  ]
+}

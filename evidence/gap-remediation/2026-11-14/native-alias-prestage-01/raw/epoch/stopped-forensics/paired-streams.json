@@ -1,0 +1,80 @@
+{
+  "status": "one_closed_readiness_lifetime_paired",
+  "report_status": "completed",
+  "completed_actions": 18,
+  "frame_count": 8,
+  "event_count": 27,
+  "host_primary_syn_packets": 0,
+  "views": [
+    {
+      "view": "namespace",
+      "tcp_packets": 29,
+      "unique_initial_syn": 1,
+      "client_endpoint": [
+        "127.0.0.1",
+        36428
+      ],
+      "server_endpoint": [
+        "127.0.0.1",
+        15960
+      ],
+      "client_to_server_len": 231,
+      "server_to_client_len": 2759,
+      "client_to_server_sha256": "5eecc6b4d737fcadbb8356aa0839119da65a3d2e77dca799bc23d39e6f4487b2",
+      "server_to_client_sha256": "7f5cad68aaca975d221a5216ac98a6d4241c3557a543afb83e66799a1da23dc2",
+      "matches_recorder": true,
+      "tails": [
+        {
+          "index": 27,
+          "timestamp_us": 1794678164260213,
+          "flags": 17,
+          "src_port": 36428,
+          "dst_port": 15960
+        },
+        {
+          "index": 28,
+          "timestamp_us": 1794678164269671,
+          "flags": 17,
+          "src_port": 15960,
+          "dst_port": 36428
+        }
+      ]
+    },
+    {
+      "view": "guest",
+      "tcp_packets": 32,
+      "unique_initial_syn": 1,
+      "client_endpoint": [
+        "10.0.2.2",
+        36428
+      ],
+      "server_endpoint": [
+        "10.0.2.15",
+        5500
+      ],
+      "client_to_server_len": 231,
+      "server_to_client_len": 2759,
+      "client_to_server_sha256": "5eecc6b4d737fcadbb8356aa0839119da65a3d2e77dca799bc23d39e6f4487b2",
+      "server_to_client_sha256": "7f5cad68aaca975d221a5216ac98a6d4241c3557a543afb83e66799a1da23dc2",
+      "matches_recorder": true,
+      "tails": [
+        {
+          "index": 40,
+          "timestamp_us": 1794678164260269,
+          "flags": 17,
+          "src_port": 36428,
+          "dst_port": 5500
+        },
+        {
+          "index": 42,
+          "timestamp_us": 1794678164262662,
+          "flags": 17,
+          "src_port": 5500,
+          "dst_port": 36428
+        }
+      ]
+    }
+  ],
+  "cross_view_equal": true,
+  "case_connection_count": 0
+}

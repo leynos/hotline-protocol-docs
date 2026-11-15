@@ -1,0 +1,9 @@
+[
+  {
+    "id": "AG-D-100018b0",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "100018b0"
+    }
+  }
+]

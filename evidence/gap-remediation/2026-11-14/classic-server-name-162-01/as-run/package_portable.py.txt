@@ -1,0 +1,123 @@
+"""Package B56 zero-contact and B57 finite ASCII-162 evidence."""
+import datetime
+import hashlib
+import json
+import pathlib
+import shutil
+import struct
+import sys
+
+sys.path.insert(0, "/data/leynos/Projects/hotline-protocol-docs/scripts")
+from pcap_tcp import read_packets
+
+mothra = pathlib.Path("/data/leynos/Projects/mothra")
+private = mothra / "state/delegation/workspaces/batch-02-account/mothra"
+source = mothra / "state/native-sessions/native-proxy-162-b57"
+failure = mothra / "state/native-sessions/native-proxy-162-b56"
+dest = private / "evidence/gap-remediation/2026-11-14/classic-server-name-162-01"
+dest.mkdir(parents=True, exist_ok=False)
+
+def digest(data):
+    return hashlib.sha256(data).hexdigest()
+
+def copy(src, relative):
+    target = dest / relative
+    target.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(src, target)
+
+for name in ("terminal.json", "offline-parity.json", "a7-plan.json", "x-ready.json",
+             "host-ready-launch.json", "ns-ready-launch.json", "host-ready-before-a7.json",
+             "ns-ready-before-a7.json", "host-ready-before-connect.json", "ns-ready-before-connect.json",
+             "mothra-b57-host-capture-journal.txt", "mothra-b57-ns-capture-journal.txt",
+             "mothra-classic-proxy-b57-journal.txt", "units-terminal.txt", "listeners-terminal.txt",
+             "active-native-terminal.txt", "emulators-terminal.txt", "original-fds-terminal.txt",
+             "ns-addresses-terminal.txt", "ns-v4-routes-terminal.txt", "ns-v6-routes-terminal.txt",
+             "ready.png", "after-agree-1s.png", "after-cutoff.png", "after-quit.png"):
+    copy(source / name, "b57/" + name)
+for name in ("a7-preflight", "a7-postflight"):
+    for child in ("report.json", "plan.json", "checksums.sha256"):
+        copy(source / name / child, "b57/" + name + "/" + child)
+for name in ("terminal.json", "proxy-journal.txt", "host-recorder-journal.txt",
+             "ns-recorder-journal.txt", "units-terminal.txt", "listeners-terminal.txt",
+             "host-ready-launch.json", "ns-ready-launch.json", "host-ready-before-a7.json",
+             "ns-ready-before-a7.json", "host-ready-before-connect.json", "ns-ready-before-connect.json",
+             "ready-correct.png", "after-quit.png", "namespace.pcap", "client-guest-pre.pcap",
+             "client-guest-post.pcap"):
+    copy(failure / name, "b56/" + name)
+for name in ("a7-preflight", "a7-postflight"):
+    for child in ("report.json", "plan.json", "checksums.sha256"):
+        copy(failure / name / child, "b56/" + name + "/" + child)
+copy(source / "offline_pair.py", "as-run/offline_pair.py.txt")
+copy(source / "package_portable.py", "as-run/package_portable.py.txt")
+
+parity = json.loads((source / "offline-parity.json").read_text())["cases"]["server-name-162"]
+routes_by_file = {}
+for kind, routes in parity["routes"].items():
+    for route in routes:
+        routes_by_file.setdefault(route[0], []).append((kind, route))
+selection = {}
+for filename, routes in routes_by_file.items():
+    packets = read_packets(source / filename)
+    indexes = set()
+    observations = []
+    for kind, (_, src_ip, src_port, dst_ip, dst_port) in routes:
+        selected = [p for p in packets if
+                    ((p["src_ip"], p["src_port"], p["dst_ip"], p["dst_port"]) == (src_ip, src_port, dst_ip, dst_port)
+                    or (p["src_ip"], p["src_port"], p["dst_ip"], p["dst_port"]) == (dst_ip, dst_port, src_ip, src_port))]
+        syns = [p for p in selected if (p["src_ip"], p["src_port"]) == (src_ip, src_port) and p["flags"] & 2 and not p["flags"] & 16]
+        assert len(syns) == 1, (filename, kind, "SYN")
+        assert all(p["timestamp_us"] >= syns[0]["timestamp_us"] for p in selected)
+        indexes.update(p["index"] for p in selected)
+        observations.append({"kind": kind, "route": [src_ip, src_port, dst_ip, dst_port],
+                             "syn_index": syns[0]["index"], "syn_timestamp_us": syns[0]["timestamp_us"],
+                             "packet_count": len(selected), "terminal_flags": [p["flags"] for p in selected if p["flags"] & 5]})
+    raw = (source / filename).read_bytes()
+    assert raw[:4] == bytes.fromhex("d4c3b2a1")
+    output = bytearray(raw[:24]); offset = 24; index = 0
+    while offset < len(raw):
+        index += 1
+        assert offset + 16 <= len(raw)
+        _, _, size, original = struct.unpack_from("<IIII", raw, offset)
+        assert size == original and offset + 16 + size <= len(raw)
+        if index in indexes:
+            output += raw[offset:offset + 16 + size]
+        offset += 16 + size
+    assert offset == len(raw)
+    target = dest / "pcaps" / filename
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_bytes(output)
+    assert len(read_packets(target)) == len(indexes), filename
+    selection[filename] = {"original_path": str((source / filename).relative_to(mothra)),
+                           "original_bytes": len(raw), "original_sha256": digest(raw),
+                           "selected_bytes": len(output), "selected_sha256": digest(output),
+                           "selected_record_indexes": sorted(indexes), "routes": observations}
+
+for name in ("classic_login_proxy.py", "pcap_tcp.py"):
+    revision = "12b51a2d8271ffa06cd1589501f0ca1d36bb37fe" if name.startswith("classic") else "79d867dc80c0aea50ad77569aae89e1d0bf37915"
+    import subprocess
+    data = subprocess.check_output(["git", "-C", str(mothra.parent / "hotline-protocol-docs"), "show", f"{revision}:scripts/{name}"])
+    (dest / "as-run" / (name + ".txt")).write_bytes(data)
+
+baseline = json.loads((private / "evidence/gap-remediation/2026-11-14/classic-proxy-baseline-01/manifest.json").read_text())
+source_id = baseline["source"]
+source_id["proxy_sha256"] = digest((dest / "as-run/classic_login_proxy.py.txt").read_bytes())
+source_id["proxy_revision"] = "12b51a2d8271ffa06cd1589501f0ca1d36bb37fe"
+source_id["proxy_snapshot_path"] = "as-run/classic_login_proxy.py.txt"
+source_id["parser_sha256"] = digest((dest / "as-run/pcap_tcp.py.txt").read_bytes())
+source_id["parser_revision"] = "79d867dc80c0aea50ad77569aae89e1d0bf37915"
+source_id["parser_snapshot_path"] = "as-run/pcap_tcp.py.txt"
+manifest = {"schema_version": 1, "recorded_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+            "scope": "B56 zero contact infrastructure stop and B57 one ASCII 162 append, complete selected SYN lifetimes",
+            "source": source_id, "runtime": baseline["runtime"],
+            "capture_gate_sha256": digest((mothra / "scripts/capture_readiness.py").read_bytes()),
+            "original_ack_hex": "0001000000000001000000000000000e0000000e000200a0000200be00a100020000",
+            "original_ack_sha256": "814b733a82d15dd7250cb0e8b7ed0c6c09a7a02d7169ab70ebaa359fb18eb6d0",
+            "forwarded_ack_sha256": "3f5185b7bc222e684697fd2fce46ff0f625bc13ddf301e8a787bfe47594caedb",
+            "b56": {"outcome": "infrastructure-stop-before-connect", "namespace_pcap": "b56/namespace.pcap"},
+            "b57": {"outcome": "intentional-observation-cutoff", "routes": {kind: [["pcaps/" + r[0], *r[1:]] for r in routes] for kind, routes in parity["routes"].items()}},
+            "selection": selection}
+(dest / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
+files = [p for p in dest.rglob("*") if p.is_file() and p.name != "SHA256SUMS"]
+(dest / "SHA256SUMS").write_text("".join(f"{digest(p.read_bytes())}  {p.relative_to(private)}\n" for p in sorted(files)))
+print("files", len(files), "non-PCAP bytes", sum(p.stat().st_size for p in files if p.suffix != ".pcap"),
+      "selected PCAP bytes", sum(p.stat().st_size for p in files if p.suffix == ".pcap"))

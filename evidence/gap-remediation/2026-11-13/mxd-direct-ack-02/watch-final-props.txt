@@ -1,0 +1,10 @@
+Id=mxd-c9-watch-20261113-1835.service
+ActiveState=inactive
+SubState=dead
+InvocationID=
+Type=
+RuntimeMaxUSec=infinity
+MainPID=0
+Result=success
+ExecMainCode=0
+ExecMainStatus=0
