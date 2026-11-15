@@ -78,6 +78,12 @@ The script work is a behaviour-preserving refactor.
   lines, because documents and evidence records cite them. Every verifier must
   reach the same verdict on every retained corpus before and after, and every
   planner must emit byte-identical plans.
+- Large and binary evidence is stored through Git LFS (Large File Storage),
+  which keeps a small pointer in Git and the content in a separate store. The
+  rule is fixed: under `evidence/`, every `*.png`, `*.pcap` and `*.gz` file,
+  and every other file of 1 MiB or more, is an LFS object; everything else is
+  ordinary Git. The content of each file is unchanged. No file outside
+  `evidence/` uses LFS.
 - General guidance on installing or setting up the mothra toolset is not
   written or kept in this repository. Where an existing document contains it,
   the passage moves to mothra in general form and is replaced by a link.
@@ -139,8 +145,8 @@ The script work is a behaviour-preserving refactor.
   refresh tool must first reproduce revision 89 byte for byte, and the existing
   renderer's `--check` is the independent oracle.
 - Risk: the import drops or alters an evidence file. Severity: high.
-  Likelihood: low. Mitigation: obligation INV-IMPORT compares every imported
-  blob hash with mothra's and re-runs all 415 `SHA256SUMS` files.
+  Likelihood: low. Mitigation: obligation INV-IMPORT compares the content hash
+  of every imported file with mothra's and re-runs all 415 `SHA256SUMS` files.
 - Risk: removing material from mothra before this repository can stand alone
   loses the only working copy of a check. Severity: high. Likelihood: low.
   Mitigation: EP-M4 starts only after EP-M3's ported checks pass here; mothra
@@ -150,8 +156,16 @@ The script work is a behaviour-preserving refactor.
   owner authorized the push; it is recorded as decision D8 so the consequence
   is explicit.
 - Risk: this repository's working tree grows to about 1 GB. Severity: low.
-  Likelihood: certain. Mitigation: recorded as decision D9; Git LFS is not
-  introduced.
+  Likelihood: certain. Mitigation: Git LFS keeps about 826 MiB of it out of the
+  Git object store, and a clone can skip it with `GIT_LFS_SKIP_SMUDGE=1`.
+- Risk: the first push uploads about 826 MiB to GitHub's LFS store, which is
+  metered for storage and bandwidth. Severity: medium. Likelihood: certain.
+  Mitigation: EP-M0 records the account's LFS quota and the expected upload
+  before anything is pushed; if the quota is short, stop and escalate.
+- Risk: a checkout without LFS content holds pointer files, so a verifier or
+  a `SHA256SUMS` check fails confusingly. Severity: medium. Likelihood: medium.
+  Mitigation: `make lfs-check` runs first in every evidence target and fails
+  with a message naming `git lfs pull`.
 - Risk: relocating 102 documents breaks some of roughly 2,200 relative links.
   Severity: medium. Likelihood: high without tooling. Mitigation: moves are
   performed by a tested script and the link gate runs before and after.
@@ -188,8 +202,10 @@ The script work is a behaviour-preserving refactor.
   general, mothra links become GitHub links, and the mxd set is tidied.
 - [x] (2026-11-15 13:20Z) Owner settled D1, D2 (full scope), D4 and D10, and
   asked for evidence-recreation directions; plan revised.
+- [x] (2026-11-15 14:50Z) Revised to store large evidence through Git LFS.
 - [ ] Explicit approval to begin implementation.
-- [ ] EP-M0: baseline, mothra pushed, classification manifest.
+- [ ] EP-M0: baseline, mothra pushed, LFS quota checked, classification
+  manifest.
 - [ ] EP-M1: tooling foundation and link gate.
 - [ ] EP-M2: audit refresh tool proven against revision 89.
 - [ ] EP-M3: Hotline material imported; repository self-contained; revision 90.
@@ -282,11 +298,15 @@ The script work is a behaviour-preserving refactor.
 - Decision D8 (settled by the owner, 2026-11-15): mothra `main` may be pushed
   to `origin`. Consequence accepted: the Hotline evidence remains in mothra's
   published history; later commits remove it from the tree.
-- Decision D9: the imported evidence is stored in ordinary Git, as it is in
-  mothra, and imported with its history using `git filter-repo` on a scratch
-  clone followed by a merge of unrelated histories. Rationale: history shows
-  when each corpus was captured, and the same content already packs to about
-  326 MiB. Date/Author: 2026-11-15, planning agent.
+- Decision D9 (revised by the owner, 2026-11-15): the imported evidence uses
+  Git LFS under the rule in `Constraints`. It is imported with its history:
+  `git filter-repo` selects the paths on a scratch clone,
+  `git lfs migrate import` converts the qualifying files throughout that
+  scratch history, and the result is merged as an unrelated history. The
+  planning agent had proposed ordinary Git; the owner asked for LFS. Measured
+  effect: 537 PNG files (307 MiB), 241 packet captures (295 MiB), 17 gzip files
+  (39 MiB) and 55 other files of 1 MiB or more (184 MiB) become LFS objects;
+  about 16,700 smaller text files (roughly 160 MiB) stay in Git.
 - Decision D10 (accepted by the owner, 2026-11-15): the mxd set is reorganized
   into the six documents listed under EP-M7. Rationale: one document per reader
   question, each finding stated once. Date/Author: 2026-11-15, planning agent.
@@ -464,14 +484,19 @@ with hyphens. The link tool uses the same rule, and a test pins it against the
   Method: parameterized tests and the real run. Non-vacuity: seeded unlisted
   and doubly listed documents are rejected.
 - Obligation INV-IMPORT: every file selected by the classification manifest
-  exists here with the same Git blob hash it has at the pushed mothra commit,
-  no unselected file was imported, and every `SHA256SUMS` under `evidence/`
-  verifies from the repository root. Method: exhaustive comparison of
-  `git ls-tree -r` output for both repositories, then `sha256sum --check` over
-  all sums files. Artefact: `tools/check_import.py` with
-  `tests/test_check_import.py`. Evidence: `17,5xx files, 0 differences` and 415
-  sums files verified. Non-vacuity: tests seed an altered blob, a missing file
-  and an extra file; the real run asserts the expected file count.
+  exists here with the same content as at the pushed mothra commit, no
+  unselected file was imported, the LFS rule holds exactly, and every
+  `SHA256SUMS` under `evidence/` verifies from the repository root. Method:
+  exhaustive comparison of the SHA-256 of each file's content in mothra with,
+  for an ordinary file, the SHA-256 of the blob here and, for an LFS file, the
+  object identifier in its pointer, which is the SHA-256 of the content; a
+  check that the set of LFS paths equals the set the rule selects; then
+  `sha256sum --check` over all sums files with LFS content present. Artefact:
+  `tools/check_import.py` with `tests/test_check_import.py`. Evidence:
+  `17,5xx files, 0 differences` and 415 sums files verified. Non-vacuity: tests
+  seed an altered blob, a missing file, an extra file, a large file left in
+  ordinary Git and a small text file wrongly in LFS; the real run asserts the
+  expected file count and at least 800 LFS objects.
 - Obligation INV-MOVE: relocation changes nothing but link targets. For each
   moved document, the heading sequence and every line containing no link are
   identical before and after, and every link resolves to the moved counterpart
@@ -602,12 +627,12 @@ every gate in both repositories and writes the retrospective.
 
 ## Milestones and plateaus
 
-- EP-M0, baseline. Outcome: baseline results and the classification manifest
-  are recorded in this plan; mothra `main` is on `origin`. Evidence:
-  `make gap-check` in the mothra main checkout exits 0; the legacy `unittest`
-  suite count is recorded; `git -C mothra status -sb` shows no commits ahead.
-  Conformance: no tracked file changed in either repository. Recovery: none
-  needed; the push adds commits only. Compatibility: none.
+- EP-M0, baseline. Outcome: baseline results, the GitHub LFS quota and the
+  classification manifest are recorded in this plan; mothra `main` is on
+  `origin`. Evidence: `make gap-check` in the mothra main checkout exits 0; the
+  legacy `unittest` suite count is recorded; `git -C mothra status -sb` shows
+  no commits ahead. Conformance: no tracked file changed in either repository.
+  Recovery: none needed; the push adds commits only. Compatibility: none.
 - EP-M1, tooling foundation. Outcome:
   `make lint-python typecheck test links-check` pass on the flat tree, with the
   mothra location passed as a parameter; documentation gate finding counts are
@@ -744,6 +769,11 @@ checkout, then merge it:
 ```sh
 git clone --no-local /data/leynos/Projects/mothra "$SCRATCH/mothra-import"
 git -C "$SCRATCH/mothra-import" filter-repo --paths-from-file "$SCRATCH/import-paths.txt"
+git -C "$SCRATCH/mothra-import" lfs migrate import --everything \
+  --include='evidence/**/*.png,evidence/**/*.pcap,evidence/**/*.gz'
+git -C "$SCRATCH/mothra-import" lfs migrate import --everything \
+  --include='evidence/**' --above=1MiB
+git lfs install --local
 git remote add mothra-import "$SCRATCH/mothra-import"
 git fetch mothra-import
 git merge --allow-unrelated-histories mothra-import/main
@@ -751,9 +781,13 @@ git remote remove mothra-import
 uv run tools/check_import.py --mothra /data/leynos/Projects/mothra
 ```
 
-`$SCRATCH` is the session scratch directory. `import-paths.txt` is generated
-from the classification manifest. Imported documents are then moved to their
-places in ordinary commits, links and script paths are rewritten, and:
+The two `migrate` commands rewrite only the scratch clone and write the matching
+`.gitattributes` entries. After the merge, `git lfs fetch mothra-import --all`
+copies the objects into this repository's store before the remote is removed;
+run it between the `fetch` and `merge` lines if the merge reports missing
+objects. `$SCRATCH` is the session scratch directory. `import-paths.txt` is
+generated from the classification manifest. Imported documents are then moved
+to their places in ordinary commits, links and script paths are rewritten, and:
 
 ```sh
 python3 -m unittest discover -s scripts -p 'test_*.py'
@@ -856,6 +890,8 @@ Quality criteria:
   `make lint-python typecheck check-fmt markdownlint spelling nixie` pass over
   every Python and Markdown file, with no separate rule set for legacy code.
 - Performance: `make all` completes in under ten minutes on this machine.
+- Storage: `git count-objects -vH` reports a pack under 250 MiB after the
+  import, and `git lfs ls-files | wc -l` reports the expected object count.
 - Security: tools write only inside this worktree; the refresh tool refuses
   to overwrite an existing revision directory; credential-bearing captures that
   the documents describe as private remain outside both repositories.
@@ -949,8 +985,9 @@ Transcripts and commit hashes are added here as milestones complete.
 Tools and pins: Python 3.14; `uv`; Ruff 0.16.8; `ty` 0.0.56; pytest with
 Hypothesis; Cyclopts; `interrogate`; Pylint 4.0.9 with `df12-python-lints`
 v0.4.0; mdtablefix 0.6.1; markdownlint-cli2 (0.20.0 is installed); nixie;
-`typos-config-builder` v0.1.3; `git filter-repo`. New tools call Git through
-`cuprum`, as the df12 scripting standards require for external processes.
+`typos-config-builder` v0.1.3; `git filter-repo`; Git LFS 3.7.1. New tools call
+Git through `cuprum`, as the df12 scripting standards require for external
+processes.
 
 New files at the end of EP-M3:
 
@@ -970,7 +1007,11 @@ New files at the end of EP-M3:
 - `.markdownlint-cli2.jsonc`: netsuke's rules plus Lody's `MD024`
   `siblings_only`, `MD033` allowing `a` and `br`, and `MD049` underscore;
   ignoring `evidence/**`, `.uv-cache` and `.uv-tools`.
-- `.gitattributes`: `evidence/** -whitespace`, as in mothra.
+- `.gitattributes`: `evidence/** -whitespace`, as in mothra, plus the LFS
+  filter entries for the three extensions and the listed large files.
+- A `lfs-check` target: fails if any path the LFS rule selects is not a
+  pointer in the index, if any other path is, or if LFS content is absent from
+  the working tree.
 - `typos.local.toml` (authored, excluding `evidence/**`) and `typos.toml`
   (generated).
 - `docs/documentation-style-guide.md`: verbatim copy at `991af84`.
@@ -1030,3 +1071,9 @@ checked for coverage in EP-M9 by INV-RECREATE, and general toolset set-up
 passages move to mothra in EP-M4. Later milestones were renumbered, so the plan
 now runs from EP-M0 to EP-M11 and audit revisions from 90 to 95. The remaining
 work is unchanged in kind but larger: EP-M5 is now the biggest milestone.
+
+Third revision, 15 November 2026. The owner asked for Git LFS. Decision D9 now
+stores large and binary evidence through LFS under a fixed rule, converts it in
+the scratch clone before the merge so history is kept, and adds an `lfs-check`
+gate. INV-IMPORT compares content hashes instead of blob hashes and checks the
+LFS rule. EP-M0 gains a quota check. No milestone was added or renumbered.
