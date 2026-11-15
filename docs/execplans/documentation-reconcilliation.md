@@ -226,6 +226,16 @@ The script work is a behaviour-preserving refactor.
   10 tensions) in the session scratch directory.
 - [x] (2026-11-15 20:40Z) Owner raised the tooling tolerance (D24) and asked
   for the SynHX naming to be clarified and a comprehensive glossary (D25).
+- [x] (2026-11-16 03:30Z) EP-M3, third part: the inherited scripts now find
+  evidence inside this repository (`b514da7`, 79 files, path expressions only),
+  reach mothra's general scripts through `scripts/mothra_root.py` (`3bee830`),
+  and mothra's Hotline check recipes are ported as `make evidence-verify`,
+  `evidence-verify-known-red`, `test-legacy` and `typecheck-legacy` (`9b05d81`).
+  `evidence-verify` is part of `make all`, which passes with 198 tests.
+  Against the EP-M0 baseline, 89 of 89 ported recipes give the same exit code;
+  `test-legacy` reports `Ran 785 tests` and `FAILED (errors=1)`, the one known
+  error (D18). Remaining in EP-M3: capture the INV-SCRIPT goldens in the
+  repository (delegated).
 - [x] (2026-11-16 01:10Z) EP-M3, second part: the cited mothra documents and
   seventeen Hotline-specific scripts imported at their mothra-relative paths
   (`efea44a`); three further corpora came in with the handoff note and the
@@ -407,6 +417,21 @@ The script work is a behaviour-preserving refactor.
   blanks (876 lines of code) after three tools. Impact: against the 2,200-line
   scope tolerance this needs a ruling on which measure applies; reported to the
   lead.
+
+- Ten corpus-held verifiers locate helper modules through a checkout named
+  `hotline-protocol-docs` and cannot be edited, because they sit under
+  `evidence/`. The `Makefile` macro `in_legacy_layout` runs them from a scratch
+  tree of that name holding a copy of `scripts/` and a hard-linked `evidence/`.
+  Evidence: `make evidence-verify` passes in a worktree of another name.
+- `ty` reports eight diagnostics on the inherited scripts: two unresolved
+  imports of `mcp` in the hash-pinned `capture-ghidra-evidence.py`, and six
+  `bytes | None` arguments in `classic_login_proxy.py`. `typecheck-legacy` is
+  therefore defined but kept out of `make all` until EP-M5.
+- Twenty-one corpora hold frozen copies of earlier versions of scripts that
+  EP-M3 edited; their `SHA256SUMS` cover the frozen copies and nothing compares
+  them with the live files, so the edits break no recorded hash.
+- The inherited verifiers and one test write a `state/` directory at the
+  repository root; it is ignored (`b1cae01`).
 
 ## Decision log
 
