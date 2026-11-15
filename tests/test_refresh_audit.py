@@ -293,3 +293,70 @@ def test_without_a_reason_the_local_corpora_record_is_untouched(tmp_path: Path) 
     before = record.read_bytes()
     refresh(world)
     assert record.read_bytes() == before, "record unchanged"
+
+
+def test_a_split_section_copies_its_coverage_to_every_part(tmp_path: Path) -> None:
+    """An old section split in two keeps its sources on the first part only."""
+    world = ah.build_world(tmp_path)
+    (world.root / "b.md").unlink()
+    (world.root / "c.md").write_text(
+        "# Gamma\n\ntext\n\n## Delta\n\nmore\n\n## Later\n\nx\n"
+    )
+    smap = tmp_path / "map.json"
+    smap.write_text(
+        '{"sections": [{"old": ["b.md", 1], "new": ["c.md", 1]},'
+        ' {"old": ["b.md", 2], "new": ["c.md", 2], "also": [["c.md", 3]]}]}'
+    )
+    refresh(world, section_map=smap)
+    register = ah.read_json(world.register)
+    rows = {e["heading"]: e for e in register["review_coverage"] if e["path"] == "c.md"}
+    assert sorted(rows) == ["Delta", "Gamma", "Later"], sorted(rows)
+    assert rows["Later"]["related_gap_ids"] == rows["Delta"]["related_gap_ids"], rows
+    assert rows["Later"]["review"] == rows["Delta"]["review"], rows
+    headings = [s["heading"] for g in register["gaps"] for s in g["sources"]]
+    assert "Later" not in headings, headings
+
+
+def test_a_new_section_that_no_entry_names_is_still_refused(tmp_path: Path) -> None:
+    """Listing some parts of a split does not excuse an unlisted new section."""
+    world = ah.build_world(tmp_path)
+    (world.root / "b.md").unlink()
+    (world.root / "c.md").write_text(
+        "# Gamma\n\ntext\n\n## Delta\n\nmore\n\n## Later\n\nx\n"
+    )
+    smap = tmp_path / "map.json"
+    smap.write_text(
+        '{"sections": [{"old": ["b.md", 1], "new": ["c.md", 1]},'
+        ' {"old": ["b.md", 2], "new": ["c.md", 2]}]}'
+    )
+    with pytest.raises(sm.RefreshRefusedError, match=r"c\.md: sections \[3\]"):
+        refresh(world, section_map=smap)
+
+
+def test_a_split_part_that_does_not_exist_is_refused(tmp_path: Path) -> None:
+    """An ``also`` target beyond the new document's sections is an error."""
+    world = ah.build_world(tmp_path)
+    (world.root / "b.md").unlink()
+    (world.root / "c.md").write_text("# Gamma\n\ntext\n\n## Delta\n\nmore\n")
+    smap = tmp_path / "map.json"
+    smap.write_text(
+        '{"sections": [{"old": ["b.md", 1], "new": ["c.md", 1]},'
+        ' {"old": ["b.md", 2], "new": ["c.md", 2], "also": [["c.md", 9]]}]}'
+    )
+    with pytest.raises(sm.RefreshRefusedError, match="missing"):
+        refresh(world, section_map=smap)
+
+
+def test_a_split_part_in_another_document_makes_it_an_input(tmp_path: Path) -> None:
+    """A document that only receives split parts is snapshotted and covered."""
+    world = ah.build_world(tmp_path)
+    (world.root / "d.md").write_text("# Overview\n\nsummary\n")
+    smap = tmp_path / "map.json"
+    smap.write_text(
+        '{"sections": [{"old": ["b.md", 1], "new": ["b.md", 1], "also": [["d.md", 1]]},'
+        ' {"old": ["b.md", 2], "new": ["b.md", 2]}]}'
+    )
+    refresh(world, section_map=smap)
+    register = ah.read_json(world.register)
+    assert "d.md" in {e["path"] for e in register["review_coverage"]}, "coverage"
+    assert (revision_dir(world) / "inputs/d.md.txt").is_file(), "snapshot"

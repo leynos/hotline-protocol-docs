@@ -129,6 +129,7 @@ class Workspace:
                 message = f"input document {current} is absent"
                 raise MissingInputError(message)
         names += [path for path, _ in smap.sections.values()]
+        names += [path for parts in smap.also.values() for path, _ in parts]
         unique = list(dict.fromkeys(names))
         missing = [name for name in unique if not (self.root / name).is_file()]
         if missing:
@@ -214,7 +215,9 @@ class Workspace:
         texts = {n: (self.root / n).read_bytes() for n in self._inputs(previous, smap)}
         current = {n: mm.section_inventory(d.decode()) for n, d in texts.items()}
         mapping = am.build_mapping(previous, current, smap)
-        updated = am.rewrite_register(register, previous, current, mapping)
+        updated = am.rewrite_register(
+            register, previous, current, am.with_parts(mapping, smap)
+        )
         updated["source_manifest"] = relative(directory / "manifest.json", self.root)
         updated["source_sections"] = relative(directory / "sections.json", self.root)
         updated["last_updated"] = today.isoformat()

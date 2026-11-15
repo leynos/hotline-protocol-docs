@@ -139,14 +139,15 @@ def build_mapping(
     mapping: dict[Location, Location] = {}
     for path, sections in old.items():
         mapping.update(_map_document(path, sections, new, smap))
-    for old_key, (path, ordinal) in mapping.items():
+    parts = [(key, part) for key in mapping for part in smap.also.get(key, ())]
+    for old_key, (path, ordinal) in [*mapping.items(), *parts]:
         if ordinal > len(new.get(path, [])):
             message = (
                 f"{old_key[0]} section {old_key[1]} maps to missing "
                 f"{path} section {ordinal}"
             )
             raise RefreshRefusedError(message)
-    targets = set(mapping.values())
+    targets = {*mapping.values(), *(part for _, part in parts)}
     for path, sections in new.items():
         orphans = [i for i in range(1, len(sections) + 1) if (path, i) not in targets]
         if orphans:
@@ -225,11 +226,32 @@ def _merge(into: dict[str, typ.Any], other: dict[str, typ.Any]) -> None:
             into[key] = list(dict.fromkeys([*into.get(key, []), *other[key]]))
 
 
+def with_parts(
+    mapping: dict[Location, Location], smap: SectionMap
+) -> dict[Location, tuple[Location, ...]]:
+    """List every new section that each old section became.
+
+    Parameters
+    ----------
+    mapping : dict[tuple[str, int], tuple[str, int]]
+        The old-to-new section correspondence from :func:`build_mapping`.
+    smap : SectionMap
+        The reviewed map, whose ``also`` entries name the further parts of a
+        split section.
+
+    Returns
+    -------
+    dict[tuple[str, int], tuple[tuple[str, int], ...]]
+        The primary new section first, then any further parts.
+    """
+    return {key: (target, *smap.also.get(key, ())) for key, target in mapping.items()}
+
+
 def rewrite_register(
     register: Register,
     old: Inventory,
     new: Inventory,
-    mapping: dict[Location, Location],
+    mapping: dict[Location, tuple[Location, ...]],
 ) -> Register:
     """Return a copy of the register with its locations moved to the new inventory.
 
@@ -241,8 +263,9 @@ def rewrite_register(
         The previous inventory its locations refer to.
     new : dict[str, list[mm.Section]]
         The current inventory.
-    mapping : dict[tuple[str, int], tuple[str, int]]
-        The old-to-new section correspondence.
+    mapping : dict[tuple[str, int], tuple[tuple[str, int], ...]]
+        The new sections each old section became (see :func:`with_parts`). Gap
+        sources follow the first; every one receives the review coverage.
 
     Returns
     -------
@@ -254,19 +277,20 @@ def rewrite_register(
         moved: dict[Location, dict[str, typ.Any]] = {}
         for source in gap["sources"]:
             key = (source["path"], _old_ordinal(source["path"], source, old))
-            target = mapping[key]
+            target = mapping[key][0]
             _relocate(source, target, new)
             moved.setdefault(target, source)
         gap["sources"] = list(moved.values())
     merged: dict[Location, dict[str, typ.Any]] = {}
     for entry in result["review_coverage"]:
         key = (entry["path"], _old_ordinal(entry["path"], entry, old))
-        target = mapping[key]
-        _relocate(entry, target, new)
-        if target in merged:
-            _merge(merged[target], entry)
-        else:
-            merged[target] = entry
+        for target in mapping[key]:
+            placed = copy.deepcopy(entry)
+            _relocate(placed, target, new)
+            if target in merged:
+                _merge(merged[target], placed)
+            else:
+                merged[target] = placed
     result["review_coverage"] = list(merged.values())
     return result
 

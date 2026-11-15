@@ -3,7 +3,10 @@
 A section map is a JSON object with an optional ``files`` object (old path to
 new path, for relocated documents) and an optional ``sections`` list of
 ``{"old": [path, ordinal], "new": [path, ordinal]}`` entries. Ordinals count
-from one. Several old sections may map to one new section.
+from one. Several old sections may map to one new section. An entry may add
+``"also": [[path, ordinal], ...]`` when the old section was split: ``new`` is
+the part that gap sources follow, and every part receives a copy of the old
+section's review coverage.
 """
 
 import dataclasses as dc
@@ -34,10 +37,13 @@ class SectionMap:
         New path for each relocated document, keyed by its old path.
     sections : dict[tuple[str, int], tuple[str, int]]
         New ``(path, ordinal)`` for each explicitly mapped old section.
+    also : dict[tuple[str, int], tuple[tuple[str, int], ...]]
+        Further new sections that took content from a split old section.
     """
 
     files: dict[str, str]
     sections: dict[Location, Location]
+    also: dict[Location, tuple[Location, ...]] = dc.field(default_factory=dict)
 
 
 def _is_pair(value: object) -> typ.TypeGuard[list[typ.Any]]:
@@ -109,7 +115,11 @@ def load_section_map(path: Path | None) -> SectionMap:
         raise MissingInputError(message)
     raw = json.loads(path.read_text(encoding="utf-8"))
     sections: dict[Location, Location] = {}
+    also: dict[Location, tuple[Location, ...]] = {}
     for index, entry in enumerate(raw.get("sections", [])):
         old = _pair(entry.get("old"), f"entry {index} old")
         sections[old] = _pair(entry.get("new"), f"entry {index} new")
-    return SectionMap(dict(raw.get("files", {})), sections)
+        parts = entry.get("also", [])
+        if parts:
+            also[old] = tuple(_pair(part, f"entry {index} also") for part in parts)
+    return SectionMap(dict(raw.get("files", {})), sections, also)
