@@ -5,18 +5,18 @@ on 14 November 2026. The native Hotline Server 1.9 sent a successful 34-byte
 Login107 ACK with 160=`00be`, 161=`0000`, and no 162. The [fixed proxy][proxy]
 appended one field 162 containing the 14 ASCII bytes `fixture-native` and
 forwarded a 52-byte ACK. Its SHA-256 is
-`3f5185b7bc222e684697fd2fce46ff0f625bc13ddf301e8a787bfe47594caedb`;
-the native ACK SHA-256 is
-`814b733a82d15dd7250cb0e8b7ed0c6c09a7a02d7169ab70ebaa359fb18eb6d0`.
-The other fields, header ID/status/flags, all later control frames, and both
-data directions were unchanged.
+`3f5185b7bc222e684697fd2fce46ff0f625bc13ddf301e8a787bfe47594caedb`; the native
+ACK SHA-256 is
+`814b733a82d15dd7250cb0e8b7ed0c6c09a7a02d7169ab70ebaa359fb18eb6d0`. The other
+fields, header ID/status/flags, all later control frames, and both data
+directions were unchanged.
 
 The identified Classic client sent Login107, received the exact controlled
 242-byte 109 agreement, and accepted it once. It then sent 121, 300, and 212;
 the native server returned the corresponding replies and roster. The 212
-reference matched the 16-byte `HTXF` data header, and 58 `GIF89a` bytes
-reached the client. The UI showed Connected and roster transfer. It still
-showed **Loading banner image**; successful image rendering is unproved.
+reference matched the 16-byte `HTXF` data header, and 58 `GIF89a` bytes reached
+the client. The UI showed Connected and roster transfer. It still showed
+**Loading banner image**; successful image rendering is unproved.
 
 Five retained, complete SYN lifetimes include their TCP tails: client guest,
 proxy namespace ingress and upstream, host loopback, and server guest. Their

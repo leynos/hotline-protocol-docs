@@ -2,8 +2,8 @@
 
 This witness covers one controlled login by the archived “Hotline Client 1.9.2
 Classic” candidate against the native Hotline Server 1.9 guest. Its embedded
-`vers` says 1.9.1.0, and vendor authenticity remains unproved. It is a
-measured client session, not a general client profile or release-policy rule.
+`vers` says 1.9.1.0, and vendor authenticity remains unproved. It is a measured
+client session, not a general client profile or release-policy rule.
 
 The client ran in a separate loopback-only network namespace. Fixed AF_UNIX
 bridges led to host loopback control port 15500 and data port 15501; a third
@@ -27,17 +27,17 @@ SYN-scoped control and data streams across host, client guest and server guest.
   UI still said **Loading banner image**; receipt of the bytes does not prove
   image decoding or display.
 - The guest sent 15 DNS A requests for `www.developingnetwork.com` to 10.0.2.3.
-  Each was quoted by a matching ICMP network-unreachable response. There was
-  no public-IP guest TCP flow in this capture. The host recorder restricted to
-  the earlier ad IP and two diagnostic IPs retained a header-only PCAP with
-  zero matching packet records. This is finite containment evidence for the
-  observed path, not proof of all possible egress paths.
+  Each was quoted by a matching ICMP network-unreachable response. There was no
+  public-IP guest TCP flow in this capture. The host recorder restricted to the
+  earlier ad IP and two diagnostic IPs retained a header-only PCAP with zero
+  matching packet records. This is finite containment evidence for the observed
+  path, not proof of all possible egress paths.
 - From the last data-flow packet to the quiet-end snapshot, 147.229 seconds
-  elapsed; 139.908 seconds elapsed after the final pre-disconnect DNS error.
-  No new numbered control request, including kind 500, appeared in that
-  interval. This does not establish a universal timer interval or purpose.
-  One manual connection was disconnected and the client app quit. Both guests
-  remained live with no owned established 15500/15501 socket at handoff.
+  elapsed; 139.908 seconds elapsed after the final pre-disconnect DNS error. No
+  new numbered control request, including kind 500, appeared in that interval.
+  This does not establish a universal timer interval or purpose. One manual
+  connection was disconnected and the client app quit. Both guests remained
+  live with no owned established 15500/15501 socket at handoff.
 
 Run the portable offline checks from the mothra root:
 

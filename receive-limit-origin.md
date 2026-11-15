@@ -1,25 +1,26 @@
 # Receive-limit origin and indexed reference boundary
 
 This bounded GAP-011 note records 12 read-only GhidraMCP calls against a saved,
-independent analysis of the hashed Hotline Server 1.9 PEF. The [as-run query
-record][corpus] keeps exact arguments, output, the script and checksums. The
-project had 1,840 functions; it was reopened with `--no-analyze --discard`.
-No native server or GUI was queried in this batch.
+independent analysis of the hashed Hotline Server 1.9 PEF. The
+[as-run query record][corpus] keeps exact arguments, output, the script and
+checksums. The project had 1,840 functions; it was reopened with
+`--no-analyze --discard`. No native server or GUI was queried in this batch.
 
 ## Positive native-code comparison
 
 The image's four bytes at global `10094a50` are `00 20 00 00` (2 MiB), but the
 [headless startup decompilation][startup] exactly matches the earlier GUI
 record: `100007b0` assigns `0x80000` (512 KiB) to `_DAT_10094a50` **before**
-calling configuration loader `10008fd0`. The [complete startup
-assembly][startup-asm] has 592 instructions and pins this sequence:
+calling configuration loader `10008fd0`. The
+[complete startup assembly][startup-asm] has 592 instructions and pins this
+sequence:
 
-| Address | Bytes | PowerPC instruction |
-| --- | --- | --- |
-| `10000b84` | `3c000008` | `lis r0,0x8` |
+| Address    | Bytes      | PowerPC instruction |
+| ---------- | ---------- | ------------------- |
+| `10000b84` | `3c000008` | `lis r0,0x8`        |
 | `10000b88` | `38624330` | `addi r3,r2,0x4330` |
-| `10000b8c` | `90030000` | `stw r0,0x0(r3)` |
-| `10000b9c` | `48008435` | `bl 0x10008fd0` |
+| `10000b8c` | `90030000` | `stw r0,0x0(r3)`    |
+| `10000b9c` | `48008435` | `bl 0x10008fd0`     |
 
 The matching decompilation maps the store to `_DAT_10094a50`. The assembly
 itself shows an **`r2`-relative address calculation and store**. Separately,
@@ -35,28 +36,28 @@ The [receiver decompilation][receiver] at `100590e0` exactly matches the GUI
 record, and all 219 [receiver instruction address/byte pairs][receiver-asm]
 match. It rejects either total or data size when zero or **greater than** the
 current global. The retained [native framing corpus][framing] supplies the
-runtime boundary: physical payload 524,288 passes a request-500 case,
-524,289 closes, and two accepted fragments can accumulate to 524,290 before
-dispatch. Thus the comparison is a per-physical-frame size check in these
-cases, not a demonstrated aggregate transaction cap. It says nothing by
-itself about concurrent partial assemblies or process memory.
+runtime boundary: physical payload 524,288 passes a request-500 case, 524,289
+closes, and two accepted fragments can accumulate to 524,290 before dispatch.
+Thus the comparison is a per-physical-frame size check in these cases, not a
+demonstrated aggregate transaction cap. It says nothing by itself about
+concurrent partial assemblies or process memory.
 
 ## Configuration and remaining question
 
 The one conditional follow-up slot used the pinned `10008fd0` configuration
-loader because no recognised code xref was returned from `10088d90`. Its
+loader because no recognized code xref was returned from `10088d90`. Its
 [untruncated decompilation][config] does not name `10094a50`. That is a bounded
-observation about this function's displayed code, **not** proof that config
-or later code cannot change the global by another route. The 12-call batch
-has no runtime RAM measurement and does not establish that the 512 KiB value
-is immutable or user-configurable.
+observation about this function's displayed code, **not** proof that config or
+later code cannot change the global by another route. The 12-call batch has no
+runtime RAM measurement and does not establish that the 512 KiB value is
+immutable or user-configurable.
 
 The programme identity matched before and after, and the private project file
 hash map was unchanged. These checks and the exact parity comparisons are in
 [the report][report]. The separate original GAP-011 criterion also requires
 explicit mxd limits, inclusive boundaries, overflow checks and boundary
-fixtures. This static origin trace does not supply those mxd decisions or
-close the gap.
+fixtures. This static origin trace does not supply those mxd decisions or close
+the gap.
 
 ## Reproduce the bounded query
 

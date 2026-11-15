@@ -2,10 +2,9 @@
 
 This prepares the finite GAP-046 101/102/103 case; it does **not** run it. The
 runner accepts only control port 15860 and a receipt for a new disposable Mac
-guest. It changes that guest's board through ordinary native requests. Keep
-the immutable base and primary guest untouched. Retire the disposable working
-image after the stopped-image board witness; do not reuse it for another
-baseline.
+guest. It changes that guest's board through ordinary native requests. Keep the
+immutable base and primary guest untouched. Retire the disposable working image
+after the stopped-image board witness; do not reuse it for another baseline.
 
 ## Evidence and source boundaries
 
@@ -14,19 +13,19 @@ baseline.
   `state/delegation/legacy-board-oracle-01` read the actual `10082694` format,
   `100826bc` Pascal separator, and `1008f87e` Pascal `MessageBoard.txt` under
   the independent PPC32 project (1,840 functions). `10004110` supplies the
-  formatter and file-write call path. Its 60 emitted separator bytes are CR,
-  58 underscores, CR; `3c` is the Pascal length and is **not** emitted. The
-  source format is NUL-terminated `From %#s (%s%2.2hu %2.2hu:%2.2hu):\r\r`;
-  runtime date/name bytes remain measured rather than guessed.
-- Stopped immutable base catalog ID 11191 is `Hotline19/MessageBoard.txt`,
-  DATA=0, RSRC=0, Finder `TEXT`/`ttxt`. Preserve its catalog and fork receipt.
-  A newly prepared owned working image must independently show the same empty
-  file before boot; the source plan rejects any other baseline value.
+  formatter and file-write call path. Its 60 emitted separator bytes are CR, 58
+  underscores, CR; `3c` is the Pascal length and is **not** emitted. The source
+  format is NUL-terminated `From %#s (%s%2.2hu %2.2hu:%2.2hu):\r\r`; runtime
+  date/name bytes remain measured rather than guessed.
+- Stopped immutable base catalogue ID 11191 is `Hotline19/MessageBoard.txt`,
+  DATA=0, RSRC=0, Finder `TEXT`/`ttxt`. Preserve its catalogue and fork
+  receipt. A newly prepared owned working image must independently show the
+  same empty file before boot; the source plan rejects any other baseline value.
 - `1000f130` supplies bit20 read permission and 65,535-byte field101 clipping;
   `1000f260` supplies bit21 posting permission and the inclusive 8,192-byte
-  accepted size; `10004110` prepends the formatted segment and writes the
-  whole board. These source facts do not substitute for a successful live case
-  or a stopped-fork comparison.
+  accepted size; `10004110` prepends the formatted segment and writes the whole
+  board. These source facts do not substitute for a successful live case or a
+  stopped-fork comparison.
 
 ## Separate guarded epochs
 
@@ -52,39 +51,39 @@ python scripts/native_board_control.py --plan <new-plan-dir> \
   --binary <pinned-server-data-fork> --output <new-empty-output-dir>
 ```
 
-The output directory must **not** exist. The case has four
-simultaneous-at-most control sockets: admin sender, admin eligible reader,
-zero-ACL `fixture-low` denied reader, and admin delayed-login waiting session
-without icon104/activation121. The waiting session is closed after P2 before
-the preonline age threshold. Six TCP lifetimes total include the separate
-pre/post controls. The source plan declares 32 numbered case requests:
-four107, nine101, thirteen103, and six500; no extra probes. The first three
-posts use eligible and denied 500/ACK barriers. No preonline 500 is sent.
-Posts are unique and paced at least one host second apart to avoid the
-repeated-hash spam path, without claiming native clock equality.
+The output directory must **not** exist. The case has four simultaneous-at-most
+control sockets: admin sender, admin eligible reader, zero-ACL `fixture-low`
+denied reader, and admin delayed-login waiting session without
+icon104/activation121. The waiting session is closed after P2 before the
+preonline age threshold. Six TCP lifetimes total include the separate pre/post
+controls. The source plan declares 32 numbered case requests: four107, nine101,
+thirteen103, and six500; no extra probes. The first three posts use eligible
+and denied 500/ACK barriers. No preonline 500 is sent. Posts are unique and
+paced at least one host second apart to avoid the repeated-hash spam path,
+without claiming native clock equality.
 
-P0 carries explicit empty101; P1/P2 are `board-A`/`board-B`; P3 is 8,191
-bytes; P4–P9 are six distinct 8,192-byte posts. After measuring aggregate L at
-P9 and the actual stable rendered overhead H, P10 is exactly `65,535 - L - H`
-bytes (must fit 0..8,192), and its read must equal 65,535 bytes. P11 adds a
-distinct byte and its 101 must be the newest 65,535-byte prefix. P12 is 8,193
-bytes, expects status1/field100, no102, and unchanged clipped read. The run
-checks each successful 102 segment against sender and eligible bytes, and
-checks prepend reconstruction against every selected101. It records
-waiting-session 102 if delivered and rejects denied 102. No cross-socket total
-order is inferred.
+P0 carries explicit empty101; P1/P2 are `board-A`/`board-B`; P3 is 8,191 bytes;
+P4–P9 are six distinct 8,192-byte posts. After measuring aggregate L at P9 and
+the actual stable rendered overhead H, P10 is exactly `65,535 - L - H` bytes
+(must fit 0..8,192), and its read must equal 65,535 bytes. P11 adds a distinct
+byte and its 101 must be the newest 65,535-byte prefix. P12 is 8,193 bytes,
+expects status1/field100, no102, and unchanged clipped read. The run checks
+each successful 102 segment against sender and eligible bytes, and checks
+prepend reconstruction against every selected101. It records waiting-session
+102 if delivered and rejects denied 102. No cross-socket total order is
+inferred.
 
 The custom nonblocking collector retains all send/receive chunks, decoded
 physical frames, timestamps, EOF or bounded no-EOF observations, and tails.
-FIN/RST classification requires the paired PCAPs.
-Malformed tails fail the case but still close and remove the owned socket;
-the raw receive event and original parser error remain in `report.json`.
-Limits: 8 MiB of recorded bytes, 300 frames, 180-second case window inside a hard
-210-second runner cap. Missing expected replies, changed semantic fields,
-header/date overhead, source/identity mismatch, timeout, or exceeded limits
-fail the case and retain `report.json`; do not retry or retune the post
-matrix. The report's `whole_board_sha256` is a **reconstruction** from 102
-segments, not storage proof.
+FIN/RST classification requires the paired PCAPs. Malformed tails fail the case
+but still close and remove the owned socket; the raw receive event and original
+parser error remain in `report.json`. Limits: 8 MiB of recorded bytes, 300
+frames, 180-second case window inside a hard 210-second runner cap. Missing
+expected replies, changed semantic fields, header/date overhead,
+source/identity mismatch, timeout, or exceeded limits fail the case and retain
+`report.json`; do not retry or retune the post matrix. The report's
+`whole_board_sha256` is a **reconstruction** from 102 segments, not storage
+proof.
 
 After a completed case, stop only the disposable guest, prove no working-image
 holder, and extract the exact named board DATA fork. Compare its full bytes
@@ -117,15 +116,15 @@ ty check --extra-search-path \
 
 The [first board lab](native-board-readiness-failure.md) stopped before any
 protocol request. Its manually assembled lease receipt and correction script
-failed setup checks; it supplies no board-operation evidence.
-The [successful second lab](native-board-witness.md) supplies the paired
-protocol and stopped-file evidence for the fixture described here.
+failed setup checks; it supplies no board-operation evidence. The
+[successful second lab](native-board-witness.md) supplies the paired protocol
+and stopped-file evidence for the fixture described here.
 
 Use the [validated receipt builder](../mothra/docs/native-capture-receipt.md)
 from the host as root. It reads the exact managed-unit properties, rechecks
 capture and emulator identity, and creates one new receipt exclusively.
-Prewrite and check readiness scripts before launching their units, and wait
-for the actual capture header before its first readiness check. Run the
-readiness and board coordinators inside the owned emulator namespace. A
-failed gate still stops the group; neither this helper nor its rehearsal
-authorizes a new native case or extends its fixed deadline.
+Prewrite and check readiness scripts before launching their units, and wait for
+the actual capture header before its first readiness check. Run the readiness
+and board coordinators inside the owned emulator namespace. A failed gate still
+stops the group; neither this helper nor its rehearsal authorizes a new native
+case or extends its fixed deadline.

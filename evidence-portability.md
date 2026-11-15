@@ -21,8 +21,8 @@ contains the two abbreviated revisions. Archives contain committed files and
 preserve the sibling directory names; installed toolchains and runtime caches
 are kept separately. Building this local package does not publish it.
 
-The manifest identifies the exact document/evidence pair. Git HEAD alone is
-not sufficient to identify uncommitted historical sources, so their original
+The manifest identifies the exact document/evidence pair. Git HEAD alone is not
+sufficient to identify uncommitted historical sources, so their original
 snapshot hashes and worktree metadata are retained too. Ghidra addresses remain
 tied to the full binary hash in each query record, not merely an application
 name or an address copied into prose.
@@ -47,20 +47,20 @@ python3 scripts/render-protocol-gap-analysis.py --check
 ```
 
 Also check every retained `evidence/**/SHA256SUMS` from the extracted `mothra`
-directory. Those files use paths relative to that directory. The renderer checks
-current document/snapshot hashes, stable IDs, source section coverage, dependency
-cycles and local links. Full `make check` additionally needs the lint, type and
-diagram tools described in mothra's README; re-querying the binary needs its
-local Ghidra/MCP installation.
+directory. Those files use paths relative to that directory. The renderer
+checks current document/snapshot hashes, stable IDs, source section coverage,
+dependency cycles and local links. Full `make check` additionally needs the
+lint, type and diagram tools described in mothra's README; re-querying the
+binary needs its local Ghidra/MCP installation.
 
 ## Updating evidence without rewriting history
 
 New investigations use a new batch directory and unique query IDs. Keep raw
 queries, plans and exports unchanged once committed and hashed. When documents
-change, review the changed sections, capture a new manifest and section inventory,
-and update current register locations/coverage to that new snapshot. Old dated
-snapshots remain unchanged. Regenerate `gap-analysis.md` from `gap-register.json`
-and run `make check` before committing the reviewed pair.
+change, review the changed sections, capture a new manifest and section
+inventory, and update current register locations/coverage to that new snapshot.
+Old dated snapshots remain unchanged. Regenerate `gap-analysis.md` from
+`gap-register.json` and run `make check` before committing the reviewed pair.
 
 Resolved records retain their evidence and closure rationale. If a static
 criterion is satisfied but native wire/peer fixtures are still required by a
@@ -70,14 +70,15 @@ gap IDs must not be renumbered or deleted because a document was reorganized.
 
 ## Recorded extraction verification
 
-The [retained verification record][verification] pins an exported pair at
-mothra `eab01fd827cc` (see the manifest for its full ID) and the corresponding
+The [retained verification record][verification] pins an exported pair at mothra
+`eab01fd827cc` (see the manifest for its full ID) and the corresponding
 protocol-document commit. Twenty-two commands passed: outer archive checksums,
 all extracted evidence inventories, the SynHX extraction verifier, baseline
 claim verifier and current gap/link renderer. They ran from a fresh extracted
-pair rather than relying on the live sibling checkout. The [export manifest][export]
-records full commit IDs and archive hashes. This closes GAP-087's portable
-package criterion; native execution and peer fixtures remain separate gaps.
+pair rather than relying on the live sibling checkout. The
+[export manifest][export] records full commit IDs and archive hashes. This
+closes GAP-087's portable package criterion; native execution and peer fixtures
+remain separate gaps.
 
 [verification]: ../mothra/evidence/gap-remediation/2026-11-12/package-review/verification.json
 [export]: ../mothra/evidence/gap-remediation/2026-11-12/package-review/export-manifest.json

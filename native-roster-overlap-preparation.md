@@ -5,9 +5,9 @@ traffic. The frozen question asks whether initial 301 includes its subject,
 when a session appears in 300, and how 300 orders against concurrent changes
 and 354. Initial login and later rename already have retained examples in
 `presence-messaging-contracts.md` and `native-live-accounts-01`; this case
-measures one outstanding 300 while a session-only 304 changes a peer's name
-and icon. One schedule cannot prove an atomic snapshot/subscription rule or
-all possible interleavings.
+measures one outstanding 300 while a session-only 304 changes a peer's name and
+icon. One schedule cannot prove an atomic snapshot/subscription rule or all
+possible interleavings.
 
 ## Plan and isolation
 
@@ -37,9 +37,9 @@ capture services, acquire the lease, or establish an original A7 full-file
 baseline; those are root-owned live prerequisites.
 
 Use a finite managed unit with
-`NetworkNamespacePath=/proc/<actual-emulator-pid>/ns/net`; the inherited
-runner gate rejects a different process namespace before opening a socket.
-The equivalent namespace context for its payload is:
+`NetworkNamespacePath=/proc/<actual-emulator-pid>/ns/net`; the inherited runner
+gate rejects a different process namespace before opening a socket. The
+equivalent namespace context for its payload is:
 
 ```sh
 roster_emulator_pid="$(python3 -c \
@@ -53,20 +53,20 @@ sudo nsenter --target "$roster_emulator_pid" --net -- \
   --output state/native-roster-overlap-01/results
 ```
 
-The two **owned connections** use the existing public fixture admin account;
-no account creation or edit is in the plan. Distinct requested 102 names and
+The two **owned connections** use the existing public fixture admin account; no
+account creation or edit is in the plan. Distinct requested 102 names and
 nonzero icons, with measured naming privilege 26, make both sessions early
-online. The runner checks each 107 success and 354 access, A's B-UID 301,
-and both current 300 snapshots for exactly two unique UID/name/icon rows.
-It preserves the actual UIDs; it never guesses a UID from connection order.
-At most two control connections are opened, below the ten-connection cap.
+online. The runner checks each 107 success and 354 access, A's B-UID 301, and
+both current 300 snapshots for exactly two unique UID/name/icon rows. It
+preserves the actual UIDs; it never guesses a UID from connection order. At
+most two control connections are opened, below the ten-connection cap.
 
 ## Bounded causal sequence
 
 1. After setup and bounded quiet, A sends 300 ID 11. Before reading its
    reply, B sends 304 ID 20, changing B's effective name from `Order B` to
-   `Order New` and icon from 2 to 3. A and B then each send 500 ID 12 on
-   their own sockets. Send completion times are retained per chunk.
+   `Order New` and icon from 2 to 3. A and B then each send 500 ID 12 on their
+   own sockets. Send completion times are retained per chunk.
 2. A bounded `select` drain retains raw byte chunks, exact decoded frames,
    connection labels and monotonic frame-completion timestamps. It waits for
    A's 300 ACK, A/B rename 301, and both 500 ACKs in **either** arrival order.
@@ -75,19 +75,19 @@ At most two control connections are opened, below the ten-connection cap.
    retained and fails the case; none is silently skipped.
 3. A's first 300 must show complete old B name/icon or complete new pair,
    always with the same B UID and the unchanged A row. After both observed
-   barriers, A requests 300 ID 13; that stable snapshot must show the new
-   pair. Both sockets then have bounded quiet, planned half-close/EOF and
-   close; A's B-UID 302 is checked. Unexpected bytes remain in the failed
-   report and external packet captures.
+   barriers, A requests 300 ID 13; that stable snapshot must show the new pair.
+   Both sockets then have bounded quiet, planned half-close/EOF and close; A's
+   B-UID 302 is checked. Unexpected bytes remain in the failed report and
+   external packet captures.
 
 The versioned `coordinator.operations` schedule declares five injected sends,
 two unordered drains with exact required frame keys, and two quiet checks.
-Custom drain receives use action `-1`. The as-run report records schedule
-SHA and operation labels with event/frame ranges. `verify_operation_map`
-checks plan/schedule hashes, contiguous ranges, injected bytes, custom
-receive provenance, quiet connections and reconstructed streams.
-Generic `protocol_capture.verify_capture` does **not** certify this custom
-report. Freeze the plan, report and exact producer/runner sources for portable
+Custom drain receives use action `-1`. The as-run report records schedule SHA
+and operation labels with event/frame ranges. `verify_operation_map` checks
+plan/schedule hashes, contiguous ranges, injected bytes, custom receive
+provenance, quiet connections and reconstructed streams. Generic
+`protocol_capture.verify_capture` does **not** certify this custom report.
+Freeze the plan, report and exact producer/runner sources for portable
 publication; host/guest packet parity remains a separate check.
 
 `overlap_status` becomes `completed` only after ID 11 and stable ID 13 pass.
@@ -102,8 +102,8 @@ same-socket **handler** barrier only after confirming the traced dispatcher
 finishes the prior handler before processing 500. Neither barrier gives a
 global order between A and B. The report records request send order, decoded
 frame arrival and old/new snapshot outcome. Host/guest PCAP comparison later
-bounds packet arrival; it cannot identify the instant a server handler ran.
-A 300 ACK after B's 304 send is not proof that 304 executed first.
+bounds packet arrival; it cannot identify the instant a server handler ran. A
+300 ACK after B's 304 send is not proof that 304 executed first.
 
 ## Verification and unresolved requirements
 
@@ -112,17 +112,17 @@ coordinator over fake socketpairs. They cover both ACK-before-301 and
 301-before-ACK, nonempty late EOF, changed injected bytes and action `-1`,
 truncated and malformed frames, wrong ID, torn name/icon pairs, extra frames,
 an unexpected third roster row, and modified plan hash. Ruff format/check,
-`ty check`, Markdownlint and Nixie are the scoped gates. The private clone
-uses canonical `native_ban_expiry_control` dependencies; a fresh adjacent
-export must include those pinned source files before live approval.
+`ty check`, Markdownlint and Nixie are the scoped gates. The private clone uses
+canonical `native_ban_expiry_control` dependencies; a fresh adjacent export
+must include those pinned source files before live approval.
 
 Root must choose the actual runtime/ports and approve live work separately.
 Before then, verify the serial-dispatch assumption in retained code, observe
 managed capture readiness and source identities, define postflight and cleanup,
 and test host/guest packet parity. A natural early reply/error, capture gap,
 identity drift or time limit ends this one case without retry or widened
-window. A finite old/new result can document the observed schedule; it does
-not close broader GAP-035 concurrency by itself.
+window. A finite old/new result can document the observed schedule; it does not
+close broader GAP-035 concurrency by itself.
 
 B71 raised source/test/prose caps to 760/380/160 physical lines for the
 declared schedule, whole-run socketpair regression and separate late-tail

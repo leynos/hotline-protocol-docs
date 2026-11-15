@@ -9,11 +9,11 @@ agreement or restart change.
 
 The generator `scripts/native_settings_transition_cases.py` takes an explicit
 runtime record and the exact A7 29-action/full-FILP baseline plan, SHA-256
-`5d0aa3dccf65fc6523678aa729c9ace72cd6caffbef768b7f5bf949e6568b43e`.
-It emits byte-identical preflight and postflight copies and one observation
-plan. It rejects a mismatched runtime PID, emulator hash, oracle hash or
-guest-PCAP path. Eight labelled PMs target the UID captured from this
-connection's subject 301. The observer obtains its UID through 300.
+`5d0aa3dccf65fc6523678aa729c9ace72cd6caffbef768b7f5bf949e6568b43e`. It emits
+byte-identical preflight and postflight copies and one observation plan. It
+rejects a mismatched runtime PID, emulator hash, oracle hash or guest-PCAP
+path. Eight labelled PMs target the UID captured from this connection's subject
+301. The observer obtains its UID through 300.
 
 The eight ordered stages are:
 
@@ -34,31 +34,30 @@ The eight ordered stages are:
    default feedback and original PM.
 
 Each stage reads 301 on both sockets, requires the labelled 108 empty ACK,
-reads expected 104 messages, then uses two 500 ACK/quiet barriers. The
-`--run` mode in `verify_native_settings_transition.py` checks the roster and
-subject identity before any 304, then both decoded 301 states before each
-stage's PM. It checks PM and quiet-barrier results at each stage end and
-stops after the first bad observation. It records the failed
-report and closes owned sockets. It sends no further settings or PM request
-after failure. On success the plan restores the subject's session
-name/icon/options, observes both 301s, uses a final barrier and closes both
-sockets. Session teardown is the cleanup when a stage fails before restore.
+reads expected 104 messages, then uses two 500 ACK/quiet barriers. The `--run`
+mode in `verify_native_settings_transition.py` checks the roster and subject
+identity before any 304, then both decoded 301 states before each stage's PM.
+It checks PM and quiet-barrier results at each stage end and stops after the
+first bad observation. It records the failed report and closes owned sockets.
+It sends no further settings or PM request after failure. On success the plan
+restores the subject's session name/icon/options, observes both 301s, uses a
+final barrier and closes both sockets. Session teardown is the cleanup when a
+stage fails before restore.
 
 Future operator, only after a separate live START: revalidate the actual
 primary emulator PID, executable hash, managed unit, display, listener,
-guest-PCAP path, original account/Files state and exclusive server lease.
-Use privileged `readlink` for proc FD proof. Acquire the canonical
-`mothra/state/delegation/oracle.lock` for the authorised capture. Start and
+guest-PCAP path, original account/Files state and exclusive server lease. Use
+privileged `readlink` for proc FD proof. Acquire the canonical
+`mothra/state/delegation/oracle.lock` for the authorized capture. Start and
 confirm an independent host tcpdump before the first connection. Preserve
 untrimmed host/guest packet tails. Run the pinned preflight with
-`protocol_capture.py`, then one `--run` observation with the pinned binary
-path and fresh output directory, then the exact pinned postflight. Do not
-retry a failed observation. A failed stage has no automatic postfailure
-semantic requests; root must approve any subsequent baseline probe. Use
-read-only `--verify` on the retained capture and reconcile host/guest
-streams separately.
+`protocol_capture.py`, then one `--run` observation with the pinned binary path
+and fresh output directory, then the exact pinned postflight. Do not retry a
+failed observation. A failed stage has no automatic postfailure semantic
+requests; root must approve any subsequent baseline probe. Use read-only
+`--verify` on the retained capture and reconcile host/guest streams separately.
 
-No 121, re-login, restart, durable persistence or non-ASCII encoding
-conclusion follows. Test the default literal as exact bytes
-`I'm not able to respond right now. Please try later!`, not as a general
-codec rule.
+No 121, re-login, restart, durable persistence or non-ASCII encoding conclusion
+follows. Test the default literal as exact bytes
+`I'm not able to respond right now. Please try later!`, not as a general codec
+rule.

@@ -2,10 +2,10 @@
 
 This bounded GAP-003 supplement renders one retained native request and its
 measured result for each of the five classes named in the original closure
-criterion. The [selection record][selection] pins the source plan/report hashes,
-action indexes, decoded headers and exact event bytes. All five source reports
-are `native-mac-oracle` captures from the identified Hotline Server 1.9 Mac OS
-9.0.4/SheepShaver run; see the [source runtime][runtime] and
+criterion. The [selection record][selection] pins the source plan/report
+hashes, action indexes, decoded headers and exact event bytes. All five source
+reports are `native-mac-oracle` captures from the identified Hotline Server 1.9
+Mac OS 9.0.4/SheepShaver run; see the [source runtime][runtime] and
 [manifest][core]. These are host TCP streams through SLiRP. A host socket EOF
 alone does not establish whether the guest sent FIN or RST.
 
@@ -20,8 +20,8 @@ contains MacRoman quote bytes `d2` and `d3`.
 ## Authentication: rejected password
 
 [Plan][auth-plan], [report][auth-report], actions 3 send/4 receive. Request
-107, ID 1; reply ID 1, status 1, field 100 length 16, ASCII `Incorrect
-login.`. Action 5 is a scripted client close; this report does not measure a
+107, ID 1; reply ID 1, status 1, field 100 length 16, ASCII `Incorrect login.`.
+Action 5 is a scripted client close; this report does not measure a
 server-initiated close. A separate [guest timing corpus][timing] observed one
 failed login with no guest FIN/RST for 65.060281 host seconds and another with
 a reset after a fresh connection; neither is a universal deadline.
@@ -34,11 +34,11 @@ field100 496e636f7272656374206c6f67696e2e
 
 ## Permission: account enumeration denied
 
-[Plan][permission-plan], [report][permission-report], actions 7/8. Request
-348, ID 10; reply ID 10, status 1, field 100 length 43, ASCII `You are not
-allowed to administer accounts.`. The client later sends request 115 and 500,
-receives their replies, then closes at action 13: this particular denial did
-not end the control session.
+[Plan][permission-plan], [report][permission-report], actions 7/8. Request 348,
+ID 10; reply ID 10, status 1, field 100 length 43, ASCII
+`You are not allowed to administer accounts.`. The client later sends request
+115 and 500, receives their replies, then closes at action 13: this particular
+denial did not end the control session.
 
 ```text
 request  0000015c0000000a0000000000000002000000020000
@@ -48,11 +48,11 @@ field100 596f7520617265206e6f7420616c6c6f77656420746f2061646d696e697374657220616
 
 ## Missing object: file information lookup
 
-[Plan][missing-plan], [report][missing-report], actions 7/8. Request 206,
-ID 10, naming an absent file; reply ID 10, status 1, field 100 length 75.
-The response text begins `Cannot get info because there is no file/folder
-named` and embeds `d2`/`d3` around the requested name. The client closes at
-action 9; no server FIN/RST is established by this report.
+[Plan][missing-plan], [report][missing-report], actions 7/8. Request 206, ID
+10, naming an absent file; reply ID 10, status 1, field 100 length 75. The
+response text begins `Cannot get info because there is no file/folder named`
+and embeds `d2`/`d3` around the requested name. The client closes at action 9;
+no server FIN/RST is established by this report.
 
 ```text
 request  000000ce0000000a000000000000001e0000001e000200c900126d6f746872612d616273656e742d66696c6500ca00020000
@@ -63,12 +63,12 @@ field100 43616e6e6f742067657420696e666f2062656361757365207468657265206973206e6f2
 ## Malformed request: zero-size frame
 
 [Plan][malformed-plan], [report][malformed-report], action 7 sends request
-300/ID 10 with both size words zero and no payload. Action 8 records host
-proxy EOF 4.421455 ms after the send event (473.937017 ms after capture start),
-with **no numbered response frame** in that action or the remaining capture.
-Action 9 is the client's cleanup close. This is an observed host-stream
-lifetime, not proof of a particular guest FIN/RST packet or a general rule for
-all malformed frames.
+300/ID 10 with both size words zero and no payload. Action 8 records host proxy
+EOF 4.421455 ms after the send event (473.937017 ms after capture start), with
+**no numbered response frame** in that action or the remaining capture. Action
+9 is the client's cleanup close. This is an observed host-stream lifetime, not
+proof of a particular guest FIN/RST packet or a general rule for all malformed
+frames.
 
 ```text
 request  0000012c0000000a000000000000000000000000
@@ -77,12 +77,12 @@ result   host proxy EOF; no reply bytes
 
 ## Unsupported operation: unknown online transaction
 
-[Plan][unsupported-plan], [report][unsupported-report], actions 11/12.
-Request 999, ID 4; reply ID 4, status 1, field 100 length 25, ASCII `Unknown
-transaction type!`. The same report then records two further error replies
-and a scripted client close at action 17. The earlier
-[calculated example][derived] uses request ID 1 and is **derived**, whereas
-the bytes here are a captured ID-4 exchange.
+[Plan][unsupported-plan], [report][unsupported-report], actions 11/12. Request
+999, ID 4; reply ID 4, status 1, field 100 length 25, ASCII
+`Unknown transaction type!`. The same report then records two further error
+replies and a scripted client close at action 17. The earlier
+[calculated example][derived] uses request ID 1 and is **derived**, whereas the
+bytes here are a captured ID-4 exchange.
 
 ```text
 request  000003e7000000040000000000000002000000020000
@@ -90,7 +90,7 @@ reply    0001000000000004000000010000001f0000001f000100640019556e6b6e6f776e20747
 field100 556e6b6e6f776e207472616e73616374696f6e207479706521
 ```
 
-These five examples satisfy the *representative-byte* part of the original
+These five examples satisfy the _representative-byte_ part of the original
 GAP-003 criterion. They do not settle every failure status, exception-to-wire
 translation, partial effect or failure in an operation without a normal ACK.
 The [broader registry][registry] and [reply/effect map][replies] retain those

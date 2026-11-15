@@ -19,45 +19,40 @@ python3 scripts/verify_mac_peer_first_session.py ../mothra/evidence/gap-remediat
 
 ## Observed control exchange
 
-The client connected once to guest `10.0.2.2:15500` at 17:48:04 UTC.
-The guest source port
-49152 mapped to host loopback source port 59232; the same NAT source port
-appeared on the server guest at destination port 5500. All three SYN-scoped
-capture views contain identical 150-byte client and 514-byte server control
-streams. The 23-packet host PCAP contains the complete control handshake
-through FIN, with no second host SYN.
+The client connected once to guest `10.0.2.2:15500` at 17:48:04 UTC. The guest
+source port 49152 mapped to host loopback source port 59232; the same NAT
+source port appeared on the server guest at destination port 5500. All three
+SYN-scoped capture views contain identical 150-byte client and 514-byte server
+control streams. The 23-packet host PCAP contains the complete control
+handshake through FIN, with no second host SYN.
 
-| Direction | Complete captured frame sequence |
-| --- | --- |
-| Client | `TRTPHOTL00010002`; 107/id1 login with 105, 106, 160=`00be`; 121/id2 with 102=`unnamed`, 104=`019e`, 113=`0000`; 300/id3 empty roster request; 212/id4 empty |
-| Server | `TRTP00000000`; success reply/id1 with 160=`00be`, 161=`0000`; 109/id1 field101=exact controlled 242-byte agreement; success reply/id2; 354/id2 field110=`fff3cfefff800000`; 122/id3 fields152=`GIFf`, 153=`https://example.invalid/mothra-banner`; success reply/id3 field300=`0007019e00120007756e6e616d6564`; success reply/id4 fields108=`003a`, 107=`00038325` |
+| Direction | Complete captured frame sequence                                                                                                                                                                                                                                                                                                                                    |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Client    | `TRTPHOTL00010002`; 107/id1 login with 105, 106, 160=`00be`; 121/id2 with 102=`unnamed`, 104=`019e`, 113=`0000`; 300/id3 empty roster request; 212/id4 empty                                                                                                                                                                                                        |
+| Server    | `TRTP00000000`; success reply/id1 with 160=`00be`, 161=`0000`; 109/id1 field101=exact controlled 242-byte agreement; success reply/id2; 354/id2 field110=`fff3cfefff800000`; 122/id3 fields152=`GIFf`, 153=`https://example.invalid/mothra-banner`; success reply/id3 field300=`0007019e00120007756e6e616d6564`; success reply/id4 fields108=`003a`, 107=`00038325` |
 
 The first agreement click only woke the screen saver. At 17:49:48 UTC the
 operator accepted the UI text after matching it to the 109 wire bytes. The
 client then showed Connected and a roster containing `unnamed`. The 354 bitmap
 remains opaque. The 212 acknowledgement's field107 reference equals the
-`00038325`
-reference in a separate observed HTXF request; this is an identity observation,
-not a general transfer rule.
+`00038325` reference in a separate observed HTXF request; this is an identity
+observation, not a general transfer rule.
 
-Both guest PCAPs contain that data connection: client guest
-`10.0.2.15:49155` to `10.0.2.2:15501`, mapped to server guest
-`10.0.2.2:36936` to `10.0.2.15:5501`. Their complete 16-byte HTXF request
-streams and
-58-byte `GIF89a` response streams match. The host PCAP filter covered only port
-15500 and cannot establish host-side data-stream parity.
+Both guest PCAPs contain that data connection: client guest `10.0.2.15:49155` to
+`10.0.2.2:15501`, mapped to server guest `10.0.2.2:36936` to `10.0.2.15:5501`.
+Their complete 16-byte HTXF request streams and 58-byte `GIF89a` response
+streams match. The host PCAP filter covered only port 15500 and cannot
+establish host-side data-stream parity.
 
 ## Measured limits and safety stop
 
 The client guest PCAP contains five distinct, reassembled HTTP request/response
 lifetimes to `207.148.248.143:80`. Each sent
-`GET /zipads/zip-hot.asp?c=82&h=69` with
-`Host: www.developingnetwork.com` and received `HTTP/1.1 404 Not Found`.
-The first GET was at
-17:48:07, before the agreement was accepted; four more occurred at 17:49:49–51.
-Cancelling the first-run wizard did not prevent these automatic requests. The
-capture proves the exchange, not the current operator or purpose of that
-endpoint.
+`GET /zipads/zip-hot.asp?c=82&h=69` with `Host: www.developingnetwork.com` and
+received `HTTP/1.1 404 Not Found`. The first GET was at 17:48:07, before the
+agreement was accepted; four more occurred at 17:49:49–51. Cancelling the
+first-run wizard did not prevent these automatic requests. The capture proves
+the exchange, not the current operator or purpose of that endpoint.
 
 The last numbered client control request was at 17:49:49.111363; the client FIN
 at 17:52:13.506772 gives 144.395409 seconds of measured control-wire silence.

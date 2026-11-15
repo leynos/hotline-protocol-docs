@@ -1,8 +1,9 @@
 # Hotline Server 1.9 account write ordering
 
 This page records the direct account writer in the exact Mac PPC Hotline Server
-1.9 binary, SHA-256 `ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`.
-The [read-only Ghidra corpus](../mothra/evidence/gap-remediation/2026-11-14/account-write-ordering-01/manifest.json)
+1.9 binary, SHA-256
+`ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`. The
+[read-only Ghidra corpus](../mothra/evidence/gap-remediation/2026-11-14/account-write-ordering-01/manifest.json)
 retains source functions, disassembly, exact query arguments, identity checks,
 as-run scripts, and backend logs. The independent saved project was opened with
 `--no-analyze --discard`; its program identity was unchanged before and after
@@ -45,24 +46,24 @@ no such short write has been observed.
 
 The 350 creation helper (`AC-D-100071a0.c`) explicitly creates an account
 folder and `UserData` before using the same open, length, write, and close
-sequence. These facts distinguish normal creation from direct replacement;
-they do not define
-either operation's failed-write behaviour. Field 111's role remains unknown.
+sequence. These facts distinguish normal creation from direct replacement; they
+do not define either operation's failed-write behaviour. Field 111's role
+remains unknown.
 
 ## GAP-072 boundary
 
-The [gap register](gap-analysis.md#gap-072) requires 350–353 mutation,
-default, and atomicity rules, with existing-password, literal-x,
-rename/conflict, and protected-delete fixtures. The existing native fixtures
-cover those named password and identity cases. The direct writer trace adds
-source-supported ordering and error checks; **failed single-operation 353
-atomicity remains open**.
+The [gap register](gap-analysis.md#gap-072) requires 350–353 mutation, default,
+and atomicity rules, with existing-password, literal-x, rename/conflict, and
+protected-delete fixtures. The existing native fixtures cover those named
+password and identity cases. The direct writer trace adds source-supported
+ordering and error checks; **failed single-operation 353 atomicity remains
+open**.
 
 The smallest useful fault fixture would use one owned account on a disposable
-image, preserve exact before/after `UserData` fork bytes and catalogue identity,
-and prove that a controlled failure occurred after a successful `SetEOF` and
-during or after `PBWriteSync`. It would retain the exact reply or disconnect
-and restore the owned fixture. Finder's Locked flag may instead reject the
-open or `SetEOF` step; that would measure an earlier failure branch, not the
-write-phase atomicity question. No experiment should be described as a
+image, preserve exact before/after `UserData` fork bytes and catalogue
+identity, and prove that a controlled failure occurred after a successful
+`SetEOF` and during or after `PBWriteSync`. It would retain the exact reply or
+disconnect and restore the owned fixture. Finder's Locked flag may instead
+reject the open or `SetEOF` step; that would measure an earlier failure branch,
+not the write-phase atomicity question. No experiment should be described as a
 write-phase failure without evidence that it reached that phase.

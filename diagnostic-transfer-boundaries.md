@@ -4,8 +4,8 @@ This packet attempted to capture a native Hotline Server 1.9 `303` reply while
 an owned transfer was active and another was queued. The fixture upload failed
 before that state could be prepared. The [retained batch][batch] records the
 failure, one guarded cleanup capture, and the unchanged baseline. It does not
-supply an active-transfer or near-1,024-byte diagnostic example. The [earlier
-idle examples][idle] remain the positive 303 evidence.
+supply an active-transfer or near-1,024-byte diagnostic example. The
+[earlier idle examples][idle] remain the positive 303 evidence.
 
 ## Bounded preparation and failure
 
@@ -19,23 +19,24 @@ same connection's unique admin roster.
 
 The second plan used the existing 1 MiB DATA pattern and resource fork helper
 to upload only that new name with 203/HTXF. The server accepted 203 with status
-zero and returned reference `00014c8e`. The recorder passed 1,049,088 HTXF bytes
-to the host socket, then its read-for-EOF failed with `ConnectionResetError`
+zero and returned reference `00014c8e`. The recorder passed 1,049,088 HTXF
+bytes to the host socket, then its read-for-EOF failed with
+`ConnectionResetError`
 104. Host and guest packet records retain only 193,913 and 74,295 incoming
 bytes respectively, both strict prefixes of the recorder's send. The host
-capture contains a server-side proxy RST. The guest terminal reset travels
-from client to server, so these views do not establish a native-server-initiated
-reset. The [guest log screen][abort] says “Upload
-aborted”. The planned 206 success confirmation was never reached. The packet
-does not identify why this upload aborted; a successful send call does not
-prove complete delivery to the guest.
+capture contains a server-side proxy RST. The guest terminal reset travels from
+client to server, so these views do not establish a native-server-initiated
+reset. The [guest log screen][abort] says “Upload aborted”. The planned 206
+success confirmation was never reached. The packet does not identify why this
+upload aborted; a successful send call does not prove complete delivery to the
+guest.
 
 ## Positive partial-file cleanup
 
 The operator stopped the active/queue and formatting-boundary work. A single
-supervisor-approved [conditional cleanup][cleanup] then logged in and read
-206 plus the full Files view before any deletion. Both independently identified
-the exact preflight-absent owned name. The 206 response included raw field 205
+supervisor-approved [conditional cleanup][cleanup] then logged in and read 206
+plus the full Files view before any deletion. Both independently identified the
+exact preflight-absent owned name. The 206 response included raw field 205
 bytes spelling `Incomplete File`; this is observed metadata, not a guessed
 fork-length or transfer state. Only after that positive match did the plan send
 204 field 201 for the owned name. It returned status zero. A later 206 reported
@@ -66,7 +67,7 @@ the batch. The source-side 303 formatting bound remains `0x400`; no new field
 101 length near it was measured. The active-transfer/queue example, boundary
 example, and exact-text release policy remain open under the original GAP-037
 criterion. A later packet needs a new owned fixture plan and review; this run
-authorises no blind upload retry or additional guest mutation.
+authorizes no blind upload retry or additional guest mutation.
 
 [batch]: ../mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-load-01/manifest.json
 [idle]: diagnostic-replies.md

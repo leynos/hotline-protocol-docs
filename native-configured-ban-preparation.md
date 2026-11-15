@@ -82,5 +82,5 @@ are mandatory.
 
 The later control-only Save observation is recorded in
 [the configured-ban witness](native-configured-ban-witness.md). This
-preparation remains the as-planned contract; the witness records the actual
-C65 failure, C66 correction, C67/C68 traffic, and limits.
+preparation remains the as-planned contract; the witness records the actual C65
+failure, C66 correction, C67/C68 traffic, and limits.
