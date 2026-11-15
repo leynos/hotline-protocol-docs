@@ -17,7 +17,7 @@ import typing as typ
 
 if typ.TYPE_CHECKING:
     import collections.abc as cabc
-    from pathlib import Path
+    from pathlib import PurePath
 
 FENCE = re.compile(r"^\s*(`{3,}|~{3,})")
 HEADING = re.compile(r"^(#{1,6}) (.+)$")
@@ -170,12 +170,12 @@ def explicit_anchors(text: str) -> set[str]:
     return found
 
 
-def lexical_target(source: Path, path: str) -> tuple[int, tuple[str, ...]]:
+def lexical_target(source: PurePath, path: str) -> tuple[int, tuple[str, ...]]:
     """Resolve ``path`` against ``source``'s directory without touching disk.
 
     Parameters
     ----------
-    source : pathlib.Path
+    source : pathlib.PurePath
         The linking file, relative to the repository root.
     path : str
         The link path, without its fragment.
