@@ -20,6 +20,8 @@ TYPE_SEND_PRIVATE_MESSAGE = 108
 TYPE_LOGIN_AGREEMENT = 109
 TYPE_ACCEPT_AGREEMENT = 121
 TYPE_DOWNLOAD_FILE = 202
+TYPE_UPLOAD_FILE = 203
+TYPE_GET_FILE_INFO = 206
 TYPE_QUEUE_NOTIFICATION = 211  # transfer-contracts.md, "Queue notification 211"
 TYPE_REFERENCE_CLEANUP = 214  # owner-matched cleanup of a transfer reference
 TYPE_GET_USER_ROSTER = 300
@@ -67,6 +69,28 @@ EMPTY_PAYLOAD = b"\0\0"  # a count word of zero fields
 HANDSHAKE_REQUEST_HEX = "54525450484f544c00010002"
 HANDSHAKE_REPLY_HEX = "5452545000000000"
 HANDSHAKE_REPLY_BYTES = 8
+# session-transport-contracts.md: `TRTP HOTL 0001 0003` hands the connection to
+# HTXF processing and queues the same success bytes.
+HANDSHAKE_HANDOVER_REQUEST_HEX = "54525450484f544c00010003"
+
+# Data connection (transfer-contracts.md, "HTXF"): the magic `HTXF`, the four
+# byte reference, a four-byte size word, a two-byte selector and a reserved word.
+HTXF_MAGIC_HEX = "48545846"
+SELECTOR_FOLDER = 1  # with an odd reference: folder download
+SELECTOR_BANNER = 2  # with an odd reference: banner download
+PREVIEW_OPTION = 2  # field 204 on request 202: raw preview, no FILP wrapper
+
+# Flattened file (transfer-contracts.md, "Flattened ordinary-file stream"): a
+# 24-byte file header, then three forks, each a 16-byte header and its value.
+FILP_FILE_HEADER = b"FILP\0\1" + bytes(16) + b"\0\3"
+FORK_HEADER_PADDING = 8  # zero bytes between the tag and the value length
+FORK_LENGTH_BYTES = 4
+# INFO value (transfer-contracts.md, "INFO metadata value").
+INFO_TYPE_CREATOR = b"AMACTEXTMOTH"  # AMAC, then file type and creator
+INFO_FLAGS_OFFSET = 16
+INFO_NAME_LENGTH_OFFSET = 70
+INFO_NAME_OFFSET = 72
+INFO_FIXED_BYTES = 74  # the value is this plus the name and comment lengths
 
 # Stored account record (native-wire-details.md, "Account record and field
 # schema"): 734 bytes, each text field as a BE16 length then its bytes.

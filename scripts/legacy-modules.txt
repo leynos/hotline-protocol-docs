@@ -77,7 +77,6 @@ scripts/native_settings_cases.py  # live bytes compared with a recorded hash
 scripts/native_settings_persistence.py
 scripts/native_settings_persistence_cases.py
 scripts/native_settings_transition_cases.py  # live bytes compared with a recorded hash
-scripts/native_transfer_cases.py
 scripts/package-protocol-evidence.py
 scripts/pcap_tcp.py  # live bytes compared with a recorded hash
 scripts/peer_tolerance_fixture.py
@@ -166,8 +165,6 @@ scripts/test_native_settings_persistence_witness.py
 scripts/test_native_settings_transition.py
 scripts/test_native_shx.py
 scripts/test_native_shx_extras.py
-scripts/test_native_transfer_repeat.py
-scripts/test_native_transfer_stall.py
 scripts/test_native_ui_focus.py
 scripts/test_peer_tolerance.py
 scripts/test_request500_client_source.py
@@ -245,8 +242,6 @@ scripts/verify_native_settings_persistence.py
 scripts/verify_native_settings_transition.py  # live bytes compared with a recorded hash
 scripts/verify_native_shx.py
 scripts/verify_native_shx_extras.py
-scripts/verify_native_transfer_repeat.py
-scripts/verify_native_transfer_stall.py
 scripts/verify_native_ui_focus.py
 scripts/verify_peer_tolerance.py
 scripts/verify_request500_client_source.py
