@@ -118,7 +118,6 @@ scripts/test_native_diagnostic_load.py
 scripts/test_native_diagnostic_near.py
 scripts/test_native_diagnostics.py
 scripts/test_native_download_send_path.py
-scripts/test_native_forks.py
 scripts/test_native_handshakes.py
 scripts/test_native_htxf.py
 scripts/test_native_live_accounts.py
@@ -190,7 +189,6 @@ scripts/verify_native_diagnostic_load.py
 scripts/verify_native_diagnostic_near.py
 scripts/verify_native_diagnostics.py
 scripts/verify_native_download_send_path.py
-scripts/verify_native_forks.py
 scripts/verify_native_handshakes.py
 scripts/verify_native_htxf.py
 scripts/verify_native_live_accounts.py
