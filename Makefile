@@ -50,15 +50,19 @@ MD_FILES = $(shell git ls-files --cached --others --exclude-standard '*.md' ':!:
 # renderer, so it is linted but never reflowed.
 MD_AUTHORED = $(filter-out gap-analysis.md,$(MD_FILES))
 
+# The withheld-files gate needs the manifest that the evidence import creates;
+# until it exists the gate is skipped, with a message.
+WITHHELD_GATE = $(if $(wildcard evidence/withheld.json),withheld-check,withheld-skip)
+
 .PHONY: help all build fmt check-fmt check-fmt-python check-fmt-markdown \
 	lint lint-python lint-legacy typecheck test docs-gates markdownlint spelling nixie \
-	json-check links-check audit-check
+	json-check links-check audit-check withheld-check withheld-scan withheld-skip
 
 .DEFAULT_GOAL := all
 # Shared build caches require sequential gates even when make receives -j.
 .NOTPARALLEL:
 
-all: build check-fmt-python json-check links-check lint-python lint-legacy typecheck test ## Run the gates that must pass at every commit
+all: build check-fmt-python json-check links-check $(WITHHELD_GATE) lint-python lint-legacy typecheck test ## Run the gates that must pass at every commit
 
 lint: lint-python lint-legacy ## Run every Python linter
 
@@ -106,6 +110,15 @@ links-check: ## Verify every Markdown link, fragment and mothra reference
 audit-check: ## Validate the gap register with mothra's renderer (main checkout only)
 	@test -n "$(MOTHRA)" || { printf 'Error: no mothra checkout found; set MOTHRA\n' >&2; exit 2; }
 	python3 $(MOTHRA)/scripts/render-protocol-gap-analysis.py --check
+
+withheld-check: ## Verify the withheld-files manifest, .gitignore and patches
+	$(PYTHON) tools/check_withheld.py check --root .
+
+withheld-scan: ## As withheld-check, and scan every blob of history for withheld content
+	$(PYTHON) tools/check_withheld.py check --root . --scan-history
+
+withheld-skip:
+	@printf 'withheld-check skipped: evidence/withheld.json does not exist yet\n'
 
 lint-python: build ## Lint the Python that meets the df12 standards
 	$(RUFF) check $(PYTHON_TARGETS)

@@ -16,6 +16,7 @@ dev = [
     "ty==0.0.56",
     "cyclopts==4.25.2",
     "cuprum",
+    "bsdiff4==1.4.3",
 ]
 
 # Ruff, Pylint and pytest settings follow the df12 Python template
