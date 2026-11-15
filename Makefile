@@ -27,6 +27,12 @@ DF12_PYLINT = $(UV) tool run --python $(LINT_PYTHON) --from 'pylint==$(PYLINT_VE
 # in scripts/ join this list as each family is brought to that standard.
 PYTHON_TARGETS = $(shell git ls-files --cached --others --exclude-standard \
 	'tools/*.py' 'tools/**/*.py' 'tests/*.py' 'tests/**/*.py')
+# The repository tools run in the project environment.
+PYTHON ?= $(UV) run --group dev python
+# Evidence JSON that cannot be canonical is exempted by hash in this file, once
+# it exists (see tools/check_json.py).
+JSON_EXCEPTIONS ?= json-exceptions.txt
+JSON_EXCEPTIONS_ARG = $(if $(wildcard $(JSON_EXCEPTIONS)),--exceptions $(JSON_EXCEPTIONS))
 # Inherited capture and verification scripts, held at their earlier rules by
 # scripts/ruff.toml.
 LEGACY_PYTHON = scripts
@@ -34,13 +40,14 @@ LEGACY_PYTHON = scripts
 MD_FILES = $(shell git ls-files --cached --others --exclude-standard '*.md' ':!:evidence/**')
 
 .PHONY: help all build fmt check-fmt check-fmt-python check-fmt-markdown \
-	lint-python lint-legacy typecheck test docs-gates markdownlint spelling nixie
+	lint-python lint-legacy typecheck test docs-gates markdownlint spelling nixie \
+	json-check
 
 .DEFAULT_GOAL := all
 # Shared build caches require sequential gates even when make receives -j.
 .NOTPARALLEL:
 
-all: build check-fmt-python lint-python lint-legacy typecheck test ## Run the gates that must pass at every commit
+all: build check-fmt-python json-check lint-python lint-legacy typecheck test ## Run the gates that must pass at every commit
 
 docs-gates: check-fmt-markdown markdownlint nixie ## Run the Markdown gates (they join `all` once every document conforms)
 
@@ -58,6 +65,7 @@ build: ## Create the virtual environment and install the development tools
 fmt: ## Format the Python and Markdown sources
 	$(RUFF) format $(PYTHON_TARGETS)
 	$(RUFF) check --select I --fix $(PYTHON_TARGETS)
+	$(PYTHON) tools/check_json.py --root . --write $(JSON_EXCEPTIONS_ARG)
 	$(MDTABLEFIX) --in-place $(MDTABLEFIX_RULES) $(MD_FILES)
 
 check-fmt: check-fmt-python check-fmt-markdown ## Verify all formatting
@@ -72,6 +80,9 @@ check-fmt-markdown: ## Verify Markdown table and wrapping layout
 	}
 	$(MDTABLEFIX) --check $(MDTABLEFIX_RULES) $(MD_FILES)
 
+json-check: ## Verify that every tracked JSON file is in canonical layout
+	$(PYTHON) tools/check_json.py --root . $(JSON_EXCEPTIONS_ARG)
+
 lint-python: build ## Lint the Python that meets the df12 standards
 	$(RUFF) check $(PYTHON_TARGETS)
 	$(UV) run --group dev interrogate --fail-under 100 $(PYTHON_TARGETS)
@@ -84,7 +95,7 @@ lint-legacy: ## Lint the inherited scripts at their earlier rules
 
 typecheck: build ## Type-check the Python that meets the df12 standards
 	$(TY) --version
-	$(TY) check $(PYTHON_TARGETS)
+	$(TY) check --extra-search-path tools --extra-search-path tests $(PYTHON_TARGETS)
 
 test: build ## Run the tests of the repository tooling
 	$(UV) run --group dev pytest -v
