@@ -226,6 +226,15 @@ The script work is a behaviour-preserving refactor.
   10 tensions) in the session scratch directory.
 - [x] (2026-11-15 20:40Z) Owner raised the tooling tolerance (D24) and asked
   for the SynHX naming to be clarified and a comprehensive glossary (D25).
+- [x] (2026-11-16 08:00Z) EP-M8, first part: `docs/glossary.md` (`5726b04`) and
+  `docs/provenance/remaining-evidence-work.md` (`254d945`) written by scribes
+  and gated. The ledger has 25 rows (5 P0, 18 P1, 2 P2) and four prepared runs
+  that have not started; operator packets outside the repository are named but
+  not summarized, pending the owner's consent. Still to do for D25: reword the
+  loose uses of "SynHX" (about 20 places in `internal-compatibility-matrix.md`,
+  `mxd-reconciliation.md`, `protocol.md` and the validity ledger's wording,
+  which cannot change because the ledger is hash-pinned). Still to do for D26:
+  the check that every unresolved gap appears once (new tooling, waits on D28).
 - [x] (2026-11-16 06:30Z) EP-M3 complete: the INV-SCRIPT goldens are in
   `tests/goldens/` with `tools/capture_goldens.py` and the `goldens-check`
   target. They record 89 verifier recipes (88 pass, the known-red one fails),
@@ -476,6 +485,23 @@ The script work is a behaviour-preserving refactor.
 - Mothra's local clone needs the published branch fetched
   (`git fetch origin documentation-reconcilliation`) for the link check to
   confirm permalink paths; the fetch adds a remote-tracking ref only.
+
+- The SynHX dates given in D25 were not all right. The archive dates 0.1.42
+  to 30 June 2001 (the first `README.synhxd` revision is 1 August 2001); the
+  client README places the client split at 0.1.47 and the client changelog at
+  0.1.48; the server changelog dates 0.1.48 to 1 September and 0.1.48.1 to
+  2 September 2001; the client README names hx without a version. The glossary
+  states what the archive shows. The conclusion of D25 stands: shx is the
+  client of the SynHX family.
+- D25 asks for three ledger identifier series; the validity ledger has two,
+  V001 to V074 and M001 to M009. The `C004` cited in this plan's trace table is
+  not a ledger identifier. The glossary describes two series.
+- The ledger scribe found disagreements that the documents do not settle,
+  recorded neutrally in the ledger: canonical mxd is `cb907885` in
+  `mxd-validation.md` but `48129491` in GAP-011, GAP-085 and GAP-086; GAP-036's
+  progress text is inconsistent about which traces remain; GAP-016 does not
+  name its five remaining fixture groups. These go to the EP-M9 reconciliation
+  log.
 
 ## Decision log
 
