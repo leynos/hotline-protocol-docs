@@ -32,6 +32,7 @@ TYPE_USER_LEFT = 302  # presence-messaging-contracts.md, "Disconnect teardown"
 TYPE_SET_CLIENT_INFO = 304
 TYPE_ENUMERATE_ACCOUNTS = 348
 TYPE_CREATE_ACCOUNT = 350
+TYPE_DELETE_ACCOUNT = 351  # operation-contracts.md, "Request inventory"
 TYPE_GET_ACCOUNT = 352
 TYPE_UPDATE_ACCOUNT = 353
 TYPE_PRIVILEGES_NOTIFICATION = 354  # login completion or changed live privileges
@@ -53,6 +54,7 @@ FIELD_OPTIONS = 113  # low bits: PM refusal, chat refusal, automatic response
 FIELD_QUEUE_POSITION = 116  # numeric; zero means admission from the queue
 FIELD_BANNER_TYPE = 152  # four-byte tag of a 122 notification (core-field-schemas.md)
 FIELD_BANNER_LINK = 153  # optional link of a 122 notification
+FIELD_AGREEMENT_BYPASS = 154  # scalar N of a 109 notification (core-field-schemas.md)
 FIELD_VERSION = 160  # reported version; a native success reply carries 190
 FIELD_UNNAMED_WORD = 161  # unnamed word that a native success reply zeroes
 FIELD_FILE_NAME = 201  # native-wire-details.md, transfer and file requests
@@ -63,6 +65,15 @@ FIELD_FILE_CREATOR = 206  # file-info reply: creator (filesystem-and-board-contr
 FIELD_FILE_TYPE = 213  # file-info reply: raw type (filesystem-and-board-contracts.md)
 FIELD_QUOTE = 214  # quoted text of a private message
 FIELD_AUTO_RESPONSE = 215  # automatic-response text, at most 127 bytes
+
+FIELD_USER_RECORD = 300  # repeated "U" field of a 300 reply (core-field-schemas.md)
+
+# Packed roster record, "U" (core-field-schemas.md): BE16 UID, BE16 icon, BE16
+# status and BE16 name length, then the name bytes.
+ROSTER_HEADER_BYTES = 8
+ROSTER_ICON_START = 2
+ROSTER_STATUS_START = 4
+ROSTER_NAME_LENGTH_START = 6
 
 # Physical frame (native-wire-details.md): flags, reply, type, ID, error, total
 # size and data size, then the data.
@@ -107,11 +118,18 @@ INFO_NAME_LENGTH_OFFSET = 70
 INFO_NAME_OFFSET = 72
 INFO_FIXED_BYTES = 74  # the value is this plus the name and comment lengths
 
+ACCESS_BITMAP_BYTES = 8  # core-field-schemas.md: A8 is an eight-byte bitmap
+
 # Stored account record (native-wire-details.md, "Account record and field
 # schema"): 734 bytes, each text field as a BE16 length then its bytes.
 ACCOUNT_RECORD_BYTES = 734
+ACCOUNT_ACCESS_OFFSET = 0x004  # the eight-byte access bitmap has no length word
+ACCOUNT_NAME_LENGTH_OFFSET = 0x210
+ACCOUNT_NAME_OFFSET = 0x212
 ACCOUNT_ATTRIBUTE_LENGTH_OFFSET = 0x254
 ACCOUNT_ATTRIBUTE_OFFSET = 0x256
+ACCOUNT_LOGIN_LENGTH_OFFSET = 0x298
+ACCOUNT_LOGIN_OFFSET = 0x29A
 ACCOUNT_PASSWORD_LENGTH_OFFSET = 0x2BC
 ACCOUNT_PASSWORD_OFFSET = 0x2BE
 
@@ -124,3 +142,8 @@ RFLT_VERSION = b"\0\1"
 RFLT_HEADER_PADDING = 34
 RFLT_ENTRY_PADDING = 8
 RFLT_MIN_BYTES = 42  # the shortest descriptor the download consumer accepts
+
+# Login normalization (native-wire-details.md, "Account lookup name encodings"):
+# the complemented login passes through a 256-byte table at this address.
+LOGIN_TABLE_ADDRESS = "100946c8"
+LOGIN_TABLE_BYTES = 256

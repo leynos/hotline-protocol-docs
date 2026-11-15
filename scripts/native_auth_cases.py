@@ -1,107 +1,148 @@
 """Prepare native account lookup and login/agreement transition observations."""
 
+from native_auth_states import reauthentication, states
+from native_auth_steps import (
+    ACCOUNTS,
+    ADMIN_PASSWORD,
+    FIRST_ID,
+    HANDSHAKE_STEPS,
+    KEY31,
+    KEY32,
+    PAIR_OFFSET,
+    PASSWORD,
+    Cases,
+    answer,
+    authentication,
+    complement,
+    pause,
+    roster,
+)
 from native_plan import close, login, packet, payload, quiet, read, send
+from native_wire_names import (
+    FIELD_ACCESS_BITMAP,
+    FIELD_LOGIN,
+    FIELD_NAME,
+    FIELD_PASSWORD,
+    TYPE_CREATE_ACCOUNT,
+    TYPE_DELETE_ACCOUNT,
+    TYPE_GET_ACCOUNT,
+)
 
-PASSWORD = b"auth-pass"
-KEY31 = b"m-auth-" + b"a" * 24
-KEY32 = b"m-auth-" + b"b" * 25
-ACCOUNTS = [
-    (b"m-auth-cr", b"Auth CR", bytes(8)),
-    (b"m-auth-\x8a", b"Auth high byte", bytes(8)),
-    (KEY31, b"Auth length31", bytes(8)),
-    (KEY32, b"Auth length32", bytes(8)),
-    (b"m-auth-bypass", b"Auth bypass", bytes.fromhex("0000003000000000")),
+# prepare_native_cases and native_agreement_cases import the planners and the
+# shared steps from this module; verify_native_auth imports ACCOUNTS, KEY32 and
+# PASSWORD; and many cases modules import authentication and complement.
+__all__ = [
+    "ACCOUNTS",
+    "KEY31",
+    "KEY32",
+    "PASSWORD",
+    "authentication",
+    "cleanup",
+    "complement",
+    "guest_create",
+    "lookup",
+    "reauthentication",
+    "roster",
+    "seed",
+    "states",
+]
+
+GUEST_ABSENT_ID = 9
+LOGIN_SUCCESSES = {
+    "admin-mixed-case",
+    "admin-upper-case",
+    "carriage-return-maps-to-hyphen",
+    "high-byte-80-maps-to-8a",
+    "name-length31",
+}
+# Each tuple is the case name, the login key and the password it sends.
+LOOKUPS: list[tuple[str, bytes | None, bytes]] = [
+    ("admin-mixed-case", b"AdMiN", ADMIN_PASSWORD),
+    ("admin-upper-case", b"ADMIN", ADMIN_PASSWORD),
+    ("guest-absent", None, b""),
+    ("guest-empty", b"", b""),
+    ("guest-explicit", b"guest", b""),
+    ("unknown-nonempty", b"m-auth-no-such-account", b""),
+    ("carriage-return-maps-to-hyphen", b"m-auth\rcr", PASSWORD),
+    ("high-byte-80-maps-to-8a", b"m-auth-\x80", PASSWORD),
+    ("nul-leading", b"\0admin", ADMIN_PASSWORD),
+    ("nul-trailing", b"admin\0", ADMIN_PASSWORD),
+    ("nul-interior", b"ad\0min", ADMIN_PASSWORD),
+    ("nul-only", b"\0", b""),
+    ("name-length31", KEY31, PASSWORD),
+    ("name-length32", KEY32, PASSWORD),
+    ("name-over32-clipped", KEY32 + b"-ignored", PASSWORD),
 ]
 
 
-def complement(value: bytes) -> bytes:
-    return bytes(b ^ 255 for b in value)
+def seed() -> Cases:
+    """Plan the creation and readback of the owned accounts.
 
-
-def seed() -> dict:
+    Returns
+    -------
+    dict[str, tuple[list[dict[str, typing.Any]], dict[str, typing.Any]]]
+        The one seeding case.
+    """
     steps = login()
-    steps += [send(packet(352, 9, payload([(105, b"guest")]))), read()]
-    for identifier, (key, name, privileges) in enumerate(ACCOUNTS, 10):
+    steps += [
+        send(
+            packet(
+                TYPE_GET_ACCOUNT, GUEST_ABSENT_ID, payload([(FIELD_LOGIN, b"guest")])
+            )
+        ),
+        read(),
+    ]
+    for identifier, (key, name, privileges) in enumerate(ACCOUNTS, FIRST_ID):
+        create = payload([
+            (FIELD_LOGIN, complement(key)),
+            (FIELD_PASSWORD, complement(PASSWORD)),
+            (FIELD_NAME, name),
+            (FIELD_ACCESS_BITMAP, privileges),
+        ])
+        readback = identifier + PAIR_OFFSET
         steps += [
-            send(
-                packet(
-                    350,
-                    identifier,
-                    payload(
-                        [
-                            (105, complement(key)),
-                            (106, complement(PASSWORD)),
-                            (102, name),
-                            (110, privileges),
-                        ]
-                    ),
-                )
-            ),
-            read(match_frame={"is_reply": 1, "id": identifier}),
-            send(packet(352, identifier + 10, payload([(105, key)]))),
-            read(match_frame={"is_reply": 1, "id": identifier + 10}),
+            send(packet(TYPE_CREATE_ACCOUNT, identifier, create)),
+            answer(identifier),
+            send(packet(TYPE_GET_ACCOUNT, readback, payload([(FIELD_LOGIN, key)]))),
+            answer(readback),
         ]
-    steps += [{"op": "pause", "seconds": 3}, close()]
+    steps += [pause(), close()]
     return {"seed-owned-auth-accounts": (steps, {"kind": "account-seed"})}
 
 
-def authentication(
-    key: bytes | None,
-    password: bytes,
-    *,
-    name: bytes | None = b"auth-fixture",
-    icon: bytes | None = b"\0\1",
-    connection: str = "main",
-    identifier: int = 1,
-) -> dict:
-    values = [(106, complement(password)), (160, b"\0\xbe")]
-    if key is not None:
-        values.append((105, complement(key)))
-    if name is not None:
-        values.append((102, name))
-    if icon is not None:
-        values.append((104, icon))
-    return send(packet(107, identifier, payload(values)), connection)
+def lookup_label(name: str, *, missing_guest: bool) -> str:
+    """Name a lookup case, marking the guest phase it belongs to.
+
+    Returns
+    -------
+    str
+        The case name, prefixed for a guest lookup.
+    """
+    if not name.startswith("guest-"):
+        return name
+    return ("missing-" if missing_guest else "configured-") + name
 
 
-def lookup(*, missing_guest: bool = False) -> dict:
+def lookup(*, missing_guest: bool = False) -> Cases:
+    """Plan each login-key lookup, in the guest phase that is asked for.
+
+    Returns
+    -------
+    dict[str, tuple[list[dict[str, typing.Any]], dict[str, typing.Any]]]
+        The lookup cases; with ``missing_guest`` only the guest cases.
+    """
     cases = {}
-    for name, key, password in [
-        ("admin-mixed-case", b"AdMiN", b"mothra19"),
-        ("admin-upper-case", b"ADMIN", b"mothra19"),
-        ("guest-absent", None, b""),
-        ("guest-empty", b"", b""),
-        ("guest-explicit", b"guest", b""),
-        ("unknown-nonempty", b"m-auth-no-such-account", b""),
-        ("carriage-return-maps-to-hyphen", b"m-auth\rcr", PASSWORD),
-        ("high-byte-80-maps-to-8a", b"m-auth-\x80", PASSWORD),
-        ("nul-leading", b"\0admin", b"mothra19"),
-        ("nul-trailing", b"admin\0", b"mothra19"),
-        ("nul-interior", b"ad\0min", b"mothra19"),
-        ("nul-only", b"\0", b""),
-        ("name-length31", KEY31, PASSWORD),
-        ("name-length32", KEY32, PASSWORD),
-        ("name-over32-clipped", KEY32 + b"-ignored", PASSWORD),
-    ]:
+    for name, key, password in LOOKUPS:
         if missing_guest and not name.startswith("guest-"):
             continue
-        success = name in {
-            "admin-mixed-case",
-            "admin-upper-case",
-            "carriage-return-maps-to-hyphen",
-            "high-byte-80-maps-to-8a",
-            "name-length31",
-        } or (name.startswith("guest-") and not missing_guest)
-        steps = login()[:3] + [authentication(key, password), read()]
+        success = name in LOGIN_SUCCESSES or (
+            name.startswith("guest-") and not missing_guest
+        )
+        steps = [*login()[:HANDSHAKE_STEPS], authentication(key, password), read()]
         if success:
             steps += [read(), read()]
         steps += [quiet(), close()]
-        label = (
-            ("missing-" if missing_guest else "configured-") + name
-            if name.startswith("guest-")
-            else name
-        )
-        cases[label] = (
+        cases[lookup_label(name, missing_guest=missing_guest)] = (
             steps,
             {
                 "kind": "lookup",
@@ -112,212 +153,58 @@ def lookup(*, missing_guest: bool = False) -> dict:
     return cases
 
 
-def guest_create() -> dict:
-    steps = login() + [
-        send(
-            packet(
-                350,
-                10,
-                payload(
-                    [
-                        (105, complement(b"guest")),
-                        (106, b""),
-                        (102, b"Auth guest"),
-                        (110, bytes(8)),
-                    ]
-                ),
-            )
-        ),
-        read(match_frame={"is_reply": 1, "id": 10}),
-        send(packet(352, 11, payload([(105, b"guest")]))),
-        read(match_frame={"is_reply": 1, "id": 11}),
-        {"op": "pause", "seconds": 3},
+def guest_create() -> Cases:
+    """Plan the creation and readback of a temporary guest account.
+
+    Returns
+    -------
+    dict[str, tuple[list[dict[str, typing.Any]], dict[str, typing.Any]]]
+        The one guest-creation case.
+    """
+    create = payload([
+        (FIELD_LOGIN, complement(b"guest")),
+        (FIELD_PASSWORD, b""),
+        (FIELD_NAME, b"Auth guest"),
+        (FIELD_ACCESS_BITMAP, bytes(8)),
+    ])
+    readback = FIRST_ID + 1
+    steps = [
+        *login(),
+        send(packet(TYPE_CREATE_ACCOUNT, FIRST_ID, create)),
+        answer(FIRST_ID),
+        send(packet(TYPE_GET_ACCOUNT, readback, payload([(FIELD_LOGIN, b"guest")]))),
+        answer(readback),
+        pause(),
         close(),
     ]
     return {"create-temporary-guest": (steps, {"kind": "guest-create"})}
 
 
-def roster(identifier: int) -> list[dict]:
-    return [
-        send(packet(300, identifier), "observer"),
-        read("observer", match_frame={"is_reply": 1, "id": identifier}),
-    ]
+def cleanup() -> Cases:
+    """Plan the removal of the owned accounts and their readbacks.
 
-
-def states() -> dict:
-    cases = {}
-    variants = [
-        ("early-admin", b"admin", b"mothra19", b"auth-visible", b"\0\1", True),
-        ("delayed-admin", b"admin", b"mothra19", None, None, False),
-        ("early-bypass", b"m-auth-bypass", PASSWORD, b"auth-visible", b"\0\1", True),
-        ("delayed-bypass", b"m-auth-bypass", PASSWORD, None, None, False),
-        ("name-without-icon", b"admin", b"mothra19", b"auth-visible", None, False),
-        ("icon-without-name", b"admin", b"mothra19", None, b"\0\1", False),
-        (
-            "icon-narrows-zero",
-            b"admin",
-            b"mothra19",
-            b"auth-visible",
-            b"\0\1\0\0",
-            False,
-        ),
-        (
-            "high-bit-icon-is-nonzero",
-            b"admin",
-            b"mothra19",
-            b"auth-visible",
-            b"\x80\0",
-            True,
-        ),
-    ]
-    for label, key, password, name, icon, early in variants:
-        steps = [{**s, "connection": "observer"} for s in login()] + roster(10)
-        steps += [{**s, "connection": "subject"} for s in login()[:3]] + roster(11)
-        steps += [
-            authentication(key, password, name=name, icon=icon, connection="subject"),
-            read("subject"),
-            read("subject"),
-        ]
-        if early:
-            steps += [read("subject")]
-        steps += roster(12)
-        if not early:
-            steps += [
-                {"op": "pause", "seconds": 3},
-                send(
-                    packet(
-                        121, 2, payload([(102, b"auth-completed"), (104, b"\0\x02")])
-                    ),
-                    "subject",
-                ),
-                read("subject", match_frame={"is_reply": 1, "id": 2}),
-                read("subject"),
-                send(packet(500, 90), "subject"),
-                read("subject", match_frame={"is_reply": 1, "id": 90}),
-            ]
-        steps += roster(13)
-        steps += (
-            [
-                send(packet(121, 3), "subject"),
-                read("subject", match_frame={"is_reply": 1, "id": 3}),
-                send(packet(107, 4), "subject"),
-                read("subject", match_frame={"is_reply": 1, "id": 4}),
-                send(packet(500, 91), "subject"),
-                read("subject", match_frame={"is_reply": 1, "id": 91}),
-                close("subject"),
-                {"op": "pause", "seconds": 3},
-            ]
-            + roster(14)
-            + [close("observer")]
-        )
-        cases[label] = (
-            steps,
-            {
-                "kind": "login-state",
-                "early": early,
-                "bypass": "bypass" in label,
-                "icon": 32768
-                if label == "high-bit-icon-is-nonzero"
-                else 1
-                if early
-                else 2,
-            },
-        )
-    steps = [{**s, "connection": "observer"} for s in login()] + roster(10)
-    steps += [{**s, "connection": "subject"} for s in login()[:3]]
-    steps += [
-        send(packet(121, 1), "subject"),
-        read("subject", match_frame={"is_reply": 1, "id": 1}),
-    ]
-    steps += (
-        roster(11)
-        + [close("subject"), {"op": "pause", "seconds": 3}]
-        + roster(12)
-        + [close("observer")]
-    )
-    cases["acceptance-before-login"] = (steps, {"kind": "preauth-acceptance"})
-    steps = [{**s, "connection": "observer"} for s in login()] + roster(10)
-    steps += [{**s, "connection": "subject"} for s in login()[:3]]
-    steps += [
-        authentication(b"admin", b"wrong-auth-password", connection="subject"),
-        read("subject"),
-        send(packet(121, 2), "subject"),
-        {"op": "expect_quiet", "connection": "subject", "timeout": 3},
-    ]
-    steps += (
-        roster(11)
-        + [close("subject"), {"op": "pause", "seconds": 3}]
-        + roster(12)
-        + [close("observer")]
-    )
-    cases["acceptance-after-failed-password"] = (
-        steps,
-        {"kind": "failed-password-acceptance"},
-    )
-    return cases
-
-
-def reauthentication() -> dict:
-    cases = {}
-    for before in [False, True]:
-        steps = [{**s, "connection": "observer"} for s in login()] + roster(10)
-        steps += [{**s, "connection": "subject"} for s in login()[:3]]
-        if before:
-            steps += [
-                send(packet(121, 1), "subject"),
-                read("subject", match_frame={"is_reply": 1, "id": 1}),
-            ]
-        else:
-            steps += [
-                authentication(
-                    b"admin", b"mothra19", name=None, icon=None, connection="subject"
-                ),
-                read("subject"),
-                read("subject"),
-            ]
-        steps += roster(11)
-        steps += [
-            authentication(b"admin", b"mothra19", connection="subject", identifier=2)
-        ]
-        if before:
-            steps += [{"op": "expect_quiet", "connection": "subject", "timeout": 3}]
-        else:
-            steps += [
-                read("subject", match_frame={"is_reply": 1, "id": 2}),
-                read("subject"),
-                read("subject"),
-            ]
-
-        steps += (
-            roster(12)
-            + [close("subject"), {"op": "pause", "seconds": 3}]
-            + roster(13)
-            + [close("observer")]
-        )
-        label = (
-            "login-after-premature-acceptance"
-            if before
-            else "repeated-login-before-acceptance"
-        )
-        cases[label] = (
-            steps,
-            {"kind": "reauthentication", "preauth_acceptance": before},
-        )
-    return cases
-
-
-def cleanup() -> dict:
+    Returns
+    -------
+    dict[str, tuple[list[dict[str, typing.Any]], dict[str, typing.Any]]]
+        The one cleanup case.
+    """
     steps = login()
-    for identifier, key in enumerate(
-        [b"guest"] + [key for key, _, _ in ACCOUNTS if key != KEY32], 10
-    ):
+    keys = [b"guest"] + [key for key, _, _ in ACCOUNTS if key != KEY32]
+    for identifier, key in enumerate(keys, FIRST_ID):
+        readback = identifier + PAIR_OFFSET
         steps += [
-            send(packet(351, identifier, payload([(105, complement(key))]))),
-            read(match_frame={"is_reply": 1, "id": identifier}),
+            send(
+                packet(
+                    TYPE_DELETE_ACCOUNT,
+                    identifier,
+                    payload([(FIELD_LOGIN, complement(key))]),
+                )
+            ),
+            answer(identifier),
         ]
         steps += [
-            send(packet(352, identifier + 10, payload([(105, key)]))),
-            read(match_frame={"is_reply": 1, "id": identifier + 10}),
+            send(packet(TYPE_GET_ACCOUNT, readback, payload([(FIELD_LOGIN, key)]))),
+            answer(readback),
         ]
-    steps += [{"op": "pause", "seconds": 3}, close()]
+    steps += [pause(), close()]
     return {"remove-owned-auth-accounts": (steps, {"kind": "account-cleanup"})}
