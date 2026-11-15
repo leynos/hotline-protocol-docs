@@ -1161,6 +1161,15 @@ Escalation runs upward one level at a time:
    requirements conflict. The plan's status becomes `BLOCKED` until the owner
    answers. Work that does not depend on the answer continues.
 
+Packet captures are a special case. The environment refuses any command that
+names a packet-capture file, and that refusal is not worked around. The
+repository's tools copy, hash and store captures without anyone naming them. If
+a task needs something done to captures that those tools cannot do, the lead
+stops and writes a bounded packet for the owner to pass to another agent. That
+packet states exactly which paths are concerned and what is to be done, and
+says in plain terms that the captures are not to be inspected, modified or
+opened (owner's direction, 15 November 2026).
+
 A packet that comes back `BLOCKED` twice is not reissued a third time at the
 same level; it moves up. An unexplained failure is never retried in the hope
 that it passes: it gets a written hypothesis and an alchemist, or it goes up.
