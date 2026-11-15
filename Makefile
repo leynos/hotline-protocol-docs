@@ -33,6 +33,14 @@ PYTHON ?= $(UV) run --group dev python
 # it exists (see tools/check_json.py).
 JSON_EXCEPTIONS ?= json-exceptions.txt
 JSON_EXCEPTIONS_ARG = $(if $(wildcard $(JSON_EXCEPTIONS)),--exceptions $(JSON_EXCEPTIONS))
+# The sibling mothra checkout that the documents still link into with
+# ../mothra/ paths. A later milestone replaces those links with permalinks and
+# adds --forbid-relative-mothra to LINKS_ARGS.
+MOTHRA ?= $(firstword $(wildcard ../mothra ../../mothra))
+MOTHRA_ARG = $(if $(MOTHRA),--mothra $(MOTHRA))
+# The run must examine at least this many links, so an empty run cannot pass.
+LINKS_MIN ?= 2000
+LINKS_ARGS ?=
 # Inherited capture and verification scripts, held at their earlier rules by
 # scripts/ruff.toml.
 LEGACY_PYTHON = scripts
@@ -44,13 +52,13 @@ MD_AUTHORED = $(filter-out gap-analysis.md,$(MD_FILES))
 
 .PHONY: help all build fmt check-fmt check-fmt-python check-fmt-markdown \
 	lint lint-python lint-legacy typecheck test docs-gates markdownlint spelling nixie \
-	json-check
+	json-check links-check
 
 .DEFAULT_GOAL := all
 # Shared build caches require sequential gates even when make receives -j.
 .NOTPARALLEL:
 
-all: build check-fmt-python json-check lint-python lint-legacy typecheck test ## Run the gates that must pass at every commit
+all: build check-fmt-python json-check links-check lint-python lint-legacy typecheck test ## Run the gates that must pass at every commit
 
 lint: lint-python lint-legacy ## Run every Python linter
 
@@ -87,6 +95,9 @@ check-fmt-markdown: ## Verify Markdown table and wrapping layout
 
 json-check: ## Verify that every tracked JSON file is in canonical layout
 	$(PYTHON) tools/check_json.py --root . $(JSON_EXCEPTIONS_ARG)
+
+links-check: ## Verify every Markdown link, fragment and mothra reference
+	$(PYTHON) tools/check_links.py --root . $(MOTHRA_ARG) --min-links $(LINKS_MIN) $(LINKS_ARGS)
 
 lint-python: build ## Lint the Python that meets the df12 standards
 	$(RUFF) check $(PYTHON_TARGETS)

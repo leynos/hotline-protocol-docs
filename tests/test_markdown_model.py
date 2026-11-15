@@ -90,3 +90,21 @@ def test_explicit_anchors_cover_id_and_name_attributes() -> None:
     """``<a id>`` and ``<a name>`` define anchors; fenced ones do not."""
     text = '<a id="one"></a> <a name="two"></a>\n```\n<a id="three"></a>\n```\n'
     assert mm.explicit_anchors(text) == {"one", "two"}, "explicit anchors"
+
+
+@pytest.mark.parametrize(
+    ("source", "path", "expected"),
+    [
+        ("a.md", "b.md", (0, ("b.md",))),
+        ("d/a.md", "../b.md", (0, ("b.md",))),
+        ("d/a.md", "./x/../y.md", (0, ("d", "y.md"))),
+        ("a.md", "../mothra/x.md", (1, ("mothra", "x.md"))),
+        ("d/a.md", "../../mothra/x.md", (1, ("mothra", "x.md"))),
+        ("a.md", "../../up.md", (2, ("up.md",))),
+    ],
+)
+def test_lexical_target(
+    source: str, path: str, expected: tuple[int, tuple[str, ...]]
+) -> None:
+    """Targets are resolved without the file system, counting escapes."""
+    assert mm.lexical_target(Path(source), path) == expected, "resolution"

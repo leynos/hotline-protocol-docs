@@ -17,6 +17,7 @@ import typing as typ
 
 if typ.TYPE_CHECKING:
     import collections.abc as cabc
+    from pathlib import Path
 
 FENCE = re.compile(r"^\s*(`{3,}|~{3,})")
 HEADING = re.compile(r"^(#{1,6}) (.+)$")
@@ -167,3 +168,33 @@ def explicit_anchors(text: str) -> set[str]:
     for _, line in unfenced_lines(text):
         found.update(match[1] for match in EXPLICIT_ANCHOR.finditer(line))
     return found
+
+
+def lexical_target(source: Path, path: str) -> tuple[int, tuple[str, ...]]:
+    """Resolve ``path`` against ``source``'s directory without touching disk.
+
+    Parameters
+    ----------
+    source : pathlib.Path
+        The linking file, relative to the repository root.
+    path : str
+        The link path, without its fragment.
+
+    Returns
+    -------
+    tuple[int, tuple[str, ...]]
+        How many levels the path climbs above the root, and the remaining path
+        components.
+    """
+    parts = list(source.parent.parts)
+    escapes = 0
+    for part in path.split("/"):
+        if part in {"", "."}:
+            continue
+        if part != "..":
+            parts.append(part)
+        elif parts:
+            parts.pop()
+        else:
+            escapes += 1
+    return escapes, tuple(parts)
