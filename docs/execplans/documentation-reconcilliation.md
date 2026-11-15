@@ -226,6 +226,19 @@ The script work is a behaviour-preserving refactor.
   10 tensions) in the session scratch directory.
 - [x] (2026-11-15 20:40Z) Owner raised the tooling tolerance (D24) and asked
   for the SynHX naming to be clarified and a comprehensive glossary (D25).
+- [x] (2026-11-16 13:00Z) EP-M5 wave 1 integrated (`8f2058a` to `706a046`):
+  the queue, transfer, resume, framing and banner families meet the standard
+  (630 findings to 0, two suppressions, 34 tests converted with names
+  unchanged). `make all` passes with 306 tests; `make goldens-check` prints
+  `0 differences`. Lessons: a new helper module must not be named `*_cases.py`,
+  because the golden coverage test treats that name as a planner; split modules
+  re-export their public names with a comment naming the consumer; constants
+  whose meaning no document fixes stay local and unnamed. To restore in wave 2:
+  `verify_native_banner_formats` now reads the driver hash before the
+  corpus-inventory check, which changes which error is raised when both fail.
+  Remaining on the legacy list: 224 scripts plus comment lines. Next waves, by
+  fan-in: auth and shx; folders and mkdir; forks, metadata and account updates;
+  then the long tail.
 - [x] (2026-11-16 11:30Z) EP-M8, second part:
   `docs/native-evidence/recreating-evidence.md` written by a scribe and gated
   (`b9b5b90`). All 203 included corpora fall under twelve families, each with a
