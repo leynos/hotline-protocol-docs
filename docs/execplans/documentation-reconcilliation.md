@@ -5,7 +5,7 @@ This ExecPlan (execution plan) is a living document. The sections `Constraints`,
 `Outcomes & retrospective`, `Conformance basis`, and `Verification plan` must
 be kept up to date as work proceeds.
 
-Status: DRAFT
+Status: IN PROGRESS
 
 ## Purpose / big picture
 
@@ -215,7 +215,11 @@ The script work is a behaviour-preserving refactor.
 - [x] (2026-11-15 14:50Z) Revised to store large evidence through Git LFS.
 - [x] (2026-11-15 15:05Z) Added the delegation and escalation protocol.
 - [x] (2026-11-15 15:20Z) Kept JSON in Git and added a JSON formatting gate.
-- [ ] Explicit approval to begin implementation.
+- [x] (2026-11-15 15:40Z) Owner approved implementation.
+- [ ] EP-M0 in progress (completed: secret-pattern scan of mothra's tracked
+  files, clean; JSON census; repository visibility check. Running: baseline
+  gates, mothra classification, set-up passage census. Held: the push of mothra
+  `main`, pending the owner's confirmation; the LFS quota reading).
 - [ ] EP-M0: baseline, mothra pushed, LFS quota checked, classification
   manifest.
 - [ ] EP-M1: tooling foundation and link gate.
@@ -271,6 +275,24 @@ The script work is a behaviour-preserving refactor.
 - Observation: `native-capture-workflow.md` opens with "Prepare the emulator
   and application", which mixes general emulator set-up with Hotline-specific
   preparation. Impact: EP-M4 and EP-M8 split it.
+- Observation: `leynos/mothra` and `leynos/hotline-protocol-docs` are both
+  public on GitHub, and mothra's unpushed commits track
+  `evidence/hotline-server-1.9/inputs/HLserver19.pef`, the server binary under
+  analysis, with its decompilations. Evidence: `gh repo view` reports `PUBLIC`
+  for both; `git ls-files` lists the file. A pattern scan of tracked text for
+  private keys and common token formats found nothing. Impact: the authorized
+  push would publish the binary; the push is held and the question put to the
+  owner. The same file will enter this public repository in EP-M3.
+- Observation: the GitHub LFS quota cannot be read with the current token.
+  Evidence: the billing endpoint asks for the `user` scope. Impact: the quota
+  check in EP-M0 is unresolved; nothing in this plan pushes LFS content, so it
+  matters only when the owner pushes this branch.
+- Observation: of 5,141 evidence JSON files, 155 are not in the canonical
+  layout and one does not parse
+  (`evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/raw/readiness-generic.json`).
+  None has a duplicate key. Evidence: a census run on 15 November 2026. The
+  155 are raw tool replies and single-line status files. Impact: 156 entries go
+  into the exceptions file that INV-JSON provides for; none is rewritten.
 - Observation: the existing documents are otherwise close to clean. With the
   Lody markdownlint configuration only 18 MD049 findings appear, no local link
   is broken, and default `typos` reports 90 findings, mostly protocol tokens.
