@@ -1,7 +1,7 @@
 # Agent instructions
 
-This repository documents the Hotline 1.9 wire protocol from retained
-evidence. Read this file before changing anything.
+This repository documents the Hotline 1.9 wire protocol from retained evidence.
+Read this file before changing anything.
 
 ## What lives where
 
@@ -51,18 +51,18 @@ Run gates one at a time, never in parallel, and commit only when they pass.
 New and changed Python follows the df12 standards configured in
 `pyproject.toml`: Ruff with the full rule selection, numpy-style docstrings,
 complete type annotations checked by `ty`, pytest tests, Cyclopts for command
-lines, `pathlib` for paths, and modules under 400 lines. Write the failing
-test first. A lint suppression must be scoped to one line and state its
-reason. The inherited scripts are held at their earlier rules by
-`scripts/ruff.toml` until each family is brought to the standard.
+lines, `pathlib` for paths, and modules under 400 lines. Write the failing test
+first. A lint suppression must be scoped to one line and state its reason. The
+inherited scripts are held at their earlier rules by `scripts/ruff.toml` until
+each family is brought to the standard.
 
 ## Markdown
 
 Follow `docs/documentation-style-guide.md`. In brief: British English with
 Oxford spelling; sentence-case headings; prose wrapped at 80 columns and code
-at 120; tables unwrapped; a caption beneath every table and figure; a
-paragraph beginning "For screen readers:" before every Mermaid diagram; no
-first or second person outside `README.md`.
+at 120; tables unwrapped; a caption beneath every table and figure; a paragraph
+beginning "For screen readers:" before every Mermaid diagram; no first or
+second person outside `README.md`.
 
 `typos.toml` is generated; never edit it. Repository-specific spellings go in
 `typos.local.toml` as exact patterns.
@@ -70,6 +70,6 @@ first or second person outside `README.md`.
 ## The mothra toolset
 
 Evidence is captured with the general toolset in `leynos/mothra`. That
-repository must not contain anything specific to this project. Link to it
-only by absolute GitHub URL, never by a relative path, and do not copy its
-set-up guidance here.
+repository must not contain anything specific to this project. Link to it only
+by absolute GitHub URL, never by a relative path, and do not copy its set-up
+guidance here.
