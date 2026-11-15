@@ -402,7 +402,7 @@ The script work is a behaviour-preserving refactor.
   branch do not match the hashes of audit revision 89 from commit `bf6d00e`
   until revision 90 is cut in EP-M3; the main checkout is unaffected. The
   generated `gap-analysis.md` is excluded from reflow and spelling, and the
-  heading "Preparation and later authorised capture" keeps its spelling because
+  heading `Preparation and later authorised capture` keeps its spelling because
   its anchor is audited. EP-M10 keeps captions, screen-reader text, sentence
   case, person and cross-references. Date/Author: 2026-11-15, lead.
 - Decision D17: only instructional set-up guidance moves to mothra: the
