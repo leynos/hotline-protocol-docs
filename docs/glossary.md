@@ -23,15 +23,15 @@ PowerPC client that the documents use as an interoperability target for native
 1.9.
 
 Authoritative source:
-[peer profile rules](../peer-profile-rules.md#evaluated-build-identities).
+[peer profile rules](peers/peer-profile-rules.md#evaluated-build-identities).
 
 Evidence: the executable DATA and resource-fork SHA-256 values are recorded in
 the peer profile rules. The archive and application label says 1.9.2, while the
 embedded `vers` resource says 1.9.1.0. Both observations are retained, and
 neither is adopted as a behavioural release identity
-([delegation record](delegation/mac-peer-candidate.md), lines 33 to 36).
-Vendor authenticity and any mapping to other binaries are unproved
-([peer profile rules](../peer-profile-rules.md#evaluated-build-identities)).
+([delegation record](provenance/records/mac-peer-candidate.md), lines 33 to
+36). Vendor authenticity and any mapping to other binaries are unproved
+([peer profile rules](peers/peer-profile-rules.md#evaluated-build-identities)).
 
 ### Hotline Server 1.9
 
@@ -40,7 +40,7 @@ behaviour the protocol guide describes. Its build label is
 `Hotline Connect Server 1.9.1.0`, and its code oracle is the PEF data fork with
 SHA-256 `ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`.
 
-Authoritative source: [protocol guide](../protocol.md), opening section.
+Authoritative source: [protocol guide](protocol/protocol.md), opening section.
 
 Evidence: both version resources in the paired resource-fork inventory read
 `Hotline Connect Server 1.9.1.0`
@@ -58,7 +58,7 @@ shx README describes shx as "hx with modifications and bug fixes". The
 identified shx build generates an executable named `hx`.
 
 Authoritative source:
-[identified client source](../identified-client-source.md#source-package-identities-and-configuration-applicability).
+[identified client source](peers/identified-client-source.md#source-package-identities-and-configuration-applicability).
 
 Evidence: the generated Makefile of the identified build selects terminal
 objects and `hx` (the same section). The upstream SynHX source archive records
@@ -81,13 +81,13 @@ files that were modified in synhxd over hxd-0.1.41 (`server/README,v`, line 56).
 mxd is the project's own server implementation, whose intended Hotline 1.9
 compatibility the protocol guide describes.
 
-Authoritative source: [protocol guide](../protocol.md), opening section.
+Authoritative source: [protocol guide](protocol/protocol.md), opening section.
 
 Evidence: the retained ledger did not inspect an mxd checkout, run its tests or
 run its `Kani` proofs, so the implementation status of mxd lies outside the
 retained evidence
-([internal compatibility matrix](../internal-compatibility-matrix.md), opening
-section). The ledger's claim M008 refers to mxd's Rust tests
+([internal compatibility matrix](mxd/internal-compatibility-matrix.md),
+opening section). The ledger's claim M008 refers to mxd's Rust tests
 ([validity ledger](baseline-validity-ledger.md#compatibility-matrix-ledger)).
 
 ### Native
@@ -97,12 +97,13 @@ opposed to a controlled receiver, a proxy or a historical source. Results that
 the documents label native come from that execution.
 
 Authoritative source:
-[peer profile rules](../peer-profile-rules.md#evaluated-build-identities).
+[peer profile rules](peers/peer-profile-rules.md#evaluated-build-identities).
 
 Evidence: "A controlled receiver is not native server execution" (the same
 section). The native diagnostic witness records Hotline Server 1.9 running in a
 disposable SheepShaver Mac OS 9 guest
-([witness](../native-diagnostic-existing-witness.md), opening section).
+([witness](native-evidence/native-diagnostic-existing-witness.md), opening
+section).
 
 ### Peer profile
 
@@ -110,13 +111,13 @@ A peer profile is an evaluated protocol target: a particular executable and
 configuration with measured coverage. It is not every release that carries the
 same product name.
 
-Authoritative source: [peer profile rules](../peer-profile-rules.md), opening
-section.
+Authoritative source: [peer profile rules](peers/peer-profile-rules.md),
+opening section.
 
 Evidence: assignment requires provenance that matches the profile's opaque
 executable identity and configuration. A handshake, a self-reported version or
 an app name alone is insufficient
-([peer profile rules](../peer-profile-rules.md#profile-assignment-and-unknown-peer-fallback)).
+([peer profile rules](peers/peer-profile-rules.md#profile-assignment-and-unknown-peer-fallback)).
 
 ### `shx`
 
@@ -126,17 +127,17 @@ an app name alone is insufficient
 separately downloadable packages.
 
 Authoritative source:
-[identified client source](../identified-client-source.md#source-package-identities-and-configuration-applicability)
+[identified client source](peers/identified-client-source.md#source-package-identities-and-configuration-applicability)
 for the identified build. The upstream SynHX source archive is the release
 record, and it is not retained in this repository.
 
 Evidence: the identified build uses the 0.1.48 source at commit
 `adb1bf8c8cb12f7eb2fa2c01673295a6312f262b`. That revision identifies source
 content only, not a configured or distributed executable
-([identified client source](../identified-client-source.md), opening section).
-The upstream client README says that "as of shx/shxd 0.1.47 the client has been
-removed from the hxd (server) package" (`client/README,v`, lines 37 and 38).
-The upstream client changelog records the split under 0.1.48
+([identified client source](peers/identified-client-source.md), opening
+section). The upstream client README says that "as of shx/shxd 0.1.47 the
+client has been removed from the hxd (server) package" (`client/README,v`,
+lines 37 and 38). The upstream client changelog records the split under 0.1.48
 (`client/CHANGES,v`, lines 30 to 33). The two records therefore place the split
 at 0.1.47 and 0.1.48 respectively. The client's `version.c` declares `0.1.48`
 under the variable name `hxd_version` (`client/version.c,v`, line 30).
@@ -167,9 +168,10 @@ for every client build, so a specific program should be named where it is
 meant, using the entries for `shx` and `synhxd`.
 
 Authoritative source:
-[protocol guide](../protocol.md#references-and-correction-traceability), which
-identifies the historical SynHX comparison as the supplied `../synhxd/server/`
-archive set. The archive itself is not retained in this repository.
+[protocol guide](protocol/protocol.md#references-and-correction-traceability),
+which identifies the historical SynHX comparison as the supplied
+`../synhxd/server/` archive set. The archive itself is not retained in this
+repository.
 
 Evidence: the server's modifications are described as being over hxd-0.1.41
 (`server/README,v`, line 56), and the client is described as "hx with
@@ -216,7 +218,7 @@ peer the documents use the native 1.9 login producer as the wire baseline, with
 no family classifier.
 
 Authoritative source:
-[peer profile rules](../peer-profile-rules.md#profile-assignment-and-unknown-peer-fallback).
+[peer profile rules](peers/peer-profile-rules.md#profile-assignment-and-unknown-peer-fallback).
 
 Evidence: a shared handshake sub-version 2 and numeric field `160` do not turn
 an unknown peer into SynHX or Hotline 1.8.5 (the same section).
@@ -229,7 +231,7 @@ ACK is the catalogue label for a normal-path direct reply that is visible. It
 does not mean that every branch replies.
 
 Authoritative source:
-[protocol guide, reply semantics](../protocol.md#4-reply-semantics).
+[protocol guide, reply semantics](protocol/protocol.md#4-reply-semantics).
 
 Evidence: permission failures, flood limits and connection closure can change
 the outcome (the same section).
@@ -241,17 +243,17 @@ a source path and a destination path. The term also covers the Mac Alias
 Record, which a separate document describes.
 
 Authoritative source:
-[protocol guide, file services](../protocol.md#file-services-files-and-folders)
-for transaction 209, and [alias record v2](../alias-record-v2.md) for the
-record.
+[protocol guide, file services](protocol/protocol.md#file-services-files-and-folders)
+for transaction 209, and
+[alias record v2](files-and-transfers/alias-record-v2.md) for the record.
 
 Evidence: transaction 209 takes the source name in field `201`, the source path
 in field `202` and the destination path in field `212`. Live aliases and chains
 resolve in listing, info and download
-([protocol guide](../protocol.md#file-services-files-and-folders)). The alias
-record decoder accepts an extracted AliasRecord payload, records identity only
-and does not resolve a live target ([alias record v2](../alias-record-v2.md),
-opening section).
+([protocol guide](protocol/protocol.md#file-services-files-and-folders)). The
+alias record decoder accepts an extracted AliasRecord payload, records identity
+only and does not resolve a live target
+([alias record v2](files-and-transfers/alias-record-v2.md), opening section).
 
 ### Data fork
 
@@ -259,14 +261,14 @@ The data fork is the data stream of a Mac file. In this repository it has two
 uses: the code oracle is a PEF data fork, and the flattened transfer stream
 carries the file's data fork under the `DATA` tag.
 
-Authoritative source: [protocol guide](../protocol.md), opening section, for
-the oracle;
-[transfer contracts](../transfer-contracts.md#flattened-ordinary-file-stream)
+Authoritative source: [protocol guide](protocol/protocol.md), opening section,
+for the oracle;
+[transfer contracts](files-and-transfers/transfer-contracts.md#flattened-ordinary-file-stream)
 for the stream.
 
 Evidence: the baseline file's stream carries 1,048,576 `DATA` bytes and 317
-`MACR` bytes ([transfer contracts](../transfer-contracts.md), around lines 175
-and 176).
+`MACR` bytes ([transfer contracts](files-and-transfers/transfer-contracts.md),
+around lines 175 and 176).
 
 ### Field
 
@@ -274,17 +276,17 @@ A field is one count-prefixed record in a transaction's parameter stream. Each
 field has a two-byte field ID, a two-byte value length and the value bytes.
 
 Authoritative source:
-[protocol guide, parameter list](../protocol.md#21-parameter-list-payload-block).
+[protocol guide, parameter list](protocol/protocol.md#21-parameter-list-payload-block).
 
 Evidence: the parameter stream begins with a two-byte field count, and an empty
 native field list is `00 00` (the same section). Field IDs may repeat where a
 transaction's schema permits it, and no global uniqueness rule applies (the
 same section). Field IDs and transaction types are separate namespaces, so
 error text in field `100` is not a standalone error transaction
-([protocol guide, reply semantics](../protocol.md#4-reply-semantics)). In the
-worked login example, field `105` carries the login, field `106` the password
-and field `160` the client version
-([protocol guide, worked example](../protocol.md#5-worked-example-login)).
+([protocol guide, reply semantics](protocol/protocol.md#4-reply-semantics)).
+In the worked login example, field `105` carries the login, field `106` the
+password and field `160` the client version
+([protocol guide, worked example](protocol/protocol.md#5-worked-example-login)).
 
 ### `FILP`
 
@@ -293,7 +295,7 @@ carries. Its header is 24 bytes: the tag `FILP`, a version word of 1, 16 bytes
 that are zero from a cleared state, and a fork count of 3.
 
 Authoritative source:
-[transfer contracts, flattened ordinary-file stream](../transfer-contracts.md#flattened-ordinary-file-stream).
+[transfer contracts, flattened ordinary-file stream](files-and-transfers/transfer-contracts.md#flattened-ordinary-file-stream).
 
 Evidence: each of the three fork records that follow has a 16-byte header with
 the tag `INFO`, `DATA` or `MACR` (the same section). A fresh stream advertises
@@ -306,7 +308,7 @@ and both of its forks in the `FILP` format. Its fork records are `INFO`, `DATA`
 and `MACR`.
 
 Authoritative source:
-[transfer contracts, flattened ordinary-file stream](../transfer-contracts.md#flattened-ordinary-file-stream).
+[transfer contracts, flattened ordinary-file stream](files-and-transfers/transfer-contracts.md#flattened-ordinary-file-stream).
 
 Evidence: a resume reduces only the fork bytes, and the header and metadata
 overhead remain (the same section).
@@ -319,7 +321,7 @@ sub-version. Sub-version `00 02` denotes a normal session, and sub-version 3
 enters a transfer-related handling path.
 
 Authoritative source:
-[protocol guide, session-initialization handshake](../protocol.md#1-session-initialization-handshake).
+[protocol guide, session-initialization handshake](protocol/protocol.md#1-session-initialization-handshake).
 
 Evidence: the server's reply is eight bytes, consisting of `TRTP` and a
 four-byte status that is zero for success. The supplied SynHX server uses the
@@ -332,7 +334,7 @@ identify SynHX uniquely (the same section).
 carries the magic, a transfer reference, a size word and a 16-bit selector.
 
 Authoritative source:
-[transfer contracts, HTXF header](../transfer-contracts.md#htxf-connection-header-and-dispatch).
+[transfer contracts, HTXF header](files-and-transfers/transfer-contracts.md#htxf-connection-header-and-dispatch).
 
 Evidence: the reference's parity and the selector choose the branch. For
 example, an odd reference with selector 2 selects a banner download (the same
@@ -344,13 +346,13 @@ A notification is a server-originated message that is not a direct reply to a
 client request.
 
 Authoritative source:
-[protocol guide, general transaction frame](../protocol.md#2-general-transaction-frame).
+[protocol guide, general transaction frame](protocol/protocol.md#2-general-transaction-frame).
 
 Evidence: the is-reply byte is zero for a request or a notification and one for
 a reply (the same section). Sections headed "Server Initiates" describe the
 server-originated transactions. Transaction 122 is an additional
 server-originated banner notification
-([protocol guide](../protocol.md#additional-observed-requests-and-scope-gaps)).
+([protocol guide](protocol/protocol.md#additional-observed-requests-and-scope-gaps)).
 
 ### Push
 
@@ -358,20 +360,21 @@ Push is the catalogue label for a handler that routes a notification or update
 without a normal direct success reply.
 
 Authoritative source:
-[protocol guide, reply semantics](../protocol.md#4-reply-semantics).
+[protocol guide, reply semantics](protocol/protocol.md#4-reply-semantics).
 
 ### Rate304
 
 Rate304 is the label that the repository's records use for the settings rate
 path of transaction 304, Changing User Settings.
 
-Authoritative source: [rate-path contract](../rate304-contract.md), opening
+Authoritative source:
+[rate-path contract](presence-and-messaging/rate304-contract.md), opening
 section.
 
 Evidence: the contract is a source prediction for the rate path's counter and
 its ordinary response. The exact native 60-second interval remains uncalibrated
 (the same section). The protocol guide lists transaction 304 as Changing User
-Settings ([protocol guide](../protocol.md#user-login-and-presence)).
+Settings ([protocol guide](protocol/protocol.md#user-login-and-presence)).
 
 ### Reply
 
@@ -380,7 +383,7 @@ sets the reply marker, uses type zero and carries a status and a parameter
 stream.
 
 Authoritative source:
-[protocol guide, reply semantics](../protocol.md#4-reply-semantics).
+[protocol guide, reply semantics](protocol/protocol.md#4-reply-semantics).
 
 Evidence: valid unmatched replies are silent, and invalid zero-size replies
 close before correlation (the same section).
@@ -391,10 +394,10 @@ A request is a client-initiated transaction, identified by its transaction
 type. Sections headed "Client Initiates" describe the request types.
 
 Authoritative source:
-[protocol guide, general transaction frame](../protocol.md#2-general-transaction-frame).
+[protocol guide, general transaction frame](protocol/protocol.md#2-general-transaction-frame).
 
 Evidence: the inspected dispatcher contains 45 request handlers
-([protocol guide](../protocol.md#additional-observed-requests-and-scope-gaps)).
+([protocol guide](protocol/protocol.md#additional-observed-requests-and-scope-gaps)).
 
 ### Resource fork
 
@@ -402,7 +405,7 @@ The resource fork is the second fork of a Mac file. The flattened transfer
 stream carries it under the `MACR` tag.
 
 Authoritative source:
-[transfer contracts, flattened ordinary-file stream](../transfer-contracts.md#flattened-ordinary-file-stream).
+[transfer contracts, flattened ordinary-file stream](files-and-transfers/transfer-contracts.md#flattened-ordinary-file-stream).
 
 Evidence: the transfer contracts describe the baseline file's `MACR` fork as a
 317-byte resource fork (around line 71). The data-fork hash of Hotline Server
@@ -416,10 +419,10 @@ tag `INFO` marks the metadata value, `DATA` the data fork and `MACR` the
 resource fork.
 
 Authoritative source:
-[transfer contracts, flattened ordinary-file stream](../transfer-contracts.md#flattened-ordinary-file-stream).
+[transfer contracts, flattened ordinary-file stream](files-and-transfers/transfer-contracts.md#flattened-ordinary-file-stream).
 
 Evidence: the resume record uses `DATA` and `MACR` entries
-([transfer contracts, resume data](../transfer-contracts.md#resume-data-rflt)).
+([transfer contracts, resume data](files-and-transfers/transfer-contracts.md#resume-data-rflt)).
 
 ### Transaction
 
@@ -429,11 +432,11 @@ flags, a reply marker, a type, a correlation ID, an error code, and the total
 and per-frame parameter-stream lengths.
 
 Authoritative source:
-[protocol guide, general transaction frame](../protocol.md#2-general-transaction-frame).
+[protocol guide, general transaction frame](protocol/protocol.md#2-general-transaction-frame).
 
 Evidence: a direct reply copies the correlation ID of its request (the same
 section). Assembly, collisions and late replies are covered by the
-[ID and reassembly contract](../session-transport-contracts.md#transaction-ids-reassembly-and-correlation).
+[ID and reassembly contract](protocol/session-transport-contracts.md#transaction-ids-reassembly-and-correlation).
 
 ### Transfer protocol
 
@@ -442,11 +445,11 @@ and banner transfers. A control session that sends sub-version 3 is handed over
 to that transfer connection after its success response.
 
 Authoritative source:
-[transfer contracts, HTXF header](../transfer-contracts.md#htxf-connection-header-and-dispatch).
+[transfer contracts, HTXF header](files-and-transfers/transfer-contracts.md#htxf-connection-header-and-dispatch).
 
 Evidence: the protocol guide describes the same-connection handover to `HTXF`
 after the success response
-([protocol guide, session-initialization handshake](../protocol.md#1-session-initialization-handshake)).
+([protocol guide, session-initialization handshake](protocol/protocol.md#1-session-initialization-handshake)).
 
 ## Evidence terms
 
@@ -484,7 +487,7 @@ A controlled receiver is the controlled test receiver that the documents use to
 observe a client. It is not native server execution.
 
 Authoritative source:
-[peer profile rules](../peer-profile-rules.md#evaluated-build-identities).
+[peer profile rules](peers/peer-profile-rules.md#evaluated-build-identities).
 
 Evidence: "A controlled receiver is not native server execution" (the same
 section). The same section states that a native proxy tests the named rewrite.
@@ -494,23 +497,24 @@ section). The same section states that a native proxy tests the named rewrite.
 A corpus is a frozen, hashed collection of retained records that a verifier
 replays or checks.
 
-Authoritative source: [rate-path contract](../rate304-contract.md), opening
+Authoritative source:
+[rate-path contract](presence-and-messaging/rate304-contract.md), opening
 section.
 
 Evidence: the rate-path contract cites a frozen source corpus. The Classic
 corpus pins both forks of the Classic candidate
-([peer profile rules](../peer-profile-rules.md#evaluated-build-identities)).
+([peer profile rules](peers/peer-profile-rules.md#evaluated-build-identities)).
 
 ### Observed
 
 Observed means supported by static analysis of the named path in the hashed 1.9
 build. It does not mean exercised in a live network test.
 
-Authoritative source: [protocol guide](../protocol.md), opening section.
+Authoritative source: [protocol guide](protocol/protocol.md), opening section.
 
 Evidence: the compatibility matrix uses "Source-observed" for facts established
 in a named historical source snapshot, not in every client or release
-([matrix scope and status labels](../internal-compatibility-matrix.md#scope-and-status-labels)).
+([matrix scope and status labels](mxd/internal-compatibility-matrix.md#scope-and-status-labels)).
 
 ### Oracle
 
@@ -518,7 +522,7 @@ The oracle is the Hotline Server 1.9 binary against which the protocol guide's
 code claims are checked. The guide's oracle is a PEF data fork with the SHA-256
 recorded under Hotline Server 1.9.
 
-Authoritative source: [protocol guide](../protocol.md), opening section.
+Authoritative source: [protocol guide](protocol/protocol.md), opening section.
 
 Evidence: the 1.9 binary is authoritative for the behaviour of its build. The
 SynHX source is comparison evidence, not evidence of what that binary does
@@ -530,20 +534,21 @@ A preparation is an offline packet that sets up a fixture, a plan and operator
 checks before a run. It does not run the case.
 
 Authoritative source:
-[native private-message fixture preparation](../native-pm-preparation.md#native-private-message-fixture-preparation-a26),
+[native private-message fixture preparation](native-evidence/native-pm-preparation.md#native-private-message-fixture-preparation-a26),
 opening section.
 
 Evidence: the native private-message preparation was prepared offline and then
 executed in the native PM witness (the same section). The isolated legacy
 message board preparation states that it does not run its case
-([board preparation](../native-board-preparation.md), opening section).
+([board preparation](native-evidence/native-board-preparation.md), opening
+section).
 
 ### Readback
 
 A readback is a read request that checks a stored value after a write.
 
-Authoritative source: [bitmap boundaries](../bitmap-boundaries.md), opening
-section.
+Authoritative source: [bitmap boundaries](protocol/bitmap-boundaries.md),
+opening section.
 
 Evidence: each replacement of field `110` (request 353) is followed by an
 immediate readback (request 352), and the bitmap-boundary records compare the
@@ -554,7 +559,8 @@ two (the same section).
 A source prediction is a comparison of behaviour made from decompiled source,
 without a new oracle call or native request.
 
-Authoritative source: [rate-path contract](../rate304-contract.md), opening
+Authoritative source:
+[rate-path contract](presence-and-messaging/rate304-contract.md), opening
 section.
 
 Evidence: the rate-path comparison is a source prediction. The later native
@@ -565,7 +571,7 @@ sequence captures the observed result (the same section).
 Unresolved means that an implementer must obtain further evidence, rather than
 treat the previous guide's guesses as requirements.
 
-Authoritative source: [protocol guide](../protocol.md), opening section.
+Authoritative source: [protocol guide](protocol/protocol.md), opening section.
 
 Evidence: the gap analysis states that the corrected documents deliberately
 contain unresolved statements, and that unanswered entries turn them into
@@ -602,7 +608,7 @@ A witness is the retained record of an executed run, with its readbacks,
 receipts and corpus. Preparations are exercised by witnesses.
 
 Authoritative source:
-[native ban control preparation](../native-ban-control-preparation.md#isolated-permanent-ban-control-fixture-c52-preparation),
+[native ban control preparation](native-evidence/native-ban-control-preparation.md#isolated-permanent-ban-control-fixture-c52-preparation),
 opening section.
 
 Evidence: that preparation "was exercised by the C56 permanent-ban witness"
@@ -625,16 +631,17 @@ Evidence: the retained records do not agree on the current revision. The gap
 register names revision 91 as its source manifest
 ([gap register](../gap-register.json), `source_manifest`). Its method text and
 the gap analysis describe "Revision 90", and the
-[protocol handoff](protocol-handoff.md) refers to revision 89.
+[protocol handoff](provenance/protocol-handoff.md) refers to revision 89.
 
 ### Correction map
 
 The correction map is the table in
-[the baseline correction map](../baseline-correction-map.md) that gives the
-disposition of every ledger entry for the current revision.
+[the baseline correction map](provenance/baseline-correction-map.md) that gives
+the disposition of every ledger entry for the current revision.
 
-Authoritative source: [baseline correction map](../baseline-correction-map.md),
-opening section.
+Authoritative source:
+[baseline correction map](provenance/baseline-correction-map.md), opening
+section.
 
 Evidence: the map applies the 12 November 2026 ledger to the protocol guide and
 the compatibility matrix. All 83 entries have a disposition. The map preserves
@@ -723,8 +730,8 @@ sections. The statuses are defined under
 Evidence: the valid identifiers are listed in
 `../evidence/hotline-server-1.9/claims.json`, which lists 83 identifiers. The
 protocol guide cites them by identifier, for example `V003`
-([protocol guide](../protocol.md), opening section). The two claim series are
-shown in Table 4.
+([protocol guide](protocol/protocol.md), opening section). The two claim
+series are shown in Table 4.
 
 | Series | Identifiers              | Claims about                         |
 | ------ | ------------------------ | ------------------------------------ |
@@ -763,8 +770,9 @@ Authoritative source: none of the retained documents defines the letter. The
 meaning of the letter is not stated in the retained records.
 
 Evidence: `A26` is the native private-message fixture preparation
-([native PM preparation](../native-pm-preparation.md), title). `A114` is an
-independent audit ([native rate304 sequence](../native-rate304-sequence.md),
+([native PM preparation](native-evidence/native-pm-preparation.md), title).
+`A114` is an independent audit
+([native rate304 sequence](native-evidence/native-rate304-sequence.md),
 opening section). `A7` is a readback (see [A7 readback](#a7-readback)). The
 letter therefore does not identify one kind of work (see Table 5).
 
@@ -779,7 +787,7 @@ meaning of the letter is not stated in the retained records.
 
 Evidence: `B50` is an earlier capture run that stopped before any variant, and
 `B51` is the readiness gate that a later run used
-([Classic 161 matrix](../classic-field161-matrix.md), lines 56 to 59).
+([Classic 161 matrix](peers/classic-field161-matrix.md), lines 56 to 59).
 
 ### Batch number
 
@@ -804,7 +812,7 @@ Authoritative source: none of the retained documents defines the letter. The
 meaning of the letter is not stated in the retained records.
 
 Evidence: `C52` is the isolated permanent-ban control fixture preparation
-([native ban control preparation](../native-ban-control-preparation.md#isolated-permanent-ban-control-fixture-c52-preparation),
+([native ban control preparation](native-evidence/native-ban-control-preparation.md#isolated-permanent-ban-control-fixture-c52-preparation),
 title). The `C-` prefix on Ghidra query records is a separate series (see
 [Ghidra query record](#ghidra-query-record)).
 
@@ -862,12 +870,13 @@ The Ghidra MCP bridge is the Model Context Protocol (MCP) server that exposes a
 loaded Ghidra program to read-only queries. The records name the extension
 `GhidraMCP`.
 
-Authoritative source: [protocol handoff](protocol-handoff.md), opening section.
+Authoritative source: [protocol handoff](provenance/protocol-handoff.md),
+opening section.
 
 Evidence: only one tool may serve the MCP endpoint at a time (the same
 section). The Classic privilege record names the `GhidraMCP` JAR and its hash
-([classic privilege discovery](../classic-privilege-discovery.md), lines 14
-and 15).
+([classic privilege discovery](accounts-and-privileges/classic-privilege-discovery.md),
+lines 14 and 15).
 
 ### Ghidra query record
 
@@ -901,7 +910,7 @@ and never by a relative path (the same section).
 PEF is the Preferred Executable Format, the container format of the Hotline
 Server 1.9 binary. The code oracle is the PEF data fork.
 
-Authoritative source: [protocol guide](../protocol.md), opening section.
+Authoritative source: [protocol guide](protocol/protocol.md), opening section.
 
 Evidence: the evidence manifest records the program's executable format as
 "Preferred Executable Format (PEF)"
@@ -914,8 +923,8 @@ SheepShaver is the Mac OS emulator in which the native evidence runs Hotline
 Server 1.9.
 
 Authoritative source:
-[native diagnostic witness](../native-diagnostic-existing-witness.md), opening
-section.
+[native diagnostic witness](native-evidence/native-diagnostic-existing-witness.md),
+opening section.
 
 Evidence: the records describe a disposable SheepShaver Mac OS 9 guest. The
 preflight manifest records the emulator's hash
@@ -929,8 +938,8 @@ to read HFS images. The records use `fls` and `istat` to list and inspect owned
 folders, and `icat` to extract complete data forks for hash comparison.
 
 Authoritative source:
-[native settings persistence preparation](../native-settings-persistence-preparation.md),
+[native settings persistence preparation](native-evidence/native-settings-persistence-preparation.md),
 lines 103 to 106.
 
-Evidence: [operation contracts](../operation-contracts.md), line 424, records a
-read-only Sleuth Kit `fls -u` and `istat` check of the owned folders.
+Evidence: [operation contracts](protocol/operation-contracts.md), line 424,
+records a read-only Sleuth Kit `fls -u` and `istat` check of the owned folders.

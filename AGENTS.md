@@ -5,8 +5,9 @@ Read this file before changing anything.
 
 ## What lives where
 
-- Protocol documents are Markdown. They state only what the cited evidence
-  supports and label everything else as unresolved.
+- Protocol documents are Markdown, grouped by subject under `docs/<set>/`. They
+  state only what the cited evidence supports and label everything else as
+  unresolved. `docs/glossary.md` defines the terms they use.
 - `gap-register.json` is the canonical list of open questions. `gap-analysis.md`
   is generated from it and is never edited by hand.
 - `scripts/` holds the inherited capture planners and `verify_*.py` evidence
