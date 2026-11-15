@@ -226,6 +226,22 @@ The script work is a behaviour-preserving refactor.
   10 tensions) in the session scratch directory.
 - [x] (2026-11-15 20:40Z) Owner raised the tooling tolerance (D24) and asked
   for the SynHX naming to be clarified and a comprehensive glossary (D25).
+- [x] (2026-11-16 19:00Z) EP-M5 wave 2 integrated (`1582886` to `1ae7af1`):
+  the auth, shx, folder, mkdir, fork, metadata, alias and account-update
+  families meet the standard (644 findings to 0, 14 suppressions, 86 tests
+  converted with names unchanged), and the banner verifier's check order is
+  restored and pinned by tests. `make all` passes with 432 tests;
+  `make goldens-check` prints `0 differences`. 194 scripts remain on the legacy
+  list. Lessons: a new test that is not a converted one belongs in `tests/`,
+  because anything new under `scripts/tests/` is reported by the test golden;
+  error paths are not observable on the retained corpora, so the order of
+  checks is held by inspection and by synthetic cases run against the old and
+  new trees, which later waves must commit. Remaining groups: cleanup, htxf,
+  correlation and handshakes; account batches, identity, live accounts, login
+  extras, agreements and bitmaps; news, board, rooms, moves and article
+  deletion; diagnostics, liveness and path fields; bans, settings, roster
+  overlap and rate 304; the classic, mxd, Mac peer and SynHX verifiers; and the
+  sixteen pinned scripts once D29 is in place.
 - [x] (2026-11-16 18:00Z) EP-M7 complete (`77104bf`, `acd61a2`). Five scribes
   each wrote one target document from the claim inventory and the lead wrote
   the set's `README.md`. INV-MXD: all 566 inventoried claims land exactly once
