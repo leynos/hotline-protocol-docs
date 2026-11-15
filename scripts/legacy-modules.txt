@@ -49,7 +49,6 @@ scripts/native_folder_files.py
 scripts/native_folder_stream.py
 scripts/native_folder_timing.py
 scripts/native_folder_upload_cases.py
-scripts/native_framing_cases.py
 scripts/native_htxf_cases.py
 scripts/native_live_account_cases.py
 scripts/native_liveness_cases.py
@@ -136,7 +135,6 @@ scripts/test_native_diagnostics.py
 scripts/test_native_download_send_path.py
 scripts/test_native_folders.py
 scripts/test_native_forks.py
-scripts/test_native_framing.py
 scripts/test_native_handshakes.py
 scripts/test_native_htxf.py
 scripts/test_native_live_accounts.py
@@ -216,7 +214,6 @@ scripts/verify_native_diagnostics.py
 scripts/verify_native_download_send_path.py
 scripts/verify_native_folders.py
 scripts/verify_native_forks.py
-scripts/verify_native_framing.py
 scripts/verify_native_handshakes.py
 scripts/verify_native_htxf.py
 scripts/verify_native_live_accounts.py
