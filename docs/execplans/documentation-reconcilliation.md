@@ -226,6 +226,25 @@ The script work is a behaviour-preserving refactor.
   10 tensions) in the session scratch directory.
 - [x] (2026-11-15 20:40Z) Owner raised the tooling tolerance (D24) and asked
   for the SynHX naming to be clarified and a comprehensive glossary (D25).
+- [x] (2026-11-16 10:00Z) EP-M5 pilot integrated (`4dd0e59` to `eecc9b2`).
+  Mechanism: `scripts/legacy-modules.txt` lists the scripts still held at the
+  earlier rules; everything else under `scripts/`, including `scripts/tests/`,
+  is gated by the root rules, and a family's commit deletes its lines. The
+  `Makefile` puts the project interpreter first on `PATH`, so recipe text and
+  golden keys are unchanged. `scripts/script_cli.py` imports Cyclopts lazily,
+  so library modules still import under a bare `python3`. Migrated:
+  `native_plan`, `native_packet_evidence`, `verify_native_core`,
+  `verify_native_pm` and five test modules (290 findings to 0, three
+  suppressions, 49 tests with unchanged outcomes). `make all` passes with 272
+  tests and `make goldens-check` prints `0 differences`. Procedure for each
+  family: survey its imports and hash comparisons; move tests to
+  `scripts/tests/` with `git mv`, keeping class and method names; name a wire
+  constant in `native_wire_names` only where a document fixes its meaning;
+  decompose to the complexity limits; lint the touched files alone; delete the
+  family's lines from the list; run `make all` and then the goldens. Pitfalls:
+  never run `make fmt` for one file; Cyclopts reads parameter annotations at
+  run time, so take `str` and build the `Path` in the body; measure the
+  400-line limit after formatting.
 - [x] (2026-11-16 08:00Z) EP-M8, first part: `docs/glossary.md` (`5726b04`) and
   `docs/provenance/remaining-evidence-work.md` (`254d945`) written by scribes
   and gated. The ledger has 25 rows (5 P0, 18 P1, 2 P2) and four prepared runs
@@ -771,6 +790,30 @@ The script work is a behaviour-preserving refactor.
   condense the seven golden modules. The lead recommends raising it. Until the
   owner rules, no further tooling is added; work continues on milestones that
   change `scripts/` and documents only. Date/Author: 2026-11-16, lead.
+
+- Decision D29 (open, for the owner): sixteen scripts cannot change without
+  turning a verifier red, so REQ-6 at full scope (D2) cannot be met for them as
+  they stand. Three are pinned by the evidence index
+  (`capture-ghidra-evidence.py`, `extract-synhxd-evidence.py`,
+  `verify-baseline-evidence.py`). Thirteen more have their live bytes compared
+  with hashes recorded at capture: `protocol_capture`, `pcap_tcp`,
+  `native_filp`, `native_pm_cases`, `verify_native_pm_packet`,
+  `native_121_default_cases`, `verify_native_121_default`,
+  `native_settings_transition_cases`, `verify_native_settings_transition`,
+  `native_settings_cases`, `verify_native_settings`, `native_control_readiness`
+  and `native_ban_control_cases`. Evidence: a comment appended to every script
+  gave 26 golden differences, and none once these were restored. The hashes sit
+  in manifests under `evidence/` and in constants in other verifiers. Options:
+  pin all sixteen as recorded exceptions held at the earlier rules (the lead's
+  recommendation); keep frozen original copies for the comparisons and refactor
+  the live files; or change the comparing verifiers, which alters protected
+  comparison logic. Until the owner rules, the sixteen stay byte-identical and
+  listed in `scripts/legacy-modules.txt`, and the other scripts proceed.
+  Consequence for documents, to be handled in EP-M8 and EP-M9: quoted commands
+  of the form `python3 scripts/<name>.py` need the project interpreter once the
+  script is migrated, quoted `unittest discover` commands no longer find
+  converted tests, and abbreviated options are no longer accepted. Date/Author:
+  2026-11-16, lead.
 
 ## Outcomes & retrospective
 
