@@ -95,13 +95,14 @@ The script work is a behaviour-preserving refactor.
 - After EP-M4, mothra must not name this repository, Hotline, mxd, SynHX or
   shx in any tracked file, and this repository must not contain a relative link
   into a mothra checkout.
-- mothra's history is not rewritten. Removal is by forward commits on a
-  branch. Nothing is merged into either repository's `main` by this plan.
+- The Hotline Server binary, in either fork and in any container, never
+  enters a commit of this repository and never reaches GitHub in mothra.
+  Mothra's local `main` is never pushed. Nothing is merged into either
+  repository's `main` by this plan.
 - The main checkouts at `/data/leynos/Projects/hotline-protocol-docs` and
   `/data/leynos/Projects/mothra` are not edited. Work happens in linked
-  worktrees on branches named `documentation-reconcilliation`. The one
-  exception is pushing mothra's existing `main` to `origin`, which the owner
-  has authorized.
+  worktrees on branches named `documentation-reconcilliation`. Mothra's
+  general-toolset history is built in a scratch clone and pushed from there.
 - No native run, Ghidra query, emulator start or mxd build is performed.
 - `docs/documentation-style-guide.md` is a verbatim copy of the df12 guide and
   is not edited here.
@@ -154,12 +155,13 @@ The script work is a behaviour-preserving refactor.
   of every imported file with mothra's and re-runs all 415 `SHA256SUMS` files.
 - Risk: removing material from mothra before this repository can stand alone
   loses the only working copy of a check. Severity: high. Likelihood: low.
-  Mitigation: EP-M4 starts only after EP-M3's ported checks pass here; mothra
-  `main` is pushed first, so the pre-removal state is recoverable from `origin`.
-- Risk: pushing mothra publishes about 987 MiB of Hotline evidence into its
-  permanent history. Severity: medium. Likelihood: certain. Mitigation: the
-  owner authorized the push; it is recorded as decision D8 so the consequence
-  is explicit.
+  Mitigation: EP-M4 starts only after EP-M3's ported checks pass here, and
+  mothra's local `main` is left untouched, so the earlier state stays
+  recoverable on this machine.
+- Risk: a copy of the withheld binary reaches GitHub through history, a
+  container or a packet capture. Severity: high. Likelihood: low. Mitigation:
+  obligation INV-WITHHELD scans every blob of every history before any push,
+  and decision D20 lists the eight known paths.
 - Risk: this repository's working tree grows to about 1 GB. Severity: low.
   Likelihood: certain. Mitigation: Git LFS keeps about 642 MiB of it out of the
   Git object store, and a clone can skip it with `GIT_LFS_SKIP_SMUDGE=1`.
@@ -216,6 +218,9 @@ The script work is a behaviour-preserving refactor.
 - [x] (2026-11-15 15:05Z) Added the delegation and escalation protocol.
 - [x] (2026-11-15 15:20Z) Kept JSON in Git and added a JSON formatting gate.
 - [x] (2026-11-15 15:40Z) Owner approved implementation.
+- [x] (2026-11-15 19:05Z) Owner ruled that the server binary is not to be
+  published (D20) and that modified forks are stored as binary patches (D21).
+  The push of mothra `main` is cancelled.
 - [x] (2026-11-15 17:10Z) EP-M0 surveys complete: baseline gates,
   classification of mothra, set-up passage census, JSON census.
 - [x] (2026-11-15 17:10Z) EP-M1 foundation committed (`b4d4449`), and the
@@ -225,8 +230,8 @@ The script work is a behaviour-preserving refactor.
   files, clean; JSON census; repository visibility check. Running: baseline
   gates, mothra classification, set-up passage census. Held: the push of mothra
   `main`, pending the owner's confirmation; the LFS quota reading).
-- [ ] EP-M0: baseline, mothra pushed, LFS quota checked, classification
-  manifest.
+- [x] (2026-11-15 19:05Z) EP-M0 complete except the LFS quota reading, which
+  needs a token scope the lead does not have. The push moved to EP-M4.
 - [x] (2026-11-15) EP-M1: tooling foundation, JSON gate (`04efcbe`), Markdown
   model (`c48e996`) and link gate with reachability rule (`b3bd149`);
   `make all` is green and includes `json-check` and `links-check`.
@@ -376,9 +381,9 @@ The script work is a behaviour-preserving refactor.
   file. Omit the dead-code, duplication, workflow-lint and mutation gates.
   Rationale: there is no installable package and no workflow here. Date/Author:
   2026-11-15, planning agent.
-- Decision D8 (settled by the owner, 2026-11-15): mothra `main` may be pushed
-  to `origin`. Consequence accepted: the Hotline evidence remains in mothra's
-  published history; later commits remove it from the tree.
+- Decision D8 (settled by the owner, 2026-11-15; superseded in part by D20):
+  mothra may be pushed to `origin`. Under D20 what is pushed is the filtered
+  general-toolset history, never the local `main`.
 - Decision D9 (revised by the owner, 2026-11-15): the imported evidence uses
   Git LFS under the rule in `Constraints`. It is imported with its history:
   `git filter-repo` selects the paths on a scratch clone,
@@ -397,8 +402,10 @@ The script work is a behaviour-preserving refactor.
 - Decision D11 (settled by the owner, 2026-11-15): links from these documents
   to mothra are absolute GitHub URLs. They are written as permalinks,
   `https://github.com/leynos/mothra/blob/<commit>/<path>`, pinned to the commit
-  pushed in EP-M0. Rationale for pinning: the target files are edited in EP-M4,
-  and a permalink keeps the cited text stable.
+  pushed in EP-M4. Until then the handful of links to mothra's general guides
+  stay relative, and the link gate's switch that forbids them is turned on at
+  the end of EP-M4. Rationale for pinning: a permalink keeps the cited text
+  stable.
 - Decision D12: legacy scripts that need mothra's general tooling at run time
   find it through an environment variable `MOTHRA_ROOT`, defaulting to a
   sibling checkout. Rationale: a file-system dependency on a tool is not a
@@ -453,6 +460,44 @@ The script work is a behaviour-preserving refactor.
   keep the raw count and raise the limit to about 6,000. No further tool is
   started until the owner chooses. Work that adds no tooling continues.
   Date/Author: 2026-11-15, lead.
+
+- Decision D20 (settled by the owner, 2026-11-15): the Hotline Server binary
+  is not published; it is not this project's to publish. Its hashes and
+  provenance are. The binary's two forks appear in the evidence eight times:
+  the data fork (616,821 bytes, SHA-256 `ad7040db…e4cd1b`) at
+  `hotline-server-1.9/inputs/HLserver19.pef`, at `catalog-11183.data` in
+  `native-ban-one-01` and `native-runtime-recovery-01`, and at
+  `server-data.bin` in `native-ban-expiry-later-01`; the resource fork (38,460
+  bytes, SHA-256 `fe83a2cf…c48b12`) at the matching `.rsrc` and
+  `server-rsrc.bin` paths; and an AppleDouble container of the resource fork at
+  `batch-09/inputs/HLserver19.appledouble`. No other tracked file contains
+  either fork: a block-similarity scan of every non-text evidence file, packet
+  captures included, found only these. Consequences:
+  - These paths are removed from every commit of the imported history and of
+    any mothra history that is pushed. They are listed in `.gitignore`, so a
+    local copy can sit in place and local verification behaves as before.
+  - `evidence/withheld.json` records each withheld path with its size,
+    SHA-256 and reason. Checks treat a withheld file as expected to be absent
+    and verify it against the recorded hash when it is present.
+  - Mothra's local `main`, whose commits contain the binary, is never pushed.
+    What is pushed is a filtered history with every imported path removed.
+    This replaces the earlier constraint that mothra's history is not
+    rewritten: the unpushed commits are rewritten in a scratch clone, and the
+    local `main` is left as it is for the owner to replace.
+  - A verifier that needs a withheld file reports that the input is withheld
+    and absent, as a distinct outcome from failure. This is the one permitted
+    addition to script behaviour.
+- Decision D21 (settled by the owner, 2026-11-15): a file that is a modified
+  or wrapped copy of a withheld fork is published as a binary patch against the
+  withheld original, not as the file itself. The format is BSDIFF40, as written
+  by the `bsdiff4` Python package and read by `bspatch`; the patch is stored
+  beside the original path with the suffix `.bsdiff`, and
+  `evidence/withheld.json` records the base hash, the patch hash and the hash
+  of the reconstructed file. Today one file qualifies: the AppleDouble
+  container, which is an 82-byte header followed by the resource fork.
+  Rationale for the format: it is small, widely implemented, and needs only one
+  pinned Python dependency. The exact identical copies need no patch; their
+  hash is the base hash.
 
 ## Outcomes & retrospective
 
@@ -707,6 +752,18 @@ with hyphens. The link tool uses the same rule, and a test pins it against the
   conform. If any evidence file does not, it is not rewritten; it is listed
   with its SHA-256 in an exceptions file that the gate reads, and the count is
   reported in the retrospective.
+- Obligation INV-WITHHELD: no object reachable from any ref that is pushed,
+  or from this repository's branch, has the SHA-256 of a withheld fork or
+  begins with the PEF container magic at the binary's size, and every withheld
+  entry has a recorded size and hash. For each patch, applying it to the
+  withheld base reproduces a file with the recorded hash. Method: exhaustive
+  scan of every blob in each history (`git cat-file --batch`), plus
+  parameterized tests of the patch round trip. Artefact:
+  `tools/check_withheld.py` with `tests/test_check_withheld.py`. Evidence: the
+  scan prints the blob count and `0 withheld objects`. Non-vacuity: the same
+  scan run against mothra's local `main` must report the eight known objects'
+  two blob identifiers; tests seed a blob with a withheld hash and a patch
+  whose base hash is wrong.
 - Obligation INV-GENERAL: no tracked file on the mothra branch contains
   `hotline`, `hlserver`, `mxd`, `synhx`, `shx`, `HOTL`, `GAP-` followed by
   digits, or `protocol-docs`, in any letter case, and mothra's `make check`
@@ -766,11 +823,10 @@ every gate in both repositories and writes the retrospective.
 ## Milestones and plateaus
 
 - EP-M0, baseline. Outcome: baseline results, the GitHub LFS quota and the
-  classification manifest are recorded in this plan; mothra `main` is on
-  `origin`. Evidence: `make gap-check` in the mothra main checkout exits 0; the
-  legacy `unittest` suite count is recorded; `git -C mothra status -sb` shows
-  no commits ahead. Conformance: no tracked file changed in either repository.
-  Recovery: none needed; the push adds commits only. Compatibility: none.
+  classification manifest are recorded in this plan. Evidence: `make gap-check`
+  in the mothra main checkout exits 0; the legacy `unittest` suite count is
+  recorded. Conformance: no tracked file changed in either repository.
+  Recovery: none needed. Compatibility: none.
 - EP-M1, tooling foundation. Outcome:
   `make lint-python typecheck test links-check` pass on the flat tree, with the
   mothra location passed as a parameter; documentation gate finding counts are
@@ -789,11 +845,13 @@ every gate in both repositories and writes the retrospective.
   path expressions only; 87 gaps unchanged. Recovery: revert the merge commit
   and the commits after it. Remaining: mothra still holds its copy.
   Compatibility: none; the old sibling layout is not supported afterwards.
-- EP-M4, mothra generalized. Outcome: the mothra branch contains general
-  tooling only and passes its reduced `make check`; the branch is pushed.
-  Requirements: REQ-8. Evidence: INV-GENERAL. Conformance: this repository's
-  `make all` subset from EP-M3 still passes against the mothra branch.
-  Recovery: the branch is not merged; delete it to undo. Compatibility: none.
+- EP-M4, mothra generalized. Outcome: a filtered mothra history contains
+  general tooling only and passes its reduced `make check`; it is pushed as a
+  branch, and the links from this repository to mothra become permalinks to it.
+  Requirements: REQ-8, REQ-9. Evidence: INV-GENERAL, INV-WITHHELD. Conformance:
+  this repository's `make all` subset from EP-M3 still passes against the
+  mothra branch. Recovery: the branch is not merged; delete it to undo.
+  Compatibility: none.
 - EP-M5, script standards. Outcome: every Python file passes the df12 gates
   under one configuration; tests are pytest under `scripts/tests/`; no module
   exceeds 400 lines; revision 91 covers documents whose cited test paths
@@ -999,12 +1057,9 @@ EP-M0:
 
 ```sh
 make -C /data/leynos/Projects/mothra gap-check
-git -C /data/leynos/Projects/mothra push origin main
-git -C /data/leynos/Projects/mothra rev-parse origin/main
 ```
 
-Record the printed commit as the permalink pin. Expect `gap-check` to print
-nothing and exit 0.
+Expect `gap-check` to exit 0. Nothing is pushed in this milestone.
 
 EP-M1 and EP-M2. For each tool, write the tests, run them and see them fail for
 the stated reason, then implement:
@@ -1050,23 +1105,28 @@ make audit-check
 
 Expect the `unittest` count to equal the EP-M0 baseline plus the imported tests.
 
-EP-M4. In a mothra worktree:
+EP-M4. Build mothra's general-toolset history in the scratch directory, so that
+no pushed commit ever contained the imported paths or the binary:
 
 ```sh
-git -C /data/leynos/Projects/mothra worktree add \
-  /data/leynos/Projects/mothra.worktrees/documentation-reconcilliation \
-  -b documentation-reconcilliation
+git clone --no-local /data/leynos/Projects/mothra "$SCRATCH/mothra-general"
+git -C "$SCRATCH/mothra-general" filter-repo --invert-paths \
+  --paths-from-file "$SCRATCH/import-paths.txt"
 ```
 
-Delete the imported paths, edit the remaining files, then from that worktree:
+Edit the remaining files there on a branch named
+`documentation-reconcilliation`, committing as usual, then:
 
 ```sh
 make check
 git grep -niE 'hotline|hlserver|mxd|synhx|shx|HOTL|GAP-[0-9]|protocol-docs'
+uv run tools/check_withheld.py --repository "$SCRATCH/mothra-general"
 git push -u origin documentation-reconcilliation
 ```
 
-Expect the search to print nothing.
+Expect the search to print nothing and the scan to print `0 withheld objects`.
+`origin/main` holds only the initial commit, which the filtered history keeps
+unchanged, so the pushed branch descends from it.
 
 EP-M5. Once, before the first refactor, and again after each family:
 
@@ -1379,3 +1439,13 @@ a formatting gate. The LFS rule is now by extension only (`*.png`, `*.pcap`,
 require every tracked JSON file to parse and to match the canonical two-space
 layout the repository already uses; authored JSON is formatted by `make fmt`,
 and evidence JSON is checked but never rewritten.
+
+Sixth revision, 15 November 2026. The owner ruled that the Hotline Server
+binary must not be published and that modified forks are to be stored as binary
+patches. Decisions D20 and D21 withhold the eight copies of the binary's forks
+from every history, record their hashes in `evidence/withheld.json`, and store
+the one wrapped copy as a BSDIFF40 patch. Mothra's local `main` is no longer
+pushed; EP-M4 instead builds and pushes a filtered general-toolset history, and
+the GitHub permalinks are pinned to that commit. A new obligation,
+INV-WITHHELD, scans every blob before any push. The scratch import must be
+rebuilt without the withheld paths.
