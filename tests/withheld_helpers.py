@@ -6,6 +6,7 @@ import json
 import typing as typ
 
 import bsdiff4
+import check_withheld
 from git_helpers import init_repo
 
 if typ.TYPE_CHECKING:
@@ -149,3 +150,46 @@ def build(
     }
     seed_repo(root, files)
     return Repo(root)
+
+
+GAP = "evidence/gap-remediation"
+PREBOOT = "preboot-app/catalog-11183"
+STOPPED = "native-ban-expiry-later-01/raw/post/stopped-hfs"
+MOTHRA_RESOURCE = f"{GAP}/2026-11-14/{STOPPED}/server-rsrc.bin"
+MOTHRA_CONTAINER = f"{GAP}/2026-11-12/batch-09/inputs/HLserver19.appledouble"
+MOTHRA_WITHHELD = (
+    ("data", "evidence/hotline-server-1.9/inputs/HLserver19.pef"),
+    ("data", f"{GAP}/2026-11-13/native-ban-one-01/preparation/{PREBOOT}.data"),
+    ("data", f"{GAP}/2026-11-13/native-runtime-recovery-01/{PREBOOT}.data"),
+    ("data", f"{GAP}/2026-11-14/{STOPPED}/server-data.bin"),
+    ("resource", f"{GAP}/2026-11-13/native-ban-one-01/preparation/{PREBOOT}.rsrc"),
+    ("resource", f"{GAP}/2026-11-13/native-runtime-recovery-01/{PREBOOT}.rsrc"),
+    ("resource", MOTHRA_RESOURCE),
+    ("container", MOTHRA_CONTAINER),
+)
+
+
+def write_mothra_manifest(root: Path, mothra: Path) -> Path:
+    """Write a withheld manifest for mothra's eight real paths below ``root``.
+
+    Parameters
+    ----------
+    root : pathlib.Path
+        An existing directory that receives ``evidence/withheld.json``.
+    mothra : pathlib.Path
+        The mothra checkout that holds the real files.
+
+    Returns
+    -------
+    pathlib.Path
+        The manifest.
+    """
+    request = check_withheld.ManifestRequest(
+        root=root,
+        source_root=mothra,
+        reason="real-data control",
+        specs=MOTHRA_WITHHELD,
+        patch_bases={MOTHRA_CONTAINER: MOTHRA_RESOURCE},
+    )
+    check_withheld.write_manifest(request)
+    return root / "evidence/withheld.json"

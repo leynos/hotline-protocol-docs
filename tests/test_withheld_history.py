@@ -5,7 +5,13 @@ import typing as typ
 import check_withheld
 from git_helpers import init_repo
 from tool_support import EXIT_FINDINGS, EXIT_OK
-from withheld_helpers import FORK, build, seed_repo
+from withheld_helpers import (
+    FORK,
+    MOTHRA_WITHHELD,
+    build,
+    seed_repo,
+    write_mothra_manifest,
+)
 
 if typ.TYPE_CHECKING:
     from pathlib import Path
@@ -97,26 +103,9 @@ def test_scan_of_the_real_mothra_history_sees_the_withheld_blobs(
     tmp_path: Path, mothra: Path, capsys: pytest.CaptureFixture[str]
 ) -> None:
     """Negative control: the scan finds the known blobs in mothra's history."""
-    withheld = {
-        "data": "evidence/hotline-server-1.9/inputs/HLserver19.pef",
-        "resource": (
-            "evidence/gap-remediation/2026-11-13/native-ban-one-01/"
-            "preparation/preboot-app/catalog-11183.rsrc"
-        ),
-        "container": (
-            "evidence/gap-remediation/2026-11-12/batch-09/inputs/HLserver19.appledouble"
-        ),
-    }
-    request = check_withheld.ManifestRequest(
-        root=tmp_path,
-        source_root=mothra,
-        reason="negative control",
-        specs=tuple((fork, path) for fork, path in withheld.items()),
-        patch_bases={withheld["container"]: withheld["resource"]},
-    )
-    (tmp_path / "evidence").mkdir()
-    check_withheld.write_manifest(request)
-    seed_repo(tmp_path, {".gitignore": "\n".join(withheld.values()) + "\n"})
+    write_mothra_manifest(tmp_path, mothra)
+    ignored = "\n".join(path for _, path in MOTHRA_WITHHELD) + "\n"
+    seed_repo(tmp_path, {".gitignore": ignored})
     argv = ["check", "--root", str(tmp_path), "--scan-history", "--repository"]
     check_withheld.main([*argv, str(mothra)])
     out = capsys.readouterr().out

@@ -54,15 +54,19 @@ MD_AUTHORED = $(filter-out gap-analysis.md,$(MD_FILES))
 # until it exists the gate is skipped, with a message.
 WITHHELD_GATE = $(if $(wildcard evidence/withheld.json),withheld-check,withheld-skip)
 
+# The evidence gates need the imported evidence/ directory.
+EVIDENCE_GATE = $(if $(wildcard evidence),sums-check lfs-check,evidence-skip)
+
 .PHONY: help all build fmt check-fmt check-fmt-python check-fmt-markdown \
 	lint lint-python lint-legacy typecheck test docs-gates markdownlint spelling nixie \
-	json-check links-check audit-check withheld-check withheld-scan withheld-skip
+	json-check links-check audit-check withheld-check withheld-scan withheld-skip \
+	sums-check lfs-check evidence-skip
 
 .DEFAULT_GOAL := all
 # Shared build caches require sequential gates even when make receives -j.
 .NOTPARALLEL:
 
-all: build check-fmt-python json-check links-check $(WITHHELD_GATE) lint-python lint-legacy typecheck test ## Run the gates that must pass at every commit
+all: build check-fmt-python json-check links-check $(WITHHELD_GATE) $(EVIDENCE_GATE) lint-python lint-legacy typecheck test ## Run the gates that must pass at every commit
 
 lint: lint-python lint-legacy ## Run every Python linter
 
@@ -119,6 +123,15 @@ withheld-scan: ## As withheld-check, and scan every blob of history for withheld
 
 withheld-skip:
 	@printf 'withheld-check skipped: evidence/withheld.json does not exist yet\n'
+
+sums-check: ## Verify every SHA256SUMS file under evidence/
+	$(PYTHON) tools/check_sums.py check --root .
+
+lfs-check: ## Verify that exactly the PNG, PCAP and gzip evidence is stored in Git LFS
+	$(PYTHON) tools/check_sums.py lfs --root .
+
+evidence-skip:
+	@printf 'sums-check and lfs-check skipped: evidence/ does not exist yet\n'
 
 lint-python: build ## Lint the Python that meets the df12 standards
 	$(RUFF) check $(PYTHON_TARGETS)
