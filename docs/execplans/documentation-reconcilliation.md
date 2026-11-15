@@ -221,6 +221,9 @@ The script work is a behaviour-preserving refactor.
 - [x] (2026-11-15 19:05Z) Owner ruled that the server binary is not to be
   published (D20) and that modified forks are stored as binary patches (D21).
   The push of mothra `main` is cancelled.
+- [x] (2026-11-15 20:10Z) Owner asked for curated evidence without noise
+  (D22); mxd claim inventory complete (566 claims, 54 duplicates, 3 conflicts,
+  10 tensions) in the session scratch directory.
 - [x] (2026-11-15 17:10Z) EP-M0 surveys complete: baseline gates,
   classification of mothra, set-up passage census, JSON census.
 - [x] (2026-11-15 17:10Z) EP-M1 foundation committed (`b4d4449`), and the
@@ -498,6 +501,41 @@ The script work is a behaviour-preserving refactor.
   Rationale for the format: it is small, widely implemented, and needs only one
   pinned Python dependency. The exact identical copies need no patch; their
   hash is the base hash.
+
+- Decision D22 (settled by the owner, 2026-11-15): the evidence is curated
+  on import: relevant evidence comes in, noise does not. The unit is the
+  corpus, a dated directory such as
+  `evidence/gap-remediation/2026-11-13/native-pm-01`, kept whole so that its
+  manifest and `SHA256SUMS` stay valid. A corpus is relevant if a protocol
+  document, the gap register, the validity ledger, a capture or verifier
+  script, or a retained check recipe cites a path inside it, or if a relevant
+  corpus's manifest, plan or sums file cites it (closure). Measured on
+  15 November 2026: 201 of 360 corpora are relevant (13,489 files, about 854
+  MiB); 159 are noise (4,096 files, about 133 MiB), chiefly 35 export reviews,
+  16 integration records, storage and recovery housekeeping, and 75 superseded
+  audit revisions. Consequences:
+  - The import is a snapshot of mothra at commit `f9b4108`, not a history
+    merge. The 263 commits of evidence churn are themselves noise. This
+    replaces the history-preserving import of D9; the LFS rule of D9 stands.
+  - `evidence/curation.json` lists every corpus with its disposition and the
+    reason, so the selection can be checked and repeated.
+  - Of mothra's working documents, only those the protocol documents cite
+    come in: the validity ledger, `native-clock-evidence.md`, `shx-peer.md`
+    and the cited delegation and plan records. The remediation worklog, the
+    handoff note, the debugging plans and the uncited delegation packets are
+    process records and are not imported.
+  - Corpora that support only mothra's general guides, such as
+    `slirp-lowmem-01` and `guest-capture-startup-01`, are neither imported
+    nor deleted from mothra's general history; EP-M4 keeps them there.
+  - Files inside a relevant corpus are not pruned, because doing so would
+    invalidate its recorded hashes.
+- Decision D23: the tooling tolerance of D19 is applied to lines of code,
+  excluding docstrings, comments and blank lines, with the limit kept at 2,200.
+  Rationale: the owner was asked three times, gave further directions that
+  require new tools, and expressed no objection to the recommended reading; the
+  standing instruction is that requested changes are actioned. At the end of
+  EP-M2 the count stood at 876. The owner may overrule this. Date/Author:
+  2026-11-15, lead.
 
 ## Outcomes & retrospective
 
@@ -1449,3 +1487,12 @@ pushed; EP-M4 instead builds and pushes a filtered general-toolset history, and
 the GitHub permalinks are pinned to that commit. A new obligation,
 INV-WITHHELD, scans every blob before any push. The scratch import must be
 rebuilt without the withheld paths.
+
+Seventh revision, 15 November 2026. The owner asked for relevant evidence to be
+cleaned up and included without noise. Decision D22 makes the import a curated
+snapshot at corpus granularity with a recorded selection, drops the history
+merge, and limits imported working documents to those the protocol documents
+cite. Decision D23 applies the tooling tolerance to lines of code. EP-M3
+changes accordingly: it copies the selected corpora, writes
+`evidence/curation.json` and `evidence/withheld.json`, and verifies content
+hashes against mothra at `f9b4108`.
