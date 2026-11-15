@@ -226,6 +226,11 @@ The script work is a behaviour-preserving refactor.
   10 tensions) in the session scratch directory.
 - [x] (2026-11-15 20:40Z) Owner raised the tooling tolerance (D24) and asked
   for the SynHX naming to be clarified and a comprehensive glossary (D25).
+- [x] (2026-11-16 11:30Z) EP-M8, second part:
+  `docs/native-evidence/recreating-evidence.md` written by a scribe and gated
+  (`b9b5b90`). All 203 included corpora fall under twelve families, each with a
+  procedure or a stated reason it cannot be recreated. Toolset set-up is linked
+  by permalink only.
 - [x] (2026-11-16 10:00Z) EP-M5 pilot integrated (`4dd0e59` to `eecc9b2`).
   Mechanism: `scripts/legacy-modules.txt` lists the scripts still held at the
   earlier rules; everything else under `scripts/`, including `scripts/tests/`,
@@ -521,6 +526,25 @@ The script work is a behaviour-preserving refactor.
   progress text is inconsistent about which traces remain; GAP-016 does not
   name its five remaining fixture groups. These go to the EP-M9 reconciliation
   log.
+
+- Findings from writing the recreation guide, for EP-M9 and EP-M10:
+  - One `evidence-verify` recipe runs plain `sha256sum` over a sums file that
+    lists the withheld server binary, so it fails in a clone without the local
+    copy. It should use `tools/check_sums.py`. The recipe text is a golden
+    key, so change it between script waves and re-key the golden.
+  - The documents name `make ledger-check` and `make check`, which this
+    `Makefile` does not define.
+  - Six procedures are described differently by two documents, for example
+    the private-message and 121-default witnesses name a different verifier
+    from their preparation documents; section 14 of the guide lists them.
+  - Set-up passages to replace with links to the toolset guides:
+    `native-capture-workflow.md` (the emulator build, runtime preparation,
+    launch and readiness passages near the start, and the Sleuth Kit
+    installation) and the `mac_runtime.py prepare` commands in
+    `runtime-recovery-20261113.md`; borderline, the host dependency
+    installation in `shx-peer.md` and the namespace guard in
+    `classic-login-proxy.md`.
+  - Ten absolute local paths remain in six documents.
 
 ## Decision log
 
