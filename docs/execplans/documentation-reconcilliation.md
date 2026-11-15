@@ -216,6 +216,11 @@ The script work is a behaviour-preserving refactor.
 - [x] (2026-11-15 15:05Z) Added the delegation and escalation protocol.
 - [x] (2026-11-15 15:20Z) Kept JSON in Git and added a JSON formatting gate.
 - [x] (2026-11-15 15:40Z) Owner approved implementation.
+- [x] (2026-11-15 17:10Z) EP-M0 surveys complete: baseline gates,
+  classification of mothra, set-up passage census, JSON census.
+- [x] (2026-11-15 17:10Z) EP-M1 foundation committed (`b4d4449`), and the
+  mechanical document conformance brought forward (`bf6d00e`, decision D16);
+  `make check-fmt lint typecheck markdownlint nixie` pass.
 - [ ] EP-M0 in progress (completed: secret-pattern scan of mothra's tracked
   files, clean; JSON census; repository visibility check. Running: baseline
   gates, mothra classification, set-up passage census. Held: the push of mothra
@@ -293,6 +298,22 @@ The script work is a behaviour-preserving refactor.
   None has a duplicate key. Evidence: a census run on 15 November 2026. The
   155 are raw tool replies and single-line status files. Impact: 156 entries go
   into the exceptions file that INV-JSON provides for; none is rewritten.
+- Observation: the baseline is red from one cause. Evidence (scrutineer,
+  15 November 2026): mothra `make test` stops in `capture-check` with
+  `ValueError: capture gate source identity`, and the legacy suite here reports
+  `Ran 758 tests`, `FAILED (errors=1)`, the one error being
+  `test_original_corpus_replays` with the same message. Every other mothra
+  target passed, including `gap-check` (87 gaps, 543 sections, 4,364 links).
+  Because `make` stops there, the later `capture-check` recipes have not been
+  exercised through it. Impact: decision D18.
+- Observation: of mothra's 106 tracked paths outside `evidence/`, 64 import
+  wholesale, 21 stay and 21 need splitting; the splits are mostly fixed ports
+  (15500, 5500 to 5503), instance names and evidence links in general guides
+  and scripts. No script basename collides with one here. Mothra's general
+  targets also read `evidence/runtime-network/` and
+  `evidence/runtime-supervision/`, which must be classified at EP-M3.
+- Observation: mdtablefix joins a run of links separated only by commas into
+  one unbreakable line. Impact: two such lists gained articles so they wrap.
 - Observation: the existing documents are otherwise close to clean. With the
   Lody markdownlint configuration only 18 MD049 findings appear, no local link
   is broken, and default `typos` reports 90 findings, mostly protocol tokens.
@@ -372,6 +393,30 @@ The script work is a behaviour-preserving refactor.
   general toolset set-up guidance. The directions live in
   `docs/native-evidence/recreating-evidence.md`, and each row of a generated
   evidence index links to the procedure that recreates that corpus.
+
+- Decision D16: the mechanical conformance of the existing documents (reflow
+  with mdtablefix, underscore emphasis, Oxford spelling) was brought forward
+  from EP-M10 to EP-M1. Rationale: the repository's post-turn checks run
+  `make check-fmt lint typecheck markdownlint` after every turn, so the
+  Markdown gates must pass from the start. Consequence: the documents in this
+  branch do not match the hashes of audit revision 89 from commit `bf6d00e`
+  until revision 90 is cut in EP-M3; the main checkout is unaffected. The
+  generated `gap-analysis.md` is excluded from reflow and spelling, and the
+  heading "Preparation and later authorised capture" keeps its spelling because
+  its anchor is audited. EP-M10 keeps captions, screen-reader text, sentence
+  case, person and cross-references. Date/Author: 2026-11-15, lead.
+- Decision D17: only instructional set-up guidance moves to mothra: the
+  emulator preparation and Sleuth Kit passages of `native-capture-workflow.md`
+  and the namespace-supervision procedure of `mxd-peer-capture-workflow.md`.
+  Statements inside dated preparation and witness records about what a
+  particular run checked are run records and stay. Rationale: the census found
+  32 general and 53 mixed passages, most of them in historical records that the
+  constraints forbid rewriting. Date/Author: 2026-11-15, lead.
+- Decision D18: the red baseline is recorded, not repaired. One verifier,
+  `verify_classic_field161_matrix.py`, rejects its corpus because the hash of
+  mothra's `scripts/capture_readiness.py` no longer matches the manifest. The
+  INV-SCRIPT goldens record that verdict as the starting state. Date/Author:
+  2026-11-15, lead.
 
 ## Outcomes & retrospective
 
