@@ -13,10 +13,18 @@ Install the host prerequisites listed in the generic
 pinned interpreter:
 
 ```sh
+NATIVE_RUNTIME=state/mac-runtime/NEW-RUNTIME
+export NATIVE_RUNTIME
 scripts/build-sheepshaver
-python3 scripts/mac_runtime.py prepare state/mac-runtime/hotline19 \
+python3 scripts/mac_runtime.py prepare "$NATIVE_RUNTIME" \
   --rom /path/to/supplied/ROM --disk /path/to/OS9.dsk.zip
 ```
+
+Choose an unused runtime name for `NATIVE_RUNTIME` and keep that value for the
+whole experiment. The historical `hotline19` instance was retired on 15
+November 2026; its
+[hashes and small recovery records](../mothra/evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/manifest.json)
+remain archived.
 
 Preparation hashes the supplied ROM and extracted base disk, creates a writable
 working copy and refuses an existing runtime directory. A multi-file archive
@@ -31,7 +39,7 @@ archive, using this repository's script:
 ```sh
 python3 ../hotline-protocol-docs/scripts/prepare_hotline_server.py \
   ../hotline-bench/extracted/HotlineConnectServer-Mac \
-  state/mac-runtime/hotline19/shared/Hotline19
+  "$NATIVE_RUNTIME/shared/Hotline19"
 ```
 
 The script verifies the oracle data-fork hash and bounded AppleDouble entries.
@@ -42,7 +50,7 @@ data fork and is not substituted for this oracle.
 Launch on an available X display:
 
 ```sh
-python3 scripts/mac_runtime.py sheep state/mac-runtime/hotline19 \
+python3 scripts/mac_runtime.py sheep "$NATIVE_RUNTIME" \
   --display :0 --port 15500
 ```
 
@@ -230,15 +238,23 @@ the current catalog record rather than assuming its original number:
 export LD_LIBRARY_PATH="$PWD/tools/sleuthkit/usr/lib64"
 tools/sleuthkit/usr/bin/ifind -f hfs \
   -n /Hotline19/Users/fixture-low/UserData \
-  state/mac-runtime/hotline19/working.dsk
+  "$NATIVE_RUNTIME/working.dsk"
 ```
+
+Before **each** HFS image read, stop the owning emulator and verify a root
+`fuser` check exits 1 with no owner or error output. A failed privilege check
+is not an FD-free result. Never inspect a live working image, even read-only.
+Use the stopped image from the same experiment; its catalogue IDs and account
+records need not match the historical example.
 
 Use `icat -f hfs IMAGE CATALOG_ID-4352-0` for that data fork. Save the password
 update record as `fixture-account-after-update.bin` and the three 111 records
 as `CASE/UserData.bin` beside their transcripts before running the semantic
-verifier. Read after the corresponding operation has finished; a mutable-disk
-observation does not prove crash durability. Shut down cleanly before archiving
-or resetting a guest disk. Do not commit the full disk or system components.
+verifier. Read only after the corresponding operation and verified emulator retirement.
+A stopped-image observation does not by itself prove crash durability. Record
+whether application Quit, OS shutdown or forced retirement was observed before
+archiving or preparing another disposable guest disk. Do not commit the full
+disk or system components.
 
 ## Recorded native transport fixtures
 
@@ -345,21 +361,22 @@ forks and catalogue reports. For example, from `mothra`:
 export LD_LIBRARY_PATH="$PWD/tools/sleuthkit/usr/lib64"
 tools/sleuthkit/usr/bin/ifind -f hfs \
   -n /Hotline19/Files/mothra-fork-fixture \
-  state/mac-runtime/hotline19/working.dsk
+  "$NATIVE_RUNTIME/working.dsk"
 tools/sleuthkit/usr/bin/istat -f hfs \
-  state/mac-runtime/hotline19/working.dsk 11210
+  "$NATIVE_RUNTIME/working.dsk" 11210
 tools/sleuthkit/usr/bin/icat -f hfs \
-  state/mac-runtime/hotline19/working.dsk 11210-4352-0
+  "$NATIVE_RUNTIME/working.dsk" 11210-4352-0
 tools/sleuthkit/usr/bin/icat -f hfs \
-  state/mac-runtime/hotline19/working.dsk 11210-4353-1
+  "$NATIVE_RUNTIME/working.dsk" 11210-4353-1
 ```
 
 Replace catalogue 11210 with the new `ifind` result and save each output to a
 separate file. Repeat for `mothra-empty-fixture`. Retain command status and
 stderr: an absent zero-length resource attribute is not a successful `icat`
 result. The existing fixture retains that distinction alongside catalogue and
-native-wire observations. Live-image read-only inspection establishes observed
-state, not restart durability; keep disks outside Git.
+native-wire observations. Only inspect an FD-free stopped image. A
+stopped-image readback establishes
+that captured state, not restart durability; keep disks outside Git.
 
 Read downloads by saved field 108's advertised byte count, then perform the
 bounded quiet/cleanup steps. Do not use EOF as the sole successful download
@@ -530,7 +547,7 @@ bounded snapshot script verifies each returned path before extracting forks:
 
 ```sh
 python3 ../hotline-protocol-docs/scripts/snapshot_native_hfs.py \
-  --image state/mac-runtime/hotline19/working.dsk \
+  --image "$NATIVE_RUNTIME/working.dsk" \
   --tsk-bin tools/sleuthkit/usr/bin --catalog-range 11220 11240 \
   --root /Hotline19/Files/mothra-folder-source \
   --root /Hotline19/Files/mothra-folder-partial \

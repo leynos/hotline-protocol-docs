@@ -1,6 +1,6 @@
 # Hotline 1.9 protocol documentation gap analysis
 
-Reviewed on 2026-11-14: the corrected protocol guide, compatibility matrix and
+Reviewed on 2026-11-15: the corrected protocol guide, compatibility matrix and
 correction map. This register tracks gaps in the specification after the
 validity-ledger corrections. It does not reopen corrected findings or claim to
 resolve the remaining unknowns.
@@ -11,11 +11,10 @@ confirmed binary defects, security severity ratings or mxd test failures.
 
 ## Scope, evidence and status
 
-Preserve all 87 original closure criteria and prior question/status strings.
-Snapshot the updated alias preparation guide and new R04 checkpoint-abort
-section; reuse 101 byte-identical inputs. R04 did not run the alias case;
-GAP-054 remains Investigating. Related GAP-049/084 coverage does not reopen
-their resolved criteria. Further mxd validation remains held.
+Preserve all87 original closure criteria and prior question/status strings.
+Refresh two workflow guides for reviewed retirement of four obsolete runtimes,
+fresh instance paths and positive stopped-image ownership gates. No new native
+protocol observation or gap closure; mxd validation stays held.
 
 The corrected documents deliberately contain unresolved statements. Unanswered
 entries refine those into actionable questions. Missing and Ambiguous entries
@@ -71,8 +70,8 @@ they do not imply the unknown question has already been answered.
 
 ## Input provenance
 
-Audit captured at `2026-11-14T22:22:37.756364+00:00`. The source checkout has
-Git HEAD `cb7a12b1fb15f78098c7df37c96c258cf79be4a9`. The audit manifest
+Audit captured at `2026-11-15T00:26:15.220347+00:00`. The source checkout has
+Git HEAD `407320048b42c52bc102573bb28ab84f346b7f5c`. The audit manifest
 records its worktree status. The hashes below identify the actual reviewed
 worktree contents; HEAD alone does not. Source line ranges in entries refer to
 the frozen snapshots, while section links point to the current documents.
@@ -94,7 +93,7 @@ the frozen snapshots, while section links point to the current documents.
 | [error-outcomes.md](error-outcomes.md) | `7c0ede126803b9c15c6c6dfa3017d8c3e885d326c653e6cae57f104445e9bb35` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/error-outcomes.md.txt) |
 | [identified-client-source.md](identified-client-source.md) | `ea5097f26bad3bc396ca543a88d2cd644950e1a15cb539e9bb46208ec4a5128a` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/identified-client-source.md.txt) |
 | [privilege-contracts.md](privilege-contracts.md) | `76fdbb8fb5dfe37ce1c8ceaa9e8425e23e905e407c9925be81349425e0829bb9` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-87/inputs/privilege-contracts.md.txt) |
-| [native-capture-workflow.md](native-capture-workflow.md) | `81a53d842c35b6aeefe44bee88ee2e9f8fb941c12c294703e8361c27c9fea835` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/native-capture-workflow.md.txt) |
+| [native-capture-workflow.md](native-capture-workflow.md) | `bf20da1a626bab18ebe63cef7ead956202515ce238a13d98bddc36a6993041b4` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-15/revision-89/inputs/native-capture-workflow.md.txt) |
 | [diagnostic-replies.md](diagnostic-replies.md) | `4e1b8ed87288de3b4570df24d1f40fa47b8825ebfe8664e085cd8934f2f70b06` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/diagnostic-replies.md.txt) |
 | [peer-tolerance-matrix.md](peer-tolerance-matrix.md) | `989c948279211ce001071d0048e1d7a2fbed9a5c68c0d2a1558377b1c68535dc` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/peer-tolerance-matrix.md.txt) |
 | [mxd-reconciliation.md](mxd-reconciliation.md) | `b101c9f12721b5ed16ba40ac7f63ec3515fbf80f0205fe58594f6807ebd295c9` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/mxd-reconciliation.md.txt) |
@@ -102,7 +101,7 @@ the frozen snapshots, while section links point to the current documents.
 | [account-attribute-trace.md](account-attribute-trace.md) | `3b7120128e08bfddb81c2de46fa4e230712accc5e451a001ed00b1d30ddb9c80` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/account-attribute-trace.md.txt) |
 | [mxd-limit-contracts.md](mxd-limit-contracts.md) | `50fd48d0503f8d0a15e18ef268421d3b034288257911d020e7c8fae1c68731be` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/mxd-limit-contracts.md.txt) |
 | [failure-representatives.md](failure-representatives.md) | `27dea3d30c579e4638c5aa54191d3c46f29977957fa445fa5c91e5ddaa100c56` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/failure-representatives.md.txt) |
-| [runtime-recovery-20261113.md](runtime-recovery-20261113.md) | `3a0f4ede01062a0a3cfc147ad508ab991ffc0c65ba1746f8939cf142a9c7cbb7` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/runtime-recovery-20261113.md.txt) |
+| [runtime-recovery-20261113.md](runtime-recovery-20261113.md) | `9e7e7610f3a32e30a9f45ab8f169d5c1f67b8472f071b67f509aea961bbc2fe6` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-15/revision-89/inputs/runtime-recovery-20261113.md.txt) |
 | [receive-limit-origin.md](receive-limit-origin.md) | `9b61b70f8929f55b4279e8ea5b01871302739e263d450d84d3b07bd0ccbb0347` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/receive-limit-origin.md.txt) |
 | [diagnostic-transfer-boundaries.md](diagnostic-transfer-boundaries.md) | `fad0fb66796ef317e9a9a8f9b1b05addcd200ddb3c914860de0b8db47fdf95f0` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/diagnostic-transfer-boundaries.md.txt) |
 | [mac-peer-first-session.md](mac-peer-first-session.md) | `bf97eb61d36d39108e76df85dceaea03769d793c2d0f63204a8467da6b09af9a` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-80/inputs/mac-peer-first-session.md.txt) |
@@ -183,7 +182,7 @@ the frozen snapshots, while section links point to the current documents.
 | [privilege-bits.md](privilege-bits.md) | `04ce9bc367440f546dbd0b4e96fa15bb137b107278933125b2ae2fb9fca4eff0` | [Snapshot](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-87/inputs/privilege-bits.md.txt) |
 
 [Audit
-manifest](../mothra/evidence/protocol-gap-analysis/2026-11-14/revision-88/manifest.json);
+manifest](../mothra/evidence/protocol-gap-analysis/2026-11-15/revision-89/manifest.json);
 [machine-readable register](gap-register.json). No field or behaviour is
 silently made normative by being listed as a question.
 
@@ -6147,39 +6146,39 @@ of binary paths, clients or packet inputs.
 | privilege-contracts.md | [Account creation, update and batch rules](privilege-contracts.md#account-creation-update-and-batch-rules) | 88–131 | [GAP-032](#gap-032), [GAP-072](#gap-072), [GAP-073](#gap-073), [GAP-078](#gap-078) |
 | privilege-contracts.md | [Remaining acceptance evidence](privilege-contracts.md#remaining-acceptance-evidence) | 132–152 | [GAP-031](#gap-031), [GAP-032](#gap-032), [GAP-072](#gap-072), [GAP-073](#gap-073), [GAP-078](#gap-078) |
 | native-capture-workflow.md | [Reproducing native protocol captures](native-capture-workflow.md#reproducing-native-protocol-captures) | 1–8 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
-| native-capture-workflow.md | [Prepare the emulator and application](native-capture-workflow.md#prepare-the-emulator-and-application) | 9–98 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
-| native-capture-workflow.md | [Capture an exchange](native-capture-workflow.md#capture-an-exchange) | 99–165 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
-| native-capture-workflow.md | [Recorded native core fixtures](native-capture-workflow.md#recorded-native-core-fixtures) | 166–242 | [GAP-022](#gap-022), [GAP-025](#gap-025), [GAP-071](#gap-071), [GAP-077](#gap-077), [GAP-084](#gap-084) |
-| native-capture-workflow.md | [Recorded native transport fixtures](native-capture-workflow.md#recorded-native-transport-fixtures) | 243–285 | [GAP-008](#gap-008), [GAP-009](#gap-009), [GAP-010](#gap-010), [GAP-084](#gap-084) |
-| native-capture-workflow.md | [Recorded native framing fixtures](native-capture-workflow.md#recorded-native-framing-fixtures) | 286–320 | [GAP-014](#gap-014), [GAP-084](#gap-084) |
-| native-capture-workflow.md | [Recorded native ordinary-file fixtures](native-capture-workflow.md#recorded-native-ordinary-file-fixtures) | 321–370 | [GAP-009](#gap-009), [GAP-056](#gap-056), [GAP-084](#gap-084) |
-| native-capture-workflow.md | [Recorded native resume fixtures](native-capture-workflow.md#recorded-native-resume-fixtures) | 371–411 | [GAP-058](#gap-058), [GAP-084](#gap-084) |
-| native-capture-workflow.md | [Recorded native queue fixtures](native-capture-workflow.md#recorded-native-queue-fixtures) | 412–454 | [GAP-057](#gap-057), [GAP-061](#gap-061), [GAP-084](#gap-084) |
-| native-capture-workflow.md | [Recorded native cleanup fixtures](native-capture-workflow.md#recorded-native-cleanup-fixtures) | 455–490 | [GAP-062](#gap-062), [GAP-084](#gap-084) |
-| native-capture-workflow.md | [Recorded native folder fixtures](native-capture-workflow.md#recorded-native-folder-fixtures) | 491–552 | [GAP-059](#gap-059), [GAP-060](#gap-060), [GAP-084](#gap-084) |
-| native-capture-workflow.md | [Acceptance and corpus coverage](native-capture-workflow.md#acceptance-and-corpus-coverage) | 553–583 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
-| native-capture-workflow.md | [Recorded native banner fixtures](native-capture-workflow.md#recorded-native-banner-fixtures) | 584–644 | [GAP-055](#gap-055), [GAP-063](#gap-063), [GAP-084](#gap-084) |
-| native-capture-workflow.md | [Reproducing banner format and recovery fixtures](native-capture-workflow.md#reproducing-banner-format-and-recovery-fixtures) | 645–714 | [GAP-055](#gap-055), [GAP-063](#gap-063), [GAP-064](#gap-064), [GAP-084](#gap-084) |
-| native-capture-workflow.md | [Reproducing HTXF header and reference fixtures](native-capture-workflow.md#reproducing-htxf-header-and-reference-fixtures) | 715–765 | [GAP-033](#gap-033), [GAP-055](#gap-055), [GAP-064](#gap-064), [GAP-084](#gap-084) |
-| native-capture-workflow.md | [Reproducing ID, envelope and partial-input fixtures](native-capture-workflow.md#reproducing-id-envelope-and-partial-input-fixtures) | 766–819 | [GAP-004](#gap-004), [GAP-012](#gap-012), [GAP-013](#gap-013), [GAP-084](#gap-084) |
-| native-capture-workflow.md | [Reproducing native authentication and visibility fixtures](native-capture-workflow.md#reproducing-native-authentication-and-visibility-fixtures) | 820–873 | [GAP-023](#gap-023), [GAP-025](#gap-025), [GAP-027](#gap-027), [GAP-035](#gap-035), [GAP-036](#gap-036), [GAP-084](#gap-084) |
-| native-capture-workflow.md | [Reproducing agreement configuration and partial-failure fixtures](native-capture-workflow.md#reproducing-agreement-configuration-and-partial-failure-fixtures) | 874–948 | [GAP-003](#gap-003), [GAP-019](#gap-019), [GAP-025](#gap-025), [GAP-027](#gap-027), [GAP-084](#gap-084) |
-| native-capture-workflow.md | [Reproducing login-extra configuration and refresh fixtures](native-capture-workflow.md#reproducing-login-extra-configuration-and-refresh-fixtures) | 949–1025 | [GAP-005](#gap-005), [GAP-018](#gap-018), [GAP-019](#gap-019), [GAP-026](#gap-026), [GAP-084](#gap-084) |
-| native-capture-workflow.md | [Reproducing full historical shx sessions](native-capture-workflow.md#reproducing-full-historical-shx-sessions) | 1026–1050 | [GAP-018](#gap-018), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-083](#gap-083), [GAP-084](#gap-084) |
-| native-capture-workflow.md | [Reproducing banner and roster-subject receiver fixtures](native-capture-workflow.md#reproducing-banner-and-roster-subject-receiver-fixtures) | 1051–1070 | [GAP-018](#gap-018), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-083](#gap-083), [GAP-084](#gap-084) |
-| native-capture-workflow.md | [Reproducing directory creation and path fixtures](native-capture-workflow.md#reproducing-directory-creation-and-path-fixtures) | 1071–1113 | 11 gaps; see section-specific rows and JSON register |
-| native-capture-workflow.md | [Reproducing alias and metadata fixtures](native-capture-workflow.md#reproducing-alias-and-metadata-fixtures) | 1114–1165 | 9 gaps; see section-specific rows and JSON register |
-| native-capture-workflow.md | [Reproducing rename and comment fixtures](native-capture-workflow.md#reproducing-rename-and-comment-fixtures) | 1166–1213 | [GAP-003](#gap-003), [GAP-016](#gap-016), [GAP-019](#gap-019), [GAP-031](#gap-031), [GAP-052](#gap-052), [GAP-084](#gap-084) |
-| native-capture-workflow.md | [Reproducing move and Trash fixtures](native-capture-workflow.md#reproducing-move-and-trash-fixtures) | 1214–1261 | [GAP-003](#gap-003), [GAP-021](#gap-021), [GAP-031](#gap-031), [GAP-047](#gap-047), [GAP-050](#gap-050), [GAP-053](#gap-053), [GAP-054](#gap-054), [GAP-084](#gap-084) |
-| native-capture-workflow.md | [Reproducing category and threaded news fixtures](native-capture-workflow.md#reproducing-category-and-threaded-news-fixtures) | 1262–1325 | 14 gaps; see section-specific rows and JSON register |
-| native-capture-workflow.md | [Reproducing isolated article deletion fixtures](native-capture-workflow.md#reproducing-isolated-article-deletion-fixtures) | 1326–1378 | 9 gaps; see section-specific rows and JSON register |
-| native-capture-workflow.md | [Reproducing the child append boundary](native-capture-workflow.md#reproducing-the-child-append-boundary) | 1379–1435 | 9 gaps; see section-specific rows and JSON register |
-| native-capture-workflow.md | [Reproducing account replacement and password boundaries](native-capture-workflow.md#reproducing-account-replacement-and-password-boundaries) | 1436–1502 | 9 gaps; see section-specific rows and JSON register |
-| native-capture-workflow.md | [Reproducing live account edits, deletion and restart](native-capture-workflow.md#reproducing-live-account-edits-deletion-and-restart) | 1503–1573 | 9 gaps; see section-specific rows and JSON register |
-| native-capture-workflow.md | [Reproducing account batch framing and partial effects](native-capture-workflow.md#reproducing-account-batch-framing-and-partial-effects) | 1574–1643 | 11 gaps; see section-specific rows and JSON register |
-| native-capture-workflow.md | [Reproducing account identity and protection contrasts](native-capture-workflow.md#reproducing-account-identity-and-protection-contrasts) | 1644–1697 | [GAP-003](#gap-003), [GAP-018](#gap-018), [GAP-021](#gap-021), [GAP-031](#gap-031), [GAP-036](#gap-036), [GAP-072](#gap-072), [GAP-074](#gap-074), [GAP-084](#gap-084) |
-| native-capture-workflow.md | [Reproducing private rooms and chat byte fixtures](native-capture-workflow.md#reproducing-private-rooms-and-chat-byte-fixtures) | 1698–1760 | 12 gaps; see section-specific rows and JSON register |
-| native-capture-workflow.md | [Reproducing console and client broadcast fixtures](native-capture-workflow.md#reproducing-console-and-client-broadcast-fixtures) | 1761–1777 | [GAP-076](#gap-076) |
+| native-capture-workflow.md | [Prepare the emulator and application](native-capture-workflow.md#prepare-the-emulator-and-application) | 9–106 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Capture an exchange](native-capture-workflow.md#capture-an-exchange) | 107–173 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Recorded native core fixtures](native-capture-workflow.md#recorded-native-core-fixtures) | 174–258 | [GAP-022](#gap-022), [GAP-025](#gap-025), [GAP-071](#gap-071), [GAP-077](#gap-077), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Recorded native transport fixtures](native-capture-workflow.md#recorded-native-transport-fixtures) | 259–301 | [GAP-008](#gap-008), [GAP-009](#gap-009), [GAP-010](#gap-010), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Recorded native framing fixtures](native-capture-workflow.md#recorded-native-framing-fixtures) | 302–336 | [GAP-014](#gap-014), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Recorded native ordinary-file fixtures](native-capture-workflow.md#recorded-native-ordinary-file-fixtures) | 337–387 | [GAP-009](#gap-009), [GAP-056](#gap-056), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Recorded native resume fixtures](native-capture-workflow.md#recorded-native-resume-fixtures) | 388–428 | [GAP-058](#gap-058), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Recorded native queue fixtures](native-capture-workflow.md#recorded-native-queue-fixtures) | 429–471 | [GAP-057](#gap-057), [GAP-061](#gap-061), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Recorded native cleanup fixtures](native-capture-workflow.md#recorded-native-cleanup-fixtures) | 472–507 | [GAP-062](#gap-062), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Recorded native folder fixtures](native-capture-workflow.md#recorded-native-folder-fixtures) | 508–569 | [GAP-059](#gap-059), [GAP-060](#gap-060), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Acceptance and corpus coverage](native-capture-workflow.md#acceptance-and-corpus-coverage) | 570–600 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Recorded native banner fixtures](native-capture-workflow.md#recorded-native-banner-fixtures) | 601–661 | [GAP-055](#gap-055), [GAP-063](#gap-063), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Reproducing banner format and recovery fixtures](native-capture-workflow.md#reproducing-banner-format-and-recovery-fixtures) | 662–731 | [GAP-055](#gap-055), [GAP-063](#gap-063), [GAP-064](#gap-064), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Reproducing HTXF header and reference fixtures](native-capture-workflow.md#reproducing-htxf-header-and-reference-fixtures) | 732–782 | [GAP-033](#gap-033), [GAP-055](#gap-055), [GAP-064](#gap-064), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Reproducing ID, envelope and partial-input fixtures](native-capture-workflow.md#reproducing-id-envelope-and-partial-input-fixtures) | 783–836 | [GAP-004](#gap-004), [GAP-012](#gap-012), [GAP-013](#gap-013), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Reproducing native authentication and visibility fixtures](native-capture-workflow.md#reproducing-native-authentication-and-visibility-fixtures) | 837–890 | [GAP-023](#gap-023), [GAP-025](#gap-025), [GAP-027](#gap-027), [GAP-035](#gap-035), [GAP-036](#gap-036), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Reproducing agreement configuration and partial-failure fixtures](native-capture-workflow.md#reproducing-agreement-configuration-and-partial-failure-fixtures) | 891–965 | [GAP-003](#gap-003), [GAP-019](#gap-019), [GAP-025](#gap-025), [GAP-027](#gap-027), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Reproducing login-extra configuration and refresh fixtures](native-capture-workflow.md#reproducing-login-extra-configuration-and-refresh-fixtures) | 966–1042 | [GAP-005](#gap-005), [GAP-018](#gap-018), [GAP-019](#gap-019), [GAP-026](#gap-026), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Reproducing full historical shx sessions](native-capture-workflow.md#reproducing-full-historical-shx-sessions) | 1043–1067 | [GAP-018](#gap-018), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-083](#gap-083), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Reproducing banner and roster-subject receiver fixtures](native-capture-workflow.md#reproducing-banner-and-roster-subject-receiver-fixtures) | 1068–1087 | [GAP-018](#gap-018), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-083](#gap-083), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Reproducing directory creation and path fixtures](native-capture-workflow.md#reproducing-directory-creation-and-path-fixtures) | 1088–1130 | 11 gaps; see section-specific rows and JSON register |
+| native-capture-workflow.md | [Reproducing alias and metadata fixtures](native-capture-workflow.md#reproducing-alias-and-metadata-fixtures) | 1131–1182 | 9 gaps; see section-specific rows and JSON register |
+| native-capture-workflow.md | [Reproducing rename and comment fixtures](native-capture-workflow.md#reproducing-rename-and-comment-fixtures) | 1183–1230 | [GAP-003](#gap-003), [GAP-016](#gap-016), [GAP-019](#gap-019), [GAP-031](#gap-031), [GAP-052](#gap-052), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Reproducing move and Trash fixtures](native-capture-workflow.md#reproducing-move-and-trash-fixtures) | 1231–1278 | [GAP-003](#gap-003), [GAP-021](#gap-021), [GAP-031](#gap-031), [GAP-047](#gap-047), [GAP-050](#gap-050), [GAP-053](#gap-053), [GAP-054](#gap-054), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Reproducing category and threaded news fixtures](native-capture-workflow.md#reproducing-category-and-threaded-news-fixtures) | 1279–1342 | 14 gaps; see section-specific rows and JSON register |
+| native-capture-workflow.md | [Reproducing isolated article deletion fixtures](native-capture-workflow.md#reproducing-isolated-article-deletion-fixtures) | 1343–1395 | 9 gaps; see section-specific rows and JSON register |
+| native-capture-workflow.md | [Reproducing the child append boundary](native-capture-workflow.md#reproducing-the-child-append-boundary) | 1396–1452 | 9 gaps; see section-specific rows and JSON register |
+| native-capture-workflow.md | [Reproducing account replacement and password boundaries](native-capture-workflow.md#reproducing-account-replacement-and-password-boundaries) | 1453–1519 | 9 gaps; see section-specific rows and JSON register |
+| native-capture-workflow.md | [Reproducing live account edits, deletion and restart](native-capture-workflow.md#reproducing-live-account-edits-deletion-and-restart) | 1520–1590 | 9 gaps; see section-specific rows and JSON register |
+| native-capture-workflow.md | [Reproducing account batch framing and partial effects](native-capture-workflow.md#reproducing-account-batch-framing-and-partial-effects) | 1591–1660 | 11 gaps; see section-specific rows and JSON register |
+| native-capture-workflow.md | [Reproducing account identity and protection contrasts](native-capture-workflow.md#reproducing-account-identity-and-protection-contrasts) | 1661–1714 | [GAP-003](#gap-003), [GAP-018](#gap-018), [GAP-021](#gap-021), [GAP-031](#gap-031), [GAP-036](#gap-036), [GAP-072](#gap-072), [GAP-074](#gap-074), [GAP-084](#gap-084) |
+| native-capture-workflow.md | [Reproducing private rooms and chat byte fixtures](native-capture-workflow.md#reproducing-private-rooms-and-chat-byte-fixtures) | 1715–1777 | 12 gaps; see section-specific rows and JSON register |
+| native-capture-workflow.md | [Reproducing console and client broadcast fixtures](native-capture-workflow.md#reproducing-console-and-client-broadcast-fixtures) | 1778–1794 | [GAP-076](#gap-076) |
 | diagnostic-replies.md | [Native 1.9 client diagnostics (303)](diagnostic-replies.md#native-19-client-diagnostics-303) | 1–11 | [GAP-037](#gap-037), [GAP-084](#gap-084) |
 | diagnostic-replies.md | [Representative reply matrix](diagnostic-replies.md#representative-reply-matrix) | 12–52 | [GAP-037](#gap-037), [GAP-084](#gap-084) |
 | diagnostic-replies.md | [Contract boundary](diagnostic-replies.md#contract-boundary) | 53–87 | [GAP-037](#gap-037), [GAP-084](#gap-084) |
@@ -6214,9 +6213,9 @@ of binary paths, clients or packet inputs.
 | failure-representatives.md | [Malformed request: zero-size frame](failure-representatives.md#malformed-request-zero-size-frame) | 63–77 | [GAP-003](#gap-003), [GAP-084](#gap-084) |
 | failure-representatives.md | [Unsupported operation: unknown online transaction](failure-representatives.md#unsupported-operation-unknown-online-transaction) | 78–116 | [GAP-003](#gap-003), [GAP-084](#gap-084) |
 | runtime-recovery-20261113.md | [Disposable Mac OS 9 runtime recovery, 13 November 2026](runtime-recovery-20261113.md#disposable-mac-os-9-runtime-recovery-13-november-2026) | 1–9 | [GAP-084](#gap-084) |
-| runtime-recovery-20261113.md | [Recovery boundary](runtime-recovery-20261113.md#recovery-boundary) | 10–48 | [GAP-084](#gap-084) |
-| runtime-recovery-20261113.md | [Boot and guest observation](runtime-recovery-20261113.md#boot-and-guest-observation) | 49–75 | [GAP-084](#gap-084) |
-| runtime-recovery-20261113.md | [Read-only readiness smokes](runtime-recovery-20261113.md#read-only-readiness-smokes) | 76–120 | [GAP-084](#gap-084) |
+| runtime-recovery-20261113.md | [Recovery boundary](runtime-recovery-20261113.md#recovery-boundary) | 10–66 | [GAP-084](#gap-084) |
+| runtime-recovery-20261113.md | [Boot and guest observation](runtime-recovery-20261113.md#boot-and-guest-observation) | 67–93 | [GAP-084](#gap-084) |
+| runtime-recovery-20261113.md | [Read-only readiness smokes](runtime-recovery-20261113.md#read-only-readiness-smokes) | 94–138 | [GAP-084](#gap-084) |
 | receive-limit-origin.md | [Receive-limit origin and indexed reference boundary](receive-limit-origin.md#receive-limit-origin-and-indexed-reference-boundary) | 1–8 | [GAP-011](#gap-011) |
 | receive-limit-origin.md | [Positive native-code comparison](receive-limit-origin.md#positive-native-code-comparison) | 9–43 | [GAP-011](#gap-011) |
 | receive-limit-origin.md | [Configuration and remaining question](receive-limit-origin.md#configuration-and-remaining-question) | 44–60 | [GAP-011](#gap-011) |

@@ -28,10 +28,10 @@ found exactly one catalogue 11183 entry at `/Hotline19/HLserver19`. Its DATA
 and resource forks extracted successfully and matched the [recorded hashes][forks].
 An absent catalogue probe would not prove the application absent.
 
-For a future disposable run, use fresh runtime, display and session names.
-Run the checks above before the following commands. The source and paths below
-identify this completed run; copying them verbatim into occupied paths must
-fail.
+The following commands identify the completed 13 November run. They are
+historical provenance, not a current recovery recipe: the `hotline21` input
+was retired on 15 November 2026; `hotline22-recovery` is an occupied live runtime.
+Never copy these commands verbatim into an occupied path.
 
 ```sh
 python3 ../mothra/scripts/mac_runtime.py prepare \
@@ -45,6 +45,24 @@ python3 scripts/snapshot_native_hfs.py \
   --catalog-range 11183 11183 --root /Hotline19/HLserver19 \
   --output ../mothra/state/native-sessions/recovery-20261113-01/preboot-app
 ```
+
+For a new disposable run, retain the same source-content checks but use the
+FD-free read-only `native-board-02/base.dsk` donor and its matching ROM. The retained
+[retirement records](../mothra/evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/manifest.json)
+confirm that donor matches the recorded `e5cbbaaf…`
+source and `18da89e4…` ROM. Choose fresh runtime, display and session names.
+Before every source read or copy, verify positive root FD-free results; never
+substitute either live working image. From the protocol documentation checkout:
+
+```sh
+NATIVE_RUNTIME=../mothra/state/mac-runtime/native-recovery-NEW
+python3 ../mothra/scripts/mac_runtime.py prepare "$NATIVE_RUNTIME" \
+  --rom ../mothra/state/mac-runtime/native-board-02/rom \
+  --disk ../mothra/state/mac-runtime/native-board-02/base.dsk
+```
+
+This is source preparation only. Apply the current identity, capacity, managed
+capture and fixed-deadline gates before any new boot or protocol contact.
 
 ## Boot and guest observation
 
