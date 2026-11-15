@@ -115,7 +115,7 @@ The script work is a behaviour-preserving refactor.
   all counts, as is the script refactor of EP-M5, which has its own limit
   below. Stop and escalate if more than 65 new authored files or 8,500 net new
   lines of code and documentation are needed, or if new Python tooling exceeds
-  2,200 lines excluding tests.
+  6,000 lines excluding tests (raised from 2,200 by decision D24).
 - Meaning: if reconciling two documents requires choosing between claims that
   the retained evidence does not decide, stop for that item, record it in the
   reconciliation log, and continue with the rest. If more than ten such items
@@ -536,6 +536,12 @@ The script work is a behaviour-preserving refactor.
   standing instruction is that requested changes are actioned. At the end of
   EP-M2 the count stood at 876. The owner may overrule this. Date/Author:
   2026-11-15, lead.
+
+- Decision D24 (settled by the owner, 2026-11-15): the owner accepted an
+  increase in the tooling size tolerance. The limit on new Python tooling is
+  now 6,000 lines excluding tests, counted with docstrings and blank lines,
+  which is the figure offered in D19. This supersedes the code-line reading of
+  D23; the code-line count is still reported for each tool as a guide.
 
 ## Outcomes & retrospective
 
