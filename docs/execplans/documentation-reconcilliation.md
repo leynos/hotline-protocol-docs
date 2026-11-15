@@ -226,6 +226,23 @@ The script work is a behaviour-preserving refactor.
   10 tensions) in the session scratch directory.
 - [x] (2026-11-15 20:40Z) Owner raised the tooling tolerance (D24) and asked
   for the SynHX naming to be clarified and a comprehensive glossary (D25).
+- [x] (2026-11-16 18:00Z) EP-M7 complete (`77104bf`, `acd61a2`). Five scribes
+  each wrote one target document from the claim inventory and the lead wrote
+  the set's `README.md`. INV-MXD: all 566 inventoried claims land exactly once
+  (62, 167, 159, 73 and 105 by document); every code span, hash, number,
+  evidence path and link target of the old notes is present in the new set, bar
+  one code span whose backticks moved (`154=0001`). Twenty-seven paragraphs
+  begin "Unreconciled:" and keep both sides of a disagreement. The run-together
+  words of the old matrix ("is0.1.48", "that122is") were given their spaces and
+  nothing else. `tools/refresh_audit.py` gained an `also` list for a section
+  that was split, written test first. Revision 93:
+  `87 gaps, 0 protected fields changed`, 590 reviewed sections (543 before,
+  because the new set has more sections and each inherits coverage). `make all`
+  passes with 344 tests, `make docs-gates` passes and `links-check` reports
+  `5270 links, 0 failures`. For EP-M9: the scribes found sentences that the
+  inventory had not enumerated and carried them; the old inventory heading
+  "Sub-version 2" matched no source heading; two trials have no stated mxd
+  revision; the canonical mxd revision is unreconciled.
 - [x] (2026-11-16 15:30Z) EP-M6 complete (`546b65c`). `tools/migrate_layout.py`
   moved 109 documents into nine sets under `docs/` and rewrote 1,078 links; its
   INV-MOVE check passed before reflow, and a word-level comparison of every
@@ -368,7 +385,8 @@ The script work is a behaviour-preserving refactor.
 - [ ] EP-M5: all scripts meet the df12 Python standards; revision 91.
 - [x] EP-M6: documents relocated into sets; revision 92 (see the entry dated
   2026-11-16 15:30Z).
-- [ ] EP-M7: mxd set consolidated; revision 93.
+- [x] EP-M7: mxd set consolidated; revision 93 (see the entry dated
+  2026-11-16 18:00Z).
 - [ ] EP-M8: on-ramps, orientation, recreation guide and diagrams.
 - [ ] EP-M9: evidence correlation and reconciliation; revision 94.
 - [ ] EP-M10: style conformance and cross-references; revision 95.
