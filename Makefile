@@ -52,7 +52,7 @@ MD_AUTHORED = $(filter-out gap-analysis.md,$(MD_FILES))
 
 .PHONY: help all build fmt check-fmt check-fmt-python check-fmt-markdown \
 	lint lint-python lint-legacy typecheck test docs-gates markdownlint spelling nixie \
-	json-check links-check
+	json-check links-check audit-check
 
 .DEFAULT_GOAL := all
 # Shared build caches require sequential gates even when make receives -j.
@@ -98,6 +98,14 @@ json-check: ## Verify that every tracked JSON file is in canonical layout
 
 links-check: ## Verify every Markdown link, fragment and mothra reference
 	$(PYTHON) tools/check_links.py --root . $(MOTHRA_ARG) --min-links $(LINKS_MIN) $(LINKS_ARGS)
+
+# The renderer hard-codes root.parent / "hotline-protocol-docs", so this checks
+# the MAIN checkout of this repository, not the current worktree. It is
+# therefore not part of `all` yet. A later milestone imports the renderer into
+# this repository, after which the target joins `all`.
+audit-check: ## Validate the gap register with mothra's renderer (main checkout only)
+	@test -n "$(MOTHRA)" || { printf 'Error: no mothra checkout found; set MOTHRA\n' >&2; exit 2; }
+	python3 $(MOTHRA)/scripts/render-protocol-gap-analysis.py --check
 
 lint-python: build ## Lint the Python that meets the df12 standards
 	$(RUFF) check $(PYTHON_TARGETS)

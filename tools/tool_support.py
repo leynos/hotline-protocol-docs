@@ -75,4 +75,7 @@ def invoke(app: cyclopts.App, argv: cabc.Sequence[str] | None) -> int:
     except MissingInputError as exc:
         sys.stderr.write(f"missing input: {exc}\n")
         return EXIT_MISSING
+    except ToolError as exc:
+        sys.stderr.write(f"refused: {exc}\n")
+        return EXIT_FINDINGS
     return int(result)

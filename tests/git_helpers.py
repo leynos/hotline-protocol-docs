@@ -35,3 +35,17 @@ def commit_files(root: Path, files: dict[str, str]) -> str:
     git(*base, *IDENTITY, "commit", "--quiet", "-m", "fixture").run_sync()
     result = git(*base, "rev-parse", "HEAD").run_sync()
     return (result.stdout or "").strip()
+
+
+def init_repo(root: Path) -> None:
+    """Commit everything already below ``root`` as one commit.
+
+    Parameters
+    ----------
+    root : pathlib.Path
+        A directory that already holds files.
+    """
+    base = ("-C", str(root))
+    git(*base, "init", "--quiet").run_sync()
+    git(*base, "add", "--all").run_sync()
+    git(*base, *IDENTITY, "commit", "--quiet", "-m", "fixture").run_sync()
