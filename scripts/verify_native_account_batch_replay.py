@@ -12,6 +12,7 @@ import typing as typ
 
 import native_account_batch_cases as cases
 import native_account_batch_model as model
+from capture_acceptance import driver_is
 from native_packet_evidence import reconcile
 from native_wire_names import FIELD_TRANSFER_REFERENCE
 from pcap_tcp import read_packets
@@ -192,7 +193,7 @@ def replay_report(corpus: Corpus, key: str, packets: Packets) -> Report:
         report["status"] == corpus.manifest["reports"][key] == "completed"
         and report["profile"] == "native-mac-oracle"
         and report["oracle_sha256"] == ORACLE_SHA256
-        and report["driver_sha256"] == sha(directory / "sources/protocol_capture.py"),
+        and driver_is(report, sha(directory / "sources/protocol_capture.py")),
         "Batch capture provenance/completion differs",
     )
     check_sent(report, steps, key)

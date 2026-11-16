@@ -7,6 +7,7 @@ import json
 import typing as typ
 from pathlib import Path
 
+from capture_acceptance import driver_in
 from native_packet_evidence import reconcile
 from native_transfer_cases import downloads, resource_fork, transfers
 from pcap_tcp import read_packets
@@ -92,7 +93,7 @@ def verify_plan(
         plan["steps"] == steps and plan["expectation"] == expectation,
         "Plan differs",
     )
-    require(report["driver_sha256"] in corpus.sources, "Missing exact capture source")
+    require(driver_in(report, corpus.sources), "Missing exact capture source")
     return report, plan
 
 

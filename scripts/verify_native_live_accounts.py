@@ -9,6 +9,7 @@ import typing as typ
 from pathlib import Path
 
 import native_live_account_cases as cases
+from capture_acceptance import driver_is
 from native_packet_evidence import reconcile
 from native_wire_names import FIELD_TRANSFER_REFERENCE
 from pcap_tcp import read_packets
@@ -227,7 +228,7 @@ def replay_report(corpus: Corpus, key: str) -> tuple[Report, Report | None]:
         report["status"] == corpus.manifest["reports"][key] == status
         and report["profile"] == "native-mac-oracle"
         and report["oracle_sha256"] == ORACLE_SHA256
-        and report["driver_sha256"] == sha(directory / "sources/protocol_capture.py"),
+        and driver_is(report, sha(directory / "sources/protocol_capture.py")),
         "Live capture provenance/status differs",
     )
     check_sent(report, steps, key)

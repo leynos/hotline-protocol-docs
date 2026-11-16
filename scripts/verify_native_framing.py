@@ -7,6 +7,7 @@ import json
 import typing as typ
 from pathlib import Path
 
+from capture_acceptance import driver_in
 from native_framing_cases import framing
 from native_packet_evidence import reconcile
 from native_plan import QUIET_WINDOW_SECONDS
@@ -205,7 +206,7 @@ def verify_case(
     plan = json.loads((case / "plan.json").read_text())
     report = verify_capture(case)
     require(report["status"] == "completed", name + ": capture failed")
-    require(report["driver_sha256"] in corpus.sources, "Missing capture-driver source")
+    require(driver_in(report, corpus.sources), "Missing capture-driver source")
     require(plan["steps"] == steps and plan["expectation"] == expected, "Plan differs")
     packets = reconcile(report, corpus.host, corpus.guest)["main"]
     check_quiet(report, plan)

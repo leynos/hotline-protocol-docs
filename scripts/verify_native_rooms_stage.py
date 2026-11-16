@@ -5,6 +5,7 @@ import json
 import typing as typ
 
 import native_room_cases as cases
+from capture_acceptance import driver_is
 from native_packet_evidence import reconcile
 from native_wire_names import FRAME_HEADER_BYTES
 from protocol_capture import ORACLE_SHA256, decode_frame, verify_capture
@@ -95,8 +96,10 @@ def check_stage(corpus: Corpus, name: str) -> tuple[Report, Report]:
         "Room oracle/profile differs",
     )
     require(
-        report["driver_sha256"]
-        == corpus.manifest["as_run_sources"]["sources/protocol_capture.py.final.txt"],
+        driver_is(
+            report,
+            corpus.manifest["as_run_sources"]["sources/protocol_capture.py.final.txt"],
+        ),
         "Room recorder source differs",
     )
     if name in FAILED_REPORTS:

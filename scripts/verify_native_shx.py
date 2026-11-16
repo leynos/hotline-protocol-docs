@@ -5,6 +5,7 @@ import json
 import typing as typ
 from pathlib import Path
 
+from capture_acceptance import driver_in
 from native_packet_evidence import reconcile
 from native_wire_names import (
     FIELD_DATA,
@@ -148,7 +149,7 @@ def check_witness(corpus: Corpus) -> None:
     """Check the controlled witness that sends the high-byte chat."""
     witness = verify_capture(corpus.directory / "witness")
     require(witness["status"] == "completed", "Controlled witness failed")
-    require(witness["driver_sha256"] in corpus.sources, "Missing exact witness driver")
+    require(driver_in(witness, corpus.sources), "Missing exact witness driver")
     reconcile(witness, corpus.host, corpus.guest)
     requests = frames(
         bytes.fromhex(witness["streams"]["main"]["sent_hex"])[HANDSHAKE_REQUEST_BYTES:]

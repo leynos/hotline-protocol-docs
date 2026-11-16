@@ -7,6 +7,7 @@ import json
 import typing as typ
 from pathlib import Path
 
+from capture_acceptance import driver_in
 from native_packet_evidence import reconcile
 from native_resume_cases import downloads, upload_continuations, upload_probes
 from native_resume_rflt import RESUME_INCONSISTENT_NAME, RESUME_PARTIAL_NAME
@@ -94,7 +95,7 @@ def verify_case(corpus: Corpus, name: str, planned: tuple) -> Report:
         "Resume plan differs",
     )
     require(
-        report["driver_sha256"] in corpus.sources,
+        driver_in(report, corpus.sources),
         "Missing exact resume driver source",
     )
     require(
@@ -164,9 +165,7 @@ def check_initial_probes(corpus: Corpus) -> list[Report]:
     initial = []
     for path in sorted((directory / "initial-probes").rglob("report.json")):
         report = verify_capture(path.parent)
-        require(
-            report["driver_sha256"] in corpus.sources, "Missing initial resume source"
-        )
+        require(driver_in(report, corpus.sources), "Missing initial resume source")
         case = str(path.parent.relative_to(directory))
         suffixes = {k: bytes.fromhex(v) for k, v in corpus.unread.get(case, {}).items()}
         reconcile(report, corpus.host, corpus.guest, suffixes)

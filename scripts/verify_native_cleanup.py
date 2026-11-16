@@ -7,6 +7,7 @@ import json
 import typing as typ
 from pathlib import Path
 
+from capture_acceptance import driver_in
 from native_cleanup_cases import (
     FILENAME,
     UPLOAD_DATA,
@@ -152,7 +153,7 @@ def check_case(
     report = verify_capture(case)
     require(report["status"] == "completed", "Cleanup capture failed")
     require(
-        report["driver_sha256"] in corpus.source_hashes,
+        driver_in(report, corpus.source_hashes),
         "Missing cleanup capture source",
     )
     require(

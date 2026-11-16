@@ -7,6 +7,7 @@ import typing as typ
 from itertools import pairwise
 
 import native_account_update_cases as cases
+from capture_acceptance import driver_in
 from native_packet_evidence import reconcile
 from native_wire_names import FIELD_TRANSFER_REFERENCE
 from pcap_tcp import read_packets
@@ -156,7 +157,7 @@ def check_case(corpus: Corpus, key: str, plan: Plan) -> Report:
         report["status"] == corpus.manifest["reports"][key] == "completed"
         and report["profile"] == "native-mac-oracle"
         and report["oracle_sha256"] == ORACLE_SHA256
-        and report["driver_sha256"] in corpus.sources,
+        and driver_in(report, corpus.sources),
         "Account capture provenance/completion differs",
     )
     reference = (

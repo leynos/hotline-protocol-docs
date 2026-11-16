@@ -6,6 +6,7 @@ import json
 import typing as typ
 from pathlib import Path
 
+from capture_acceptance import driver_is
 from native_correlation_cases import correlation
 from native_packet_evidence import reconcile
 from native_wire_names import (
@@ -215,7 +216,7 @@ def check_case(
     )
     report = verify_capture(path)
     require(
-        report["driver_sha256"] == corpus["source_hash"],
+        driver_is(report, corpus["source_hash"]),
         "Missing ID capture-driver source",
     )
     require(

@@ -3,6 +3,7 @@
 import json
 import typing as typ
 
+from capture_acceptance import driver_in
 from native_news_cases import (
     bodies,
     cleanup,
@@ -124,7 +125,7 @@ def replay_cases(
             report["status"] == "completed"
             and report["profile"] == "native-mac-oracle"
             and report["oracle_sha256"] == ORACLE_SHA256
-            and report["driver_sha256"] in sources,
+            and driver_in(report, sources),
             "News capture provenance/completion differs",
         )
         reconcile(report, host, guest)

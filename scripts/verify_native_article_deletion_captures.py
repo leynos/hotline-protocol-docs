@@ -11,6 +11,7 @@ import json
 import typing as typ
 from itertools import pairwise
 
+from capture_acceptance import driver_in
 from native_packet_evidence import reconcile
 from pcap_tcp import read_packets
 from protocol_capture import ORACLE_SHA256, verify_capture
@@ -153,7 +154,7 @@ def _check_provenance(report: dict, key: str, inputs: CaptureInputs) -> None:
         report["status"] == inputs.manifest["reports"][key] == status
         and report["profile"] == "native-mac-oracle"
         and report["oracle_sha256"] == ORACLE_SHA256
-        and report["driver_sha256"] in inputs.sources,
+        and driver_in(report, inputs.sources),
         "Deletion capture provenance differs",
     )
 

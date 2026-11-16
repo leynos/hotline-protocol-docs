@@ -38,7 +38,8 @@ where it was the hash of one file. Beside it a sibling field named for the role,
 only the single-file field. A reader tells the forms apart by the sibling field
 and, for the digest alone, by its meaning here: it hashes a listing, so it
 never equals the hash of any one file. A verifier keeps its existing comparison
-for the earlier form and adds one call of :func:`driver_accepted` for the new.
+for the earlier form and adds one call of ``capture_acceptance.driver_in`` or
+``driver_is`` for the new.
 
 Which files
 -----------
@@ -355,36 +356,3 @@ def problems(record: object, *, root: Path = ROOT) -> list[str]:
     if stored["dirty"]:
         return [f"captured from uncommitted files: {', '.join(stored['dirty'])}"]
     return _history(root, stored)
-
-
-def driver_accepted(
-    report: cabc.Mapping[str, typ.Any], *, legacy_ok: bool, root: Path = ROOT
-) -> bool:
-    """Accept a capture's driver in the earlier form or in the new one.
-
-    A verifier computes ``legacy_ok`` as it always did, from the single-file
-    hash in ``report["driver_sha256"]``, and passes it here. A capture of the
-    earlier form stands or falls on that. A capture of the new form carries
-    ``driver_identity``; it is accepted when its record is sound and the
-    report's ``driver_sha256`` is that record's digest.
-
-    Parameters
-    ----------
-    report : collections.abc.Mapping[str, typing.Any]
-        The capture's report.
-    legacy_ok : bool
-        The verifier's own verdict on the single-file hash.
-    root : pathlib.Path
-        A directory inside the repository whose history holds the commit.
-
-    Returns
-    -------
-    bool
-        Whether the driver is identified.
-    """
-    if legacy_ok:
-        return True
-    record = report.get("driver_identity")
-    if record is None or problems(record, root=root):
-        return False
-    return report.get("driver_sha256") == record["digest"]

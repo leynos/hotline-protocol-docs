@@ -6,6 +6,7 @@ verify_native_moves imports these functions, and the names stay importable from 
 import json
 import typing as typ
 
+from capture_acceptance import driver_in
 from native_move_cases import (
     cleanup,
     deletions,
@@ -157,7 +158,7 @@ def _capture(case: Path, packets: tuple[Packets, Packets], sources: set[str]) ->
         report["status"] == "completed"
         and report["profile"] == "native-mac-oracle"
         and report["oracle_sha256"] == ORACLE_SHA256
-        and report["driver_sha256"] in sources,
+        and driver_in(report, sources),
         "Move capture provenance/completion differs",
     )
     reconcile(report, host, guest)

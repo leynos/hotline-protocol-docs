@@ -8,10 +8,12 @@ declaring one that is not imported, fails here and not in a later capture.
 """
 
 import ast
+import re
 from pathlib import Path
 
 SCRIPTS = Path(__file__).resolve().parents[1] / "scripts"
 CONSTANT = "CAPTURE_MODULES"
+CALLS_IDENTITY = re.compile(r"\bcapture_identity\.identity\(")
 
 
 def declared(path: Path) -> tuple[str, ...] | None:
@@ -94,7 +96,7 @@ def problems(scripts: Path) -> list[str]:
     for path in sorted(scripts.glob("*.py")):
         modules = declared(path)
         if modules is None:
-            if "capture_identity" in imported(path):
+            if CALLS_IDENTITY.search(path.read_text(encoding="utf-8")):
                 found.append(f"{path.name} records an identity but declares no set")
             continue
         if modules[:1] != (path.name,) or len(set(modules)) != len(modules):
@@ -194,7 +196,11 @@ class TestTheCheck:
     ) -> None:
         """Importing the helper without a declaration is caught."""
         scripts = build(
-            tmp_path, {"run.py": "import capture_identity\n", "capture_identity.py": ""}
+            tmp_path,
+            {
+                "run.py": "import capture_identity\ncapture_identity.identity(())\n",
+                "capture_identity.py": "",
+            },
         )
         assert problems(scripts) == [
             "run.py records an identity but declares no set"

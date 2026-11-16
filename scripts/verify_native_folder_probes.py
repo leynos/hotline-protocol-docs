@@ -2,6 +2,7 @@
 
 import json
 
+from capture_acceptance import driver_in
 from native_filp import decode
 from native_folder_stream import HTXF_HEADER_BYTES
 from native_folder_upload_cases import catalogue_flush
@@ -71,7 +72,7 @@ def check_initial_probes(corpus: Corpus) -> list[Report]:
     for path in sorted((corpus.directory / "initial-probes").rglob("report.json")):
         report = verify_capture(path.parent)
         require(
-            report["driver_sha256"] in corpus.source_hashes,
+            driver_in(report, corpus.source_hashes),
             "Missing initial folder capture source",
         )
         name = str(path.parent.relative_to(corpus.directory))
@@ -102,7 +103,7 @@ def check_auxiliary(corpus: Corpus) -> None:
     auxiliary = verify_capture(corpus.directory / "auxiliary/folder-catalogue-flush")
     require(
         auxiliary["status"] == "completed"
-        and auxiliary["driver_sha256"] in corpus.source_hashes,
+        and driver_in(auxiliary, corpus.source_hashes),
         "Auxiliary finalization failed or source missing",
     )
     aux_plan = json.loads(

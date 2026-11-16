@@ -4,6 +4,7 @@ import dataclasses as dc
 import json
 import typing as typ
 
+from capture_acceptance import driver_in
 from native_alias_cases import (
     ROOT,
     cleanup,
@@ -143,7 +144,7 @@ def check_provenance(report: Report, sources: set[str]) -> None:
     require(
         report["profile"] == "native-mac-oracle"
         and report["oracle_sha256"] == ORACLE_SHA256
-        and report["driver_sha256"] in sources,
+        and driver_in(report, sources),
         "Alias capture provenance differs",
     )
 

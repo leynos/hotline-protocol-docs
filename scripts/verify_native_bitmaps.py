@@ -6,6 +6,7 @@ import json
 import typing as typ
 from pathlib import Path
 
+from capture_acceptance import driver_is
 from native_packet_evidence import reconcile
 from native_wire_names import TYPE_PRESENCE_UPDATE, TYPE_USER_LEFT
 from pcap_tcp import read_packets
@@ -110,7 +111,7 @@ def replay_report(corpus: Corpus, name: str) -> tuple[Report, int]:
         report["status"] == "completed"
         and report["profile"] == "native-mac-oracle"
         and report["oracle_sha256"] == ORACLE_SHA256
-        and report["driver_sha256"] == corpus.manifest["driver_sha256"]
+        and driver_is(report, corpus.manifest["driver_sha256"])
         and plan["environment"] == corpus.runtime,
         "Bitmap plan/oracle provenance differs",
     )

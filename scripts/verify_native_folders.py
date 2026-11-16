@@ -5,6 +5,7 @@ import hashlib
 import json
 from pathlib import Path
 
+from capture_acceptance import driver_in
 from native_folder_cases import downloads, skip_all, upload_fresh
 from native_folder_clock_checks import download_clock, upload_clock
 from native_folder_files import verify_files
@@ -119,8 +120,7 @@ def load_transcript(
     report = verify_capture(case)
     plan = json.loads((case / "plan.json").read_text())
     require(
-        report["status"] == "completed"
-        and report["driver_sha256"] in corpus.source_hashes,
+        report["status"] == "completed" and driver_in(report, corpus.source_hashes),
         "Incomplete folder capture or missing source",
     )
     require(

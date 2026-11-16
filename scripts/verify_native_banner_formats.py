@@ -7,6 +7,7 @@ import json
 import typing as typ
 from pathlib import Path
 
+from capture_acceptance import driver_is
 from native_banner_cases import GIF_B
 from native_banner_formats import FORMATS
 from native_banner_oracle import verify as verify_oracle
@@ -129,7 +130,7 @@ def load_captures(corpus: Corpus) -> tuple[dict[str, Report], dict[str, Report]]
         report = verify_capture(corpus.directory / "transcripts" / name)
         require(
             report["oracle_sha256"] == ORACLE_SHA256
-            and report["driver_sha256"] == corpus.driver_hash,
+            and driver_is(report, corpus.driver_hash),
             "Wrong native format oracle/capture source",
         )
         reports[name] = report
@@ -221,7 +222,7 @@ def check_initial_cases(corpus: Corpus) -> list[Report]:
     for path in sorted((directory / "initial").iterdir()):
         report = verify_capture(path)
         require(
-            report["driver_sha256"] == corpus.driver_hash,
+            driver_is(report, corpus.driver_hash),
             "Missing exploratory capture source",
         )
         expected_status = "failed" if path.name.startswith("empty-") else "completed"
@@ -268,7 +269,7 @@ def check_setup_cases(corpus: Corpus) -> list[Report]:
         report = verify_capture(path)
         require(
             report["oracle_sha256"] == ORACLE_SHA256
-            and report["driver_sha256"] == corpus.driver_hash,
+            and driver_is(report, corpus.driver_hash),
             "Setup capture provenance differs",
         )
         reconcile(

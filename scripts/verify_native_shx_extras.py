@@ -5,6 +5,7 @@ import json
 import typing as typ
 from pathlib import Path
 
+from capture_acceptance import driver_in
 from native_packet_evidence import reconcile
 from native_wire_names import TYPE_BANNER_METADATA
 from pcap_tcp import read_packets
@@ -126,8 +127,7 @@ def check_flushes(corpus: Corpus) -> None:
     for case in (directory / "flushes").iterdir():
         report = verify_capture(case)
         require(
-            report["status"] == "completed"
-            and report["driver_sha256"] in corpus.sources,
+            report["status"] == "completed" and driver_in(report, corpus.sources),
             "Native setup control failed",
         )
         reconcile(report, corpus.host, corpus.guest)

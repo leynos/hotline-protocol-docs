@@ -4,6 +4,7 @@ import dataclasses as dc
 import json
 import typing as typ
 
+from capture_acceptance import driver_in
 from native_packet_evidence import reconcile
 from protocol_capture import ORACLE_SHA256, verify_capture
 from verify_native_article_deletion import measured_wait
@@ -84,7 +85,7 @@ def check_case(
         report["status"] == corpus.manifest["reports"][key] == "completed"
         and report["profile"] == "native-mac-oracle"
         and report["oracle_sha256"] == ORACLE_SHA256
-        and report["driver_sha256"] in corpus.sources
+        and driver_in(report, corpus.sources)
         and all(f["error"] == 0 for f in report["frames"]),
         "Boundary capture completion/provenance differs",
     )

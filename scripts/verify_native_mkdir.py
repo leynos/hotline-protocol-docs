@@ -7,6 +7,7 @@ import json
 import typing as typ
 from pathlib import Path
 
+from capture_acceptance import driver_in
 from native_mkdir_cases import cleanup, creation, empty_root, finalization, seed, specs
 from native_packet_evidence import reconcile
 from pcap_tcp import read_packets
@@ -172,7 +173,7 @@ def verify_run(
         report["profile"] == "native-mac-oracle"
         and report["status"] == "completed"
         and report["oracle_sha256"] == ORACLE_SHA256
-        and report["driver_sha256"] in corpus.sources,
+        and driver_in(report, corpus.sources),
         "Invalid native creation provenance",
     )
     reconcile(report, corpus.host, corpus.guest)

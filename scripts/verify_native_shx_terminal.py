@@ -3,6 +3,7 @@
 import json
 import typing as typ
 
+from capture_acceptance import driver_in
 from protocol_capture import ORACLE_SHA256
 from verify_native_core import require
 from verify_native_shx_frames import LOGIN, PEER, REVISION, sha
@@ -76,7 +77,7 @@ def check_identity(
         and report["peer_profile_sha256"] == sha(case / "peer-profile.json"),
         "Plan/profile hash differs",
     )
-    require(report["driver_sha256"] in source_hashes, "Missing exact peer driver")
+    require(driver_in(report, source_hashes), "Missing exact peer driver")
     require(
         report["host_home_file_before"] == report["host_home_file_after"],
         "Real home file changed",

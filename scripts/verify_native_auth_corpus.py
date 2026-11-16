@@ -4,6 +4,7 @@ import dataclasses as dc
 import json
 import typing as typ
 
+from capture_acceptance import driver_is
 from native_auth_steps import FIRST_ID, PAIR_OFFSET
 from native_packet_evidence import reconcile
 from native_wire_names import (
@@ -108,7 +109,7 @@ def check_capture(
     )
     report = verify_capture(path)
     require(
-        report["status"] == "completed" and report["driver_sha256"] == corpus.driver,
+        report["status"] == "completed" and driver_is(report, corpus.driver),
         "Auth capture status/source differs",
     )
     for connection, stream in report["streams"].items():

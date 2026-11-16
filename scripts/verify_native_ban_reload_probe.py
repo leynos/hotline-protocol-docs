@@ -2,6 +2,7 @@
 
 import typing as typ
 
+from capture_acceptance import driver_is
 from native_control_readiness import probe
 from native_wire_names import HANDSHAKE_REPLY_HEX, HANDSHAKE_REQUEST_HEX
 from protocol_capture import verify_capture
@@ -93,7 +94,7 @@ def check_probe(corpus: Path, ready: Report) -> Report:
         report["status"] == "completed"
         and report["completed_actions"] == PROBE_STEPS
         and report["oracle_sha256"] == DATA
-        and report["driver_sha256"] == sha(corpus / "sources/protocol_capture.py")
+        and driver_is(report, sha(corpus / "sources/protocol_capture.py"))
         and report["profile"] == "native-mac-oracle",
         "One-probe capture incomplete",
     )

@@ -10,6 +10,7 @@ import dataclasses as dc
 import json
 import typing as typ
 
+from capture_acceptance import driver_in
 from native_auth_cases import complement
 from native_metadata_cases import (
     ACCOUNTS,
@@ -194,7 +195,7 @@ def check_case(
         report["status"] == "completed"
         and report["profile"] == "native-mac-oracle"
         and report["oracle_sha256"] == ORACLE_SHA256
-        and report["driver_sha256"] in recordings.sources,
+        and driver_in(report, recordings.sources),
         "Metadata provenance/completion differs",
     )
     reconcile(report, recordings.host, recordings.guest)

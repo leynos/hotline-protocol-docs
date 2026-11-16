@@ -6,6 +6,7 @@ import json
 import sys
 from pathlib import Path
 
+from capture_acceptance import driver_is
 from native_packet_evidence import reconcile
 from native_wire_names import FIELD_USER_ID, TYPE_USER_LEFT
 from pcap_tcp import read_packets
@@ -157,7 +158,7 @@ def _check_identity(path: Path, report: dict, captures: _Captures) -> None:
         and report["profile"] == "native-mac-oracle"
         and report["oracle_sha256"] == ORACLE_SHA256
         and plan["environment"] == captures.runtime
-        and report["driver_sha256"] == captures.manifest["driver_sha256"],
+        and driver_is(report, captures.manifest["driver_sha256"]),
         "Diagnostic oracle/plan identity differs",
     )
 

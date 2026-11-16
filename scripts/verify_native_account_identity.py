@@ -8,6 +8,7 @@ import typing as typ
 from pathlib import Path
 
 import native_account_identity_cases as cases
+from capture_acceptance import driver_is
 from native_packet_evidence import reconcile
 from native_wire_names import (
     FIELD_ACCESS_BITMAP,
@@ -172,8 +173,10 @@ def replay_report(corpus: Corpus, name: str) -> tuple[Report, Report]:
         report["status"] == "completed"
         and report["profile"] == "native-mac-oracle"
         and report["oracle_sha256"] == ORACLE_SHA256
-        and report["driver_sha256"]
-        == corpus.manifest["as_run_sources"]["sources/protocol_capture.py.as-run.txt"],
+        and driver_is(
+            report,
+            corpus.manifest["as_run_sources"]["sources/protocol_capture.py.as-run.txt"],
+        ),
         "Identity capture status or oracle differs",
     )
     waits(report, steps)
