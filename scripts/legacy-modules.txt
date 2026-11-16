@@ -35,7 +35,6 @@ scripts/native_move_cases.py
 scripts/native_news_boundary_cases.py
 scripts/native_news_cases.py
 scripts/native_news_decode.py
-scripts/native_news_delete_cases.py
 scripts/native_path_fields_cases.py
 scripts/native_path_fields_control.py
 scripts/native_rate304_cases.py
@@ -73,7 +72,6 @@ scripts/test_mxd_limits.py
 scripts/test_mxd_login_extras.py
 scripts/test_mxd_reconciliation.py
 scripts/test_native_121_default.py
-scripts/test_native_article_deletion.py
 scripts/test_native_ban_control.py
 scripts/test_native_ban_expiry.py
 scripts/test_native_ban_expiry_cleanup.py
@@ -135,7 +133,6 @@ scripts/verify_mxd_limits.py
 scripts/verify_mxd_login_extras.py
 scripts/verify_mxd_reconciliation.py
 scripts/verify_native_121_default.py  # live bytes compared with a recorded hash
-scripts/verify_native_article_deletion.py
 scripts/verify_native_ban_control.py
 scripts/verify_native_ban_expiry_first.py
 scripts/verify_native_ban_expiry_later.py
