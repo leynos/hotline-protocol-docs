@@ -34,5 +34,11 @@
     "path": "docs/peers/classic-login-proxy.md",
     "key": "scripts/test_classic_login_proxy.py",
     "reason": "A dated record quotes the command as it was run. The test was converted to pytest and now lives at scripts/tests/test_classic_login_proxy.py; a dated note is added beneath the command with the next audit revision."
+  },
+  {
+    "rule": "script",
+    "path": "docs/provenance/records/missing-target-alias.md",
+    "key": "scripts/test_native_missing_alias.py",
+    "reason": "A dated record quotes the command as it was run. The test was converted to pytest and now lives at scripts/tests/test_native_missing_alias.py; a dated note is added beneath the command with the next audit revision."
   }
 ]

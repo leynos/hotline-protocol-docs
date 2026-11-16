@@ -1,0 +1,22 @@
+planner-default		ok 6c82ff5bedf82cbe
+planner-default	environment:delete-key	KeyError: 'environment'
+planner-default	port:delete-key	KeyError: 'port'
+planner-default	environment>emulator_pid:delete-key	ValueError: Incomplete runtime identity
+planner-default	environment>fixture_profile:flip	ValueError: Only isolated control-only port 16020 is prepared
+planner-default	environment:delete-key;port:delete-key	KeyError: 'environment'
+planner-default	port:delete-key;environment>emulator_pid:delete-key	KeyError: 'port'
+planner-default	port:delete-key;environment>fixture_profile:flip	KeyError: 'port'
+planner-default	environment>emulator_pid:delete-key;environment>fixture_profile:flip	ValueError: Only isolated control-only port 16020 is prepared
+planner-window		ok 7b4aae872ee66524
+planner-window	environment:delete-key	KeyError: 'environment'
+planner-window	port:delete-key	KeyError: 'port'
+planner-window	environment>emulator_pid:delete-key	ValueError: Incomplete runtime identity
+planner-window	environment>fixture_profile:flip	ValueError: Only isolated control-only port 16020 is prepared
+planner-window	environment>capture_window_profile:flip	ValueError: Unsupported alias capture window profile or purpose
+planner-window	environment:delete-key;port:delete-key	KeyError: 'environment'
+planner-window	port:delete-key;environment>emulator_pid:delete-key	KeyError: 'port'
+planner-window	port:delete-key;environment>fixture_profile:flip	KeyError: 'port'
+planner-window	port:delete-key;environment>capture_window_profile:flip	KeyError: 'port'
+planner-window	environment>emulator_pid:delete-key;environment>fixture_profile:flip	ValueError: Only isolated control-only port 16020 is prepared
+planner-window	environment>emulator_pid:delete-key;environment>capture_window_profile:flip	ValueError: Incomplete runtime identity
+planner-window	environment>fixture_profile:flip;environment>capture_window_profile:flip	ValueError: Only isolated control-only port 16020 is prepared
