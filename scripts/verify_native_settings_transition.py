@@ -1,240 +1,212 @@
 #!/usr/bin/env python3
-"""Verify or explicitly run one stage-gated same-session 304 matrix."""
+"""Verify or explicitly run one stage-gated same-session 304 matrix.
 
-import argparse
+The stage checks live in ``verify_native_settings_transition_checks``, and every
+name they define stays importable from here. The report that ``run_gated`` writes
+records which scripts made it (decision D31): ``driver_sha256`` is the digest of
+the modules of ``CAPTURE_MODULES`` and ``driver_identity`` holds the commit and
+the hash of each. A report made before that decision holds the hash of this one
+file in ``driver_sha256``.
+
+Command lines::
+
+    verify_native_settings_transition.py --verify CAPTURE [--output FILE]
+    verify_native_settings_transition.py --run PLAN --binary F --output D
+"""
+
+import dataclasses as dc
+import datetime as dt
 import json
-from datetime import datetime, timezone
+import sys
+import typing as typ
 from pathlib import Path
 
-import native_settings_transition_cases as cases
+import capture_identity
 from protocol_capture import Recorder, digest, validate_plan, verify_capture
-from verify_native_auth import reply, roster
+from script_cli import UsageError
+from script_cli import run as run_command
 from verify_native_core import require
-from verify_native_shx import fields
+from verify_native_settings_transition_checks import (
+    CASE,
+    SAVE_UID,
+    check_stage,
+    check_update,
+    check_updates,
+    current_uids,
+    semantic,
+    stage_frames,
+)
+
+# The scripts that make this capture, in the fixed order of its identity digest.
+CAPTURE_MODULES = (
+    "verify_native_settings_transition.py",
+    "verify_native_settings_transition_checks.py",
+)
+
+type Report = dict[str, typ.Any]
+type Plan = dict[str, typ.Any]
+
+STEP_FAILURES = (OSError, EOFError, ValueError, KeyboardInterrupt)
+FAILED = 1  # the exit status of a run that did not complete
+IDENTITY_SCOPE = (
+    "Local binary hash verified; remote process identity is operator-reported"
+)
+GATE_LAYOUT = [("read_frame", "main"), ("read_frame", "subject")]
+
+__all__ = [
+    "CAPTURE_MODULES",
+    "check_stage",
+    "check_update",
+    "check_updates",
+    "current_uids",
+    "main",
+    "run_gated",
+    "semantic",
+    "stage_frames",
+]
 
 
-def stage_frames(report: dict, window: dict, kind: int, connection: str) -> list[dict]:
-    return [
-        frame
-        for frame in report["frames"]
-        if window["first"] <= frame["action"] <= window["last"]
-        and frame["type"] == kind
-        and not frame["is_reply"]
-        and frame["connection"] == connection
-    ]
+@dc.dataclass(slots=True)
+class Stages:
+    """What a run learns of its stages as the steps are executed.
+
+    Attributes
+    ----------
+    plan : dict[str, typing.Any]
+        The plan.
+    saved : int
+        The step that saves the subject's UID.
+    uid : bytes
+        The subject's UID, once it is saved.
+    main_uid : bytes
+        The observer's UID, once the subject's is saved.
+    checked : list[dict[str, typing.Any]]
+        The stages that passed.
+    """
+
+    plan: Plan
+    saved: int
+    uid: bytes = b""
+    main_uid: bytes = b""
+    checked: list[Report] = dc.field(default_factory=list)
+
+    def after(self, frames: list[Report], index: int) -> None:
+        """Run the gates that follow a step.
+
+        Parameters
+        ----------
+        frames : list[dict[str, typing.Any]]
+            The frames received so far.
+        index : int
+            The step that has just run.
+        """
+        report = {"frames": frames}
+        if index == self.saved:
+            self.uid, self.main_uid = current_uids(report, self.plan)
+        for window in self.plan["expectation"]["windows"]:
+            if window["first"] + 1 == index:
+                check_update(report, window, self.uid, "main")
+            if window["first"] + 2 == index:
+                check_update(report, window, self.uid, "subject")
+            if window["last"] == index:
+                self.checked.append(
+                    check_stage(report, self.plan, window, self.uid, self.main_uid)
+                )
 
 
-def check_update(report: dict, window: dict, uid: bytes, connection: str) -> None:
-    label = window["label"]
-    stage = next(s for s in cases.STAGES if s.label == label)
-    require(len(uid) == 2, f"{label}: subject UID length differs")
-    update = stage_frames(report, window, 301, connection)
-    require(len(update) == 1, f"{label}: 301 count differs on {connection}")
-    actual = fields(update[0])
-    require(
-        actual.get(103) == uid
-        and actual.get(102) == stage.expected_name
-        and actual.get(104) == stage.expected_icon,
-        f"{label}: 301 name/icon/UID differs on {connection}",
-    )
+def _layout(plan: Plan) -> int:
+    """Check that the identity is saved before the first 304 and each stage is gated.
 
+    Parameters
+    ----------
+    plan : dict[str, typing.Any]
+        The plan.
 
-def check_updates(report: dict, window: dict, uid: bytes) -> None:
-    for connection in ("main", "subject"):
-        check_update(report, window, uid, connection)
-
-
-def check_stage(
-    report: dict, plan: dict, window: dict, uid: bytes, main_uid: bytes = b"\0\x20"
-) -> dict:
-    check_updates(report, window, uid)
-    label = window["label"]
-    stage = next(s for s in cases.STAGES if s.label == label)
-    all_104 = [
-        frame
-        for frame in report["frames"]
-        if window["first"] <= frame["action"] <= window["last"]
-        and frame["type"] == 104
-        and not frame["is_reply"]
-    ]
-    expected_total = 2 if stage.expected_auto is not None else 1
-    require(
-        len(all_104) == expected_total, f"{label}: 104 delivery/feedback count differs"
-    )
-    original = stage_frames(report, window, 104, "subject")
-    require(len(original) == 1, f"{label}: subject PM missing")
-    original_fields = fields(original[0])
-    require(
-        set(original_fields) == {101, 102, 103, 113}
-        and original_fields[113] == b"\0\1"
-        and original_fields[103] == main_uid
-        and original_fields[102] == b"framing-fixture"
-        and original_fields[101] == bytes.fromhex(window["pm_text_hex"]),
-        f"{label}: original PM fields differ",
-    )
-    sender = stage_frames(report, window, 104, "main")
-    require(
-        len(sender) == int(stage.expected_auto is not None),
-        f"{label}: auto count differs",
-    )
-    if sender:
-        auto = fields(sender[0])
-        require(
-            set(auto) == {101, 102, 103, 113}
-            and auto[103] == uid
-            and auto[102] == stage.expected_name
-            and auto[113] == b"\0\4"
-            and auto[101] == stage.expected_auto,
-            f"{label}: automatic text, identity or option differs",
-        )
-    replies = [
-        frame
-        for frame in report["frames"]
-        if window["first"] <= frame["action"] <= window["last"]
-        and frame["is_reply"]
-        and frame["id"] == window["pm_id"]
-        and frame["connection"] == "main"
-    ]
-    require(
-        len(replies) == 1 and replies[0]["error"] == 0 and not replies[0]["fields"],
-        f"{label}: PM ACK differs",
-    )
-    return {
-        "label": label,
-        "uid_hex": uid.hex(),
-        "auto_hex": stage.expected_auto.hex()
-        if stage.expected_auto is not None
-        else None,
-    }
-
-
-def current_uids(report: dict, plan: dict) -> tuple[bytes, bytes]:
+    Returns
+    -------
+    int
+        The step that saves the subject's UID.
+    """
     saved = [
-        i
-        for i, step in enumerate(plan["steps"])
-        if step.get("save_fields") == {"peer_uid": 103}
+        i for i, item in enumerate(plan["steps"]) if item.get("save_fields") == SAVE_UID
     ]
     require(len(saved) == 1, "Subject UID save step differs")
-    first = roster(reply(report, 10))
-    require(
-        len(first) == 1 and bytes.fromhex(first[0]["name_hex"]) == b"framing-fixture",
-        "Initial main roster differs",
-    )
-    main_uid = first[0]["uid"].to_bytes(2, "big")
-    announced = [
-        frame
-        for frame in report["frames"]
-        if frame["action"] == saved[0]
-        and frame["type"] == 301
-        and frame["connection"] == "main"
-    ]
-    require(len(announced) == 1, "Initial subject announcement missing")
-    values = fields(announced[0])
-    require(values.get(102) == cases.SUBJECT, "Initial subject identity differs")
-    uid = values.get(103, b"")
-    require(len(uid) == 2 and uid != main_uid, "Subject UID differs")
-    return uid, main_uid
-
-
-def semantic(report: dict, plan: dict, *, completed_only: bool = True) -> dict:
-    require(
-        plan["expectation"]["case"] == "same-session-304-transitions",
-        "Wrong settings case",
-    )
-    if completed_only:
-        require(report["status"] == "completed", "Transition capture did not complete")
-    uid, main_uid = current_uids(report, plan)
     windows = plan["expectation"]["windows"]
-    require(len(windows) == len(cases.STAGES), "Transition stage count differs")
-    result = [check_stage(report, plan, w, uid, main_uid) for w in windows]
-    if completed_only:
-        tail = [
-            frame
-            for frame in report["frames"]
-            if frame["action"] > windows[-1]["last"]
-            and frame["type"] == 301
-            and not frame["is_reply"]
-        ]
-        require(len(tail) == 2, "Owned session restore 301 count differs")
-        for frame in tail:
-            value = fields(frame)
-            require(
-                value.get(103) == uid
-                and value.get(102) == cases.SUBJECT
-                and value.get(104) == b"\0\1",
-                "Owned session restore state differs",
-            )
-    return {"verified_stages": result, "subject_uid_hex": uid.hex()}
-
-
-def run_gated(plan_path: Path, binary: Path, output: Path) -> dict:
-    """Execute a separately authorised plan, stopping after its first bad stage."""
-    source = plan_path.read_bytes()
-    plan = json.loads(source)
-    validate_plan(plan)
-    require(
-        plan["expectation"]["case"] == "same-session-304-transitions", "Wrong run case"
-    )
-    require(
-        digest(binary.read_bytes()) == plan["oracle_sha256"],
-        "Oracle binary hash differs",
-    )
-    output.mkdir(parents=True, exist_ok=False)
-    recorder = Recorder(plan)
-    completed, status, error = 0, "completed", ""
-    checked = []
-    saved = [
-        i
-        for i, item in enumerate(plan["steps"])
-        if item.get("save_fields") == {"peer_uid": 103}
-    ]
-    require(len(saved) == 1, "Subject UID save step differs")
-    require(
-        saved[0] < plan["expectation"]["windows"][0]["first"],
-        "Identity gate occurs after 304",
-    )
-    for window in plan["expectation"]["windows"]:
+    require(saved[0] < windows[0]["first"], "Identity gate occurs after 304")
+    for window in windows:
         pair = plan["steps"][window["first"] + 1 : window["first"] + 3]
         require(
-            [(s["op"], s.get("connection")) for s in pair]
-            == [("read_frame", "main"), ("read_frame", "subject")],
+            [(s["op"], s.get("connection")) for s in pair] == GATE_LAYOUT,
             "Stage 301 gate layout differs",
         )
-    uid, main_uid = b"", b""
+    return saved[0]
+
+
+def _execute(recorder: Recorder, stages: Stages) -> tuple[str, str, int]:
+    """Execute every step and gate it, stopping at the first failure.
+
+    Parameters
+    ----------
+    recorder : Recorder
+        The recorder.
+    stages : Stages
+        The run's plan and what it learns.
+
+    Returns
+    -------
+    tuple[str, str, int]
+        The status, the error text and the completed actions.
+    """
+    completed, status, error = 0, "completed", ""
     try:
-        for index, step in enumerate(plan["steps"]):
+        for index, step in enumerate(stages.plan["steps"]):
             recorder.execute(index, step)
             completed += 1
-            if index == saved[0]:
-                uid, main_uid = current_uids({"frames": recorder.frames}, plan)
-            for window in plan["expectation"]["windows"]:
-                if window["first"] + 1 == index:
-                    check_update({"frames": recorder.frames}, window, uid, "main")
-                if window["first"] + 2 == index:
-                    check_update({"frames": recorder.frames}, window, uid, "subject")
-                if window["last"] == index:
-                    checked.append(
-                        check_stage(
-                            {"frames": recorder.frames}, plan, window, uid, main_uid
-                        )
-                    )
-    except (OSError, EOFError, ValueError, KeyboardInterrupt) as failure:
+            stages.after(recorder.frames, index)
+    except STEP_FAILURES as failure:
         status, error = "failed", f"{type(failure).__name__}: {failure}"
     finally:
         for name, connection in list(recorder.sockets.items()):
             connection.close()
             recorder.event(completed, name, "close")
-    report = {
+    return status, error, completed
+
+
+def _report(
+    recorder: Recorder, plan: Plan, source: bytes, outcome: tuple[str, str, int]
+) -> Report:
+    """Build the report of a run.
+
+    Parameters
+    ----------
+    recorder : Recorder
+        The recorder that ran the plan.
+    plan : dict[str, typing.Any]
+        The plan.
+    source : bytes
+        The plan file's bytes.
+    outcome : tuple[str, str, int]
+        The status, the error text and the completed actions.
+
+    Returns
+    -------
+    dict[str, typing.Any]
+        The report, with its keys in the order that earlier reports have.
+    """
+    status, error, completed = outcome
+    identity = capture_identity.identity(CAPTURE_MODULES)
+    return {
         "schema_version": 1,
         "profile": plan["profile"],
         "status": status,
         "native_conformance": False,
-        "identity_scope": "Local binary hash verified; remote process identity is operator-reported",
+        "identity_scope": IDENTITY_SCOPE,
         "operator": plan["operator"],
         "oracle_sha256": plan["oracle_sha256"],
         "plan_sha256": digest(source),
-        "driver_sha256": digest(Path(__file__).read_bytes()),
-        "recorded_at_utc": datetime.now(timezone.utc).isoformat(),
+        "driver_sha256": identity["digest"],
+        "driver_identity": identity,
+        "recorded_at_utc": dt.datetime.now(dt.UTC).isoformat(),
         "started_at_utc": recorder.started_at_utc,
         "gap_ids": plan["gap_ids"],
         "completed_actions": completed,
@@ -243,6 +215,22 @@ def run_gated(plan_path: Path, binary: Path, output: Path) -> dict:
         "frames": recorder.frames,
         "streams": recorder.streams(),
     }
+
+
+def _write(output: Path, source: bytes, report: Report, gates: Report) -> None:
+    """Write the plan, the report, their checksums and the stage gates.
+
+    Parameters
+    ----------
+    output : pathlib.Path
+        The output directory.
+    source : bytes
+        The plan file's bytes.
+    report : dict[str, typing.Any]
+        The report.
+    gates : dict[str, typing.Any]
+        The stages that passed, with the status and the error.
+    """
     (output / "plan.json").write_bytes(source)
     (output / "report.json").write_text(json.dumps(report, indent=2) + "\n")
     (output / "checksums.sha256").write_text(
@@ -251,42 +239,138 @@ def run_gated(plan_path: Path, binary: Path, output: Path) -> dict:
             for name in ("plan.json", "report.json")
         )
     )
-    (output / "stage-gates.json").write_text(
-        json.dumps({"passed": checked, "status": status, "error": error}, indent=2)
-        + "\n"
+    (output / "stage-gates.json").write_text(json.dumps(gates, indent=2) + "\n")
+
+
+def run_gated(plan_path: Path, binary: Path, output: Path) -> Report:
+    """Execute a separately authorised plan, stopping after its first bad stage.
+
+    Parameters
+    ----------
+    plan_path : pathlib.Path
+        The plan.
+    binary : pathlib.Path
+        The oracle binary, which must be the one that the plan records.
+    output : pathlib.Path
+        A directory that must not exist yet.
+
+    Returns
+    -------
+    dict[str, typing.Any]
+        The report that was written.
+    """
+    source = plan_path.read_bytes()
+    plan = json.loads(source)
+    validate_plan(plan)
+    require(plan["expectation"]["case"] == CASE, "Wrong run case")
+    require(
+        digest(binary.read_bytes()) == plan["oracle_sha256"],
+        "Oracle binary hash differs",
     )
+    output.mkdir(parents=True, exist_ok=False)
+    recorder = Recorder(plan)
+    stages = Stages(plan, _layout(plan))
+    outcome = _execute(recorder, stages)
+    report = _report(recorder, plan, source, outcome)
+    status, error, _completed = outcome
+    gates = {"passed": stages.checked, "status": status, "error": error}
+    _write(output, source, report, gates)
     return report
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__)
-    group = parser.add_mutually_exclusive_group(required=True)
-    group.add_argument(
-        "--verify", type=Path, help="Existing capture directory; offline"
+def _live(run: str, binary: str | None, output: str | None) -> Path:
+    """Run the plan and return the capture directory, or exit when it failed.
+
+    Parameters
+    ----------
+    run : str
+        The plan.
+    binary : str | None
+        The oracle binary.
+    output : str | None
+        The output directory.
+
+    Returns
+    -------
+    pathlib.Path
+        The directory of the capture that was written.
+
+    Raises
+    ------
+    UsageError
+        If a path that a run needs is missing.
+    SystemExit
+        With status 1 and the error on standard error, when the run failed.
+    """
+    if binary is None or output is None:
+        message = "--run requires --binary and --output"
+        raise UsageError(message)
+    report = run_gated(Path(run), Path(binary), Path(output))
+    if report["status"] != "completed":
+        sys.stderr.write(report["error"] + "\n")
+        raise SystemExit(FAILED)
+    return Path(output)
+
+
+def command(
+    *,
+    verify: str | None = None,
+    run: str | None = None,
+    binary: str | None = None,
+    output: str | None = None,
+) -> None:
+    """Replay a capture offline, or run a plan that a separate live START allows.
+
+    Parameters
+    ----------
+    verify
+        An existing capture directory; offline.
+    run
+        A plan; a separate live START is required.
+    binary
+        The oracle binary (with ``--run``).
+    output
+        With ``--run`` the directory of the run; with ``--verify`` a new file
+        that receives the result.
+
+    Raises
+    ------
+    UsageError
+        If neither or both of ``--verify`` and ``--run`` are given, or if the
+        file for the result exists.
+    """
+    if (verify is None) == (run is None):
+        message = "exactly one of --verify and --run is required"
+        raise UsageError(message)
+    capture = (
+        _live(run, binary, output) if run is not None else Path(typ.cast("str", verify))
     )
-    group.add_argument(
-        "--run", type=Path, help="Plan path; requires separate live START"
-    )
-    parser.add_argument("--binary", type=Path)
-    parser.add_argument("--output", type=Path)
-    args = parser.parse_args()
-    if args.run:
-        if args.binary is None or args.output is None:
-            parser.error("--run requires --binary and --output")
-        report = run_gated(args.run, args.binary, args.output)
-        if report["status"] != "completed":
-            parser.exit(1, report["error"] + "\n")
-        capture = args.output
-    else:
-        capture = args.verify
     report = verify_capture(capture)
     result = semantic(report, json.loads((capture / "plan.json").read_text()))
-    if args.output and not args.run:
-        if args.output.exists():
-            parser.error("Refusing existing output")
-        args.output.write_text(json.dumps(result, indent=2) + "\n")
+    if output is not None and run is None:
+        target = Path(output)
+        if target.exists():
+            message = "Refusing existing output"
+            raise UsageError(message)
+        target.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     else:
-        print(json.dumps(result, indent=2))
+        sys.stdout.write(json.dumps(result, indent=2) + "\n")
+
+
+def main() -> None:
+    """Run the command line; a successful run returns instead of exiting.
+
+    Raises
+    ------
+    SystemExit
+        With a non-zero status when the command line cannot be used or a run
+        failed.
+    """
+    try:
+        run_command(command, __doc__, sys.argv[1:])
+    except SystemExit as stop:
+        if stop.code:  # the command line library exits with 0 on success
+            raise
 
 
 if __name__ == "__main__":
