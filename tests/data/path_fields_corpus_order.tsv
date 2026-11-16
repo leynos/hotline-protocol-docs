@@ -1,0 +1,209 @@
+path-fields-corpus		ok 46558d29f79bd42f
+path-fields-corpus	raw/epoch/stopped-marker-forks/commands.json>4>stdout_file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/raw/epoch/stopp
+path-fields-corpus	derived/flows.json>flows>1>views>guest>received>file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/derived/streams
+path-fields-corpus	derived/flows.json>flows>1>views>namespace>sent>file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/derived/streams
+path-fields-corpus	raw/epoch/stopped-marker-forks/commands.json>0>stdout_file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/raw/epoch/stopp
+path-fields-corpus	raw/epoch/stopped-marker-forks/commands.json>9>stdout_file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/raw/epoch/stopp
+path-fields-corpus	derived/flows.json>flows>1>views>namespace>received>file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/derived/streams
+path-fields-corpus	derived/flows.json>flows>0>views>guest>received>file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/derived/streams
+path-fields-corpus	raw/epoch/stopped-marker-forks/commands.json>10>stdout_file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/raw/epoch/stopp
+path-fields-corpus	derived/flows.json>flows>0>views>namespace>sent>file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/derived/streams
+path-fields-corpus	raw/epoch/stopped-marker-forks/commands.json>7>stdout_file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/raw/epoch/stopp
+path-fields-corpus	raw/epoch/stopped-marker-forks/commands.json>2>stdout_file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/raw/epoch/stopp
+path-fields-corpus	derived/flows.json>flows>0>views>namespace>received>file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/derived/streams
+path-fields-corpus	raw/epoch/stopped-marker-forks/commands.json>3>stdout_file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/raw/epoch/stopp
+path-fields-corpus	raw/epoch/stopped-marker-forks/commands.json>8>stdout_file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/raw/epoch/stopp
+path-fields-corpus	raw/epoch/stopped-marker-forks/commands.json>1>stdout_file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/raw/epoch/stopp
+path-fields-corpus	raw/epoch/stopped-marker-forks/commands.json>11>stdout_file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/raw/epoch/stopp
+path-fields-corpus	raw/epoch/stopped-marker-forks/commands.json>5>stdout_file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/raw/epoch/stopp
+path-fields-corpus	derived/flows.json>flows>0>views>guest>sent>file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/derived/streams
+path-fields-corpus	raw/epoch/stopped-marker-forks/commands.json>6>stdout_file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/raw/epoch/stopp
+path-fields-corpus	derived/flows.json>flows>1>views>guest>sent>file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/derived/streams
+path-fields-corpus	derived/flows.json>flows>0>views>namespace>received>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-path-fields-01'
+path-fields-corpus	derived/flows.json>flows>0>views>namespace>sent>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-path-fields-01'
+path-fields-corpus	derived/flows.json>flows>1>views>namespace>received>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-path-fields-01'
+path-fields-corpus	derived/flows.json>flows>0>views>guest>sent>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-path-fields-01'
+path-fields-corpus	derived/flows.json>flows>0>views>guest>received>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-path-fields-01'
+path-fields-corpus	derived/flows.json>flows>1>views>guest>received>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-path-fields-01'
+path-fields-corpus	derived/flows.json>flows>1>views>namespace>sent>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-path-fields-01'
+path-fields-corpus	derived/flows.json>flows>1>views>guest>sent>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-path-fields-01'
+path-fields-corpus	raw/epoch/capture-ready.json>managed_lock>unit_properties>ActiveState:delete-key	KeyError: 'ActiveState'
+path-fields-corpus	raw/preparation/files-news-catalog.json>entries>Files:delete-key	KeyError: 'Files'
+path-fields-corpus	raw/epoch/capture-ready.json>managed_lock>unit_properties>MainPID:delete-key	KeyError: 'MainPID'
+path-fields-corpus	raw/preparation/files-news-catalog.json>entries>News:delete-key	KeyError: 'News'
+path-fields-corpus	raw/preparation/preflight.json>forks>Prefs:delete-key	KeyError: 'Prefs'
+path-fields-corpus	raw/epoch/stopped-hfs-summary.json>active_users:delete-key	KeyError: 'active_users'
+path-fields-corpus	raw/preparation/preflight.json>forks>admin:delete-key	KeyError: 'admin'
+path-fields-corpus	raw/epoch/stopped-hfs-summary.json>banned_lines:delete-key	KeyError: 'banned_lines'
+path-fields-corpus	raw/preparation/preflight.json>prepared>base.dsk:delete-key	KeyError: 'base.dsk'
+path-fields-corpus	raw/epoch/capture-ready.json>managed_lock>busy_exit:delete-key	KeyError: 'busy_exit'
+path-fields-corpus	derived/flows.json>flows>0>views>namespace>sent>bytes:delete-key	KeyError: 'bytes'
+path-fields-corpus	derived/stopped-marker-catalogue.json>catalogue:delete-key	KeyError: 'catalogue'
+path-fields-corpus	derived/flows.json>flows>0>views>namespace>client:delete-key	KeyError: 'client'
+path-fields-corpus	raw/epoch/coordinator/report.json>frames>1>connection:delete-key	KeyError: 'connection'
+path-fields-corpus	raw/epoch/capture-ready.json>deadline_utc:delete-key	KeyError: 'deadline_utc'
+path-fields-corpus	raw/epoch/source-freeze.json>docs_head:delete-key	KeyError: 'docs_head'
+path-fields-corpus	raw/epoch/coordinator/report.json>actions>7>elapsed_ns:delete-key	KeyError: 'elapsed_ns'
+path-fields-corpus	raw/epoch/capture-ready.json>emulator_netns_inode:delete-key	KeyError: 'emulator_netns_inode'
+path-fields-corpus	raw/epoch/capture-ready.json>emulator_pid:delete-key	KeyError: 'emulator_pid'
+path-fields-corpus	raw/epoch/capture-ready.json>emulator_sha256:delete-key	KeyError: 'emulator_sha256'
+path-fields-corpus	raw/epoch/capture-ready.json>emulator_starttime:delete-key	KeyError: 'emulator_starttime'
+path-fields-corpus	derived/stopped-marker-catalogue.json>entries:delete-key	KeyError: 'entries'
+path-fields-corpus	raw/epoch/coordinator/report.json>actions>44>event_range:delete-key	KeyError: 'event_range'
+path-fields-corpus	raw/epoch/disk-ready.json>exe_sha256:delete-key	KeyError: 'exe_sha256'
+path-fields-corpus	raw/epoch/stopped-hfs-summary.json>results>fls-full>exit:delete-key	KeyError: 'exit'
+path-fields-corpus	raw/epoch/capture-ready.json>managed_lock>fd:delete-key	KeyError: 'fd'
+path-fields-corpus	derived/flows.json>flows>0>views>namespace>sent>file:delete-key	KeyError: 'file'
+path-fields-corpus	raw/epoch/stopped-hfs-summary.json>files_news:delete-key	KeyError: 'files_news'
+path-fields-corpus	raw/preparation/preflight.json>forks>fixture-low:delete-key	KeyError: 'fixture-low'
+path-fields-corpus	derived/flows.json>flows:delete-key	KeyError: 'flows'
+path-fields-corpus	raw/epoch/stopped-hfs-summary.json>results>fls-allocated:delete-key	KeyError: 'fls-allocated'
+path-fields-corpus	raw/epoch/stopped-hfs-summary.json>results>fls-full:delete-key	KeyError: 'fls-full'
+path-fields-corpus	raw/preparation/preflight.json>forks:delete-key	KeyError: 'forks'
+path-fields-corpus	raw/epoch/emulator-retire.json>gone_final:delete-key	KeyError: 'gone_final'
+path-fields-corpus	derived/flows.json>flows>0>views>guest:delete-key	KeyError: 'guest'
+path-fields-corpus	raw/epoch/guest-capture-ready.json>guest_fd:delete-key	KeyError: 'guest_fd'
+path-fields-corpus	raw/epoch/capture-ready.json>guest_pcap:delete-key	KeyError: 'guest_pcap'
+path-fields-corpus	raw/epoch/source-freeze.json>hashes:delete-key	KeyError: 'hashes'
+path-fields-corpus	raw/epoch/guest-capture-ready.json>header24:delete-key	KeyError: 'header24'
+path-fields-corpus	raw/epoch/source-freeze.json>helper_hashes:delete-key	KeyError: 'helper_hashes'
+path-fields-corpus	raw/epoch/coordinator/report.json>events>6>hex:delete-key	KeyError: 'hex'
+path-fields-corpus	raw/epoch/capture-ready.json>managed_capture>host:delete-key	KeyError: 'host'
+path-fields-corpus	raw/epoch/stopped-hfs-summary.json>results>icat-Prefs:delete-key	KeyError: 'icat-Prefs'
+path-fields-corpus	raw/epoch/stopped-hfs-summary.json>results>icat-admin:delete-key	KeyError: 'icat-admin'
+path-fields-corpus	raw/epoch/stopped-hfs-summary.json>results>icat-fixture-low:delete-key	KeyError: 'icat-fixture-low'
+path-fields-corpus	raw/epoch/stopped-hfs-summary.json>results>icat-server-data:delete-key	KeyError: 'icat-server-data'
+path-fields-corpus	raw/epoch/stopped-hfs-summary.json>results>icat-server-rsrc:delete-key	KeyError: 'icat-server-rsrc'
+path-fields-corpus	raw/preparation/preflight.json>prepared>working.dsk>inode:delete-key	KeyError: 'inode'
+path-fields-corpus	raw/epoch/stopped-hfs-summary.json>results>istat-board:delete-key	KeyError: 'istat-board'
+path-fields-corpus	derived/flows.json>flows>0>label:delete-key	KeyError: 'label'
+path-fields-corpus	raw/epoch/capture-ready.json>managed_lock>lock_inode:delete-key	KeyError: 'lock_inode'
+path-fields-corpus	raw/epoch/capture-ready.json>managed_capture:delete-key	KeyError: 'managed_capture'
+path-fields-corpus	raw/epoch/capture-ready.json>managed_lock:delete-key	KeyError: 'managed_lock'
+path-fields-corpus	derived/flows.json>flows>0>views>namespace:delete-key	KeyError: 'namespace'
+path-fields-corpus	raw/epoch/capture-ready.json>native_data_sha256:delete-key	KeyError: 'native_data_sha256'
+path-fields-corpus	raw/epoch/disk-ready.json>netns_inode:delete-key	KeyError: 'netns_inode'
+path-fields-corpus	raw/epoch/stopped-hfs-summary.json>original_ticks:delete-key	KeyError: 'original_ticks'
+path-fields-corpus	raw/epoch/capture-ready.json>owned_working_image_inode:delete-key	KeyError: 'owned_working_image_inode'
+path-fields-corpus	derived/flows.json>flows>0>views>namespace>packet_count:delete-key	KeyError: 'packet_count'
+path-fields-corpus	raw/epoch/disk-ready.json>phase:delete-key	KeyError: 'phase'
+path-fields-corpus	raw/epoch/capture-ready.json>managed_lock>pid:delete-key	KeyError: 'pid'
+path-fields-corpus	raw/epoch/stopped-hfs-summary.json>pid_gone:delete-key	KeyError: 'pid_gone'
+path-fields-corpus	raw/preparation/preflight.json>prepared:delete-key	KeyError: 'prepared'
+path-fields-corpus	raw/epoch/emulator-retire.json>reason:delete-key	KeyError: 'reason'
+path-fields-corpus	derived/flows.json>flows>0>views>namespace>received:delete-key	KeyError: 'received'
+path-fields-corpus	raw/epoch/stopped-hfs-summary.json>results:delete-key	KeyError: 'results'
+path-fields-corpus	raw/preparation/preflight.json>prepared>rom:delete-key	KeyError: 'rom'
+path-fields-corpus	raw/epoch/stopped-hfs-summary.json>root_fuser_exit:delete-key	KeyError: 'root_fuser_exit'
+path-fields-corpus	raw/epoch/stopped-marker-forks/fd-free-before-read.json>root_fuser_stderr:delete-key	KeyError: 'root_fuser_stderr'
+path-fields-corpus	raw/epoch/stopped-marker-forks/fd-free-before-read.json>root_fuser_stdout:delete-key	KeyError: 'root_fuser_stdout'
+path-fields-corpus	raw/epoch/coordinator/report.json>results>1>selected_parent:delete-key	KeyError: 'selected_parent'
+path-fields-corpus	derived/flows.json>flows>0>views>namespace>sent:delete-key	KeyError: 'sent'
+path-fields-corpus	derived/flows.json>flows>0>views>namespace>server:delete-key	KeyError: 'server'
+path-fields-corpus	raw/preparation/preflight.json>forks>server-data:delete-key	KeyError: 'server-data'
+path-fields-corpus	raw/preparation/preflight.json>forks>server-rsrc:delete-key	KeyError: 'server-rsrc'
+path-fields-corpus	derived/flows.json>flows>0>views>namespace>sent>sha256:delete-key	KeyError: 'sha256'
+path-fields-corpus	raw/epoch/stopped-hfs-summary.json>results>icat-admin>size:delete-key	KeyError: 'size'
+path-fields-corpus	raw/epoch/disk-ready.json>start_ticks:delete-key	KeyError: 'start_ticks'
+path-fields-corpus	raw/epoch/source-prerun-check.json>status:delete-key	KeyError: 'status'
+path-fields-corpus	raw/epoch/stopped-marker-forks/commands.json>0>stdout_file:delete-key	KeyError: 'stdout_file'
+path-fields-corpus	derived/flows.json>flows>0>views>namespace>terminal_flags:delete-key	KeyError: 'terminal_flags'
+path-fields-corpus	raw/epoch/disk-ready.json>uid:delete-key	KeyError: 'uid'
+path-fields-corpus	raw/epoch/capture-ready.json>managed_lock>unit:delete-key	KeyError: 'unit'
+path-fields-corpus	raw/epoch/capture-ready.json>managed_lock>unit_properties:delete-key	KeyError: 'unit_properties'
+path-fields-corpus	raw/epoch/emulator-retire.json>utc:delete-key	KeyError: 'utc'
+path-fields-corpus	derived/flows.json>flows>0>views:delete-key	KeyError: 'views'
+path-fields-corpus	raw/preparation/preflight.json>prepared>working.dsk:delete-key	KeyError: 'working.dsk'
+path-fields-corpus	raw/epoch/disk-ready.json>working_inode:delete-key	KeyError: 'working_inode'
+path-fields-corpus	derived/flows.json>flows>0>label:flip	StopIteration:
+path-fields-corpus	raw/epoch/coordinator/report.json>actions>29>event_range>1:inc	ValueError: Action/send event or time bracket differs
+path-fields-corpus	raw/epoch/coordinator/plan.json>requests>2>marker_hex:delete-key	ValueError: As-run plan/source differs
+path-fields-corpus	raw/epoch/readiness/plan.json>schema_version:inc	ValueError: Checksum mismatch: plan.json
+path-fields-corpus	raw/epoch/readiness/report.json>frames>2>unconsumed_hex:flip	ValueError: Checksum mismatch: report.json
+path-fields-corpus	manifest.json>files>derived/streams/readiness-namespace-received.bin:flip	ValueError: Corpus file differs: derived/streams/readiness-namespace-received.bin
+path-fields-corpus	manifest.json>files>raw/epoch/primary-syn.pcap:flip	ValueError: Corpus file differs: raw/epoch/primary-syn.pcap
+path-fields-corpus	manifest.json>files>raw/epoch/stopped-icat-Prefs.exit:flip	ValueError: Corpus file differs: raw/epoch/stopped-icat-Prefs.exit
+path-fields-corpus	manifest.json>files>raw/preparation/proposed-sources/native_ban_expiry_cases.py:flip	ValueError: Corpus file differs: raw/preparation/proposed-sources/native_ban_expiry_cases.py
+path-fields-corpus	manifest.json>files>derived/streams/readiness-namespace-received.bin:delete-key	ValueError: Corpus inventory differs
+path-fields-corpus	derived/flows.json>flows:drop-last	ValueError: Derived flow count differs
+path-fields-corpus	raw/epoch/disk-ready.json>exe_sha256:flip	ValueError: Disk/capture identity differs
+path-fields-corpus	raw/epoch/coordinator/report.json>frames>4>flags:inc	ValueError: Frame/raw mismatch
+path-fields-corpus	raw/epoch/source-freeze.json>hashes>native_account_update_cases.py:flip	ValueError: Frozen closure differs from trusted approval
+path-fields-corpus	raw/epoch/disk-ready.json>phase:flip	ValueError: Guest capture boundary differs
+path-fields-corpus	raw/epoch/capture-ready.json>guest_pcap:flip	ValueError: Guest capture receipt differs
+path-fields-corpus	raw/epoch/emulator-retire.json>utc:empty	ValueError: Invalid isoformat string: ''
+path-fields-corpus	raw/epoch/capture-ready.json>managed_lock>pid:inc	ValueError: Managed oracle lease proof differs
+path-fields-corpus	raw/epoch/capture-ready.json>managed_lock>unit:flip	ValueError: Managed source/lock receipt differs
+path-fields-corpus	manifest.json>twelve_tested_values_and_observations>1>after_views:delete-key	ValueError: Manifest outcome summary differs
+path-fields-corpus	raw/epoch/coordinator/report.json>results>1>selected_parent:flip	ValueError: Missing/foreign selected marker
+path-fields-corpus	raw/epoch/stopped-hfs-summary.json>files_news:drop-last	ValueError: Original Files/News catalogue differs
+path-fields-corpus	raw/epoch/stopped-hfs-summary.json>active_users:drop-last	ValueError: Original users/Banned state differs
+path-fields-corpus	raw/epoch/source-prerun-check.json>status:flip	ValueError: Pre-run source check missing
+path-fields-corpus	raw/epoch/coordinator/report.json>events>6>hex:flip	ValueError: Raw stream/event mismatch
+path-fields-corpus	raw/epoch/coordinator/report.json>frames>1>connection:flip	ValueError: Received bytes omitted
+path-fields-corpus	raw/epoch/capture-ready.json>emulator_pid:inc	ValueError: Runtime/receipt identity differs
+path-fields-corpus	raw/epoch/coordinator/report.json>results>3>after_views>wrapper:drop-last	ValueError: Selected parent/readback differs
+path-fields-corpus	raw/epoch/stopped-hfs-summary.json>results>icat-Prefs>exit:inc	ValueError: Stopped Prefs fork differs
+path-fields-corpus	raw/epoch/stopped-hfs-summary.json>results>icat-admin>exit:inc	ValueError: Stopped admin fork differs
+path-fields-corpus	raw/epoch/stopped-hfs-summary.json>results>istat-board>exit:inc	ValueError: Stopped board stat differs
+path-fields-corpus	raw/epoch/stopped-hfs-summary.json>results>fls-full>exit:inc	ValueError: Stopped catalogue differs
+path-fields-corpus	raw/epoch/stopped-hfs-summary.json>results>icat-fixture-low>exit:inc	ValueError: Stopped fixture-low fork differs
+path-fields-corpus	derived/stopped-marker-catalogue.json>catalogue:flip	ValueError: Stopped marker catalogue differs
+path-fields-corpus	raw/epoch/stopped-marker-forks/commands.json>0>exit:inc	ValueError: Stopped marker command bytes differ
+path-fields-corpus	raw/epoch/emulator-retire.json>pid:inc	ValueError: Stopped owner/retirement differs
+path-fields-corpus	raw/preparation/preflight.json>prepared>base.dsk>sha256:flip	ValueError: Stopped prepared asset differs
+path-fields-corpus	raw/epoch/stopped-hfs-summary.json>results>icat-server-data>exit:inc	ValueError: Stopped server-data fork differs
+path-fields-corpus	raw/epoch/stopped-hfs-summary.json>results>icat-server-rsrc>exit:inc	ValueError: Stopped server-rsrc fork differs
+path-fields-corpus	raw/epoch/stopped-marker-forks/commands.json:drop-last	ValueError: Supplement marker command count differs
+path-fields-corpus	raw/epoch/stopped-marker-forks/fd-free-before-read.json>pid:inc	ValueError: Supplement owner-free gate differs
+path-fields-corpus	raw/epoch/coordinator/report.json>views>2>names>17:flip	ValueError: View/raw reply differs
+path-fields-corpus	derived/flows.json>flows>1>views>guest>packet_count:inc	ValueError: guest/case complete TCP lifetime differs
+path-fields-corpus	derived/flows.json>flows>1>views>guest>client:drop-last	ValueError: guest/case derived stream differs
+path-fields-corpus	derived/flows.json>flows>0>views>guest>packet_count:inc	ValueError: guest/readiness complete TCP lifetime differs
+path-fields-corpus	derived/flows.json>flows>0>views>guest>client:drop-last	ValueError: guest/readiness derived stream differs
+path-fields-corpus	raw/epoch/capture-ready.json>managed_capture>host>utc:flip	ValueError: host managed capture receipt differs
+path-fields-corpus	raw/epoch/capture-ready.json>managed_capture>namespace>utc:flip	ValueError: namespace managed capture receipt differs
+path-fields-corpus	derived/flows.json>flows>1>views>namespace>packet_count:inc	ValueError: namespace/case complete TCP lifetime differs
+path-fields-corpus	derived/flows.json>flows>1>views>namespace>client:drop-last	ValueError: namespace/case derived stream differs
+path-fields-corpus	derived/flows.json>flows>0>views>namespace>packet_count:inc	ValueError: namespace/readiness complete TCP lifetime differs
+path-fields-corpus	derived/flows.json>flows>0>views>namespace>client:drop-last	ValueError: namespace/readiness derived stream differs
+path-fields-corpus	raw/epoch/coordinator/report.json>actions>44>event_range:drop-last	ValueError: not enough values to unpack (expected 2, got 1)
+path-fields-corpus	derived/flows.json>flows>1>views>guest>received>file:flip;raw/epoch/stopped-marker-forks/commands.json>5>stdout_file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/derived/streams
+path-fields-corpus	derived/flows.json>flows>1>views>guest>received>file:flip;raw/epoch/stopped-hfs-summary.json>active_users:delete-key	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/derived/streams
+path-fields-corpus	derived/flows.json>flows>1>views>guest>received>file:flip;raw/epoch/emulator-retire.json>reason:delete-key	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/derived/streams
+path-fields-corpus	raw/epoch/stopped-marker-forks/commands.json>0>stdout_file:flip;derived/flows.json>flows>0>views>namespace>received>file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/derived/streams
+path-fields-corpus	derived/flows.json>flows>1>views>namespace>received>file:flip;raw/epoch/stopped-marker-forks/commands.json>5>stdout_file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/derived/streams
+path-fields-corpus	derived/flows.json>flows>1>views>namespace>received>file:flip;raw/preparation/preflight.json>forks>server-data:delete-key	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/derived/streams
+path-fields-corpus	derived/flows.json>flows>1>views>namespace>received>file:flip;derived/flows.json>flows>0>views>guest>packet_count:inc	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/derived/streams
+path-fields-corpus	derived/flows.json>flows>0>views>guest>received>file:flip;raw/epoch/stopped-hfs-summary.json>active_users:drop-last	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/derived/streams
+path-fields-corpus	derived/flows.json>flows>0>views>namespace>sent>file:flip;raw/preparation/preflight.json>forks:delete-key	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/derived/streams
+path-fields-corpus	derived/flows.json>flows>0>views>namespace>sent>file:flip;raw/epoch/stopped-hfs-summary.json>results>istat-board:delete-key	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/derived/streams
+path-fields-corpus	derived/flows.json>flows>0>views>namespace>sent>file:flip;raw/epoch/stopped-hfs-summary.json>results:delete-key	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/derived/streams
+path-fields-corpus	derived/flows.json>flows>0>views>namespace>sent>file:flip;derived/flows.json>flows>0>views>guest>packet_count:inc	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/derived/streams
+path-fields-corpus	derived/flows.json>flows>0>views>namespace>received>file:flip;derived/flows.json>flows>0>views>guest>sent>file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-path-fields-01/derived/streams
+path-fields-corpus	raw/epoch/stopped-marker-forks/commands.json>5>stdout_file:flip;derived/flows.json>flows>0>views>guest>sent>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-path-fields-01'
+path-fields-corpus	raw/epoch/stopped-marker-forks/commands.json>5>stdout_file:flip;derived/flows.json>flows>1>views>guest>sent>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-path-fields-01'
+path-fields-corpus	raw/epoch/stopped-marker-forks/commands.json>6>stdout_file:flip;raw/epoch/capture-ready.json>managed_lock>busy_exit:delete-key	KeyError: 'busy_exit'
+path-fields-corpus	derived/flows.json>flows>0>views>namespace>received>file:empty;derived/flows.json>flows>1>views>namespace>sent>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-path-fields-01'
+path-fields-corpus	derived/flows.json>flows>0>views>namespace>received>file:empty;derived/stopped-marker-catalogue.json>entries:delete-key	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-path-fields-01'
+path-fields-corpus	derived/flows.json>flows>1>views>namespace>received>file:empty;derived/flows.json>flows>1>views>namespace>sent>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-path-fields-01'
+path-fields-corpus	derived/flows.json>flows>1>views>namespace>received>file:empty;raw/epoch/stopped-hfs-summary.json>files_news:delete-key	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-path-fields-01'
+path-fields-corpus	derived/flows.json>flows>1>views>namespace>received>file:empty;raw/epoch/stopped-marker-forks/fd-free-before-read.json>root_fuser_stdout:delete-key	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-path-fields-01'
+path-fields-corpus	derived/flows.json>flows>1>views>namespace>received>file:empty;raw/epoch/emulator-retire.json>utc:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-path-fields-01'
+path-fields-corpus	derived/flows.json>flows>0>views>guest>sent>file:empty;raw/epoch/stopped-hfs-summary.json>active_users:drop-last	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-path-fields-01'
+path-fields-corpus	derived/flows.json>flows>0>views>guest>received>file:empty;raw/preparation/preflight.json>forks>Prefs:delete-key	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-path-fields-01'
+path-fields-corpus	derived/flows.json>flows>0>views>guest>received>file:empty;raw/preparation/preflight.json>forks>admin:delete-key	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-path-fields-01'
+path-fields-corpus	derived/flows.json>flows>0>views>guest>received>file:empty;raw/epoch/stopped-hfs-summary.json>results>icat-admin>exit:inc	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-path-fields-01'
+path-fields-corpus	derived/flows.json>flows>0>views>guest>received>file:empty;derived/flows.json>flows>1>views>guest>client:drop-last	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-path-fields-01'
+path-fields-corpus	derived/flows.json>flows>1>views>guest>received>file:empty;raw/epoch/stopped-marker-forks/commands.json>0>stdout_file:delete-key	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-path-fields-01'
+path-fields-corpus	derived/flows.json>flows>1>views>guest>received>file:empty;raw/epoch/stopped-hfs-summary.json>active_users:drop-last	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-path-fields-01'
+path-fields-corpus	raw/preparation/files-news-catalog.json>entries>Files:delete-key;raw/epoch/capture-ready.json>managed_lock>unit:flip	ValueError: Managed source/lock receipt differs
+path-fields-corpus	raw/epoch/capture-ready.json>managed_lock>unit_properties>MainPID:delete-key;derived/flows.json>flows>0>views>namespace>packet_count:delete-key	KeyError: 'MainPID'
+path-fields-corpus	derived/flows.json>flows>0>views>namespace>client:delete-key;raw/epoch/capture-ready.json>managed_lock>pid:inc	ValueError: Managed oracle lease proof differs
+path-fields-corpus	raw/epoch/capture-ready.json>emulator_netns_inode:delete-key;raw/epoch/capture-ready.json>managed_lock>unit:flip	KeyError: 'emulator_netns_inode'
+path-fields-corpus	raw/epoch/disk-ready.json>exe_sha256:delete-key;raw/epoch/capture-ready.json>guest_pcap:delete-key	KeyError: 'exe_sha256'
+path-fields-corpus	raw/preparation/preflight.json>forks>fixture-low:delete-key;raw/epoch/disk-ready.json>phase:delete-key	KeyError: 'phase'
+path-fields-corpus	raw/epoch/source-freeze.json>helper_hashes:delete-key;raw/epoch/capture-ready.json>managed_lock>pid:inc	KeyError: 'helper_hashes'
+path-fields-corpus	raw/epoch/coordinator/report.json>events>6>hex:delete-key;raw/preparation/preflight.json>prepared>working.dsk>inode:delete-key	KeyError: 'inode'
+path-fields-corpus	raw/epoch/coordinator/report.json>events>6>hex:delete-key;raw/epoch/capture-ready.json>managed_lock:delete-key	KeyError: 'managed_lock'
+path-fields-corpus	raw/epoch/capture-ready.json>managed_lock>unit:delete-key;raw/preparation/preflight.json>prepared>working.dsk:delete-key	KeyError: 'working.dsk'

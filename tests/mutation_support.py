@@ -14,6 +14,7 @@ by ``>``) and the ending.
 import copy
 import hashlib
 import json
+import re
 import typing as typ
 
 if typ.TYPE_CHECKING:
@@ -27,6 +28,9 @@ DELETE_KEY = "delete-key"
 PATH_SEPARATOR = ">"
 OK_DIGEST_CHARS = 16
 MESSAGE_CHARS = 100
+# A scratch directory made by ``tempfile`` and the directories above it, which a
+# message may name and which differ on every run.
+SCRATCH_PATH = re.compile(r"(?:/[\w.-]+)*/tmp[a-z0-9_]{8}")
 
 
 def step_into(node: Json, step: str) -> int | str:
@@ -105,7 +109,8 @@ def ending(call: cabc.Callable[..., object], state: Json) -> str:
     try:
         result = call(state)
     except Exception as exc:  # ruff: ignore[blind-except]  # every ending is recorded
-        return " ".join(f"{type(exc).__name__}: {exc}".split())[:MESSAGE_CHARS]
+        text = SCRATCH_PATH.sub("<tmp>", f"{type(exc).__name__}: {exc}")
+        return " ".join(text.split())[:MESSAGE_CHARS]
     blob = json.dumps(result, sort_keys=True, default=repr)
     return "ok " + hashlib.sha256(blob.encode()).hexdigest()[:OK_DIGEST_CHARS]
 

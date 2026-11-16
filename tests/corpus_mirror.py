@@ -7,6 +7,7 @@ copy. The retained evidence is never written to.
 """
 
 import json
+import shutil
 import sys
 import tempfile
 import typing as typ
@@ -21,14 +22,20 @@ if typ.TYPE_CHECKING:
 class Mirror:
     """A mirror of a corpus whose files can be replaced one by one."""
 
-    def __init__(self, corpus: Path, root: Path) -> None:
-        """Link each entry of ``corpus`` into the empty directory ``root``."""
+    def __init__(self, corpus: Path, root: Path, *, copy: bool = False) -> None:
+        """Link each entry of ``corpus`` into the empty directory ``root``.
+
+        With ``copy`` set, each file is copied instead, for a verifier that
+        refuses a corpus that holds symbolic links.
+        """
         self.corpus = corpus
         self.root = root
         for source in sorted(corpus.rglob("*")):
             target = root / source.relative_to(corpus)
             if source.is_dir() and not source.is_symlink():
                 target.mkdir(exist_ok=True)
+            elif copy:
+                shutil.copyfile(source, target)
             else:
                 target.symlink_to(source)
 

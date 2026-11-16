@@ -1,0 +1,68 @@
+liveness		ok 9a63ac0fc4d9b038
+liveness	environment:delete-key	KeyError: 'environment'
+liveness	port:delete-key	KeyError: 'port'
+liveness	environment>fixture_profile:flip	ValueError: Only reserved control-only port15840 is prepared
+liveness	environment>emulator_pid:delete-key	ValueError: Prepared runtime identity incomplete
+liveness	environment:delete-key;port:delete-key	KeyError: 'environment'
+liveness	port:delete-key;environment>fixture_profile:flip	KeyError: 'port'
+liveness	port:delete-key;environment>emulator_pid:delete-key	KeyError: 'port'
+liveness	environment>fixture_profile:flip;environment>emulator_pid:delete-key	ValueError: Only reserved control-only port15840 is prepared
+path-fields		ok c15d4ecbe919fd3e
+path-fields	environment:delete-key	KeyError: 'environment'
+path-fields	port:delete-key	KeyError: 'port'
+path-fields	environment>emulator_pid:delete-key	ValueError: Incomplete runtime identity
+path-fields	environment>fixture_profile:flip	ValueError: Only isolated control-only 15900 profile is prepared
+path-fields	environment:delete-key;port:delete-key	KeyError: 'environment'
+path-fields	port:delete-key;environment>emulator_pid:delete-key	KeyError: 'port'
+path-fields	port:delete-key;environment>fixture_profile:flip	KeyError: 'port'
+path-fields	environment>emulator_pid:delete-key;environment>fixture_profile:flip	ValueError: Only isolated control-only 15900 profile is prepared
+roster-overlap		ok d05efe81bcf5fb12
+roster-overlap	environment:delete-key	KeyError: 'environment'
+roster-overlap	port:delete-key	KeyError: 'port'
+roster-overlap	environment>fixture_profile:flip	ValueError: Only the control-only lab is prepared
+roster-overlap	port:inc	ValueError: Roster overlap requires reserved port15820
+roster-overlap	environment>emulator_pid:delete-key	ValueError: Runtime identity incomplete
+roster-overlap	environment:delete-key;port:delete-key	KeyError: 'environment'
+roster-overlap	environment:delete-key;port:inc	KeyError: 'environment'
+roster-overlap	port:delete-key;environment>fixture_profile:flip	KeyError: 'port'
+roster-overlap	port:delete-key;environment>emulator_pid:delete-key	KeyError: 'port'
+roster-overlap	environment>fixture_profile:flip;port:inc	ValueError: Roster overlap requires reserved port15820
+roster-overlap	environment>fixture_profile:flip;environment>emulator_pid:delete-key	ValueError: Runtime identity incomplete
+roster-overlap	port:inc;environment>emulator_pid:delete-key	ValueError: Roster overlap requires reserved port15820
+rate304-sequence		ok fce58dda5807bdeb
+rate304-sequence	environment:delete-key	KeyError: 'environment'
+rate304-sequence	port:delete-key	KeyError: 'port'
+rate304-sequence	environment>fixture_profile:flip	ValueError: Only reserved control-only port15880 is prepared
+rate304-sequence	environment>emulator_pid:delete-key	ValueError: Prepared runtime identity incomplete
+rate304-sequence	environment:delete-key;port:delete-key	KeyError: 'environment'
+rate304-sequence	port:delete-key;environment>fixture_profile:flip	KeyError: 'port'
+rate304-sequence	port:delete-key;environment>emulator_pid:delete-key	KeyError: 'port'
+rate304-sequence	environment>fixture_profile:flip;environment>emulator_pid:delete-key	ValueError: Only reserved control-only port15880 is prepared
+rate304-first-pair		ok 857667ff8b892f82
+rate304-first-pair	environment:delete-key	KeyError: 'environment'
+rate304-first-pair	port:delete-key	KeyError: 'port'
+rate304-first-pair	environment>fixture_profile:flip	ValueError: Only reserved control-only port15880 is prepared
+rate304-first-pair	environment>emulator_pid:delete-key	ValueError: Prepared runtime identity incomplete
+rate304-first-pair	environment:delete-key;port:delete-key	KeyError: 'environment'
+rate304-first-pair	port:delete-key;environment>fixture_profile:flip	KeyError: 'port'
+rate304-first-pair	port:delete-key;environment>emulator_pid:delete-key	KeyError: 'port'
+rate304-first-pair	environment>fixture_profile:flip;environment>emulator_pid:delete-key	ValueError: Only reserved control-only port15880 is prepared
+ban-expiry		ok 79c1045b63e2fec6
+ban-expiry	environment:delete-key	KeyError: 'environment'
+ban-expiry	port:delete-key	KeyError: 'port'
+ban-expiry	port:inc	ValueError: B66 frontend must be owned port 15800
+ban-expiry	environment>source_a7_sha256:flip	ValueError: Frozen A7 source-plan identity differs
+ban-expiry	environment>fixture_profile:flip	ValueError: Only control-only profile is prepared
+ban-expiry	environment:delete-key;port:delete-key	KeyError: 'environment'
+ban-expiry	environment:delete-key;port:inc	KeyError: 'environment'
+ban-expiry	port:delete-key;environment>source_a7_sha256:flip	KeyError: 'port'
+ban-expiry	port:delete-key;environment>fixture_profile:flip	KeyError: 'port'
+ban-expiry	port:inc;environment>source_a7_sha256:flip	ValueError: B66 frontend must be owned port 15800
+ban-expiry	port:inc;environment>fixture_profile:flip	ValueError: B66 frontend must be owned port 15800
+ban-expiry	environment>source_a7_sha256:flip;environment>fixture_profile:flip	ValueError: Frozen A7 source-plan identity differs
+configured-ban		ok b20be5ebe054bfb6
+configured-ban	environment:delete-key	KeyError: 'environment'
+configured-ban	port:delete-key	KeyError: 'port'
+configured-ban	environment>source_a7_sha256:flip	ValueError: Original A7 source-plan hash differs
+configured-ban	environment:delete-key;port:delete-key	KeyError: 'environment'
+configured-ban	port:delete-key;environment>source_a7_sha256:flip	KeyError: 'port'

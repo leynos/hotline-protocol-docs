@@ -5,31 +5,79 @@ import json
 import os
 import shutil
 import tempfile
+import typing as typ
 import unittest
 from pathlib import Path
 
+import pytest
 import verify_native_path_fields as target
 from native_plan import packet, payload
 from protocol_capture import decode_frame
 
+if typ.TYPE_CHECKING:
+    import collections.abc as cabc
+
 CORPUS = Path(os.environ.get("MOTHRA_PATH_FIELD_CORPUS", target.CORPUS))
 
 
-def read(corpus, name):
+def read(corpus: Path, name: str) -> dict:
+    """Load one JSON file of a corpus.
+
+    Parameters
+    ----------
+    corpus : Path
+        The corpus directory.
+    name : str
+        The file name, relative to the corpus.
+
+    Returns
+    -------
+    dict
+        The parsed JSON value.
+    """
     return json.loads((corpus / name).read_text())
 
 
-def write(corpus, name, value):
+def write(corpus: Path, name: str, value: object) -> None:
+    """Write one JSON file of a corpus with a trailing newline.
+
+    Parameters
+    ----------
+    corpus : Path
+        The corpus directory.
+    name : str
+        The file name, relative to the corpus.
+    value : object
+        The JSON value to write.
+    """
     (corpus / name).write_text(json.dumps(value, indent=2) + "\n")
 
 
-def alter(corpus, name, change):
+def alter(corpus: Path, name: str, change: cabc.Callable[[dict], object]) -> None:
+    """Apply a change to one JSON file of a corpus and write it back.
+
+    Parameters
+    ----------
+    corpus : Path
+        The corpus directory.
+    name : str
+        The file name, relative to the corpus.
+    change : cabc.Callable[[dict], object]
+        The change, which mutates the parsed value in place.
+    """
     value = read(corpus, name)
     change(value)
     write(corpus, name, value)
 
 
-def rechecksum(corpus):
+def rechecksum(corpus: Path) -> None:
+    """Refresh the manifest digests and the SHA256SUMS file of a corpus.
+
+    Parameters
+    ----------
+    corpus : Path
+        The corpus directory whose checksums are refreshed.
+    """
     manifest = read(corpus, "manifest.json")
     manifest["files"] = {
         name: hashlib.sha256((corpus / name).read_bytes()).hexdigest()
@@ -49,21 +97,39 @@ def rechecksum(corpus):
     )
 
 
-def flip_byte(corpus, name):
+def flip_byte(corpus: Path, name: str) -> None:
+    """Flip the last bit of one corpus file.
+
+    Parameters
+    ----------
+    corpus : Path
+        The corpus directory.
+    name : str
+        The file name, relative to the corpus.
+    """
     path = corpus / name
     raw = bytearray(path.read_bytes())
     raw[-1] ^= 1
     path.write_bytes(raw)
 
 
-def change_pcap_payload(corpus, name):
+def change_pcap_payload(corpus: Path, name: str) -> None:
+    """Rewrite the first TRTPHOTL marker of one PCAP file to TRTPHOTM.
+
+    Parameters
+    ----------
+    corpus : Path
+        The corpus directory.
+    name : str
+        The PCAP file name, relative to the corpus.
+    """
     path = corpus / name
     raw = path.read_bytes()
-    assert b"TRTPHOTL" in raw
+    assert b"TRTPHOTL" in raw, "the handshake is in the capture"
     path.write_bytes(raw.replace(b"TRTPHOTL", b"TRTPHOTM", 1))
 
 
-def consistent_report_change(corpus):
+def consistent_report_change(corpus: Path) -> None:
     """Forge report frame/event/stream together, leaving independent PCAP raw."""
     path = "raw/epoch/coordinator/report.json"
     report = read(corpus, path)
@@ -76,7 +142,7 @@ def consistent_report_change(corpus):
     changed = [
         e for e in report["events"] if e["event"] == "receive" and old in e["hex"]
     ]
-    assert len(changed) == 1
+    assert len(changed) == 1, "one receive event holds the text"
     changed[0]["hex"] = changed[0]["hex"].replace(old, new)
     report["streams"]["main"]["received_hex"] = report["streams"]["main"][
         "received_hex"
@@ -87,19 +153,41 @@ def consistent_report_change(corpus):
     write(corpus, path, report)
 
 
-def bad_report(corpus, change):
+def bad_report(corpus: Path, change: cabc.Callable[[dict], object]) -> None:
+    """Alter the coordinator report of a corpus.
+
+    Parameters
+    ----------
+    corpus : Path
+        The corpus directory.
+    change : cabc.Callable[[dict], object]
+        The change, which mutates the parsed report in place.
+    """
     alter(corpus, "raw/epoch/coordinator/report.json", change)
 
 
-def bad_result(corpus, change):
+def bad_result(corpus: Path, change: cabc.Callable[[list], object]) -> None:
+    """Alter the result list of the coordinator report of a corpus.
+
+    Parameters
+    ----------
+    corpus : Path
+        The corpus directory.
+    change : cabc.Callable[[list], object]
+        The change, which mutates the parsed result list in place.
+    """
     bad_report(corpus, lambda report: change(report["results"]))
 
 
 class PathPublicationTests(unittest.TestCase):
-    def test_frozen_case_replays(self):
-        self.assertEqual(target.verify(CORPUS)["status"], "PASS")
+    """Check the frozen native path case and its refreshed-checksum faults."""
 
-    def test_symlinked_corpus_content_rejected(self):
+    def test_frozen_case_replays(self) -> None:
+        """Replay the frozen case and expect a pass."""
+        assert target.verify(CORPUS)["status"] == "PASS", "frozen case passes"
+
+    def test_symlinked_corpus_content_rejected(self) -> None:
+        """Reject a corpus whose content is a symlink into the frozen case."""
         for name in ("derived/flows.json", "raw/epoch/sources"):
             with self.subTest(name=name), tempfile.TemporaryDirectory() as temp:
                 case = Path(temp) / "corpus"
@@ -111,10 +199,11 @@ class PathPublicationTests(unittest.TestCase):
                     path.unlink()
                 path.symlink_to(CORPUS / name)
                 rechecksum(case)
-                with self.assertRaisesRegex(ValueError, "Corpus symlink"):
+                with pytest.raises(ValueError, match="Corpus symlink"):
                     target.verify(case)
 
-    def test_consistent_source_forgery_cannot_execute(self):
+    def test_consistent_source_forgery_cannot_execute(self) -> None:
+        """Keep a consistently forged dependency from executing."""
         with tempfile.TemporaryDirectory() as temp:
             case = Path(temp) / "corpus"
             shutil.copytree(CORPUS, case)
@@ -122,7 +211,8 @@ class PathPublicationTests(unittest.TestCase):
             name = "protocol_capture.py"
             altered = (
                 (case / "raw/epoch/sources" / name).read_text()
-                + f"\nfrom pathlib import Path as _Path\n_Path({str(sentinel)!r}).touch()\n"
+                + "\nfrom pathlib import Path as _Path\n"
+                + f"_Path({str(sentinel)!r}).touch()\n"
             )
             for root in (
                 "raw/epoch/sources",
@@ -151,11 +241,12 @@ class PathPublicationTests(unittest.TestCase):
                 )
             )
             rechecksum(case)
-            with self.assertRaisesRegex(ValueError, "Trusted source approval"):
+            with pytest.raises(ValueError, match="Trusted source approval"):
                 target.verify(case)
-            self.assertFalse(sentinel.exists(), "Altered dependency executed")
+            assert not sentinel.exists(), "Altered dependency executed"
 
-    def test_checksum_refreshed_semantic_faults(self):
+    def test_checksum_refreshed_semantic_faults(self) -> None:
+        """Reject each checksum-refreshed semantic fault with its own reason."""
         faults = (
             (
                 "result-status",
@@ -300,7 +391,7 @@ class PathPublicationTests(unittest.TestCase):
                 shutil.copytree(CORPUS, case)
                 fault(case)
                 rechecksum(case)
-                with self.assertRaisesRegex(ValueError, reason):
+                with pytest.raises(ValueError, match=reason):
                     target.verify(case)
 
 
