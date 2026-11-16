@@ -1,0 +1,18 @@
+below-two	ValueError: Require roots and an ordered range of at most4096 catalogue IDs
+command-line	ok bfa73a28a31649b2
+no-image	ValueError: Image must exist
+no-image-and-no-tools	ValueError: Image must exist
+no-image-and-output-exists	ValueError: Image must exist
+no-roots	ValueError: Require roots and an ordered range of at most4096 catalogue IDs
+no-roots-and-no-image	ValueError: Require roots and an ordered range of at most4096 catalogue IDs
+no-tools	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/bin/istat'
+no-tools-and-output-exists	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/bin/istat'
+output-exists	FileExistsError: [Errno 17] File exists: '<tmp>/out'
+single-catalogue	ok 4f4df207cefce84d
+snapshot	ok c56e2b34b8f953cd
+too-wide	ValueError: Require roots and an ordered range of at most4096 catalogue IDs
+two-roots	ok fd10c41baacb90cb
+unordered	ValueError: Require roots and an ordered range of at most4096 catalogue IDs
+unordered-and-no-roots	ValueError: Require roots and an ordered range of at most4096 catalogue IDs
+unordered-and-output-exists	ValueError: Require roots and an ordered range of at most4096 catalogue IDs
+widest	ok f2505c24dba2f076

@@ -19,6 +19,16 @@ def mothra_root(repository: Path = REPOSITORY) -> Path:
     is used (the second is where it sits relative to a linked worktree), and
     when neither exists the conventional ``<repository>/../mothra``, so that
     messages name the expected place.
+
+    Parameters
+    ----------
+    repository : pathlib.Path
+        The repository whose sibling checkout is wanted.
+
+    Returns
+    -------
+    pathlib.Path
+        The mothra checkout, which may not exist.
     """
     configured = os.environ.get("MOTHRA_ROOT")
     if configured:

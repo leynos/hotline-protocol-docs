@@ -1,0 +1,18 @@
+appledouble-bad-finder	ValueError: Finder information and resource fork are required
+appledouble-duplicate	ValueError: Invalid AppleDouble entry bounds or duplicate ID
+appledouble-good	ok 14b1a4686434f532
+appledouble-magic	ValueError: Expected AppleDouble v2
+appledouble-no-finder	ValueError: Finder information and resource fork are required
+appledouble-no-resource	ValueError: Finder information and resource fork are required
+appledouble-short	ValueError: Expected AppleDouble v2
+appledouble-truncated-table	ValueError: Truncated AppleDouble entry table
+archive	ok 2b4686dd62ccc296
+prepare-bad-sidecar	ValueError: Expected AppleDouble v2
+prepare-destination-exists	FileExistsError: [Errno 17] File exists: '<tmp>'
+prepare-good	ok c32c42a3f9b2f26c
+prepare-no-sidecar	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/source/._HLserver19'
+prepare-with-agreement	ok 3339e08c6ce21295
+prepare-wrong-oracle	ValueError: Source is not the recorded Ghidra oracle
+prepare-wrong-oracle-and-bad-sidecar	ValueError: Source is not the recorded Ghidra oracle
+revision-changed	CalledProcessError: Command '['git', 'diff', '--exit-code', 'HEAD', '--']' returned non-zero exit st
+revision-clean	ok d59eced1ded07f84

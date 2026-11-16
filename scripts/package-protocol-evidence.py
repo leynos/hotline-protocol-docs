@@ -4,31 +4,74 @@
 import gzip
 import hashlib
 import json
-import subprocess
+import subprocess  # ruff: ignore[suspicious-subprocess-import]  # runs git with fixed argv lists and no shell
 from pathlib import Path
 
 
+def git_argv(*arguments: str) -> list[str]:
+    """Return the argument vector that runs Git with ``arguments``.
+
+    Parameters
+    ----------
+    *arguments : str
+        The Git arguments, after the program name.
+
+    Returns
+    -------
+    list[str]
+        The argument vector, with Git resolved from ``PATH`` as before.
+    """
+    return ["git", *arguments]
+
+
 def revision(repository: Path) -> str:
-    subprocess.run(
-        ["git", "diff", "--exit-code", "HEAD", "--"],
+    """Return the HEAD commit of a checkout whose worktree matches it.
+
+    Parameters
+    ----------
+    repository : Path
+        The repository to inspect.
+
+    Returns
+    -------
+    str
+        The full commit identifier.
+    """
+    subprocess.run(  # ruff: ignore[subprocess-without-shell-equals-true]  # fixed argv, no shell
+        git_argv("diff", "--exit-code", "HEAD", "--"),
         cwd=repository,
         check=True,
         stdout=subprocess.DEVNULL,
     )
-    return subprocess.check_output(
-        ["git", "rev-parse", "HEAD"], cwd=repository, text=True
+    return subprocess.check_output(  # ruff: ignore[subprocess-without-shell-equals-true]  # fixed argv, no shell
+        git_argv("rev-parse", "HEAD"), cwd=repository, text=True
     ).strip()
 
 
 def archive(repository: Path, commit: str) -> bytes:
-    data = subprocess.check_output(
-        ["git", "archive", "--format=tar", f"--prefix={repository.name}/", commit],
+    """Return a gzipped tar archive of one commit, without timestamps.
+
+    Parameters
+    ----------
+    repository : Path
+        The repository to archive.
+    commit : str
+        The commit to archive.
+
+    Returns
+    -------
+    bytes
+        The gzip-compressed archive.
+    """
+    data = subprocess.check_output(  # ruff: ignore[subprocess-without-shell-equals-true]  # fixed argv; the commit comes from rev-parse, no shell
+        git_argv("archive", "--format=tar", f"--prefix={repository.name}/", commit),
         cwd=repository,
     )
     return gzip.compress(data, mtime=0)
 
 
 def main() -> None:
+    """Write the archives, manifest, README and checksums for both checkouts."""
     root = Path(__file__).resolve().parent.parent
     documents = root.parent / "hotline-protocol-docs"
     repositories = (root, documents)
@@ -41,14 +84,12 @@ def main() -> None:
     for name, data in archives.items():
         filename = f"{name}.tar.gz"
         (output / filename).write_bytes(data)
-        records.append(
-            {
-                "repository": name,
-                "commit": commits[name],
-                "archive": filename,
-                "sha256": hashlib.sha256(data).hexdigest(),
-            }
-        )
+        records.append({
+            "repository": name,
+            "commit": commits[name],
+            "archive": filename,
+            "sha256": hashlib.sha256(data).hexdigest(),
+        })
     (output / "manifest.json").write_text(
         json.dumps({"schema_version": 1, "repositories": records}, indent=2) + "\n"
     )
