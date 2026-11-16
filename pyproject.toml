@@ -308,7 +308,7 @@ testpaths = ["tests", "scripts/tests"]
 pythonpath = ["scripts"]
 # A converted unittest keeps its class name, and so its golden key; see
 # tools/golden_pytest_plugin.py.
-python_classes = ["Test*", "*Tests"]
+python_classes = ["Test*", "*Tests", "*Test", "*Controls"]
 # The pinned-script equivalence test reruns most of the suite twice for a widely
 # imported script, so it runs from `make pin-equivalence`, not in the commit gate.
 markers = [

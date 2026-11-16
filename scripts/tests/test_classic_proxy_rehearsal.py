@@ -3,30 +3,36 @@
 import hashlib
 import json
 import shutil
-import tempfile
-import unittest
+import typing as typ
 from pathlib import Path
 
+import pytest
 from verify_classic_proxy_rehearsal import verify
 
+if typ.TYPE_CHECKING:
+    import collections.abc as cabc
+
+# scripts/tests sits two levels below the repository root that holds evidence/.
 SOURCE = (
-    Path(__file__).resolve().parent.parent
+    Path(__file__).resolve().parents[2]
     / "evidence/gap-remediation/2026-11-13/classic-proxy-rehearsal-01"
 )
 
 
-class ClassicProxyRehearsalTests(unittest.TestCase):
-    def setUp(self) -> None:
-        self.temp = tempfile.TemporaryDirectory()
-        self.addCleanup(self.temp.cleanup)
-        base = Path(self.temp.name)
+class ClassicProxyRehearsalTests:
+    """Reject each falsified claim, timing, order and proof of the rehearsal."""
+
+    @pytest.fixture(autouse=True)
+    def _copy(self, tmp_path: Path) -> None:
+        """Copy the corpus into a scratch tree that keeps its repository layout."""
         self.root = (
-            base / "evidence/gap-remediation/2026-11-13/classic-proxy-rehearsal-01"
+            tmp_path / "evidence/gap-remediation/2026-11-13/classic-proxy-rehearsal-01"
         )
         self.root.parent.mkdir(parents=True)
         shutil.copytree(SOURCE, self.root)
 
     def rewrite_inventory(self) -> None:
+        """Rewrite SHA256SUMS so that a changed file still matches its digest."""
         base = self.root.parents[3]
         files = sorted(
             path
@@ -41,7 +47,18 @@ class ClassicProxyRehearsalTests(unittest.TestCase):
             )
         )
 
-    def change_json(self, relative: str, mutate) -> None:
+    def change_json(
+        self, relative: str, mutate: cabc.Callable[[dict[str, typ.Any]], None]
+    ) -> None:
+        """Change one JSON file of the copy and refresh the inventory.
+
+        Parameters
+        ----------
+        relative : str
+            The file, relative to the corpus.
+        mutate : collections.abc.Callable
+            Changes the parsed value in place.
+        """
         path = self.root / relative
         value = json.loads(path.read_text())
         mutate(value)
@@ -49,43 +66,48 @@ class ClassicProxyRehearsalTests(unittest.TestCase):
         self.rewrite_inventory()
 
     def test_valid_synthetic_and_zero_contact_corpus(self) -> None:
-        self.assertEqual(
-            verify(self.root)["status"], "verified-synthetic-and-zero-contact"
+        """Verify the unchanged corpus."""
+        assert verify(self.root)["status"] == "verified-synthetic-and-zero-contact", (
+            'verify(self.root)["status"]'
         )
 
     def test_rejects_incorrect_native_evidence_claim(self) -> None:
+        """Refuse a manifest that claims native peer evidence."""
         self.change_json(
             "manifest.json", lambda value: value.update(native_peer_evidence=True)
         )
-        with self.assertRaises(AssertionError):
+        with pytest.raises(AssertionError):
             verify(self.root)
 
     def test_rejects_late_teardown_even_with_stale_valid_flag(self) -> None:
-        def late(value: dict) -> None:
+        """Refuse a late relay teardown, though the valid flag is stale."""
+
+        def late(value: dict[str, typ.Any]) -> None:
+            """Move the relay teardown three seconds later."""
             value["observation"]["relay_teardown_ns"] += 3_000_000_000
 
         self.change_json("synthetic/report.json", late)
-        with self.assertRaises(AssertionError):
+        with pytest.raises(AssertionError):
             verify(self.root)
 
     def test_rejects_reordered_handshake(self) -> None:
-        def reorder(value: dict) -> None:
+        """Refuse a report whose first two entries are swapped."""
+
+        def reorder(value: dict[str, typ.Any]) -> None:
+            """Swap the first two audited entries."""
             value["entries"][0], value["entries"][1] = (
                 value["entries"][1],
                 value["entries"][0],
             )
 
         self.change_json("synthetic/report.json", reorder)
-        with self.assertRaises(AssertionError):
+        with pytest.raises(AssertionError):
             verify(self.root)
 
     def test_rejects_undestroyed_proxy_pid_proof(self) -> None:
+        """Refuse a summary that says the proxy PID is not gone."""
         self.change_json(
             "synthetic/summary.json", lambda value: value.update(proxy_pid_gone=False)
         )
-        with self.assertRaises(AssertionError):
+        with pytest.raises(AssertionError):
             verify(self.root)
-
-
-if __name__ == "__main__":
-    unittest.main()

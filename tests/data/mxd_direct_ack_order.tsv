@@ -1,0 +1,106 @@
+mxd-direct-ack		ok 74234e98afe7498f
+mxd-direct-ack	manifest.json>c8_copied_raw_file_count:inc	ok 74234e98afe7498f
+mxd-direct-ack	manifest.json>c8_copied_raw_file_count:delete-key	ok 74234e98afe7498f
+mxd-direct-ack	manifest.json>candidate_source_hashes>src/header_util.rs:flip	ValueError: frozen candidate source hashes differ
+mxd-direct-ack	manifest.json>candidate_source_hashes>src/header_util.rs:delete-key	ValueError: frozen candidate source hashes differ
+mxd-direct-ack	manifest.json>candidate_source_hashes>src/header_util/kani.rs:flip	ValueError: frozen candidate source hashes differ
+mxd-direct-ack	manifest.json>created_at_utc:flip	ok 74234e98afe7498f
+mxd-direct-ack	manifest.json>created_at_utc:delete-key	ok 74234e98afe7498f
+mxd-direct-ack	manifest.json>execution>cargo_build_jobs:inc	ValueError: offline or single-job control differs
+mxd-direct-ack	manifest.json>execution>cargo_build_jobs:delete-key	KeyError: 'cargo_build_jobs'
+mxd-direct-ack	manifest.json>execution>cargo_net_offline:not	ValueError: offline or single-job control differs
+mxd-direct-ack	manifest.json>execution>cargo_net_offline:delete-key	KeyError: 'cargo_net_offline'
+mxd-direct-ack	manifest.json>execution>doctest_counts>0>0:inc	ok 74234e98afe7498f
+mxd-direct-ack	manifest.json>execution>doctest_counts>0>1:inc	ok 74234e98afe7498f
+mxd-direct-ack	manifest.json>execution>doctest_counts>1>0:inc	ok 74234e98afe7498f
+mxd-direct-ack	manifest.json>execution>doctest_counts>1>1:inc	ok 74234e98afe7498f
+mxd-direct-ack	manifest.json>execution>full_log_sha256:flip	ValueError: raw full log digest differs
+mxd-direct-ack	manifest.json>execution>full_log_sha256:delete-key	KeyError: 'full_log_sha256'
+mxd-direct-ack	manifest.json>execution>invocation_id:flip	ValueError: controlled execution differs
+mxd-direct-ack	manifest.json>execution>invocation_id:delete-key	KeyError: 'invocation_id'
+mxd-direct-ack	manifest.json>execution>nextest_test_threads:inc	ValueError: controlled execution differs
+mxd-direct-ack	manifest.json>execution>nextest_test_threads:delete-key	KeyError: 'nextest_test_threads'
+mxd-direct-ack	manifest.json>execution>pg_data_dir:flip	ValueError: controlled execution differs
+mxd-direct-ack	manifest.json>execution>pg_data_dir:delete-key	KeyError: 'pg_data_dir'
+mxd-direct-ack	manifest.json>execution>unit:delete-key	KeyError: 'unit'
+mxd-direct-ack	manifest.json>execution>unit_derived_exit:delete-key	KeyError: 'unit_derived_exit'
+mxd-direct-ack	manifest.json>limitations>3:flip	ValueError: unrun proof limitation missing
+mxd-direct-ack	manifest.json>mxd_base:flip	ValueError: source revisions differ
+mxd-direct-ack	manifest.json>mxd_base:delete-key	KeyError: 'mxd_base'
+mxd-direct-ack	manifest.json>mxd_final_head:flip	ValueError: source revisions differ
+mxd-direct-ack	manifest.json>mxd_final_head:delete-key	KeyError: 'mxd_final_head'
+mxd-direct-ack	manifest.json>prior_failed_evidence>manifest_sha256:flip	ValueError: prior failed-gate manifest differs
+mxd-direct-ack	manifest.json>prior_failed_evidence>manifest_sha256:delete-key	KeyError: 'manifest_sha256'
+mxd-direct-ack	manifest.json>source_commit:flip	ValueError: source revisions differ
+mxd-direct-ack	manifest.json>source_commit:delete-key	KeyError: 'source_commit'
+mxd-direct-ack	manifest.json>source_patch_sha256:flip	ValueError: base-to-commit patch differs
+mxd-direct-ack	manifest.json>source_patch_sha256:delete-key	KeyError: 'source_patch_sha256'
+mxd-direct-ack	prior/manifest.json>candidate_source_hashes>src/header_util.rs:flip	ValueError: prior failed-gate manifest differs
+mxd-direct-ack	prior/manifest.json>candidate_source_hashes>src/header_util.rs:delete-key	ValueError: prior failed-gate manifest differs
+mxd-direct-ack	unit-initial-props.txt>Id:flip	ValueError: unit identity or timers differ
+mxd-direct-ack	unit-initial-props.txt>Id:delete-key	ValueError: unit identity or timers differ
+mxd-direct-ack	unit-initial-props.txt>InvocationID:flip	ValueError: unit identity or timers differ
+mxd-direct-ack	unit-final-props.txt>ActiveState:flip	ValueError: retained unit does not prove exit zero
+mxd-direct-ack	unit-final-props.txt>ActiveState:delete-key	ValueError: retained unit does not prove exit zero
+mxd-direct-ack	unit-final-props.txt>SubState:flip	ValueError: retained unit does not prove exit zero
+mxd-direct-ack	run-full.sh>4:flip	ValueError: missing execution control: CARGO_NET_OFFLINE=true
+mxd-direct-ack	run-full.sh>4:empty	ValueError: missing execution control: CARGO_NET_OFFLINE=true
+mxd-direct-ack	run-full.sh>5:flip	ValueError: missing execution control: CARGO_BUILD_JOBS=1
+mxd-direct-ack	run-full.sh>5:empty	ValueError: missing execution control: CARGO_BUILD_JOBS=1
+mxd-direct-ack	run-full.sh>6:flip	ValueError: missing execution control: NEXTEST_TEST_THREADS=2
+mxd-direct-ack	run-full.sh>6:empty	ValueError: missing execution control: NEXTEST_TEST_THREADS=2
+mxd-direct-ack	run-full.sh>7:empty	ValueError: missing execution control: PG_EMBED_ROOT=
+mxd-direct-ack	run-full.sh>8:flip	ValueError: missing execution control: PG_RUNTIME_DIR=/var/tmp/pg-embed-1000/install
+mxd-direct-ack	run-full.sh>8:empty	ValueError: missing execution control: PG_RUNTIME_DIR=/var/tmp/pg-embed-1000/install
+mxd-direct-ack	run-full.sh>9:empty	ValueError: missing execution control: unset PG_DATA_DIR
+mxd-direct-ack	run-full.sh>14:empty	ValueError: missing execution control: test-rstest-bdd-ui: export CARGO_TARGET_DIR
+mxd-direct-ack	full.log>0:flip	ValueError: raw full log digest differs
+mxd-direct-ack	full.log>0:empty	ValueError: raw full log digest differs
+mxd-direct-ack	full.log>1199:flip	ValueError: suite or doctest summary differs
+mxd-direct-ack	full.log>1199:empty	ValueError: suite or doctest summary differs
+mxd-direct-ack	full.log>2406:flip	ValueError: suite or doctest summary differs
+mxd-direct-ack	source-commit-object.txt>0:flip	ValueError: commit object or parent differs
+mxd-direct-ack	source-commit-object.txt>0:empty	ValueError: commit object or parent differs
+mxd-direct-ack	source-commit-object.txt>1:flip	ValueError: commit object or parent differs
+mxd-direct-ack	source-tree.txt>0:flip	ValueError: unexpected source tree entry
+mxd-direct-ack	source-tree.txt>0:empty	ValueError: not enough values to unpack (expected 2, got 1)
+mxd-direct-ack	source-tree.txt>1:flip	ValueError: unexpected source tree entry
+mxd-direct-ack	source-tree.txt>1:empty	ValueError: not enough values to unpack (expected 2, got 1)
+mxd-direct-ack	source-tree.txt>2:flip	ValueError: unexpected source tree entry
+mxd-direct-ack	source-tree.txt>2:empty	ValueError: not enough values to unpack (expected 2, got 1)
+mxd-direct-ack	source-tracked-status.txt>0:flip	ValueError: private source was dirty after commit
+mxd-direct-ack	watch-capture.jsonl>1078:flip	JSONDecodeError: Expecting ',' delimiter: line 1 column 129 (char 128)
+mxd-direct-ack	watch-capture.jsonl>1078:empty	JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+mxd-direct-ack	full.log>3689:empty;prior/manifest.json>candidate_source_hashes>tests/direct_reply_validation.rs:delete-key	ValueError: prior failed-gate manifest differs
+mxd-direct-ack	c8/SHA256SUMS>3:empty;manifest.json>execution>doctest_counts>1>1:inc	ValueError: not enough values to unpack (expected 2, got 1)
+mxd-direct-ack	manifest.json>execution>nextest_counts>6>2:inc;prior/SHA256SUMS>20:empty	ValueError: not enough values to unpack (expected 2, got 1)
+mxd-direct-ack	manifest.json>execution>watch_capture_sha256:flip;source-tree.txt>10:flip	ValueError: unexpected source tree entry
+mxd-direct-ack	prior/SHA256SUMS>44:empty;manifest.json>execution>nextest_counts>1>2:inc	ValueError: not enough values to unpack (expected 2, got 1)
+mxd-direct-ack	prior/SHA256SUMS>6:flip;prior/manifest.json>red_green>duplicate_300_validator>green_passed:inc	ValueError: prior failed-gate manifest differs
+mxd-direct-ack	manifest.json>candidate_source_hashes>tests/wireframe_memory_budgets.rs:flip;manifest.json>execution>profiles>3:flip	ValueError: frozen candidate source hashes differ
+mxd-direct-ack	SHA256SUMS>6:empty;c8/SHA256SUMS>15:empty	ValueError: checksum mismatch: c8/SHA256SUMS
+mxd-direct-ack	manifest.json>execution>nextest_counts>5>2:inc;unit-initial-props.txt>InvocationID:flip	ValueError: unit identity or timers differ
+mxd-direct-ack	manifest.json>execution>unit:flip;prior/SHA256SUMS>28:empty	ValueError: not enough values to unpack (expected 2, got 1)
+mxd-direct-ack	SHA256SUMS>1:empty;manifest.json>execution>nextest_counts>2>0:inc	ValueError: not enough values to unpack (expected 2, got 1)
+mxd-direct-ack	prior/SHA256SUMS>36:flip;prior/manifest.json>candidate_source_hashes>src/header_util.rs:delete-key	ValueError: prior failed-gate manifest differs
+mxd-direct-ack	prior/manifest.json>red_green>final_format_lint>exit:delete-key;prior/SHA256SUMS>69:flip	ValueError: prior failed-gate manifest differs
+mxd-direct-ack	prior/SHA256SUMS>67:empty;prior/SHA256SUMS>44:empty	ValueError: not enough values to unpack (expected 2, got 1)
+mxd-direct-ack	manifest.json>execution>nextest_counts>3>0:inc;prior/SHA256SUMS>41:empty	ValueError: not enough values to unpack (expected 2, got 1)
+mxd-direct-ack	prior/SHA256SUMS>46:flip;c8/SHA256SUMS>4:empty	ValueError: not enough values to unpack (expected 2, got 1)
+mxd-direct-ack	manifest.json>execution>full_log_sha256:flip;prior/manifest.json>red_green>duplicate_300_validator>red_passed:delete-key	ValueError: prior failed-gate manifest differs
+mxd-direct-ack	manifest.json>execution>doctest_counts>0>1:inc;prior/SHA256SUMS>31:empty	ValueError: not enough values to unpack (expected 2, got 1)
+mxd-direct-ack	prior/manifest.json>candidate_source_hashes>src/wireframe/compat_layer.rs:delete-key;run-full.sh>4:flip	ValueError: prior failed-gate manifest differs
+mxd-direct-ack	prior/SHA256SUMS>38:empty;run-full.sh>13:empty	ValueError: not enough values to unpack (expected 2, got 1)
+mxd-direct-ack	prior/SHA256SUMS>33:flip;prior/manifest.json>full_gates>1>later_profiles_and_doctests:flip	ValueError: prior failed-gate manifest differs
+mxd-direct-ack	manifest.json>mxd_final_head:flip;prior/SHA256SUMS>44:flip	ValueError: source revisions differ
+mxd-direct-ack	prior/SHA256SUMS>38:empty;prior/SHA256SUMS>73:empty	ValueError: not enough values to unpack (expected 2, got 1)
+mxd-direct-ack	prior/manifest.json>full_gates>1>postgres_run:delete-key;source-tree.txt>13:empty	ValueError: prior failed-gate manifest differs
+mxd-direct-ack	manifest.json>limitations>1:flip;prior/SHA256SUMS>26:empty	ValueError: not enough values to unpack (expected 2, got 1)
+mxd-direct-ack	prior/manifest.json>red_green>direct_ack_router>green_exit:delete-key;prior/SHA256SUMS>0:empty	ValueError: prior failed-gate manifest differs
+mxd-direct-ack	full.log>1199:empty;SHA256SUMS>22:empty	ValueError: checksum mismatch: full.log
+mxd-direct-ack	prior/SHA256SUMS>46:flip;SHA256SUMS>16:empty	ValueError: not enough values to unpack (expected 2, got 1)
+mxd-direct-ack	source-tree.txt>8:flip;run-full.sh>9:flip	ValueError: unexpected source tree entry
+mxd-direct-ack	unit-initial-props.txt>RemainAfterExit:flip;prior/manifest.json>full_gates>1>invocation_id:delete-key	ValueError: prior failed-gate manifest differs
+mxd-direct-ack	unit-initial-props.txt>Type:delete-key;manifest.json>execution>pg_runtime_dir:flip	ValueError: unit identity or timers differ
+mxd-direct-ack	prior/SHA256SUMS>40:empty;run-full.sh>9:empty	ValueError: not enough values to unpack (expected 2, got 1)
+mxd-direct-ack	prior/SHA256SUMS>15:flip;SHA256SUMS>37:empty	ValueError: not enough values to unpack (expected 2, got 1)

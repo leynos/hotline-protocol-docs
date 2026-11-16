@@ -166,12 +166,12 @@
       "output_bytes": 186,
       "last_line": "{\"client_sha256\": \"7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315\", \"content_queries\": {\"B37\": 12, \"B38\": 8, \"B39\": 3}, \"status\": \"verified-bo"
     },
-    "evidence-verify: python3 -m unittest scripts.test_verify_classic_account_constructors": {
+    "evidence-verify: python3 -m pytest -q -p no:cacheprovider scripts/tests/test_verify_classic_account_constructors.py::ClassicAccountConstructorsTest": {
       "target": "evidence-verify",
       "exit_code": 0,
-      "output_sha256": "2fb982059be45a97a274f69942800f3034d28ecc1828af959aa561567f405e18",
-      "output_bytes": 103,
-      "last_line": "OK"
+      "output_sha256": "f98516f9141df7cb6deae1a55867fc5d1142bb74079a881ad4eff4e73f50264d",
+      "output_bytes": 97,
+      "last_line": "7 passed in <T>s"
     },
     "evidence-verify: python3 scripts/verify_native_download_send_path.py evidence/gap-remediation/2026-11-13/native-download-send-path-01": {
       "target": "evidence-verify",
@@ -222,12 +222,12 @@
       "output_bytes": 1431,
       "last_line": "}"
     },
-    "evidence-verify: python3 -m unittest discover -s scripts -p 'test_request500_client_source.py'": {
+    "evidence-verify: python3 -m pytest -q -p no:cacheprovider scripts/tests/test_request500_client_source.py::ChainTests": {
       "target": "evidence-verify",
       "exit_code": 0,
-      "output_sha256": "8c6da4b11bfe4137c5f1a178950dbf70102b8aa3246a0a26029c06b7e1fd3b15",
-      "output_bytes": 100,
-      "last_line": "OK"
+      "output_sha256": "e09441a21a275bcd75c0b8549f6cf5ab240be62a47b0b5a5550413dfe6e10181",
+      "output_bytes": 97,
+      "last_line": "4 passed in <T>s"
     },
     "evidence-verify: python3 scripts/protocol_capture.py verify evidence/gap-remediation/2026-11-12/capture-tooling-01/transcript": {
       "target": "evidence-verify",
@@ -523,7 +523,7 @@
       "output_bytes": 88,
       "last_line": "verified 7 profiles and 2 doctest summaries at 481294915b48f4db06943c8af86cf31b7e47597a"
     },
-    "evidence-verify: python3 scripts/test_mxd_direct_ack.py evidence/gap-remediation/2026-11-13/mxd-direct-ack-02": {
+    "evidence-verify: python3 scripts/verify_mxd_direct_ack.py evidence/gap-remediation/2026-11-13/mxd-direct-ack-02": {
       "target": "evidence-verify",
       "exit_code": 0,
       "output_sha256": "b6ac9418a13d198fb860ec52d97fbdd8f4280ba2148727aac3b7344d044c95ff",
@@ -593,19 +593,19 @@
       "output_bytes": 171,
       "last_line": "{'Doc defect': 8, 'Supported': 16, 'Contradicted': 26, 'Partial': 18, 'Unverified': 15}"
     },
-    "evidence-verify: python3 -m unittest discover -s scripts -p 'test_alias_record_v2.py'": {
+    "evidence-verify: python3 -m pytest -q -p no:cacheprovider scripts/tests/test_alias_record_v2.py::AliasRecordV2Tests": {
       "target": "evidence-verify",
       "exit_code": 0,
-      "output_sha256": "8c6da4b11bfe4137c5f1a178950dbf70102b8aa3246a0a26029c06b7e1fd3b15",
-      "output_bytes": 100,
-      "last_line": "OK"
+      "output_sha256": "e09441a21a275bcd75c0b8549f6cf5ab240be62a47b0b5a5550413dfe6e10181",
+      "output_bytes": 97,
+      "last_line": "4 passed in <T>s"
     },
-    "evidence-verify: python3 -m unittest discover -s scripts -p 'test_classic_proxy_rehearsal.py'": {
+    "evidence-verify: python3 -m pytest -q -p no:cacheprovider scripts/tests/test_classic_proxy_rehearsal.py::ClassicProxyRehearsalTests": {
       "target": "evidence-verify",
       "exit_code": 0,
-      "output_sha256": "32f38f40707b2a9ffd217cecd2414c385c2454903bb23b9ac83572b112d705d6",
-      "output_bytes": 101,
-      "last_line": "OK"
+      "output_sha256": "4f320438afae6b4ea5cf03403c1f87fe61b977c1268547c249fce5b721ac962f",
+      "output_bytes": 97,
+      "last_line": "5 passed in <T>s"
     },
     "evidence-verify: python3 scripts/verify_classic_proxy_rehearsal.py evidence/gap-remediation/2026-11-13/classic-proxy-rehearsal-01": {
       "target": "evidence-verify",

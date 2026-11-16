@@ -267,7 +267,7 @@ evidence-verify: ## Verify every retained Hotline corpus with its legacy verifie
 	$(call in_legacy_layout,python3 evidence/gap-remediation/2026-11-13/native-settings-transitions-01/verify_packets.py)
 	$(call in_legacy_layout,python3 -m unittest discover -s evidence/gap-remediation/2026-11-13/native-settings-transitions-01 -p test_verify_packets.py)
 	python3 scripts/verify_classic_account_constructors.py
-	python3 -m unittest scripts.test_verify_classic_account_constructors
+	python3 -m pytest -q -p no:cacheprovider scripts/tests/test_verify_classic_account_constructors.py::ClassicAccountConstructorsTest
 	python3 scripts/verify_native_download_send_path.py evidence/gap-remediation/2026-11-13/native-download-send-path-01
 	python3 scripts/verify_native_transfer_stall.py evidence/gap-remediation/2026-11-13/native-transfer-stall-01
 	python3 scripts/verify_native_ban_one.py evidence/gap-remediation/2026-11-13/native-ban-one-01
@@ -275,7 +275,7 @@ evidence-verify: ## Verify every retained Hotline corpus with its legacy verifie
 	python3 scripts/verify_native_pm_packet.py evidence/gap-remediation/2026-11-13/native-pm-01
 	python3 scripts/verify_native_console_broadcast.py evidence/gap-remediation/2026-11-13/native-console-broadcast-01
 	$(call in_legacy_layout,python3 evidence/gap-remediation/2026-11-13/failure-criterion-review-01/verify.py.txt)
-	python3 -m unittest discover -s scripts -p 'test_request500_client_source.py'
+	python3 -m pytest -q -p no:cacheprovider scripts/tests/test_request500_client_source.py::ChainTests
 	python3 scripts/protocol_capture.py verify evidence/gap-remediation/2026-11-12/capture-tooling-01/transcript
 	python3 scripts/protocol_capture.py verify evidence/gap-remediation/2026-11-12/native-handshake-01/transcript
 	python3 scripts/verify_native_core.py evidence/gap-remediation/2026-11-12/native-core-01
@@ -318,7 +318,7 @@ evidence-verify: ## Verify every retained Hotline corpus with its legacy verifie
 	$(call in_legacy_layout,python3 evidence/gap-remediation/2026-11-13/native-diagnostic-existing-01/verify_packets.py)
 	$(call in_legacy_layout,python3 evidence/gap-remediation/2026-11-13/native-diagnostic-density-01/verify_density.py)
 	python3 scripts/verify_mxd_correction.py evidence/gap-remediation/2026-11-13/mxd-correction-01
-	python3 scripts/test_mxd_direct_ack.py evidence/gap-remediation/2026-11-13/mxd-direct-ack-02
+	python3 scripts/verify_mxd_direct_ack.py evidence/gap-remediation/2026-11-13/mxd-direct-ack-02
 	$(call in_legacy_layout,python3 evidence/gap-remediation/2026-11-13/native-diagnostic-near-01/verify_partial.py)
 	python3 scripts/verify_mxd_login_extras.py --evidence evidence/gap-remediation/2026-11-13/mxd-login-extras-01
 	python3 scripts/verify_mac_peer_isolated_session.py evidence/gap-remediation/2026-11-13/mac-peer-isolated-session-01
@@ -328,8 +328,8 @@ evidence-verify: ## Verify every retained Hotline corpus with its legacy verifie
 	sha256sum --quiet -c evidence/hotline-server-1.9/SHA256SUMS
 	python3 scripts/extract-synhxd-evidence.py
 	python3 scripts/verify-baseline-evidence.py
-	python3 -m unittest discover -s scripts -p 'test_alias_record_v2.py'
-	python3 -m unittest discover -s scripts -p 'test_classic_proxy_rehearsal.py'
+	python3 -m pytest -q -p no:cacheprovider scripts/tests/test_alias_record_v2.py::AliasRecordV2Tests
+	python3 -m pytest -q -p no:cacheprovider scripts/tests/test_classic_proxy_rehearsal.py::ClassicProxyRehearsalTests
 	python3 scripts/verify_classic_proxy_rehearsal.py evidence/gap-remediation/2026-11-13/classic-proxy-rehearsal-01
 	$(call in_legacy_layout,bash evidence/gap-remediation/2026-11-13/native-runtime-recovery-01/verify-smoke.txt "$$root")
 

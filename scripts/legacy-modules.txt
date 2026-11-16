@@ -27,9 +27,6 @@ scripts/native_settings_persistence_cases.py
 scripts/native_settings_transition_cases.py  # live bytes compared with a recorded hash
 scripts/peer_tolerance_run.py
 scripts/protocol_capture.py  # live bytes compared with a recorded hash
-scripts/test_alias_record_v2.py
-scripts/test_classic_proxy_rehearsal.py
-scripts/test_mxd_direct_ack.py
 scripts/test_native_121_default.py
 scripts/test_native_ban_control.py
 scripts/test_native_control_readiness.py
@@ -38,8 +35,6 @@ scripts/test_native_settings_corpus.py
 scripts/test_native_settings_persistence.py
 scripts/test_native_settings_persistence_witness.py
 scripts/test_native_settings_transition.py
-scripts/test_request500_client_source.py
-scripts/test_verify_classic_account_constructors.py
 scripts/verify_native_121_default.py  # live bytes compared with a recorded hash
 scripts/verify_native_ban_control.py
 scripts/verify_native_settings.py  # live bytes compared with a recorded hash
