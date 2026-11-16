@@ -1,0 +1,106 @@
+send-path		ok 74234e98afe7498f
+send-path	manifest.json>binary_sha256:delete-key	KeyError: 'binary_sha256'
+send-path	source-provenance.json>sources>notes/c39-native-transfer-producer.md.txt>bytes:delete-key	KeyError: 'bytes'
+send-path	manifest.json>c40_content_queries:delete-key	KeyError: 'c40_content_queries'
+send-path	manifest.json>c41_content_queries:delete-key	KeyError: 'c41_content_queries'
+send-path	manifest.json>files:delete-key	KeyError: 'files'
+send-path	manifest.json:delete-key	KeyError: 'manifest.json'
+send-path	manifest.json>oracle_function_count:delete-key	KeyError: 'oracle_function_count'
+send-path	manifest.json>schema:delete-key	KeyError: 'schema'
+send-path	source-provenance.json>sources>notes/c39-native-transfer-producer.md.txt>sha256:delete-key	KeyError: 'sha256'
+send-path	source-provenance.json>sources:delete-key	KeyError: 'sources'
+send-path	manifest.json>binary_sha256:flip	ValueError: Binary identity
+send-path	manifest.json>files>notes/c39-native-transfer-producer.md.txt:flip	ValueError: Corpus SHA: notes/c39-native-transfer-producer.md.txt
+send-path	manifest.json>files>oracle/c40-caller.json:flip	ValueError: Corpus SHA: oracle/c40-caller.json
+send-path	manifest.json>files>oracle/c40-caller.py.txt:flip	ValueError: Corpus SHA: oracle/c40-caller.py.txt
+send-path	manifest.json>files>oracle/c40-caller.stderr.log:flip	ValueError: Corpus SHA: oracle/c40-caller.stderr.log
+send-path	manifest.json>files>oracle/c40-query.py.txt:flip	ValueError: Corpus SHA: oracle/c40-query.py.txt
+send-path	manifest.json>files>oracle/c40-report.json:flip	ValueError: Corpus SHA: oracle/c40-report.json
+send-path	manifest.json>files>oracle/c40-server.stderr.log:flip	ValueError: Corpus SHA: oracle/c40-server.stderr.log
+send-path	manifest.json>files>oracle/c41-query.py.txt:flip	ValueError: Corpus SHA: oracle/c41-query.py.txt
+send-path	manifest.json>files>oracle/c41-report.json:flip	ValueError: Corpus SHA: oracle/c41-report.json
+send-path	manifest.json>files>oracle/c41-server.stderr.log:flip	ValueError: Corpus SHA: oracle/c41-server.stderr.log
+send-path	manifest.json>files>oracle/c41-trace.md.txt:flip	ValueError: Corpus SHA: oracle/c41-trace.md.txt
+send-path	manifest.json>files>source-provenance.json:flip	ValueError: Corpus SHA: source-provenance.json
+send-path	manifest.json>files>sources/B04-D-1000c200.c:flip	ValueError: Corpus SHA: sources/B04-D-1000c200.c
+send-path	manifest.json>files>sources/B04-D-1000cfa0.c:flip	ValueError: Corpus SHA: sources/B04-D-1000cfa0.c
+send-path	manifest.json>files>sources/B04-D-1000e600.c:flip	ValueError: Corpus SHA: sources/B04-D-1000e600.c
+send-path	manifest.json>files>sources/B04-D-1002d830.c:flip	ValueError: Corpus SHA: sources/B04-D-1002d830.c
+send-path	manifest.json>files>sources/D-1000acf0.c:flip	ValueError: Corpus SHA: sources/D-1000acf0.c
+send-path	manifest.json>files>sources/D-1000bd20.c:flip	ValueError: Corpus SHA: sources/D-1000bd20.c
+send-path	manifest.json>files>sources/D-100121a0.c:flip	ValueError: Corpus SHA: sources/D-100121a0.c
+send-path	manifest.json>files>notes/c39-native-transfer-producer.md.txt:delete-key	ValueError: Corpus inventory
+send-path	manifest.json>schema:flip	ValueError: Corpus schema
+send-path	manifest.json>oracle_function_count:inc	ValueError: Function count
+send-path	manifest.json>c40_content_queries:inc	ValueError: Query budget
+send-path	source-provenance.json>sources>notes/c39-native-transfer-producer.md.txt:delete-key	ValueError: Source provenance inventory
+send-path	source-provenance.json>schema:flip	ValueError: Source provenance schema
+send-path	source-provenance.json>sources>notes/c39-native-transfer-producer.md.txt>sha256:flip	ValueError: Source provenance: notes/c39-native-transfer-producer.md.txt
+send-path	oracle/c40-caller.json>tool:flip	ValueError: Source provenance: oracle/c40-caller.json
+send-path	source-provenance.json>sources>oracle/c40-caller.py.txt>sha256:flip	ValueError: Source provenance: oracle/c40-caller.py.txt
+send-path	source-provenance.json>sources>oracle/c40-caller.stderr.log>sha256:flip	ValueError: Source provenance: oracle/c40-caller.stderr.log
+send-path	source-provenance.json>sources>oracle/c40-query.py.txt>sha256:flip	ValueError: Source provenance: oracle/c40-query.py.txt
+send-path	oracle/c40-report.json>started:flip	ValueError: Source provenance: oracle/c40-report.json
+send-path	source-provenance.json>sources>oracle/c40-server.stderr.log>sha256:flip	ValueError: Source provenance: oracle/c40-server.stderr.log
+send-path	source-provenance.json>sources>oracle/c41-query.py.txt>sha256:flip	ValueError: Source provenance: oracle/c41-query.py.txt
+send-path	oracle/c41-report.json>started:flip	ValueError: Source provenance: oracle/c41-report.json
+send-path	source-provenance.json>sources>oracle/c41-server.stderr.log>sha256:flip	ValueError: Source provenance: oracle/c41-server.stderr.log
+send-path	source-provenance.json>sources>oracle/c41-trace.md.txt>sha256:flip	ValueError: Source provenance: oracle/c41-trace.md.txt
+send-path	source-provenance.json>sources>sources/B04-D-1000c200.c>sha256:flip	ValueError: Source provenance: sources/B04-D-1000c200.c
+send-path	source-provenance.json>sources>sources/B04-D-1000cfa0.c>sha256:flip	ValueError: Source provenance: sources/B04-D-1000cfa0.c
+send-path	source-provenance.json>sources>sources/B04-D-1000e600.c>sha256:flip	ValueError: Source provenance: sources/B04-D-1000e600.c
+send-path	source-provenance.json>sources>sources/B04-D-1002d830.c>sha256:flip	ValueError: Source provenance: sources/B04-D-1002d830.c
+send-path	source-provenance.json>sources>sources/D-1000acf0.c>sha256:flip	ValueError: Source provenance: sources/D-1000acf0.c
+send-path	source-provenance.json>sources>sources/D-1000bd20.c>sha256:flip	ValueError: Source provenance: sources/D-1000bd20.c
+send-path	source-provenance.json>sources>sources/D-100121a0.c>sha256:flip	ValueError: Source provenance: sources/D-100121a0.c
+send-path	manifest.json>binary_sha256:delete-key;manifest.json>schema:flip	ValueError: Corpus schema
+send-path	source-provenance.json>sources>notes/c39-native-transfer-producer.md.txt>bytes:delete-key;source-provenance.json>sources>notes/c39-native-transfer-producer.md.txt>sha256:flip	ValueError: Source provenance: notes/c39-native-transfer-producer.md.txt
+send-path	source-provenance.json>sources>notes/c39-native-transfer-producer.md.txt>bytes:delete-key;source-provenance.json>sources>oracle/c40-query.py.txt>sha256:flip	KeyError: 'bytes'
+send-path	manifest.json>c40_content_queries:delete-key;manifest.json>oracle_function_count:inc	ValueError: Function count
+send-path	manifest.json>c41_content_queries:delete-key;manifest.json>files>notes/c39-native-transfer-producer.md.txt:delete-key	KeyError: 'c41_content_queries'
+send-path	manifest.json>c41_content_queries:delete-key;manifest.json>c40_content_queries:inc	ValueError: Query budget
+send-path	manifest.json>files:delete-key;source-provenance.json>schema:flip	KeyError: 'files'
+send-path	manifest.json>oracle_function_count:delete-key;manifest.json>binary_sha256:flip	ValueError: Binary identity
+send-path	source-provenance.json>sources>notes/c39-native-transfer-producer.md.txt>sha256:delete-key;source-provenance.json>sources>notes/c39-native-transfer-producer.md.txt:delete-key	ValueError: Source provenance inventory
+send-path	source-provenance.json>sources>notes/c39-native-transfer-producer.md.txt>sha256:delete-key;source-provenance.json>sources>sources/B04-D-1000e600.c>sha256:flip	KeyError: 'sha256'
+send-path	manifest.json>binary_sha256:flip;manifest.json>files>sources/B04-D-1000cfa0.c:flip	ValueError: Binary identity
+send-path	manifest.json>files>notes/c39-native-transfer-producer.md.txt:flip;manifest.json>files>oracle/c40-query.py.txt:flip	ValueError: Corpus SHA: notes/c39-native-transfer-producer.md.txt
+send-path	manifest.json>files>notes/c39-native-transfer-producer.md.txt:flip;manifest.json>files>notes/c39-native-transfer-producer.md.txt:delete-key	ValueError: Corpus inventory
+send-path	manifest.json>files>notes/c39-native-transfer-producer.md.txt:flip;source-provenance.json>sources>sources/B04-D-1002d830.c>sha256:flip	ValueError: Corpus SHA: notes/c39-native-transfer-producer.md.txt
+send-path	manifest.json>files>oracle/c40-caller.json:flip;manifest.json>files>oracle/c40-caller.py.txt:flip	ValueError: Corpus SHA: oracle/c40-caller.py.txt
+send-path	manifest.json>files>oracle/c40-caller.json:flip;manifest.json>files>oracle/c40-caller.stderr.log:flip	ValueError: Corpus SHA: oracle/c40-caller.json
+send-path	manifest.json>files>oracle/c40-caller.py.txt:flip;manifest.json>files>oracle/c40-server.stderr.log:flip	ValueError: Corpus SHA: oracle/c40-server.stderr.log
+send-path	manifest.json>files>oracle/c40-caller.stderr.log:flip;manifest.json>files>oracle/c41-query.py.txt:flip	ValueError: Corpus SHA: oracle/c40-caller.stderr.log
+send-path	manifest.json>files>oracle/c40-caller.stderr.log:flip;source-provenance.json>sources>sources/D-1000acf0.c>sha256:flip	ValueError: Corpus SHA: oracle/c40-caller.stderr.log
+send-path	manifest.json>files>oracle/c40-query.py.txt:flip;manifest.json>files>oracle/c40-report.json:flip	ValueError: Corpus SHA: oracle/c40-query.py.txt
+send-path	manifest.json>files>oracle/c40-report.json:flip;manifest.json>files>oracle/c40-server.stderr.log:flip	ValueError: Corpus SHA: oracle/c40-report.json
+send-path	manifest.json>files>oracle/c40-report.json:flip;manifest.json>oracle_function_count:inc	ValueError: Function count
+send-path	manifest.json>files>oracle/c41-query.py.txt:flip;manifest.json>files>oracle/c41-report.json:flip	ValueError: Corpus SHA: oracle/c41-query.py.txt
+send-path	manifest.json>files>oracle/c41-query.py.txt:flip;manifest.json>files>sources/D-1000bd20.c:flip	ValueError: Corpus SHA: oracle/c41-query.py.txt
+send-path	manifest.json>files>oracle/c41-report.json:flip;manifest.json>files>oracle/c41-server.stderr.log:flip	ValueError: Corpus SHA: oracle/c41-report.json
+send-path	manifest.json>files>oracle/c41-server.stderr.log:flip;manifest.json>files>oracle/c41-trace.md.txt:flip	ValueError: Corpus SHA: oracle/c41-server.stderr.log
+send-path	manifest.json>files>oracle/c41-trace.md.txt:flip;manifest.json>files>sources/D-1000acf0.c:flip	ValueError: Corpus SHA: oracle/c41-trace.md.txt
+send-path	manifest.json>files>source-provenance.json:flip;source-provenance.json>sources>sources/B04-D-1000cfa0.c>sha256:flip	ValueError: Source provenance: sources/B04-D-1000cfa0.c
+send-path	manifest.json>files>source-provenance.json:flip;source-provenance.json>sources>sources/B04-D-1000e600.c>sha256:flip	ValueError: Source provenance: sources/B04-D-1000e600.c
+send-path	manifest.json>files>sources/B04-D-1000c200.c:flip;manifest.json>files>sources/B04-D-1000cfa0.c:flip	ValueError: Corpus SHA: sources/B04-D-1000cfa0.c
+send-path	manifest.json>files>sources/B04-D-1000c200.c:flip;manifest.json>files>sources/B04-D-1002d830.c:flip	ValueError: Corpus SHA: sources/B04-D-1000c200.c
+send-path	manifest.json>files>sources/B04-D-1000cfa0.c:flip;manifest.json>files>sources/B04-D-1000e600.c:flip	ValueError: Corpus SHA: sources/B04-D-1000e600.c
+send-path	manifest.json>files>sources/D-1000acf0.c:flip;manifest.json>files>sources/D-100121a0.c:flip	ValueError: Corpus SHA: sources/D-1000acf0.c
+send-path	manifest.json>files>sources/D-1000bd20.c:flip;manifest.json>files>sources/D-100121a0.c:flip	ValueError: Corpus SHA: sources/D-100121a0.c
+send-path	source-provenance.json>sources>notes/c39-native-transfer-producer.md.txt:delete-key;source-provenance.json>schema:flip	ValueError: Source provenance schema
+send-path	source-provenance.json>sources>notes/c39-native-transfer-producer.md.txt>sha256:flip;source-provenance.json>sources>oracle/c40-query.py.txt>sha256:flip	ValueError: Source provenance: notes/c39-native-transfer-producer.md.txt
+send-path	oracle/c40-caller.json>tool:flip;source-provenance.json>sources>oracle/c40-caller.py.txt>sha256:flip	ValueError: Source provenance: oracle/c40-caller.py.txt
+send-path	oracle/c40-caller.json>tool:flip;source-provenance.json>sources>oracle/c40-caller.stderr.log>sha256:flip	ValueError: Source provenance: oracle/c40-caller.json
+send-path	source-provenance.json>sources>oracle/c40-caller.py.txt>sha256:flip;source-provenance.json>sources>oracle/c40-server.stderr.log>sha256:flip	ValueError: Source provenance: oracle/c40-server.stderr.log
+send-path	source-provenance.json>sources>oracle/c40-caller.stderr.log>sha256:flip;source-provenance.json>sources>oracle/c41-query.py.txt>sha256:flip	ValueError: Source provenance: oracle/c40-caller.stderr.log
+send-path	source-provenance.json>sources>oracle/c40-query.py.txt>sha256:flip;oracle/c40-report.json>started:flip	ValueError: Source provenance: oracle/c40-query.py.txt
+send-path	source-provenance.json>sources>oracle/c40-query.py.txt>sha256:flip;oracle/c41-report.json>started:flip	ValueError: Source provenance: oracle/c40-query.py.txt
+send-path	oracle/c40-report.json>started:flip;source-provenance.json>sources>oracle/c40-server.stderr.log>sha256:flip	ValueError: Source provenance: oracle/c40-report.json
+send-path	source-provenance.json>sources>oracle/c41-query.py.txt>sha256:flip;oracle/c41-report.json>started:flip	ValueError: Source provenance: oracle/c41-query.py.txt
+send-path	oracle/c41-report.json>started:flip;source-provenance.json>sources>oracle/c41-server.stderr.log>sha256:flip	ValueError: Source provenance: oracle/c41-report.json
+send-path	source-provenance.json>sources>oracle/c41-server.stderr.log>sha256:flip;source-provenance.json>sources>oracle/c41-trace.md.txt>sha256:flip	ValueError: Source provenance: oracle/c41-server.stderr.log
+send-path	source-provenance.json>sources>oracle/c41-trace.md.txt>sha256:flip;source-provenance.json>sources>sources/D-1000acf0.c>sha256:flip	ValueError: Source provenance: oracle/c41-trace.md.txt
+send-path	source-provenance.json>sources>sources/B04-D-1000c200.c>sha256:flip;source-provenance.json>sources>sources/B04-D-1000cfa0.c>sha256:flip	ValueError: Source provenance: sources/B04-D-1000cfa0.c
+send-path	source-provenance.json>sources>sources/B04-D-1000c200.c>sha256:flip;source-provenance.json>sources>sources/B04-D-1002d830.c>sha256:flip	ValueError: Source provenance: sources/B04-D-1000c200.c
+send-path	source-provenance.json>sources>sources/B04-D-1000e600.c>sha256:flip;source-provenance.json>sources>sources/D-1000bd20.c>sha256:flip	ValueError: Source provenance: sources/D-1000bd20.c
+send-path	source-provenance.json>sources>sources/D-1000bd20.c>sha256:flip;source-provenance.json>sources>sources/D-100121a0.c>sha256:flip	ValueError: Source provenance: sources/D-100121a0.c
