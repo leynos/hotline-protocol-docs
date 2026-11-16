@@ -1,0 +1,821 @@
+diagnostics-semantic		ok 6f33f322983dfe6e
+diagnostics-semantic	cleanup:delete-key	KeyError: 'cleanup'
+diagnostics-semantic	preflight>frames>0>connection:delete-key	KeyError: 'connection'
+diagnostics-semantic	preflight>frames>3>error:delete-key	KeyError: 'error'
+diagnostics-semantic	observe>events>0>event:delete-key	KeyError: 'event'
+diagnostics-semantic	observe>events:delete-key	KeyError: 'events'
+diagnostics-semantic	preflight>frames>3>fields:delete-key	KeyError: 'fields'
+diagnostics-semantic	preflight>frames:delete-key	KeyError: 'frames'
+diagnostics-semantic	preflight>frames>3>fields>0>hex:delete-key	KeyError: 'hex'
+diagnostics-semantic	preflight>frames>0>id:delete-key	KeyError: 'id'
+diagnostics-semantic	preflight>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+diagnostics-semantic	observe:delete-key	KeyError: 'observe'
+diagnostics-semantic	preflight:delete-key	KeyError: 'preflight'
+diagnostics-semantic	seed:delete-key	KeyError: 'seed'
+diagnostics-semantic	self:delete-key	KeyError: 'self'
+diagnostics-semantic	observe>frames>0>type:delete-key	KeyError: 'type'
+diagnostics-semantic	observe>frames>6>fields:drop-first	KeyError: 103
+diagnostics-semantic	observe>frames>4>connection:flip	StopIteration:
+diagnostics-semantic	observe>frames>8>error:inc	ValueError: 303 failure fields/status differ
+diagnostics-semantic	observe>frames>7>error:inc	ValueError: 303 success fields/bytes differ
+diagnostics-semantic	preflight>frames>3>error:inc	ValueError: Account enumeration failed
+diagnostics-semantic	observe>events>22>hex:flip	ValueError: Allowed 303 targeted another session
+diagnostics-semantic	observe>frames>6>fields>0>hex:flip	ValueError: Current owned subject identity differs
+diagnostics-semantic	observe>events>25>hex:flip	ValueError: Denied target differs
+diagnostics-semantic	observe>frames:reverse	ValueError: Diagnostic reply order differs
+diagnostics-semantic	observe>events>28>hex:flip	ValueError: Missing UID control differs
+diagnostics-semantic	preflight>frames:drop-last	ValueError: Missing/duplicate auth reply
+diagnostics-semantic	observe>events>22>connection:flip	ValueError: Missing/duplicate diagnostic request
+diagnostics-semantic	preflight>frames>3>fields>0>hex:flip	ValueError: Owned account cleanup/baseline differs
+diagnostics-semantic	preflight>frames>4>error:inc	ValueError: Owned account existed before seed
+diagnostics-semantic	observe>frames>6>fields>0>hex:empty	ValueError: Owned subject UID width differs
+diagnostics-semantic	observe>frames>6>connection:flip	ValueError: Owned subject notification ambiguous
+diagnostics-semantic	seed>frames>3>error:inc	ValueError: Owned zero-access account seed differs
+diagnostics-semantic	preflight>frames>3>fields:drop-last	ValueError: Preflight account inventory differs
+diagnostics-semantic	preflight>frames>5>fields:drop-last	ValueError: Preflight admin roster ambiguous
+diagnostics-semantic	observe>events>31>hex:flip	ValueError: Prior-session UID was relabelled current
+diagnostics-semantic	preflight>frames>5>fields>0>hex:empty	ValueError: Roster record boundary differs
+diagnostics-semantic	self>frames>3>fields:drop-last	ValueError: Same-connection self roster ambiguous
+diagnostics-semantic	self>events>13>hex:flip	ValueError: Self 303 UID differs
+diagnostics-semantic	observe>frames>4>fields:drop-last	ValueError: Subject effective privilege differs
+diagnostics-semantic	seed>frames>4>fields>1>id:inc	ValueError: Unexpected repeated scalar field
+diagnostics-semantic	preflight>frames>5>fields>0>id:inc	ValueError: Unexpected roster parameter
+diagnostics-semantic	cleanup:delete-key;seed:delete-key	KeyError: 'seed'
+diagnostics-semantic	cleanup:delete-key;self:delete-key	KeyError: 'self'
+diagnostics-semantic	preflight>frames>0>connection:delete-key;observe>events>0>event:delete-key	KeyError: 'connection'
+diagnostics-semantic	preflight>frames>0>connection:delete-key;preflight>frames>0>is_reply:delete-key	KeyError: 'connection'
+diagnostics-semantic	preflight>frames>0>connection:delete-key;self:delete-key	KeyError: 'self'
+diagnostics-semantic	preflight>frames>3>error:delete-key;preflight:delete-key	KeyError: 'preflight'
+diagnostics-semantic	observe>events>0>event:delete-key;observe>frames:reverse	ValueError: Diagnostic reply order differs
+diagnostics-semantic	observe>events>0>event:delete-key;observe>events>22>connection:flip	KeyError: 'event'
+diagnostics-semantic	observe>events>0>event:delete-key;observe>frames>6>fields>0>hex:empty	ValueError: Owned subject UID width differs
+diagnostics-semantic	observe>events:delete-key;observe>frames>6>fields:drop-first	KeyError: 103
+diagnostics-semantic	observe>events:delete-key;observe>frames>7>error:inc	KeyError: 'events'
+diagnostics-semantic	preflight>frames>3>fields:delete-key;preflight>frames>0>id:delete-key	KeyError: 'id'
+diagnostics-semantic	preflight>frames>3>fields:delete-key;preflight>frames>4>error:inc	KeyError: 'fields'
+diagnostics-semantic	preflight>frames:delete-key;observe:delete-key	KeyError: 'observe'
+diagnostics-semantic	preflight>frames>3>fields>0>hex:delete-key;preflight>frames>3>error:inc	ValueError: Account enumeration failed
+diagnostics-semantic	preflight>frames>3>fields>0>hex:delete-key;preflight>frames>3>fields:drop-last	KeyError: 'hex'
+diagnostics-semantic	preflight>frames>0>id:delete-key;preflight>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+diagnostics-semantic	preflight>frames>0>id:delete-key;preflight:delete-key	KeyError: 'preflight'
+diagnostics-semantic	observe:delete-key;preflight>frames>5>fields>0>id:inc	KeyError: 'observe'
+diagnostics-semantic	observe>frames>0>type:delete-key;observe>frames>4>connection:flip	StopIteration:
+diagnostics-semantic	observe>frames>0>type:delete-key;observe>frames>4>fields:drop-last	ValueError: Subject effective privilege differs
+diagnostics-semantic	observe>frames>6>fields:drop-first;observe>frames:reverse	KeyError: 103
+diagnostics-semantic	observe>frames>6>fields:drop-first;preflight>frames>5>fields:drop-last	ValueError: Preflight admin roster ambiguous
+diagnostics-semantic	observe>frames>6>fields:drop-first;observe>frames>4>fields:drop-last	ValueError: Subject effective privilege differs
+diagnostics-semantic	observe>frames>4>connection:flip;seed>frames>4>fields>1>id:inc	ValueError: Unexpected repeated scalar field
+diagnostics-semantic	observe>frames>8>error:inc;observe>events>25>hex:flip	ValueError: Denied target differs
+diagnostics-semantic	observe>frames>8>error:inc;observe>events>28>hex:flip	ValueError: 303 failure fields/status differ
+diagnostics-semantic	observe>frames>7>error:inc;observe>events>22>hex:flip	ValueError: Allowed 303 targeted another session
+diagnostics-semantic	observe>events>22>hex:flip;observe>events>22>connection:flip	ValueError: Missing/duplicate diagnostic request
+diagnostics-semantic	observe>frames>6>fields>0>hex:flip;observe>frames>6>fields>0>hex:empty	ValueError: Owned subject UID width differs
+diagnostics-semantic	observe>frames>6>fields>0>hex:flip;observe>frames>6>connection:flip	ValueError: Owned subject notification ambiguous
+diagnostics-semantic	observe>frames:reverse;observe>frames>6>connection:flip	ValueError: Diagnostic reply order differs
+diagnostics-semantic	observe>events>28>hex:flip;observe>events>31>hex:flip	ValueError: Missing UID control differs
+diagnostics-semantic	preflight>frames:drop-last;preflight>frames>3>fields:drop-last	ValueError: Preflight account inventory differs
+diagnostics-semantic	preflight>frames>3>fields>0>hex:flip;self>events>13>hex:flip	ValueError: Self 303 UID differs
+diagnostics-semantic	preflight>frames>4>error:inc;observe>frames>4>fields:drop-last	ValueError: Owned account existed before seed
+diagnostics-semantic	seed>frames>3>error:inc;observe>events>31>hex:flip	ValueError: Owned zero-access account seed differs
+diagnostics-semantic	seed>frames>3>error:inc;preflight>frames>5>fields>0>hex:empty	ValueError: Roster record boundary differs
+diagnostics-semantic	seed>frames>3>error:inc;seed>frames>4>fields>1>id:inc	ValueError: Owned zero-access account seed differs
+diagnostics-semantic	observe>events>31>hex:flip;self>frames>3>fields:drop-last	ValueError: Prior-session UID was relabelled current
+diagnostics-semantic	self>frames>3>fields:drop-last;self>events>13>hex:flip	ValueError: Same-connection self roster ambiguous
+load-semantic		ok baccc15e765f8d8d
+load-semantic	cleanup-plan>expectation>branch:delete-key	KeyError: 'branch'
+load-semantic	cleanup:delete-key	KeyError: 'cleanup'
+load-semantic	cleanup-plan:delete-key	KeyError: 'cleanup-plan'
+load-semantic	preflight>completed_actions:delete-key	KeyError: 'completed_actions'
+load-semantic	preflight>events>1>connection:delete-key	KeyError: 'connection'
+load-semantic	preflight>frames>3>error:delete-key	KeyError: 'error'
+load-semantic	preflight>events>0>event:delete-key	KeyError: 'event'
+load-semantic	preflight>events:delete-key	KeyError: 'events'
+load-semantic	cleanup-plan>expectation:delete-key	KeyError: 'expectation'
+load-semantic	preflight>frames>3>fields:delete-key	KeyError: 'fields'
+load-semantic	preflight>frames:delete-key	KeyError: 'frames'
+load-semantic	preflight>events>1>hex:delete-key	KeyError: 'hex'
+load-semantic	preflight>frames>0>id:delete-key	KeyError: 'id'
+load-semantic	preflight>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+load-semantic	cleanup-plan>steps>0>op:delete-key	KeyError: 'op'
+load-semantic	preflight:delete-key	KeyError: 'preflight'
+load-semantic	seed:delete-key	KeyError: 'seed'
+load-semantic	preflight>status:delete-key	KeyError: 'status'
+load-semantic	cleanup-plan>steps:delete-key	KeyError: 'steps'
+load-semantic	preflight>frames>4>type:delete-key	KeyError: 'type'
+load-semantic	seed>frames>3>fields:drop-last	KeyError: 107
+load-semantic	cleanup>frames>3>fields>4>id:inc	KeyError: 201
+load-semantic	cleanup>events>17>hex:flip	ValueError: 204 deleted another path or failed
+load-semantic	preflight>events>23>hex:flip	ValueError: 303 did not target same-session UID
+load-semantic	preflight>frames>3>error:inc	ValueError: Account enumeration failed
+load-semantic	cleanup>status:flip	ValueError: Conditional cleanup did not complete its positive branch
+load-semantic	preflight>frames>6>fields:drop-last	ValueError: Current admin roster ambiguous
+load-semantic	preflight>frames>4>fields>0>id:inc	ValueError: File-list record grammar differs
+load-semantic	cleanup>frames>7>fields:drop-last	ValueError: Full Files view was not restored
+load-semantic	preflight>frames>7>fields>0>hex:flip	ValueError: Idle 303 was not restored
+load-semantic	preflight>frames>4>type:inc	ValueError: Listing failed
+load-semantic	preflight>frames>3>fields:drop-last	ValueError: Original account count differs
+load-semantic	preflight>frames>3>fields>0>hex:flip	ValueError: Original account enumeration was not restored
+load-semantic	cleanup>frames>6>error:inc	ValueError: Owned file remains after 204
+load-semantic	cleanup>frames>3>error:inc	ValueError: Owned partial file identity/status differs
+load-semantic	preflight>frames>5>error:inc	ValueError: Owned preflight 206 was not absent
+load-semantic	preflight>frames>4>fields:drop-last	ValueError: Partial file is not the sole added Files entry
+load-semantic	preflight>frames>7>error:inc	ValueError: Preflight idle 303 differs
+load-semantic	preflight>status:flip	ValueError: Preflight incomplete
+load-semantic	preflight>frames>4>fields>25>hex:flip	ValueError: Repeated file-list name
+load-semantic	preflight>frames>3>connection:flip	ValueError: Reply 10 missing or duplicate
+load-semantic	preflight>frames>4>connection:flip	ValueError: Reply 11 missing or duplicate
+load-semantic	preflight>frames>5>connection:flip	ValueError: Reply 12 missing or duplicate
+load-semantic	cleanup>frames>7>connection:flip	ValueError: Reply 13 missing or duplicate
+load-semantic	preflight>frames>6>connection:flip	ValueError: Reply 14 missing or duplicate
+load-semantic	preflight>frames:drop-last	ValueError: Reply 15 missing or duplicate
+load-semantic	cleanup>frames:drop-last	ValueError: Reply 16 missing or duplicate
+load-semantic	cleanup>frames>5>connection:flip	ValueError: Reply 17 missing or duplicate
+load-semantic	cleanup>events>17>connection:flip	ValueError: Request 204/17 missing or duplicate
+load-semantic	preflight>events>23>connection:flip	ValueError: Request 303/15 missing or duplicate
+load-semantic	cleanup>events>33>connection:flip	ValueError: Request 303/16 missing or duplicate
+load-semantic	preflight>frames>6>fields>0>hex:empty	ValueError: Roster record boundary differs
+load-semantic	seed>frames>3>error:inc	ValueError: Seed 203 reference was not accepted
+load-semantic	seed>status:flip	ValueError: Seed failure changed or was relabelled success
+load-semantic	cleanup-plan>steps>11>op:flip	ValueError: Selected plan does not show one guarded deletion
+load-semantic	preflight>frames>7>fields>0>id:inc	ValueError: Unexpected repeated scalar field
+load-semantic	preflight>frames>6>fields>0>id:inc	ValueError: Unexpected roster parameter
+load-semantic	cleanup-plan>expectation>branch:delete-key;cleanup-plan>expectation:delete-key	KeyError: 'expectation'
+load-semantic	cleanup-plan>expectation>branch:delete-key;cleanup-plan>steps>11>op:flip	KeyError: 'branch'
+load-semantic	cleanup:delete-key;preflight>frames>3>error:delete-key	KeyError: 'cleanup'
+load-semantic	cleanup:delete-key;preflight>frames>3>connection:flip	KeyError: 'cleanup'
+load-semantic	cleanup-plan:delete-key;preflight>completed_actions:delete-key	KeyError: 'cleanup-plan'
+load-semantic	cleanup-plan:delete-key;seed>status:flip	KeyError: 'cleanup-plan'
+load-semantic	preflight>completed_actions:delete-key;preflight>status:flip	ValueError: Preflight incomplete
+load-semantic	preflight>events>1>connection:delete-key;preflight>events>0>event:delete-key	KeyError: 'event'
+load-semantic	preflight>events>1>connection:delete-key;preflight>events:delete-key	KeyError: 'events'
+load-semantic	preflight>frames>3>error:delete-key;seed>frames>3>error:inc	KeyError: 'error'
+load-semantic	preflight>events>0>event:delete-key;preflight>frames>6>fields>0>hex:empty	ValueError: Roster record boundary differs
+load-semantic	preflight>events>0>event:delete-key;seed>frames>3>error:inc	KeyError: 'event'
+load-semantic	preflight>events:delete-key;preflight>frames:delete-key	KeyError: 'frames'
+load-semantic	preflight>events:delete-key;preflight>frames>3>fields>0>hex:flip	KeyError: 'events'
+load-semantic	preflight>events:delete-key;preflight>frames>5>error:inc	ValueError: Owned preflight 206 was not absent
+load-semantic	cleanup-plan>expectation:delete-key;cleanup-plan>steps:delete-key	KeyError: 'steps'
+load-semantic	preflight>frames>3>fields:delete-key;preflight>frames>4>connection:flip	KeyError: 'fields'
+load-semantic	preflight>frames:delete-key;preflight>events>1>hex:delete-key	KeyError: 'frames'
+load-semantic	preflight>events>1>hex:delete-key;preflight>events>23>connection:flip	KeyError: 'hex'
+load-semantic	preflight>frames>0>id:delete-key;preflight>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+load-semantic	preflight>frames>0>id:delete-key;preflight>frames>3>connection:flip	KeyError: 'id'
+load-semantic	preflight>frames>0>is_reply:delete-key;cleanup>status:flip	ValueError: Conditional cleanup did not complete its positive branch
+load-semantic	cleanup-plan>steps>0>op:delete-key;cleanup-plan>steps:delete-key	KeyError: 'steps'
+load-semantic	cleanup-plan>steps>0>op:delete-key;preflight>frames>7>fields>0>hex:flip	ValueError: Idle 303 was not restored
+load-semantic	seed:delete-key;preflight>status:delete-key	KeyError: 'seed'
+load-semantic	preflight>frames>4>type:delete-key;preflight>frames>4>connection:flip	ValueError: Reply 11 missing or duplicate
+load-semantic	seed>frames>3>fields:drop-last;cleanup>frames>3>error:inc	KeyError: 107
+load-semantic	seed>frames>3>fields:drop-last;seed>frames>3>error:inc	ValueError: Seed 203 reference was not accepted
+load-semantic	cleanup>frames>3>fields>4>id:inc;cleanup>frames>3>error:inc	ValueError: Owned partial file identity/status differs
+load-semantic	cleanup>frames>3>fields>4>id:inc;preflight>frames>4>fields:drop-last	KeyError: 201
+load-semantic	cleanup>events>17>hex:flip;cleanup>frames>5>connection:flip	ValueError: 204 deleted another path or failed
+load-semantic	cleanup>events>17>hex:flip;cleanup>events>17>connection:flip	ValueError: Request 204/17 missing or duplicate
+load-semantic	preflight>events>23>hex:flip;preflight>frames:drop-last	ValueError: 303 did not target same-session UID
+load-semantic	preflight>events>23>hex:flip;preflight>events>23>connection:flip	ValueError: Request 303/15 missing or duplicate
+load-semantic	preflight>frames>3>error:inc;preflight>frames>3>fields:drop-last	ValueError: Account enumeration failed
+load-semantic	cleanup>status:flip;preflight>status:flip	ValueError: Preflight incomplete
+load-semantic	cleanup>status:flip;seed>status:flip	ValueError: Seed failure changed or was relabelled success
+load-semantic	preflight>frames>4>fields>0>id:inc;preflight>frames>4>type:inc	ValueError: Listing failed
+load-semantic	preflight>frames>4>fields>0>id:inc;preflight>frames>4>fields>25>hex:flip	ValueError: File-list record grammar differs
+load-semantic	cleanup>frames>7>fields:drop-last;preflight>frames>3>fields>0>hex:flip	ValueError: Full Files view was not restored
+load-semantic	cleanup>frames>7>fields:drop-last;cleanup>frames>7>connection:flip	ValueError: Reply 13 missing or duplicate
+load-semantic	preflight>frames>7>fields>0>hex:flip;cleanup>frames:drop-last	ValueError: Reply 16 missing or duplicate
+load-semantic	preflight>frames>4>type:inc;preflight>frames>3>fields:drop-last	ValueError: Original account count differs
+load-semantic	preflight>frames>3>fields:drop-last;preflight>frames>4>fields:drop-last	ValueError: Original account count differs
+load-semantic	preflight>frames>3>fields>0>hex:flip;cleanup>events>33>connection:flip	ValueError: Original account enumeration was not restored
+load-semantic	cleanup>frames>6>error:inc;cleanup>frames>7>connection:flip	ValueError: Owned file remains after 204
+load-semantic	cleanup>frames>6>error:inc;cleanup>frames>5>connection:flip	ValueError: Reply 17 missing or duplicate
+load-semantic	preflight>frames>5>error:inc;preflight>frames>5>connection:flip	ValueError: Reply 12 missing or duplicate
+load-semantic	preflight>frames>4>fields:drop-last;cleanup>events>17>connection:flip	ValueError: Partial file is not the sole added Files entry
+load-semantic	preflight>frames>7>error:inc;seed>frames>3>error:inc	ValueError: Preflight idle 303 differs
+load-semantic	preflight>frames>7>error:inc;preflight>frames>7>fields>0>id:inc	ValueError: Unexpected repeated scalar field
+load-semantic	preflight>frames>4>fields>25>hex:flip;preflight>frames>5>connection:flip	ValueError: Repeated file-list name
+load-semantic	preflight>frames>6>connection:flip;preflight>frames>6>fields>0>id:inc	ValueError: Reply 14 missing or duplicate
+load-semantic	cleanup>frames:drop-last;cleanup>events>33>connection:flip	ValueError: Request 303/16 missing or duplicate
+load-semantic	cleanup>events>17>connection:flip;preflight>frames>7>fields>0>id:inc	ValueError: Unexpected repeated scalar field
+near-semantic		ValueError: Request ID sequence differs
+near-semantic	plan>expectation>case:delete-key	KeyError: 'case'
+near-semantic	report>events>1>connection:delete-key	KeyError: 'connection'
+near-semantic	report>events>0>event:delete-key	KeyError: 'event'
+near-semantic	report>events:delete-key	KeyError: 'events'
+near-semantic	plan>expectation:delete-key	KeyError: 'expectation'
+near-semantic	plan>expectation>fixture_name_hex:delete-key	KeyError: 'fixture_name_hex'
+near-semantic	plan>expectation>global_download_limit:delete-key	KeyError: 'global_download_limit'
+near-semantic	report>events>1>hex:delete-key	KeyError: 'hex'
+near-semantic	plan>expectation>maximum_data_sockets:delete-key	KeyError: 'maximum_data_sockets'
+near-semantic	plan>expectation>maximum_references:delete-key	KeyError: 'maximum_references'
+near-semantic	plan>expectation>per_client_download_limit:delete-key	KeyError: 'per_client_download_limit'
+near-semantic	plan>expectation>per_ip_limit:delete-key	KeyError: 'per_ip_limit'
+near-semantic	plan:delete-key	KeyError: 'plan'
+near-semantic	report:delete-key	KeyError: 'report'
+near-semantic	report>status:delete-key	KeyError: 'status'
+near-semantic	plan>expectation>maximum_references:inc	ValueError: Bounds differ
+near-semantic	report>status:flip	ValueError: Capture incomplete
+near-semantic	report>schema_version:inc	ValueError: Request ID sequence differs
+near-semantic	plan>expectation>global_download_limit:inc	ValueError: Settings differ
+near-semantic	plan>expectation>case:flip	ValueError: Wrong case
+near-semantic	plan>expectation>fixture_name_hex:flip	ValueError: Wrong fixture
+near-semantic	report>events>1>hex:empty	error: unpack requires a buffer of 20 bytes
+near-semantic	plan>expectation>case:delete-key;plan:delete-key	KeyError: 'plan'
+near-semantic	report>events>1>connection:delete-key;report>events>0>event:delete-key	KeyError: 'event'
+near-semantic	report>events>1>connection:delete-key;report>events:delete-key	KeyError: 'events'
+near-semantic	report>events>0>event:delete-key;plan>expectation>global_download_limit:inc	ValueError: Settings differ
+near-semantic	plan>expectation>fixture_name_hex:delete-key;plan>expectation>maximum_references:delete-key	KeyError: 'fixture_name_hex'
+near-semantic	plan>expectation>fixture_name_hex:delete-key;report>status:delete-key	KeyError: 'status'
+near-semantic	plan>expectation>fixture_name_hex:delete-key;report>schema_version:inc	KeyError: 'fixture_name_hex'
+near-semantic	plan>expectation>fixture_name_hex:delete-key;plan>expectation>case:flip	ValueError: Wrong case
+near-semantic	plan>expectation>global_download_limit:delete-key;plan>expectation>per_client_download_limit:delete-key	KeyError: 'global_download_limit'
+near-semantic	plan>expectation>global_download_limit:delete-key;plan>expectation>maximum_references:inc	ValueError: Bounds differ
+near-semantic	report>events>1>hex:delete-key;plan>expectation>maximum_references:delete-key	KeyError: 'maximum_references'
+near-semantic	plan>expectation>maximum_data_sockets:delete-key;plan>expectation>maximum_references:delete-key	KeyError: 'maximum_references'
+near-semantic	plan>expectation>maximum_data_sockets:delete-key;plan>expectation>fixture_name_hex:flip	ValueError: Wrong fixture
+near-semantic	plan>expectation>maximum_references:delete-key;plan>expectation>per_client_download_limit:delete-key	KeyError: 'maximum_references'
+near-semantic	plan>expectation>per_client_download_limit:delete-key;plan>expectation>per_ip_limit:delete-key	KeyError: 'per_client_download_limit'
+near-semantic	plan>expectation>per_client_download_limit:delete-key;report>events>1>hex:empty	KeyError: 'per_client_download_limit'
+near-semantic	plan>expectation>per_ip_limit:delete-key;plan>expectation>global_download_limit:inc	KeyError: 'per_ip_limit'
+near-semantic	plan:delete-key;report:delete-key	KeyError: 'report'
+near-semantic	report>status:delete-key;plan>expectation>case:flip	KeyError: 'status'
+near-semantic	report>schema_version:inc;report>events>1>hex:empty	error: unpack requires a buffer of 20 bytes
+stale-suites		ok 47e305dac25f0055
+stale-suites	uid:delete-key	KeyError: 'uid'
+stale-suites	uid:empty	ValueError: A diagnostic UID must be exactly two bytes
+existing-one-active-one-queued		ok b0f2aa03f49e07f1
+existing-one-active-one-queued	baseline:delete-key	KeyError: 'baseline'
+existing-one-active-one-queued	plan>expectation>case:delete-key	KeyError: 'case'
+existing-one-active-one-queued	report>events>1>connection:delete-key	KeyError: 'connection'
+existing-one-active-one-queued	report>frames>3>error:delete-key	KeyError: 'error'
+existing-one-active-one-queued	report>events>0>event:delete-key	KeyError: 'event'
+existing-one-active-one-queued	report>events:delete-key	KeyError: 'events'
+existing-one-active-one-queued	plan>expectation:delete-key	KeyError: 'expectation'
+existing-one-active-one-queued	report>frames>3>fields:delete-key	KeyError: 'fields'
+existing-one-active-one-queued	plan>expectation>fixture_name_hex:delete-key	KeyError: 'fixture_name_hex'
+existing-one-active-one-queued	report>frames:delete-key	KeyError: 'frames'
+existing-one-active-one-queued	report>events>1>hex:delete-key	KeyError: 'hex'
+existing-one-active-one-queued	report>frames>0>id:delete-key	KeyError: 'id'
+existing-one-active-one-queued	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+existing-one-active-one-queued	plan:delete-key	KeyError: 'plan'
+existing-one-active-one-queued	report:delete-key	KeyError: 'report'
+existing-one-active-one-queued	report>status:delete-key	KeyError: 'status'
+existing-one-active-one-queued	report>frames>6>fields:drop-last	ValueError: 303 fields differ at 13
+existing-one-active-one-queued	report>frames>10>fields:drop-last	ValueError: 303 fields differ at 17
+existing-one-active-one-queued	report>frames>6>fields>1>hex:flip	ValueError: 303 name differs
+existing-one-active-one-queued	report>events>21>connection:flip	ValueError: 303 target differs from current roster
+existing-one-active-one-queued	report>frames>6>fields>0>hex:empty	ValueError: 303 text prefix differs
+existing-one-active-one-queued	report>frames>3>fields:drop-last	ValueError: Ambiguous current roster
+existing-one-active-one-queued	report>events>27>hex:flip	ValueError: Cancellation 15 targeted another reference
+existing-one-active-one-queued	report>events>30>hex:flip	ValueError: Cancellation 16 targeted another reference
+existing-one-active-one-queued	report>status:flip	ValueError: Capture incomplete
+existing-one-active-one-queued	plan>expectation>case:flip	ValueError: Case differs
+existing-one-active-one-queued	report>frames>4>fields>2>id:inc	ValueError: Duplicate scalar field
+existing-one-active-one-queued	report>frames>3>is_reply:inc	ValueError: Expected one reply 10
+existing-one-active-one-queued	report>frames>4>is_reply:inc	ValueError: Expected one reply 11
+existing-one-active-one-queued	report>frames>5>is_reply:inc	ValueError: Expected one reply 12
+existing-one-active-one-queued	report>frames>6>is_reply:inc	ValueError: Expected one reply 13
+existing-one-active-one-queued	report>frames>7>is_reply:inc	ValueError: Expected one reply 14
+existing-one-active-one-queued	report>frames>8>is_reply:inc	ValueError: Expected one reply 15
+existing-one-active-one-queued	report>frames>9>is_reply:inc	ValueError: Expected one reply 16
+existing-one-active-one-queued	report>frames:drop-last	ValueError: Expected one reply 17
+existing-one-active-one-queued	plan>expectation>fixture_name_hex:flip	ValueError: Fixture differs
+existing-one-active-one-queued	report>frames>4>fields>1>hex:flip	ValueError: Fork size differs
+existing-one-active-one-queued	report>frames>4>fields:drop-last	ValueError: Missing 202 fields 11
+existing-one-active-one-queued	report>frames>5>fields:drop-first	ValueError: Missing 202 fields 12
+existing-one-active-one-queued	report>frames>5>fields:drop-last	ValueError: Missing positive queue position 12
+existing-one-active-one-queued	report>events>27>connection:flip	ValueError: Missing unique 214 send 15
+existing-one-active-one-queued	report>events>30>connection:flip	ValueError: Missing unique 214 send 16
+existing-one-active-one-queued	report>frames>7>error:inc	ValueError: Missing-target control differs
+existing-one-active-one-queued	report>frames>4>fields>2>hex:empty	ValueError: Reference width differs
+existing-one-active-one-queued	report>frames>3>error:inc	ValueError: Reply 10 failed
+existing-one-active-one-queued	report>frames>4>error:inc	ValueError: Reply 11 failed
+existing-one-active-one-queued	report>frames>5>error:inc	ValueError: Reply 12 failed
+existing-one-active-one-queued	report>frames>6>error:inc	ValueError: Reply 13 failed
+existing-one-active-one-queued	report>frames>8>error:inc	ValueError: Reply 15 failed
+existing-one-active-one-queued	report>frames>9>error:inc	ValueError: Reply 16 failed
+existing-one-active-one-queued	report>frames>10>error:inc	ValueError: Reply 17 failed
+existing-one-active-one-queued	report>frames>3>fields>0>hex:empty	ValueError: Short current roster
+existing-one-active-one-queued	report>frames>4>fields>0>hex:flip	ValueError: Stream size differs
+existing-one-active-one-queued	baseline:delete-key;plan:delete-key	KeyError: 'plan'
+existing-one-active-one-queued	plan>expectation>case:delete-key;report>frames>10>fields:drop-last	KeyError: 'case'
+existing-one-active-one-queued	plan>expectation>case:delete-key;report>status:flip	ValueError: Capture incomplete
+existing-one-active-one-queued	report>events>1>connection:delete-key;report>events>1>hex:delete-key	KeyError: 'connection'
+existing-one-active-one-queued	report>events>1>connection:delete-key;report:delete-key	KeyError: 'report'
+existing-one-active-one-queued	report>frames>3>error:delete-key;report>frames>3>is_reply:inc	ValueError: Expected one reply 10
+existing-one-active-one-queued	report>events>0>event:delete-key;report:delete-key	KeyError: 'report'
+existing-one-active-one-queued	report>events>0>event:delete-key;report>frames>6>fields>0>hex:empty	ValueError: 303 text prefix differs
+existing-one-active-one-queued	report>events:delete-key;report>frames:delete-key	KeyError: 'frames'
+existing-one-active-one-queued	report>frames>3>fields:delete-key;report>frames>3>is_reply:inc	ValueError: Expected one reply 10
+existing-one-active-one-queued	report>frames>3>fields:delete-key;report>frames>3>error:inc	ValueError: Reply 10 failed
+existing-one-active-one-queued	report>events>1>hex:delete-key;report>events>21>connection:flip	KeyError: 'hex'
+existing-one-active-one-queued	report>events>1>hex:delete-key;report>frames>9>is_reply:inc	KeyError: 'hex'
+existing-one-active-one-queued	report>events>1>hex:delete-key;report>frames>8>error:inc	KeyError: 'hex'
+existing-one-active-one-queued	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+existing-one-active-one-queued	report>frames>0>id:delete-key;report>frames>3>is_reply:inc	KeyError: 'id'
+existing-one-active-one-queued	report>frames>0>is_reply:delete-key;plan>expectation>fixture_name_hex:flip	ValueError: Fixture differs
+existing-one-active-one-queued	plan:delete-key;report>status:delete-key	KeyError: 'plan'
+existing-one-active-one-queued	report>frames>6>fields:drop-last;report>frames>4>fields:drop-last	ValueError: Missing 202 fields 11
+existing-one-active-one-queued	report>frames>6>fields:drop-last;report>frames>3>error:inc	ValueError: Reply 10 failed
+existing-one-active-one-queued	report>frames>6>fields:drop-last;report>frames>6>error:inc	ValueError: Reply 13 failed
+existing-one-active-one-queued	report>frames>10>fields:drop-last;report>frames>7>is_reply:inc	ValueError: 303 fields differ at 17
+existing-one-active-one-queued	report>frames>10>fields:drop-last;report>frames>10>error:inc	ValueError: Reply 17 failed
+existing-one-active-one-queued	report>frames>6>fields>1>hex:flip;report>frames>6>fields>0>hex:empty	ValueError: 303 name differs
+existing-one-active-one-queued	report>events>27>hex:flip;report>frames>9>is_reply:inc	ValueError: Cancellation 15 targeted another reference
+existing-one-active-one-queued	report>events>27>hex:flip;report>events>27>connection:flip	ValueError: Missing unique 214 send 15
+existing-one-active-one-queued	report>events>30>hex:flip;report>events>30>connection:flip	ValueError: Missing unique 214 send 16
+existing-one-active-one-queued	report>frames>4>fields>2>id:inc;report>frames>4>fields:drop-last	ValueError: Missing 202 fields 11
+existing-one-active-one-queued	report>frames>4>fields>2>id:inc;report>frames>4>error:inc	ValueError: Reply 11 failed
+existing-one-active-one-queued	report>frames>4>is_reply:inc;report>frames>4>error:inc	ValueError: Expected one reply 11
+existing-one-active-one-queued	report>frames>4>is_reply:inc;report>frames>3>fields>0>hex:empty	ValueError: Short current roster
+existing-one-active-one-queued	report>frames>5>is_reply:inc;report>frames>4>fields>1>hex:flip	ValueError: Fork size differs
+existing-one-active-one-queued	report>frames>5>is_reply:inc;report>frames>5>error:inc	ValueError: Expected one reply 12
+existing-one-active-one-queued	report>frames>6>is_reply:inc;report>frames>5>fields:drop-last	ValueError: Missing positive queue position 12
+existing-one-active-one-queued	report>frames>6>is_reply:inc;report>frames>6>error:inc	ValueError: Expected one reply 13
+existing-one-active-one-queued	report>frames>7>is_reply:inc;report>frames>7>error:inc	ValueError: Expected one reply 14
+existing-one-active-one-queued	report>frames>7>is_reply:inc;report>frames>8>error:inc	ValueError: Expected one reply 14
+existing-one-active-one-queued	report>frames>8>is_reply:inc;report>frames>7>error:inc	ValueError: Missing-target control differs
+existing-one-active-one-queued	report>frames>8>is_reply:inc;report>frames>8>error:inc	ValueError: Expected one reply 15
+existing-one-active-one-queued	report>frames>9>is_reply:inc;report>frames>9>error:inc	ValueError: Expected one reply 16
+existing-one-active-one-queued	report>frames>4>fields>1>hex:flip;report>frames>4>fields>0>hex:flip	ValueError: Stream size differs
+existing-one-active-one-queued	report>frames>5>fields:drop-first;report>frames>5>fields:drop-last	ValueError: Missing 202 fields 12
+existing-one-active-one-queued	report>frames>5>fields:drop-first;report>frames>5>error:inc	ValueError: Reply 12 failed
+existing-one-active-one-queued	report>events>27>connection:flip;report>frames>8>error:inc	ValueError: Reply 15 failed
+existing-one-active-one-queued	report>events>30>connection:flip;report>frames>9>error:inc	ValueError: Reply 16 failed
+existing-one-active-one-queued	report>frames>4>fields>2>hex:empty;report>frames>4>fields>0>hex:flip	ValueError: Reference width differs
+existing-one-active-one-queued	report>frames>10>error:inc;report>frames>3>fields>0>hex:empty	ValueError: Short current roster
+existing-postflight		ok bcb8d24c6b015d78
+existing-postflight	baseline:delete-key	KeyError: 'baseline'
+existing-postflight	plan>expectation>case:delete-key	KeyError: 'case'
+existing-postflight	report>events>1>connection:delete-key	KeyError: 'connection'
+existing-postflight	report>frames>3>error:delete-key	KeyError: 'error'
+existing-postflight	report>events>0>event:delete-key	KeyError: 'event'
+existing-postflight	report>events:delete-key	KeyError: 'events'
+existing-postflight	plan>expectation:delete-key	KeyError: 'expectation'
+existing-postflight	report>frames>3>fields:delete-key	KeyError: 'fields'
+existing-postflight	plan>expectation>fixture_name_hex:delete-key	KeyError: 'fixture_name_hex'
+existing-postflight	report>frames:delete-key	KeyError: 'frames'
+existing-postflight	report>events>1>hex:delete-key	KeyError: 'hex'
+existing-postflight	report>frames>0>id:delete-key	KeyError: 'id'
+existing-postflight	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+existing-postflight	plan:delete-key	KeyError: 'plan'
+existing-postflight	report:delete-key	KeyError: 'report'
+existing-postflight	report>status:delete-key	KeyError: 'status'
+existing-postflight	report>frames>7>fields:drop-last	ValueError: 303 fields differ at 14
+existing-postflight	report>frames>7>fields>1>hex:flip	ValueError: 303 name differs
+existing-postflight	report>events>23>connection:flip	ValueError: 303 target differs from current roster
+existing-postflight	report>frames>7>fields>0>hex:empty	ValueError: 303 text prefix differs
+existing-postflight	report>frames>3>fields:drop-last	ValueError: Account baseline changed
+existing-postflight	report>frames>6>fields:drop-last	ValueError: Ambiguous postflight roster
+existing-postflight	report>status:flip	ValueError: Capture incomplete
+existing-postflight	plan>expectation>case:flip	ValueError: Case differs
+existing-postflight	report>frames>7>fields>0>id:inc	ValueError: Duplicate scalar field
+existing-postflight	report>frames>3>is_reply:inc	ValueError: Expected one reply 10
+existing-postflight	report>frames>4>is_reply:inc	ValueError: Expected one reply 11
+existing-postflight	report>frames>5>is_reply:inc	ValueError: Expected one reply 12
+existing-postflight	report>frames>6>is_reply:inc	ValueError: Expected one reply 13
+existing-postflight	report>frames:drop-last	ValueError: Expected one reply 14
+existing-postflight	report>frames>4>fields:drop-last	ValueError: Files baseline changed
+existing-postflight	plan>expectation>fixture_name_hex:flip	ValueError: Fixture differs
+existing-postflight	report>frames>5>fields:drop-last	ValueError: Fixture metadata changed
+existing-postflight	report>frames>3>error:inc	ValueError: Reply 10 failed
+existing-postflight	report>frames>4>error:inc	ValueError: Reply 11 failed
+existing-postflight	report>frames>5>error:inc	ValueError: Reply 12 failed
+existing-postflight	report>frames>6>error:inc	ValueError: Reply 13 failed
+existing-postflight	report>frames>7>error:inc	ValueError: Reply 14 failed
+existing-postflight	baseline:delete-key;plan:delete-key	KeyError: 'plan'
+existing-postflight	baseline:delete-key;report>status:flip	KeyError: 'baseline'
+existing-postflight	plan>expectation>case:delete-key;report>status:delete-key	KeyError: 'status'
+existing-postflight	plan>expectation>case:delete-key;report>status:flip	ValueError: Capture incomplete
+existing-postflight	report>events>1>connection:delete-key;report>events>0>event:delete-key	KeyError: 'event'
+existing-postflight	report>events>1>connection:delete-key;report>events:delete-key	KeyError: 'events'
+existing-postflight	report>frames>3>error:delete-key;report>frames>3>is_reply:inc	ValueError: Expected one reply 10
+existing-postflight	report>events>0>event:delete-key;report>frames>7>fields>0>hex:empty	ValueError: 303 text prefix differs
+existing-postflight	plan>expectation:delete-key;report>frames>7>fields>0>hex:empty	KeyError: 'expectation'
+existing-postflight	report>frames>3>fields:delete-key;report>frames>3>error:inc	ValueError: Reply 10 failed
+existing-postflight	report>events>1>hex:delete-key;report>status:delete-key	KeyError: 'status'
+existing-postflight	report>events>1>hex:delete-key;report>events>23>connection:flip	KeyError: 'hex'
+existing-postflight	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+existing-postflight	report>frames>0>id:delete-key;report>frames>3>is_reply:inc	KeyError: 'id'
+existing-postflight	report>frames>0>is_reply:delete-key;plan>expectation>fixture_name_hex:flip	ValueError: Fixture differs
+existing-postflight	plan:delete-key;report>status:delete-key	KeyError: 'plan'
+existing-postflight	report>frames>7>fields:drop-last;report>frames>7>fields>0>id:inc	ValueError: 303 fields differ at 14
+existing-postflight	report>frames>7>fields>1>hex:flip;report>frames>7>fields>0>hex:empty	ValueError: 303 name differs
+existing-postflight	report>frames>7>fields>1>hex:flip;report>frames>7>fields>0>id:inc	ValueError: Duplicate scalar field
+existing-postflight	report>frames>3>fields:drop-last;plan>expectation>case:flip	ValueError: Case differs
+existing-postflight	report>frames>3>fields:drop-last;report>frames>4>is_reply:inc	ValueError: Account baseline changed
+existing-postflight	report>frames>6>fields:drop-last;report>frames:drop-last	ValueError: Ambiguous postflight roster
+existing-postflight	report>frames>6>fields:drop-last;report>frames>5>error:inc	ValueError: Reply 12 failed
+existing-postflight	report>frames>6>fields:drop-last;report>frames>6>error:inc	ValueError: Reply 13 failed
+existing-postflight	report>frames>4>is_reply:inc;report>frames>4>error:inc	ValueError: Expected one reply 11
+existing-postflight	report>frames>4>is_reply:inc;report>frames>5>error:inc	ValueError: Expected one reply 11
+existing-postflight	report>frames>5>is_reply:inc;report>frames>5>error:inc	ValueError: Expected one reply 12
+existing-postflight	report>frames>6>is_reply:inc;report>frames>5>fields:drop-last	ValueError: Fixture metadata changed
+existing-postflight	report>frames>6>is_reply:inc;report>frames>6>error:inc	ValueError: Expected one reply 13
+existing-postflight	report>frames>4>fields:drop-last;report>frames>4>error:inc	ValueError: Reply 11 failed
+existing-postflight	report>frames>5>fields:drop-last;report>frames>5>error:inc	ValueError: Reply 12 failed
+existing-postflight	report>frames>5>error:inc;report>frames>6>error:inc	ValueError: Reply 12 failed
+existing-density		ok 299ac6f0d65a8266
+existing-density	baseline:delete-key	KeyError: 'baseline'
+existing-density	plan>expectation>case:delete-key	KeyError: 'case'
+existing-density	report>events>1>connection:delete-key	KeyError: 'connection'
+existing-density	report>frames>3>error:delete-key	KeyError: 'error'
+existing-density	report>events>0>event:delete-key	KeyError: 'event'
+existing-density	report>events:delete-key	KeyError: 'events'
+existing-density	plan>expectation:delete-key	KeyError: 'expectation'
+existing-density	report>frames>3>fields:delete-key	KeyError: 'fields'
+existing-density	plan>expectation>fixture_name_hex:delete-key	KeyError: 'fixture_name_hex'
+existing-density	report>frames:delete-key	KeyError: 'frames'
+existing-density	report>events>1>hex:delete-key	KeyError: 'hex'
+existing-density	report>frames>0>id:delete-key	KeyError: 'id'
+existing-density	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+existing-density	plan:delete-key	KeyError: 'plan'
+existing-density	report:delete-key	KeyError: 'report'
+existing-density	report>status:delete-key	KeyError: 'status'
+existing-density	report>frames>8>fields:drop-last	ValueError: 303 fields differ at 35
+existing-density	report>frames>17>fields:drop-last	ValueError: 303 fields differ at 60
+existing-density	report>frames>22>fields:drop-last	ValueError: 303 fields differ at 61
+existing-density	report>frames>39>fields:drop-last	ValueError: 303 fields differ at 90
+existing-density	report>frames>8>fields>1>hex:flip	ValueError: 303 name differs
+existing-density	report>events>33>connection:flip	ValueError: 303 target differs from current roster
+existing-density	report>frames>8>fields>0>hex:empty	ValueError: 303 text prefix differs
+existing-density	report>frames>3>fields:drop-last	ValueError: Ambiguous current roster
+existing-density	report>events>107>hex:flip	ValueError: Cancellation 70 targeted another reference
+existing-density	report>events>104>hex:flip	ValueError: Cancellation 71 targeted another reference
+existing-density	report>events>101>hex:flip	ValueError: Cancellation 72 targeted another reference
+existing-density	report>events>98>hex:flip	ValueError: Cancellation 73 targeted another reference
+existing-density	report>events>95>hex:flip	ValueError: Cancellation 74 targeted another reference
+existing-density	report>events>92>hex:flip	ValueError: Cancellation 75 targeted another reference
+existing-density	report>events>89>hex:flip	ValueError: Cancellation 76 targeted another reference
+existing-density	report>events>86>hex:flip	ValueError: Cancellation 77 targeted another reference
+existing-density	report>events>138>hex:flip	ValueError: Cancellation 80 targeted another reference
+existing-density	report>events>134>hex:flip	ValueError: Cancellation 81 targeted another reference
+existing-density	report>events>130>hex:flip	ValueError: Cancellation 82 targeted another reference
+existing-density	report>events>126>hex:flip	ValueError: Cancellation 83 targeted another reference
+existing-density	report>events>122>hex:flip	ValueError: Cancellation 84 targeted another reference
+existing-density	report>events>118>hex:flip	ValueError: Cancellation 85 targeted another reference
+existing-density	report>events>114>hex:flip	ValueError: Cancellation 86 targeted another reference
+existing-density	report>events>110>hex:flip	ValueError: Cancellation 87 targeted another reference
+existing-density	report>status:flip	ValueError: Capture incomplete
+existing-density	plan>expectation>case:flip	ValueError: Case differs
+existing-density	report>frames>4>fields>2>id:inc	ValueError: Duplicate scalar field
+existing-density	report>frames>3>is_reply:inc	ValueError: Expected one reply 10
+existing-density	report>frames>4>is_reply:inc	ValueError: Expected one reply 20
+existing-density	report>frames>5>is_reply:inc	ValueError: Expected one reply 21
+existing-density	report>frames>6>is_reply:inc	ValueError: Expected one reply 22
+existing-density	report>frames>7>is_reply:inc	ValueError: Expected one reply 23
+existing-density	report>frames>9>is_reply:inc	ValueError: Expected one reply 24
+existing-density	report>frames>10>is_reply:inc	ValueError: Expected one reply 25
+existing-density	report>frames>11>is_reply:inc	ValueError: Expected one reply 26
+existing-density	report>frames>12>is_reply:inc	ValueError: Expected one reply 27
+existing-density	report>frames>8>is_reply:inc	ValueError: Expected one reply 35
+existing-density	report>frames>13>is_reply:inc	ValueError: Expected one reply 40
+existing-density	report>frames>14>is_reply:inc	ValueError: Expected one reply 41
+existing-density	report>frames>15>is_reply:inc	ValueError: Expected one reply 42
+existing-density	report>frames>16>is_reply:inc	ValueError: Expected one reply 43
+existing-density	report>frames>18>is_reply:inc	ValueError: Expected one reply 44
+existing-density	report>frames>19>is_reply:inc	ValueError: Expected one reply 45
+existing-density	report>frames>20>is_reply:inc	ValueError: Expected one reply 46
+existing-density	report>frames>21>is_reply:inc	ValueError: Expected one reply 47
+existing-density	report>frames>17>is_reply:inc	ValueError: Expected one reply 60
+existing-density	report>frames>22>is_reply:inc	ValueError: Expected one reply 61
+existing-density	report>frames>30>is_reply:inc	ValueError: Expected one reply 70
+existing-density	report>frames>29>is_reply:inc	ValueError: Expected one reply 71
+existing-density	report>frames>28>is_reply:inc	ValueError: Expected one reply 72
+existing-density	report>frames>27>is_reply:inc	ValueError: Expected one reply 73
+existing-density	report>frames>26>is_reply:inc	ValueError: Expected one reply 74
+existing-density	report>frames>25>is_reply:inc	ValueError: Expected one reply 75
+existing-density	report>frames>24>is_reply:inc	ValueError: Expected one reply 76
+existing-density	report>frames>23>is_reply:inc	ValueError: Expected one reply 77
+existing-density	report>frames>38>is_reply:inc	ValueError: Expected one reply 80
+existing-density	report>frames>37>is_reply:inc	ValueError: Expected one reply 81
+existing-density	report>frames>36>is_reply:inc	ValueError: Expected one reply 82
+existing-density	report>frames>35>is_reply:inc	ValueError: Expected one reply 83
+existing-density	report>frames>34>is_reply:inc	ValueError: Expected one reply 84
+existing-density	report>frames>33>is_reply:inc	ValueError: Expected one reply 85
+existing-density	report>frames>32>is_reply:inc	ValueError: Expected one reply 86
+existing-density	report>frames>31>is_reply:inc	ValueError: Expected one reply 87
+existing-density	report>frames:drop-last	ValueError: Expected one reply 90
+existing-density	plan>expectation>fixture_name_hex:flip	ValueError: Fixture differs
+existing-density	report>frames>4>fields>1>hex:flip	ValueError: Fork size differs
+existing-density	report>frames>4>fields:drop-last	ValueError: Missing 202 fields 20
+existing-density	report>frames>5>fields:drop-last	ValueError: Missing 202 fields 21
+existing-density	report>frames>6>fields:drop-last	ValueError: Missing 202 fields 22
+existing-density	report>frames>7>fields:drop-last	ValueError: Missing 202 fields 23
+existing-density	report>frames>9>fields:drop-last	ValueError: Missing 202 fields 24
+existing-density	report>frames>10>fields:drop-last	ValueError: Missing 202 fields 25
+existing-density	report>frames>11>fields:drop-last	ValueError: Missing 202 fields 26
+existing-density	report>frames>12>fields:drop-last	ValueError: Missing 202 fields 27
+existing-density	report>frames>13>fields:drop-first	ValueError: Missing 202 fields 40
+existing-density	report>frames>14>fields:drop-first	ValueError: Missing 202 fields 41
+existing-density	report>frames>15>fields:drop-first	ValueError: Missing 202 fields 42
+existing-density	report>frames>16>fields:drop-first	ValueError: Missing 202 fields 43
+existing-density	report>frames>18>fields:drop-first	ValueError: Missing 202 fields 44
+existing-density	report>frames>19>fields:drop-first	ValueError: Missing 202 fields 45
+existing-density	report>frames>20>fields:drop-first	ValueError: Missing 202 fields 46
+existing-density	report>frames>21>fields:drop-first	ValueError: Missing 202 fields 47
+existing-density	report>frames>13>fields:drop-last	ValueError: Missing positive queue position 40
+existing-density	report>frames>14>fields:drop-last	ValueError: Missing positive queue position 41
+existing-density	report>frames>15>fields:drop-last	ValueError: Missing positive queue position 42
+existing-density	report>frames>16>fields:drop-last	ValueError: Missing positive queue position 43
+existing-density	report>frames>18>fields:drop-last	ValueError: Missing positive queue position 44
+existing-density	report>frames>19>fields:drop-last	ValueError: Missing positive queue position 45
+existing-density	report>frames>20>fields:drop-last	ValueError: Missing positive queue position 46
+existing-density	report>frames>21>fields:drop-last	ValueError: Missing positive queue position 47
+existing-density	report>events>107>connection:flip	ValueError: Missing unique 214 send 70
+existing-density	report>events>104>connection:flip	ValueError: Missing unique 214 send 71
+existing-density	report>events>101>connection:flip	ValueError: Missing unique 214 send 72
+existing-density	report>events>98>connection:flip	ValueError: Missing unique 214 send 73
+existing-density	report>events>95>connection:flip	ValueError: Missing unique 214 send 74
+existing-density	report>events>92>connection:flip	ValueError: Missing unique 214 send 75
+existing-density	report>events>89>connection:flip	ValueError: Missing unique 214 send 76
+existing-density	report>events>86>connection:flip	ValueError: Missing unique 214 send 77
+existing-density	report>events>138>connection:flip	ValueError: Missing unique 214 send 80
+existing-density	report>events>134>connection:flip	ValueError: Missing unique 214 send 81
+existing-density	report>events>130>connection:flip	ValueError: Missing unique 214 send 82
+existing-density	report>events>126>connection:flip	ValueError: Missing unique 214 send 83
+existing-density	report>events>122>connection:flip	ValueError: Missing unique 214 send 84
+existing-density	report>events>118>connection:flip	ValueError: Missing unique 214 send 85
+existing-density	report>events>114>connection:flip	ValueError: Missing unique 214 send 86
+existing-density	report>events>110>connection:flip	ValueError: Missing unique 214 send 87
+existing-density	report>frames>4>fields>2>hex:empty	ValueError: Reference width differs
+existing-density	report>frames>3>error:inc	ValueError: Reply 10 failed
+existing-density	report>frames>4>error:inc	ValueError: Reply 20 failed
+existing-density	report>frames>5>error:inc	ValueError: Reply 21 failed
+existing-density	report>frames>6>error:inc	ValueError: Reply 22 failed
+existing-density	report>frames>7>error:inc	ValueError: Reply 23 failed
+existing-density	report>frames>9>error:inc	ValueError: Reply 24 failed
+existing-density	report>frames>10>error:inc	ValueError: Reply 25 failed
+existing-density	report>frames>11>error:inc	ValueError: Reply 26 failed
+existing-density	report>frames>12>error:inc	ValueError: Reply 27 failed
+existing-density	report>frames>8>error:inc	ValueError: Reply 35 failed
+existing-density	report>frames>13>error:inc	ValueError: Reply 40 failed
+existing-density	report>frames>14>error:inc	ValueError: Reply 41 failed
+existing-density	report>frames>15>error:inc	ValueError: Reply 42 failed
+existing-density	report>frames>16>error:inc	ValueError: Reply 43 failed
+existing-density	report>frames>18>error:inc	ValueError: Reply 44 failed
+existing-density	report>frames>19>error:inc	ValueError: Reply 45 failed
+existing-density	report>frames>20>error:inc	ValueError: Reply 46 failed
+existing-density	report>frames>21>error:inc	ValueError: Reply 47 failed
+existing-density	report>frames>17>error:inc	ValueError: Reply 60 failed
+existing-density	report>frames>22>error:inc	ValueError: Reply 61 failed
+existing-density	report>frames>30>error:inc	ValueError: Reply 70 failed
+existing-density	report>frames>29>error:inc	ValueError: Reply 71 failed
+existing-density	report>frames>28>error:inc	ValueError: Reply 72 failed
+existing-density	report>frames>27>error:inc	ValueError: Reply 73 failed
+existing-density	report>frames>26>error:inc	ValueError: Reply 74 failed
+existing-density	report>frames>25>error:inc	ValueError: Reply 75 failed
+existing-density	report>frames>24>error:inc	ValueError: Reply 76 failed
+existing-density	report>frames>23>error:inc	ValueError: Reply 77 failed
+existing-density	report>frames>38>error:inc	ValueError: Reply 80 failed
+existing-density	report>frames>37>error:inc	ValueError: Reply 81 failed
+existing-density	report>frames>36>error:inc	ValueError: Reply 82 failed
+existing-density	report>frames>35>error:inc	ValueError: Reply 83 failed
+existing-density	report>frames>34>error:inc	ValueError: Reply 84 failed
+existing-density	report>frames>33>error:inc	ValueError: Reply 85 failed
+existing-density	report>frames>32>error:inc	ValueError: Reply 86 failed
+existing-density	report>frames>31>error:inc	ValueError: Reply 87 failed
+existing-density	report>frames>39>error:inc	ValueError: Reply 90 failed
+existing-density	report>frames>3>fields>0>hex:empty	ValueError: Short current roster
+existing-density	report>frames>4>fields>0>hex:flip	ValueError: Stream size differs
+existing-density	baseline:delete-key;plan:delete-key	KeyError: 'plan'
+existing-density	plan>expectation>case:delete-key;report>status:flip	ValueError: Capture incomplete
+existing-density	report>events>1>connection:delete-key;report>events>0>event:delete-key	KeyError: 'event'
+existing-density	report>events>1>connection:delete-key;report>events>1>hex:delete-key	KeyError: 'connection'
+existing-density	report>events>1>connection:delete-key;report>frames>26>error:inc	KeyError: 'connection'
+existing-density	report>frames>3>error:delete-key;report>frames>3>is_reply:inc	ValueError: Expected one reply 10
+existing-density	report>events>0>event:delete-key;report>frames>8>fields>0>hex:empty	ValueError: 303 text prefix differs
+existing-density	report>events:delete-key;report>frames>25>is_reply:inc	KeyError: 'events'
+existing-density	report>frames>3>fields:delete-key;report>frames>3>error:inc	ValueError: Reply 10 failed
+existing-density	report>frames:delete-key;report>events>92>hex:flip	KeyError: 'frames'
+existing-density	report>events>1>hex:delete-key;report>events>33>connection:flip	KeyError: 'hex'
+existing-density	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+existing-density	report>frames>0>id:delete-key;report>frames>3>is_reply:inc	KeyError: 'id'
+existing-density	report>frames>0>is_reply:delete-key;plan>expectation>fixture_name_hex:flip	ValueError: Fixture differs
+existing-density	plan:delete-key;report>status:delete-key	KeyError: 'plan'
+existing-density	report>frames>8>fields:drop-last;report>frames>8>error:inc	ValueError: Reply 35 failed
+existing-density	report>frames>17>fields:drop-last;report>frames>22>is_reply:inc	ValueError: 303 fields differ at 60
+existing-density	report>frames>17>fields:drop-last;report>frames>17>error:inc	ValueError: Reply 60 failed
+existing-density	report>frames>22>fields:drop-last;report>frames:drop-last	ValueError: 303 fields differ at 61
+existing-density	report>frames>22>fields:drop-last;report>frames>22>error:inc	ValueError: Reply 61 failed
+existing-density	report>frames>39>fields:drop-last;report>frames>30>is_reply:inc	ValueError: 303 fields differ at 90
+existing-density	report>frames>39>fields:drop-last;report>frames>39>error:inc	ValueError: Reply 90 failed
+existing-density	report>frames>8>fields>1>hex:flip;report>frames>8>fields>0>hex:empty	ValueError: 303 name differs
+existing-density	report>events>33>connection:flip;report>frames>17>is_reply:inc	ValueError: 303 target differs from current roster
+existing-density	report>events>107>hex:flip;report>frames>29>is_reply:inc	ValueError: Cancellation 70 targeted another reference
+existing-density	report>events>107>hex:flip;report>events>107>connection:flip	ValueError: Missing unique 214 send 70
+existing-density	report>events>104>hex:flip;report>frames>28>is_reply:inc	ValueError: Cancellation 71 targeted another reference
+existing-density	report>events>104>hex:flip;report>events>104>connection:flip	ValueError: Missing unique 214 send 71
+existing-density	report>events>101>hex:flip;report>frames>27>is_reply:inc	ValueError: Cancellation 72 targeted another reference
+existing-density	report>events>101>hex:flip;report>events>101>connection:flip	ValueError: Missing unique 214 send 72
+existing-density	report>events>98>hex:flip;report>frames>26>is_reply:inc	ValueError: Cancellation 73 targeted another reference
+existing-density	report>events>98>hex:flip;report>events>98>connection:flip	ValueError: Missing unique 214 send 73
+existing-density	report>events>95>hex:flip;report>events>95>connection:flip	ValueError: Missing unique 214 send 74
+existing-density	report>events>92>hex:flip;report>events>92>connection:flip	ValueError: Missing unique 214 send 75
+existing-density	report>events>89>hex:flip;report>frames>23>is_reply:inc	ValueError: Cancellation 76 targeted another reference
+existing-density	report>events>89>hex:flip;report>events>89>connection:flip	ValueError: Missing unique 214 send 76
+existing-density	report>events>86>hex:flip;report>frames>38>is_reply:inc	ValueError: Cancellation 77 targeted another reference
+existing-density	report>events>86>hex:flip;report>events>86>connection:flip	ValueError: Missing unique 214 send 77
+existing-density	report>events>138>hex:flip;report>frames>14>is_reply:inc	ValueError: Expected one reply 41
+existing-density	report>events>138>hex:flip;report>frames>37>is_reply:inc	ValueError: Cancellation 80 targeted another reference
+existing-density	report>events>138>hex:flip;report>events>138>connection:flip	ValueError: Missing unique 214 send 80
+existing-density	report>events>134>hex:flip;report>frames>36>is_reply:inc	ValueError: Cancellation 81 targeted another reference
+existing-density	report>events>134>hex:flip;report>events>134>connection:flip	ValueError: Missing unique 214 send 81
+existing-density	report>events>130>hex:flip;report>frames>35>is_reply:inc	ValueError: Cancellation 82 targeted another reference
+existing-density	report>events>130>hex:flip;report>events>130>connection:flip	ValueError: Missing unique 214 send 82
+existing-density	report>events>126>hex:flip;report>frames>34>is_reply:inc	ValueError: Cancellation 83 targeted another reference
+existing-density	report>events>122>hex:flip;report>frames>33>is_reply:inc	ValueError: Cancellation 84 targeted another reference
+existing-density	report>events>122>hex:flip;report>events>122>connection:flip	ValueError: Missing unique 214 send 84
+existing-density	report>events>118>hex:flip;report>frames>32>is_reply:inc	ValueError: Cancellation 85 targeted another reference
+existing-density	report>events>118>hex:flip;report>events>118>connection:flip	ValueError: Missing unique 214 send 85
+existing-density	report>events>114>hex:flip;report>frames>31>is_reply:inc	ValueError: Cancellation 86 targeted another reference
+existing-density	report>events>114>hex:flip;report>events>114>connection:flip	ValueError: Missing unique 214 send 86
+existing-density	report>events>110>hex:flip;report>frames>29>is_reply:inc	ValueError: Expected one reply 71
+existing-density	report>events>110>hex:flip;report>events>110>connection:flip	ValueError: Missing unique 214 send 87
+existing-density	report>frames>4>fields>2>id:inc;report>frames>4>fields:drop-last	ValueError: Missing 202 fields 20
+existing-density	report>frames>4>fields>2>id:inc;report>frames>4>error:inc	ValueError: Reply 20 failed
+existing-density	report>frames>4>is_reply:inc;report>frames>4>error:inc	ValueError: Expected one reply 20
+existing-density	report>frames>4>is_reply:inc;report>frames>3>fields>0>hex:empty	ValueError: Short current roster
+existing-density	report>frames>5>is_reply:inc;report>frames>4>fields>1>hex:flip	ValueError: Fork size differs
+existing-density	report>frames>5>is_reply:inc;report>frames>5>error:inc	ValueError: Expected one reply 21
+existing-density	report>frames>6>is_reply:inc;report>frames>5>fields:drop-last	ValueError: Missing 202 fields 21
+existing-density	report>frames>6>is_reply:inc;report>frames>6>error:inc	ValueError: Expected one reply 22
+existing-density	report>frames>7>is_reply:inc;report>frames>6>fields:drop-last	ValueError: Missing 202 fields 22
+existing-density	report>frames>7>is_reply:inc;report>frames>7>error:inc	ValueError: Expected one reply 23
+existing-density	report>frames>9>is_reply:inc;report>frames>7>fields:drop-last	ValueError: Missing 202 fields 23
+existing-density	report>frames>9>is_reply:inc;report>frames>9>error:inc	ValueError: Expected one reply 24
+existing-density	report>frames>10>is_reply:inc;report>frames>9>fields:drop-last	ValueError: Missing 202 fields 24
+existing-density	report>frames>10>is_reply:inc;report>frames>10>error:inc	ValueError: Expected one reply 25
+existing-density	report>frames>11>is_reply:inc;report>frames>10>fields:drop-last	ValueError: Missing 202 fields 25
+existing-density	report>frames>11>is_reply:inc;report>frames>11>error:inc	ValueError: Expected one reply 26
+existing-density	report>frames>12>is_reply:inc;report>frames>11>fields:drop-last	ValueError: Missing 202 fields 26
+existing-density	report>frames>12>is_reply:inc;report>frames>12>error:inc	ValueError: Expected one reply 27
+existing-density	report>frames>8>is_reply:inc;report>frames>21>fields:drop-last	ValueError: Missing positive queue position 47
+existing-density	report>frames>8>is_reply:inc;report>frames>8>error:inc	ValueError: Expected one reply 35
+existing-density	report>frames>13>is_reply:inc;report>frames>12>fields:drop-last	ValueError: Missing 202 fields 27
+existing-density	report>frames>13>is_reply:inc;report>frames>13>error:inc	ValueError: Expected one reply 40
+existing-density	report>frames>14>is_reply:inc;report>frames>15>fields:drop-first	ValueError: Expected one reply 41
+existing-density	report>frames>14>is_reply:inc;report>frames>13>fields:drop-last	ValueError: Missing positive queue position 40
+existing-density	report>frames>14>is_reply:inc;report>frames>14>error:inc	ValueError: Expected one reply 41
+existing-density	report>frames>15>is_reply:inc;report>frames>14>fields:drop-last	ValueError: Missing positive queue position 41
+existing-density	report>frames>15>is_reply:inc;report>frames>15>error:inc	ValueError: Expected one reply 42
+existing-density	report>frames>16>is_reply:inc;report>frames>15>fields:drop-last	ValueError: Missing positive queue position 42
+existing-density	report>frames>16>is_reply:inc;report>frames>16>error:inc	ValueError: Expected one reply 43
+existing-density	report>frames>18>is_reply:inc;report>frames>16>fields:drop-last	ValueError: Missing positive queue position 43
+existing-density	report>frames>18>is_reply:inc;report>frames>18>error:inc	ValueError: Expected one reply 44
+existing-density	report>frames>19>is_reply:inc;report>frames>18>fields:drop-last	ValueError: Missing positive queue position 44
+existing-density	report>frames>19>is_reply:inc;report>frames>19>error:inc	ValueError: Expected one reply 45
+existing-density	report>frames>20>is_reply:inc;report>frames>19>fields:drop-last	ValueError: Missing positive queue position 45
+existing-density	report>frames>20>is_reply:inc;report>frames>20>error:inc	ValueError: Expected one reply 46
+existing-density	report>frames>21>is_reply:inc;report>frames>20>fields:drop-last	ValueError: Missing positive queue position 46
+existing-density	report>frames>21>is_reply:inc;report>frames>21>error:inc	ValueError: Expected one reply 47
+existing-density	report>frames>17>is_reply:inc;report>frames>17>error:inc	ValueError: Expected one reply 60
+existing-density	report>frames>22>is_reply:inc;report>frames>22>error:inc	ValueError: Expected one reply 61
+existing-density	report>frames>30>is_reply:inc;report>frames>30>error:inc	ValueError: Expected one reply 70
+existing-density	report>frames>29>is_reply:inc;report>frames>29>error:inc	ValueError: Expected one reply 71
+existing-density	report>frames>28>is_reply:inc;report>frames>28>error:inc	ValueError: Expected one reply 72
+existing-density	report>frames>27>is_reply:inc;report>frames>27>error:inc	ValueError: Expected one reply 73
+existing-density	report>frames>26>is_reply:inc;report>frames>26>error:inc	ValueError: Expected one reply 74
+existing-density	report>frames>25>is_reply:inc;report>frames>25>error:inc	ValueError: Expected one reply 75
+existing-density	report>frames>24>is_reply:inc;report>frames>24>error:inc	ValueError: Expected one reply 76
+existing-density	report>frames>23>is_reply:inc;report>frames>23>error:inc	ValueError: Expected one reply 77
+existing-density	report>frames>38>is_reply:inc;report>frames>38>error:inc	ValueError: Expected one reply 80
+existing-density	report>frames>38>is_reply:inc;report>frames>4>fields>0>hex:flip	ValueError: Stream size differs
+existing-density	report>frames>37>is_reply:inc;report>frames>37>error:inc	ValueError: Expected one reply 81
+existing-density	report>frames>36>is_reply:inc;report>frames>36>error:inc	ValueError: Expected one reply 82
+existing-density	report>frames>35>is_reply:inc;report>frames>35>error:inc	ValueError: Expected one reply 83
+existing-density	report>frames>34>is_reply:inc;report>frames>34>error:inc	ValueError: Expected one reply 84
+existing-density	report>frames>33>is_reply:inc;report>frames>33>error:inc	ValueError: Expected one reply 85
+existing-density	report>frames>32>is_reply:inc;report>frames>32>error:inc	ValueError: Expected one reply 86
+existing-density	report>frames>31>is_reply:inc;report>frames>31>error:inc	ValueError: Expected one reply 87
+existing-density	report>frames>4>fields>1>hex:flip;report>frames>4>fields>0>hex:flip	ValueError: Stream size differs
+existing-density	report>frames>5>fields:drop-last;report>frames>5>error:inc	ValueError: Reply 21 failed
+existing-density	report>frames>6>fields:drop-last;report>frames>6>error:inc	ValueError: Reply 22 failed
+existing-density	report>frames>7>fields:drop-last;report>frames>7>error:inc	ValueError: Reply 23 failed
+existing-density	report>frames>9>fields:drop-last;report>frames>9>error:inc	ValueError: Reply 24 failed
+existing-density	report>frames>10>fields:drop-last;report>frames>10>error:inc	ValueError: Reply 25 failed
+existing-density	report>frames>11>fields:drop-last;report>frames>11>error:inc	ValueError: Reply 26 failed
+existing-density	report>frames>12>fields:drop-last;report>frames>12>error:inc	ValueError: Reply 27 failed
+existing-density	report>frames>13>fields:drop-first;report>frames>13>fields:drop-last	ValueError: Missing 202 fields 40
+existing-density	report>frames>13>fields:drop-first;report>frames>13>error:inc	ValueError: Reply 40 failed
+existing-density	report>frames>14>fields:drop-first;report>frames>14>fields:drop-last	ValueError: Missing 202 fields 41
+existing-density	report>frames>14>fields:drop-first;report>frames>14>error:inc	ValueError: Reply 41 failed
+existing-density	report>frames>15>fields:drop-first;report>frames>15>fields:drop-last	ValueError: Missing 202 fields 42
+existing-density	report>frames>15>fields:drop-first;report>frames>15>error:inc	ValueError: Reply 42 failed
+existing-density	report>frames>16>fields:drop-first;report>frames>16>fields:drop-last	ValueError: Missing 202 fields 43
+existing-density	report>frames>16>fields:drop-first;report>frames>16>error:inc	ValueError: Reply 43 failed
+existing-density	report>frames>18>fields:drop-first;report>frames>18>fields:drop-last	ValueError: Missing 202 fields 44
+existing-density	report>frames>18>fields:drop-first;report>frames>18>error:inc	ValueError: Reply 44 failed
+existing-density	report>frames>19>fields:drop-first;report>frames>19>fields:drop-last	ValueError: Missing 202 fields 45
+existing-density	report>frames>19>fields:drop-first;report>frames>19>error:inc	ValueError: Reply 45 failed
+existing-density	report>frames>19>fields:drop-first;report>frames>26>error:inc	ValueError: Missing 202 fields 45
+existing-density	report>frames>20>fields:drop-first;report>frames>20>fields:drop-last	ValueError: Missing 202 fields 46
+existing-density	report>frames>20>fields:drop-first;report>frames>20>error:inc	ValueError: Reply 46 failed
+existing-density	report>frames>21>fields:drop-first;report>frames>21>fields:drop-last	ValueError: Missing 202 fields 47
+existing-density	report>frames>21>fields:drop-first;report>frames>21>error:inc	ValueError: Reply 47 failed
+existing-density	report>frames>18>fields:drop-last;report>frames>24>error:inc	ValueError: Missing positive queue position 44
+existing-density	report>events>107>connection:flip;report>frames>30>error:inc	ValueError: Reply 70 failed
+existing-density	report>events>104>connection:flip;report>frames>29>error:inc	ValueError: Reply 71 failed
+existing-density	report>events>101>connection:flip;report>frames>28>error:inc	ValueError: Reply 72 failed
+existing-density	report>events>98>connection:flip;report>frames>27>error:inc	ValueError: Reply 73 failed
+existing-density	report>events>95>connection:flip;report>frames>26>error:inc	ValueError: Reply 74 failed
+existing-density	report>events>92>connection:flip;report>frames>25>error:inc	ValueError: Reply 75 failed
+existing-density	report>events>89>connection:flip;report>frames>24>error:inc	ValueError: Reply 76 failed
+existing-density	report>events>86>connection:flip;report>frames>23>error:inc	ValueError: Reply 77 failed
+existing-density	report>events>138>connection:flip;report>frames>38>error:inc	ValueError: Reply 80 failed
+existing-density	report>events>134>connection:flip;report>frames>37>error:inc	ValueError: Reply 81 failed
+existing-density	report>events>130>connection:flip;report>frames>36>error:inc	ValueError: Reply 82 failed
+existing-density	report>events>126>connection:flip;report>frames>35>error:inc	ValueError: Reply 83 failed
+existing-density	report>events>122>connection:flip;report>frames>34>error:inc	ValueError: Reply 84 failed
+existing-density	report>events>118>connection:flip;report>frames>33>error:inc	ValueError: Reply 85 failed
+existing-density	report>events>114>connection:flip;report>frames>32>error:inc	ValueError: Reply 86 failed
+existing-density	report>events>110>connection:flip;report>frames>31>error:inc	ValueError: Reply 87 failed
+existing-density	report>frames>4>fields>2>hex:empty;report>frames>4>fields>0>hex:flip	ValueError: Reference width differs
+existing-density	report>frames>8>error:inc;report>frames>27>error:inc	ValueError: Reply 35 failed
+diagnostics-corpus		ok cd8fa2d5b9981933
+diagnostics-corpus	preflight/report.json>frames>0>connection:delete-key	KeyError: 'connection'
+diagnostics-corpus	manifest.json>driver_sha256:delete-key	KeyError: 'driver_sha256'
+diagnostics-corpus	runtime.json>emulator_pid:delete-key	KeyError: 'emulator_pid'
+diagnostics-corpus	preflight/plan.json>environment:delete-key	KeyError: 'environment'
+diagnostics-corpus	preflight/report.json>frames>3>error:delete-key	KeyError: 'error'
+diagnostics-corpus	self/report.json>events>0>event:delete-key	KeyError: 'event'
+diagnostics-corpus	self/report.json>events:delete-key	KeyError: 'events'
+diagnostics-corpus	preflight/report.json>frames>3>fields:delete-key	KeyError: 'fields'
+diagnostics-corpus	preflight/report.json>frames:delete-key	KeyError: 'frames'
+diagnostics-corpus	unread-tails.json>observe>guest:delete-key	KeyError: 'guest'
+diagnostics-corpus	preflight/report.json>frames>3>fields>0>hex:delete-key	KeyError: 'hex'
+diagnostics-corpus	unread-tails.json>observe>host:delete-key	KeyError: 'host'
+diagnostics-corpus	preflight/report.json>frames>0>id:delete-key	KeyError: 'id'
+diagnostics-corpus	manifest.json>initial_generator_sha256:delete-key	KeyError: 'initial_generator_sha256'
+diagnostics-corpus	preflight/report.json>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+diagnostics-corpus	unread-tails.json>observe>host>main:delete-key	KeyError: 'main'
+diagnostics-corpus	unread-tails.json>observe:delete-key	KeyError: 'observe'
+diagnostics-corpus	preflight/report.json>oracle_sha256:delete-key	KeyError: 'oracle_sha256'
+diagnostics-corpus	preflight/report.json>profile:delete-key	KeyError: 'profile'
+diagnostics-corpus	manifest.json>reports:delete-key	KeyError: 'reports'
+diagnostics-corpus	runtime.json>running_executable_sha256:delete-key	KeyError: 'running_executable_sha256'
+diagnostics-corpus	preflight/report.json>status:delete-key	KeyError: 'status'
+diagnostics-corpus	preflight/report.json>streams:delete-key	KeyError: 'streams'
+diagnostics-corpus	self/report.json>frames>4>type:delete-key	KeyError: 'type'
+diagnostics-corpus	self/report.json>frames>4>type:inc	ValueError: 303 success fields/bytes differ
+diagnostics-corpus	preflight/report.json>frames>3>error:inc	ValueError: Account enumeration failed
+diagnostics-corpus	manifest.json>driver_sha256:flip	ValueError: Diagnostic oracle/plan identity differs
+diagnostics-corpus	preflight/report.json>streams>main:delete-key	ValueError: Diagnostic paired lifetime count differs
+diagnostics-corpus	manifest.json>reports:drop-last	ValueError: Diagnostic report inventory differs
+diagnostics-corpus	runtime.json>emulator_pid:inc	ValueError: Diagnostic runtime identity differs
+diagnostics-corpus	manifest.json>initial_generator_sha256:flip	ValueError: Initial generated plan source differs
+diagnostics-corpus	preflight/report.json>frames:drop-last	ValueError: Missing/duplicate auth reply
+diagnostics-corpus	self/report.json>events>13>connection:flip	ValueError: Missing/duplicate diagnostic request
+diagnostics-corpus	preflight/report.json>frames>3>fields>0>hex:flip	ValueError: Owned account cleanup/baseline differs
+diagnostics-corpus	preflight/report.json>frames>4>error:inc	ValueError: Owned account existed before seed
+diagnostics-corpus	seed/report.json>frames>3>error:inc	ValueError: Owned zero-access account seed differs
+diagnostics-corpus	preflight/report.json>frames>3>fields:drop-last	ValueError: Preflight account inventory differs
+diagnostics-corpus	preflight/report.json>frames>5>fields:drop-last	ValueError: Preflight admin roster ambiguous
+diagnostics-corpus	preflight/report.json>frames>5>fields>0>hex:empty	ValueError: Roster record boundary differs
+diagnostics-corpus	self/report.json>frames>3>fields:drop-last	ValueError: Same-connection self roster ambiguous
+diagnostics-corpus	self/report.json>events>13>hex:flip	ValueError: Self 303 UID differs
+diagnostics-corpus	seed/report.json>frames>4>fields>1>id:inc	ValueError: Unexpected repeated scalar field
+diagnostics-corpus	preflight/report.json>frames>5>fields>0>id:inc	ValueError: Unexpected roster parameter
+diagnostics-corpus	unread-tails.json>observe>host>main:flip	ValueError: Unread owned departure tail differs
+diagnostics-corpus	preflight/report.json>frames>0>connection:delete-key;preflight/report.json>frames>0>is_reply:delete-key	KeyError: 'connection'
+diagnostics-corpus	preflight/report.json>frames>0>connection:delete-key;unread-tails.json>observe>host>main:flip	ValueError: Unread owned departure tail differs
+diagnostics-corpus	manifest.json>driver_sha256:delete-key;preflight/plan.json>environment:delete-key	KeyError: 'environment'
+diagnostics-corpus	runtime.json>emulator_pid:delete-key;manifest.json>reports:drop-last	ValueError: Diagnostic report inventory differs
+diagnostics-corpus	preflight/plan.json>environment:delete-key;preflight/report.json>oracle_sha256:delete-key	KeyError: 'oracle_sha256'
+diagnostics-corpus	preflight/report.json>frames>3>error:delete-key;preflight/report.json>frames>0>id:delete-key	KeyError: 'id'
+diagnostics-corpus	self/report.json>events>0>event:delete-key;self/report.json>events:delete-key	KeyError: 'events'
+diagnostics-corpus	self/report.json>events>0>event:delete-key;self/report.json>frames>3>fields:drop-last	ValueError: Same-connection self roster ambiguous
+diagnostics-corpus	preflight/report.json>frames>3>fields:delete-key;preflight/report.json>frames>4>error:inc	KeyError: 'fields'
+diagnostics-corpus	preflight/report.json>frames:delete-key;manifest.json>initial_generator_sha256:delete-key	KeyError: 'frames'
+diagnostics-corpus	unread-tails.json>observe>guest:delete-key;unread-tails.json>observe>host:delete-key	KeyError: 'host'
+diagnostics-corpus	unread-tails.json>observe>guest:delete-key;unread-tails.json>observe:delete-key	KeyError: 'observe'
+diagnostics-corpus	preflight/report.json>frames>3>fields>0>hex:delete-key;preflight/report.json>frames>0>id:delete-key	KeyError: 'id'
+diagnostics-corpus	preflight/report.json>frames>3>fields>0>hex:delete-key;preflight/report.json>frames>3>error:inc	ValueError: Account enumeration failed
+diagnostics-corpus	preflight/report.json>frames>3>fields>0>hex:delete-key;preflight/report.json>frames>3>fields:drop-last	KeyError: 'hex'
+diagnostics-corpus	preflight/report.json>frames>0>id:delete-key;preflight/report.json>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+diagnostics-corpus	preflight/report.json>frames>0>id:delete-key;preflight/report.json>frames>4>error:inc	KeyError: 'id'
+diagnostics-corpus	manifest.json>initial_generator_sha256:delete-key;preflight/report.json>streams>main:delete-key	ValueError: Diagnostic paired lifetime count differs
+diagnostics-corpus	preflight/report.json>frames>0>is_reply:delete-key;manifest.json>initial_generator_sha256:flip	KeyError: 'is_reply'
+diagnostics-corpus	unread-tails.json>observe>host>main:delete-key;unread-tails.json>observe:delete-key	KeyError: 'observe'
+diagnostics-corpus	unread-tails.json>observe:delete-key;preflight/report.json>streams:delete-key	KeyError: 'streams'
+diagnostics-corpus	preflight/report.json>oracle_sha256:delete-key;preflight/report.json>profile:delete-key	KeyError: 'profile'
+diagnostics-corpus	preflight/report.json>profile:delete-key;preflight/report.json>status:delete-key	KeyError: 'status'
+diagnostics-corpus	runtime.json>running_executable_sha256:delete-key;preflight/report.json>status:delete-key	KeyError: 'running_executable_sha256'
+diagnostics-corpus	runtime.json>running_executable_sha256:delete-key;runtime.json>emulator_pid:inc	ValueError: Diagnostic runtime identity differs
+diagnostics-corpus	preflight/report.json>streams:delete-key;manifest.json>driver_sha256:flip	ValueError: Diagnostic oracle/plan identity differs
+diagnostics-corpus	self/report.json>frames>4>type:delete-key;self/report.json>events>13>hex:flip	ValueError: Self 303 UID differs
+diagnostics-corpus	self/report.json>frames>4>type:inc;preflight/report.json>frames>3>fields>0>hex:flip	ValueError: 303 success fields/bytes differ
+diagnostics-corpus	preflight/report.json>streams>main:delete-key;runtime.json>emulator_pid:inc	ValueError: Diagnostic runtime identity differs
+diagnostics-corpus	preflight/report.json>streams>main:delete-key;preflight/report.json>frames>3>fields>0>hex:flip	ValueError: Owned account cleanup/baseline differs
+diagnostics-corpus	preflight/report.json>frames:drop-last;self/report.json>events>13>hex:flip	ValueError: Missing/duplicate auth reply
+diagnostics-corpus	self/report.json>events>13>connection:flip;self/report.json>events>13>hex:flip	ValueError: Missing/duplicate diagnostic request
+diagnostics-corpus	seed/report.json>frames>3>error:inc;preflight/report.json>frames>5>fields:drop-last	ValueError: Preflight admin roster ambiguous
+diagnostics-corpus	seed/report.json>frames>3>error:inc;preflight/report.json>frames>5>fields>0>hex:empty	ValueError: Roster record boundary differs
+diagnostics-corpus	seed/report.json>frames>3>error:inc;seed/report.json>frames>4>fields>1>id:inc	ValueError: Owned zero-access account seed differs
+diagnostics-corpus	self/report.json>frames>3>fields:drop-last;seed/report.json>frames>4>fields>1>id:inc	ValueError: Unexpected repeated scalar field
+load-corpus		ok 3967c66938620c2f
+load-corpus	manifest.json>cleanup_driver_sha256:delete-key	KeyError: 'cleanup_driver_sha256'
+load-corpus	manifest.json>oracle_sha256:delete-key	KeyError: 'oracle_sha256'
+load-corpus	manifest.json>cleanup_driver_sha256:flip	ValueError: Captured cleanup coordinator source is missing or changed
+load-corpus	manifest.json>oracle_sha256:flip	ValueError: Oracle identity differs
+load-corpus	manifest.json>cleanup_driver_sha256:delete-key;manifest.json>oracle_sha256:delete-key	KeyError: 'oracle_sha256'
+load-corpus	manifest.json>cleanup_driver_sha256:delete-key;manifest.json>oracle_sha256:flip	ValueError: Oracle identity differs
+load-corpus	manifest.json>oracle_sha256:delete-key;manifest.json>cleanup_driver_sha256:flip	KeyError: 'oracle_sha256'
+load-corpus	manifest.json>cleanup_driver_sha256:flip;manifest.json>oracle_sha256:flip	ValueError: Oracle identity differs
