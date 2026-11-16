@@ -16,7 +16,6 @@ scripts/classic_login_proxy.py
 scripts/extract-synhxd-evidence.py  # hash-pinned by the evidence index
 scripts/mothra_root.py
 scripts/native_121_default_cases.py  # live bytes compared with a recorded hash
-scripts/native_account_identity_cases.py
 scripts/native_agreement_cases.py
 scripts/native_ban_control_cases.py  # live bytes compared with a recorded hash
 scripts/native_ban_expiry_cases.py
@@ -83,7 +82,6 @@ scripts/test_mxd_limits.py
 scripts/test_mxd_login_extras.py
 scripts/test_mxd_reconciliation.py
 scripts/test_native_121_default.py
-scripts/test_native_account_identity.py
 scripts/test_native_agreements.py
 scripts/test_native_article_deletion.py
 scripts/test_native_ban_control.py
@@ -151,7 +149,6 @@ scripts/verify_mxd_limits.py
 scripts/verify_mxd_login_extras.py
 scripts/verify_mxd_reconciliation.py
 scripts/verify_native_121_default.py  # live bytes compared with a recorded hash
-scripts/verify_native_account_identity.py
 scripts/verify_native_agreements.py
 scripts/verify_native_article_deletion.py
 scripts/verify_native_ban_control.py
