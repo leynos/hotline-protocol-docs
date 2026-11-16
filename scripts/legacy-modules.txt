@@ -20,21 +20,16 @@ scripts/native_liveness_control.py
 scripts/native_missing_alias_control.py
 scripts/native_path_fields_control.py
 scripts/native_rate304_control.py
-scripts/native_settings_cases.py  # live bytes compared with a recorded hash
 scripts/native_settings_persistence.py
 scripts/native_settings_persistence_cases.py
 scripts/native_settings_transition_cases.py  # live bytes compared with a recorded hash
 scripts/test_native_121_default.py
 scripts/test_native_ban_control.py
 scripts/test_native_control_readiness.py
-scripts/test_native_settings.py
-scripts/test_native_settings_corpus.py
 scripts/test_native_settings_persistence.py
 scripts/test_native_settings_persistence_witness.py
 scripts/test_native_settings_transition.py
 scripts/verify_native_121_default.py  # live bytes compared with a recorded hash
 scripts/verify_native_ban_control.py
-scripts/verify_native_settings.py  # live bytes compared with a recorded hash
-scripts/verify_native_settings_corpus.py
 scripts/verify_native_settings_persistence.py
 scripts/verify_native_settings_transition.py  # live bytes compared with a recorded hash

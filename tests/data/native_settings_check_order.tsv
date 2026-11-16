@@ -1,0 +1,345 @@
+semantic-absent		ok 03e7418d72195c34
+semantic-absent	expected>case:delete-key	KeyError: 'case'
+semantic-absent	report>frames>0>connection:delete-key	KeyError: 'connection'
+semantic-absent	expected>duplicate:delete-key	KeyError: 'duplicate'
+semantic-absent	report>frames>8>error:delete-key	KeyError: 'error'
+semantic-absent	expected:delete-key	KeyError: 'expected'
+semantic-absent	expected>expected_flags:delete-key	KeyError: 'expected_flags'
+semantic-absent	report>frames>6>fields:delete-key	KeyError: 'fields'
+semantic-absent	report>frames:delete-key	KeyError: 'frames'
+semantic-absent	report>frames>6>fields>0>hex:delete-key	KeyError: 'hex'
+semantic-absent	report>frames>0>id:delete-key	KeyError: 'id'
+semantic-absent	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+semantic-absent	expected>pm_text:delete-key	KeyError: 'pm_text'
+semantic-absent	report:delete-key	KeyError: 'report'
+semantic-absent	report>frames>0>type:delete-key	KeyError: 'type'
+semantic-absent	report>frames:drop-last	ValueError: Barrier ACK missing/failed
+semantic-absent	expected>duplicate:not	ValueError: Duplicate selection outside submitted values
+semantic-absent	report>frames>6>fields:drop-first	ValueError: Dynamic subject UID missing
+semantic-absent	expected>expected_flags:inc	ValueError: Field-113 state differs
+semantic-absent	report>frames>6>connection:flip	ValueError: Login/settings/restore 301 missing
+semantic-absent	report>frames>9>id:inc	ValueError: PM ACK missing/failed
+semantic-absent	report>frames>12>fields:drop-last	ValueError: PM delivery bytes differ
+semantic-absent	report>frames>6>fields>0>hex:flip	ValueError: Subject UID changed
+semantic-absent	report>frames>6>fields>1>id:inc	ValueError: Subject icon control changed
+semantic-absent	report>frames>12>connection:flip	ValueError: Suppression without refusal feedback
+semantic-absent	expected>case:delete-key;expected>expected_flags:delete-key	KeyError: 'expected_flags'
+semantic-absent	expected>case:delete-key;expected>duplicate:not	KeyError: 'case'
+semantic-absent	report>frames>0>connection:delete-key;report>frames>8>error:delete-key	KeyError: 'connection'
+semantic-absent	report>frames>0>connection:delete-key;report>frames:drop-last	KeyError: 'connection'
+semantic-absent	report>frames>0>connection:delete-key;report>frames>9>id:inc	ValueError: PM ACK missing/failed
+semantic-absent	expected>duplicate:delete-key;report>frames>8>error:delete-key	KeyError: 'error'
+semantic-absent	expected>duplicate:delete-key;report>frames>12>fields:drop-last	ValueError: PM delivery bytes differ
+semantic-absent	expected>duplicate:delete-key;report>frames>6>fields>1>id:inc	ValueError: Subject icon control changed
+semantic-absent	report>frames>8>error:delete-key;report>frames:drop-last	KeyError: 'error'
+semantic-absent	expected:delete-key;report>frames>0>id:delete-key	KeyError: 'expected'
+semantic-absent	expected:delete-key;report>frames>9>id:inc	KeyError: 'expected'
+semantic-absent	expected:delete-key;report>frames>12>fields:drop-last	KeyError: 'expected'
+semantic-absent	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+semantic-absent	expected>pm_text:delete-key;report>frames>6>fields>1>id:inc	ValueError: Subject icon control changed
+semantic-absent	expected>pm_text:delete-key;report>frames>12>connection:flip	KeyError: 'pm_text'
+semantic-absent	report>frames>0>type:delete-key;report>frames>6>fields:drop-first	KeyError: 'type'
+semantic-absent	report>frames>0>type:delete-key;report>frames>6>connection:flip	KeyError: 'type'
+semantic-absent	report>frames>0>type:delete-key;report>frames>12>fields:drop-last	KeyError: 'type'
+semantic-absent	report>frames:drop-last;report>frames>9>id:inc	ValueError: PM ACK missing/failed
+semantic-absent	report>frames>6>fields:drop-first;report>frames>6>connection:flip	ValueError: Login/settings/restore 301 missing
+semantic-absent	report>frames>9>id:inc;report>frames>6>fields>1>id:inc	ValueError: PM ACK missing/failed
+semantic-absent	report>frames>12>fields:drop-last;report>frames>12>connection:flip	ValueError: Suppression without refusal feedback
+semantic-one-byte-refuse		ok becf6e2a38a4cf6e
+semantic-one-byte-refuse	expected>case:delete-key	KeyError: 'case'
+semantic-one-byte-refuse	report>frames>0>connection:delete-key	KeyError: 'connection'
+semantic-one-byte-refuse	expected>duplicate:delete-key	KeyError: 'duplicate'
+semantic-one-byte-refuse	report>frames>8>error:delete-key	KeyError: 'error'
+semantic-one-byte-refuse	expected:delete-key	KeyError: 'expected'
+semantic-one-byte-refuse	expected>expected_flags:delete-key	KeyError: 'expected_flags'
+semantic-one-byte-refuse	report>frames>6>fields:delete-key	KeyError: 'fields'
+semantic-one-byte-refuse	report>frames:delete-key	KeyError: 'frames'
+semantic-one-byte-refuse	report>frames>6>fields>0>hex:delete-key	KeyError: 'hex'
+semantic-one-byte-refuse	report>frames>0>id:delete-key	KeyError: 'id'
+semantic-one-byte-refuse	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+semantic-one-byte-refuse	expected>pm_text:delete-key	KeyError: 'pm_text'
+semantic-one-byte-refuse	report:delete-key	KeyError: 'report'
+semantic-one-byte-refuse	report>frames>0>type:delete-key	KeyError: 'type'
+semantic-one-byte-refuse	report>frames:drop-last	ValueError: Barrier ACK missing/failed
+semantic-one-byte-refuse	report>frames>6>fields:drop-first	ValueError: Dynamic subject UID missing
+semantic-one-byte-refuse	expected>expected_flags:inc	ValueError: Field-113 state differs
+semantic-one-byte-refuse	report>frames>6>connection:flip	ValueError: Login/settings/restore 301 missing
+semantic-one-byte-refuse	report>frames>9>id:inc	ValueError: PM ACK missing/failed
+semantic-one-byte-refuse	report>frames>10>fields>2>id:inc	ValueError: PM feedback lacks option
+semantic-one-byte-refuse	report>frames>6>fields>0>hex:flip	ValueError: Subject UID changed
+semantic-one-byte-refuse	report>frames>6>fields>1>id:inc	ValueError: Subject icon control changed
+semantic-one-byte-refuse	report>frames>10>connection:flip	ValueError: Suppression without refusal feedback
+semantic-one-byte-refuse	expected>case:delete-key;expected>pm_text:delete-key	KeyError: 'pm_text'
+semantic-one-byte-refuse	expected>case:delete-key;expected>expected_flags:inc	ValueError: Field-113 state differs
+semantic-one-byte-refuse	report>frames>0>connection:delete-key;report>frames>8>error:delete-key	KeyError: 'connection'
+semantic-one-byte-refuse	report>frames>0>connection:delete-key;report>frames>9>id:inc	ValueError: PM ACK missing/failed
+semantic-one-byte-refuse	expected>duplicate:delete-key;expected>expected_flags:delete-key	KeyError: 'duplicate'
+semantic-one-byte-refuse	expected>duplicate:delete-key;report>frames>10>fields>2>id:inc	ValueError: PM feedback lacks option
+semantic-one-byte-refuse	report>frames>8>error:delete-key;report>frames:drop-last	KeyError: 'error'
+semantic-one-byte-refuse	expected:delete-key;report>frames>0>id:delete-key	KeyError: 'expected'
+semantic-one-byte-refuse	expected:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'expected'
+semantic-one-byte-refuse	expected:delete-key;report>frames:drop-last	KeyError: 'expected'
+semantic-one-byte-refuse	expected:delete-key;report>frames>6>fields>1>id:inc	KeyError: 'expected'
+semantic-one-byte-refuse	report>frames>6>fields:delete-key;report:delete-key	KeyError: 'report'
+semantic-one-byte-refuse	report>frames>0>id:delete-key;report>frames>6>connection:flip	KeyError: 'id'
+semantic-one-byte-refuse	report>frames>0>id:delete-key;report>frames>9>id:inc	KeyError: 'id'
+semantic-one-byte-refuse	report>frames>0>is_reply:delete-key;report:delete-key	KeyError: 'report'
+semantic-one-byte-refuse	expected>pm_text:delete-key;report>frames:drop-last	ValueError: Barrier ACK missing/failed
+semantic-one-byte-refuse	expected>pm_text:delete-key;report>frames>6>fields>1>id:inc	ValueError: Subject icon control changed
+semantic-one-byte-refuse	expected>pm_text:delete-key;report>frames>10>connection:flip	KeyError: 'pm_text'
+semantic-one-byte-refuse	report>frames>0>type:delete-key;expected>expected_flags:inc	KeyError: 'type'
+semantic-one-byte-refuse	report>frames>0>type:delete-key;report>frames>6>connection:flip	KeyError: 'type'
+semantic-one-byte-refuse	report>frames>6>fields:drop-first;report>frames>6>connection:flip	ValueError: Login/settings/restore 301 missing
+semantic-one-byte-refuse	report>frames>10>fields>2>id:inc;report>frames>10>connection:flip	ValueError: Suppression without refusal feedback
+semantic-two-byte-auto		ok 7f8f840197b7b473
+semantic-two-byte-auto	expected>case:delete-key	KeyError: 'case'
+semantic-two-byte-auto	report>frames>0>connection:delete-key	KeyError: 'connection'
+semantic-two-byte-auto	expected>duplicate:delete-key	KeyError: 'duplicate'
+semantic-two-byte-auto	report>frames>8>error:delete-key	KeyError: 'error'
+semantic-two-byte-auto	expected:delete-key	KeyError: 'expected'
+semantic-two-byte-auto	expected>expected_flags:delete-key	KeyError: 'expected_flags'
+semantic-two-byte-auto	report>frames>6>fields:delete-key	KeyError: 'fields'
+semantic-two-byte-auto	report>frames:delete-key	KeyError: 'frames'
+semantic-two-byte-auto	report>frames>6>fields>0>hex:delete-key	KeyError: 'hex'
+semantic-two-byte-auto	report>frames>0>id:delete-key	KeyError: 'id'
+semantic-two-byte-auto	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+semantic-two-byte-auto	expected>pm_text:delete-key	KeyError: 'pm_text'
+semantic-two-byte-auto	report:delete-key	KeyError: 'report'
+semantic-two-byte-auto	report>frames>0>type:delete-key	KeyError: 'type'
+semantic-two-byte-auto	report>frames:drop-last	ValueError: Barrier ACK missing/failed
+semantic-two-byte-auto	report>frames>6>fields:drop-first	ValueError: Dynamic subject UID missing
+semantic-two-byte-auto	report>frames>10>connection:flip	ValueError: Field-113 state differs
+semantic-two-byte-auto	report>frames>6>connection:flip	ValueError: Login/settings/restore 301 missing
+semantic-two-byte-auto	report>frames>9>id:inc	ValueError: PM ACK missing/failed
+semantic-two-byte-auto	report>frames>13>fields:drop-last	ValueError: PM delivery bytes differ
+semantic-two-byte-auto	report>frames>10>fields>2>id:inc	ValueError: PM feedback lacks option
+semantic-two-byte-auto	report>frames>6>fields>0>hex:flip	ValueError: Subject UID changed
+semantic-two-byte-auto	report>frames>6>fields>1>id:inc	ValueError: Subject icon control changed
+semantic-two-byte-auto	expected>case:delete-key;expected:delete-key	KeyError: 'expected'
+semantic-two-byte-auto	expected>case:delete-key;report>frames>10>connection:flip	ValueError: Field-113 state differs
+semantic-two-byte-auto	report>frames>0>connection:delete-key;report>frames>8>error:delete-key	KeyError: 'connection'
+semantic-two-byte-auto	report>frames>0>connection:delete-key;report>frames>9>id:inc	ValueError: PM ACK missing/failed
+semantic-two-byte-auto	expected>duplicate:delete-key;report>frames>13>fields:drop-last	ValueError: PM delivery bytes differ
+semantic-two-byte-auto	expected>duplicate:delete-key;report>frames>10>fields>2>id:inc	ValueError: PM feedback lacks option
+semantic-two-byte-auto	report>frames>8>error:delete-key;report>frames:drop-last	KeyError: 'error'
+semantic-two-byte-auto	expected:delete-key;report>frames:delete-key	KeyError: 'expected'
+semantic-two-byte-auto	expected:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'expected'
+semantic-two-byte-auto	expected:delete-key;report>frames>6>fields>0>hex:flip	KeyError: 'expected'
+semantic-two-byte-auto	expected>expected_flags:delete-key;report>frames>0>id:delete-key	KeyError: 'id'
+semantic-two-byte-auto	expected>expected_flags:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+semantic-two-byte-auto	expected>expected_flags:delete-key;report>frames>10>connection:flip	KeyError: 'expected_flags'
+semantic-two-byte-auto	expected>expected_flags:delete-key;report>frames>10>fields>2>id:inc	ValueError: PM feedback lacks option
+semantic-two-byte-auto	report>frames>6>fields:delete-key;report>frames:delete-key	KeyError: 'frames'
+semantic-two-byte-auto	report>frames>6>fields>0>hex:delete-key;report>frames>6>fields:drop-first	ValueError: Dynamic subject UID missing
+semantic-two-byte-auto	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+semantic-two-byte-auto	report>frames>0>id:delete-key;report>frames>9>id:inc	KeyError: 'id'
+semantic-two-byte-auto	expected>pm_text:delete-key;report>frames>13>fields:drop-last	KeyError: 'pm_text'
+semantic-two-byte-auto	expected>pm_text:delete-key;report>frames>6>fields>1>id:inc	ValueError: Subject icon control changed
+semantic-two-byte-auto	report>frames>0>type:delete-key;report>frames:drop-last	ValueError: Barrier ACK missing/failed
+semantic-two-byte-auto	report>frames:drop-last;report>frames>10>connection:flip	ValueError: Barrier ACK missing/failed
+semantic-two-byte-auto	report>frames>6>fields:drop-first;report>frames>6>connection:flip	ValueError: Login/settings/restore 301 missing
+semantic-two-byte-auto	report>frames>10>connection:flip;report>frames>10>fields>2>id:inc	ValueError: Field-113 state differs
+semantic-two-byte-auto	report>frames>6>connection:flip;report>frames>13>fields:drop-last	ValueError: Login/settings/restore 301 missing
+semantic-duplicate-refuse-auto		ok c6cd4ce70d1c6619
+semantic-duplicate-refuse-auto	expected>case:empty	KeyError: ''
+semantic-duplicate-refuse-auto	expected>case:delete-key	KeyError: 'case'
+semantic-duplicate-refuse-auto	report>frames>0>connection:delete-key	KeyError: 'connection'
+semantic-duplicate-refuse-auto	expected>duplicate:delete-key	KeyError: 'duplicate'
+semantic-duplicate-refuse-auto	expected>case:flip	KeyError: 'duplicate-refuse-aut0'
+semantic-duplicate-refuse-auto	report>frames>8>error:delete-key	KeyError: 'error'
+semantic-duplicate-refuse-auto	expected:delete-key	KeyError: 'expected'
+semantic-duplicate-refuse-auto	report>frames>6>fields:delete-key	KeyError: 'fields'
+semantic-duplicate-refuse-auto	report>frames:delete-key	KeyError: 'frames'
+semantic-duplicate-refuse-auto	report>frames>6>fields>0>hex:delete-key	KeyError: 'hex'
+semantic-duplicate-refuse-auto	report>frames>0>id:delete-key	KeyError: 'id'
+semantic-duplicate-refuse-auto	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+semantic-duplicate-refuse-auto	expected>pm_text:delete-key	KeyError: 'pm_text'
+semantic-duplicate-refuse-auto	report:delete-key	KeyError: 'report'
+semantic-duplicate-refuse-auto	report>frames>0>type:delete-key	KeyError: 'type'
+semantic-duplicate-refuse-auto	report>frames:drop-last	ValueError: Barrier ACK missing/failed
+semantic-duplicate-refuse-auto	report>frames>6>fields:drop-first	ValueError: Dynamic subject UID missing
+semantic-duplicate-refuse-auto	expected>duplicate:not	ValueError: Field-113 state differs
+semantic-duplicate-refuse-auto	report>frames>6>connection:flip	ValueError: Login/settings/restore 301 missing
+semantic-duplicate-refuse-auto	report>frames>9>id:inc	ValueError: PM ACK missing/failed
+semantic-duplicate-refuse-auto	report>frames>10>fields>2>id:inc	ValueError: PM feedback lacks option
+semantic-duplicate-refuse-auto	report>frames>6>fields>0>hex:flip	ValueError: Subject UID changed
+semantic-duplicate-refuse-auto	report>frames>6>fields>1>id:inc	ValueError: Subject icon control changed
+semantic-duplicate-refuse-auto	report>frames>10>connection:flip	ValueError: Suppression without refusal feedback
+semantic-duplicate-refuse-auto	expected>case:empty;expected>case:delete-key	KeyError: 'case'
+semantic-duplicate-refuse-auto	expected>case:empty;expected>case:flip	KeyError: 'x'
+semantic-duplicate-refuse-auto	expected>case:delete-key;expected>duplicate:not	ValueError: Field-113 state differs
+semantic-duplicate-refuse-auto	report>frames>0>connection:delete-key;report>frames>8>error:delete-key	KeyError: 'connection'
+semantic-duplicate-refuse-auto	report>frames>0>connection:delete-key;report>frames>9>id:inc	ValueError: PM ACK missing/failed
+semantic-duplicate-refuse-auto	expected>duplicate:delete-key;report>frames>10>fields>2>id:inc	ValueError: PM feedback lacks option
+semantic-duplicate-refuse-auto	expected>case:flip;expected>duplicate:not	ValueError: Field-113 state differs
+semantic-duplicate-refuse-auto	report>frames>8>error:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+semantic-duplicate-refuse-auto	report>frames>8>error:delete-key;report>frames>0>type:delete-key	KeyError: 'error'
+semantic-duplicate-refuse-auto	report>frames>8>error:delete-key;report>frames:drop-last	KeyError: 'error'
+semantic-duplicate-refuse-auto	report>frames>8>error:delete-key;report>frames>9>id:inc	ValueError: PM ACK missing/failed
+semantic-duplicate-refuse-auto	report>frames>8>error:delete-key;report>frames>10>fields>2>id:inc	KeyError: 'error'
+semantic-duplicate-refuse-auto	expected:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'expected'
+semantic-duplicate-refuse-auto	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+semantic-duplicate-refuse-auto	report>frames>0>id:delete-key;report>frames>9>id:inc	KeyError: 'id'
+semantic-duplicate-refuse-auto	expected>pm_text:delete-key;report>frames:drop-last	ValueError: Barrier ACK missing/failed
+semantic-duplicate-refuse-auto	expected>pm_text:delete-key;expected>duplicate:not	KeyError: 'pm_text'
+semantic-duplicate-refuse-auto	expected>pm_text:delete-key;report>frames>6>fields>1>id:inc	ValueError: Subject icon control changed
+semantic-duplicate-refuse-auto	expected>pm_text:delete-key;report>frames>10>connection:flip	KeyError: 'pm_text'
+semantic-duplicate-refuse-auto	report>frames>0>type:delete-key;report>frames>6>connection:flip	KeyError: 'type'
+semantic-duplicate-refuse-auto	report>frames>6>fields:drop-first;report>frames>6>connection:flip	ValueError: Login/settings/restore 301 missing
+semantic-duplicate-refuse-auto	report>frames>6>connection:flip;report>frames>10>connection:flip	ValueError: Login/settings/restore 301 missing
+semantic-duplicate-refuse-auto	report>frames>10>fields>2>id:inc;report>frames>10>connection:flip	ValueError: Suppression without refusal feedback
+semantic-four-byte-both		ok 931906d66c5ccbc8
+semantic-four-byte-both	expected>case:delete-key	KeyError: 'case'
+semantic-four-byte-both	report>frames>0>connection:delete-key	KeyError: 'connection'
+semantic-four-byte-both	expected>duplicate:delete-key	KeyError: 'duplicate'
+semantic-four-byte-both	report>frames>8>error:delete-key	KeyError: 'error'
+semantic-four-byte-both	expected:delete-key	KeyError: 'expected'
+semantic-four-byte-both	expected>expected_flags:delete-key	KeyError: 'expected_flags'
+semantic-four-byte-both	report>frames>6>fields:delete-key	KeyError: 'fields'
+semantic-four-byte-both	report>frames:delete-key	KeyError: 'frames'
+semantic-four-byte-both	report>frames>6>fields>0>hex:delete-key	KeyError: 'hex'
+semantic-four-byte-both	report>frames>0>id:delete-key	KeyError: 'id'
+semantic-four-byte-both	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+semantic-four-byte-both	expected>pm_text:delete-key	KeyError: 'pm_text'
+semantic-four-byte-both	report:delete-key	KeyError: 'report'
+semantic-four-byte-both	report>frames>0>type:delete-key	KeyError: 'type'
+semantic-four-byte-both	report>frames:drop-last	ValueError: Barrier ACK missing/failed
+semantic-four-byte-both	report>frames>6>fields:drop-first	ValueError: Dynamic subject UID missing
+semantic-four-byte-both	expected>expected_flags:inc	ValueError: Field-113 state differs
+semantic-four-byte-both	report>frames>6>connection:flip	ValueError: Login/settings/restore 301 missing
+semantic-four-byte-both	report>frames>9>id:inc	ValueError: PM ACK missing/failed
+semantic-four-byte-both	report>frames>10>fields>2>id:inc	ValueError: PM feedback lacks option
+semantic-four-byte-both	report>frames>6>fields>0>hex:flip	ValueError: Subject UID changed
+semantic-four-byte-both	report>frames>6>fields>1>id:inc	ValueError: Subject icon control changed
+semantic-four-byte-both	report>frames>10>connection:flip	ValueError: Suppression without refusal feedback
+semantic-four-byte-both	expected>case:delete-key;expected>expected_flags:inc	ValueError: Field-113 state differs
+semantic-four-byte-both	expected>case:delete-key;report>frames>10>connection:flip	ValueError: Suppression without refusal feedback
+semantic-four-byte-both	report>frames>0>connection:delete-key;report>frames>8>error:delete-key	KeyError: 'connection'
+semantic-four-byte-both	report>frames>0>connection:delete-key;report:delete-key	KeyError: 'report'
+semantic-four-byte-both	report>frames>0>connection:delete-key;expected>expected_flags:inc	KeyError: 'connection'
+semantic-four-byte-both	report>frames>0>connection:delete-key;report>frames>9>id:inc	ValueError: PM ACK missing/failed
+semantic-four-byte-both	expected>duplicate:delete-key;expected>expected_flags:delete-key	KeyError: 'duplicate'
+semantic-four-byte-both	expected>duplicate:delete-key;report>frames>10>fields>2>id:inc	ValueError: PM feedback lacks option
+semantic-four-byte-both	report>frames>8>error:delete-key;expected>pm_text:delete-key	KeyError: 'error'
+semantic-four-byte-both	report>frames>8>error:delete-key;report>frames:drop-last	KeyError: 'error'
+semantic-four-byte-both	report>frames>8>error:delete-key;report>frames>6>fields>0>hex:flip	KeyError: 'error'
+semantic-four-byte-both	expected:delete-key;report>frames>0>id:delete-key	KeyError: 'expected'
+semantic-four-byte-both	expected:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'expected'
+semantic-four-byte-both	report>frames>0>id:delete-key;report>frames>9>id:inc	KeyError: 'id'
+semantic-four-byte-both	report>frames>0>is_reply:delete-key;report>frames>10>connection:flip	KeyError: 'is_reply'
+semantic-four-byte-both	expected>pm_text:delete-key;report>frames>6>fields>1>id:inc	ValueError: Subject icon control changed
+semantic-four-byte-both	expected>pm_text:delete-key;report>frames>10>connection:flip	KeyError: 'pm_text'
+semantic-four-byte-both	report>frames>0>type:delete-key;report>frames>6>connection:flip	KeyError: 'type'
+semantic-four-byte-both	report>frames>6>fields:drop-first;report>frames>6>connection:flip	ValueError: Login/settings/restore 301 missing
+semantic-four-byte-both	report>frames>6>connection:flip;report>frames>10>fields>2>id:inc	ValueError: Login/settings/restore 301 missing
+semantic-four-byte-both	report>frames>10>fields>2>id:inc;report>frames>10>connection:flip	ValueError: Suppression without refusal feedback
+semantic-four-byte-both	report>frames>6>fields>0>hex:flip;report>frames>10>connection:flip	ValueError: Subject UID changed
+cases		ok eba6ef806d993ed6
+cases	raw/cases/absent/plan.json>endpoints:delete-key	KeyError: 'endpoints'
+cases	raw/cases/absent/report.json>events>5>event:delete-key	KeyError: 'event'
+cases	raw/cases/absent/plan.json>expectation:delete-key	KeyError: 'expectation'
+cases	raw/cases/absent/plan.json>endpoints>control>host:delete-key	KeyError: 'host'
+cases	raw/cases/absent/plan.json>oracle_sha256:delete-key	KeyError: 'oracle_sha256'
+cases	raw/cases/absent/plan.json>endpoints>control>port:delete-key	KeyError: 'port'
+cases	raw/cases/absent/plan.json>steps:delete-key	KeyError: 'steps'
+cases	raw/cases/absent/report.json>frames>0>connection:flip	ValueError: Decoded frame mismatch
+cases	raw/cases/absent/plan.json>endpoints>control:delete-key	ValueError: Invalid connection declaration
+cases	raw/cases/absent/plan.json>oracle_sha256:flip	ValueError: Native profile requires the recorded Mac oracle hash
+cases	raw/cases/absent/plan.json>operator:empty	ValueError: Operator and gap IDs are required
+cases	raw/cases/absent/plan.json>expectation>case:flip	ValueError: Plan differs
+cases	raw/cases/absent/plan.json>operator:flip	ValueError: Source identity mismatch
+cases	raw/cases/absent/report.json>events>5>event:flip	ValueError: Stream reconstruction mismatch
+cases	raw/cases/absent/plan.json>profile:flip	ValueError: Unknown evidence profile
+cases	raw/cases/absent/plan.json>schema_version:inc	ValueError: Unsupported capture schema
+cases	raw/cases/absent/report.json>events>5>event:delete-key;raw/cases/absent/plan.json>expectation>case:flip	ValueError: Plan differs
+cases	raw/cases/absent/report.json>events>5>event:delete-key;raw/cases/absent/plan.json>operator:flip	ValueError: Source identity mismatch
+cases	raw/cases/absent/plan.json>expectation:delete-key;raw/cases/absent/plan.json>steps:delete-key	KeyError: 'steps'
+cases	raw/cases/absent/plan.json>endpoints>control>host:delete-key;raw/cases/absent/plan.json>steps:delete-key	KeyError: 'steps'
+cases	raw/cases/absent/plan.json>endpoints>control>host:delete-key;raw/cases/absent/plan.json>endpoints>control:delete-key	ValueError: Invalid connection declaration
+cases	raw/cases/absent/plan.json>endpoints>control>host:delete-key;raw/cases/absent/report.json>events>5>event:flip	KeyError: 'host'
+cases	raw/cases/absent/plan.json>oracle_sha256:delete-key;raw/cases/absent/plan.json>steps:delete-key	KeyError: 'steps'
+cases	raw/cases/absent/plan.json>oracle_sha256:delete-key;raw/cases/absent/plan.json>operator:empty	ValueError: Operator and gap IDs are required
+cases	raw/cases/absent/plan.json>endpoints>control>port:delete-key;raw/cases/absent/plan.json>operator:flip	KeyError: 'port'
+cases	raw/cases/absent/plan.json>steps:delete-key;raw/cases/absent/plan.json>oracle_sha256:flip	KeyError: 'steps'
+cases	raw/cases/absent/plan.json>steps:delete-key;raw/cases/absent/plan.json>operator:empty	KeyError: 'steps'
+cases	raw/cases/absent/report.json>frames>0>connection:flip;raw/cases/absent/plan.json>oracle_sha256:flip	ValueError: Native profile requires the recorded Mac oracle hash
+cases	raw/cases/absent/report.json>frames>0>connection:flip;raw/cases/absent/report.json>events>5>event:flip	ValueError: Stream reconstruction mismatch
+cases	raw/cases/absent/plan.json>endpoints>control:delete-key;raw/cases/absent/plan.json>oracle_sha256:flip	ValueError: Native profile requires the recorded Mac oracle hash
+cases	raw/cases/absent/plan.json>operator:empty;raw/cases/absent/plan.json>operator:flip	ValueError: Source identity mismatch
+cases	raw/cases/absent/plan.json>operator:empty;raw/cases/absent/plan.json>profile:flip	ValueError: Unknown evidence profile
+cases	raw/cases/absent/plan.json>expectation>case:flip;raw/cases/absent/plan.json>schema_version:inc	ValueError: Plan differs
+cases	raw/cases/absent/plan.json>profile:flip;raw/cases/absent/plan.json>schema_version:inc	ValueError: Unsupported capture schema
+corpus		ok 2d3df1672817eb7c
+corpus	raw/cases/absent/report.json>events>1>action:delete-key	KeyError: 'action'
+corpus	raw/cases/absent/report.json>events>14>connection:delete-key	KeyError: 'connection'
+corpus	raw/cases/absent/report.json>events>11>event:delete-key	KeyError: 'event'
+corpus	raw/cases/absent/plan.json>expectation:delete-key	KeyError: 'expectation'
+corpus	raw/cases/absent/report.json>frames:delete-key	KeyError: 'frames'
+corpus	raw/packet-reconciliation.json>absent>tails>main>guest_hex:delete-key	KeyError: 'guest_hex'
+corpus	raw/cases/absent/report.json>events>6>hex:delete-key	KeyError: 'hex'
+corpus	raw/packet-reconciliation.json>absent>tails>subject>host_hex:delete-key	KeyError: 'host_hex'
+corpus	raw/cases/one-byte-refuse/report.json>frames>11>id:delete-key	KeyError: 'id'
+corpus	raw/packet-reconciliation.json>absent>tails>main:delete-key	KeyError: 'main'
+corpus	raw/preflight/capture/plan.json>endpoints>data>port:delete-key	KeyError: 'port'
+corpus	raw/preflight/capture/plan.json>steps:delete-key	KeyError: 'steps'
+corpus	raw/cases/absent/report.json>frames>17>type:delete-key	KeyError: 'type'
+corpus	raw/postflight/capture/plan.json>steps:drop-last	ValueError: A7 postflight immutable steps differ
+corpus	raw/source/a7-plan.json>steps>0>op:flip	ValueError: A7 preflight immutable steps differ
+corpus	raw/postflight/capture/report.json>frames>9>id:inc	ValueError: A7 reply 17 missing
+corpus	raw/cases/absent/report.json>frames:drop-last	ValueError: Barrier ACK missing/failed
+corpus	raw/cases/absent/report.json>events>17>action:inc	ValueError: Completed frame read has incomplete bytes
+corpus	raw/cases/absent/report.json>frames:drop-first	ValueError: Decoded frame mismatch
+corpus	raw/cases/absent/report.json>gap_ids>3:flip	ValueError: Frozen raw inventory identity differs
+corpus	raw/packet-reconciliation.json>absent:delete-key	ValueError: Packet case inventory differs
+corpus	raw/cases/absent/plan.json>steps>1>connection:flip	ValueError: Plan differs
+corpus	raw/cases/absent/plan.json>environment>profile:flip	ValueError: Source identity mismatch
+corpus	raw/cases/absent/report.json>events>6>hex:flip	ValueError: Stream reconstruction mismatch
+corpus	raw/packet-reconciliation.json>absent>tails>main>guest_hex:flip	ValueError: absent: recorded tails differ
+corpus	raw/packet-reconciliation.json>duplicate-auto-refuse>tails>main>guest_hex:flip	ValueError: duplicate-auto-refuse: recorded tails differ
+corpus	raw/packet-reconciliation.json>duplicate-refuse-auto>tails>main>guest_hex:flip	ValueError: duplicate-refuse-auto: recorded tails differ
+corpus	raw/packet-reconciliation.json>empty>tails>main>guest_hex:flip	ValueError: empty: recorded tails differ
+corpus	raw/packet-reconciliation.json>five-byte-prefix>tails>main>guest_hex:flip	ValueError: five-byte-prefix: recorded tails differ
+corpus	raw/packet-reconciliation.json>four-byte-both>tails>main>guest_hex:flip	ValueError: four-byte-both: recorded tails differ
+corpus	raw/packet-reconciliation.json>one-byte-refuse>tails>main>guest_hex:flip	ValueError: one-byte-refuse: recorded tails differ
+corpus	raw/packet-reconciliation.json>three-byte-default>tails>main>guest_hex:flip	ValueError: three-byte-default: recorded tails differ
+corpus	raw/packet-reconciliation.json>two-byte-auto>tails>main>guest_hex:flip	ValueError: two-byte-auto: recorded tails differ
+corpus	raw/packet-reconciliation.json>zero-two>tails>main>guest_hex:flip	ValueError: zero-two: recorded tails differ
+corpus	raw/cases/absent/report.json>events>1>action:delete-key;raw/cases/absent/report.json>events>17>action:inc	KeyError: 'action'
+corpus	raw/cases/absent/report.json>events>1>action:delete-key;raw/cases/absent/report.json>events>6>hex:flip	ValueError: Stream reconstruction mismatch
+corpus	raw/cases/absent/report.json>events>14>connection:delete-key;raw/cases/absent/report.json>events>6>hex:delete-key	KeyError: 'hex'
+corpus	raw/cases/absent/report.json>events>14>connection:delete-key;raw/cases/absent/report.json>events>6>hex:flip	KeyError: 'connection'
+corpus	raw/cases/absent/report.json>events>11>event:delete-key;raw/cases/absent/report.json>events>6>hex:delete-key	KeyError: 'hex'
+corpus	raw/cases/absent/report.json>events>11>event:delete-key;raw/cases/absent/plan.json>environment>profile:flip	ValueError: Source identity mismatch
+corpus	raw/cases/absent/report.json>events>11>event:delete-key;raw/packet-reconciliation.json>absent>tails>main>guest_hex:flip	KeyError: 'event'
+corpus	raw/cases/absent/report.json>events>11>event:delete-key;raw/packet-reconciliation.json>three-byte-default>tails>main>guest_hex:flip	KeyError: 'event'
+corpus	raw/cases/absent/plan.json>expectation:delete-key;raw/source/a7-plan.json>steps>0>op:flip	KeyError: 'expectation'
+corpus	raw/cases/absent/plan.json>expectation:delete-key;raw/cases/absent/report.json>frames:drop-last	KeyError: 'expectation'
+corpus	raw/cases/absent/plan.json>expectation:delete-key;raw/packet-reconciliation.json>one-byte-refuse>tails>main>guest_hex:flip	KeyError: 'expectation'
+corpus	raw/cases/absent/report.json>frames:delete-key;raw/cases/one-byte-refuse/report.json>frames>11>id:delete-key	KeyError: 'frames'
+corpus	raw/packet-reconciliation.json>absent>tails>main>guest_hex:delete-key;raw/packet-reconciliation.json>absent>tails>main:delete-key	KeyError: 'main'
+corpus	raw/cases/absent/report.json>events>6>hex:delete-key;raw/cases/absent/report.json>events>17>action:inc	KeyError: 'hex'
+corpus	raw/packet-reconciliation.json>absent>tails>subject>host_hex:delete-key;raw/packet-reconciliation.json>absent>tails>main>guest_hex:flip	ValueError: absent: recorded tails differ
+corpus	raw/packet-reconciliation.json>absent>tails>subject>host_hex:delete-key;raw/packet-reconciliation.json>empty>tails>main>guest_hex:flip	KeyError: 'host_hex'
+corpus	raw/cases/one-byte-refuse/report.json>frames>11>id:delete-key;raw/cases/absent/report.json>gap_ids>3:flip	KeyError: 'id'
+corpus	raw/cases/one-byte-refuse/report.json>frames>11>id:delete-key;raw/cases/absent/plan.json>steps>1>connection:flip	KeyError: 'id'
+corpus	raw/packet-reconciliation.json>absent>tails>main:delete-key;raw/packet-reconciliation.json>absent:delete-key	ValueError: Packet case inventory differs
+corpus	raw/preflight/capture/plan.json>endpoints>data>port:delete-key;raw/postflight/capture/plan.json>steps:drop-last	KeyError: 'port'
+corpus	raw/preflight/capture/plan.json>endpoints>data>port:delete-key;raw/source/a7-plan.json>steps>0>op:flip	ValueError: A7 preflight immutable steps differ
+corpus	raw/preflight/capture/plan.json>steps:delete-key;raw/source/a7-plan.json>steps>0>op:flip	KeyError: 'steps'
+corpus	raw/preflight/capture/plan.json>steps:delete-key;raw/packet-reconciliation.json>duplicate-auto-refuse>tails>main>guest_hex:flip	ValueError: duplicate-auto-refuse: recorded tails differ
+corpus	raw/cases/absent/report.json>frames>17>type:delete-key;raw/cases/absent/report.json>frames:drop-last	ValueError: Barrier ACK missing/failed
+corpus	raw/postflight/capture/plan.json>steps:drop-last;raw/postflight/capture/report.json>frames>9>id:inc	ValueError: A7 postflight immutable steps differ
+corpus	raw/source/a7-plan.json>steps>0>op:flip;raw/cases/absent/report.json>events>6>hex:flip	ValueError: Stream reconstruction mismatch
+corpus	raw/postflight/capture/report.json>frames>9>id:inc;raw/cases/absent/report.json>gap_ids>3:flip	ValueError: A7 reply 17 missing
+corpus	raw/cases/absent/report.json>events>17>action:inc;raw/cases/absent/report.json>frames:drop-first	ValueError: Completed frame read has incomplete bytes
+corpus	raw/cases/absent/report.json>frames:drop-first;raw/packet-reconciliation.json>absent:delete-key	ValueError: Decoded frame mismatch
+corpus	raw/cases/absent/plan.json>steps>1>connection:flip;raw/cases/absent/plan.json>environment>profile:flip	ValueError: Plan differs
+corpus	raw/cases/absent/plan.json>environment>profile:flip;raw/packet-reconciliation.json>empty>tails>main>guest_hex:flip	ValueError: Source identity mismatch
+corpus	raw/packet-reconciliation.json>duplicate-auto-refuse>tails>main>guest_hex:flip;raw/packet-reconciliation.json>duplicate-refuse-auto>tails>main>guest_hex:flip	ValueError: duplicate-refuse-auto: recorded tails differ
+corpus	raw/packet-reconciliation.json>duplicate-refuse-auto>tails>main>guest_hex:flip;raw/packet-reconciliation.json>five-byte-prefix>tails>main>guest_hex:flip	ValueError: five-byte-prefix: recorded tails differ
+corpus	raw/packet-reconciliation.json>empty>tails>main>guest_hex:flip;raw/packet-reconciliation.json>zero-two>tails>main>guest_hex:flip	ValueError: empty: recorded tails differ
+corpus	raw/packet-reconciliation.json>five-byte-prefix>tails>main>guest_hex:flip;raw/packet-reconciliation.json>four-byte-both>tails>main>guest_hex:flip	ValueError: four-byte-both: recorded tails differ
+corpus	raw/packet-reconciliation.json>four-byte-both>tails>main>guest_hex:flip;raw/packet-reconciliation.json>three-byte-default>tails>main>guest_hex:flip	ValueError: three-byte-default: recorded tails differ
+corpus	raw/packet-reconciliation.json>one-byte-refuse>tails>main>guest_hex:flip;raw/packet-reconciliation.json>two-byte-auto>tails>main>guest_hex:flip	ValueError: one-byte-refuse: recorded tails differ
+corpus	raw/packet-reconciliation.json>one-byte-refuse>tails>main>guest_hex:flip;raw/packet-reconciliation.json>zero-two>tails>main>guest_hex:flip	ValueError: zero-two: recorded tails differ
+corpus	raw/packet-reconciliation.json>three-byte-default>tails>main>guest_hex:flip;raw/packet-reconciliation.json>two-byte-auto>tails>main>guest_hex:flip	ValueError: two-byte-auto: recorded tails differ
