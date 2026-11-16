@@ -11,6 +11,7 @@ import typing as typ
 from pathlib import Path
 from unittest import mock
 
+import capture_identity
 import native_path_fields_cases as cases
 import native_path_fields_control as control
 import pytest
@@ -110,15 +111,15 @@ class PathFieldTests:
                 output = Path(temp)
                 raw = (json.dumps(altered, indent=2) + "\n").encode()
                 (output / "plan.json").write_bytes(raw)
+                record = capture_identity.identity(control.CAPTURE_MODULES)
                 (output / "source-hashes.json").write_text(
                     json.dumps({
                         "plan.json": cases.sha(raw),
                         "native_path_fields_cases.py": cases.sha(
                             Path(cases.__file__).read_bytes()
                         ),
-                        "native_path_fields_control.py": control.sha(
-                            Path(control.__file__).read_bytes()
-                        ),
+                        "native_path_fields_control.py": record["digest"],
+                        control.IDENTITY_KEY: record,
                     })
                 )
                 with pytest.raises(ValueError, match="differs from source"):
@@ -380,7 +381,9 @@ class PathModelTests:
                         return_value=type("S", (), {"st_ino": 456})(),
                     ),
                 ):
-                    report = control.run(plan_dir, receipt, binary, base / "result")
+                    report = control.run(
+                        control.RunPaths(plan_dir, receipt, binary, base / "result")
+                    )
                 assert report["status"] == "failed", "runner reports failure"
                 assert report["unparsed_hex"]["main"] == partial.hex(), "partial kept"
                 assert report["results"][0]["index"] == 0, "first result kept"

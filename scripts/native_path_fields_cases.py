@@ -2,15 +2,20 @@
 """Produce twelve exact, field-specific native path observations."""
 
 import hashlib
+import importlib
 import json
 import sys
 from pathlib import Path
 
+import capture_identity
 from native_folder_cases import path
 from native_plan import packet, payload
 from native_wire_names import TYPE_GET_FILE_INFO
 from protocol_capture import ORACLE_SHA256
 from script_cli import run
+
+# The scripts that make this plan, in the fixed order of their identity digest.
+CAPTURE_MODULES = ("native_path_fields_cases.py",)
 
 PORT = 15900
 FILES = b"m-path47"
@@ -361,15 +366,15 @@ def write_plan(output: Path, environment: dict, port: int = PORT) -> str:
     output.mkdir(parents=True, exist_ok=False)
     raw = (json.dumps(value, indent=2) + "\n").encode()
     (output / "plan.json").write_bytes(raw)
-    here = Path(__file__)
+    control = importlib.import_module("native_path_fields_control")
+    record = capture_identity.identity(control.CAPTURE_MODULES)
     (output / "source-hashes.json").write_text(
         json.dumps(
             {
                 "plan.json": sha(raw),
-                "native_path_fields_cases.py": sha(here.read_bytes()),
-                "native_path_fields_control.py": sha(
-                    here.with_name("native_path_fields_control.py").read_bytes()
-                ),
+                "native_path_fields_cases.py": sha(Path(__file__).read_bytes()),
+                "native_path_fields_control.py": record["digest"],
+                control.IDENTITY_KEY: record,
             },
             indent=2,
         )

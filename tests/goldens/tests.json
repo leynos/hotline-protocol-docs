@@ -2349,6 +2349,14 @@
       "outcome": "ok",
       "detail": ""
     },
+    "test_native_path_fields_identity.PlanIdentityTests.test_a_prepared_plan_is_refused_when_a_control_module_is_altered": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_native_path_fields_identity.PlanIdentityTests.test_the_plan_records_the_identity_of_the_control_modules": {
+      "outcome": "ok",
+      "detail": ""
+    },
     "test_native_pm.NativePMPlanTests.test_baseline_rejects_mutation_or_short_readback": {
       "outcome": "ok",
       "detail": ""

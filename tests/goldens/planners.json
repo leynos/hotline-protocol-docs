@@ -497,11 +497,16 @@
           "embeds_script_digests": []
         },
         "source-hashes.json": {
-          "sha256": "813dfb973950db4e6aac6b8e700944c963b5516b6581994c0aae9f7e4ebc7fb6",
-          "size": 290,
+          "sha256": "0f215ad9004ae9e80aa339e2e5834d724eda302f38c9de04cb9dbb64acf46a88",
+          "size": 1530,
           "embeds_script_digests": [
             "native_path_fields_cases.py",
-            "native_path_fields_control.py"
+            "native_path_fields_control.py",
+            "native_path_fields_control_classify.py",
+            "native_path_fields_control_frames.py",
+            "native_path_fields_control_perform.py",
+            "native_path_fields_control_report.py",
+            "native_path_fields_control_wire.py"
           ]
         }
       }

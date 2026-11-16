@@ -9,4 +9,3 @@
 #
 # A comment on an entry marks a script whose bytes must not change at all.
 scripts/native_missing_alias_control.py
-scripts/native_path_fields_control.py

@@ -7,8 +7,8 @@ receipt conservation. Their responses are not native path observations.
 import json
 import socket
 import typing as typ
-from pathlib import Path
 
+import capture_identity
 import native_path_fields_cases as cases
 import native_path_fields_control as control
 
@@ -89,6 +89,8 @@ def model_report(wire: FakeWire, plan: dict, result: dict) -> dict:
     dict
         The report whose hashes and timings the verifier replays.
     """
+    source = capture_identity.identity(control.CAPTURE_MODULES)
+    producer = capture_identity.identity(control.CASES_MODULES)
     return {
         "status": "completed",
         "error": "",
@@ -104,7 +106,9 @@ def model_report(wire: FakeWire, plan: dict, result: dict) -> dict:
         "request_count": wire.request_count,
         "mutation_count": 20,
         "plan_sha256": cases.sha((json.dumps(plan, indent=2) + "\n").encode()),
-        "cases_sha256": control.sha(Path(cases.__file__).read_bytes()),
-        "source_sha256": control.sha(Path(control.__file__).read_bytes()),
+        "cases_sha256": producer["digest"],
+        "cases_identity": producer,
+        "source_sha256": source["digest"],
+        "source_identity": source,
         "oracle_sha256": control.ORACLE_SHA256,
     }
