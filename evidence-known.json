@@ -22,5 +22,11 @@
     "path": "docs/provenance/records/missing-target-alias.md",
     "key": "scripts/native_emulator_readiness.py",
     "reason": "A working record kept as written; it was authored in the capture toolset's repository and names that toolset's script. The record note beneath its title says so."
+  },
+  {
+    "rule": "script",
+    "path": "docs/native-evidence/native-board-preparation.md",
+    "key": "scripts/test_native_board.py",
+    "reason": "A dated preparation record quotes the command as it was run. The test was converted to pytest and now lives at scripts/tests/test_native_board.py; a dated note is added beneath the command with the next audit revision."
   }
 ]

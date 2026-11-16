@@ -226,6 +226,21 @@ The script work is a behaviour-preserving refactor.
   10 tensions) in the session scratch directory.
 - [x] (2026-11-15 20:40Z) Owner raised the tooling tolerance (D24) and asked
   for the SynHX naming to be clarified and a comprehensive glossary (D25).
+- [x] (2026-11-17 09:00Z) EP-M5 wave 4 integrated (nine commits ending at the
+  news and board corpus-fault tests): the login-extras, agreement, bitmap,
+  article-deletion, news, move, room and board families meet the standard, bar
+  `native_board_control.py`, which hashes its own file at capture and waits on
+  D31. No live hash comparison was found among the 31 scripts surveyed. About
+  2,000 error-order tests were added, from single and paired faults in the
+  retained evidence, recorded on the pristine scripts. `make all` passes with
+  3,313 tests in about two minutes; `make goldens-check` and
+  `make pin-experiment` print `0 differences`. 137 scripts remain on the legacy
+  list. One document cites a converted test by its old path
+  (`native-board-preparation.md`, `scripts/test_native_board.py`); it is an
+  accepted finding until a dated note is added with the next audit revision.
+  Remaining groups: bans and settings, including the pinned ones; diagnostics,
+  liveness and path fields; the classic, mxd, Mac peer and SynHX verifiers; and
+  the scripts that wait on D31.
 - [x] (2026-11-17 06:00Z) EP-M5, pinned scripts, first part (`0afdcc5` back
   to the characterization commits, through `edf5657`): characterization tests
   written first on the pinned bytes (122 for the three index-pinned scripts,
