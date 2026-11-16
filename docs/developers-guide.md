@@ -573,10 +573,10 @@ blank lines. The current total is not measured in this guide.
 
 ### One-off tools
 
-The relocation tool, `tools/migrate_layout.py`, is one-off. Its docstring says
-it is deleted in EP-M11, and decision D30 says the same. The
-`tools/layout_*.py` modules support the relocation. The plan does not state
-whether they are deleted with it.
+A tool written for a single migration is deleted once the migration is done and
+verified, so that the tooling stays within its size budget. The document
+relocation tool was removed in this way; `docs/repository-layout.md` keeps the
+table of where each document moved.
 
 ## 8. Orientation files
 
