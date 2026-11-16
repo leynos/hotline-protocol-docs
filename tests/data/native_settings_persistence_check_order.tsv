@@ -1,0 +1,798 @@
+sources		ok 74234e98afe7498f
+sources	phase1/plans/source-hashes.json>phase1:flip	ValueError: Phase 1 plan pin differs: phase1
+sources	phase1/plans/source-hashes.json>phase2:flip	ValueError: Phase 1 plan pin differs: phase2
+sources	phase1/plans/source-hashes.json>readiness:flip	ValueError: Phase 1 plan pin differs: readiness
+sources	phase1/plans/source-code-sha256.json>native_ban_control_cases.py:flip	ValueError: Phase 1 source pin differs: native_ban_control_cases.py
+sources	phase1/plans/source-code-sha256.json>native_control_readiness.py:flip	ValueError: Phase 1 source pin differs: native_control_readiness.py
+sources	phase1/plans/source-code-sha256.json>native_settings_persistence.py:flip	ValueError: Phase 1 source pin differs: native_settings_persistence.py
+sources	phase1/plans/source-code-sha256.json>native_settings_persistence_cases.py:flip	ValueError: Phase 1 source pin differs: native_settings_persistence_cases.py
+sources	phase2/plans/source-hashes.json>phase1:flip	ValueError: Phase 2 plan pin differs: phase1
+sources	phase2/plans/source-hashes.json>phase2:flip	ValueError: Phase 2 plan pin differs: phase2
+sources	phase2/plans/source-hashes.json>readiness:flip	ValueError: Phase 2 plan pin differs: readiness
+sources	phase2/plans/source-code-sha256.json>native_ban_control_cases.py:flip	ValueError: Phase 2 source pin differs: native_ban_control_cases.py
+sources	phase2/plans/source-code-sha256.json>native_control_readiness.py:flip	ValueError: Phase 2 source pin differs: native_control_readiness.py
+sources	phase2/plans/source-code-sha256.json>native_settings_persistence.py:flip	ValueError: Phase 2 source pin differs: native_settings_persistence.py
+sources	phase2/plans/source-code-sha256.json>native_settings_persistence_cases.py:flip	ValueError: Phase 2 source pin differs: native_settings_persistence_cases.py
+sources	phase1/plans/source-hashes.json>phase1:flip;phase1/plans/source-hashes.json>phase2:flip	ValueError: Phase 1 plan pin differs: phase1
+sources	phase1/plans/source-hashes.json>phase1:flip;phase1/plans/source-hashes.json>readiness:flip	ValueError: Phase 1 plan pin differs: phase1
+sources	phase1/plans/source-hashes.json>phase1:flip;phase1/plans/source-code-sha256.json>native_ban_control_cases.py:flip	ValueError: Phase 1 source pin differs: native_ban_control_cases.py
+sources	phase1/plans/source-hashes.json>phase2:flip;phase1/plans/source-hashes.json>readiness:flip	ValueError: Phase 1 plan pin differs: phase2
+sources	phase1/plans/source-hashes.json>readiness:flip;phase2/plans/source-hashes.json>readiness:flip	ValueError: Phase 1 plan pin differs: readiness
+sources	phase1/plans/source-hashes.json>readiness:flip;phase2/plans/source-code-sha256.json>native_settings_persistence.py:flip	ValueError: Phase 1 plan pin differs: readiness
+sources	phase1/plans/source-hashes.json>readiness:flip;phase2/plans/source-code-sha256.json>native_settings_persistence_cases.py:flip	ValueError: Phase 1 plan pin differs: readiness
+sources	phase1/plans/source-code-sha256.json>native_ban_control_cases.py:flip;phase1/plans/source-code-sha256.json>native_control_readiness.py:flip	ValueError: Phase 1 source pin differs: native_control_readiness.py
+sources	phase1/plans/source-code-sha256.json>native_ban_control_cases.py:flip;phase2/plans/source-code-sha256.json>native_control_readiness.py:flip	ValueError: Phase 1 source pin differs: native_ban_control_cases.py
+sources	phase1/plans/source-code-sha256.json>native_ban_control_cases.py:flip;phase2/plans/source-code-sha256.json>native_settings_persistence.py:flip	ValueError: Phase 1 source pin differs: native_ban_control_cases.py
+sources	phase1/plans/source-code-sha256.json>native_control_readiness.py:flip;phase1/plans/source-code-sha256.json>native_settings_persistence.py:flip	ValueError: Phase 1 source pin differs: native_settings_persistence.py
+sources	phase1/plans/source-code-sha256.json>native_control_readiness.py:flip;phase2/plans/source-code-sha256.json>native_settings_persistence_cases.py:flip	ValueError: Phase 1 source pin differs: native_control_readiness.py
+sources	phase1/plans/source-code-sha256.json>native_settings_persistence.py:flip;phase1/plans/source-code-sha256.json>native_settings_persistence_cases.py:flip	ValueError: Phase 1 source pin differs: native_settings_persistence_cases.py
+sources	phase1/plans/source-code-sha256.json>native_settings_persistence_cases.py:flip;phase2/plans/source-code-sha256.json>native_control_readiness.py:flip	ValueError: Phase 1 source pin differs: native_settings_persistence_cases.py
+sources	phase2/plans/source-hashes.json>phase1:flip;phase2/plans/source-hashes.json>phase2:flip	ValueError: Phase 2 plan pin differs: phase1
+sources	phase2/plans/source-hashes.json>phase1:flip;phase2/plans/source-code-sha256.json>native_ban_control_cases.py:flip	ValueError: Phase 2 source pin differs: native_ban_control_cases.py
+sources	phase2/plans/source-hashes.json>phase2:flip;phase2/plans/source-hashes.json>readiness:flip	ValueError: Phase 2 plan pin differs: phase2
+sources	phase2/plans/source-code-sha256.json>native_ban_control_cases.py:flip;phase2/plans/source-code-sha256.json>native_control_readiness.py:flip	ValueError: Phase 2 source pin differs: native_control_readiness.py
+sources	phase2/plans/source-code-sha256.json>native_control_readiness.py:flip;phase2/plans/source-code-sha256.json>native_settings_persistence.py:flip	ValueError: Phase 2 source pin differs: native_settings_persistence.py
+sources	phase2/plans/source-code-sha256.json>native_control_readiness.py:flip;phase2/plans/source-code-sha256.json>native_settings_persistence_cases.py:flip	ValueError: Phase 2 source pin differs: native_settings_persistence_cases.py
+sources	phase2/plans/source-code-sha256.json>native_settings_persistence.py:flip;phase2/plans/source-code-sha256.json>native_settings_persistence_cases.py:flip	ValueError: Phase 2 source pin differs: native_settings_persistence_cases.py
+legacy		ok fa7b1094e2611ff0
+legacy	phase1/phase1/report.json>events>13>connection:delete-key	KeyError: 'connection'
+legacy	baseline/a46-parent-verification.json>gates:delete-key	KeyError: 'gates'
+legacy	baseline/a46-parent-verification.json>raw_checksums_frames_streams_verified:delete-key	KeyError: 'raw_checksums_frames_streams_verified'
+legacy	phase1/phase1/plan.json>schema_version:inc	ValueError: A46 as-run plan differs
+legacy	baseline/a46-parent-verification.json>gates:drop-last	ValueError: A46 independent replay differs
+legacy	phase1/phase1/report.json>frames>1>fields>0>id:inc	ValueError: Decoded frame mismatch
+legacy	phase1/phase1/report.json>events>13>connection:flip	ValueError: Stream reconstruction mismatch
+legacy	phase1/phase1/report.json>events>13>connection:delete-key;baseline/a46-parent-verification.json>gates:delete-key	KeyError: 'connection'
+legacy	phase1/phase1/report.json>events>13>connection:delete-key;phase1/phase1/plan.json>schema_version:inc	ValueError: A46 as-run plan differs
+legacy	phase1/phase1/report.json>events>13>connection:delete-key;phase1/phase1/report.json>frames>1>fields>0>id:inc	KeyError: 'connection'
+legacy	baseline/a46-parent-verification.json>gates:delete-key;baseline/a46-parent-verification.json>raw_checksums_frames_streams_verified:delete-key	KeyError: 'raw_checksums_frames_streams_verified'
+legacy	baseline/a46-parent-verification.json>gates:delete-key;phase1/phase1/plan.json>schema_version:inc	ValueError: A46 as-run plan differs
+legacy	baseline/a46-parent-verification.json>raw_checksums_frames_streams_verified:delete-key;phase1/phase1/report.json>frames>1>fields>0>id:inc	ValueError: Decoded frame mismatch
+legacy	baseline/a46-parent-verification.json>raw_checksums_frames_streams_verified:delete-key;phase1/phase1/report.json>events>13>connection:flip	ValueError: Stream reconstruction mismatch
+legacy	phase1/phase1/plan.json>schema_version:inc;baseline/a46-parent-verification.json>gates:drop-last	ValueError: A46 as-run plan differs
+legacy	phase1/phase1/plan.json>schema_version:inc;phase1/phase1/report.json>events>13>connection:flip	ValueError: A46 as-run plan differs
+legacy	baseline/a46-parent-verification.json>gates:drop-last;phase1/phase1/report.json>frames>1>fields>0>id:inc	ValueError: Decoded frame mismatch
+legacy	baseline/a46-parent-verification.json>gates:drop-last;phase1/phase1/report.json>events>13>connection:flip	ValueError: Stream reconstruction mismatch
+legacy	phase1/phase1/report.json>frames>1>fields>0>id:inc;phase1/phase1/report.json>events>13>connection:flip	ValueError: Stream reconstruction mismatch
+planned		ok 52da0e645e4fb867
+planned	phase2/phase2/report.json>events>0>action:delete-key	KeyError: 'action'
+planned	phase2/phase2/report.json>completed_actions:delete-key	KeyError: 'completed_actions'
+planned	phase2/phase2/report.json>events>0>connection:delete-key	KeyError: 'connection'
+planned	phase2/phase2/report.json>driver_sha256:delete-key	KeyError: 'driver_sha256'
+planned	phase2/phase2/plan.json>steps>0>endpoint:delete-key	KeyError: 'endpoint'
+planned	phase2/phase2/plan.json>endpoints:delete-key	KeyError: 'endpoints'
+planned	phase2/phase2/report.json>error:delete-key	KeyError: 'error'
+planned	phase2/phase2/report.json>events>0>event:delete-key	KeyError: 'event'
+planned	phase2/phase2/report.json>events:delete-key	KeyError: 'events'
+planned	phase2/phase2/report.json>frames:delete-key	KeyError: 'frames'
+planned	phase2/phase2/report.json>gates:delete-key	KeyError: 'gates'
+planned	phase2/phase2/plan.json>steps>1>hex:delete-key	KeyError: 'hex'
+planned	phase2/phase2/plan.json>endpoints>control>host:delete-key	KeyError: 'host'
+planned	phase2/phase2/report.json>native_conformance:delete-key	KeyError: 'native_conformance'
+planned	phase2/phase2/plan.json>steps>0>op:delete-key	KeyError: 'op'
+planned	phase2/phase2/plan.json>oracle_sha256:delete-key	KeyError: 'oracle_sha256'
+planned	phase2/phase2/report.json>plan_sha256:delete-key	KeyError: 'plan_sha256'
+planned	phase2/phase2/plan.json>endpoints>control>port:delete-key	KeyError: 'port'
+planned	phase2/phase2/report.json>profile:delete-key	KeyError: 'profile'
+planned	phase2/phase2/plan.json>steps>2>size:delete-key	KeyError: 'size'
+planned	phase2/phase2/report.json>status:delete-key	KeyError: 'status'
+planned	phase2/phase2/plan.json>steps:delete-key	KeyError: 'steps'
+planned	phase2/phase2/report.json>streams:delete-key	KeyError: 'streams'
+planned	phase2/plans/phase2.json>schema_version:inc	ValueError: A48 as-run plan differs
+planned	phase2/phase2/report.json>driver_sha256:flip	ValueError: A48 driver differs
+planned	phase2/phase2/report.json>events>4>action:inc	ValueError: Completed frame read has incomplete bytes
+planned	phase2/phase2/report.json>frames:drop-last	ValueError: Decoded frame mismatch
+planned	phase2/phase2/report.json>profile:flip	ValueError: Evidence profile mismatch
+planned	phase2/phase2/report.json>completed_actions:inc	ValueError: Incomplete plan reported as completed
+planned	phase2/phase2/plan.json>endpoints>control:delete-key	ValueError: Invalid connection declaration
+planned	phase2/phase2/plan.json>steps>16>match_frame>type:delete-key	ValueError: Invalid frame match
+planned	phase2/phase2/report.json>gates:drop-last	ValueError: Live and replayed stage gates differ
+planned	phase2/phase2/plan.json>oracle_sha256:flip	ValueError: Native profile requires the recorded Mac oracle hash
+planned	phase2/phase2/plan.json>operator:empty	ValueError: Operator and gap IDs are required
+planned	phase2/phase2/report.json>events>38>action:inc	ValueError: Owned socket EOFs differ
+planned	phase2/phase2/plan.json>operator:flip	ValueError: Source identity mismatch
+planned	phase2/phase2/report.json>events:reverse	ValueError: Stream reconstruction mismatch
+planned	phase2/phase2/plan.json>steps>0>op:empty	ValueError: Unknown action:
+planned	phase2/phase2/plan.json>steps>0>op:flip	ValueError: Unknown action: connec0
+planned	phase2/phase2/plan.json>steps>22>op:flip	ValueError: Unknown action: expect_quie0
+planned	phase2/phase2/plan.json>steps>2>op:flip	ValueError: Unknown action: rea0
+planned	phase2/phase2/plan.json>steps>26>op:flip	ValueError: Unknown action: read_eo0
+planned	phase2/phase2/plan.json>steps>4>op:flip	ValueError: Unknown action: read_fram0
+planned	phase2/phase2/plan.json>steps>1>op:flip	ValueError: Unknown action: sen0
+planned	phase2/phase2/report.json>status:flip	ValueError: Unknown capture status
+planned	phase2/phase2/plan.json>steps>1>connection:empty	ValueError: Unknown connection:
+planned	phase2/phase2/plan.json>steps>1>connection:flip	ValueError: Unknown connection: mai0
+planned	phase2/phase2/plan.json>steps:drop-first	ValueError: Unknown connection: main
+planned	phase2/phase2/plan.json>steps>10>connection:flip	ValueError: Unknown connection: subjec0
+planned	phase2/phase2/plan.json>steps>9>connection:flip	ValueError: Unknown connection: subject
+planned	phase2/phase2/plan.json>profile:flip	ValueError: Unknown evidence profile
+planned	phase2/phase2/plan.json>steps>16>save_fields:delete-key	ValueError: Unknown saved bytes: peer_uid
+planned	phase2/phase2/plan.json>schema_version:inc	ValueError: Unsupported capture schema
+planned	phase2/phase2/report.json>events>0>action:delete-key;phase2/phase2/report.json>events:delete-key	KeyError: 'events'
+planned	phase2/phase2/report.json>events>0>action:delete-key;phase2/phase2/report.json>events>4>action:inc	KeyError: 'action'
+planned	phase2/phase2/report.json>events>0>action:delete-key;phase2/phase2/report.json>events:reverse	ValueError: Stream reconstruction mismatch
+planned	phase2/phase2/report.json>completed_actions:delete-key;phase2/phase2/report.json>error:delete-key	KeyError: 'error'
+planned	phase2/phase2/report.json>events>0>connection:delete-key;phase2/phase2/report.json>events>0>event:delete-key	KeyError: 'connection'
+planned	phase2/phase2/report.json>events>0>connection:delete-key;phase2/phase2/report.json>completed_actions:inc	ValueError: Incomplete plan reported as completed
+planned	phase2/phase2/report.json>driver_sha256:delete-key;phase2/plans/phase2.json>schema_version:inc	ValueError: A48 as-run plan differs
+planned	phase2/phase2/plan.json>steps>0>endpoint:delete-key;phase2/phase2/plan.json>steps>0>op:flip	ValueError: Unknown action: connec0
+planned	phase2/phase2/plan.json>steps>0>endpoint:delete-key;phase2/phase2/plan.json>steps:drop-first	ValueError: Unknown connection: main
+planned	phase2/phase2/plan.json>endpoints:delete-key;phase2/phase2/plan.json>steps>10>connection:flip	KeyError: 'endpoints'
+planned	phase2/phase2/plan.json>endpoints:delete-key;phase2/phase2/plan.json>schema_version:inc	ValueError: Unsupported capture schema
+planned	phase2/phase2/report.json>error:delete-key;phase2/phase2/report.json>status:flip	ValueError: Unknown capture status
+planned	phase2/phase2/report.json>error:delete-key;phase2/phase2/plan.json>steps>1>connection:flip	ValueError: Unknown connection: mai0
+planned	phase2/phase2/report.json>events>0>event:delete-key;phase2/phase2/report.json>events:delete-key	KeyError: 'events'
+planned	phase2/phase2/report.json>events:delete-key;phase2/phase2/report.json>streams:delete-key	KeyError: 'events'
+planned	phase2/phase2/report.json>frames:delete-key;phase2/phase2/report.json>events>4>action:inc	ValueError: Completed frame read has incomplete bytes
+planned	phase2/phase2/report.json>gates:delete-key;phase2/phase2/report.json>driver_sha256:flip	ValueError: A48 driver differs
+planned	phase2/phase2/plan.json>steps>1>hex:delete-key;phase2/phase2/plan.json>steps>2>op:flip	KeyError: 'hex'
+planned	phase2/phase2/plan.json>steps>1>hex:delete-key;phase2/phase2/plan.json>steps>1>connection:flip	ValueError: Unknown connection: mai0
+planned	phase2/phase2/plan.json>endpoints>control>host:delete-key;phase2/phase2/plan.json>oracle_sha256:flip	ValueError: Native profile requires the recorded Mac oracle hash
+planned	phase2/phase2/report.json>native_conformance:delete-key;phase2/phase2/report.json>plan_sha256:delete-key	KeyError: 'native_conformance'
+planned	phase2/phase2/report.json>native_conformance:delete-key;phase2/phase2/report.json>profile:flip	ValueError: Evidence profile mismatch
+planned	phase2/phase2/plan.json>steps>0>op:delete-key;phase2/phase2/plan.json>endpoints>control>port:delete-key	KeyError: 'port'
+planned	phase2/phase2/plan.json>steps>0>op:delete-key;phase2/phase2/report.json>profile:delete-key	KeyError: 'op'
+planned	phase2/phase2/plan.json>steps>0>op:delete-key;phase2/phase2/plan.json>endpoints>control:delete-key	KeyError: 'op'
+planned	phase2/phase2/plan.json>oracle_sha256:delete-key;phase2/phase2/plan.json>operator:empty	ValueError: Operator and gap IDs are required
+planned	phase2/phase2/report.json>plan_sha256:delete-key;phase2/phase2/plan.json>operator:flip	KeyError: 'plan_sha256'
+planned	phase2/phase2/plan.json>endpoints>control>port:delete-key;phase2/phase2/report.json>profile:flip	KeyError: 'port'
+planned	phase2/phase2/report.json>profile:delete-key;phase2/phase2/plan.json>steps>26>op:flip	ValueError: Unknown action: read_eo0
+planned	phase2/phase2/plan.json>steps>2>size:delete-key;phase2/phase2/plan.json>steps>2>op:flip	ValueError: Unknown action: rea0
+planned	phase2/phase2/plan.json>steps>2>size:delete-key;phase2/phase2/plan.json>steps>4>op:flip	KeyError: 'size'
+planned	phase2/phase2/report.json>status:delete-key;phase2/phase2/plan.json>operator:flip	ValueError: Source identity mismatch
+planned	phase2/phase2/report.json>streams:delete-key;phase2/phase2/report.json>events:reverse	KeyError: 'streams'
+planned	phase2/plans/phase2.json>schema_version:inc;phase2/phase2/report.json>frames:drop-last	ValueError: Decoded frame mismatch
+planned	phase2/phase2/report.json>events>4>action:inc;phase2/phase2/plan.json>operator:empty	ValueError: Operator and gap IDs are required
+planned	phase2/phase2/report.json>frames:drop-last;phase2/phase2/plan.json>steps>10>connection:flip	ValueError: Unknown connection: subjec0
+planned	phase2/phase2/plan.json>endpoints>control:delete-key;phase2/phase2/plan.json>steps>0>op:empty	ValueError: Unknown action:
+planned	phase2/phase2/plan.json>steps>16>match_frame>type:delete-key;phase2/phase2/plan.json>steps>10>connection:flip	ValueError: Unknown connection: subjec0
+planned	phase2/phase2/plan.json>steps>16>match_frame>type:delete-key;phase2/phase2/plan.json>steps>16>save_fields:delete-key	ValueError: Invalid frame match
+planned	phase2/phase2/report.json>gates:drop-last;phase2/phase2/report.json>events>38>action:inc	ValueError: Live and replayed stage gates differ
+planned	phase2/phase2/plan.json>operator:empty;phase2/phase2/plan.json>profile:flip	ValueError: Unknown evidence profile
+planned	phase2/phase2/plan.json>steps>0>op:empty;phase2/phase2/plan.json>steps>0>op:flip	ValueError: Unknown action: x
+planned	phase2/phase2/plan.json>steps>22>op:flip;phase2/phase2/plan.json>steps>26>op:flip	ValueError: Unknown action: expect_quie0
+planned	phase2/phase2/plan.json>steps>22>op:flip;phase2/phase2/plan.json>steps>16>save_fields:delete-key	ValueError: Unknown saved bytes: peer_uid
+planned	phase2/phase2/plan.json>steps>1>op:flip;phase2/phase2/plan.json>steps>1>connection:empty	ValueError: Unknown action: sen0
+planned	phase2/phase2/plan.json>steps>1>op:flip;phase2/phase2/plan.json>steps:drop-first	ValueError: Unknown action: sen0
+planned	phase2/phase2/plan.json>steps>1>connection:empty;phase2/phase2/plan.json>steps>1>connection:flip	ValueError: Unknown connection: x
+planned	phase2/phase2/plan.json>steps>10>connection:flip;phase2/phase2/plan.json>steps>9>connection:flip	ValueError: Unknown connection: subject
+planned	phase2/phase2/plan.json>profile:flip;phase2/phase2/plan.json>schema_version:inc	ValueError: Unsupported capture schema
+controls		ok 74234e98afe7498f
+controls	phase1/readiness/report.json>events>0>action:delete-key	KeyError: 'action'
+controls	phase1/readiness/report.json>completed_actions:delete-key	KeyError: 'completed_actions'
+controls	phase1/readiness/report.json>events>0>connection:delete-key	KeyError: 'connection'
+controls	phase1/readiness/plan.json>steps>0>endpoint:delete-key	KeyError: 'endpoint'
+controls	phase1/readiness/plan.json>endpoints:delete-key	KeyError: 'endpoints'
+controls	phase1/readiness/report.json>error:delete-key	KeyError: 'error'
+controls	phase1/readiness/report.json>events>0>event:delete-key	KeyError: 'event'
+controls	phase1/readiness/report.json>events:delete-key	KeyError: 'events'
+controls	phase1/readiness/report.json>frames:delete-key	KeyError: 'frames'
+controls	phase1/readiness/plan.json>steps>1>hex:delete-key	KeyError: 'hex'
+controls	phase1/readiness/plan.json>endpoints>control>host:delete-key	KeyError: 'host'
+controls	phase1/readiness/plan.json>steps>14>save>name:delete-key	KeyError: 'name'
+controls	phase1/readiness/report.json>native_conformance:delete-key	KeyError: 'native_conformance'
+controls	phase1/readiness/plan.json>steps>14>save>offset:delete-key	KeyError: 'offset'
+controls	phase1/readiness/plan.json>steps>0>op:delete-key	KeyError: 'op'
+controls	phase1/readiness/plan.json>oracle_sha256:delete-key	KeyError: 'oracle_sha256'
+controls	phase1/readiness/report.json>plan_sha256:delete-key	KeyError: 'plan_sha256'
+controls	phase1/readiness/plan.json>endpoints>control>port:delete-key	KeyError: 'port'
+controls	phase1/readiness/report.json>profile:delete-key	KeyError: 'profile'
+controls	phase1/readiness/plan.json>steps>2>size:delete-key	KeyError: 'size'
+controls	phase1/readiness/report.json>status:delete-key	KeyError: 'status'
+controls	phase1/readiness/plan.json>steps:delete-key	KeyError: 'steps'
+controls	phase1/readiness/report.json>streams:delete-key	KeyError: 'streams'
+controls	phase1/readiness/report.json>events>4>action:inc	ValueError: Completed frame read has incomplete bytes
+controls	phase1/readiness/report.json>frames:drop-last	ValueError: Decoded frame mismatch
+controls	phase1/readiness/report.json>profile:flip	ValueError: Evidence profile mismatch
+controls	phase1/readiness/report.json>completed_actions:inc	ValueError: Incomplete plan reported as completed
+controls	phase1/readiness/plan.json>endpoints>control:delete-key	ValueError: Invalid connection declaration
+controls	phase1/readiness/plan.json>steps>14>save>name:empty	ValueError: Invalid saved-byte name
+controls	phase1/readiness/plan.json>oracle_sha256:flip	ValueError: Native profile requires the recorded Mac oracle hash
+controls	phase1/readiness/plan.json>operator:empty	ValueError: Operator and gap IDs are required
+controls	phase1/plans/readiness.json>schema_version:inc	ValueError: Readiness as-run plan differs
+controls	phase1/readiness/plan.json>operator:flip	ValueError: Source identity mismatch
+controls	phase1/readiness/report.json>events:reverse	ValueError: Stream reconstruction mismatch
+controls	phase1/readiness/plan.json>steps>0>op:empty	ValueError: Unknown action:
+controls	phase1/readiness/plan.json>steps>17>op:flip	ValueError: Unknown action: clos0
+controls	phase1/readiness/plan.json>steps>0>op:flip	ValueError: Unknown action: connec0
+controls	phase1/readiness/plan.json>steps>2>op:flip	ValueError: Unknown action: rea0
+controls	phase1/readiness/plan.json>steps>4>op:flip	ValueError: Unknown action: read_fram0
+controls	phase1/readiness/plan.json>steps>1>op:flip	ValueError: Unknown action: sen0
+controls	phase1/readiness/report.json>status:flip	ValueError: Unknown capture status
+controls	phase1/readiness/plan.json>steps>1>connection:empty	ValueError: Unknown connection:
+controls	phase1/readiness/plan.json>steps>1>connection:flip	ValueError: Unknown connection: mai0
+controls	phase1/readiness/plan.json>steps:drop-first	ValueError: Unknown connection: main
+controls	phase1/readiness/plan.json>profile:flip	ValueError: Unknown evidence profile
+controls	phase1/readiness/plan.json>steps>14>save:delete-key	ValueError: Unknown saved bytes: admin_uid
+controls	phase1/readiness/plan.json>schema_version:inc	ValueError: Unsupported capture schema
+controls	phase1/readiness/plan.json>steps>15>hex:flip	ValueError: non-hexadecimal number found in fromhex() arg at position 52
+controls	phase1/readiness/report.json>events>0>action:delete-key;phase1/readiness/plan.json>endpoints>control>host:delete-key	KeyError: 'host'
+controls	phase1/readiness/report.json>events>0>action:delete-key;phase1/readiness/report.json>events>4>action:inc	KeyError: 'action'
+controls	phase1/readiness/report.json>events>0>action:delete-key;phase1/readiness/report.json>events:reverse	ValueError: Stream reconstruction mismatch
+controls	phase1/readiness/report.json>completed_actions:delete-key;phase1/readiness/report.json>error:delete-key	KeyError: 'error'
+controls	phase1/readiness/report.json>events>0>connection:delete-key;phase1/readiness/report.json>events>0>event:delete-key	KeyError: 'connection'
+controls	phase1/readiness/report.json>events>0>connection:delete-key;phase1/readiness/report.json>completed_actions:inc	ValueError: Incomplete plan reported as completed
+controls	phase1/readiness/report.json>events>0>connection:delete-key;phase1/readiness/plan.json>operator:flip	ValueError: Source identity mismatch
+controls	phase1/readiness/plan.json>steps>0>endpoint:delete-key;phase1/readiness/plan.json>steps>0>op:flip	ValueError: Unknown action: connec0
+controls	phase1/readiness/plan.json>steps>0>endpoint:delete-key;phase1/readiness/plan.json>steps>1>op:flip	KeyError: 'endpoint'
+controls	phase1/readiness/report.json>error:delete-key;phase1/readiness/report.json>status:flip	ValueError: Unknown capture status
+controls	phase1/readiness/report.json>events>0>event:delete-key;phase1/readiness/report.json>events:delete-key	KeyError: 'events'
+controls	phase1/readiness/report.json>events:delete-key;phase1/readiness/report.json>streams:delete-key	KeyError: 'events'
+controls	phase1/readiness/report.json>frames:delete-key;phase1/readiness/report.json>events>4>action:inc	ValueError: Completed frame read has incomplete bytes
+controls	phase1/readiness/plan.json>steps>1>hex:delete-key;phase1/readiness/plan.json>steps>2>op:flip	KeyError: 'hex'
+controls	phase1/readiness/plan.json>steps>1>hex:delete-key;phase1/readiness/plan.json>steps>1>connection:flip	ValueError: Unknown connection: mai0
+controls	phase1/readiness/plan.json>endpoints>control>host:delete-key;phase1/readiness/plan.json>steps>2>size:delete-key	KeyError: 'host'
+controls	phase1/readiness/plan.json>endpoints>control>host:delete-key;phase1/readiness/plan.json>oracle_sha256:flip	ValueError: Native profile requires the recorded Mac oracle hash
+controls	phase1/readiness/plan.json>steps>14>save>name:delete-key;phase1/readiness/plan.json>oracle_sha256:flip	ValueError: Native profile requires the recorded Mac oracle hash
+controls	phase1/readiness/plan.json>steps>14>save>name:delete-key;phase1/readiness/plan.json>steps>14>save:delete-key	ValueError: Unknown saved bytes: admin_uid
+controls	phase1/readiness/report.json>native_conformance:delete-key;phase1/readiness/report.json>plan_sha256:delete-key	KeyError: 'native_conformance'
+controls	phase1/readiness/report.json>native_conformance:delete-key;phase1/readiness/report.json>profile:flip	ValueError: Evidence profile mismatch
+controls	phase1/readiness/report.json>native_conformance:delete-key;phase1/readiness/plan.json>steps>17>op:flip	ValueError: Unknown action: clos0
+controls	phase1/readiness/plan.json>steps>14>save>offset:delete-key;phase1/readiness/plan.json>steps>14>save>name:empty	ValueError: Invalid saved-byte name
+controls	phase1/readiness/plan.json>steps>14>save>offset:delete-key;phase1/readiness/plan.json>steps>15>hex:flip	KeyError: 'offset'
+controls	phase1/readiness/plan.json>steps>0>op:delete-key;phase1/readiness/plan.json>endpoints>control>port:delete-key	KeyError: 'port'
+controls	phase1/readiness/plan.json>steps>0>op:delete-key;phase1/readiness/plan.json>endpoints>control:delete-key	KeyError: 'op'
+controls	phase1/readiness/plan.json>steps>0>op:delete-key;phase1/readiness/plan.json>steps>17>op:flip	KeyError: 'op'
+controls	phase1/readiness/plan.json>oracle_sha256:delete-key;phase1/readiness/plan.json>operator:empty	ValueError: Operator and gap IDs are required
+controls	phase1/readiness/plan.json>oracle_sha256:delete-key;phase1/readiness/plan.json>steps>14>save:delete-key	KeyError: 'oracle_sha256'
+controls	phase1/readiness/report.json>plan_sha256:delete-key;phase1/readiness/plan.json>operator:flip	KeyError: 'plan_sha256'
+controls	phase1/readiness/report.json>profile:delete-key;phase1/readiness/plan.json>steps>17>op:flip	ValueError: Unknown action: clos0
+controls	phase1/readiness/plan.json>steps>2>size:delete-key;phase1/readiness/plan.json>steps:delete-key	KeyError: 'steps'
+controls	phase1/readiness/plan.json>steps>2>size:delete-key;phase1/readiness/plan.json>steps>2>op:flip	ValueError: Unknown action: rea0
+controls	phase1/readiness/report.json>status:delete-key;phase1/readiness/plan.json>operator:flip	ValueError: Source identity mismatch
+controls	phase1/readiness/report.json>streams:delete-key;phase1/readiness/report.json>events:reverse	KeyError: 'streams'
+controls	phase1/readiness/report.json>frames:drop-last;phase1/plans/readiness.json>schema_version:inc	ValueError: Decoded frame mismatch
+controls	phase1/readiness/plan.json>endpoints>control:delete-key;phase1/readiness/plan.json>steps>0>op:empty	ValueError: Unknown action:
+controls	phase1/readiness/plan.json>operator:empty;phase1/readiness/plan.json>profile:flip	ValueError: Unknown evidence profile
+controls	phase1/readiness/plan.json>steps>0>op:empty;phase1/readiness/plan.json>steps>0>op:flip	ValueError: Unknown action: x
+controls	phase1/readiness/plan.json>steps>17>op:flip;phase1/readiness/plan.json>steps>15>hex:flip	ValueError: non-hexadecimal number found in fromhex() arg at position 52
+controls	phase1/readiness/plan.json>steps>4>op:flip;phase1/readiness/plan.json>steps>14>save:delete-key	ValueError: Unknown action: read_fram0
+controls	phase1/readiness/plan.json>steps>1>op:flip;phase1/readiness/plan.json>steps:drop-first	ValueError: Unknown action: sen0
+controls	phase1/readiness/plan.json>steps>1>connection:empty;phase1/readiness/plan.json>steps>1>connection:flip	ValueError: Unknown connection: x
+controls	phase1/readiness/plan.json>steps>1>connection:empty;phase1/readiness/plan.json>steps:drop-first	ValueError: Unknown connection:
+controls	phase1/readiness/plan.json>steps>1>connection:flip;phase1/readiness/plan.json>schema_version:inc	ValueError: Unsupported capture schema
+controls	phase1/readiness/plan.json>profile:flip;phase1/readiness/plan.json>schema_version:inc	ValueError: Unsupported capture schema
+packets-1		ok ac91f04336cb063e
+packets-1	phase1/paired-streams.json>flows>0>case:delete-key	KeyError: 'case'
+packets-1	phase1/paired-streams.json>flows:delete-key	KeyError: 'flows'
+packets-1	phase1/paired-streams.json>pcaps>guest.pcap:delete-key	KeyError: 'guest.pcap'
+packets-1	phase1/paired-streams.json>flows>0>guest_received_bytes:delete-key	KeyError: 'guest_received_bytes'
+packets-1	phase1/paired-streams.json>flows>0>guest_received_sha256:delete-key	KeyError: 'guest_received_sha256'
+packets-1	phase1/paired-streams.json>flows>0>guest_sent_bytes:delete-key	KeyError: 'guest_sent_bytes'
+packets-1	phase1/paired-streams.json>flows>0>guest_sent_sha256:delete-key	KeyError: 'guest_sent_sha256'
+packets-1	phase1/paired-streams.json>lifetime_count:delete-key	KeyError: 'lifetime_count'
+packets-1	phase1/readiness/report.json>streams>main:delete-key	KeyError: 'main'
+packets-1	phase1/paired-streams.json>pcaps>namespace.pcap:delete-key	KeyError: 'namespace.pcap'
+packets-1	phase1/paired-streams.json>flows>0>namespace_received_bytes:delete-key	KeyError: 'namespace_received_bytes'
+packets-1	phase1/paired-streams.json>flows>0>namespace_received_sha256:delete-key	KeyError: 'namespace_received_sha256'
+packets-1	phase1/paired-streams.json>flows>0>namespace_sent_bytes:delete-key	KeyError: 'namespace_sent_bytes'
+packets-1	phase1/paired-streams.json>flows>0>namespace_sent_sha256:delete-key	KeyError: 'namespace_sent_sha256'
+packets-1	phase1/paired-streams.json>paired_complete:delete-key	KeyError: 'paired_complete'
+packets-1	phase1/paired-streams.json>pcaps:delete-key	KeyError: 'pcaps'
+packets-1	phase1/paired-streams.json>flows>0>port:delete-key	KeyError: 'port'
+packets-1	phase1/paired-streams.json>pcaps>primary-syn.pcap:delete-key	KeyError: 'primary-syn.pcap'
+packets-1	phase1/readiness/report.json>streams>main>received_hex:delete-key	KeyError: 'received_hex'
+packets-1	phase1/readiness/report.json>streams>main>sent_hex:delete-key	KeyError: 'sent_hex'
+packets-1	phase1/readiness/report.json>streams:delete-key	KeyError: 'streams'
+packets-1	phase1/paired-streams.json>pcaps>primary-syn.pcap>bytes:inc	ValueError: PCAP provenance differs
+packets-1	phase1/paired-streams.json>flows:drop-first	ValueError: Paired flow identity differs
+packets-1	phase1/paired-streams.json>paired_complete:not	ValueError: Paired packet claim differs
+packets-1	phase1/paired-streams.json>flows>0>namespace_sent_bytes:inc	ValueError: Paired packet stream differs
+packets-1	phase1/readiness/report.json>streams>main>sent_hex:flip	ValueError: Recorder/packet application bytes differ
+packets-1	phase1/paired-streams.json>flows:drop-last	ValueError: zip() argument 4 is shorter than arguments 1-3
+packets-1	phase1/paired-streams.json>flows>0>case:delete-key;phase1/paired-streams.json>flows>0>namespace_sent_bytes:delete-key	KeyError: 'case'
+packets-1	phase1/paired-streams.json>flows>0>case:delete-key;phase1/paired-streams.json>flows>0>port:delete-key	KeyError: 'port'
+packets-1	phase1/paired-streams.json>pcaps>guest.pcap:delete-key;phase1/paired-streams.json>flows>0>guest_received_bytes:delete-key	KeyError: 'guest_received_bytes'
+packets-1	phase1/paired-streams.json>pcaps>guest.pcap:delete-key;phase1/paired-streams.json>pcaps>namespace.pcap:delete-key	KeyError: 'namespace.pcap'
+packets-1	phase1/paired-streams.json>flows>0>guest_received_bytes:delete-key;phase1/paired-streams.json>flows>0>guest_received_sha256:delete-key	KeyError: 'guest_received_bytes'
+packets-1	phase1/paired-streams.json>flows>0>guest_received_bytes:delete-key;phase1/paired-streams.json>flows>0>guest_sent_sha256:delete-key	KeyError: 'guest_sent_sha256'
+packets-1	phase1/paired-streams.json>flows>0>guest_received_sha256:delete-key;phase1/paired-streams.json>flows>0>namespace_sent_bytes:inc	ValueError: Paired packet stream differs
+packets-1	phase1/paired-streams.json>flows>0>guest_received_sha256:delete-key;phase1/paired-streams.json>flows:drop-last	KeyError: 'guest_received_sha256'
+packets-1	phase1/paired-streams.json>flows>0>guest_sent_bytes:delete-key;phase1/paired-streams.json>flows>0>guest_sent_sha256:delete-key	KeyError: 'guest_sent_bytes'
+packets-1	phase1/paired-streams.json>flows>0>guest_sent_bytes:delete-key;phase1/readiness/report.json>streams>main>received_hex:delete-key	KeyError: 'received_hex'
+packets-1	phase1/paired-streams.json>lifetime_count:delete-key;phase1/paired-streams.json>pcaps>primary-syn.pcap>bytes:inc	KeyError: 'lifetime_count'
+packets-1	phase1/paired-streams.json>lifetime_count:delete-key;phase1/paired-streams.json>flows:drop-first	KeyError: 'lifetime_count'
+packets-1	phase1/paired-streams.json>lifetime_count:delete-key;phase1/paired-streams.json>paired_complete:not	ValueError: Paired packet claim differs
+packets-1	phase1/readiness/report.json>streams>main:delete-key;phase1/paired-streams.json>flows>0>namespace_received_bytes:delete-key	KeyError: 'main'
+packets-1	phase1/paired-streams.json>pcaps>namespace.pcap:delete-key;phase1/paired-streams.json>flows>0>port:delete-key	KeyError: 'port'
+packets-1	phase1/paired-streams.json>pcaps>namespace.pcap:delete-key;phase1/paired-streams.json>pcaps>primary-syn.pcap>bytes:inc	ValueError: PCAP provenance differs
+packets-1	phase1/paired-streams.json>flows>0>namespace_received_bytes:delete-key;phase1/readiness/report.json>streams>main>sent_hex:delete-key	KeyError: 'sent_hex'
+packets-1	phase1/paired-streams.json>flows>0>namespace_received_bytes:delete-key;phase1/paired-streams.json>pcaps>primary-syn.pcap>bytes:inc	KeyError: 'namespace_received_bytes'
+packets-1	phase1/paired-streams.json>flows>0>namespace_received_sha256:delete-key;phase1/readiness/report.json>streams>main>received_hex:delete-key	KeyError: 'namespace_received_sha256'
+packets-1	phase1/paired-streams.json>flows>0>namespace_sent_sha256:delete-key;phase1/readiness/report.json>streams:delete-key	KeyError: 'namespace_sent_sha256'
+packets-1	phase1/paired-streams.json>flows>0>namespace_sent_sha256:delete-key;phase1/paired-streams.json>flows>0>namespace_sent_bytes:inc	ValueError: Paired packet stream differs
+packets-1	phase1/paired-streams.json>pcaps:delete-key;phase1/paired-streams.json>flows:drop-last	ValueError: zip() argument 4 is shorter than arguments 1-3
+packets-1	phase1/paired-streams.json>flows>0>port:delete-key;phase1/paired-streams.json>flows:drop-first	ValueError: Paired flow identity differs
+packets-1	phase1/readiness/report.json>streams>main>sent_hex:delete-key;phase1/readiness/report.json>streams:delete-key	KeyError: 'streams'
+packets-1	phase1/paired-streams.json>pcaps>primary-syn.pcap>bytes:inc;phase1/paired-streams.json>flows>0>namespace_sent_bytes:inc	ValueError: Paired packet stream differs
+packets-1	phase1/paired-streams.json>paired_complete:not;phase1/readiness/report.json>streams>main>sent_hex:flip	ValueError: Paired packet claim differs
+packets-2		ok 15952ccbd80745de
+packets-2	phase2/paired-streams.json>flows>0>case:delete-key	KeyError: 'case'
+packets-2	phase2/paired-streams.json>flows:delete-key	KeyError: 'flows'
+packets-2	phase2/paired-streams.json>pcaps>guest.pcap:delete-key	KeyError: 'guest.pcap'
+packets-2	phase2/paired-streams.json>flows>0>guest_received_bytes:delete-key	KeyError: 'guest_received_bytes'
+packets-2	phase2/paired-streams.json>flows>0>guest_received_sha256:delete-key	KeyError: 'guest_received_sha256'
+packets-2	phase2/paired-streams.json>flows>0>guest_sent_bytes:delete-key	KeyError: 'guest_sent_bytes'
+packets-2	phase2/paired-streams.json>flows>0>guest_sent_sha256:delete-key	KeyError: 'guest_sent_sha256'
+packets-2	phase2/paired-streams.json>lifetime_count:delete-key	KeyError: 'lifetime_count'
+packets-2	phase2/readiness/report.json>streams>main:delete-key	KeyError: 'main'
+packets-2	phase2/paired-streams.json>pcaps>namespace.pcap:delete-key	KeyError: 'namespace.pcap'
+packets-2	phase2/paired-streams.json>flows>0>namespace_received_bytes:delete-key	KeyError: 'namespace_received_bytes'
+packets-2	phase2/paired-streams.json>flows>0>namespace_received_sha256:delete-key	KeyError: 'namespace_received_sha256'
+packets-2	phase2/paired-streams.json>flows>0>namespace_sent_bytes:delete-key	KeyError: 'namespace_sent_bytes'
+packets-2	phase2/paired-streams.json>flows>0>namespace_sent_sha256:delete-key	KeyError: 'namespace_sent_sha256'
+packets-2	phase2/paired-streams.json>paired_complete:delete-key	KeyError: 'paired_complete'
+packets-2	phase2/paired-streams.json>pcaps:delete-key	KeyError: 'pcaps'
+packets-2	phase2/paired-streams.json>flows>0>port:delete-key	KeyError: 'port'
+packets-2	phase2/paired-streams.json>pcaps>primary-syn.pcap:delete-key	KeyError: 'primary-syn.pcap'
+packets-2	phase2/readiness/report.json>streams>main>received_hex:delete-key	KeyError: 'received_hex'
+packets-2	phase2/readiness/report.json>streams>main>sent_hex:delete-key	KeyError: 'sent_hex'
+packets-2	phase2/readiness/report.json>streams:delete-key	KeyError: 'streams'
+packets-2	phase2/phase2/report.json>streams>subject:delete-key	KeyError: 'subject'
+packets-2	phase2/paired-streams.json>pcaps>primary-syn.pcap>bytes:inc	ValueError: PCAP provenance differs
+packets-2	phase2/paired-streams.json>flows:drop-first	ValueError: Paired flow identity differs
+packets-2	phase2/paired-streams.json>paired_complete:not	ValueError: Paired packet claim differs
+packets-2	phase2/paired-streams.json>flows>0>namespace_sent_bytes:inc	ValueError: Paired packet stream differs
+packets-2	phase2/readiness/report.json>streams>main>sent_hex:flip	ValueError: Recorder/packet application bytes differ
+packets-2	phase2/paired-streams.json>flows:drop-last	ValueError: zip() argument 4 is shorter than arguments 1-3
+packets-2	phase2/paired-streams.json>flows>0>case:delete-key;phase2/paired-streams.json>flows>0>namespace_sent_bytes:delete-key	KeyError: 'case'
+packets-2	phase2/paired-streams.json>flows>0>case:delete-key;phase2/paired-streams.json>flows>0>port:delete-key	KeyError: 'port'
+packets-2	phase2/paired-streams.json>flows>0>case:delete-key;phase2/readiness/report.json>streams>main>sent_hex:delete-key	KeyError: 'case'
+packets-2	phase2/paired-streams.json>pcaps>guest.pcap:delete-key;phase2/paired-streams.json>pcaps>namespace.pcap:delete-key	KeyError: 'namespace.pcap'
+packets-2	phase2/paired-streams.json>flows>0>guest_received_bytes:delete-key;phase2/paired-streams.json>flows>0>guest_received_sha256:delete-key	KeyError: 'guest_received_bytes'
+packets-2	phase2/paired-streams.json>flows>0>guest_received_bytes:delete-key;phase2/paired-streams.json>flows>0>guest_sent_sha256:delete-key	KeyError: 'guest_sent_sha256'
+packets-2	phase2/paired-streams.json>flows>0>guest_received_bytes:delete-key;phase2/paired-streams.json>lifetime_count:delete-key	KeyError: 'lifetime_count'
+packets-2	phase2/paired-streams.json>flows>0>guest_received_sha256:delete-key;phase2/paired-streams.json>paired_complete:delete-key	KeyError: 'paired_complete'
+packets-2	phase2/paired-streams.json>flows>0>guest_received_sha256:delete-key;phase2/paired-streams.json>flows:drop-last	KeyError: 'guest_received_sha256'
+packets-2	phase2/paired-streams.json>flows>0>guest_sent_bytes:delete-key;phase2/paired-streams.json>flows>0>guest_sent_sha256:delete-key	KeyError: 'guest_sent_bytes'
+packets-2	phase2/paired-streams.json>flows>0>guest_sent_bytes:delete-key;phase2/readiness/report.json>streams>main>received_hex:delete-key	KeyError: 'received_hex'
+packets-2	phase2/paired-streams.json>lifetime_count:delete-key;phase2/paired-streams.json>pcaps>primary-syn.pcap>bytes:inc	KeyError: 'lifetime_count'
+packets-2	phase2/paired-streams.json>lifetime_count:delete-key;phase2/paired-streams.json>flows:drop-first	KeyError: 'lifetime_count'
+packets-2	phase2/paired-streams.json>lifetime_count:delete-key;phase2/paired-streams.json>paired_complete:not	ValueError: Paired packet claim differs
+packets-2	phase2/readiness/report.json>streams>main:delete-key;phase2/paired-streams.json>flows>0>namespace_received_bytes:delete-key	KeyError: 'main'
+packets-2	phase2/paired-streams.json>pcaps>namespace.pcap:delete-key;phase2/paired-streams.json>pcaps>primary-syn.pcap>bytes:inc	ValueError: PCAP provenance differs
+packets-2	phase2/paired-streams.json>flows>0>namespace_received_sha256:delete-key;phase2/readiness/report.json>streams>main>received_hex:delete-key	KeyError: 'namespace_received_sha256'
+packets-2	phase2/paired-streams.json>flows>0>namespace_sent_bytes:delete-key;phase2/paired-streams.json>pcaps>primary-syn.pcap>bytes:inc	KeyError: 'namespace_sent_bytes'
+packets-2	phase2/paired-streams.json>flows>0>namespace_sent_sha256:delete-key;phase2/readiness/report.json>streams:delete-key	KeyError: 'namespace_sent_sha256'
+packets-2	phase2/paired-streams.json>flows>0>namespace_sent_sha256:delete-key;phase2/paired-streams.json>flows>0>namespace_sent_bytes:inc	ValueError: Paired packet stream differs
+packets-2	phase2/paired-streams.json>pcaps:delete-key;phase2/phase2/report.json>streams>subject:delete-key	KeyError: 'subject'
+packets-2	phase2/paired-streams.json>flows>0>port:delete-key;phase2/paired-streams.json>flows:drop-first	ValueError: Paired flow identity differs
+packets-2	phase2/paired-streams.json>flows>0>port:delete-key;phase2/paired-streams.json>paired_complete:not	ValueError: Paired packet claim differs
+packets-2	phase2/paired-streams.json>flows>0>port:delete-key;phase2/paired-streams.json>flows:drop-last	KeyError: 'port'
+packets-2	phase2/paired-streams.json>pcaps>primary-syn.pcap:delete-key;phase2/paired-streams.json>flows>0>namespace_sent_bytes:inc	ValueError: Paired packet stream differs
+packets-2	phase2/readiness/report.json>streams>main>sent_hex:delete-key;phase2/readiness/report.json>streams:delete-key	KeyError: 'streams'
+packets-2	phase2/phase2/report.json>streams>subject:delete-key;phase2/paired-streams.json>flows:drop-last	ValueError: zip() argument 4 is shorter than arguments 1-3
+storage		ok a8aa9e968f0b9d25
+storage	baseline/a41-assets.json>objects>/Hotline19/Prefs:delete-key	KeyError: '/Hotline19/Prefs'
+storage	baseline/a41-assets.json>objects>/Hotline19/Users/admin/UserData:delete-key	KeyError: '/Hotline19/Users/admin/UserData'
+storage	baseline/a41-assets.json>objects>/Hotline19/Users/fixture-low/UserData:delete-key	KeyError: '/Hotline19/Users/fixture-low/UserData'
+storage	baseline/a41-assets.json>booted:delete-key	KeyError: 'booted'
+storage	baseline/a41-assets.json>target_working>inode:delete-key	KeyError: 'inode'
+storage	baseline/a41-assets.json>objects:delete-key	KeyError: 'objects'
+storage	baseline/a41-assets.json>target_working>path:delete-key	KeyError: 'path'
+storage	baseline/a41-assets.json>profile:delete-key	KeyError: 'profile'
+storage	baseline/a41-assets.json>target_base>sha256:delete-key	KeyError: 'sha256'
+storage	baseline/a41-assets.json>target_base:delete-key	KeyError: 'target_base'
+storage	baseline/a41-assets.json>target_working:delete-key	KeyError: 'target_working'
+storage	baseline/a41-assets.json>profile:flip	ValueError: A41 baseline identity differs
+storage	baseline/a41-assets.json>objects>/Hotline19/Users/admin/UserData>catalog:inc	ValueError: A41 stored fork baseline differs
+storage	baseline/a41-assets.json>target_base>sha256:flip	ValueError: Immutable base hash differs
+storage	baseline/a41-assets.json>target_working>path:flip	ValueError: Same working image inode differs
+storage	baseline/a41-assets.json>objects>/Hotline19/Prefs:delete-key;baseline/a41-assets.json>objects>/Hotline19/Users/fixture-low/UserData:delete-key	KeyError: '/Hotline19/Users/fixture-low/UserData'
+storage	baseline/a41-assets.json>objects>/Hotline19/Prefs:delete-key;baseline/a41-assets.json>booted:delete-key	KeyError: 'booted'
+storage	baseline/a41-assets.json>objects>/Hotline19/Prefs:delete-key;baseline/a41-assets.json>target_base:delete-key	KeyError: '/Hotline19/Prefs'
+storage	baseline/a41-assets.json>objects>/Hotline19/Users/admin/UserData:delete-key;baseline/a41-assets.json>objects:delete-key	KeyError: 'objects'
+storage	baseline/a41-assets.json>objects>/Hotline19/Users/admin/UserData:delete-key;baseline/a41-assets.json>profile:flip	ValueError: A41 baseline identity differs
+storage	baseline/a41-assets.json>objects>/Hotline19/Users/admin/UserData:delete-key;baseline/a41-assets.json>target_base>sha256:flip	KeyError: '/Hotline19/Users/admin/UserData'
+storage	baseline/a41-assets.json>objects>/Hotline19/Users/fixture-low/UserData:delete-key;baseline/a41-assets.json>profile:delete-key	KeyError: 'profile'
+storage	baseline/a41-assets.json>objects>/Hotline19/Users/fixture-low/UserData:delete-key;baseline/a41-assets.json>objects>/Hotline19/Users/admin/UserData>catalog:inc	ValueError: A41 stored fork baseline differs
+storage	baseline/a41-assets.json>booted:delete-key;baseline/a41-assets.json>target_base>sha256:delete-key	KeyError: 'booted'
+storage	baseline/a41-assets.json>booted:delete-key;baseline/a41-assets.json>target_working:delete-key	KeyError: 'booted'
+storage	baseline/a41-assets.json>booted:delete-key;baseline/a41-assets.json>profile:flip	ValueError: A41 baseline identity differs
+storage	baseline/a41-assets.json>target_working>inode:delete-key;baseline/a41-assets.json>target_working>path:delete-key	KeyError: 'path'
+storage	baseline/a41-assets.json>target_working>inode:delete-key;baseline/a41-assets.json>target_working:delete-key	KeyError: 'target_working'
+storage	baseline/a41-assets.json>objects:delete-key;baseline/a41-assets.json>target_working>path:delete-key	KeyError: 'path'
+storage	baseline/a41-assets.json>objects:delete-key;baseline/a41-assets.json>target_base>sha256:delete-key	KeyError: 'objects'
+storage	baseline/a41-assets.json>target_base>sha256:delete-key;baseline/a41-assets.json>target_base:delete-key	KeyError: 'target_base'
+storage	baseline/a41-assets.json>target_base>sha256:delete-key;baseline/a41-assets.json>target_working:delete-key	KeyError: 'target_working'
+storage	baseline/a41-assets.json>target_base>sha256:delete-key;baseline/a41-assets.json>profile:flip	ValueError: A41 baseline identity differs
+storage	baseline/a41-assets.json>target_base>sha256:flip;baseline/a41-assets.json>target_working>path:flip	ValueError: Immutable base hash differs
+lifecycle		ok 74234e98afe7498f
+lifecycle	baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image>path:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase1/screenshots/after-file-quit.pn
+lifecycle	baseline/operator-timeline.json>phases>phase1>screenshots>after_quit_image>path:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase1/screenshots/after-quit-confirm
+lifecycle	baseline/operator-timeline.json>phases>phase1>screenshots>shutdown_image>path:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase1/screenshots/shutdown-01.pn0'
+lifecycle	baseline/operator-timeline.json>phases>phase1>screenshots>special_menu_image>path:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase1/screenshots/special-menu-hold2
+lifecycle	baseline/operator-timeline.json>phases>phase2>screenshots>after_quit_image>path:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase2/screenshots/after-quit-confirm
+lifecycle	baseline/operator-timeline.json>phases>phase2>screenshots>quit_prompt_image>path:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase2/screenshots/quit-prompt.pn0'
+lifecycle	baseline/operator-timeline.json>phases>phase2>screenshots>shutdown_image>path:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase2/screenshots/shutdown-01.pn0'
+lifecycle	baseline/operator-timeline.json>phases>phase2>screenshots>special_menu_image>path:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase2/screenshots/special-menu-hold2
+lifecycle	baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image>path:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>'
+lifecycle	baseline/operator-timeline.json>phases>phase1>screenshots>after_quit_image:delete-key	KeyError: 'after_quit_image'
+lifecycle	baseline/operator-timeline.json>phases>phase1>capture_stop_utc:delete-key	KeyError: 'capture_stop_utc'
+lifecycle	phase2/phase2/report.json>completed_actions:delete-key	KeyError: 'completed_actions'
+lifecycle	phase1/host-ready-boot.json>deadline_utc:delete-key	KeyError: 'deadline_utc'
+lifecycle	phase1/emulator-identity.json>exe_sha256:delete-key	KeyError: 'exe_sha256'
+lifecycle	baseline/operator-timeline.json>phases>phase1>fork_extraction_completed_utc:delete-key	KeyError: 'fork_extraction_completed_utc'
+lifecycle	phase1/emulator-identity.json>guest_pcap_fd16:delete-key	KeyError: 'guest_pcap_fd16'
+lifecycle	baseline/operator-timeline.json>phases>phase1>hold_ready_utc:delete-key	KeyError: 'hold_ready_utc'
+lifecycle	baseline/operator-timeline.json>phases>phase1>journal_start_utc:delete-key	KeyError: 'journal_start_utc'
+lifecycle	baseline/operator-timeline.json>phases>phase1>machine_journal_exit_status:delete-key	KeyError: 'machine_journal_exit_status'
+lifecycle	phase1/emulator-identity.json>netns:delete-key	KeyError: 'netns'
+lifecycle	baseline/operator-timeline.json>phases>phase1>operator_pid_absent_by_utc:delete-key	KeyError: 'operator_pid_absent_by_utc'
+lifecycle	baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image>path:delete-key	KeyError: 'path'
+lifecycle	baseline/operator-timeline.json>phases>phase1:delete-key	KeyError: 'phase1'
+lifecycle	baseline/operator-timeline.json>phases>phase2:delete-key	KeyError: 'phase2'
+lifecycle	baseline/operator-timeline.json>phases:delete-key	KeyError: 'phases'
+lifecycle	phase1/emulator-identity.json>pid:delete-key	KeyError: 'pid'
+lifecycle	baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image:delete-key	KeyError: 'quit_prompt_image'
+lifecycle	phase2/phase2/report.json>recorded_at_utc:delete-key	KeyError: 'recorded_at_utc'
+lifecycle	baseline/operator-timeline.json>scope:delete-key	KeyError: 'scope'
+lifecycle	baseline/operator-timeline.json>phases>phase1>screenshots:delete-key	KeyError: 'screenshots'
+lifecycle	baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image>sha256:delete-key	KeyError: 'sha256'
+lifecycle	baseline/operator-timeline.json>phases>phase1>screenshots>shutdown_image:delete-key	KeyError: 'shutdown_image'
+lifecycle	phase1/phase1/hold-ready.json>sockets:delete-key	KeyError: 'sockets'
+lifecycle	baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image>source_mtime_utc:delete-key	KeyError: 'source_mtime_utc'
+lifecycle	baseline/operator-timeline.json>phases>phase1>screenshots>special_menu_image:delete-key	KeyError: 'special_menu_image'
+lifecycle	phase1/emulator-identity.json>start_ticks:delete-key	KeyError: 'start_ticks'
+lifecycle	phase1/readiness/report.json>started_at_utc:delete-key	KeyError: 'started_at_utc'
+lifecycle	phase1/emulator-identity.json>uid:delete-key	KeyError: 'uid'
+lifecycle	phase1/phase1/hold-ready.json>utc:delete-key	KeyError: 'utc'
+lifecycle	phase1/emulator-identity.json>working_image_fd6:delete-key	KeyError: 'working_image_fd6'
+lifecycle	baseline/operator-timeline.json>phases>phase1>journal_start_utc:flip	ValueError: Boot journal start missing
+lifecycle	phase1/readiness/report.json>started_at_utc:flip	ValueError: Capture gate readiness/deadline differs
+lifecycle	phase1/emulator-identity.json>working_image_fd6:flip	ValueError: Emulator FD identity differs
+lifecycle	phase1/emulator-identity.json>exe_sha256:flip	ValueError: Emulator identity differs
+lifecycle	baseline/operator-timeline.json>phases>phase1>hold_ready_utc:flip	ValueError: Hold-ready timeline differs
+lifecycle	baseline/operator-timeline.json>phases>phase1>journal_start_utc:empty	ValueError: Invalid isoformat string: ''
+lifecycle	baseline/operator-timeline.json>phases>phase1>machine_journal_exit_status:empty	ValueError: Missing exit-status caveat
+lifecycle	baseline/operator-timeline.json>phases>phase1>operator_pid_absent_by_utc:flip	ValueError: Operator shutdown chronology differs
+lifecycle	phase1/phase1/hold-ready.json>sockets:drop-last	ValueError: Owned sockets/deadline differ
+lifecycle	phase2/phase2/report.json>completed_actions:inc	ValueError: Phase report exceeded deadline
+lifecycle	phase2/phase2/report.json>recorded_at_utc:flip	ValueError: Quit/EOF timeline differs
+lifecycle	baseline/operator-timeline.json>scope:flip	ValueError: Shutdown proof scope differs
+lifecycle	baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image>sha256:flip	ValueError: Shutdown screen binding differs
+lifecycle	baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image>path:flip;baseline/operator-timeline.json>phases>phase1:delete-key	KeyError: 'phase1'
+lifecycle	baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image>path:flip;baseline/operator-timeline.json>phases:delete-key	KeyError: 'phases'
+lifecycle	baseline/operator-timeline.json>phases>phase1>screenshots>after_quit_image>path:flip;baseline/operator-timeline.json>phases>phase1>screenshots>special_menu_image>path:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase1/screenshots/after-quit-confirm
+lifecycle	baseline/operator-timeline.json>phases>phase1>screenshots>after_quit_image>path:flip;baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image>sha256:flip	ValueError: Shutdown screen binding differs
+lifecycle	baseline/operator-timeline.json>phases>phase1>screenshots>shutdown_image>path:flip;baseline/operator-timeline.json>phases>phase1>screenshots>special_menu_image>path:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase1/screenshots/special-menu-hold2
+lifecycle	baseline/operator-timeline.json>phases>phase1>screenshots>shutdown_image>path:flip;baseline/operator-timeline.json>phases>phase1>hold_ready_utc:delete-key	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase1/screenshots/shutdown-01.pn0'
+lifecycle	baseline/operator-timeline.json>phases>phase2>screenshots>after_quit_image>path:flip;baseline/operator-timeline.json>phases>phase2>screenshots>quit_prompt_image>path:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase2/screenshots/quit-prompt.pn0'
+lifecycle	baseline/operator-timeline.json>phases>phase2>screenshots>after_quit_image>path:flip;baseline/operator-timeline.json>phases>phase2>screenshots>special_menu_image>path:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase2/screenshots/after-quit-confirm
+lifecycle	baseline/operator-timeline.json>phases>phase2>screenshots>quit_prompt_image>path:flip;baseline/operator-timeline.json>phases>phase2:delete-key	KeyError: 'phase2'
+lifecycle	baseline/operator-timeline.json>phases>phase2>screenshots>quit_prompt_image>path:flip;phase2/phase2/report.json>recorded_at_utc:delete-key	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase2/screenshots/quit-prompt.pn0'
+lifecycle	baseline/operator-timeline.json>phases>phase2>screenshots>shutdown_image>path:flip;baseline/operator-timeline.json>phases>phase2>screenshots>special_menu_image>path:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase2/screenshots/special-menu-hold2
+lifecycle	baseline/operator-timeline.json>phases>phase2>screenshots>shutdown_image>path:flip;phase2/phase2/report.json>recorded_at_utc:delete-key	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase2/screenshots/shutdown-01.pn0'
+lifecycle	baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image>path:empty;baseline/operator-timeline.json>phases:delete-key	KeyError: 'phases'
+lifecycle	baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image>path:empty;baseline/operator-timeline.json>phases>phase1>screenshots:delete-key	KeyError: 'screenshots'
+lifecycle	baseline/operator-timeline.json>phases>phase1>screenshots>after_quit_image:delete-key;baseline/operator-timeline.json>phases>phase1>screenshots>special_menu_image:delete-key	KeyError: 'after_quit_image'
+lifecycle	baseline/operator-timeline.json>phases>phase1>screenshots>after_quit_image:delete-key;baseline/operator-timeline.json>phases>phase1>machine_journal_exit_status:empty	ValueError: Missing exit-status caveat
+lifecycle	baseline/operator-timeline.json>phases>phase1>capture_stop_utc:delete-key;baseline/operator-timeline.json>phases>phase1>operator_pid_absent_by_utc:delete-key	KeyError: 'operator_pid_absent_by_utc'
+lifecycle	baseline/operator-timeline.json>phases>phase1>capture_stop_utc:delete-key;baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image>source_mtime_utc:delete-key	KeyError: 'source_mtime_utc'
+lifecycle	phase2/phase2/report.json>completed_actions:delete-key;phase2/phase2/report.json>recorded_at_utc:flip	ValueError: Quit/EOF timeline differs
+lifecycle	phase2/phase2/report.json>completed_actions:delete-key;baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image>sha256:flip	ValueError: Shutdown screen binding differs
+lifecycle	phase1/host-ready-boot.json>deadline_utc:delete-key;baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image:delete-key	KeyError: 'quit_prompt_image'
+lifecycle	phase1/host-ready-boot.json>deadline_utc:delete-key;phase1/readiness/report.json>started_at_utc:delete-key	KeyError: 'started_at_utc'
+lifecycle	phase1/host-ready-boot.json>deadline_utc:delete-key;baseline/operator-timeline.json>phases>phase1>journal_start_utc:flip	ValueError: Boot journal start missing
+lifecycle	phase1/host-ready-boot.json>deadline_utc:delete-key;phase1/phase1/hold-ready.json>sockets:drop-last	ValueError: Owned sockets/deadline differ
+lifecycle	phase1/emulator-identity.json>exe_sha256:delete-key;phase1/emulator-identity.json>uid:delete-key	KeyError: 'uid'
+lifecycle	baseline/operator-timeline.json>phases>phase1>fork_extraction_completed_utc:delete-key;baseline/operator-timeline.json>phases>phase1>operator_pid_absent_by_utc:delete-key	KeyError: 'operator_pid_absent_by_utc'
+lifecycle	baseline/operator-timeline.json>phases>phase1>fork_extraction_completed_utc:delete-key;baseline/operator-timeline.json>phases>phase1>journal_start_utc:empty	KeyError: 'fork_extraction_completed_utc'
+lifecycle	phase1/emulator-identity.json>guest_pcap_fd16:delete-key;baseline/operator-timeline.json>phases>phase2:delete-key	KeyError: 'guest_pcap_fd16'
+lifecycle	phase1/emulator-identity.json>guest_pcap_fd16:delete-key;phase1/emulator-identity.json>working_image_fd6:flip	ValueError: Emulator FD identity differs
+lifecycle	baseline/operator-timeline.json>phases>phase1>hold_ready_utc:delete-key;baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image>source_mtime_utc:delete-key	KeyError: 'hold_ready_utc'
+lifecycle	baseline/operator-timeline.json>phases>phase1>journal_start_utc:delete-key;baseline/operator-timeline.json>scope:flip	ValueError: Shutdown proof scope differs
+lifecycle	baseline/operator-timeline.json>phases>phase1>machine_journal_exit_status:delete-key;baseline/operator-timeline.json>phases>phase1>journal_start_utc:flip	ValueError: Boot journal start missing
+lifecycle	phase1/emulator-identity.json>netns:delete-key;phase1/emulator-identity.json>start_ticks:delete-key	KeyError: 'start_ticks'
+lifecycle	baseline/operator-timeline.json>phases>phase1>operator_pid_absent_by_utc:delete-key;baseline/operator-timeline.json>phases:delete-key	KeyError: 'phases'
+lifecycle	baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image>path:delete-key;baseline/operator-timeline.json>phases>phase1>screenshots:delete-key	KeyError: 'screenshots'
+lifecycle	baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image>path:delete-key;baseline/operator-timeline.json>phases>phase1>screenshots>shutdown_image:delete-key	KeyError: 'shutdown_image'
+lifecycle	baseline/operator-timeline.json>phases>phase1:delete-key;baseline/operator-timeline.json>scope:flip	ValueError: Shutdown proof scope differs
+lifecycle	phase1/emulator-identity.json>pid:delete-key;phase1/emulator-identity.json>start_ticks:delete-key	KeyError: 'pid'
+lifecycle	phase1/emulator-identity.json>pid:delete-key;phase2/phase2/report.json>completed_actions:inc	ValueError: Phase report exceeded deadline
+lifecycle	baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image:delete-key;baseline/operator-timeline.json>phases>phase1>screenshots>shutdown_image:delete-key	KeyError: 'quit_prompt_image'
+lifecycle	baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image:delete-key;baseline/operator-timeline.json>phases>phase1>screenshots>special_menu_image:delete-key	KeyError: 'quit_prompt_image'
+lifecycle	phase1/phase1/hold-ready.json>sockets:delete-key;baseline/operator-timeline.json>phases>phase1>hold_ready_utc:flip	ValueError: Hold-ready timeline differs
+lifecycle	phase1/emulator-identity.json>uid:delete-key;phase1/readiness/report.json>started_at_utc:flip	ValueError: Capture gate readiness/deadline differs
+lifecycle	phase1/phase1/hold-ready.json>utc:delete-key;baseline/operator-timeline.json>phases>phase1>hold_ready_utc:flip	KeyError: 'utc'
+lifecycle	phase1/phase1/hold-ready.json>utc:delete-key;baseline/operator-timeline.json>phases>phase1>operator_pid_absent_by_utc:flip	ValueError: Operator shutdown chronology differs
+lifecycle	phase1/emulator-identity.json>working_image_fd6:delete-key;phase1/readiness/report.json>started_at_utc:flip	ValueError: Capture gate readiness/deadline differs
+lifecycle	phase1/emulator-identity.json>working_image_fd6:delete-key;phase1/emulator-identity.json>exe_sha256:flip	ValueError: Emulator identity differs
+lifecycle	baseline/operator-timeline.json>phases>phase1>journal_start_utc:empty;baseline/operator-timeline.json>phases>phase1>operator_pid_absent_by_utc:flip	ValueError: Invalid isoformat string: ''
+lifecycle	baseline/operator-timeline.json>phases>phase1>journal_start_utc:empty;phase2/phase2/report.json>recorded_at_utc:flip	ValueError: Invalid isoformat string: ''
+verify		ok c73ddadf76d58595
+verify	baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image>path:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase1/screenshots/after-file-quit.pn
+verify	baseline/operator-timeline.json>phases>phase1>screenshots>after_quit_image>path:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase1/screenshots/after-quit-confirm
+verify	baseline/operator-timeline.json>phases>phase1>screenshots>shutdown_image>path:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase1/screenshots/shutdown-01.pn0'
+verify	baseline/operator-timeline.json>phases>phase1>screenshots>special_menu_image>path:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase1/screenshots/special-menu-hold2
+verify	baseline/operator-timeline.json>phases>phase2>screenshots>after_quit_image>path:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase2/screenshots/after-quit-confirm
+verify	baseline/operator-timeline.json>phases>phase2>screenshots>quit_prompt_image>path:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase2/screenshots/quit-prompt.pn0'
+verify	baseline/operator-timeline.json>phases>phase2>screenshots>shutdown_image>path:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase2/screenshots/shutdown-01.pn0'
+verify	baseline/operator-timeline.json>phases>phase2>screenshots>special_menu_image>path:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase2/screenshots/special-menu-hold2
+verify	baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image>path:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>'
+verify	baseline/a41-assets.json>objects>/Hotline19/Prefs:delete-key	KeyError: '/Hotline19/Prefs'
+verify	baseline/a41-assets.json>objects>/Hotline19/Users/admin/UserData:delete-key	KeyError: '/Hotline19/Users/admin/UserData'
+verify	baseline/a41-assets.json>objects>/Hotline19/Users/fixture-low/UserData:delete-key	KeyError: '/Hotline19/Users/fixture-low/UserData'
+verify	phase1/readiness/report.json>events>0>action:delete-key	KeyError: 'action'
+verify	baseline/operator-timeline.json>phases>phase1>screenshots>after_quit_image:delete-key	KeyError: 'after_quit_image'
+verify	baseline/a41-assets.json>booted:delete-key	KeyError: 'booted'
+verify	baseline/operator-timeline.json>phases>phase1>capture_stop_utc:delete-key	KeyError: 'capture_stop_utc'
+verify	phase1/paired-streams.json>flows>0>case:delete-key	KeyError: 'case'
+verify	phase1/readiness/report.json>completed_actions:delete-key	KeyError: 'completed_actions'
+verify	phase1/phase1/report.json>events>13>connection:delete-key	KeyError: 'connection'
+verify	phase1/host-ready-boot.json>deadline_utc:delete-key	KeyError: 'deadline_utc'
+verify	phase2/phase2/report.json>driver_sha256:delete-key	KeyError: 'driver_sha256'
+verify	phase1/readiness/plan.json>steps>0>endpoint:delete-key	KeyError: 'endpoint'
+verify	phase1/readiness/plan.json>endpoints:delete-key	KeyError: 'endpoints'
+verify	phase1/readiness/report.json>error:delete-key	KeyError: 'error'
+verify	phase1/readiness/report.json>events>0>event:delete-key	KeyError: 'event'
+verify	phase1/readiness/report.json>events:delete-key	KeyError: 'events'
+verify	phase1/emulator-identity.json>exe_sha256:delete-key	KeyError: 'exe_sha256'
+verify	phase1/paired-streams.json>flows:delete-key	KeyError: 'flows'
+verify	baseline/operator-timeline.json>phases>phase1>fork_extraction_completed_utc:delete-key	KeyError: 'fork_extraction_completed_utc'
+verify	phase1/readiness/report.json>frames:delete-key	KeyError: 'frames'
+verify	baseline/a46-parent-verification.json>gates:delete-key	KeyError: 'gates'
+verify	phase1/paired-streams.json>pcaps>guest.pcap:delete-key	KeyError: 'guest.pcap'
+verify	phase1/emulator-identity.json>guest_pcap_fd16:delete-key	KeyError: 'guest_pcap_fd16'
+verify	phase1/paired-streams.json>flows>0>guest_received_bytes:delete-key	KeyError: 'guest_received_bytes'
+verify	phase1/paired-streams.json>flows>0>guest_received_sha256:delete-key	KeyError: 'guest_received_sha256'
+verify	phase1/paired-streams.json>flows>0>guest_sent_bytes:delete-key	KeyError: 'guest_sent_bytes'
+verify	phase1/paired-streams.json>flows>0>guest_sent_sha256:delete-key	KeyError: 'guest_sent_sha256'
+verify	phase1/readiness/plan.json>steps>1>hex:delete-key	KeyError: 'hex'
+verify	baseline/operator-timeline.json>phases>phase1>hold_ready_utc:delete-key	KeyError: 'hold_ready_utc'
+verify	phase1/readiness/plan.json>endpoints>control>host:delete-key	KeyError: 'host'
+verify	baseline/a41-assets.json>target_working>inode:delete-key	KeyError: 'inode'
+verify	baseline/operator-timeline.json>phases>phase1>journal_start_utc:delete-key	KeyError: 'journal_start_utc'
+verify	phase1/paired-streams.json>lifetime_count:delete-key	KeyError: 'lifetime_count'
+verify	baseline/operator-timeline.json>phases>phase1>machine_journal_exit_status:delete-key	KeyError: 'machine_journal_exit_status'
+verify	phase1/readiness/plan.json>steps>14>save>name:delete-key	KeyError: 'name'
+verify	phase1/paired-streams.json>pcaps>namespace.pcap:delete-key	KeyError: 'namespace.pcap'
+verify	phase1/paired-streams.json>flows>0>namespace_received_bytes:delete-key	KeyError: 'namespace_received_bytes'
+verify	phase1/paired-streams.json>flows>0>namespace_received_sha256:delete-key	KeyError: 'namespace_received_sha256'
+verify	phase1/paired-streams.json>flows>0>namespace_sent_bytes:delete-key	KeyError: 'namespace_sent_bytes'
+verify	phase1/paired-streams.json>flows>0>namespace_sent_sha256:delete-key	KeyError: 'namespace_sent_sha256'
+verify	phase1/readiness/report.json>native_conformance:delete-key	KeyError: 'native_conformance'
+verify	phase1/emulator-identity.json>netns:delete-key	KeyError: 'netns'
+verify	baseline/a41-assets.json>objects:delete-key	KeyError: 'objects'
+verify	phase1/readiness/plan.json>steps>14>save>offset:delete-key	KeyError: 'offset'
+verify	phase1/readiness/plan.json>steps>0>op:delete-key	KeyError: 'op'
+verify	baseline/operator-timeline.json>phases>phase1>operator_pid_absent_by_utc:delete-key	KeyError: 'operator_pid_absent_by_utc'
+verify	phase1/readiness/plan.json>oracle_sha256:delete-key	KeyError: 'oracle_sha256'
+verify	phase1/paired-streams.json>paired_complete:delete-key	KeyError: 'paired_complete'
+verify	baseline/a41-assets.json>target_working>path:delete-key	KeyError: 'path'
+verify	phase1/paired-streams.json>pcaps:delete-key	KeyError: 'pcaps'
+verify	baseline/operator-timeline.json>phases>phase1:delete-key	KeyError: 'phase1'
+verify	baseline/operator-timeline.json>phases>phase2:delete-key	KeyError: 'phase2'
+verify	baseline/operator-timeline.json>phases:delete-key	KeyError: 'phases'
+verify	phase1/emulator-identity.json>pid:delete-key	KeyError: 'pid'
+verify	phase1/readiness/report.json>plan_sha256:delete-key	KeyError: 'plan_sha256'
+verify	phase1/paired-streams.json>flows>0>port:delete-key	KeyError: 'port'
+verify	phase1/paired-streams.json>pcaps>primary-syn.pcap:delete-key	KeyError: 'primary-syn.pcap'
+verify	baseline/a41-assets.json>profile:delete-key	KeyError: 'profile'
+verify	baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image:delete-key	KeyError: 'quit_prompt_image'
+verify	baseline/a46-parent-verification.json>raw_checksums_frames_streams_verified:delete-key	KeyError: 'raw_checksums_frames_streams_verified'
+verify	phase2/phase2/report.json>recorded_at_utc:delete-key	KeyError: 'recorded_at_utc'
+verify	baseline/operator-timeline.json>scope:delete-key	KeyError: 'scope'
+verify	baseline/operator-timeline.json>phases>phase1>screenshots:delete-key	KeyError: 'screenshots'
+verify	baseline/a41-assets.json>target_base>sha256:delete-key	KeyError: 'sha256'
+verify	baseline/operator-timeline.json>phases>phase1>screenshots>shutdown_image:delete-key	KeyError: 'shutdown_image'
+verify	phase1/readiness/plan.json>steps>2>size:delete-key	KeyError: 'size'
+verify	phase1/phase1/hold-ready.json>sockets:delete-key	KeyError: 'sockets'
+verify	baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image>source_mtime_utc:delete-key	KeyError: 'source_mtime_utc'
+verify	baseline/operator-timeline.json>phases>phase1>screenshots>special_menu_image:delete-key	KeyError: 'special_menu_image'
+verify	phase1/emulator-identity.json>start_ticks:delete-key	KeyError: 'start_ticks'
+verify	phase1/readiness/report.json>started_at_utc:delete-key	KeyError: 'started_at_utc'
+verify	phase1/readiness/report.json>status:delete-key	KeyError: 'status'
+verify	phase1/readiness/plan.json>steps:delete-key	KeyError: 'steps'
+verify	phase1/readiness/report.json>streams:delete-key	KeyError: 'streams'
+verify	baseline/a41-assets.json>target_base:delete-key	KeyError: 'target_base'
+verify	baseline/a41-assets.json>target_working:delete-key	KeyError: 'target_working'
+verify	phase1/emulator-identity.json>uid:delete-key	KeyError: 'uid'
+verify	phase1/host-ready-boot.json>utc:delete-key	KeyError: 'utc'
+verify	phase1/emulator-identity.json>working_image_fd6:delete-key	KeyError: 'working_image_fd6'
+verify	baseline/a41-assets.json>profile:flip	ValueError: A41 baseline identity differs
+verify	baseline/a41-assets.json>objects>/Hotline19/Users/admin/UserData>catalog:inc	ValueError: A41 stored fork baseline differs
+verify	phase1/phase1/plan.json>schema_version:inc	ValueError: A46 as-run plan differs
+verify	baseline/a46-parent-verification.json>gates:drop-last	ValueError: A46 independent replay differs
+verify	phase2/phase2/report.json>driver_sha256:flip	ValueError: A48 driver differs
+verify	baseline/operator-timeline.json>phases>phase1>journal_start_utc:flip	ValueError: Boot journal start missing
+verify	phase1/host-ready-boot.json>deadline_utc:flip	ValueError: Capture gate readiness/deadline differs
+verify	phase1/readiness/report.json>events>4>action:inc	ValueError: Completed frame read has incomplete bytes
+verify	phase1/phase1/report.json>frames>1>fields>0>id:inc	ValueError: Decoded frame mismatch
+verify	phase1/emulator-identity.json>working_image_fd6:flip	ValueError: Emulator FD identity differs
+verify	phase1/emulator-identity.json>exe_sha256:flip	ValueError: Emulator identity differs
+verify	phase1/readiness/report.json>profile:flip	ValueError: Evidence profile mismatch
+verify	baseline/operator-timeline.json>phases>phase1>hold_ready_utc:flip	ValueError: Hold-ready timeline differs
+verify	baseline/a41-assets.json>target_base>sha256:flip	ValueError: Immutable base hash differs
+verify	phase1/readiness/report.json>completed_actions:inc	ValueError: Incomplete plan reported as completed
+verify	phase1/readiness/plan.json>endpoints>control:delete-key	ValueError: Invalid connection declaration
+verify	phase2/phase2/plan.json>steps>16>match_frame>type:delete-key	ValueError: Invalid frame match
+verify	baseline/operator-timeline.json>phases>phase1>journal_start_utc:empty	ValueError: Invalid isoformat string: ''
+verify	phase1/readiness/plan.json>steps>14>save>name:empty	ValueError: Invalid saved-byte name
+verify	phase2/phase2/report.json>gates:drop-last	ValueError: Live and replayed stage gates differ
+verify	baseline/operator-timeline.json>phases>phase1>machine_journal_exit_status:empty	ValueError: Missing exit-status caveat
+verify	phase1/readiness/plan.json>oracle_sha256:flip	ValueError: Native profile requires the recorded Mac oracle hash
+verify	phase1/readiness/plan.json>operator:empty	ValueError: Operator and gap IDs are required
+verify	baseline/operator-timeline.json>phases>phase1>operator_pid_absent_by_utc:flip	ValueError: Operator shutdown chronology differs
+verify	phase2/phase2/report.json>events>38>action:inc	ValueError: Owned socket EOFs differ
+verify	phase1/phase1/hold-ready.json>sockets:drop-last	ValueError: Owned sockets/deadline differ
+verify	phase1/paired-streams.json>pcaps>primary-syn.pcap>bytes:inc	ValueError: PCAP provenance differs
+verify	phase1/paired-streams.json>flows:drop-first	ValueError: Paired flow identity differs
+verify	phase1/paired-streams.json>paired_complete:not	ValueError: Paired packet claim differs
+verify	phase1/paired-streams.json>flows>0>namespace_sent_bytes:inc	ValueError: Paired packet stream differs
+verify	phase1/plans/phase1.json>schema_version:inc	ValueError: Phase 1 plan pin differs: phase1
+verify	phase1/plans/source-hashes.json>phase2:flip	ValueError: Phase 1 plan pin differs: phase2
+verify	phase1/plans/readiness.json>schema_version:inc	ValueError: Phase 1 plan pin differs: readiness
+verify	phase1/plans/source-code-sha256.json>native_ban_control_cases.py:flip	ValueError: Phase 1 source pin differs: native_ban_control_cases.py
+verify	phase1/plans/source-code-sha256.json>native_control_readiness.py:flip	ValueError: Phase 1 source pin differs: native_control_readiness.py
+verify	phase1/plans/source-code-sha256.json>native_settings_persistence.py:flip	ValueError: Phase 1 source pin differs: native_settings_persistence.py
+verify	phase1/plans/source-code-sha256.json>native_settings_persistence_cases.py:flip	ValueError: Phase 1 source pin differs: native_settings_persistence_cases.py
+verify	phase2/plans/source-hashes.json>phase1:flip	ValueError: Phase 2 plan pin differs: phase1
+verify	phase2/plans/phase2.json>schema_version:inc	ValueError: Phase 2 plan pin differs: phase2
+verify	phase2/plans/readiness.json>schema_version:inc	ValueError: Phase 2 plan pin differs: readiness
+verify	phase2/plans/source-code-sha256.json>native_ban_control_cases.py:flip	ValueError: Phase 2 source pin differs: native_ban_control_cases.py
+verify	phase2/plans/source-code-sha256.json>native_control_readiness.py:flip	ValueError: Phase 2 source pin differs: native_control_readiness.py
+verify	phase2/plans/source-code-sha256.json>native_settings_persistence.py:flip	ValueError: Phase 2 source pin differs: native_settings_persistence.py
+verify	phase2/plans/source-code-sha256.json>native_settings_persistence_cases.py:flip	ValueError: Phase 2 source pin differs: native_settings_persistence_cases.py
+verify	phase2/phase2/report.json>recorded_at_utc:flip	ValueError: Quit/EOF timeline differs
+verify	baseline/a41-assets.json>target_working>path:flip	ValueError: Same working image inode differs
+verify	baseline/operator-timeline.json>scope:flip	ValueError: Shutdown proof scope differs
+verify	baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image>sha256:flip	ValueError: Shutdown screen binding differs
+verify	phase1/readiness/plan.json>operator:flip	ValueError: Source identity mismatch
+verify	phase1/phase1/report.json>events>13>connection:flip	ValueError: Stream reconstruction mismatch
+verify	phase1/readiness/plan.json>steps>0>op:empty	ValueError: Unknown action:
+verify	phase1/readiness/plan.json>steps>17>op:flip	ValueError: Unknown action: clos0
+verify	phase1/readiness/plan.json>steps>0>op:flip	ValueError: Unknown action: connec0
+verify	phase2/phase2/plan.json>steps>22>op:flip	ValueError: Unknown action: expect_quie0
+verify	phase1/readiness/plan.json>steps>2>op:flip	ValueError: Unknown action: rea0
+verify	phase2/phase2/plan.json>steps>26>op:flip	ValueError: Unknown action: read_eo0
+verify	phase1/readiness/plan.json>steps>4>op:flip	ValueError: Unknown action: read_fram0
+verify	phase1/readiness/plan.json>steps>1>op:flip	ValueError: Unknown action: sen0
+verify	phase1/readiness/report.json>status:flip	ValueError: Unknown capture status
+verify	phase1/readiness/plan.json>steps>1>connection:empty	ValueError: Unknown connection:
+verify	phase1/readiness/plan.json>steps>1>connection:flip	ValueError: Unknown connection: mai0
+verify	phase1/readiness/plan.json>steps:drop-first	ValueError: Unknown connection: main
+verify	phase2/phase2/plan.json>steps>10>connection:flip	ValueError: Unknown connection: subjec0
+verify	phase2/phase2/plan.json>steps>9>connection:flip	ValueError: Unknown connection: subject
+verify	phase1/readiness/plan.json>profile:flip	ValueError: Unknown evidence profile
+verify	phase1/readiness/plan.json>steps>14>save:delete-key	ValueError: Unknown saved bytes: admin_uid
+verify	phase2/phase2/plan.json>steps>16>save_fields:delete-key	ValueError: Unknown saved bytes: peer_uid
+verify	phase1/readiness/plan.json>schema_version:inc	ValueError: Unsupported capture schema
+verify	phase1/readiness/plan.json>steps>15>hex:flip	ValueError: non-hexadecimal number found in fromhex() arg at position 52
+verify	phase1/paired-streams.json>flows:drop-last	ValueError: zip() argument 4 is shorter than arguments 1-3
+verify	baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image>path:flip;baseline/operator-timeline.json>phases>phase1:delete-key	KeyError: 'phase1'
+verify	baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image>path:flip;baseline/operator-timeline.json>phases:delete-key	KeyError: 'phases'
+verify	baseline/operator-timeline.json>phases>phase1>screenshots>after_quit_image>path:flip;baseline/operator-timeline.json>phases>phase1>screenshots>special_menu_image>path:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase1/screenshots/after-quit-confirm
+verify	baseline/operator-timeline.json>phases>phase1>screenshots>after_quit_image>path:flip;baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image>sha256:flip	ValueError: Shutdown screen binding differs
+verify	baseline/operator-timeline.json>phases>phase1>screenshots>shutdown_image>path:flip;baseline/operator-timeline.json>phases>phase1>screenshots>special_menu_image>path:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase1/screenshots/special-menu-hold2
+verify	baseline/operator-timeline.json>phases>phase1>screenshots>shutdown_image>path:flip;baseline/operator-timeline.json>phases>phase1>hold_ready_utc:delete-key	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase1/screenshots/shutdown-01.pn0'
+verify	baseline/operator-timeline.json>phases>phase2>screenshots>after_quit_image>path:flip;baseline/operator-timeline.json>phases>phase2>screenshots>quit_prompt_image>path:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase2/screenshots/quit-prompt.pn0'
+verify	baseline/operator-timeline.json>phases>phase2>screenshots>after_quit_image>path:flip;baseline/operator-timeline.json>phases>phase2>screenshots>special_menu_image>path:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase2/screenshots/after-quit-confirm
+verify	baseline/operator-timeline.json>phases>phase2>screenshots>quit_prompt_image>path:flip;baseline/operator-timeline.json>phases>phase2:delete-key	KeyError: 'phase2'
+verify	baseline/operator-timeline.json>phases>phase2>screenshots>shutdown_image>path:flip;baseline/operator-timeline.json>phases>phase2>screenshots>special_menu_image>path:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase2/screenshots/special-menu-hold2
+verify	baseline/operator-timeline.json>phases>phase2>screenshots>shutdown_image>path:flip;phase2/phase2/report.json>recorded_at_utc:delete-key	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/phase2/screenshots/shutdown-01.pn0'
+verify	baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image>path:empty;baseline/operator-timeline.json>phases:delete-key	KeyError: 'phases'
+verify	baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image>path:empty;baseline/operator-timeline.json>phases>phase1>screenshots>shutdown_image:delete-key	KeyError: 'shutdown_image'
+verify	baseline/a41-assets.json>objects>/Hotline19/Prefs:delete-key;baseline/a41-assets.json>objects>/Hotline19/Users/fixture-low/UserData:delete-key	KeyError: '/Hotline19/Users/fixture-low/UserData'
+verify	baseline/a41-assets.json>objects>/Hotline19/Prefs:delete-key;baseline/a41-assets.json>target_base:delete-key	KeyError: '/Hotline19/Prefs'
+verify	baseline/a41-assets.json>objects>/Hotline19/Users/admin/UserData:delete-key;baseline/a41-assets.json>objects:delete-key	KeyError: 'objects'
+verify	baseline/a41-assets.json>objects>/Hotline19/Users/fixture-low/UserData:delete-key;baseline/a41-assets.json>objects>/Hotline19/Users/admin/UserData>catalog:inc	ValueError: A41 stored fork baseline differs
+verify	phase1/readiness/report.json>events>0>action:delete-key;baseline/operator-timeline.json>phases>phase2:delete-key	KeyError: 'action'
+verify	phase1/readiness/report.json>events>0>action:delete-key;phase1/readiness/report.json>streams:delete-key	KeyError: 'streams'
+verify	phase1/readiness/report.json>events>0>action:delete-key;phase1/readiness/report.json>events>4>action:inc	KeyError: 'action'
+verify	baseline/operator-timeline.json>phases>phase1>screenshots>after_quit_image:delete-key;phase1/readiness/report.json>plan_sha256:delete-key	KeyError: 'plan_sha256'
+verify	baseline/operator-timeline.json>phases>phase1>screenshots>after_quit_image:delete-key;baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image:delete-key	KeyError: 'quit_prompt_image'
+verify	baseline/operator-timeline.json>phases>phase1>screenshots>after_quit_image:delete-key;baseline/operator-timeline.json>phases>phase1>machine_journal_exit_status:empty	ValueError: Missing exit-status caveat
+verify	baseline/a41-assets.json>booted:delete-key;baseline/a41-assets.json>target_working:delete-key	KeyError: 'booted'
+verify	baseline/a41-assets.json>booted:delete-key;baseline/a41-assets.json>profile:flip	ValueError: A41 baseline identity differs
+verify	baseline/a41-assets.json>booted:delete-key;phase1/plans/source-code-sha256.json>native_control_readiness.py:flip	ValueError: Phase 1 source pin differs: native_control_readiness.py
+verify	baseline/operator-timeline.json>phases>phase1>capture_stop_utc:delete-key;baseline/operator-timeline.json>phases>phase1>operator_pid_absent_by_utc:delete-key	KeyError: 'operator_pid_absent_by_utc'
+verify	baseline/operator-timeline.json>phases>phase1>capture_stop_utc:delete-key;baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image>source_mtime_utc:delete-key	KeyError: 'source_mtime_utc'
+verify	phase1/paired-streams.json>flows>0>case:delete-key;phase1/paired-streams.json>flows>0>namespace_sent_bytes:delete-key	KeyError: 'case'
+verify	phase1/paired-streams.json>flows>0>case:delete-key;phase1/paired-streams.json>flows>0>port:delete-key	KeyError: 'port'
+verify	phase1/readiness/report.json>completed_actions:delete-key;phase1/readiness/report.json>error:delete-key	KeyError: 'error'
+verify	phase1/phase1/report.json>events>13>connection:delete-key;phase1/phase1/plan.json>schema_version:inc	ValueError: A46 as-run plan differs
+verify	phase1/host-ready-boot.json>deadline_utc:delete-key;phase1/readiness/report.json>started_at_utc:delete-key	KeyError: 'started_at_utc'
+verify	phase2/phase2/report.json>driver_sha256:delete-key;phase2/phase2/plan.json>steps>26>op:flip	ValueError: Unknown action: read_eo0
+verify	phase1/readiness/plan.json>steps>0>endpoint:delete-key;phase1/readiness/plan.json>endpoints>control:delete-key	KeyError: 'endpoint'
+verify	phase1/readiness/plan.json>steps>0>endpoint:delete-key;phase1/readiness/plan.json>steps>0>op:flip	ValueError: Unknown action: connec0
+verify	phase1/readiness/plan.json>endpoints:delete-key;phase1/readiness/plan.json>oracle_sha256:flip	ValueError: Native profile requires the recorded Mac oracle hash
+verify	phase1/readiness/report.json>error:delete-key;phase1/readiness/report.json>status:flip	ValueError: Unknown capture status
+verify	phase1/readiness/report.json>events>0>event:delete-key;phase1/readiness/report.json>events:delete-key	KeyError: 'events'
+verify	phase1/readiness/report.json>events>0>event:delete-key;baseline/a41-assets.json>objects>/Hotline19/Users/admin/UserData>catalog:inc	KeyError: 'event'
+verify	phase1/readiness/report.json>events>0>event:delete-key;phase1/readiness/report.json>completed_actions:inc	ValueError: Incomplete plan reported as completed
+verify	phase1/readiness/report.json>events:delete-key;phase1/readiness/report.json>streams:delete-key	KeyError: 'events'
+verify	phase1/emulator-identity.json>exe_sha256:delete-key;phase1/emulator-identity.json>uid:delete-key	KeyError: 'uid'
+verify	baseline/operator-timeline.json>phases>phase1>fork_extraction_completed_utc:delete-key;baseline/operator-timeline.json>phases>phase1>operator_pid_absent_by_utc:delete-key	KeyError: 'operator_pid_absent_by_utc'
+verify	baseline/operator-timeline.json>phases>phase1>fork_extraction_completed_utc:delete-key;baseline/operator-timeline.json>phases>phase1>journal_start_utc:empty	KeyError: 'fork_extraction_completed_utc'
+verify	phase1/readiness/report.json>frames:delete-key;baseline/operator-timeline.json>scope:delete-key	KeyError: 'frames'
+verify	phase1/readiness/report.json>frames:delete-key;phase1/phase1/plan.json>schema_version:inc	KeyError: 'frames'
+verify	phase1/readiness/report.json>frames:delete-key;phase1/readiness/report.json>events>4>action:inc	ValueError: Completed frame read has incomplete bytes
+verify	phase1/readiness/report.json>frames:delete-key;phase1/plans/source-code-sha256.json>native_control_readiness.py:flip	ValueError: Phase 1 source pin differs: native_control_readiness.py
+verify	baseline/a46-parent-verification.json>gates:delete-key;baseline/a46-parent-verification.json>raw_checksums_frames_streams_verified:delete-key	KeyError: 'raw_checksums_frames_streams_verified'
+verify	phase1/paired-streams.json>pcaps>guest.pcap:delete-key;phase1/paired-streams.json>pcaps>namespace.pcap:delete-key	KeyError: 'namespace.pcap'
+verify	phase1/paired-streams.json>pcaps>guest.pcap:delete-key;baseline/a41-assets.json>profile:delete-key	KeyError: 'guest.pcap'
+verify	phase1/emulator-identity.json>guest_pcap_fd16:delete-key;baseline/operator-timeline.json>phases>phase2:delete-key	KeyError: 'guest_pcap_fd16'
+verify	phase1/emulator-identity.json>guest_pcap_fd16:delete-key;phase1/emulator-identity.json>working_image_fd6:flip	ValueError: Emulator FD identity differs
+verify	phase1/paired-streams.json>flows>0>guest_received_bytes:delete-key;phase1/paired-streams.json>flows>0>guest_sent_sha256:delete-key	KeyError: 'guest_sent_sha256'
+verify	phase1/paired-streams.json>flows>0>guest_received_sha256:delete-key;phase1/paired-streams.json>flows:drop-last	KeyError: 'guest_received_sha256'
+verify	phase1/paired-streams.json>flows>0>guest_sent_bytes:delete-key;phase1/paired-streams.json>flows>0>guest_sent_sha256:delete-key	KeyError: 'guest_sent_bytes'
+verify	phase1/paired-streams.json>flows>0>guest_sent_bytes:delete-key;phase1/paired-streams.json>flows>0>namespace_received_sha256:delete-key	KeyError: 'namespace_received_sha256'
+verify	phase1/readiness/plan.json>steps>1>hex:delete-key;phase1/readiness/plan.json>steps>2>op:flip	KeyError: 'hex'
+verify	phase1/readiness/plan.json>steps>1>hex:delete-key;phase1/readiness/plan.json>steps>1>connection:flip	ValueError: Unknown connection: mai0
+verify	baseline/operator-timeline.json>phases>phase1>hold_ready_utc:delete-key;baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image>source_mtime_utc:delete-key	KeyError: 'hold_ready_utc'
+verify	baseline/operator-timeline.json>phases>phase1>hold_ready_utc:delete-key;phase1/paired-streams.json>flows>0>namespace_sent_bytes:inc	ValueError: Paired packet stream differs
+verify	phase1/readiness/plan.json>endpoints>control>host:delete-key;phase1/readiness/plan.json>steps>0>op:delete-key	KeyError: 'host'
+verify	baseline/a41-assets.json>target_working>inode:delete-key;baseline/a41-assets.json>target_working>path:delete-key	KeyError: 'path'
+verify	baseline/a41-assets.json>target_working>inode:delete-key;baseline/a41-assets.json>target_working:delete-key	KeyError: 'target_working'
+verify	baseline/operator-timeline.json>phases>phase1>journal_start_utc:delete-key;baseline/operator-timeline.json>scope:flip	ValueError: Shutdown proof scope differs
+verify	phase1/paired-streams.json>lifetime_count:delete-key;phase1/paired-streams.json>flows:drop-first	KeyError: 'lifetime_count'
+verify	phase1/paired-streams.json>lifetime_count:delete-key;phase1/paired-streams.json>paired_complete:not	ValueError: Paired packet claim differs
+verify	baseline/operator-timeline.json>phases>phase1>machine_journal_exit_status:delete-key;baseline/operator-timeline.json>phases>phase1>journal_start_utc:flip	ValueError: Boot journal start missing
+verify	phase1/readiness/plan.json>steps>14>save>name:delete-key;phase1/readiness/plan.json>steps>14>save:delete-key	ValueError: Unknown saved bytes: admin_uid
+verify	phase1/paired-streams.json>pcaps>namespace.pcap:delete-key;phase1/paired-streams.json>pcaps>primary-syn.pcap>bytes:inc	ValueError: PCAP provenance differs
+verify	phase1/paired-streams.json>flows>0>namespace_received_bytes:delete-key;phase1/paired-streams.json>flows>0>namespace_received_sha256:delete-key	KeyError: 'namespace_received_bytes'
+verify	phase1/paired-streams.json>flows>0>namespace_received_bytes:delete-key;phase1/paired-streams.json>flows>0>namespace_sent_sha256:delete-key	KeyError: 'namespace_sent_sha256'
+verify	phase1/paired-streams.json>flows>0>namespace_sent_sha256:delete-key;phase1/paired-streams.json>flows>0>namespace_sent_bytes:inc	ValueError: Paired packet stream differs
+verify	phase1/readiness/report.json>native_conformance:delete-key;phase1/readiness/report.json>plan_sha256:delete-key	KeyError: 'native_conformance'
+verify	phase1/readiness/report.json>native_conformance:delete-key;phase1/readiness/report.json>profile:flip	ValueError: Evidence profile mismatch
+verify	phase1/emulator-identity.json>netns:delete-key;phase1/emulator-identity.json>start_ticks:delete-key	KeyError: 'start_ticks'
+verify	baseline/a41-assets.json>objects:delete-key;baseline/a41-assets.json>target_working>path:delete-key	KeyError: 'path'
+verify	phase1/readiness/plan.json>steps>14>save>offset:delete-key;phase1/readiness/plan.json>steps>14>save>name:empty	ValueError: Invalid saved-byte name
+verify	phase1/readiness/plan.json>steps>14>save>offset:delete-key;phase1/readiness/plan.json>steps>15>hex:flip	KeyError: 'offset'
+verify	phase1/readiness/plan.json>oracle_sha256:delete-key;phase1/readiness/plan.json>operator:empty	ValueError: Operator and gap IDs are required
+verify	phase1/paired-streams.json>paired_complete:delete-key;phase2/phase2/report.json>events>38>action:inc	ValueError: Owned socket EOFs differ
+verify	phase1/paired-streams.json>pcaps:delete-key;phase1/paired-streams.json>flows:drop-last	ValueError: zip() argument 4 is shorter than arguments 1-3
+verify	phase1/emulator-identity.json>pid:delete-key;phase1/emulator-identity.json>start_ticks:delete-key	KeyError: 'pid'
+verify	phase1/emulator-identity.json>pid:delete-key;phase2/phase2/report.json>recorded_at_utc:flip	ValueError: Quit/EOF timeline differs
+verify	phase1/readiness/report.json>plan_sha256:delete-key;phase1/readiness/plan.json>operator:flip	KeyError: 'plan_sha256'
+verify	phase1/paired-streams.json>flows>0>port:delete-key;phase1/paired-streams.json>flows:drop-first	ValueError: Paired flow identity differs
+verify	baseline/operator-timeline.json>phases>phase1>screenshots>quit_prompt_image:delete-key;baseline/operator-timeline.json>phases>phase1>screenshots>special_menu_image:delete-key	KeyError: 'quit_prompt_image'
+verify	baseline/a46-parent-verification.json>raw_checksums_frames_streams_verified:delete-key;phase1/phase1/report.json>frames>1>fields>0>id:inc	ValueError: Decoded frame mismatch
+verify	baseline/operator-timeline.json>scope:delete-key;baseline/a41-assets.json>target_working>path:flip	ValueError: Same working image inode differs
+verify	baseline/a41-assets.json>target_base>sha256:delete-key;baseline/a41-assets.json>target_base:delete-key	KeyError: 'target_base'
+verify	phase1/readiness/plan.json>steps>2>size:delete-key;phase1/readiness/plan.json>steps:delete-key	KeyError: 'steps'
+verify	phase1/readiness/plan.json>steps>2>size:delete-key;phase1/readiness/plan.json>steps>2>op:flip	ValueError: Unknown action: rea0
+verify	phase1/phase1/hold-ready.json>sockets:delete-key;baseline/operator-timeline.json>phases>phase1>hold_ready_utc:flip	ValueError: Hold-ready timeline differs
+verify	phase1/readiness/report.json>started_at_utc:delete-key;phase1/host-ready-boot.json>utc:delete-key	KeyError: 'utc'
+verify	phase1/readiness/report.json>status:delete-key;phase1/readiness/plan.json>operator:flip	ValueError: Source identity mismatch
+verify	phase1/emulator-identity.json>uid:delete-key;phase1/host-ready-boot.json>deadline_utc:flip	ValueError: Capture gate readiness/deadline differs
+verify	phase1/host-ready-boot.json>utc:delete-key;phase1/phase1/hold-ready.json>sockets:drop-last	ValueError: Owned sockets/deadline differ
+verify	phase1/emulator-identity.json>working_image_fd6:delete-key;phase1/emulator-identity.json>exe_sha256:flip	ValueError: Emulator identity differs
+verify	phase1/emulator-identity.json>working_image_fd6:delete-key;phase1/readiness/plan.json>steps>0>op:empty	ValueError: Unknown action:
+verify	baseline/a46-parent-verification.json>gates:drop-last;phase2/phase2/plan.json>steps>9>connection:flip	ValueError: A46 independent replay differs
+verify	phase2/phase2/report.json>driver_sha256:flip;phase2/phase2/report.json>gates:drop-last	ValueError: A48 driver differs
+verify	phase1/phase1/report.json>frames>1>fields>0>id:inc;phase1/phase1/report.json>events>13>connection:flip	ValueError: Stream reconstruction mismatch
+verify	phase1/readiness/report.json>profile:flip;phase1/readiness/plan.json>steps>17>op:flip	ValueError: Unknown action: clos0
+verify	baseline/operator-timeline.json>phases>phase1>hold_ready_utc:flip;baseline/operator-timeline.json>phases>phase1>operator_pid_absent_by_utc:flip	ValueError: Operator shutdown chronology differs
+verify	baseline/a41-assets.json>target_base>sha256:flip;baseline/a41-assets.json>target_working>path:flip	ValueError: Immutable base hash differs
+verify	phase1/readiness/plan.json>endpoints>control:delete-key;phase1/readiness/plan.json>steps>1>op:flip	ValueError: Invalid connection declaration
+verify	phase2/phase2/plan.json>steps>16>match_frame>type:delete-key;phase2/phase2/plan.json>steps>10>connection:flip	ValueError: Unknown connection: subjec0
+verify	phase2/phase2/plan.json>steps>16>match_frame>type:delete-key;phase2/phase2/plan.json>steps>16>save_fields:delete-key	ValueError: Invalid frame match
+verify	baseline/operator-timeline.json>phases>phase1>journal_start_utc:empty;baseline/operator-timeline.json>phases>phase1>operator_pid_absent_by_utc:flip	ValueError: Invalid isoformat string: ''
+verify	phase2/phase2/report.json>gates:drop-last;phase2/phase2/report.json>events>38>action:inc	ValueError: Live and replayed stage gates differ
+verify	phase1/readiness/plan.json>operator:empty;phase1/readiness/plan.json>profile:flip	ValueError: Unknown evidence profile
+verify	phase1/plans/phase1.json>schema_version:inc;phase1/plans/source-hashes.json>phase2:flip	ValueError: Phase 1 plan pin differs: phase1
+verify	phase1/plans/phase1.json>schema_version:inc;phase1/plans/source-code-sha256.json>native_ban_control_cases.py:flip	ValueError: Phase 1 source pin differs: native_ban_control_cases.py
+verify	phase1/plans/source-hashes.json>phase2:flip;phase1/plans/readiness.json>schema_version:inc	ValueError: Phase 1 plan pin differs: phase2
+verify	phase1/plans/readiness.json>schema_version:inc;phase2/plans/source-code-sha256.json>native_settings_persistence_cases.py:flip	ValueError: Phase 1 plan pin differs: readiness
+verify	phase1/plans/source-code-sha256.json>native_ban_control_cases.py:flip;phase1/plans/source-code-sha256.json>native_control_readiness.py:flip	ValueError: Phase 1 source pin differs: native_control_readiness.py
+verify	phase1/plans/source-code-sha256.json>native_control_readiness.py:flip;phase1/plans/source-code-sha256.json>native_settings_persistence.py:flip	ValueError: Phase 1 source pin differs: native_settings_persistence.py
+verify	phase1/plans/source-code-sha256.json>native_settings_persistence.py:flip;phase1/plans/source-code-sha256.json>native_settings_persistence_cases.py:flip	ValueError: Phase 1 source pin differs: native_settings_persistence_cases.py
+verify	phase2/plans/source-hashes.json>phase1:flip;phase2/plans/phase2.json>schema_version:inc	ValueError: Phase 2 plan pin differs: phase1
+verify	phase2/plans/source-hashes.json>phase1:flip;phase2/plans/source-code-sha256.json>native_ban_control_cases.py:flip	ValueError: Phase 2 source pin differs: native_ban_control_cases.py
+verify	phase2/plans/phase2.json>schema_version:inc;phase2/plans/readiness.json>schema_version:inc	ValueError: Phase 2 plan pin differs: phase2
+verify	phase2/plans/readiness.json>schema_version:inc;phase1/readiness/plan.json>schema_version:inc	ValueError: Phase 2 plan pin differs: readiness
+verify	phase2/plans/source-code-sha256.json>native_ban_control_cases.py:flip;phase2/plans/source-code-sha256.json>native_control_readiness.py:flip	ValueError: Phase 2 source pin differs: native_control_readiness.py
+verify	phase2/plans/source-code-sha256.json>native_control_readiness.py:flip;phase2/plans/source-code-sha256.json>native_settings_persistence.py:flip	ValueError: Phase 2 source pin differs: native_settings_persistence.py
+verify	phase2/plans/source-code-sha256.json>native_settings_persistence.py:flip;phase2/plans/source-code-sha256.json>native_settings_persistence_cases.py:flip	ValueError: Phase 2 source pin differs: native_settings_persistence_cases.py
+verify	phase1/readiness/plan.json>steps>0>op:empty;phase1/readiness/plan.json>steps>0>op:flip	ValueError: Unknown action: x
+verify	phase1/readiness/plan.json>steps>17>op:flip;phase1/readiness/plan.json>steps>15>hex:flip	ValueError: non-hexadecimal number found in fromhex() arg at position 52
+verify	phase2/phase2/plan.json>steps>22>op:flip;phase2/phase2/plan.json>steps>26>op:flip	ValueError: Unknown action: expect_quie0
+verify	phase2/phase2/plan.json>steps>22>op:flip;phase2/phase2/plan.json>steps>16>save_fields:delete-key	ValueError: Unknown saved bytes: peer_uid
+verify	phase1/readiness/plan.json>steps>4>op:flip;phase1/readiness/plan.json>steps>14>save:delete-key	ValueError: Unknown action: read_fram0
+verify	phase1/readiness/plan.json>steps>1>op:flip;phase1/readiness/plan.json>steps:drop-first	ValueError: Unknown action: sen0
+verify	phase1/readiness/plan.json>steps>1>connection:empty;phase1/readiness/plan.json>steps>1>connection:flip	ValueError: Unknown connection: x
+verify	phase1/readiness/plan.json>steps>1>connection:empty;phase1/readiness/plan.json>steps:drop-first	ValueError: Unknown connection:
+verify	phase2/phase2/plan.json>steps>10>connection:flip;phase2/phase2/plan.json>steps>9>connection:flip	ValueError: Unknown connection: subject
+verify	phase1/readiness/plan.json>profile:flip;phase1/readiness/plan.json>schema_version:inc	ValueError: Unsupported capture schema

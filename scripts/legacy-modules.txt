@@ -23,8 +23,6 @@ scripts/native_settings_persistence_cases.py
 scripts/test_native_121_default.py
 scripts/test_native_control_readiness.py
 scripts/test_native_settings_persistence.py
-scripts/test_native_settings_persistence_witness.py
 scripts/test_native_settings_transition.py
 scripts/verify_native_121_default.py  # live bytes compared with a recorded hash
-scripts/verify_native_settings_persistence.py
 scripts/verify_native_settings_transition.py  # live bytes compared with a recorded hash
