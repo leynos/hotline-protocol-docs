@@ -39,7 +39,6 @@ scripts/test_native_ban_expiry.py
 scripts/test_native_ban_expiry_cleanup.py
 scripts/test_native_ban_expiry_first.py
 scripts/test_native_ban_expiry_later.py
-scripts/test_native_ban_one.py
 scripts/test_native_ban_reload.py
 scripts/test_native_configured_ban.py
 scripts/test_native_configured_ban_witness.py
@@ -58,7 +57,6 @@ scripts/verify_native_121_default.py  # live bytes compared with a recorded hash
 scripts/verify_native_ban_control.py
 scripts/verify_native_ban_expiry_first.py
 scripts/verify_native_ban_expiry_later.py
-scripts/verify_native_ban_one.py
 scripts/verify_native_ban_reload.py
 scripts/verify_native_configured_ban.py
 scripts/verify_native_rate304_partial.py

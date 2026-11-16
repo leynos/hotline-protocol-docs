@@ -1,0 +1,239 @@
+ban-one		ok 6b4dd06ff25afaa0
+ban-one	fixture/terminal.json>processes>client:delete-key	KeyError: 'client'
+ban-one	fixture/a7-as-run-plan.json>endpoints:delete-key	KeyError: 'endpoints'
+ban-one	fixture/terminal.json>processes>lab>exists:delete-key	KeyError: 'exists'
+ban-one	fixture/a7-as-run-plan.json>expectation:delete-key	KeyError: 'expectation'
+ban-one	fixture/terminal.json>processes>primary>fd6:delete-key	KeyError: 'fd6'
+ban-one	fixture/ban-stream-views.json>namespace>main>frames>4>fields:delete-key	KeyError: 'fields'
+ban-one	manifest.json>files:delete-key	KeyError: 'files'
+ban-one	fixture/ban-stream-views.json>namespace>main>frames:delete-key	KeyError: 'frames'
+ban-one	fixture/a7-as-run-plan.json>gap_ids:delete-key	KeyError: 'gap_ids'
+ban-one	fixture/ban-stream-views.json>guest:delete-key	KeyError: 'guest'
+ban-one	fixture/ban-stream-views.json>namespace>main>frames>4>id:delete-key	KeyError: 'id'
+ban-one	fixture/terminal.json>processes>lab:delete-key	KeyError: 'lab'
+ban-one	fixture/ban-stream-views.json>namespace>main>local_port:delete-key	KeyError: 'local_port'
+ban-one	fixture/ban-stream-views.json>namespace>main:delete-key	KeyError: 'main'
+ban-one	manifest.json:delete-key	KeyError: 'manifest.json'
+ban-one	fixture/ban-stream-views.json>namespace:delete-key	KeyError: 'namespace'
+ban-one	fixture/a7-as-run-plan.json>operator:delete-key	KeyError: 'operator'
+ban-one	fixture/a7-as-run-plan.json>oracle_sha256:delete-key	KeyError: 'oracle_sha256'
+ban-one	preparation/preboot-app/extraction.json>records>0>path:delete-key	KeyError: 'path'
+ban-one	fixture/terminal.json>processes>primary:delete-key	KeyError: 'primary'
+ban-one	fixture/terminal.json>primary_syn:delete-key	KeyError: 'primary_syn'
+ban-one	fixture/terminal.json>processes:delete-key	KeyError: 'processes'
+ban-one	fixture/a7-as-run-plan.json>profile:delete-key	KeyError: 'profile'
+ban-one	fixture/ban-stream-views.json>namespace>main>received_sha256:delete-key	KeyError: 'received_sha256'
+ban-one	preparation/preboot-app/extraction.json>records:delete-key	KeyError: 'records'
+ban-one	preparation/postflight.json>rom_after:delete-key	KeyError: 'rom_after'
+ban-one	manifest.json>schema:delete-key	KeyError: 'schema'
+ban-one	fixture/a7-as-run-plan.json>schema_version:delete-key	KeyError: 'schema_version'
+ban-one	fixture/ban-stream-views.json>namespace>main>sent_sha256:delete-key	KeyError: 'sent_sha256'
+ban-one	preparation/postflight.json>source_after>sha256:delete-key	KeyError: 'sha256'
+ban-one	preparation/postflight.json>source_after:delete-key	KeyError: 'source_after'
+ban-one	fixture/a7-as-run-plan.json>steps:delete-key	KeyError: 'steps'
+ban-one	fixture/terminal.json>primary_syn>host>syn_lines:delete-key	KeyError: 'syn_lines'
+ban-one	fixture/ban-stream-views.json>namespace>target:delete-key	KeyError: 'target'
+ban-one	preparation/postflight.json>target_base:delete-key	KeyError: 'target_base'
+ban-one	preparation/postflight.json>target_rom:delete-key	KeyError: 'target_rom'
+ban-one	preparation/postflight.json>target_working:delete-key	KeyError: 'target_working'
+ban-one	fixture/ban-stream-views.json>namespace>main>frames>4>type:delete-key	KeyError: 'type'
+ban-one	fixture/a7-as-run-plan.json>expectation>case:flip	ValueError: A7 expectation changed
+ban-one	fixture/a7-as-run-plan.json>gap_ids:drop-last	ValueError: A7 gap_ids changed
+ban-one	fixture/a7-as-run-plan.json>endpoints>control:delete-key	ValueError: A7 lab endpoints differ
+ban-one	fixture/a7-as-run-plan.json>operator:flip	ValueError: A7 operator changed
+ban-one	fixture/a7-as-run-plan.json>oracle_sha256:flip	ValueError: A7 oracle_sha256 changed
+ban-one	fixture/a7-original-plan.json>schema_version:inc	ValueError: A7 plan source differs
+ban-one	fixture/a7-as-run-plan.json>profile:flip	ValueError: A7 profile changed
+ban-one	fixture/a7-as-run-plan.json>schema_version:inc	ValueError: A7 schema_version changed
+ban-one	fixture/a7-as-run-plan.json>steps:drop-last	ValueError: A7 steps changed
+ban-one	preparation/preboot-app/extraction.json>records:drop-last	ValueError: App catalogue differs
+ban-one	fixture/a7-capture/plan.json>schema_version:inc	ValueError: Checksum mismatch: plan.json
+ban-one	fixture/a7-capture/report.json>frames>1>declared_field_count:inc	ValueError: Checksum mismatch: report.json
+ban-one	manifest.json>files>boot/boot-01.png:flip	ValueError: Corpus SHA differs: boot/boot-01.png
+ban-one	manifest.json>files>boot/boot-02.png:flip	ValueError: Corpus SHA differs: boot/boot-02.png
+ban-one	manifest.json>files>boot/boot-03.png:flip	ValueError: Corpus SHA differs: boot/boot-03.png
+ban-one	manifest.json>files>boot/boot-04.png:flip	ValueError: Corpus SHA differs: boot/boot-04.png
+ban-one	manifest.json>files>boot/boot-05.png:flip	ValueError: Corpus SHA differs: boot/boot-05.png
+ban-one	manifest.json>files>boot/boot-06.png:flip	ValueError: Corpus SHA differs: boot/boot-06.png
+ban-one	manifest.json>files>boot/disk-repair-ack.json:flip	ValueError: Corpus SHA differs: boot/disk-repair-ack.json
+ban-one	manifest.json>files>boot/display-launch.json:flip	ValueError: Corpus SHA differs: boot/display-launch.json
+ban-one	manifest.json>files>boot/host-recorder-launch.json:flip	ValueError: Corpus SHA differs: boot/host-recorder-launch.json
+ban-one	manifest.json>files>boot/host-recorder.log:flip	ValueError: Corpus SHA differs: boot/host-recorder.log
+ban-one	manifest.json>files>boot/lab-guest.pcap:flip	ValueError: Corpus SHA differs: boot/lab-guest.pcap
+ban-one	manifest.json>files>boot/lab-launch.json:flip	ValueError: Corpus SHA differs: boot/lab-launch.json
+ban-one	manifest.json>files>boot/lab-namespace.pcap:flip	ValueError: Corpus SHA differs: boot/lab-namespace.pcap
+ban-one	manifest.json>files>boot/ns-recorder-launch.json:flip	ValueError: Corpus SHA differs: boot/ns-recorder-launch.json
+ban-one	manifest.json>files>boot/ns-recorder.log:flip	ValueError: Corpus SHA differs: boot/ns-recorder.log
+ban-one	manifest.json>files>boot/primary-host.pcap:flip	ValueError: Corpus SHA differs: boot/primary-host.pcap
+ban-one	manifest.json>files>boot/readiness.json:flip	ValueError: Corpus SHA differs: boot/readiness.json
+ban-one	manifest.json>files>boot/server-01.png:flip	ValueError: Corpus SHA differs: boot/server-01.png
+ban-one	manifest.json>files>boot/server-02.png:flip	ValueError: Corpus SHA differs: boot/server-02.png
+ban-one	manifest.json>files>boot/server-03.png:flip	ValueError: Corpus SHA differs: boot/server-03.png
+ban-one	manifest.json>files>boot/server-ready.png:flip	ValueError: Corpus SHA differs: boot/server-ready.png
+ban-one	manifest.json>files>fixture/a7-as-run-plan.json:flip	ValueError: Corpus SHA differs: fixture/a7-as-run-plan.json
+ban-one	manifest.json>files>fixture/a7-capture/checksums.sha256:flip	ValueError: Corpus SHA differs: fixture/a7-capture/checksums.sha256
+ban-one	manifest.json>files>fixture/a7-capture/plan.json:flip	ValueError: Corpus SHA differs: fixture/a7-capture/plan.json
+ban-one	manifest.json>files>fixture/a7-capture/report.json:flip	ValueError: Corpus SHA differs: fixture/a7-capture/report.json
+ban-one	manifest.json>files>fixture/a7-launch.json:flip	ValueError: Corpus SHA differs: fixture/a7-launch.json
+ban-one	manifest.json>files>fixture/a7-original-plan.json:flip	ValueError: Corpus SHA differs: fixture/a7-original-plan.json
+ban-one	manifest.json>files>fixture/a7-run.log:flip	ValueError: Corpus SHA differs: fixture/a7-run.log
+ban-one	manifest.json>files>fixture/a7-semantic-verification.json:flip	ValueError: Corpus SHA differs: fixture/a7-semantic-verification.json
+ban-one	manifest.json>files>fixture/ban-opt1-capture/checksums.sha256:flip	ValueError: Corpus SHA differs: fixture/ban-opt1-capture/checksums.sha256
+ban-one	manifest.json>files>fixture/ban-opt1-capture/plan.json:flip	ValueError: Corpus SHA differs: fixture/ban-opt1-capture/plan.json
+ban-one	manifest.json>files>fixture/ban-opt1-capture/report.json:flip	ValueError: Corpus SHA differs: fixture/ban-opt1-capture/report.json
+ban-one	manifest.json>files>fixture/ban-opt1-launch.json:flip	ValueError: Corpus SHA differs: fixture/ban-opt1-launch.json
+ban-one	manifest.json>files>fixture/ban-opt1.json:flip	ValueError: Corpus SHA differs: fixture/ban-opt1.json
+ban-one	manifest.json>files>fixture/ban-opt1.log:flip	ValueError: Corpus SHA differs: fixture/ban-opt1.log
+ban-one	manifest.json>files>fixture/ban-stream-views.json:flip	ValueError: Corpus SHA differs: fixture/ban-stream-views.json
+ban-one	manifest.json>files>fixture/base-hotline19-directory.txt:flip	ValueError: Corpus SHA differs: fixture/base-hotline19-directory.txt
+ban-one	manifest.json>files>fixture/cleanup-stage1.json:flip	ValueError: Corpus SHA differs: fixture/cleanup-stage1.json
+ban-one	manifest.json>files>fixture/guard-capture/checksums.sha256:flip	ValueError: Corpus SHA differs: fixture/guard-capture/checksums.sha256
+ban-one	manifest.json>files>fixture/guard-capture/plan.json:flip	ValueError: Corpus SHA differs: fixture/guard-capture/plan.json
+ban-one	manifest.json>files>fixture/guard-capture/report.json:flip	ValueError: Corpus SHA differs: fixture/guard-capture/report.json
+ban-one	manifest.json>files>fixture/guard-launch.json:flip	ValueError: Corpus SHA differs: fixture/guard-launch.json
+ban-one	manifest.json>files>fixture/guard.json:flip	ValueError: Corpus SHA differs: fixture/guard.json
+ban-one	manifest.json>files>fixture/guard.log:flip	ValueError: Corpus SHA differs: fixture/guard.log
+ban-one	manifest.json>files>fixture/offline-hfs-directory.json:flip	ValueError: Corpus SHA differs: fixture/offline-hfs-directory.json
+ban-one	manifest.json>files>fixture/post-hotline19-directory.txt:flip	ValueError: Corpus SHA differs: fixture/post-hotline19-directory.txt
+ban-one	manifest.json>files>fixture/probe-capture/checksums.sha256:flip	ValueError: Corpus SHA differs: fixture/probe-capture/checksums.sha256
+ban-one	manifest.json>files>fixture/probe-capture/plan.json:flip	ValueError: Corpus SHA differs: fixture/probe-capture/plan.json
+ban-one	manifest.json>files>fixture/probe-capture/report.json:flip	ValueError: Corpus SHA differs: fixture/probe-capture/report.json
+ban-one	manifest.json>files>fixture/probe-launch.json:flip	ValueError: Corpus SHA differs: fixture/probe-launch.json
+ban-one	manifest.json>files>fixture/probe.json:flip	ValueError: Corpus SHA differs: fixture/probe.json
+ban-one	manifest.json>files>fixture/probe.log:flip	ValueError: Corpus SHA differs: fixture/probe.log
+ban-one	manifest.json>files>fixture/seed-capture/checksums.sha256:flip	ValueError: Corpus SHA differs: fixture/seed-capture/checksums.sha256
+ban-one	manifest.json>files>fixture/seed-capture/plan.json:flip	ValueError: Corpus SHA differs: fixture/seed-capture/plan.json
+ban-one	manifest.json>files>fixture/seed-capture/report.json:flip	ValueError: Corpus SHA differs: fixture/seed-capture/report.json
+ban-one	manifest.json>files>fixture/seed-launch.json:flip	ValueError: Corpus SHA differs: fixture/seed-launch.json
+ban-one	manifest.json>files>fixture/seed.json:flip	ValueError: Corpus SHA differs: fixture/seed.json
+ban-one	manifest.json>files>fixture/seed.log:flip	ValueError: Corpus SHA differs: fixture/seed.log
+ban-one	manifest.json>files>fixture/terminal.json:flip	ValueError: Corpus SHA differs: fixture/terminal.json
+ban-one	manifest.json>files>preparation/postflight.json:flip	ValueError: Corpus SHA differs: preparation/postflight.json
+ban-one	manifest.json>files>preparation/preboot-app/catalog-11183.data:flip	ValueError: Corpus SHA differs: preparation/preboot-app/catalog-11183.data
+ban-one	manifest.json>files>preparation/preboot-app/catalog-11183.rsrc:flip	ValueError: Corpus SHA differs: preparation/preboot-app/catalog-11183.rsrc
+ban-one	manifest.json>files>preparation/preboot-app/catalog-11183.stat.txt:flip	ValueError: Corpus SHA differs: preparation/preboot-app/catalog-11183.stat.txt
+ban-one	manifest.json>files>preparation/preboot-app/extraction.json:flip	ValueError: Corpus SHA differs: preparation/preboot-app/extraction.json
+ban-one	manifest.json>files>preparation/preflight.json:flip	ValueError: Corpus SHA differs: preparation/preflight.json
+ban-one	manifest.json>files>preparation/prepare-run.json:flip	ValueError: Corpus SHA differs: preparation/prepare-run.json
+ban-one	manifest.json>files>reference/diagnostic-preflight-report.json:flip	ValueError: Corpus SHA differs: reference/diagnostic-preflight-report.json
+ban-one	manifest.json>files>reference/original-a7-report.json:flip	ValueError: Corpus SHA differs: reference/original-a7-report.json
+ban-one	manifest.json>files>boot/boot-01.png:delete-key	ValueError: Corpus file inventory differs
+ban-one	fixture/ban-stream-views.json>namespace>main>frames:drop-last	ValueError: Frozen ACK/302 view differs
+ban-one	fixture/terminal.json>processes>lab>exists:not	ValueError: Lab retirement or zero-primary proof differs
+ban-one	manifest.json>schema:flip	ValueError: Manifest schema differs
+ban-one	fixture/terminal.json>processes>primary>fd6:flip	ValueError: Original runtime FD identities differ
+ban-one	preparation/postflight.json>source_after>sha256:flip	ValueError: Prepared disk provenance differs
+ban-one	preparation/postflight.json>rom_after>sha256:flip	ValueError: ROM provenance differs
+ban-one	fixture/ban-opt1.json>steps:drop-last	ValueError: ban-opt1 incomplete
+ban-one	fixture/guard.json>steps:drop-last	ValueError: guard incomplete
+ban-one	fixture/ban-stream-views.json>guest>main>local_port:inc	ValueError: guest/main packet view differs
+ban-one	fixture/ban-stream-views.json>guest>target>local_port:inc	ValueError: guest/target packet view differs
+ban-one	fixture/ban-stream-views.json>namespace>main>local_port:inc	ValueError: namespace/main packet view differs
+ban-one	fixture/ban-stream-views.json>namespace>target>local_port:inc	ValueError: namespace/target packet view differs
+ban-one	fixture/seed.json>steps:drop-last	ValueError: seed incomplete
+ban-one	fixture/terminal.json>processes>client:delete-key;fixture/terminal.json>processes>primary>fd6:flip	ValueError: Original runtime FD identities differ
+ban-one	fixture/terminal.json>processes>lab>exists:delete-key;fixture/terminal.json>processes:delete-key	KeyError: 'processes'
+ban-one	fixture/terminal.json>processes>primary>fd6:delete-key;fixture/terminal.json>processes>primary:delete-key	KeyError: 'primary'
+ban-one	fixture/ban-stream-views.json>namespace>main>frames>4>fields:delete-key;fixture/ban-stream-views.json>namespace>main>frames:delete-key	KeyError: 'frames'
+ban-one	fixture/ban-stream-views.json>namespace>main>frames>4>fields:delete-key;fixture/ban-stream-views.json>namespace>main>frames>4>id:delete-key	KeyError: 'id'
+ban-one	fixture/ban-stream-views.json>namespace>main>frames>4>id:delete-key;fixture/ban-stream-views.json>namespace>main>frames>4>type:delete-key	KeyError: 'type'
+ban-one	fixture/terminal.json>processes>lab:delete-key;fixture/terminal.json>processes:delete-key	KeyError: 'processes'
+ban-one	fixture/terminal.json>processes>lab:delete-key;manifest.json>files>boot/display-launch.json:flip	ValueError: Corpus SHA differs: boot/display-launch.json
+ban-one	fixture/terminal.json>processes>lab:delete-key;fixture/ban-stream-views.json>guest>target>local_port:inc	ValueError: guest/target packet view differs
+ban-one	fixture/ban-stream-views.json>namespace>main>local_port:delete-key;fixture/ban-opt1.json>steps:drop-last	ValueError: ban-opt1 incomplete
+ban-one	fixture/ban-stream-views.json>namespace>main:delete-key;fixture/ban-stream-views.json>namespace:delete-key	KeyError: 'namespace'
+ban-one	preparation/preboot-app/extraction.json>records>0>path:delete-key;fixture/a7-original-plan.json>schema_version:inc	KeyError: 'path'
+ban-one	preparation/preboot-app/extraction.json>records>0>path:delete-key;preparation/preboot-app/extraction.json>records:drop-last	ValueError: App catalogue differs
+ban-one	fixture/terminal.json>processes>primary:delete-key;fixture/terminal.json>primary_syn>host>syn_lines:delete-key	KeyError: 'syn_lines'
+ban-one	fixture/terminal.json>processes>primary:delete-key;manifest.json>files>fixture/ban-opt1-launch.json:flip	ValueError: Corpus SHA differs: fixture/ban-opt1-launch.json
+ban-one	fixture/terminal.json>primary_syn:delete-key;fixture/terminal.json>processes>lab>exists:not	ValueError: Lab retirement or zero-primary proof differs
+ban-one	fixture/a7-as-run-plan.json>profile:delete-key;fixture/a7-original-plan.json>schema_version:inc	ValueError: A7 plan source differs
+ban-one	fixture/ban-stream-views.json>namespace>main>received_sha256:delete-key;fixture/ban-stream-views.json>namespace>main>sent_sha256:delete-key	KeyError: 'sent_sha256'
+ban-one	preparation/preboot-app/extraction.json>records:delete-key;preparation/postflight.json>target_rom:delete-key	KeyError: 'target_rom'
+ban-one	preparation/postflight.json>rom_after:delete-key;preparation/postflight.json>target_working:delete-key	KeyError: 'target_working'
+ban-one	fixture/ban-stream-views.json>namespace>main>sent_sha256:delete-key;manifest.json>files>boot/boot-04.png:flip	ValueError: Corpus SHA differs: boot/boot-04.png
+ban-one	fixture/ban-stream-views.json>namespace>main>sent_sha256:delete-key;fixture/ban-stream-views.json>namespace>main>local_port:inc	ValueError: namespace/main packet view differs
+ban-one	preparation/postflight.json>source_after>sha256:delete-key;manifest.json>files>fixture/terminal.json:flip	ValueError: Corpus SHA differs: fixture/terminal.json
+ban-one	preparation/postflight.json>source_after:delete-key;manifest.json>files>fixture/terminal.json:flip	ValueError: Corpus SHA differs: fixture/terminal.json
+ban-one	preparation/postflight.json>source_after:delete-key;manifest.json>files>reference/original-a7-report.json:flip	ValueError: Corpus SHA differs: reference/original-a7-report.json
+ban-one	fixture/terminal.json>primary_syn>host>syn_lines:delete-key;manifest.json>files>boot/server-02.png:flip	ValueError: Corpus SHA differs: boot/server-02.png
+ban-one	fixture/ban-stream-views.json>namespace>target:delete-key;fixture/ban-stream-views.json>namespace>main>frames:drop-last	ValueError: Frozen ACK/302 view differs
+ban-one	preparation/postflight.json>target_base:delete-key;preparation/postflight.json>target_working:delete-key	KeyError: 'target_base'
+ban-one	preparation/postflight.json>target_base:delete-key;manifest.json>files>preparation/preboot-app/extraction.json:flip	ValueError: Corpus SHA differs: preparation/preboot-app/extraction.json
+ban-one	preparation/postflight.json>target_base:delete-key;preparation/postflight.json>source_after>sha256:flip	ValueError: Prepared disk provenance differs
+ban-one	preparation/postflight.json>target_rom:delete-key;preparation/postflight.json>rom_after>sha256:flip	ValueError: ROM provenance differs
+ban-one	fixture/a7-as-run-plan.json>endpoints>control:delete-key;fixture/a7-capture/plan.json>schema_version:inc	ValueError: A7 lab endpoints differ
+ban-one	fixture/a7-as-run-plan.json>endpoints>control:delete-key;manifest.json>files>fixture/a7-launch.json:flip	ValueError: Corpus SHA differs: fixture/a7-launch.json
+ban-one	preparation/preboot-app/extraction.json>records:drop-last;manifest.json>files>fixture/a7-original-plan.json:flip	ValueError: Corpus SHA differs: fixture/a7-original-plan.json
+ban-one	fixture/a7-capture/plan.json>schema_version:inc;fixture/a7-capture/report.json>frames>1>declared_field_count:inc	ValueError: Checksum mismatch: plan.json
+ban-one	fixture/a7-capture/report.json>frames>1>declared_field_count:inc;fixture/guard.json>steps:drop-last	ValueError: Checksum mismatch: report.json
+ban-one	manifest.json>files>boot/boot-01.png:flip;manifest.json>files>boot/boot-02.png:flip	ValueError: Corpus SHA differs: boot/boot-01.png
+ban-one	manifest.json>files>boot/boot-01.png:flip;manifest.json>files>boot/boot-01.png:delete-key	ValueError: Corpus file inventory differs
+ban-one	manifest.json>files>boot/boot-02.png:flip;manifest.json>files>boot/boot-03.png:flip	ValueError: Corpus SHA differs: boot/boot-02.png
+ban-one	manifest.json>files>boot/boot-03.png:flip;manifest.json>files>boot/boot-04.png:flip	ValueError: Corpus SHA differs: boot/boot-03.png
+ban-one	manifest.json>files>boot/boot-04.png:flip;manifest.json>files>boot/boot-05.png:flip	ValueError: Corpus SHA differs: boot/boot-04.png
+ban-one	manifest.json>files>boot/boot-05.png:flip;manifest.json>files>boot/boot-06.png:flip	ValueError: Corpus SHA differs: boot/boot-05.png
+ban-one	manifest.json>files>boot/boot-06.png:flip;manifest.json>files>boot/disk-repair-ack.json:flip	ValueError: Corpus SHA differs: boot/boot-06.png
+ban-one	manifest.json>files>boot/disk-repair-ack.json:flip;manifest.json>files>boot/display-launch.json:flip	ValueError: Corpus SHA differs: boot/disk-repair-ack.json
+ban-one	manifest.json>files>boot/display-launch.json:flip;manifest.json>files>boot/host-recorder-launch.json:flip	ValueError: Corpus SHA differs: boot/display-launch.json
+ban-one	manifest.json>files>boot/host-recorder-launch.json:flip;manifest.json>files>boot/host-recorder.log:flip	ValueError: Corpus SHA differs: boot/host-recorder-launch.json
+ban-one	manifest.json>files>boot/host-recorder.log:flip;manifest.json>files>boot/lab-guest.pcap:flip	ValueError: Corpus SHA differs: boot/host-recorder.log
+ban-one	manifest.json>files>boot/lab-guest.pcap:flip;manifest.json>files>boot/lab-launch.json:flip	ValueError: Corpus SHA differs: boot/lab-guest.pcap
+ban-one	manifest.json>files>boot/lab-launch.json:flip;manifest.json>files>boot/lab-namespace.pcap:flip	ValueError: Corpus SHA differs: boot/lab-launch.json
+ban-one	manifest.json>files>boot/lab-namespace.pcap:flip;manifest.json>files>boot/ns-recorder-launch.json:flip	ValueError: Corpus SHA differs: boot/lab-namespace.pcap
+ban-one	manifest.json>files>boot/ns-recorder-launch.json:flip;manifest.json>files>boot/ns-recorder.log:flip	ValueError: Corpus SHA differs: boot/ns-recorder-launch.json
+ban-one	manifest.json>files>boot/ns-recorder.log:flip;manifest.json>files>boot/primary-host.pcap:flip	ValueError: Corpus SHA differs: boot/ns-recorder.log
+ban-one	manifest.json>files>boot/primary-host.pcap:flip;manifest.json>files>boot/readiness.json:flip	ValueError: Corpus SHA differs: boot/primary-host.pcap
+ban-one	manifest.json>files>boot/readiness.json:flip;manifest.json>files>boot/server-01.png:flip	ValueError: Corpus SHA differs: boot/readiness.json
+ban-one	manifest.json>files>boot/server-01.png:flip;manifest.json>files>boot/server-02.png:flip	ValueError: Corpus SHA differs: boot/server-01.png
+ban-one	manifest.json>files>boot/server-01.png:flip;manifest.json>files>fixture/terminal.json:flip	ValueError: Corpus SHA differs: boot/server-01.png
+ban-one	manifest.json>files>boot/server-02.png:flip;manifest.json>files>boot/server-03.png:flip	ValueError: Corpus SHA differs: boot/server-02.png
+ban-one	manifest.json>files>boot/server-03.png:flip;manifest.json>files>boot/server-ready.png:flip	ValueError: Corpus SHA differs: boot/server-03.png
+ban-one	manifest.json>files>boot/server-ready.png:flip;manifest.json>files>fixture/a7-capture/checksums.sha256:flip	ValueError: Corpus SHA differs: boot/server-ready.png
+ban-one	manifest.json>files>fixture/a7-as-run-plan.json:flip;manifest.json>files>fixture/base-hotline19-directory.txt:flip	ValueError: Corpus SHA differs: fixture/a7-as-run-plan.json
+ban-one	manifest.json>files>fixture/a7-as-run-plan.json:flip;manifest.json>files>fixture/cleanup-stage1.json:flip	ValueError: Corpus SHA differs: fixture/a7-as-run-plan.json
+ban-one	manifest.json>files>fixture/a7-capture/checksums.sha256:flip;manifest.json>files>fixture/a7-capture/plan.json:flip	ValueError: Corpus SHA differs: fixture/a7-capture/checksums.sha256
+ban-one	manifest.json>files>fixture/a7-capture/plan.json:flip;manifest.json>files>fixture/a7-capture/report.json:flip	ValueError: Corpus SHA differs: fixture/a7-capture/plan.json
+ban-one	manifest.json>files>fixture/a7-capture/report.json:flip;manifest.json>files>fixture/a7-launch.json:flip	ValueError: Corpus SHA differs: fixture/a7-capture/report.json
+ban-one	manifest.json>files>fixture/a7-launch.json:flip;manifest.json>files>fixture/a7-original-plan.json:flip	ValueError: Corpus SHA differs: fixture/a7-launch.json
+ban-one	manifest.json>files>fixture/a7-original-plan.json:flip;manifest.json>files>fixture/a7-run.log:flip	ValueError: Corpus SHA differs: fixture/a7-original-plan.json
+ban-one	manifest.json>files>fixture/a7-run.log:flip;manifest.json>files>fixture/a7-semantic-verification.json:flip	ValueError: Corpus SHA differs: fixture/a7-run.log
+ban-one	manifest.json>files>fixture/a7-semantic-verification.json:flip;manifest.json>files>fixture/ban-opt1-capture/checksums.sha256:flip	ValueError: Corpus SHA differs: fixture/a7-semantic-verification.json
+ban-one	manifest.json>files>fixture/ban-opt1-capture/checksums.sha256:flip;manifest.json>files>fixture/ban-opt1-capture/plan.json:flip	ValueError: Corpus SHA differs: fixture/ban-opt1-capture/checksums.sha256
+ban-one	manifest.json>files>fixture/ban-opt1-capture/plan.json:flip;manifest.json>files>fixture/ban-opt1-capture/report.json:flip	ValueError: Corpus SHA differs: fixture/ban-opt1-capture/plan.json
+ban-one	manifest.json>files>fixture/ban-opt1-capture/report.json:flip;manifest.json>files>fixture/ban-opt1-launch.json:flip	ValueError: Corpus SHA differs: fixture/ban-opt1-capture/report.json
+ban-one	manifest.json>files>fixture/ban-opt1-launch.json:flip;manifest.json>files>fixture/ban-opt1.json:flip	ValueError: Corpus SHA differs: fixture/ban-opt1-launch.json
+ban-one	manifest.json>files>fixture/ban-opt1.json:flip;manifest.json>files>fixture/ban-opt1.log:flip	ValueError: Corpus SHA differs: fixture/ban-opt1.json
+ban-one	manifest.json>files>fixture/ban-opt1.log:flip;manifest.json>files>fixture/base-hotline19-directory.txt:flip	ValueError: Corpus SHA differs: fixture/ban-opt1.log
+ban-one	manifest.json>files>fixture/ban-stream-views.json:flip;manifest.json>files>fixture/probe.json:flip	ValueError: Corpus SHA differs: fixture/ban-stream-views.json
+ban-one	manifest.json>files>fixture/ban-stream-views.json:flip;manifest.json>files>fixture/probe.log:flip	ValueError: Corpus SHA differs: fixture/ban-stream-views.json
+ban-one	manifest.json>files>fixture/cleanup-stage1.json:flip;manifest.json>files>fixture/guard-capture/checksums.sha256:flip	ValueError: Corpus SHA differs: fixture/cleanup-stage1.json
+ban-one	manifest.json>files>fixture/guard-capture/checksums.sha256:flip;manifest.json>files>fixture/guard-capture/plan.json:flip	ValueError: Corpus SHA differs: fixture/guard-capture/checksums.sha256
+ban-one	manifest.json>files>fixture/guard-capture/plan.json:flip;manifest.json>files>fixture/guard-capture/report.json:flip	ValueError: Corpus SHA differs: fixture/guard-capture/plan.json
+ban-one	manifest.json>files>fixture/guard-capture/report.json:flip;manifest.json>files>fixture/guard-launch.json:flip	ValueError: Corpus SHA differs: fixture/guard-capture/report.json
+ban-one	manifest.json>files>fixture/guard-launch.json:flip;manifest.json>files>fixture/guard.json:flip	ValueError: Corpus SHA differs: fixture/guard-launch.json
+ban-one	manifest.json>files>fixture/guard.json:flip;manifest.json>files>fixture/guard.log:flip	ValueError: Corpus SHA differs: fixture/guard.json
+ban-one	manifest.json>files>fixture/guard.log:flip;manifest.json>files>fixture/offline-hfs-directory.json:flip	ValueError: Corpus SHA differs: fixture/guard.log
+ban-one	manifest.json>files>fixture/offline-hfs-directory.json:flip;manifest.json>files>fixture/post-hotline19-directory.txt:flip	ValueError: Corpus SHA differs: fixture/offline-hfs-directory.json
+ban-one	manifest.json>files>fixture/post-hotline19-directory.txt:flip;manifest.json>files>fixture/probe-capture/checksums.sha256:flip	ValueError: Corpus SHA differs: fixture/post-hotline19-directory.txt
+ban-one	manifest.json>files>fixture/probe-capture/checksums.sha256:flip;manifest.json>files>fixture/probe-capture/plan.json:flip	ValueError: Corpus SHA differs: fixture/probe-capture/checksums.sha256
+ban-one	manifest.json>files>fixture/probe-capture/plan.json:flip;manifest.json>files>fixture/probe-capture/report.json:flip	ValueError: Corpus SHA differs: fixture/probe-capture/plan.json
+ban-one	manifest.json>files>fixture/probe-capture/report.json:flip;manifest.json>files>fixture/probe-launch.json:flip	ValueError: Corpus SHA differs: fixture/probe-capture/report.json
+ban-one	manifest.json>files>fixture/probe-launch.json:flip;manifest.json>files>fixture/probe.json:flip	ValueError: Corpus SHA differs: fixture/probe-launch.json
+ban-one	manifest.json>files>fixture/probe.log:flip;manifest.json>files>fixture/seed-capture/checksums.sha256:flip	ValueError: Corpus SHA differs: fixture/probe.log
+ban-one	manifest.json>files>fixture/seed-capture/checksums.sha256:flip;manifest.json>files>fixture/seed-capture/plan.json:flip	ValueError: Corpus SHA differs: fixture/seed-capture/checksums.sha256
+ban-one	manifest.json>files>fixture/seed-capture/plan.json:flip;manifest.json>files>fixture/seed-capture/report.json:flip	ValueError: Corpus SHA differs: fixture/seed-capture/plan.json
+ban-one	manifest.json>files>fixture/seed-capture/report.json:flip;manifest.json>files>fixture/seed-launch.json:flip	ValueError: Corpus SHA differs: fixture/seed-capture/report.json
+ban-one	manifest.json>files>fixture/seed-launch.json:flip;manifest.json>files>fixture/seed.json:flip	ValueError: Corpus SHA differs: fixture/seed-launch.json
+ban-one	manifest.json>files>fixture/seed.json:flip;manifest.json>files>fixture/seed.log:flip	ValueError: Corpus SHA differs: fixture/seed.json
+ban-one	manifest.json>files>fixture/seed.log:flip;manifest.json>files>preparation/preboot-app/catalog-11183.data:flip	ValueError: Corpus SHA differs: fixture/seed.log
+ban-one	manifest.json>files>preparation/postflight.json:flip;manifest.json>files>reference/original-a7-report.json:flip	ValueError: Corpus SHA differs: preparation/postflight.json
+ban-one	manifest.json>files>preparation/preboot-app/catalog-11183.data:flip;manifest.json>files>preparation/preboot-app/catalog-11183.rsrc:flip	ValueError: Corpus SHA differs: preparation/preboot-app/catalog-11183.data
+ban-one	manifest.json>files>preparation/preboot-app/catalog-11183.rsrc:flip;manifest.json>files>preparation/preboot-app/catalog-11183.stat.txt:flip	ValueError: Corpus SHA differs: preparation/preboot-app/catalog-11183.rsrc
+ban-one	manifest.json>files>preparation/preboot-app/catalog-11183.stat.txt:flip;manifest.json>files>preparation/preflight.json:flip	ValueError: Corpus SHA differs: preparation/preboot-app/catalog-11183.stat.txt
+ban-one	manifest.json>files>preparation/preboot-app/extraction.json:flip;manifest.json>files>reference/diagnostic-preflight-report.json:flip	ValueError: Corpus SHA differs: preparation/preboot-app/extraction.json
+ban-one	manifest.json>files>preparation/preflight.json:flip;manifest.json>files>preparation/prepare-run.json:flip	ValueError: Corpus SHA differs: preparation/preflight.json
+ban-one	manifest.json>files>boot/boot-01.png:delete-key;manifest.json>schema:flip	ValueError: Manifest schema differs
+ban-one	fixture/ban-opt1.json>steps:drop-last;fixture/seed.json>steps:drop-last	ValueError: seed incomplete
+ban-one	fixture/guard.json>steps:drop-last;fixture/seed.json>steps:drop-last	ValueError: guard incomplete
+ban-one	fixture/ban-stream-views.json>guest>main>local_port:inc;fixture/ban-stream-views.json>namespace>target>local_port:inc	ValueError: namespace/target packet view differs
