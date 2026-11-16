@@ -87,6 +87,84 @@ class SyntheticEquivalenceTests:
             pin_equivalence.differences(scripts, "lonely.py", LONELY.encode())
 
 
+TOP_LEVEL_TEST = (
+    "import calc\n\n\n"
+    "class TopLevelTests:\n"
+    "    def test_adds_again(self):\n        assert calc.add(1, 1) == 2\n"
+)
+HYPHENATED = "def label():\n    return 'plain'\n"
+HYPHENATED_TEST = (
+    "import importlib.util\nfrom pathlib import Path\n\n"
+    'SCRIPT = "odd-name.py"\n\n\n'
+    "class OddNameTests:\n"
+    "    def test_label(self):\n"
+    "        path = Path(__file__).resolve().parents[1] / 'scripts' / SCRIPT\n"
+    "        spec = importlib.util.spec_from_file_location('odd', path)\n"
+    "        module = importlib.util.module_from_spec(spec)\n"
+    "        spec.loader.exec_module(module)\n"
+    "        assert module.label() == 'plain'\n"
+)
+
+
+class TopLevelTestEquivalenceTests:
+    """Tests kept beside the repository tools are run under both versions."""
+
+    def test_a_test_outside_scripts_tests_is_selected(self, tmp_path: Path) -> None:
+        """A test file in ``tests/`` that imports the script is reached."""
+        scripts = scripts_with(tmp_path, PINNED_CALC)
+        (tmp_path / "tests").mkdir()
+        (tmp_path / "tests/test_top.py").write_text(TOP_LEVEL_TEST)
+        found = pin_equivalence.reaching_tests(scripts, "calc.py")
+        assert "tests/test_top.py" in found, "expected the top-level test"
+
+    def test_a_top_level_test_that_fails_under_the_change_is_reported(
+        self, tmp_path: Path
+    ) -> None:
+        """An off-by-one is caught by a test that lives in ``tests/``."""
+        scripts = scripts_with(tmp_path, b"def add(a, b):\n    return a + b + 1\n")
+        (tmp_path / "tests").mkdir()
+        (tmp_path / "tests/test_top.py").write_text(TOP_LEVEL_TEST)
+        found = pin_equivalence.differences(scripts, "calc.py", PINNED_CALC)
+        assert any("tests/test_top.py" in line for line in found), (
+            "expected the top-level test among the differences"
+        )
+
+    def test_a_script_loaded_by_its_hyphenated_name_is_reached(
+        self, tmp_path: Path
+    ) -> None:
+        """A test that names a hyphenated script by file name reaches it."""
+        scripts = scripts_with(tmp_path, PINNED_CALC)
+        (scripts / "odd-name.py").write_text(HYPHENATED)
+        (tmp_path / "tests").mkdir()
+        (tmp_path / "tests/test_odd.py").write_text(HYPHENATED_TEST)
+        found = pin_equivalence.differences(scripts, "odd-name.py", HYPHENATED.encode())
+        assert found == [], "expected the named script to be reached and agree"
+
+
+class CompanionEquivalenceTests:
+    """A verifier that hashes its siblings is compared with them pinned too."""
+
+    def test_companion_bytes_are_swapped_into_the_pinned_copy_only(
+        self, tmp_path: Path
+    ) -> None:
+        """A program that prints a sibling's text differs unless it is staged."""
+        scripts = scripts_with(tmp_path, PINNED_CALC)
+        (scripts / "reader.py").write_text(
+            "from pathlib import Path\n"
+            "print(Path(__file__).with_name('note.txt').read_text())\n"
+        )
+        (scripts / "note.txt").write_text("current\n")
+        setting = pin_equivalence.Setting(
+            program=[], companions={"note.txt": b"earlier\n"}
+        )
+        found = pin_equivalence.differences(
+            scripts, "reader.py", (scripts / "reader.py").read_bytes(), setting
+        )
+        assert found == ["program run: pinned 'earlier', current 'current'"], (
+            "expected only the companion to differ"
+        )
+
+
 HELLO = "print('hello')\n"
 
 

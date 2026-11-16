@@ -50,6 +50,8 @@ def _imports(path: Path, stems: set[str]) -> set[str]:
                 found.update(alias.name.split(".")[0] for alias in node.names)
             case ast.ImportFrom(level=0):
                 found.add((node.module or "").split(".")[0])
+            case ast.Constant(value=str() as text) if text.endswith(".py"):
+                found.add(Path(text).stem)  # a script loaded by its file name
     return found & stems
 
 
@@ -66,9 +68,12 @@ def reaching_tests(scripts: Path, name: str) -> list[str]:
     Returns
     -------
     list[str]
-        Paths such as ``scripts/tests/test_x.py``, sorted.
+        Paths such as ``scripts/tests/test_x.py`` or ``tests/test_x.py``, sorted.
+        A file counts when it imports the script or a module that does, or names
+        a script file as a string, as a test of a hyphenated script must.
     """
-    files = [*scripts.glob("*.py"), *scripts.glob("tests/*.py")]
+    top = scripts.parent / "tests"
+    files = [*scripts.glob("*.py"), *scripts.glob("tests/*.py"), *top.glob("*.py")]
     stems = {path.stem for path in files}
     imports = {path: _imports(path, stems) for path in files}
     reach = {Path(name).stem}
@@ -80,7 +85,8 @@ def reaching_tests(scripts: Path, name: str) -> list[str]:
                 reach.add(path.stem)
                 grew = True
     return sorted(
-        f"scripts/{path.relative_to(scripts).as_posix()}"
+        f"{'tests' if path.parent == top else 'scripts'}/"
+        + (path.name if path.parent == top else path.relative_to(scripts).as_posix())
         for path in files
         if path.stem in reach and path.name.startswith("test_")
     )
@@ -89,7 +95,7 @@ def reaching_tests(scripts: Path, name: str) -> list[str]:
 def lay_out(
     base: Path,
     scripts: Path,
-    swap: tuple[str, bytes] | None,
+    swap: cabc.Mapping[str, bytes],
     links: cabc.Mapping[str, Path],
 ) -> Path:
     """Copy ``scripts/`` into a checkout-shaped tree, optionally swapping a file.
@@ -100,8 +106,8 @@ def lay_out(
         An empty directory; the tree is ``base/hotline-protocol-docs``.
     scripts : pathlib.Path
         The directory to copy.
-    swap : tuple[str, bytes] | None
-        A script name and the bytes to put in its place.
+    swap : collections.abc.Mapping[str, bytes]
+        File names of ``scripts/`` and the bytes to put in their place.
     links : collections.abc.Mapping[str, pathlib.Path]
         Names to link beside the copy, relative to ``base`` or to the tree
         (``evidence``), for tests that read retained corpora.
@@ -115,8 +121,13 @@ def lay_out(
     shutil.copytree(
         scripts, root / "scripts", ignore=shutil.ignore_patterns("__pycache__")
     )
-    if swap is not None:
-        (root / "scripts" / swap[0]).write_bytes(swap[1])
+    for name, data in swap.items():
+        (root / "scripts" / name).write_bytes(data)
+    top = scripts.parent / "tests"
+    if top.is_dir():
+        (root / "tests").mkdir()
+        for path in top.glob("*.py"):
+            shutil.copyfile(path, root / "tests" / path.name)
     for name, target in links.items():
         place = base / name if name == "mothra" else root / name
         place.symlink_to(target)
@@ -188,10 +199,14 @@ class Setting:
     program : collections.abc.Sequence[str] | None
         The arguments with which to run the script as a program, for a script
         that no test imports; that run is then compared instead of the tests.
+    companions : collections.abc.Mapping[str, bytes]
+        Other files of ``scripts/`` to put at their earlier bytes in the pinned
+        copy, for a verifier that hashes the files beside it.
     """
 
     links: cabc.Mapping[str, Path] = dc.field(default_factory=dict)
     program: cabc.Sequence[str] | None = None
+    companions: cabc.Mapping[str, bytes] = dc.field(default_factory=dict)
 
 
 def differences(
@@ -228,8 +243,13 @@ def differences(
         raise NoCoverageError(message)
     with tempfile.TemporaryDirectory(prefix="pin-equivalence-") as scratch:
         base = Path(scratch)
-        now = lay_out(base / "current", scripts, None, setting.links)
-        then = lay_out(base / "pinned", scripts, (name, pinned), setting.links)
+        now = lay_out(base / "current", scripts, {}, setting.links)
+        then = lay_out(
+            base / "pinned",
+            scripts,
+            {**setting.companions, name: pinned},
+            setting.links,
+        )
         if setting.program is not None:
             after = run_program(now, name, setting.program)
             before = run_program(then, name, setting.program)
