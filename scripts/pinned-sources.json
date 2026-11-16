@@ -1,0 +1,315 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "path": "scripts/capture-ghidra-evidence.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f",
+      "sha256": "47097d4995d2d2595c07ee25648bfef9096342055972a41fdaa94efc35015a05",
+      "recorded_in": [
+        "evidence/gap-remediation/2026-11-13/account-attribute-01",
+        "evidence/hotline-server-1.9"
+      ],
+      "recorded_by": []
+    },
+    {
+      "path": "scripts/extract-synhxd-evidence.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f",
+      "sha256": "45e969623d033d47301fae2b91c34a1241078d9e7c642eec318377a15288d1e2",
+      "recorded_in": [
+        "evidence/hotline-server-1.9"
+      ],
+      "recorded_by": []
+    },
+    {
+      "path": "scripts/verify-baseline-evidence.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f",
+      "sha256": "8ce47fe23e379fe649b620f44261079b016cf3fe9855e0f8f9e49e4822a25c31",
+      "recorded_in": [
+        "evidence/hotline-server-1.9"
+      ],
+      "recorded_by": []
+    },
+    {
+      "path": "scripts/protocol_capture.py",
+      "commit": "4e62e00d675c9959642adbdf76624fcde0b6c012",
+      "sha256": "2fba0972f4d9a8e3845c4204dce150dd7c90da0e19a9e5720d5289e2c94faf01",
+      "recorded_in": [
+        "evidence/gap-remediation/2026-11-12/native-banner-01",
+        "evidence/gap-remediation/2026-11-12/native-banner-02",
+        "evidence/gap-remediation/2026-11-12/native-cleanup-01",
+        "evidence/gap-remediation/2026-11-12/native-correlation-01",
+        "evidence/gap-remediation/2026-11-12/native-folder-01",
+        "evidence/gap-remediation/2026-11-12/native-htxf-01",
+        "evidence/gap-remediation/2026-11-12/native-queue-01",
+        "evidence/gap-remediation/2026-11-12/native-resume-01",
+        "evidence/gap-remediation/2026-11-13/native-account-batch-01",
+        "evidence/gap-remediation/2026-11-13/native-account-identity-01",
+        "evidence/gap-remediation/2026-11-13/native-account-update-01",
+        "evidence/gap-remediation/2026-11-13/native-agreement-01",
+        "evidence/gap-remediation/2026-11-13/native-alias-01",
+        "evidence/gap-remediation/2026-11-13/native-article-delete-01",
+        "evidence/gap-remediation/2026-11-13/native-auth-01",
+        "evidence/gap-remediation/2026-11-13/native-ban-one-01",
+        "evidence/gap-remediation/2026-11-13/native-bitmaps-01",
+        "evidence/gap-remediation/2026-11-13/native-console-broadcast-01",
+        "evidence/gap-remediation/2026-11-13/native-diagnostic-density-01",
+        "evidence/gap-remediation/2026-11-13/native-diagnostic-existing-01",
+        "evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01",
+        "evidence/gap-remediation/2026-11-13/native-diagnostic-load-01",
+        "evidence/gap-remediation/2026-11-13/native-diagnostic-near-01",
+        "evidence/gap-remediation/2026-11-13/native-diagnostics-01",
+        "evidence/gap-remediation/2026-11-13/native-live-accounts-01",
+        "evidence/gap-remediation/2026-11-13/native-login-extras-01",
+        "evidence/gap-remediation/2026-11-13/native-metadata-01",
+        "evidence/gap-remediation/2026-11-13/native-mkdir-01",
+        "evidence/gap-remediation/2026-11-13/native-move-01",
+        "evidence/gap-remediation/2026-11-13/native-news-01",
+        "evidence/gap-remediation/2026-11-13/native-news-boundary-01",
+        "evidence/gap-remediation/2026-11-13/native-pm-01",
+        "evidence/gap-remediation/2026-11-13/native-rooms-01",
+        "evidence/gap-remediation/2026-11-13/native-runtime-recovery-01",
+        "evidence/gap-remediation/2026-11-13/native-settings-01",
+        "evidence/gap-remediation/2026-11-13/native-settings-transitions-01",
+        "evidence/gap-remediation/2026-11-13/native-shx-01",
+        "evidence/gap-remediation/2026-11-13/native-shx-02",
+        "evidence/gap-remediation/2026-11-13/native-transfer-stall-01",
+        "evidence/gap-remediation/2026-11-13/timer-suspension-01",
+        "evidence/gap-remediation/2026-11-14/classic-field161-01",
+        "evidence/gap-remediation/2026-11-14/classic-proxy-baseline-01",
+        "evidence/gap-remediation/2026-11-14/classic-roster-subject-115-01",
+        "evidence/gap-remediation/2026-11-14/classic-server-name-162-01",
+        "evidence/gap-remediation/2026-11-14/native-121-defaults-01",
+        "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01",
+        "evidence/gap-remediation/2026-11-14/native-alias-prestage-01",
+        "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01",
+        "evidence/gap-remediation/2026-11-14/native-ban-control-01",
+        "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01",
+        "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01",
+        "evidence/gap-remediation/2026-11-14/native-ban-reload-01",
+        "evidence/gap-remediation/2026-11-14/native-board-01",
+        "evidence/gap-remediation/2026-11-14/native-board-readiness-failure-01",
+        "evidence/gap-remediation/2026-11-14/native-configured-ban-01",
+        "evidence/gap-remediation/2026-11-14/native-liveness-01",
+        "evidence/gap-remediation/2026-11-14/native-path-fields-01",
+        "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01",
+        "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01",
+        "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01",
+        "evidence/gap-remediation/2026-11-14/native-roster-overlap-01",
+        "evidence/gap-remediation/2026-11-14/native-settings-persistence-01",
+        "evidence/gap-remediation/2026-11-14/native-transfer-repeat-01",
+        "evidence/gap-remediation/2026-11-14/native-ui-focus-01",
+        "evidence/gap-remediation/2026-11-15/native-wire-stopped-preparation-01"
+      ],
+      "recorded_by": [
+        "scripts/verify_native_repeat_runs.py:DRIVER_SHA",
+        "scripts/verify_native_ui_focus.py:DRIVER_SHA"
+      ]
+    },
+    {
+      "path": "scripts/pcap_tcp.py",
+      "commit": "4e62e00d675c9959642adbdf76624fcde0b6c012",
+      "sha256": "04c4fda2e62ccab35ed306c036dac6b1878af58adbfaccc6312a2805dd6897d7",
+      "recorded_in": [
+        "evidence/gap-remediation/2026-11-12/native-cleanup-01",
+        "evidence/gap-remediation/2026-11-12/native-folder-01",
+        "evidence/gap-remediation/2026-11-12/native-forks-01",
+        "evidence/gap-remediation/2026-11-12/native-framing-01",
+        "evidence/gap-remediation/2026-11-12/native-queue-01",
+        "evidence/gap-remediation/2026-11-12/native-resume-01",
+        "evidence/gap-remediation/2026-11-13/native-account-identity-01",
+        "evidence/gap-remediation/2026-11-13/native-pm-01",
+        "evidence/gap-remediation/2026-11-13/native-rooms-01",
+        "evidence/gap-remediation/2026-11-13/native-settings-transitions-01",
+        "evidence/gap-remediation/2026-11-14/classic-field161-01",
+        "evidence/gap-remediation/2026-11-14/classic-proxy-baseline-01",
+        "evidence/gap-remediation/2026-11-14/classic-roster-subject-115-01",
+        "evidence/gap-remediation/2026-11-14/classic-server-name-162-01",
+        "evidence/gap-remediation/2026-11-14/native-121-defaults-01",
+        "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01",
+        "evidence/gap-remediation/2026-11-14/native-alias-prestage-01",
+        "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01",
+        "evidence/gap-remediation/2026-11-14/native-ban-control-01",
+        "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01",
+        "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01",
+        "evidence/gap-remediation/2026-11-14/native-ban-reload-01",
+        "evidence/gap-remediation/2026-11-14/native-board-01",
+        "evidence/gap-remediation/2026-11-14/native-board-readiness-failure-01",
+        "evidence/gap-remediation/2026-11-14/native-configured-ban-01",
+        "evidence/gap-remediation/2026-11-14/native-liveness-01",
+        "evidence/gap-remediation/2026-11-14/native-path-fields-01",
+        "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01",
+        "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01",
+        "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01",
+        "evidence/gap-remediation/2026-11-14/native-roster-overlap-01",
+        "evidence/gap-remediation/2026-11-14/native-settings-persistence-01",
+        "evidence/gap-remediation/2026-11-15/native-wire-stopped-preparation-01"
+      ],
+      "recorded_by": [
+        "scripts/verify_classic_field161_matrix.py:SOURCES['parser']",
+        "scripts/verify_classic_native_baseline.py:PARSER_SHA",
+        "scripts/verify_classic_roster_subject_115.py:PARSER_SHA",
+        "scripts/verify_classic_server_name_162.py:PARSER_SHA"
+      ]
+    },
+    {
+      "path": "scripts/native_filp.py",
+      "commit": "4e62e00d675c9959642adbdf76624fcde0b6c012",
+      "sha256": "4712f522af6f378d1fc07c5db3128767734cb727b8509b5fddcad1b3a079c0f1",
+      "recorded_in": [
+        "evidence/gap-remediation/2026-11-12/native-forks-01",
+        "evidence/gap-remediation/2026-11-12/native-resume-01",
+        "evidence/gap-remediation/2026-11-13/native-alias-01",
+        "evidence/gap-remediation/2026-11-13/native-pm-01",
+        "evidence/gap-remediation/2026-11-13/native-settings-transitions-01",
+        "evidence/gap-remediation/2026-11-14/native-121-defaults-01",
+        "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01",
+        "evidence/gap-remediation/2026-11-14/native-alias-prestage-01",
+        "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01",
+        "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01",
+        "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01",
+        "evidence/gap-remediation/2026-11-14/native-board-01",
+        "evidence/gap-remediation/2026-11-14/native-liveness-01",
+        "evidence/gap-remediation/2026-11-14/native-path-fields-01",
+        "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01",
+        "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01",
+        "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01",
+        "evidence/gap-remediation/2026-11-14/native-roster-overlap-01",
+        "evidence/gap-remediation/2026-11-15/native-wire-stopped-preparation-01"
+      ],
+      "recorded_by": []
+    },
+    {
+      "path": "scripts/native_pm_cases.py",
+      "commit": "4e62e00d675c9959642adbdf76624fcde0b6c012",
+      "sha256": "204ac49850d223cb031f490d98014041c4c5516ef1191e04bfdf3586d1a7324c",
+      "recorded_in": [
+        "evidence/gap-remediation/2026-11-13/native-pm-01",
+        "evidence/gap-remediation/2026-11-13/native-settings-transitions-01",
+        "evidence/gap-remediation/2026-11-14/native-121-defaults-01",
+        "evidence/gap-remediation/2026-11-15/native-wire-stopped-preparation-01"
+      ],
+      "recorded_by": []
+    },
+    {
+      "path": "scripts/verify_native_pm_packet.py",
+      "commit": "4e62e00d675c9959642adbdf76624fcde0b6c012",
+      "sha256": "cc6e9366e96ecba1d35d31ec1520282806144c1cb82e7dd8c4bfb269a1b35fc4",
+      "recorded_in": [
+        "evidence/gap-remediation/2026-11-13/native-pm-01",
+        "evidence/gap-remediation/2026-11-13/native-settings-transitions-01",
+        "evidence/gap-remediation/2026-11-14/native-121-defaults-01"
+      ],
+      "recorded_by": []
+    },
+    {
+      "path": "scripts/native_121_default_cases.py",
+      "commit": "4e62e00d675c9959642adbdf76624fcde0b6c012",
+      "sha256": "255f135e95f470c447cf5b34ec3eae71f119823e39a30e02acaaa18440145a6e",
+      "recorded_in": [
+        "evidence/gap-remediation/2026-11-14/native-121-defaults-01"
+      ],
+      "recorded_by": []
+    },
+    {
+      "path": "scripts/verify_native_121_default.py",
+      "commit": "4e62e00d675c9959642adbdf76624fcde0b6c012",
+      "sha256": "3f603dc96967a2717c40acd3f4219568b8ed94b944e4664265789634ae82f9a6",
+      "recorded_in": [
+        "evidence/gap-remediation/2026-11-14/native-121-defaults-01"
+      ],
+      "recorded_by": []
+    },
+    {
+      "path": "scripts/native_settings_transition_cases.py",
+      "commit": "4e62e00d675c9959642adbdf76624fcde0b6c012",
+      "sha256": "53d3585a403b2ce5306e92d2276abb8df2883d4725618cd8506d7c3dc6ff48a2",
+      "recorded_in": [
+        "evidence/gap-remediation/2026-11-13/native-settings-transitions-01"
+      ],
+      "recorded_by": []
+    },
+    {
+      "path": "scripts/verify_native_settings_transition.py",
+      "commit": "4e62e00d675c9959642adbdf76624fcde0b6c012",
+      "sha256": "3b5eb029f83c09ba785102a6c649a4aef61907933de60d560c151e4d9aeb24f1",
+      "recorded_in": [
+        "evidence/gap-remediation/2026-11-13/native-settings-transitions-01"
+      ],
+      "recorded_by": []
+    },
+    {
+      "path": "scripts/native_settings_cases.py",
+      "commit": "4e62e00d675c9959642adbdf76624fcde0b6c012",
+      "sha256": "19f42b355002c78780bd18046cb5a175d9979148f6eda786d5a205531c28d536",
+      "recorded_in": [
+        "evidence/gap-remediation/2026-11-13/native-settings-01",
+        "evidence/gap-remediation/2026-11-15/native-wire-stopped-preparation-01"
+      ],
+      "recorded_by": []
+    },
+    {
+      "path": "scripts/verify_native_settings.py",
+      "commit": "4e62e00d675c9959642adbdf76624fcde0b6c012",
+      "sha256": "f908ad925f0534f55f8aa9b5b21a652081f04fd60558d9c2cc480fa5202712fc",
+      "recorded_in": [
+        "evidence/gap-remediation/2026-11-13/native-settings-01",
+        "evidence/gap-remediation/2026-11-15/native-wire-stopped-preparation-01"
+      ],
+      "recorded_by": []
+    },
+    {
+      "path": "scripts/native_control_readiness.py",
+      "commit": "4e62e00d675c9959642adbdf76624fcde0b6c012",
+      "sha256": "afb2dcbabae9765b9708efa21e4e3d7ff74ad33e90bee0f03d953cfa95d1c1da",
+      "recorded_in": [
+        "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01",
+        "evidence/gap-remediation/2026-11-14/native-alias-prestage-01",
+        "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01",
+        "evidence/gap-remediation/2026-11-14/native-ban-control-01",
+        "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01",
+        "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01",
+        "evidence/gap-remediation/2026-11-14/native-ban-reload-01",
+        "evidence/gap-remediation/2026-11-14/native-board-01",
+        "evidence/gap-remediation/2026-11-14/native-board-readiness-failure-01",
+        "evidence/gap-remediation/2026-11-14/native-configured-ban-01",
+        "evidence/gap-remediation/2026-11-14/native-liveness-01",
+        "evidence/gap-remediation/2026-11-14/native-path-fields-01",
+        "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01",
+        "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01",
+        "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01",
+        "evidence/gap-remediation/2026-11-14/native-roster-overlap-01",
+        "evidence/gap-remediation/2026-11-14/native-settings-persistence-01",
+        "evidence/gap-remediation/2026-11-15/native-wire-stopped-preparation-01"
+      ],
+      "recorded_by": [
+        "scripts/verify_native_ban_control.py:EXPECTED['controller']"
+      ]
+    },
+    {
+      "path": "scripts/native_ban_control_cases.py",
+      "commit": "4e62e00d675c9959642adbdf76624fcde0b6c012",
+      "sha256": "3df9ba8f86f9701842da820f6c2cdbc3d2e935a4392090c6b6c01a799ab3c144",
+      "recorded_in": [
+        "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01",
+        "evidence/gap-remediation/2026-11-14/native-alias-prestage-01",
+        "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01",
+        "evidence/gap-remediation/2026-11-14/native-ban-control-01",
+        "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01",
+        "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01",
+        "evidence/gap-remediation/2026-11-14/native-ban-reload-01",
+        "evidence/gap-remediation/2026-11-14/native-board-01",
+        "evidence/gap-remediation/2026-11-14/native-board-readiness-failure-01",
+        "evidence/gap-remediation/2026-11-14/native-configured-ban-01",
+        "evidence/gap-remediation/2026-11-14/native-liveness-01",
+        "evidence/gap-remediation/2026-11-14/native-path-fields-01",
+        "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01",
+        "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01",
+        "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01",
+        "evidence/gap-remediation/2026-11-14/native-roster-overlap-01",
+        "evidence/gap-remediation/2026-11-14/native-settings-persistence-01",
+        "evidence/gap-remediation/2026-11-15/native-wire-stopped-preparation-01"
+      ],
+      "recorded_by": []
+    }
+  ]
+}

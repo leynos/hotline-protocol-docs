@@ -86,15 +86,15 @@ IMPORT_COMMIT ?= f9b4108ec33e59956c9f2bfbd391dc3a8a279299
 
 .PHONY: help all build fmt check-fmt check-fmt-python check-fmt-markdown \
 	lint lint-python lint-legacy typecheck test docs-gates markdownlint spelling nixie \
-	json-check links-check audit-check withheld-check withheld-scan withheld-skip \
+	json-check pins-check links-check audit-check withheld-check withheld-scan withheld-skip \
 	sums-check lfs-check evidence-skip curation-check import-check curation-skip \
-	goldens-check
+	goldens-check pin-experiment
 
 .DEFAULT_GOAL := all
 # Shared build caches require sequential gates even when make receives -j.
 .NOTPARALLEL:
 
-all: build check-fmt-python json-check links-check audit-check $(WITHHELD_GATE) $(EVIDENCE_GATE) $(CURATION_GATE) $(EVIDENCE_VERIFY_GATE) lint-python lint-legacy typecheck test ## Run the gates that must pass at every commit
+all: build check-fmt-python json-check pins-check links-check audit-check $(WITHHELD_GATE) $(EVIDENCE_GATE) $(CURATION_GATE) $(EVIDENCE_VERIFY_GATE) lint-python lint-legacy typecheck test ## Run the gates that must pass at every commit
 
 lint: lint-python lint-legacy ## Run every Python linter
 
@@ -131,6 +131,9 @@ check-fmt-markdown: ## Verify Markdown table and wrapping layout
 
 json-check: ## Verify that every tracked JSON file is in canonical layout
 	$(PYTHON) tools/check_json.py --root . $(JSON_EXCEPTIONS_ARG)
+
+pins-check: ## Verify that each pinned script is in the local history and carries its recorded hash
+	python3 scripts/pinned_source_cli.py check
 
 links-check: ## Verify every Markdown link, fragment and mothra reference
 	$(PYTHON) tools/check_links.py --root . $(MOTHRA_ARG) --min-links $(LINKS_MIN) $(LINKS_ARGS)
@@ -332,6 +335,12 @@ GOLDENS_FILTER_ARGS = $(foreach f,$(GOLDENS_FILTER),--filter $(f))
 
 goldens-check: build ## Compare the legacy scripts with tests/goldens (three to ten minutes; not in all)
 	$(PYTHON) tools/capture_goldens.py compare --root . $(if $(MOTHRA),--mothra $(MOTHRA)) $(GOLDENS_FILTER_ARGS)
+
+# Not in `all`, for the same reason as goldens-check. Decision D29: once every comparison
+# reads a script at its pinned commit, a comment appended to any pinned script must leave
+# the goldens at 0 differences.
+pin-experiment: build ## Append a comment to every pinned script, compare the goldens, restore the scripts (three to ten minutes; not in all)
+	$(PYTHON) tools/pin_experiment.py run --root . $(if $(MOTHRA),--mothra $(MOTHRA))
 
 typecheck-legacy: ## Type-check the inherited scripts (not in all; see the plan)
 	$(TY) check --extra-search-path scripts scripts
