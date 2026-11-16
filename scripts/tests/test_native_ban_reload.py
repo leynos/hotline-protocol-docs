@@ -3,41 +3,71 @@
 import hashlib
 import json
 import tempfile
-import unittest
+import typing as typ
 from pathlib import Path
 from shutil import copytree
 
+import pytest
 from native_control_readiness import probe
 from verify_native_ban_reload import verify
 
+if typ.TYPE_CHECKING:
+    import collections.abc as cabc
+
+type Report = dict[str, typ.Any]
+
 CORPUS = (
-    Path(__file__).resolve().parents[1]
+    Path(__file__).resolve().parents[2]
     / "evidence/gap-remediation/2026-11-14/native-ban-reload-01"
 )
 C56 = CORPUS.parent / "native-ban-control-01"
 
 
-class NativeBanReloadTest(unittest.TestCase):
-    def report(self) -> dict:
+class NativeBanReloadTest:
+    """Semantic fault controls for the frozen persisted-ban reload witness."""
+
+    # collected although the name does not match python_classes: it is a golden key
+    __test__ = True
+
+    def report(self) -> Report:
+        """Load the one-probe capture report of the frozen corpus.
+
+        Returns
+        -------
+        dict[str, typing.Any]
+            The parsed ``report.json`` of the probe capture.
+        """
         return json.loads((CORPUS / "c61/probe-capture/report.json").read_text())
 
     def test_frozen_replay(self) -> None:
-        self.assertEqual(verify(CORPUS)["login_error_bytes"], 42)
+        """The frozen witness replays to its 42-byte login rejection."""
+        assert verify(CORPUS)["login_error_bytes"] == 42, "login error length differs"
 
     def test_wrong_error_text(self) -> None:
+        """A changed login error text is rejected by the probe check."""
         report = self.report()
         report["frames"][0]["fields"][0]["hex"] = "78"
-        with self.assertRaisesRegex(ValueError, "Permanent login rejection differs"):
+        with pytest.raises(ValueError, match="Permanent login rejection differs"):
             probe(report)
 
     def test_missing_trtp_hello(self) -> None:
+        """A probe whose TRTP hello is missing is rejected by the probe check."""
         report = self.report()
         sends = [e for e in report["events"] if e["event"] == "send"]
         sends[0]["hex"] = "00"
-        with self.assertRaisesRegex(ValueError, "Fresh TRTP plus Login107 absent"):
+        with pytest.raises(ValueError, match="Fresh TRTP plus Login107 absent"):
             probe(report)
 
-    def corrupt(self, change, reason: str) -> None:
+    def corrupt(self, change: cabc.Callable[[Path], None], reason: str) -> None:
+        """Change a copy of the witness, rehash it and expect the verifier to reject it.
+
+        Parameters
+        ----------
+        change : collections.abc.Callable[[pathlib.Path], None]
+            The change to make to the copied corpus.
+        reason : str
+            A regular expression that the rejection message must match.
+        """
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
             p = root / "native-ban-reload-01"
@@ -63,16 +93,33 @@ class NativeBanReloadTest(unittest.TestCase):
                     for name, sha in sorted(manifest["files"].items())
                 )
             )
-            with self.assertRaisesRegex(ValueError, reason):
+            with pytest.raises(ValueError, match=reason):
                 verify(p)
 
-    def edit_json(self, p: Path, name: str, edit) -> None:
+    def edit_json(
+        self,
+        p: Path,
+        name: str,
+        edit: cabc.Callable[[dict[str, typ.Any]], None],
+    ) -> None:
+        """Apply an edit to one JSON file of the copied corpus.
+
+        Parameters
+        ----------
+        p : pathlib.Path
+            The copied corpus.
+        name : str
+            The path of the JSON file, relative to the copied corpus.
+        edit : collections.abc.Callable[[dict[str, typing.Any]], None]
+            The edit to apply to the parsed value.
+        """
         file = p / name
         value = json.loads(file.read_text())
         edit(value)
         file.write_text(json.dumps(value))
 
     def test_rehashed_emulator_identity(self) -> None:
+        """A rehashed emulator identity that differs from the boot is rejected."""
         self.corrupt(
             lambda p: self.edit_json(
                 p,
@@ -83,6 +130,7 @@ class NativeBanReloadTest(unittest.TestCase):
         )
 
     def test_rehashed_read_only_ui_claim(self) -> None:
+        """A rehashed UI claim that the Ban tab was saved is rejected."""
         self.corrupt(
             lambda p: self.edit_json(
                 p, "c61/ui-observation.json", lambda x: x["ban_tab"].update(saved=True)
@@ -91,6 +139,7 @@ class NativeBanReloadTest(unittest.TestCase):
         )
 
     def test_rehashed_target_vector(self) -> None:
+        """A rehashed probe vector with a changed fresh login is rejected."""
         self.corrupt(
             lambda p: self.edit_json(
                 p,
@@ -101,6 +150,7 @@ class NativeBanReloadTest(unittest.TestCase):
         )
 
     def test_rehashed_extra_ban_request(self) -> None:
+        """A rehashed probe vector with an extra 110 request is rejected."""
         self.corrupt(
             lambda p: self.edit_json(
                 p,
@@ -111,6 +161,7 @@ class NativeBanReloadTest(unittest.TestCase):
         )
 
     def test_rehashed_packet_byte_parity(self) -> None:
+        """A rehashed guest packet view that differs from the stream is rejected."""
         self.corrupt(
             lambda p: self.edit_json(
                 p,
@@ -121,6 +172,7 @@ class NativeBanReloadTest(unittest.TestCase):
         )
 
     def test_rehashed_recorder_deadline(self) -> None:
+        """A rehashed recorder deadline that differs from the boot is rejected."""
         self.corrupt(
             lambda p: self.edit_json(
                 p,
@@ -131,7 +183,16 @@ class NativeBanReloadTest(unittest.TestCase):
         )
 
     def test_rehashed_packet_drop(self) -> None:
+        """A rehashed recorder log that reports a dropped packet is rejected."""
+
         def change(p: Path) -> None:
+            """Report one dropped packet in the namespace recorder log.
+
+            Parameters
+            ----------
+            p : pathlib.Path
+                The copied corpus.
+            """
             path = p / "c61/namespace-recorder.log"
             path.write_bytes(
                 path.read_bytes().replace(
@@ -142,6 +203,7 @@ class NativeBanReloadTest(unittest.TestCase):
         self.corrupt(change, "namespace recorder count/drop differs")
 
     def test_rehashed_cleanup(self) -> None:
+        """A rehashed terminal profile that reports a live PID is rejected."""
         self.corrupt(
             lambda p: self.edit_json(
                 p, "c61/terminal.json", lambda x: x.update(actual_pid_gone=False)
@@ -150,14 +212,19 @@ class NativeBanReloadTest(unittest.TestCase):
         )
 
     def test_rehashed_ban_bytes(self) -> None:
+        """A rehashed stored ban file with one flipped bit is rejected."""
+
         def change(p: Path) -> None:
+            """Flip the last bit of the stored ban file of the copied corpus.
+
+            Parameters
+            ----------
+            p : pathlib.Path
+                The copied corpus.
+            """
             path = p / "c61/Banned-postprobe.data.bin"
             data = bytearray(path.read_bytes())
             data[-1] ^= 1
             path.write_bytes(data)
 
         self.corrupt(change, "Stored ban or account bytes differ")
-
-
-if __name__ == "__main__":
-    unittest.main()

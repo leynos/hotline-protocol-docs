@@ -1,0 +1,314 @@
+ban-reload		ok c5ee64526da10ddc
+ban-reload	c61/ui-ready.json>actual_emulator>uid:empty	IndexError: list index out of range
+ban-reload	c61/host-ready-preprobe.json>unit_properties>ActiveState:delete-key	KeyError: 'ActiveState'
+ban-reload	c61/terminal.json>Banned:delete-key	KeyError: 'Banned'
+ban-reload	c61/host-ready-preprobe.json>unit_properties>RuntimeMaxUSec:delete-key	KeyError: 'RuntimeMaxUSec'
+ban-reload	c61/terminal.json>account_or_ban_mutations:delete-key	KeyError: 'account_or_ban_mutations'
+ban-reload	c61/cleanup-signals.json>events>0>action:delete-key	KeyError: 'action'
+ban-reload	c61/ui-observation.json>ban_tab>actions_taken:delete-key	KeyError: 'actions_taken'
+ban-reload	c61/ui-ready.json>actual_emulator:delete-key	KeyError: 'actual_emulator'
+ban-reload	c61/terminal.json>actual_emulator_pid:delete-key	KeyError: 'actual_emulator_pid'
+ban-reload	c61/terminal.json>actual_pid_gone:delete-key	KeyError: 'actual_pid_gone'
+ban-reload	c61/probe-launch.json>argv:delete-key	KeyError: 'argv'
+ban-reload	c61/probe-launch.json>asrun_sha256:delete-key	KeyError: 'asrun_sha256'
+ban-reload	c61/ui-observation.json>resource_mapping>ban_control_ids:delete-key	KeyError: 'ban_control_ids'
+ban-reload	c56-reference/terminal.json>ban_file:delete-key	KeyError: 'ban_file'
+ban-reload	c61/ui-observation.json>ban_tab:delete-key	KeyError: 'ban_tab'
+ban-reload	c61/ui-observation.json>ban_tab>checked_row:delete-key	KeyError: 'checked_row'
+ban-reload	c61/terminal.json>original>client:delete-key	KeyError: 'client'
+ban-reload	packet-views.json>connection:delete-key	KeyError: 'connection'
+ban-reload	c56-reference/terminal.json>ban_file>data_sha256:delete-key	KeyError: 'data_sha256'
+ban-reload	c61/host-ready-preprobe.json>deadline_utc:delete-key	KeyError: 'deadline_utc'
+ban-reload	c61/ui-observation.json>ban_tab>edited:delete-key	KeyError: 'edited'
+ban-reload	c61/cleanup-signals.json>events:delete-key	KeyError: 'events'
+ban-reload	c61/ui-ready.json>actual_emulator>exe:delete-key	KeyError: 'exe'
+ban-reload	c61/preflight.json>existing_ban_state_preserved:delete-key	KeyError: 'existing_ban_state_preserved'
+ban-reload	manifest.json>failed_full_A7:delete-key	KeyError: 'failed_full_A7'
+ban-reload	c61/host-ready-preprobe.json>fd:delete-key	KeyError: 'fd'
+ban-reload	c61/terminal.json>original>primary>fd16:delete-key	KeyError: 'fd16'
+ban-reload	c61/terminal.json>original>primary>fd6:delete-key	KeyError: 'fd6'
+ban-reload	manifest.json>files:delete-key	KeyError: 'files'
+ban-reload	packet-views.json>views>namespace>fin_packets:delete-key	KeyError: 'fin_packets'
+ban-reload	packet-views.json>views>namespace>first_us:delete-key	KeyError: 'first_us'
+ban-reload	c61/preflight.json>fls_sha256:delete-key	KeyError: 'fls_sha256'
+ban-reload	c61/preflight.json>full_file_baseline:delete-key	KeyError: 'full_file_baseline'
+ban-reload	packet-views.json>views>guest:delete-key	KeyError: 'guest'
+ban-reload	c61/terminal.json>guest_emulator_forced_term:delete-key	KeyError: 'guest_emulator_forced_term'
+ban-reload	c61/host-ready-preprobe.json>header24:delete-key	KeyError: 'header24'
+ban-reload	c61/preflight.json>hfs_user_data_and_ban:delete-key	KeyError: 'hfs_user_data_and_ban'
+ban-reload	c61/ui-ready.json>host_recorder:delete-key	KeyError: 'host_recorder'
+ban-reload	c61/terminal.json>host_recorder_log_tail:delete-key	KeyError: 'host_recorder_log_tail'
+ban-reload	c61/ui-observation.json>ban_tab>info_field:delete-key	KeyError: 'info_field'
+ban-reload	c61/ui-observation.json>ban_tab>ip_field:delete-key	KeyError: 'ip_field'
+ban-reload	packet-views.json>views>namespace>last_us:delete-key	KeyError: 'last_us'
+ban-reload	packet-views.json>local_port:delete-key	KeyError: 'local_port'
+ban-reload	manifest.json:delete-key	KeyError: 'manifest.json'
+ban-reload	packet-views.json>views>namespace:delete-key	KeyError: 'namespace'
+ban-reload	c61/ui-ready.json>namespace_pcap_bytes:delete-key	KeyError: 'namespace_pcap_bytes'
+ban-reload	c61/ui-ready.json>namespace_recorder:delete-key	KeyError: 'namespace_recorder'
+ban-reload	c61/terminal.json>namespace_recorder_log_tail:delete-key	KeyError: 'namespace_recorder_log_tail'
+ban-reload	c61/cleanup-signals.json>observed>netns:delete-key	KeyError: 'netns'
+ban-reload	c61/ui-observation.json>no_primary_contact_before_probe:delete-key	KeyError: 'no_primary_contact_before_probe'
+ban-reload	c61/ui-ready.json>ns_route:delete-key	KeyError: 'ns_route'
+ban-reload	c61/cleanup-signals.json>observed:delete-key	KeyError: 'observed'
+ban-reload	c61/ui-ready.json>options_cancelled:delete-key	KeyError: 'options_cancelled'
+ban-reload	c61/terminal.json>original:delete-key	KeyError: 'original'
+ban-reload	c61/terminal.json>owned_ports_absent:delete-key	KeyError: 'owned_ports_absent'
+ban-reload	packet-views.json>views>namespace>packet_count:delete-key	KeyError: 'packet_count'
+ban-reload	packet-views.json>views>namespace>packet_indices:delete-key	KeyError: 'packet_indices'
+ban-reload	c61/host-ready-preprobe.json>pid:delete-key	KeyError: 'pid'
+ban-reload	c61/cleanup-signals.json>pid_gone:delete-key	KeyError: 'pid_gone'
+ban-reload	c61/preflight.json>ports_15750_15753_free:delete-key	KeyError: 'ports_15750_15753_free'
+ban-reload	c61/probe-launch.json>prepared_sha256:delete-key	KeyError: 'prepared_sha256'
+ban-reload	c61/terminal.json>original>primary:delete-key	KeyError: 'primary'
+ban-reload	c61/ui-ready.json>primary_syn_pcap_bytes:delete-key	KeyError: 'primary_syn_pcap_bytes'
+ban-reload	c61/ui-observation.json>probe_executed:delete-key	KeyError: 'probe_executed'
+ban-reload	c61/ui-ready.json>probe_prepared_sha256:delete-key	KeyError: 'probe_prepared_sha256'
+ban-reload	c61/terminal.json>probe_reruns:delete-key	KeyError: 'probe_reruns'
+ban-reload	c61/terminal.json>profile:delete-key	KeyError: 'profile'
+ban-reload	packet-views.json>views>namespace>received_hex:delete-key	KeyError: 'received_hex'
+ban-reload	packet-views.json>views>namespace>received_len:delete-key	KeyError: 'received_len'
+ban-reload	packet-views.json>views>namespace>received_sha256:delete-key	KeyError: 'received_sha256'
+ban-reload	packet-views.json>views>namespace>received_tail_hex:delete-key	KeyError: 'received_tail_hex'
+ban-reload	c61/ui-observation.json>resource_mapping:delete-key	KeyError: 'resource_mapping'
+ban-reload	c61/probe-launch-result.json>returncode:delete-key	KeyError: 'returncode'
+ban-reload	packet-views.json>views>namespace>rst_packets:delete-key	KeyError: 'rst_packets'
+ban-reload	c61/ui-observation.json>ban_tab>saved:delete-key	KeyError: 'saved'
+ban-reload	manifest.json>schema:delete-key	KeyError: 'schema'
+ban-reload	c61/ui-observation.json>screenshots_sha256:delete-key	KeyError: 'screenshots_sha256'
+ban-reload	packet-views.json>views>namespace>sent_hex:delete-key	KeyError: 'sent_hex'
+ban-reload	packet-views.json>views>namespace>sent_len:delete-key	KeyError: 'sent_len'
+ban-reload	packet-views.json>views>namespace>sent_sha256:delete-key	KeyError: 'sent_sha256'
+ban-reload	c61/terminal.json>server_quit_normal:delete-key	KeyError: 'server_quit_normal'
+ban-reload	manifest.json>source_c56_corpus:delete-key	KeyError: 'source_c56_corpus'
+ban-reload	manifest.json>source_c56_manifest_sha256:delete-key	KeyError: 'source_c56_manifest_sha256'
+ban-reload	manifest.json>source_native_data_sha256:delete-key	KeyError: 'source_native_data_sha256'
+ban-reload	manifest.json>source_native_rsrc_sha256:delete-key	KeyError: 'source_native_rsrc_sha256'
+ban-reload	c61/preflight.json>source_sha256:delete-key	KeyError: 'source_sha256'
+ban-reload	c61/host-ready-preprobe.json>start_ticks:delete-key	KeyError: 'start_ticks'
+ban-reload	c61/cleanup-signals.json>observed>starttime:delete-key	KeyError: 'starttime'
+ban-reload	c61/probe-launch.json>steps_unchanged:delete-key	KeyError: 'steps_unchanged'
+ban-reload	c56-reference/terminal.json>stopped_image_sha256:delete-key	KeyError: 'stopped_image_sha256'
+ban-reload	c61/ui-ready.json>actual_emulator>uid:delete-key	KeyError: 'uid'
+ban-reload	c61/host-ready-preprobe.json>unit_properties:delete-key	KeyError: 'unit_properties'
+ban-reload	c61/terminal.json>units:delete-key	KeyError: 'units'
+ban-reload	packet-views.json>views:delete-key	KeyError: 'views'
+ban-reload	c61/preflight.json>working_fd_holders:delete-key	KeyError: 'working_fd_holders'
+ban-reload	c56-reference/terminal.json>stopped_image_sha256:flip	ValueError: C56 stopped-image origin differs
+ban-reload	c61/probe-capture/plan.json>schema_version:inc	ValueError: Captured plan differs from as-run vector
+ban-reload	c61/probe-capture/report.json>schema_version:inc	ValueError: Checksum mismatch: report.json
+ban-reload	c61/cleanup-signals.json>observed>starttime:flip	ValueError: Cleanup PID, managed units or packet drops differ
+ban-reload	manifest.json>files>c56-reference/Banned.data.bin:flip	ValueError: Corpus SHA differs: c56-reference/Banned.data.bin
+ban-reload	manifest.json>files>c56-reference/terminal.json:flip	ValueError: Corpus SHA differs: c56-reference/terminal.json
+ban-reload	manifest.json>files>c61/Banned-postprobe.data.bin:flip	ValueError: Corpus SHA differs: c61/Banned-postprobe.data.bin
+ban-reload	manifest.json>files>c61/boot-after-repair.png:flip	ValueError: Corpus SHA differs: c61/boot-after-repair.png
+ban-reload	manifest.json>files>c61/boot-current.png:flip	ValueError: Corpus SHA differs: c61/boot-current.png
+ban-reload	manifest.json>files>c61/case-deadline.txt:flip	ValueError: Corpus SHA differs: c61/case-deadline.txt
+ban-reload	manifest.json>files>c61/cleanup-signals.json:flip	ValueError: Corpus SHA differs: c61/cleanup-signals.json
+ban-reload	manifest.json>files>c61/host-launch-result.json:flip	ValueError: Corpus SHA differs: c61/host-launch-result.json
+ban-reload	manifest.json>files>c61/host-launch.json:flip	ValueError: Corpus SHA differs: c61/host-launch.json
+ban-reload	manifest.json>files>c61/host-ready-final.json:flip	ValueError: Corpus SHA differs: c61/host-ready-final.json
+ban-reload	manifest.json>files>c61/host-ready-preprobe.json:flip	ValueError: Corpus SHA differs: c61/host-ready-preprobe.json
+ban-reload	manifest.json>files>c61/host-ready.json:flip	ValueError: Corpus SHA differs: c61/host-ready.json
+ban-reload	manifest.json>files>c61/host-recorder.log:flip	ValueError: Corpus SHA differs: c61/host-recorder.log
+ban-reload	manifest.json>files>c61/input.py:flip	ValueError: Corpus SHA differs: c61/input.py
+ban-reload	manifest.json>files>c61/lab-guest.pcap:flip	ValueError: Corpus SHA differs: c61/lab-guest.pcap
+ban-reload	manifest.json>files>c61/lab-namespace.pcap:flip	ValueError: Corpus SHA differs: c61/lab-namespace.pcap
+ban-reload	manifest.json>files>c61/namespace-launch-result.json:flip	ValueError: Corpus SHA differs: c61/namespace-launch-result.json
+ban-reload	manifest.json>files>c61/namespace-launch.json:flip	ValueError: Corpus SHA differs: c61/namespace-launch.json
+ban-reload	manifest.json>files>c61/namespace-ready-final.json:flip	ValueError: Corpus SHA differs: c61/namespace-ready-final.json
+ban-reload	manifest.json>files>c61/namespace-ready-preprobe.json:flip	ValueError: Corpus SHA differs: c61/namespace-ready-preprobe.json
+ban-reload	manifest.json>files>c61/namespace-ready.json:flip	ValueError: Corpus SHA differs: c61/namespace-ready.json
+ban-reload	manifest.json>files>c61/namespace-recorder.log:flip	ValueError: Corpus SHA differs: c61/namespace-recorder.log
+ban-reload	manifest.json>files>c61/old-network-archive.json:flip	ValueError: Corpus SHA differs: c61/old-network-archive.json
+ban-reload	manifest.json>files>c61/options-ban.png:flip	ValueError: Corpus SHA differs: c61/options-ban.png
+ban-reload	manifest.json>files>c61/options-cancelled.png:flip	ValueError: Corpus SHA differs: c61/options-cancelled.png
+ban-reload	manifest.json>files>c61/options-open.png:flip	ValueError: Corpus SHA differs: c61/options-open.png
+ban-reload	manifest.json>files>c61/preboot-fls.txt:flip	ValueError: Corpus SHA differs: c61/preboot-fls.txt
+ban-reload	manifest.json>files>c61/preflight.json:flip	ValueError: Corpus SHA differs: c61/preflight.json
+ban-reload	manifest.json>files>c61/primary-syn.pcap:flip	ValueError: Corpus SHA differs: c61/primary-syn.pcap
+ban-reload	manifest.json>files>c61/probe-asrun.json:flip	ValueError: Corpus SHA differs: c61/probe-asrun.json
+ban-reload	manifest.json>files>c61/probe-capture/checksums.sha256:flip	ValueError: Corpus SHA differs: c61/probe-capture/checksums.sha256
+ban-reload	manifest.json>files>c61/probe-capture/plan.json:flip	ValueError: Corpus SHA differs: c61/probe-capture/plan.json
+ban-reload	manifest.json>files>c61/probe-capture/report.json:flip	ValueError: Corpus SHA differs: c61/probe-capture/report.json
+ban-reload	manifest.json>files>c61/probe-launch-result.json:flip	ValueError: Corpus SHA differs: c61/probe-launch-result.json
+ban-reload	manifest.json>files>c61/probe-launch.json:flip	ValueError: Corpus SHA differs: c61/probe-launch.json
+ban-reload	manifest.json>files>c61/probe-prepared.json:flip	ValueError: Corpus SHA differs: c61/probe-prepared.json
+ban-reload	manifest.json>files>c61/probe-unit.log:flip	ValueError: Corpus SHA differs: c61/probe-unit.log
+ban-reload	manifest.json>files>c61/server-quit.png:flip	ValueError: Corpus SHA differs: c61/server-quit.png
+ban-reload	manifest.json>files>c61/server-ready.png:flip	ValueError: Corpus SHA differs: c61/server-ready.png
+ban-reload	manifest.json>files>c61/terminal.json:flip	ValueError: Corpus SHA differs: c61/terminal.json
+ban-reload	manifest.json>files>c61/ui-actions.jsonl:flip	ValueError: Corpus SHA differs: c61/ui-actions.jsonl
+ban-reload	manifest.json>files>c61/ui-observation.json:flip	ValueError: Corpus SHA differs: c61/ui-observation.json
+ban-reload	manifest.json>files>c61/ui-ready.json:flip	ValueError: Corpus SHA differs: c61/ui-ready.json
+ban-reload	manifest.json>files>packet-views.json:flip	ValueError: Corpus SHA differs: packet-views.json
+ban-reload	manifest.json>files>sources/capture_readiness.py:flip	ValueError: Corpus SHA differs: sources/capture_readiness.py
+ban-reload	manifest.json>files>sources/native_ban_control_cases.py:flip	ValueError: Corpus SHA differs: sources/native_ban_control_cases.py
+ban-reload	manifest.json>files>sources/native_control_readiness.py:flip	ValueError: Corpus SHA differs: sources/native_control_readiness.py
+ban-reload	manifest.json>files>sources/pcap_tcp.py:flip	ValueError: Corpus SHA differs: sources/pcap_tcp.py
+ban-reload	manifest.json>files>sources/protocol_capture.py:flip	ValueError: Corpus SHA differs: sources/protocol_capture.py
+ban-reload	manifest.json>files>c56-reference/Banned.data.bin:delete-key	ValueError: Corpus inventory differs
+ban-reload	c61/probe-launch-result.json>returncode:inc	ValueError: Managed root/namespace probe or exit differs
+ban-reload	c61/terminal.json>original>client>pid:inc	ValueError: Original client identity changed
+ban-reload	c61/terminal.json>original>primary>pid:inc	ValueError: Original primary identity changed
+ban-reload	c61/preflight.json>fls_sha256:flip	ValueError: Preboot HFS paths differ
+ban-reload	c61/preflight.json>source_sha256>working:flip	ValueError: Preboot source or scope differs
+ban-reload	c61/probe-asrun.json>schema_version:inc	ValueError: Prepared/as-run one-probe vector differs
+ban-reload	manifest.json>schema:flip	ValueError: Profile or source manifest differs
+ban-reload	c61/ui-observation.json>ban_tab>checked_row:flip	ValueError: Read-only Ban UI row or Cancel claim differs
+ban-reload	c61/ui-ready.json>actual_emulator>pid:inc	ValueError: Read-only UI boot identity differs
+ban-reload	c61/preflight.json>hfs_user_data_and_ban>admin:delete-key	ValueError: Stored ban or account bytes differ
+ban-reload	packet-views.json>connection:flip	ValueError: TCP flow identity differs
+ban-reload	c61/terminal.json>profile:flip	ValueError: Terminal profile, forced retirement or ban bytes differ
+ban-reload	packet-views.json>views>guest>packet_count:inc	ValueError: guest complete scoped TCP stream differs
+ban-reload	c61/host-ready-preprobe.json>pid:inc	ValueError: host recorder identity or deadline differs
+ban-reload	c61/probe-launch.json>argv>18:flip	ValueError: list.index(x): x not in list
+ban-reload	packet-views.json>views>namespace>packet_count:inc	ValueError: namespace complete scoped TCP stream differs
+ban-reload	c61/namespace-ready-preprobe.json>pid:inc	ValueError: namespace recorder identity or deadline differs
+ban-reload	c61/ui-ready.json>actual_emulator>uid:empty;c61/ui-ready.json>ns_route:delete-key	IndexError: list index out of range
+ban-reload	c61/ui-ready.json>actual_emulator>uid:empty;c61/ui-ready.json>actual_emulator>uid:delete-key	KeyError: 'uid'
+ban-reload	c61/host-ready-preprobe.json>unit_properties>ActiveState:delete-key;c61/host-ready-preprobe.json>header24:delete-key	KeyError: 'ActiveState'
+ban-reload	c61/host-ready-preprobe.json>unit_properties>ActiveState:delete-key;c61/host-ready-preprobe.json>unit_properties:delete-key	KeyError: 'unit_properties'
+ban-reload	c61/terminal.json>Banned:delete-key;c61/terminal.json>guest_emulator_forced_term:delete-key	KeyError: 'guest_emulator_forced_term'
+ban-reload	c61/terminal.json>Banned:delete-key;c61/terminal.json>owned_ports_absent:delete-key	KeyError: 'Banned'
+ban-reload	c61/host-ready-preprobe.json>unit_properties>RuntimeMaxUSec:delete-key;c61/host-ready-preprobe.json>deadline_utc:delete-key	KeyError: 'deadline_utc'
+ban-reload	c61/host-ready-preprobe.json>unit_properties>RuntimeMaxUSec:delete-key;c61/ui-ready.json>namespace_recorder:delete-key	KeyError: 'RuntimeMaxUSec'
+ban-reload	c61/terminal.json>account_or_ban_mutations:delete-key;c61/cleanup-signals.json>pid_gone:delete-key	KeyError: 'account_or_ban_mutations'
+ban-reload	c61/terminal.json>account_or_ban_mutations:delete-key;c61/terminal.json>probe_reruns:delete-key	KeyError: 'probe_reruns'
+ban-reload	c61/cleanup-signals.json>events>0>action:delete-key;c61/cleanup-signals.json>events:delete-key	KeyError: 'events'
+ban-reload	c61/cleanup-signals.json>events>0>action:delete-key;c61/terminal.json>units:delete-key	KeyError: 'action'
+ban-reload	c61/ui-observation.json>ban_tab>actions_taken:delete-key;c61/ui-observation.json>resource_mapping:delete-key	KeyError: 'actions_taken'
+ban-reload	c61/ui-observation.json>ban_tab>actions_taken:delete-key;c61/ui-observation.json>ban_tab>saved:delete-key	KeyError: 'saved'
+ban-reload	c61/ui-ready.json>actual_emulator:delete-key;manifest.json>files>packet-views.json:flip	ValueError: Corpus SHA differs: packet-views.json
+ban-reload	c61/terminal.json>actual_emulator_pid:delete-key;c61/terminal.json>actual_pid_gone:delete-key	KeyError: 'actual_emulator_pid'
+ban-reload	c61/terminal.json>actual_emulator_pid:delete-key;c61/terminal.json>profile:flip	ValueError: Terminal profile, forced retirement or ban bytes differ
+ban-reload	c61/terminal.json>actual_pid_gone:delete-key;c61/terminal.json>server_quit_normal:delete-key	KeyError: 'actual_pid_gone'
+ban-reload	c61/probe-launch.json>argv:delete-key;c61/probe-launch.json>steps_unchanged:delete-key	KeyError: 'steps_unchanged'
+ban-reload	c61/probe-launch.json>asrun_sha256:delete-key;c61/probe-launch.json>prepared_sha256:delete-key	KeyError: 'prepared_sha256'
+ban-reload	c61/probe-launch.json>asrun_sha256:delete-key;c61/probe-asrun.json>schema_version:inc	KeyError: 'asrun_sha256'
+ban-reload	c61/ui-observation.json>resource_mapping>ban_control_ids:delete-key;c61/ui-observation.json>probe_executed:delete-key	KeyError: 'ban_control_ids'
+ban-reload	c61/ui-observation.json>resource_mapping>ban_control_ids:delete-key;c61/ui-observation.json>resource_mapping:delete-key	KeyError: 'resource_mapping'
+ban-reload	c56-reference/terminal.json>ban_file:delete-key;manifest.json>files>c61/terminal.json:flip	ValueError: Corpus SHA differs: c61/terminal.json
+ban-reload	c61/ui-observation.json>ban_tab>checked_row:delete-key;c61/ui-observation.json>ban_tab>ip_field:delete-key	KeyError: 'checked_row'
+ban-reload	c61/ui-observation.json>ban_tab>checked_row:delete-key;c61/namespace-ready-preprobe.json>pid:inc	ValueError: namespace recorder identity or deadline differs
+ban-reload	c61/terminal.json>original>client:delete-key;c61/terminal.json>original>primary>fd16:delete-key	KeyError: 'fd16'
+ban-reload	packet-views.json>connection:delete-key;packet-views.json>local_port:delete-key	KeyError: 'local_port'
+ban-reload	c56-reference/terminal.json>ban_file>data_sha256:delete-key;c61/ui-ready.json>actual_emulator>pid:inc	KeyError: 'data_sha256'
+ban-reload	c61/host-ready-preprobe.json>deadline_utc:delete-key;c61/host-ready-preprobe.json>header24:delete-key	KeyError: 'header24'
+ban-reload	c61/host-ready-preprobe.json>deadline_utc:delete-key;c61/ui-observation.json>no_primary_contact_before_probe:delete-key	KeyError: 'deadline_utc'
+ban-reload	c61/ui-observation.json>ban_tab>edited:delete-key;c61/ui-observation.json>ban_tab>info_field:delete-key	KeyError: 'info_field'
+ban-reload	c61/cleanup-signals.json>events:delete-key;c61/cleanup-signals.json>observed>netns:delete-key	KeyError: 'netns'
+ban-reload	c61/ui-ready.json>actual_emulator>exe:delete-key;manifest.json>files>packet-views.json:flip	ValueError: Corpus SHA differs: packet-views.json
+ban-reload	c61/ui-ready.json>actual_emulator>exe:delete-key;c61/ui-ready.json>actual_emulator>pid:inc	ValueError: Read-only UI boot identity differs
+ban-reload	c61/preflight.json>existing_ban_state_preserved:delete-key;c61/preflight.json>full_file_baseline:delete-key	KeyError: 'full_file_baseline'
+ban-reload	c61/preflight.json>existing_ban_state_preserved:delete-key;manifest.json>files>c61/ui-observation.json:flip	ValueError: Corpus SHA differs: c61/ui-observation.json
+ban-reload	manifest.json>failed_full_A7:delete-key;manifest.json>source_native_data_sha256:delete-key	KeyError: 'failed_full_A7'
+ban-reload	manifest.json>failed_full_A7:delete-key;manifest.json>schema:flip	ValueError: Profile or source manifest differs
+ban-reload	c61/host-ready-preprobe.json>fd:delete-key;c61/host-ready-preprobe.json>start_ticks:delete-key	KeyError: 'start_ticks'
+ban-reload	c61/host-ready-preprobe.json>fd:delete-key;c61/host-ready-preprobe.json>unit_properties:delete-key	KeyError: 'fd'
+ban-reload	c61/terminal.json>original>primary>fd16:delete-key;c61/terminal.json>original:delete-key	KeyError: 'original'
+ban-reload	c61/terminal.json>original>primary>fd6:delete-key;c61/terminal.json>original:delete-key	KeyError: 'original'
+ban-reload	c61/terminal.json>original>primary>fd6:delete-key;c61/terminal.json>original>primary>pid:inc	ValueError: Original primary identity changed
+ban-reload	packet-views.json>views>namespace>fin_packets:delete-key;packet-views.json>views>namespace>last_us:delete-key	KeyError: 'last_us'
+ban-reload	packet-views.json>views>namespace>fin_packets:delete-key;packet-views.json>views>namespace>rst_packets:delete-key	KeyError: 'fin_packets'
+ban-reload	packet-views.json>views>namespace>first_us:delete-key;packet-views.json>views>namespace>last_us:delete-key	KeyError: 'first_us'
+ban-reload	packet-views.json>views>namespace>first_us:delete-key;packet-views.json>views>namespace>packet_count:inc	ValueError: namespace complete scoped TCP stream differs
+ban-reload	c61/preflight.json>fls_sha256:delete-key;manifest.json>files>c61/ui-ready.json:flip	ValueError: Corpus SHA differs: c61/ui-ready.json
+ban-reload	c61/preflight.json>full_file_baseline:delete-key;packet-views.json>views>namespace>packet_count:delete-key	KeyError: 'full_file_baseline'
+ban-reload	c61/preflight.json>full_file_baseline:delete-key;c61/preflight.json>ports_15750_15753_free:delete-key	KeyError: 'ports_15750_15753_free'
+ban-reload	packet-views.json>views>guest:delete-key;packet-views.json>views>namespace>received_tail_hex:delete-key	KeyError: 'received_tail_hex'
+ban-reload	c61/terminal.json>guest_emulator_forced_term:delete-key;c61/terminal.json>server_quit_normal:delete-key	KeyError: 'server_quit_normal'
+ban-reload	c61/preflight.json>hfs_user_data_and_ban:delete-key;packet-views.json>views>namespace:delete-key	KeyError: 'hfs_user_data_and_ban'
+ban-reload	c61/preflight.json>hfs_user_data_and_ban:delete-key;packet-views.json>views>namespace>packet_indices:delete-key	KeyError: 'hfs_user_data_and_ban'
+ban-reload	c61/preflight.json>hfs_user_data_and_ban:delete-key;c61/preflight.json>fls_sha256:flip	ValueError: Preboot HFS paths differ
+ban-reload	c61/ui-ready.json>host_recorder:delete-key;c61/host-ready-preprobe.json>pid:delete-key	KeyError: 'host_recorder'
+ban-reload	c61/ui-ready.json>host_recorder:delete-key;c61/ui-ready.json>probe_prepared_sha256:delete-key	KeyError: 'probe_prepared_sha256'
+ban-reload	c61/terminal.json>host_recorder_log_tail:delete-key;c61/terminal.json>namespace_recorder_log_tail:delete-key	KeyError: 'host_recorder_log_tail'
+ban-reload	c61/terminal.json>host_recorder_log_tail:delete-key;c61/terminal.json>units:delete-key	KeyError: 'units'
+ban-reload	c61/ui-observation.json>ban_tab>info_field:delete-key;c61/ui-observation.json>ban_tab>checked_row:flip	ValueError: Read-only Ban UI row or Cancel claim differs
+ban-reload	c61/ui-observation.json>ban_tab>ip_field:delete-key;c61/ui-observation.json>ban_tab>checked_row:flip	KeyError: 'ip_field'
+ban-reload	packet-views.json>local_port:delete-key;c61/probe-capture/report.json>schema_version:inc	ValueError: Checksum mismatch: report.json
+ban-reload	c61/ui-ready.json>namespace_pcap_bytes:delete-key;c61/ui-ready.json>options_cancelled:delete-key	KeyError: 'namespace_pcap_bytes'
+ban-reload	c61/ui-ready.json>namespace_pcap_bytes:delete-key;c61/ui-ready.json>primary_syn_pcap_bytes:delete-key	KeyError: 'primary_syn_pcap_bytes'
+ban-reload	c61/ui-ready.json>namespace_pcap_bytes:delete-key;manifest.json>files>c56-reference/terminal.json:flip	ValueError: Corpus SHA differs: c56-reference/terminal.json
+ban-reload	c61/ui-ready.json>namespace_recorder:delete-key;c61/namespace-ready-preprobe.json>pid:inc	KeyError: 'namespace_recorder'
+ban-reload	c61/terminal.json>namespace_recorder_log_tail:delete-key;c61/terminal.json>original>primary:delete-key	KeyError: 'namespace_recorder_log_tail'
+ban-reload	c61/cleanup-signals.json>observed>netns:delete-key;c61/cleanup-signals.json>observed>starttime:flip	ValueError: Cleanup PID, managed units or packet drops differ
+ban-reload	c61/ui-observation.json>no_primary_contact_before_probe:delete-key;c61/ui-observation.json>probe_executed:delete-key	KeyError: 'probe_executed'
+ban-reload	c61/ui-observation.json>no_primary_contact_before_probe:delete-key;c61/ui-observation.json>screenshots_sha256:delete-key	KeyError: 'no_primary_contact_before_probe'
+ban-reload	c61/ui-ready.json>ns_route:delete-key;c61/ui-ready.json>primary_syn_pcap_bytes:delete-key	KeyError: 'ns_route'
+ban-reload	c61/cleanup-signals.json>observed:delete-key;c61/cleanup-signals.json>pid_gone:delete-key	KeyError: 'pid_gone'
+ban-reload	c61/ui-ready.json>options_cancelled:delete-key;c61/ui-ready.json>probe_prepared_sha256:delete-key	KeyError: 'options_cancelled'
+ban-reload	c61/terminal.json>owned_ports_absent:delete-key;c61/terminal.json>probe_reruns:delete-key	KeyError: 'owned_ports_absent'
+ban-reload	packet-views.json>views>namespace>packet_count:delete-key;packet-views.json>views:delete-key	KeyError: 'views'
+ban-reload	packet-views.json>views>namespace>packet_indices:delete-key;packet-views.json>views:delete-key	KeyError: 'views'
+ban-reload	packet-views.json>views>namespace>packet_indices:delete-key;packet-views.json>connection:flip	ValueError: TCP flow identity differs
+ban-reload	c61/preflight.json>ports_15750_15753_free:delete-key;c61/preflight.json>working_fd_holders:delete-key	KeyError: 'working_fd_holders'
+ban-reload	c61/probe-launch.json>prepared_sha256:delete-key;c61/ui-observation.json>screenshots_sha256:delete-key	KeyError: 'screenshots_sha256'
+ban-reload	c61/terminal.json>profile:delete-key;packet-views.json>views>guest>packet_count:inc	ValueError: guest complete scoped TCP stream differs
+ban-reload	packet-views.json>views>namespace>received_hex:delete-key;packet-views.json>views>namespace>received_sha256:delete-key	KeyError: 'received_sha256'
+ban-reload	packet-views.json>views>namespace>received_hex:delete-key;packet-views.json>views>namespace>received_tail_hex:delete-key	KeyError: 'received_hex'
+ban-reload	packet-views.json>views>namespace>received_len:delete-key;packet-views.json>views>namespace>received_sha256:delete-key	KeyError: 'received_len'
+ban-reload	c61/probe-launch-result.json>returncode:delete-key;c61/probe-launch.json>argv>18:flip	ValueError: list.index(x): x not in list
+ban-reload	packet-views.json>views>namespace>rst_packets:delete-key;packet-views.json>views>namespace>sent_len:delete-key	KeyError: 'rst_packets'
+ban-reload	manifest.json>schema:delete-key;manifest.json>files>c61/host-ready-final.json:flip	KeyError: 'schema'
+ban-reload	packet-views.json>views>namespace>sent_hex:delete-key;packet-views.json>views>namespace>sent_sha256:delete-key	KeyError: 'sent_sha256'
+ban-reload	packet-views.json>views>namespace>sent_len:delete-key;packet-views.json>views>namespace>sent_sha256:delete-key	KeyError: 'sent_len'
+ban-reload	manifest.json>source_c56_corpus:delete-key;manifest.json>source_c56_manifest_sha256:delete-key	KeyError: 'source_c56_manifest_sha256'
+ban-reload	manifest.json>source_c56_corpus:delete-key;manifest.json>files>c56-reference/Banned.data.bin:delete-key	KeyError: 'source_c56_corpus'
+ban-reload	manifest.json>source_c56_manifest_sha256:delete-key;manifest.json>source_native_rsrc_sha256:delete-key	KeyError: 'source_native_rsrc_sha256'
+ban-reload	manifest.json>source_native_data_sha256:delete-key;manifest.json>source_native_rsrc_sha256:delete-key	KeyError: 'source_native_data_sha256'
+ban-reload	c61/preflight.json>source_sha256:delete-key;manifest.json>files>sources/protocol_capture.py:flip	ValueError: Corpus SHA differs: sources/protocol_capture.py
+ban-reload	c61/host-ready-preprobe.json>start_ticks:delete-key;c61/host-ready-preprobe.json>pid:inc	ValueError: host recorder identity or deadline differs
+ban-reload	c61/probe-launch.json>steps_unchanged:delete-key;c61/probe-asrun.json>schema_version:inc	ValueError: Prepared/as-run one-probe vector differs
+ban-reload	c56-reference/terminal.json>stopped_image_sha256:delete-key;c61/preflight.json>hfs_user_data_and_ban>admin:delete-key	ValueError: Stored ban or account bytes differ
+ban-reload	c61/preflight.json>working_fd_holders:delete-key;c61/preflight.json>source_sha256>working:flip	ValueError: Preboot source or scope differs
+ban-reload	c56-reference/terminal.json>stopped_image_sha256:flip;manifest.json>files>c61/terminal.json:flip	ValueError: Corpus SHA differs: c61/terminal.json
+ban-reload	c61/probe-capture/plan.json>schema_version:inc;c61/probe-capture/report.json>schema_version:inc	ValueError: Captured plan differs from as-run vector
+ban-reload	c61/probe-capture/plan.json>schema_version:inc;c61/probe-launch-result.json>returncode:inc	ValueError: Managed root/namespace probe or exit differs
+ban-reload	manifest.json>files>c56-reference/Banned.data.bin:flip;manifest.json>files>c61/Banned-postprobe.data.bin:flip	ValueError: Corpus SHA differs: c56-reference/Banned.data.bin
+ban-reload	manifest.json>files>c56-reference/Banned.data.bin:flip;manifest.json>files>c56-reference/Banned.data.bin:delete-key	ValueError: Corpus inventory differs
+ban-reload	manifest.json>files>c56-reference/terminal.json:flip;manifest.json>files>c61/boot-current.png:flip	ValueError: Corpus SHA differs: c56-reference/terminal.json
+ban-reload	manifest.json>files>c56-reference/terminal.json:flip;manifest.json>files>c61/case-deadline.txt:flip	ValueError: Corpus SHA differs: c56-reference/terminal.json
+ban-reload	manifest.json>files>c61/Banned-postprobe.data.bin:flip;manifest.json>files>c61/boot-after-repair.png:flip	ValueError: Corpus SHA differs: c61/Banned-postprobe.data.bin
+ban-reload	manifest.json>files>c61/boot-after-repair.png:flip;manifest.json>files>c61/boot-current.png:flip	ValueError: Corpus SHA differs: c61/boot-after-repair.png
+ban-reload	manifest.json>files>c61/case-deadline.txt:flip;manifest.json>files>c61/host-launch-result.json:flip	ValueError: Corpus SHA differs: c61/case-deadline.txt
+ban-reload	manifest.json>files>c61/case-deadline.txt:flip;packet-views.json>connection:flip	ValueError: Corpus SHA differs: c61/case-deadline.txt
+ban-reload	manifest.json>files>c61/cleanup-signals.json:flip;manifest.json>files>c61/host-recorder.log:flip	ValueError: Corpus SHA differs: c61/cleanup-signals.json
+ban-reload	manifest.json>files>c61/cleanup-signals.json:flip;manifest.json>files>c61/input.py:flip	ValueError: Corpus SHA differs: c61/cleanup-signals.json
+ban-reload	manifest.json>files>c61/host-launch-result.json:flip;manifest.json>files>c61/host-launch.json:flip	ValueError: Corpus SHA differs: c61/host-launch-result.json
+ban-reload	manifest.json>files>c61/host-launch.json:flip;manifest.json>files>c61/host-ready-final.json:flip	ValueError: Corpus SHA differs: c61/host-launch.json
+ban-reload	manifest.json>files>c61/host-ready-final.json:flip;manifest.json>files>c61/host-ready.json:flip	ValueError: Corpus SHA differs: c61/host-ready-final.json
+ban-reload	manifest.json>files>c61/host-ready-preprobe.json:flip;manifest.json>files>c61/namespace-ready-final.json:flip	ValueError: Corpus SHA differs: c61/host-ready-preprobe.json
+ban-reload	manifest.json>files>c61/host-ready-preprobe.json:flip;manifest.json>files>c61/namespace-ready-preprobe.json:flip	ValueError: Corpus SHA differs: c61/host-ready-preprobe.json
+ban-reload	manifest.json>files>c61/host-ready.json:flip;manifest.json>files>c61/host-recorder.log:flip	ValueError: Corpus SHA differs: c61/host-ready.json
+ban-reload	manifest.json>files>c61/input.py:flip;manifest.json>files>c61/lab-guest.pcap:flip	ValueError: Corpus SHA differs: c61/input.py
+ban-reload	manifest.json>files>c61/lab-guest.pcap:flip;manifest.json>files>c61/lab-namespace.pcap:flip	ValueError: Corpus SHA differs: c61/lab-guest.pcap
+ban-reload	manifest.json>files>c61/lab-namespace.pcap:flip;manifest.json>files>c61/namespace-launch-result.json:flip	ValueError: Corpus SHA differs: c61/lab-namespace.pcap
+ban-reload	manifest.json>files>c61/namespace-launch-result.json:flip;manifest.json>files>c61/namespace-launch.json:flip	ValueError: Corpus SHA differs: c61/namespace-launch-result.json
+ban-reload	manifest.json>files>c61/namespace-launch.json:flip;manifest.json>files>c61/namespace-ready-final.json:flip	ValueError: Corpus SHA differs: c61/namespace-launch.json
+ban-reload	manifest.json>files>c61/namespace-ready-preprobe.json:flip;manifest.json>files>c61/namespace-ready.json:flip	ValueError: Corpus SHA differs: c61/namespace-ready-preprobe.json
+ban-reload	manifest.json>files>c61/namespace-ready.json:flip;manifest.json>files>c61/namespace-recorder.log:flip	ValueError: Corpus SHA differs: c61/namespace-ready.json
+ban-reload	manifest.json>files>c61/namespace-recorder.log:flip;manifest.json>files>c61/old-network-archive.json:flip	ValueError: Corpus SHA differs: c61/namespace-recorder.log
+ban-reload	manifest.json>files>c61/namespace-recorder.log:flip;manifest.json>files>c61/ui-ready.json:flip	ValueError: Corpus SHA differs: c61/namespace-recorder.log
+ban-reload	manifest.json>files>c61/old-network-archive.json:flip;manifest.json>files>c61/options-ban.png:flip	ValueError: Corpus SHA differs: c61/old-network-archive.json
+ban-reload	manifest.json>files>c61/options-ban.png:flip;manifest.json>files>c61/options-cancelled.png:flip	ValueError: Corpus SHA differs: c61/options-ban.png
+ban-reload	manifest.json>files>c61/options-cancelled.png:flip;manifest.json>files>c61/options-open.png:flip	ValueError: Corpus SHA differs: c61/options-cancelled.png
+ban-reload	manifest.json>files>c61/options-open.png:flip;manifest.json>files>c61/preboot-fls.txt:flip	ValueError: Corpus SHA differs: c61/options-open.png
+ban-reload	manifest.json>files>c61/preboot-fls.txt:flip;manifest.json>files>c61/primary-syn.pcap:flip	ValueError: Corpus SHA differs: c61/preboot-fls.txt
+ban-reload	manifest.json>files>c61/preflight.json:flip;manifest.json>files>c61/probe-unit.log:flip	ValueError: Corpus SHA differs: c61/preflight.json
+ban-reload	manifest.json>files>c61/preflight.json:flip;manifest.json>files>c61/server-quit.png:flip	ValueError: Corpus SHA differs: c61/preflight.json
+ban-reload	manifest.json>files>c61/primary-syn.pcap:flip;manifest.json>files>c61/probe-asrun.json:flip	ValueError: Corpus SHA differs: c61/primary-syn.pcap
+ban-reload	manifest.json>files>c61/probe-asrun.json:flip;manifest.json>files>c61/probe-capture/checksums.sha256:flip	ValueError: Corpus SHA differs: c61/probe-asrun.json
+ban-reload	manifest.json>files>c61/probe-capture/checksums.sha256:flip;manifest.json>files>c61/probe-capture/plan.json:flip	ValueError: Corpus SHA differs: c61/probe-capture/checksums.sha256
+ban-reload	manifest.json>files>c61/probe-capture/plan.json:flip;manifest.json>files>c61/probe-capture/report.json:flip	ValueError: Corpus SHA differs: c61/probe-capture/plan.json
+ban-reload	manifest.json>files>c61/probe-capture/report.json:flip;manifest.json>files>c61/probe-launch-result.json:flip	ValueError: Corpus SHA differs: c61/probe-capture/report.json
+ban-reload	manifest.json>files>c61/probe-launch-result.json:flip;manifest.json>files>c61/probe-prepared.json:flip	ValueError: Corpus SHA differs: c61/probe-launch-result.json
+ban-reload	manifest.json>files>c61/probe-launch.json:flip;manifest.json>files>c61/server-ready.png:flip	ValueError: Corpus SHA differs: c61/probe-launch.json
+ban-reload	manifest.json>files>c61/probe-launch.json:flip;manifest.json>files>c61/ui-actions.jsonl:flip	ValueError: Corpus SHA differs: c61/probe-launch.json
+ban-reload	manifest.json>files>c61/probe-prepared.json:flip;manifest.json>files>c61/probe-unit.log:flip	ValueError: Corpus SHA differs: c61/probe-prepared.json
+ban-reload	manifest.json>files>c61/server-quit.png:flip;manifest.json>files>c61/server-ready.png:flip	ValueError: Corpus SHA differs: c61/server-quit.png
+ban-reload	manifest.json>files>c61/ui-actions.jsonl:flip;manifest.json>files>sources/capture_readiness.py:flip	ValueError: Corpus SHA differs: c61/ui-actions.jsonl
+ban-reload	manifest.json>files>c61/ui-observation.json:flip;manifest.json>files>c61/ui-ready.json:flip	ValueError: Corpus SHA differs: c61/ui-observation.json
+ban-reload	manifest.json>files>sources/capture_readiness.py:flip;manifest.json>files>sources/native_ban_control_cases.py:flip	ValueError: Corpus SHA differs: sources/capture_readiness.py
+ban-reload	manifest.json>files>sources/native_control_readiness.py:flip;manifest.json>files>sources/pcap_tcp.py:flip	ValueError: Corpus SHA differs: sources/native_control_readiness.py
