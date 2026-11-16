@@ -46,5 +46,3 @@ scripts/verify_native_settings.py  # live bytes compared with a recorded hash
 scripts/verify_native_settings_corpus.py
 scripts/verify_native_settings_persistence.py
 scripts/verify_native_settings_transition.py  # live bytes compared with a recorded hash
-scripts/test_verify_classic_field161_matrix.py
-scripts/verify_classic_field161_matrix.py

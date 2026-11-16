@@ -2,7 +2,9 @@
 
 Load it with ``-p golden_pytest_plugin`` and name the output file in
 ``GOLDEN_PYTEST_OUT``. A test is keyed ``module.Class.test`` (``module.test``
-without a class), which is the ``unittest`` id of the test it replaced.
+without a class), which is the ``unittest`` id of the test it replaced. A strict
+expected failure is the ``error`` of a ``unittest`` that was known red, and its
+reason is the detail; a pass or another exception fails the test, so is a ``fail``.
 """
 
 import json
@@ -26,6 +28,8 @@ def pytest_runtest_logreport(report: pytest.TestReport) -> None:
         outcome = "error"
     lines = [x for x in report.longreprtext.splitlines() if x.strip()] or [""]
     detail = lines[-1].removeprefix("E   ")[:200] if outcome != "ok" else ""
+    if report.skipped and hasattr(report, "wasxfail"):
+        outcome, detail = "error", report.wasxfail[:200]
     known = OUTCOMES.get(key, {"outcome": "ok"})["outcome"]
     counts = report.when == "call" or outcome != "ok"
     if counts and RANK.index(outcome) >= RANK.index(known):

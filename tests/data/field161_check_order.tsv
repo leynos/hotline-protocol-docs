@@ -1,0 +1,481 @@
+readiness		ok 5584acb8bff32e69
+readiness	host-ready-before-a7.json>pid:delete-key	KeyError: 'pid'
+readiness	host-ready-launch.json>unit:flip	ok 5584acb8bff32e69
+readiness	host-ready-before-a7.json>unit_properties>MainPID:delete-key	KeyError: 'MainPID'
+readiness	four-byte-161/ns-ready-before-connect.json>dev:delete-key	KeyError: 'dev'
+readiness	terminal.json>captures>end_states:delete-key	ok 5584acb8bff32e69
+readiness	ns-ready-before-a7.json>capture:flip	ok 5584acb8bff32e69
+readiness	one-byte-161/ns-ready-before-connect.json>unit_properties>MainPID:delete-key	KeyError: 'MainPID'
+readiness	ns-ready-launch.json>header24:flip	ValueError: capture header/deadline ns-ready-launch.json
+readiness	ns-ready-before-a7.json>utc:delete-key	ok 5584acb8bff32e69
+readiness	one-byte-161/ns-ready-before-connect.json>fd:delete-key	KeyError: 'fd'
+readiness	omit-161/host-ready-before-connect.json>netns_inode:inc	ValueError: capture owner omit-161/host-ready-before-connect.json
+readiness	omit-161/host-ready-before-connect.json>fd:delete-key	KeyError: 'fd'
+readiness	ns-ready-launch.json>unit_properties>KillMode:delete-key	KeyError: 'KillMode'
+readiness	terminal.json>sources>x11_input_sha256:delete-key	ok 5584acb8bff32e69
+readiness	former-pids-terminal.txt:empty	ValueError: former capture/proxy PID cleanup
+readiness	ns-ready-launch.json>unit_properties>ActiveState:delete-key	KeyError: 'ActiveState'
+readiness	terminal.json>captures>namespace_unit:flip	ok 5584acb8bff32e69
+readiness	omit-161/host-ready-before-connect.json>start_ticks:inc	ValueError: capture identity drift host
+readiness	omit-161/ns-ready-before-connect.json>header24:delete-key	KeyError: 'header24'
+readiness	four-byte-161/host-ready-before-connect.json>capture:flip	ok 5584acb8bff32e69
+readiness	four-byte-161/ns-ready-before-connect.json>inode:inc	ValueError: capture identity drift ns
+readiness	terminal.json>captures>readiness_receipts>2:flip	ok 5584acb8bff32e69
+readiness	four-byte-161/host-ready-before-connect.json>utc:flip	ok 5584acb8bff32e69
+readiness	omit-161/host-ready-before-connect.json>pid:inc	ValueError: capture owner omit-161/host-ready-before-connect.json
+readiness	ns-ready-launch.json>unit_properties>SubState:flip	ValueError: unit ready ns-ready-launch.json
+readiness	ns-ready-before-a7.json>unit_properties>MainPID:flip	ValueError: unit ready ns-ready-before-a7.json
+readiness	terminal.json>live_start_utc:flip	ValueError: group bound
+readiness	one-byte-161/ns-ready-before-connect.json>dev:inc	ValueError: capture identity drift ns
+readiness	terminal.json>fixed_group_deadline_utc:flip	ValueError: fixed group deadline
+readiness	omit-161/ns-ready-before-connect.json>inode:delete-key	KeyError: 'inode'
+readiness	ns-ready-before-a7.json>unit_properties>RuntimeMaxUSec:flip	ValueError: unit ready ns-ready-before-a7.json
+readiness	ns-ready-before-a7.json>unit_properties>SubState:delete-key	KeyError: 'SubState'
+readiness	terminal.json>case_results>one-byte-161>reply_types>2:inc	ok 5584acb8bff32e69
+readiness	omit-161/host-ready-before-connect.json>unit_properties>MainPID:delete-key	KeyError: 'MainPID'
+readiness	one-byte-161/ns-ready-before-connect.json>unit_properties>ActiveState:flip	ValueError: unit ready one-byte-161/ns-ready-before-connect.json
+readiness	four-byte-161/host-ready-before-connect.json>unit_properties>SubState:flip	ValueError: unit ready four-byte-161/host-ready-before-connect.json
+readiness	one-byte-161/ns-ready-before-connect.json>deadline_utc:delete-key	KeyError: 'deadline_utc'
+readiness	ns-ready-launch.json>start_ticks:inc	ValueError: capture identity drift ns
+readiness	ns-ready-before-a7.json>netns_inode:delete-key	KeyError: 'netns_inode'
+readiness	host-ready-launch.json>netns_inode:inc	ValueError: capture owner host-ready-launch.json
+readiness	ns-ready-launch.json>inode:delete-key	KeyError: 'inode'
+readiness	host-ready-before-a7.json>unit_properties>KillMode:delete-key	KeyError: 'KillMode'
+readiness	four-byte-161/ns-ready-before-connect.json>start_ticks:delete-key	KeyError: 'start_ticks'
+readiness	host-ready-before-a7.json>netns_inode:delete-key	KeyError: 'netns_inode'
+readiness	host-ready-before-a7.json>deadline_utc:delete-key	KeyError: 'deadline_utc'
+readiness	omit-161/ns-ready-before-connect.json>netns_inode:inc	ValueError: capture owner omit-161/ns-ready-before-connect.json
+readiness	host-ready-launch.json>unit_properties>SubState:delete-key	KeyError: 'SubState'
+readiness	ns-ready-before-a7.json>unit_properties>ActiveState:delete-key	KeyError: 'ActiveState'
+readiness	one-byte-161/host-ready-before-connect.json>start_ticks:inc	ValueError: capture identity drift host
+readiness	four-byte-161/host-ready-before-connect.json>unit_properties>KillMode:flip	ValueError: unit ready four-byte-161/host-ready-before-connect.json
+readiness	host-ready-before-a7.json>pid:inc	ValueError: capture owner host-ready-before-a7.json
+readiness	four-byte-161/ns-ready-before-connect.json>unit_properties>ActiveState:flip	ValueError: unit ready four-byte-161/ns-ready-before-connect.json
+readiness	four-byte-161/ns-ready-before-connect.json>inode:delete-key	KeyError: 'inode'
+readiness	one-byte-161/host-ready-before-connect.json>unit_properties>RuntimeMaxUSec:delete-key	KeyError: 'RuntimeMaxUSec'
+readiness	omit-161/ns-ready-before-connect.json>deadline_utc:delete-key	KeyError: 'deadline_utc'
+readiness	one-byte-161/ns-ready-before-connect.json>netns_inode:inc	ValueError: capture owner one-byte-161/ns-ready-before-connect.json
+readiness	omit-161/host-ready-before-connect.json>unit_properties>ActiveState:flip	ValueError: unit ready omit-161/host-ready-before-connect.json
+readiness	omit-161/host-ready-before-connect.json>unit_properties>ActiveState:delete-key	KeyError: 'ActiveState'
+readiness	omit-161/host-ready-before-connect.json>unit_properties>MainPID:flip	ValueError: unit ready omit-161/host-ready-before-connect.json
+readiness	host-ready-launch.json>unit_properties>KillMode:flip	ValueError: unit ready host-ready-launch.json
+readiness	one-byte-161/host-ready-before-connect.json>fd:inc	ValueError: capture owner one-byte-161/host-ready-before-connect.json
+readiness	four-byte-161/ns-ready-before-connect.json>unit_properties>KillMode:delete-key	KeyError: 'KillMode'
+readiness	terminal.json>sources>capture_gate_sha256:flip	ValueError: capture gate identity
+readiness	omit-161/host-ready-before-connect.json>netns_inode:delete-key	KeyError: 'netns_inode'
+readiness	one-byte-161/host-ready-before-connect.json>fd:delete-key	KeyError: 'fd'
+readiness	ns-ready-launch.json>pid:inc	ValueError: capture owner ns-ready-launch.json
+readiness	units-terminal.txt:empty	ValueError: unit cleanup mothra-b52-host-capture
+readiness	host-recorder-journal.txt:empty	ValueError: capture drops host
+readiness	host-ready-launch.json>inode:inc	ValueError: capture identity drift host
+readiness	one-byte-161/host-ready-before-connect.json>start_ticks:delete-key	KeyError: 'start_ticks'
+readiness	one-byte-161/host-ready-before-connect.json>pid:delete-key	KeyError: 'pid'
+readiness	ns-ready-launch.json>start_ticks:delete-key	KeyError: 'start_ticks'
+readiness	omit-161/host-ready-before-connect.json>fd:inc	ValueError: capture owner omit-161/host-ready-before-connect.json
+readiness	host-ready-before-a7.json>netns_inode:inc	ValueError: capture owner host-ready-before-a7.json
+readiness	host-ready-launch.json>header24:delete-key	KeyError: 'header24'
+readiness	omit-161/ns-ready-before-connect.json>deadline_utc:flip	ValueError: capture header/deadline omit-161/ns-ready-before-connect.json
+readiness	four-byte-161/ns-ready-before-connect.json>header24:delete-key	KeyError: 'header24'
+readiness	omit-161/ns-ready-before-connect.json>fd:inc	ValueError: capture owner omit-161/ns-ready-before-connect.json
+readiness	four-byte-161/host-ready-before-connect.json>unit_properties>ActiveState:flip	ValueError: unit ready four-byte-161/host-ready-before-connect.json
+readiness	host-ready-before-a7.json>unit_properties>ActiveState:flip	ValueError: unit ready host-ready-before-a7.json
+readiness	omit-161/ns-ready-before-connect.json>unit_properties>KillMode:flip	ValueError: unit ready omit-161/ns-ready-before-connect.json
+readiness	terminal.json>sources>capture_gate_sha256:delete-key	KeyError: 'capture_gate_sha256'
+readiness	ns-ready-before-a7.json>netns_inode:inc	ValueError: capture owner ns-ready-before-a7.json
+readiness	one-byte-161/ns-ready-before-connect.json>pid:delete-key	KeyError: 'pid'
+readiness	ns-ready-before-a7.json>fd:inc	ValueError: capture owner ns-ready-before-a7.json
+readiness	four-byte-161/ns-ready-before-connect.json>fd:inc	ValueError: capture owner four-byte-161/ns-ready-before-connect.json
+readiness	one-byte-161/host-ready-before-connect.json>deadline_utc:flip	ValueError: capture header/deadline one-byte-161/host-ready-before-connect.json
+readiness	host-ready-before-a7.json>fd:inc	ValueError: capture owner host-ready-before-a7.json
+readiness	ns-ready-launch.json>unit_properties>SubState:delete-key	KeyError: 'SubState'
+readiness	host-ready-launch.json>unit_properties>RuntimeMaxUSec:delete-key	KeyError: 'RuntimeMaxUSec'
+readiness	four-byte-161/ns-ready-before-connect.json>unit_properties>RuntimeMaxUSec:delete-key	KeyError: 'RuntimeMaxUSec'
+readiness	one-byte-161/ns-ready-before-connect.json>deadline_utc:flip	ValueError: capture header/deadline one-byte-161/ns-ready-before-connect.json
+readiness	manifest.json>capture_gate_sha256:flip	ValueError: capture gate identity
+readiness	host-ready-launch.json>unit_properties>MainPID:flip	ValueError: unit ready host-ready-launch.json
+readiness	ns-ready-before-a7.json>unit_properties>SubState:flip	ValueError: unit ready ns-ready-before-a7.json
+readiness	host-ready-before-a7.json>unit_properties>MainPID:flip	ValueError: unit ready host-ready-before-a7.json
+readiness	ns-ready-launch.json>unit_properties>KillMode:flip	ValueError: unit ready ns-ready-launch.json
+readiness	host-ready-before-a7.json>header24:flip	ValueError: capture header/deadline host-ready-before-a7.json
+readiness	manifest.json>capture_gate_sha256:delete-key	KeyError: 'capture_gate_sha256'
+readiness	terminal.json>fixed_group_deadline_utc:delete-key	KeyError: 'fixed_group_deadline_utc'
+readiness	omit-161/ns-ready-before-connect.json>pid:inc	ValueError: capture owner omit-161/ns-ready-before-connect.json
+readiness	omit-161/ns-ready-before-connect.json>unit_properties>ActiveState:flip	ValueError: unit ready omit-161/ns-ready-before-connect.json
+readiness	host-ready-launch.json>unit_properties>RuntimeMaxUSec:flip	ValueError: unit ready host-ready-launch.json
+readiness	ns-ready-before-a7.json>header24:flip	ValueError: capture header/deadline ns-ready-before-a7.json
+readiness	ns-ready-before-a7.json>pid:inc	ValueError: capture owner ns-ready-before-a7.json
+readiness	omit-161/ns-ready-before-connect.json>unit_properties>SubState:flip	ValueError: unit ready omit-161/ns-ready-before-connect.json
+readiness	one-byte-161/ns-ready-before-connect.json>unit_properties>MainPID:flip	ValueError: unit ready one-byte-161/ns-ready-before-connect.json
+readiness	one-byte-161/host-ready-before-connect.json>dev:delete-key	KeyError: 'dev'
+readiness	ns-ready-launch.json>dev:delete-key	KeyError: 'dev'
+readiness	one-byte-161/host-ready-before-connect.json>unit_properties>ActiveState:flip	ValueError: unit ready one-byte-161/host-ready-before-connect.json
+readiness	host-ready-before-a7.json>unit_properties>KillMode:flip	ValueError: unit ready host-ready-before-a7.json
+readiness	one-byte-161/host-ready-before-connect.json>unit_properties>KillMode:flip	ValueError: unit ready one-byte-161/host-ready-before-connect.json
+readiness	ns-ready-launch.json>unit_properties>MainPID:flip	ValueError: unit ready ns-ready-launch.json
+readiness	omit-161/host-ready-before-connect.json>deadline_utc:flip	ValueError: capture header/deadline omit-161/host-ready-before-connect.json
+readiness	host-ready-launch.json>header24:flip	ValueError: capture header/deadline host-ready-launch.json
+readiness	ns-ready-launch.json>netns_inode:inc	ValueError: capture owner ns-ready-launch.json
+readiness	one-byte-161/host-ready-before-connect.json>header24:flip	ValueError: capture header/deadline one-byte-161/host-ready-before-connect.json
+readiness	omit-161/ns-ready-before-connect.json>header24:flip	ValueError: capture header/deadline omit-161/ns-ready-before-connect.json
+readiness	ns-ready-launch.json>fd:inc	ValueError: capture owner ns-ready-launch.json
+readiness	host-ready-before-a7.json>deadline_utc:flip	ValueError: capture header/deadline host-ready-before-a7.json
+readiness	one-byte-161/host-ready-before-connect.json>unit_properties>RuntimeMaxUSec:flip	ValueError: unit ready one-byte-161/host-ready-before-connect.json
+readiness	terminal.json>live_end_utc:delete-key	KeyError: 'live_end_utc'
+readiness	four-byte-161/ns-ready-before-connect.json>unit_properties>RuntimeMaxUSec:flip	ValueError: unit ready four-byte-161/ns-ready-before-connect.json
+readiness	four-byte-161/host-ready-before-connect.json>pid:inc	ValueError: capture owner four-byte-161/host-ready-before-connect.json
+readiness	one-byte-161/ns-ready-before-connect.json>unit_properties>SubState:flip	ValueError: unit ready one-byte-161/ns-ready-before-connect.json
+readiness	terminal.json>live_end_utc:flip	ValueError: group bound
+readiness	host-ready-launch.json>fd:inc	ValueError: capture owner host-ready-launch.json
+readiness	four-byte-161/ns-ready-before-connect.json>unit_properties>KillMode:flip	ValueError: unit ready four-byte-161/ns-ready-before-connect.json
+readiness	one-byte-161/ns-ready-before-connect.json>fd:inc	ValueError: capture owner one-byte-161/ns-ready-before-connect.json
+readiness	four-byte-161/host-ready-before-connect.json>header24:flip	ValueError: capture header/deadline four-byte-161/host-ready-before-connect.json
+readiness	omit-161/host-ready-before-connect.json>unit_properties>RuntimeMaxUSec:flip	ValueError: unit ready omit-161/host-ready-before-connect.json
+readiness	four-byte-161/host-ready-before-connect.json>netns_inode:inc	ValueError: capture owner four-byte-161/host-ready-before-connect.json
+readiness	terminal.json>case_results>four-byte-161>ui:delete-key;terminal.json>a7>postflight>accounts:delete-key	ok 5584acb8bff32e69
+readiness	terminal.json>captures>host_pid:inc;host-ready-before-a7.json>fd:delete-key	KeyError: 'fd'
+readiness	host-ready-before-a7.json>unit_properties>MainPID:delete-key;omit-161/host-ready-before-connect.json>unit:flip	KeyError: 'MainPID'
+readiness	terminal.json>case_results>one-byte-161>reply_types>6:inc;omit-161/ns-ready-before-connect.json>unit_properties>KillMode:flip	ValueError: unit ready omit-161/ns-ready-before-connect.json
+readiness	ns-ready-launch.json>capture:delete-key;one-byte-161/host-ready-before-connect.json>unit:delete-key	ok 5584acb8bff32e69
+readiness	host-recorder-journal.txt:empty;one-byte-161/host-ready-before-connect.json>unit_properties>RuntimeMaxUSec:delete-key	KeyError: 'RuntimeMaxUSec'
+readiness	host-ready-before-a7.json>unit_properties>RuntimeMaxUSec:delete-key;ns-ready-launch.json>netns_inode:delete-key	KeyError: 'RuntimeMaxUSec'
+readiness	host-ready-launch.json>header24:delete-key;host-ready-launch.json>unit_properties>RuntimeMaxUSec:delete-key	KeyError: 'RuntimeMaxUSec'
+readiness	terminal.json>limitations>1:flip;terminal.json>a7>postflight>status:flip	ok 5584acb8bff32e69
+readiness	terminal.json>case_results>four-byte-161>data_bytes>1:inc;terminal.json>a7>postflight>static_frames_equal_preflight>8:inc	ok 5584acb8bff32e69
+readiness	terminal.json>a7>postflight>static_frames_equal_preflight>0:inc;omit-161/host-ready-before-connect.json>unit_properties>SubState:delete-key	KeyError: 'SubState'
+readiness	host-ready-launch.json>unit:flip;one-byte-161/ns-ready-before-connect.json>deadline_utc:flip	ValueError: capture header/deadline one-byte-161/ns-ready-before-connect.json
+readiness	four-byte-161/host-ready-before-connect.json>unit_properties>ActiveEnterTimestampMonotonic:delete-key;omit-161/host-ready-before-connect.json>utc:flip	ok 5584acb8bff32e69
+readiness	terminal.json>case_results>four-byte-161>ui:delete-key;four-byte-161/host-ready-before-connect.json>dev:inc	ValueError: capture identity drift host
+readiness	host-ready-before-a7.json>deadline_utc:flip;one-byte-161/host-ready-before-connect.json>unit_properties>MainPID:delete-key	ValueError: capture header/deadline host-ready-before-a7.json
+readiness	one-byte-161/host-ready-before-connect.json>unit_properties>RuntimeMaxUSec:flip;omit-161/ns-ready-before-connect.json>utc:delete-key	ValueError: unit ready one-byte-161/host-ready-before-connect.json
+readiness	ns-ready-before-a7.json>fd:delete-key;terminal.json>a7>preflight>agreement_sha256:flip	KeyError: 'fd'
+readiness	former-pids-terminal.txt:empty;one-byte-161/host-ready-before-connect.json>deadline_utc:flip	ValueError: capture header/deadline one-byte-161/host-ready-before-connect.json
+readiness	omit-161/host-ready-before-connect.json>utc:delete-key;host-ready-launch.json>unit_properties>KillMode:flip	ValueError: unit ready host-ready-launch.json
+readiness	terminal.json>case_results>one-byte-161>reply_types>6:inc;four-byte-161/ns-ready-before-connect.json>fd:delete-key	KeyError: 'fd'
+readiness	one-byte-161/ns-ready-before-connect.json>header24:delete-key;terminal.json>captures>namespace_unit:delete-key	KeyError: 'header24'
+readiness	ns-ready-before-a7.json>unit_properties>ActiveState:flip;omit-161/host-ready-before-connect.json>dev:delete-key	KeyError: 'dev'
+readiness	host-ready-before-a7.json>unit_properties>ActiveState:delete-key;four-byte-161/host-ready-before-connect.json>header24:delete-key	KeyError: 'ActiveState'
+readiness	terminal.json>originals>oracle_sha256:delete-key;former-pids-terminal.txt:empty	ValueError: former capture/proxy PID cleanup
+readiness	four-byte-161/host-ready-before-connect.json>unit_properties>ActiveEnterTimestampMonotonic:delete-key;four-byte-161/host-ready-before-connect.json>unit_properties>RuntimeMaxUSec:delete-key	KeyError: 'RuntimeMaxUSec'
+readiness	terminal.json>a7>preflight>agreement_bytes:inc;terminal.json>a7>postflight>full_filp_equal_preflight:not	ok 5584acb8bff32e69
+readiness	host-ready-launch.json>deadline_utc:delete-key;omit-161/host-ready-before-connect.json>inode:inc	KeyError: 'deadline_utc'
+readiness	omit-161/ns-ready-before-connect.json>unit_properties>MainPID:flip;terminal.json>sources>proxy_sha256:delete-key	ValueError: unit ready omit-161/ns-ready-before-connect.json
+readiness	terminal.json>live_end_utc:flip;ns-ready-launch.json>fd:inc	ValueError: group bound
+readiness	terminal.json>a7>preflight>agreement_bytes:delete-key;terminal.json>sources>proxy_sha256:flip	ok 5584acb8bff32e69
+selection		ok 74234e98afe7498f
+selection	manifest.json>selection>namespace.pcap>routes>4>syn_index:inc	ok 74234e98afe7498f
+selection	manifest.json>selection>namespace.pcap>selected_record_indexes>182:inc	ok 74234e98afe7498f
+selection	manifest.json>selection>namespace.pcap>routes>11>syn_timestamp_us:inc	ok 74234e98afe7498f
+selection	manifest.json>selection>server-guest-post.pcap>routes>0>packet_count:delete-key	KeyError: 'packet_count'
+selection	manifest.json>selection>namespace.pcap>routes>8>kind:delete-key	ok 74234e98afe7498f
+selection	manifest.json>selection>client-guest-post.pcap>selected_record_indexes>63:inc	ok 74234e98afe7498f
+selection	manifest.json>selection>host.pcap>selected_record_indexes>48:inc	ok 74234e98afe7498f
+selection	manifest.json>selection>host.pcap>selected_record_indexes>88:inc	ok 74234e98afe7498f
+selection	manifest.json>selection>client-guest-post.pcap>selected_record_indexes>61:inc	ok 74234e98afe7498f
+selection	manifest.json>selection>namespace.pcap>routes>8>syn_timestamp_us:inc	ok 74234e98afe7498f
+selection	manifest.json>selection>namespace.pcap>selected_record_indexes>43:inc	ok 74234e98afe7498f
+selection	manifest.json>selection>host.pcap>routes>3>terminal_flags>1:inc	ValueError: selected TCP tails
+selection	manifest.json>selection>namespace.pcap>routes>4>terminal_flags>1:inc	ValueError: selected TCP tails
+selection	manifest.json>selection>namespace.pcap>routes>6>packet_count:delete-key	KeyError: 'packet_count'
+selection	manifest.json>selection>namespace.pcap>routes>8>terminal_flags>1:inc	ValueError: selected TCP tails
+selection	manifest.json>selection>server-guest-post.pcap>routes>1>route>2:flip	ValueError: selected SYN lifetime
+selection	manifest.json>selection>namespace.pcap>routes>10>route>2:flip	ValueError: selected SYN lifetime
+selection	manifest.json>selection>server-guest-post.pcap>routes>0>route>3:inc	ValueError: selected SYN lifetime
+selection	manifest.json>selection>namespace.pcap>original_bytes:inc	ValueError: original PCAP provenance namespace.pcap
+selection	manifest.json>selection>host.pcap>routes>1>packet_count:delete-key	KeyError: 'packet_count'
+selection	manifest.json>selection>server-guest-post.pcap>selected_sha256:delete-key	KeyError: 'selected_sha256'
+selection	pcap-inventory.json>files>host.pcap>bytes:inc	ValueError: original PCAP provenance host.pcap
+selection	manifest.json>selection>server-guest-post.pcap>selected_bytes:inc	ValueError: selected PCAP identity server-guest-post.pcap
+selection	manifest.json>selection>server-guest-post.pcap>selected_sha256:flip	ValueError: selected PCAP identity server-guest-post.pcap
+selection	manifest.json>selection>namespace.pcap>selected_sha256:flip	ValueError: selected PCAP identity namespace.pcap
+selection	pcap-inventory.json>files>client-guest-post.pcap>bytes:delete-key	KeyError: 'bytes'
+selection	pcap-inventory.json>files>client-guest-post.pcap>sha256:delete-key	KeyError: 'sha256'
+selection	manifest.json>selection>server-guest-post.pcap>original_bytes:delete-key	KeyError: 'original_bytes'
+selection	pcap-inventory.json>files>namespace.pcap>bytes:delete-key	KeyError: 'bytes'
+selection	manifest.json>selection>client-guest-post.pcap>original_bytes:delete-key	KeyError: 'original_bytes'
+selection	manifest.json>selection>server-guest-post.pcap>original_bytes:inc	ValueError: original PCAP provenance server-guest-post.pcap
+selection	manifest.json>selection>namespace.pcap>routes>6>kind:flip;manifest.json>selection>server-guest-post.pcap>routes>5>route>2:flip	ValueError: selected SYN lifetime
+selection	manifest.json>selection>server-guest-post.pcap>selected_record_indexes>21:inc;manifest.json>selection>client-guest-post.pcap>selected_record_indexes>70:inc	ok 74234e98afe7498f
+selection	manifest.json>selection>namespace.pcap>routes>1>variant:flip;manifest.json>selection>client-guest-post.pcap>selected_record_indexes>70:inc	ok 74234e98afe7498f
+selection	manifest.json>selection>host.pcap>selected_record_indexes>55:inc;manifest.json>selection>client-guest-post.pcap>selected_record_indexes>84:inc	ok 74234e98afe7498f
+selection	manifest.json>selection>client-guest-post.pcap>original_path:flip;manifest.json>selection>server-guest-post.pcap>routes>4>syn_timestamp_us:inc	ok 74234e98afe7498f
+selection	manifest.json>selection>namespace.pcap>selected_record_indexes>102:inc;manifest.json>selection>server-guest-post.pcap>routes>3>route>1:inc	ValueError: selected SYN lifetime
+selection	manifest.json>selection>server-guest-post.pcap>routes>2>terminal_flags>0:inc;manifest.json>selection>namespace.pcap>routes>4>syn_index:inc	ValueError: selected TCP tails
+selection	manifest.json>selection>namespace.pcap>routes>2>route>2:flip;manifest.json>selection>server-guest-post.pcap>selected_record_indexes>80:inc	ValueError: selected SYN lifetime
+selection	manifest.json>selection>host.pcap>selected_record_indexes>25:inc;manifest.json>selection>namespace.pcap>selected_record_indexes>27:inc	ok 74234e98afe7498f
+selection	manifest.json>selection>namespace.pcap>routes>4>syn_index:delete-key;manifest.json>selection>client-guest-post.pcap>selected_record_indexes>41:inc	ok 74234e98afe7498f
+selection	manifest.json>selection>client-guest-post.pcap>selected_record_indexes>75:inc;manifest.json>selection>namespace.pcap>routes>6>terminal_flags>0:inc	ValueError: selected TCP tails
+selection	manifest.json>selection>host.pcap>selected_record_indexes>76:inc;manifest.json>selection>namespace.pcap>routes>4>packet_count:delete-key	KeyError: 'packet_count'
+selection	manifest.json>selection>host.pcap>selected_record_indexes>66:inc;manifest.json>selection>client-guest-post.pcap>routes>4>route>3:inc	ValueError: selected SYN lifetime
+selection	manifest.json>selection>client-guest-post.pcap>selected_record_indexes>1:inc;manifest.json>selection>host.pcap>routes>3>route>2:flip	ValueError: selected SYN lifetime
+selection	manifest.json>selection>server-guest-post.pcap>selected_record_indexes>73:inc;manifest.json>selection>namespace.pcap>selected_record_indexes>191:inc	ok 74234e98afe7498f
+selection	manifest.json>selection>client-guest-post.pcap>routes>0>syn_timestamp_us:delete-key;manifest.json>selection>host.pcap>selected_record_indexes>104:inc	ok 74234e98afe7498f
+selection	manifest.json>selection>client-guest-post.pcap>routes>3>route>3:inc;manifest.json>selection>client-guest-post.pcap>routes>4>variant:flip	ValueError: selected SYN lifetime
+selection	manifest.json>selection>namespace.pcap>routes>11>syn_index:inc;manifest.json>selection>server-guest-post.pcap>routes>1>syn_index:delete-key	ok 74234e98afe7498f
+selection	manifest.json>selection>client-guest-post.pcap>routes>4>syn_timestamp_us:inc;manifest.json>selection>server-guest-post.pcap>selected_record_indexes>83:inc	ok 74234e98afe7498f
+selection	manifest.json>selection>client-guest-post.pcap>selected_record_indexes>34:inc;manifest.json>selection>server-guest-post.pcap>routes>3>terminal_flags>1:inc	ValueError: selected TCP tails
+selection	manifest.json>selection>client-guest-post.pcap>routes>3>variant:delete-key;manifest.json>selection>server-guest-post.pcap>routes>2>packet_count:delete-key	KeyError: 'packet_count'
+selection	manifest.json>selection>namespace.pcap>selected_record_indexes>102:inc;manifest.json>selection>namespace.pcap>selected_record_indexes>32:inc	ok 74234e98afe7498f
+selection	manifest.json>selection>namespace.pcap>routes>11>route>0:flip;manifest.json>selection>namespace.pcap>selected_record_indexes>216:inc	ValueError: selected SYN lifetime
+selection	manifest.json>selection>namespace.pcap>routes>10>route>1:inc;manifest.json>selection>namespace.pcap>routes>4>kind:flip	ValueError: selected SYN lifetime
+selection	manifest.json>selection>namespace.pcap>selected_record_indexes>218:inc;manifest.json>selection>host.pcap>routes>3>route>2:flip	ValueError: selected SYN lifetime
+selection	manifest.json>selection>host.pcap>routes>4>packet_count:delete-key;manifest.json>selection>namespace.pcap>routes>10>route>1:inc	ValueError: selected SYN lifetime
+selection	manifest.json>selection>namespace.pcap>routes>6>kind:delete-key;manifest.json>selection>client-guest-post.pcap>routes>1>syn_timestamp_us:delete-key	ok 74234e98afe7498f
+selection	manifest.json>selection>host.pcap>selected_record_indexes>12:inc;manifest.json>selection>server-guest-post.pcap>routes>3>route>1:inc	ValueError: selected SYN lifetime
+selection	manifest.json>selection>client-guest-post.pcap>selected_record_indexes>86:inc;pcap-inventory.json>files>host.pcap>bytes:inc	ValueError: original PCAP provenance host.pcap
+selection	manifest.json>selection>host.pcap>routes>2>variant:delete-key;manifest.json>selection>namespace.pcap>selected_record_indexes>189:inc	ok 74234e98afe7498f
+omit-161		ok c10d5b5312bb9ee5
+omit-161	omit-161/proxy/report.json>entries>11>timestamp_us:delete-key	ok c10d5b5312bb9ee5
+omit-161	omit-161/proxy/report.json>entries>5>raw_hex:delete-key	KeyError: 'raw_hex'
+omit-161	omit-161/proxy/report.json>pid:delete-key	ok c10d5b5312bb9ee5
+omit-161	omit-161/proxy/report.json>entries>6>timestamp_us:delete-key	ok c10d5b5312bb9ee5
+omit-161	omit-161/proxy/report.json>entries>7>raw_hex:delete-key	KeyError: 'raw_hex'
+omit-161	manifest.json>cases>omit-161>routes>control>1>1:flip	ValueError: Missing or reused route SYN
+omit-161	manifest.json>cases>omit-161>routes>control>2>1:flip	ValueError: Missing or reused route SYN
+omit-161	manifest.json>cases>omit-161>routes>control>0>2:inc	ValueError: Missing or reused route SYN
+omit-161	omit-161/proxy/report.json>entries>11>timestamp_us:inc	ok c10d5b5312bb9ee5
+omit-161	omit-161/proxy/report.json>pid:inc	ok c10d5b5312bb9ee5
+omit-161	omit-161/proxy/report.json>observation>raw_ack_sha256:delete-key	KeyError: 'raw_ack_sha256'
+omit-161	omit-161/proxy/report.json>entries>9>timestamp_us:inc	ok c10d5b5312bb9ee5
+omit-161	omit-161/proxy/report.json>entries>9>raw_hex:flip	ValueError: omit-161 audit/control wire
+omit-161	omit-161/proxy/report.json>entries>10>forwarded_hex:delete-key	KeyError: 'forwarded_hex'
+omit-161	omit-161/proxy/report.json>entries>8>forwarded_hex:flip	ValueError: omit-161 audit/control wire
+omit-161	omit-161/proxy/report.json>entries>3>timestamp_us:delete-key	ok c10d5b5312bb9ee5
+omit-161	omit-161/proxy/report.json>entries>11>raw_hex:flip	ValueError: omit-161 audit/control wire
+omit-161	omit-161/proxy/report.json>entries>8>event:delete-key	KeyError: 'event'
+omit-161	omit-161/proxy/report.json>observation>valid_30_seconds:delete-key	KeyError: 'valid_30_seconds'
+omit-161	manifest.json>cases>omit-161>expected_ack_sha256:flip	ValueError: omit-161 source/forwarded ACK
+omit-161	omit-161/proxy/report.json>variant:flip	ValueError: omit-161 proxy status
+omit-161	omit-161/proxy/report.json>routes>control:delete-key	ok c10d5b5312bb9ee5
+omit-161	manifest.json>cases>omit-161>routes>control>0>0:flip	KeyError: 'pcaps/client-guest-post.pca0'
+omit-161	omit-161/proxy/report.json>entries>5>timestamp_us:inc	ok c10d5b5312bb9ee5
+omit-161	omit-161/proxy/report.json>observation>relay_teardown_ns:inc	ok c10d5b5312bb9ee5
+omit-161	omit-161/proxy/report.json>entries>14>raw_hex:delete-key	KeyError: 'raw_hex'
+omit-161	omit-161/proxy/report.json>entries>3>forwarded_hex:delete-key	KeyError: 'forwarded_hex'
+omit-161	omit-161/proxy/report.json>observation>relay_teardown_ns:delete-key	KeyError: 'relay_teardown_ns'
+omit-161	manifest.json>cases>omit-161>routes>data>4>0:flip	KeyError: 'pcaps/server-guest-post.pca0'
+omit-161	omit-161/proxy/report.json>entries>13>event:flip	ValueError: omit-161 audit events
+omit-161	manifest.json>cases>omit-161>routes>control>4>0:flip	KeyError: 'pcaps/server-guest-post.pca0'
+omit-161	omit-161/proxy/report.json>variant:delete-key	KeyError: 'variant'
+omit-161	omit-161/proxy/report.json>entries>7>forwarded_hex:delete-key	KeyError: 'forwarded_hex'
+omit-161	manifest.json>cases>omit-161>expected_ack_sha256:delete-key	KeyError: 'expected_ack_sha256'
+omit-161	omit-161/proxy/report.json>entries>6>event:flip	ValueError: omit-161 audit events
+omit-161	omit-161/proxy/report.json>entries>9>event:delete-key	KeyError: 'event'
+omit-161	omit-161/proxy/report.json>entries>14>event:flip	ValueError: omit-161 audit events
+omit-161	manifest.json>cases>omit-161>routes>control>3>0:flip	KeyError: 'pcaps/host.pca0'
+omit-161	manifest.json>cases>omit-161>expected_ack_hex:flip	ValueError: omit-161 source/forwarded ACK
+omit-161	manifest.json>cases>omit-161>routes>data>1>0:flip	KeyError: 'pcaps/namespace.pca0'
+omit-161	omit-161/proxy/report.json>entries>10>event:delete-key	KeyError: 'event'
+omit-161	manifest.json>cases>omit-161>routes>data>3>0:flip	KeyError: 'pcaps/host.pca0'
+omit-161	manifest.json>cases>omit-161>routes>control>1>0:flip	KeyError: 'pcaps/namespace.pca0'
+omit-161	manifest.json>cases>omit-161>routes>control>2>0:flip	KeyError: 'pcaps/namespace.pca0'
+omit-161	omit-161/proxy/report.json>observation>ack_sent_monotonic_ns:delete-key	KeyError: 'ack_sent_monotonic_ns'
+omit-161	omit-161/proxy/report.json>entries>0>forwarded_hex:flip	ValueError: omit-161 audit/data and sole rewrite
+omit-161	omit-161/proxy/report.json>observation>state:flip	ValueError: omit-161 watchdog receipt
+omit-161	manifest.json>cases>omit-161>expected_ack_hex:delete-key	KeyError: 'expected_ack_hex'
+omit-161	omit-161/proxy/report.json>observation>raw_ack_sha256:flip	ValueError: omit-161 watchdog receipt
+omit-161	omit-161/proxy/report.json>entries>13>forwarded_hex:flip	ValueError: omit-161 audit/data and sole rewrite
+omit-161	omit-161/proxy/report.json>entries>13>raw_hex:flip	ValueError: omit-161 audit/data and sole rewrite
+omit-161	omit-161/proxy/report.json>observation>state:delete-key	KeyError: 'state'
+omit-161	omit-161/proxy/report.json>observation>forwarded_ack_sha256:flip	ValueError: omit-161 watchdog receipt
+omit-161	omit-161/proxy/report.json>observation>cutoff_due_ns:delete-key	KeyError: 'cutoff_due_ns'
+omit-161	manifest.json>cases>omit-161>routes>data>0>0:flip	KeyError: 'pcaps/client-guest-post.pca0'
+omit-161	omit-161/proxy/report.json>status:delete-key	KeyError: 'status'
+omit-161	omit-161/proxy/report.json>listeners>data:inc;omit-161/proxy/report.json>observation>state:flip	ValueError: omit-161 watchdog receipt
+omit-161	omit-161/proxy/report.json>entries>8>timestamp_us:delete-key;omit-161/proxy/report.json>entries>3>raw_hex:flip	ValueError: omit-161 audit/control wire
+omit-161	omit-161/proxy/report.json>entries>0>raw_hex:flip;omit-161/proxy/report.json>entries>5>event:flip	ValueError: omit-161 audit events
+omit-161	omit-161/proxy/report.json>entries>10>timestamp_us:inc;omit-161/proxy/report.json>entries>2>forwarded_hex:flip	ValueError: omit-161 audit/data and sole rewrite
+omit-161	omit-161/proxy/report.json>entries>6>timestamp_us:delete-key;omit-161/proxy/report.json>entries>8>event:delete-key	KeyError: 'event'
+omit-161	omit-161/proxy/report.json>host_netns_inode:inc;omit-161/proxy/report.json>entries>3>raw_hex:flip	ValueError: omit-161 audit/control wire
+omit-161	omit-161/proxy/report.json>entries>14>timestamp_us:inc;omit-161/proxy/report.json>observation>relay_teardown_ns:inc	ok c10d5b5312bb9ee5
+omit-161	omit-161/proxy/report.json>entries>9>timestamp_us:delete-key;omit-161/proxy/report.json>entries>1>event:delete-key	KeyError: 'event'
+omit-161	manifest.json>cases>omit-161>expected_ack_hex:delete-key;omit-161/proxy/report.json>entries>9>raw_hex:delete-key	KeyError: 'expected_ack_hex'
+omit-161	manifest.json>cases>omit-161>routes>control>2>0:flip;omit-161/proxy/report.json>entries>0>forwarded_hex:flip	KeyError: 'pcaps/namespace.pca0'
+omit-161	omit-161/proxy/report.json>entries>9>raw_hex:flip;omit-161/proxy/report.json>expected_netns_inode:inc	ValueError: omit-161 audit/control wire
+omit-161	omit-161/proxy/report.json>entries>9>raw_hex:flip;omit-161/proxy/report.json>entries>13>raw_hex:flip	ValueError: omit-161 audit/control wire
+omit-161	omit-161/proxy/report.json>entries>6>timestamp_us:delete-key;omit-161/proxy/report.json>entries>0>raw_hex:delete-key	KeyError: 'raw_hex'
+omit-161	omit-161/proxy/report.json>entries>3>forwarded_hex:delete-key;manifest.json>cases>omit-161>routes>control>2>3:flip	ValueError: Missing or reused route SYN
+omit-161	omit-161/proxy/report.json>entries>3>forwarded_hex:delete-key;omit-161/proxy/report.json>observation>state:delete-key	KeyError: 'forwarded_hex'
+omit-161	omit-161/proxy/report.json>entries>2>forwarded_hex:delete-key;omit-161/proxy/report.json>listeners>data:inc	KeyError: 'forwarded_hex'
+omit-161	omit-161/proxy/report.json>entries>4>timestamp_us:inc;manifest.json>cases>omit-161>routes>control>2>3:flip	ValueError: Missing or reused route SYN
+omit-161	manifest.json>cases>omit-161>routes>control>1>3:flip;omit-161/proxy/report.json>entries>11>timestamp_us:delete-key	ValueError: Missing or reused route SYN
+omit-161	omit-161/proxy/report.json>entries>6>timestamp_us:inc;manifest.json>cases>omit-161>routes>data>2>3:flip	ValueError: Missing or reused route SYN
+omit-161	omit-161/proxy/report.json>entries>3>raw_hex:flip;omit-161/proxy/report.json>entries>3>timestamp_us:delete-key	ValueError: omit-161 audit/control wire
+omit-161	omit-161/proxy/report.json>observation>ack_sent_monotonic_ns:delete-key;omit-161/proxy/report.json>status:delete-key	KeyError: 'status'
+omit-161	omit-161/proxy/report.json>deadline_seconds:inc;manifest.json>cases>omit-161>routes>data>3>1:flip	ValueError: Missing or reused route SYN
+omit-161	omit-161/proxy/report.json>listeners>control:delete-key;omit-161/proxy/report.json>entries>1>forwarded_hex:flip	ValueError: omit-161 audit/control wire
+omit-161	manifest.json>cases>omit-161>routes>data>4>0:flip;omit-161/proxy/report.json>entries>2>raw_hex:flip	KeyError: 'pcaps/server-guest-post.pca0'
+omit-161	omit-161/proxy/report.json>entries>2>timestamp_us:inc;omit-161/proxy/report.json>entries>6>forwarded_hex:flip	ValueError: omit-161 audit/control wire
+omit-161	omit-161/proxy/report.json>entries>12>event:flip;omit-161/proxy/report.json>entries>1>timestamp_us:delete-key	ValueError: omit-161 audit events
+omit-161	manifest.json>cases>omit-161>expected_ack_sha256:delete-key;omit-161/proxy/report.json>observation>raw_ack_sha256:flip	KeyError: 'expected_ack_sha256'
+omit-161	omit-161/proxy/report.json>entries>10>forwarded_hex:flip;omit-161/proxy/report.json>entries>7>forwarded_hex:delete-key	KeyError: 'forwarded_hex'
+omit-161	manifest.json>cases>omit-161>routes>control>1>1:flip;omit-161/proxy/report.json>listeners>control:delete-key	ValueError: Missing or reused route SYN
+omit-161	omit-161/proxy/report.json>entries>4>forwarded_hex:flip;omit-161/proxy/report.json>listeners>control:delete-key	ValueError: omit-161 audit/control wire
+one-byte-161		ok 3fe91c5230fa3589
+one-byte-161	one-byte-161/proxy/report.json>entries>8>forwarded_hex:delete-key	KeyError: 'forwarded_hex'
+one-byte-161	one-byte-161/proxy/report.json>observation>cutoff_actual_ns:inc	ok 3fe91c5230fa3589
+one-byte-161	one-byte-161/proxy/report.json>entries>8>forwarded_hex:flip	ValueError: one-byte-161 audit/control wire
+one-byte-161	one-byte-161/proxy/report.json>entries>11>timestamp_us:inc	ok 3fe91c5230fa3589
+one-byte-161	one-byte-161/proxy/report.json>entries>1>forwarded_hex:delete-key	KeyError: 'forwarded_hex'
+one-byte-161	one-byte-161/proxy/report.json>entries>2>forwarded_hex:delete-key	KeyError: 'forwarded_hex'
+one-byte-161	one-byte-161/proxy/report.json>entries>0>forwarded_hex:flip	ValueError: one-byte-161 audit/data and sole rewrite
+one-byte-161	one-byte-161/proxy/report.json>observation>relay_teardown_ns:inc	ok 3fe91c5230fa3589
+one-byte-161	one-byte-161/proxy/report.json>entries>11>forwarded_hex:flip	ValueError: one-byte-161 audit/control wire
+one-byte-161	manifest.json>cases>one-byte-161>routes>control>0>4:inc	ValueError: Missing or reused route SYN
+one-byte-161	one-byte-161/proxy/report.json>entries>4>forwarded_hex:flip	ValueError: one-byte-161 audit/control wire
+one-byte-161	one-byte-161/proxy/report.json>netns_inode:delete-key	ok 3fe91c5230fa3589
+one-byte-161	manifest.json>cases>one-byte-161>routes>data>4>1:flip	ValueError: Missing or reused route SYN
+one-byte-161	one-byte-161/proxy/report.json>entries>14>event:delete-key	KeyError: 'event'
+one-byte-161	one-byte-161/proxy/report.json>entries>10>forwarded_hex:flip	ValueError: one-byte-161 audit/data and sole rewrite
+one-byte-161	one-byte-161/proxy/report.json>entries>9>event:delete-key	KeyError: 'event'
+one-byte-161	one-byte-161/proxy/report.json>entries>8>event:flip	ValueError: one-byte-161 audit events
+one-byte-161	one-byte-161/proxy/report.json>entries>1>event:delete-key	KeyError: 'event'
+one-byte-161	manifest.json>cases>one-byte-161>routes>control>1>2:inc	ValueError: Missing or reused route SYN
+one-byte-161	one-byte-161/proxy/report.json>entries>2>raw_hex:delete-key	KeyError: 'raw_hex'
+one-byte-161	one-byte-161/proxy/report.json>deadline_seconds:delete-key	ok 3fe91c5230fa3589
+one-byte-161	one-byte-161/proxy/report.json>entries>7>timestamp_us:delete-key	ok 3fe91c5230fa3589
+one-byte-161	one-byte-161/proxy/report.json>observation>relay_teardown_ns:delete-key	KeyError: 'relay_teardown_ns'
+one-byte-161	one-byte-161/proxy/report.json>observation>raw_ack_sha256:delete-key	KeyError: 'raw_ack_sha256'
+one-byte-161	one-byte-161/proxy/report.json>entries>13>forwarded_hex:flip	ValueError: one-byte-161 audit/data and sole rewrite
+one-byte-161	one-byte-161/proxy/report.json>entries>9>raw_hex:delete-key	KeyError: 'raw_hex'
+one-byte-161	one-byte-161/proxy/report.json>pid:delete-key	ok 3fe91c5230fa3589
+one-byte-161	one-byte-161/proxy/report.json>entries>6>timestamp_us:delete-key	ok 3fe91c5230fa3589
+one-byte-161	one-byte-161/proxy/report.json>entries>5>timestamp_us:delete-key	ok 3fe91c5230fa3589
+one-byte-161	one-byte-161/proxy/report.json>status:flip	ValueError: one-byte-161 proxy status
+one-byte-161	manifest.json>cases>one-byte-161>routes>control>2>0:flip	KeyError: 'pcaps/namespace.pca0'
+one-byte-161	one-byte-161/proxy/report.json>host_netns_inode:delete-key	ok 3fe91c5230fa3589
+one-byte-161	one-byte-161/proxy/report.json>entries>7>raw_hex:delete-key	KeyError: 'raw_hex'
+one-byte-161	one-byte-161/proxy/report.json>entries>10>event:flip	ValueError: one-byte-161 audit events
+one-byte-161	one-byte-161/proxy/report.json>variant:flip	ValueError: one-byte-161 proxy status
+one-byte-161	one-byte-161/proxy/report.json>entries>3>event:flip	ValueError: one-byte-161 audit events
+one-byte-161	manifest.json>cases>one-byte-161>routes>data>3>0:flip	KeyError: 'pcaps/host.pca0'
+one-byte-161	manifest.json>cases>one-byte-161>expected_ack_hex:flip	ValueError: one-byte-161 source/forwarded ACK
+one-byte-161	manifest.json>cases>one-byte-161>expected_ack_sha256:flip	ValueError: one-byte-161 source/forwarded ACK
+one-byte-161	one-byte-161/proxy/report.json>observation>state:flip	ValueError: one-byte-161 watchdog receipt
+one-byte-161	one-byte-161/proxy/report.json>observation>state:delete-key	KeyError: 'state'
+one-byte-161	one-byte-161/proxy/report.json>observation>ack_sent_monotonic_ns:delete-key	KeyError: 'ack_sent_monotonic_ns'
+one-byte-161	one-byte-161/proxy/report.json>observation>forwarded_ack_sha256:flip	ValueError: one-byte-161 watchdog receipt
+one-byte-161	manifest.json>cases>one-byte-161>expected_ack_hex:delete-key	KeyError: 'expected_ack_hex'
+one-byte-161	one-byte-161/proxy/report.json>observation>valid_30_seconds:delete-key	KeyError: 'valid_30_seconds'
+one-byte-161	one-byte-161/proxy/report.json>status:delete-key	KeyError: 'status'
+one-byte-161	one-byte-161/proxy/report.json>observation>forwarded_ack_sha256:delete-key	KeyError: 'forwarded_ack_sha256'
+one-byte-161	manifest.json>cases>one-byte-161>expected_ack_sha256:delete-key	KeyError: 'expected_ack_sha256'
+one-byte-161	one-byte-161/proxy/report.json>observation>raw_ack_sha256:flip	ValueError: one-byte-161 watchdog receipt
+one-byte-161	manifest.json>cases>one-byte-161>routes>control>3>0:flip	KeyError: 'pcaps/host.pca0'
+one-byte-161	manifest.json>cases>one-byte-161>routes>control>4>0:flip	KeyError: 'pcaps/server-guest-post.pca0'
+one-byte-161	one-byte-161/proxy/report.json>observation>ack_sent_monotonic_ns:inc	ValueError: one-byte-161 cutoff timing
+one-byte-161	one-byte-161/proxy/report.json>host_netns_inode:inc;manifest.json>cases>one-byte-161>routes>control>2>1:flip	ValueError: Missing or reused route SYN
+one-byte-161	one-byte-161/proxy/report.json>entries>11>timestamp_us:inc;one-byte-161/proxy/report.json>observation>ack_sent_monotonic_ns:inc	ValueError: one-byte-161 cutoff timing
+one-byte-161	one-byte-161/proxy/report.json>host_netns_inode:delete-key;one-byte-161/proxy/report.json>status:delete-key	KeyError: 'status'
+one-byte-161	one-byte-161/proxy/report.json>entries>14>event:delete-key;one-byte-161/proxy/report.json>entries>5>forwarded_hex:delete-key	KeyError: 'event'
+one-byte-161	one-byte-161/proxy/report.json>entries>4>raw_hex:delete-key;manifest.json>cases>one-byte-161>routes>control>2>4:inc	ValueError: Missing or reused route SYN
+one-byte-161	manifest.json>cases>one-byte-161>routes>data>0>3:flip;one-byte-161/proxy/report.json>entries>5>timestamp_us:inc	ValueError: Missing or reused route SYN
+one-byte-161	one-byte-161/proxy/report.json>entries>8>forwarded_hex:flip;manifest.json>cases>one-byte-161>routes>control>3>1:flip	ValueError: Missing or reused route SYN
+one-byte-161	one-byte-161/proxy/report.json>entries>0>raw_hex:delete-key;one-byte-161/proxy/report.json>entries>6>forwarded_hex:delete-key	KeyError: 'raw_hex'
+one-byte-161	one-byte-161/proxy/report.json>entries>11>forwarded_hex:flip;manifest.json>cases>one-byte-161>routes>data>1>2:inc	ValueError: Missing or reused route SYN
+one-byte-161	one-byte-161/proxy/report.json>entries>0>raw_hex:delete-key;one-byte-161/proxy/report.json>entries>3>forwarded_hex:flip	KeyError: 'raw_hex'
+one-byte-161	one-byte-161/proxy/report.json>entries>2>forwarded_hex:flip;one-byte-161/proxy/report.json>entries>11>forwarded_hex:flip	ValueError: one-byte-161 audit/control wire
+one-byte-161	one-byte-161/proxy/report.json>entries>4>event:flip;one-byte-161/proxy/report.json>entries>11>forwarded_hex:delete-key	ValueError: one-byte-161 audit events
+one-byte-161	one-byte-161/proxy/report.json>entries>5>timestamp_us:delete-key;one-byte-161/proxy/report.json>observation>relay_teardown_ns:delete-key	KeyError: 'relay_teardown_ns'
+one-byte-161	one-byte-161/proxy/report.json>entries>7>forwarded_hex:flip;manifest.json>cases>one-byte-161>routes>data>0>2:inc	ValueError: Missing or reused route SYN
+one-byte-161	one-byte-161/proxy/report.json>entries>11>forwarded_hex:delete-key;manifest.json>cases>one-byte-161>routes>data>3>0:flip	KeyError: 'pcaps/host.pca0'
+one-byte-161	one-byte-161/proxy/report.json>entries>9>event:delete-key;one-byte-161/proxy/report.json>entries>9>forwarded_hex:flip	KeyError: 'event'
+one-byte-161	manifest.json>cases>one-byte-161>routes>data>0>4:inc;one-byte-161/proxy/report.json>entries>1>raw_hex:flip	ValueError: Missing or reused route SYN
+one-byte-161	manifest.json>cases>one-byte-161>expected_ack_sha256:flip;one-byte-161/proxy/report.json>entries>2>event:delete-key	ValueError: one-byte-161 source/forwarded ACK
+one-byte-161	one-byte-161/proxy/report.json>entries>12>forwarded_hex:flip;one-byte-161/proxy/report.json>entries>10>event:flip	ValueError: one-byte-161 audit events
+one-byte-161	one-byte-161/proxy/report.json>entries>11>event:delete-key;one-byte-161/proxy/report.json>observation>state:delete-key	KeyError: 'event'
+one-byte-161	manifest.json>cases>one-byte-161>routes>control>3>1:flip;manifest.json>cases>one-byte-161>routes>control>0>1:flip	ValueError: Missing or reused route SYN
+one-byte-161	one-byte-161/proxy/report.json>entries>12>raw_hex:flip;manifest.json>cases>one-byte-161>routes>data>4>3:flip	ValueError: Missing or reused route SYN
+one-byte-161	one-byte-161/proxy/report.json>entries>2>forwarded_hex:flip;one-byte-161/proxy/report.json>observation>raw_ack_sha256:flip	ValueError: one-byte-161 audit/data and sole rewrite
+one-byte-161	one-byte-161/proxy/report.json>entries>13>timestamp_us:delete-key;one-byte-161/proxy/report.json>observation>relay_teardown_ns:inc	ok 3fe91c5230fa3589
+one-byte-161	one-byte-161/proxy/report.json>observation>relay_teardown_ns:inc;one-byte-161/proxy/report.json>entries>3>event:delete-key	KeyError: 'event'
+one-byte-161	manifest.json>cases>one-byte-161>routes>control>1>3:flip;one-byte-161/proxy/report.json>routes>data:delete-key	ValueError: Missing or reused route SYN
+one-byte-161	one-byte-161/proxy/report.json>entries>10>event:flip;one-byte-161/proxy/report.json>entries>14>event:delete-key	KeyError: 'event'
+one-byte-161	one-byte-161/proxy/report.json>entries>14>event:delete-key;manifest.json>cases>one-byte-161>routes>control>4>1:flip	ValueError: Missing or reused route SYN
+one-byte-161	one-byte-161/proxy/report.json>observation>relay_teardown_ns:delete-key;manifest.json>cases>one-byte-161>routes>control>0>3:flip	ValueError: Missing or reused route SYN
+one-byte-161	one-byte-161/proxy/report.json>entries>0>timestamp_us:delete-key;one-byte-161/proxy/report.json>entries>11>forwarded_hex:flip	ValueError: one-byte-161 audit/control wire
+four-byte-161		ok 8de9e529df193820
+four-byte-161	four-byte-161/proxy/report.json>observation>last_owned_socket_close_ns:inc	ok 8de9e529df193820
+four-byte-161	manifest.json>cases>four-byte-161>routes>data>2>2:inc	ValueError: Missing or reused route SYN
+four-byte-161	manifest.json>cases>four-byte-161>routes>control>3>3:flip	ValueError: Missing or reused route SYN
+four-byte-161	four-byte-161/proxy/report.json>entries>6>timestamp_us:delete-key	ok 8de9e529df193820
+four-byte-161	four-byte-161/proxy/report.json>entries>5>forwarded_hex:delete-key	KeyError: 'forwarded_hex'
+four-byte-161	four-byte-161/proxy/report.json>observation>cutoff_due_ns:inc	ValueError: four-byte-161 cutoff timing
+four-byte-161	four-byte-161/proxy/report.json>entries>0>timestamp_us:delete-key	ok 8de9e529df193820
+four-byte-161	four-byte-161/proxy/report.json>routes>data:delete-key	ok 8de9e529df193820
+four-byte-161	manifest.json>cases>four-byte-161>routes>data>0>1:flip	ValueError: Missing or reused route SYN
+four-byte-161	four-byte-161/proxy/report.json>entries>14>event:flip	ValueError: four-byte-161 audit events
+four-byte-161	manifest.json>cases>four-byte-161>routes>data>4>0:flip	KeyError: 'pcaps/server-guest-post.pca0'
+four-byte-161	manifest.json>cases>four-byte-161>routes>data>1>0:flip	KeyError: 'pcaps/namespace.pca0'
+four-byte-161	four-byte-161/proxy/report.json>entries>11>timestamp_us:delete-key	ok 8de9e529df193820
+four-byte-161	four-byte-161/proxy/report.json>entries>4>raw_hex:delete-key	KeyError: 'raw_hex'
+four-byte-161	four-byte-161/proxy/report.json>observation>relay_teardown_ns:inc	ok 8de9e529df193820
+four-byte-161	four-byte-161/proxy/report.json>observation>valid_30_seconds:not	ValueError: four-byte-161 watchdog receipt
+four-byte-161	manifest.json>cases>four-byte-161>routes>data>0>0:flip	KeyError: 'pcaps/client-guest-post.pca0'
+four-byte-161	four-byte-161/proxy/report.json>pid:inc	ok 8de9e529df193820
+four-byte-161	manifest.json>cases>four-byte-161>expected_ack_hex:flip	ValueError: four-byte-161 source/forwarded ACK
+four-byte-161	four-byte-161/proxy/report.json>entries>10>event:flip	ValueError: four-byte-161 audit events
+four-byte-161	four-byte-161/proxy/report.json>entries>12>timestamp_us:inc	ok 8de9e529df193820
+four-byte-161	four-byte-161/proxy/report.json>entries>14>raw_hex:delete-key	KeyError: 'raw_hex'
+four-byte-161	four-byte-161/proxy/report.json>entries>1>event:delete-key	KeyError: 'event'
+four-byte-161	four-byte-161/proxy/report.json>entries>0>forwarded_hex:flip	ValueError: four-byte-161 audit/data and sole rewrite
+four-byte-161	four-byte-161/proxy/report.json>entries>9>timestamp_us:delete-key	ok 8de9e529df193820
+four-byte-161	four-byte-161/proxy/report.json>observation>forwarded_ack_sha256:delete-key	KeyError: 'forwarded_ack_sha256'
+four-byte-161	four-byte-161/proxy/report.json>entries>4>event:flip	ValueError: four-byte-161 audit events
+four-byte-161	four-byte-161/proxy/report.json>entries>4>forwarded_hex:delete-key	KeyError: 'forwarded_hex'
+four-byte-161	four-byte-161/proxy/report.json>entries>11>raw_hex:flip	ValueError: four-byte-161 audit/control wire
+four-byte-161	four-byte-161/proxy/report.json>entries>12>event:delete-key	KeyError: 'event'
+four-byte-161	four-byte-161/proxy/report.json>entries>13>forwarded_hex:delete-key	KeyError: 'forwarded_hex'
+four-byte-161	manifest.json>cases>four-byte-161>routes>data>2>0:flip	KeyError: 'pcaps/namespace.pca0'
+four-byte-161	four-byte-161/proxy/report.json>entries>7>raw_hex:delete-key	KeyError: 'raw_hex'
+four-byte-161	four-byte-161/proxy/report.json>observation>cutoff_actual_ns:delete-key	ok 8de9e529df193820
+four-byte-161	four-byte-161/proxy/report.json>entries>5>raw_hex:flip	ValueError: four-byte-161 audit/control wire
+four-byte-161	four-byte-161/proxy/report.json>entries>4>event:delete-key	KeyError: 'event'
+four-byte-161	four-byte-161/proxy/report.json>entries>8>raw_hex:flip	ValueError: four-byte-161 audit/control wire
+four-byte-161	four-byte-161/proxy/report.json>status:flip	ValueError: four-byte-161 proxy status
+four-byte-161	four-byte-161/proxy/report.json>entries>14>forwarded_hex:flip	ValueError: four-byte-161 audit/data and sole rewrite
+four-byte-161	four-byte-161/proxy/report.json>observation>raw_ack_sha256:delete-key	KeyError: 'raw_ack_sha256'
+four-byte-161	manifest.json>cases>four-byte-161>routes>control>0>0:flip	KeyError: 'pcaps/client-guest-post.pca0'
+four-byte-161	four-byte-161/proxy/report.json>variant:delete-key	KeyError: 'variant'
+four-byte-161	four-byte-161/proxy/report.json>entries>5>forwarded_hex:flip	ValueError: four-byte-161 audit/data and sole rewrite
+four-byte-161	four-byte-161/proxy/report.json>observation>state:delete-key	KeyError: 'state'
+four-byte-161	manifest.json>cases>four-byte-161>expected_ack_hex:delete-key	KeyError: 'expected_ack_hex'
+four-byte-161	four-byte-161/proxy/report.json>observation>ack_sent_monotonic_ns:delete-key	KeyError: 'ack_sent_monotonic_ns'
+four-byte-161	four-byte-161/proxy/report.json>observation>relay_teardown_ns:delete-key	KeyError: 'relay_teardown_ns'
+four-byte-161	manifest.json>cases>four-byte-161>routes>data>3>0:flip	KeyError: 'pcaps/host.pca0'
+four-byte-161	four-byte-161/proxy/report.json>observation>raw_ack_sha256:flip	ValueError: four-byte-161 watchdog receipt
+four-byte-161	manifest.json>cases>four-byte-161>routes>control>3>0:flip	KeyError: 'pcaps/host.pca0'
+four-byte-161	four-byte-161/proxy/report.json>observation>ack_sent_monotonic_ns:inc	ValueError: four-byte-161 cutoff timing
+four-byte-161	four-byte-161/proxy/report.json>observation>valid_30_seconds:delete-key	KeyError: 'valid_30_seconds'
+four-byte-161	four-byte-161/proxy/report.json>observation>state:flip	ValueError: four-byte-161 watchdog receipt
+four-byte-161	four-byte-161/proxy/report.json>status:delete-key	KeyError: 'status'
+four-byte-161	manifest.json>cases>four-byte-161>routes>control>1>0:flip	KeyError: 'pcaps/namespace.pca0'
+four-byte-161	four-byte-161/proxy/report.json>entries>8>timestamp_us:delete-key;four-byte-161/proxy/report.json>entries>11>raw_hex:flip	ValueError: four-byte-161 audit/control wire
+four-byte-161	manifest.json>cases>four-byte-161>routes>data>2>0:flip;four-byte-161/proxy/report.json>entries>11>forwarded_hex:delete-key	KeyError: 'pcaps/namespace.pca0'
+four-byte-161	four-byte-161/proxy/report.json>observation>relay_teardown_ns:delete-key;four-byte-161/proxy/report.json>entries>11>forwarded_hex:delete-key	KeyError: 'forwarded_hex'
+four-byte-161	four-byte-161/proxy/report.json>entries>2>event:delete-key;four-byte-161/proxy/report.json>entries>13>event:delete-key	KeyError: 'event'
+four-byte-161	four-byte-161/proxy/report.json>entries>9>raw_hex:flip;four-byte-161/proxy/report.json>entries>4>forwarded_hex:delete-key	ValueError: four-byte-161 audit/control wire
+four-byte-161	four-byte-161/proxy/report.json>entries>2>forwarded_hex:delete-key;four-byte-161/proxy/report.json>observation>relay_teardown_ns:delete-key	KeyError: 'forwarded_hex'
+four-byte-161	four-byte-161/proxy/report.json>entries>14>forwarded_hex:delete-key;four-byte-161/proxy/report.json>entries>4>timestamp_us:delete-key	KeyError: 'forwarded_hex'
+four-byte-161	four-byte-161/proxy/report.json>netns_inode:delete-key;manifest.json>cases>four-byte-161>routes>control>2>3:flip	ValueError: Missing or reused route SYN
+four-byte-161	four-byte-161/proxy/report.json>netns_inode:inc;manifest.json>cases>four-byte-161>routes>data>0>0:flip	KeyError: 'pcaps/client-guest-post.pca0'
+four-byte-161	four-byte-161/proxy/report.json>entries>13>raw_hex:flip;manifest.json>cases>four-byte-161>routes>data>0>0:flip	KeyError: 'pcaps/client-guest-post.pca0'
+four-byte-161	four-byte-161/proxy/report.json>entries>2>timestamp_us:inc;four-byte-161/proxy/report.json>entries>5>timestamp_us:inc	ok 8de9e529df193820
+four-byte-161	manifest.json>cases>four-byte-161>routes>data>1>4:inc;four-byte-161/proxy/report.json>entries>3>event:flip	ValueError: Missing or reused route SYN
+four-byte-161	four-byte-161/proxy/report.json>observation>relay_teardown_ns:delete-key;four-byte-161/proxy/report.json>netns_inode:delete-key	KeyError: 'relay_teardown_ns'
+four-byte-161	four-byte-161/proxy/report.json>observation>cutoff_actual_ns:delete-key;four-byte-161/proxy/report.json>entries>14>forwarded_hex:delete-key	KeyError: 'forwarded_hex'
+four-byte-161	manifest.json>cases>four-byte-161>routes>data>1>3:flip;four-byte-161/proxy/report.json>status:flip	ValueError: Missing or reused route SYN
+four-byte-161	four-byte-161/proxy/report.json>entries>4>event:flip;four-byte-161/proxy/report.json>entries>5>forwarded_hex:delete-key	ValueError: four-byte-161 audit events
+four-byte-161	four-byte-161/proxy/report.json>entries>12>event:delete-key;four-byte-161/proxy/report.json>entries>2>timestamp_us:inc	KeyError: 'event'
+four-byte-161	manifest.json>cases>four-byte-161>expected_ack_fields>160:flip;four-byte-161/proxy/report.json>entries>10>event:flip	ValueError: four-byte-161 audit events
+four-byte-161	four-byte-161/proxy/report.json>routes>data:inc;four-byte-161/proxy/report.json>entries>5>raw_hex:flip	ValueError: four-byte-161 audit/control wire
+four-byte-161	four-byte-161/proxy/report.json>routes>control:inc;manifest.json>cases>four-byte-161>routes>control>3>3:flip	ValueError: Missing or reused route SYN
+four-byte-161	four-byte-161/proxy/report.json>entries>5>forwarded_hex:flip;manifest.json>cases>four-byte-161>routes>control>4>1:flip	ValueError: Missing or reused route SYN
+four-byte-161	four-byte-161/proxy/report.json>entries>3>raw_hex:flip;manifest.json>cases>four-byte-161>routes>control>2>3:flip	ValueError: Missing or reused route SYN
+four-byte-161	manifest.json>cases>four-byte-161>routes>data>1>0:flip;four-byte-161/proxy/report.json>entries>14>forwarded_hex:delete-key	KeyError: 'pcaps/namespace.pca0'
+four-byte-161	manifest.json>cases>four-byte-161>routes>data>2>4:inc;four-byte-161/proxy/report.json>entries>12>event:delete-key	ValueError: Missing or reused route SYN
+four-byte-161	manifest.json>cases>four-byte-161>routes>control>2>2:inc;four-byte-161/proxy/report.json>entries>12>raw_hex:flip	ValueError: Missing or reused route SYN
+four-byte-161	four-byte-161/proxy/report.json>entries>14>event:flip;four-byte-161/proxy/report.json>entries>5>forwarded_hex:delete-key	ValueError: four-byte-161 audit events
+four-byte-161	four-byte-161/proxy/report.json>entries>4>raw_hex:delete-key;four-byte-161/proxy/report.json>entries>13>raw_hex:flip	KeyError: 'raw_hex'
+four-byte-161	four-byte-161/proxy/report.json>entries>0>raw_hex:flip;manifest.json>cases>four-byte-161>routes>control>0>0:flip	KeyError: 'pcaps/client-guest-post.pca0'
+four-byte-161	four-byte-161/proxy/report.json>observation>cutoff_actual_ns:delete-key;four-byte-161/proxy/report.json>deadline_seconds:delete-key	ok 8de9e529df193820
+four-byte-161	manifest.json>cases>four-byte-161>routes>data>2>3:flip;four-byte-161/proxy/report.json>entries>1>forwarded_hex:delete-key	ValueError: Missing or reused route SYN
