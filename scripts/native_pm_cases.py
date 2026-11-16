@@ -1,185 +1,74 @@
 #!/usr/bin/env python3
 """Prepare bounded, two-session native private-message observations."""
 
-import argparse
-import hashlib
 import json
-from dataclasses import dataclass
+import typing as typ
 from pathlib import Path
 
-from native_auth_cases import authentication
-from native_live_account_cases import request
-from native_plan import close, login, packet, payload, read, send
+from native_pm_baseline import (
+    BASELINE_ENDPOINTS,
+    BASELINE_SHA256,
+    FULL_STREAM_BYTES,
+    IDENTITY_KEYS,
+    check_baseline_structure,
+    load_baseline,
+)
+from native_pm_observe import CASES, MAIN, PEER, QUOTE, Case, observe
+from native_pm_steps import barrier, settings, variable_message
 from protocol_capture import ORACLE_SHA256, validate_plan
+from script_cli import UsageError, run
 
-MAIN = b"PM-Main-A26"
-PEER = b"PM-Peer-A26"
-QUOTE = b"quote-a26"
-BASELINE_SHA256 = "5d0aa3dccf65fc6523678aa729c9ace72cd6caffbef768b7f5bf949e6568b43e"
-FULL_STREAM_BYTES = 1049073
+type Json = dict[str, typ.Any]
 
-
-def check_baseline_structure(plan: dict) -> None:
-    validate_plan(plan)
-    if plan["profile"] != "native-mac-oracle" or plan["oracle_sha256"] != ORACLE_SHA256:
-        raise ValueError("A7 baseline oracle identity differs")
-    if plan["expectation"] != {
-        "case": "existing-fixture-full-readback",
-        "name_hex": b"mothra-race-fixture".hex(),
-        "expected_stream_bytes": FULL_STREAM_BYTES,
-        "expected_data_sha256": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
-        "expected_rsrc_sha256": "40a42dbcf2d879e22d9a5a9acf46bf15fa9fe3a77837f757a990e514436801e5",
-    }:
-        raise ValueError("A7 baseline full-fork expectation differs")
-    steps = plan["steps"]
-    if len(steps) != 29 or plan["endpoints"] != {
-        "control": {"host": "127.0.0.1", "port": 15500},
-        "data": {"host": "127.0.0.1", "port": 15501},
-    }:
-        raise ValueError("A7 baseline full 29-step/data-endpoint shape differs")
-    if (
-        steps[19]
-        != {
-            "op": "connect",
-            "connection": "download",
-            "endpoint": "data",
-            "timeout": 10,
-        }
-        or steps[21].get("size") != FULL_STREAM_BYTES
-        or steps[24]["op"] != "read_eof"
-    ):
-        raise ValueError("A7 baseline full download sequence differs")
+# The step builders, the case table and the baseline names live in their own
+# modules and stay importable from here, as the verifiers and the other planners
+# import them from this module.
+__all__ = [
+    "BASELINE_SHA256",
+    "CASES",
+    "FULL_STREAM_BYTES",
+    "MAIN",
+    "PEER",
+    "QUOTE",
+    "Case",
+    "barrier",
+    "check_baseline_structure",
+    "load_baseline",
+    "main",
+    "observe",
+    "plans",
+    "settings",
+    "variable_message",
+]
 
 
-def load_baseline(raw: bytes) -> dict:
-    if hashlib.sha256(raw).hexdigest() != BASELINE_SHA256:
-        raise ValueError("A7 baseline input SHA-256 differs")
-    plan = json.loads(raw)
-    check_baseline_structure(plan)
-    return plan
+def plans(runtime: Json, baseline_raw: bytes) -> dict[str, Json]:
+    """Prepare the preflight, observation and postflight plans.
 
+    Parameters
+    ----------
+    runtime : dict[str, typing.Any]
+        The runtime record; its identity fields must equal the baseline's.
+    baseline_raw : bytes
+        The baseline plan's bytes.
 
-@dataclass(frozen=True)
-class Case:
-    option: int
-    text: bytes
-    quote: bytes = b""
-    sender_push: int = 0
-    recipient_push: int = 0
-    sender: str = "main"
+    Returns
+    -------
+    dict[str, dict[str, typing.Any]]
+        The three plans, the baseline being its own preflight and postflight.
 
-
-CASES = {
-    "direct-quoted": Case(1, b"pm-a26-direct", QUOTE, recipient_push=1),
-    "recipient-refuses": Case(1, b"pm-a26-refused", sender_push=1),
-    "auto-and-original": Case(1, b"pm-a26-with-auto", sender_push=1, recipient_push=1),
-    "sender-refuses": Case(1, b"pm-a26-sender-refuses"),
-    "option-two": Case(2, b"pm-a26-option-two", recipient_push=1),
-    "option-three": Case(3, b"pm-a26-option-three", recipient_push=1, sender="peer"),
-    "empty": Case(1, b""),
-}
-
-
-def variable_message(
-    kind: int,
-    identifier: int,
-    uid: str,
-    fields: list[tuple[int, bytes]],
-    connection: str = "main",
-) -> dict:
-    if uid not in {"main_uid", "peer_uid"}:
-        raise ValueError("UID must come from the current observed connection")
-    body = (1 + len(fields)).to_bytes(2, "big").hex() + "00670002{" + uid + "}"
-    length = 8
-    for field, value in fields:
-        body += (
-            field.to_bytes(2, "big").hex()
-            + len(value).to_bytes(2, "big").hex()
-            + value.hex()
-        )
-        length += 4 + len(value)
-    return send(packet(kind, identifier, bytes(length))[:40] + body, connection)
-
-
-def settings(
-    connection: str, identifier: int, name: bytes, options: int, auto: bytes = b""
-) -> list[dict]:
-    values = [(102, name), (104, b"\0\x01"), (113, options.to_bytes(2, "big"))]
-    if auto:
-        values.append((215, auto))
-    return [send(packet(304, identifier, payload(values)), connection)] + barrier(
-        identifier + 100
-    )
-
-
-def barrier(identifier: int) -> list[dict]:
-    steps = []
-    for connection in ("main", "peer"):
-        steps += request(connection, 500, identifier)
-    return steps + [
-        {"op": "expect_quiet", "connection": connection, "timeout": 2}
-        for connection in ("main", "peer")
-    ]
-
-
-def observe() -> list[dict]:
-    steps = login() + [
-        send(packet(300, 10)),
-        read(
-            match_frame={"is_reply": 1, "id": 10},
-            save={"name": "main_uid", "offset": 26, "size": 2},
-        ),
-    ]
-    steps += [{**step, "connection": "peer"} for step in login()[:3]]
-    steps += [
-        authentication(b"admin", b"mothra19", name=PEER, connection="peer"),
-        read("peer"),
-        read("peer"),
-        read("peer"),
-        read("main", match_frame={"type": 301}, save_fields={"peer_uid": 103}),
-    ]
-    steps += settings("main", 20, MAIN, 0) + settings("peer", 21, PEER, 0)
-    states = [(0, 0), (0, 1), (0, 4), (1, 1), (0, 0), (0, 0), (0, 0)]
-    previous = (0, 0)
-    for index, (label, case) in enumerate(CASES.items()):
-        state = states[index]
-        if state[0] != previous[0]:
-            steps += settings("main", 30 + index, MAIN, state[0])
-        if state[1] != previous[1]:
-            steps += settings(
-                "peer",
-                40 + index,
-                PEER,
-                state[1],
-                b"pm-a26-auto" if state[1] == 4 else b"",
-            )
-        previous = state
-        fields = [(113, case.option.to_bytes(2, "big")), (101, case.text)]
-        if case.quote:
-            fields.append((214, case.quote))
-        identifier = 60 + index
-        sender = case.sender
-        recipient = "peer" if sender == "main" else "main"
-        uid = "peer_uid" if recipient == "peer" else "main_uid"
-        steps += [variable_message(108, identifier, uid, fields, sender)]
-        steps += [read(sender, match_frame={"is_reply": 1, "id": identifier})]
-        steps += [
-            read(sender, match_frame={"type": 104}) for _ in range(case.sender_push)
-        ]
-        steps += [
-            read(recipient, match_frame={"type": 104})
-            for _ in range(case.recipient_push)
-        ]
-        steps += barrier(160 + index)
-    steps += settings("main", 90, MAIN, 0) + settings("peer", 91, PEER, 0)
-    return steps + [close("peer"), close()]
-
-
-def plans(runtime: dict, baseline_raw: bytes) -> dict[str, dict]:
+    Raises
+    ------
+    ValueError
+        If the baseline fails :func:`load_baseline` or the runtime identity
+        differs from the baseline's.
+    """
     baseline = load_baseline(baseline_raw)
-    identity = ("oracle_sha256", "emulator_pid", "emulator_sha256", "guest_pcap")
-    if any(runtime.get(key) != baseline["environment"].get(key) for key in identity):
-        raise ValueError("Runtime identity differs from immutable A7 baseline")
+    if any(
+        runtime.get(key) != baseline["environment"].get(key) for key in IDENTITY_KEYS
+    ):
+        message = "Runtime identity differs from immutable A7 baseline"
+        raise ValueError(message)
     observed = {
         "schema_version": 1,
         "profile": "native-mac-oracle",
@@ -187,7 +76,7 @@ def plans(runtime: dict, baseline_raw: bytes) -> dict[str, dict]:
         "oracle_sha256": ORACLE_SHA256,
         "gap_ids": ["GAP-044"],
         "environment": runtime,
-        "endpoints": {"control": {"host": "127.0.0.1", "port": 15500}},
+        "endpoints": {"control": dict(BASELINE_ENDPOINTS["control"])},
         "steps": observe(),
         "expectation": {
             "case": "observe",
@@ -200,23 +89,53 @@ def plans(runtime: dict, baseline_raw: bytes) -> dict[str, dict]:
     return {"preflight": baseline, "observe": observed, "postflight": baseline}
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--runtime-record", type=Path, required=True)
-    parser.add_argument("--baseline-plan", type=Path, required=True)
-    parser.add_argument("--output", type=Path, required=True)
-    args = parser.parse_args()
-    if args.output.exists():
-        parser.error("Refusing existing output")
-    baseline_raw = args.baseline_plan.read_bytes()
-    prepared = plans(json.loads(args.runtime_record.read_text()), baseline_raw)
-    args.output.mkdir(parents=True)
+def command(*, runtime_record: str, baseline_plan: str, output: str) -> None:
+    """Write the preflight, observe and postflight plans to a new directory.
+
+    Parameters
+    ----------
+    runtime_record
+        The JSON record of the running emulator.
+    baseline_plan
+        The A7 baseline plan.
+    output
+        The directory to create; it must not exist.
+
+    Raises
+    ------
+    UsageError
+        If the output directory exists.
+    """
+    target = Path(output)
+    if target.exists():
+        message = "Refusing existing output"
+        raise UsageError(message)
+    baseline_raw = Path(baseline_plan).read_bytes()
+    prepared = plans(
+        json.loads(Path(runtime_record).read_text(encoding="utf-8")), baseline_raw
+    )
+    target.mkdir(parents=True)
     for label, plan in prepared.items():
-        (args.output / f"{label}.json").write_bytes(
+        (target / f"{label}.json").write_bytes(
             baseline_raw
             if label != "observe"
             else (json.dumps(plan, indent=2) + "\n").encode()
         )
+
+
+def main() -> None:
+    """Run the command line; a successful run returns instead of exiting.
+
+    Raises
+    ------
+    SystemExit
+        With a non-zero status when the command line cannot be used.
+    """
+    try:
+        run(command, __doc__)
+    except SystemExit as stop:
+        if stop.code:  # the command line library exits with 0 on success
+            raise
 
 
 if __name__ == "__main__":

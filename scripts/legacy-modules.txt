@@ -41,7 +41,6 @@ scripts/native_news_decode.py
 scripts/native_news_delete_cases.py
 scripts/native_path_fields_cases.py
 scripts/native_path_fields_control.py
-scripts/native_pm_cases.py  # live bytes compared with a recorded hash
 scripts/native_rate304_cases.py
 scripts/native_rate304_control.py
 scripts/native_room_cases.py
@@ -164,7 +163,6 @@ scripts/verify_native_moves.py
 scripts/verify_native_news.py
 scripts/verify_native_news_boundary.py
 scripts/verify_native_path_fields.py
-scripts/verify_native_pm_packet.py  # live bytes compared with a recorded hash
 scripts/verify_native_rate304_partial.py
 scripts/verify_native_rate304_sequence.py
 scripts/verify_native_rooms.py
