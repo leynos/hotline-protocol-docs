@@ -1,0 +1,707 @@
+boot		ok a1ac73272a88f4c3
+boot	boot-c55/readiness.json>actual_emulator>uid:empty	IndexError: list index out of range
+boot	boot-c55/readiness.json>actual_emulator:delete-key	KeyError: 'actual_emulator'
+boot	boot-c53/terminal.json>actual_pid_gone:delete-key	KeyError: 'actual_pid_gone'
+boot	boot-c55/readiness.json>actual_emulator>cap_eff:delete-key	KeyError: 'cap_eff'
+boot	boot-c55/readiness.json>case_deadline_utc:delete-key	KeyError: 'case_deadline_utc'
+boot	boot-c55/readiness.json>actual_emulator>exe:delete-key	KeyError: 'exe'
+boot	boot-c55/readiness.json>actual_emulator>fd16:delete-key	KeyError: 'fd16'
+boot	boot-c55/readiness.json>actual_emulator>fd6:delete-key	KeyError: 'fd6'
+boot	boot-c55/readiness.json>recorders>host:delete-key	KeyError: 'host'
+boot	boot-c55/readiness.json>namespace>listeners:delete-key	KeyError: 'listeners'
+boot	boot-c55/readiness.json>recorders>namespace:delete-key	KeyError: 'namespace'
+boot	boot-c53/terminal.json>namespace_pcap_bytes:delete-key	KeyError: 'namespace_pcap_bytes'
+boot	boot-c55/readiness.json>actual_emulator>netns:delete-key	KeyError: 'netns'
+boot	boot-c55/readiness.json>no_frontend_contact:delete-key	KeyError: 'no_frontend_contact'
+boot	boot-c55/readiness.json>actual_emulator>pid:delete-key	KeyError: 'pid'
+boot	boot-c53/terminal.json>primary_syn_pcap_bytes:delete-key	KeyError: 'primary_syn_pcap_bytes'
+boot	boot-c55/readiness.json>purpose:delete-key	KeyError: 'purpose'
+boot	boot-c55/readiness.json>recorder_remaining_seconds:delete-key	KeyError: 'recorder_remaining_seconds'
+boot	boot-c55/readiness.json>recorders:delete-key	KeyError: 'recorders'
+boot	boot-c55/readiness.json>root_controller_required_for_case:delete-key	KeyError: 'root_controller_required_for_case'
+boot	boot-c55/readiness.json>namespace>routes:delete-key	KeyError: 'routes'
+boot	boot-c55/readiness.json>screenshot_sha256:delete-key	KeyError: 'screenshot_sha256'
+boot	boot-c55/readiness.json>source_hashes:delete-key	KeyError: 'source_hashes'
+boot	boot-c55/readiness.json>actual_emulator>starttime:delete-key	KeyError: 'starttime'
+boot	boot-c55/readiness.json>actual_emulator>uid:delete-key	KeyError: 'uid'
+boot	boot-c55/readiness.json>purpose:flip	ValueError: Boot emulator identity differs
+boot	boot-c55/readiness.json>namespace>routes:flip	ValueError: Boot recorder deadline, isolation or listener differs
+boot	boot-c55/readiness.json>screenshot_sha256:flip	ValueError: Boot screenshot identity differs
+boot	boot-c53/terminal.json>actual_pid_gone:not	ValueError: C53 no-contact retirement differs
+boot	boot-c55/readiness.json>source_hashes>base:flip	ValueError: Preboot source hashes differ
+boot	boot-c55/readiness.json>recorders>host>utc:flip	ValueError: host managed recorder differs
+boot	boot-c55/readiness.json>recorders>namespace>utc:flip	ValueError: namespace managed recorder differs
+boot	boot-c55/readiness.json>actual_emulator>uid:empty;boot-c55/readiness.json>actual_emulator>cap_eff:delete-key	IndexError: list index out of range
+boot	boot-c55/readiness.json>actual_emulator>uid:empty;boot-c55/readiness.json>root_controller_required_for_case:delete-key	KeyError: 'root_controller_required_for_case'
+boot	boot-c55/readiness.json>actual_emulator>uid:empty;boot-c55/readiness.json>actual_emulator>uid:delete-key	KeyError: 'uid'
+boot	boot-c55/readiness.json>actual_emulator>cap_eff:delete-key;boot-c55/readiness.json>actual_emulator>fd6:delete-key	KeyError: 'cap_eff'
+boot	boot-c55/readiness.json>actual_emulator>cap_eff:delete-key;boot-c55/readiness.json>namespace>routes:flip	KeyError: 'cap_eff'
+boot	boot-c55/readiness.json>case_deadline_utc:delete-key;boot-c55/readiness.json>recorders>namespace:delete-key	KeyError: 'case_deadline_utc'
+boot	boot-c55/readiness.json>case_deadline_utc:delete-key;boot-c55/readiness.json>recorders>host>utc:flip	ValueError: host managed recorder differs
+boot	boot-c55/readiness.json>actual_emulator>exe:delete-key;boot-c55/readiness.json>actual_emulator>fd16:delete-key	KeyError: 'fd16'
+boot	boot-c55/readiness.json>actual_emulator>exe:delete-key;boot-c55/readiness.json>source_hashes:delete-key	KeyError: 'exe'
+boot	boot-c55/readiness.json>actual_emulator>exe:delete-key;boot-c55/readiness.json>screenshot_sha256:flip	KeyError: 'exe'
+boot	boot-c55/readiness.json>actual_emulator>fd16:delete-key;boot-c55/readiness.json>actual_emulator>fd6:delete-key	KeyError: 'fd6'
+boot	boot-c55/readiness.json>recorders>host:delete-key;boot-c55/readiness.json>recorders:delete-key	KeyError: 'recorders'
+boot	boot-c55/readiness.json>recorders>host:delete-key;boot-c55/readiness.json>screenshot_sha256:flip	ValueError: Boot screenshot identity differs
+boot	boot-c55/readiness.json>namespace>listeners:delete-key;boot-c55/readiness.json>screenshot_sha256:delete-key	KeyError: 'listeners'
+boot	boot-c55/readiness.json>namespace>listeners:delete-key;boot-c55/readiness.json>namespace>routes:flip	ValueError: Boot recorder deadline, isolation or listener differs
+boot	boot-c53/terminal.json>namespace_pcap_bytes:delete-key;boot-c53/terminal.json>primary_syn_pcap_bytes:delete-key	KeyError: 'primary_syn_pcap_bytes'
+boot	boot-c53/terminal.json>namespace_pcap_bytes:delete-key;boot-c55/readiness.json>purpose:delete-key	KeyError: 'namespace_pcap_bytes'
+boot	boot-c53/terminal.json>namespace_pcap_bytes:delete-key;boot-c55/readiness.json>source_hashes:delete-key	KeyError: 'namespace_pcap_bytes'
+boot	boot-c55/readiness.json>actual_emulator>netns:delete-key;boot-c55/readiness.json>actual_emulator>starttime:delete-key	KeyError: 'starttime'
+boot	boot-c55/readiness.json>no_frontend_contact:delete-key;boot-c55/readiness.json>root_controller_required_for_case:delete-key	KeyError: 'no_frontend_contact'
+boot	boot-c55/readiness.json>no_frontend_contact:delete-key;boot-c55/readiness.json>purpose:flip	ValueError: Boot emulator identity differs
+boot	boot-c55/readiness.json>actual_emulator>pid:delete-key;boot-c55/readiness.json>root_controller_required_for_case:delete-key	KeyError: 'root_controller_required_for_case'
+boot	boot-c55/readiness.json>actual_emulator>pid:delete-key;boot-c55/readiness.json>actual_emulator>starttime:delete-key	KeyError: 'pid'
+boot	boot-c53/terminal.json>primary_syn_pcap_bytes:delete-key;boot-c55/readiness.json>recorders:delete-key	KeyError: 'primary_syn_pcap_bytes'
+boot	boot-c53/terminal.json>primary_syn_pcap_bytes:delete-key;boot-c53/terminal.json>actual_pid_gone:not	ValueError: C53 no-contact retirement differs
+boot	boot-c55/readiness.json>purpose:delete-key;boot-c55/readiness.json>namespace>routes:flip	KeyError: 'purpose'
+boot	boot-c55/readiness.json>recorder_remaining_seconds:delete-key;boot-c55/readiness.json>namespace>routes:delete-key	KeyError: 'recorder_remaining_seconds'
+boot	boot-c55/readiness.json>recorder_remaining_seconds:delete-key;boot-c55/readiness.json>source_hashes>base:flip	ValueError: Preboot source hashes differ
+boot	boot-c55/readiness.json>purpose:flip;boot-c55/readiness.json>namespace>routes:flip	ValueError: Boot emulator identity differs
+boot	boot-c55/readiness.json>namespace>routes:flip;boot-c55/readiness.json>source_hashes>base:flip	ValueError: Preboot source hashes differ
+case		ok 1780b88986e4f984
+case	case-c56/captures/readiness/report.json>events>0>action:delete-key	KeyError: 'action'
+case	case-c56/controller-launch.json>argv:delete-key	KeyError: 'argv'
+case	case-c56/captures/readiness/report.json>completed_actions:delete-key	KeyError: 'completed_actions'
+case	case-c56/captures/readiness/report.json>events>0>connection:delete-key	KeyError: 'connection'
+case	case-c56/capture-ready.json>emulator_netns:delete-key	KeyError: 'emulator_netns'
+case	case-c56/capture-ready.json>emulator_pid:delete-key	KeyError: 'emulator_pid'
+case	case-c56/capture-ready.json>emulator_sha256:delete-key	KeyError: 'emulator_sha256'
+case	case-c56/capture-ready.json>emulator_starttime:delete-key	KeyError: 'emulator_starttime'
+case	case-c56/captures/readiness/report.json>error:delete-key	KeyError: 'error'
+case	case-c56/captures/readiness/report.json>events>0>event:delete-key	KeyError: 'event'
+case	case-c56/captures/readiness/report.json>events:delete-key	KeyError: 'events'
+case	case-c56/capture-ready.json>fixture_profile:delete-key	KeyError: 'fixture_profile'
+case	case-c56/captures/readiness/report.json>frames:delete-key	KeyError: 'frames'
+case	case-c56/capture-ready.json>full_file_baseline:delete-key	KeyError: 'full_file_baseline'
+case	case-c56/captures/readiness/report.json>events>1>hex:delete-key	KeyError: 'hex'
+case	case-c56/capture-ready.json>host_recorder_pid:delete-key	KeyError: 'host_recorder_pid'
+case	case-c56/capture-ready.json>namespace_recorder_pid:delete-key	KeyError: 'namespace_recorder_pid'
+case	case-c56/captures/readiness/report.json>native_conformance:delete-key	KeyError: 'native_conformance'
+case	case-c56/capture-ready.json>ns_routes:delete-key	KeyError: 'ns_routes'
+case	case-c56/captures/readiness/report.json>oracle_sha256:delete-key	KeyError: 'oracle_sha256'
+case	case-c56/capture-ready.json>owned_working_image:delete-key	KeyError: 'owned_working_image'
+case	case-c56/captures/readiness/report.json>plan_sha256:delete-key	KeyError: 'plan_sha256'
+case	case-c56/capture-ready.json>primary_syn_count:delete-key	KeyError: 'primary_syn_count'
+case	case-c56/captures/readiness/report.json>profile:delete-key	KeyError: 'profile'
+case	case-c56/controller-launch.json>source_sha256:delete-key	KeyError: 'source_sha256'
+case	case-c56/captures/readiness/report.json>status:delete-key	KeyError: 'status'
+case	case-c56/captures/readiness/report.json>streams:delete-key	KeyError: 'streams'
+case	case-c56/capture-ready.json>host_recorder_pid:inc	ValueError: As-run capture identity or scope differs
+case	case-c56/plans/source-hashes.json>readiness:delete-key	ValueError: As-run plan inventory differs
+case	case-c56/captures/readiness/plan.json>schema_version:inc	ValueError: Capture plan/source differs
+case	case-c56/captures/readiness/report.json>events>4>action:inc	ValueError: Completed frame read has incomplete bytes
+case	case-c56/controller-launch.json>argv:reverse	ValueError: Controller root/namespace/source launch differs
+case	case-c56/captures/readiness/report.json>frames:drop-last	ValueError: Decoded frame mismatch
+case	case-c56/captures/readiness/report.json>profile:flip	ValueError: Evidence profile mismatch
+case	case-c56/captures/ban/report.json>controller_uid:inc	ValueError: Guarded controller was not root
+case	case-c56/captures/readiness/report.json>completed_actions:inc	ValueError: Incomplete plan reported as completed
+case	case-c56/captures/readiness/report.json>oracle_sha256:flip	ValueError: Source identity mismatch
+case	case-c56/captures/readiness/report.json>events:reverse	ValueError: Stream reconstruction mismatch
+case	case-c56/captures/ban/report.json>events>28>connection:empty	ValueError: Target close missing
+case	case-c56/captures/readiness/report.json>status:flip	ValueError: Unknown capture status
+case	case-c56/plans/source-hashes.json>ban:flip	ValueError: ban as-run source plan differs
+case	case-c56/plans/source-hashes.json>guard:flip	ValueError: guard as-run source plan differs
+case	case-c56/controller-launch.json>argv>19:flip	ValueError: list.index(x): x not in list
+case	case-c56/plans/source-hashes.json>probe:flip	ValueError: probe as-run source plan differs
+case	case-c56/plans/source-hashes.json>readiness:flip	ValueError: readiness as-run source plan differs
+case	case-c56/plans/source-hashes.json>seed:flip	ValueError: seed as-run source plan differs
+case	case-c56/captures/readiness/report.json>events>0>action:delete-key;case-c56/captures/readiness/report.json>events>4>action:inc	KeyError: 'action'
+case	case-c56/captures/readiness/report.json>events>0>action:delete-key;case-c56/captures/readiness/report.json>events:reverse	ValueError: Stream reconstruction mismatch
+case	case-c56/controller-launch.json>argv:delete-key;case-c56/controller-launch.json>source_sha256:delete-key	KeyError: 'argv'
+case	case-c56/captures/readiness/report.json>completed_actions:delete-key;case-c56/captures/readiness/report.json>error:delete-key	KeyError: 'error'
+case	case-c56/captures/readiness/report.json>events>0>connection:delete-key;case-c56/captures/readiness/report.json>events>0>event:delete-key	KeyError: 'connection'
+case	case-c56/captures/readiness/report.json>events>0>connection:delete-key;case-c56/captures/readiness/report.json>completed_actions:inc	ValueError: Incomplete plan reported as completed
+case	case-c56/capture-ready.json>emulator_netns:delete-key;case-c56/capture-ready.json>emulator_sha256:delete-key	KeyError: 'emulator_netns'
+case	case-c56/capture-ready.json>emulator_netns:delete-key;case-c56/capture-ready.json>emulator_starttime:delete-key	KeyError: 'emulator_starttime'
+case	case-c56/capture-ready.json>emulator_pid:delete-key;case-c56/capture-ready.json>emulator_starttime:delete-key	KeyError: 'emulator_pid'
+case	case-c56/capture-ready.json>emulator_sha256:delete-key;case-c56/capture-ready.json>owned_working_image:delete-key	KeyError: 'emulator_sha256'
+case	case-c56/captures/readiness/report.json>error:delete-key;case-c56/captures/readiness/report.json>status:flip	ValueError: Unknown capture status
+case	case-c56/captures/readiness/report.json>events>0>event:delete-key;case-c56/captures/readiness/report.json>events:delete-key	KeyError: 'events'
+case	case-c56/capture-ready.json>fixture_profile:delete-key;case-c56/capture-ready.json>full_file_baseline:delete-key	KeyError: 'fixture_profile'
+case	case-c56/capture-ready.json>fixture_profile:delete-key;case-c56/capture-ready.json>primary_syn_count:delete-key	KeyError: 'primary_syn_count'
+case	case-c56/captures/readiness/report.json>frames:delete-key;case-c56/capture-ready.json>full_file_baseline:delete-key	KeyError: 'full_file_baseline'
+case	case-c56/captures/readiness/report.json>frames:delete-key;case-c56/captures/readiness/report.json>events>4>action:inc	ValueError: Completed frame read has incomplete bytes
+case	case-c56/capture-ready.json>full_file_baseline:delete-key;case-c56/controller-launch.json>source_sha256:delete-key	KeyError: 'full_file_baseline'
+case	case-c56/capture-ready.json>full_file_baseline:delete-key;case-c56/captures/readiness/report.json>streams:delete-key	KeyError: 'full_file_baseline'
+case	case-c56/captures/readiness/report.json>events>1>hex:delete-key;case-c56/captures/readiness/report.json>streams:delete-key	KeyError: 'hex'
+case	case-c56/capture-ready.json>host_recorder_pid:delete-key;case-c56/capture-ready.json>owned_working_image:delete-key	KeyError: 'owned_working_image'
+case	case-c56/capture-ready.json>namespace_recorder_pid:delete-key;case-c56/capture-ready.json>ns_routes:delete-key	KeyError: 'namespace_recorder_pid'
+case	case-c56/capture-ready.json>namespace_recorder_pid:delete-key;case-c56/capture-ready.json>host_recorder_pid:inc	ValueError: As-run capture identity or scope differs
+case	case-c56/captures/readiness/report.json>native_conformance:delete-key;case-c56/captures/readiness/report.json>plan_sha256:delete-key	KeyError: 'native_conformance'
+case	case-c56/captures/readiness/report.json>native_conformance:delete-key;case-c56/captures/readiness/report.json>profile:flip	ValueError: Evidence profile mismatch
+case	case-c56/capture-ready.json>ns_routes:delete-key;case-c56/capture-ready.json>primary_syn_count:delete-key	KeyError: 'ns_routes'
+case	case-c56/captures/readiness/report.json>oracle_sha256:delete-key;case-c56/captures/readiness/report.json>plan_sha256:delete-key	KeyError: 'plan_sha256'
+case	case-c56/capture-ready.json>primary_syn_count:delete-key;case-c56/plans/source-hashes.json>guard:flip	KeyError: 'primary_syn_count'
+case	case-c56/captures/readiness/report.json>profile:delete-key;case-c56/captures/readiness/plan.json>schema_version:inc	ValueError: Capture plan/source differs
+case	case-c56/controller-launch.json>source_sha256:delete-key;case-c56/captures/readiness/report.json>completed_actions:inc	KeyError: 'source_sha256'
+case	case-c56/captures/readiness/report.json>status:delete-key;case-c56/captures/readiness/report.json>oracle_sha256:flip	ValueError: Source identity mismatch
+case	case-c56/captures/readiness/report.json>status:delete-key;case-c56/controller-launch.json>argv>19:flip	ValueError: list.index(x): x not in list
+case	case-c56/captures/readiness/report.json>streams:delete-key;case-c56/controller-launch.json>argv:reverse	ValueError: Controller root/namespace/source launch differs
+case	case-c56/captures/readiness/report.json>streams:delete-key;case-c56/captures/readiness/report.json>events:reverse	KeyError: 'streams'
+case	case-c56/captures/readiness/report.json>streams:delete-key;case-c56/captures/readiness/report.json>status:flip	ValueError: Unknown capture status
+case	case-c56/plans/source-hashes.json>readiness:delete-key;case-c56/controller-launch.json>argv>19:flip	ValueError: list.index(x): x not in list
+case	case-c56/captures/readiness/plan.json>schema_version:inc;case-c56/plans/source-hashes.json>readiness:flip	ValueError: readiness as-run source plan differs
+case	case-c56/controller-launch.json>argv:reverse;case-c56/controller-launch.json>argv>19:flip	ValueError: Controller root/namespace/source launch differs
+case	case-c56/captures/readiness/report.json>frames:drop-last;case-c56/plans/source-hashes.json>guard:flip	ValueError: Decoded frame mismatch
+case	case-c56/captures/readiness/report.json>profile:flip;case-c56/plans/source-hashes.json>probe:flip	ValueError: Evidence profile mismatch
+case	case-c56/captures/ban/report.json>controller_uid:inc;case-c56/captures/ban/report.json>events>28>connection:empty	ValueError: Guarded controller was not root
+case	case-c56/captures/ban/report.json>controller_uid:inc;case-c56/plans/source-hashes.json>probe:flip	ValueError: probe as-run source plan differs
+case	case-c56/plans/source-hashes.json>ban:flip;case-c56/plans/source-hashes.json>probe:flip	ValueError: ban as-run source plan differs
+case	case-c56/plans/source-hashes.json>ban:flip;case-c56/plans/source-hashes.json>seed:flip	ValueError: seed as-run source plan differs
+case	case-c56/plans/source-hashes.json>guard:flip;case-c56/plans/source-hashes.json>seed:flip	ValueError: guard as-run source plan differs
+packets		ok 57ec5e8eff7e7232
+packets	reports>readiness>events>0>local_address:drop-last	IndexError: list index out of range
+packets	reports>readiness>events>0>connection:delete-key	KeyError: 'connection'
+packets	reports>readiness>events>0>elapsed_ns:delete-key	KeyError: 'elapsed_ns'
+packets	reports>readiness>events>0>event:delete-key	KeyError: 'event'
+packets	reports>readiness>events:delete-key	KeyError: 'events'
+packets	views>readiness>main>namespace>fin_packets:delete-key	KeyError: 'fin_packets'
+packets	views>readiness>main>namespace>first_us:delete-key	KeyError: 'first_us'
+packets	views>readiness>main>guest:delete-key	KeyError: 'guest'
+packets	views>readiness>main>namespace>last_us:delete-key	KeyError: 'last_us'
+packets	reports>readiness>events>0>local_address:delete-key	KeyError: 'local_address'
+packets	reports>readiness>streams>main:delete-key	KeyError: 'main'
+packets	views>readiness>main>namespace:delete-key	KeyError: 'namespace'
+packets	views>readiness>main>namespace>packet_count:delete-key	KeyError: 'packet_count'
+packets	views>readiness>main>namespace>packet_indices:delete-key	KeyError: 'packet_indices'
+packets	views>readiness>main>namespace>received_hex:delete-key	KeyError: 'received_hex'
+packets	views>readiness>main>namespace>received_len:delete-key	KeyError: 'received_len'
+packets	views>readiness>main>namespace>received_sha256:delete-key	KeyError: 'received_sha256'
+packets	views>readiness>main>namespace>received_tail_hex:delete-key	KeyError: 'received_tail_hex'
+packets	reports:delete-key	KeyError: 'reports'
+packets	views>readiness>main>namespace>rst_packets:delete-key	KeyError: 'rst_packets'
+packets	views>readiness>main>namespace>sent_hex:delete-key	KeyError: 'sent_hex'
+packets	views>readiness>main>namespace>sent_len:delete-key	KeyError: 'sent_len'
+packets	views>readiness>main>namespace>sent_sha256:delete-key	KeyError: 'sent_sha256'
+packets	reports>readiness>started_at_utc:delete-key	KeyError: 'started_at_utc'
+packets	reports>readiness>streams:delete-key	KeyError: 'streams'
+packets	reports>ban>streams>target:delete-key	KeyError: 'target'
+packets	views:delete-key	KeyError: 'views'
+packets	reports>readiness>started_at_utc:empty	ValueError: Invalid isoformat string: ''
+packets	reports>readiness>started_at_utc:flip	ValueError: Missing or ambiguous SYN lifetime near socket event
+packets	views>readiness:delete-key	ValueError: Packet phase inventory differs
+packets	views>readiness>main:delete-key	ValueError: Packet socket inventory differs
+packets	reports>readiness:delete-key	ValueError: Unexpected namespace TCP connection count
+packets	views>ban>main>guest>packet_indices:drop-last	ValueError: ban/main/guest scoped stream differs
+packets	views>ban>main>namespace>packet_indices:drop-last	ValueError: ban/main/namespace scoped stream differs
+packets	views>ban>target>guest>packet_indices:drop-last	ValueError: ban/target/guest scoped stream differs
+packets	views>ban>target>namespace>packet_indices:drop-last	ValueError: ban/target/namespace scoped stream differs
+packets	views>guard>main>guest>packet_indices:drop-last	ValueError: guard/main/guest scoped stream differs
+packets	views>guard>main>namespace>packet_indices:drop-last	ValueError: guard/main/namespace scoped stream differs
+packets	views>probe>main>guest>packet_indices:drop-last	ValueError: probe/main/guest scoped stream differs
+packets	views>probe>main>namespace>packet_indices:drop-last	ValueError: probe/main/namespace scoped stream differs
+packets	views>readiness>main>guest>packet_indices:drop-last	ValueError: readiness/main/guest scoped stream differs
+packets	views>readiness>main>namespace>packet_indices:drop-last	ValueError: readiness/main/namespace scoped stream differs
+packets	views>seed>main>guest>packet_indices:drop-last	ValueError: seed/main/guest scoped stream differs
+packets	views>seed>main>namespace>packet_indices:drop-last	ValueError: seed/main/namespace scoped stream differs
+packets	reports>readiness>events>0>local_address:drop-last;reports>readiness>events>0>local_address:delete-key	KeyError: 'local_address'
+packets	reports>readiness>events>0>local_address:drop-last;views>readiness>main:delete-key	ValueError: Packet socket inventory differs
+packets	reports>readiness>events>0>connection:delete-key;reports>readiness>events>0>local_address:delete-key	KeyError: 'connection'
+packets	reports>readiness>events>0>connection:delete-key;reports:delete-key	KeyError: 'reports'
+packets	reports>readiness>events>0>connection:delete-key;views>readiness>main>namespace>rst_packets:delete-key	KeyError: 'connection'
+packets	reports>readiness>events>0>elapsed_ns:delete-key;reports>readiness>started_at_utc:flip	KeyError: 'elapsed_ns'
+packets	reports>readiness>events>0>elapsed_ns:delete-key;views>readiness>main:delete-key	ValueError: Packet socket inventory differs
+packets	reports>readiness>events>0>event:delete-key;reports>readiness>events:delete-key	KeyError: 'events'
+packets	reports>readiness>events>0>event:delete-key;reports>readiness>started_at_utc:empty	ValueError: Invalid isoformat string: ''
+packets	reports>readiness>events:delete-key;reports:delete-key	KeyError: 'reports'
+packets	reports>readiness>events:delete-key;views>guard>main>guest>packet_indices:drop-last	KeyError: 'events'
+packets	views>readiness>main>namespace>fin_packets:delete-key;views>readiness>main>namespace>last_us:delete-key	KeyError: 'last_us'
+packets	views>readiness>main>namespace>fin_packets:delete-key;views>readiness>main>namespace>rst_packets:delete-key	KeyError: 'fin_packets'
+packets	views>readiness>main>namespace>first_us:delete-key;views>readiness>main>namespace>last_us:delete-key	KeyError: 'first_us'
+packets	views>readiness>main>namespace>first_us:delete-key;views>readiness>main>namespace>packet_count:delete-key	KeyError: 'packet_count'
+packets	views>readiness>main>namespace>first_us:delete-key;views>seed>main>guest>packet_indices:drop-last	KeyError: 'first_us'
+packets	views>readiness>main>guest:delete-key;reports>readiness>streams>main:delete-key	KeyError: 'main'
+packets	views>readiness>main>guest:delete-key;reports>readiness>started_at_utc:delete-key	KeyError: 'started_at_utc'
+packets	views>readiness>main>guest:delete-key;views>guard>main>namespace>packet_indices:drop-last	KeyError: 'guest'
+packets	views>readiness>main>namespace>last_us:delete-key;reports>readiness>streams:delete-key	KeyError: 'last_us'
+packets	reports>readiness>streams>main:delete-key;reports>readiness>streams:delete-key	KeyError: 'streams'
+packets	views>readiness>main>namespace>packet_count:delete-key;views>readiness>main>namespace>packet_indices:drop-last	ValueError: readiness/main/namespace scoped stream differs
+packets	views>readiness>main>namespace>packet_indices:delete-key;views>readiness>main>namespace>sent_sha256:delete-key	KeyError: 'packet_indices'
+packets	views>readiness>main>namespace>packet_indices:delete-key;reports>readiness:delete-key	ValueError: Unexpected namespace TCP connection count
+packets	views>readiness>main>namespace>received_hex:delete-key;views>readiness>main>namespace>received_tail_hex:delete-key	KeyError: 'received_hex'
+packets	views>readiness>main>namespace>received_hex:delete-key;views>readiness>main>namespace>sent_hex:delete-key	KeyError: 'sent_hex'
+packets	views>readiness>main>namespace>received_len:delete-key;views>readiness>main>namespace>sent_len:delete-key	KeyError: 'sent_len'
+packets	views>readiness>main>namespace>received_len:delete-key;views>readiness>main>namespace>sent_sha256:delete-key	KeyError: 'received_len'
+packets	views>readiness>main>namespace>received_sha256:delete-key;views>readiness>main>namespace>sent_hex:delete-key	KeyError: 'received_sha256'
+packets	views>readiness>main>namespace>received_sha256:delete-key;reports>readiness>started_at_utc:flip	ValueError: Missing or ambiguous SYN lifetime near socket event
+packets	views>readiness>main>namespace>received_tail_hex:delete-key;reports>readiness>streams:delete-key	KeyError: 'received_tail_hex'
+packets	views>readiness>main>namespace>rst_packets:delete-key;views>readiness>main>namespace>sent_len:delete-key	KeyError: 'rst_packets'
+packets	views>readiness>main>namespace>rst_packets:delete-key;reports>readiness>started_at_utc:flip	ValueError: Missing or ambiguous SYN lifetime near socket event
+packets	reports>readiness>started_at_utc:delete-key;views>readiness:delete-key	ValueError: Packet phase inventory differs
+packets	reports>ban>streams>target:delete-key;views>ban>target>guest>packet_indices:drop-last	KeyError: 'target'
+packets	reports>ban>streams>target:delete-key;views>ban>target>namespace>packet_indices:drop-last	ValueError: ban/target/namespace scoped stream differs
+packets	views:delete-key;reports>readiness>started_at_utc:flip	KeyError: 'views'
+packets	views:delete-key;reports>readiness:delete-key	KeyError: 'views'
+packets	reports>readiness>started_at_utc:empty;reports>readiness>started_at_utc:flip	ValueError: Invalid isoformat string: 'x'
+packets	views>ban>main>guest>packet_indices:drop-last;views>ban>main>namespace>packet_indices:drop-last	ValueError: ban/main/namespace scoped stream differs
+packets	views>ban>main>guest>packet_indices:drop-last;views>ban>target>namespace>packet_indices:drop-last	ValueError: ban/main/guest scoped stream differs
+packets	views>ban>main>namespace>packet_indices:drop-last;views>seed>main>guest>packet_indices:drop-last	ValueError: seed/main/guest scoped stream differs
+packets	views>ban>target>guest>packet_indices:drop-last;views>probe>main>namespace>packet_indices:drop-last	ValueError: ban/target/guest scoped stream differs
+packets	views>guard>main>guest>packet_indices:drop-last;views>readiness>main>guest>packet_indices:drop-last	ValueError: readiness/main/guest scoped stream differs
+packets	views>guard>main>guest>packet_indices:drop-last;views>seed>main>namespace>packet_indices:drop-last	ValueError: guard/main/guest scoped stream differs
+packets	views>guard>main>namespace>packet_indices:drop-last;views>readiness>main>guest>packet_indices:drop-last	ValueError: readiness/main/guest scoped stream differs
+packets	views>probe>main>guest>packet_indices:drop-last;views>probe>main>namespace>packet_indices:drop-last	ValueError: probe/main/namespace scoped stream differs
+packets	views>seed>main>guest>packet_indices:drop-last;views>seed>main>namespace>packet_indices:drop-last	ValueError: seed/main/namespace scoped stream differs
+terminal		ok 835572f9a10c0860
+terminal	case-c56/terminal.json>actual_emulator_pid:delete-key	KeyError: 'actual_emulator_pid'
+terminal	case-c56/terminal.json>actual_pid_gone:delete-key	KeyError: 'actual_pid_gone'
+terminal	case-c56/terminal.json>ban_file>bak_absent:delete-key	KeyError: 'bak_absent'
+terminal	case-c56/terminal.json>ban_file:delete-key	KeyError: 'ban_file'
+terminal	case-c56/terminal.json>ban_file>catalog:delete-key	KeyError: 'catalog'
+terminal	case-c56/terminal.json>original>client_fd6:delete-key	KeyError: 'client_fd6'
+terminal	case-c56/terminal.json>ban_file>data_bytes:delete-key	KeyError: 'data_bytes'
+terminal	case-c56/terminal.json>ban_file>data_sha256:delete-key	KeyError: 'data_sha256'
+terminal	case-c56/terminal.json>full_file_baseline:delete-key	KeyError: 'full_file_baseline'
+terminal	case-c56/terminal.json>pcap>host_terminal_log_tail:delete-key	KeyError: 'host_terminal_log_tail'
+terminal	case-c56/terminal.json>image_fd_free_before_hash:delete-key	KeyError: 'image_fd_free_before_hash'
+terminal	case-c56/terminal.json>pcap>namespace_terminal_log_tail:delete-key	KeyError: 'namespace_terminal_log_tail'
+terminal	case-c56/terminal.json>no_case_retry:delete-key	KeyError: 'no_case_retry'
+terminal	case-c56/terminal.json>no_restart_unban_or_full_A7:delete-key	KeyError: 'no_restart_unban_or_full_A7'
+terminal	case-c56/terminal.json>original:delete-key	KeyError: 'original'
+terminal	case-c56/terminal.json>ban_file>path:delete-key	KeyError: 'path'
+terminal	case-c56/terminal.json>pcap:delete-key	KeyError: 'pcap'
+terminal	case-c56/cleanup-signals.json>pid_gone:delete-key	KeyError: 'pid_gone'
+terminal	case-c56/terminal.json>original>primary_fd6:delete-key	KeyError: 'primary_fd6'
+terminal	case-c56/terminal.json>pcap>primary_syn_bytes:delete-key	KeyError: 'primary_syn_bytes'
+terminal	case-c56/terminal.json>profile:delete-key	KeyError: 'profile'
+terminal	case-c56/terminal.json>ban_file>resource_bytes:delete-key	KeyError: 'resource_bytes'
+terminal	case-c56/terminal.json>units>mothra-sheep-bc2add75bbfa>stdout:delete-key	KeyError: 'stdout'
+terminal	case-c56/terminal.json>stopped_image_sha256:delete-key	KeyError: 'stopped_image_sha256'
+terminal	case-c56/terminal.json>units:delete-key	KeyError: 'units'
+terminal	case-c56/terminal.json>units>mothra-sheep-bc2add75bbfa:delete-key	ValueError: Lab cleanup or no-retry proof differs
+terminal	case-c56/terminal.json>stopped_image_sha256:flip	ValueError: Stopped persisted ban bytes or image proof differs
+terminal	case-c56/terminal.json>original>primary_fd6>stdout:flip	ValueError: Terminal original or capture proof differs
+terminal	case-c56/terminal.json>profile:flip	ValueError: Terminal profile differs
+terminal	case-c56/terminal.json>actual_emulator_pid:delete-key;case-c56/terminal.json>actual_pid_gone:delete-key	KeyError: 'actual_emulator_pid'
+terminal	case-c56/terminal.json>actual_emulator_pid:delete-key;case-c56/terminal.json>full_file_baseline:delete-key	KeyError: 'full_file_baseline'
+terminal	case-c56/terminal.json>actual_pid_gone:delete-key;case-c56/terminal.json>pcap:delete-key	KeyError: 'actual_pid_gone'
+terminal	case-c56/terminal.json>ban_file>bak_absent:delete-key;case-c56/terminal.json>ban_file>resource_bytes:delete-key	KeyError: 'resource_bytes'
+terminal	case-c56/terminal.json>ban_file>bak_absent:delete-key;case-c56/terminal.json>stopped_image_sha256:delete-key	KeyError: 'bak_absent'
+terminal	case-c56/terminal.json>ban_file:delete-key;case-c56/terminal.json>stopped_image_sha256:flip	KeyError: 'ban_file'
+terminal	case-c56/terminal.json>ban_file>catalog:delete-key;case-c56/terminal.json>no_restart_unban_or_full_A7:delete-key	KeyError: 'no_restart_unban_or_full_A7'
+terminal	case-c56/terminal.json>ban_file>catalog:delete-key;case-c56/terminal.json>ban_file>path:delete-key	KeyError: 'catalog'
+terminal	case-c56/terminal.json>original>client_fd6:delete-key;case-c56/terminal.json>ban_file>path:delete-key	KeyError: 'client_fd6'
+terminal	case-c56/terminal.json>original>client_fd6:delete-key;case-c56/terminal.json>units:delete-key	KeyError: 'client_fd6'
+terminal	case-c56/terminal.json>original>client_fd6:delete-key;case-c56/terminal.json>original>primary_fd6>stdout:flip	ValueError: Terminal original or capture proof differs
+terminal	case-c56/terminal.json>ban_file>data_bytes:delete-key;case-c56/terminal.json>ban_file>data_sha256:delete-key	KeyError: 'data_bytes'
+terminal	case-c56/terminal.json>ban_file>data_bytes:delete-key;case-c56/terminal.json>ban_file>path:delete-key	KeyError: 'path'
+terminal	case-c56/terminal.json>ban_file>data_sha256:delete-key;case-c56/terminal.json>original>primary_fd6:delete-key	KeyError: 'primary_fd6'
+terminal	case-c56/terminal.json>full_file_baseline:delete-key;case-c56/terminal.json>profile:flip	ValueError: Terminal profile differs
+terminal	case-c56/terminal.json>pcap>host_terminal_log_tail:delete-key;case-c56/terminal.json>pcap>namespace_terminal_log_tail:delete-key	KeyError: 'host_terminal_log_tail'
+terminal	case-c56/terminal.json>pcap>host_terminal_log_tail:delete-key;case-c56/terminal.json>pcap>primary_syn_bytes:delete-key	KeyError: 'primary_syn_bytes'
+terminal	case-c56/terminal.json>image_fd_free_before_hash:delete-key;case-c56/terminal.json>stopped_image_sha256:flip	ValueError: Stopped persisted ban bytes or image proof differs
+terminal	case-c56/terminal.json>pcap>namespace_terminal_log_tail:delete-key;case-c56/terminal.json>original:delete-key	KeyError: 'namespace_terminal_log_tail'
+terminal	case-c56/terminal.json>pcap>namespace_terminal_log_tail:delete-key;case-c56/terminal.json>stopped_image_sha256:flip	KeyError: 'namespace_terminal_log_tail'
+terminal	case-c56/terminal.json>no_case_retry:delete-key;case-c56/terminal.json>no_restart_unban_or_full_A7:delete-key	KeyError: 'no_case_retry'
+terminal	case-c56/terminal.json>no_case_retry:delete-key;case-c56/cleanup-signals.json>pid_gone:delete-key	KeyError: 'pid_gone'
+terminal	case-c56/terminal.json>pcap:delete-key;case-c56/terminal.json>original>primary_fd6:delete-key	KeyError: 'pcap'
+terminal	case-c56/cleanup-signals.json>pid_gone:delete-key;case-c56/terminal.json>units>mothra-sheep-bc2add75bbfa>stdout:delete-key	KeyError: 'stdout'
+terminal	case-c56/terminal.json>profile:delete-key;case-c56/terminal.json>stopped_image_sha256:delete-key	KeyError: 'profile'
+terminal	case-c56/terminal.json>profile:delete-key;case-c56/terminal.json>units:delete-key	KeyError: 'profile'
+terminal	case-c56/terminal.json>ban_file>resource_bytes:delete-key;case-c56/terminal.json>stopped_image_sha256:flip	KeyError: 'resource_bytes'
+terminal	case-c56/terminal.json>units>mothra-sheep-bc2add75bbfa>stdout:delete-key;case-c56/terminal.json>units>mothra-sheep-bc2add75bbfa:delete-key	ValueError: Lab cleanup or no-retry proof differs
+failed		ok 74234e98afe7498f
+failed	failed-full-A7/c35/a7-capture/report.json>events>9>connection:delete-key	KeyError: 'connection'
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>0>endpoint:delete-key	KeyError: 'endpoint'
+failed	failed-full-A7/c35/a7-capture/plan.json>endpoints:delete-key	KeyError: 'endpoints'
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>1>hex:delete-key	KeyError: 'hex'
+failed	failed-full-A7/c35/a7-capture/plan.json>endpoints>control>host:delete-key	KeyError: 'host'
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>14>save>name:delete-key	KeyError: 'name'
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>14>save>offset:delete-key	KeyError: 'offset'
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>0>op:delete-key	KeyError: 'op'
+failed	failed-full-A7/c35/a7-capture/plan.json>oracle_sha256:delete-key	KeyError: 'oracle_sha256'
+failed	failed-full-A7/c35/a7-capture/plan.json>endpoints>control>port:delete-key	KeyError: 'port'
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>2>size:delete-key	KeyError: 'size'
+failed	failed-full-A7/c35/a7-capture/plan.json>steps:delete-key	KeyError: 'steps'
+failed	failed-full-A7/c35/a7-capture/report.json>frames>0>unconsumed_hex:flip	ValueError: Decoded frame mismatch
+failed	failed-full-A7/c35/a7-capture/plan.json>endpoints>control:delete-key	ValueError: Invalid connection declaration
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>14>save>name:empty	ValueError: Invalid saved-byte name
+failed	failed-full-A7/c35/a7-capture/plan.json>oracle_sha256:flip	ValueError: Native profile requires the recorded Mac oracle hash
+failed	failed-full-A7/c35/a7-capture/plan.json>operator:empty	ValueError: Operator and gap IDs are required
+failed	failed-full-A7/c35/a7-capture/plan.json>operator:flip	ValueError: Source identity mismatch
+failed	failed-full-A7/c35/a7-capture/report.json>events>9>connection:flip	ValueError: Stream reconstruction mismatch
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>0>op:empty	ValueError: Unknown action:
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>25>op:flip	ValueError: Unknown action: clos0
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>0>op:flip	ValueError: Unknown action: connec0
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>2>op:flip	ValueError: Unknown action: rea0
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>24>op:flip	ValueError: Unknown action: read_eo0
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>4>op:flip	ValueError: Unknown action: read_fram0
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>1>op:flip	ValueError: Unknown action: sen0
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>1>connection:empty	ValueError: Unknown connection:
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>1>connection:flip	ValueError: Unknown connection: 0
+failed	failed-full-A7/c35/a7-capture/plan.json>steps:drop-first	ValueError: Unknown connection: a
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>20>connection:flip	ValueError: Unknown connection: downloa0
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>19>connection:flip	ValueError: Unknown connection: download
+failed	failed-full-A7/c35/a7-capture/plan.json>profile:flip	ValueError: Unknown evidence profile
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>14>save:delete-key	ValueError: Unknown saved bytes: admin_uid
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>18>save_fields:delete-key	ValueError: Unknown saved bytes: download_ref
+failed	failed-full-A7/c35/a7-capture/plan.json>schema_version:inc	ValueError: Unsupported capture schema
+failed	failed-full-A7/c35/a7-as-run-plan.json>schema_version:inc	ValueError: c35 failed full-file baseline differs
+failed	failed-full-A7/c45/a7-as-run-plan.json>schema_version:inc	ValueError: c45 failed full-file baseline differs
+failed	failed-full-A7/c50/a7-as-run-plan.json>schema_version:inc	ValueError: c50 failed full-file baseline differs
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>24>expect_hex:flip	ValueError: non-hexadecimal number found in fromhex() arg at position 0
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>15>hex:flip	ValueError: non-hexadecimal number found in fromhex() arg at position 52
+failed	failed-full-A7/c35/a7-capture/report.json>events>9>connection:delete-key;failed-full-A7/c35/a7-capture/plan.json>steps>25>op:flip	ValueError: Unknown action: clos0
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>0>endpoint:delete-key;failed-full-A7/c35/a7-capture/plan.json>steps>0>op:flip	ValueError: Unknown action: connec0
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>0>endpoint:delete-key;failed-full-A7/c35/a7-capture/plan.json>steps>1>op:flip	KeyError: 'endpoint'
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>1>hex:delete-key;failed-full-A7/c35/a7-capture/plan.json>steps>2>op:flip	KeyError: 'hex'
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>1>hex:delete-key;failed-full-A7/c35/a7-capture/plan.json>steps:drop-first	ValueError: Unknown connection: a
+failed	failed-full-A7/c35/a7-capture/plan.json>endpoints>control>host:delete-key;failed-full-A7/c35/a7-capture/plan.json>oracle_sha256:flip	ValueError: Native profile requires the recorded Mac oracle hash
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>14>save>name:delete-key;failed-full-A7/c35/a7-capture/plan.json>oracle_sha256:delete-key	KeyError: 'oracle_sha256'
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>14>save>name:delete-key;failed-full-A7/c35/a7-capture/plan.json>steps>19>connection:flip	KeyError: 'name'
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>14>save>name:delete-key;failed-full-A7/c35/a7-capture/plan.json>steps>14>save:delete-key	ValueError: Unknown saved bytes: admin_uid
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>14>save>offset:delete-key;failed-full-A7/c35/a7-capture/plan.json>steps:delete-key	KeyError: 'steps'
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>14>save>offset:delete-key;failed-full-A7/c35/a7-capture/plan.json>steps>14>save>name:empty	ValueError: Invalid saved-byte name
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>14>save>offset:delete-key;failed-full-A7/c35/a7-capture/report.json>events>9>connection:flip	KeyError: 'offset'
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>0>op:delete-key;failed-full-A7/c35/a7-capture/plan.json>endpoints>control>port:delete-key	KeyError: 'port'
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>0>op:delete-key;failed-full-A7/c35/a7-capture/plan.json>endpoints>control:delete-key	KeyError: 'op'
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>0>op:delete-key;failed-full-A7/c35/a7-capture/plan.json>steps>25>op:flip	KeyError: 'op'
+failed	failed-full-A7/c35/a7-capture/plan.json>oracle_sha256:delete-key;failed-full-A7/c35/a7-capture/plan.json>operator:empty	ValueError: Operator and gap IDs are required
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>2>size:delete-key;failed-full-A7/c35/a7-capture/plan.json>steps>2>op:flip	ValueError: Unknown action: rea0
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>2>size:delete-key;failed-full-A7/c35/a7-capture/plan.json>steps>4>op:flip	KeyError: 'size'
+failed	failed-full-A7/c35/a7-capture/report.json>frames>0>unconsumed_hex:flip;failed-full-A7/c35/a7-capture/plan.json>operator:empty	ValueError: Operator and gap IDs are required
+failed	failed-full-A7/c35/a7-capture/report.json>frames>0>unconsumed_hex:flip;failed-full-A7/c35/a7-capture/report.json>events>9>connection:flip	ValueError: Stream reconstruction mismatch
+failed	failed-full-A7/c35/a7-capture/report.json>frames>0>unconsumed_hex:flip;failed-full-A7/c35/a7-as-run-plan.json>schema_version:inc	ValueError: Decoded frame mismatch
+failed	failed-full-A7/c35/a7-capture/plan.json>endpoints>control:delete-key;failed-full-A7/c35/a7-capture/plan.json>steps>0>op:empty	ValueError: Unknown action:
+failed	failed-full-A7/c35/a7-capture/plan.json>operator:empty;failed-full-A7/c35/a7-capture/plan.json>steps>2>op:flip	ValueError: Operator and gap IDs are required
+failed	failed-full-A7/c35/a7-capture/plan.json>operator:empty;failed-full-A7/c35/a7-capture/plan.json>profile:flip	ValueError: Unknown evidence profile
+failed	failed-full-A7/c35/a7-capture/plan.json>operator:flip;failed-full-A7/c35/a7-capture/plan.json>steps>25>op:flip	ValueError: Unknown action: clos0
+failed	failed-full-A7/c35/a7-capture/plan.json>operator:flip;failed-full-A7/c35/a7-capture/plan.json>steps:drop-first	ValueError: Unknown connection: a
+failed	failed-full-A7/c35/a7-capture/plan.json>operator:flip;failed-full-A7/c35/a7-capture/plan.json>steps>24>expect_hex:flip	ValueError: non-hexadecimal number found in fromhex() arg at position 0
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>0>op:empty;failed-full-A7/c35/a7-capture/plan.json>steps>0>op:flip	ValueError: Unknown action: x
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>0>op:empty;failed-full-A7/c35/a7-capture/plan.json>steps>20>connection:flip	ValueError: Unknown action:
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>24>op:flip;failed-full-A7/c35/a7-capture/plan.json>steps>18>save_fields:delete-key	ValueError: Unknown saved bytes: download_ref
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>24>op:flip;failed-full-A7/c35/a7-capture/plan.json>steps>24>expect_hex:flip	ValueError: Unknown action: read_eo0
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>4>op:flip;failed-full-A7/c35/a7-capture/plan.json>steps>14>save:delete-key	ValueError: Unknown action: read_fram0
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>1>op:flip;failed-full-A7/c35/a7-capture/plan.json>steps>1>connection:empty	ValueError: Unknown action: sen0
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>1>connection:empty;failed-full-A7/c35/a7-capture/plan.json>steps>1>connection:flip	ValueError: Unknown connection: x
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>1>connection:flip;failed-full-A7/c35/a7-capture/plan.json>steps:drop-first	ValueError: Unknown connection: 0
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>20>connection:flip;failed-full-A7/c35/a7-capture/plan.json>steps>19>connection:flip	ValueError: Unknown connection: download
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>20>connection:flip;failed-full-A7/c35/a7-capture/plan.json>steps>18>save_fields:delete-key	ValueError: Unknown connection: downloa0
+failed	failed-full-A7/c35/a7-capture/plan.json>steps>19>connection:flip;failed-full-A7/c35/a7-capture/plan.json>steps>15>hex:flip	ValueError: non-hexadecimal number found in fromhex() arg at position 52
+failed	failed-full-A7/c35/a7-capture/plan.json>profile:flip;failed-full-A7/c35/a7-capture/plan.json>schema_version:inc	ValueError: Unsupported capture schema
+failed	failed-full-A7/c35/a7-as-run-plan.json>schema_version:inc;failed-full-A7/c45/a7-as-run-plan.json>schema_version:inc	ValueError: c35 failed full-file baseline differs
+failed	failed-full-A7/c45/a7-as-run-plan.json>schema_version:inc;failed-full-A7/c50/a7-as-run-plan.json>schema_version:inc	ValueError: c45 failed full-file baseline differs
+verify		ok d23042217107fed8
+verify	boot-c55/readiness.json>actual_emulator>uid:empty	IndexError: list index out of range
+verify	case-c56/captures/ban/report.json>events>0>action:delete-key	KeyError: 'action'
+verify	boot-c55/readiness.json>actual_emulator:delete-key	KeyError: 'actual_emulator'
+verify	case-c56/terminal.json>actual_emulator_pid:delete-key	KeyError: 'actual_emulator_pid'
+verify	boot-c53/terminal.json>actual_pid_gone:delete-key	KeyError: 'actual_pid_gone'
+verify	case-c56/controller-launch.json>argv:delete-key	KeyError: 'argv'
+verify	case-c56/terminal.json>ban_file>bak_absent:delete-key	KeyError: 'bak_absent'
+verify	case-c56/terminal.json>ban_file:delete-key	KeyError: 'ban_file'
+verify	boot-c55/readiness.json>actual_emulator>cap_eff:delete-key	KeyError: 'cap_eff'
+verify	boot-c55/readiness.json>case_deadline_utc:delete-key	KeyError: 'case_deadline_utc'
+verify	case-c56/terminal.json>ban_file>catalog:delete-key	KeyError: 'catalog'
+verify	case-c56/terminal.json>original>client_fd6:delete-key	KeyError: 'client_fd6'
+verify	case-c56/captures/ban/report.json>completed_actions:delete-key	KeyError: 'completed_actions'
+verify	case-c56/captures/ban/report.json>events>0>connection:delete-key	KeyError: 'connection'
+verify	case-c56/terminal.json>ban_file>data_bytes:delete-key	KeyError: 'data_bytes'
+verify	case-c56/terminal.json>ban_file>data_sha256:delete-key	KeyError: 'data_sha256'
+verify	case-c56/captures/ban/report.json>events>0>elapsed_ns:delete-key	KeyError: 'elapsed_ns'
+verify	case-c56/capture-ready.json>emulator_netns:delete-key	KeyError: 'emulator_netns'
+verify	case-c56/capture-ready.json>emulator_pid:delete-key	KeyError: 'emulator_pid'
+verify	case-c56/capture-ready.json>emulator_sha256:delete-key	KeyError: 'emulator_sha256'
+verify	case-c56/capture-ready.json>emulator_starttime:delete-key	KeyError: 'emulator_starttime'
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>0>endpoint:delete-key	KeyError: 'endpoint'
+verify	failed-full-A7/c35/a7-capture/plan.json>endpoints:delete-key	KeyError: 'endpoints'
+verify	case-c56/captures/ban/report.json>error:delete-key	KeyError: 'error'
+verify	case-c56/captures/ban/report.json>events>0>event:delete-key	KeyError: 'event'
+verify	case-c56/captures/ban/report.json>events:delete-key	KeyError: 'events'
+verify	boot-c55/readiness.json>actual_emulator>exe:delete-key	KeyError: 'exe'
+verify	boot-c55/readiness.json>actual_emulator>fd16:delete-key	KeyError: 'fd16'
+verify	boot-c55/readiness.json>actual_emulator>fd6:delete-key	KeyError: 'fd6'
+verify	packet-views.json>readiness>main>namespace>fin_packets:delete-key	KeyError: 'fin_packets'
+verify	packet-views.json>readiness>main>namespace>first_us:delete-key	KeyError: 'first_us'
+verify	case-c56/capture-ready.json>fixture_profile:delete-key	KeyError: 'fixture_profile'
+verify	case-c56/captures/ban/report.json>frames:delete-key	KeyError: 'frames'
+verify	case-c56/capture-ready.json>full_file_baseline:delete-key	KeyError: 'full_file_baseline'
+verify	packet-views.json>readiness>main>guest:delete-key	KeyError: 'guest'
+verify	case-c56/captures/ban/report.json>events>1>hex:delete-key	KeyError: 'hex'
+verify	boot-c55/readiness.json>recorders>host:delete-key	KeyError: 'host'
+verify	case-c56/capture-ready.json>host_recorder_pid:delete-key	KeyError: 'host_recorder_pid'
+verify	case-c56/terminal.json>pcap>host_terminal_log_tail:delete-key	KeyError: 'host_terminal_log_tail'
+verify	case-c56/terminal.json>image_fd_free_before_hash:delete-key	KeyError: 'image_fd_free_before_hash'
+verify	packet-views.json>readiness>main>namespace>last_us:delete-key	KeyError: 'last_us'
+verify	boot-c55/readiness.json>namespace>listeners:delete-key	KeyError: 'listeners'
+verify	case-c56/captures/ban/report.json>events>0>local_address:delete-key	KeyError: 'local_address'
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>14>save>name:delete-key	KeyError: 'name'
+verify	boot-c55/readiness.json>recorders>namespace:delete-key	KeyError: 'namespace'
+verify	boot-c53/terminal.json>namespace_pcap_bytes:delete-key	KeyError: 'namespace_pcap_bytes'
+verify	case-c56/capture-ready.json>namespace_recorder_pid:delete-key	KeyError: 'namespace_recorder_pid'
+verify	case-c56/terminal.json>pcap>namespace_terminal_log_tail:delete-key	KeyError: 'namespace_terminal_log_tail'
+verify	case-c56/captures/ban/report.json>native_conformance:delete-key	KeyError: 'native_conformance'
+verify	boot-c55/readiness.json>actual_emulator>netns:delete-key	KeyError: 'netns'
+verify	case-c56/terminal.json>no_case_retry:delete-key	KeyError: 'no_case_retry'
+verify	boot-c55/readiness.json>no_frontend_contact:delete-key	KeyError: 'no_frontend_contact'
+verify	case-c56/terminal.json>no_restart_unban_or_full_A7:delete-key	KeyError: 'no_restart_unban_or_full_A7'
+verify	case-c56/capture-ready.json>ns_routes:delete-key	KeyError: 'ns_routes'
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>14>save>offset:delete-key	KeyError: 'offset'
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>0>op:delete-key	KeyError: 'op'
+verify	case-c56/captures/ban/report.json>oracle_sha256:delete-key	KeyError: 'oracle_sha256'
+verify	case-c56/terminal.json>original:delete-key	KeyError: 'original'
+verify	case-c56/capture-ready.json>owned_working_image:delete-key	KeyError: 'owned_working_image'
+verify	packet-views.json>readiness>main>namespace>packet_count:delete-key	KeyError: 'packet_count'
+verify	packet-views.json>readiness>main>namespace>packet_indices:delete-key	KeyError: 'packet_indices'
+verify	case-c56/terminal.json>ban_file>path:delete-key	KeyError: 'path'
+verify	case-c56/terminal.json>pcap:delete-key	KeyError: 'pcap'
+verify	boot-c55/readiness.json>actual_emulator>pid:delete-key	KeyError: 'pid'
+verify	case-c56/cleanup-signals.json>pid_gone:delete-key	KeyError: 'pid_gone'
+verify	case-c56/captures/ban/report.json>plan_sha256:delete-key	KeyError: 'plan_sha256'
+verify	failed-full-A7/c35/a7-capture/plan.json>endpoints>control>port:delete-key	KeyError: 'port'
+verify	case-c56/terminal.json>original>primary_fd6:delete-key	KeyError: 'primary_fd6'
+verify	case-c56/terminal.json>pcap>primary_syn_bytes:delete-key	KeyError: 'primary_syn_bytes'
+verify	case-c56/capture-ready.json>primary_syn_count:delete-key	KeyError: 'primary_syn_count'
+verify	boot-c53/terminal.json>primary_syn_pcap_bytes:delete-key	KeyError: 'primary_syn_pcap_bytes'
+verify	case-c56/captures/ban/report.json>profile:delete-key	KeyError: 'profile'
+verify	boot-c55/readiness.json>purpose:delete-key	KeyError: 'purpose'
+verify	packet-views.json>readiness>main>namespace>received_hex:delete-key	KeyError: 'received_hex'
+verify	packet-views.json>readiness>main>namespace>received_len:delete-key	KeyError: 'received_len'
+verify	packet-views.json>readiness>main>namespace>received_sha256:delete-key	KeyError: 'received_sha256'
+verify	packet-views.json>readiness>main>namespace>received_tail_hex:delete-key	KeyError: 'received_tail_hex'
+verify	boot-c55/readiness.json>recorder_remaining_seconds:delete-key	KeyError: 'recorder_remaining_seconds'
+verify	boot-c55/readiness.json>recorders:delete-key	KeyError: 'recorders'
+verify	case-c56/terminal.json>ban_file>resource_bytes:delete-key	KeyError: 'resource_bytes'
+verify	boot-c55/readiness.json>root_controller_required_for_case:delete-key	KeyError: 'root_controller_required_for_case'
+verify	boot-c55/readiness.json>namespace>routes:delete-key	KeyError: 'routes'
+verify	packet-views.json>readiness>main>namespace>rst_packets:delete-key	KeyError: 'rst_packets'
+verify	boot-c55/readiness.json>screenshot_sha256:delete-key	KeyError: 'screenshot_sha256'
+verify	packet-views.json>readiness>main>namespace>sent_hex:delete-key	KeyError: 'sent_hex'
+verify	packet-views.json>readiness>main>namespace>sent_len:delete-key	KeyError: 'sent_len'
+verify	packet-views.json>readiness>main>namespace>sent_sha256:delete-key	KeyError: 'sent_sha256'
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>2>size:delete-key	KeyError: 'size'
+verify	boot-c55/readiness.json>source_hashes:delete-key	KeyError: 'source_hashes'
+verify	case-c56/controller-launch.json>source_sha256:delete-key	KeyError: 'source_sha256'
+verify	case-c56/captures/ban/report.json>started_at_utc:delete-key	KeyError: 'started_at_utc'
+verify	boot-c55/readiness.json>actual_emulator>starttime:delete-key	KeyError: 'starttime'
+verify	case-c56/captures/ban/report.json>status:delete-key	KeyError: 'status'
+verify	case-c56/terminal.json>units>mothra-sheep-bc2add75bbfa>stdout:delete-key	KeyError: 'stdout'
+verify	failed-full-A7/c35/a7-capture/plan.json>steps:delete-key	KeyError: 'steps'
+verify	case-c56/terminal.json>stopped_image_sha256:delete-key	KeyError: 'stopped_image_sha256'
+verify	case-c56/captures/ban/report.json>streams:delete-key	KeyError: 'streams'
+verify	boot-c55/readiness.json>actual_emulator>uid:delete-key	KeyError: 'uid'
+verify	case-c56/terminal.json>units:delete-key	KeyError: 'units'
+verify	case-c56/capture-ready.json>host_recorder_pid:inc	ValueError: As-run capture identity or scope differs
+verify	case-c56/plans/source-hashes.json>readiness:delete-key	ValueError: As-run plan inventory differs
+verify	boot-c55/readiness.json>purpose:flip	ValueError: Boot emulator identity differs
+verify	boot-c55/readiness.json>namespace>routes:flip	ValueError: Boot recorder deadline, isolation or listener differs
+verify	boot-c55/readiness.json>screenshot_sha256:flip	ValueError: Boot screenshot identity differs
+verify	boot-c53/terminal.json>actual_pid_gone:not	ValueError: C53 no-contact retirement differs
+verify	case-c56/captures/ban/plan.json>schema_version:inc	ValueError: Capture plan/source differs
+verify	case-c56/captures/ban/report.json>events>4>action:inc	ValueError: Completed frame read has incomplete bytes
+verify	case-c56/controller-launch.json>argv:reverse	ValueError: Controller root/namespace/source launch differs
+verify	case-c56/captures/ban/report.json>frames:drop-last	ValueError: Decoded frame mismatch
+verify	case-c56/captures/ban/report.json>profile:flip	ValueError: Evidence profile mismatch
+verify	case-c56/captures/ban/report.json>controller_uid:inc	ValueError: Guarded controller was not root
+verify	case-c56/captures/ban/report.json>completed_actions:inc	ValueError: Incomplete plan reported as completed
+verify	failed-full-A7/c35/a7-capture/plan.json>endpoints>control:delete-key	ValueError: Invalid connection declaration
+verify	case-c56/captures/ban/report.json>started_at_utc:empty	ValueError: Invalid isoformat string: ''
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>14>save>name:empty	ValueError: Invalid saved-byte name
+verify	case-c56/cleanup-signals.json>pid_gone:not	ValueError: Lab cleanup or no-retry proof differs
+verify	case-c56/captures/ban/report.json>started_at_utc:flip	ValueError: Missing or ambiguous SYN lifetime near socket event
+verify	failed-full-A7/c35/a7-capture/plan.json>oracle_sha256:flip	ValueError: Native profile requires the recorded Mac oracle hash
+verify	failed-full-A7/c35/a7-capture/plan.json>operator:empty	ValueError: Operator and gap IDs are required
+verify	packet-views.json>readiness:delete-key	ValueError: Packet phase inventory differs
+verify	case-c56/captures/ban/report.json>events:drop-first	ValueError: Packet socket inventory differs
+verify	boot-c55/readiness.json>source_hashes>base:flip	ValueError: Preboot source hashes differ
+verify	case-c56/captures/ban/report.json>oracle_sha256:flip	ValueError: Source identity mismatch
+verify	case-c56/terminal.json>stopped_image_sha256:flip	ValueError: Stopped persisted ban bytes or image proof differs
+verify	case-c56/captures/ban/report.json>events:reverse	ValueError: Stream reconstruction mismatch
+verify	case-c56/captures/ban/report.json>events>28>connection:empty	ValueError: Target close missing
+verify	case-c56/terminal.json>original>primary_fd6>stdout:flip	ValueError: Terminal original or capture proof differs
+verify	case-c56/terminal.json>profile:flip	ValueError: Terminal profile differs
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>0>op:empty	ValueError: Unknown action:
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>25>op:flip	ValueError: Unknown action: clos0
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>0>op:flip	ValueError: Unknown action: connec0
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>2>op:flip	ValueError: Unknown action: rea0
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>24>op:flip	ValueError: Unknown action: read_eo0
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>4>op:flip	ValueError: Unknown action: read_fram0
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>1>op:flip	ValueError: Unknown action: sen0
+verify	case-c56/captures/ban/report.json>status:flip	ValueError: Unknown capture status
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>1>connection:empty	ValueError: Unknown connection:
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>1>connection:flip	ValueError: Unknown connection: 0
+verify	failed-full-A7/c35/a7-capture/plan.json>steps:drop-first	ValueError: Unknown connection: a
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>20>connection:flip	ValueError: Unknown connection: downloa0
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>19>connection:flip	ValueError: Unknown connection: download
+verify	failed-full-A7/c35/a7-capture/plan.json>profile:flip	ValueError: Unknown evidence profile
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>14>save:delete-key	ValueError: Unknown saved bytes: admin_uid
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>18>save_fields:delete-key	ValueError: Unknown saved bytes: download_ref
+verify	failed-full-A7/c35/a7-capture/plan.json>schema_version:inc	ValueError: Unsupported capture schema
+verify	case-c56/plans/ban.json>schema_version:inc	ValueError: ban as-run source plan differs
+verify	packet-views.json>ban>main>guest>packet_indices:drop-last	ValueError: ban/main/guest scoped stream differs
+verify	packet-views.json>ban>main>namespace>packet_indices:drop-last	ValueError: ban/main/namespace scoped stream differs
+verify	packet-views.json>ban>target>guest>packet_indices:drop-last	ValueError: ban/target/guest scoped stream differs
+verify	packet-views.json>ban>target>namespace>packet_indices:drop-last	ValueError: ban/target/namespace scoped stream differs
+verify	failed-full-A7/c35/a7-as-run-plan.json>schema_version:inc	ValueError: c35 failed full-file baseline differs
+verify	failed-full-A7/c45/a7-as-run-plan.json>schema_version:inc	ValueError: c45 failed full-file baseline differs
+verify	failed-full-A7/c50/a7-as-run-plan.json>schema_version:inc	ValueError: c50 failed full-file baseline differs
+verify	case-c56/plans/guard.json>schema_version:inc	ValueError: guard as-run source plan differs
+verify	packet-views.json>guard>main>guest>packet_indices:drop-last	ValueError: guard/main/guest scoped stream differs
+verify	packet-views.json>guard>main>namespace>packet_indices:drop-last	ValueError: guard/main/namespace scoped stream differs
+verify	boot-c55/host-ready-final.json>utc:flip	ValueError: host managed recorder differs
+verify	case-c56/controller-launch.json>argv>19:flip	ValueError: list.index(x): x not in list
+verify	boot-c55/namespace-ready-final.json>utc:flip	ValueError: namespace managed recorder differs
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>24>expect_hex:flip	ValueError: non-hexadecimal number found in fromhex() arg at position 0
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>15>hex:flip	ValueError: non-hexadecimal number found in fromhex() arg at position 52
+verify	case-c56/plans/probe.json>schema_version:inc	ValueError: probe as-run source plan differs
+verify	packet-views.json>probe>main>guest>packet_indices:drop-last	ValueError: probe/main/guest scoped stream differs
+verify	packet-views.json>probe>main>namespace>packet_indices:drop-last	ValueError: probe/main/namespace scoped stream differs
+verify	case-c56/plans/readiness.json>schema_version:inc	ValueError: readiness as-run source plan differs
+verify	packet-views.json>readiness>main>guest>packet_indices:drop-last	ValueError: readiness/main/guest scoped stream differs
+verify	packet-views.json>readiness>main>namespace>packet_indices:drop-last	ValueError: readiness/main/namespace scoped stream differs
+verify	case-c56/plans/seed.json>schema_version:inc	ValueError: seed as-run source plan differs
+verify	packet-views.json>seed>main>guest>packet_indices:drop-last	ValueError: seed/main/guest scoped stream differs
+verify	packet-views.json>seed>main>namespace>packet_indices:drop-last	ValueError: seed/main/namespace scoped stream differs
+verify	boot-c55/readiness.json>actual_emulator>uid:empty;boot-c55/readiness.json>actual_emulator>cap_eff:delete-key	IndexError: list index out of range
+verify	boot-c55/readiness.json>actual_emulator>uid:empty;boot-c55/readiness.json>actual_emulator>uid:delete-key	KeyError: 'uid'
+verify	case-c56/captures/ban/report.json>events>0>action:delete-key;case-c56/captures/ban/report.json>events:delete-key	KeyError: 'events'
+verify	case-c56/captures/ban/report.json>events>0>action:delete-key;case-c56/captures/ban/report.json>events>4>action:inc	KeyError: 'action'
+verify	case-c56/terminal.json>actual_emulator_pid:delete-key;case-c56/terminal.json>pcap:delete-key	KeyError: 'actual_emulator_pid'
+verify	case-c56/terminal.json>actual_emulator_pid:delete-key;case-c56/terminal.json>profile:flip	ValueError: Terminal profile differs
+verify	case-c56/controller-launch.json>argv:delete-key;case-c56/controller-launch.json>source_sha256:delete-key	KeyError: 'argv'
+verify	case-c56/terminal.json>ban_file>bak_absent:delete-key;case-c56/terminal.json>ban_file>resource_bytes:delete-key	KeyError: 'resource_bytes'
+verify	case-c56/terminal.json>ban_file>bak_absent:delete-key;case-c56/terminal.json>stopped_image_sha256:delete-key	KeyError: 'bak_absent'
+verify	boot-c55/readiness.json>actual_emulator>cap_eff:delete-key;boot-c55/readiness.json>actual_emulator>fd6:delete-key	KeyError: 'cap_eff'
+verify	boot-c55/readiness.json>case_deadline_utc:delete-key;boot-c55/readiness.json>recorders>namespace:delete-key	KeyError: 'case_deadline_utc'
+verify	boot-c55/readiness.json>case_deadline_utc:delete-key;boot-c55/host-ready-final.json>utc:flip	ValueError: host managed recorder differs
+verify	case-c56/terminal.json>ban_file>catalog:delete-key;case-c56/terminal.json>no_restart_unban_or_full_A7:delete-key	KeyError: 'no_restart_unban_or_full_A7'
+verify	case-c56/terminal.json>ban_file>catalog:delete-key;case-c56/terminal.json>ban_file>path:delete-key	KeyError: 'catalog'
+verify	case-c56/terminal.json>original>client_fd6:delete-key;case-c56/terminal.json>units:delete-key	KeyError: 'client_fd6'
+verify	case-c56/terminal.json>original>client_fd6:delete-key;case-c56/terminal.json>original>primary_fd6>stdout:flip	ValueError: Terminal original or capture proof differs
+verify	case-c56/captures/ban/report.json>completed_actions:delete-key;case-c56/captures/ban/report.json>error:delete-key	KeyError: 'error'
+verify	case-c56/captures/ban/report.json>events>0>connection:delete-key;case-c56/captures/ban/report.json>events>0>event:delete-key	KeyError: 'connection'
+verify	case-c56/captures/ban/report.json>events>0>connection:delete-key;case-c56/captures/ban/report.json>completed_actions:inc	ValueError: Incomplete plan reported as completed
+verify	case-c56/terminal.json>ban_file>data_bytes:delete-key;case-c56/terminal.json>ban_file>data_sha256:delete-key	KeyError: 'data_bytes'
+verify	case-c56/terminal.json>ban_file>data_bytes:delete-key;case-c56/terminal.json>ban_file>path:delete-key	KeyError: 'path'
+verify	case-c56/captures/ban/report.json>events>0>elapsed_ns:delete-key;case-c56/captures/ban/report.json>events>0>local_address:delete-key	KeyError: 'local_address'
+verify	case-c56/captures/ban/report.json>events>0>elapsed_ns:delete-key;case-c56/captures/ban/report.json>started_at_utc:flip	KeyError: 'elapsed_ns'
+verify	case-c56/capture-ready.json>emulator_netns:delete-key;case-c56/capture-ready.json>emulator_sha256:delete-key	KeyError: 'emulator_netns'
+verify	case-c56/capture-ready.json>emulator_netns:delete-key;case-c56/capture-ready.json>emulator_starttime:delete-key	KeyError: 'emulator_starttime'
+verify	case-c56/capture-ready.json>emulator_pid:delete-key;case-c56/capture-ready.json>emulator_starttime:delete-key	KeyError: 'emulator_pid'
+verify	case-c56/capture-ready.json>emulator_pid:delete-key;boot-c55/namespace-ready-final.json>utc:flip	ValueError: namespace managed recorder differs
+verify	case-c56/capture-ready.json>emulator_sha256:delete-key;case-c56/capture-ready.json>owned_working_image:delete-key	KeyError: 'emulator_sha256'
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>0>endpoint:delete-key;failed-full-A7/c35/a7-capture/plan.json>endpoints>control:delete-key	KeyError: 'endpoint'
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>0>endpoint:delete-key;failed-full-A7/c35/a7-capture/plan.json>steps>0>op:flip	ValueError: Unknown action: connec0
+verify	failed-full-A7/c35/a7-capture/plan.json>endpoints:delete-key;failed-full-A7/c35/a7-capture/plan.json>oracle_sha256:flip	ValueError: Native profile requires the recorded Mac oracle hash
+verify	case-c56/captures/ban/report.json>error:delete-key;case-c56/captures/ban/report.json>status:flip	ValueError: Unknown capture status
+verify	case-c56/captures/ban/report.json>events>0>event:delete-key;case-c56/captures/ban/report.json>events>1>hex:delete-key	KeyError: 'event'
+verify	boot-c55/readiness.json>actual_emulator>exe:delete-key;boot-c55/readiness.json>actual_emulator>fd16:delete-key	KeyError: 'fd16'
+verify	boot-c55/readiness.json>actual_emulator>exe:delete-key;boot-c55/readiness.json>source_hashes:delete-key	KeyError: 'exe'
+verify	boot-c55/readiness.json>actual_emulator>fd16:delete-key;boot-c55/readiness.json>actual_emulator>fd6:delete-key	KeyError: 'fd6'
+verify	packet-views.json>readiness>main>namespace>fin_packets:delete-key;packet-views.json>readiness>main>namespace>last_us:delete-key	KeyError: 'last_us'
+verify	packet-views.json>readiness>main>namespace>fin_packets:delete-key;packet-views.json>readiness>main>namespace>rst_packets:delete-key	KeyError: 'fin_packets'
+verify	packet-views.json>readiness>main>namespace>first_us:delete-key;packet-views.json>readiness>main>namespace>last_us:delete-key	KeyError: 'first_us'
+verify	packet-views.json>readiness>main>namespace>first_us:delete-key;packet-views.json>readiness>main>namespace>packet_count:delete-key	KeyError: 'packet_count'
+verify	case-c56/capture-ready.json>fixture_profile:delete-key;case-c56/capture-ready.json>full_file_baseline:delete-key	KeyError: 'fixture_profile'
+verify	case-c56/capture-ready.json>fixture_profile:delete-key;case-c56/capture-ready.json>primary_syn_count:delete-key	KeyError: 'primary_syn_count'
+verify	case-c56/captures/ban/report.json>frames:delete-key;case-c56/terminal.json>original:delete-key	KeyError: 'frames'
+verify	case-c56/captures/ban/report.json>frames:delete-key;case-c56/captures/ban/report.json>events>4>action:inc	ValueError: Completed frame read has incomplete bytes
+verify	case-c56/capture-ready.json>full_file_baseline:delete-key;case-c56/controller-launch.json>source_sha256:delete-key	KeyError: 'full_file_baseline'
+verify	packet-views.json>readiness>main>guest:delete-key;packet-views.json>readiness>main>namespace>received_tail_hex:delete-key	KeyError: 'received_tail_hex'
+verify	case-c56/captures/ban/report.json>events>1>hex:delete-key;case-c56/capture-ready.json>ns_routes:delete-key	KeyError: 'ns_routes'
+verify	case-c56/captures/ban/report.json>events>1>hex:delete-key;case-c56/terminal.json>original:delete-key	KeyError: 'hex'
+verify	case-c56/captures/ban/report.json>events>1>hex:delete-key;case-c56/captures/ban/report.json>streams:delete-key	KeyError: 'hex'
+verify	boot-c55/readiness.json>recorders>host:delete-key;boot-c55/readiness.json>recorders:delete-key	KeyError: 'recorders'
+verify	boot-c55/readiness.json>recorders>host:delete-key;boot-c55/host-ready-final.json>utc:flip	KeyError: 'host'
+verify	case-c56/capture-ready.json>host_recorder_pid:delete-key;case-c56/capture-ready.json>owned_working_image:delete-key	KeyError: 'owned_working_image'
+verify	case-c56/terminal.json>pcap>host_terminal_log_tail:delete-key;case-c56/terminal.json>pcap>namespace_terminal_log_tail:delete-key	KeyError: 'host_terminal_log_tail'
+verify	case-c56/terminal.json>pcap>host_terminal_log_tail:delete-key;case-c56/terminal.json>pcap>primary_syn_bytes:delete-key	KeyError: 'primary_syn_bytes'
+verify	case-c56/terminal.json>image_fd_free_before_hash:delete-key;case-c56/terminal.json>stopped_image_sha256:flip	ValueError: Stopped persisted ban bytes or image proof differs
+verify	case-c56/terminal.json>image_fd_free_before_hash:delete-key;failed-full-A7/c35/a7-capture/plan.json>schema_version:inc	KeyError: 'image_fd_free_before_hash'
+verify	boot-c55/readiness.json>namespace>listeners:delete-key;boot-c55/readiness.json>screenshot_sha256:delete-key	KeyError: 'listeners'
+verify	boot-c55/readiness.json>namespace>listeners:delete-key;boot-c55/readiness.json>namespace>routes:flip	ValueError: Boot recorder deadline, isolation or listener differs
+verify	case-c56/captures/ban/report.json>events>0>local_address:delete-key;case-c56/captures/ban/report.json>started_at_utc:empty	ValueError: Invalid isoformat string: ''
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>14>save>name:delete-key;failed-full-A7/c35/a7-capture/plan.json>steps>14>save:delete-key	ValueError: Unknown saved bytes: admin_uid
+verify	boot-c55/readiness.json>recorders>namespace:delete-key;boot-c55/namespace-ready-final.json>utc:flip	KeyError: 'namespace'
+verify	boot-c53/terminal.json>namespace_pcap_bytes:delete-key;boot-c53/terminal.json>primary_syn_pcap_bytes:delete-key	KeyError: 'primary_syn_pcap_bytes'
+verify	boot-c53/terminal.json>namespace_pcap_bytes:delete-key;boot-c55/readiness.json>purpose:delete-key	KeyError: 'namespace_pcap_bytes'
+verify	case-c56/capture-ready.json>namespace_recorder_pid:delete-key;case-c56/capture-ready.json>ns_routes:delete-key	KeyError: 'namespace_recorder_pid'
+verify	case-c56/capture-ready.json>namespace_recorder_pid:delete-key;case-c56/captures/ban/report.json>oracle_sha256:delete-key	KeyError: 'namespace_recorder_pid'
+verify	case-c56/capture-ready.json>namespace_recorder_pid:delete-key;case-c56/capture-ready.json>host_recorder_pid:inc	ValueError: As-run capture identity or scope differs
+verify	case-c56/terminal.json>pcap>namespace_terminal_log_tail:delete-key;case-c56/terminal.json>original:delete-key	KeyError: 'namespace_terminal_log_tail'
+verify	case-c56/captures/ban/report.json>native_conformance:delete-key;case-c56/captures/ban/report.json>plan_sha256:delete-key	KeyError: 'native_conformance'
+verify	case-c56/captures/ban/report.json>native_conformance:delete-key;case-c56/captures/ban/report.json>profile:flip	ValueError: Evidence profile mismatch
+verify	boot-c55/readiness.json>actual_emulator>netns:delete-key;boot-c55/readiness.json>actual_emulator>starttime:delete-key	KeyError: 'starttime'
+verify	case-c56/terminal.json>no_case_retry:delete-key;case-c56/terminal.json>no_restart_unban_or_full_A7:delete-key	KeyError: 'no_case_retry'
+verify	case-c56/terminal.json>no_case_retry:delete-key;case-c56/cleanup-signals.json>pid_gone:not	ValueError: Lab cleanup or no-retry proof differs
+verify	boot-c55/readiness.json>no_frontend_contact:delete-key;boot-c55/readiness.json>root_controller_required_for_case:delete-key	KeyError: 'no_frontend_contact'
+verify	boot-c55/readiness.json>no_frontend_contact:delete-key;boot-c55/readiness.json>purpose:flip	ValueError: Boot emulator identity differs
+verify	case-c56/capture-ready.json>ns_routes:delete-key;case-c56/capture-ready.json>primary_syn_count:delete-key	KeyError: 'ns_routes'
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>14>save>offset:delete-key;failed-full-A7/c35/a7-capture/plan.json>steps>14>save>name:empty	ValueError: Invalid saved-byte name
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>14>save>offset:delete-key;failed-full-A7/c35/a7-capture/plan.json>steps>15>hex:flip	KeyError: 'offset'
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>0>op:delete-key;failed-full-A7/c35/a7-capture/plan.json>endpoints>control>port:delete-key	KeyError: 'port'
+verify	case-c56/captures/ban/report.json>oracle_sha256:delete-key;case-c56/captures/ban/report.json>plan_sha256:delete-key	KeyError: 'plan_sha256'
+verify	packet-views.json>readiness>main>namespace>packet_count:delete-key;packet-views.json>readiness>main>namespace>packet_indices:drop-last	ValueError: readiness/main/namespace scoped stream differs
+verify	packet-views.json>readiness>main>namespace>packet_indices:delete-key;packet-views.json>readiness:delete-key	ValueError: Packet phase inventory differs
+verify	packet-views.json>readiness>main>namespace>packet_indices:delete-key;case-c56/captures/ban/report.json>events>28>connection:empty	ValueError: Target close missing
+verify	boot-c55/readiness.json>actual_emulator>pid:delete-key;boot-c55/readiness.json>root_controller_required_for_case:delete-key	KeyError: 'root_controller_required_for_case'
+verify	boot-c55/readiness.json>actual_emulator>pid:delete-key;boot-c55/readiness.json>actual_emulator>starttime:delete-key	KeyError: 'pid'
+verify	case-c56/cleanup-signals.json>pid_gone:delete-key;case-c56/terminal.json>units>mothra-sheep-bc2add75bbfa>stdout:delete-key	KeyError: 'stdout'
+verify	boot-c53/terminal.json>primary_syn_pcap_bytes:delete-key;boot-c53/terminal.json>actual_pid_gone:not	ValueError: C53 no-contact retirement differs
+verify	case-c56/captures/ban/report.json>profile:delete-key;case-c56/captures/ban/plan.json>schema_version:inc	ValueError: Capture plan/source differs
+verify	packet-views.json>readiness>main>namespace>received_hex:delete-key;packet-views.json>readiness>main>namespace>received_tail_hex:delete-key	KeyError: 'received_hex'
+verify	packet-views.json>readiness>main>namespace>received_hex:delete-key;packet-views.json>readiness>main>namespace>sent_hex:delete-key	KeyError: 'sent_hex'
+verify	packet-views.json>readiness>main>namespace>received_len:delete-key;packet-views.json>readiness>main>namespace>sent_len:delete-key	KeyError: 'sent_len'
+verify	packet-views.json>readiness>main>namespace>received_len:delete-key;packet-views.json>readiness>main>namespace>sent_sha256:delete-key	KeyError: 'received_len'
+verify	packet-views.json>readiness>main>namespace>received_sha256:delete-key;packet-views.json>readiness>main>namespace>sent_hex:delete-key	KeyError: 'received_sha256'
+verify	packet-views.json>readiness>main>namespace>received_sha256:delete-key;packet-views.json>readiness>main>namespace>sent_sha256:delete-key	KeyError: 'sent_sha256'
+verify	boot-c55/readiness.json>recorder_remaining_seconds:delete-key;boot-c55/readiness.json>namespace>routes:delete-key	KeyError: 'recorder_remaining_seconds'
+verify	boot-c55/readiness.json>recorder_remaining_seconds:delete-key;boot-c55/readiness.json>source_hashes>base:flip	ValueError: Preboot source hashes differ
+verify	boot-c55/readiness.json>recorders:delete-key;boot-c55/readiness.json>screenshot_sha256:flip	ValueError: Boot screenshot identity differs
+verify	packet-views.json>readiness>main>namespace>rst_packets:delete-key;packet-views.json>readiness>main>namespace>sent_len:delete-key	KeyError: 'rst_packets'
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>2>size:delete-key;failed-full-A7/c35/a7-capture/plan.json>steps>2>op:flip	ValueError: Unknown action: rea0
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>2>size:delete-key;failed-full-A7/c35/a7-capture/plan.json>steps>4>op:flip	KeyError: 'size'
+verify	case-c56/captures/ban/report.json>started_at_utc:delete-key;packet-views.json>seed>main>guest>packet_indices:drop-last	ValueError: seed/main/guest scoped stream differs
+verify	case-c56/captures/ban/report.json>status:delete-key;case-c56/captures/ban/report.json>oracle_sha256:flip	ValueError: Source identity mismatch
+verify	case-c56/terminal.json>units>mothra-sheep-bc2add75bbfa>stdout:delete-key;case-c56/terminal.json>units:delete-key	KeyError: 'units'
+verify	case-c56/terminal.json>units>mothra-sheep-bc2add75bbfa>stdout:delete-key;case-c56/terminal.json>stopped_image_sha256:flip	KeyError: 'stdout'
+verify	case-c56/captures/ban/report.json>streams:delete-key;case-c56/captures/ban/report.json>events:reverse	KeyError: 'streams'
+verify	case-c56/plans/source-hashes.json>readiness:delete-key;case-c56/controller-launch.json>argv>19:flip	ValueError: list.index(x): x not in list
+verify	case-c56/plans/source-hashes.json>readiness:delete-key;case-c56/plans/readiness.json>schema_version:inc	ValueError: As-run plan inventory differs
+verify	case-c56/captures/ban/plan.json>schema_version:inc;case-c56/plans/ban.json>schema_version:inc	ValueError: ban as-run source plan differs
+verify	case-c56/controller-launch.json>argv:reverse;case-c56/controller-launch.json>argv>19:flip	ValueError: Controller root/namespace/source launch differs
+verify	case-c56/captures/ban/report.json>frames:drop-last;case-c56/plans/probe.json>schema_version:inc	ValueError: Decoded frame mismatch
+verify	case-c56/captures/ban/report.json>profile:flip;failed-full-A7/c35/a7-capture/plan.json>steps>14>save:delete-key	ValueError: Evidence profile mismatch
+verify	case-c56/captures/ban/report.json>controller_uid:inc;case-c56/captures/ban/report.json>events>28>connection:empty	ValueError: Guarded controller was not root
+verify	case-c56/captures/ban/report.json>controller_uid:inc;case-c56/plans/probe.json>schema_version:inc	ValueError: probe as-run source plan differs
+verify	failed-full-A7/c35/a7-capture/plan.json>endpoints>control:delete-key;failed-full-A7/c35/a7-capture/plan.json>steps>1>op:flip	ValueError: Invalid connection declaration
+verify	case-c56/captures/ban/report.json>started_at_utc:empty;case-c56/captures/ban/report.json>started_at_utc:flip	ValueError: Invalid isoformat string: 'x'
+verify	case-c56/cleanup-signals.json>pid_gone:not;failed-full-A7/c35/a7-capture/plan.json>oracle_sha256:flip	ValueError: Lab cleanup or no-retry proof differs
+verify	case-c56/captures/ban/report.json>started_at_utc:flip;packet-views.json>ban>main>namespace>packet_indices:drop-last	ValueError: Missing or ambiguous SYN lifetime near socket event
+verify	case-c56/captures/ban/report.json>started_at_utc:flip;failed-full-A7/c35/a7-as-run-plan.json>schema_version:inc	ValueError: Missing or ambiguous SYN lifetime near socket event
+verify	failed-full-A7/c35/a7-capture/plan.json>oracle_sha256:flip;failed-full-A7/c35/a7-capture/plan.json>operator:empty	ValueError: Operator and gap IDs are required
+verify	failed-full-A7/c35/a7-capture/plan.json>operator:empty;failed-full-A7/c35/a7-capture/plan.json>profile:flip	ValueError: Unknown evidence profile
+verify	case-c56/captures/ban/report.json>events:drop-first;case-c56/captures/ban/report.json>events>28>connection:empty	ValueError: Stream reconstruction mismatch
+verify	case-c56/captures/ban/report.json>events:drop-first;packet-views.json>seed>main>guest>packet_indices:drop-last	ValueError: seed/main/guest scoped stream differs
+verify	case-c56/captures/ban/report.json>events:drop-first;packet-views.json>seed>main>namespace>packet_indices:drop-last	ValueError: seed/main/namespace scoped stream differs
+verify	case-c56/terminal.json>profile:flip;packet-views.json>probe>main>guest>packet_indices:drop-last	ValueError: probe/main/guest scoped stream differs
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>0>op:empty;failed-full-A7/c35/a7-capture/plan.json>steps>0>op:flip	ValueError: Unknown action: x
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>25>op:flip;failed-full-A7/c35/a7-as-run-plan.json>schema_version:inc	ValueError: Unknown action: clos0
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>25>op:flip;failed-full-A7/c35/a7-capture/plan.json>steps>24>expect_hex:flip	ValueError: non-hexadecimal number found in fromhex() arg at position 0
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>2>op:flip;failed-full-A7/c35/a7-capture/plan.json>steps:drop-first	ValueError: Unknown connection: a
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>24>op:flip;failed-full-A7/c35/a7-capture/plan.json>steps>18>save_fields:delete-key	ValueError: Unknown saved bytes: download_ref
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>24>op:flip;failed-full-A7/c35/a7-capture/plan.json>steps>24>expect_hex:flip	ValueError: Unknown action: read_eo0
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>4>op:flip;failed-full-A7/c35/a7-capture/plan.json>steps>14>save:delete-key	ValueError: Unknown action: read_fram0
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>1>op:flip;failed-full-A7/c35/a7-capture/plan.json>steps>1>connection:empty	ValueError: Unknown action: sen0
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>1>connection:empty;failed-full-A7/c35/a7-capture/plan.json>steps>1>connection:flip	ValueError: Unknown connection: x
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>1>connection:flip;failed-full-A7/c35/a7-capture/plan.json>steps:drop-first	ValueError: Unknown connection: 0
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>20>connection:flip;failed-full-A7/c35/a7-capture/plan.json>steps>19>connection:flip	ValueError: Unknown connection: download
+verify	failed-full-A7/c35/a7-capture/plan.json>steps>20>connection:flip;failed-full-A7/c35/a7-capture/plan.json>steps>18>save_fields:delete-key	ValueError: Unknown connection: downloa0
+verify	failed-full-A7/c35/a7-capture/plan.json>profile:flip;failed-full-A7/c35/a7-capture/plan.json>schema_version:inc	ValueError: Unsupported capture schema
+verify	case-c56/plans/ban.json>schema_version:inc;case-c56/plans/seed.json>schema_version:inc	ValueError: seed as-run source plan differs
+verify	packet-views.json>ban>main>guest>packet_indices:drop-last;packet-views.json>ban>main>namespace>packet_indices:drop-last	ValueError: ban/main/namespace scoped stream differs
+verify	packet-views.json>ban>main>guest>packet_indices:drop-last;packet-views.json>ban>target>namespace>packet_indices:drop-last	ValueError: ban/main/guest scoped stream differs
+verify	packet-views.json>ban>target>guest>packet_indices:drop-last;packet-views.json>ban>target>namespace>packet_indices:drop-last	ValueError: ban/target/namespace scoped stream differs
+verify	packet-views.json>ban>target>guest>packet_indices:drop-last;packet-views.json>probe>main>namespace>packet_indices:drop-last	ValueError: ban/target/guest scoped stream differs
+verify	failed-full-A7/c35/a7-as-run-plan.json>schema_version:inc;failed-full-A7/c45/a7-as-run-plan.json>schema_version:inc	ValueError: c35 failed full-file baseline differs
+verify	failed-full-A7/c45/a7-as-run-plan.json>schema_version:inc;failed-full-A7/c50/a7-as-run-plan.json>schema_version:inc	ValueError: c45 failed full-file baseline differs
+verify	case-c56/plans/guard.json>schema_version:inc;case-c56/plans/readiness.json>schema_version:inc	ValueError: readiness as-run source plan differs
+verify	case-c56/plans/guard.json>schema_version:inc;case-c56/plans/seed.json>schema_version:inc	ValueError: guard as-run source plan differs
+verify	packet-views.json>guard>main>guest>packet_indices:drop-last;packet-views.json>guard>main>namespace>packet_indices:drop-last	ValueError: guard/main/namespace scoped stream differs
+verify	packet-views.json>guard>main>guest>packet_indices:drop-last;packet-views.json>seed>main>namespace>packet_indices:drop-last	ValueError: guard/main/guest scoped stream differs
+verify	packet-views.json>guard>main>namespace>packet_indices:drop-last;packet-views.json>readiness>main>guest>packet_indices:drop-last	ValueError: readiness/main/guest scoped stream differs
+verify	packet-views.json>probe>main>guest>packet_indices:drop-last;packet-views.json>probe>main>namespace>packet_indices:drop-last	ValueError: probe/main/namespace scoped stream differs
