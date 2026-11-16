@@ -7,6 +7,7 @@ copy. The retained evidence is never written to.
 """
 
 import json
+import os
 import shutil
 import sys
 import tempfile
@@ -19,14 +20,23 @@ if typ.TYPE_CHECKING:
     import pytest
 
 
+def link_or_copy(source: Path, target: Path) -> None:
+    """Make ``target`` a hard link to ``source``, or a copy where that fails."""
+    try:
+        os.link(source, target)
+    except OSError:
+        shutil.copyfile(source, target)
+
+
 class Mirror:
     """A mirror of a corpus whose files can be replaced one by one."""
 
     def __init__(self, corpus: Path, root: Path, *, copy: bool = False) -> None:
         """Link each entry of ``corpus`` into the empty directory ``root``.
 
-        With ``copy`` set, each file is copied instead, for a verifier that
-        refuses a corpus that holds symbolic links.
+        With ``copy`` set, each file is a hard link to the retained one, or a copy
+        where a link is not possible, for a verifier that refuses a corpus that
+        holds symbolic links.
         """
         self.corpus = corpus
         self.root = root
@@ -35,7 +45,7 @@ class Mirror:
             if source.is_dir() and not source.is_symlink():
                 target.mkdir(exist_ok=True)
             elif copy:
-                shutil.copyfile(source, target)
+                link_or_copy(source, target)
             else:
                 target.symlink_to(source)
 
@@ -48,7 +58,7 @@ class Mirror:
             The file's path in the mirror.
         """
         leaf = self.root / relative
-        if leaf.is_symlink():
+        if leaf.is_symlink() or leaf.stat().st_nlink > 1:
             content = leaf.read_bytes()
             leaf.unlink()
             leaf.write_bytes(content)

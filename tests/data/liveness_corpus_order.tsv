@@ -1,0 +1,302 @@
+liveness-corpus		ok 74234e98afe7498f
+liveness-corpus	raw/capture-ready.json>managed_lock>unit_properties>ActiveState:delete-key	KeyError: 'ActiveState'
+liveness-corpus	raw/capture-ready.json>managed_lock>unit_properties>MainPID:delete-key	KeyError: 'MainPID'
+liveness-corpus	raw/terminal.json>actual_emulator_gone:delete-key	KeyError: 'actual_emulator_gone'
+liveness-corpus	manifest.json>actual_pid:delete-key	KeyError: 'actual_pid'
+liveness-corpus	preparation/hfs-preflight.json>allocated_active_users:delete-key	KeyError: 'allocated_active_users'
+liveness-corpus	raw/coordinator/report.json>frames>3>arrival_elapsed_ns:delete-key	KeyError: 'arrival_elapsed_ns'
+liveness-corpus	preparation/hfs-preflight.json>banned_absent:delete-key	KeyError: 'banned_absent'
+liveness-corpus	preparation/final-preflight.json>prepared>base.dsk:delete-key	KeyError: 'base.dsk'
+liveness-corpus	raw/capture-ready.json>managed_lock>busy_exit:delete-key	KeyError: 'busy_exit'
+liveness-corpus	manifest.json>cases_sha256:delete-key	KeyError: 'cases_sha256'
+liveness-corpus	raw/parent-paired-stream-review.json>flows>0>connection:delete-key	KeyError: 'connection'
+liveness-corpus	raw/independent-plus5-coverage.json>mothra-native-liveness-c92-lease.service>covers_plus5:delete-key	KeyError: 'covers_plus5'
+liveness-corpus	raw/capture-ready.json>deadline_utc:delete-key	KeyError: 'deadline_utc'
+liveness-corpus	raw/independent-plus5-coverage.json>mothra-native-liveness-c92-lease.service>earliest_runtime_end_utc:delete-key	KeyError: 'earliest_runtime_end_utc'
+liveness-corpus	raw/capture-ready.json>emulator_netns:delete-key	KeyError: 'emulator_netns'
+liveness-corpus	raw/capture-ready.json>emulator_netns_inode:delete-key	KeyError: 'emulator_netns_inode'
+liveness-corpus	raw/capture-ready.json>emulator_pid:delete-key	KeyError: 'emulator_pid'
+liveness-corpus	raw/capture-ready.json>emulator_sha256:delete-key	KeyError: 'emulator_sha256'
+liveness-corpus	raw/capture-ready.json>emulator_starttime:delete-key	KeyError: 'emulator_starttime'
+liveness-corpus	raw/coordinator/report.json>operations>4>event_range:delete-key	KeyError: 'event_range'
+liveness-corpus	raw/actual-emulator-proof.json>exe_sha256:delete-key	KeyError: 'exe_sha256'
+liveness-corpus	preparation/hfs-preflight.json>files>admin>exit:delete-key	KeyError: 'exit'
+liveness-corpus	raw/capture-readiness-operator-error.json>failure:delete-key	KeyError: 'failure'
+liveness-corpus	raw/capture-ready.json>managed_lock>fd:delete-key	KeyError: 'fd'
+liveness-corpus	raw/actual-emulator-proof.json>fd16:delete-key	KeyError: 'fd16'
+liveness-corpus	raw/actual-emulator-proof.json>fd6:delete-key	KeyError: 'fd6'
+liveness-corpus	raw/stopped-forks.json>fd_free:delete-key	KeyError: 'fd_free'
+liveness-corpus	manifest.json>files:delete-key	KeyError: 'files'
+liveness-corpus	manifest.json>fixed_deadline_utc:delete-key	KeyError: 'fixed_deadline_utc'
+liveness-corpus	raw/capture-ready.json>fixture_profile:delete-key	KeyError: 'fixture_profile'
+liveness-corpus	raw/parent-paired-stream-review.json>flows:delete-key	KeyError: 'flows'
+liveness-corpus	raw/coordinator/report.json>operations>19>frame_range:delete-key	KeyError: 'frame_range'
+liveness-corpus	manifest.json>full_file_baseline:delete-key	KeyError: 'full_file_baseline'
+liveness-corpus	raw/terminal.json>fuser_exit:delete-key	KeyError: 'fuser_exit'
+liveness-corpus	raw/terminal.json>fuser_stdout:delete-key	KeyError: 'fuser_stdout'
+liveness-corpus	raw/source-freeze.json>hashes:delete-key	KeyError: 'hashes'
+liveness-corpus	raw/capture-ready.json>managed_capture>host:delete-key	KeyError: 'host'
+liveness-corpus	raw/capture-ready.json>host_pcap:delete-key	KeyError: 'host_pcap'
+liveness-corpus	raw/capture-ready.json>host_recorder_pid:delete-key	KeyError: 'host_recorder_pid'
+liveness-corpus	raw/capture-ready.json>host_recorder_starttime:delete-key	KeyError: 'host_recorder_starttime'
+liveness-corpus	preparation/final-preflight.json>prepared>working.dsk>inode:delete-key	KeyError: 'inode'
+liveness-corpus	raw/terminal.json>lock_exit:delete-key	KeyError: 'lock_exit'
+liveness-corpus	raw/capture-ready.json>managed_lock>lock_inode:delete-key	KeyError: 'lock_inode'
+liveness-corpus	raw/capture-ready.json>managed_capture:delete-key	KeyError: 'managed_capture'
+liveness-corpus	raw/capture-ready.json>managed_lock:delete-key	KeyError: 'managed_lock'
+liveness-corpus	manifest.json:delete-key	KeyError: 'manifest.json'
+liveness-corpus	preparation/hfs-preflight.json>files>admin>matches:delete-key	KeyError: 'matches'
+liveness-corpus	raw/stopped-forks.json>files>admin>matches_preflight:delete-key	KeyError: 'matches_preflight'
+liveness-corpus	sources/dependency-closure.json>module_count:delete-key	KeyError: 'module_count'
+liveness-corpus	raw/capture-ready.json>managed_capture>namespace:delete-key	KeyError: 'namespace'
+liveness-corpus	raw/capture-ready.json>namespace_pcap:delete-key	KeyError: 'namespace_pcap'
+liveness-corpus	raw/capture-ready.json>namespace_recorder_pid:delete-key	KeyError: 'namespace_recorder_pid'
+liveness-corpus	raw/capture-ready.json>namespace_recorder_starttime:delete-key	KeyError: 'namespace_recorder_starttime'
+liveness-corpus	raw/capture-ready.json>native_data_sha256:delete-key	KeyError: 'native_data_sha256'
+liveness-corpus	raw/capture-readiness-operator-error.json>native_socket_actions:delete-key	KeyError: 'native_socket_actions'
+liveness-corpus	raw/actual-emulator-proof.json>netns:delete-key	KeyError: 'netns'
+liveness-corpus	raw/capture-ready.json>ns_routes:delete-key	KeyError: 'ns_routes'
+liveness-corpus	raw/actual-emulator-proof.json>original_startticks:delete-key	KeyError: 'original_startticks'
+liveness-corpus	raw/terminal.json>original_ticks:delete-key	KeyError: 'original_ticks'
+liveness-corpus	raw/capture-ready.json>owned_runtime:delete-key	KeyError: 'owned_runtime'
+liveness-corpus	raw/capture-ready.json>owned_working_image:delete-key	KeyError: 'owned_working_image'
+liveness-corpus	raw/capture-ready.json>owned_working_image_inode:delete-key	KeyError: 'owned_working_image_inode'
+liveness-corpus	raw/actual-emulator-proof.json>pid:delete-key	KeyError: 'pid'
+liveness-corpus	manifest.json>plan_sha256:delete-key	KeyError: 'plan_sha256'
+liveness-corpus	raw/parent-paired-stream-review.json>flows>0>port:delete-key	KeyError: 'port'
+liveness-corpus	raw/terminal.json>port_exit:delete-key	KeyError: 'port_exit'
+liveness-corpus	raw/terminal.json>ports_ss:delete-key	KeyError: 'ports_ss'
+liveness-corpus	preparation/final-preflight.json>prepared:delete-key	KeyError: 'prepared'
+liveness-corpus	raw/terminal.json>primary_pcap_size:delete-key	KeyError: 'primary_pcap_size'
+liveness-corpus	raw/capture-ready.json>primary_syn_count:delete-key	KeyError: 'primary_syn_count'
+liveness-corpus	manifest.json>profile:delete-key	KeyError: 'profile'
+liveness-corpus	raw/parent-paired-stream-review.json>flows>0>received:delete-key	KeyError: 'received'
+liveness-corpus	raw/terminal.json>recorded_at_utc:delete-key	KeyError: 'recorded_at_utc'
+liveness-corpus	raw/parent-paired-stream-review.json>flows>0>report:delete-key	KeyError: 'report'
+liveness-corpus	raw/terminal.json>retirement_kind:delete-key	KeyError: 'retirement_kind'
+liveness-corpus	preparation/final-preflight.json>prepared>rom:delete-key	KeyError: 'rom'
+liveness-corpus	raw/capture-ready.json>rom_sha256:delete-key	KeyError: 'rom_sha256'
+liveness-corpus	manifest.json>runner_sha256:delete-key	KeyError: 'runner_sha256'
+liveness-corpus	manifest.json>schema:delete-key	KeyError: 'schema'
+liveness-corpus	raw/parent-paired-stream-review.json>flows>0>sent:delete-key	KeyError: 'sent'
+liveness-corpus	preparation/hfs-preflight.json>files>server-data:delete-key	KeyError: 'server-data'
+liveness-corpus	preparation/hfs-preflight.json>files>server-rsrc:delete-key	KeyError: 'server-rsrc'
+liveness-corpus	preparation/final-preflight.json>prepared>base.dsk>sha256:delete-key	KeyError: 'sha256'
+liveness-corpus	raw/capture-ready.json>source_a7_sha256:delete-key	KeyError: 'source_a7_sha256'
+liveness-corpus	raw/capture-ready.json>source_base_sha256:delete-key	KeyError: 'source_base_sha256'
+liveness-corpus	preparation/final-preflight.json>source_hashes_unchanged:delete-key	KeyError: 'source_hashes_unchanged'
+liveness-corpus	raw/actual-emulator-proof.json>starttime:delete-key	KeyError: 'starttime'
+liveness-corpus	raw/parent-paired-stream-review.json>status:delete-key	KeyError: 'status'
+liveness-corpus	raw/stopped-forks.json>stopped_pid_gone:delete-key	KeyError: 'stopped_pid_gone'
+liveness-corpus	raw/capture-ready.json>managed_lock>unit_properties:delete-key	KeyError: 'unit_properties'
+liveness-corpus	preparation/final-preflight.json>prepared>working.dsk:delete-key	KeyError: 'working.dsk'
+liveness-corpus	raw/actual-emulator-proof.json>working_image_inode:delete-key	KeyError: 'working_image_inode'
+liveness-corpus	raw/actual-emulator-proof.json>pid:inc	ValueError: Actual emulator/guest capture or originals differ
+liveness-corpus	raw/coordinator/plan.json>schema_version:inc	ValueError: As-run coordinator plan differs
+liveness-corpus	raw/coordinator/report.json>operations>4>event_range:reverse	ValueError: As-run ranges are gapped or overlapping
+liveness-corpus	raw/capture-ready.json>source_a7_sha256:flip	ValueError: As-run runtime or fixed deadline differs
+liveness-corpus	raw/source-freeze.json>hashes>native_auth_cases.py:flip	ValueError: As-run source differs: native_auth_cases.py
+liveness-corpus	raw/source-freeze.json>hashes>native_ban_expiry_control.py:flip	ValueError: As-run source differs: native_ban_expiry_control.py
+liveness-corpus	raw/source-freeze.json>hashes>native_control_readiness.py:flip	ValueError: As-run source differs: native_control_readiness.py
+liveness-corpus	raw/source-freeze.json>hashes>native_liveness_cases.py:flip	ValueError: As-run source differs: native_liveness_cases.py
+liveness-corpus	raw/source-freeze.json>hashes>native_liveness_control.py:flip	ValueError: As-run source differs: native_liveness_control.py
+liveness-corpus	raw/source-freeze.json>hashes>native_plan.py:flip	ValueError: As-run source differs: native_plan.py
+liveness-corpus	raw/source-freeze.json>hashes>pcap_tcp.py:flip	ValueError: As-run source differs: pcap_tcp.py
+liveness-corpus	raw/source-freeze.json>hashes>protocol_capture.py:flip	ValueError: As-run source differs: protocol_capture.py
+liveness-corpus	raw/source-freeze.json>hashes>verify_native_auth.py:flip	ValueError: As-run source differs: verify_native_auth.py
+liveness-corpus	raw/source-freeze.json>hashes>verify_native_shx.py:flip	ValueError: As-run source differs: verify_native_shx.py
+liveness-corpus	raw/liveness-plan/plan.json>schema_version:inc	ValueError: B75 producer, runner or plan differs
+liveness-corpus	raw/postflight/plan.json>schema_version:inc	ValueError: Checksum mismatch: plan.json
+liveness-corpus	raw/postflight/report.json>frames>2>unconsumed_hex:flip	ValueError: Checksum mismatch: report.json
+liveness-corpus	raw/capture-ready.json>utc:flip	ValueError: Complete custom case identity or counts differ
+liveness-corpus	manifest.json>files>inputs/b76-liveness-publication-plan.md.txt:flip	ValueError: Corpus SHA differs: inputs/b76-liveness-publication-plan.md.txt
+liveness-corpus	manifest.json>files>inputs/native-liveness-preparation.md.txt:flip	ValueError: Corpus SHA differs: inputs/native-liveness-preparation.md.txt
+liveness-corpus	manifest.json>files>preparation/as-run-commands.json:flip	ValueError: Corpus SHA differs: preparation/as-run-commands.json
+liveness-corpus	manifest.json>files>preparation/boot-readiness-packet-c91.json:flip	ValueError: Corpus SHA differs: preparation/boot-readiness-packet-c91.json
+liveness-corpus	manifest.json>files>preparation/catalog-allocated.exit:flip	ValueError: Corpus SHA differs: preparation/catalog-allocated.exit
+liveness-corpus	manifest.json>files>preparation/catalog-allocated.stderr:flip	ValueError: Corpus SHA differs: preparation/catalog-allocated.stderr
+liveness-corpus	manifest.json>files>preparation/catalog-allocated.txt:flip	ValueError: Corpus SHA differs: preparation/catalog-allocated.txt
+liveness-corpus	manifest.json>files>preparation/catalog-full.exit:flip	ValueError: Corpus SHA differs: preparation/catalog-full.exit
+liveness-corpus	manifest.json>files>preparation/catalog-full.stderr:flip	ValueError: Corpus SHA differs: preparation/catalog-full.stderr
+liveness-corpus	manifest.json>files>preparation/catalog-full.txt:flip	ValueError: Corpus SHA differs: preparation/catalog-full.txt
+liveness-corpus	manifest.json>files>preparation/final-preflight.json:flip	ValueError: Corpus SHA differs: preparation/final-preflight.json
+liveness-corpus	manifest.json>files>preparation/hfs-preflight.json:flip	ValueError: Corpus SHA differs: preparation/hfs-preflight.json
+liveness-corpus	manifest.json>files>preparation/prepare.exit:flip	ValueError: Corpus SHA differs: preparation/prepare.exit
+liveness-corpus	manifest.json>files>preparation/prepare.stderr:flip	ValueError: Corpus SHA differs: preparation/prepare.stderr
+liveness-corpus	manifest.json>files>preparation/prepare.stdout:flip	ValueError: Corpus SHA differs: preparation/prepare.stdout
+liveness-corpus	manifest.json>files>preparation/proc-fd-check-c91.json:flip	ValueError: Corpus SHA differs: preparation/proc-fd-check-c91.json
+liveness-corpus	manifest.json>files>preparation/source-preflight.json:flip	ValueError: Corpus SHA differs: preparation/source-preflight.json
+liveness-corpus	manifest.json>files>preparation/working-fd-free-before-tsk.json:flip	ValueError: Corpus SHA differs: preparation/working-fd-free-before-tsk.json
+liveness-corpus	manifest.json>files>raw/actual-emulator-proof.json:flip	ValueError: Corpus SHA differs: raw/actual-emulator-proof.json
+liveness-corpus	manifest.json>files>raw/after-app-quit-final.png:flip	ValueError: Corpus SHA differs: raw/after-app-quit-final.png
+liveness-corpus	manifest.json>files>raw/after-app-quit-second.png:flip	ValueError: Corpus SHA differs: raw/after-app-quit-second.png
+liveness-corpus	manifest.json>files>raw/after-app-quit-settled.png:flip	ValueError: Corpus SHA differs: raw/after-app-quit-settled.png
+liveness-corpus	manifest.json>files>raw/after-app-quit.png:flip	ValueError: Corpus SHA differs: raw/after-app-quit.png
+liveness-corpus	manifest.json>files>raw/after-repair.png:flip	ValueError: Corpus SHA differs: raw/after-repair.png
+liveness-corpus	manifest.json>files>raw/app-later.png:flip	ValueError: Corpus SHA differs: raw/app-later.png
+liveness-corpus	manifest.json>files>raw/app-launch.png:flip	ValueError: Corpus SHA differs: raw/app-launch.png
+liveness-corpus	manifest.json>files>raw/boot.png:flip	ValueError: Corpus SHA differs: raw/boot.png
+liveness-corpus	manifest.json>files>raw/c92-recorder-terminal-journal.log:flip	ValueError: Corpus SHA differs: raw/c92-recorder-terminal-journal.log
+liveness-corpus	manifest.json>files>raw/c93-journal.log:flip	ValueError: Corpus SHA differs: raw/c93-journal.log
+liveness-corpus	manifest.json>files>raw/c93-postflight-journal.log:flip	ValueError: Corpus SHA differs: raw/c93-postflight-journal.log
+liveness-corpus	manifest.json>files>raw/c93-run.exit:flip	ValueError: Corpus SHA differs: raw/c93-run.exit
+liveness-corpus	manifest.json>files>raw/c93-run.log:flip	ValueError: Corpus SHA differs: raw/c93-run.log
+liveness-corpus	manifest.json>files>raw/c93-unit-final.txt:flip	ValueError: Corpus SHA differs: raw/c93-unit-final.txt
+liveness-corpus	manifest.json>files>raw/capture-coverage.utc:flip	ValueError: Corpus SHA differs: raw/capture-coverage.utc
+liveness-corpus	manifest.json>files>raw/capture-readiness-operator-error.json:flip	ValueError: Corpus SHA differs: raw/capture-readiness-operator-error.json
+liveness-corpus	manifest.json>files>raw/capture-ready.json:flip	ValueError: Corpus SHA differs: raw/capture-ready.json
+liveness-corpus	manifest.json>files>raw/control-plans/ban.json:flip	ValueError: Corpus SHA differs: raw/control-plans/ban.json
+liveness-corpus	manifest.json>files>raw/control-plans/guard.json:flip	ValueError: Corpus SHA differs: raw/control-plans/guard.json
+liveness-corpus	manifest.json>files>raw/control-plans/probe.json:flip	ValueError: Corpus SHA differs: raw/control-plans/probe.json
+liveness-corpus	manifest.json>files>raw/control-plans/readiness.json:flip	ValueError: Corpus SHA differs: raw/control-plans/readiness.json
+liveness-corpus	manifest.json>files>raw/control-plans/seed.json:flip	ValueError: Corpus SHA differs: raw/control-plans/seed.json
+liveness-corpus	manifest.json>files>raw/coordinator/plan.json:flip	ValueError: Corpus SHA differs: raw/coordinator/plan.json
+liveness-corpus	manifest.json>files>raw/coordinator/report.json:flip	ValueError: Corpus SHA differs: raw/coordinator/report.json
+liveness-corpus	manifest.json>files>raw/deadline.utc:flip	ValueError: Corpus SHA differs: raw/deadline.utc
+liveness-corpus	manifest.json>files>raw/desktop.png:flip	ValueError: Corpus SHA differs: raw/desktop.png
+liveness-corpus	manifest.json>files>raw/display.exit:flip	ValueError: Corpus SHA differs: raw/display.exit
+liveness-corpus	manifest.json>files>raw/display.stderr:flip	ValueError: Corpus SHA differs: raw/display.stderr
+liveness-corpus	manifest.json>files>raw/display.stdout:flip	ValueError: Corpus SHA differs: raw/display.stdout
+liveness-corpus	manifest.json>files>raw/epoch-start.utc:flip	ValueError: Corpus SHA differs: raw/epoch-start.utc
+liveness-corpus	manifest.json>files>raw/host-ready.json:flip	ValueError: Corpus SHA differs: raw/host-ready.json
+liveness-corpus	manifest.json>files>raw/host-ready.stderr:flip	ValueError: Corpus SHA differs: raw/host-ready.stderr
+liveness-corpus	manifest.json>files>raw/host-ready.uid1000-failed.stdout:flip	ValueError: Corpus SHA differs: raw/host-ready.uid1000-failed.stdout
+liveness-corpus	manifest.json>files>raw/independent-plus5-coverage.json:flip	ValueError: Corpus SHA differs: raw/independent-plus5-coverage.json
+liveness-corpus	manifest.json>files>raw/input.py:flip	ValueError: Corpus SHA differs: raw/input.py
+liveness-corpus	manifest.json>files>raw/lab-guest.pcap:flip	ValueError: Corpus SHA differs: raw/lab-guest.pcap
+liveness-corpus	manifest.json>files>raw/lab-namespace.pcap:flip	ValueError: Corpus SHA differs: raw/lab-namespace.pcap
+liveness-corpus	manifest.json>files>raw/lease-ready.json:flip	ValueError: Corpus SHA differs: raw/lease-ready.json
+liveness-corpus	manifest.json>files>raw/liveness-plan-summary.json:flip	ValueError: Corpus SHA differs: raw/liveness-plan-summary.json
+liveness-corpus	manifest.json>files>raw/liveness-plan/plan.json:flip	ValueError: Corpus SHA differs: raw/liveness-plan/plan.json
+liveness-corpus	manifest.json>files>raw/liveness-plan/source-hashes.json:flip	ValueError: Corpus SHA differs: raw/liveness-plan/source-hashes.json
+liveness-corpus	manifest.json>files>raw/namespace-ready.json:flip	ValueError: Corpus SHA differs: raw/namespace-ready.json
+liveness-corpus	manifest.json>files>raw/namespace-ready.stderr:flip	ValueError: Corpus SHA differs: raw/namespace-ready.stderr
+liveness-corpus	manifest.json>files>raw/namespace-ready.uid1000-failed.stdout:flip	ValueError: Corpus SHA differs: raw/namespace-ready.uid1000-failed.stdout
+liveness-corpus	manifest.json>files>raw/parent-paired-stream-review.json:flip	ValueError: Corpus SHA differs: raw/parent-paired-stream-review.json
+liveness-corpus	manifest.json>files>raw/postflight.exit:flip	ValueError: Corpus SHA differs: raw/postflight.exit
+liveness-corpus	manifest.json>files>raw/postflight/checksums.sha256:flip	ValueError: Corpus SHA differs: raw/postflight/checksums.sha256
+liveness-corpus	manifest.json>files>raw/postflight/plan.json:flip	ValueError: Corpus SHA differs: raw/postflight/plan.json
+liveness-corpus	manifest.json>files>raw/postflight/report.json:flip	ValueError: Corpus SHA differs: raw/postflight/report.json
+liveness-corpus	manifest.json>files>raw/pre-retire.png:flip	ValueError: Corpus SHA differs: raw/pre-retire.png
+liveness-corpus	manifest.json>files>raw/primary-syn.pcap:flip	ValueError: Corpus SHA differs: raw/primary-syn.pcap
+liveness-corpus	manifest.json>files>raw/readiness-journal.log:flip	ValueError: Corpus SHA differs: raw/readiness-journal.log
+liveness-corpus	manifest.json>files>raw/readiness-unit-final.txt:flip	ValueError: Corpus SHA differs: raw/readiness-unit-final.txt
+liveness-corpus	manifest.json>files>raw/readiness.exit:flip	ValueError: Corpus SHA differs: raw/readiness.exit
+liveness-corpus	manifest.json>files>raw/readiness/checksums.sha256:flip	ValueError: Corpus SHA differs: raw/readiness/checksums.sha256
+liveness-corpus	manifest.json>files>raw/readiness/plan.json:flip	ValueError: Corpus SHA differs: raw/readiness/plan.json
+liveness-corpus	manifest.json>files>raw/readiness/report.json:flip	ValueError: Corpus SHA differs: raw/readiness/report.json
+liveness-corpus	manifest.json>files>raw/run-c92-readiness.sh:flip	ValueError: Corpus SHA differs: raw/run-c92-readiness.sh
+liveness-corpus	manifest.json>files>raw/run-c93-postflight.sh:flip	ValueError: Corpus SHA differs: raw/run-c93-postflight.sh
+liveness-corpus	manifest.json>files>raw/run-c93.sh:flip	ValueError: Corpus SHA differs: raw/run-c93.sh
+liveness-corpus	manifest.json>files>raw/runtime.json:flip	ValueError: Corpus SHA differs: raw/runtime.json
+liveness-corpus	manifest.json>files>raw/server-ready.png:flip	ValueError: Corpus SHA differs: raw/server-ready.png
+liveness-corpus	manifest.json>files>raw/sheep.exit:flip	ValueError: Corpus SHA differs: raw/sheep.exit
+liveness-corpus	manifest.json>files>raw/sheep.stderr:flip	ValueError: Corpus SHA differs: raw/sheep.stderr
+liveness-corpus	manifest.json>files>raw/sheep.stdout:flip	ValueError: Corpus SHA differs: raw/sheep.stdout
+liveness-corpus	manifest.json>files>raw/source-freeze.json:flip	ValueError: Corpus SHA differs: raw/source-freeze.json
+liveness-corpus	manifest.json>files>raw/sources/native_auth_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_auth_cases.py
+liveness-corpus	manifest.json>files>raw/sources/native_ban_expiry_control.py:flip	ValueError: Corpus SHA differs: raw/sources/native_ban_expiry_control.py
+liveness-corpus	manifest.json>files>raw/sources/native_control_readiness.py:flip	ValueError: Corpus SHA differs: raw/sources/native_control_readiness.py
+liveness-corpus	manifest.json>files>raw/sources/native_liveness_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_liveness_cases.py
+liveness-corpus	manifest.json>files>raw/sources/native_liveness_control.py:flip	ValueError: Corpus SHA differs: raw/sources/native_liveness_control.py
+liveness-corpus	manifest.json>files>raw/sources/native_plan.py:flip	ValueError: Corpus SHA differs: raw/sources/native_plan.py
+liveness-corpus	manifest.json>files>raw/sources/pcap_tcp.py:flip	ValueError: Corpus SHA differs: raw/sources/pcap_tcp.py
+liveness-corpus	manifest.json>files>raw/sources/protocol_capture.py:flip	ValueError: Corpus SHA differs: raw/sources/protocol_capture.py
+liveness-corpus	manifest.json>files>raw/sources/verify_native_auth.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_auth.py
+liveness-corpus	manifest.json>files>raw/sources/verify_native_shx.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_shx.py
+liveness-corpus	manifest.json>files>raw/stopped-forks.json:flip	ValueError: Corpus SHA differs: raw/stopped-forks.json
+liveness-corpus	manifest.json>files>raw/terminal-system-units.txt:flip	ValueError: Corpus SHA differs: raw/terminal-system-units.txt
+liveness-corpus	manifest.json>files>raw/terminal-user-units.txt:flip	ValueError: Corpus SHA differs: raw/terminal-user-units.txt
+liveness-corpus	manifest.json>files>raw/terminal.json:flip	ValueError: Corpus SHA differs: raw/terminal.json
+liveness-corpus	manifest.json>files>sources/dependency-closure.json:flip	ValueError: Corpus SHA differs: sources/dependency-closure.json
+liveness-corpus	manifest.json>files>sources/protocol/native_account_update_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_account_update_cases.py
+liveness-corpus	manifest.json>files>sources/protocol/native_alias_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_alias_cases.py
+liveness-corpus	manifest.json>files>sources/protocol/native_auth_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_auth_cases.py
+liveness-corpus	manifest.json>files>sources/protocol/native_ban_control_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_ban_control_cases.py
+liveness-corpus	manifest.json>files>sources/protocol/native_ban_expiry_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_ban_expiry_cases.py
+liveness-corpus	manifest.json>files>sources/protocol/native_ban_expiry_control.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_ban_expiry_control.py
+liveness-corpus	manifest.json>files>sources/protocol/native_banner_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_banner_cases.py
+liveness-corpus	manifest.json>files>sources/protocol/native_control_readiness.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_control_readiness.py
+liveness-corpus	manifest.json>files>sources/protocol/native_filp.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_filp.py
+liveness-corpus	manifest.json>files>sources/protocol/native_folder_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_folder_cases.py
+liveness-corpus	manifest.json>files>sources/protocol/native_framing_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_framing_cases.py
+liveness-corpus	manifest.json>files>sources/protocol/native_liveness_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_liveness_cases.py
+liveness-corpus	manifest.json>files>sources/protocol/native_liveness_control.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_liveness_control.py
+liveness-corpus	manifest.json>files>sources/protocol/native_metadata_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_metadata_cases.py
+liveness-corpus	manifest.json>files>sources/protocol/native_mkdir_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_mkdir_cases.py
+liveness-corpus	manifest.json>files>sources/protocol/native_news_decode.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_news_decode.py
+liveness-corpus	manifest.json>files>sources/protocol/native_news_delete_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_news_delete_cases.py
+liveness-corpus	manifest.json>files>sources/protocol/native_packet_evidence.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_packet_evidence.py
+liveness-corpus	manifest.json>files>sources/protocol/native_plan.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_plan.py
+liveness-corpus	manifest.json>files>sources/protocol/native_queue_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_queue_cases.py
+liveness-corpus	manifest.json>files>sources/protocol/native_resume_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_resume_cases.py
+liveness-corpus	manifest.json>files>sources/protocol/native_transfer_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_transfer_cases.py
+liveness-corpus	manifest.json>files>sources/protocol/pcap_tcp.py:flip	ValueError: Corpus SHA differs: sources/protocol/pcap_tcp.py
+liveness-corpus	manifest.json>files>sources/protocol/protocol_capture.py:flip	ValueError: Corpus SHA differs: sources/protocol/protocol_capture.py
+liveness-corpus	manifest.json>files>sources/protocol/shx_syscalls.py:flip	ValueError: Corpus SHA differs: sources/protocol/shx_syscalls.py
+liveness-corpus	manifest.json>files>sources/protocol/verify_native_account_updates.py:flip	ValueError: Corpus SHA differs: sources/protocol/verify_native_account_updates.py
+liveness-corpus	manifest.json>files>sources/protocol/verify_native_article_deletion.py:flip	ValueError: Corpus SHA differs: sources/protocol/verify_native_article_deletion.py
+liveness-corpus	manifest.json>files>sources/protocol/verify_native_auth.py:flip	ValueError: Corpus SHA differs: sources/protocol/verify_native_auth.py
+liveness-corpus	manifest.json>files>sources/protocol/verify_native_banners.py:flip	ValueError: Corpus SHA differs: sources/protocol/verify_native_banners.py
+liveness-corpus	manifest.json>files>sources/protocol/verify_native_core.py:flip	ValueError: Corpus SHA differs: sources/protocol/verify_native_core.py
+liveness-corpus	manifest.json>files>sources/protocol/verify_native_framing.py:flip	ValueError: Corpus SHA differs: sources/protocol/verify_native_framing.py
+liveness-corpus	manifest.json>files>sources/protocol/verify_native_mkdir.py:flip	ValueError: Corpus SHA differs: sources/protocol/verify_native_mkdir.py
+liveness-corpus	manifest.json>files>sources/protocol/verify_native_shx.py:flip	ValueError: Corpus SHA differs: sources/protocol/verify_native_shx.py
+liveness-corpus	manifest.json>files>inputs/b76-liveness-publication-plan.md.txt:delete-key	ValueError: Corpus inventory differs
+liveness-corpus	manifest.json>schema:flip	ValueError: Corpus profile, source or deadline differs
+liveness-corpus	raw/coordinator/report.json>frames>14>total_size:inc	ValueError: Decoded frame differs from raw
+liveness-corpus	sources/dependency-closure.json>hashes>native_account_update_cases:flip	ValueError: Frozen dependency differs: native_account_update_cases
+liveness-corpus	sources/dependency-closure.json>hashes>native_alias_cases:flip	ValueError: Frozen dependency differs: native_alias_cases
+liveness-corpus	sources/dependency-closure.json>hashes>native_auth_cases:flip	ValueError: Frozen dependency differs: native_auth_cases
+liveness-corpus	sources/dependency-closure.json>hashes>native_ban_control_cases:flip	ValueError: Frozen dependency differs: native_ban_control_cases
+liveness-corpus	sources/dependency-closure.json>hashes>native_ban_expiry_cases:flip	ValueError: Frozen dependency differs: native_ban_expiry_cases
+liveness-corpus	sources/dependency-closure.json>hashes>native_ban_expiry_control:flip	ValueError: Frozen dependency differs: native_ban_expiry_control
+liveness-corpus	sources/dependency-closure.json>hashes>native_banner_cases:flip	ValueError: Frozen dependency differs: native_banner_cases
+liveness-corpus	sources/dependency-closure.json>hashes>native_control_readiness:flip	ValueError: Frozen dependency differs: native_control_readiness
+liveness-corpus	sources/dependency-closure.json>hashes>native_filp:flip	ValueError: Frozen dependency differs: native_filp
+liveness-corpus	sources/dependency-closure.json>hashes>native_folder_cases:flip	ValueError: Frozen dependency differs: native_folder_cases
+liveness-corpus	sources/dependency-closure.json>hashes>native_framing_cases:flip	ValueError: Frozen dependency differs: native_framing_cases
+liveness-corpus	sources/dependency-closure.json>hashes>native_liveness_cases:flip	ValueError: Frozen dependency differs: native_liveness_cases
+liveness-corpus	sources/dependency-closure.json>hashes>native_liveness_control:flip	ValueError: Frozen dependency differs: native_liveness_control
+liveness-corpus	sources/dependency-closure.json>hashes>native_metadata_cases:flip	ValueError: Frozen dependency differs: native_metadata_cases
+liveness-corpus	sources/dependency-closure.json>hashes>native_mkdir_cases:flip	ValueError: Frozen dependency differs: native_mkdir_cases
+liveness-corpus	sources/dependency-closure.json>hashes>native_news_decode:flip	ValueError: Frozen dependency differs: native_news_decode
+liveness-corpus	sources/dependency-closure.json>hashes>native_news_delete_cases:flip	ValueError: Frozen dependency differs: native_news_delete_cases
+liveness-corpus	sources/dependency-closure.json>hashes>native_packet_evidence:flip	ValueError: Frozen dependency differs: native_packet_evidence
+liveness-corpus	sources/dependency-closure.json>hashes>native_plan:flip	ValueError: Frozen dependency differs: native_plan
+liveness-corpus	sources/dependency-closure.json>hashes>native_queue_cases:flip	ValueError: Frozen dependency differs: native_queue_cases
+liveness-corpus	sources/dependency-closure.json>hashes>native_resume_cases:flip	ValueError: Frozen dependency differs: native_resume_cases
+liveness-corpus	sources/dependency-closure.json>hashes>native_transfer_cases:flip	ValueError: Frozen dependency differs: native_transfer_cases
+liveness-corpus	sources/dependency-closure.json>hashes>pcap_tcp:flip	ValueError: Frozen dependency differs: pcap_tcp
+liveness-corpus	sources/dependency-closure.json>hashes>protocol_capture:flip	ValueError: Frozen dependency differs: protocol_capture
+liveness-corpus	sources/dependency-closure.json>hashes>shx_syscalls:flip	ValueError: Frozen dependency differs: shx_syscalls
+liveness-corpus	sources/dependency-closure.json>hashes>verify_native_account_updates:flip	ValueError: Frozen dependency differs: verify_native_account_updates
+liveness-corpus	sources/dependency-closure.json>hashes>verify_native_article_deletion:flip	ValueError: Frozen dependency differs: verify_native_article_deletion
+liveness-corpus	sources/dependency-closure.json>hashes>verify_native_auth:flip	ValueError: Frozen dependency differs: verify_native_auth
+liveness-corpus	sources/dependency-closure.json>hashes>verify_native_banners:flip	ValueError: Frozen dependency differs: verify_native_banners
+liveness-corpus	sources/dependency-closure.json>hashes>verify_native_core:flip	ValueError: Frozen dependency differs: verify_native_core
+liveness-corpus	sources/dependency-closure.json>hashes>verify_native_framing:flip	ValueError: Frozen dependency differs: verify_native_framing
+liveness-corpus	sources/dependency-closure.json>hashes>verify_native_mkdir:flip	ValueError: Frozen dependency differs: verify_native_mkdir
+liveness-corpus	sources/dependency-closure.json>hashes>verify_native_shx:flip	ValueError: Frozen dependency differs: verify_native_shx
+liveness-corpus	sources/dependency-closure.json>module_count:inc	ValueError: Frozen source closure differs
+liveness-corpus	raw/parent-paired-stream-review.json>status:flip	ValueError: Independent paired-stream review differs
+liveness-corpus	raw/independent-plus5-coverage.json>mothra-native-liveness-c92-lease.service>earliest_runtime_end_utc:empty	ValueError: Invalid isoformat string: ''
+liveness-corpus	raw/capture-ready.json>managed_lock>pid:inc	ValueError: Managed lease or +5 capture coverage differs
+liveness-corpus	raw/coordinator/report.json>streams>a>received_hex:flip	ValueError: Raw streams differ from events
+liveness-corpus	raw/capture-readiness-operator-error.json>failure:empty	ValueError: Retained unprivileged observer failure differs
+liveness-corpus	raw/terminal.json>actual_emulator_gone:not	ValueError: Retired process, original services, ports, lock or deadline differ
+liveness-corpus	preparation/hfs-preflight.json>files>admin:delete-key	ValueError: Stopped named fork bytes differ
+liveness-corpus	preparation/final-preflight.json>prepared>base.dsk>sha256:flip	ValueError: Stopped preparation or immutable source differs
+liveness-corpus	raw/capture-ready.json>managed_capture>host>utc:flip	ValueError: host managed recorder differs
+liveness-corpus	raw/capture-ready.json>managed_capture>namespace>utc:flip	ValueError: namespace managed recorder differs
+liveness-corpus	raw/coordinator/report.json>operations>4>event_range:drop-last	ValueError: not enough values to unpack (expected 2, got 1)
+liveness-corpus	raw/control-plans/readiness.json>schema_version:inc	ValueError: readiness generic 18-action control differs
+liveness-corpus	manifest.json>actual_pid:delete-key;preparation/final-preflight.json>prepared>base.dsk:delete-key	KeyError: 'actual_pid'
+liveness-corpus	raw/capture-ready.json>emulator_netns:delete-key;raw/capture-ready.json>managed_lock>pid:inc	KeyError: 'emulator_netns'
+liveness-corpus	preparation/final-preflight.json>prepared>working.dsk>inode:delete-key;manifest.json>files>sources/protocol/native_packet_evidence.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_packet_evidence.py
+liveness-corpus	raw/capture-ready.json>namespace_recorder_pid:delete-key;sources/dependency-closure.json>hashes>native_news_delete_cases:flip	ValueError: Frozen dependency differs: native_news_delete_cases
+liveness-corpus	raw/terminal.json>primary_pcap_size:delete-key;sources/dependency-closure.json>hashes>native_transfer_cases:flip	ValueError: Frozen dependency differs: native_transfer_cases
+liveness-corpus	raw/parent-paired-stream-review.json>flows>0>sent:delete-key;manifest.json>files>raw/control-plans/probe.json:flip	ValueError: Corpus SHA differs: raw/control-plans/probe.json
+liveness-corpus	raw/source-freeze.json>hashes>native_auth_cases.py:flip;manifest.json>files>preparation/catalog-allocated.txt:flip	ValueError: Corpus SHA differs: preparation/catalog-allocated.txt
+liveness-corpus	raw/source-freeze.json>hashes>native_plan.py:flip;manifest.json>files>raw/terminal-user-units.txt:flip	ValueError: Corpus SHA differs: raw/terminal-user-units.txt
+liveness-corpus	manifest.json>files>raw/c93-journal.log:flip;manifest.json>files>raw/readiness.exit:flip	ValueError: Corpus SHA differs: raw/c93-journal.log
