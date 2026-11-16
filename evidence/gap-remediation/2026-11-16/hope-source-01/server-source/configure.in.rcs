@@ -1,0 +1,288 @@
+head     1.1;
+branch   1.1.1;
+access   ;
+symbols  start:1.1.1.1 vendor:1.1.1;
+locks    ; strict;
+comment  @# @;
+
+
+1.1
+date     2001.09.03.18.49.18;  author devinteske;  state Exp;
+branches 1.1.1.1;
+next     ;
+
+1.1.1.1
+date     2001.09.03.18.49.18;  author devinteske;  state Exp;
+branches ;
+next     ;
+
+
+desc
+@@
+
+
+
+1.1
+log
+@Initial revision
+@
+text
+@AC_INIT(hxd.h)
+AC_PREREQ(2.12)
+
+AC_CONFIG_HEADER(config.h)
+
+AC_PREFIX_DEFAULT(/usr/local)
+
+AC_SUBST(OBJS)
+AC_SUBST(LIBOBJS)
+AC_SUBST(WARN)
+AC_SUBST(INCLUDES)
+AC_SUBST(GINCLUDES)
+AC_SUBST(TARGETS)
+AC_SUBST(HXHXDOBJS)
+AC_SUBST(HXDOBJS)
+AC_SUBST(HXDLIBOBJS)
+AC_SUBST(HXDLIBS)
+AC_SUBST(CURSESLIBS)
+AC_SUBST(CIPHERLIBS)
+AC_SUBST(COMPRESSLIBS)
+AC_SUBST(INCLUDE_DEPEND)
+
+AC_ARG_ENABLE(hotline_server,	[  --enable-hotline-server    compile hotline server], , enable_hotline_server=no)
+AC_ARG_ENABLE(tracker_server,	[  --enable-tracker-server    compile tracker server], , enable_tracker_server=no)
+AC_ARG_ENABLE(tracker_register,	[  --enable-tracker-register  compile tracker registration code for server], , enable_tracker_register=no)
+AC_ARG_ENABLE(exec,		[  --enable-exec              enable remote execution of programs], , enable_exec=no)
+AC_ARG_ENABLE(htxf-pthread,	[  --enable-htxf-pthread      use pthread instead of fork or clone for htxf], , enable_htxf_pthread=no)
+AC_ARG_ENABLE(htxf-clone,	[  --enable-htxf-clone        use clone instead of fork for htxf], , enable_htxf_clone=no)
+AC_ARG_ENABLE(htxf-fork,	[  --enable-htxf-fork         use fork instead of clone for htxf], , enable_htxf_fork=no)
+AC_ARG_ENABLE(htxf-preview,	[  --enable-htxf-preview      enable image preview (needs ImageMagick)], , enable_htxf_preview=no)
+AC_ARG_ENABLE(hfs,		[  --enable-hfs               enable CAP/NetATalk/AppleDouble support], , enable_hfs=yes)
+AC_ARG_ENABLE(hope,		[  --enable-hope              enable HOPE], , enable_hope=no)
+AC_ARG_ENABLE(cipher,		[  --enable-cipher            enable cipher], , enable_cipher=no)
+AC_ARG_ENABLE(compress,		[  --enable-compress          enable compress], , enable_compress=no)
+AC_ARG_ENABLE(network,		[  --enable-network           enable network], , enable_network=no)
+AC_ARG_ENABLE(windos_client_fix,[  --enable-windos-client-fix hack to make broken windos clients not display error messages when transfering files], , enable_windos_client_fix=no)
+AC_ARG_ENABLE(nospam,		[  --enable-nospam            spam protection], , enable_nospam=no)
+AC_ARG_ENABLE(sql,		[  --enable-sql               use mysql logging], , enable_sql=no)
+AC_ARG_ENABLE(ipv6,		[  --enable-ipv6              IPv6 support. IPv4 will not work], , enable_ipv6=no)
+AC_ARG_ENABLE(all,		[  --enable-all               do not enable this], , enable_all=no)
+AC_ARG_WITH(depend,		[  --with-depend[=string]     add include .depend to Makefile], , with_depend=no)
+AC_ARG_WITH(socks,		[  --with-socks[=dir]         use socks library in dir], , with_socks=no)
+AC_ARG_WITH(socks_include,	[  --with-socks-include=dir   use socks header in dir], , with_socks_include=no)
+
+if test $enable_all = yes; then
+	enable_hotline_server=yes;
+	enable_tracker_register=yes;
+	enable_tracker_server=yes;
+	enable_exec=yes;
+	enable_htxf_clone=yes;
+	enable_hfs=yes;
+	enable_hope=yes;
+	enable_cipher=yes;
+	enable_compress=yes;
+	enable_network=no;
+	enable_nospam=yes;
+	with_depend=yes;
+fi
+
+if test $enable_hotline_server = no -a $enable_tracker_server = no; then
+	enable_hotline_server=yes;
+fi
+if test $enable_ipv6 = yes; then
+	AC_DEFINE(CONFIG_IPV6)
+fi
+if test $enable_hotline_server = yes; then
+	AC_DEFINE(CONFIG_HOTLINE_SERVER)
+fi
+if test $enable_tracker_server = yes; then
+	AC_DEFINE(CONFIG_TRACKER_SERVER)
+fi
+if test $enable_tracker_register = yes; then
+	AC_DEFINE(CONFIG_TRACKER_REGISTER)
+fi
+if test $enable_exec = yes; then
+	AC_DEFINE(CONFIG_EXEC)
+fi
+if test $enable_htxf_pthread = yes; then
+	AC_DEFINE(CONFIG_HTXF_PTHREAD)
+	HXDLIBS="$HXDLIBS -lpthread"
+else
+	if test $enable_htxf_clone = yes; then
+		AC_DEFINE(CONFIG_HTXF_CLONE)
+	else
+		enable_htxf_fork=yes;
+	fi
+fi
+if test $enable_htxf_fork = yes; then
+	AC_DEFINE(CONFIG_HTXF_FORK)
+fi
+if test $enable_htxf_preview = yes; then
+	AC_DEFINE(CONFIG_HTXF_PREVIEW)
+fi
+if test $enable_hfs = yes; then
+	HXHXDOBJS="$HXHXDOBJS hfs.o"
+	AC_DEFINE(CONFIG_HFS)
+fi
+if test $enable_hope = yes; then
+	AC_DEFINE(CONFIG_HOPE)
+	HXHXDOBJS="$HXHXDOBJS hmac.o"
+fi
+if test $enable_network = yes; then
+	AC_DEFINE(CONFIG_NETWORK)
+fi
+if test $enable_windos_client_fix = yes; then
+	AC_DEFINE(CONFIG_WINDOS_CLIENT_FIX)
+fi
+if test $enable_nospam = yes; then
+	AC_DEFINE(CONFIG_NOSPAM)
+fi
+if test $enable_sql = yes; then
+	AC_DEFINE(CONFIG_SQL)
+	INCLUDES="$INCLUDES -I/usr/include/mysql"
+	HXDLIBS="$HXDLIBS -lmysqlclient"
+fi
+if test ! $with_depend = no; then
+	if test $with_depend != yes; then
+		INCLUDE_DEPEND="$with_depend"
+	fi
+	if test -z "$INCLUDE_DEPEND"; then
+		INCLUDE_DEPEND="include .depend"
+	fi
+fi
+
+AC_PROG_CC
+AC_CANONICAL_HOST
+
+if test $cross_compiling = yes; then
+	AC_CHECK_PROGS(BUILD_CC, gcc cc)
+	CC=$BUILD_CC
+fi
+
+if test $ac_cv_prog_gcc = yes; then
+	WARN='-Wall -W'
+fi
+
+AC_ISC_POSIX
+AC_C_CONST
+AC_C_INLINE
+AC_C_BIGENDIAN
+
+AC_MSG_CHECKING(for Mac OS X)
+AC_TRY_COMPILE([#include <Carbon/Carbon.h>],[FSRef foo;],[
+	AC_DEFINE(CARBON)
+	AC_MSG_RESULT(yes)
+	HXDLIBS="$HXDLIBS -framework Carbon"],AC_MSG_RESULT(no))
+
+AC_PATH_PROG(TR, tr, "/bin/tr")
+AC_DEFINE_UNQUOTED(PATH_TR, "$TR")
+
+darwin=0;
+case "$host" in
+	*-darwin*)
+		AC_DEFINE(DARWIN)
+		darwin=1;
+		;;
+esac
+
+AC_TYPE_SIGNAL
+AC_TYPE_SIZE_T
+AC_CHECK_TYPE(ssize_t, long)
+AC_CHECK_TYPE(u_int8_t, unsigned char)
+AC_CHECK_TYPE(u_int16_t, unsigned short)
+AC_CHECK_TYPE(u_int32_t, unsigned int)
+AC_CHECK_TYPE(int8_t, char)
+AC_CHECK_TYPE(int16_t, short)
+AC_CHECK_TYPE(int32_t, int)
+
+AC_CHECK_HEADERS(sys/select.h stdarg.h)
+
+if test ! $with_socks = no; then
+	if test ! $with_socks = yes; then
+		LIBS="$LIBS -L$with_socks"
+	fi
+	CFLAGS="$CFLAGS -DSOCKS -DINCLUDE_PROTOTYPES"
+	if test ! $with_socks_include = no; then
+		INCLUDES="$INCLUDES -I$with_socks_include"
+	fi
+	AC_CHECK_LIB(socks5, SOCKSinit)
+fi
+
+if test $enable_cipher = yes; then
+	AC_DEFINE(CONFIG_CIPHER)
+	HXHXDOBJS="$HXHXDOBJS cipher.o"
+dnl	AC_CHECK_LIB(crypto, BF_ofb64_encrypt, CIPHERLIBS="$CIPHERLIBS -lcrypto")
+else
+	CIPHERLIBS=""
+fi
+
+if test $enable_compress = yes; then
+	AC_DEFINE(CONFIG_COMPRESS)
+	HXHXDOBJS="$HXHXDOBJS compress.o"
+	AC_CHECK_LIB(z, deflate, COMPRESSLIBS="$COMPRESSLIBS -lz")
+else
+	COMPRESSLIBS=""
+fi
+
+AC_CHECK_FUNCS(snprintf,
+	AC_CHECK_FUNCS(vsnprintf, , LIBOBJS="$LIBOBJS snprintf.o"; ac_cv_func_snprintf=no),
+	LIBOBJS="$LIBOBJS snprintf.o"; ac_cv_func_snprintf=no)
+if test $ac_cv_func_snprintf = yes; then
+	AC_MSG_CHECKING(for broken snprintf)
+	AC_CACHE_VAL(ac_cv_broken_snprintf,AC_TRY_RUN([
+#include <stdio.h>
+int main()
+{
+	char buf;
+	if (snprintf(&buf, 1, "ab%s", "cdefg")!=-1)
+		return 1;
+	return 0;
+}
+], ac_cv_broken_snprintf=no, ac_cv_broken_snprintf=yes))
+	AC_MSG_RESULT($ac_cv_broken_snprintf)
+	if test $ac_cv_broken_snprintf = yes; then
+		AC_DEFINE(BROKEN_SNPRINTF)
+		LIBOBJS="$LIBOBJS snprintf.o"
+	fi
+fi
+
+AC_REPLACE_FUNCS(localtime_r inet_aton)
+AC_CHECK_FUNCS(getrlimit getdtablesize)
+AC_CHECK_FUNC(gethostbyname, , AC_CHECK_LIB(nsl, gethostbyname))
+AC_CHECK_FUNC(socket, , AC_CHECK_LIB(socket, socket))
+AC_CHECK_LIB(ncurses, initscr, CURSESLIBS="$CURSESLIBS -lncurses", AC_CHECK_LIB(curses, initscr, CURSESLIBS="$CURSESLIBS -lcurses"))
+
+if test $enable_hotline_server = yes; then
+	AC_CHECK_HEADERS(strings.h)
+	AC_CHECK_FUNC(realpath, AC_DEFINE(HAVE_REALPATH), HXDLIBOBJS="$HXDLIBOBJS realpath.o")
+	AC_CHECK_FUNC(strcasestr, AC_DEFINE(HAVE_STRCASESTR), HXDLIBOBJS="$HXDLIBOBJS strcasestr.o")
+	AC_CHECK_FUNC(strptime, AC_DEFINE(HAVE_STRPTIME), HXDLIBOBJS="$HXDLIBOBJS strptime.o")
+	HXDOBJS="$HXDOBJS hxd_hlwrite.o"
+	TARGETS="$TARGETS hxd"
+	AC_REPLACE_FUNCS(inet_ntoa_r)
+	if test $enable_hope = yes; then
+		HXHXDOBJS="$HXHXDOBJS rand.o md5.o sha.o haval.o"
+		AC_CHECK_LIB(crypto, RAND_bytes, CIPHERLIBS="$CIPHERLIBS -lcrypto")
+	fi
+fi
+if test $enable_tracker_register = yes; then
+	HXDOBJS="$HXDOBJS hxd_tracker.o"
+fi
+if test $enable_tracker_server = yes; then
+	TARGETS="$TARGETS hxtrackd"
+fi
+if test $enable_htxf_preview = yes; then
+	INCLUDES="$INCLUDES -I/usr/X11R6/include"
+	LIBS="$LIBS `Magick-config --libs`"
+fi
+
+AC_OUTPUT(Makefile)
+@
+
+
+1.1.1.1
+log
+@added module (god sf cvs sucks)
+@
+text
+@@

@@ -1,0 +1,63 @@
+{
+  "purpose": "Source files that hold the HOPE message-authentication, cipher, compression and random-byte code of the SynHX server and of shx, which the earlier snapshots call but do not retain.",
+  "scope": "Source identity only. No executable was configured, built or run, and no session was captured.",
+  "server": {
+    "manifest": "server-source/manifest.json",
+    "identity": "RCS revision 1.1 of each archive, the same revision as evidence/hotline-server-1.9/synhxd-source; version.c is retained here."
+  },
+  "client": {
+    "source_git_directory": "/data/leynos/Projects/synhxd/output/client-20250605-214353/client.git",
+    "source_git_head": "adb1bf8c8cb12f7eb2fa2c01673295a6312f262b",
+    "identity": "The same converted Git head as evidence/gap-remediation/2026-11-12/batch-12, whose README and version.c identify shx 0.1.48.",
+    "inputs": [
+      {
+        "path": "hmac.c",
+        "git_blob": "56403cc46ef68f04d5139d2500af596095921a5c",
+        "sha256": "f304f7f40d9dfb4584cb86b8b9e74ed1efc0da8033d70e3d6997b0e389bc21a8",
+        "snapshot": "client-source/hmac.c.txt"
+      },
+      {
+        "path": "cipher.c",
+        "git_blob": "1a02e2e6faf803658ee00bd3a152dba38243a7a7",
+        "sha256": "85a1b3ffb58f95f04077cd5f0728043b0d4da2fba434475eb50eb240470f0429",
+        "snapshot": "client-source/cipher.c.txt"
+      },
+      {
+        "path": "cipher.h",
+        "git_blob": "3ac149e4405a8e8d9ca907318e057d4fcea9c19e",
+        "sha256": "03f4c959a7e8974b025633c9c4675cdbc84ba248a20f6b21225237fb4ad33d6b",
+        "snapshot": "client-source/cipher.h.txt"
+      },
+      {
+        "path": "cipher_openssl.h",
+        "git_blob": "c146ca5b3600849c9349c8f0160f0512ab479c0a",
+        "sha256": "d0a054a2ab60a53957138f043237ff14f273c22c7efc2fabcb52b886cc827a28",
+        "snapshot": "client-source/cipher_openssl.h.txt"
+      },
+      {
+        "path": "compress.c",
+        "git_blob": "8dc6db191c5ae81b41d1a8f1a3cbbd8771b6fd9c",
+        "sha256": "814a83de3cca8f2100f9cf97d22c7f9b1b79ae42fa28971552328b783687548d",
+        "snapshot": "client-source/compress.c.txt"
+      },
+      {
+        "path": "compress.h",
+        "git_blob": "1b41aeae72367d3f08ba57e3d685b1789ae15480",
+        "sha256": "d469571dbc8a5f372fb2acbcc1b75f817f1a14b871be1005ff5499a0bef19082",
+        "snapshot": "client-source/compress.h.txt"
+      },
+      {
+        "path": "rand.c",
+        "git_blob": "fce1e346332f76897d6ca33eca9641ddf26b332e",
+        "sha256": "e1a4914f45a2d4e131648e3e6712b758ed9d5dbf2167b24f262f1ae67a9ff142",
+        "snapshot": "client-source/rand.c.txt"
+      },
+      {
+        "path": "CHANGES",
+        "git_blob": "b39b8661084b49c01dbd398f85e8f9f9e57fb4fc",
+        "sha256": "c8518862db2277740578479e569f56404c44db0790ef7d9e6006aadcd4396f66",
+        "snapshot": "client-source/CHANGES.txt"
+      }
+    ]
+  }
+}

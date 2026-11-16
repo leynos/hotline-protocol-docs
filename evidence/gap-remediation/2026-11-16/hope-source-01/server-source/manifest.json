@@ -1,0 +1,110 @@
+[
+  {
+    "archive": "/data/leynos/Projects/synhxd/server/hmac.c,v",
+    "archive_sha256": "a2c3b0d1604b27f2ff4aaad272153ffbc64db52a55fbecba7fa950f4851f54c4",
+    "selected_revision": "1.1",
+    "default_branch": "1.1.1",
+    "snapshot": "hmac.c",
+    "snapshot_sha256": "f304f7f40d9dfb4584cb86b8b9e74ed1efc0da8033d70e3d6997b0e389bc21a8",
+    "saved_archive": "hmac.c.rcs"
+  },
+  {
+    "archive": "/data/leynos/Projects/synhxd/server/cipher.c,v",
+    "archive_sha256": "150d42655c541013c29f389641d44ff869728f37b49a88308aaccee00ac42c9d",
+    "selected_revision": "1.1",
+    "default_branch": "1.1.1",
+    "snapshot": "cipher.c",
+    "snapshot_sha256": "85a1b3ffb58f95f04077cd5f0728043b0d4da2fba434475eb50eb240470f0429",
+    "saved_archive": "cipher.c.rcs"
+  },
+  {
+    "archive": "/data/leynos/Projects/synhxd/server/cipher.h,v",
+    "archive_sha256": "c5a8f5852c6bbf0e20ed3b08da6048c6b694a34a40f16bd4c67687ffcd4c6421",
+    "selected_revision": "1.1",
+    "default_branch": "1.1.1",
+    "snapshot": "cipher.h",
+    "snapshot_sha256": "961250655df59bbad606452a2adc2749b914c7392ad805810493e78d0d2d46af",
+    "saved_archive": "cipher.h.rcs"
+  },
+  {
+    "archive": "/data/leynos/Projects/synhxd/server/cipher_openssl.h,v",
+    "archive_sha256": "9a14a653fbb31d2083ff424e3894d3a208d12da72f3dc451c591d4b9efbfc313",
+    "selected_revision": "1.1",
+    "default_branch": "1.1.1",
+    "snapshot": "cipher_openssl.h",
+    "snapshot_sha256": "d0a054a2ab60a53957138f043237ff14f273c22c7efc2fabcb52b886cc827a28",
+    "saved_archive": "cipher_openssl.h.rcs"
+  },
+  {
+    "archive": "/data/leynos/Projects/synhxd/server/compress.c,v",
+    "archive_sha256": "6849fc102a9423b22e2316547091718db38d17dfb388ff8cbe54705f3065b6d1",
+    "selected_revision": "1.1",
+    "default_branch": "1.1.1",
+    "snapshot": "compress.c",
+    "snapshot_sha256": "814a83de3cca8f2100f9cf97d22c7f9b1b79ae42fa28971552328b783687548d",
+    "saved_archive": "compress.c.rcs"
+  },
+  {
+    "archive": "/data/leynos/Projects/synhxd/server/compress.h,v",
+    "archive_sha256": "065d439e4b385b8a86afa64d88102e35a354d9d84fb92afc25626baa405dc5ff",
+    "selected_revision": "1.1",
+    "default_branch": "1.1.1",
+    "snapshot": "compress.h",
+    "snapshot_sha256": "d469571dbc8a5f372fb2acbcc1b75f817f1a14b871be1005ff5499a0bef19082",
+    "saved_archive": "compress.h.rcs"
+  },
+  {
+    "archive": "/data/leynos/Projects/synhxd/server/rand.c,v",
+    "archive_sha256": "b404001af45cb149def5b57f841838b706b0c9e3ddaf6e21f47810daaf1bc094",
+    "selected_revision": "1.1",
+    "default_branch": "1.1.1",
+    "snapshot": "rand.c",
+    "snapshot_sha256": "e1a4914f45a2d4e131648e3e6712b758ed9d5dbf2167b24f262f1ae67a9ff142",
+    "saved_archive": "rand.c.rcs"
+  },
+  {
+    "archive": "/data/leynos/Projects/synhxd/server/version.c,v",
+    "archive_sha256": "aa10c9678e0a43bebdd7a8154f27dde7094081102a84d62ccac6012881454c84",
+    "selected_revision": "1.1",
+    "default_branch": "1.1.1",
+    "snapshot": "version.c",
+    "snapshot_sha256": "d7b43a0fac74c159fb1e7c5dee01d85ebb8b921ecc79ef540f7ba3652ccbd959",
+    "saved_archive": "version.c.rcs"
+  },
+  {
+    "archive": "/data/leynos/Projects/synhxd/server/hxd_config.c,v",
+    "archive_sha256": "09cf807bb13d920ee84d30d8223563e83da175d389657b9b70d92e270aa8b3f3",
+    "selected_revision": "1.1",
+    "default_branch": "1.1.1",
+    "snapshot": "hxd_config.c",
+    "snapshot_sha256": "e8b4603d90c85c12a2f750203960f1185a41052b4614af5f8ac274d786ce2ebf",
+    "saved_archive": "hxd_config.c.rcs"
+  },
+  {
+    "archive": "/data/leynos/Projects/synhxd/server/configure.in,v",
+    "archive_sha256": "4c2aa721c99b6aa41dbdd6eab2a996e18ed37f13d3d271ad4d6eb06390f79ecc",
+    "selected_revision": "1.1",
+    "default_branch": "1.1.1",
+    "snapshot": "configure.in",
+    "snapshot_sha256": "0ad146458015f167d44f1614c37f343f3ab84912ce396aa749b58e926f379db3",
+    "saved_archive": "configure.in.rcs"
+  },
+  {
+    "archive": "/data/leynos/Projects/synhxd/server/README,v",
+    "archive_sha256": "e9f2c03a162be579ca739e64a8e9156f0e2377cb314e48acf561bc4671ab5eb1",
+    "selected_revision": "1.1",
+    "default_branch": "1.1.1",
+    "snapshot": "README",
+    "snapshot_sha256": "6741ed6182db7c191128763ffce322d7355d6d1bb0657edb9fef8807267884f0",
+    "saved_archive": "README.rcs"
+  },
+  {
+    "archive": "/data/leynos/Projects/synhxd/server/CHANGES,v",
+    "archive_sha256": "ab60b7f1e26b59006f59a7f7dd9c69e999350fba09ba4263926b58db6ff20fef",
+    "selected_revision": "1.1",
+    "default_branch": "1.1.1",
+    "snapshot": "CHANGES",
+    "snapshot_sha256": "88bb5b83520267f06e5f5052ab17dadebf60ad956fd7474c7024e20aa1e8330c",
+    "saved_archive": "CHANGES.rcs"
+  }
+]
