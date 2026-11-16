@@ -136,6 +136,16 @@ whether it reads a withheld file. Table 2 gives the readers that the search of
   `test_verify_classic_field161_matrix`. The known-red comment in the
   `Makefile` gives the test name, `test_original_corpus_replays`.
 
+### Pinned scripts and full history
+
+Some corpora record the SHA-256 of a script that took part in their capture.
+The verifiers compare that hash with the script as it stood at a recorded
+commit, listed in `scripts/pinned-sources.json`, and not with the working copy,
+so a script can be maintained without invalidating the evidence it produced.
+`make pins-check` confirms that each recorded commit still holds the recorded
+bytes. These checks read Git history, so they need a full clone; in a shallow
+clone they fail with a message that names the missing commit.
+
 ## 4. Native captures
 
 Native captures are runs of the Hotline Server 1.9 binary in its emulator, with

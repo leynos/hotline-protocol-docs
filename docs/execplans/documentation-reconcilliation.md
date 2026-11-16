@@ -226,6 +226,23 @@ The script work is a behaviour-preserving refactor.
   10 tensions) in the session scratch directory.
 - [x] (2026-11-15 20:40Z) Owner raised the tooling tolerance (D24) and asked
   for the SynHX naming to be clarified and a comprehensive glossary (D25).
+- [x] (2026-11-16 22:00Z) D29 implemented (`37a06f4` to `3265ea9`).
+  `scripts/pinned-sources.json` names the commit and hash for each of the
+  sixteen scripts: thirteen at the published `4e62e00`, three at this branch's
+  `efea44a`. Five verifiers compare the pinned bytes; `in_legacy_layout` stages
+  the pinned bytes for the verifiers held under `evidence/`; no recorded hash
+  or order of checks changed. `make pin-experiment` appends a comment to all
+  sixteen and compares the goldens: 27 differences before, `0 differences` now.
+  `make pins-check` is part of `make all` (479 tests). Remaining before the
+  sixteen are refactored: characterization tests for
+  `capture-ghidra-evidence.py`, `verify-baseline-evidence.py` and
+  `extract-synhxd-evidence.py`, whose coverage is thin or absent; the
+  capture-side self-check in `native_settings_persistence.py`, which records
+  and checks the live hash of two pinned scripts; and a pushed tag on
+  `efea44a`, without which a squash merge would orphan the three imported
+  scripts' pin. The known-red verifier (D18) could use the same mechanism, but
+  the mothra commit that carries its recorded hash, `882f976`, is in mothra's
+  unpublished history.
 - [x] (2026-11-16 20:30Z) EP-M8, third part (`d9ea1ec`, `cb7e07d`): the root
   `README.md`, `docs/contents.md`, `docs/repository-layout.md` and an overview
   for each of the eight remaining sets, written by three scribes and gated.
