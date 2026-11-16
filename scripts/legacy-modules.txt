@@ -32,7 +32,6 @@ scripts/native_diagnostic_existing_cases.py
 scripts/native_diagnostic_load_cases.py
 scripts/native_diagnostic_near_cases.py
 scripts/native_filp.py  # live bytes compared with a recorded hash
-scripts/native_live_account_cases.py
 scripts/native_liveness_cases.py
 scripts/native_liveness_control.py
 scripts/native_login_extras_cases.py
@@ -103,7 +102,6 @@ scripts/test_native_diagnostic_load.py
 scripts/test_native_diagnostic_near.py
 scripts/test_native_diagnostics.py
 scripts/test_native_download_send_path.py
-scripts/test_native_live_accounts.py
 scripts/test_native_liveness.py
 scripts/test_native_liveness_corpus.py
 scripts/test_native_login_extras.py
@@ -165,7 +163,6 @@ scripts/verify_native_diagnostic_load.py
 scripts/verify_native_diagnostic_near.py
 scripts/verify_native_diagnostics.py
 scripts/verify_native_download_send_path.py
-scripts/verify_native_live_accounts.py
 scripts/verify_native_liveness.py
 scripts/verify_native_login_extras.py
 scripts/verify_native_moves.py
