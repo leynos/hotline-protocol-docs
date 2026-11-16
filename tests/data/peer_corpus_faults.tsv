@@ -351,3 +351,136 @@ classic-field-161	ns-ready-before-a7.json:delete-file;four-byte-161/return-actio
 classic-field-161	one-byte-161/host-ready-before-connect.json:delete-file;a7-postflight/plan.json:delete-file	ValueError: inventory path escapes corpus
 classic-field-161	one-byte-161/proxy/report.json:delete-file;one-byte-161/host-ready-before-connect.json:delete-file	ValueError: inventory path escapes corpus
 classic-field-161	one-byte-161/ready.png:delete-file;four-byte-161/ns-ready-before-connect.json:delete-file	ValueError: inventory path escapes corpus
+mac-first-session		ok 9beb5dd45309b69c
+mac-first-session	client-guest-final.pcap:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mac-first-session	client-guest-final.pcap:empty-file	ValueError: Capture SHA/size differs: client-guest-final.pcap
+mac-first-session	host-final.pcap:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mac-first-session	host-final.pcap:empty-file	ValueError: Capture SHA/size differs: host-final.pcap
+mac-first-session	manifest.json:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mac-first-session	manifest.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+mac-first-session	manifest.json>capture>host-final.pcap:delete-key	ValueError: Capture inventory differs
+mac-first-session	manifest.json>capture>host-final.pcap>size:inc	ValueError: Capture SHA/size differs: host-final.pcap
+mac-first-session	manifest.json>capture>host-final.pcap>sha256:flip	ValueError: Capture SHA/size differs: host-final.pcap
+mac-first-session	manifest.json>capture>client-guest-final.pcap:delete-key	ValueError: Capture inventory differs
+mac-first-session	manifest.json>capture>client-guest-final.pcap>size:inc	ValueError: Capture SHA/size differs: client-guest-final.pcap
+mac-first-session	manifest.json>capture>client-guest-final.pcap>sha256:flip	ValueError: Capture SHA/size differs: client-guest-final.pcap
+mac-first-session	manifest.json>capture>server-guest-final.pcap:delete-key	ValueError: Capture inventory differs
+mac-first-session	manifest.json>capture>server-guest-final.pcap>size:inc	ValueError: Capture SHA/size differs: server-guest-final.pcap
+mac-first-session	manifest.json>capture>server-guest-final.pcap>sha256:flip	ValueError: Capture SHA/size differs: server-guest-final.pcap
+mac-first-session	server-guest-final.pcap:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mac-first-session	server-guest-final.pcap:empty-file	ValueError: Capture SHA/size differs: server-guest-final.pcap
+mac-first-session	B12-report-as-observed.md.txt:delete-file	ok 9beb5dd45309b69c
+mac-first-session	B12-report-as-observed.md.txt:empty-file	ok 9beb5dd45309b69c
+mac-first-session	manifest.json>status:delete-key	ok 9beb5dd45309b69c
+mac-first-session	manifest.json>status:empty	ok 9beb5dd45309b69c
+mac-first-session	client-guest-final.pcap:delete-file;manifest.json>capture>host-final.pcap>size:inc	ValueError: Capture SHA/size differs: host-final.pcap
+mac-first-session	client-guest-final.pcap:empty-file;manifest.json>capture>server-guest-final.pcap:delete-key	ValueError: Capture inventory differs
+mac-first-session	host-final.pcap:delete-file;client-guest-final.pcap:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mac-first-session	host-final.pcap:empty-file;manifest.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+mac-first-session	manifest.json:delete-file;manifest.json>capture>client-guest-final.pcap>size:inc	FileNotFoundError: manifest.json
+mac-first-session	manifest.json:empty-file;server-guest-final.pcap:delete-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+mac-first-session	manifest.json>capture>host-final.pcap:delete-key;host-final.pcap:empty-file	ValueError: Capture inventory differs
+mac-first-session	manifest.json>capture>host-final.pcap>size:inc;manifest.json>capture>host-final.pcap>sha256:flip	ValueError: Capture SHA/size differs: host-final.pcap
+mac-first-session	manifest.json>capture>host-final.pcap>sha256:flip;manifest.json>capture>server-guest-final.pcap>size:inc	ValueError: Capture SHA/size differs: host-final.pcap
+mac-first-session	manifest.json>capture>client-guest-final.pcap:delete-key;client-guest-final.pcap:empty-file	ValueError: Capture inventory differs
+mac-first-session	manifest.json>capture>client-guest-final.pcap>size:inc;manifest.json>capture>host-final.pcap:delete-key	ValueError: Capture inventory differs
+mac-first-session	manifest.json>capture>server-guest-final.pcap:delete-key;server-guest-final.pcap:empty-file	ValueError: Capture inventory differs
+mac-first-session	manifest.json>capture>server-guest-final.pcap>size:inc;manifest.json:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mac-first-session	manifest.json>capture>server-guest-final.pcap>sha256:flip;manifest.json>capture>client-guest-final.pcap:delete-key	ValueError: Capture inventory differs
+mac-first-session	server-guest-final.pcap:delete-file;manifest.json>capture>server-guest-final.pcap>sha256:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mac-first-session	server-guest-final.pcap:empty-file;host-final.pcap:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mac-isolated-session		ok 4eea0ba9a0641186
+mac-isolated-session	assets.json:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mac-isolated-session	assets.json>rom_sha256:delete-key	KeyError: "'rom_sha256'"
+mac-isolated-session	assets.json>rom_sha256:flip	ValueError: Stopped base/ROM identity witness differs
+mac-isolated-session	assets.json>rom_sha256:empty	ValueError: Stopped base/ROM identity witness differs
+mac-isolated-session	assets.json>base_disk_sha256:empty	ValueError: Stopped base/ROM identity witness differs
+mac-isolated-session	bridge-ready.json:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mac-isolated-session	bridge-ready.json>fixed_target>kind:delete-key	ValueError: Fixed host bridge witness differs
+mac-isolated-session	bridge-ready.json>fixed_target>kind:flip	ValueError: Fixed host bridge witness differs
+mac-isolated-session	bridge-ready.json>fixed_target>address>0:flip	ValueError: Fixed host bridge witness differs
+mac-isolated-session	bridge-ready.json>fixed_target>address>0:empty	ValueError: Fixed host bridge witness differs
+mac-isolated-session	bridge-ready.json>fixed_target>address>1:inc	ValueError: Fixed host bridge witness differs
+mac-isolated-session	bridge-ready.json>fixed_target>address:drop-first	ValueError: Fixed host bridge witness differs
+mac-isolated-session	bridge-ready.json>fixed_target>synthetic:not	ValueError: Fixed host bridge witness differs
+mac-isolated-session	bridge-ready.json>netns:delete-key	KeyError: "'netns'"
+mac-isolated-session	bridge-ready.json>netns:flip	ValueError: Fixed host bridge witness differs
+mac-isolated-session	data-bridge-ready.json:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mac-isolated-session	data-bridge-ready.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+mac-isolated-session	data-bridge-ready.json>fixed_target:delete-key	KeyError: "'fixed_target'"
+mac-isolated-session	data-bridge-ready.json>fixed_target>kind:flip	ValueError: Fixed host bridge witness differs
+mac-isolated-session	data-bridge-ready.json>fixed_target>address:delete-key	ValueError: Fixed host bridge witness differs
+mac-isolated-session	data-bridge-ready.json>fixed_target>address>0:empty	ValueError: Fixed host bridge witness differs
+mac-isolated-session	data-bridge-ready.json>fixed_target>address>1:inc	ValueError: Fixed host bridge witness differs
+mac-isolated-session	data-bridge-ready.json>fixed_target>address:drop-last	ValueError: Fixed host bridge witness differs
+mac-isolated-session	data-bridge-ready.json>fixed_target>synthetic:delete-key	ValueError: Fixed host bridge witness differs
+mac-isolated-session	data-bridge-ready.json>fixed_target>synthetic:not	ValueError: Fixed host bridge witness differs
+mac-isolated-session	data-bridge-ready.json>netns:flip	ValueError: Fixed host bridge witness differs
+mac-isolated-session	data-bridge-ready.json>netns:empty	ValueError: Fixed host bridge witness differs
+mac-isolated-session	emulator-fds.txt:empty-file	ValueError: Emulator FD witness missing
+mac-isolated-session	emulator-hash.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mac-isolated-session	emulator-hash.txt:empty-file	ValueError: Actual emulator hash witness differs
+mac-isolated-session	emulator-status.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mac-isolated-session	emulator-status.txt:empty-file	ValueError: Actual capability/X witness differs
+mac-isolated-session	host-final.pcap:empty-file	ValueError: Capture SHA/size differs: host-final.pcap
+mac-isolated-session	host-netns.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mac-isolated-session	manifest.json:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mac-isolated-session	manifest.json>helper_sha256:flip	ValueError: Isolated helper source differs
+mac-isolated-session	manifest.json>capture:delete-key	KeyError: "'capture'"
+mac-isolated-session	manifest.json>capture>host-final.pcap>sha256:delete-key	KeyError: "'sha256'"
+mac-isolated-session	manifest.json>capture>client-guest-final.pcap>size:delete-key	KeyError: "'size'"
+mac-isolated-session	manifest.json>capture>client-guest-final.pcap>sha256:empty	ValueError: Capture SHA/size differs: client-guest-final.pcap
+mac-isolated-session	manifest.json>capture>server-guest-final.pcap>size:delete-key	KeyError: "'size'"
+mac-isolated-session	manifest.json>capture>server-guest-final.pcap>sha256:delete-key	KeyError: "'sha256'"
+mac-isolated-session	manifest.json>capture>nonlocal-known-ip.pcap>sha256:delete-key	KeyError: "'sha256'"
+mac-isolated-session	namespace-addresses.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mac-isolated-session	namespace-v4-routes.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mac-isolated-session	namespace-xdpyinfo.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mac-isolated-session	nonlocal-known-ip.pcap:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mac-isolated-session	nonlocal-known-ip.pcap:empty-file	ValueError: Capture SHA/size differs: nonlocal-known-ip.pcap
+mac-isolated-session	quiet-end-time.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mac-isolated-session	quit-time.txt:empty-file	ValueError: Invalid isoformat string: ''
+mac-isolated-session	return-finder.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mac-isolated-session	return-finder.txt:empty-file	ValueError: Finder type/creator witness differs
+mac-isolated-session	return-hashes.txt:empty-file	ValueError: Finder fork witness differs
+mac-isolated-session	x-bridge-ready.json:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mac-isolated-session	x-bridge-ready.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+mac-isolated-session	x-bridge-ready.json>fixed_target:delete-key	KeyError: "'fixed_target'"
+mac-isolated-session	x-bridge-ready.json>fixed_target>kind:delete-key	ValueError: Fixed X bridge witness differs
+mac-isolated-session	x-bridge-ready.json>fixed_target>display:delete-key	ValueError: Fixed X bridge witness differs
+mac-isolated-session	x-bridge-ready.json>fixed_target>display:flip	ValueError: Fixed X bridge witness differs
+mac-isolated-session	x-bridge-ready.json>netns:delete-key	KeyError: "'netns'"
+mac-isolated-session	B20-observation.txt:delete-file	ok 4eea0ba9a0641186
+mac-isolated-session	B20-observation.txt:empty-file	ok 4eea0ba9a0641186
+mac-isolated-session	B21-observation.txt:delete-file	ok 4eea0ba9a0641186
+mac-isolated-session	agreement-accept-time.txt:delete-file	ok 4eea0ba9a0641186
+mac-isolated-session	assets.json:delete-file;bridge-ready.json>fixed_target>kind:flip	ValueError: Fixed host bridge witness differs
+mac-isolated-session	assets.json>rom_sha256:flip;data-bridge-ready.json>fixed_target:delete-key	KeyError: "'fixed_target'"
+mac-isolated-session	assets.json>base_disk_sha256:empty;emulator-fds.txt:empty-file	ValueError: Emulator FD witness missing
+mac-isolated-session	bridge-ready.json>fixed_target>kind:delete-key;manifest.json>capture>host-final.pcap>sha256:delete-key	KeyError: "'sha256'"
+mac-isolated-session	bridge-ready.json>fixed_target>address>0:flip;nonlocal-known-ip.pcap:empty-file	ValueError: Capture SHA/size differs: nonlocal-known-ip.pcap
+mac-isolated-session	bridge-ready.json>fixed_target>address>1:inc;x-bridge-ready.json>fixed_target>display:delete-key	ValueError: Fixed host bridge witness differs
+mac-isolated-session	bridge-ready.json>fixed_target>synthetic:not;bridge-ready.json>fixed_target>kind:flip	ValueError: Fixed host bridge witness differs
+mac-isolated-session	bridge-ready.json>netns:flip;data-bridge-ready.json>fixed_target:delete-key	ValueError: Fixed host bridge witness differs
+mac-isolated-session	data-bridge-ready.json:empty-file;emulator-fds.txt:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+mac-isolated-session	data-bridge-ready.json>fixed_target>kind:flip;manifest.json>capture>host-final.pcap>sha256:delete-key	KeyError: "'sha256'"
+mac-isolated-session	data-bridge-ready.json>fixed_target>address>0:empty;nonlocal-known-ip.pcap:empty-file	ValueError: Capture SHA/size differs: nonlocal-known-ip.pcap
+mac-isolated-session	data-bridge-ready.json>fixed_target>address:drop-last;x-bridge-ready.json>fixed_target>display:delete-key	ValueError: Fixed host bridge witness differs
+mac-isolated-session	data-bridge-ready.json>fixed_target>synthetic:not;bridge-ready.json>fixed_target>kind:flip	ValueError: Fixed host bridge witness differs
+mac-isolated-session	data-bridge-ready.json>netns:empty;data-bridge-ready.json>fixed_target:delete-key	KeyError: "'fixed_target'"
+mac-isolated-session	emulator-hash.txt:delete-file;emulator-fds.txt:empty-file	ValueError: Emulator FD witness missing
+mac-isolated-session	emulator-status.txt:delete-file;manifest.json>capture>host-final.pcap>sha256:delete-key	KeyError: "'sha256'"
+mac-isolated-session	host-final.pcap:empty-file;nonlocal-known-ip.pcap:empty-file	ValueError: Capture SHA/size differs: host-final.pcap
+mac-isolated-session	manifest.json:delete-file;x-bridge-ready.json>fixed_target>display:delete-key	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mac-isolated-session	manifest.json>capture:delete-key;bridge-ready.json>fixed_target>kind:flip	KeyError: "'capture'"
+mac-isolated-session	manifest.json>capture>client-guest-final.pcap>size:delete-key;data-bridge-ready.json>fixed_target:delete-key	KeyError: "'size'"
+mac-isolated-session	manifest.json>capture>server-guest-final.pcap>size:delete-key;emulator-fds.txt:empty-file	KeyError: "'size'"
+mac-isolated-session	manifest.json>capture>nonlocal-known-ip.pcap>sha256:delete-key;manifest.json>capture>host-final.pcap>sha256:delete-key	KeyError: "'sha256'"
+mac-isolated-session	namespace-v4-routes.txt:delete-file;nonlocal-known-ip.pcap:empty-file	ValueError: Capture SHA/size differs: nonlocal-known-ip.pcap
+mac-isolated-session	nonlocal-known-ip.pcap:delete-file;x-bridge-ready.json>fixed_target>display:delete-key	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mac-isolated-session	quiet-end-time.txt:delete-file;bridge-ready.json>fixed_target>kind:flip	ValueError: Fixed host bridge witness differs
+mac-isolated-session	return-finder.txt:delete-file;data-bridge-ready.json>fixed_target:delete-key	KeyError: "'fixed_target'"
+mac-isolated-session	return-hashes.txt:empty-file;emulator-fds.txt:empty-file	ValueError: Emulator FD witness missing
+mac-isolated-session	x-bridge-ready.json:empty-file;manifest.json>capture>host-final.pcap>sha256:delete-key	KeyError: "'sha256'"
+mac-isolated-session	x-bridge-ready.json>fixed_target>kind:delete-key;nonlocal-known-ip.pcap:empty-file	ValueError: Capture SHA/size differs: nonlocal-known-ip.pcap
+mac-isolated-session	x-bridge-ready.json>fixed_target>display:flip;x-bridge-ready.json>fixed_target>display:delete-key	ValueError: Fixed X bridge witness differs
