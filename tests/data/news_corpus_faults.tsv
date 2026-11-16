@@ -1,0 +1,214 @@
+news-corpus		ok 1b3518d9fd515603
+news-corpus	bodies/child-second/report.json>events>0>action:delete-key	KeyError: 'action'
+news-corpus	manifest.json>completed_reports:delete-key	KeyError: 'completed_reports'
+news-corpus	bodies/child-second/report.json>frames>0>connection:delete-key	KeyError: 'connection'
+news-corpus	bodies/child-second/report.json>driver_sha256:delete-key	KeyError: 'driver_sha256'
+news-corpus	bodies/child-second/report.json>events>15>elapsed_ns:delete-key	KeyError: 'elapsed_ns'
+news-corpus	runtime-check.json>emulator_pid:delete-key	KeyError: 'emulator_pid'
+news-corpus	bodies/child-second/report.json>frames>3>error:delete-key	KeyError: 'error'
+news-corpus	bodies/child-second/report.json>events>16>event:delete-key	KeyError: 'event'
+news-corpus	bodies/child-second/report.json>events:delete-key	KeyError: 'events'
+news-corpus	bodies/child-first/plan.json>expectation:delete-key	KeyError: 'expectation'
+news-corpus	bodies/child-second/report.json>frames>3>fields:delete-key	KeyError: 'fields'
+news-corpus	bodies/child-second/report.json>frames:delete-key	KeyError: 'frames'
+news-corpus	bodies/child-second/report.json>frames>3>fields>0>hex:delete-key	KeyError: 'hex'
+news-corpus	manifest.json>host_capture_packets:delete-key	KeyError: 'host_capture_packets'
+news-corpus	manifest.json>host_kernel_drops:delete-key	KeyError: 'host_kernel_drops'
+news-corpus	bodies/child-second/report.json>frames>0>id:delete-key	KeyError: 'id'
+news-corpus	bodies/child-second/report.json>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+news-corpus	bodies/child-second/report.json>oracle_sha256:delete-key	KeyError: 'oracle_sha256'
+news-corpus	manifest.json>paired_connections:delete-key	KeyError: 'paired_connections'
+news-corpus	bodies/child-second/report.json>profile:delete-key	KeyError: 'profile'
+news-corpus	bodies/child-second/report.json>recorded_at_utc:delete-key	KeyError: 'recorded_at_utc'
+news-corpus	manifest.json>reports:delete-key	KeyError: 'reports'
+news-corpus	runtime-check.json>running_executable_sha256:delete-key	KeyError: 'running_executable_sha256'
+news-corpus	bodies/child-second/report.json>started_at_utc:delete-key	KeyError: 'started_at_utc'
+news-corpus	bodies/child-second/report.json>status:delete-key	KeyError: 'status'
+news-corpus	bodies/child-first/plan.json>steps:delete-key	KeyError: 'steps'
+news-corpus	bodies/child-second/report.json>streams:delete-key	KeyError: 'streams'
+news-corpus	cleanup/report.json>frames>5>type:delete-key	KeyError: 'type'
+news-corpus	children/report.json>frames>6>fields:drop-last	KeyError: 321
+news-corpus	structures/category-category-parent/report.json>frames>1>type:inc	StopIteration:
+news-corpus	children/report.json>frames>6>fields>0>hex:flip	ValueError: Article title/poster/parent/flags differ
+news-corpus	bodies/child-second/report.json>frames>3>error:inc	ValueError: Body bytes/navigation/date graph differs
+news-corpus	bodies/flavour-case/report.json>frames>3>error:inc	ValueError: Body error family differs
+news-corpus	bodies/child-second/report.json>frames>4>error:inc	ValueError: Body error/success lost control liveness
+news-corpus	files-after/report.json>frames>3>fields>0>id:inc	ValueError: File-list record grammar differs
+news-corpus	bodies/child-second/report.json>recorded_at_utc:empty	ValueError: Invalid isoformat string: ''
+news-corpus	files-after/report.json>frames>3>is_reply:inc	ValueError: Listing failed
+news-corpus	bodies/child-second/report.json>events>16>action:inc	ValueError: Missing or short creation quiet observation
+news-corpus	bodies/child-second/report.json>frames:drop-last	ValueError: Missing/duplicate auth reply
+news-corpus	structures/category-category-parent/report.json>frames>3>fields>0>id:inc	ValueError: Modern category field/length differs
+news-corpus	manifest.json>completed_reports:inc	ValueError: News aggregate counts differ
+news-corpus	bodies/child-first/plan.json>expectation>kind:flip	ValueError: News as-run plan differs
+news-corpus	bodies/child-second/report.json>profile:flip	ValueError: News capture provenance/completion differs
+news-corpus	cleanup/report.json>frames>0>error:inc	ValueError: News final/cleanup operation failed
+news-corpus	bodies/child-second/report.json>started_at_utc:flip	ValueError: News fixture chronology differs
+news-corpus	files-after/report.json>frames>3>fields:drop-last	ValueError: News helper cleanup did not restore Files
+news-corpus	cleanup/report.json>frames>5>is_reply:inc	ValueError: News listing failed
+news-corpus	manifest.json>host_capture_packets:inc	ValueError: News packet recorder inventory differs
+news-corpus	manifest.json>reports:drop-last	ValueError: News report inventory differs
+news-corpus	runtime-check.json>emulator_pid:inc	ValueError: News runtime identity differs
+news-corpus	structures/category-category-parent/report.json>frames>3>fields:drop-last	ValueError: Rejected structure operation changed semantic listing
+news-corpus	files-after/report.json>frames>3>fields>25>hex:flip	ValueError: Repeated file-list name
+news-corpus	structures/category-category-parent/report.json>frames>4>error:inc	ValueError: Structure error outcome differs
+news-corpus	structures/category-category-parent/report.json>frames>6>error:inc	ValueError: Structure failure lost control liveness
+news-corpus	structures/category-category-parent/report.json>frames>1>fields:drop-last	ValueError: Structure privilege control differs
+news-corpus	children/report.json>frames>6>fields>0>hex:empty	ValueError: Truncated article record
+news-corpus	bodies/child-second/report.json>frames>3>fields>1>id:inc	ValueError: Unexpected repeated scalar field
+news-corpus	bodies/child-second/report.json>events>0>action:delete-key;bodies/child-second/report.json>events:delete-key	KeyError: 'events'
+news-corpus	bodies/child-second/report.json>events>0>action:delete-key;bodies/child-second/report.json>streams:delete-key	KeyError: 'streams'
+news-corpus	manifest.json>completed_reports:delete-key;cleanup/report.json>frames>5>type:delete-key	KeyError: 'type'
+news-corpus	bodies/child-second/report.json>frames>0>connection:delete-key;bodies/child-second/report.json>frames>0>is_reply:delete-key	KeyError: 'connection'
+news-corpus	bodies/child-second/report.json>frames>0>connection:delete-key;files-after/report.json>frames>3>fields>25>hex:flip	KeyError: 'connection'
+news-corpus	bodies/child-second/report.json>frames>0>connection:delete-key;structures/category-category-parent/report.json>frames>6>error:inc	ValueError: Structure failure lost control liveness
+news-corpus	bodies/child-second/report.json>driver_sha256:delete-key;bodies/child-second/report.json>oracle_sha256:delete-key	KeyError: 'oracle_sha256'
+news-corpus	bodies/child-second/report.json>driver_sha256:delete-key;bodies/child-second/report.json>streams:delete-key	KeyError: 'driver_sha256'
+news-corpus	bodies/child-second/report.json>driver_sha256:delete-key;bodies/child-second/report.json>frames>3>error:inc	KeyError: 'driver_sha256'
+news-corpus	bodies/child-second/report.json>events>15>elapsed_ns:delete-key;bodies/child-second/report.json>events>16>event:delete-key	KeyError: 'event'
+news-corpus	bodies/child-second/report.json>events>15>elapsed_ns:delete-key;bodies/child-second/report.json>started_at_utc:delete-key	KeyError: 'elapsed_ns'
+news-corpus	bodies/child-second/report.json>frames>3>error:delete-key;bodies/child-second/report.json>frames:delete-key	KeyError: 'frames'
+news-corpus	bodies/child-second/report.json>events>16>event:delete-key;bodies/child-second/report.json>events>16>action:inc	ValueError: Missing or short creation quiet observation
+news-corpus	bodies/child-second/report.json>events:delete-key;bodies/child-first/plan.json>expectation:delete-key	KeyError: 'expectation'
+news-corpus	bodies/child-second/report.json>events:delete-key;bodies/child-second/report.json>recorded_at_utc:delete-key	KeyError: 'events'
+news-corpus	bodies/child-first/plan.json>expectation:delete-key;bodies/child-first/plan.json>steps:delete-key	KeyError: 'steps'
+news-corpus	bodies/child-second/report.json>frames>3>fields>0>hex:delete-key;bodies/child-second/report.json>frames>0>id:delete-key	KeyError: 'id'
+news-corpus	bodies/child-second/report.json>frames>3>fields>0>hex:delete-key;manifest.json>paired_connections:delete-key	KeyError: 'hex'
+news-corpus	manifest.json>host_capture_packets:delete-key;manifest.json>paired_connections:delete-key	KeyError: 'host_capture_packets'
+news-corpus	manifest.json>host_capture_packets:delete-key;manifest.json>reports:drop-last	ValueError: News report inventory differs
+news-corpus	manifest.json>host_kernel_drops:delete-key;bodies/child-first/plan.json>steps:delete-key	KeyError: 'host_kernel_drops'
+news-corpus	manifest.json>host_kernel_drops:delete-key;manifest.json>host_capture_packets:inc	ValueError: News packet recorder inventory differs
+news-corpus	bodies/child-second/report.json>frames>0>id:delete-key;bodies/child-second/report.json>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+news-corpus	bodies/child-second/report.json>oracle_sha256:delete-key;bodies/child-second/report.json>profile:flip	ValueError: News capture provenance/completion differs
+news-corpus	manifest.json>paired_connections:delete-key;manifest.json>completed_reports:inc	ValueError: News aggregate counts differ
+news-corpus	bodies/child-second/report.json>profile:delete-key;bodies/child-second/report.json>status:delete-key	KeyError: 'status'
+news-corpus	bodies/child-second/report.json>recorded_at_utc:delete-key;bodies/child-second/report.json>started_at_utc:flip	ValueError: News fixture chronology differs
+news-corpus	manifest.json>reports:delete-key;runtime-check.json>running_executable_sha256:delete-key	KeyError: 'running_executable_sha256'
+news-corpus	runtime-check.json>running_executable_sha256:delete-key;runtime-check.json>emulator_pid:inc	ValueError: News runtime identity differs
+news-corpus	bodies/child-second/report.json>status:delete-key;bodies/child-first/plan.json>expectation>kind:flip	ValueError: News as-run plan differs
+news-corpus	cleanup/report.json>frames>5>type:delete-key;cleanup/report.json>frames>5>is_reply:inc	ValueError: News listing failed
+news-corpus	structures/category-category-parent/report.json>frames>1>type:inc;structures/category-category-parent/report.json>frames>3>fields:drop-last	ValueError: Rejected structure operation changed semantic listing
+news-corpus	structures/category-category-parent/report.json>frames>1>type:inc;structures/category-category-parent/report.json>frames>1>fields:drop-last	StopIteration:
+news-corpus	children/report.json>frames>6>fields>0>hex:flip;structures/category-category-parent/report.json>frames>4>error:inc	ValueError: Article title/poster/parent/flags differ
+news-corpus	bodies/child-second/report.json>frames>3>error:inc;bodies/child-second/report.json>frames:drop-last	ValueError: Body bytes/navigation/date graph differs
+news-corpus	bodies/child-second/report.json>frames>3>error:inc;bodies/child-second/report.json>frames>3>fields>1>id:inc	ValueError: Unexpected repeated scalar field
+news-corpus	bodies/flavour-case/report.json>frames>3>error:inc;bodies/child-second/report.json>frames>4>error:inc	ValueError: Body error/success lost control liveness
+news-corpus	bodies/flavour-case/report.json>frames>3>error:inc;cleanup/report.json>frames>0>error:inc	ValueError: Body error family differs
+news-corpus	bodies/child-second/report.json>frames>4>error:inc;bodies/child-second/report.json>frames:drop-last	ValueError: Missing/duplicate auth reply
+news-corpus	files-after/report.json>frames>3>fields>0>id:inc;files-after/report.json>frames>3>is_reply:inc	ValueError: Listing failed
+news-corpus	files-after/report.json>frames>3>fields>0>id:inc;files-after/report.json>frames>3>fields>25>hex:flip	ValueError: File-list record grammar differs
+news-corpus	bodies/child-second/report.json>recorded_at_utc:empty;children/report.json>frames>6>fields>0>hex:empty	ValueError: Invalid isoformat string: ''
+news-corpus	files-after/report.json>frames>3>is_reply:inc;cleanup/report.json>frames>0>error:inc	ValueError: News final/cleanup operation failed
+news-corpus	structures/category-category-parent/report.json>frames>3>fields>0>id:inc;structures/category-category-parent/report.json>frames>3>fields:drop-last	ValueError: Modern category field/length differs
+news-corpus	structures/category-category-parent/report.json>frames>3>fields>0>id:inc;structures/category-category-parent/report.json>frames>4>error:inc	ValueError: Structure error outcome differs
+news-corpus	files-after/report.json>frames>3>fields:drop-last;cleanup/report.json>frames>5>is_reply:inc	ValueError: News helper cleanup did not restore Files
+news-corpus	files-after/report.json>frames>3>fields:drop-last;files-after/report.json>frames>3>fields>25>hex:flip	ValueError: Repeated file-list name
+news-corpus	runtime-check.json>emulator_pid:inc;files-after/report.json>frames>3>fields>25>hex:flip	ValueError: News runtime identity differs
+news-corpus	structures/category-category-parent/report.json>frames>6>error:inc;structures/category-category-parent/report.json>frames>1>fields:drop-last	ValueError: Structure privilege control differs
+boundary-corpus		ok ae48ccc3030965fd
+boundary-corpus	manifest.json>completed_reports:delete-key	KeyError: 'completed_reports'
+boundary-corpus	append-041-050/report.json>frames>5>connection:delete-key	KeyError: 'connection'
+boundary-corpus	append-100-100/report.json>driver_sha256:delete-key	KeyError: 'driver_sha256'
+boundary-corpus	append-100-100/report.json>events>33>elapsed_ns:delete-key	KeyError: 'elapsed_ns'
+boundary-corpus	runtime.json>emulator_pid:delete-key	KeyError: 'emulator_pid'
+boundary-corpus	append-001-010/plan.json>environment:delete-key	KeyError: 'environment'
+boundary-corpus	append-100-100/report.json>frames>0>error:delete-key	KeyError: 'error'
+boundary-corpus	append-100-100/report.json>events>0>event:delete-key	KeyError: 'event'
+boundary-corpus	append-100-100/report.json>events:delete-key	KeyError: 'events'
+boundary-corpus	append-001-010/plan.json>expectation:delete-key	KeyError: 'expectation'
+boundary-corpus	append-100-100/report.json>frames>3>fields:delete-key	KeyError: 'fields'
+boundary-corpus	append-100-100/report.json>frames:delete-key	KeyError: 'frames'
+boundary-corpus	append-100-100/report.json>frames>3>fields>0>hex:delete-key	KeyError: 'hex'
+boundary-corpus	manifest.json>host_kernel_drops:delete-key	KeyError: 'host_kernel_drops'
+boundary-corpus	manifest.json>host_packets:delete-key	KeyError: 'host_packets'
+boundary-corpus	append-021-030/report.json>frames>6>id:delete-key	KeyError: 'id'
+boundary-corpus	append-001-010/report.json>frames>7>is_reply:delete-key	KeyError: 'is_reply'
+boundary-corpus	append-100-100/report.json>oracle_sha256:delete-key	KeyError: 'oracle_sha256'
+boundary-corpus	manifest.json>paired_connections:delete-key	KeyError: 'paired_connections'
+boundary-corpus	append-100-100/report.json>profile:delete-key	KeyError: 'profile'
+boundary-corpus	append-100-100/report.json>recorded_at_utc:delete-key	KeyError: 'recorded_at_utc'
+boundary-corpus	manifest.json>reports:delete-key	KeyError: 'reports'
+boundary-corpus	runtime.json>running_executable_sha256:delete-key	KeyError: 'running_executable_sha256'
+boundary-corpus	append-100-100/report.json>streams>main>sent_hex:delete-key	KeyError: 'sent_hex'
+boundary-corpus	append-100-100/report.json>started_at_utc:delete-key	KeyError: 'started_at_utc'
+boundary-corpus	append-100-100/report.json>status:delete-key	KeyError: 'status'
+boundary-corpus	append-001-010/plan.json>steps:delete-key	KeyError: 'steps'
+boundary-corpus	append-100-100/report.json>streams:delete-key	KeyError: 'streams'
+boundary-corpus	final/report.json>frames>5>type:delete-key	KeyError: 'type'
+boundary-corpus	final/report.json>frames>3>fields:drop-last	KeyError: 107
+boundary-corpus	append-100-100/report.json>frames>5>fields:drop-last	KeyError: 321
+boundary-corpus	preflight/report.json>frames>4>fields:drop-last	ValueError: Boundary Files baseline differs
+boundary-corpus	manifest.json>completed_reports:inc	ValueError: Boundary aggregate counts differ
+boundary-corpus	seed/report.json>frames>6>fields>0>hex:flip	ValueError: Boundary article metadata differs
+boundary-corpus	runtime.json>rom_and_base:delete-key	ValueError: Boundary as-run plan differs
+boundary-corpus	append-100-100/report.json>frames>3>fields:drop-last	ValueError: Boundary before-list differs from preceding result
+boundary-corpus	manifest.json>reports>append-001-010:flip	ValueError: Boundary capture completion/provenance differs
+boundary-corpus	append-100-100/report.json>started_at_utc:flip	ValueError: Boundary chronology differs
+boundary-corpus	preflight/report.json>frames>4>fields>0>hex:flip	ValueError: Boundary owned cleanup differs
+boundary-corpus	manifest.json>host_packets:inc	ValueError: Boundary packet recorder inventory differs
+boundary-corpus	append-100-100/report.json>streams>main>sent_hex:flip	ValueError: Boundary recorded request differs from plan
+boundary-corpus	manifest.json>reports>append-001-010:delete-key	ValueError: Boundary report inventory differs
+boundary-corpus	runtime.json>emulator_pid:inc	ValueError: Boundary runtime identity differs
+boundary-corpus	final/report.json>frames>5>fields:drop-last	ValueError: Category count must retain indexed orphan
+boundary-corpus	preflight/report.json>frames>4>fields>0>id:inc	ValueError: File-list record grammar differs
+boundary-corpus	final/report.json>frames>4>fields:drop-last	ValueError: Independent boundary list differs
+boundary-corpus	append-100-100/report.json>recorded_at_utc:empty	ValueError: Invalid isoformat string: ''
+boundary-corpus	preflight/report.json>frames>4>is_reply:inc	ValueError: Listing failed
+boundary-corpus	append-100-100/report.json>events>34>event:flip	ValueError: Missing bounded pacing/quiet event
+boundary-corpus	append-021-030/report.json>frames>6>id:inc	ValueError: Missing/duplicate auth reply
+boundary-corpus	final/report.json>frames>5>fields>0>id:inc	ValueError: Modern category field/length differs
+boundary-corpus	final/report.json>frames>5>is_reply:inc	ValueError: News listing failed
+boundary-corpus	append-100-100/report.json>frames>5>fields>0>hex:flip	ValueError: Repeated boundary cache differs
+boundary-corpus	preflight/report.json>frames>4>fields>25>hex:flip	ValueError: Repeated file-list name
+boundary-corpus	append-100-100/report.json>events:reverse	ValueError: Short bounded pacing/quiet observation
+boundary-corpus	seed/report.json>frames>6>fields>0>hex:empty	ValueError: Truncated article record
+boundary-corpus	manifest.json>completed_reports:delete-key;append-100-100/report.json>events:delete-key	KeyError: 'events'
+boundary-corpus	manifest.json>completed_reports:delete-key;preflight/report.json>frames>4>fields>0>hex:flip	ValueError: Boundary owned cleanup differs
+boundary-corpus	append-041-050/report.json>frames>5>connection:delete-key;append-100-100/report.json>frames>3>fields:drop-last	KeyError: 'connection'
+boundary-corpus	append-041-050/report.json>frames>5>connection:delete-key;append-021-030/report.json>frames>6>id:inc	ValueError: Missing/duplicate auth reply
+boundary-corpus	append-100-100/report.json>driver_sha256:delete-key;append-100-100/report.json>frames>0>error:delete-key	KeyError: 'driver_sha256'
+boundary-corpus	append-100-100/report.json>driver_sha256:delete-key;append-100-100/report.json>oracle_sha256:delete-key	KeyError: 'oracle_sha256'
+boundary-corpus	append-100-100/report.json>events>33>elapsed_ns:delete-key;final/report.json>frames>3>fields:drop-last	KeyError: 'elapsed_ns'
+boundary-corpus	append-100-100/report.json>events>33>elapsed_ns:delete-key;append-100-100/report.json>events:reverse	ValueError: Short bounded pacing/quiet observation
+boundary-corpus	append-001-010/plan.json>environment:delete-key;append-001-010/plan.json>expectation:delete-key	KeyError: 'expectation'
+boundary-corpus	append-001-010/plan.json>environment:delete-key;manifest.json>reports>append-001-010:flip	KeyError: 'environment'
+boundary-corpus	append-100-100/report.json>frames>0>error:delete-key;append-100-100/report.json>streams:delete-key	KeyError: 'error'
+boundary-corpus	append-100-100/report.json>events>0>event:delete-key;append-100-100/report.json>events:delete-key	KeyError: 'events'
+boundary-corpus	append-100-100/report.json>events>0>event:delete-key;append-100-100/report.json>streams>main>sent_hex:flip	ValueError: Boundary recorded request differs from plan
+boundary-corpus	append-001-010/plan.json>expectation:delete-key;append-001-010/plan.json>steps:delete-key	KeyError: 'steps'
+boundary-corpus	append-100-100/report.json>frames:delete-key;append-100-100/report.json>streams>main>sent_hex:delete-key	KeyError: 'frames'
+boundary-corpus	append-100-100/report.json>frames:delete-key;append-100-100/report.json>streams:delete-key	KeyError: 'frames'
+boundary-corpus	append-100-100/report.json>frames:delete-key;preflight/report.json>frames>4>fields:drop-last	KeyError: 'frames'
+boundary-corpus	append-100-100/report.json>frames>3>fields>0>hex:delete-key;append-100-100/report.json>frames>5>fields:drop-last	KeyError: 'hex'
+boundary-corpus	append-100-100/report.json>frames>3>fields>0>hex:delete-key;manifest.json>reports>append-001-010:delete-key	ValueError: Boundary report inventory differs
+boundary-corpus	manifest.json>host_kernel_drops:delete-key;runtime.json>rom_and_base:delete-key	KeyError: 'host_kernel_drops'
+boundary-corpus	manifest.json>host_kernel_drops:delete-key;manifest.json>host_packets:inc	ValueError: Boundary packet recorder inventory differs
+boundary-corpus	manifest.json>host_packets:delete-key;manifest.json>reports:delete-key	KeyError: 'reports'
+boundary-corpus	manifest.json>host_packets:delete-key;runtime.json>running_executable_sha256:delete-key	KeyError: 'running_executable_sha256'
+boundary-corpus	append-021-030/report.json>frames>6>id:delete-key;append-001-010/report.json>frames>7>is_reply:delete-key	KeyError: 'is_reply'
+boundary-corpus	append-001-010/report.json>frames>7>is_reply:delete-key;seed/report.json>frames>6>fields>0>hex:flip	ValueError: Boundary article metadata differs
+boundary-corpus	append-100-100/report.json>oracle_sha256:delete-key;append-100-100/report.json>profile:delete-key	KeyError: 'profile'
+boundary-corpus	manifest.json>paired_connections:delete-key;manifest.json>completed_reports:inc	ValueError: Boundary aggregate counts differ
+boundary-corpus	manifest.json>paired_connections:delete-key;append-100-100/report.json>recorded_at_utc:empty	ValueError: Invalid isoformat string: ''
+boundary-corpus	append-100-100/report.json>profile:delete-key;append-100-100/report.json>status:delete-key	KeyError: 'status'
+boundary-corpus	append-100-100/report.json>recorded_at_utc:delete-key;append-100-100/report.json>started_at_utc:flip	ValueError: Boundary chronology differs
+boundary-corpus	runtime.json>running_executable_sha256:delete-key;manifest.json>reports>append-001-010:delete-key	KeyError: 'running_executable_sha256'
+boundary-corpus	runtime.json>running_executable_sha256:delete-key;runtime.json>emulator_pid:inc	ValueError: Boundary runtime identity differs
+boundary-corpus	runtime.json>running_executable_sha256:delete-key;preflight/report.json>frames>4>is_reply:inc	KeyError: 'running_executable_sha256'
+boundary-corpus	append-100-100/report.json>started_at_utc:delete-key;final/report.json>frames>3>fields:drop-last	KeyError: 107
+boundary-corpus	append-100-100/report.json>status:delete-key;manifest.json>reports>append-001-010:flip	ValueError: Boundary capture completion/provenance differs
+boundary-corpus	append-001-010/plan.json>steps:delete-key;runtime.json>rom_and_base:delete-key	ValueError: Boundary as-run plan differs
+boundary-corpus	final/report.json>frames>5>type:delete-key;final/report.json>frames>5>fields:drop-last	KeyError: 'type'
+boundary-corpus	final/report.json>frames>5>type:delete-key;final/report.json>frames>5>is_reply:inc	ValueError: News listing failed
+boundary-corpus	preflight/report.json>frames>4>fields:drop-last;append-100-100/report.json>started_at_utc:flip	ValueError: Boundary chronology differs
+boundary-corpus	preflight/report.json>frames>4>fields:drop-last;preflight/report.json>frames>4>fields>0>hex:flip	ValueError: Boundary Files baseline differs
+boundary-corpus	preflight/report.json>frames>4>fields:drop-last;preflight/report.json>frames>4>fields>25>hex:flip	ValueError: Repeated file-list name
+boundary-corpus	seed/report.json>frames>6>fields>0>hex:flip;seed/report.json>frames>6>fields>0>hex:empty	ValueError: Truncated article record
+boundary-corpus	runtime.json>rom_and_base:delete-key;append-100-100/report.json>streams>main>sent_hex:flip	ValueError: Boundary as-run plan differs
+boundary-corpus	preflight/report.json>frames>4>fields>0>id:inc;preflight/report.json>frames>4>is_reply:inc	ValueError: Listing failed
+boundary-corpus	preflight/report.json>frames>4>fields>0>id:inc;preflight/report.json>frames>4>fields>25>hex:flip	ValueError: File-list record grammar differs
+boundary-corpus	final/report.json>frames>4>fields:drop-last;final/report.json>frames>5>is_reply:inc	ValueError: Independent boundary list differs
+boundary-corpus	final/report.json>frames>4>fields:drop-last;append-100-100/report.json>frames>5>fields>0>hex:flip	ValueError: Repeated boundary cache differs
+boundary-corpus	append-100-100/report.json>recorded_at_utc:empty;seed/report.json>frames>6>fields>0>hex:empty	ValueError: Invalid isoformat string: ''
+boundary-corpus	preflight/report.json>frames>4>is_reply:inc;final/report.json>frames>5>fields>0>id:inc	ValueError: Modern category field/length differs
+boundary-corpus	append-100-100/report.json>events>34>event:flip;append-100-100/report.json>events:reverse	ValueError: Missing bounded pacing/quiet event

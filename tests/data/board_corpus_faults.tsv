@@ -1,0 +1,220 @@
+board-corpus		ok 68d99db8f6fd2031
+board-corpus	raw/coordinator/report.json>frames>9>connection:delete-key	KeyError: 'connection'
+board-corpus	raw/coordinator/report.json>frames>6>data_size:delete-key	KeyError: 'data_size'
+board-corpus	raw/coordinator/report.json>frames>0>declared_field_count:delete-key	KeyError: 'declared_field_count'
+board-corpus	raw/coordinator/report.json>events>26>elapsed_ns:delete-key	KeyError: 'elapsed_ns'
+board-corpus	raw/runtime.json>emulator_netns:delete-key	KeyError: 'emulator_netns'
+board-corpus	raw/runtime.json>emulator_pid:delete-key	KeyError: 'emulator_pid'
+board-corpus	raw/runtime.json>emulator_sha256:delete-key	KeyError: 'emulator_sha256'
+board-corpus	raw/runtime.json>emulator_starttime:delete-key	KeyError: 'emulator_starttime'
+board-corpus	raw/coordinator/report.json>frames>2>error:delete-key	KeyError: 'error'
+board-corpus	raw/coordinator/report.json>events>55>event:delete-key	KeyError: 'event'
+board-corpus	raw/actual-emulator-proof.json>exe_sha256:delete-key	KeyError: 'exe_sha256'
+board-corpus	raw/actual-emulator-proof.json>fd16:delete-key	KeyError: 'fd16'
+board-corpus	raw/actual-emulator-proof.json>fd6:delete-key	KeyError: 'fd6'
+board-corpus	raw/coordinator/report.json>frames>18>flags:delete-key	KeyError: 'flags'
+board-corpus	raw/source-freeze.json>hashes:delete-key	KeyError: 'hashes'
+board-corpus	raw/coordinator/report.json>events>17>hex:delete-key	KeyError: 'hex'
+board-corpus	raw/coordinator/report.json>frames>63>id:delete-key	KeyError: 'id'
+board-corpus	raw/coordinator/report.json>frames>35>is_reply:delete-key	KeyError: 'is_reply'
+board-corpus	raw/parent-terminal-proof.json>lab_pid_gone:delete-key	KeyError: 'lab_pid_gone'
+board-corpus	raw/coordinator/report.json>events>45>label:delete-key	KeyError: 'label'
+board-corpus	raw/parent-terminal-proof.json>lock_free:delete-key	KeyError: 'lock_free'
+board-corpus	sources/dependency-closure.json>module_count:delete-key	KeyError: 'module_count'
+board-corpus	raw/source-freeze.json>hashes>native_board_cases.py:delete-key	KeyError: 'native_board_cases.py'
+board-corpus	raw/source-freeze.json>hashes>native_board_control.py:delete-key	KeyError: 'native_board_control.py'
+board-corpus	raw/actual-emulator-proof.json>netns:delete-key	KeyError: 'netns'
+board-corpus	raw/parent-terminal-proof.json>no_working_image_bytes_read:delete-key	KeyError: 'no_working_image_bytes_read'
+board-corpus	raw/parent-terminal-proof.json>original_ticks_unchanged:delete-key	KeyError: 'original_ticks_unchanged'
+board-corpus	raw/runtime.json>owned_working_image:delete-key	KeyError: 'owned_working_image'
+board-corpus	raw/coordinator/report.json>frames>38>payload_hex:delete-key	KeyError: 'payload_hex'
+board-corpus	raw/actual-emulator-proof.json>pid:delete-key	KeyError: 'pid'
+board-corpus	raw/coordinator/report.json>frames>10>raw_hex:delete-key	KeyError: 'raw_hex'
+board-corpus	raw/parent-terminal-proof.json>recorded_at_utc:delete-key	KeyError: 'recorded_at_utc'
+board-corpus	raw/actual-emulator-proof.json>starttime:delete-key	KeyError: 'starttime'
+board-corpus	raw/runtime.json>stopped_board_baseline:delete-key	KeyError: 'stopped_board_baseline'
+board-corpus	raw/coordinator/report.json>frames>16>total_size:delete-key	KeyError: 'total_size'
+board-corpus	raw/coordinator/report.json>frames>14>unconsumed_hex:delete-key	KeyError: 'unconsumed_hex'
+board-corpus	raw/parent-terminal-proof.json>working_fd_hits:delete-key	KeyError: 'working_fd_hits'
+board-corpus	raw/actual-emulator-proof.json>working_image_inode:delete-key	KeyError: 'working_image_inode'
+board-corpus	raw/actual-emulator-proof.json>pid:inc	ValueError: Actual emulator, capture receipt or profile differs
+board-corpus	raw/source-freeze.json>hashes>native_board_cases.py:flip	ValueError: As-run board source identity differs
+board-corpus	raw/source-freeze.json>hashes>native_auth_cases.py:flip	ValueError: As-run source differs: native_auth_cases.py
+board-corpus	raw/source-freeze.json>hashes>native_ban_control_cases.py:flip	ValueError: As-run source differs: native_ban_control_cases.py
+board-corpus	raw/source-freeze.json>hashes>native_ban_expiry_control.py:flip	ValueError: As-run source differs: native_ban_expiry_control.py
+board-corpus	raw/source-freeze.json>hashes>native_control_readiness.py:flip	ValueError: As-run source differs: native_control_readiness.py
+board-corpus	raw/source-freeze.json>hashes>native_plan.py:flip	ValueError: As-run source differs: native_plan.py
+board-corpus	raw/source-freeze.json>hashes>pcap_tcp.py:flip	ValueError: As-run source differs: pcap_tcp.py
+board-corpus	raw/source-freeze.json>hashes>protocol_capture.py:flip	ValueError: As-run source differs: protocol_capture.py
+board-corpus	raw/source-freeze.json>hashes>verify_native_auth.py:flip	ValueError: As-run source differs: verify_native_auth.py
+board-corpus	raw/source-freeze.json>hashes>verify_native_shx.py:flip	ValueError: As-run source differs: verify_native_shx.py
+board-corpus	raw/coordinator/report.json>events>45>label:flip	ValueError: Board operation labels/order differ
+board-corpus	raw/coordinator/report.json>reads>11:flip	ValueError: Board read/prefix mismatch
+board-corpus	raw/coordinator/report.json>events>17>hex:flip	ValueError: Board request bytes/order differ
+board-corpus	raw/coordinator/report.json>post_data_hex>3:flip	ValueError: Board segment corrupt
+board-corpus	raw/coordinator/report.json>frames>0>declared_field_count:inc	ValueError: Captured frame raw mismatch
+board-corpus	raw/postflight/plan.json>endpoints:delete-key	ValueError: Checksum mismatch: plan.json
+board-corpus	raw/postflight/report.json>frames>1>flags:inc	ValueError: Checksum mismatch: report.json
+board-corpus	manifest.json>files>preparation/istat-board.stderr:flip	ValueError: Corpus SHA differs: preparation/istat-board.stderr
+board-corpus	manifest.json>files>raw/before-retirement-awake.png:flip	ValueError: Corpus SHA differs: raw/before-retirement-awake.png
+board-corpus	manifest.json>files>raw/lease-initial-show.txt:flip	ValueError: Corpus SHA differs: raw/lease-initial-show.txt
+board-corpus	manifest.json>files>raw/runtime.json:flip	ValueError: Corpus SHA differs: raw/runtime.json
+board-corpus	manifest.json>files>sources/helpers/capture_readiness.py:flip	ValueError: Corpus SHA differs: sources/helpers/capture_readiness.py
+board-corpus	manifest.json>files>sources/protocol/shx_syscalls.py:flip	ValueError: Corpus SHA differs: sources/protocol/shx_syscalls.py
+board-corpus	manifest.json>files>preparation/istat-board.stderr:delete-key	ValueError: Corpus inventory differs
+board-corpus	raw/runtime.json>stopped_board_baseline>path:flip	ValueError: Empty stopped board baseline differs
+board-corpus	raw/capture-ready.json>managed_lock>start:inc	ValueError: Finite custom board case or source binding differs
+board-corpus	sources/dependency-closure.json>hashes>native_account_update_cases:flip	ValueError: Frozen source differs: native_account_update_cases
+board-corpus	sources/dependency-closure.json>hashes>native_alias_cases:flip	ValueError: Frozen source differs: native_alias_cases
+board-corpus	sources/dependency-closure.json>hashes>native_auth_cases:flip	ValueError: Frozen source differs: native_auth_cases
+board-corpus	sources/dependency-closure.json>hashes>native_ban_control_cases:flip	ValueError: Frozen source differs: native_ban_control_cases
+board-corpus	sources/dependency-closure.json>hashes>native_ban_expiry_cases:flip	ValueError: Frozen source differs: native_ban_expiry_cases
+board-corpus	sources/dependency-closure.json>hashes>native_ban_expiry_control:flip	ValueError: Frozen source differs: native_ban_expiry_control
+board-corpus	sources/dependency-closure.json>hashes>native_banner_cases:flip	ValueError: Frozen source differs: native_banner_cases
+board-corpus	sources/dependency-closure.json>hashes>native_board_cases:flip	ValueError: Frozen source differs: native_board_cases
+board-corpus	sources/dependency-closure.json>hashes>native_board_control:flip	ValueError: Frozen source differs: native_board_control
+board-corpus	sources/dependency-closure.json>hashes>native_control_readiness:flip	ValueError: Frozen source differs: native_control_readiness
+board-corpus	sources/dependency-closure.json>hashes>native_filp:flip	ValueError: Frozen source differs: native_filp
+board-corpus	sources/dependency-closure.json>hashes>native_folder_cases:flip	ValueError: Frozen source differs: native_folder_cases
+board-corpus	sources/dependency-closure.json>hashes>native_framing_cases:flip	ValueError: Frozen source differs: native_framing_cases
+board-corpus	sources/dependency-closure.json>hashes>native_liveness_cases:flip	ValueError: Frozen source differs: native_liveness_cases
+board-corpus	sources/dependency-closure.json>hashes>native_liveness_control:flip	ValueError: Frozen source differs: native_liveness_control
+board-corpus	sources/dependency-closure.json>hashes>native_metadata_cases:flip	ValueError: Frozen source differs: native_metadata_cases
+board-corpus	sources/dependency-closure.json>hashes>native_mkdir_cases:flip	ValueError: Frozen source differs: native_mkdir_cases
+board-corpus	sources/dependency-closure.json>hashes>native_news_decode:flip	ValueError: Frozen source differs: native_news_decode
+board-corpus	sources/dependency-closure.json>hashes>native_news_delete_cases:flip	ValueError: Frozen source differs: native_news_delete_cases
+board-corpus	sources/dependency-closure.json>hashes>native_packet_evidence:flip	ValueError: Frozen source differs: native_packet_evidence
+board-corpus	sources/dependency-closure.json>hashes>native_plan:flip	ValueError: Frozen source differs: native_plan
+board-corpus	sources/dependency-closure.json>hashes>native_queue_cases:flip	ValueError: Frozen source differs: native_queue_cases
+board-corpus	sources/dependency-closure.json>hashes>native_resume_cases:flip	ValueError: Frozen source differs: native_resume_cases
+board-corpus	sources/dependency-closure.json>hashes>native_transfer_cases:flip	ValueError: Frozen source differs: native_transfer_cases
+board-corpus	sources/dependency-closure.json>hashes>pcap_tcp:flip	ValueError: Frozen source differs: pcap_tcp
+board-corpus	sources/dependency-closure.json>hashes>protocol_capture:flip	ValueError: Frozen source differs: protocol_capture
+board-corpus	sources/dependency-closure.json>hashes>shx_syscalls:flip	ValueError: Frozen source differs: shx_syscalls
+board-corpus	sources/dependency-closure.json>hashes>verify_native_account_updates:flip	ValueError: Frozen source differs: verify_native_account_updates
+board-corpus	sources/dependency-closure.json>hashes>verify_native_article_deletion:flip	ValueError: Frozen source differs: verify_native_article_deletion
+board-corpus	sources/dependency-closure.json>hashes>verify_native_auth:flip	ValueError: Frozen source differs: verify_native_auth
+board-corpus	sources/dependency-closure.json>hashes>verify_native_banners:flip	ValueError: Frozen source differs: verify_native_banners
+board-corpus	sources/dependency-closure.json>hashes>verify_native_core:flip	ValueError: Frozen source differs: verify_native_core
+board-corpus	sources/dependency-closure.json>hashes>verify_native_framing:flip	ValueError: Frozen source differs: verify_native_framing
+board-corpus	sources/dependency-closure.json>hashes>verify_native_mkdir:flip	ValueError: Frozen source differs: verify_native_mkdir
+board-corpus	sources/dependency-closure.json>hashes>verify_native_shx:flip	ValueError: Frozen source differs: verify_native_shx
+board-corpus	raw/board-plan/plan.json>endpoint:delete-key	ValueError: Generated board plan, endpoint or oracle differs
+board-corpus	raw/parent-terminal-proof.json>lab_pid_gone:not	ValueError: Independent retired-process or FD-free proof differs
+board-corpus	raw/parent-terminal-proof.json>recorded_at_utc:empty	ValueError: Invalid isoformat string: ''
+board-corpus	raw/coordinator/report.json>frames>40>raw_hex:flip	ValueError: Malformed or fragmented board frame
+board-corpus	raw/capture-ready.json>managed_capture>host>unit_properties>MainPID:flip	ValueError: Managed host recorder differs
+board-corpus	raw/namespace-ready.json>utc:flip	ValueError: Managed namespace recorder differs
+board-corpus	raw/coordinator/report.json>events>22>hex:flip	ValueError: Raw stream/event mismatch
+board-corpus	raw/coordinator/report.json>frames>9>connection:flip	ValueError: Received bytes/frame inventory differs
+board-corpus	raw/coordinator/report.json>frames>10>raw_hex:empty	ValueError: Short physical frame
+board-corpus	sources/dependency-closure.json>hashes>native_account_update_cases:delete-key	ValueError: Source closure differs
+board-corpus	raw/control-plans/readiness.json>endpoints:delete-key	ValueError: readiness generic control differs
+board-corpus	raw/coordinator/report.json>frames>9>connection:delete-key;raw/coordinator/report.json>events>22>hex:flip	ValueError: Raw stream/event mismatch
+board-corpus	raw/coordinator/report.json>frames>6>data_size:delete-key;raw/coordinator/report.json>frames>2>error:delete-key	KeyError: 'error'
+board-corpus	raw/coordinator/report.json>frames>6>data_size:delete-key;raw/coordinator/report.json>frames>10>raw_hex:delete-key	KeyError: 'data_size'
+board-corpus	raw/coordinator/report.json>frames>0>declared_field_count:delete-key;raw/coordinator/report.json>events>45>label:flip	ValueError: Board operation labels/order differ
+board-corpus	raw/coordinator/report.json>events>26>elapsed_ns:delete-key;raw/coordinator/report.json>events>17>hex:delete-key	KeyError: 'hex'
+board-corpus	raw/coordinator/report.json>events>26>elapsed_ns:delete-key;raw/coordinator/report.json>frames>38>payload_hex:delete-key	KeyError: 'elapsed_ns'
+board-corpus	raw/coordinator/report.json>events>26>elapsed_ns:delete-key;raw/coordinator/report.json>reads>11:flip	ValueError: Board read/prefix mismatch
+board-corpus	raw/runtime.json>emulator_netns:delete-key;raw/runtime.json>emulator_sha256:delete-key	KeyError: 'emulator_netns'
+board-corpus	raw/runtime.json>emulator_netns:delete-key;raw/runtime.json>emulator_starttime:delete-key	KeyError: 'emulator_starttime'
+board-corpus	raw/runtime.json>emulator_pid:delete-key;raw/actual-emulator-proof.json>fd16:delete-key	KeyError: 'fd16'
+board-corpus	raw/runtime.json>emulator_pid:delete-key;raw/runtime.json>owned_working_image:delete-key	KeyError: 'owned_working_image'
+board-corpus	raw/runtime.json>emulator_sha256:delete-key;raw/capture-ready.json>managed_capture>host>unit_properties>MainPID:flip	KeyError: 'emulator_sha256'
+board-corpus	raw/runtime.json>emulator_starttime:delete-key;raw/actual-emulator-proof.json>fd16:delete-key	KeyError: 'fd16'
+board-corpus	raw/coordinator/report.json>frames>2>error:delete-key;raw/coordinator/report.json>frames>0>declared_field_count:inc	ValueError: Captured frame raw mismatch
+board-corpus	raw/coordinator/report.json>events>55>event:delete-key;raw/coordinator/report.json>events>17>hex:delete-key	KeyError: 'hex'
+board-corpus	raw/coordinator/report.json>events>55>event:delete-key;raw/coordinator/report.json>events>17>hex:flip	KeyError: 'event'
+board-corpus	raw/actual-emulator-proof.json>exe_sha256:delete-key;raw/actual-emulator-proof.json>fd6:delete-key	KeyError: 'exe_sha256'
+board-corpus	raw/actual-emulator-proof.json>exe_sha256:delete-key;raw/actual-emulator-proof.json>pid:inc	ValueError: Actual emulator, capture receipt or profile differs
+board-corpus	raw/actual-emulator-proof.json>fd6:delete-key;raw/runtime.json>owned_working_image:delete-key	KeyError: 'fd6'
+board-corpus	raw/coordinator/report.json>frames>18>flags:delete-key;raw/coordinator/report.json>frames>35>is_reply:delete-key	KeyError: 'flags'
+board-corpus	raw/coordinator/report.json>frames>18>flags:delete-key;raw/coordinator/report.json>frames>16>total_size:delete-key	KeyError: 'total_size'
+board-corpus	raw/coordinator/report.json>events>17>hex:delete-key;raw/runtime.json>stopped_board_baseline>path:flip	ValueError: Empty stopped board baseline differs
+board-corpus	raw/coordinator/report.json>frames>63>id:delete-key;raw/coordinator/report.json>frames>40>raw_hex:flip	ValueError: Malformed or fragmented board frame
+board-corpus	raw/coordinator/report.json>frames>63>id:delete-key;raw/coordinator/report.json>events>22>hex:flip	KeyError: 'id'
+board-corpus	raw/coordinator/report.json>frames>35>is_reply:delete-key;raw/coordinator/report.json>frames>38>payload_hex:delete-key	KeyError: 'is_reply'
+board-corpus	raw/parent-terminal-proof.json>lab_pid_gone:delete-key;raw/coordinator/report.json>frames>9>connection:flip	ValueError: Received bytes/frame inventory differs
+board-corpus	raw/coordinator/report.json>events>45>label:delete-key;raw/coordinator/report.json>events>17>hex:flip	ValueError: Board request bytes/order differ
+board-corpus	raw/parent-terminal-proof.json>lock_free:delete-key;raw/parent-terminal-proof.json>original_ticks_unchanged:delete-key	KeyError: 'original_ticks_unchanged'
+board-corpus	raw/parent-terminal-proof.json>lock_free:delete-key;raw/parent-terminal-proof.json>working_fd_hits:delete-key	KeyError: 'lock_free'
+board-corpus	sources/dependency-closure.json>module_count:delete-key;manifest.json>files>sources/protocol/shx_syscalls.py:flip	ValueError: Corpus SHA differs: sources/protocol/shx_syscalls.py
+board-corpus	sources/dependency-closure.json>module_count:delete-key;sources/dependency-closure.json>hashes>native_account_update_cases:delete-key	KeyError: 'module_count'
+board-corpus	raw/source-freeze.json>hashes>native_board_cases.py:delete-key;sources/dependency-closure.json>hashes>verify_native_shx:flip	ValueError: Frozen source differs: verify_native_shx
+board-corpus	raw/source-freeze.json>hashes>native_board_control.py:delete-key;raw/source-freeze.json>hashes>native_board_cases.py:flip	ValueError: As-run board source identity differs
+board-corpus	raw/source-freeze.json>hashes>native_board_control.py:delete-key;raw/source-freeze.json>hashes>native_ban_control_cases.py:flip	KeyError: 'native_board_control.py'
+board-corpus	raw/source-freeze.json>hashes>native_board_control.py:delete-key;raw/coordinator/report.json>frames>0>declared_field_count:inc	KeyError: 'native_board_control.py'
+board-corpus	raw/actual-emulator-proof.json>netns:delete-key;raw/actual-emulator-proof.json>starttime:delete-key	KeyError: 'starttime'
+board-corpus	raw/actual-emulator-proof.json>netns:delete-key;raw/actual-emulator-proof.json>working_image_inode:delete-key	KeyError: 'netns'
+board-corpus	raw/parent-terminal-proof.json>no_working_image_bytes_read:delete-key;raw/parent-terminal-proof.json>recorded_at_utc:delete-key	KeyError: 'no_working_image_bytes_read'
+board-corpus	raw/parent-terminal-proof.json>no_working_image_bytes_read:delete-key;raw/parent-terminal-proof.json>working_fd_hits:delete-key	KeyError: 'working_fd_hits'
+board-corpus	raw/parent-terminal-proof.json>original_ticks_unchanged:delete-key;raw/parent-terminal-proof.json>lab_pid_gone:not	ValueError: Independent retired-process or FD-free proof differs
+board-corpus	raw/coordinator/report.json>frames>38>payload_hex:delete-key;raw/coordinator/report.json>frames>40>raw_hex:flip	KeyError: 'payload_hex'
+board-corpus	raw/actual-emulator-proof.json>pid:delete-key;raw/actual-emulator-proof.json>starttime:delete-key	KeyError: 'pid'
+board-corpus	raw/actual-emulator-proof.json>pid:delete-key;raw/runtime.json>stopped_board_baseline>path:flip	ValueError: Empty stopped board baseline differs
+board-corpus	raw/coordinator/report.json>frames>10>raw_hex:delete-key;sources/dependency-closure.json>hashes>native_queue_cases:flip	ValueError: Frozen source differs: native_queue_cases
+board-corpus	raw/runtime.json>stopped_board_baseline:delete-key;raw/board-plan/plan.json>endpoint:delete-key	ValueError: Generated board plan, endpoint or oracle differs
+board-corpus	raw/coordinator/report.json>frames>16>total_size:delete-key;raw/coordinator/report.json>frames>14>unconsumed_hex:delete-key	KeyError: 'unconsumed_hex'
+board-corpus	raw/coordinator/report.json>frames>14>unconsumed_hex:delete-key;raw/coordinator/report.json>frames>10>raw_hex:empty	ValueError: Short physical frame
+board-corpus	raw/actual-emulator-proof.json>working_image_inode:delete-key;raw/actual-emulator-proof.json>pid:inc	KeyError: 'working_image_inode'
+board-corpus	raw/source-freeze.json>hashes>native_auth_cases.py:flip;raw/source-freeze.json>hashes>native_plan.py:flip	ValueError: As-run source differs: native_plan.py
+board-corpus	raw/source-freeze.json>hashes>native_auth_cases.py:flip;raw/source-freeze.json>hashes>protocol_capture.py:flip	ValueError: As-run source differs: native_auth_cases.py
+board-corpus	raw/source-freeze.json>hashes>native_ban_control_cases.py:flip;raw/source-freeze.json>hashes>native_control_readiness.py:flip	ValueError: As-run source differs: native_ban_control_cases.py
+board-corpus	raw/source-freeze.json>hashes>native_ban_expiry_control.py:flip;raw/source-freeze.json>hashes>native_control_readiness.py:flip	ValueError: As-run source differs: native_control_readiness.py
+board-corpus	raw/source-freeze.json>hashes>native_ban_expiry_control.py:flip;raw/source-freeze.json>hashes>native_plan.py:flip	ValueError: As-run source differs: native_ban_expiry_control.py
+board-corpus	raw/source-freeze.json>hashes>native_plan.py:flip;sources/dependency-closure.json>hashes>native_board_control:flip	ValueError: Frozen source differs: native_board_control
+board-corpus	raw/source-freeze.json>hashes>pcap_tcp.py:flip;raw/board-plan/plan.json>endpoint:delete-key	ValueError: As-run source differs: pcap_tcp.py
+board-corpus	raw/source-freeze.json>hashes>protocol_capture.py:flip;raw/source-freeze.json>hashes>verify_native_auth.py:flip	ValueError: As-run source differs: protocol_capture.py
+board-corpus	raw/source-freeze.json>hashes>verify_native_auth.py:flip;raw/source-freeze.json>hashes>verify_native_shx.py:flip	ValueError: As-run source differs: verify_native_auth.py
+board-corpus	raw/coordinator/report.json>reads>11:flip;raw/coordinator/report.json>post_data_hex>3:flip	ValueError: Board segment corrupt
+board-corpus	raw/coordinator/report.json>post_data_hex>3:flip;raw/capture-ready.json>managed_lock>start:inc	ValueError: Finite custom board case or source binding differs
+board-corpus	raw/postflight/plan.json>endpoints:delete-key;raw/postflight/report.json>frames>1>flags:inc	ValueError: Checksum mismatch: plan.json
+board-corpus	raw/postflight/plan.json>endpoints:delete-key;raw/control-plans/readiness.json>endpoints:delete-key	ValueError: readiness generic control differs
+board-corpus	raw/postflight/report.json>frames>1>flags:inc;raw/capture-ready.json>managed_lock>start:inc	ValueError: Checksum mismatch: report.json
+board-corpus	manifest.json>files>preparation/istat-board.stderr:flip;manifest.json>files>raw/before-retirement-awake.png:flip	ValueError: Corpus SHA differs: preparation/istat-board.stderr
+board-corpus	manifest.json>files>preparation/istat-board.stderr:flip;manifest.json>files>preparation/istat-board.stderr:delete-key	ValueError: Corpus inventory differs
+board-corpus	manifest.json>files>raw/before-retirement-awake.png:flip;manifest.json>files>raw/lease-initial-show.txt:flip	ValueError: Corpus SHA differs: raw/before-retirement-awake.png
+board-corpus	manifest.json>files>raw/lease-initial-show.txt:flip;manifest.json>files>sources/helpers/capture_readiness.py:flip	ValueError: Corpus SHA differs: raw/lease-initial-show.txt
+board-corpus	manifest.json>files>raw/runtime.json:flip;sources/dependency-closure.json>hashes>native_alias_cases:flip	ValueError: Corpus SHA differs: raw/runtime.json
+board-corpus	manifest.json>files>raw/runtime.json:flip;sources/dependency-closure.json>hashes>native_auth_cases:flip	ValueError: Corpus SHA differs: raw/runtime.json
+board-corpus	manifest.json>files>sources/helpers/capture_readiness.py:flip;manifest.json>files>sources/protocol/shx_syscalls.py:flip	ValueError: Corpus SHA differs: sources/helpers/capture_readiness.py
+board-corpus	manifest.json>files>sources/helpers/capture_readiness.py:flip;raw/coordinator/report.json>frames>40>raw_hex:flip	ValueError: Corpus SHA differs: sources/helpers/capture_readiness.py
+board-corpus	manifest.json>files>preparation/istat-board.stderr:delete-key;sources/dependency-closure.json>hashes>native_liveness_control:flip	ValueError: Corpus inventory differs
+board-corpus	sources/dependency-closure.json>hashes>native_account_update_cases:flip;sources/dependency-closure.json>hashes>native_alias_cases:flip	ValueError: Frozen source differs: native_account_update_cases
+board-corpus	sources/dependency-closure.json>hashes>native_account_update_cases:flip;sources/dependency-closure.json>hashes>native_account_update_cases:delete-key	ValueError: Source closure differs
+board-corpus	sources/dependency-closure.json>hashes>native_auth_cases:flip;sources/dependency-closure.json>hashes>native_ban_control_cases:flip	ValueError: Frozen source differs: native_auth_cases
+board-corpus	sources/dependency-closure.json>hashes>native_ban_control_cases:flip;sources/dependency-closure.json>hashes>native_ban_expiry_cases:flip	ValueError: Frozen source differs: native_ban_control_cases
+board-corpus	sources/dependency-closure.json>hashes>native_ban_expiry_cases:flip;sources/dependency-closure.json>hashes>native_ban_expiry_control:flip	ValueError: Frozen source differs: native_ban_expiry_cases
+board-corpus	sources/dependency-closure.json>hashes>native_ban_expiry_control:flip;sources/dependency-closure.json>hashes>native_banner_cases:flip	ValueError: Frozen source differs: native_ban_expiry_control
+board-corpus	sources/dependency-closure.json>hashes>native_banner_cases:flip;sources/dependency-closure.json>hashes>native_board_cases:flip	ValueError: Frozen source differs: native_banner_cases
+board-corpus	sources/dependency-closure.json>hashes>native_board_cases:flip;sources/dependency-closure.json>hashes>native_board_control:flip	ValueError: Frozen source differs: native_board_cases
+board-corpus	sources/dependency-closure.json>hashes>native_board_control:flip;sources/dependency-closure.json>hashes>native_control_readiness:flip	ValueError: Frozen source differs: native_board_control
+board-corpus	sources/dependency-closure.json>hashes>native_control_readiness:flip;sources/dependency-closure.json>hashes>native_filp:flip	ValueError: Frozen source differs: native_control_readiness
+board-corpus	sources/dependency-closure.json>hashes>native_control_readiness:flip;raw/coordinator/report.json>frames>40>raw_hex:flip	ValueError: Frozen source differs: native_control_readiness
+board-corpus	sources/dependency-closure.json>hashes>native_filp:flip;sources/dependency-closure.json>hashes>native_folder_cases:flip	ValueError: Frozen source differs: native_filp
+board-corpus	sources/dependency-closure.json>hashes>native_folder_cases:flip;sources/dependency-closure.json>hashes>native_framing_cases:flip	ValueError: Frozen source differs: native_folder_cases
+board-corpus	sources/dependency-closure.json>hashes>native_framing_cases:flip;sources/dependency-closure.json>hashes>native_liveness_cases:flip	ValueError: Frozen source differs: native_framing_cases
+board-corpus	sources/dependency-closure.json>hashes>native_liveness_cases:flip;sources/dependency-closure.json>hashes>native_liveness_control:flip	ValueError: Frozen source differs: native_liveness_cases
+board-corpus	sources/dependency-closure.json>hashes>native_liveness_control:flip;sources/dependency-closure.json>hashes>native_metadata_cases:flip	ValueError: Frozen source differs: native_liveness_control
+board-corpus	sources/dependency-closure.json>hashes>native_metadata_cases:flip;sources/dependency-closure.json>hashes>native_mkdir_cases:flip	ValueError: Frozen source differs: native_metadata_cases
+board-corpus	sources/dependency-closure.json>hashes>native_mkdir_cases:flip;sources/dependency-closure.json>hashes>native_news_decode:flip	ValueError: Frozen source differs: native_mkdir_cases
+board-corpus	sources/dependency-closure.json>hashes>native_news_decode:flip;sources/dependency-closure.json>hashes>native_news_delete_cases:flip	ValueError: Frozen source differs: native_news_decode
+board-corpus	sources/dependency-closure.json>hashes>native_news_delete_cases:flip;sources/dependency-closure.json>hashes>native_packet_evidence:flip	ValueError: Frozen source differs: native_news_delete_cases
+board-corpus	sources/dependency-closure.json>hashes>native_packet_evidence:flip;sources/dependency-closure.json>hashes>native_plan:flip	ValueError: Frozen source differs: native_packet_evidence
+board-corpus	sources/dependency-closure.json>hashes>native_plan:flip;sources/dependency-closure.json>hashes>native_queue_cases:flip	ValueError: Frozen source differs: native_plan
+board-corpus	sources/dependency-closure.json>hashes>native_queue_cases:flip;sources/dependency-closure.json>hashes>native_resume_cases:flip	ValueError: Frozen source differs: native_queue_cases
+board-corpus	sources/dependency-closure.json>hashes>native_resume_cases:flip;sources/dependency-closure.json>hashes>native_transfer_cases:flip	ValueError: Frozen source differs: native_resume_cases
+board-corpus	sources/dependency-closure.json>hashes>native_transfer_cases:flip;sources/dependency-closure.json>hashes>pcap_tcp:flip	ValueError: Frozen source differs: native_transfer_cases
+board-corpus	sources/dependency-closure.json>hashes>pcap_tcp:flip;sources/dependency-closure.json>hashes>protocol_capture:flip	ValueError: Frozen source differs: pcap_tcp
+board-corpus	sources/dependency-closure.json>hashes>protocol_capture:flip;sources/dependency-closure.json>hashes>shx_syscalls:flip	ValueError: Frozen source differs: protocol_capture
+board-corpus	sources/dependency-closure.json>hashes>shx_syscalls:flip;sources/dependency-closure.json>hashes>verify_native_account_updates:flip	ValueError: Frozen source differs: shx_syscalls
+board-corpus	sources/dependency-closure.json>hashes>verify_native_account_updates:flip;sources/dependency-closure.json>hashes>verify_native_article_deletion:flip	ValueError: Frozen source differs: verify_native_account_updates
+board-corpus	sources/dependency-closure.json>hashes>verify_native_article_deletion:flip;sources/dependency-closure.json>hashes>verify_native_auth:flip	ValueError: Frozen source differs: verify_native_article_deletion
+board-corpus	sources/dependency-closure.json>hashes>verify_native_auth:flip;sources/dependency-closure.json>hashes>verify_native_banners:flip	ValueError: Frozen source differs: verify_native_auth
+board-corpus	sources/dependency-closure.json>hashes>verify_native_banners:flip;sources/dependency-closure.json>hashes>verify_native_core:flip	ValueError: Frozen source differs: verify_native_banners
+board-corpus	sources/dependency-closure.json>hashes>verify_native_core:flip;sources/dependency-closure.json>hashes>verify_native_framing:flip	ValueError: Frozen source differs: verify_native_core
+board-corpus	sources/dependency-closure.json>hashes>verify_native_framing:flip;sources/dependency-closure.json>hashes>verify_native_mkdir:flip	ValueError: Frozen source differs: verify_native_framing
+board-corpus	sources/dependency-closure.json>hashes>verify_native_mkdir:flip;sources/dependency-closure.json>hashes>verify_native_shx:flip	ValueError: Frozen source differs: verify_native_mkdir
+board-corpus	raw/capture-ready.json>managed_capture>host>unit_properties>MainPID:flip;raw/namespace-ready.json>utc:flip	ValueError: Managed host recorder differs
+board-corpus	raw/namespace-ready.json>utc:flip;raw/control-plans/readiness.json>endpoints:delete-key	ValueError: Managed namespace recorder differs
