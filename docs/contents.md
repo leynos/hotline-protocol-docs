@@ -25,6 +25,8 @@ Execution plans live in `docs/execplans/` and are not indexed here.
   the owner or new evidence can settle.
 - [Repository layout](repository-layout.md): where each path lives, what it
   holds, who maintains it, and where each document was moved from.
+- [Developers' guide](developers-guide.md): how to change a document, add
+  evidence or change a script or tool, and which gates protect each.
 - [Documentation style guide](documentation-style-guide.md): the conventions
   every document follows, copied verbatim from upstream and not edited here.
 - [Baseline validity ledger](baseline-validity-ledger.md): the first static

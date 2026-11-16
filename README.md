@@ -40,8 +40,9 @@ are grouped here into nine subject sets under `docs/`.
    and it governs where the ledger and the register differ.
 4. **Contributing to the repository.** Read [AGENTS.md](AGENTS.md) before
    changing anything. It sets out the rules for contributors and agents,
-   including the rules that protect the evidence. A developers' guide will
-   follow.
+   including the rules that protect the evidence. The
+   [developers' guide](docs/developers-guide.md) then explains how to change a
+   document, add evidence, or change a script or tool, and which gates to run.
 
 ## How the pieces fit
 
