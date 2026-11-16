@@ -52,7 +52,6 @@ scripts/test_native_settings_corpus.py
 scripts/test_native_settings_persistence.py
 scripts/test_native_settings_persistence_witness.py
 scripts/test_native_settings_transition.py
-scripts/test_native_ui_focus.py
 scripts/test_request500_client_source.py
 scripts/test_verify_classic_account_constructors.py
 scripts/verify_native_121_default.py  # live bytes compared with a recorded hash
@@ -68,6 +67,5 @@ scripts/verify_native_settings.py  # live bytes compared with a recorded hash
 scripts/verify_native_settings_corpus.py
 scripts/verify_native_settings_persistence.py
 scripts/verify_native_settings_transition.py  # live bytes compared with a recorded hash
-scripts/verify_native_ui_focus.py
 scripts/test_verify_classic_field161_matrix.py
 scripts/verify_classic_field161_matrix.py

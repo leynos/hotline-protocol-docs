@@ -1,0 +1,173 @@
+ui-focus		ok c8d20a202de249f6
+ui-focus	manifest.json>files:delete-key	KeyError: 'files'
+ui-focus	manifest.json:delete-key	KeyError: 'manifest.json'
+ui-focus	manifest.json>schema:delete-key	KeyError: 'schema'
+ui-focus	source-provenance.json>sources>boot/lab-namespace.pcap>sha256:delete-key	KeyError: 'sha256'
+ui-focus	manifest.json>files>boot/disk-repair-ack.json:flip	ValueError: Corpus SHA differs: boot/disk-repair-ack.json
+ui-focus	manifest.json>files>boot/display-launch.json:flip	ValueError: Corpus SHA differs: boot/display-launch.json
+ui-focus	manifest.json>files>boot/host-launch.json:flip	ValueError: Corpus SHA differs: boot/host-launch.json
+ui-focus	manifest.json>files>boot/host-ready.json:flip	ValueError: Corpus SHA differs: boot/host-ready.json
+ui-focus	manifest.json>files>boot/host-recorder.log:flip	ValueError: Corpus SHA differs: boot/host-recorder.log
+ui-focus	manifest.json>files>boot/identity.json:flip	ValueError: Corpus SHA differs: boot/identity.json
+ui-focus	manifest.json>files>boot/lab-guest.pcap:flip	ValueError: Corpus SHA differs: boot/lab-guest.pcap
+ui-focus	manifest.json>files>boot/lab-launch.json:flip	ValueError: Corpus SHA differs: boot/lab-launch.json
+ui-focus	manifest.json>files>boot/lab-namespace.pcap:flip	ValueError: Corpus SHA differs: boot/lab-namespace.pcap
+ui-focus	manifest.json>files>boot/ns-launch.json:flip	ValueError: Corpus SHA differs: boot/ns-launch.json
+ui-focus	manifest.json>files>boot/ns-ready.json:flip	ValueError: Corpus SHA differs: boot/ns-ready.json
+ui-focus	manifest.json>files>boot/ns-recorder.log:flip	ValueError: Corpus SHA differs: boot/ns-recorder.log
+ui-focus	manifest.json>files>boot/primary-host.pcap:flip	ValueError: Corpus SHA differs: boot/primary-host.pcap
+ui-focus	manifest.json>files>boot/readiness.json:flip	ValueError: Corpus SHA differs: boot/readiness.json
+ui-focus	manifest.json>files>boot/server-launch-ui.json:flip	ValueError: Corpus SHA differs: boot/server-launch-ui.json
+ui-focus	manifest.json>files>boot/server-ready-initial.png:flip	ValueError: Corpus SHA differs: boot/server-ready-initial.png
+ui-focus	manifest.json>files>boot/sound-dialog-ack.json:flip	ValueError: Corpus SHA differs: boot/sound-dialog-ack.json
+ui-focus	manifest.json>files>experiment/a7-as-run-plan.json:flip	ValueError: Corpus SHA differs: experiment/a7-as-run-plan.json
+ui-focus	manifest.json>files>experiment/a7-launch.json:flip	ValueError: Corpus SHA differs: experiment/a7-launch.json
+ui-focus	manifest.json>files>experiment/a7-main.json:flip	ValueError: Corpus SHA differs: experiment/a7-main.json
+ui-focus	manifest.json>files>experiment/a7-original-plan.json:flip	ValueError: Corpus SHA differs: experiment/a7-original-plan.json
+ui-focus	manifest.json>files>experiment/a7.log:flip	ValueError: Corpus SHA differs: experiment/a7.log
+ui-focus	manifest.json>files>experiment/capture/checksums.sha256:flip	ValueError: Corpus SHA differs: experiment/capture/checksums.sha256
+ui-focus	manifest.json>files>experiment/capture/plan.json:flip	ValueError: Corpus SHA differs: experiment/capture/plan.json
+ui-focus	manifest.json>files>experiment/capture/report.json:flip	ValueError: Corpus SHA differs: experiment/capture/report.json
+ui-focus	manifest.json>files>experiment/cleanup-signals.json:flip	ValueError: Corpus SHA differs: experiment/cleanup-signals.json
+ui-focus	manifest.json>files>experiment/focus-event/after.png:flip	ValueError: Corpus SHA differs: experiment/focus-event/after.png
+ui-focus	manifest.json>files>experiment/focus-event/before.png:flip	ValueError: Corpus SHA differs: experiment/focus-event/before.png
+ui-focus	manifest.json>files>experiment/focus-event/result.json:flip	ValueError: Corpus SHA differs: experiment/focus-event/result.json
+ui-focus	manifest.json>files>experiment/observer-launch.json:flip	ValueError: Corpus SHA differs: experiment/observer-launch.json
+ui-focus	manifest.json>files>experiment/observer.log:flip	ValueError: Corpus SHA differs: experiment/observer.log
+ui-focus	manifest.json>files>experiment/outcome.json:flip	ValueError: Corpus SHA differs: experiment/outcome.json
+ui-focus	manifest.json>files>experiment/pre-measurement.png:flip	ValueError: Corpus SHA differs: experiment/pre-measurement.png
+ui-focus	manifest.json>files>experiment/preflight.json:flip	ValueError: Corpus SHA differs: experiment/preflight.json
+ui-focus	manifest.json>files>experiment/terminal.json:flip	ValueError: Corpus SHA differs: experiment/terminal.json
+ui-focus	manifest.json>files>experiment/unit-stops.json:flip	ValueError: Corpus SHA differs: experiment/unit-stops.json
+ui-focus	manifest.json>files>preparation/event-probe-revision.json:flip	ValueError: Corpus SHA differs: preparation/event-probe-revision.json
+ui-focus	manifest.json>files>preparation/observer-as-prepared.py.txt:flip	ValueError: Corpus SHA differs: preparation/observer-as-prepared.py.txt
+ui-focus	manifest.json>files>preparation/observer-corrected.py.txt:flip	ValueError: Corpus SHA differs: preparation/observer-corrected.py.txt
+ui-focus	manifest.json>files>preparation/plan.md:flip	ValueError: Corpus SHA differs: preparation/plan.md
+ui-focus	manifest.json>files>preparation/postflight.json:flip	ValueError: Corpus SHA differs: preparation/postflight.json
+ui-focus	manifest.json>files>preparation/preflight.json:flip	ValueError: Corpus SHA differs: preparation/preflight.json
+ui-focus	manifest.json>files>preparation/prepare-run.json:flip	ValueError: Corpus SHA differs: preparation/prepare-run.json
+ui-focus	manifest.json>files>runtime/assets.json:flip	ValueError: Corpus SHA differs: runtime/assets.json
+ui-focus	manifest.json>files>runtime/build-manifest.json:flip	ValueError: Corpus SHA differs: runtime/build-manifest.json
+ui-focus	manifest.json>files>runtime/prefs.txt:flip	ValueError: Corpus SHA differs: runtime/prefs.txt
+ui-focus	manifest.json>files>source-provenance.json:flip	ValueError: Corpus SHA differs: source-provenance.json
+ui-focus	manifest.json>files>boot/disk-repair-ack.json:delete-key	ValueError: Corpus inventory differs
+ui-focus	manifest.json>schema:flip	ValueError: Corpus schema differs
+ui-focus	boot/disk-repair-ack.json>utc:flip	ValueError: Source differs: boot/disk-repair-ack.json
+ui-focus	boot/display-launch.json>utc:flip	ValueError: Source differs: boot/display-launch.json
+ui-focus	boot/host-launch.json>utc:flip	ValueError: Source differs: boot/host-launch.json
+ui-focus	boot/host-ready.json>utc:flip	ValueError: Source differs: boot/host-ready.json
+ui-focus	boot/identity.json>utc:flip	ValueError: Source differs: boot/identity.json
+ui-focus	boot/lab-launch.json>utc:flip	ValueError: Source differs: boot/lab-launch.json
+ui-focus	source-provenance.json>sources>boot/lab-namespace.pcap>sha256:flip	ValueError: Source differs: boot/lab-namespace.pcap
+ui-focus	boot/ns-launch.json>utc:flip	ValueError: Source differs: boot/ns-launch.json
+ui-focus	boot/ns-ready.json>utc:flip	ValueError: Source differs: boot/ns-ready.json
+ui-focus	boot/readiness.json>utc:flip	ValueError: Source differs: boot/readiness.json
+ui-focus	boot/server-launch-ui.json>utc:flip	ValueError: Source differs: boot/server-launch-ui.json
+ui-focus	boot/sound-dialog-ack.json>utc:flip	ValueError: Source differs: boot/sound-dialog-ack.json
+ui-focus	experiment/a7-as-run-plan.json>environment>guest_pcap:flip	ValueError: Source differs: experiment/a7-as-run-plan.json
+ui-focus	experiment/a7-launch.json>utc:flip	ValueError: Source differs: experiment/a7-launch.json
+ui-focus	experiment/a7-main.json>utc:flip	ValueError: Source differs: experiment/a7-main.json
+ui-focus	experiment/a7-original-plan.json>environment>runtime_launch>host_ports>0:inc	ValueError: Source differs: experiment/a7-original-plan.json
+ui-focus	experiment/capture/plan.json>environment>guest_pcap:flip	ValueError: Source differs: experiment/capture/plan.json
+ui-focus	experiment/capture/report.json>events>2>elapsed_ns:inc	ValueError: Source differs: experiment/capture/report.json
+ui-focus	experiment/cleanup-signals.json>events:drop-last	ValueError: Source differs: experiment/cleanup-signals.json
+ui-focus	experiment/focus-event/result.json>started_utc:flip	ValueError: Source differs: experiment/focus-event/result.json
+ui-focus	experiment/observer-launch.json>utc:flip	ValueError: Source differs: experiment/observer-launch.json
+ui-focus	experiment/outcome.json>utc:flip	ValueError: Source differs: experiment/outcome.json
+ui-focus	experiment/preflight.json>utc:flip	ValueError: Source differs: experiment/preflight.json
+ui-focus	experiment/terminal.json>utc:flip	ValueError: Source differs: experiment/terminal.json
+ui-focus	experiment/unit-stops.json>utc:flip	ValueError: Source differs: experiment/unit-stops.json
+ui-focus	preparation/event-probe-revision.json>utc:flip	ValueError: Source differs: preparation/event-probe-revision.json
+ui-focus	source-provenance.json>sources>preparation/observer-corrected.py.txt>sha256:flip	ValueError: Source differs: preparation/observer-corrected.py.txt
+ui-focus	preparation/postflight.json>utc:flip	ValueError: Source differs: preparation/postflight.json
+ui-focus	preparation/preflight.json>utc:flip	ValueError: Source differs: preparation/preflight.json
+ui-focus	preparation/prepare-run.json>utc:flip	ValueError: Source differs: preparation/prepare-run.json
+ui-focus	runtime/assets.json>rom_sha256:flip	ValueError: Source differs: runtime/assets.json
+ui-focus	runtime/build-manifest.json>source_commit:flip	ValueError: Source differs: runtime/build-manifest.json
+ui-focus	manifest.json>files:delete-key;boot/disk-repair-ack.json>utc:flip	KeyError: 'files'
+ui-focus	manifest.json>schema:delete-key;manifest.json>files>boot/server-ready-initial.png:flip	KeyError: 'schema'
+ui-focus	source-provenance.json>sources>boot/lab-namespace.pcap>sha256:delete-key;boot/lab-launch.json>utc:flip	ValueError: Source differs: boot/lab-launch.json
+ui-focus	manifest.json>files>boot/disk-repair-ack.json:flip;manifest.json>files>boot/display-launch.json:flip	ValueError: Corpus SHA differs: boot/disk-repair-ack.json
+ui-focus	manifest.json>files>boot/disk-repair-ack.json:flip;manifest.json>files>boot/disk-repair-ack.json:delete-key	ValueError: Corpus inventory differs
+ui-focus	manifest.json>files>boot/display-launch.json:flip;manifest.json>files>boot/host-launch.json:flip	ValueError: Corpus SHA differs: boot/display-launch.json
+ui-focus	manifest.json>files>boot/host-launch.json:flip;manifest.json>files>boot/host-ready.json:flip	ValueError: Corpus SHA differs: boot/host-launch.json
+ui-focus	manifest.json>files>boot/host-ready.json:flip;manifest.json>files>boot/host-recorder.log:flip	ValueError: Corpus SHA differs: boot/host-ready.json
+ui-focus	manifest.json>files>boot/host-ready.json:flip;manifest.json>files>boot/ns-ready.json:flip	ValueError: Corpus SHA differs: boot/host-ready.json
+ui-focus	manifest.json>files>boot/host-ready.json:flip;manifest.json>files>runtime/assets.json:flip	ValueError: Corpus SHA differs: boot/host-ready.json
+ui-focus	manifest.json>files>boot/host-recorder.log:flip;manifest.json>files>boot/identity.json:flip	ValueError: Corpus SHA differs: boot/host-recorder.log
+ui-focus	manifest.json>files>boot/identity.json:flip;manifest.json>files>boot/lab-guest.pcap:flip	ValueError: Corpus SHA differs: boot/identity.json
+ui-focus	manifest.json>files>boot/lab-guest.pcap:flip;manifest.json>files>boot/lab-launch.json:flip	ValueError: Corpus SHA differs: boot/lab-guest.pcap
+ui-focus	manifest.json>files>boot/lab-launch.json:flip;manifest.json>files>boot/lab-namespace.pcap:flip	ValueError: Corpus SHA differs: boot/lab-launch.json
+ui-focus	manifest.json>files>boot/lab-launch.json:flip;manifest.json>files>experiment/focus-event/result.json:flip	ValueError: Corpus SHA differs: boot/lab-launch.json
+ui-focus	manifest.json>files>boot/lab-namespace.pcap:flip;manifest.json>files>boot/ns-launch.json:flip	ValueError: Corpus SHA differs: boot/lab-namespace.pcap
+ui-focus	manifest.json>files>boot/lab-namespace.pcap:flip;manifest.json>files>experiment/focus-event/after.png:flip	ValueError: Corpus SHA differs: boot/lab-namespace.pcap
+ui-focus	manifest.json>files>boot/ns-launch.json:flip;manifest.json>files>boot/ns-ready.json:flip	ValueError: Corpus SHA differs: boot/ns-launch.json
+ui-focus	manifest.json>files>boot/ns-ready.json:flip;manifest.json>files>boot/ns-recorder.log:flip	ValueError: Corpus SHA differs: boot/ns-ready.json
+ui-focus	manifest.json>files>boot/ns-recorder.log:flip;manifest.json>files>boot/primary-host.pcap:flip	ValueError: Corpus SHA differs: boot/ns-recorder.log
+ui-focus	manifest.json>files>boot/primary-host.pcap:flip;manifest.json>files>boot/readiness.json:flip	ValueError: Corpus SHA differs: boot/primary-host.pcap
+ui-focus	manifest.json>files>boot/readiness.json:flip;manifest.json>files>boot/server-launch-ui.json:flip	ValueError: Corpus SHA differs: boot/readiness.json
+ui-focus	manifest.json>files>boot/server-launch-ui.json:flip;manifest.json>files>boot/server-ready-initial.png:flip	ValueError: Corpus SHA differs: boot/server-launch-ui.json
+ui-focus	manifest.json>files>boot/server-ready-initial.png:flip;manifest.json>files>boot/sound-dialog-ack.json:flip	ValueError: Corpus SHA differs: boot/server-ready-initial.png
+ui-focus	manifest.json>files>boot/sound-dialog-ack.json:flip;manifest.json>files>experiment/a7-as-run-plan.json:flip	ValueError: Corpus SHA differs: boot/sound-dialog-ack.json
+ui-focus	manifest.json>files>boot/sound-dialog-ack.json:flip;experiment/a7-original-plan.json>environment>runtime_launch>host_ports>0:inc	ValueError: Corpus SHA differs: boot/sound-dialog-ack.json
+ui-focus	manifest.json>files>experiment/a7-as-run-plan.json:flip;manifest.json>files>experiment/a7-launch.json:flip	ValueError: Corpus SHA differs: experiment/a7-as-run-plan.json
+ui-focus	manifest.json>files>experiment/a7-as-run-plan.json:flip;manifest.json>files>experiment/outcome.json:flip	ValueError: Corpus SHA differs: experiment/a7-as-run-plan.json
+ui-focus	manifest.json>files>experiment/a7-launch.json:flip;manifest.json>files>experiment/a7-main.json:flip	ValueError: Corpus SHA differs: experiment/a7-launch.json
+ui-focus	manifest.json>files>experiment/a7-main.json:flip;manifest.json>files>experiment/a7-original-plan.json:flip	ValueError: Corpus SHA differs: experiment/a7-main.json
+ui-focus	manifest.json>files>experiment/a7-original-plan.json:flip;manifest.json>files>experiment/a7.log:flip	ValueError: Corpus SHA differs: experiment/a7-original-plan.json
+ui-focus	manifest.json>files>experiment/a7.log:flip;manifest.json>files>experiment/capture/checksums.sha256:flip	ValueError: Corpus SHA differs: experiment/a7.log
+ui-focus	manifest.json>files>experiment/a7.log:flip;manifest.json>files>boot/disk-repair-ack.json:delete-key	ValueError: Corpus inventory differs
+ui-focus	manifest.json>files>experiment/capture/checksums.sha256:flip;manifest.json>files>experiment/capture/plan.json:flip	ValueError: Corpus SHA differs: experiment/capture/checksums.sha256
+ui-focus	manifest.json>files>experiment/capture/plan.json:flip;manifest.json>files>experiment/capture/report.json:flip	ValueError: Corpus SHA differs: experiment/capture/plan.json
+ui-focus	manifest.json>files>experiment/capture/report.json:flip;manifest.json>files>experiment/cleanup-signals.json:flip	ValueError: Corpus SHA differs: experiment/capture/report.json
+ui-focus	manifest.json>files>experiment/cleanup-signals.json:flip;manifest.json>files>experiment/focus-event/after.png:flip	ValueError: Corpus SHA differs: experiment/cleanup-signals.json
+ui-focus	manifest.json>files>experiment/focus-event/after.png:flip;manifest.json>files>experiment/focus-event/before.png:flip	ValueError: Corpus SHA differs: experiment/focus-event/after.png
+ui-focus	manifest.json>files>experiment/focus-event/before.png:flip;manifest.json>files>experiment/focus-event/result.json:flip	ValueError: Corpus SHA differs: experiment/focus-event/before.png
+ui-focus	manifest.json>files>experiment/focus-event/result.json:flip;manifest.json>files>experiment/observer-launch.json:flip	ValueError: Corpus SHA differs: experiment/focus-event/result.json
+ui-focus	manifest.json>files>experiment/observer-launch.json:flip;manifest.json>files>experiment/observer.log:flip	ValueError: Corpus SHA differs: experiment/observer-launch.json
+ui-focus	manifest.json>files>experiment/observer.log:flip;manifest.json>files>experiment/outcome.json:flip	ValueError: Corpus SHA differs: experiment/observer.log
+ui-focus	manifest.json>files>experiment/outcome.json:flip;manifest.json>files>experiment/pre-measurement.png:flip	ValueError: Corpus SHA differs: experiment/outcome.json
+ui-focus	manifest.json>files>experiment/pre-measurement.png:flip;manifest.json>files>experiment/preflight.json:flip	ValueError: Corpus SHA differs: experiment/pre-measurement.png
+ui-focus	manifest.json>files>experiment/preflight.json:flip;manifest.json>files>experiment/terminal.json:flip	ValueError: Corpus SHA differs: experiment/preflight.json
+ui-focus	manifest.json>files>experiment/terminal.json:flip;manifest.json>files>experiment/unit-stops.json:flip	ValueError: Corpus SHA differs: experiment/terminal.json
+ui-focus	manifest.json>files>experiment/unit-stops.json:flip;manifest.json>files>preparation/event-probe-revision.json:flip	ValueError: Corpus SHA differs: experiment/unit-stops.json
+ui-focus	manifest.json>files>preparation/event-probe-revision.json:flip;manifest.json>files>preparation/observer-as-prepared.py.txt:flip	ValueError: Corpus SHA differs: preparation/event-probe-revision.json
+ui-focus	manifest.json>files>preparation/observer-as-prepared.py.txt:flip;manifest.json>files>preparation/observer-corrected.py.txt:flip	ValueError: Corpus SHA differs: preparation/observer-as-prepared.py.txt
+ui-focus	manifest.json>files>preparation/observer-corrected.py.txt:flip;manifest.json>files>preparation/plan.md:flip	ValueError: Corpus SHA differs: preparation/observer-corrected.py.txt
+ui-focus	manifest.json>files>preparation/plan.md:flip;manifest.json>files>preparation/postflight.json:flip	ValueError: Corpus SHA differs: preparation/plan.md
+ui-focus	manifest.json>files>preparation/postflight.json:flip;manifest.json>files>preparation/preflight.json:flip	ValueError: Corpus SHA differs: preparation/postflight.json
+ui-focus	manifest.json>files>preparation/preflight.json:flip;manifest.json>files>preparation/prepare-run.json:flip	ValueError: Corpus SHA differs: preparation/preflight.json
+ui-focus	manifest.json>files>preparation/prepare-run.json:flip;manifest.json>files>runtime/assets.json:flip	ValueError: Corpus SHA differs: preparation/prepare-run.json
+ui-focus	manifest.json>files>runtime/build-manifest.json:flip;manifest.json>files>runtime/prefs.txt:flip	ValueError: Corpus SHA differs: runtime/build-manifest.json
+ui-focus	manifest.json>files>source-provenance.json:flip;boot/host-launch.json>utc:flip	ValueError: Corpus SHA differs: source-provenance.json
+ui-focus	manifest.json>files>source-provenance.json:flip;boot/host-ready.json>utc:flip	ValueError: Corpus SHA differs: source-provenance.json
+ui-focus	manifest.json>files>boot/disk-repair-ack.json:delete-key;manifest.json>schema:flip	ValueError: Corpus schema differs
+ui-focus	boot/disk-repair-ack.json>utc:flip;boot/display-launch.json>utc:flip	ValueError: Source differs: boot/disk-repair-ack.json
+ui-focus	boot/display-launch.json>utc:flip;boot/host-launch.json>utc:flip	ValueError: Source differs: boot/display-launch.json
+ui-focus	boot/host-ready.json>utc:flip;boot/identity.json>utc:flip	ValueError: Source differs: boot/host-ready.json
+ui-focus	boot/identity.json>utc:flip;boot/lab-launch.json>utc:flip	ValueError: Source differs: boot/identity.json
+ui-focus	source-provenance.json>sources>boot/lab-namespace.pcap>sha256:flip;boot/ns-launch.json>utc:flip	ValueError: Source differs: boot/lab-namespace.pcap
+ui-focus	boot/ns-launch.json>utc:flip;boot/ns-ready.json>utc:flip	ValueError: Source differs: boot/ns-launch.json
+ui-focus	boot/ns-ready.json>utc:flip;boot/readiness.json>utc:flip	ValueError: Source differs: boot/ns-ready.json
+ui-focus	boot/readiness.json>utc:flip;boot/server-launch-ui.json>utc:flip	ValueError: Source differs: boot/readiness.json
+ui-focus	boot/server-launch-ui.json>utc:flip;boot/sound-dialog-ack.json>utc:flip	ValueError: Source differs: boot/server-launch-ui.json
+ui-focus	boot/sound-dialog-ack.json>utc:flip;experiment/a7-as-run-plan.json>environment>guest_pcap:flip	ValueError: Source differs: boot/sound-dialog-ack.json
+ui-focus	experiment/a7-as-run-plan.json>environment>guest_pcap:flip;experiment/a7-launch.json>utc:flip	ValueError: Source differs: experiment/a7-as-run-plan.json
+ui-focus	experiment/a7-launch.json>utc:flip;experiment/a7-main.json>utc:flip	ValueError: Source differs: experiment/a7-launch.json
+ui-focus	experiment/a7-main.json>utc:flip;experiment/a7-original-plan.json>environment>runtime_launch>host_ports>0:inc	ValueError: Source differs: experiment/a7-main.json
+ui-focus	experiment/a7-original-plan.json>environment>runtime_launch>host_ports>0:inc;experiment/capture/plan.json>environment>guest_pcap:flip	ValueError: Source differs: experiment/a7-original-plan.json
+ui-focus	experiment/capture/plan.json>environment>guest_pcap:flip;experiment/capture/report.json>events>2>elapsed_ns:inc	ValueError: Source differs: experiment/capture/plan.json
+ui-focus	experiment/capture/report.json>events>2>elapsed_ns:inc;experiment/cleanup-signals.json>events:drop-last	ValueError: Source differs: experiment/capture/report.json
+ui-focus	experiment/cleanup-signals.json>events:drop-last;experiment/focus-event/result.json>started_utc:flip	ValueError: Source differs: experiment/cleanup-signals.json
+ui-focus	experiment/focus-event/result.json>started_utc:flip;experiment/observer-launch.json>utc:flip	ValueError: Source differs: experiment/focus-event/result.json
+ui-focus	experiment/observer-launch.json>utc:flip;experiment/outcome.json>utc:flip	ValueError: Source differs: experiment/observer-launch.json
+ui-focus	experiment/outcome.json>utc:flip;experiment/preflight.json>utc:flip	ValueError: Source differs: experiment/outcome.json
+ui-focus	experiment/preflight.json>utc:flip;experiment/terminal.json>utc:flip	ValueError: Source differs: experiment/preflight.json
+ui-focus	experiment/terminal.json>utc:flip;experiment/unit-stops.json>utc:flip	ValueError: Source differs: experiment/terminal.json
+ui-focus	experiment/unit-stops.json>utc:flip;preparation/event-probe-revision.json>utc:flip	ValueError: Source differs: experiment/unit-stops.json
+ui-focus	preparation/event-probe-revision.json>utc:flip;source-provenance.json>sources>preparation/observer-corrected.py.txt>sha256:flip	ValueError: Source differs: preparation/event-probe-revision.json
+ui-focus	source-provenance.json>sources>preparation/observer-corrected.py.txt>sha256:flip;preparation/postflight.json>utc:flip	ValueError: Source differs: preparation/observer-corrected.py.txt
+ui-focus	preparation/postflight.json>utc:flip;preparation/preflight.json>utc:flip	ValueError: Source differs: preparation/postflight.json
+ui-focus	preparation/preflight.json>utc:flip;preparation/prepare-run.json>utc:flip	ValueError: Source differs: preparation/preflight.json
+ui-focus	preparation/prepare-run.json>utc:flip;runtime/assets.json>rom_sha256:flip	ValueError: Source differs: preparation/prepare-run.json
+ui-focus	runtime/assets.json>rom_sha256:flip;runtime/build-manifest.json>source_commit:flip	ValueError: Source differs: runtime/assets.json
