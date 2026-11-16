@@ -108,3 +108,28 @@ def test_lexical_target(
 ) -> None:
     """Targets are resolved without the file system, counting escapes."""
     assert mm.lexical_target(Path(source), path) == expected, "resolution"
+
+
+@pytest.mark.parametrize(
+    ("text", "expected"),
+    [
+        ("```python\nx\n```\n", [(1, 3, "python")]),
+        ("```\nx\n```\n", [(1, 3, "")]),
+        ("~~~ text \nx\n~~~\n", [(1, 3, "text")]),
+        ("~~~mermaid\n```\n~~~\n", [(1, 3, "mermaid")]),
+        ("```sh\nopen\n", [(1, 2, "sh")]),
+        ("prose\n", []),
+    ],
+)
+def test_fences_report_span_and_label(
+    text: str, expected: list[tuple[int, int, str]]
+) -> None:
+    """Each fenced block gives its opening line, closing line and label."""
+    found = [(f.start, f.end, f.info) for f in mm.fences(text)]
+    assert found == expected, "fences"
+
+
+def test_table_spans_find_runs_of_pipe_lines_outside_fences() -> None:
+    """A table is a run of pipe lines; one inside a fence is not a table."""
+    text = "| a |\n| - |\n| 1 |\n\n```\n| no |\n```\n\n| b |\n| - |\n"
+    assert mm.table_spans(text) == [(1, 3), (9, 10)], "table spans"

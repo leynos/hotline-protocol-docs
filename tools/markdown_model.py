@@ -27,6 +27,25 @@ REFERENCE_DEFINITION = re.compile(r"^ {0,3}\[(?!\^)[^\]]+\]:\s+<?([^\s>]+)>?")
 EXPLICIT_ANCHOR = re.compile(r"""<a\s+[^>]*?\b(?:id|name)\s*=\s*["']([^"']+)["']""")
 
 
+@dc.dataclass(frozen=True, slots=True)
+class Fence:
+    """A fenced code block.
+
+    Attributes
+    ----------
+    start : int
+        The one-based line of the opening fence.
+    end : int
+        The line of the closing fence, or the last line if it never closes.
+    info : str
+        The text after the opening marker, without surrounding space.
+    """
+
+    start: int
+    end: int
+    info: str
+
+
 class Section(typ.TypedDict):
     """One heading and the lines it governs, as recorded in ``sections.json``."""
 
@@ -93,6 +112,65 @@ def unfenced_lines(text: str) -> cabc.Iterator[tuple[int, str]]:
             fence = None if fence == token else token
         elif fence is None:
             yield number, line
+
+
+def fences(text: str) -> list[Fence]:
+    """List the fenced code blocks of ``text`` with their language labels.
+
+    The fence rule is that of :func:`unfenced_lines`.
+
+    Parameters
+    ----------
+    text : str
+        The Markdown source.
+
+    Returns
+    -------
+    list[Fence]
+        One entry per block, in order.
+    """
+    found: list[Fence] = []
+    opened: tuple[str, int, str] | None = None
+    total = 0
+    for total, line in enumerate(text.splitlines(), 1):
+        marker = FENCE.match(line)
+        if marker is None:
+            continue
+        token = marker[1][0]
+        if opened is None:
+            opened = (token, total, line.strip()[len(marker[1]) :].strip())
+        elif opened[0] == token:
+            found.append(Fence(opened[1], total, opened[2]))
+            opened = None
+    if opened is not None:
+        found.append(Fence(opened[1], total, opened[2]))
+    return found
+
+
+def table_spans(text: str) -> list[tuple[int, int]]:
+    """List the tables of ``text`` outside code fences.
+
+    A table is a run of consecutive lines that begin with a pipe.
+
+    Parameters
+    ----------
+    text : str
+        The Markdown source.
+
+    Returns
+    -------
+    list[tuple[int, int]]
+        The first and last line of each table, in order.
+    """
+    spans: list[tuple[int, int]] = []
+    for number, line in unfenced_lines(text):
+        if not line.lstrip().startswith("|"):
+            continue
+        if spans and spans[-1][1] == number - 1:
+            spans[-1] = (spans[-1][0], number)
+        else:
+            spans.append((number, number))
+    return spans
 
 
 def section_inventory(text: str) -> list[Section]:
