@@ -1,75 +1,40 @@
 """Read bounded Ethernet/IPv4 TCP observations without inventing missing bytes."""
 
-import struct
-from pathlib import Path
+from pcap_reader import Packet, read_packets
 
+# read_packets lives in pcap_reader and stays importable from here, as every caller
+# of this module uses it.
+__all__ = ["direction", "lifetime", "read_packets", "stream"]
 
-def read_packets(path: Path) -> list[dict]:
-    """Read classic microsecond PCAP; reject incomplete or fragmented TCP input."""
-    packets = []
-    with path.open("rb") as source:
-        header = source.read(24)
-        if len(header) != 24:
-            raise ValueError("Truncated PCAP header")
-        order = {b"\xd4\xc3\xb2\xa1": "<", b"\xa1\xb2\xc3\xd4": ">"}.get(header[:4])
-        if order is None:
-            raise ValueError("Expected classic microsecond PCAP")
-        _, major, minor, _, _, snaplen, linktype = struct.unpack(
-            order + "IHHIIII", header
-        )
-        if (major, minor, linktype) != (2, 4, 1):
-            raise ValueError("Expected PCAP2.4 Ethernet")
-        index = 0
-        while raw_header := source.read(16):
-            if len(raw_header) != 16:
-                raise ValueError("Truncated packet record")
-            seconds, micros, size, original = struct.unpack(order + "IIII", raw_header)
-            if micros >= 1000000 or size != original or size > snaplen or size > 65535:
-                raise ValueError("Truncated or invalid packet length/timestamp")
-            frame = source.read(size)
-            if len(frame) != size:
-                raise ValueError("Truncated packet bytes")
-            index += 1
-            if len(frame) < 14 or frame[12:14] != b"\x08\x00":
-                continue
-            ip = frame[14:]
-            if len(ip) < 20 or ip[0] >> 4 != 4:
-                raise ValueError("Invalid IPv4 header")
-            length = (ip[0] & 15) * 4
-            total = int.from_bytes(ip[2:4], "big")
-            if not 20 <= length <= total <= len(ip):
-                raise ValueError("Invalid IPv4 size")
-            if ip[9] != 6:
-                continue
-            if int.from_bytes(ip[6:8], "big") & 0x3FFF:
-                raise ValueError("Fragmented TCP requires separate IP reassembly")
-            tcp = ip[length:total]
-            if len(tcp) < 20:
-                raise ValueError("Truncated TCP header")
-            offset = (tcp[12] >> 4) * 4
-            if not 20 <= offset <= len(tcp):
-                raise ValueError("Invalid TCP size")
-            packets.append(
-                {
-                    "index": index,
-                    "timestamp_us": seconds * 1000000 + micros,
-                    "src_ip": ".".join(str(b) for b in ip[12:16]),
-                    "dst_ip": ".".join(str(b) for b in ip[16:20]),
-                    "src_port": int.from_bytes(tcp[:2], "big"),
-                    "dst_port": int.from_bytes(tcp[2:4], "big"),
-                    "sequence": int.from_bytes(tcp[4:8], "big"),
-                    "acknowledgement": int.from_bytes(tcp[8:12], "big"),
-                    "flags": tcp[13] | ((tcp[12] & 1) << 8),
-                    "payload_hex": tcp[offset:].hex(),
-                }
-            )
-    return packets
+type Endpoint = tuple[str, int]
+
+TCP_SYN = 2
+TCP_RST = 4
+TCP_ACK = 16
+MAX_STREAM_BYTES = 8 * 1024 * 1024
+SEQUENCE_MASK = 0xFFFFFFFF
+LIFETIME_WINDOW_US = 2_000_000
 
 
 def direction(
-    packets: list[dict], source: tuple[str, int], destination: tuple[str, int]
-) -> list[dict]:
-    """Select one TCP direction; port lifetimes must be scoped by the caller."""
+    packets: list[Packet], source: Endpoint, destination: Endpoint
+) -> list[Packet]:
+    """Select one TCP direction; port lifetimes must be scoped by the caller.
+
+    Parameters
+    ----------
+    packets : list[dict[str, typing.Any]]
+        Packets as returned by :func:`read_packets`.
+    source : tuple[str, int]
+        The sending address and port.
+    destination : tuple[str, int]
+        The receiving address and port.
+
+    Returns
+    -------
+    list[dict[str, typing.Any]]
+        The packets that go from ``source`` to ``destination``, in order.
+    """
     return [
         p
         for p in packets
@@ -78,59 +43,142 @@ def direction(
     ]
 
 
-def stream(
-    packets: list[dict], source: tuple[str, int], destination: tuple[str, int]
-) -> bytes:
-    """Reassemble a SYN-identified direction with matching overlaps and no gaps."""
-    selected = direction(packets, source, destination)
-    syns = [p for p in selected if p["flags"] & 2]
-    if not syns or len({p["sequence"] for p in syns}) != 1:
-        raise ValueError("Missing SYN or reused TCP port lifetime")
-    base = (syns[0]["sequence"] + 1) & 0xFFFFFFFF
+def _segments(selected: list[Packet], base: int) -> list[tuple[int, bytes]]:
+    """Collect the data segments of a direction as ``(offset, bytes)``.
+
+    A reset may carry diagnostic bytes. They stay in the packet view but are not
+    merged into the application stream (RFC 9293, section 3.5.3).
+
+    Parameters
+    ----------
+    selected : list[dict[str, typing.Any]]
+        The packets of one direction.
+    base : int
+        The sequence number of the first data byte.
+
+    Returns
+    -------
+    list[tuple[int, bytes]]
+        Offset from the base and data, in capture order.
+
+    Raises
+    ------
+    ValueError
+        If a segment ends beyond the analysis bound.
+    """
     segments = []
     for packet in selected:
-        # A reset may carry diagnostic bytes. Keep them in the packet view,
-        # but do not merge them into the application stream (RFC9293 3.5.3).
-        if packet["flags"] & 4:
+        if packet["flags"] & TCP_RST:
             continue
         data = bytes.fromhex(packet["payload_hex"])
         if data:
             offset = (
-                packet["sequence"] + bool(packet["flags"] & 2) - base
-            ) & 0xFFFFFFFF
-            if offset + len(data) > 8 * 1024 * 1024:
-                raise ValueError("TCP stream exceeds analysis bound")
+                packet["sequence"] + bool(packet["flags"] & TCP_SYN) - base
+            ) & SEQUENCE_MASK
+            if offset + len(data) > MAX_STREAM_BYTES:
+                message = "TCP stream exceeds analysis bound"
+                raise ValueError(message)
             segments.append((offset, data))
+    return segments
+
+
+def stream(packets: list[Packet], source: Endpoint, destination: Endpoint) -> bytes:
+    """Reassemble a SYN-identified direction with matching overlaps and no gaps.
+
+    Parameters
+    ----------
+    packets : list[dict[str, typing.Any]]
+        Packets as returned by :func:`read_packets`.
+    source : tuple[str, int]
+        The sending address and port.
+    destination : tuple[str, int]
+        The receiving address and port.
+
+    Returns
+    -------
+    bytes
+        The application bytes of the direction.
+
+    Raises
+    ------
+    ValueError
+        If no SYN identifies the direction or SYNs differ, a segment passes the
+        analysis bound, the bytes have a gap, or a retransmission conflicts.
+    """
+    selected = direction(packets, source, destination)
+    syns = [p for p in selected if p["flags"] & TCP_SYN]
+    if not syns or len({p["sequence"] for p in syns}) != 1:
+        message = "Missing SYN or reused TCP port lifetime"
+        raise ValueError(message)
+    base = (syns[0]["sequence"] + 1) & SEQUENCE_MASK
     result = bytearray()
-    for offset, data in sorted(segments):
+    for offset, data in sorted(_segments(selected, base)):
         if offset > len(result):
-            raise ValueError("TCP sequence gap")
+            message = "TCP sequence gap"
+            raise ValueError(message)
         overlap = min(len(result) - offset, len(data))
         if result[offset : offset + overlap] != data[:overlap]:
-            raise ValueError("Conflicting TCP retransmission")
+            message = "Conflicting TCP retransmission"
+            raise ValueError(message)
         result.extend(data[overlap:])
     return bytes(result)
 
 
-def lifetime(
-    packets: list[dict],
-    source: tuple[str, int],
-    destination: tuple[str, int],
-    connect_us: int,
-) -> list[dict]:
-    """Select a unique SYN lifetime near a socket event; reject ambiguous reuse."""
-    incoming = direction(packets, source, destination)
+def _first_syns(incoming: list[Packet]) -> dict[int, int]:
+    """Map each SYN sequence number to the time its first SYN was seen.
+
+    Returns
+    -------
+    dict[int, int]
+        Sequence number to timestamp in microseconds. A SYN that carries an
+        acknowledgement is not a first SYN.
+    """
     first_syns: dict[int, int] = {}
     for packet in incoming:
-        if packet["flags"] & 2 and not packet["flags"] & 16:
+        if packet["flags"] & TCP_SYN and not packet["flags"] & TCP_ACK:
             first_syns.setdefault(packet["sequence"], packet["timestamp_us"])
+    return first_syns
+
+
+def lifetime(
+    packets: list[Packet],
+    source: Endpoint,
+    destination: Endpoint,
+    connect_us: int,
+) -> list[Packet]:
+    """Select a unique SYN lifetime near a socket event; reject ambiguous reuse.
+
+    Parameters
+    ----------
+    packets : list[dict[str, typing.Any]]
+        Packets as returned by :func:`read_packets`.
+    source : tuple[str, int]
+        The connecting address and port.
+    destination : tuple[str, int]
+        The listening address and port.
+    connect_us : int
+        The socket event's time in microseconds.
+
+    Returns
+    -------
+    list[dict[str, typing.Any]]
+        The packets of both directions from the lifetime's first SYN, inclusive,
+        to the next SYN of another sequence number, exclusive.
+
+    Raises
+    ------
+    ValueError
+        If no SYN, or more than one, lies within two seconds of the event.
+    """
+    first_syns = _first_syns(direction(packets, source, destination))
     candidates = [
         (sequence, when)
         for sequence, when in first_syns.items()
-        if abs(when - connect_us) <= 2_000_000
+        if abs(when - connect_us) <= LIFETIME_WINDOW_US
     ]
     if len(candidates) != 1:
-        raise ValueError("Missing or ambiguous SYN lifetime near socket event")
+        message = "Missing or ambiguous SYN lifetime near socket event"
+        raise ValueError(message)
     sequence, start = candidates[0]
     end = min(
         (
@@ -140,18 +188,10 @@ def lifetime(
         ),
         default=float("inf"),
     )
+    flows = ((source, destination), (destination, source))
     return [
         p
         for p in packets
         if start <= p["timestamp_us"] < end
-        and (
-            (
-                (p["src_ip"], p["src_port"]) == source
-                and (p["dst_ip"], p["dst_port"]) == destination
-            )
-            or (
-                (p["src_ip"], p["src_port"]) == destination
-                and (p["dst_ip"], p["dst_port"]) == source
-            )
-        )
+        and ((p["src_ip"], p["src_port"]), (p["dst_ip"], p["dst_port"])) in flows
     ]

@@ -248,23 +248,30 @@ def differing(pins: pinned_source.Pins) -> list[str]:
     ]
 
 
+CHANGED = differing(pinned_source.Pins())
+EQUIVALENCE_SECONDS = 3600  # a widely imported script reruns most of the suite twice
+
+
 class PinnedScriptEquivalenceTests:
     """Every pinned script that has changed must behave as it did when pinned."""
 
-    def test_every_changed_script_passes_its_tests_under_both_versions(self) -> None:
-        """Empty while no pinned script has changed; a refactor makes it bite."""
+    @pytest.mark.timeout(EQUIVALENCE_SECONDS)
+    @pytest.mark.parametrize("name", CHANGED)
+    def test_a_changed_script_passes_its_tests_under_both_versions(
+        self, name: str
+    ) -> None:
+        """The tests that reach the script agree on its pinned and current bytes."""
         pins = pinned_source.Pins()
-        for name in differing(pins):
-            found = pin_equivalence.differences(
-                ROOT / "scripts",
-                name,
-                pins.read(name),
-                pin_equivalence.Setting(
-                    real_links(),
-                    companions={n: pins.read(n) for n in COMPANIONS.get(name, [])},
-                ),
-            )
-            assert found == [], f"{name} behaves differently from its pinned bytes"
+        found = pin_equivalence.differences(
+            ROOT / "scripts",
+            name,
+            pins.read(name),
+            pin_equivalence.Setting(
+                real_links(),
+                companions={n: pins.read(n) for n in COMPANIONS.get(name, [])},
+            ),
+        )
+        assert found == [], f"{name} behaves differently from its pinned bytes"
 
     def test_the_machinery_runs_the_real_tests_of_an_identical_script(self) -> None:
         """On identical bytes the real tests agree and are not an empty set."""
