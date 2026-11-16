@@ -226,6 +226,34 @@ The script work is a behaviour-preserving refactor.
   10 tensions) in the session scratch directory.
 - [x] (2026-11-15 20:40Z) Owner raised the tooling tolerance (D24) and asked
   for the SynHX naming to be clarified and a comprehensive glossary (D25).
+- [x] (2026-11-18 12:00Z) EP-M10 complete (`202c116`, `b8b1b03`, `041685e`).
+  `tools/check_style.py` checks table captions, figures, fence labels, heading
+  case, person and the glossary rules; `make style-check` is part of
+  `make docs-gates`. Five scribes then corrected the documents set by set: 186
+  captions, 57 headings changed in letter case only, a cross-reference in each
+  of 104 documents, glossary links in opening paragraphs, dated notes beside
+  quoted commands that no longer run, the R series in the glossary and the
+  operator packets summarized in the ledger of remaining work (the owner
+  consented on 2026-11-18). A comparison of every changed document with its
+  earlier text shows no anchor changed. Six headings are accepted as on-screen
+  labels or proper names. Revision 95: `87 gaps, 0 protected fields changed`.
+  `links-check` reports `137 documents, 8048 links, 0 failures`; `make all`
+  passes with 1,825 tests. Lesson: scribes editing audited documents in place
+  leave the working tree failing the post-turn checks until they finish; for a
+  batch like this, wait for the edits to go quiet before formatting. Also
+  fixed: a renderer test pinned a digest of the live register and so failed at
+  every audit revision.
+- [x] (2026-11-18 12:00Z) Owner's answers of 2026-11-18 acted on. Mothra's
+  branch is pushed at `2278968b622eab731e4ba2be0484cedfbab73bb7`: its kept
+  isolation corpus is pinned to the snapshot commit with a check and a
+  continuity test, the launcher takes `--guest-port` with no default, and
+  `docs/native-emulator-readiness.md` has headings for its two phases; the name
+  searches still print nothing and its `make check` passes. All 58 permalinks
+  here point at that commit. The tag `evidence-sources-2026-11-15` exists
+  locally on `efea44a`; its push is held for the owner's confirmation, because
+  it publishes the curated evidence, including 341 decompiled function listings
+  derived from the server binary. Commands for clearing agent worktrees are in
+  `~/docs/hotline-agent-worktree-cleanup.md`.
 - [x] (2026-11-18 02:00Z) EP-M5 leftovers integrated and the test suite
   split (`e37fc44`, then four commits ending with the capture-script
   characterization tests). The verifier golden reduces a traceback to a marker
@@ -558,7 +586,8 @@ The script work is a behaviour-preserving refactor.
   entries dated 2026-11-16 08:00Z, 11:30Z and 20:30Z, and 2026-11-17 15:00Z).
 - [x] EP-M9: evidence correlation and reconciliation; revision 94 (see the
   entry dated 2026-11-17 03:00Z).
-- [ ] EP-M10: style conformance and cross-references; revision 95.
+- [x] EP-M10: style conformance and cross-references; revision 95 (see the
+  entry dated 2026-11-18 12:00Z).
 - [ ] EP-M11: final validation and retrospective.
 
 ## Surprises & discoveries
