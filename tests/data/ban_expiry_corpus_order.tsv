@@ -1,0 +1,599 @@
+ban-expiry-first		ok da3411fb867f6b6e
+ban-expiry-first	clock-observations.json>observations>0>screenshot:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-ban-expiry-first-01/raw/clock-
+ban-expiry-first	clock-observations.json>observations>0>screenshot:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-ban-expiry-first-01/raw'
+ban-expiry-first	clock-observations.json>observations>0>after_utc:delete-key	KeyError: 'after_utc'
+ban-expiry-first	preparation/preflight.json>banned_absent:delete-key	KeyError: 'banned_absent'
+ban-expiry-first	clock-observations.json>observations>0>before_utc:delete-key	KeyError: 'before_utc'
+ban-expiry-first	raw-freeze.json>files>after-repair.png>copied_size:delete-key	KeyError: 'copied_size'
+ban-expiry-first	manifest.json>files:delete-key	KeyError: 'files'
+ban-expiry-first	manifest.json>full_file_baseline:delete-key	KeyError: 'full_file_baseline'
+ban-expiry-first	manifest.json>guest_pcap_scope:delete-key	KeyError: 'guest_pcap_scope'
+ban-expiry-first	sources/asrun-source-freeze.json>hashes:delete-key	KeyError: 'hashes'
+ban-expiry-first	preparation/preflight.json>working.dsk>inode:delete-key	KeyError: 'inode'
+ban-expiry-first	manifest.json:delete-key	KeyError: 'manifest.json'
+ban-expiry-first	clock-observations.json>method:delete-key	KeyError: 'method'
+ban-expiry-first	sources/dependency-closure.json>module_count:delete-key	KeyError: 'module_count'
+ban-expiry-first	sources/dependency-closure.json>hashes>native_ban_expiry_cases.py:delete-key	KeyError: 'native_ban_expiry_cases.py'
+ban-expiry-first	sources/dependency-closure.json>hashes>native_ban_expiry_control.py:delete-key	KeyError: 'native_ban_expiry_control.py'
+ban-expiry-first	clock-observations.json>observations:delete-key	KeyError: 'observations'
+ban-expiry-first	preparation/preflight.json>original_user_count:delete-key	KeyError: 'original_user_count'
+ban-expiry-first	preparation/preflight.json>owned_account_names_absent:delete-key	KeyError: 'owned_account_names_absent'
+ban-expiry-first	manifest.json>profile:delete-key	KeyError: 'profile'
+ban-expiry-first	manifest.json>schema:delete-key	KeyError: 'schema'
+ban-expiry-first	clock-observations.json>observations>0>screenshot:delete-key	KeyError: 'screenshot'
+ban-expiry-first	clock-observations.json>observations>0>screenshot_sha256:delete-key	KeyError: 'screenshot_sha256'
+ban-expiry-first	preparation/preflight.json>files>server-data:delete-key	KeyError: 'server-data'
+ban-expiry-first	preparation/preflight.json>files>server-data>sha256:delete-key	KeyError: 'sha256'
+ban-expiry-first	raw-freeze.json>snapshot_scope:delete-key	KeyError: 'snapshot_scope'
+ban-expiry-first	manifest.json>source_cases_sha256:delete-key	KeyError: 'source_cases_sha256'
+ban-expiry-first	manifest.json>source_controller_sha256:delete-key	KeyError: 'source_controller_sha256'
+ban-expiry-first	sources/asrun-source-freeze.json>source_head:delete-key	KeyError: 'source_head'
+ban-expiry-first	manifest.json>source_protocol_head:delete-key	KeyError: 'source_protocol_head'
+ban-expiry-first	raw-freeze.json>files>after-repair.png>source_size_after:delete-key	KeyError: 'source_size_after'
+ban-expiry-first	clock-observations.json>observations>0>visible_menubar_clock_transcription:delete-key	KeyError: 'visible_menubar_clock_transcription'
+ban-expiry-first	preparation/preflight.json>working.dsk:delete-key	KeyError: 'working.dsk'
+ban-expiry-first	sources/asrun-source-freeze.json>hashes>native_ban_expiry_cases.py:flip	ValueError: As-run B68 source differs
+ban-expiry-first	clock-observations.json>observations>0>before_utc:flip	ValueError: Clock screenshot or host brackets differ
+ban-expiry-first	manifest.json>files>clock-observations.json:flip	ValueError: Corpus SHA differs: clock-observations.json
+ban-expiry-first	manifest.json>files>operator/c76-unit-final.txt:flip	ValueError: Corpus SHA differs: operator/c76-unit-final.txt
+ban-expiry-first	manifest.json>files>operator/c77-unit-final.txt:flip	ValueError: Corpus SHA differs: operator/c77-unit-final.txt
+ban-expiry-first	manifest.json>files>operator/controller-units-journal.log:flip	ValueError: Corpus SHA differs: operator/controller-units-journal.log
+ban-expiry-first	manifest.json>files>preparation/preflight.json:flip	ValueError: Corpus SHA differs: preparation/preflight.json
+ban-expiry-first	manifest.json>files>raw-freeze.json:flip	ValueError: Corpus SHA differs: raw-freeze.json
+ban-expiry-first	manifest.json>files>raw/after-repair.png:flip	ValueError: Corpus SHA differs: raw/after-repair.png
+ban-expiry-first	manifest.json>files>raw/app-launch.png:flip	ValueError: Corpus SHA differs: raw/app-launch.png
+ban-expiry-first	manifest.json>files>raw/boot-progress.png:flip	ValueError: Corpus SHA differs: raw/boot-progress.png
+ban-expiry-first	manifest.json>files>raw/boot.png:flip	ValueError: Corpus SHA differs: raw/boot.png
+ban-expiry-first	manifest.json>files>raw/c75-capture-lock-terminal.txt:flip	ValueError: Corpus SHA differs: raw/c75-capture-lock-terminal.txt
+ban-expiry-first	manifest.json>files>raw/c77-first.exit:flip	ValueError: Corpus SHA differs: raw/c77-first.exit
+ban-expiry-first	manifest.json>files>raw/c77-first.log:flip	ValueError: Corpus SHA differs: raw/c77-first.log
+ban-expiry-first	manifest.json>files>raw/c77-runner-netns.txt:flip	ValueError: Corpus SHA differs: raw/c77-runner-netns.txt
+ban-expiry-first	manifest.json>files>raw/c77-runner-ready.json:flip	ValueError: Corpus SHA differs: raw/c77-runner-ready.json
+ban-expiry-first	manifest.json>files>raw/c77-unit-final.txt:flip	ValueError: Corpus SHA differs: raw/c77-unit-final.txt
+ban-expiry-first	manifest.json>files>raw/capture-ready.json:flip	ValueError: Corpus SHA differs: raw/capture-ready.json
+ban-expiry-first	manifest.json>files>raw/captures/readiness/checksums.sha256:flip	ValueError: Corpus SHA differs: raw/captures/readiness/checksums.sha256
+ban-expiry-first	manifest.json>files>raw/captures/readiness/plan.json:flip	ValueError: Corpus SHA differs: raw/captures/readiness/plan.json
+ban-expiry-first	manifest.json>files>raw/captures/readiness/report.json:flip	ValueError: Corpus SHA differs: raw/captures/readiness/report.json
+ban-expiry-first	manifest.json>files>raw/clock-after-first-after.utc:flip	ValueError: Corpus SHA differs: raw/clock-after-first-after.utc
+ban-expiry-first	manifest.json>files>raw/clock-after-first-before.utc:flip	ValueError: Corpus SHA differs: raw/clock-after-first-before.utc
+ban-expiry-first	manifest.json>files>raw/clock-after-first.png:flip	ValueError: Corpus SHA differs: raw/clock-after-first.png
+ban-expiry-first	manifest.json>files>raw/clock-first-after.utc:flip	ValueError: Corpus SHA differs: raw/clock-first-after.utc
+ban-expiry-first	manifest.json>files>raw/clock-first-before.utc:flip	ValueError: Corpus SHA differs: raw/clock-first-before.utc
+ban-expiry-first	manifest.json>files>raw/clock-first.png:flip	ValueError: Corpus SHA differs: raw/clock-first.png
+ban-expiry-first	manifest.json>files>raw/clock-second-after.utc:flip	ValueError: Corpus SHA differs: raw/clock-second-after.utc
+ban-expiry-first	manifest.json>files>raw/clock-second-before.utc:flip	ValueError: Corpus SHA differs: raw/clock-second-before.utc
+ban-expiry-first	manifest.json>files>raw/clock-second.png:flip	ValueError: Corpus SHA differs: raw/clock-second.png
+ban-expiry-first	manifest.json>files>raw/first-terminal.json:flip	ValueError: Corpus SHA differs: raw/first-terminal.json
+ban-expiry-first	manifest.json>files>raw/first.exit:flip	ValueError: Corpus SHA differs: raw/first.exit
+ban-expiry-first	manifest.json>files>raw/first.log:flip	ValueError: Corpus SHA differs: raw/first.log
+ban-expiry-first	manifest.json>files>raw/host-ready-case.json:flip	ValueError: Corpus SHA differs: raw/host-ready-case.json
+ban-expiry-first	manifest.json>files>raw/host-ready-final.json:flip	ValueError: Corpus SHA differs: raw/host-ready-final.json
+ban-expiry-first	manifest.json>files>raw/host-ready.json:flip	ValueError: Corpus SHA differs: raw/host-ready.json
+ban-expiry-first	manifest.json>files>raw/host-terminal-journal.log:flip	ValueError: Corpus SHA differs: raw/host-terminal-journal.log
+ban-expiry-first	manifest.json>files>raw/lab-guest.pcap:flip	ValueError: Corpus SHA differs: raw/lab-guest.pcap
+ban-expiry-first	manifest.json>files>raw/lab-namespace.pcap:flip	ValueError: Corpus SHA differs: raw/lab-namespace.pcap
+ban-expiry-first	manifest.json>files>raw/lab-routes-after-first.json:flip	ValueError: Corpus SHA differs: raw/lab-routes-after-first.json
+ban-expiry-first	manifest.json>files>raw/lab-sockets-after-first.txt:flip	ValueError: Corpus SHA differs: raw/lab-sockets-after-first.txt
+ban-expiry-first	manifest.json>files>raw/lease-ready.json:flip	ValueError: Corpus SHA differs: raw/lease-ready.json
+ban-expiry-first	manifest.json>files>raw/namespace-ready-case.json:flip	ValueError: Corpus SHA differs: raw/namespace-ready-case.json
+ban-expiry-first	manifest.json>files>raw/namespace-ready-final.json:flip	ValueError: Corpus SHA differs: raw/namespace-ready-final.json
+ban-expiry-first	manifest.json>files>raw/namespace-ready.json:flip	ValueError: Corpus SHA differs: raw/namespace-ready.json
+ban-expiry-first	manifest.json>files>raw/namespace-terminal-journal.log:flip	ValueError: Corpus SHA differs: raw/namespace-terminal-journal.log
+ban-expiry-first	manifest.json>files>raw/parent-preflight.json:flip	ValueError: Corpus SHA differs: raw/parent-preflight.json
+ban-expiry-first	manifest.json>files>raw/plan-generation.json:flip	ValueError: Corpus SHA differs: raw/plan-generation.json
+ban-expiry-first	manifest.json>files>raw/plans/guard-protected.json:flip	ValueError: Corpus SHA differs: raw/plans/guard-protected.json
+ban-expiry-first	manifest.json>files>raw/plans/guard-zero.json:flip	ValueError: Corpus SHA differs: raw/plans/guard-zero.json
+ban-expiry-first	manifest.json>files>raw/plans/immediate-probe.json:flip	ValueError: Corpus SHA differs: raw/plans/immediate-probe.json
+ban-expiry-first	manifest.json>files>raw/plans/kick0-probe.json:flip	ValueError: Corpus SHA differs: raw/plans/kick0-probe.json
+ban-expiry-first	manifest.json>files>raw/plans/kick0.json:flip	ValueError: Corpus SHA differs: raw/plans/kick0.json
+ban-expiry-first	manifest.json>files>raw/plans/post-probe.json:flip	ValueError: Corpus SHA differs: raw/plans/post-probe.json
+ban-expiry-first	manifest.json>files>raw/plans/pre-probe.json:flip	ValueError: Corpus SHA differs: raw/plans/pre-probe.json
+ban-expiry-first	manifest.json>files>raw/plans/protected.json:flip	ValueError: Corpus SHA differs: raw/plans/protected.json
+ban-expiry-first	manifest.json>files>raw/plans/readiness.json:flip	ValueError: Corpus SHA differs: raw/plans/readiness.json
+ban-expiry-first	manifest.json>files>raw/plans/seed-protected.json:flip	ValueError: Corpus SHA differs: raw/plans/seed-protected.json
+ban-expiry-first	manifest.json>files>raw/plans/seed-zero.json:flip	ValueError: Corpus SHA differs: raw/plans/seed-zero.json
+ban-expiry-first	manifest.json>files>raw/plans/source-hashes.json:flip	ValueError: Corpus SHA differs: raw/plans/source-hashes.json
+ban-expiry-first	manifest.json>files>raw/plans/tempban.json:flip	ValueError: Corpus SHA differs: raw/plans/tempban.json
+ban-expiry-first	manifest.json>files>raw/preboot.json:flip	ValueError: Corpus SHA differs: raw/preboot.json
+ban-expiry-first	manifest.json>files>raw/primary-syn.pcap:flip	ValueError: Corpus SHA differs: raw/primary-syn.pcap
+ban-expiry-first	manifest.json>files>raw/readiness-generic.json:flip	ValueError: Corpus SHA differs: raw/readiness-generic.json
+ban-expiry-first	manifest.json>files>raw/results-first-c77/ban-clock.json:flip	ValueError: Corpus SHA differs: raw/results-first-c77/ban-clock.json
+ban-expiry-first	manifest.json>files>raw/results-first-c77/guard-protected/plan.json:flip	ValueError: Corpus SHA differs: raw/results-first-c77/guard-protected/plan.json
+ban-expiry-first	manifest.json>files>raw/results-first-c77/guard-protected/report.json:flip	ValueError: Corpus SHA differs: raw/results-first-c77/guard-protected/report.json
+ban-expiry-first	manifest.json>files>raw/results-first-c77/guard-zero/plan.json:flip	ValueError: Corpus SHA differs: raw/results-first-c77/guard-zero/plan.json
+ban-expiry-first	manifest.json>files>raw/results-first-c77/guard-zero/report.json:flip	ValueError: Corpus SHA differs: raw/results-first-c77/guard-zero/report.json
+ban-expiry-first	manifest.json>files>raw/results-first-c77/immediate-probe/plan.json:flip	ValueError: Corpus SHA differs: raw/results-first-c77/immediate-probe/plan.json
+ban-expiry-first	manifest.json>files>raw/results-first-c77/immediate-probe/report.json:flip	ValueError: Corpus SHA differs: raw/results-first-c77/immediate-probe/report.json
+ban-expiry-first	manifest.json>files>raw/results-first-c77/kick0-probe/plan.json:flip	ValueError: Corpus SHA differs: raw/results-first-c77/kick0-probe/plan.json
+ban-expiry-first	manifest.json>files>raw/results-first-c77/kick0-probe/report.json:flip	ValueError: Corpus SHA differs: raw/results-first-c77/kick0-probe/report.json
+ban-expiry-first	manifest.json>files>raw/results-first-c77/kick0/plan.json:flip	ValueError: Corpus SHA differs: raw/results-first-c77/kick0/plan.json
+ban-expiry-first	manifest.json>files>raw/results-first-c77/kick0/report.json:flip	ValueError: Corpus SHA differs: raw/results-first-c77/kick0/report.json
+ban-expiry-first	manifest.json>files>raw/results-first-c77/protected/plan.json:flip	ValueError: Corpus SHA differs: raw/results-first-c77/protected/plan.json
+ban-expiry-first	manifest.json>files>raw/results-first-c77/protected/report.json:flip	ValueError: Corpus SHA differs: raw/results-first-c77/protected/report.json
+ban-expiry-first	manifest.json>files>raw/results-first-c77/seed-protected/plan.json:flip	ValueError: Corpus SHA differs: raw/results-first-c77/seed-protected/plan.json
+ban-expiry-first	manifest.json>files>raw/results-first-c77/seed-protected/report.json:flip	ValueError: Corpus SHA differs: raw/results-first-c77/seed-protected/report.json
+ban-expiry-first	manifest.json>files>raw/results-first-c77/seed-zero/plan.json:flip	ValueError: Corpus SHA differs: raw/results-first-c77/seed-zero/plan.json
+ban-expiry-first	manifest.json>files>raw/results-first-c77/seed-zero/report.json:flip	ValueError: Corpus SHA differs: raw/results-first-c77/seed-zero/report.json
+ban-expiry-first	manifest.json>files>raw/results-first-c77/summary.json:flip	ValueError: Corpus SHA differs: raw/results-first-c77/summary.json
+ban-expiry-first	manifest.json>files>raw/results-first-c77/tempban/plan.json:flip	ValueError: Corpus SHA differs: raw/results-first-c77/tempban/plan.json
+ban-expiry-first	manifest.json>files>raw/results-first-c77/tempban/report.json:flip	ValueError: Corpus SHA differs: raw/results-first-c77/tempban/report.json
+ban-expiry-first	manifest.json>files>raw/results-first/guard-zero/plan.json:flip	ValueError: Corpus SHA differs: raw/results-first/guard-zero/plan.json
+ban-expiry-first	manifest.json>files>raw/results-first/guard-zero/report.json:flip	ValueError: Corpus SHA differs: raw/results-first/guard-zero/report.json
+ban-expiry-first	manifest.json>files>raw/results-first/summary.json:flip	ValueError: Corpus SHA differs: raw/results-first/summary.json
+ban-expiry-first	manifest.json>files>raw/run-first-c77.sh:flip	ValueError: Corpus SHA differs: raw/run-first-c77.sh
+ban-expiry-first	manifest.json>files>raw/run-first.sh:flip	ValueError: Corpus SHA differs: raw/run-first.sh
+ban-expiry-first	manifest.json>files>raw/runtime-asrun.json:flip	ValueError: Corpus SHA differs: raw/runtime-asrun.json
+ban-expiry-first	manifest.json>files>raw/server-ready.png:flip	ValueError: Corpus SHA differs: raw/server-ready.png
+ban-expiry-first	manifest.json>files>sources/asrun-source-freeze.json:flip	ValueError: Corpus SHA differs: sources/asrun-source-freeze.json
+ban-expiry-first	manifest.json>files>sources/dependency-closure.json:flip	ValueError: Corpus SHA differs: sources/dependency-closure.json
+ban-expiry-first	manifest.json>files>sources/protocol/native_account_update_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_account_update_cases.py
+ban-expiry-first	manifest.json>files>sources/protocol/native_alias_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_alias_cases.py
+ban-expiry-first	manifest.json>files>sources/protocol/native_auth_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_auth_cases.py
+ban-expiry-first	manifest.json>files>sources/protocol/native_ban_control_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_ban_control_cases.py
+ban-expiry-first	manifest.json>files>sources/protocol/native_ban_expiry_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_ban_expiry_cases.py
+ban-expiry-first	manifest.json>files>sources/protocol/native_ban_expiry_control.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_ban_expiry_control.py
+ban-expiry-first	manifest.json>files>sources/protocol/native_banner_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_banner_cases.py
+ban-expiry-first	manifest.json>files>sources/protocol/native_control_readiness.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_control_readiness.py
+ban-expiry-first	manifest.json>files>sources/protocol/native_filp.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_filp.py
+ban-expiry-first	manifest.json>files>sources/protocol/native_folder_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_folder_cases.py
+ban-expiry-first	manifest.json>files>sources/protocol/native_framing_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_framing_cases.py
+ban-expiry-first	manifest.json>files>sources/protocol/native_metadata_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_metadata_cases.py
+ban-expiry-first	manifest.json>files>sources/protocol/native_mkdir_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_mkdir_cases.py
+ban-expiry-first	manifest.json>files>sources/protocol/native_news_decode.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_news_decode.py
+ban-expiry-first	manifest.json>files>sources/protocol/native_news_delete_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_news_delete_cases.py
+ban-expiry-first	manifest.json>files>sources/protocol/native_packet_evidence.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_packet_evidence.py
+ban-expiry-first	manifest.json>files>sources/protocol/native_plan.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_plan.py
+ban-expiry-first	manifest.json>files>sources/protocol/native_queue_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_queue_cases.py
+ban-expiry-first	manifest.json>files>sources/protocol/native_resume_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_resume_cases.py
+ban-expiry-first	manifest.json>files>sources/protocol/native_transfer_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_transfer_cases.py
+ban-expiry-first	manifest.json>files>sources/protocol/pcap_tcp.py:flip	ValueError: Corpus SHA differs: sources/protocol/pcap_tcp.py
+ban-expiry-first	manifest.json>files>sources/protocol/protocol_capture.py:flip	ValueError: Corpus SHA differs: sources/protocol/protocol_capture.py
+ban-expiry-first	manifest.json>files>sources/protocol/shx_syscalls.py:flip	ValueError: Corpus SHA differs: sources/protocol/shx_syscalls.py
+ban-expiry-first	manifest.json>files>sources/protocol/test_native_ban_expiry.py:flip	ValueError: Corpus SHA differs: sources/protocol/test_native_ban_expiry.py
+ban-expiry-first	manifest.json>files>sources/protocol/verify_native_account_updates.py:flip	ValueError: Corpus SHA differs: sources/protocol/verify_native_account_updates.py
+ban-expiry-first	manifest.json>files>sources/protocol/verify_native_article_deletion.py:flip	ValueError: Corpus SHA differs: sources/protocol/verify_native_article_deletion.py
+ban-expiry-first	manifest.json>files>sources/protocol/verify_native_auth.py:flip	ValueError: Corpus SHA differs: sources/protocol/verify_native_auth.py
+ban-expiry-first	manifest.json>files>sources/protocol/verify_native_banners.py:flip	ValueError: Corpus SHA differs: sources/protocol/verify_native_banners.py
+ban-expiry-first	manifest.json>files>sources/protocol/verify_native_core.py:flip	ValueError: Corpus SHA differs: sources/protocol/verify_native_core.py
+ban-expiry-first	manifest.json>files>sources/protocol/verify_native_framing.py:flip	ValueError: Corpus SHA differs: sources/protocol/verify_native_framing.py
+ban-expiry-first	manifest.json>files>sources/protocol/verify_native_mkdir.py:flip	ValueError: Corpus SHA differs: sources/protocol/verify_native_mkdir.py
+ban-expiry-first	manifest.json>files>sources/protocol/verify_native_shx.py:flip	ValueError: Corpus SHA differs: sources/protocol/verify_native_shx.py
+ban-expiry-first	manifest.json>files>clock-observations.json:delete-key	ValueError: Corpus inventory differs
+ban-expiry-first	manifest.json>schema:flip	ValueError: Corpus profile or source identity differs
+ban-expiry-first	sources/asrun-source-freeze.json>source_head:flip	ValueError: Frozen as-run source set differs
+ban-expiry-first	sources/dependency-closure.json>hashes>native_account_update_cases.py:flip	ValueError: Frozen source snapshot differs
+ban-expiry-first	raw-freeze.json>files>lab-guest.pcap>source_size_after:inc	ValueError: Guest snapshot was not stable at copy boundary
+ban-expiry-first	raw-freeze.json>snapshot_scope:empty	ValueError: Raw freeze inventory differs
+ban-expiry-first	raw-freeze.json>files>after-repair.png>copied_size:inc	ValueError: Raw source snapshot differs: after-repair.png
+ban-expiry-first	raw-freeze.json>files>app-launch.png>copied_size:inc	ValueError: Raw source snapshot differs: app-launch.png
+ban-expiry-first	raw-freeze.json>files>boot-progress.png>copied_size:inc	ValueError: Raw source snapshot differs: boot-progress.png
+ban-expiry-first	raw-freeze.json>files>boot.png>copied_size:inc	ValueError: Raw source snapshot differs: boot.png
+ban-expiry-first	raw-freeze.json>files>c75-capture-lock-terminal.txt>copied_size:inc	ValueError: Raw source snapshot differs: c75-capture-lock-terminal.txt
+ban-expiry-first	raw-freeze.json>files>c77-first.exit>copied_size:inc	ValueError: Raw source snapshot differs: c77-first.exit
+ban-expiry-first	raw-freeze.json>files>c77-first.log>copied_size:inc	ValueError: Raw source snapshot differs: c77-first.log
+ban-expiry-first	raw-freeze.json>files>c77-runner-netns.txt>copied_size:inc	ValueError: Raw source snapshot differs: c77-runner-netns.txt
+ban-expiry-first	raw/c77-runner-ready.json>utc:flip	ValueError: Raw source snapshot differs: c77-runner-ready.json
+ban-expiry-first	raw-freeze.json>files>c77-unit-final.txt>copied_size:inc	ValueError: Raw source snapshot differs: c77-unit-final.txt
+ban-expiry-first	raw/capture-ready.json>source_a7_sha256:flip	ValueError: Raw source snapshot differs: capture-ready.json
+ban-expiry-first	raw-freeze.json>files>captures/readiness/checksums.sha256>copied_size:inc	ValueError: Raw source snapshot differs: captures/readiness/checksums.sha256
+ban-expiry-first	raw/captures/readiness/plan.json>schema_version:inc	ValueError: Raw source snapshot differs: captures/readiness/plan.json
+ban-expiry-first	raw/captures/readiness/report.json>frames>2>unconsumed_hex:flip	ValueError: Raw source snapshot differs: captures/readiness/report.json
+ban-expiry-first	raw-freeze.json>files>clock-after-first-after.utc>copied_size:inc	ValueError: Raw source snapshot differs: clock-after-first-after.utc
+ban-expiry-first	raw-freeze.json>files>clock-after-first-before.utc>copied_size:inc	ValueError: Raw source snapshot differs: clock-after-first-before.utc
+ban-expiry-first	raw-freeze.json>files>clock-after-first.png>copied_size:inc	ValueError: Raw source snapshot differs: clock-after-first.png
+ban-expiry-first	raw-freeze.json>files>clock-first-after.utc>copied_size:inc	ValueError: Raw source snapshot differs: clock-first-after.utc
+ban-expiry-first	raw-freeze.json>files>clock-first-before.utc>copied_size:inc	ValueError: Raw source snapshot differs: clock-first-before.utc
+ban-expiry-first	raw-freeze.json>files>clock-first.png>copied_size:inc	ValueError: Raw source snapshot differs: clock-first.png
+ban-expiry-first	raw-freeze.json>files>clock-second-after.utc>copied_size:inc	ValueError: Raw source snapshot differs: clock-second-after.utc
+ban-expiry-first	raw-freeze.json>files>clock-second-before.utc>copied_size:inc	ValueError: Raw source snapshot differs: clock-second-before.utc
+ban-expiry-first	raw-freeze.json>files>clock-second.png>copied_size:inc	ValueError: Raw source snapshot differs: clock-second.png
+ban-expiry-first	raw/first-terminal.json>utc:flip	ValueError: Raw source snapshot differs: first-terminal.json
+ban-expiry-first	raw-freeze.json>files>first.exit>copied_size:inc	ValueError: Raw source snapshot differs: first.exit
+ban-expiry-first	raw-freeze.json>files>first.log>copied_size:inc	ValueError: Raw source snapshot differs: first.log
+ban-expiry-first	raw/host-ready-case.json>utc:flip	ValueError: Raw source snapshot differs: host-ready-case.json
+ban-expiry-first	raw/host-ready-final.json>utc:flip	ValueError: Raw source snapshot differs: host-ready-final.json
+ban-expiry-first	raw/host-ready.json>utc:flip	ValueError: Raw source snapshot differs: host-ready.json
+ban-expiry-first	raw-freeze.json>files>host-terminal-journal.log>copied_size:inc	ValueError: Raw source snapshot differs: host-terminal-journal.log
+ban-expiry-first	raw-freeze.json>files>lab-guest.pcap>copied_size:inc	ValueError: Raw source snapshot differs: lab-guest.pcap
+ban-expiry-first	raw-freeze.json>files>lab-namespace.pcap>copied_size:inc	ValueError: Raw source snapshot differs: lab-namespace.pcap
+ban-expiry-first	raw-freeze.json>files>lab-routes-after-first.json>copied_size:inc	ValueError: Raw source snapshot differs: lab-routes-after-first.json
+ban-expiry-first	raw-freeze.json>files>lab-sockets-after-first.txt>copied_size:inc	ValueError: Raw source snapshot differs: lab-sockets-after-first.txt
+ban-expiry-first	raw/lease-ready.json>unit:flip	ValueError: Raw source snapshot differs: lease-ready.json
+ban-expiry-first	raw/namespace-ready-case.json>utc:flip	ValueError: Raw source snapshot differs: namespace-ready-case.json
+ban-expiry-first	raw/namespace-ready-final.json>utc:flip	ValueError: Raw source snapshot differs: namespace-ready-final.json
+ban-expiry-first	raw/namespace-ready.json>utc:flip	ValueError: Raw source snapshot differs: namespace-ready.json
+ban-expiry-first	raw-freeze.json>files>namespace-terminal-journal.log>copied_size:inc	ValueError: Raw source snapshot differs: namespace-terminal-journal.log
+ban-expiry-first	raw/parent-preflight.json>recorded_at_utc:flip	ValueError: Raw source snapshot differs: parent-preflight.json
+ban-expiry-first	raw/plan-generation.json>readiness:flip	ValueError: Raw source snapshot differs: plan-generation.json
+ban-expiry-first	raw/plans/guard-protected.json>schema_version:inc	ValueError: Raw source snapshot differs: plans/guard-protected.json
+ban-expiry-first	raw/plans/guard-zero.json>schema_version:inc	ValueError: Raw source snapshot differs: plans/guard-zero.json
+ban-expiry-first	raw/plans/immediate-probe.json>schema_version:inc	ValueError: Raw source snapshot differs: plans/immediate-probe.json
+ban-expiry-first	raw/plans/kick0-probe.json>schema_version:inc	ValueError: Raw source snapshot differs: plans/kick0-probe.json
+ban-expiry-first	raw/plans/kick0.json>schema_version:inc	ValueError: Raw source snapshot differs: plans/kick0.json
+ban-expiry-first	raw/plans/post-probe.json>schema_version:inc	ValueError: Raw source snapshot differs: plans/post-probe.json
+ban-expiry-first	raw/plans/pre-probe.json>schema_version:inc	ValueError: Raw source snapshot differs: plans/pre-probe.json
+ban-expiry-first	raw/plans/protected.json>schema_version:inc	ValueError: Raw source snapshot differs: plans/protected.json
+ban-expiry-first	raw/plans/readiness.json>schema_version:inc	ValueError: Raw source snapshot differs: plans/readiness.json
+ban-expiry-first	raw/plans/seed-protected.json>schema_version:inc	ValueError: Raw source snapshot differs: plans/seed-protected.json
+ban-expiry-first	raw/plans/seed-zero.json>schema_version:inc	ValueError: Raw source snapshot differs: plans/seed-zero.json
+ban-expiry-first	raw/plans/source-hashes.json>readiness:flip	ValueError: Raw source snapshot differs: plans/source-hashes.json
+ban-expiry-first	raw/plans/tempban.json>schema_version:inc	ValueError: Raw source snapshot differs: plans/tempban.json
+ban-expiry-first	raw/preboot.json>scope:flip	ValueError: Raw source snapshot differs: preboot.json
+ban-expiry-first	raw-freeze.json>files>primary-syn.pcap>copied_size:inc	ValueError: Raw source snapshot differs: primary-syn.pcap
+ban-expiry-first	raw-freeze.json>files>readiness-generic.json>copied_size:inc	ValueError: Raw source snapshot differs: readiness-generic.json
+ban-expiry-first	raw/results-first-c77/ban-clock.json>request_utc:flip	ValueError: Raw source snapshot differs: results-first-c77/ban-clock.json
+ban-expiry-first	raw/results-first-c77/guard-protected/plan.json>schema_version:inc	ValueError: Raw source snapshot differs: results-first-c77/guard-protected/plan.json
+ban-expiry-first	raw/results-first-c77/guard-protected/report.json>schema_version:inc	ValueError: Raw source snapshot differs: results-first-c77/guard-protected/report.json
+ban-expiry-first	raw/results-first-c77/guard-zero/plan.json>schema_version:inc	ValueError: Raw source snapshot differs: results-first-c77/guard-zero/plan.json
+ban-expiry-first	raw/results-first-c77/guard-zero/report.json>schema_version:inc	ValueError: Raw source snapshot differs: results-first-c77/guard-zero/report.json
+ban-expiry-first	raw/results-first-c77/immediate-probe/plan.json>schema_version:inc	ValueError: Raw source snapshot differs: results-first-c77/immediate-probe/plan.json
+ban-expiry-first	raw/results-first-c77/immediate-probe/report.json>schema_version:inc	ValueError: Raw source snapshot differs: results-first-c77/immediate-probe/report.json
+ban-expiry-first	raw/results-first-c77/kick0-probe/plan.json>schema_version:inc	ValueError: Raw source snapshot differs: results-first-c77/kick0-probe/plan.json
+ban-expiry-first	raw/results-first-c77/kick0-probe/report.json>schema_version:inc	ValueError: Raw source snapshot differs: results-first-c77/kick0-probe/report.json
+ban-expiry-first	raw/results-first-c77/kick0/plan.json>schema_version:inc	ValueError: Raw source snapshot differs: results-first-c77/kick0/plan.json
+ban-expiry-first	raw/results-first-c77/kick0/report.json>events>6>event:flip	ValueError: Raw source snapshot differs: results-first-c77/kick0/report.json
+ban-expiry-first	raw/results-first-c77/protected/plan.json>schema_version:inc	ValueError: Raw source snapshot differs: results-first-c77/protected/plan.json
+ban-expiry-first	raw/results-first-c77/protected/report.json>events>6>event:flip	ValueError: Raw source snapshot differs: results-first-c77/protected/report.json
+ban-expiry-first	raw/results-first-c77/seed-protected/plan.json>schema_version:inc	ValueError: Raw source snapshot differs: results-first-c77/seed-protected/plan.json
+ban-expiry-first	raw/results-first-c77/seed-protected/report.json>schema_version:inc	ValueError: Raw source snapshot differs: results-first-c77/seed-protected/report.json
+ban-expiry-first	raw/results-first-c77/seed-zero/plan.json>schema_version:inc	ValueError: Raw source snapshot differs: results-first-c77/seed-zero/plan.json
+ban-expiry-first	raw/results-first-c77/seed-zero/report.json>schema_version:inc	ValueError: Raw source snapshot differs: results-first-c77/seed-zero/report.json
+ban-expiry-first	raw/results-first-c77/summary.json>phase:flip	ValueError: Raw source snapshot differs: results-first-c77/summary.json
+ban-expiry-first	raw/results-first-c77/tempban/plan.json>schema_version:inc	ValueError: Raw source snapshot differs: results-first-c77/tempban/plan.json
+ban-expiry-first	raw/results-first-c77/tempban/report.json>events>6>event:flip	ValueError: Raw source snapshot differs: results-first-c77/tempban/report.json
+ban-expiry-first	raw/results-first/guard-zero/plan.json>schema_version:inc	ValueError: Raw source snapshot differs: results-first/guard-zero/plan.json
+ban-expiry-first	raw/results-first/guard-zero/report.json>schema_version:inc	ValueError: Raw source snapshot differs: results-first/guard-zero/report.json
+ban-expiry-first	raw/results-first/summary.json>phase:flip	ValueError: Raw source snapshot differs: results-first/summary.json
+ban-expiry-first	raw-freeze.json>files>run-first-c77.sh>copied_size:inc	ValueError: Raw source snapshot differs: run-first-c77.sh
+ban-expiry-first	raw-freeze.json>files>run-first.sh>copied_size:inc	ValueError: Raw source snapshot differs: run-first.sh
+ban-expiry-first	raw/runtime-asrun.json>source_a7_sha256:flip	ValueError: Raw source snapshot differs: runtime-asrun.json
+ban-expiry-first	raw-freeze.json>files>server-ready.png>copied_size:inc	ValueError: Raw source snapshot differs: server-ready.png
+ban-expiry-first	preparation/preflight.json>files>server-data>sha256:flip	ValueError: Stopped preparation source or baseline differs
+ban-expiry-first	clock-observations.json>method:empty	ValueError: Visual guest clock transcription differs
+ban-expiry-first	sources/dependency-closure.json>hashes>native_ban_expiry_cases.py:delete-key;raw/results-first-c77/seed-zero/plan.json>schema_version:inc	KeyError: 'native_ban_expiry_cases.py'
+ban-expiry-first	manifest.json>source_protocol_head:delete-key;manifest.json>files>raw/plan-generation.json:flip	KeyError: 'source_protocol_head'
+ban-expiry-first	manifest.json>files>operator/controller-units-journal.log:flip;manifest.json>files>raw/first.log:flip	ValueError: Corpus SHA differs: operator/controller-units-journal.log
+ban-expiry-first	manifest.json>files>raw/lab-namespace.pcap:flip;manifest.json>files>raw/lab-routes-after-first.json:flip	ValueError: Corpus SHA differs: raw/lab-namespace.pcap
+ban-expiry-first	manifest.json>files>raw/lease-ready.json:flip;raw/plans/protected.json>schema_version:inc	ValueError: Corpus SHA differs: raw/lease-ready.json
+ban-expiry-first	manifest.json>files>raw/plans/seed-protected.json:flip;raw/results-first-c77/guard-zero/plan.json>schema_version:inc	ValueError: Corpus SHA differs: raw/plans/seed-protected.json
+ban-expiry-first	manifest.json>files>sources/protocol/native_account_update_cases.py:flip;manifest.json>files>sources/protocol/native_resume_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_account_update_cases.py
+ban-expiry-first	manifest.json>files>sources/protocol/native_auth_cases.py:flip;raw-freeze.json>files>run-first-c77.sh>copied_size:inc	ValueError: Corpus SHA differs: sources/protocol/native_auth_cases.py
+ban-expiry-first	raw-freeze.json>files>c77-first.log>copied_size:inc;raw-freeze.json>files>primary-syn.pcap>copied_size:inc	ValueError: Raw source snapshot differs: c77-first.log
+ban-expiry-first	raw-freeze.json>files>clock-after-first-after.utc>copied_size:inc;raw-freeze.json>files>clock-first-after.utc>copied_size:inc	ValueError: Raw source snapshot differs: clock-after-first-after.utc
+ban-expiry-later		ok 37202e50d476d91a
+ban-expiry-later	raw/post/clock-witness.json>screenshot:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-ban-expiry-later-01/raw/post/c
+ban-expiry-later	raw/pre/clock-witness.json>screenshot:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-ban-expiry-later-01/raw/pre/cl
+ban-expiry-later	raw/post/clock-witness.json>post_probe>screenshot:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-ban-expiry-later-01/raw/post/c
+ban-expiry-later	raw/post/clock-witness.json>screenshot:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-ban-expiry-later-01/raw/post'
+ban-expiry-later	raw/pre/clock-witness.json>screenshot:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-ban-expiry-later-01/raw/pre'
+ban-expiry-later	raw/post/clock-witness.json>post_probe>screenshot:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-ban-expiry-later-01/raw/post'
+ban-expiry-later	raw/post/results/post-probe/report.json>events>0>action:delete-key	KeyError: 'action'
+ban-expiry-later	raw/post/terminal.json>bridge_pids_absent:delete-key	KeyError: 'bridge_pids_absent'
+ban-expiry-later	raw/post/capture-ready.json>managed_lock>busy_exit:delete-key	KeyError: 'busy_exit'
+ban-expiry-later	raw/post/results/summary.json>capture_receipt_sha256:delete-key	KeyError: 'capture_receipt_sha256'
+ban-expiry-later	raw/post/results/summary.json>cases:delete-key	KeyError: 'cases'
+ban-expiry-later	raw/post/parent-post-acceptance.json>cleanup_not_started:delete-key	KeyError: 'cleanup_not_started'
+ban-expiry-later	manifest.json>cleanup_sha256:delete-key	KeyError: 'cleanup_sha256'
+ban-expiry-later	raw/post/parent-guard-acceptance.json>completed_actions:delete-key	KeyError: 'completed_actions'
+ban-expiry-later	raw/post/results/post-probe/report.json>events>0>connection:delete-key	KeyError: 'connection'
+ban-expiry-later	raw/post/parent-post-acceptance.json>connections:delete-key	KeyError: 'connections'
+ban-expiry-later	raw/post/capture-ready.json>deadline_utc:delete-key	KeyError: 'deadline_utc'
+ban-expiry-later	raw/post/parent-guard-acceptance.json>delete_not_started:delete-key	KeyError: 'delete_not_started'
+ban-expiry-later	raw/post/terminal.json>emulator_absent:delete-key	KeyError: 'emulator_absent'
+ban-expiry-later	raw/post/capture-ready.json>emulator_netns_inode:delete-key	KeyError: 'emulator_netns_inode'
+ban-expiry-later	raw/post/capture-ready.json>emulator_pid:delete-key	KeyError: 'emulator_pid'
+ban-expiry-later	raw/post/stopped-read-gate.json>emulator_pid_absent:delete-key	KeyError: 'emulator_pid_absent'
+ban-expiry-later	raw/post/capture-ready.json>emulator_sha256:delete-key	KeyError: 'emulator_sha256'
+ban-expiry-later	raw/post/capture-ready.json>emulator_starttime:delete-key	KeyError: 'emulator_starttime'
+ban-expiry-later	raw/post/capture-ready.json>epoch_started_utc:delete-key	KeyError: 'epoch_started_utc'
+ban-expiry-later	raw/post/results/post-probe/report.json>error:delete-key	KeyError: 'error'
+ban-expiry-later	raw/post/results/post-probe/report.json>events>0>event:delete-key	KeyError: 'event'
+ban-expiry-later	raw/post/results/post-probe/report.json>events:delete-key	KeyError: 'events'
+ban-expiry-later	manifest.json>exact_1800_boundary_proven:delete-key	KeyError: 'exact_1800_boundary_proven'
+ban-expiry-later	raw/post/parent-post-acceptance.json>exact_native1800_boundary_measured:delete-key	KeyError: 'exact_native1800_boundary_measured'
+ban-expiry-later	raw/post/capture-ready.json>managed_lock>fd:delete-key	KeyError: 'fd'
+ban-expiry-later	manifest.json>files:delete-key	KeyError: 'files'
+ban-expiry-later	manifest.json>first_corpus_manifest_sha256:delete-key	KeyError: 'first_corpus_manifest_sha256'
+ban-expiry-later	manifest.json>first_corpus_sha256s_sha256:delete-key	KeyError: 'first_corpus_sha256s_sha256'
+ban-expiry-later	raw/post/results/post-probe/report.json>frames:delete-key	KeyError: 'frames'
+ban-expiry-later	manifest.json>full_file_baseline:delete-key	KeyError: 'full_file_baseline'
+ban-expiry-later	raw/post/capture-ready.json>guest_pcap:delete-key	KeyError: 'guest_pcap'
+ban-expiry-later	raw/post/source-freeze.json>hashes:delete-key	KeyError: 'hashes'
+ban-expiry-later	raw/post/results/post-probe/report.json>events>1>hex:delete-key	KeyError: 'hex'
+ban-expiry-later	raw/post/capture-ready.json>managed_capture>host:delete-key	KeyError: 'host'
+ban-expiry-later	raw/post/clock-witness.json>host_after_utc:delete-key	KeyError: 'host_after_utc'
+ban-expiry-later	raw/post/clock-witness.json>host_before_utc:delete-key	KeyError: 'host_before_utc'
+ban-expiry-later	raw/post/results/summary.json>timing_gate>host_elapsed_seconds:delete-key	KeyError: 'host_elapsed_seconds'
+ban-expiry-later	raw/pre/capture-ready.json>host_recorder_pid:delete-key	KeyError: 'host_recorder_pid'
+ban-expiry-later	raw/post/results/summary.json>timing_gate>host_window:delete-key	KeyError: 'host_window'
+ban-expiry-later	raw/post/links.json>0>ifname:delete-key	KeyError: 'ifname'
+ban-expiry-later	raw/post/stopped-read-gate.json>image_fd_owners:delete-key	KeyError: 'image_fd_owners'
+ban-expiry-later	raw/post/stopped-read-gate.json>image_inode:delete-key	KeyError: 'image_inode'
+ban-expiry-later	manifest.json>immutable_base_sha256:delete-key	KeyError: 'immutable_base_sha256'
+ban-expiry-later	raw/post/capture-ready.json>managed_capture:delete-key	KeyError: 'managed_capture'
+ban-expiry-later	raw/post/capture-ready.json>managed_lock:delete-key	KeyError: 'managed_lock'
+ban-expiry-later	manifest.json:delete-key	KeyError: 'manifest.json'
+ban-expiry-later	raw/post/parent-post-acceptance.json>missed_pre_window:delete-key	KeyError: 'missed_pre_window'
+ban-expiry-later	raw/post/capture-ready.json>managed_capture>namespace:delete-key	KeyError: 'namespace'
+ban-expiry-later	raw/post/terminal.json>namespace_pcap:delete-key	KeyError: 'namespace_pcap'
+ban-expiry-later	raw/pre/capture-ready.json>namespace_recorder_pid:delete-key	KeyError: 'namespace_recorder_pid'
+ban-expiry-later	raw/post/source-freeze.json>hashes>native_ban_expiry_cleanup.py:delete-key	KeyError: 'native_ban_expiry_cleanup.py'
+ban-expiry-later	raw/post/source-freeze.json>hashes>native_ban_expiry_control.py:delete-key	KeyError: 'native_ban_expiry_control.py'
+ban-expiry-later	raw/post/results/summary.json>timing_gate>native_getdatetime_seconds_proven:delete-key	KeyError: 'native_getdatetime_seconds_proven'
+ban-expiry-later	raw/post/capture-ready.json>ns_routes:delete-key	KeyError: 'ns_routes'
+ban-expiry-later	raw/post/results/post-probe/report.json>oracle_sha256:delete-key	KeyError: 'oracle_sha256'
+ban-expiry-later	raw/post/parent-guard-acceptance.json>original_accounts_not_selected:delete-key	KeyError: 'original_accounts_not_selected'
+ban-expiry-later	raw/post/capture-ready.json>owned_working_image:delete-key	KeyError: 'owned_working_image'
+ban-expiry-later	raw/post/capture-ready.json>owned_working_image_inode:delete-key	KeyError: 'owned_working_image_inode'
+ban-expiry-later	raw/post/results/summary.json>phase:delete-key	KeyError: 'phase'
+ban-expiry-later	raw/pre/host-ready.json>pid:delete-key	KeyError: 'pid'
+ban-expiry-later	manifest.json>post_controller_sha256:delete-key	KeyError: 'post_controller_sha256'
+ban-expiry-later	raw/post/clock-witness.json>post_probe:delete-key	KeyError: 'post_probe'
+ban-expiry-later	manifest.json>post_source_protocol_head:delete-key	KeyError: 'post_source_protocol_head'
+ban-expiry-later	manifest.json>pre_controller_sha256:delete-key	KeyError: 'pre_controller_sha256'
+ban-expiry-later	manifest.json>pre_window:delete-key	KeyError: 'pre_window'
+ban-expiry-later	raw/post/results/summary.json>preprobe_baseline:delete-key	KeyError: 'preprobe_baseline'
+ban-expiry-later	raw/post/terminal.json>primary_pcap:delete-key	KeyError: 'primary_pcap'
+ban-expiry-later	raw/post/capture-ready.json>primary_syn_count:delete-key	KeyError: 'primary_syn_count'
+ban-expiry-later	manifest.json>profile:delete-key	KeyError: 'profile'
+ban-expiry-later	raw/post/results/summary.json>readiness_report_sha256:delete-key	KeyError: 'readiness_report_sha256'
+ban-expiry-later	raw/post/results/post-probe/report.json>recorded_at_utc:delete-key	KeyError: 'recorded_at_utc'
+ban-expiry-later	raw/post/terminal.json>retirement:delete-key	KeyError: 'retirement'
+ban-expiry-later	manifest.json>rom_sha256:delete-key	KeyError: 'rom_sha256'
+ban-expiry-later	manifest.json>schema:delete-key	KeyError: 'schema'
+ban-expiry-later	raw/post/clock-witness.json>screenshot:delete-key	KeyError: 'screenshot'
+ban-expiry-later	raw/post/clock-witness.json>post_probe>server_log_observation:delete-key	KeyError: 'server_log_observation'
+ban-expiry-later	raw/post/clock-witness.json>sha256:delete-key	KeyError: 'sha256'
+ban-expiry-later	raw/post/terminal.json>sheep_wrapper_absent:delete-key	KeyError: 'sheep_wrapper_absent'
+ban-expiry-later	raw/post/source-freeze.json>source_head_at_freeze:delete-key	KeyError: 'source_head_at_freeze'
+ban-expiry-later	raw/post/stopped-read-gate.json>source_start_ticks:delete-key	KeyError: 'source_start_ticks'
+ban-expiry-later	raw/post/results/post-probe/report.json>started_at_utc:delete-key	KeyError: 'started_at_utc'
+ban-expiry-later	raw/post/parent-guard-acceptance.json>status:delete-key	KeyError: 'status'
+ban-expiry-later	raw/post/terminal.json>stopped_image_inode:delete-key	KeyError: 'stopped_image_inode'
+ban-expiry-later	raw/post/results/post-probe/report.json>streams:delete-key	KeyError: 'streams'
+ban-expiry-later	raw/post/results/summary.json>timing_gate:delete-key	KeyError: 'timing_gate'
+ban-expiry-later	raw/post/clock-witness.json>ui_action:delete-key	KeyError: 'ui_action'
+ban-expiry-later	raw/post/capture-ready.json>managed_lock>unit:delete-key	KeyError: 'unit'
+ban-expiry-later	raw/post/terminal.json>utc:delete-key	KeyError: 'utc'
+ban-expiry-later	raw/post/clock-witness.json>visible_guest_menubar_clock:delete-key	KeyError: 'visible_guest_menubar_clock'
+ban-expiry-later	manifest.json>working_sha256:delete-key	KeyError: 'working_sha256'
+ban-expiry-later	raw/post/cleanup-delete/report.json>schema_version:inc	ValueError: Checksum mismatch: report.json
+ban-expiry-later	raw/post/results/post-probe/report.json>events>4>action:inc	ValueError: Completed frame read has incomplete bytes
+ban-expiry-later	raw/post/postflight/plan.json>schema_version:inc	ValueError: Control-only postflight source differs
+ban-expiry-later	manifest.json>files>raw/post/app-quit-after.utc:flip	ValueError: Corpus SHA differs: raw/post/app-quit-after.utc
+ban-expiry-later	manifest.json>files>raw/post/app-quit-before.utc:flip	ValueError: Corpus SHA differs: raw/post/app-quit-before.utc
+ban-expiry-later	manifest.json>files>raw/post/app-quit-response.png:flip	ValueError: Corpus SHA differs: raw/post/app-quit-response.png
+ban-expiry-later	manifest.json>files>raw/post/apple-menu.png:flip	ValueError: Corpus SHA differs: raw/post/apple-menu.png
+ban-expiry-later	manifest.json>files>raw/post/bridge-terminal-units.txt:flip	ValueError: Corpus SHA differs: raw/post/bridge-terminal-units.txt
+ban-expiry-later	manifest.json>files>raw/post/c81-terminal-units.txt:flip	ValueError: Corpus SHA differs: raw/post/c81-terminal-units.txt
+ban-expiry-later	manifest.json>files>raw/post/capture-ready.json:flip	ValueError: Corpus SHA differs: raw/post/capture-ready.json
+ban-expiry-later	manifest.json>files>raw/post/cleanup-delete-plan/plan.json:flip	ValueError: Corpus SHA differs: raw/post/cleanup-delete-plan/plan.json
+ban-expiry-later	manifest.json>files>raw/post/cleanup-delete/checksums.sha256:flip	ValueError: Corpus SHA differs: raw/post/cleanup-delete/checksums.sha256
+ban-expiry-later	manifest.json>files>raw/post/cleanup-delete/plan.json:flip	ValueError: Corpus SHA differs: raw/post/cleanup-delete/plan.json
+ban-expiry-later	manifest.json>files>raw/post/cleanup-delete/report.json:flip	ValueError: Corpus SHA differs: raw/post/cleanup-delete/report.json
+ban-expiry-later	manifest.json>files>raw/post/cleanup-guard-plan/plan.json:flip	ValueError: Corpus SHA differs: raw/post/cleanup-guard-plan/plan.json
+ban-expiry-later	manifest.json>files>raw/post/cleanup-guard/checksums.sha256:flip	ValueError: Corpus SHA differs: raw/post/cleanup-guard/checksums.sha256
+ban-expiry-later	manifest.json>files>raw/post/cleanup-guard/plan.json:flip	ValueError: Corpus SHA differs: raw/post/cleanup-guard/plan.json
+ban-expiry-later	manifest.json>files>raw/post/cleanup-guard/report.json:flip	ValueError: Corpus SHA differs: raw/post/cleanup-guard/report.json
+ban-expiry-later	manifest.json>files>raw/post/cleanup-source.sha256:flip	ValueError: Corpus SHA differs: raw/post/cleanup-source.sha256
+ban-expiry-later	manifest.json>files>raw/post/clock-after-probe-after.utc:flip	ValueError: Corpus SHA differs: raw/post/clock-after-probe-after.utc
+ban-expiry-later	manifest.json>files>raw/post/clock-after-probe-before.utc:flip	ValueError: Corpus SHA differs: raw/post/clock-after-probe-before.utc
+ban-expiry-later	manifest.json>files>raw/post/clock-after-probe.png:flip	ValueError: Corpus SHA differs: raw/post/clock-after-probe.png
+ban-expiry-later	manifest.json>files>raw/post/clock-after.utc:flip	ValueError: Corpus SHA differs: raw/post/clock-after.utc
+ban-expiry-later	manifest.json>files>raw/post/clock-before.utc:flip	ValueError: Corpus SHA differs: raw/post/clock-before.utc
+ban-expiry-later	manifest.json>files>raw/post/clock-post-ready.png:flip	ValueError: Corpus SHA differs: raw/post/clock-post-ready.png
+ban-expiry-later	manifest.json>files>raw/post/clock-witness.json:flip	ValueError: Corpus SHA differs: raw/post/clock-witness.json
+ban-expiry-later	manifest.json>files>raw/post/controller-launch-unit.txt:flip	ValueError: Corpus SHA differs: raw/post/controller-launch-unit.txt
+ban-expiry-later	manifest.json>files>raw/post/controller-source-current.sha256:flip	ValueError: Corpus SHA differs: raw/post/controller-source-current.sha256
+ban-expiry-later	manifest.json>files>raw/post/delete-final-unit.txt:flip	ValueError: Corpus SHA differs: raw/post/delete-final-unit.txt
+ban-expiry-later	manifest.json>files>raw/post/delete-journal.log:flip	ValueError: Corpus SHA differs: raw/post/delete-journal.log
+ban-expiry-later	manifest.json>files>raw/post/delete-launch-after.utc:flip	ValueError: Corpus SHA differs: raw/post/delete-launch-after.utc
+ban-expiry-later	manifest.json>files>raw/post/delete-launch-before.utc:flip	ValueError: Corpus SHA differs: raw/post/delete-launch-before.utc
+ban-expiry-later	manifest.json>files>raw/post/epoch-start.utc:flip	ValueError: Corpus SHA differs: raw/post/epoch-start.utc
+ban-expiry-later	manifest.json>files>raw/post/guard-final-unit.txt:flip	ValueError: Corpus SHA differs: raw/post/guard-final-unit.txt
+ban-expiry-later	manifest.json>files>raw/post/guard-journal.log:flip	ValueError: Corpus SHA differs: raw/post/guard-journal.log
+ban-expiry-later	manifest.json>files>raw/post/guard-launch-after.utc:flip	ValueError: Corpus SHA differs: raw/post/guard-launch-after.utc
+ban-expiry-later	manifest.json>files>raw/post/guard-launch-before.utc:flip	ValueError: Corpus SHA differs: raw/post/guard-launch-before.utc
+ban-expiry-later	manifest.json>files>raw/post/guard-launch-unit.txt:flip	ValueError: Corpus SHA differs: raw/post/guard-launch-unit.txt
+ban-expiry-later	manifest.json>files>raw/post/guard-pcap-prefix.json:flip	ValueError: Corpus SHA differs: raw/post/guard-pcap-prefix.json
+ban-expiry-later	manifest.json>files>raw/post/guest-cumulative-prefix.pcap:flip	ValueError: Corpus SHA differs: raw/post/guest-cumulative-prefix.pcap
+ban-expiry-later	manifest.json>files>raw/post/guest-through-guard-prefix.pcap:flip	ValueError: Corpus SHA differs: raw/post/guest-through-guard-prefix.pcap
+ban-expiry-later	manifest.json>files>raw/post/host-ready.json:flip	ValueError: Corpus SHA differs: raw/post/host-ready.json
+ban-expiry-later	manifest.json>files>raw/post/host-terminal-journal.log:flip	ValueError: Corpus SHA differs: raw/post/host-terminal-journal.log
+ban-expiry-later	manifest.json>files>raw/post/lab-guest-final.pcap:flip	ValueError: Corpus SHA differs: raw/post/lab-guest-final.pcap
+ban-expiry-later	manifest.json>files>raw/post/lab-namespace.pcap:flip	ValueError: Corpus SHA differs: raw/post/lab-namespace.pcap
+ban-expiry-later	manifest.json>files>raw/post/lab-terminal-units.txt:flip	ValueError: Corpus SHA differs: raw/post/lab-terminal-units.txt
+ban-expiry-later	manifest.json>files>raw/post/launch-after.utc:flip	ValueError: Corpus SHA differs: raw/post/launch-after.utc
+ban-expiry-later	manifest.json>files>raw/post/launch-before.utc:flip	ValueError: Corpus SHA differs: raw/post/launch-before.utc
+ban-expiry-later	manifest.json>files>raw/post/links.json:flip	ValueError: Corpus SHA differs: raw/post/links.json
+ban-expiry-later	manifest.json>files>raw/post/namespace-current-prefix.pcap:flip	ValueError: Corpus SHA differs: raw/post/namespace-current-prefix.pcap
+ban-expiry-later	manifest.json>files>raw/post/namespace-ready.json:flip	ValueError: Corpus SHA differs: raw/post/namespace-ready.json
+ban-expiry-later	manifest.json>files>raw/post/namespace-terminal-journal.log:flip	ValueError: Corpus SHA differs: raw/post/namespace-terminal-journal.log
+ban-expiry-later	manifest.json>files>raw/post/namespace-through-guard-prefix.pcap:flip	ValueError: Corpus SHA differs: raw/post/namespace-through-guard-prefix.pcap
+ban-expiry-later	manifest.json>files>raw/post/parent-guard-acceptance.json:flip	ValueError: Corpus SHA differs: raw/post/parent-guard-acceptance.json
+ban-expiry-later	manifest.json>files>raw/post/parent-post-acceptance.json:flip	ValueError: Corpus SHA differs: raw/post/parent-post-acceptance.json
+ban-expiry-later	manifest.json>files>raw/post/parent-preflight.json:flip	ValueError: Corpus SHA differs: raw/post/parent-preflight.json
+ban-expiry-later	manifest.json>files>raw/post/pcap-prefix-snapshot.json:flip	ValueError: Corpus SHA differs: raw/post/pcap-prefix-snapshot.json
+ban-expiry-later	manifest.json>files>raw/post/post-final-unit.txt:flip	ValueError: Corpus SHA differs: raw/post/post-final-unit.txt
+ban-expiry-later	manifest.json>files>raw/post/post-journal.log:flip	ValueError: Corpus SHA differs: raw/post/post-journal.log
+ban-expiry-later	manifest.json>files>raw/post/postflight-final-unit.txt:flip	ValueError: Corpus SHA differs: raw/post/postflight-final-unit.txt
+ban-expiry-later	manifest.json>files>raw/post/postflight-journal.log:flip	ValueError: Corpus SHA differs: raw/post/postflight-journal.log
+ban-expiry-later	manifest.json>files>raw/post/postflight-launch-after.utc:flip	ValueError: Corpus SHA differs: raw/post/postflight-launch-after.utc
+ban-expiry-later	manifest.json>files>raw/post/postflight-launch-before.utc:flip	ValueError: Corpus SHA differs: raw/post/postflight-launch-before.utc
+ban-expiry-later	manifest.json>files>raw/post/postflight/checksums.sha256:flip	ValueError: Corpus SHA differs: raw/post/postflight/checksums.sha256
+ban-expiry-later	manifest.json>files>raw/post/postflight/plan.json:flip	ValueError: Corpus SHA differs: raw/post/postflight/plan.json
+ban-expiry-later	manifest.json>files>raw/post/postflight/report.json:flip	ValueError: Corpus SHA differs: raw/post/postflight/report.json
+ban-expiry-later	manifest.json>files>raw/post/pre-retire.png:flip	ValueError: Corpus SHA differs: raw/post/pre-retire.png
+ban-expiry-later	manifest.json>files>raw/post/primary-current-prefix.pcap:flip	ValueError: Corpus SHA differs: raw/post/primary-current-prefix.pcap
+ban-expiry-later	manifest.json>files>raw/post/primary-syn.pcap:flip	ValueError: Corpus SHA differs: raw/post/primary-syn.pcap
+ban-expiry-later	manifest.json>files>raw/post/results/post-probe/plan.json:flip	ValueError: Corpus SHA differs: raw/post/results/post-probe/plan.json
+ban-expiry-later	manifest.json>files>raw/post/results/post-probe/report.json:flip	ValueError: Corpus SHA differs: raw/post/results/post-probe/report.json
+ban-expiry-later	manifest.json>files>raw/post/results/summary.json:flip	ValueError: Corpus SHA differs: raw/post/results/summary.json
+ban-expiry-later	manifest.json>files>raw/post/retire-input.py:flip	ValueError: Corpus SHA differs: raw/post/retire-input.py
+ban-expiry-later	manifest.json>files>raw/post/route4.json:flip	ValueError: Corpus SHA differs: raw/post/route4.json
+ban-expiry-later	manifest.json>files>raw/post/route6.json:flip	ValueError: Corpus SHA differs: raw/post/route6.json
+ban-expiry-later	manifest.json>files>raw/post/sheep-stop-before.utc:flip	ValueError: Corpus SHA differs: raw/post/sheep-stop-before.utc
+ban-expiry-later	manifest.json>files>raw/post/source-freeze.json:flip	ValueError: Corpus SHA differs: raw/post/source-freeze.json
+ban-expiry-later	manifest.json>files>raw/post/sources/capture_readiness.py:flip	ValueError: Corpus SHA differs: raw/post/sources/capture_readiness.py
+ban-expiry-later	manifest.json>files>raw/post/sources/native_account_update_cases.py:flip	ValueError: Corpus SHA differs: raw/post/sources/native_account_update_cases.py
+ban-expiry-later	manifest.json>files>raw/post/sources/native_alias_cases.py:flip	ValueError: Corpus SHA differs: raw/post/sources/native_alias_cases.py
+ban-expiry-later	manifest.json>files>raw/post/sources/native_auth_cases.py:flip	ValueError: Corpus SHA differs: raw/post/sources/native_auth_cases.py
+ban-expiry-later	manifest.json>files>raw/post/sources/native_ban_control_cases.py:flip	ValueError: Corpus SHA differs: raw/post/sources/native_ban_control_cases.py
+ban-expiry-later	manifest.json>files>raw/post/sources/native_ban_expiry_cases.py:flip	ValueError: Corpus SHA differs: raw/post/sources/native_ban_expiry_cases.py
+ban-expiry-later	manifest.json>files>raw/post/sources/native_ban_expiry_cleanup.py:flip	ValueError: Corpus SHA differs: raw/post/sources/native_ban_expiry_cleanup.py
+ban-expiry-later	manifest.json>files>raw/post/sources/native_ban_expiry_control.py:flip	ValueError: Corpus SHA differs: raw/post/sources/native_ban_expiry_control.py
+ban-expiry-later	manifest.json>files>raw/post/sources/native_banner_cases.py:flip	ValueError: Corpus SHA differs: raw/post/sources/native_banner_cases.py
+ban-expiry-later	manifest.json>files>raw/post/sources/native_control_readiness.py:flip	ValueError: Corpus SHA differs: raw/post/sources/native_control_readiness.py
+ban-expiry-later	manifest.json>files>raw/post/sources/native_filp.py:flip	ValueError: Corpus SHA differs: raw/post/sources/native_filp.py
+ban-expiry-later	manifest.json>files>raw/post/sources/native_folder_cases.py:flip	ValueError: Corpus SHA differs: raw/post/sources/native_folder_cases.py
+ban-expiry-later	manifest.json>files>raw/post/sources/native_framing_cases.py:flip	ValueError: Corpus SHA differs: raw/post/sources/native_framing_cases.py
+ban-expiry-later	manifest.json>files>raw/post/sources/native_metadata_cases.py:flip	ValueError: Corpus SHA differs: raw/post/sources/native_metadata_cases.py
+ban-expiry-later	manifest.json>files>raw/post/sources/native_mkdir_cases.py:flip	ValueError: Corpus SHA differs: raw/post/sources/native_mkdir_cases.py
+ban-expiry-later	manifest.json>files>raw/post/sources/native_news_decode.py:flip	ValueError: Corpus SHA differs: raw/post/sources/native_news_decode.py
+ban-expiry-later	manifest.json>files>raw/post/sources/native_news_delete_cases.py:flip	ValueError: Corpus SHA differs: raw/post/sources/native_news_delete_cases.py
+ban-expiry-later	manifest.json>files>raw/post/sources/native_packet_evidence.py:flip	ValueError: Corpus SHA differs: raw/post/sources/native_packet_evidence.py
+ban-expiry-later	manifest.json>files>raw/post/sources/native_plan.py:flip	ValueError: Corpus SHA differs: raw/post/sources/native_plan.py
+ban-expiry-later	manifest.json>files>raw/post/sources/native_queue_cases.py:flip	ValueError: Corpus SHA differs: raw/post/sources/native_queue_cases.py
+ban-expiry-later	manifest.json>files>raw/post/sources/native_resume_cases.py:flip	ValueError: Corpus SHA differs: raw/post/sources/native_resume_cases.py
+ban-expiry-later	manifest.json>files>raw/post/sources/native_transfer_cases.py:flip	ValueError: Corpus SHA differs: raw/post/sources/native_transfer_cases.py
+ban-expiry-later	manifest.json>files>raw/post/sources/pcap_tcp.py:flip	ValueError: Corpus SHA differs: raw/post/sources/pcap_tcp.py
+ban-expiry-later	manifest.json>files>raw/post/sources/protocol_capture.py:flip	ValueError: Corpus SHA differs: raw/post/sources/protocol_capture.py
+ban-expiry-later	manifest.json>files>raw/post/sources/shx_syscalls.py:flip	ValueError: Corpus SHA differs: raw/post/sources/shx_syscalls.py
+ban-expiry-later	manifest.json>files>raw/post/sources/test_native_ban_expiry.py:flip	ValueError: Corpus SHA differs: raw/post/sources/test_native_ban_expiry.py
+ban-expiry-later	manifest.json>files>raw/post/sources/verify_native_account_updates.py:flip	ValueError: Corpus SHA differs: raw/post/sources/verify_native_account_updates.py
+ban-expiry-later	manifest.json>files>raw/post/sources/verify_native_article_deletion.py:flip	ValueError: Corpus SHA differs: raw/post/sources/verify_native_article_deletion.py
+ban-expiry-later	manifest.json>files>raw/post/sources/verify_native_auth.py:flip	ValueError: Corpus SHA differs: raw/post/sources/verify_native_auth.py
+ban-expiry-later	manifest.json>files>raw/post/sources/verify_native_banners.py:flip	ValueError: Corpus SHA differs: raw/post/sources/verify_native_banners.py
+ban-expiry-later	manifest.json>files>raw/post/sources/verify_native_core.py:flip	ValueError: Corpus SHA differs: raw/post/sources/verify_native_core.py
+ban-expiry-later	manifest.json>files>raw/post/sources/verify_native_framing.py:flip	ValueError: Corpus SHA differs: raw/post/sources/verify_native_framing.py
+ban-expiry-later	manifest.json>files>raw/post/sources/verify_native_mkdir.py:flip	ValueError: Corpus SHA differs: raw/post/sources/verify_native_mkdir.py
+ban-expiry-later	manifest.json>files>raw/post/sources/verify_native_shx.py:flip	ValueError: Corpus SHA differs: raw/post/sources/verify_native_shx.py
+ban-expiry-later	manifest.json>files>raw/post/special-menu.png:flip	ValueError: Corpus SHA differs: raw/post/special-menu.png
+ban-expiry-later	manifest.json>files>raw/post/stopped-allocated-catalog.txt:flip	ValueError: Corpus SHA differs: raw/post/stopped-allocated-catalog.txt
+ban-expiry-later	manifest.json>files>raw/post/stopped-assets.sha256:flip	ValueError: Corpus SHA differs: raw/post/stopped-assets.sha256
+ban-expiry-later	manifest.json>files>raw/post/stopped-catalog.stderr.log:flip	ValueError: Corpus SHA differs: raw/post/stopped-catalog.stderr.log
+ban-expiry-later	manifest.json>files>raw/post/stopped-catalog.txt:flip	ValueError: Corpus SHA differs: raw/post/stopped-catalog.txt
+ban-expiry-later	manifest.json>files>raw/post/stopped-deleted-catalog.txt:flip	ValueError: Corpus SHA differs: raw/post/stopped-deleted-catalog.txt
+ban-expiry-later	manifest.json>files>raw/post/stopped-hfs/Prefs.bin:flip	ValueError: Corpus SHA differs: raw/post/stopped-hfs/Prefs.bin
+ban-expiry-later	manifest.json>files>raw/post/stopped-hfs/admin.bin:flip	ValueError: Corpus SHA differs: raw/post/stopped-hfs/admin.bin
+ban-expiry-later	manifest.json>files>raw/post/stopped-hfs/fixture-low.bin:flip	ValueError: Corpus SHA differs: raw/post/stopped-hfs/fixture-low.bin
+ban-expiry-later	manifest.json>files>raw/post/stopped-hfs/istat-11754.txt:flip	ValueError: Corpus SHA differs: raw/post/stopped-hfs/istat-11754.txt
+ban-expiry-later	manifest.json>files>raw/post/stopped-hfs/istat-11755.txt:flip	ValueError: Corpus SHA differs: raw/post/stopped-hfs/istat-11755.txt
+ban-expiry-later	manifest.json>files>raw/post/stopped-hfs/istat-11756.txt:flip	ValueError: Corpus SHA differs: raw/post/stopped-hfs/istat-11756.txt
+ban-expiry-later	manifest.json>files>raw/post/stopped-hfs/istat-11757.txt:flip	ValueError: Corpus SHA differs: raw/post/stopped-hfs/istat-11757.txt
+ban-expiry-later	manifest.json>files>raw/post/stopped-hfs/owned-protected.bin:flip	ValueError: Corpus SHA differs: raw/post/stopped-hfs/owned-protected.bin
+ban-expiry-later	manifest.json>files>raw/post/stopped-hfs/owned-zero.bin:flip	ValueError: Corpus SHA differs: raw/post/stopped-hfs/owned-zero.bin
+ban-expiry-later	manifest.json>files>raw/post/stopped-hfs/server-data.bin:flip	ValueError: Corpus SHA differs: raw/post/stopped-hfs/server-data.bin
+ban-expiry-later	manifest.json>files>raw/post/stopped-hfs/server-rsrc.bin:flip	ValueError: Corpus SHA differs: raw/post/stopped-hfs/server-rsrc.bin
+ban-expiry-later	manifest.json>files>raw/post/stopped-read-gate.json:flip	ValueError: Corpus SHA differs: raw/post/stopped-read-gate.json
+ban-expiry-later	manifest.json>files>raw/post/terminal.json:flip	ValueError: Corpus SHA differs: raw/post/terminal.json
+ban-expiry-later	manifest.json>files>raw/post/terminal.utc:flip	ValueError: Corpus SHA differs: raw/post/terminal.utc
+ban-expiry-later	manifest.json>files>raw/pre/c79-terminal-units.txt:flip	ValueError: Corpus SHA differs: raw/pre/c79-terminal-units.txt
+ban-expiry-later	manifest.json>files>raw/pre/c80-failed-journal.log:flip	ValueError: Corpus SHA differs: raw/pre/c80-failed-journal.log
+ban-expiry-later	manifest.json>files>raw/pre/c80-failed-unit.txt:flip	ValueError: Corpus SHA differs: raw/pre/c80-failed-unit.txt
+ban-expiry-later	manifest.json>files>raw/pre/capture-ready.json:flip	ValueError: Corpus SHA differs: raw/pre/capture-ready.json
+ban-expiry-later	manifest.json>files>raw/pre/clock-after.utc:flip	ValueError: Corpus SHA differs: raw/pre/clock-after.utc
+ban-expiry-later	manifest.json>files>raw/pre/clock-before.utc:flip	ValueError: Corpus SHA differs: raw/pre/clock-before.utc
+ban-expiry-later	manifest.json>files>raw/pre/clock-pre.png:flip	ValueError: Corpus SHA differs: raw/pre/clock-pre.png
+ban-expiry-later	manifest.json>files>raw/pre/clock-witness.json:flip	ValueError: Corpus SHA differs: raw/pre/clock-witness.json
+ban-expiry-later	manifest.json>files>raw/pre/controller-before-starttick-fix.py.as-run.txt:flip	ValueError: Corpus SHA differs: raw/pre/controller-before-starttick-fix.py.as-run.txt
+ban-expiry-later	manifest.json>files>raw/pre/controller-launch-unit.txt:flip	ValueError: Corpus SHA differs: raw/pre/controller-launch-unit.txt
+ban-expiry-later	manifest.json>files>raw/pre/controller-source.sha256:flip	ValueError: Corpus SHA differs: raw/pre/controller-source.sha256
+ban-expiry-later	manifest.json>files>raw/pre/epoch-start.utc:flip	ValueError: Corpus SHA differs: raw/pre/epoch-start.utc
+ban-expiry-later	manifest.json>files>raw/pre/host-ready.json:flip	ValueError: Corpus SHA differs: raw/pre/host-ready.json
+ban-expiry-later	manifest.json>files>raw/pre/host-terminal-journal.log:flip	ValueError: Corpus SHA differs: raw/pre/host-terminal-journal.log
+ban-expiry-later	manifest.json>files>raw/pre/lab-namespace.pcap:flip	ValueError: Corpus SHA differs: raw/pre/lab-namespace.pcap
+ban-expiry-later	manifest.json>files>raw/pre/launch-after.utc:flip	ValueError: Corpus SHA differs: raw/pre/launch-after.utc
+ban-expiry-later	manifest.json>files>raw/pre/launch-before.utc:flip	ValueError: Corpus SHA differs: raw/pre/launch-before.utc
+ban-expiry-later	manifest.json>files>raw/pre/links.json:flip	ValueError: Corpus SHA differs: raw/pre/links.json
+ban-expiry-later	manifest.json>files>raw/pre/namespace-ready.json:flip	ValueError: Corpus SHA differs: raw/pre/namespace-ready.json
+ban-expiry-later	manifest.json>files>raw/pre/namespace-terminal-journal.log:flip	ValueError: Corpus SHA differs: raw/pre/namespace-terminal-journal.log
+ban-expiry-later	manifest.json>files>raw/pre/parent-preflight.json:flip	ValueError: Corpus SHA differs: raw/pre/parent-preflight.json
+ban-expiry-later	manifest.json>files>raw/pre/primary-syn.pcap:flip	ValueError: Corpus SHA differs: raw/pre/primary-syn.pcap
+ban-expiry-later	manifest.json>files>raw/pre/route4.json:flip	ValueError: Corpus SHA differs: raw/pre/route4.json
+ban-expiry-later	manifest.json>files>raw/pre/route6.json:flip	ValueError: Corpus SHA differs: raw/pre/route6.json
+ban-expiry-later	manifest.json>files>raw/pre/terminal.utc:flip	ValueError: Corpus SHA differs: raw/pre/terminal.utc
+ban-expiry-later	manifest.json>files>raw/pre/epoch-start.utc:delete-key	ValueError: Corpus inventory differs
+ban-expiry-later	manifest.json>schema:flip	ValueError: Corpus profile, source or prior witness identity differs
+ban-expiry-later	raw/post/results/post-probe/report.json>frames:drop-last	ValueError: Decoded frame mismatch
+ban-expiry-later	raw/post/terminal.json>guest_pcap>bytes:inc	ValueError: Final guest_pcap bytes differ
+ban-expiry-later	raw/post/terminal.json>namespace_pcap>bytes:inc	ValueError: Final namespace_pcap bytes differ
+ban-expiry-later	raw/post/terminal.json>primary_pcap>bytes:inc	ValueError: Final primary_pcap bytes differ
+ban-expiry-later	raw/post/clock-witness.json>sha256:flip	ValueError: Guest clock screenshot, host bracket or order differs
+ban-expiry-later	raw/post/results/post-probe/plan.json>schema_version:inc	ValueError: Immutable post plan or runtime differs
+ban-expiry-later	raw/post/results/post-probe/report.json>completed_actions:inc	ValueError: Incomplete plan reported as completed
+ban-expiry-later	raw/post/clock-witness.json>host_before_utc:empty	ValueError: Invalid isoformat string: ''
+ban-expiry-later	raw/post/capture-ready.json>emulator_netns_inode:inc	ValueError: Live emulator continuity differs: emulator_netns_inode
+ban-expiry-later	raw/post/capture-ready.json>emulator_pid:inc	ValueError: Live emulator continuity differs: emulator_pid
+ban-expiry-later	raw/post/capture-ready.json>emulator_sha256:flip	ValueError: Live emulator continuity differs: emulator_sha256
+ban-expiry-later	raw/post/capture-ready.json>emulator_starttime:flip	ValueError: Live emulator continuity differs: emulator_starttime
+ban-expiry-later	raw/post/capture-ready.json>guest_pcap:flip	ValueError: Live emulator continuity differs: guest_pcap
+ban-expiry-later	raw/post/capture-ready.json>owned_working_image:flip	ValueError: Live emulator continuity differs: owned_working_image
+ban-expiry-later	raw/post/capture-ready.json>owned_working_image_inode:inc	ValueError: Live emulator continuity differs: owned_working_image_inode
+ban-expiry-later	raw/pre/capture-ready.json>emulator_pid:inc	ValueError: Missed pre-epoch readiness differs
+ban-expiry-later	raw/post/cleanup-delete/plan.json>schema_version:inc	ValueError: Owned delete/readback source plan differs
+ban-expiry-later	raw/post/cleanup-guard/plan.json>schema_version:inc	ValueError: Owned guard source plan differs
+ban-expiry-later	raw/post/parent-guard-acceptance.json>status:flip	ValueError: Parent guard approval scope differs
+ban-expiry-later	raw/post/parent-post-acceptance.json>status:flip	ValueError: Parent post-scope receipt differs
+ban-expiry-later	raw/post/clock-witness.json>post_probe>server_log_observation:empty	ValueError: Post UI log differs
+ban-expiry-later	raw/post/capture-ready.json>source_a7_sha256:flip	ValueError: Post first lookup, timing bracket or no-readiness scope differs
+ban-expiry-later	raw/post/source-freeze.json>hashes>capture_readiness.py:flip	ValueError: Post source differs: capture_readiness.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>native_account_update_cases.py:flip	ValueError: Post source differs: native_account_update_cases.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>native_alias_cases.py:flip	ValueError: Post source differs: native_alias_cases.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>native_auth_cases.py:flip	ValueError: Post source differs: native_auth_cases.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>native_ban_control_cases.py:flip	ValueError: Post source differs: native_ban_control_cases.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>native_ban_expiry_cases.py:flip	ValueError: Post source differs: native_ban_expiry_cases.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>native_banner_cases.py:flip	ValueError: Post source differs: native_banner_cases.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>native_control_readiness.py:flip	ValueError: Post source differs: native_control_readiness.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>native_filp.py:flip	ValueError: Post source differs: native_filp.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>native_folder_cases.py:flip	ValueError: Post source differs: native_folder_cases.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>native_framing_cases.py:flip	ValueError: Post source differs: native_framing_cases.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>native_metadata_cases.py:flip	ValueError: Post source differs: native_metadata_cases.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>native_mkdir_cases.py:flip	ValueError: Post source differs: native_mkdir_cases.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>native_news_decode.py:flip	ValueError: Post source differs: native_news_decode.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>native_news_delete_cases.py:flip	ValueError: Post source differs: native_news_delete_cases.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>native_packet_evidence.py:flip	ValueError: Post source differs: native_packet_evidence.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>native_plan.py:flip	ValueError: Post source differs: native_plan.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>native_queue_cases.py:flip	ValueError: Post source differs: native_queue_cases.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>native_resume_cases.py:flip	ValueError: Post source differs: native_resume_cases.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>native_transfer_cases.py:flip	ValueError: Post source differs: native_transfer_cases.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>pcap_tcp.py:flip	ValueError: Post source differs: pcap_tcp.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>protocol_capture.py:flip	ValueError: Post source differs: protocol_capture.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>shx_syscalls.py:flip	ValueError: Post source differs: shx_syscalls.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>test_native_ban_expiry.py:flip	ValueError: Post source differs: test_native_ban_expiry.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>verify_native_account_updates.py:flip	ValueError: Post source differs: verify_native_account_updates.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>verify_native_article_deletion.py:flip	ValueError: Post source differs: verify_native_article_deletion.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>verify_native_auth.py:flip	ValueError: Post source differs: verify_native_auth.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>verify_native_banners.py:flip	ValueError: Post source differs: verify_native_banners.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>verify_native_core.py:flip	ValueError: Post source differs: verify_native_core.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>verify_native_framing.py:flip	ValueError: Post source differs: verify_native_framing.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>verify_native_mkdir.py:flip	ValueError: Post source differs: verify_native_mkdir.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>verify_native_shx.py:flip	ValueError: Post source differs: verify_native_shx.py
+ban-expiry-later	manifest.json>post_source_protocol_head:flip	ValueError: Post source snapshot identity differs
+ban-expiry-later	raw/post/capture-ready.json>epoch_started_utc:flip	ValueError: Post-epoch emulator, lease or deadline differs
+ban-expiry-later	raw/post/capture-ready.json>managed_capture>host>utc:flip	ValueError: Post-epoch host capture readiness differs
+ban-expiry-later	raw/post/capture-ready.json>managed_capture>namespace>utc:flip	ValueError: Post-epoch namespace capture readiness differs
+ban-expiry-later	raw/post/links.json:drop-last	ValueError: Post-epoch namespace containment differs
+ban-expiry-later	raw/pre/capture-ready.json>host_recorder_pid:inc	ValueError: Pre-epoch capture was not empty and controlled
+ban-expiry-later	raw/pre/links.json:drop-last	ValueError: Pre-epoch namespace containment differs
+ban-expiry-later	raw/post/results/post-probe/report.json>profile:flip	ValueError: Raw post report profile differs
+ban-expiry-later	raw/post/results/post-probe/report.json>oracle_sha256:flip	ValueError: Source identity mismatch
+ban-expiry-later	raw/post/stopped-read-gate.json>image_inode:inc	ValueError: Stopped and FD-free extraction boundary differs
+ban-expiry-later	raw/post/results/post-probe/report.json>events:reverse	ValueError: Stream reconstruction mismatch
+ban-expiry-later	raw/post/results/post-probe/report.json>status:flip	ValueError: Unknown capture status
+ban-expiry-later	raw/post/clock-witness.json>screenshot:flip;raw/post/clock-witness.json>sha256:delete-key	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-ban-expiry-later-01/raw/post/c
+ban-expiry-later	raw/post/clock-witness.json>screenshot:flip;raw/post/capture-ready.json>owned_working_image_inode:inc	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-ban-expiry-later-01/raw/post/c
+ban-expiry-later	raw/pre/clock-witness.json>screenshot:flip;raw/post/capture-ready.json>managed_lock>busy_exit:delete-key	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-ban-expiry-later-01/raw/pre/cl
+ban-expiry-later	raw/post/clock-witness.json>post_probe>screenshot:empty;raw/post/results/summary.json>timing_gate:delete-key	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-ban-expiry-later-01/raw/post'
+ban-expiry-later	raw/post/capture-ready.json>managed_lock>busy_exit:delete-key;raw/post/terminal.json>guest_pcap>bytes:inc	KeyError: 'busy_exit'
+ban-expiry-later	raw/post/results/post-probe/report.json>frames:delete-key;raw/post/capture-ready.json>managed_capture>host>utc:flip	ValueError: Post-epoch host capture readiness differs
+ban-expiry-later	raw/post/source-freeze.json>hashes>native_ban_expiry_control.py:delete-key;raw/post/source-freeze.json>hashes>verify_native_shx.py:flip	KeyError: 'native_ban_expiry_control.py'
+ban-expiry-later	raw/post/clock-witness.json>ui_action:delete-key;manifest.json>files>raw/post/stopped-hfs/istat-11757.txt:flip	ValueError: Corpus SHA differs: raw/post/stopped-hfs/istat-11757.txt
+ban-expiry-later	manifest.json>files>raw/post/host-ready.json:flip;manifest.json>files>raw/post/lab-guest-final.pcap:flip	ValueError: Corpus SHA differs: raw/post/host-ready.json
+ban-expiry-later	manifest.json>files>raw/post/postflight-final-unit.txt:flip;manifest.json>files>raw/post/postflight-launch-before.utc:flip	ValueError: Corpus SHA differs: raw/post/postflight-launch-before.utc
+ban-expiry-later	manifest.json>files>raw/post/postflight-final-unit.txt:flip;raw/post/source-freeze.json>hashes>native_account_update_cases.py:flip	ValueError: Corpus SHA differs: raw/post/postflight-final-unit.txt
+ban-expiry-later	manifest.json>files>raw/post/postflight/plan.json:flip;manifest.json>files>raw/post/postflight/report.json:flip	ValueError: Corpus SHA differs: raw/post/postflight/plan.json
+ban-expiry-later	manifest.json>files>raw/post/retire-input.py:flip;raw/post/source-freeze.json>hashes>native_framing_cases.py:flip	ValueError: Corpus SHA differs: raw/post/retire-input.py
+ban-expiry-later	manifest.json>files>raw/pre/primary-syn.pcap:flip;raw/post/clock-witness.json>post_probe>server_log_observation:empty	ValueError: Corpus SHA differs: raw/pre/primary-syn.pcap
+ban-expiry-later	raw/post/source-freeze.json>hashes>native_ban_control_cases.py:flip;raw/post/source-freeze.json>hashes>native_ban_expiry_cases.py:flip	ValueError: Post source differs: native_ban_control_cases.py
+ban-expiry-later	raw/post/source-freeze.json>hashes>native_metadata_cases.py:flip;raw/post/source-freeze.json>hashes>verify_native_account_updates.py:flip	ValueError: Post source differs: native_metadata_cases.py

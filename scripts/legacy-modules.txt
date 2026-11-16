@@ -11,7 +11,6 @@
 scripts/capture_shx_session.py
 scripts/native_121_default_cases.py  # live bytes compared with a recorded hash
 scripts/native_ban_control_cases.py  # live bytes compared with a recorded hash
-scripts/native_ban_expiry_cases.py
 scripts/native_ban_expiry_cleanup.py
 scripts/native_ban_expiry_control.py
 scripts/native_board_control.py
@@ -34,10 +33,6 @@ scripts/test_classic_proxy_rehearsal.py
 scripts/test_mxd_direct_ack.py
 scripts/test_native_121_default.py
 scripts/test_native_ban_control.py
-scripts/test_native_ban_expiry.py
-scripts/test_native_ban_expiry_cleanup.py
-scripts/test_native_ban_expiry_first.py
-scripts/test_native_ban_expiry_later.py
 scripts/test_native_control_readiness.py
 scripts/test_native_rate304.py
 scripts/test_native_rate304_partial.py
@@ -51,8 +46,6 @@ scripts/test_request500_client_source.py
 scripts/test_verify_classic_account_constructors.py
 scripts/verify_native_121_default.py  # live bytes compared with a recorded hash
 scripts/verify_native_ban_control.py
-scripts/verify_native_ban_expiry_first.py
-scripts/verify_native_ban_expiry_later.py
 scripts/verify_native_rate304_partial.py
 scripts/verify_native_rate304_sequence.py
 scripts/verify_native_settings.py  # live bytes compared with a recorded hash

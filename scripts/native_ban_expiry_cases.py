@@ -1,15 +1,38 @@
 """Finite control-only plans for kick, protection and temporary-ban expiry."""
 
-import argparse
 import hashlib
 import json
+import sys
 from pathlib import Path
 
 import native_ban_control_cases as control
 from native_auth_cases import authentication, complement
+from native_ban_control_cases import A7_SHA
 from native_plan import close, eof, login, packet, payload, read, send
+from native_wire_names import (
+    FIELD_ACCESS_BITMAP,
+    FIELD_LOGIN,
+    FIELD_NAME,
+    FIELD_OPTIONS,
+    FIELD_PASSWORD,
+    FIELD_USER_ID,
+    TYPE_CREATE_ACCOUNT,
+    TYPE_EMPTY_ACK,
+    TYPE_GET_ACCOUNT,
+    TYPE_GET_USER_ROSTER,
+    TYPE_LOGIN_AGREEMENT,
+    TYPE_MESSAGE_NOTIFICATION,
+    TYPE_PRESENCE_UPDATE,
+    TYPE_PRIVILEGES_NOTIFICATION,
+    TYPE_USER_LEFT,
+)
 from protocol_capture import ORACLE_SHA256, validate_plan
+from script_cli import run
 
+CONTROL_PORT = 15800  # the owned B66 control endpoint
+TYPE_KICK_USER = (
+    110  # the kick or temporary-ban request; not named in native_wire_names
+)
 ZERO_KEY = b"m-expiry-zero"
 PROTECTED_KEY = b"m-expiry-protected"
 ZERO_PASSWORD = b"expiry-zero-pass"
@@ -19,7 +42,6 @@ PROTECTED_NAME = b"Expiry Protected"
 ZERO_ACCESS = bytes(8)
 PROTECTED_ACCESS = bytes.fromhex("0000010000000000")  # privilege bit 23
 TEMPORARY_NOTICE = b"You are temporarily banned on this server."
-A7_SHA = control.A7_SHA
 FIRST = (
     "guard-zero",
     "guard-protected",
@@ -39,6 +61,13 @@ def exchange(
     fields: list[tuple[int, bytes]],
     connection: str = "main",
 ) -> list[dict]:
+    """Send one request and read the reply that carries its identifier.
+
+    Returns
+    -------
+    list[dict[str, typing.Any]]
+        The send action followed by the read of its reply.
+    """
     return [
         send(packet(kind, identifier, payload(fields)), connection),
         read(connection, match_frame={"is_reply": 1, "id": identifier}),
@@ -46,55 +75,98 @@ def exchange(
 
 
 def target_login(key: bytes, password: bytes, name: bytes) -> list[dict]:
-    return [{**step, "connection": "target"} for step in login()[:3]] + [
+    """Plan the target's login, agreement and privilege notices.
+
+    Returns
+    -------
+    list[dict[str, typing.Any]]
+        The steps of the target connection.
+    """
+    return [
+        *[{**step, "connection": "target"} for step in login()[:3]],
         authentication(key, password, name=name, connection="target"),
         read("target", match_frame={"is_reply": 1, "id": 1}),
-        read("target", match_frame={"type": 354}),
-        read("target", match_frame={"type": 109}),
+        read("target", match_frame={"type": TYPE_PRIVILEGES_NOTIFICATION}),
+        read("target", match_frame={"type": TYPE_LOGIN_AGREEMENT}),
     ]
 
 
 def account_guard(key: bytes) -> list[dict]:
-    return login() + exchange(352, 30, [(105, key)]) + [close()]
+    """Plan the read that proves the owned account key is absent.
+
+    Returns
+    -------
+    list[dict[str, typing.Any]]
+        The steps of the guard case.
+    """
+    return login() + exchange(TYPE_GET_ACCOUNT, 30, [(FIELD_LOGIN, key)]) + [close()]
 
 
 def account_seed(key: bytes, password: bytes, name: bytes, access: bytes) -> list[dict]:
+    """Plan the creation and readback of one owned expiry account.
+
+    Returns
+    -------
+    list[dict[str, typing.Any]]
+        The steps of the seed case.
+    """
     return (
         login()
         + exchange(
-            350,
+            TYPE_CREATE_ACCOUNT,
             31,
             [
-                (105, complement(key)),
-                (106, complement(password)),
-                (102, name),
-                (110, access),
+                (FIELD_LOGIN, complement(key)),
+                (FIELD_PASSWORD, complement(password)),
+                (FIELD_NAME, name),
+                (FIELD_ACCESS_BITMAP, access),
             ],
         )
-        + exchange(352, 32, [(105, key)])
+        + exchange(TYPE_GET_ACCOUNT, 32, [(FIELD_LOGIN, key)])
         + [close()]
     )
 
 
 def kick_case(key: bytes, password: bytes, name: bytes, option: int) -> list[dict]:
-    if option not in (0, 1):
-        raise ValueError("Only kick 0 or temporary ban 1 is prepared")
+    """Plan the target's kick (option 0) or temporary ban (option 1).
+
+    Returns
+    -------
+    list[dict[str, typing.Any]]
+        The steps of the case.
+
+    Raises
+    ------
+    ValueError
+        If the option is neither a kick nor a temporary ban.
+    """
+    if option not in {0, 1}:
+        message = "Only kick 0 or temporary ban 1 is prepared"
+        raise ValueError(message)
     steps = login() + target_login(key, password, name)
     steps += [
-        read(match_frame={"type": 301}, save_field={"name": "target_uid", "id": 103})
+        read(
+            match_frame={"type": TYPE_PRESENCE_UPDATE},
+            save_field={"name": "target_uid", "id": FIELD_USER_ID},
+        )
     ]
-    steps += exchange(300, 32, [])
-    raw = packet(110, 33, payload([(103, b"\0\0"), (113, option.to_bytes(2, "big"))]))
+    steps += exchange(TYPE_GET_USER_ROSTER, 32, [])
+    raw = packet(
+        TYPE_KICK_USER,
+        33,
+        payload([(FIELD_USER_ID, b"\0\0"), (FIELD_OPTIONS, option.to_bytes(2, "big"))]),
+    )
     marker = "006700020000"
     if raw.count(marker) != 1:
-        raise ValueError("110 UID marker is not unique")
+        message = "110 UID marker is not unique"
+        raise ValueError(message)
     steps.append(send(raw.replace(marker, "00670002{target_uid}")))
     if option == 1:
-        steps.append(read("target", match_frame={"type": 104}))
+        steps.append(read("target", match_frame={"type": TYPE_MESSAGE_NOTIFICATION}))
     steps += [
         eof("target"),
         read(match_frame={"is_reply": 1, "id": 33}),
-        read(match_frame={"type": 302}),
+        read(match_frame={"type": TYPE_USER_LEFT}),
         close("target"),
         close(),
     ]
@@ -102,37 +174,75 @@ def kick_case(key: bytes, password: bytes, name: bytes, option: int) -> list[dic
 
 
 def protected_case() -> list[dict]:
+    """Plan the kick of the protected target, which the server must refuse.
+
+    Returns
+    -------
+    list[dict[str, typing.Any]]
+        The steps of the protected case.
+
+    Raises
+    ------
+    ValueError
+        If the marker that locates the target identifier is not unique.
+    """
     steps = login() + target_login(PROTECTED_KEY, PROTECTED_PASSWORD, PROTECTED_NAME)
     steps += [
-        read(match_frame={"type": 301}, save_field={"name": "target_uid", "id": 103})
+        read(
+            match_frame={"type": TYPE_PRESENCE_UPDATE},
+            save_field={"name": "target_uid", "id": FIELD_USER_ID},
+        )
     ]
-    steps += exchange(300, 32, [])
-    raw = packet(110, 33, payload([(103, b"\0\0"), (113, b"\0\0")]))
+    steps += exchange(TYPE_GET_USER_ROSTER, 32, [])
+    raw = packet(
+        TYPE_KICK_USER,
+        33,
+        payload([(FIELD_USER_ID, b"\0\0"), (FIELD_OPTIONS, b"\0\0")]),
+    )
     marker = "006700020000"
     if raw.count(marker) != 1:
-        raise ValueError("110 UID marker is not unique")
+        message = "110 UID marker is not unique"
+        raise ValueError(message)
     steps += [
         send(raw.replace(marker, "00670002{target_uid}")),
         read(match_frame={"is_reply": 1, "id": 33}),
     ]
-    steps += exchange(500, 80, [], "target")
+    steps += exchange(TYPE_EMPTY_ACK, 80, [], "target")
     steps.append({"op": "expect_quiet", "connection": "target", "timeout": 1})
     steps += [close("target"), close()]
     return steps
 
 
-def probe(accepted: bool) -> list[dict]:
-    steps = login()[:3] + [
+def probe(accepted: bool) -> list[dict]:  # ruff: ignore[boolean-type-hint-positional-argument]  # the public signature keeps its positional flag, which the planners pass by keyword
+    """Plan a fresh zero-key login, with the roster read only when accepted.
+
+    Returns
+    -------
+    list[dict[str, typing.Any]]
+        The steps of the probe.
+    """
+    steps = [
+        *login()[:3],
         authentication(ZERO_KEY, ZERO_PASSWORD, name=ZERO_NAME),
         read(match_frame={"is_reply": 1, "id": 1}),
     ]
     if accepted:
-        steps += [read(match_frame={"type": 354}), read(match_frame={"type": 109})]
-        steps += exchange(300, 40, [])
-    return steps + [close()]
+        steps += [
+            read(match_frame={"type": TYPE_PRIVILEGES_NOTIFICATION}),
+            read(match_frame={"type": TYPE_LOGIN_AGREEMENT}),
+        ]
+        steps += exchange(TYPE_GET_USER_ROSTER, 40, [])
+    return [*steps, close()]
 
 
 def plans() -> dict[str, list[dict]]:
+    """Plan every case of the three epochs, keyed by case name.
+
+    Returns
+    -------
+    dict[str, list[dict[str, typing.Any]]]
+        The steps of each case, in the order the epochs run them.
+    """
     return {
         "readiness": control.plans()["readiness"],
         "guard-zero": account_guard(ZERO_KEY),
@@ -142,25 +252,40 @@ def plans() -> dict[str, list[dict]]:
             PROTECTED_KEY, PROTECTED_PASSWORD, PROTECTED_NAME, PROTECTED_ACCESS
         ),
         "kick0": kick_case(ZERO_KEY, ZERO_PASSWORD, ZERO_NAME, 0),
-        "kick0-probe": probe(True),
+        "kick0-probe": probe(accepted=True),
         "protected": protected_case(),
         "tempban": kick_case(ZERO_KEY, ZERO_PASSWORD, ZERO_NAME, 1),
-        "immediate-probe": probe(False),
-        "pre-probe": probe(False),
-        "post-probe": probe(True),
+        "immediate-probe": probe(accepted=False),
+        "pre-probe": probe(accepted=False),
+        "post-probe": probe(accepted=True),
     }
 
 
 def plan(name: str, steps: list[dict], environment: dict, port: int) -> dict:
-    if port != 15800:
-        raise ValueError("B66 frontend must be owned port 15800")
+    """Wrap one case's steps in a validated plan for the control endpoint.
+
+    Returns
+    -------
+    dict[str, typing.Any]
+        The validated plan of the case.
+
+    Raises
+    ------
+    ValueError
+        If the port, the source identity or the fixture profile differs.
+    """
+    if port != CONTROL_PORT:
+        message = "B66 frontend must be owned port 15800"
+        raise ValueError(message)
     if environment.get("source_a7_sha256") != A7_SHA:
-        raise ValueError("Frozen A7 source-plan identity differs")
+        message = "Frozen A7 source-plan identity differs"
+        raise ValueError(message)
     if (
         environment.get("fixture_profile") != "control-only"
         or environment.get("full_file_baseline") != "not_exercised"
     ):
-        raise ValueError("Only control-only profile is prepared")
+        message = "Only control-only profile is prepared"
+        raise ValueError(message)
     result = {
         "schema_version": 1,
         "profile": "native-mac-oracle",
@@ -187,7 +312,16 @@ def plan(name: str, steps: list[dict], environment: dict, port: int) -> dict:
     return result
 
 
-def write_plans(output: Path, environment: dict, port: int = 15800) -> dict[str, str]:
+def write_plans(
+    output: Path, environment: dict, port: int = CONTROL_PORT
+) -> dict[str, str]:
+    """Write every case plan and the source-hash table into a new directory.
+
+    Returns
+    -------
+    dict[str, str]
+        The SHA-256 digest of each written plan, keyed by case name.
+    """
     generated = {
         name: plan(name, steps, environment, port) for name, steps in plans().items()
     }
@@ -201,18 +335,16 @@ def write_plans(output: Path, environment: dict, port: int = 15800) -> dict[str,
     return hashes
 
 
+def write_command(*, runtime: str, output: str, port: int = CONTROL_PORT) -> None:
+    """Write the plans for the runtime record and print their digests as JSON."""
+    environment = json.loads(Path(runtime).read_text(encoding="utf-8"))
+    hashes = write_plans(Path(output), environment, port)
+    sys.stdout.write(json.dumps(hashes, indent=2) + "\n")
+
+
 def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--runtime", type=Path, required=True)
-    parser.add_argument("--output", type=Path, required=True)
-    parser.add_argument("--port", type=int, default=15800)
-    args = parser.parse_args()
-    print(
-        json.dumps(
-            write_plans(args.output, json.loads(args.runtime.read_text()), args.port),
-            indent=2,
-        )
-    )
+    """Write the plans from the command line."""
+    run(write_command, __doc__)
 
 
 if __name__ == "__main__":
