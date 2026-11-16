@@ -223,8 +223,14 @@ def real_links() -> dict[str, Path]:
     return links
 
 
-# Scripts that no test imports are exercised by the command that the Makefile runs.
-PROGRAMS = {"verify-baseline-evidence.py": [], "extract-synhxd-evidence.py": []}
+# A verifier that hashes the scripts beside it finds them at their pinned bytes in
+# the pinned copy, as its recorded hashes demand.
+COMPANIONS = {
+    "verify-baseline-evidence.py": [
+        "capture-ghidra-evidence.py",
+        "extract-synhxd-evidence.py",
+    ]
+}
 
 
 def differing(pins: pinned_source.Pins) -> list[str]:
@@ -253,7 +259,10 @@ class PinnedScriptEquivalenceTests:
                 ROOT / "scripts",
                 name,
                 pins.read(name),
-                pin_equivalence.Setting(real_links(), PROGRAMS.get(name)),
+                pin_equivalence.Setting(
+                    real_links(),
+                    companions={n: pins.read(n) for n in COMPANIONS.get(name, [])},
+                ),
             )
             assert found == [], f"{name} behaves differently from its pinned bytes"
 

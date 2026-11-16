@@ -228,6 +228,24 @@ class PlanAndOutputFailureTests:
             run(module, write_plan(tmp_path, [{"tool": "nope"}]), tmp_path / "out")
 
 
+def exit_code(start: cabc.Callable[[], None]) -> object:
+    """Run a program and report how it exited.
+
+    A command line library may end a successful run with ``SystemExit(0)``, where
+    a plain script just returns; both are a clean finish.
+
+    Returns
+    -------
+    object
+        The exit code of a ``SystemExit``, or ``None`` when the program returned.
+    """
+    try:
+        start()
+    except SystemExit as stop:
+        return stop.code
+    return None
+
+
 class CommandLineTests:
     """The script run as a program."""
 
@@ -262,7 +280,8 @@ class CommandLineTests:
         _module, bridge = harness(sequence(query))
         plan = write_plan(tmp_path, [query])
         output = tmp_path / "out"
-        self.program(monkeypatch, str(plan), str(output))()
+        start = self.program(monkeypatch, str(plan), str(output))
+        assert exit_code(start) in {None, 0}, "expected a clean finish"
         assert (output / "Q-1.json").exists(), "expected the record"
         assert capsys.readouterr().out == "Q-1 OK\n", "expected the progress line"
         assert bridge.calls()[1] == ("get_function", {}), "expected the query"

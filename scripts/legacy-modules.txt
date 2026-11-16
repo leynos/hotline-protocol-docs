@@ -10,10 +10,8 @@
 # A comment on an entry marks a script whose bytes must not change at all.
 scripts/alias_record_v2.py
 scripts/build-shx.py
-scripts/capture-ghidra-evidence.py  # hash-pinned by the evidence index
 scripts/capture_shx_session.py
 scripts/classic_login_proxy.py
-scripts/extract-synhxd-evidence.py  # hash-pinned by the evidence index
 scripts/mothra_root.py
 scripts/native_121_default_cases.py  # live bytes compared with a recorded hash
 scripts/native_agreement_cases.py
@@ -129,7 +127,6 @@ scripts/test_synhx_profiles.py
 scripts/test_verify_classic_account_constructors.py
 scripts/test_verify_classic_field161_matrix.py
 scripts/test_verify_native_path_fields.py
-scripts/verify-baseline-evidence.py  # hash-pinned by the evidence index
 scripts/verify-shx-login-fragment.py
 scripts/verify-synhx-profiles.py
 scripts/verify_account_attribute.py
