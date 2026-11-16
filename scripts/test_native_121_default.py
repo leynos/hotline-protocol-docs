@@ -1,6 +1,5 @@
 """Offline fault controls for delayed-121 default-response gates."""
 
-import copy
 import json
 import tempfile
 import unittest
@@ -29,20 +28,6 @@ class Delayed121Tests(unittest.TestCase):
         cls.raw = BASELINE.read_bytes()
         cls.baseline = cases.load_baseline(cls.raw)
         cls.plan = cases.plans(cls.baseline["environment"], cls.raw)["observe"]
-
-    def test_exact_two_case_plan_and_full_baseline(self) -> None:
-        plans = cases.plans(self.baseline["environment"], self.raw)
-        self.assertEqual(plans["preflight"], self.baseline)
-        self.assertEqual(plans["postflight"], self.baseline)
-        self.assertEqual(len(self.baseline["steps"]), 29)
-        self.assertEqual(
-            [c["label"] for c in verifier.layout(self.plan)], ["absent", "empty"]
-        )
-        self.assertEqual(self.plan["expectation"]["pm_request_count"], 2)
-        wrong = copy.deepcopy(self.plan)
-        wrong["steps"][17]["hex"] = cases.packet(121, 20)
-        with self.assertRaisesRegex(ValueError, "steps/cases"):
-            verifier.layout(wrong)
 
     def test_wrong_default_text_and_subject_uid_rejected(self) -> None:
         uid, name = b"\0\x32", b"A35-absent-215"

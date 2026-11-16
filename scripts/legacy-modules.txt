@@ -8,7 +8,6 @@
 # and scripts/ruff.toml are deleted.
 #
 # A comment on an entry marks a script whose bytes must not change at all.
-scripts/native_121_default_cases.py  # live bytes compared with a recorded hash
 scripts/native_ban_control_cases.py  # live bytes compared with a recorded hash
 scripts/native_ban_expiry_cleanup.py
 scripts/native_ban_expiry_control.py

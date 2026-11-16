@@ -413,15 +413,15 @@
       "outcome": "ok",
       "detail": ""
     },
-    "test_native_121_default.Delayed121Tests.test_exact_two_case_plan_and_full_baseline": {
-      "outcome": "ok",
-      "detail": ""
-    },
     "test_native_121_default.Delayed121Tests.test_first_bad_identity_and_case_stop_before_dependent_work": {
       "outcome": "ok",
       "detail": ""
     },
     "test_native_121_default.Delayed121Tests.test_wrong_default_text_and_subject_uid_rejected": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_native_121_default_planner.Delayed121Tests.test_exact_two_case_plan_and_full_baseline": {
       "outcome": "ok",
       "detail": ""
     },
