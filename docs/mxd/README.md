@@ -52,6 +52,7 @@ _Figure 1: Reading order of the mxd validation set._
 | [Assertion reconciliation](assertion-reconciliation.md) | Which mxd test assertions agree with the corrected baseline, and which do not?                           |
 | [Accepted corrections](corrections.md)                  | What did each of the three corrections change, and what evidence accepted it?                            |
 | [Classic client trials](classic-client-trials.md)       | What did the two trials show, what do they not establish, and how is a trial run?                        |
+| [Evidence index](evidence.md)                           | Which corpora, ledger identifiers and gap identifiers do the documents of this set cite, and where?      |
 
 _Table 1: The documents of the mxd validation set._
 

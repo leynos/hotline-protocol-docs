@@ -128,10 +128,12 @@ whether it reads a withheld file. Table 2 gives the readers that the search of
   `scripts/verify_classic_field161_matrix.py` on
   `evidence/gap-remediation/2026-11-14/classic-field161-01`. The expected
   result is `ValueError: capture gate source identity`. The corpus records the
-  SHA-256 of mothra's `scripts/capture_readiness.py`, which has changed since
-  the corpus was recorded. Decision D18 says that "the red baseline is
-  recorded, not repaired" (`docs/execplans/documentation-reconcilliation.md`).
-  The target is not in `make all`.
+  SHA-256 of the toolset's `capture_readiness.py`, the gate described in the
+  [capture readiness guide](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/capture-readiness.md),
+  which has changed since the corpus was recorded. Decision D18 says that "the
+  red baseline is recorded, not repaired"
+  (`docs/execplans/documentation-reconcilliation.md`). The target is not in
+  `make all`.
 - **Legacy unittest run.** `make test-legacy` has the same known error, in
   `test_verify_classic_field161_matrix`. The known-red comment in the
   `Makefile` gives the test name, `test_original_corpus_replays`.

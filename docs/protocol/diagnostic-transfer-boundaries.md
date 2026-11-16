@@ -69,6 +69,11 @@ example, and exact-text release policy remain open under the original GAP-037
 criterion. A later packet needs a new owned fixture plan and review; this run
 authorizes no blind upload retry or additional guest mutation.
 
+> Status note (2026-11-16): the register now lists
+> [GAP-037](../../gap-analysis.md#gap-037) as Resolved. Its closure text
+> records the criterion as met for mandatory and descriptive content and
+> representative replies, and claims no at-cap native clipping fixture.
+
 [batch]: ../../evidence/gap-remediation/2026-11-13/native-diagnostic-load-01/manifest.json
 [idle]: diagnostic-replies.md
 [options]: ../../evidence/gap-remediation/2026-11-13/native-diagnostic-load-01/options-after-cleanup.png

@@ -122,3 +122,9 @@ behaviour. Fresh 107 reruns the helper, so its output alone cannot prove
 nothing was stored elsewhere. Unexplained Prefs deltas, failed shutdown, packet
 loss or changed account inventory leave GAP-029 open. Preserve failed reports;
 no retry or scope expansion without a new parent packet.
+
+> Status note (2026-11-16): the criterion in this paragraph was written
+> before the run. The register now lists
+> [GAP-029](../../gap-analysis.md#gap-029) as Resolved, and its closure text
+> records the criterion as met for the documented native session-settings
+> paths.

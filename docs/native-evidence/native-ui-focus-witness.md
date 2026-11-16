@@ -65,3 +65,8 @@ controls reject a false zero-click claim, inactive after-image, changed guest
 payload and recast A7 success. Further low-level emulator investigation is
 outside this packet. GAP-044's option-two notice and enforcement evidence
 remain open for a separately authorized control fixture.
+
+> Status note (2026-11-16): the register now lists
+> [GAP-044](../../gap-analysis.md#gap-044) as Resolved. Its closure text
+> records it as met at known-producer scope and claims no universal origin
+> discriminator, expiry, protection or general codec guarantee.

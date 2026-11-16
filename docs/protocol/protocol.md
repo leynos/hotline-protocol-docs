@@ -4,7 +4,8 @@ This is the baseline protocol guide for mxd's intended Hotline **1.9**
 compatibility. It describes observed behaviour of the Mac PowerPC `HLserver19`
 server, with explicit gaps where the available evidence does not establish a
 complete wire contract. It does not claim to enumerate every protocol extension
-or certify compatibility with every Hotline or SynHX client.
+or certify compatibility with every Hotline client or client of the SynHX
+family.
 
 The authority for this revision is the
 [Hotline 1.9 baseline validity ledger][ledger], captured on 12 November 2026.
@@ -59,7 +60,8 @@ now establish its same-connection handover to HTXF after the success response.
 It does not create a normal user session or identify an application build.
 
 The supplied historical SynHX server source uses the same normal-session magic,
-`TRTPHOTL 00 01 00 02`. **Sub-version 2 cannot identify SynHX uniquely.**
+`TRTPHOTL 00 01 00 02`. **Sub-version 2 cannot uniquely identify a peer of the
+SynHX family.**
 
 The server's handshake reply is eight bytes:
 
@@ -305,7 +307,7 @@ validation required before this becomes a complete interoperable specification.
 
 Use the twelve-byte normal-session handshake and eight-byte response above. A
 successful transport handshake does not itself authenticate the user.
-Sub-version 2 is shared with the supplied historical SynHX source.
+Sub-version 2 is shared with the supplied historical SynHX server source.
 
 Evidence: V003–V006, M001.
 
@@ -325,8 +327,9 @@ guest permissions with configuration provenance.
 **ACK:** on success, the inspected handler writes server version **190** in
 160, unnamed numeric value 161 and server name 162. These additions are not
 gated by client kind or saved client version in this handler. Do not infer that
-SynHX or unknown clients require their omission. Failure paths reply with
-nonzero status and field 100 text; delayed closure can follow. The
+clients of the SynHX family or unknown clients require their omission. Failure
+paths reply with nonzero status and field 100 text; delayed closure can follow.
+The
 [login extras and content sources](../presence-and-messaging/presence-messaging-contracts.md#login-extras-and-configured-content)
 separate field 161's unknown meaning from banner types and server-name
 loading. The [configured login-extra fixtures][login-extra-fixtures] confirm
@@ -542,9 +545,10 @@ schedule, not a global atomic-snapshot guarantee.
 The native 1.9 roster builder does not add subject field 115. The supplied
 historical SynHX **server** roster writer does append 115, and uses the same
 packed field-300 layout. This source difference does not establish what every
-SynHX client accepts or requires.
+client of the SynHX family accepts or requires.
 
-Evidence: V032–V034, M007; `10011870` and the preserved SynHX `rcv.c`.
+Evidence: V032–V034, M007; `10011870` and the preserved historical SynHX server
+source `rcv.c`.
 
 ### User Appearance and Updates (Transaction 301 & 302) – Server Initiates
 
@@ -696,7 +700,8 @@ not prevent a later join. No direct normal success ACK was identified. The
 [native room matrix](../presence-and-messaging/presence-messaging-contracts.md#captured-private-rooms-invitations-and-chat-bytes)
 records mixed/duplicate targets, disconnect, refusal and retry outcomes.
 
-None of these paths establishes a universal SynHX-specific XOR text mode.
+None of these paths establishes a universal XOR text mode specific to the SynHX
+family.
 
 Evidence: V042–V043, M005; `10017f30`, `100188e0`, `10018340`.
 
@@ -759,6 +764,16 @@ disposable-server trial. Client rendering remains a separate question. A client
 broadcast request 355 has its own captured type-355 fan-out, as
 [console/broadcast evidence]( ../presence-and-messaging/native-console-broadcast.md)
 confirms.
+
+> Status note (2026-11-16):
+> [`native-ban-notices.md`](../presence-and-messaging/native-ban-notices.md)
+> records a disposable option-one witness, in which the target received the
+> option-one type-104 notice with field 101 and then reached EOF. That
+> document says that option two and post-ban Login 107 were measured in a
+> separate control-only witness, and that the 1,800-second expiry and reload
+> persistence remain open. The register now lists
+> [GAP-074](../../gap-analysis.md#gap-074) as Resolved; its closure text
+> records the kick-only and both ban-branch fixtures as documented.
 
 Evidence: V043–V048, V071–V072.
 
@@ -1390,9 +1405,10 @@ Evidence: V001, V048–V074, M002–M009.
 - [Gap analysis](../../gap-analysis.md): open questions, implementation impact
   and evidence required to complete the specification.
 
-The historical SynHX comparison is the supplied `../synhxd/server/` archive
-set, with selected trunk revision 1.1 and declared default branch 1.1.1. It is
-not a claim about every SynHX client or a currently released server.
+The historical SynHX server source comparison is the supplied
+`../synhxd/server/` archive set, with selected trunk revision 1.1 and declared
+default branch 1.1.1. It is not a claim about every client of the SynHX family
+or a currently released server.
 
 [ledger]: ../baseline-validity-ledger.md
 [evidence]: ../../evidence/hotline-server-1.9/

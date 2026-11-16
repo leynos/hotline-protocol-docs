@@ -52,7 +52,8 @@ matches its opaque executable identity and configuration. For the Classic
 candidate, retain both fork hashes. A handshake, self-reported version, app
 name or similar-looking exchange alone is insufficient. Without matching
 provenance, the peer remains **unknown**. Shared handshake sub-version 2 and
-numeric field 160 do not turn an unknown peer into SynHX or Hotline 1.8.5.
+numeric field 160 do not turn an unknown peer into a peer of the SynHX family
+or Hotline 1.8.5.
 
 For an unknown peer, the documentation's wire baseline remains native 1.9's
 [login producer](../protocol/native-wire-details.md#captured-login-extras-configuration-bytes-and-refresh).

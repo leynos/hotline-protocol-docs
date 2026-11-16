@@ -2,37 +2,26 @@
 
 The remaining native-fixture requirements need the recorded Mac PPC application
 running under a documented Mac OS environment. The generic emulator harness is
-in sibling `mothra`; protocol-specific preparation and capture scripts are in
-this repository. ROMs, OS disks, compiled emulators and mutable runtime state
-are local inputs under `mothra/state` or `mothra/tools`, never Git artefacts.
+the
+[mothra toolset](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/README.md).
+Protocol-specific preparation and capture scripts are in this repository.
+ROMs, OS disks, compiled emulators and mutable runtime state are local inputs
+under `mothra/state` or `mothra/tools`, never Git artefacts.
 
 ## Prepare the emulator and application
 
-Install the host prerequisites listed in the generic
-[SheepShaver harness guide](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/sheepshaver.md).
-From `mothra`, build the pinned interpreter:
-
-```sh
-NATIVE_RUNTIME=state/mac-runtime/NEW-RUNTIME
-export NATIVE_RUNTIME
-scripts/build-sheepshaver
-python3 scripts/mac_runtime.py prepare "$NATIVE_RUNTIME" \
-  --rom /path/to/supplied/ROM --disk /path/to/OS9.dsk.zip
-```
-
-Choose an unused runtime name for `NATIVE_RUNTIME` and keep that value for the
-whole experiment. The historical `hotline19` instance was retired on
-15 November 2026; its
+Build the pinned interpreter and prepare the runtime with the toolset's
+`mac_runtime.py`, as the
+[build and runtime preparation guide](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/preparing-a-capture-run.md#build-the-emulator-and-prepare-a-runtime)
+describes. Choose an unused runtime name, set it as `NATIVE_RUNTIME` and
+export it, and keep that value for the whole experiment. The historical
+`hotline19` instance was retired on 15 November 2026; its
 [hashes and small recovery records](../../evidence/gap-remediation/2026-11-15/runtime-retirement-preparation-01/manifest.json)
 remain archived.
 
-Preparation hashes the supplied ROM and extracted base disk, creates a writable
-working copy and refuses an existing runtime directory. A multi-file archive
-needs `--member`; nested archives must be unpacked explicitly. Keep the
-original base disk for future resets. The observed blank 1 GiB `.hfv` from the
-Windows archive was an installation target, not an installed OS. Do not
-identify a disk as bootable merely because it is named after an operating
-system.
+The observed blank 1 GiB `.hfv` from the Windows archive was an installation
+target, not an installed OS. A disk is not treated as bootable merely because
+it is named after an operating system.
 
 Prepare the exact application and resource metadata from the extracted server
 archive, using this repository's script:
@@ -48,27 +37,25 @@ It copies Finder information and resources to `.finf` and `.rsrc` for the
 shared filesystem, with an exact source manifest. `HLserver19.Classic` has a
 different data fork and is not substituted for this oracle.
 
-Launch on an available X display:
+Launch the runtime with the toolset's `mac_runtime.py sheep` command, using
+`--port 15500`, on an available X display or on an isolated display such as
+`:97`, as the
+[launch guidance](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/preparing-a-capture-run.md#launch-the-guest)
+describes. This project's forwards are host ports 15500–15503, bound to
+loopback, which forward to guest ports 5500–5503. Confirm the guest TCP/IP
+settings before using those ports; a listening proxy is not proof that Hotline
+is running.
 
-```sh
-python3 scripts/mac_runtime.py sheep "$NATIVE_RUNTIME" \
-  --display :0 --port 15500
-```
+Record the emulated Ethernet boundary with the toolset's guest observer, as the
+[observer guidance](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/sheepshaver.md#observe-the-guest-ethernet-boundary)
+describes. This project writes `state/native-sessions/SESSION/guest.pcap` as a
+new path for each session, alongside a separate host-loopback capture. Frames
+recorded before packet injection are observations at that boundary, not proof
+of guest receipt.
 
-For an isolated display, start
-`Xvfb :97 -screen 0 1024x768x24 -nolisten tcp -ac` and use `--display :97`. The
-Linux real-addressing build needs low-address mapping: the launcher uses
-passwordless `sudo` only to start the emulator as the invoking UID/GID with
-process-scoped `CAP_SYS_RAWIO`. It does not change the host's
-`vm.mmap_min_addr`. Its patched TCP forwards bind to loopback: host 15500–15503
-forward to guest 5500–5503. Confirm the guest TCP/IP settings before using
-those ports; a listening proxy is not proof that Hotline is running. Use
-`--guest-pcap state/native-sessions/SESSION/guest.pcap` with a new path to
-record the emulated Ethernet boundary as well as a separate host-loopback
-capture. The observer refuses existing files and records host wall-clock
-timestamps; its location before packet injection does not prove guest receipt.
-
-Check emulator identity and guest capture in separate stages. The
+Check emulator identity and guest capture in separate stages, as the
+[staged verification guidance](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/preparing-a-capture-run.md#verify-the-guest-in-stages)
+describes. The
 [capture startup trace](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/guest-capture-startup.md)
 shows that the observer creates its PCAP on the first Ethernet packet.
 Immediately after launch, verify the actual disk-owning process without
@@ -81,11 +68,12 @@ does not establish process exit; retain and inspect the same process handle. The
 precontact timeout and retirement without treating it as a protocol result.
 
 Copy the prepared application folder from the guest's Unix/shared volume onto
-its native Mac disk using Finder before testing file/fork/Trash/alias effects.
-Run the copy there, accept its application licence and configure a dedicated
-fixture account. Record guest OS/CarbonLib versions, volume type, account
-privileges, agreement/banner settings and exact launch/configuration steps.
-Only disposable fixture data should be used for mutation cases.
+its native Mac disk before testing file/fork/Trash/alias effects, as the
+[native volume guidance](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/preparing-a-capture-run.md#install-the-application-on-a-native-volume)
+describes. Run the copy there, accept its application licence and configure a
+dedicated fixture account. Record guest OS/CarbonLib versions, volume type,
+account privileges, agreement/banner settings and exact launch/configuration
+steps. Only disposable fixture data should be used for mutation cases.
 
 The initial emulator attempts are not native protocol evidence. The installed
 Linux build's JIT asserted during startup; direct-addressing trials encountered
@@ -219,25 +207,18 @@ has its length at `0x254`, content at `0x256`, and password length/content at
 `0x2bc`/`0x2be`.
 
 The initial run used repository-local Sleuth Kit 4.15.0 for read-only HFS+
-inspection. On the recorded Fedora 43 host, prepare it without installing into
-system directories:
-
-```sh
-mkdir -p tools/sleuthkit-rpms tools/sleuthkit
-dnf download --resolve --destdir tools/sleuthkit-rpms sleuthkit
-(
-  cd tools/sleuthkit
-  for task_package in ../sleuthkit-rpms/*.rpm; do
-    rpm2cpio "$task_package" | cpio -idm --quiet
-  done
-)
-```
+inspection. On the recorded Fedora 43 host, it was installed under
+`mothra/tools/sleuthkit`, outside system directories, as the
+[Sleuth Kit installation guidance](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/preparing-a-capture-run.md#install-sleuth-kit-locally)
+describes.
 
 The native batch records the downloaded package filenames and SHA-256 values.
 These identify the tested binaries; availability of the same packages from a
-future Fedora repository is not guaranteed. With its executables/libraries under
-`mothra/tools/sleuthkit`, locate the current catalogue record rather than
-assuming its original number:
+future Fedora repository is not guaranteed. With the executables and libraries
+installed under `mothra/tools/sleuthkit`, locate the current catalogue record
+rather than assuming its original number, as the
+[catalogue lookup guidance](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/preparing-a-capture-run.md#locate-a-catalogue-record)
+describes:
 
 ```sh
 export LD_LIBRARY_PATH="$PWD/tools/sleuthkit/usr/lib64"
@@ -246,11 +227,12 @@ tools/sleuthkit/usr/bin/ifind -f hfs \
   "$NATIVE_RUNTIME/working.dsk"
 ```
 
-Before **each** HFS image read, stop the owning emulator and verify a root
-`fuser` check exits 1 with no owner or error output. A failed privilege check
-is not an FD-free result. Never inspect a live working image, even read-only.
-Use the stopped image from the same experiment; its catalogue IDs and account
-records need not match the historical example.
+Before **each** HFS image read, stop the owning emulator and verify, as the
+[ownership check guidance](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/preparing-a-capture-run.md#check-that-no-process-owns-the-image)
+describes, that a root `fuser` check exits 1 with no owner or error output. A
+failed privilege check is not an FD-free result. Never inspect a live working
+image, even read-only. Use the stopped image from the same experiment; its
+catalogue IDs and account records need not match the historical example.
 
 Use `icat -f hfs IMAGE CATALOG_ID-4352-0` for that data fork. Save the password
 update record as `fixture-account-after-update.bin` and the three 111 records as
@@ -1062,11 +1044,10 @@ field 161's meaning or exclude aliases. That requirement remains GAP-026.
 The
 [full peer guide](../peers/identified-client-source.md#reproducing-and-checking-full-peer-sessions)
 links the frozen build, five accepted plans and exact executable identity.
-Build through `mothra/scripts/build-shx.py` using repository-local
-dependencies. Launch through `scripts/capture_shx_session.py`, with a new
-capture directory, the matching peer profile and the native oracle file. Keep
-host and guest packet recorders active across the session, including the data
-port for forks.
+Build through `scripts/build-shx.py` using repository-local dependencies.
+Launch through `scripts/capture_shx_session.py`, with a new capture directory,
+the matching peer profile and the native oracle file. Keep host and guest
+packet recorders active across the session, including the data port for forks.
 
 The legacy `/quit` path always saves `~/.hxvars`, even with `-q`. The contained
 driver supplies a private repository-backed home, records the real file's

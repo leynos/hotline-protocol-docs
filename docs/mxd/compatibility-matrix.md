@@ -2,9 +2,9 @@
 
 This document separates observed protocol behaviour from mxd compatibility
 policy and from reported implementation coverage. It sets the native Hotline
-Server 1.9 behaviour, the SynHX and identified client evidence, and the mxd
-policy side by side. The matrix is a baseline with a revision-specific review
-attached, and its limits are stated first.
+Server 1.9 behaviour, the historical SynHX server source and identified client
+evidence, and the mxd policy side by side. The matrix is a baseline with a
+revision-specific review attached, and its limits are stated first.
 
 ## Baseline and limits
 
@@ -13,8 +13,9 @@ The matrix's baseline is the [Hotline 1.9 validity ledger][ledger], captured on
 
 The ledger used the Mac PPC `HLserver19` binary and the supplied historical
 SynHX server source. It did not inspect an mxd checkout, run its tests or Kani
-proofs, or validate particular Hotline/SynHX client builds. Consequently this
-matrix is **not sufficient by itself for release-note QA sign-off**.
+proofs, or validate particular Hotline client builds or clients of the SynHX
+family. Consequently this matrix is **not sufficient by itself for release-note
+QA sign-off**.
 
 Revision-specific results are set out in the
 [assertion reconciliation](assertion-reconciliation.md), and the order in which
@@ -50,7 +51,7 @@ Evidence: M008–M009.
 | shx 0.1.48 source snapshot       | README/version.c identify source at `adb1bf8`; basic login shares sub-version 2, omits 160 and ignores extras 161/162             | Source-observed; seven isolated host callback cases passed                                                                                                | Does not certify mxd or a compiled historical client                          |
 | Identified modern shx build      | Source `adb1bf8`, executable `8fbbe56cef43…`; full native sessions and controlled extra-field cases                               | [Build and session evidence](../peers/identified-client-source.md), [controlled matrix](../peers/peer-tolerance-matrix.md)                                | Further mxd validation is on hold                                             |
 | Identified Classic PPC candidate | Archive/application label 1.9.2, embedded `vers` 1.9.1.0; DATA `7f286e3f…`, RSRC `f762cfde…`                                      | [Native baseline](../peers/classic-native-baseline.md) and [161 width/omission matrix](../peers/classic-field161-matrix.md) reach 121/300 and banner data | Further mxd validation is on hold; native result does not certify mxd         |
-| Other SynHX client profiles      | No unique handshake marker, reply-field rejection rule or universal text-XOR mode was established                                 | Policy requiring identified client/session evidence                                                                                                       | Classifier/omission tests passed; disputed identity premise remains           |
+| Other SynHX-family clients       | No unique handshake marker, reply-field rejection rule or universal text-XOR mode was established                                 | Policy requiring identified client/session evidence                                                                                                       | Classifier/omission tests passed; disputed identity premise remains           |
 | Unknown or legacy client version | Native 1.9 login has no version/kind gate around reply fields 161/162; a missing/old version is not a proven profile identifier   | Native behaviour observed; conservative omission remains a separate mxd policy                                                                            | Omission-policy tests passed; native reply differs                            |
 
 _Table 1: Peers and profiles with their observed markers, protocol evidence and
@@ -61,13 +62,13 @@ In the Hotline 1.9 row, “recorded below” refers to the
 
 ## Peer identity and sub-version 2
 
-**Sub-version 2 is shared, not a SynHX discriminator.** The normal handshake's
-sub-version 2 is shared with the historical shx source and cannot identify a
-SynHX peer on its own.
+**Sub-version 2 is shared, not a discriminator for the SynHX family.** The
+normal handshake's sub-version 2 is shared with the historical shx client
+source and cannot identify a peer of the SynHX family on its own.
 
 The native 1.9 server uses it for normal sessions; its sub-version-3 path is
 transfer-related. Remove `sub_version != 2` as a Hotline requirement and do not
-classify every sub-version-2 peer as SynHX.
+classify every sub-version-2 peer as a member of the SynHX family.
 
 The 1.9 server's own login version value 190 does not prove that every client
 reporting at least 190 is the same client family. Numeric thresholds and peer
@@ -93,8 +94,8 @@ A
 completed three sessions with configured field 162, including a raw `9a` byte.
 In that section, the banner 122 and roster-subject 115 cases used a controlled
 receiver, not the native server. These are finite observations for that exact
-build; they do not identify every SynHX client or set a universal omission
-policy.
+build; they do not identify every client of the SynHX family or set a universal
+omission policy.
 
 ## Login reply and banner policy
 
@@ -110,10 +111,11 @@ The inspected native 1.9 successful-login path adds:
 - Server name 162, omitted when empty and copied from the current native
   configuration with a 31-byte destination cap.
 
-It does so without a saved-client-version or SynHX-kind condition in that
-handler. The former matrix's “omit 161/162 for SynHX or unknown peers” rule is
-therefore an **mxd policy requiring validation**, not native 1.9 behaviour or
-proof that including those fields is invalid.
+It does so without a saved-client-version condition or a condition that the
+peer is a client of the SynHX family in that handler. The former matrix's “omit
+161/162 for SynHX or unknown peers” rule is therefore an **mxd policy requiring
+validation**, not native 1.9 behaviour or proof that including those fields is
+invalid.
 
 The [native configuration corpus][login-extra-fixtures] observed this with
 request version 160 absent, 0, 150, 151 and 190 in early and delayed login
@@ -127,15 +129,15 @@ its purpose remains unknown. A fresh login sees a saved name change, while the
 retained online/waiting clients receive no 161/162 refresh in the bounded
 trial. This does not certify historical-client tolerance or restart durability.
 
-The supplied SynHX server's lack of that native augmentation does not establish
-that a SynHX **client** rejects those fields. The
-[shx source profile](../peers/identified-client-source.md) supplies source and
-isolated callback evidence: its basic-login callback ignores these extras. The
-identified compiled shx and Classic candidate have the finite native sessions
-linked in the matrix above. Other profiles still need their own identified
-evidence; no reported version alone selects one of these builds. The Classic
-161 matrix establishes tolerance of absent, one-zero-byte and four-zero-byte
-values through its recorded stages.
+The lack of that native augmentation in the supplied historical SynHX server
+source does not establish that a **client** of the SynHX family rejects those
+fields. The [shx source profile](../peers/identified-client-source.md) supplies
+source and isolated callback evidence: its basic-login callback ignores these
+extras. The identified compiled shx and Classic candidate have the finite
+native sessions linked in the matrix above. Other profiles still need their own
+identified evidence; no reported version alone selects one of these builds. The
+Classic 161 matrix establishes tolerance of absent, one-zero-byte and
+four-zero-byte values through its recorded stages.
 
 Unreconciled: the Classic 161 matrix statement above (ICM-064) covers absent,
 one-zero-byte and four-zero-byte values. The `mxd-login-extras-correction.md`
@@ -185,23 +187,25 @@ Evidence: M002–M004, V024–V027, V058; native-agreement-01.
 ## Credential obfuscation and text compatibility
 
 The native 1.9 login path complements nonempty login-name bytes. The supplied
-SynHX server's login parser calls a byte-complement helper for login/password.
-That helper implements `~byte`, equivalently XOR with `0xff`.
+historical SynHX server source's login parser calls a byte-complement helper
+for login/password. That helper implements `~byte`, equivalently XOR with
+`0xff`.
 
 These observations concern credential fields. They do **not** establish:
 
-- A SynHX-only credential signature.
+- A credential signature specific to the SynHX family.
 - A universal XOR mode for chat, messages or news bodies.
 - Invalid UTF-8 as a reliable negotiation signal.
 - A requirement for a particular client-side `encode` toggle.
 
 If mxd retains heuristic text decoding, document its exact fields and behaviour
 as policy, including ambiguous plaintext/encoded inputs and how state changes.
-Do not advertise the heuristic as an observed Hotline/SynHX wire guarantee. The
-immutable ledger left native nonempty-password encoding unresolved. The
-[native-path evidence](../protocol/native-wire-details.md) establishes bytewise
-complement from the native account setter, storage and login comparison; it
-does not rely on the SynHX observation to establish that result. The
+Do not advertise the heuristic as an observed wire guarantee of Hotline or of
+the SynHX family. The immutable ledger left native nonempty-password encoding
+unresolved. The [native-path evidence](../protocol/native-wire-details.md)
+establishes bytewise complement from the native account setter, storage and
+login comparison; it does not rely on the historical SynHX server source
+observation to establish that result. The
 [native core fixtures](../native-evidence/native-capture-workflow.md#recorded-native-core-fixtures)
 demonstrate creation/change of a known nonempty password, successful login
 with complemented bytes, and rejection of the old password and plaintext
@@ -244,8 +248,9 @@ BE16 uid | BE16 icon | BE16 colour/status | BE16 name_length | name bytes
 ```
 
 Its enclosing value length is `8 + name_length`. The native 1.9 roster builder
-does not add chat subject 115; the supplied SynHX server writer does. Neither
-observation alone certifies every client profile's roster acceptance rules.
+does not add chat subject 115; the supplied historical SynHX server writer
+does. Neither observation alone certifies every client profile's roster
+acceptance rules.
 
 Other presence details, particularly native 302 teardown ordering, remain
 unresolved. The client-info operation 303 returns generated diagnostics, and
@@ -309,8 +314,8 @@ the original server-only comparison. Its basic-login callback and TLV iterator
 were compiled unchanged with host UI stubs: seven cases passed, including
 native extras, unknown fields, UID handling and the low-bit error predicate.
 These results narrow field-tolerance uncertainty for this specific path. They
-do not validate every SynHX client, optional secure login or a full network
-session.
+do not validate every client of the SynHX family, optional secure login or a
+full network session.
 
 The callback tests also show why native wire error 1 must not be conflated with
 all internal/native or mxd error values: a synthetic status 2 passes this
@@ -362,9 +367,9 @@ Before recording support or signing off a release:
    expectations.
 2. Reconcile classifier, banner, repetition, ACK and privilege semantics with
    the corrected 1.9 guide and its unresolved areas.
-3. Identify client binaries/source or sessions for the intended Hotline and
-   SynHX profiles. Separate observed native behaviour from deliberate mxd
-   differences.
+3. Identify client binaries/source or sessions for the intended Hotline
+   profiles and the profiles of clients of the SynHX family. Separate observed
+   native behaviour from deliberate mxd differences.
 4. Check roadmap and QA references against the actual project. The imported
    document referred to roadmap 1.5.3, Kani item 1.5.4, guardrail items
    1.5.5/1.5.6, later 2.x presence/messaging work, and

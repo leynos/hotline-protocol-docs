@@ -11,7 +11,7 @@ adb1bf8c8cb12f7eb2fa2c01673295a6312f262b
 The commit is dated 3 September 2001. README identifies **Synapse Hotline X
 (shx)**, and `version.c` declares **0.1.48**. This identifies source content;
 the source snapshot alone does not identify a configured executable, a
-particular distributed binary or every client called SynHX. The complete build
+particular distributed binary or every SynHX-family client. The complete build
 and native sessions below now identify one configured modern executable.
 Compile-time HOPE, cipher, compression, IPv6 and UI features create additional
 profiles. The applicability record below addresses GAP-083;
@@ -151,9 +151,10 @@ The basic client omits version field 160 from its request. Native nevertheless
 returns 160/161. The server name is empty, so 162 is omitted. No 122 banner is
 emitted in these sessions. The successful profile therefore supplies full-peer
 tolerance evidence for these 160/161 values and native roster/file records;
-these initial sessions do not test configured 162, 122, the SynHX subject
-addition or other builds. The second corpus below adds native configured 162
-and controlled 122/subject delivery, with the evidence types kept explicit.
+these initial sessions do not test configured 162, 122, the subject 115
+addition of the historical SynHX server source or other builds. The second
+corpus below adds native configured 162 and controlled 122/subject delivery,
+with the evidence types kept explicit.
 
 The client automatically requests roster 300 after its login callback.
 Subsequent `/who` commands display the local roster and generate no additional
@@ -237,8 +238,9 @@ replays retained native handshake/login/privilege/agreement/roster/chat bytes.
 For banner cases it delivers the exact native 71-byte 122 frame from
 `native-login-extras-01/name-a-190-delayed`. For subject cases it appends field
 115 with `mothra-roster-subject` to the native roster records, following the
-selected SynHX roster producer's field shape. This is not execution of a native
-server for those sessions or a historical SynHX server executable.
+selected historical SynHX server roster producer's field shape. This is not
+execution of a native server for those sessions or a historical SynHX server
+executable.
 
 | Receiver case           | Observed real-client result                                                                                                           |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |

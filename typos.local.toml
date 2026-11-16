@@ -26,9 +26,9 @@ ignore = [
   '\bCATALOG-[0-9]+-[0-9]+\b',
   # An audited heading: its anchor is recorded in the gap register, so its
   # spelling is kept until an audit revision renames the section.
-  '(?m)^## Preparation and later authorised capture$',
-  # The same heading as quoted by the generated evidence index.
-  ', Preparation and later authorised capture\]',
+  # The heading is also quoted by the generated evidence index and by the
+  # reconciliation log, so the phrase is exempt wherever it appears.
+  'Preparation and later authorised capture',
   '#preparation-and-later-authorised-capture\b',
 ]
 

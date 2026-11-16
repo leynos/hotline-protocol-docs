@@ -20,6 +20,9 @@ Execution plans live in `docs/execplans/` and are not indexed here.
 
 - [Glossary](glossary.md): the terms the protocol documents use, each with the
   document that is authoritative for it.
+- [Reconciliation log](reconciliation-log.md): every discrepancy found when the
+  documents were reconciled, with its disposition and the questions that only
+  the owner or new evidence can settle.
 - [Repository layout](repository-layout.md): where each path lives, what it
   holds, who maintains it, and where each document was moved from.
 - [Documentation style guide](documentation-style-guide.md): the conventions
@@ -230,6 +233,8 @@ against the protocol documents, what was corrected, and where the work stopped.
   mxd, covering framing limits, direct replies and login extras.
 - [Classic client trials](mxd/classic-client-trials.md): two Classic client
   trials against an isolated fixture, their limits, and how a trial is run.
+- [Evidence index](mxd/evidence.md): the corpora, ledger identifiers and gap
+  identifiers that the documents of this set cite. Generated.
 
 ## Native evidence
 

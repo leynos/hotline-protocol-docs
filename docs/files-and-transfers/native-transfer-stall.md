@@ -54,6 +54,11 @@ rejects a resealed false-success report, zero-window packet and truncated guest
 packet in focused controls. GAP-044 still lacks the option-two notice, post-ban
 login result and persistence observations.
 
+> Status note (2026-11-16): the register now lists
+> [GAP-044](../../gap-analysis.md#gap-044) as Resolved. Its closure text
+> records it as met at known-producer scope and claims no universal origin
+> discriminator, expiry, protection or general codec guarantee.
+
 ## Repeated baseline and a successful comparison
 
 An offline comparison completed on **14 November 2026**. The new portable

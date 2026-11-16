@@ -108,3 +108,8 @@ For GAP-029's unchanged criterion, the combined static rules, A33/A37 defaults,
 and these before/after 301, PM, restart and stopped-fork fixtures support a
 **bounded native 1.9 criterion-met proposal**. The parent alone decides status
 and wording in the central register and protocol contract.
+
+> Status note (2026-11-16): the register now lists
+> [GAP-029](../../gap-analysis.md#gap-029) as Resolved, not as a proposal. Its
+> closure text records the criterion as met for the documented native
+> session-settings paths.

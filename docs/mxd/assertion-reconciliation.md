@@ -99,8 +99,8 @@ not show that the policy matches native 1.9 or an intended client profile.
 
 Kani was not run in this review.
 
-These tests use mxd's own fixtures, not identified historical Hotline/SynHX
-client binaries.
+These tests use mxd's own fixtures, not identified historical Hotline or
+SynHX-family client binaries.
 
 This evidence provides an exact starting revision and test map.
 
@@ -252,7 +252,7 @@ The old
 [mxd compatibility matrix](../../evidence/gap-remediation/2026-11-13/delegated-mxd-01/inputs/docs/internal-compatibility-matrix.md.txt),
 linked as the `delegated-mxd-01` input `internal-compatibility-matrix.md.txt`,
 still lists `sub_version != 2` for Hotline 1.8.5/1.9, calls sub-version 2 a
-SynHX identity, and labels unknown/legacy omission “Supported”. Its test
+SynHX-family identity, and labels unknown/legacy omission “Supported”. Its test
 references point to a former `compat_policy.rs` layout; the current tests are in
 `src/wireframe/compat_policy_tests.rs`. The old matrix cannot serve as release
 acceptance evidence until it is corrected at an identified mxd revision.

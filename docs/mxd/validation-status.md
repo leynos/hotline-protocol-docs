@@ -89,7 +89,7 @@ At the recorded mxd revision:
 - `src/commands/handlers.rs:119–137` builds a roster on explicit request 300.
   The Classic trial sent no 300, so it did not test that writer.
 
-Native 1.9 still sends 109 with field `154=0001` for the agreement-bypass path.
+Native 1.9 still sends 109 with field 154=`0001` for the agreement-bypass path.
 Its
 [login-state contract](../presence-and-messaging/presence-messaging-contracts.md#captured-configured-login-states-and-visibility)
 distinguishes that notification from becoming online. The source trace is

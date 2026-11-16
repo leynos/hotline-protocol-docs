@@ -109,4 +109,9 @@ bound, report that negative reach result rather than enlarging the matrix.
 GAP-037's near-boundary witness and exact-text release decision remain open
 until independently resolved.
 
+> Status note (2026-11-16): the register now lists
+> [GAP-037](../../gap-analysis.md#gap-037) as Resolved. Its closure text
+> records the criterion as met for mandatory and descriptive content and
+> representative replies, and claims no at-cap native clipping fixture.
+
 [a7]: ../../evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/manifest.json

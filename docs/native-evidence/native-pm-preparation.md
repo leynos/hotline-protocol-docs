@@ -6,6 +6,11 @@ producer fixtures. This packet uses the existing `admin` account in two named,
 simultaneous sessions. It creates no account, file or persistent option. The
 native server lease requires a separate supervisor START.
 
+> Status note (2026-11-16): the register now lists
+> [GAP-044](../../gap-analysis.md#gap-044) as Resolved. Its closure text
+> records it as met at known-producer scope and claims no exhaustive absence
+> of further producers.
+
 ## Matrix
 
 | Case              | Sender -> recipient | Session settings 113 | Request 108                      | Expected 104                                                   |

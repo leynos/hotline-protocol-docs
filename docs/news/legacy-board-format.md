@@ -46,3 +46,8 @@ It does not establish a live empty board buffer or prove write durability.
 The multi-post, recipient, empty-input and size-boundary fixtures in
 [GAP-046](../../gap-analysis.md#gap-046) remain to be run. No observed 102 or
 101 wire segment is inferred from the static bytes alone.
+
+> Status note (2026-11-16): the register now lists
+> [GAP-046](../../gap-analysis.md#gap-046) as Resolved. Its closure text
+> records native empty, multi-post, size-boundary and recipient fixtures as
+> run, with the stopped board matching the captured update segments.

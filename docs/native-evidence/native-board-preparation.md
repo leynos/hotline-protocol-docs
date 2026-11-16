@@ -95,6 +95,11 @@ HFS restore write is necessary: quarantine this mutated disposable image. The
 fixture cannot establish crash durability, every date/text encoding, or all
 delivery interleavings. Root adjudicates GAP-046 after raw and storage replay.
 
+> Status note (2026-11-16): the register now lists
+> [GAP-046](../../gap-analysis.md#gap-046) as Resolved. Its closure text
+> records the legacy-board serialization and mutation rules as met with the
+> native empty, multi-post, size-boundary and recipient fixtures.
+
 Focused offline checks use the canonical protocol scripts as dependencies when
 this private clone predates their import:
 

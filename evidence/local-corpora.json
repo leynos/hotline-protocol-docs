@@ -16,6 +16,10 @@
     {
       "path": "evidence/protocol-gap-analysis/2026-11-15/revision-93",
       "reason": "Audit revision cut in this repository when the eight mxd notes were consolidated into six documents."
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-16/revision-94",
+      "reason": "Audit revision cut in this repository after the reconciliation pass: dated status notes, record notes, family-name wording and links to the toolset guides."
     }
   ]
 }

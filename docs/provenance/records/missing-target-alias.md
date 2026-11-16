@@ -1,5 +1,12 @@
 # Observe a genuinely missing Hotline alias target
 
+> Record note (2026-11-16): this is a working record, kept as written. It was
+> written in the capture toolset's repository before the evidence and records
+> moved here, so the paths and revision numbers in it describe that time. The
+> gap audit is now at the revision named in the
+> [gap register](../../../gap-register.json); refer to the register for the
+> current number.
+
 Current plateau, 2026-11-14: R04 is retired after the parent's pre-stage
 receipt missed the hard checkpoint. No protocol request or alias ran.
 `native-alias-prestage-abort-02` retains the GUI, cutoff and stopped checks.

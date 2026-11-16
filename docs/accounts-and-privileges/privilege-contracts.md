@@ -146,6 +146,13 @@ sequencing require before/after native fixtures under GAP-072/073/078/084. No
 mxd release scope or deliberate deviation is chosen by these native
 observations.
 
+> Status note (2026-11-16): the register now lists
+> [GAP-073](../../gap-analysis.md#gap-073) and
+> [GAP-078](../../gap-analysis.md#gap-078) as Resolved. The closure text of
+> GAP-073 is closed against its live-edit and delete sequences criterion, and
+> that of GAP-078 against its partial-error and mixed-success fixture
+> criterion.
+
 [calls]: ../../evidence/gap-remediation/2026-11-12/batch-15/privilege-callsite-review.json
 [create]: ../../evidence/hotline-server-1.9/queries/D-100146f0.c
 [update]: ../../evidence/hotline-server-1.9/queries/D-10014df0.c

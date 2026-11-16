@@ -76,6 +76,28 @@ Evidence: the server README says that the Synapse Hotline X Daemon is an hxd
 server with modifications (`server/README,v`, lines 41 and 42). It lists the
 files that were modified in synhxd over hxd-0.1.41 (`server/README,v`, line 56).
 
+### Identified client
+
+In the peer documents, an identified client is a client whose build identity is
+established by retained evidence. The identity is a source revision, an
+executable hash, or both. The contrast is an unknown peer, which matches no
+evaluated profile. A source revision identifies source content only, so it does
+not by itself identify a configured or distributed executable.
+
+Authoritative source:
+[peer profile rules](peers/peer-profile-rules.md#evaluated-build-identities),
+for the evaluated identified clients, and
+[identified client source](peers/identified-client-source.md#source-package-identities-and-configuration-applicability),
+for the applicability of the shx build.
+
+Evidence: the two evaluated identified clients are the shx 0.1.48 build, with a
+source revision and an executable SHA-256, and the Classic candidate, with its
+DATA and resource-fork SHA-256 values (the same section). Other compile-time
+UI, HOPE, encryption, compression or IPv6 profiles do not inherit these results
+(the same section). A handshake, a self-reported version or an app name alone
+is insufficient for assignment
+([peer profile rules](peers/peer-profile-rules.md#profile-assignment-and-unknown-peer-fallback)).
+
 ### mxd
 
 mxd is the project's own server implementation, whose intended Hotline 1.9

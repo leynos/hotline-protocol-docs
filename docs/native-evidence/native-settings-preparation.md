@@ -67,3 +67,9 @@ Publication must add source/plan/report hashes, both network views, the A7
 postflight receipt and observed duplicate choices. This packet establishes one
 field and one operation only; the original all-core GAP-015/016/017 criteria
 stay open.
+
+> Status note (2026-11-16): the register now lists
+> [GAP-015](../../gap-analysis.md#gap-015) and
+> [GAP-017](../../gap-analysis.md#gap-017) as Resolved, and
+> [GAP-016](../../gap-analysis.md#gap-016) as Investigating. The closure texts
+> of GAP-015 and GAP-017 record their unchanged criteria as resolved.

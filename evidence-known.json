@@ -1,110 +1,26 @@
 [
   {
-    "rule": "index",
-    "path": "docs/mxd/evidence.md",
-    "key": "docs/mxd/evidence.md",
-    "reason": "docs/mxd/README.md is a hashed input of the gap audit, so listing the mxd index there needs a new audit revision, which this packet may not cut. The lead runs `make evidence-index`, adds the index to docs/mxd/README.md and docs/contents.md, cuts the revision and removes this entry."
-  },
-  {
-    "rule": "guide-script",
-    "path": "docs/native-evidence/recreating-evidence.md",
-    "key": "scripts/capture_readiness.py",
-    "reason": "The guide names mothra's own scripts/capture_readiness.py, which is not in this repository. The lead rewords it as a mothra reference or links it by absolute URL."
-  },
-  {
-    "rule": "script",
-    "path": "docs/native-evidence/native-capture-workflow.md",
-    "key": "scripts/build-sheepshaver",
-    "reason": "A general toolset script that lives in mothra. The lead replaces the passage with a link to the toolset guide (the set-up passages move to mothra)."
-  },
-  {
-    "rule": "script",
-    "path": "docs/native-evidence/native-capture-workflow.md",
-    "key": "scripts/mac_runtime.py",
-    "reason": "A general toolset script that lives in mothra. The lead replaces the passage with a link to the toolset guide (the set-up passages move to mothra)."
-  },
-  {
-    "rule": "script",
-    "path": "docs/native-evidence/native-configured-ban-preparation.md",
-    "key": "scripts/mac_runtime.py",
-    "reason": "A general toolset script that lives in mothra. The lead rewords the citation or links mothra by absolute URL."
-  },
-  {
-    "rule": "script",
-    "path": "docs/native-evidence/recreating-evidence.md",
-    "key": "scripts/capture_readiness.py",
-    "reason": "The guide names mothra's own scripts/capture_readiness.py, which is not in this repository. The lead rewords it as a mothra reference or links it by absolute URL."
-  },
-  {
-    "rule": "script",
-    "path": "docs/native-evidence/runtime-recovery-20261113.md",
-    "key": "scripts/mac_runtime.py",
-    "reason": "A general toolset script that lives in mothra. The lead replaces the passage with a link to the toolset guide (the set-up passages move to mothra)."
-  },
-  {
     "rule": "script",
     "path": "docs/provenance/records/missing-target-alias.md",
     "key": "scripts/capture_readiness.py",
-    "reason": "A working record kept as written; it names a general toolset script that lives in mothra. The lead adds a dated note or exempts the record."
+    "reason": "A working record kept as written; it was authored in the capture toolset's repository and names that toolset's script. The record note beneath its title says so."
   },
   {
     "rule": "script",
     "path": "docs/provenance/records/missing-target-alias.md",
     "key": "scripts/mac_runtime.py",
-    "reason": "A working record kept as written; it names a general toolset script that lives in mothra. The lead adds a dated note or exempts the record."
+    "reason": "A working record kept as written; it was authored in the capture toolset's repository and names that toolset's script. The record note beneath its title says so."
   },
   {
     "rule": "script",
     "path": "docs/provenance/records/missing-target-alias.md",
     "key": "scripts/native_capture_receipt.py",
-    "reason": "A working record kept as written; it names a general toolset script that lives in mothra. The lead adds a dated note or exempts the record."
+    "reason": "A working record kept as written; it was authored in the capture toolset's repository and names that toolset's script. The record note beneath its title says so."
   },
   {
     "rule": "script",
     "path": "docs/provenance/records/missing-target-alias.md",
     "key": "scripts/native_emulator_readiness.py",
-    "reason": "A working record kept as written; it names a general toolset script that lives in mothra. The lead adds a dated note or exempts the record."
-  },
-  {
-    "rule": "status",
-    "path": "docs/native-evidence/native-diagnostic-existing-preparation.md",
-    "key": "GAP-037: remain/stay/is open",
-    "reason": "Stale preparation record: the register lists GAP-037 as Resolved. Per D4 the lead adds a dated status note in the same section; the sentence stays as written."
-  },
-  {
-    "rule": "status",
-    "path": "docs/native-evidence/native-pm-preparation.md",
-    "key": "GAP-044: remain/stay/is open",
-    "reason": "Stale preparation record: the register lists GAP-044 as Resolved. Per D4 the lead adds a dated status note in the same section; the sentence stays as written."
-  },
-  {
-    "rule": "status",
-    "path": "docs/native-evidence/native-settings-persistence-preparation.md",
-    "key": "GAP-029: leave GAP-N open",
-    "reason": "Stale preparation record: the register lists GAP-029 as Resolved. Per D4 the lead adds a dated status note in the same section; the sentence stays as written."
-  },
-  {
-    "rule": "status",
-    "path": "docs/native-evidence/native-settings-preparation.md",
-    "key": "GAP-015: remain/stay/is open",
-    "reason": "Stale preparation record: the register lists GAP-015 as Resolved. Per D4 the lead adds a dated status note in the same section; the sentence stays as written."
-  },
-  {
-    "rule": "status",
-    "path": "docs/native-evidence/native-settings-preparation.md",
-    "key": "GAP-017: remain/stay/is open",
-    "reason": "Stale preparation record: the register lists GAP-017 as Resolved. Per D4 the lead adds a dated status note in the same section; the sentence stays as written."
-  },
-  {
-    "rule": "status",
-    "path": "docs/native-evidence/native-ui-focus-witness.md",
-    "key": "GAP-044: remain/stay/is open",
-    "reason": "Stale witness record: the register lists GAP-044 as Resolved. Per D4 the lead adds a dated status note in the same section; the sentence stays as written."
-  },
-  {
-    "rule": "status",
-    "path": "docs/presence-and-messaging/native-104-variants.md",
-    "key": "GAP-044: remain/stay/is open",
-    "reason": "The register lists GAP-044 as Resolved, with closure text that says other type-104 variants remain. The lead adds a dated status note in the same section."
+    "reason": "A working record kept as written; it was authored in the capture toolset's repository and names that toolset's script. The record note beneath its title says so."
   }
 ]

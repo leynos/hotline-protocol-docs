@@ -60,4 +60,10 @@ postflight bytes. Four focused tests include checksum-updated guest-byte,
 host-SYN and operator-scope forgeries. GAP-076 closure is a separate decision;
 GAP-044 remains broader than this console notice.
 
+> Status note (2026-11-16): the register now lists
+> [GAP-076](../../gap-analysis.md#gap-076) as Resolved. Its closure text
+> records the original origin, recipient, field, self and session-state
+> criterion as met, and names the other 104 variants as remaining under
+> GAP-044.
+
 [corpus]: ../../evidence/gap-remediation/2026-11-13/native-console-broadcast-01/manifest.json

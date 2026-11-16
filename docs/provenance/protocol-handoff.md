@@ -1,5 +1,13 @@
 # Protocol documentation handoff
 
+> Record note (2026-11-16): this is a working record, kept as written. It was
+> written in the capture toolset's repository before the evidence and records
+> moved here, so the paths and revision numbers in it describe that time. The
+> gap audit is now at the revision named in the
+> [gap register](../../gap-register.json); refer to the register for the
+> current number. The protocol documents now live in this repository under
+> `docs/`.
+
 Paused at the user’s weekly-quota request on 15 November 2026. Do not start a
 new investigation or native run without resumption. All three journeymen
 finished their bounded packets. Mxd validation remains parked.

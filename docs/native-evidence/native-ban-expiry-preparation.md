@@ -164,6 +164,12 @@ option-2 corpus linkage, postflight, cleanup, and any GAP-074 status decision.
 Unexpected UI, source identity, route, capture, mutex or outcome stops the
 authorized epoch without widening the fixture.
 
+> Status note (2026-11-16): the register now lists
+> [GAP-074](../../gap-analysis.md#gap-074) as Resolved. Its closure text
+> records the original native 1.9 option, outcome, expiry and protection scope
+> as met, and leaves the exact 1,800-second cutoff and nonempty reason bytes
+> unmeasured.
+
 B66 allowed 960 production lines for managed-unit, mutex, PID/FD, deadline and
 failure-report safeguards; B67 allowed 1040 for readiness ordering. B68 allows
 1120 production and 490 test lines for identity, namespace and the 35-second

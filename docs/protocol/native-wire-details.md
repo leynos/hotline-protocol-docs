@@ -845,4 +845,9 @@ adds no native Trash-fork, forced-write, restart or power-loss claim. GAP-072
 remains Investigating for the remaining identity/storage-failure scope, while
 GAP-074 still requires plain kick and both ban-option/expiry fixtures.
 
+> Status note (2026-11-16): the register now lists
+> [GAP-074](../../gap-analysis.md#gap-074) as Resolved. Its closure text
+> records the kick-only and both ban-branch fixtures as documented, and leaves
+> the exact 1,800-second cutoff and nonempty reason bytes unmeasured.
+
 [account-identity]: ../../evidence/gap-remediation/2026-11-13/native-account-identity-01/manifest.json

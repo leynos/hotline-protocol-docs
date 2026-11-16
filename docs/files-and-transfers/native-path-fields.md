@@ -65,3 +65,7 @@ disagree with the independently retained PCAP. Passing the inventory hashes or
 the report's internal checks alone is insufficient for a native claim. The
 original GAP-047 criterion and any status change remain a separate supervisor
 decision after reviewing this bounded evidence.
+
+> Status note (2026-11-16): the register now lists
+> [GAP-047](../../gap-analysis.md#gap-047) as Resolved. Its closure text
+> records the original criterion as closed against the frozen finite fixtures.

@@ -18,21 +18,25 @@ path without writing anything; the operator used a fresh `recovery-20261113-01`
 path. Never reuse an existing target, capture or display path. Recheck
 ownership and source stat immediately before copying.
 
-The existing `scripts/mac_runtime.py prepare` command copied the stopped source
-to a read-only base and created a separate writable working image. The original
-remained at its recorded inode, size and mtime after both smokes. Independent
-SHA-256 reads confirmed both new disk files matched the source before boot; the
-copied ROM matched
+The toolset's `mac_runtime.py prepare` command, described in the
+[build and runtime preparation guide](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/preparing-a-capture-run.md#build-the-emulator-and-prepare-a-runtime),
+copied the stopped source to a read-only base and created a separate writable
+working image. The original remained at its recorded inode, size and mtime
+after both smokes. Independent SHA-256 reads confirmed both new disk files
+matched the source before boot; the copied ROM matched
 `18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd`. The
 read-only `scripts/snapshot_native_hfs.py` probe on the new stopped base found
 exactly one catalogue 11183 entry at `/Hotline19/HLserver19`. Its DATA and
 resource forks extracted successfully and matched the [recorded hashes][forks].
 An absent catalogue probe would not prove the application absent.
 
-The following commands identify the completed 13 November run. They are
-historical provenance, not a current recovery recipe: the `hotline21` input was
-retired on 15 November 2026; `hotline22-recovery` is an occupied live runtime.
-Never copy these commands verbatim into an occupied path.
+The commands below are the preparation and snapshot commands as run for the
+completed 13 November run, as the [as-run transcript][as-run] records them. The
+`mac_runtime.py` command is the toolset's; its general procedure is in the
+[build and runtime preparation guide](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/preparing-a-capture-run.md#build-the-emulator-and-prepare-a-runtime).
+They are historical provenance, not a current recovery recipe: the `hotline21`
+input was retired on 15 November 2026; `hotline22-recovery` is an occupied live
+runtime. Never copy these commands verbatim into an occupied path.
 
 ```sh
 python3 ../mothra/scripts/mac_runtime.py prepare \
@@ -54,14 +58,12 @@ retained
 confirm that donor matches the recorded `e5cbbaaf…` source and `18da89e4…`
 ROM. Choose fresh runtime, display and session names. Before every source read
 or copy, verify positive root FD-free results; never substitute either live
-working image. From the protocol documentation checkout:
-
-```sh
-NATIVE_RUNTIME=../mothra/state/mac-runtime/native-recovery-NEW
-python3 ../mothra/scripts/mac_runtime.py prepare "$NATIVE_RUNTIME" \
-  --rom ../mothra/state/mac-runtime/native-board-02/rom \
-  --disk ../mothra/state/mac-runtime/native-board-02/base.dsk
-```
+working image. From the protocol documentation checkout, prepare the source
+with the toolset's `mac_runtime.py prepare` into a fresh
+`../mothra/state/mac-runtime/native-recovery-NEW` runtime, using the
+`native-board-02` ROM and base disk, as the
+[build and runtime preparation guide](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/preparing-a-capture-run.md#build-the-emulator-and-prepare-a-runtime)
+describes.
 
 This is source preparation only. Apply the current identity, capacity, managed
 capture and fixed-deadline gates before any new boot or protocol contact.

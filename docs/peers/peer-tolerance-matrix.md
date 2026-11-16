@@ -2,7 +2,7 @@
 
 This matrix extends the [identified client source](identified-client-source.md)
 record for GAP-080/081. It uses one identified **complete terminal shx 0.1.48
-build**, not a second historical client or a SynHX server. The source revision
+build**, not a second historical client or a synhxd server. The source revision
 is `adb1bf8c8cb12f7eb2fa2c01673295a6312f262b`; the executable SHA-256 is
 `8fbbe56cef439d4c1732e8d9fbe2c676b9d45fbd273a42b22f8034e3b3914fa0`. The
 matching [profile record][profile] gives the build flags, patch and
@@ -18,7 +18,7 @@ frames. It changes only the named field or delivery order. Banner 122 is the
 exact 71-byte native frame retained in the earlier corpus. The listener and
 client syscall records, loopback PCAP, raw terminal bytes, process exits and
 private HOME outputs are preserved. This is real client behaviour under a
-controlled receiver; it is **not** execution of the Mac server or SynHX daemon.
+controlled receiver; it is **not** execution of the Mac server or synhxd daemon.
 
 | Case            | Deliberate receiver variant                                                      | Observed complete client result                                                                                                             |
 | --------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -91,14 +91,14 @@ Classic DATA/RSRC pair. The following cells consolidate their measured
 coverage; a product name or reported version does not extend a cell to another
 build.
 
-| Field/output                      | Identified shx terminal build                                                                                                                           | Identified Classic candidate                                                                                                          |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| Native 161=`0000`                 | Native sessions continue.                                                                                                                               | Native baseline continues through login, roster and banner data.                                                                      |
-| 161 omission/value/width          | Controlled omission and `0001` continue.                                                                                                                | Native proxy omission, one zero byte and four zero bytes continue.                                                                    |
-| Nonempty 162                      | Native ASCII/high-byte configured names continue through the recorded stages.                                                                           | One 14-byte ASCII append continues through login, roster and banner data.                                                             |
-| Banner 122                        | Controlled delivery/order tests produce an unknown-header diagnostic and exact dump, then roster/chat continuation; banner presentation is unsupported. | Native advertisement leads to a 16-byte data request and 58-byte banner response; image rendering remains unproved.                   |
-| Native packed roster 300          | Native sessions and controlled reload continue.                                                                                                         | The Online Users row is displayed.                                                                                                    |
-| SynHX-shaped subject 115 addition | Controlled receiver observation includes subject display and continuation.                                                                              | One 15-byte ASCII append to the first roster reply preserves subsequent Online Users row display; subject rendering remains unproved. |
+| Field/output                    | Identified shx terminal build                                                                                                                           | Identified Classic candidate                                                                                                          |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Native 161=`0000`               | Native sessions continue.                                                                                                                               | Native baseline continues through login, roster and banner data.                                                                      |
+| 161 omission/value/width        | Controlled omission and `0001` continue.                                                                                                                | Native proxy omission, one zero byte and four zero bytes continue.                                                                    |
+| Nonempty 162                    | Native ASCII/high-byte configured names continue through the recorded stages.                                                                           | One 14-byte ASCII append continues through login, roster and banner data.                                                             |
+| Banner 122                      | Controlled delivery/order tests produce an unknown-header diagnostic and exact dump, then roster/chat continuation; banner presentation is unsupported. | Native advertisement leads to a 16-byte data request and 58-byte banner response; image rendering remains unproved.                   |
+| Native packed roster 300        | Native sessions and controlled reload continue.                                                                                                         | The Online Users row is displayed.                                                                                                    |
+| Subject 115, SynHX server shape | Controlled receiver observation includes subject display and continuation.                                                                              | One 15-byte ASCII append to the first roster reply preserves subsequent Online Users row display; subject rendering remains unproved. |
 
 The additional Classic evidence is the
 [native baseline](classic-native-baseline.md), the

@@ -7,10 +7,12 @@ from request 110 and the stored-ban login predicate.
 
 ## Owned image and identity
 
-- Canonical `scripts/mac_runtime.py prepare` copied the immutable
-  `hotline22-recovery/base.dsk` (`e5cbbaaf2848…`) and ROM (`18da89e42c7c…`)
-  into ignored `mothra/state/mac-runtime/native-configured-apply-01`. The new
-  base and working image both hash to `e5cbbaaf2848…` before boot.
+- Canonical preparation with the toolset's `mac_runtime.py prepare`, as the
+  [build and runtime preparation guide](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/preparing-a-capture-run.md#build-the-emulator-and-prepare-a-runtime)
+  describes, copied the immutable `hotline22-recovery/base.dsk`
+  (`e5cbbaaf2848…`) and ROM (`18da89e42c7c…`) into ignored
+  `mothra/state/mac-runtime/native-configured-apply-01`. The new base and
+  working image both hash to `e5cbbaaf2848…` before boot.
 - Read-only HFS preflight is in that directory's `preflight.json`: two original
   `UserData` records, 175-byte `Prefs`, no `Banned`, no `Banned.bak`, and no
   `m-ban-apply-only`. The application forks are DATA `ad7040db4eb6…` and RSRC
