@@ -2,11 +2,13 @@
 """Prepare one positive native alias-resolution rehearsal, without deletion."""
 
 import hashlib
+import importlib
 import json
 import sys
 import typing as typ
 from pathlib import Path
 
+import capture_identity
 from native_folder_cases import path
 from native_plan import packet, payload
 from native_wire_names import (
@@ -18,6 +20,9 @@ from native_wire_names import (
 )
 from protocol_capture import ORACLE_SHA256
 from script_cli import run
+
+# The scripts that make this plan, in the fixed order of their identity digest.
+CAPTURE_MODULES = ("native_missing_alias_cases.py",)
 
 PORT = 16020
 ROOT = b"m-alias54-only"
@@ -352,12 +357,13 @@ def write_plan(output: Path, environment: dict[str, typ.Any], port: int = PORT) 
     output.mkdir(parents=True, exist_ok=False)
     raw = (json.dumps(plan, indent=2) + "\n").encode()
     (output / "plan.json").write_bytes(raw)
+    control = importlib.import_module("native_missing_alias_control")
+    record = capture_identity.identity(control.CAPTURE_MODULES)
     hashes = {
         "plan.json": digest(raw),
         "native_missing_alias_cases.py": digest(Path(__file__).read_bytes()),
-        "native_missing_alias_control.py": digest(
-            Path(__file__).with_name("native_missing_alias_control.py").read_bytes()
-        ),
+        "native_missing_alias_control.py": record["digest"],
+        control.IDENTITY_KEY: record,
     }
     (output / "source-hashes.json").write_text(
         json.dumps(hashes, indent=2) + "\n", encoding="utf-8"

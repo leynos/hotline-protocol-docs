@@ -457,11 +457,15 @@
           "embeds_script_digests": []
         },
         "source-hashes.json": {
-          "sha256": "a94bf5299507330a70168b60551b6099b6982e8238e5af7fec24eed878473766",
-          "size": 294,
+          "sha256": "abe9fb238cc186e53c30476478e657c0f2bab7bb7e96030424295e4736a6984d",
+          "size": 1380,
           "embeds_script_digests": [
             "native_missing_alias_cases.py",
-            "native_missing_alias_control.py"
+            "native_missing_alias_control.py",
+            "native_missing_alias_control_frames.py",
+            "native_missing_alias_control_host.py",
+            "native_missing_alias_control_operator.py",
+            "native_missing_alias_control_perform.py"
           ]
         }
       }
@@ -477,11 +481,15 @@
           "embeds_script_digests": []
         },
         "source-hashes.json": {
-          "sha256": "c86ee3977f3ba9f0de85b8acccc977d1120240cbecdb51b601b0bd13f36ae752",
-          "size": 294,
+          "sha256": "25bc7f06c15911a9a0488c637b168169bdb7cd09981605c282a3958671ac3ff3",
+          "size": 1380,
           "embeds_script_digests": [
             "native_missing_alias_cases.py",
-            "native_missing_alias_control.py"
+            "native_missing_alias_control.py",
+            "native_missing_alias_control_frames.py",
+            "native_missing_alias_control_host.py",
+            "native_missing_alias_control_operator.py",
+            "native_missing_alias_control_perform.py"
           ]
         }
       }

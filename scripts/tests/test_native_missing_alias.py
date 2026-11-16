@@ -14,6 +14,7 @@ from unittest import mock
 
 import native_missing_alias_cases as cases
 import native_missing_alias_control as control
+import native_missing_alias_control_perform as performing
 import pytest
 from missing_alias_support import (
     ENV,
@@ -214,18 +215,18 @@ class AliasPlanTests:
             remaining = iter(responses)
             output = io.StringIO()
             with (
-                mock.patch.object(control, "host_state", return_value=host),
-                mock.patch.object(control, "check_screens"),
-                mock.patch.object(control, "same_target"),
+                mock.patch.object(performing, "host_state", return_value=host),
+                mock.patch.object(performing, "check_screens"),
+                mock.patch.object(performing, "same_target"),
                 mock.patch.object(
-                    control,
+                    performing,
                     "digest",
                     side_effect=lambda raw: (
                         control.AGREEMENT_SHA if raw == b"x" else original_digest(raw)
                     ),
                 ),
                 mock.patch.object(
-                    control, "exchange", side_effect=fake_exchange
+                    performing, "exchange", side_effect=fake_exchange
                 ) as calls,
                 contextlib.redirect_stdout(output),
                 pytest.raises(ValueError, match="Repeated file-list name"),
@@ -247,16 +248,16 @@ class AliasPlanTests:
             )
             early = io.StringIO()
             with (
-                mock.patch.object(control, "host_state", return_value=host),
+                mock.patch.object(performing, "host_state", return_value=host),
                 mock.patch.object(
-                    control,
+                    performing,
                     "digest",
                     side_effect=lambda raw: (
                         control.AGREEMENT_SHA if raw == b"x" else original_digest(raw)
                     ),
                 ),
                 mock.patch.object(
-                    control, "exchange", side_effect=[reply(10, []), reply(11, [])]
+                    performing, "exchange", side_effect=[reply(10, []), reply(11, [])]
                 ) as calls,
                 contextlib.redirect_stdout(early),
                 pytest.raises(ValueError, match="Owned Files folder/root count"),
@@ -331,11 +332,13 @@ class AliasPlanTests:
             mock.patch.object(control, "perform", fail_with_partial),
         ):
             report = control.run(
-                folder,
-                receipt,
-                tmp_path / "operator.json",
-                binary,
-                tmp_path / "out",
+                control.RunPaths(
+                    folder,
+                    receipt,
+                    tmp_path / "operator.json",
+                    binary,
+                    tmp_path / "out",
+                )
             )
         assert report["status"] == "failed", "failed status"
         assert "controlled partial failure" in report["error"], "error text"
@@ -357,11 +360,13 @@ class AliasPlanTests:
             pytest.raises(ValueError, match="Pre-socket Finder sidecar"),
         ):
             control.run(
-                wrong,
-                receipt,
-                tmp_path / "operator.json",
-                binary,
-                tmp_path / "wrong-out",
+                control.RunPaths(
+                    wrong,
+                    receipt,
+                    tmp_path / "operator.json",
+                    binary,
+                    tmp_path / "wrong-out",
+                )
             )
         assert not (tmp_path / "wrong-out").exists(), "no output for a refused run"
 
