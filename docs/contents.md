@@ -74,6 +74,9 @@ including each [gap](glossary.md#gap) the evidence leaves open.
 - [Diagnostic transfer boundaries](protocol/diagnostic-transfer-boundaries.md):
   a failed attempt to capture a 303 reply during an active transfer, and what
   it does not supply.
+- [Evidence index](protocol/evidence.md): the corpora, ledger identifiers and
+  gap identifiers that the protocol documents cite, with the documents that
+  cite each.
 
 ## Presence and messaging
 
@@ -104,6 +107,9 @@ Presence, notifications, messages and the rate-304 settings path.
 - [Rate 304 recipient predicates](presence-and-messaging/rate304-recipient-predicate.md):
   a static reading of the recipient predicates for rate-304 notifications, from
   the frozen source corpus.
+- [Evidence index](presence-and-messaging/evidence.md): the corpora, ledger
+  identifiers and gap identifiers that the presence and messaging documents
+  cite, with the documents that cite each.
 
 ## Accounts and privileges
 
@@ -134,6 +140,9 @@ Presence, notifications, messages and the rate-304 settings path.
 - [Privilege contracts](accounts-and-privileges/privilege-contracts.md): the
   privilege registry and how its bits compose, from a review of the three
   privilege accessors.
+- [Evidence index](accounts-and-privileges/evidence.md): the corpora, ledger
+  identifiers and gap identifiers that the accounts and privileges documents
+  cite, with the documents that cite each.
 
 ## Files and transfers
 
@@ -155,6 +164,9 @@ Presence, notifications, messages and the rate-304 settings path.
 - [Transfer contracts](files-and-transfers/transfer-contracts.md): refinements
   of the transfer gaps, from request and acceptor captures and ordinary-file
   sessions.
+- [Evidence index](files-and-transfers/evidence.md): the corpora, ledger
+  identifiers and gap identifiers that the files and transfers documents cite,
+  with the documents that cite each.
 
 ## News
 
@@ -164,6 +176,8 @@ Presence, notifications, messages and the rate-304 settings path.
   statically from the pinned native binary; not a captured board post.
 - [News contracts](news/news-contracts.md): static and captured findings on
   nested news categories and articles; unknown words remain opaque.
+- [Evidence index](news/evidence.md): the corpora, ledger identifiers and gap
+  identifiers that the news documents cite, with the documents that cite each.
 
 ## Peers
 
@@ -196,6 +210,8 @@ Classic login proxy, and the field-tolerance evidence for each.
 - [Isolated Classic session](peers/mac-peer-isolated-session.md): one
   controlled login by the archived Classic candidate, in a loopback-only
   network namespace.
+- [Evidence index](peers/evidence.md): the corpora, ledger identifiers and gap
+  identifiers that the peers documents cite, with the documents that cite each.
 
 ## mxd validation
 
@@ -331,6 +347,9 @@ both for the native server, with the guide to recreating the evidence.
 - [Download stall focus event](native-evidence/native-ui-focus-witness.md): one
   failed 29-action readback of a stalled download, with its timeout and partial
   transfer.
+- [Evidence index](native-evidence/evidence.md): the corpora, ledger
+  identifiers and gap identifiers that the native evidence documents cite, with
+  the documents that cite each.
 
 ## Provenance
 
@@ -347,6 +366,9 @@ both for the native server, with the guide to recreating the evidence.
 - [Remaining evidence work](provenance/remaining-evidence-work.md): the ledger
   of evidence capture that remains, with detail for each open gap; the register
   governs where they differ.
+- [Evidence index](provenance/evidence.md): the corpora, ledger identifiers and
+  gap identifiers that the provenance documents cite, with the documents that
+  cite each.
 
 ## Provenance records
 

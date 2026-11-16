@@ -86,7 +86,7 @@ IMPORT_COMMIT ?= f9b4108ec33e59956c9f2bfbd391dc3a8a279299
 
 .PHONY: help all build fmt check-fmt check-fmt-python check-fmt-markdown \
 	lint lint-python lint-legacy typecheck test docs-gates markdownlint spelling nixie \
-	json-check pins-check links-check audit-check withheld-check withheld-scan withheld-skip \
+	json-check pins-check links-check evidence-check evidence-index audit-check withheld-check withheld-scan withheld-skip \
 	sums-check lfs-check evidence-skip curation-check import-check curation-skip \
 	goldens-check pin-experiment
 
@@ -94,7 +94,7 @@ IMPORT_COMMIT ?= f9b4108ec33e59956c9f2bfbd391dc3a8a279299
 # Shared build caches require sequential gates even when make receives -j.
 .NOTPARALLEL:
 
-all: build check-fmt-python json-check pins-check links-check audit-check $(WITHHELD_GATE) $(EVIDENCE_GATE) $(CURATION_GATE) $(EVIDENCE_VERIFY_GATE) lint-python lint-legacy typecheck test ## Run the gates that must pass at every commit
+all: build check-fmt-python json-check pins-check links-check evidence-check audit-check $(WITHHELD_GATE) $(EVIDENCE_GATE) $(CURATION_GATE) $(EVIDENCE_VERIFY_GATE) lint-python lint-legacy typecheck test ## Run the gates that must pass at every commit
 
 lint: lint-python lint-legacy ## Run every Python linter
 
@@ -137,6 +137,19 @@ pins-check: ## Verify that each pinned script is in the local history and carrie
 
 links-check: ## Verify every Markdown link, fragment and mothra reference
 	$(PYTHON) tools/check_links.py --root . $(MOTHRA_ARG) --min-links $(LINKS_MIN) $(LINKS_ARGS)
+
+# The run must see at least this many ledger citations and evidence links, so an
+# empty run cannot pass. evidence-known.json lists accepted current findings.
+EVIDENCE_LEDGER_MIN ?= 400
+EVIDENCE_LINKS_MIN ?= 700
+EVIDENCE_KNOWN ?= evidence-known.json
+
+evidence-check: ## Verify cited identifiers, scripts, gap statuses, the remaining-work ledger, corpus families and the evidence indexes
+	$(PYTHON) tools/check_evidence.py check --root . $(if $(wildcard $(EVIDENCE_KNOWN)),--known $(EVIDENCE_KNOWN)) \
+		--min-ledger $(EVIDENCE_LEDGER_MIN) --min-links $(EVIDENCE_LINKS_MIN)
+
+evidence-index: ## Regenerate docs/<set>/evidence.md for every document set
+	$(PYTHON) tools/check_evidence.py index --root . --write
 
 # The renderer validates the register against the audit revision it names and
 # fails if any audited document has changed since that revision was cut.
