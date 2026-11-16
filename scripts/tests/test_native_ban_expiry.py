@@ -11,6 +11,7 @@ from unittest import mock
 
 import native_ban_expiry_cases as cases
 import native_ban_expiry_control as control
+import native_ban_expiry_control_runtime as runtime
 import pytest
 from ban_expiry_support import environment, iteration
 from protocol_capture import validate_plan
@@ -49,7 +50,7 @@ class BanExpiryTests(BanExpiryPlanChecks):
             "unit_properties": props,
         }
         with mock.patch.object(
-            control.subprocess, "run", return_value=show_props(props)
+            runtime.subprocess, "run", return_value=show_props(props)
         ) as run:
             control.live_service(meta, deadline, 2100)
             run.assert_called_once()
@@ -69,7 +70,7 @@ class BanExpiryTests(BanExpiryPlanChecks):
                 )
                 with (
                     mock.patch.object(
-                        control.subprocess, "run", return_value=show_props(actual)
+                        runtime.subprocess, "run", return_value=show_props(actual)
                     ),
                     pytest.raises(ValueError, match=expected),
                 ):
@@ -77,14 +78,14 @@ class BanExpiryTests(BanExpiryPlanChecks):
         over_cap = props | {"RuntimeMaxUSec": "2101s"}
         with (
             mock.patch.object(
-                control.subprocess, "run", return_value=show_props(over_cap)
+                runtime.subprocess, "run", return_value=show_props(over_cap)
             ),
             pytest.raises(ValueError, match="Managed service changed"),
         ):
             control.live_service(meta | {"unit_properties": over_cap}, deadline, 2100)
         with (
             mock.patch.object(
-                control.subprocess, "run", return_value=show_props(props)
+                runtime.subprocess, "run", return_value=show_props(props)
             ),
             pytest.raises(ValueError, match="Managed service changed"),
         ):
@@ -134,22 +135,22 @@ class BanExpiryTests(BanExpiryPlanChecks):
         with pytest.raises(ValueError, match="profile"):
             control.runtime_gate(receipt, env, deadline)
         with (
-            mock.patch.object(control.os, "geteuid", return_value=0),
+            mock.patch.object(runtime.os, "geteuid", return_value=0),
             mock.patch.object(
-                control.os, "stat", return_value=SimpleNamespace(st_ino=456)
+                runtime.os, "stat", return_value=SimpleNamespace(st_ino=456)
             ),
-            mock.patch.object(control.os, "readlink", return_value="/guest.pcap"),
-            mock.patch.object(control, "capture_gate"),
-            mock.patch.object(control, "namespace_gate"),
+            mock.patch.object(runtime.os, "readlink", return_value="/guest.pcap"),
+            mock.patch.object(runtime, "capture_gate"),
+            mock.patch.object(runtime, "namespace_gate"),
             mock.patch.object(
-                control.Path, "stat", return_value=SimpleNamespace(st_ino=222, st_dev=1)
+                runtime.Path, "stat", return_value=SimpleNamespace(st_ino=222, st_dev=1)
             ),
             mock.patch.object(
-                control.Path, "read_text", return_value="flags:\t0100001\n"
+                runtime.Path, "read_text", return_value="flags:\t0100001\n"
             ),
-            mock.patch.object(control, "live_service") as live,
+            mock.patch.object(runtime, "live_service") as live,
             mock.patch.object(
-                control.subprocess, "run", return_value=SimpleNamespace(returncode=1)
+                runtime.subprocess, "run", return_value=SimpleNamespace(returncode=1)
             ),
         ):
             control.runtime_gate(receipt, env, deadline, capture_window_profile=profile)
@@ -268,12 +269,14 @@ class BanExpiryTests(BanExpiryPlanChecks):
                 ):
                     result = control.run_epoch(
                         phase,
-                        root / "plans",
-                        None,
-                        root / "receipt.json",
-                        root / "binary",
-                        root / phase,
-                        bounds_path=root / "clock.json",
+                        control.EpochPaths(
+                            root / "plans",
+                            None,
+                            root / "receipt.json",
+                            root / "binary",
+                            root / phase,
+                            root / "clock.json",
+                        ),
                     )
                     assert result["preprobe_baseline"] == marker, "baseline differs"
                     assert result["readiness_report_sha256"] is None, "readiness ran"
@@ -334,21 +337,23 @@ class BanExpiryTests(BanExpiryPlanChecks):
                     ORACLE_SHA256=hashlib.sha256(b"oracle").hexdigest(),
                 ),
                 mock.patch.object(
-                    control.time,
+                    time,
                     "sleep",
                     side_effect=lambda n: sequence.append(f"settle-{n}"),
                 ),
                 mock.patch.object(
-                    control.time, "monotonic_ns", side_effect=[0, 35_000_000_000]
+                    time, "monotonic_ns", side_effect=[0, 35_000_000_000]
                 ),
             ):
                 result = control.run_epoch(
                     "first",
-                    root / "plans",
-                    ready,
-                    root / "receipt.json",
-                    root / "binary",
-                    root / "out",
+                    control.EpochPaths(
+                        root / "plans",
+                        ready,
+                        root / "receipt.json",
+                        root / "binary",
+                        root / "out",
+                    ),
                 )
             assert result["status"] == "completed", "epoch did not complete"
             assert sequence == ["settle-35", *control.EPOCH_CASES["first"]], (

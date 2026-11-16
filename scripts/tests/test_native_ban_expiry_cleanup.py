@@ -164,7 +164,8 @@ class CleanupTests:
                 ),
             ):
                 cleanup.prepare(
-                    "delete", root / "post", runtime, root / "delete", guard
+                    "delete",
+                    cleanup.Locations(root / "post", runtime, root / "delete", guard),
                 )
             assert (root / "delete/plan.json").is_file(), "delete plan not written"
             broken = report("guard")
@@ -175,6 +176,7 @@ class CleanupTests:
                 pytest.raises(ValueError, match="readback"),
             ):
                 cleanup.prepare(
-                    "delete", root / "post", runtime, root / "blocked", guard
+                    "delete",
+                    cleanup.Locations(root / "post", runtime, root / "blocked", guard),
                 )
             assert not (root / "blocked").exists(), "blocked stage wrote output"

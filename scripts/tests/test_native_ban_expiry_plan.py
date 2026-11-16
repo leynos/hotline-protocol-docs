@@ -9,6 +9,8 @@ from unittest import mock
 
 import native_ban_expiry_cases as cases
 import native_ban_expiry_control as control
+import native_ban_expiry_control_case as case
+import native_ban_expiry_control_runtime as runtime
 import pytest
 from ban_expiry_support import FakeRecorder, environment, iteration
 from ban_expiry_wire import frame, identity_frames, probe_frames, roster_record
@@ -155,7 +157,7 @@ class BanExpiryPlanChecks:
         )
         with (
             tempfile.TemporaryDirectory() as tmp,
-            mock.patch.object(control, "Recorder", FakeRecorder),
+            mock.patch.object(case, "Recorder", FakeRecorder),
         ):
             FakeRecorder.selected_frames = probe_frames(success=True)
             good = control.run_case(
@@ -187,10 +189,10 @@ class BanExpiryPlanChecks:
         original = environment()
         deadline = dt.datetime.now(dt.UTC) + dt.timedelta(minutes=2)
         with (
-            mock.patch.object(control.os, "geteuid", return_value=0),
-            mock.patch.object(control.os, "stat") as stat,
+            mock.patch.object(runtime.os, "geteuid", return_value=0),
+            mock.patch.object(runtime.os, "stat") as stat,
             mock.patch.object(
-                control, "capture_gate", side_effect=AssertionError("capture")
+                runtime, "capture_gate", side_effect=AssertionError("capture")
             ) as capture,
         ):
             stat.return_value = SimpleNamespace(
@@ -209,9 +211,9 @@ class BanExpiryPlanChecks:
         """Live runtime bindings and namespace routes are checked in order."""
         original = environment()
         with (
-            mock.patch.object(control.os, "geteuid", return_value=0),
+            mock.patch.object(runtime.os, "geteuid", return_value=0),
             mock.patch.object(
-                control, "capture_gate", side_effect=AssertionError("live")
+                runtime, "capture_gate", side_effect=AssertionError("live")
             ),
         ):
             for key in (
@@ -243,9 +245,9 @@ class BanExpiryPlanChecks:
             return SimpleNamespace(st_ino=value)
 
         with (
-            mock.patch.object(control.os, "stat", side_effect=[inode(789), inode(789)]),
+            mock.patch.object(runtime.os, "stat", side_effect=[inode(789), inode(789)]),
             mock.patch.object(
-                control.subprocess,
+                runtime.subprocess,
                 "run",
                 side_effect=[
                     SimpleNamespace(stdout="[]"),
@@ -257,14 +259,14 @@ class BanExpiryPlanChecks:
             control.namespace_gate(receipt)
             assert run.call_count == 3, "route query count differs"
         with (
-            mock.patch.object(control.os, "stat", side_effect=[inode(999), inode(789)]),
+            mock.patch.object(runtime.os, "stat", side_effect=[inode(999), inode(789)]),
             pytest.raises(ValueError, match="not in the emulator namespace"),
         ):
             control.namespace_gate(receipt)
         with (
-            mock.patch.object(control.os, "stat", side_effect=[inode(789), inode(789)]),
+            mock.patch.object(runtime.os, "stat", side_effect=[inode(789), inode(789)]),
             mock.patch.object(
-                control.subprocess,
+                runtime.subprocess,
                 "run",
                 side_effect=[SimpleNamespace(stdout='[{"dst":"default"}]')],
             ),

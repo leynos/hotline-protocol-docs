@@ -3,24 +3,36 @@
 
 import argparse
 import json
+import typing as typ
 from pathlib import Path
 
 import native_ban_expiry_cases as expiry
 import native_ban_expiry_control as expiry_control
 from native_auth_cases import complement
+from native_ban_expiry_control import digest as sha
+from native_ban_expiry_control import load, require
 from native_control_readiness import BASELINE_FIELDS, field_digest
 from native_plan import close, login
 from protocol_capture import ORACLE_SHA256, validate_plan, verify_capture
 from verify_native_auth import reply
 from verify_native_shx import fields
 
-require = expiry_control.require
-sha = expiry_control.digest
-load = expiry_control.load
-
 
 def accepted_post(post: Path, environment: dict) -> str:
-    """Require the frozen B68 successful first lookup, not an earlier login."""
+    """Require the frozen B68 successful first lookup, not an earlier login.
+
+    Parameters
+    ----------
+    post : pathlib.Path
+        The post epoch directory.
+    environment : dict
+        The runtime environment the post-probe plan must have been made for.
+
+    Returns
+    -------
+    str
+        The SHA-256 of the accepted post-probe report.
+    """
     case = post / "post-probe"
     source = (case / "plan.json").read_bytes()
     planned = load(case / "plan.json")
@@ -53,12 +65,36 @@ def accepted_post(post: Path, environment: dict) -> str:
 
 
 def _streams(plan: dict, events: list[dict]) -> dict:
+    """Rebuild the event streams of a plan from its recorded events.
+
+    Returns
+    -------
+    dict
+        The streams the recorder derives from ``events``.
+    """
     recorder = expiry_control.Recorder(plan)
     recorder.events = events
     return recorder.streams()
 
 
 def steps(stage: str) -> list[dict]:
+    """List the plan steps of one cleanup stage.
+
+    Parameters
+    ----------
+    stage : str
+        ``guard`` or ``delete``.
+
+    Returns
+    -------
+    list[dict]
+        The login, the stage's exchanges and the close.
+
+    Raises
+    ------
+    ValueError
+        If the stage is neither ``guard`` nor ``delete``.
+    """
     if stage == "guard":
         return (
             login()
@@ -76,10 +112,20 @@ def steps(stage: str) -> list[dict]:
             + expiry.exchange(348, 24, [])
             + [close()]
         )
-    raise ValueError("Only guard or delete is prepared")
+    message = "Only guard or delete is prepared"
+    raise ValueError(message)
 
 
 def semantic(report: dict, stage: str) -> None:
+    """Check a completed cleanup capture against what the stage should observe.
+
+    Parameters
+    ----------
+    report : dict
+        The verified capture report.
+    stage : str
+        ``guard`` or ``delete``.
+    """
     require(
         report["status"] == "completed"
         and report["completed_actions"] == len(steps(stage)),
@@ -120,6 +166,24 @@ def semantic(report: dict, stage: str) -> None:
 def make_plan(
     stage: str, environment: dict, post_sha: str, guard_sha: str | None
 ) -> dict:
+    """Build the plan of one cleanup stage.
+
+    Parameters
+    ----------
+    stage : str
+        ``guard`` or ``delete``.
+    environment : dict
+        The runtime environment; it must be the control-only profile.
+    post_sha : str
+        The SHA-256 of the accepted post-probe report.
+    guard_sha : str | None
+        The SHA-256 of the accepted guard report, for the delete stage.
+
+    Returns
+    -------
+    dict
+        The validated plan.
+    """
     require(
         environment.get("fixture_profile") == "control-only"
         and environment.get("full_file_baseline") == "not_exercised",
@@ -144,15 +208,39 @@ def make_plan(
     return result
 
 
-def prepare(
-    stage: str, post: Path, runtime: Path, output: Path, guard: Path | None
-) -> None:
+class Locations(typ.NamedTuple):
+    """The directories and files a cleanup plan is prepared from and written to."""
+
+    post: Path
+    runtime: Path
+    output: Path
+    guard: Path | None
+
+
+def prepare(stage: str, where: Locations) -> None:
+    """Write the plan of one cleanup stage, after its inputs are accepted.
+
+    Parameters
+    ----------
+    stage : str
+        ``guard`` or ``delete``.
+    where : Locations
+        The accepted post epoch, the runtime record, the output directory and,
+        for deletion, the accepted guard capture.
+
+    Raises
+    ------
+    ValueError
+        If deletion is requested without an accepted guard capture.
+    """
+    post, runtime, output, guard = where
     environment = load(runtime)
     post_sha = accepted_post(post, environment)
     guard_sha = None
     if stage == "delete":
         if guard is None:
-            raise ValueError("Deletion requires accepted guard capture")
+            message = "Deletion requires accepted guard capture"
+            raise ValueError(message)
         previous = load(guard / "plan.json")
         require(
             previous == make_plan("guard", environment, post_sha, None),
@@ -169,6 +257,7 @@ def prepare(
 
 
 def main() -> None:
+    """Prepare a cleanup plan from the command line."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--stage", choices=("guard", "delete"), required=True)
     parser.add_argument("--post", type=Path, required=True)
@@ -176,7 +265,7 @@ def main() -> None:
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--guard", type=Path)
     args = parser.parse_args()
-    prepare(args.stage, args.post, args.runtime, args.output, args.guard)
+    prepare(args.stage, Locations(args.post, args.runtime, args.output, args.guard))
 
 
 if __name__ == "__main__":
