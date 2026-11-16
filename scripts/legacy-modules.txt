@@ -12,7 +12,6 @@ scripts/native_ban_expiry_cleanup.py
 scripts/native_ban_expiry_control.py
 scripts/native_board_control.py
 scripts/native_configured_ban_control.py
-scripts/native_control_readiness.py  # live bytes compared with a recorded hash
 scripts/native_diagnostic_load_cases.py
 scripts/native_liveness_control.py
 scripts/native_missing_alias_control.py
@@ -21,7 +20,6 @@ scripts/native_rate304_control.py
 scripts/native_settings_persistence.py
 scripts/native_settings_persistence_cases.py
 scripts/test_native_121_default.py
-scripts/test_native_control_readiness.py
 scripts/test_native_settings_persistence.py
 scripts/test_native_settings_transition.py
 scripts/verify_native_121_default.py  # live bytes compared with a recorded hash
