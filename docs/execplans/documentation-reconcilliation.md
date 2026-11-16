@@ -226,6 +226,25 @@ The script work is a behaviour-preserving refactor.
   10 tensions) in the session scratch directory.
 - [x] (2026-11-15 20:40Z) Owner raised the tooling tolerance (D24) and asked
   for the SynHX naming to be clarified and a comprehensive glossary (D25).
+- [x] (2026-11-18 02:00Z) EP-M5 leftovers integrated and the test suite
+  split (`e37fc44`, then four commits ending with the capture-script
+  characterization tests). The verifier golden reduces a traceback to a marker
+  and its final exception line; one entry was re-recorded and the known-red
+  verifier is migrated with its verdict unchanged (exit 1,
+  `ValueError: capture gate source identity`), its test a strict expected
+  failure pinned to that exception and message, which the golden plugin records
+  as `error`. Five tests that recipes ran by path run under pytest;
+  `test_mxd_direct_ack.py` became `verify_mxd_direct_ack.py` plus a test
+  module. pytest also collects classes named `*Test` and `*Controls`.
+  `peer_tolerance_run.py` and `capture_shx_session.py` have 62 characterization
+  tests against fakes. The suite is split by module name: `make all` runs 1,769
+  tests in about three minutes; `make continuity-tests` runs the 9,084
+  error-order and corpus-fault tests in eight to twelve minutes.
+  `make goldens-check` and `make pin-experiment` print `0 differences`. 33
+  entries remain on the legacy list: fifteen scripts that record or check their
+  own or a sibling's hash at capture (D31, listed there), the two ban-expiry
+  capture drivers held by the suppression limit, and the settings, 121-default
+  and ban-control scripts and tests that are free to migrate now.
 - [x] (2026-11-17 20:00Z) EP-M5 wave 5A integrated (thirteen commits,
   diagnostics through rate 304): the remaining native families meet the
   standard, bar the scripts named below. About 2,100 findings to 0; about 4,400
@@ -1108,7 +1127,29 @@ The script work is a behaviour-preserving refactor.
   applies to `native_control_readiness.py`,
   `verify_native_settings_transition.py` and `verify_native_121_default.py`,
   which also record their own hash at capture, and to the capture-side
-  self-check in `native_settings_persistence.py`. Date/Author: 2026-11-17, lead.
+  self-check in `native_settings_persistence.py`. Date/Author: 2026-11-17,
+  lead. Complete list, found by search and confirmed by reading (2026-11-18).
+  Each script records the SHA-256 of its own file, or of a sibling, when a
+  capture or plan is made:
+  - `protocol_capture.py` (`driver_sha256`), later compared by more than
+    twenty verifiers against corpus copies, constants or manifests;
+  - `capture_shx_session.py` (`driver_sha256`) and `peer_tolerance_run.py`
+    (`source_runner_sha256`, `source_fixture_sha256`), compared with the
+    corpus's own source hashes;
+  - `native_control_readiness.py`, `native_configured_ban_control.py`,
+    `verify_native_settings_transition.py` and `verify_native_121_default.py`
+    (`driver_sha256`; the last two are capture drivers despite their names);
+  - `native_diagnostic_load_cases.py` and `native_settings_persistence.py`
+    (`driver_sha256`, compared by their verifiers);
+  - `native_settings_persistence_cases.py`, which records four sibling files
+    that `native_settings_persistence.py` then re-hashes at capture;
+  - the planner and control pairs for board, path fields and missing alias,
+    where the planner writes `source-hashes.json` for itself and its control
+    and the control compares the live files at run time;
+  - the control scripts for rate 304 and liveness (`source_sha256`,
+    `cases_sha256`).
+  Where a planner in such a pair has been migrated, it was kept as one module
+  so that its own bytes still mean one file.
 
 ## Outcomes & retrospective
 
