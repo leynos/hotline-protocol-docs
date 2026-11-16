@@ -226,6 +226,34 @@ The script work is a behaviour-preserving refactor.
   10 tensions) in the session scratch directory.
 - [x] (2026-11-15 20:40Z) Owner raised the tooling tolerance (D24) and asked
   for the SynHX naming to be clarified and a comprehensive glossary (D25).
+- [x] (2026-11-18 20:00Z) EP-M5 wave 6 and the capture identity of D31
+  integrated (eleven commits by cherry-pick, then `76736ea`). Wave 6 brought
+  the settings, settings-transition, 121-default, ban-control and
+  settings-persistence planners and verifiers to the standard, each
+  characterized on the pinned bytes first. The identity work added
+  `scripts/capture_identity.py` (commit, differing files, per-file hashes and
+  one digest over a declared `CAPTURE_MODULES` tuple) and
+  `scripts/capture_acceptance.py` (`driver_in`, `driver_is`, called once by 28
+  verifiers in the position of the old comparison), split `protocol_capture`
+  into five modules and migrated `capture_shx_session` and
+  `peer_tolerance_run`. Results on the integrated tree: `make all` 2,104 tests;
+  goldens and pin-experiment `0 differences`; continuity 10,997 passed;
+  `make pin-equivalence` 13 passed in 58 minutes; `make docs-gates` clean.
+  Lessons: (1) the equivalence tool did not copy `tests/data`, so every order
+  test errored on both sides and passed vacuously; it now copies the tables and
+  a test fails without that. (2) A migrated module must not import a name from
+  a pinned module that the pinned bytes lack: `TCP_RST` now comes from
+  `native_packet_evidence`. (3) Two waves landing together broke one pinned list
+  (`tests/test_driver_acceptance_sites.py`); run `make all` on the combined
+  tree, not on each wave. (4) Record notes in 21 documents still say a script
+  is held at the earlier lint rules; they are rewritten in one pass with the
+  audit revision that closes EP-M5, and one such finding is on the accepted
+  list until then. `scripts/legacy-modules.txt` holds 18 entries: the board,
+  liveness, path-fields, missing-alias, rate-304, configured-ban and ban-expiry
+  controls, the ban-expiry clean-up, the diagnostic-load planner, the
+  control-readiness script, the settings-persistence runner and planner, the
+  settings-transition and 121-default capture verifiers, and four tests that
+  cover them.
 - [x] (2026-11-18 12:00Z) EP-M10 complete (`202c116`, `b8b1b03`, `041685e`).
   `tools/check_style.py` checks table captions, figures, fence labels, heading
   case, person and the glossary rules; `make style-check` is part of
