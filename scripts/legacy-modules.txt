@@ -8,7 +8,6 @@
 # and scripts/ruff.toml are deleted.
 #
 # A comment on an entry marks a script whose bytes must not change at all.
-scripts/native_board_control.py
 scripts/native_missing_alias_control.py
 scripts/native_path_fields_control.py
 scripts/native_rate304_control.py

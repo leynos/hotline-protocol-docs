@@ -30,6 +30,15 @@ TRACEBACK = re.compile(
     re.MULTILINE,
 )
 TRACEBACK_MARKER = "<traceback>"
+# A capture identity record (scripts/capture_identity.py) as a planner writes it:
+# the commit, the files that differ from it, the listed files and the set digest.
+IDENTITY = re.compile(
+    r'("commit":\s*)(?:"[0-9a-f]{40}"|null)(,\s*"dirty":\s*)\[[^\]]*\]'
+    r'(,\s*"files":\s*\[[^\]]*\],\s*"digest":\s*")([0-9a-f]{64})(")',
+    re.DOTALL,
+)
+ZERO_COMMIT = "0" * 40
+ZERO_DIGEST = "0" * 64
 # The interpreter the Makefile recipes use, so the oracles see the same Python.
 PYTHON3 = shutil.which("python3") or sys.executable
 type Record = dict[str, typ.Any]
@@ -69,6 +78,34 @@ def script_digests(root: Path) -> dict[str, str]:
     for path in sorted((root / "scripts").glob("*.py")):
         names.setdefault(sha256_hex(path.read_bytes()), path.name)
     return names
+
+
+def settle(raw: bytes) -> bytes:
+    """Replace what a capture identity records that differs between runs.
+
+    A planner that records the identity of its scripts (decision D31) writes
+    the Git commit, the files that differ from it and the digest of the set
+    of modules. Each is replaced by a fixed value of the same length, as is
+    every other occurrence of that digest, such as the old single-file field.
+    Bytes that hold no identity record come back unchanged.
+
+    Returns
+    -------
+    bytes
+        The bytes with each identity record settled.
+    """
+    text = raw.decode("utf-8", errors="surrogateescape")
+    digests = {found.group(4) for found in IDENTITY.finditer(text)}
+    text = IDENTITY.sub(
+        lambda found: (
+            f'{found.group(1)}"{ZERO_COMMIT}"{found.group(2)}[]'
+            f"{found.group(3)}{ZERO_DIGEST}{found.group(5)}"
+        ),
+        text,
+    )
+    for value in digests:
+        text = text.replace(value, ZERO_DIGEST)
+    return text.encode("utf-8", errors="surrogateescape")
 
 
 @dc.dataclass(frozen=True, slots=True)
@@ -116,7 +153,8 @@ class Normaliser:
         """Replace embedded digests of ``scripts/`` files with their names.
 
         A planner may record the digest of its own source. That digest must
-        change when the source is refactored, so it is compared by name.
+        change when the source is refactored, so it is compared by name. The
+        commit and the set digest of a capture identity are settled first.
 
         Returns
         -------
@@ -140,7 +178,7 @@ class Normaliser:
             found.add(name)
             return "{scripts/" + name + "}"
 
-        text = HEX64.sub(swap, raw.decode("utf-8", errors="surrogateescape"))
+        text = HEX64.sub(swap, settle(raw).decode("utf-8", errors="surrogateescape"))
         return text.encode("utf-8", errors="surrogateescape"), sorted(found)
 
 

@@ -257,11 +257,15 @@
           "embeds_script_digests": []
         },
         "source-hashes.json": {
-          "sha256": "b255777b512c568475e87b955db4c0fc2e8ac60f10500ab26be11e9481a13458",
-          "size": 270,
+          "sha256": "14891ad65d18af35ea79e8546ed6a6299ac55dcc85d283d32917a56b847a153e",
+          "size": 1120,
           "embeds_script_digests": [
             "native_board_cases.py",
-            "native_board_control.py"
+            "native_board_control.py",
+            "native_board_control_case.py",
+            "native_board_control_flows.py",
+            "native_board_control_report.py",
+            "native_board_control_wire.py"
           ]
         }
       }

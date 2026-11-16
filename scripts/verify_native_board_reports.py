@@ -7,6 +7,7 @@ epoch and the boundaries of its posts. The composition uses the request types th
 
 import typing as typ
 
+from capture_acceptance import role_in
 from native_wire_names import TYPE_EMPTY_ACK, TYPE_LOGIN
 from verify_native_board_checks import Report, need, read, sha, utc
 from verify_native_board_pins import (
@@ -138,8 +139,8 @@ def reports(corpus: Path, modules: tuple[ModuleType, ...], plan: Report) -> Repo
         and report["plan_sha256"] == PLAN
         and report["capture_receipt_sha256"] == sha(raw / "capture-ready.json")
         and report["native_source_sha256"] == DATA
-        and report["runner_sha256"] == RUNNER
-        and report["producer_sha256"] == CASES
+        and role_in(report, "runner", {RUNNER})
+        and role_in(report, "producer", {CASES})
         and (raw / "coordinator.exit").read_text().strip() == "0"
         and len(report["frames"]) == FRAME_COUNT
         and len(report["events"]) == EVENT_COUNT

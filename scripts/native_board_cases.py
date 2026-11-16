@@ -1,15 +1,20 @@
 """Prepare one bounded legacy-board 101/102/103 fixture for an isolated Mac."""
 
 import hashlib
+import importlib
 import json
 import typing as typ
 from pathlib import Path
 
+import capture_identity
 from native_auth_cases import authentication
 from native_plan import packet, payload
 from native_wire_names import FIELD_DATA, TYPE_EMPTY_ACK
 from protocol_capture import ORACLE_SHA256
 from script_cli import run
+
+# The scripts that make this plan, in the fixed order of their identity digest.
+CAPTURE_MODULES = ("native_board_cases.py",)
 
 PORT = 15860
 HELLO = "54525450484f544c00010002"
@@ -270,13 +275,14 @@ def write_plan(
     raw = (json.dumps(value, indent=2) + "\n").encode()
     (directory / "plan.json").write_bytes(raw)
     sha = digest(raw)
+    control = importlib.import_module("native_board_control")
+    record = capture_identity.identity(control.CAPTURE_MODULES)
     (directory / "source-hashes.json").write_text(
         json.dumps({
             "plan.json": sha,
             "native_board_cases.py": digest(Path(__file__).read_bytes()),
-            "native_board_control.py": digest(
-                Path(__file__).with_name("native_board_control.py").read_bytes()
-            ),
+            "native_board_control.py": record["digest"],
+            control.IDENTITY_KEY: record,
         })
         + "\n"
     )

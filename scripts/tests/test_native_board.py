@@ -6,9 +6,13 @@ import socket
 import time
 import typing as typ
 
+import capture_identity
 import native_board_cases as cases
 import pytest
 from native_board_control import (
+    CAPTURE_MODULES,
+    IDENTITY_KEY,
+    CaseResults,
     Wire,
     execute_case,
     prepared,
@@ -115,6 +119,37 @@ class BoardTests:
         (root / "plan.json").write_text(json.dumps(plan, indent=2) + "\n")
         refuses(prepared, root)
 
+    def test_the_plan_records_the_identity_of_the_control_modules(
+        self, tmp_path: Path
+    ) -> None:
+        """The source hashes hold the control's set digest and its identity record."""
+        root = tmp_path / "new"
+        cases.write_plan(root, environment())
+        hashes = json.loads((root / "source-hashes.json").read_text())
+        record = hashes[IDENTITY_KEY]
+        assert hashes["native_board_control.py"] == record["digest"], (
+            "the control's hash is not the digest of its module set"
+        )
+        assert [item["path"] for item in record["files"]] == [
+            f"scripts/{name}" for name in CAPTURE_MODULES
+        ], "the identity lists other modules than the declared set"
+        assert capture_identity.check(record, CAPTURE_MODULES), (
+            "the identity does not describe the live modules"
+        )
+
+    def test_a_prepared_plan_is_refused_when_a_control_module_is_altered(
+        self, tmp_path: Path
+    ) -> None:
+        """A recorded module hash that differs from the live file is refused."""
+        root = tmp_path / "new"
+        cases.write_plan(root, environment())
+        path = root / "source-hashes.json"
+        hashes = json.loads(path.read_text())
+        hashes[IDENTITY_KEY]["files"][0]["sha256"] = "0" * 64
+        path.write_text(json.dumps(hashes))
+        with pytest.raises(ValueError, match="source hash"):
+            prepared(root)
+
     def test_corrupt_segment_fails_before_false_success(self) -> None:
         """A corrupt segment fails the case rather than reporting success."""
         refuses(fake_report, "corrupt_segment")
@@ -138,7 +173,7 @@ class BoardTests:
         recorder = Recorder(plan)
         wire = FakeWire(recorder)
         try:
-            refuses(execute_case, wire, plan, recorder, [], [], {}, pace_seconds=0)
+            refuses(execute_case, wire, plan, CaseResults(), pace_seconds=0)
         finally:
             for name in list(recorder.sockets):
                 wire.close(name)

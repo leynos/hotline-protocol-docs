@@ -1125,6 +1125,10 @@
       "outcome": "ok",
       "detail": ""
     },
+    "test_native_board.BoardTests.test_a_prepared_plan_is_refused_when_a_control_module_is_altered": {
+      "outcome": "ok",
+      "detail": ""
+    },
     "test_native_board.BoardTests.test_actor_and_boundary_semantic_faults": {
       "outcome": "ok",
       "detail": ""
@@ -1166,6 +1170,10 @@
       "detail": ""
     },
     "test_native_board.BoardTests.test_static_and_runtime_identity_required": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_native_board.BoardTests.test_the_plan_records_the_identity_of_the_control_modules": {
       "outcome": "ok",
       "detail": ""
     },
@@ -1242,6 +1250,26 @@
       "detail": ""
     },
     "test_native_board_corpus.BoardCorpusTests.test_wrong_report_segment_rejected": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_native_board_run.RunTests.test_a_binary_that_differs_is_refused_before_any_output": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_native_board_run.RunTests.test_a_clean_run_completes_and_checks_its_own_report": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_native_board_run.RunTests.test_a_deadline_beyond_the_epoch_is_refused": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_native_board_run.RunTests.test_a_failure_in_the_case_is_reported_and_the_wire_closed": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_native_board_run.RunTests.test_the_report_records_the_identity_of_the_runner_and_the_generator": {
       "outcome": "ok",
       "detail": ""
     },

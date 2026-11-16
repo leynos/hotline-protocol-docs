@@ -7,6 +7,7 @@ import typing as typ
 
 import native_board_cases as cases
 from native_board_control import (
+    CaseResults,
     Wire,
     execute_case,
     sha,
@@ -332,11 +333,10 @@ def fake_report(
     plan = cases.source_plan(environment())
     recorder = Recorder(plan)
     wire = FakeWire(recorder, fault)
-    segments: list[bytes] = []
-    payloads: list[bytes] = []
-    reads: dict[str, str] = {}
+    results = CaseResults()
+    segments, payloads, reads = results.segments, results.payloads, results.reads
     try:
-        execute_case(wire, plan, recorder, segments, payloads, reads, pace_seconds=0)
+        execute_case(wire, plan, results, pace_seconds=0)
     finally:
         for name in list(recorder.sockets):
             wire.close(name)

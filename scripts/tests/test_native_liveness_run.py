@@ -22,6 +22,7 @@ import native_liveness_cases as cases
 import native_liveness_control as control
 import pytest
 from liveness_support import FakeConsumer, environment
+from virtual_clock import VirtualClock
 
 if typ.TYPE_CHECKING:
     import collections.abc as cabc
@@ -30,49 +31,6 @@ if typ.TYPE_CHECKING:
 BINARY = b"binary"
 NAMESPACE_INODE = environment()["emulator_netns_inode"]
 EPOCH_SECONDS = 700
-START = 1000.0
-
-
-class VirtualClock:
-    """A clock that moves only when the runner waits."""
-
-    def __init__(self) -> None:
-        """Start at a fixed instant."""
-        self.now = START
-        self.real_select = select.select
-
-    def monotonic_ns(self) -> int:
-        """Read the virtual clock in nanoseconds.
-
-        Returns
-        -------
-        int
-            Nanoseconds.
-        """
-        return int(self.now * 1e9)
-
-    def sleep(self, seconds: float) -> None:
-        """Move the clock instead of waiting."""
-        self.now += seconds
-
-    def select(
-        self,
-        readers: list,
-        writers: list,
-        errors: list,
-        timeout: float | None = None,
-    ) -> tuple[list, list, list]:
-        """Report what is ready now; if nothing is, let the timeout pass.
-
-        Returns
-        -------
-        tuple[list, list, list]
-            The ready sockets of each kind.
-        """
-        ready = self.real_select(readers, writers, errors, 0)
-        if not any(ready) and timeout:
-            self.now += timeout
-        return ready
 
 
 class RunConsumer(FakeConsumer):

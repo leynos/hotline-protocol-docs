@@ -85,7 +85,7 @@ def _execute(run: PlannerRun, argv: cabc.Sequence[str], slug: str) -> gm.Record:
         name = "(the output file)" if path == out else str(path.relative_to(out))
         files[name] = {
             "sha256": gm.sha256_hex(content),
-            "size": len(raw),
+            "size": len(gm.settle(raw)),
             "embeds_script_digests": named,
         }
     return {
