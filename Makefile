@@ -88,7 +88,7 @@ IMPORT_COMMIT ?= f9b4108ec33e59956c9f2bfbd391dc3a8a279299
 	lint lint-python lint-legacy typecheck test docs-gates markdownlint spelling nixie \
 	json-check pins-check links-check evidence-check evidence-index audit-check withheld-check withheld-scan withheld-skip \
 	sums-check lfs-check evidence-skip curation-check import-check curation-skip \
-	goldens-check pin-experiment pin-equivalence
+	goldens-check pin-experiment pin-equivalence continuity-tests
 
 .DEFAULT_GOAL := all
 # Shared build caches require sequential gates even when make receives -j.
@@ -362,6 +362,9 @@ pin-experiment: build ## Append a comment to every pinned script, compare the go
 # Not in `all`: it runs the tests that reach each changed pinned script against both
 # its pinned bytes and its current bytes. Run it with goldens-check after changing a
 # pinned script (decision D29).
+continuity-tests: build ## Run the error-order and corpus-fault tests of the migrated scripts (several minutes; not in all)
+	$(UV) run --group dev pytest -m continuity
+
 pin-equivalence: build ## Check that each changed pinned script behaves as its pinned bytes do (several minutes; not in all)
 	$(UV) run --group dev pytest -m pin_equivalence tests/test_pin_equivalence.py
 

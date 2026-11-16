@@ -22,6 +22,23 @@ TOOLS = Path(__file__).resolve().parents[1] / "tools"
 if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 
+# Modules that pin a migrated script to the behaviour observed on its pristine
+# version: which error is raised first, and how each fault in a corpus ends.
+CONTINUITY_SUFFIXES = ("_order.py", "_faults.py")
+
+
+def pytest_collection_modifyitems(items: list[pytest.Item]) -> None:
+    """Mark every test in a continuity module, so the commit gate can skip it.
+
+    Parameters
+    ----------
+    items : list[pytest.Item]
+        The collected tests, changed in place.
+    """
+    for item in items:
+        if item.path.name.endswith(CONTINUITY_SUFFIXES):
+            item.add_marker(pytest.mark.continuity)
+
 
 @pytest.fixture
 def make_tree() -> TreeBuilder:

@@ -311,8 +311,13 @@ pythonpath = ["scripts"]
 python_classes = ["Test*", "*Tests"]
 # The pinned-script equivalence test reruns most of the suite twice for a widely
 # imported script, so it runs from `make pin-equivalence`, not in the commit gate.
-markers = ["pin_equivalence: compare a changed pinned script with its pinned bytes (slow)"]
-addopts = "-m 'not pin_equivalence'"
+markers = [
+  "pin_equivalence: compare a changed pinned script with its pinned bytes (slow)",
+  "continuity: error-order and corpus-fault tests that pin a migrated script to its pristine behaviour (slow)",
+]
+# The continuity tests replay retained corpora through the verifiers and take
+# several minutes; `make continuity-tests` runs them, beside goldens-check.
+addopts = "-m 'not pin_equivalence and not continuity'"
 
 [tool.uv]
 package = false
