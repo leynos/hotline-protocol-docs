@@ -5,6 +5,9 @@ rehearsal from two real Classic UI attempts that never opened a connection.
 Neither B30 nor B31 tested acceptance of a field-161 variant, or even a
 Classic-to-native baseline through the proxy.
 
+This document belongs to the [provenance](../README.md) set; the
+[glossary](../../glossary.md) defines the terms it uses.
+
 ## B29: synthetic serve path
 
 A direct system service ran as UID/GID 1000 with `PrivateNetwork=yes` and a
@@ -55,6 +58,12 @@ python3 scripts/verify_classic_proxy_rehearsal.py \
   evidence/gap-remediation/2026-11-13/classic-proxy-rehearsal-01
 python3 -m unittest discover -s scripts -p 'test_classic_proxy_rehearsal.py'
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> verifier has since been brought to the repository's Python standard, and the
+> unittest has moved to `scripts/tests/test_classic_proxy_rehearsal.py`. The
+> same check is now run by `make evidence-verify`, and the tests by
+> `uv run --group dev pytest scripts/tests/test_classic_proxy_rehearsal.py`.
 
 The verifier checks retained hashes, frame order and unchanged bytes, ACK field
 161, data exchange, namespace and process receipts, timing, and the four

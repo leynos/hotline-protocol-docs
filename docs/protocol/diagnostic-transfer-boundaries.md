@@ -1,11 +1,16 @@
 # GAP-037 transfer-state diagnostic attempt
 
-This packet attempted to capture a native Hotline Server 1.9 `303` reply while
-an owned transfer was active and another was queued. The fixture upload failed
-before that state could be prepared. The [retained batch][batch] records the
-failure, one guarded cleanup capture, and the unchanged baseline. It does not
-supply an active-transfer or near-1,024-byte diagnostic example. The
-[earlier idle examples][idle] remain the positive 303 evidence.
+This packet attempted to capture a
+[native](../glossary.md#native) [Hotline Server 1.9](../glossary.md#hotline-server-19)
+`303` reply while an owned transfer was active and another was queued. The
+fixture upload failed before that state could be prepared. The
+[retained batch][batch] records the failure, one guarded cleanup capture, and
+the unchanged baseline. It does not supply an active-transfer or
+near-1,024-byte diagnostic example. The [earlier idle examples][idle] remain
+the positive 303 evidence.
+
+This document belongs to the [Hotline 1.9 wire protocol](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Bounded preparation and failure
 
@@ -61,6 +66,11 @@ python3 ../hotline-protocol-docs/scripts/verify_native_diagnostic_load.py \
 python3 -m unittest discover -s ../hotline-protocol-docs/scripts \
   -p test_native_diagnostic_load.py
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> tests have since moved to `scripts/tests/` and run under pytest; the same
+> tests now run with
+> `uv run --group dev pytest scripts/tests/test_native_diagnostic_load.py`.
 
 The exact [as-run commands][as-run] and host/guest snapshots are portable in
 the batch. The source-side 303 formatting bound remains `0x400`; no new field

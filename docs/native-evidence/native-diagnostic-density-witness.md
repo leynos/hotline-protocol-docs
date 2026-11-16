@@ -3,9 +3,12 @@
 The [A9 corpus][a9] records one fixed density capture against the
 [A7-verified existing file][a7], `mothra-race-fixture`, and a separate
 restoration postflight. The earlier [one-active/one-waiting witness][a8]
-provided the native row grammar. This packet used the same Hotline Server 1.9
-process and application DATA SHA-256
-`ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`.
+provided the native row grammar. This packet used the same
+[Hotline Server 1.9](../glossary.md#hotline-server-19) process and application
+DATA SHA-256 `ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`.
+
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Fixed 303 observations
 
@@ -24,6 +27,9 @@ had distinct four-byte references and positive initial waiting positions 116 =
 | 8 active / 4 waiting                   | 647 bytes            | 8                           | 4                     |
 | 8 active / 8 waiting                   | 763 bytes            | 8                           | 8                     |
 | After exact-reference 214 cancellation | 303 bytes            | 0                           | 0                     |
+
+_Table 1: Field 101 size and complete row counts at each fixed point of the 303
+density observations._
 
 All four replies were successful 303 responses with field 102 naming the same
 current user. Folder-download, file-upload and folder-upload sections were
@@ -74,6 +80,11 @@ python3 ../hotline-protocol-docs/scripts/protocol_capture.py verify "$a9/density
 python3 ../hotline-protocol-docs/scripts/protocol_capture.py verify "$a9/postflight"
 python3 "$a9/verify_density.py"
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> capture tool, `scripts/protocol_capture.py`, is still held at the earlier
+> lint rules (`scripts/legacy-modules.txt`), so its `verify` commands are
+> unchanged. The evidence-held `verify_density.py` is not edited.
 
 [a9]: ../../evidence/gap-remediation/2026-11-13/native-diagnostic-density-01/manifest.json
 [a7]: ../../evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/manifest.json

@@ -10,6 +10,9 @@ existing account records; the original delayed-admin capture in
 `evidence/gap-remediation/2026-11-13/native-agreement-01/captures/restored-delayed-admin/`
 shows a successful 121 after admin 107 omitted both 102 and 104.
 
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
+
 Frozen `10011960` enters early completion only when both a nonempty 102 and
 nonzero 104 are present during 107. `native_auth_cases.states()` already uses
 `name=None, icon=None` for delayed-admin. The restored native capture has 107
@@ -75,6 +78,12 @@ python3 scripts/protocol_capture.py capture NEW-plans/postflight.json \
   --oracle-binary HLserver19 --output NEW-postflight
 python3 scripts/verify_native_121_default.py --verify NEW-observe
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> generator, the capture tool and the verifiers are still held at the earlier
+> lint rules (`scripts/legacy-modules.txt`), so the commands have not been
+> brought to the repository's Python standard. The unit tests of the verifier,
+> `scripts/test_native_121_default.py`, are run by `make test-legacy`.
 
 The operator must check exact full A7 preflight before observing, start host
 packet capture before the first socket and retain the cumulative guest

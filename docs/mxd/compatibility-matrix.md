@@ -1,10 +1,15 @@
 # Native, SynHX and mxd compatibility matrix
 
-This document separates observed protocol behaviour from mxd compatibility
-policy and from reported implementation coverage. It sets the native Hotline
-Server 1.9 behaviour, the historical SynHX server source and identified client
-evidence, and the mxd policy side by side. The matrix is a baseline with a
-revision-specific review attached, and its limits are stated first.
+This document separates observed protocol behaviour from
+[mxd](../glossary.md#mxd) compatibility policy and from reported implementation
+coverage. It sets the [native](../glossary.md#native) Hotline Server 1.9
+behaviour, the historical [SynHX](../glossary.md#synhx) server source and
+identified client evidence, and the mxd policy side by side. The matrix is a
+baseline with a revision-specific review attached, and its limits are stated
+first.
+
+This document belongs to the [mxd validation](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Baseline and limits
 

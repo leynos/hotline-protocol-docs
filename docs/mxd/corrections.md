@@ -425,6 +425,11 @@ python3 -m unittest discover -s hotline-protocol-docs/scripts \
   -p 'test_mxd_login_extras.py'
 ```
 
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> tests have since moved to `scripts/tests/` and run under pytest; the same
+> tests now run with
+> `uv run --group dev pytest scripts/tests/test_mxd_login_extras.py`.
+
 The default verifier reads only the exported protocol-docs and mothra
 repositories. `--mxd /path/to/mxd` additionally checks exact mxd HEAD, tracked
 cleanliness, the 28 changed source files, and the base-to-commit patch. It

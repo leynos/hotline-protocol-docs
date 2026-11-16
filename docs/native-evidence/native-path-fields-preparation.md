@@ -4,12 +4,16 @@ The subsequent
 [native path witness](../files-and-transfers/native-path-fields.md) records the
 completed twelve-case run and its limits. This page describes preparation.
 
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
+
 This is an **offline fixture**, not a native result. It implements M1 of
-Mothra's `docs/execplans/structured-path-fields.md`. The prospective endpoint is
-`127.0.0.1:15900` inside the owned emulator namespace. The guest server is
-`10.0.2.15:5500`; `10.0.2.2` is the guest view of the relay client. The guest,
-service, capture recorders and oracle lock need separate supervisor approval. A
-fresh runtime receipt is required before invoking the coordinator.
+[Mothra](../glossary.md#mothra)'s `docs/execplans/structured-path-fields.md`.
+The prospective endpoint is `127.0.0.1:15900` inside the owned emulator
+namespace. The guest server is `10.0.2.15:5500`; `10.0.2.2` is the guest view
+of the relay client. The guest, service, capture recorders and
+[oracle](../glossary.md#oracle) lock need separate supervisor approval. A fresh
+runtime receipt is required before invoking the coordinator.
 
 ## Inputs and commands
 
@@ -27,6 +31,12 @@ python scripts/native_path_fields_control.py \
   --plan-dir NEW-PLAN-DIR --capture-receipt ROOT-OWNED-RECEIPT.json \
   --binary ORIGINAL-DATA --output NEW-RESULT-DIR
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> case generator, `scripts/native_path_fields_cases.py`, has since been brought
+> to the repository's Python standard. The control runner,
+> `scripts/native_path_fields_control.py`, is still held at the earlier lint
+> rules (`scripts/legacy-modules.txt`), so its command is unchanged.
 
 Both output leaves must be absent. The producer writes an exact plan and
 `source-hashes.json` for the plan and both owned Python sources. The runner
@@ -83,3 +93,9 @@ dependencies on `PYTHONPATH`; run Ruff format/check, `ty check`, Markdownlint
 and Nixie on a fresh committed export. The model tests exercise the exact
 matrix and semantic faults, while a real socketpair test covers split replies
 and a retained partial frame with owned FD closure. None contacts Hotline.
+
+> Record note (2026-11-16): the unittest command above is quoted as it was run.
+> Its test module has since moved to
+> `scripts/tests/test_native_path_fields.py`, which runs as
+> `uv run --group dev pytest scripts/tests/test_native_path_fields.py`. The
+> make target `evidence-verify` runs the corpus verifier for the same family.

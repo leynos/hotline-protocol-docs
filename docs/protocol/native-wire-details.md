@@ -3,9 +3,12 @@
 This supplement records further static analysis of the exact `HLserver19`
 binary identified in [the guide](protocol.md). It refines the baseline without
 rewriting the immutable validity ledger. Receiver/serializer analysis is
-distinguished from the native captures cited below. Malformed-input tolerance
-does not prescribe mxd policy. Open requirements remain in
-[the gap register][gaps].
+distinguished from the [native](../glossary.md#native) captures cited below.
+Malformed-input tolerance does not prescribe [mxd](../glossary.md#mxd) policy.
+Open requirements remain in [the gap register][gaps].
+
+This document belongs to the [Hotline 1.9 wire protocol](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Parameter parsing and scalar access
 
@@ -27,6 +30,9 @@ GAP-014–GAP-019.
 | Numeric value length 3                                      | Returns zero.                                                                                                 |
 | Numeric value longer than 4                                 | Copies the first four bytes into the generic numeric reader.                                                  |
 | Absent or zero-length numeric field                         | Returns zero through this accessor.                                                                           |
+
+_Table 1: Observed helper behaviour for each parameter input or operation, in
+parsing and scalar access._
 
 These are helper outcomes. They do not establish that every enclosing request
 succeeds: a handler can reject the resulting missing/default value. Preserve
@@ -69,6 +75,9 @@ rule is the frozen [numeric writer][numeric-writer].
 | 331/332/335/336 navigation in article 400 replies                                                                                                                             | Sender numeric public IDs, using BE16 for `0..65535` and BE32 above; absent links are explicit BE16 zero                                                                 | Client invalid-width handling is inapplicable to these reply-only IDs. [Captured body graph](../news/news-contracts.md#captured-threaded-article-lists-and-partial-posts) proves zero/small values, not every 32-bit ID allocation boundary.                                                                                                                                                                                                                                                                                                                |
 | Nested 321 flavour size in news records                                                                                                                                       | Unsigned BE16, effective `0..65535` inside the structured value, not an outer numeric TLV                                                                                | `ffff` is 65,535, not signed `-1`; malformed nested length is a record-grammar issue. The [article-list schema](../news/news-contracts.md#article-list-field-321) and retained native boundary establish this distinct representation.                                                                                                                                                                                                                                                                                                                      |
 
+_Table 2: Native wire type, width and effective range of each core scalar
+field, with its invalid-width effect and evidence._
+
 These are source-derived accessor and handler effects, with native fixtures
 where cited. They do not promise that an arbitrary in-range numeric value names
 an extant session or room, or that every malformed-width request receives an
@@ -100,6 +109,8 @@ only to observe dispatch/ACK behaviour, not to prove another handler's parsing.
 | Unknown field 65000, field zero, or empty unknown field before known settings | Known settings remain accessible.                                          |
 | Count 65,535 with 65,534 empty field-zero records then name                   | Final complete name is found.                                              |
 | Name value length 65,535                                                      | Handler clips effective name to 31 bytes.                                  |
+
+_Table 3: Settings outcome for each captured settings payload class._
 
 The settings icon tests cover zero through five input bytes and high-bit
 boundaries. They confirm zero for three bytes and the first-four-byte rule for
@@ -153,6 +164,9 @@ account record, **not** a new on-wire struct. Wire values remain ordinary TLVs.
 | 106        | `0x2bc`              | `0x2be`             | 32 bytes         | Password in complemented representation                     |
 | 110        | None                 | `0x004`             | 8 bytes          | MSB-first access bitmap                                     |
 
+_Table 4: Stored offsets, handler copy caps and meaning of each account record
+field._
+
 Create/update handlers start with a cleared record, set its version to 1 and
 copy these fields. A missing field is therefore not generally a partial-update
 instruction. Missing/empty name, attribute or bitmap can clear their values;
@@ -165,6 +179,8 @@ invent sparse-update semantics for 353.
 | Exactly one byte `00`    | Reads the existing account and preserves its encoded password, clipped to at most 31 bytes. |
 | Literal byte `78` (`x`)  | Stores `78`; it is not the preservation sentinel.                                           |
 | Other nonempty bytes     | Stores the copied encoded value, up to the handler's 32-byte cap.                           |
+
+_Table 5: Observed password result for each field 106 value in request 353._
 
 Reply 352 uses literal `x` to indicate that a password exists, and omits 106
 for an empty password. That output is a **presence placeholder**, not an input
@@ -242,6 +258,9 @@ not synthesize guest permissions or redirect every failed lookup to guest.
 | Owned 32-byte account name                                            | Creation and352 readback fail with status1 and native bad-file/folder-name diagnostics. Login also returns status1 with that diagnostic, rather than `Incorrect login.`. |
 | More than32 login bytes with the same32-byte prefix                   | Same diagnostic naming the clipped32-byte key. The helper copy cap is32; this does not establish a valid32-byte account on this guest.                                   |
 
+_Table 6: Captured login lookup and account name results for each input or
+control._
+
 For nonempty105, clipping precedes complement, table conversion and
 CR-to-hyphen replacement. Table byte0 maps to0; these operations do not
 interpret it as a C-string terminator or turn its nonzero Pascal length into an
@@ -290,6 +309,9 @@ component contains a two-byte word followed by a Pascal byte string:
 | 2               | 1    | Name length `n`                                     |
 | 3               | `n`  | Name bytes                                          |
 
+_Table 7: Relative offsets, sizes and values of each structured file path
+component._
+
 Directory traversal skips the word and uses the byte string. Last-component
 extraction can return that word to its caller. A one-component path `foo` with
 a zero word is `00 01 00 00 03 66 6f 6f`. An empty root is conventionally a
@@ -314,6 +336,8 @@ records its operation-specific acceptance separately from the emission grammar.
 | Invalid records             | Tested truncated/empty suffixes or excess count can select the last complete directory. Word `ffff` and trailing bytes retain the tested zero-word destination.                                |
 | Limits                      | Pascal name lengths, platform name clipping and the outer TLV length are distinct. The captured 205 name boundaries do not establish a universal maximum structured-path depth or wire length. |
 
+_Table 8: Field 202 evidence and scope for each input or rule._
+
 ### Field 212: Files destinations
 
 Field 212 uses the same count/component emission frame, but its role depends on
@@ -333,6 +357,8 @@ retain the measured cases.
 | Copied width / submitted length | Handler `100177d0` reads 212 with a 2048-byte copy cap. Both 2048- and 2049-byte submitted values consisting of the valid 19-byte prefix plus `ee` padding select H. This does not prove that byte 2049 was parsed. |
 | Normalization                   | The 208 call reaches the shared resolver/sanitizer. Colon/NUL transformations for 212 were not independently measured here; the 202 observations must retain their field/operation scope.                           |
 
+_Table 9: Field 212 evidence and scope for each input or rule._
+
 ### Field 325: News paths
 
 Field 325 emits the same count/component frame and resolves under the
@@ -349,6 +375,8 @@ and [path witness](../files-and-transfers/native-path-fields.md).
 | Opaque word                     | Word `ffff` in the first component returns that same category in this case. This is a finite observation, not a general word contract.                                                                                        |
 | Copied width / submitted length | Handler `100102c0` reads 325 with a 2048-byte copy cap. Both 2048- and 2049-byte submitted values consisting of the valid 12-byte prefix plus `ee` padding return the high-folder category; parsing of byte 2049 is unproven. |
 | Non-ASCII / normalization       | The raw path component contains `9a` and resolves the owned high-byte folder. Shared sanitization is source-backed; separate 325 colon/NUL outcomes and a universal text codec are not established by these captures.         |
+
+_Table 10: Field 325 evidence and scope for each input or rule._
 
 These tables prove common record framing and the listed outcomes. They do not
 establish identical roots, permission rules, alias containment or acceptance
@@ -368,6 +396,9 @@ Each field **200** in a file-list reply contains this unpadded record:
 | 16     | 2    | Zero                                                                             |
 | 18     | 2    | Name length `n`                                                                  |
 | 20     | `n`  | Name bytes                                                                       |
+
+_Table 11: Offsets, sizes and values of each file-list entry record in field
+200._
 
 Thus the value length is `20 + n`; the outer TLV length excludes its own
 four-byte header. Records repeat as field 200. The builder skips entries with
@@ -446,6 +477,8 @@ The dispatcher clock calls Mac `GetDateTime`; these comparisons use seconds:
 | Active session, last activity age greater than 600 seconds                   | Calls idle-state setter `10005400` with 1; this branch does not itself disconnect. |
 | More than 120 processed requests in the 60-second flood window               | Flood/close path with a 1,800-second ban argument.                                 |
 
+_Table 12: Observed dispatcher action for each clock and flood condition._
+
 A selected complete logical request refreshes activity; TCP byte arrival and
 incomplete fragments do not update that slot in the traced receive/dispatch
 paths. Request 500 has an empty-ACK handler, which makes it usable as a probe
@@ -515,6 +548,8 @@ they do not establish a total delivery order or atomic roster subscription.
 | TEXT 65536 bytes                                         | Warning at 65535, then zero fields             | 154=`0001` |
 | BMP 262141 bytes                                         | Warning at 262140, then zero fields            | 154=`0001` |
 
+_Table 13: Ordinary and bypass 109 results for each agreement configuration._
+
 For empty files, zero-length field omission follows the writer; a fieldless 109
 alone does not distinguish a null buffer from a zero-size loaded handle. The
 loader releases the previous buffer before its replacement attempt. The
@@ -530,6 +565,9 @@ field. The two final probes use a bypass observer so its own login can complete:
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Early name/icon completion | ACK,354; no 109 in three seconds.500 ACKs; observer 301 and rosters show the subject online. Subsequent 121/107 return status 1, field 100 `Unknown transaction type!`. After client close,302 and a subject-free roster follow. |
 | Delayed completion         | ACK without 109; three seconds of silence and no roster visibility. Sending 500 then yields EOF, corroborated by the guest close trace. The observer receives 302 for a UID never introduced by 301.                             |
+
+_Table 14: Captured outcome of each partial completion path for the subject
+login._
 
 These are failed agreement serialization outcomes after an ACK. They are not a
 successful ordinary login contract, a complete session rollback, or evidence
@@ -580,6 +618,9 @@ account is used here.
 | Native keyboard input producing hex `6d6f746872612d9a`                    | The stored and wire suffix is byte `9a`, not its UTF-8 transcription.                                                                                                                                                          |
 | Local GIF versus Remote URL versus empty Remote URL                       | 161 remains two zero bytes. Delayed completion advertises 122 for 151/190 when content is configured, with GIFf/URL tags and their configured 153. No 122 for absent/0/150 versions or empty URL; early completion emits none. |
 | Two 212/raw-selector 2 downloads                                          | Each has a nonzero four-byte 107 reference and 58 delivered GIF bytes. Those references differ from login 161's two zero bytes. The banner data channel has a three-second quiet tail, then client close.                      |
+
+_Table 15: Captured login extras and version results for each controlled
+condition._
 
 The accepted name-change case establishes online and waiting sessions under
 `mothra-name-a`, then pauses 20 host seconds while the operator saves
@@ -653,6 +694,9 @@ The account files retain their catalogue identities through replacement.
 | Complemented 32-byte replacement         | All 32 complemented bytes      | New 32-byte password succeeds; old password fails     |
 | One byte `00`, existing 32-byte password | First 31 complemented bytes    | New 31-byte password succeeds; original 32 bytes fail |
 
+_Table 16: Stored result and login controls for each field 106 value in account
+replacement request 353._
+
 The same literal `x` can therefore appear as a password-presence placeholder in
 352 and as actual encoded replacement input in 353. The receiving operation
 determines its meaning. Echoing the placeholder does not preserve a password.
@@ -725,6 +769,9 @@ account to `Stored Beta27`, replaces its password and clears its bitmap:
 | Existing subjects after password replacement     | Request 500 still ACKs; neither session reauthenticates in this trial                     |
 | Password-only replacement                        | Empty ACK; no additional 354/301 during the measured windows                              |
 | Attribute-only update with NUL password sentinel | Empty ACK; no additional 354/301 during the measured windows                              |
+
+_Table 17: Delivered sequence or result for each recipient and request in the
+live account change._
 
 The two 301 records retain their subject UIDs and icons, use the new name and
 raw status word `0020`. Each subject can receive its peer's 301 before its own
@@ -821,6 +868,9 @@ case-folding table, non-ASCII collisions or cross-platform rules.
 | ----------------------------- | -------------------------------- | ------------------------------------------------------ | -------------------------------------------- |
 | Protected subject             | `0000010000000000` (bit 23)      | Administrator kick rejected; subject still answers 500 | Administrator deletes account successfully   |
 | Protected self-delete subject | `0001010000000000` (bits 15, 23) | Administrator kick rejected; subject still answers 500 | Subject successfully deletes its own account |
+
+_Table 18: Owned target bitmap and the results of requests 110 and 351 for each
+protected subject._
 
 Kick errors use status 1 and field 100, naming the protected display name:
 `You are not allowed to disconnect user … (user is protected).` The target UID

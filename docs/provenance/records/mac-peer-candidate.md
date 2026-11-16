@@ -5,6 +5,9 @@ static inspection. The original ZIP, applications, resource forks, AppleDouble
 sidecars, ROMs and disk images remain only in ignored local state. No client
 was launched, installed or connected to a server.
 
+This document belongs to the [provenance](../README.md) set; the
+[glossary](../../glossary.md) defines the terms it uses.
+
 The archive was retrieved on 2026-11-13 at 16:16:05–16:16:07 UTC from the
 [Higher Intellect archive link][source]. The requested and final URL matched.
 The downloader enforced a 5 MiB streaming cap; it wrote 1,807,023 bytes with

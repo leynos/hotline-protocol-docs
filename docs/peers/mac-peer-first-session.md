@@ -1,11 +1,15 @@
 # First Classic Mac peer session: finite wire observations
 
 The retained capture records one manual connection from an HFS-installed
-Classic Hotline client candidate to the controlled local Hotline Server 1.9
-fixture on 2026-11-13. The source archive was labelled “Hotline Client 1.9.2
-for OSX and OS9”, while its `vers` resources say 1.9.1.0. The data and resource
-forks survived a Finder round trip unchanged. Neither the archive label nor the
+[Classic Hotline client candidate](../glossary.md#classic-client) to the
+controlled local [Hotline Server 1.9](../glossary.md#hotline-server-19) fixture
+on 2026-11-13. The source archive was labelled “Hotline Client 1.9.2 for OSX
+and OS9”, while its `vers` resources say 1.9.1.0. The data and resource forks
+survived a Finder round trip unchanged. Neither the archive label nor the
 session proves vendor authenticity or a precise client release identity.
+
+This document belongs to the [peer implementations](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 The replay stopped for safety after the client made automatic HTTP requests to
 a public IP. This is a **partial session**, not the planned 130-second
@@ -30,6 +34,9 @@ handshake through FIN, with no second host SYN.
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Client    | `TRTPHOTL00010002`; 107/id1 login with 105, 106, 160=`00be`; 121/id2 with 102=`unnamed`, 104=`019e`, 113=`0000`; 300/id3 empty roster request; 212/id4 empty                                                                                                                                                                                                        |
 | Server    | `TRTP00000000`; success reply/id1 with 160=`00be`, 161=`0000`; 109/id1 field101=exact controlled 242-byte agreement; success reply/id2; 354/id2 field110=`fff3cfefff800000`; 122/id3 fields152=`GIFf`, 153=`https://example.invalid/mothra-banner`; success reply/id3 field300=`0007019e00120007756e6e616d6564`; success reply/id4 fields108=`003a`, 107=`00038325` |
+
+_Table 1: Complete captured frame sequence of the client and server control
+directions, with their frames by ID._
 
 The first agreement click only woke the screen saver. At 17:49:48 UTC the
 operator accepted the UI text after matching it to the 109 wire bytes. The

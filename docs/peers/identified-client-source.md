@@ -8,14 +8,19 @@ comparison. Its revision is:
 adb1bf8c8cb12f7eb2fa2c01673295a6312f262b
 ```
 
+This document belongs to the [peer implementations](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
+
 The commit is dated 3 September 2001. README identifies **Synapse Hotline X
 (shx)**, and `version.c` declares **0.1.48**. This identifies source content;
 the source snapshot alone does not identify a configured executable, a
-particular distributed binary or every SynHX-family client. The complete build
-and native sessions below now identify one configured modern executable.
-Compile-time HOPE, cipher, compression, IPv6 and UI features create additional
-profiles. The applicability record below addresses GAP-083;
-[profile rules](peer-profile-rules.md) cover GAP-080, and the
+particular distributed binary or every [SynHX-family](../glossary.md#synhx)
+client. The complete build and [native](../glossary.md#native) sessions below
+now identify one configured modern executable. Compile-time HOPE, cipher,
+compression, IPv6 and UI features create additional profiles. The applicability
+record below addresses
+[GAP-083](../glossary.md#gap); [profile rules](peer-profile-rules.md) cover
+GAP-080, and the
 [cross-peer matrix](peer-tolerance-matrix.md#cross-peer-acceptance-and-omission-rules)
 consolidates GAP-081's finite coverage. Other builds remain unverified.
 
@@ -57,6 +62,9 @@ compiler identity/arguments and these seven outcomes:
 | Status 1 with extras                  | Does not call success hook or update UID.             |
 | Status 2 with extras                  | Calls success hook because the low bit is clear.      |
 | Two UID fields, 42 followed by 43     | Callback finishes with UID 43.                        |
+
+_Table 1: Outcomes of the executed host callback for each generated reply
+input._
 
 These are executed **host fragment tests**, not native Hotline/shx sessions,
 packet captures, full-client acceptance tests or tests of the compiled HOPE
@@ -146,6 +154,9 @@ boundaries. The host recorder reports 170 packets and zero kernel drops.
 | Fork download          | Request 202 gets a nonzero reference; the child attaches to data port 5501 through host 15501 and consumes 510 FILP bytes. Saved DATA is 13 bytes and MACR is 317 bytes, each exactly equal to the known fixture and captured stream. |
 | Ambiguous-byte receive | A controlled script logs in as `native-byte-witness` and sends ordinary chat 105. Native 106 and the real peer's raw terminal output preserve the complete test bytes below.                                                          |
 | Wrong password         | Native status 1 with field 100=`Incorrect login.`; the real client prints the task error and `login failed?`, then exits normally without sending the roster request.                                                                 |
+
+_Table 2: Native peer acceptance sessions, with the native exchange and the
+independently checked result for each._
 
 The basic client omits version field 160 from its request. Native nevertheless
 returns 160/161. The server name is empty, so 162 is omitted. No 122 banner is
@@ -249,6 +260,9 @@ executable.
 | Roster subject addition | Displays `chat 0x0 subject: mothra-roster-subject` after each of the two roster replies; reload and chat complete.                    |
 | Banner plus subject     | Preserves the exact banner dump, prints the unknown-type notice once, displays the subject twice, then completes chat.                |
 
+_Table 3: Controlled receiver cases, with the observed result of the real
+client for each._
+
 The receiver-fixture socket bytes match the real peer's syscall trace, the
 listener's send/receive events and host-loopback PCAP. They have no native
 guest connection. The three actual native sessions and three flush controls
@@ -290,6 +304,9 @@ archive/content hashes.
 | Selected server source   | `version.c` declares `hxd_version = "0.1.48.1"`. README calls this the Synapse Hotline X Daemon server package and directs client users to shx. Comparisons apply to the selected hashed server files and named conditional paths. No deployed server executable is identified. |
 | Selected client source   | Separate converted Git revision `adb1bf8c8cb12f7eb2fa2c01673295a6312f262b`; README/version identify shx 0.1.48. Basic and optional-branch source observations apply to that revision under their stated macros.                                                                 |
 | Tested client executable | Modern terminal build `8fbbe56cef439d4c1732e8d9fbe2c676b9d45fbd273a42b22f8034e3b3914fa0`; exact patch, configuration, compiler and libraries are retained in `shx-build-01`. Native and controlled receiver results apply to that build only.                                   |
+
+_Table 4: Source, client and tested executable profiles, with the identity and
+applicability of each._
 
 The server README describes modifications over `hxd-0.1.41`, while its version
 file declares 0.1.48.1. Preserve both statements: a development baseline is not

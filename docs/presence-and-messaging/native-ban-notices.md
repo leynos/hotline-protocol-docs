@@ -1,11 +1,15 @@
 # Native 1.9 temporary ban notice: disposable option-one witness
 
-This is a bounded **GAP-044** observation from one disposable Mac OS 9 Hotline
-Server 1.9 lab. The byte-level option-one notice is witnessed; option two and
-post-ban Login107 were later measured in a
+This is a bounded **[GAP-044](../glossary.md#gap)** observation from one
+disposable Mac OS 9 [Hotline Server 1.9](../glossary.md#hotline-server-19) lab.
+The byte-level option-one notice is [witnessed](../glossary.md#witness); option
+two and post-ban Login107 were later measured in a
 [separate control-only witness](../native-evidence/native-ban-control-witness.md).
 The 1,800-second expiry and reload persistence remain open. The option-one
 capture is `evidence/gap-remediation/2026-11-13/native-ban-one-01/`.
+
+This document belongs to the [presence and messaging](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Identity and baseline
 
@@ -84,6 +88,11 @@ python3 scripts/verify_native_ban_one.py \
   evidence/gap-remediation/2026-11-13/native-ban-one-01
 python3 -m unittest discover -s scripts -p 'test_native_ban_one.py'
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> tests have since moved to `scripts/tests/` and run under pytest; the same
+> tests now run with
+> `uv run --group dev pytest scripts/tests/test_native_ban_one.py`.
 
 The
 [second-lab transfer failure](../files-and-transfers/native-transfer-stall.md)

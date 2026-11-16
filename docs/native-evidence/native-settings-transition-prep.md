@@ -1,11 +1,14 @@
 # Same-session 304 transition preparation (A32)
 
-This was the offline preparation for the measured
-[A33 native witness](native-settings-transition-witness.md). Combined 121/304
-evidence has since satisfied GAP-030, and the later
+This was the offline [preparation](../glossary.md#preparation) for the measured
+[A33 native witness](native-settings-transition-witness.md).
+Combined 121/304 evidence has since satisfied GAP-030, and the later
 [persistence witness](native-settings-persistence-witness.md) adds GAP-029's
 restart observation. This sequence made no server option, account, file,
 agreement or restart change.
+
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 The generator `scripts/native_settings_transition_cases.py` takes an explicit
 runtime record and the exact A7 29-action/full-FILP baseline plan, SHA-256

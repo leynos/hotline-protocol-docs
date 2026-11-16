@@ -1,15 +1,19 @@
 # Classic client acceptance of one ASCII server-name field
 
 The [portable corpus][corpus] records one controlled field-162 ACK modification
-on 14 November 2026. The native Hotline Server 1.9 sent a successful 34-byte
-Login107 ACK with 160=`00be`, 161=`0000`, and no 162. The [fixed proxy][proxy]
-appended one field 162 containing the 14 ASCII bytes `fixture-native` and
-forwarded a 52-byte ACK. Its SHA-256 is
+on 14 November 2026. The
+[native](../glossary.md#native) [Hotline Server 1.9](../glossary.md#hotline-server-19)
+sent a successful 34-byte Login107 ACK with 160=`00be`, 161=`0000`, and no
+162. The [fixed proxy][proxy] appended one field 162 containing the 14 ASCII
+bytes `fixture-native` and forwarded a 52-byte ACK. Its SHA-256 is
 `3f5185b7bc222e684697fd2fce46ff0f625bc13ddf301e8a787bfe47594caedb`; the native
 ACK SHA-256 is
 `814b733a82d15dd7250cb0e8b7ed0c6c09a7a02d7169ab70ebaa359fb18eb6d0`. The other
 fields, header ID/status/flags, all later control frames, and both data
 directions were unchanged.
+
+This document belongs to the [peer implementations](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 The identified Classic client sent Login107, received the exact controlled
 242-byte 109 agreement, and accepted it once. It then sent 121, 300, and 212;
@@ -58,6 +62,11 @@ python3 scripts/verify_classic_server_name_162.py \
   evidence/gap-remediation/2026-11-14/classic-server-name-162-01
 python3 -m unittest discover -s scripts -p 'test_classic_server_name_162.py'
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> tests have since moved to `scripts/tests/` and run under pytest; the same
+> tests now run with
+> `uv run --group dev pytest scripts/tests/test_classic_server_name_162.py`.
 
 [corpus]: ../../evidence/gap-remediation/2026-11-14/classic-server-name-162-01/
 [proxy]: classic-login-proxy.md

@@ -9,6 +9,9 @@ image. It addresses the persistence clause of GAP-029 alongside the existing
 asks for field-by-field update, default and persistence rules with before/after
 state and emitted 301 fixtures. The gap status remains for the parent audit.
 
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
+
 ## Controlled sequence
 
 - **Initial image:** the private working image and separate immutable base
@@ -95,6 +98,12 @@ python3 scripts/verify_native_settings_persistence.py \
 python3 -m unittest discover -s scripts \
   -p test_native_settings_persistence_witness.py
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> verifier and its test are still held at the earlier lint rules
+> (`scripts/legacy-modules.txt`), so they have not been brought to the
+> repository's Python standard. The same verifier is run by
+> `make evidence-verify`, and the test runs under `make test-legacy`.
 
 **Procedure deviation:** the A48 live window did not hold the prescribed
 `oracle.lock`. The supervisor granted an exclusive native lease, peer work was

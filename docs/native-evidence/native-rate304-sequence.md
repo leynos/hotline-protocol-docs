@@ -8,6 +8,9 @@ describes only the prefix independently reconstructed from the failed report
 and paired packet captures. The independent [A114 audit][audit] reached the
 same bounded observations.
 
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
+
 ## Identity and capture boundary
 
 The run used the pinned Hotline Server 1.9 DATA fork (`ad7040…`), emulator
@@ -41,6 +44,9 @@ counter.
 | Paced subject      | 34152       | 1,459      | 2,495          |
 | Burst subject      | 38334       | 1,437      | 2,418          |
 | Fresh ban probe    | 38344       | 91         | 76             |
+
+_Table 1: The connections of the measured prefix, with their client ports and
+the bytes sent and received on each._
 
 For the burst lifetime, the guest PCAP ends with a server RST carrying the
 14-byte diagnostic `tcp_disconnect`; the namespace relay presents FIN to its
@@ -110,6 +116,12 @@ cd hotline-protocol-docs
 python3 scripts/verify_native_rate304_sequence.py
 python3 -m unittest discover -s scripts -p test_native_rate304_sequence.py
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> verifier has since been brought to the repository's Python standard, and its
+> test has moved to `scripts/tests/test_native_rate304_sequence.py`. The same
+> check is now run by `make evidence-verify`, and the test by
+> `uv run --group dev pytest scripts/tests/test_native_rate304_sequence.py`.
 
 The default verifier uses only frozen corpus files. `--corpus PATH` selects a
 copied corpus for fault checks. It checks the root-relative SHA inventory,

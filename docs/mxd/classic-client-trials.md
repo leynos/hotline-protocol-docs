@@ -318,10 +318,10 @@ separately from the password-bearing fixture (PCW-048).
 [redacted-a22]: ../../evidence/gap-remediation/2026-11-13/mxd-classic-login-01/manifest.json
 [verifier]: ../../scripts/verify_mxd_classic_login.py
 [runtime]: ../provenance/records/mxd-peer-runtime.md
-[isolated-runtime]: https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/network-isolated-mac-runtime.md
-[namespace-guide]: https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/peer-service-in-network-namespace.md
-[identify]: https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/peer-service-in-network-namespace.md#identify-the-emulator-and-its-namespace
-[user-service]: https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/peer-service-in-network-namespace.md#do-not-enter-the-namespace-from-a-user-service
-[start-unit]: https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/peer-service-in-network-namespace.md#start-the-service-directly-under-a-system-unit
-[readiness]: https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/peer-service-in-network-namespace.md#check-readiness-before-connecting-the-guest
-[stop-verify]: https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/peer-service-in-network-namespace.md#stop-the-service-and-verify
+[isolated-runtime]: https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/network-isolated-mac-runtime.md
+[namespace-guide]: https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/peer-service-in-network-namespace.md
+[identify]: https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/peer-service-in-network-namespace.md#identify-the-emulator-and-its-namespace
+[user-service]: https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/peer-service-in-network-namespace.md#do-not-enter-the-namespace-from-a-user-service
+[start-unit]: https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/peer-service-in-network-namespace.md#start-the-service-directly-under-a-system-unit
+[readiness]: https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/peer-service-in-network-namespace.md#check-readiness-before-connecting-the-guest
+[stop-verify]: https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/peer-service-in-network-namespace.md#stop-the-service-and-verify

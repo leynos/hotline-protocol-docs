@@ -2,19 +2,27 @@
 
 The [portable B52 corpus][corpus] records three one-attempt local sessions on
 14 November 2026 through the fixed, isolated [Classic login proxy][proxy]. The
-actual native Hotline Server 1.9 sent the same successful Login107 ACK each
-time: field 160 `00be`, field 161 `0000`, 34 bytes. The as-run proxy source
-SHA-256 was `44bb68fe0bc464874aa455e823ca08b00704b88f5064d776119fcaf0682a5c7e`.
-Only the ACK field-161 shape changed on the downstream path. The archive and
-app label say **1.9.2**; embedded `vers` says **1.9.1.0**. The identified
-client DATA/RSRC hashes are in the corpus manifest. Neither label proves vendor
+actual
+[native](../glossary.md#native) [Hotline Server 1.9](../glossary.md#hotline-server-19)
+sent the same successful Login107 ACK each time: field 160 `00be`, field 161
+`0000`, 34 bytes. The as-run proxy source SHA-256 was
+`44bb68fe0bc464874aa455e823ca08b00704b88f5064d776119fcaf0682a5c7e`. Only the
+ACK field-161 shape changed on the downstream path. The archive and app label
+say **1.9.2**; embedded `vers` says **1.9.1.0**. The identified client
+DATA/RSRC hashes are in the corpus manifest. Neither label proves vendor
 authenticity or identifies a universal client release profile.
+
+This document belongs to the [peer implementations](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 | Variant         | Forwarded ACK | 161 value  | Client progression | Proxy teardown |
 | --------------- | ------------: | ---------- | ------------------ | -------------: |
 | `omit-161`      | 28 bytes      | Absent     | 121/300/212; data  | 28.282 s       |
 | `one-byte-161`  | 33 bytes      | `00`       | 121/300/212; data  | 28.089 s       |
 | `four-byte-161` | 36 bytes      | `00000000` | 121/300/212; data  | 28.248 s       |
+
+_Table 1: Forwarded ACK size, field 161 value, client progression and proxy
+teardown for each variant._
 
 Each client sent Login107, saw the exact controlled 242-byte 109 agreement, and
 accepted it once. The client then sent 121 with display name `unnamed`, 300 and
@@ -73,6 +81,11 @@ python3 scripts/verify_classic_field161_matrix.py \
 python3 -m unittest discover -s scripts -p 'test_verify_classic_field161_matrix.py'
 ```
 
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> tests have since moved to `scripts/tests/` and run under pytest; the same
+> tests now run with
+> `uv run --group dev pytest scripts/tests/test_verify_classic_field161_matrix.py`.
+
 [corpus]: ../../evidence/gap-remediation/2026-11-14/classic-field161-01/
 [proxy]: classic-login-proxy.md
-[gate]: https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/capture-readiness.md
+[gate]: https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/capture-readiness.md

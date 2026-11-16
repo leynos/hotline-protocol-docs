@@ -1,14 +1,19 @@
 # Native Hotline Server 1.9 `Banned` data fork: observed v2 layout
 
-This note describes three **stopped-image** data forks and the retained PowerPC
-decompilations of the reader, writer, and record constructor. It is a local
-server store, not a Hotline network packet. The
+This note describes three **stopped-image**
+[data forks](../glossary.md#data-fork) and the retained PowerPC decompilations
+of the reader, writer, and record constructor. It is a local server store, not
+a Hotline network packet. The
 [portable corpus](../../evidence/gap-remediation/2026-11-14/ban-file-format-01/manifest.json)
 contains all three 49-byte files, decoded offsets, source query results, and
-SHA-256 inventory. The source queries identify the `HLserver19` PEF as PowerPC
-big-endian 32-bit; the application DATA fork identity is `ad7040db4eb6…`. The
-layout comparison uses stopped files; the later reason-copy trace below uses a
-separate independent Ghidra import, with no live image access.
+SHA-256 inventory. The source queries identify the `HLserver19`
+[PEF](../glossary.md#pef) as PowerPC big-endian 32-bit; the application DATA
+fork identity is `ad7040db4eb6…`. The layout comparison uses stopped files; the
+later reason-copy trace below uses a separate independent
+[Ghidra](../glossary.md#ghidra) import, with no live image access.
+
+This document belongs to the [accounts and privileges](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 <!-- markdownlint-disable MD013 -->
 | Offset | Size | Observed bytes and supported interpretation                                                                                 |
@@ -20,6 +25,10 @@ separate independent Ghidra import, with no live image access.
 | 11–14  | 4    | `0a000202`: second endpoint, memory offset `+0xc`; all three samples are single-address ranges.                             |
 | 15–47  | 33   | Fixed display area, memory offset `+0x10`: first byte `15` gives 21 displayed bytes, followed by 11 opaque remainder bytes. |
 | 48     | 1    | `00`: reason-byte count zero. No reason bytes follow in these samples.                                                      |
+
+_Table 1: Observed bytes of the v2 one-record layout, with the supported
+interpretation of each offset._
+
 <!-- markdownlint-enable MD013 -->
 
 The one-record size is `2 + 4 + (1 + 4 + 4 + 33 + 1) = 49` bytes. The first two

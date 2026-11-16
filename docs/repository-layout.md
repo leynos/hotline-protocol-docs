@@ -45,15 +45,20 @@ illustrative for those, and the paths named in it are authoritative.
 │   ├── test_*.py                        Unit tests of the scripts
 │   ├── tests/                           Pytest tests of the inherited scripts
 │   ├── fixtures/                        Fixture data read by the scripts
+│   ├── pinned-sources.json              Commit at which each hashed script carries its bytes
 │   ├── render-protocol-gap-analysis.py  Renders gap-analysis.md; checks the audit
 │   ├── legacy-modules.txt               Scripts held at the earlier lint rules
 │   └── ruff.toml                        Lint rules for the legacy scripts
 ├── tools/                               Repository checks, curation and audit
 │   ├── check_*.py                       Checks run by the gates
 │   ├── curate_*.py                      Evidence curation and copying
+│   ├── style_*.py                       Style checks for the Markdown documents
+│   ├── evidence_*.py                    Helpers for the evidence checks
+│   ├── pin_*.py                         Helpers for the pinned sources
 │   ├── refresh_audit.py                 Writes new audit revisions
 │   └── capture_goldens.py               Records and compares goldens
 ├── tests/                               Tests of the tools
+│   ├── data/                            Recorded fault tables for the continuity tests
 │   └── goldens/                         Recorded outputs for goldens-check
 ├── fixtures/banner/                     Banner image samples and provenance.json
 ├── patches/                             Patches to retained sources
@@ -61,6 +66,10 @@ illustrative for those, and the paths named in it are authoritative.
 ├── uv.lock                              Locked Python dependencies
 ├── typos.toml                           Spelling configuration; generated
 ├── typos.local.toml                     Repository-specific spellings
+├── glossary-terms.txt                   Terms that docs/glossary.md must define
+├── style-terms.txt                      Proper nouns allowed capitals in headings
+├── style-known.json                     Accepted findings of the style check
+├── evidence-known.json                  Accepted findings of the evidence check
 ├── json-exceptions.txt                  JSON files exempt from canonical layout
 ├── .markdownlint-cli2.jsonc             Markdown lint rules
 └── .gitattributes                       Git LFS rules for captures and images
@@ -76,29 +85,33 @@ paths are copied from the mothra repository, are hash-pinned, and are never
 edited. Record paths are written by the evidence import or the audit, and a
 gate checks them.
 
-_Table 1: What each top-level path holds, and who maintains it._
+| Path                                | Holds                                                                                           | Maintained by                                                             |
+| ----------------------------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `AGENTS.md`                         | Rules for contributors and agents, including the rules that protect the evidence                | Handwritten                                                               |
+| `README.md`                         | The reader's entry point, the only document that may address the reader                         | Handwritten                                                               |
+| `Makefile`                          | Every gate, as a named target                                                                   | Handwritten                                                               |
+| `gap-register.json`                 | The canonical list of open questions                                                            | Handwritten; `AGENTS.md` names it the authority                           |
+| `gap-analysis.md`                   | The report generated from the gap register                                                      | Generated; never edit                                                     |
+| `docs/`                             | The protocol documentation, in sets                                                             | Handwritten                                                               |
+| `docs/documentation-style-guide.md` | The upstream conventions every document follows                                                 | Upstream copy; never edit                                                 |
+| `docs/baseline-validity-ledger.md`  | The first static baseline                                                                       | Handwritten and hash-pinned; not reflowed                                 |
+| `evidence/`                         | Imported corpora, audit revisions and the records of the import                                 | Imported and hash-pinned; never edit                                      |
+| `scripts/`                          | Inherited capture planners, verifiers, their tests and `pinned-sources.json`                    | Handwritten; held at the earlier lint rules until brought to the standard |
+| `tools/`                            | The repository's own checks, curation and audit tools, with the style, evidence and pin helpers | Handwritten                                                               |
+| `tests/`                            | Tests of the tools, the recorded fault tables in `data/` and the recorded goldens               | Handwritten; the goldens are generated by `tools/capture_goldens.py`      |
+| `fixtures/`                         | Banner image samples, read by `scripts/native_banner_formats.py`, with `provenance.json`        | Committed; see `provenance.json`                                          |
+| `patches/`                          | The compatibility patch for the historical shx build, used by `scripts/build-shx.py`            | Committed; handwritten patch                                              |
+| `typos.toml`                        | The spelling configuration                                                                      | Generated; never edit                                                     |
+| `typos.local.toml`                  | Repository-specific spellings, as exact patterns                                                | Handwritten                                                               |
+| `glossary-terms.txt`                | The terms that `docs/glossary.md` must define                                                   | Handwritten                                                               |
+| `style-terms.txt`                   | Proper nouns allowed capitals in headings                                                       | Handwritten                                                               |
+| `style-known.json`                  | Accepted current findings of the style check, each with its reason                              | Handwritten                                                               |
+| `evidence-known.json`               | Accepted current findings of the evidence check, each with its reason                           | Handwritten                                                               |
+| `json-exceptions.txt`               | JSON files exempt from canonical layout, by hash                                                | Handwritten                                                               |
+| `.markdownlint-cli2.jsonc`          | Markdown lint rules                                                                             | Handwritten                                                               |
+| `.gitattributes`                    | Git LFS rules for PNG, PCAP and gzip evidence                                                   | Handwritten                                                               |
 
-| Path                                | Holds                                                                                    | Maintained by                                                             |
-| ----------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `AGENTS.md`                         | Rules for contributors and agents, including the rules that protect the evidence         | Handwritten                                                               |
-| `README.md`                         | The reader's entry point, the only document that may address the reader                  | Handwritten                                                               |
-| `Makefile`                          | Every gate, as a named target                                                            | Handwritten                                                               |
-| `gap-register.json`                 | The canonical list of open questions                                                     | Handwritten; `AGENTS.md` names it the authority                           |
-| `gap-analysis.md`                   | The report generated from the gap register                                               | Generated; never edit                                                     |
-| `docs/`                             | The protocol documentation, in sets                                                      | Handwritten                                                               |
-| `docs/documentation-style-guide.md` | The upstream conventions every document follows                                          | Upstream copy; never edit                                                 |
-| `docs/baseline-validity-ledger.md`  | The first static baseline                                                                | Handwritten and hash-pinned; not reflowed                                 |
-| `evidence/`                         | Imported corpora, audit revisions and the records of the import                          | Imported and hash-pinned; never edit                                      |
-| `scripts/`                          | Inherited capture planners, verifiers and their tests                                    | Handwritten; held at the earlier lint rules until brought to the standard |
-| `tools/`                            | The repository's own checks, curation and audit tools                                    | Handwritten                                                               |
-| `tests/`                            | Tests of the tools, and the recorded goldens                                             | Handwritten; the goldens are generated by `tools/capture_goldens.py`      |
-| `fixtures/`                         | Banner image samples, read by `scripts/native_banner_formats.py`, with `provenance.json` | Committed; see `provenance.json`                                          |
-| `patches/`                          | The compatibility patch for the historical shx build, used by `scripts/build-shx.py`     | Committed; handwritten patch                                              |
-| `typos.toml`                        | The spelling configuration                                                               | Generated; never edit                                                     |
-| `typos.local.toml`                  | Repository-specific spellings, as exact patterns                                         | Handwritten                                                               |
-| `json-exceptions.txt`               | JSON files exempt from canonical layout, by hash                                         | Handwritten                                                               |
-| `.markdownlint-cli2.jsonc`          | Markdown lint rules                                                                      | Handwritten                                                               |
-| `.gitattributes`                    | Git LFS rules for PNG, PCAP and gzip evidence                                            | Handwritten                                                               |
+_Table 1: What each top-level path holds, and who maintains it._
 
 ## The evidence directory
 
@@ -106,21 +119,21 @@ The `evidence/` directory is imported and hash-pinned. Nothing in it is
 reformatted or linted, because its bytes are covered by recorded hashes. It has
 three families of corpora and three records.
 
-_Table 2: The three families of corpora in `evidence/`._
-
 | Family                                     | Holds                                                                                                                                                          | Maintained by                                     |
 | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
 | `gap-remediation/<date>/<corpus>/`         | One directory per corpus, dated by the day its work was done; each holds the manifest, plans, captures, reports, verifiers and checksums that the corpus needs | Imported and hash-pinned                          |
 | `hotline-server-1.9/`                      | The corpus of the native Hotline Server 1.9: its manifest, claims, dispatcher map, query records and `SHA256SUMS`                                              | Imported and hash-pinned                          |
 | `protocol-gap-analysis/<date>/revision-N/` | One audit revision, with its `manifest.json`, `sections.json`, `SHA256SUMS` and the `inputs/` copies of the documents it reviewed                              | Generated by `tools/refresh_audit.py`; never edit |
 
-_Table 3: The records at the top of `evidence/`._
+_Table 2: The three families of corpora in `evidence/`._
 
 | Record               | What it records                                                                                                                                           | Maintained by       |
 | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
 | `curation.json`      | Which corpora were imported from which mothra commit, and why each was included or excluded; `make curation-check` verifies the imported files against it | The evidence import |
 | `withheld.json`      | The forks of the native binary that are withheld, with their sizes, hashes and any patch; `make withheld-check` verifies it                               | The evidence import |
 | `local-corpora.json` | The four audit revisions cut in this repository (`revision-90` to `revision-93`), with the reason for each                                                | The audit           |
+
+_Table 3: The records at the top of `evidence/`._
 
 ## Where the documents were
 
@@ -130,8 +143,6 @@ headings; only the targets of its relative links changed. The table below
 records each move. It omits the eight mxd notes, which the next table covers.
 `gap-analysis.md`, `gap-register.json` and `docs/baseline-validity-ledger.md`
 are not in either table: they are at the paths shown in the tree.
-
-_Table 4: Where each document was moved from, with its present path._
 
 | Old path                                     | Present path                                                                                                                          |
 | -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
@@ -237,14 +248,14 @@ _Table 4: Where each document was moved from, with its present path._
 | `shx-peer.md`                                | [`docs/peers/shx-peer.md`](peers/shx-peer.md)                                                                                         |
 | `transfer-contracts.md`                      | [`docs/files-and-transfers/transfer-contracts.md`](files-and-transfers/transfer-contracts.md)                                         |
 
+_Table 4: Where each document was moved from, with its present path._
+
 The eight mxd notes were consolidated into the six documents of the mxd set,
 rather than moved one for one. Where the notes disagreed and the evidence did
 not decide, the consolidated text keeps both statements, each attributed to its
 note, in a paragraph that begins "Unreconciled:". The mapping below comes from
 the opening paragraphs of the documents and from the attributions in
 [the mxd overview](mxd/README.md).
-
-_Table 5: The eight mxd notes and the documents that took their content._
 
 | Old note                           | Present document                                            | Basis                                                                                                                           |
 | ---------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
@@ -256,3 +267,5 @@ _Table 5: The eight mxd notes and the documents that took their content._
 | `mxd-limit-contracts.md`           | [Accepted corrections](mxd/corrections.md)                  | The "Framing limits" section                                                                                                    |
 | `mxd-classic-login.md`             | [Classic client trials](mxd/classic-client-trials.md)       | The failed Classic login trial; validation status records what this note reports about it                                       |
 | `mxd-peer-capture-workflow.md`     | [Classic client trials](mxd/classic-client-trials.md)       | Its opening paragraph describes the procedure for running a Classic peer against the fixture                                    |
+
+_Table 5: The eight mxd notes and the documents that took their content._

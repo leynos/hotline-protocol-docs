@@ -1,13 +1,18 @@
 # Classic Login107 field-161 proxy
 
-The [B46/B47 baseline corpus][baseline] records actual Classic client
-connections through this proxy. B47 reached the 121/300 roster, automatic 212
-request and 16/58-byte data attachment before the independent
-ACK-plus-28-second cutoff. The baseline ACK was byte-identical to native. The
-later [B52 matrix][matrix] delivered three modified zero-valued 161 shapes and
+The [B46/B47 baseline corpus][baseline] records actual
+[Classic client](../glossary.md#classic-client) connections through this proxy.
+B47 reached the 121/300 roster, automatic 212 request and 16/58-byte data
+attachment before the independent ACK-plus-28-second cutoff. The baseline ACK
+was byte-identical to [native](../glossary.md#native). The later
+[B52 matrix][matrix] delivered three modified zero-valued 161 shapes and
 reached those same measured stages. Earlier B29 synthetic rehearsal and B30/B31
 zero-contact failures remain separate evidence. This tool is protocol-specific;
-it did not change the mothra generic bridge or native server configuration.
+it did not change the [mothra](../glossary.md#mothra) generic bridge or native
+server configuration.
+
+This document belongs to the [peer implementations](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Fixed topology and authority boundary
 
@@ -56,6 +61,8 @@ that ACK.
 | `four-byte-161`      | Four bytes `00000000`; count and body sizes rebuilt          |
 | `server-name-162`    | Keep 161=`0000`; append 162=`fixture-native`                 |
 | `roster-subject-115` | First matched 300 ACK adds 115; login unchanged              |
+
+_Table 1: ACK changes sent to the Classic client for each proxy variant._
 
 All other ACK fields retain their order and raw values; flags, ID, status and
 other frames are preserved. The automatic banner data stream is relayed
@@ -160,6 +167,11 @@ ty check --python ../mothra/tools/ghidramcp/.venv/bin/python \
   scripts/classic_login_proxy.py scripts/test_classic_login_proxy.py
 python3 -m unittest discover -s scripts -p 'test_classic_login_proxy.py'
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> tests have since moved to `scripts/tests/` and run under pytest; the same
+> tests now run with
+> `uv run --group dev pytest scripts/tests/test_classic_login_proxy.py`.
 
 Twenty-seven tests cover ACK preservation and rebuilt widths/counts, ID/status
 and native-value rejection, malformed/fragmented input, socket-pair byte and

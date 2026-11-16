@@ -1,11 +1,14 @@
 # Missing-target alias: positive rehearsal preparation
 
-This packet prepares **M2 only** of Mothra's
+This packet prepares **M2 only** of [Mothra](../glossary.md#mothra)'s
 `docs/execplans/missing-target-alias.md`. It does not remove a target, run a
-native server, or establish the missing-target result. The source files are
-`scripts/native_missing_alias_cases.py` and
+[native](../glossary.md#native) server, or establish the missing-target result.
+The source files are `scripts/native_missing_alias_cases.py` and
 `scripts/native_missing_alias_control.py`; the latter waits for a separately
 reviewed Finder receipt and never sends GUI input or executes receipt text.
+
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Exact boundary
 
@@ -124,6 +127,11 @@ After root has approved the runtime and source closure, write a fresh plan:
 python3 scripts/native_missing_alias_cases.py --runtime RUNTIME.json --output NEW-PLAN-DIR
 ```
 
+> Record note (2026-11-16): the command above is quoted as it was run. The
+> generator, `scripts/native_missing_alias_cases.py`, has since been brought to
+> the repository's Python standard, and runs as
+> `uv run --group dev python scripts/native_missing_alias_cases.py`.
+
 The root-owned capture and mutex procedure must produce a current exact
 `capture-ready.json` before the case. Run only inside the actual emulator
 network namespace as root; `--binary` is the pinned server DATA file:
@@ -135,6 +143,11 @@ python3 scripts/native_missing_alias_control.py \
   --operator-receipt OPERATOR/receipt.json \
   --binary PINNED-PEF --output NEW-OUTPUT-DIR
 ```
+
+> Record note (2026-11-16): the command above is quoted as it was run. The
+> control runner, `scripts/native_missing_alias_control.py`, is still held at
+> the earlier lint rules (`scripts/legacy-modules.txt`), so the command is
+> unchanged.
 
 The coordinator requires the fixed epoch to have at least 390 seconds left,
 caps the case at 210 seconds, and retains all observed frames, events, unparsed

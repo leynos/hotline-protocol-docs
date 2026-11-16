@@ -1,10 +1,14 @@
 # Native 1.9 diagnostic with one active and one waiting download
 
-This bounded A8 phase-1 witness uses the existing `mothra-race-fixture` file.
-The [A7 readback][a7] had verified its 1,048,576-byte DATA and 317-byte
-resource forks against the earlier native extraction. No upload, rename or file
-deletion was used to construct this state. The exact plans, reports, packet
-views and General Options screenshots are in the [A8 corpus][a8].
+This bounded A8 phase-1 [witness](../glossary.md#witness) uses the existing
+`mothra-race-fixture` file. The [A7 readback][a7] had verified its
+1,048,576-byte DATA and 317-byte resource forks against the earlier native
+extraction. No upload, rename or file deletion was used to construct this
+state. The exact plans, reports, packet views and General Options screenshots
+are in the [A8 corpus][a8].
+
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Native observation
 
@@ -29,6 +33,9 @@ and 350 bytes of raw field 101. The two relevant lines are:
 | ----------------- | --------------------------------- |
 | File Downloads    | `mothra-race-fixture   5%   1M\r` |
 | Waiting Downloads | `mothra-race-fixture   (File)\r`  |
+
+_Table 1: The native section headings and their row bytes, as they appear in
+the 303 field 101 of the two relevant replies._
 
 The [raw reply][load] retains the exact heading bytes, CR separators and all
 other content. Folder downloads, file uploads and folder uploads were each
@@ -84,6 +91,14 @@ python3 ../hotline-protocol-docs/scripts/verify_native_diagnostic_existing.py \
   --output state/native-sessions/A8/verification-one-active-new.json
 python3 "$a8/verify_packets.py"
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> verifier, `scripts/verify_native_diagnostic_existing.py`, has since been
+> brought to the repository's Python standard, and run as
+> `uv run --group dev python scripts/verify_native_diagnostic_existing.py`. The
+> capture tool, `scripts/protocol_capture.py`, is still held at the earlier
+> lint rules (`scripts/legacy-modules.txt`), so the `verify` commands are
+> unchanged. The evidence-held `verify_packets.py` is not edited.
 
 The corrected semantic checker refuses to overwrite an output. The retained
 initial verifier result is expected to say `incomplete-witness`; it records a

@@ -1,16 +1,25 @@
 # Native roster overlap witness
 
-This control-only Hotline Server 1.9 lab exercised one outstanding roster
-request (300) while another session changed its own name and icon (304). The
-portable
+This control-only [Hotline Server 1.9](../glossary.md#hotline-server-19) lab
+exercised one outstanding roster request (300) while another session changed
+its own name and icon (304). The portable
 [corpus](../../evidence/gap-remediation/2026-11-14/native-roster-overlap-01/manifest.json)
 contains the original plans, reports, source snapshots, both packet views, and
 retirement receipts. Replay it without a VM:
+
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ```sh
 python3 scripts/verify_native_roster_overlap.py
 python3 -m unittest discover -s scripts -p test_native_roster_overlap_witness.py
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> verifier has since been brought to the repository's Python standard, and its
+> test has moved to `scripts/tests/test_native_roster_overlap_witness.py`. The
+> same check is now run by `make evidence-verify`, and the test by
+> `uv run --group dev pytest scripts/tests/test_native_roster_overlap_witness.py`.
 
 ## Scope and result
 
@@ -28,6 +37,9 @@ a claim that every disk byte remained unchanged.
 | Initial 300 ID10 on both connections       | `Order A` / 1 | `Order B` / 2   |
 | A's outstanding 300 ID11                   | `Order A` / 1 | `Order B` / 2   |
 | A's final 300 ID13 after both 500 barriers | `Order A` / 1 | `Order New` / 3 |
+
+_Table 1: The name and icon of each connection at the three states of the
+overlap case._
 
 The dynamic B UID was `0003` in the initial observer 301, both initial rosters,
 both rename 301 updates, and the final roster. A and B each received one rename

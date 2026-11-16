@@ -1,11 +1,15 @@
 # Native privilege registry and composition
 
-This supplement refines GAP-031/032/072/073/078 for the hashed 1.9-family
-oracle. The [call-site review][calls] reconciles **40 direct calls in 25
-functions** to all three privilege accessors against the retained native
+This supplement refines [GAP-031/032/072/073/078](../glossary.md#gap) for the
+hashed 1.9-family [oracle](../glossary.md#oracle). The
+[call-site review][calls] reconciles **40 direct calls in 25 functions** to all
+three privilege accessors against the retained [native](../glossary.md#native)
 decompilations. Inline bitmap tests, including account operations, supply
 additional evidence. This is static enforcement evidence, not a native
 permission-fixture corpus.
+
+This document belongs to the [accounts and privileges](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Bitmap numbering and known uses
 
@@ -60,6 +64,9 @@ native readback IDs.
 | 40    | Send private message                                       | 108                                                   |
 | 41–63 | Unknown in this review                                     | No normative names or reserved-bit rejection inferred |
 
+_Table 1: Observed native use of each privilege bit from 0 to 63, with the
+evidence or condition for each._
+
 For example, bit 0 alone serializes as `80 00 00 00 00 00 00 00`, while bit 40
 alone is `00 00 00 00 00 80 00 00`. These are calculated bitmap examples, not
 captured native frames. A status bitmap in field 112 is a different schema;
@@ -80,6 +87,9 @@ erase other target, session, filesystem or configuration checks.
 | 110                | Requester must have bit 22; a target with bit 23 is rejected. No blanket override is provided by these accessor calls.                                                              |
 | 380                | Kind-specific bits 35/37 and root checks; alias-kind uncertainty remains in the [news structure table](../news/news-contracts.md#structure-operation-effects-and-conflicts).        |
 | 113/115/120        | The inspected invite/join/subject handlers do not enforce a guessed bit-12/13 gate or universal room-owner requirement. Other state/routing checks remain documented separately.    |
+
+_Table 2: Composition of the privilege checks in the inspected handlers, by
+operation group._
 
 Bits 25 and 30 select byte-name predicates, not portable filesystem ACLs. For
 upload, the handler tests the selected destination component for the `upload`

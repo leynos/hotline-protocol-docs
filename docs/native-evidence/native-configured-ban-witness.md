@@ -6,10 +6,19 @@ administrator adds `10.0.2.2` in Options > Ban and saves once. The
 contains the original plans, as-run captures, paired TCP streams, screenshots,
 process and capture receipts, and stopped-image readbacks. Replay it offline:
 
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
+
 ```sh
 python scripts/verify_native_configured_ban.py evidence/gap-remediation/2026-11-14/native-configured-ban-01
 python -m unittest discover -s scripts -p test_native_configured_ban_witness.py
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> verifier has since been brought to the repository's Python standard, and its
+> test has moved to `scripts/tests/test_native_configured_ban_witness.py`. The
+> same check is now run by `make evidence-verify`, and the test by
+> `uv run --group dev pytest scripts/tests/test_native_configured_ban_witness.py`.
 
 ## Boundary and setup
 

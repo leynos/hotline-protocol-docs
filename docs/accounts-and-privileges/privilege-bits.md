@@ -3,13 +3,16 @@
 This index expands the
 [source-use registry](privilege-contracts.md#bitmap-numbering-and-known-uses)
 and the retained [64 native single-bit controls][native] into individual rows.
-Field 110 is eight bytes in MSB-first wire order: bit `b` uses byte `b >> 3`
-and mask `0x80 >> (b & 7)`. Each `353→352` pair below replaced and read back
-**one owned account**; IDs are transaction IDs within the named walk. `S` means
-a source-observed use in the linked registry. The [call-site review][calls]
-covers direct accessors; the registry also cites inline checks. `N` means
-native submitted/readback bytes in the linked per-bit record. No row asserts
-that its bit alone passes every enclosing handler check.
+[Field 110](../glossary.md#field) is eight bytes in MSB-first wire order: bit
+`b` uses byte `b >> 3` and mask `0x80 >> (b & 7)`. Each `353→352` pair below
+replaced and read back **one owned account**; IDs are transaction IDs within
+the named walk. `S` means a source-observed use in the linked registry. The
+[call-site review][calls] covers direct accessors; the registry also cites
+inline checks. `N` means native submitted/readback bytes in the linked per-bit
+record. No row asserts that its bit alone passes every enclosing handler check.
+
+This document belongs to the [accounts and privileges](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 <!-- markdownlint-disable MD013 -->
 
@@ -79,6 +82,9 @@ that its bit alone passes every enclosing handler check.
 | 61  | `0000000000000004`    | `walk-07`: 30→31        | Unknown                                                    | N   |
 | 62  | `0000000000000002`    | `walk-07`: 32→33        | Unknown                                                    | N   |
 | 63  | `0000000000000001`    | `walk-07`: 34→35        | Unknown                                                    | N   |
+
+_Table 1: Native single-bit privilege values, their observed use or unknown
+status, and the evidence key for each bit._
 
 <!-- markdownlint-enable MD013 -->
 

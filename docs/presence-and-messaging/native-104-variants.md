@@ -3,14 +3,17 @@
 This is a source-and-retained-capture inventory for the binary with SHA-256
 `ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`. Field sets
 below describe the cited producer branch, **not** a universal 104 schema. A
-request/reply ID, nearby ACK, exact text or connection lifecycle can help a
-capture analyst identify a producer; those are not extra 104 fields. The
-[GAP-044 criterion](../../gap-analysis.md#gap-044) remains open.
+request/[reply](../glossary.md#reply) ID, nearby ACK, exact text or connection
+lifecycle can help a capture analyst identify a producer; those are not extra
+104 fields. The [GAP-044 criterion](../../gap-analysis.md#gap-044) remains open.
 
 > Status note (2026-11-16): the register now lists
 > [GAP-044](../../gap-analysis.md#gap-044) as Resolved. Its closure text
 > records it as met at known-producer scope and claims no universal origin
 > discriminator, expiry, protection or general codec guarantee.
+
+This document belongs to the [presence and messaging](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 | Producer and source                                                                                         | Branch's 104 fields and identity meaning                                                                                                                                                                                                                                | Native wire evidence                                                                                                                                                                                                                                                   | Does this field shape identify origin?                                                                                                                               |
 | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -23,6 +26,9 @@ capture analyst identify a producer; those are not extra 104 fields. The
 | 350 direct duplicate create, [100146f0][create]                                                             | **No 104 on the captured duplicate path.** It returns status 1 with error field 100. This is a negative control against treating every account collision as the 349 notice.                                                                                             | [Native identity duplicate][direct-duplicate], request-10 reply at action 8: status 1/100; no 104.                                                                                                                                                                     | Not applicable: this branch emits no 104.                                                                                                                            |
 | 351 deletion of a live account, [10005f90][delete] called from [10015500][batch] or the direct account path | 101 fixed logged-out notice only, sent to affected live sessions before transport closure. No field identifies the deleting admin/account. The same helper also runs on account replacement of live sessions where applicable; do not infer all edits send this notice. | [Native live delete][live-delete], actions 29/30 to two sessions; [self/protected delete][identity-delete], action 21 in each. All are 101-only.                                                                                                                       | No. It shares the data-only shape with kick and console; text/close context identify these captures.                                                                 |
 | Console message dialog [10002dd0][console] through [10005510][fanout]                                       | 101 selected console text only to ready/online recipients. No 103/102 sender identity or option. Client-origin 355 broadcast uses a different notification type.                                                                                                        | [D1 native console corpus][console-corpus]: `ConsoleSender` and refusing `ConsoleRefuse` each receive 101-only 104; waiting/unauthenticated connections do not receive it at that point. The host sender flow lacks its initial SYN/handshake; guest flow is complete. | No. Another data-only 101 104 can have the same schema; source context is required.                                                                                  |
+
+_Table 1: Type-104 producers, the fields each branch produces, the native wire
+evidence and whether the field shape identifies origin._
 
 ## Parsing and evidence limits
 

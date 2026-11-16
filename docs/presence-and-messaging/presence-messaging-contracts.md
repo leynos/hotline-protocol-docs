@@ -3,8 +3,11 @@
 These observations refine the existing [guide](../protocol/protocol.md), using
 baseline handler captures plus [batch 06][batch]. Static send order means calls
 enqueue messages in that order; it does not certify client receipt, filesystem
-durability or concurrency behaviour. Runtime closure criteria remain in the gap
-register.
+durability or concurrency behaviour. Runtime closure criteria remain in the
+[gap register](../glossary.md#gap).
+
+This document belongs to the [presence and messaging](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Settings and login visibility
 
@@ -25,6 +28,9 @@ It operates on session state rather than writing the account file:
 | Auto-response disabled                  | Clears the saved auto-response text length.                                                                        |
 | Auto-response enabled, 215 absent/empty | Formats `I'm not able to respond right now. Please try later!` as default text.                                    |
 | Auto-response enabled, 215 nonempty     | Pascal destination has 128-byte capacity, at most 127 content bytes.                                               |
+
+_Table 1: Observed assignments of the settings helper for each input, with the
+session-state effect._
 
 The exact byte classification table is retained in batch 06 at `100945c8`. It
 is not a Unicode category rule. The helper uses `1008fd2d` for the three-byte
@@ -74,6 +80,9 @@ visibility (GAP-025).
 | 113   | Absent/empty/zero clears the three settings flags; bits 0–2 assign refusal/refusal/automatic response. | The three destination bytes belong to the session; this is distinct from account privilege bitmap 110.                                                                         |
 | 215   | Disabled automatic response clears its length; enabled absent/empty text selects the 52-byte default.  | Text and length belong to the session; custom text is observed through PM feedback, not carried in 301.                                                                        |
 
+_Table 2: Persistence rule of each settings field in the inspected settings
+path._
+
 In the native 304 witness, explicit name/icon/automatic text changed the
 emitted 301 and PM behaviour, survived a disable/re-enable sequence within that
 session, and were left enabled before app Quit. Both named 734-byte UserData
@@ -115,6 +124,9 @@ positive account/agreement forks retain the configuration provenance.
 | 121 after an incorrect password                                                                     | No response during three seconds; observer confirms no roster entry.                                                                                                                                                                                                                   |
 | 107 repeated while waiting for acceptance                                                           | Second107 with name/icon succeeds and completes early, producing ACK,354,109. The initial109 remains a separate earlier notification.                                                                                                                                                  |
 
+_Table 3: Captured configured login states, with the subject sequence and
+observer result for each path._
+
 Both successful completion paths produce one301 for the existing observer; the
 joining subject does not receive that initial fan-out. On the subject's
 connection, early354 precedes109; delayed121 ACK precedes354 and122. Static
@@ -153,6 +165,9 @@ of whether early completion occurred:
 | Bit 27 set                                | Numeric field 154 with value 1.                                                    |
 | Bit 27 clear and agreement buffer present | Field 101 with configured agreement bytes, subject to zero-length writer omission. |
 | Bit 27 clear and agreement buffer absent  | Empty field list; no automatic 154 flag is added by this branch.                   |
+
+_Table 4: Contents of notification 109 by account bit 27 and the agreement
+buffer condition._
 
 Account bit 27 therefore bypasses agreement content; absence of configured text
 is not the same branch. The client acceptance interface and all runtime
@@ -197,6 +212,9 @@ copy, for these values:
 | 160   | Literal 190                     | Generic numeric writer emits two bytes `00 be`.                                                                                                                                             |
 | 161   | Server word at `+0x41c`         | Numeric writer emits two bytes for values at most 65,535, four otherwise. Constructor initializes this word to zero. Meaning and any later assignment remain unknown.                       |
 | 162   | Pascal string at server `+0xcc` | Configuration/UI readers copy at most 31 bytes. Captured 31-byte names and a 32-byte typing attempt corroborate this destination cap. Empty omits the field; native byte `9a` is preserved. |
+
+_Table 5: Native source and established representation of fields 160, 161 and
+162._
 
 [Constructor assembly][constructor] confirms the zero assignment for 161. The
 original [word-store scan][store-scan] found only that constructor store. The
@@ -243,6 +261,9 @@ metadata and file-backed image content using option-word bit `0x80`:
 | `0x80` clear         | Dispose old image buffer; copy the configured URL byte string to metadata buffer. Nonempty URL selects type `URL` + ASCII space (`55 52 4c 20`); empty URL leaves type zero.         |
 | `0x80` set           | Dispose old metadata buffer; load the configured banner file, infer its type, then copy an optional configured link byte string into metadata. Failed file loading leaves type zero. |
 
+_Table 6: Loader effects for each configuration branch of the banner content,
+selected by option-word bit `0x80`._
+
 The URL/link helper copies the Pascal-string content as bytes, with no NUL
 terminator in the resulting buffer. No URL fetch, transcoding or syntax
 validation appears in that helper. File-backed type selection examines the last
@@ -256,6 +277,9 @@ value:
 | `.pct`, or native `PICT`                       | `PICT`                                                 |
 | `.bmp` / `.dib`, or native `BMP` + ASCII space | `BMP` + ASCII space                                    |
 | None of those matches                          | Native file type unchanged, including zero if supplied |
+
+_Table 7: Banner type selected for a file-backed image by filename suffix or
+native file type._
 
 These are loader selection rules, not proof of image validation or successful
 decoding by every client. The earlier version/type/buffer table still controls
@@ -271,6 +295,9 @@ and rejects larger values:
 | ---------------- | -----------------------------: | -------------------------------------------- |
 | `TEXT`           | 65,535                         | Replace CRLF (`0d 0a`) pairs with CR (`0d`). |
 | Other types      | 262,140 (`0x3fffc`)            | No TEXT newline conversion in this branch.   |
+
+_Table 8: Pre-conversion data-fork limit and byte transformation for each
+native file type._
 
 The same helper loads agreement and image buffers; its limit depends on native
 file type, not solely on their intended role. It does not establish a character
@@ -305,6 +332,8 @@ the MSB-first 64-bit privilege registry.
 | `0x0010`     | Every privilege in the aggregate predicate below is set.    |
 | `0x0020`     | Both 32-bit access words are zero.                          |
 
+_Table 9: Numeric status-word masks and the native condition each one records._
+
 The `0x0010` predicate tests bits `0–11, 14–17, 20–26, 28–40`; it does not test
 12/13/18/19/27 or 41–63. It is an aggregate predicate, not a universal
 administrator override. The traced builder sets no other status masks.
@@ -322,6 +351,8 @@ not captured native events:
 | Clear only access bit 27 from that aggregate case           | Remains `0x0012`; bit 27 is outside that predicate.                            |
 | Only access bit 63 set; no settings flags                   | `0x0000`; access is nonzero, but none of the positive status predicates apply. |
 | Toggle automatic response alone                             | No status-bit change from that setting alone.                                  |
+
+_Table 10: Code-derived status-word transitions, with other inputs fixed._
 
 This satisfies GAP-034's traced registry and transition-example criterion.
 Settings rules are specified above, and the live-account and identified-peer
@@ -351,6 +382,8 @@ path.
 | Rename 301 on both A and B                     | Same B UID, `Order New`, icon 3.                 |
 | Each connection's 500 ID12                     | Correlated successful ACK.                       |
 | A's final 300 ID13 after the recorded barriers | Same B UID with the complete new name/icon pair. |
+
+_Table 11: Captured roster observations from the native overlap witness._
 
 The inline 304 handler applies settings and queues the updates before returning
 to the request loop. The 500 ACK is a handler barrier for that inspected
@@ -412,6 +445,9 @@ recipient has automatic response enabled.
 | Option 3 with R clear             | None from that branch                                                         | Type 104 with generated refuse-chat text.                                               |
 | Other option with R clear         | None from that branch                                                         | Copies nonempty request text and the numeric option; this handler has no 1–4 whitelist. |
 
+_Table 12: Private-message feedback and original delivery, by sender refusal,
+recipient refusal and option._
+
 An auto response can therefore accompany successful original-message delivery;
 it does not always replace it. Feedback suppression due to S does not prevent
 an otherwise permitted original delivery. Native data copying caps the main
@@ -464,6 +500,9 @@ The inspected room handlers implement these state-specific operations:
 | 116 leave         | Removes member; sends 118 to remaining members, or deletes an empty room. Missing-room/non-member paths have no normal direct success ACK.                                                                                           |
 | 120 subject       | Existing room required; requester argument is unused, with no membership/privilege check here. Updates subject storage and sends 119 to ready room members. Missing room produces no normal success ACK.                             |
 
+_Table 13: Room, invitation and subject operations, with the native result and
+checks of each handler._
+
 Invitations are not admission capabilities enforced by these join/subject
 handlers. Do not invent an invitation expiry, room owner or administrator
 bypass from the UI names. Duplicate targets are iterated; successful sends do
@@ -497,6 +536,8 @@ target produces an error without performing the ordinary kick branch.
 | 1                            | Sends type-104 data-only notice; adds the target address as both ends of an in-memory ban range expiring at current seconds plus 1,800.                                                  |
 | 2                            | Sends a different data-only 104 notice; adds the target address range to the persisted ban list, with `ffffffff` expiry in the constructed entry and optional reason bytes capped at 63. |
 | Other, including absent/zero | Closes the target without either ban helper or those notices.                                                                                                                            |
+
+_Table 14: Native effect of each kick option on an existing unprotected target._
 
 These normal branches invoke the target-close helper before constructing the
 requester's ACK; this is not a cross-socket arrival-order guarantee. Option 1
@@ -547,10 +588,11 @@ exact cutoff or background removal instant.
 The [fresh read-only oracle trace][ban-oracle] finds direct callers of both ban
 predicates only in login 107. `10011960` checks the permanent list first, then
 the temporary list, before reading login/password TLVs. A matching branch
-constructs status 1 with field 100: the compiled Pascal strings are You are
-permanently banned on this server. and You are temporarily banned on this
-server. This is code-derived error text; C32 did not request login after its
-ban. Direct-call coverage does not exclude all indirect or alternative paths.
+constructs status 1 with field 100: the compiled Pascal strings are
+`You are permanently banned on this server.` and
+`You are temporarily banned on this server.` This is code-derived error text;
+C32 did not request login after its ban. Direct-call coverage does not exclude
+all indirect or alternative paths.
 
 Temporary lookup calls `100064d0` to purge deadlines no later than current
 GetDateTime, then matches the address. The deadline is the native 32-bit
@@ -608,6 +650,9 @@ UIDs are two bytes. No ID is copied from a previous connection or room.
 | Receive-disabled member                                    | Receives membership/topic notifications, but not room chat 106                       |
 | 105 absent or zero room                                    | Main-chat fan-out to eligible sessions, including sender; no explicit main-room join |
 
+_Table 15: Native results of the private-room and chat actions, by action and
+state._
+
 The owner/administrator label supplies no universal room bypass or ownership
 ACL. Creation requires bit 11, sending requires bit 10, and chat reception
 requires bit 9; the observed join/invite/subject handlers impose their separate
@@ -664,6 +709,8 @@ output cap. Name formatting is byte-oriented:
 | ---------------------- | ---------------------------------------------------------------------------------- |
 | Exactly 1              | CR, ASCII space, `***`, ASCII space, full effective Pascal-name bytes, ASCII space |
 | Absent, 0, 2 or 65,535 | CR, first 13 name bytes right-justified to width 13, colon, two ASCII spaces       |
+
+_Table 16: Chat prefix bytes for each option 109 value._
 
 The formatter prepends the prefix, then replaces each CR in the input with that
 same prefix. LF remains LF, CRLF becomes prefix-plus-LF, and embedded NUL, `80`

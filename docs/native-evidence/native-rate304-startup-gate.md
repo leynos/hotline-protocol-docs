@@ -2,13 +2,17 @@
 
 The second disposable rate 304 lab stopped **before protocol contact**. Its
 five-second emulator observation gate timed out while guest capture FD16 was
-absent. This is a preparation failure, not a Hotline protocol response, server
-crash, 304 limit, or reset observation. The immutable
+absent. This is a [preparation](../glossary.md#preparation) failure, not a
+Hotline protocol response, server crash, 304 limit, or reset observation. The
+immutable
 [corpus](../../evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/manifest.json)
 keeps the as-run commands, checks, raw failure, and retirement receipts. The
 first failed rate 304 pair remains a separate
 [wire witness](native-rate304-first-pair.md); neither failed working image is
 reused.
+
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Stopped preparation
 
@@ -60,7 +64,7 @@ quarantined. No read of its bytes occurred while the emulator held it.
 The five-second timeout establishes only that this gate did not observe FD16 in
 its window. It does not establish why FD16 was absent, whether it would have
 appeared later, or any native server behaviour. The subsequent
-[source trace](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/guest-capture-startup.md)
+[source trace](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/guest-capture-startup.md)
 identifies creation on the first Ethernet packet, which is distinct from
 initial process identity. This supports separate readiness stages, without
 proving the guest event sequence during this failed window. This document

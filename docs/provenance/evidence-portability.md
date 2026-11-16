@@ -1,10 +1,13 @@
 # Reproducing the protocol evidence baseline
 
 The guide and supplements depend on hashed native evidence in the sibling
-`mothra` checkout. A pair of committed source revisions plus their exported
-archives makes those references portable. The immutable validity ledger,
-original inputs and successive reviewed snapshots remain part of the export.
-This is the packaging procedure for GAP-087.
+[`mothra`](../glossary.md#mothra) checkout. A pair of committed source
+revisions plus their exported archives makes those references portable. The
+immutable validity ledger, original inputs and successive reviewed snapshots
+remain part of the export. This is the packaging procedure for GAP-087.
+
+This document belongs to the [provenance](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Build a revision-pinned package
 

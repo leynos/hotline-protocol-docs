@@ -1,13 +1,16 @@
 # One server Log focus event during a stalled native download
 
-The C50 disposable Mac server ran the original 29-action A7 readback once on
-14 November 2026. Only its runtime and endpoints changed to the isolated lab at
-`127.0.0.1:15750/15751`. The recorder failed after 21 actions with
-`TimeoutError: timed out`. It received 98,304 of the expected 1,049,073
-flattened FILP bytes, SHA-256
+The C50 disposable Mac server ran the original 29-action
+[A7 readback](../glossary.md#a7-readback) once on 14 November 2026. Only its
+runtime and endpoints changed to the isolated lab at `127.0.0.1:15750/15751`.
+The recorder failed after 21 actions with `TimeoutError: timed out`. It
+received 98,304 of the expected 1,049,073 flattened FILP bytes, SHA-256
 `b4c6dc15be0d82de42d3aa7102c1feca67397b978591ac8be2d2c846d6a62e7c`. This is a
 **failed mandatory baseline**, with no account guard, seed, ban option two or
 post-ban probe.
+
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 The frozen corpus is `evidence/gap-remediation/2026-11-14/native-ui-focus-01/`.
 It contains source and as-run A7 plans, the failed report, the corrected
@@ -57,6 +60,12 @@ python3 scripts/verify_native_ui_focus.py \
   evidence/gap-remediation/2026-11-14/native-ui-focus-01
 python3 -m unittest discover -s scripts -p 'test_native_ui_focus.py'
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> verifier has since been brought to the repository's Python standard, and its
+> test has moved to `scripts/tests/test_native_ui_focus.py`. The same check is
+> now run by `make evidence-verify`, and the test by
+> `uv run --group dev pytest scripts/tests/test_native_ui_focus.py`.
 
 The verifier reconstructs both SYN-scoped streams, validates the failed A7
 report, measures pixels from the frozen screenshots, checks event times and

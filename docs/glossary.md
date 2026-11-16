@@ -851,12 +851,13 @@ and a short name
 
 Evidence: see Table 5 for the observed label series.
 
-| Series | Examples in the retained records                                                                                        | Stated meaning                        |
-| ------ | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
-| A      | `A7` readback; `A9` density witness; `A11` prepared packet that has not run; `A26` fixture preparation; `A114` audit    | Not stated in the retained records    |
-| B      | `B29` to `B31` rehearsal; `B50` to `B52` capture runs and readiness gate; `B82` planned by root; `B95` and `B96` review | Not stated in the retained records    |
-| C      | `C14` to `C19` mxd peer runs; `C32` and `C35` stalled transfers; `C52` fixture preparation; `C56` witness               | Not stated in the retained records    |
-| Batch  | `batch-01` to `batch-09` directories of Ghidra query records                                                            | Grouping only; nothing further stated |
+| Series | Examples in the retained records                                                                                                                                                                                 | Stated meaning                        |
+| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| A      | `A7` readback; `A9` density witness; `A11` prepared packet that has not run; `A26` fixture preparation; `A114` audit                                                                                             | Not stated in the retained records    |
+| B      | `B29` to `B31` rehearsal; `B50` to `B52` capture runs and readiness gate; `B82` planned by root; `B95` and `B96` review                                                                                          | Not stated in the retained records    |
+| C      | `C14` to `C19` mxd peer runs; `C32` and `C35` stalled transfers; `C52` fixture preparation; `C56` witness                                                                                                        | Not stated in the retained records    |
+| R      | `R02` quarantined; `R03` prepared stopped; `R04` retired after a parent checkpoint; `R05` offline work with a pre-authored receipt operation; `R06` prepared and stopped, with runtime `native-wire-boundary-06` | Not stated in the retained records    |
+| Batch  | `batch-01` to `batch-09` directories of Ghidra query records                                                                                                                                                     | Grouping only; nothing further stated |
 
 _Table 5: Work-packet label series observed in the retained records._
 
@@ -924,7 +925,7 @@ Authoritative source:
 [AGENTS.md, the mothra toolset](../AGENTS.md#the-mothra-toolset).
 
 Evidence: the documents link to mothra only by its absolute URL,
-[github.com/leynos/mothra](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/README.md),
+[github.com/leynos/mothra](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/README.md),
 and never by a relative path (the same section).
 
 ### PEF

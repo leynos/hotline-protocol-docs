@@ -3,10 +3,13 @@
 This registry separates the eight-byte wire/storage form from the clock and
 catalogue values that feed it. It answers the original
 [GAP-020 question](../../gap-analysis.md#gap-020) to the extent supported by
-retained server source and controlled native captures. A fixed year word is a
-format marker in these producers; it is **not** the timestamp's calendar year.
-No inbound field in this registry is shown to accept an arbitrary eight-byte
-date and convert it into a native calendar time.
+retained server source and controlled [native](../glossary.md#native) captures.
+A fixed year word is a format marker in these producers; it is **not** the
+timestamp's calendar year. No inbound field in this registry is shown to accept
+an arbitrary eight-byte date and convert it into a native calendar time.
+
+This document belongs to the [Hotline 1.9 wire protocol](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Byte grammar, units and range
 
@@ -17,6 +20,9 @@ The retained [builder `10058070`][file-builder] writes exactly eight bytes:
 | 0      | BE16  | `0770`, decimal 1904, regardless of the supplied timestamp             |
 | 2      | BE16  | `0000`; the labelled millisecond slot is not populated by this builder |
 | 4      | BE32  | The supplied native catalogue timestamp word, copied unchanged         |
+
+_Table 1: Byte layout of the eight-byte date form that the retained builder
+writes._
 
 [Apple's `GetDateTime` reference][apple-time] defines its 32-bit word as
 **seconds elapsed since midnight, 1 January 1904**.
@@ -52,6 +58,9 @@ comparison needs a separately measured timezone basis.
 | Article-list **371** field **321**                                        | Rebuild serializes each stored article's eight date bytes at record offset **4**; cached output retains the same bytes.                                                                                                                                                                          | Client parses 321's packed list, not an outer numeric date scalar.                                                                                                                                                                 | [List layout](../news/news-contracts.md#article-list-field-321) and [native cache/rebuild equivalence](../news/news-contracts.md#captured-category-versions-and-header-metadata). Category-list 370 fields 320/323 are separate structures; their opaque metadata are not assigned a date by this trace. |
 | Article-body **400** reply field **330**                                  | Builder `10005ac0` reads the article and emits its stored eight bytes through `100568b0(..., 0x14a, ..., 8)` without a second `GetDateTime`.                                                                                                                                                     | Client receives field 330 alongside title, poster, navigation and body.                                                                                                                                                            | [Read builder][news-read] and [captured 321/400 equality](../news/news-contracts.md#captured-category-versions-and-header-metadata). Equality for those native-created articles proves shared stored bytes, not universal 330/208 time equality.                                                         |
 
+_Table 2: Producers and consumers of the eight-byte date fields, with the
+evidence for each._
+
 Board request 103 formats a human-readable `From` line using a separate
 date/time path; it does not emit one of these eight-byte date fields. GUI log
 seconds and the request limiter likewise make separate `GetDateTime` calls;
@@ -73,6 +82,9 @@ clock is outside this document's authority.
 | Milliseconds and other year words | None of the identified ordinary network producers emits them; INFO upload ignores them. To test a _consumer_, use a separately identified peer decoder or an explicitly approved disposable stored-record fixture with `0770/0000` controls and `0771/0001` contrasts. A raw copy alone does not prove calendar interpretation. Reject any plan that silently patches the primary image or labels an unsupported input an accepted server API. |
 | Signed edge and wrap              | Under a separately approved disposable clock/catalogue arrangement, compare `7fffffff`, `80000000`, `fffffffe`, `ffffffff` and the next tick for 206/INFO and native-created 321/330. Retain full eight bytes, guest date display, clock-setting and timezone receipts, stored words and output/status. If the OS refuses or normalizes a value, record that boundary rather than claim native wrap.                                           |
 | Timezone                          | Repeat one ordinary-file and one article comparison in two independently recorded guest timezone configurations while holding the intended instant and catalogue words explicit. Compare raw seconds and rendered dates; a displayed hour alone cannot establish the offset used by the server. This is separate from the source-level fixed-1904 byte grammar.                                                                                |
+
+_Table 3: Future controlled fixtures for the open date questions, with their
+decisive comparisons and stop rules._
 
 GAP-020 remains open for native timezone, nonzero millisecond/other-year
 consumer behaviour and rollover. Source gives the second unit and 1904 base;

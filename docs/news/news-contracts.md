@@ -1,10 +1,14 @@
 # Native nested news contracts
 
-These static and captured findings refine GAP-020 and GAP-065–GAP-070 for the
-hashed native 1.9 server. The [baseline guide](../protocol/protocol.md),
-preserved handler captures and [batch 05][batch] identify the oracle. The
-native fixture sections below distinguish captured exchanges from static
-branches and identified peers. Unknown words remain opaque.
+These static and captured findings refine [GAP-020](../glossary.md#gap) and
+GAP-065–GAP-070 for the hashed [native](../glossary.md#native) 1.9 server. The
+[baseline guide](../protocol/protocol.md), preserved handler captures and
+[batch 05][batch] identify the [oracle](../glossary.md#oracle). The native
+fixture sections below distinguish captured exchanges from static branches and
+identified peers. Unknown words remain opaque.
+
+This document belongs to the [news](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Category-list variants
 
@@ -33,6 +37,8 @@ padded C struct.
 | 5             | `n`  | Name bytes                                                    |
 | `5 + n`       | 1    | Additional emitted byte, not assigned by this branch          |
 
+_Table 1: Layout of a folder record in modern field 323._
+
 The native call emits `n + 6` bytes. Do not silently shorten it to `n + 5` or
 declare the final byte zero. Its observed stack source is not a semantic field
 definition; the captured category matrix below preserves actual tails.
@@ -47,6 +53,8 @@ definition; the captured category matrix below preserves actual tails.
 | 28              | 1    | Name length `n`                                       |
 | 29              | `n`  | Name bytes                                            |
 | `29 + n`        | 3    | Additional emitted bytes, not assigned by this branch |
+
+_Table 2: Layout of a category record in modern field 323._
 
 The emitted category length is `n + 32`. Metadata helper `10022830` reads the
 HLNZ file header; its packed fields are not all semantically named by this
@@ -70,6 +78,8 @@ rebuilds it through `10025900`, `100248a0`, `10025a60`, `10025c60` and
 | 8                  | 2        | Two zero bytes                       |
 | 10                 | Variable | Article records                      |
 
+_Table 3: Header of the serialized article list in field 321._
+
 The base article record is:
 
 | Record offset | Size     | Value                                                |
@@ -82,6 +92,8 @@ The base article record is:
 | 22            | `1 + t`  | One-byte title length `t`, followed by title bytes   |
 | `23 + t`      | `1 + p`  | One-byte poster length `p`, followed by poster bytes |
 | `24 + t + p`  | Variable | `f` flavour entries                                  |
+
+_Table 4: Layout of the base article record in field 321._
 
 Title bytes are capped at 63 and poster bytes at 31 by this serializer. Each
 flavour entry is a one-byte length, at most 63 flavour-name bytes, and a
@@ -122,6 +134,8 @@ four navigation outputs map stored record links to public article IDs:
 | 332         | `0x2c`               | Next sibling     |
 | 335         | `0x30`               | Parent           |
 | 336         | `0x34`               | First child      |
+
+_Table 5: Native offsets that map to navigation fields 331, 332, 335 and 336._
 
 Create [assembly][create-asm] stores the parent at `0x30`, finds the last child
 through `0x2c`, stores that sibling at the new record's `0x28` and updates its
@@ -229,6 +243,8 @@ file with creator `HTLS`, opens it and writes a 1,024-byte initial buffer.
 | 381     | Name 201 and parent path 325; require bit 36. Resolve proposed child in mode 5, which admits a missing leaf under an existing parent and rejects an existing item.                                                | `FSpDirCreate`, release resolver objects, empty ACK, then native activity-log helper.                        |
 | 382     | Name 322 and parent path 325; require bit 34. Same mode-5 conflict check.                                                                                                                                         | Create/write HLNZ file, empty ACK, then native activity-log helper.                                          |
 
+_Table 6: Checks and effects of structure requests 380, 381 and 382._
+
 Resolver `1002f800` reports kind 0 for an unavailable enclosing location and
 kind 1 for a missing leaf with an existing parent. The creation handlers format
 different direct status-1/field-100 errors for kind 0 and for an existing item.
@@ -308,6 +324,8 @@ distinctions survive both formats.
 | HLNZ category      | Marker 10, then exact name bytes | Kind 3; auxiliary is low 16 bits of stored article count; Pascal name at offset 28; total `n + 32` |
 | Other native types | Static branch emits marker 255   | Static branch omits them; no foreign-type runtime fixture here                                     |
 
+_Table 7: Category and folder records in fields 320 and 323._
+
 Captured modern tails are nonzero and can vary between otherwise unchanged
 listings. Folder examples include `10`, `61` and `79`; category examples include
 `5186a0` and `b5f000`. They are retained raw, excluded from semantic equality
@@ -345,6 +363,8 @@ Two children of ID 1 and a grandchild of the first child produce this list:
 | 2                    | 0      | `Second root`                    | `11223344` | `text/plain`, 11                         |
 | 3                    | 0      | `Missing body`                   | 0          | No flavours                              |
 
+_Table 8: Serialized article list of the threaded post fixture._
+
 This is depth-first child-before-sibling order, neither numeric-ID nor creation
 order. The offset-12 link is the parent public ID. Raw flags occupy four bytes;
 no named flag bits are inferred from `11223344`. Dates retain the eight-byte
@@ -381,6 +401,8 @@ these small IDs:
 | 6       | 0                    | 0                | 4          | 0               |
 | 5       | 4                    | 0                | 1          | 0               |
 | 2       | 1                    | 3                | 0          | 0               |
+
+_Table 9: Navigation fields of five articles read through handler 400._
 
 The zero-flavour record, unknown flavour, case-changed `TEXT/PLAIN` and unknown
 article each receive status 1 with the same literal:
@@ -437,6 +459,8 @@ independent categories starts with roots `L(1), A(2), R(3)`, A's children
 | L, nonrecursive          | Roots A,R, with A's subtree intact   | 7            |
 | R, nonrecursive          | Roots L,A, with A's subtree intact   | 7            |
 
+_Table 10: Surviving article structure after each deletion mode._
+
 All survivors retain their original IDs, dates, bodies and flavour metadata.
 Every surviving 400 reply checks previous/next sibling, parent and first-child
 fields 331/332/335/336, including explicit two-byte zeros. Deleted IDs fail
@@ -454,6 +478,8 @@ Field 337 uses the generic scalar-width reader, then a zero/nonzero test:
 | `00000001ff` (five bytes)                    | Recursive: leading four bytes are nonzero        |
 | `00000000ff` (five bytes)                    | Nonrecursive: trailing byte is ignored           |
 
+_Table 11: Deletion mode of article A selected by each field 337 input._
+
 Twenty-one primary requests succeed with empty ACKs. Four fail with status 1
 and field 100; a repeated successful deletion adds a fifth error:
 
@@ -462,6 +488,8 @@ and field 100; a repeated successful deletion adds a fifth error:
 | Missing ID 99, omitted 326, repeated deletion | `Cannot delete article because an invalid category or item was specified.` |
 | Missing category                              | `Cannot delete article because the specified category could not be found.` |
 | Zero-privilege account                        | `You are not allowed to delete articles.`                                  |
+
+_Table 12: Exact field 100 error text for each rejected deletion request._
 
 Rejected requests preserve the complete list. The zero-privilege account can
 obtain 371 metadata but 400 returns `You are not allowed to read articles.` An
@@ -515,6 +543,8 @@ after children 99, 100, 101 and 102. Every post returns an empty success ACK.
 | 101             | 102                     | 1 through 102           | 102             |
 | 102             | 103                     | 1 through 101, then 103 | 102             |
 
+_Table 13: Stored and traversed article counts after each child append._
+
 The first three stored/indexed counts in this table are established by the
 successful posts and complete ID traversal; the final count is also verified in
 a positive native HLNZ snapshot and its complete ID index. Earlier disk
@@ -534,6 +564,8 @@ captured post-state without treating the traversal list as the ID index.
 | 101        | 100                  | 103              | 1          | 0               |
 | 102        | 101                  | 0                | 1          | 0               |
 | 103        | 101                  | 0                | 1          | 0               |
+
+_Table 14: Navigation fields of selected articles after the last append._
 
 All six direct 400 reads succeed and retain their expected titles, dates,
 poster, flavour and body bytes. In particular, article 102 is absent from the

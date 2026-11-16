@@ -1,12 +1,17 @@
 # Account field 111: stored-record and consumer trace
 
-This is a bounded GAP-071 trace for the hashed Hotline Server 1.9 PPC DATA image
+This is a bounded [GAP-071](../glossary.md#gap) trace for the hashed
+[Hotline Server 1.9](../glossary.md#hotline-server-19) PPC DATA image
 (`ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`). It adds
-28 read-only Ghidra content queries, with six before/after identity queries
-across three invocations, to existing native account fixtures. Every query
-record names its tool, arguments, capture time and program identity. The
-[query corpus][corpus] includes exact decompiler text, plans, the capture
-wrapper and checksums. No native application or account was changed.
+28 read-only [Ghidra](../glossary.md#ghidra) content queries, with six
+before/after identity queries across three invocations, to existing
+[native](../glossary.md#native) account fixtures. Every query record names its
+tool, arguments, capture time and program identity. The [query corpus][corpus]
+includes exact decompiler text, plans, the capture wrapper and checksums. No
+native application or account was changed.
+
+This document belongs to the [accounts and privileges](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Positive field and storage evidence
 
@@ -21,6 +26,9 @@ These are _internal storage_ offsets, not a wire struct.
 | Representative value       | 8 / `opaque-c`            | Exact bytes survive into `UserData`.       |
 | [Sparse 353][update]       | 0 / empty                 | Replacement clears the slot.               |
 | 65-byte input to 353       | 64 / 64 literal `X` bytes | The handler's copy cap is inclusive at 64. |
+
+_Table 1: Native fixtures for field 111, with the stored length, the bytes and
+the consequence established._
 
 The create handler [100146f0][create] and replacement handler
 [10014df0][replace] copy TLV `0x6f` with limit `0x40` into a freshly cleared
@@ -60,6 +68,9 @@ aliases, indirect calls and derived/indexed access remain possible.
 | `10015160` | Enumeration builds 348 account entries without field 111.                                                           |
 | `10015500` | Batch update reads an old record for preservation cases and writes a new record.                                    |
 | `100197e0` | Local account-list UI enumerates records, reading name/login/bitmap-derived values; its caller is `1001f140`.       |
+
+_Table 2: Direct callers of the record reader `100073c0` and their bounded
+visible use of the loaded record._
 
 The [live propagation helper][live] has two direct callers, replacement and
 batch. Its inspected body uses bitmap, display-name and login offsets, but does
@@ -116,6 +127,11 @@ python3 -m unittest discover -s ../hotline-protocol-docs/scripts \
 sha256sum --quiet -c \
   evidence/gap-remediation/2026-11-13/account-attribute-01/SHA256SUMS
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> tests have since moved to `scripts/tests/` and run under pytest; the same
+> tests now run with
+> `uv run --group dev pytest scripts/tests/test_account_attribute.py`.
 
 GAP-071's wire byte type, observed presence/default and storage behaviour now
 have bounded evidence. Its human meaning and any effect beyond preserving or

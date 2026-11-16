@@ -1,10 +1,15 @@
 # Native 1.9 permanent ban control witness
 
-This witness records one option 2 ban in a disposable native server lab on
-14 November 2026. It uses the **control-only** readiness profile. The full-file
-A7 baseline was **not exercised** in this lab; the failed C35, C45 and C50
-full-file baselines remain part of the evidence. The control result does not
-resolve the transfer stall or establish general native-server health.
+This [witness](../glossary.md#witness) records one option 2 ban in a disposable
+[native](../glossary.md#native)
+server lab on 14 November 2026. It uses the **control-only** readiness profile.
+The full-file [A7](../glossary.md#a7-readback) baseline was **not exercised**
+in this lab; the failed C35, C45 and C50 full-file baselines remain part of the
+evidence. The control result does not resolve the transfer stall or establish
+general native-server health.
+
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Scope and provenance
 
@@ -66,6 +71,12 @@ From the protocol repository with the adjacent Mothra evidence export:
 python scripts/verify_native_ban_control.py evidence/gap-remediation/2026-11-14/native-ban-control-01
 python -m unittest discover -s scripts -p test_native_ban_control.py -q
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> verifier and its test are still held at the earlier lint rules
+> (`scripts/legacy-modules.txt`), so they have not been brought to the
+> repository's Python standard. The same verifier is run by
+> `make evidence-verify`, and the test by `make test-legacy`.
 
 The verifier checks the full corpus inventory and hashes, source/runtime
 identity, managed capture readiness and terminal state, all five semantic

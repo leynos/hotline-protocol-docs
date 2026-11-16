@@ -6,6 +6,9 @@ contains the exact read-only Ghidra queries, earlier frozen bodies, as-run
 capture script, program identities, source hashes, and one retained guest
 screenshot. It contains no server binary, Ghidra project, ROM, or disk.
 
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
+
 ## What the code links
 
 The settings limiter at `10016ad0` calls `10057d00`, which directly calls

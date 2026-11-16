@@ -1,9 +1,14 @@
 # Isolated Classic client: one finite 1.9 session
 
-This witness covers one controlled login by the archived “Hotline Client 1.9.2
-Classic” candidate against the native Hotline Server 1.9 guest. Its embedded
-`vers` says 1.9.1.0, and vendor authenticity remains unproved. It is a measured
-client session, not a general client profile or release-policy rule.
+This [witness](../glossary.md#witness) covers one controlled login by the
+archived “Hotline Client 1.9.2 Classic” candidate against the
+[native](../glossary.md#native) [Hotline Server 1.9](../glossary.md#hotline-server-19)
+guest. Its embedded `vers` says 1.9.1.0, and vendor authenticity remains
+unproved. It is a measured client session, not a general client profile or
+release-policy rule.
+
+This document belongs to the [peer implementations](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 The client ran in a separate loopback-only network namespace. Fixed AF_UNIX
 bridges led to host loopback control port 15500 and data port 15501; a third
@@ -48,6 +53,11 @@ python3 ../hotline-protocol-docs/scripts/verify_mac_peer_isolated_session.py \
 python3 -m unittest discover -s ../hotline-protocol-docs/scripts \
   -p 'test_mac_peer_isolated_session.py'
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> tests have since moved to `scripts/tests/` and run under pytest; the same
+> tests now run with
+> `uv run --group dev pytest scripts/tests/test_mac_peer_isolated_session.py`.
 
 The verifier checks byte parity, dynamic reference consistency, DNS/ICMP
 pairing, the recorded observation times and namespace receipts. UI state and

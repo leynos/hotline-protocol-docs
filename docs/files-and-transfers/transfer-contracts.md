@@ -1,11 +1,15 @@
 # Native transfer contracts
 
-This supplement refines GAP-033 and GAP-055–GAP-064 against the same hashed Mac
-PPC server as [the protocol guide](../protocol/protocol.md). Evidence consists
-of the baseline request/acceptor captures, [batch 04][batch] and the
-ordinary-file sessions cited below. Static findings are distinguished from
-captured outcomes. Captured folder streams and cancellation cases are specified
-below. Broader metadata, failure and persistence requirements remain open.
+This supplement refines [GAP-033](../glossary.md#gap) and GAP-055–GAP-064
+against the same hashed Mac PPC server as
+[the protocol guide](../protocol/protocol.md). Evidence consists of the
+baseline request/acceptor captures, [batch 04][batch] and the ordinary-file
+sessions cited below. Static findings are distinguished from captured outcomes.
+Captured folder streams and cancellation cases are specified below. Broader
+metadata, failure and persistence requirements remain open.
+
+This document belongs to the [files and transfers](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 The [ordinary-download send path](native-download-send-path.md) distinguishes
 advertised length, the worker's requested/enqueued byte count, queued bytes in
@@ -28,6 +32,8 @@ The selector is a 16-bit value, not a four-byte direction bitmap.
 | 12     | 2    | Transfer selector                                         |
 | 14     | 2    | Consumed with the header; not examined in this path       |
 
+_Table 1: HTXF connection header fields and their role in the acceptor._
+
 Reference parity takes precedence over the selector:
 
 | Reference | Selector        | Lookup / branch                                   |
@@ -37,6 +43,8 @@ Reference parity takes precedence over the selector:
 | Odd       | 1               | Folder download, `1000e690`                       |
 | Odd       | 2               | Banner download, `1000e720`                       |
 | Odd       | Any other value | Ordinary download, `1000e600`                     |
+
+_Table 2: Branch selected by reference parity and selector in the acceptor._
 
 This table describes what the native branch actually accepts. It does not
 establish a canonical client's choice among all other selector values. Bad
@@ -72,6 +80,8 @@ historical-client interoperability results.
 | Folder-download reference with selectors 0, 2 or `ffff`                  | Native close without application bytes; the reference does not match those collections.                                                              |
 | Ordinary upload selectors 0, 2 and `ffff`, trailing word `ffff`          | All route to ordinary upload and complete. Native exact-path fork reads retain the expected DATA bytes and TEXT/MOTH metadata.                       |
 | Selector0 upload: request203 advertises 37 bytes more than its HTXF size | Completes at the HTXF byte count. Together with the acceptor assignment, this establishes replacement of the request count for this ordinary upload. |
+
+_Table 3: Captured HTXF field and reference probes and their native results._
 
 The new upload catalogue records report resource-fork size zero. The attempted
 resource-attribute reads return status1 with “Attribute not found”; their empty
@@ -157,6 +167,8 @@ bounded cases:
 | Cancellation racing an in-progress download              | Partial baseline prefix, empty ACK and native close; the application can drain buffered bytes after reading the ACK. See the captured cases below. |
 | Pending ordinary upload                                  | Empty ACK does not remove its reference; a later valid upload completes.                                                                           |
 
+_Table 4: Captured request 214 outcomes, by reference state and requester._
+
 These observations do not promise rollback of transferred bytes or universal
 cleanup of uploads and banners. Folder operation streams remain separately
 tracked, and no universal race byte count or cancellation deadline is claimed.
@@ -185,6 +197,8 @@ FILP/INFO/fork headers, rather than only DATA bytes:
 | After 1,024-byte read, 1 | 261,252                     | 260,228                                | 258,332                                                |
 | After 1,024-byte read, 2 | 2,920                       | 1,896                                  | 0                                                      |
 | After 1,024-byte read, 3 | 2,920                       | 1,896                                  | 0                                                      |
+
+_Table 5: Byte counts of the six captured cancellation races._
 
 The distinct lengths are observations from six races, not minimum or maximum
 delivery guarantees. Complete incoming-request observation does not instrument
@@ -241,11 +255,15 @@ magic `RFLT` and version 1. The upload-resume builder `1002db60` emits a
 | 40     | 2        | Entry count `k`                                                   |
 | 42     | `16 × k` | Entries                                                           |
 
+_Table 6: Layout of the RFLT resume record, from its header to its entries._
+
 | Offset within entry | Size | Entry value                                   |
 | ------------------: | ---: | --------------------------------------------- |
 | 0                   | 4    | Fork tag: `DATA` or `MACR`                    |
 | 4                   | 4    | Resume offset in that fork                    |
 | 8                   | 8    | Other bytes; not interpreted by this consumer |
+
+_Table 7: Layout of each RFLT entry, with its fork tag and resume offset._
 
 The download consumer initializes a fresh flattened-file state, then sets the
 matching fork's start offset. For a single entry it sends
@@ -287,6 +305,8 @@ bytes, including 180 bytes of FILP/INFO/fork-header overhead. Download field
 | DATA 14, DATA 1                                           | Empty DATA / all MACR                                     | 497                              |
 | MACR 3, MACR 4                                            | All DATA / MACR `[4:314]`                                 | 503                              |
 
+_Table 8: Captured RFLT download boundaries, with bytes sent and stream sizes._
+
 Ranges are zero-based and exclude the end. Repeated fork entries are not
 equivalent to taking only the last offset: each updates the stored start offset
 but subtracts from the **already remaining** length. For DATA 3 then 4, the
@@ -326,6 +346,8 @@ client interruption.
 | Missing partial file              | Numbered error status 1, message field 100, no reference.                                      |
 | Existing completed TEXT/MOTH file | Numbered error status 1, message field 100, no reference.                                      |
 
+_Table 9: Captured request 203 results with option 204 set to 1._
+
 The resume handler checks the existing type/creator pair against `HTft`/`HTLC`;
 it does not compare the partial file with a separately authenticated original
 length or digest. The returned offsets are existing fork EOFs. A correct
@@ -361,6 +383,8 @@ implicit padding; TCP read boundaries need not align with these components.
 | 6                  | 16   | Zero from cleared state |
 | 22                 | 2    | Fork count 3            |
 
+_Table 10: Layout of the FILP file header in the ordinary download stream._
+
 Every fork record consists of a 16-byte header followed by its value:
 
 | Fork-header offset | Size         | Emitted value                      |
@@ -369,6 +393,8 @@ Every fork record consists of a 16-byte header followed by its value:
 | 4                  | 8            | Zero from cleared state            |
 | 12                 | 4            | Value length in bytes              |
 | 16                 | Value length | Metadata or fork bytes             |
+
+_Table 11: Layout of each fork record header in the ordinary download stream._
 
 The serializer has distinct stages for file header, INFO header/value, DATA
 header/value and MACR header/value. For a fresh transfer the advertised size is
@@ -398,6 +424,8 @@ unlisted fixed-prefix bytes must not be assigned invented portable meanings.
 | 72       | `n`  | Name bytes                                   |
 | `72 + n` | 2    | Comment length `c`                           |
 | `74 + n` | `c`  | Comment bytes                                |
+
+_Table 12: Traced byte layout of the INFO metadata value, by offset._
 
 The value length is `74 + n + c`. Date bytes follow the fixed-1904-year
 representation already documented in the guide. This layout does not establish
@@ -485,6 +513,8 @@ data connection, then requests the following on that same session:
 | Absent / empty ordinary file       | 181         | 0           | Four-byte odd value | 6                       |
 | 2 / empty preview                  | 0           | Omitted     | Omitted             | Omitted                 |
 
+_Table 13: Captured controlled queue modes by field 204 and file._
+
 Only numeric value 2 selects preview in the traced handler; the tested other
 values use ordinary FILP serialization. Queueing does not remove the reference
 or replace the transfer-size calculation. Empty preview returns before creating
@@ -568,6 +598,8 @@ Observed timers use the same seconds clock as the dispatcher:
 | Ordinary upload waits for its first connection beyond 500 seconds                                      | Removes pending entry and closes file.                   |
 | Connected ordinary upload has no recorded receive progress for more than 120 seconds                   | Close/cleanup path.                                      |
 
+_Table 14: Observed worker conditions and the action that each triggers._
+
 Download completion means all advertised bytes have been enqueued by the
 worker; it does not itself prove the peer persisted them. The complete folder
 streams, interruption semantics remain unresolved. The captured ordinary-file
@@ -584,6 +616,8 @@ packet views and read-only HFS+ observations. Both supported entry paths work:
 | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | Raw data listener 5501        | Connect, send 16-byte HTXF with reference from owning control ACK, then transfer bytes.                                 |
 | Primary control listener 5500 | Connect, send `TRTPHOTL 0001 0003`, receive `TRTP 00000000`, then send HTXF on that same connection and transfer bytes. |
+
+_Table 15: Captured entry paths to an HTXF transfer connection._
 
 Both paths use a separate owning control session to request 203/202 first.
 Upload references are four-byte even values; download references are four-byte
@@ -603,6 +637,8 @@ inserted between the sub-version-3 reply and its HTXF header.
 | Preview option 2                                      | Exactly 13 raw DATA bytes; no FILP wrapper or resource fork.                                                       |
 | Ordinary empty-file download                          | FILP 181 bytes: INFO 109, DATA zero and MACR zero.                                                                 |
 | Empty-file preview                                    | Control ACK contains size 108 = zero, omits reference 107; no data connection opened.                              |
+
+_Table 16: Captured outcomes of the ordinary-file fixtures._
 
 The nonempty data bytes are `646174612d666f726b0d0a00ff`. The resource fork is
 a valid 317-byte resource file containing type `TEST`, ID 128 and bytes
@@ -665,6 +701,8 @@ Reference lookup helpers `1000ec40`/`1000ec80` only find the matching entry.
 | Queued ordinary/folder download | Queue-admission worker resets entry timestamp when moving it into the active collection | Waiting in the queue is distinct from the active worker's greater-than-500-second no-connection comparison.                |
 | Connected ordinary download     | Worker uses send-buffer/connection state and send-progress bookkeeping                  | No connected inactivity-expiry comparison is established in that worker; this does not rule out lower transport deadlines. |
 
+_Table 17: Clock origin and refresh for each transfer entry state._
+
 Thus a code-derived case is an upload entry created at time zero, first data
 connection attached at time 130, with no earlier received file chunks. The
 connected worker's age check can reject it immediately even though its pending
@@ -694,6 +732,8 @@ are retained in [folder evidence][folder-batch]. Controls below are big-endian
 | Await file choice (1) | Control 3            | Skips this file and immediately advances traversal.                                                                                                       |
 | Sending file (2)      | No per-chunk control | Queues FILP/fork bytes; when its per-file count reaches the chosen length, closes that file and returns to state 0.                                       |
 
+_Table 18: Folder download control states, with input and server action._
+
 A completed file is followed by another client control 3 to request the next
 item. When traversal has no next item, the worker removes its entry and closes
 the data connection; it does not emit a numbered completion ACK here. Other
@@ -714,6 +754,8 @@ in front. The complete record sent on the data connection is:
 | 4      | 2        | Number of remaining path components `k`                          |
 | 6      | Variable | `k` components: BE16 word, one-byte name length, then name bytes |
 
+_Table 19: Layout of the folder item descriptor sent on the data connection._
+
 Thus `L = 4 + sum(3 + component_name_length)`. The upload worker consumes the
 same two-byte item flag followed by the structured path. This establishes
 shared descriptor framing, not symmetric control state machines or identical
@@ -726,6 +768,8 @@ These examples are **calculated from the stores**, not captured native packets:
 | Root directory, no remaining components | `00 04 00 01 00 00`                   |
 | One file component `foo`                | `00 0a 00 00 00 01 00 00 03 66 6f 6f` |
 | One directory component `foo`           | `00 0a 00 01 00 01 00 00 03 66 6f 6f` |
+
+_Table 20: Calculated descriptor bytes, not captured packets._
 
 The captured cases below establish nested and empty-directory sequencing and
 root exclusion from the request's item count. The calculated zero-component
@@ -774,6 +818,8 @@ word and name `alpha`. The nested leaf descriptor has two components.
 | Empty root          | ACK contains 108 = zero and 220 = zero, omits 107 and creates no live transfer.                                                                                   |
 | Directory-only root | Aggregate zero, count one and a reference; emits the child directory descriptor, then closes on the next control 3.                                               |
 
+_Table 21: Captured folder download cases and their outcomes._
+
 The resumed aggregate/count ACK remains 652/5; per-file length words describe
 the selected remaining flattened streams. A separate delayed-choice case holds
 the first file descriptor for 130 measured seconds with control-session ACK
@@ -795,6 +841,8 @@ Worker `1000dc60` implements a different receive protocol:
 | Stream length (3)         | Client sends BE32 length                                       | Resets per-file received count and enters stream state 4.                                                                              |
 | Receiving stream (4)      | Client sends FILP/fork bytes                                   | Feeds the upload parser, finalizes/closes the file once count is at least expected; counts the item.                                   |
 | More items after a file   | Server sends BE16 control 3                                    | Returns to descriptor-length state 1.                                                                                                  |
+
+_Table 22: Folder upload control states, with input, output and next action._
 
 Item flag bit zero selects the directory branch; other bits are not given
 semantics by this pass. The ordinary-file branch checks the target's native
@@ -829,6 +877,8 @@ transactional rollback of previously uploaded items.
 | Completed-file skip as final item            | Initial 3, file descriptor, response 3 then EOF; no file stream.                                                                                                                                                |
 | Directory descriptor naming an existing file | Same 3/EOF wire result; the existing file remains intact. The response does not distinguish this conflict from a successful non-file outcome.                                                                   |
 
+_Table 23: Captured folder upload request and item sequences._
+
 The interrupted part has DATA 13 / MACR 5 and native type/creator HTft/HTLC.
 Correct continuation sends INFO, zero DATA bytes and MACR bytes `[5:317]`;
 afterwards its forks are 13/317 and type/creator TEXT/MOTH. The completed alpha
@@ -857,6 +907,8 @@ probe, not evidence of a historical client's request-500 scheduling.
 | Attach upload after 125 seconds of pauses                     | Native close 126.838249 seconds after request ACK, with no initial readiness bytes.                                                                     |
 | Directory-only progress after 90 seconds, then further pauses | Native close 127.964718 seconds after request ACK, 35.018523 seconds after the directory reply, despite only one of two declared items being processed. |
 | Download file choice delayed by 130 seconds of pauses         | First file length arrives 130.427736 seconds after the descriptor; full folder download succeeds.                                                       |
+
+_Table 24: Host-clock observations of the captured folder timing cases._
 
 These observations support the traced upload clock origin and the absence of an
 equivalent connected inactivity check in this download worker. The directory
@@ -948,6 +1000,8 @@ These are server byte/type observations, not historical-client rendering tests.
 | GIF bytes with a `.jpg` suffix  | `GIFf`       | `JPEG`         | 43 / 43                  |
 | Extensionless TEXT control      | `TEXT`       | `TEXT`         | 43 / 42                  |
 | Present empty GIF file          | `GIFf`       | `GIFf`         | 0 / 0; service reset     |
+
+_Table 25: Captured banner files and controls, with types and byte counts._
 
 A zero advertised type suppresses122 even when a nonempty buffer can be fetched
 through 212. A suffix-derived type can differ from the payload encoding; this

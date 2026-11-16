@@ -1,14 +1,19 @@
 # Classic client to native Hotline 1.9 baseline through the fixed proxy
 
 The [portable B46/B47 corpus][corpus] records two controlled local attempts on
-14 November 2026. Both used the identified Classic PowerPC client and native
-Hotline Server 1.9 guest. The proxy's `baseline` variant passed the successful
-Login107 ACK byte-for-byte; field 161 remained `0000`. No altered 161 or 162
-variant ran. The client distribution filename and app label say **1.9.2**,
-while embedded `vers` resources say **1.9.1.0**. The client DATA and RSRC
-SHA-256 values are pinned in `manifest.json` and the
-[static acquisition record][candidate]. Neither label establishes vendor
-authenticity or a universal client release profile.
+14 November 2026. Both used the identified
+[Classic PowerPC client](../glossary.md#classic-client) and
+[native](../glossary.md#native) [Hotline Server 1.9](../glossary.md#hotline-server-19)
+guest. The proxy's `baseline` variant passed the successful Login107 ACK
+byte-for-byte; field 161 remained `0000`. No altered 161 or 162 variant ran.
+The client distribution filename and app label say **1.9.2**, while embedded
+`vers` resources say **1.9.1.0**. The client DATA and RSRC SHA-256 values are
+pinned in `manifest.json` and the [static acquisition record][candidate].
+Neither label establishes vendor authenticity or a universal client release
+profile.
+
+This document belongs to the [peer implementations](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Provenance and finite result
 
@@ -20,6 +25,9 @@ authenticity or a universal client release profile.
 | Client numbered requests | 107 only                     | 107, 121, 300, 212                        |
 | Data attachment          | None                         | 16-byte `HTXF`, 58-byte `GIF89a` response |
 | UI                       | Agreement open at cutoff     | One online user: `unnamed`                |
+
+_Table 1: Observations of the baseline attempts B46 and B47, by action, proxy
+stop, wire bytes, client requests, data and UI._
 
 B46's attempted Agree click followed the cutoff. A connection-closed alert
 blocked it, so B46 has no 121 and cannot measure agreement acceptance. B47
@@ -69,6 +77,11 @@ python3 ../hotline-protocol-docs/scripts/verify_classic_native_baseline.py \
 python3 -m unittest discover -s ../hotline-protocol-docs/scripts \
   -p 'test_classic_native_baseline.py'
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> tests have since moved to `scripts/tests/` and run under pytest; the same
+> tests now run with
+> `uv run --group dev pytest scripts/tests/test_classic_native_baseline.py`.
 
 Ten tests include incorrect reply type/ID, changed 161 and agreement,
 fabricated B46 activation, a mismatched capture view, missing SYN, late

@@ -2,11 +2,15 @@
 
 This page records one disposable Hotline Server 1.9 run for fields **212**
 (Files move destination) and **325** (News listing path). The exact case and
-its source closure are in Mothra's portable
-`evidence/gap-remediation/2026-11-14/native-path-fields-01` corpus. The
-standalone offline verifier is `scripts/verify_native_path_fields.py`; run it
-from an adjacent checkout, or pass `--corpus /absolute/path/to/corpus`. It does
-not boot a VM or contact a server.
+its source closure are in [Mothra](../glossary.md#mothra)'s portable
+`evidence/gap-remediation/2026-11-14/native-path-fields-01`
+[corpus](../glossary.md#corpus). The standalone offline
+[verifier](../glossary.md#verifier) is `scripts/verify_native_path_fields.py`;
+run it from an adjacent checkout, or pass `--corpus /absolute/path/to/corpus`.
+It does not boot a VM or contact a server.
+
+This document belongs to the [files and transfers](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Scope and results
 
@@ -22,6 +26,8 @@ direct status 0 in this run.
 | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
 | 212   | High-byte nested path; final zero-length component; declared extra but absent component; `ffff` component word; valid prefix plus `ee` padding to 2048 and 2049 bytes | Owned `H-9a` folder for each of six `p0`–`p5` markers, independently seen in the three parent listings and after 206 |
 | 325   | High-byte owned News folder; second zero-length component; declared extra but absent component; `ffff` word; valid prefix plus `ee` padding to 2048 and 2049 bytes    | Owned high News folder's `m-cat47` category in field 323 for each of six reads                                       |
+
+_Table 1: Tested values for fields 212 and 325 and their measured locations._
 
 The malformed and over-width values were accepted in this particular run. The
 observations do not establish a universal parser rule, the purpose of the

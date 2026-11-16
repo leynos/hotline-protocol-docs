@@ -3,13 +3,16 @@
 The
 [frozen source corpus](../../evidence/gap-remediation/2026-11-14/rate304-static-01/manifest.json)
 copies the existing PowerPC decompilation bodies and query metadata for the
-native server DATA fork SHA-256
-`ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`. A93 made no
-new oracle call or native request. The comparison below is a **source
-prediction**. The later
+[native](../glossary.md#native) server [DATA fork](../glossary.md#data-fork)
+SHA-256 `ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`. A93
+made no new oracle call or native request. The comparison below is a
+**[source prediction](../glossary.md#source-prediction)**. The later
 [native sequence](../native-evidence/native-rate304-sequence.md) captures 26
 admitted updates followed by closure on a 27th burst update; the exact native
 60-second interval remains uncalibrated.
+
+This document belongs to the [presence and messaging](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Counter and ordinary response
 

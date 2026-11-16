@@ -1,15 +1,20 @@
 # Native 304 rate and reset preparation
 
 The corrected observer-UID control is **offline prepared** and has not run
-against native 1.9. The earlier [sequence](native-rate304-sequence.md) reached
-the rate observations but failed its fieldless 303 control. The source
-prediction is a session-local 304 counter: existing values 0–25 enter settings
-helper `10004d50`; a 27th request in the same native `GetDateTime` window
-closes the socket, inserts a 1,800-second address ban and logs. After age
-greater than 60 seconds the counter resets. A complete online request also
-increments the separate dispatcher flood counter. See retained `D-1000acf0.c`,
-`D-10016ad0.c`, `D-10004d50.c`, `D-10004f30.c`; A92's read-only source review
-is retained in Mothra delegation state.
+against [native](../glossary.md#native) 1.9. The earlier
+[sequence](native-rate304-sequence.md) reached the rate observations but failed
+its fieldless 303 control. The
+[source prediction](../glossary.md#source-prediction) is a session-local 304
+counter: existing values 0–25 enter settings helper `10004d50`; a 27th request
+in the same native `GetDateTime` window closes the socket, inserts a
+1,800-second address ban and logs. After age greater than 60 seconds the
+counter resets. A complete online request also increments the separate
+dispatcher flood counter. See retained `D-1000acf0.c`, `D-10016ad0.c`,
+`D-10004d50.c`, `D-10004f30.c`; A92's read-only source review is retained in
+Mothra delegation state.
+
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Prepared scope
 
@@ -34,9 +39,9 @@ The later `native-rate304-02` startup also retired before protocol contact: its
 immediate capture gate expired while the actual VM held its disk but had not
 opened the packet-triggered guest PCAP. See the
 [startup witness](native-rate304-startup-gate.md) and
-[source boundary](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/guest-capture-startup.md).
+[source boundary](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/guest-capture-startup.md).
 A future lab needs the separate disk and capture stages described by the
-[readiness helper](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/native-emulator-readiness.md);
+[readiness helper](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/native-emulator-readiness.md);
 neither earlier runtime is a retry target. Each new lab requires its own
 absent paths and reviewed command packet.
 
@@ -145,6 +150,14 @@ sudo nsenter -t "$EMULATOR_PID" -n python3 scripts/native_rate304_control.py \
 python3 -m unittest discover \
   -s scripts -p test_native_rate304.py -v
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> case generator, `scripts/native_rate304_cases.py`, has since been brought to
+> the repository's Python standard, and its test has moved to
+> `scripts/tests/test_native_rate304.py`, which runs as
+> `uv run --group dev pytest scripts/tests/test_native_rate304.py`. The control
+> runner, `scripts/native_rate304_control.py`, is still held at the earlier
+> lint rules (`scripts/legacy-modules.txt`), so its command is unchanged.
 
 The second command is a future **authorized live action**, not an instruction
 to run during preparation. The first and third can be used offline with

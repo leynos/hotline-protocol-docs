@@ -1,11 +1,15 @@
 # Native temporary-ban later epoch
 
-This control-only witness follows the
+This control-only [witness](../glossary.md#witness) follows the
 [first temporary-ban epoch](native-ban-expiry-first-witness.md) on the **same**
-disposable Hotline Server 1.9 VM and working image. The complete portable
-corpus is
+disposable [Hotline Server 1.9](../glossary.md#hotline-server-19) VM and
+working image. The complete portable corpus is
 [`native-ban-expiry-later-01`](../../evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/manifest.json).
-The full file-transfer A7 baseline was **not exercised** in this lab.
+The full file-transfer [A7](../glossary.md#a7-readback) baseline was **not
+exercised** in this lab.
+
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## The missed pre-window
 
@@ -49,6 +53,9 @@ matching the Recorder and both packet views:
 | Owned-account delete | 27                | 26            | 274        | 645            |
 | Control postflight   | 29                | 34            | 231        | 2,759          |
 
+_Table 1: Namespace and guest packet counts, and sent and received bytes, for
+each later flow of the epoch._
+
 C83 guarded both owned accounts with type 352 and checked exact name,
 complemented key, `x` attribute, and zero versus bit-23 access. Only after the
 guard passed did C84 send two type-351 deletes. Type-352 readbacks reported
@@ -83,6 +90,12 @@ From this protocol repository beside Mothra:
 python scripts/verify_native_ban_expiry_later.py
 python -m unittest discover -s scripts -p test_native_ban_expiry_later.py
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> verifier has since been brought to the repository's Python standard, and its
+> test has moved to `scripts/tests/test_native_ban_expiry_later.py`. The same
+> check is now run by `make evidence-verify`, and the test by
+> `uv run --group dev pytest scripts/tests/test_native_ban_expiry_later.py`.
 
 Replay verifies the immutable first-epoch corpus, source snapshots and the
 one-line controller correction, the failed C80 pre-window, managed unit and

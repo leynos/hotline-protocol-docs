@@ -12,6 +12,9 @@ Paused at the user’s weekly-quota request on 15 November 2026. Do not start a
 new investigation or native run without resumption. All three journeymen
 finished their bounded packets. Mxd validation remains parked.
 
+This document belongs to the [provenance](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
+
 The current protocol audit is revision 89: 62 Resolved, 24 Investigating and 1
 Open, with all 87 original closure criteria unchanged. Canonical protocol
 documents are in the sibling `hotline-protocol-docs` checkout. Its
@@ -42,7 +45,7 @@ retain successful identity, earlier port/no-program failures and completed
 read-only proposals; those proposals are not execution authority.
 
 `install9` and `hotline19`–`21` were retired after committed recovery.
-[Runtime storage](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/runtime-storage.md)
+[Runtime storage](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/runtime-storage.md)
 explains the shared-extent accounting and protected live/donor directories.
 Three existing user emulators and the Ghidra GUI remain untouched. The older
 rate304 bridge owners remain recorded for later coordination. No experimental

@@ -17,7 +17,7 @@ are grouped here into nine subject sets under `docs/`.
   [Withheld file](docs/glossary.md#withheld-file).
 - It is not the capture toolset. The general-purpose toolset that captures this
   repository's evidence is a separate repository, linked by commit permalink:
-  [mothra](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/README.md).
+  [mothra](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/README.md).
 
 ## Start here
 

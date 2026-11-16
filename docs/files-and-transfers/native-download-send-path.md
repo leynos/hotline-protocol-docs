@@ -1,14 +1,17 @@
 # Native ordinary-download send path
 
 This static trace follows a successful Hotline Server 1.9 request **202** into
-an attached HTXF ordinary download. It explains the variables that could be
-measured in a future stall investigation. It does **not** explain the
-98,304-byte prefix observed in the
+an attached [HTXF](../glossary.md#htxf) ordinary download. It explains the
+variables that could be measured in a future stall investigation. It does
+**not** explain the 98,304-byte prefix observed in the
 [failed lab baseline](native-transfer-stall.md). The frozen
 [C39–C41 corpus][corpus] contains the seven earlier decompilations, the two
 read-only headless query runs, their exact invocation scripts, the unannotated
 caller result, project-file hash maps and source provenance. No program
 database, binary, disk or ROM is exported.
+
+This document belongs to the [files and transfers](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Request, attachment and producer
 
@@ -19,6 +22,8 @@ database, binary, disk or ROM is exported.
 | Data attachment | `1000bd20` → `1000e600` | An odd ordinary HTXF reference selects the matching active or waiting entry and stores the data transport. A waiting entry still needs admission.                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | Admission       | `1000cfa0`              | Moves an eligible waiting entry into the active list.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | Producer        | `1000c200`              | For an attached live transport and open file, sends when its transport count is at most the entry allowance **or** its readiness predicate is true. It increases allowance by `0x19000` under its zero-count and recent-send conditions, capped at `0x200000` (2 MiB), serializes up to the remaining advertised bytes, enqueues the handle and increments its own requested/enqueued byte count. At that count reaching advertised size it closes the file and marks the stream inactive. This does not itself close the TCP connection or prove client receipt. |
+
+_Table 1: Stages of the request 202 path and their established actions._
 
 The inspected OpenTransport branch of `1006e040` reaches `10071650`, which sums
 `node[3] - node[2]` over the pending-send list at transport object `+0x3c`.
@@ -46,6 +51,8 @@ These counts have different meanings:
 | Transport pending-list sum    | Queued bytes not yet accepted by `OTSnd` in the inspected branch | Peer TCP ACK or disk persistence             |
 | C38 packet ACK at 98,304      | TCP acknowledged that many bytes in the frozen flow              | The worker's state or why production stopped |
 
+_Table 2: Byte counts on the ordinary-download send path and their limits._
+
 The observed prefix is 4,096 bytes below the initial 102,400-byte allowance.
 The frozen path does not identify 98,304 as a chunk, queue or stop threshold.
 The serializer `1002d830` calls fork reader `1002e300`, which uses
@@ -71,6 +78,11 @@ python3 scripts/verify_native_download_send_path.py \
   evidence/gap-remediation/2026-11-13/native-download-send-path-01
 python3 -m unittest discover -s scripts -p 'test_native_download_send_path.py'
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> tests have since moved to `scripts/tests/` and run under pytest; the same
+> tests now run with
+> `uv run --group dev pytest scripts/tests/test_native_download_send_path.py`.
 
 The verifier checks the full SHA inventory and source provenance, exact PEF
 identity and unchanged saved project hashes, read-only query flags and query

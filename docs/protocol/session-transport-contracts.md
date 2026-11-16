@@ -2,10 +2,14 @@
 
 The [guide](protocol.md) defines the ordinary frame. This supplement refines
 GAP-008–GAP-011, GAP-024 and identifier allocation using the baseline
-dispatcher and [batch 07][batch]. Static tables are derived from native code.
-The [captured boundary cases](#captured-handshake-boundaries) separately
-identify actual packet/stream outcomes; neither source establishes universal
-drain timing.
+dispatcher and [batch 07][batch]. Static tables are derived from
+[native](../glossary.md#native) code. The
+[captured boundary cases](#captured-handshake-boundaries) separately identify
+actual packet/stream outcomes; neither source establishes universal drain
+timing.
+
+This document belongs to the [Hotline 1.9 wire protocol](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Configured endpoints
 
@@ -19,6 +23,9 @@ a 12-byte native address structure:
 | Base + 1        | `+0x20`      | Raw transfer endpoint, mode 1; consumed by HTXF acceptor.                       |
 | Base + 2        | `+0x1c`      | Alternative wrapper, constructor mode 0; consumed by session dispatcher.        |
 | Base + 3        | `+0x24`      | Alternative raw transfer wrapper, mode 0; consumed by HTXF acceptor.            |
+
+_Table 1: Configured listener ports, with the server field and construction or
+consumer for each._
 
 Default ordinary control/data ports are therefore 5500/5501, with the alternate
 pair at 5502/5503. The port halfword assignments narrow the additions; boundary
@@ -58,6 +65,9 @@ dispatcher's HOTL/sub-version checks. Derived outcomes are:
 | Version 1 but wrong sub-protocol or sub-version other than 2/3 | Dispatcher queues `TRTP 00000001` and invokes its disconnect helper.                                                    |
 | Fewer than twelve available bytes                              | No complete handshake parse yet.                                                                                        |
 
+_Table 2: Derived outcomes of the session handshake for each header content,
+with the native calls or outcome._
+
 A queued response is not proof that all eight bytes reach the peer before
 closure. Connection-limit rejection can also follow the success-handshake call,
 so success bytes alone do not promise authentication or admission. Drain
@@ -84,6 +94,9 @@ observations.
 | Eleven bytes followed by client write-half-close     | No handshake reply; guest FIN follows the client FIN.                               |
 | Handshake and login in one send                      | Success handshake followed by login ACK, 354 and 109; following frame is preserved. |
 | Handshake plus byte 13, then the rest of login       | Success handshake; byte 13 is retained as the frame prefix and login succeeds.      |
+
+_Table 3: Recorded application bytes and guest close order for each input on
+the ordinary control listener._
 
 These satisfy GAP-008's unchanged boundary-fixture criterion for the ordinary
 session handshake. They do not certify matching-reference transfer completion,
@@ -162,6 +175,8 @@ The guest continued the same hashed runtime used by the transport corpus.
 | TCP splits inside header and body                           | No output during each three-second incomplete-input window; ACK after complete bytes.       |
 | Sequential completed requests reuse ID 10                   | Two distinct ACKs with ID 10.                                                               |
 
+_Table 4: Captured framing and reassembly outcomes for each native input._
+
 These fixtures do not establish an assembly-age limit, maximum simultaneous
 partials, aggregate allocation cap or mxd policy. The ID/envelope cases below
 add collision, late-reply and partial-input EOF outcomes. The
@@ -222,6 +237,9 @@ paths; connection and platform timers remain separate (GAP-005).
 | Partial nine-byte header, or a frame missing its last payload byte, followed by write-half-close | No dispatch during the preceding three-second quiet window; native FIN after client FIN, without a numbered reply.                                   |
 | One underfilled transaction, or two interleaved underfilled transactions, then write-half-close  | Same bounded silence and native FIN response; neither partial transaction dispatches.                                                                |
 
+_Table 5: Captured native cases for transaction ID collision, reassembly and
+correlation, with the outcome for each._
+
 The [earlier framing corpus][framing] adds total/type replacement, overshoot,
 interleaved completion order, an abandoned partial coexisting with an unrelated
 complete request, partial TCP header/body delivery and payload-limit
@@ -245,6 +263,9 @@ server corpus does not certify another peer's receiver.
 | ID, bytes4–7                 | Full 32-bit correlation/assembly key; zero and high-bit request IDs accepted in the captured cases. No zero-ID reject check in this receiver.                                                                   | Direct reply echoes the client ID; notifications use the independent nonzero counter described above.      |
 | Error, bytes8–11             | No header rejection for a nonzero request error word in this receiver. Request500 with`ffffffff` still ACKs success; unsupported types return their handler's status1 instead.                                  | Success status0; error status set by the selected handler. This does not enumerate all operation failures. |
 | Total/data sizes, bytes12–19 | Both must be nonzero and at most the runtime receive limit before request/reply matching. Reply-marker1/255 frames with zero size close natively without a numbered response.                                   | Ordinary empty ACKs have total/data2 and payload `0000`; other lengths describe emitted payload bytes.     |
+
+_Table 6: Native server input and output for each header field of the
+transaction envelope._
 
 Malformed reply framing is therefore not silently accepted merely because its
 ID would be unmatched. Conversely, a valid but unmatched reply is not an
@@ -301,6 +322,9 @@ status instead of imposing a universal frame-assembly deadline.
 | Raw HTXF accepted but fewer than 16 header bytes | Availability test waits                                   | No age comparison in the inspected pending-HTXF walk; a transfer entry's separate timer is not automatically this connection's timer. |
 | Incomplete online frame or fragmented request    | Receiver retains available partial state                  | No assembly-age comparison in the receiver or complete-request selector.                                                              |
 
+_Table 7: Activity-clock comparisons and boundaries for each session state or
+counter, with the reset or action for each._
+
 The last three rows are bounded negative findings. Lower transport/platform
 behaviour can still close a connection, and no global claim of unlimited
 lifetime is made. Native stalled-handshake/header/body/fragment fixtures remain
@@ -346,6 +370,9 @@ before and after the case pass against the same two-account/41-Files baseline.
 | F               | Complete107 with a wrong password near T0                                   | Error reply at0.825468s; EOF at35.138506s                       | Server-side RST                                           |
 | Online observer | Complete login, then26 request500/ACK pairs through T130                    | No EOF through the window; EOF at135.008015s during final drain | Client-first FIN after the window, followed by server FIN |
 
+_Table 8: Captured session outcomes of the selected-request and partial-input
+timing fixture, with runner and guest TCP observations._
+
 B receives neither354 nor a roster entry in the observer's T46 snapshot. Its
 selected107 therefore refreshes activity while leaving it preonline; the
 following121 has its complete header but only one of two payload bytes. The
@@ -381,6 +408,9 @@ Two separate mechanisms appear in dispatcher `1000acf0`:
 | ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
 | Per-session request flood                 | Reset counter when window age is greater than 60 seconds. Before dispatch, reject if the existing counter is greater than 120; otherwise increment it.                                                                | Close path, with a timed address-ban entry whose expiry is native time plus 1,800 seconds. |
 | Consecutive same-address connection burst | Server-wide last address, start time and repeat count. A changed address resets start/count to now/zero. For the same address, increment count, then test count greater than 10 and elapsed age less than 30 seconds. | Timed address-ban construction and pending-connection rejection.                           |
+
+_Table 9: Per-session request-flood and connection-burst counters, with the
+native state, comparison and consequence for each._
 
 Starting from a reset request counter of zero, 121 requests pass the counter
 check; the next is rejected unless the greater-than-60-second reset has

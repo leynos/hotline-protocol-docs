@@ -6,6 +6,9 @@ seed-file assumption. The [redacted receipt][evidence] freezes build, seed,
 namespace, and service evidence. The separate Classic client attempt is not
 assessed here.
 
+This document belongs to the [provenance](../README.md) set; the
+[glossary](../../glossary.md) defines the terms it uses.
+
 ## Progress and provenance
 
 - [x] Built `mxd-wireframe-server` from clean private mxd

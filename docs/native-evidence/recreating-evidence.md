@@ -3,7 +3,7 @@
 This guide states, for each retained corpus in this repository, how it was
 produced, how to re-verify it offline, and how to produce it again where the
 sources allow. The toolset that captured the evidence is
-[mothra](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/README.md).
+[mothra](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/README.md).
 General set-up of that toolset is not restated here. Each step that needs it
 links to the toolset guide that covers it. Terms such as
 [corpus](../glossary.md#corpus), [witness](../glossary.md#witness), [preparation](../glossary.md#preparation)
@@ -35,9 +35,9 @@ prerequisites. The guide names the prerequisites without explaining them.
    into a new directory. The planner reads a runtime record. This repository
    consumes that record but does not create it. The record comes from the
    toolset's readiness and receipt guides, such as
-   [native capture receipt](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/native-capture-receipt.md)
+   [native capture receipt](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/native-capture-receipt.md)
    and
-   [phased native emulator readiness](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/native-emulator-readiness.md).
+   [phased native emulator readiness](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/native-emulator-readiness.md).
 3. Re-run a capture. The plans run against a native server or a peer inside an
    emulator. This needs the whole toolset: an emulator, a staged application,
    packet recorders, Sleuth Kit for stopped-disk reads and Ghidra for static
@@ -129,7 +129,7 @@ whether it reads a withheld file. Table 2 gives the readers that the search of
   `evidence/gap-remediation/2026-11-14/classic-field161-01`. The expected
   result is `ValueError: capture gate source identity`. The corpus records the
   SHA-256 of the toolset's `capture_readiness.py`, the gate described in the
-  [capture readiness guide](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/capture-readiness.md),
+  [capture readiness guide](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/capture-readiness.md),
   which has changed since the corpus was recorded. Decision D18 says that "the
   red baseline is recorded, not repaired"
   (`docs/execplans/documentation-reconcilliation.md`). The target is not in
@@ -162,16 +162,16 @@ general toolset work are linked, not restated.
 
 1. Prepare the stopped runtime and the application. The runtime and disk
    preparation is toolset work. See
-   [Build the emulator and prepare a runtime](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/preparing-a-capture-run.md#build-the-emulator-and-prepare-a-runtime)
+   [Build the emulator and prepare a runtime](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/preparing-a-capture-run.md#build-the-emulator-and-prepare-a-runtime)
    and
-   [Prepare and launch](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/sheepshaver.md#prepare-and-launch).
+   [Prepare and launch](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/sheepshaver.md#prepare-and-launch).
    The project step is to copy the exact application into the shared folder.
    The source records this command, with its arguments written as placeholders
    here. It is under "Prepare the emulator and application" in
    `native-capture-workflow.md`:
 
    ```sh
-   python3 scripts/prepare_hotline_server.py \
+   uv run --group dev python scripts/prepare_hotline_server.py \
      <extracted-server-archive> \
      <runtime>/shared/Hotline19
    ```
@@ -185,9 +185,9 @@ general toolset work are linked, not restated.
    substitute.
 2. Launch the server and check its identity in stages. The stages are the
    toolset's. See
-   [Verify the guest in stages](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/preparing-a-capture-run.md#verify-the-guest-in-stages)
+   [Verify the guest in stages](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/preparing-a-capture-run.md#verify-the-guest-in-stages)
    and
-   [Launch the recorders](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/capture-readiness.md#launch-the-recorders).
+   [Launch the recorders](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/capture-readiness.md#launch-the-recorders).
    A listening proxy is not proof that the server runs.
 3. Obtain the current runtime record. The planners take it through
    `--runtime-record`. The sources do not record the command that creates it,
@@ -197,7 +197,7 @@ general toolset work are linked, not restated.
    "Recorded native framing fixtures" in `native-capture-workflow.md`:
 
    ```sh
-   python3 scripts/prepare_native_cases.py framing \
+   uv run --group dev python scripts/prepare_native_cases.py framing \
      --runtime-record state/native-sessions/runtime-05/runtime.json \
      --output state/native-sessions/framing-repeat-plans
    ```
@@ -206,13 +206,13 @@ general toolset work are linked, not restated.
    JSON file for each case.
 5. Start the host loopback recorder and the guest Ethernet recorder before the
    first plan. Both are toolset work. The guest boundary is described in
-   [Observe the guest Ethernet boundary](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/sheepshaver.md#observe-the-guest-ethernet-boundary),
+   [Observe the guest Ethernet boundary](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/sheepshaver.md#observe-the-guest-ethernet-boundary),
    and the recorders in
-   [Launch the recorders](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/capture-readiness.md#launch-the-recorders).
+   [Launch the recorders](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/capture-readiness.md#launch-the-recorders).
 6. Run each plan into a fresh directory. The capture runner is recorded as:
 
    ```sh
-   python3 scripts/protocol_capture.py capture \
+   uv run --group dev python scripts/protocol_capture.py capture \
      state/native-sessions/framing-repeat-plans/<case>.json \
      --oracle-binary evidence/hotline-server-1.9/inputs/HLserver19.pef \
      --output state/native-sessions/<fresh-directory>
@@ -231,8 +231,8 @@ general toolset work are linked, not restated.
 9. Verify the capture and then the family. The two recorded checks are:
 
    ```sh
-   python3 scripts/protocol_capture.py verify state/native-sessions/<fresh-directory>
-   python3 scripts/verify_native_forks.py evidence/gap-remediation/2026-11-12/native-forks-01
+   uv run --group dev python scripts/protocol_capture.py verify state/native-sessions/<fresh-directory>
+   uv run --group dev python scripts/verify_native_forks.py evidence/gap-remediation/2026-11-12/native-forks-01
    ```
 
    The first is the capture runner's own check. The second is a family
@@ -332,7 +332,7 @@ families, and the recovery and preboot records.
 The inputs are a stopped image from the same experiment, Sleuth Kit, and a
 guest whose emulator is stopped. The installation of Sleuth Kit is toolset
 work. See
-[Inspect a stopped disk image with Sleuth Kit](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/preparing-a-capture-run.md#inspect-a-stopped-disk-image-with-sleuth-kit).
+[Inspect a stopped disk image with Sleuth Kit](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/preparing-a-capture-run.md#inspect-a-stopped-disk-image-with-sleuth-kit).
 
 The sources give these rules, which apply before each read:
 
@@ -372,7 +372,7 @@ family records this invocation under "Recorded native folder fixtures" in
 passes two, one for each folder root:
 
 ```sh
-python3 scripts/snapshot_native_hfs.py \
+uv run --group dev python scripts/snapshot_native_hfs.py \
   --image "$NATIVE_RUNTIME/working.dsk" \
   --tsk-bin tools/sleuthkit/usr/bin --catalog-range 11220 11240 \
   --root /Hotline19/Files/<owned-root> \
@@ -401,9 +401,9 @@ as a general profile.
 
 The general set-up of the emulator, the isolated network and the namespace
 guard is toolset work. See
-[Opt-in network isolation for a disposable Mac runtime](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/network-isolated-mac-runtime.md#before-a-future-client-boot)
+[Opt-in network isolation for a disposable Mac runtime](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/network-isolated-mac-runtime.md#before-a-future-client-boot)
 and
-[Identify the emulator and its namespace](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/peer-service-in-network-namespace.md#identify-the-emulator-and-its-namespace).
+[Identify the emulator and its namespace](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/peer-service-in-network-namespace.md#identify-the-emulator-and-its-namespace).
 The proxy's own rules are in `classic-login-proxy.md`. The proxy takes
 `--expected-netns-inode` and `--host-netns-inode` as trusted operator values,
 and its guard compares them with `/proc/self/ns/net`. A user service that runs
@@ -419,7 +419,7 @@ Corpora and their checks:
 
   ```sh
   sha256sum --quiet -c evidence/gap-remediation/2026-11-14/classic-proxy-baseline-01/SHA256SUMS
-  python3 scripts/verify_classic_native_baseline.py \
+  uv run --group dev python scripts/verify_classic_native_baseline.py \
     evidence/gap-remediation/2026-11-14/classic-proxy-baseline-01
   ```
 
@@ -430,8 +430,9 @@ Corpora and their checks:
   records one synthetic serve-path rehearsal, B29, and two Classic attempts
   that made no connection, B30 and B31. Its offline check is in
   `docs/delegation/classic-proxy-rehearsal.md`, under "Offline check". The
-  `evidence-verify` target runs the unittest `test_classic_proxy_rehearsal.py`
-  and `scripts/verify_classic_proxy_rehearsal.py`.
+  `evidence-verify` target runs the tests in
+  `scripts/tests/test_classic_proxy_rehearsal.py` under pytest and
+  `scripts/verify_classic_proxy_rehearsal.py`.
 - **First Classic peer session (`mac-peer-first-session-01`, 11-13).** One
   manual connection from the Classic client candidate. The session was stopped
   for safety after automatic HTTP requests to a public address, so it is a
@@ -439,7 +440,7 @@ Corpora and their checks:
   documents give its command as:
 
   ```sh
-  python3 scripts/verify_mac_peer_first_session.py \
+  uv run --group dev python scripts/verify_mac_peer_first_session.py \
     evidence/gap-remediation/2026-11-13/mac-peer-first-session-01
   ```
 
@@ -449,9 +450,9 @@ Corpora and their checks:
 
   ```sh
   sha256sum --quiet -c evidence/gap-remediation/2026-11-13/mac-peer-isolated-session-01/SHA256SUMS
-  python3 scripts/verify_mac_peer_isolated_session.py \
+  uv run --group dev python scripts/verify_mac_peer_isolated_session.py \
     evidence/gap-remediation/2026-11-13/mac-peer-isolated-session-01
-  python3 -m unittest discover -s scripts -p 'test_mac_peer_isolated_session.py'
+  uv run --group dev pytest scripts/tests/test_mac_peer_isolated_session.py
   ```
 
   The verifier checks byte parity, the dynamic reference, DNS and ICMP pairing,
@@ -498,7 +499,7 @@ The build command, recorded under "Local dependencies and build" in
 `shx-peer.md`, is:
 
 ```sh
-python3 scripts/build-shx.py --deps-root tools/shx-deps \
+uv run --group dev python scripts/build-shx.py --deps-root tools/shx-deps \
   --output tools/shx-peer
 ```
 
@@ -515,7 +516,7 @@ guest. The sources record this command, under "Contained execution" in
 `shx-peer.md`:
 
 ```sh
-python3 scripts/capture_shx_session.py \
+uv run --group dev python scripts/capture_shx_session.py \
   state/native-sessions/runtime-17/basic-plan.json \
   --binary tools/shx-peer/source/hx \
   --peer-profile tools/shx-peer/manifest.json \
@@ -578,8 +579,8 @@ investigation or native run starts without resumption
 The corpora are listed in family F8 of [Table 5](#11-corpus-families). Their
 offline checks are in the `evidence-verify` target:
 `verify_mxd_reconciliation.py`, `verify_mxd_limits.py`,
-`verify_mxd_correction.py`, `test_mxd_direct_ack.py` on `mxd-direct-ack-02` and
-`verify_mxd_login_extras.py`. The other mxd corpora have no target in
+`verify_mxd_correction.py`, `verify_mxd_direct_ack.py` on `mxd-direct-ack-02`
+and `verify_mxd_login_extras.py`. The other mxd corpora have no target in
 `evidence-verify`. They include `mxd-classic-login-01`,
 `mxd-classic-short-login-01`, `mxd-watchdog-h1-01`, `mxd-peer-runtime-01`,
 `mxd-build-recovery-01` and `mxd-validation-hold-01`.
@@ -590,7 +591,7 @@ records a locked, offline Cargo build of the wireframe server, a fixture user
 created with `create-user`, and a user service in the client's network
 namespace. The steps are recorded, but the work is on hold, so this guide does
 not repeat them. The namespace rules are in the toolset guide
-[Do not enter the namespace from a user service](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/peer-service-in-network-namespace.md#do-not-enter-the-namespace-from-a-user-service).
+[Do not enter the namespace from a user service](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/peer-service-in-network-namespace.md#do-not-enter-the-namespace-from-a-user-service).
 
 ## 9. Static decompilation evidence
 
@@ -604,11 +605,11 @@ addresses and bytes.
 
 The toolset's guides for the Ghidra installation, the MCP bridge and the
 capture of queries are
-[Install GhidraMCP](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/ghidra-decompilation.md#install-ghidramcp),
+[Install GhidraMCP](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/ghidra-decompilation.md#install-ghidramcp),
 the section
-[Connect an MCP client](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/ghidra-decompilation.md#connect-an-mcp-client),
+[Connect an MCP client](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/ghidra-decompilation.md#connect-an-mcp-client),
 and
-[Capture queries as evidence](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/ghidra-decompilation.md#capture-queries-as-evidence).
+[Capture queries as evidence](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/ghidra-decompilation.md#capture-queries-as-evidence).
 
 The ledger records this command for replaying a plan, with the same hashed
 program open in CodeBrowser and its plugin enabled. It is under "Reproduce and
@@ -807,8 +808,9 @@ guide does not decide them.
   names `scripts/verify_native_diagnostic_existing.py`. The `evidence-verify`
   target runs the corpus's own `verify_packets.py`. Both exist.
 - **Near-boundary unittest.** `native-diagnostic-near-preparation.md` runs
-  `python3 -m unittest -q test_native_diagnostic_near`. No such test module is
-  in `scripts/`.
+  `python3 -m unittest -q test_native_diagnostic_near`. The test module is now
+  `scripts/tests/test_native_diagnostic_near.py`, which runs under
+  `uv run --group dev pytest`.
 - **Ban-expiry preparation.** `native-ban-expiry-preparation.md` says the
   private checkout lacks `native_ban_control_cases.py`. That file is in
   `scripts/`.

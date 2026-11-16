@@ -9,6 +9,9 @@ measures one outstanding 300 while a session-only 304 changes a peer's name and
 icon. One schedule cannot prove an atomic snapshot/subscription rule or all
 possible interleavings.
 
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
+
 ## Plan and isolation
 
 Generate a plan from a separately reviewed disposable runtime JSON with
@@ -24,6 +27,11 @@ python3 scripts/native_roster_overlap_cases.py \
   --runtime state/native-roster-overlap-01/runtime.json \
   --output state/native-roster-overlap-01/plans --port 15820
 ```
+
+> Record note (2026-11-16): the command above is quoted as it was run. The case
+> generator, `scripts/native_roster_overlap_cases.py`, has since been brought
+> to the repository's Python standard, and runs as
+> `uv run --group dev python scripts/native_roster_overlap_cases.py`.
 
 The live runner takes the exact plan directory, fresh capture receipt, pinned
 native data fork and a **nonexistent** output leaf. It reuses
@@ -52,6 +60,12 @@ sudo nsenter --target "$roster_emulator_pid" --net -- \
   --binary /absolute/owned/native-server-data-fork \
   --output state/native-roster-overlap-01/results
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> control runner, `scripts/native_roster_overlap_control.py`, has since been
+> brought to the repository's Python standard, and runs as
+> `uv run --group dev python scripts/native_roster_overlap_control.py`. The
+> `python3 -c` helper is an inline one-line reader, not a repository script.
 
 The two **owned connections** use the existing public fixture admin account; no
 account creation or edit is in the plan. Distinct requested 102 names and

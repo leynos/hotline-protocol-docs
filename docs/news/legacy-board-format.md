@@ -1,13 +1,16 @@
 # Native 1.9 legacy board format: static constants
 
-This note records bytes recovered from the pinned Hotline Server 1.9 PEF, not a
-captured board post. The
+This note records bytes recovered from the pinned Hotline Server 1.9
+[PEF](../glossary.md#pef), not a captured board post. The
 [read-only oracle corpus](../../evidence/gap-remediation/2026-11-14/legacy-board-static-01/manifest.json)
 contains the six memory replies, before/after program identities, query
 script, and checksums. The binary SHA-256 is
 `ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`. The saved
 independent PowerPC BE32 project had 1,840 functions before and after the
 `--no-analyze --discard` read-only session.
+
+This document belongs to the [news](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Pointers and literal bytes
 

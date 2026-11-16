@@ -1,11 +1,15 @@
 # Native 1.9 diagnostic text: formatting and wire length
 
-Transaction 303 returns generated diagnostic text in field 101 and the target
-name in 102. Its text is presentation, not a second structured record format.
-The [new static corpus][oracle] traces the final formatter and field writer
-against the pinned native PPC DATA SHA-256
+[Transaction](../glossary.md#transaction) 303 returns generated diagnostic text
+in field 101 and the target name in 102. Its text is presentation, not a second
+structured record format. The [new static corpus][oracle] traces the final
+formatter and field writer against the pinned [native](../glossary.md#native)
+PPC DATA SHA-256
 `ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`. This is
 source evidence, distinct from the [recorded native replies][replies].
+
+This document belongs to the [Hotline 1.9 wire protocol](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Formatter-to-field trace
 
@@ -16,6 +20,9 @@ source evidence, distinct from the [recorded native replies][replies].
 | Formatter `10054310`                                   | Literal, converted-value and padding writes increment the count and return when it equals the supplied budget; end of format returns the current count. | The inspected positive-budget path produces at most 1,024 bytes here. It does not reserve or append a trailing NUL. |
 | Handler `10016a68`–`10016a7c`                          | Saves returned r3, supplies it as r6 to `100568b0` with field `0x65` and the destination pointer.                                                       | Field 101 uses the returned byte count, rather than `strlen` or count minus one.                                    |
 | Field writer `100568b0`                                | Accepts a positive length up to `ffff`, stores that TLV length and copies that many bytes. Zero length appends no field.                                | It adds no text terminator or character conversion to this payload.                                                 |
+
+_Table 1: Steps from the formatter to the field-101 writer, with the native
+evidence and consequence for each._
 
 Thus **1,024 field-101 bytes** is the source-derived final formatting cap for
 this handler. It is not a claim that a live at-cap fixture was captured, nor

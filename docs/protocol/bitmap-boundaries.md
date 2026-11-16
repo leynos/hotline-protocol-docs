@@ -1,13 +1,16 @@
 # Native 1.9 privilege bitmap replacement and width observations
 
 This [13-capture corpus][corpus] tests field 110 against the exact Mac PPC
-Hotline Server 1.9 DATA SHA-256
+[Hotline Server 1.9](../glossary.md#hotline-server-19) DATA SHA-256
 `ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`. It is a
 bounded GAP-031 investigation with field-110 evidence for GAP-015, GAP-016 and
 GAP-019. The [runtime record][runtime] names the continuing Mac OS 9.0.4 guest,
 executable, service and original guest capture source. Only the preflight-absent
 `m-bit32-owned` account was written. The cleanup restored the exact two-entry
 account enumeration.
+
+This document belongs to the [Hotline 1.9 wire protocol](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## All 64 bit positions
 
@@ -48,6 +51,8 @@ zero fill and the eight-byte copy cap:
 | `01 23 45 67 89 ab cd`       | 7            | `01 23 45 67 89 ab cd 00` |
 | `10 32 54 76 98 ba dc fe`    | 8            | `10 32 54 76 98 ba dc fe` |
 | `10 32 54 76 98 ba dc fe 55` | 9            | `10 32 54 76 98 ba dc fe` |
+
+_Table 1: Submitted field 110 values and the exact 352 readback for each._
 
 The [353 handler][handler] calls the field reader with an eight-byte
 destination after clearing the replacement record. These native cases show
@@ -99,6 +104,11 @@ python3 ../hotline-protocol-docs/scripts/verify_native_bitmaps.py \
 python3 -m unittest discover -s ../hotline-protocol-docs/scripts \
   -p test_native_bitmaps.py
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> tests have since moved to `scripts/tests/` and run under pytest; the same
+> tests now run with
+> `uv run --group dev pytest scripts/tests/test_native_bitmaps.py`.
 
 The verifier checks all 64 sent/readback values, account identity and password
 controls, width outcomes, all-ones 354, cleanup, capture hashes, 14 paired

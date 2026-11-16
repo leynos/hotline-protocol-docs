@@ -1,15 +1,20 @@
 # Identified shx peer field tolerance: controlled matrix
 
 This matrix extends the [identified client source](identified-client-source.md)
-record for GAP-080/081. It uses one identified **complete terminal shx 0.1.48
-build**, not a second historical client or a synhxd server. The source revision
-is `adb1bf8c8cb12f7eb2fa2c01673295a6312f262b`; the executable SHA-256 is
+record for [GAP-080/081](../glossary.md#gap). It uses one identified **complete
+terminal shx 0.1.48 build**, not a second historical client or a
+[synhxd](../glossary.md#synhxd) server. The source revision is
+`adb1bf8c8cb12f7eb2fa2c01673295a6312f262b`; the executable SHA-256 is
 `8fbbe56cef439d4c1732e8d9fbe2c676b9d45fbd273a42b22f8034e3b3914fa0`. The
 matching [profile record][profile] gives the build flags, patch and
-dependencies. The retained native 1.9 PEF SHA-256 is
+dependencies. The retained [native](../glossary.md#native) 1.9
+[PEF](../glossary.md#pef) SHA-256 is
 `ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`. Those
 identities are checked before launching the client. Neither reported
 sub-version 2 nor field 160 identifies the peer build.
+
+This document belongs to the [peer implementations](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 The [new corpus][corpus] contains five complete client sessions against a
 **controlled loopback receiver**, with ports 15600–15604. The fixture starts
@@ -27,6 +32,9 @@ controlled receiver; it is **not** execution of the Mac server or synhxd daemon.
 | `vary-161`      | Change native 161 from `0000` to `0001`                                          | Same continuation and normal exit; no claim about the field's meaning.                                                                      |
 | `unknown-login` | Append field 32767 containing `mothra-unknown-login`                             | Same continuation and normal exit.                                                                                                          |
 | `early-122`     | Deliver exact native banner 122 after agreement, before automatic roster request | Client reports `unknown header type 0x0000007a`, writes the exact 71 bytes to `hx.dump`, then reloads the roster, chats and exits normally. |
+
+_Table 1: Deliberate receiver variants, with the observed complete client
+result for each case._
 
 The five sessions used the same compiled profile and reported handshake
 `TRTPHOTL 00 01 00 02`. Each sent 166 client socket bytes. Receiver totals were
@@ -72,6 +80,11 @@ python3 -m unittest discover -s ../hotline-protocol-docs/scripts \
   -p 'test_peer_tolerance.py'
 ```
 
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> tests have since moved to `scripts/tests/` and run under pytest; the same
+> tests now run with
+> `uv run --group dev pytest scripts/tests/test_peer_tolerance.py`.
+
 The work and destination paths must be fresh. The driver checks identities and
 available ports before creating them. It uses the existing capture driver's
 read-only system sandbox with a private HOME bound under
@@ -99,6 +112,9 @@ build.
 | Banner 122                      | Controlled delivery/order tests produce an unknown-header diagnostic and exact dump, then roster/chat continuation; banner presentation is unsupported. | Native advertisement leads to a 16-byte data request and 58-byte banner response; image rendering remains unproved.                   |
 | Native packed roster 300        | Native sessions and controlled reload continue.                                                                                                         | The Online Users row is displayed.                                                                                                    |
 | Subject 115, SynHX server shape | Controlled receiver observation includes subject display and continuation.                                                                              | One 15-byte ASCII append to the first roster reply preserves subsequent Online Users row display; subject rendering remains unproved. |
+
+_Table 2: Measured field and output coverage for the identified shx terminal
+build and the Classic candidate._
 
 The additional Classic evidence is the
 [native baseline](classic-native-baseline.md), the

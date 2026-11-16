@@ -1,9 +1,13 @@
 # Native type-104 notification variants
 
-Type 104 is an unsolicited notification with several payload grammars. It has
-no universal sender field or option field. The following inventory separates
-the traced producer from what a receiver can distinguish on the wire. Field
-numbers below are decimal; integers use big-endian bytes.
+Type 104 is an unsolicited [notification](../glossary.md#notification) with
+several payload grammars. It has no universal sender field or option field. The
+following inventory separates the traced producer from what a receiver can
+distinguish on the wire. Field numbers below are decimal; integers use
+big-endian bytes.
+
+This document belongs to the [presence and messaging](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 | Producer and trigger                                                                      | Fields produced                                                                      | Captured evidence                                                                                                                                                     |
 | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -17,6 +21,9 @@ numbers below are decimal; integers use big-endian bytes.
 | `10015e70`, 110 option 2                                                                  | 101 permanent-ban text only                                                          | [Permanent-ban control witness](../native-evidence/native-ban-control-witness.md)                                                                                     |
 | Console message dialog `10002dd0`                                                         | 101 operator-supplied text only                                                      | [Console witness](native-console-broadcast.md)                                                                                                                        |
 | `10006590`, applying configured address bans to connected users                           | 101 configured-ban notice only                                                       | [Static bytes and caller](../accounts-and-privileges/native-configured-ban-static.md), [one-Save native witness](../native-evidence/native-configured-ban-witness.md) |
+
+_Table 1: Type-104 producers and triggers, with the fields each produces and
+the captured evidence for each._
 
 The room and account corpus directories in this table are below
 `evidence/gap-remediation/2026-11-13/`. Their semantic verifiers check the

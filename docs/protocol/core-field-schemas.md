@@ -1,11 +1,14 @@
 # Core transaction field schemas
 
 This registry covers session establishment, settings, roster, chat, PM and room
-operations for the [native 1.9 baseline](protocol.md). The full dispatch
-inventory remains in [operation contracts](operation-contracts.md). It
-satisfies GAP-002's core schema inventory; open questions remain explicitly
-linked rather than being replaced by guessed universal types or peer
-requirements.
+operations for the [native](../glossary.md#native) [1.9 baseline](protocol.md).
+The full dispatch inventory remains in
+[operation contracts](operation-contracts.md). It satisfies GAP-002's core
+schema inventory; open questions remain explicitly linked rather than being
+replaced by guessed universal types or peer requirements.
+
+This document belongs to the [Hotline 1.9 wire protocol](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Types, occurrence and direction conventions
 
@@ -57,6 +60,9 @@ resulting helper/default behaviour, not a promise of successful authentication.
 | 121 / 304 | 113   | N; low bits 0/1/2 used                               | Absent/default zero clears PM refusal, chat refusal and automatic response.                                                       |
 | 121 / 304 | 215   | B; at most 127 content bytes                         | Used only with auto response enabled; absent/empty chooses native default text (GAP-030).                                         |
 
+_Table 1: Client-to-server login and settings request fields, with their types
+and absence defaults._
+
 121 ACKs before applying settings; 304 has no normal success ACK. Updates are
 session assignments, not generic sparse or durable account edits. Exact
 agreement/configuration/runtime fixtures remain GAP-025/027/029.
@@ -87,6 +93,9 @@ results apply independently to version 160 and icon 104:
 | Four bytes           | BE32                           |
 | More than four bytes | BE32 from the first four bytes |
 
+_Table 2: Effective results of the native generic number reader, by the number
+of present value bytes._
+
 Version retains that 32-bit result. Icon assignment retains only its low 16
 bits, so encoded icon `00 01 00 00` becomes zero. Name presence alone or icon
 presence alone does not complete login early. A three-byte version becomes zero
@@ -102,6 +111,9 @@ for the thresholds below; no client-brand inference follows from any width.
 | Saved version at least 15                   | Category-list builder selects modern field 323.                                               |
 | Saved version below 151                     | 121 skips banner metadata 122.                                                                |
 | Saved version at least 151                  | 121 considers 122, subject to type/buffer conditions.                                         |
+
+_Table 3: Native dependent behaviour after account authentication, by login
+condition._
 
 These tables complete GAP-024's input-condition deliverable using the retained
 numeric reader, login handler and category/banner branches. Identified-peer
@@ -122,6 +134,9 @@ the field-specific accessor effects.
 | 301 notification      | Scalar N 103/104/112, scalar B 102                  | Session appearance/status update. Masks and online/ready recipients are in the presence supplement.                                                                                                                                                                                                                                                                                                                                                                   |
 | 302 notification      | Scalar N 103                                        | Departing UID after room-leave calls; delivered/concurrent order remains GAP-036.                                                                                                                                                                                                                                                                                                                                                                                     |
 | 303 ACK               | Scalar B 102 and B 101                              | Request reads scalar N 103; requires privilege 24 and an eligible existing target. Generated diagnostic text is not a fixed client-profile record (GAP-037).                                                                                                                                                                                                                                                                                                          |
+
+_Table 4: Login and presence replies and notifications, with their fields,
+occurrence and conditions._
 
 For **301 field 104**, the sender promotes the stored icon as a signed 16-bit
 word before numeric emission. Values with bit 15 set therefore emit four bytes:
@@ -144,6 +159,9 @@ and retained sender code establish this field-specific exception.
 | 116     | Scalar N 114                                             | Removes member when present; 118 to remaining members or room deletion. No normal ACK.                                                                                                   |
 | 120     | Scalar N 114, scalar B 115 up to 255 content bytes       | Missing/empty 115 clears subject. Existing room required; 119 notification, no normal ACK.                                                                                               |
 
+_Table 5: Chat, PM and room request fields, with their absence conditions and
+normal results._
+
 The observed join, invite and subject handlers do not implement a universal
 room-owner/invitation permission model. Per-handler checks and missing-object
 outcomes are in
@@ -164,6 +182,9 @@ Unresolved lifecycle/concurrency cases remain GAP-038–GAP-041.
 | 119 notification      | Scalar N 114, conditional scalar B 115                                                        | Empty subject is omitted by the zero-length writer.                                       |
 | 111 notification      | Scalar B 101                                                                                  | Conditional shutdown dialog; not required for ordinary kicks/errors.                      |
 | 355 notification      | Scalar N 103, scalar B 102/101                                                                | Client broadcast path; native console message uses data-only 104 instead.                 |
+
+_Table 6: Room and message replies and notifications, with their field schemas
+and notes._
 
 An operation's success ACK is not proof of downstream receipt, durability or
 idempotency. Error status/fields and disconnect outcomes still need GAP-003/021

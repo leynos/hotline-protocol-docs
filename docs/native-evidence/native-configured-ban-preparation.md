@@ -5,10 +5,13 @@ Hotline Server 1.9. It does not boot the lab or exercise native traffic. The
 fixture tests the connected-client notice producer at `10006590`, separately
 from request 110 and the stored-ban login predicate.
 
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
+
 ## Owned image and identity
 
 - Canonical preparation with the toolset's `mac_runtime.py prepare`, as the
-  [build and runtime preparation guide](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/preparing-a-capture-run.md#build-the-emulator-and-prepare-a-runtime)
+  [build and runtime preparation guide](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/preparing-a-capture-run.md#build-the-emulator-and-prepare-a-runtime)
   describes, copied the immutable `hotline22-recovery/base.dsk`
   (`e5cbbaaf2848…`) and ROM (`18da89e42c7c…`) into ignored
   `mothra/state/mac-runtime/native-configured-apply-01`. The new base and

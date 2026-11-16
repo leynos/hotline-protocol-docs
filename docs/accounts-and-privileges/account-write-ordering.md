@@ -1,13 +1,16 @@
 # Hotline Server 1.9 account write ordering
 
-This page records the direct account writer in the exact Mac PPC Hotline Server
-1.9 binary, SHA-256
+This page records the direct account writer in the exact Mac PPC
+[Hotline Server 1.9](../glossary.md#hotline-server-19) binary, SHA-256
 `ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`. The
-[read-only Ghidra corpus](../../evidence/gap-remediation/2026-11-14/account-write-ordering-01/manifest.json)
+[read-only Ghidra](../glossary.md#ghidra) [corpus](../../evidence/gap-remediation/2026-11-14/account-write-ordering-01/manifest.json)
 retains source functions, disassembly, exact query arguments, identity checks,
 as-run scripts, and backend logs. The independent saved project was opened with
 `--no-analyze --discard`; its program identity was unchanged before and after
 both query batches. No failed-write runtime fixture was run.
+
+This document belongs to the [accounts and privileges](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Direct 353 replacement path
 

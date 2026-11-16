@@ -3,10 +3,13 @@
 The
 [portable A37 corpus](../../evidence/gap-remediation/2026-11-14/native-121-defaults-01/manifest.json)
 records one 70-action, two-case delayed agreement observation between exact
-full A7 preflight and postflight readbacks. The pinned Hotline Server 1.9
-binary has SHA-256
-`ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`. No account,
-file, server option or agreement content was changed.
+full [A7](../glossary.md#a7-readback) preflight and postflight readbacks. The
+pinned [Hotline Server 1.9](../glossary.md#hotline-server-19) binary has SHA-256
+`ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`. No
+account, file, server option or agreement content was changed.
+
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 The observer used the existing admin account. Each sequential subject also used
 admin but omitted both 102 and 104 during 107, selecting the delayed branch.
@@ -25,6 +28,9 @@ account-name fallback for other privilege profiles is separate.
 | ----------- | --------------------------- | ---------------------------- |
 | Absent      | `0040`, `A35-absent-215`, 7 | Option 4, exact default text |
 | Zero length | `0041`, `A35-empty-215`, 8  | Option 4, exact default text |
+
+_Table 1: Current UID, name and icon, and the automatic 104 response, for each
+215 input._
 
 One uniquely labelled option-1 PM per subject received an empty success ACK and
 original delivery. The observer received one automatic 104 with subject
@@ -64,6 +70,12 @@ python3 -m unittest discover -s \
   evidence/gap-remediation/2026-11-14/native-121-defaults-01 \
   -p test_verify_packets.py
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> verifier and its unittest are held in the evidence tree, which is not edited,
+> so they have not been brought to the repository's Python standard. The same
+> corpus is checked by `make evidence-verify`, which runs the unittest in the
+> legacy layout.
 
 This witness covers two delayed 121 defaults only. It does not establish
 re-login or restart persistence, filesystem durability, or general non-ASCII

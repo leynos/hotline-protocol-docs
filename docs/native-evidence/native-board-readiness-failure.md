@@ -2,11 +2,15 @@
 
 The
 [frozen corpus](../../evidence/gap-remediation/2026-11-14/native-board-readiness-failure-01/manifest.json)
-records an isolated Hotline Server 1.9 board lab on 14 November 2026. The VM
-booted and the server opened its owned listener. The **18-action control
-readiness did not run**, and the board case did not run. The namespace PCAP has
-only its 24-byte header: no protocol connection or request was made. This is an
-operator receipt failure, with no observed native protocol defect.
+records an isolated [Hotline Server 1.9](../glossary.md#hotline-server-19)
+board lab on 14 November 2026. The VM booted and the server opened its owned
+listener. The **18-action control readiness did not run**, and the board case
+did not run. The namespace PCAP has only its 24-byte header: no protocol
+connection or request was made. This is an operator receipt failure, with no
+observed native protocol defect.
+
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 The fixed epoch began at 08:44:02.051250 UTC and had a hard deadline of
 08:56:02.051250 UTC. The actual emulator was PID 1364862, start tick 7054838,

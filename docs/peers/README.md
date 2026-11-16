@@ -87,7 +87,7 @@ most name the check that replays it. Three representative corpora:
 
 Some documents describe checks that run from an adjacent `mothra` checkout. The
 toolset that captured the evidence is described in the
-[mothra README](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/README.md).
+[mothra README](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/README.md).
 How each corpus is produced and re-verified is set out in
 [Recreating the evidence](../native-evidence/recreating-evidence.md).
 

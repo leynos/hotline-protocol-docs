@@ -1,11 +1,15 @@
 # Classic client: first roster reply with field 115
 
-This is one controlled observation of the identified Classic Hotline client
-against Hotline Server 1.9. The archive labels the client “1.9.2 Classic”; its
-retained `vers` short string is `1.9.1.0`. Its DATA and resource-fork SHA-256
-values are pinned in the
+This is one controlled observation of the identified
+[Classic Hotline client](../glossary.md#classic-client) against
+[Hotline Server 1.9](../glossary.md#hotline-server-19). The archive labels the
+client “1.9.2 Classic”; its retained `vers` short string is `1.9.1.0`. Its DATA
+and resource-fork SHA-256 values are pinned in the
 [portable manifest](../../evidence/gap-remediation/2026-11-14/classic-roster-subject-115-01/manifest.json).
 Vendor authenticity has not been established.
+
+This document belongs to the [peer implementations](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## B62 session, 14 November 2026
 
@@ -65,6 +69,11 @@ Run from `hotline-protocol-docs` with the adjacent `mothra` checkout:
 python3 scripts/verify_classic_roster_subject_115.py evidence/gap-remediation/2026-11-14/classic-roster-subject-115-01
 python3 -m unittest discover -s scripts -p test_classic_roster_subject_115.py
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> tests have since moved to `scripts/tests/` and run under pytest; the same
+> tests now run with
+> `uv run --group dev pytest scripts/tests/test_classic_roster_subject_115.py`.
 
 The managed oracle lease unit ran from 04:13:37 to 04:19:31 UTC. Its retained
 journal proves its service lifecycle; the before-process FD and independent

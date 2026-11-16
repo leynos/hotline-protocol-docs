@@ -5,6 +5,9 @@ against the Mac server. A fake socket consumer tests the generated request
 bytes and failure gates; that is tool validation, not native evidence. The
 fixture does not claim a universal 30- or 61-second TCP close.
 
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
+
 ## Source and case boundary
 
 `native_liveness_cases.py` produces a versioned 135-second coordinator schedule.
@@ -78,6 +81,12 @@ sudo env PYTHONPATH=scripts python3 scripts/native_liveness_control.py \
   --binary state/mac-runtime/native-liveness-01/shared/Hotline\ Server \
   --output state/native-liveness-01/coordinator
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> case generator, `scripts/native_liveness_cases.py`, has since been brought to
+> the repository's Python standard. The control runner,
+> `scripts/native_liveness_control.py`, is still held at the earlier lint rules
+> (`scripts/legacy-modules.txt`), so its command is unchanged.
 
 The second command is **illustrative**, not a live grant: use the actual
 verified Mac PEF path and exact approved network namespace service; do not

@@ -4,7 +4,12 @@ This catalogue covers all 45 explicit client-request handlers in the hashed 1.9
 dispatcher `1000acf0`. The immutable [dispatcher map][map] and
 [handler captures][queries] provide the source references below. Directions are
 client-to-server for every request row and server-to-client for its direct
-reply. Server notifications have a separate namespace and are listed below.
+[reply](../glossary.md#reply). Server
+[notifications](../glossary.md#notification) have a separate namespace and are
+listed below.
+
+This document belongs to the [Hotline 1.9 wire protocol](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Session eligibility and invalid transitions
 
@@ -21,6 +26,9 @@ login/agreement sequence and fixture work.
 | Session online, failure timestamp zero     | Catalogue rows except 107/121 | Replayed 107 or 121 takes the unknown-operation error handler, as does an unrecognized type.                                    |
 | Authentication-failure timestamp nonzero   | Normal request loop bypassed  | Dispatcher closes once failure age is greater than 30 seconds.                                                                  |
 | Transport no longer connected              | No request dispatch           | Teardown helper `10004930` runs; its full event/cleanup order remains GAP-036.                                                  |
+
+_Table 1: Dispatch eligibility by native connection condition, with the other
+input or transition for each._
 
 The [unknown-operation handler][unknown] sets reply status 1 and error-text
 field 100, then logs the failure. It does not turn an unknown online request
@@ -84,6 +92,9 @@ listed field is mandatory or unique. Feature-specific open constraints remain in
 | 411     | Delete news article                       | [100108a0](../../evidence/hotline-server-1.9/queries/D-100108a0.c) | 325, 326, 337                                                  | ACK                     |
 | 500     | Undocumented empty ACK operation          | [10018c00](../../evidence/hotline-server-1.9/queries/D-10018c00.c) | None identified directly                                       | ACK                     |
 
+_Table 2: Request catalogue, with the entry, directly read field IDs and
+success path for each operation._
+
 ## Per-operation reply and fan-out map
 
 Every request below is client-to-server; ACK/error and numbered notifications
@@ -141,6 +152,9 @@ work. These labels are not a claim that every failure has a numbered reply.
 | 411     | Empty ACK after graph/index rewrite         | E   | No article-list refresh push at success site.                                                                                                            |
 | 500     | Empty ACK                                   | —   | Processed request refreshes activity; one modern client’s optional schedule is scoped in the [request-500 contract](request-500-contract.md).            |
 
+_Table 3: Direct normal reply, direct-error branch and associated native
+effects for each request._
+
 This completes GAP-006's operation/direction/state and reply/effect catalogue.
 All rows link to entry captures through the request catalogue. Associated
 notifications are conditional; silence is not success, and ACK does not certify
@@ -168,6 +182,9 @@ IDs.
 | 211  | Download queue advancement or changed position              | Four-byte 107, numeric 116           | [Transfer contracts](../files-and-transfers/transfer-contracts.md#queue-notification-211); GAP-061 runtime queue behaviour                          |
 | 111  | Native shutdown dialog with nonempty text                   | 101                                  | [Presence contracts](../presence-and-messaging/presence-messaging-contracts.md#kick-options-and-native-console-messages); GAP-075 shutdown fixtures |
 | 302  | Session teardown after room-leave calls                     | Numeric 103                          | [Presence contracts](../presence-and-messaging/presence-messaging-contracts.md#disconnect-teardown-and-notification-302); GAP-036 runtime ordering  |
+
+_Table 4: Server notification types, with their producer or role, known value
+fields and remaining contract._
 
 Error-text field 100 is not a proven notification type 100. A notification
 usually uses a newly generated server ID, while a direct reply copies its
@@ -213,6 +230,9 @@ its distinct framing/memory limits are in
 | 300/301/303 user-name outputs; 348/352 account-name outputs         | Session effective name is a separate 31-byte destination; account record 102 is a separate 64-byte destination                       | [Session-name assignment](core-field-schemas.md#login-and-settings-requests) and [account record](native-wire-details.md#account-record-and-field-schema). A returned roster/diagnostic or account-list name inherits the relevant stored source; its outer TLV width does not widen that source.                                                                                   |
 | 200/206 file names and 370/371/400 news names                       | Native filesystem/catalogue name and serializer capacities differ by operation                                                       | [File path/list grammar](native-wire-details.md#structured-file-paths-and-file-list-entries) and [news list](../news/news-contracts.md#article-list-field-321) give the observed layout. There is no source-backed universal 31-byte bound for all output names or all platforms.                                                                                                   |
 
+_Table 5: Native limit and unit for each field and aggregate, with the boundary
+evidence and confidence for each._
+
 ### Remaining boundary cells and aggregate scope
 
 The [45-handler catalogue](#request-catalogue) bounds the operation inventory,
@@ -230,6 +250,9 @@ constant alone is marked as such above.
 | 207 rename 211 and 381/382/410 names | Native comment readback is bounded, but these other names have separate 31/63/255 paths and no complete max-plus-one matrix.                                                        | Use the existing owned file/news fixture builders for 31/32 and 255/256 byte names, with before/after list and stored-fork checks; keep the Mac filesystem branch explicit.                                                                                                                                         |
 | Aggregate request/reassembly         | BE16 TLV values, per-record 349 copy512 and native per-frame startup comparator512 KiB are not a cross-field/fragment allocation cap.                                               | A bounded multi-field/fragment plan with current `protocol_capture.py` and host/guest parity, including equality and one-over each declared size; report close versus ACK, not an inferred heap ceiling. GAP-011/012 retain the broader receiver question.                                                          |
 | Stored/list aggregates               | Board store may exceed its65,535-byte reply prefix; news list321 stores unsigned 65,535 flavour length; transfer advertised size/reference/queue bounds depend on their own fields. | Keep the existing board and news at-cap-plus-one witnesses as separate aggregates. Any additional transfer-size claim needs a transfer-specific native fixture, not reuse of the TLV cap.                                                                                                                           |
+
+_Table 6: Remaining unresolved boundary cells and aggregate questions, with the
+smallest next evidence for each._
 
 The table is a finite status map, not a claim that all unlisted fields are
 unlimited. No complete GAP-019 certificate follows while the named source-only
@@ -325,6 +348,8 @@ This captures position-based processing, including repeated and unknown IDs.
 | 110          | Eight-byte access bitmap copied into the cleared replacement record                                     |
 | 111          | Opaque attribute, copied up to 64 bytes; human meaning remains unresolved                               |
 
+_Table 7: Input rule for each nested field of a request 349 account record._
+
 Every nested value is copied through a **512-byte** buffer. The recorded
 512-byte value and a 513-byte value with known fields first both create their
 accounts. In the latter, the final unknown field is truncated and ignored. A
@@ -342,6 +367,9 @@ boundary, not a 512-byte maximum for the entire request.
 | Update-only actor: update, delete, update | First replacement persists; `You are not allowed to delete accounts.`; last replacement is skipped     |
 | Create-only actor grants download bit 2   | `Cannot create account with more access than yourself.`; neither that nor the later account is created |
 | Create-only actor grants bit 27           | Creation succeeds and stored/retrieved bitmap retains `0000001000000000`                               |
+
+_Table 8: Observed outcomes of the account-mutation gates in request 349, by
+gate or branch._
 
 Admission through one account-mutation bit does not grant every item operation.
 The create subset comparison exempts bit 27; the native fixture confirms that

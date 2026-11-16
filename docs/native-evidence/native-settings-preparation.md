@@ -1,15 +1,19 @@
 # Native 1.9 settings field 113 preparation
 
-This preparation defines the GAP-015/016/017 packet for transaction 304, field
-113. [Captured results](native-settings-witness.md) are now retained; this
-recipe alone does not authorize another live execution. It uses the same native
-1.9 binary SHA-256
+This [preparation](../glossary.md#preparation) defines the GAP-015/016/017
+packet for transaction 304, field 113.
+[Captured results](native-settings-witness.md) are now retained; this recipe
+alone does not authorize another live execution. It uses the same native 1.9
+binary SHA-256
 `ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`. The generic
 numeric reader is `10056b90`; the shared 121/304 settings helper is `10004d50`
 (`presence-messaging-contracts.md:8-35`). These code paths predict
 absent/empty/three-byte zero and low option bits, but the native capture, when
 authorized, must decide actual outcomes. No result is inferred from a generated
 plan.
+
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Bounded matrix and observer
 
@@ -46,6 +50,12 @@ python3 scripts/native_settings_cases.py \
   --runtime-record /absolute/approved/runtime.json \
   --output /absolute/new/plan-directory
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> generator, `scripts/native_settings_cases.py`, and the test,
+> `scripts/test_native_settings.py`, are still held at the earlier lint rules
+> (`scripts/legacy-modules.txt`), so the commands are unchanged. The test runs
+> under `make test-legacy`.
 
 The native lease holder must validate the current runtime PID, guest/host
 capture sources and original binary hash, then run each plan once with

@@ -1,11 +1,14 @@
 # Historical shx peer build and capture
 
-The repository retains shx 0.1.48 source at commit
+The repository retains [shx](../glossary.md#shx) 0.1.48 source at commit
 `adb1bf8c8cb12f7eb2fa2c01673295a6312f262b` and a repeatable modern Linux build.
 This identifies a build of historical source, rather than an original
 historically distributed executable. The recorded profile is terminal UI, IPv4,
 HFS/CAP forks and fork-based transfers, without GTK, HOPE, cipher or
 compression. Other profiles require separate evidence.
+
+This document belongs to the [peer implementations](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 The frozen
 [build inputs](../../evidence/gap-remediation/2026-11-13/shx-build-01/inputs.json)

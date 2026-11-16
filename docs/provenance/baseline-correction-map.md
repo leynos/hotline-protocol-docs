@@ -5,6 +5,9 @@ This revision applies the 12 November 2026
 [protocol.md](../protocol/protocol.md) and the
 [compatibility matrix](../mxd/compatibility-matrix.md).
 
+This document belongs to the [provenance](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
+
 The ledger and its preserved input/evidence snapshots remain unchanged. Its
 line references refer to the original documents, not these revised files. All
 83 entries have a disposition below. A qualified or unresolved claim has not
@@ -111,3 +114,6 @@ feature has a complete, validated specification.
 | M007         | Supported       | [Section](../mxd/compatibility-matrix.md#repeated-fields-and-presence-records)          | Retained the shared packed roster structure and qualified client scope.                  |
 | M008         | Unverified      | [Section](../mxd/compatibility-matrix.md#historical-reported-mxd-test-coverage)         | Preserved supplied test citations as unverified rather than executed guarantees.         |
 | M009         | Unverified      | [Section](../mxd/compatibility-matrix.md#open-compatibility-gaps-and-qa-requirements)   | Preserved roadmap/QA/proof pointers as historical references requiring verification.     |
+
+_Table 1: The disposition of each ledger entry for the current revision, with
+its original status and revised section._

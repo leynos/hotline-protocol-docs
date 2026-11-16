@@ -4,8 +4,12 @@ This is one read-only restart observation of the disposable server image that
 held the [C56 option-two control ban](native-ban-control-witness.md). The
 profile is `persisted-ban-reload-readonly`; `full_file_baseline=not_exercised`.
 The C35, C45 and C50 full-file baseline failures remain linked through the C56
-corpus. This witness does not validate the configured-ban application producer
-`10006590` or a type-104 connected-session notice.
+corpus. This [witness](../glossary.md#witness) does not validate the
+configured-ban application producer `10006590` or a type-104 connected-session
+notice.
+
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Pinned stopped image and UI
 
@@ -64,6 +68,12 @@ From the protocol repository with adjacent Mothra evidence:
 python scripts/verify_native_ban_reload.py evidence/gap-remediation/2026-11-14/native-ban-reload-01
 python -m unittest discover -s scripts -p test_native_ban_reload.py -q
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> verifier has since been brought to the repository's Python standard, and its
+> test has moved to `scripts/tests/test_native_ban_reload.py`. The same check
+> is now run by `make evidence-verify`, and the test by
+> `uv run --group dev pytest scripts/tests/test_native_ban_reload.py`.
 
 The replay verifies the C56 source corpus, C61 inventory and source hashes,
 preboot Users/Banned state, read-only UI and capture gates, the exact

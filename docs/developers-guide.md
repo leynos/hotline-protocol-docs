@@ -1,12 +1,12 @@
 # Developers' guide
 
 This guide is for maintainers and contributors who change the protocol
-documents, the evidence, the verifier scripts or the tools in this repository.
-It explains how to make each kind of change so that the gates pass the first
-time. It adds no protocol claim. [AGENTS.md](../AGENTS.md) states the rules in
-brief, and this guide expands them. The
-[repository layout](repository-layout.md) gives the purpose of each path.
-Decision references such as D4 are entries in the decision log of
+documents, the evidence, the [verifier](glossary.md#verifier) scripts or the
+tools in this repository. It explains how to make each kind of change so that
+the gates pass the first time. It adds no protocol claim.
+[AGENTS.md](../AGENTS.md) states the rules in brief, and this guide expands
+them. The [repository layout](repository-layout.md) gives the purpose of each
+path. Decision references such as D4 are entries in the decision log of
 `docs/execplans/documentation-reconcilliation.md`.
 
 ## 1. What the gates protect
@@ -673,7 +673,7 @@ the paths in the diff before committing.
 
 Links from documents to mothra are absolute GitHub permalinks, pinned to a
 commit, as decision D11 requires. The repository's README uses the permalink
-[mothra](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/README.md).
+[mothra](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/README.md).
 A relative link into a toolset checkout is forbidden, and `make links-check`
 rejects it through `--forbid-relative-mothra`.
 

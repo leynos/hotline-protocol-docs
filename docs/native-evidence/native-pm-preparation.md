@@ -11,6 +11,9 @@ native server lease requires a separate supervisor START.
 > records it as met at known-producer scope and claims no exhaustive absence
 > of further producers.
 
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
+
 ## Matrix
 
 | Case              | Sender -> recipient | Session settings 113 | Request 108                      | Expected 104                                                   |
@@ -22,6 +25,9 @@ native server lease requires a separate supervisor START.
 | option-two        | main -> peer        | 0/0                  | option 2                         | peer: generated refusal text, 113=2                            |
 | option-three      | peer -> main        | 0/0                  | option 3                         | main: generated chat-refusal text, 113=3                       |
 | empty             | main -> peer        | 0/0                  | option 1, empty 101              | neither                                                        |
+
+_Table 1: The seven private-message cases, with sender and recipient, session
+settings, request and expected 104._
 
 Every 108 has a separately checked empty success ACK. Each case ends with a
 two-connection 500 drain and two bounded quiet checks. Generated refusal text
@@ -57,6 +63,11 @@ changed baseline aborts export.
    python3 scripts/native_pm_cases.py --runtime-record RUNTIME.json --baseline-plan A7_PLAN.json --output NEW_PLAN_DIR
    ```
 
+   > Record note (2026-11-16): the command above is quoted as it was run. The
+   > generator, `scripts/native_pm_cases.py`, has since been brought to the
+   > repository's Python standard, and runs as
+   > `uv run --group dev python scripts/native_pm_cases.py`.
+
    Refuse any pre-existing destination. Capture `preflight`, then `observe`,
    then `postflight` with:
 
@@ -77,6 +88,13 @@ changed baseline aborts export.
    `observe`, and `protocol_capture verify` checks transcript integrity, so
    these readback comparisons require separate evidence before reporting
    baseline restoration.
+
+   > Record note (2026-11-16): the commands above are quoted as they were run.
+   > The verifier, `scripts/verify_native_pm.py`, has since been brought to the
+   > repository's Python standard, and runs as
+   > `uv run --group dev python scripts/verify_native_pm.py`. The capture tool,
+   > `scripts/protocol_capture.py`, is still held at the earlier lint rules
+   > (`scripts/legacy-modules.txt`), so its `verify` command is unchanged.
 
 The generated plans are **preparation**, not authority to contact the server.
 If a 304/500 barrier or expected 104 read fails, retain the failed report and

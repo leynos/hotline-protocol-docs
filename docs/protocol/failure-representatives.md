@@ -1,13 +1,15 @@
 # Captured representative native failures
 
-This bounded GAP-003 supplement renders one retained native request and its
-measured result for each of the five classes named in the original closure
-criterion. The [selection record][selection] pins the source plan/report
-hashes, action indexes, decoded headers and exact event bytes. All five source
-reports are `native-mac-oracle` captures from the identified Hotline Server 1.9
-Mac OS 9.0.4/SheepShaver run; see the [source runtime][runtime] and
-[manifest][core]. These are host TCP streams through SLiRP. A host socket EOF
-alone does not establish whether the guest sent FIN or RST.
+This bounded GAP-003 supplement renders one retained
+[native](../glossary.md#native) request and its measured result for each of the
+five classes named in the original closure criterion. The
+[selection record][selection] pins the source plan/report hashes, action
+indexes, decoded headers and exact event bytes. All five source reports are
+`native-mac-oracle` captures from the identified Hotline Server 1.9 Mac OS
+9.0.4/[SheepShaver](../glossary.md#sheepshaver) run; see the
+[source runtime][runtime] and [manifest][core]. These are host TCP streams
+through SLiRP. A host socket EOF alone does not establish whether the guest
+sent FIN or RST.
 
 Each line below is one complete request or response frame, formed by joining
 the report's 20-byte receive header and payload events for that action. The
@@ -16,6 +18,9 @@ error replies the first word is `00010000` (reply marker 1, type 0), followed
 by the copied request ID, status `00000001`, equal total/data sizes and one
 field 100 (`0064`). Text bytes are shown exactly; the missing-file message
 contains MacRoman quote bytes `d2` and `d3`.
+
+This document belongs to the [Hotline 1.9 wire protocol](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Authentication: rejected password
 

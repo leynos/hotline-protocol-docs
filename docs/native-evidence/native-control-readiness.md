@@ -1,9 +1,9 @@
 # Readiness for isolated control-operation fixtures
 
 This profile permits a separately authorized control-operation fixture on an
-owned disposable native 1.9 server. It supports questions such as ban replies
-or session settings. Its reports must identify the profile as `control-only`
-and the full-file baseline as `not_exercised`.
+owned disposable [native](../glossary.md#native) 1.9 server. It supports
+questions such as ban replies or session settings. Its reports must identify
+the profile as `control-only` and the full-file baseline as `not_exercised`.
 
 The normal full A7 gate remains the gate for transfer, buffering, throughput,
 large-message and transfer-failure assertions. C32 and the primary server have
@@ -13,6 +13,9 @@ The [comparison](../files-and-transfers/native-transfer-stall.md) records the
 first two failures. The [C50 focus-event witness](native-ui-focus-witness.md)
 additionally records a verified focus event without resumed output. No
 historical cause or native size limit follows.
+
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Why a separate profile is appropriate
 
@@ -38,6 +41,9 @@ exact control question, allowed mutations, gates, capture scope and cleanup.
 | State             | Current roster, original two accounts and their expected attributes, 41 Files entries, fixture file metadata and idle operational state                                                                |
 | Transport         | Correlated control replies, a liveness barrier, and complete host/guest control-stream agreement; no timeout or unexplained tail                                                                       |
 | Mutation safety   | Guard the owned account name before creation. Recheck stored zero privileges and the current target name/UID before sending a destructive request.                                                     |
+
+_Table 1: The gates that a control-only fixture must pass, and the evidence
+each requires._
 
 The existing short metadata helper may provide the state checks. Its 18 actions
 are a control-readiness plan, **not** the 29-action A7/full-FILP plan. Retain

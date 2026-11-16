@@ -5,6 +5,9 @@ The live runner stopped at its first response wait. It establishes neither a
 304 limit nor a reset interval or ban rule. The corpus is
 [`native-rate304-first-pair-01`](../../evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/manifest.json).
 
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
+
 ## What ran
 
 The disposable Hotline Server 1.9 lab used the original DATA fork `ad7040db…`,
@@ -29,6 +32,9 @@ responses reached the recorder.
 | paced received observer-departure 302 UID2 | 1.580643 s              |
 | paced received its 301 UID3/icon2          | 1.585971 s              |
 | paced received successful type0 ACK ID2000 | 1.585993 s              |
+
+_Table 1: The timed events of the failed pair, measured from the start of the
+case._
 
 The last three frames arrived **during client cleanup**. The observer had
 already sent FIN, so its missing icon2 notification cannot be treated as an
@@ -70,6 +76,12 @@ From `hotline-protocol-docs` with an adjacent `mothra` export:
 python3 scripts/verify_native_rate304_partial.py
 python3 -m unittest discover -s scripts -p test_native_rate304_partial.py
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> verifier has since been brought to the repository's Python standard, and its
+> test has moved to `scripts/tests/test_native_rate304_partial.py`. The same
+> check is now run by `make evidence-verify`, and the test by
+> `uv run --group dev pytest scripts/tests/test_native_rate304_partial.py`.
 
 `--corpus PATH` selects a copied corpus. The verifier checks the complete SHA
 inventory, source closure, failed case boundary, exact 304 and 500 bytes, late

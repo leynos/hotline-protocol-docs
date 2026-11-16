@@ -1,8 +1,13 @@
 # Native temporary-ban first epoch
 
-This control-only witness records the **first** epoch of a temporary ban on a
-disposable Hotline Server 1.9 lab. It does not establish the expiry boundary.
-The full file-transfer A7 baseline was **not exercised** in this lab.
+This control-only [witness](../glossary.md#witness) records the **first** epoch
+of a temporary ban on a disposable
+[Hotline Server 1.9](../glossary.md#hotline-server-19) lab. It does not
+establish the expiry boundary. The full file-transfer
+[A7](../glossary.md#a7-readback) baseline was **not exercised** in this lab.
+
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Reproducible record
 
@@ -56,6 +61,12 @@ From this protocol repository beside the Mothra repository:
 python scripts/verify_native_ban_expiry_first.py
 python -m unittest discover -s scripts -p test_native_ban_expiry_first.py
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> verifier has since been brought to the repository's Python standard, and its
+> test has moved to `scripts/tests/test_native_ban_expiry_first.py`. The same
+> check is now run by `make evidence-verify`, and the test by
+> `uv run --group dev pytest scripts/tests/test_native_ban_expiry_first.py`.
 
 The verifier checks the corpus inventory and source snapshots, the original
 generic Recorder semantics, the frozen B68 case gates, actual runner identity,

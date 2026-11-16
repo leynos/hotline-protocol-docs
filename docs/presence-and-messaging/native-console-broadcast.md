@@ -1,15 +1,19 @@
 # Native console broadcast and client 355: bounded D1 witness
 
-This is one controlled Hotline Server 1.9 guest session, not a general
-client/server compatibility rule. The [D1 corpus][corpus] retains the plan,
-50-action capture report, host PCAP, before/after guest PCAP snapshots, one
-operator console-send transcript and two selected screenshots. Four local
-connections were open: online `ConsoleSender`, online `ConsoleRefuse` (Login107
-options 113=`0003`), a Login107 `ConsoleWaiting` connection still awaiting 121,
-and a handshake-only unauthenticated connection. One 20-second pause bounded
-one console UI send of `D1-console-message`. The input-event log was not saved:
-operator action order is a transcription, and screenshots and packet order
-bound it; they do not supply an exact click time.
+This is one controlled [Hotline Server 1.9](../glossary.md#hotline-server-19)
+guest session, not a general client/server compatibility rule. The
+[D1 corpus][corpus] retains the plan, 50-action capture report, host PCAP,
+before/after guest PCAP snapshots, one operator console-send transcript and two
+selected screenshots. Four local connections were open: online `ConsoleSender`,
+online `ConsoleRefuse` (Login107 options 113=`0003`), a Login107
+`ConsoleWaiting` connection still awaiting 121, and a handshake-only
+unauthenticated connection. One 20-second pause bounded one console UI send of
+`D1-console-message`. The input-event log was not saved: operator action order
+is a transcription, and screenshots and packet order bound it; they do not
+supply an exact click time.
+
+This document belongs to the [presence and messaging](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 | Origin and point                        | `ConsoleSender`                        | `ConsoleRefuse`                                    | `ConsoleWaiting`                                   | Unauthenticated |
 | --------------------------------------- | -------------------------------------- | -------------------------------------------------- | -------------------------------------------------- | --------------- |
@@ -17,6 +21,9 @@ bound it; they do not supply an exact click time.
 | Console UI send                         | 104 with only 101=`D1-console-message` | Same data-only 104                                 | No 104 before 121                                  | No 104          |
 | Client 121 id 2 completes waiting login | Online                                 | Online                                             | Type 0 ACK, 354 and 122                            | Handshake only  |
 | Client 355 id 3, `D1-client-after`      | Type 0 ACK; no 355                     | Same 355 schema                                    | 355 with 103=`000f`, 102=`ConsoleSender`, 101=data | No 355          |
+
+_Table 1: Observed fields for each connection at each point in the console and
+client 355 sequence._
 
 The `355` examples are **client-originated** requests with one field 101 each;
 the console UI emits **104**, not an on-wire 355 in this capture. Console 104
@@ -53,6 +60,11 @@ python3 ../hotline-protocol-docs/scripts/verify_native_console_broadcast.py \
 python3 -m unittest discover -s ../hotline-protocol-docs/scripts \
   -p 'test_native_console_broadcast.py'
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> tests have since moved to `scripts/tests/` and run under pytest; the same
+> tests now run with
+> `uv run --group dev pytest scripts/tests/test_native_console_broadcast.py`.
 
 The verifier checks retained capture reports and hashes, decoded frame fields,
 complete guest flows, the explicit host-prefix exception, teardown tails and A7

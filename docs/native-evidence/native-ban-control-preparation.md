@@ -1,12 +1,15 @@
 # Isolated permanent-ban control fixture (C52 preparation)
 
-The preparation below was exercised by the
+The [preparation](../glossary.md#preparation) below was exercised by the
 [C56 permanent-ban witness](native-ban-control-witness.md). The root-approved
 [control-readiness profile](native-control-readiness.md) applies only after a
 separate live grant for any new run. Set `fixture_profile=control-only` and
 `full_file_baseline=not_exercised` in every report. The C35, C45, and C50 lab
 full-file baselines all failed at the 98,304-byte prefix; this fixture cannot
 turn them into passes or support transfer claims.
+
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Prepared image and immutable inputs
 
@@ -42,6 +45,11 @@ C52 preparation record and five plan hashes are at
    python scripts/native_control_readiness.py prepare --runtime-record RUNTIME.json --port 15750 --output PLANS
    ```
 
+   > Record note (2026-11-16): the command above is quoted as it was run. The
+   > script, `scripts/native_control_readiness.py`, is still held at the
+   > earlier lint rules (`scripts/legacy-modules.txt`), so the command is
+   > unchanged.
+
    Preserve `source-hashes.json`, source plan and as-run plan SHA-256 values.
    Prepare `CAPTURE-READY.json` with `host_pcap`, `namespace_pcap`,
    `guest_pcap`, `host_recorder_pid`, `namespace_recorder_pid`, both recorder
@@ -53,8 +61,14 @@ C52 preparation record and five plan hashes are at
    `python scripts/native_control_readiness.py run --plans PLANS --binary
    MOTHRA/evidence/hotline-server-1.9/inputs/HLserver19.pef
    --capture-ready CAPTURE-READY.json --output CAPTURES`.
-   Set a managed one-shot system unit with direct `NetworkNamespacePath` to
-   the actual lab, retained stdout/stderr/exit and bounded runtime. Root is
+
+   > Record note (2026-11-16): the `run` command above is quoted as it was run.
+   > The script, `scripts/native_control_readiness.py`, is still held at the
+   > earlier lint rules (`scripts/legacy-modules.txt`), so the command is
+   > unchanged. The unit tests, `scripts/test_native_control_readiness.py`, run
+   > under `make test-legacy`.
+   Set a managed one-shot system unit with direct `NetworkNamespacePath` to the
+   actual lab, retained stdout/stderr/exit and bounded runtime. Root is
    required to read the non-dumpable UID-1000 emulator's `/proc` executable and
    FD links; the emulator itself remains UID 1000. The guarded ban capture
    records `controller_uid=0`. Never target primary `15500` or use the original

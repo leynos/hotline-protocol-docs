@@ -1,8 +1,12 @@
 # Native temporary-ban expiry fixture preparation
 
 This prepares a separately authorized GAP-074 control-only run. No guest,
-native contact or clock change occurs here. The full-file A7 baseline is
-`not_exercised`; no expiry result is claimed.
+native contact or clock change occurs here. The full-file
+[A7](../glossary.md#a7-readback) baseline is `not_exercised`; no expiry result
+is claimed.
+
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Scope and owned identities
 
@@ -76,6 +80,11 @@ python3 scripts/native_ban_expiry_cases.py \
   --output state/native-ban-expiry-01/plans --port 15800
 ```
 
+> Record note (2026-11-16): the command above is quoted as it was run. The case
+> generator, `scripts/native_ban_expiry_cases.py`, has since been brought to
+> the repository's Python standard, and runs as
+> `uv run --group dev python scripts/native_ban_expiry_cases.py`.
+
 For each authorized epoch, supply a fresh receipt JSON containing all
 `native_control_readiness.capture_gate` keys: `primary_syn_count`, `ns_routes`,
 host/namespace/guest PCAP paths, host/namespace recorder PID and start time,
@@ -117,6 +126,11 @@ sudo nsenter --target "$expiry_emulator_pid" --net -- \
   --ban-clock state/native-ban-expiry-01/epoch-first/results/ban-clock.json \
   --output state/native-ban-expiry-01/epoch-pre/results
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> control runner, `scripts/native_ban_expiry_control.py`, is still held at the
+> earlier lint rules (`scripts/legacy-modules.txt`), so the commands are
+> unchanged.
 
 The `post` command uses `--phase post`, the post epoch receipt/output, and the
 same first-epoch ban-clock file. These commands are templates: the binary path

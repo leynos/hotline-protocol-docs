@@ -18,6 +18,8 @@ ignore = [
   '`[^`\n]+`',
   # FILP is the flattened-file stream tag carried on the wire.
   '\bFILP\b',
+  # The glossary anchor of the same wire tag.
+  '#filp\b',
   # Eight-digit hexadecimal addresses of functions in the analysed binary.
   '\b1[0-9a-f]{7}\b',
   # Plural of the PNG image format.

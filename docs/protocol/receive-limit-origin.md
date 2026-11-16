@@ -1,10 +1,14 @@
 # Receive-limit origin and indexed reference boundary
 
 This bounded GAP-011 note records 12 read-only GhidraMCP calls against a saved,
-independent analysis of the hashed Hotline Server 1.9 PEF. The
-[as-run query record][corpus] keeps exact arguments, output, the script and
-checksums. The project had 1,840 functions; it was reopened with
+independent analysis of the hashed
+[Hotline Server 1.9](../glossary.md#hotline-server-19) [PEF](../glossary.md#pef).
+The [as-run query record][corpus] keeps exact arguments, output, the script
+and checksums. The project had 1,840 functions; it was reopened with
 `--no-analyze --discard`. No native server or GUI was queried in this batch.
+
+This document belongs to the [Hotline 1.9 wire protocol](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Positive native-code comparison
 
@@ -21,6 +25,9 @@ sequence:
 | `10000b88` | `38624330` | `addi r3,r2,0x4330` |
 | `10000b8c` | `90030000` | `stw r0,0x0(r3)`    |
 | `10000b9c` | `48008435` | `bl 0x10008fd0`     |
+
+_Table 1: Startup instructions that pin the store to the global, with their
+addresses and bytes._
 
 The matching decompilation maps the store to `_DAT_10094a50`. The assembly
 itself shows an **`r2`-relative address calculation and store**. Separately,

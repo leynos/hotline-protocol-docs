@@ -1,9 +1,12 @@
 # Native 1.9 configured-ban application: static preparation
 
-This note narrows the remaining GAP-044 type-104 producer. It is static
-evidence, not a configured-ban network fixture. The accepted option-two control
-witness is in
+This note narrows the remaining [GAP-044](../glossary.md#gap) type-104
+producer. It is static evidence, not a configured-ban network fixture. The
+accepted option-two control witness is in
 [native-ban-control-witness.md](../native-evidence/native-ban-control-witness.md).
+
+This document belongs to the [accounts and privileges](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Raw text and source path
 

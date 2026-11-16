@@ -3,16 +3,20 @@
 The remaining native-fixture requirements need the recorded Mac PPC application
 running under a documented Mac OS environment. The generic emulator harness is
 the
-[mothra toolset](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/README.md).
-Protocol-specific preparation and capture scripts are in this repository.
-ROMs, OS disks, compiled emulators and mutable runtime state are local inputs
-under `mothra/state` or `mothra/tools`, never Git artefacts.
+[mothra toolset](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/README.md).
+Protocol-specific [preparation](../glossary.md#preparation) and capture
+scripts are in this repository. ROMs, OS disks, compiled emulators and mutable
+runtime state are local inputs under `mothra/state` or `mothra/tools`, never
+Git artefacts.
+
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Prepare the emulator and application
 
 Build the pinned interpreter and prepare the runtime with the toolset's
 `mac_runtime.py`, as the
-[build and runtime preparation guide](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/preparing-a-capture-run.md#build-the-emulator-and-prepare-a-runtime)
+[build and runtime preparation guide](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/preparing-a-capture-run.md#build-the-emulator-and-prepare-a-runtime)
 describes. Choose an unused runtime name, set it as `NATIVE_RUNTIME` and
 export it, and keep that value for the whole experiment. The historical
 `hotline19` instance was retired on 15 November 2026; its
@@ -27,7 +31,8 @@ Prepare the exact application and resource metadata from the extracted server
 archive, using this repository's script:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/prepare_hotline_server.py \
+uv run --project ../hotline-protocol-docs --group dev python \
+  ../hotline-protocol-docs/scripts/prepare_hotline_server.py \
   ../hotline-bench/extracted/HotlineConnectServer-Mac \
   "$NATIVE_RUNTIME/shared/Hotline19"
 ```
@@ -40,28 +45,28 @@ different data fork and is not substituted for this oracle.
 Launch the runtime with the toolset's `mac_runtime.py sheep` command, using
 `--port 15500`, on an available X display or on an isolated display such as
 `:97`, as the
-[launch guidance](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/preparing-a-capture-run.md#launch-the-guest)
+[launch guidance](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/preparing-a-capture-run.md#launch-the-guest)
 describes. This project's forwards are host ports 15500–15503, bound to
 loopback, which forward to guest ports 5500–5503. Confirm the guest TCP/IP
 settings before using those ports; a listening proxy is not proof that Hotline
 is running.
 
 Record the emulated Ethernet boundary with the toolset's guest observer, as the
-[observer guidance](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/sheepshaver.md#observe-the-guest-ethernet-boundary)
+[observer guidance](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/sheepshaver.md#observe-the-guest-ethernet-boundary)
 describes. This project writes `state/native-sessions/SESSION/guest.pcap` as a
 new path for each session, alongside a separate host-loopback capture. Frames
 recorded before packet injection are observations at that boundary, not proof
 of guest receipt.
 
 Check emulator identity and guest capture in separate stages, as the
-[staged verification guidance](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/preparing-a-capture-run.md#verify-the-guest-in-stages)
+[staged verification guidance](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/preparing-a-capture-run.md#verify-the-guest-in-stages)
 describes. The
-[capture startup trace](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/guest-capture-startup.md)
+[capture startup trace](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/guest-capture-startup.md)
 shows that the observer creates its PCAP on the first Ethernet packet.
 Immediately after launch, verify the actual disk-owning process without
 requiring that file. After guest networking starts, bind the capture's writable
 FD and header to the same process before sending any Hotline request. The
-[phased readiness helper](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/native-emulator-readiness.md)
+[phased readiness helper](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/native-emulator-readiness.md)
 provides the commands and identity checks. A bounded missing-file observation
 does not establish process exit; retain and inspect the same process handle. The
 [failed startup gate](native-rate304-startup-gate.md) records the earlier
@@ -69,7 +74,7 @@ precontact timeout and retirement without treating it as a protocol result.
 
 Copy the prepared application folder from the guest's Unix/shared volume onto
 its native Mac disk before testing file/fork/Trash/alias effects, as the
-[native volume guidance](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/preparing-a-capture-run.md#install-the-application-on-a-native-volume)
+[native volume guidance](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/preparing-a-capture-run.md#install-the-application-on-a-native-volume)
 describes. Run the copy there, accept its application licence and configure a
 dedicated fixture account. Record guest OS/CarbonLib versions, volume type,
 account privileges, agreement/banner settings and exact launch/configuration
@@ -128,11 +133,13 @@ Example plan for an established test server:
 Run from `mothra`, retaining output in a new directory:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/protocol_capture.py capture \
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/protocol_capture.py \
+  capture \
   state/native-mac/handshake-plan.json \
   --oracle-binary evidence/hotline-server-1.9/inputs/HLserver19.pef \
   --output state/native-sessions/handshake-001
-python3 ../hotline-protocol-docs/scripts/protocol_capture.py verify \
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/protocol_capture.py \
+  verify \
   state/native-sessions/handshake-001
 ```
 
@@ -176,9 +183,9 @@ in mothra's separate evidence batch.
 Run the semantic checks from `mothra`:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/verify_native_core.py \
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/verify_native_core.py \
   evidence/gap-remediation/2026-11-12/native-core-01
-python3 -m unittest discover -s ../hotline-protocol-docs/scripts -p 'test_*.py'
+uv run --project ../hotline-protocol-docs --group dev pytest ../hotline-protocol-docs/scripts/tests
 ```
 
 The checks cover nonempty credential creation/change, accepted new and rejected
@@ -209,7 +216,7 @@ has its length at `0x254`, content at `0x256`, and password length/content at
 The initial run used repository-local Sleuth Kit 4.15.0 for read-only HFS+
 inspection. On the recorded Fedora 43 host, it was installed under
 `mothra/tools/sleuthkit`, outside system directories, as the
-[Sleuth Kit installation guidance](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/preparing-a-capture-run.md#install-sleuth-kit-locally)
+[Sleuth Kit installation guidance](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/preparing-a-capture-run.md#install-sleuth-kit-locally)
 describes.
 
 The native batch records the downloaded package filenames and SHA-256 values.
@@ -217,7 +224,7 @@ These identify the tested binaries; availability of the same packages from a
 future Fedora repository is not guaranteed. With the executables and libraries
 installed under `mothra/tools/sleuthkit`, locate the current catalogue record
 rather than assuming its original number, as the
-[catalogue lookup guidance](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/preparing-a-capture-run.md#locate-a-catalogue-record)
+[catalogue lookup guidance](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/preparing-a-capture-run.md#locate-a-catalogue-record)
 describes:
 
 ```sh
@@ -228,7 +235,7 @@ tools/sleuthkit/usr/bin/ifind -f hfs \
 ```
 
 Before **each** HFS image read, stop the owning emulator and verify, as the
-[ownership check guidance](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/preparing-a-capture-run.md#check-that-no-process-owns-the-image)
+[ownership check guidance](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/preparing-a-capture-run.md#check-that-no-process-owns-the-image)
 describes, that a root `fuser` check exits 1 with no owner or error output. A
 failed privilege check is not an FD-free result. Never inspect a live working
 image, even read-only. Use the stopped image from the same experiment; its
@@ -257,7 +264,8 @@ clean-unmount filesystem report are committed, not the image.
 Run the packet/stream and close-order checks from `mothra`:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/verify_native_handshakes.py \
+uv run --project ../hotline-protocol-docs --group dev python \
+  ../hotline-protocol-docs/scripts/verify_native_handshakes.py \
   evidence/gap-remediation/2026-11-12/native-transport-01
 ```
 
@@ -295,14 +303,15 @@ hypothesis. It includes both packet views, runtime identity and exact capture
 driver versions. Run its independent checks from `mothra`:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/verify_native_framing.py \
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/verify_native_framing.py \
   evidence/gap-remediation/2026-11-12/native-framing-01
 ```
 
 Prepare repeat plans into a new directory with the current runtime identity:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/prepare_native_cases.py framing \
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/prepare_native_cases.py \
+  framing \
   --runtime-record state/native-sessions/runtime-05/runtime.json \
   --output state/native-sessions/framing-repeat-plans
 ```
@@ -331,7 +340,7 @@ downloads, preview, noncanonical selector 7 and wrong-collection selectors.
 Verify it from `mothra`:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/verify_native_forks.py \
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/verify_native_forks.py \
   evidence/gap-remediation/2026-11-12/native-forks-01
 ```
 
@@ -382,7 +391,7 @@ retains 23 reviewed cases and seven initial attempts. Run its packet, fork,
 offset and failure checks from `mothra`:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/verify_native_resume.py \
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/verify_native_resume.py \
   evidence/gap-remediation/2026-11-12/native-resume-01
 ```
 
@@ -423,7 +432,7 @@ Verify the
 from `mothra` without running its nine-minute native capture again:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/verify_native_queues.py \
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/verify_native_queues.py \
   evidence/gap-remediation/2026-11-12/native-queue-01
 ```
 
@@ -469,7 +478,7 @@ contains ten completed captures and independent native fork extractions.
 Verify it from `mothra` without the emulator:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/verify_native_cleanup.py \
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/verify_native_cleanup.py \
   evidence/gap-remediation/2026-11-12/native-cleanup-01
 ```
 
@@ -507,7 +516,7 @@ contains 17 final cases, three initial probes and one auxiliary finalization.
 Verify it from `mothra` without rerunning the emulator or timing waits:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/verify_native_folders.py \
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/verify_native_folders.py \
   evidence/gap-remediation/2026-11-12/native-folder-01
 ```
 
@@ -542,7 +551,7 @@ positive direct catalogue observations without inventing absent paths. The
 bounded snapshot script verifies each returned path before extracting forks:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/snapshot_native_hfs.py \
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/snapshot_native_hfs.py \
   --image "$NATIVE_RUNTIME/working.dsk" \
   --tsk-bin tools/sleuthkit/usr/bin --catalog-range 11220 11240 \
   --root /Hotline19/Files/mothra-folder-source \
@@ -581,10 +590,13 @@ before/after filesystem or account state, failures and explicit deviations.
 | Accounts and administration  | Opaque 111 absent/empty/value; create/update/password sentinel/identity conflicts; live changes; bans/expiry/restart; 348/349 mixed outcomes. GAP-071–078/084.                                                 |
 | Identified peers and release | Hashed compiled historical clients, field-tolerance and ambiguous-text corpus; request-500 scheduling; test-policy reconciliation; chosen release subset/owner and scoped proof results. GAP-001/079–086.      |
 
+_Table 1: The native fixture families, the scenarios each must cover and the
+gaps they relate to._
+
 The retained [synthetic transcript][tool-test] and the current loopback tests
 validate the capture runner. They do not discharge the native scenario families
 above. Run the tool tests from this repository with
-`python3 -m unittest discover -s scripts -p test_protocol_capture.py`.
+`uv run --group dev pytest scripts/tests/test_protocol_capture.py`.
 
 [tool-test]: ../../evidence/gap-remediation/2026-11-12/capture-tooling-01/transcript/report.json
 
@@ -603,7 +615,7 @@ packet views, GUI configuration screenshots and positive native catalogue/fork
 observations. Reverify it without an emulator:
 
 ```sh
-python3 scripts/verify_native_banners.py \
+uv run --group dev python scripts/verify_native_banners.py \
   evidence/gap-remediation/2026-11-12/native-banner-01
 ```
 
@@ -666,7 +678,7 @@ eligibility, present-empty metadata, recovery phase/timing evidence and
 independently observed Finder types. Reverify without the guest:
 
 ```sh
-python3 scripts/verify_native_banner_formats.py \
+uv run --group dev python scripts/verify_native_banner_formats.py \
   evidence/gap-remediation/2026-11-12/native-banner-02
 ```
 
@@ -734,12 +746,12 @@ upload-fork observations and the exact preparation/packaging helpers as run.
 Reverify the retained corpus without the guest:
 
 ```sh
-python3 scripts/verify_native_htxf.py \
+uv run --group dev python scripts/verify_native_htxf.py \
   evidence/gap-remediation/2026-11-12/native-htxf-01
 ```
 
 For another live run, use the committed mothra harness and a new working copy
-of your prepared guest. It needs the ordinary-file and folder source fixtures,
+of the prepared guest. It needs the ordinary-file and folder source fixtures,
 admin/mothra19 and fixture-low/next-pass accounts, Local `mothra-banner-b.gif`
 with positively confirmed 58-byte delivery, and General 100/10/5 limits. The
 generator creates `m-htxf-u0`, `m-htxf-u2` and `m-htxf-u65535`; begin before
@@ -750,10 +762,12 @@ the empty banner fixture for these cases.
 From mothra, with a current runtime record and both packet recorders running:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/prepare_native_cases.py htxf \
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/prepare_native_cases.py \
+  htxf \
   --runtime-record state/native-sessions/NEW/runtime.json \
   --output state/native-sessions/NEW/htxf-plans
-python3 ../hotline-protocol-docs/scripts/protocol_capture.py capture \
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/protocol_capture.py \
+  capture \
   state/native-sessions/NEW/htxf-plans/banner-split-15-plus-1.json \
   --oracle-binary evidence/hotline-server-1.9/inputs/HLserver19.pef \
   --output state/native-sessions/NEW/captures/banner-split-15-plus-1
@@ -785,7 +799,7 @@ stream reconciles exactly in both views, with no unread output. Reverify it
 without the guest:
 
 ```sh
-python3 scripts/verify_native_correlation.py \
+uv run --group dev python scripts/verify_native_correlation.py \
   evidence/gap-remediation/2026-11-12/native-correlation-01
 ```
 
@@ -796,10 +810,12 @@ no file creation, GUI reconfiguration, ROM modification or guest-memory writes.
 Prepare fresh plans from mothra:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/prepare_native_cases.py correlation \
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/prepare_native_cases.py \
+  correlation \
   --runtime-record state/native-sessions/NEW/runtime.json \
   --output state/native-sessions/NEW/correlation-plans
-python3 ../hotline-protocol-docs/scripts/protocol_capture.py capture \
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/protocol_capture.py \
+  capture \
   state/native-sessions/NEW/correlation-plans/pipelined-duplicate-id.json \
   --oracle-binary evidence/hotline-server-1.9/inputs/HLserver19.pef \
   --output state/native-sessions/NEW/captures/pipelined-duplicate-id
@@ -839,11 +855,11 @@ snapshots, the native agreement fork and14 identity-checked Ghidra queries.
 Reverify without the guest:
 
 ```sh
-python3 scripts/verify_native_auth.py \
+uv run --group dev python scripts/verify_native_auth.py \
   evidence/gap-remediation/2026-11-13/native-auth-01
 ```
 
-Use the committed mothra harness and a fresh working copy of your prepared
+Use the committed mothra harness and a fresh working copy of the prepared
 guest. Record its current identity and configuration. This run uses the owned
 admin/mothra19 account, configured TEXT agreement, Local58-byte GIF and
 General100/10/5 limits. Verify guest absence with admin352 before creating a
@@ -900,11 +916,12 @@ folders with exact-name children, including a directory child. For example,
 from the mothra checkout:
 
 ```bash
-python3 ../hotline-protocol-docs/scripts/prepare_native_cases.py \
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/prepare_native_cases.py \
   agreement-stages \
   --runtime-record state/native-sessions/runtime-15/runtime.json \
   --output state/agreement-stages-new
-python3 ../hotline-protocol-docs/scripts/protocol_capture.py capture \
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/protocol_capture.py \
+  capture \
   state/agreement-stages-new/stage-agreement-text.json \
   --oracle-binary evidence/hotline-server-1.9/inputs/HLserver19.pef \
   --output state/agreement-upload-new
@@ -933,7 +950,7 @@ Use the retained original agreement to prepare restoration, with a hash guard:
 
 ```bash
 agreement_evidence=evidence/gap-remediation/2026-11-13/native-agreement-01
-python3 ../hotline-protocol-docs/scripts/prepare_native_cases.py \
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/prepare_native_cases.py \
   agreement-restore-stage \
   --original-agreement "$agreement_evidence/original-agreement.data" \
   --runtime-record state/native-sessions/runtime-15/runtime.json \
@@ -949,7 +966,8 @@ account-cleanup or restart-durability result.
 For offline verification from adjacent clean exports:
 
 ```bash
-python3 ../hotline-protocol-docs/scripts/verify_native_agreements.py \
+uv run --project ../hotline-protocol-docs --group dev python \
+  ../hotline-protocol-docs/scripts/verify_native_agreements.py \
   evidence/gap-remediation/2026-11-13/native-agreement-01
 ```
 
@@ -976,11 +994,12 @@ The explicit three-second pauses pace independent sessions and retain 500
 liveness replies.
 
 ```bash
-python3 ../hotline-protocol-docs/scripts/prepare_native_cases.py \
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/prepare_native_cases.py \
   login-extras-name-a \
   --runtime-record state/native-sessions/runtime-16/runtime.json \
   --output state/login-extra-plans-new
-python3 ../hotline-protocol-docs/scripts/protocol_capture.py capture \
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/protocol_capture.py \
+  capture \
   state/login-extra-plans-new/name-a-absent-delayed.json \
   --oracle-binary evidence/hotline-server-1.9/inputs/HLserver19.pef \
   --output state/login-extra-case-new
@@ -1025,7 +1044,8 @@ This proves the recorded configuration restoration, not restart durability or
 an independently captured prelaunch preference file.
 
 ```bash
-python3 ../hotline-protocol-docs/scripts/verify_native_login_extras.py \
+uv run --project ../hotline-protocol-docs --group dev python \
+  ../hotline-protocol-docs/scripts/verify_native_login_extras.py \
   evidence/gap-remediation/2026-11-13/native-login-extras-01
 ```
 
@@ -1119,7 +1139,7 @@ supplemental root inputs, all 51 reports/53 sockets, native setup/cleanup and
 byte preservation. Run from mothra:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/verify_native_mkdir.py \
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/verify_native_mkdir.py \
   evidence/gap-remediation/2026-11-13/native-mkdir-01
 ```
 
@@ -1172,7 +1192,7 @@ directory run. Never export ROMs or working disks as evidence.
 Run the independent offline verifier from mothra:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/verify_native_aliases.py \
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/verify_native_aliases.py \
   evidence/gap-remediation/2026-11-13/native-alias-01
 ```
 
@@ -1221,7 +1241,8 @@ cleanup.
 Run from mothra without a live guest:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/verify_native_metadata.py \
+uv run --project ../hotline-protocol-docs --group dev python \
+  ../hotline-protocol-docs/scripts/verify_native_metadata.py \
   evidence/gap-remediation/2026-11-13/native-metadata-01
 ```
 
@@ -1270,7 +1291,7 @@ or claim persistence across a restart that was not performed.
 Run the offline verifier from mothra:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/verify_native_moves.py \
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/verify_native_moves.py \
   evidence/gap-remediation/2026-11-13/native-move-01
 ```
 
@@ -1336,7 +1357,7 @@ empty Trash to force a golden-path match. ROMs and disk images remain local.
 Run from mothra:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/verify_native_news.py \
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/verify_native_news.py \
   evidence/gap-remediation/2026-11-13/native-news-01
 ```
 
@@ -1361,7 +1382,7 @@ pause; run them serially with two packet views.
 Before a new run, verify the runtime and actual application forks, inspect News
 and Files, and require absence of the owned namespace. Keep ROMs, disks and
 credentials local. The generic display/emulator supervision is documented in
-[mothra's SheepShaver guide](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/sheepshaver.md#managed-display-and-emulator-lifetime).
+[mothra's SheepShaver guide](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/sheepshaver.md#managed-display-and-emulator-lifetime).
 Service acceptance and actual application readiness are separate checks.
 
 For an interrupted seed, `article-delete-inspect` reads every owned category.
@@ -1388,7 +1409,8 @@ limits of the resulting persistence claim.
 Run the offline verifier from mothra:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/verify_native_article_deletion.py \
+uv run --project ../hotline-protocol-docs --group dev python \
+  ../hotline-protocol-docs/scripts/verify_native_article_deletion.py \
   evidence/gap-remediation/2026-11-13/native-article-delete-01
 ```
 
@@ -1419,7 +1441,7 @@ result. Do not replay a completed batch: repeated posts allocate new IDs.
 For example, from mothra, preparing the single-child boundary plan is:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/prepare_native_cases.py \
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/prepare_native_cases.py \
   news-boundary-append --first-child 101 --last-child 101 \
   --runtime-record state/native-sessions/your-run/runtime.json \
   --output state/native-sessions/your-run/plans-101
@@ -1444,7 +1466,8 @@ from these wire/flush observations. ROMs and working images stay local.
 The offline replay check is:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/verify_native_news_boundary.py \
+uv run --project ../hotline-protocol-docs --group dev python \
+  ../hotline-protocol-docs/scripts/verify_native_news_boundary.py \
   evidence/gap-remediation/2026-11-13/native-news-boundary-01
 ```
 
@@ -1482,7 +1505,7 @@ mutations include measured three-second quiet windows.
 For example, plan preparation from mothra is:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/prepare_native_cases.py \
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/prepare_native_cases.py \
   account-update-mutate \
   --runtime-record state/native-sessions/your-run/runtime.json \
   --output state/native-sessions/your-run/plans-mutate
@@ -1512,7 +1535,8 @@ local.
 The offline verifier is:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/verify_native_account_updates.py \
+uv run --project ../hotline-protocol-docs --group dev python \
+  ../hotline-protocol-docs/scripts/verify_native_account_updates.py \
   evidence/gap-remediation/2026-11-13/native-account-update-01
 ```
 
@@ -1584,7 +1608,8 @@ fork extractions local.
 From mothra, verify the frozen corpus offline:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/verify_native_live_accounts.py \
+uv run --project ../hotline-protocol-docs --group dev python \
+  ../hotline-protocol-docs/scripts/verify_native_live_accounts.py \
   evidence/gap-remediation/2026-11-13/native-live-accounts-01
 ```
 
@@ -1631,7 +1656,7 @@ names; retain the 64 positive native objects, complete records and original IDs.
 For example, from mothra:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/prepare_native_cases.py \
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/prepare_native_cases.py \
   account-batch-distinct-case \
   --runtime-record state/native-sessions/your-run/runtime.json \
   --output state/native-sessions/your-run/plans-distinct
@@ -1654,7 +1679,8 @@ Do not turn upload publication into a restart or power-loss guarantee.
 The offline check is:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/verify_native_account_batches.py \
+uv run --project ../hotline-protocol-docs --group dev python \
+  ../hotline-protocol-docs/scripts/verify_native_account_batches.py \
   evidence/gap-remediation/2026-11-13/native-account-batch-01
 ```
 
@@ -1675,7 +1701,7 @@ fresh runtime and application identity, and record host and guest packets as in
 the preceding workflows. From `mothra`, prepare templates with:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/prepare_native_cases.py \
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/prepare_native_cases.py \
   account-identity \
   --runtime-record state/native-sessions/runtime-29/runtime.json \
   --output state/account-identity-plans
@@ -1711,7 +1737,8 @@ or mistake an earlier unrelated 302 for that removal.
 Verify the committed corpus offline with:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/verify_native_account_identity.py \
+uv run --project ../hotline-protocol-docs --group dev python \
+  ../hotline-protocol-docs/scripts/verify_native_account_identity.py \
   evidence/gap-remediation/2026-11-13/native-account-identity-01
 ```
 
@@ -1731,7 +1758,8 @@ identity and start host/guest captures before any exchange. From `mothra`,
 prepare templates:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/prepare_native_cases.py rooms \
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/prepare_native_cases.py \
+  rooms \
   --runtime-record state/native-sessions/runtime-30/runtime.json \
   --output state/room-plans
 ```
@@ -1776,7 +1804,7 @@ output in both views.
 Verify the recorded corpus offline with:
 
 ```sh
-python3 ../hotline-protocol-docs/scripts/verify_native_rooms.py \
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/verify_native_rooms.py \
   evidence/gap-remediation/2026-11-13/native-rooms-01
 ```
 

@@ -2,14 +2,19 @@
 
 The
 [C60 resource corpus](../../evidence/gap-remediation/2026-11-14/configured-ban-ui-resources-01/manifest.json)
-catalogues the native Server 1.9 resource fork without starting a guest or
-opening Ghidra. The fork was previously extracted read-only from catalogue
-record 11183, `/Hotline19/HLserver19`, in the immutable base image. The current
-base hash is `e5cbbaaf…`; the 38,460-byte fork hash is `fe83a2cf…`, matching
-the recorded native server. The full fork remains outside the new corpus.
-`selected-resources.json` contains 8 selected resources totalling 1,636 decoded
-payload bytes, with IDs, names, offsets, hashes, hex and visible ASCII runs.
-The parser and original extraction record are retained beside it.
+catalogues the [native](../glossary.md#native) Server 1.9
+[resource fork](../glossary.md#resource-fork) without starting a guest or
+opening [Ghidra](../glossary.md#ghidra). The fork was previously extracted
+read-only from catalogue record 11183, `/Hotline19/HLserver19`, in the
+immutable base image. The current base hash is `e5cbbaaf…`; the 38,460-byte
+fork hash is `fe83a2cf…`, matching the recorded native server. The full fork
+remains outside the new corpus. `selected-resources.json` contains 8 selected
+resources totalling 1,636 decoded payload bytes, with IDs, names, offsets,
+hashes, hex and visible ASCII runs. The parser and original extraction record
+are retained beside it.
+
+This document belongs to the [accounts and privileges](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 The resource map has one `DLOG`/`DITL` pair, both ID 9437; the dialog is named
 `Error`. `MENU` ID 131 contains `Options...` among its Hotline menu items. No

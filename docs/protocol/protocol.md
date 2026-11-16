@@ -1,15 +1,18 @@
-# Hotline Server Protocol 1.9: Transactions and Functionality Guide
+# Hotline Server Protocol 1.9: transactions and functionality guide
 
-This is the baseline protocol guide for mxd's intended Hotline **1.9**
-compatibility. It describes observed behaviour of the Mac PowerPC `HLserver19`
-server, with explicit gaps where the available evidence does not establish a
-complete wire contract. It does not claim to enumerate every protocol extension
-or certify compatibility with every Hotline client or client of the SynHX
-family.
+This is the baseline protocol guide for [mxd](../glossary.md#mxd)'s intended
+Hotline **1.9** compatibility. It describes observed behaviour of the Mac
+PowerPC `HLserver19` server, with explicit gaps where the available evidence
+does not establish a complete wire contract. It does not claim to enumerate
+every protocol extension or certify compatibility with every Hotline client or
+client of the [SynHX](../glossary.md#synhx) family.
+
+This document belongs to the [Hotline 1.9 wire protocol](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 The authority for this revision is the
 [Hotline 1.9 baseline validity ledger][ledger], captured on 12 November 2026.
-The oracle is a PEF data fork with SHA-256:
+The [oracle](../glossary.md#oracle) is a PEF data fork with SHA-256:
 
 ```text
 ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b
@@ -23,17 +26,18 @@ hash above remains the code oracle, and its login wire version is still 190.
 
 The ledger preserves the original documents, exact Ghidra MCP queries,
 decompilations, assembly and comparison-source hashes. References such as
-**V003** identify ledger entries. **Observed** means supported by static
-analysis of that build; it does not mean exercised in a live network test.
-**Unresolved** means that an implementer must obtain further evidence rather
-than treat the previous guide's guesses as requirements.
+**V003** identify ledger entries. **[Observed](../glossary.md#observed)** means
+supported by static analysis of that build; it does not mean exercised in a
+live network test. **[Unresolved](../glossary.md#unresolved)** means that an
+implementer must obtain further evidence rather than treat the previous guide's
+guesses as requirements.
 
 Client interface details and project implementation status are outside this
 wire specification. The [compatibility matrix](../mxd/compatibility-matrix.md)
 separates protocol observations from mxd policy and reported test coverage.
 Tracker and HTTP tunnelling details remain outside this guide's scope.
 
-## Binary Message Formats (Hotline Protocol 1.9)
+## Binary message formats (Hotline Protocol 1.9)
 
 Multi-byte envelope and parameter integers are big-endian. The following
 structures have no implicit alignment padding. Text fields carry bytes; this
@@ -52,6 +56,9 @@ The normal session handshake is twelve bytes:
 | 8      | 2    | Version         | `00 01`                      |
 | 10     | 2    | Sub-version     | `00 02` for a normal session |
 
+_Table 1: Fields of the normal session handshake, with the observed value for
+each._
+
 The native server rejects a different sub-protocol tag. `CHAT`, `FILE` and zero
 are not interchangeable with `HOTL`. It also recognizes sub-version 3, which
 enters a transfer-related handling path rather than creating a normal session.
@@ -69,6 +76,9 @@ The server's handshake reply is eight bytes:
 | -----: | ---: | ----------- | ------------------------------------- |
 | 0      | 4    | Protocol ID | `TRTP`                                |
 | 4      | 4    | Status      | Zero for success; nonzero for failure |
+
+_Table 2: Fields of the server's eight-byte handshake reply, with the meaning
+of each._
 
 A canonical client should consume and check both magic and status. The
 [identified shx source](../peers/identified-client-source.md#other-receiver-observations-and-negative-scope)
@@ -100,6 +110,8 @@ After the handshake, transactions use a twenty-byte envelope:
 | 12     | 4    | Total size | Total parameter-stream length for the transaction            |
 | 16     | 4    | Data size  | Parameter-stream length in this frame                        |
 
+_Table 3: Fields of the general transaction frame, with the meaning of each._
+
 Request and server-notification types are described in the catalogue below. A
 direct reply does **not** need to echo the request's type: the inspected native
 reply construction leaves type zero and copies the request ID.
@@ -124,6 +136,8 @@ by that many records:
 | 0                    | 2            | Field ID              |
 | 2                    | 2            | Value length in bytes |
 | 4                    | Value length | Value bytes           |
+
+_Table 4: Layout of each record in a transaction parameter list._
 
 The count is outside the first record. There is no padding between records. A
 field value is limited to 65,535 bytes by the native writer.
@@ -175,6 +189,9 @@ The observed file-date representation is eight bytes:
 | 0      | 2    | Fixed base-year word 1904 (`07 70`), not the calendar year |
 | 2      | 2    | Milliseconds slot, set to zero                             |
 | 4      | 4    | Supplied filesystem timestamp value                        |
+
+_Table 5: Observed file-date value fields, with their offsets, sizes and
+meanings._
 
 The file-info handler emits eight-byte creation/modification values in fields
 208/209. The observed builder writes a fixed year of 1904; it does not perform
@@ -252,7 +269,7 @@ rule requiring transaction 111 before closing a malformed connection.
 
 Evidence: V007, V011–V012, V022, V044, V053, V065, V067, V071–V072.
 
-### 5 Worked example (Login)
+### 5 Worked example (login)
 
 This framing example uses login `admin`, an empty password, and client-version
 value 190. It deliberately includes a zero-length password field so every
@@ -267,12 +284,17 @@ record can be counted. A nonempty login name is sent bytewise complemented:
 | Total size           | `00 00 00 15` |
 | Data size            | `00 00 00 15` |
 
+_Table 6: Header fields of the worked login example, with their hex bytes._
+
 | Parameter component    | Hex bytes                    |
 | ---------------------- | ---------------------------- |
 | Field count = 3        | `00 03`                      |
 | Login 105, length 5    | `00 69 00 05 9e 9b 92 96 91` |
 | Password 106, length 0 | `00 6a 00 00`                |
 | Version 160, length 2  | `00 a0 00 02 00 be`          |
+
+_Table 7: Parameter components of the worked login example, with their hex
+bytes._
 
 The payload length is `2 + 9 + 4 + 6 = 21` bytes, giving a **41-byte frame**.
 The native writer omits zero-length fields. Omitting the empty password field
@@ -301,9 +323,9 @@ These are implementation recommendations, not a claim that the native server
 performs each defensive check. See the ledger's follow-up list for the
 validation required before this becomes a complete interoperable specification.
 
-## User Login and Presence
+## User login and presence
 
-### Session Handshake (Before Transactions Begin)
+### Session handshake (before transactions begin)
 
 Use the twelve-byte normal-session handshake and eight-byte response above. A
 successful transport handshake does not itself authenticate the user.
@@ -311,7 +333,7 @@ Sub-version 2 is shared with the supplied historical SynHX server source.
 
 Evidence: V003–V006, M001.
 
-### Login (Transaction 107) – Client Initiates
+### Login (Transaction 107) – client initiates
 
 **Request:** login name105, password106 and client version160; optional
 settings102/104 control early completion. Clients send complemented login and
@@ -368,7 +390,7 @@ adds missing, empty, unreadable, typed-content and size-boundary paths.
 
 Evidence: V023–V027; `10011960`.
 
-### Server Agreement (Transaction 109) – Server Initiates
+### Server agreement (Transaction 109) – server initiates
 
 **Notification:** account privilege 27 selects flag 154 with value 1. With that
 bit clear, the handler adds configured agreement text 101 when available; an
@@ -403,7 +425,7 @@ timed out; no immediate-close or universal timeout rule follows. See the
 
 Evidence: V025, V027; `10011960`, `10003bd0`, `100568b0`; native-agreement-01.
 
-### Agreement Acceptance (Transaction 121) – Client Initiates
+### Agreement acceptance (Transaction 121) – client initiates
 
 **Request settings:** name 102, icon 104, options 113 and automatic-response
 text 215, read through the shared settings helper.
@@ -419,6 +441,8 @@ Options 113 is a bitmap in this settings context:
 | 1     | Refuse private messages         |
 | 2     | Refuse private-chat invitations |
 | 4     | Enable automatic response       |
+
+_Table 8: Values of field 113 in the settings context, with their meanings._
 
 With bit 2 (value 4) enabled and 215 absent or empty, the default response is
 exactly 52 ASCII bytes: `I'm not able to respond right now. Please try later!`.
@@ -447,7 +471,7 @@ earlier paired packet observations remain independently checked.
 
 Evidence: V026–V029; `10011ee0`, `10004d50`.
 
-### Banner Metadata (Transaction 122) – Server Initiates
+### Banner metadata (Transaction 122) – server initiates
 
 This notification is distinct from agreement 109 and download request 212.
 After transaction 121, the inspected path sends 122 when the saved client
@@ -462,7 +486,7 @@ sequence.
 
 Evidence: V025, V058; `10011ee0`.
 
-### User Access Privileges (Transaction 354) – Server Initiates
+### User access privileges (Transaction 354) – server initiates
 
 **Notification:** field 110 contains the session's **eight-byte** access
 bitmap. The inspected login-completion paths send it without waiting for a
@@ -471,7 +495,7 @@ live sessions; see [native wire details](native-wire-details.md).
 
 Evidence: V029, V070; `10011960`, `10011ee0`.
 
-#### Access Privilege Bits (Field 110)
+#### Access privilege bits (Field 110)
 
 The [64-row evidence index](../accounts-and-privileges/privilege-bits.md)
 records exact bitmap bytes, native update/readback IDs, known uses and
@@ -503,6 +527,9 @@ The following checks are explicitly recorded in the ledger:
 | **39**  | **Download folder**                                            |
 | **40**  | **Send private message**                                       |
 
+_Table 9: Privilege bits recorded explicitly in the ledger, with their observed
+uses._
+
 The
 [full numbering registry](../accounts-and-privileges/privilege-contracts.md#bitmap-numbering-and-known-uses)
 adds file mutation, account, upload-destination and drop-box gates, while
@@ -515,7 +542,7 @@ or administrator overrides from historical privilege names.
 Evidence: V030–V031, V055–V056, V073; `10008a90`, `1000f4e0`, `10012850`,
 `10013930`.
 
-### Retrieving the User List (Transaction 300) – Client Initiates
+### Retrieving the user list (Transaction 300) – client initiates
 
 **Request:** no directly required fields were identified.
 
@@ -528,6 +555,9 @@ Evidence: V030–V031, V055–V056, V073; `10008a90`, `1000f4e0`, `10012850`,
 | 4                   | 2           | Colour/status |
 | 6                   | 2           | Name length   |
 | 8                   | Name length | Name bytes    |
+
+_Table 10: Fields of each packed user record in field 300, with their offsets
+and sizes._
 
 The enclosing field length is `8 + name_length`. The native builder includes
 sessions with the online-state byte set and nonempty names. It has no
@@ -550,7 +580,7 @@ client of the SynHX family accepts or requires.
 Evidence: V032–V034, M007; `10011870` and the preserved historical SynHX server
 source `rcv.c`.
 
-### User Appearance and Updates (Transaction 301 & 302) – Server Initiates
+### User appearance and updates (Transaction 301 & 302) – server initiates
 
 **301:** the inspected settings-update builder sends fields user ID 103, icon
 104, colour/status 112 and name 102. Recipient filtering, self-inclusion and
@@ -569,7 +599,7 @@ refusal flags, are now assembly-checked in the presence supplement.
 
 Evidence: V035, V048; `10004f30`, `10005000`.
 
-### Viewing User Info (Transaction 303) – Client Initiates
+### Viewing user info (Transaction 303) – client initiates
 
 **Request:** target user ID 103. The handler checks privilege bit 24.
 
@@ -587,7 +617,7 @@ field 103.
 
 Evidence: V036; `10016150`.
 
-### Changing User Settings (Transaction 304) – Client Initiates
+### Changing user settings (Transaction 304) – client initiates
 
 The handler uses the same settings helper as transaction 121, reading
 102/104/113/215. It does not implement an established “update only the supplied
@@ -624,9 +654,9 @@ and from broader durability or encoding requirements.
 
 Evidence: V028, V037–V038; `10016ad0`, `10004d50`, `10004f30`.
 
-## Chat (Public and Private Chat Rooms)
+## Chat (public and private chat rooms)
 
-### Sending a Chat Message (Transaction 105) – Client Initiates
+### Sending a chat message (Transaction 105) – client initiates
 
 **Request:** text 101, optional chat ID 114 and chat option 109.
 
@@ -638,7 +668,7 @@ handler. A denied send can produce a type-104 notice instead of an error ACK.
 
 Evidence: V039; `1000fc20`.
 
-### Receiving a Chat Message (Transaction 106) – Server Initiates
+### Receiving a chat message (Transaction 106) – server initiates
 
 **Notification:** formatted data 101 and, on the room-specific path, chat ID
 114. Do not assume a separate sender UID exists in every chat message or infer
@@ -649,7 +679,7 @@ remains separate.
 
 Evidence: V039, V048; `1000fc20`.
 
-### Joining a Chat Room (Transaction 115) – Client Initiates
+### Joining a chat room (Transaction 115) – client initiates
 
 **Request:** chat ID 114.
 
@@ -660,7 +690,7 @@ direct error reply. This is an explicit second context where field 300 repeats.
 
 Evidence: V014, V040; `100183c0`.
 
-### Leaving a Chat Room (Transaction 116) – Client Initiates
+### Leaving a chat room (Transaction 116) – client initiates
 
 **Request:** chat ID 114.
 
@@ -670,7 +700,7 @@ identified. Disconnect-driven cleanup beyond this request path is unresolved.
 
 Evidence: V041 and the captured handler `10018620`.
 
-### Chat Room Notifications (Transactions 117 & 118) – Server Initiates
+### Chat room notifications (Transactions 117 & 118) – server initiates
 
 The inspected join/leave send sites construct:
 
@@ -682,7 +712,7 @@ profile-change or client-rendering case.
 
 Evidence: V040–V041; `100183c0`, `10018620`.
 
-### Chat Invitations (Transactions 112, 113, 114) – Private Chats
+### Chat invitations (Transactions 112, 113, 114) – private chats
 
 **112 — create chat:** reads repeated target-user field 103. It checks
 private-chat creation permission, creates a room containing the inviter, sends
@@ -705,7 +735,7 @@ family.
 
 Evidence: V042–V043, M005; `10017f30`, `100188e0`, `10018340`.
 
-### Chat Subject Management (Transactions 119 & 120)
+### Chat subject management (Transactions 119 & 120)
 
 **120 — set subject:** request fields chat ID 114 and subject 115. The handler
 updates room state and sends notification **119** with fields 114/115. No
@@ -714,9 +744,9 @@ authorization and client presentation semantics remain unresolved.
 
 Evidence: V041; `10018760`.
 
-## Private Messaging (Instant Messages)
+## Private messaging (instant messages)
 
-### Sending an Instant Message (Transaction 108) – Client Initiates
+### Sending an instant message (Transaction 108) – client initiates
 
 **Request:** recipient user ID 103, option 113, text 101 and optional quoted
 text 214. In this message context, option values are enumerants:
@@ -727,6 +757,9 @@ text 214. In this message context, option values are enumerants:
 | 2     | Refuse-message notice |
 | 3     | Refuse-chat notice    |
 | 4     | Automatic response    |
+
+_Table 11: Option values of the transaction 108 instant message, with their
+interpreted cases._
 
 Do not infer that arbitrary bit combinations have meaningful semantics. The
 handler checks **private-message privilege bit 40**.
@@ -748,7 +781,7 @@ or a universal cross-socket arrival-order guarantee.
 
 Evidence: V030, V043–V045; `1000f4e0`.
 
-### Receiving a Private Message (Transaction 104) – Server Initiates
+### Receiving a private message (Transaction 104) – server initiates
 
 The inspected routed-message path builds sender UID 103, name 102, option 113,
 text 101 and optional quoted text 214. Refusal/auto-response paths construct
@@ -777,7 +810,7 @@ confirms.
 
 Evidence: V043–V048, V071–V072.
 
-### Legacy Message Board (Transactions 101, 102, 103)
+### Legacy message board (Transactions 101, 102, 103)
 
 These operations remain implemented in the 1.9 binary alongside threaded news:
 
@@ -802,7 +835,7 @@ gives the measured boundaries and remaining limits.
 
 Evidence: V047; `1000f130`, `1000f260`.
 
-## File Services (Files and Folders)
+## File services (files and folders)
 
 The control transactions below negotiate operations and transfers. Exact path,
 file-list, resume and flattened-fork formats remain incomplete. The native
@@ -817,7 +850,7 @@ observations are retained separately.
 
 Evidence: V049–V060.
 
-### Listing Files in a Folder (Transaction 200) – Client Initiates
+### Listing files in a folder (Transaction 200) – client initiates
 
 **Request:** path 202. The handler treats paths shorter than six bytes as the
 root/no-path case and delegates listing construction.
@@ -830,7 +863,7 @@ strings or guessed folder IDs.
 
 Evidence: V049–V050; `100100a0`, `1002b0e0`.
 
-### Downloading a File (Transaction 202) – Client Initiates
+### Downloading a file (Transaction 202) – client initiates
 
 **Request:** file name 201, path 202, optional resume data 203 and transfer
 options 204. The handler checks file-download permission.
@@ -861,7 +894,7 @@ connection without an additional numbered control ACK.
 
 Evidence: V051; `100121a0`.
 
-### Uploading a File (Transaction 203) – Client Initiates
+### Uploading a file (Transaction 203) – client initiates
 
 **Request:** file name 201, path 202, transfer options 204 and transfer size
 108. The handler checks file-upload permission. Options value **1** selects
@@ -877,7 +910,7 @@ is established by this baseline.
 
 Evidence: V052; `100130f0`.
 
-### Deleting a File (Transaction 204) – Client Initiates
+### Deleting a file (Transaction 204) – client initiates
 
 **Request:** name 201 and path 202.
 
@@ -893,7 +926,7 @@ trace the calls.
 
 Evidence: V053; `100140e0`.
 
-### Creating a New Folder (Transaction 205) – Client Initiates
+### Creating a new folder (Transaction 205) – client initiates
 
 **Request:** optional name 201 and structured path 202. Missing/empty name can
 select the last path component as the new leaf; an existing root/target is not
@@ -912,7 +945,7 @@ alias containment and general filesystem failures remain separate requirements.
 
 Evidence: V053; `100143f0`.
 
-### Getting File/Folder Info (Transaction 206) – Client Initiates
+### Getting file/folder info (Transaction 206) – client initiates
 
 **Request:** name 201 and path 202.
 
@@ -932,7 +965,7 @@ field-presence examples.
 
 Evidence: V017, V054; `10016ba0`.
 
-### Setting File/Folder Info (Transaction 207) – Client Initiates
+### Setting file/folder info (Transaction 207) – client initiates
 
 **Request:** current name 201, path 202, new name 211 and/or comment 210.
 
@@ -953,7 +986,7 @@ its bounded quiet windows do not establish every later refresh.
 
 Evidence: V053 and the captured handler `100170c0`.
 
-### Moving Files/Folders (Transaction 208) – Client Initiates
+### Moving files/folders (Transaction 208) – client initiates
 
 **Request:** name 201, source path 202 and destination path 212. The
 [field-specific path contracts](native-wire-details.md#field-212-files-destinations)
@@ -969,7 +1002,7 @@ validation rather than guessed defaults.
 
 Evidence: V053 and the captured handler `100177d0`.
 
-### Creating an Alias (Shortcut) (Transaction 209) – Client Initiates
+### Creating an alias (shortcut) (Transaction 209) – client initiates
 
 **Request:** source name 201, source path 202 and destination path 212.
 
@@ -983,7 +1016,7 @@ classified unattached. Genuine deleted-target behaviour remains unresolved.
 
 Evidence: V053 and the captured handler `10017c10`.
 
-### Downloading an Entire Folder (Transaction 210) – Client Initiates
+### Downloading an entire folder (Transaction 210) – client initiates
 
 **Request:** name 201, path 202; the handler also reads resume data 203 and
 options 204.
@@ -1004,7 +1037,7 @@ distinct contract.
 
 Evidence: V055, V057; `10012850`.
 
-### Uploading an Entire Folder (Transaction 213) – Client Initiates
+### Uploading an entire folder (Transaction 213) – client initiates
 
 **Request:** name 201, path 202, options 204, transfer size 108 and item count
 220.
@@ -1024,7 +1057,7 @@ upload is not a symmetric inverse of folder download.
 
 Evidence: V056–V057; `10013930`.
 
-### Banner Download (Transaction 212) – Client Initiates
+### Banner download (Transaction 212) – client initiates
 
 **Request:** no directly required fields were identified.
 
@@ -1043,7 +1076,7 @@ observation; general reset and mxd policy remain open.
 
 Evidence: V025, V058; `10012f40`, `1000bd20`.
 
-### Transfer Connection and Reference Cleanup
+### Transfer connection and reference cleanup
 
 The inspected incoming-transfer acceptor waits for a **16-byte** header, checks
 `HTXF`, then uses reference parity and a selector halfword to choose a transfer
@@ -1064,9 +1097,9 @@ operation name remain open.
 
 Evidence: V059–V061; `1000bd20`, `10013040`.
 
-## News (Bulletin Board System)
+## News (bulletin board system)
 
-### News Hierarchy
+### News hierarchy
 
 The server implements category/folder listing, article listing, article data,
 posting and deletion. A fixed four-tier hierarchy, all parent/child
@@ -1075,7 +1108,7 @@ old 101/102/103 board remains separate and implemented.
 
 Evidence: V047, V062–V066.
 
-### Listing News Categories (Transaction 370) – Client Initiates
+### Listing news categories (Transaction 370) – client initiates
 
 **Request:** news path 325. The handler uses its top-level listing path when
 fewer than six path bytes are supplied. The
@@ -1096,7 +1129,7 @@ identified historical-peer evidence are distinguished explicitly.
 
 Evidence: V062; `100102c0`, `10005710`.
 
-### Listing News Articles (Transaction 371) – Client Initiates
+### Listing news articles (Transaction 371) – client initiates
 
 **Request:** category path 325.
 
@@ -1110,7 +1143,7 @@ unsigned flavour lengths and exact cached/rebuilt bytes.
 
 Evidence: V063; `10011370`, `100059e0`.
 
-### Reading a News Article (Transaction 400) – Client Initiates
+### Reading a news article (Transaction 400) – client initiates
 
 **Request:** path 325, article ID 326 and flavour 327.
 
@@ -1126,6 +1159,8 @@ Evidence: V063; `10011370`, `100059e0`.
 | 327       | Flavour                            |
 | 333       | Body, when nonempty                |
 
+_Table 12: Fields of the transaction 400 reply, with their observed roles._
+
 Absent links map to zero. Navigation follows same-level sibling links, while
 list serialization traverses children before the next sibling. Native-created
 news dates use the fixed-1904-year representation. See
@@ -1139,7 +1174,7 @@ coarse invalid-category error; it does not prove the category is absent.
 
 Evidence: V064; `10011580`, `10005ac0`.
 
-### Posting a News Article (Transaction 410) – Client Initiates
+### Posting a news article (Transaction 410) – client initiates
 
 **Request:** path 325, article/parent-related ID 326, title 328, flags 334,
 flavour 327 and body 333.
@@ -1161,7 +1196,7 @@ shows that posting a 102nd child can return success while bypassing the 101st
 child in list traversal. The bypassed article remains indexed and directly
 readable. Category counts and article-list cardinalities can therefore differ.
 
-### Deleting a News Article (Transaction 411) – Client Initiates
+### Deleting a news article (Transaction 411) – client initiates
 
 **Request:** path 325, article ID 326 and optional recursive boolean 337.
 
@@ -1177,13 +1212,16 @@ Forced interrupted-storage atomicity and restart durability remain unproved.
 
 Evidence: V065–V066; `100108a0`.
 
-### Managing News Structure (Transactions 380, 381, 382) – Client Initiates (Admin/Mods)
+### Managing news structure (Transactions 380, 381, 382) – client initiates (admin/mods)
 
 | Request                   | Directly read fields | Observed result                                     |
 | ------------------------: | -------------------- | --------------------------------------------------- |
 | 380: delete news item     | Path 325             | Success/error ACK; folder/category permission paths |
 | 381: create news folder   | Name 201, path 325   | Success/error ACK; privilege 36                     |
 | 382: create news category | Name 322, path 325   | Success/error ACK; privilege 34                     |
+
+_Table 13: Transactions 380, 381 and 382, with their directly read fields and
+observed results._
 
 Deletion rejects the configured root, checks bit 37 for native directories and
 bit 35 for ordinary files, then moves the object to native Trash. Creation
@@ -1195,9 +1233,9 @@ two-level hierarchy or permanent recursive erase is established.
 
 Evidence: V065–V066; `10010b70`, `10010ee0`, `10011110`.
 
-## Administrative Functions
+## Administrative functions
 
-### User Account Management – Client Initiates (Admin) (Tx 350–353)
+### User account management – client initiates (admin) (Tx 350–353)
 
 These are request/reply operations with permission checks:
 
@@ -1207,6 +1245,9 @@ These are request/reply operations with permission checks:
 | 351: delete account | Login 105                                                      | Success/error ACK             |
 | 352: get account    | Uncomplemented lookup name 105                                 | Account fields or error reply |
 | 353: update account | Name 102, login 105, password 106, bitmap 110, extra field 111 | Success/error ACK             |
+
+_Table 14: Input fields of account transactions 350 to 353, with the reply
+behaviour of each._
 
 The meaning of extra field **111** is unresolved. The inspected
 [Classic account constructors](../accounts-and-privileges/classic-account-constructors.md)
@@ -1247,7 +1288,7 @@ The original accounts are not used as deletion targets.
 
 Evidence: V067–V070; `100146f0`, `100149e0`, `10014bc0`, `10014df0`.
 
-### Disconnecting a User (Transaction 110 & 111) – Admin/Server Use
+### Disconnecting a user (Transaction 110 & 111) – admin/server use
 
 **110 request:** target UID 103, option 113 and optional data 101. The handler
 checks requester privilege 22 and target protection privilege 23.
@@ -1296,7 +1337,7 @@ record the producer and the distinct temporary/persisted address-ban branches.
 
 Evidence: V071–V072; `10015e70`.
 
-### Broadcasting a Message (Transaction 355) – Admin/Server Initiated
+### Broadcasting a message (Transaction 355) – admin/server initiated
 
 **Client request:** data 101. The handler checks broadcast privilege 32.
 
@@ -1311,7 +1352,7 @@ schema. Client presentation and delivered sequences still require fixtures.
 
 Evidence: V046, V048; `1000f990`.
 
-### Additional Admin Privileges Note
+### Additional admin privileges note
 
 A named privilege or an available transaction is not evidence of an
 unrestricted admin override. In particular, entering or closing arbitrary
@@ -1320,7 +1361,7 @@ interaction remain unresolved beyond the explicit checks recorded above.
 
 Evidence: V070, V073.
 
-## Additional Observed Requests and Scope Gaps
+## Additional observed requests and scope gaps
 
 The inspected dispatcher contains **45 request handlers**, including operations
 omitted from the previous guide:
@@ -1331,6 +1372,9 @@ omitted from the previous guide:
 | 348  | Account enumeration; repeated 101 values contain account TLVs, with native fixtures                            | Historical name and wider snapshot atomicity               |
 | 349  | Captured sequential nested account mutations, permission/default rules and partial effects                     | Protected identity variants and arbitrary storage failures |
 | 500  | Handler sends an empty direct ACK; [one modern client](request-500-contract.md) uses it after a quiet interval | Historical-client behaviour and universal scheduling       |
+
+_Table 15: Established observations and remaining uncertainty for each
+additional request, by type._
 
 The [operation contracts](operation-contracts.md) catalogue all 45 handlers,
 normal reply directions, session-state eligibility and the recovered 348/349
@@ -1368,7 +1412,7 @@ validate it against the intended peers.
 
 Evidence: V001, V048–V074, M002–M009.
 
-## References and Correction Traceability
+## References and correction traceability
 
 - [Baseline validity ledger][ledger]: immutable pre-correction claims,
   addresses, input snapshots and remaining validation work.

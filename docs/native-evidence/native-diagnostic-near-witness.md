@@ -1,13 +1,20 @@
 # Native 1.9 diagnostic near-boundary observation
 
-The [A12 corpus][a12] retains one **failed capture** against Hotline Server 1.9
-and its independently completed restoration postflight. The capture did record
-two successful transaction 303 replies before it failed:
+The [A12 corpus][a12] retains one **failed capture** against
+[Hotline Server 1.9](../glossary.md#hotline-server-19) and its independently
+completed restoration postflight. The capture did record two successful
+transaction 303 replies before it failed:
+
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 | Point                          | Native field 101 | Complete active rows | Complete waiting rows |
 | ------------------------------ | ---------------: | -------------------: | --------------------: |
 | Eight active / eight waiting   | 763 bytes        | 8                    | 8                     |
 | Eight active / sixteen waiting | **995 bytes**    | 8                    | 16                    |
+
+_Table 1: Native field 101 size and complete row counts at the two points of
+the near-boundary capture where 303 replies succeeded._
 
 The exact raw field bytes are in `near/report.json`. All 24 transaction 202
 replies have distinct four-byte references; the sixteen waiting replies carry
@@ -59,6 +66,12 @@ python3 ../hotline-protocol-docs/scripts/protocol_capture.py verify "$a12/near"
 python3 ../hotline-protocol-docs/scripts/protocol_capture.py verify "$a12/postflight"
 python3 "$a12/verify_partial.py" > /tmp/a12-partial-replay.json
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run,
+> including the `/tmp` redirection. The capture tool,
+> `scripts/protocol_capture.py`, is still held at the earlier lint rules
+> (`scripts/legacy-modules.txt`), so its `verify` commands are unchanged. The
+> evidence-held `verify_partial.py` is not edited.
 
 The first capture verification reports `failed; 94 actions` as expected. The
 partial checker reports `positive-partial-observation; capture-failed` and must

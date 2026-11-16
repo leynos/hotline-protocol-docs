@@ -4,6 +4,9 @@
 authorized by this packet. This is one finite GAP-019 diagnostic cell, not a
 general string-limit experiment.
 
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
+
 ## Evidence and prediction
 
 - Retained A12 `native-diagnostic-near-01/near/report.json` records successful
@@ -69,6 +72,9 @@ complemented `admin`/`mothra19`, version `00be`, name
 | Boundary | 202 ID136, same field201; then 303 ID140 field103=own UID BE16                                                                  | Queue position17, eight active/seventeen waiting; complete status0 field101/102, field101 expected 1024 if all 17 rows are 29 bytes. Record actual byte count and raw text; any discrepancy is evidence, not a reason to adjust the case.                                                             |
 | Plus one | 304 ID150 fields102=`framing-fixtureX` (16 bytes), 104=`0001`; then 500 ID151 with zero fields; then 303 ID152 field103=own UID | 304 has no success ACK. Require self 301 with UID/name/icon, then direct 500 ACK ID151 as same-socket barrier. Field101 has 1025 predicted _unbounded_ input and must be measured for status, length and exact prefix/clipping; field102 should carry the 16-byte name.                               |
 | Teardown | No 214 cancellation requests; close eight owned data sockets, then control socket                                               | Retain all host/guest tails, FIN/RST and zero-drop recorder receipts. Independently verify zero active/waiting and original options, accounts, Files and fork hashes in a fresh bounded postflight. Teardown or postflight failure keeps the **whole case failed**, even if a 303 reply was received. |
+
+_Table 1: The planned wire actions of the 303 boundary case, in order, with the
+observation each requires._
 
 The existing `native_diagnostic_existing_cases` constructors `roster`,
 `request`, `diagnostic`; `native_queue_cases.session/attach`; and

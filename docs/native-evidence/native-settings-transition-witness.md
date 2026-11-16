@@ -2,11 +2,15 @@
 
 The
 [portable A33 corpus](../../evidence/gap-remediation/2026-11-13/native-settings-transitions-01/manifest.json)
-records one eight-stage transaction 304 sequence between exact full A7
-preflight and postflight readbacks. The pinned server binary has SHA-256
+records one eight-stage transaction 304 sequence between exact full
+[A7](../glossary.md#a7-readback) preflight and postflight readbacks. The pinned
+server binary has SHA-256
 `ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`. This is
 measured behaviour of that server and these inputs. It does not close the
 unchanged GAP-029/030 criteria by itself.
+
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 The subject used the existing admin account. Its 354 bitmap was
 `fff3cfefff800000`, with naming privilege bit 26 set under the documented
@@ -30,6 +34,9 @@ ACK/quiet barriers. The live runner checked identity before any 304 and each
 | Disable absent | 102=`A32-Off-A`, 104=11, 113 absent                  | Same name/icon; no auto 104                      |
 | Disable zero   | 102=`A32-Off-Z`, 104=12, 113=0                       | Same name/icon; no auto 104                      |
 | Re-enable      | 102=`A32-Reenable`, 104=13, 113=4, 215 absent        | Same name/icon; default option-4 text            |
+
+_Table 1: The eight 304 stages, with their inputs and the measured 301 name,
+icon and PM feedback._
 
 In every stage the original option-1 PM reached the subject. The default
 field-101 bytes were exactly ASCII
@@ -69,6 +76,11 @@ python3 -m unittest discover -s \
   evidence/gap-remediation/2026-11-13/native-settings-transitions-01 \
   -p test_verify_packets.py
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> verifier is held in the evidence tree, which is not edited, so it has not
+> been brought to the repository's Python standard. The corpus is checked by
+> `make evidence-verify`, which runs its unittest in the legacy layout.
 
 The observed 304 sequence does not test agreement transaction 121, re-login,
 process restart, account-file durability or general non-ASCII text encoding. The

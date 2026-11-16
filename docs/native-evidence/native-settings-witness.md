@@ -1,13 +1,16 @@
 # Native 1.9 settings field 113 witness
 
 This is one bounded live matrix for transaction 304, field 113, against the
-exact Hotline Server 1.9 binary SHA-256
+exact [Hotline Server 1.9](../glossary.md#hotline-server-19) binary SHA-256
 `ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`. The retained
 [corpus](../../evidence/gap-remediation/2026-11-13/native-settings-01/manifest.json)
 contains ten source/as-run plans, reports, host/guest PCAPs, packet tails,
-execution receipts and exact A7 preflight/postflight readbacks. The frozen
-capture was made on the original Mac guest; this document can be checked
-offline without starting that guest.
+execution receipts and exact [A7](../glossary.md#a7-readback)
+preflight/postflight readbacks. The frozen capture was made on the original Mac
+guest; this document can be checked offline without starting that guest.
+
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 | 304 field 113 input                                          | Measured effective flags | PM observation                     |
 | ------------------------------------------------------------ | -----------------------: | ---------------------------------- |
@@ -21,6 +24,9 @@ offline without starting that guest.
 | Five-byte `00000001ff`                                       | 1                        | Suppressed; refusal option 2       |
 | Duplicate `0001`, then `0004`                                | 1                        | Suppressed; refusal option 2       |
 | Duplicate `0004`, then `0001`, interleaved identical 104/102 | 1                        | Suppressed; refusal option 2       |
+
+_Table 1: The 304 field 113 inputs, with the measured effective flags and the
+observed PM outcome for each._
 
 The three-byte value defaults to zero and the five-byte value uses its first
 four bytes in these **304/113 cases**. Both duplicate orders selected one in
@@ -62,6 +68,12 @@ python3 ../hotline-protocol-docs/scripts/verify_native_settings_corpus.py \
 python3 -m unittest discover -s ../hotline-protocol-docs/scripts \
   -p test_native_settings_corpus.py
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> verifier and its test are still held at the earlier lint rules
+> (`scripts/legacy-modules.txt`), so they have not been brought to the
+> repository's Python standard. The same corpus is checked by
+> `make evidence-verify`, and the test runs under `make test-legacy`.
 
 This packet adds field-113 rows to GAP-015/016/017. The combined
 [scalar registry](../protocol/native-wire-details.md#core-scalar-width-registry)

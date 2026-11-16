@@ -11,35 +11,43 @@ confirmed binary defects, security severity ratings or mxd test failures.
 
 ## Scope, evidence and status
 
-Revision 94 follows the reconciliation pass. Statements that contradicted the
-register keep their wording and gain a dated status note beneath them; two
-working records gain a record note; loose uses of the SynHX family name say
-which program or class of peer is meant; general toolset set-up guidance is
-replaced by links to the toolset's guides, with project-specific facts kept.
-No heading or anchor changed, so each section corresponds by position to its
-predecessor in revision 93. No gap, question, status or closure criterion
-changed. Revision 93 follows the consolidation of the eight mxd notes into six
-documents under docs/mxd/. Every claim of the old notes was inventoried and
-lands once in the new set; where the notes disagreed, both statements are kept
-and marked Unreconciled. Each old section maps to the new section that holds
-most of its content, which the gap sources follow; every new section that took
-content from an old section inherits that section's review coverage, so the
-number of reviewed sections rises with the finer structure. No gap, question,
-status or closure criterion changed. Revision 92 follows the move of the
-documents into sets under docs/. Each document keeps its file name and
-headings; only the targets of relative links changed, and prose was rewrapped
-where a link grew longer, so each section corresponds to the same section at
-its new path. Revision 91 follows the publication of the general capture
-toolset. The only change to the input documents is that their thirteen links
-to that toolset's guides became commit permalinks; no heading or anchor
-changed, so each section corresponds by position to its predecessor in
-revision 90. Revision 90 follows the move of the evidence into the
-documentation repository. It preserves all 87 original closure criteria and
-every prior question and status string. The 102 input documents were reflowed
-to 80 columns, corrected to Oxford spelling and had their evidence links
-pointed at the in-repository evidence tree; no heading or anchor changed, so
-each section corresponds by position to its predecessor in revision 89. No new
-native protocol observation or gap closure; mxd validation stays held.
+Revision 95 follows the style pass. Every table gained a caption; headings
+were put in sentence case by changing letter case only, so every anchor is
+unchanged; each document gained one cross-reference to its set overview and
+the glossary; dated records gained notes beside quoted commands that no longer
+run as written; the ledger of remaining work summarizes the operator packets;
+and links to the capture toolset point at its current commit. Each section
+corresponds by position to its predecessor in revision 94. No gap, question,
+status or closure criterion changed. Revision 94 follows the reconciliation
+pass. Statements that contradicted the register keep their wording and gain a
+dated status note beneath them; two working records gain a record note; loose
+uses of the SynHX family name say which program or class of peer is meant;
+general toolset set-up guidance is replaced by links to the toolset's guides,
+with project-specific facts kept. No heading or anchor changed, so each
+section corresponds by position to its predecessor in revision 93. No gap,
+question, status or closure criterion changed. Revision 93 follows the
+consolidation of the eight mxd notes into six documents under docs/mxd/. Every
+claim of the old notes was inventoried and lands once in the new set; where
+the notes disagreed, both statements are kept and marked Unreconciled. Each
+old section maps to the new section that holds most of its content, which the
+gap sources follow; every new section that took content from an old section
+inherits that section's review coverage, so the number of reviewed sections
+rises with the finer structure. No gap, question, status or closure criterion
+changed. Revision 92 follows the move of the documents into sets under docs/.
+Each document keeps its file name and headings; only the targets of relative
+links changed, and prose was rewrapped where a link grew longer, so each
+section corresponds to the same section at its new path. Revision 91 follows
+the publication of the general capture toolset. The only change to the input
+documents is that their thirteen links to that toolset's guides became commit
+permalinks; no heading or anchor changed, so each section corresponds by
+position to its predecessor in revision 90. Revision 90 follows the move of
+the evidence into the documentation repository. It preserves all 87 original
+closure criteria and every prior question and status string. The 102 input
+documents were reflowed to 80 columns, corrected to Oxford spelling and had
+their evidence links pointed at the in-repository evidence tree; no heading or
+anchor changed, so each section corresponds by position to its predecessor in
+revision 89. No new native protocol observation or gap closure; mxd validation
+stays held.
 
 The corrected documents deliberately contain unresolved statements. Unanswered
 entries refine those into actionable questions. Missing and Ambiguous entries
@@ -95,117 +103,117 @@ they do not imply the unknown question has already been answered.
 
 ## Input provenance
 
-Audit captured at `2026-11-16T01:23:41.458994+00:00`. The source checkout has
-Git HEAD `51a7db3c7d3a65026c696d6f094d476321d34584`. The audit manifest
+Audit captured at `2026-11-16T10:29:14.394526+00:00`. The source checkout has
+Git HEAD `202c1164d1f14798404bd348295cc44998813f85`. The audit manifest
 records its worktree status. The hashes below identify the actual reviewed
 worktree contents; HEAD alone does not. Source line ranges in entries refer to
 the frozen snapshots, while section links point to the current documents.
 
 | Reviewed input | SHA-256 | Frozen copy |
 | --- | --- | --- |
-| [docs/protocol/protocol.md](docs/protocol/protocol.md) | `d350267e22935fe65b943d82e260141bec7f75a69735787b22ee6a3af29d4e58` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/protocol/protocol.md.txt) |
-| [docs/provenance/baseline-correction-map.md](docs/provenance/baseline-correction-map.md) | `0a9ab27ea27bee56de76891b8ed4a73eddfe81aff4d04faef7404c95f59a4ebe` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/provenance/baseline-correction-map.md.txt) |
-| [docs/protocol/native-wire-details.md](docs/protocol/native-wire-details.md) | `12f283760fdec6448f1e26c78f86c9d4f2783e376d1386f5c4146ac0edd47656` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/protocol/native-wire-details.md.txt) |
-| [docs/protocol/operation-contracts.md](docs/protocol/operation-contracts.md) | `01baa96b05a76636998de91d9cdce70c739c717850cfd21cedd18c5775cb4816` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/protocol/operation-contracts.md.txt) |
-| [docs/files-and-transfers/transfer-contracts.md](docs/files-and-transfers/transfer-contracts.md) | `5fa179bca869e9ba3c223eaab073a371b8d0ef601d82cac0492a1f76bfdbc169` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/files-and-transfers/transfer-contracts.md.txt) |
-| [docs/news/news-contracts.md](docs/news/news-contracts.md) | `89f0521ea7d7675364bb2e81f1c37d693114de8d3e79d5efd32c54cfb28a8852` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/news/news-contracts.md.txt) |
-| [docs/presence-and-messaging/presence-messaging-contracts.md](docs/presence-and-messaging/presence-messaging-contracts.md) | `55138bf856467f6ea49f68eb5b095d37eb3050701180616f95a3503c1aee00ea` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/presence-and-messaging/presence-messaging-contracts.md.txt) |
-| [docs/protocol/core-field-schemas.md](docs/protocol/core-field-schemas.md) | `e0d2418fe02f619c960d2e47b4db83f98d14dcb36b1ce246f2a5d77762aecb46` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/protocol/core-field-schemas.md.txt) |
-| [docs/protocol/session-transport-contracts.md](docs/protocol/session-transport-contracts.md) | `dce6d45b0140633a9549b6a1717c945913377bdb8fa821b9427009acd0192baa` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/protocol/session-transport-contracts.md.txt) |
-| [docs/files-and-transfers/filesystem-and-board-contracts.md](docs/files-and-transfers/filesystem-and-board-contracts.md) | `60d46465faa31a033298a8ee613c96564441de50f6bd7385bcb6b079b3a709f2` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/files-and-transfers/filesystem-and-board-contracts.md.txt) |
-| [docs/provenance/evidence-portability.md](docs/provenance/evidence-portability.md) | `2c4043290bf6fc55e55cf8760741716fbf5593c4d1f533e6f03907163796ed14` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/provenance/evidence-portability.md.txt) |
-| [docs/protocol/error-outcomes.md](docs/protocol/error-outcomes.md) | `ee1c583381e8db2d7a136f79509631288e0f724a832be90d061b62d070c69fb0` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/protocol/error-outcomes.md.txt) |
-| [docs/peers/identified-client-source.md](docs/peers/identified-client-source.md) | `bc00f42c3627fa6d4930c27d23ebc9e9a3589ea23ce976eea70057886150aae5` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/peers/identified-client-source.md.txt) |
-| [docs/accounts-and-privileges/privilege-contracts.md](docs/accounts-and-privileges/privilege-contracts.md) | `5d198f7b2f22357fe2cead3da6aa5b0f7d4b5e8922c8c6f7935de335980bda51` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/accounts-and-privileges/privilege-contracts.md.txt) |
-| [docs/native-evidence/native-capture-workflow.md](docs/native-evidence/native-capture-workflow.md) | `74b65c94892ea4a8852f66df3988a16c60c942e6af757454e92740334584a0ff` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-capture-workflow.md.txt) |
-| [docs/protocol/diagnostic-replies.md](docs/protocol/diagnostic-replies.md) | `f2c03d0b852bd2d7405e558bb9d415d23e759a0c0b622b412acc75daa0b9440b` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/protocol/diagnostic-replies.md.txt) |
-| [docs/peers/peer-tolerance-matrix.md](docs/peers/peer-tolerance-matrix.md) | `aaef27d67ba48f20efa164163c53017f83727c964e5ce6707df7565d8813dbd8` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/peers/peer-tolerance-matrix.md.txt) |
-| [docs/protocol/bitmap-boundaries.md](docs/protocol/bitmap-boundaries.md) | `75afcc77befdf3d08362fcf45eb52d2e317a79ac4abc5919397a2c13a1d6a7fe` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/protocol/bitmap-boundaries.md.txt) |
-| [docs/accounts-and-privileges/account-attribute-trace.md](docs/accounts-and-privileges/account-attribute-trace.md) | `c488f7db10cf1a0af251fca806170445b748c06dd1f6093243f3b5d01eda4a9e` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/accounts-and-privileges/account-attribute-trace.md.txt) |
-| [docs/protocol/failure-representatives.md](docs/protocol/failure-representatives.md) | `7bf87ea7a2404f26e1f1ad02126e1e5d658471545aa5098efec1ac036ba15e44` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/protocol/failure-representatives.md.txt) |
-| [docs/native-evidence/runtime-recovery-20261113.md](docs/native-evidence/runtime-recovery-20261113.md) | `2f6d26f9f44054259f55d592913cafcd9809d42f857698d3a5cc137bb1e314a1` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/runtime-recovery-20261113.md.txt) |
-| [docs/protocol/receive-limit-origin.md](docs/protocol/receive-limit-origin.md) | `2d646973db0757cdd3f6e4649dffde1677642c69f503297ac299cb7ca7a79979` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/protocol/receive-limit-origin.md.txt) |
-| [docs/protocol/diagnostic-transfer-boundaries.md](docs/protocol/diagnostic-transfer-boundaries.md) | `205a6ed258e9b12e579b85506222982ede72e830a31822d652e76e6d806e96a6` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/protocol/diagnostic-transfer-boundaries.md.txt) |
-| [docs/peers/mac-peer-first-session.md](docs/peers/mac-peer-first-session.md) | `2c1ccded159b42d1a9d38d4ac1257237db9f60bd62e2db900f7c662f5664e53f` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/peers/mac-peer-first-session.md.txt) |
-| [docs/native-evidence/native-diagnostic-existing-preparation.md](docs/native-evidence/native-diagnostic-existing-preparation.md) | `c0229dcabe0d27688f46213216cceea4cda0733ca6822bf99b3f3e0423d65886` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-diagnostic-existing-preparation.md.txt) |
-| [docs/native-evidence/native-diagnostic-existing-witness.md](docs/native-evidence/native-diagnostic-existing-witness.md) | `a79bf76c076f0078a1cf2bbd6aec75e5ddc113341b02ea0caa720de6d6051339` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-diagnostic-existing-witness.md.txt) |
-| [docs/native-evidence/native-diagnostic-density-witness.md](docs/native-evidence/native-diagnostic-density-witness.md) | `b02edf8eea3c0894e77408905653b4c07a8efdbcabbf6cb96aad972603eee350` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-diagnostic-density-witness.md.txt) |
-| [docs/native-evidence/native-diagnostic-near-preparation.md](docs/native-evidence/native-diagnostic-near-preparation.md) | `9b0a4eb15993605aeadd86b162eb1a72def1461930fa13b2fb61cbab0f0ef9a8` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-diagnostic-near-preparation.md.txt) |
-| [docs/native-evidence/native-diagnostic-near-witness.md](docs/native-evidence/native-diagnostic-near-witness.md) | `68fccab77149ccc5d1d64b9c0ca90e9e561a03e1f583d746205cb915b2aedcfe` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-diagnostic-near-witness.md.txt) |
-| [docs/peers/mac-peer-isolated-session.md](docs/peers/mac-peer-isolated-session.md) | `68d7d95a9813f184a893c6e858c93d42a1e843ab59fb47aa4ba1457955637328` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/peers/mac-peer-isolated-session.md.txt) |
-| [docs/protocol/request-500-contract.md](docs/protocol/request-500-contract.md) | `c3d9cf3ef73e92837c923df2905ff31fae22b22ad04c3298e8c347dd5e1d8f6a` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/protocol/request-500-contract.md.txt) |
-| [docs/presence-and-messaging/native-console-broadcast.md](docs/presence-and-messaging/native-console-broadcast.md) | `f579b72fb80f7f0aaee62cb646605ba23131b7c3403e6ad7b0a96f7ee76ae91b` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/presence-and-messaging/native-console-broadcast.md.txt) |
-| [docs/peers/classic-login-proxy.md](docs/peers/classic-login-proxy.md) | `434e008586fb03db9170746c63559774359ea680ed12849da3dc21bf80c0e227` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/peers/classic-login-proxy.md.txt) |
-| [docs/native-evidence/native-pm-preparation.md](docs/native-evidence/native-pm-preparation.md) | `20d275d10d496f07c607825c8a60885a67ed8ed0bcfc9d05ab087406c8fb1c27` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-pm-preparation.md.txt) |
-| [docs/native-evidence/native-pm-witness.md](docs/native-evidence/native-pm-witness.md) | `e206495049ef4d2dc9e28586743566abc4b87f01107453fa548eba626bb24595` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-pm-witness.md.txt) |
-| [docs/presence-and-messaging/native-104-variants.md](docs/presence-and-messaging/native-104-variants.md) | `9f5e61b31e1b8e08d323b660d0038bfa44170701bb57873dfba19122dd7762d8` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/presence-and-messaging/native-104-variants.md.txt) |
-| [docs/native-evidence/native-settings-preparation.md](docs/native-evidence/native-settings-preparation.md) | `73bcd97013a7a9c3c9bbfe5c3acaf5774f09288a7ea5f7ecc51d5eebfaf1f54a` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-settings-preparation.md.txt) |
-| [docs/native-evidence/native-settings-witness.md](docs/native-evidence/native-settings-witness.md) | `04e15caa7d684082af53192c1d4fa1b08f0be4c3cef38acc4a6a16f46e49f108` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-settings-witness.md.txt) |
-| [docs/presence-and-messaging/native-ban-notices.md](docs/presence-and-messaging/native-ban-notices.md) | `b0fe9c436021a60f1e5638e50b2283aac93950487df68212802d46e46fd8ca86` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/presence-and-messaging/native-ban-notices.md.txt) |
-| [docs/protocol/parameter-multiplicity.md](docs/protocol/parameter-multiplicity.md) | `5d4ec50783a111c08082cae7bf442c62753a7699cc6c950418cc71486f80bcd7` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/protocol/parameter-multiplicity.md.txt) |
-| [docs/files-and-transfers/native-transfer-stall.md](docs/files-and-transfers/native-transfer-stall.md) | `3a3f462b587f57e782b5dc7db0cde109501fec2d7da08d37e482fada47932c96` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/files-and-transfers/native-transfer-stall.md.txt) |
-| [docs/native-evidence/native-settings-transition-prep.md](docs/native-evidence/native-settings-transition-prep.md) | `525eeb5ea5ae6fa2c9a3db5ff427373ae17cf2d01815c0c7956409acbad5354b` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-settings-transition-prep.md.txt) |
-| [docs/native-evidence/native-settings-transition-witness.md](docs/native-evidence/native-settings-transition-witness.md) | `1cb9a93485ef3eaf4bc57f464eeaf7a6138cc716715b5003722e8d90b22cf633` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-settings-transition-witness.md.txt) |
-| [docs/files-and-transfers/native-download-send-path.md](docs/files-and-transfers/native-download-send-path.md) | `9a39822ac7e263783a0d42a7d39c22d25589038fec64655e11cdb72b7eda5dc6` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/files-and-transfers/native-download-send-path.md.txt) |
-| [docs/accounts-and-privileges/classic-account-constructors.md](docs/accounts-and-privileges/classic-account-constructors.md) | `277af1fd66090119a9dfeca7d40bd5f864f9c2528a9e39ca5526ec29f852f032` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/accounts-and-privileges/classic-account-constructors.md.txt) |
-| [docs/native-evidence/native-121-default-preparation.md](docs/native-evidence/native-121-default-preparation.md) | `0fa879c6bcbbbbecfd6a8764aee0d9345ded82833576eb2ca6ef0a2c67aa076a` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-121-default-preparation.md.txt) |
-| [docs/native-evidence/native-121-default-witness.md](docs/native-evidence/native-121-default-witness.md) | `bb01e5309d66e274b2a8015eb19b00af0a564214e19f75d0faa7a331d74c1652` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-121-default-witness.md.txt) |
-| [docs/peers/classic-native-baseline.md](docs/peers/classic-native-baseline.md) | `66bd68ba4fe54ad2bfe18aea0bc398b3750ed88495e4289ac3d5dfe778a32094` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/peers/classic-native-baseline.md.txt) |
-| [docs/native-evidence/native-ui-focus-witness.md](docs/native-evidence/native-ui-focus-witness.md) | `896669b65a722b77bcc4c317ac09bd0acc7feeb4fb9cd231227387d52386b1b3` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-ui-focus-witness.md.txt) |
-| [docs/native-evidence/native-control-readiness.md](docs/native-evidence/native-control-readiness.md) | `d68bbda8237097c42bbbcb097bf4f98ca37021e5722cb86872be2924b3f00b5d` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-control-readiness.md.txt) |
-| [docs/peers/classic-field161-matrix.md](docs/peers/classic-field161-matrix.md) | `35d4307a208a32a312b5fbafc2cf0dbffbff363354ee9606eff10145e5a12826` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/peers/classic-field161-matrix.md.txt) |
-| [docs/native-evidence/native-ban-control-preparation.md](docs/native-evidence/native-ban-control-preparation.md) | `5ea9cffbbdaacaebe6575b08b42516cc78e15bc0cb36cb66e84cef20a355788b` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-ban-control-preparation.md.txt) |
-| [docs/presence-and-messaging/notification-104-variants.md](docs/presence-and-messaging/notification-104-variants.md) | `eaec8cbb788564afcc1ebd942b4946edef720d8e7ca540f852a02c8e53a73a03` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/presence-and-messaging/notification-104-variants.md.txt) |
-| [docs/peers/peer-profile-rules.md](docs/peers/peer-profile-rules.md) | `d18259ff480437008121578f0b5a4536241b6271923dc8563ca8a328f192956a` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/peers/peer-profile-rules.md.txt) |
-| [docs/native-evidence/native-settings-persistence-preparation.md](docs/native-evidence/native-settings-persistence-preparation.md) | `aa9d76df85231f569edbcb4a124d5e305a6ec48f1aaf8439b6b2aceca7a23437` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-settings-persistence-preparation.md.txt) |
-| [docs/native-evidence/native-ban-control-witness.md](docs/native-evidence/native-ban-control-witness.md) | `920d29b098813396383e114287f0fcc71c75ccd59fb4cc0e5d3ca4b8d1259c49` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-ban-control-witness.md.txt) |
-| [docs/peers/classic-server-name-162.md](docs/peers/classic-server-name-162.md) | `7241d0356b2c439a052c745acd7c2d373d8c25ce2f54ac82a57a4050ec158e96` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/peers/classic-server-name-162.md.txt) |
-| [docs/accounts-and-privileges/native-configured-ban-static.md](docs/accounts-and-privileges/native-configured-ban-static.md) | `d1e1e3b917d57292a6d06eece76409907d93c0e75d881ef49259dea9a570beb9` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/accounts-and-privileges/native-configured-ban-static.md.txt) |
-| [docs/accounts-and-privileges/native-configured-ban-ui-resources.md](docs/accounts-and-privileges/native-configured-ban-ui-resources.md) | `eeeaa11658a192b78ade7a23c74eabcb52cff8a3ee383ea669e4f35c32e9f205` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/accounts-and-privileges/native-configured-ban-ui-resources.md.txt) |
-| [docs/native-evidence/native-ban-reload-witness.md](docs/native-evidence/native-ban-reload-witness.md) | `7430721a9d3e1ddfcd7c7cf26111a328387fa71d57999d2080039b0ad4288623` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-ban-reload-witness.md.txt) |
-| [docs/native-evidence/native-settings-persistence-witness.md](docs/native-evidence/native-settings-persistence-witness.md) | `03b6f4737df6a574c2bc2426aa3cfc81339dc5fb8962033fbfad978616d79ee9` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-settings-persistence-witness.md.txt) |
-| [docs/peers/classic-roster-subject-115.md](docs/peers/classic-roster-subject-115.md) | `9e56b6853681bb83e316edbea8eae1845071d3b4b8800cfdfa3b17d2d4bb5f77` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/peers/classic-roster-subject-115.md.txt) |
-| [docs/native-evidence/native-configured-ban-preparation.md](docs/native-evidence/native-configured-ban-preparation.md) | `c97c7242969fecf5fe06e78a34b5e2a77d6df33e8338b21a829d814dd6c8564e` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-configured-ban-preparation.md.txt) |
-| [docs/native-evidence/native-configured-ban-witness.md](docs/native-evidence/native-configured-ban-witness.md) | `956b4d64bc63af6ec4fb77961c0524c55a866e1c4c6586c4eb19a23a28e52fcd` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-configured-ban-witness.md.txt) |
-| [docs/protocol/diagnostic-formatting-trace.md](docs/protocol/diagnostic-formatting-trace.md) | `0e8ac4f79c1f9c85a5ecf28fa714ed7923a31cea906a22ec069bc1b11d874fd1` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/protocol/diagnostic-formatting-trace.md.txt) |
-| [docs/accounts-and-privileges/native-ban-file-format.md](docs/accounts-and-privileges/native-ban-file-format.md) | `62632b47cd7ff150f356e3b28509ee0599bc6ea453ca3ebcaec949de46c2b529` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/accounts-and-privileges/native-ban-file-format.md.txt) |
-| [docs/native-evidence/native-ban-expiry-preparation.md](docs/native-evidence/native-ban-expiry-preparation.md) | `7133753c526ab52096f164d14bdb4bd92f9522097481638fdb238d5e213de66e` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-ban-expiry-preparation.md.txt) |
-| [docs/native-evidence/native-roster-overlap-preparation.md](docs/native-evidence/native-roster-overlap-preparation.md) | `10c2178af750867b8107aa1093a5a797a6b82428a01e986ed143054b59a1b983` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-roster-overlap-preparation.md.txt) |
-| [docs/native-evidence/native-ban-expiry-cleanup.md](docs/native-evidence/native-ban-expiry-cleanup.md) | `132020f36e2ac8d52f18a05939265ff23a4fc73d8674e48d9c9bb3dcb0a303f1` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-ban-expiry-cleanup.md.txt) |
-| [docs/native-evidence/native-ban-expiry-first-witness.md](docs/native-evidence/native-ban-expiry-first-witness.md) | `679018783d5f5b2a43a26672d45adf86eb7fe34958b9d49fc1fa1b0105f6b089` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-ban-expiry-first-witness.md.txt) |
-| [docs/native-evidence/native-ban-expiry-later-witness.md](docs/native-evidence/native-ban-expiry-later-witness.md) | `711826d41d8f856eb02cc735c6ae7da98d0b1c106a0f27ac68e4a1c5ae9100a1` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-ban-expiry-later-witness.md.txt) |
-| [docs/native-evidence/native-roster-overlap-witness.md](docs/native-evidence/native-roster-overlap-witness.md) | `0cfed8dbb7c56d8fc587ad192805a151f455ba0f4284b0ea1e0fe25d9d09d0b9` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-roster-overlap-witness.md.txt) |
-| [docs/accounts-and-privileges/account-write-ordering.md](docs/accounts-and-privileges/account-write-ordering.md) | `9272237a01f63a8b6b8f71efc2eec0a930a8fe476dac988c5ab8d626a809889b` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/accounts-and-privileges/account-write-ordering.md.txt) |
-| [docs/native-evidence/native-liveness-preparation.md](docs/native-evidence/native-liveness-preparation.md) | `18ddd7838d4702ed5afbedfe559e4ff7ed9158e2f455272181138586e43d9f17` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-liveness-preparation.md.txt) |
-| [docs/accounts-and-privileges/classic-privilege-discovery.md](docs/accounts-and-privileges/classic-privilege-discovery.md) | `6d5ebaaf41421c41d76852a269d9b3f410f6fdd7e57957b3a4f1124406e4b967` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/accounts-and-privileges/classic-privilege-discovery.md.txt) |
-| [docs/native-evidence/native-liveness-witness.md](docs/native-evidence/native-liveness-witness.md) | `a59c25d1c560eb71e0e0b78ddeeb542414f17386e01efb0ba3b47327201d43ff` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-liveness-witness.md.txt) |
-| [docs/news/legacy-board-format.md](docs/news/legacy-board-format.md) | `6684e5f552fe6034cb23ba522a8a80244857506ee6d1301b6d8600681209901c` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/news/legacy-board-format.md.txt) |
-| [docs/native-evidence/native-board-preparation.md](docs/native-evidence/native-board-preparation.md) | `6a02732b3f64f747474143d2390cfeb89e93e1f91497c36b7ba61feaa19ce2e8` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-board-preparation.md.txt) |
-| [docs/native-evidence/native-board-readiness-failure.md](docs/native-evidence/native-board-readiness-failure.md) | `c3526b028e779ee533bdd0c9026a156d093d2760ba5225614b175dce82256c49` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-board-readiness-failure.md.txt) |
-| [docs/native-evidence/native-board-witness.md](docs/native-evidence/native-board-witness.md) | `1a19cb21b0cf92f3a106223c41dda04c6704c8b1464ab09584a3cedf57ee5823` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-board-witness.md.txt) |
-| [docs/presence-and-messaging/rate304-contract.md](docs/presence-and-messaging/rate304-contract.md) | `3c8b01a257d91691c645cff013b8214c6d12a56948be858c4ee47a6f7393a069` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/presence-and-messaging/rate304-contract.md.txt) |
-| [docs/native-evidence/native-rate304-preparation.md](docs/native-evidence/native-rate304-preparation.md) | `8e19c74fc787779d9ed4c77fe0ee48ac4edfdde72c0ea031bfb7d80363b51ccb` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-rate304-preparation.md.txt) |
-| [docs/native-evidence/native-rate304-first-pair.md](docs/native-evidence/native-rate304-first-pair.md) | `44fa70f1c74c162b920edfadf51c7783e6f2c324f8116ce6c853c8ca781e7e8c` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-rate304-first-pair.md.txt) |
-| [docs/presence-and-messaging/rate304-recipient-predicate.md](docs/presence-and-messaging/rate304-recipient-predicate.md) | `7d46e521d53f0bf3da4fcda23326a8ea885ff156a628ad2c2087ef7092ad2b96` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/presence-and-messaging/rate304-recipient-predicate.md.txt) |
-| [docs/native-evidence/native-rate304-startup-gate.md](docs/native-evidence/native-rate304-startup-gate.md) | `bf8d9e6df47e0e006bde4036fd04eef3a44855e3073ea11d2a592ebe5ca820d4` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-rate304-startup-gate.md.txt) |
-| [docs/native-evidence/native-rate304-sequence.md](docs/native-evidence/native-rate304-sequence.md) | `ad7a10c765a8dd459b6ce5507e91870085b7e41aeff26439450615ef6183e1f1` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-rate304-sequence.md.txt) |
-| [docs/native-evidence/native-path-fields-preparation.md](docs/native-evidence/native-path-fields-preparation.md) | `8585c0091550f00f76c687d930e53e195c98841e73957c8de492f77eab052248` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-path-fields-preparation.md.txt) |
-| [docs/files-and-transfers/native-path-fields.md](docs/files-and-transfers/native-path-fields.md) | `fa15bb2a901411c6fe11e3090840e5955029444eff73c016ad44359238285af0` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/files-and-transfers/native-path-fields.md.txt) |
-| [docs/native-evidence/native-missing-alias-preparation.md](docs/native-evidence/native-missing-alias-preparation.md) | `7f6c85c436d31ee9213fae3265c88eeb85203e2a976f839e93d40588ac7d2243` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-missing-alias-preparation.md.txt) |
-| [docs/files-and-transfers/alias-record-v2.md](docs/files-and-transfers/alias-record-v2.md) | `9646023d1c5df3c5f8ba56a24bc07d1ac526de84078813251ddfe7409ed703ff` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/files-and-transfers/alias-record-v2.md.txt) |
-| [docs/protocol/date-contracts.md](docs/protocol/date-contracts.md) | `7d436aeca94da866e87755606af58a291f5199f22445e176b54226441e651b79` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/protocol/date-contracts.md.txt) |
-| [docs/presence-and-messaging/presence-defaults.md](docs/presence-and-messaging/presence-defaults.md) | `71ea1804c99a1eb3bde7ca88e7ffd78cd15e7f1a9b39a00bc98c2e310fad3862` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/presence-and-messaging/presence-defaults.md.txt) |
-| [docs/native-evidence/native-diagnostic-boundary-preparation.md](docs/native-evidence/native-diagnostic-boundary-preparation.md) | `a6669b6e490beeef946bde9862b6cfe7c8004fbca6ce8a9ab70298e1228b30e1` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/native-evidence/native-diagnostic-boundary-preparation.md.txt) |
-| [docs/accounts-and-privileges/privilege-bits.md](docs/accounts-and-privileges/privilege-bits.md) | `2bf64566caec71f653a0415b4983a3ead4b373a1fa5c1826e0ae85c9ab491455` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/accounts-and-privileges/privilege-bits.md.txt) |
-| [docs/mxd/validation-status.md](docs/mxd/validation-status.md) | `677fbb1894b227c3de2a88cbde31dc26911431c71afe86af84366170fefde6b1` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/mxd/validation-status.md.txt) |
-| [docs/mxd/classic-client-trials.md](docs/mxd/classic-client-trials.md) | `abc4f8d4f9e24ccd502ea13167fe2fd28a74a7c2bf161d7daf4962738a336263` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/mxd/classic-client-trials.md.txt) |
-| [docs/mxd/assertion-reconciliation.md](docs/mxd/assertion-reconciliation.md) | `19a980652d02c1219fbf5b948f0a497f6d79d688ac4db6aaa81c72db5ef1b9c2` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/mxd/assertion-reconciliation.md.txt) |
-| [docs/mxd/compatibility-matrix.md](docs/mxd/compatibility-matrix.md) | `48e3cca78c8b4b491c2fa843ae6fb83ba853658d9f8c225c72fbc9c10914b1e9` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/mxd/compatibility-matrix.md.txt) |
-| [docs/mxd/corrections.md](docs/mxd/corrections.md) | `8c29fe84b24fd02ba71c3adad85e919af44c07ca87e513816f4c08c61b9ae8aa` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/mxd/corrections.md.txt) |
-| [docs/mxd/README.md](docs/mxd/README.md) | `83d9ea6a64c32a2985db9124d25f351dc256d3d6b921e89351e8f34b6e1b8c62` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-94/inputs/docs/mxd/README.md.txt) |
+| [docs/protocol/protocol.md](docs/protocol/protocol.md) | `48e6af4debfb684aabcb3ff1f4bb4b9b0b505d2f9cb931f04b8e443cb62fe2f2` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/protocol/protocol.md.txt) |
+| [docs/provenance/baseline-correction-map.md](docs/provenance/baseline-correction-map.md) | `3ae06d48d8e2cea562b4f509ee196534dbe5c907a5c274ff2f4840e473a671be` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/provenance/baseline-correction-map.md.txt) |
+| [docs/protocol/native-wire-details.md](docs/protocol/native-wire-details.md) | `02ea2c1ea057e77370990e6129b235b32f49f4c4af95de05b41588aed3df0345` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/protocol/native-wire-details.md.txt) |
+| [docs/protocol/operation-contracts.md](docs/protocol/operation-contracts.md) | `afec21f416ebc6e995c741c64fe8b332490e90fea9eda165014c06dcbf1211fb` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/protocol/operation-contracts.md.txt) |
+| [docs/files-and-transfers/transfer-contracts.md](docs/files-and-transfers/transfer-contracts.md) | `82be8f08bcaaebc554a96b19809f1ef7c16d1f67a2c1f4e60bf0b5356213259a` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/files-and-transfers/transfer-contracts.md.txt) |
+| [docs/news/news-contracts.md](docs/news/news-contracts.md) | `2ff680175aab822b72e63f37f4daa1780f59c4ff54b77d23fdf5f104fe0e40d5` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/news/news-contracts.md.txt) |
+| [docs/presence-and-messaging/presence-messaging-contracts.md](docs/presence-and-messaging/presence-messaging-contracts.md) | `f7f0a6e11d8ad4351a6f172ef88c43e2dcfa877b48ad271e62e3cbc8a9820023` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/presence-and-messaging/presence-messaging-contracts.md.txt) |
+| [docs/protocol/core-field-schemas.md](docs/protocol/core-field-schemas.md) | `0c5e88da1454eb496e97170c13c3fff37861f8b046fee745868f7ec9c64996a6` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/protocol/core-field-schemas.md.txt) |
+| [docs/protocol/session-transport-contracts.md](docs/protocol/session-transport-contracts.md) | `c5f8dcf88343377c06f0f1cba9e4bee6ee2f85e2d81a48562ab934d60fcd7eec` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/protocol/session-transport-contracts.md.txt) |
+| [docs/files-and-transfers/filesystem-and-board-contracts.md](docs/files-and-transfers/filesystem-and-board-contracts.md) | `56261a8b2ddfcd57828f69c1711265591b3cc56f2fa9ec94bd8cf2336d50de36` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/files-and-transfers/filesystem-and-board-contracts.md.txt) |
+| [docs/provenance/evidence-portability.md](docs/provenance/evidence-portability.md) | `e8a285b9254614a0e6a00d0e585416f8ae58ccdb13bf271163a12c7f83cf4b99` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/provenance/evidence-portability.md.txt) |
+| [docs/protocol/error-outcomes.md](docs/protocol/error-outcomes.md) | `4ae8dcd5eeba2074a0614aedffec0d48264a4bdcb1fda36818607c23934b880b` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/protocol/error-outcomes.md.txt) |
+| [docs/peers/identified-client-source.md](docs/peers/identified-client-source.md) | `1bd44dcbe7de014e613e3550ca0742711143be4db2f8dd60a593f75bd6e46af6` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/peers/identified-client-source.md.txt) |
+| [docs/accounts-and-privileges/privilege-contracts.md](docs/accounts-and-privileges/privilege-contracts.md) | `68e675996ac665e3fa5f6a5725478dc9d1b418902a840865b6a4bdccf10a2c80` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/accounts-and-privileges/privilege-contracts.md.txt) |
+| [docs/native-evidence/native-capture-workflow.md](docs/native-evidence/native-capture-workflow.md) | `cc159984fb01adffbce15299ec890ca6702a35ad9a4639a290ecc7b12e3d3e1d` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-capture-workflow.md.txt) |
+| [docs/protocol/diagnostic-replies.md](docs/protocol/diagnostic-replies.md) | `eefb885115017989abff3142ffa2b88cd04154006ce3d80405c71091e9bb556d` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/protocol/diagnostic-replies.md.txt) |
+| [docs/peers/peer-tolerance-matrix.md](docs/peers/peer-tolerance-matrix.md) | `8980779b789c1296be66ab4117be6d2aa04feb501532bb30a6590baa95dbf2c7` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/peers/peer-tolerance-matrix.md.txt) |
+| [docs/protocol/bitmap-boundaries.md](docs/protocol/bitmap-boundaries.md) | `6c8f59c20a97e82d5334b0b2b92aabe58e9bf26156b0f7fa91e7dcf64a7fad21` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/protocol/bitmap-boundaries.md.txt) |
+| [docs/accounts-and-privileges/account-attribute-trace.md](docs/accounts-and-privileges/account-attribute-trace.md) | `ad8aa10e944900b6f92375aac16ded14ba01b27a2934db6fd2e1bf8cb00390d9` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/accounts-and-privileges/account-attribute-trace.md.txt) |
+| [docs/protocol/failure-representatives.md](docs/protocol/failure-representatives.md) | `dc7290c421681bc66a9b78f63894a047478f6cb97406e7acb3aad76faa8e5003` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/protocol/failure-representatives.md.txt) |
+| [docs/native-evidence/runtime-recovery-20261113.md](docs/native-evidence/runtime-recovery-20261113.md) | `19b9e72b6a91906bed2e299b3d32ac2c40166d92a6d5589c050f6c7e786b790a` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/runtime-recovery-20261113.md.txt) |
+| [docs/protocol/receive-limit-origin.md](docs/protocol/receive-limit-origin.md) | `759868dee882b850ffbdf3df3c7cf216fcfc4f85a992ab261b1ab7d7826815b5` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/protocol/receive-limit-origin.md.txt) |
+| [docs/protocol/diagnostic-transfer-boundaries.md](docs/protocol/diagnostic-transfer-boundaries.md) | `081da2e7ab2b58e416d244e6f80aa7bd01d1645f404f4e8d6433c9712b1ebb26` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/protocol/diagnostic-transfer-boundaries.md.txt) |
+| [docs/peers/mac-peer-first-session.md](docs/peers/mac-peer-first-session.md) | `d8925306e440c73f79a71a674a3c8c173e1dfd7f56703591fe18cdc804269d7e` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/peers/mac-peer-first-session.md.txt) |
+| [docs/native-evidence/native-diagnostic-existing-preparation.md](docs/native-evidence/native-diagnostic-existing-preparation.md) | `c0443d676260f4bf2de1608a929aefa38eb50d67800bb7bca74dde34f0fc64eb` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-diagnostic-existing-preparation.md.txt) |
+| [docs/native-evidence/native-diagnostic-existing-witness.md](docs/native-evidence/native-diagnostic-existing-witness.md) | `62f6b9ae9f5f422ce2bcbb6e20b25489333e7b083a49d09025e4db01315a0202` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-diagnostic-existing-witness.md.txt) |
+| [docs/native-evidence/native-diagnostic-density-witness.md](docs/native-evidence/native-diagnostic-density-witness.md) | `d95fd043e08dda2619b09d2757f3c0bc180b37a83d330a4af4d0b704897b7e37` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-diagnostic-density-witness.md.txt) |
+| [docs/native-evidence/native-diagnostic-near-preparation.md](docs/native-evidence/native-diagnostic-near-preparation.md) | `03ad4b9f79d2b8a84d060c9596c92f2da9ed809336eb401ffb9347d00c723328` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-diagnostic-near-preparation.md.txt) |
+| [docs/native-evidence/native-diagnostic-near-witness.md](docs/native-evidence/native-diagnostic-near-witness.md) | `c741943425e348dd8624842e128975af91c02e6a12ca6928ac9162c5072ba722` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-diagnostic-near-witness.md.txt) |
+| [docs/peers/mac-peer-isolated-session.md](docs/peers/mac-peer-isolated-session.md) | `0820b6c17d38f3c0013ba96c93939ec2e52880fdffad1db776bd43f6e8625a6d` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/peers/mac-peer-isolated-session.md.txt) |
+| [docs/protocol/request-500-contract.md](docs/protocol/request-500-contract.md) | `4acc65358c36285ddbfdb2846aa71722b9e12779d3d038eac44b408fa846289d` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/protocol/request-500-contract.md.txt) |
+| [docs/presence-and-messaging/native-console-broadcast.md](docs/presence-and-messaging/native-console-broadcast.md) | `e8a66044146137eb1d36fb49727f49be8cd8643a88126e777c52f70a40bd9ae4` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/presence-and-messaging/native-console-broadcast.md.txt) |
+| [docs/peers/classic-login-proxy.md](docs/peers/classic-login-proxy.md) | `356f6e3ec9af73bb2ed4779e2be24c5fdf66e0a1a73014bd33e2091de3d6a41b` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/peers/classic-login-proxy.md.txt) |
+| [docs/native-evidence/native-pm-preparation.md](docs/native-evidence/native-pm-preparation.md) | `03cd2246733f468223215ea05cef6fde4b40a85debaf8fa65665d434195c8962` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-pm-preparation.md.txt) |
+| [docs/native-evidence/native-pm-witness.md](docs/native-evidence/native-pm-witness.md) | `05637c4d62798f4ff127f61fdc69349947dbd9e225a95820d7cea5eca0e446a8` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-pm-witness.md.txt) |
+| [docs/presence-and-messaging/native-104-variants.md](docs/presence-and-messaging/native-104-variants.md) | `2820d3a7c48d5ca8332fad513bf0e6740a279612a702379f7b7b3bae7f04d21f` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/presence-and-messaging/native-104-variants.md.txt) |
+| [docs/native-evidence/native-settings-preparation.md](docs/native-evidence/native-settings-preparation.md) | `92909197be38a771b9fb82d383ea51b7245b296c77dfd7151892f498d361acbf` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-settings-preparation.md.txt) |
+| [docs/native-evidence/native-settings-witness.md](docs/native-evidence/native-settings-witness.md) | `33847e9137cd4c134cc2d1d9e713e9173a9af3ee10c8904353323cad18bbb7db` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-settings-witness.md.txt) |
+| [docs/presence-and-messaging/native-ban-notices.md](docs/presence-and-messaging/native-ban-notices.md) | `994c7a799c321e58b1d8738b584b2ec35df7577a6d266d68ef4809a6caeafe1c` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/presence-and-messaging/native-ban-notices.md.txt) |
+| [docs/protocol/parameter-multiplicity.md](docs/protocol/parameter-multiplicity.md) | `dfda16372246e645d7949c43eee09425946e9c52dff82e2bf4099eca4bee4c81` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/protocol/parameter-multiplicity.md.txt) |
+| [docs/files-and-transfers/native-transfer-stall.md](docs/files-and-transfers/native-transfer-stall.md) | `8344dac8dba0b74e0f1ad8f37672cb0cdec6db400d089fb998e1cd8f8b71163d` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/files-and-transfers/native-transfer-stall.md.txt) |
+| [docs/native-evidence/native-settings-transition-prep.md](docs/native-evidence/native-settings-transition-prep.md) | `c0786311d5b56db3bd20d40261892909ff44e8fc4069ee243b21567175bfe4b6` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-settings-transition-prep.md.txt) |
+| [docs/native-evidence/native-settings-transition-witness.md](docs/native-evidence/native-settings-transition-witness.md) | `88b91827a269591333c9a7f99729ce03dd215756d872f5818b360de9516ef7cf` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-settings-transition-witness.md.txt) |
+| [docs/files-and-transfers/native-download-send-path.md](docs/files-and-transfers/native-download-send-path.md) | `5c069fd2b5eb05e5126fd7c6082655cdae1ee89e557557415fe31e453d564161` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/files-and-transfers/native-download-send-path.md.txt) |
+| [docs/accounts-and-privileges/classic-account-constructors.md](docs/accounts-and-privileges/classic-account-constructors.md) | `4a7cf06b77fb8e1412bd481bfa18657bc23dfcb98a0c388dbe7dfec49b8cb584` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/accounts-and-privileges/classic-account-constructors.md.txt) |
+| [docs/native-evidence/native-121-default-preparation.md](docs/native-evidence/native-121-default-preparation.md) | `404e030f737eceedf5ba056a33badcf98e72f757f2b3813328626d3c2c8f1358` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-121-default-preparation.md.txt) |
+| [docs/native-evidence/native-121-default-witness.md](docs/native-evidence/native-121-default-witness.md) | `3656e6d403a264be8ca492ac7d87e5172bb310a0e32fd3560ce34a3ea50f9edf` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-121-default-witness.md.txt) |
+| [docs/peers/classic-native-baseline.md](docs/peers/classic-native-baseline.md) | `8293148592e56d7485730ff6ce89a30836c6c647f6b2ff4a480de2d326d864cc` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/peers/classic-native-baseline.md.txt) |
+| [docs/native-evidence/native-ui-focus-witness.md](docs/native-evidence/native-ui-focus-witness.md) | `e1a5280b053cf6f1630ee78b6cbd153b99ee6e9cf907cd9ea4472c2e6958923c` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-ui-focus-witness.md.txt) |
+| [docs/native-evidence/native-control-readiness.md](docs/native-evidence/native-control-readiness.md) | `d1b0bf753988bf95b7c83695d777b6151613b77b09d3d2f75ceee07e5498ada2` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-control-readiness.md.txt) |
+| [docs/peers/classic-field161-matrix.md](docs/peers/classic-field161-matrix.md) | `0f356e898cc40c797d825399ff164831f0efcf48afcc9fd9149cdcf92b06d5bc` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/peers/classic-field161-matrix.md.txt) |
+| [docs/native-evidence/native-ban-control-preparation.md](docs/native-evidence/native-ban-control-preparation.md) | `e264f4c4e33e4ba1787646eb8c0bbe4d92dae76608de23fca93c0b37111c5e68` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-ban-control-preparation.md.txt) |
+| [docs/presence-and-messaging/notification-104-variants.md](docs/presence-and-messaging/notification-104-variants.md) | `c8d3def7419f82c9668ec0f88edd1288cd5921c89e092976a673c8b3f31feb08` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/presence-and-messaging/notification-104-variants.md.txt) |
+| [docs/peers/peer-profile-rules.md](docs/peers/peer-profile-rules.md) | `f0ebbe7c375852fa50c057b3ffa5d79e662bb3e78a3b2553ec5810898a9c9414` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/peers/peer-profile-rules.md.txt) |
+| [docs/native-evidence/native-settings-persistence-preparation.md](docs/native-evidence/native-settings-persistence-preparation.md) | `90eed7cbe26a5083ffdb489d81237a442f7623a8c69f44109b4c71c5c56fef9a` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-settings-persistence-preparation.md.txt) |
+| [docs/native-evidence/native-ban-control-witness.md](docs/native-evidence/native-ban-control-witness.md) | `26b39082dc3994f1e7d4ccca62e6cbde9d7c6afd2253e40adf724a5c49393769` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-ban-control-witness.md.txt) |
+| [docs/peers/classic-server-name-162.md](docs/peers/classic-server-name-162.md) | `0fd9a8a19d8e5bb2e9489366aafce485afa71f1c5868252c1d0aff9757541289` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/peers/classic-server-name-162.md.txt) |
+| [docs/accounts-and-privileges/native-configured-ban-static.md](docs/accounts-and-privileges/native-configured-ban-static.md) | `5fec9395ace23433c4019902bc8cba1542382ac007c987cb519e7b8bb1bc44f3` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/accounts-and-privileges/native-configured-ban-static.md.txt) |
+| [docs/accounts-and-privileges/native-configured-ban-ui-resources.md](docs/accounts-and-privileges/native-configured-ban-ui-resources.md) | `a8c8629909e6df9009d88d88b79fa41d98ec4e266d8a4cb211a1cd12a5a6ea66` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/accounts-and-privileges/native-configured-ban-ui-resources.md.txt) |
+| [docs/native-evidence/native-ban-reload-witness.md](docs/native-evidence/native-ban-reload-witness.md) | `44436cf73eaa6545dc8e7e6374884e706fc33e10e09e2fc2af6bba4d1680e234` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-ban-reload-witness.md.txt) |
+| [docs/native-evidence/native-settings-persistence-witness.md](docs/native-evidence/native-settings-persistence-witness.md) | `b9ec16aace3454f6eb8899b4b7a301d3095dd414d0f6dd9efaecfc792cb8131c` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-settings-persistence-witness.md.txt) |
+| [docs/peers/classic-roster-subject-115.md](docs/peers/classic-roster-subject-115.md) | `828523cdf2348ba46bbf9cbb63e7ae79aaf68c878834e4881f7969c47cf3362a` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/peers/classic-roster-subject-115.md.txt) |
+| [docs/native-evidence/native-configured-ban-preparation.md](docs/native-evidence/native-configured-ban-preparation.md) | `5ef64a86513dcdddf7f73e53619ef3ed753e4e0a7617a7d4781b347d84aff631` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-configured-ban-preparation.md.txt) |
+| [docs/native-evidence/native-configured-ban-witness.md](docs/native-evidence/native-configured-ban-witness.md) | `1cfd0daed8a7603592b18e7784d213da502edbec4a210c89bc3e560e2c7ad8de` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-configured-ban-witness.md.txt) |
+| [docs/protocol/diagnostic-formatting-trace.md](docs/protocol/diagnostic-formatting-trace.md) | `6916648c5a2e41257beb0106dac75516d5e714609e866a92081987369bec17b4` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/protocol/diagnostic-formatting-trace.md.txt) |
+| [docs/accounts-and-privileges/native-ban-file-format.md](docs/accounts-and-privileges/native-ban-file-format.md) | `a1538303157018629a82ca3cabf16997fd026380e9d8c37b3a4691630d415f3b` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/accounts-and-privileges/native-ban-file-format.md.txt) |
+| [docs/native-evidence/native-ban-expiry-preparation.md](docs/native-evidence/native-ban-expiry-preparation.md) | `ad33f7029de0794ec2daba620f41e7a4c181f5eb821922155baf7244942962c3` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-ban-expiry-preparation.md.txt) |
+| [docs/native-evidence/native-roster-overlap-preparation.md](docs/native-evidence/native-roster-overlap-preparation.md) | `c85c25dddf9a14c72931bddeb01dc594989a12ad0c536df4d6c140697e189dcf` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-roster-overlap-preparation.md.txt) |
+| [docs/native-evidence/native-ban-expiry-cleanup.md](docs/native-evidence/native-ban-expiry-cleanup.md) | `835d81465c6f62dec7788252f9afd6955441459899a42ab7111e33d65667b390` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-ban-expiry-cleanup.md.txt) |
+| [docs/native-evidence/native-ban-expiry-first-witness.md](docs/native-evidence/native-ban-expiry-first-witness.md) | `d2c2401845793cbdb46dcdb4378429b1623e545fbfd527796252bd10766f44ed` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-ban-expiry-first-witness.md.txt) |
+| [docs/native-evidence/native-ban-expiry-later-witness.md](docs/native-evidence/native-ban-expiry-later-witness.md) | `14a99eef9d990827cf01fe87b0ac2f44581a684bb9230fc6651b1f5708770363` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-ban-expiry-later-witness.md.txt) |
+| [docs/native-evidence/native-roster-overlap-witness.md](docs/native-evidence/native-roster-overlap-witness.md) | `9e6218a7e30e2534b0bb8abc6e9505e4034a05f7a9e36bf0e23a98cc834aec20` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-roster-overlap-witness.md.txt) |
+| [docs/accounts-and-privileges/account-write-ordering.md](docs/accounts-and-privileges/account-write-ordering.md) | `e9a661524676cf2259a1e3e59bfc3da75de85beb250177669f459c09e3aff458` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/accounts-and-privileges/account-write-ordering.md.txt) |
+| [docs/native-evidence/native-liveness-preparation.md](docs/native-evidence/native-liveness-preparation.md) | `e5bc1ab286624c5e944b2a91ef29d1821a82a50a16b928d4b5e18a394c732851` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-liveness-preparation.md.txt) |
+| [docs/accounts-and-privileges/classic-privilege-discovery.md](docs/accounts-and-privileges/classic-privilege-discovery.md) | `b17cf64097dda1bbe7344c5a887d2dcfc138d6894a4a9e27f79cf556ae8e84c5` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/accounts-and-privileges/classic-privilege-discovery.md.txt) |
+| [docs/native-evidence/native-liveness-witness.md](docs/native-evidence/native-liveness-witness.md) | `d57803da70b4d3bf7dce36e7d2be833ab7d0e1b405870318cb9246629f4233da` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-liveness-witness.md.txt) |
+| [docs/news/legacy-board-format.md](docs/news/legacy-board-format.md) | `be6ddeb4c0887c58c6bb1d8b0f4d9117fabfd9782c4afeffdd91866de2b531cf` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/news/legacy-board-format.md.txt) |
+| [docs/native-evidence/native-board-preparation.md](docs/native-evidence/native-board-preparation.md) | `5ed71e11c414448d9290c9513036440ab65527bc6cc719d10acea1761ab881ec` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-board-preparation.md.txt) |
+| [docs/native-evidence/native-board-readiness-failure.md](docs/native-evidence/native-board-readiness-failure.md) | `d1ce1130fb62ccebdb01cca23db82861229310def462e44a494e7cdc73360617` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-board-readiness-failure.md.txt) |
+| [docs/native-evidence/native-board-witness.md](docs/native-evidence/native-board-witness.md) | `79363207148ebfe53c20b90ce2cb42fc7b5be3263c9f75bfe4ef9442430535d1` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-board-witness.md.txt) |
+| [docs/presence-and-messaging/rate304-contract.md](docs/presence-and-messaging/rate304-contract.md) | `b52f33de67799c35d8aec6bbfa00646d3e378ea582a0732f1dca871fde6c22c3` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/presence-and-messaging/rate304-contract.md.txt) |
+| [docs/native-evidence/native-rate304-preparation.md](docs/native-evidence/native-rate304-preparation.md) | `89ccd7e56e6df5e67f60e1c5439f8efabf1d8368f038d214a2c7c148478a185a` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-rate304-preparation.md.txt) |
+| [docs/native-evidence/native-rate304-first-pair.md](docs/native-evidence/native-rate304-first-pair.md) | `65962007551e2c29f01607b826d1cf3bed5ba4b3756dc497e0d2fc59502b89f7` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-rate304-first-pair.md.txt) |
+| [docs/presence-and-messaging/rate304-recipient-predicate.md](docs/presence-and-messaging/rate304-recipient-predicate.md) | `52afef4694240fc0d2a1fd79d2dafc0c112f34e3741f3d162e900c943909b439` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/presence-and-messaging/rate304-recipient-predicate.md.txt) |
+| [docs/native-evidence/native-rate304-startup-gate.md](docs/native-evidence/native-rate304-startup-gate.md) | `234f7d8fe5bcaecf4ee31ce0658a0cda349f6bdf3370f2a0cecfac944fbc0dd2` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-rate304-startup-gate.md.txt) |
+| [docs/native-evidence/native-rate304-sequence.md](docs/native-evidence/native-rate304-sequence.md) | `d6697df324b3b707bafd17b292ec3dd42054b29016b3e4f6ffcd0cceddc77100` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-rate304-sequence.md.txt) |
+| [docs/native-evidence/native-path-fields-preparation.md](docs/native-evidence/native-path-fields-preparation.md) | `8f8c52539f80cbf4f8e65997f5088214e505cc64647fed417406362174a2c0ac` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-path-fields-preparation.md.txt) |
+| [docs/files-and-transfers/native-path-fields.md](docs/files-and-transfers/native-path-fields.md) | `5115c4cb4d79996b9ec7d313dd00b9bf8dbc3d3e01f3b8480da0787f53380ca4` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/files-and-transfers/native-path-fields.md.txt) |
+| [docs/native-evidence/native-missing-alias-preparation.md](docs/native-evidence/native-missing-alias-preparation.md) | `234b9a6ad3b83f401427617a85ccc085f6a5a4f1c6a92dd8b0671312022d2a71` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-missing-alias-preparation.md.txt) |
+| [docs/files-and-transfers/alias-record-v2.md](docs/files-and-transfers/alias-record-v2.md) | `72d7ba565e31ffe08851f3da1491d4559f0b21293da20ce7cca861598b7e3148` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/files-and-transfers/alias-record-v2.md.txt) |
+| [docs/protocol/date-contracts.md](docs/protocol/date-contracts.md) | `86680c4234cec5ae23374a593237d272118eee5e383448550ce077ba6a7dfd84` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/protocol/date-contracts.md.txt) |
+| [docs/presence-and-messaging/presence-defaults.md](docs/presence-and-messaging/presence-defaults.md) | `496c927e11dbd8e41952b4d6f3e1a0c91a5e9c5f44a503e451fa5a7d49f21fe2` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/presence-and-messaging/presence-defaults.md.txt) |
+| [docs/native-evidence/native-diagnostic-boundary-preparation.md](docs/native-evidence/native-diagnostic-boundary-preparation.md) | `7260932277dc61ad051dbdca47ccf55c4033c85866e1dc6cafd9f69d42421694` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/native-evidence/native-diagnostic-boundary-preparation.md.txt) |
+| [docs/accounts-and-privileges/privilege-bits.md](docs/accounts-and-privileges/privilege-bits.md) | `4729d0bf1083fdd3ad8c882ea900e8e3ad669b9b69715e35753e16eed8eab044` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/accounts-and-privileges/privilege-bits.md.txt) |
+| [docs/mxd/validation-status.md](docs/mxd/validation-status.md) | `677fbb1894b227c3de2a88cbde31dc26911431c71afe86af84366170fefde6b1` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/mxd/validation-status.md.txt) |
+| [docs/mxd/classic-client-trials.md](docs/mxd/classic-client-trials.md) | `0b9cf5078a0125cda3afdc663033426da250c99294ce41de03ee4d8997b378cb` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/mxd/classic-client-trials.md.txt) |
+| [docs/mxd/assertion-reconciliation.md](docs/mxd/assertion-reconciliation.md) | `26ac424dde7d2e1b4181bbd42391406c95a5e06305c9ef4f0346d0e6b9de107d` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/mxd/assertion-reconciliation.md.txt) |
+| [docs/mxd/compatibility-matrix.md](docs/mxd/compatibility-matrix.md) | `086799ae7b6130ab51329cd521bb3346bb730695485f0896ce8d6368b9f4fdc2` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/mxd/compatibility-matrix.md.txt) |
+| [docs/mxd/corrections.md](docs/mxd/corrections.md) | `9a723f6b4a1fd603a4468cf6858b6b89833966d750de5556eba121fbd8004af3` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/mxd/corrections.md.txt) |
+| [docs/mxd/README.md](docs/mxd/README.md) | `83d9ea6a64c32a2985db9124d25f351dc256d3d6b921e89351e8f34b6e1b8c62` | [Snapshot](evidence/protocol-gap-analysis/2026-11-16/revision-95/inputs/docs/mxd/README.md.txt) |
 
 [Audit
-manifest](evidence/protocol-gap-analysis/2026-11-16/revision-94/manifest.json);
+manifest](evidence/protocol-gap-analysis/2026-11-16/revision-95/manifest.json);
 [machine-readable register](gap-register.json). No field or behaviour is
 silently made normative by being listed as a question.
 
@@ -309,12 +317,12 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Decision; Open; owner: Unassigned.
 - **Sources:** [docs/protocol/protocol.md — Hotline Server Protocol 1.9:
-  Transactions and Functionality
-  Guide](docs/protocol/protocol.md#hotline-server-protocol-19-transactions-and-functionality-guide)
-  (snapshot lines 1–35); [docs/mxd/compatibility-matrix.md — Open
+  transactions and functionality
+  guide](docs/protocol/protocol.md#hotline-server-protocol-19-transactions-and-functionality-guide)
+  (snapshot lines 1–39); [docs/mxd/compatibility-matrix.md — Open
   compatibility gaps and QA
   requirements](docs/mxd/compatibility-matrix.md#open-compatibility-gaps-and-qa-requirements)
-  (snapshot lines 360–386)
+  (snapshot lines 365–391)
 - **Question:** Which of the 45 requests and server notifications must mxd
   implement now, defer explicitly, or reject, and which peer profiles are
   acceptance targets?
@@ -350,15 +358,15 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [docs/protocol/protocol.md — 2 General transaction
   frame](docs/protocol/protocol.md#2-general-transaction-frame) (snapshot
-  lines 89–116); [docs/protocol/protocol.md — 2.1 Parameter list (payload
+  lines 99–128); [docs/protocol/protocol.md — 2.1 Parameter list (payload
   block)](docs/protocol/protocol.md#21-parameter-list-payload-block) (snapshot
-  lines 117–168); [docs/protocol/protocol.md — Login (Transaction 107) –
-  Client
-  Initiates](docs/protocol/protocol.md#login-transaction-107--client-initiates)
-  (snapshot lines 314–370); [docs/protocol/protocol.md — User Account
-  Management – Client Initiates (Admin) (Tx
+  lines 129–182); [docs/protocol/protocol.md — Login (Transaction 107) –
+  client
+  initiates](docs/protocol/protocol.md#login-transaction-107--client-initiates)
+  (snapshot lines 336–392); [docs/protocol/protocol.md — User account
+  management – client initiates (admin) (Tx
   350–353)](docs/protocol/protocol.md#user-account-management--client-initiates-admin-tx-350353)
-  (snapshot lines 1200–1249)
+  (snapshot lines 1238–1290)
 - **Question:** For every in-scope request, reply and notification, which
   fields are required, optional, conditional or repeatable, with what widths
   and value domains?
@@ -392,10 +400,10 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [docs/protocol/protocol.md — 4 Reply
   semantics](docs/protocol/protocol.md#4-reply-semantics) (snapshot lines
-  229–254); [docs/protocol/protocol.md — Disconnecting a User (Transaction 110
-  & 111) – Admin/Server
-  Use](docs/protocol/protocol.md#disconnecting-a-user-transaction-110--111--adminserver-use)
-  (snapshot lines 1250–1298)
+  246–271); [docs/protocol/protocol.md — Disconnecting a user (Transaction 110
+  & 111) – admin/server
+  use](docs/protocol/protocol.md#disconnecting-a-user-transaction-110--111--adminserver-use)
+  (snapshot lines 1291–1339)
 - **Question:** Which statuses, field-100 forms and connection outcomes apply
   to each failure, including errors in operations without a normal ACK?
 - **Implementation impact:** Implementations cannot distinguish recoverable
@@ -550,16 +558,16 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [docs/protocol/protocol.md — 4 Reply
   semantics](docs/protocol/protocol.md#4-reply-semantics) (snapshot lines
-  229–254); [docs/protocol/protocol.md — Sending a Chat Message (Transaction
-  105) – Client
-  Initiates](docs/protocol/protocol.md#sending-a-chat-message-transaction-105--client-initiates)
-  (snapshot lines 629–640); [docs/protocol/protocol.md — Leaving a Chat Room
-  (Transaction 116) – Client
-  Initiates](docs/protocol/protocol.md#leaving-a-chat-room-transaction-116--client-initiates)
-  (snapshot lines 663–672); [docs/protocol/protocol.md — Changing User
-  Settings (Transaction 304) – Client
-  Initiates](docs/protocol/protocol.md#changing-user-settings-transaction-304--client-initiates)
-  (snapshot lines 590–626)
+  246–271); [docs/protocol/protocol.md — Sending a chat message (Transaction
+  105) – client
+  initiates](docs/protocol/protocol.md#sending-a-chat-message-transaction-105--client-initiates)
+  (snapshot lines 659–670); [docs/protocol/protocol.md — Leaving a chat room
+  (Transaction 116) – client
+  initiates](docs/protocol/protocol.md#leaving-a-chat-room-transaction-116--client-initiates)
+  (snapshot lines 693–702); [docs/protocol/protocol.md — Changing user
+  settings (Transaction 304) – client
+  initiates](docs/protocol/protocol.md#changing-user-settings-transaction-304--client-initiates)
+  (snapshot lines 620–656)
 - **Question:** Which operation/direction/session-state combinations are
   accepted, and what direct success/error replies or subsequent notifications
   belong to each? The current ACK/Push prose is not a complete catalogue.
@@ -597,16 +605,16 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [docs/protocol/protocol.md — 4 Reply
   semantics](docs/protocol/protocol.md#4-reply-semantics) (snapshot lines
-  229–254); [docs/protocol/protocol.md — Sending an Instant Message
-  (Transaction 108) – Client
-  Initiates](docs/protocol/protocol.md#sending-an-instant-message-transaction-108--client-initiates)
-  (snapshot lines 719–750); [docs/protocol/protocol.md — Posting a News
-  Article (Transaction 410) – Client
-  Initiates](docs/protocol/protocol.md#posting-a-news-article-transaction-410--client-initiates)
-  (snapshot lines 1142–1163); [docs/protocol/protocol.md — User Account
-  Management – Client Initiates (Admin) (Tx
+  246–271); [docs/protocol/protocol.md — Sending an instant message
+  (Transaction 108) – client
+  initiates](docs/protocol/protocol.md#sending-an-instant-message-transaction-108--client-initiates)
+  (snapshot lines 749–783); [docs/protocol/protocol.md — Posting a news
+  article (Transaction 410) – client
+  initiates](docs/protocol/protocol.md#posting-a-news-article-transaction-410--client-initiates)
+  (snapshot lines 1177–1198); [docs/protocol/protocol.md — User account
+  management – client initiates (admin) (Tx
   350–353)](docs/protocol/protocol.md#user-account-management--client-initiates-admin-tx-350353)
-  (snapshot lines 1200–1249)
+  (snapshot lines 1238–1290)
 - **Question:** When an ACK precedes routing or mutation side effects, what
   has it committed to, and what can fail or be retried afterwards?
 - **Implementation impact:** A client may treat acceptance as
@@ -758,9 +766,9 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [docs/protocol/protocol.md — 2 General transaction
   frame](docs/protocol/protocol.md#2-general-transaction-frame) (snapshot
-  lines 89–116); [docs/protocol/protocol.md — 3 Fragmentation
+  lines 99–128); [docs/protocol/protocol.md — 3 Fragmentation
   rules](docs/protocol/protocol.md#3-fragmentation-rules) (snapshot lines
-  195–228)
+  212–245)
 - **Question:** Are zero, duplicate, wrapped or reused IDs accepted, how are
   client and server ID spaces separated, and how are unsolicited replies
   treated?
@@ -804,14 +812,14 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [docs/protocol/protocol.md — 1 Session-initialization
   handshake](docs/protocol/protocol.md#1-session-initialization-handshake)
-  (snapshot lines 44–88); [docs/protocol/protocol.md — 4 Reply
+  (snapshot lines 48–98); [docs/protocol/protocol.md — 4 Reply
   semantics](docs/protocol/protocol.md#4-reply-semantics) (snapshot lines
-  229–254); [docs/protocol/protocol.md — Login (Transaction 107) – Client
-  Initiates](docs/protocol/protocol.md#login-transaction-107--client-initiates)
-  (snapshot lines 314–370); [docs/protocol/protocol.md — Additional Observed
-  Requests and Scope
-  Gaps](docs/protocol/protocol.md#additional-observed-requests-and-scope-gaps)
-  (snapshot lines 1323–1370)
+  246–271); [docs/protocol/protocol.md — Login (Transaction 107) – client
+  initiates](docs/protocol/protocol.md#login-transaction-107--client-initiates)
+  (snapshot lines 336–392); [docs/protocol/protocol.md — Additional observed
+  requests and scope
+  gaps](docs/protocol/protocol.md#additional-observed-requests-and-scope-gaps)
+  (snapshot lines 1364–1414)
 - **Question:** What are the handshake, login, agreement, idle and
   partial-frame deadlines, and what traffic resets them?
 - **Implementation impact:** A client can wait forever or disconnect a
@@ -891,16 +899,16 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [docs/protocol/protocol.md — 1 Session-initialization
   handshake](docs/protocol/protocol.md#1-session-initialization-handshake)
-  (snapshot lines 44–88); [docs/protocol/protocol.md — Login (Transaction 107)
-  – Client
-  Initiates](docs/protocol/protocol.md#login-transaction-107--client-initiates)
-  (snapshot lines 314–370); [docs/protocol/protocol.md — Agreement Acceptance
-  (Transaction 121) – Client
-  Initiates](docs/protocol/protocol.md#agreement-acceptance-transaction-121--client-initiates)
-  (snapshot lines 406–449); [docs/protocol/protocol.md — Additional Observed
-  Requests and Scope
-  Gaps](docs/protocol/protocol.md#additional-observed-requests-and-scope-gaps)
-  (snapshot lines 1323–1370)
+  (snapshot lines 48–98); [docs/protocol/protocol.md — Login (Transaction 107)
+  – client
+  initiates](docs/protocol/protocol.md#login-transaction-107--client-initiates)
+  (snapshot lines 336–392); [docs/protocol/protocol.md — Agreement acceptance
+  (Transaction 121) – client
+  initiates](docs/protocol/protocol.md#agreement-acceptance-transaction-121--client-initiates)
+  (snapshot lines 428–473); [docs/protocol/protocol.md — Additional observed
+  requests and scope
+  gaps](docs/protocol/protocol.md#additional-observed-requests-and-scope-gaps)
+  (snapshot lines 1364–1414)
 - **Question:** What can be sent before authentication, after login ACK, while
   agreement is pending, after early completion and during shutdown?
 - **Implementation impact:** The guide has transaction descriptions but no
@@ -938,7 +946,7 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [docs/protocol/protocol.md — 1 Session-initialization
   handshake](docs/protocol/protocol.md#1-session-initialization-handshake)
-  (snapshot lines 44–88)
+  (snapshot lines 48–98)
 - **Question:** How are short, long, pipelined, wrong-magic, wrong-version or
   unsupported-sub-version handshakes consumed, replied to and closed?
 - **Implementation impact:** The happy-path twelve/eight-byte layouts do not
@@ -978,10 +986,10 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [docs/protocol/protocol.md — 1 Session-initialization
   handshake](docs/protocol/protocol.md#1-session-initialization-handshake)
-  (snapshot lines 44–88); [docs/protocol/protocol.md — Transfer Connection and
-  Reference
-  Cleanup](docs/protocol/protocol.md#transfer-connection-and-reference-cleanup)
-  (snapshot lines 1046–1066)
+  (snapshot lines 48–98); [docs/protocol/protocol.md — Transfer connection and
+  reference
+  cleanup](docs/protocol/protocol.md#transfer-connection-and-reference-cleanup)
+  (snapshot lines 1079–1099)
 - **Question:** When does the TRTP sub-version-3 path apply, on which
   endpoint, and how does it relate to a direct sixteen-byte HTXF header?
 - **Implementation impact:** An implementer could perform the wrong handshake
@@ -1021,12 +1029,12 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — File Services (Files and
-  Folders)](docs/protocol/protocol.md#file-services-files-and-folders)
-  (snapshot lines 805–819); [docs/protocol/protocol.md — Transfer Connection
-  and Reference
-  Cleanup](docs/protocol/protocol.md#transfer-connection-and-reference-cleanup)
-  (snapshot lines 1046–1066)
+- **Sources:** [docs/protocol/protocol.md — File services (files and
+  folders)](docs/protocol/protocol.md#file-services-files-and-folders)
+  (snapshot lines 838–852); [docs/protocol/protocol.md — Transfer connection
+  and reference
+  cleanup](docs/protocol/protocol.md#transfer-connection-and-reference-cleanup)
+  (snapshot lines 1079–1099)
 - **Question:** How are control/data listeners selected and configured, and is
   the data port always the base port plus one in this build?
 - **Implementation impact:** File-transfer connection setup cannot be derived
@@ -1073,10 +1081,10 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P2; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Additional Observed Requests and
-  Scope
-  Gaps](docs/protocol/protocol.md#additional-observed-requests-and-scope-gaps)
-  (snapshot lines 1323–1370)
+- **Sources:** [docs/protocol/protocol.md — Additional observed requests and
+  scope
+  gaps](docs/protocol/protocol.md#additional-observed-requests-and-scope-gaps)
+  (snapshot lines 1364–1414)
 - **Question:** Is 500 a liveness operation or something else, who sends it
   and when, and does its ACK affect idle deadlines?
 - **Implementation impact:** Naming it a keepalive or scheduling it
@@ -1127,7 +1135,7 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [docs/protocol/protocol.md — 3 Fragmentation
   rules](docs/protocol/protocol.md#3-fragmentation-rules) (snapshot lines
-  195–228)
+  212–245)
 - **Question:** Is the image's 2 MiB value changed at runtime, does it bound a
   frame or aggregate transaction, and how are totals, fragments and concurrent
   buffers limited?
@@ -1179,7 +1187,7 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [docs/protocol/protocol.md — 3 Fragmentation
   rules](docs/protocol/protocol.md#3-fragmentation-rules) (snapshot lines
-  195–228)
+  212–245)
 - **Question:** What happens when type/total changes, fragments interleave,
   lengths overrun or underfill, transactions are abandoned, or a partial frame
   ends in EOF?
@@ -1223,9 +1231,9 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [docs/protocol/protocol.md — 2 General transaction
   frame](docs/protocol/protocol.md#2-general-transaction-frame) (snapshot
-  lines 89–116); [docs/protocol/protocol.md — 4 Reply
+  lines 99–128); [docs/protocol/protocol.md — 4 Reply
   semantics](docs/protocol/protocol.md#4-reply-semantics) (snapshot lines
-  229–254)
+  246–271)
 - **Question:** How are nonzero flags, reply markers other than zero/one,
   nonzero request error words, unsupported types and nonzero reply types
   handled?
@@ -1269,9 +1277,9 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [docs/protocol/protocol.md — 2.1 Parameter list (payload
   block)](docs/protocol/protocol.md#21-parameter-list-payload-block) (snapshot
-  lines 117–168); [docs/protocol/protocol.md — 3 Fragmentation
+  lines 129–182); [docs/protocol/protocol.md — 3 Fragmentation
   rules](docs/protocol/protocol.md#3-fragmentation-rules) (snapshot lines
-  195–228)
+  212–245)
 - **Question:** What happens with a missing count, count/length mismatch,
   truncated values, trailing bytes, zero field IDs, unknown fields or maximum
   field counts?
@@ -1309,10 +1317,10 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [docs/protocol/protocol.md — 2.1 Parameter list (payload
   block)](docs/protocol/protocol.md#21-parameter-list-payload-block) (snapshot
-  lines 117–168); [docs/protocol/protocol.md — Chat Invitations (Transactions
-  112, 113, 114) – Private
-  Chats](docs/protocol/protocol.md#chat-invitations-transactions-112-113-114--private-chats)
-  (snapshot lines 685–707)
+  lines 129–182); [docs/protocol/protocol.md — Chat invitations (Transactions
+  112, 113, 114) – private
+  chats](docs/protocol/protocol.md#chat-invitations-transactions-112-113-114--private-chats)
+  (snapshot lines 715–737)
 - **Question:** Beyond observed list/invitation cases, are duplicate scalars
   rejected, first-wins, last-wins or accumulated, and is order meaningful?
 - **Implementation impact:** Preserving repetitions is necessary but does not
@@ -1371,13 +1379,13 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [docs/protocol/protocol.md — 2.1 Parameter list (payload
   block)](docs/protocol/protocol.md#21-parameter-list-payload-block) (snapshot
-  lines 117–168); [docs/protocol/protocol.md — User Account Management –
-  Client Initiates (Admin) (Tx
+  lines 129–182); [docs/protocol/protocol.md — User account management –
+  client initiates (admin) (Tx
   350–353)](docs/protocol/protocol.md#user-account-management--client-initiates-admin-tx-350353)
-  (snapshot lines 1200–1249); [docs/protocol/protocol.md — Downloading a File
-  (Transaction 202) – Client
-  Initiates](docs/protocol/protocol.md#downloading-a-file-transaction-202--client-initiates)
-  (snapshot lines 833–863)
+  (snapshot lines 1238–1290); [docs/protocol/protocol.md — Downloading a file
+  (Transaction 202) – client
+  initiates](docs/protocol/protocol.md#downloading-a-file-transaction-202--client-initiates)
+  (snapshot lines 866–896)
 - **Question:** Which numeric fields permit one/two/four bytes, which are
   fixed-width or signed, and how are booleans, sentinel values and invalid
   widths interpreted?
@@ -1460,20 +1468,20 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [docs/protocol/protocol.md — 2.1 Parameter list (payload
   block)](docs/protocol/protocol.md#21-parameter-list-payload-block) (snapshot
-  lines 117–168); [docs/protocol/protocol.md — 5 Worked example
-  (Login)](docs/protocol/protocol.md#5-worked-example-login) (snapshot lines
-  255–289); [docs/protocol/protocol.md — Login (Transaction 107) – Client
-  Initiates](docs/protocol/protocol.md#login-transaction-107--client-initiates)
-  (snapshot lines 314–370); [docs/protocol/protocol.md — Changing User
-  Settings (Transaction 304) – Client
-  Initiates](docs/protocol/protocol.md#changing-user-settings-transaction-304--client-initiates)
-  (snapshot lines 590–626); [docs/presence-and-messaging/presence-defaults.md
+  lines 129–182); [docs/protocol/protocol.md — 5 Worked example
+  (login)](docs/protocol/protocol.md#5-worked-example-login) (snapshot lines
+  272–311); [docs/protocol/protocol.md — Login (Transaction 107) – client
+  initiates](docs/protocol/protocol.md#login-transaction-107--client-initiates)
+  (snapshot lines 336–392); [docs/protocol/protocol.md — Changing user
+  settings (Transaction 304) – client
+  initiates](docs/protocol/protocol.md#changing-user-settings-transaction-304--client-initiates)
+  (snapshot lines 620–656); [docs/presence-and-messaging/presence-defaults.md
   — Credentials and session
   settings](docs/presence-and-messaging/presence-defaults.md#credentials-and-session-settings)
-  (snapshot lines 28–41); [docs/presence-and-messaging/presence-defaults.md —
+  (snapshot lines 36–52); [docs/presence-and-messaging/presence-defaults.md —
   Account replacements and related
   lookup](docs/presence-and-messaging/presence-defaults.md#account-replacements-and-related-lookup)
-  (snapshot lines 42–60)
+  (snapshot lines 53–74)
 - **Question:** Which operations distinguish an omitted field, a zero-length
   TLV, an empty string and numeric zero, and what defaults are applied?
 - **Implementation impact:** The native writer omits empty fields while
@@ -1565,19 +1573,19 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P0; Unanswered; Investigating; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Binary Message Formats (Hotline
+- **Sources:** [docs/protocol/protocol.md — Binary message formats (Hotline
   Protocol
   1.9)](docs/protocol/protocol.md#binary-message-formats-hotline-protocol-19)
-  (snapshot lines 36–43); [docs/mxd/compatibility-matrix.md — Credential
+  (snapshot lines 40–47); [docs/mxd/compatibility-matrix.md — Credential
   obfuscation and text
   compatibility](docs/mxd/compatibility-matrix.md#credential-obfuscation-and-text-compatibility)
-  (snapshot lines 187–216); [docs/protocol/protocol.md — Receiving a Chat
-  Message (Transaction 106) – Server
-  Initiates](docs/protocol/protocol.md#receiving-a-chat-message-transaction-106--server-initiates)
-  (snapshot lines 641–651); [docs/protocol/protocol.md — Listing Files in a
-  Folder (Transaction 200) – Client
-  Initiates](docs/protocol/protocol.md#listing-files-in-a-folder-transaction-200--client-initiates)
-  (snapshot lines 820–832)
+  (snapshot lines 192–221); [docs/protocol/protocol.md — Receiving a chat
+  message (Transaction 106) – server
+  initiates](docs/protocol/protocol.md#receiving-a-chat-message-transaction-106--server-initiates)
+  (snapshot lines 671–681); [docs/protocol/protocol.md — Listing files in a
+  folder (Transaction 200) – client
+  initiates](docs/protocol/protocol.md#listing-files-in-a-folder-transaction-200--client-initiates)
+  (snapshot lines 853–865)
 - **Question:** Which charset, normalization, NUL handling and line-ending
   rules apply to credentials, names, paths, chat, news and error text?
 - **Implementation impact:** A generic UTF-8 or XOR heuristic can change valid
@@ -1672,24 +1680,24 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [docs/protocol/protocol.md — 2.1 Parameter list (payload
   block)](docs/protocol/protocol.md#21-parameter-list-payload-block) (snapshot
-  lines 117–168); [docs/protocol/protocol.md — Changing User Settings
-  (Transaction 304) – Client
-  Initiates](docs/protocol/protocol.md#changing-user-settings-transaction-304--client-initiates)
-  (snapshot lines 590–626); [docs/protocol/protocol.md — Sending a Chat
-  Message (Transaction 105) – Client
-  Initiates](docs/protocol/protocol.md#sending-a-chat-message-transaction-105--client-initiates)
-  (snapshot lines 629–640); [docs/protocol/protocol.md — User Account
-  Management – Client Initiates (Admin) (Tx
+  lines 129–182); [docs/protocol/protocol.md — Changing user settings
+  (Transaction 304) – client
+  initiates](docs/protocol/protocol.md#changing-user-settings-transaction-304--client-initiates)
+  (snapshot lines 620–656); [docs/protocol/protocol.md — Sending a chat
+  message (Transaction 105) – client
+  initiates](docs/protocol/protocol.md#sending-a-chat-message-transaction-105--client-initiates)
+  (snapshot lines 659–670); [docs/protocol/protocol.md — User account
+  management – client initiates (admin) (Tx
   350–353)](docs/protocol/protocol.md#user-account-management--client-initiates-admin-tx-350353)
-  (snapshot lines 1200–1249);
+  (snapshot lines 1238–1290);
   [docs/native-evidence/native-diagnostic-boundary-preparation.md — Evidence
   and
   prediction](docs/native-evidence/native-diagnostic-boundary-preparation.md#evidence-and-prediction)
-  (snapshot lines 7–29);
+  (snapshot lines 10–32);
   [docs/native-evidence/native-diagnostic-boundary-preparation.md — Result
   classification and stop
   rules](docs/native-evidence/native-diagnostic-boundary-preparation.md#result-classification-and-stop-rules)
-  (snapshot lines 85–106)
+  (snapshot lines 91–112)
 - **Question:** What byte/character limits and truncation or rejection rules
   apply to every name, password, message, subject, comment and body?
 - **Implementation impact:** The 65,535-byte TLV limit does not describe
@@ -1808,19 +1816,19 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [docs/protocol/protocol.md — 2.2 Date
   parameters](docs/protocol/protocol.md#22-date-parameters) (snapshot lines
-  169–194); [docs/protocol/protocol.md — Reading a News Article (Transaction
-  400) – Client
-  Initiates](docs/protocol/protocol.md#reading-a-news-article-transaction-400--client-initiates)
-  (snapshot lines 1113–1141); [docs/protocol/date-contracts.md — Byte grammar,
+  183–211); [docs/protocol/protocol.md — Reading a news article (Transaction
+  400) – client
+  initiates](docs/protocol/protocol.md#reading-a-news-article-transaction-400--client-initiates)
+  (snapshot lines 1146–1176); [docs/protocol/date-contracts.md — Byte grammar,
   units and
   range](docs/protocol/date-contracts.md#byte-grammar-units-and-range)
-  (snapshot lines 11–43); [docs/protocol/date-contracts.md — Producer and
+  (snapshot lines 14–49); [docs/protocol/date-contracts.md — Producer and
   consumer
   registry](docs/protocol/date-contracts.md#producer-and-consumer-registry)
-  (snapshot lines 44–60); [docs/protocol/date-contracts.md — What would settle
+  (snapshot lines 50–69); [docs/protocol/date-contracts.md — What would settle
   conversion and
   rollover](docs/protocol/date-contracts.md#what-would-settle-conversion-and-rollover)
-  (snapshot lines 61–91)
+  (snapshot lines 70–103)
 - **Question:** What epoch/units apply to the supplied filesystem value, how
   do nonzero milliseconds and other years work, and is news date 330
   equivalent?
@@ -1874,17 +1882,17 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P0; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Login (Transaction 107) – Client
-  Initiates](docs/protocol/protocol.md#login-transaction-107--client-initiates)
-  (snapshot lines 314–370); [docs/protocol/protocol.md — 5 Worked example
-  (Login)](docs/protocol/protocol.md#5-worked-example-login) (snapshot lines
-  255–289); [docs/protocol/protocol.md — User Account Management – Client
-  Initiates (Admin) (Tx
+- **Sources:** [docs/protocol/protocol.md — Login (Transaction 107) – client
+  initiates](docs/protocol/protocol.md#login-transaction-107--client-initiates)
+  (snapshot lines 336–392); [docs/protocol/protocol.md — 5 Worked example
+  (login)](docs/protocol/protocol.md#5-worked-example-login) (snapshot lines
+  272–311); [docs/protocol/protocol.md — User account management – client
+  initiates (admin) (Tx
   350–353)](docs/protocol/protocol.md#user-account-management--client-initiates-admin-tx-350353)
-  (snapshot lines 1200–1249); [docs/mxd/compatibility-matrix.md — Credential
+  (snapshot lines 1238–1290); [docs/mxd/compatibility-matrix.md — Credential
   obfuscation and text
   compatibility](docs/mxd/compatibility-matrix.md#credential-obfuscation-and-text-compatibility)
-  (snapshot lines 187–216)
+  (snapshot lines 192–221)
 - **Question:** What exact bytes does the 1.9 server expect for nonempty
   passwords in login and account mutation, independent of SynHX's helper?
 - **Implementation impact:** The guide cannot yet supply a working
@@ -1935,12 +1943,12 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P0; Ambiguous; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Login (Transaction 107) – Client
-  Initiates](docs/protocol/protocol.md#login-transaction-107--client-initiates)
-  (snapshot lines 314–370); [docs/protocol/protocol.md — User Account
-  Management – Client Initiates (Admin) (Tx
+- **Sources:** [docs/protocol/protocol.md — Login (Transaction 107) – client
+  initiates](docs/protocol/protocol.md#login-transaction-107--client-initiates)
+  (snapshot lines 336–392); [docs/protocol/protocol.md — User account
+  management – client initiates (admin) (Tx
   350–353)](docs/protocol/protocol.md#user-account-management--client-initiates-admin-tx-350353)
-  (snapshot lines 1200–1249)
+  (snapshot lines 1238–1290)
 - **Question:** Are absent, empty, NUL-containing or differently cased logins
   equivalent; how are complemented bytes normalized and guest permissions
   chosen?
@@ -1979,13 +1987,13 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P0; Ambiguous; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Login (Transaction 107) – Client
-  Initiates](docs/protocol/protocol.md#login-transaction-107--client-initiates)
-  (snapshot lines 314–370); [docs/protocol/protocol.md — 2.1 Parameter list
+- **Sources:** [docs/protocol/protocol.md — Login (Transaction 107) – client
+  initiates](docs/protocol/protocol.md#login-transaction-107--client-initiates)
+  (snapshot lines 336–392); [docs/protocol/protocol.md — 2.1 Parameter list
   (payload block)](docs/protocol/protocol.md#21-parameter-list-payload-block)
-  (snapshot lines 117–168); [docs/mxd/compatibility-matrix.md — Compatibility
+  (snapshot lines 129–182); [docs/mxd/compatibility-matrix.md — Compatibility
   matrix](docs/mxd/compatibility-matrix.md#compatibility-matrix) (snapshot
-  lines 44–62)
+  lines 49–67)
 - **Question:** Are fields 160/102/104 mandatory, what defaults apply if
   omitted or malformed, and does saved version affect anything besides the
   named banner/news paths?
@@ -2018,15 +2026,15 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P0; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Login (Transaction 107) – Client
-  Initiates](docs/protocol/protocol.md#login-transaction-107--client-initiates)
-  (snapshot lines 314–370); [docs/protocol/protocol.md — Server Agreement
-  (Transaction 109) – Server
-  Initiates](docs/protocol/protocol.md#server-agreement-transaction-109--server-initiates)
-  (snapshot lines 371–405); [docs/protocol/protocol.md — Agreement Acceptance
-  (Transaction 121) – Client
-  Initiates](docs/protocol/protocol.md#agreement-acceptance-transaction-121--client-initiates)
-  (snapshot lines 406–449)
+- **Sources:** [docs/protocol/protocol.md — Login (Transaction 107) – client
+  initiates](docs/protocol/protocol.md#login-transaction-107--client-initiates)
+  (snapshot lines 336–392); [docs/protocol/protocol.md — Server agreement
+  (Transaction 109) – server
+  initiates](docs/protocol/protocol.md#server-agreement-transaction-109--server-initiates)
+  (snapshot lines 393–427); [docs/protocol/protocol.md — Agreement acceptance
+  (Transaction 121) – client
+  initiates](docs/protocol/protocol.md#agreement-acceptance-transaction-121--client-initiates)
+  (snapshot lines 428–473)
 - **Question:** What are the exact ACK, 109, 354, 122 and 301 ordering and
   state transitions for early completion, ordinary acceptance, no agreement,
   repeated 121 and delayed acceptance?
@@ -2071,12 +2079,12 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Missing; Investigating; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Login (Transaction 107) – Client
-  Initiates](docs/protocol/protocol.md#login-transaction-107--client-initiates)
-  (snapshot lines 314–370); [docs/mxd/compatibility-matrix.md — Login reply
+- **Sources:** [docs/protocol/protocol.md — Login (Transaction 107) – client
+  initiates](docs/protocol/protocol.md#login-transaction-107--client-initiates)
+  (snapshot lines 336–392); [docs/mxd/compatibility-matrix.md — Login reply
   and banner
   policy](docs/mxd/compatibility-matrix.md#login-reply-and-banner-policy)
-  (snapshot lines 100–186)
+  (snapshot lines 105–191)
 - **Question:** What are field 161's value semantics, widths and invalidation
   rules, and field 162's encoding/limits; how do they relate to banner 122 and
   download 212?
@@ -2141,13 +2149,13 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Server Agreement (Transaction 109)
-  – Server
-  Initiates](docs/protocol/protocol.md#server-agreement-transaction-109--server-initiates)
-  (snapshot lines 371–405); [docs/protocol/protocol.md — Agreement Acceptance
-  (Transaction 121) – Client
-  Initiates](docs/protocol/protocol.md#agreement-acceptance-transaction-121--client-initiates)
-  (snapshot lines 406–449)
+- **Sources:** [docs/protocol/protocol.md — Server agreement (Transaction 109)
+  – server
+  initiates](docs/protocol/protocol.md#server-agreement-transaction-109--server-initiates)
+  (snapshot lines 393–427); [docs/protocol/protocol.md — Agreement acceptance
+  (Transaction 121) – client
+  initiates](docs/protocol/protocol.md#agreement-acceptance-transaction-121--client-initiates)
+  (snapshot lines 428–473)
 - **Question:** When is 154 emitted, how do absent/empty/unreadable agreement
   text and account bypass privileges behave, and must a client send 121 after
   early completion?
@@ -2191,13 +2199,13 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Ambiguous; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Banner Metadata (Transaction 122)
-  – Server
-  Initiates](docs/protocol/protocol.md#banner-metadata-transaction-122--server-initiates)
-  (snapshot lines 450–464); [docs/protocol/protocol.md — Banner Download
-  (Transaction 212) – Client
-  Initiates](docs/protocol/protocol.md#banner-download-transaction-212--client-initiates)
-  (snapshot lines 1027–1045)
+- **Sources:** [docs/protocol/protocol.md — Banner metadata (Transaction 122)
+  – server
+  initiates](docs/protocol/protocol.md#banner-metadata-transaction-122--server-initiates)
+  (snapshot lines 474–488); [docs/protocol/protocol.md — Banner download
+  (Transaction 212) – client
+  initiates](docs/protocol/protocol.md#banner-download-transaction-212--client-initiates)
+  (snapshot lines 1060–1078)
 - **Question:** Which four-byte type tags and field-153 representations are
   valid, when are they required, and how does an early-completed session
   obtain metadata without a later 121?
@@ -2228,13 +2236,13 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Changing User Settings
-  (Transaction 304) – Client
-  Initiates](docs/protocol/protocol.md#changing-user-settings-transaction-304--client-initiates)
-  (snapshot lines 590–626); [docs/protocol/protocol.md — Agreement Acceptance
-  (Transaction 121) – Client
-  Initiates](docs/protocol/protocol.md#agreement-acceptance-transaction-121--client-initiates)
-  (snapshot lines 406–449)
+- **Sources:** [docs/protocol/protocol.md — Changing user settings
+  (Transaction 304) – client
+  initiates](docs/protocol/protocol.md#changing-user-settings-transaction-304--client-initiates)
+  (snapshot lines 620–656); [docs/protocol/protocol.md — Agreement acceptance
+  (Transaction 121) – client
+  initiates](docs/protocol/protocol.md#agreement-acceptance-transaction-121--client-initiates)
+  (snapshot lines 428–473)
 - **Question:** Which omitted/empty 102/104/113/215 values reset, preserve or
   derive state, and what changes are session-only or durable?
 - **Implementation impact:** The warning against patch semantics still leaves
@@ -2290,16 +2298,16 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Agreement Acceptance (Transaction
-  121) – Client
-  Initiates](docs/protocol/protocol.md#agreement-acceptance-transaction-121--client-initiates)
-  (snapshot lines 406–449); [docs/protocol/protocol.md — Changing User
-  Settings (Transaction 304) – Client
-  Initiates](docs/protocol/protocol.md#changing-user-settings-transaction-304--client-initiates)
-  (snapshot lines 590–626); [docs/protocol/protocol.md — Sending an Instant
-  Message (Transaction 108) – Client
-  Initiates](docs/protocol/protocol.md#sending-an-instant-message-transaction-108--client-initiates)
-  (snapshot lines 719–750)
+- **Sources:** [docs/protocol/protocol.md — Agreement acceptance (Transaction
+  121) – client
+  initiates](docs/protocol/protocol.md#agreement-acceptance-transaction-121--client-initiates)
+  (snapshot lines 428–473); [docs/protocol/protocol.md — Changing user
+  settings (Transaction 304) – client
+  initiates](docs/protocol/protocol.md#changing-user-settings-transaction-304--client-initiates)
+  (snapshot lines 620–656); [docs/protocol/protocol.md — Sending an instant
+  message (Transaction 108) – client
+  initiates](docs/protocol/protocol.md#sending-an-instant-message-transaction-108--client-initiates)
+  (snapshot lines 749–783)
 - **Question:** How are unknown 113 bits, auto-response enable/disable
   transitions, missing 215 and default-response text handled across 121 and
   304?
@@ -2348,12 +2356,12 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Investigating; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Access Privilege Bits (Field
+- **Sources:** [docs/protocol/protocol.md — Access privilege bits (Field
   110)](docs/protocol/protocol.md#access-privilege-bits-field-110) (snapshot
-  lines 474–517); [docs/accounts-and-privileges/privilege-bits.md — Native 1.9
+  lines 498–544); [docs/accounts-and-privileges/privilege-bits.md — Native 1.9
   access bitmap: per-bit evidence
   index](docs/accounts-and-privileges/privilege-bits.md#native-19-access-bitmap-per-bit-evidence-index)
-  (snapshot lines 1–108)
+  (snapshot lines 1–114)
 - **Question:** What do all unlisted bits, including 18/19 and 41-63, mean,
   and which bits are reserved, ignored or preserved?
 - **Implementation impact:** The corrected observed subset cannot support full
@@ -2447,14 +2455,14 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Access Privilege Bits (Field
+- **Sources:** [docs/protocol/protocol.md — Access privilege bits (Field
   110)](docs/protocol/protocol.md#access-privilege-bits-field-110) (snapshot
-  lines 474–517); [docs/protocol/protocol.md — File Services (Files and
-  Folders)](docs/protocol/protocol.md#file-services-files-and-folders)
-  (snapshot lines 805–819); [docs/protocol/protocol.md — Managing News
-  Structure (Transactions 380, 381, 382) – Client Initiates
-  (Admin/Mods)](docs/protocol/protocol.md#managing-news-structure-transactions-380-381-382--client-initiates-adminmods)
-  (snapshot lines 1180–1197)
+  lines 498–544); [docs/protocol/protocol.md — File services (files and
+  folders)](docs/protocol/protocol.md#file-services-files-and-folders)
+  (snapshot lines 838–852); [docs/protocol/protocol.md — Managing news
+  structure (Transactions 380, 381, 382) – client initiates
+  (admin/mods)](docs/protocol/protocol.md#managing-news-structure-transactions-380-381-382--client-initiates-adminmods)
+  (snapshot lines 1215–1235)
 - **Question:** How do general, folder and news helpers combine account
   rights, path-specific rules, inheritance and administrator overrides?
 - **Implementation impact:** Knowing a bit number does not establish which
@@ -2485,16 +2493,16 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Missing; Investigating; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Retrieving the User List
-  (Transaction 300) – Client
-  Initiates](docs/protocol/protocol.md#retrieving-the-user-list-transaction-300--client-initiates)
-  (snapshot lines 518–552); [docs/protocol/protocol.md — Chat Invitations
-  (Transactions 112, 113, 114) – Private
-  Chats](docs/protocol/protocol.md#chat-invitations-transactions-112-113-114--private-chats)
-  (snapshot lines 685–707); [docs/protocol/protocol.md — Transfer Connection
-  and Reference
-  Cleanup](docs/protocol/protocol.md#transfer-connection-and-reference-cleanup)
-  (snapshot lines 1046–1066)
+- **Sources:** [docs/protocol/protocol.md — Retrieving the user list
+  (Transaction 300) – client
+  initiates](docs/protocol/protocol.md#retrieving-the-user-list-transaction-300--client-initiates)
+  (snapshot lines 545–582); [docs/protocol/protocol.md — Chat invitations
+  (Transactions 112, 113, 114) – private
+  chats](docs/protocol/protocol.md#chat-invitations-transactions-112-113-114--private-chats)
+  (snapshot lines 715–737); [docs/protocol/protocol.md — Transfer connection
+  and reference
+  cleanup](docs/protocol/protocol.md#transfer-connection-and-reference-cleanup)
+  (snapshot lines 1079–1099)
 - **Question:** What are each ID's wire width, allocation scope, sentinel
   values, wrap/reuse rules and persistence across reconnects or restart?
 - **Implementation impact:** A shared numeric value can be misinterpreted
@@ -2554,13 +2562,13 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Retrieving the User List
-  (Transaction 300) – Client
-  Initiates](docs/protocol/protocol.md#retrieving-the-user-list-transaction-300--client-initiates)
-  (snapshot lines 518–552); [docs/protocol/protocol.md — User Appearance and
-  Updates (Transaction 301 & 302) – Server
-  Initiates](docs/protocol/protocol.md#user-appearance-and-updates-transaction-301--302--server-initiates)
-  (snapshot lines 553–571)
+- **Sources:** [docs/protocol/protocol.md — Retrieving the user list
+  (Transaction 300) – client
+  initiates](docs/protocol/protocol.md#retrieving-the-user-list-transaction-300--client-initiates)
+  (snapshot lines 545–582); [docs/protocol/protocol.md — User appearance and
+  updates (Transaction 301 & 302) – server
+  initiates](docs/protocol/protocol.md#user-appearance-and-updates-transaction-301--302--server-initiates)
+  (snapshot lines 583–601)
 - **Question:** What does each field-112/packed-roster status bit represent
   and when does it change relative to settings, privileges or away state?
 - **Implementation impact:** Clients can decode record lengths yet display or
@@ -2590,16 +2598,16 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Retrieving the User List
-  (Transaction 300) – Client
-  Initiates](docs/protocol/protocol.md#retrieving-the-user-list-transaction-300--client-initiates)
-  (snapshot lines 518–552); [docs/protocol/protocol.md — User Appearance and
-  Updates (Transaction 301 & 302) – Server
-  Initiates](docs/protocol/protocol.md#user-appearance-and-updates-transaction-301--302--server-initiates)
-  (snapshot lines 553–571); [docs/protocol/protocol.md — Login (Transaction
-  107) – Client
-  Initiates](docs/protocol/protocol.md#login-transaction-107--client-initiates)
-  (snapshot lines 314–370)
+- **Sources:** [docs/protocol/protocol.md — Retrieving the user list
+  (Transaction 300) – client
+  initiates](docs/protocol/protocol.md#retrieving-the-user-list-transaction-300--client-initiates)
+  (snapshot lines 545–582); [docs/protocol/protocol.md — User appearance and
+  updates (Transaction 301 & 302) – server
+  initiates](docs/protocol/protocol.md#user-appearance-and-updates-transaction-301--302--server-initiates)
+  (snapshot lines 583–601); [docs/protocol/protocol.md — Login (Transaction
+  107) – client
+  initiates](docs/protocol/protocol.md#login-transaction-107--client-initiates)
+  (snapshot lines 336–392)
 - **Question:** Does 301 include the subject user, when is a session visible
   in 300, and how are snapshots ordered against concurrent changes and 354?
 - **Implementation impact:** A client can miss or double-apply a user when
@@ -2679,16 +2687,16 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Investigating; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — User Appearance and Updates
-  (Transaction 301 & 302) – Server
-  Initiates](docs/protocol/protocol.md#user-appearance-and-updates-transaction-301--302--server-initiates)
-  (snapshot lines 553–571); [docs/protocol/protocol.md — Leaving a Chat Room
-  (Transaction 116) – Client
-  Initiates](docs/protocol/protocol.md#leaving-a-chat-room-transaction-116--client-initiates)
-  (snapshot lines 663–672); [docs/protocol/protocol.md — Disconnecting a User
-  (Transaction 110 & 111) – Admin/Server
-  Use](docs/protocol/protocol.md#disconnecting-a-user-transaction-110--111--adminserver-use)
-  (snapshot lines 1250–1298)
+- **Sources:** [docs/protocol/protocol.md — User appearance and updates
+  (Transaction 301 & 302) – server
+  initiates](docs/protocol/protocol.md#user-appearance-and-updates-transaction-301--302--server-initiates)
+  (snapshot lines 583–601); [docs/protocol/protocol.md — Leaving a chat room
+  (Transaction 116) – client
+  initiates](docs/protocol/protocol.md#leaving-a-chat-room-transaction-116--client-initiates)
+  (snapshot lines 693–702); [docs/protocol/protocol.md — Disconnecting a user
+  (Transaction 110 & 111) – admin/server
+  use](docs/protocol/protocol.md#disconnecting-a-user-transaction-110--111--adminserver-use)
+  (snapshot lines 1291–1339)
 - **Question:** Which teardown paths emit 302, which fields/recipients are
   used, and when are rooms, queued transfers and IDs cleaned up?
 - **Implementation impact:** The known explicit-leave path does not specify
@@ -2776,10 +2784,10 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P2; Ambiguous; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Viewing User Info (Transaction
-  303) – Client
-  Initiates](docs/protocol/protocol.md#viewing-user-info-transaction-303--client-initiates)
-  (snapshot lines 572–589)
+- **Sources:** [docs/protocol/protocol.md — Viewing user info (Transaction
+  303) – client
+  initiates](docs/protocol/protocol.md#viewing-user-info-transaction-303--client-initiates)
+  (snapshot lines 602–619)
 - **Question:** Are the 303 text labels, line endings, address representation
   and transfer summaries stable protocol content or
   build/configuration-dependent presentation?
@@ -2850,18 +2858,18 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Sending a Chat Message
-  (Transaction 105) – Client
-  Initiates](docs/protocol/protocol.md#sending-a-chat-message-transaction-105--client-initiates)
-  (snapshot lines 629–640); [docs/protocol/protocol.md — Joining a Chat Room
-  (Transaction 115) – Client
-  Initiates](docs/protocol/protocol.md#joining-a-chat-room-transaction-115--client-initiates)
-  (snapshot lines 652–662); [docs/protocol/protocol.md — Chat Invitations
-  (Transactions 112, 113, 114) – Private
-  Chats](docs/protocol/protocol.md#chat-invitations-transactions-112-113-114--private-chats)
-  (snapshot lines 685–707); [docs/protocol/protocol.md — Additional Admin
-  Privileges Note](docs/protocol/protocol.md#additional-admin-privileges-note)
-  (snapshot lines 1314–1322)
+- **Sources:** [docs/protocol/protocol.md — Sending a chat message
+  (Transaction 105) – client
+  initiates](docs/protocol/protocol.md#sending-a-chat-message-transaction-105--client-initiates)
+  (snapshot lines 659–670); [docs/protocol/protocol.md — Joining a chat room
+  (Transaction 115) – client
+  initiates](docs/protocol/protocol.md#joining-a-chat-room-transaction-115--client-initiates)
+  (snapshot lines 682–692); [docs/protocol/protocol.md — Chat invitations
+  (Transactions 112, 113, 114) – private
+  chats](docs/protocol/protocol.md#chat-invitations-transactions-112-113-114--private-chats)
+  (snapshot lines 715–737); [docs/protocol/protocol.md — Additional admin
+  privileges note](docs/protocol/protocol.md#additional-admin-privileges-note)
+  (snapshot lines 1355–1363)
 - **Question:** Is the main room implicit, and what authorizes join, send,
   invite, topic edit or administrative access to a private room?
 - **Implementation impact:** The presence of a room ID and bit-11 check does
@@ -2907,10 +2915,10 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Chat Invitations (Transactions
-  112, 113, 114) – Private
-  Chats](docs/protocol/protocol.md#chat-invitations-transactions-112-113-114--private-chats)
-  (snapshot lines 685–707)
+- **Sources:** [docs/protocol/protocol.md — Chat invitations (Transactions
+  112, 113, 114) – private
+  chats](docs/protocol/protocol.md#chat-invitations-transactions-112-113-114--private-chats)
+  (snapshot lines 715–737)
 - **Question:** How are duplicate target UIDs, declined/expired invitations,
   repeated joins, disconnected invitees and mixed valid/invalid target lists
   handled?
@@ -2956,16 +2964,16 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Ambiguous; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Joining a Chat Room (Transaction
-  115) – Client
-  Initiates](docs/protocol/protocol.md#joining-a-chat-room-transaction-115--client-initiates)
-  (snapshot lines 652–662); [docs/protocol/protocol.md — Leaving a Chat Room
-  (Transaction 116) – Client
-  Initiates](docs/protocol/protocol.md#leaving-a-chat-room-transaction-116--client-initiates)
-  (snapshot lines 663–672); [docs/protocol/protocol.md — Chat Room
-  Notifications (Transactions 117 & 118) – Server
-  Initiates](docs/protocol/protocol.md#chat-room-notifications-transactions-117--118--server-initiates)
-  (snapshot lines 673–684)
+- **Sources:** [docs/protocol/protocol.md — Joining a chat room (Transaction
+  115) – client
+  initiates](docs/protocol/protocol.md#joining-a-chat-room-transaction-115--client-initiates)
+  (snapshot lines 682–692); [docs/protocol/protocol.md — Leaving a chat room
+  (Transaction 116) – client
+  initiates](docs/protocol/protocol.md#leaving-a-chat-room-transaction-116--client-initiates)
+  (snapshot lines 693–702); [docs/protocol/protocol.md — Chat room
+  notifications (Transactions 117 & 118) – server
+  initiates](docs/protocol/protocol.md#chat-room-notifications-transactions-117--118--server-initiates)
+  (snapshot lines 703–714)
 - **Question:** When is subject 115 omitted versus empty, does the joining
   user appear in the returned roster, and how do 117/118 interleave with
   join/leave replies?
@@ -3010,10 +3018,10 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Chat Subject Management
+- **Sources:** [docs/protocol/protocol.md — Chat subject management
   (Transactions 119 &
   120)](docs/protocol/protocol.md#chat-subject-management-transactions-119--120)
-  (snapshot lines 708–716)
+  (snapshot lines 738–746)
 - **Question:** Who may change a topic, what are the maximum length/encoding
   rules, and do absent and empty 115 both clear it?
 - **Implementation impact:** The current description establishes a setter/send
@@ -3056,13 +3064,13 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Sending a Chat Message
-  (Transaction 105) – Client
-  Initiates](docs/protocol/protocol.md#sending-a-chat-message-transaction-105--client-initiates)
-  (snapshot lines 629–640); [docs/protocol/protocol.md — Receiving a Chat
-  Message (Transaction 106) – Server
-  Initiates](docs/protocol/protocol.md#receiving-a-chat-message-transaction-106--server-initiates)
-  (snapshot lines 641–651)
+- **Sources:** [docs/protocol/protocol.md — Sending a chat message
+  (Transaction 105) – client
+  initiates](docs/protocol/protocol.md#sending-a-chat-message-transaction-105--client-initiates)
+  (snapshot lines 659–670); [docs/protocol/protocol.md — Receiving a chat
+  message (Transaction 106) – server
+  initiates](docs/protocol/protocol.md#receiving-a-chat-message-transaction-106--server-initiates)
+  (snapshot lines 671–681)
 - **Question:** What are option-109 values/defaults, exact server formatting,
   newline/NUL handling and recipient rules for main versus room chat?
 - **Implementation impact:** The delivered text cannot be reproduced from raw
@@ -3106,10 +3114,10 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Sending an Instant Message
-  (Transaction 108) – Client
-  Initiates](docs/protocol/protocol.md#sending-an-instant-message-transaction-108--client-initiates)
-  (snapshot lines 719–750)
+- **Sources:** [docs/protocol/protocol.md — Sending an instant message
+  (Transaction 108) – client
+  initiates](docs/protocol/protocol.md#sending-an-instant-message-transaction-108--client-initiates)
+  (snapshot lines 749–783)
 - **Question:** How do options 1-4, both peers' refusal/automatic-response
   flags, empty text and quoted field 214 combine, including post-ACK rejection
   or automatic-response loops?
@@ -3138,16 +3146,16 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Missing; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Receiving a Private Message
-  (Transaction 104) – Server
-  Initiates](docs/protocol/protocol.md#receiving-a-private-message-transaction-104--server-initiates)
-  (snapshot lines 751–779); [docs/protocol/protocol.md — Disconnecting a User
-  (Transaction 110 & 111) – Admin/Server
-  Use](docs/protocol/protocol.md#disconnecting-a-user-transaction-110--111--adminserver-use)
-  (snapshot lines 1250–1298); [docs/protocol/protocol.md — Sending a Chat
-  Message (Transaction 105) – Client
-  Initiates](docs/protocol/protocol.md#sending-a-chat-message-transaction-105--client-initiates)
-  (snapshot lines 629–640)
+- **Sources:** [docs/protocol/protocol.md — Receiving a private message
+  (Transaction 104) – server
+  initiates](docs/protocol/protocol.md#receiving-a-private-message-transaction-104--server-initiates)
+  (snapshot lines 784–812); [docs/protocol/protocol.md — Disconnecting a user
+  (Transaction 110 & 111) – admin/server
+  use](docs/protocol/protocol.md#disconnecting-a-user-transaction-110--111--adminserver-use)
+  (snapshot lines 1291–1339); [docs/protocol/protocol.md — Sending a chat
+  message (Transaction 105) – client
+  initiates](docs/protocol/protocol.md#sending-a-chat-message-transaction-105--client-initiates)
+  (snapshot lines 659–670)
 - **Question:** Which fields identify user messages, server/admin notices,
   refusals and kick notices; are sender UID/name/options mandatory in each
   variant?
@@ -3240,19 +3248,19 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Investigating; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Sending a Chat Message
-  (Transaction 105) – Client
-  Initiates](docs/protocol/protocol.md#sending-a-chat-message-transaction-105--client-initiates)
-  (snapshot lines 629–640); [docs/protocol/protocol.md — Sending an Instant
-  Message (Transaction 108) – Client
-  Initiates](docs/protocol/protocol.md#sending-an-instant-message-transaction-108--client-initiates)
-  (snapshot lines 719–750); [docs/protocol/protocol.md — Broadcasting a
-  Message (Transaction 355) – Admin/Server
-  Initiated](docs/protocol/protocol.md#broadcasting-a-message-transaction-355--adminserver-initiated)
-  (snapshot lines 1299–1313); [docs/protocol/protocol.md — Changing User
-  Settings (Transaction 304) – Client
-  Initiates](docs/protocol/protocol.md#changing-user-settings-transaction-304--client-initiates)
-  (snapshot lines 590–626)
+- **Sources:** [docs/protocol/protocol.md — Sending a chat message
+  (Transaction 105) – client
+  initiates](docs/protocol/protocol.md#sending-a-chat-message-transaction-105--client-initiates)
+  (snapshot lines 659–670); [docs/protocol/protocol.md — Sending an instant
+  message (Transaction 108) – client
+  initiates](docs/protocol/protocol.md#sending-an-instant-message-transaction-108--client-initiates)
+  (snapshot lines 749–783); [docs/protocol/protocol.md — Broadcasting a
+  message (Transaction 355) – admin/server
+  initiated](docs/protocol/protocol.md#broadcasting-a-message-transaction-355--adminserver-initiated)
+  (snapshot lines 1340–1354); [docs/protocol/protocol.md — Changing user
+  settings (Transaction 304) – client
+  initiates](docs/protocol/protocol.md#changing-user-settings-transaction-304--client-initiates)
+  (snapshot lines 620–656)
 - **Question:** What counters, windows, limits and reset conditions cause
   rejection, delayed handling, ACK-then-close or disconnection for each
   operation?
@@ -3337,9 +3345,9 @@ silently made normative by being listed as a question.
   [Precontact rate startup
   failure](docs/native-evidence/native-rate304-startup-gate.md);
   [Packet-triggered guest capture
-  source](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/guest-capture-startup.md);
+  source](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/guest-capture-startup.md);
   [Phased emulator
-  readiness](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/native-emulator-readiness.md);
+  readiness](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/native-emulator-readiness.md);
   [Phased helper independent review and fault
   regressions](evidence/gap-remediation/2026-11-14/emulator-readiness-review-01/manifest.json);
   [Measured native 304 sequence and failed final
@@ -3354,10 +3362,10 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Legacy Message Board (Transactions
+- **Sources:** [docs/protocol/protocol.md — Legacy message board (Transactions
   101, 102,
   103)](docs/protocol/protocol.md#legacy-message-board-transactions-101-102-103)
-  (snapshot lines 780–804)
+  (snapshot lines 813–837)
 - **Question:** What are the aggregate 101 format, append/replace rules for
   103, post size limits, persistence and 102 update ordering/recipients?
 - **Implementation impact:** Keeping the old board in scope does not yet
@@ -3407,7 +3415,7 @@ silently made normative by being listed as a question.
   [Aborted pre-contact board
   lab](docs/native-evidence/native-board-readiness-failure.md);
   [Receipt-builder workflow and
-  limits](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/native-capture-receipt.md);
+  limits](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/native-capture-receipt.md);
   [Native board witness](docs/native-evidence/native-board-witness.md);
   [Portable board packet and storage
   corpus](evidence/gap-remediation/2026-11-14/native-board-01/manifest.json);
@@ -3434,16 +3442,16 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Listing Files in a Folder
-  (Transaction 200) – Client
-  Initiates](docs/protocol/protocol.md#listing-files-in-a-folder-transaction-200--client-initiates)
-  (snapshot lines 820–832); [docs/protocol/protocol.md — Moving Files/Folders
-  (Transaction 208) – Client
-  Initiates](docs/protocol/protocol.md#moving-filesfolders-transaction-208--client-initiates)
-  (snapshot lines 956–971); [docs/protocol/protocol.md — Listing News
-  Categories (Transaction 370) – Client
-  Initiates](docs/protocol/protocol.md#listing-news-categories-transaction-370--client-initiates)
-  (snapshot lines 1078–1098)
+- **Sources:** [docs/protocol/protocol.md — Listing files in a folder
+  (Transaction 200) – client
+  initiates](docs/protocol/protocol.md#listing-files-in-a-folder-transaction-200--client-initiates)
+  (snapshot lines 853–865); [docs/protocol/protocol.md — Moving files/folders
+  (Transaction 208) – client
+  initiates](docs/protocol/protocol.md#moving-filesfolders-transaction-208--client-initiates)
+  (snapshot lines 989–1004); [docs/protocol/protocol.md — Listing news
+  categories (Transaction 370) – client
+  initiates](docs/protocol/protocol.md#listing-news-categories-transaction-370--client-initiates)
+  (snapshot lines 1111–1131)
 - **Question:** What are the counts, component records, reserved bytes, root
   representation, limits and normalization rules for fields 202/212/325, and
   do those fields share a grammar?
@@ -3519,10 +3527,10 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Listing Files in a Folder
-  (Transaction 200) – Client
-  Initiates](docs/protocol/protocol.md#listing-files-in-a-folder-transaction-200--client-initiates)
-  (snapshot lines 820–832)
+- **Sources:** [docs/protocol/protocol.md — Listing files in a folder
+  (Transaction 200) – client
+  initiates](docs/protocol/protocol.md#listing-files-in-a-folder-transaction-200--client-initiates)
+  (snapshot lines 853–865)
 - **Question:** What are the exact field-200 offsets, metadata/tag meanings,
   size widths, entry kinds, sort order and empty-list representation?
 - **Implementation impact:** A client cannot render or navigate file listings
@@ -3562,10 +3570,10 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Ambiguous; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Getting File/Folder Info
-  (Transaction 206) – Client
-  Initiates](docs/protocol/protocol.md#getting-filefolder-info-transaction-206--client-initiates)
-  (snapshot lines 915–934)
+- **Sources:** [docs/protocol/protocol.md — Getting file/folder info
+  (Transaction 206) – client
+  initiates](docs/protocol/protocol.md#getting-filefolder-info-transaction-206--client-initiates)
+  (snapshot lines 948–967)
 - **Question:** Which fields and widths occur for files, folders, aliases and
   special items, including descriptive 205/206, raw 213 and size/date
   omissions?
@@ -3611,10 +3619,10 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Investigating; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Deleting a File (Transaction 204)
-  – Client
-  Initiates](docs/protocol/protocol.md#deleting-a-file-transaction-204--client-initiates)
-  (snapshot lines 880–895)
+- **Sources:** [docs/protocol/protocol.md — Deleting a file (Transaction 204)
+  – client
+  initiates](docs/protocol/protocol.md#deleting-a-file-transaction-204--client-initiates)
+  (snapshot lines 913–928)
 - **Question:** Can 204 remove nonempty folders, which errors apply to
   missing/root/protected targets, and what state/notifications follow a
   partial filesystem failure?
@@ -3666,10 +3674,10 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Creating a New Folder (Transaction
-  205) – Client
-  Initiates](docs/protocol/protocol.md#creating-a-new-folder-transaction-205--client-initiates)
-  (snapshot lines 896–914)
+- **Sources:** [docs/protocol/protocol.md — Creating a new folder (Transaction
+  205) – client
+  initiates](docs/protocol/protocol.md#creating-a-new-folder-transaction-205--client-initiates)
+  (snapshot lines 929–947)
 - **Question:** How are name/path defaults, existing names, invalid names,
   missing parents and per-folder privilege checks handled by 205?
 - **Implementation impact:** An encoder can issue a valid TLV request but
@@ -3708,10 +3716,10 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Setting File/Folder Info
-  (Transaction 207) – Client
-  Initiates](docs/protocol/protocol.md#setting-filefolder-info-transaction-207--client-initiates)
-  (snapshot lines 935–955)
+- **Sources:** [docs/protocol/protocol.md — Setting file/folder info
+  (Transaction 207) – client
+  initiates](docs/protocol/protocol.md#setting-filefolder-info-transaction-207--client-initiates)
+  (snapshot lines 968–988)
 - **Question:** Do omitted/empty 210 and 211 preserve, clear or reject values,
   and what happens when one permitted sub-operation succeeds and another
   fails?
@@ -3747,10 +3755,10 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Investigating; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Moving Files/Folders (Transaction
-  208) – Client
-  Initiates](docs/protocol/protocol.md#moving-filesfolders-transaction-208--client-initiates)
-  (snapshot lines 956–971)
+- **Sources:** [docs/protocol/protocol.md — Moving files/folders (Transaction
+  208) – client
+  initiates](docs/protocol/protocol.md#moving-filesfolders-transaction-208--client-initiates)
+  (snapshot lines 989–1004)
 - **Question:** How do destination conflicts, aliases, cross-volume moves and
   interrupted filesystem operations affect 208 and its ACK/error result?
 - **Implementation impact:** The operation name does not establish overwrite,
@@ -3788,14 +3796,14 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Investigating; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Creating an Alias (Shortcut)
-  (Transaction 209) – Client
-  Initiates](docs/protocol/protocol.md#creating-an-alias-shortcut-transaction-209--client-initiates)
-  (snapshot lines 972–985);
+- **Sources:** [docs/protocol/protocol.md — Creating an alias (shortcut)
+  (Transaction 209) – client
+  initiates](docs/protocol/protocol.md#creating-an-alias-shortcut-transaction-209--client-initiates)
+  (snapshot lines 1005–1018);
   [docs/native-evidence/native-missing-alias-preparation.md — R04: selection
   completed, parent checkpoint
   missed](docs/native-evidence/native-missing-alias-preparation.md#r04-selection-completed-parent-checkpoint-missed)
-  (snapshot lines 185–206)
+  (snapshot lines 198–219)
 - **Question:** What alias object is created, how is its name chosen, and when
   do listing/info/download resolve its target rather than expose the alias
   itself?
@@ -3870,12 +3878,12 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Transfer Connection and Reference
-  Cleanup](docs/protocol/protocol.md#transfer-connection-and-reference-cleanup)
-  (snapshot lines 1046–1066); [docs/protocol/protocol.md — Banner Download
-  (Transaction 212) – Client
-  Initiates](docs/protocol/protocol.md#banner-download-transaction-212--client-initiates)
-  (snapshot lines 1027–1045)
+- **Sources:** [docs/protocol/protocol.md — Transfer connection and reference
+  cleanup](docs/protocol/protocol.md#transfer-connection-and-reference-cleanup)
+  (snapshot lines 1079–1099); [docs/protocol/protocol.md — Banner download
+  (Transaction 212) – client
+  initiates](docs/protocol/protocol.md#banner-download-transaction-212--client-initiates)
+  (snapshot lines 1060–1078)
 - **Question:** What are every offset/width, type value, reserved field and
   reference-matching rule, and how do unknown, expired or other-session
   references fail?
@@ -3916,15 +3924,15 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Transfer Connection and Reference
-  Cleanup](docs/protocol/protocol.md#transfer-connection-and-reference-cleanup)
-  (snapshot lines 1046–1066); [docs/protocol/protocol.md — Downloading a File
-  (Transaction 202) – Client
-  Initiates](docs/protocol/protocol.md#downloading-a-file-transaction-202--client-initiates)
-  (snapshot lines 833–863); [docs/protocol/protocol.md — Uploading a File
-  (Transaction 203) – Client
-  Initiates](docs/protocol/protocol.md#uploading-a-file-transaction-203--client-initiates)
-  (snapshot lines 864–879)
+- **Sources:** [docs/protocol/protocol.md — Transfer connection and reference
+  cleanup](docs/protocol/protocol.md#transfer-connection-and-reference-cleanup)
+  (snapshot lines 1079–1099); [docs/protocol/protocol.md — Downloading a file
+  (Transaction 202) – client
+  initiates](docs/protocol/protocol.md#downloading-a-file-transaction-202--client-initiates)
+  (snapshot lines 866–896); [docs/protocol/protocol.md — Uploading a file
+  (Transaction 203) – client
+  initiates](docs/protocol/protocol.md#uploading-a-file-transaction-203--client-initiates)
+  (snapshot lines 897–912)
 - **Question:** What are stream headers, metadata/fork records, lengths,
   padding, order and termination for ordinary Mac files versus raw/preview
   transfers?
@@ -3965,10 +3973,10 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Ambiguous; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Downloading a File (Transaction
-  202) – Client
-  Initiates](docs/protocol/protocol.md#downloading-a-file-transaction-202--client-initiates)
-  (snapshot lines 833–863)
+- **Sources:** [docs/protocol/protocol.md — Downloading a file (Transaction
+  202) – client
+  initiates](docs/protocol/protocol.md#downloading-a-file-transaction-202--client-initiates)
+  (snapshot lines 866–896)
 - **Question:** Which 204 values/defaults choose each mode, how are 108/207
   calculated and when are 107/116 omitted or mandatory?
 - **Implementation impact:** A successful zero-size response or differing
@@ -4006,13 +4014,13 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Uploading a File (Transaction 203)
-  – Client
-  Initiates](docs/protocol/protocol.md#uploading-a-file-transaction-203--client-initiates)
-  (snapshot lines 864–879); [docs/protocol/protocol.md — Downloading a File
-  (Transaction 202) – Client
-  Initiates](docs/protocol/protocol.md#downloading-a-file-transaction-202--client-initiates)
-  (snapshot lines 833–863)
+- **Sources:** [docs/protocol/protocol.md — Uploading a file (Transaction 203)
+  – client
+  initiates](docs/protocol/protocol.md#uploading-a-file-transaction-203--client-initiates)
+  (snapshot lines 897–912); [docs/protocol/protocol.md — Downloading a file
+  (Transaction 202) – client
+  initiates](docs/protocol/protocol.md#downloading-a-file-transaction-202--client-initiates)
+  (snapshot lines 866–896)
 - **Question:** What is the nested field-203 grammar, which forks/offsets it
   covers, and how are mismatch, completed and missing partial files handled?
 - **Implementation impact:** Neither upload nor download resume can be
@@ -4054,10 +4062,10 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Downloading an Entire Folder
-  (Transaction 210) – Client
-  Initiates](docs/protocol/protocol.md#downloading-an-entire-folder-transaction-210--client-initiates)
-  (snapshot lines 986–1006)
+- **Sources:** [docs/protocol/protocol.md — Downloading an entire folder
+  (Transaction 210) – client
+  initiates](docs/protocol/protocol.md#downloading-an-entire-folder-transaction-210--client-initiates)
+  (snapshot lines 1019–1039)
 - **Question:** What are entry/path records, actions, traversal order,
   aggregate counts/sizes, skips and resume transitions for 210?
 - **Implementation impact:** The known initiation fields do not describe a
@@ -4101,10 +4109,10 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Uploading an Entire Folder
-  (Transaction 213) – Client
-  Initiates](docs/protocol/protocol.md#uploading-an-entire-folder-transaction-213--client-initiates)
-  (snapshot lines 1007–1026)
+- **Sources:** [docs/protocol/protocol.md — Uploading an entire folder
+  (Transaction 213) – client
+  initiates](docs/protocol/protocol.md#uploading-an-entire-folder-transaction-213--client-initiates)
+  (snapshot lines 1040–1059)
 - **Question:** How are directories/files framed, acknowledged, counted,
   resumed or rolled back in 213, and how do empty transfers complete?
 - **Implementation impact:** Assuming the inverse of download would invent
@@ -4150,15 +4158,16 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Downloading a File (Transaction
-  202) – Client
-  Initiates](docs/protocol/protocol.md#downloading-a-file-transaction-202--client-initiates)
-  (snapshot lines 833–863); [docs/protocol/protocol.md — Downloading an Entire
-  Folder (Transaction 210) – Client
-  Initiates](docs/protocol/protocol.md#downloading-an-entire-folder-transaction-210--client-initiates)
-  (snapshot lines 986–1006); [docs/protocol/protocol.md — File Services (Files
-  and Folders)](docs/protocol/protocol.md#file-services-files-and-folders)
-  (snapshot lines 805–819)
+- **Sources:** [docs/protocol/protocol.md — Downloading a file (Transaction
+  202) – client
+  initiates](docs/protocol/protocol.md#downloading-a-file-transaction-202--client-initiates)
+  (snapshot lines 866–896); [docs/protocol/protocol.md — Downloading an entire
+  folder (Transaction 210) – client
+  initiates](docs/protocol/protocol.md#downloading-an-entire-folder-transaction-210--client-initiates)
+  (snapshot lines 1019–1039); [docs/protocol/protocol.md — File services
+  (files and
+  folders)](docs/protocol/protocol.md#file-services-files-and-folders)
+  (snapshot lines 838–852)
 - **Question:** What fields/type/ordering does 211 use, how do queue positions
   and slots change, and when should the client connect, wait or retry?
 - **Implementation impact:** Queued transfers cannot make reliable progress
@@ -4201,9 +4210,9 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Transfer Connection and Reference
-  Cleanup](docs/protocol/protocol.md#transfer-connection-and-reference-cleanup)
-  (snapshot lines 1046–1066)
+- **Sources:** [docs/protocol/protocol.md — Transfer connection and reference
+  cleanup](docs/protocol/protocol.md#transfer-connection-and-reference-cleanup)
+  (snapshot lines 1079–1099)
 - **Question:** Does 214 cancel queued/active/completed transfers, who owns
   the reference, and how are zero, unknown, duplicate or racing requests
   acknowledged?
@@ -4249,13 +4258,13 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Banner Download (Transaction 212)
-  – Client
-  Initiates](docs/protocol/protocol.md#banner-download-transaction-212--client-initiates)
-  (snapshot lines 1027–1045); [docs/protocol/protocol.md — Banner Metadata
-  (Transaction 122) – Server
-  Initiates](docs/protocol/protocol.md#banner-metadata-transaction-122--server-initiates)
-  (snapshot lines 450–464)
+- **Sources:** [docs/protocol/protocol.md — Banner download (Transaction 212)
+  – client
+  initiates](docs/protocol/protocol.md#banner-download-transaction-212--client-initiates)
+  (snapshot lines 1060–1078); [docs/protocol/protocol.md — Banner metadata
+  (Transaction 122) – server
+  initiates](docs/protocol/protocol.md#banner-metadata-transaction-122--server-initiates)
+  (snapshot lines 474–488)
 - **Question:** Is banner content raw or flattened, what exact bytes/size are
   transferred, and what happens if a configured banner changes or disappears
   after metadata delivery?
@@ -4301,15 +4310,15 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Missing; Investigating; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — File Services (Files and
-  Folders)](docs/protocol/protocol.md#file-services-files-and-folders)
-  (snapshot lines 805–819); [docs/protocol/protocol.md — Transfer Connection
-  and Reference
-  Cleanup](docs/protocol/protocol.md#transfer-connection-and-reference-cleanup)
-  (snapshot lines 1046–1066); [docs/protocol/protocol.md — Uploading an Entire
-  Folder (Transaction 213) – Client
-  Initiates](docs/protocol/protocol.md#uploading-an-entire-folder-transaction-213--client-initiates)
-  (snapshot lines 1007–1026)
+- **Sources:** [docs/protocol/protocol.md — File services (files and
+  folders)](docs/protocol/protocol.md#file-services-files-and-folders)
+  (snapshot lines 838–852); [docs/protocol/protocol.md — Transfer connection
+  and reference
+  cleanup](docs/protocol/protocol.md#transfer-connection-and-reference-cleanup)
+  (snapshot lines 1079–1099); [docs/protocol/protocol.md — Uploading an entire
+  folder (Transaction 213) – client
+  initiates](docs/protocol/protocol.md#uploading-an-entire-folder-transaction-213--client-initiates)
+  (snapshot lines 1040–1059)
 - **Question:** Which byte counts or markers prove completion, and what
   survives EOF, timeout, reconnect, disk-full, oversized files or an
   interrupted upload?
@@ -4415,12 +4424,12 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Listing News Categories
-  (Transaction 370) – Client
-  Initiates](docs/protocol/protocol.md#listing-news-categories-transaction-370--client-initiates)
-  (snapshot lines 1078–1098); [docs/protocol/protocol.md — News
-  Hierarchy](docs/protocol/protocol.md#news-hierarchy) (snapshot lines
-  1069–1077)
+- **Sources:** [docs/protocol/protocol.md — Listing news categories
+  (Transaction 370) – client
+  initiates](docs/protocol/protocol.md#listing-news-categories-transaction-370--client-initiates)
+  (snapshot lines 1111–1131); [docs/protocol/protocol.md — News
+  hierarchy](docs/protocol/protocol.md#news-hierarchy) (snapshot lines
+  1102–1110)
 - **Question:** What are nested 320/323 record layouts and kind/count fields,
   and what peers actually send version values around literal threshold 15?
 - **Implementation impact:** A known top-level field switch does not permit
@@ -4468,10 +4477,10 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Listing News Articles (Transaction
-  371) – Client
-  Initiates](docs/protocol/protocol.md#listing-news-articles-transaction-371--client-initiates)
-  (snapshot lines 1099–1112)
+- **Sources:** [docs/protocol/protocol.md — Listing news articles (Transaction
+  371) – client
+  initiates](docs/protocol/protocol.md#listing-news-articles-transaction-371--client-initiates)
+  (snapshot lines 1132–1145)
 - **Question:** What are field-321 headers, article records, counts, flags,
   dates, flavour records, ordering and size limits?
 - **Implementation impact:** The correction to one containing field still
@@ -4519,13 +4528,13 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Investigating; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Reading a News Article
-  (Transaction 400) – Client
-  Initiates](docs/protocol/protocol.md#reading-a-news-article-transaction-400--client-initiates)
-  (snapshot lines 1113–1141); [docs/protocol/date-contracts.md — Producer and
+- **Sources:** [docs/protocol/protocol.md — Reading a news article
+  (Transaction 400) – client
+  initiates](docs/protocol/protocol.md#reading-a-news-article-transaction-400--client-initiates)
+  (snapshot lines 1146–1176); [docs/protocol/date-contracts.md — Producer and
   consumer
   registry](docs/protocol/date-contracts.md#producer-and-consumer-registry)
-  (snapshot lines 44–60)
+  (snapshot lines 50–69)
 - **Question:** What precisely do 331/332/335/336 identify, what are
   sentinel/end conditions, which flavours work and how is 330 constructed?
 - **Implementation impact:** A client cannot traverse threads or interpret all
@@ -4580,10 +4589,10 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Investigating; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Posting a News Article
-  (Transaction 410) – Client
-  Initiates](docs/protocol/protocol.md#posting-a-news-article-transaction-410--client-initiates)
-  (snapshot lines 1142–1163)
+- **Sources:** [docs/protocol/protocol.md — Posting a news article
+  (Transaction 410) – client
+  initiates](docs/protocol/protocol.md#posting-a-news-article-transaction-410--client-initiates)
+  (snapshot lines 1177–1198)
 - **Question:** How do omitted/zero 326, flags 334, supported flavours and
   body limits affect creation, and how is the resulting ID or update
   discovered after ACK?
@@ -4639,10 +4648,10 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Deleting a News Article
-  (Transaction 411) – Client
-  Initiates](docs/protocol/protocol.md#deleting-a-news-article-transaction-411--client-initiates)
-  (snapshot lines 1164–1179)
+- **Sources:** [docs/protocol/protocol.md — Deleting a news article
+  (Transaction 411) – client
+  initiates](docs/protocol/protocol.md#deleting-a-news-article-transaction-411--client-initiates)
+  (snapshot lines 1199–1214)
 - **Question:** What values/widths does 337 accept, and how are descendants,
   orphans, navigation IDs and notifications updated on success or partial
   failure?
@@ -4682,11 +4691,11 @@ silently made normative by being listed as a question.
 - **Tracking:** P1; Unanswered; Investigating; owner: Protocol documentation
   investigation.
 - **Sources:** [docs/protocol/protocol.md — News
-  Hierarchy](docs/protocol/protocol.md#news-hierarchy) (snapshot lines
-  1069–1077); [docs/protocol/protocol.md — Managing News Structure
-  (Transactions 380, 381, 382) – Client Initiates
-  (Admin/Mods)](docs/protocol/protocol.md#managing-news-structure-transactions-380-381-382--client-initiates-adminmods)
-  (snapshot lines 1180–1197)
+  hierarchy](docs/protocol/protocol.md#news-hierarchy) (snapshot lines
+  1102–1110); [docs/protocol/protocol.md — Managing news structure
+  (Transactions 380, 381, 382) – client initiates
+  (admin/mods)](docs/protocol/protocol.md#managing-news-structure-transactions-380-381-382--client-initiates-adminmods)
+  (snapshot lines 1215–1235)
 - **Question:** What nesting/type/depth rules apply, how are paths and name
   fields interpreted, and what happens on create/delete conflicts or subtree
   failures?
@@ -4737,10 +4746,10 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Investigating; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — User Account Management – Client
-  Initiates (Admin) (Tx
+- **Sources:** [docs/protocol/protocol.md — User account management – client
+  initiates (admin) (Tx
   350–353)](docs/protocol/protocol.md#user-account-management--client-initiates-admin-tx-350353)
-  (snapshot lines 1200–1249)
+  (snapshot lines 1238–1290)
 - **Question:** What is field 111's wire type, presence/default rule, stored
   meaning and effect on 350/353?
 - **Implementation impact:** The documented account schema explicitly contains
@@ -4830,10 +4839,10 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Investigating; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — User Account Management – Client
-  Initiates (Admin) (Tx
+- **Sources:** [docs/protocol/protocol.md — User account management – client
+  initiates (admin) (Tx
   350–353)](docs/protocol/protocol.md#user-account-management--client-initiates-admin-tx-350353)
-  (snapshot lines 1200–1249)
+  (snapshot lines 1238–1290)
 - **Question:** How are target login, rename, absent/empty password, literal
   x, duplicate names, protected-account deletion and partial updates handled?
 - **Implementation impact:** Treating the 352 placeholder as an
@@ -4928,15 +4937,15 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — User Account Management – Client
-  Initiates (Admin) (Tx
+- **Sources:** [docs/protocol/protocol.md — User account management – client
+  initiates (admin) (Tx
   350–353)](docs/protocol/protocol.md#user-account-management--client-initiates-admin-tx-350353)
-  (snapshot lines 1200–1249); [docs/protocol/protocol.md — User Access
-  Privileges (Transaction 354) – Server
-  Initiates](docs/protocol/protocol.md#user-access-privileges-transaction-354--server-initiates)
-  (snapshot lines 465–473); [docs/protocol/protocol.md — Additional Admin
-  Privileges Note](docs/protocol/protocol.md#additional-admin-privileges-note)
-  (snapshot lines 1314–1322)
+  (snapshot lines 1238–1290); [docs/protocol/protocol.md — User access
+  privileges (Transaction 354) – server
+  initiates](docs/protocol/protocol.md#user-access-privileges-transaction-354--server-initiates)
+  (snapshot lines 489–497); [docs/protocol/protocol.md — Additional admin
+  privileges note](docs/protocol/protocol.md#additional-admin-privileges-note)
+  (snapshot lines 1355–1363)
 - **Question:** When do edited privileges, names or passwords affect current
   sessions, does deletion disconnect them, and what 354/301 notifications
   occur?
@@ -4994,10 +5003,10 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P1; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Disconnecting a User (Transaction
-  110 & 111) – Admin/Server
-  Use](docs/protocol/protocol.md#disconnecting-a-user-transaction-110--111--adminserver-use)
-  (snapshot lines 1250–1298)
+- **Sources:** [docs/protocol/protocol.md — Disconnecting a user (Transaction
+  110 & 111) – admin/server
+  use](docs/protocol/protocol.md#disconnecting-a-user-transaction-110--111--adminserver-use)
+  (snapshot lines 1291–1339)
 - **Question:** What exactly do options 1 and 2 do, including identity
   matching, ranges/duration, optional data 101, reconnection and protected
   users?
@@ -5125,13 +5134,13 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P2; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Disconnecting a User (Transaction
-  110 & 111) – Admin/Server
-  Use](docs/protocol/protocol.md#disconnecting-a-user-transaction-110--111--adminserver-use)
-  (snapshot lines 1250–1298); [docs/protocol/protocol.md — Additional Observed
-  Requests and Scope
-  Gaps](docs/protocol/protocol.md#additional-observed-requests-and-scope-gaps)
-  (snapshot lines 1323–1370)
+- **Sources:** [docs/protocol/protocol.md — Disconnecting a user (Transaction
+  110 & 111) – admin/server
+  use](docs/protocol/protocol.md#disconnecting-a-user-transaction-110--111--adminserver-use)
+  (snapshot lines 1291–1339); [docs/protocol/protocol.md — Additional observed
+  requests and scope
+  gaps](docs/protocol/protocol.md#additional-observed-requests-and-scope-gaps)
+  (snapshot lines 1364–1414)
 - **Question:** Does any native producer actually emit 111, under which
   conditions, with what fields and delivery/closure ordering?
 - **Implementation impact:** A retained catalogue entry cannot yet be
@@ -5162,10 +5171,10 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P2; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Broadcasting a Message
-  (Transaction 355) – Admin/Server
-  Initiated](docs/protocol/protocol.md#broadcasting-a-message-transaction-355--adminserver-initiated)
-  (snapshot lines 1299–1313)
+- **Sources:** [docs/protocol/protocol.md — Broadcasting a message
+  (Transaction 355) – admin/server
+  initiated](docs/protocol/protocol.md#broadcasting-a-message-transaction-355--adminserver-initiated)
+  (snapshot lines 1340–1354)
 - **Question:** Does a console-generated broadcast use the same 355 schema,
   and which connected/logged-in/refusing users receive each origin's
   broadcast?
@@ -5207,10 +5216,10 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P2; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Additional Observed Requests and
-  Scope
-  Gaps](docs/protocol/protocol.md#additional-observed-requests-and-scope-gaps)
-  (snapshot lines 1323–1370)
+- **Sources:** [docs/protocol/protocol.md — Additional observed requests and
+  scope
+  gaps](docs/protocol/protocol.md#additional-observed-requests-and-scope-gaps)
+  (snapshot lines 1364–1414)
 - **Question:** What does 348 do, what fields and privileges apply, and how
   are its potentially nested account records serialized?
 - **Implementation impact:** An observed dispatcher entry cannot be advertised
@@ -5247,10 +5256,10 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P2; Unanswered; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — Additional Observed Requests and
-  Scope
-  Gaps](docs/protocol/protocol.md#additional-observed-requests-and-scope-gaps)
-  (snapshot lines 1323–1370)
+- **Sources:** [docs/protocol/protocol.md — Additional observed requests and
+  scope
+  gaps](docs/protocol/protocol.md#additional-observed-requests-and-scope-gaps)
+  (snapshot lines 1364–1414)
 - **Question:** What indexed/transitive fields does 349 consume, how are batch
   entries delimited, and are failures atomic or per-entry?
 - **Implementation impact:** Implementing guessed batch semantics can mutate
@@ -5297,10 +5306,10 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [docs/mxd/compatibility-matrix.md — Compatibility
   matrix](docs/mxd/compatibility-matrix.md#compatibility-matrix) (snapshot
-  lines 44–62); [docs/mxd/compatibility-matrix.md — Open compatibility gaps
+  lines 49–67); [docs/mxd/compatibility-matrix.md — Open compatibility gaps
   and QA
   requirements](docs/mxd/compatibility-matrix.md#open-compatibility-gaps-and-qa-requirements)
-  (snapshot lines 360–386)
+  (snapshot lines 365–391)
 - **Question:** Which client builds are acceptance targets, what stable
   evidence distinguishes them after removing sub-version 2, and what is the
   unknown-peer fallback?
@@ -5403,9 +5412,9 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [docs/mxd/compatibility-matrix.md — Login reply and banner
   policy](docs/mxd/compatibility-matrix.md#login-reply-and-banner-policy)
-  (snapshot lines 100–186); [docs/mxd/compatibility-matrix.md — Compatibility
+  (snapshot lines 105–191); [docs/mxd/compatibility-matrix.md — Compatibility
   matrix](docs/mxd/compatibility-matrix.md#compatibility-matrix) (snapshot
-  lines 44–62)
+  lines 49–67)
 - **Question:** Which identified clients accept 161/162, 122, native roster
   output and the SynHX subject addition, and when is an omission policy
   necessary?
@@ -5512,10 +5521,10 @@ silently made normative by being listed as a question.
 - **Sources:** [docs/mxd/compatibility-matrix.md — Credential obfuscation and
   text
   compatibility](docs/mxd/compatibility-matrix.md#credential-obfuscation-and-text-compatibility)
-  (snapshot lines 187–216); [docs/protocol/protocol.md — Binary Message
-  Formats (Hotline Protocol
+  (snapshot lines 192–221); [docs/protocol/protocol.md — Binary message
+  formats (Hotline Protocol
   1.9)](docs/protocol/protocol.md#binary-message-formats-hotline-protocol-19)
-  (snapshot lines 36–43)
+  (snapshot lines 40–47)
 - **Question:** Will mxd retain text XOR heuristics, on which fields/states,
   and how does it handle valid non-UTF-8 or ambiguous plaintext without
   irreversible mode changes?
@@ -5559,9 +5568,9 @@ silently made normative by being listed as a question.
   investigation.
 - **Sources:** [docs/mxd/compatibility-matrix.md — Compatibility
   matrix](docs/mxd/compatibility-matrix.md#compatibility-matrix) (snapshot
-  lines 44–62); [docs/protocol/protocol.md — References and Correction
-  Traceability](docs/protocol/protocol.md#references-and-correction-traceability)
-  (snapshot lines 1371–1416)
+  lines 49–67); [docs/protocol/protocol.md — References and correction
+  traceability](docs/protocol/protocol.md#references-and-correction-traceability)
+  (snapshot lines 1415–1460)
 - **Question:** Which release/client/server configurations do the selected RCS
   trunk snapshots represent, and how do the default vendor branch and build
   options differ?
@@ -5600,13 +5609,13 @@ silently made normative by being listed as a question.
 - **Tracking:** P0; Evidence; Resolved; owner: Protocol documentation
   investigation.
 - **Sources:** [docs/protocol/protocol.md — 5 Worked example
-  (Login)](docs/protocol/protocol.md#5-worked-example-login) (snapshot lines
-  255–289); [docs/protocol/protocol.md — 6 Implementation
+  (login)](docs/protocol/protocol.md#5-worked-example-login) (snapshot lines
+  272–311); [docs/protocol/protocol.md — 6 Implementation
   checklist](docs/protocol/protocol.md#6-implementation-checklist) (snapshot
-  lines 290–303); [docs/mxd/compatibility-matrix.md — Open compatibility gaps
+  lines 312–325); [docs/mxd/compatibility-matrix.md — Open compatibility gaps
   and QA
   requirements](docs/mxd/compatibility-matrix.md#open-compatibility-gaps-and-qa-requirements)
-  (snapshot lines 360–386)
+  (snapshot lines 365–391)
 - **Question:** Where are executable positive/negative fixtures for core
   handshake, authenticated login, both completion paths, errors and
   repeated-field handling?
@@ -5907,7 +5916,7 @@ silently made normative by being listed as a question.
   pre-contact board
   lab](docs/native-evidence/native-board-readiness-failure.md);
   [Receipt-builder workflow and
-  limits](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/native-capture-receipt.md)
+  limits](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/native-capture-receipt.md)
 - **Closure:** Native core-session fixtures and identified shx captures retain
   decoded/events results, reproducible runners, pinned identities and matched
   host/guest packet provenance. The isolated Classic session additionally
@@ -5925,10 +5934,10 @@ silently made normative by being listed as a question.
 - **Sources:** [docs/mxd/compatibility-matrix.md — Historical reported mxd
   test
   coverage](docs/mxd/compatibility-matrix.md#historical-reported-mxd-test-coverage)
-  (snapshot lines 261–292); [docs/mxd/compatibility-matrix.md — Open
+  (snapshot lines 266–297); [docs/mxd/compatibility-matrix.md — Open
   compatibility gaps and QA
   requirements](docs/mxd/compatibility-matrix.md#open-compatibility-gaps-and-qa-requirements)
-  (snapshot lines 360–386)
+  (snapshot lines 365–391)
 - **Question:** Do the named test/source references exist and pass at a
   recorded mxd revision, and do their assertions match the corrected protocol?
 - **Implementation impact:** The matrix cannot claim supported implementation
@@ -5992,12 +6001,12 @@ silently made normative by being listed as a question.
 - **Sources:** [docs/mxd/compatibility-matrix.md — Open compatibility gaps and
   QA
   requirements](docs/mxd/compatibility-matrix.md#open-compatibility-gaps-and-qa-requirements)
-  (snapshot lines 360–386); [docs/mxd/compatibility-matrix.md — Scope and
+  (snapshot lines 365–391); [docs/mxd/compatibility-matrix.md — Scope and
   status labels](docs/mxd/compatibility-matrix.md#scope-and-status-labels)
-  (snapshot lines 24–43); [docs/provenance/baseline-correction-map.md —
+  (snapshot lines 29–48); [docs/provenance/baseline-correction-map.md —
   Baseline correction
   map](docs/provenance/baseline-correction-map.md#baseline-correction-map)
-  (snapshot lines 1–113)
+  (snapshot lines 1–119)
 - **Question:** What protocol subset, remaining-gap policy, client coverage
   and proof/test evidence are required for QA sign-off, and are the cited
   roadmap/proof items current?
@@ -6045,14 +6054,14 @@ silently made normative by being listed as a question.
 
 - **Tracking:** P2; Missing; Resolved; owner: Protocol documentation
   investigation.
-- **Sources:** [docs/protocol/protocol.md — References and Correction
-  Traceability](docs/protocol/protocol.md#references-and-correction-traceability)
-  (snapshot lines 1371–1416); [docs/provenance/baseline-correction-map.md —
+- **Sources:** [docs/protocol/protocol.md — References and correction
+  traceability](docs/protocol/protocol.md#references-and-correction-traceability)
+  (snapshot lines 1415–1460); [docs/provenance/baseline-correction-map.md —
   Baseline correction
   map](docs/provenance/baseline-correction-map.md#baseline-correction-map)
-  (snapshot lines 1–113); [docs/mxd/compatibility-matrix.md — Scope and status
+  (snapshot lines 1–119); [docs/mxd/compatibility-matrix.md — Scope and status
   labels](docs/mxd/compatibility-matrix.md#scope-and-status-labels) (snapshot
-  lines 24–43)
+  lines 29–48)
 - **Question:** How will readers obtain the sibling mothra evidence, identify
   the corrected uncommitted document revision and follow stable claim/line
   references after edits?
@@ -6091,319 +6100,319 @@ of binary paths, clients or packet inputs.
 
 | Document | Section | Snapshot lines | Related gaps |
 | --- | --- | --- | --- |
-| docs/protocol/protocol.md | [Hotline Server Protocol 1.9: Transactions and Functionality Guide](docs/protocol/protocol.md#hotline-server-protocol-19-transactions-and-functionality-guide) | 1–35 | 83 gaps; see section-specific rows and JSON register |
-| docs/protocol/protocol.md | [Binary Message Formats (Hotline Protocol 1.9)](docs/protocol/protocol.md#binary-message-formats-hotline-protocol-19) | 36–43 | 23 gaps; see section-specific rows and JSON register |
-| docs/protocol/protocol.md | [1 Session-initialization handshake](docs/protocol/protocol.md#1-session-initialization-handshake) | 44–88 | [GAP-005](#gap-005), [GAP-007](#gap-007), [GAP-008](#gap-008), [GAP-009](#gap-009) |
-| docs/protocol/protocol.md | [2 General transaction frame](docs/protocol/protocol.md#2-general-transaction-frame) | 89–116 | 10 gaps; see section-specific rows and JSON register |
-| docs/protocol/protocol.md | [2.1 Parameter list (payload block)](docs/protocol/protocol.md#21-parameter-list-payload-block) | 117–168 | [GAP-002](#gap-002), [GAP-014](#gap-014), [GAP-015](#gap-015), [GAP-016](#gap-016), [GAP-017](#gap-017), [GAP-019](#gap-019), [GAP-024](#gap-024) |
-| docs/protocol/protocol.md | [2.2 Date parameters](docs/protocol/protocol.md#22-date-parameters) | 169–194 | [GAP-020](#gap-020) |
-| docs/protocol/protocol.md | [3 Fragmentation rules](docs/protocol/protocol.md#3-fragmentation-rules) | 195–228 | [GAP-004](#gap-004), [GAP-011](#gap-011), [GAP-012](#gap-012), [GAP-014](#gap-014) |
-| docs/protocol/protocol.md | [4 Reply semantics](docs/protocol/protocol.md#4-reply-semantics) | 229–254 | [GAP-003](#gap-003), [GAP-005](#gap-005), [GAP-006](#gap-006), [GAP-013](#gap-013), [GAP-021](#gap-021) |
-| docs/protocol/protocol.md | [5 Worked example (Login)](docs/protocol/protocol.md#5-worked-example-login) | 255–289 | [GAP-016](#gap-016), [GAP-022](#gap-022), [GAP-084](#gap-084) |
-| docs/protocol/protocol.md | [6 Implementation checklist](docs/protocol/protocol.md#6-implementation-checklist) | 290–303 | [GAP-084](#gap-084) |
-| docs/protocol/protocol.md | [User Login and Presence](docs/protocol/protocol.md#user-login-and-presence) | 304–305 | 25 gaps; see section-specific rows and JSON register |
-| docs/protocol/protocol.md | [Session Handshake (Before Transactions Begin)](docs/protocol/protocol.md#session-handshake-before-transactions-begin) | 306–313 | [GAP-007](#gap-007), [GAP-008](#gap-008) |
-| docs/protocol/protocol.md | [Login (Transaction 107) – Client Initiates](docs/protocol/protocol.md#login-transaction-107--client-initiates) | 314–370 | 10 gaps; see section-specific rows and JSON register |
-| docs/protocol/protocol.md | [Server Agreement (Transaction 109) – Server Initiates](docs/protocol/protocol.md#server-agreement-transaction-109--server-initiates) | 371–405 | [GAP-025](#gap-025), [GAP-027](#gap-027) |
-| docs/protocol/protocol.md | [Agreement Acceptance (Transaction 121) – Client Initiates](docs/protocol/protocol.md#agreement-acceptance-transaction-121--client-initiates) | 406–449 | [GAP-007](#gap-007), [GAP-025](#gap-025), [GAP-027](#gap-027), [GAP-029](#gap-029), [GAP-030](#gap-030) |
-| docs/protocol/protocol.md | [Banner Metadata (Transaction 122) – Server Initiates](docs/protocol/protocol.md#banner-metadata-transaction-122--server-initiates) | 450–464 | [GAP-028](#gap-028), [GAP-063](#gap-063) |
-| docs/protocol/protocol.md | [User Access Privileges (Transaction 354) – Server Initiates](docs/protocol/protocol.md#user-access-privileges-transaction-354--server-initiates) | 465–473 | [GAP-031](#gap-031), [GAP-032](#gap-032), [GAP-073](#gap-073) |
-| docs/protocol/protocol.md | [Access Privilege Bits (Field 110)](docs/protocol/protocol.md#access-privilege-bits-field-110) | 474–517 | [GAP-031](#gap-031), [GAP-032](#gap-032) |
-| docs/protocol/protocol.md | [Retrieving the User List (Transaction 300) – Client Initiates](docs/protocol/protocol.md#retrieving-the-user-list-transaction-300--client-initiates) | 518–552 | [GAP-033](#gap-033), [GAP-034](#gap-034), [GAP-035](#gap-035) |
-| docs/protocol/protocol.md | [User Appearance and Updates (Transaction 301 & 302) – Server Initiates](docs/protocol/protocol.md#user-appearance-and-updates-transaction-301--302--server-initiates) | 553–571 | [GAP-034](#gap-034), [GAP-035](#gap-035), [GAP-036](#gap-036) |
-| docs/protocol/protocol.md | [Viewing User Info (Transaction 303) – Client Initiates](docs/protocol/protocol.md#viewing-user-info-transaction-303--client-initiates) | 572–589 | [GAP-037](#gap-037) |
-| docs/protocol/protocol.md | [Changing User Settings (Transaction 304) – Client Initiates](docs/protocol/protocol.md#changing-user-settings-transaction-304--client-initiates) | 590–626 | [GAP-006](#gap-006), [GAP-016](#gap-016), [GAP-019](#gap-019), [GAP-029](#gap-029), [GAP-030](#gap-030), [GAP-045](#gap-045) |
-| docs/protocol/protocol.md | [Chat (Public and Private Chat Rooms)](docs/protocol/protocol.md#chat-public-and-private-chat-rooms) | 627–628 | 13 gaps; see section-specific rows and JSON register |
-| docs/protocol/protocol.md | [Sending a Chat Message (Transaction 105) – Client Initiates](docs/protocol/protocol.md#sending-a-chat-message-transaction-105--client-initiates) | 629–640 | [GAP-006](#gap-006), [GAP-019](#gap-019), [GAP-038](#gap-038), [GAP-042](#gap-042), [GAP-044](#gap-044), [GAP-045](#gap-045) |
-| docs/protocol/protocol.md | [Receiving a Chat Message (Transaction 106) – Server Initiates](docs/protocol/protocol.md#receiving-a-chat-message-transaction-106--server-initiates) | 641–651 | [GAP-018](#gap-018), [GAP-042](#gap-042) |
-| docs/protocol/protocol.md | [Joining a Chat Room (Transaction 115) – Client Initiates](docs/protocol/protocol.md#joining-a-chat-room-transaction-115--client-initiates) | 652–662 | [GAP-038](#gap-038), [GAP-040](#gap-040) |
-| docs/protocol/protocol.md | [Leaving a Chat Room (Transaction 116) – Client Initiates](docs/protocol/protocol.md#leaving-a-chat-room-transaction-116--client-initiates) | 663–672 | [GAP-006](#gap-006), [GAP-036](#gap-036), [GAP-040](#gap-040) |
-| docs/protocol/protocol.md | [Chat Room Notifications (Transactions 117 & 118) – Server Initiates](docs/protocol/protocol.md#chat-room-notifications-transactions-117--118--server-initiates) | 673–684 | [GAP-040](#gap-040) |
-| docs/protocol/protocol.md | [Chat Invitations (Transactions 112, 113, 114) – Private Chats](docs/protocol/protocol.md#chat-invitations-transactions-112-113-114--private-chats) | 685–707 | [GAP-017](#gap-017), [GAP-033](#gap-033), [GAP-038](#gap-038), [GAP-039](#gap-039) |
-| docs/protocol/protocol.md | [Chat Subject Management (Transactions 119 & 120)](docs/protocol/protocol.md#chat-subject-management-transactions-119--120) | 708–716 | [GAP-041](#gap-041) |
-| docs/protocol/protocol.md | [Private Messaging (Instant Messages)](docs/protocol/protocol.md#private-messaging-instant-messages) | 717–718 | [GAP-021](#gap-021), [GAP-030](#gap-030), [GAP-043](#gap-043), [GAP-044](#gap-044), [GAP-045](#gap-045), [GAP-046](#gap-046) |
-| docs/protocol/protocol.md | [Sending an Instant Message (Transaction 108) – Client Initiates](docs/protocol/protocol.md#sending-an-instant-message-transaction-108--client-initiates) | 719–750 | [GAP-021](#gap-021), [GAP-030](#gap-030), [GAP-043](#gap-043), [GAP-045](#gap-045) |
-| docs/protocol/protocol.md | [Receiving a Private Message (Transaction 104) – Server Initiates](docs/protocol/protocol.md#receiving-a-private-message-transaction-104--server-initiates) | 751–779 | [GAP-044](#gap-044) |
-| docs/protocol/protocol.md | [Legacy Message Board (Transactions 101, 102, 103)](docs/protocol/protocol.md#legacy-message-board-transactions-101-102-103) | 780–804 | [GAP-046](#gap-046) |
-| docs/protocol/protocol.md | [File Services (Files and Folders)](docs/protocol/protocol.md#file-services-files-and-folders) | 805–819 | 25 gaps; see section-specific rows and JSON register |
-| docs/protocol/protocol.md | [Listing Files in a Folder (Transaction 200) – Client Initiates](docs/protocol/protocol.md#listing-files-in-a-folder-transaction-200--client-initiates) | 820–832 | [GAP-018](#gap-018), [GAP-047](#gap-047), [GAP-048](#gap-048) |
-| docs/protocol/protocol.md | [Downloading a File (Transaction 202) – Client Initiates](docs/protocol/protocol.md#downloading-a-file-transaction-202--client-initiates) | 833–863 | [GAP-015](#gap-015), [GAP-056](#gap-056), [GAP-057](#gap-057), [GAP-058](#gap-058), [GAP-061](#gap-061) |
-| docs/protocol/protocol.md | [Uploading a File (Transaction 203) – Client Initiates](docs/protocol/protocol.md#uploading-a-file-transaction-203--client-initiates) | 864–879 | [GAP-056](#gap-056), [GAP-058](#gap-058) |
-| docs/protocol/protocol.md | [Deleting a File (Transaction 204) – Client Initiates](docs/protocol/protocol.md#deleting-a-file-transaction-204--client-initiates) | 880–895 | [GAP-050](#gap-050) |
-| docs/protocol/protocol.md | [Creating a New Folder (Transaction 205) – Client Initiates](docs/protocol/protocol.md#creating-a-new-folder-transaction-205--client-initiates) | 896–914 | [GAP-051](#gap-051) |
-| docs/protocol/protocol.md | [Getting File/Folder Info (Transaction 206) – Client Initiates](docs/protocol/protocol.md#getting-filefolder-info-transaction-206--client-initiates) | 915–934 | [GAP-049](#gap-049) |
-| docs/protocol/protocol.md | [Setting File/Folder Info (Transaction 207) – Client Initiates](docs/protocol/protocol.md#setting-filefolder-info-transaction-207--client-initiates) | 935–955 | [GAP-052](#gap-052) |
-| docs/protocol/protocol.md | [Moving Files/Folders (Transaction 208) – Client Initiates](docs/protocol/protocol.md#moving-filesfolders-transaction-208--client-initiates) | 956–971 | [GAP-047](#gap-047), [GAP-053](#gap-053) |
-| docs/protocol/protocol.md | [Creating an Alias (Shortcut) (Transaction 209) – Client Initiates](docs/protocol/protocol.md#creating-an-alias-shortcut-transaction-209--client-initiates) | 972–985 | [GAP-054](#gap-054) |
-| docs/protocol/protocol.md | [Downloading an Entire Folder (Transaction 210) – Client Initiates](docs/protocol/protocol.md#downloading-an-entire-folder-transaction-210--client-initiates) | 986–1006 | [GAP-059](#gap-059), [GAP-061](#gap-061) |
-| docs/protocol/protocol.md | [Uploading an Entire Folder (Transaction 213) – Client Initiates](docs/protocol/protocol.md#uploading-an-entire-folder-transaction-213--client-initiates) | 1007–1026 | [GAP-060](#gap-060), [GAP-064](#gap-064) |
-| docs/protocol/protocol.md | [Banner Download (Transaction 212) – Client Initiates](docs/protocol/protocol.md#banner-download-transaction-212--client-initiates) | 1027–1045 | [GAP-028](#gap-028), [GAP-055](#gap-055), [GAP-063](#gap-063) |
-| docs/protocol/protocol.md | [Transfer Connection and Reference Cleanup](docs/protocol/protocol.md#transfer-connection-and-reference-cleanup) | 1046–1066 | [GAP-009](#gap-009), [GAP-010](#gap-010), [GAP-033](#gap-033), [GAP-055](#gap-055), [GAP-056](#gap-056), [GAP-062](#gap-062), [GAP-064](#gap-064) |
-| docs/protocol/protocol.md | [News (Bulletin Board System)](docs/protocol/protocol.md#news-bulletin-board-system) | 1067–1068 | 10 gaps; see section-specific rows and JSON register |
-| docs/protocol/protocol.md | [News Hierarchy](docs/protocol/protocol.md#news-hierarchy) | 1069–1077 | [GAP-065](#gap-065), [GAP-070](#gap-070) |
-| docs/protocol/protocol.md | [Listing News Categories (Transaction 370) – Client Initiates](docs/protocol/protocol.md#listing-news-categories-transaction-370--client-initiates) | 1078–1098 | [GAP-047](#gap-047), [GAP-065](#gap-065) |
-| docs/protocol/protocol.md | [Listing News Articles (Transaction 371) – Client Initiates](docs/protocol/protocol.md#listing-news-articles-transaction-371--client-initiates) | 1099–1112 | [GAP-066](#gap-066) |
-| docs/protocol/protocol.md | [Reading a News Article (Transaction 400) – Client Initiates](docs/protocol/protocol.md#reading-a-news-article-transaction-400--client-initiates) | 1113–1141 | [GAP-020](#gap-020), [GAP-067](#gap-067) |
-| docs/protocol/protocol.md | [Posting a News Article (Transaction 410) – Client Initiates](docs/protocol/protocol.md#posting-a-news-article-transaction-410--client-initiates) | 1142–1163 | [GAP-021](#gap-021), [GAP-068](#gap-068) |
-| docs/protocol/protocol.md | [Deleting a News Article (Transaction 411) – Client Initiates](docs/protocol/protocol.md#deleting-a-news-article-transaction-411--client-initiates) | 1164–1179 | [GAP-069](#gap-069) |
-| docs/protocol/protocol.md | [Managing News Structure (Transactions 380, 381, 382) – Client Initiates (Admin/Mods)](docs/protocol/protocol.md#managing-news-structure-transactions-380-381-382--client-initiates-adminmods) | 1180–1197 | [GAP-032](#gap-032), [GAP-070](#gap-070) |
-| docs/protocol/protocol.md | [Administrative Functions](docs/protocol/protocol.md#administrative-functions) | 1198–1199 | 17 gaps; see section-specific rows and JSON register |
-| docs/protocol/protocol.md | [User Account Management – Client Initiates (Admin) (Tx 350–353)](docs/protocol/protocol.md#user-account-management--client-initiates-admin-tx-350353) | 1200–1249 | 9 gaps; see section-specific rows and JSON register |
-| docs/protocol/protocol.md | [Disconnecting a User (Transaction 110 & 111) – Admin/Server Use](docs/protocol/protocol.md#disconnecting-a-user-transaction-110--111--adminserver-use) | 1250–1298 | [GAP-003](#gap-003), [GAP-036](#gap-036), [GAP-044](#gap-044), [GAP-074](#gap-074), [GAP-075](#gap-075) |
-| docs/protocol/protocol.md | [Broadcasting a Message (Transaction 355) – Admin/Server Initiated](docs/protocol/protocol.md#broadcasting-a-message-transaction-355--adminserver-initiated) | 1299–1313 | [GAP-045](#gap-045), [GAP-076](#gap-076) |
-| docs/protocol/protocol.md | [Additional Admin Privileges Note](docs/protocol/protocol.md#additional-admin-privileges-note) | 1314–1322 | [GAP-038](#gap-038), [GAP-073](#gap-073) |
-| docs/protocol/protocol.md | [Additional Observed Requests and Scope Gaps](docs/protocol/protocol.md#additional-observed-requests-and-scope-gaps) | 1323–1370 | [GAP-005](#gap-005), [GAP-007](#gap-007), [GAP-075](#gap-075), [GAP-077](#gap-077), [GAP-078](#gap-078), [GAP-079](#gap-079) |
-| docs/protocol/protocol.md | [References and Correction Traceability](docs/protocol/protocol.md#references-and-correction-traceability) | 1371–1416 | [GAP-083](#gap-083), [GAP-087](#gap-087) |
-| docs/mxd/compatibility-matrix.md | [Native, SynHX and mxd compatibility matrix](docs/mxd/compatibility-matrix.md#native-synhx-and-mxd-compatibility-matrix) | 1–8 | 13 gaps; see section-specific rows and JSON register |
-| docs/mxd/compatibility-matrix.md | [Baseline and limits](docs/mxd/compatibility-matrix.md#baseline-and-limits) | 9–23 | 13 gaps; see section-specific rows and JSON register |
-| docs/mxd/compatibility-matrix.md | [History](docs/mxd/compatibility-matrix.md#history) | 399–412 | 13 gaps; see section-specific rows and JSON register |
-| docs/mxd/compatibility-matrix.md | [Revision identifiers](docs/mxd/compatibility-matrix.md#revision-identifiers) | 387–398 | 13 gaps; see section-specific rows and JSON register |
-| docs/mxd/compatibility-matrix.md | [Scope and status labels](docs/mxd/compatibility-matrix.md#scope-and-status-labels) | 24–43 | [GAP-086](#gap-086), [GAP-087](#gap-087) |
-| docs/mxd/compatibility-matrix.md | [Compatibility matrix](docs/mxd/compatibility-matrix.md#compatibility-matrix) | 44–62 | [GAP-024](#gap-024), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-083](#gap-083) |
-| docs/mxd/compatibility-matrix.md | [Peer identity and sub-version 2](docs/mxd/compatibility-matrix.md#peer-identity-and-sub-version-2) | 63–83 | [GAP-024](#gap-024), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-083](#gap-083), [GAP-001](#gap-001), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086) |
-| docs/mxd/compatibility-matrix.md | [Login reply and banner policy](docs/mxd/compatibility-matrix.md#login-reply-and-banner-policy) | 100–186 | [GAP-026](#gap-026), [GAP-081](#gap-081), [GAP-001](#gap-001), [GAP-080](#gap-080), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086) |
-| docs/mxd/compatibility-matrix.md | [Credential obfuscation and text compatibility](docs/mxd/compatibility-matrix.md#credential-obfuscation-and-text-compatibility) | 187–216 | [GAP-018](#gap-018), [GAP-022](#gap-022), [GAP-082](#gap-082) |
-| docs/mxd/compatibility-matrix.md | [Repeated fields and presence records](docs/mxd/compatibility-matrix.md#repeated-fields-and-presence-records) | 217–260 | [GAP-017](#gap-017), [GAP-034](#gap-034), [GAP-035](#gap-035), [GAP-081](#gap-081) |
-| docs/mxd/compatibility-matrix.md | [Historical reported mxd test coverage](docs/mxd/compatibility-matrix.md#historical-reported-mxd-test-coverage) | 261–292 | [GAP-085](#gap-085) |
-| docs/mxd/assertion-reconciliation.md | [Review scope](docs/mxd/assertion-reconciliation.md#review-scope) | 18–36 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086), [GAP-001](#gap-001) |
-| docs/mxd/assertion-reconciliation.md | [Commands and counts](docs/mxd/assertion-reconciliation.md#commands-and-counts) | 39–65 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086), [GAP-001](#gap-001) |
-| docs/mxd/assertion-reconciliation.md | [Evidence records](docs/mxd/assertion-reconciliation.md#evidence-records) | 66–84 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086), [GAP-001](#gap-001) |
-| docs/mxd/assertion-reconciliation.md | [Limits of the evidence](docs/mxd/assertion-reconciliation.md#limits-of-the-evidence) | 95–106 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086), [GAP-001](#gap-001) |
-| docs/mxd/assertion-reconciliation.md | [Repeated roster records](docs/mxd/assertion-reconciliation.md#repeated-roster-records) | 198–209 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086), [GAP-001](#gap-001) |
-| docs/mxd/assertion-reconciliation.md | [XOR compatibility](docs/mxd/assertion-reconciliation.md#xor-compatibility) | 220–227 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086), [GAP-001](#gap-001) |
-| docs/mxd/assertion-reconciliation.md | [Presence routing](docs/mxd/assertion-reconciliation.md#presence-routing) | 210–219 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086), [GAP-001](#gap-001) |
-| docs/mxd/assertion-reconciliation.md | [History](docs/mxd/assertion-reconciliation.md#history) | 260–266 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086) |
-| docs/mxd/assertion-reconciliation.md | [Shared handshake and peer identity](docs/mxd/assertion-reconciliation.md#shared-handshake-and-peer-identity) | 113–129 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-085](#gap-085), [GAP-001](#gap-001), [GAP-082](#gap-082), [GAP-086](#gap-086) |
-| docs/mxd/assertion-reconciliation.md | [Successful login field 161](docs/mxd/assertion-reconciliation.md#successful-login-field-161) | 130–152 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-085](#gap-085), [GAP-001](#gap-001), [GAP-082](#gap-082), [GAP-086](#gap-086) |
-| docs/mxd/assertion-reconciliation.md | [Failed login and direct reply type](docs/mxd/assertion-reconciliation.md#failed-login-and-direct-reply-type) | 161–183 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-085](#gap-085), [GAP-001](#gap-001), [GAP-082](#gap-082), [GAP-086](#gap-086) |
-| docs/mxd/assertion-reconciliation.md | [Version parser and unknown fallback](docs/mxd/assertion-reconciliation.md#version-parser-and-unknown-fallback) | 184–197 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-085](#gap-085), [GAP-001](#gap-001), [GAP-082](#gap-082), [GAP-086](#gap-086) |
-| docs/mxd/assertion-reconciliation.md | [Exact current text heuristic](docs/mxd/assertion-reconciliation.md#exact-current-text-heuristic) | 228–248 | [GAP-018](#gap-018), [GAP-080](#gap-080), [GAP-082](#gap-082), [GAP-085](#gap-085) |
-| docs/mxd/compatibility-matrix.md | [Proof and QA limits](docs/mxd/compatibility-matrix.md#proof-and-qa-limits) | 293–309 | [GAP-001](#gap-001), [GAP-085](#gap-085), [GAP-086](#gap-086) |
-| docs/mxd/compatibility-matrix.md | [Pinned shx profile and callback evidence](docs/mxd/compatibility-matrix.md#pinned-shx-profile-and-callback-evidence) | 310–325 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-083](#gap-083) |
-| docs/mxd/compatibility-matrix.md | [Historical source lineage and build limits](docs/mxd/compatibility-matrix.md#historical-source-lineage-and-build-limits) | 326–359 | [GAP-083](#gap-083) |
-| docs/mxd/compatibility-matrix.md | [Open compatibility gaps and QA requirements](docs/mxd/compatibility-matrix.md#open-compatibility-gaps-and-qa-requirements) | 360–386 | [GAP-001](#gap-001), [GAP-080](#gap-080), [GAP-084](#gap-084), [GAP-085](#gap-085), [GAP-086](#gap-086) |
-| docs/provenance/baseline-correction-map.md | [Baseline correction map](docs/provenance/baseline-correction-map.md#baseline-correction-map) | 1–113 | [GAP-086](#gap-086), [GAP-087](#gap-087) |
-| docs/protocol/native-wire-details.md | [Hotline 1.9 native wire details](docs/protocol/native-wire-details.md#hotline-19-native-wire-details) | 1–9 | 13 gaps; see section-specific rows and JSON register |
-| docs/protocol/native-wire-details.md | [Parameter parsing and scalar access](docs/protocol/native-wire-details.md#parameter-parsing-and-scalar-access) | 10–36 | [GAP-014](#gap-014), [GAP-015](#gap-015), [GAP-016](#gap-016), [GAP-017](#gap-017), [GAP-018](#gap-018), [GAP-019](#gap-019) |
-| docs/protocol/native-wire-details.md | [Core scalar width registry](docs/protocol/native-wire-details.md#core-scalar-width-registry) | 37–82 | [GAP-015](#gap-015), [GAP-019](#gap-019), [GAP-031](#gap-031) |
-| docs/protocol/native-wire-details.md | [Captured TLV and scalar boundaries](docs/protocol/native-wire-details.md#captured-tlv-and-scalar-boundaries) | 83–121 | [GAP-014](#gap-014), [GAP-015](#gap-015), [GAP-017](#gap-017), [GAP-084](#gap-084) |
-| docs/protocol/native-wire-details.md | [Credential bytes, lookup and account updates](docs/protocol/native-wire-details.md#credential-bytes-lookup-and-account-updates) | 122–141 | [GAP-016](#gap-016), [GAP-018](#gap-018), [GAP-019](#gap-019), [GAP-022](#gap-022), [GAP-023](#gap-023), [GAP-071](#gap-071), [GAP-072](#gap-072), [GAP-073](#gap-073) |
-| docs/protocol/native-wire-details.md | [Account record and field schema](docs/protocol/native-wire-details.md#account-record-and-field-schema) | 142–187 | [GAP-016](#gap-016), [GAP-019](#gap-019), [GAP-071](#gap-071), [GAP-072](#gap-072) |
-| docs/protocol/native-wire-details.md | [Account lookup name encodings](docs/protocol/native-wire-details.md#account-lookup-name-encodings) | 188–207 | [GAP-022](#gap-022), [GAP-071](#gap-071), [GAP-072](#gap-072) |
-| docs/protocol/native-wire-details.md | [Login lookup transformations](docs/protocol/native-wire-details.md#login-lookup-transformations) | 208–222 | [GAP-018](#gap-018), [GAP-022](#gap-022), [GAP-023](#gap-023) |
-| docs/protocol/native-wire-details.md | [Captured login lookup and guest phases](docs/protocol/native-wire-details.md#captured-login-lookup-and-guest-phases) | 223–264 | [GAP-023](#gap-023), [GAP-025](#gap-025), [GAP-027](#gap-027), [GAP-035](#gap-035), [GAP-036](#gap-036), [GAP-084](#gap-084) |
-| docs/protocol/native-wire-details.md | [Changes to connected accounts](docs/protocol/native-wire-details.md#changes-to-connected-accounts) | 265–274 | [GAP-073](#gap-073) |
-| docs/protocol/native-wire-details.md | [Structured file paths and file-list entries](docs/protocol/native-wire-details.md#structured-file-paths-and-file-list-entries) | 275–301 | [GAP-047](#gap-047), [GAP-048](#gap-048) |
-| docs/protocol/native-wire-details.md | [Field 202: Files paths](docs/protocol/native-wire-details.md#field-202-files-paths) | 302–316 | [GAP-047](#gap-047) |
-| docs/protocol/native-wire-details.md | [Field 212: Files destinations](docs/protocol/native-wire-details.md#field-212-files-destinations) | 317–335 | [GAP-047](#gap-047) |
-| docs/protocol/native-wire-details.md | [Field 325: News paths](docs/protocol/native-wire-details.md#field-325-news-paths) | 336–357 | [GAP-047](#gap-047) |
-| docs/protocol/native-wire-details.md | [File-list entry records](docs/protocol/native-wire-details.md#file-list-entry-records) | 358–378 | [GAP-048](#gap-048) |
-| docs/protocol/native-wire-details.md | [Captured listing kinds and enumeration order](docs/protocol/native-wire-details.md#captured-listing-kinds-and-enumeration-order) | 379–410 | 9 gaps; see section-specific rows and JSON register |
-| docs/protocol/native-wire-details.md | [Captured field 202 directory-creation boundaries](docs/protocol/native-wire-details.md#captured-field-202-directory-creation-boundaries) | 411–423 | 11 gaps; see section-specific rows and JSON register |
-| docs/protocol/native-wire-details.md | [Privilege access and connection timers](docs/protocol/native-wire-details.md#privilege-access-and-connection-timers) | 424–485 | [GAP-005](#gap-005), [GAP-031](#gap-031), [GAP-032](#gap-032), [GAP-045](#gap-045) |
-| docs/protocol/native-wire-details.md | [Captured agreement configurations and partial login failures](docs/protocol/native-wire-details.md#captured-agreement-configurations-and-partial-login-failures) | 486–564 | [GAP-003](#gap-003), [GAP-019](#gap-019), [GAP-025](#gap-025), [GAP-027](#gap-027), [GAP-084](#gap-084) |
-| docs/protocol/native-wire-details.md | [Captured login extras, configuration bytes and refresh](docs/protocol/native-wire-details.md#captured-login-extras-configuration-bytes-and-refresh) | 565–630 | [GAP-005](#gap-005), [GAP-018](#gap-018), [GAP-019](#gap-019), [GAP-026](#gap-026), [GAP-084](#gap-084) |
-| docs/protocol/native-wire-details.md | [Captured account replacement and password boundaries](docs/protocol/native-wire-details.md#captured-account-replacement-and-password-boundaries) | 631–697 | 9 gaps; see section-specific rows and JSON register |
-| docs/protocol/native-wire-details.md | [Captured live account changes and server restart](docs/protocol/native-wire-details.md#captured-live-account-changes-and-server-restart) | 698–794 | 9 gaps; see section-specific rows and JSON register |
-| docs/protocol/native-wire-details.md | [Captured account identity and protection contrasts](docs/protocol/native-wire-details.md#captured-account-identity-and-protection-contrasts) | 795–853 | [GAP-003](#gap-003), [GAP-018](#gap-018), [GAP-021](#gap-021), [GAP-031](#gap-031), [GAP-036](#gap-036), [GAP-072](#gap-072), [GAP-074](#gap-074), [GAP-084](#gap-084) |
-| docs/protocol/operation-contracts.md | [Native operation and session dispatch contracts](docs/protocol/operation-contracts.md#native-operation-and-session-dispatch-contracts) | 1–8 | 12 gaps; see section-specific rows and JSON register |
-| docs/protocol/operation-contracts.md | [Session eligibility and invalid transitions](docs/protocol/operation-contracts.md#session-eligibility-and-invalid-transitions) | 9–29 | [GAP-003](#gap-003), [GAP-007](#gap-007), [GAP-025](#gap-025), [GAP-079](#gap-079) |
-| docs/protocol/operation-contracts.md | [Request catalogue](docs/protocol/operation-contracts.md#request-catalogue) | 30–86 | [GAP-002](#gap-002), [GAP-006](#gap-006), [GAP-021](#gap-021) |
-| docs/protocol/operation-contracts.md | [Per-operation reply and fan-out map](docs/protocol/operation-contracts.md#per-operation-reply-and-fan-out-map) | 87–151 | [GAP-006](#gap-006), [GAP-003](#gap-003), [GAP-084](#gap-084) |
-| docs/protocol/operation-contracts.md | [Server notification catalogue](docs/protocol/operation-contracts.md#server-notification-catalogue) | 152–176 | [GAP-006](#gap-006), [GAP-036](#gap-036), [GAP-044](#gap-044), [GAP-061](#gap-061), [GAP-075](#gap-075) |
-| docs/protocol/operation-contracts.md | [Field and aggregate byte limits (GAP-019)](docs/protocol/operation-contracts.md#field-and-aggregate-byte-limits-gap-019) | 177–215 | [GAP-019](#gap-019) |
-| docs/protocol/operation-contracts.md | [Remaining boundary cells and aggregate scope](docs/protocol/operation-contracts.md#remaining-boundary-cells-and-aggregate-scope) | 216–246 | [GAP-019](#gap-019) |
-| docs/protocol/operation-contracts.md | [Frame acceptance and reassembly boundaries](docs/protocol/operation-contracts.md#frame-acceptance-and-reassembly-boundaries) | 247–269 | [GAP-004](#gap-004), [GAP-011](#gap-011), [GAP-012](#gap-012), [GAP-013](#gap-013) |
-| docs/protocol/operation-contracts.md | [Administrative account list and batch mutation](docs/protocol/operation-contracts.md#administrative-account-list-and-batch-mutation) | 270–303 | [GAP-021](#gap-021), [GAP-072](#gap-072), [GAP-077](#gap-077), [GAP-078](#gap-078) |
-| docs/protocol/operation-contracts.md | [Captured batch account framing and partial effects](docs/protocol/operation-contracts.md#captured-batch-account-framing-and-partial-effects) | 304–378 | 11 gaps; see section-specific rows and JSON register |
-| docs/protocol/operation-contracts.md | [Rename collision does not preserve the destination account](docs/protocol/operation-contracts.md#rename-collision-does-not-preserve-the-destination-account) | 379–416 | 11 gaps; see section-specific rows and JSON register |
-| docs/protocol/operation-contracts.md | [Account deletion and allocated Trash records](docs/protocol/operation-contracts.md#account-deletion-and-allocated-trash-records) | 417–431 | [GAP-072](#gap-072), [GAP-021](#gap-021) |
-| docs/files-and-transfers/transfer-contracts.md | [Native transfer contracts](docs/files-and-transfers/transfer-contracts.md#native-transfer-contracts) | 1–16 | 9 gaps; see section-specific rows and JSON register |
-| docs/files-and-transfers/transfer-contracts.md | [HTXF connection header and dispatch](docs/files-and-transfers/transfer-contracts.md#htxf-connection-header-and-dispatch) | 17–57 | [GAP-055](#gap-055) |
-| docs/files-and-transfers/transfer-contracts.md | [Captured HTXF field and reference cases](docs/files-and-transfers/transfer-contracts.md#captured-htxf-field-and-reference-cases) | 58–118 | [GAP-033](#gap-033), [GAP-055](#gap-055), [GAP-064](#gap-064), [GAP-084](#gap-084) |
-| docs/files-and-transfers/transfer-contracts.md | [Reference allocation and request 214](docs/files-and-transfers/transfer-contracts.md#reference-allocation-and-request-214) | 119–163 | [GAP-033](#gap-033), [GAP-062](#gap-062) |
-| docs/files-and-transfers/transfer-contracts.md | [Captured cancellation and completion races](docs/files-and-transfers/transfer-contracts.md#captured-cancellation-and-completion-races) | 164–211 | [GAP-062](#gap-062), [GAP-064](#gap-064), [GAP-084](#gap-084) |
-| docs/files-and-transfers/transfer-contracts.md | [Buffered receipt and packet ordering](docs/files-and-transfers/transfer-contracts.md#buffered-receipt-and-packet-ordering) | 212–228 | [GAP-062](#gap-062), [GAP-064](#gap-064), [GAP-084](#gap-084) |
-| docs/files-and-transfers/transfer-contracts.md | [Resume data: RFLT](docs/files-and-transfers/transfer-contracts.md#resume-data-rflt) | 229–263 | [GAP-058](#gap-058) |
-| docs/files-and-transfers/transfer-contracts.md | [Captured RFLT download boundaries](docs/files-and-transfers/transfer-contracts.md#captured-rflt-download-boundaries) | 264–312 | [GAP-058](#gap-058), [GAP-064](#gap-064), [GAP-084](#gap-084) |
-| docs/files-and-transfers/transfer-contracts.md | [Captured upload continuation and inconsistent state](docs/files-and-transfers/transfer-contracts.md#captured-upload-continuation-and-inconsistent-state) | 313–349 | [GAP-058](#gap-058), [GAP-064](#gap-064), [GAP-084](#gap-084) |
-| docs/files-and-transfers/transfer-contracts.md | [Flattened ordinary-file stream](docs/files-and-transfers/transfer-contracts.md#flattened-ordinary-file-stream) | 350–379 | [GAP-056](#gap-056), [GAP-057](#gap-057) |
-| docs/files-and-transfers/transfer-contracts.md | [INFO metadata value](docs/files-and-transfers/transfer-contracts.md#info-metadata-value) | 380–407 | [GAP-020](#gap-020), [GAP-056](#gap-056) |
-| docs/files-and-transfers/transfer-contracts.md | [INFO restoration after upload](docs/files-and-transfers/transfer-contracts.md#info-restoration-after-upload) | 408–431 | [GAP-020](#gap-020), [GAP-056](#gap-056), [GAP-064](#gap-064) |
-| docs/files-and-transfers/transfer-contracts.md | [Upload consumption and completion](docs/files-and-transfers/transfer-contracts.md#upload-consumption-and-completion) | 432–448 | [GAP-056](#gap-056), [GAP-064](#gap-064) |
-| docs/files-and-transfers/transfer-contracts.md | [Queue notification 211](docs/files-and-transfers/transfer-contracts.md#queue-notification-211) | 449–465 | [GAP-061](#gap-061) |
-| docs/files-and-transfers/transfer-contracts.md | [Captured controlled queues](docs/files-and-transfers/transfer-contracts.md#captured-controlled-queues) | 466–524 | [GAP-057](#gap-057), [GAP-061](#gap-061), [GAP-062](#gap-062), [GAP-084](#gap-084) |
-| docs/files-and-transfers/transfer-contracts.md | [Captured pending-reference timeout](docs/files-and-transfers/transfer-contracts.md#captured-pending-reference-timeout) | 525–551 | [GAP-061](#gap-061), [GAP-084](#gap-084) |
-| docs/files-and-transfers/transfer-contracts.md | [Banner bytes and worker timers](docs/files-and-transfers/transfer-contracts.md#banner-bytes-and-worker-timers) | 552–575 | [GAP-005](#gap-005), [GAP-063](#gap-063), [GAP-064](#gap-064) |
-| docs/files-and-transfers/transfer-contracts.md | [Captured ordinary-file round trips](docs/files-and-transfers/transfer-contracts.md#captured-ordinary-file-round-trips) | 576–623 | [GAP-009](#gap-009), [GAP-055](#gap-055), [GAP-056](#gap-056), [GAP-057](#gap-057), [GAP-084](#gap-084) |
-| docs/files-and-transfers/transfer-contracts.md | [Captured completion and EOF behaviour](docs/files-and-transfers/transfer-contracts.md#captured-completion-and-eof-behaviour) | 624–649 | [GAP-062](#gap-062), [GAP-064](#gap-064), [GAP-084](#gap-084) |
-| docs/files-and-transfers/transfer-contracts.md | [Transfer timer origins and resets](docs/files-and-transfers/transfer-contracts.md#transfer-timer-origins-and-resets) | 650–681 | [GAP-005](#gap-005), [GAP-059](#gap-059), [GAP-060](#gap-060), [GAP-061](#gap-061), [GAP-064](#gap-064) |
-| docs/files-and-transfers/transfer-contracts.md | [Folder-download control states](docs/files-and-transfers/transfer-contracts.md#folder-download-control-states) | 682–702 | [GAP-059](#gap-059) |
-| docs/files-and-transfers/transfer-contracts.md | [Folder item descriptor bytes](docs/files-and-transfers/transfer-contracts.md#folder-item-descriptor-bytes) | 703–736 | [GAP-047](#gap-047), [GAP-059](#gap-059), [GAP-060](#gap-060) |
-| docs/files-and-transfers/transfer-contracts.md | [Captured folder downloads](docs/files-and-transfers/transfer-contracts.md#captured-folder-downloads) | 737–782 | [GAP-059](#gap-059), [GAP-084](#gap-084) |
-| docs/files-and-transfers/transfer-contracts.md | [Folder-upload control states](docs/files-and-transfers/transfer-contracts.md#folder-upload-control-states) | 783–819 | [GAP-060](#gap-060) |
-| docs/files-and-transfers/transfer-contracts.md | [Captured folder uploads](docs/files-and-transfers/transfer-contracts.md#captured-folder-uploads) | 820–847 | [GAP-060](#gap-060), [GAP-064](#gap-064), [GAP-084](#gap-084) |
-| docs/files-and-transfers/transfer-contracts.md | [Captured folder timing and filesystem observations](docs/files-and-transfers/transfer-contracts.md#captured-folder-timing-and-filesystem-observations) | 848–887 | [GAP-059](#gap-059), [GAP-060](#gap-060), [GAP-064](#gap-064), [GAP-084](#gap-084) |
-| docs/files-and-transfers/transfer-contracts.md | [Captured banner observations](docs/files-and-transfers/transfer-contracts.md#captured-banner-observations) | 888–932 | [GAP-055](#gap-055), [GAP-063](#gap-063), [GAP-084](#gap-084) |
-| docs/files-and-transfers/transfer-contracts.md | [Captured banner formats and recovery](docs/files-and-transfers/transfer-contracts.md#captured-banner-formats-and-recovery) | 933–1001 | [GAP-055](#gap-055), [GAP-063](#gap-063), [GAP-064](#gap-064), [GAP-084](#gap-084) |
-| docs/news/news-contracts.md | [Native nested news contracts](docs/news/news-contracts.md#native-nested-news-contracts) | 1–8 | [GAP-020](#gap-020), [GAP-065](#gap-065), [GAP-066](#gap-066), [GAP-067](#gap-067), [GAP-068](#gap-068), [GAP-069](#gap-069), [GAP-070](#gap-070) |
-| docs/news/news-contracts.md | [Category-list variants](docs/news/news-contracts.md#category-list-variants) | 9–57 | [GAP-065](#gap-065) |
-| docs/news/news-contracts.md | [Article-list field 321](docs/news/news-contracts.md#article-list-field-321) | 58–104 | [GAP-066](#gap-066) |
-| docs/news/news-contracts.md | [Reading bodies and navigation](docs/news/news-contracts.md#reading-bodies-and-navigation) | 105–140 | [GAP-067](#gap-067) |
-| docs/news/news-contracts.md | [News dates](docs/news/news-contracts.md#news-dates) | 141–148 | [GAP-020](#gap-020), [GAP-067](#gap-067) |
-| docs/news/news-contracts.md | [Posting, partial effects and deletion](docs/news/news-contracts.md#posting-partial-effects-and-deletion) | 149–171 | [GAP-021](#gap-021), [GAP-068](#gap-068), [GAP-069](#gap-069) |
-| docs/news/news-contracts.md | [Deletion graph rewrite](docs/news/news-contracts.md#deletion-graph-rewrite) | 172–199 | [GAP-067](#gap-067), [GAP-069](#gap-069) |
-| docs/news/news-contracts.md | [Scope of hierarchy evidence](docs/news/news-contracts.md#scope-of-hierarchy-evidence) | 200–213 | [GAP-047](#gap-047), [GAP-070](#gap-070) |
-| docs/news/news-contracts.md | [Structure operation effects and conflicts](docs/news/news-contracts.md#structure-operation-effects-and-conflicts) | 214–277 | [GAP-021](#gap-021), [GAP-047](#gap-047), [GAP-070](#gap-070) |
-| docs/news/news-contracts.md | [Captured category versions and header metadata](docs/news/news-contracts.md#captured-category-versions-and-header-metadata) | 278–327 | 14 gaps; see section-specific rows and JSON register |
-| docs/news/news-contracts.md | [Captured threaded article lists and partial posts](docs/news/news-contracts.md#captured-threaded-article-lists-and-partial-posts) | 328–392 | 14 gaps; see section-specific rows and JSON register |
-| docs/news/news-contracts.md | [Captured hierarchy failures and owned cleanup](docs/news/news-contracts.md#captured-hierarchy-failures-and-owned-cleanup) | 393–420 | 14 gaps; see section-specific rows and JSON register |
-| docs/news/news-contracts.md | [Captured article deletion and index effects](docs/news/news-contracts.md#captured-article-deletion-and-index-effects) | 421–502 | 9 gaps; see section-specific rows and JSON register |
-| docs/news/news-contracts.md | [Captured child append boundary and indexed orphan](docs/news/news-contracts.md#captured-child-append-boundary-and-indexed-orphan) | 503–567 | 9 gaps; see section-specific rows and JSON register |
-| docs/presence-and-messaging/presence-messaging-contracts.md | [Native presence, messaging and administration contracts](docs/presence-and-messaging/presence-messaging-contracts.md#native-presence-messaging-and-administration-contracts) | 1–8 | 18 gaps; see section-specific rows and JSON register |
-| docs/presence-and-messaging/presence-messaging-contracts.md | [Settings and login visibility](docs/presence-and-messaging/presence-messaging-contracts.md#settings-and-login-visibility) | 9–67 | [GAP-025](#gap-025), [GAP-029](#gap-029), [GAP-030](#gap-030), [GAP-035](#gap-035) |
-| docs/presence-and-messaging/presence-messaging-contracts.md | [Settings persistence boundary](docs/presence-and-messaging/presence-messaging-contracts.md#settings-persistence-boundary) | 68–95 | [GAP-029](#gap-029) |
-| docs/presence-and-messaging/presence-messaging-contracts.md | [Captured configured login states and visibility](docs/presence-and-messaging/presence-messaging-contracts.md#captured-configured-login-states-and-visibility) | 96–145 | [GAP-023](#gap-023), [GAP-025](#gap-025), [GAP-027](#gap-027), [GAP-035](#gap-035), [GAP-036](#gap-036), [GAP-084](#gap-084) |
-| docs/presence-and-messaging/presence-messaging-contracts.md | [Agreement and banner condition tables](docs/presence-and-messaging/presence-messaging-contracts.md#agreement-and-banner-condition-tables) | 146–168 | [GAP-026](#gap-026), [GAP-027](#gap-027), [GAP-028](#gap-028) |
-| docs/presence-and-messaging/presence-messaging-contracts.md | [Early completion and metadata changes](docs/presence-and-messaging/presence-messaging-contracts.md#early-completion-and-metadata-changes) | 169–187 | [GAP-028](#gap-028), [GAP-063](#gap-063), [GAP-084](#gap-084) |
-| docs/presence-and-messaging/presence-messaging-contracts.md | [Login extras and configured content](docs/presence-and-messaging/presence-messaging-contracts.md#login-extras-and-configured-content) | 188–189 | [GAP-026](#gap-026), [GAP-028](#gap-028) |
-| docs/presence-and-messaging/presence-messaging-contracts.md | [Fields 160, 161 and 162](docs/presence-and-messaging/presence-messaging-contracts.md#fields-160-161-and-162) | 190–234 | [GAP-026](#gap-026) |
-| docs/presence-and-messaging/presence-messaging-contracts.md | [Agreement and banner loading](docs/presence-and-messaging/presence-messaging-contracts.md#agreement-and-banner-loading) | 235–263 | [GAP-026](#gap-026), [GAP-027](#gap-027), [GAP-028](#gap-028) |
-| docs/presence-and-messaging/presence-messaging-contracts.md | [Content byte limits and reload effects](docs/presence-and-messaging/presence-messaging-contracts.md#content-byte-limits-and-reload-effects) | 264–291 | [GAP-011](#gap-011), [GAP-018](#gap-018), [GAP-019](#gap-019), [GAP-027](#gap-027), [GAP-028](#gap-028) |
-| docs/presence-and-messaging/presence-messaging-contracts.md | [Status word, separate from the privilege bitmap](docs/presence-and-messaging/presence-messaging-contracts.md#status-word-separate-from-the-privilege-bitmap) | 292–330 | [GAP-034](#gap-034) |
-| docs/presence-and-messaging/presence-messaging-contracts.md | [Roster snapshots and concurrent updates](docs/presence-and-messaging/presence-messaging-contracts.md#roster-snapshots-and-concurrent-updates) | 331–375 | [GAP-035](#gap-035) |
-| docs/presence-and-messaging/presence-messaging-contracts.md | [Disconnect teardown and notification 302](docs/presence-and-messaging/presence-messaging-contracts.md#disconnect-teardown-and-notification-302) | 376–392 | [GAP-036](#gap-036) |
-| docs/presence-and-messaging/presence-messaging-contracts.md | [Private-message routing](docs/presence-and-messaging/presence-messaging-contracts.md#private-message-routing) | 393–452 | [GAP-043](#gap-043), [GAP-044](#gap-044), [GAP-045](#gap-045) |
-| docs/presence-and-messaging/presence-messaging-contracts.md | [Rooms, invitations and subjects](docs/presence-and-messaging/presence-messaging-contracts.md#rooms-invitations-and-subjects) | 453–488 | [GAP-038](#gap-038), [GAP-039](#gap-039), [GAP-040](#gap-040), [GAP-041](#gap-041), [GAP-042](#gap-042) |
-| docs/presence-and-messaging/presence-messaging-contracts.md | [Kick options and native console messages](docs/presence-and-messaging/presence-messaging-contracts.md#kick-options-and-native-console-messages) | 489–588 | [GAP-074](#gap-074), [GAP-075](#gap-075), [GAP-076](#gap-076) |
-| docs/presence-and-messaging/presence-messaging-contracts.md | [Captured private rooms, invitations and chat bytes](docs/presence-and-messaging/presence-messaging-contracts.md#captured-private-rooms-invitations-and-chat-bytes) | 589–694 | 12 gaps; see section-specific rows and JSON register |
-| docs/presence-and-messaging/presence-messaging-contracts.md | [Captured console and client broadcast recipients](docs/presence-and-messaging/presence-messaging-contracts.md#captured-console-and-client-broadcast-recipients) | 695–707 | [GAP-044](#gap-044), [GAP-076](#gap-076) |
-| docs/protocol/core-field-schemas.md | [Core transaction field schemas](docs/protocol/core-field-schemas.md#core-transaction-field-schemas) | 1–9 | [GAP-002](#gap-002), [GAP-015](#gap-015), [GAP-016](#gap-016), [GAP-017](#gap-017), [GAP-019](#gap-019) |
-| docs/protocol/core-field-schemas.md | [Types, occurrence and direction conventions](docs/protocol/core-field-schemas.md#types-occurrence-and-direction-conventions) | 10–41 | [GAP-002](#gap-002), [GAP-015](#gap-015), [GAP-017](#gap-017) |
-| docs/protocol/core-field-schemas.md | [Login and settings requests](docs/protocol/core-field-schemas.md#login-and-settings-requests) | 42–63 | [GAP-002](#gap-002), [GAP-016](#gap-016), [GAP-024](#gap-024), [GAP-029](#gap-029), [GAP-030](#gap-030) |
-| docs/protocol/core-field-schemas.md | [Captured settings-option widths and defaults](docs/protocol/core-field-schemas.md#captured-settings-option-widths-and-defaults) | 64–75 | [GAP-085](#gap-085), [GAP-086](#gap-086) |
-| docs/protocol/core-field-schemas.md | [Login width and feature-condition matrix](docs/protocol/core-field-schemas.md#login-width-and-feature-condition-matrix) | 76–112 | [GAP-024](#gap-024), [GAP-015](#gap-015), [GAP-025](#gap-025) |
-| docs/protocol/core-field-schemas.md | [Login and presence outputs](docs/protocol/core-field-schemas.md#login-and-presence-outputs) | 113–133 | [GAP-002](#gap-002), [GAP-025](#gap-025), [GAP-026](#gap-026), [GAP-027](#gap-027), [GAP-028](#gap-028), [GAP-035](#gap-035), [GAP-036](#gap-036), [GAP-037](#gap-037) |
-| docs/protocol/core-field-schemas.md | [Chat, PM and room requests](docs/protocol/core-field-schemas.md#chat-pm-and-room-requests) | 134–152 | [GAP-002](#gap-002), [GAP-038](#gap-038), [GAP-039](#gap-039), [GAP-040](#gap-040), [GAP-041](#gap-041), [GAP-042](#gap-042), [GAP-043](#gap-043) |
-| docs/protocol/core-field-schemas.md | [Room and message outputs](docs/protocol/core-field-schemas.md#room-and-message-outputs) | 153–171 | [GAP-002](#gap-002), [GAP-044](#gap-044), [GAP-075](#gap-075), [GAP-076](#gap-076) |
-| docs/protocol/session-transport-contracts.md | [Native session and transport contracts](docs/protocol/session-transport-contracts.md#native-session-and-transport-contracts) | 1–9 | [GAP-008](#gap-008), [GAP-009](#gap-009), [GAP-010](#gap-010), [GAP-011](#gap-011), [GAP-024](#gap-024), [GAP-033](#gap-033) |
-| docs/protocol/session-transport-contracts.md | [Configured endpoints](docs/protocol/session-transport-contracts.md#configured-endpoints) | 10–45 | [GAP-010](#gap-010) |
-| docs/protocol/session-transport-contracts.md | [Handshake consumption and failures](docs/protocol/session-transport-contracts.md#handshake-consumption-and-failures) | 46–67 | [GAP-008](#gap-008) |
-| docs/protocol/session-transport-contracts.md | [Captured handshake boundaries](docs/protocol/session-transport-contracts.md#captured-handshake-boundaries) | 68–97 | [GAP-008](#gap-008), [GAP-010](#gap-010), [GAP-084](#gap-084) |
-| docs/protocol/session-transport-contracts.md | [Sub-version 3 versus the data endpoint](docs/protocol/session-transport-contracts.md#sub-version-3-versus-the-data-endpoint) | 98–123 | [GAP-009](#gap-009), [GAP-055](#gap-055) |
-| docs/protocol/session-transport-contracts.md | [Receive-limit assignment at startup](docs/protocol/session-transport-contracts.md#receive-limit-assignment-at-startup) | 124–140 | [GAP-011](#gap-011) |
-| docs/protocol/session-transport-contracts.md | [Captured framing and reassembly boundaries](docs/protocol/session-transport-contracts.md#captured-framing-and-reassembly-boundaries) | 141–173 | [GAP-011](#gap-011), [GAP-012](#gap-012), [GAP-013](#gap-013), [GAP-084](#gap-084) |
-| docs/protocol/session-transport-contracts.md | [Transaction IDs, reassembly and correlation](docs/protocol/session-transport-contracts.md#transaction-ids-reassembly-and-correlation) | 174–233 | [GAP-004](#gap-004), [GAP-012](#gap-012), [GAP-013](#gap-013), [GAP-084](#gap-084) |
-| docs/protocol/session-transport-contracts.md | [Native envelope acceptance and emission](docs/protocol/session-transport-contracts.md#native-envelope-acceptance-and-emission) | 234–259 | [GAP-004](#gap-004), [GAP-012](#gap-012), [GAP-013](#gap-013), [GAP-084](#gap-084) |
-| docs/protocol/session-transport-contracts.md | [Identifier domains](docs/protocol/session-transport-contracts.md#identifier-domains) | 260–275 | [GAP-024](#gap-024), [GAP-033](#gap-033) |
-| docs/protocol/session-transport-contracts.md | [Activity clocks and incomplete input](docs/protocol/session-transport-contracts.md#activity-clocks-and-incomplete-input) | 276–309 | [GAP-005](#gap-005), [GAP-008](#gap-008), [GAP-012](#gap-012) |
-| docs/protocol/session-transport-contracts.md | [Captured failure-wait observations](docs/protocol/session-transport-contracts.md#captured-failure-wait-observations) | 310–332 | [GAP-005](#gap-005), [GAP-084](#gap-084) |
-| docs/protocol/session-transport-contracts.md | [Captured selected-request and partial-input timing](docs/protocol/session-transport-contracts.md#captured-selected-request-and-partial-input-timing) | 333–375 | [GAP-005](#gap-005), [GAP-036](#gap-036) |
-| docs/protocol/session-transport-contracts.md | [Flood and connection-burst counters](docs/protocol/session-transport-contracts.md#flood-and-connection-burst-counters) | 376–406 | [GAP-005](#gap-005), [GAP-045](#gap-045), [GAP-074](#gap-074) |
-| docs/files-and-transfers/filesystem-and-board-contracts.md | [Native filesystem, diagnostics and legacy-board contracts](docs/files-and-transfers/filesystem-and-board-contracts.md#native-filesystem-diagnostics-and-legacy-board-contracts) | 1–8 | [GAP-037](#gap-037), [GAP-046](#gap-046), [GAP-049](#gap-049), [GAP-050](#gap-050), [GAP-051](#gap-051), [GAP-052](#gap-052), [GAP-053](#gap-053), [GAP-054](#gap-054) |
-| docs/files-and-transfers/filesystem-and-board-contracts.md | [File-info target kinds and field presence](docs/files-and-transfers/filesystem-and-board-contracts.md#file-info-target-kinds-and-field-presence) | 9–30 | [GAP-049](#gap-049) |
-| docs/files-and-transfers/filesystem-and-board-contracts.md | [Delete, create, rename, comment, move and alias](docs/files-and-transfers/filesystem-and-board-contracts.md#delete-create-rename-comment-move-and-alias) | 31–62 | [GAP-050](#gap-050), [GAP-051](#gap-051), [GAP-052](#gap-052), [GAP-053](#gap-053), [GAP-054](#gap-054) |
-| docs/files-and-transfers/filesystem-and-board-contracts.md | [Request 207 presence and mutation order](docs/files-and-transfers/filesystem-and-board-contracts.md#request-207-presence-and-mutation-order) | 63–90 | [GAP-052](#gap-052) |
-| docs/files-and-transfers/filesystem-and-board-contracts.md | [Move and alias distinctions](docs/files-and-transfers/filesystem-and-board-contracts.md#move-and-alias-distinctions) | 91–113 | [GAP-053](#gap-053), [GAP-054](#gap-054) |
-| docs/files-and-transfers/filesystem-and-board-contracts.md | [Legacy board 101/102/103](docs/files-and-transfers/filesystem-and-board-contracts.md#legacy-board-101102103) | 114–146 | [GAP-046](#gap-046) |
-| docs/files-and-transfers/filesystem-and-board-contracts.md | [Captured legacy-board boundaries and updates](docs/files-and-transfers/filesystem-and-board-contracts.md#captured-legacy-board-boundaries-and-updates) | 147–187 | [GAP-046](#gap-046) |
-| docs/files-and-transfers/filesystem-and-board-contracts.md | [Diagnostic text 303](docs/files-and-transfers/filesystem-and-board-contracts.md#diagnostic-text-303) | 188–203 | [GAP-037](#gap-037) |
-| docs/files-and-transfers/filesystem-and-board-contracts.md | [Captured native folder creation and field 202 paths](docs/files-and-transfers/filesystem-and-board-contracts.md#captured-native-folder-creation-and-field-202-paths) | 204–213 | 11 gaps; see section-specific rows and JSON register |
-| docs/files-and-transfers/filesystem-and-board-contracts.md | [Create inputs, permissions and replies](docs/files-and-transfers/filesystem-and-board-contracts.md#create-inputs-permissions-and-replies) | 214–244 | 11 gaps; see section-specific rows and JSON register |
-| docs/files-and-transfers/filesystem-and-board-contracts.md | [Name bytes and structured-path acceptance](docs/files-and-transfers/filesystem-and-board-contracts.md#name-bytes-and-structured-path-acceptance) | 245–272 | 11 gaps; see section-specific rows and JSON register |
-| docs/files-and-transfers/filesystem-and-board-contracts.md | [Listing, file-info and owned cleanup controls](docs/files-and-transfers/filesystem-and-board-contracts.md#listing-file-info-and-owned-cleanup-controls) | 273–304 | 11 gaps; see section-specific rows and JSON register |
-| docs/files-and-transfers/filesystem-and-board-contracts.md | [Captured alias and metadata matrix](docs/files-and-transfers/filesystem-and-board-contracts.md#captured-alias-and-metadata-matrix) | 305–313 | 9 gaps; see section-specific rows and JSON register |
-| docs/files-and-transfers/filesystem-and-board-contracts.md | [File-info presence and values](docs/files-and-transfers/filesystem-and-board-contracts.md#file-info-presence-and-values) | 314–353 | 9 gaps; see section-specific rows and JSON register |
-| docs/files-and-transfers/filesystem-and-board-contracts.md | [Alias creation, collisions and transfer resolution](docs/files-and-transfers/filesystem-and-board-contracts.md#alias-creation-collisions-and-transfer-resolution) | 354–400 | 9 gaps; see section-specific rows and JSON register |
-| docs/files-and-transfers/filesystem-and-board-contracts.md | [Captured rename and comment mutation matrix](docs/files-and-transfers/filesystem-and-board-contracts.md#captured-rename-and-comment-mutation-matrix) | 401–469 | [GAP-003](#gap-003), [GAP-016](#gap-016), [GAP-019](#gap-019), [GAP-031](#gap-031), [GAP-052](#gap-052), [GAP-084](#gap-084) |
-| docs/files-and-transfers/filesystem-and-board-contracts.md | [Captured move and Trash outcomes](docs/files-and-transfers/filesystem-and-board-contracts.md#captured-move-and-trash-outcomes) | 470–546 | [GAP-003](#gap-003), [GAP-021](#gap-021), [GAP-031](#gap-031), [GAP-047](#gap-047), [GAP-050](#gap-050), [GAP-053](#gap-053), [GAP-054](#gap-054), [GAP-084](#gap-084) |
-| docs/provenance/evidence-portability.md | [Reproducing the protocol evidence baseline](docs/provenance/evidence-portability.md#reproducing-the-protocol-evidence-baseline) | 1–8 | [GAP-087](#gap-087) |
-| docs/provenance/evidence-portability.md | [Build a revision-pinned package](docs/provenance/evidence-portability.md#build-a-revision-pinned-package) | 9–29 | [GAP-087](#gap-087) |
-| docs/provenance/evidence-portability.md | [Verify and extract elsewhere](docs/provenance/evidence-portability.md#verify-and-extract-elsewhere) | 30–55 | [GAP-087](#gap-087) |
-| docs/provenance/evidence-portability.md | [Updating evidence without rewriting history](docs/provenance/evidence-portability.md#updating-evidence-without-rewriting-history) | 56–70 | [GAP-087](#gap-087) |
-| docs/provenance/evidence-portability.md | [Recorded extraction verification](docs/provenance/evidence-portability.md#recorded-extraction-verification) | 71–84 | [GAP-087](#gap-087) |
-| docs/protocol/error-outcomes.md | [Native error and failure outcomes](docs/protocol/error-outcomes.md#native-error-and-failure-outcomes) | 1–8 | [GAP-003](#gap-003), [GAP-021](#gap-021) |
-| docs/protocol/error-outcomes.md | [Wire status and failure classes](docs/protocol/error-outcomes.md#wire-status-and-failure-classes) | 9–35 | [GAP-003](#gap-003), [GAP-021](#gap-021) |
-| docs/protocol/error-outcomes.md | [Recorded representative native outcomes](docs/protocol/error-outcomes.md#recorded-representative-native-outcomes) | 36–80 | [GAP-003](#gap-003), [GAP-084](#gap-084) |
-| docs/protocol/error-outcomes.md | [Derived unknown-operation example](docs/protocol/error-outcomes.md#derived-unknown-operation-example) | 81–100 | [GAP-003](#gap-003), [GAP-084](#gap-084) |
-| docs/protocol/error-outcomes.md | [Internal exceptions and text resources](docs/protocol/error-outcomes.md#internal-exceptions-and-text-resources) | 101–172 | [GAP-003](#gap-003) |
-| docs/peers/identified-client-source.md | [Identified shx source profile and bounded callback results](docs/peers/identified-client-source.md#identified-shx-source-profile-and-bounded-callback-results) | 1–21 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-083](#gap-083) |
-| docs/peers/identified-client-source.md | [Basic login and unknown fields](docs/peers/identified-client-source.md#basic-login-and-unknown-fields) | 22–41 | [GAP-024](#gap-024), [GAP-080](#gap-080), [GAP-081](#gap-081) |
-| docs/peers/identified-client-source.md | [Executed host callback matrix](docs/peers/identified-client-source.md#executed-host-callback-matrix) | 42–76 | [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085) |
-| docs/peers/identified-client-source.md | [Other receiver observations and negative scope](docs/peers/identified-client-source.md#other-receiver-observations-and-negative-scope) | 77–109 | [GAP-008](#gap-008), [GAP-018](#gap-018), [GAP-071](#gap-071), [GAP-075](#gap-075), [GAP-079](#gap-079), [GAP-082](#gap-082) |
-| docs/peers/identified-client-source.md | [Identified complete terminal build](docs/peers/identified-client-source.md#identified-complete-terminal-build) | 110–132 | [GAP-018](#gap-018), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-083](#gap-083), [GAP-084](#gap-084) |
-| docs/peers/identified-client-source.md | [Full native peer acceptance matrix](docs/peers/identified-client-source.md#full-native-peer-acceptance-matrix) | 133–165 | [GAP-018](#gap-018), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-083](#gap-083), [GAP-084](#gap-084) |
-| docs/peers/identified-client-source.md | [Ambiguous text at the real peer boundary](docs/peers/identified-client-source.md#ambiguous-text-at-the-real-peer-boundary) | 166–191 | [GAP-018](#gap-018), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-083](#gap-083), [GAP-084](#gap-084) |
-| docs/peers/identified-client-source.md | [Reproducing and checking full peer sessions](docs/peers/identified-client-source.md#reproducing-and-checking-full-peer-sessions) | 192–222 | [GAP-018](#gap-018), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-083](#gap-083), [GAP-084](#gap-084) |
-| docs/peers/identified-client-source.md | [Native configured-name and controlled receiver matrix](docs/peers/identified-client-source.md#native-configured-name-and-controlled-receiver-matrix) | 223–277 | [GAP-018](#gap-018), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-083](#gap-083), [GAP-084](#gap-084) |
-| docs/peers/identified-client-source.md | [Source package identities and configuration applicability](docs/peers/identified-client-source.md#source-package-identities-and-configuration-applicability) | 278–330 | [GAP-018](#gap-018), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-083](#gap-083), [GAP-084](#gap-084) |
-| docs/accounts-and-privileges/privilege-contracts.md | [Native privilege registry and composition](docs/accounts-and-privileges/privilege-contracts.md#native-privilege-registry-and-composition) | 1–9 | [GAP-031](#gap-031), [GAP-032](#gap-032) |
-| docs/accounts-and-privileges/privilege-contracts.md | [Bitmap numbering and known uses](docs/accounts-and-privileges/privilege-contracts.md#bitmap-numbering-and-known-uses) | 10–67 | [GAP-031](#gap-031), [GAP-034](#gap-034) |
-| docs/accounts-and-privileges/privilege-contracts.md | [Operation-specific composition](docs/accounts-and-privileges/privilege-contracts.md#operation-specific-composition) | 68–89 | [GAP-032](#gap-032), [GAP-047](#gap-047) |
-| docs/accounts-and-privileges/privilege-contracts.md | [Account creation, update and batch rules](docs/accounts-and-privileges/privilege-contracts.md#account-creation-update-and-batch-rules) | 90–133 | [GAP-032](#gap-032), [GAP-072](#gap-072), [GAP-073](#gap-073), [GAP-078](#gap-078) |
-| docs/accounts-and-privileges/privilege-contracts.md | [Remaining acceptance evidence](docs/accounts-and-privileges/privilege-contracts.md#remaining-acceptance-evidence) | 134–161 | [GAP-031](#gap-031), [GAP-032](#gap-032), [GAP-072](#gap-072), [GAP-073](#gap-073), [GAP-078](#gap-078) |
-| docs/native-evidence/native-capture-workflow.md | [Reproducing native protocol captures](docs/native-evidence/native-capture-workflow.md#reproducing-native-protocol-captures) | 1–10 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
-| docs/native-evidence/native-capture-workflow.md | [Prepare the emulator and application](docs/native-evidence/native-capture-workflow.md#prepare-the-emulator-and-application) | 11–97 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
-| docs/native-evidence/native-capture-workflow.md | [Capture an exchange](docs/native-evidence/native-capture-workflow.md#capture-an-exchange) | 98–164 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
-| docs/native-evidence/native-capture-workflow.md | [Recorded native core fixtures](docs/native-evidence/native-capture-workflow.md#recorded-native-core-fixtures) | 165–245 | [GAP-022](#gap-022), [GAP-025](#gap-025), [GAP-071](#gap-071), [GAP-077](#gap-077), [GAP-084](#gap-084) |
-| docs/native-evidence/native-capture-workflow.md | [Recorded native transport fixtures](docs/native-evidence/native-capture-workflow.md#recorded-native-transport-fixtures) | 246–288 | [GAP-008](#gap-008), [GAP-009](#gap-009), [GAP-010](#gap-010), [GAP-084](#gap-084) |
-| docs/native-evidence/native-capture-workflow.md | [Recorded native framing fixtures](docs/native-evidence/native-capture-workflow.md#recorded-native-framing-fixtures) | 289–324 | [GAP-014](#gap-014), [GAP-084](#gap-084) |
-| docs/native-evidence/native-capture-workflow.md | [Recorded native ordinary-file fixtures](docs/native-evidence/native-capture-workflow.md#recorded-native-ordinary-file-fixtures) | 325–376 | [GAP-009](#gap-009), [GAP-056](#gap-056), [GAP-084](#gap-084) |
-| docs/native-evidence/native-capture-workflow.md | [Recorded native resume fixtures](docs/native-evidence/native-capture-workflow.md#recorded-native-resume-fixtures) | 377–418 | [GAP-058](#gap-058), [GAP-084](#gap-084) |
-| docs/native-evidence/native-capture-workflow.md | [Recorded native queue fixtures](docs/native-evidence/native-capture-workflow.md#recorded-native-queue-fixtures) | 419–463 | [GAP-057](#gap-057), [GAP-061](#gap-061), [GAP-084](#gap-084) |
-| docs/native-evidence/native-capture-workflow.md | [Recorded native cleanup fixtures](docs/native-evidence/native-capture-workflow.md#recorded-native-cleanup-fixtures) | 464–501 | [GAP-062](#gap-062), [GAP-084](#gap-084) |
-| docs/native-evidence/native-capture-workflow.md | [Recorded native folder fixtures](docs/native-evidence/native-capture-workflow.md#recorded-native-folder-fixtures) | 502–566 | [GAP-059](#gap-059), [GAP-060](#gap-060), [GAP-084](#gap-084) |
-| docs/native-evidence/native-capture-workflow.md | [Acceptance and corpus coverage](docs/native-evidence/native-capture-workflow.md#acceptance-and-corpus-coverage) | 567–596 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
-| docs/native-evidence/native-capture-workflow.md | [Recorded native banner fixtures](docs/native-evidence/native-capture-workflow.md#recorded-native-banner-fixtures) | 597–659 | [GAP-055](#gap-055), [GAP-063](#gap-063), [GAP-084](#gap-084) |
-| docs/native-evidence/native-capture-workflow.md | [Reproducing banner format and recovery fixtures](docs/native-evidence/native-capture-workflow.md#reproducing-banner-format-and-recovery-fixtures) | 660–728 | [GAP-055](#gap-055), [GAP-063](#gap-063), [GAP-064](#gap-064), [GAP-084](#gap-084) |
-| docs/native-evidence/native-capture-workflow.md | [Reproducing HTXF header and reference fixtures](docs/native-evidence/native-capture-workflow.md#reproducing-htxf-header-and-reference-fixtures) | 729–779 | [GAP-033](#gap-033), [GAP-055](#gap-055), [GAP-064](#gap-064), [GAP-084](#gap-084) |
-| docs/native-evidence/native-capture-workflow.md | [Reproducing ID, envelope and partial-input fixtures](docs/native-evidence/native-capture-workflow.md#reproducing-id-envelope-and-partial-input-fixtures) | 780–833 | [GAP-004](#gap-004), [GAP-012](#gap-012), [GAP-013](#gap-013), [GAP-084](#gap-084) |
-| docs/native-evidence/native-capture-workflow.md | [Reproducing native authentication and visibility fixtures](docs/native-evidence/native-capture-workflow.md#reproducing-native-authentication-and-visibility-fixtures) | 834–887 | [GAP-023](#gap-023), [GAP-025](#gap-025), [GAP-027](#gap-027), [GAP-035](#gap-035), [GAP-036](#gap-036), [GAP-084](#gap-084) |
-| docs/native-evidence/native-capture-workflow.md | [Reproducing agreement configuration and partial-failure fixtures](docs/native-evidence/native-capture-workflow.md#reproducing-agreement-configuration-and-partial-failure-fixtures) | 888–962 | [GAP-003](#gap-003), [GAP-019](#gap-019), [GAP-025](#gap-025), [GAP-027](#gap-027), [GAP-084](#gap-084) |
-| docs/native-evidence/native-capture-workflow.md | [Reproducing login-extra configuration and refresh fixtures](docs/native-evidence/native-capture-workflow.md#reproducing-login-extra-configuration-and-refresh-fixtures) | 963–1041 | [GAP-005](#gap-005), [GAP-018](#gap-018), [GAP-019](#gap-019), [GAP-026](#gap-026), [GAP-084](#gap-084) |
-| docs/native-evidence/native-capture-workflow.md | [Reproducing full historical shx sessions](docs/native-evidence/native-capture-workflow.md#reproducing-full-historical-shx-sessions) | 1042–1067 | [GAP-018](#gap-018), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-083](#gap-083), [GAP-084](#gap-084) |
-| docs/native-evidence/native-capture-workflow.md | [Reproducing banner and roster-subject receiver fixtures](docs/native-evidence/native-capture-workflow.md#reproducing-banner-and-roster-subject-receiver-fixtures) | 1068–1087 | [GAP-018](#gap-018), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-083](#gap-083), [GAP-084](#gap-084) |
-| docs/native-evidence/native-capture-workflow.md | [Reproducing directory creation and path fixtures](docs/native-evidence/native-capture-workflow.md#reproducing-directory-creation-and-path-fixtures) | 1088–1130 | 11 gaps; see section-specific rows and JSON register |
-| docs/native-evidence/native-capture-workflow.md | [Reproducing alias and metadata fixtures](docs/native-evidence/native-capture-workflow.md#reproducing-alias-and-metadata-fixtures) | 1131–1182 | 9 gaps; see section-specific rows and JSON register |
-| docs/native-evidence/native-capture-workflow.md | [Reproducing rename and comment fixtures](docs/native-evidence/native-capture-workflow.md#reproducing-rename-and-comment-fixtures) | 1183–1232 | [GAP-003](#gap-003), [GAP-016](#gap-016), [GAP-019](#gap-019), [GAP-031](#gap-031), [GAP-052](#gap-052), [GAP-084](#gap-084) |
-| docs/native-evidence/native-capture-workflow.md | [Reproducing move and Trash fixtures](docs/native-evidence/native-capture-workflow.md#reproducing-move-and-trash-fixtures) | 1233–1281 | [GAP-003](#gap-003), [GAP-021](#gap-021), [GAP-031](#gap-031), [GAP-047](#gap-047), [GAP-050](#gap-050), [GAP-053](#gap-053), [GAP-054](#gap-054), [GAP-084](#gap-084) |
-| docs/native-evidence/native-capture-workflow.md | [Reproducing category and threaded news fixtures](docs/native-evidence/native-capture-workflow.md#reproducing-category-and-threaded-news-fixtures) | 1282–1348 | 14 gaps; see section-specific rows and JSON register |
-| docs/native-evidence/native-capture-workflow.md | [Reproducing isolated article deletion fixtures](docs/native-evidence/native-capture-workflow.md#reproducing-isolated-article-deletion-fixtures) | 1349–1402 | 9 gaps; see section-specific rows and JSON register |
-| docs/native-evidence/native-capture-workflow.md | [Reproducing the child append boundary](docs/native-evidence/native-capture-workflow.md#reproducing-the-child-append-boundary) | 1403–1459 | 9 gaps; see section-specific rows and JSON register |
-| docs/native-evidence/native-capture-workflow.md | [Reproducing account replacement and password boundaries](docs/native-evidence/native-capture-workflow.md#reproducing-account-replacement-and-password-boundaries) | 1460–1526 | 9 gaps; see section-specific rows and JSON register |
-| docs/native-evidence/native-capture-workflow.md | [Reproducing live account edits, deletion and restart](docs/native-evidence/native-capture-workflow.md#reproducing-live-account-edits-deletion-and-restart) | 1527–1597 | 9 gaps; see section-specific rows and JSON register |
-| docs/native-evidence/native-capture-workflow.md | [Reproducing account batch framing and partial effects](docs/native-evidence/native-capture-workflow.md#reproducing-account-batch-framing-and-partial-effects) | 1598–1668 | 11 gaps; see section-specific rows and JSON register |
-| docs/native-evidence/native-capture-workflow.md | [Reproducing account identity and protection contrasts](docs/native-evidence/native-capture-workflow.md#reproducing-account-identity-and-protection-contrasts) | 1669–1724 | [GAP-003](#gap-003), [GAP-018](#gap-018), [GAP-021](#gap-021), [GAP-031](#gap-031), [GAP-036](#gap-036), [GAP-072](#gap-072), [GAP-074](#gap-074), [GAP-084](#gap-084) |
-| docs/native-evidence/native-capture-workflow.md | [Reproducing private rooms and chat byte fixtures](docs/native-evidence/native-capture-workflow.md#reproducing-private-rooms-and-chat-byte-fixtures) | 1725–1788 | 12 gaps; see section-specific rows and JSON register |
-| docs/native-evidence/native-capture-workflow.md | [Reproducing console and client broadcast fixtures](docs/native-evidence/native-capture-workflow.md#reproducing-console-and-client-broadcast-fixtures) | 1789–1807 | [GAP-076](#gap-076) |
-| docs/protocol/diagnostic-replies.md | [Native 1.9 client diagnostics (303)](docs/protocol/diagnostic-replies.md#native-19-client-diagnostics-303) | 1–11 | [GAP-037](#gap-037), [GAP-084](#gap-084) |
-| docs/protocol/diagnostic-replies.md | [Representative reply matrix](docs/protocol/diagnostic-replies.md#representative-reply-matrix) | 12–52 | [GAP-037](#gap-037), [GAP-084](#gap-084) |
-| docs/protocol/diagnostic-replies.md | [Contract boundary](docs/protocol/diagnostic-replies.md#contract-boundary) | 53–88 | [GAP-037](#gap-037), [GAP-084](#gap-084) |
-| docs/protocol/diagnostic-replies.md | [Reproduction and checks](docs/protocol/diagnostic-replies.md#reproduction-and-checks) | 89–129 | [GAP-037](#gap-037), [GAP-084](#gap-084) |
-| docs/peers/peer-tolerance-matrix.md | [Identified shx peer field tolerance: controlled matrix](docs/peers/peer-tolerance-matrix.md#identified-shx-peer-field-tolerance-controlled-matrix) | 1–57 | [GAP-026](#gap-026), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082) |
-| docs/peers/peer-tolerance-matrix.md | [Reproduce and verify](docs/peers/peer-tolerance-matrix.md#reproduce-and-verify) | 58–86 | [GAP-026](#gap-026), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082) |
-| docs/peers/peer-tolerance-matrix.md | [Cross-peer acceptance and omission rules](docs/peers/peer-tolerance-matrix.md#cross-peer-acceptance-and-omission-rules) | 87–124 | [GAP-081](#gap-081) |
-| docs/mxd/assertion-reconciliation.md | [mxd assertion reconciliation](docs/mxd/assertion-reconciliation.md#mxd-assertion-reconciliation) | 1–8 | [GAP-001](#gap-001), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086) |
-| docs/mxd/assertion-reconciliation.md | [Test runs](docs/mxd/assertion-reconciliation.md#test-runs) | 37–38 | [GAP-001](#gap-001), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086) |
-| docs/mxd/assertion-reconciliation.md | [Verifier](docs/mxd/assertion-reconciliation.md#verifier) | 85–94 | [GAP-001](#gap-001), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086) |
-| docs/mxd/assertion-reconciliation.md | [Revisions examined](docs/mxd/assertion-reconciliation.md#revisions-examined) | 9–17 | [GAP-001](#gap-001), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086) |
-| docs/mxd/compatibility-matrix.md | [Identified client sessions](docs/mxd/compatibility-matrix.md#identified-client-sessions) | 84–99 | [GAP-001](#gap-001), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086) |
-| docs/mxd/assertion-reconciliation.md | [Assertion-to-requirement map](docs/mxd/assertion-reconciliation.md#assertion-to-requirement-map) | 107–112 | [GAP-001](#gap-001), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086) |
-| docs/mxd/assertion-reconciliation.md | [Configured server name 162](docs/mxd/assertion-reconciliation.md#configured-server-name-162) | 153–160 | [GAP-001](#gap-001), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086) |
-| docs/mxd/assertion-reconciliation.md | [Old mxd compatibility matrix](docs/mxd/assertion-reconciliation.md#old-mxd-compatibility-matrix) | 249–259 | [GAP-001](#gap-001), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086) |
+| docs/protocol/protocol.md | [Hotline Server Protocol 1.9: transactions and functionality guide](docs/protocol/protocol.md#hotline-server-protocol-19-transactions-and-functionality-guide) | 1–39 | 83 gaps; see section-specific rows and JSON register |
+| docs/protocol/protocol.md | [Binary message formats (Hotline Protocol 1.9)](docs/protocol/protocol.md#binary-message-formats-hotline-protocol-19) | 40–47 | 23 gaps; see section-specific rows and JSON register |
+| docs/protocol/protocol.md | [1 Session-initialization handshake](docs/protocol/protocol.md#1-session-initialization-handshake) | 48–98 | [GAP-005](#gap-005), [GAP-007](#gap-007), [GAP-008](#gap-008), [GAP-009](#gap-009) |
+| docs/protocol/protocol.md | [2 General transaction frame](docs/protocol/protocol.md#2-general-transaction-frame) | 99–128 | 10 gaps; see section-specific rows and JSON register |
+| docs/protocol/protocol.md | [2.1 Parameter list (payload block)](docs/protocol/protocol.md#21-parameter-list-payload-block) | 129–182 | [GAP-002](#gap-002), [GAP-014](#gap-014), [GAP-015](#gap-015), [GAP-016](#gap-016), [GAP-017](#gap-017), [GAP-019](#gap-019), [GAP-024](#gap-024) |
+| docs/protocol/protocol.md | [2.2 Date parameters](docs/protocol/protocol.md#22-date-parameters) | 183–211 | [GAP-020](#gap-020) |
+| docs/protocol/protocol.md | [3 Fragmentation rules](docs/protocol/protocol.md#3-fragmentation-rules) | 212–245 | [GAP-004](#gap-004), [GAP-011](#gap-011), [GAP-012](#gap-012), [GAP-014](#gap-014) |
+| docs/protocol/protocol.md | [4 Reply semantics](docs/protocol/protocol.md#4-reply-semantics) | 246–271 | [GAP-003](#gap-003), [GAP-005](#gap-005), [GAP-006](#gap-006), [GAP-013](#gap-013), [GAP-021](#gap-021) |
+| docs/protocol/protocol.md | [5 Worked example (login)](docs/protocol/protocol.md#5-worked-example-login) | 272–311 | [GAP-016](#gap-016), [GAP-022](#gap-022), [GAP-084](#gap-084) |
+| docs/protocol/protocol.md | [6 Implementation checklist](docs/protocol/protocol.md#6-implementation-checklist) | 312–325 | [GAP-084](#gap-084) |
+| docs/protocol/protocol.md | [User login and presence](docs/protocol/protocol.md#user-login-and-presence) | 326–327 | 25 gaps; see section-specific rows and JSON register |
+| docs/protocol/protocol.md | [Session handshake (before transactions begin)](docs/protocol/protocol.md#session-handshake-before-transactions-begin) | 328–335 | [GAP-007](#gap-007), [GAP-008](#gap-008) |
+| docs/protocol/protocol.md | [Login (Transaction 107) – client initiates](docs/protocol/protocol.md#login-transaction-107--client-initiates) | 336–392 | 10 gaps; see section-specific rows and JSON register |
+| docs/protocol/protocol.md | [Server agreement (Transaction 109) – server initiates](docs/protocol/protocol.md#server-agreement-transaction-109--server-initiates) | 393–427 | [GAP-025](#gap-025), [GAP-027](#gap-027) |
+| docs/protocol/protocol.md | [Agreement acceptance (Transaction 121) – client initiates](docs/protocol/protocol.md#agreement-acceptance-transaction-121--client-initiates) | 428–473 | [GAP-007](#gap-007), [GAP-025](#gap-025), [GAP-027](#gap-027), [GAP-029](#gap-029), [GAP-030](#gap-030) |
+| docs/protocol/protocol.md | [Banner metadata (Transaction 122) – server initiates](docs/protocol/protocol.md#banner-metadata-transaction-122--server-initiates) | 474–488 | [GAP-028](#gap-028), [GAP-063](#gap-063) |
+| docs/protocol/protocol.md | [User access privileges (Transaction 354) – server initiates](docs/protocol/protocol.md#user-access-privileges-transaction-354--server-initiates) | 489–497 | [GAP-031](#gap-031), [GAP-032](#gap-032), [GAP-073](#gap-073) |
+| docs/protocol/protocol.md | [Access privilege bits (Field 110)](docs/protocol/protocol.md#access-privilege-bits-field-110) | 498–544 | [GAP-031](#gap-031), [GAP-032](#gap-032) |
+| docs/protocol/protocol.md | [Retrieving the user list (Transaction 300) – client initiates](docs/protocol/protocol.md#retrieving-the-user-list-transaction-300--client-initiates) | 545–582 | [GAP-033](#gap-033), [GAP-034](#gap-034), [GAP-035](#gap-035) |
+| docs/protocol/protocol.md | [User appearance and updates (Transaction 301 & 302) – server initiates](docs/protocol/protocol.md#user-appearance-and-updates-transaction-301--302--server-initiates) | 583–601 | [GAP-034](#gap-034), [GAP-035](#gap-035), [GAP-036](#gap-036) |
+| docs/protocol/protocol.md | [Viewing user info (Transaction 303) – client initiates](docs/protocol/protocol.md#viewing-user-info-transaction-303--client-initiates) | 602–619 | [GAP-037](#gap-037) |
+| docs/protocol/protocol.md | [Changing user settings (Transaction 304) – client initiates](docs/protocol/protocol.md#changing-user-settings-transaction-304--client-initiates) | 620–656 | [GAP-006](#gap-006), [GAP-016](#gap-016), [GAP-019](#gap-019), [GAP-029](#gap-029), [GAP-030](#gap-030), [GAP-045](#gap-045) |
+| docs/protocol/protocol.md | [Chat (public and private chat rooms)](docs/protocol/protocol.md#chat-public-and-private-chat-rooms) | 657–658 | 13 gaps; see section-specific rows and JSON register |
+| docs/protocol/protocol.md | [Sending a chat message (Transaction 105) – client initiates](docs/protocol/protocol.md#sending-a-chat-message-transaction-105--client-initiates) | 659–670 | [GAP-006](#gap-006), [GAP-019](#gap-019), [GAP-038](#gap-038), [GAP-042](#gap-042), [GAP-044](#gap-044), [GAP-045](#gap-045) |
+| docs/protocol/protocol.md | [Receiving a chat message (Transaction 106) – server initiates](docs/protocol/protocol.md#receiving-a-chat-message-transaction-106--server-initiates) | 671–681 | [GAP-018](#gap-018), [GAP-042](#gap-042) |
+| docs/protocol/protocol.md | [Joining a chat room (Transaction 115) – client initiates](docs/protocol/protocol.md#joining-a-chat-room-transaction-115--client-initiates) | 682–692 | [GAP-038](#gap-038), [GAP-040](#gap-040) |
+| docs/protocol/protocol.md | [Leaving a chat room (Transaction 116) – client initiates](docs/protocol/protocol.md#leaving-a-chat-room-transaction-116--client-initiates) | 693–702 | [GAP-006](#gap-006), [GAP-036](#gap-036), [GAP-040](#gap-040) |
+| docs/protocol/protocol.md | [Chat room notifications (Transactions 117 & 118) – server initiates](docs/protocol/protocol.md#chat-room-notifications-transactions-117--118--server-initiates) | 703–714 | [GAP-040](#gap-040) |
+| docs/protocol/protocol.md | [Chat invitations (Transactions 112, 113, 114) – private chats](docs/protocol/protocol.md#chat-invitations-transactions-112-113-114--private-chats) | 715–737 | [GAP-017](#gap-017), [GAP-033](#gap-033), [GAP-038](#gap-038), [GAP-039](#gap-039) |
+| docs/protocol/protocol.md | [Chat subject management (Transactions 119 & 120)](docs/protocol/protocol.md#chat-subject-management-transactions-119--120) | 738–746 | [GAP-041](#gap-041) |
+| docs/protocol/protocol.md | [Private messaging (instant messages)](docs/protocol/protocol.md#private-messaging-instant-messages) | 747–748 | [GAP-021](#gap-021), [GAP-030](#gap-030), [GAP-043](#gap-043), [GAP-044](#gap-044), [GAP-045](#gap-045), [GAP-046](#gap-046) |
+| docs/protocol/protocol.md | [Sending an instant message (Transaction 108) – client initiates](docs/protocol/protocol.md#sending-an-instant-message-transaction-108--client-initiates) | 749–783 | [GAP-021](#gap-021), [GAP-030](#gap-030), [GAP-043](#gap-043), [GAP-045](#gap-045) |
+| docs/protocol/protocol.md | [Receiving a private message (Transaction 104) – server initiates](docs/protocol/protocol.md#receiving-a-private-message-transaction-104--server-initiates) | 784–812 | [GAP-044](#gap-044) |
+| docs/protocol/protocol.md | [Legacy message board (Transactions 101, 102, 103)](docs/protocol/protocol.md#legacy-message-board-transactions-101-102-103) | 813–837 | [GAP-046](#gap-046) |
+| docs/protocol/protocol.md | [File services (files and folders)](docs/protocol/protocol.md#file-services-files-and-folders) | 838–852 | 25 gaps; see section-specific rows and JSON register |
+| docs/protocol/protocol.md | [Listing files in a folder (Transaction 200) – client initiates](docs/protocol/protocol.md#listing-files-in-a-folder-transaction-200--client-initiates) | 853–865 | [GAP-018](#gap-018), [GAP-047](#gap-047), [GAP-048](#gap-048) |
+| docs/protocol/protocol.md | [Downloading a file (Transaction 202) – client initiates](docs/protocol/protocol.md#downloading-a-file-transaction-202--client-initiates) | 866–896 | [GAP-015](#gap-015), [GAP-056](#gap-056), [GAP-057](#gap-057), [GAP-058](#gap-058), [GAP-061](#gap-061) |
+| docs/protocol/protocol.md | [Uploading a file (Transaction 203) – client initiates](docs/protocol/protocol.md#uploading-a-file-transaction-203--client-initiates) | 897–912 | [GAP-056](#gap-056), [GAP-058](#gap-058) |
+| docs/protocol/protocol.md | [Deleting a file (Transaction 204) – client initiates](docs/protocol/protocol.md#deleting-a-file-transaction-204--client-initiates) | 913–928 | [GAP-050](#gap-050) |
+| docs/protocol/protocol.md | [Creating a new folder (Transaction 205) – client initiates](docs/protocol/protocol.md#creating-a-new-folder-transaction-205--client-initiates) | 929–947 | [GAP-051](#gap-051) |
+| docs/protocol/protocol.md | [Getting file/folder info (Transaction 206) – client initiates](docs/protocol/protocol.md#getting-filefolder-info-transaction-206--client-initiates) | 948–967 | [GAP-049](#gap-049) |
+| docs/protocol/protocol.md | [Setting file/folder info (Transaction 207) – client initiates](docs/protocol/protocol.md#setting-filefolder-info-transaction-207--client-initiates) | 968–988 | [GAP-052](#gap-052) |
+| docs/protocol/protocol.md | [Moving files/folders (Transaction 208) – client initiates](docs/protocol/protocol.md#moving-filesfolders-transaction-208--client-initiates) | 989–1004 | [GAP-047](#gap-047), [GAP-053](#gap-053) |
+| docs/protocol/protocol.md | [Creating an alias (shortcut) (Transaction 209) – client initiates](docs/protocol/protocol.md#creating-an-alias-shortcut-transaction-209--client-initiates) | 1005–1018 | [GAP-054](#gap-054) |
+| docs/protocol/protocol.md | [Downloading an entire folder (Transaction 210) – client initiates](docs/protocol/protocol.md#downloading-an-entire-folder-transaction-210--client-initiates) | 1019–1039 | [GAP-059](#gap-059), [GAP-061](#gap-061) |
+| docs/protocol/protocol.md | [Uploading an entire folder (Transaction 213) – client initiates](docs/protocol/protocol.md#uploading-an-entire-folder-transaction-213--client-initiates) | 1040–1059 | [GAP-060](#gap-060), [GAP-064](#gap-064) |
+| docs/protocol/protocol.md | [Banner download (Transaction 212) – client initiates](docs/protocol/protocol.md#banner-download-transaction-212--client-initiates) | 1060–1078 | [GAP-028](#gap-028), [GAP-055](#gap-055), [GAP-063](#gap-063) |
+| docs/protocol/protocol.md | [Transfer connection and reference cleanup](docs/protocol/protocol.md#transfer-connection-and-reference-cleanup) | 1079–1099 | [GAP-009](#gap-009), [GAP-010](#gap-010), [GAP-033](#gap-033), [GAP-055](#gap-055), [GAP-056](#gap-056), [GAP-062](#gap-062), [GAP-064](#gap-064) |
+| docs/protocol/protocol.md | [News (bulletin board system)](docs/protocol/protocol.md#news-bulletin-board-system) | 1100–1101 | 10 gaps; see section-specific rows and JSON register |
+| docs/protocol/protocol.md | [News hierarchy](docs/protocol/protocol.md#news-hierarchy) | 1102–1110 | [GAP-065](#gap-065), [GAP-070](#gap-070) |
+| docs/protocol/protocol.md | [Listing news categories (Transaction 370) – client initiates](docs/protocol/protocol.md#listing-news-categories-transaction-370--client-initiates) | 1111–1131 | [GAP-047](#gap-047), [GAP-065](#gap-065) |
+| docs/protocol/protocol.md | [Listing news articles (Transaction 371) – client initiates](docs/protocol/protocol.md#listing-news-articles-transaction-371--client-initiates) | 1132–1145 | [GAP-066](#gap-066) |
+| docs/protocol/protocol.md | [Reading a news article (Transaction 400) – client initiates](docs/protocol/protocol.md#reading-a-news-article-transaction-400--client-initiates) | 1146–1176 | [GAP-020](#gap-020), [GAP-067](#gap-067) |
+| docs/protocol/protocol.md | [Posting a news article (Transaction 410) – client initiates](docs/protocol/protocol.md#posting-a-news-article-transaction-410--client-initiates) | 1177–1198 | [GAP-021](#gap-021), [GAP-068](#gap-068) |
+| docs/protocol/protocol.md | [Deleting a news article (Transaction 411) – client initiates](docs/protocol/protocol.md#deleting-a-news-article-transaction-411--client-initiates) | 1199–1214 | [GAP-069](#gap-069) |
+| docs/protocol/protocol.md | [Managing news structure (Transactions 380, 381, 382) – client initiates (admin/mods)](docs/protocol/protocol.md#managing-news-structure-transactions-380-381-382--client-initiates-adminmods) | 1215–1235 | [GAP-032](#gap-032), [GAP-070](#gap-070) |
+| docs/protocol/protocol.md | [Administrative functions](docs/protocol/protocol.md#administrative-functions) | 1236–1237 | 17 gaps; see section-specific rows and JSON register |
+| docs/protocol/protocol.md | [User account management – client initiates (admin) (Tx 350–353)](docs/protocol/protocol.md#user-account-management--client-initiates-admin-tx-350353) | 1238–1290 | 9 gaps; see section-specific rows and JSON register |
+| docs/protocol/protocol.md | [Disconnecting a user (Transaction 110 & 111) – admin/server use](docs/protocol/protocol.md#disconnecting-a-user-transaction-110--111--adminserver-use) | 1291–1339 | [GAP-003](#gap-003), [GAP-036](#gap-036), [GAP-044](#gap-044), [GAP-074](#gap-074), [GAP-075](#gap-075) |
+| docs/protocol/protocol.md | [Broadcasting a message (Transaction 355) – admin/server initiated](docs/protocol/protocol.md#broadcasting-a-message-transaction-355--adminserver-initiated) | 1340–1354 | [GAP-045](#gap-045), [GAP-076](#gap-076) |
+| docs/protocol/protocol.md | [Additional admin privileges note](docs/protocol/protocol.md#additional-admin-privileges-note) | 1355–1363 | [GAP-038](#gap-038), [GAP-073](#gap-073) |
+| docs/protocol/protocol.md | [Additional observed requests and scope gaps](docs/protocol/protocol.md#additional-observed-requests-and-scope-gaps) | 1364–1414 | [GAP-005](#gap-005), [GAP-007](#gap-007), [GAP-075](#gap-075), [GAP-077](#gap-077), [GAP-078](#gap-078), [GAP-079](#gap-079) |
+| docs/protocol/protocol.md | [References and correction traceability](docs/protocol/protocol.md#references-and-correction-traceability) | 1415–1460 | [GAP-083](#gap-083), [GAP-087](#gap-087) |
+| docs/mxd/compatibility-matrix.md | [Native, SynHX and mxd compatibility matrix](docs/mxd/compatibility-matrix.md#native-synhx-and-mxd-compatibility-matrix) | 1–13 | 13 gaps; see section-specific rows and JSON register |
+| docs/mxd/compatibility-matrix.md | [Baseline and limits](docs/mxd/compatibility-matrix.md#baseline-and-limits) | 14–28 | 13 gaps; see section-specific rows and JSON register |
+| docs/mxd/compatibility-matrix.md | [History](docs/mxd/compatibility-matrix.md#history) | 404–417 | 13 gaps; see section-specific rows and JSON register |
+| docs/mxd/compatibility-matrix.md | [Revision identifiers](docs/mxd/compatibility-matrix.md#revision-identifiers) | 392–403 | 13 gaps; see section-specific rows and JSON register |
+| docs/mxd/compatibility-matrix.md | [Scope and status labels](docs/mxd/compatibility-matrix.md#scope-and-status-labels) | 29–48 | [GAP-086](#gap-086), [GAP-087](#gap-087) |
+| docs/mxd/compatibility-matrix.md | [Compatibility matrix](docs/mxd/compatibility-matrix.md#compatibility-matrix) | 49–67 | [GAP-024](#gap-024), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-083](#gap-083) |
+| docs/mxd/compatibility-matrix.md | [Peer identity and sub-version 2](docs/mxd/compatibility-matrix.md#peer-identity-and-sub-version-2) | 68–88 | [GAP-024](#gap-024), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-083](#gap-083), [GAP-001](#gap-001), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086) |
+| docs/mxd/compatibility-matrix.md | [Login reply and banner policy](docs/mxd/compatibility-matrix.md#login-reply-and-banner-policy) | 105–191 | [GAP-026](#gap-026), [GAP-081](#gap-081), [GAP-001](#gap-001), [GAP-080](#gap-080), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086) |
+| docs/mxd/compatibility-matrix.md | [Credential obfuscation and text compatibility](docs/mxd/compatibility-matrix.md#credential-obfuscation-and-text-compatibility) | 192–221 | [GAP-018](#gap-018), [GAP-022](#gap-022), [GAP-082](#gap-082) |
+| docs/mxd/compatibility-matrix.md | [Repeated fields and presence records](docs/mxd/compatibility-matrix.md#repeated-fields-and-presence-records) | 222–265 | [GAP-017](#gap-017), [GAP-034](#gap-034), [GAP-035](#gap-035), [GAP-081](#gap-081) |
+| docs/mxd/compatibility-matrix.md | [Historical reported mxd test coverage](docs/mxd/compatibility-matrix.md#historical-reported-mxd-test-coverage) | 266–297 | [GAP-085](#gap-085) |
+| docs/mxd/assertion-reconciliation.md | [Review scope](docs/mxd/assertion-reconciliation.md#review-scope) | 22–40 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086), [GAP-001](#gap-001) |
+| docs/mxd/assertion-reconciliation.md | [Commands and counts](docs/mxd/assertion-reconciliation.md#commands-and-counts) | 43–69 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086), [GAP-001](#gap-001) |
+| docs/mxd/assertion-reconciliation.md | [Evidence records](docs/mxd/assertion-reconciliation.md#evidence-records) | 70–88 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086), [GAP-001](#gap-001) |
+| docs/mxd/assertion-reconciliation.md | [Limits of the evidence](docs/mxd/assertion-reconciliation.md#limits-of-the-evidence) | 99–110 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086), [GAP-001](#gap-001) |
+| docs/mxd/assertion-reconciliation.md | [Repeated roster records](docs/mxd/assertion-reconciliation.md#repeated-roster-records) | 202–213 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086), [GAP-001](#gap-001) |
+| docs/mxd/assertion-reconciliation.md | [XOR compatibility](docs/mxd/assertion-reconciliation.md#xor-compatibility) | 224–231 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086), [GAP-001](#gap-001) |
+| docs/mxd/assertion-reconciliation.md | [Presence routing](docs/mxd/assertion-reconciliation.md#presence-routing) | 214–223 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086), [GAP-001](#gap-001) |
+| docs/mxd/assertion-reconciliation.md | [History](docs/mxd/assertion-reconciliation.md#history) | 264–270 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086) |
+| docs/mxd/assertion-reconciliation.md | [Shared handshake and peer identity](docs/mxd/assertion-reconciliation.md#shared-handshake-and-peer-identity) | 117–133 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-085](#gap-085), [GAP-001](#gap-001), [GAP-082](#gap-082), [GAP-086](#gap-086) |
+| docs/mxd/assertion-reconciliation.md | [Successful login field 161](docs/mxd/assertion-reconciliation.md#successful-login-field-161) | 134–156 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-085](#gap-085), [GAP-001](#gap-001), [GAP-082](#gap-082), [GAP-086](#gap-086) |
+| docs/mxd/assertion-reconciliation.md | [Failed login and direct reply type](docs/mxd/assertion-reconciliation.md#failed-login-and-direct-reply-type) | 165–187 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-085](#gap-085), [GAP-001](#gap-001), [GAP-082](#gap-082), [GAP-086](#gap-086) |
+| docs/mxd/assertion-reconciliation.md | [Version parser and unknown fallback](docs/mxd/assertion-reconciliation.md#version-parser-and-unknown-fallback) | 188–201 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-085](#gap-085), [GAP-001](#gap-001), [GAP-082](#gap-082), [GAP-086](#gap-086) |
+| docs/mxd/assertion-reconciliation.md | [Exact current text heuristic](docs/mxd/assertion-reconciliation.md#exact-current-text-heuristic) | 232–252 | [GAP-018](#gap-018), [GAP-080](#gap-080), [GAP-082](#gap-082), [GAP-085](#gap-085) |
+| docs/mxd/compatibility-matrix.md | [Proof and QA limits](docs/mxd/compatibility-matrix.md#proof-and-qa-limits) | 298–314 | [GAP-001](#gap-001), [GAP-085](#gap-085), [GAP-086](#gap-086) |
+| docs/mxd/compatibility-matrix.md | [Pinned shx profile and callback evidence](docs/mxd/compatibility-matrix.md#pinned-shx-profile-and-callback-evidence) | 315–330 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-083](#gap-083) |
+| docs/mxd/compatibility-matrix.md | [Historical source lineage and build limits](docs/mxd/compatibility-matrix.md#historical-source-lineage-and-build-limits) | 331–364 | [GAP-083](#gap-083) |
+| docs/mxd/compatibility-matrix.md | [Open compatibility gaps and QA requirements](docs/mxd/compatibility-matrix.md#open-compatibility-gaps-and-qa-requirements) | 365–391 | [GAP-001](#gap-001), [GAP-080](#gap-080), [GAP-084](#gap-084), [GAP-085](#gap-085), [GAP-086](#gap-086) |
+| docs/provenance/baseline-correction-map.md | [Baseline correction map](docs/provenance/baseline-correction-map.md#baseline-correction-map) | 1–119 | [GAP-086](#gap-086), [GAP-087](#gap-087) |
+| docs/protocol/native-wire-details.md | [Hotline 1.9 native wire details](docs/protocol/native-wire-details.md#hotline-19-native-wire-details) | 1–12 | 13 gaps; see section-specific rows and JSON register |
+| docs/protocol/native-wire-details.md | [Parameter parsing and scalar access](docs/protocol/native-wire-details.md#parameter-parsing-and-scalar-access) | 13–42 | [GAP-014](#gap-014), [GAP-015](#gap-015), [GAP-016](#gap-016), [GAP-017](#gap-017), [GAP-018](#gap-018), [GAP-019](#gap-019) |
+| docs/protocol/native-wire-details.md | [Core scalar width registry](docs/protocol/native-wire-details.md#core-scalar-width-registry) | 43–91 | [GAP-015](#gap-015), [GAP-019](#gap-019), [GAP-031](#gap-031) |
+| docs/protocol/native-wire-details.md | [Captured TLV and scalar boundaries](docs/protocol/native-wire-details.md#captured-tlv-and-scalar-boundaries) | 92–132 | [GAP-014](#gap-014), [GAP-015](#gap-015), [GAP-017](#gap-017), [GAP-084](#gap-084) |
+| docs/protocol/native-wire-details.md | [Credential bytes, lookup and account updates](docs/protocol/native-wire-details.md#credential-bytes-lookup-and-account-updates) | 133–152 | [GAP-016](#gap-016), [GAP-018](#gap-018), [GAP-019](#gap-019), [GAP-022](#gap-022), [GAP-023](#gap-023), [GAP-071](#gap-071), [GAP-072](#gap-072), [GAP-073](#gap-073) |
+| docs/protocol/native-wire-details.md | [Account record and field schema](docs/protocol/native-wire-details.md#account-record-and-field-schema) | 153–203 | [GAP-016](#gap-016), [GAP-019](#gap-019), [GAP-071](#gap-071), [GAP-072](#gap-072) |
+| docs/protocol/native-wire-details.md | [Account lookup name encodings](docs/protocol/native-wire-details.md#account-lookup-name-encodings) | 204–223 | [GAP-022](#gap-022), [GAP-071](#gap-071), [GAP-072](#gap-072) |
+| docs/protocol/native-wire-details.md | [Login lookup transformations](docs/protocol/native-wire-details.md#login-lookup-transformations) | 224–238 | [GAP-018](#gap-018), [GAP-022](#gap-022), [GAP-023](#gap-023) |
+| docs/protocol/native-wire-details.md | [Captured login lookup and guest phases](docs/protocol/native-wire-details.md#captured-login-lookup-and-guest-phases) | 239–283 | [GAP-023](#gap-023), [GAP-025](#gap-025), [GAP-027](#gap-027), [GAP-035](#gap-035), [GAP-036](#gap-036), [GAP-084](#gap-084) |
+| docs/protocol/native-wire-details.md | [Changes to connected accounts](docs/protocol/native-wire-details.md#changes-to-connected-accounts) | 284–293 | [GAP-073](#gap-073) |
+| docs/protocol/native-wire-details.md | [Structured file paths and file-list entries](docs/protocol/native-wire-details.md#structured-file-paths-and-file-list-entries) | 294–323 | [GAP-047](#gap-047), [GAP-048](#gap-048) |
+| docs/protocol/native-wire-details.md | [Field 202: Files paths](docs/protocol/native-wire-details.md#field-202-files-paths) | 324–340 | [GAP-047](#gap-047) |
+| docs/protocol/native-wire-details.md | [Field 212: Files destinations](docs/protocol/native-wire-details.md#field-212-files-destinations) | 341–361 | [GAP-047](#gap-047) |
+| docs/protocol/native-wire-details.md | [Field 325: News paths](docs/protocol/native-wire-details.md#field-325-news-paths) | 362–385 | [GAP-047](#gap-047) |
+| docs/protocol/native-wire-details.md | [File-list entry records](docs/protocol/native-wire-details.md#file-list-entry-records) | 386–409 | [GAP-048](#gap-048) |
+| docs/protocol/native-wire-details.md | [Captured listing kinds and enumeration order](docs/protocol/native-wire-details.md#captured-listing-kinds-and-enumeration-order) | 410–441 | 9 gaps; see section-specific rows and JSON register |
+| docs/protocol/native-wire-details.md | [Captured field 202 directory-creation boundaries](docs/protocol/native-wire-details.md#captured-field-202-directory-creation-boundaries) | 442–454 | 11 gaps; see section-specific rows and JSON register |
+| docs/protocol/native-wire-details.md | [Privilege access and connection timers](docs/protocol/native-wire-details.md#privilege-access-and-connection-timers) | 455–518 | [GAP-005](#gap-005), [GAP-031](#gap-031), [GAP-032](#gap-032), [GAP-045](#gap-045) |
+| docs/protocol/native-wire-details.md | [Captured agreement configurations and partial login failures](docs/protocol/native-wire-details.md#captured-agreement-configurations-and-partial-login-failures) | 519–602 | [GAP-003](#gap-003), [GAP-019](#gap-019), [GAP-025](#gap-025), [GAP-027](#gap-027), [GAP-084](#gap-084) |
+| docs/protocol/native-wire-details.md | [Captured login extras, configuration bytes and refresh](docs/protocol/native-wire-details.md#captured-login-extras-configuration-bytes-and-refresh) | 603–671 | [GAP-005](#gap-005), [GAP-018](#gap-018), [GAP-019](#gap-019), [GAP-026](#gap-026), [GAP-084](#gap-084) |
+| docs/protocol/native-wire-details.md | [Captured account replacement and password boundaries](docs/protocol/native-wire-details.md#captured-account-replacement-and-password-boundaries) | 672–741 | 9 gaps; see section-specific rows and JSON register |
+| docs/protocol/native-wire-details.md | [Captured live account changes and server restart](docs/protocol/native-wire-details.md#captured-live-account-changes-and-server-restart) | 742–841 | 9 gaps; see section-specific rows and JSON register |
+| docs/protocol/native-wire-details.md | [Captured account identity and protection contrasts](docs/protocol/native-wire-details.md#captured-account-identity-and-protection-contrasts) | 842–903 | [GAP-003](#gap-003), [GAP-018](#gap-018), [GAP-021](#gap-021), [GAP-031](#gap-031), [GAP-036](#gap-036), [GAP-072](#gap-072), [GAP-074](#gap-074), [GAP-084](#gap-084) |
+| docs/protocol/operation-contracts.md | [Native operation and session dispatch contracts](docs/protocol/operation-contracts.md#native-operation-and-session-dispatch-contracts) | 1–13 | 12 gaps; see section-specific rows and JSON register |
+| docs/protocol/operation-contracts.md | [Session eligibility and invalid transitions](docs/protocol/operation-contracts.md#session-eligibility-and-invalid-transitions) | 14–37 | [GAP-003](#gap-003), [GAP-007](#gap-007), [GAP-025](#gap-025), [GAP-079](#gap-079) |
+| docs/protocol/operation-contracts.md | [Request catalogue](docs/protocol/operation-contracts.md#request-catalogue) | 38–97 | [GAP-002](#gap-002), [GAP-006](#gap-006), [GAP-021](#gap-021) |
+| docs/protocol/operation-contracts.md | [Per-operation reply and fan-out map](docs/protocol/operation-contracts.md#per-operation-reply-and-fan-out-map) | 98–165 | [GAP-006](#gap-006), [GAP-003](#gap-003), [GAP-084](#gap-084) |
+| docs/protocol/operation-contracts.md | [Server notification catalogue](docs/protocol/operation-contracts.md#server-notification-catalogue) | 166–193 | [GAP-006](#gap-006), [GAP-036](#gap-036), [GAP-044](#gap-044), [GAP-061](#gap-061), [GAP-075](#gap-075) |
+| docs/protocol/operation-contracts.md | [Field and aggregate byte limits (GAP-019)](docs/protocol/operation-contracts.md#field-and-aggregate-byte-limits-gap-019) | 194–235 | [GAP-019](#gap-019) |
+| docs/protocol/operation-contracts.md | [Remaining boundary cells and aggregate scope](docs/protocol/operation-contracts.md#remaining-boundary-cells-and-aggregate-scope) | 236–269 | [GAP-019](#gap-019) |
+| docs/protocol/operation-contracts.md | [Frame acceptance and reassembly boundaries](docs/protocol/operation-contracts.md#frame-acceptance-and-reassembly-boundaries) | 270–292 | [GAP-004](#gap-004), [GAP-011](#gap-011), [GAP-012](#gap-012), [GAP-013](#gap-013) |
+| docs/protocol/operation-contracts.md | [Administrative account list and batch mutation](docs/protocol/operation-contracts.md#administrative-account-list-and-batch-mutation) | 293–326 | [GAP-021](#gap-021), [GAP-072](#gap-072), [GAP-077](#gap-077), [GAP-078](#gap-078) |
+| docs/protocol/operation-contracts.md | [Captured batch account framing and partial effects](docs/protocol/operation-contracts.md#captured-batch-account-framing-and-partial-effects) | 327–406 | 11 gaps; see section-specific rows and JSON register |
+| docs/protocol/operation-contracts.md | [Rename collision does not preserve the destination account](docs/protocol/operation-contracts.md#rename-collision-does-not-preserve-the-destination-account) | 407–444 | 11 gaps; see section-specific rows and JSON register |
+| docs/protocol/operation-contracts.md | [Account deletion and allocated Trash records](docs/protocol/operation-contracts.md#account-deletion-and-allocated-trash-records) | 445–459 | [GAP-072](#gap-072), [GAP-021](#gap-021) |
+| docs/files-and-transfers/transfer-contracts.md | [Native transfer contracts](docs/files-and-transfers/transfer-contracts.md#native-transfer-contracts) | 1–20 | 9 gaps; see section-specific rows and JSON register |
+| docs/files-and-transfers/transfer-contracts.md | [HTXF connection header and dispatch](docs/files-and-transfers/transfer-contracts.md#htxf-connection-header-and-dispatch) | 21–65 | [GAP-055](#gap-055) |
+| docs/files-and-transfers/transfer-contracts.md | [Captured HTXF field and reference cases](docs/files-and-transfers/transfer-contracts.md#captured-htxf-field-and-reference-cases) | 66–128 | [GAP-033](#gap-033), [GAP-055](#gap-055), [GAP-064](#gap-064), [GAP-084](#gap-084) |
+| docs/files-and-transfers/transfer-contracts.md | [Reference allocation and request 214](docs/files-and-transfers/transfer-contracts.md#reference-allocation-and-request-214) | 129–175 | [GAP-033](#gap-033), [GAP-062](#gap-062) |
+| docs/files-and-transfers/transfer-contracts.md | [Captured cancellation and completion races](docs/files-and-transfers/transfer-contracts.md#captured-cancellation-and-completion-races) | 176–225 | [GAP-062](#gap-062), [GAP-064](#gap-064), [GAP-084](#gap-084) |
+| docs/files-and-transfers/transfer-contracts.md | [Buffered receipt and packet ordering](docs/files-and-transfers/transfer-contracts.md#buffered-receipt-and-packet-ordering) | 226–242 | [GAP-062](#gap-062), [GAP-064](#gap-064), [GAP-084](#gap-084) |
+| docs/files-and-transfers/transfer-contracts.md | [Resume data: RFLT](docs/files-and-transfers/transfer-contracts.md#resume-data-rflt) | 243–281 | [GAP-058](#gap-058) |
+| docs/files-and-transfers/transfer-contracts.md | [Captured RFLT download boundaries](docs/files-and-transfers/transfer-contracts.md#captured-rflt-download-boundaries) | 282–332 | [GAP-058](#gap-058), [GAP-064](#gap-064), [GAP-084](#gap-084) |
+| docs/files-and-transfers/transfer-contracts.md | [Captured upload continuation and inconsistent state](docs/files-and-transfers/transfer-contracts.md#captured-upload-continuation-and-inconsistent-state) | 333–371 | [GAP-058](#gap-058), [GAP-064](#gap-064), [GAP-084](#gap-084) |
+| docs/files-and-transfers/transfer-contracts.md | [Flattened ordinary-file stream](docs/files-and-transfers/transfer-contracts.md#flattened-ordinary-file-stream) | 372–405 | [GAP-056](#gap-056), [GAP-057](#gap-057) |
+| docs/files-and-transfers/transfer-contracts.md | [INFO metadata value](docs/files-and-transfers/transfer-contracts.md#info-metadata-value) | 406–435 | [GAP-020](#gap-020), [GAP-056](#gap-056) |
+| docs/files-and-transfers/transfer-contracts.md | [INFO restoration after upload](docs/files-and-transfers/transfer-contracts.md#info-restoration-after-upload) | 436–459 | [GAP-020](#gap-020), [GAP-056](#gap-056), [GAP-064](#gap-064) |
+| docs/files-and-transfers/transfer-contracts.md | [Upload consumption and completion](docs/files-and-transfers/transfer-contracts.md#upload-consumption-and-completion) | 460–476 | [GAP-056](#gap-056), [GAP-064](#gap-064) |
+| docs/files-and-transfers/transfer-contracts.md | [Queue notification 211](docs/files-and-transfers/transfer-contracts.md#queue-notification-211) | 477–493 | [GAP-061](#gap-061) |
+| docs/files-and-transfers/transfer-contracts.md | [Captured controlled queues](docs/files-and-transfers/transfer-contracts.md#captured-controlled-queues) | 494–554 | [GAP-057](#gap-057), [GAP-061](#gap-061), [GAP-062](#gap-062), [GAP-084](#gap-084) |
+| docs/files-and-transfers/transfer-contracts.md | [Captured pending-reference timeout](docs/files-and-transfers/transfer-contracts.md#captured-pending-reference-timeout) | 555–581 | [GAP-061](#gap-061), [GAP-084](#gap-084) |
+| docs/files-and-transfers/transfer-contracts.md | [Banner bytes and worker timers](docs/files-and-transfers/transfer-contracts.md#banner-bytes-and-worker-timers) | 582–607 | [GAP-005](#gap-005), [GAP-063](#gap-063), [GAP-064](#gap-064) |
+| docs/files-and-transfers/transfer-contracts.md | [Captured ordinary-file round trips](docs/files-and-transfers/transfer-contracts.md#captured-ordinary-file-round-trips) | 608–659 | [GAP-009](#gap-009), [GAP-055](#gap-055), [GAP-056](#gap-056), [GAP-057](#gap-057), [GAP-084](#gap-084) |
+| docs/files-and-transfers/transfer-contracts.md | [Captured completion and EOF behaviour](docs/files-and-transfers/transfer-contracts.md#captured-completion-and-eof-behaviour) | 660–685 | [GAP-062](#gap-062), [GAP-064](#gap-064), [GAP-084](#gap-084) |
+| docs/files-and-transfers/transfer-contracts.md | [Transfer timer origins and resets](docs/files-and-transfers/transfer-contracts.md#transfer-timer-origins-and-resets) | 686–719 | [GAP-005](#gap-005), [GAP-059](#gap-059), [GAP-060](#gap-060), [GAP-061](#gap-061), [GAP-064](#gap-064) |
+| docs/files-and-transfers/transfer-contracts.md | [Folder-download control states](docs/files-and-transfers/transfer-contracts.md#folder-download-control-states) | 720–742 | [GAP-059](#gap-059) |
+| docs/files-and-transfers/transfer-contracts.md | [Folder item descriptor bytes](docs/files-and-transfers/transfer-contracts.md#folder-item-descriptor-bytes) | 743–780 | [GAP-047](#gap-047), [GAP-059](#gap-059), [GAP-060](#gap-060) |
+| docs/files-and-transfers/transfer-contracts.md | [Captured folder downloads](docs/files-and-transfers/transfer-contracts.md#captured-folder-downloads) | 781–828 | [GAP-059](#gap-059), [GAP-084](#gap-084) |
+| docs/files-and-transfers/transfer-contracts.md | [Folder-upload control states](docs/files-and-transfers/transfer-contracts.md#folder-upload-control-states) | 829–867 | [GAP-060](#gap-060) |
+| docs/files-and-transfers/transfer-contracts.md | [Captured folder uploads](docs/files-and-transfers/transfer-contracts.md#captured-folder-uploads) | 868–897 | [GAP-060](#gap-060), [GAP-064](#gap-064), [GAP-084](#gap-084) |
+| docs/files-and-transfers/transfer-contracts.md | [Captured folder timing and filesystem observations](docs/files-and-transfers/transfer-contracts.md#captured-folder-timing-and-filesystem-observations) | 898–939 | [GAP-059](#gap-059), [GAP-060](#gap-060), [GAP-064](#gap-064), [GAP-084](#gap-084) |
+| docs/files-and-transfers/transfer-contracts.md | [Captured banner observations](docs/files-and-transfers/transfer-contracts.md#captured-banner-observations) | 940–984 | [GAP-055](#gap-055), [GAP-063](#gap-063), [GAP-084](#gap-084) |
+| docs/files-and-transfers/transfer-contracts.md | [Captured banner formats and recovery](docs/files-and-transfers/transfer-contracts.md#captured-banner-formats-and-recovery) | 985–1055 | [GAP-055](#gap-055), [GAP-063](#gap-063), [GAP-064](#gap-064), [GAP-084](#gap-084) |
+| docs/news/news-contracts.md | [Native nested news contracts](docs/news/news-contracts.md#native-nested-news-contracts) | 1–12 | [GAP-020](#gap-020), [GAP-065](#gap-065), [GAP-066](#gap-066), [GAP-067](#gap-067), [GAP-068](#gap-068), [GAP-069](#gap-069), [GAP-070](#gap-070) |
+| docs/news/news-contracts.md | [Category-list variants](docs/news/news-contracts.md#category-list-variants) | 13–65 | [GAP-065](#gap-065) |
+| docs/news/news-contracts.md | [Article-list field 321](docs/news/news-contracts.md#article-list-field-321) | 66–116 | [GAP-066](#gap-066) |
+| docs/news/news-contracts.md | [Reading bodies and navigation](docs/news/news-contracts.md#reading-bodies-and-navigation) | 117–154 | [GAP-067](#gap-067) |
+| docs/news/news-contracts.md | [News dates](docs/news/news-contracts.md#news-dates) | 155–162 | [GAP-020](#gap-020), [GAP-067](#gap-067) |
+| docs/news/news-contracts.md | [Posting, partial effects and deletion](docs/news/news-contracts.md#posting-partial-effects-and-deletion) | 163–185 | [GAP-021](#gap-021), [GAP-068](#gap-068), [GAP-069](#gap-069) |
+| docs/news/news-contracts.md | [Deletion graph rewrite](docs/news/news-contracts.md#deletion-graph-rewrite) | 186–213 | [GAP-067](#gap-067), [GAP-069](#gap-069) |
+| docs/news/news-contracts.md | [Scope of hierarchy evidence](docs/news/news-contracts.md#scope-of-hierarchy-evidence) | 214–227 | [GAP-047](#gap-047), [GAP-070](#gap-070) |
+| docs/news/news-contracts.md | [Structure operation effects and conflicts](docs/news/news-contracts.md#structure-operation-effects-and-conflicts) | 228–293 | [GAP-021](#gap-021), [GAP-047](#gap-047), [GAP-070](#gap-070) |
+| docs/news/news-contracts.md | [Captured category versions and header metadata](docs/news/news-contracts.md#captured-category-versions-and-header-metadata) | 294–345 | 14 gaps; see section-specific rows and JSON register |
+| docs/news/news-contracts.md | [Captured threaded article lists and partial posts](docs/news/news-contracts.md#captured-threaded-article-lists-and-partial-posts) | 346–414 | 14 gaps; see section-specific rows and JSON register |
+| docs/news/news-contracts.md | [Captured hierarchy failures and owned cleanup](docs/news/news-contracts.md#captured-hierarchy-failures-and-owned-cleanup) | 415–442 | 14 gaps; see section-specific rows and JSON register |
+| docs/news/news-contracts.md | [Captured article deletion and index effects](docs/news/news-contracts.md#captured-article-deletion-and-index-effects) | 443–530 | 9 gaps; see section-specific rows and JSON register |
+| docs/news/news-contracts.md | [Captured child append boundary and indexed orphan](docs/news/news-contracts.md#captured-child-append-boundary-and-indexed-orphan) | 531–599 | 9 gaps; see section-specific rows and JSON register |
+| docs/presence-and-messaging/presence-messaging-contracts.md | [Native presence, messaging and administration contracts](docs/presence-and-messaging/presence-messaging-contracts.md#native-presence-messaging-and-administration-contracts) | 1–11 | 18 gaps; see section-specific rows and JSON register |
+| docs/presence-and-messaging/presence-messaging-contracts.md | [Settings and login visibility](docs/presence-and-messaging/presence-messaging-contracts.md#settings-and-login-visibility) | 12–73 | [GAP-025](#gap-025), [GAP-029](#gap-029), [GAP-030](#gap-030), [GAP-035](#gap-035) |
+| docs/presence-and-messaging/presence-messaging-contracts.md | [Settings persistence boundary](docs/presence-and-messaging/presence-messaging-contracts.md#settings-persistence-boundary) | 74–104 | [GAP-029](#gap-029) |
+| docs/presence-and-messaging/presence-messaging-contracts.md | [Captured configured login states and visibility](docs/presence-and-messaging/presence-messaging-contracts.md#captured-configured-login-states-and-visibility) | 105–157 | [GAP-023](#gap-023), [GAP-025](#gap-025), [GAP-027](#gap-027), [GAP-035](#gap-035), [GAP-036](#gap-036), [GAP-084](#gap-084) |
+| docs/presence-and-messaging/presence-messaging-contracts.md | [Agreement and banner condition tables](docs/presence-and-messaging/presence-messaging-contracts.md#agreement-and-banner-condition-tables) | 158–183 | [GAP-026](#gap-026), [GAP-027](#gap-027), [GAP-028](#gap-028) |
+| docs/presence-and-messaging/presence-messaging-contracts.md | [Early completion and metadata changes](docs/presence-and-messaging/presence-messaging-contracts.md#early-completion-and-metadata-changes) | 184–202 | [GAP-028](#gap-028), [GAP-063](#gap-063), [GAP-084](#gap-084) |
+| docs/presence-and-messaging/presence-messaging-contracts.md | [Login extras and configured content](docs/presence-and-messaging/presence-messaging-contracts.md#login-extras-and-configured-content) | 203–204 | [GAP-026](#gap-026), [GAP-028](#gap-028) |
+| docs/presence-and-messaging/presence-messaging-contracts.md | [Fields 160, 161 and 162](docs/presence-and-messaging/presence-messaging-contracts.md#fields-160-161-and-162) | 205–252 | [GAP-026](#gap-026) |
+| docs/presence-and-messaging/presence-messaging-contracts.md | [Agreement and banner loading](docs/presence-and-messaging/presence-messaging-contracts.md#agreement-and-banner-loading) | 253–287 | [GAP-026](#gap-026), [GAP-027](#gap-027), [GAP-028](#gap-028) |
+| docs/presence-and-messaging/presence-messaging-contracts.md | [Content byte limits and reload effects](docs/presence-and-messaging/presence-messaging-contracts.md#content-byte-limits-and-reload-effects) | 288–318 | [GAP-011](#gap-011), [GAP-018](#gap-018), [GAP-019](#gap-019), [GAP-027](#gap-027), [GAP-028](#gap-028) |
+| docs/presence-and-messaging/presence-messaging-contracts.md | [Status word, separate from the privilege bitmap](docs/presence-and-messaging/presence-messaging-contracts.md#status-word-separate-from-the-privilege-bitmap) | 319–361 | [GAP-034](#gap-034) |
+| docs/presence-and-messaging/presence-messaging-contracts.md | [Roster snapshots and concurrent updates](docs/presence-and-messaging/presence-messaging-contracts.md#roster-snapshots-and-concurrent-updates) | 362–408 | [GAP-035](#gap-035) |
+| docs/presence-and-messaging/presence-messaging-contracts.md | [Disconnect teardown and notification 302](docs/presence-and-messaging/presence-messaging-contracts.md#disconnect-teardown-and-notification-302) | 409–425 | [GAP-036](#gap-036) |
+| docs/presence-and-messaging/presence-messaging-contracts.md | [Private-message routing](docs/presence-and-messaging/presence-messaging-contracts.md#private-message-routing) | 426–488 | [GAP-043](#gap-043), [GAP-044](#gap-044), [GAP-045](#gap-045) |
+| docs/presence-and-messaging/presence-messaging-contracts.md | [Rooms, invitations and subjects](docs/presence-and-messaging/presence-messaging-contracts.md#rooms-invitations-and-subjects) | 489–527 | [GAP-038](#gap-038), [GAP-039](#gap-039), [GAP-040](#gap-040), [GAP-041](#gap-041), [GAP-042](#gap-042) |
+| docs/presence-and-messaging/presence-messaging-contracts.md | [Kick options and native console messages](docs/presence-and-messaging/presence-messaging-contracts.md#kick-options-and-native-console-messages) | 528–630 | [GAP-074](#gap-074), [GAP-075](#gap-075), [GAP-076](#gap-076) |
+| docs/presence-and-messaging/presence-messaging-contracts.md | [Captured private rooms, invitations and chat bytes](docs/presence-and-messaging/presence-messaging-contracts.md#captured-private-rooms-invitations-and-chat-bytes) | 631–741 | 12 gaps; see section-specific rows and JSON register |
+| docs/presence-and-messaging/presence-messaging-contracts.md | [Captured console and client broadcast recipients](docs/presence-and-messaging/presence-messaging-contracts.md#captured-console-and-client-broadcast-recipients) | 742–754 | [GAP-044](#gap-044), [GAP-076](#gap-076) |
+| docs/protocol/core-field-schemas.md | [Core transaction field schemas](docs/protocol/core-field-schemas.md#core-transaction-field-schemas) | 1–12 | [GAP-002](#gap-002), [GAP-015](#gap-015), [GAP-016](#gap-016), [GAP-017](#gap-017), [GAP-019](#gap-019) |
+| docs/protocol/core-field-schemas.md | [Types, occurrence and direction conventions](docs/protocol/core-field-schemas.md#types-occurrence-and-direction-conventions) | 13–44 | [GAP-002](#gap-002), [GAP-015](#gap-015), [GAP-017](#gap-017) |
+| docs/protocol/core-field-schemas.md | [Login and settings requests](docs/protocol/core-field-schemas.md#login-and-settings-requests) | 45–69 | [GAP-002](#gap-002), [GAP-016](#gap-016), [GAP-024](#gap-024), [GAP-029](#gap-029), [GAP-030](#gap-030) |
+| docs/protocol/core-field-schemas.md | [Captured settings-option widths and defaults](docs/protocol/core-field-schemas.md#captured-settings-option-widths-and-defaults) | 70–81 | [GAP-085](#gap-085), [GAP-086](#gap-086) |
+| docs/protocol/core-field-schemas.md | [Login width and feature-condition matrix](docs/protocol/core-field-schemas.md#login-width-and-feature-condition-matrix) | 82–124 | [GAP-024](#gap-024), [GAP-015](#gap-015), [GAP-025](#gap-025) |
+| docs/protocol/core-field-schemas.md | [Login and presence outputs](docs/protocol/core-field-schemas.md#login-and-presence-outputs) | 125–148 | [GAP-002](#gap-002), [GAP-025](#gap-025), [GAP-026](#gap-026), [GAP-027](#gap-027), [GAP-028](#gap-028), [GAP-035](#gap-035), [GAP-036](#gap-036), [GAP-037](#gap-037) |
+| docs/protocol/core-field-schemas.md | [Chat, PM and room requests](docs/protocol/core-field-schemas.md#chat-pm-and-room-requests) | 149–170 | [GAP-002](#gap-002), [GAP-038](#gap-038), [GAP-039](#gap-039), [GAP-040](#gap-040), [GAP-041](#gap-041), [GAP-042](#gap-042), [GAP-043](#gap-043) |
+| docs/protocol/core-field-schemas.md | [Room and message outputs](docs/protocol/core-field-schemas.md#room-and-message-outputs) | 171–192 | [GAP-002](#gap-002), [GAP-044](#gap-044), [GAP-075](#gap-075), [GAP-076](#gap-076) |
+| docs/protocol/session-transport-contracts.md | [Native session and transport contracts](docs/protocol/session-transport-contracts.md#native-session-and-transport-contracts) | 1–13 | [GAP-008](#gap-008), [GAP-009](#gap-009), [GAP-010](#gap-010), [GAP-011](#gap-011), [GAP-024](#gap-024), [GAP-033](#gap-033) |
+| docs/protocol/session-transport-contracts.md | [Configured endpoints](docs/protocol/session-transport-contracts.md#configured-endpoints) | 14–52 | [GAP-010](#gap-010) |
+| docs/protocol/session-transport-contracts.md | [Handshake consumption and failures](docs/protocol/session-transport-contracts.md#handshake-consumption-and-failures) | 53–77 | [GAP-008](#gap-008) |
+| docs/protocol/session-transport-contracts.md | [Captured handshake boundaries](docs/protocol/session-transport-contracts.md#captured-handshake-boundaries) | 78–110 | [GAP-008](#gap-008), [GAP-010](#gap-010), [GAP-084](#gap-084) |
+| docs/protocol/session-transport-contracts.md | [Sub-version 3 versus the data endpoint](docs/protocol/session-transport-contracts.md#sub-version-3-versus-the-data-endpoint) | 111–136 | [GAP-009](#gap-009), [GAP-055](#gap-055) |
+| docs/protocol/session-transport-contracts.md | [Receive-limit assignment at startup](docs/protocol/session-transport-contracts.md#receive-limit-assignment-at-startup) | 137–153 | [GAP-011](#gap-011) |
+| docs/protocol/session-transport-contracts.md | [Captured framing and reassembly boundaries](docs/protocol/session-transport-contracts.md#captured-framing-and-reassembly-boundaries) | 154–188 | [GAP-011](#gap-011), [GAP-012](#gap-012), [GAP-013](#gap-013), [GAP-084](#gap-084) |
+| docs/protocol/session-transport-contracts.md | [Transaction IDs, reassembly and correlation](docs/protocol/session-transport-contracts.md#transaction-ids-reassembly-and-correlation) | 189–251 | [GAP-004](#gap-004), [GAP-012](#gap-012), [GAP-013](#gap-013), [GAP-084](#gap-084) |
+| docs/protocol/session-transport-contracts.md | [Native envelope acceptance and emission](docs/protocol/session-transport-contracts.md#native-envelope-acceptance-and-emission) | 252–280 | [GAP-004](#gap-004), [GAP-012](#gap-012), [GAP-013](#gap-013), [GAP-084](#gap-084) |
+| docs/protocol/session-transport-contracts.md | [Identifier domains](docs/protocol/session-transport-contracts.md#identifier-domains) | 281–296 | [GAP-024](#gap-024), [GAP-033](#gap-033) |
+| docs/protocol/session-transport-contracts.md | [Activity clocks and incomplete input](docs/protocol/session-transport-contracts.md#activity-clocks-and-incomplete-input) | 297–333 | [GAP-005](#gap-005), [GAP-008](#gap-008), [GAP-012](#gap-012) |
+| docs/protocol/session-transport-contracts.md | [Captured failure-wait observations](docs/protocol/session-transport-contracts.md#captured-failure-wait-observations) | 334–356 | [GAP-005](#gap-005), [GAP-084](#gap-084) |
+| docs/protocol/session-transport-contracts.md | [Captured selected-request and partial-input timing](docs/protocol/session-transport-contracts.md#captured-selected-request-and-partial-input-timing) | 357–402 | [GAP-005](#gap-005), [GAP-036](#gap-036) |
+| docs/protocol/session-transport-contracts.md | [Flood and connection-burst counters](docs/protocol/session-transport-contracts.md#flood-and-connection-burst-counters) | 403–436 | [GAP-005](#gap-005), [GAP-045](#gap-045), [GAP-074](#gap-074) |
+| docs/files-and-transfers/filesystem-and-board-contracts.md | [Native filesystem, diagnostics and legacy-board contracts](docs/files-and-transfers/filesystem-and-board-contracts.md#native-filesystem-diagnostics-and-legacy-board-contracts) | 1–12 | [GAP-037](#gap-037), [GAP-046](#gap-046), [GAP-049](#gap-049), [GAP-050](#gap-050), [GAP-051](#gap-051), [GAP-052](#gap-052), [GAP-053](#gap-053), [GAP-054](#gap-054) |
+| docs/files-and-transfers/filesystem-and-board-contracts.md | [File-info target kinds and field presence](docs/files-and-transfers/filesystem-and-board-contracts.md#file-info-target-kinds-and-field-presence) | 13–36 | [GAP-049](#gap-049) |
+| docs/files-and-transfers/filesystem-and-board-contracts.md | [Delete, create, rename, comment, move and alias](docs/files-and-transfers/filesystem-and-board-contracts.md#delete-create-rename-comment-move-and-alias) | 37–70 | [GAP-050](#gap-050), [GAP-051](#gap-051), [GAP-052](#gap-052), [GAP-053](#gap-053), [GAP-054](#gap-054) |
+| docs/files-and-transfers/filesystem-and-board-contracts.md | [Request 207 presence and mutation order](docs/files-and-transfers/filesystem-and-board-contracts.md#request-207-presence-and-mutation-order) | 71–100 | [GAP-052](#gap-052) |
+| docs/files-and-transfers/filesystem-and-board-contracts.md | [Move and alias distinctions](docs/files-and-transfers/filesystem-and-board-contracts.md#move-and-alias-distinctions) | 101–123 | [GAP-053](#gap-053), [GAP-054](#gap-054) |
+| docs/files-and-transfers/filesystem-and-board-contracts.md | [Legacy board 101/102/103](docs/files-and-transfers/filesystem-and-board-contracts.md#legacy-board-101102103) | 124–156 | [GAP-046](#gap-046) |
+| docs/files-and-transfers/filesystem-and-board-contracts.md | [Captured legacy-board boundaries and updates](docs/files-and-transfers/filesystem-and-board-contracts.md#captured-legacy-board-boundaries-and-updates) | 157–199 | [GAP-046](#gap-046) |
+| docs/files-and-transfers/filesystem-and-board-contracts.md | [Diagnostic text 303](docs/files-and-transfers/filesystem-and-board-contracts.md#diagnostic-text-303) | 200–215 | [GAP-037](#gap-037) |
+| docs/files-and-transfers/filesystem-and-board-contracts.md | [Captured native folder creation and field 202 paths](docs/files-and-transfers/filesystem-and-board-contracts.md#captured-native-folder-creation-and-field-202-paths) | 216–225 | 11 gaps; see section-specific rows and JSON register |
+| docs/files-and-transfers/filesystem-and-board-contracts.md | [Create inputs, permissions and replies](docs/files-and-transfers/filesystem-and-board-contracts.md#create-inputs-permissions-and-replies) | 226–258 | 11 gaps; see section-specific rows and JSON register |
+| docs/files-and-transfers/filesystem-and-board-contracts.md | [Name bytes and structured-path acceptance](docs/files-and-transfers/filesystem-and-board-contracts.md#name-bytes-and-structured-path-acceptance) | 259–288 | 11 gaps; see section-specific rows and JSON register |
+| docs/files-and-transfers/filesystem-and-board-contracts.md | [Listing, file-info and owned cleanup controls](docs/files-and-transfers/filesystem-and-board-contracts.md#listing-file-info-and-owned-cleanup-controls) | 289–320 | 11 gaps; see section-specific rows and JSON register |
+| docs/files-and-transfers/filesystem-and-board-contracts.md | [Captured alias and metadata matrix](docs/files-and-transfers/filesystem-and-board-contracts.md#captured-alias-and-metadata-matrix) | 321–329 | 9 gaps; see section-specific rows and JSON register |
+| docs/files-and-transfers/filesystem-and-board-contracts.md | [File-info presence and values](docs/files-and-transfers/filesystem-and-board-contracts.md#file-info-presence-and-values) | 330–371 | 9 gaps; see section-specific rows and JSON register |
+| docs/files-and-transfers/filesystem-and-board-contracts.md | [Alias creation, collisions and transfer resolution](docs/files-and-transfers/filesystem-and-board-contracts.md#alias-creation-collisions-and-transfer-resolution) | 372–418 | 9 gaps; see section-specific rows and JSON register |
+| docs/files-and-transfers/filesystem-and-board-contracts.md | [Captured rename and comment mutation matrix](docs/files-and-transfers/filesystem-and-board-contracts.md#captured-rename-and-comment-mutation-matrix) | 419–491 | [GAP-003](#gap-003), [GAP-016](#gap-016), [GAP-019](#gap-019), [GAP-031](#gap-031), [GAP-052](#gap-052), [GAP-084](#gap-084) |
+| docs/files-and-transfers/filesystem-and-board-contracts.md | [Captured move and Trash outcomes](docs/files-and-transfers/filesystem-and-board-contracts.md#captured-move-and-trash-outcomes) | 492–572 | [GAP-003](#gap-003), [GAP-021](#gap-021), [GAP-031](#gap-031), [GAP-047](#gap-047), [GAP-050](#gap-050), [GAP-053](#gap-053), [GAP-054](#gap-054), [GAP-084](#gap-084) |
+| docs/provenance/evidence-portability.md | [Reproducing the protocol evidence baseline](docs/provenance/evidence-portability.md#reproducing-the-protocol-evidence-baseline) | 1–11 | [GAP-087](#gap-087) |
+| docs/provenance/evidence-portability.md | [Build a revision-pinned package](docs/provenance/evidence-portability.md#build-a-revision-pinned-package) | 12–32 | [GAP-087](#gap-087) |
+| docs/provenance/evidence-portability.md | [Verify and extract elsewhere](docs/provenance/evidence-portability.md#verify-and-extract-elsewhere) | 33–58 | [GAP-087](#gap-087) |
+| docs/provenance/evidence-portability.md | [Updating evidence without rewriting history](docs/provenance/evidence-portability.md#updating-evidence-without-rewriting-history) | 59–73 | [GAP-087](#gap-087) |
+| docs/provenance/evidence-portability.md | [Recorded extraction verification](docs/provenance/evidence-portability.md#recorded-extraction-verification) | 74–87 | [GAP-087](#gap-087) |
+| docs/protocol/error-outcomes.md | [Native error and failure outcomes](docs/protocol/error-outcomes.md#native-error-and-failure-outcomes) | 1–13 | [GAP-003](#gap-003), [GAP-021](#gap-021) |
+| docs/protocol/error-outcomes.md | [Wire status and failure classes](docs/protocol/error-outcomes.md#wire-status-and-failure-classes) | 14–43 | [GAP-003](#gap-003), [GAP-021](#gap-021) |
+| docs/protocol/error-outcomes.md | [Recorded representative native outcomes](docs/protocol/error-outcomes.md#recorded-representative-native-outcomes) | 44–88 | [GAP-003](#gap-003), [GAP-084](#gap-084) |
+| docs/protocol/error-outcomes.md | [Derived unknown-operation example](docs/protocol/error-outcomes.md#derived-unknown-operation-example) | 89–111 | [GAP-003](#gap-003), [GAP-084](#gap-084) |
+| docs/protocol/error-outcomes.md | [Internal exceptions and text resources](docs/protocol/error-outcomes.md#internal-exceptions-and-text-resources) | 112–189 | [GAP-003](#gap-003) |
+| docs/peers/identified-client-source.md | [Identified shx source profile and bounded callback results](docs/peers/identified-client-source.md#identified-shx-source-profile-and-bounded-callback-results) | 1–26 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-083](#gap-083) |
+| docs/peers/identified-client-source.md | [Basic login and unknown fields](docs/peers/identified-client-source.md#basic-login-and-unknown-fields) | 27–46 | [GAP-024](#gap-024), [GAP-080](#gap-080), [GAP-081](#gap-081) |
+| docs/peers/identified-client-source.md | [Executed host callback matrix](docs/peers/identified-client-source.md#executed-host-callback-matrix) | 47–84 | [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085) |
+| docs/peers/identified-client-source.md | [Other receiver observations and negative scope](docs/peers/identified-client-source.md#other-receiver-observations-and-negative-scope) | 85–117 | [GAP-008](#gap-008), [GAP-018](#gap-018), [GAP-071](#gap-071), [GAP-075](#gap-075), [GAP-079](#gap-079), [GAP-082](#gap-082) |
+| docs/peers/identified-client-source.md | [Identified complete terminal build](docs/peers/identified-client-source.md#identified-complete-terminal-build) | 118–140 | [GAP-018](#gap-018), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-083](#gap-083), [GAP-084](#gap-084) |
+| docs/peers/identified-client-source.md | [Full native peer acceptance matrix](docs/peers/identified-client-source.md#full-native-peer-acceptance-matrix) | 141–176 | [GAP-018](#gap-018), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-083](#gap-083), [GAP-084](#gap-084) |
+| docs/peers/identified-client-source.md | [Ambiguous text at the real peer boundary](docs/peers/identified-client-source.md#ambiguous-text-at-the-real-peer-boundary) | 177–202 | [GAP-018](#gap-018), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-083](#gap-083), [GAP-084](#gap-084) |
+| docs/peers/identified-client-source.md | [Reproducing and checking full peer sessions](docs/peers/identified-client-source.md#reproducing-and-checking-full-peer-sessions) | 203–233 | [GAP-018](#gap-018), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-083](#gap-083), [GAP-084](#gap-084) |
+| docs/peers/identified-client-source.md | [Native configured-name and controlled receiver matrix](docs/peers/identified-client-source.md#native-configured-name-and-controlled-receiver-matrix) | 234–291 | [GAP-018](#gap-018), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-083](#gap-083), [GAP-084](#gap-084) |
+| docs/peers/identified-client-source.md | [Source package identities and configuration applicability](docs/peers/identified-client-source.md#source-package-identities-and-configuration-applicability) | 292–347 | [GAP-018](#gap-018), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-083](#gap-083), [GAP-084](#gap-084) |
+| docs/accounts-and-privileges/privilege-contracts.md | [Native privilege registry and composition](docs/accounts-and-privileges/privilege-contracts.md#native-privilege-registry-and-composition) | 1–13 | [GAP-031](#gap-031), [GAP-032](#gap-032) |
+| docs/accounts-and-privileges/privilege-contracts.md | [Bitmap numbering and known uses](docs/accounts-and-privileges/privilege-contracts.md#bitmap-numbering-and-known-uses) | 14–74 | [GAP-031](#gap-031), [GAP-034](#gap-034) |
+| docs/accounts-and-privileges/privilege-contracts.md | [Operation-specific composition](docs/accounts-and-privileges/privilege-contracts.md#operation-specific-composition) | 75–99 | [GAP-032](#gap-032), [GAP-047](#gap-047) |
+| docs/accounts-and-privileges/privilege-contracts.md | [Account creation, update and batch rules](docs/accounts-and-privileges/privilege-contracts.md#account-creation-update-and-batch-rules) | 100–143 | [GAP-032](#gap-032), [GAP-072](#gap-072), [GAP-073](#gap-073), [GAP-078](#gap-078) |
+| docs/accounts-and-privileges/privilege-contracts.md | [Remaining acceptance evidence](docs/accounts-and-privileges/privilege-contracts.md#remaining-acceptance-evidence) | 144–171 | [GAP-031](#gap-031), [GAP-032](#gap-032), [GAP-072](#gap-072), [GAP-073](#gap-073), [GAP-078](#gap-078) |
+| docs/native-evidence/native-capture-workflow.md | [Reproducing native protocol captures](docs/native-evidence/native-capture-workflow.md#reproducing-native-protocol-captures) | 1–14 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
+| docs/native-evidence/native-capture-workflow.md | [Prepare the emulator and application](docs/native-evidence/native-capture-workflow.md#prepare-the-emulator-and-application) | 15–102 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
+| docs/native-evidence/native-capture-workflow.md | [Capture an exchange](docs/native-evidence/native-capture-workflow.md#capture-an-exchange) | 103–171 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
+| docs/native-evidence/native-capture-workflow.md | [Recorded native core fixtures](docs/native-evidence/native-capture-workflow.md#recorded-native-core-fixtures) | 172–252 | [GAP-022](#gap-022), [GAP-025](#gap-025), [GAP-071](#gap-071), [GAP-077](#gap-077), [GAP-084](#gap-084) |
+| docs/native-evidence/native-capture-workflow.md | [Recorded native transport fixtures](docs/native-evidence/native-capture-workflow.md#recorded-native-transport-fixtures) | 253–296 | [GAP-008](#gap-008), [GAP-009](#gap-009), [GAP-010](#gap-010), [GAP-084](#gap-084) |
+| docs/native-evidence/native-capture-workflow.md | [Recorded native framing fixtures](docs/native-evidence/native-capture-workflow.md#recorded-native-framing-fixtures) | 297–333 | [GAP-014](#gap-014), [GAP-084](#gap-084) |
+| docs/native-evidence/native-capture-workflow.md | [Recorded native ordinary-file fixtures](docs/native-evidence/native-capture-workflow.md#recorded-native-ordinary-file-fixtures) | 334–385 | [GAP-009](#gap-009), [GAP-056](#gap-056), [GAP-084](#gap-084) |
+| docs/native-evidence/native-capture-workflow.md | [Recorded native resume fixtures](docs/native-evidence/native-capture-workflow.md#recorded-native-resume-fixtures) | 386–427 | [GAP-058](#gap-058), [GAP-084](#gap-084) |
+| docs/native-evidence/native-capture-workflow.md | [Recorded native queue fixtures](docs/native-evidence/native-capture-workflow.md#recorded-native-queue-fixtures) | 428–472 | [GAP-057](#gap-057), [GAP-061](#gap-061), [GAP-084](#gap-084) |
+| docs/native-evidence/native-capture-workflow.md | [Recorded native cleanup fixtures](docs/native-evidence/native-capture-workflow.md#recorded-native-cleanup-fixtures) | 473–510 | [GAP-062](#gap-062), [GAP-084](#gap-084) |
+| docs/native-evidence/native-capture-workflow.md | [Recorded native folder fixtures](docs/native-evidence/native-capture-workflow.md#recorded-native-folder-fixtures) | 511–575 | [GAP-059](#gap-059), [GAP-060](#gap-060), [GAP-084](#gap-084) |
+| docs/native-evidence/native-capture-workflow.md | [Acceptance and corpus coverage](docs/native-evidence/native-capture-workflow.md#acceptance-and-corpus-coverage) | 576–608 | [GAP-008](#gap-008), [GAP-084](#gap-084) |
+| docs/native-evidence/native-capture-workflow.md | [Recorded native banner fixtures](docs/native-evidence/native-capture-workflow.md#recorded-native-banner-fixtures) | 609–671 | [GAP-055](#gap-055), [GAP-063](#gap-063), [GAP-084](#gap-084) |
+| docs/native-evidence/native-capture-workflow.md | [Reproducing banner format and recovery fixtures](docs/native-evidence/native-capture-workflow.md#reproducing-banner-format-and-recovery-fixtures) | 672–740 | [GAP-055](#gap-055), [GAP-063](#gap-063), [GAP-064](#gap-064), [GAP-084](#gap-084) |
+| docs/native-evidence/native-capture-workflow.md | [Reproducing HTXF header and reference fixtures](docs/native-evidence/native-capture-workflow.md#reproducing-htxf-header-and-reference-fixtures) | 741–793 | [GAP-033](#gap-033), [GAP-055](#gap-055), [GAP-064](#gap-064), [GAP-084](#gap-084) |
+| docs/native-evidence/native-capture-workflow.md | [Reproducing ID, envelope and partial-input fixtures](docs/native-evidence/native-capture-workflow.md#reproducing-id-envelope-and-partial-input-fixtures) | 794–849 | [GAP-004](#gap-004), [GAP-012](#gap-012), [GAP-013](#gap-013), [GAP-084](#gap-084) |
+| docs/native-evidence/native-capture-workflow.md | [Reproducing native authentication and visibility fixtures](docs/native-evidence/native-capture-workflow.md#reproducing-native-authentication-and-visibility-fixtures) | 850–903 | [GAP-023](#gap-023), [GAP-025](#gap-025), [GAP-027](#gap-027), [GAP-035](#gap-035), [GAP-036](#gap-036), [GAP-084](#gap-084) |
+| docs/native-evidence/native-capture-workflow.md | [Reproducing agreement configuration and partial-failure fixtures](docs/native-evidence/native-capture-workflow.md#reproducing-agreement-configuration-and-partial-failure-fixtures) | 904–980 | [GAP-003](#gap-003), [GAP-019](#gap-019), [GAP-025](#gap-025), [GAP-027](#gap-027), [GAP-084](#gap-084) |
+| docs/native-evidence/native-capture-workflow.md | [Reproducing login-extra configuration and refresh fixtures](docs/native-evidence/native-capture-workflow.md#reproducing-login-extra-configuration-and-refresh-fixtures) | 981–1061 | [GAP-005](#gap-005), [GAP-018](#gap-018), [GAP-019](#gap-019), [GAP-026](#gap-026), [GAP-084](#gap-084) |
+| docs/native-evidence/native-capture-workflow.md | [Reproducing full historical shx sessions](docs/native-evidence/native-capture-workflow.md#reproducing-full-historical-shx-sessions) | 1062–1087 | [GAP-018](#gap-018), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-083](#gap-083), [GAP-084](#gap-084) |
+| docs/native-evidence/native-capture-workflow.md | [Reproducing banner and roster-subject receiver fixtures](docs/native-evidence/native-capture-workflow.md#reproducing-banner-and-roster-subject-receiver-fixtures) | 1088–1107 | [GAP-018](#gap-018), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-083](#gap-083), [GAP-084](#gap-084) |
+| docs/native-evidence/native-capture-workflow.md | [Reproducing directory creation and path fixtures](docs/native-evidence/native-capture-workflow.md#reproducing-directory-creation-and-path-fixtures) | 1108–1150 | 11 gaps; see section-specific rows and JSON register |
+| docs/native-evidence/native-capture-workflow.md | [Reproducing alias and metadata fixtures](docs/native-evidence/native-capture-workflow.md#reproducing-alias-and-metadata-fixtures) | 1151–1202 | 9 gaps; see section-specific rows and JSON register |
+| docs/native-evidence/native-capture-workflow.md | [Reproducing rename and comment fixtures](docs/native-evidence/native-capture-workflow.md#reproducing-rename-and-comment-fixtures) | 1203–1253 | [GAP-003](#gap-003), [GAP-016](#gap-016), [GAP-019](#gap-019), [GAP-031](#gap-031), [GAP-052](#gap-052), [GAP-084](#gap-084) |
+| docs/native-evidence/native-capture-workflow.md | [Reproducing move and Trash fixtures](docs/native-evidence/native-capture-workflow.md#reproducing-move-and-trash-fixtures) | 1254–1302 | [GAP-003](#gap-003), [GAP-021](#gap-021), [GAP-031](#gap-031), [GAP-047](#gap-047), [GAP-050](#gap-050), [GAP-053](#gap-053), [GAP-054](#gap-054), [GAP-084](#gap-084) |
+| docs/native-evidence/native-capture-workflow.md | [Reproducing category and threaded news fixtures](docs/native-evidence/native-capture-workflow.md#reproducing-category-and-threaded-news-fixtures) | 1303–1369 | 14 gaps; see section-specific rows and JSON register |
+| docs/native-evidence/native-capture-workflow.md | [Reproducing isolated article deletion fixtures](docs/native-evidence/native-capture-workflow.md#reproducing-isolated-article-deletion-fixtures) | 1370–1424 | 9 gaps; see section-specific rows and JSON register |
+| docs/native-evidence/native-capture-workflow.md | [Reproducing the child append boundary](docs/native-evidence/native-capture-workflow.md#reproducing-the-child-append-boundary) | 1425–1482 | 9 gaps; see section-specific rows and JSON register |
+| docs/native-evidence/native-capture-workflow.md | [Reproducing account replacement and password boundaries](docs/native-evidence/native-capture-workflow.md#reproducing-account-replacement-and-password-boundaries) | 1483–1550 | 9 gaps; see section-specific rows and JSON register |
+| docs/native-evidence/native-capture-workflow.md | [Reproducing live account edits, deletion and restart](docs/native-evidence/native-capture-workflow.md#reproducing-live-account-edits-deletion-and-restart) | 1551–1622 | 9 gaps; see section-specific rows and JSON register |
+| docs/native-evidence/native-capture-workflow.md | [Reproducing account batch framing and partial effects](docs/native-evidence/native-capture-workflow.md#reproducing-account-batch-framing-and-partial-effects) | 1623–1694 | 11 gaps; see section-specific rows and JSON register |
+| docs/native-evidence/native-capture-workflow.md | [Reproducing account identity and protection contrasts](docs/native-evidence/native-capture-workflow.md#reproducing-account-identity-and-protection-contrasts) | 1695–1751 | [GAP-003](#gap-003), [GAP-018](#gap-018), [GAP-021](#gap-021), [GAP-031](#gap-031), [GAP-036](#gap-036), [GAP-072](#gap-072), [GAP-074](#gap-074), [GAP-084](#gap-084) |
+| docs/native-evidence/native-capture-workflow.md | [Reproducing private rooms and chat byte fixtures](docs/native-evidence/native-capture-workflow.md#reproducing-private-rooms-and-chat-byte-fixtures) | 1752–1816 | 12 gaps; see section-specific rows and JSON register |
+| docs/native-evidence/native-capture-workflow.md | [Reproducing console and client broadcast fixtures](docs/native-evidence/native-capture-workflow.md#reproducing-console-and-client-broadcast-fixtures) | 1817–1835 | [GAP-076](#gap-076) |
+| docs/protocol/diagnostic-replies.md | [Native 1.9 client diagnostics (303)](docs/protocol/diagnostic-replies.md#native-19-client-diagnostics-303) | 1–15 | [GAP-037](#gap-037), [GAP-084](#gap-084) |
+| docs/protocol/diagnostic-replies.md | [Representative reply matrix](docs/protocol/diagnostic-replies.md#representative-reply-matrix) | 16–59 | [GAP-037](#gap-037), [GAP-084](#gap-084) |
+| docs/protocol/diagnostic-replies.md | [Contract boundary](docs/protocol/diagnostic-replies.md#contract-boundary) | 60–95 | [GAP-037](#gap-037), [GAP-084](#gap-084) |
+| docs/protocol/diagnostic-replies.md | [Reproduction and checks](docs/protocol/diagnostic-replies.md#reproduction-and-checks) | 96–141 | [GAP-037](#gap-037), [GAP-084](#gap-084) |
+| docs/peers/peer-tolerance-matrix.md | [Identified shx peer field tolerance: controlled matrix](docs/peers/peer-tolerance-matrix.md#identified-shx-peer-field-tolerance-controlled-matrix) | 1–65 | [GAP-026](#gap-026), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082) |
+| docs/peers/peer-tolerance-matrix.md | [Reproduce and verify](docs/peers/peer-tolerance-matrix.md#reproduce-and-verify) | 66–99 | [GAP-026](#gap-026), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082) |
+| docs/peers/peer-tolerance-matrix.md | [Cross-peer acceptance and omission rules](docs/peers/peer-tolerance-matrix.md#cross-peer-acceptance-and-omission-rules) | 100–140 | [GAP-081](#gap-081) |
+| docs/mxd/assertion-reconciliation.md | [mxd assertion reconciliation](docs/mxd/assertion-reconciliation.md#mxd-assertion-reconciliation) | 1–12 | [GAP-001](#gap-001), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086) |
+| docs/mxd/assertion-reconciliation.md | [Test runs](docs/mxd/assertion-reconciliation.md#test-runs) | 41–42 | [GAP-001](#gap-001), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086) |
+| docs/mxd/assertion-reconciliation.md | [Verifier](docs/mxd/assertion-reconciliation.md#verifier) | 89–98 | [GAP-001](#gap-001), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086) |
+| docs/mxd/assertion-reconciliation.md | [Revisions examined](docs/mxd/assertion-reconciliation.md#revisions-examined) | 13–21 | [GAP-001](#gap-001), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086) |
+| docs/mxd/compatibility-matrix.md | [Identified client sessions](docs/mxd/compatibility-matrix.md#identified-client-sessions) | 89–104 | [GAP-001](#gap-001), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086) |
+| docs/mxd/assertion-reconciliation.md | [Assertion-to-requirement map](docs/mxd/assertion-reconciliation.md#assertion-to-requirement-map) | 111–116 | [GAP-001](#gap-001), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086) |
+| docs/mxd/assertion-reconciliation.md | [Configured server name 162](docs/mxd/assertion-reconciliation.md#configured-server-name-162) | 157–164 | [GAP-001](#gap-001), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086) |
+| docs/mxd/assertion-reconciliation.md | [Old mxd compatibility matrix](docs/mxd/assertion-reconciliation.md#old-mxd-compatibility-matrix) | 253–263 | [GAP-001](#gap-001), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086) |
 | docs/mxd/validation-status.md | [Bounded correction proposal](docs/mxd/validation-status.md#bounded-correction-proposal) | 181–213 | [GAP-001](#gap-001), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-082](#gap-082), [GAP-085](#gap-085), [GAP-086](#gap-086) |
-| docs/protocol/bitmap-boundaries.md | [Native 1.9 privilege bitmap replacement and width observations](docs/protocol/bitmap-boundaries.md#native-19-privilege-bitmap-replacement-and-width-observations) | 1–11 | [GAP-015](#gap-015), [GAP-016](#gap-016), [GAP-019](#gap-019), [GAP-031](#gap-031) |
-| docs/protocol/bitmap-boundaries.md | [All 64 bit positions](docs/protocol/bitmap-boundaries.md#all-64-bit-positions) | 12–36 | [GAP-015](#gap-015), [GAP-016](#gap-016), [GAP-019](#gap-019), [GAP-031](#gap-031) |
-| docs/protocol/bitmap-boundaries.md | [Field-110 presence and width](docs/protocol/bitmap-boundaries.md#field-110-presence-and-width) | 37–64 | [GAP-015](#gap-015), [GAP-016](#gap-016), [GAP-019](#gap-019), [GAP-031](#gap-031) |
-| docs/protocol/bitmap-boundaries.md | [Enforcement and remaining criteria](docs/protocol/bitmap-boundaries.md#enforcement-and-remaining-criteria) | 65–90 | [GAP-015](#gap-015), [GAP-016](#gap-016), [GAP-019](#gap-019), [GAP-031](#gap-031) |
-| docs/protocol/bitmap-boundaries.md | [Verification](docs/protocol/bitmap-boundaries.md#verification) | 91–133 | [GAP-015](#gap-015), [GAP-016](#gap-016), [GAP-019](#gap-019), [GAP-031](#gap-031) |
-| docs/accounts-and-privileges/account-attribute-trace.md | [Account field 111: stored-record and consumer trace](docs/accounts-and-privileges/account-attribute-trace.md#account-field-111-stored-record-and-consumer-trace) | 1–10 | [GAP-071](#gap-071) |
-| docs/accounts-and-privileges/account-attribute-trace.md | [Positive field and storage evidence](docs/accounts-and-privileges/account-attribute-trace.md#positive-field-and-storage-evidence) | 11–43 | [GAP-071](#gap-071) |
-| docs/accounts-and-privileges/account-attribute-trace.md | [Direct reader boundary and forwarded records](docs/accounts-and-privileges/account-attribute-trace.md#direct-reader-boundary-and-forwarded-records) | 44–77 | [GAP-071](#gap-071) |
-| docs/accounts-and-privileges/account-attribute-trace.md | [Resource-fork search boundary](docs/accounts-and-privileges/account-attribute-trace.md#resource-fork-search-boundary) | 78–94 | [GAP-085](#gap-085), [GAP-086](#gap-086) |
-| docs/accounts-and-privileges/account-attribute-trace.md | [Identified Classic client construction boundary](docs/accounts-and-privileges/account-attribute-trace.md#identified-classic-client-construction-boundary) | 95–106 | [GAP-071](#gap-071) |
-| docs/accounts-and-privileges/account-attribute-trace.md | [Reproduce and decision boundary](docs/accounts-and-privileges/account-attribute-trace.md#reproduce-and-decision-boundary) | 107–141 | [GAP-071](#gap-071) |
-| docs/accounts-and-privileges/account-attribute-trace.md | [Bounded reader-alias follow-up](docs/accounts-and-privileges/account-attribute-trace.md#bounded-reader-alias-follow-up) | 142–169 | [GAP-071](#gap-071) |
+| docs/protocol/bitmap-boundaries.md | [Native 1.9 privilege bitmap replacement and width observations](docs/protocol/bitmap-boundaries.md#native-19-privilege-bitmap-replacement-and-width-observations) | 1–14 | [GAP-015](#gap-015), [GAP-016](#gap-016), [GAP-019](#gap-019), [GAP-031](#gap-031) |
+| docs/protocol/bitmap-boundaries.md | [All 64 bit positions](docs/protocol/bitmap-boundaries.md#all-64-bit-positions) | 15–39 | [GAP-015](#gap-015), [GAP-016](#gap-016), [GAP-019](#gap-019), [GAP-031](#gap-031) |
+| docs/protocol/bitmap-boundaries.md | [Field-110 presence and width](docs/protocol/bitmap-boundaries.md#field-110-presence-and-width) | 40–69 | [GAP-015](#gap-015), [GAP-016](#gap-016), [GAP-019](#gap-019), [GAP-031](#gap-031) |
+| docs/protocol/bitmap-boundaries.md | [Enforcement and remaining criteria](docs/protocol/bitmap-boundaries.md#enforcement-and-remaining-criteria) | 70–95 | [GAP-015](#gap-015), [GAP-016](#gap-016), [GAP-019](#gap-019), [GAP-031](#gap-031) |
+| docs/protocol/bitmap-boundaries.md | [Verification](docs/protocol/bitmap-boundaries.md#verification) | 96–143 | [GAP-015](#gap-015), [GAP-016](#gap-016), [GAP-019](#gap-019), [GAP-031](#gap-031) |
+| docs/accounts-and-privileges/account-attribute-trace.md | [Account field 111: stored-record and consumer trace](docs/accounts-and-privileges/account-attribute-trace.md#account-field-111-stored-record-and-consumer-trace) | 1–15 | [GAP-071](#gap-071) |
+| docs/accounts-and-privileges/account-attribute-trace.md | [Positive field and storage evidence](docs/accounts-and-privileges/account-attribute-trace.md#positive-field-and-storage-evidence) | 16–51 | [GAP-071](#gap-071) |
+| docs/accounts-and-privileges/account-attribute-trace.md | [Direct reader boundary and forwarded records](docs/accounts-and-privileges/account-attribute-trace.md#direct-reader-boundary-and-forwarded-records) | 52–88 | [GAP-071](#gap-071) |
+| docs/accounts-and-privileges/account-attribute-trace.md | [Resource-fork search boundary](docs/accounts-and-privileges/account-attribute-trace.md#resource-fork-search-boundary) | 89–105 | [GAP-085](#gap-085), [GAP-086](#gap-086) |
+| docs/accounts-and-privileges/account-attribute-trace.md | [Identified Classic client construction boundary](docs/accounts-and-privileges/account-attribute-trace.md#identified-classic-client-construction-boundary) | 106–117 | [GAP-071](#gap-071) |
+| docs/accounts-and-privileges/account-attribute-trace.md | [Reproduce and decision boundary](docs/accounts-and-privileges/account-attribute-trace.md#reproduce-and-decision-boundary) | 118–157 | [GAP-071](#gap-071) |
+| docs/accounts-and-privileges/account-attribute-trace.md | [Bounded reader-alias follow-up](docs/accounts-and-privileges/account-attribute-trace.md#bounded-reader-alias-follow-up) | 158–185 | [GAP-071](#gap-071) |
 | docs/mxd/corrections.md | [Framing limits](docs/mxd/corrections.md#framing-limits) | 25–26 | [GAP-011](#gap-011), [GAP-085](#gap-085), [GAP-001](#gap-001), [GAP-019](#gap-019), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-086](#gap-086) |
 | docs/mxd/corrections.md | [Framing limits: behaviour before](docs/mxd/corrections.md#framing-limits-behaviour-before) | 47–55 | [GAP-011](#gap-011), [GAP-085](#gap-085) |
 | docs/mxd/corrections.md | [Framing limits: correction](docs/mxd/corrections.md#framing-limits-correction) | 56–104 | [GAP-011](#gap-011), [GAP-085](#gap-085), [GAP-001](#gap-001), [GAP-019](#gap-019), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-086](#gap-086) |
@@ -6411,55 +6420,55 @@ of binary paths, clients or packet inputs.
 | docs/mxd/corrections.md | [Framing limits: native baseline](docs/mxd/corrections.md#framing-limits-native-baseline) | 27–46 | [GAP-011](#gap-011), [GAP-085](#gap-085) |
 | docs/mxd/corrections.md | [mxd accepted corrections](docs/mxd/corrections.md#mxd-accepted-corrections) | 1–10 | [GAP-011](#gap-011), [GAP-085](#gap-085), [GAP-081](#gap-081) |
 | docs/mxd/corrections.md | [Revisions examined](docs/mxd/corrections.md#revisions-examined) | 11–24 | [GAP-011](#gap-011), [GAP-085](#gap-085), [GAP-081](#gap-081) |
-| docs/mxd/corrections.md | [History](docs/mxd/corrections.md#history) | 442–488 | [GAP-011](#gap-011), [GAP-085](#gap-085) |
-| docs/protocol/failure-representatives.md | [Captured representative native failures](docs/protocol/failure-representatives.md#captured-representative-native-failures) | 1–19 | [GAP-003](#gap-003), [GAP-084](#gap-084) |
-| docs/protocol/failure-representatives.md | [Authentication: rejected password](docs/protocol/failure-representatives.md#authentication-rejected-password) | 20–34 | [GAP-003](#gap-003), [GAP-084](#gap-084) |
-| docs/protocol/failure-representatives.md | [Permission: account enumeration denied](docs/protocol/failure-representatives.md#permission-account-enumeration-denied) | 35–48 | [GAP-003](#gap-003), [GAP-084](#gap-084) |
-| docs/protocol/failure-representatives.md | [Missing object: file information lookup](docs/protocol/failure-representatives.md#missing-object-file-information-lookup) | 49–62 | [GAP-003](#gap-003), [GAP-084](#gap-084) |
-| docs/protocol/failure-representatives.md | [Malformed request: zero-size frame](docs/protocol/failure-representatives.md#malformed-request-zero-size-frame) | 63–77 | [GAP-003](#gap-003), [GAP-084](#gap-084) |
-| docs/protocol/failure-representatives.md | [Unsupported operation: unknown online transaction](docs/protocol/failure-representatives.md#unsupported-operation-unknown-online-transaction) | 78–116 | [GAP-003](#gap-003), [GAP-084](#gap-084) |
-| docs/native-evidence/runtime-recovery-20261113.md | [Disposable Mac OS 9 runtime recovery, 13 November 2026](docs/native-evidence/runtime-recovery-20261113.md#disposable-mac-os-9-runtime-recovery-13-november-2026) | 1–9 | [GAP-084](#gap-084) |
-| docs/native-evidence/runtime-recovery-20261113.md | [Recovery boundary](docs/native-evidence/runtime-recovery-20261113.md#recovery-boundary) | 10–70 | [GAP-084](#gap-084) |
-| docs/native-evidence/runtime-recovery-20261113.md | [Boot and guest observation](docs/native-evidence/runtime-recovery-20261113.md#boot-and-guest-observation) | 71–97 | [GAP-084](#gap-084) |
-| docs/native-evidence/runtime-recovery-20261113.md | [Read-only readiness smokes](docs/native-evidence/runtime-recovery-20261113.md#read-only-readiness-smokes) | 98–142 | [GAP-084](#gap-084) |
-| docs/protocol/receive-limit-origin.md | [Receive-limit origin and indexed reference boundary](docs/protocol/receive-limit-origin.md#receive-limit-origin-and-indexed-reference-boundary) | 1–8 | [GAP-011](#gap-011) |
-| docs/protocol/receive-limit-origin.md | [Positive native-code comparison](docs/protocol/receive-limit-origin.md#positive-native-code-comparison) | 9–44 | [GAP-011](#gap-011) |
-| docs/protocol/receive-limit-origin.md | [Configuration and remaining question](docs/protocol/receive-limit-origin.md#configuration-and-remaining-question) | 45–61 | [GAP-011](#gap-011) |
-| docs/protocol/receive-limit-origin.md | [Reproduce the bounded query](docs/protocol/receive-limit-origin.md#reproduce-the-bounded-query) | 62–97 | [GAP-011](#gap-011) |
-| docs/protocol/diagnostic-transfer-boundaries.md | [GAP-037 transfer-state diagnostic attempt](docs/protocol/diagnostic-transfer-boundaries.md#gap-037-transfer-state-diagnostic-attempt) | 1–9 | [GAP-021](#gap-021), [GAP-037](#gap-037), [GAP-064](#gap-064), [GAP-084](#gap-084) |
-| docs/protocol/diagnostic-transfer-boundaries.md | [Bounded preparation and failure](docs/protocol/diagnostic-transfer-boundaries.md#bounded-preparation-and-failure) | 10–33 | [GAP-021](#gap-021), [GAP-037](#gap-037), [GAP-064](#gap-064), [GAP-084](#gap-084) |
-| docs/protocol/diagnostic-transfer-boundaries.md | [Positive partial-file cleanup](docs/protocol/diagnostic-transfer-boundaries.md#positive-partial-file-cleanup) | 34–83 | [GAP-021](#gap-021), [GAP-037](#gap-037), [GAP-064](#gap-064), [GAP-084](#gap-084) |
-| docs/peers/mac-peer-first-session.md | [First Classic Mac peer session: finite wire observations](docs/peers/mac-peer-first-session.md#first-classic-mac-peer-session-finite-wire-observations) | 1–19 | [GAP-026](#gap-026), [GAP-079](#gap-079), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-084](#gap-084) |
-| docs/peers/mac-peer-first-session.md | [Observed control exchange](docs/peers/mac-peer-first-session.md#observed-control-exchange) | 20–46 | [GAP-026](#gap-026), [GAP-079](#gap-079), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-084](#gap-084) |
-| docs/peers/mac-peer-first-session.md | [Measured limits and safety stop](docs/peers/mac-peer-first-session.md#measured-limits-and-safety-stop) | 47–63 | [GAP-026](#gap-026), [GAP-079](#gap-079), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-084](#gap-084) |
-| docs/native-evidence/native-diagnostic-existing-preparation.md | [Existing-file diagnostic load preparation](docs/native-evidence/native-diagnostic-existing-preparation.md#existing-file-diagnostic-load-preparation) | 1–16 | [GAP-037](#gap-037), [GAP-084](#gap-084) |
-| docs/native-evidence/native-diagnostic-existing-preparation.md | [Bounds and order](docs/native-evidence/native-diagnostic-existing-preparation.md#bounds-and-order) | 17–48 | [GAP-037](#gap-037), [GAP-084](#gap-084) |
-| docs/native-evidence/native-diagnostic-existing-preparation.md | [Prepared commands](docs/native-evidence/native-diagnostic-existing-preparation.md#prepared-commands) | 49–117 | [GAP-037](#gap-037), [GAP-084](#gap-084) |
-| docs/native-evidence/native-diagnostic-existing-witness.md | [Native 1.9 diagnostic with one active and one waiting download](docs/native-evidence/native-diagnostic-existing-witness.md#native-19-diagnostic-with-one-active-and-one-waiting-download) | 1–8 | [GAP-021](#gap-021), [GAP-037](#gap-037), [GAP-064](#gap-064), [GAP-084](#gap-084) |
-| docs/native-evidence/native-diagnostic-existing-witness.md | [Native observation](docs/native-evidence/native-diagnostic-existing-witness.md#native-observation) | 9–66 | [GAP-021](#gap-021), [GAP-037](#gap-037), [GAP-064](#gap-064), [GAP-084](#gap-084) |
-| docs/native-evidence/native-diagnostic-existing-witness.md | [Scope and reproduction](docs/native-evidence/native-diagnostic-existing-witness.md#scope-and-reproduction) | 67–109 | [GAP-021](#gap-021), [GAP-037](#gap-037), [GAP-064](#gap-064), [GAP-084](#gap-084) |
-| docs/native-evidence/native-diagnostic-density-witness.md | [Native 1.9 diagnostic density with existing downloads](docs/native-evidence/native-diagnostic-density-witness.md#native-19-diagnostic-density-with-existing-downloads) | 1–9 | [GAP-037](#gap-037) |
-| docs/native-evidence/native-diagnostic-density-witness.md | [Fixed 303 observations](docs/native-evidence/native-diagnostic-density-witness.md#fixed-303-observations) | 10–41 | [GAP-037](#gap-037) |
-| docs/native-evidence/native-diagnostic-density-witness.md | [Packet views and restoration](docs/native-evidence/native-diagnostic-density-witness.md#packet-views-and-restoration) | 42–64 | [GAP-037](#gap-037) |
-| docs/native-evidence/native-diagnostic-density-witness.md | [Replay](docs/native-evidence/native-diagnostic-density-witness.md#replay) | 65–81 | [GAP-037](#gap-037) |
+| docs/mxd/corrections.md | [History](docs/mxd/corrections.md#history) | 447–493 | [GAP-011](#gap-011), [GAP-085](#gap-085) |
+| docs/protocol/failure-representatives.md | [Captured representative native failures](docs/protocol/failure-representatives.md#captured-representative-native-failures) | 1–24 | [GAP-003](#gap-003), [GAP-084](#gap-084) |
+| docs/protocol/failure-representatives.md | [Authentication: rejected password](docs/protocol/failure-representatives.md#authentication-rejected-password) | 25–39 | [GAP-003](#gap-003), [GAP-084](#gap-084) |
+| docs/protocol/failure-representatives.md | [Permission: account enumeration denied](docs/protocol/failure-representatives.md#permission-account-enumeration-denied) | 40–53 | [GAP-003](#gap-003), [GAP-084](#gap-084) |
+| docs/protocol/failure-representatives.md | [Missing object: file information lookup](docs/protocol/failure-representatives.md#missing-object-file-information-lookup) | 54–67 | [GAP-003](#gap-003), [GAP-084](#gap-084) |
+| docs/protocol/failure-representatives.md | [Malformed request: zero-size frame](docs/protocol/failure-representatives.md#malformed-request-zero-size-frame) | 68–82 | [GAP-003](#gap-003), [GAP-084](#gap-084) |
+| docs/protocol/failure-representatives.md | [Unsupported operation: unknown online transaction](docs/protocol/failure-representatives.md#unsupported-operation-unknown-online-transaction) | 83–121 | [GAP-003](#gap-003), [GAP-084](#gap-084) |
+| docs/native-evidence/runtime-recovery-20261113.md | [Disposable Mac OS 9 runtime recovery, 13 November 2026](docs/native-evidence/runtime-recovery-20261113.md#disposable-mac-os-9-runtime-recovery-13-november-2026) | 1–13 | [GAP-084](#gap-084) |
+| docs/native-evidence/runtime-recovery-20261113.md | [Recovery boundary](docs/native-evidence/runtime-recovery-20261113.md#recovery-boundary) | 14–83 | [GAP-084](#gap-084) |
+| docs/native-evidence/runtime-recovery-20261113.md | [Boot and guest observation](docs/native-evidence/runtime-recovery-20261113.md#boot-and-guest-observation) | 84–110 | [GAP-084](#gap-084) |
+| docs/native-evidence/runtime-recovery-20261113.md | [Read-only readiness smokes](docs/native-evidence/runtime-recovery-20261113.md#read-only-readiness-smokes) | 111–155 | [GAP-084](#gap-084) |
+| docs/protocol/receive-limit-origin.md | [Receive-limit origin and indexed reference boundary](docs/protocol/receive-limit-origin.md#receive-limit-origin-and-indexed-reference-boundary) | 1–12 | [GAP-011](#gap-011) |
+| docs/protocol/receive-limit-origin.md | [Positive native-code comparison](docs/protocol/receive-limit-origin.md#positive-native-code-comparison) | 13–51 | [GAP-011](#gap-011) |
+| docs/protocol/receive-limit-origin.md | [Configuration and remaining question](docs/protocol/receive-limit-origin.md#configuration-and-remaining-question) | 52–68 | [GAP-011](#gap-011) |
+| docs/protocol/receive-limit-origin.md | [Reproduce the bounded query](docs/protocol/receive-limit-origin.md#reproduce-the-bounded-query) | 69–104 | [GAP-011](#gap-011) |
+| docs/protocol/diagnostic-transfer-boundaries.md | [GAP-037 transfer-state diagnostic attempt](docs/protocol/diagnostic-transfer-boundaries.md#gap-037-transfer-state-diagnostic-attempt) | 1–14 | [GAP-021](#gap-021), [GAP-037](#gap-037), [GAP-064](#gap-064), [GAP-084](#gap-084) |
+| docs/protocol/diagnostic-transfer-boundaries.md | [Bounded preparation and failure](docs/protocol/diagnostic-transfer-boundaries.md#bounded-preparation-and-failure) | 15–38 | [GAP-021](#gap-021), [GAP-037](#gap-037), [GAP-064](#gap-064), [GAP-084](#gap-084) |
+| docs/protocol/diagnostic-transfer-boundaries.md | [Positive partial-file cleanup](docs/protocol/diagnostic-transfer-boundaries.md#positive-partial-file-cleanup) | 39–93 | [GAP-021](#gap-021), [GAP-037](#gap-037), [GAP-064](#gap-064), [GAP-084](#gap-084) |
+| docs/peers/mac-peer-first-session.md | [First Classic Mac peer session: finite wire observations](docs/peers/mac-peer-first-session.md#first-classic-mac-peer-session-finite-wire-observations) | 1–23 | [GAP-026](#gap-026), [GAP-079](#gap-079), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-084](#gap-084) |
+| docs/peers/mac-peer-first-session.md | [Observed control exchange](docs/peers/mac-peer-first-session.md#observed-control-exchange) | 24–53 | [GAP-026](#gap-026), [GAP-079](#gap-079), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-084](#gap-084) |
+| docs/peers/mac-peer-first-session.md | [Measured limits and safety stop](docs/peers/mac-peer-first-session.md#measured-limits-and-safety-stop) | 54–70 | [GAP-026](#gap-026), [GAP-079](#gap-079), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-084](#gap-084) |
+| docs/native-evidence/native-diagnostic-existing-preparation.md | [Existing-file diagnostic load preparation](docs/native-evidence/native-diagnostic-existing-preparation.md#existing-file-diagnostic-load-preparation) | 1–20 | [GAP-037](#gap-037), [GAP-084](#gap-084) |
+| docs/native-evidence/native-diagnostic-existing-preparation.md | [Bounds and order](docs/native-evidence/native-diagnostic-existing-preparation.md#bounds-and-order) | 21–52 | [GAP-037](#gap-037), [GAP-084](#gap-084) |
+| docs/native-evidence/native-diagnostic-existing-preparation.md | [Prepared commands](docs/native-evidence/native-diagnostic-existing-preparation.md#prepared-commands) | 53–129 | [GAP-037](#gap-037), [GAP-084](#gap-084) |
+| docs/native-evidence/native-diagnostic-existing-witness.md | [Native 1.9 diagnostic with one active and one waiting download](docs/native-evidence/native-diagnostic-existing-witness.md#native-19-diagnostic-with-one-active-and-one-waiting-download) | 1–12 | [GAP-021](#gap-021), [GAP-037](#gap-037), [GAP-064](#gap-064), [GAP-084](#gap-084) |
+| docs/native-evidence/native-diagnostic-existing-witness.md | [Native observation](docs/native-evidence/native-diagnostic-existing-witness.md#native-observation) | 13–73 | [GAP-021](#gap-021), [GAP-037](#gap-037), [GAP-064](#gap-064), [GAP-084](#gap-084) |
+| docs/native-evidence/native-diagnostic-existing-witness.md | [Scope and reproduction](docs/native-evidence/native-diagnostic-existing-witness.md#scope-and-reproduction) | 74–124 | [GAP-021](#gap-021), [GAP-037](#gap-037), [GAP-064](#gap-064), [GAP-084](#gap-084) |
+| docs/native-evidence/native-diagnostic-density-witness.md | [Native 1.9 diagnostic density with existing downloads](docs/native-evidence/native-diagnostic-density-witness.md#native-19-diagnostic-density-with-existing-downloads) | 1–12 | [GAP-037](#gap-037) |
+| docs/native-evidence/native-diagnostic-density-witness.md | [Fixed 303 observations](docs/native-evidence/native-diagnostic-density-witness.md#fixed-303-observations) | 13–47 | [GAP-037](#gap-037) |
+| docs/native-evidence/native-diagnostic-density-witness.md | [Packet views and restoration](docs/native-evidence/native-diagnostic-density-witness.md#packet-views-and-restoration) | 48–70 | [GAP-037](#gap-037) |
+| docs/native-evidence/native-diagnostic-density-witness.md | [Replay](docs/native-evidence/native-diagnostic-density-witness.md#replay) | 71–92 | [GAP-037](#gap-037) |
 | docs/mxd/corrections.md | [Direct replies](docs/mxd/corrections.md#direct-replies) | 180–181 | [GAP-085](#gap-085), [GAP-001](#gap-001), [GAP-019](#gap-019), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-086](#gap-086) |
 | docs/mxd/corrections.md | [Direct replies: acceptance evidence](docs/mxd/corrections.md#direct-replies-acceptance-evidence) | 257–297 | [GAP-085](#gap-085), [GAP-001](#gap-001), [GAP-019](#gap-019), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-086](#gap-086) |
 | docs/mxd/corrections.md | [Direct replies: native baseline](docs/mxd/corrections.md#direct-replies-native-baseline) | 182–188 | [GAP-085](#gap-085), [GAP-001](#gap-001), [GAP-019](#gap-019), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-086](#gap-086) |
 | docs/mxd/corrections.md | [Direct replies: behaviour before](docs/mxd/corrections.md#direct-replies-behaviour-before) | 189–210 | [GAP-085](#gap-085) |
 | docs/mxd/corrections.md | [Direct replies: correction](docs/mxd/corrections.md#direct-replies-correction) | 211–256 | [GAP-085](#gap-085), [GAP-081](#gap-081), [GAP-001](#gap-001), [GAP-019](#gap-019), [GAP-080](#gap-080), [GAP-086](#gap-086) |
 | docs/mxd/corrections.md | [Login extras](docs/mxd/corrections.md#login-extras) | 298–299 | [GAP-081](#gap-081), [GAP-085](#gap-085), [GAP-001](#gap-001), [GAP-019](#gap-019), [GAP-080](#gap-080), [GAP-086](#gap-086) |
-| docs/mxd/corrections.md | [Login extras: acceptance evidence](docs/mxd/corrections.md#login-extras-acceptance-evidence) | 376–441 | [GAP-081](#gap-081), [GAP-085](#gap-085), [GAP-001](#gap-001), [GAP-019](#gap-019), [GAP-080](#gap-080), [GAP-086](#gap-086) |
+| docs/mxd/corrections.md | [Login extras: acceptance evidence](docs/mxd/corrections.md#login-extras-acceptance-evidence) | 376–446 | [GAP-081](#gap-081), [GAP-085](#gap-085), [GAP-001](#gap-001), [GAP-019](#gap-019), [GAP-080](#gap-080), [GAP-086](#gap-086) |
 | docs/mxd/corrections.md | [Login extras: native baseline](docs/mxd/corrections.md#login-extras-native-baseline) | 300–326 | [GAP-081](#gap-081), [GAP-085](#gap-085) |
 | docs/mxd/corrections.md | [Login extras: correction](docs/mxd/corrections.md#login-extras-correction) | 342–375 | [GAP-081](#gap-081), [GAP-085](#gap-085), [GAP-001](#gap-001), [GAP-019](#gap-019), [GAP-080](#gap-080), [GAP-086](#gap-086) |
 | docs/mxd/corrections.md | [Login extras: behaviour before](docs/mxd/corrections.md#login-extras-behaviour-before) | 327–341 | [GAP-081](#gap-081), [GAP-085](#gap-085) |
-| docs/native-evidence/native-diagnostic-near-preparation.md | [Native 303 near-boundary preparation](docs/native-evidence/native-diagnostic-near-preparation.md#native-303-near-boundary-preparation) | 1–13 | [GAP-037](#gap-037) |
-| docs/native-evidence/native-diagnostic-near-preparation.md | [Fixed bounds and decision gate](docs/native-evidence/native-diagnostic-near-preparation.md#fixed-bounds-and-decision-gate) | 14–43 | [GAP-037](#gap-037) |
-| docs/native-evidence/native-diagnostic-near-preparation.md | [Offline preparation and replay commands](docs/native-evidence/native-diagnostic-near-preparation.md#offline-preparation-and-replay-commands) | 44–69 | [GAP-037](#gap-037) |
-| docs/native-evidence/native-diagnostic-near-witness.md | [Native 1.9 diagnostic near-boundary observation](docs/native-evidence/native-diagnostic-near-witness.md#native-19-diagnostic-near-boundary-observation) | 1–47 | [GAP-037](#gap-037) |
-| docs/native-evidence/native-diagnostic-near-witness.md | [Replay](docs/native-evidence/native-diagnostic-near-witness.md#replay) | 48–73 | [GAP-037](#gap-037) |
-| docs/peers/mac-peer-isolated-session.md | [Isolated Classic client: one finite 1.9 session](docs/peers/mac-peer-isolated-session.md#isolated-classic-client-one-finite-19-session) | 1–59 | [GAP-079](#gap-079), [GAP-081](#gap-081), [GAP-084](#gap-084) |
-| docs/protocol/request-500-contract.md | [Request 500: native reply and one modern client's schedule](docs/protocol/request-500-contract.md#request-500-native-reply-and-one-modern-clients-schedule) | 1–45 | [GAP-079](#gap-079) |
-| docs/presence-and-messaging/native-console-broadcast.md | [Native console broadcast and client 355: bounded D1 witness](docs/presence-and-messaging/native-console-broadcast.md#native-console-broadcast-and-client-355-bounded-d1-witness) | 1–69 | [GAP-044](#gap-044), [GAP-076](#gap-076) |
+| docs/native-evidence/native-diagnostic-near-preparation.md | [Native 303 near-boundary preparation](docs/native-evidence/native-diagnostic-near-preparation.md#native-303-near-boundary-preparation) | 1–16 | [GAP-037](#gap-037) |
+| docs/native-evidence/native-diagnostic-near-preparation.md | [Fixed bounds and decision gate](docs/native-evidence/native-diagnostic-near-preparation.md#fixed-bounds-and-decision-gate) | 17–46 | [GAP-037](#gap-037) |
+| docs/native-evidence/native-diagnostic-near-preparation.md | [Offline preparation and replay commands](docs/native-evidence/native-diagnostic-near-preparation.md#offline-preparation-and-replay-commands) | 47–78 | [GAP-037](#gap-037) |
+| docs/native-evidence/native-diagnostic-near-witness.md | [Native 1.9 diagnostic near-boundary observation](docs/native-evidence/native-diagnostic-near-witness.md#native-19-diagnostic-near-boundary-observation) | 1–54 | [GAP-037](#gap-037) |
+| docs/native-evidence/native-diagnostic-near-witness.md | [Replay](docs/native-evidence/native-diagnostic-near-witness.md#replay) | 55–86 | [GAP-037](#gap-037) |
+| docs/peers/mac-peer-isolated-session.md | [Isolated Classic client: one finite 1.9 session](docs/peers/mac-peer-isolated-session.md#isolated-classic-client-one-finite-19-session) | 1–69 | [GAP-079](#gap-079), [GAP-081](#gap-081), [GAP-084](#gap-084) |
+| docs/protocol/request-500-contract.md | [Request 500: native reply and one modern client's schedule](docs/protocol/request-500-contract.md#request-500-native-reply-and-one-modern-clients-schedule) | 1–51 | [GAP-079](#gap-079) |
+| docs/presence-and-messaging/native-console-broadcast.md | [Native console broadcast and client 355: bounded D1 witness](docs/presence-and-messaging/native-console-broadcast.md#native-console-broadcast-and-client-355-bounded-d1-witness) | 1–81 | [GAP-044](#gap-044), [GAP-076](#gap-076) |
 | docs/mxd/classic-client-trials.md | [Procedure for a Classic peer against an isolated fixture](docs/mxd/classic-client-trials.md#procedure-for-a-classic-peer-against-an-isolated-fixture) | 143–151 | [GAP-080](#gap-080), [GAP-085](#gap-085), [GAP-001](#gap-001), [GAP-019](#gap-019), [GAP-081](#gap-081), [GAP-086](#gap-086) |
 | docs/mxd/classic-client-trials.md | [Teardown after the trials](docs/mxd/classic-client-trials.md#teardown-after-the-trials) | 134–142 | [GAP-080](#gap-080), [GAP-085](#gap-085), [GAP-019](#gap-019), [GAP-001](#gap-001), [GAP-081](#gap-081), [GAP-086](#gap-086) |
 | docs/mxd/classic-client-trials.md | [Supervise inside the existing client namespace](docs/mxd/classic-client-trials.md#supervise-inside-the-existing-client-namespace) | 220–290 | [GAP-080](#gap-080), [GAP-085](#gap-085) |
@@ -6471,12 +6480,12 @@ of binary paths, clients or packet inputs.
 | docs/mxd/classic-client-trials.md | [Failed trial with a 48-character password](docs/mxd/classic-client-trials.md#failed-trial-with-a-48-character-password) | 38–82 | [GAP-019](#gap-019), [GAP-080](#gap-080), [GAP-085](#gap-085), [GAP-001](#gap-001), [GAP-081](#gap-081), [GAP-086](#gap-086) |
 | docs/mxd/classic-client-trials.md | [Retained evidence and private replay](docs/mxd/classic-client-trials.md#retained-evidence-and-private-replay) | 113–133 | [GAP-019](#gap-019), [GAP-080](#gap-080), [GAP-085](#gap-085), [GAP-001](#gap-001), [GAP-081](#gap-081), [GAP-086](#gap-086) |
 | docs/mxd/classic-client-trials.md | [Revisions examined](docs/mxd/classic-client-trials.md#revisions-examined) | 11–22 | [GAP-019](#gap-019), [GAP-080](#gap-080), [GAP-085](#gap-085) |
-| docs/peers/classic-login-proxy.md | [Classic Login107 field-161 proxy](docs/peers/classic-login-proxy.md#classic-login107-field-161-proxy) | 1–11 | [GAP-080](#gap-080), [GAP-081](#gap-081) |
-| docs/peers/classic-login-proxy.md | [Fixed topology and authority boundary](docs/peers/classic-login-proxy.md#fixed-topology-and-authority-boundary) | 12–38 | [GAP-080](#gap-080), [GAP-081](#gap-081) |
-| docs/peers/classic-login-proxy.md | [Wire transformation](docs/peers/classic-login-proxy.md#wire-transformation) | 39–106 | [GAP-080](#gap-080), [GAP-081](#gap-081) |
-| docs/peers/classic-login-proxy.md | [Automatic observation cutoff (B27 preparation)](docs/peers/classic-login-proxy.md#automatic-observation-cutoff-b27-preparation) | 107–135 | [GAP-085](#gap-085), [GAP-086](#gap-086) |
-| docs/peers/classic-login-proxy.md | [Offline checks and remaining gate](docs/peers/classic-login-proxy.md#offline-checks-and-remaining-gate) | 136–189 | [GAP-080](#gap-080), [GAP-081](#gap-081) |
-| docs/peers/classic-login-proxy.md | [Read-only actual namespace guard receipt](docs/peers/classic-login-proxy.md#read-only-actual-namespace-guard-receipt) | 190–208 | [GAP-080](#gap-080), [GAP-081](#gap-081) |
+| docs/peers/classic-login-proxy.md | [Classic Login107 field-161 proxy](docs/peers/classic-login-proxy.md#classic-login107-field-161-proxy) | 1–16 | [GAP-080](#gap-080), [GAP-081](#gap-081) |
+| docs/peers/classic-login-proxy.md | [Fixed topology and authority boundary](docs/peers/classic-login-proxy.md#fixed-topology-and-authority-boundary) | 17–43 | [GAP-080](#gap-080), [GAP-081](#gap-081) |
+| docs/peers/classic-login-proxy.md | [Wire transformation](docs/peers/classic-login-proxy.md#wire-transformation) | 44–113 | [GAP-080](#gap-080), [GAP-081](#gap-081) |
+| docs/peers/classic-login-proxy.md | [Automatic observation cutoff (B27 preparation)](docs/peers/classic-login-proxy.md#automatic-observation-cutoff-b27-preparation) | 114–142 | [GAP-085](#gap-085), [GAP-086](#gap-086) |
+| docs/peers/classic-login-proxy.md | [Offline checks and remaining gate](docs/peers/classic-login-proxy.md#offline-checks-and-remaining-gate) | 143–201 | [GAP-080](#gap-080), [GAP-081](#gap-081) |
+| docs/peers/classic-login-proxy.md | [Read-only actual namespace guard receipt](docs/peers/classic-login-proxy.md#read-only-actual-namespace-guard-receipt) | 202–220 | [GAP-080](#gap-080), [GAP-081](#gap-081) |
 | docs/mxd/validation-status.md | [mxd validation status](docs/mxd/validation-status.md#mxd-validation-status) | 1–7 | [GAP-001](#gap-001), [GAP-019](#gap-019), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-085](#gap-085), [GAP-086](#gap-086) |
 | docs/mxd/validation-status.md | [Status of the validation work](docs/mxd/validation-status.md#status-of-the-validation-work) | 8–16 | [GAP-001](#gap-001), [GAP-019](#gap-019), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-085](#gap-085), [GAP-086](#gap-086) |
 | docs/mxd/README.md | [mxd validation](docs/mxd/README.md#mxd-validation) | 1–8 | [GAP-001](#gap-001), [GAP-019](#gap-019), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-085](#gap-085), [GAP-086](#gap-086) |
@@ -6494,193 +6503,193 @@ of binary paths, clients or packet inputs.
 | docs/mxd/validation-status.md | [Startup hand-off missing from the current implementation](docs/mxd/validation-status.md#startup-hand-off-missing-from-the-current-implementation) | 80–111 | [GAP-001](#gap-001), [GAP-019](#gap-019), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-085](#gap-085), [GAP-086](#gap-086) |
 | docs/mxd/validation-status.md | [Handoff locations](docs/mxd/validation-status.md#handoff-locations) | 112–154 | [GAP-085](#gap-085), [GAP-086](#gap-086) |
 | docs/mxd/validation-status.md | [Repeatability and deferred validation](docs/mxd/validation-status.md#repeatability-and-deferred-validation) | 155–180 | [GAP-001](#gap-001), [GAP-019](#gap-019), [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-085](#gap-085), [GAP-086](#gap-086) |
-| docs/native-evidence/native-pm-preparation.md | [Native private-message fixture preparation (A26)](docs/native-evidence/native-pm-preparation.md#native-private-message-fixture-preparation-a26) | 1–13 | [GAP-044](#gap-044) |
-| docs/native-evidence/native-pm-preparation.md | [Matrix](docs/native-evidence/native-pm-preparation.md#matrix) | 14–35 | [GAP-044](#gap-044) |
-| docs/native-evidence/native-pm-preparation.md | [Operator sequence after separate START](docs/native-evidence/native-pm-preparation.md#operator-sequence-after-separate-start) | 36–86 | [GAP-044](#gap-044) |
-| docs/native-evidence/native-pm-witness.md | [Native 1.9 private-message 104 witness (A29)](docs/native-evidence/native-pm-witness.md#native-19-private-message-104-witness-a29) | 1–72 | [GAP-044](#gap-044) |
-| docs/presence-and-messaging/native-104-variants.md | [Native 1.9 type-104 producer matrix (A28)](docs/presence-and-messaging/native-104-variants.md#native-19-type-104-producer-matrix-a28) | 1–26 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
-| docs/presence-and-messaging/native-104-variants.md | [Parsing and evidence limits](docs/presence-and-messaging/native-104-variants.md#parsing-and-evidence-limits) | 27–69 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
-| docs/native-evidence/native-settings-preparation.md | [Native 1.9 settings field 113 preparation](docs/native-evidence/native-settings-preparation.md#native-19-settings-field-113-preparation) | 1–13 | [GAP-015](#gap-015), [GAP-016](#gap-016), [GAP-017](#gap-017) |
-| docs/native-evidence/native-settings-preparation.md | [Bounded matrix and observer](docs/native-evidence/native-settings-preparation.md#bounded-matrix-and-observer) | 14–38 | [GAP-015](#gap-015), [GAP-016](#gap-016), [GAP-017](#gap-017) |
-| docs/native-evidence/native-settings-preparation.md | [Preparation and later authorised capture](docs/native-evidence/native-settings-preparation.md#preparation-and-later-authorised-capture) | 39–75 | [GAP-015](#gap-015), [GAP-016](#gap-016), [GAP-017](#gap-017) |
-| docs/native-evidence/native-settings-witness.md | [Native 1.9 settings field 113 witness](docs/native-evidence/native-settings-witness.md#native-19-settings-field-113-witness) | 1–71 | [GAP-015](#gap-015), [GAP-016](#gap-016), [GAP-017](#gap-017) |
-| docs/presence-and-messaging/native-ban-notices.md | [Native 1.9 temporary ban notice: disposable option-one witness](docs/presence-and-messaging/native-ban-notices.md#native-19-temporary-ban-notice-disposable-option-one-witness) | 1–9 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
-| docs/presence-and-messaging/native-ban-notices.md | [Identity and baseline](docs/presence-and-messaging/native-ban-notices.md#identity-and-baseline) | 10–28 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
-| docs/presence-and-messaging/native-ban-notices.md | [One option-one exchange](docs/presence-and-messaging/native-ban-notices.md#one-option-one-exchange) | 29–61 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
-| docs/presence-and-messaging/native-ban-notices.md | [Isolation and limits](docs/presence-and-messaging/native-ban-notices.md#isolation-and-limits) | 62–91 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
-| docs/protocol/parameter-multiplicity.md | [Parameter multiplicity and ordering in Hotline Server 1.9](docs/protocol/parameter-multiplicity.md#parameter-multiplicity-and-ordering-in-hotline-server-19) | 1–56 | [GAP-017](#gap-017) |
-| docs/files-and-transfers/native-transfer-stall.md | [Disposable lab transfer stall before the option-two ban fixture](docs/files-and-transfers/native-transfer-stall.md#disposable-lab-transfer-stall-before-the-option-two-ban-fixture) | 1–20 | [GAP-044](#gap-044), [GAP-064](#gap-064), [GAP-074](#gap-074) |
-| docs/files-and-transfers/native-transfer-stall.md | [What the frozen TCP views establish](docs/files-and-transfers/native-transfer-stall.md#what-the-frozen-tcp-views-establish) | 21–61 | [GAP-044](#gap-044), [GAP-064](#gap-064), [GAP-074](#gap-074) |
-| docs/files-and-transfers/native-transfer-stall.md | [Repeated baseline and a successful comparison](docs/files-and-transfers/native-transfer-stall.md#repeated-baseline-and-a-successful-comparison) | 62–112 | [GAP-044](#gap-044), [GAP-064](#gap-064), [GAP-074](#gap-074) |
-| docs/files-and-transfers/native-transfer-stall.md | [One focus event on the repeated prefix](docs/files-and-transfers/native-transfer-stall.md#one-focus-event-on-the-repeated-prefix) | 113–123 | [GAP-064](#gap-064), [GAP-074](#gap-074) |
-| docs/native-evidence/native-settings-transition-prep.md | [Same-session 304 transition preparation (A32)](docs/native-evidence/native-settings-transition-prep.md#same-session-304-transition-preparation-a32) | 1–63 | [GAP-029](#gap-029), [GAP-030](#gap-030) |
-| docs/native-evidence/native-settings-transition-witness.md | [Native 1.9 same-session 304 transition witness (A33)](docs/native-evidence/native-settings-transition-witness.md#native-19-same-session-304-transition-witness-a33) | 1–78 | [GAP-015](#gap-015), [GAP-016](#gap-016), [GAP-029](#gap-029), [GAP-030](#gap-030) |
-| docs/files-and-transfers/native-download-send-path.md | [Native ordinary-download send path](docs/files-and-transfers/native-download-send-path.md#native-ordinary-download-send-path) | 1–12 | [GAP-021](#gap-021), [GAP-064](#gap-064) |
-| docs/files-and-transfers/native-download-send-path.md | [Request, attachment and producer](docs/files-and-transfers/native-download-send-path.md#request-attachment-and-producer) | 13–54 | [GAP-021](#gap-021), [GAP-064](#gap-064) |
-| docs/files-and-transfers/native-download-send-path.md | [Limits and next proof](docs/files-and-transfers/native-download-send-path.md#limits-and-next-proof) | 55–88 | [GAP-021](#gap-021), [GAP-064](#gap-064) |
-| docs/accounts-and-privileges/classic-account-constructors.md | [Classic client account request constructors](docs/accounts-and-privileges/classic-account-constructors.md#classic-client-account-request-constructors) | 1–14 | [GAP-071](#gap-071), [GAP-080](#gap-080) |
-| docs/accounts-and-privileges/classic-account-constructors.md | [What the executable trace establishes](docs/accounts-and-privileges/classic-account-constructors.md#what-the-executable-trace-establishes) | 15–49 | [GAP-071](#gap-071), [GAP-080](#gap-080) |
-| docs/accounts-and-privileges/classic-account-constructors.md | [Repeat or check without a live server](docs/accounts-and-privileges/classic-account-constructors.md#repeat-or-check-without-a-live-server) | 50–77 | [GAP-071](#gap-071), [GAP-080](#gap-080) |
-| docs/native-evidence/native-121-default-preparation.md | [Delayed 121 default-text preparation (A35)](docs/native-evidence/native-121-default-preparation.md#delayed-121-default-text-preparation-a35) | 1–83 | [GAP-029](#gap-029), [GAP-030](#gap-030) |
-| docs/native-evidence/native-121-default-witness.md | [Native 1.9 delayed 121 default response (A37)](docs/native-evidence/native-121-default-witness.md#native-19-delayed-121-default-response-a37) | 1–75 | [GAP-029](#gap-029), [GAP-030](#gap-030) |
-| docs/peers/classic-native-baseline.md | [Classic client to native Hotline 1.9 baseline through the fixed proxy](docs/peers/classic-native-baseline.md#classic-client-to-native-hotline-19-baseline-through-the-fixed-proxy) | 1–12 | [GAP-080](#gap-080), [GAP-081](#gap-081) |
-| docs/peers/classic-native-baseline.md | [Provenance and finite result](docs/peers/classic-native-baseline.md#provenance-and-finite-result) | 13–59 | [GAP-080](#gap-080), [GAP-081](#gap-081) |
-| docs/peers/classic-native-baseline.md | [Offline replay](docs/peers/classic-native-baseline.md#offline-replay) | 60–86 | [GAP-080](#gap-080), [GAP-081](#gap-081) |
-| docs/native-evidence/native-ui-focus-witness.md | [One server Log focus event during a stalled native download](docs/native-evidence/native-ui-focus-witness.md#one-server-log-focus-event-during-a-stalled-native-download) | 1–19 | [GAP-064](#gap-064), [GAP-074](#gap-074) |
-| docs/native-evidence/native-ui-focus-witness.md | [Measured event and result](docs/native-evidence/native-ui-focus-witness.md#measured-event-and-result) | 20–72 | [GAP-064](#gap-064), [GAP-074](#gap-074) |
-| docs/native-evidence/native-control-readiness.md | [Readiness for isolated control-operation fixtures](docs/native-evidence/native-control-readiness.md#readiness-for-isolated-control-operation-fixtures) | 1–16 | [GAP-029](#gap-029), [GAP-044](#gap-044), [GAP-074](#gap-074) |
-| docs/native-evidence/native-control-readiness.md | [Why a separate profile is appropriate](docs/native-evidence/native-control-readiness.md#why-a-separate-profile-is-appropriate) | 17–29 | [GAP-029](#gap-029), [GAP-044](#gap-044), [GAP-074](#gap-074) |
-| docs/native-evidence/native-control-readiness.md | [Required gates](docs/native-evidence/native-control-readiness.md#required-gates) | 30–46 | [GAP-029](#gap-029), [GAP-044](#gap-044), [GAP-074](#gap-074) |
-| docs/native-evidence/native-control-readiness.md | [Ban fixture boundary](docs/native-evidence/native-control-readiness.md#ban-fixture-boundary) | 47–71 | [GAP-029](#gap-029), [GAP-044](#gap-044), [GAP-074](#gap-074) |
-| docs/native-evidence/native-control-readiness.md | [Acceptance and escalation](docs/native-evidence/native-control-readiness.md#acceptance-and-escalation) | 72–82 | [GAP-029](#gap-029), [GAP-044](#gap-044), [GAP-074](#gap-074) |
-| docs/peers/classic-field161-matrix.md | [Classic client field-161 width and omission matrix](docs/peers/classic-field161-matrix.md#classic-client-field-161-width-and-omission-matrix) | 1–78 | [GAP-026](#gap-026), [GAP-080](#gap-080), [GAP-081](#gap-081) |
-| docs/native-evidence/native-ban-control-preparation.md | [Isolated permanent-ban control fixture (C52 preparation)](docs/native-evidence/native-ban-control-preparation.md#isolated-permanent-ban-control-fixture-c52-preparation) | 1–10 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
-| docs/native-evidence/native-ban-control-preparation.md | [Prepared image and immutable inputs](docs/native-evidence/native-ban-control-preparation.md#prepared-image-and-immutable-inputs) | 11–28 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
-| docs/native-evidence/native-ban-control-preparation.md | [Bounded next live sequence (requires separate grant)](docs/native-evidence/native-ban-control-preparation.md#bounded-next-live-sequence-requires-separate-grant) | 29–91 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
-| docs/presence-and-messaging/notification-104-variants.md | [Native type-104 notification variants](docs/presence-and-messaging/notification-104-variants.md#native-type-104-notification-variants) | 1–25 | [GAP-044](#gap-044) |
-| docs/presence-and-messaging/notification-104-variants.md | [Discrimination and ambiguity](docs/presence-and-messaging/notification-104-variants.md#discrimination-and-ambiguity) | 26–52 | [GAP-044](#gap-044) |
-| docs/presence-and-messaging/notification-104-variants.md | [Provenance and remaining acceptance](docs/presence-and-messaging/notification-104-variants.md#provenance-and-remaining-acceptance) | 53–76 | [GAP-044](#gap-044) |
-| docs/peers/peer-profile-rules.md | [Identified peer profiles and the unknown-peer rule](docs/peers/peer-profile-rules.md#identified-peer-profiles-and-the-unknown-peer-rule) | 1–9 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-026](#gap-026) |
-| docs/peers/peer-profile-rules.md | [Evaluated build identities](docs/peers/peer-profile-rules.md#evaluated-build-identities) | 10–47 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-026](#gap-026) |
-| docs/peers/peer-profile-rules.md | [Profile assignment and unknown-peer fallback](docs/peers/peer-profile-rules.md#profile-assignment-and-unknown-peer-fallback) | 48–77 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-026](#gap-026) |
-| docs/native-evidence/native-settings-persistence-preparation.md | [Isolated native settings persistence preparation (A42)](docs/native-evidence/native-settings-persistence-preparation.md#isolated-native-settings-persistence-preparation-a42) | 1–11 | [GAP-029](#gap-029) |
-| docs/native-evidence/native-settings-persistence-preparation.md | [Assets and authority](docs/native-evidence/native-settings-persistence-preparation.md#assets-and-authority) | 12–34 | [GAP-029](#gap-029) |
-| docs/native-evidence/native-settings-persistence-preparation.md | [Fixed observation](docs/native-evidence/native-settings-persistence-preparation.md#fixed-observation) | 35–130 | [GAP-029](#gap-029) |
-| docs/native-evidence/native-ban-control-witness.md | [Native 1.9 permanent ban control witness](docs/native-evidence/native-ban-control-witness.md#native-19-permanent-ban-control-witness) | 1–8 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
-| docs/native-evidence/native-ban-control-witness.md | [Scope and provenance](docs/native-evidence/native-ban-control-witness.md#scope-and-provenance) | 9–28 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
-| docs/native-evidence/native-ban-control-witness.md | [Observed sequence](docs/native-evidence/native-ban-control-witness.md#observed-sequence) | 29–60 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
-| docs/native-evidence/native-ban-control-witness.md | [Offline replay](docs/native-evidence/native-ban-control-witness.md#offline-replay) | 61–75 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
-| docs/peers/classic-server-name-162.md | [Classic client acceptance of one ASCII server-name field](docs/peers/classic-server-name-162.md#classic-client-acceptance-of-one-ascii-server-name-field) | 1–63 | [GAP-026](#gap-026), [GAP-080](#gap-080), [GAP-081](#gap-081) |
-| docs/accounts-and-privileges/native-configured-ban-static.md | [Native 1.9 configured-ban application: static preparation](docs/accounts-and-privileges/native-configured-ban-static.md#native-19-configured-ban-application-static-preparation) | 1–7 | [GAP-044](#gap-044) |
-| docs/accounts-and-privileges/native-configured-ban-static.md | [Raw text and source path](docs/accounts-and-privileges/native-configured-ban-static.md#raw-text-and-source-path) | 8–35 | [GAP-044](#gap-044) |
-| docs/accounts-and-privileges/native-configured-ban-static.md | [Next preparation gate](docs/accounts-and-privileges/native-configured-ban-static.md#next-preparation-gate) | 36–54 | [GAP-044](#gap-044) |
-| docs/accounts-and-privileges/native-configured-ban-ui-resources.md | [Configured-ban Options resource reconnaissance](docs/accounts-and-privileges/native-configured-ban-ui-resources.md#configured-ban-options-resource-reconnaissance) | 1–29 | [GAP-044](#gap-044) |
-| docs/native-evidence/native-ban-reload-witness.md | [Native 1.9 persisted-ban reload witness](docs/native-evidence/native-ban-reload-witness.md#native-19-persisted-ban-reload-witness) | 1–9 | [GAP-074](#gap-074) |
-| docs/native-evidence/native-ban-reload-witness.md | [Pinned stopped image and UI](docs/native-evidence/native-ban-reload-witness.md#pinned-stopped-image-and-ui) | 10–35 | [GAP-074](#gap-074) |
-| docs/native-evidence/native-ban-reload-witness.md | [One fresh Login 107](docs/native-evidence/native-ban-reload-witness.md#one-fresh-login-107) | 36–58 | [GAP-074](#gap-074) |
-| docs/native-evidence/native-ban-reload-witness.md | [Offline replay and limit](docs/native-evidence/native-ban-reload-witness.md#offline-replay-and-limit) | 59–78 | [GAP-074](#gap-074) |
-| docs/native-evidence/native-settings-persistence-witness.md | [Native 1.9 settings persistence witness (A46/A48)](docs/native-evidence/native-settings-persistence-witness.md#native-19-settings-persistence-witness-a46a48) | 1–11 | [GAP-029](#gap-029) |
-| docs/native-evidence/native-settings-persistence-witness.md | [Controlled sequence](docs/native-evidence/native-settings-persistence-witness.md#controlled-sequence) | 12–68 | [GAP-029](#gap-029) |
-| docs/native-evidence/native-settings-persistence-witness.md | [Replay and provenance](docs/native-evidence/native-settings-persistence-witness.md#replay-and-provenance) | 69–115 | [GAP-029](#gap-029) |
-| docs/peers/classic-roster-subject-115.md | [Classic client: first roster reply with field 115](docs/peers/classic-roster-subject-115.md#classic-client-first-roster-reply-with-field-115) | 1–9 | [GAP-081](#gap-081) |
-| docs/peers/classic-roster-subject-115.md | [B62 session, 14 November 2026](docs/peers/classic-roster-subject-115.md#b62-session-14-november-2026) | 10–49 | [GAP-081](#gap-081) |
-| docs/peers/classic-roster-subject-115.md | [Provenance and replay](docs/peers/classic-roster-subject-115.md#provenance-and-replay) | 50–77 | [GAP-081](#gap-081) |
-| docs/native-evidence/native-configured-ban-preparation.md | [Configured-address ban application: control-only preparation](docs/native-evidence/native-configured-ban-preparation.md#configured-address-ban-application-control-only-preparation) | 1–7 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
-| docs/native-evidence/native-configured-ban-preparation.md | [Owned image and identity](docs/native-evidence/native-configured-ban-preparation.md#owned-image-and-identity) | 8–25 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
-| docs/native-evidence/native-configured-ban-preparation.md | [Planned traffic and gates](docs/native-evidence/native-configured-ban-preparation.md#planned-traffic-and-gates) | 26–63 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
-| docs/native-evidence/native-configured-ban-preparation.md | [Later live handoff and retirement](docs/native-evidence/native-configured-ban-preparation.md#later-live-handoff-and-retirement) | 64–82 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
-| docs/native-evidence/native-configured-ban-preparation.md | [Observed result](docs/native-evidence/native-configured-ban-preparation.md#observed-result) | 83–88 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
-| docs/native-evidence/native-configured-ban-witness.md | [Hotline Server 1.9 configured-address ban application](docs/native-evidence/native-configured-ban-witness.md#hotline-server-19-configured-address-ban-application) | 1–13 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
-| docs/native-evidence/native-configured-ban-witness.md | [Boundary and setup](docs/native-evidence/native-configured-ban-witness.md#boundary-and-setup) | 14–36 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
-| docs/native-evidence/native-configured-ban-witness.md | [One Add and Save](docs/native-evidence/native-configured-ban-witness.md#one-add-and-save) | 37–68 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
-| docs/native-evidence/native-configured-ban-witness.md | [Limits](docs/native-evidence/native-configured-ban-witness.md#limits) | 69–77 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
-| docs/protocol/diagnostic-formatting-trace.md | [Native 1.9 diagnostic text: formatting and wire length](docs/protocol/diagnostic-formatting-trace.md#native-19-diagnostic-text-formatting-and-wire-length) | 1–9 | [GAP-037](#gap-037), [GAP-019](#gap-019) |
-| docs/protocol/diagnostic-formatting-trace.md | [Formatter-to-field trace](docs/protocol/diagnostic-formatting-trace.md#formatter-to-field-trace) | 10–31 | [GAP-037](#gap-037), [GAP-019](#gap-019) |
-| docs/protocol/diagnostic-formatting-trace.md | [Observed lengths and compatibility](docs/protocol/diagnostic-formatting-trace.md#observed-lengths-and-compatibility) | 32–58 | [GAP-037](#gap-037), [GAP-019](#gap-019) |
-| docs/protocol/diagnostic-formatting-trace.md | [Reproduction and limits](docs/protocol/diagnostic-formatting-trace.md#reproduction-and-limits) | 59–78 | [GAP-037](#gap-037), [GAP-019](#gap-019) |
-| docs/accounts-and-privileges/native-ban-file-format.md | [Native Hotline Server 1.9 `Banned` data fork: observed v2 layout](docs/accounts-and-privileges/native-ban-file-format.md#native-hotline-server-19-banned-data-fork-observed-v2-layout) | 1–35 | [GAP-074](#gap-074) |
-| docs/accounts-and-privileges/native-ban-file-format.md | [Reader and writer bounds](docs/accounts-and-privileges/native-ban-file-format.md#reader-and-writer-bounds) | 36–63 | [GAP-074](#gap-074) |
-| docs/accounts-and-privileges/native-ban-file-format.md | [Request 110 reason-copy path](docs/accounts-and-privileges/native-ban-file-format.md#request-110-reason-copy-path) | 64–88 | [GAP-074](#gap-074) |
-| docs/accounts-and-privileges/native-ban-file-format.md | [Replay and limits](docs/accounts-and-privileges/native-ban-file-format.md#replay-and-limits) | 89–105 | [GAP-074](#gap-074) |
-| docs/native-evidence/native-ban-expiry-preparation.md | [Native temporary-ban expiry fixture preparation](docs/native-evidence/native-ban-expiry-preparation.md#native-temporary-ban-expiry-fixture-preparation) | 1–6 | [GAP-074](#gap-074) |
-| docs/native-evidence/native-ban-expiry-preparation.md | [Scope and owned identities](docs/native-evidence/native-ban-expiry-preparation.md#scope-and-owned-identities) | 7–38 | [GAP-074](#gap-074) |
-| docs/native-evidence/native-ban-expiry-preparation.md | [Prepared case order](docs/native-evidence/native-ban-expiry-preparation.md#prepared-case-order) | 39–64 | [GAP-074](#gap-074) |
-| docs/native-evidence/native-ban-expiry-preparation.md | [Repeatable offline commands and live prerequisites](docs/native-evidence/native-ban-expiry-preparation.md#repeatable-offline-commands-and-live-prerequisites) | 65–140 | [GAP-074](#gap-074) |
-| docs/native-evidence/native-ban-expiry-preparation.md | [Time and interpretation](docs/native-evidence/native-ban-expiry-preparation.md#time-and-interpretation) | 141–154 | [GAP-074](#gap-074) |
-| docs/native-evidence/native-ban-expiry-preparation.md | [Verification and decision gates](docs/native-evidence/native-ban-expiry-preparation.md#verification-and-decision-gates) | 155–178 | [GAP-074](#gap-074) |
-| docs/native-evidence/native-ban-expiry-preparation.md | [Observed first epoch](docs/native-evidence/native-ban-expiry-preparation.md#observed-first-epoch) | 179–184 | [GAP-074](#gap-074) |
-| docs/native-evidence/native-roster-overlap-preparation.md | [Native roster overlap fixture preparation](docs/native-evidence/native-roster-overlap-preparation.md#native-roster-overlap-fixture-preparation) | 1–11 | [GAP-035](#gap-035) |
-| docs/native-evidence/native-roster-overlap-preparation.md | [Plan and isolation](docs/native-evidence/native-roster-overlap-preparation.md#plan-and-isolation) | 12–63 | [GAP-035](#gap-035) |
-| docs/native-evidence/native-roster-overlap-preparation.md | [Bounded causal sequence](docs/native-evidence/native-roster-overlap-preparation.md#bounded-causal-sequence) | 64–107 | [GAP-035](#gap-035) |
-| docs/native-evidence/native-roster-overlap-preparation.md | [Verification and unresolved requirements](docs/native-evidence/native-roster-overlap-preparation.md#verification-and-unresolved-requirements) | 108–129 | [GAP-035](#gap-035) |
-| docs/native-evidence/native-ban-expiry-cleanup.md | [Restore the owned ban-expiry accounts after the final probe](docs/native-evidence/native-ban-expiry-cleanup.md#restore-the-owned-ban-expiry-accounts-after-the-final-probe) | 1–8 | [GAP-074](#gap-074) |
-| docs/native-evidence/native-ban-expiry-cleanup.md | [Guard, then delete](docs/native-evidence/native-ban-expiry-cleanup.md#guard-then-delete) | 9–44 | [GAP-074](#gap-074) |
-| docs/native-evidence/native-ban-expiry-cleanup.md | [Postflight and evidence limits](docs/native-evidence/native-ban-expiry-cleanup.md#postflight-and-evidence-limits) | 45–69 | [GAP-074](#gap-074) |
-| docs/native-evidence/native-ban-expiry-first-witness.md | [Native temporary-ban first epoch](docs/native-evidence/native-ban-expiry-first-witness.md#native-temporary-ban-first-epoch) | 1–6 | [GAP-074](#gap-074) |
-| docs/native-evidence/native-ban-expiry-first-witness.md | [Reproducible record](docs/native-evidence/native-ban-expiry-first-witness.md#reproducible-record) | 7–50 | [GAP-074](#gap-074) |
-| docs/native-evidence/native-ban-expiry-first-witness.md | [Offline replay](docs/native-evidence/native-ban-expiry-first-witness.md#offline-replay) | 51–72 | [GAP-074](#gap-074) |
-| docs/native-evidence/native-ban-expiry-later-witness.md | [Native temporary-ban later epoch](docs/native-evidence/native-ban-expiry-later-witness.md#native-temporary-ban-later-epoch) | 1–9 | [GAP-074](#gap-074), [GAP-072](#gap-072), [GAP-021](#gap-021) |
-| docs/native-evidence/native-ban-expiry-later-witness.md | [The missed pre-window](docs/native-evidence/native-ban-expiry-later-witness.md#the-missed-pre-window) | 10–25 | [GAP-074](#gap-074), [GAP-072](#gap-072), [GAP-021](#gap-021) |
-| docs/native-evidence/native-ban-expiry-later-witness.md | [Later login and cleanup](docs/native-evidence/native-ban-expiry-later-witness.md#later-login-and-cleanup) | 26–77 | [GAP-074](#gap-074), [GAP-072](#gap-072), [GAP-021](#gap-021) |
-| docs/native-evidence/native-ban-expiry-later-witness.md | [Offline replay and limits](docs/native-evidence/native-ban-expiry-later-witness.md#offline-replay-and-limits) | 78–102 | [GAP-074](#gap-074), [GAP-072](#gap-072), [GAP-021](#gap-021) |
-| docs/native-evidence/native-roster-overlap-witness.md | [Native roster overlap witness](docs/native-evidence/native-roster-overlap-witness.md#native-roster-overlap-witness) | 1–14 | [GAP-035](#gap-035) |
-| docs/native-evidence/native-roster-overlap-witness.md | [Scope and result](docs/native-evidence/native-roster-overlap-witness.md#scope-and-result) | 15–82 | [GAP-035](#gap-035) |
-| docs/accounts-and-privileges/account-write-ordering.md | [Hotline Server 1.9 account write ordering](docs/accounts-and-privileges/account-write-ordering.md#hotline-server-19-account-write-ordering) | 1–11 | [GAP-072](#gap-072), [GAP-021](#gap-021) |
-| docs/accounts-and-privileges/account-write-ordering.md | [Direct 353 replacement path](docs/accounts-and-privileges/account-write-ordering.md#direct-353-replacement-path) | 12–52 | [GAP-072](#gap-072), [GAP-021](#gap-021) |
-| docs/accounts-and-privileges/account-write-ordering.md | [GAP-072 boundary](docs/accounts-and-privileges/account-write-ordering.md#gap-072-boundary) | 53–69 | [GAP-072](#gap-072), [GAP-021](#gap-021) |
-| docs/native-evidence/native-liveness-preparation.md | [Native preonline liveness fixture preparation](docs/native-evidence/native-liveness-preparation.md#native-preonline-liveness-fixture-preparation) | 1–7 | [GAP-005](#gap-005), [GAP-036](#gap-036) |
-| docs/native-evidence/native-liveness-preparation.md | [Source and case boundary](docs/native-evidence/native-liveness-preparation.md#source-and-case-boundary) | 8–40 | [GAP-005](#gap-005), [GAP-036](#gap-036) |
-| docs/native-evidence/native-liveness-preparation.md | [Preflight and exact runner inputs](docs/native-evidence/native-liveness-preparation.md#preflight-and-exact-runner-inputs) | 41–88 | [GAP-005](#gap-005), [GAP-036](#gap-036) |
-| docs/native-evidence/native-liveness-preparation.md | [Retained output and interpretation](docs/native-evidence/native-liveness-preparation.md#retained-output-and-interpretation) | 89–114 | [GAP-005](#gap-005), [GAP-036](#gap-036) |
-| docs/accounts-and-privileges/classic-privilege-discovery.md | [Classic privilege editor string discovery](docs/accounts-and-privileges/classic-privilege-discovery.md#classic-privilege-editor-string-discovery) | 1–19 | [GAP-031](#gap-031), [GAP-071](#gap-071) |
-| docs/accounts-and-privileges/classic-privilege-discovery.md | [What the queries found](docs/accounts-and-privileges/classic-privilege-discovery.md#what-the-queries-found) | 20–62 | [GAP-031](#gap-031), [GAP-071](#gap-071) |
-| docs/accounts-and-privileges/classic-privilege-discovery.md | [Bounded follow-up of the class data reference](docs/accounts-and-privileges/classic-privilege-discovery.md#bounded-follow-up-of-the-class-data-reference) | 63–89 | [GAP-031](#gap-031) |
-| docs/native-evidence/native-liveness-witness.md | [Native preonline liveness witness](docs/native-evidence/native-liveness-witness.md#native-preonline-liveness-witness) | 1–19 | [GAP-005](#gap-005), [GAP-036](#gap-036) |
-| docs/native-evidence/native-liveness-witness.md | [Finite results](docs/native-evidence/native-liveness-witness.md#finite-results) | 20–74 | [GAP-005](#gap-005), [GAP-036](#gap-036) |
-| docs/native-evidence/native-liveness-witness.md | [Provenance and limits](docs/native-evidence/native-liveness-witness.md#provenance-and-limits) | 75–98 | [GAP-005](#gap-005), [GAP-036](#gap-036) |
-| docs/news/legacy-board-format.md | [Native 1.9 legacy board format: static constants](docs/news/legacy-board-format.md#native-19-legacy-board-format-static-constants) | 1–11 | [GAP-046](#gap-046) |
-| docs/news/legacy-board-format.md | [Pointers and literal bytes](docs/news/legacy-board-format.md#pointers-and-literal-bytes) | 12–53 | [GAP-046](#gap-046) |
-| docs/native-evidence/native-board-preparation.md | [Isolated legacy message board fixture preparation](docs/native-evidence/native-board-preparation.md#isolated-legacy-message-board-fixture-preparation) | 1–8 | [GAP-046](#gap-046), [GAP-084](#gap-084) |
-| docs/native-evidence/native-board-preparation.md | [Evidence and source boundaries](docs/native-evidence/native-board-preparation.md#evidence-and-source-boundaries) | 9–29 | [GAP-046](#gap-046), [GAP-084](#gap-084) |
-| docs/native-evidence/native-board-preparation.md | [Separate guarded epochs](docs/native-evidence/native-board-preparation.md#separate-guarded-epochs) | 30–119 | [GAP-046](#gap-046), [GAP-084](#gap-084) |
-| docs/native-evidence/native-board-preparation.md | [Readiness receipts and the aborted first lab](docs/native-evidence/native-board-preparation.md#readiness-receipts-and-the-aborted-first-lab) | 120–136 | [GAP-046](#gap-046), [GAP-084](#gap-084) |
-| docs/native-evidence/native-board-readiness-failure.md | [Native board lab: aborted readiness](docs/native-evidence/native-board-readiness-failure.md#native-board-lab-aborted-readiness) | 1–74 | [GAP-046](#gap-046), [GAP-084](#gap-084) |
-| docs/native-evidence/native-board-witness.md | [Native Hotline Server 1.9 message-board witness](docs/native-evidence/native-board-witness.md#native-hotline-server-19-message-board-witness) | 1–13 | [GAP-046](#gap-046) |
-| docs/native-evidence/native-board-witness.md | [Fixture and observed results](docs/native-evidence/native-board-witness.md#fixture-and-observed-results) | 14–66 | [GAP-046](#gap-046) |
-| docs/native-evidence/native-board-witness.md | [Provenance and limits](docs/native-evidence/native-board-witness.md#provenance-and-limits) | 67–85 | [GAP-046](#gap-046) |
-| docs/presence-and-messaging/rate304-contract.md | [Native 1.9 settings rate path: source prediction](docs/presence-and-messaging/rate304-contract.md#native-19-settings-rate-path-source-prediction) | 1–13 | [GAP-045](#gap-045) |
-| docs/presence-and-messaging/rate304-contract.md | [Counter and ordinary response](docs/presence-and-messaging/rate304-contract.md#counter-and-ordinary-response) | 14–59 | [GAP-045](#gap-045) |
-| docs/presence-and-messaging/rate304-contract.md | [Measurement boundary](docs/presence-and-messaging/rate304-contract.md#measurement-boundary) | 60–86 | [GAP-045](#gap-045) |
-| docs/native-evidence/native-rate304-preparation.md | [Native 304 rate and reset preparation](docs/native-evidence/native-rate304-preparation.md#native-304-rate-and-reset-preparation) | 1–13 | [GAP-045](#gap-045) |
-| docs/native-evidence/native-rate304-preparation.md | [Prepared scope](docs/native-evidence/native-rate304-preparation.md#prepared-scope) | 14–134 | [GAP-045](#gap-045) |
-| docs/native-evidence/native-rate304-preparation.md | [Offline commands](docs/native-evidence/native-rate304-preparation.md#offline-commands) | 135–155 | [GAP-045](#gap-045) |
-| docs/native-evidence/native-rate304-first-pair.md | [Native 1.9 rate 304: failed first pair](docs/native-evidence/native-rate304-first-pair.md#native-19-rate-304-failed-first-pair) | 1–7 | [GAP-045](#gap-045) |
-| docs/native-evidence/native-rate304-first-pair.md | [What ran](docs/native-evidence/native-rate304-first-pair.md#what-ran) | 8–39 | [GAP-045](#gap-045) |
-| docs/native-evidence/native-rate304-first-pair.md | [Packet and terminal boundary](docs/native-evidence/native-rate304-first-pair.md#packet-and-terminal-boundary) | 40–64 | [GAP-045](#gap-045) |
-| docs/native-evidence/native-rate304-first-pair.md | [Offline replay](docs/native-evidence/native-rate304-first-pair.md#offline-replay) | 65–78 | [GAP-045](#gap-045) |
-| docs/presence-and-messaging/rate304-recipient-predicate.md | [Native 1.9 notification recipient predicates](docs/presence-and-messaging/rate304-recipient-predicate.md#native-19-notification-recipient-predicates) | 1–10 | [GAP-045](#gap-045) |
-| docs/presence-and-messaging/rate304-recipient-predicate.md | [Connection bit and recipient gate](docs/presence-and-messaging/rate304-recipient-predicate.md#connection-bit-and-recipient-gate) | 11–44 | [GAP-045](#gap-045) |
-| docs/presence-and-messaging/rate304-recipient-predicate.md | [Roster uses a different predicate](docs/presence-and-messaging/rate304-recipient-predicate.md#roster-uses-a-different-predicate) | 45–61 | [GAP-045](#gap-045) |
-| docs/presence-and-messaging/rate304-recipient-predicate.md | [Replay and provenance](docs/presence-and-messaging/rate304-recipient-predicate.md#replay-and-provenance) | 62–78 | [GAP-045](#gap-045) |
-| docs/native-evidence/native-rate304-startup-gate.md | [Native rate 304 lab: startup observation gate](docs/native-evidence/native-rate304-startup-gate.md#native-rate-304-lab-startup-observation-gate) | 1–12 | [GAP-045](#gap-045) |
-| docs/native-evidence/native-rate304-startup-gate.md | [Stopped preparation](docs/native-evidence/native-rate304-startup-gate.md#stopped-preparation) | 13–32 | [GAP-045](#gap-045) |
-| docs/native-evidence/native-rate304-startup-gate.md | [Sole boot attempt and boundary](docs/native-evidence/native-rate304-startup-gate.md#sole-boot-attempt-and-boundary) | 33–68 | [GAP-045](#gap-045) |
-| docs/native-evidence/native-rate304-startup-gate.md | [Offline check](docs/native-evidence/native-rate304-startup-gate.md#offline-check) | 69–82 | [GAP-045](#gap-045) |
-| docs/native-evidence/native-rate304-sequence.md | [Native 1.9 rate304 sequence: measured prefix, failed final control](docs/native-evidence/native-rate304-sequence.md#native-19-rate304-sequence-measured-prefix-failed-final-control) | 1–10 | [GAP-045](#gap-045), [GAP-016](#gap-016) |
-| docs/native-evidence/native-rate304-sequence.md | [Identity and capture boundary](docs/native-evidence/native-rate304-sequence.md#identity-and-capture-boundary) | 11–49 | [GAP-045](#gap-045), [GAP-016](#gap-016) |
-| docs/native-evidence/native-rate304-sequence.md | [Observed request and notification sequence](docs/native-evidence/native-rate304-sequence.md#observed-request-and-notification-sequence) | 50–92 | [GAP-045](#gap-045), [GAP-016](#gap-016) |
-| docs/native-evidence/native-rate304-sequence.md | [Stopped state and replay](docs/native-evidence/native-rate304-sequence.md#stopped-state-and-replay) | 93–124 | [GAP-045](#gap-045), [GAP-016](#gap-016) |
-| docs/native-evidence/native-path-fields-preparation.md | [Native path-field matrix preparation](docs/native-evidence/native-path-fields-preparation.md#native-path-field-matrix-preparation) | 1–13 | [GAP-047](#gap-047) |
-| docs/native-evidence/native-path-fields-preparation.md | [Inputs and commands](docs/native-evidence/native-path-fields-preparation.md#inputs-and-commands) | 14–39 | [GAP-047](#gap-047) |
-| docs/native-evidence/native-path-fields-preparation.md | [Fixed case](docs/native-evidence/native-path-fields-preparation.md#fixed-case) | 40–78 | [GAP-047](#gap-047) |
-| docs/native-evidence/native-path-fields-preparation.md | [Offline checks](docs/native-evidence/native-path-fields-preparation.md#offline-checks) | 79–85 | [GAP-047](#gap-047) |
-| docs/files-and-transfers/native-path-fields.md | [Native 1.9 structured path observations](docs/files-and-transfers/native-path-fields.md#native-19-structured-path-observations) | 1–10 | [GAP-047](#gap-047) |
-| docs/files-and-transfers/native-path-fields.md | [Scope and results](docs/files-and-transfers/native-path-fields.md#scope-and-results) | 11–32 | [GAP-047](#gap-047) |
-| docs/files-and-transfers/native-path-fields.md | [Provenance and limits](docs/files-and-transfers/native-path-fields.md#provenance-and-limits) | 33–71 | [GAP-047](#gap-047) |
-| docs/native-evidence/native-missing-alias-preparation.md | [Missing-target alias: positive rehearsal preparation](docs/native-evidence/native-missing-alias-preparation.md#missing-target-alias-positive-rehearsal-preparation) | 1–9 | [GAP-049](#gap-049), [GAP-054](#gap-054), [GAP-084](#gap-084) |
-| docs/native-evidence/native-missing-alias-preparation.md | [Exact boundary](docs/native-evidence/native-missing-alias-preparation.md#exact-boundary) | 10–33 | [GAP-049](#gap-049), [GAP-054](#gap-054), [GAP-084](#gap-084) |
-| docs/native-evidence/native-missing-alias-preparation.md | [Optional alias UI capture window](docs/native-evidence/native-missing-alias-preparation.md#optional-alias-ui-capture-window) | 34–77 | [GAP-049](#gap-049), [GAP-054](#gap-054), [GAP-084](#gap-084) |
-| docs/native-evidence/native-missing-alias-preparation.md | [Reviewed Finder receipt](docs/native-evidence/native-missing-alias-preparation.md#reviewed-finder-receipt) | 78–118 | [GAP-049](#gap-049), [GAP-054](#gap-054), [GAP-084](#gap-084) |
-| docs/native-evidence/native-missing-alias-preparation.md | [Commands and limits](docs/native-evidence/native-missing-alias-preparation.md#commands-and-limits) | 119–152 | [GAP-049](#gap-049), [GAP-054](#gap-054), [GAP-084](#gap-084) |
-| docs/native-evidence/native-missing-alias-preparation.md | [Observed Finder preparation and case refusal](docs/native-evidence/native-missing-alias-preparation.md#observed-finder-preparation-and-case-refusal) | 153–184 | [GAP-049](#gap-049), [GAP-054](#gap-054), [GAP-084](#gap-084) |
-| docs/files-and-transfers/alias-record-v2.md | [Recorded Alias Record v2 identity](docs/files-and-transfers/alias-record-v2.md#recorded-alias-record-v2-identity) | 1–38 | [GAP-049](#gap-049), [GAP-054](#gap-054), [GAP-084](#gap-084) |
-| docs/protocol/date-contracts.md | [Native 1.9 date fields and clock boundaries](docs/protocol/date-contracts.md#native-19-date-fields-and-clock-boundaries) | 1–10 | [GAP-020](#gap-020), [GAP-067](#gap-067) |
-| docs/protocol/date-contracts.md | [Byte grammar, units and range](docs/protocol/date-contracts.md#byte-grammar-units-and-range) | 11–43 | [GAP-020](#gap-020), [GAP-067](#gap-067) |
-| docs/protocol/date-contracts.md | [Producer and consumer registry](docs/protocol/date-contracts.md#producer-and-consumer-registry) | 44–60 | [GAP-020](#gap-020), [GAP-067](#gap-067) |
-| docs/protocol/date-contracts.md | [What would settle conversion and rollover](docs/protocol/date-contracts.md#what-would-settle-conversion-and-rollover) | 61–91 | [GAP-020](#gap-020), [GAP-067](#gap-067) |
-| docs/presence-and-messaging/presence-defaults.md | [Native 1.9 field presence and defaults](docs/presence-and-messaging/presence-defaults.md#native-19-field-presence-and-defaults) | 1–11 | [GAP-016](#gap-016) |
-| docs/presence-and-messaging/presence-defaults.md | [Four cases are not four distinct wire encodings](docs/presence-and-messaging/presence-defaults.md#four-cases-are-not-four-distinct-wire-encodings) | 12–27 | [GAP-016](#gap-016) |
-| docs/presence-and-messaging/presence-defaults.md | [Credentials and session settings](docs/presence-and-messaging/presence-defaults.md#credentials-and-session-settings) | 28–41 | [GAP-016](#gap-016) |
-| docs/presence-and-messaging/presence-defaults.md | [Account replacements and related lookup](docs/presence-and-messaging/presence-defaults.md#account-replacements-and-related-lookup) | 42–60 | [GAP-016](#gap-016) |
-| docs/presence-and-messaging/presence-defaults.md | [Other core requests and generated fields](docs/presence-and-messaging/presence-defaults.md#other-core-requests-and-generated-fields) | 61–102 | [GAP-016](#gap-016) |
-| docs/presence-and-messaging/presence-defaults.md | [Explicitly unmeasured cells](docs/presence-and-messaging/presence-defaults.md#explicitly-unmeasured-cells) | 103–129 | [GAP-016](#gap-016) |
-| docs/native-evidence/native-diagnostic-boundary-preparation.md | [Native 303 final-text boundary preparation](docs/native-evidence/native-diagnostic-boundary-preparation.md#native-303-final-text-boundary-preparation) | 1–6 | [GAP-019](#gap-019) |
-| docs/native-evidence/native-diagnostic-boundary-preparation.md | [Evidence and prediction](docs/native-evidence/native-diagnostic-boundary-preparation.md#evidence-and-prediction) | 7–29 | [GAP-019](#gap-019) |
-| docs/native-evidence/native-diagnostic-boundary-preparation.md | [Dedicated-session prerequisites and authority gate](docs/native-evidence/native-diagnostic-boundary-preparation.md#dedicated-session-prerequisites-and-authority-gate) | 30–54 | [GAP-019](#gap-019) |
-| docs/native-evidence/native-diagnostic-boundary-preparation.md | [Exact planned wire actions](docs/native-evidence/native-diagnostic-boundary-preparation.md#exact-planned-wire-actions) | 55–84 | [GAP-019](#gap-019) |
-| docs/native-evidence/native-diagnostic-boundary-preparation.md | [Result classification and stop rules](docs/native-evidence/native-diagnostic-boundary-preparation.md#result-classification-and-stop-rules) | 85–106 | [GAP-019](#gap-019) |
-| docs/accounts-and-privileges/privilege-bits.md | [Native 1.9 access bitmap: per-bit evidence index](docs/accounts-and-privileges/privilege-bits.md#native-19-access-bitmap-per-bit-evidence-index) | 1–108 | [GAP-031](#gap-031), [GAP-015](#gap-015), [GAP-032](#gap-032) |
-| docs/native-evidence/native-missing-alias-preparation.md | [R04: selection completed, parent checkpoint missed](docs/native-evidence/native-missing-alias-preparation.md#r04-selection-completed-parent-checkpoint-missed) | 185–206 | [GAP-054](#gap-054), [GAP-049](#gap-049), [GAP-084](#gap-084) |
+| docs/native-evidence/native-pm-preparation.md | [Native private-message fixture preparation (A26)](docs/native-evidence/native-pm-preparation.md#native-private-message-fixture-preparation-a26) | 1–16 | [GAP-044](#gap-044) |
+| docs/native-evidence/native-pm-preparation.md | [Matrix](docs/native-evidence/native-pm-preparation.md#matrix) | 17–41 | [GAP-044](#gap-044) |
+| docs/native-evidence/native-pm-preparation.md | [Operator sequence after separate START](docs/native-evidence/native-pm-preparation.md#operator-sequence-after-separate-start) | 42–104 | [GAP-044](#gap-044) |
+| docs/native-evidence/native-pm-witness.md | [Native 1.9 private-message 104 witness (A29)](docs/native-evidence/native-pm-witness.md#native-19-private-message-104-witness-a29) | 1–85 | [GAP-044](#gap-044) |
+| docs/presence-and-messaging/native-104-variants.md | [Native 1.9 type-104 producer matrix (A28)](docs/presence-and-messaging/native-104-variants.md#native-19-type-104-producer-matrix-a28) | 1–32 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
+| docs/presence-and-messaging/native-104-variants.md | [Parsing and evidence limits](docs/presence-and-messaging/native-104-variants.md#parsing-and-evidence-limits) | 33–75 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
+| docs/native-evidence/native-settings-preparation.md | [Native 1.9 settings field 113 preparation](docs/native-evidence/native-settings-preparation.md#native-19-settings-field-113-preparation) | 1–17 | [GAP-015](#gap-015), [GAP-016](#gap-016), [GAP-017](#gap-017) |
+| docs/native-evidence/native-settings-preparation.md | [Bounded matrix and observer](docs/native-evidence/native-settings-preparation.md#bounded-matrix-and-observer) | 18–42 | [GAP-015](#gap-015), [GAP-016](#gap-016), [GAP-017](#gap-017) |
+| docs/native-evidence/native-settings-preparation.md | [Preparation and later authorised capture](docs/native-evidence/native-settings-preparation.md#preparation-and-later-authorised-capture) | 43–85 | [GAP-015](#gap-015), [GAP-016](#gap-016), [GAP-017](#gap-017) |
+| docs/native-evidence/native-settings-witness.md | [Native 1.9 settings field 113 witness](docs/native-evidence/native-settings-witness.md#native-19-settings-field-113-witness) | 1–83 | [GAP-015](#gap-015), [GAP-016](#gap-016), [GAP-017](#gap-017) |
+| docs/presence-and-messaging/native-ban-notices.md | [Native 1.9 temporary ban notice: disposable option-one witness](docs/presence-and-messaging/native-ban-notices.md#native-19-temporary-ban-notice-disposable-option-one-witness) | 1–13 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
+| docs/presence-and-messaging/native-ban-notices.md | [Identity and baseline](docs/presence-and-messaging/native-ban-notices.md#identity-and-baseline) | 14–32 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
+| docs/presence-and-messaging/native-ban-notices.md | [One option-one exchange](docs/presence-and-messaging/native-ban-notices.md#one-option-one-exchange) | 33–65 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
+| docs/presence-and-messaging/native-ban-notices.md | [Isolation and limits](docs/presence-and-messaging/native-ban-notices.md#isolation-and-limits) | 66–100 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
+| docs/protocol/parameter-multiplicity.md | [Parameter multiplicity and ordering in Hotline Server 1.9](docs/protocol/parameter-multiplicity.md#parameter-multiplicity-and-ordering-in-hotline-server-19) | 1–63 | [GAP-017](#gap-017) |
+| docs/files-and-transfers/native-transfer-stall.md | [Disposable lab transfer stall before the option-two ban fixture](docs/files-and-transfers/native-transfer-stall.md#disposable-lab-transfer-stall-before-the-option-two-ban-fixture) | 1–24 | [GAP-044](#gap-044), [GAP-064](#gap-064), [GAP-074](#gap-074) |
+| docs/files-and-transfers/native-transfer-stall.md | [What the frozen TCP views establish](docs/files-and-transfers/native-transfer-stall.md#what-the-frozen-tcp-views-establish) | 25–70 | [GAP-044](#gap-044), [GAP-064](#gap-064), [GAP-074](#gap-074) |
+| docs/files-and-transfers/native-transfer-stall.md | [Repeated baseline and a successful comparison](docs/files-and-transfers/native-transfer-stall.md#repeated-baseline-and-a-successful-comparison) | 71–128 | [GAP-044](#gap-044), [GAP-064](#gap-064), [GAP-074](#gap-074) |
+| docs/files-and-transfers/native-transfer-stall.md | [One focus event on the repeated prefix](docs/files-and-transfers/native-transfer-stall.md#one-focus-event-on-the-repeated-prefix) | 129–139 | [GAP-064](#gap-064), [GAP-074](#gap-074) |
+| docs/native-evidence/native-settings-transition-prep.md | [Same-session 304 transition preparation (A32)](docs/native-evidence/native-settings-transition-prep.md#same-session-304-transition-preparation-a32) | 1–66 | [GAP-029](#gap-029), [GAP-030](#gap-030) |
+| docs/native-evidence/native-settings-transition-witness.md | [Native 1.9 same-session 304 transition witness (A33)](docs/native-evidence/native-settings-transition-witness.md#native-19-same-session-304-transition-witness-a33) | 1–90 | [GAP-015](#gap-015), [GAP-016](#gap-016), [GAP-029](#gap-029), [GAP-030](#gap-030) |
+| docs/files-and-transfers/native-download-send-path.md | [Native ordinary-download send path](docs/files-and-transfers/native-download-send-path.md#native-ordinary-download-send-path) | 1–15 | [GAP-021](#gap-021), [GAP-064](#gap-064) |
+| docs/files-and-transfers/native-download-send-path.md | [Request, attachment and producer](docs/files-and-transfers/native-download-send-path.md#request-attachment-and-producer) | 16–61 | [GAP-021](#gap-021), [GAP-064](#gap-064) |
+| docs/files-and-transfers/native-download-send-path.md | [Limits and next proof](docs/files-and-transfers/native-download-send-path.md#limits-and-next-proof) | 62–100 | [GAP-021](#gap-021), [GAP-064](#gap-064) |
+| docs/accounts-and-privileges/classic-account-constructors.md | [Classic client account request constructors](docs/accounts-and-privileges/classic-account-constructors.md#classic-client-account-request-constructors) | 1–17 | [GAP-071](#gap-071), [GAP-080](#gap-080) |
+| docs/accounts-and-privileges/classic-account-constructors.md | [What the executable trace establishes](docs/accounts-and-privileges/classic-account-constructors.md#what-the-executable-trace-establishes) | 18–55 | [GAP-071](#gap-071), [GAP-080](#gap-080) |
+| docs/accounts-and-privileges/classic-account-constructors.md | [Repeat or check without a live server](docs/accounts-and-privileges/classic-account-constructors.md#repeat-or-check-without-a-live-server) | 56–88 | [GAP-071](#gap-071), [GAP-080](#gap-080) |
+| docs/native-evidence/native-121-default-preparation.md | [Delayed 121 default-text preparation (A35)](docs/native-evidence/native-121-default-preparation.md#delayed-121-default-text-preparation-a35) | 1–92 | [GAP-029](#gap-029), [GAP-030](#gap-030) |
+| docs/native-evidence/native-121-default-witness.md | [Native 1.9 delayed 121 default response (A37)](docs/native-evidence/native-121-default-witness.md#native-19-delayed-121-default-response-a37) | 1–87 | [GAP-029](#gap-029), [GAP-030](#gap-030) |
+| docs/peers/classic-native-baseline.md | [Classic client to native Hotline 1.9 baseline through the fixed proxy](docs/peers/classic-native-baseline.md#classic-client-to-native-hotline-19-baseline-through-the-fixed-proxy) | 1–17 | [GAP-080](#gap-080), [GAP-081](#gap-081) |
+| docs/peers/classic-native-baseline.md | [Provenance and finite result](docs/peers/classic-native-baseline.md#provenance-and-finite-result) | 18–67 | [GAP-080](#gap-080), [GAP-081](#gap-081) |
+| docs/peers/classic-native-baseline.md | [Offline replay](docs/peers/classic-native-baseline.md#offline-replay) | 68–99 | [GAP-080](#gap-080), [GAP-081](#gap-081) |
+| docs/native-evidence/native-ui-focus-witness.md | [One server Log focus event during a stalled native download](docs/native-evidence/native-ui-focus-witness.md#one-server-log-focus-event-during-a-stalled-native-download) | 1–22 | [GAP-064](#gap-064), [GAP-074](#gap-074) |
+| docs/native-evidence/native-ui-focus-witness.md | [Measured event and result](docs/native-evidence/native-ui-focus-witness.md#measured-event-and-result) | 23–81 | [GAP-064](#gap-064), [GAP-074](#gap-074) |
+| docs/native-evidence/native-control-readiness.md | [Readiness for isolated control-operation fixtures](docs/native-evidence/native-control-readiness.md#readiness-for-isolated-control-operation-fixtures) | 1–19 | [GAP-029](#gap-029), [GAP-044](#gap-044), [GAP-074](#gap-074) |
+| docs/native-evidence/native-control-readiness.md | [Why a separate profile is appropriate](docs/native-evidence/native-control-readiness.md#why-a-separate-profile-is-appropriate) | 20–32 | [GAP-029](#gap-029), [GAP-044](#gap-044), [GAP-074](#gap-074) |
+| docs/native-evidence/native-control-readiness.md | [Required gates](docs/native-evidence/native-control-readiness.md#required-gates) | 33–52 | [GAP-029](#gap-029), [GAP-044](#gap-044), [GAP-074](#gap-074) |
+| docs/native-evidence/native-control-readiness.md | [Ban fixture boundary](docs/native-evidence/native-control-readiness.md#ban-fixture-boundary) | 53–77 | [GAP-029](#gap-029), [GAP-044](#gap-044), [GAP-074](#gap-074) |
+| docs/native-evidence/native-control-readiness.md | [Acceptance and escalation](docs/native-evidence/native-control-readiness.md#acceptance-and-escalation) | 78–88 | [GAP-029](#gap-029), [GAP-044](#gap-044), [GAP-074](#gap-074) |
+| docs/peers/classic-field161-matrix.md | [Classic client field-161 width and omission matrix](docs/peers/classic-field161-matrix.md#classic-client-field-161-width-and-omission-matrix) | 1–91 | [GAP-026](#gap-026), [GAP-080](#gap-080), [GAP-081](#gap-081) |
+| docs/native-evidence/native-ban-control-preparation.md | [Isolated permanent-ban control fixture (C52 preparation)](docs/native-evidence/native-ban-control-preparation.md#isolated-permanent-ban-control-fixture-c52-preparation) | 1–13 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
+| docs/native-evidence/native-ban-control-preparation.md | [Prepared image and immutable inputs](docs/native-evidence/native-ban-control-preparation.md#prepared-image-and-immutable-inputs) | 14–31 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
+| docs/native-evidence/native-ban-control-preparation.md | [Bounded next live sequence (requires separate grant)](docs/native-evidence/native-ban-control-preparation.md#bounded-next-live-sequence-requires-separate-grant) | 32–105 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
+| docs/presence-and-messaging/notification-104-variants.md | [Native type-104 notification variants](docs/presence-and-messaging/notification-104-variants.md#native-type-104-notification-variants) | 1–32 | [GAP-044](#gap-044) |
+| docs/presence-and-messaging/notification-104-variants.md | [Discrimination and ambiguity](docs/presence-and-messaging/notification-104-variants.md#discrimination-and-ambiguity) | 33–59 | [GAP-044](#gap-044) |
+| docs/presence-and-messaging/notification-104-variants.md | [Provenance and remaining acceptance](docs/presence-and-messaging/notification-104-variants.md#provenance-and-remaining-acceptance) | 60–83 | [GAP-044](#gap-044) |
+| docs/peers/peer-profile-rules.md | [Identified peer profiles and the unknown-peer rule](docs/peers/peer-profile-rules.md#identified-peer-profiles-and-the-unknown-peer-rule) | 1–13 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-026](#gap-026) |
+| docs/peers/peer-profile-rules.md | [Evaluated build identities](docs/peers/peer-profile-rules.md#evaluated-build-identities) | 14–54 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-026](#gap-026) |
+| docs/peers/peer-profile-rules.md | [Profile assignment and unknown-peer fallback](docs/peers/peer-profile-rules.md#profile-assignment-and-unknown-peer-fallback) | 55–84 | [GAP-080](#gap-080), [GAP-081](#gap-081), [GAP-026](#gap-026) |
+| docs/native-evidence/native-settings-persistence-preparation.md | [Isolated native settings persistence preparation (A42)](docs/native-evidence/native-settings-persistence-preparation.md#isolated-native-settings-persistence-preparation-a42) | 1–14 | [GAP-029](#gap-029) |
+| docs/native-evidence/native-settings-persistence-preparation.md | [Assets and authority](docs/native-evidence/native-settings-persistence-preparation.md#assets-and-authority) | 15–37 | [GAP-029](#gap-029) |
+| docs/native-evidence/native-settings-persistence-preparation.md | [Fixed observation](docs/native-evidence/native-settings-persistence-preparation.md#fixed-observation) | 38–147 | [GAP-029](#gap-029) |
+| docs/native-evidence/native-ban-control-witness.md | [Native 1.9 permanent ban control witness](docs/native-evidence/native-ban-control-witness.md#native-19-permanent-ban-control-witness) | 1–13 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
+| docs/native-evidence/native-ban-control-witness.md | [Scope and provenance](docs/native-evidence/native-ban-control-witness.md#scope-and-provenance) | 14–33 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
+| docs/native-evidence/native-ban-control-witness.md | [Observed sequence](docs/native-evidence/native-ban-control-witness.md#observed-sequence) | 34–65 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
+| docs/native-evidence/native-ban-control-witness.md | [Offline replay](docs/native-evidence/native-ban-control-witness.md#offline-replay) | 66–86 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
+| docs/peers/classic-server-name-162.md | [Classic client acceptance of one ASCII server-name field](docs/peers/classic-server-name-162.md#classic-client-acceptance-of-one-ascii-server-name-field) | 1–72 | [GAP-026](#gap-026), [GAP-080](#gap-080), [GAP-081](#gap-081) |
+| docs/accounts-and-privileges/native-configured-ban-static.md | [Native 1.9 configured-ban application: static preparation](docs/accounts-and-privileges/native-configured-ban-static.md#native-19-configured-ban-application-static-preparation) | 1–10 | [GAP-044](#gap-044) |
+| docs/accounts-and-privileges/native-configured-ban-static.md | [Raw text and source path](docs/accounts-and-privileges/native-configured-ban-static.md#raw-text-and-source-path) | 11–38 | [GAP-044](#gap-044) |
+| docs/accounts-and-privileges/native-configured-ban-static.md | [Next preparation gate](docs/accounts-and-privileges/native-configured-ban-static.md#next-preparation-gate) | 39–57 | [GAP-044](#gap-044) |
+| docs/accounts-and-privileges/native-configured-ban-ui-resources.md | [Configured-ban Options resource reconnaissance](docs/accounts-and-privileges/native-configured-ban-ui-resources.md#configured-ban-options-resource-reconnaissance) | 1–34 | [GAP-044](#gap-044) |
+| docs/native-evidence/native-ban-reload-witness.md | [Native 1.9 persisted-ban reload witness](docs/native-evidence/native-ban-reload-witness.md#native-19-persisted-ban-reload-witness) | 1–13 | [GAP-074](#gap-074) |
+| docs/native-evidence/native-ban-reload-witness.md | [Pinned stopped image and UI](docs/native-evidence/native-ban-reload-witness.md#pinned-stopped-image-and-ui) | 14–39 | [GAP-074](#gap-074) |
+| docs/native-evidence/native-ban-reload-witness.md | [One fresh Login 107](docs/native-evidence/native-ban-reload-witness.md#one-fresh-login-107) | 40–62 | [GAP-074](#gap-074) |
+| docs/native-evidence/native-ban-reload-witness.md | [Offline replay and limit](docs/native-evidence/native-ban-reload-witness.md#offline-replay-and-limit) | 63–88 | [GAP-074](#gap-074) |
+| docs/native-evidence/native-settings-persistence-witness.md | [Native 1.9 settings persistence witness (A46/A48)](docs/native-evidence/native-settings-persistence-witness.md#native-19-settings-persistence-witness-a46a48) | 1–14 | [GAP-029](#gap-029) |
+| docs/native-evidence/native-settings-persistence-witness.md | [Controlled sequence](docs/native-evidence/native-settings-persistence-witness.md#controlled-sequence) | 15–71 | [GAP-029](#gap-029) |
+| docs/native-evidence/native-settings-persistence-witness.md | [Replay and provenance](docs/native-evidence/native-settings-persistence-witness.md#replay-and-provenance) | 72–124 | [GAP-029](#gap-029) |
+| docs/peers/classic-roster-subject-115.md | [Classic client: first roster reply with field 115](docs/peers/classic-roster-subject-115.md#classic-client-first-roster-reply-with-field-115) | 1–13 | [GAP-081](#gap-081) |
+| docs/peers/classic-roster-subject-115.md | [B62 session, 14 November 2026](docs/peers/classic-roster-subject-115.md#b62-session-14-november-2026) | 14–53 | [GAP-081](#gap-081) |
+| docs/peers/classic-roster-subject-115.md | [Provenance and replay](docs/peers/classic-roster-subject-115.md#provenance-and-replay) | 54–86 | [GAP-081](#gap-081) |
+| docs/native-evidence/native-configured-ban-preparation.md | [Configured-address ban application: control-only preparation](docs/native-evidence/native-configured-ban-preparation.md#configured-address-ban-application-control-only-preparation) | 1–10 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
+| docs/native-evidence/native-configured-ban-preparation.md | [Owned image and identity](docs/native-evidence/native-configured-ban-preparation.md#owned-image-and-identity) | 11–28 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
+| docs/native-evidence/native-configured-ban-preparation.md | [Planned traffic and gates](docs/native-evidence/native-configured-ban-preparation.md#planned-traffic-and-gates) | 29–66 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
+| docs/native-evidence/native-configured-ban-preparation.md | [Later live handoff and retirement](docs/native-evidence/native-configured-ban-preparation.md#later-live-handoff-and-retirement) | 67–85 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
+| docs/native-evidence/native-configured-ban-preparation.md | [Observed result](docs/native-evidence/native-configured-ban-preparation.md#observed-result) | 86–91 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
+| docs/native-evidence/native-configured-ban-witness.md | [Hotline Server 1.9 configured-address ban application](docs/native-evidence/native-configured-ban-witness.md#hotline-server-19-configured-address-ban-application) | 1–22 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
+| docs/native-evidence/native-configured-ban-witness.md | [Boundary and setup](docs/native-evidence/native-configured-ban-witness.md#boundary-and-setup) | 23–45 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
+| docs/native-evidence/native-configured-ban-witness.md | [One Add and Save](docs/native-evidence/native-configured-ban-witness.md#one-add-and-save) | 46–77 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
+| docs/native-evidence/native-configured-ban-witness.md | [Limits](docs/native-evidence/native-configured-ban-witness.md#limits) | 78–86 | [GAP-044](#gap-044), [GAP-074](#gap-074) |
+| docs/protocol/diagnostic-formatting-trace.md | [Native 1.9 diagnostic text: formatting and wire length](docs/protocol/diagnostic-formatting-trace.md#native-19-diagnostic-text-formatting-and-wire-length) | 1–13 | [GAP-037](#gap-037), [GAP-019](#gap-019) |
+| docs/protocol/diagnostic-formatting-trace.md | [Formatter-to-field trace](docs/protocol/diagnostic-formatting-trace.md#formatter-to-field-trace) | 14–38 | [GAP-037](#gap-037), [GAP-019](#gap-019) |
+| docs/protocol/diagnostic-formatting-trace.md | [Observed lengths and compatibility](docs/protocol/diagnostic-formatting-trace.md#observed-lengths-and-compatibility) | 39–65 | [GAP-037](#gap-037), [GAP-019](#gap-019) |
+| docs/protocol/diagnostic-formatting-trace.md | [Reproduction and limits](docs/protocol/diagnostic-formatting-trace.md#reproduction-and-limits) | 66–85 | [GAP-037](#gap-037), [GAP-019](#gap-019) |
+| docs/accounts-and-privileges/native-ban-file-format.md | [Native Hotline Server 1.9 `Banned` data fork: observed v2 layout](docs/accounts-and-privileges/native-ban-file-format.md#native-hotline-server-19-banned-data-fork-observed-v2-layout) | 1–44 | [GAP-074](#gap-074) |
+| docs/accounts-and-privileges/native-ban-file-format.md | [Reader and writer bounds](docs/accounts-and-privileges/native-ban-file-format.md#reader-and-writer-bounds) | 45–72 | [GAP-074](#gap-074) |
+| docs/accounts-and-privileges/native-ban-file-format.md | [Request 110 reason-copy path](docs/accounts-and-privileges/native-ban-file-format.md#request-110-reason-copy-path) | 73–97 | [GAP-074](#gap-074) |
+| docs/accounts-and-privileges/native-ban-file-format.md | [Replay and limits](docs/accounts-and-privileges/native-ban-file-format.md#replay-and-limits) | 98–114 | [GAP-074](#gap-074) |
+| docs/native-evidence/native-ban-expiry-preparation.md | [Native temporary-ban expiry fixture preparation](docs/native-evidence/native-ban-expiry-preparation.md#native-temporary-ban-expiry-fixture-preparation) | 1–10 | [GAP-074](#gap-074) |
+| docs/native-evidence/native-ban-expiry-preparation.md | [Scope and owned identities](docs/native-evidence/native-ban-expiry-preparation.md#scope-and-owned-identities) | 11–42 | [GAP-074](#gap-074) |
+| docs/native-evidence/native-ban-expiry-preparation.md | [Prepared case order](docs/native-evidence/native-ban-expiry-preparation.md#prepared-case-order) | 43–68 | [GAP-074](#gap-074) |
+| docs/native-evidence/native-ban-expiry-preparation.md | [Repeatable offline commands and live prerequisites](docs/native-evidence/native-ban-expiry-preparation.md#repeatable-offline-commands-and-live-prerequisites) | 69–154 | [GAP-074](#gap-074) |
+| docs/native-evidence/native-ban-expiry-preparation.md | [Time and interpretation](docs/native-evidence/native-ban-expiry-preparation.md#time-and-interpretation) | 155–168 | [GAP-074](#gap-074) |
+| docs/native-evidence/native-ban-expiry-preparation.md | [Verification and decision gates](docs/native-evidence/native-ban-expiry-preparation.md#verification-and-decision-gates) | 169–192 | [GAP-074](#gap-074) |
+| docs/native-evidence/native-ban-expiry-preparation.md | [Observed first epoch](docs/native-evidence/native-ban-expiry-preparation.md#observed-first-epoch) | 193–198 | [GAP-074](#gap-074) |
+| docs/native-evidence/native-roster-overlap-preparation.md | [Native roster overlap fixture preparation](docs/native-evidence/native-roster-overlap-preparation.md#native-roster-overlap-fixture-preparation) | 1–14 | [GAP-035](#gap-035) |
+| docs/native-evidence/native-roster-overlap-preparation.md | [Plan and isolation](docs/native-evidence/native-roster-overlap-preparation.md#plan-and-isolation) | 15–77 | [GAP-035](#gap-035) |
+| docs/native-evidence/native-roster-overlap-preparation.md | [Bounded causal sequence](docs/native-evidence/native-roster-overlap-preparation.md#bounded-causal-sequence) | 78–121 | [GAP-035](#gap-035) |
+| docs/native-evidence/native-roster-overlap-preparation.md | [Verification and unresolved requirements](docs/native-evidence/native-roster-overlap-preparation.md#verification-and-unresolved-requirements) | 122–143 | [GAP-035](#gap-035) |
+| docs/native-evidence/native-ban-expiry-cleanup.md | [Restore the owned ban-expiry accounts after the final probe](docs/native-evidence/native-ban-expiry-cleanup.md#restore-the-owned-ban-expiry-accounts-after-the-final-probe) | 1–11 | [GAP-074](#gap-074) |
+| docs/native-evidence/native-ban-expiry-cleanup.md | [Guard, then delete](docs/native-evidence/native-ban-expiry-cleanup.md#guard-then-delete) | 12–47 | [GAP-074](#gap-074) |
+| docs/native-evidence/native-ban-expiry-cleanup.md | [Postflight and evidence limits](docs/native-evidence/native-ban-expiry-cleanup.md#postflight-and-evidence-limits) | 48–72 | [GAP-074](#gap-074) |
+| docs/native-evidence/native-ban-expiry-first-witness.md | [Native temporary-ban first epoch](docs/native-evidence/native-ban-expiry-first-witness.md#native-temporary-ban-first-epoch) | 1–11 | [GAP-074](#gap-074) |
+| docs/native-evidence/native-ban-expiry-first-witness.md | [Reproducible record](docs/native-evidence/native-ban-expiry-first-witness.md#reproducible-record) | 12–55 | [GAP-074](#gap-074) |
+| docs/native-evidence/native-ban-expiry-first-witness.md | [Offline replay](docs/native-evidence/native-ban-expiry-first-witness.md#offline-replay) | 56–83 | [GAP-074](#gap-074) |
+| docs/native-evidence/native-ban-expiry-later-witness.md | [Native temporary-ban later epoch](docs/native-evidence/native-ban-expiry-later-witness.md#native-temporary-ban-later-epoch) | 1–13 | [GAP-074](#gap-074), [GAP-072](#gap-072), [GAP-021](#gap-021) |
+| docs/native-evidence/native-ban-expiry-later-witness.md | [The missed pre-window](docs/native-evidence/native-ban-expiry-later-witness.md#the-missed-pre-window) | 14–29 | [GAP-074](#gap-074), [GAP-072](#gap-072), [GAP-021](#gap-021) |
+| docs/native-evidence/native-ban-expiry-later-witness.md | [Later login and cleanup](docs/native-evidence/native-ban-expiry-later-witness.md#later-login-and-cleanup) | 30–84 | [GAP-074](#gap-074), [GAP-072](#gap-072), [GAP-021](#gap-021) |
+| docs/native-evidence/native-ban-expiry-later-witness.md | [Offline replay and limits](docs/native-evidence/native-ban-expiry-later-witness.md#offline-replay-and-limits) | 85–115 | [GAP-074](#gap-074), [GAP-072](#gap-072), [GAP-021](#gap-021) |
+| docs/native-evidence/native-roster-overlap-witness.md | [Native roster overlap witness](docs/native-evidence/native-roster-overlap-witness.md#native-roster-overlap-witness) | 1–23 | [GAP-035](#gap-035) |
+| docs/native-evidence/native-roster-overlap-witness.md | [Scope and result](docs/native-evidence/native-roster-overlap-witness.md#scope-and-result) | 24–94 | [GAP-035](#gap-035) |
+| docs/accounts-and-privileges/account-write-ordering.md | [Hotline Server 1.9 account write ordering](docs/accounts-and-privileges/account-write-ordering.md#hotline-server-19-account-write-ordering) | 1–14 | [GAP-072](#gap-072), [GAP-021](#gap-021) |
+| docs/accounts-and-privileges/account-write-ordering.md | [Direct 353 replacement path](docs/accounts-and-privileges/account-write-ordering.md#direct-353-replacement-path) | 15–55 | [GAP-072](#gap-072), [GAP-021](#gap-021) |
+| docs/accounts-and-privileges/account-write-ordering.md | [GAP-072 boundary](docs/accounts-and-privileges/account-write-ordering.md#gap-072-boundary) | 56–72 | [GAP-072](#gap-072), [GAP-021](#gap-021) |
+| docs/native-evidence/native-liveness-preparation.md | [Native preonline liveness fixture preparation](docs/native-evidence/native-liveness-preparation.md#native-preonline-liveness-fixture-preparation) | 1–10 | [GAP-005](#gap-005), [GAP-036](#gap-036) |
+| docs/native-evidence/native-liveness-preparation.md | [Source and case boundary](docs/native-evidence/native-liveness-preparation.md#source-and-case-boundary) | 11–43 | [GAP-005](#gap-005), [GAP-036](#gap-036) |
+| docs/native-evidence/native-liveness-preparation.md | [Preflight and exact runner inputs](docs/native-evidence/native-liveness-preparation.md#preflight-and-exact-runner-inputs) | 44–97 | [GAP-005](#gap-005), [GAP-036](#gap-036) |
+| docs/native-evidence/native-liveness-preparation.md | [Retained output and interpretation](docs/native-evidence/native-liveness-preparation.md#retained-output-and-interpretation) | 98–123 | [GAP-005](#gap-005), [GAP-036](#gap-036) |
+| docs/accounts-and-privileges/classic-privilege-discovery.md | [Classic privilege editor string discovery](docs/accounts-and-privileges/classic-privilege-discovery.md#classic-privilege-editor-string-discovery) | 1–23 | [GAP-031](#gap-031), [GAP-071](#gap-071) |
+| docs/accounts-and-privileges/classic-privilege-discovery.md | [What the queries found](docs/accounts-and-privileges/classic-privilege-discovery.md#what-the-queries-found) | 24–66 | [GAP-031](#gap-031), [GAP-071](#gap-071) |
+| docs/accounts-and-privileges/classic-privilege-discovery.md | [Bounded follow-up of the class data reference](docs/accounts-and-privileges/classic-privilege-discovery.md#bounded-follow-up-of-the-class-data-reference) | 67–93 | [GAP-031](#gap-031) |
+| docs/native-evidence/native-liveness-witness.md | [Native preonline liveness witness](docs/native-evidence/native-liveness-witness.md#native-preonline-liveness-witness) | 1–29 | [GAP-005](#gap-005), [GAP-036](#gap-036) |
+| docs/native-evidence/native-liveness-witness.md | [Finite results](docs/native-evidence/native-liveness-witness.md#finite-results) | 30–87 | [GAP-005](#gap-005), [GAP-036](#gap-036) |
+| docs/native-evidence/native-liveness-witness.md | [Provenance and limits](docs/native-evidence/native-liveness-witness.md#provenance-and-limits) | 88–111 | [GAP-005](#gap-005), [GAP-036](#gap-036) |
+| docs/news/legacy-board-format.md | [Native 1.9 legacy board format: static constants](docs/news/legacy-board-format.md#native-19-legacy-board-format-static-constants) | 1–14 | [GAP-046](#gap-046) |
+| docs/news/legacy-board-format.md | [Pointers and literal bytes](docs/news/legacy-board-format.md#pointers-and-literal-bytes) | 15–56 | [GAP-046](#gap-046) |
+| docs/native-evidence/native-board-preparation.md | [Isolated legacy message board fixture preparation](docs/native-evidence/native-board-preparation.md#isolated-legacy-message-board-fixture-preparation) | 1–12 | [GAP-046](#gap-046), [GAP-084](#gap-084) |
+| docs/native-evidence/native-board-preparation.md | [Evidence and source boundaries](docs/native-evidence/native-board-preparation.md#evidence-and-source-boundaries) | 13–33 | [GAP-046](#gap-046), [GAP-084](#gap-084) |
+| docs/native-evidence/native-board-preparation.md | [Separate guarded epochs](docs/native-evidence/native-board-preparation.md#separate-guarded-epochs) | 34–137 | [GAP-046](#gap-046), [GAP-084](#gap-084) |
+| docs/native-evidence/native-board-preparation.md | [Readiness receipts and the aborted first lab](docs/native-evidence/native-board-preparation.md#readiness-receipts-and-the-aborted-first-lab) | 138–154 | [GAP-046](#gap-046), [GAP-084](#gap-084) |
+| docs/native-evidence/native-board-readiness-failure.md | [Native board lab: aborted readiness](docs/native-evidence/native-board-readiness-failure.md#native-board-lab-aborted-readiness) | 1–78 | [GAP-046](#gap-046), [GAP-084](#gap-084) |
+| docs/native-evidence/native-board-witness.md | [Native Hotline Server 1.9 message-board witness](docs/native-evidence/native-board-witness.md#native-hotline-server-19-message-board-witness) | 1–25 | [GAP-046](#gap-046) |
+| docs/native-evidence/native-board-witness.md | [Fixture and observed results](docs/native-evidence/native-board-witness.md#fixture-and-observed-results) | 26–78 | [GAP-046](#gap-046) |
+| docs/native-evidence/native-board-witness.md | [Provenance and limits](docs/native-evidence/native-board-witness.md#provenance-and-limits) | 79–97 | [GAP-046](#gap-046) |
+| docs/presence-and-messaging/rate304-contract.md | [Native 1.9 settings rate path: source prediction](docs/presence-and-messaging/rate304-contract.md#native-19-settings-rate-path-source-prediction) | 1–16 | [GAP-045](#gap-045) |
+| docs/presence-and-messaging/rate304-contract.md | [Counter and ordinary response](docs/presence-and-messaging/rate304-contract.md#counter-and-ordinary-response) | 17–62 | [GAP-045](#gap-045) |
+| docs/presence-and-messaging/rate304-contract.md | [Measurement boundary](docs/presence-and-messaging/rate304-contract.md#measurement-boundary) | 63–89 | [GAP-045](#gap-045) |
+| docs/native-evidence/native-rate304-preparation.md | [Native 304 rate and reset preparation](docs/native-evidence/native-rate304-preparation.md#native-304-rate-and-reset-preparation) | 1–18 | [GAP-045](#gap-045) |
+| docs/native-evidence/native-rate304-preparation.md | [Prepared scope](docs/native-evidence/native-rate304-preparation.md#prepared-scope) | 19–139 | [GAP-045](#gap-045) |
+| docs/native-evidence/native-rate304-preparation.md | [Offline commands](docs/native-evidence/native-rate304-preparation.md#offline-commands) | 140–168 | [GAP-045](#gap-045) |
+| docs/native-evidence/native-rate304-first-pair.md | [Native 1.9 rate 304: failed first pair](docs/native-evidence/native-rate304-first-pair.md#native-19-rate-304-failed-first-pair) | 1–10 | [GAP-045](#gap-045) |
+| docs/native-evidence/native-rate304-first-pair.md | [What ran](docs/native-evidence/native-rate304-first-pair.md#what-ran) | 11–45 | [GAP-045](#gap-045) |
+| docs/native-evidence/native-rate304-first-pair.md | [Packet and terminal boundary](docs/native-evidence/native-rate304-first-pair.md#packet-and-terminal-boundary) | 46–70 | [GAP-045](#gap-045) |
+| docs/native-evidence/native-rate304-first-pair.md | [Offline replay](docs/native-evidence/native-rate304-first-pair.md#offline-replay) | 71–90 | [GAP-045](#gap-045) |
+| docs/presence-and-messaging/rate304-recipient-predicate.md | [Native 1.9 notification recipient predicates](docs/presence-and-messaging/rate304-recipient-predicate.md#native-19-notification-recipient-predicates) | 1–14 | [GAP-045](#gap-045) |
+| docs/presence-and-messaging/rate304-recipient-predicate.md | [Connection bit and recipient gate](docs/presence-and-messaging/rate304-recipient-predicate.md#connection-bit-and-recipient-gate) | 15–48 | [GAP-045](#gap-045) |
+| docs/presence-and-messaging/rate304-recipient-predicate.md | [Roster uses a different predicate](docs/presence-and-messaging/rate304-recipient-predicate.md#roster-uses-a-different-predicate) | 49–65 | [GAP-045](#gap-045) |
+| docs/presence-and-messaging/rate304-recipient-predicate.md | [Replay and provenance](docs/presence-and-messaging/rate304-recipient-predicate.md#replay-and-provenance) | 66–82 | [GAP-045](#gap-045) |
+| docs/native-evidence/native-rate304-startup-gate.md | [Native rate 304 lab: startup observation gate](docs/native-evidence/native-rate304-startup-gate.md#native-rate-304-lab-startup-observation-gate) | 1–16 | [GAP-045](#gap-045) |
+| docs/native-evidence/native-rate304-startup-gate.md | [Stopped preparation](docs/native-evidence/native-rate304-startup-gate.md#stopped-preparation) | 17–36 | [GAP-045](#gap-045) |
+| docs/native-evidence/native-rate304-startup-gate.md | [Sole boot attempt and boundary](docs/native-evidence/native-rate304-startup-gate.md#sole-boot-attempt-and-boundary) | 37–72 | [GAP-045](#gap-045) |
+| docs/native-evidence/native-rate304-startup-gate.md | [Offline check](docs/native-evidence/native-rate304-startup-gate.md#offline-check) | 73–86 | [GAP-045](#gap-045) |
+| docs/native-evidence/native-rate304-sequence.md | [Native 1.9 rate304 sequence: measured prefix, failed final control](docs/native-evidence/native-rate304-sequence.md#native-19-rate304-sequence-measured-prefix-failed-final-control) | 1–13 | [GAP-045](#gap-045), [GAP-016](#gap-016) |
+| docs/native-evidence/native-rate304-sequence.md | [Identity and capture boundary](docs/native-evidence/native-rate304-sequence.md#identity-and-capture-boundary) | 14–55 | [GAP-045](#gap-045), [GAP-016](#gap-016) |
+| docs/native-evidence/native-rate304-sequence.md | [Observed request and notification sequence](docs/native-evidence/native-rate304-sequence.md#observed-request-and-notification-sequence) | 56–98 | [GAP-045](#gap-045), [GAP-016](#gap-016) |
+| docs/native-evidence/native-rate304-sequence.md | [Stopped state and replay](docs/native-evidence/native-rate304-sequence.md#stopped-state-and-replay) | 99–136 | [GAP-045](#gap-045), [GAP-016](#gap-016) |
+| docs/native-evidence/native-path-fields-preparation.md | [Native path-field matrix preparation](docs/native-evidence/native-path-fields-preparation.md#native-path-field-matrix-preparation) | 1–17 | [GAP-047](#gap-047) |
+| docs/native-evidence/native-path-fields-preparation.md | [Inputs and commands](docs/native-evidence/native-path-fields-preparation.md#inputs-and-commands) | 18–49 | [GAP-047](#gap-047) |
+| docs/native-evidence/native-path-fields-preparation.md | [Fixed case](docs/native-evidence/native-path-fields-preparation.md#fixed-case) | 50–88 | [GAP-047](#gap-047) |
+| docs/native-evidence/native-path-fields-preparation.md | [Offline checks](docs/native-evidence/native-path-fields-preparation.md#offline-checks) | 89–101 | [GAP-047](#gap-047) |
+| docs/files-and-transfers/native-path-fields.md | [Native 1.9 structured path observations](docs/files-and-transfers/native-path-fields.md#native-19-structured-path-observations) | 1–14 | [GAP-047](#gap-047) |
+| docs/files-and-transfers/native-path-fields.md | [Scope and results](docs/files-and-transfers/native-path-fields.md#scope-and-results) | 15–38 | [GAP-047](#gap-047) |
+| docs/files-and-transfers/native-path-fields.md | [Provenance and limits](docs/files-and-transfers/native-path-fields.md#provenance-and-limits) | 39–77 | [GAP-047](#gap-047) |
+| docs/native-evidence/native-missing-alias-preparation.md | [Missing-target alias: positive rehearsal preparation](docs/native-evidence/native-missing-alias-preparation.md#missing-target-alias-positive-rehearsal-preparation) | 1–12 | [GAP-049](#gap-049), [GAP-054](#gap-054), [GAP-084](#gap-084) |
+| docs/native-evidence/native-missing-alias-preparation.md | [Exact boundary](docs/native-evidence/native-missing-alias-preparation.md#exact-boundary) | 13–36 | [GAP-049](#gap-049), [GAP-054](#gap-054), [GAP-084](#gap-084) |
+| docs/native-evidence/native-missing-alias-preparation.md | [Optional alias UI capture window](docs/native-evidence/native-missing-alias-preparation.md#optional-alias-ui-capture-window) | 37–80 | [GAP-049](#gap-049), [GAP-054](#gap-054), [GAP-084](#gap-084) |
+| docs/native-evidence/native-missing-alias-preparation.md | [Reviewed Finder receipt](docs/native-evidence/native-missing-alias-preparation.md#reviewed-finder-receipt) | 81–121 | [GAP-049](#gap-049), [GAP-054](#gap-054), [GAP-084](#gap-084) |
+| docs/native-evidence/native-missing-alias-preparation.md | [Commands and limits](docs/native-evidence/native-missing-alias-preparation.md#commands-and-limits) | 122–165 | [GAP-049](#gap-049), [GAP-054](#gap-054), [GAP-084](#gap-084) |
+| docs/native-evidence/native-missing-alias-preparation.md | [Observed Finder preparation and case refusal](docs/native-evidence/native-missing-alias-preparation.md#observed-finder-preparation-and-case-refusal) | 166–197 | [GAP-049](#gap-049), [GAP-054](#gap-054), [GAP-084](#gap-084) |
+| docs/files-and-transfers/alias-record-v2.md | [Recorded Alias Record v2 identity](docs/files-and-transfers/alias-record-v2.md#recorded-alias-record-v2-identity) | 1–42 | [GAP-049](#gap-049), [GAP-054](#gap-054), [GAP-084](#gap-084) |
+| docs/protocol/date-contracts.md | [Native 1.9 date fields and clock boundaries](docs/protocol/date-contracts.md#native-19-date-fields-and-clock-boundaries) | 1–13 | [GAP-020](#gap-020), [GAP-067](#gap-067) |
+| docs/protocol/date-contracts.md | [Byte grammar, units and range](docs/protocol/date-contracts.md#byte-grammar-units-and-range) | 14–49 | [GAP-020](#gap-020), [GAP-067](#gap-067) |
+| docs/protocol/date-contracts.md | [Producer and consumer registry](docs/protocol/date-contracts.md#producer-and-consumer-registry) | 50–69 | [GAP-020](#gap-020), [GAP-067](#gap-067) |
+| docs/protocol/date-contracts.md | [What would settle conversion and rollover](docs/protocol/date-contracts.md#what-would-settle-conversion-and-rollover) | 70–103 | [GAP-020](#gap-020), [GAP-067](#gap-067) |
+| docs/presence-and-messaging/presence-defaults.md | [Native 1.9 field presence and defaults](docs/presence-and-messaging/presence-defaults.md#native-19-field-presence-and-defaults) | 1–16 | [GAP-016](#gap-016) |
+| docs/presence-and-messaging/presence-defaults.md | [Four cases are not four distinct wire encodings](docs/presence-and-messaging/presence-defaults.md#four-cases-are-not-four-distinct-wire-encodings) | 17–35 | [GAP-016](#gap-016) |
+| docs/presence-and-messaging/presence-defaults.md | [Credentials and session settings](docs/presence-and-messaging/presence-defaults.md#credentials-and-session-settings) | 36–52 | [GAP-016](#gap-016) |
+| docs/presence-and-messaging/presence-defaults.md | [Account replacements and related lookup](docs/presence-and-messaging/presence-defaults.md#account-replacements-and-related-lookup) | 53–74 | [GAP-016](#gap-016) |
+| docs/presence-and-messaging/presence-defaults.md | [Other core requests and generated fields](docs/presence-and-messaging/presence-defaults.md#other-core-requests-and-generated-fields) | 75–119 | [GAP-016](#gap-016) |
+| docs/presence-and-messaging/presence-defaults.md | [Explicitly unmeasured cells](docs/presence-and-messaging/presence-defaults.md#explicitly-unmeasured-cells) | 120–146 | [GAP-016](#gap-016) |
+| docs/native-evidence/native-diagnostic-boundary-preparation.md | [Native 303 final-text boundary preparation](docs/native-evidence/native-diagnostic-boundary-preparation.md#native-303-final-text-boundary-preparation) | 1–9 | [GAP-019](#gap-019) |
+| docs/native-evidence/native-diagnostic-boundary-preparation.md | [Evidence and prediction](docs/native-evidence/native-diagnostic-boundary-preparation.md#evidence-and-prediction) | 10–32 | [GAP-019](#gap-019) |
+| docs/native-evidence/native-diagnostic-boundary-preparation.md | [Dedicated-session prerequisites and authority gate](docs/native-evidence/native-diagnostic-boundary-preparation.md#dedicated-session-prerequisites-and-authority-gate) | 33–57 | [GAP-019](#gap-019) |
+| docs/native-evidence/native-diagnostic-boundary-preparation.md | [Exact planned wire actions](docs/native-evidence/native-diagnostic-boundary-preparation.md#exact-planned-wire-actions) | 58–90 | [GAP-019](#gap-019) |
+| docs/native-evidence/native-diagnostic-boundary-preparation.md | [Result classification and stop rules](docs/native-evidence/native-diagnostic-boundary-preparation.md#result-classification-and-stop-rules) | 91–112 | [GAP-019](#gap-019) |
+| docs/accounts-and-privileges/privilege-bits.md | [Native 1.9 access bitmap: per-bit evidence index](docs/accounts-and-privileges/privilege-bits.md#native-19-access-bitmap-per-bit-evidence-index) | 1–114 | [GAP-031](#gap-031), [GAP-015](#gap-015), [GAP-032](#gap-032) |
+| docs/native-evidence/native-missing-alias-preparation.md | [R04: selection completed, parent checkpoint missed](docs/native-evidence/native-missing-alias-preparation.md#r04-selection-completed-parent-checkpoint-missed) | 198–219 | [GAP-054](#gap-054), [GAP-049](#gap-049), [GAP-084](#gap-084) |
 
 ## Maintaining this analysis
 

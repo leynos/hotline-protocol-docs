@@ -2,13 +2,17 @@
 
 The
 [portable corpus](../../evidence/gap-remediation/2026-11-14/native-liveness-01/manifest.json)
-records one finite Hotline Server 1.9 lab run against an isolated, disposable
-Mac server. The source-declared schedule admitted an online observer (`O`), a
-partial-107 connection (`A`), a preonline connection (`B`), a failed-login
-connection (`F`), and three short TRTP stimulus connections. The separate
-18-action control readiness passed before and after the case: original two
-accounts, 41 Files descriptors, agreement, metadata, roster, and idle. This was
-a **control-only** run; the full A7 file baseline was not exercised.
+records one finite [Hotline Server 1.9](../glossary.md#hotline-server-19) lab
+run against an isolated, disposable Mac server. The source-declared schedule
+admitted an online observer (`O`), a partial-107 connection (`A`), a preonline
+connection (`B`), a failed-login connection (`F`), and three short TRTP
+stimulus connections. The separate 18-action control readiness passed before
+and after the case: original two accounts, 41 Files descriptors, agreement,
+metadata, roster, and idle. This was a **control-only** run; the full
+[A7](../glossary.md#a7-readback) file baseline was not exercised.
+
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 Replay without a VM, ROM, or source checkout:
 
@@ -16,6 +20,12 @@ Replay without a VM, ROM, or source checkout:
 python3 scripts/verify_native_liveness.py
 python3 -m unittest discover -s scripts -p test_native_liveness_corpus.py
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> verifier has since been brought to the repository's Python standard, and its
+> test has moved to `scripts/tests/test_native_liveness_corpus.py`. The same
+> corpus is now checked by `make evidence-verify`, and the test by
+> `uv run --group dev pytest scripts/tests/test_native_liveness_corpus.py`.
 
 ## Finite results
 
@@ -63,6 +73,9 @@ captures and are not added to the application stream.
 | S75        | 12   | 8        |
 | S120       | 12   | 8        |
 | Postflight | 231  | 2,759    |
+
+_Table 1: Client and server application bytes sent and received by each flow,
+from the readiness checks to the postflight checks._
 
 The Mac-side guest TCP capture shows **RST** on A, B, and F near their terminal
 observations. The namespace relay delivered local EOF to the runner; its

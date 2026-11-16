@@ -1,13 +1,17 @@
 # Native 1.9 client diagnostics (303)
 
-This note records five bounded Mac OS 9.0.4 Hotline Server 1.9 exchanges
-against the [exact Mac PPC oracle][corpus]. It addresses GAP-037 as measured
-evidence; the original criterion is assessed with the later formatter trace
-below. The application DATA SHA-256 is
+This note records five bounded Mac OS 9.0.4
+[Hotline Server 1.9](../glossary.md#hotline-server-19) exchanges against the
+[exact Mac PPC oracle][corpus]. It addresses GAP-037 as measured evidence; the
+original criterion is assessed with the later formatter trace below. The
+application DATA SHA-256 is
 `ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b`. The
 continuing emulator PID, executable hash, guest configuration and capture
 method are in the [runtime record][runtime]. The [manifest][manifest]
 identifies all five plans and the preserved earlier plan generator.
+
+This document belongs to the [Hotline 1.9 wire protocol](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Representative reply matrix
 
@@ -25,6 +29,9 @@ reply (`type=0`, `is_reply=1`) unless stated otherwise.
 | Admin → `ffff`                   | Explicit unmatched target value                                                                                          | status `1`; only 100, 67 bytes: `Cannot get info for the specified client because it does not exist.`                                              |
 | Admin → prior-session `008d`     | Preflight had `008d`; current 300 identified admin `008f`, so `008d` is stale                                            | status `1`; same 67-byte missing-client field 100; **not** a self request                                                                          |
 | Admin → self                     | Separate [self exchange][self] saved UID `0091` from its own one-entry 300 roster, then sent 303 on that live connection | status `0`; 101 = 303 bytes, SHA-256 `452b6f03fab68394e7f7132896a13beb1b5c908c0051635914224abfbc529400`; 102 = `framing-fixture` (15 bytes)        |
+
+_Table 1: Representative transaction 303 replies, with the same-session target
+proof and reply fields for each case._
 
 The first success text is raw single-byte data. It begins with the following
 escaped bytes:
@@ -115,6 +122,11 @@ python3 ../hotline-protocol-docs/scripts/verify_native_diagnostics.py \
 python3 -m unittest discover -s ../hotline-protocol-docs/scripts \
   -p test_native_diagnostics.py
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> tests have since moved to `scripts/tests/` and run under pytest; the same
+> tests now run with
+> `uv run --group dev pytest scripts/tests/test_native_diagnostics.py`.
 
 The verifier rejects a wrong field, status, target UID, ambiguous self roster
 or changed reply order and reconciles six host/guest TCP lifetimes, including

@@ -5,9 +5,14 @@ This is a context table for the original
 [core field schemas](../protocol/core-field-schemas.md) and
 [scalar registry](../protocol/native-wire-details.md#core-scalar-width-registry),
 which define types and effective widths. A helper default is not an enclosing
-handler's successful reply. `Native` denotes a retained native observation;
-`Source` denotes source-derived behaviour only. The final section names the
-remaining fixture cells; this document does **not** close GAP-016.
+handler's successful
+[reply](../glossary.md#reply). [`Native`](../glossary.md#native) denotes a
+retained native observation; `Source` denotes source-derived behaviour only.
+The final section names the remaining fixture cells; this document does **not**
+close GAP-016.
+
+This document belongs to the [presence and messaging](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Four cases are not four distinct wire encodings
 
@@ -19,6 +24,9 @@ remaining fixture cells; this document does **not** close GAP-016.
 | `E`      | ID present with BE16 length zero          | This is exactly an empty **B** string on the wire; no separate empty-string encoding exists. The ordinary field writer omits a zero-length output B field.                 |
 | `00`     | ID present with length one, byte NUL      | This is **not** `E`: string-copy and password-sentinel paths can see one byte. For generic numeric `N`, its effective value is zero.                                       |
 | `N0`     | Numeric ID present with BE16 value `0000` | Generic numeric accessor returns zero, as for `Ø`, `E`, one-byte `00` and a three-byte value, but the indexed TLV still exists. A handler may inspect presence separately. |
+
+_Table 1: Notation for the four presence cases, with the wire distinction and
+rule for each._
 
 An eight-byte all-zero privilege bitmap is another **present value**, not an
 empty bitmap. A count-prefixed **empty nested list** has bytes `0000` as its
@@ -39,6 +47,9 @@ Duplicate-field selection is not a general first/last rule (GAP-017).
 | 121/304 options **113**    | Both clear PM refusal, invitation refusal and automatic response.                                                                             | `00`/`N0` clear; enabled bits 0/1/2 have separate effects.                                                                                                                                  | **S+N:** [ten 304 cases](../native-evidence/native-settings-witness.md) and [transition witness](../native-evidence/native-settings-transition-witness.md). A 121 full width matrix is unmeasured.                                       |
 | 121/304 auto text **215**  | When auto response is enabled, both choose the fixed 52-byte default; when disabled, saved text length clears.                                | `00` is distinct nonempty input; its resulting feedback is unmeasured.                                                                                                                      | **S+N:** [304 transitions](../native-evidence/native-settings-transition-witness.md) and [two delayed 121 defaults](../native-evidence/native-121-default-witness.md). This is not an encoding policy.                                   |
 
+_Table 2: Presence and default effects of login and settings request fields,
+with the confidence and limit of each._
+
 ## Account replacements and related lookup
 
 Account 350/353 creates a cleared 734-byte replacement record. Missing field
@@ -58,6 +69,9 @@ has nested per-entry rules. The human meaning of attribute 111 stays opaque.
 | 349 nested password **106**, bitmap **110**, attribute **111**  | Cleared replacement defaults; absent 110/111 clears. Password sentinel needs a nonempty old 101.                                                                                               | Without old 101, one-NUL password is stored rather than preserving a predecessor; bitmap `0000000000000000` is an explicit zero value.                          | **S+N:** [batch matrix](../protocol/operation-contracts.md#captured-batch-account-framing-and-partial-effects).                                                            |
 | 351 delete / 352 read key **105**                               | 352 takes input directly, unlike 350/351/353 complemented mutation keys. Empty/absent/NUL target outcomes are not fully measured.                                                              | No numeric zero interpretation.                                                                                                                                 | **Source** for differing transformations; [account lookup evidence](../protocol/native-wire-details.md#account-lookup-name-encodings).                                     |
 
+_Table 3: Presence and default effects of account replacement and lookup
+fields, with the confidence and limit of each._
+
 ## Other core requests and generated fields
 
 | Context and field                                                         | Presence/default distinction                                                                                                                                                                                                               | Confidence and remaining cell                                                                                                                                                                 |
@@ -72,6 +86,9 @@ has nested per-entry rules. The human meaning of attribute 111 stays opaque.
 | Transfer 202/203/210/213 option **204**, size **108**, item count **220** | Generic `N` makes `Ø`/E/`00`/`N0` effective zero. Enclosing handlers assign option-specific preview/resume meaning; zero size/count does not guarantee a successful worker or complete folder stream.                                      | **S+selected N:** [transfer contracts](../files-and-transfers/transfer-contracts.md); full absent/E/zero per-handler matrix remains.                                                          |
 | Transfer reference **107** in request 214                                 | Direct-copy four-byte word, unlike `N`: `Ø`/E/zero skips cleanup; shorter values zero-fill, longer values cap at four.                                                                                                                     | **S+selected N:** [reference controls](../files-and-transfers/transfer-contracts.md#reference-allocation-and-request-214); not a default reference to the current transfer.                   |
 | News 400/410/411 article **326**, post flags **334**, recursive **337**   | Generic `N` makes `Ø`/E/zero effective zero. Unresolved 326 can select root posting in 410 but errors for read/delete; 334 stores raw zero; 337 zero is nonrecursive, any nonzero recursive.                                               | **Source+Native** [deletion width controls](../news/news-contracts.md#captured-article-deletion-and-index-effects); 326/334 absent/E/zero native cells remain.                                |
+
+_Table 4: Presence and default distinctions for other core requests and
+generated fields, with the confidence and remaining cell for each._
 
 <!-- markdownlint-enable MD013 -->
 

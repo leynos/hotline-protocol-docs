@@ -27,13 +27,13 @@
     "rule": "script",
     "path": "docs/native-evidence/native-board-preparation.md",
     "key": "scripts/test_native_board.py",
-    "reason": "A dated preparation record quotes the command as it was run. The test was converted to pytest and now lives at scripts/tests/test_native_board.py; a dated note is added beneath the command with the next audit revision."
+    "reason": "A dated record quotes the command as it was run; a record note beneath the command gives the form that runs now."
   },
   {
     "rule": "script",
     "path": "docs/peers/classic-login-proxy.md",
     "key": "scripts/test_classic_login_proxy.py",
-    "reason": "A dated record quotes the command as it was run. The test was converted to pytest and now lives at scripts/tests/test_classic_login_proxy.py; a dated note is added beneath the command with the next audit revision."
+    "reason": "A dated record quotes the command as it was run; a record note beneath the command gives the form that runs now."
   },
   {
     "rule": "script",
@@ -46,17 +46,5 @@
     "path": "docs/provenance/records/missing-target-alias.md",
     "key": "scripts/test_alias_record_v2.py",
     "reason": "A dated record quotes the file as it was at the time. The test was converted to pytest and now lives at scripts/tests/test_alias_record_v2.py; a dated note is added beneath the command with the next audit revision."
-  },
-  {
-    "rule": "guide-script",
-    "path": "docs/native-evidence/recreating-evidence.md",
-    "key": "test_classic_proxy_rehearsal.py",
-    "reason": "The guide names the unittest that the verify target then ran. The test was converted to pytest and now lives at scripts/tests/test_classic_proxy_rehearsal.py; a dated note is added beneath the command with the next audit revision."
-  },
-  {
-    "rule": "guide-script",
-    "path": "docs/native-evidence/recreating-evidence.md",
-    "key": "test_mxd_direct_ack.py",
-    "reason": "The guide names the verifier that the verify target then ran on the corpus. The checks moved to scripts/verify_mxd_direct_ack.py, which the verify target now runs, and the fault controls to scripts/tests/test_mxd_direct_ack.py; a dated note is added beside the guide line with the next audit revision."
   }
 ]

@@ -4,10 +4,11 @@ This log lists each discrepancy that the reconciliation pass examined across
 the protocol documents, and what was done about it. It resolves nothing by
 choosing a side. Where two documents disagree and the evidence does not decide,
 both sides stay on record. Each row takes one of six dispositions, named in the
-headings below. A status note is added beneath a sentence that the gap register
-has moved on, and the sentence itself stays as written, because dated records
-are not rewritten (decision D4). A rewording changes the words but not the
-claim. No gap in the register was re-statused or re-worded by this pass.
+headings below. A status note is added beneath a sentence that the
+[gap](glossary.md#gap) register has moved on, and the sentence itself stays as
+written, because dated records are not rewritten (decision D4). A rewording
+changes the words but not the claim. No gap in the register was re-statused or
+re-worded by this pass.
 
 ## Status notes added
 
@@ -62,7 +63,7 @@ title heading were left as written.
 _Table 2: Rewordings by document. The count is of sentences, except where a
 table row was changed._
 
-## Kept as Unreconciled
+## Kept as unreconciled
 
 These are the 27 paragraphs in the mxd set that begin with the label
 "Unreconciled:". Each keeps both sides of its conflict, and none is decided

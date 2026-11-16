@@ -1,11 +1,15 @@
 # Identified peer profiles and the unknown-peer rule
 
 The protocol documentation uses the two exact builds below as its current
-interoperability evidence targets for native Server 1.9. A target is a
-particular executable and configuration with measured coverage. It is not every
-release carrying the same product name. The matrix records tested and untested
-cells; it does not certify a complete implementation or select an mxd release
-subset. Further mxd validation remains on hold.
+interoperability evidence targets for [native](../glossary.md#native) Server
+1.9. A target is a particular executable and configuration with measured
+coverage. It is not every release carrying the same product name. The matrix
+records tested and untested cells; it does not certify a complete
+implementation or select an [mxd](../glossary.md#mxd) release subset. Further
+mxd validation remains on hold.
+
+This document belongs to the [peer implementations](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Evaluated build identities
 
@@ -34,6 +38,9 @@ these labels to other binaries are unproved. The
 | Unknown login TLV       | Controlled field 32767 continues                                         | Untested                                                                                   |
 | Roster subject 115      | Controlled receiver observation                                          | One ASCII append preserves subsequent Online Users row display; subject rendering unproved |
 | Banner 122              | Controlled ordering cases continue; early frame produces diagnostic/dump | Native 212 request and 58-byte data transfer; rendering unproved                           |
+
+_Table 1: Evidence cells for the exact shx build and the Classic candidate,
+with the observed result of each._
 
 The [shx evidence](peer-tolerance-matrix.md), the
 [Classic baseline](classic-native-baseline.md), the

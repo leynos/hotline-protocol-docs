@@ -1,9 +1,9 @@
 # Classic client account request constructors
 
-This bounded read-only trace uses the identified Classic PowerPC client DATA
-fork, SHA-256
-`7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315`, and
-resource fork, SHA-256
+This bounded read-only trace uses the
+[identified Classic PowerPC client](../glossary.md#classic-client) [DATA fork](../glossary.md#data-fork),
+SHA-256 `7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315`, and
+[resource fork](../glossary.md#resource-fork), SHA-256
 `f762cfdedcc39758f841f720a4586dbbb88a7b74ec9e83db1793791b7c3f318b`. The archive
 labels it “Hotline Client 1.9.2 Classic”, while its `vers` resources say
 1.9.1.0; see the [candidate identity][candidate]. Neither label proves vendor
@@ -11,6 +11,9 @@ authenticity. The [portable query corpus][corpus] contains input/tool hashes,
 the PEF section map, exact tool arguments and replies, source scripts, stderr,
 a query plan, a manifest and SHA inventory. It omits the client forks and
 Ghidra project database.
+
+This document belongs to the [accounts and privileges](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## What the executable trace establishes
 
@@ -28,6 +31,9 @@ B38 eight and B39 three, each under its approved cap. The [offline verifier]
 | `FUN_1000bfa0`, request 349        | Accepts an already-built account parameter object, passes its serialized buffer into the request and dispatches type `0x15d`.                                                                                                                                              |
 | `FUN_1005b5b0`, 349 object source  | Iterates account records and constructs nested fields 101 old login (conditionally), 105 login, 106 password, 102 display name and 110 privileges; emits each nonempty nested stream as outer field 101.                                                                   |
 | `FUN_1005ce30`, preceding 349 list | Constructs inner field **101** (`0x65`) only, then outer field 101. The native [349 handler][batch] uses a nonempty old login with empty new display/login for its deletion branch. The client field shape and native branch together support the deletion interpretation. |
+
+_Table 1: Client-side paths that build account requests, with the positive
+construction evidence for each._
 
 The client's `FUN_100b05d0` writes a counted BE16 ID/length/value TLV and skips
 zero-length values. `FUN_1005b5b0` reads old login at record offsets
@@ -57,6 +63,11 @@ sha256sum --quiet -c evidence/gap-remediation/2026-11-13/client-account-construc
 python3 scripts/verify_classic_account_constructors.py
 python3 -m unittest scripts.test_verify_classic_account_constructors
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> tests have since moved to `scripts/tests/` and run under pytest; the same
+> tests now run with
+> `uv run --group dev pytest scripts/tests/test_verify_classic_account_constructors.py`.
 
 To repeat the import, first obtain the exact DATA/RSRC forks and compare both
 hashes above. Use Ghidra 12.2, the recorded JAR SHA-256 and a **new ignored

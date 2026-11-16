@@ -1,10 +1,15 @@
 # Native error and failure outcomes
 
-This registry refines GAP-003/021 for the hashed 1.9-family code oracle. The
-[status-call review][status-review] accounts for **68 direct calls in 35
-functions** to native reply-error setter `10058a10`; every captured call passes
-**1**. These are the complete direct callers returned by the retained query,
-not proof that no other indirect/state-writing route can affect a reply.
+This registry refines GAP-003/021 for the hashed 1.9-family code
+[oracle](../glossary.md#oracle). The [status-call review][status-review]
+accounts for **68 direct calls in 35 functions** to
+[native](../glossary.md#native) reply-error setter `10058a10`; every captured
+call passes **1**. These are the complete direct callers returned by the
+retained query, not proof that no other indirect/state-writing route can affect
+a reply.
+
+This document belongs to the [Hotline 1.9 wire protocol](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Wire status and failure classes
 
@@ -26,6 +31,9 @@ separate from observations about this native server.
 | Invalid frame size words                                    | Receiver closes transport; it does not construct a universal numbered error or 111.          | Partial TCP delivery, buffering and drain fixtures.                                                                                                                     |
 | Truncated TLV record                                        | Index builder retains the valid prefix; enclosing handler can act on defaults or fail later. | No universal transaction-level failure is implied.                                                                                                                      |
 | Internal `SError` thrown by a helper                        | Domain/code exception object, with separate text resources and UI/log formatting.            | Enclosing catch/transport translation must be traced; do not invent a direct reply.                                                                                     |
+
+_Table 1: Failure triggers and paths in the traced native code, with the
+established result and remaining boundary for each._
 
 A failure reply does not promise absence of earlier effects. In particular,
 account batch 349 is sequential, comment mutation in 207 precedes rename
@@ -93,6 +101,9 @@ ID 1 the reply has one field, 25 text bytes and a 31-byte payload:
 | Count / field 100 / length 25 | `00 01 00 64 00 19`                                                          |
 | Text                          | `55 6e 6b 6e 6f 77 6e 20 74 72 61 6e 73 61 63 74 69 6f 6e 20 74 79 70 65 21` |
 
+_Table 2: Components of the calculated unknown-operation reply for request ID
+1, in hex._
+
 The complete frame is 51 bytes, with no NUL terminator after the text. The
 [raw memory query][unknown-text] retains the Pascal literal used by the
 handler. This provides an auditable example while keeping GAP-003/084's native
@@ -123,6 +134,9 @@ Representative entries, joined to the separately decoded resource text, are:
 | -1302         | 4 / 124              | Expected file, received folder |
 | -50           | 1 / 2                | Invalid value                  |
 
+_Table 3: Representative native results, with their internal domain and code
+and a paraphrased resource meaning._
+
 These mappings explain internal exception construction. They still establish
 neither numbered transaction statuses nor the final connection outcome of an
 exception thrown during file/news mutation.
@@ -138,6 +152,9 @@ resource fork and that native lookup routine:
 | 3               | Memory-related exceptions                                                    | 3                           |
 | 4               | Filesystem exceptions, including existence, access, type and volume failures | 30                          |
 | 8               | Transport/address/connection/configuration exceptions                        | 13                          |
+
+_Table 4: Retained internal-error messages by internal domain, with the
+resource role and message count for each._
 
 The two direct callers of the text helper are file-log formatter `10027a20` and
 native error-dialog code `10027ea0`. This is evidence for internal text

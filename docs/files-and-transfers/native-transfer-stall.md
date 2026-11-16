@@ -1,14 +1,18 @@
 # Disposable lab transfer stall before the option-two ban fixture
 
-C35's second disposable Mac server never reached its option-two request. The
-required A7 baseline failed during the 1,049,073-byte FILP transfer:
+[C35](../glossary.md#packet-label)'s second disposable Mac server never reached
+its option-two request. The required [A7](../glossary.md#a7-readback) baseline
+failed during the 1,049,073-byte [FILP](../glossary.md#filp) transfer:
 `report.json` retains `status=failed`, 21 completed actions, and
 `TimeoutError: timed out`. The data connection yielded 98,304 bytes, SHA-256
 `b4c6dc15be0d82de42d3aa7102c1feca67397b978591ac8be2d2c846d6a62e7c`. The account
 guard, seed, request 110 and post-ban probe were not run. This failure cannot
 be counted as an option-two notice or ban result.
 
-The compact frozen corpus is
+This document belongs to the [files and transfers](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
+
+The compact frozen [corpus](../glossary.md#corpus) is
 `evidence/gap-remediation/2026-11-13/native-transfer-stall-01/`. It retains the
 immutable and as-run 29-action plans, failed report, terminal receipt, exact
 lab namespace/guest/host PCAPs, recorder logs and C36/C37 analyses. Those lab
@@ -47,6 +51,11 @@ python3 scripts/verify_native_transfer_stall.py \
 python3 -m unittest discover -s scripts -p 'test_native_transfer_stall.py'
 ```
 
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> tests have since moved to `scripts/tests/` and run under pytest; the same
+> tests now run with
+> `uv run --group dev pytest scripts/tests/test_native_transfer_stall.py`.
+
 The verifier checks the failed report and source-plan bounds, PCAP flow
 association, identical prefixes, TCP window-scale negotiation, full ACKs,
 positive windows, no primary bridge traffic and recorded lab retirement. It
@@ -74,6 +83,8 @@ independently:
 | C32 | 29/29      | 1,049,073       | 1,049,073           | Completed |
 | C35 | 21/29      | 98,304          | 98,304              | Timed out |
 | C45 | 21/29      | 98,304          | 98,304              | Timed out |
+
+_Table 1: Actions, byte counts and outcome of each repeated A7 baseline lab._
 
 Both C32 packet views have the full flattened file, SHA-256
 `7d1f5bf5e2b69b8a18906633ce2ef550876b78252c0639e7d36eb61142787ab8`. C35 and C45
@@ -109,6 +120,11 @@ python3 scripts/verify_native_transfer_repeat.py \
   evidence/gap-remediation/2026-11-14/native-transfer-repeat-01
 python3 -m unittest discover -s scripts -p 'test_native_transfer_repeat.py'
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> tests have since moved to `scripts/tests/` and run under pytest; the same
+> tests now run with
+> `uv run --group dev pytest scripts/tests/test_native_transfer_repeat.py`.
 
 ## One focus event on the repeated prefix
 

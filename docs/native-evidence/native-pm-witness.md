@@ -1,12 +1,16 @@
 # Native 1.9 private-message 104 witness (A29)
 
 The [A29 corpus][corpus] contains one seven-request 108 sequence between two
-full A7 readbacks. It uses only two existing `admin` sessions, named
-`PM-Main-A26` and `PM-Peer-A26`, with current-connection UIDs `002b` and
-`002c`. The source is [handler 1000f4e0][handler]; the
+full [A7](../glossary.md#a7-readback) readbacks. It uses only two existing
+`admin` sessions, named `PM-Main-A26` and `PM-Peer-A26`, with
+current-connection UIDs `002b` and `002c`. The source is
+[handler 1000f4e0][handler]; the
 [producer matrix](../presence-and-messaging/native-104-variants.md) keeps other
 type-104 origins separate. This capture completed 151 actions with no retry,
 extra PM request, account/file/config change or native restart.
+
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 | 108 case; identifier        | Session flags (main/peer)   | Recorded 104; raw action | Exact field set and identity                                                                                                                                                                   |
 | --------------------------- | --------------------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -17,6 +21,9 @@ extra PM request, account/file/config change or native restart.
 | Option 2; 64                | 0/0                         | Peer; 111                | Sender identity 103=`002b`/102=`PM-Main-A26`, 113=`0002`, 101=`PM-Main-A26 does not accept private messages.`                                                                                  |
 | Option 3; 65                | 0/0                         | Main; 120                | Sender identity 103=`002c`/102=`PM-Peer-A26`, 113=`0003`, 101=`PM-Peer-A26 does not accept private chats.`                                                                                     |
 | Empty ordinary text; 66     | 0/0                         | None                     | Empty 101 request receives empty success ACK but no 104; both quiet barriers passed.                                                                                                           |
+
+_Table 1: The seven 108 cases, with session flags, the recorded 104 and its raw
+action, and the exact fields of each 104._
 
 Every 108 received an empty success ACK. The retained main TCP byte stream
 places the id-61 ACK before its refusal feedback and the id-62 ACK before its
@@ -58,6 +65,12 @@ python3 ../hotline-protocol-docs/scripts/verify_native_pm_packet.py \
 python3 -m unittest discover -s ../hotline-protocol-docs/scripts \
   -p 'test_native_pm_packet.py'
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> verifier has since been brought to the repository's Python standard, and its
+> test has moved to `scripts/tests/test_native_pm_packet.py`. The same check is
+> now run by `make evidence-verify`, and the test by
+> `uv run --group dev pytest scripts/tests/test_native_pm_packet.py`.
 
 The verifier requires only the exported corpus and protocol scripts; it does
 not connect to the guest, server or mxd. It checks three Recorder reports,

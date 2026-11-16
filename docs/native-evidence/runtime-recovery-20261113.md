@@ -1,11 +1,15 @@
 # Disposable Mac OS 9 runtime recovery, 13 November 2026
 
-This run restored a native Hotline Server 1.9 oracle after a host restart. The
-previous SheepShaver process and user service had disappeared. The old
-`hotline21/working.dsk` was preserved; all guest writes went to a new
-`hotline22-recovery/working.dsk`. The evidence is in the adjacent mothra
-[recovery batch][batch] and its [operator transcript][as-run]. This is a
+This run restored a native
+[Hotline Server 1.9](../glossary.md#hotline-server-19) [oracle](../glossary.md#oracle)
+after a host restart. The previous SheepShaver process and user service had
+disappeared. The old `hotline21/working.dsk` was preserved; all guest writes
+went to a new `hotline22-recovery/working.dsk`. The evidence is in the adjacent
+mothra [recovery batch][batch] and its [operator transcript][as-run]. This is a
 bounded readiness check, not a claim that every protocol gap is resolved.
+
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Recovery boundary
 
@@ -19,7 +23,7 @@ path. Never reuse an existing target, capture or display path. Recheck
 ownership and source stat immediately before copying.
 
 The toolset's `mac_runtime.py prepare` command, described in the
-[build and runtime preparation guide](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/preparing-a-capture-run.md#build-the-emulator-and-prepare-a-runtime),
+[build and runtime preparation guide](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/preparing-a-capture-run.md#build-the-emulator-and-prepare-a-runtime),
 copied the stopped source to a read-only base and created a separate writable
 working image. The original remained at its recorded inode, size and mtime
 after both smokes. Independent SHA-256 reads confirmed both new disk files
@@ -33,7 +37,7 @@ An absent catalogue probe would not prove the application absent.
 The commands below are the preparation and snapshot commands as run for the
 completed 13 November run, as the [as-run transcript][as-run] records them. The
 `mac_runtime.py` command is the toolset's; its general procedure is in the
-[build and runtime preparation guide](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/preparing-a-capture-run.md#build-the-emulator-and-prepare-a-runtime).
+[build and runtime preparation guide](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/preparing-a-capture-run.md#build-the-emulator-and-prepare-a-runtime).
 They are historical provenance, not a current recovery recipe: the `hotline21`
 input was retired on 15 November 2026; `hotline22-recovery` is an occupied live
 runtime. Never copy these commands verbatim into an occupied path.
@@ -51,6 +55,15 @@ python3 scripts/snapshot_native_hfs.py \
   --output ../mothra/state/native-sessions/recovery-20261113-01/preboot-app
 ```
 
+> Record note (2026-11-16): the `snapshot_native_hfs.py` command above is
+> quoted as it was run. The script has since been brought to the repository's
+> Python standard, and runs as
+> `uv run --group dev python scripts/snapshot_native_hfs.py`. Its test has
+> moved to `scripts/tests/test_snapshot_native_hfs.py`, run by
+> `uv run --group dev pytest scripts/tests/test_snapshot_native_hfs.py`. The
+> `mac_runtime.py` commands belong to the mothra toolset and are not restated
+> here.
+
 For a new disposable run, retain the same source-content checks but use the
 FD-free read-only `native-board-02/base.dsk` donor and its matching ROM. The
 retained
@@ -62,7 +75,7 @@ working image. From the protocol documentation checkout, prepare the source
 with the toolset's `mac_runtime.py prepare` into a fresh
 `../mothra/state/mac-runtime/native-recovery-NEW` runtime, using the
 `native-board-02` ROM and base disk, as the
-[build and runtime preparation guide](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/preparing-a-capture-run.md#build-the-emulator-and-prepare-a-runtime)
+[build and runtime preparation guide](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/preparing-a-capture-run.md#build-the-emulator-and-prepare-a-runtime)
 describes.
 
 This is source preparation only. Apply the current identity, capacity, managed

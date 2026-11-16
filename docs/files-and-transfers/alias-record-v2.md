@@ -2,8 +2,12 @@
 
 `scripts/alias_record_v2.py` accepts an **extracted AliasRecord payload**. The
 caller separately proves a unique resource-map `alis` ID 0, the stopped Finder
-alias flag and the exact fork/payload hashes. The decoder does not parse
-resource forks, call Alias Manager or resolve a live target.
+[alias](../glossary.md#alias) flag and the exact fork/payload hashes. The
+decoder does not parse resource forks, call Alias Manager or resolve a live
+target.
+
+This document belongs to the [files and transfers](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 `decode(payload)` requires a size-exact, big-endian version-2 file or folder
 record. It bounds the Pascal volume and target names, records parent and target

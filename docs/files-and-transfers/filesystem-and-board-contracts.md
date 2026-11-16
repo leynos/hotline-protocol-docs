@@ -1,10 +1,14 @@
 # Native filesystem, diagnostics and legacy-board contracts
 
-This supplement refines GAP-037, GAP-046 and GAP-049–GAP-054 from preserved
-native handlers and [batch 08][batch]. Native Toolbox calls are identified
-explicitly so implementations do not inherit guessed portable filesystem
-semantics. The captured 205 matrix below now supplies creation/path fixtures;
-other operation-specific object/conflict/failure requirements remain active.
+This supplement refines [GAP-037](../glossary.md#gap), GAP-046 and
+GAP-049–GAP-054 from preserved [native](../glossary.md#native) handlers and
+[batch 08][batch]. Native Toolbox calls are identified explicitly so
+implementations do not inherit guessed portable filesystem semantics. The
+captured 205 matrix below now supplies creation/path fixtures; other
+operation-specific object/conflict/failure requirements remain active.
+
+This document belongs to the [files and transfers](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## File-info target kinds and field presence
 
@@ -20,6 +24,8 @@ the source was an alias. Handler 206 builds these variants:
 | Directory (3)        | `Folder`                                             | `n/a`                                               | `fldr`              | Not added in this branch                                           | Included                                    |
 | Directory alias (5)  | `Folder Alias`                                       | `n/a`                                               | `fldr`              | Not added in this branch                                           | Included from resolved object               |
 | Unattached alias (6) | `Unattached Alias`                                   | `n/a`                                               | `alis`              | Not added                                                          | Not added                                   |
+
+_Table 1: Fields 205, 206, 213, 207 and 208 to 210 by target kind._
 
 Successful branches add name 201. The literals and Pascal lengths are retained
 in batch 08 at `10091cfd`. A descriptive 205/206 is a byte string, not a fixed
@@ -42,6 +48,8 @@ Relevant privilege bits are:
 | 207 change file / directory comment | 28 / 29      |
 | 208 move file / directory           | 4 / 8        |
 | 209 create alias                    | 31           |
+
+_Table 2: Native privilege bits checked by each file and folder operation._
 
 **204 delete:** helper `1002ba20` finds the native Trash folder and calls
 `FSpCatMove`. A duplicate-name outcome enters collision/name handling before
@@ -81,6 +89,8 @@ normalization and `FSpRename`.
 | Both supplied                               | Apply permitted comment first, then validate/rename name.                 |
 | Comment succeeds, later rename denied/fails | Error can follow an already changed comment; no rollback is visible here. |
 | Both absent                                 | No mutation from these branches; normal empty ACK remains possible.       |
+
+_Table 3: Order and result of request 207 for each comment and name case._
 
 The helper wrappers flush/prepare native file state and invoke platform comment
 or rename operations. The captured mutation matrix below supplies round-trip,
@@ -160,6 +170,8 @@ which omits field101. The account without read privilege receives a101 error.
 | One additional byte                                   | Stored aggregate grows to65,629 bytes;101 returns its newest65,535-byte prefix.    |
 | 8,193 bytes                                           | Status1/field100 error; no new102 or change to the reconstructed or stopped board. |
 
+_Table 4: Captured legacy-board post cases, with the native result of each._
+
 Each observed segment has a33-byte header ending in CR CR, the raw post, then
 the60-byte separator. In this run the header is
 `From BoardSender (Nov14 09:14):` followed by those two CR bytes. Its rendered
@@ -235,6 +247,8 @@ the existing Files root; they do not mean successful idempotent creation.
 | Account with zero field-110 privileges                             | Status 1, field 100: `You are not allowed to create folders.` Both a new target and an existing-name target get this result.                                           |
 | Absent/empty name with existing root                               | Status 1 with the existing-file-or-folder explanation and empty quoted name; root listing unchanged.                                                                   |
 
+_Table 5: Captured outcome of each folder creation case._
+
 The native handler checks bit 5 before resolving the target. The tested
 administrator has bitmap `fff3cfefff800000`; the denied account has eight zero
 bytes. No account is changed for these controls. Successful creates and
@@ -263,6 +277,8 @@ rules.
 | Component word `ffff`                                               | Same tested directory as the zero-word control.                                                        |
 | Trailing bytes beyond the declared component count                  | Ignored by this tested traversal.                                                                      |
 | Zero count followed by a complete unused record                     | Files root.                                                                                            |
+
+_Table 6: Captured creation location for each field 202 input._
 
 The before/create/after listings prove each claimed location and raw name.
 These are acceptance quirks of field 202 in this operation, not proof that
@@ -338,6 +354,8 @@ universal two-byte size contract.
 | File alias or file-alias chain           | `TEXT (alias)`     | `MOTH`          | `TEXT`          | `014d`  | Resolved target's dates | Resolved target's comment                     |
 | Directory alias or chain                 | `Folder Alias`     | `n/a`           | `fldr`          | Omitted | Resolved target's dates | Resolved target's comment, omitted when empty |
 | Cyclic self-alias, classified unattached | `Unattached Alias` | `n/a`           | `alis`          | Omitted | Omitted                 | Omitted                                       |
+
+_Table 7: Field values captured for each file-info target kind._
 
 The zero-tag fields are present binary values, not empty strings or missing
 fields. Empty-file size is a present scalar zero. An alias named `derived-link`
@@ -416,6 +434,8 @@ For an ordinary file or directory, the captured administrator matrix is:
 | Empty                 | Preserve name and comment | Preserve name; clear comment | Preserve name; set comment |
 | Changed nonempty name | Rename; preserve comment  | Rename and clear comment     | Set comment, then rename   |
 
+_Table 8: Captured effect of fields 211 and 210 on files and folders._
+
 Exactly one NUL byte in 210 also clears the comment. Interior NUL bytes in
 `aa\x00bb` remain part of a five-byte comment. After a clear, 206 omits 210
 rather than returning a present empty value. A new name equal to the current
@@ -435,6 +455,8 @@ values. Comment processing precedes rename processing:
 | Both permitted; no conflict                   | Empty success ACK                 | New name resolves; old name fails; new comment persists                        |
 | Comment absent; rename permitted              | Empty success ACK                 | Rename succeeds and original comment is preserved                              |
 | Comment absent; rename denied                 | Status 1, rename-permission text  | Name and comment remain unchanged                                              |
+
+_Table 9: Captured replies to combined comment and rename requests._
 
 Exact permission text distinguishes `files` and `folders`. The comment denial
 literal is `You are not allowed set comments for files.` (including the native
@@ -490,6 +512,8 @@ persistence; GAP-050 and GAP-053 retain those unanswered requirements.
 | File-alias source                                           | Alias object moves; its target stays in place; resolved metadata remains available                                                                     |
 | Alias to destination directory                              | Move succeeds into the resolved destination directory                                                                                                  |
 
+_Table 10: Captured replies and effects of request 208 move cases._
+
 Twelve moves succeed, including two same-parent no-ops; fourteen fail with
 exact status 1/text 100 outcomes. The collision literal says there is already a
 file/folder in the destination folder with the same name. The hierarchy literal
@@ -514,6 +538,8 @@ under an interrupted native filesystem operation.
 | Absent 201 with full owned-directory 202        | Success; resolves and moves that owned directory to Trash                                                       |
 | Two equal basenames from distinct owned parents | Both succeed; positive catalogue shows `m-del22-dupe` and `m-del22-dupe1`, with distinct source bytes preserved |
 | Target of a live alias                          | Target moves to Trash; 206 through the remaining alias still resolves its metadata                              |
+
+_Table 11: Captured replies and effects of request 204 delete cases._
 
 Six deletes succeed and three return expected errors. The path-only case uses
 an owned directory; it does not test deletion of the actual Files root. Native

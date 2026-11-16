@@ -4,7 +4,11 @@ This prepares the finite GAP-046 101/102/103 case; it does **not** run it. The
 runner accepts only control port 15860 and a receipt for a new disposable Mac
 guest. It changes that guest's board through ordinary native requests. Keep the
 immutable base and primary guest untouched. Retire the disposable working image
-after the stopped-image board witness; do not reuse it for another baseline.
+after the stopped-image board [witness](../glossary.md#witness); do not reuse
+it for another baseline.
+
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Evidence and source boundaries
 
@@ -50,6 +54,12 @@ python scripts/native_board_control.py --plan <new-plan-dir> \
   --receipt <live-capture-receipt.json> \
   --binary <pinned-server-data-fork> --output <new-empty-output-dir>
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> case generator, `scripts/native_board_cases.py`, has since been brought to
+> the repository's Python standard. The control runner,
+> `scripts/native_board_control.py`, is still held at the earlier lint rules
+> (`scripts/legacy-modules.txt`), so its command is unchanged.
 
 The output directory must **not** exist. The case has four simultaneous-at-most
 control sockets: admin sender, admin eligible reader, zero-ACL `fixture-low`
@@ -117,6 +127,14 @@ ty check --extra-search-path \
   scripts/test_native_board.py
 ```
 
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> test module has since moved to `scripts/tests/test_native_board.py`, and the
+> same checks now run as
+> `uv run --group dev pytest scripts/tests/test_native_board.py` and
+> `make evidence-verify` for the corpus. The `ruff` and `ty` lines are
+> unchanged in form, but they now apply to that path. The control runner,
+> `scripts/native_board_control.py`, is still held at the earlier lint rules.
+
 ## Readiness receipts and the aborted first lab
 
 The [first board lab](native-board-readiness-failure.md) stopped before any
@@ -126,7 +144,7 @@ failed setup checks; it supplies no board-operation evidence. The
 and stopped-file evidence for the fixture described here.
 
 Use the
-[validated receipt builder](https://github.com/leynos/mothra/blob/57aeaac4f12065bfb2de3d47943f4b45622392a9/docs/native-capture-receipt.md)
+[validated receipt builder](https://github.com/leynos/mothra/blob/2278968b622eab731e4ba2be0484cedfbab73bb7/docs/native-capture-receipt.md)
 from the host as root. It reads the exact managed-unit properties, rechecks
 capture and emulator identity, and creates one new receipt exclusively.
 Prewrite and check readiness scripts before launching their units, and wait for

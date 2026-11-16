@@ -1,8 +1,9 @@
 # Native Hotline Server 1.9 message-board witness
 
-This finite, isolated Mac OS 9 fixture exercises Hotline Server 1.9
-message-board requests `101` and `103`, the `102` update, recipient access,
-size boundaries, and stopped HFS storage. The portable corpus is
+This finite, isolated Mac OS 9 fixture exercises
+[Hotline Server 1.9](../glossary.md#hotline-server-19) message-board requests
+`101` and `103`, the `102` update, recipient access, size boundaries, and
+stopped HFS storage. The portable corpus is
 [`native-board-01`](../../evidence/gap-remediation/2026-11-14/native-board-01/manifest.json).
 Run `python3 scripts/verify_native_board.py` from this repository, or pass
 `--corpus PATH` after exporting this repository beside `mothra`. The verifier
@@ -10,6 +11,17 @@ uses frozen source, reports, whole packet captures, and stopped fork bytes; it
 needs no guest, ROM, server process, or Ghidra project. Its 17 fault controls
 run with
 `python3 -m unittest discover -s scripts -p test_native_board_corpus.py`.
+
+> Record note (2026-11-16): the two commands above are quoted as they were run.
+> The verifier has since been brought to the repository's Python standard, and
+> its tests have moved to `scripts/tests/`. The same corpus is now checked by
+> `make evidence-verify`, which runs `scripts/verify_native_board.py` against
+> `evidence/gap-remediation/2026-11-14/native-board-01`. The fault controls now
+> run under pytest as
+> `uv run --group dev pytest scripts/tests/test_native_board_corpus.py`.
+
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Fixture and observed results
 

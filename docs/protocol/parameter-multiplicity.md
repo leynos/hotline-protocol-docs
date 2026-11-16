@@ -1,12 +1,16 @@
 # Parameter multiplicity and ordering in Hotline Server 1.9
 
-This is the canonical wire-shape rule for the hashed native 1.9 server. The
+This is the canonical wire-shape rule for the hashed
+[native](../glossary.md#native) 1.9 server. The
 [45-handler catalogue](operation-contracts.md#request-catalogue), [core field schemas](core-field-schemas.md#types-occurrence-and-direction-conventions),
 and
 [parser analysis](native-wire-details.md#parameter-parsing-and-scalar-access)
 give field meanings and limits. The [GAP-017 certificate][certificate] records
 the representative native tests. The [parent acceptance][acceptance] meets the
 unchanged GAP-017 criterion with the limitations stated below.
+
+This document belongs to the [Hotline 1.9 wire protocol](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 An outer parameter is a counted sequence of ID/length/value records. Preserve
 its order and duplicate IDs through decoding. **Scalar** below means one
@@ -29,6 +33,9 @@ repeated outer parameters.
 | Reply to 348                         | 101 account record                                                                | Repeated outer records; each is a nested count-prefixed TLV stream with logical scalar attributes; [account contract](operation-contracts.md#administrative-account-list-and-batch-mutation).                                                                                                                   |
 | Reply to 370                         | 320 legacy or 323 modern category record                                          | Repeated outer records, selected at saved version 15; [news contract](../news/news-contracts.md#category-list-variants).                                                                                                                                                                                        |
 | Reply to 371                         | 321                                                                               | One outer field containing a packed article list, including nested article/flavour records; [article grammar](../news/news-contracts.md#article-list-field-321).                                                                                                                                                |
+
+_Table 1: Canonical occurrence and native order of the parameters for each
+request and reply group._
 
 The [frozen inventory][manifest] hashes a decompilation for each of the 45
 catalogued request handlers. Direct request-parameter indexed calls appear in

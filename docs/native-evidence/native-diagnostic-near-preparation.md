@@ -11,6 +11,9 @@ does not assert untraced formatter termination semantics. The handler's
 fixed 29-byte rows occupy 464 bytes. Admission of sixteen queued references is
 still unverified.
 
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
+
 ## Fixed bounds and decision gate
 
 Only after a separate live START, use the already verified
@@ -55,6 +58,12 @@ python3 ../hotline-protocol-docs/scripts/native_diagnostic_near_cases.py \
 PYTHONPATH=../hotline-protocol-docs/scripts \
   python3 -m unittest -q test_native_diagnostic_near
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> case generator, `scripts/native_diagnostic_near_cases.py`, has since been
+> brought to the repository's Python standard. Its test has moved to
+> `scripts/tests/test_native_diagnostic_near.py`, which is run by
+> `uv run --group dev pytest scripts/tests/test_native_diagnostic_near.py`.
 
 After a separately approved capture, run the standard
 `protocol_capture.py verify` on each capture, then

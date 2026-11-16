@@ -20,6 +20,10 @@
     {
       "path": "evidence/protocol-gap-analysis/2026-11-16/revision-94",
       "reason": "Audit revision cut in this repository after the reconciliation pass: dated status notes, record notes, family-name wording and links to the toolset guides."
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-16/revision-95",
+      "reason": "Audit revision cut in this repository after the style pass: table captions, sentence-case headings with unchanged anchors, cross-references to set overviews and the glossary, dated notes beside quoted commands, and links to the toolset at its current commit."
     }
   ]
 }

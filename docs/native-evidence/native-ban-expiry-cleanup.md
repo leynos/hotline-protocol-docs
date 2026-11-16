@@ -6,6 +6,9 @@ mutation may precede that first lookup. The generator opens no sockets. It
 emits plans only for `m-expiry-zero` and `m-expiry-protected`; it cannot accept
 substitute account names or select the original accounts for deletion.
 
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
+
 ## Guard, then delete
 
 Use the same verified emulator PID/start/executable, namespace and image inode

@@ -13,6 +13,9 @@ receipt missed the hard checkpoint. No protocol request or alias ran.
 All original criteria remain; audit88 has62 Resolved,24 Investigating,1 Open.
 Any R05 work is offline only until a new reviewed execution grant.
 
+This document belongs to the [provenance](../README.md) set; the
+[glossary](../../glossary.md) defines the terms it uses.
+
 This ExecPlan is a living document. Status: M1 COMPLETE after A136 review and
 609 native tests. The first M2 epoch ended at the Finder receipt timeout,
 before alias creation or 206. Its stopped image is quarantined. The reviewed
@@ -519,6 +522,14 @@ this section before claiming a gate. The root later runs the exact
 native acceptance gate. For M4, add verifier default and `--corpus PATH` runs
 against a fresh committed adjacent export; expect an explicit success receipt
 and all negative controls to reject the intended semantic mutation.
+
+> Record note (2026-11-16): the focused unittest command in this section is
+> quoted as it was planned. Its test module has since been brought to the
+> repository's Python standard and now lives at
+> `scripts/tests/test_native_missing_alias.py`, which runs under pytest as
+> `uv run --group dev pytest scripts/tests/test_native_missing_alias.py`. The
+> `mac_runtime.py` commands belong to the mothra toolset and are not restated
+> here.
 
 For live M2/M3, record `python3 scripts/mac_runtime.py --help` and
 `python3 scripts/mac_runtime.py sheep --help` outputs before exact command

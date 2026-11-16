@@ -1,10 +1,14 @@
 # mxd assertion reconciliation
 
-This document maps mxd test assertions to the corrected Hotline Server 1.9
-baseline. It records the assertions reviewed at the revision listed in
+This document maps [mxd](../glossary.md#mxd) test assertions to the corrected
+[Hotline Server 1.9](../glossary.md#hotline-server-19) baseline. It records the
+assertions reviewed at the revision listed in
 [Revisions examined](#revisions-examined) and the protocol requirements that
 each is reconciled with. The state of the work after this review, and the point
 at which to resume it, is in [validation-status.md](validation-status.md).
+
+This document belongs to the [mxd validation](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Revisions examined
 

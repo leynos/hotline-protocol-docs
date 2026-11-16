@@ -6,6 +6,9 @@ The A46 plan/report remain frozen historical evidence: 64 planned observations
 plus two runner-added EOFs require explicit legacy validation. Never rewrite
 their counts, checksums or driver hash.
 
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
+
 The same-session 304 transitions and delayed 121 defaults are already measured
 in `native-settings-transition-witness.md` and `native-121-default-witness.md`.
 
@@ -43,6 +46,11 @@ python3 scripts/native_settings_persistence_cases.py \
   --runtime "$RUNTIME_JSON" --port 15760 --output "$OWNED_PLAN_DIR"
 ```
 
+> Record note (2026-11-16): the command above is quoted as it was run. The
+> generator, `scripts/native_settings_persistence_cases.py`, is still held at
+> the earlier lint rules (`scripts/legacy-modules.txt`), so the command is
+> unchanged.
+
 The corrected generator includes two planned EOF actions after a 64-action
 phase one observation or 26-action phase two observation. The runner writes
 hold-ready after observation, then executes those planned EOFs after visible
@@ -63,6 +71,10 @@ python3 scripts/protocol_capture.py capture "$OWNED_PLAN_DIR/readiness.json" \
   --oracle-binary "$NATIVE_DATA_FORK" --output "$READINESS_CAPTURE_DIR"
 ```
 
+> Record note (2026-11-16): the command above is quoted as it was run. The
+> capture tool, `scripts/protocol_capture.py`, is still held at the earlier
+> lint rules (`scripts/legacy-modules.txt`), so the command is unchanged.
+
 Then run the phase gate:
 
 ```sh
@@ -72,6 +84,11 @@ python3 scripts/native_settings_persistence.py --run \
   --capture-receipt "$CAPTURE_RECEIPT_JSON" \
   --binary "$NATIVE_DATA_FORK" --output "$PHASE1_CAPTURE_DIR"
 ```
+
+> Record note (2026-11-16): the command above is quoted as it was run. The
+> runner, `scripts/native_settings_persistence.py`, is still held at the
+> earlier lint rules (`scripts/legacy-modules.txt`), so the command is
+> unchanged.
 
 Use the same command with `phase2.json` and fresh phase-two paths after the
 separately approved restart. The runner demands root for `/proc` FD, netns,

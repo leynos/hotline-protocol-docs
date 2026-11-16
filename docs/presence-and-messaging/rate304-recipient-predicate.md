@@ -1,12 +1,16 @@
 # Native 1.9 notification recipient predicates
 
-This is a bounded static reading of Hotline Server 1.9. The frozen
+This is a bounded static reading of
+[Hotline Server 1.9](../glossary.md#hotline-server-19). The frozen
 [oracle and source corpus](../../evidence/gap-remediation/2026-11-14/rate304-recipient-predicate-01/manifest.json)
-records the PEF DATA SHA `ad7040db…`, PowerPC big-endian 32-bit language,
-1,840 saved functions, the exact query, and equal program identities before and
-after the read-only `--no-analyze --discard` session. The A104 and A105 reports
-are retained as text beside the raw result. No new live 304 test was run for
-this finding.
+records the [PEF](../glossary.md#pef) DATA SHA `ad7040db…`, PowerPC big-endian
+32-bit language, 1,840 saved functions, the exact query, and equal program
+identities before and after the read-only `--no-analyze --discard` session. The
+A104 and A105 reports are retained as text beside the raw result. No new live
+304 test was run for this finding.
+
+This document belongs to the [presence and messaging](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Connection bit and recipient gate
 

@@ -2,20 +2,24 @@
 
 This
 [bounded corpus](../../evidence/gap-remediation/2026-11-14/classic-privilege-discovery-01/manifest.json)
-preserves one fresh independent Ghidra 12.2 import of the identified Classic
-client and three read-only defined-string queries. The archive calls the app
-“Hotline Client 1.9.2 Classic”; its embedded `vers` resources say **1.9.1.0**.
-Those names do not establish a vendor-wide client version or behaviour.
+preserves one fresh independent [Ghidra](../glossary.md#ghidra) 12.2 import of
+the identified [Classic client](../glossary.md#classic-client) and three
+read-only defined-string queries. The archive calls the app “Hotline Client
+1.9.2 Classic”; its embedded `vers` resources say **1.9.1.0**. Those names do
+not establish a vendor-wide client version or behaviour.
 
-The imported DATA fork has SHA-256
+The imported [DATA fork](../glossary.md#data-fork) has SHA-256
 `7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315`; the
-separately checked resource fork has SHA-256
+separately checked [resource fork](../glossary.md#resource-fork) has SHA-256
 `f762cfdedcc39758f841f720a4586dbbb88a7b74ec9e83db1793791b7c3f318b`. The pinned
 GhidraMCP JAR has SHA-256
 `201d18ffde71a83a678eae607de265861f37e5a00b989d91958c1197664d2b43`. Only a new
 ignored `classic-privilege-01` project was created. Before and after the
 queries, Ghidra reported the same PEF SHA, PowerPC BE32 language, and 3,564
 functions. Neither the GUI nor server project was opened.
+
+This document belongs to the [accounts and privileges](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## What the queries found
 

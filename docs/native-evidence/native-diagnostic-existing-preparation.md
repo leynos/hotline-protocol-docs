@@ -4,15 +4,19 @@ This A8 packet was prepared before phase 1. The
 [phase-1 witness](native-diagnostic-existing-witness.md) records the completed
 2/1 case and restoration. The
 [8/8 density witness](native-diagnostic-density-witness.md) records A9. This
-packet uses the already verified `mothra-race-fixture` on native Hotline Server
-1.9 for bounded transaction 303 observations. No upload, file deletion, rename,
-account edit or server restart is part of this packet. The
-[A7 full readback][a7] proved the current DATA fork (1,048,576 bytes, SHA-256
+packet uses the already verified `mothra-race-fixture` on native
+[Hotline Server 1.9](../glossary.md#hotline-server-19) for bounded transaction
+303 observations. No upload, file deletion, rename, account edit or server
+restart is part of this packet. The [A7 full readback][a7] proved the current
+DATA fork (1,048,576 bytes, SHA-256
 `fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83`) and
 resource fork (317 bytes, SHA-256
 `40a42dbcf2d879e22d9a5a9acf46bf15fa9fe3a77837f757a990e514436801e5`) match the
 prior native extraction byte for byte. A7 also matched the exact two accounts
 and 41-entry Files baseline and paired both packet views.
+
+This document belongs to the [native evidence](README.md) set; the
+[glossary](../glossary.md) defines the terms it uses.
 
 ## Bounds and order
 
@@ -93,6 +97,14 @@ python3 ../hotline-protocol-docs/scripts/verify_native_diagnostic_existing.py \
   --a7-baseline "$a8_batch/native-diagnostic-existing-preflight-01/capture" \
   --output state/native-sessions/A8/verification-CASE.json
 ```
+
+> Record note (2026-11-16): the commands above are quoted as they were run. The
+> case generator, `scripts/native_diagnostic_existing_cases.py`, and the
+> verifier, `scripts/verify_native_diagnostic_existing.py`, have since been
+> brought to the repository's Python standard, and run as
+> `uv run --group dev python scripts/<name>.py`. The capture tool,
+> `scripts/protocol_capture.py`, is still held at the earlier lint rules
+> (`scripts/legacy-modules.txt`), so its commands are unchanged.
 
 Reconcile exact SYN lifetimes and client/server byte streams in both PCAPs. For
 unread density sockets, the recorder's received stream is only an observed
