@@ -1,0 +1,62 @@
+console-broadcast		ok fcb360bade8f1e94
+console-broadcast	manifest.json>files:delete-key	KeyError: 'files'
+console-broadcast	manifest.json:delete-key	KeyError: 'manifest.json'
+console-broadcast	operator-actions.json>result:delete-key	KeyError: 'result'
+console-broadcast	manifest.json>status:delete-key	KeyError: 'status'
+console-broadcast	manifest.json>status:flip	ValueError: Bad manifest
+console-broadcast	baseline/plan.json>schema_version:inc	ValueError: Checksum mismatch: plan.json
+console-broadcast	baseline/report.json>frames>1>declared_field_count:inc	ValueError: Checksum mismatch: report.json
+console-broadcast	manifest.json>files>baseline/checksums.sha256:flip	ValueError: File SHA differs: baseline/checksums.sha256
+console-broadcast	manifest.json>files>baseline/plan.json:flip	ValueError: File SHA differs: baseline/plan.json
+console-broadcast	manifest.json>files>baseline/report.json:flip	ValueError: File SHA differs: baseline/report.json
+console-broadcast	manifest.json>files>bounds.json:flip	ValueError: File SHA differs: bounds.json
+console-broadcast	manifest.json>files>capture-final.log:flip	ValueError: File SHA differs: capture-final.log
+console-broadcast	manifest.json>files>capture-journal.log:flip	ValueError: File SHA differs: capture-journal.log
+console-broadcast	manifest.json>files>capture-ready.log:flip	ValueError: File SHA differs: capture-ready.log
+console-broadcast	manifest.json>files>capture-start.log:flip	ValueError: File SHA differs: capture-start.log
+console-broadcast	manifest.json>files>capture/checksums.sha256:flip	ValueError: File SHA differs: capture/checksums.sha256
+console-broadcast	manifest.json>files>capture/plan.json:flip	ValueError: File SHA differs: capture/plan.json
+console-broadcast	manifest.json>files>capture/report.json:flip	ValueError: File SHA differs: capture/report.json
+console-broadcast	manifest.json>files>console-preflight.png:flip	ValueError: File SHA differs: console-preflight.png
+console-broadcast	manifest.json>files>dialog-sent.png:flip	ValueError: File SHA differs: dialog-sent.png
+console-broadcast	manifest.json>files>guest-after.pcap:flip	ValueError: File SHA differs: guest-after.pcap
+console-broadcast	manifest.json>files>guest-before.pcap:flip	ValueError: File SHA differs: guest-before.pcap
+console-broadcast	manifest.json>files>guest-postflight.pcap:flip	ValueError: File SHA differs: guest-postflight.pcap
+console-broadcast	manifest.json>files>host.pcap:flip	ValueError: File SHA differs: host.pcap
+console-broadcast	manifest.json>files>operator-actions.json:flip	ValueError: File SHA differs: operator-actions.json
+console-broadcast	manifest.json>files>postflight/checksums.sha256:flip	ValueError: File SHA differs: postflight/checksums.sha256
+console-broadcast	manifest.json>files>postflight/plan.json:flip	ValueError: File SHA differs: postflight/plan.json
+console-broadcast	manifest.json>files>postflight/report.json:flip	ValueError: File SHA differs: postflight/report.json
+console-broadcast	manifest.json>files>runtime-preflight.json:flip	ValueError: File SHA differs: runtime-preflight.json
+console-broadcast	operator-actions.json>result:empty	ValueError: Operator scope differs
+console-broadcast	operator-actions.json>result:delete-key;manifest.json>files>runtime-preflight.json:flip	ValueError: File SHA differs: runtime-preflight.json
+console-broadcast	manifest.json>status:flip;baseline/report.json>frames>1>declared_field_count:inc	ValueError: Bad manifest
+console-broadcast	manifest.json>status:flip;manifest.json>files>baseline/checksums.sha256:flip	ValueError: Bad manifest
+console-broadcast	manifest.json>status:flip;manifest.json>files>capture/checksums.sha256:flip	ValueError: Bad manifest
+console-broadcast	baseline/plan.json>schema_version:inc;baseline/report.json>frames>1>declared_field_count:inc	ValueError: Checksum mismatch: plan.json
+console-broadcast	baseline/plan.json>schema_version:inc;operator-actions.json>result:empty	ValueError: Operator scope differs
+console-broadcast	manifest.json>files>baseline/checksums.sha256:flip;manifest.json>files>baseline/plan.json:flip	ValueError: File SHA differs: baseline/checksums.sha256
+console-broadcast	manifest.json>files>baseline/checksums.sha256:flip;manifest.json>files>baseline/report.json:flip	ValueError: File SHA differs: baseline/checksums.sha256
+console-broadcast	manifest.json>files>baseline/checksums.sha256:flip;manifest.json>files>postflight/checksums.sha256:flip	ValueError: File SHA differs: baseline/checksums.sha256
+console-broadcast	manifest.json>files>baseline/plan.json:flip;manifest.json>files>baseline/report.json:flip	ValueError: File SHA differs: baseline/plan.json
+console-broadcast	manifest.json>files>baseline/report.json:flip;manifest.json>files>bounds.json:flip	ValueError: File SHA differs: baseline/report.json
+console-broadcast	manifest.json>files>bounds.json:flip;manifest.json>files>capture/checksums.sha256:flip	ValueError: File SHA differs: bounds.json
+console-broadcast	manifest.json>files>bounds.json:flip;manifest.json>files>postflight/report.json:flip	ValueError: File SHA differs: bounds.json
+console-broadcast	manifest.json>files>capture-final.log:flip;manifest.json>files>capture-journal.log:flip	ValueError: File SHA differs: capture-final.log
+console-broadcast	manifest.json>files>capture-final.log:flip;manifest.json>files>capture/report.json:flip	ValueError: File SHA differs: capture/report.json
+console-broadcast	manifest.json>files>capture-journal.log:flip;manifest.json>files>capture-ready.log:flip	ValueError: File SHA differs: capture-journal.log
+console-broadcast	manifest.json>files>capture-ready.log:flip;manifest.json>files>capture-start.log:flip	ValueError: File SHA differs: capture-ready.log
+console-broadcast	manifest.json>files>capture-start.log:flip;manifest.json>files>console-preflight.png:flip	ValueError: File SHA differs: capture-start.log
+console-broadcast	manifest.json>files>capture/checksums.sha256:flip;manifest.json>files>capture/plan.json:flip	ValueError: File SHA differs: capture/checksums.sha256
+console-broadcast	manifest.json>files>capture/plan.json:flip;manifest.json>files>capture/report.json:flip	ValueError: File SHA differs: capture/plan.json
+console-broadcast	manifest.json>files>console-preflight.png:flip;manifest.json>files>dialog-sent.png:flip	ValueError: File SHA differs: console-preflight.png
+console-broadcast	manifest.json>files>console-preflight.png:flip;manifest.json>files>guest-postflight.pcap:flip	ValueError: File SHA differs: console-preflight.png
+console-broadcast	manifest.json>files>dialog-sent.png:flip;manifest.json>files>guest-after.pcap:flip	ValueError: File SHA differs: dialog-sent.png
+console-broadcast	manifest.json>files>guest-after.pcap:flip;manifest.json>files>guest-before.pcap:flip	ValueError: File SHA differs: guest-after.pcap
+console-broadcast	manifest.json>files>guest-after.pcap:flip;manifest.json>files>postflight/plan.json:flip	ValueError: File SHA differs: guest-after.pcap
+console-broadcast	manifest.json>files>guest-before.pcap:flip;manifest.json>files>guest-postflight.pcap:flip	ValueError: File SHA differs: guest-before.pcap
+console-broadcast	manifest.json>files>guest-postflight.pcap:flip;manifest.json>files>host.pcap:flip	ValueError: File SHA differs: guest-postflight.pcap
+console-broadcast	manifest.json>files>host.pcap:flip;manifest.json>files>postflight/checksums.sha256:flip	ValueError: File SHA differs: host.pcap
+console-broadcast	manifest.json>files>host.pcap:flip;operator-actions.json>result:empty	ValueError: File SHA differs: host.pcap
+console-broadcast	manifest.json>files>operator-actions.json:flip;manifest.json>files>postflight/checksums.sha256:flip	ValueError: File SHA differs: operator-actions.json
+console-broadcast	manifest.json>files>operator-actions.json:flip;manifest.json>files>postflight/plan.json:flip	ValueError: File SHA differs: operator-actions.json

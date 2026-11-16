@@ -43,7 +43,6 @@ scripts/test_native_ban_one.py
 scripts/test_native_ban_reload.py
 scripts/test_native_configured_ban.py
 scripts/test_native_configured_ban_witness.py
-scripts/test_native_console_broadcast.py
 scripts/test_native_control_readiness.py
 scripts/test_native_download_send_path.py
 scripts/test_native_rate304.py
@@ -64,7 +63,6 @@ scripts/verify_native_ban_expiry_later.py
 scripts/verify_native_ban_one.py
 scripts/verify_native_ban_reload.py
 scripts/verify_native_configured_ban.py
-scripts/verify_native_console_broadcast.py
 scripts/verify_native_download_send_path.py
 scripts/verify_native_rate304_partial.py
 scripts/verify_native_rate304_sequence.py
