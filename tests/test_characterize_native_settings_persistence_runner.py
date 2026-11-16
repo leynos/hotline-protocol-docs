@@ -1,11 +1,13 @@
-"""Characterize the persistence runner, which stays at the old rules.
+"""Characterize the persistence runner.
 
-``native_settings_persistence`` records the SHA-256 of its own file and of three
-siblings in the report it writes and hashes them again at capture (decision D31),
-so it is not refactored yet. These tests were written on its current bytes. They
-run only the offline checks that precede a capture, in the order in which they
-run, and the command line, with the recorder never created. No socket is opened
-and no capture is run.
+``native_settings_persistence`` hashed its own file and three siblings at capture
+and recorded the hash of its own file in the report it wrote. These tests were
+written on those bytes, and they hold for the runner after decision D31, which
+checks the module set that the planner recorded and records the digest of the set
+and the record of its files; the tests that read the records write both forms, and
+a refusal is matched by what both messages begin with. They run only the offline
+checks that precede a capture, in the order in which they run, and the command
+line, with the recorder never created. No socket is opened and no capture is run.
 """
 
 import copy
@@ -14,6 +16,7 @@ import sys
 import typing as typ
 from pathlib import Path
 
+import capture_identity
 import native_settings_persistence as runner
 import native_settings_persistence_cases as cases
 import pytest
@@ -21,6 +24,13 @@ import pytest
 type Plan = dict[str, typ.Any]
 
 RUNTIME = {"emulator_pid": 123, "source_a7_sha256": cases.A7_SHA}
+# The set that the runner records for itself after decision D31; before it, none.
+MODULES = getattr(
+    runner,
+    "CAPTURE_MODULES",
+    ("native_settings_persistence.py", "native_settings_persistence_cases.py"),
+)
+REFUSED = r"^Source code differs"  # the earlier message names a file, the later a fault
 USAGE_STATUS = 2
 PLAN_NAMES = ["phase1", "phase2"]
 
@@ -143,7 +153,9 @@ class RunGatedTests:
         digest = runner.digest(paths[0].read_bytes())
         (tmp_path / "source-hashes.json").write_text(json.dumps({"phase1": digest}))
         (tmp_path / "source-code-sha256.json").write_text(json.dumps({"other.py": "x"}))
-        with pytest.raises(ValueError, match=r"^Source code differs: other\.py$"):
+        other = {"files": [{"path": "scripts/other.py", "sha256": "0" * 64}]}
+        (tmp_path / "source-code-identity.json").write_text(json.dumps(other))
+        with pytest.raises(ValueError, match=REFUSED):
             runner.run_gated(*paths)
 
     @pytest.mark.usefixtures("as_root")
@@ -154,8 +166,12 @@ class RunGatedTests:
         (tmp_path / "source-hashes.json").write_text(json.dumps({"phase1": digest}))
         sources = {"native_ban_control_cases.py": "0" * 64}
         (tmp_path / "source-code-sha256.json").write_text(json.dumps(sources))
-        message = r"^Source code differs: native_ban_control_cases\.py$"
-        with pytest.raises(ValueError, match=message):
+        files = capture_identity.identity(MODULES)["files"]
+        files[0]["sha256"] = "0" * 64
+        (tmp_path / "source-code-identity.json").write_text(
+            json.dumps({"files": files})
+        )
+        with pytest.raises(ValueError, match=REFUSED):
             runner.run_gated(*paths)
 
     @pytest.mark.usefixtures("as_root")
@@ -175,6 +191,10 @@ class RunGatedTests:
         here = Path(runner.__file__).parent
         sources = {n: runner.digest((here / n).read_bytes()) for n in names}
         (tmp_path / "source-code-sha256.json").write_text(json.dumps(sources))
+        files = capture_identity.identity(MODULES)["files"]
+        (tmp_path / "source-code-identity.json").write_text(
+            json.dumps({"files": files})
+        )
         with pytest.raises(FileNotFoundError):
             runner.run_gated(*paths)
         assert not paths[4].exists(), "expected no output directory"

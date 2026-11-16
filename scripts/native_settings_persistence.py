@@ -1,272 +1,123 @@
 #!/usr/bin/env python3
-"""Gate a control-only settings phase while sockets remain live for app Quit."""
+"""Gate a control-only settings phase while sockets remain live for app Quit.
 
-import argparse
+The gates live in ``native_settings_persistence_gates`` and
+``native_settings_persistence_phase``, and every name they define stays importable
+from here. A phase is run only after a separate root START. The scripts that make
+a capture are the modules of ``CAPTURE_MODULES``: the planner records the path and
+hash of each (decision D31) beside the plans, the runner checks that the live files
+are the recorded ones, and the report records the commit and the digest of the set
+in ``driver_sha256``, with the record in ``driver_identity``. A report made before
+that decision holds the hash of this one file in ``driver_sha256``.
+
+Command line::
+
+    native_settings_persistence.py --run --plan F --readiness-dir D
+        --capture-receipt F --binary F --output D
+"""
+
 import json
 import os
+import sys
 import time
-from datetime import datetime, timezone
+import typing as typ
 from pathlib import Path
 
-import native_settings_persistence_cases as cases
-from native_control_readiness import capture_gate, login_gate, readiness
-from protocol_capture import (
-    ORACLE_SHA256,
-    Recorder,
-    digest,
-    validate_plan,
-    verify_capture,
+import capture_identity
+from native_control_readiness import capture_gate
+from native_settings_persistence_gates import (
+    frame_at,
+    gate_identity,
+    gate_readiness,
+    gate_update,
+    verify_plan,
 )
-from verify_native_auth import ADMIN, reply, roster
+from native_settings_persistence_phase import gate_pm, phase_gate, semantic
+from native_settings_persistence_run import (
+    LIMIT_SECONDS,
+    NANOSECONDS,
+    Capture,
+    Progress,
+    hold,
+    quit_steps,
+    report_of,
+    write_files,
+)
+from protocol_capture import ORACLE_SHA256, Recorder, digest, verify_capture
+from script_cli import UsageError
+from script_cli import run as run_command
 from verify_native_core import require
-from verify_native_shx import fields
 
-LIMIT_SECONDS = 720
+# The scripts that make this capture, in the fixed order of its identity digest.
+CAPTURE_MODULES = (
+    "native_settings_persistence.py",
+    "native_settings_persistence_cases.py",
+    "native_settings_persistence_gates.py",
+    "native_settings_persistence_phase.py",
+    "native_settings_persistence_run.py",
+)
 
+type Report = dict[str, typ.Any]
+type Plan = dict[str, typ.Any]
 
-def frame_at(report: dict, index: int, connection: str, kind: int) -> dict:
-    found = [
-        frame
-        for frame in report["frames"]
-        if (frame["action"], frame["connection"], frame["type"], frame["is_reply"])
-        == (index, connection, kind, 0)
-    ]
-    require(len(found) == 1, f"Action {index}: expected one {kind} on {connection}")
-    return found[0]
+STEP_FAILURES = (
+    OSError,
+    EOFError,
+    ValueError,
+    KeyError,
+    IndexError,
+    TimeoutError,
+    KeyboardInterrupt,
+)
+IDENTITY_FILE = "source-code-identity.json"
 
-
-def gate_readiness(report: dict, plan: dict) -> None:
-    try:
-        require(report["status"] == "completed", "capture failed")
-        require(plan["expectation"]["case"] == "control-readiness", "wrong case")
-        require(plan["steps"] == cases.control.plans()["readiness"], "steps differ")
-        readiness(report)
-    except (KeyError, ValueError) as error:
-        raise ValueError(f"readiness: {error}") from error
-
-
-def gate_identity(report: dict, plan: dict) -> tuple[bytes, bytes]:
-    login_gate(report["frames"][:3])
-    users = roster(reply(report, 10))
-    require(
-        len(users) == 1 and bytes.fromhex(users[0]["name_hex"]) == b"framing-fixture",
-        "Initial observer identity differs",
-    )
-    own = users[0]["uid"].to_bytes(2, "big")
-    subject_frames = [f for f in report["frames"] if f["connection"] == "subject"]
-    require(
-        len(subject_frames) >= 3
-        and subject_frames[0]["is_reply"]
-        and subject_frames[0]["id"] == 1
-        and subject_frames[0]["error"] == 0
-        and fields(subject_frames[1]) == {110: ADMIN}
-        and subject_frames[2]["type"] == 109,
-        "Subject login/privileges/agreement differ",
-    )
-    announced = fields(
-        frame_at(report, plan["expectation"]["identity_action"], "main", 301)
-    )
-    uid = announced.get(103, b"")
-    require(
-        len(uid) == 2
-        and uid != own
-        and announced.get(102) == cases.BASELINE_NAME
-        and announced.get(104) == b"\0\3",
-        "Subject identity/name/icon differs",
-    )
-    return uid, own
+__all__ = [
+    "CAPTURE_MODULES",
+    "LIMIT_SECONDS",
+    "capture_gate",
+    "frame_at",
+    "gate_identity",
+    "gate_pm",
+    "gate_readiness",
+    "gate_update",
+    "main",
+    "phase_gate",
+    "run_gated",
+    "semantic",
+    "verify_plan",
+]
 
 
-def gate_update(
-    report: dict,
-    plan: dict,
-    uid: bytes,
-    stage: dict | None = None,
-    *,
-    both: bool = True,
-) -> None:
-    stage = stage or plan["expectation"]["stages"][0]
-    index = stage["update_action"]
-    names = ("main", "subject") if both else ("main",)
-    for offset, name in enumerate(names):
-        value = fields(frame_at(report, index + offset, name, 301))
-        require(
-            value.get(103) == uid
-            and value.get(102) == bytes.fromhex(stage["name_hex"])
-            and value.get(104) == bytes.fromhex(stage["icon_hex"]),
-            f"{stage['label']} 301 update differs on {name}",
-        )
+def _check_sources(plan_path: Path, raw: bytes, phase: int) -> None:
+    """Check the plan against its recorded digest and the live scripts against theirs.
 
-
-def gate_pm(
-    report: dict,
-    start: int,
-    uid: bytes,
-    own: bytes,
-    *,
-    phase: int,
-    stage: dict | None = None,
-) -> None:
-    identifier = stage["pm_id"] if stage else 60
-    text = (
-        bytes.fromhex(stage["pm_text_hex"])
-        if stage
-        else b"a41-before"
-        if phase == 1
-        else b"a41-after-restart"
-    )
-    window = [
-        f
-        for f in report["frames"]
-        if start <= f["action"] <= report["completed_actions"]
-    ]
-    ack = [
-        f
-        for f in window
-        if f["connection"] == "main" and f["is_reply"] and f["id"] == identifier
-    ]
-    require(
-        len(ack) == 1 and ack[0]["error"] == 0 and not ack[0]["fields"],
-        "PM ACK differs",
-    )
-    original = [
-        f
-        for f in window
-        if f["connection"] == "subject" and f["type"] == 104 and not f["is_reply"]
-    ]
-    require(
-        len(original) == 1
-        and fields(original[0])
-        == {103: own, 102: b"framing-fixture", 113: b"\0\1", 101: text},
-        "Original PM delivery differs",
-    )
-    automatic = [
-        f
-        for f in window
-        if f["connection"] == "main" and f["type"] == 104 and not f["is_reply"]
-    ]
-    active = bool(stage and stage["auto"])
-    expected = (
-        {
-            103: uid,
-            102: bytes.fromhex(stage["name_hex"]),
-            113: b"\0\4",
-            101: cases.MARKER_TEXT,
-        }
-        if active
-        else None
-    )
-    require(
-        len(automatic) == int(active)
-        and (not active or fields(automatic[0]) == expected),
-        "Automatic PM feedback differs",
-    )
-
-
-def phase_gate(report: dict, plan: dict, index: int) -> str | None:
-    phase = int(plan["expectation"]["case"][-1])
-    identity = plan["expectation"]["identity_action"]
-    if index == identity:
-        gate_identity(report, plan)
-        return "identity"
-    if index < identity:
-        return None
-    uid, own = gate_identity(report, plan)
-    baseline = plan["expectation"]["baseline_pm_action"]
-    if index in (baseline + 2, baseline + 8):
-        gate_pm(report, baseline, uid, own, phase=phase)
-        return "baseline-pm" if index == baseline + 8 else "baseline-delivery"
-    for stage in plan["expectation"].get("stages", []):
-        update = stage["update_action"]
-        if index in (update, update + 1):
-            gate_update(report, plan, uid, stage, both=index == update + 1)
-            return f"{stage['label']}-301-{index - update + 1}"
-        pm = stage["pm_action"]
-        delivery = pm + (3 if stage["auto"] else 2)
-        last = pm + (9 if stage["auto"] else 8)
-        if index in (delivery, last):
-            gate_pm(report, pm, uid, own, phase=phase, stage=stage)
-            return f"{stage['label']}-{'barrier' if index == last else 'delivery'}"
-    return None
-
-
-def semantic(report: dict, plan: dict) -> dict:
-    """Replay bounded stage gates; a completed phase still needs guest shutdown proof."""
-    verify_plan(plan)
-    require(report["status"] == "completed", "Phase capture incomplete")
-    require(report["completed_actions"] == len(plan["steps"]), "Quit EOF count differs")
-    passed = []
-    for index in range(plan["expectation"]["observation_actions"]):
-        result = phase_gate(
-            {"frames": report["frames"], "completed_actions": index + 1}, plan, index
-        )
-        if result is not None:
-            passed.append(result)
-    require(passed == report["gates"], "Live and replayed stage gates differ")
-    eof = [event for event in report["events"] if event["event"] == "eof"]
-    require(
-        [(event["action"], event["connection"]) for event in eof]
-        == [
-            (plan["expectation"]["observation_actions"], "subject"),
-            (plan["expectation"]["observation_actions"] + 1, "main"),
-        ],
-        "Owned socket EOFs differ",
-    )
-    return {
-        "status": "verified_phase_only",
-        "gates": passed,
-        "guest_shutdown_proven": False,
-    }
-
-
-def verify_plan(plan: dict) -> int:
-    validate_plan(plan)
-    case = plan["expectation"]["case"]
-    require(
-        case in {"settings-persistence-phase1", "settings-persistence-phase2"},
-        "Wrong case",
-    )
-    phase = int(case[-1])
-    env = plan["environment"]
-    port = plan["endpoints"]["control"]["port"]
-    require(plan == cases.plans(env, port)[f"phase{phase}"], "Prepared plan changed")
-    require(
-        env["fixture_profile"] == "control-only"
-        and env["full_file_baseline"] == "not_exercised"
-        and plan["oracle_sha256"] == ORACLE_SHA256,
-        "Profile/oracle differs",
-    )
-    return phase
-
-
-def run_gated(
-    plan_path: Path,
-    readiness_dir: Path,
-    receipt_path: Path,
-    binary: Path,
-    output: Path,
-) -> dict:
-    """Run only after a separate root START and an already verified recorder receipt."""
-    if os.geteuid() != 0:
-        raise PermissionError("Live phase requires root /proc identity checks")
-    raw = plan_path.read_bytes()
-    plan = json.loads(raw)
-    phase = verify_plan(plan)
+    Parameters
+    ----------
+    plan_path : pathlib.Path
+        The plan; its directory holds the planner's records.
+    raw : bytes
+        The plan file's bytes.
+    phase : int
+        The phase number.
+    """
     plan_hashes = json.loads((plan_path.parent / "source-hashes.json").read_text())
     require(plan_hashes[f"phase{phase}"] == digest(raw), "Plan source hash differs")
-    sources = json.loads((plan_path.parent / "source-code-sha256.json").read_text())
-    for name, expected in sources.items():
-        require(
-            name
-            in {
-                "native_settings_persistence_cases.py",
-                "native_settings_persistence.py",
-                "native_control_readiness.py",
-                "native_ban_control_cases.py",
-            }
-            and digest((Path(__file__).parent / name).read_bytes()) == expected,
-            f"Source code differs: {name}",
-        )
+    files = json.loads((plan_path.parent / IDENTITY_FILE).read_text())["files"]
+    recorded = {"files": files, "digest": capture_identity.set_digest(files)}
+    first = next(iter(capture_identity.differences(recorded, CAPTURE_MODULES)), None)
+    require(first is None, f"Source code differs: {first}")
+
+
+def _check_readiness(readiness_dir: Path, plan: Plan) -> None:
+    """Check the readiness capture and that it ran against the same emulator.
+
+    Parameters
+    ----------
+    readiness_dir : pathlib.Path
+        The readiness capture directory.
+    plan : dict[str, typing.Any]
+        The phase's plan.
+    """
     ready_plan = json.loads((readiness_dir / "plan.json").read_text())
     ready_report = verify_capture(readiness_dir)
     gate_readiness(ready_report, ready_plan)
@@ -276,6 +127,105 @@ def run_gated(
         and ready_report["oracle_sha256"] == plan["oracle_sha256"],
         "Readiness runtime/endpoint differs",
     )
+
+
+def _observe(recorder: Recorder, plan: Plan, progress: Progress) -> None:
+    """Run the observation steps, gating each, within the time limit.
+
+    Parameters
+    ----------
+    recorder : Recorder
+        The recorder.
+    plan : dict[str, typing.Any]
+        The phase's plan.
+    progress : Progress
+        What has been done; updated as the steps run.
+
+    Raises
+    ------
+    TimeoutError
+        If the phase runs longer than the limit.
+    """
+    for index, step in enumerate(
+        plan["steps"][: plan["expectation"]["observation_actions"]]
+    ):
+        if (time.monotonic_ns() - recorder.started) / NANOSECONDS >= LIMIT_SECONDS:
+            message = "Phase exceeded 12 minutes"
+            raise TimeoutError(message)
+        recorder.execute(index, step)
+        progress.completed += 1
+        result = phase_gate(
+            {"frames": recorder.frames, "completed_actions": progress.completed},
+            plan,
+            index,
+        )
+        if result is not None:
+            progress.passed.append(result)
+
+
+def _run_phase(
+    recorder: Recorder, plan: Plan, output: Path, phase: int
+) -> tuple[str, str, Progress]:
+    """Run the observation, the hold and the quit, stopping at the first failure.
+
+    Parameters
+    ----------
+    recorder : Recorder
+        The recorder.
+    plan : dict[str, typing.Any]
+        The phase's plan.
+    output : pathlib.Path
+        The output directory.
+    phase : int
+        The phase number.
+
+    Returns
+    -------
+    tuple[str, str, Progress]
+        The status, the error text and the progress.
+    """
+    progress = Progress()
+    status, error = "completed", ""
+    try:
+        _observe(recorder, plan, progress)
+        hold(recorder, output, phase)
+        # Operator now performs native File > Quit with both sessions still open.
+        quit_steps(recorder, plan, progress)
+    except STEP_FAILURES as failure:
+        status, error = "failed", f"{type(failure).__name__}: {failure}"
+    finally:
+        for name, connection in list(recorder.sockets.items()):
+            connection.close()
+            recorder.event(progress.completed, name, "close")
+    return status, error, progress
+
+
+def _prepared(
+    plan_path: Path, readiness_dir: Path, receipt_path: Path, binary: Path
+) -> tuple[bytes, Plan, int]:
+    """Check everything that must hold before a phase may start.
+
+    Parameters
+    ----------
+    plan_path : pathlib.Path
+        The phase's plan.
+    readiness_dir : pathlib.Path
+        The readiness capture directory.
+    receipt_path : pathlib.Path
+        The capture-ready receipt.
+    binary : pathlib.Path
+        The oracle binary.
+
+    Returns
+    -------
+    tuple[bytes, dict[str, typing.Any], int]
+        The plan file's bytes, the plan and the phase number.
+    """
+    raw = plan_path.read_bytes()
+    plan = json.loads(raw)
+    phase = verify_plan(plan)
+    _check_sources(plan_path, raw, phase)
+    _check_readiness(readiness_dir, plan)
     receipt = json.loads(receipt_path.read_text())
     capture_gate(receipt)
     require(
@@ -283,114 +233,129 @@ def run_gated(
         "Runtime PID differs",
     )
     require(digest(binary.read_bytes()) == ORACLE_SHA256, "Oracle binary differs")
+    return raw, plan, phase
+
+
+def run_gated(  # ruff: ignore[too-many-arguments, too-many-positional-arguments]  # pylint: disable=too-many-arguments,too-many-positional-arguments  # the callers' shape: five paths, as the command line passes them
+    plan_path: Path,
+    readiness_dir: Path,
+    receipt_path: Path,
+    binary: Path,
+    output: Path,
+) -> Report:
+    """Run a phase, only after a separate root START and a verified recorder receipt.
+
+    Parameters
+    ----------
+    plan_path : pathlib.Path
+        The phase's plan.
+    readiness_dir : pathlib.Path
+        The readiness capture directory.
+    receipt_path : pathlib.Path
+        The capture-ready receipt.
+    binary : pathlib.Path
+        The oracle binary.
+    output : pathlib.Path
+        A directory that must not exist yet.
+
+    Returns
+    -------
+    dict[str, typing.Any]
+        The report that was written.
+
+    Raises
+    ------
+    PermissionError
+        If the effective user is not root.
+    """
+    if os.geteuid() != 0:
+        message = "Live phase requires root /proc identity checks"
+        raise PermissionError(message)
+    raw, plan, phase = _prepared(plan_path, readiness_dir, receipt_path, binary)
     output.mkdir(parents=True, exist_ok=False)
     recorder = Recorder(plan)
-    status, error, passed, completed = "completed", "", [], 0
-    try:
-        for index, step in enumerate(
-            plan["steps"][: plan["expectation"]["observation_actions"]]
-        ):
-            if (time.monotonic_ns() - recorder.started) / 1e9 >= LIMIT_SECONDS:
-                raise TimeoutError("Phase exceeded 12 minutes")
-            recorder.execute(index, step)
-            completed += 1
-            result = phase_gate(
-                {"frames": recorder.frames, "completed_actions": completed}, plan, index
-            )
-            if result is not None:
-                passed.append(result)
-        (output / "hold-ready.json").write_text(
-            json.dumps(
-                {
-                    "utc": datetime.now(timezone.utc).isoformat(),
-                    "phase": phase,
-                    "sockets": sorted(recorder.sockets),
-                },
-                indent=2,
-            )
-            + "\n"
-        )
-        # Operator now performs native File > Quit with both sessions still open.
-        for index, step in enumerate(
-            plan["steps"][plan["expectation"]["observation_actions"] :],
-            start=plan["expectation"]["observation_actions"],
-        ):
-            remaining = LIMIT_SECONDS - (time.monotonic_ns() - recorder.started) / 1e9
-            if remaining <= 0:
-                raise TimeoutError("Phase exceeded 12 minutes before app Quit")
-            recorder.execute(
-                index, {**step, "timeout": min(step["timeout"], remaining)}
-            )
-            completed += 1
-    except (
-        OSError,
-        EOFError,
-        ValueError,
-        KeyError,
-        IndexError,
-        TimeoutError,
-        KeyboardInterrupt,
-    ) as failure:
-        status, error = "failed", f"{type(failure).__name__}: {failure}"
-    finally:
-        for name, connection in list(recorder.sockets.items()):
-            connection.close()
-            recorder.event(completed, name, "close")
-    report = {
-        "schema_version": 1,
-        "profile": plan["profile"],
-        "status": status,
-        "native_conformance": False,
-        "persistence_proven": False,
-        "full_file_baseline": "not_exercised",
-        "oracle_sha256": ORACLE_SHA256,
-        "plan_sha256": digest(raw),
-        "driver_sha256": digest(Path(__file__).read_bytes()),
-        "readiness_report_sha256": digest((readiness_dir / "report.json").read_bytes()),
-        "capture_receipt_sha256": digest(receipt_path.read_bytes()),
-        "started_at_utc": recorder.started_at_utc,
-        "recorded_at_utc": datetime.now(timezone.utc).isoformat(),
-        "completed_actions": completed,
-        "error": error,
-        "gates": passed,
-        "events": recorder.events,
-        "frames": recorder.frames,
-        "streams": recorder.streams(),
-    }
-    (output / "plan.json").write_bytes(raw)
-    (output / "report.json").write_text(json.dumps(report, indent=2) + "\n")
-    (output / "checksums.sha256").write_text(
-        "".join(
-            f"{digest((output / name).read_bytes())}  {name}\n"
-            for name in ("plan.json", "report.json")
-        )
+    result = _run_phase(recorder, plan, output, phase)
+    capture = Capture(
+        plan,
+        recorder,
+        raw,
+        result,
+        (readiness_dir, receipt_path),
+        CAPTURE_MODULES,
+        ORACLE_SHA256,
     )
+    report = report_of(capture)
+    write_files(output, raw, report)
     return report
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--run", action="store_true", required=True)
-    parser.add_argument("--plan", type=Path, required=True)
-    parser.add_argument("--readiness-dir", type=Path, required=True)
-    parser.add_argument("--capture-receipt", type=Path, required=True)
-    parser.add_argument("--binary", type=Path, required=True)
-    parser.add_argument("--output", type=Path, required=True)
-    args = parser.parse_args()
+def command(  # ruff: ignore[too-many-arguments]  # pylint: disable=too-many-arguments  # one argument for each option
+    *,
+    run: bool = False,
+    plan: str,
+    readiness_dir: str,
+    capture_receipt: str,
+    binary: str,
+    output: str,
+) -> None:
+    """Run one phase against a live emulator, after a separate root START.
+
+    Parameters
+    ----------
+    run
+        Required: run the phase.
+    plan
+        The phase's plan.
+    readiness_dir
+        The readiness capture directory.
+    capture_receipt
+        The capture-ready receipt.
+    binary
+        The oracle binary.
+    output
+        A directory that must not exist yet.
+
+    Raises
+    ------
+    UsageError
+        If ``--run`` is not given.
+    SystemExit
+        With status 1 when the phase did not complete.
+    """
+    if not run:
+        message = "--run is required"
+        raise UsageError(message)
     result = run_gated(
-        args.plan, args.readiness_dir, args.capture_receipt, args.binary, args.output
+        Path(plan),
+        Path(readiness_dir),
+        Path(capture_receipt),
+        Path(binary),
+        Path(output),
     )
-    print(
-        json.dumps(
-            {
-                "status": result["status"],
-                "gates": result["gates"],
-                "error": result["error"],
-            }
-        )
-    )
+    summary = {
+        "status": result["status"],
+        "gates": result["gates"],
+        "error": result["error"],
+    }
+    sys.stdout.write(json.dumps(summary) + "\n")
     if result["status"] != "completed":
         raise SystemExit(1)
+
+
+def main() -> None:
+    """Run the command line; a successful run returns instead of exiting.
+
+    Raises
+    ------
+    SystemExit
+        With a non-zero status when the command line cannot be used or a phase
+        failed.
+    """
+    try:
+        run_command(command, __doc__, sys.argv[1:])
+    except SystemExit as stop:
+        if stop.code:  # the command line library exits with 0 on success
+            raise
 
 
 if __name__ == "__main__":

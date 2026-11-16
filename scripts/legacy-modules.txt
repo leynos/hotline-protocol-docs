@@ -17,6 +17,3 @@ scripts/native_liveness_control.py
 scripts/native_missing_alias_control.py
 scripts/native_path_fields_control.py
 scripts/native_rate304_control.py
-scripts/native_settings_persistence.py
-scripts/native_settings_persistence_cases.py
-scripts/test_native_settings_persistence.py

@@ -652,14 +652,15 @@
           "size": 3251,
           "embeds_script_digests": []
         },
-        "source-code-sha256.json": {
-          "sha256": "02403074a0d83fa7eb80407f9a7cbfbc9f91d06937ae49c9fb670618a2ac97df",
-          "size": 419,
+        "source-code-identity.json": {
+          "sha256": "ae3ccbd9f10bdc797d1b9dcd316a27b1995e826340f2c98684076a74d4720ecf",
+          "size": 825,
           "embeds_script_digests": [
-            "native_ban_control_cases.py",
-            "native_control_readiness.py",
             "native_settings_persistence.py",
-            "native_settings_persistence_cases.py"
+            "native_settings_persistence_cases.py",
+            "native_settings_persistence_gates.py",
+            "native_settings_persistence_phase.py",
+            "native_settings_persistence_run.py"
           ]
         },
         "source-hashes.json": {

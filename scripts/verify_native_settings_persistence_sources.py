@@ -1,6 +1,6 @@
 """Check the inventory and the source identities of the persistence corpus."""
 
-import typing as typ
+from pathlib import Path
 
 from pinned_source import pinned_bytes
 from protocol_capture import digest
@@ -12,9 +12,6 @@ from verify_native_settings_persistence_core import (
     read_json,
     require,
 )
-
-if typ.TYPE_CHECKING:
-    from pathlib import Path
 
 SCHEMA_VERSION = 1
 CORPUS_NAME = "native-settings-persistence-01"
@@ -135,6 +132,34 @@ def shared_sources(corpus: Path) -> None:
         )
 
 
+def planned_sources(directory: Path) -> Json:
+    """Read the digest of each script that a phase's planner recorded.
+
+    A directory of plans made before decision D31 holds ``source-code-sha256.json``,
+    a digest for each of four scripts. One made after it holds
+    ``source-code-identity.json``, the path and digest of each module of the
+    runner's set, and a name that follows from each path gives the same shape.
+
+    Parameters
+    ----------
+    directory : pathlib.Path
+        The phase directory.
+
+    Returns
+    -------
+    dict[str, typing.Any]
+        The digest of each script, by file name.
+    """
+    legacy = directory / "plans/source-code-sha256.json"
+    identity = directory / "plans/source-code-identity.json"
+    if not legacy.exists() and identity.exists():
+        return {
+            Path(item["path"]).name: item["sha256"]
+            for item in read_json(identity)["files"]
+        }
+    return read_json(legacy)
+
+
 def phase_pins(corpus: Path, phase: int) -> None:
     """Check the source and plan digests that one phase's planner recorded.
 
@@ -146,7 +171,7 @@ def phase_pins(corpus: Path, phase: int) -> None:
         The phase number, 1 or 2.
     """
     directory = corpus / f"phase{phase}"
-    planned = read_json(directory / "plans/source-code-sha256.json")
+    planned = planned_sources(directory)
     for name, value in planned.items():
         source = (
             corpus

@@ -1,23 +1,22 @@
-"""Characterize ``native_settings_persistence_cases``, which stays at the old rules.
+"""Characterize ``native_settings_persistence_cases``.
 
-The planner records the SHA-256 of itself and of three sibling scripts in the
-plans it writes (decision D31), so it is not refactored yet. These tests were
-written on its current bytes. They pin its output so that a refactor of a script
-that it embeds, such as ``native_ban_control_cases``, cannot change a plan: the
-plans are fingerprinted, the order of its refusals is held, and its command line
-is run against a runtime record.
+The planner recorded the SHA-256 of itself and of three sibling scripts beside the
+plans it wrote; since decision D31 it records the path and hash of each module of
+the runner's set instead. These tests were written on the earlier bytes. They pin
+its output so that a refactor of a script that it embeds, such as
+``native_ban_control_cases``, cannot change a plan: the plans are fingerprinted, the
+order of its refusals is held, and its command line is run against a runtime
+record. The record of the scripts is read in either form.
 """
 
 import hashlib
 import json
 import sys
 import typing as typ
+from pathlib import Path
 
 import native_settings_persistence_cases as cases
 import pytest
-
-if typ.TYPE_CHECKING:
-    from pathlib import Path
 
 CHARACTERIZES = "native_settings_persistence_cases.py"
 RUNTIME = {"source_a7_sha256": cases.A7_SHA, "emulator_pid": 123}
@@ -135,21 +134,44 @@ class CommandLineTests:
             p.name: hashlib.sha256(p.read_bytes()).hexdigest()
             for p in sorted(output.iterdir())
         }
+        record = "source-code-sha256.json"
+        if record not in files:
+            record = "source-code-identity.json"
         assert sorted(files) == [
             "phase1.json",
             "phase2.json",
             "readiness.json",
-            "source-code-sha256.json",
+            record,
             "source-hashes.json",
         ], "expected five files"
-        written = {k: v for k, v in files.items() if k != "source-code-sha256.json"}
+        written = {k: v for k, v in files.items() if k != record}
         assert fingerprint(written) == OUTPUT, "expected the same plan bytes"
-        sources = json.loads((output / "source-code-sha256.json").read_text())
-        assert sorted(sources) == SOURCE_NAMES, "expected the four sibling sources"
+        sources = json.loads((output / record).read_text())
+        if record == "source-code-sha256.json":
+            assert sorted(sources) == SOURCE_NAMES, "expected the four sibling sources"
+        else:
+            self.check_identity(sources)
         hashes = json.loads((output / "source-hashes.json").read_text())
         assert hashes == {
             name: files[f"{name}.json"] for name in ("phase1", "phase2", "readiness")
         }, "expected each plan's digest"
+
+    @staticmethod
+    def check_identity(record: dict[str, typ.Any]) -> None:
+        """Check the record that names the runner's modules and their hashes.
+
+        Parameters
+        ----------
+        record : dict[str, typing.Any]
+            The parsed ``source-code-identity.json``.
+        """
+        scripts = Path(cases.__file__).parent
+        names = [Path(item["path"]).name for item in record["files"]]
+        assert names[0] == "native_settings_persistence.py", names
+        assert "native_settings_persistence_cases.py" in names, names
+        for item in record["files"]:
+            held = (scripts / Path(item["path"]).name).read_bytes()
+            assert item["sha256"] == hashlib.sha256(held).hexdigest(), item
 
     @pytest.mark.parametrize(
         "arguments", [[], ["--runtime", "x"], ["--runtime", "x", "--port", "y"]]
