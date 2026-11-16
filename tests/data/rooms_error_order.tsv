@@ -1,0 +1,303 @@
+rooms-semantic-basics		ok 74234e98afe7498f
+rooms-semantic-basics	report>frames>4>connection:flip	IndexError: list index out of range
+rooms-semantic-basics	report>frames>0>connection:delete-key	KeyError: 'connection'
+rooms-semantic-basics	report>frames>18>error:delete-key	KeyError: 'error'
+rooms-semantic-basics	report>frames>4>fields:delete-key	KeyError: 'fields'
+rooms-semantic-basics	report>frames:delete-key	KeyError: 'frames'
+rooms-semantic-basics	report>frames>4>fields>0>hex:delete-key	KeyError: 'hex'
+rooms-semantic-basics	report>frames>0>id:delete-key	KeyError: 'id'
+rooms-semantic-basics	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+rooms-semantic-basics	report:delete-key	KeyError: 'report'
+rooms-semantic-basics	report>frames>0>type:delete-key	KeyError: 'type'
+rooms-semantic-basics	report>frames>6>fields:drop-first	KeyError: 103
+rooms-semantic-basics	report>frames>15>fields:drop-first	KeyError: 114
+rooms-semantic-basics	report>frames>18>error:inc	ValueError: Create-chat denial differs
+rooms-semantic-basics	report>frames>40>connection:flip	ValueError: Denied-chat notice differs
+rooms-semantic-basics	report>frames>64>error:inc	ValueError: Missing-room join outcome differs
+rooms-semantic-basics	report>frames>15>connection:flip	ValueError: Missing/duplicate auth reply
+rooms-semantic-basics	report>frames>50>connection:flip	ValueError: Non-member sender eligibility differs
+rooms-semantic-basics	report>frames>20>connection:flip	ValueError: Non-member topic permissions differ
+rooms-semantic-basics	report>frames>6>connection:flip	ValueError: Owned room participant not announced
+rooms-semantic-basics	report>frames>6>fields>0>hex:flip	ValueError: Room event identity differs
+rooms-semantic-basics	report>frames>23>error:inc	ValueError: Room join failed
+rooms-semantic-basics	report>frames>23>fields:drop-first	ValueError: Room join subject presence differs
+rooms-semantic-basics	report>frames>24>type:inc	ValueError: Room membership notification schema differs
+rooms-semantic-basics	report>frames>4>fields:drop-last	ValueError: Room participant privilege differs
+rooms-semantic-basics	report>frames>15>fields>1>hex:flip	ValueError: Room roster inclusion differs
+rooms-semantic-basics	report>frames:reverse	ValueError: Room/main-chat fanout differs
+rooms-semantic-basics	report>frames>15>fields>0>hex:empty	ValueError: Room/owner ID width differs
+rooms-semantic-basics	report>frames>23>fields>1>hex:empty	ValueError: Roster record boundary differs
+rooms-semantic-basics	report>frames>6>fields>0>id:inc	ValueError: Unexpected repeated scalar field
+rooms-semantic-basics	report>frames>4>connection:flip;report>frames>6>fields:drop-first	KeyError: 103
+rooms-semantic-basics	report>frames>4>connection:flip;report>frames>15>fields:drop-first	KeyError: 114
+rooms-semantic-basics	report>frames>4>connection:flip;report>frames>6>fields>0>id:inc	ValueError: Unexpected repeated scalar field
+rooms-semantic-basics	report>frames>0>connection:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'connection'
+rooms-semantic-basics	report>frames>18>error:delete-key;report>frames>0>type:delete-key	KeyError: 'type'
+rooms-semantic-basics	report>frames>18>error:delete-key;report>frames>24>type:inc	ValueError: Room membership notification schema differs
+rooms-semantic-basics	report>frames>18>error:delete-key;report>frames>4>fields:drop-last	ValueError: Room participant privilege differs
+rooms-semantic-basics	report>frames>4>fields>0>hex:delete-key;report>frames>6>fields>0>hex:flip	KeyError: 'hex'
+rooms-semantic-basics	report>frames>4>fields>0>hex:delete-key;report>frames>24>type:inc	KeyError: 'hex'
+rooms-semantic-basics	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+rooms-semantic-basics	report>frames>0>id:delete-key;report>frames>15>connection:flip	KeyError: 'id'
+rooms-semantic-basics	report>frames>0>id:delete-key;report>frames>23>error:inc	KeyError: 'id'
+rooms-semantic-basics	report>frames>0>type:delete-key;report>frames>15>fields:drop-first	KeyError: 114
+rooms-semantic-basics	report>frames>0>type:delete-key;report>frames>23>error:inc	KeyError: 'type'
+rooms-semantic-basics	report>frames>0>type:delete-key;report>frames>15>fields>0>hex:empty	ValueError: Room/owner ID width differs
+rooms-semantic-basics	report>frames>6>fields:drop-first;report>frames>6>connection:flip	ValueError: Owned room participant not announced
+rooms-semantic-basics	report>frames>6>fields:drop-first;report>frames:reverse	KeyError: 103
+rooms-semantic-basics	report>frames>15>fields:drop-first;report>frames>40>connection:flip	KeyError: 114
+rooms-semantic-basics	report>frames>15>fields:drop-first;report>frames>15>connection:flip	ValueError: Missing/duplicate auth reply
+rooms-semantic-basics	report>frames>40>connection:flip;report>frames>64>error:inc	ValueError: Denied-chat notice differs
+rooms-semantic-basics	report>frames>40>connection:flip;report>frames>50>connection:flip	ValueError: Non-member sender eligibility differs
+rooms-semantic-basics	report>frames>50>connection:flip;report>frames>23>fields>1>hex:empty	ValueError: Roster record boundary differs
+rooms-semantic-basics	report>frames>20>connection:flip;report>frames>23>error:inc	ValueError: Non-member topic permissions differ
+rooms-semantic-basics	report>frames>6>connection:flip;report>frames>15>fields>0>hex:empty	ValueError: Room/owner ID width differs
+rooms-semantic-basics	report>frames>6>fields>0>hex:flip;report>frames>24>type:inc	ValueError: Room event identity differs
+rooms-semantic-basics	report>frames>6>fields>0>hex:flip;report>frames>15>fields>1>hex:flip	ValueError: Room participant identity collision
+rooms-semantic-basics	report>frames>23>error:inc;report>frames>23>fields:drop-first	ValueError: Room join failed
+rooms-semantic-basics	report>frames>4>fields:drop-last;report>frames>6>fields>0>id:inc	ValueError: Unexpected repeated scalar field
+rooms-semantic-basics	report>frames>15>fields>1>hex:flip;report>frames:reverse	ValueError: Room roster inclusion differs
+rooms-identities-basics		ok dfc0a21e2a5f92ac
+rooms-identities-basics	report>frames>4>connection:flip	IndexError: list index out of range
+rooms-identities-basics	report>frames>0>connection:delete-key	KeyError: 'connection'
+rooms-identities-basics	report>frames>4>fields:delete-key	KeyError: 'fields'
+rooms-identities-basics	report>frames:delete-key	KeyError: 'frames'
+rooms-identities-basics	report>frames>4>fields>0>hex:delete-key	KeyError: 'hex'
+rooms-identities-basics	report>frames>0>id:delete-key	KeyError: 'id'
+rooms-identities-basics	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+rooms-identities-basics	report:delete-key	KeyError: 'report'
+rooms-identities-basics	report>frames>0>type:delete-key	KeyError: 'type'
+rooms-identities-basics	report>frames>6>fields:drop-first	KeyError: 103
+rooms-identities-basics	report>frames>15>fields:drop-first	KeyError: 114
+rooms-identities-basics	report>frames>15>connection:flip	ValueError: Missing/duplicate auth reply
+rooms-identities-basics	report>frames>6>connection:flip	ValueError: Owned room participant not announced
+rooms-identities-basics	report>frames>4>fields:drop-last	ValueError: Room participant privilege differs
+rooms-identities-basics	report>frames>15>fields>0>hex:empty	ValueError: Room/owner ID width differs
+rooms-identities-basics	report>frames>6>fields>0>id:inc	ValueError: Unexpected repeated scalar field
+rooms-identities-basics	report>frames>4>connection:flip;report>frames:delete-key	KeyError: 'frames'
+rooms-identities-basics	report>frames>4>connection:flip;report>frames>6>connection:flip	ValueError: Owned room participant not announced
+rooms-identities-basics	report>frames>4>connection:flip;report>frames>6>fields>0>id:inc	ValueError: Unexpected repeated scalar field
+rooms-identities-basics	report>frames>0>connection:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'connection'
+rooms-identities-basics	report>frames>0>connection:delete-key;report>frames>15>connection:flip	KeyError: 'connection'
+rooms-identities-basics	report>frames>4>fields:delete-key;report>frames>6>fields:drop-first	KeyError: 103
+rooms-identities-basics	report>frames>4>fields:delete-key;report>frames>6>connection:flip	ValueError: Owned room participant not announced
+rooms-identities-basics	report>frames>4>fields>0>hex:delete-key;report>frames>6>fields:drop-first	KeyError: 103
+rooms-identities-basics	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+rooms-identities-basics	report>frames>0>id:delete-key;report>frames>15>connection:flip	KeyError: 'id'
+rooms-identities-basics	report>frames>0>is_reply:delete-key;report>frames>15>connection:flip	KeyError: 'is_reply'
+rooms-identities-basics	report>frames>0>is_reply:delete-key;report>frames>6>connection:flip	KeyError: 'is_reply'
+rooms-identities-basics	report>frames>0>type:delete-key;report>frames>6>connection:flip	KeyError: 'type'
+rooms-identities-basics	report>frames>6>fields:drop-first;report>frames>15>connection:flip	ValueError: Missing/duplicate auth reply
+rooms-identities-basics	report>frames>6>fields:drop-first;report>frames>6>connection:flip	ValueError: Owned room participant not announced
+rooms-identities-basics	report>frames>6>fields:drop-first;report>frames>6>fields>0>id:inc	KeyError: 103
+rooms-identities-basics	report>frames>15>fields:drop-first;report>frames>15>connection:flip	ValueError: Missing/duplicate auth reply
+rooms-identities-basics	report>frames>15>fields:drop-first;report>frames>15>fields>0>hex:empty	KeyError: 114
+rooms-semantic-lifecycle		ok 74234e98afe7498f
+rooms-semantic-lifecycle	report>frames>4>connection:flip	IndexError: list index out of range
+rooms-semantic-lifecycle	report>frames>0>connection:delete-key	KeyError: 'connection'
+rooms-semantic-lifecycle	report>frames>17>error:delete-key	KeyError: 'error'
+rooms-semantic-lifecycle	report>frames>4>fields:delete-key	KeyError: 'fields'
+rooms-semantic-lifecycle	report>frames:delete-key	KeyError: 'frames'
+rooms-semantic-lifecycle	report>frames>4>fields>0>hex:delete-key	KeyError: 'hex'
+rooms-semantic-lifecycle	report>frames>0>id:delete-key	KeyError: 'id'
+rooms-semantic-lifecycle	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+rooms-semantic-lifecycle	report:delete-key	KeyError: 'report'
+rooms-semantic-lifecycle	report>frames>0>type:delete-key	KeyError: 'type'
+rooms-semantic-lifecycle	report>frames>6>fields:drop-first	KeyError: 103
+rooms-semantic-lifecycle	report>frames>15>fields:drop-first	KeyError: 114
+rooms-semantic-lifecycle	report>frames>40>connection:flip	ValueError: Leave recipient order differs
+rooms-semantic-lifecycle	report>frames>56>error:inc	ValueError: Missing-room join outcome differs
+rooms-semantic-lifecycle	report>frames>15>connection:flip	ValueError: Missing/duplicate auth reply
+rooms-semantic-lifecycle	report>frames>38>connection:flip	ValueError: Non-member leave or last leave emitted extra event
+rooms-semantic-lifecycle	report>frames>6>connection:flip	ValueError: Owned room participant not announced
+rooms-semantic-lifecycle	report>frames:reverse	ValueError: Repeated join emitted extra event
+rooms-semantic-lifecycle	report>frames>6>fields>0>hex:empty	ValueError: Room event identity differs
+rooms-semantic-lifecycle	report>frames>17>error:inc	ValueError: Room join failed
+rooms-semantic-lifecycle	report>frames>17>fields>0>id:inc	ValueError: Room join subject presence differs
+rooms-semantic-lifecycle	report>frames>19>type:inc	ValueError: Room membership notification schema differs
+rooms-semantic-lifecycle	report>frames>6>fields>0>hex:flip	ValueError: Room participant identity collision
+rooms-semantic-lifecycle	report>frames>4>fields:drop-last	ValueError: Room participant privilege differs
+rooms-semantic-lifecycle	report>frames>17>fields:drop-last	ValueError: Room roster inclusion differs
+rooms-semantic-lifecycle	report>frames>15>fields>0>hex:empty	ValueError: Room/owner ID width differs
+rooms-semantic-lifecycle	report>frames>17>fields>0>hex:empty	ValueError: Roster record boundary differs
+rooms-semantic-lifecycle	report>frames>6>fields>0>id:inc	ValueError: Unexpected repeated scalar field
+rooms-semantic-lifecycle	report>frames>4>connection:flip;report>frames>6>fields:drop-first	KeyError: 103
+rooms-semantic-lifecycle	report>frames>4>connection:flip;report>frames>6>fields>0>id:inc	ValueError: Unexpected repeated scalar field
+rooms-semantic-lifecycle	report>frames>0>connection:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'connection'
+rooms-semantic-lifecycle	report>frames>0>connection:delete-key;report>frames>6>fields>0>hex:flip	KeyError: 'connection'
+rooms-semantic-lifecycle	report>frames>17>error:delete-key;report>frames>19>type:inc	ValueError: Room membership notification schema differs
+rooms-semantic-lifecycle	report>frames>4>fields:delete-key;report>frames>6>fields>0>id:inc	ValueError: Unexpected repeated scalar field
+rooms-semantic-lifecycle	report>frames>4>fields>0>hex:delete-key;report>frames>4>fields:drop-last	ValueError: Room participant privilege differs
+rooms-semantic-lifecycle	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+rooms-semantic-lifecycle	report>frames>0>id:delete-key;report>frames>40>connection:flip	KeyError: 'id'
+rooms-semantic-lifecycle	report>frames>0>id:delete-key;report>frames>15>connection:flip	KeyError: 'id'
+rooms-semantic-lifecycle	report>frames>0>type:delete-key;report>frames>15>fields:drop-first	KeyError: 114
+rooms-semantic-lifecycle	report>frames>0>type:delete-key;report>frames>15>fields>0>hex:empty	ValueError: Room/owner ID width differs
+rooms-semantic-lifecycle	report>frames>6>fields:drop-first;report>frames>15>fields:drop-first	KeyError: 114
+rooms-semantic-lifecycle	report>frames>6>fields:drop-first;report>frames>6>connection:flip	ValueError: Owned room participant not announced
+rooms-semantic-lifecycle	report>frames>6>fields:drop-first;report>frames>17>fields:drop-last	KeyError: 103
+rooms-semantic-lifecycle	report>frames>15>fields:drop-first;report>frames>15>connection:flip	ValueError: Missing/duplicate auth reply
+rooms-semantic-lifecycle	report>frames>15>fields:drop-first;report>frames>38>connection:flip	KeyError: 114
+rooms-semantic-lifecycle	report>frames>40>connection:flip;report>frames>56>error:inc	ValueError: Leave recipient order differs
+rooms-semantic-lifecycle	report>frames>40>connection:flip;report>frames>38>connection:flip	ValueError: Non-member leave or last leave emitted extra event
+rooms-semantic-lifecycle	report>frames>15>connection:flip;report>frames>17>fields:drop-last	ValueError: Missing/duplicate auth reply
+rooms-semantic-lifecycle	report>frames>38>connection:flip;report>frames>17>fields:drop-last	ValueError: Room roster inclusion differs
+rooms-semantic-lifecycle	report>frames>6>connection:flip;report>frames>15>fields>0>hex:empty	ValueError: Room/owner ID width differs
+rooms-semantic-lifecycle	report>frames:reverse;report>frames>17>error:inc	ValueError: Repeated join emitted extra event
+rooms-semantic-lifecycle	report>frames:reverse;report>frames>15>fields>0>hex:empty	ValueError: Room event identity differs
+rooms-semantic-lifecycle	report>frames>6>fields>0>hex:empty;report>frames>6>fields>0>hex:flip	ValueError: non-hexadecimal number found in fromhex() arg at position 0
+rooms-semantic-lifecycle	report>frames>6>fields>0>hex:empty;report>frames>4>fields:drop-last	ValueError: Room participant privilege differs
+rooms-semantic-lifecycle	report>frames>17>fields>0>id:inc;report>frames>15>fields>0>hex:empty	ValueError: Room/owner ID width differs
+rooms-semantic-lifecycle	report>frames>6>fields>0>hex:flip;report>frames>4>fields:drop-last	ValueError: Room participant privilege differs
+rooms-semantic-lifecycle	report>frames>17>fields:drop-last;report>frames>17>fields>0>hex:empty	ValueError: Roster record boundary differs
+rooms-semantic-concurrent		ok 74234e98afe7498f
+rooms-semantic-concurrent	report>frames>4>connection:flip	IndexError: list index out of range
+rooms-semantic-concurrent	report>frames>0>connection:delete-key	KeyError: 'connection'
+rooms-semantic-concurrent	report>frames>39>error:delete-key	KeyError: 'error'
+rooms-semantic-concurrent	report>frames>4>fields:delete-key	KeyError: 'fields'
+rooms-semantic-concurrent	report>frames:delete-key	KeyError: 'frames'
+rooms-semantic-concurrent	report>frames>4>fields>0>hex:delete-key	KeyError: 'hex'
+rooms-semantic-concurrent	report>frames>0>id:delete-key	KeyError: 'id'
+rooms-semantic-concurrent	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+rooms-semantic-concurrent	report:delete-key	KeyError: 'report'
+rooms-semantic-concurrent	report>frames>0>type:delete-key	KeyError: 'type'
+rooms-semantic-concurrent	report>frames>6>fields:drop-first	KeyError: 103
+rooms-semantic-concurrent	report>frames>15>fields:drop-first	KeyError: 114
+rooms-semantic-concurrent	report>frames>24>connection:flip	ValueError: Concurrent join fanout differs
+rooms-semantic-concurrent	report>frames>15>fields>1>hex:flip	ValueError: Concurrent join omitted self/creator
+rooms-semantic-concurrent	report>frames>21>connection:flip	ValueError: Concurrent join recipient cut differs
+rooms-semantic-concurrent	report>frames>31>connection:flip	ValueError: Concurrent leave lost/duplicated membership
+rooms-semantic-concurrent	report>frames>29>connection:flip	ValueError: Concurrent leave recipient cut differs
+rooms-semantic-concurrent	report>frames>39>error:inc	ValueError: Missing-room join outcome differs
+rooms-semantic-concurrent	report>frames>15>connection:flip	ValueError: Missing/duplicate auth reply
+rooms-semantic-concurrent	report>frames>6>connection:flip	ValueError: Owned room participant not announced
+rooms-semantic-concurrent	report>frames>6>fields>0>hex:flip	ValueError: Room event identity differs
+rooms-semantic-concurrent	report>frames>21>type:inc	ValueError: Room membership notification schema differs
+rooms-semantic-concurrent	report>frames>4>fields:drop-last	ValueError: Room participant privilege differs
+rooms-semantic-concurrent	report>frames>15>fields>0>hex:empty	ValueError: Room/owner ID width differs
+rooms-semantic-concurrent	report>frames>17>fields>0>hex:empty	ValueError: Roster record boundary differs
+rooms-semantic-concurrent	report>frames>6>fields>0>id:inc	ValueError: Unexpected repeated scalar field
+rooms-semantic-concurrent	report>frames>17>fields>0>id:inc	ValueError: Unexpected roster parameter
+rooms-semantic-concurrent	report>frames>4>connection:flip;report>frames>0>type:delete-key	KeyError: 'type'
+rooms-semantic-concurrent	report>frames>4>connection:flip;report>frames>6>connection:flip	ValueError: Owned room participant not announced
+rooms-semantic-concurrent	report>frames>4>connection:flip;report>frames>4>fields:drop-last	IndexError: list index out of range
+rooms-semantic-concurrent	report>frames>4>connection:flip;report>frames>15>fields>0>hex:empty	ValueError: Room/owner ID width differs
+rooms-semantic-concurrent	report>frames>4>connection:flip;report>frames>6>fields>0>id:inc	ValueError: Unexpected repeated scalar field
+rooms-semantic-concurrent	report>frames>0>connection:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'connection'
+rooms-semantic-concurrent	report>frames>0>connection:delete-key;report>frames>31>connection:flip	KeyError: 'connection'
+rooms-semantic-concurrent	report>frames>0>connection:delete-key;report>frames>6>connection:flip	KeyError: 'connection'
+rooms-semantic-concurrent	report>frames>0>connection:delete-key;report>frames>17>fields>0>hex:empty	KeyError: 'connection'
+rooms-semantic-concurrent	report>frames>39>error:delete-key;report>frames>29>connection:flip	ValueError: Concurrent leave recipient cut differs
+rooms-semantic-concurrent	report>frames>4>fields>0>hex:delete-key;report>frames>6>fields>0>hex:flip	KeyError: 'hex'
+rooms-semantic-concurrent	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+rooms-semantic-concurrent	report>frames>0>id:delete-key;report>frames>15>connection:flip	KeyError: 'id'
+rooms-semantic-concurrent	report>frames>0>type:delete-key;report>frames>6>connection:flip	KeyError: 'type'
+rooms-semantic-concurrent	report>frames>0>type:delete-key;report>frames>15>fields>0>hex:empty	ValueError: Room/owner ID width differs
+rooms-semantic-concurrent	report>frames>6>fields:drop-first;report>frames>6>connection:flip	ValueError: Owned room participant not announced
+rooms-semantic-concurrent	report>frames>6>fields:drop-first;report>frames>6>fields>0>id:inc	KeyError: 103
+rooms-semantic-concurrent	report>frames>15>fields:drop-first;report>frames>15>connection:flip	ValueError: Missing/duplicate auth reply
+rooms-semantic-concurrent	report>frames>15>fields:drop-first;report>frames>15>fields>0>hex:empty	KeyError: 114
+rooms-semantic-concurrent	report>frames>24>connection:flip;report>frames>15>fields>1>hex:flip	ValueError: Concurrent join omitted self/creator
+rooms-semantic-concurrent	report>frames>24>connection:flip;report>frames>21>connection:flip	ValueError: Concurrent join fanout differs
+rooms-semantic-concurrent	report>frames>24>connection:flip;report>frames>6>fields>0>hex:flip	ValueError: Room event identity differs
+rooms-semantic-concurrent	report>frames>15>fields>1>hex:flip;report>frames>6>fields>0>hex:flip	ValueError: Room participant identity collision
+rooms-semantic-concurrent	report>frames>15>fields>1>hex:flip;report>frames>15>fields>0>hex:empty	ValueError: Room/owner ID width differs
+rooms-semantic-concurrent	report>frames>15>fields>1>hex:flip;report>frames>17>fields>0>hex:empty	ValueError: Roster record boundary differs
+rooms-semantic-concurrent	report>frames>31>connection:flip;report>frames>29>connection:flip	ValueError: Concurrent leave lost/duplicated membership
+rooms-semantic-concurrent	report>frames>21>type:inc;report>frames>17>fields>0>id:inc	ValueError: Room membership notification schema differs
+rooms-semantic-concurrent	report>frames>17>fields>0>hex:empty;report>frames>17>fields>0>id:inc	ValueError: Unexpected roster parameter
+rooms-semantic-invites		ok 74234e98afe7498f
+rooms-semantic-invites	report>frames>4>connection:flip	IndexError: list index out of range
+rooms-semantic-invites	report>frames>0>connection:delete-key	KeyError: 'connection'
+rooms-semantic-invites	report>frames>33>error:delete-key	KeyError: 'error'
+rooms-semantic-invites	report>frames>4>fields:delete-key	KeyError: 'fields'
+rooms-semantic-invites	report>frames:delete-key	KeyError: 'frames'
+rooms-semantic-invites	report>frames>4>fields>0>hex:delete-key	KeyError: 'hex'
+rooms-semantic-invites	report>frames>0>id:delete-key	KeyError: 'id'
+rooms-semantic-invites	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+rooms-semantic-invites	report:delete-key	KeyError: 'report'
+rooms-semantic-invites	report>frames>0>type:delete-key	KeyError: 'type'
+rooms-semantic-invites	report>frames>6>fields:drop-first	KeyError: 103
+rooms-semantic-invites	report>frames>15>fields:drop-first	KeyError: 114
+rooms-semantic-invites	report>frames>15>connection:flip	ValueError: Missing/duplicate auth reply
+rooms-semantic-invites	report>frames>6>connection:flip	ValueError: Owned room participant not announced
+rooms-semantic-invites	report>frames>21>connection:flip	ValueError: Retry/disconnected/mixed invitation differs
+rooms-semantic-invites	report>frames>6>fields>0>hex:flip	ValueError: Room event identity differs
+rooms-semantic-invites	report>frames>33>error:inc	ValueError: Room join failed
+rooms-semantic-invites	report>frames>33>fields>0>id:inc	ValueError: Room join subject presence differs
+rooms-semantic-invites	report>frames>35>type:inc	ValueError: Room membership notification schema differs
+rooms-semantic-invites	report>frames>4>fields:drop-last	ValueError: Room participant privilege differs
+rooms-semantic-invites	report>frames>15>fields>1>hex:flip	ValueError: Room roster inclusion differs
+rooms-semantic-invites	report>frames>15>fields>0>hex:empty	ValueError: Room/owner ID width differs
+rooms-semantic-invites	report>frames>33>fields>0>hex:empty	ValueError: Roster record boundary differs
+rooms-semantic-invites	report>frames>6>fields>0>id:inc	ValueError: Unexpected repeated scalar field
+rooms-semantic-invites	report>frames>4>connection:flip;report>frames>4>fields:drop-last	IndexError: list index out of range
+rooms-semantic-invites	report>frames>4>connection:flip;report>frames>6>fields>0>id:inc	ValueError: Unexpected repeated scalar field
+rooms-semantic-invites	report>frames>0>connection:delete-key;report>frames>33>error:delete-key	KeyError: 'connection'
+rooms-semantic-invites	report>frames>0>connection:delete-key;report>frames>4>fields>0>hex:delete-key	KeyError: 'connection'
+rooms-semantic-invites	report>frames>0>connection:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'connection'
+rooms-semantic-invites	report>frames>33>error:delete-key;report>frames:delete-key	KeyError: 'frames'
+rooms-semantic-invites	report>frames>33>error:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+rooms-semantic-invites	report>frames>33>error:delete-key;report>frames>6>fields>0>id:inc	ValueError: Unexpected repeated scalar field
+rooms-semantic-invites	report>frames>4>fields>0>hex:delete-key;report:delete-key	KeyError: 'report'
+rooms-semantic-invites	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+rooms-semantic-invites	report>frames>0>id:delete-key;report>frames>15>connection:flip	KeyError: 'id'
+rooms-semantic-invites	report>frames>0>type:delete-key;report>frames>6>connection:flip	KeyError: 'type'
+rooms-semantic-invites	report>frames>0>type:delete-key;report>frames>15>fields>0>hex:empty	ValueError: Room/owner ID width differs
+rooms-semantic-invites	report>frames>6>fields:drop-first;report>frames>15>connection:flip	ValueError: Missing/duplicate auth reply
+rooms-semantic-invites	report>frames>6>fields:drop-first;report>frames>6>connection:flip	ValueError: Owned room participant not announced
+rooms-semantic-invites	report>frames>6>fields:drop-first;report>frames>6>fields>0>id:inc	KeyError: 103
+rooms-semantic-invites	report>frames>15>fields:drop-first;report>frames>15>connection:flip	ValueError: Missing/duplicate auth reply
+rooms-semantic-invites	report>frames>15>fields:drop-first;report>frames>15>fields>0>hex:empty	KeyError: 114
+rooms-semantic-invites	report>frames>6>connection:flip;report>frames>6>fields>0>hex:flip	ValueError: Owned room participant not announced
+rooms-semantic-invites	report>frames>6>connection:flip;report>frames>33>error:inc	ValueError: Owned room participant not announced
+rooms-semantic-invites	report>frames>21>connection:flip;report>frames>35>type:inc	ValueError: Room membership notification schema differs
+rooms-semantic-invites	report>frames>6>fields>0>hex:flip;report>frames>35>type:inc	ValueError: Room event identity differs
+rooms-semantic-invites	report>frames>6>fields>0>hex:flip;report>frames>15>fields>1>hex:flip	ValueError: Room participant identity collision
+rooms-semantic-invites	report>frames>33>error:inc;report>frames>33>fields>0>id:inc	ValueError: Room join failed
+rooms-semantic-invites	report>frames>33>error:inc;report>frames>15>fields>0>hex:empty	ValueError: Room/owner ID width differs
+rooms-semantic-invites	report>frames>33>fields>0>id:inc;report>frames>33>fields>0>hex:empty	ValueError: Room join subject presence differs
+rooms-semantic-invites	report>frames>15>fields>1>hex:flip;report>frames>33>fields>0>hex:empty	ValueError: Roster record boundary differs
+rooms-semantic-formatting		ok 74234e98afe7498f
+rooms-semantic-formatting	report>frames>4>connection:flip	IndexError: list index out of range
+rooms-semantic-formatting	report>frames>0>connection:delete-key	KeyError: 'connection'
+rooms-semantic-formatting	report>frames>4>fields:delete-key	KeyError: 'fields'
+rooms-semantic-formatting	report>frames:delete-key	KeyError: 'frames'
+rooms-semantic-formatting	report>frames>4>fields>0>hex:delete-key	KeyError: 'hex'
+rooms-semantic-formatting	report>frames>0>id:delete-key	KeyError: 'id'
+rooms-semantic-formatting	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+rooms-semantic-formatting	report:delete-key	KeyError: 'report'
+rooms-semantic-formatting	report>frames>0>type:delete-key	KeyError: 'type'
+rooms-semantic-formatting	report>frames>6>fields:drop-first	KeyError: 103
+rooms-semantic-formatting	report>frames>15>fields:drop-first	KeyError: 114
+rooms-semantic-formatting	report>frames:reverse	ValueError: Chat option/format/newline/NUL bytes differ
+rooms-semantic-formatting	report>frames>15>connection:flip	ValueError: Missing/duplicate auth reply
+rooms-semantic-formatting	report>frames>6>connection:flip	ValueError: Owned room participant not announced
+rooms-semantic-formatting	report>frames>6>fields>0>hex:flip	ValueError: Room event identity differs
+rooms-semantic-formatting	report>frames>22>type:inc	ValueError: Room membership notification schema differs
+rooms-semantic-formatting	report>frames>4>fields:drop-last	ValueError: Room participant privilege differs
+rooms-semantic-formatting	report>frames>15>fields>0>hex:empty	ValueError: Room/owner ID width differs
+rooms-semantic-formatting	report>frames>6>fields>0>id:inc	ValueError: Unexpected repeated scalar field
+rooms-semantic-formatting	report>frames>4>connection:flip;report:delete-key	KeyError: 'report'
+rooms-semantic-formatting	report>frames>4>connection:flip;report>frames>22>type:inc	IndexError: list index out of range
+rooms-semantic-formatting	report>frames>4>connection:flip;report>frames>6>fields>0>id:inc	ValueError: Unexpected repeated scalar field
+rooms-semantic-formatting	report>frames>0>connection:delete-key;report>frames>4>fields:delete-key	KeyError: 'connection'
+rooms-semantic-formatting	report>frames>0>connection:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'connection'
+rooms-semantic-formatting	report>frames>0>connection:delete-key;report>frames>0>type:delete-key	KeyError: 'connection'
+rooms-semantic-formatting	report>frames>0>connection:delete-key;report>frames>6>fields>0>hex:flip	KeyError: 'connection'
+rooms-semantic-formatting	report>frames>0>connection:delete-key;report>frames>22>type:inc	KeyError: 'connection'
+rooms-semantic-formatting	report>frames>4>fields:delete-key;report>frames:delete-key	KeyError: 'frames'
+rooms-semantic-formatting	report>frames>4>fields:delete-key;report>frames:reverse	KeyError: 'fields'
+rooms-semantic-formatting	report>frames>4>fields:delete-key;report>frames>22>type:inc	KeyError: 'fields'
+rooms-semantic-formatting	report>frames>4>fields:delete-key;report>frames>6>fields>0>id:inc	ValueError: Unexpected repeated scalar field
+rooms-semantic-formatting	report>frames>4>fields>0>hex:delete-key;report>frames:reverse	KeyError: 'hex'
+rooms-semantic-formatting	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+rooms-semantic-formatting	report>frames>0>id:delete-key;report>frames>15>fields:drop-first	KeyError: 'id'
+rooms-semantic-formatting	report>frames>0>id:delete-key;report>frames>4>fields:drop-last	KeyError: 'id'
+rooms-semantic-formatting	report>frames>0>type:delete-key;report>frames>15>connection:flip	ValueError: Missing/duplicate auth reply
+rooms-semantic-formatting	report>frames>0>type:delete-key;report>frames>15>fields>0>hex:empty	ValueError: Room/owner ID width differs
+rooms-semantic-formatting	report>frames>6>fields:drop-first;report>frames>6>connection:flip	ValueError: Owned room participant not announced
+rooms-semantic-formatting	report>frames>6>fields:drop-first;report>frames>15>fields>0>hex:empty	ValueError: Room/owner ID width differs
+rooms-semantic-formatting	report>frames>15>fields:drop-first;report>frames>15>connection:flip	ValueError: Missing/duplicate auth reply
+rooms-semantic-formatting	report>frames>6>fields>0>hex:flip;report>frames>22>type:inc	ValueError: Room event identity differs
+rooms-semantic-formatting	report>frames>6>fields>0>hex:flip;report>frames>4>fields:drop-last	ValueError: Room participant privilege differs

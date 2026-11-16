@@ -1,34 +1,89 @@
-"""Prepare isolated private-room access, topic and lifecycle observations."""
+"""Prepare isolated private-room access, topic and lifecycle observations.
 
-from collections.abc import Sequence
+The fixtures live in native_room_data, the shared steps in native_room_steps
+and the scenarios in native_room_scenarios. The names below stay importable
+from this module: prepare_native_cases.py uses suites, the executed evidence
+file run-rooms.py uses inspect, seed and cleanup, and the verifier and its
+test use ROLES, key, format_values, message and the scenario names. The
+project helpers imported here are re-exported because the original module
+imported them at module level.
+"""
 
 from native_auth_cases import complement
 from native_live_account_cases import account_values, request, subject
 from native_mkdir_cases import exchange
 from native_plan import close, login, packet, quiet, read, send
+from native_room_data import PASSWORD, ROLES, format_values, key
+from native_room_scenarios import (
+    basics,
+    concurrent,
+    create_invites,
+    formatting,
+    invites,
+    lifecycle,
+    refusals,
+    topics,
+)
+from native_room_steps import barrier, create, finish, message, setup
 
-PASSWORD = b"room-pass30"
-ROLES = {
-    "zero": bytes(8),
-    "reader": bytes.fromhex("0040000000000000"),
-    "speaker": bytes.fromhex("0060000000000000"),
-}
-
-
-def key(label: str) -> bytes:
-    if label not in ROLES:
-        raise ValueError("Owned room role required")
-    return b"m-room30-" + label.encode()
+__all__ = [
+    "PASSWORD",
+    "ROLES",
+    "account_values",
+    "barrier",
+    "basics",
+    "cleanup",
+    "close",
+    "complement",
+    "concurrent",
+    "create",
+    "create_invites",
+    "exchange",
+    "finish",
+    "format_values",
+    "formatting",
+    "inspect",
+    "invites",
+    "key",
+    "lifecycle",
+    "login",
+    "message",
+    "packet",
+    "quiet",
+    "read",
+    "refusals",
+    "request",
+    "seed",
+    "send",
+    "setup",
+    "subject",
+    "suites",
+    "topics",
+]
 
 
 def inspect() -> tuple[list[dict], dict]:
+    """Read the owned accounts and the room-related state before a scenario.
+
+    Returns
+    -------
+    tuple[list[dict], dict]
+        The steps and the expectation of the inspection.
+    """
     steps = login() + exchange(348, 10, []) + exchange(200, 11, [(202, b"\0\0")])
     for identifier, label in enumerate(ROLES, 20):
         steps += exchange(352, identifier, [(105, key(label))])
-    return steps + [close()], {"kind": "room-inspect"}
+    return [*steps, close()], {"kind": "room-inspect"}
 
 
 def seed() -> tuple[list[dict], dict]:
+    """Create the owned accounts, one for each role.
+
+    Returns
+    -------
+    tuple[list[dict], dict]
+        The steps and the expectation of the seeding.
+    """
     steps = login()
     for identifier, (label, access) in enumerate(ROLES.items(), 10):
         steps += exchange(
@@ -38,347 +93,32 @@ def seed() -> tuple[list[dict], dict]:
                 key(label), PASSWORD, b"Room30-" + label.encode(), access, b"room30"
             ),
         )
-    return steps + [close()], {"kind": "room-seed"}
-
-
-def setup() -> list[dict]:
-    steps = login()
-    for icon, label in enumerate(ROLES, 30):
-        steps += subject(label, key(label), PASSWORD, icon)
-        steps += [read(match_frame={"type": 301}, save_fields={label + "_uid": 103})]
-    return steps
-
-
-def message(
-    connection: str,
-    kind: int,
-    identifier: int,
-    values: Sequence[tuple[int, bytes | str]],
-) -> dict:
-    """Encode four-byte room and two-byte UID substitutions with exact lengths."""
-    encoded = []
-    physical_size = 2
-    for field, value in values:
-        if isinstance(value, str):
-            if value == "room":
-                size = 4
-            elif value in {label + "_uid" for label in ROLES}:
-                size = 2
-            else:
-                raise ValueError("Unknown room fixture substitution")
-        else:
-            size = len(value)
-        content = "{" + value + "}" if isinstance(value, str) else value.hex()
-        encoded.append(
-            field.to_bytes(2, "big").hex() + size.to_bytes(2, "big").hex() + content
-        )
-        physical_size += 4 + size
-    header = packet(kind, identifier, bytes(physical_size))[:40]
-    return send(
-        header + len(values).to_bytes(2, "big").hex() + "".join(encoded), connection
-    )
-
-
-def barrier(connections: list[str], identifier: int) -> list[dict]:
-    steps = []
-    for connection in connections:
-        steps += request(connection, 500, identifier)
-    return steps
-
-
-def create() -> list[dict]:
-    return [
-        message("main", 112, 10, []),
-        read(match_frame={"is_reply": 1, "id": 10}, save_fields={"room": 114}),
-    ]
-
-
-def finish() -> list[dict]:
-    return (
-        barrier(["main", *ROLES], 999)
-        + [quiet()]
-        + [close(label) for label in ROLES]
-        + [close()]
-    )
-
-
-def basics() -> tuple[list[dict], dict]:
-    steps = setup() + create()
-    steps += request("zero", 112, 11)
-    steps += [message("zero", 120, 12, [(114, "room"), (115, b"outsider-topic30")])]
-    steps += barrier(["zero", "main"], 100)
-    for identifier, label in [(13, "reader"), (14, "zero")]:
-        steps += [
-            message(label, 115, identifier, [(114, "room")]),
-            read(label, match_frame={"is_reply": 1, "id": identifier}),
-        ]
-        steps += barrier(["main", "reader", "zero"], identifier + 100)
-    for identifier, label in [(15, "speaker"), (16, "zero"), (17, "reader")]:
-        steps += [
-            message(
-                label,
-                105,
-                identifier,
-                [(114, "room"), (101, b"room-message30-" + label.encode())],
-            )
-        ]
-        steps += barrier(
-            [label] + [c for c in ["main", *ROLES] if c != label], identifier + 100
-        )
-    for identifier, values in [
-        (18, [(101, b"main-implicit30")]),
-        (19, [(114, b"\0\0"), (101, b"main-zero30")]),
-    ]:
-        steps += [message("speaker", 105, identifier, values)]
-        steps += barrier(["speaker", "main", "reader", "zero"], identifier + 100)
-    for identifier, values in [(20, []), (21, [(114, b"\xff\xff")])]:
-        steps += [
-            message("zero", 115, identifier, values),
-            read("zero", match_frame={"is_reply": 1, "id": identifier}),
-        ]
-    return steps + finish(), {"kind": "room-basics"}
-
-
-def topics() -> tuple[list[dict], dict]:
-    steps = setup() + create()
-    steps += [
-        message("reader", 115, 11, [(114, "room")]),
-        read("reader", match_frame={"is_reply": 1, "id": 11}),
-    ]
-    steps += barrier(["reader", "main", "zero", "speaker"], 100)
-    values = [
-        None,
-        b"",
-        b"topic30",
-        b"A\0B\rC\nD\x80\xff",
-        b"X" * 255,
-        b"Y" * 256,
-        b"Z" * 65535,
-        None,
-    ]
-    for identifier, value in enumerate(values, 20):
-        fields = [(114, "room")] + ([] if value is None else [(115, value)])
-        steps += [message("zero", 120, identifier, fields)]
-        steps += barrier(["zero", "main", "reader", "speaker"], identifier + 100)
-        steps += [
-            message("reader", 115, identifier + 200, [(114, "room")]),
-            read("reader", match_frame={"is_reply": 1, "id": identifier + 200}),
-        ]
-    steps += [message("zero", 120, 40, [(114, b"\xff\xff"), (115, b"missing30")])]
-    steps += barrier(["zero", "main", "reader", "speaker"], 140)
-    return steps + finish(), {"kind": "room-topics"}
-
-
-def lifecycle() -> tuple[list[dict], dict]:
-    steps = setup() + create()
-    for identifier, label in [(11, "reader"), (12, "reader"), (13, "zero")]:
-        steps += [
-            message(label, 115, identifier, [(114, "room")]),
-            read(label, match_frame={"is_reply": 1, "id": identifier}),
-        ]
-        steps += barrier(
-            [label] + [c for c in ["main", *ROLES] if c != label], identifier + 100
-        )
-    for identifier, label in [(14, "zero"), (15, "zero"), (16, "main"), (17, "reader")]:
-        steps += [message(label, 116, identifier, [(114, "room")])]
-        steps += barrier(
-            [label] + [c for c in ["main", *ROLES] if c != label], identifier + 100
-        )
-    steps += [
-        message("zero", 115, 18, [(114, "room")]),
-        read("zero", match_frame={"is_reply": 1, "id": 18}),
-    ]
-    steps += [message("zero", 120, 19, [(114, "room"), (115, b"deleted30")])]
-    steps += barrier(["zero", "main", "reader", "speaker"], 119)
-    return steps + finish(), {"kind": "room-lifecycle"}
+    return [*steps, close()], {"kind": "room-seed"}
 
 
 def cleanup() -> tuple[list[dict], dict]:
+    """Delete the owned accounts and check the baseline afterwards.
+
+    Returns
+    -------
+    tuple[list[dict], dict]
+        The steps and the expectation of the cleanup.
+    """
     steps = login()
     for identifier, label in enumerate(ROLES, 10):
         steps += exchange(351, identifier, [(105, complement(key(label)))])
     steps += exchange(348, 20, []) + exchange(200, 21, [(202, b"\0\0")])
-    return steps + [close()], {"kind": "room-cleanup"}
-
-
-def concurrent() -> tuple[list[dict], dict]:
-    steps = setup() + create()
-    for identifier, label in [(11, "reader"), (12, "zero")]:
-        steps += [message(label, 115, identifier, [(114, "room")])]
-    for identifier, label in [(11, "reader"), (12, "zero")]:
-        steps += [read(label, match_frame={"is_reply": 1, "id": identifier})]
-    steps += barrier(["reader", "zero", "main", "speaker"], 100)
-    for identifier, label in [(13, "reader"), (14, "zero")]:
-        steps += [message(label, 116, identifier, [(114, "room")])]
-    steps += barrier(["reader", "zero", "main", "speaker"], 101)
-    steps += [message("main", 116, 15, [(114, "room")])]
-    steps += barrier(["main", "zero", "reader", "speaker"], 102)
-    steps += [
-        message("zero", 115, 16, [(114, "room")]),
-        read("zero", match_frame={"is_reply": 1, "id": 16}),
-    ]
-    return steps + finish(), {"kind": "room-concurrent"}
-
-
-def create_invites() -> tuple[list[dict], dict]:
-    steps = setup()
-    steps += [
-        message(
-            "main",
-            112,
-            10,
-            [
-                (103, "reader_uid"),
-                (103, b"\xff\xff"),
-                (103, "reader_uid"),
-                (103, "speaker_uid"),
-                (103, "zero_uid"),
-            ],
-        ),
-        read(match_frame={"is_reply": 1, "id": 10}, save_fields={"room": 114}),
-    ]
-    steps += barrier(["main", *ROLES], 100)
-    for identifier in [11, 12]:
-        steps += [message("reader", 114, identifier, [(114, "room")])]
-        steps += barrier(["reader", "main", "zero", "speaker"], identifier + 100)
-    steps += [
-        message("reader", 115, 13, [(114, "room")]),
-        read("reader", match_frame={"is_reply": 1, "id": 13}),
-    ]
-    return steps + finish(), {"kind": "room-create-invites"}
-
-
-def invites() -> tuple[list[dict], dict]:
-    steps = setup() + create()
-    steps += [
-        message(
-            "zero",
-            113,
-            11,
-            [
-                (114, "room"),
-                (103, "reader_uid"),
-                (103, b"\xff\xff"),
-                (103, "reader_uid"),
-                (103, "speaker_uid"),
-                (103, "zero_uid"),
-            ],
-        )
-    ]
-    steps += barrier(["zero", "main", "reader", "speaker"], 100)
-    steps += [close("speaker"), {"op": "pause", "seconds": 3}]
-    steps += [
-        message(
-            "zero", 113, 12, [(114, "room"), (103, "speaker_uid"), (103, "reader_uid")]
-        )
-    ]
-    steps += barrier(["zero", "main", "reader"], 101)
-    steps += [
-        message("reader", 115, 13, [(114, "room")]),
-        read("reader", match_frame={"is_reply": 1, "id": 13}),
-    ]
-    steps += [
-        message(
-            "zero",
-            113,
-            14,
-            [(114, "room"), (103, "reader_uid"), (103, "zero_uid"), (103, b"\xff\xff")],
-        )
-    ]
-    steps += barrier(["zero", "main", "reader"], 102)
-    steps += [
-        message("zero", 115, 15, [(114, "room")]),
-        read("zero", match_frame={"is_reply": 1, "id": 15}),
-    ]
-    steps += [message("zero", 113, 16, [(114, b"\xff\xff"), (103, "reader_uid")])]
-    steps += barrier(["zero", "main", "reader"], 999)
-    return steps + [quiet(), close("zero"), close("reader"), close()], {
-        "kind": "room-invites"
-    }
-
-
-def refusals() -> tuple[list[dict], dict]:
-    steps = setup() + create()
-    for identifier, options, automatic in [(11, 2, None), (12, 6, b"automatic30")]:
-        values = [(104, b"\0\x1f"), (113, options.to_bytes(2, "big"))]
-        if automatic is not None:
-            values.append((215, automatic))
-        steps += [message("reader", 304, identifier, values)]
-        steps += barrier(["reader", "main", "zero", "speaker"], identifier + 200)
-        steps += [
-            message(
-                "zero",
-                113,
-                identifier + 10,
-                [(114, "room"), (103, "reader_uid"), (103, "speaker_uid")],
-            )
-        ]
-        steps += barrier(["zero", "main", "reader", "speaker"], identifier + 100)
-    steps += [message("zero", 304, 13, [(104, b"\0\x1e"), (113, b"\0\1")])]
-    steps += barrier(["zero", "main", "reader", "speaker"], 213)
-    steps += [
-        message(
-            "zero", 113, 23, [(114, "room"), (103, "reader_uid"), (103, "speaker_uid")]
-        )
-    ]
-    steps += barrier(["zero", "main", "reader", "speaker"], 113)
-    steps += [
-        message("reader", 115, 14, [(114, "room")]),
-        read("reader", match_frame={"is_reply": 1, "id": 14}),
-    ]
-    return steps + finish(), {"kind": "room-refusals"}
-
-
-def format_values() -> list[tuple[int | None, bytes | None]]:
-    return [
-        (None, b"ordinary30"),
-        (0, b"zero-option30"),
-        (1, b"action30"),
-        (2, b"other-option30"),
-        (65535, b"maximum-option30"),
-        (None, b"one\rTwo\nThree\r\nFour\0End"),
-        (1, b"binary30-\x80\xff\rnext"),
-        (None, b""),
-        (None, None),
-    ]
-
-
-def formatting() -> tuple[list[dict], dict]:
-    steps = setup() + create()
-    for identifier, label in [(11, "reader"), (12, "zero")]:
-        steps += [
-            message(label, 115, identifier, [(114, "room")]),
-            read(label, match_frame={"is_reply": 1, "id": identifier}),
-        ]
-    for identifier, (option, text) in enumerate(format_values(), 20):
-        values: list[tuple[int, bytes | str]] = [(114, "room")]
-        if option is not None:
-            values.append((109, option.to_bytes(2, "big")))
-        if text is not None:
-            values.append((101, text))
-        steps += [message("speaker", 105, identifier, values)]
-        steps += barrier(["speaker", "main", "reader", "zero"], identifier + 100)
-    steps += exchange(
-        353,
-        40,
-        account_values(
-            key("speaker"), PASSWORD, b"Talk30", ROLES["speaker"], b"room30"
-        ),
-    )
-    steps += barrier(["main", *ROLES], 140)
-    steps += [message("speaker", 105, 41, [(114, "room"), (101, b"short-name30")])]
-    steps += barrier(["speaker", "main", "reader", "zero"], 141)
-    steps += exchange(
-        353,
-        42,
-        account_values(
-            key("speaker"), PASSWORD, b"Room30-speaker", ROLES["speaker"], b"room30"
-        ),
-    )
-    return steps + finish(), {"kind": "room-formatting"}
+    return [*steps, close()], {"kind": "room-cleanup"}
 
 
 def suites() -> dict[str, tuple[list[dict], dict]]:
+    """Return every suite of the room corpus, keyed by its name.
+
+    Returns
+    -------
+    dict[str, tuple[list[dict], dict]]
+        Each suite maps to its steps and expectation, in chronological order.
+    """
     return {
         "preflight": inspect(),
         "seed": seed(),

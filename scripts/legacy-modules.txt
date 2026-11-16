@@ -35,7 +35,6 @@ scripts/native_path_fields_cases.py
 scripts/native_path_fields_control.py
 scripts/native_rate304_cases.py
 scripts/native_rate304_control.py
-scripts/native_room_cases.py
 scripts/native_roster_overlap_cases.py
 scripts/native_roster_overlap_control.py
 scripts/native_settings_cases.py  # live bytes compared with a recorded hash
@@ -93,7 +92,6 @@ scripts/test_native_path_fields.py
 scripts/test_native_rate304.py
 scripts/test_native_rate304_partial.py
 scripts/test_native_rate304_sequence.py
-scripts/test_native_rooms.py
 scripts/test_native_roster_overlap.py
 scripts/test_native_roster_overlap_witness.py
 scripts/test_native_settings.py
@@ -143,7 +141,6 @@ scripts/verify_native_liveness.py
 scripts/verify_native_path_fields.py
 scripts/verify_native_rate304_partial.py
 scripts/verify_native_rate304_sequence.py
-scripts/verify_native_rooms.py
 scripts/verify_native_roster_overlap.py
 scripts/verify_native_settings.py  # live bytes compared with a recorded hash
 scripts/verify_native_settings_corpus.py
