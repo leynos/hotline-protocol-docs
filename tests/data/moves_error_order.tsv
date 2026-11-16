@@ -1,0 +1,569 @@
+move-file-ordinary		ok b57c04386d3285b3
+move-file-ordinary	spec>case:delete-key	KeyError: 'case'
+move-file-ordinary	report>frames>0>connection:delete-key	KeyError: 'connection'
+move-file-ordinary	report>frames>3>error:delete-key	KeyError: 'error'
+move-file-ordinary	report>frames>1>fields:delete-key	KeyError: 'fields'
+move-file-ordinary	report>frames:delete-key	KeyError: 'frames'
+move-file-ordinary	report>frames>1>fields>0>hex:delete-key	KeyError: 'hex'
+move-file-ordinary	report>frames>0>id:delete-key	KeyError: 'id'
+move-file-ordinary	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+move-file-ordinary	spec>label:delete-key	KeyError: 'label'
+move-file-ordinary	spec>name_hex:delete-key	KeyError: 'name_hex'
+move-file-ordinary	report:delete-key	KeyError: 'report'
+move-file-ordinary	spec>role:delete-key	KeyError: 'role'
+move-file-ordinary	spec:delete-key	KeyError: 'spec'
+move-file-ordinary	report>frames>0>type:delete-key	KeyError: 'type'
+move-file-ordinary	report>frames>1>type:inc	StopIteration:
+move-file-ordinary	report>frames>3>fields>0>id:inc	ValueError: File-list record grammar differs
+move-file-ordinary	report>frames>3>is_reply:inc	ValueError: Listing failed
+move-file-ordinary	report>frames:drop-last	ValueError: Missing/duplicate auth reply
+move-file-ordinary	report>frames>6>error:inc	ValueError: Move ACK/error differs
+move-file-ordinary	report>frames>5>fields:drop-last	ValueError: Move changed exposed metadata
+move-file-ordinary	report>frames>11>error:inc	ValueError: Move control lost liveness
+move-file-ordinary	report>frames>3>fields:drop-last	ValueError: Move did not remove/add exact source entry
+move-file-ordinary	report>frames>1>fields:drop-last	ValueError: Move privilege bitmap differs
+move-file-ordinary	report>frames>9>error:inc	ValueError: Moved old/new name resolution differs
+move-file-ordinary	report>frames>3>fields>1>hex:flip	ValueError: Repeated file-list name
+move-file-ordinary	report>frames>5>fields>1>id:inc	ValueError: Unexpected repeated scalar field
+move-file-ordinary	spec>case:delete-key;report>frames>1>fields:delete-key	KeyError: 'fields'
+move-file-ordinary	spec>case:delete-key;report>frames>1>fields>0>hex:delete-key	KeyError: 'hex'
+move-file-ordinary	spec>case:delete-key;report>frames>11>error:inc	ValueError: Move control lost liveness
+move-file-ordinary	report>frames>0>connection:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'connection'
+move-file-ordinary	report>frames>0>connection:delete-key;spec>label:delete-key	KeyError: 'label'
+move-file-ordinary	report>frames>0>connection:delete-key;spec:delete-key	KeyError: 'spec'
+move-file-ordinary	report>frames>3>error:delete-key;report>frames>3>fields>0>id:inc	KeyError: 'error'
+move-file-ordinary	report>frames>3>error:delete-key;report>frames>3>is_reply:inc	ValueError: Listing failed
+move-file-ordinary	report>frames>1>fields:delete-key;spec>label:delete-key	KeyError: 'label'
+move-file-ordinary	report>frames>1>fields:delete-key;report>frames>1>type:inc	StopIteration:
+move-file-ordinary	report>frames>1>fields>0>hex:delete-key;report:delete-key	KeyError: 'report'
+move-file-ordinary	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+move-file-ordinary	report>frames>0>id:delete-key;report>frames>6>error:inc	KeyError: 'id'
+move-file-ordinary	spec>label:delete-key;spec>name_hex:delete-key	KeyError: 'name_hex'
+move-file-ordinary	spec>name_hex:delete-key;spec:delete-key	KeyError: 'spec'
+move-file-ordinary	report:delete-key;spec>role:delete-key	KeyError: 'report'
+move-file-ordinary	spec>role:delete-key;report>frames>1>fields:drop-last	KeyError: 'role'
+move-file-ordinary	report>frames>0>type:delete-key;report>frames>1>type:inc	KeyError: 'type'
+move-file-ordinary	report>frames>0>type:delete-key;report>frames>6>error:inc	ValueError: Move ACK/error differs
+move-file-ordinary	report>frames>0>type:delete-key;report>frames>5>fields:drop-last	KeyError: 'type'
+move-file-ordinary	report>frames>3>fields>0>id:inc;report>frames>3>fields>1>hex:flip	ValueError: File-list record grammar differs
+move-file-ordinary	report>frames>3>fields>0>id:inc;report>frames>5>fields>1>id:inc	ValueError: File-list record grammar differs
+move-file-ordinary	report>frames>3>is_reply:inc;report>frames:drop-last	ValueError: Listing failed
+move-file-ordinary	report>frames>3>is_reply:inc;report>frames>1>fields:drop-last	ValueError: Move privilege bitmap differs
+move-file-ordinary	report>frames:drop-last;report>frames>5>fields:drop-last	ValueError: Move changed exposed metadata
+move-file-ordinary	report>frames>5>fields:drop-last;report>frames>11>error:inc	ValueError: Move changed exposed metadata
+move-file-ordinary	report>frames>5>fields:drop-last;report>frames>5>fields>1>id:inc	ValueError: Unexpected repeated scalar field
+move-file-ordinary	report>frames>3>fields:drop-last;report>frames>3>fields>1>hex:flip	ValueError: Repeated file-list name
+move-file-ordinary	report>frames>9>error:inc;report>frames>5>fields>1>id:inc	ValueError: Moved old/new name resolution differs
+move-file-file-collision		ok 2a560698ca7f3c7a
+move-file-file-collision	spec>case:delete-key	KeyError: 'case'
+move-file-file-collision	report>frames>0>connection:delete-key	KeyError: 'connection'
+move-file-file-collision	report>frames>3>error:delete-key	KeyError: 'error'
+move-file-file-collision	report>frames>1>fields:delete-key	KeyError: 'fields'
+move-file-file-collision	report>frames:delete-key	KeyError: 'frames'
+move-file-file-collision	report>frames>1>fields>0>hex:delete-key	KeyError: 'hex'
+move-file-file-collision	report>frames>0>id:delete-key	KeyError: 'id'
+move-file-file-collision	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+move-file-file-collision	spec>label:delete-key	KeyError: 'label'
+move-file-file-collision	spec>name_hex:delete-key	KeyError: 'name_hex'
+move-file-file-collision	report:delete-key	KeyError: 'report'
+move-file-file-collision	spec>role:delete-key	KeyError: 'role'
+move-file-file-collision	spec:delete-key	KeyError: 'spec'
+move-file-file-collision	report>frames>0>type:delete-key	KeyError: 'type'
+move-file-file-collision	report>frames>1>type:inc	StopIteration:
+move-file-file-collision	report>frames>3>fields:drop-last	ValueError: Failed/same-parent move changed a listing
+move-file-file-collision	report>frames>3>fields>0>id:inc	ValueError: File-list record grammar differs
+move-file-file-collision	report>frames>3>is_reply:inc	ValueError: Listing failed
+move-file-file-collision	report>frames:drop-last	ValueError: Missing/duplicate auth reply
+move-file-file-collision	report>frames>6>error:inc	ValueError: Move ACK/error differs
+move-file-file-collision	report>frames>11>error:inc	ValueError: Move control lost liveness
+move-file-file-collision	report>frames>1>fields:drop-last	ValueError: Move privilege bitmap differs
+move-file-file-collision	report>frames>9>error:inc	ValueError: Rejected move source resolution differs
+move-file-file-collision	report>frames>3>fields>1>hex:flip	ValueError: Repeated file-list name
+move-file-file-collision	spec>case:delete-key;report>frames>11>error:inc	ValueError: Move control lost liveness
+move-file-file-collision	report>frames>0>connection:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'connection'
+move-file-file-collision	report>frames>0>connection:delete-key;spec>label:delete-key	KeyError: 'label'
+move-file-file-collision	report>frames>0>connection:delete-key;report>frames>3>fields>0>id:inc	KeyError: 'connection'
+move-file-file-collision	report>frames>3>error:delete-key;report>frames>3>fields>0>id:inc	KeyError: 'error'
+move-file-file-collision	report>frames>3>error:delete-key;report>frames>3>is_reply:inc	ValueError: Listing failed
+move-file-file-collision	report>frames>3>error:delete-key;report>frames:drop-last	KeyError: 'error'
+move-file-file-collision	report>frames>1>fields:delete-key;report:delete-key	KeyError: 'report'
+move-file-file-collision	report>frames>1>fields:delete-key;report>frames>3>fields:drop-last	KeyError: 'fields'
+move-file-file-collision	report>frames>1>fields>0>hex:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+move-file-file-collision	report>frames>1>fields>0>hex:delete-key;spec>role:delete-key	KeyError: 'hex'
+move-file-file-collision	report>frames>1>fields>0>hex:delete-key;report>frames>3>fields:drop-last	KeyError: 'hex'
+move-file-file-collision	report>frames>1>fields>0>hex:delete-key;report>frames>11>error:inc	KeyError: 'hex'
+move-file-file-collision	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+move-file-file-collision	report>frames>0>id:delete-key;report>frames>6>error:inc	KeyError: 'id'
+move-file-file-collision	spec>label:delete-key;spec>name_hex:delete-key	KeyError: 'name_hex'
+move-file-file-collision	spec>name_hex:delete-key;spec:delete-key	KeyError: 'spec'
+move-file-file-collision	spec>name_hex:delete-key;report>frames>3>fields>1>hex:flip	KeyError: 'name_hex'
+move-file-file-collision	spec>role:delete-key;report>frames>1>fields:drop-last	KeyError: 'role'
+move-file-file-collision	spec:delete-key;report>frames>3>fields:drop-last	KeyError: 'spec'
+move-file-file-collision	report>frames>0>type:delete-key;report>frames>1>type:inc	KeyError: 'type'
+move-file-file-collision	report>frames>0>type:delete-key;report>frames>6>error:inc	ValueError: Move ACK/error differs
+move-file-file-collision	report>frames>3>fields:drop-last;report>frames>9>error:inc	ValueError: Failed/same-parent move changed a listing
+move-file-file-collision	report>frames>3>fields:drop-last;report>frames>3>fields>1>hex:flip	ValueError: Repeated file-list name
+move-file-file-collision	report>frames>3>is_reply:inc;report>frames>1>fields:drop-last	ValueError: Move privilege bitmap differs
+move-file-file-collision	report>frames:drop-last;report>frames>9>error:inc	ValueError: Rejected move source resolution differs
+move-file-missing-source		ok 0a5890c37926ace2
+move-file-missing-source	spec>case:delete-key	KeyError: 'case'
+move-file-missing-source	report>frames>0>connection:delete-key	KeyError: 'connection'
+move-file-missing-source	report>frames>3>error:delete-key	KeyError: 'error'
+move-file-missing-source	report>frames>1>fields:delete-key	KeyError: 'fields'
+move-file-missing-source	report>frames:delete-key	KeyError: 'frames'
+move-file-missing-source	report>frames>1>fields>0>hex:delete-key	KeyError: 'hex'
+move-file-missing-source	report>frames>0>id:delete-key	KeyError: 'id'
+move-file-missing-source	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+move-file-missing-source	spec>label:delete-key	KeyError: 'label'
+move-file-missing-source	spec>name_hex:delete-key	KeyError: 'name_hex'
+move-file-missing-source	report:delete-key	KeyError: 'report'
+move-file-missing-source	spec>role:delete-key	KeyError: 'role'
+move-file-missing-source	spec:delete-key	KeyError: 'spec'
+move-file-missing-source	report>frames>0>type:delete-key	KeyError: 'type'
+move-file-missing-source	report>frames>1>type:inc	StopIteration:
+move-file-missing-source	report>frames>3>fields:drop-last	ValueError: Failed/same-parent move changed a listing
+move-file-missing-source	report>frames>3>fields>0>id:inc	ValueError: File-list record grammar differs
+move-file-missing-source	report>frames>3>is_reply:inc	ValueError: Listing failed
+move-file-missing-source	report>frames:drop-last	ValueError: Missing/duplicate auth reply
+move-file-missing-source	report>frames>6>error:inc	ValueError: Move ACK/error differs
+move-file-missing-source	report>frames>11>error:inc	ValueError: Move control lost liveness
+move-file-missing-source	report>frames>1>fields:drop-last	ValueError: Move privilege bitmap differs
+move-file-missing-source	report>frames>9>error:inc	ValueError: Rejected move source resolution differs
+move-file-missing-source	report>frames>3>fields>1>hex:flip	ValueError: Repeated file-list name
+move-file-missing-source	spec>case:delete-key;report>frames>11>error:inc	ValueError: Move control lost liveness
+move-file-missing-source	report>frames>0>connection:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'connection'
+move-file-missing-source	report>frames>0>connection:delete-key;spec>label:delete-key	KeyError: 'label'
+move-file-missing-source	report>frames>3>error:delete-key;report>frames>1>fields>0>hex:delete-key	KeyError: 'hex'
+move-file-missing-source	report>frames>3>error:delete-key;report>frames>3>fields>0>id:inc	KeyError: 'error'
+move-file-missing-source	report>frames>3>error:delete-key;report>frames>3>is_reply:inc	ValueError: Listing failed
+move-file-missing-source	report>frames>3>error:delete-key;report>frames>6>error:inc	ValueError: Move ACK/error differs
+move-file-missing-source	report>frames>1>fields:delete-key;report:delete-key	KeyError: 'report'
+move-file-missing-source	report>frames>1>fields:delete-key;report>frames:drop-last	KeyError: 'fields'
+move-file-missing-source	report>frames>1>fields>0>hex:delete-key;spec>role:delete-key	KeyError: 'hex'
+move-file-missing-source	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+move-file-missing-source	report>frames>0>id:delete-key;report>frames>6>error:inc	KeyError: 'id'
+move-file-missing-source	spec>label:delete-key;spec>name_hex:delete-key	KeyError: 'name_hex'
+move-file-missing-source	spec>name_hex:delete-key;spec:delete-key	KeyError: 'spec'
+move-file-missing-source	spec>role:delete-key;report>frames>1>fields:drop-last	KeyError: 'role'
+move-file-missing-source	spec:delete-key;report>frames>1>fields:drop-last	KeyError: 'spec'
+move-file-missing-source	report>frames>0>type:delete-key;report>frames>1>type:inc	KeyError: 'type'
+move-file-missing-source	report>frames>0>type:delete-key;report>frames:drop-last	KeyError: 'type'
+move-file-missing-source	report>frames>0>type:delete-key;report>frames>6>error:inc	ValueError: Move ACK/error differs
+move-file-missing-source	report>frames>3>fields:drop-last;report>frames>1>fields:drop-last	ValueError: Move privilege bitmap differs
+move-file-missing-source	report>frames>3>fields:drop-last;report>frames>9>error:inc	ValueError: Failed/same-parent move changed a listing
+move-file-missing-source	report>frames>3>fields:drop-last;report>frames>3>fields>1>hex:flip	ValueError: Repeated file-list name
+move-file-missing-source	report>frames>3>is_reply:inc;report>frames>1>fields:drop-last	ValueError: Move privilege bitmap differs
+move-file-missing-source	report>frames>3>is_reply:inc;report>frames>9>error:inc	ValueError: Listing failed
+move-file-missing-source	report>frames:drop-last;report>frames>9>error:inc	ValueError: Rejected move source resolution differs
+move-file-missing-source	report>frames>6>error:inc;report>frames>3>fields>1>hex:flip	ValueError: Move ACK/error differs
+move-file-low-permission		ok f37401afc79c951a
+move-file-low-permission	spec>case:delete-key	KeyError: 'case'
+move-file-low-permission	report>frames>0>connection:delete-key	KeyError: 'connection'
+move-file-low-permission	report>frames>3>error:delete-key	KeyError: 'error'
+move-file-low-permission	report>frames>1>fields:delete-key	KeyError: 'fields'
+move-file-low-permission	spec>folder:delete-key	KeyError: 'folder'
+move-file-low-permission	report>frames:delete-key	KeyError: 'frames'
+move-file-low-permission	report>frames>1>fields>0>hex:delete-key	KeyError: 'hex'
+move-file-low-permission	report>frames>0>id:delete-key	KeyError: 'id'
+move-file-low-permission	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+move-file-low-permission	spec>label:delete-key	KeyError: 'label'
+move-file-low-permission	spec>name_hex:delete-key	KeyError: 'name_hex'
+move-file-low-permission	report:delete-key	KeyError: 'report'
+move-file-low-permission	spec>role:delete-key	KeyError: 'role'
+move-file-low-permission	spec:delete-key	KeyError: 'spec'
+move-file-low-permission	report>frames>0>type:delete-key	KeyError: 'type'
+move-file-low-permission	report>frames>1>type:inc	StopIteration:
+move-file-low-permission	report>frames>3>fields:drop-last	ValueError: Failed/same-parent move changed a listing
+move-file-low-permission	report>frames>3>fields>0>id:inc	ValueError: File-list record grammar differs
+move-file-low-permission	report>frames>3>is_reply:inc	ValueError: Listing failed
+move-file-low-permission	report>frames:drop-last	ValueError: Missing/duplicate auth reply
+move-file-low-permission	report>frames>6>error:inc	ValueError: Move ACK/error differs
+move-file-low-permission	report>frames>11>error:inc	ValueError: Move control lost liveness
+move-file-low-permission	report>frames>1>fields:drop-last	ValueError: Move privilege bitmap differs
+move-file-low-permission	report>frames>9>error:inc	ValueError: Rejected move source resolution differs
+move-file-low-permission	report>frames>3>fields>1>hex:flip	ValueError: Repeated file-list name
+move-file-low-permission	spec>case:delete-key;report>frames>3>error:delete-key	KeyError: 'error'
+move-file-low-permission	spec>case:delete-key;report>frames:drop-last	ValueError: Missing/duplicate auth reply
+move-file-low-permission	spec>case:delete-key;report>frames>11>error:inc	ValueError: Move control lost liveness
+move-file-low-permission	spec>case:delete-key;report>frames>9>error:inc	ValueError: Rejected move source resolution differs
+move-file-low-permission	report>frames>0>connection:delete-key;spec>folder:delete-key	KeyError: 'folder'
+move-file-low-permission	report>frames>0>connection:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'connection'
+move-file-low-permission	report>frames>3>error:delete-key;report>frames>3>fields>0>id:inc	KeyError: 'error'
+move-file-low-permission	report>frames>3>error:delete-key;report>frames>3>is_reply:inc	ValueError: Listing failed
+move-file-low-permission	report>frames>3>error:delete-key;report>frames:drop-last	KeyError: 'error'
+move-file-low-permission	report>frames>1>fields:delete-key;report>frames>1>type:inc	StopIteration:
+move-file-low-permission	spec>folder:delete-key;spec>label:delete-key	KeyError: 'label'
+move-file-low-permission	spec>folder:delete-key;report>frames>3>is_reply:inc	KeyError: 'folder'
+move-file-low-permission	report>frames>1>fields>0>hex:delete-key;spec>role:delete-key	KeyError: 'hex'
+move-file-low-permission	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+move-file-low-permission	report>frames>0>id:delete-key;report>frames>6>error:inc	KeyError: 'id'
+move-file-low-permission	spec>label:delete-key;spec>name_hex:delete-key	KeyError: 'name_hex'
+move-file-low-permission	spec>name_hex:delete-key;spec:delete-key	KeyError: 'spec'
+move-file-low-permission	spec>name_hex:delete-key;report>frames>3>fields:drop-last	KeyError: 'name_hex'
+move-file-low-permission	spec>role:delete-key;report>frames>1>fields:drop-last	KeyError: 'role'
+move-file-low-permission	spec:delete-key;report>frames>0>type:delete-key	KeyError: 'spec'
+move-file-low-permission	report>frames>0>type:delete-key;report>frames>6>error:inc	ValueError: Move ACK/error differs
+move-file-low-permission	report>frames>0>type:delete-key;report>frames>11>error:inc	KeyError: 'type'
+move-file-low-permission	report>frames>3>fields:drop-last;report>frames>9>error:inc	ValueError: Failed/same-parent move changed a listing
+move-file-low-permission	report>frames>3>fields:drop-last;report>frames>3>fields>1>hex:flip	ValueError: Repeated file-list name
+move-file-low-permission	report>frames>3>is_reply:inc;report>frames>1>fields:drop-last	ValueError: Move privilege bitmap differs
+move-file-low-permission	report>frames:drop-last;report>frames>9>error:inc	ValueError: Rejected move source resolution differs
+move-file-alias-source		ok 3d80bd54e4579b7d
+move-file-alias-source	spec>case:delete-key	KeyError: 'case'
+move-file-alias-source	report>frames>0>connection:delete-key	KeyError: 'connection'
+move-file-alias-source	report>frames>3>error:delete-key	KeyError: 'error'
+move-file-alias-source	report>frames>1>fields:delete-key	KeyError: 'fields'
+move-file-alias-source	report>frames:delete-key	KeyError: 'frames'
+move-file-alias-source	report>frames>1>fields>0>hex:delete-key	KeyError: 'hex'
+move-file-alias-source	report>frames>0>id:delete-key	KeyError: 'id'
+move-file-alias-source	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+move-file-alias-source	spec>label:delete-key	KeyError: 'label'
+move-file-alias-source	spec>name_hex:delete-key	KeyError: 'name_hex'
+move-file-alias-source	report:delete-key	KeyError: 'report'
+move-file-alias-source	spec>role:delete-key	KeyError: 'role'
+move-file-alias-source	spec:delete-key	KeyError: 'spec'
+move-file-alias-source	report>frames>0>type:delete-key	KeyError: 'type'
+move-file-alias-source	report>frames>1>type:inc	StopIteration:
+move-file-alias-source	report>frames>3>fields>0>id:inc	ValueError: File-list record grammar differs
+move-file-alias-source	report>frames>3>is_reply:inc	ValueError: Listing failed
+move-file-alias-source	report>frames:drop-last	ValueError: Missing/duplicate auth reply
+move-file-alias-source	report>frames>6>error:inc	ValueError: Move ACK/error differs
+move-file-alias-source	report>frames>5>fields:drop-last	ValueError: Move changed exposed metadata
+move-file-alias-source	report>frames>11>error:inc	ValueError: Move control lost liveness
+move-file-alias-source	report>frames>3>fields:drop-last	ValueError: Move did not remove/add exact source entry
+move-file-alias-source	report>frames>1>fields:drop-last	ValueError: Move privilege bitmap differs
+move-file-alias-source	report>frames>9>error:inc	ValueError: Moved old/new name resolution differs
+move-file-alias-source	report>frames>3>fields>1>hex:flip	ValueError: Repeated file-list name
+move-file-alias-source	report>frames>5>fields>1>id:inc	ValueError: Unexpected repeated scalar field
+move-file-alias-source	spec>case:delete-key;report>frames>0>id:delete-key	KeyError: 'id'
+move-file-alias-source	spec>case:delete-key;report>frames>11>error:inc	ValueError: Move control lost liveness
+move-file-alias-source	report>frames>0>connection:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'connection'
+move-file-alias-source	report>frames>0>connection:delete-key;spec>label:delete-key	KeyError: 'label'
+move-file-alias-source	report>frames>0>connection:delete-key;report>frames>3>fields>1>hex:flip	KeyError: 'connection'
+move-file-alias-source	report>frames>0>connection:delete-key;report>frames>5>fields>1>id:inc	KeyError: 'connection'
+move-file-alias-source	report>frames>3>error:delete-key;report>frames>3>fields>0>id:inc	KeyError: 'error'
+move-file-alias-source	report>frames>3>error:delete-key;report>frames>3>is_reply:inc	ValueError: Listing failed
+move-file-alias-source	report>frames>1>fields:delete-key;spec:delete-key	KeyError: 'spec'
+move-file-alias-source	report>frames>1>fields:delete-key;report>frames>1>type:inc	StopIteration:
+move-file-alias-source	report>frames>1>fields>0>hex:delete-key;report:delete-key	KeyError: 'report'
+move-file-alias-source	report>frames>1>fields>0>hex:delete-key;report>frames>3>fields>1>hex:flip	KeyError: 'hex'
+move-file-alias-source	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+move-file-alias-source	report>frames>0>id:delete-key;report>frames>6>error:inc	KeyError: 'id'
+move-file-alias-source	report>frames>0>is_reply:delete-key;report>frames>6>error:inc	KeyError: 'is_reply'
+move-file-alias-source	spec>label:delete-key;spec>name_hex:delete-key	KeyError: 'name_hex'
+move-file-alias-source	spec>name_hex:delete-key;spec:delete-key	KeyError: 'spec'
+move-file-alias-source	report:delete-key;spec>role:delete-key	KeyError: 'report'
+move-file-alias-source	spec>role:delete-key;report>frames>1>fields:drop-last	KeyError: 'role'
+move-file-alias-source	report>frames>0>type:delete-key;report>frames>1>type:inc	KeyError: 'type'
+move-file-alias-source	report>frames>0>type:delete-key;report>frames>6>error:inc	ValueError: Move ACK/error differs
+move-file-alias-source	report>frames>0>type:delete-key;report>frames>3>fields>1>hex:flip	KeyError: 'type'
+move-file-alias-source	report>frames>3>fields>0>id:inc;report>frames>3>fields>1>hex:flip	ValueError: File-list record grammar differs
+move-file-alias-source	report>frames>3>is_reply:inc;report>frames>1>fields:drop-last	ValueError: Move privilege bitmap differs
+move-file-alias-source	report>frames:drop-last;report>frames>5>fields:drop-last	ValueError: Move changed exposed metadata
+move-file-alias-source	report>frames>5>fields:drop-last;report>frames>3>fields:drop-last	ValueError: Move did not remove/add exact source entry
+move-file-alias-source	report>frames>5>fields:drop-last;report>frames>5>fields>1>id:inc	ValueError: Unexpected repeated scalar field
+move-file-alias-source	report>frames>3>fields:drop-last;report>frames>3>fields>1>hex:flip	ValueError: Repeated file-list name
+move-file-alias-source	report>frames>9>error:inc;report>frames>5>fields>1>id:inc	ValueError: Moved old/new name resolution differs
+move-dir-destination-root		ok fe4aa8a02080fe4d
+move-dir-destination-root	spec>case:delete-key	KeyError: 'case'
+move-dir-destination-root	report>frames>0>connection:delete-key	KeyError: 'connection'
+move-dir-destination-root	report>frames>3>error:delete-key	KeyError: 'error'
+move-dir-destination-root	report>frames>1>fields:delete-key	KeyError: 'fields'
+move-dir-destination-root	report>frames:delete-key	KeyError: 'frames'
+move-dir-destination-root	report>frames>1>fields>0>hex:delete-key	KeyError: 'hex'
+move-dir-destination-root	report>frames>0>id:delete-key	KeyError: 'id'
+move-dir-destination-root	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+move-dir-destination-root	spec>label:delete-key	KeyError: 'label'
+move-dir-destination-root	spec>name_hex:delete-key	KeyError: 'name_hex'
+move-dir-destination-root	report:delete-key	KeyError: 'report'
+move-dir-destination-root	spec>role:delete-key	KeyError: 'role'
+move-dir-destination-root	spec:delete-key	KeyError: 'spec'
+move-dir-destination-root	report>frames>0>type:delete-key	KeyError: 'type'
+move-dir-destination-root	report>frames>1>type:inc	StopIteration:
+move-dir-destination-root	report>frames>3>fields>0>id:inc	ValueError: File-list record grammar differs
+move-dir-destination-root	report>frames>3>is_reply:inc	ValueError: Listing failed
+move-dir-destination-root	report>frames:drop-last	ValueError: Missing/duplicate auth reply
+move-dir-destination-root	report>frames>6>error:inc	ValueError: Move ACK/error differs
+move-dir-destination-root	report>frames>5>fields:drop-first	ValueError: Move changed exposed metadata
+move-dir-destination-root	report>frames>11>error:inc	ValueError: Move control lost liveness
+move-dir-destination-root	report>frames>3>fields:drop-last	ValueError: Move did not remove/add exact source entry
+move-dir-destination-root	report>frames>1>fields:drop-last	ValueError: Move privilege bitmap differs
+move-dir-destination-root	report>frames>9>error:inc	ValueError: Moved old/new name resolution differs
+move-dir-destination-root	report>frames>3>fields>7>hex:flip	ValueError: Repeated file-list name
+move-dir-destination-root	report>frames>5>fields>0>id:inc	ValueError: Unexpected repeated scalar field
+move-dir-destination-root	spec>case:delete-key;report>frames>0>type:delete-key	KeyError: 'type'
+move-dir-destination-root	spec>case:delete-key;report>frames>3>is_reply:inc	ValueError: Listing failed
+move-dir-destination-root	spec>case:delete-key;report>frames>11>error:inc	ValueError: Move control lost liveness
+move-dir-destination-root	report>frames>0>connection:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'connection'
+move-dir-destination-root	report>frames>0>connection:delete-key;spec>label:delete-key	KeyError: 'label'
+move-dir-destination-root	report>frames>3>error:delete-key;report>frames>3>fields>0>id:inc	KeyError: 'error'
+move-dir-destination-root	report>frames>3>error:delete-key;report>frames>3>is_reply:inc	ValueError: Listing failed
+move-dir-destination-root	report>frames>1>fields:delete-key;spec>role:delete-key	KeyError: 'fields'
+move-dir-destination-root	report>frames>1>fields:delete-key;report>frames>1>type:inc	StopIteration:
+move-dir-destination-root	report>frames>1>fields>0>hex:delete-key;report:delete-key	KeyError: 'report'
+move-dir-destination-root	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+move-dir-destination-root	report>frames>0>id:delete-key;report>frames>6>error:inc	KeyError: 'id'
+move-dir-destination-root	report>frames>0>id:delete-key;report>frames>5>fields>0>id:inc	KeyError: 'id'
+move-dir-destination-root	spec>label:delete-key;spec>name_hex:delete-key	KeyError: 'name_hex'
+move-dir-destination-root	spec>name_hex:delete-key;spec:delete-key	KeyError: 'spec'
+move-dir-destination-root	report:delete-key;spec>role:delete-key	KeyError: 'report'
+move-dir-destination-root	spec>role:delete-key;report>frames>11>error:inc	KeyError: 'role'
+move-dir-destination-root	spec>role:delete-key;report>frames>1>fields:drop-last	KeyError: 'role'
+move-dir-destination-root	spec>role:delete-key;report>frames>9>error:inc	KeyError: 'role'
+move-dir-destination-root	report>frames>0>type:delete-key;report>frames>1>type:inc	KeyError: 'type'
+move-dir-destination-root	report>frames>0>type:delete-key;report>frames>6>error:inc	ValueError: Move ACK/error differs
+move-dir-destination-root	report>frames>0>type:delete-key;report>frames>11>error:inc	KeyError: 'type'
+move-dir-destination-root	report>frames>1>type:inc;report>frames>3>fields>0>id:inc	StopIteration:
+move-dir-destination-root	report>frames>3>fields>0>id:inc;report>frames>3>fields>7>hex:flip	ValueError: File-list record grammar differs
+move-dir-destination-root	report>frames>3>is_reply:inc;report>frames>1>fields:drop-last	ValueError: Move privilege bitmap differs
+move-dir-destination-root	report>frames:drop-last;report>frames>5>fields>0>id:inc	ValueError: Unexpected repeated scalar field
+move-dir-destination-root	report>frames>5>fields:drop-first;report>frames>9>error:inc	ValueError: Moved old/new name resolution differs
+move-dir-destination-root	report>frames>5>fields:drop-first;report>frames>5>fields>0>id:inc	ValueError: Move changed exposed metadata
+move-dir-destination-root	report>frames>3>fields:drop-last;report>frames>3>fields>7>hex:flip	ValueError: Repeated file-list name
+move-dir-own-child		ok 6470ffa1df5fd8f0
+move-dir-own-child	spec>case:delete-key	KeyError: 'case'
+move-dir-own-child	report>frames>0>connection:delete-key	KeyError: 'connection'
+move-dir-own-child	report>frames>3>error:delete-key	KeyError: 'error'
+move-dir-own-child	report>frames>1>fields:delete-key	KeyError: 'fields'
+move-dir-own-child	report>frames:delete-key	KeyError: 'frames'
+move-dir-own-child	report>frames>1>fields>0>hex:delete-key	KeyError: 'hex'
+move-dir-own-child	report>frames>0>id:delete-key	KeyError: 'id'
+move-dir-own-child	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+move-dir-own-child	spec>label:delete-key	KeyError: 'label'
+move-dir-own-child	spec>name_hex:delete-key	KeyError: 'name_hex'
+move-dir-own-child	report:delete-key	KeyError: 'report'
+move-dir-own-child	spec>role:delete-key	KeyError: 'role'
+move-dir-own-child	spec:delete-key	KeyError: 'spec'
+move-dir-own-child	report>frames>0>type:delete-key	KeyError: 'type'
+move-dir-own-child	report>frames>1>type:inc	StopIteration:
+move-dir-own-child	report>frames>3>fields:drop-last	ValueError: Failed/same-parent move changed a listing
+move-dir-own-child	report>frames>3>fields>0>id:inc	ValueError: File-list record grammar differs
+move-dir-own-child	report>frames>3>is_reply:inc	ValueError: Listing failed
+move-dir-own-child	report>frames:drop-last	ValueError: Missing/duplicate auth reply
+move-dir-own-child	report>frames>6>error:inc	ValueError: Move ACK/error differs
+move-dir-own-child	report>frames>11>error:inc	ValueError: Move control lost liveness
+move-dir-own-child	report>frames>1>fields:drop-last	ValueError: Move privilege bitmap differs
+move-dir-own-child	report>frames>9>error:inc	ValueError: Rejected move source resolution differs
+move-dir-own-child	spec>case:delete-key;report>frames>11>error:inc	ValueError: Move control lost liveness
+move-dir-own-child	spec>case:delete-key;report>frames>1>fields:drop-last	ValueError: Move privilege bitmap differs
+move-dir-own-child	report>frames>0>connection:delete-key;report>frames>1>fields:delete-key	KeyError: 'connection'
+move-dir-own-child	report>frames>0>connection:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'connection'
+move-dir-own-child	report>frames>0>connection:delete-key;spec>label:delete-key	KeyError: 'label'
+move-dir-own-child	report>frames>0>connection:delete-key;report>frames:drop-last	KeyError: 'connection'
+move-dir-own-child	report>frames>3>error:delete-key;report>frames:delete-key	KeyError: 'frames'
+move-dir-own-child	report>frames>3>error:delete-key;spec>name_hex:delete-key	KeyError: 'name_hex'
+move-dir-own-child	report>frames>3>error:delete-key;report>frames>3>is_reply:inc	ValueError: Listing failed
+move-dir-own-child	report>frames>1>fields:delete-key;report>frames:delete-key	KeyError: 'frames'
+move-dir-own-child	report>frames>1>fields:delete-key;report>frames>1>type:inc	StopIteration:
+move-dir-own-child	report>frames:delete-key;spec>name_hex:delete-key	KeyError: 'name_hex'
+move-dir-own-child	report>frames>1>fields>0>hex:delete-key;spec>role:delete-key	KeyError: 'hex'
+move-dir-own-child	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+move-dir-own-child	report>frames>0>id:delete-key;report>frames>6>error:inc	KeyError: 'id'
+move-dir-own-child	report>frames>0>is_reply:delete-key;report>frames>3>fields>0>id:inc	KeyError: 'is_reply'
+move-dir-own-child	spec>label:delete-key;spec>name_hex:delete-key	KeyError: 'name_hex'
+move-dir-own-child	spec>name_hex:delete-key;spec:delete-key	KeyError: 'spec'
+move-dir-own-child	spec>name_hex:delete-key;report>frames:drop-last	KeyError: 'name_hex'
+move-dir-own-child	spec>role:delete-key;report>frames>1>fields:drop-last	KeyError: 'role'
+move-dir-own-child	report>frames>0>type:delete-key;report>frames>6>error:inc	ValueError: Move ACK/error differs
+move-dir-own-child	report>frames>3>fields:drop-last;report>frames>3>fields>0>id:inc	ValueError: File-list record grammar differs
+move-dir-own-child	report>frames>3>fields:drop-last;report>frames>9>error:inc	ValueError: Failed/same-parent move changed a listing
+move-dir-own-child	report>frames>3>is_reply:inc;report>frames>1>fields:drop-last	ValueError: Move privilege bitmap differs
+move-dir-own-child	report>frames:drop-last;report>frames>9>error:inc	ValueError: Rejected move source resolution differs
+delete-ordinary-file		ok fb39196217490761
+delete-ordinary-file	spec>case:delete-key	KeyError: 'case'
+delete-ordinary-file	report>frames>0>connection:delete-key	KeyError: 'connection'
+delete-ordinary-file	report>frames>3>error:delete-key	KeyError: 'error'
+delete-ordinary-file	report>frames>1>fields:delete-key	KeyError: 'fields'
+delete-ordinary-file	report>frames:delete-key	KeyError: 'frames'
+delete-ordinary-file	report>frames>1>fields>0>hex:delete-key	KeyError: 'hex'
+delete-ordinary-file	report>frames>0>id:delete-key	KeyError: 'id'
+delete-ordinary-file	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+delete-ordinary-file	spec>name_hex:delete-key	KeyError: 'name_hex'
+delete-ordinary-file	report:delete-key	KeyError: 'report'
+delete-ordinary-file	spec>role:delete-key	KeyError: 'role'
+delete-ordinary-file	spec:delete-key	KeyError: 'spec'
+delete-ordinary-file	report>frames>0>type:delete-key	KeyError: 'type'
+delete-ordinary-file	report>frames>1>type:inc	StopIteration:
+delete-ordinary-file	report>frames>5>error:inc	ValueError: Delete ACK/error differs
+delete-ordinary-file	report>frames>8>error:inc	ValueError: Delete control lost liveness
+delete-ordinary-file	report>frames>3>fields:drop-last	ValueError: Delete did not remove exactly the owned entry
+delete-ordinary-file	report>frames>1>fields:drop-last	ValueError: Delete privilege bitmap differs
+delete-ordinary-file	report>frames>7>error:inc	ValueError: Deleted source still resolves through original path
+delete-ordinary-file	report>frames>3>fields>0>id:inc	ValueError: File-list record grammar differs
+delete-ordinary-file	report>frames>3>is_reply:inc	ValueError: Listing failed
+delete-ordinary-file	report>frames:drop-last	ValueError: Missing/duplicate auth reply
+delete-ordinary-file	spec>case:delete-key;spec>name_hex:delete-key	KeyError: 'case'
+delete-ordinary-file	spec>case:delete-key;spec:delete-key	KeyError: 'spec'
+delete-ordinary-file	report>frames>0>connection:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'connection'
+delete-ordinary-file	report>frames>0>connection:delete-key;spec>name_hex:delete-key	KeyError: 'name_hex'
+delete-ordinary-file	report>frames>3>error:delete-key;report:delete-key	KeyError: 'report'
+delete-ordinary-file	report>frames>3>error:delete-key;report>frames>0>type:delete-key	KeyError: 'error'
+delete-ordinary-file	report>frames>3>error:delete-key;report>frames>3>is_reply:inc	ValueError: Listing failed
+delete-ordinary-file	report>frames>1>fields:delete-key;report>frames:delete-key	KeyError: 'frames'
+delete-ordinary-file	report>frames:delete-key;spec>name_hex:delete-key	KeyError: 'name_hex'
+delete-ordinary-file	report>frames>1>fields>0>hex:delete-key;spec>role:delete-key	KeyError: 'hex'
+delete-ordinary-file	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+delete-ordinary-file	report>frames>0>id:delete-key;report>frames>1>type:inc	KeyError: 'id'
+delete-ordinary-file	report>frames>0>id:delete-key;report>frames>5>error:inc	KeyError: 'id'
+delete-ordinary-file	spec>name_hex:delete-key;report>frames>0>type:delete-key	KeyError: 'name_hex'
+delete-ordinary-file	spec>name_hex:delete-key;report>frames>8>error:inc	KeyError: 'name_hex'
+delete-ordinary-file	spec>role:delete-key;report>frames>1>fields:drop-last	KeyError: 'role'
+delete-ordinary-file	spec:delete-key;report>frames:drop-last	KeyError: 'spec'
+delete-ordinary-file	report>frames>0>type:delete-key;report>frames>1>type:inc	KeyError: 'type'
+delete-ordinary-file	report>frames>0>type:delete-key;report>frames>7>error:inc	ValueError: Deleted source still resolves through original path
+delete-ordinary-file	report>frames>5>error:inc;report>frames>3>is_reply:inc	ValueError: Delete ACK/error differs
+delete-ordinary-file	report>frames>8>error:inc;report>frames:drop-last	ValueError: Missing/duplicate auth reply
+delete-ordinary-file	report>frames>3>fields:drop-last;report>frames>7>error:inc	ValueError: Delete did not remove exactly the owned entry
+delete-ordinary-file	report>frames>3>fields:drop-last;report>frames>3>fields>0>id:inc	ValueError: File-list record grammar differs
+delete-ordinary-file	report>frames>3>fields:drop-last;report>frames>3>is_reply:inc	ValueError: Listing failed
+delete-ordinary-file	report>frames>1>fields:drop-last;report>frames:drop-last	ValueError: Delete privilege bitmap differs
+delete-ordinary-file	report>frames>3>fields>0>id:inc;report>frames:drop-last	ValueError: File-list record grammar differs
+delete-nonempty-directory		ok 489d6ac3d8acff34
+delete-nonempty-directory	spec>case:delete-key	KeyError: 'case'
+delete-nonempty-directory	report>frames>0>connection:delete-key	KeyError: 'connection'
+delete-nonempty-directory	report>frames>3>error:delete-key	KeyError: 'error'
+delete-nonempty-directory	report>frames>1>fields:delete-key	KeyError: 'fields'
+delete-nonempty-directory	report>frames:delete-key	KeyError: 'frames'
+delete-nonempty-directory	report>frames>1>fields>0>hex:delete-key	KeyError: 'hex'
+delete-nonempty-directory	report>frames>0>id:delete-key	KeyError: 'id'
+delete-nonempty-directory	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+delete-nonempty-directory	spec>name_hex:delete-key	KeyError: 'name_hex'
+delete-nonempty-directory	report:delete-key	KeyError: 'report'
+delete-nonempty-directory	spec>role:delete-key	KeyError: 'role'
+delete-nonempty-directory	spec:delete-key	KeyError: 'spec'
+delete-nonempty-directory	report>frames>0>type:delete-key	KeyError: 'type'
+delete-nonempty-directory	report>frames>1>type:inc	StopIteration:
+delete-nonempty-directory	report>frames>5>error:inc	ValueError: Delete ACK/error differs
+delete-nonempty-directory	report>frames>8>error:inc	ValueError: Delete control lost liveness
+delete-nonempty-directory	report>frames>3>fields:drop-last	ValueError: Delete did not remove exactly the owned entry
+delete-nonempty-directory	report>frames>1>fields:drop-last	ValueError: Delete privilege bitmap differs
+delete-nonempty-directory	report>frames>7>error:inc	ValueError: Deleted source still resolves through original path
+delete-nonempty-directory	report>frames>3>fields>0>id:inc	ValueError: File-list record grammar differs
+delete-nonempty-directory	report>frames>3>is_reply:inc	ValueError: Listing failed
+delete-nonempty-directory	report>frames:drop-last	ValueError: Missing/duplicate auth reply
+delete-nonempty-directory	spec>case:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'case'
+delete-nonempty-directory	spec>case:delete-key;spec>name_hex:delete-key	KeyError: 'case'
+delete-nonempty-directory	spec>case:delete-key;spec:delete-key	KeyError: 'spec'
+delete-nonempty-directory	report>frames>0>connection:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'connection'
+delete-nonempty-directory	report>frames>0>connection:delete-key;spec>name_hex:delete-key	KeyError: 'name_hex'
+delete-nonempty-directory	report>frames>3>error:delete-key;report:delete-key	KeyError: 'report'
+delete-nonempty-directory	report>frames>3>error:delete-key;spec>role:delete-key	KeyError: 'error'
+delete-nonempty-directory	report>frames>3>error:delete-key;report>frames>1>fields:drop-last	KeyError: 'error'
+delete-nonempty-directory	report>frames>3>error:delete-key;report>frames>3>is_reply:inc	ValueError: Listing failed
+delete-nonempty-directory	report>frames>1>fields:delete-key;report>frames:delete-key	KeyError: 'frames'
+delete-nonempty-directory	report>frames>1>fields:delete-key;report>frames>8>error:inc	KeyError: 'fields'
+delete-nonempty-directory	report>frames>1>fields>0>hex:delete-key;report:delete-key	KeyError: 'report'
+delete-nonempty-directory	report>frames>1>fields>0>hex:delete-key;spec>role:delete-key	KeyError: 'hex'
+delete-nonempty-directory	report>frames>1>fields>0>hex:delete-key;report>frames>0>type:delete-key	KeyError: 'type'
+delete-nonempty-directory	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+delete-nonempty-directory	report>frames>0>id:delete-key;report>frames>5>error:inc	KeyError: 'id'
+delete-nonempty-directory	report>frames>0>is_reply:delete-key;spec>name_hex:delete-key	KeyError: 'name_hex'
+delete-nonempty-directory	spec>role:delete-key;report>frames>1>fields:drop-last	KeyError: 'role'
+delete-nonempty-directory	report>frames>0>type:delete-key;report>frames>1>type:inc	KeyError: 'type'
+delete-nonempty-directory	report>frames>0>type:delete-key;report>frames>7>error:inc	ValueError: Deleted source still resolves through original path
+delete-nonempty-directory	report>frames>5>error:inc;report>frames>3>is_reply:inc	ValueError: Delete ACK/error differs
+delete-nonempty-directory	report>frames>8>error:inc;report>frames>3>is_reply:inc	ValueError: Listing failed
+delete-nonempty-directory	report>frames>8>error:inc;report>frames:drop-last	ValueError: Missing/duplicate auth reply
+delete-nonempty-directory	report>frames>3>fields:drop-last;report>frames>7>error:inc	ValueError: Delete did not remove exactly the owned entry
+delete-nonempty-directory	report>frames>3>fields:drop-last;report>frames>3>fields>0>id:inc	ValueError: File-list record grammar differs
+delete-nonempty-directory	report>frames>1>fields:drop-last;report>frames:drop-last	ValueError: Delete privilege bitmap differs
+delete-missing-source		ok d61e07821e14d2bc
+delete-missing-source	spec>case:delete-key	KeyError: 'case'
+delete-missing-source	report>frames>0>connection:delete-key	KeyError: 'connection'
+delete-missing-source	report>frames>3>error:delete-key	KeyError: 'error'
+delete-missing-source	report>frames>1>fields:delete-key	KeyError: 'fields'
+delete-missing-source	report>frames:delete-key	KeyError: 'frames'
+delete-missing-source	report>frames>1>fields>0>hex:delete-key	KeyError: 'hex'
+delete-missing-source	report>frames>0>id:delete-key	KeyError: 'id'
+delete-missing-source	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+delete-missing-source	spec>name_hex:delete-key	KeyError: 'name_hex'
+delete-missing-source	report:delete-key	KeyError: 'report'
+delete-missing-source	spec>role:delete-key	KeyError: 'role'
+delete-missing-source	spec:delete-key	KeyError: 'spec'
+delete-missing-source	report>frames>0>type:delete-key	KeyError: 'type'
+delete-missing-source	report>frames>1>type:inc	StopIteration:
+delete-missing-source	report>frames>5>error:inc	ValueError: Delete ACK/error differs
+delete-missing-source	report>frames>8>error:inc	ValueError: Delete control lost liveness
+delete-missing-source	report>frames>1>fields:drop-last	ValueError: Delete privilege bitmap differs
+delete-missing-source	report>frames>3>fields>0>id:inc	ValueError: File-list record grammar differs
+delete-missing-source	report>frames>3>is_reply:inc	ValueError: Listing failed
+delete-missing-source	report>frames:drop-last	ValueError: Missing/duplicate auth reply
+delete-missing-source	report>frames>3>fields:drop-last	ValueError: Rejected delete changed listing
+delete-missing-source	spec>case:delete-key;spec>name_hex:delete-key	KeyError: 'case'
+delete-missing-source	spec>case:delete-key;spec:delete-key	KeyError: 'spec'
+delete-missing-source	report>frames>0>connection:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'connection'
+delete-missing-source	report>frames>0>connection:delete-key;spec>name_hex:delete-key	KeyError: 'name_hex'
+delete-missing-source	report>frames>0>connection:delete-key;spec:delete-key	KeyError: 'spec'
+delete-missing-source	report>frames>3>error:delete-key;report>frames>3>fields>0>id:inc	KeyError: 'error'
+delete-missing-source	report>frames>3>error:delete-key;report>frames>3>is_reply:inc	ValueError: Listing failed
+delete-missing-source	report>frames>3>error:delete-key;report>frames>3>fields:drop-last	KeyError: 'error'
+delete-missing-source	report>frames>1>fields:delete-key;report>frames:delete-key	KeyError: 'frames'
+delete-missing-source	report>frames>1>fields:delete-key;report>frames>5>error:inc	ValueError: Delete ACK/error differs
+delete-missing-source	report>frames>1>fields:delete-key;report>frames>3>fields>0>id:inc	ValueError: File-list record grammar differs
+delete-missing-source	report>frames>1>fields>0>hex:delete-key;spec>role:delete-key	KeyError: 'hex'
+delete-missing-source	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+delete-missing-source	report>frames>0>id:delete-key;report>frames>5>error:inc	KeyError: 'id'
+delete-missing-source	spec>role:delete-key;report>frames>1>fields:drop-last	KeyError: 'role'
+delete-missing-source	spec:delete-key;report>frames>5>error:inc	KeyError: 'spec'
+delete-missing-source	report>frames>0>type:delete-key;report>frames>1>type:inc	KeyError: 'type'
+delete-missing-source	report>frames>0>type:delete-key;report>frames>3>fields:drop-last	ValueError: Rejected delete changed listing
+delete-missing-source	report>frames>8>error:inc;report>frames>3>fields>0>id:inc	ValueError: File-list record grammar differs
+delete-missing-source	report>frames>8>error:inc;report>frames:drop-last	ValueError: Missing/duplicate auth reply
+delete-missing-source	report>frames>8>error:inc;report>frames>3>fields:drop-last	ValueError: Rejected delete changed listing
+delete-missing-source	report>frames>1>fields:drop-last;report>frames:drop-last	ValueError: Delete privilege bitmap differs
+delete-missing-source	report>frames>3>fields>0>id:inc;report>frames>3>fields:drop-last	ValueError: File-list record grammar differs
+delete-missing-source	report>frames>3>is_reply:inc;report>frames>3>fields:drop-last	ValueError: Listing failed
+delete-alias-target-to-trash		ok 7f36bf0d60fe73df
+delete-alias-target-to-trash	spec>case:delete-key	KeyError: 'case'
+delete-alias-target-to-trash	report>frames>0>connection:delete-key	KeyError: 'connection'
+delete-alias-target-to-trash	report>frames>3>error:delete-key	KeyError: 'error'
+delete-alias-target-to-trash	report>frames>1>fields:delete-key	KeyError: 'fields'
+delete-alias-target-to-trash	report>frames:delete-key	KeyError: 'frames'
+delete-alias-target-to-trash	report>frames>1>fields>0>hex:delete-key	KeyError: 'hex'
+delete-alias-target-to-trash	report>frames>0>id:delete-key	KeyError: 'id'
+delete-alias-target-to-trash	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+delete-alias-target-to-trash	spec>name_hex:delete-key	KeyError: 'name_hex'
+delete-alias-target-to-trash	report:delete-key	KeyError: 'report'
+delete-alias-target-to-trash	spec>role:delete-key	KeyError: 'role'
+delete-alias-target-to-trash	spec:delete-key	KeyError: 'spec'
+delete-alias-target-to-trash	report>frames>0>type:delete-key	KeyError: 'type'
+delete-alias-target-to-trash	report>frames>8>fields:drop-last	KeyError: 210
+delete-alias-target-to-trash	report>frames>1>type:inc	StopIteration:
+delete-alias-target-to-trash	report>frames>8>error:inc	ValueError: Alias no longer resolves target moved to Trash
+delete-alias-target-to-trash	report>frames>5>error:inc	ValueError: Delete ACK/error differs
+delete-alias-target-to-trash	report>frames>9>error:inc	ValueError: Delete control lost liveness
+delete-alias-target-to-trash	report>frames>3>fields:drop-last	ValueError: Delete did not remove exactly the owned entry
+delete-alias-target-to-trash	report>frames>1>fields:drop-last	ValueError: Delete privilege bitmap differs
+delete-alias-target-to-trash	report>frames>7>error:inc	ValueError: Deleted source still resolves through original path
+delete-alias-target-to-trash	report>frames>3>fields>0>id:inc	ValueError: File-list record grammar differs
+delete-alias-target-to-trash	report>frames>3>is_reply:inc	ValueError: Listing failed
+delete-alias-target-to-trash	report>frames:drop-last	ValueError: Missing/duplicate auth reply
+delete-alias-target-to-trash	report>frames>8>fields>1>id:inc	ValueError: Unexpected repeated scalar field
+delete-alias-target-to-trash	spec>case:delete-key;spec>name_hex:delete-key	KeyError: 'case'
+delete-alias-target-to-trash	spec>case:delete-key;spec:delete-key	KeyError: 'spec'
+delete-alias-target-to-trash	spec>case:delete-key;report>frames>5>error:inc	KeyError: 'case'
+delete-alias-target-to-trash	spec>case:delete-key;report>frames>3>fields>0>id:inc	KeyError: 'case'
+delete-alias-target-to-trash	report>frames>0>connection:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'connection'
+delete-alias-target-to-trash	report>frames>0>connection:delete-key;spec>name_hex:delete-key	KeyError: 'name_hex'
+delete-alias-target-to-trash	report>frames>3>error:delete-key;report>frames>3>fields>0>id:inc	KeyError: 'error'
+delete-alias-target-to-trash	report>frames>3>error:delete-key;report>frames>3>is_reply:inc	ValueError: Listing failed
+delete-alias-target-to-trash	report>frames>1>fields:delete-key;report>frames:delete-key	KeyError: 'frames'
+delete-alias-target-to-trash	report>frames>1>fields>0>hex:delete-key;spec>role:delete-key	KeyError: 'hex'
+delete-alias-target-to-trash	report>frames>1>fields>0>hex:delete-key;report>frames>8>error:inc	ValueError: Alias no longer resolves target moved to Trash
+delete-alias-target-to-trash	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+delete-alias-target-to-trash	report>frames>0>id:delete-key;report>frames>5>error:inc	KeyError: 'id'
+delete-alias-target-to-trash	spec>role:delete-key;report>frames>1>type:inc	StopIteration:
+delete-alias-target-to-trash	spec>role:delete-key;report>frames>9>error:inc	KeyError: 'role'
+delete-alias-target-to-trash	spec>role:delete-key;report>frames>1>fields:drop-last	KeyError: 'role'
+delete-alias-target-to-trash	spec:delete-key;report>frames>8>fields:drop-last	KeyError: 'spec'
+delete-alias-target-to-trash	spec:delete-key;report>frames>9>error:inc	KeyError: 'spec'
+delete-alias-target-to-trash	report>frames>0>type:delete-key;report>frames>8>fields:drop-last	KeyError: 210
+delete-alias-target-to-trash	report>frames>0>type:delete-key;report>frames>1>type:inc	KeyError: 'type'
+delete-alias-target-to-trash	report>frames>8>fields:drop-last;report>frames>8>error:inc	ValueError: Alias no longer resolves target moved to Trash
+delete-alias-target-to-trash	report>frames>8>error:inc;report>frames>8>fields>1>id:inc	ValueError: Unexpected repeated scalar field
+delete-alias-target-to-trash	report>frames>5>error:inc;report>frames>3>fields:drop-last	ValueError: Delete ACK/error differs
+delete-alias-target-to-trash	report>frames>5>error:inc;report>frames>3>is_reply:inc	ValueError: Delete ACK/error differs
+delete-alias-target-to-trash	report>frames>9>error:inc;report>frames:drop-last	ValueError: Missing/duplicate auth reply
+delete-alias-target-to-trash	report>frames>3>fields:drop-last;report>frames>3>fields>0>id:inc	ValueError: File-list record grammar differs
+delete-alias-target-to-trash	report>frames>1>fields:drop-last;report>frames:drop-last	ValueError: Delete privilege bitmap differs
+delete-alias-target-to-trash	report>frames>7>error:inc;report>frames>8>fields>1>id:inc	ValueError: Deleted source still resolves through original path

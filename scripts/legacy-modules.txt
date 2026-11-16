@@ -31,7 +31,6 @@ scripts/native_liveness_cases.py
 scripts/native_liveness_control.py
 scripts/native_missing_alias_cases.py
 scripts/native_missing_alias_control.py
-scripts/native_move_cases.py
 scripts/native_path_fields_cases.py
 scripts/native_path_fields_control.py
 scripts/native_rate304_cases.py
@@ -90,7 +89,6 @@ scripts/test_native_download_send_path.py
 scripts/test_native_liveness.py
 scripts/test_native_liveness_corpus.py
 scripts/test_native_missing_alias.py
-scripts/test_native_moves.py
 scripts/test_native_path_fields.py
 scripts/test_native_rate304.py
 scripts/test_native_rate304_partial.py
@@ -142,7 +140,6 @@ scripts/verify_native_diagnostic_near.py
 scripts/verify_native_diagnostics.py
 scripts/verify_native_download_send_path.py
 scripts/verify_native_liveness.py
-scripts/verify_native_moves.py
 scripts/verify_native_path_fields.py
 scripts/verify_native_rate304_partial.py
 scripts/verify_native_rate304_sequence.py
