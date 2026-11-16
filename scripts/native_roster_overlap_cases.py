@@ -1,10 +1,11 @@
 """Prepare one two-session native 300/304 overlap, without account writes."""
 
-import argparse
 import hashlib
 import json
+import sys
 from pathlib import Path
 
+import script_cli
 from native_auth_cases import authentication
 from native_plan import close, connect, packet, payload, read, send
 from protocol_capture import ORACLE_SHA256, validate_plan
@@ -19,6 +20,13 @@ MAX_PORT = 15820
 
 
 def login_steps(connection: str, name: bytes, icon: bytes) -> list[dict]:
+    """Plan the handshake, the login and the three notices of one session.
+
+    Returns
+    -------
+    list[dict]
+        The steps that log the session in.
+    """
     return [
         connect(connection),
         send("54525450484f544c00010002", connection),
@@ -39,15 +47,38 @@ def login_steps(connection: str, name: bytes, icon: bytes) -> list[dict]:
 
 
 def exchange(connection: str, kind: int, identifier: int) -> list[dict]:
+    """Plan one request and the reply it must match.
+
+    Returns
+    -------
+    list[dict]
+        The send step and the read step of the exchange.
+    """
     return [
         send(packet(kind, identifier), connection),
         read(connection, match_frame={"is_reply": 1, "id": identifier}),
     ]
 
 
-def source_plan(environment: dict, port: int = MAX_PORT) -> dict:
+def _check_environment(environment: dict, port: int) -> None:
+    """Refuse a port or a runtime record that the overlap cannot run on.
+
+    Parameters
+    ----------
+    environment : dict
+        The runtime identity of the emulator and its lab.
+    port : int
+        The control port the overlap would use.
+
+    Raises
+    ------
+    ValueError
+        When the port is not the reserved one, the identity is incomplete, or
+        the lab is not the control-only profile.
+    """
     if port != MAX_PORT:
-        raise ValueError("Roster overlap requires reserved port15820")
+        message = "Roster overlap requires reserved port15820"
+        raise ValueError(message)
     required = (
         "emulator_pid",
         "emulator_starttime",
@@ -57,9 +88,21 @@ def source_plan(environment: dict, port: int = MAX_PORT) -> dict:
         "owned_working_image_inode",
     )
     if any(key not in environment for key in required):
-        raise ValueError("Runtime identity incomplete")
+        message = "Runtime identity incomplete"
+        raise ValueError(message)
     if environment.get("fixture_profile") != "control-only":
-        raise ValueError("Only the control-only lab is prepared")
+        message = "Only the control-only lab is prepared"
+        raise ValueError(message)
+
+
+def _steps() -> list[dict]:
+    """Plan the two logins, the overlap setup and the teardown.
+
+    Returns
+    -------
+    list[dict]
+        The source steps, in the order they run.
+    """
     steps = login_steps("a", OLD_A, ICON_A)
     steps += login_steps("b", OLD_B, ICON_B)
     steps += [
@@ -77,6 +120,26 @@ def source_plan(environment: dict, port: int = MAX_PORT) -> dict:
         {"op": "read_eof", "connection": "a", "timeout": 10},
         close("a"),
     ]
+    return steps
+
+
+def source_plan(environment: dict, port: int = MAX_PORT) -> dict:
+    """Build the validated source plan of the overlap for one runtime record.
+
+    Parameters
+    ----------
+    environment : dict
+        The runtime identity of the emulator and its lab.
+    port : int
+        The control port; only the reserved port is accepted.
+
+    Returns
+    -------
+    dict
+        The plan, which has passed ``validate_plan``.
+    """
+    _check_environment(environment, port)
+    steps = _steps()
     result = {
         "schema_version": 1,
         "profile": "native-mac-oracle",
@@ -174,6 +237,22 @@ def source_plan(environment: dict, port: int = MAX_PORT) -> dict:
 
 
 def write_plan(output: Path, environment: dict, port: int = MAX_PORT) -> str:
+    """Write the source plan and its hash record into a new directory.
+
+    Parameters
+    ----------
+    output : pathlib.Path
+        The directory to create; it must not exist.
+    environment : dict
+        The runtime identity of the emulator and its lab.
+    port : int
+        The control port; only the reserved port is accepted.
+
+    Returns
+    -------
+    str
+        The SHA-256 digest of ``plan.json``.
+    """
     value = source_plan(environment, port)
     output.mkdir(parents=True, exist_ok=False)
     raw = (json.dumps(value, indent=2) + "\n").encode()
@@ -183,13 +262,26 @@ def write_plan(output: Path, environment: dict, port: int = MAX_PORT) -> str:
     return sha
 
 
+def command(*, runtime: str, output: str, port: int = MAX_PORT) -> None:
+    """Write the overlap plan for a runtime record and print its digest.
+
+    Parameters
+    ----------
+    runtime : str
+        The runtime record, a JSON file.
+    output : str
+        The directory to create for the plan.
+    port : int
+        The control port; only the reserved port is accepted.
+    """
+    raw = Path(runtime).read_text(encoding="utf-8")
+    digest = write_plan(Path(output), json.loads(raw), port)
+    sys.stdout.write(f"{digest}\n")
+
+
 def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--runtime", type=Path, required=True)
-    parser.add_argument("--output", type=Path, required=True)
-    parser.add_argument("--port", type=int, default=MAX_PORT)
-    args = parser.parse_args()
-    print(write_plan(args.output, json.loads(args.runtime.read_text()), args.port))
+    """Prepare the overlap plan from the command line."""
+    script_cli.run(command, __doc__)
 
 
 if __name__ == "__main__":

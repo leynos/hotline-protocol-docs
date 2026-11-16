@@ -1,0 +1,453 @@
+roster-overlap		ok 74234e98afe7498f
+roster-overlap	raw/host-ready.json>unit_properties>ActiveState:delete-key	KeyError: 'ActiveState'
+roster-overlap	raw/host-ready.json>unit_properties>KillMode:delete-key	KeyError: 'KillMode'
+roster-overlap	preparation/preflight.json>files>Prefs:delete-key	KeyError: 'Prefs'
+roster-overlap	raw/results/report.json>frames>9>action:delete-key	KeyError: 'action'
+roster-overlap	preparation/preflight.json>active_users_catalog_lines:delete-key	KeyError: 'active_users_catalog_lines'
+roster-overlap	raw/runtime-proof.json>actual_pid:delete-key	KeyError: 'actual_pid'
+roster-overlap	manifest.json>actual_runner_proc_netns:delete-key	KeyError: 'actual_runner_proc_netns'
+roster-overlap	preparation/preflight.json>files>admin:delete-key	KeyError: 'admin'
+roster-overlap	raw/parent-case-acceptance.json>asrun_plan_equal:delete-key	KeyError: 'asrun_plan_equal'
+roster-overlap	preparation/preflight.json>banned_absent:delete-key	KeyError: 'banned_absent'
+roster-overlap	preparation/preflight.json>base.dsk:delete-key	KeyError: 'base.dsk'
+roster-overlap	manifest.json>cases_sha256:delete-key	KeyError: 'cases_sha256'
+roster-overlap	raw/results/report.json>events>1>connection:delete-key	KeyError: 'connection'
+roster-overlap	manifest.json>controller_sha256:delete-key	KeyError: 'controller_sha256'
+roster-overlap	raw/capture-ready.json>deadline_utc:delete-key	KeyError: 'deadline_utc'
+roster-overlap	raw/terminal-network-lock.json>emulator_953125_absent:delete-key	KeyError: 'emulator_953125_absent'
+roster-overlap	raw/capture-ready.json>emulator_netns:delete-key	KeyError: 'emulator_netns'
+roster-overlap	raw/capture-ready.json>emulator_netns_inode:delete-key	KeyError: 'emulator_netns_inode'
+roster-overlap	raw/capture-ready.json>emulator_pid:delete-key	KeyError: 'emulator_pid'
+roster-overlap	raw/capture-ready.json>emulator_sha256:delete-key	KeyError: 'emulator_sha256'
+roster-overlap	raw/capture-ready.json>emulator_starttime:delete-key	KeyError: 'emulator_starttime'
+roster-overlap	raw/roster-plan/plan.json>steps>0>endpoint:delete-key	KeyError: 'endpoint'
+roster-overlap	raw/roster-plan/plan.json>endpoints:delete-key	KeyError: 'endpoints'
+roster-overlap	raw/parent-case-acceptance.json>events:delete-key	KeyError: 'events'
+roster-overlap	raw/runtime-proof.json>exe_sha256:delete-key	KeyError: 'exe_sha256'
+roster-overlap	raw/stopped-forks-and-assets.json>files>admin>exit:delete-key	KeyError: 'exit'
+roster-overlap	raw/runtime-proof.json>fd16:delete-key	KeyError: 'fd16'
+roster-overlap	raw/runtime-proof.json>fd6:delete-key	KeyError: 'fd6'
+roster-overlap	manifest.json>files:delete-key	KeyError: 'files'
+roster-overlap	preparation/preflight.json>files>fixture-low:delete-key	KeyError: 'fixture-low'
+roster-overlap	raw/capture-ready.json>fixture_profile:delete-key	KeyError: 'fixture_profile'
+roster-overlap	raw/results/report.json>operation_map>5>frame_range:delete-key	KeyError: 'frame_range'
+roster-overlap	raw/parent-case-acceptance.json>frames:delete-key	KeyError: 'frames'
+roster-overlap	manifest.json>full_file_baseline:delete-key	KeyError: 'full_file_baseline'
+roster-overlap	raw/host-ready.json>header24:delete-key	KeyError: 'header24'
+roster-overlap	raw/roster-plan/plan.json>steps>1>hex:delete-key	KeyError: 'hex'
+roster-overlap	raw/roster-plan/plan.json>endpoints>control>host:delete-key	KeyError: 'host'
+roster-overlap	raw/roster-plan/plan.json>steps>14>save_field>id:delete-key	KeyError: 'id'
+roster-overlap	raw/terminal-network-lock.json>image_fuser_exit:delete-key	KeyError: 'image_fuser_exit'
+roster-overlap	raw/terminal-network-lock.json>image_fuser_stdout:delete-key	KeyError: 'image_fuser_stdout'
+roster-overlap	raw/runtime-proof.json>image_inode:delete-key	KeyError: 'image_inode'
+roster-overlap	raw/parent-preflight.json>initial_parent_replay_path_error:delete-key	KeyError: 'initial_parent_replay_path_error'
+roster-overlap	preparation/preflight.json>working.dsk>inode:delete-key	KeyError: 'inode'
+roster-overlap	raw/terminal-network-lock.json>listeners_ss:delete-key	KeyError: 'listeners_ss'
+roster-overlap	raw/terminal-network-lock.json>lock_exit:delete-key	KeyError: 'lock_exit'
+roster-overlap	manifest.json:delete-key	KeyError: 'manifest.json'
+roster-overlap	raw/stopped-forks-and-assets.json>base.dsk>matches_preflight:delete-key	KeyError: 'matches_preflight'
+roster-overlap	raw/roster-plan/plan.json>steps>14>save_field>name:delete-key	KeyError: 'name'
+roster-overlap	raw/source-freeze.json>files>native_control_readiness.py:delete-key	KeyError: 'native_control_readiness.py'
+roster-overlap	raw/capture-ready.json>native_data_sha256:delete-key	KeyError: 'native_data_sha256'
+roster-overlap	raw/source-freeze.json>files>native_roster_overlap_cases.py:delete-key	KeyError: 'native_roster_overlap_cases.py'
+roster-overlap	raw/source-freeze.json>files>native_roster_overlap_control.py:delete-key	KeyError: 'native_roster_overlap_control.py'
+roster-overlap	raw/runtime-proof.json>netns:delete-key	KeyError: 'netns'
+roster-overlap	raw/capture-ready.json>ns_routes:delete-key	KeyError: 'ns_routes'
+roster-overlap	raw/roster-plan/plan.json>steps>0>op:delete-key	KeyError: 'op'
+roster-overlap	raw/roster-plan/plan.json>oracle_sha256:delete-key	KeyError: 'oracle_sha256'
+roster-overlap	raw/runtime-proof.json>original_pids:delete-key	KeyError: 'original_pids'
+roster-overlap	raw/terminal-network-lock.json>original_start_ticks:delete-key	KeyError: 'original_start_ticks'
+roster-overlap	raw/parent-preflight.json>overlap_socket_actions:delete-key	KeyError: 'overlap_socket_actions'
+roster-overlap	raw/capture-ready.json>owned_runtime:delete-key	KeyError: 'owned_runtime'
+roster-overlap	raw/capture-ready.json>owned_working_image:delete-key	KeyError: 'owned_working_image'
+roster-overlap	raw/capture-ready.json>owned_working_image_inode:delete-key	KeyError: 'owned_working_image_inode'
+roster-overlap	raw/parent-case-acceptance.json>packet_pairing_pending:delete-key	KeyError: 'packet_pairing_pending'
+roster-overlap	raw/parent-preflight.json>pid:delete-key	KeyError: 'pid'
+roster-overlap	manifest.json>plan_sha256:delete-key	KeyError: 'plan_sha256'
+roster-overlap	raw/roster-plan/plan.json>endpoints>control>port:delete-key	KeyError: 'port'
+roster-overlap	raw/capture-ready.json>primary_syn_count:delete-key	KeyError: 'primary_syn_count'
+roster-overlap	raw/terminal-network-lock.json>primary_syn_pcap_bytes:delete-key	KeyError: 'primary_syn_pcap_bytes'
+roster-overlap	manifest.json>profile:delete-key	KeyError: 'profile'
+roster-overlap	manifest.json>readiness_sha256:delete-key	KeyError: 'readiness_sha256'
+roster-overlap	raw/stopped-forks-corrected.json>recorded_at_utc:delete-key	KeyError: 'recorded_at_utc'
+roster-overlap	preparation/preflight.json>rom:delete-key	KeyError: 'rom'
+roster-overlap	raw/capture-ready.json>rom_sha256:delete-key	KeyError: 'rom_sha256'
+roster-overlap	manifest.json>schema:delete-key	KeyError: 'schema'
+roster-overlap	preparation/preflight.json>files>server-data:delete-key	KeyError: 'server-data'
+roster-overlap	preparation/preflight.json>files>server-rsrc:delete-key	KeyError: 'server-rsrc'
+roster-overlap	preparation/preflight.json>files>admin>sha256:delete-key	KeyError: 'sha256'
+roster-overlap	raw/roster-plan/plan.json>steps>2>size:delete-key	KeyError: 'size'
+roster-overlap	raw/capture-ready.json>source_a7_sha256:delete-key	KeyError: 'source_a7_sha256'
+roster-overlap	raw/capture-ready.json>source_base_sha256:delete-key	KeyError: 'source_base_sha256'
+roster-overlap	manifest.json>source_head:delete-key	KeyError: 'source_head'
+roster-overlap	raw/terminal-network-lock.json>ss_exit:delete-key	KeyError: 'ss_exit'
+roster-overlap	raw/runtime-proof.json>start_ticks:delete-key	KeyError: 'start_ticks'
+roster-overlap	raw/parent-case-acceptance.json>status:delete-key	KeyError: 'status'
+roster-overlap	raw/roster-plan/plan.json>steps:delete-key	KeyError: 'steps'
+roster-overlap	raw/stopped-forks-corrected.json>stopped_pid_absent:delete-key	KeyError: 'stopped_pid_absent'
+roster-overlap	raw/host-ready.json>unit_properties:delete-key	KeyError: 'unit_properties'
+roster-overlap	preparation/preflight.json>working.dsk:delete-key	KeyError: 'working.dsk'
+roster-overlap	raw/runtime-proof.json>actual_pid:inc	ValueError: Actual emulator or original-service identity differs
+roster-overlap	raw/capture-ready.json>utc:flip	ValueError: As-run result identity differs
+roster-overlap	raw/results/plan.json>schema_version:inc	ValueError: As-run roster plan differs
+roster-overlap	raw/source-freeze.json>source_head:flip	ValueError: As-run source HEAD differs
+roster-overlap	manifest.json>cases_sha256:flip	ValueError: B71 source hash record differs
+roster-overlap	raw/postflight/plan.json>schema_version:inc	ValueError: Checksum mismatch: plan.json
+roster-overlap	raw/postflight/report.json>frames>2>unconsumed_hex:flip	ValueError: Checksum mismatch: report.json
+roster-overlap	manifest.json>files>preparation/preflight.json:flip	ValueError: Corpus SHA differs: preparation/preflight.json
+roster-overlap	manifest.json>files>raw/after-app-quit.png:flip	ValueError: Corpus SHA differs: raw/after-app-quit.png
+roster-overlap	manifest.json>files>raw/after-repair.png:flip	ValueError: Corpus SHA differs: raw/after-repair.png
+roster-overlap	manifest.json>files>raw/app-later.png:flip	ValueError: Corpus SHA differs: raw/app-later.png
+roster-overlap	manifest.json>files>raw/app-launch.png:flip	ValueError: Corpus SHA differs: raw/app-launch.png
+roster-overlap	manifest.json>files>raw/b71-source.sha256:flip	ValueError: Corpus SHA differs: raw/b71-source.sha256
+roster-overlap	manifest.json>files>raw/boot-later.png:flip	ValueError: Corpus SHA differs: raw/boot-later.png
+roster-overlap	manifest.json>files>raw/boot.png:flip	ValueError: Corpus SHA differs: raw/boot.png
+roster-overlap	manifest.json>files>raw/c86-recorder-journal.log:flip	ValueError: Corpus SHA differs: raw/c86-recorder-journal.log
+roster-overlap	manifest.json>files>raw/c87-journal.txt:flip	ValueError: Corpus SHA differs: raw/c87-journal.txt
+roster-overlap	manifest.json>files>raw/c87-run.exit:flip	ValueError: Corpus SHA differs: raw/c87-run.exit
+roster-overlap	manifest.json>files>raw/c87-run.log:flip	ValueError: Corpus SHA differs: raw/c87-run.log
+roster-overlap	manifest.json>files>raw/c87-unit-final.txt:flip	ValueError: Corpus SHA differs: raw/c87-unit-final.txt
+roster-overlap	manifest.json>files>raw/c88-postflight.exit:flip	ValueError: Corpus SHA differs: raw/c88-postflight.exit
+roster-overlap	manifest.json>files>raw/c88-postflight.log:flip	ValueError: Corpus SHA differs: raw/c88-postflight.log
+roster-overlap	manifest.json>files>raw/c88-unit-final.txt:flip	ValueError: Corpus SHA differs: raw/c88-unit-final.txt
+roster-overlap	manifest.json>files>raw/capture-ready.json:flip	ValueError: Corpus SHA differs: raw/capture-ready.json
+roster-overlap	manifest.json>files>raw/control-plans/ban.json:flip	ValueError: Corpus SHA differs: raw/control-plans/ban.json
+roster-overlap	manifest.json>files>raw/control-plans/guard.json:flip	ValueError: Corpus SHA differs: raw/control-plans/guard.json
+roster-overlap	manifest.json>files>raw/control-plans/probe.json:flip	ValueError: Corpus SHA differs: raw/control-plans/probe.json
+roster-overlap	manifest.json>files>raw/control-plans/readiness.json:flip	ValueError: Corpus SHA differs: raw/control-plans/readiness.json
+roster-overlap	manifest.json>files>raw/control-plans/seed.json:flip	ValueError: Corpus SHA differs: raw/control-plans/seed.json
+roster-overlap	manifest.json>files>raw/deadline.utc:flip	ValueError: Corpus SHA differs: raw/deadline.utc
+roster-overlap	manifest.json>files>raw/display-command.stderr:flip	ValueError: Corpus SHA differs: raw/display-command.stderr
+roster-overlap	manifest.json>files>raw/display-command.stdout:flip	ValueError: Corpus SHA differs: raw/display-command.stdout
+roster-overlap	manifest.json>files>raw/display-ready-unit.txt:flip	ValueError: Corpus SHA differs: raw/display-ready-unit.txt
+roster-overlap	manifest.json>files>raw/epoch-start.utc:flip	ValueError: Corpus SHA differs: raw/epoch-start.utc
+roster-overlap	manifest.json>files>raw/host-ready.json:flip	ValueError: Corpus SHA differs: raw/host-ready.json
+roster-overlap	manifest.json>files>raw/input.py:flip	ValueError: Corpus SHA differs: raw/input.py
+roster-overlap	manifest.json>files>raw/lab-guest.pcap:flip	ValueError: Corpus SHA differs: raw/lab-guest.pcap
+roster-overlap	manifest.json>files>raw/lab-namespace.pcap:flip	ValueError: Corpus SHA differs: raw/lab-namespace.pcap
+roster-overlap	manifest.json>files>raw/links.json:flip	ValueError: Corpus SHA differs: raw/links.json
+roster-overlap	manifest.json>files>raw/namespace-ready.json:flip	ValueError: Corpus SHA differs: raw/namespace-ready.json
+roster-overlap	manifest.json>files>raw/parent-case-acceptance.json:flip	ValueError: Corpus SHA differs: raw/parent-case-acceptance.json
+roster-overlap	manifest.json>files>raw/parent-preflight.json:flip	ValueError: Corpus SHA differs: raw/parent-preflight.json
+roster-overlap	manifest.json>files>raw/postflight/checksums.sha256:flip	ValueError: Corpus SHA differs: raw/postflight/checksums.sha256
+roster-overlap	manifest.json>files>raw/postflight/plan.json:flip	ValueError: Corpus SHA differs: raw/postflight/plan.json
+roster-overlap	manifest.json>files>raw/postflight/report.json:flip	ValueError: Corpus SHA differs: raw/postflight/report.json
+roster-overlap	manifest.json>files>raw/primary-syn.pcap:flip	ValueError: Corpus SHA differs: raw/primary-syn.pcap
+roster-overlap	manifest.json>files>raw/readiness-journal.log:flip	ValueError: Corpus SHA differs: raw/readiness-journal.log
+roster-overlap	manifest.json>files>raw/readiness-unit-final.txt:flip	ValueError: Corpus SHA differs: raw/readiness-unit-final.txt
+roster-overlap	manifest.json>files>raw/readiness/checksums.sha256:flip	ValueError: Corpus SHA differs: raw/readiness/checksums.sha256
+roster-overlap	manifest.json>files>raw/readiness/plan.json:flip	ValueError: Corpus SHA differs: raw/readiness/plan.json
+roster-overlap	manifest.json>files>raw/readiness/report.json:flip	ValueError: Corpus SHA differs: raw/readiness/report.json
+roster-overlap	manifest.json>files>raw/results/plan.json:flip	ValueError: Corpus SHA differs: raw/results/plan.json
+roster-overlap	manifest.json>files>raw/results/report.json:flip	ValueError: Corpus SHA differs: raw/results/report.json
+roster-overlap	manifest.json>files>raw/roster-plan/plan.json:flip	ValueError: Corpus SHA differs: raw/roster-plan/plan.json
+roster-overlap	manifest.json>files>raw/roster-plan/source-hashes.json:flip	ValueError: Corpus SHA differs: raw/roster-plan/source-hashes.json
+roster-overlap	manifest.json>files>raw/route4.json:flip	ValueError: Corpus SHA differs: raw/route4.json
+roster-overlap	manifest.json>files>raw/route6.json:flip	ValueError: Corpus SHA differs: raw/route6.json
+roster-overlap	manifest.json>files>raw/run-c87.sh:flip	ValueError: Corpus SHA differs: raw/run-c87.sh
+roster-overlap	manifest.json>files>raw/run-c88.sh:flip	ValueError: Corpus SHA differs: raw/run-c88.sh
+roster-overlap	manifest.json>files>raw/runtime-asrun.json:flip	ValueError: Corpus SHA differs: raw/runtime-asrun.json
+roster-overlap	manifest.json>files>raw/runtime-proof.json:flip	ValueError: Corpus SHA differs: raw/runtime-proof.json
+roster-overlap	manifest.json>files>raw/server-ready.png:flip	ValueError: Corpus SHA differs: raw/server-ready.png
+roster-overlap	manifest.json>files>raw/source-freeze.json:flip	ValueError: Corpus SHA differs: raw/source-freeze.json
+roster-overlap	manifest.json>files>raw/sources/capture_readiness.py:flip	ValueError: Corpus SHA differs: raw/sources/capture_readiness.py
+roster-overlap	manifest.json>files>raw/sources/native_account_update_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_account_update_cases.py
+roster-overlap	manifest.json>files>raw/sources/native_alias_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_alias_cases.py
+roster-overlap	manifest.json>files>raw/sources/native_auth_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_auth_cases.py
+roster-overlap	manifest.json>files>raw/sources/native_ban_control_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_ban_control_cases.py
+roster-overlap	manifest.json>files>raw/sources/native_ban_expiry_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_ban_expiry_cases.py
+roster-overlap	manifest.json>files>raw/sources/native_ban_expiry_control.py:flip	ValueError: Corpus SHA differs: raw/sources/native_ban_expiry_control.py
+roster-overlap	manifest.json>files>raw/sources/native_banner_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_banner_cases.py
+roster-overlap	manifest.json>files>raw/sources/native_control_readiness.py:flip	ValueError: Corpus SHA differs: raw/sources/native_control_readiness.py
+roster-overlap	manifest.json>files>raw/sources/native_filp.py:flip	ValueError: Corpus SHA differs: raw/sources/native_filp.py
+roster-overlap	manifest.json>files>raw/sources/native_folder_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_folder_cases.py
+roster-overlap	manifest.json>files>raw/sources/native_framing_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_framing_cases.py
+roster-overlap	manifest.json>files>raw/sources/native_metadata_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_metadata_cases.py
+roster-overlap	manifest.json>files>raw/sources/native_mkdir_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_mkdir_cases.py
+roster-overlap	manifest.json>files>raw/sources/native_news_decode.py:flip	ValueError: Corpus SHA differs: raw/sources/native_news_decode.py
+roster-overlap	manifest.json>files>raw/sources/native_news_delete_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_news_delete_cases.py
+roster-overlap	manifest.json>files>raw/sources/native_packet_evidence.py:flip	ValueError: Corpus SHA differs: raw/sources/native_packet_evidence.py
+roster-overlap	manifest.json>files>raw/sources/native_plan.py:flip	ValueError: Corpus SHA differs: raw/sources/native_plan.py
+roster-overlap	manifest.json>files>raw/sources/native_queue_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_queue_cases.py
+roster-overlap	manifest.json>files>raw/sources/native_resume_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_resume_cases.py
+roster-overlap	manifest.json>files>raw/sources/native_roster_overlap_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_roster_overlap_cases.py
+roster-overlap	manifest.json>files>raw/sources/native_roster_overlap_control.py:flip	ValueError: Corpus SHA differs: raw/sources/native_roster_overlap_control.py
+roster-overlap	manifest.json>files>raw/sources/native_transfer_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_transfer_cases.py
+roster-overlap	manifest.json>files>raw/sources/pcap_tcp.py:flip	ValueError: Corpus SHA differs: raw/sources/pcap_tcp.py
+roster-overlap	manifest.json>files>raw/sources/protocol_capture.py:flip	ValueError: Corpus SHA differs: raw/sources/protocol_capture.py
+roster-overlap	manifest.json>files>raw/sources/shx_syscalls.py:flip	ValueError: Corpus SHA differs: raw/sources/shx_syscalls.py
+roster-overlap	manifest.json>files>raw/sources/verify_native_account_updates.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_account_updates.py
+roster-overlap	manifest.json>files>raw/sources/verify_native_article_deletion.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_article_deletion.py
+roster-overlap	manifest.json>files>raw/sources/verify_native_auth.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_auth.py
+roster-overlap	manifest.json>files>raw/sources/verify_native_banners.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_banners.py
+roster-overlap	manifest.json>files>raw/sources/verify_native_core.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_core.py
+roster-overlap	manifest.json>files>raw/sources/verify_native_framing.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_framing.py
+roster-overlap	manifest.json>files>raw/sources/verify_native_mkdir.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_mkdir.py
+roster-overlap	manifest.json>files>raw/sources/verify_native_shx.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_shx.py
+roster-overlap	manifest.json>files>raw/special-menu.png:flip	ValueError: Corpus SHA differs: raw/special-menu.png
+roster-overlap	manifest.json>files>raw/stopped-forks-and-assets.json:flip	ValueError: Corpus SHA differs: raw/stopped-forks-and-assets.json
+roster-overlap	manifest.json>files>raw/stopped-forks-corrected.json:flip	ValueError: Corpus SHA differs: raw/stopped-forks-corrected.json
+roster-overlap	manifest.json>files>raw/terminal-network-lock.json:flip	ValueError: Corpus SHA differs: raw/terminal-network-lock.json
+roster-overlap	manifest.json>files>raw/terminal-system-units.txt:flip	ValueError: Corpus SHA differs: raw/terminal-system-units.txt
+roster-overlap	manifest.json>files>raw/terminal-user-units.txt:flip	ValueError: Corpus SHA differs: raw/terminal-user-units.txt
+roster-overlap	manifest.json>files>raw/xdpyinfo.txt:flip	ValueError: Corpus SHA differs: raw/xdpyinfo.txt
+roster-overlap	manifest.json>schema:flip	ValueError: Corpus identity or profile differs
+roster-overlap	manifest.json>files>preparation/preflight.json:delete-key	ValueError: Corpus inventory differs
+roster-overlap	raw/results/report.json>frames>9>action:inc	ValueError: Custom drain event/frame provenance differs
+roster-overlap	raw/results/report.json>events>40>connection:flip	ValueError: Custom drain raw frames differ from bytes
+roster-overlap	raw/source-freeze.json>files>protocol_capture.py:flip	ValueError: Frozen source snapshot differs
+roster-overlap	raw/results/report.json>events>30>connection:flip	ValueError: Injected request bytes differ
+roster-overlap	raw/roster-plan/plan.json>endpoints>control:delete-key	ValueError: Invalid connection declaration
+roster-overlap	raw/roster-plan/plan.json>steps>5>match_frame>type:delete-key	ValueError: Invalid frame match
+roster-overlap	raw/stopped-forks-corrected.json>recorded_at_utc:empty	ValueError: Invalid isoformat string: ''
+roster-overlap	raw/roster-plan/plan.json>steps>14>save_field>name:empty	ValueError: Invalid saved-field name
+roster-overlap	raw/roster-plan/plan.json>oracle_sha256:flip	ValueError: Native profile requires the recorded Mac oracle hash
+roster-overlap	raw/results/report.json>operation_map>5>frame_range:reverse	ValueError: Operation map bounds differ
+roster-overlap	raw/roster-plan/plan.json>operator:empty	ValueError: Operator and gap IDs are required
+roster-overlap	raw/parent-case-acceptance.json>status:empty	ValueError: Parent overlap receipt differs
+roster-overlap	raw/parent-preflight.json>status:flip	ValueError: Parent readiness path correction differs
+roster-overlap	raw/terminal-network-lock.json>emulator_953125_absent:not	ValueError: Post-retirement process, ports, image FD or lock differs
+roster-overlap	raw/roster-plan/plan.json>operator:flip	ValueError: Prepared plan hash differs
+roster-overlap	manifest.json>plan_sha256:flip	ValueError: Prepared source plan differs
+roster-overlap	raw/results/report.json>events>1>connection:flip	ValueError: Recorded TCP streams differ from raw events
+roster-overlap	raw/stopped-forks-and-assets.json>files>admin>exit:inc	ValueError: Retained initial TSK tool failure or stopped assets differ
+roster-overlap	raw/capture-ready.json>source_a7_sha256:flip	ValueError: Runtime/capture receipt identity differs
+roster-overlap	preparation/preflight.json>files>admin>sha256:flip	ValueError: Stopped named forks differ
+roster-overlap	preparation/preflight.json>files>server-data>sha256:flip	ValueError: Stopped preparation differs
+roster-overlap	raw/roster-plan/plan.json>steps>0>op:empty	ValueError: Unknown action:
+roster-overlap	raw/roster-plan/plan.json>steps>23>op:flip	ValueError: Unknown action: clos0
+roster-overlap	raw/roster-plan/plan.json>steps>0>op:flip	ValueError: Unknown action: connec0
+roster-overlap	raw/roster-plan/plan.json>steps>19>op:flip	ValueError: Unknown action: expect_quie0
+roster-overlap	raw/roster-plan/plan.json>steps>2>op:flip	ValueError: Unknown action: rea0
+roster-overlap	raw/roster-plan/plan.json>steps>22>op:flip	ValueError: Unknown action: read_eo0
+roster-overlap	raw/roster-plan/plan.json>steps>4>op:flip	ValueError: Unknown action: read_fram0
+roster-overlap	raw/roster-plan/plan.json>steps>1>op:flip	ValueError: Unknown action: sen0
+roster-overlap	raw/roster-plan/plan.json>steps>21>op:flip	ValueError: Unknown action: shutdown_writ0
+roster-overlap	raw/roster-plan/plan.json>steps>1>connection:empty	ValueError: Unknown connection:
+roster-overlap	raw/roster-plan/plan.json>steps>1>connection:flip	ValueError: Unknown connection: 0
+roster-overlap	raw/roster-plan/plan.json>steps:drop-first	ValueError: Unknown connection: a
+roster-overlap	raw/roster-plan/plan.json>steps>7>connection:flip	ValueError: Unknown connection: b
+roster-overlap	raw/roster-plan/plan.json>profile:flip	ValueError: Unknown evidence profile
+roster-overlap	raw/roster-plan/plan.json>schema_version:inc	ValueError: Unsupported capture schema
+roster-overlap	raw/host-ready.json>header24:empty	ValueError: host recorder readiness differs
+roster-overlap	raw/namespace-ready.json>header24:empty	ValueError: namespace recorder readiness differs
+roster-overlap	raw/results/report.json>operation_map>5>frame_range:drop-last	ValueError: not enough values to unpack (expected 2, got 1)
+roster-overlap	raw/control-plans/readiness.json>schema_version:inc	ValueError: readiness source readiness plan differs
+roster-overlap	raw/host-ready.json>unit_properties>ActiveState:delete-key;raw/host-ready.json>unit_properties>KillMode:delete-key	KeyError: 'ActiveState'
+roster-overlap	raw/host-ready.json>unit_properties>ActiveState:delete-key;raw/host-ready.json>unit_properties:delete-key	KeyError: 'unit_properties'
+roster-overlap	raw/host-ready.json>unit_properties>KillMode:delete-key;raw/host-ready.json>header24:delete-key	KeyError: 'KillMode'
+roster-overlap	preparation/preflight.json>files>Prefs:delete-key;raw/stopped-forks-and-assets.json>files>admin>exit:delete-key	KeyError: 'Prefs'
+roster-overlap	preparation/preflight.json>files>Prefs:delete-key;preparation/preflight.json>files>fixture-low:delete-key	KeyError: 'fixture-low'
+roster-overlap	raw/results/report.json>frames>9>action:delete-key;raw/results/report.json>operation_map>5>frame_range:reverse	ValueError: Operation map bounds differ
+roster-overlap	preparation/preflight.json>active_users_catalog_lines:delete-key;raw/runtime-proof.json>actual_pid:delete-key	KeyError: 'active_users_catalog_lines'
+roster-overlap	preparation/preflight.json>active_users_catalog_lines:delete-key;preparation/preflight.json>banned_absent:delete-key	KeyError: 'banned_absent'
+roster-overlap	raw/runtime-proof.json>actual_pid:delete-key;raw/runtime-proof.json>start_ticks:delete-key	KeyError: 'actual_pid'
+roster-overlap	manifest.json>actual_runner_proc_netns:delete-key;manifest.json>full_file_baseline:delete-key	KeyError: 'full_file_baseline'
+roster-overlap	manifest.json>actual_runner_proc_netns:delete-key;manifest.json>files>preparation/preflight.json:delete-key	KeyError: 'actual_runner_proc_netns'
+roster-overlap	preparation/preflight.json>files>admin:delete-key;raw/stopped-forks-corrected.json>stopped_pid_absent:delete-key	KeyError: 'stopped_pid_absent'
+roster-overlap	raw/parent-case-acceptance.json>asrun_plan_equal:delete-key;raw/parent-case-acceptance.json>status:delete-key	KeyError: 'asrun_plan_equal'
+roster-overlap	raw/parent-case-acceptance.json>asrun_plan_equal:delete-key;raw/results/report.json>events>1>connection:flip	ValueError: Recorded TCP streams differ from raw events
+roster-overlap	preparation/preflight.json>banned_absent:delete-key;preparation/preflight.json>files>server-rsrc:delete-key	KeyError: 'server-rsrc'
+roster-overlap	preparation/preflight.json>base.dsk:delete-key;manifest.json>plan_sha256:delete-key	KeyError: 'plan_sha256'
+roster-overlap	preparation/preflight.json>base.dsk:delete-key;raw/roster-plan/plan.json>steps>23>op:flip	ValueError: Unknown action: clos0
+roster-overlap	manifest.json>cases_sha256:delete-key;raw/source-freeze.json>files>native_roster_overlap_cases.py:delete-key	KeyError: 'native_roster_overlap_cases.py'
+roster-overlap	manifest.json>cases_sha256:delete-key;raw/source-freeze.json>files>native_roster_overlap_control.py:delete-key	KeyError: 'cases_sha256'
+roster-overlap	raw/results/report.json>events>1>connection:delete-key;raw/results/report.json>events>40>connection:flip	ValueError: Custom drain raw frames differ from bytes
+roster-overlap	manifest.json>controller_sha256:delete-key;raw/source-freeze.json>files>native_control_readiness.py:delete-key	KeyError: 'controller_sha256'
+roster-overlap	manifest.json>controller_sha256:delete-key;manifest.json>files>raw/terminal-network-lock.json:flip	ValueError: Corpus SHA differs: raw/terminal-network-lock.json
+roster-overlap	raw/capture-ready.json>deadline_utc:delete-key;raw/capture-ready.json>fixture_profile:delete-key	KeyError: 'deadline_utc'
+roster-overlap	raw/capture-ready.json>deadline_utc:delete-key;raw/capture-ready.json>owned_working_image_inode:delete-key	KeyError: 'owned_working_image_inode'
+roster-overlap	raw/terminal-network-lock.json>emulator_953125_absent:delete-key;raw/stopped-forks-corrected.json>recorded_at_utc:empty	ValueError: Invalid isoformat string: ''
+roster-overlap	raw/capture-ready.json>emulator_netns:delete-key;raw/capture-ready.json>emulator_sha256:delete-key	KeyError: 'emulator_netns'
+roster-overlap	raw/capture-ready.json>emulator_netns:delete-key;raw/capture-ready.json>emulator_starttime:delete-key	KeyError: 'emulator_starttime'
+roster-overlap	raw/capture-ready.json>emulator_netns_inode:delete-key;raw/capture-ready.json>owned_working_image:delete-key	KeyError: 'emulator_netns_inode'
+roster-overlap	raw/capture-ready.json>emulator_netns_inode:delete-key;raw/capture-ready.json>primary_syn_count:delete-key	KeyError: 'primary_syn_count'
+roster-overlap	raw/capture-ready.json>emulator_pid:delete-key;raw/capture-ready.json>emulator_starttime:delete-key	KeyError: 'emulator_pid'
+roster-overlap	raw/capture-ready.json>emulator_pid:delete-key;raw/runtime-proof.json>original_pids:delete-key	KeyError: 'original_pids'
+roster-overlap	raw/capture-ready.json>emulator_sha256:delete-key;raw/capture-ready.json>owned_working_image_inode:delete-key	KeyError: 'emulator_sha256'
+roster-overlap	raw/roster-plan/plan.json>steps>0>endpoint:delete-key;raw/roster-plan/plan.json>endpoints>control:delete-key	KeyError: 'endpoint'
+roster-overlap	raw/roster-plan/plan.json>steps>0>endpoint:delete-key;raw/roster-plan/plan.json>steps>1>op:flip	KeyError: 'endpoint'
+roster-overlap	raw/roster-plan/plan.json>steps>0>endpoint:delete-key;raw/roster-plan/plan.json>steps:drop-first	ValueError: Unknown connection: a
+roster-overlap	raw/roster-plan/plan.json>endpoints:delete-key;manifest.json>files>raw/sources/verify_native_account_updates.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_account_updates.py
+roster-overlap	raw/parent-case-acceptance.json>events:delete-key;raw/parent-case-acceptance.json>frames:delete-key	KeyError: 'frames'
+roster-overlap	raw/parent-case-acceptance.json>events:delete-key;raw/stopped-forks-corrected.json>stopped_pid_absent:delete-key	KeyError: 'events'
+roster-overlap	raw/runtime-proof.json>exe_sha256:delete-key;raw/runtime-proof.json>fd6:delete-key	KeyError: 'exe_sha256'
+roster-overlap	raw/runtime-proof.json>exe_sha256:delete-key;raw/runtime-proof.json>actual_pid:inc	ValueError: Actual emulator or original-service identity differs
+roster-overlap	raw/runtime-proof.json>fd16:delete-key;raw/runtime-proof.json>fd6:delete-key	KeyError: 'fd6'
+roster-overlap	raw/runtime-proof.json>fd16:delete-key;raw/runtime-proof.json>original_pids:delete-key	KeyError: 'fd16'
+roster-overlap	manifest.json>files:delete-key;raw/source-freeze.json>source_head:flip	KeyError: 'files'
+roster-overlap	preparation/preflight.json>files>fixture-low:delete-key;preparation/preflight.json>files>admin>sha256:flip	ValueError: Stopped named forks differ
+roster-overlap	raw/capture-ready.json>fixture_profile:delete-key;raw/capture-ready.json>source_a7_sha256:delete-key	KeyError: 'fixture_profile'
+roster-overlap	raw/results/report.json>operation_map>5>frame_range:delete-key;manifest.json>files>raw/sources/native_ban_expiry_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_ban_expiry_cases.py
+roster-overlap	raw/parent-case-acceptance.json>frames:delete-key;raw/parent-case-acceptance.json>packet_pairing_pending:delete-key	KeyError: 'packet_pairing_pending'
+roster-overlap	manifest.json>full_file_baseline:delete-key;manifest.json>profile:delete-key	KeyError: 'profile'
+roster-overlap	raw/roster-plan/plan.json>steps>1>hex:delete-key;raw/roster-plan/plan.json>steps>2>op:flip	KeyError: 'hex'
+roster-overlap	raw/roster-plan/plan.json>steps>1>hex:delete-key;raw/roster-plan/plan.json>steps>1>connection:flip	ValueError: Unknown connection: 0
+roster-overlap	raw/roster-plan/plan.json>endpoints>control>host:delete-key;raw/roster-plan/plan.json>oracle_sha256:flip	ValueError: Native profile requires the recorded Mac oracle hash
+roster-overlap	raw/roster-plan/plan.json>steps>14>save_field>id:delete-key;raw/roster-plan/plan.json>steps>14>save_field>name:delete-key	KeyError: 'name'
+roster-overlap	raw/roster-plan/plan.json>steps>14>save_field>id:delete-key;raw/roster-plan/plan.json>steps>7>connection:flip	ValueError: Unknown connection: b
+roster-overlap	raw/terminal-network-lock.json>image_fuser_exit:delete-key;raw/terminal-network-lock.json>image_fuser_stdout:delete-key	KeyError: 'image_fuser_stdout'
+roster-overlap	raw/terminal-network-lock.json>image_fuser_exit:delete-key;raw/terminal-network-lock.json>lock_exit:delete-key	KeyError: 'image_fuser_exit'
+roster-overlap	raw/terminal-network-lock.json>image_fuser_exit:delete-key;manifest.json>files>raw/c86-recorder-journal.log:flip	ValueError: Corpus SHA differs: raw/c86-recorder-journal.log
+roster-overlap	raw/terminal-network-lock.json>image_fuser_stdout:delete-key;raw/terminal-network-lock.json>listeners_ss:delete-key	KeyError: 'listeners_ss'
+roster-overlap	raw/runtime-proof.json>image_inode:delete-key;raw/runtime-proof.json>netns:delete-key	KeyError: 'netns'
+roster-overlap	raw/runtime-proof.json>image_inode:delete-key;raw/runtime-proof.json>actual_pid:inc	KeyError: 'image_inode'
+roster-overlap	raw/parent-preflight.json>initial_parent_replay_path_error:delete-key;raw/parent-preflight.json>overlap_socket_actions:delete-key	KeyError: 'initial_parent_replay_path_error'
+roster-overlap	raw/parent-preflight.json>initial_parent_replay_path_error:delete-key;raw/parent-preflight.json>status:flip	ValueError: Parent readiness path correction differs
+roster-overlap	preparation/preflight.json>working.dsk>inode:delete-key;preparation/preflight.json>rom:delete-key	KeyError: 'inode'
+roster-overlap	preparation/preflight.json>working.dsk>inode:delete-key;preparation/preflight.json>working.dsk:delete-key	KeyError: 'working.dsk'
+roster-overlap	raw/terminal-network-lock.json>listeners_ss:delete-key;raw/terminal-network-lock.json>ss_exit:delete-key	KeyError: 'ss_exit'
+roster-overlap	raw/terminal-network-lock.json>lock_exit:delete-key;raw/terminal-network-lock.json>primary_syn_pcap_bytes:delete-key	KeyError: 'lock_exit'
+roster-overlap	manifest.json:delete-key;raw/source-freeze.json>files>protocol_capture.py:flip	KeyError: 'manifest.json'
+roster-overlap	raw/stopped-forks-and-assets.json>base.dsk>matches_preflight:delete-key;raw/stopped-forks-corrected.json>recorded_at_utc:delete-key	KeyError: 'matches_preflight'
+roster-overlap	raw/stopped-forks-and-assets.json>base.dsk>matches_preflight:delete-key;raw/stopped-forks-and-assets.json>files>admin>exit:inc	ValueError: Retained initial TSK tool failure or stopped assets differ
+roster-overlap	raw/roster-plan/plan.json>steps>14>save_field>name:delete-key;manifest.json>files>raw/control-plans/guard.json:flip	ValueError: Corpus SHA differs: raw/control-plans/guard.json
+roster-overlap	raw/source-freeze.json>files>native_control_readiness.py:delete-key;manifest.json>readiness_sha256:delete-key	KeyError: 'native_control_readiness.py'
+roster-overlap	raw/capture-ready.json>native_data_sha256:delete-key;raw/capture-ready.json>rom_sha256:delete-key	KeyError: 'rom_sha256'
+roster-overlap	raw/capture-ready.json>native_data_sha256:delete-key;raw/host-ready.json>unit_properties:delete-key	KeyError: 'native_data_sha256'
+roster-overlap	raw/source-freeze.json>files>native_roster_overlap_cases.py:delete-key;raw/source-freeze.json>files>protocol_capture.py:flip	ValueError: Frozen source snapshot differs
+roster-overlap	raw/source-freeze.json>files>native_roster_overlap_control.py:delete-key;manifest.json>cases_sha256:flip	ValueError: B71 source hash record differs
+roster-overlap	raw/runtime-proof.json>netns:delete-key;raw/runtime-proof.json>start_ticks:delete-key	KeyError: 'start_ticks'
+roster-overlap	raw/capture-ready.json>ns_routes:delete-key;raw/capture-ready.json>primary_syn_count:delete-key	KeyError: 'ns_routes'
+roster-overlap	raw/capture-ready.json>ns_routes:delete-key;manifest.json>plan_sha256:flip	ValueError: Prepared source plan differs
+roster-overlap	raw/capture-ready.json>ns_routes:delete-key;raw/capture-ready.json>source_a7_sha256:flip	ValueError: Runtime/capture receipt identity differs
+roster-overlap	raw/roster-plan/plan.json>steps>0>op:delete-key;raw/roster-plan/plan.json>endpoints>control>port:delete-key	KeyError: 'port'
+roster-overlap	raw/roster-plan/plan.json>steps>0>op:delete-key;raw/roster-plan/plan.json>endpoints>control:delete-key	KeyError: 'op'
+roster-overlap	raw/roster-plan/plan.json>oracle_sha256:delete-key;raw/roster-plan/plan.json>operator:empty	ValueError: Operator and gap IDs are required
+roster-overlap	raw/terminal-network-lock.json>original_start_ticks:delete-key;raw/terminal-network-lock.json>ss_exit:delete-key	KeyError: 'original_start_ticks'
+roster-overlap	raw/terminal-network-lock.json>original_start_ticks:delete-key;raw/terminal-network-lock.json>emulator_953125_absent:not	ValueError: Post-retirement process, ports, image FD or lock differs
+roster-overlap	raw/parent-preflight.json>overlap_socket_actions:delete-key;raw/parent-preflight.json>pid:delete-key	KeyError: 'overlap_socket_actions'
+roster-overlap	raw/capture-ready.json>owned_runtime:delete-key;raw/capture-ready.json>owned_working_image:delete-key	KeyError: 'owned_working_image'
+roster-overlap	raw/capture-ready.json>owned_runtime:delete-key;raw/capture-ready.json>source_base_sha256:delete-key	KeyError: 'owned_runtime'
+roster-overlap	raw/parent-case-acceptance.json>packet_pairing_pending:delete-key;raw/parent-case-acceptance.json>status:empty	ValueError: Parent overlap receipt differs
+roster-overlap	raw/parent-preflight.json>pid:delete-key;raw/control-plans/readiness.json>schema_version:inc	KeyError: 'pid'
+roster-overlap	manifest.json>profile:delete-key;manifest.json>source_head:delete-key	KeyError: 'source_head'
+roster-overlap	manifest.json>readiness_sha256:delete-key;raw/roster-plan/plan.json>schema_version:inc	KeyError: 'readiness_sha256'
+roster-overlap	preparation/preflight.json>rom:delete-key;preparation/preflight.json>files>server-data:delete-key	KeyError: 'rom'
+roster-overlap	raw/capture-ready.json>rom_sha256:delete-key;raw/capture-ready.json>source_base_sha256:delete-key	KeyError: 'source_base_sha256'
+roster-overlap	preparation/preflight.json>files>server-rsrc:delete-key;preparation/preflight.json>files>server-data>sha256:flip	ValueError: Stopped preparation differs
+roster-overlap	raw/roster-plan/plan.json>steps>2>size:delete-key;raw/roster-plan/plan.json>steps>2>op:flip	ValueError: Unknown action: rea0
+roster-overlap	raw/roster-plan/plan.json>steps>2>size:delete-key;raw/roster-plan/plan.json>steps>4>op:flip	KeyError: 'size'
+roster-overlap	manifest.json>source_head:delete-key;manifest.json>schema:flip	ValueError: Corpus identity or profile differs
+roster-overlap	preparation/preflight.json>working.dsk:delete-key;manifest.json>plan_sha256:flip	ValueError: Prepared source plan differs
+roster-overlap	raw/capture-ready.json>utc:flip;raw/results/plan.json>schema_version:inc	ValueError: As-run roster plan differs
+roster-overlap	raw/capture-ready.json>utc:flip;raw/results/report.json>events>30>connection:flip	ValueError: As-run result identity differs
+roster-overlap	raw/results/plan.json>schema_version:inc;raw/postflight/report.json>frames>2>unconsumed_hex:flip	ValueError: Checksum mismatch: report.json
+roster-overlap	raw/source-freeze.json>source_head:flip;manifest.json>files>raw/xdpyinfo.txt:flip	ValueError: Corpus SHA differs: raw/xdpyinfo.txt
+roster-overlap	manifest.json>cases_sha256:flip;manifest.json>files>raw/terminal-network-lock.json:flip	ValueError: Corpus SHA differs: raw/terminal-network-lock.json
+roster-overlap	raw/postflight/plan.json>schema_version:inc;raw/postflight/report.json>frames>2>unconsumed_hex:flip	ValueError: Checksum mismatch: plan.json
+roster-overlap	raw/postflight/plan.json>schema_version:inc;raw/control-plans/readiness.json>schema_version:inc	ValueError: readiness source readiness plan differs
+roster-overlap	manifest.json>files>preparation/preflight.json:flip;manifest.json>files>raw/c88-postflight.exit:flip	ValueError: Corpus SHA differs: preparation/preflight.json
+roster-overlap	manifest.json>files>preparation/preflight.json:flip;manifest.json>files>raw/c88-postflight.log:flip	ValueError: Corpus SHA differs: preparation/preflight.json
+roster-overlap	manifest.json>files>raw/after-app-quit.png:flip;manifest.json>files>raw/after-repair.png:flip	ValueError: Corpus SHA differs: raw/after-app-quit.png
+roster-overlap	manifest.json>files>raw/after-app-quit.png:flip;manifest.json>files>preparation/preflight.json:delete-key	ValueError: Corpus inventory differs
+roster-overlap	manifest.json>files>raw/after-repair.png:flip;manifest.json>files>raw/app-later.png:flip	ValueError: Corpus SHA differs: raw/after-repair.png
+roster-overlap	manifest.json>files>raw/app-later.png:flip;manifest.json>files>raw/app-launch.png:flip	ValueError: Corpus SHA differs: raw/app-later.png
+roster-overlap	manifest.json>files>raw/app-launch.png:flip;manifest.json>files>raw/b71-source.sha256:flip	ValueError: Corpus SHA differs: raw/app-launch.png
+roster-overlap	manifest.json>files>raw/b71-source.sha256:flip;manifest.json>files>raw/boot-later.png:flip	ValueError: Corpus SHA differs: raw/b71-source.sha256
+roster-overlap	manifest.json>files>raw/boot-later.png:flip;manifest.json>files>raw/boot.png:flip	ValueError: Corpus SHA differs: raw/boot-later.png
+roster-overlap	manifest.json>files>raw/boot.png:flip;manifest.json>files>raw/c86-recorder-journal.log:flip	ValueError: Corpus SHA differs: raw/boot.png
+roster-overlap	manifest.json>files>raw/c86-recorder-journal.log:flip;manifest.json>files>raw/c87-journal.txt:flip	ValueError: Corpus SHA differs: raw/c86-recorder-journal.log
+roster-overlap	manifest.json>files>raw/c87-journal.txt:flip;manifest.json>files>raw/c87-run.exit:flip	ValueError: Corpus SHA differs: raw/c87-journal.txt
+roster-overlap	manifest.json>files>raw/c87-run.exit:flip;manifest.json>files>raw/c87-run.log:flip	ValueError: Corpus SHA differs: raw/c87-run.exit
+roster-overlap	manifest.json>files>raw/c87-run.log:flip;manifest.json>files>raw/c87-unit-final.txt:flip	ValueError: Corpus SHA differs: raw/c87-run.log
+roster-overlap	manifest.json>files>raw/c87-unit-final.txt:flip;manifest.json>files>raw/c88-postflight.exit:flip	ValueError: Corpus SHA differs: raw/c87-unit-final.txt
+roster-overlap	manifest.json>files>raw/c88-postflight.log:flip;manifest.json>files>raw/c88-unit-final.txt:flip	ValueError: Corpus SHA differs: raw/c88-postflight.log
+roster-overlap	manifest.json>files>raw/c88-unit-final.txt:flip;manifest.json>files>raw/control-plans/ban.json:flip	ValueError: Corpus SHA differs: raw/c88-unit-final.txt
+roster-overlap	manifest.json>files>raw/capture-ready.json:flip;manifest.json>files>raw/namespace-ready.json:flip	ValueError: Corpus SHA differs: raw/capture-ready.json
+roster-overlap	manifest.json>files>raw/capture-ready.json:flip;manifest.json>files>raw/postflight/checksums.sha256:flip	ValueError: Corpus SHA differs: raw/capture-ready.json
+roster-overlap	manifest.json>files>raw/control-plans/ban.json:flip;manifest.json>files>raw/control-plans/guard.json:flip	ValueError: Corpus SHA differs: raw/control-plans/ban.json
+roster-overlap	manifest.json>files>raw/control-plans/guard.json:flip;manifest.json>files>raw/control-plans/probe.json:flip	ValueError: Corpus SHA differs: raw/control-plans/guard.json
+roster-overlap	manifest.json>files>raw/control-plans/probe.json:flip;manifest.json>files>raw/control-plans/readiness.json:flip	ValueError: Corpus SHA differs: raw/control-plans/probe.json
+roster-overlap	manifest.json>files>raw/control-plans/readiness.json:flip;manifest.json>files>raw/control-plans/seed.json:flip	ValueError: Corpus SHA differs: raw/control-plans/readiness.json
+roster-overlap	manifest.json>files>raw/control-plans/seed.json:flip;manifest.json>files>raw/deadline.utc:flip	ValueError: Corpus SHA differs: raw/control-plans/seed.json
+roster-overlap	manifest.json>files>raw/deadline.utc:flip;manifest.json>files>raw/display-command.stderr:flip	ValueError: Corpus SHA differs: raw/deadline.utc
+roster-overlap	manifest.json>files>raw/display-command.stderr:flip;manifest.json>files>raw/display-command.stdout:flip	ValueError: Corpus SHA differs: raw/display-command.stderr
+roster-overlap	manifest.json>files>raw/display-command.stdout:flip;manifest.json>files>raw/display-ready-unit.txt:flip	ValueError: Corpus SHA differs: raw/display-command.stdout
+roster-overlap	manifest.json>files>raw/display-ready-unit.txt:flip;manifest.json>files>raw/epoch-start.utc:flip	ValueError: Corpus SHA differs: raw/display-ready-unit.txt
+roster-overlap	manifest.json>files>raw/epoch-start.utc:flip;manifest.json>files>raw/input.py:flip	ValueError: Corpus SHA differs: raw/epoch-start.utc
+roster-overlap	manifest.json>files>raw/host-ready.json:flip;manifest.json>files>raw/links.json:flip	ValueError: Corpus SHA differs: raw/host-ready.json
+roster-overlap	manifest.json>files>raw/host-ready.json:flip;manifest.json>files>raw/namespace-ready.json:flip	ValueError: Corpus SHA differs: raw/host-ready.json
+roster-overlap	manifest.json>files>raw/input.py:flip;manifest.json>files>raw/lab-guest.pcap:flip	ValueError: Corpus SHA differs: raw/input.py
+roster-overlap	manifest.json>files>raw/lab-guest.pcap:flip;manifest.json>files>raw/lab-namespace.pcap:flip	ValueError: Corpus SHA differs: raw/lab-guest.pcap
+roster-overlap	manifest.json>files>raw/lab-namespace.pcap:flip;manifest.json>files>raw/links.json:flip	ValueError: Corpus SHA differs: raw/lab-namespace.pcap
+roster-overlap	manifest.json>files>raw/parent-case-acceptance.json:flip;manifest.json>files>raw/primary-syn.pcap:flip	ValueError: Corpus SHA differs: raw/parent-case-acceptance.json
+roster-overlap	manifest.json>files>raw/parent-case-acceptance.json:flip;manifest.json>files>raw/readiness/checksums.sha256:flip	ValueError: Corpus SHA differs: raw/parent-case-acceptance.json
+roster-overlap	manifest.json>files>raw/parent-preflight.json:flip;manifest.json>files>raw/postflight/plan.json:flip	ValueError: Corpus SHA differs: raw/parent-preflight.json
+roster-overlap	manifest.json>files>raw/parent-preflight.json:flip;manifest.json>files>raw/postflight/report.json:flip	ValueError: Corpus SHA differs: raw/parent-preflight.json
+roster-overlap	manifest.json>files>raw/postflight/checksums.sha256:flip;manifest.json>files>raw/postflight/plan.json:flip	ValueError: Corpus SHA differs: raw/postflight/checksums.sha256
+roster-overlap	manifest.json>files>raw/postflight/report.json:flip;manifest.json>files>raw/primary-syn.pcap:flip	ValueError: Corpus SHA differs: raw/postflight/report.json
+roster-overlap	manifest.json>files>raw/readiness-journal.log:flip;manifest.json>files>raw/readiness-unit-final.txt:flip	ValueError: Corpus SHA differs: raw/readiness-journal.log
+roster-overlap	manifest.json>files>raw/readiness-journal.log:flip;manifest.json>files>raw/readiness/report.json:flip	ValueError: Corpus SHA differs: raw/readiness/report.json
+roster-overlap	manifest.json>files>raw/readiness-unit-final.txt:flip;manifest.json>files>raw/results/plan.json:flip	ValueError: Corpus SHA differs: raw/readiness-unit-final.txt
+roster-overlap	manifest.json>files>raw/readiness/checksums.sha256:flip;manifest.json>files>raw/readiness/plan.json:flip	ValueError: Corpus SHA differs: raw/readiness/checksums.sha256
+roster-overlap	manifest.json>files>raw/readiness/plan.json:flip;manifest.json>files>raw/readiness/report.json:flip	ValueError: Corpus SHA differs: raw/readiness/plan.json
+roster-overlap	manifest.json>files>raw/results/plan.json:flip;manifest.json>files>raw/roster-plan/source-hashes.json:flip	ValueError: Corpus SHA differs: raw/results/plan.json
+roster-overlap	manifest.json>files>raw/results/report.json:flip;manifest.json>files>raw/runtime-asrun.json:flip	ValueError: Corpus SHA differs: raw/results/report.json
+roster-overlap	manifest.json>files>raw/results/report.json:flip;manifest.json>files>raw/server-ready.png:flip	ValueError: Corpus SHA differs: raw/results/report.json
+roster-overlap	manifest.json>files>raw/roster-plan/plan.json:flip;manifest.json>files>raw/sources/native_roster_overlap_control.py:flip	ValueError: Corpus SHA differs: raw/roster-plan/plan.json
+roster-overlap	manifest.json>files>raw/roster-plan/plan.json:flip;manifest.json>files>raw/sources/native_transfer_cases.py:flip	ValueError: Corpus SHA differs: raw/roster-plan/plan.json
+roster-overlap	manifest.json>files>raw/roster-plan/source-hashes.json:flip;manifest.json>files>raw/route4.json:flip	ValueError: Corpus SHA differs: raw/roster-plan/source-hashes.json
+roster-overlap	manifest.json>files>raw/route4.json:flip;manifest.json>files>raw/route6.json:flip	ValueError: Corpus SHA differs: raw/route4.json
+roster-overlap	manifest.json>files>raw/route6.json:flip;manifest.json>files>raw/run-c87.sh:flip	ValueError: Corpus SHA differs: raw/route6.json
+roster-overlap	manifest.json>files>raw/run-c87.sh:flip;manifest.json>files>raw/run-c88.sh:flip	ValueError: Corpus SHA differs: raw/run-c87.sh
+roster-overlap	manifest.json>files>raw/run-c88.sh:flip;manifest.json>files>raw/runtime-asrun.json:flip	ValueError: Corpus SHA differs: raw/run-c88.sh
+roster-overlap	manifest.json>files>raw/runtime-proof.json:flip;manifest.json>files>raw/sources/native_ban_expiry_cases.py:flip	ValueError: Corpus SHA differs: raw/runtime-proof.json
+roster-overlap	manifest.json>files>raw/runtime-proof.json:flip;manifest.json>files>raw/sources/native_ban_expiry_control.py:flip	ValueError: Corpus SHA differs: raw/runtime-proof.json
+roster-overlap	manifest.json>files>raw/server-ready.png:flip;manifest.json>files>raw/sources/capture_readiness.py:flip	ValueError: Corpus SHA differs: raw/server-ready.png
+roster-overlap	manifest.json>files>raw/source-freeze.json:flip;manifest.json>files>raw/sources/native_auth_cases.py:flip	ValueError: Corpus SHA differs: raw/source-freeze.json
+roster-overlap	manifest.json>files>raw/source-freeze.json:flip;manifest.json>files>raw/sources/native_ban_control_cases.py:flip	ValueError: Corpus SHA differs: raw/source-freeze.json
+roster-overlap	manifest.json>files>raw/sources/capture_readiness.py:flip;manifest.json>files>raw/sources/native_account_update_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/capture_readiness.py
+roster-overlap	manifest.json>files>raw/sources/native_account_update_cases.py:flip;manifest.json>files>raw/sources/native_alias_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_account_update_cases.py
+roster-overlap	manifest.json>files>raw/sources/native_alias_cases.py:flip;manifest.json>files>raw/sources/native_auth_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_alias_cases.py
+roster-overlap	manifest.json>files>raw/sources/native_ban_control_cases.py:flip;manifest.json>files>raw/sources/native_ban_expiry_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_ban_control_cases.py
+roster-overlap	manifest.json>files>raw/sources/native_ban_expiry_control.py:flip;manifest.json>files>raw/sources/native_banner_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_ban_expiry_control.py
+roster-overlap	manifest.json>files>raw/sources/native_banner_cases.py:flip;manifest.json>files>raw/sources/native_control_readiness.py:flip	ValueError: Corpus SHA differs: raw/sources/native_banner_cases.py
+roster-overlap	manifest.json>files>raw/sources/native_control_readiness.py:flip;manifest.json>files>raw/sources/native_filp.py:flip	ValueError: Corpus SHA differs: raw/sources/native_control_readiness.py
+roster-overlap	manifest.json>files>raw/sources/native_filp.py:flip;manifest.json>files>raw/sources/native_folder_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_filp.py
+roster-overlap	manifest.json>files>raw/sources/native_folder_cases.py:flip;manifest.json>files>raw/sources/native_framing_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_folder_cases.py
+roster-overlap	manifest.json>files>raw/sources/native_framing_cases.py:flip;manifest.json>files>raw/sources/native_metadata_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_framing_cases.py
+roster-overlap	manifest.json>files>raw/sources/native_metadata_cases.py:flip;manifest.json>files>raw/sources/native_mkdir_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_metadata_cases.py
+roster-overlap	manifest.json>files>raw/sources/native_mkdir_cases.py:flip;manifest.json>files>raw/sources/native_news_decode.py:flip	ValueError: Corpus SHA differs: raw/sources/native_mkdir_cases.py
+roster-overlap	manifest.json>files>raw/sources/native_news_decode.py:flip;manifest.json>files>raw/sources/native_news_delete_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_news_decode.py
+roster-overlap	manifest.json>files>raw/sources/native_news_delete_cases.py:flip;manifest.json>files>raw/sources/native_packet_evidence.py:flip	ValueError: Corpus SHA differs: raw/sources/native_news_delete_cases.py
+roster-overlap	manifest.json>files>raw/sources/native_packet_evidence.py:flip;manifest.json>files>raw/sources/native_plan.py:flip	ValueError: Corpus SHA differs: raw/sources/native_packet_evidence.py
+roster-overlap	manifest.json>files>raw/sources/native_plan.py:flip;manifest.json>files>raw/sources/native_queue_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_plan.py
+roster-overlap	manifest.json>files>raw/sources/native_queue_cases.py:flip;manifest.json>files>raw/sources/native_resume_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_queue_cases.py
+roster-overlap	manifest.json>files>raw/sources/native_resume_cases.py:flip;manifest.json>files>raw/sources/native_roster_overlap_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_resume_cases.py
+roster-overlap	manifest.json>files>raw/sources/native_roster_overlap_cases.py:flip;manifest.json>files>raw/sources/native_roster_overlap_control.py:flip	ValueError: Corpus SHA differs: raw/sources/native_roster_overlap_cases.py
+roster-overlap	manifest.json>files>raw/sources/native_transfer_cases.py:flip;manifest.json>files>raw/sources/pcap_tcp.py:flip	ValueError: Corpus SHA differs: raw/sources/native_transfer_cases.py
+roster-overlap	manifest.json>files>raw/sources/pcap_tcp.py:flip;manifest.json>files>raw/sources/protocol_capture.py:flip	ValueError: Corpus SHA differs: raw/sources/pcap_tcp.py
+roster-overlap	manifest.json>files>raw/sources/protocol_capture.py:flip;manifest.json>files>raw/sources/shx_syscalls.py:flip	ValueError: Corpus SHA differs: raw/sources/protocol_capture.py
+roster-overlap	manifest.json>files>raw/sources/shx_syscalls.py:flip;manifest.json>files>raw/sources/verify_native_account_updates.py:flip	ValueError: Corpus SHA differs: raw/sources/shx_syscalls.py
+roster-overlap	manifest.json>files>raw/sources/verify_native_account_updates.py:flip;manifest.json>files>raw/sources/verify_native_article_deletion.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_account_updates.py
+roster-overlap	manifest.json>files>raw/sources/verify_native_article_deletion.py:flip;manifest.json>files>raw/sources/verify_native_auth.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_article_deletion.py
+roster-overlap	manifest.json>files>raw/sources/verify_native_auth.py:flip;manifest.json>files>raw/sources/verify_native_banners.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_auth.py
+roster-overlap	manifest.json>files>raw/sources/verify_native_banners.py:flip;manifest.json>files>raw/sources/verify_native_core.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_banners.py
+roster-overlap	manifest.json>files>raw/sources/verify_native_core.py:flip;manifest.json>files>raw/sources/verify_native_framing.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_core.py
+roster-overlap	manifest.json>files>raw/sources/verify_native_framing.py:flip;manifest.json>files>raw/sources/verify_native_mkdir.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_framing.py
+roster-overlap	manifest.json>files>raw/sources/verify_native_mkdir.py:flip;manifest.json>files>raw/sources/verify_native_shx.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_mkdir.py
+roster-overlap	manifest.json>files>raw/sources/verify_native_shx.py:flip;manifest.json>files>raw/special-menu.png:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_shx.py
+roster-overlap	manifest.json>files>raw/sources/verify_native_shx.py:flip;raw/roster-plan/plan.json>steps>5>match_frame>type:delete-key	ValueError: Corpus SHA differs: raw/sources/verify_native_shx.py
+roster-overlap	manifest.json>files>raw/special-menu.png:flip;manifest.json>files>raw/stopped-forks-and-assets.json:flip	ValueError: Corpus SHA differs: raw/special-menu.png
+roster-overlap	manifest.json>files>raw/stopped-forks-and-assets.json:flip;manifest.json>files>raw/terminal-system-units.txt:flip	ValueError: Corpus SHA differs: raw/stopped-forks-and-assets.json
+roster-overlap	manifest.json>files>raw/stopped-forks-corrected.json:flip;manifest.json>files>raw/terminal-system-units.txt:flip	ValueError: Corpus SHA differs: raw/stopped-forks-corrected.json
+roster-overlap	manifest.json>files>raw/stopped-forks-corrected.json:flip;manifest.json>files>raw/terminal-user-units.txt:flip	ValueError: Corpus SHA differs: raw/stopped-forks-corrected.json
+roster-overlap	raw/results/report.json>frames>9>action:inc;raw/results/report.json>events>40>connection:flip	ValueError: Custom drain event/frame provenance differs
+roster-overlap	raw/results/report.json>events>30>connection:flip;raw/results/report.json>operation_map>5>frame_range:drop-last	ValueError: Injected request bytes differ
+roster-overlap	raw/roster-plan/plan.json>endpoints>control:delete-key;raw/roster-plan/plan.json>steps>0>op:empty	ValueError: Unknown action:
+roster-overlap	raw/roster-plan/plan.json>steps>5>match_frame>type:delete-key;raw/roster-plan/plan.json>steps>4>op:flip	ValueError: Unknown action: read_fram0
+roster-overlap	raw/stopped-forks-corrected.json>recorded_at_utc:empty;raw/roster-plan/plan.json>steps>4>op:flip	ValueError: Unknown action: read_fram0
+roster-overlap	raw/roster-plan/plan.json>steps>14>save_field>name:empty;raw/roster-plan/plan.json>steps>19>op:flip	ValueError: Invalid saved-field name
+roster-overlap	raw/roster-plan/plan.json>operator:empty;raw/roster-plan/plan.json>profile:flip	ValueError: Unknown evidence profile
+roster-overlap	raw/parent-preflight.json>status:flip;raw/namespace-ready.json>header24:empty	ValueError: namespace recorder readiness differs
+roster-overlap	raw/roster-plan/plan.json>operator:flip;raw/roster-plan/plan.json>steps>23>op:flip	ValueError: Unknown action: clos0
+roster-overlap	raw/roster-plan/plan.json>operator:flip;raw/roster-plan/plan.json>steps>22>op:flip	ValueError: Unknown action: read_eo0
+roster-overlap	raw/roster-plan/plan.json>steps>0>op:empty;raw/roster-plan/plan.json>steps>0>op:flip	ValueError: Unknown action: x
+roster-overlap	raw/roster-plan/plan.json>steps>0>op:flip;raw/roster-plan/plan.json>steps:drop-first	ValueError: Unknown connection: a
+roster-overlap	raw/roster-plan/plan.json>steps>19>op:flip;raw/roster-plan/plan.json>steps>21>op:flip	ValueError: Unknown action: expect_quie0
+roster-overlap	raw/roster-plan/plan.json>steps>22>op:flip;raw/roster-plan/plan.json>steps>21>op:flip	ValueError: Unknown action: shutdown_writ0
+roster-overlap	raw/roster-plan/plan.json>steps>1>op:flip;raw/roster-plan/plan.json>steps>1>connection:empty	ValueError: Unknown action: sen0
+roster-overlap	raw/roster-plan/plan.json>steps>1>connection:empty;raw/roster-plan/plan.json>steps>1>connection:flip	ValueError: Unknown connection: x
+roster-overlap	raw/roster-plan/plan.json>profile:flip;raw/roster-plan/plan.json>schema_version:inc	ValueError: Unsupported capture schema
+roster-overlap	raw/host-ready.json>header24:empty;raw/namespace-ready.json>header24:empty	ValueError: host recorder readiness differs

@@ -24,8 +24,6 @@ scripts/native_missing_alias_control.py
 scripts/native_path_fields_control.py
 scripts/native_rate304_cases.py
 scripts/native_rate304_control.py
-scripts/native_roster_overlap_cases.py
-scripts/native_roster_overlap_control.py
 scripts/native_settings_cases.py  # live bytes compared with a recorded hash
 scripts/native_settings_persistence.py
 scripts/native_settings_persistence_cases.py
@@ -51,8 +49,6 @@ scripts/test_native_download_send_path.py
 scripts/test_native_rate304.py
 scripts/test_native_rate304_partial.py
 scripts/test_native_rate304_sequence.py
-scripts/test_native_roster_overlap.py
-scripts/test_native_roster_overlap_witness.py
 scripts/test_native_settings.py
 scripts/test_native_settings_corpus.py
 scripts/test_native_settings_persistence.py
@@ -72,7 +68,6 @@ scripts/verify_native_console_broadcast.py
 scripts/verify_native_download_send_path.py
 scripts/verify_native_rate304_partial.py
 scripts/verify_native_rate304_sequence.py
-scripts/verify_native_roster_overlap.py
 scripts/verify_native_settings.py  # live bytes compared with a recorded hash
 scripts/verify_native_settings_corpus.py
 scripts/verify_native_settings_persistence.py
