@@ -1265,6 +1265,14 @@
       "outcome": "ok",
       "detail": ""
     },
+    "test_native_configured_ban.ConfiguredBanCommandTest.test_execute_runs_each_case_after_a_fresh_capture_gate": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_native_configured_ban.ConfiguredBanCommandTest.test_prepare_writes_the_plans_and_their_hashes": {
+      "outcome": "ok",
+      "detail": ""
+    },
     "test_native_configured_ban.ConfiguredBanPreparationTest.test_identity_gate_requires_current_uid_name_and_distinct_roster": {
       "outcome": "ok",
       "detail": ""

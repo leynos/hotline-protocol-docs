@@ -3,13 +3,16 @@
 import copy
 import json
 import socket
+import sys
 import tempfile
 import typing as typ
 from pathlib import Path
 from unittest import mock
 
+import capture_identity
 import native_configured_ban_cases as cases
 import native_configured_ban_control as control
+import native_configured_ban_control_gates as gates
 import protocol_capture
 import pytest
 from native_plan import packet, payload
@@ -120,7 +123,7 @@ class ConfiguredBanPreparationTest:
         ]
         with (
             mock.patch.object(control.base, "login_gate"),
-            mock.patch.object(control, "roster", return_value=rows),
+            mock.patch.object(gates, "roster", return_value=rows),
         ):
             assert control.identity_gate(frames) == b"\0\5", "the UID gate differs"
             wrong_name = copy.deepcopy(frames)
@@ -216,15 +219,18 @@ class ConfiguredBanPreparationTest:
                 mock.patch.object(protocol_capture, "ORACLE_SHA256", digest(b"binary")),
                 mock.patch.object(control, "Recorder", FakeRecorder),
                 mock.patch.object(control, "identity_gate", return_value=b"\0\5"),
+                mock.patch.object(gates, "identity_gate", return_value=b"\0\5"),
                 mock.patch.object(control.base, "capture_gate"),
                 mock.patch.object(control, "wait_for_reviewed_save"),
             ):
                 report = control.run_held(
-                    root / "source.json",
-                    root / "binary",
-                    root / "out",
-                    root / "trigger",
-                    root / "capture.json",
+                    control.HeldInputs(
+                        root / "source.json",
+                        root / "binary",
+                        root / "out",
+                        root / "trigger",
+                        root / "capture.json",
+                    )
                 )
                 restored = json.loads((root / "out/report.json").read_text())
                 assert restored == report, "the saved report differs"
@@ -232,6 +238,16 @@ class ConfiguredBanPreparationTest:
                     "the verified capture differs"
                 )
                 assert report["completed_actions"] == 23, "the action count differs"
+                record = report["driver_identity"]
+                assert report["driver_sha256"] == record["digest"], (
+                    "the driver hash is not the digest of the module set"
+                )
+                assert [item["path"] for item in record["files"]] == [
+                    f"scripts/{name}" for name in control.CAPTURE_MODULES
+                ], "the identity lists other modules than the declared set"
+                assert capture_identity.check(record, control.CAPTURE_MODULES), (
+                    "the identity does not describe the live modules"
+                )
                 control.outcome(restored, plan)
                 shortened = copy.deepcopy(restored)
                 shortened["completed_actions"] = 21
@@ -252,3 +268,105 @@ class ConfiguredBanPreparationTest:
                         ValueError, match="main configured-ban notice differs"
                     ):
                         control.outcome(wrong_header, plan)
+
+
+class ConfiguredBanCommandTest:
+    """Check the command line: the plans it writes and the order it runs the cases."""
+
+    # collected although the name does not match python_classes: it is a golden key
+    __test__ = True
+
+    def test_prepare_writes_the_plans_and_their_hashes(self) -> None:
+        """The prepare command writes each plan and the hash of each plan."""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            record = {"source_a7_sha256": cases.A7_SHA, "emulator_pid": 123}
+            (root / "runtime.json").write_text(json.dumps(record))
+            argv = [
+                "native_configured_ban_control.py",
+                "prepare",
+                "--runtime-record",
+                str(root / "runtime.json"),
+                "--port",
+                "15770",
+                "--output",
+                str(root / "plans"),
+            ]
+            with mock.patch.object(sys, "argv", argv):
+                control.main()
+            written = json.loads((root / "plans/source-hashes.json").read_text())
+            assert set(written) == control.EXPECTED_PLANS, "the plan names differ"
+            for name, source_hash in written.items():
+                source = (root / "plans" / f"{name}.json").read_bytes()
+                assert digest(source) == source_hash, f"{name}: the digest differs"
+
+    def test_execute_runs_each_case_after_a_fresh_capture_gate(self) -> None:
+        """The execute command gates the capture before each case and the tail last."""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "ready.json").write_text(json.dumps({"emulator_pid": 77}))
+            argv = [
+                "native_configured_ban_control.py",
+                "execute",
+                "--plans",
+                str(root / "plans"),
+                "--binary",
+                str(root / "binary"),
+                "--capture-ready",
+                str(root / "ready.json"),
+                "--output",
+                str(root / "out"),
+                "--save-trigger",
+                str(root / "trigger"),
+            ]
+            (root / "plans").mkdir()
+            (root / "plans/held-apply.json").write_text(json.dumps({"steps": []}))
+            order: list[str] = []
+
+            def note(label: str) -> cabc.Callable[..., dict]:
+                """Build a fake that records its call and returns a marked report.
+
+                Returns
+                -------
+                collections.abc.Callable[..., dict]
+                    The fake.
+                """
+
+                def fake(*args: object, **_kwargs: object) -> dict:
+                    """Record the call.
+
+                    Returns
+                    -------
+                    dict
+                        A report that names the label.
+                    """
+                    order.append(label)
+                    return {"label": label, "args": args}
+
+                return fake
+
+            with (
+                mock.patch.object(sys, "argv", argv),
+                mock.patch.object(control.base, "require_controller_uid"),
+                mock.patch.object(
+                    control.base,
+                    "capture_gate",
+                    side_effect=lambda _receipt: order.append("gate"),
+                ),
+                mock.patch.object(control.base, "readiness", note("readiness")),
+                mock.patch.object(control, "plan_gate", note("plans")),
+                mock.patch.object(control, "account_gate", note("account")),
+                mock.patch.object(control, "run_plan", note("run")),
+                mock.patch.object(control, "run_held", note("held")),
+                mock.patch.object(control, "outcome", note("outcome")),
+            ):
+                control.main()
+            cases_run = ("readiness", "account", "account")
+            expected = ["gate", "plans"]
+            for label in cases_run:
+                expected += ["gate", "run", label]
+            expected += ["held", "outcome"]
+            assert order == expected, (
+                "the cases ran in another order or without their capture gates"
+            )
+            assert (root / "out").is_dir(), "the output directory was not made"
