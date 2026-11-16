@@ -2721,14 +2721,6 @@
       "outcome": "ok",
       "detail": ""
     },
-    "test_native_settings_transition.SettingsTransitionTests.test_full_baseline_and_bounded_unique_sequence": {
-      "outcome": "ok",
-      "detail": ""
-    },
-    "test_native_settings_transition.SettingsTransitionTests.test_identity_and_baseline_fail_closed": {
-      "outcome": "ok",
-      "detail": ""
-    },
     "test_native_settings_transition.SettingsTransitionTests.test_rejects_extra_feedback_and_stale_uid": {
       "outcome": "ok",
       "detail": ""
@@ -2738,6 +2730,14 @@
       "detail": ""
     },
     "test_native_settings_transition.SettingsTransitionTests.test_runner_stops_before_304_or_pm_on_first_bad_gate": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_native_settings_transition_planner.SettingsTransitionTests.test_full_baseline_and_bounded_unique_sequence": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_native_settings_transition_planner.SettingsTransitionTests.test_identity_and_baseline_fail_closed": {
       "outcome": "ok",
       "detail": ""
     },

@@ -77,29 +77,6 @@ class SettingsTransitionTests(unittest.TestCase):
         cls.baseline = cases.load_baseline(cls.baseline_raw)
         cls.plan = cases.plans(cls.baseline["environment"], cls.baseline_raw)["observe"]
 
-    def test_full_baseline_and_bounded_unique_sequence(self) -> None:
-        pair = cases.plans(self.baseline["environment"], self.baseline_raw)
-        self.assertEqual(pair["preflight"], pair["postflight"])
-        self.assertEqual(
-            [w["label"] for w in self.plan["expectation"]["windows"]],
-            [s.label for s in cases.STAGES],
-        )
-        steps = self.plan["steps"]
-        self.assertIn(
-            "{peer_uid}", "".join(s["hex"] for s in steps if s["op"] == "send")
-        )
-        self.assertEqual(
-            len({w["pm_text_hex"] for w in self.plan["expectation"]["windows"]}), 8
-        )
-
-    def test_identity_and_baseline_fail_closed(self) -> None:
-        with self.assertRaisesRegex(ValueError, "SHA-256"):
-            cases.load_baseline(self.baseline_raw + b" ")
-        with self.assertRaisesRegex(ValueError, "Runtime identity"):
-            cases.plans(
-                dict(self.baseline["environment"], emulator_pid=-1), self.baseline_raw
-            )
-
     def test_each_stage_accepts_exact_synthetic_witness(self) -> None:
         for stage, window in zip(
             cases.STAGES, self.plan["expectation"]["windows"], strict=True
