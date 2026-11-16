@@ -82,9 +82,9 @@ python3 "$a9/verify_density.py"
 ```
 
 > Record note (2026-11-16): the commands above are quoted as they were run. The
-> capture tool, `scripts/protocol_capture.py`, is still held at the earlier
-> lint rules (`scripts/legacy-modules.txt`), so its `verify` commands are
-> unchanged. The evidence-held `verify_density.py` is not edited.
+> capture tool, `scripts/protocol_capture.py`, has since been brought to the
+> repository's Python standard, so its `verify` commands may no longer run as
+> written. The evidence-held `verify_density.py` is not edited.
 
 [a9]: ../../evidence/gap-remediation/2026-11-13/native-diagnostic-density-01/manifest.json
 [a7]: ../../evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/manifest.json

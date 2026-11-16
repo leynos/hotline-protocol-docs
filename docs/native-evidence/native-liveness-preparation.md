@@ -85,8 +85,8 @@ sudo env PYTHONPATH=scripts python3 scripts/native_liveness_control.py \
 > Record note (2026-11-16): the commands above are quoted as they were run. The
 > case generator, `scripts/native_liveness_cases.py`, has since been brought to
 > the repository's Python standard. The control runner,
-> `scripts/native_liveness_control.py`, is still held at the earlier lint rules
-> (`scripts/legacy-modules.txt`), so its command is unchanged.
+> `scripts/native_liveness_control.py`, has since been brought to the
+> repository's Python standard, so its command may no longer run as written.
 
 The second command is **illustrative**, not a live grant: use the actual
 verified Mac PEF path and exact approved network namespace service; do not

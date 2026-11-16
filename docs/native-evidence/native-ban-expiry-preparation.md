@@ -128,9 +128,9 @@ sudo nsenter --target "$expiry_emulator_pid" --net -- \
 ```
 
 > Record note (2026-11-16): the commands above are quoted as they were run. The
-> control runner, `scripts/native_ban_expiry_control.py`, is still held at the
-> earlier lint rules (`scripts/legacy-modules.txt`), so the commands are
-> unchanged.
+> control runner, `scripts/native_ban_expiry_control.py`, has since been brought
+> to the repository's Python standard, so the commands may no longer run as
+> written.
 
 The `post` command uses `--phase post`, the post epoch receipt/output, and the
 same first-epoch ban-clock file. These commands are templates: the binary path

@@ -73,10 +73,11 @@ python -m unittest discover -s scripts -p test_native_ban_control.py -q
 ```
 
 > Record note (2026-11-16): the commands above are quoted as they were run. The
-> verifier and its test are still held at the earlier lint rules
-> (`scripts/legacy-modules.txt`), so they have not been brought to the
-> repository's Python standard. The same verifier is run by
-> `make evidence-verify`, and the test by `make test-legacy`.
+> verifier and its test have since been brought to the repository's Python
+> standard, so the commands may no longer run as written. The test now lives at
+> `scripts/tests/test_native_ban_control.py` and runs under `make test`. The
+> same
+> verifier is run by `make evidence-verify`.
 
 The verifier checks the full corpus inventory and hashes, source/runtime
 identity, managed capture readiness and terminal state, all five semantic

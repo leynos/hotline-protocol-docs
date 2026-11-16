@@ -80,10 +80,11 @@ python3 scripts/verify_native_121_default.py --verify NEW-observe
 ```
 
 > Record note (2026-11-16): the commands above are quoted as they were run. The
-> generator, the capture tool and the verifiers are still held at the earlier
-> lint rules (`scripts/legacy-modules.txt`), so the commands have not been
-> brought to the repository's Python standard. The unit tests of the verifier,
-> `scripts/test_native_121_default.py`, are run by `make test-legacy`.
+> generator, the capture tool and the verifiers have since been brought to the
+> repository's Python standard, so the commands may no longer run as written.
+> The unit tests of the verifier, `scripts/tests/test_native_121_default.py`,
+> run
+> under `make test`.
 
 The operator must check exact full A7 preflight before observing, start host
 packet capture before the first socket and retain the cumulative guest

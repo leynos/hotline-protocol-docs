@@ -72,7 +72,7 @@ creates the project environment.
 | Git LFS                                             | `sums-check`, `lfs-check` and the evidence checks                                      | PNG, packet-capture (PCAP) and gzip files under `evidence/` are stored through Git LFS, as `.gitattributes` says. `sums-check` reports an LFS pointer where content belongs and names `git lfs pull`.                                                                                                                                                                                                      |
 | `uv` and Python 3.14                                | Every Python target, through `make build`                                              | `make build` runs `uv sync --group dev`. The Makefile puts `.venv/bin` first on `PATH`. `pyproject.toml` requires Python `>=3.14`.                                                                                                                                                                                                                                                                         |
 | `markdownlint-cli2`, `nixie` and `mdtablefix` 0.6.1 | `docs-gates`, `markdownlint`, `nixie` and `fmt`                                        | The Makefile names them with the variables `MDLINT`, `NIXIE` and `MDTABLEFIX`. `check-fmt-markdown` fails unless `mdtablefix --version` reports `mdtablefix 0.6.1`.                                                                                                                                                                                                                                        |
-| Python lint and spelling tools                      | `lint-python`, `lint-legacy`, `typecheck` and `spelling`                               | The Makefile pins Ruff 0.16.8, pylint 4.0.9 and `typos-config-builder` v0.1.3. `pyproject.toml` pins `ty` 0.0.56. The df12 Python lints are fetched from Git at v0.4.0.                                                                                                                                                                                                                                    |
+| Python lint and spelling tools                      | `lint-python`, `typecheck` and `spelling`                                              | The Makefile pins Ruff 0.16.8, pylint 4.0.9 and `typos-config-builder` v0.1.3. `pyproject.toml` pins `ty` 0.0.56. The df12 Python lints are fetched from Git at v0.4.0.                                                                                                                                                                                                                                    |
 | A local clone of mothra                             | `links-check`, `goldens-check`, `pin-experiment`, `import-check` and `evidence-verify` | `MOTHRA` names the clone, and it defaults to `../mothra` or `../../mothra` when one exists. `import-check` stops without it. The Makefile exports `MOTHRA_ROOT` when `MOTHRA` is set, and the legacy verifiers that read mothra's general tooling use it. The link check requires links into mothra to be commit permalinks, and it confirms that each permalink's path exists at its commit in the clone. |
 
 _Table 1: Prerequisites, and the targets that depend on them._
@@ -139,11 +139,9 @@ or the plan gives one, how long it takes.
 | `make evidence-verify`           | Every retained corpus, through its legacy verifier, one recipe line at a time                                                                                                            | After a verifier or a corpus changes                                  | Yes, when `evidence/` exists                                   | Not stated      |
 | `make evidence-verify-known-red` | The verifier that is known to fail (decision D18)                                                                                                                                        | To see the known failure                                              | No                                                             | Not stated      |
 | `make lint-python`               | Ruff, docstring coverage at 100 per cent, pylint and the df12 plugin messages, on the Python that meets the standard                                                                     | After a change to Python                                              | Yes                                                            | Not stated      |
-| `make lint-legacy`               | Ruff check and format under `scripts/ruff.toml`, on the legacy list                                                                                                                      | After a change to a legacy script                                     | Yes                                                            | Not stated      |
 | `make typecheck`                 | `ty` on the Python that meets the standard                                                                                                                                               | After a change to Python                                              | Yes                                                            | Not stated      |
-| `make typecheck-legacy`          | `ty` on the inherited scripts                                                                                                                                                            | Not in `make all` until the plan's EP-M5 is complete                  | No                                                             | Not stated      |
 | `make test`                      | `pytest -v` over `tests` and `scripts/tests`                                                                                                                                             | After a change to a tool or a test                                    | Yes                                                            | Not stated      |
-| `make test-legacy`               | Unittest discovery of the scripts; it has one known error (decision D18)                                                                                                                 | To see the known error                                                | No                                                             | Not stated      |
+| `make test-legacy`               | Unittest discovery of `scripts/`, which runs the one file left beside them                                                                                                               | To check that file                                                    | No                                                             | Not stated      |
 | `make goldens-check`             | The three oracles of Table 4, compared with `tests/goldens`. `GOLDENS_FILTER` limits the run to keys that contain its text                                                               | After each change to a script family                                  | No                                                             | 3 to 10 minutes |
 | `make pin-experiment`            | Appends a comment to each pinned script, compares the goldens and restores the scripts                                                                                                   | After a change to a pinned script (decision D29)                      | No                                                             | 3 to 10 minutes |
 | `make pin-equivalence`           | The tests that reach each changed pinned script, run against its pinned bytes and its current bytes                                                                                      | After a change to a pinned script, with `goldens-check`               | No                                                             | Several minutes |
@@ -152,12 +150,11 @@ or the plan gives one, how long it takes.
 _Table 2: The make targets that a maintainer runs, and what each checks._
 
 `make all` runs its evidence gates only when `evidence/` is present, and its
-curation gate only when `evidence/curation.json` exists. Two targets are known
-red by design (decision D18). `make test-legacy` reports one error, and
-`make evidence-verify-known-red` is expected to fail with
-`ValueError: capture gate source identity`. The cause is a recorded hash of the
-toolset's `capture_readiness.py` that no longer matches. Neither target is in
-`make all`.
+curation gate only when `evidence/curation.json` exists. One target is known
+red by design (decision D18). `make evidence-verify-known-red` is expected to
+fail with `ValueError: capture gate source identity`. The cause is a recorded
+hash of the toolset's `capture_readiness.py` that no longer matches. The target
+is not in `make all`.
 
 ### Order of the gates
 
@@ -418,22 +415,11 @@ Write the failing test first (AGENTS.md).
 
 `make lint-python` runs Ruff, requires docstring coverage of 100 per cent
 through `interrogate`, and runs pylint with the configured messages and the
-df12 plugin. It runs them on every Python file that is not on the legacy list.
-`make typecheck` runs `ty` on the same files.
+df12 plugin. It runs them on every Python file in `tools/`, `tests/`,
+`scripts/` and `scripts/tests/`. `make typecheck` runs `ty` on the same files.
 
-### The legacy list
-
-`scripts/legacy-modules.txt` names the inherited scripts that are still held at
-the earlier rules in `scripts/ruff.toml`. It has one path per line, and text
-after a hash is a comment. Every other Python file under `scripts/`, including
-`scripts/tests/`, is held to the root `pyproject.toml` rules.
-`make lint-legacy` lints the listed files, and `make lint-python` lints the
-rest.
-
-A family leaves the list by deleting its lines in the same commit that brings
-it to the standard. A comment on an entry marks a script whose bytes must not
-change at all. When the list is empty, the list and `scripts/ruff.toml` are
-deleted, as the file's header states.
+All Python in the repository, including the inherited scripts and their tests,
+is held to the rules in the root `pyproject.toml`.
 
 ### Migrating a family
 
@@ -448,8 +434,7 @@ The plan records the procedure that the pilot and the waves used.
    400 lines into a module of the same name and helper modules. Measure the
    400-line limit after formatting.
 5. Lint the touched files on their own.
-6. Delete the family's lines from `scripts/legacy-modules.txt`.
-7. Run `make all`, then `make goldens-check`, filtered to the family with
+6. Run `make all`, then `make goldens-check`, filtered to the family with
    `GOLDENS_FILTER` set to its name.
 
 The plan lists these pitfalls, which the waves confirmed.
@@ -506,6 +491,21 @@ module reports the shallow clone as the cause. A pin also depends on its commit
 remaining in the history. The plan lists a pushed tag on `efea44a` as a step
 that is still to be done before a squash merge, which would otherwise leave the
 three scripts pinned to that commit without it.
+
+### Capture identity
+
+A script that records its own identity in a capture declares a literal
+`CAPTURE_MODULES` tuple: the script's own file name first, then its helper
+modules, each named `<script>_*.py`. `tests/test_capture_modules_declared.py`
+fails when the tuple differs from the modules that the script imports. The
+record comes from `capture_identity.identity` in `scripts/capture_identity.py`.
+
+A verifier accepts either the single-file hash of an earlier capture or the
+record of a new one through `driver_in`, `driver_is` or `role_in` in
+`scripts/capture_acceptance.py`. The call stands where the old comparison
+stood, so the order of checks is unchanged.
+`tests/test_driver_acceptance_sites.py` lists the verifiers that still compare
+a constant for specific retained runs.
 
 ### Running scripts
 

@@ -3,11 +3,11 @@
   "title": "Hotline 1.9 protocol documentation gap register",
   "audited_at_utc": "2026-11-12T12:55:29.155796+00:00",
   "last_updated": "2026-11-16",
-  "source_manifest": "evidence/protocol-gap-analysis/2026-11-16/revision-95/manifest.json",
-  "source_sections": "evidence/protocol-gap-analysis/2026-11-16/revision-95/sections.json",
+  "source_manifest": "evidence/protocol-gap-analysis/2026-11-16/revision-96/manifest.json",
+  "source_sections": "evidence/protocol-gap-analysis/2026-11-16/revision-96/sections.json",
   "validity_ledger": "docs/baseline-validity-ledger.md",
   "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
-  "method": "Revision 95 follows the style pass. Every table gained a caption; headings were put in sentence case by changing letter case only, so every anchor is unchanged; each document gained one cross-reference to its set overview and the glossary; dated records gained notes beside quoted commands that no longer run as written; the ledger of remaining work summarizes the operator packets; and links to the capture toolset point at its current commit. Each section corresponds by position to its predecessor in revision 94. No gap, question, status or closure criterion changed. Revision 94 follows the reconciliation pass. Statements that contradicted the register keep their wording and gain a dated status note beneath them; two working records gain a record note; loose uses of the SynHX family name say which program or class of peer is meant; general toolset set-up guidance is replaced by links to the toolset's guides, with project-specific facts kept. No heading or anchor changed, so each section corresponds by position to its predecessor in revision 93. No gap, question, status or closure criterion changed. Revision 93 follows the consolidation of the eight mxd notes into six documents under docs/mxd/. Every claim of the old notes was inventoried and lands once in the new set; where the notes disagreed, both statements are kept and marked Unreconciled. Each old section maps to the new section that holds most of its content, which the gap sources follow; every new section that took content from an old section inherits that section's review coverage, so the number of reviewed sections rises with the finer structure. No gap, question, status or closure criterion changed. Revision 92 follows the move of the documents into sets under docs/. Each document keeps its file name and headings; only the targets of relative links changed, and prose was rewrapped where a link grew longer, so each section corresponds to the same section at its new path. Revision 91 follows the publication of the general capture toolset. The only change to the input documents is that their thirteen links to that toolset's guides became commit permalinks; no heading or anchor changed, so each section corresponds by position to its predecessor in revision 90. Revision 90 follows the move of the evidence into the documentation repository. It preserves all 87 original closure criteria and every prior question and status string. The 102 input documents were reflowed to 80 columns, corrected to Oxford spelling and had their evidence links pointed at the in-repository evidence tree; no heading or anchor changed, so each section corresponds by position to its predecessor in revision 89. No new native protocol observation or gap closure; mxd validation stays held.",
+  "method": "Revision 96 follows the end of the script migration. Record notes beside quoted commands no longer say that a script is held at earlier lint rules: they say that the script and its test meet the repository standard, where the test now lives, and that the quoted command may no longer run as written. The recreation guide describes the identity that a new capture records. No heading or anchor changed, so each section corresponds by position to its predecessor in revision 95. No gap, question, status or closure criterion changed. Revision 95 follows the style pass. Every table gained a caption; headings were put in sentence case by changing letter case only, so every anchor is unchanged; each document gained one cross-reference to its set overview and the glossary; dated records gained notes beside quoted commands that no longer run as written; the ledger of remaining work summarizes the operator packets; and links to the capture toolset point at its current commit. Each section corresponds by position to its predecessor in revision 94. No gap, question, status or closure criterion changed. Revision 94 follows the reconciliation pass. Statements that contradicted the register keep their wording and gain a dated status note beneath them; two working records gain a record note; loose uses of the SynHX family name say which program or class of peer is meant; general toolset set-up guidance is replaced by links to the toolset's guides, with project-specific facts kept. No heading or anchor changed, so each section corresponds by position to its predecessor in revision 93. No gap, question, status or closure criterion changed. Revision 93 follows the consolidation of the eight mxd notes into six documents under docs/mxd/. Every claim of the old notes was inventoried and lands once in the new set; where the notes disagreed, both statements are kept and marked Unreconciled. Each old section maps to the new section that holds most of its content, which the gap sources follow; every new section that took content from an old section inherits that section's review coverage, so the number of reviewed sections rises with the finer structure. No gap, question, status or closure criterion changed. Revision 92 follows the move of the documents into sets under docs/. Each document keeps its file name and headings; only the targets of relative links changed, and prose was rewrapped where a link grew longer, so each section corresponds to the same section at its new path. Revision 91 follows the publication of the general capture toolset. The only change to the input documents is that their thirteen links to that toolset's guides became commit permalinks; no heading or anchor changed, so each section corresponds by position to its predecessor in revision 90. Revision 90 follows the move of the evidence into the documentation repository. It preserves all 87 original closure criteria and every prior question and status string. The 102 input documents were reflowed to 80 columns, corrected to Oxford spelling and had their evidence links pointed at the in-repository evidence tree; no heading or anchor changed, so each section corresponds by position to its predecessor in revision 89. No new native protocol observation or gap closure; mxd validation stays held.",
   "gaps": [
     {
       "id": "GAP-001",
@@ -14210,7 +14210,7 @@
       "heading": "Delayed 121 default-text preparation (A35)",
       "level": 1,
       "line_start": 1,
-      "line_end": 92,
+      "line_end": 93,
       "anchor": "delayed-121-default-text-preparation-a35",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -14477,7 +14477,7 @@
       "heading": "Bounded next live sequence (requires separate grant)",
       "level": 2,
       "line_start": 32,
-      "line_end": 105,
+      "line_end": 106,
       "anchor": "bounded-next-live-sequence-requires-separate-grant",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -14692,7 +14692,7 @@
       "heading": "Offline replay",
       "level": 2,
       "line_start": 66,
-      "line_end": 86,
+      "line_end": 87,
       "anchor": "offline-replay",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -15863,7 +15863,7 @@
       "heading": "Separate guarded epochs",
       "level": 2,
       "line_start": 34,
-      "line_end": 137,
+      "line_end": 138,
       "anchor": "separate-guarded-epochs",
       "review": "Reviewed",
       "direct_gap_ids": [
@@ -15879,8 +15879,8 @@
       "path": "docs/native-evidence/native-board-preparation.md",
       "heading": "Readiness receipts and the aborted first lab",
       "level": 2,
-      "line_start": 138,
-      "line_end": 154,
+      "line_start": 139,
+      "line_end": 155,
       "anchor": "readiness-receipts-and-the-aborted-first-lab",
       "review": "Reviewed",
       "direct_gap_ids": [

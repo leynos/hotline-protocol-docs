@@ -52,10 +52,10 @@ python3 scripts/native_settings_cases.py \
 ```
 
 > Record note (2026-11-16): the commands above are quoted as they were run. The
-> generator, `scripts/native_settings_cases.py`, and the test,
-> `scripts/test_native_settings.py`, are still held at the earlier lint rules
-> (`scripts/legacy-modules.txt`), so the commands are unchanged. The test runs
-> under `make test-legacy`.
+> generator, `scripts/native_settings_cases.py`, and the test have since been
+> brought to the repository's Python standard, so the commands may no longer run
+> as written. The test now lives at `scripts/tests/test_native_settings.py` and
+> runs under `make test`.
 
 The native lease holder must validate the current runtime PID, guest/host
 capture sources and original binary hash, then run each plan once with

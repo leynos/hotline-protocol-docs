@@ -96,9 +96,9 @@ python3 "$a8/verify_packets.py"
 > verifier, `scripts/verify_native_diagnostic_existing.py`, has since been
 > brought to the repository's Python standard, and run as
 > `uv run --group dev python scripts/verify_native_diagnostic_existing.py`. The
-> capture tool, `scripts/protocol_capture.py`, is still held at the earlier
-> lint rules (`scripts/legacy-modules.txt`), so the `verify` commands are
-> unchanged. The evidence-held `verify_packets.py` is not edited.
+> capture tool, `scripts/protocol_capture.py`, has since been brought to the
+> repository's Python standard, so the `verify` commands may no longer run as
+> written. The evidence-held `verify_packets.py` is not edited.
 
 The corrected semantic checker refuses to overwrite an output. The retained
 initial verifier result is expected to say `incomplete-witness`; it records a

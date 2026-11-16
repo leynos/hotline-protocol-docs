@@ -67,18 +67,18 @@ Run the targets from the root of this repository. Each target is defined in the
 `Makefile`, so the commands are the same commands that the gates run. Table 1
 gives what each target runs and what a successful run reports.
 
-| Target                           | What it runs                                                                                  | Success and expected output                                                                                                                                              | Gate status                                 |
-| -------------------------------- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------- |
-| `make evidence-verify`           | 88 recipe lines in the `evidence-verify` target, one for each corpus verifier or unittest run | Exit status 0. Several verifiers print a JSON verdict of their checks, for example `verify_native_core.py`. The sources record no single success string for all of them. | In `make all`                               |
-| `make evidence-verify-known-red` | `scripts/verify_classic_field161_matrix.py` on `classic-field161-01`                          | Expected to fail with `ValueError: capture gate source identity`. This is the known condition under decision D18.                                                        | Not in `all`                                |
-| `make test-legacy`               | `python3 -m unittest discover -s scripts -p 'test_*.py'`                                      | Expected to report one error, `test_original_corpus_replays`, in `test_verify_classic_field161_matrix`, for the same reason.                                             | Not in `all`                                |
-| `make goldens-check`             | Re-runs the legacy planners, verifiers and tests and compares them with `tests/goldens`       | A comparison verdict from `tools/capture_goldens.py compare`. It takes three to ten minutes.                                                                             | Not in `all`                                |
-| `make sums-check`                | `tools/check_sums.py check` over every `SHA256SUMS` under `evidence/`                         | A summary of the form `N sums files, M entries: A ok, W withheld, X not imported, …`, as the module documents it.                                                        | In `all`                                    |
-| `make lfs-check`                 | `tools/check_sums.py lfs`                                                                     | Checks that exactly the PNG, PCAP and gzip evidence is stored in Git LFS.                                                                                                | In `all`                                    |
-| `make withheld-check`            | `tools/check_withheld.py check --root .`                                                      | Exit status 0 on success, 1 for findings and 2 for missing inputs. Table 2 describes the withheld files.                                                                 | In `all`; skipped if the manifest is absent |
-| `make audit-check`               | `scripts/render-protocol-gap-analysis.py --check`                                             | Validates the gap register against the audit revision and `gap-analysis.md`.                                                                                             | In `all`                                    |
-| `make curation-check`            | `tools/curate_evidence.py check` with the citation arguments                                  | Confirms that the imported corpora match `evidence/curation.json` and that every citation resolves.                                                                      | In `all`                                    |
-| `make import-check`              | `curation-check`, plus a comparison with the mothra commit `IMPORT_COMMIT`                    | As `curation-check`, and each included file is compared with a local mothra checkout at the import commit. It needs `MOTHRA` to be set.                                  | Not in `all`                                |
+| Target                           | What it runs                                                                                  | Success and expected output                                                                                                                                                                     | Gate status                                 |
+| -------------------------------- | --------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| `make evidence-verify`           | 88 recipe lines in the `evidence-verify` target, one for each corpus verifier or unittest run | Exit status 0. Several verifiers print a JSON verdict of their checks, for example `verify_native_core.py`. The sources record no single success string for all of them.                        | In `make all`                               |
+| `make evidence-verify-known-red` | `scripts/verify_classic_field161_matrix.py` on `classic-field161-01`                          | Expected to fail with `ValueError: capture gate source identity`. This is the known condition under decision D18.                                                                               | Not in `all`                                |
+| `make test-legacy`               | `python3 -m unittest discover -s scripts -p 'test_*.py'`                                      | Runs only `scripts/test_verify_native_path_fields.py`, the unittest file left beside the scripts. The test `test_original_corpus_replays` is in `scripts/tests/` and is not run by this target. | Not in `all`                                |
+| `make goldens-check`             | Re-runs the legacy planners, verifiers and tests and compares them with `tests/goldens`       | A comparison verdict from `tools/capture_goldens.py compare`. It takes three to ten minutes.                                                                                                    | Not in `all`                                |
+| `make sums-check`                | `tools/check_sums.py check` over every `SHA256SUMS` under `evidence/`                         | A summary of the form `N sums files, M entries: A ok, W withheld, X not imported, …`, as the module documents it.                                                                               | In `all`                                    |
+| `make lfs-check`                 | `tools/check_sums.py lfs`                                                                     | Checks that exactly the PNG, PCAP and gzip evidence is stored in Git LFS.                                                                                                                       | In `all`                                    |
+| `make withheld-check`            | `tools/check_withheld.py check --root .`                                                      | Exit status 0 on success, 1 for findings and 2 for missing inputs. Table 2 describes the withheld files.                                                                                        | In `all`; skipped if the manifest is absent |
+| `make audit-check`               | `scripts/render-protocol-gap-analysis.py --check`                                             | Validates the gap register against the audit revision and `gap-analysis.md`.                                                                                                                    | In `all`                                    |
+| `make curation-check`            | `tools/curate_evidence.py check` with the citation arguments                                  | Confirms that the imported corpora match `evidence/curation.json` and that every citation resolves.                                                                                             | In `all`                                    |
+| `make import-check`              | `curation-check`, plus a comparison with the mothra commit `IMPORT_COMMIT`                    | As `curation-check`, and each included file is compared with a local mothra checkout at the import commit. It needs `MOTHRA` to be set.                                                         | Not in `all`                                |
 
 _Table 1: Make targets that re-verify retained evidence, with what each runs
 and the success it reports._
@@ -134,9 +134,11 @@ whether it reads a withheld file. Table 2 gives the readers that the search of
   red baseline is recorded, not repaired"
   (`docs/execplans/documentation-reconcilliation.md`). The target is not in
   `make all`.
-- **Legacy unittest run.** `make test-legacy` has the same known error, in
-  `test_verify_classic_field161_matrix`. The known-red comment in the
-  `Makefile` gives the test name, `test_original_corpus_replays`.
+- **Legacy unittest run.** `make test-legacy` runs only the unittest file left
+  beside the scripts, `scripts/test_verify_native_path_fields.py`. The test
+  `test_original_corpus_replays` now lives in
+  `scripts/tests/test_verify_classic_field161_matrix.py`, which `make test`
+  runs.
 
 ### Pinned scripts and full history
 
@@ -533,6 +535,16 @@ prior contents could not be recovered.
 A successful terminal match alone is not native conformance, a completed file
 write or peer identity. The packet streams and the downloaded fork bytes are
 verified independently.
+
+A capture made with the current scripts records, in `driver_sha256` and the
+other `*_sha256` fields, the SHA-256 of the listing
+`<sha256>  scripts/<module>` over the driver's declared modules, in order. That
+digest does not equal the hash of the single script file. The sibling
+`*_identity` record holds the Git commit of the scripts tree, the per-file
+hashes and the list of files that differed from that commit. A record with
+differing files, or with no commit, is rejected by the verifiers. Checking a
+record needs the full local history, not a shallow clone. Captures retained
+before this change keep their single-file hash and verify as before.
 
 For ambiguous-byte receive, a controlled receiver runs with
 `scripts/serve_shx_fixture.py`, in one of four modes: `control`, `banner`,

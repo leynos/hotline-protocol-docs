@@ -35,8 +35,8 @@ python scripts/native_path_fields_control.py \
 > Record note (2026-11-16): the commands above are quoted as they were run. The
 > case generator, `scripts/native_path_fields_cases.py`, has since been brought
 > to the repository's Python standard. The control runner,
-> `scripts/native_path_fields_control.py`, is still held at the earlier lint
-> rules (`scripts/legacy-modules.txt`), so its command is unchanged.
+> `scripts/native_path_fields_control.py`, has since been brought to the
+> repository's Python standard, so its command may no longer run as written.
 
 Both output leaves must be absent. The producer writes an exact plan and
 `source-hashes.json` for the plan and both owned Python sources. The runner

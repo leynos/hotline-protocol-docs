@@ -54,8 +54,7 @@ New and changed Python follows the df12 standards configured in
 complete type annotations checked by `ty`, pytest tests, Cyclopts for command
 lines, `pathlib` for paths, and modules under 400 lines. Write the failing test
 first. A lint suppression must be scoped to one line and state its reason. The
-inherited scripts are held at their earlier rules by `scripts/ruff.toml` until
-each family is brought to the standard.
+inherited scripts in `scripts/` meet the same standard.
 
 ## Markdown
 

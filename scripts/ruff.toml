@@ -1,7 +1,0 @@
-# Temporary: holds the inherited capture and verification scripts at the
-# default Ruff rules they were gated with before this repository had its own
-# configuration. Without a project file Ruff assumed its default target,
-# Python 3.10, so that is pinned here to reproduce the earlier results exactly.
-# Deleted once every script meets the root pyproject.toml rules (see
-# docs/execplans/documentation-reconcilliation.md, EP-M5).
-target-version = "py310"

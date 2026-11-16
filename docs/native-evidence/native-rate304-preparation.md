@@ -156,8 +156,8 @@ python3 -m unittest discover \
 > the repository's Python standard, and its test has moved to
 > `scripts/tests/test_native_rate304.py`, which runs as
 > `uv run --group dev pytest scripts/tests/test_native_rate304.py`. The control
-> runner, `scripts/native_rate304_control.py`, is still held at the earlier
-> lint rules (`scripts/legacy-modules.txt`), so its command is unchanged.
+> runner, `scripts/native_rate304_control.py`, has since been brought to the
+> repository's Python standard, so its command may no longer run as written.
 
 The second command is a future **authorized live action**, not an instruction
 to run during preparation. The first and third can be used offline with

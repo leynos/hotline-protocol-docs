@@ -46,9 +46,9 @@ C52 preparation record and five plan hashes are at
    ```
 
    > Record note (2026-11-16): the command above is quoted as it was run. The
-   > script, `scripts/native_control_readiness.py`, is still held at the
-   > earlier lint rules (`scripts/legacy-modules.txt`), so the command is
-   > unchanged.
+   > script, `scripts/native_control_readiness.py`, has since been brought to
+   > the
+   > repository's Python standard, so the command may no longer run as written.
 
    Preserve `source-hashes.json`, source plan and as-run plan SHA-256 values.
    Prepare `CAPTURE-READY.json` with `host_pcap`, `namespace_pcap`,
@@ -63,10 +63,11 @@ C52 preparation record and five plan hashes are at
    --capture-ready CAPTURE-READY.json --output CAPTURES`.
 
    > Record note (2026-11-16): the `run` command above is quoted as it was run.
-   > The script, `scripts/native_control_readiness.py`, is still held at the
-   > earlier lint rules (`scripts/legacy-modules.txt`), so the command is
-   > unchanged. The unit tests, `scripts/test_native_control_readiness.py`, run
-   > under `make test-legacy`.
+   > The script, `scripts/native_control_readiness.py`, has since been brought
+   > to
+   > the repository's Python standard, so the command may no longer run as
+   > written. The unit tests, `scripts/tests/test_native_control_readiness.py`,
+   > run under `make test`.
    Set a managed one-shot system unit with direct `NetworkNamespacePath` to the
    actual lab, retained stdout/stderr/exit and bounded runtime. Root is
    required to read the non-dumpable UID-1000 emulator's `/proc` executable and

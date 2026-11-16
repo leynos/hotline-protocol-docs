@@ -70,10 +70,10 @@ python3 -m unittest discover -s ../hotline-protocol-docs/scripts \
 ```
 
 > Record note (2026-11-16): the commands above are quoted as they were run. The
-> verifier and its test are still held at the earlier lint rules
-> (`scripts/legacy-modules.txt`), so they have not been brought to the
-> repository's Python standard. The same corpus is checked by
-> `make evidence-verify`, and the test runs under `make test-legacy`.
+> verifier and its test have since been brought to the repository's Python
+> standard, so the commands may no longer run as written. The test now lives at
+> `scripts/tests/test_native_settings_corpus.py` and runs under `make test`. The
+> same corpus is checked by `make evidence-verify`.
 
 This packet adds field-113 rows to GAP-015/016/017. The combined
 [scalar registry](../protocol/native-wire-details.md#core-scalar-width-registry)

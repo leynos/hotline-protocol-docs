@@ -23,19 +23,12 @@ DF12_PYLINT = $(UV) tool run --python $(LINT_PYTHON) --from 'pylint==$(PYLINT_VE
 	--with '$(DF12_PYTHON_LINTS)' pylint --disable=all --load-plugins=df12_python_lints \
 	--enable=syntax-error,$(DF12_PYLINT_MESSAGES)
 
-# Inherited scripts that are still held at the legacy rules: scripts/legacy-modules.txt
-# lists them, and an entry is deleted as its script is brought to the standard.
-LEGACY_LIST = scripts/legacy-modules.txt
-LEGACY_PYTHON = $(shell sed -e 's/[[:space:]]*\#.*//' -e '/^$$/d' $(LEGACY_LIST))
-# Python that meets the df12 standards in pyproject.toml: the tools, their tests,
-# the pytest files in scripts/tests, and every script not on the legacy list.
-PYTHON_TARGETS = $(filter-out $(LEGACY_PYTHON),$(shell git ls-files --cached --others \
+# Every Python file is held to the df12 standards in pyproject.toml: the tools,
+# their tests, the scripts and the pytest files in scripts/tests.
+PYTHON_TARGETS = $(shell git ls-files --cached --others \
 	--exclude-standard 'tools/*.py' 'tools/**/*.py' 'tests/*.py' 'tests/**/*.py' \
-	'scripts/*.py' 'scripts/**/*.py'))
-# scripts/ruff.toml is nearer than pyproject.toml to the files in scripts/, so
-# name the configuration for each run instead of letting Ruff discover it.
+	'scripts/*.py' 'scripts/**/*.py')
 RUFF_ROOT = --config pyproject.toml
-RUFF_LEGACY = --config scripts/ruff.toml
 # The repository tools run in the project environment.
 PYTHON ?= $(UV) run --group dev python
 # Recipes run the inherited scripts as `python3`, as the documents do. The project
@@ -85,7 +78,7 @@ CITING_ARGS ?= $(foreach f,$(CITING_DOCS),--citing document=$(f)) \
 IMPORT_COMMIT ?= f9b4108ec33e59956c9f2bfbd391dc3a8a279299
 
 .PHONY: help all build fmt check-fmt check-fmt-python check-fmt-markdown \
-	lint lint-python lint-legacy typecheck test docs-gates markdownlint spelling nixie \
+	lint lint-python typecheck test docs-gates markdownlint spelling nixie \
 	json-check pins-check links-check style-check evidence-check evidence-index audit-check withheld-check withheld-scan withheld-skip \
 	sums-check lfs-check evidence-skip curation-check import-check curation-skip \
 	goldens-check pin-experiment pin-equivalence continuity-tests
@@ -94,9 +87,9 @@ IMPORT_COMMIT ?= f9b4108ec33e59956c9f2bfbd391dc3a8a279299
 # Shared build caches require sequential gates even when make receives -j.
 .NOTPARALLEL:
 
-all: build check-fmt-python json-check pins-check links-check evidence-check audit-check $(WITHHELD_GATE) $(EVIDENCE_GATE) $(CURATION_GATE) $(EVIDENCE_VERIFY_GATE) lint-python lint-legacy typecheck test ## Run the gates that must pass at every commit
+all: build check-fmt-python json-check pins-check links-check evidence-check audit-check $(WITHHELD_GATE) $(EVIDENCE_GATE) $(CURATION_GATE) $(EVIDENCE_VERIFY_GATE) lint-python typecheck test ## Run the gates that must pass at every commit
 
-lint: lint-python lint-legacy ## Run every Python linter
+lint: lint-python ## Run every Python linter
 
 docs-gates: check-fmt-markdown markdownlint nixie style-check ## Run the Markdown gates (they join `all` once every document conforms)
 
@@ -202,10 +195,6 @@ lint-python: build ## Lint the Python that meets the df12 standards
 	$(PYLINT) $(PYTHON_TARGETS)
 	$(DF12_PYLINT) $(PYTHON_TARGETS)
 
-lint-legacy: ## Lint the inherited scripts at their earlier rules
-	$(if $(LEGACY_PYTHON),$(RUFF) check $(RUFF_LEGACY) $(LEGACY_PYTHON))
-	$(if $(LEGACY_PYTHON),$(RUFF) format $(RUFF_LEGACY) --check $(LEGACY_PYTHON))
-
 typecheck: build ## Type-check the Python that meets the df12 standards
 	$(TY) --version
 	$(TY) check --extra-search-path tools --extra-search-path tests --extra-search-path scripts $(PYTHON_TARGETS)
@@ -251,7 +240,7 @@ define in_legacy_layout
 tmp=$$(mktemp -d) && trap 'rm -rf "$$tmp"' EXIT && root="$$tmp/hotline-protocol-docs" && mkdir -p "$$root" && cp -a scripts "$$root/scripts" && python3 scripts/pinned_source_cli.py stage "$$root/scripts" && { cp -al evidence "$$root/evidence" 2>/dev/null || cp -a evidence "$$root/evidence"; } && cd "$$root" && $(1)
 endef
 
-.PHONY: evidence-verify evidence-verify-known-red test-legacy typecheck-legacy
+.PHONY: evidence-verify evidence-verify-known-red test-legacy
 
 # One recipe per line, in mothra's order, so a failure names its line.
 evidence-verify: ## Verify every retained Hotline corpus with its legacy verifier
@@ -350,9 +339,9 @@ evidence-verify: ## Verify every retained Hotline corpus with its legacy verifie
 evidence-verify-known-red: ## Run the verifier that is known to fail (decision D18)
 	python3 scripts/verify_classic_field161_matrix.py evidence/gap-remediation/2026-11-14/classic-field161-01
 
-# Known red (decision D18): exactly one error, test_original_corpus_replays in
-# test_verify_classic_field161_matrix, for the reason given above.
-test-legacy: ## Run every inherited unittest (known red: one error)
+# The one unittest file left beside the scripts is the path-fields control that
+# evidence-verify runs by name. The golden test oracle reads this recipe.
+test-legacy: ## Run the unittest files that remain beside the scripts
 	python3 -m unittest discover -s scripts -p 'test_*.py'
 
 # Not in `all`: it re-runs every legacy verifier, planner and test, which takes
@@ -379,5 +368,3 @@ continuity-tests: build ## Run the error-order and corpus-fault tests of the mig
 pin-equivalence: build ## Check that each changed pinned script behaves as its pinned bytes do (several minutes; not in all)
 	$(UV) run --group dev pytest -m pin_equivalence tests/test_pin_equivalence.py
 
-typecheck-legacy: ## Type-check the inherited scripts (not in all; see the plan)
-	$(TY) check --extra-search-path scripts scripts

@@ -69,8 +69,8 @@ python3 "$a12/verify_partial.py" > /tmp/a12-partial-replay.json
 
 > Record note (2026-11-16): the commands above are quoted as they were run,
 > including the `/tmp` redirection. The capture tool,
-> `scripts/protocol_capture.py`, is still held at the earlier lint rules
-> (`scripts/legacy-modules.txt`), so its `verify` commands are unchanged. The
+> `scripts/protocol_capture.py`, has since been brought to the repository's
+> Python standard, so its `verify` commands may no longer run as written. The
 > evidence-held `verify_partial.py` is not edited.
 
 The first capture verification reports `failed; 94 actions` as expected. The

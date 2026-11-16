@@ -47,9 +47,9 @@ python3 scripts/native_settings_persistence_cases.py \
 ```
 
 > Record note (2026-11-16): the command above is quoted as it was run. The
-> generator, `scripts/native_settings_persistence_cases.py`, is still held at
-> the earlier lint rules (`scripts/legacy-modules.txt`), so the command is
-> unchanged.
+> generator, `scripts/native_settings_persistence_cases.py`, has since been
+> brought to the repository's Python standard, so the command may no longer run
+> as written.
 
 The corrected generator includes two planned EOF actions after a 64-action
 phase one observation or 26-action phase two observation. The runner writes
@@ -72,8 +72,8 @@ python3 scripts/protocol_capture.py capture "$OWNED_PLAN_DIR/readiness.json" \
 ```
 
 > Record note (2026-11-16): the command above is quoted as it was run. The
-> capture tool, `scripts/protocol_capture.py`, is still held at the earlier
-> lint rules (`scripts/legacy-modules.txt`), so the command is unchanged.
+> capture tool, `scripts/protocol_capture.py`, has since been brought to the
+> repository's Python standard, so the command may no longer run as written.
 
 Then run the phase gate:
 
@@ -86,9 +86,9 @@ python3 scripts/native_settings_persistence.py --run \
 ```
 
 > Record note (2026-11-16): the command above is quoted as it was run. The
-> runner, `scripts/native_settings_persistence.py`, is still held at the
-> earlier lint rules (`scripts/legacy-modules.txt`), so the command is
-> unchanged.
+> runner, `scripts/native_settings_persistence.py`, has since been brought to
+> the
+> repository's Python standard, so the command may no longer run as written.
 
 Use the same command with `phase2.json` and fresh phase-two paths after the
 separately approved restart. The runner demands root for `/proc` FD, netns,

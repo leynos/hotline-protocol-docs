@@ -145,9 +145,9 @@ python3 scripts/native_missing_alias_control.py \
 ```
 
 > Record note (2026-11-16): the command above is quoted as it was run. The
-> control runner, `scripts/native_missing_alias_control.py`, is still held at
-> the earlier lint rules (`scripts/legacy-modules.txt`), so the command is
-> unchanged.
+> control runner, `scripts/native_missing_alias_control.py`, has since been
+> brought to the repository's Python standard, so the command may no longer run
+> as written.
 
 The coordinator requires the fixed epoch to have at least 390 seconds left,
 caps the case at 210 seconds, and retains all observed frames, events, unparsed

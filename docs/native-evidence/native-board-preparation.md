@@ -58,8 +58,8 @@ python scripts/native_board_control.py --plan <new-plan-dir> \
 > Record note (2026-11-16): the commands above are quoted as they were run. The
 > case generator, `scripts/native_board_cases.py`, has since been brought to
 > the repository's Python standard. The control runner,
-> `scripts/native_board_control.py`, is still held at the earlier lint rules
-> (`scripts/legacy-modules.txt`), so its command is unchanged.
+> `scripts/native_board_control.py`, has since been brought to the repository's
+> Python standard, so its command may no longer run as written.
 
 The output directory must **not** exist. The case has four simultaneous-at-most
 control sockets: admin sender, admin eligible reader, zero-ACL `fixture-low`
@@ -133,7 +133,8 @@ ty check --extra-search-path \
 > `uv run --group dev pytest scripts/tests/test_native_board.py` and
 > `make evidence-verify` for the corpus. The `ruff` and `ty` lines are
 > unchanged in form, but they now apply to that path. The control runner,
-> `scripts/native_board_control.py`, is still held at the earlier lint rules.
+> `scripts/native_board_control.py`, has since been brought to the repository's
+> Python standard.
 
 ## Readiness receipts and the aborted first lab
 

@@ -103,8 +103,8 @@ python3 ../hotline-protocol-docs/scripts/verify_native_diagnostic_existing.py \
 > verifier, `scripts/verify_native_diagnostic_existing.py`, have since been
 > brought to the repository's Python standard, and run as
 > `uv run --group dev python scripts/<name>.py`. The capture tool,
-> `scripts/protocol_capture.py`, is still held at the earlier lint rules
-> (`scripts/legacy-modules.txt`), so its commands are unchanged.
+> `scripts/protocol_capture.py`, has since been brought to the repository's
+> Python standard, so its commands may no longer run as written.
 
 Reconcile exact SYN lifetimes and client/server byte streams in both PCAPs. For
 unread density sockets, the recorder's received stream is only an observed

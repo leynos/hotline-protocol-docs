@@ -93,8 +93,8 @@ changed baseline aborts export.
    > The verifier, `scripts/verify_native_pm.py`, has since been brought to the
    > repository's Python standard, and runs as
    > `uv run --group dev python scripts/verify_native_pm.py`. The capture tool,
-   > `scripts/protocol_capture.py`, is still held at the earlier lint rules
-   > (`scripts/legacy-modules.txt`), so its `verify` command is unchanged.
+   > `scripts/protocol_capture.py`, has since been brought to the repository's
+   > Python standard, so its `verify` command may no longer run as written.
 
 The generated plans are **preparation**, not authority to contact the server.
 If a 304/500 barrier or expected 104 read fails, retain the failed report and

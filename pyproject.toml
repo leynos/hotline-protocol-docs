@@ -20,8 +20,8 @@ dev = [
 ]
 
 # Ruff, Pylint and pytest settings follow the df12 Python template
-# (leynos/agent-template-python). Legacy scripts are held at their previous
-# rules by scripts/ruff.toml until they are brought to this standard.
+# (leynos/agent-template-python). Every Python file in the repository is held
+# to them.
 
 [tool.ruff]
 line-length = 88

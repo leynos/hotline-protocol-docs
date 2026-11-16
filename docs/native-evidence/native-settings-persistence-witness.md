@@ -100,10 +100,10 @@ python3 -m unittest discover -s scripts \
 ```
 
 > Record note (2026-11-16): the commands above are quoted as they were run. The
-> verifier and its test are still held at the earlier lint rules
-> (`scripts/legacy-modules.txt`), so they have not been brought to the
-> repository's Python standard. The same verifier is run by
-> `make evidence-verify`, and the test runs under `make test-legacy`.
+> verifier and its test have since been brought to the repository's Python
+> standard, so the commands may no longer run as written. The test now lives at
+> `scripts/tests/test_native_settings_persistence_witness.py` and runs under
+> `make test`. The same verifier is run by `make evidence-verify`.
 
 **Procedure deviation:** the A48 live window did not hold the prescribed
 `oracle.lock`. The supervisor granted an exclusive native lease, peer work was
