@@ -1,0 +1,110 @@
+gap-register		ok a3948bbcc5d95bcc
+gap-register	schema_version:delete-key	KeyError: 'schema_version'
+gap-register	gaps>2>sources>0>path:delete-key	KeyError: 'path'
+gap-register	gaps>4>sources>0>line_start:inc	ValueError: Invalid source location: GAP-005
+gap-register	gaps>6>sources>0>line_start:delete-key	KeyError: 'line_start'
+gap-register	gaps>8>resolution>binary_sha256:delete-key	ok a551c6790c41561f
+gap-register	gaps>14>sources>2>heading:delete-key	KeyError: 'heading'
+gap-register	gaps>16>id:flip	ValueError: Duplicate gap ID
+gap-register	gaps>18>area:delete-key	KeyError: 'area'
+gap-register	gaps>19>sources>3>heading:delete-key	KeyError: 'heading'
+gap-register	gaps>21>resolution>evidence:drop-last	ok bbebd0b438ffb531
+gap-register	gaps>24>sources>2>path:empty	ValueError: Invalid source location: GAP-025
+gap-register	gaps>29>sources>1>anchor:empty	ValueError: Invalid source anchor: GAP-030
+gap-register	gaps>31>sources>2>line_end:delete-key	KeyError: 'line_end'
+gap-register	gaps>33>investigation_leads:drop-last	ok 70e6558001db5345
+gap-register	gaps>35>resolution>evidence:delete-key	ok 90e0323599a66d20
+gap-register	gaps>37>resolution>evidence>4:empty	ok ad2a7f6adf0eb9ca
+gap-register	gaps>43>sources>1>heading:flip	ValueError: Invalid source location: GAP-044
+gap-register	gaps>46>sources>1>line_end:delete-key	KeyError: 'line_end'
+gap-register	gaps>50>related_ledger_entries>0:empty	ValueError: Unknown ledger entry: GAP-051
+gap-register	gaps>53>implementation_impact:delete-key	KeyError: 'implementation_impact'
+gap-register	gaps>57>sources>0>line_start:delete-key	KeyError: 'line_start'
+gap-register	gaps>61>sources>0>heading:empty	ValueError: Invalid source location: GAP-062
+gap-register	gaps>64>resolution>evidence>4:empty	ok 3697f37ddd40e46f
+gap-register	gaps>68>resolution>evidence:drop-first	ok 6b15fdc377cd4d33
+gap-register	gaps>73>depends_on>1:empty	ValueError: Invalid dependency: GAP-074
+gap-register	gaps>78>priority:delete-key	KeyError: 'priority'
+gap-register	gaps>81>related_ledger_entries>1:empty	ValueError: Unknown ledger entry: GAP-082
+gap-register	gaps>84>sources>1>line_end:inc	ValueError: Invalid source location: GAP-085
+gap-register	review_coverage>4>related_gap_ids>3:empty	ValueError: Coverage references an unknown gap
+gap-register	review_coverage>11>anchor:empty	ok 22bbd6ff268c92ee
+gap-register	review_coverage>29>line_start:delete-key	KeyError: 'line_start'
+gap-register	review_coverage>36>path:delete-key	KeyError: 'path'
+gap-register	review_coverage>47>related_gap_ids:drop-first	ok 8ed4a1bfe200e58b
+gap-register	review_coverage>62>heading:empty	ValueError: Invalid or duplicate review coverage entry
+gap-register	review_coverage>71>line_start:inc	ValueError: Invalid or duplicate review coverage entry
+gap-register	review_coverage>77>related_gap_ids>3:empty	ValueError: Coverage references an unknown gap
+gap-register	review_coverage>114>related_gap_ids>4:empty	ValueError: Coverage references an unknown gap
+gap-register	review_coverage>126>related_gap_ids:drop-last	ok 8ed4a1bfe200e58b
+gap-register	review_coverage>134>heading:flip	ValueError: Invalid or duplicate review coverage entry
+gap-register	review_coverage>141>related_gap_ids:drop-first	ok 8ed4a1bfe200e58b
+gap-register	review_coverage>156>anchor:delete-key	KeyError: 'anchor'
+gap-register	review_coverage>169>related_gap_ids>9:empty	ValueError: Coverage references an unknown gap
+gap-register	review_coverage>190>related_gap_ids>0:empty	ValueError: Coverage references an unknown gap
+gap-register	review_coverage>201>anchor:delete-key	KeyError: 'anchor'
+gap-register	review_coverage>211>related_gap_ids>4:empty	ValueError: Coverage references an unknown gap
+gap-register	review_coverage>220>related_gap_ids>4:empty	ValueError: Coverage references an unknown gap
+gap-register	review_coverage>234>path:flip	ValueError: Invalid or duplicate review coverage entry
+gap-register	review_coverage>241>heading:flip	ValueError: Invalid or duplicate review coverage entry
+gap-register	review_coverage>262>heading:delete-key	KeyError: 'heading'
+gap-register	review_coverage>280>related_gap_ids:delete-key	KeyError: 'related_gap_ids'
+gap-register	review_coverage>289>related_gap_ids>0:empty	ValueError: Coverage references an unknown gap
+gap-register	review_coverage>298>related_gap_ids>2:empty	ValueError: Coverage references an unknown gap
+gap-register	review_coverage>305>heading:delete-key	KeyError: 'heading'
+gap-register	review_coverage>320>heading:flip	ValueError: Invalid or duplicate review coverage entry
+gap-register	review_coverage>333>line_start:delete-key	KeyError: 'line_start'
+gap-register	review_coverage>340>line_end:inc	ValueError: Invalid or duplicate review coverage entry
+gap-register	review_coverage>355>path:delete-key	KeyError: 'path'
+gap-register	review_coverage>366>heading:flip	ValueError: Invalid or duplicate review coverage entry
+gap-register	review_coverage>376>path:empty	ValueError: Invalid or duplicate review coverage entry
+gap-register	review_coverage>392>anchor:empty	ok 9344fc1dff5f8410
+gap-register	review_coverage>400>related_gap_ids>0:empty	ValueError: Coverage references an unknown gap
+gap-register	review_coverage>448>related_gap_ids:drop-first	ok 6a61a1f674d1d0ab
+gap-register	review_coverage>461>anchor:delete-key	KeyError: 'anchor'
+gap-register	review_coverage>470>related_gap_ids:delete-key	KeyError: 'related_gap_ids'
+gap-register	review_coverage>487>related_gap_ids:delete-key	KeyError: 'related_gap_ids'
+gap-register	review_coverage>518>related_gap_ids:drop-last	ok 8ed4a1bfe200e58b
+gap-register	review_coverage>527>line_end:inc	ValueError: Invalid or duplicate review coverage entry
+gap-register	review_coverage>545>anchor:empty	ok cc05daf33a720da2
+gap-register	review_coverage>559>path:delete-key	KeyError: 'path'
+gap-register	review_coverage>572>line_start:delete-key	KeyError: 'line_start'
+gap-register	gaps>11>resolution>progress:flip	ok a3948bbcc5d95bcc
+gap-register	gaps>13>owner:flip	ok a3948bbcc5d95bcc
+gap-register	gaps>20>sources>2>level:delete-key	ok a3948bbcc5d95bcc
+gap-register	gaps>25>closure_criteria:flip	ok a3948bbcc5d95bcc
+gap-register	schema_version:delete-key;gaps>18>area:delete-key	KeyError: 'schema_version'
+gap-register	gaps>4>sources>0>line_start:inc;gaps>46>sources>1>line_end:delete-key	ValueError: Invalid source location: GAP-005
+gap-register	gaps>8>resolution>binary_sha256:delete-key;gaps>84>sources>1>line_end:inc	ValueError: Invalid source location: GAP-085
+gap-register	gaps>16>id:flip;review_coverage>126>related_gap_ids:drop-last	ValueError: Duplicate gap ID
+gap-register	gaps>19>sources>3>heading:delete-key;review_coverage>241>heading:flip	KeyError: 'heading'
+gap-register	gaps>24>sources>2>path:empty;review_coverage>366>heading:flip	ValueError: Invalid source location: GAP-025
+gap-register	gaps>31>sources>2>line_end:delete-key;review_coverage>545>anchor:empty	KeyError: 'line_end'
+gap-register	gaps>35>resolution>evidence:delete-key;gaps>18>area:delete-key	KeyError: 'area'
+gap-register	gaps>43>sources>1>heading:flip;gaps>46>sources>1>line_end:delete-key	ValueError: Invalid source location: GAP-044
+gap-register	gaps>50>related_ledger_entries>0:empty;gaps>84>sources>1>line_end:inc	ValueError: Unknown ledger entry: GAP-051
+gap-register	gaps>57>sources>0>line_start:delete-key;review_coverage>126>related_gap_ids:drop-last	KeyError: 'line_start'
+gap-register	gaps>64>resolution>evidence>4:empty;review_coverage>241>heading:flip	ValueError: Invalid or duplicate review coverage entry
+gap-register	gaps>73>depends_on>1:empty;review_coverage>366>heading:flip	ValueError: Invalid dependency: GAP-074
+gap-register	gaps>81>related_ledger_entries>1:empty;review_coverage>545>anchor:empty	ValueError: Unknown ledger entry: GAP-082
+gap-register	review_coverage>4>related_gap_ids>3:empty;gaps>18>area:delete-key	ValueError: Coverage references an unknown gap
+gap-register	review_coverage>29>line_start:delete-key;gaps>46>sources>1>line_end:delete-key	KeyError: 'line_end'
+gap-register	review_coverage>47>related_gap_ids:drop-first;gaps>84>sources>1>line_end:inc	ValueError: Invalid source location: GAP-085
+gap-register	review_coverage>71>line_start:inc;review_coverage>126>related_gap_ids:drop-last	ValueError: Invalid or duplicate review coverage entry
+gap-register	review_coverage>114>related_gap_ids>4:empty;review_coverage>241>heading:flip	ValueError: Coverage references an unknown gap
+gap-register	review_coverage>134>heading:flip;review_coverage>366>heading:flip	ValueError: Invalid or duplicate review coverage entry
+gap-register	review_coverage>156>anchor:delete-key;review_coverage>545>anchor:empty	KeyError: 'anchor'
+gap-register	review_coverage>190>related_gap_ids>0:empty;gaps>18>area:delete-key	ValueError: Coverage references an unknown gap
+gap-register	review_coverage>211>related_gap_ids>4:empty;gaps>46>sources>1>line_end:delete-key	KeyError: 'line_end'
+gap-register	review_coverage>234>path:flip;gaps>84>sources>1>line_end:inc	ValueError: Invalid source location: GAP-085
+gap-register	review_coverage>262>heading:delete-key;review_coverage>126>related_gap_ids:drop-last	KeyError: 'heading'
+gap-register	review_coverage>289>related_gap_ids>0:empty;review_coverage>241>heading:flip	ValueError: Invalid or duplicate review coverage entry
+gap-register	review_coverage>305>heading:delete-key;review_coverage>366>heading:flip	KeyError: 'heading'
+gap-register	review_coverage>333>line_start:delete-key;review_coverage>545>anchor:empty	KeyError: 'line_start'
+gap-register	review_coverage>355>path:delete-key;gaps>18>area:delete-key	KeyError: 'path'
+gap-register	review_coverage>376>path:empty;gaps>46>sources>1>line_end:delete-key	KeyError: 'line_end'
+gap-register	review_coverage>400>related_gap_ids>0:empty;gaps>84>sources>1>line_end:inc	ValueError: Invalid source location: GAP-085
+gap-register	review_coverage>461>anchor:delete-key;review_coverage>126>related_gap_ids:drop-last	KeyError: 'anchor'
+gap-register	review_coverage>487>related_gap_ids:delete-key;review_coverage>241>heading:flip	ValueError: Invalid or duplicate review coverage entry
+gap-register	review_coverage>527>line_end:inc;review_coverage>366>heading:flip	ValueError: Invalid or duplicate review coverage entry
+gap-register	review_coverage>559>path:delete-key;review_coverage>545>anchor:empty	KeyError: 'path'

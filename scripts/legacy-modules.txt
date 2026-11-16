@@ -39,7 +39,6 @@ scripts/native_settings_transition_cases.py  # live bytes compared with a record
 scripts/peer_tolerance_run.py
 scripts/prepare_native_cases.py
 scripts/protocol_capture.py  # live bytes compared with a recorded hash
-scripts/render-protocol-gap-analysis.py
 scripts/test_alias_record_v2.py
 scripts/test_classic_proxy_rehearsal.py
 scripts/test_mxd_direct_ack.py
