@@ -37,6 +37,27 @@ LINE = re.compile(
 ROWS = read_table(TABLE) if TABLE.exists() else []
 
 
+def outcome(ending_text: str) -> str:
+    """Reduce an ending to what stays true as the register is revised.
+
+    A fault that the checks do not catch ends ``ok`` followed by a digest of
+    the result, and that digest covers the live register, which changes with
+    every audit revision. Only the fact that the checks passed is pinned; a
+    fault that is caught ends with its message, which is compared in full.
+
+    Parameters
+    ----------
+    ending_text : str
+        The recorded or observed ending.
+
+    Returns
+    -------
+    str
+        ``ok`` for a passing ending, otherwise the ending unchanged.
+    """
+    return "ok" if ending_text.startswith("ok ") else ending_text
+
+
 def renderer() -> types.ModuleType:
     """Load the renderer, whose file name has a hyphen.
 
@@ -115,4 +136,4 @@ class GapAnalysisTests:
         """Each recorded fault, alone or paired, ends with the recorded message."""
         assert subject == SUBJECT, "only the register is recorded"
         state = fault_state(load_register(), faults)
-        assert ending(check, state) == expected, "ending differs"
+        assert outcome(ending(check, state)) == outcome(expected), "ending differs"
