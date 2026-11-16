@@ -11,7 +11,6 @@
 scripts/alias_record_v2.py
 scripts/build-shx.py
 scripts/capture_shx_session.py
-scripts/classic_login_proxy.py
 scripts/mothra_root.py
 scripts/native_121_default_cases.py  # live bytes compared with a recorded hash
 scripts/native_ban_control_cases.py  # live bytes compared with a recorded hash
@@ -51,11 +50,7 @@ scripts/serve_shx_fixture.py
 scripts/snapshot_native_hfs.py
 scripts/test_account_attribute.py
 scripts/test_alias_record_v2.py
-scripts/test_classic_login_proxy.py
-scripts/test_classic_native_baseline.py
 scripts/test_classic_proxy_rehearsal.py
-scripts/test_classic_roster_subject_115.py
-scripts/test_classic_server_name_162.py
 scripts/test_mac_peer_first_session.py
 scripts/test_mac_peer_isolated_session.py
 scripts/test_mothra_root.py
@@ -102,17 +97,10 @@ scripts/test_request500_client_source.py
 scripts/test_snapshot_native_hfs.py
 scripts/test_synhx_profiles.py
 scripts/test_verify_classic_account_constructors.py
-scripts/test_verify_classic_field161_matrix.py
 scripts/test_verify_native_path_fields.py
 scripts/verify-shx-login-fragment.py
 scripts/verify-synhx-profiles.py
 scripts/verify_account_attribute.py
-scripts/verify_classic_account_constructors.py
-scripts/verify_classic_field161_matrix.py
-scripts/verify_classic_native_baseline.py
-scripts/verify_classic_proxy_rehearsal.py
-scripts/verify_classic_roster_subject_115.py
-scripts/verify_classic_server_name_162.py
 scripts/verify_mac_peer_first_session.py
 scripts/verify_mac_peer_isolated_session.py
 scripts/verify_mxd_classic_login.py
@@ -145,3 +133,5 @@ scripts/verify_native_settings_transition.py  # live bytes compared with a recor
 scripts/verify_native_ui_focus.py
 scripts/verify_peer_tolerance.py
 scripts/verify_request500_client_source.py
+scripts/test_verify_classic_field161_matrix.py
+scripts/verify_classic_field161_matrix.py

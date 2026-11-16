@@ -1,0 +1,110 @@
+classic-constructors		ok d4c88e4977b411ce
+classic-constructors	b36-preparation:delete-key	KeyError: 'b36-preparation'
+classic-constructors	b37-report>records>0>result>structuredContent>language_id:empty	ValueError: program identity changed
+classic-constructors	b37-report>records>0>result>structuredContent>min_address:flip	ValueError: program identity changed
+classic-constructors	b37-report>records>11>result>structuredContent>code:delete-key	ValueError: missing decompile 100b28a0
+classic-constructors	b37-report>records>12>arguments:delete-key	ValueError: missing decompile 100cf2bc
+classic-constructors	b37-report>records>14>result>structuredContent>project_path:empty	ValueError: program identity changed
+classic-constructors	b37-report>records>14>result>structuredContent>endian:flip	ValueError: program identity changed
+classic-constructors	b37-report>records>14>result>structuredContent>function_count:inc	ValueError: program identity changed
+classic-constructors	b37-report>records>14>result>isError:not	ValueError: retained tool error
+classic-constructors	b37-followup>queries>0>result:delete-key	ValueError: missing structured tool result
+classic-constructors	b37-followup>queries>0>result>structuredContent>name:flip	ValueError: program identity changed
+classic-constructors	b37-followup>queries>0>result>structuredContent>processor:delete-key	ValueError: program identity changed
+classic-constructors	b37-followup>queries>0>result>structuredContent>max_address:empty	ValueError: program identity changed
+classic-constructors	b37-followup>queries>0>result>structuredContent>sha256:delete-key	ValueError: program identity changed
+classic-constructors	b37-followup>queries>2>result>structuredContent>endian:flip	ValueError: program identity changed
+classic-constructors	b37-followup>queries>2>result>structuredContent>function_count:inc	ValueError: program identity changed
+classic-constructors	b37-followup>queries>2>result>isError:not	ValueError: retained tool error
+classic-constructors	b38-report>runs:delete-key	KeyError: 'runs'
+classic-constructors	b38-report>runs>0>queries>0>result>structuredContent>executable_format:empty	ValueError: program identity changed
+classic-constructors	b38-report>runs>0>queries>0>result>structuredContent>image_base:flip	ValueError: program identity changed
+classic-constructors	b38-report>runs>0>queries>0>result>structuredContent>entry_points:drop-last	ValueError: program identity changed
+classic-constructors	b38-report>runs>0>queries>1>arguments>address:flip	ValueError: missing decompile 1000bfa0
+classic-constructors	b38-report>runs>0>queries>1>result>structuredContent:delete-key	ValueError: missing structured tool result
+classic-constructors	b38-report>runs>0>queries>2>tool:empty	ValueError: missing decompile 1000c800
+classic-constructors	b38-report>runs>0>queries>3>result>structuredContent>language_id:delete-key	ValueError: program identity changed
+classic-constructors	b38-report>runs>0>queries>3>result>structuredContent>image_base:empty	ValueError: program identity changed
+classic-constructors	b38-report>runs>0>queries>3>result>structuredContent>entry_points:drop-last	ValueError: program identity changed
+classic-constructors	b38-report>runs>1>queries>0>result>structuredContent>executable_path:empty	ValueError: program identity changed
+classic-constructors	b38-report>runs>1>queries>0>result>structuredContent>entry_points:delete-key	ValueError: program identity changed
+classic-constructors	b38-report>runs>1>queries>3>result>structuredContent>executable_format:delete-key	ValueError: program identity changed
+classic-constructors	b38-report>runs>1>queries>3>result>structuredContent>pointer_size:inc	ValueError: program identity changed
+classic-constructors	b38-report>runs>1>queries>3>result>structuredContent>entry_points>0:flip	ValueError: program identity changed
+classic-constructors	b38-report>runs>1>status:delete-key	ValueError: headless query run incomplete
+classic-constructors	b38-report>runs>2>queries>0>result>structuredContent>project_path:flip	ValueError: program identity changed
+classic-constructors	b38-report>runs>2>queries>0>result>structuredContent>endian:delete-key	ValueError: program identity changed
+classic-constructors	b38-report>runs>2>queries>0>result>structuredContent>function_count:delete-key	ValueError: program identity changed
+classic-constructors	b38-report>runs>2>queries>2>result>structuredContent>language_id:delete-key	ValueError: program identity changed
+classic-constructors	b38-report>runs>2>queries>2>result>structuredContent>image_base:empty	ValueError: program identity changed
+classic-constructors	b38-report>runs>2>queries>2>result>structuredContent>entry_points:drop-last	ValueError: program identity changed
+classic-constructors	b38-report>runs>2>status:empty	ValueError: headless query run incomplete
+classic-constructors	b38-report>runs>3>queries>0>result>structuredContent>project_path:empty	ValueError: program identity changed
+classic-constructors	b38-report>runs>3>queries>0>result>structuredContent>endian:delete-key	ValueError: program identity changed
+classic-constructors	b38-report>runs>3>queries>0>result>isError:not	ValueError: retained tool error
+classic-constructors	b38-report>runs>3>queries>3>result>structuredContent>executable_path:delete-key	ValueError: program identity changed
+classic-constructors	b38-report>runs>3>queries>3>result>structuredContent>endian:flip	ValueError: program identity changed
+classic-constructors	b38-report>runs>3>queries>3>result>structuredContent>function_count:inc	ValueError: program identity changed
+classic-constructors	b38-report>runs>3>queries:drop-last	ValueError: program identity changed
+classic-constructors	b38-report>runs>4>queries>0>result:delete-key	ValueError: missing structured tool result
+classic-constructors	b38-report>runs>4>queries>0>result>structuredContent>name:flip	ValueError: program identity changed
+classic-constructors	b38-report>runs>4>queries>0>result>structuredContent>compiler_spec:empty	ValueError: program identity changed
+classic-constructors	b38-report>runs>4>queries>0>result>structuredContent>max_address:empty	ValueError: program identity changed
+classic-constructors	b38-report>runs>4>queries>0>result>structuredContent>sha256:delete-key	ValueError: program identity changed
+classic-constructors	b38-report>runs>4>queries>2>result>structuredContent>project_path:empty	ValueError: program identity changed
+classic-constructors	b38-report>runs>4>queries>2>result>structuredContent>endian:flip	ValueError: program identity changed
+classic-constructors	b38-report>runs>4>queries>2>result>structuredContent>function_count:inc	ValueError: program identity changed
+classic-constructors	b38-report>runs>4>queries>2>result>isError:not	ValueError: retained tool error
+classic-constructors	b39-report>runs>0>queries>0>result>structuredContent>processor:empty	ValueError: program identity changed
+classic-constructors	b39-report>runs>0>queries>0>result>structuredContent>function_count:delete-key	ValueError: program identity changed
+classic-constructors	b39-report>runs>0>queries>1>result>structuredContent>code:empty	ValueError: conditional old-login changed
+classic-constructors	b39-report>runs>0>queries>2>result>structuredContent>executable_path:empty	ValueError: program identity changed
+classic-constructors	b39-report>runs>0>queries>2>result>structuredContent>pointer_size:delete-key	ValueError: program identity changed
+classic-constructors	b39-report>runs>0>queries>2>result>structuredContent>entry_points:delete-key	ValueError: program identity changed
+classic-constructors	b39-report>runs>1>queries>0>result:delete-key	ValueError: missing structured tool result
+classic-constructors	b39-report>runs>1>queries>0>result>structuredContent>name:empty	ValueError: program identity changed
+classic-constructors	b39-report>runs>1>queries>0>result>structuredContent>processor:delete-key	ValueError: program identity changed
+classic-constructors	b39-report>runs>1>queries>0>result>structuredContent>max_address:empty	ValueError: program identity changed
+classic-constructors	b39-report>runs>1>queries>0>result>structuredContent>sha256:delete-key	ValueError: program identity changed
+classic-constructors	b39-report>runs>1>queries>3>result>structuredContent>name:empty	ValueError: program identity changed
+classic-constructors	b39-report>runs>1>queries>3>result>structuredContent>processor:flip	ValueError: program identity changed
+classic-constructors	b39-report>runs>1>queries>3>result>structuredContent>memory_size:delete-key	ValueError: program identity changed
+classic-constructors	b36-preparation>container>tag:delete-key	ok d4c88e4977b411ce
+classic-constructors	b36-preparation>container>instantiated_sections:inc	ok d4c88e4977b411ce
+classic-constructors	b36-preparation>container>sections>0>unpacked_size:delete-key	ok d4c88e4977b411ce
+classic-constructors	b36-preparation>container>sections>1>header_file_offset:delete-key	ok d4c88e4977b411ce
+classic-constructors	b36-preparation:delete-key;b37-report>records>14>result>structuredContent>function_count:inc	KeyError: 'b36-preparation'
+classic-constructors	b37-report>records>0>result>structuredContent>min_address:flip;b38-report>runs:delete-key	ValueError: program identity changed
+classic-constructors	b37-report>records>12>arguments:delete-key;b38-report>runs>1>queries>0>result>structuredContent>executable_path:empty	ValueError: missing decompile 100cf2bc
+classic-constructors	b37-report>records>14>result>structuredContent>endian:flip;b38-report>runs>2>queries>2>result>structuredContent>image_base:empty	ValueError: program identity changed
+classic-constructors	b37-report>records>14>result>isError:not;b38-report>runs>4>queries>0>result:delete-key	ValueError: retained tool error
+classic-constructors	b37-followup>queries>0>result>structuredContent>name:flip;b39-report>runs>0>queries>0>result>structuredContent>function_count:delete-key	ValueError: program identity changed
+classic-constructors	b37-followup>queries>0>result>structuredContent>max_address:empty;b39-report>runs>1>queries>3>result>structuredContent>name:empty	ValueError: program identity changed
+classic-constructors	b37-followup>queries>2>result>structuredContent>endian:flip;b37-report>records>14>result>structuredContent>function_count:inc	ValueError: program identity changed
+classic-constructors	b37-followup>queries>2>result>isError:not;b38-report>runs:delete-key	ValueError: retained tool error
+classic-constructors	b38-report>runs>0>queries>0>result>structuredContent>executable_format:empty;b38-report>runs>1>queries>0>result>structuredContent>executable_path:empty	ValueError: program identity changed
+classic-constructors	b38-report>runs>0>queries>0>result>structuredContent>entry_points:drop-last;b38-report>runs>2>queries>2>result>structuredContent>image_base:empty	ValueError: program identity changed
+classic-constructors	b38-report>runs>0>queries>1>result>structuredContent:delete-key;b38-report>runs>4>queries>0>result:delete-key	ValueError: missing structured tool result
+classic-constructors	b38-report>runs>0>queries>3>result>structuredContent>language_id:delete-key;b39-report>runs>0>queries>0>result>structuredContent>function_count:delete-key	ValueError: program identity changed
+classic-constructors	b38-report>runs>0>queries>3>result>structuredContent>entry_points:drop-last;b39-report>runs>1>queries>3>result>structuredContent>name:empty	ValueError: program identity changed
+classic-constructors	b38-report>runs>1>queries>0>result>structuredContent>entry_points:delete-key;b37-report>records>14>result>structuredContent>function_count:inc	ValueError: program identity changed
+classic-constructors	b38-report>runs>1>queries>3>result>structuredContent>pointer_size:inc;b38-report>runs:delete-key	KeyError: 'runs'
+classic-constructors	b38-report>runs>1>status:delete-key;b38-report>runs>1>queries>0>result>structuredContent>executable_path:empty	ValueError: headless query run incomplete
+classic-constructors	b38-report>runs>2>queries>0>result>structuredContent>endian:delete-key;b38-report>runs>2>queries>2>result>structuredContent>image_base:empty	ValueError: program identity changed
+classic-constructors	b38-report>runs>2>queries>2>result>structuredContent>language_id:delete-key;b38-report>runs>4>queries>0>result:delete-key	ValueError: program identity changed
+classic-constructors	b38-report>runs>2>queries>2>result>structuredContent>entry_points:drop-last;b39-report>runs>0>queries>0>result>structuredContent>function_count:delete-key	ValueError: program identity changed
+classic-constructors	b38-report>runs>3>queries>0>result>structuredContent>project_path:empty;b39-report>runs>1>queries>3>result>structuredContent>name:empty	ValueError: program identity changed
+classic-constructors	b38-report>runs>3>queries>0>result>isError:not;b37-report>records>14>result>structuredContent>function_count:inc	ValueError: program identity changed
+classic-constructors	b38-report>runs>3>queries>3>result>structuredContent>endian:flip;b38-report>runs:delete-key	KeyError: 'runs'
+classic-constructors	b38-report>runs>3>queries:drop-last;b38-report>runs>1>queries>0>result>structuredContent>executable_path:empty	ValueError: program identity changed
+classic-constructors	b38-report>runs>4>queries>0>result>structuredContent>name:flip;b38-report>runs>2>queries>2>result>structuredContent>image_base:empty	ValueError: program identity changed
+classic-constructors	b38-report>runs>4>queries>0>result>structuredContent>max_address:empty;b38-report>runs>4>queries>0>result:delete-key	ValueError: missing structured tool result
+classic-constructors	b38-report>runs>4>queries>2>result>structuredContent>project_path:empty;b39-report>runs>0>queries>0>result>structuredContent>function_count:delete-key	ValueError: program identity changed
+classic-constructors	b38-report>runs>4>queries>2>result>structuredContent>function_count:inc;b39-report>runs>1>queries>3>result>structuredContent>name:empty	ValueError: program identity changed
+classic-constructors	b39-report>runs>0>queries>0>result>structuredContent>processor:empty;b37-report>records>14>result>structuredContent>function_count:inc	ValueError: program identity changed
+classic-constructors	b39-report>runs>0>queries>1>result>structuredContent>code:empty;b38-report>runs:delete-key	KeyError: 'runs'
+classic-constructors	b39-report>runs>0>queries>2>result>structuredContent>pointer_size:delete-key;b38-report>runs>1>queries>0>result>structuredContent>executable_path:empty	ValueError: program identity changed
+classic-constructors	b39-report>runs>1>queries>0>result:delete-key;b38-report>runs>2>queries>2>result>structuredContent>image_base:empty	ValueError: program identity changed
+classic-constructors	b39-report>runs>1>queries>0>result>structuredContent>processor:delete-key;b38-report>runs>4>queries>0>result:delete-key	ValueError: missing structured tool result
+classic-constructors	b39-report>runs>1>queries>0>result>structuredContent>sha256:delete-key;b39-report>runs>0>queries>0>result>structuredContent>function_count:delete-key	ValueError: program identity changed
+classic-constructors	b39-report>runs>1>queries>3>result>structuredContent>processor:flip;b39-report>runs>1>queries>3>result>structuredContent>name:empty	ValueError: program identity changed

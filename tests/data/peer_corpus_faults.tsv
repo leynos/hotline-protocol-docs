@@ -1,0 +1,353 @@
+classic-baseline		ok 67eefef8912ec5b2
+classic-baseline	as-run/classic_login_proxy.py.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-14/c
+classic-baseline	b46/a7-preflight/report.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+classic-baseline	b46/host.pcap:empty-file	ValueError: Truncated PCAP header
+classic-baseline	b46/proxy/report.json>variant:flip	ValueError: Proxy route/variant
+classic-baseline	b46/proxy/report.json>routes>data:inc	ValueError: Proxy route/variant
+classic-baseline	b46/proxy/report.json>observation>state:delete-key	KeyError: "'state'"
+classic-baseline	b46/proxy/report.json>observation>relay_teardown_ns:inc	ok 81e93e75f63bb2c2
+classic-baseline	b46/proxy/report.json>entries>0>forwarded_hex:flip	ValueError: Proxy altered baseline bytes
+classic-baseline	b46/proxy/report.json>entries>1>forwarded_hex:delete-key	ValueError: Proxy altered baseline bytes
+classic-baseline	b46/proxy/report.json>entries>2>forwarded_hex:flip	ValueError: Proxy altered baseline bytes
+classic-baseline	b46/proxy/report.json>entries>3>forwarded_hex:delete-key	ValueError: Proxy altered baseline bytes
+classic-baseline	b46/proxy/report.json>entries>4>forwarded_hex:flip	ValueError: Proxy altered baseline bytes
+classic-baseline	b46/server-guest-pre.pcap:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-14/c
+classic-baseline	b47/proxy/report.json>entries>3>raw_hex:flip	ValueError: Proxy altered baseline bytes
+classic-baseline	b47/proxy/report.json>entries>8>raw_hex:flip	ValueError: Proxy altered baseline bytes
+classic-baseline	b47/proxy/report.json>entries>13>raw_hex:flip	ValueError: Proxy altered baseline bytes
+classic-baseline	manifest.json>source>proxy_path:flip	ValueError: As-run proxy provenance
+classic-baseline	manifest.json>source>proxy_snapshot_path:delete-key	KeyError: "'proxy_snapshot_path'"
+classic-baseline	manifest.json>runs>b46>routes>control>0>2:inc	ValueError: Missing or reused route SYN
+classic-baseline	manifest.json>runs>b46>routes>control>3>3:empty	ValueError: Missing or reused route SYN
+classic-baseline	manifest.json>runs>b47>routes>control>2:drop-first	KeyError: "'127.0.0.1'"
+classic-baseline	manifest.json>runs>b47>routes>data>1>1:empty	ValueError: Missing or reused route SYN
+classic-baseline	manifest.json>runs>b47>routes>data>4>3:flip	ValueError: Missing or reused route SYN
+classic-baseline	as-run.txt:empty-file	ok 67eefef8912ec5b2
+classic-baseline	b46/a7-postflight-check.json>utc:delete-key	ok 67eefef8912ec5b2
+classic-baseline	b46/a7-postflight-check.json>actions:delete-key	ok 67eefef8912ec5b2
+classic-baseline	b46/a7-postflight-check.json>files:inc	ok 67eefef8912ec5b2
+classic-baseline	as-run/classic_login_proxy.py.txt:delete-file;b46/proxy/report.json>entries>0>forwarded_hex:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-14/c
+classic-baseline	b46/a7-preflight/report.json:empty-file;b46/server-guest-pre.pcap:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-14/c
+classic-baseline	b46/host.pcap:empty-file;manifest.json>source>proxy_snapshot_path:delete-key	KeyError: "'proxy_snapshot_path'"
+classic-baseline	b46/proxy/report.json>variant:flip;manifest.json>runs>b47>routes>data>4>3:flip	ValueError: Proxy route/variant
+classic-baseline	b46/proxy/report.json>observation>state:delete-key;b46/proxy/report.json>entries>2>forwarded_hex:flip	KeyError: "'state'"
+classic-baseline	b46/proxy/report.json>observation>relay_teardown_ns:inc;b47/proxy/report.json>entries>8>raw_hex:flip	ValueError: Proxy altered baseline bytes
+classic-baseline	b46/proxy/report.json>entries>0>forwarded_hex:flip;manifest.json>runs>b46>routes>control>3>3:empty	ValueError: Missing or reused route SYN
+classic-baseline	b46/proxy/report.json>entries>1>forwarded_hex:delete-key;b46/a7-preflight/report.json:empty-file	ValueError: Proxy altered baseline bytes
+classic-baseline	b46/proxy/report.json>entries>2>forwarded_hex:flip;b46/proxy/report.json>observation>relay_teardown_ns:inc	ValueError: Proxy altered baseline bytes
+classic-baseline	b46/proxy/report.json>entries>3>forwarded_hex:delete-key;b46/proxy/report.json>entries>4>forwarded_hex:flip	ValueError: Proxy altered baseline bytes
+classic-baseline	b46/proxy/report.json>entries>4>forwarded_hex:flip;manifest.json>source>proxy_path:flip	ValueError: As-run proxy provenance
+classic-baseline	b46/server-guest-pre.pcap:delete-file;manifest.json>runs>b47>routes>data>1>1:empty	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-14/c
+classic-baseline	b47/proxy/report.json>entries>3>raw_hex:flip;b46/proxy/report.json>variant:flip	ValueError: Proxy route/variant
+classic-baseline	b47/proxy/report.json>entries>8>raw_hex:flip;b46/proxy/report.json>entries>1>forwarded_hex:delete-key	ValueError: Proxy altered baseline bytes
+classic-baseline	b47/proxy/report.json>entries>13>raw_hex:flip;b47/proxy/report.json>entries>3>raw_hex:flip	ValueError: Proxy altered baseline bytes
+classic-baseline	manifest.json>source>proxy_path:flip;manifest.json>runs>b46>routes>control>0>2:inc	ValueError: As-run proxy provenance
+classic-baseline	manifest.json>source>proxy_snapshot_path:delete-key;as-run/classic_login_proxy.py.txt:delete-file	KeyError: "'proxy_snapshot_path'"
+classic-baseline	manifest.json>runs>b46>routes>control>0>2:inc;b46/proxy/report.json>observation>state:delete-key	ValueError: Missing or reused route SYN
+classic-baseline	manifest.json>runs>b46>routes>control>3>3:empty;b46/proxy/report.json>entries>3>forwarded_hex:delete-key	ValueError: Missing or reused route SYN
+classic-baseline	manifest.json>runs>b47>routes>control>2:drop-first;b47/proxy/report.json>entries>13>raw_hex:flip	KeyError: "'127.0.0.1'"
+classic-baseline	manifest.json>runs>b47>routes>data>1>1:empty;manifest.json>runs>b47>routes>control>2:drop-first	KeyError: "'127.0.0.1'"
+classic-baseline	manifest.json>runs>b47>routes>data>4>3:flip;b46/host.pcap:empty-file	ValueError: Truncated PCAP header
+classic-rehearsal		ok 836700a9e52e6dcc
+classic-rehearsal	b30/a7-check.json:delete-file	AssertionError:
+classic-rehearsal	b30/a7-check.json>completed_actions:delete-key	KeyError: "'completed_actions'"
+classic-rehearsal	b30/host.pcap:delete-file	AssertionError:
+classic-rehearsal	b30/namespace.pcap:empty-file	AssertionError:
+classic-rehearsal	b30/outcome.json>namespace_pcap_bytes:delete-key	KeyError: "'namespace_pcap_bytes'"
+classic-rehearsal	b30/recorder-stop-transcription.txt:delete-file	AssertionError:
+classic-rehearsal	b31/a7-check.json:delete-file	AssertionError:
+classic-rehearsal	b31/a7-check.json>completed_actions:inc	AssertionError:
+classic-rehearsal	b31/connect-action-log.json:delete-file	AssertionError:
+classic-rehearsal	b31/connect-action-log.json>ambient_modifier_state:delete-key	KeyError: "'ambient_modifier_state'"
+classic-rehearsal	b31/connect-action-log.json>ambient_modifier_state:empty	AssertionError:
+classic-rehearsal	b31/namespace.pcap:delete-file	AssertionError:
+classic-rehearsal	b31/outcome.json:delete-file	AssertionError:
+classic-rehearsal	b31/outcome.json>connect_clicks:inc	AssertionError:
+classic-rehearsal	b31/outcome.json>client_dialog_still_open_after_click:not	AssertionError:
+classic-rehearsal	b31/outcome.json>namespace_pcap_bytes:delete-key	KeyError: "'namespace_pcap_bytes'"
+classic-rehearsal	b31/proxy-unit-ready.txt:delete-file	AssertionError:
+classic-rehearsal	b31/proxy-unit-stopped.txt:delete-file	AssertionError:
+classic-rehearsal	b31/x11_input.as-run.py.txt:delete-file	AssertionError:
+classic-rehearsal	manifest.json:delete-file	AssertionError:
+classic-rehearsal	manifest.json>classic_field_tolerance_proved:not	AssertionError:
+classic-rehearsal	manifest.json>b29>fresh_netns_inode:inc	AssertionError:
+classic-rehearsal	manifest.json>b30>native_or_classic_proxy_connection:delete-key	KeyError: "'native_or_classic_proxy_connection'"
+classic-rehearsal	manifest.json>b31>native_or_classic_proxy_connection:not	AssertionError:
+classic-rehearsal	synthetic/launch.txt:delete-file	AssertionError:
+classic-rehearsal	synthetic/ready.json>status:delete-key	KeyError: "'status'"
+classic-rehearsal	synthetic/ready.json>variant:delete-key	KeyError: "'variant'"
+classic-rehearsal	synthetic/ready.json>variant:empty	AssertionError:
+classic-rehearsal	synthetic/ready.json>routes>control:inc	AssertionError:
+classic-rehearsal	synthetic/ready.json>routes>data:inc	AssertionError:
+classic-rehearsal	synthetic/ready.json>listeners>control:inc	AssertionError:
+classic-rehearsal	synthetic/rehearse.py.txt:delete-file	AssertionError:
+classic-rehearsal	synthetic/report.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+classic-rehearsal	synthetic/report.json>observation>ack_sent_monotonic_ns:inc	AssertionError:
+classic-rehearsal	synthetic/report.json>observation>valid_30_seconds:delete-key	KeyError: "'valid_30_seconds'"
+classic-rehearsal	synthetic/report.json>observation>forwarded_ack_sha256:flip	AssertionError:
+classic-rehearsal	synthetic/report.json>entries>1>event:flip	AssertionError:
+classic-rehearsal	synthetic/report.json>entries>1>raw_hex:empty	AssertionError:
+classic-rehearsal	synthetic/report.json>entries>2>raw_hex:delete-key	KeyError: "'raw_hex'"
+classic-rehearsal	synthetic/report.json>entries>4>event:flip	AssertionError:
+classic-rehearsal	synthetic/report.json>entries>4>raw_hex:empty	AssertionError:
+classic-rehearsal	synthetic/report.json>entries>5>raw_hex:delete-key	KeyError: "'raw_hex'"
+classic-rehearsal	synthetic/report.json>entries>6>forwarded_hex:flip	AssertionError:
+classic-rehearsal	synthetic/runner.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+classic-rehearsal	synthetic/runner.json>events>0>namespace_inode:inc	AssertionError:
+classic-rehearsal	synthetic/runner.json>events>0>interfaces>0:flip	AssertionError:
+classic-rehearsal	synthetic/runner.json>events>0>interfaces:drop-first	AssertionError:
+classic-rehearsal	synthetic/runner.json>events>1>proxy_pid:inc	AssertionError:
+classic-rehearsal	synthetic/runner.json>events>1>proxy_argv>3:flip	AssertionError:
+classic-rehearsal	synthetic/runner.json>events>1>proxy_argv:reverse	AssertionError:
+classic-rehearsal	synthetic/runner.json>events>8>final_proxy_pid:delete-key	KeyError: "'final_proxy_pid'"
+classic-rehearsal	synthetic/runner.json>events>8>final_exit:inc	AssertionError:
+classic-rehearsal	synthetic/runner.json>events:reverse	KeyError: "'namespace_inode'"
+classic-rehearsal	synthetic/summary.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+classic-rehearsal	synthetic/summary.json>proxy_pid_gone:not	AssertionError:
+classic-rehearsal	synthetic/summary.json>ack_to_teardown_seconds:delete-key	KeyError: "'ack_to_teardown_seconds'"
+classic-rehearsal	synthetic/summary.json>status:empty	AssertionError:
+classic-rehearsal	synthetic/unit-final-before-stop.txt:delete-file	AssertionError:
+classic-rehearsal	b30/a7-check.json>status:delete-key	ok 836700a9e52e6dcc
+classic-rehearsal	b30/a7-check.json>static_reply_ids_equal>0:inc	ok 836700a9e52e6dcc
+classic-rehearsal	b30/a7-check.json>static_reply_ids_equal>2:inc	ok 836700a9e52e6dcc
+classic-rehearsal	b30/a7-check.json>static_reply_ids_equal>5:inc	ok 836700a9e52e6dcc
+classic-rehearsal	b30/a7-check.json:delete-file;b31/a7-check.json>completed_actions:inc	AssertionError:
+classic-rehearsal	b30/host.pcap:delete-file;b31/proxy-unit-stopped.txt:delete-file	AssertionError:
+classic-rehearsal	b30/outcome.json>namespace_pcap_bytes:delete-key;synthetic/ready.json>variant:empty	AssertionError:
+classic-rehearsal	b31/a7-check.json:delete-file;synthetic/report.json>entries>1>raw_hex:empty	AssertionError:
+classic-rehearsal	b31/connect-action-log.json:delete-file;synthetic/runner.json>events>1>proxy_pid:inc	AssertionError:
+classic-rehearsal	b31/connect-action-log.json>ambient_modifier_state:empty;synthetic/unit-final-before-stop.txt:delete-file	AssertionError:
+classic-rehearsal	b31/outcome.json:delete-file;b31/connect-action-log.json>ambient_modifier_state:delete-key	AssertionError:
+classic-rehearsal	b31/outcome.json>client_dialog_still_open_after_click:not;manifest.json:delete-file	AssertionError:
+classic-rehearsal	b31/proxy-unit-ready.txt:delete-file;synthetic/ready.json>routes>data:inc	AssertionError:
+classic-rehearsal	b31/x11_input.as-run.py.txt:delete-file;synthetic/report.json>entries>4>event:flip	AssertionError:
+classic-rehearsal	manifest.json>classic_field_tolerance_proved:not;synthetic/runner.json>events>1>proxy_argv:reverse	AssertionError:
+classic-rehearsal	manifest.json>b30>native_or_classic_proxy_connection:delete-key;b30/a7-check.json>completed_actions:delete-key	KeyError: "'native_or_classic_proxy_connection'"
+classic-rehearsal	synthetic/launch.txt:delete-file;b31/namespace.pcap:delete-file	AssertionError:
+classic-rehearsal	synthetic/ready.json>variant:delete-key;manifest.json>b29>fresh_netns_inode:inc	KeyError: "'variant'"
+classic-rehearsal	synthetic/ready.json>routes>control:inc;synthetic/rehearse.py.txt:delete-file	AssertionError:
+classic-rehearsal	synthetic/ready.json>listeners>control:inc;synthetic/report.json>entries>5>raw_hex:delete-key	AssertionError:
+classic-rehearsal	synthetic/report.json:empty-file;synthetic/runner.json>events>8>final_exit:inc	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+classic-rehearsal	synthetic/report.json>observation>valid_30_seconds:delete-key;b30/namespace.pcap:empty-file	KeyError: "'valid_30_seconds'"
+classic-rehearsal	synthetic/report.json>entries>1>event:flip;b31/outcome.json>connect_clicks:inc	AssertionError:
+classic-rehearsal	synthetic/report.json>entries>2>raw_hex:delete-key;manifest.json>b31>native_or_classic_proxy_connection:not	KeyError: "'raw_hex'"
+classic-rehearsal	synthetic/report.json>entries>4>raw_hex:empty;synthetic/report.json>observation>ack_sent_monotonic_ns:inc	AssertionError:
+classic-rehearsal	synthetic/report.json>entries>6>forwarded_hex:flip;synthetic/runner.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+classic-rehearsal	synthetic/runner.json>events>0>namespace_inode:inc;synthetic/summary.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+classic-rehearsal	synthetic/runner.json>events>0>interfaces:drop-first;b30/recorder-stop-transcription.txt:delete-file	AssertionError:
+classic-rehearsal	synthetic/runner.json>events>1>proxy_argv>3:flip;b31/outcome.json>namespace_pcap_bytes:delete-key	AssertionError:
+classic-rehearsal	synthetic/runner.json>events>8>final_proxy_pid:delete-key;synthetic/ready.json>status:delete-key	KeyError: "'status'"
+classic-rehearsal	synthetic/runner.json>events:reverse;synthetic/report.json>observation>forwarded_ack_sha256:flip	KeyError: "'namespace_inode'"
+classic-rehearsal	synthetic/summary.json>proxy_pid_gone:not;synthetic/runner.json>events>0>interfaces>0:flip	AssertionError:
+classic-rehearsal	synthetic/summary.json>status:empty;synthetic/summary.json>ack_to_teardown_seconds:delete-key	AssertionError:
+classic-roster-115		ok d98e1b5cf1176c4f
+classic-roster-115	as-run/classic_login_proxy.py.txt:delete-file	ValueError: inventory path
+classic-roster-115	as-run/pcap_tcp.py.txt:delete-file	ValueError: inventory path
+classic-roster-115	lock-receipt.json>lock_dev:delete-key	KeyError: "'lock_dev'"
+classic-roster-115	lock-receipt.json>proc_fd3_before:empty	ValueError: managed lock identity
+classic-roster-115	lock-receipt.json>after_stop_state:flip	ValueError: managed lock busy/free
+classic-roster-115	lock-receipt.json>evidence_status:empty	ValueError: lock proof limitation
+classic-roster-115	manifest.json>routes>control>2>1:flip	ValueError: Missing or reused route SYN
+classic-roster-115	manifest.json>routes>data>3:drop-last	ValueError: not enough values to unpack (expected 5, got 4)
+classic-roster-115	manifest.json>selection>namespace.pcap>routes>0>terminal_flags>1:inc	ValueError: selected tail
+classic-roster-115	pcaps/host.pcap:empty-file	ValueError: Truncated PCAP header
+classic-roster-115	pcaps/server-guest-post.pcap:empty-file	ValueError: Truncated PCAP header
+classic-roster-115	run/a7-postflight/report.json:delete-file	ValueError: inventory path
+classic-roster-115	run/a7-preflight/report.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+classic-roster-115	run/after-quit.png:delete-file	ValueError: inventory path
+classic-roster-115	run/host-ready-before-a7.json:delete-file	ValueError: inventory path
+classic-roster-115	run/host-ready-before-a7.json>netns_inode:inc	ValueError: capture readiness drift
+classic-roster-115	run/host-ready-before-a7.json>capture:flip	ValueError: capture path
+classic-roster-115	run/host-ready-before-a7.json>header24:empty	ValueError: capture readiness drift
+classic-roster-115	run/host-ready-before-a7.json>unit_properties>SubState:flip	ValueError: capture readiness drift
+classic-roster-115	run/host-ready-before-a7.json>unit_properties>MainPID:delete-key	KeyError: "'MainPID'"
+classic-roster-115	run/host-ready-before-connect.json>unit:empty	ValueError: capture readiness drift
+classic-roster-115	run/host-ready-before-connect.json>fd:inc	ValueError: capture readiness drift
+classic-roster-115	run/host-ready-before-connect.json>header24:flip	ValueError: capture readiness drift
+classic-roster-115	run/host-ready-before-connect.json>deadline_utc:empty	ValueError: capture readiness drift
+classic-roster-115	run/host-ready-before-connect.json>unit_properties>RuntimeMaxUSec:empty	ValueError: capture readiness drift
+classic-roster-115	run/host-ready-launch.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+classic-roster-115	run/host-ready-launch.json>unit:delete-key	KeyError: "'unit'"
+classic-roster-115	run/host-ready-launch.json>fd:delete-key	KeyError: "'fd'"
+classic-roster-115	run/host-ready-launch.json>inode:inc	ValueError: capture readiness drift
+classic-roster-115	run/host-ready-launch.json>deadline_utc:flip	ValueError: capture readiness drift
+classic-roster-115	run/host-ready-launch.json>unit_properties>SubState:empty	ValueError: capture readiness drift
+classic-roster-115	run/host-ready-launch.json>unit_properties>MainPID:flip	ValueError: capture readiness drift
+classic-roster-115	run/listeners-terminal.txt:delete-file	ValueError: inventory path
+classic-roster-115	run/ns-ready-before-a7.json>unit:flip	ValueError: capture readiness drift
+classic-roster-115	run/ns-ready-before-a7.json>fd:inc	ValueError: capture readiness drift
+classic-roster-115	run/ns-ready-before-a7.json>dev:delete-key	KeyError: "'dev'"
+classic-roster-115	run/ns-ready-before-a7.json>deadline_utc:flip	ValueError: capture readiness drift
+classic-roster-115	run/ns-ready-before-a7.json>unit_properties>RuntimeMaxUSec:flip	ValueError: capture readiness drift
+classic-roster-115	run/ns-ready-before-a7.json>unit_properties>MainPID:empty	ValueError: capture readiness drift
+classic-roster-115	run/ns-ready-before-connect.json>unit:delete-key	KeyError: "'unit'"
+classic-roster-115	run/ns-ready-before-connect.json>netns_inode:inc	ValueError: capture readiness drift
+classic-roster-115	run/ns-ready-before-connect.json>inode:inc	ValueError: capture readiness drift
+classic-roster-115	run/ns-ready-before-connect.json>deadline_utc:delete-key	KeyError: "'deadline_utc'"
+classic-roster-115	run/ns-ready-before-connect.json>unit_properties>SubState:flip	ValueError: capture readiness drift
+classic-roster-115	run/ns-ready-before-connect.json>unit_properties>MainPID:flip	ValueError: capture readiness drift
+classic-roster-115	run/ns-ready-before-connect.json>unit_properties>KillMode:empty	ValueError: capture readiness drift
+classic-roster-115	run/ns-ready-launch.json>netns_inode:delete-key	KeyError: "'netns_inode'"
+classic-roster-115	run/ns-ready-launch.json>dev:inc	ValueError: capture readiness drift
+classic-roster-115	run/ns-ready-launch.json>header24:flip	ValueError: capture PID/FD/header
+classic-roster-115	run/ns-ready-launch.json>unit_properties>SubState:delete-key	KeyError: "'SubState'"
+classic-roster-115	run/ns-ready-launch.json>unit_properties>KillMode:delete-key	KeyError: "'KillMode'"
+classic-roster-115	run/ns-v6-routes-terminal.txt:delete-file	ValueError: inventory path
+classic-roster-115	run/proxy/report.json>status:delete-key	KeyError: "'status'"
+classic-roster-115	run/proxy/report.json>entries>3>event:flip	ValueError: proxy audit order
+classic-roster-115	run/proxy/report.json>entries>4>forwarded_hex:empty	ValueError: single proxy audit mutation
+classic-roster-115	run/proxy/report.json>entries>9>event:delete-key	KeyError: "'event'"
+classic-roster-115	run/proxy/report.json>entries>12>raw_hex:empty	ValueError: single proxy audit mutation
+classic-roster-115	run/proxy/report.json>entries>14>raw_hex:delete-key	KeyError: "'raw_hex'"
+classic-roster-115	ui-timing.json>screenshot_sha256:delete-key	KeyError: "'screenshot_sha256'"
+classic-roster-115	ui-timing.json>guest_delivery_packet_timestamp_us:delete-key	KeyError: "'guest_delivery_packet_timestamp_us'"
+classic-roster-115	lock-receipt.json>unit:delete-key	ok d98e1b5cf1176c4f
+classic-roster-115	lock-receipt.json>command>1:flip	ok d98e1b5cf1176c4f
+classic-roster-115	lock-receipt.json>command>3:empty	ok d98e1b5cf1176c4f
+classic-roster-115	lock-receipt.json>command>5:empty	ok d98e1b5cf1176c4f
+classic-roster-115	as-run/classic_login_proxy.py.txt:delete-file;manifest.json>routes>data>3:drop-last	ValueError: inventory path
+classic-roster-115	lock-receipt.json>lock_dev:delete-key;run/host-ready-before-a7.json>header24:empty	ValueError: capture readiness drift
+classic-roster-115	lock-receipt.json>after_stop_state:flip;run/host-ready-launch.json>fd:delete-key	KeyError: "'fd'"
+classic-roster-115	manifest.json>routes>control>2>1:flip;run/ns-ready-before-a7.json>unit_properties>RuntimeMaxUSec:flip	ValueError: capture readiness drift
+classic-roster-115	manifest.json>selection>namespace.pcap>routes>0>terminal_flags>1:inc;run/ns-ready-launch.json>dev:inc	ValueError: selected tail
+classic-roster-115	pcaps/server-guest-post.pcap:empty-file;run/proxy/report.json>entries>14>raw_hex:delete-key	ValueError: Truncated PCAP header
+classic-roster-115	run/a7-preflight/report.json:empty-file;manifest.json>routes>data>3:drop-last	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+classic-roster-115	run/host-ready-before-a7.json:delete-file;run/host-ready-before-a7.json>header24:empty	FileNotFoundError: run/host-ready-before-a7.json
+classic-roster-115	run/host-ready-before-a7.json>capture:flip;run/host-ready-launch.json>fd:delete-key	KeyError: "'fd'"
+classic-roster-115	run/host-ready-before-a7.json>unit_properties>SubState:flip;run/ns-ready-before-a7.json>unit_properties>RuntimeMaxUSec:flip	ValueError: capture readiness drift
+classic-roster-115	run/host-ready-before-connect.json>unit:empty;run/ns-ready-launch.json>dev:inc	ValueError: capture readiness drift
+classic-roster-115	run/host-ready-before-connect.json>header24:flip;run/proxy/report.json>entries>14>raw_hex:delete-key	ValueError: capture readiness drift
+classic-roster-115	run/host-ready-before-connect.json>unit_properties>RuntimeMaxUSec:empty;manifest.json>routes>data>3:drop-last	ValueError: capture readiness drift
+classic-roster-115	run/host-ready-launch.json>unit:delete-key;run/host-ready-before-a7.json>header24:empty	KeyError: "'unit'"
+classic-roster-115	run/host-ready-launch.json>inode:inc;run/host-ready-launch.json>fd:delete-key	KeyError: "'fd'"
+classic-roster-115	run/host-ready-launch.json>unit_properties>SubState:empty;run/ns-ready-before-a7.json>unit_properties>RuntimeMaxUSec:flip	ValueError: capture readiness drift
+classic-roster-115	run/listeners-terminal.txt:delete-file;run/ns-ready-launch.json>dev:inc	ValueError: inventory path
+classic-roster-115	run/ns-ready-before-a7.json>fd:inc;run/proxy/report.json>entries>14>raw_hex:delete-key	ValueError: capture readiness drift
+classic-roster-115	run/ns-ready-before-a7.json>deadline_utc:flip;manifest.json>routes>data>3:drop-last	ValueError: capture readiness drift
+classic-roster-115	run/ns-ready-before-a7.json>unit_properties>MainPID:empty;run/host-ready-before-a7.json>header24:empty	ValueError: capture readiness drift
+classic-roster-115	run/ns-ready-before-connect.json>netns_inode:inc;run/host-ready-launch.json>fd:delete-key	KeyError: "'fd'"
+classic-roster-115	run/ns-ready-before-connect.json>deadline_utc:delete-key;run/ns-ready-before-a7.json>unit_properties>RuntimeMaxUSec:flip	ValueError: capture readiness drift
+classic-roster-115	run/ns-ready-before-connect.json>unit_properties>MainPID:flip;run/ns-ready-launch.json>dev:inc	ValueError: capture readiness drift
+classic-roster-115	run/ns-ready-launch.json>netns_inode:delete-key;run/proxy/report.json>entries>14>raw_hex:delete-key	KeyError: "'netns_inode'"
+classic-roster-115	run/ns-ready-launch.json>header24:flip;manifest.json>routes>data>3:drop-last	ValueError: capture PID/FD/header
+classic-roster-115	run/ns-ready-launch.json>unit_properties>KillMode:delete-key;run/host-ready-before-a7.json>header24:empty	ValueError: capture readiness drift
+classic-roster-115	run/proxy/report.json>status:delete-key;run/host-ready-launch.json>fd:delete-key	KeyError: "'fd'"
+classic-roster-115	run/proxy/report.json>entries>4>forwarded_hex:empty;run/ns-ready-before-a7.json>unit_properties>RuntimeMaxUSec:flip	ValueError: capture readiness drift
+classic-roster-115	run/proxy/report.json>entries>12>raw_hex:empty;run/ns-ready-launch.json>dev:inc	ValueError: capture readiness drift
+classic-roster-115	ui-timing.json>screenshot_sha256:delete-key;run/proxy/report.json>entries>14>raw_hex:delete-key	KeyError: "'raw_hex'"
+classic-server-name-162		ok 45c168b3f4691f94
+classic-server-name-162	as-run/classic_login_proxy.py.txt:delete-file	ValueError: inventory path
+classic-server-name-162	as-run/pcap_tcp.py.txt:delete-file	ValueError: inventory path
+classic-server-name-162	b56/host-ready-before-a7.json>pid:delete-key	KeyError: "'pid'"
+classic-server-name-162	b56/host-ready-before-a7.json>fd:inc	ValueError: b56 host recorder readiness
+classic-server-name-162	b56/host-ready-before-a7.json>deadline_utc:empty	ValueError: b56 host recorder readiness
+classic-server-name-162	b56/host-ready-before-a7.json>unit_properties>RuntimeMaxUSec:empty	ValueError: b56 host recorder readiness
+classic-server-name-162	b56/host-ready-before-connect.json:delete-file	ValueError: inventory path
+classic-server-name-162	b56/host-ready-before-connect.json>netns_inode:inc	ValueError: b56 host recorder readiness
+classic-server-name-162	b56/host-ready-before-connect.json>dev:inc	ValueError: b56 host recorder identity drift
+classic-server-name-162	b56/host-ready-before-connect.json>unit_properties>SubState:delete-key	KeyError: "'SubState'"
+classic-server-name-162	b56/host-ready-before-connect.json>unit_properties>KillMode:empty	ValueError: b56 host recorder readiness
+classic-server-name-162	b56/host-ready-launch.json>unit:flip	ValueError: b56 host recorder readiness
+classic-server-name-162	b56/host-ready-launch.json>dev:delete-key	KeyError: "'dev'"
+classic-server-name-162	b56/host-ready-launch.json>deadline_utc:delete-key	KeyError: "'deadline_utc'"
+classic-server-name-162	b56/host-ready-launch.json>unit_properties>RuntimeMaxUSec:delete-key	KeyError: "'RuntimeMaxUSec'"
+classic-server-name-162	b56/namespace.pcap:delete-file	ValueError: inventory path
+classic-server-name-162	b56/ns-ready-before-a7.json>unit:delete-key	KeyError: "'unit'"
+classic-server-name-162	b56/ns-ready-before-a7.json>header24:empty	ValueError: b56 ns recorder readiness
+classic-server-name-162	b56/ns-ready-before-a7.json>unit_properties>ActiveState:empty	ValueError: b56 ns recorder readiness
+classic-server-name-162	b56/ns-ready-before-a7.json>unit_properties>KillMode:delete-key	KeyError: "'KillMode'"
+classic-server-name-162	b56/ns-ready-before-connect.json>header24:flip	ValueError: b56 ns recorder readiness
+classic-server-name-162	b56/ns-ready-before-connect.json>unit_properties>ActiveState:flip	ValueError: b56 ns recorder readiness
+classic-server-name-162	b56/ns-ready-launch.json>pid:inc	ValueError: b56 ns recorder readiness
+classic-server-name-162	b56/ns-ready-launch.json>header24:delete-key	KeyError: "'header24'"
+classic-server-name-162	b56/ns-ready-launch.json>unit_properties>MainPID:flip	ValueError: b56 ns recorder readiness
+classic-server-name-162	b56/terminal.json>outcome:empty	ValueError: B56 failure label
+classic-server-name-162	b56/terminal.json>proxy_ready:delete-key	KeyError: "'proxy_ready'"
+classic-server-name-162	b57/a7-preflight/checksums.sha256:delete-file	ValueError: inventory path
+classic-server-name-162	b57/a7-preflight/report.json:delete-file	ValueError: inventory path
+classic-server-name-162	b57/host-ready-before-a7.json>fd:inc	ValueError: b57 host recorder readiness
+classic-server-name-162	b57/host-ready-before-a7.json>deadline_utc:empty	ValueError: b57 host recorder readiness
+classic-server-name-162	b57/host-ready-before-a7.json>unit_properties>SubState:empty	ValueError: b57 host recorder readiness
+classic-server-name-162	b57/host-ready-before-connect.json:delete-file	ValueError: inventory path
+classic-server-name-162	b57/host-ready-before-connect.json>unit:empty	ValueError: b57 host recorder readiness
+classic-server-name-162	b57/host-ready-before-connect.json>dev:inc	ValueError: b57 host recorder identity drift
+classic-server-name-162	b57/host-ready-before-connect.json>unit_properties>SubState:flip	ValueError: b57 host recorder readiness
+classic-server-name-162	b57/host-ready-before-connect.json>unit_properties>RuntimeMaxUSec:empty	ValueError: b57 host recorder readiness
+classic-server-name-162	b57/host-ready-launch.json>unit:flip	ValueError: b57 host recorder readiness
+classic-server-name-162	b57/host-ready-launch.json>netns_inode:inc	ValueError: b57 host recorder readiness
+classic-server-name-162	b57/host-ready-launch.json>deadline_utc:delete-key	KeyError: "'deadline_utc'"
+classic-server-name-162	b57/host-ready-launch.json>unit_properties>RuntimeMaxUSec:delete-key	KeyError: "'RuntimeMaxUSec'"
+classic-server-name-162	b57/host-ready-launch.json>unit_properties>KillMode:flip	ValueError: b57 host recorder readiness
+classic-server-name-162	b57/ns-ready-before-a7.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+classic-server-name-162	b57/ns-ready-before-a7.json>pid:delete-key	KeyError: "'pid'"
+classic-server-name-162	b57/ns-ready-before-a7.json>inode:delete-key	KeyError: "'inode'"
+classic-server-name-162	b57/ns-ready-before-a7.json>unit_properties>SubState:empty	ValueError: b57 ns recorder readiness
+classic-server-name-162	b57/ns-ready-before-a7.json>unit_properties>MainPID:delete-key	KeyError: "'MainPID'"
+classic-server-name-162	b57/ns-ready-before-connect.json>unit:empty	ValueError: b57 ns recorder readiness
+classic-server-name-162	b57/ns-ready-before-connect.json>fd:delete-key	KeyError: "'fd'"
+classic-server-name-162	b57/ns-ready-before-connect.json>deadline_utc:flip	ValueError: b57 ns recorder readiness
+classic-server-name-162	b57/ns-ready-before-connect.json>unit_properties>RuntimeMaxUSec:flip	ValueError: b57 ns recorder readiness
+classic-server-name-162	b57/ns-ready-before-connect.json>unit_properties>KillMode:empty	ValueError: b57 ns recorder readiness
+classic-server-name-162	b57/ns-ready-launch.json>netns_inode:delete-key	KeyError: "'netns_inode'"
+classic-server-name-162	b57/ns-ready-launch.json>dev:delete-key	KeyError: "'dev'"
+classic-server-name-162	b57/ns-ready-launch.json>unit_properties>SubState:delete-key	KeyError: "'SubState'"
+classic-server-name-162	b57/ns-ready-launch.json>unit_properties>KillMode:flip	ValueError: b57 ns recorder readiness
+classic-server-name-162	b57/proxy/report.json>status:delete-key	KeyError: "'status'"
+classic-server-name-162	b57/proxy/report.json>entries>7>raw_hex:empty	ValueError: B57 proxy audit/wire and sole mutation
+classic-server-name-162	b57/proxy/report.json>entries>13>raw_hex:flip	ValueError: B57 proxy audit/wire and sole mutation
+classic-server-name-162	manifest.json>selection>client-guest-post.pcap>routes>1>route>0:flip	ValueError: selected SYN lifetime/tails client-guest-post.pcap
+classic-server-name-162	b56/a7-postflight/plan.json>gap_ids:drop-last	ok 45c168b3f4691f94
+classic-server-name-162	b56/a7-postflight/plan.json>environment>emulator_service>command>0:empty	ok 45c168b3f4691f94
+classic-server-name-162	b56/a7-postflight/plan.json>environment>display_service>command>17:flip	ok 45c168b3f4691f94
+classic-server-name-162	b56/a7-postflight/plan.json>steps>3>connection:flip	ok 45c168b3f4691f94
+classic-server-name-162	as-run/classic_login_proxy.py.txt:delete-file;b56/host-ready-before-connect.json>netns_inode:inc	ValueError: inventory path
+classic-server-name-162	b56/host-ready-before-a7.json>pid:delete-key;b56/ns-ready-before-a7.json>header24:empty	KeyError: "'pid'"
+classic-server-name-162	b56/host-ready-before-a7.json>deadline_utc:empty;b57/a7-preflight/checksums.sha256:delete-file	ValueError: inventory path
+classic-server-name-162	b56/host-ready-before-connect.json:delete-file;b57/host-ready-launch.json>unit:flip	ValueError: inventory path
+classic-server-name-162	b56/host-ready-before-connect.json>dev:inc;b57/ns-ready-before-connect.json>unit:empty	ValueError: b56 host recorder identity drift
+classic-server-name-162	b56/host-ready-before-connect.json>unit_properties>KillMode:empty;b57/proxy/report.json>entries>7>raw_hex:empty	ValueError: b56 host recorder readiness
+classic-server-name-162	b56/host-ready-launch.json>dev:delete-key;b56/host-ready-before-connect.json>netns_inode:inc	KeyError: "'dev'"
+classic-server-name-162	b56/host-ready-launch.json>unit_properties>RuntimeMaxUSec:delete-key;b56/ns-ready-before-a7.json>header24:empty	KeyError: "'RuntimeMaxUSec'"
+classic-server-name-162	b56/ns-ready-before-a7.json>unit:delete-key;b57/a7-preflight/checksums.sha256:delete-file	ValueError: inventory path
+classic-server-name-162	b56/ns-ready-before-a7.json>unit_properties>ActiveState:empty;b57/host-ready-launch.json>unit:flip	ValueError: b56 ns recorder readiness
+classic-server-name-162	b56/ns-ready-before-connect.json>header24:flip;b57/ns-ready-before-connect.json>unit:empty	ValueError: b56 ns recorder readiness
+classic-server-name-162	b56/ns-ready-launch.json>pid:inc;b57/proxy/report.json>entries>7>raw_hex:empty	ValueError: b56 ns recorder readiness
+classic-server-name-162	b56/ns-ready-launch.json>unit_properties>MainPID:flip;b56/host-ready-before-connect.json>netns_inode:inc	ValueError: b56 host recorder readiness
+classic-server-name-162	b56/terminal.json>proxy_ready:delete-key;b56/ns-ready-before-a7.json>header24:empty	KeyError: "'proxy_ready'"
+classic-server-name-162	b57/a7-preflight/report.json:delete-file;b57/a7-preflight/checksums.sha256:delete-file	ValueError: inventory path
+classic-server-name-162	b57/host-ready-before-a7.json>deadline_utc:empty;b57/host-ready-launch.json>unit:flip	ValueError: b57 host recorder readiness
+classic-server-name-162	b57/host-ready-before-connect.json:delete-file;b57/ns-ready-before-connect.json>unit:empty	ValueError: inventory path
+classic-server-name-162	b57/host-ready-before-connect.json>dev:inc;b57/proxy/report.json>entries>7>raw_hex:empty	ValueError: B57 proxy audit/wire and sole mutation
+classic-server-name-162	b57/host-ready-before-connect.json>unit_properties>RuntimeMaxUSec:empty;b56/host-ready-before-connect.json>netns_inode:inc	ValueError: b56 host recorder readiness
+classic-server-name-162	b57/host-ready-launch.json>netns_inode:inc;b56/ns-ready-before-a7.json>header24:empty	ValueError: b56 ns recorder readiness
+classic-server-name-162	b57/host-ready-launch.json>unit_properties>RuntimeMaxUSec:delete-key;b57/a7-preflight/checksums.sha256:delete-file	ValueError: inventory path
+classic-server-name-162	b57/ns-ready-before-a7.json:empty-file;b57/host-ready-launch.json>unit:flip	ValueError: b57 host recorder readiness
+classic-server-name-162	b57/ns-ready-before-a7.json>inode:delete-key;b57/ns-ready-before-connect.json>unit:empty	KeyError: "'inode'"
+classic-server-name-162	b57/ns-ready-before-a7.json>unit_properties>MainPID:delete-key;b57/proxy/report.json>entries>7>raw_hex:empty	ValueError: B57 proxy audit/wire and sole mutation
+classic-server-name-162	b57/ns-ready-before-connect.json>fd:delete-key;b56/host-ready-before-connect.json>netns_inode:inc	ValueError: b56 host recorder readiness
+classic-server-name-162	b57/ns-ready-before-connect.json>unit_properties>RuntimeMaxUSec:flip;b56/ns-ready-before-a7.json>header24:empty	ValueError: b56 ns recorder readiness
+classic-server-name-162	b57/ns-ready-launch.json>netns_inode:delete-key;b57/a7-preflight/checksums.sha256:delete-file	ValueError: inventory path
+classic-server-name-162	b57/ns-ready-launch.json>unit_properties>SubState:delete-key;b57/host-ready-launch.json>unit:flip	ValueError: b57 host recorder readiness
+classic-server-name-162	b57/proxy/report.json>status:delete-key;b57/ns-ready-before-connect.json>unit:empty	KeyError: "'status'"
+classic-server-name-162	b57/proxy/report.json>entries>13>raw_hex:flip;b57/proxy/report.json>entries>7>raw_hex:empty	ValueError: B57 proxy audit/wire and sole mutation
+classic-field-161		ValueError: capture gate source identity
+classic-field-161	a7-postflight/plan.json:delete-file	ValueError: inventory path escapes corpus
+classic-field-161	a7-postflight/report.json:delete-file	ValueError: inventory path escapes corpus
+classic-field-161	four-byte-161/ns-ready-before-connect.json:delete-file	ValueError: inventory path escapes corpus
+classic-field-161	four-byte-161/return-action-time.txt:delete-file	ValueError: inventory path escapes corpus
+classic-field-161	ns-ready-before-a7.json:delete-file	ValueError: inventory path escapes corpus
+classic-field-161	one-byte-161/host-ready-before-connect.json:delete-file	ValueError: inventory path escapes corpus
+classic-field-161	one-byte-161/proxy/report.json:delete-file	ValueError: inventory path escapes corpus
+classic-field-161	one-byte-161/ready.png:delete-file	ValueError: inventory path escapes corpus
+classic-field-161	a7-postflight/plan.json>environment>runtime_launch>command>11:flip	ValueError: capture gate source identity
+classic-field-161	a7-postflight/plan.json>environment>display_service>command>10:flip	ValueError: capture gate source identity
+classic-field-161	a7-postflight/plan.json>steps>2>connection:delete-key	ValueError: capture gate source identity
+classic-field-161	a7-postflight/plan.json>steps>12>match_frame:delete-key	ValueError: capture gate source identity
+classic-field-161	a7-postflight/plan.json:delete-file;one-byte-161/ready.png:delete-file	ValueError: inventory path escapes corpus
+classic-field-161	a7-postflight/report.json:delete-file;ns-ready-before-a7.json:delete-file	ValueError: inventory path escapes corpus
+classic-field-161	four-byte-161/ns-ready-before-connect.json:delete-file;a7-postflight/report.json:delete-file	ValueError: inventory path escapes corpus
+classic-field-161	four-byte-161/return-action-time.txt:delete-file;one-byte-161/proxy/report.json:delete-file	ValueError: inventory path escapes corpus
+classic-field-161	ns-ready-before-a7.json:delete-file;four-byte-161/return-action-time.txt:delete-file	ValueError: inventory path escapes corpus
+classic-field-161	one-byte-161/host-ready-before-connect.json:delete-file;a7-postflight/plan.json:delete-file	ValueError: inventory path escapes corpus
+classic-field-161	one-byte-161/proxy/report.json:delete-file;one-byte-161/host-ready-before-connect.json:delete-file	ValueError: inventory path escapes corpus
+classic-field-161	one-byte-161/ready.png:delete-file;four-byte-161/ns-ready-before-connect.json:delete-file	ValueError: inventory path escapes corpus

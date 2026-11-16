@@ -4,18 +4,22 @@ import hashlib
 import json
 import shutil
 import tempfile
-import unittest
+import typing as typ
 from pathlib import Path
 
+import pytest
 from verify_classic_roster_subject_115 import verify
 
-CORPUS = (
-    Path(__file__).resolve().parents[1]
-    / "evidence/gap-remediation/2026-11-14/classic-roster-subject-115-01"
-)
+if typ.TYPE_CHECKING:
+    import collections.abc as cabc
+
+# scripts/tests sits two levels below the repository root that holds evidence/.
+CORPUS_RELATIVE = "evidence/gap-remediation/2026-11-14/classic-roster-subject-115-01"
+CORPUS = Path(__file__).resolve().parents[2] / CORPUS_RELATIVE
 
 
 def rewrite_inventory(base: Path) -> None:
+    """Rewrite the corpus ``SHA256SUMS`` so that a mutated corpus passes it."""
     root = base.parents[3]
     files = sorted(p for p in base.rglob("*") if p.is_file() and p.name != "SHA256SUMS")
     (base / "SHA256SUMS").write_text(
@@ -26,21 +30,32 @@ def rewrite_inventory(base: Path) -> None:
     )
 
 
-def edit_json(base: Path, name: str, change) -> None:
+def edit_json(
+    base: Path,
+    name: str,
+    change: cabc.Callable[[dict[str, typ.Any]], object],
+) -> None:
+    """Apply ``change`` to the JSON document ``name`` in the corpus directory."""
     path = base / name
     data = json.loads(path.read_text())
     change(data)
     path.write_text(json.dumps(data, indent=2) + "\n")
 
 
-class RosterSubjectEvidenceTests(unittest.TestCase):
+class RosterSubjectEvidenceTests:
+    """Check the frozen replay and each semantic fault of the roster witness."""
+
     def test_frozen_replay(self) -> None:
+        """Check that the retained corpus replays to its recorded measurements."""
         result = verify(CORPUS)
-        self.assertEqual(result["wire"]["roster_bytes"], [41, 60])
-        self.assertEqual(result["ui"]["delivery_to_snapshot_seconds"], 0.927917)
-        self.assertEqual(result["a7"]["actions_each"], 29)
+        assert result["wire"]["roster_bytes"] == [41, 60], "roster frame lengths"
+        seconds = result["ui"]["delivery_to_snapshot_seconds"]
+        # The two receipts are integers, so their quotient is compared exactly.
+        assert seconds == 0.927917, "delivery to snapshot"  # ruff: ignore[float-equality-comparison]  # the exact quotient of two integer receipts
+        assert result["a7"]["actions_each"] == 29, "A7 actions per account"
 
     def test_semantic_faults(self) -> None:
+        """Check that each mutated corpus is rejected with its named reason."""
         cases = (
             (
                 "proxy source",
@@ -177,18 +192,11 @@ class RosterSubjectEvidenceTests(unittest.TestCase):
                 "proxy audit/control bytes",
             ),
         )
-        for label, mutate, expected in cases:
-            with self.subTest(label=label), tempfile.TemporaryDirectory() as tmp:
-                base = (
-                    Path(tmp)
-                    / "mothra/evidence/gap-remediation/2026-11-14/classic-roster-subject-115-01"
-                )
+        for _label, mutate, expected in cases:
+            with tempfile.TemporaryDirectory() as tmp:
+                base = Path(tmp) / "mothra" / CORPUS_RELATIVE
                 shutil.copytree(CORPUS, base)
                 mutate(base)
                 rewrite_inventory(base)
-                with self.assertRaisesRegex(ValueError, expected):
+                with pytest.raises(ValueError, match=expected):
                     verify(base)
-
-
-if __name__ == "__main__":
-    unittest.main()

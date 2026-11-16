@@ -1,0 +1,47 @@
+audit-abort	RuntimeError: Proxy stopped after peer failure
+audit-cutoff-abort	ObservationCutoff: Intentional observation cutoff
+audit-cutoff-late-abort	ObservationCutoff: Intentional observation cutoff
+audit-late-abort	TimeoutError: Proxy process deadline exceeded
+audit-quiet	ok 74234e98afe7498f
+guard-equal	ValueError: Expected and host namespace inodes must be distinct
+guard-extra-interface	ValueError: Namespace has non-loopback interface
+guard-ok	ok 2ebf4b403cd9f2c9
+guard-own-differs	ValueError: Proxy network namespace identity differs
+guard-own-is-host	ValueError: Proxy network namespace identity differs
+guard-zero	ValueError: Expected and host namespace inodes must be distinct
+parse-fine	ok 82167bae315bc0f5
+parse-short	ValueError: Short control frame
+read-oversize	ValueError: Control frame exceeds bound
+relay-empty	ValueError: Missing successful Login107 ACK
+relay-no-login-id	ValueError: Missing observed login ID
+roster-empty-name	ValueError: Native roster packed 300 record length differs
+roster-has-115	ValueError: Native roster has no valid 300 record or already has 115
+roster-length-differs	ValueError: Native roster packed 300 record length differs
+roster-no-records	ValueError: Native roster has no valid 300 record or already has 115
+roster-ok	ok aaad23b9e7488b5b
+roster-short-record	ValueError: Native roster packed 300 record is short
+roster-short-then-bad-length	ValueError: Native roster packed 300 record is short
+transform-162-present	ValueError: Native ACK already contains field 162
+transform-162-present-and-wrong-161	ValueError: Native 161 source is not exactly two zero bytes
+transform-bad-reply-flag	ValueError: Fragmented, oversized or malformed control frame
+transform-baseline	ok a9c7dcce621a0a66
+transform-baseline-flags	ok 5e94060a004b35e4
+transform-error-set	ValueError: First server frame is not successful Login107 ACK
+transform-four-byte	ok b9abf3efd4003846
+transform-lying-count	ValueError: Malformed control TLV sequence
+transform-lying-count-and-request	ValueError: Malformed control TLV sequence
+transform-no-161	ValueError: Native 161 source is not exactly two zero bytes
+transform-omit	ok 75e086d362f38b7d
+transform-one-byte	ok ac7dcaa5653858b8
+transform-other-id	ValueError: First server frame is not successful Login107 ACK
+transform-request-not-ack	ValueError: First server frame is not successful Login107 ACK
+transform-roster	ok 210336b22efda510
+transform-server-name	ok 9a27919365c95eb9
+transform-short	ValueError: Short control frame
+transform-total-differs	ValueError: Fragmented, oversized or malformed control frame
+transform-unknown-variant	ValueError: Unknown variant
+transform-unknown-variant-and-short	ValueError: Unknown variant
+transform-wrong-161	ValueError: Native 161 source is not exactly two zero bytes
+transform-wrong-161-and-other-id	ValueError: First server frame is not successful Login107 ACK
+watchdog-armed-twice	ValueError: Observation watchdog armed twice
+watchdog-armed-twice-after-abort	RuntimeError: Proxy stopped after peer failure
