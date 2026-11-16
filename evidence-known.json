@@ -46,5 +46,11 @@
     "path": "docs/provenance/records/missing-target-alias.md",
     "key": "scripts/test_alias_record_v2.py",
     "reason": "A dated record quotes the file as it was at the time. The test was converted to pytest and now lives at scripts/tests/test_alias_record_v2.py; a dated note is added beneath the command with the next audit revision."
+  },
+  {
+    "rule": "script",
+    "path": "docs/native-evidence/native-settings-preparation.md",
+    "key": "scripts/test_native_settings.py",
+    "reason": "A dated record quotes the command as it was run. The test was converted to pytest and now lives at scripts/tests/test_native_settings.py; the record note beneath the command is rewritten with the audit revision that closes EP-M5."
   }
 ]

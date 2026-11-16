@@ -7,8 +7,8 @@ import json
 import sys
 from pathlib import Path
 
-from native_packet_evidence import reconcile
-from pcap_tcp import TCP_RST, direction, lifetime, read_packets, stream
+from native_packet_evidence import TCP_RST, reconcile
+from pcap_tcp import direction, lifetime, read_packets, stream
 from protocol_capture import ORACLE_SHA256, verify_capture
 from script_cli import run
 from verify_native_core import require
