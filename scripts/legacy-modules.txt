@@ -30,7 +30,6 @@ scripts/native_board_control.py
 scripts/native_configured_ban_cases.py
 scripts/native_configured_ban_control.py
 scripts/native_control_readiness.py  # live bytes compared with a recorded hash
-scripts/native_correlation_cases.py
 scripts/native_diagnostic_cases.py
 scripts/native_diagnostic_existing_cases.py
 scripts/native_diagnostic_load_cases.py
@@ -104,7 +103,6 @@ scripts/test_native_configured_ban.py
 scripts/test_native_configured_ban_witness.py
 scripts/test_native_console_broadcast.py
 scripts/test_native_control_readiness.py
-scripts/test_native_correlation.py
 scripts/test_native_diagnostic_existing.py
 scripts/test_native_diagnostic_load.py
 scripts/test_native_diagnostic_near.py
@@ -170,7 +168,6 @@ scripts/verify_native_bitmaps.py
 scripts/verify_native_board.py
 scripts/verify_native_configured_ban.py
 scripts/verify_native_console_broadcast.py
-scripts/verify_native_correlation.py
 scripts/verify_native_diagnostic_existing.py
 scripts/verify_native_diagnostic_load.py
 scripts/verify_native_diagnostic_near.py

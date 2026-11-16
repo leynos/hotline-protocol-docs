@@ -1,70 +1,102 @@
 #!/usr/bin/env python3
 """Verify native ID collision/reuse and request/reply envelope observations."""
 
-import argparse
 import hashlib
 import json
+import typing as typ
 from pathlib import Path
 
 from native_correlation_cases import correlation
 from native_packet_evidence import reconcile
+from native_wire_names import (
+    FIELD_ERROR_TEXT,
+    FIELD_ICON,
+    FIELD_NAME,
+    TYPE_LOGIN_AGREEMENT,
+    TYPE_PRESENCE_UPDATE,
+    TYPE_PRIVILEGES_NOTIFICATION,
+)
 from pcap_tcp import read_packets
 from protocol_capture import ORACLE_SHA256, verify_capture
+from script_cli import run
 from verify_native_banners import fields
 from verify_native_core import require
+from verify_native_correlation_oracle import verify_oracle
 from verify_native_framing import check_quiet
 
+type Report = dict[str, typ.Any]
 
-def check_outcome(report: dict, expected: dict, packets: dict) -> dict:
-    frames = report["frames"]
-    require(report["status"] == "completed", "Incomplete ID observation")
+# The oracle checks live in verify_native_correlation_oracle; verify_oracle stays
+# importable from this module. check_outcome, verify and verify_oracle are
+# imported by test_native_correlation.
+__all__ = ["check_outcome", "main", "verify", "verify_oracle"]
+
+CASE_COUNT = 24
+ACK_TYPE = 0  # a reply to a request that carries no data of its own
+# The type, ID, reply flag and error of the first three frames of every case.
+BOOTSTRAP = [
+    (ACK_TYPE, 1, 1, 0),
+    (TYPE_PRIVILEGES_NOTIFICATION, 1, 0, 0),
+    (TYPE_LOGIN_AGREEMENT, 2, 0, 0),
+]
+NOTIFICATION_ID = 3  # the first notification ID that the server allocates
+UNSUPPORTED_ERROR = 1
+UNSUPPORTED_REPLIES = 2  # the error reply and the reply to the follow-up probe
+UNSUPPORTED_TEXT = b"Unknown transaction type!"
+UNSUPPORTED_REQUEST_ID = 10
+UNSUPPORTED_FOLLOWUP_ID = 11
+EMPTY_PAYLOAD_HEX = "0000"
+NOTIFICATION_KINDS = {"notification", "collision-notification"}
+NOTIFICATION_ORDER = [1, 0, 1]  # reply, notification, reply
+COLLISION_ORDER = [0, 1]  # notification, reply
+NS_PER_SECOND = 1e9
+
+
+def check_close(report: Report, packets: Report, remaining: list[Report]) -> Report:
+    """Check a case that ends with the server closing the connection.
+
+    Returns
+    -------
+    dict[str, typing.Any]
+        Whether the native close followed a half-close.
+    """
+    half_closed = any(e["event"] == "shutdown_write" for e in report["events"])
     require(
-        [(f["type"], f["id"], f["is_reply"], f["error"]) for f in frames[:3]]
-        == [(0, 1, 1, 0), (354, 1, 0, 0), (109, 2, 0, 0)],
-        "ID bootstrap namespaces differ",
+        not remaining and any(e["event"] == "eof" for e in report["events"]),
+        "Missing unnumbered close",
     )
-    require(all(f["flags"] == 0 for f in frames), "Native emitted flags differ")
-    remaining = frames[3:]
-    replies = [f for f in remaining if f["is_reply"]]
-    notifications = [f for f in remaining if not f["is_reply"]]
-    if expected["kind"] == "close":
-        require(
-            not remaining and any(e["event"] == "eof" for e in report["events"]),
-            "Missing unnumbered close",
+    require(
+        (
+            not packets["main"]["guest_server_initiated_close"]
+            and packets["main"]["guest_server_close_kind"] == "FIN"
         )
-        require(
-            (
-                not packets["main"]["guest_server_initiated_close"]
-                and packets["main"]["guest_server_close_kind"] == "FIN"
-            )
-            if any(e["event"] == "shutdown_write" for e in report["events"])
-            else packets["main"]["guest_server_initiated_close"],
-            "Missing native reply-size close",
-        )
-        return {
-            "native_close_after_half_close": any(
-                e["event"] == "shutdown_write" for e in report["events"]
-            )
-        }
-    if expected["kind"] == "unsupported":
-        require(
-            len(replies) == 2 and not notifications,
-            "Unsupported request outcomes differ",
-        )
-        error = replies[0]
-        require(
-            (error["type"], error["id"], error["is_reply"], error["error"])
-            == (0, 10, 1, 1),
-            "Unsupported error envelope differs",
-        )
-        require(
-            fields(error) == {100: b"Unknown transaction type!"},
-            "Unsupported error text differs",
-        )
-        replies = replies[1:]
-        ids = [11]
-    else:
-        ids = expected["ids"]
+        if half_closed
+        else packets["main"]["guest_server_initiated_close"],
+        "Missing native reply-size close",
+    )
+    return {"native_close_after_half_close": half_closed}
+
+
+def check_unsupported(replies: list[Report], notifications: list[Report]) -> None:
+    """Check the error reply to an unsupported request type."""
+    require(
+        len(replies) == UNSUPPORTED_REPLIES and not notifications,
+        "Unsupported request outcomes differ",
+    )
+    error = replies[0]
+    require(
+        (error["type"], error["id"], error["is_reply"], error["error"])
+        == (ACK_TYPE, UNSUPPORTED_REQUEST_ID, 1, UNSUPPORTED_ERROR),
+        "Unsupported error envelope differs",
+    )
+    require(
+        fields(error) == {FIELD_ERROR_TEXT: UNSUPPORTED_TEXT},
+        "Unsupported error text differs",
+    )
+
+
+def check_replies(replies: list[Report], ids: list[int]) -> None:
+    """Check that each direct reply is an empty ACK with the request's ID."""
     require(len(replies) == len(ids), "Direct reply count differs")
     for frame, identifier in zip(replies, ids, strict=True):
         require(
@@ -75,27 +107,69 @@ def check_outcome(report: dict, expected: dict, packets: dict) -> dict:
                 frame["error"],
                 frame["payload_hex"],
             )
-            == (0, identifier, 1, 0, "0000"),
+            == (ACK_TYPE, identifier, 1, 0, EMPTY_PAYLOAD_HEX),
             "Direct reply correlation differs",
         )
-    if expected["kind"] in {"notification", "collision-notification"}:
-        require(len(notifications) == 1, "Notification count differs")
-        frame = notifications[0]
-        require(
-            (frame["type"], frame["id"], frame["error"]) == (301, 3, 0),
-            "Notification ID allocation differs",
-        )
-        values = fields(frame)
-        require(
-            values[102].hex() == expected["name_hex"]
-            and int.from_bytes(values[104], "big") == expected["icon"],
-            "Collision/notification settings differ",
-        )
-        require(
-            [f["is_reply"] for f in remaining]
-            == ([1, 0, 1] if expected["kind"] == "notification" else [0, 1]),
-            "Notification/reply ordering differs",
-        )
+
+
+def check_notification(
+    expected: Report, notifications: list[Report], remaining: list[Report]
+) -> None:
+    """Check the one presence notification and its place among the replies."""
+    require(len(notifications) == 1, "Notification count differs")
+    frame = notifications[0]
+    require(
+        (frame["type"], frame["id"], frame["error"])
+        == (TYPE_PRESENCE_UPDATE, NOTIFICATION_ID, 0),
+        "Notification ID allocation differs",
+    )
+    values = fields(frame)
+    require(
+        values[FIELD_NAME].hex() == expected["name_hex"]
+        and int.from_bytes(values[FIELD_ICON], "big") == expected["icon"],
+        "Collision/notification settings differ",
+    )
+    require(
+        [f["is_reply"] for f in remaining]
+        == (
+            NOTIFICATION_ORDER
+            if expected["kind"] == "notification"
+            else COLLISION_ORDER
+        ),
+        "Notification/reply ordering differs",
+    )
+
+
+def check_outcome(report: Report, expected: Report, packets: Report) -> Report:
+    """Check the frames that one case received.
+
+    Returns
+    -------
+    dict[str, typing.Any]
+        The IDs of the direct replies and of the notifications.
+    """
+    frames = report["frames"]
+    require(report["status"] == "completed", "Incomplete ID observation")
+    require(
+        [(f["type"], f["id"], f["is_reply"], f["error"]) for f in frames[:3]]
+        == BOOTSTRAP,
+        "ID bootstrap namespaces differ",
+    )
+    require(all(f["flags"] == 0 for f in frames), "Native emitted flags differ")
+    remaining = frames[3:]
+    replies = [f for f in remaining if f["is_reply"]]
+    notifications = [f for f in remaining if not f["is_reply"]]
+    if expected["kind"] == "close":
+        return check_close(report, packets, remaining)
+    if expected["kind"] == "unsupported":
+        check_unsupported(replies, notifications)
+        replies = replies[1:]
+        ids = [UNSUPPORTED_FOLLOWUP_ID]
+    else:
+        ids = expected["ids"]
+    check_replies(replies, ids)
+    if expected["kind"] in NOTIFICATION_KINDS:
+        check_notification(expected, notifications, remaining)
     else:
         require(not notifications, "Unexpected notification")
     return {
@@ -104,61 +178,69 @@ def check_outcome(report: dict, expected: dict, packets: dict) -> dict:
     }
 
 
-def verify_oracle(directory: Path) -> None:
-    root = directory / "oracle-queries"
-    queries = [
-        q for p in directory.glob("oracle-*.json") for q in json.loads(p.read_text())
-    ]
-    require(
-        len(queries) == 25 and len({q["id"] for q in queries}) == 25,
-        "ID oracle query inventory differs",
-    )
-    for query in queries:
-        record = json.loads((root / (query["id"] + ".json")).read_text())
-        require(
-            record["query"] == query and record["program"]["sha256"] == ORACLE_SHA256,
-            "ID oracle identity differs",
-        )
-        require(
-            record["result"]["isError"] == (query["id"] == "ID-D-10058960"),
-            "Exploratory function-query outcome differs",
-        )
-        data = record["result"].get("structuredContent") or {}
-        if "code" in data:
-            require(
-                data["code"] == (root / (query["id"] + ".c")).read_text(),
-                "ID oracle code differs",
+def check_pauses(report: Report, steps: list[Report]) -> None:
+    """Check that each planned pause lasted at least as long as planned."""
+    for action, step in enumerate(steps):
+        if step["op"] == "pause":
+            event = next(
+                e
+                for e in report["events"]
+                if e["action"] == action and e["event"] == "pause"
             )
-    for address in [
-        "10058090",
-        "10058880",
-        "100589b0",
-        "10058df0",
-        "10058ca0",
-        "10058d70",
-        "100590e0",
-        "10058fd0",
-        "10014640",
-        "10079e30",
-    ]:
-        code = (root / ("ID-D-" + address + ".c")).read_text()
-        require("FUN_" + address + "(" in code, "Lifecycle function identity differs")
-    instructions = json.loads((root / "ID-A-10058d70.json").read_text())["result"][
-        "structuredContent"
-    ]
+            before = max(
+                e["elapsed_ns"] for e in report["events"] if e["action"] < action
+            )
+            require(
+                event["elapsed_ns"] - before >= step["seconds"] * NS_PER_SECOND,
+                "Shortened dispatch pause",
+            )
+
+
+def check_case(
+    directory: Path, name: str, case: tuple[list[Report], Report], corpus: Report
+) -> tuple[Report, Report]:
+    """Check one recorded case against its plan, its capture and its packets.
+
+    Returns
+    -------
+    tuple[dict[str, typing.Any], dict[str, typing.Any]]
+        The case's outcome and its packet reconciliation.
+    """
+    steps, expectation = case
+    path = directory / "transcripts" / name
+    plan = json.loads((path / "plan.json").read_text())
     require(
-        not instructions["has_more"]
-        and "".join(i["bytes"] for i in instructions["items"])
-        == "8083000c340400019003000c4082000c380000019003000c8063000c4e800020",
-        "32-bit increment/zero-skip instructions differ",
+        plan["steps"] == steps and plan["expectation"] == expectation,
+        "ID preparation plan differs",
     )
+    report = verify_capture(path)
+    require(
+        report["driver_sha256"] == corpus["source_hash"],
+        "Missing ID capture-driver source",
+    )
+    require(
+        report["streams"]["main"]["sent_hex"]
+        == "".join(s["hex"] for s in steps if s["op"] == "send"),
+        "Physical ID input differs",
+    )
+    observation = reconcile(report, corpus["host"], corpus["guest"])
+    check_quiet(report, plan)
+    check_pauses(report, steps)
+    return check_outcome(report, expectation, observation), observation
 
 
-def verify(directory: Path) -> dict:
+def verify(directory: Path) -> Report:
+    """Verify the retained ID and envelope corpus.
+
+    Returns
+    -------
+    dict[str, typing.Any]
+        The outcome of every case and its packet reconciliation.
+    """
     manifest = json.loads((directory / "manifest.json").read_text())
     cases = correlation()
     require(
-        set(manifest["cases"]) == set(cases) and len(manifest["cases"]) == 24,
+        set(manifest["cases"]) == set(cases) and len(manifest["cases"]) == CASE_COUNT,
         "ID case inventory differs",
     )
     require(manifest["oracle_sha256"] == ORACLE_SHA256, "ID corpus identity differs")
@@ -169,40 +251,10 @@ def verify(directory: Path) -> dict:
     source_hash = hashlib.sha256(
         (directory / "protocol_capture.py.as-run.txt").read_bytes()
     ).hexdigest()
+    corpus = {"host": host, "guest": guest, "source_hash": source_hash}
     results, observations = {}, {}
-    for name, (steps, expectation) in cases.items():
-        path = directory / "transcripts" / name
-        plan = json.loads((path / "plan.json").read_text())
-        require(
-            plan["steps"] == steps and plan["expectation"] == expectation,
-            "ID preparation plan differs",
-        )
-        report = verify_capture(path)
-        require(
-            report["driver_sha256"] == source_hash, "Missing ID capture-driver source"
-        )
-        require(
-            report["streams"]["main"]["sent_hex"]
-            == "".join(s["hex"] for s in steps if s["op"] == "send"),
-            "Physical ID input differs",
-        )
-        observations[name] = reconcile(report, host, guest)
-        check_quiet(report, plan)
-        for action, step in enumerate(steps):
-            if step["op"] == "pause":
-                event = next(
-                    e
-                    for e in report["events"]
-                    if e["action"] == action and e["event"] == "pause"
-                )
-                before = max(
-                    e["elapsed_ns"] for e in report["events"] if e["action"] < action
-                )
-                require(
-                    event["elapsed_ns"] - before >= step["seconds"] * 1e9,
-                    "Shortened dispatch pause",
-                )
-        results[name] = check_outcome(report, expectation, observations[name])
+    for name, case in cases.items():
+        results[name], observations[name] = check_case(directory, name, case, corpus)
     require(
         observations
         == json.loads((directory / "packet-reconciliation.json").read_text()),
@@ -212,14 +264,16 @@ def verify(directory: Path) -> dict:
     return {"cases": results, "packet_reconciliation": observations}
 
 
+def show(directory: str) -> None:
+    """Print the summary of the verification of the corpus in ``directory``."""
+    result = verify(Path(directory))
+    count = len(result["cases"])
+    print(f"Verified {count} native ID/envelope cases and 25 oracle queries")
+
+
 def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("directory", type=Path)
-    args = parser.parse_args()
-    result = verify(args.directory)
-    print(
-        f"Verified {len(result['cases'])} native ID/envelope cases and 25 oracle queries"
-    )
+    """Verify a native ID and envelope corpus from the command line."""
+    run(show, __doc__)
 
 
 if __name__ == "__main__":
